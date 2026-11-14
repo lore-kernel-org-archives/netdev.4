@@ -1,78 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794699348;
-	b=1Wb9XrXVcsBFizCfoluSzpywGcgS5n+WOkx79mLLlcylfOAzyofhykWRc1Aeu6awI5tt
-	 s0HI6BM2OJfih16WZ1cPyV9utCGxOX5htm8DjtiKDZxV455PkaOxWMypYyJIpmhjPBmFS
-	 4fOD8oEdfe7s4Vcz0FAfe9ziYaaneYUopGs1pfABzZ3z/PduGrZdCi+VnvpV2huzSUT60
-	 bFBBiIEBx6x2EHB8diJV1oBq4GKkGI3jBQKox/3MaxGVzducTgqeMRO8R77rCQwfVrsSG
-	 TmFri4L23TFnztKD/0NqJhzV2lDhnpN3grh+AJ8mf+UCseX9tQtqvl1f7IyUaTOu1Fg==
+	t=1794700762;
+	b=4jwDx2Xv8er17lXdArN8Ls8eEcWvv/T1ukEEdsTQkPTe81ihl9m+8WpgTyCInV+jNr08
+	 W7bsb2Q6uYs5Uxx50W3jHa79RcmcN8vujWpth3WVIgLmF1OGX0SFDix+Gn6ti8102aJOJ
+	 d5qVaqRducCnp/SvjwboRCu5baYJxC3U3PZn0ZavWes1wkcB/WvHLYv10Ldf2Cy1M2AaV
+	 52lk8JEmpDG9bGXUlUKZTowdMUOUN5anQSmCFc0IeO5mZO5tiE3ZgTeAfPYXflO6IM2wr
+	 1eTRPlGbjA1MvLuDlFvL7a9c36wpJMgf8WJpU2x7yf0aDxviyqi4c3FUVoC/M78GblQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794699348;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=VIR6mXYK3ETiApKWl+z2FejP/5a8onBjeYRAKhIC2pc=;
-	b=oME7icCvfLRnlNUlBjEljHrxDnBSt60jUksFlx1BlF8FevroSG5+N2kJ7DQJ/MPiDD0E
-	 omQpC1x1r4Ucfyipql9Zvgl64X2brPfaCnjiYYzk8jEiIPlCKJKqDpIC3wAhIvVHLRVE1
-	 xupD7Fsaul/DxjJ5w7pEedFY3HWcsAnswe2QdPw5hMSKfLnVFKjWbzJ4uOXuNT3W1/ZlF
-	 nIldnw7RJ5+l1exM0ckWk084mhHwfAZhvcjI3Khzfrs5E71HsKdk77fHlrNdfjbtaLd+t
-	 qddjqxXkq5EBcD6sok15QVXtV5RrReu51xRQj1ZoLT/iDspi/RKp9SYrTfIpPqhr0MA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794700762;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=nG1w6A1hsSv+6HSXqZDnvdFJiy4dew0fqW8CJFaNN5U=;
+	b=A+Dgm+7be3aBhTa36HjlNAdqygvqYG1gx8733kedV32Ud5AcBcGLhWAuFhzKci+dW0a8
+	 JUNH69aSPUkn7/X/NzwYKDpXo5vxN58eovUar1TpKQdP8WdeepSVB62KHYT7CoAPV49xt
+	 3LDPdXsBB7KEYAMsgTxu+kx5Exr/FfCHjiRuHPpRkjJXBUfCdqWRZW0xuE9XRHR6oMmQK
+	 jhBUxecYPQxBQNbuqc/QM1snegjJTxYi6DZ5MTmr/XZHARAo2hS1wQWvxYj7vdAK4ZfIJ
+	 q1+dd0KwdW5NHUQHmfP++NkftExvtFfVFYSVWL9rn0rNAYm4iw/xndKufuKXELeVZdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZZQFDPr2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G+rmlvnH;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 5DCCC606A329;
-	Sat, 14 Nov 2026 23:35:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F25C3606A33D;
+	Sat, 14 Nov 2026 23:59:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZZQFDPr2
-Received: by smtp.kernel.org (Postfix) with UTF8SMTPSA id 42A021F000C4;
-	Sat, 14 Nov 2026 23:35:47 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G+rmlvnH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 289B01F000C4;
+	Sat, 14 Nov 2026 23:59:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794699348;
-	bh=VIR6mXYK3ETiApKWl+z2FejP/5a8onBjeYRAKhIC2pc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZZQFDPr2OBteoJK60ty3lgYNXS982/JqevYnayq5M2JVQt56VdJ0f7HgXeEBXp7XF
-	 CYD7i9q4a6s4qq48G33GZIZ7L7NDnGKKgS+Zd7cfEUxuqFx+vjuOFx7fJkkIjLF3j7
-	 BPxRY+5oqsHntFgHsq77skoWTKPkj0x48vYhVdR8SAWzHLjrkNJiwM8qHDB7G0wZNW
-	 K3FzuiTooW3tl0aiWfgk/x35HLj1Fmx8h/X9zphKIrw+uzyLGMw4pFFdjyFbLxmWmq
-	 7Sky8LjYCk3m7OheBofEcorLf8EV13An9NDMZNhLmq8c4R/5NoM//E+m0T9xsssCgg
-	 jYU0VRyjZhqhQ==
-Date: Sun, 15 Nov 2026 01:35:44 +0200
-From: Jarkko Sakkinen <jarkko@kernel.org>
-To: David Howells <dhowells@redhat.com>
-Cc: keyrings@vger.kernel.org, linux-afs@lists.infradead.org,
-	linux-cifs@vger.kernel.org, linux-integrity@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-nfs@vger.kernel.org,
-	linux-s390@vger.kernel.org, linux-security-module@vger.kernel.org,
-	netdev@vger.kernel.org, Alexander Gordeev <agordeev@linux.ibm.com>,
-	Anna Schumaker <anna@kernel.org>,
-	Bharath SM <bharathsm@microsoft.com>,
-	Christian Borntraeger <borntraeger@linux.ibm.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Biggers <ebiggers@kernel.org>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Heiko Carstens <hca@linux.ibm.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	James Bottomley <James.Bottomley@hansenpartnership.com>,
-	James Morris <jmorris@namei.org>,
-	Marc Dionne <marc.dionne@auristor.com>,
-	Mimi Zohar <zohar@linux.ibm.com>,
-	Namjae Jeon <linkinjeon@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>, Paul Moore <paul@paul-moore.com>,
-	Paulo Alcantara <pc@manguebit.org>,
-	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
-	"Serge E. Hallyn" <serge@hallyn.com>,
-	Shyam Prasad N <sprasad@microsoft.com>,
-	Simon Horman <horms@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
-	Sven Schnelle <svens@linux.ibm.com>, Tom Talpey <tom@talpey.com>,
-	Trond Myklebust <trondmy@kernel.org>,
-	Vasily Gorbik <gor@linux.ibm.com>
-Subject: Re: [PATCH v6 00/13] KEYS: Sanitize the garbage collector
-Message-ID: <avjwUDaXiAwNvFai@kernel.org>
-References: <20261112040242.247168-1-jarkko@kernel.org>
- <avjutAro2-Q5VPvx@kernel.org>
+	s=k20260515; t=1794700761;
+	bh=nG1w6A1hsSv+6HSXqZDnvdFJiy4dew0fqW8CJFaNN5U=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=G+rmlvnHDifDWrwvV0m6tN51uQTP+9SsdvrkJ4JEn1eY3AHP4RF90ubqw+REKDF9Q
+	 8gVzrYQAa86pY4/+2bZ6xHC6r1wm4j6bof8XXaTWxZgJtKfVj5Ln7nJJ9+z4o6gerR
+	 TVVnnSkc9o7CL5dBrRQ0OZ+D+cjKi/0WtusfTk38yBFvSXGE2zqxRnFoFtGqTfp8LQ
+	 ZleIVlKK6fAWAdk6TJOXzUqozQQzvHXfAZk81Z4UCQXPyA7ZTlKaZYrBnPhha+w1c0
+	 s4DnBeAjtHRETE0cam+l+q5Qw0qn5cbXBEcVwBL1700Np6KBPXjLshoLr5/EzVb1w9
+	 aNvsyCBlHBTjg==
+Subject: Re: [PATCH net v3 3/7] net: bcm4908_enet: release the TX ring on stop
+From: netdev-bot+sashiko@kernel.org
+To: kudzo51@gmail.com
+Cc: netdev@vger.kernel.org, f.fainelli@gmail.com,
+ florian.fainelli@broadcom.com, rafal@milecki.pl,
+ bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org
+Date: Sat, 14 Nov 2026 23:59:20 +0000
+Message-ID: <179470076069.2199510.1686262935220583765@kernel.org>
+In-Reply-To: <20261113235847.517308-4-kudzo51@gmail.com>
+References: <20261113235847.517308-4-kudzo51@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,36 +64,200 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <avjutAro2-Q5VPvx@kernel.org>
 
-On Sun, Nov 15, 2026 at 01:28:56AM +0200, Jarkko Sakkinen wrote:
-> On Thu, Nov 12, 2026 at 06:02:29AM +0200, Jarkko Sakkinen wrote:
-> > 1. Replace key_type_dead retyping with module reference pinning so live
-> >    keys and restrictions keep their backing key_type module loaded until
-> >    key_gc_unused_keys() or keyring_destroy() completes.
-> > 2. Process serial-tree scans and graveyard destruction in fixed 64-key
-> >    chunks to a bound workqueue execution latency without hurting overall
-> >    throughput for a significant amount.
-> > 
-> > The first part has a user-space visible effect: rmmod returns -EBUSY while
-> > keys or keyring restrictions still pin the backing module.
-> > 
-> > Internal key caches or transport state bottlenecks are addressed by either
-> > clearing their private caches on last-client teardown or splitting key
-> > types into dedicated provider modules.
-> 
-> This passes bot+bpf-ci@kernel.org and Sashiko other than the remark
-> about inline comment.
-> 
-> I'll update the inline comment, and make the commits available at
-> -next.
-> 
-> I'll leave S390 fixes out as they are out-of-band. They can be
-> picked from this patch set; or I can later on send a separate
-> patch set.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Done: https://git.kernel.org/pub/scm/linux/kernel/git/jarkko/linux-tpmdd.git/log/?h=for-next-keys
+Critical: 0 · High: 0 (3) · Medium: 1 · Low: 0
 
-Br, Jarkko
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The patch does not fix the TX skb leak when the TX channel
+  times out, and on that path it leaves the hardware running.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it makes the
+  new TX-ring release in bcm4908_enet_stop() unreachable when the DT has…
+- [High] This problem wasn't introduced by this patch, but the patch
+  applies the 'do not free buffers the DMA may still use' reasoning only…
+- [High] This problem wasn't introduced by this patch, but the patch now
+  depends on the code it bypasses.
+
+--
+
+net: bcm4908_enet: release the TX ring on stop
+
+This patch makes bcm4908_enet_stop() wait for the TX DMA channel to stop
+and then unmap and free the skbs left in the TX ring. If the channel does
+not stop in time, the free is skipped. It also clears the TX descriptors
+in bcm4908_enet_dma_ring_init(), drops the OWN check from
+bcm4908_enet_start_xmit(), and fixes the RX timeout warning text.
+
+> diff --git a/drivers/net/ethernet/broadcom/bcm4908_enet.c b/drivers/net/ethernet/broadcom/bcm4908_enet.c
+> index b1738d954b91a..bb42b6ecde16a 100644
+> --- a/drivers/net/ethernet/broadcom/bcm4908_enet.c
+> +++ b/drivers/net/ethernet/broadcom/bcm4908_enet.c
+
+[ ... ]
+
+> @@ -313,6 +314,11 @@ static void bcm4908_enet_dma_ring_init(struct bcm4908_enet *enet,
+>  	enet_write(enet, ring->st_ram_block + ENET_DMA_CH_STATE_RAM_BASE_DESC_PTR,
+>  		   (uint32_t)ring->dma_addr);
+>  
+> +	/* A descriptor the stopped DMA never completed still carries OWN */
+> +	if (ring->is_tx)
+> +		memset(ring->buf_desc, 0,
+> +		       ring->length * sizeof(*ring->buf_desc));
+> +
+>  	ring->read_idx = 0;
+>  	ring->write_idx = 0;
+>  }
+
+[Severity: High]
+This is a pre-existing issue, but the TX descriptor clear and index reset
+added here only run if bcm4908_enet_dma_init() gets through the RX buffer
+allocation loop:
+
+bcm4908_enet_dma_init() {
+	for (i = 0; i < rx_ring->length; i++) {
+		err = bcm4908_enet_dma_alloc_rx_buf(enet, i);
+		if (err) {
+			dev_err(dev, "Failed to alloc RX buffer: %d\n", err);
+			bcm4908_enet_dma_uninit(enet);
+			return err;
+		}
+	}
+
+	bcm4908_enet_dma_ring_init(enet, &enet->tx_ring);
+	bcm4908_enet_dma_ring_init(enet, &enet->rx_ring);
+	...
+}
+
+bcm4908_enet_open() ignores that return value:
+
+	bcm4908_enet_dma_reset(enet);
+	bcm4908_enet_dma_init(enet);
+
+	enet_umac_set(enet, UMAC_CMD, CMD_TX_EN | CMD_RX_EN);
+
+	enet_set(enet, ENET_DMA_CONTROLLER_CFG, ENET_DMA_CTRL_CFG_MASTER_EN);
+
+If napi_alloc_frag() or dma_map_single() fails for any RX slot, the
+interface still comes up with MASTER_EN set and the RX channel enabled.
+bcm4908_enet_dma_reset() has just set ENET_DMA_CH_STATE_RAM_BASE_DESC_PTR
+to 0, and nothing programs it again. ndo_open still returns 0.
+
+The OWN check is now removed from bcm4908_enet_start_xmit(), so this
+memset is the only thing that stops start_xmit() from reusing a
+descriptor that still has OWN set. After an earlier timed-out stop,
+wouldn't the stale read_idx/write_idx and OWN descriptors survive this
+path?
+
+Should bcm4908_enet_open() check the result of bcm4908_enet_dma_init()
+and unwind on failure?
+
+[ ... ]
+
+> @@ -509,8 +546,10 @@ static int bcm4908_enet_stop(struct net_device *netdev)
+>  	netdev_reset_queue(netdev);
+
+[Severity: High]
+This isn't a bug introduced by this patch, but can the new TX clean be
+reached when the DT has no "tx" interrupt?
+
+The binding allows a single interrupt (minItems: 1). In that case
+enet->irq_tx is negative and bcm4908_enet_open() skips the TX
+napi_enable():
+
+	if (enet->irq_tx > 0) {
+		napi_enable(&tx_ring->napi);
+		...
+	}
+
+bcm4908_enet_stop() calls napi_disable(&tx_ring->napi) unconditionally,
+just above this hunk. netif_napi_add_weight_locked() sets
+NAPI_STATE_SCHED and NAPI_STATE_NPSVC, and only napi_enable() clears
+them. So napi_disable_locked() would loop forever:
+
+	while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC)) {
+		usleep_range(20, 200);
+		val = READ_ONCE(n->state);
+	}
+
+That hangs ndo_stop with RTNL held, before bcm4908_enet_tx_ring_clean()
+is reached.
+
+The same configuration also breaks TX. The irq_tx < 0 branch in
+bcm4908_enet_start_xmit() calls napi_schedule() on a NAPI that still has
+SCHED set. napi_schedule_prep() then fails, so bcm4908_enet_poll_tx()
+never runs. After 199 frames the queue stops and nothing wakes it.
+
+>  
+>  	bcm4908_enet_dma_rx_ring_disable(enet, &enet->rx_ring);
+> -	bcm4908_enet_dma_tx_ring_disable(enet, &enet->tx_ring);
+>  
+> +	/* Leave the TX buffers alone if the channel may still read them */
+> +	if (!bcm4908_enet_dma_tx_ring_disable(enet, &enet->tx_ring))
+> +		bcm4908_enet_tx_ring_clean(enet);
+
+[Severity: Medium]
+What happens to the skbs between read_idx and write_idx when
+bcm4908_enet_dma_tx_ring_disable() times out?
+
+On that path bcm4908_enet_tx_ring_clean() is skipped and nothing else is
+done to the hardware. The TX subchannel is not reset through
+ENET_DMA_CTRL_CHANNEL_RESET, and both ENET_DMA_CTRL_CFG_MASTER_EN and
+UMAC CMD_TX_EN stay set.
+
+Nothing frees those slots later either. On the next open,
+bcm4908_enet_dma_reset() clears MASTER_EN, and
+bcm4908_enet_dma_ring_init() resets the channel, clears the descriptors
+and zeroes the indexes. None of that unmaps or frees what is left in
+tx_ring->slots[].
+
+Doesn't that leak the skbs, their DMA_TO_DEVICE mappings and the socket
+memory they hold? The commit message says this leak is fixed.
+
+If the device is unbound instead, the path is bcm4908_enet_remove() ->
+unregister_netdev() -> bcm4908_enet_stop(), then
+bcm4908_enet_dma_free(). That kfree()s tx_ring->slots without freeing
+the skbs. It also calls dma_free_coherent() on the TX descriptor ring,
+although the TX channel was never confirmed stopped or reset.
+
+The comment reads as if the free is only postponed. Could the timeout
+path force the channel idle first (reset the TX subchannel and/or clear
+MASTER_EN, as ring_init() and dma_reset() do) and then clean the ring?
+
+>  	bcm4908_enet_dma_uninit(enet);
+
+[Severity: High]
+This is a pre-existing issue, but doesn't the same reasoning apply to RX?
+There the device writes into the buffers.
+
+bcm4908_enet_dma_rx_ring_disable() returns void and only warns on
+timeout. bcm4908_enet_dma_uninit() is then called unconditionally:
+
+bcm4908_enet_dma_uninit() {
+	...
+		dma_unmap_single(dev, slot->dma_addr, slot->len, DMA_FROM_DEVICE);
+		skb_free_frag(slot->buf);
+		slot->buf = NULL;
+	...
+}
+
+The RX descriptors still have DMA_CTL_STATUS_OWN and the buffer bus
+address set by bcm4908_enet_dma_alloc_rx_buf(), and MASTER_EN is not
+cleared.
+
+If the RX channel has not stopped, can received frames be DMA-written
+into pages that have already gone back to the page allocator?
+
+Later patches in this series only change the unmap size in
+bcm4908_enet_dma_uninit() and do not add a guard here.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113235847.517308-1-kudzo51%40gmail.com
