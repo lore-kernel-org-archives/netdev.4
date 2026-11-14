@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.38.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794647770;
-	b=ZIoWNH5IhN5HfGGfWzwweBZ4TRTFs5CBM1JXyUHDNUDEtq/+X2MipJ/41Ftoq5wedAk6
-	 ClBCzPvtw9zaRnpRiEolvW1P1HliF7m9gIhOf/xlFB3u8Q/PlR8gpKuC+iPGTrqRy09oy
-	 4p2ufqrRnZAaI4H30IXYu1rF9TcJTaEKFvIF2ohW8q4Tr6ZpjoqfyTgLrwrVzc+WpqKkx
-	 SPBSB0m5vzgPnNm5gsn5mc9R7//BfmY2Yi1ikF45s0jML7qiNkibUg9vB2OSWtkdkNbaz
-	 Q7DJgmmPLQG+eny32kfp+ed52PP+8CmDC2xlbtZy6jaHPj4Zu0IOV9OMZZ9eliwMdTQ==
+	b=kWotzoqhdhiB8kwjtnD93b7JI5cJVmasO/nyli8+NGdsDToWnS95RbUysiXNuFYCCeXr
+	 K2mIhn6LpdvhAKWyt0ih0f0lxcKr5N0gNy93GB7oh5dNK+OMEpN5t4FoXmr/cubeLg30V
+	 HLFr5eE4JRBYPDIjYB2briwusNQXu3C3TwxMyNveBF4WpF2HuI9pK8Rq4rPAwGfIeBpSz
+	 OzqPaGaDKu4IH44a6D0T5gCEVws2pYzFMfoVjuhc5/LANl/Z2hFa+cu3aMuyTNyq2Lxtz
+	 oOkoNi9GZYoyPHq9/ftUEQXZUuYrEsGI+hSygsBshUk0yxUiCFWQP2HIFia8z6ehgvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794647770;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=lpwA1u59qouthY54ConAsgtyKnxGuTVoNhdbJJpeitk=;
-	b=2QPHQ/skHSonrqNzq03z5VCNf8mjYZ8Ugq+aOvzxFYvD9PyXUaEssAxuqwFPEGDIIr4t
-	 mCCENsxWw31hnxT3PnLlvvUUTw5MtNYAGqhB+GDDuCyWnxfaA/qy3ofWVHlAJ0K2toBR9
-	 RRQgrHQ9E7zCQbwHt8H+EKBC7brZDGDDgV41oT8ricT24Ucj6qyeVHSyTnpA486AytvrW
-	 hDJsPSDJq7USJTTec0XCAxeNlhuMMsz0AuH7hOs3wZTT0SP7A+zRsnhKhB9ZZkpbu5alt
-	 Ckck1hZm/+Bi3GeoHyihTR6GNR4kaU92ZR4cauSWKbjydQ/454zXeAHSilLWicu2v6Q==
+	bh=I1AmFeLV+vRIYLKijEb73ZThGt5Z4q1iPlXzgCCWvak=;
+	b=LHtn1cbJeI83w/Dn2pquRhtgoRN3uVSSIC7+ktUGZ2xx/E/oUXV8HwI18YtTmHml+Rj7
+	 XuY2MIroLAGoUHgyKaPIRUR1q2FEz60OGFm8Q1xE2bOZwuAwo1SiM3pfn1T+rapnXYLLM
+	 3kwi8ju3Z7QDphCQ+scrRJJZyqgWdlGPf7Y2FGjAbgG6osCUG9ryKSqQk+LGv8exG13oT
+	 vguR6CrxBncdmUD8ztGWJTKEpOrDfrUE2fQPxwiASIn7R4DUSkGdsAc6OM+PUb87Y2UOf
+	 iv9F0MhBtZlk04GB79I6b3Dzt22AmnrroO1TyoHRVXRS2t+/kHNe//aa00Ns2GCXZdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=simonwunderlich.de;
 	spf=pass smtp.mailfrom=simonwunderlich.de;
-	dkim=pass header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=UctLexUT;
+	dkim=pass header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=xDcF1+s3;
 	arc=none smtp.remote-ip=23.88.38.48
 Received: from mail.simonwunderlich.de (mail.simonwunderlich.de [23.88.38.48])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id CC1CA606A331
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id CF108606A899
 	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 09:16:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC1CA606A331
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF108606A899
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=simonwunderlich.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=simonwunderlich.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=UctLexUT
+	dkim=pass (2048-bit key) header.d=simonwunderlich.de header.i=@simonwunderlich.de header.a=rsa-sha256 header.s=09092022 header.b=xDcF1+s3
 Received: from kero.packetmixer.de (unknown [IPv6:2a02:3037:6ed:dd6c:838:344b:3152:2d5e])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange secp256r1 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mail.simonwunderlich.de (Postfix) with UTF8SMTPSA id 44DE0FA1B2;
-	Sat, 14 Nov 2026 10:16:03 +0100 (CET)
+	by mail.simonwunderlich.de (Postfix) with UTF8SMTPSA id D4770FA25D;
+	Sat, 14 Nov 2026 10:16:05 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=simonwunderlich.de;
-	s=09092022; t=1794647763;
+	s=09092022; t=1794647766;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=lpwA1u59qouthY54ConAsgtyKnxGuTVoNhdbJJpeitk=;
-	b=UctLexUT3uMFMjc2CCclKAFUs4ePn0l2Zm4l9SbVP7FhXYbWRLApfXTxGcn7rF3uOSv/Zo
-	Y98gzVymDkSkPWq4poUnD4xR3TI8xHXwiKqY53fFp5AaAm71usMIHFQrzC/uCDOV5lSlpI
-	ywDDFN9F0EjZBYMRnJ6sa7Wj4BaQ7SFGkIIE7dFPlpzt1kz/f0P+L7R/auunuzZpAxjRfK
-	LY2N/3j8X28FGBxCM402DIiiXsZrnaoxG7KF3NheKNe06VoHEllokOHkc0G/dzMYSEc5ZP
-	MqECFT/dATAG+a4Xn3oZzqL7byuWWS98y3b/xqhZPR7k2lPwHma+kKKBGZk/vQ==
+	bh=I1AmFeLV+vRIYLKijEb73ZThGt5Z4q1iPlXzgCCWvak=;
+	b=xDcF1+s3P2oLaMfM2p732UW1Nfi6BCW9Q+vAyUklNfDwMoZ50w6PUU397IlAL7tipjRYFL
+	+hF5uF6imTipVXOVcPT7mWmi5OEUPsKGe1tgZszhnlJQvWxgUqEfZws5aeWeWC5t8YeybW
+	uz/hn7CoYHCRNxuG3Seki9CMxP8eOcPofrZ5kvufveH8KLpGQTZHi3uo/+872yP0GUfMag
+	57XACPAIj+Wg0IrsKEoQnCjwJItpQOUMadq6ASqh4Q224W25usBmU5qRlvxHOhF+LxnmZT
+	itV42ij7N0t4d44QQ1AL7Pcq4P4Ub8L8kVixSMmVbzX7mNuuSo4uoFcGxgKP3w==
 From: Simon Wunderlich <sw@simonwunderlich.de>
 To: netdev@vger.kernel.org
 Cc: "David S. Miller" <davem@davemloft.net>,
@@ -61,9 +61,9 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	b.a.t.m.a.n@lists.open-mesh.org,
 	Sven Eckelmann <sven@narfation.org>,
 	Simon Wunderlich <sw@simonwunderlich.de>
-Subject: [PATCH net-next 05/15] batman-adv: originator: pass explicit key to orig_hash
-Date: Sat, 14 Nov 2026 10:15:46 +0100
-Message-ID: <20261114091556.3336038-6-sw@simonwunderlich.de>
+Subject: [PATCH net-next 08/15] batman-adv: always consume skb in batadv_forw_packet_alloc()
+Date: Sat, 14 Nov 2026 10:15:49 +0100
+Message-ID: <20261114091556.3336038-9-sw@simonwunderlich.de>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261114091556.3336038-1-sw@simonwunderlich.de>
 References: <20261114091556.3336038-1-sw@simonwunderlich.de>
@@ -80,122 +80,96 @@ Content-Transfer-Encoding: 8bit
 
 From: Sven Eckelmann <sven@narfation.org>
 
-The key of the orig_hash is the originator address. But batadv_hash_add()
-was given the whole orig_node, while batadv_orig_hash_find() is given the
-bare address, and batadv_compare_orig() and the lookup compare the
-orig_node pointer itself against the address. This only works because
-orig is the first member of struct batadv_orig_node.
+On success, batadv_forw_packet_alloc() stores the skb in the new
+forw_packet, and batadv_forw_packet_free() frees it later. On failure
+(queue full or out of memory), the skb was left for the caller to free.
+Whether the caller still owned the skb therefore depended on the return
+value.
 
-Pass orig_node->orig as key to batadv_hash_add(), compare explicitly
-against orig_node->orig in batadv_compare_orig(), use it for the lookup,
-and let batadv_orig_hash_find() take a const u8 * address instead of an
-untyped pointer.
+Free the skb inside batadv_forw_packet_alloc() on failure, so the skb is
+always consumed, and drop the kfree_skb() calls from both callers.
 
 Signed-off-by: Sven Eckelmann <sven@narfation.org>
 Signed-off-by: Simon Wunderlich <sw@simonwunderlich.de>
 ---
- net/batman-adv/bat_iv_ogm.c |  2 +-
- net/batman-adv/bat_v_ogm.c  |  2 +-
- net/batman-adv/originator.c | 19 ++++++++++---------
- net/batman-adv/originator.h |  2 +-
- 4 files changed, 13 insertions(+), 12 deletions(-)
+ net/batman-adv/bat_iv_ogm.c |  4 +---
+ net/batman-adv/send.c       | 14 +++++++-------
+ 2 files changed, 8 insertions(+), 10 deletions(-)
 
 diff --git a/net/batman-adv/bat_iv_ogm.c b/net/batman-adv/bat_iv_ogm.c
-index 0b2134a8f963a..376c0f80bcee9 100644
+index 376c0f80bcee9..5faac7419e43a 100644
 --- a/net/batman-adv/bat_iv_ogm.c
 +++ b/net/batman-adv/bat_iv_ogm.c
-@@ -155,7 +155,7 @@ batadv_iv_ogm_orig_get(struct batadv_priv *bat_priv, const u8 *addr)
+@@ -647,10 +647,8 @@ static bool batadv_iv_ogm_aggregate_new(const unsigned char *packet_buff,
+ 	queue_left = own_packet ? NULL : &bat_priv->batman_queue_left;
+ 	forw_packet_aggr = batadv_forw_packet_alloc(if_incoming, if_outgoing,
+ 						    queue_left, bat_priv, skb);
+-	if (!forw_packet_aggr) {
+-		kfree_skb(skb);
++	if (!forw_packet_aggr)
+ 		return false;
+-	}
  
- 	kref_get(&orig_node->refcount);
- 	hash_added = batadv_hash_add(bat_priv->orig_hash, batadv_compare_orig,
--				     batadv_choose_orig, orig_node,
-+				     batadv_choose_orig, orig_node->orig,
- 				     &orig_node->hash_entry);
- 	if (hash_added != 0)
- 		goto free_orig_node_hash;
-diff --git a/net/batman-adv/bat_v_ogm.c b/net/batman-adv/bat_v_ogm.c
-index cf3c1d22761b9..4abb4c871e8c5 100644
---- a/net/batman-adv/bat_v_ogm.c
-+++ b/net/batman-adv/bat_v_ogm.c
-@@ -68,7 +68,7 @@ struct batadv_orig_node *batadv_v_ogm_orig_get(struct batadv_priv *bat_priv,
- 
- 	kref_get(&orig_node->refcount);
- 	hash_added = batadv_hash_add(bat_priv->orig_hash, batadv_compare_orig,
--				     batadv_choose_orig, orig_node,
-+				     batadv_choose_orig, orig_node->orig,
- 				     &orig_node->hash_entry);
- 	if (hash_added != 0) {
- 		/* remove refcnt for newly created orig_node and hash entry */
-diff --git a/net/batman-adv/originator.c b/net/batman-adv/originator.c
-index 1ac3e0ad66c79..391d97bc938b9 100644
---- a/net/batman-adv/originator.c
-+++ b/net/batman-adv/originator.c
-@@ -45,12 +45,12 @@ static struct lock_class_key batadv_orig_hash_lock_class_key;
- /**
-  * batadv_orig_hash_find() - Find and return originator from orig_hash
-  * @bat_priv: the bat priv with all the mesh interface information
-- * @data: mac address of the originator
-+ * @addr: mac address of the originator
+ 	forw_packet_aggr->skb->priority = TC_PRIO_CONTROL;
+ 	skb_reserve(forw_packet_aggr->skb, ETH_HLEN);
+diff --git a/net/batman-adv/send.c b/net/batman-adv/send.c
+index 929b6dd34c107..6672f81798e91 100644
+--- a/net/batman-adv/send.c
++++ b/net/batman-adv/send.c
+@@ -481,6 +481,9 @@ void batadv_forw_packet_free(struct batadv_forw_packet *forw_packet,
+  * (optional) if_incoming, if_outgoing and queue_left. If queue_left
+  * is NULL then bat_priv is optional, too.
   *
-  * Return: orig_node (with increased refcnt), NULL on errors
++ * The skb is always consumed: on success, it is owned by the returned
++ * forwarding packet, on failure it is freed.
++ *
+  * Return: An allocated forwarding packet on success, NULL otherwise.
   */
- struct batadv_orig_node *
--batadv_orig_hash_find(struct batadv_priv *bat_priv, const void *data)
-+batadv_orig_hash_find(struct batadv_priv *bat_priv, const u8 *addr)
- {
- 	struct batadv_hashtable *hash = bat_priv->orig_hash;
- 	struct batadv_orig_node *orig_node_tmp = NULL;
-@@ -61,12 +61,12 @@ batadv_orig_hash_find(struct batadv_priv *bat_priv, const void *data)
- 	if (!hash)
+ struct batadv_forw_packet *
+@@ -505,6 +508,7 @@ batadv_forw_packet_alloc(struct batadv_hard_iface *if_incoming,
+ 		batadv_dbg(BATADV_DBG_BATMAN, bat_priv,
+ 			   "%s queue is full\n", qname);
+ 
++		kfree_skb(skb);
  		return NULL;
+ 	}
  
--	index = batadv_choose_orig(data, hash->size);
-+	index = batadv_choose_orig(addr, hash->size);
- 	head = &hash->table[index];
+@@ -532,6 +536,7 @@ batadv_forw_packet_alloc(struct batadv_hard_iface *if_incoming,
+ 	if (queue_left)
+ 		atomic_inc(queue_left);
  
- 	rcu_read_lock();
- 	hlist_for_each_entry_rcu(orig_node, head, hash_entry) {
--		if (!batadv_compare_eth(orig_node, data))
-+		if (!batadv_compare_orig(&orig_node->hash_entry, addr))
- 			continue;
++	kfree_skb(skb);
+ 	return NULL;
+ }
  
- 		if (!kref_get_unless_zero(&orig_node->refcount))
-@@ -85,16 +85,17 @@ static void batadv_purge_orig(struct work_struct *work);
- /**
-  * batadv_compare_orig() - comparing function used in the originator hash table
-  * @node: node in the local table
-- * @data2: second object to compare the node to
-+ * @data2: mac address of the originator to compare the node to
-  *
-- * Return: true if they are the same originator
-+ * Return: true if the node is the originator with the given address
-  */
- bool batadv_compare_orig(const struct hlist_node *node, const void *data2)
- {
--	const void *data1 = container_of(node, struct batadv_orig_node,
--					 hash_entry);
-+	const struct batadv_orig_node *orig_node;
+@@ -753,13 +758,13 @@ static int batadv_forw_bcast_packet_to_list(struct batadv_priv *bat_priv,
  
--	return batadv_compare_eth(data1, data2);
-+	orig_node = container_of(node, struct batadv_orig_node, hash_entry);
-+
-+	return batadv_compare_eth(orig_node->orig, data2);
+ 	newskb = skb_clone(skb, GFP_ATOMIC);
+ 	if (!newskb)
+-		goto err;
++		return NETDEV_TX_BUSY;
+ 
+ 	forw_packet = batadv_forw_packet_alloc(if_in, if_out,
+ 					       &bat_priv->bcast_queue_left,
+ 					       bat_priv, newskb);
+ 	if (!forw_packet)
+-		goto err_packet_free;
++		return NETDEV_TX_BUSY;
+ 
+ 	forw_packet->own = own_packet;
+ 
+@@ -770,11 +775,6 @@ static int batadv_forw_bcast_packet_to_list(struct batadv_priv *bat_priv,
+ 
+ 	batadv_forw_packet_bcast_queue(bat_priv, forw_packet, send_time);
+ 	return NETDEV_TX_OK;
+-
+-err_packet_free:
+-	kfree_skb(newskb);
+-err:
+-	return NETDEV_TX_BUSY;
  }
  
  /**
-diff --git a/net/batman-adv/originator.h b/net/batman-adv/originator.h
-index fabfc3e67c6eb..dff729ecf2df1 100644
---- a/net/batman-adv/originator.h
-+++ b/net/batman-adv/originator.h
-@@ -83,7 +83,7 @@ static inline u32 batadv_choose_orig(const void *data, u32 size)
- }
- 
- struct batadv_orig_node *
--batadv_orig_hash_find(struct batadv_priv *bat_priv, const void *data);
-+batadv_orig_hash_find(struct batadv_priv *bat_priv, const u8 *addr);
- 
- /**
-  * batadv_orig_node_vlan_put() - decrement the refcounter and possibly release
 -- 
 2.47.3
 
