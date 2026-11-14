@@ -1,68 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.40
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794648708;
-	b=OSKRmKeWhxUXsn4t90DHCmI6uWT/ixInWF0TL2ow4bh5fKUNiYLf3ZMtL1PgzotyrugR
-	 94eiS3V/8DYVnXdMO6L44DvHj6oi4SQmoE1MJwhXShtRmBYm2B3wM1JVxef9YYyE/RQAm
-	 wvkwxwrqW1mzewiZjVQCLNwVTFDYm19m4PSQnez5yjtte2xaO9T2GY+QLh4gLDZXxba7Y
-	 EjUA4nXwOyYki4gVwL/2SEFOR0x0RJxwKs4gGfWIoW37zd0S4NozMXCI8eWeOoX5pRZad
-	 MfThgMgbmG9fNQdztjIWitc+anZgRvRnoY/f0spwAsFCDDdLcDGWLnVc/RotwCRsrIA==
+	t=1794649659;
+	b=wmyYsAiKE1akr/rg93tZCl5V6DZpMxBr4ADlNptqJ753sCJQYZISYzPjoZfyu76es4L/
+	 y4hrRDhhSJ2zBGbsrVtlBIYZmXTVtB751eALVgd9Fq89YmBhTzqqKMIuL3CWgXsj+HPxV
+	 TeGFRPoNfbxdD85lFsjFymqa4WLWHsM/35bc+y9wDhy9EZpDdDL495NJZJJUsOuRNTuwq
+	 7vHXwXwaJxW0V4LGAOpbmgubLQOndVmTOm0fk7ANXPBS/VIm60EQGiShQ4mfSstZj8Ko1
+	 4BGD3REtzgd3YeYzdPuBC036Xh3xCooW8XKnCt/vtLAnymS0Za5G2dXAQ/3FDkB5BRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794648708;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=y+O+j2J6ZI6uCwbPqc+nN+TK1ogvnK/G+NpPY+aJ55g=;
-	b=DUYZIm6xCceKN6tsN9jcrFJrmdNdlaH+8k4bmE2BcXph+fbnDL0/9T2AsQKbeYePK8aw
-	 5ZugAMpCaTtMD+j0fSR73EBA63i+F6Il07eoM1d99gC3MW/9luTZFtTTTUzbSCEZw/NPt
-	 PUuseSCR4oiVMpWdtOE1uhULBjel1QQ73YUQG++33/SvxCFTbzPgmYmMKTGnJQyhacCaG
-	 pyUZKuKIox6BPUszNEnmv20hmxFCYxTIE6eQLYvibmRBJCydrxh8mxA9tfrCoj3MQHB+2
-	 UpHzWUZoto/sYrc4ZE+j8UENrtNFFjokpOSnFnyJjpaxJcm4//OMFgc24iMDdNAe1Hg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794649659;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=PTY1o7j7L5nX7oMObMEPbTXGH2Y/CuCX5bnofZ59I48=;
+	b=Nhy099poo/5z1DA+hatWu18ugCAA/gypR+LVPdk8tuFsVcdXql8OH1ECNktpX/Sf26Pd
+	 h15VhHYbW7Dlf3LAys+WyM1oM7MMKpbeetX4rU4n4EzbjypuczLTxVt5Y11vgA8wXTmT5
+	 l+Tsm1Ls5j/jKdm4Na7TC7GlZ16K4iNcqleXt5HBz4ay8t+iAWGIEeuxjiSu11rApKkjV
+	 AQlpR6c8zvjFgiGz1PhEb095Z0ctb6qCfaLTEB1xXqkQnNYPaas5FYffw1U3pZbaBDKOL
+	 NqgqBcBX6ukvOMVe+sB5EDUDns5PKtarSQhueI0W/jKdQz/viVr8N5fDaFYukrJ60Nw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=y07kiuIg;
-	arc=none smtp.remote-ip=111.22.67.135
-Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E4AC9606A32E;
-	Sat, 14 Nov 2026 09:31:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4AC9606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=s6oNpMlq;
+	arc=none smtp.remote-ip=195.10.208.40
+Received: from mout-b-210.mailbox.org (mout-b-210.mailbox.org [195.10.208.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F302E606A327;
+	Sat, 14 Nov 2026 09:47:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F302E606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=y07kiuIg
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=y07kiuIgb/pnAdM5tDGPigcrGZQvrS9EWQ8woZAseeHLknNFby0W4wMrwFX5wBkeLhdKCfZSZS8nY
-	 Gdv8qew7ID3ehjTJJWQCy9U0s3i3RJ1/qFdCxZ0SnM3QY7Yq+aHdwxesHMyRw5cOspMVqMJw/FoX6u
-	 9E/RpoXdSUvPbJsU=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76af82a762a8-f1df7;
-	Sat, 14 Nov 2026 17:31:36 +0800 (CST)
-X-RM-TRANSID:2ee76af82a762a8-f1df7
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16af82a72329-40e44;
-	Sat, 14 Nov 2026 17:31:35 +0800 (CST)
-X-RM-TRANSID:2ee16af82a72329-40e44
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: linux-usb@vger.kernel.org,
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=s6oNpMlq
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-210.mailbox.org (Postfix) with ESMTPS id 4jRTnL2sTRzFqbv;
+	Sat, 14 Nov 2026 10:47:34 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1794649654;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=PTY1o7j7L5nX7oMObMEPbTXGH2Y/CuCX5bnofZ59I48=;
+	b=s6oNpMlqY5TOV7G82Irnq1EDMUVG13acT8vn2wqkq1tMD7NBwCQRx2xY/R9xsQL1kHxWvo
+	sxKMJfS/rFD7Gr3id9jDnz7lsZ7oNmec1Z4YaatiCh9rTkAaOs9VcfFBcNy+TABu+AuTCr
+	HI3Tasu6gs8gwNWPGct2JI3PWuRbBcIKgCZ6a1BZxkE7RWy7ZyQGCmTw8gswsfQClQc5H8
+	v0Qb6LjjzAcimuTnD0/6+t1F66yjkXy40FSmqpUsgLC7N+oMLbSY+Q71VvBP2juKT8zzP1
+	OyiDIX+cZPNak7kGmmRilFxc+YjoEu9CXRmeueLh8PAuEvu/E03D4qEmQSV4QA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: Xavier HSINYUAN <XavierHsinyuan@outlook.com>
+Cc: antonio@mandelbit.com,
+	bgalvani@redhat.com,
+	coreteam@netfilter.org,
+	davem@davemloft.net,
+	dsahern@kernel.org,
+	dxld@darkboxed.org,
+	edumazet@kernel.org,
+	fw@strlen.de,
+	horms@kernel.org,
+	idosch@nvidia.com,
+	kuba@kernel.org,
+	linux-kernel@vger.kernel.org,
 	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: hso: fix tx skb leak when the device stops
-Date: Sat, 14 Nov 2026 17:31:32 +0800
-Message-ID: <20261114093133.465-1-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	netfilter-devel@vger.kernel.org,
+	pabeni@redhat.com,
+	pablo@netfilter.org,
+	phil@nwl.cc,
+	toke@kernel.org,
+	xavierhsinyuan@outlook.com
+Subject: Re: [RFC net-next v2 00/18] net: introduce ipxlat stateless IPv4/IPv6 translation
+Date: Sat, 14 Nov 2026 10:47:21 +0100
+Message-ID: <20261114094722.114623-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <TYTPR01MB11000E65B4D5C27C27D7414B4CA762@TYTPR01MB11000.jpnprd01.prod.outlook.com>
+References: <TYTPR01MB11000E65B4D5C27C27D7414B4CA762@TYTPR01MB11000.jpnprd01.prod.outlook.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,64 +91,65 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jRTnL2sTRzFqbv
 
-hso_net_start_xmit() stashes the skb in odev->skb_tx_buf and stops the
-queue when hso_get_activity() reports -EAGAIN, which happens when the
-USB device is suspended or no longer configured.  If the interface is
-then brought down, or the device is disconnected, that skb is simply
-left behind: hso_net_close() and hso_free_net_device() never release
-it, and hso_net_open() clears the pointer, so the skb and its data
-buffer are leaked.
+On Fri, 06 Nov 2026 22:17:57 +0800, Xavier HSINYUAN <XavierHsinyuan@outlook.com> wrote:
+> Hi Ralf,
+>
 
-Free the pending skb in hso_net_close(), which is also reached from
-unregister_netdev() on disconnect.
+Hi Xavier,
 
-hso_resume() loses a frame in the same way when the device is still not
-ready: it passes skb_tx_buf to hso_net_start_xmit() and then clears the
-pointer unconditionally, so a frame stashed again by that call is never
-freed.  Clear the pointer before the call instead and let
-hso_net_start_xmit() stash it again if it has to.
+> Thanks for your v2 series!
+>
 
-Reported-by: syzbot+bf62ca9997f43d2fa521@syzkaller.appspotmail.com
-Link: https://lore.kernel.org/all/6af74e31.fe96acdb.12252b.0009.GAE@google.com/
-Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
----
- drivers/net/usb/hso.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+Thanks for the review.
 
-diff --git a/drivers/net/usb/hso.c b/drivers/net/usb/hso.c
-index 71caa3764..03956fa8e 100644
---- a/drivers/net/usb/hso.c
-+++ b/drivers/net/usb/hso.c
-@@ -728,6 +728,13 @@ static int hso_net_close(struct net_device *net)
- 
- 	hso_stop_net_device(odev->parent);
- 
-+	/*
-+	 * A frame stashed by hso_net_start_xmit() will never be transmitted now,
-+	 * so drop it instead of leaking it.
-+	 */
-+	dev_kfree_skb(odev->skb_tx_buf);
-+	odev->skb_tx_buf = NULL;
-+
- 	/* done */
- 	return 0;
- }
-@@ -3055,12 +3062,13 @@ static int hso_resume(struct usb_interface *iface)
- 				/* First transmit any lingering data,
- 				   then restart the device. */
- 				if (hso_net->skb_tx_buf) {
-+					struct sk_buff *skb = hso_net->skb_tx_buf;
-+
- 					dev_dbg(&iface->dev,
- 						"Transmitting"
- 						" lingering data\n");
--					hso_net_start_xmit(hso_net->skb_tx_buf,
--							   hso_net->net);
- 					hso_net->skb_tx_buf = NULL;
-+					hso_net_start_xmit(skb, hso_net->net);
- 				}
- 				result = hso_start_net_device(network_table[i]);
- 				if (result)
+> Here is a question about netfilter hooks in ipxlat-lwt. In RFC v1,
+> netdev-based ipxlat allows POST_ROUTING rules to be applied for
+> original-family before translation. Currently LWT path translates first
+> and does not check nf_hooks_lwtunnel to optionally run original-family
+> POST_ROUTING before translation.
+>
+> Is this difference intentional since it keeps LWT path simple and leave
+> such cases to netdev path, or would an optional pre-translation pass in
+> LWT path also be worth considering?
+>
 
+Actually v2 has no netdevice attachment any more, the LWT is the only
+harness in this series.
 
+Aside from that, yes, the difference you describe follows from the v2
+contract. The selecting route terminates original-family processing, so
+that family only sees PRE_ROUTING (received) or LOCAL_OUT (local), and
+FORWARD/POST_ROUTING/LOCAL_IN run in the translated family only. That is
+indeed the first open question in the cover letter.
+
+Looking into it again, there seems to be two concrete problems with that
+contract:
+
+- original-family conntrack entries are created at the entry hook and
+  never confirmed, so stateful rules in that family see replies as new
+  or invalid and a conventional ct state established firewall drops
+  them;
+- SNAT in the original family before translation is not possible, which
+  rules out NAT44 in front of a CLAT and the NAPT66-based NAT64 recipe
+  from the v1 documentation.
+
+So I do not consider the current behaviour settled.
+
+nf_hooks_lwtunnel is one way to add an original-family exit hook, and
+seg6 is a good precedent for the hook placement. I am less sure about
+the gate itself because it is global, cannot be switched off again, and
+is off by default, so the default configuration would keep the problem.
+
+Two alternatives I am evaluating are calling the exit hook
+unconditionally, and moving the translation point to the LWT xmit stage
+so the original family completes its normal path. I will come back with
+a concrete proposal and a per-hook table.
+
+Which setup do you have in mind: SNAT before translation, filtering, or
+accounting?
+
+-- 
+Ralf Lici
+Mandelbit Srl
