@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.222
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.236
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794668804;
-	b=VmPr4jJ+qhaejqjDz+pR8x0BtekNVPd/IsERqMQspm8o+vMhzBw69WyO9YlAHBDR35B0
-	 FIkonrPmjjg75VDUQ4sijJqPpHEKnNohVM6W7Jo74aAOpHl4yF1DFrCC8QE/ayehWiSC6
-	 PYNVc3CCDYPyQbwzUblHPcpEYAjzACdhdZjqg4Ne6HmR1m7d9R/SAYR1P//OtVD6K/ppQ
-	 9N+hbrX5WclMlNGrlJ9zsnFJU+yyYPfFFgvuLqGI5iatmsVWEuFFKiKvzdXaO7OOraZZ9
-	 dsFw3X6P9l08K/3UWpUm8C4l4R6dk7d7dVP8/Fpy8Xa3RW/2vTMXcfy4VpaavZp1CFw==
+	t=1794668813;
+	b=EFXUEd2hfifORGv9lnRtYZSac/pvsFvtK6HwDnY0okeuUGvXa8t7g559wnOL4gUUZ4c4
+	 LeizpyrdrFVI7B6xHGktmFRI3elcv8ANclNbiyANxkg592znNM4l1zwQXgppEwM1TYE1W
+	 uMb68d7N7WaB+qGIDkaB21y9cma6dt9AfZ+N3TKEThgRXrXWaCcyBOKL1M7NCmduexVQl
+	 upSi499P3Z4wU5oDJ7uo+hscLaPf7LwWn65xR8ProIklIl+JXTjOO1+tYkjv5nRM4dUr3
+	 +WX2Nps6s5LAuyYsWdCBUO4XTCER3AD6WOXdR/Y1JrqSwcYxL59Az7OyElX/XLOyc1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794668804;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794668813;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=EebCx3KLdBVrhi6ZniiPVGIFYXZ1ZuZMHtX/uCQHf4w=;
-	b=oldUXAEGDoyHUPSL8XKXOQgUH9RKglkvLO1zMNNV6xsnu3o7BnXY6k8y41SXdVj9VqlR
-	 nODvyiw/RWS+4MZensGN7rJAL9LRUxcQs0zpCfEhzHNPcyy1xI+lIYfrcJV+bDCFKEJMm
-	 LbZxllyw8OGxZaim/N2ooMS7X9RRMNOg0MWI6Ht7CnPy5xwByOQYwvQmb89rW3mdUPw+X
-	 tqOU8QEb5xrIbPnY7+zHncbfsK7HCWDGjEIBN/VeAtJUwV9q75AbFLjHGE8c+72YtKY5t
-	 jfaqZ4pVj83KPtANEGr/f++7unqxHeTvluurbvNtTziDguIQeAGphxSMyC6ua3abntQ==
+	bh=RsHHVBz4ZNykhyuHHl7F7hpn28PT4e0tNAmtvkjgmeE=;
+	b=0FYWN1DpOlxg0UAhGnIVofolij4qZvEOKdUux9Rv52gFaNboSNgMfKtrD0Dxf3RYisRx
+	 ECiyTwgCh71ZiHtZA2BEmQZmfdWSMjFq+Zzx50/4ht0XQVVmM9BJNcUZLtK69ieq6PelZ
+	 ukzauX5DQhfohfHRhSr8w250LPKCgyBFdA0hhEs/gSCNks+i9JoyKCVrYC/GEoPm1OQUP
+	 hCZJcvUVOdizIa5cJM2tzQQym14Wvr5lK49sgMXynXn0jySvGka0GZbDw+h3tia05uW0e
+	 W/ZHK1fJdn2dnQhAxtK1PKF3d5o3As0sBzgVxpAZ2fPTjQaLBwApunmP90UI7flu6Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VYqPL7LN;
-	arc=none smtp.remote-ip=95.215.58.222
-Received: from mta1.migadu.com (out-222.mta1.migadu.com [95.215.58.222])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dG7Yrpcg;
+	arc=none smtp.remote-ip=95.215.58.236
+Received: from mta1.migadu.com (out-236.mta1.migadu.com [95.215.58.236])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3C29606A334
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:06:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3C29606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8D81606A8A0
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:06:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8D81606A8A0
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=VYqPL7LN
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=dG7Yrpcg
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=PO6QFDVMBoljIYWyqUFVKzEvVAiwpcUFVHXoA8wm8S8=;
+DKIM-Signature: a=rsa-sha256; bh=/d5WAk3pXKg0/LNXjM0Lk5R7/0/qIg0Q1jedtEcIIb0=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794668802; v=1; x=1795273602;
- b=VYqPL7LNYcbFkrjgqMD6M1N9z6w9PcCRUjnqYaz1ukyr7s+pTQHn0jqIJDX5y8PsfFSZaMv5
- H0hsQPPG795WvpDrqXsLUqoLgJxYBjuiPuuGJ2KAJPvpRxU5q6C83I0E1zeydvBtT+suqHmo2J6
- WSmW4YMvPTjuksT6yCkviiP4=
+ t=1794668811; v=1; x=1795273611;
+ b=dG7Yrpcg1mN8kPaNV1EMEe+tWt/1GdxH1CJSlTEWC3TXoUfvgddVWP+f6xtFB3VBJxSYEzhA
+ n/VwZS3sfwwJKyTCJuw6bUHogI/ADfqZp3wUn2E9/mXyNV/1nw5cZJpfl6RTmnil+94dygZklvh
+ 3nwXATlj0emev0xoMiNuFUt0=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id de7231f92c90d303;
-	Sat, 14 Nov 2026 15:06:40 +0000
-X-Mizu-Trace-ID: de7231f92c90d303
+Received: by smtp.migadu.com with ESMTPS id 1b8f8a06801f7860;
+	Sat, 14 Nov 2026 15:06:50 +0000
+X-Mizu-Trace-ID: 1b8f8a06801f7860
 X-Migadu-Flow: FLOW_OUT
 From: Leon Hwang <leon.hwang@linux.dev>
 To: bpf@vger.kernel.org
@@ -72,9 +72,9 @@ Cc: Alexei Starovoitov <ast@kernel.org>,
 	linux-trace-kernel@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH bpf-next v2 2/9] bpf: Add log support for tracing_multi link_create
-Date: Sat, 14 Nov 2026 23:06:03 +0800
-Message-ID: <20261114150610.84507-3-leon.hwang@linux.dev>
+Subject: [PATCH bpf-next v2 3/9] bpf: Add log support for iter link_create
+Date: Sat, 14 Nov 2026 23:06:04 +0800
+Message-ID: <20261114150610.84507-4-leon.hwang@linux.dev>
 X-Mailer: git-send-email 2.55.0
 In-Reply-To: <20261114150610.84507-1-leon.hwang@linux.dev>
 References: <20261114150610.84507-1-leon.hwang@linux.dev>
@@ -89,118 +89,120 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-tracing_multi BPF_LINK_CREATE returns an error for invalid counts, missing
-IDs, unsupported flags, or a nonzero target FD without explaining which
-check failed.
+iter BPF_LINK_CREATE returns an error without explaining invalid target
+FDs, flags, or iterator information, or an unsupported program.
 
-Report these failures through the BPF_LINK_CREATE log.
+Pass the BPF_LINK_CREATE log to the iter attach path and report these
+failures.
 
 Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
 ---
- include/linux/trace_events.h |  7 +++++--
- kernel/bpf/syscall.c         |  2 +-
- kernel/trace/bpf_trace.c     | 26 +++++++++++++++++++++-----
- 3 files changed, 27 insertions(+), 8 deletions(-)
+ include/linux/bpf.h   |  3 ++-
+ kernel/bpf/bpf_iter.c | 27 +++++++++++++++++++++------
+ kernel/bpf/syscall.c  |  2 +-
+ 3 files changed, 24 insertions(+), 8 deletions(-)
 
-diff --git a/include/linux/trace_events.h b/include/linux/trace_events.h
-index 321f2f3a6c8e..bb825ea5d09c 100644
---- a/include/linux/trace_events.h
-+++ b/include/linux/trace_events.h
-@@ -16,6 +16,7 @@ struct tracer;
- struct dentry;
- struct bpf_prog;
- union bpf_attr;
-+struct bpf_verifier_log;
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 36587b63ce13..c3f6364bc1d8 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -3276,7 +3276,8 @@ void bpf_iter_unreg_target(const struct bpf_iter_reg *reg_info);
+ int bpf_iter_prog_supported(struct bpf_prog *prog);
+ const struct bpf_func_proto *
+ bpf_iter_get_func_proto(enum bpf_func_id func_id, const struct bpf_prog *prog);
+-int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr, struct bpf_prog *prog);
++int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr, struct bpf_prog *prog,
++			 struct bpf_verifier_log *log);
+ int bpf_iter_new_fd(struct bpf_link *link);
+ bool bpf_link_is_iter(struct bpf_link *link);
+ struct bpf_prog *bpf_iter_get_info(struct bpf_iter_meta *meta, bool in_stop);
+diff --git a/kernel/bpf/bpf_iter.c b/kernel/bpf/bpf_iter.c
+index f0b29a170935..4a9e08fb8e75 100644
+--- a/kernel/bpf/bpf_iter.c
++++ b/kernel/bpf/bpf_iter.c
+@@ -5,6 +5,7 @@
+ #include <linux/anon_inodes.h>
+ #include <linux/filter.h>
+ #include <linux/bpf.h>
++#include <linux/bpf_verifier.h>
+ #include <linux/rcupdate_trace.h>
  
- /* Used for event string fields when they are NULL */
- #define EVENT_NULL_STR		"(null)"
-@@ -796,7 +797,8 @@ int bpf_get_perf_event_info(const struct perf_event *event, u32 *prog_id,
- 			    unsigned long *missed);
- int bpf_kprobe_multi_link_attach(const union bpf_attr *attr, struct bpf_prog *prog);
- int bpf_uprobe_multi_link_attach(const union bpf_attr *attr, struct bpf_prog *prog);
--int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr);
-+int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr,
-+			     struct bpf_verifier_log *log);
- #else
- static inline unsigned int trace_call_bpf(struct trace_event_call *call, void *ctx)
- {
-@@ -855,7 +857,8 @@ bpf_uprobe_multi_link_attach(const union bpf_attr *attr, struct bpf_prog *prog)
- 	return -EOPNOTSUPP;
- }
- static inline int
--bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr)
-+bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr,
-+			 struct bpf_verifier_log *log)
- {
- 	return -EOPNOTSUPP;
- }
-diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
-index cf6bf3765b3d..3c7bedced354 100644
---- a/kernel/bpf/syscall.c
-+++ b/kernel/bpf/syscall.c
-@@ -5933,7 +5933,7 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
- 		else if (prog->expected_attach_type == BPF_LSM_CGROUP)
- 			ret = cgroup_bpf_link_attach(attr, prog);
- 		else if (is_tracing_multi(prog->expected_attach_type))
--			ret = bpf_tracing_multi_attach(prog, attr);
-+			ret = bpf_tracing_multi_attach(prog, attr, log);
- 		else
- 			ret = bpf_tracing_prog_attach(prog,
- 						      attr->link_create.target_fd,
-diff --git a/kernel/trace/bpf_trace.c b/kernel/trace/bpf_trace.c
-index b4ff9d4e86b3..a3964d7c9497 100644
---- a/kernel/trace/bpf_trace.c
-+++ b/kernel/trace/bpf_trace.c
-@@ -3911,7 +3911,8 @@ static int check_dup_ids(u32 *ids, u64 *cookies, u32 cnt)
- 	return err;
+ struct bpf_iter_target_info {
+@@ -528,7 +529,7 @@ bool bpf_link_is_iter(struct bpf_link *link)
  }
  
--int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr)
-+int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr,
-+			     struct bpf_verifier_log *log)
+ int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr,
+-			 struct bpf_prog *prog)
++			 struct bpf_prog *prog, struct bpf_verifier_log *log)
  {
- 	struct bpf_tracing_multi_link *link = NULL;
- 	struct bpf_tramp_node *fexits = NULL;
-@@ -3925,12 +3926,26 @@ int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr)
- 	uids = u64_to_user_ptr(attr->link_create.tracing_multi.ids);
- 	cnt = attr->link_create.tracing_multi.cnt;
+ 	struct bpf_iter_target_info *tinfo = NULL, *iter;
+ 	struct bpf_link_primer link_primer;
+@@ -538,24 +539,36 @@ int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr,
+ 	bpfptr_t ulinfo;
+ 	int err;
  
--	if (!cnt || !uids)
-+	if (!cnt) {
-+		bpf_log(log, "tracing_multi.cnt cannot be zero.\n");
- 		return -EINVAL;
--	if (cnt > MAX_TRACING_MULTI_CNT)
-+	}
-+	if (!uids) {
-+		bpf_log(log, "tracing_multi.ids must be set.\n");
+-	if (attr->link_create.target_fd || attr->link_create.flags)
++	if (attr->link_create.target_fd) {
++		bpf_log(log, "Invalid target_fd.\n");
 +		return -EINVAL;
-+	}
-+	if (cnt > MAX_TRACING_MULTI_CNT) {
-+		bpf_log(log, "tracing_multi.cnt is too large.\n");
- 		return -E2BIG;
--	if (attr->link_create.flags || attr->link_create.target_fd)
 +	}
 +	if (attr->link_create.flags) {
 +		bpf_log(log, "Invalid flags.\n");
  		return -EINVAL;
 +	}
-+	if (attr->link_create.target_fd) {
-+		bpf_log(log, "Invalid target_fd.\n");
-+		return -EINVAL;
+ 
+ 	memset(&linfo, 0, sizeof(union bpf_iter_link_info));
+ 
+ 	ulinfo = make_bpfptr(attr->link_create.iter_info, uattr.is_kernel);
+ 	linfo_len = attr->link_create.iter_info_len;
+-	if (bpfptr_is_null(ulinfo) ^ !linfo_len)
++	if (bpfptr_is_null(ulinfo) ^ !linfo_len) {
++		bpf_log(log, "iter_info and iter_info_len must be both set or both unset.\n");
+ 		return -EINVAL;
 +	}
  
- 	ids = kvmalloc_objs(*ids, cnt);
- 	if (!ids)
-@@ -4001,7 +4016,8 @@ int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr)
+ 	if (!bpfptr_is_null(ulinfo)) {
+ 		err = bpf_check_uarg_tail_zero(ulinfo, sizeof(linfo),
+ 					       linfo_len);
+-		if (err)
++		if (err) {
++			bpf_log(log, "Invalid iter_info_len.\n");
+ 			return err;
++		}
+ 		linfo_len = min_t(u32, linfo_len, sizeof(linfo));
+-		if (copy_from_bpfptr(&linfo, ulinfo, linfo_len))
++		if (copy_from_bpfptr(&linfo, ulinfo, linfo_len)) {
++			bpf_log(log, "Invalid iter_info.\n");
+ 			return -EFAULT;
++		}
+ 	}
  
- #else
+ 	prog_btf_id = prog->aux->attach_btf_id;
+@@ -570,8 +583,10 @@ int bpf_iter_link_attach(const union bpf_attr *attr, bpfptr_t uattr,
+ 	if (!tinfo)
+ 		return -ENOENT;
  
--int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr)
-+int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr,
-+			     struct bpf_verifier_log *log)
- {
- 	return -EOPNOTSUPP;
- }
+-	if (!bpf_iter_target_support_prog(tinfo, prog))
++	if (!bpf_iter_target_support_prog(tinfo, prog)) {
++		bpf_log(log, "The iter target does not support the bpf prog.\n");
+ 		return -EINVAL;
++	}
+ 
+ 	link = kzalloc_obj(*link, GFP_USER | __GFP_NOWARN);
+ 	if (!link)
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index 3c7bedced354..9627dfc982ff 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -5929,7 +5929,7 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 			ret = bpf_raw_tp_link_attach(prog, NULL, attr->link_create.tracing.cookie,
+ 						     attr->link_create.attach_type);
+ 		else if (prog->expected_attach_type == BPF_TRACE_ITER)
+-			ret = bpf_iter_link_attach(attr, uattr, prog);
++			ret = bpf_iter_link_attach(attr, uattr, prog, log);
+ 		else if (prog->expected_attach_type == BPF_LSM_CGROUP)
+ 			ret = cgroup_bpf_link_attach(attr, prog);
+ 		else if (is_tracing_multi(prog->expected_attach_type))
 -- 
 2.55.0
 
