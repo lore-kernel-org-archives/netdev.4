@@ -1,58 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794674733;
-	b=CGOQ4llbr9vFSH69CJK+K4tSmTmXmHO6qcWMP27W6y9mcZTpWUlh6yaee17wL0LZh9ZU
-	 v6wQKKOiNS3qkIB4yKGmu2B6bGUBbxkGxUWlkiTFiolERlz9kg7AdRWtp6vdeOJOKxnO+
-	 2j4A0DvHZyAdRy0Pti8L+ZEpH6IbZFzOHh/rv08LIXd3oQIDp1pMDFr82dSexErZlBK/V
-	 Y6be28NlMg3r5sQy07L3r7pzGykcisrkehIVJa+rhw2pfapTPmoYgqFRwl8Y8OzpM5O+K
-	 piPPIzAB2+bFmnFQK26PUXFFACW3UbvT9/HMABXgWjJe7zoI91WuG115loPcYq3oMBw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794674733;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=HWjhff4U2bfbc71lpan6VjQI381x45+6j+0ZgY5DOCA=;
-	b=O7awWKm9BjAG9XgiGZCbYoexKTPgntByUMq1p756ZVZ0NKlichUvxXCigbje2QiBVT/q
-	 k3SIylAaGCPk2Sqdph4SJSWNOlLOVvvFtxLeVaMgkW+Q0+UTKGZDVnT5qPFo36W5Qb/fX
-	 /toymq8Rk/jOrt6tMgIaSzh8bMKJ5/ZKwyL53gQfRMwB8FqSAUI0u7mlFzhyO6QZ7VuWk
-	 hTUBbSW446XSMEM5bFJPs0wGdo1+LxwEHvzndHibMfoeJUJ6erIieWtlyJj0vseo+g4Tz
-	 shbcmxpjAo+sAtZJjVUGc7qv2RP0b/a3Ng6dQfhxEG7y2ZVL/eGAeBQOByigpJu28oA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Z1jg6YDn;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794674958;
+	b=O522t93bh074IEZEnEoJ46HBzgUIbibMmpSqK8WX7UXn7lhp+d5kFDekdZLe9CrxtKWM
+	 ki97pJ9njfbTWKryXx9+SK771wCH02yS8/FkOUDFGwipo9EmmgS57jdJhV4E5fyElQXk3
+	 y4lLT81dNqATfAJDgNW+YwF8tx5azzJ8w7+Y1r094R6MREiMwjswUi9ehHkzuuYBBX4So
+	 50gRRoHYKeBCbLnCCwFm8uGKMpJVTtEXtFcvlyEqniixrT2j6q+aVRBTXdITjD8dMeZbF
+	 lv9HyNOLqKlab6nLiFET6Wtw/JSlrPDYpjH46eMT247rR5cxHMikNFetxrglREhJVbg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794674958;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=RDeMhjQxfzuP8B5EhYm9rOTi4iwTVCUYu7flDTW4Khc=;
+	b=4PTwua0mcBuwn69eZifWeJCUjEnQ+5/8I7GiZiCt9G08QjniXPcXOpCyUH9zRwLSWPrr
+	 0ObHrtgO+wgn2ayaPCl90CIfDkibBmSB6BaAJeHNtg9zWxtuGwUhXu4f6hn45RIs5gck8
+	 mIHB1PLzbo5nkFibtZDGhnWUueqni/YJu5nrTdoyjHRtMoikQQy/J9fNamsDEi4j1MQgd
+	 qV6PL7JyIYUcS5p8L3V2Tg4ZeU/qzYzK/DPiD1EHBVYlWr2OMBQN1zgiYO0Z8cUvN7XrT
+	 o2WaXeuU3yBkOkeS0UI0MD7tUZWamo9lBD/J1PN1Atc40eJlj9/9hzecG1CQ2lT0Wmw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HUBUaSDC;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.41
+Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A8A3606A329
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:45:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A8A3606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74596606A327
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:49:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74596606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Z1jg6YDn
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id ABD834E415A7;
-	Sat, 14 Nov 2026 16:45:24 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5D504601F0;
-	Sat, 14 Nov 2026 16:45:24 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B413211BC0620;
-	Sat, 14 Nov 2026 17:45:12 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794674722; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=HWjhff4U2bfbc71lpan6VjQI381x45+6j+0ZgY5DOCA=;
-	b=Z1jg6YDnUBA7PClXCcfYhR7Uf9hJgkLnLFMB21wsFkQhpM70Rlejx/ZOAbvYYdnxaWkBPh
-	Ee0mhP7Cx8pmPI0bZn+XIHUhDfVJheuDyvgueA1ppsONBX0SlcIpyHaZ5sy6RBsKJKRM1Z
-	oB34W/wB8rPoJye4hQgp/cqavMxw+hs9QeQewuE/YFLq+ahRll0CoH4HMQmU+Eo8nQwGYo
-	Sxdc3m/QN1nkN/RAV5uL8gbcepKXhRHL8v/ddK7jozmgn1X59ZJasNvR09lYQpPHe6b8gU
-	JpwDw1q0Bie6dhMYqvaVBcwkmgZT1BabnuKtsXleYLftkzHU+wKk0CU40tEH6w==
-Message-ID: <ebea9af3-5edc-403e-bcd1-de875137d68a@bootlin.com>
-Date: Sat, 14 Nov 2026 17:45:10 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HUBUaSDC
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-170135e43c7so3036675c88.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 08:49:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794674957; cv=none;
+        d=google.com; s=arc-20260327;
+        b=n+rZ3Rrzk7VP6sl9/zcotN3pX5MODFw3oOTukkN6ka0liHKdczMmRkEvex9JNfO4jh
+         RUKOp/FWxfOgq93fC7QdciGhwUWJ1danvRd4tLt8N8alzp2Ibb3czNbban4qaGHwyB4U
+         BPgRhZt1LaMefwDL94IDRPmtHyIQT+1oxTSuu0yeE1eDGwuiKoECx237h1cmatPt/IuL
+         5vnu0BBwPhZzdWHrA27Kl97wmblgI8EBHtbEP/bQpEmpGTwEhDoUPGr+nn4LHHHmnR5M
+         NQyA0jmWuA5fw32sZ/euu2QR7ZA1l/LowZfz722Jfe5eluQR8sGnBlir7OWIW3b3g8xH
+         yHIg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=RDeMhjQxfzuP8B5EhYm9rOTi4iwTVCUYu7flDTW4Khc=;
+        fh=li/fO+yceaWukgL8fZiiFASOyXkIfMyU7DpsV+i08XY=;
+        b=BEd/imzQBhtDaZwDUMgqWf9FTwm7eoPbe4Rs+YU15rc8g+MPVEOXjGoOBXQ+ePg2Dz
+         WEKYXA/aHfPenNo0axjhm91kaOUs0U8hOIVJbzpMZ1aMne6kt8cNTBbbMHRtY9IPI6dj
+         6PvO6AoFtjzG2Tpih6ORE8xikwiQpJTJCsDCRzyHlDc5KTNpwsz9I2j0zTjpOHELD71+
+         G8C7Y2/umvInkMIyyCSiuTBsuFebLpZeN2X4A6r//taaH9PCase//V0yuuLX7NsTLLYP
+         wTeQXaKAtNJYy1YYqAxZPvqC3MXijUwFYiwqywWdjxt5ovfAssmj3SQHPRavOmKDwymp
+         VK+g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794674957; x=1795279757; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=RDeMhjQxfzuP8B5EhYm9rOTi4iwTVCUYu7flDTW4Khc=;
+        b=HUBUaSDCkX61HmVYW4uP02UUSxMC1xNtVpaPzklmnf2Q2Pu6lTjKaLrm6u7IGs71u7
+         dCVYPEc9jKdcK5p3SrdDFjyu5KtKOUz4PYnEX/LrlE3omqnk9Ygff4ZHhk4WIcBhnxhM
+         wjvM41uRLw2NKvebtQqWYfVtU9mYeULNSiC/MqJcDnbQsThaSzLFBlTPQ0Cx5T6vZoiV
+         nE7gA9LOa/jIJp5tgr1/UP3IQUYl4bQHGwot0EXDSijfEhBpNViMZ5QqAG3HFi4ThWak
+         7YOMGgTPCXvP6gqdpsCeXrLy5wSJRxSI6KKUu2T02PcIrPaBTZzpn519WZFYn+Fuxvj7
+         NGug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794674957; x=1795279757;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RDeMhjQxfzuP8B5EhYm9rOTi4iwTVCUYu7flDTW4Khc=;
+        b=M6dO4YrE3GrPYyW72vwp58cfQinBrpOPylCCwHbYKmaEY7MGejFS0+MZ59t/8C2DnU
+         3GMmBvhU37JBQb2mK+GX/EFscvY61yPgVc8TaqTSUd84ASIFhDSZgFx3Zu8AevaADkAH
+         Gt1EcIXBusl4xvKlqm4ix/ENv3LfMxq/i6Xg8khBRAuxHQw1qqBMzVtI5A/0/gh+xERk
+         cAzv2QKJNg9FyR8fvzKnBHSidqxKunDKptdAlCq0P+52SJmyefEMy3E28JYuCuJJmNjs
+         YUaK8f3FsKv642WmAE40MGblNA0Gh9tkhNx5jRGCIO5w4SVIQZNC3R7rRD352tDNdRKY
+         Kp8Q==
+X-Forwarded-Encrypted: i=1; AL+hErEcDZuk0bBAxej+LE4ilMYvaP9Uh/TYVx9qeJuSFBs4CxM6a+DMPeXB9VeF89A4t9LEsxbLxb8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8d2ZsLrB45dhKZxfTdBQ/hxN+wd+qEe3r/38Rn4ymfW0v3w7Xr
+	pFPYyPZ4yJvM4r6O2YSAMd+Lnud8gdgfEXKoPzw4Cr3UZ6sFVBi7HvAE4Ji3wbck91hPeZWh4hY
+	cfHStj1U+NUfBak9kLYJwwsdwlFKbAOuttW/I6UA6qvVYP83/XnL2ke2M2Mg=
+X-Gm-Gg: AYBFou2LrR+WGKeWaR+hRmARhQ9MmduNRD0jPyJ/kHQBqCZ3OYHqckb7NkJXQ1/jJUX
+	JMaUoJl/FVTWO6xEk5kivJCbWbxZ7xBssRYdXTw2191l8+8c4fr3T3CLfvfvMFJmFnxSOqn3PaO
+	UP9FC1hFuGOC3W6T7IazByBvdjvlGmiXesBzY0x++qWkZDEbq7Z9KrKvbBbcb2gkam4H53ZZNnB
+	ugdJgMr3tRiYEGrTIK8KilbQaIR7tydJQTLm3KhFHBz+ih32JMkhSezVqLlo1ZJqeh0VVUyz0bk
+	MIcon2+dX5xZ3yraGQrvXxOirSlN/yyQkeVGsy8oTnJMAYBLfmlvipjI/Em7kzZ5qfWi2SsALq7
+	3+z6BCYbS4UPCBsqUBnlIbqLTOzd+x2cT831IDYxC2aqM/RDJoPRw0YthznbNuanYje0ii2hiiA
+	/7tN6yxIeXOg+TZ4fSn/ct1uObp1DVT+td76o5S34QGYLl7TIo1UzDVzK+MZYHgPqWYUiyWNc4Z
+	cO9AQU/LB8=
+X-Received: by 2002:a05:7022:7f0a:b0:196:aa86:fcf3 with SMTP id
+ a92af1059eb24-1b503151b73mr6890040c88.26.1794674956583; Sat, 14 Nov 2026
+ 08:49:16 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,116 +106,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v5 10/10] net: stmmac: mediatek: add support for
- MT8189 SoC
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Richard Cochran <richardcochran@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Biao Huang <biao.huang@mediatek.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Eric Dumazet <edumazet@kernel.org>
-Cc: kernel@collabora.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-stm32@st-md-mailman.stormreply.com
-References: <20261110-dwmac-mediatek-mt8189-v5-0-7d99d6292962@collabora.com>
- <20261110-dwmac-mediatek-mt8189-v5-10-7d99d6292962@collabora.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261110-dwmac-mediatek-mt8189-v5-10-7d99d6292962@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20261114155150.235743-1-edumazet@kernel.org> <20261114155150.235743-6-edumazet@kernel.org>
+In-Reply-To: <20261114155150.235743-6-edumazet@kernel.org>
+From: Kuniyuki Iwashima <kuniyu@google.com>
+Date: Sat, 14 Nov 2026 08:49:04 -0800
+X-Gm-Features: AclHuK-QU3Yxe1WKxb4qDMVbJXPN0AYI9YN86IRQIoEqA3NPi56ZkIL5O2floD4
+Message-ID: <CAAVpQUApWZVqDbkt3dLyJ1bS0gA4+676tNPdchUrihXm9H_g7g@mail.gmail.com>
+Subject: Re: [PATCH net-next 5/5] selftests/net: packetdrill: add tcp_rcv_collapse.pkt
+To: Eric Dumazet <edumazet@kernel.org>
+Cc: "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Neal Cardwell <ncardwell@google.com>, 
+	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
+On Sat, Nov 14, 2026 at 7:52=E2=80=AFAM Eric Dumazet <edumazet@kernel.org> =
+wrote:
+>
+> No packetdrill test was reaching the copy loop of tcp_collapse():
+> TcpExtTCPRcvCollapsed stays at zero for the whole TCP suite.
+>
+> Add a test using a small locked SO_RCVBUF and out-of-order segments
+> sent in decreasing sequence order, so that they can not be coalesced
+> when they are queued. Their truesize exceeds sk_rcvbuf several times,
+> thus all of them can only be queued if tcp_prune_queue() collapses
+> them.
+>
+> The test covers:
+>
+> - A small out-of-order range made of two skbs.
+>
+> - A big out-of-order range, bigger than one page.
+>
+> - The receive queue, starting with a partially read skb.
+>
+> It checks that TcpExtTCPRcvCollapsed is not zero, that nothing had
+> to be pruned, and that all the payload can be read.
+>
+> Signed-off-by: Eric Dumazet <edumazet@kernel.org>
 
-On 11/10/26 13:08, Louis-Alexis Eyraud wrote:
-> Like MT8195 SoC, MT8189 SoC uses the Ethernet control registers from
-> the peripheral configuration (pericfg) but at a different offset.
-> It also has different RX and TX internal delay stage dividers (290ps
-> for MT8195, 180ps for MT8189), and by consequence a reduced value range
-> for these delays. It finally needs additional feature such as the
-> TX clock output enable one.
-> 
-> Thus, add compatible, clock definitions and specific platform data to
-> support the MT8189 SoC.
-> 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-> ---
->  .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c   | 27 ++++++++++++++++++++++
->  1 file changed, 27 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> index 1a0ab95dfbf0..ce232313014d 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-mediatek.c
-> @@ -42,8 +42,15 @@
->  #define MT2712_RGMII_DELAY_MAX		5440 /* 32 x 170ps */
->  
->  /* Peri Configuration register for mt8189 */
-> +#define MT8189_PERI_ETH_CTRL_OFFSET	0x270
-> +
->  #define MT8189_CTRL0_TXC_OUT_OP_EN	BIT(20)
->  
-> +#define MT8189_MII_DLY_STAGE_DIV	180  /* 180ps per stage */
-> +#define MT8189_MII_DELAY_MAX		5760 /* 32 x 180ps */
-> +#define MT8189_RGMII_DLY_STAGE_DIV	180  /* 180ps per stage */
-> +#define MT8189_RGMII_DELAY_MAX		5760 /* 32 x 180ps */
-> +
->  /* Peri Configuration register for mt8195 */
->  #define MT8195_PERI_ETH_CTRL_OFFSET	0xFD0
->  
-> @@ -124,6 +131,10 @@ static const char * const mt2712_dwmac_clk_l[] = {
->  	"axi", "apb", "mac_main", "ptp_ref"
->  };
->  
-> +static const char * const mt8189_dwmac_clk_l[] = {
-> +	"axi", "apb", "mac_main", "ptp_ref"
-> +};
-> +
->  static const char * const mt8195_dwmac_clk_l[] = {
->  	"axi", "apb", "mac_cg", "mac_main", "ptp_ref"
->  };
-> @@ -440,6 +451,20 @@ static int mt8195_set_delay(struct mediatek_dwmac_plat_data *plat)
->  	return 0;
->  }
->  
-> +static const struct mediatek_dwmac_variant mt8189_gmac_variant = {
-> +	.dwmac_set_phy_interface = mt8195_set_interface,
-> +	.dwmac_set_delay = mt8195_set_delay,
-> +	.clk_list = mt8189_dwmac_clk_l,
-> +	.num_clks = ARRAY_SIZE(mt8189_dwmac_clk_l),
-> +	.dma_bit_mask = 35,
-> +	.mii_delay_max = MT8189_MII_DELAY_MAX,
-> +	.rgmii_delay_max = MT8189_RGMII_DELAY_MAX,
-> +	.mii_delay_stage_div = MT8189_MII_DLY_STAGE_DIV,
-> +	.rgmii_delay_stage_div = MT8189_RGMII_DLY_STAGE_DIV,
-> +	.peri_eth_ctrl_offset = MT8189_PERI_ETH_CTRL_OFFSET,
-> +	.mac_txclk_out_en = true,
-> +};
-> +
->  static const struct mediatek_dwmac_variant mt8195_gmac_variant = {
->  	.dwmac_set_phy_interface = mt8195_set_interface,
->  	.dwmac_set_delay = mt8195_set_delay,
-> @@ -729,6 +754,8 @@ static void mediatek_dwmac_remove(struct platform_device *pdev)
->  static const struct of_device_id mediatek_dwmac_match[] = {
->  	{ .compatible = "mediatek,mt2712-gmac",
->  	  .data = &mt2712_gmac_variant },
-> +	{ .compatible = "mediatek,mt8189-gmac",
-> +	  .data = &mt8189_gmac_variant },
->  	{ .compatible = "mediatek,mt8195-gmac",
->  	  .data = &mt8195_gmac_variant },
->  	{ }
-> 
-
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
