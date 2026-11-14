@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794658475;
-	b=fAWYDNas5Gfp1BFCgJNkrFuP/FkBtbdhNeJlPmkGP5FmyOmbezUzxXoZngB1VgCCPABR
-	 dnLd2WMCd3FY3CP3zN7ZQ16Dr4v3iDxbQVioBIfE5Y4wCePWI5EneD9vILsMemVLnV6Wo
-	 g4mBVbuzTSypDdt1yYm5F7dfGvMsyJFfMSsWrccdcxjZQk39JQLCl30CIuaNEbfMM4LVv
-	 YPDegp7AKW3Vymk4ao79epdznRNNBLmzJGFpI8aImWwin6WEjYe46mw5K55z6+/JBZ0yU
-	 OtWteeSYnF5CkkrN/LovbwC1rR2o+Djy9KXmb8s0APJ4ZhaNuqB52x4fCMYnRpdzNDA==
+	t=1794658477;
+	b=4saQcvkkNC820ufueb06Ewb5PEgx3IkjrHvjgJSoE39pxkPb0XPYaNdaXClSu3kGOMTB
+	 E4RQ/TpCqZTYlGirqfYcDD1Csam/hDGGFIJpvr4Y49bbGnGi3KQEGxXsJRIZQRkYz1Mtd
+	 KS8t1/5ctR7rgLw3dEXqz6BEwmcMHM6/1ZDVBlUFruvJTcFIhm2MxwlHTVs5f2JE66yn8
+	 LU3J7TJKxR6ShR7Gl1SuOZu8s4Qe8WdWV4YtFoa2d+GNWur5xIt7IjYdKq4/bA4snIMvv
+	 x7latiYXMQKlu1LmawYv335SBV0Ku0bhVzIsWC4mAfra0h+LSSSFU6w3dx1ytR8v0HA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794658475;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794658477;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=tTIiLpDOOjOiY6YNXTXY68AsLZjNpjTi2i4PTJ3SyLA=;
-	b=sILKkOPLU4yolviX6as1zTgqDGQlwcqBq3Kd7BdZoOuVt5KeKewPIFmvognmgPH2J2N+
-	 SnCJ9W94PSx/9KwfSabH1FRytfmHBP5r8Ccfc/ZE3DyjGDKuNH3hNEqIi0ag6QTUtJV+Q
-	 AVxBHz1VGpDDogUxP4/2Kfd6Fo2x6isCAPTRFYK/VRb04ItVS7bvYF89oVH0O35SL554n
-	 i3nBDGl31MKP8MqKSx4mNVVIVR0bRvAdVAYWUUd243EXBw3ciOXs+JMpk/DlhRZOcL0kv
-	 EeJ/ZOmmpDOOuOF2ZZjN+y6u6dr2CN11yAL8MTvOVazds3LqpuXMggeiLKBOnsJOGwg==
+	bh=zwhaeCJRv3sI4IjbReNvuaapvaFwUI/cTpt7X2hxku0=;
+	b=NX6W7AVuuUivMEbGp1IyNCrWW7ETAAuHtmHnt5/A6gRrrqCq3Ja8wcnZL9yLnNA5V8Gw
+	 vbF0ug+U11vy1soL4T4S/fldeBCw6w+qhW5XmMX/f/fMa5Sa65TWpZERaJNP/3HPdWzmh
+	 xbW2Yf9bTOK8dc2xv+98LY8RIWfRQhLvyBxlwK72XOMvfbfmwpjiI/3xQAvr3eBGx9M0Z
+	 7s93/j58JNvDrs0zj83NUVj96IFyvdSAKOWEOPlGBSzlsFzi9WfVHOQcZzGNB3KW7eHdM
+	 g4xehj38kZa8nK7yUCh3GL6TIuPn3+vFX6pMVi6SgKh9QclaCHpYc+yOen19M/uJTiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mojatatu.com;
 	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=SI+z7qFY;
-	arc=none smtp.remote-ip=209.85.219.43
-Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com [209.85.219.43])
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=ENEQAMp5;
+	arc=none smtp.remote-ip=209.85.219.49
+Received: from mail-qv1-f49.google.com (mail-qv1-f49.google.com [209.85.219.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4F0E606A335
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 12:14:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4F0E606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06E5A606A330
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 12:14:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06E5A606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=SI+z7qFY
-Received: by mail-qv1-f43.google.com with SMTP id 6a1803df08f44-91c847584b8so30735856d6.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 04:14:34 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=ENEQAMp5
+Received: by mail-qv1-f49.google.com with SMTP id 6a1803df08f44-91c11468b5fso29099036d6.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 04:14:36 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1794658473; x=1795263273; darn=vger.kernel.org;
+        d=mojatatu.com; s=google; t=1794658476; x=1795263276; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=tTIiLpDOOjOiY6YNXTXY68AsLZjNpjTi2i4PTJ3SyLA=;
-        b=SI+z7qFYhjEe4bd+OQQkF39jr88sHLNrOKj+yoXWdbKsMZYp9/2EWxHZJdnCW1DfDx
-         Xw0i8WyC5v4wnuStd0VKhZJLElLxVNk7tikxNzf+kRRp1CLsyl4fU2q9/Lou1XE7VxHZ
-         nCg10hb92l468WAgWMG1RauaF+W/QviWji0BQ=
+        bh=zwhaeCJRv3sI4IjbReNvuaapvaFwUI/cTpt7X2hxku0=;
+        b=ENEQAMp5BCYdP9T8o5z8L5IaPt3kCUrTy2HtbaJka8eZAuwU6pMJFAGJVn0C3lHhNo
+         0X/xYNyW+qtUsCV7bXUk4I+ln3uq3RRAENsPOztigrAPMcdMTseYKDZoPcOAhMv5Td4C
+         brviZtcTu0DhgCLRjG5ykQ/ivLKrSajLvTjOA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794658473; x=1795263273;
+        d=1e100.net; s=20260707; t=1794658476; x=1795263276;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tTIiLpDOOjOiY6YNXTXY68AsLZjNpjTi2i4PTJ3SyLA=;
-        b=VIdsjkeRzOKWkOx/Ct4KIYhxGabn5gsrjNt0VTTIEpB71ZMWN/jvTFzEI5Ig/ZfmOo
-         CTHWKhIdrVnVkqwR/KS7OmSC50Gf2Z6ikxGTphHY30B0Y38X7AASdMnkiyvAiRX+0UoX
-         zPR/RHj2oBGE5gaunKUh7sqDuzyl2UJVOxs/Dbw/Jg47fVd+AJfKieUeti9gaJPlcQUT
-         bQj3dA81wwOFWpNH/8bvn3mhXr+lUzxrI8WaFuw96bnKGZM42ifZ+WklZ5r7mHw8UGQg
-         3+0oW1o+B2NpoHCHhZB6IeCeclfielXpyG/6JGMm2gIATiToHnSoi2W4s2i9InMb7HFt
-         uIog==
-X-Gm-Message-State: APuU4Z+qiTWIeeTso+Sh41zC9x7jaOKbeGsS8w5SNI9q00KaD92XC92y
-	FBfVYltLhgkyCdnrIxT3TRSxQa5G3Y7Nplf2+lZZHcMYciVWglP5LOpk2mg0YY34uF+v1/eSY48
-	ExwU=
-X-Gm-Gg: AYBFou3sG4vyJC1erQgGc+NZ+ASjpHFB9bo+6OGTWhBiwuNON1SQmdEdCd2ypsDZn1N
-	VoPSRoeY5BBpkrI+XpLVr+cdAojx9t2UXxV1CEPdYwn9SNGQJbFcOE3VHXD9gaEkWGvmZcz2cg1
-	FRPajNsW4o+3tmnQf3M7sncGb4gHaaECbDZbI8q6XOjOBSzbY9cRxz+Re/8uo2HbYvPfjLf9+TC
-	Vq4rwWe3UYLXWE4PbYzPOopJIGabKVHI+Z90Z+E4Uk9chuhfiqXhfkZW78U1COGIziwSBvl3TtZ
-	UdHHFmFjFxTvcZQR2m+59RQ3GWdsYxoK/JeehZJ5UaCencKrKQ9j5gJ2PJ/9vfqUTj2XBA+a8vZ
-	x8/6dDVWVs6X1ILmDgdvTanQjGXBMcpyM7TVGQtDZN8fND1UgEmjH+UIFBV9UxrORX50hTEVSS0
-	9E+1EX/C+l+Y79t/xBb7K5t2K8ybLJFIyU6OEntVqcFPY15UvyYk1s2b/0y8BciD7Glgaek9ayJ
-	UpQoXzVPxS9Oc0fJSFqly/LUDS573kvln3wBWByLNMMfe5zYXVd51u0IWqdpxEnN5U+uUd8qZMy
-	4qW2yKfpfFOGhiwL88WBW2Jo01kYj7zQEl/+o5AwWHoo/FD6P77Sf3adJ8DysE710dDByvxnUfU
-	1TMwwMjWWsie2KUw=
-X-Received: by 2002:ad4:5cc8:0:b0:91f:1fb1:850b with SMTP id 6a1803df08f44-91f1fb1caa0mr101026206d6.29.1794658473606;
-        Sat, 14 Nov 2026 04:14:33 -0800 (PST)
+        bh=zwhaeCJRv3sI4IjbReNvuaapvaFwUI/cTpt7X2hxku0=;
+        b=SO1g/3uSeLNPvPL/3VctJRhKoMQeuh9HkHmc0PpPy71a0mh1uwNTC/5CMYIOa9nm2/
+         RBH7txaxUcqKA8O+K21PAGEaKUZXmpxTQ+OnQbFaeq2yRy3ilQd3YOgdZdsXY65m4e/m
+         dwa/SZYO6AHuJeNGKTR1Tw4qWQYY0eSZNdlCj5J+GzthQxAFF8bwqbt3yH/VPjYrFJK8
+         /P8pLtVY9KqvY19o025Y2b0g2eqSQhzPv5WoAd3ASDrTwBbI+mxLBnFVCxQYUVT3Tefz
+         78VJxDFkoD8G3OjpTtxcYvVTii9fJZzI6PaNd/4kZpfNiD3fPUFMOFSVfJv31mh59d9v
+         OMXg==
+X-Gm-Message-State: APuU4Z+P05P6SZL0CKa6UioFF2qWt1r2p529XMLnhbc7qCCAjbplM1v5
+	cP5desS+eiAAnq3s3HodIUtg9KF9yyOcN1ZVv3R1AWWhsXeMIWMUfRqLFi1c/dzP7A6bNNHNZr/
+	9brE=
+X-Gm-Gg: AYBFou0UaPw5g31TlLpywMQBhMMZmL65GCU+EnGx3KD2CkAyNxspgI4mt24WXevSDri
+	bSugpI3IOIXC42X/f8Sxv8hDCWhjx2SYthukPKrjhDz3Z7vVyXseMRyWYYtl8VkVqFTqXxT2PdM
+	kvpa1OyNQFuax4eEVJSx+MDxdfn6Kw/rR7JI3muk9sHpIraFavA0qF0LT4Lagyb07FpFEzXsT1t
+	5N62eIyqVVsjtBdjqCXcFTnnX6XZVq0SduSNo98NSgLCbv54D4tK9y5h2IgFQx0g79BppVDg116
+	HsAN8gNVmTMhUNC8IgMSZ2Qbf7k2DjWu/h4uYaACdYa/o+MQ4M9SDFulNCpM+oXXr2f2VS3NEUh
+	9cWBJBSjc2xxbikF0OY9CeqBskk+e7iFgH+yJfDIhRyzDwe9PISI5ZpHFSOZNIA10x6fFzoEvpa
+	j4eQsyvfS4aQ8pMSyO1yr1vIJ9yyIkeVMIhRPxCCfEirFZaFtGRVzzVRo1d1dxKkBxdcttV2nMJ
+	3RMFovbX5Q6+xhI0qshvHIsuUxUtjaCwtA6ImWmCZN4ziPiUpJGzcA2cCqJnGFUi3hINAyNVLdP
+	Vr/hDtWqnZ4ge7k7ifdBYWALLTEb2hecZZ4iwKvhHqoojD8g0/XzODa6mLzgwnHvBjlcNgLU7BE
+	HcIBReIBpyIvjFGQ=
+X-Received: by 2002:a0c:f148:0:10b0:91c:8fd4:9ad5 with SMTP id 6a1803df08f44-91f2415f556mr66581206d6.10.1794658475969;
+        Sat, 14 Nov 2026 04:14:35 -0800 (PST)
 Received: from mbili.tail33bf8.ts.net ([64.203.83.2])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d5e579sm41840486d6.17.2026.11.14.04.14.31
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d5e579sm41840486d6.17.2026.11.14.04.14.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 04:14:32 -0800 (PST)
+        Sat, 14 Nov 2026 04:14:35 -0800 (PST)
 From: Jamal Hadi Salim <jhs@mojatatu.com>
 To: netdev@vger.kernel.org
 Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
@@ -93,9 +93,9 @@ Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
 	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
 	cake@lists.bufferbloat.net,
 	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH net-next v10 1/4] net/sched: cake: return the classifier result to the caller
-Date: Sat, 14 Nov 2026 07:14:23 -0500
-Message-Id: <QDISC-BA27.v10.r0.20261114071135-1@mojatatu.com>
+Subject: [PATCH net-next v10 2/4] net/sched: cake: use a dedicated split-GSO list iterator
+Date: Sat, 14 Nov 2026 07:14:24 -0500
+Message-Id: <QDISC-BA27.v10.r0.20261114071135-2@mojatatu.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <QDISC-BA27.v10.r0.20261114071135@mojatatu.com>
 References: <QDISC-BA27.v10.r0.20261114071135@mojatatu.com>
@@ -111,107 +111,62 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Preparation:
-cake runs an optional external classifier from its enqueue path and then
-computes the flow hash inside the helper. Have the helper return the
-filter's overrides instead, so the caller owns the flow selection.
+skb_list_walk_safe(segs, segs, nskb) reuses the list head as the walk
+cursor, so segs no longer names the segment list once the walk finishes.
+Use a separate seg cursor to keep the head and the walker distinct. No
+behaviour change.
 
-This is preparation for the accounting changes that follow. Packet
-classification and flow selection are unchanged.
-
-Link: https://lore.kernel.org/netdev/179269577009.3135.5221412623031392098@kernel.org/
 Reviewed-by: Victor Nogueira <victor@mojatatu.com>
 Acked-by: Toke Høiland-Jørgensen <toke@toke.dk>
 Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
 ---
- net/sched/sch_cake.c | 36 +++++++++++++++++++++++-------------
- 1 file changed, 23 insertions(+), 13 deletions(-)
+
+ net/sched/sch_cake.c | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
 
 diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
-index 3faccdbc03f7..24853d90c17e 100644
+index 24853d90c17e..88ff3e4f6754 100644
 --- a/net/sched/sch_cake.c
 +++ b/net/sched/sch_cake.c
-@@ -1715,18 +1715,25 @@ static struct cake_tin_data *cake_select_tin(struct Qdisc *sch,
- 	return &qd->tins[tin];
- }
+@@ -1814,7 +1814,7 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
+ 		WRITE_ONCE(b->max_skblen, len);
  
--static u32 cake_classify(struct Qdisc *sch, struct cake_tin_data **t,
--			 struct sk_buff *skb, int flow_mode, int *qerr)
-+/* Run the qdisc's optional external classifier. Returns true when a
-+ * terminal TC action wants the packet dropped, with the reason in *qerr;
-+ * the caller must drop the skb. Otherwise *flow and *host hold the
-+ * filter's overrides (0 if none).
-+ */
-+static bool cake_tcf_classify(struct Qdisc *sch, struct sk_buff *skb,
-+			      u16 *flow, u16 *host, int *qerr)
- {
- 	struct cake_sched_data *q = qdisc_priv(sch);
- 	struct tcf_proto *filter;
- 	struct tcf_result res;
--	u16 flow = 0, host = 0;
- 	int result;
+ 	if (qdisc_pkt_segs(skb) > 1 && q->config->rate_flags & CAKE_FLAG_SPLIT_GSO) {
+-		struct sk_buff *segs, *nskb;
++		struct sk_buff *segs, *nskb, *seg;
+ 		netdev_features_t features = netif_skb_features(skb);
+ 		unsigned int slen = 0, numsegs = 0;
  
-+	*flow = 0;
-+	*host = 0;
-+
- 	filter = rcu_dereference_bh(q->filter_list);
- 	if (!filter)
--		goto hash;
-+		return false;
+@@ -1822,19 +1822,19 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
+ 		if (IS_ERR_OR_NULL(segs))
+ 			return qdisc_drop(skb, sch, to_free);
  
- 	*qerr = NET_XMIT_SUCCESS | __NET_XMIT_BYPASS;
- 	result = tcf_classify_qdisc(skb, filter, &res, false);
-@@ -1740,17 +1747,15 @@ static u32 cake_classify(struct Qdisc *sch, struct cake_tin_data **t,
- 			*qerr = NET_XMIT_SUCCESS | __NET_XMIT_STOLEN;
- 			fallthrough;
- 		case TC_ACT_SHOT:
--			return 0;
-+			return true;
+-		skb_list_walk_safe(segs, segs, nskb) {
+-			skb_mark_not_on_list(segs);
+-			qdisc_skb_cb(segs)->pkt_len = segs->len;
+-			qdisc_skb_cb(segs)->pkt_segs = 1;
+-			cobalt_set_enqueue_time(segs, now);
+-			get_cobalt_cb(segs)->adjusted_len = cake_overhead(q,
+-									  segs);
+-			flow_queue_add(flow, segs);
++		skb_list_walk_safe(segs, seg, nskb) {
++			skb_mark_not_on_list(seg);
++			qdisc_skb_cb(seg)->pkt_len = seg->len;
++			qdisc_skb_cb(seg)->pkt_segs = 1;
++			cobalt_set_enqueue_time(seg, now);
++			get_cobalt_cb(seg)->adjusted_len = cake_overhead(q,
++									 seg);
++			flow_queue_add(flow, seg);
+ 
+ 			qdisc_qlen_inc(sch);
+ 			numsegs++;
+-			slen += segs->len;
+-			q->buffer_used += segs->truesize;
++			q->buffer_used += seg->truesize;
++			slen += seg->len;
+ 			WRITE_ONCE(b->packets, b->packets + 1);
  		}
- #endif
- 		if (TC_H_MIN(res.classid) <= CAKE_QUEUES)
--			flow = TC_H_MIN(res.classid);
-+			*flow = TC_H_MIN(res.classid);
- 		if (TC_H_MAJ(res.classid) <= (CAKE_QUEUES << 16))
--			host = TC_H_MAJ(res.classid) >> 16;
-+			*host = TC_H_MAJ(res.classid) >> 16;
- 	}
--hash:
--	*t = cake_select_tin(sch, skb);
--	return cake_hash(*t, skb, flow_mode, flow, host) + 1;
-+	return false;
- }
  
- static void cake_reconfigure(struct Qdisc *sch);
-@@ -1761,20 +1766,25 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 	u32 idx, tin, prev_qlen, prev_backlog, drop_id;
- 	struct cake_sched_data *q = qdisc_priv(sch);
- 	int len = qdisc_pkt_len(skb), ret;
-+	u16 flow_override, host_override;
- 	struct sk_buff *ack = NULL;
- 	ktime_t now = ktime_get();
- 	struct cake_tin_data *b;
- 	struct cake_flow *flow;
- 	bool same_flow = false;
- 
--	/* choose flow to insert into */
--	idx = cake_classify(sch, &b, skb, q->config->flow_mode, &ret);
--	if (idx == 0) {
-+	/* Classify first: a terminal verdict means do not enqueue. */
-+	if (cake_tcf_classify(sch, skb, &flow_override, &host_override, &ret)) {
- 		if (ret & __NET_XMIT_BYPASS)
- 			qdisc_qstats_drop(sch);
- 		__qdisc_drop(skb, to_free);
- 		return ret;
- 	}
-+
-+	/* choose flow to insert into */
-+	b = cake_select_tin(sch, skb);
-+	idx = cake_hash(b, skb, q->config->flow_mode, flow_override,
-+			host_override) + 1;
- 	tin = (u32)(b - q->tins);
- 	idx--;
- 	flow = &b->flows[idx];
 -- 
 2.43.0
 
