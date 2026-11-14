@@ -1,48 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.235
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794661761;
-	b=LbWF0V9eaigxEAtieeJosu1yHsr9ZrjWLx46SPdOxbO/XgllZdElBFpFB40N8J9a7OR+
-	 IGd8irXSJs6LSN+L3wgriOqcVPDYeoe5XgvE/N5AJEOWH8NvjMe7dpNwubW23NJwJEjW/
-	 1MH96o449hp0eDxeKBKWmlHOODT3nesEUvGmBay8tQa6ZGATJeh6/L7DSr64N5ADrEBNU
-	 RiXaTTnDtMTzUSygMpjQrCFWbhcuZOGiiqaEkwPyelLsh+zGhaFoGGN7ViNJ/jwOSO/Eo
-	 GOVU7oBG9NSebAOlMZaL1YMOAMVdED6Q56ihGnY73nrsVw6caaji/bLD1vnEu2o3bqQ==
+	t=1794661764;
+	b=2DaelERyiTbcpuL6bzyjZnXATiNbbppqakvWsJmYOByX28sKq2gN5XtjiqNxx6cKC7tO
+	 nQlchGqJY6u30AM8PhxuJU9xG5MAthjsmfnQUhSM97fB4kD7S2qWwjTvd4aNb4bVg5dPG
+	 Xkc4VoSiyaOIQEBdmO4rJR4B+JijwSdzyTLkhwQnNqNLdSiaw0mrHaotPejgshisP16N9
+	 9bUm/Y3+Ct+Szs3f4BSDwJGr2aNf00DRrm9IxjLBtY8lOuyk0gdq/HJgAk0tXR/kGF0ou
+	 zTG4FZo2+5rrbAZrzriXAdRxxCFw4Dygj7PLZU1kpYi1KcqZD/GxwAcfS0/Taz7CyPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794661761;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=OdlKWawwdwZpGTfkQNHBk5b32jOSAzRsLtI4xTW1vDQ=;
-	b=ZAnAQbSqC2pVrDCw9p1b7rRDsviPVHdVQnFOChkfEtRLWk32gFe33R0kaoWFXlLaSYvU
-	 psGMkeQqvWZqJTAsHGlo2qTK9+UbqE99/f0gDVmsGLLvSV1jYUEt67ek7Q69xGml83UG6
-	 nQZ3QxQkhuuOxbd8gxY0Wo48VH8/mHOWeS6jry9Yb10nttrWu5JspOqqKdJs3mMaYwDtb
-	 xDdNHFCa3VIat1rcTrw2qqqjSKrl/v8VhbxulG9PL4YL9n+AhdtUH9edsrrGUZw3p8OCi
-	 iuxXPB/ZXWx0U8MuCLSuoLcao5qqmBPoP5C6elOph86o9EMvfZ+2Js4SRag9U2Eb/lQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794661764;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version;
+	bh=9QHmD6CbC3B8E4Fu+2pBtpNfJsF3diLcnyMXeoB/6ZA=;
+	b=f9THfN6Rqf5hav4T/M3CypA2DumzsICfe3eEi5IhXQP8m91wHKW6S72s7rlX5EvZLemV
+	 Z7Zbrri6PLv7aglYyfzsKa05PABxypEQvMUNkwYg97EzoekFv4w3l66QLYeXPsPolsVbd
+	 6nSSyXSmMA4a6NHi4Bhovkv0GXLKKZsORZV4hrjNiwxFrE1Z8JRrzpoFJna5gHR/zdpHA
+	 flIM7yBWJBDh5wZxejq0MOn6eIGNkFs0W+xyWIQxsLmRfogWDPjVJ1a2QaCQNUWEhtMKf
+	 Bmi/GCVhZEd9Lg/zL//gkpAnw9HbyndekthcmVQxHh9SPUNj4t04kTzWf5JS8Z86OqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ahGg+gbK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=hBpyChmy;
+	arc=none smtp.remote-ip=203.205.221.235
+Received: from out203-205-221-235.mail.qq.com (out203-205-221-235.mail.qq.com [203.205.221.235])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DABF86075C64;
-	Sat, 14 Nov 2026 13:09:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB1B7606E0C7
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:09:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB1B7606E0C7
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ahGg+gbK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BEE61F000C7;
-	Sat, 14 Nov 2026 13:09:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794661761;
-	bh=OdlKWawwdwZpGTfkQNHBk5b32jOSAzRsLtI4xTW1vDQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=ahGg+gbKJXxbgqkOcSvuZjZ7iPlwqVzDb7EoxKqbMYLfnwG2b1ybTE6823Yt3K+6g
-	 6pxGQrYoIqiTMRS2KhVum/gBvAKYjwtRqLYJCBO/9ug+3ibc96rUKSQG8oL+uPM/Cp
-	 otj/ItmyYhEy+iuvYfxXHkC9TxP25a1aDbikvQC0LaWKFqqkHfvi1rF3sXkQx5MRrH
-	 gup6EgTCHwl6mcX33AkMw33YPKcSKfn9nILfmzWaqX+7hRwWvA8CVF1JFBWIvMizqB
-	 9iaDWPBWP9dpOG/jN3GKX5YzZjKL84UtGahKm/OO3Hrc5uHtCRmGPTFTPgEI2L+fkM
-	 4xc2owYmq/A9A==
-From: Christian Brauner <brauner@kernel.org>
-Date: Sat, 14 Nov 2026 14:02:13 +0100
-Subject: [PATCH RFC v2 32/42] usb: gadget: gadgetfs: use fc_init_pseudo()
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=hBpyChmy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794661760; bh=9QHmD6CbC3B8E4Fu+2pBtpNfJsF3diLcnyMXeoB/6ZA=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=hBpyChmybMm5aVI4drzPni8AuleG5XZwrboiosTTwWexsaIoAt1WJPEuLLepvv0gT
+	 mA8XCSWpadDMHCFT3ncTLtUCUdH/X5/Bp4cu4iErjNZJvPNVnasN5rPTAVsSlY9/Vt
+	 UBJBAik6tU4UJIbdq1NXLUGgaqsO+5S/f+CbK61o=
+Received: from [127.0.0.1] ([2409:8d5c:8f0:65e5:7443:873c:1230:8af8])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id 24F86472; Sat, 14 Nov 2026 21:09:15 +0800
+X-QQ-mid: xmsmtpt1794661755twccmgsz6
+Message-ID: <tencent_D60B0B7B6362D7A729A4FEAFFDF4D8328107@qq.com>
+X-QQ-XMAILINFO: OATpkVjS499uL2TWbxEEsFke5p/dO2hZuv9UzZTpEyVpZFZr0fMQ5/Be7DDHSE
+	 iwge78Q/cUM0f/Pn4F+DbXY1UOlESf2fEjA2ol1RUMZo7wUZCjtP2M126E2J48m5aY05T/BUmyfc
+	 DVxnfO8x5TUxaJPAyf6M9W1vXtIFmh44hS9uadpYPBK/DZ8g00UTQAPeUd5qcT7uSyAQANeB9v/K
+	 72dP75mtuKAWrjldn/zSw8NXOE4spmXwd1CQ9Sw2kcW11jWSNfYGrYg6D0kjw82JUMD28dq1Lip7
+	 589nLyX9Mi8jXl2QfR0UlxNyKyRWixafkXMhGOlvnu+aA2gMRidu0lLV9WQ7i7D9UaibLRUNRHKj
+	 xMimR7b6JpTXNDRD8/8o8sIabsxzj/nyBQT/YvVGzXPngIA078MgXxJNRD/5QdhUdwjcHJl3YcBF
+	 r/BW/9RNjssm48e0joFoylp6PNcG6MscJQ+mEE6Rhom+qWAkSM4KPXaPipU8vdEEIZVvUhmgnO7o
+	 MrlYaufuhn4sE19G8dDp1ovwxc9SVZRGzOVsBj211HaDpuVV+DCg9TDLzxTEyjU8mSFTGyfyJm/s
+	 GI/nS4S5qTPJpd3XMNDZOfwYDpluQHIcnP4erEjAxbOyoMLBtAf2+M0h02nAo+c2xR0rXFerXz6T
+	 dyh8giwUKeCoMepmVNVmYwIfbo4iFL1vK7vhD+pED9zMmIey/qbclE40szrW22JBkXkWr8VtrJMx
+	 knT5iTSRCG1e8VXLXHFkgNqKMZykF7+9tDhDrJNhJMXdq20W3O5mSwZiaifWPsvEn7hy5XiuiL/r
+	 JQ3LFtfR84K3ysaI90xnSAeJkKs+zWdM/eP+i9xyO/LDcxxEnR02gWgBLy4PqYxR06qg0AivJ808
+	 dSH/hW62P/S/f2i4csTZ5YyOnIt+mPxKjBLkOOxa+d3rdkzVDrKdOCbsMYD5l38vdwWsBUT4Fqkg
+	 26rZFHEEq/I0o6dnVGZtYATCUX7lYKq5yz3vcimP/xqMPzUxJeevm4NJN+XKXxkk/KMK9qp2m+23
+	 /WZkOGYFqMj1TG1eHntzU4Je1uCrh21gIP/FQMtsA2bf3q0tZU2z4k1AZs3gfFfR5bIRPMHw==
+X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
+From: Hang Nan <2122295973@qq.com>
+To: sashiko-bot@kernel.org
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, matttbe@kernel.org,
+ martineau@kernel.org, geliang@kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ kuniyu@google.com, willemb@google.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, 2122295973@qq.com
+Subject: Re: [PATCH net 1/2] net: mptcp: take token lookup references with
+ acquire ordering
+Date: Sat, 14 Nov 2026 21:09:14 +0800
+X-OQ-MSGID: <179466175477.91732.2161918558371491672@qq.com>
+In-Reply-To: <179448794830.196117.14284634941387773647@qq.com>
+References: <20261112124547.193812-1-2122295973@qq.com>
+ <179448794830.196117.14284634941387773647@qq.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,68 +85,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261114-work-loop-pseudo-v2-32-98639a2286fb@kernel.org>
-References: <20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org>
-In-Reply-To: <20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org>
-To: linux-fsdevel@vger.kernel.org
-Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, 
- Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
- linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
- Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, 
- target-devel@vger.kernel.org, driver-core@lists.linux.dev, 
- linux-mm@kvack.org, bpf@vger.kernel.org, 
- linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
- apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, 
- netdev@vger.kernel.org, fuse-devel@lists.linux.dev, 
- linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, 
- ocfs2-devel@lists.linux.dev, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-usb@vger.kernel.org, 
- Amir Goldstein <amir73il@gmail.com>, linux-erofs@lists.ozlabs.org, 
- linux-kselftest@vger.kernel.org, 
- "Christian Brauner (Amutable)" <brauner@kernel.org>
-X-Mailer: b4 0.17-dev-ce4c1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=982; i=brauner@kernel.org;
- h=from:subject:message-id; bh=YWRf7GOro6drmYRPuYvYnNI62ZxquNzo3CA3o8p8z3k=;
- b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWT9iOkuXt19v9szNHxy/sSShDNHi+s1AhW1jvfPOLx+v
- 43t+vdHOkpZGMS4GGTFFFkc2k3C5ZbzVGw2ytSAmcPKBDKEgYtTACZi95Dhn+K7b5fV2hevnL5D
- 2vJ8vvv+x1/kZkmvkvsmunJ/0t+X6ZmMDDeNr0oHP1bwdTnx7e2hwBWKTidX/diQpKYmvejZFYN
- lK7gB
-X-Developer-Key: i=brauner@kernel.org; a=openpgp;
- fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 
-Initialize gadgetfs as a pseudo filesystem. This raises SB_I_PSEUDO and
-also SB_I_NOEXEC and SB_I_NODEV. gadgetfs never holds executables or
-device nodes.
+Thanks.  All four points are correct; respun as v3 with two additional
+patches.  Details below.
 
-Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
----
- drivers/usb/gadget/legacy/inode.c | 2 ++
- 1 file changed, 2 insertions(+)
+[High] token 0 accepted by mptcp_token_get_sock()
 
-diff --git a/drivers/usb/gadget/legacy/inode.c b/drivers/usb/gadget/legacy/inode.c
-index 7f6d8460152f9..8490e5d0351e1 100644
---- a/drivers/usb/gadget/legacy/inode.c
-+++ b/drivers/usb/gadget/legacy/inode.c
-@@ -13,6 +13,7 @@
- #include <linux/module.h>
- #include <linux/fs.h>
- #include <linux/fs_context.h>
-+#include <linux/pseudo_fs.h>
- #include <linux/pagemap.h>
- #include <linux/uts.h>
- #include <linux/wait.h>
-@@ -2223,6 +2224,7 @@ static const struct fs_context_operations gadgetfs_context_ops = {
- 
- static int gadgetfs_init_fs_context(struct fs_context *fc)
- {
-+	fc_init_pseudo(fc);
- 	fc->ops = &gadgetfs_context_ops;
- 	return 0;
- }
+Agreed, and it is a real defect rather than a consequence of the missing
+ordering.  Both validations compare the socket's token with the requested
+one, and for a requested token of 0 that comparison is satisfied by
+exactly the states a socket must not be accepted in: the value
+mptcp_token_destroy() stores, and the zeroed state of a newly allocated
+msk.  The ordering change does not help there, because the comparison
+itself is vacuous.
 
--- 
-2.53.0
+What I verified statically before sending v3:
+
+  - mptcp_parse_option() copies the MP_JOIN SYN token with
+    get_unaligned_be32() and does not reject 0;
+  - subflow_token_join_request() passes the result straight to
+    mptcp_pm_get_local_id(), and for a subflow with a different source
+    port to mptcp_pm_announced_has_ssk(), which walks
+    msk->pm.anno_list under msk->pm.lock;
+  - that list is initialised from mptcp_pm_data_init(), i.e. well after
+    a socket can be found on a chain.
+
+Patch 3 now rejects token 0 before walking the chain.  I did not manage
+to reproduce the resulting crash, so I am not claiming to have observed
+it: the description in the patch is a static argument, and the Fixes: tag
+points at the commit that introduced the lookup, not at an observed
+failure.
+
+[High] mptcp_token_iter_next() re-checks only net_eq()
+
+Agreed.  Patch 4 re-reads the token after the acquisition and drops the
+socket unless it is non-zero and still hashes to the slot being walked.
+A socket on a chain always hashes to that slot, so the check only rejects
+objects whose memory has been reused in the meantime.  I kept the
+severity assessment lower than the one above because both consumers
+(mptcp_diag, the userspace path manager) are netlink paths that require
+privileges in the target network namespace, so the bad state is reached
+locally rather than from the wire.
+
+[Medium] the commit message gives the wrong reason
+
+Agreed, and the correction is in patch 1.  The acquire does not pair with
+anything in mptcp_token_destroy(): that function does not touch
+sk_refcnt.  What it pairs with is the publication in
+sock_init_data_uid(), smp_wmb() followed by refcount_set(&sk->sk_refcnt,
+1), in the SLAB_TYPESAFE_BY_RCU reuse window, which is the case
+refcount.h documents.  The message now says that, and keeps the teardown
+comment only as background for what the re-check is looking at.
+
+[Low] Fixes: trailer
+
+Agreed, and corrected in v2 (now v3): 2c5ebd001d4f and 96d890daad05 for
+the two mptcp sites, and 1cd62c21572c for the reuseport patch, whose site
+also postdates the consolidation.
+
+On testing: the ordering change itself has no runtime observable on
+x86-64 (both variants compile to lock cmpxchg) and we have no way to
+observe the reordering on the hardware at hand, so patches 1 and 2 carry
+an instruction-level argument only (on arm64 the CAS becomes CASA; I can
+include the disassembly if useful).  Patches 3 and 4 are plain
+functional checks and both objects build; I have not run a KUnit case
+for token 0 yet.
+
+pw-bot: cr
 
