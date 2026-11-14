@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794670657;
-	b=QxeCKK7+toWsBKPZIm/2QfLG7FlyNY0NhxqiI6ohWZnMARbMSmfKWyGrE6imn8uqansr
-	 Ennk4xlLu+R+/E+Llvu/CiU6jx2b1Z1FmJAyDXp137dAesLooQkDFWJ5syn2kBToPBNoZ
-	 N14WJVQPNA6o7crdnKo0GMEJJm2t/HgIKZfH1JR7CdasNPpViu08Pj6eqA1yexuZqnF2t
-	 SKK3+wLpQhiDrh9sIQ+9WITJZjSb4pS+VtiCOkzvkvZFMVC0Hk5QLNsnno/r8kBlPnsd3
-	 cGbvH6C0g3/70nnEJTQZEYf01CMUwjhzL0D5oQ77lR2MOwUlalvQlC5ejRqKWW78kHA==
+	t=1794670693;
+	b=xkoKeMulzUvdTxCbp6UATlu34Je+d0ksXOIr00geT9OYlch0sesUvxvNL0sKRPuof/gm
+	 AwOm7Chnnj4ArmfTlaQwD0YWphI9Sa5RiaE8gUvwC6xnFHEf7jD9kEhd54mMkFwsWm1Ad
+	 0VvwfN4vv012S3IWh+YJBALptNx/Y8ovM5/IwKmyDG9E9/VFIf7iWTu5KSZlJZJYNONf4
+	 Mb5lU1sLoKRiwqb25gOmvqGTVX4xsUXTiD+CL4sjeKLSgwUlh6Tz1S8rEj83ao77htm00
+	 Jh1HByP2toheRrh5QJlo9/8lqZAc9dTpG9yUk0TbaBVNSq/FpRqyZ4JmS7Zda3JeuoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794670657;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794670693;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=TVGBjf0ZFblO89VfjuR1hy/9Uswtc0sHiH5xUhMMnMQ=;
-	b=NY9Qr33hUOCrBl+ojXnnOMbJmkCz5V8sAXwHTcmk3ULc9XmTpqphwqsVHmI6/LSQcgb0
-	 WpIyS8B9Kftpk/fiZic7GLXPgessFf0hqfhkD2wiDuKSPfPz0WdSMLbIQChzXIeP7QZ6W
-	 2nVN4fn8kgc7N167fztFMyJgDGAtEzKM3XbteseDkuKuYyCO/6bwidEN7TzAwc4u0I4PH
-	 aC1Py9fXIr2YTOn/CdquzLZTHwOw7ULXzTRjY/f+P/1jIFekLaj2NvfFmguQiKGgQvBsm
-	 sjhcAe+vDAMU5gO+SGKMjjGt6xwCIpxFptmxkCy3nhdlafgB/sTDsc8B5hxRjuuRt6A==
+	bh=lZLJy6bzNUWfLiwfp/OHIdREPsKJ7Su3AkHPHH7wh/8=;
+	b=YbUx/7HXR0ZPmhtg92AXO6Qixlm0Ya+nuFvRBlf2VCcCXv1sYdjLsO3zLvBTMySpNxDt
+	 uG0BW3jgg/U0aQ3fMApm3kDSv6Kg9pYPWcGseHHTnEYo/Xq9VY3ioDewTDpsphy5CYtWc
+	 mYU5EKCJ06ptvmCKn139b/0lAoFSnIkQnjy1zx8/VwgJMjCUdKkTuSkK9+lre4m7kdBO3
+	 sE4t0tggNXCmQfN6raD6SVsGlQ7CUe16ikbXg5ZGv/vS9cm8ktwcyDRPJ3ZrPHdRas8/e
+	 YqHqxNWCgtrcXaxYzixB9T8hblUH1jeAuNg4m3W1RO6j47DQtn5ZBuASoWexFtehfNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lwhcyU0y;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J14Na+tt;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCACA606A329
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:37:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA5BE606A327
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:38:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lwhcyU0y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A5881F000CB
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:37:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J14Na+tt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 837601F000C6
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794670657;
-	bh=TVGBjf0ZFblO89VfjuR1hy/9Uswtc0sHiH5xUhMMnMQ=;
+	s=k20260515; t=1794670692;
+	bh=lZLJy6bzNUWfLiwfp/OHIdREPsKJ7Su3AkHPHH7wh/8=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=lwhcyU0y6n7Z2lrCcOZGbYHqJpT6TD3//sjZCwX0fA51uoFR6XWM8ba1m8BVPZy/I
-	 dH7RmdRMTVB4mwrRX+UWQL5yqoFq+LQBaeV4RAKp7G+6+LcJRCnAVCzhF0ZirktShV
-	 BxfaxaPVZp1IEmZqHjvLrUFGm4fgT8IKa8XjLrZuKVN0RtVFi2kNy+msU5/Hk9WFT4
-	 sUhyiGvQDXzV4ioXW8ed5qF8elpbIAM3irkY6A9fkCDKTkGzXj9LdFMQ/D0d4k1VjG
-	 m+tfLuEimkAXkrq2fv58J7t/JhjM41yHE0bU63/OE59ESajntNqveI2Uvx/3EbFMu7
-	 213ZVXs5n1kgA==
-Received: by mail-oa1-f50.google.com with SMTP id 586e51a60fabf-4ad587ba293so2004684fac.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:37:37 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGnenXYTtA8u/zg5UVCjMddbqzk03iYWVvwKnaGO7+KgCawOB44w7QShlHDGa33pe6+UF5jF54=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/3ydlmv7rEgCW+OoqPVAFR4wz7yO1aIlVAhzGKNhnEtGz3WP53
-	M5ryRUEVX5IFY7SHAYwYSFEHR/YKFZDhwHPAwoDPKWUDh4Dj45/CAzCTx0sVFSyJSco1VKwmnD0
-	GSTyxf41+Zfe/4dy6T9fNfAxeixGQins=
-X-Received: by 2002:a05:6870:3d93:b0:485:d31b:7768 with SMTP id
- 586e51a60fabf-4afdf449eb6mr5504282fac.38.1794670656731; Sat, 14 Nov 2026
- 07:37:36 -0800 (PST)
+	b=J14Na+ttPobaKmHX9bYSE41A7sQBsSPeDsYJoirRsm27ASs3BRvMfQd+Ofyr3nBGo
+	 B4UZRiG9JLDlO1N5QrNqPdDUKsO4S4QEoZz+vDCRQbiuEXVkb95XYtaPCYgn2BJ9VU
+	 QfKZjQEQ9OYgFVFScUCpGfSca9wUPm55nwUwYOzvPH8i9GnpMJUcZKVT2NGTil4OV5
+	 vHoUukHrOpanAOlF23AJ0jxQjUT2ieK1J9DpD9MNsnxNtG0onXqTpRuWnbVt41uwBR
+	 A2ISSk5ww8bCsa6qryqkVzTn7m8RxnUKbMVu1xo7/PU6DNQv9lJ3QiDMSGMJILen1D
+	 Viqt8ENpabIKA==
+Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-71ad2c6491fso278484eaf.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:38:12 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEXfsr7q3PGUI8O5KgCqDul/O/WAV3dKzD6MgM+uys68hLleEa3kdY/xxeJiBO0aIb4ctjUnr8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z95mgkm2Izw7Feq7I7raZaWho8O5INieSkpC2yvc6BlO2Vt1xsS
+	9xFO3L8VymSUKJviiEZDi/dz9bo45LP3HsXm2o0bCqmbVvVbAvmfGtYo1xX8UcWwIPw24lbMPtI
+	b+FDhfAx984Y2U/nAYK5RKmNGJ7GK5h4=
+X-Received: by 2002:a05:6820:60c:b0:70e:177b:eafd with SMTP id
+ 006d021491bc7-71ab5086aa7mr2905723eaf.16.1794670691913; Sat, 14 Nov 2026
+ 07:38:11 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,14 +59,14 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261114040101.1043546-1-kuniyu@google.com> <20261114040101.1043546-7-kuniyu@google.com>
-In-Reply-To: <20261114040101.1043546-7-kuniyu@google.com>
+References: <20261114040101.1043546-1-kuniyu@google.com> <20261114040101.1043546-8-kuniyu@google.com>
+In-Reply-To: <20261114040101.1043546-8-kuniyu@google.com>
 From: Eric Dumazet <edumazet@kernel.org>
-Date: Sat, 14 Nov 2026 16:37:25 +0100
-X-Gmail-Original-Message-ID: <CAL4WiioP8jdBJjKKBV98spcaoAB9FAsh_UsPzkCn53JYhphx9g@mail.gmail.com>
-X-Gm-Features: AclHuK95dYFNK3Ztxi6Qd0c673I4A0T6dTKtF71tomm8MFSr2o-a3UDJ-7XG9eY
-Message-ID: <CAL4WiioP8jdBJjKKBV98spcaoAB9FAsh_UsPzkCn53JYhphx9g@mail.gmail.com>
-Subject: Re: [PATCH v1 net-next 6/8] tcp: Allocate all new skb before collapsing.
+Date: Sat, 14 Nov 2026 16:38:00 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqY-8011r9W_mGk1ZRZhmO2ac58s0ZiHEtKDyMzYrd1zg@mail.gmail.com>
+X-Gm-Features: AclHuK_0vQH_kcXOb_-kASCC9WUkmMpDMZVq3vl7tNG4sb5I7vb4f70hvWqu3eQ
+Message-ID: <CAL4WiiqY-8011r9W_mGk1ZRZhmO2ac58s0ZiHEtKDyMzYrd1zg@mail.gmail.com>
+Subject: Re: [PATCH v1 net-next 7/8] tcp: Batch memory accounting in tcp_collapse().
 To: Kuniyuki Iwashima <kuniyu@google.com>
 Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
@@ -77,35 +77,22 @@ Content-Transfer-Encoding: quoted-printable
 Le sam. 14 nov. 2026 =C3=A0 05:01, Kuniyuki Iwashima <kuniyu@google.com> a =
 =C3=A9crit :
 >
-> At the final stage, tcp_collapse() iterates over collapsible
-> candidate skbs and repacks them to new skbs.
+> Once tcp_collapse_one() calls sock_rfree(), skb->truesize is
+> reclaimed to sk->sk_forward_alloc by sk_mem_uncharge().
 >
-> In each iteration, a new skb is allocated and inserted to the
-> receive queue or a temporary list for RB tree.
+> However, sk_mem_uncharge() rounds down sk->sk_forward_alloc
+> immediately once it reaches 4K since commit 4890b686f408 ("net:
+> keep sk->sk_forward_alloc as small as possible").
 >
-> If alloc_skb() fails while splitting a large bloated skb across
-> multiple new skbs, the partially-copied skb is not removed and
-> new skbs remain in the queue as duplicates, consuming more memory.
+> This unnecessarily reclaims memory for newly allocated skbs,
+> and the following skb_set_owner_r() for them underflows
+> sk->sk_forward_alloc without sk_forced_mem_schedule().
 >
-> It is only when all candidates are properly collapsed that
-> we can save memory.
+> Let's cache the delta during tcp_collapse() and batch accounting
+> at the end.
 >
-> To avoid complicated rollback, let's preallocate skbs before
-> collapsing.
->
-> Now all skb in [start, sub_end) must be allocated in a batch,
-> so the section size is normally capped at TCP_COLLAPSE_MAX_TOTAL_SIZE
-> (16 skbs), except when a single bloated skb or overlapping OOO skbs
-> must be collapsed together to free the original skb or keep the
-> rbtree monotonic.
->
-> Once the size exceeds the limit, the remaining skbs are re-evaluated
-> from restart:.
->
-> Note that the next skb can be skipped if its density already meets
-> tp->scaling_ratio, and each cut adds at most one remainder skb
-> (~3.4% worst-case truesize overhead on 4 KiB pages), which is a
-> small tradeoff to bound the temporary allocation.
+> Then, we no longer need sk_forced_mem_schedule(), and instead
+> DEBUG_NET_WARN_ON_ONCE() is added to catch a future issue.
 >
 > Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
 
