@@ -1,67 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794652508;
-	b=aM8VigFj3qLkJEKsdJg1i8M7bEj4Peh9wiiX95KtrYBAehghVPD8lehlpB8uTuZGrs7E
-	 +33Z0QgCMx+2FhEdN7aDVoSI+TFzcNzkYL5JNrcWMPVGUKEtGXbqt7mDcCZv+YuMmXJAb
-	 VeaV1pxnFKwTP9Of8ZzUbzjURllWtOf/wIknkQs/6PVz8ZH0BKRautkYWoYSLUyJ+7PHW
-	 mZK2F/aCx76J1I5Mf4gMlrIHxvhvk5HCgSDcA+hcJ9f3lDB3pxjeexEcRqKLldwJ1xlQi
-	 n/6MM123kPLIIFcWvHQ84Cgw6Ac4hind3tRUu99VkGW7GpgGp8bYFCk43TnLNeNc+XQ==
+	t=1794652724;
+	b=oqawjCYXViBhZDOu54mO4rFz5m3zErSirnUbuzXnMAw5PATI/TruwwQCkwdYiSLiYDWT
+	 87+gx8lEZbzpBfhA+I9R/lP3Tj64Irpw9UlSdc+p4na9S7JCuJzxOJ4l/gtzUEqjOMI7V
+	 DJHN6iX/ivzO7lbnKY46RBEEl0JZ42vbCVul1KDbsbqHvMtBf7fP7k5za24lFJMnv2acy
+	 tc9PFjKvxjpUacndXixORGVwbf0veUq8K7TT9dHn+NvEw19syoMtzELWJVlFAnS85jZU2
+	 MsBpOdAkcOgkFCqLIUggxnTJAqvI4a+i6uFgZcE3+rlJwGd7/bwvyVtmWY/ExSPHbTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794652508;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=rIeGr1ZfHqgP5C0CTq+IjubXxO1HLLI0c0lBMd1W29c=;
-	b=ztVuT80mlEn4JLfJNMJ+fWDVzXfUNrWRpHys5T8SB0wKh13uE8R3t4Rp/Oe3vFaqq0LU
-	 xn7dDDfYsDSYEWcxZHb+O4938ek2JXKizb7bokfjHntuNBaaj8Zus5cvywlnPKRoNFaVA
-	 mTVBFqW7CynUNmwS4iRZ6ZUeyMwc5O4U6DoC5hDTL696WW2VIOdoUtHo+HZ1Rz1OtpLHm
-	 gN0p1e8l7KRWTo+4McS97rCKWRAXscyfjEkeH3Tkp6LUVebFhQ9Il9Odk2KhiBRlyOpiH
-	 4voDZbtdEWQ+JaYmmV16TFbvFYnd67m+Qjuyuqh50YeDZtqAZspA4/voW5ObHcX1L7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794652724;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=f0g6P6hsNAkBmmk1dhVL/yqmLVxvhNEJRF73P8Hffz8=;
+	b=XTRFf3I9lNTiXczV41KEJg/FNuIVqDVo2dmDdYyszYgVrx7yTyVRPsPuZfvPA4veCQgQ
+	 jKr/qKLNzZFhQ2jewlC/ZCTk4+8Poh+6hOz3XN5IEfOlepYONBBN/dZ283nK3OXJNhLZ3
+	 LUjdHWsRXLFyh6UM22W5GyemHIlJGs7c/oztRdwvhrP9kxWVJWRUZdqykh/yKnLFBm5zI
+	 jW/KA9kONTlAz0bqr1L/Ybfmzs2qCgDwTbIVbBI+YVwP1Dtp3zII5gIcV0LHpaX/uQIQh
+	 TF5BkI2HzftmVZuRIitvcviJKbYL8yp7+DQl14DOpUMxZZ2GcSxk2dCywnFttGpRBDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=CYZX7uef;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 411DC606A333;
-	Sat, 14 Nov 2026 10:35:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 411DC606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ozu7z0Kj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFCDB606A323;
+	Sat, 14 Nov 2026 10:38:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=CYZX7uef
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=CYZX7uefb6it+jNZqwbPLU3dltX9Gpz40G5CwyIQm6ijKJl1qWxvDd+fB7hKcbfwp0UwYi0Asgylf
-	 S2jBZ6+tvCK2i3LwWpbvG6N7pfmjArqx+A3zXwcE5Z9kSPXYrjQgDCP/wDvIxAX9gPiPGrt55G3kxK
-	 VUCKTUS5TMAo7zYo=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56af8394c1b8-ee994;
-	Sat, 14 Nov 2026 18:34:55 +0800 (CST)
-X-RM-TRANSID:2ee56af8394c1b8-ee994
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86af8394d13d-41ce7;
-	Sat, 14 Nov 2026 18:34:55 +0800 (CST)
-X-RM-TRANSID:2ee86af8394d13d-41ce7
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] net: ethernet: ti: netcp: fix queue name buffer size
-Date: Sat, 14 Nov 2026 18:34:52 +0800
-Message-ID: <20261114103452.943-1-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ozu7z0Kj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CE541F000C4;
+	Sat, 14 Nov 2026 10:38:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794652724;
+	bh=f0g6P6hsNAkBmmk1dhVL/yqmLVxvhNEJRF73P8Hffz8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ozu7z0Kj1tHIOD24bkiz6twDQ59H2LG047bnoA597yeAQD+7loV9AVNQq6/EfNxmA
+	 RAV43n2Xp3rFswhwCvrdVPjCv2twIaBECTwXwjSyPBKOEecSJccYi16iPUffdcy+kX
+	 2KsSYHa0TM5q3kVm9Et0sKjXOYpfJER4fjfggVZYik+Tlk8iLg4VYcTfwPq6hSWTb+
+	 FqNtagBKrLecsr9nZyvU/RGWRSqwrFdabGVO12uSaA2rrQgzv6ROpsZEsD9jdN00pG
+	 9AVp7r2bVcIF0aGX9qNUD3D/9g7VuGmG+jesekdRYeqNRWWlH0zjJp4ZwQJyQCg3y0
+	 VLaLdAkJXNuOg==
+Date: Sat, 14 Nov 2026 11:38:35 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: Christoph Hellwig <hch@lst.de>
+Cc: linux-fsdevel@vger.kernel.org, Jann Horn <jannh@google.com>, 
+	Chris Mason <mason@kernel.org>, Josef Bacik <josef@toxicpanda.com>, linux-block@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-nvme@lists.infradead.org, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, 
+	target-devel@vger.kernel.org, driver-core@lists.linux.dev, linux-mm@kvack.org, 
+	bpf@vger.kernel.org, linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, netdev@vger.kernel.org, 
+	fuse-devel@lists.linux.dev, linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, 
+	ocfs2-devel@lists.linux.dev, linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-usb@vger.kernel.org, Amir Goldstein <amir73il@gmail.com>, 
+	linux-erofs@lists.ozlabs.org, linux-kselftest@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH RFC 01/41] loop: refuse backing files that aren't open
+ for reading
+Message-ID: <20261114-erfrieren-vorher-taktieren-ef10b08e210f@brauner>
+References: <20261110-work-loop-pseudo-v1-0-4c998976c6c7@kernel.org>
+ <20261110-work-loop-pseudo-v1-1-4c998976c6c7@kernel.org>
+ <20261111145555.GA9996@lst.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,52 +68,18 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261111145555.GA9996@lst.de>
 
-netcp_txpipe_open() and netcp_setup_navigator_resources() format a queue
-or pool name into a 16 byte stack buffer.  The longest of these names is
-"rx-fdq-<devname>-<n>": 7 characters of prefix, IFNAMSIZ - 1 (15)
-characters of device name, a dash and the queue index, so it needs up to
-35 bytes.
+On Wed, Nov 11, 2026 at 03:55:55PM +0100, Christoph Hellwig wrote:
+> But i wonder if we want a thin wrapper around ->read_iter/_write_iter
+> to do this check so that it matches the normal read/write path?
 
-Building the driver with W=1 reports a -Wformat-truncation warning for
-each snprintf() that formats ndev->name, e.g. for "rx-pool-%s" the
-compiler warns that the %s directive may write up to 15 bytes into a
-region of size 8.
+Yes, I had thought about that as well. We could use
+vfs_iocb_iter_{read,write}() for that but it's not thin at all and
+brings in the LSM into these codepaths where they shouldn't meddle.
 
-netcp_txpipe_open() formats dev_name(dev), which is not bounded by
-IFNAMSIZ either, so size that buffer the same way.
-
-The names are only used for knav debugfs entries and for dev_dbg() and
-dev_err() messages, so nothing changes apart from the names no longer
-being cut short.
-
-Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
----
- drivers/net/ethernet/ti/netcp_core.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/netcp_core.c b/drivers/net/ethernet/ti/netcp_core.c
-index f5e093dc9..a746b0348 100644
---- a/drivers/net/ethernet/ti/netcp_core.c
-+++ b/drivers/net/ethernet/ti/netcp_core.c
-@@ -1327,7 +1327,7 @@ int netcp_txpipe_open(struct netcp_tx_pipe *tx_pipe)
- 	struct device *dev = tx_pipe->netcp_device->device;
- 	struct knav_dma_cfg config;
- 	int ret = 0;
--	u8 name[16];
-+	u8 name[40];
- 
- 	memset(&config, 0, sizeof(config));
- 	config.direction = DMA_MEM_TO_DEV;
-@@ -1584,7 +1584,7 @@ static int netcp_setup_navigator_resources(struct net_device *ndev)
- 	struct knav_queue_notify_config notify_cfg;
- 	struct knav_dma_cfg config;
- 	u32 last_fdq = 0;
--	u8 name[16];
-+	u8 name[40];
- 	int ret;
- 	int i;
- 
-
-
+So maybe as a follow-up series with a new
+vfs_iocb_iter_{read,write}_raw() or whatever. Feel free to make a
+suggestion.
