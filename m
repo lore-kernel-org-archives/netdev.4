@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794648520;
-	b=MWCSC2/t1sDgzoQJYw3cjr9S/CpaqXsRZSvZ4mFa5w1xPqSFedMXGoGVPWbvIcwNTLz9
-	 qiLljrMREb4Hsx6fLdcYIQSLu87odCCjZSPsyG2QHz/c8XxFCTF3w9PePUL/JA28gISAi
-	 o/6mKFoKuC6bWXUtgD5nypYOXUPkeEppdDlXo4SwCnLHh87HTRdw9OLEQ2GqWA/K1kANp
-	 fR0J2SydTMvmXJ9HIk6j5+l9tX45I5b3nhcDSAJ55+GRwKzdBk+FBeLhjTXc5B4+rj2aR
-	 e3DrcfMslXj+8JWiYhJKpQCW2Txt8pnrPRT1N4Ng3xTfNoUd0nCnxTQCTG3GR6U6Bzg==
+	t=1794648518;
+	b=ouKqR5KbzTDGMywUlOHMcVXwhBUHbTp3eQmyPpvARvMAVsgjVP+SwH4YtIat3R8o0k8T
+	 RSNk7G6HP6g3QegTfezQMLIxgQu05msgqDyIPrUze9MQvkpMGyMZois4jx8TJAY2COxe1
+	 Idhz49NKSWFQXyemudOOzjM/VBbY9YgQJKWlwVVyDjHqQv/I44FkH84ZMjIylwn+rcdKz
+	 s8eaz0pJ/UC/ViNjhjEWudyrrlNIiOfP4VcWN7mpMiDf67c1VMXYnV6Un/x1X7oWuz4eM
+	 6Ejli0Dwp8czrnrfkFtfd3Ala/J2cSNKTkCgmztOhYavduXT7PHj8lzxKXBDAeU58hw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794648520;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794648518;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=kmc0qXi4ME4oDz4wqA5tJxUwkXHr4wrcUHauToTFwAo=;
-	b=2Y5wLAFBuLgtE63MHufP9iPd6tc4sw5czNMiEApBHha/LqoCS72v9vvt3LAyebDgfhDJ
-	 asinTmONYb7UK1OwwQqqjnCt1Olj/HjiqKC/D+OEqL5JMFllykSFwFScMVKNdGBkCnhXi
-	 0jICMbOB/KNt8WiVhw/RJ6G9S9KwTmFlBeMl+0rmLj58arBZrBI3Xo5PUYPnWF7yRO/cu
-	 uIYmzLzYHzhY201nGKPq9NiACqrCLsQsPjLe2kiuO4egkeB2o/APBrwr+WrNpWDiF94vi
-	 +FDdOJ2HiqutZFAnGvQI6fJcsD1q0XP03YSCM7LQAXg8qMRqfEQh7ccvFUU6HIWmG6w==
+	bh=RENNZfG/pnKsnY0GRiJ1fVPMjdSy5AZ3i3jPYh5MFsM=;
+	b=vlgGPrM4kclkQbFgYx/gP5ME/hNdoHiXePs5bwxwtVPYc4vCJlaeBTDWj/e+jOtCRhPr
+	 BQyXcev0PZ/Nt2JwjKwGkZaBMte7qI7C/0EgjeHH8ExZ8vX+dpW5O1TLWJve9pc5ZOci2
+	 8Sxa+VhPz/I1e+6CvPDPKE38us/OYmYESfiFe4lJE0M/BkYdDAgwvioH1Er3YWEZGnqSG
+	 E65sM/Ri/FNYaUB0873eQtXfjdS9HekETN55vHduW4jJZXQU533cYgoYTyvOoBE4ZVVie
+	 79NM+5z+Gw8Bfu/PGG8H8wJqMgrBlZvLSuwMTLcpHQcKb5xlxwVrjdgWMG15sr7ed8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxEdHNGU;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mjs5Mjqf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDADB60A5BC6;
-	Sat, 14 Nov 2026 09:28:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A9A4606A881;
+	Sat, 14 Nov 2026 09:28:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxEdHNGU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F30D61F000C4;
-	Sat, 14 Nov 2026 09:28:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mjs5Mjqf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95C581F000C5;
+	Sat, 14 Nov 2026 09:28:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794648520;
-	bh=kmc0qXi4ME4oDz4wqA5tJxUwkXHr4wrcUHauToTFwAo=;
+	s=k20260515; t=1794648518;
+	bh=RENNZfG/pnKsnY0GRiJ1fVPMjdSy5AZ3i3jPYh5MFsM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GxEdHNGU8YlrQjxHgIsODocmGg03kNpnybHp4ArN1VIvGjQ6vm6ADVEjhn07BRuEb
-	 omGqhvb4ezIuIHR9R2wzjrjOC5xhrTHRHu/6TfRSjPey0fA53O+LqjsMpMra3CYkGq
-	 IWLQl809W/KhdxaAtvW6fMEDM12DKFRCrPuMHKV3mPMqUc+IDb6gCeBpMZKgkTEkNm
-	 ExqaTN8dKJ4mH0kg6vh+Vloe30vQSQkmj3+VlZSzOg3lHySwJDSpAHRNwCSy3wrcGA
-	 nzThStENq9zJywEpegX25uks7D8NIgGYrZF0JonwFFCiNZQMdEw0fBNWm6AvdghVvz
-	 f2LDPi03K6uEA==
-Subject:
- Re: [PATCH net-next v8 11/11] r8152: enable UPS for RTL8157 and RTL8159 QFN68
+	b=Mjs5MjqfMwPEACVbbaonWqHtO7Pu5x9zndh/9QS2TOB9IXl2s6YNI3OWhWCSq3UdB
+	 Ml94QxTWMI2kByJdCpWUAcc04TkTJE9pJ/mzQ2BGTMAoKEopMpyOLqJlPt5PUyjgIM
+	 TUazSslcoKKN15dFmQH8lwxMtT4Au7bAFLT9UiDKZGOfXtuJUGWs4Rlrx42+g4G1CS
+	 wGwFTKjDJhuC84KxXpv+eLWebjamC9WXEUf/f75jQNzsOJgvhne4XlehCkWKdivHoM
+	 HtI9vHhLuvnxRpjZQeh/syeu3eo+IXBRWNz1XActK6AiKcBCHiu1Pn9D+IZ2C9pybc
+	 s5Oqv6REUQjTQ==
+Subject: Re: [PATCH net-next v8 09/11] r8152: split r8157_hw_phy_cfg into
+ RTL8157 and RTL8159 variants
 From: netdev-bot+sashiko@kernel.org
 To: hsu.chih.kai@realtek.com
 Cc: davem@davemloft.net, kuba@kernel.org, netdev@vger.kernel.org,
  nic_swsd@realtek.com, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
  edumazet@google.com, bjorn@mork.no, pabeni@redhat.com, andrew+netdev@lunn.ch,
  mail@birger-koblitz.de
-Date: Sat, 14 Nov 2026 09:28:39 +0000
-Message-ID: <179464851954.2199510.2249014623372235889@kernel.org>
-In-Reply-To: <20261110032416.16968-12-nic_swsd@realtek.com>
-References: <20261110032416.16968-12-nic_swsd@realtek.com>
-X-sashiko-severity: Medium
+Date: Sat, 14 Nov 2026 09:28:37 +0000
+Message-ID: <179464851718.2199510.17123458125555803933@kernel.org>
+In-Reply-To: <20261110032416.16968-10-nic_swsd@realtek.com>
+References: <20261110032416.16968-10-nic_swsd@realtek.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,211 +65,117 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] r8157_ups_en(tp, false) in drivers/net/usb/r8152.c runs the
-  BACKUP_RESTRORE wait on RTL8157 (RTL_VER_16) as well as on RTL8159.
-- [Medium] If the backup-restore wait in r8157_ups_en(tp, false) times
-  out during runtime resume, the device is marked inaccessible and…
-- [Medium] After a UPS power cut (PCUT_STATUS set), r8157_ups_en(tp,
-  false) waits only for BACKUP_RESTRORE.
-- [Low] r8157_ups_en() clears the USB MAC firmware version by writing 0
-  to a hardcoded register, USB_FW_USB_VER (0xcfd7), and then calls…
+- [Low] r8159_hw_phy_cfg() (drivers/net/usb/r8152.c,
+  RTL_VER_17_QFN68/QFN100 case) adds two GPHY OCP writes that neither…
+- [Low] This commit makes datasheet-driven corrections to already-
+  supported hardware without a Fixes: tag or any user-visible symptom.
 
 --
 
-r8152: enable UPS for RTL8157 and RTL8159 QFN68
+r8152: split r8157_hw_phy_cfg into RTL8157 and RTL8159 variants
 
-This commit adds r8157_ups_en() and calls it from rtl8157_runtime_enable()
-for RTL_VER_16 and RTL_VER_17_QFN68, so UPS is toggled on runtime suspend
-and resume, and uses it in r8157_init(). It also extends r8156_ups_flags()
-with per-speed EEE flags and 5G/10G speed encodings for these chips. On a
-power cut, the disable path waits for BACKUP_RESTRORE, clears
-USB_FW_USB_VER, and reapplies the PHY config and speed.
+This splits r8157_hw_phy_cfg() into r8157_hw_phy_cfg() for RTL8157
+(RTL_VER_16) and a new r8159_hw_phy_cfg() for RTL8159
+(RTL_VER_17_QFN68/QFN100). It also changes some RTL8159 EEE and clock
+settings per the datasheet, moves the 0xd3c8 BIT(0) clear into the shared
+prologue, and adds new RTL8159 PHY tuning parameters. Finally, it adds
+sram2_set_bits()/sram2_clr_bits() helpers.
 
 > diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
-> index 703ec5483778b..9c7031f938bc2 100644
+> index 6adc198bc92ab..fad4473caf2a4 100644
 > --- a/drivers/net/usb/r8152.c
 > +++ b/drivers/net/usb/r8152.c
 
 [ ... ]
 
-> @@ -4496,6 +4534,58 @@ static void r8156_ups_en(struct r8152 *tp, bool enable)
->  	}
->  }
+> @@ -8223,11 +8234,14 @@ static void r8157_hw_phy_cfg(struct r8152 *tp)
+>  	ocp_word_clr_bits(tp, MCU_TYPE_PLA, PLA_PHY_PWR, PFM_PWM_SWITCH);
 >  
-> +static void r8157_ups_en(struct r8152 *tp, bool enable)
-> +{
+>  	/* Advanced Power Saving parameter */
+> -	ocp_reg_set_bits(tp, 0xa430, BIT(0) | BIT(1));
+> +	ocp_reg_set_bits(tp, OCP_POWER_CFG, EN_10M_PLLOFF | EN_ALDPS_PLLOFF);
+>  
+>  	/* Disable ALDPS force mode */
+>  	ocp_reg_clr_bits(tp, 0xa44a, BIT(2));
+>  
+> +	/* Disable bypass_turn_off_clk_in_aldps */
+> +	ocp_byte_clr_bits(tp, MCU_TYPE_PLA, 0xd3c8, BIT(0));
+> +
+
+[Severity: Low]
+With this change, r8157_hw_phy_cfg() also clears 0xd3c8 BIT(0) on RTL8157
+(RTL_VER_16). Before this patch the clear only ran in the RTL_VER_17 case,
+which was added by ad2a55b63b41 ("r8152: Add support for the RTL8159
+chip"). The RTL8157 support in fd3c7d080df5 ("r8152: Add support for the
+RTL8157 hardware") never cleared it.
+
+The r8159_hw_phy_cfg() part of the patch also changes existing RTL8159
+settings to follow the datasheet:
+
+	ocp_reg_clr_bits(tp, OCP_DOWN_SPEED,
+			 EN_EEE_100 | EN_EEE_1000 | EN_10M_CLKDIV);
+	tp->ups_info._10m_ckdiv = false;
+	...
+	ocp_reg_clr_bits(tp, 0xa5ea, BIT(0) | BIT(1) | BIT(2));
+
+and sram2 0x8ffe goes from 0xf450 to 0xf4ff.
+
+If these correct hardware that is already supported, should the commit
+carry Fixes: tags for fd3c7d080df5 and ad2a55b63b41, and describe the
+symptom users would see? Other datasheet corrections in the same series
+cite those commits, for example "r8152: fix RTL8156/RTL8156B/RTL8157/RTL8159
+up and down settings", "r8152: add rtl8157_unload() for RTL8157 and
+RTL8159", "r8152: add rtl8157_change_mtu() for RTL8157 and RTL8159" and
+"r8152: fix flow control for RTL8156/RTL8156B/RTL8157/RTL8159".
 
 [ ... ]
 
-> +	} else {
-> +		ocp_byte_clr_bits(tp, MCU_TYPE_USB, USB_POWER_CUT,
-> +				  UPS_EN | USP_PREWAKE);
+> @@ -8364,22 +8451,35 @@ static void r8157_hw_phy_cfg(struct r8152 *tp)
+>  		sram_write_w0w1(tp, 0x81ae, 0xff00, 0x0f00);
+>  		sram_write_w0w1(tp, 0x81b9, 0xff00, 0xb900);
+>  		/* normal link TX filter */
+> -		sram2_write_w0w1(tp, 0x83b0, 0x0e00, 0);
+> -		sram2_write_w0w1(tp, 0x83c5, 0x0e00, 0);
+> -		sram2_write_w0w1(tp, 0x83da, 0x0e00, 0);
+> -		sram2_write_w0w1(tp, 0x83ef, 0x0e00, 0);
+> +		sram2_clr_bits(tp, 0x83b0, 0x0e00);
+> +		sram2_clr_bits(tp, 0x83c5, 0x0e00);
+> +		sram2_clr_bits(tp, 0x83da, 0x0e00);
+> +		sram2_clr_bits(tp, 0x83ef, 0x0e00);
 > +
-> +		ocp_byte_clr_bits(tp, MCU_TYPE_USB, USB_MISC_2,
-> +				  UPS_FORCE_PWR_DOWN);
-> +
-> +		ocp_data = ocp_read_word(tp, MCU_TYPE_USB, USB_MISC_0);
-> +		if (test_bit(RTL8152_INACCESSIBLE, &tp->flags))
-> +			return;
-> +
-> +		if (ocp_data & PCUT_STATUS) {
-> +			ret = read_poll_timeout(ocp_read_word, ocp_data,
-> +						test_bit(RTL8152_INACCESSIBLE,
-> +							 &tp->flags) ||
-> +						(ocp_data & BACKUP_RESTRORE),
-> +						200, 20000, false, tp,
-> +						MCU_TYPE_USB, USB_GPHY_CTRL);
-
-[Severity: Medium]
-Should this BACKUP_RESTRORE wait be limited to RTL_VER_17_QFN68?
-
-rtl8157_runtime_enable() calls r8157_ups_en(tp, false) for both
-RTL_VER_16 and RTL_VER_17_QFN68. Nothing here checks the version before
-polling USB_GPHY_CTRL.
-
-Everywhere else this wait is treated as RTL8159 only. r8157_init() does it
-only for the VER_17 parts:
-
-drivers/net/usb/r8152.c:r8157_init() {
-    ...
-	switch (tp->version) {
-	case RTL_VER_17_QFN68:
-	case RTL_VER_17_QFN100:
-		if (r8159_wait_backup_restore(tp)) {
-    ...
-}
-
-The u2phy/u3phy backup restore patch enables (0xb99c BIT(0), 0xb9a2) are
-also set only for VER_17. The earlier r8156_init() gated this wait on
-tp->version == RTL_VER_17. The "split r8156_init by generation" commit in
-this series calls it "the RTL8159-only backup-restore wait".
-
-The commit message says the timeout is handled "as r8157_init() does for
-the same wait". However, r8157_init() never runs this wait on RTL_VER_16.
-
-What happens if RTL8157 doesn't assert BACKUP_RESTRORE after a UPS power
-cut? Wouldn't every runtime resume after a power cut time out here and
-leave the NIC inaccessible until replug?
-
-Could this be gated on RTL_VER_17_QFN68? Another option is to call
-r8159_wait_backup_restore() under the same version check that r8157_init()
-uses.
-
-> +			if (test_bit(RTL8152_INACCESSIBLE, &tp->flags))
-> +				return;
-> +
-> +			if (ret) {
-> +				rtl_set_inaccessible(tp);
-> +				dev_err(&tp->intf->dev,
-> +					"backup-restore timed out\n");
-> +				return;
-> +			}
-
-[Severity: Medium]
-What recovers the device if this timeout hits during runtime resume?
-
-r8157_ups_en() and rtl8157_runtime_enable() both return void.
-rtl8152_runtime_resume() carries on and returns 0:
-
-rtl8152_resume()
-  rtl8152_runtime_resume()
-    tp->rtl_ops.autosuspend_en(tp, false)
-      rtl8157_runtime_enable(tp, false)
-        r8157_ups_en(tp, false)
-          rtl_set_inaccessible(tp)
-    napi_enable(napi)
-    usb_submit_urb(tp->intr_urb, GFP_NOIO)
-    return 0
-
-The existing recovery in rtl8152_resume() skips runtime resume:
-
-	if (!runtime_resume && test_bit(RTL8152_INACCESSIBLE, &tp->flags))
-		usb_reset_device(tp->udev);
-
-So the PM core sees a successful resume and the netdev stays IFF_UP. Every
-later register access is short-circuited by RTL8152_INACCESSIBLE. This
-lasts until a replug or an unrelated reset, such as the TX watchdog.
-
-The commit message acknowledges this and leaves recovery to a follow-up
-series. Still, this patch is the one that adds the runtime resume failure
-path. Could the recovery land together with this change, for example by
-queuing a reset or passing the error back?
-
-> +
-> +			/* clear USB fw_ver_reg */
-> +			ocp_write_byte(tp, MCU_TYPE_USB, USB_FW_USB_VER, 0);
+> +		ocp_reg_w0w1(tp, 0xbf38, 0x01f0, 0x0160);
+> +		ocp_reg_w0w1(tp, 0xbf3a, 0x001f, 0x0014);
+> +		/* shorten CLKS latency */
+> +		ocp_reg_clr_bits(tp, 0xbf28, BIT(14) | BIT(13));
+> +		ocp_reg_clr_bits(tp, 0xbf2c, BIT(15) | BIT(14));
+> +		/* CMP_Timer on MP_Timer=333
+> +		 * GPHY OCP 0xbf28 bit[0] = 0x1
+> +		 * GPHY OCP 0xbf28 bit[6:1] = 0x3
+> +		 * GPHY OCP 0xbf28 bit[12:7] = 0x3
+> +		 */
+> +		ocp_reg_w0w1(tp, 0xbf28, 0x1fff, 0x0187);
+> +		ocp_reg_w0w1(tp, 0xbf2a, 0x3f, 0x03);
 
 [Severity: Low]
-Is USB_FW_USB_VER guaranteed to match the fw_ver_reg in the loaded USB
-firmware block?
+What do the 0xbf38 and 0xbf3a writes configure in r8159_hw_phy_cfg()?
 
-The path is r8157_hw_phy_cfg()->rtl8152_apply_firmware()->
-rtl8152_fw_mac_apply(). That function decides whether to skip the patch
-using the register named in the firmware blob, not a fixed address:
+The commit message lists four new RTL8159 tuning items: shorten CLKS
+latency, CMP_Timer on MP_Timer=333, spdchg_pga1_lpf_cap, and ENET PLL
+jitter improvement. These two writes come before the "shorten CLKS latency"
+comment, have no comment of their own, and don't match any item on that
+list. None of these registers were used in r8152.c before this patch.
 
-drivers/net/usb/r8152.c:rtl8152_fw_mac_apply() {
-    ...
-	fw_ver_reg = __le16_to_cpu(mac->fw_ver_reg);
-	if (fw_ver_reg && ocp_read_byte(tp, MCU_TYPE_USB, fw_ver_reg) >= mac->fw_ver_data) {
-		dev_dbg(&tp->intf->dev, "%s firmware has been the newest\n", type ? "PLA" : "USB");
-		return;
-    ...
-}
+The CMP_Timer comment only describes bit fields of 0xbf28, but the block
+also writes 0xbf2a[5:0] = 0x03.
 
-Suppose the FIRMWARE_8157_1 or FIRMWARE_8159_1 USB block names a
-fw_ver_reg other than 0xcfd7. The USB MAC patch lost in the power cut would
-then be skipped as already newest. This write would also land on an
-unrelated register.
-
-Could this use the fw_ver_reg parsed from the loaded firmware instead of a
-hardcoded address?
-
-> +
-> +			tp->rtl_ops.hw_phy_cfg(tp);
-> +
-> +			rtl8152_set_speed(tp, tp->autoneg, tp->speed,
-> +					  tp->duplex, tp->advertising);
-
-[Severity: Medium]
-Does this power cut recovery need a wait_autoload_done() before
-hw_phy_cfg()?
-
-The other UPS exit paths wait for autoload as soon as they see
-PCUT_STATUS. For example, r8153b_ups_en() does this, and r8153c_ups_en()
-does the same:
-
-	if (ocp_read_word(tp, MCU_TYPE_USB, USB_MISC_0) & PCUT_STATUS) {
-		if (wait_autoload_done(tp))
-			return;
-
-r8157_init(), for the same chip family, runs r8156b_wait_loading_flash()
-and wait_autoload_done() before the backup restore wait and PHY setup.
-
-r8156_ups_en(tp, false), which this function mirrors, also has no autoload
-wait. But r8156_ups_en(tp, true) is never called, and r8156_init() clears
-PCUT_STATUS first. That path has never run after a real power cut.
-
-r8157_hw_phy_cfg() waits only for GPHY_PATCH_DONE, and only when
-GPHY_FLASH is set and BYPASS_FLASH is clear.
-
-If autoload is still running after the power cut, could the firmware and
-PHY writes from hw_phy_cfg() and rtl8152_set_speed() race the hardware
-reload? They might then be overwritten or only partly applied.
-
-> +		}
-> +	}
-> +}
+Could 0xbf38/0xbf3a get a comment and a mention in the commit message?
+Could the CMP_Timer comment also cover 0xbf2a?
 
 [ ... ]
 
