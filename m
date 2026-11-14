@@ -1,76 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.245
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794668750;
-	b=AXGEdQc/TB+/X9qNk9umyizrRzPp1V9s3rZAsf6NykgDn73fneYTZezuQUkvqJoDJT0O
-	 t5tEzFZSt623IwndTWQK5BPkBQkIJMaPgU5UHJQlEc4fbu78QPZhMlRfXPlVqZO6X1Agd
-	 cwhc73ipBestA8GqrALy2BGgiZonLm2m/u/N4NjSSho7RNZRJC/ZxXkJXZKu5hgqgb+PL
-	 Ueh3enjHvh2PPEmuc0TsnVCDVj/zAN3LzvtsIpvFA9Gt8POYNK0Ft6NUa5Dcbo1qbtvU9
-	 PPRHcgzADsQCl1TeKOBN/xPOSKqxHFnGhdFJ9JVBMJ481EZFVQoIaSJFtlEzjfmuiog==
+	t=1794668786;
+	b=WVtfVrJEeFmk0mZIkhaEuoa2AFnNHT27a9Qc6gIYkavCUzGjFjveX9+XYTWvLdk+yEoy
+	 9IORLP+rls/TS+G3o8abCcLAiAE8gGZkyx3w+Cnbp+M6eEdmN2rDzzMK1+aF65HQRlpng
+	 Jk7d91acBs6W6iio/lmABLuG2U6le26/rbihgWZgaUTrvbtSDCzNsIY1hUMsOHFlsRqag
+	 GphTdHpxxgLF8T6mrYZO5qA0HuuH5G+MWk2Cs8hhX9hxce7t892PDRx8uaFA8Krzbp0cJ
+	 CHJKKbQALckJRYW0wx8XMM4M0HPqER0sp/h0qin5d+yJzQ8P1p0k0aQsaxrujyjueqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794668750;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=MknYh1wdceisoj5BD7eTiAMi//3cMI6ldwjYjtC94HY=;
-	b=4TD8zLwPZkJwO6ZHbxWFTQIfm8vFbG8Sk2ONVivbzOgc/MkJabqUEgbZOMe8t57BQ07M
-	 1g5RU6sbadwFSW/hbOnOudFu3311fwbtI7bXKBrJfi3Eetw96+hvmDKSpVKmdj56DqwRN
-	 3DRisI0FmwJ/44tK2oq7lYzUOH1HZrVrfD1905Z3lEcs53rbHXnsGRbf7a1iJW3NjGk4g
-	 +AYKrUd7NE8O+28/5xCuZ8u5LjDAanrIwAtZeoqK2W1lbWHedytLhBtZx4EupSA9X+RDc
-	 FDIXyyvSTqcAsSG5QoiToH9rYcVWeP5KpGaH6f4R8O1A3Pxfiq3ACzF+p0sZFQwVvhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794668786;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=GqVfe+gMMe0HOFEnoFcjKGVxfj+tUTB2vMVxeIhcZK8=;
+	b=OAqqYcJNUqgaPrIjDGOpTL2ETsD6M4NoonGWHB6zNiKB8wjiyFO6btZa3DcREUH5y03g
+	 FP8zkQCWCweJWA/G8lNoNU8xEwgPhJiQBDdMBCnIQhxCKt9kpLPvUFo/JafGKnjWitqot
+	 t/pHUvLloeDgw6JOxX4avnhJN83/qcgR8ltf7e9xsRbTnsAc+UCguooPwtunwFMSs7J1d
+	 p4Mken+Kazgjwcy5LKN7r4GK+S5HBsXtkDfmLhgRGRg0Mn3l/GqzASTJ2+Zy2/9QoZ30P
+	 6taFKESGyvzz0VoduO4s7t14S+b93tWRX8hmxJVHoxuhe0ObNwlUFDJrVJylgbwiXZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ojjO05m+;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9D322606A32D;
-	Sat, 14 Nov 2026 15:05:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D322606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="ab/7ZlsT";
+	arc=none smtp.remote-ip=91.218.175.245
+Received: from mta0.migadu.com (out-245.mta0.migadu.com [91.218.175.245])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AACEB606A32E
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:06:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AACEB606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ojjO05m+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=ojjO05m+amjySMBH98i9bWYiy6rc2mTAuL2hLCRak0cXVZ2n4cgEnpzHDQ348gF7rbyK5y2/1Q6sW
-	 weyHEtvG0BtFtS+PYna2Ci2GkK2kEIlgVqIFuN+eZFU3WR8BYi78GRhzhkgMC3megwS6dyU1whm3u3
-	 qyuv8LyhtfTPc85E=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56af878c6dde-ef5bc;
-	Sat, 14 Nov 2026 23:05:45 +0800 (CST)
-X-RM-TRANSID:2ee56af878c6dde-ef5bc
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr03-12003 (RichMail) with SMTP id 2ee36af878c6a22-46641;
-	Sat, 14 Nov 2026 23:05:45 +0800 (CST)
-X-RM-TRANSID:2ee36af878c6a22-46641
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: jgg@ziepe.ca,
-	leon@kernel.org,
-	achender@kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	linux-rdma@vger.kernel.org,
-	netdev@vger.kernel.org,
-	rds-devel@oss.oracle.com,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ab/7ZlsT
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=3EHbdy83rCpwpfT1fsnCR8rbfvn0CmloPXzAcMGse/I=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794668783; v=1; x=1795273583;
+ b=ab/7ZlsTtiVY3VB3DcqUDjUiGrLBdgSEEQTEZoaETB8zKE925WeOA9gI0qnKv+BmMt2NIJ94
+ /zeKbLuHocWwAOSZ0BQJB9CMzTwIpURnaKXhos6P0mWtRfB7IbU069drQAeJeZV1UDLqQG8BKpw
+ bb9atwlvvcbLVQymyyWrYjb0=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 5012754fb9425d27;
+	Sat, 14 Nov 2026 15:06:23 +0000
+X-Mizu-Trace-ID: 5012754fb9425d27
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
 	linux-kernel@vger.kernel.org,
-	hdanton@sina.com,
-	hackerowskiy@gmail.com,
-	syzbot+ccdb5058c3df2d94811c@syzkaller.appspotmail.com,
-	Aibing Chen <chenaibing@cmss.chinamobile.com>
-Subject: [PATCH] RDMA/cma: add rdma_destroy_id_wq() and use it from RDS
-Date: Sat, 14 Nov 2026 23:05:41 +0800
-Message-ID: <20261114150541.1908-1-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v2 0/9] bpf: Add log support for tracing link_create
+Date: Sat, 14 Nov 2026 23:06:01 +0800
+Message-ID: <20261114150610.84507-1-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,116 +86,69 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-syzbot reported a possible circular locking dependency between
-rds_trans_sem and the RDMA CM handler mutex:
+I'm planning to add syscall common attrs support for LINK_CREATE cmd.
 
-  CPU0 (bind path)                    CPU1 (CM callback path)
-  ----                                ----
-  down_read(&rds_trans_sem)           mutex_lock(&handler_mutex)
-  rds_ib_laddr_check()                cma_ib_req_handler()
-    rdma_destroy_id()                   rds_ib_cm_handle_connect()
-      mutex_lock(&handler_mutex)          rds_conn_create()
-                                            rds_trans_get_preferred()
-                                              down_read(&rds_trans_sem)
+This is the second series for the plan, that adds syscall common attrs
+support for LINK_CREATE of tracing prog and cgroup prog.
 
-rds_ib_laddr_check_cm() destroys the CM id from inside
-rds_trans_get_preferred()'s read-side critical section, while CM
-callbacks create RDS connections (taking the same read lock) from
-under handler_mutex.
+BTW, address Andrii's review [1] in patch 5:
+1. Change if (!OPTS_ZEROED(opts, iter_info_len)) to if
+   (!OPTS_ZEROED(opts, log_opts)).
+2. Add comment to iter_info and iter_info_len that they are
+   deprecated, and use iter.info and iter.len instead.
 
-Break the cycle by destroying the CM id asynchronously: add
-rdma_destroy_id_wq(), which queues the destruction on cma_wq, and
-switch rds_ib_laddr_check_cm() to it.  The destroy work is embedded
-in struct rdma_id_private, which keeps the id alive until the work
-runs; rds does not touch cm_id after the destroy call.
+Links:
+[1] https://lore.kernel.org/bpf/CAEf4BzbW4zwL-9j8e2B6KNXVNwsfWyMSAo_RsGCqv-nu_yGhTg@mail.gmail.com/
 
-This formalizes the approach proposed and syzbot-tested by Hillf
-Danton; Eduard Zateev additionally verified the fix on a real QEMU
-system (KASAN + lockdep + RDMA_RXE, active and passive RDS
-connections established without any lockdep output).
+Changes:
+v1 -> v2:
+* Add log_opts support for bpf_program__attach_iter() API in libbpf.
+* Add test to verify the log for freplace max_ctx_offset case.
+* Update a subtest to verify the log_opts in bpf_program__attach_iter()
+  API.
+* Add log for freplace max_ctx_offset case. (bot+bpf-ci)
+* Drop unnecessary bpf_verifier.h include. (bot+bpf-ci)
+* Change log to "Invalid tracing attach_type.\n" when the link
+  attach_type is not prog->expected_attach_type. (bot+bpf-ci)
+* Change BPF_XDP to BPF_TRACE_FEXIT in tracing link_create test.
+  (bot+bpf-ci)
+* Drop dead iter.len check in libbpf. (bot+bpf-ci, Sashiko)
+* Add OPTS_ZEROED(opts, iter) check. (bot+bpf-ci, Sashiko)
+* Swap log positions of iter_info and iter_info_len. (Sashiko)
+* Update bpf_program__attach_iter() to use iter.info and iter.len.
+  (Sashiko)
+* v1: https://lore.kernel.org/bpf/20261109140816.5196-1-leon.hwang@linux.dev/
 
-Reported-by: syzbot+ccdb5058c3df2d94811c@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=ccdb5058c3df2d94811c
-Suggested-by: Hillf Danton <hdanton@sina.com>
-Tested-by: syzbot+ccdb5058c3df2d94811c@syzkaller.appspotmail.com
-Tested-by: Eduard Zateev <hackerowskiy@gmail.com>
-Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
----
- drivers/infiniband/core/cma.c      | 19 +++++++++++++++++++
- drivers/infiniband/core/cma_priv.h |  1 +
- include/rdma/rdma_cm.h             |  1 +
- net/rds/ib.c                       |  2 +-
- 4 files changed, 22 insertions(+), 1 deletion(-)
+Leon Hwang (9):
+  bpf: Add log support for tracing link_create
+  bpf: Add log support for tracing_multi link_create
+  bpf: Add log support for iter link_create
+  bpf: Add log support for cgroup prog link_create
+  libbpf: Add log_opts support for BPF_TRACE_ITER
+  selftests/bpf: Verify tracing link_create logs
+  selftests/bpf: Verify tracing_multi link_create logs
+  selftests/bpf: Verify iter link_create logs
+  selftests/bpf: Verify cgroup prog link_create logs
 
-diff --git a/drivers/infiniband/core/cma.c b/drivers/infiniband/core/cma.c
-index 337a49d1a..d10aaf51e 100644
---- a/drivers/infiniband/core/cma.c
-+++ b/drivers/infiniband/core/cma.c
-@@ -2126,6 +2126,25 @@ void rdma_destroy_id(struct rdma_cm_id *id)
- }
- EXPORT_SYMBOL(rdma_destroy_id);
- 
-+static void destroy_id_work(struct work_struct *work)
-+{
-+	struct rdma_id_private *id_priv =
-+		container_of(work, struct rdma_id_private, destroy_work);
-+
-+	mutex_lock(&id_priv->handler_mutex);
-+	destroy_id_handler_unlock(id_priv);
-+}
-+
-+void rdma_destroy_id_wq(struct rdma_cm_id *id)
-+{
-+	struct rdma_id_private *id_priv =
-+		container_of(id, struct rdma_id_private, id);
-+
-+	INIT_WORK(&id_priv->destroy_work, destroy_id_work);
-+	queue_work(cma_wq, &id_priv->destroy_work);
-+}
-+EXPORT_SYMBOL(rdma_destroy_id_wq);
-+
- static int cma_rep_recv(struct rdma_id_private *id_priv)
- {
- 	int ret;
-diff --git a/drivers/infiniband/core/cma_priv.h b/drivers/infiniband/core/cma_priv.h
-index 04332eb82..95ff8bbd4 100644
---- a/drivers/infiniband/core/cma_priv.h
-+++ b/drivers/infiniband/core/cma_priv.h
-@@ -110,6 +110,7 @@ struct rdma_id_private {
- 	 */
- 	struct rdma_restrack_entry     res;
- 	struct rdma_ucm_ece ece;
-+	struct work_struct destroy_work;
- };
- 
- #if IS_ENABLED(CONFIG_INFINIBAND_ADDR_TRANS_CONFIGFS)
-diff --git a/include/rdma/rdma_cm.h b/include/rdma/rdma_cm.h
-index d639ff889..ac1c1d917 100644
---- a/include/rdma/rdma_cm.h
-+++ b/include/rdma/rdma_cm.h
-@@ -167,6 +167,7 @@ struct rdma_cm_id *rdma_create_user_id(rdma_cm_event_handler event_handler,
-   * asynchronous operations associated with the id.
-   */
- void rdma_destroy_id(struct rdma_cm_id *id);
-+void rdma_destroy_id_wq(struct rdma_cm_id *id);
- 
- /**
-  * rdma_restrict_node_type - Restrict an RDMA identifier to specific
-diff --git a/net/rds/ib.c b/net/rds/ib.c
-index 4ea9838d0..1290747cd 100644
---- a/net/rds/ib.c
-+++ b/net/rds/ib.c
-@@ -484,7 +484,7 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
- 		 cm_id->device ? cm_id->device->node_type : -1);
- 
- out:
--	rdma_destroy_id(cm_id);
-+	rdma_destroy_id_wq(cm_id);
- 
- 	return ret;
- }
--- 
-2.50.1.windows.1
+ include/linux/bpf-cgroup.h                    |   6 +-
+ include/linux/bpf.h                           |   3 +-
+ include/linux/trace_events.h                  |   7 +-
+ kernel/bpf/bpf_iter.c                         |  27 +-
+ kernel/bpf/cgroup.c                           |  76 +++-
+ kernel/bpf/syscall.c                          |  29 +-
+ kernel/trace/bpf_trace.c                      |  26 +-
+ tools/lib/bpf/bpf.c                           |  23 +-
+ tools/lib/bpf/bpf.h                           |   8 +
+ tools/lib/bpf/libbpf.c                        |   5 +-
+ tools/lib/bpf/libbpf.h                        |   3 +-
+ .../selftests/bpf/prog_tests/cgroup_link.c    | 324 +++++++++++++
+ .../selftests/bpf/prog_tests/iter_link.c      | 156 +++++++
+ .../selftests/bpf/prog_tests/tracing_link.c   | 429 ++++++++++++++++++
+ .../selftests/bpf/progs/tracing_link_ctx.c    |  17 +
+ 15 files changed, 1083 insertions(+), 56 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/iter_link.c
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/tracing_link.c
+ create mode 100644 tools/testing/selftests/bpf/progs/tracing_link_ctx.c
 
-
-
+--
+2.55.0
