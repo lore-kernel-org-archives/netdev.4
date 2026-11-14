@@ -1,74 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794637097;
-	b=4vxVNRfU30omgT0tg8VIEEEYWi7NFdJCRCqSafSqnJtU+rz4asfGQsnwkXlowIOVWCl3
-	 ro0ras3CQWmq6NCkG2f99BINms0+4JLoMdAhm1JiXeXj4kKgVoGNBrh9jFP/bc4RJZhn9
-	 0sYjPyrkLQot2V9CtH5oAqm5NtFqn58KlSutYF8/e1H/2zJcfXE8JpXYWSgKx4keaEdlL
-	 +VRSqVvCJeCdcOm2CfveD4MgIWv/ldLQPabeRJOquP3T7OLMTB7cvH5QkYHGEv+bi19Ug
-	 MDKnwZ/RiKw08BKw0MWfmu7up/zPz3wBkJ3QQ5Xyq/fZHOOeRoNzkINbGcBKAmRWlog==
+	t=1794637303;
+	b=VItC6vPSW3mPr1PkcUt0L7xJqLyjh5A4FP+gNumtQ5ZT1UHaAWTBBRZguvA4+clM0Aq1
+	 FBaW5WPsRyiQk2AA3wjCc4kzwlkHHceASnzVCuWNsfPIjKQpolaH6GRU0u7hALXdqY6ou
+	 EuI3k6aGvXW1USDJ8QSap6R6TnLLqdwZMDTS76Owo8McFAfBJ2909QL691/3SBxk+Bl08
+	 NAeZqLJdBoSv05Okc0Zzfqlt+kkDpxUP8192gZp9iAEtSlHkDh/u0cBYfT3xxaOksI5vd
+	 ZbucO5U7DwIi4PfIinZfS3fNV5od1nxLPl6Zc+LBht0vtnZcNMjUNqu3d7QJGY3MTSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794637097;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=Kbowv03anJ9qQzCXwkdQnDnwVItu8Czzblu9Au/FdN8=;
-	b=YD08af6Aom8SNmvMgfBRWcPQWAMFLaS76IQoZw3MUugkBJ0EhmPvkrfmJ+yXJUw6g5D0
-	 xm8ZEhi/EpTrzDgjnzHkrxSzjTPFbdP9pN5xPAephzLSyO11kRseAFZ+OgAbeNYZN6hME
-	 xVlmSvdAw7xSVsGygYCZuuQt3jvfI8hNa9SJu0nnNcXSO7MDUcslNFrGPkiPUvf67bPkm
-	 uLP6TPzjSlDFf5hpOyetkle5OFhf62iwdgsXMF+VvLJqzKK9vmsI2cuoSbmdKzBLjWar4
-	 7ym4YUj/xxk7ibeouodMXPAoK5KWbiPtCcJ6eo4z0QWeQ4SQBnCMGZL4WMw2Rn7c1/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794637303;
+	h=Received:DKIM-Signature:Message-ID:Subject:From:To:Cc:Date:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=5viyWZGS4n9c+qBE/aLwmO7/aPYsv3JV1TvkOfw09wU=;
+	b=zqMDuN8WUyi94W1T5GtQYa8J5Vxt0Xe54w1WDCuejx83X7/u3x/WBH/zFjNbD/cEJRrN
+	 EgloWN1HmlRi8uVLLa8lHNEwZpTfAg9BA568j7ADCAX4Ovt++TbEmNYkPSekxAuQPGFFs
+	 MrhWnFsVRWeUPqw+NqDxmdl3kLX406OmU+5NpbN5/XMst6yAqPdExfGIZ84M/nXvyrPh5
+	 u8fDCZpj68Q0mMepd01JNIwIkYbjSWAGpXtKS4Km0bSVYedFrkFJWL6sr99li8qAqj1Sv
+	 moQzArFWcdw4NAhyKdruOFHO2bIzT16QwGARUP8o8XxbocEtJyCbBet0AUOs1TFqOrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FVz6fr1k;
-	arc=none smtp.remote-ip=209.85.214.197
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com [209.85.214.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XC+gEUcA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B2C0606A329
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 06:18:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B2C0606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB996606A323;
+	Sat, 14 Nov 2026 06:21:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=FVz6fr1k
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-2e9501034c4so27016315ad.0
-        for <netdev@vger.kernel.org>; Fri, 13 Nov 2026 22:18:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794637096; x=1795241896; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Kbowv03anJ9qQzCXwkdQnDnwVItu8Czzblu9Au/FdN8=;
-        b=FVz6fr1kxfdVb35gJO5L96Wa3vtaVQ9zIvc2uJMBrnaVvF1Lf0t1L9iCiP+RtzYgBD
-         jtrB++6aFlAwb0EN0XaqRh54dmi9e/M9Bn0BEuCBHpl6KUexIVdS4tiMous4XwdXXMc5
-         yiYrzoeGGBNq7Xb2CvQpGJbgeeNJwh0AdwVYzDAs3xuhb6ID1VNpv/2As7OUaMD1a3RF
-         zkWB9ET6lTFx2oX+7eFT0PPShXB7VXxu84e98alSc5rTPwFdemgFZoGrSAikJDbc6qKS
-         LMoh7dy/fiSzqdUa9EI0dNzMwmLSRn6UYOiLpXi0lvTjBdyEqXqOQbz0U76aNsL6qacU
-         SNDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794637096; x=1795241896;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Kbowv03anJ9qQzCXwkdQnDnwVItu8Czzblu9Au/FdN8=;
-        b=ZxvLJKcApN7x/bhLVZJYwJxztGjD95cnhyYKGinzEUXlafKcLCrgZpxRDqpe52pihP
-         iAtTMJXW/EylLN5JLH83jmTY+xzpFGzcHkNrM3iomZiRgQlza/bsB1jepr2l0t2IbZsr
-         1O7Sv0cFboXTORAhyhj+Xfvb+Byv+tVD5SAvBRnn83F2AFHNFmJRp89fONUqc2FBgdGH
-         +IypW5U79/0k5eNxaNF5glEP21k7k/WM2Fr6xC7zJEybb1yrmgbJWLxpSwDf++pGh60c
-         Wtgw00kfbcRZbkZMt1fRIZiMqKioB89/TE4B41AyhMyZN8TWlFsSzdOYYQ6Zpdl+apP0
-         46GA==
-X-Forwarded-Encrypted: i=1; AL+hErETqKex/L0csqNcN59bYo/aaSBfKtYcr3oM3/UGiy/JJ+oc/hgDzU47cXlviLUnHCAa5oWr6kE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8sh6AK+8b8oaZQf4LHJFbVTSb/zrh9ZdGFXWj/CKSFKFoLS/sA
-	oBOkbWcqIjmFd//WXVu2FVu/Vzg3UJ2cOhSwZFkX6Tn2mmuQG7/Cjkw7TUKqBFb251L5MYd4eZH
-	tZdGyRQ==
-X-Received: from plww2.prod.google.com ([2002:a17:902:d102:b0:2e9:b079:3771])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:230b:b0:2ea:e084:332a
- with SMTP id d9443c01a7336-2ee0dee824cmr51445225ad.56.1794637096336; Fri, 13
- Nov 2026 22:18:16 -0800 (PST)
-Date: Sat, 14 Nov 2026 06:18:15 +0000
-In-Reply-To: <20261111-mtu-probing-series-v4-3-6f2e484ca8ea@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XC+gEUcA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C70BB1F000C6;
+	Sat, 14 Nov 2026 06:21:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794637303;
+	bh=5viyWZGS4n9c+qBE/aLwmO7/aPYsv3JV1TvkOfw09wU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=XC+gEUcAgljdNI9CNr8OtTIIYyToLb8c8i5IyPkEDFiavefdyg34PlOH+1wjjojvv
+	 pimJRi4fB56RNROND/9Jf/LHpWVAuSuCMF3SQ3CJuypchnc65mPCxhtJhHVWkGxGnY
+	 fYwzcvLt20eqdJIs1oBdQeGGur9aUundQ0BrADhe/9ZRBzseTZAj5AtuPvSfb4CPXG
+	 DohCPtZD/jgQu9X5Z7/eMofYsJ+yeQtNkcz4RSzAsP9e7S9eknpX+kn240Tdx06a45
+	 1WJi7gDjgJCvtQqsVyvaw2x5fD4ZCUCyEnoYcNn9sNa0FjANoxlocXPGLMsK+8QcKE
+	 lf94vcPVQ3L9A==
+Message-ID: <7874eba61c2ec79221496cbc43c253f9e023fa4b.camel@kernel.org>
+Subject: Re: [PATCH net] net/rds: tcp: bound the message length announced by
+ the peer
+From: Allison Henderson <achender@kernel.org>
+To: weidongw@illinois.edu
+Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>,  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org, 
+ rds-devel@oss.oracle.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org,  Zijie Zhao <zijie4@illinois.edu>
+Date: Fri, 13 Nov 2026 23:21:42 -0700
+In-Reply-To: <20261111-h047-send-v1-1-2727a38dbfcd@illinois.edu>
+References: <20261111-h047-send-v1-1-2727a38dbfcd@illinois.edu>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.3-0ubuntu1.1 
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,34 +65,113 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261111-mtu-probing-series-v4-0-6f2e484ca8ea@gmail.com> <20261111-mtu-probing-series-v4-3-6f2e484ca8ea@gmail.com>
-Message-ID: <avf9HomOtgXYiRLX@google.com>
-Subject: Re: [PATCH net-next v4 3/4] selftests/net: packetdrill: add TCP black
- hole detection tests
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Yongjian Wang <echoowall@gmail.com>
-Cc: pabeni@redhat.com, kuba@kernel.org, shuah@kernel.org, edumazet@kernel.org, 
-	horms@kernel.org, ncardwell@google.com, davem@davemloft.net, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	netdev@vger.kernel.org, panweiping3@gmail.com
-Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
 
-On Wed, 11 Nov 2026 00:45:57 +0800, Yongjian Wang wrote:
-> Black hole detection (net.ipv4.tcp_mtu_probing=1) has no selftest
-> coverage.
-> 
-> Add a test that only sets tcp_mtu_probing=1 on top of the default
-> settings. A full-sized segment keeps timing out without any ICMP
-> feedback. Check that the MSS drops to tcp_base_mss once tcp_retries1
-> is exceeded, and that the smaller MSS is also used for new data after
-> the retransmission is acknowledged.
-> 
-> Add a shorter variant with tcp_retries1=1 and TLP disabled, so that
-> every retransmission comes from the RTO timer, which is what
-> tcp_write_timeout() counts.
-> 
-> Signed-off-by: Yongjian Wang <echoowall@gmail.com>
+On Wed, 2026-11-11 at 14:27 -0600, Weidong Wang via B4 Relay wrote:
+> From: Weidong Wang <weidongw@illinois.edu>
+>=20
+> rds_tcp_data_recv() takes the payload length of an incoming message from
+> the peer's header and queues pskb_extract() clones of the received data
+> on the incoming message until that many bytes have arrived. Nothing
+> checks the length, so a peer that announces h_len =3D 0xffffffff and keep=
+s
+> sending makes the receiver hold up to 4 GiB per connection. The clones
+> are no longer on the socket's receive queue, so they are not charged to
+> the socket and TCP keeps the receive window open.
+>=20
+> Senders are limited to RDS_MAX_MSG_SIZE in rds_sendmsg(). Apply the same
+> limit on receive and drop the connection when a header exceeds it. That
+> limit has been enforced on send since v4.11; a peer running an older
+> kernel could still send larger messages over TCP, and such connections
+> are now dropped.
+>=20
+> The issue was discovered by an AI code review agent (an LLM-based
+> bug-finding tool developed by Zijie Zhao and the submitter) and
+> confirmed by triggering it on an unmodified kernel, without error
+> injection, on x86_64 under QEMU: a plain TCP client in a second network
+> namespace connects to the rds_tcp listener (port 16385), sends one RDS
+> header with h_len =3D 0xffffffff and then 1 GiB of payload. The receiver
+> held about 1.1 GiB until the connection was closed; the same 1 GiB sent
+> as 1 MiB messages held about 60 MiB.
+>=20
+> With this patch the connection is dropped right after the header and
+> nothing is held, while the 1 MiB messages are processed as before. The
+> RDS selftest (tools/testing/selftests/net/rds, rds_run.sh -T tcp, also
+> with -l 10 -c 10 -u 10) passes with the patch applied.
+>=20
+> The reproducer, fix and changelog were drafted with AI assistance
+> (Claude), then reviewed and tested by the submitter.
+>=20
+> Fixes: 70041088e3b9 ("RDS: Add TCP transport to RDS")
+> Cc: stable@vger.kernel.org
+> Cc: Zijie Zhao <zijie4@illinois.edu>
+> Signed-off-by: Weidong Wang <weidongw@illinois.edu>
 
-Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
+Hi Weidong,
+
+Thanks for the catch.  This patch looks fine to me.
+Reviewed-by: Allison Henderson <achender@kernel.org>
+
+Thanks!
+Allison
+
+> ---
+> Tested on v7.4-rc1 (05441d697f7f) and on net (ae89f2724e), x86_64,
+> KASAN, QEMU/KVM, 3 GiB guest. Setup: rds_tcp listener in the initial
+> netns (10.0.0.2); a plain TCP client (no AF_RDS) in a second netns
+> (10.0.0.1) over a veth pair.
+>=20
+>                    1 GiB after one header     1 GiB as 1 MiB
+>                    with h_len =3D 0xffffffff    messages (control)
+>   unpatched        ~1.1 GiB held until close  ~60 MiB
+>   patched          connection reset after     ~60 MiB, processed
+>                    the header, nothing held   as before
+>=20
+> selftests/net/rds: rds_run.sh -T tcp and rds_run.sh -T tcp -l 10 -c 10
+> -u 10 pass on both trees with the patch. No KASAN/UBSAN reports;
+> checkpatch clean.
+>=20
+> The limit is per connection; a peer with several source addresses gets
+> one connection per address. The reproducer is not attached (AI-found
+> issue, see security-bugs.rst) and can be shared on request.
+> ---
+>  net/rds/tcp_recv.c | 14 ++++++++++++++
+>  1 file changed, 14 insertions(+)
+>=20
+> diff --git a/net/rds/tcp_recv.c b/net/rds/tcp_recv.c
+> index ffe843ca2..29db73df8 100644
+> --- a/net/rds/tcp_recv.c
+> +++ b/net/rds/tcp_recv.c
+> @@ -213,6 +213,20 @@ static int rds_tcp_data_recv(read_descriptor_t *desc=
+, struct sk_buff *skb,
+>  			}
+>  		}
+> =20
+> +		/*
+> +		 * The payload is queued on tinc until the whole message has
+> +		 * arrived, so a peer must not announce more than a sender is
+> +		 * allowed to send. Check on every pass, not only when the
+> +		 * header completes: the drop is asynchronous and more data
+> +		 * can arrive before the connection is shut down.
+> +		 */
+> +		if (!tc->t_tinc_hdr_rem &&
+> +		    tc->t_tinc_data_rem > RDS_MAX_MSG_SIZE) {
+> +			rds_conn_path_drop(cp, false);
+> +			desc->error =3D -EPROTO;
+> +			goto out;
+> +		}
+> +
+>  		if (left && tc->t_tinc_data_rem) {
+>  			to_copy =3D min(tc->t_tinc_data_rem, left);
+> =20
+>=20
+> ---
+> base-commit: 05441d697f7f9a927264f4058cbbc6a03dfcac9d
+> change-id: 20261110-h047-send-52025d442823
+>=20
+> Best regards,
+> -- =20
+> Weidong Wang <weidongw@illinois.edu>
+>=20
+>=20
 
