@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794671528;
-	b=eUVL5NVVuYIjKy3vmn3bbBMsYZBC4jrkaDOwLZZjQBgEclwuyDRA+FcTlXp05VMrDkIW
-	 ul8rfnu2YKyNkSumnJR228EkcG2BbZANpmaUpZTXTOK4Bv35ALcxbthgcHiaTJjW83SZj
-	 eXRmEyVTt0l7W2msc52DARF1PQN81O/8LaQG8yhaLNzKSDA5JEAes+h/zt0nkqjpbrcdV
-	 xmwfmyAFNt6rE6rdoiJ1l7g/LvF0uWBeG8JEW6op/N89cSuWrs0IvF8kWSbW33YmFwco8
-	 E5WavNZANuBXjN6hjhTEVlihExNI8bt44+nAONyIhVaXjuRXKBRLgrbG3QdG1PPbLjw==
+	t=1794671531;
+	b=e9JklawinxO1qYMT59EUp4emq83cGjSbChP20KdKl02VGHGO385V13IZ/PLkyPU7xjur
+	 11AUGg7kr60xBbTANUjyaH6W+mGJz9Sp6yrjBUqlL/4GT3yOZUF2zQd+Ehr+PpOMtLz4U
+	 a6GRhNkd5BLInA5e3HXXXu884zDE7w6oDbStWCfoyzpbZKZPH17CsPAaV1M/uIM0JXLLd
+	 Y+MS9H4ZAyA/6YApJYgl+timju4D+WmTwHxXfFooP+QIsJPzLLImS8PE6AuyZ6/z9HvZ3
+	 xM4JY3IVOM6KH03kq0s1D5OQv2fGU5+eQJI7+TrVVZtEY0qCGy9ANnNOykC3FZSKprg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794671528;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794671531;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=7PNIQ+brtkDt0ui73M8xH/zEUWghktDU3iUddsWS5k8=;
-	b=Ez0Ja6PdTNM0TeTrVBNBcmkmv+DlwSb5Mht4C2eyJP0jAEjrT1SE45V5VenTwG88yn1t
-	 Ej/LltP9v1sGqCew6bdGElpDJ6jOLNCeIIRgCDJe+ZWk6FtWaOUJ1okOv/IUO8UaMHfFp
-	 MMI6RL+eeISSnV6vRZpfa/tdIN8i9muvqD0MIc3roJuLtT5B4wUAkRGcEHLSylOck69/I
-	 TsrRHHvrG9766SB/aHMibkTznReZc/wcRqVN5HqhBwrvAWw6IWFug/uj+evxQvTxGWste
-	 7IucjD+2NRMb36ybjDUQVpoAOY3J0W/H0m438qiWwMPFe2VqVcRRuxnaSNhNX09uOKA==
+	bh=lBuIVxj0Gsrtpg9paCJ8LZ48yxcqNNcJoX4yMYdF2+s=;
+	b=LsY2gRV5oLK7sVqc3TNA6Q6Q06L68xSX56fXieH1RsMZwFRIAsf/5RPlIOPr4oEnea06
+	 bQMR/6WkfgIwYZfNQWrV9ESpWPU2S+6WjC06JqRfg0/7i5570n7nOTZhHZVVspZ8hfAQt
+	 9OeVJuIHNR+H9K78t5aWSqcBhXIhJKbDYTEeEWjQw4RvyTvV8oZkGUrU6nmZ+ZPyJk8cX
+	 b0PLqorgZ1orBMzpIPtmrEkQZg5TLx+Sfv3NL0mGpLCq2CzVjJNRovYWcU86ZVezN+puA
+	 zNp/wmY2cUiUL7IBy+KL972GNvdYGRNuJ2utEbKcEo9MHgd87kIrpqE4IpJWT8hrrKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A7rzbSsQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZLtXrcDP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66491606A33E
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:52:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C2CB606A330
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:52:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A7rzbSsQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 251981F000CD;
-	Sat, 14 Nov 2026 15:52:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZLtXrcDP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5D651F000C4;
+	Sat, 14 Nov 2026 15:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794671527;
-	bh=7PNIQ+brtkDt0ui73M8xH/zEUWghktDU3iUddsWS5k8=;
+	s=k20260515; t=1794671530;
+	bh=lBuIVxj0Gsrtpg9paCJ8LZ48yxcqNNcJoX4yMYdF2+s=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=A7rzbSsQ+UgbXtUK5x6Pwqub6j7356jO3faNxCaZ8d0TRzoupVdTHnjw5Mf/nvP0v
-	 nxYbzzm+bQAqs/rNIDJKSgJxpO40BK/demmCuiXqUI6jBlzk+Yxi2R9d6HXl5QB8xT
-	 joz3rFMmI//D1CIM+BF2HdbfvrPkdGL3neCibSRrakyjr9PTxkyNQ7+/fc/i8IUkFh
-	 sS5Um5U2QmOFbUNE/ny5Yv7WMj/QKVk5XEU6RdApDyf6YeNhixF+7RWsLokzrl8IY3
-	 je9Unm3b0fC49s1mrTgfHCw4oVZ2bUzCri+xMdq9eSW+g3EKE2Mp6pg/mjUx9AcKUx
-	 BBitv8iHoCCsg==
+	b=ZLtXrcDPgM6r8qAMwV/RuHrXFD1E7h+i69zCFe8xRbxFqEYVujRxUNmwKIj6DTRxC
+	 1ZCOgVqEPAzzD/qfimFri+aI4lQDI34D2hZZVkdP3CEXPWNLmBjalQuDgZGU++Cg5F
+	 3Rld8XFZAjcBf33eNDgLGPsy3fWvZQ4DTxNyrEqHmJr4oIcYM2hPL1cwHzdKGw3YO8
+	 S5dCCc7CtewwGDcxxLVIdUGEKdbYeszpbkZon/Jvd7vqEGYfvtkqLT6ueb+8/hvXSD
+	 QdZ7t2BHWnc1u40PaJbYp99cq27LDs4VzEOLQplcMEl3d1T09p6snoYRxkxC/O8vjo
+	 0O+bTffRDfb7A==
 From: Eric Dumazet <edumazet@kernel.org>
 To: "David S . Miller" <davem@davemloft.net>,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -48,9 +48,9 @@ To: "David S . Miller" <davem@davemloft.net>,
 Cc: Simon Horman <horms@kernel.org>,
 	netdev@vger.kernel.org,
 	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net-next 4/5] net: add SKB_DROP_REASON_MEMCG
-Date: Sat, 14 Nov 2026 16:51:49 +0100
-Message-ID: <20261114155150.235743-5-edumazet@kernel.org>
+Subject: [PATCH net-next 5/5] selftests/net: packetdrill: add tcp_rcv_collapse.pkt
+Date: Sat, 14 Nov 2026 16:51:50 +0100
+Message-ID: <20261114155150.235743-6-edumazet@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261114155150.235743-1-edumazet@kernel.org>
 References: <20261114155150.235743-1-edumazet@kernel.org>
@@ -65,305 +65,268 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-__sk_mem_raise_allocated() fails either because the memory cgroup charge
-failed, or because protocol memory limits are reached, but callers can
-not tell the difference, and TCP reports SKB_DROP_REASON_PROTO_MEM
-in both cases.
+No packetdrill test was reaching the copy loop of tcp_collapse():
+TcpExtTCPRcvCollapsed stays at zero for the whole TCP suite.
 
-Add __sk_mem_raise_allocated_reason(), __sk_mem_schedule_reason() and
-sk_rmem_schedule_reason() returning SKB_NOT_DROPPED_YET on success,
-SKB_DROP_REASON_MEMCG when the memcg charge failed, or
-SKB_DROP_REASON_PROTO_MEM otherwise. Existing helpers become wrappers,
-other callers are unchanged.
+Add a test using a small locked SO_RCVBUF and out-of-order segments
+sent in decreasing sequence order, so that they can not be coalesced
+when they are queued. Their truesize exceeds sk_rcvbuf several times,
+thus all of them can only be queued if tcp_prune_queue() collapses
+them.
 
-Use sk_rmem_schedule_reason() in tcp_try_rmem_schedule().
+The test covers:
 
-Note that memcg charges done from softirq use GFP_ATOMIC and are
-forced over the limit, so on the receive path this reason is only seen
-for packets processed in process context, like the socket backlog.
+- A small out-of-order range made of two skbs.
 
-Tested with a receiver in a memory cgroup doing small reads while a
-peer sends at full speed: kfree_skb tracepoint reports MEMCG drops.
+- A big out-of-order range, bigger than one page.
+
+- The receive queue, starting with a partially read skb.
+
+It checks that TcpExtTCPRcvCollapsed is not zero, that nothing had
+to be pruned, and that all the payload can be read.
 
 Signed-off-by: Eric Dumazet <edumazet@kernel.org>
 ---
- include/net/dropreason-core.h |  6 ++++
- include/net/sock.h            | 33 ++++++++++++++++---
- net/core/sock.c               | 62 ++++++++++++++++++++++++-----------
- net/ipv4/tcp_input.c          | 15 +++++----
- 4 files changed, 85 insertions(+), 31 deletions(-)
+ .../net/packetdrill/tcp_rcv_collapse.pkt      | 230 ++++++++++++++++++
+ 1 file changed, 230 insertions(+)
+ create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rcv_collapse.pkt
 
-diff --git a/include/net/dropreason-core.h b/include/net/dropreason-core.h
-index fa2fe8990557..27bc63cbc020 100644
---- a/include/net/dropreason-core.h
-+++ b/include/net/dropreason-core.h
-@@ -82,6 +82,7 @@
- 	FN(DEV_READY)			\
- 	FN(FULL_RING)			\
- 	FN(NOMEM)			\
-+	FN(MEMCG)			\
- 	FN(TAP_FILTER)			\
- 	FN(TAP_TXFILTER)		\
- 	FN(ICMP_CSUM)			\
-@@ -426,6 +427,11 @@ enum skb_drop_reason {
- 	SKB_DROP_REASON_FULL_RING,
- 	/** @SKB_DROP_REASON_NOMEM: error due to OOM */
- 	SKB_DROP_REASON_NOMEM,
-+	/**
-+	 * @SKB_DROP_REASON_MEMCG: socket memory could not be charged
-+	 * to its memory cgroup.
-+	 */
-+	SKB_DROP_REASON_MEMCG,
- 	/**
- 	 * @SKB_DROP_REASON_TAP_FILTER: dropped by (ebpf) filter directly attached
- 	 * to tun/tap, e.g., via TUNSETFILTEREBPF
-diff --git a/include/net/sock.h b/include/net/sock.h
-index d58d38db732d..005addcc4dc4 100644
---- a/include/net/sock.h
-+++ b/include/net/sock.h
-@@ -1557,7 +1557,11 @@ static inline struct inode *SOCK_INODE(struct socket *socket)
- /*
-  * Functions for memory accounting
-  */
-+enum skb_drop_reason __sk_mem_raise_allocated_reason(struct sock *sk, int size,
-+						     int amt, int kind);
- int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind);
-+enum skb_drop_reason __sk_mem_schedule_reason(struct sock *sk, int size,
-+					      int kind);
- int __sk_mem_schedule(struct sock *sk, int size, int kind);
- void __sk_mem_reduce_allocated(struct sock *sk, int amount);
- void __sk_mem_reclaim(struct sock *sk, int amount);
-@@ -1592,16 +1596,35 @@ static inline bool sk_wmem_schedule(struct sock *sk, int size)
- 	return delta <= 0 || __sk_mem_schedule(sk, delta, SK_MEM_SEND);
- }
- 
--static inline bool
--__sk_rmem_schedule(struct sock *sk, int size, bool pfmemalloc)
-+/* Return SKB_NOT_DROPPED_YET on success, or the drop reason. */
-+static inline enum skb_drop_reason
-+__sk_rmem_schedule_reason(struct sock *sk, int size, bool pfmemalloc)
- {
-+	enum skb_drop_reason reason;
- 	int delta;
- 
- 	if (!sk_has_account(sk))
--		return true;
-+		return SKB_NOT_DROPPED_YET;
- 	delta = size - sk->sk_forward_alloc;
--	return delta <= 0 || __sk_mem_schedule(sk, delta, SK_MEM_RECV) ||
--	       pfmemalloc;
-+	if (delta <= 0)
-+		return SKB_NOT_DROPPED_YET;
-+	reason = __sk_mem_schedule_reason(sk, delta, SK_MEM_RECV);
-+	if (reason && pfmemalloc)
-+		return SKB_NOT_DROPPED_YET;
-+	return reason;
-+}
+diff --git a/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse.pkt b/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse.pkt
+new file mode 100644
+index 000000000000..5650c5138231
+--- /dev/null
++++ b/tools/testing/selftests/net/packetdrill/tcp_rcv_collapse.pkt
+@@ -0,0 +1,230 @@
++// SPDX-License-Identifier: GPL-2.0
++//
++// Exercise tcp_collapse() on the out-of-order queue and on the receive
++// queue, for small ranges and for ranges bigger than one page, and check
++// that no payload is lost.
++//
++// Out-of-order segments are sent in decreasing sequence order, so that
++// they can not be coalesced when they are queued: only tcp_collapse()
++// can merge them.
 +
-+static inline bool
-+__sk_rmem_schedule(struct sock *sk, int size, bool pfmemalloc)
-+{
-+	return __sk_rmem_schedule_reason(sk, size, pfmemalloc) ==
-+	       SKB_NOT_DROPPED_YET;
-+}
++--mss=1000
 +
-+static inline enum skb_drop_reason
-+sk_rmem_schedule_reason(struct sock *sk, const struct sk_buff *skb, int size)
-+{
-+	return __sk_rmem_schedule_reason(sk, size, skb_pfmemalloc(skb));
- }
- 
- static inline bool
-diff --git a/net/core/sock.c b/net/core/sock.c
-index e529ffeaedb9..226a587c5fa5 100644
---- a/net/core/sock.c
-+++ b/net/core/sock.c
-@@ -3409,13 +3409,17 @@ int sk_wait_data(struct sock *sk, long *timeo, const struct sk_buff *skb)
- EXPORT_SYMBOL(sk_wait_data);
- 
- /**
-- *	__sk_mem_raise_allocated - increase memory_allocated
-+ *	__sk_mem_raise_allocated_reason - increase memory_allocated
-  *	@sk: socket
-  *	@size: memory size to allocate
-  *	@amt: pages to allocate
-  *	@kind: allocation type
-  *
-- *	Similar to __sk_mem_schedule(), but does not update sk_forward_alloc.
-+ *	Similar to __sk_mem_schedule_reason(), but does not update
-+ *	sk_forward_alloc.
-+ *
-+ *	Return: SKB_NOT_DROPPED_YET on success, SKB_DROP_REASON_MEMCG if the
-+ *	memcg charge failed, SKB_DROP_REASON_PROTO_MEM otherwise.
-  *
-  *	Unlike the globally shared limits among the sockets under same protocol,
-  *	consuming the budget of a memcg won't have direct effect on other ones.
-@@ -3423,8 +3427,10 @@ EXPORT_SYMBOL(sk_wait_data);
-  *	whether or not to raise allocated through sk_under_memory_pressure() or
-  *	its variants.
-  */
--int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
-+enum skb_drop_reason __sk_mem_raise_allocated_reason(struct sock *sk, int size,
-+						     int amt, int kind)
- {
-+	enum skb_drop_reason reason = SKB_DROP_REASON_PROTO_MEM;
- 	bool memcg_enabled = false, charged = false;
- 	struct proto *prot = sk->sk_prot;
- 	long allocated = 0;
-@@ -3437,17 +3443,19 @@ int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
- 	if (mem_cgroup_sk_enabled(sk)) {
- 		memcg_enabled = true;
- 		charged = mem_cgroup_sk_charge(sk, amt, gfp_memcg_charge());
--		if (!charged)
-+		if (!charged) {
-+			reason = SKB_DROP_REASON_MEMCG;
- 			goto suppress_allocation;
-+		}
- 	}
- 
- 	if (sk->sk_bypass_prot_mem)
--		return 1;
-+		return SKB_NOT_DROPPED_YET;
- 
- 	/* Under limit. */
- 	if (allocated <= sk_prot_mem_limits(sk, 0)) {
- 		sk_leave_memory_pressure(sk);
--		return 1;
-+		return SKB_NOT_DROPPED_YET;
- 	}
- 
- 	/* Under pressure. */
-@@ -3468,16 +3476,16 @@ int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
- 	 */
- 	if (kind == SK_MEM_RECV) {
- 		if (atomic_read(&sk->sk_rmem_alloc) < sk_get_rmem0(sk, prot))
--			return 1;
-+			return SKB_NOT_DROPPED_YET;
- 
- 	} else { /* SK_MEM_SEND */
- 		int wmem0 = sk_get_wmem0(sk, prot);
- 
- 		if (sk->sk_type == SOCK_STREAM) {
- 			if (sk->sk_wmem_queued < wmem0)
--				return 1;
-+				return SKB_NOT_DROPPED_YET;
- 		} else if (refcount_read(&sk->sk_wmem_alloc) < wmem0) {
--				return 1;
-+			return SKB_NOT_DROPPED_YET;
- 		}
- 	}
- 
-@@ -3489,7 +3497,7 @@ int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
- 		 * sense for global memory pressure.
- 		 */
- 		if (!sk_under_global_memory_pressure(sk))
--			return 1;
-+			return SKB_NOT_DROPPED_YET;
- 
- 		/* Try to be fair among all the sockets under global
- 		 * pressure by allowing the ones that below average
-@@ -3500,7 +3508,7 @@ int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
- 		    sk_mem_pages(sk->sk_wmem_queued +
- 				 atomic_read(&sk->sk_rmem_alloc) +
- 				 sk->sk_forward_alloc))
--			return 1;
-+			return SKB_NOT_DROPPED_YET;
- 	}
- 
- suppress_allocation:
-@@ -3516,7 +3524,7 @@ int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
- 			if (memcg_enabled && !charged)
- 				mem_cgroup_sk_charge(sk, amt,
- 						     gfp_memcg_charge() | __GFP_NOFAIL);
--			return 1;
-+			return SKB_NOT_DROPPED_YET;
- 		}
- 	}
- 
-@@ -3528,11 +3536,17 @@ int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
- 	if (charged)
- 		mem_cgroup_sk_uncharge(sk, amt);
- 
--	return 0;
-+	return reason;
-+}
++`./defaults.sh`
 +
-+int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
-+{
-+	return __sk_mem_raise_allocated_reason(sk, size, amt, kind) ==
-+	       SKB_NOT_DROPPED_YET;
- }
- 
- /**
-- *	__sk_mem_schedule - increase sk_forward_alloc and memory_allocated
-+ *	__sk_mem_schedule_reason - increase sk_forward_alloc and memory_allocated
-  *	@sk: socket
-  *	@size: memory size to allocate
-  *	@kind: allocation type
-@@ -3540,16 +3554,26 @@ int __sk_mem_raise_allocated(struct sock *sk, int size, int amt, int kind)
-  *	If kind is SK_MEM_SEND, it means wmem allocation. Otherwise it means
-  *	rmem allocation. This function assumes that protocols which have
-  *	memory_pressure use sk_wmem_queued as write buffer accounting.
-+ *
-+ *	Return: SKB_NOT_DROPPED_YET on success, or the drop reason.
-  */
--int __sk_mem_schedule(struct sock *sk, int size, int kind)
-+enum skb_drop_reason __sk_mem_schedule_reason(struct sock *sk, int size,
-+					      int kind)
- {
--	int ret, amt = sk_mem_pages(size);
-+	int amt = sk_mem_pages(size);
-+	enum skb_drop_reason reason;
- 
- 	sk_forward_alloc_add(sk, amt << PAGE_SHIFT);
--	ret = __sk_mem_raise_allocated(sk, size, amt, kind);
--	if (!ret)
-+	reason = __sk_mem_raise_allocated_reason(sk, size, amt, kind);
-+	if (reason)
- 		sk_forward_alloc_add(sk, -(amt << PAGE_SHIFT));
--	return ret;
-+	return reason;
-+}
-+EXPORT_SYMBOL(__sk_mem_schedule_reason);
++// Small locked receive buffer: sk_rcvbuf = 40000, can not grow.
++   +0 socket(..., SOCK_STREAM, IPPROTO_TCP) = 3
++   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
++   +0 setsockopt(3, SOL_SOCKET, SO_RCVBUF, [20000], 4) = 0
++   +0 bind(3, ..., ...) = 0
++   +0 listen(3, 1) = 0
 +
-+int __sk_mem_schedule(struct sock *sk, int size, int kind)
-+{
-+	return __sk_mem_schedule_reason(sk, size, kind) == SKB_NOT_DROPPED_YET;
- }
- EXPORT_SYMBOL(__sk_mem_schedule);
- 
-diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index 2d8f224f9bf0..ede6fa9105d5 100644
---- a/net/ipv4/tcp_input.c
-+++ b/net/ipv4/tcp_input.c
-@@ -5407,19 +5407,20 @@ tcp_try_rmem_schedule(struct sock *sk, const struct sk_buff *skb,
- {
- 	enum skb_drop_reason reason;
- 
--	if (!tcp_can_ingest(sk, skb))
-+	if (!tcp_can_ingest(sk, skb)) {
- 		reason = SKB_DROP_REASON_SOCKET_RCVBUFF;
--	else if (!sk_rmem_schedule(sk, skb, size))
--		reason = SKB_DROP_REASON_PROTO_MEM;
--	else
--		return SKB_NOT_DROPPED_YET;
-+	} else {
-+		reason = sk_rmem_schedule_reason(sk, skb, size);
-+		if (!reason)
-+			return SKB_NOT_DROPPED_YET;
-+	}
- 
- 	if (tcp_prune_queue(sk, skb) < 0)
- 		return reason;
- 
--	while (!sk_rmem_schedule(sk, skb, size)) {
-+	while ((reason = sk_rmem_schedule_reason(sk, skb, size))) {
- 		if (!tcp_prune_ofo_queue(sk, skb))
--			return SKB_DROP_REASON_PROTO_MEM;
-+			return reason;
- 	}
- 	return SKB_NOT_DROPPED_YET;
- }
++   +0 < S 0:0(0) win 32792 <mss 1000,nop,wscale 7>
++   +0 > S. 0:0(0) ack 1 <mss 1460,nop,wscale 0>
++  +.1 < . 1:1(0) ack 1 win 257
++
++   +0 accept(3, ..., ...) = 4
++
++   +0 `nstat -n`
++
++// A small isolated range (12401:12601) made of two skbs.
++// Holes are left at 1:201 and 12301:12401.
++   +0 < . 12501:12601(100) ack 1 win 257
++   +0 < . 12401:12501(100) ack 1 win 257
++
++// A big range (201:12301) made of 121 skbs: their truesize is far bigger
++// than sk_rcvbuf, the out-of-order queue must be collapsed to queue them
++// all. Exactly when this happens depends on skb->truesize, so ACKs are
++// not checked here.
++   +0 < . 12201:12301(100) ack 1 win 257
++   +0 < . 12101:12201(100) ack 1 win 257
++   +0 < . 12001:12101(100) ack 1 win 257
++   +0 < . 11901:12001(100) ack 1 win 257
++   +0 < . 11801:11901(100) ack 1 win 257
++   +0 < . 11701:11801(100) ack 1 win 257
++   +0 < . 11601:11701(100) ack 1 win 257
++   +0 < . 11501:11601(100) ack 1 win 257
++   +0 < . 11401:11501(100) ack 1 win 257
++   +0 < . 11301:11401(100) ack 1 win 257
++   +0 < . 11201:11301(100) ack 1 win 257
++   +0 < . 11101:11201(100) ack 1 win 257
++   +0 < . 11001:11101(100) ack 1 win 257
++   +0 < . 10901:11001(100) ack 1 win 257
++   +0 < . 10801:10901(100) ack 1 win 257
++   +0 < . 10701:10801(100) ack 1 win 257
++   +0 < . 10601:10701(100) ack 1 win 257
++   +0 < . 10501:10601(100) ack 1 win 257
++   +0 < . 10401:10501(100) ack 1 win 257
++   +0 < . 10301:10401(100) ack 1 win 257
++   +0 < . 10201:10301(100) ack 1 win 257
++   +0 < . 10101:10201(100) ack 1 win 257
++   +0 < . 10001:10101(100) ack 1 win 257
++   +0 < . 9901:10001(100) ack 1 win 257
++   +0 < . 9801:9901(100) ack 1 win 257
++   +0 < . 9701:9801(100) ack 1 win 257
++   +0 < . 9601:9701(100) ack 1 win 257
++   +0 < . 9501:9601(100) ack 1 win 257
++   +0 < . 9401:9501(100) ack 1 win 257
++   +0 < . 9301:9401(100) ack 1 win 257
++   +0 < . 9201:9301(100) ack 1 win 257
++   +0 < . 9101:9201(100) ack 1 win 257
++   +0 < . 9001:9101(100) ack 1 win 257
++   +0 < . 8901:9001(100) ack 1 win 257
++   +0 < . 8801:8901(100) ack 1 win 257
++   +0 < . 8701:8801(100) ack 1 win 257
++   +0 < . 8601:8701(100) ack 1 win 257
++   +0 < . 8501:8601(100) ack 1 win 257
++   +0 < . 8401:8501(100) ack 1 win 257
++   +0 < . 8301:8401(100) ack 1 win 257
++   +0 < . 8201:8301(100) ack 1 win 257
++   +0 < . 8101:8201(100) ack 1 win 257
++   +0 < . 8001:8101(100) ack 1 win 257
++   +0 < . 7901:8001(100) ack 1 win 257
++   +0 < . 7801:7901(100) ack 1 win 257
++   +0 < . 7701:7801(100) ack 1 win 257
++   +0 < . 7601:7701(100) ack 1 win 257
++   +0 < . 7501:7601(100) ack 1 win 257
++   +0 < . 7401:7501(100) ack 1 win 257
++   +0 < . 7301:7401(100) ack 1 win 257
++   +0 < . 7201:7301(100) ack 1 win 257
++   +0 < . 7101:7201(100) ack 1 win 257
++   +0 < . 7001:7101(100) ack 1 win 257
++   +0 < . 6901:7001(100) ack 1 win 257
++   +0 < . 6801:6901(100) ack 1 win 257
++   +0 < . 6701:6801(100) ack 1 win 257
++   +0 < . 6601:6701(100) ack 1 win 257
++   +0 < . 6501:6601(100) ack 1 win 257
++   +0 < . 6401:6501(100) ack 1 win 257
++   +0 < . 6301:6401(100) ack 1 win 257
++   +0 < . 6201:6301(100) ack 1 win 257
++   +0 < . 6101:6201(100) ack 1 win 257
++   +0 < . 6001:6101(100) ack 1 win 257
++   +0 < . 5901:6001(100) ack 1 win 257
++   +0 < . 5801:5901(100) ack 1 win 257
++   +0 < . 5701:5801(100) ack 1 win 257
++   +0 < . 5601:5701(100) ack 1 win 257
++   +0 < . 5501:5601(100) ack 1 win 257
++   +0 < . 5401:5501(100) ack 1 win 257
++   +0 < . 5301:5401(100) ack 1 win 257
++   +0 < . 5201:5301(100) ack 1 win 257
++   +0 < . 5101:5201(100) ack 1 win 257
++   +0 < . 5001:5101(100) ack 1 win 257
++   +0 < . 4901:5001(100) ack 1 win 257
++   +0 < . 4801:4901(100) ack 1 win 257
++   +0 < . 4701:4801(100) ack 1 win 257
++   +0 < . 4601:4701(100) ack 1 win 257
++   +0 < . 4501:4601(100) ack 1 win 257
++   +0 < . 4401:4501(100) ack 1 win 257
++   +0 < . 4301:4401(100) ack 1 win 257
++   +0 < . 4201:4301(100) ack 1 win 257
++   +0 < . 4101:4201(100) ack 1 win 257
++   +0 < . 4001:4101(100) ack 1 win 257
++   +0 < . 3901:4001(100) ack 1 win 257
++   +0 < . 3801:3901(100) ack 1 win 257
++   +0 < . 3701:3801(100) ack 1 win 257
++   +0 < . 3601:3701(100) ack 1 win 257
++   +0 < . 3501:3601(100) ack 1 win 257
++   +0 < . 3401:3501(100) ack 1 win 257
++   +0 < . 3301:3401(100) ack 1 win 257
++   +0 < . 3201:3301(100) ack 1 win 257
++   +0 < . 3101:3201(100) ack 1 win 257
++   +0 < . 3001:3101(100) ack 1 win 257
++   +0 < . 2901:3001(100) ack 1 win 257
++   +0 < . 2801:2901(100) ack 1 win 257
++   +0 < . 2701:2801(100) ack 1 win 257
++   +0 < . 2601:2701(100) ack 1 win 257
++   +0 < . 2501:2601(100) ack 1 win 257
++   +0 < . 2401:2501(100) ack 1 win 257
++   +0 < . 2301:2401(100) ack 1 win 257
++   +0 < . 2201:2301(100) ack 1 win 257
++   +0 < . 2101:2201(100) ack 1 win 257
++   +0 < . 2001:2101(100) ack 1 win 257
++   +0 < . 1901:2001(100) ack 1 win 257
++   +0 < . 1801:1901(100) ack 1 win 257
++   +0 < . 1701:1801(100) ack 1 win 257
++   +0 < . 1601:1701(100) ack 1 win 257
++   +0 < . 1501:1601(100) ack 1 win 257
++   +0 < . 1401:1501(100) ack 1 win 257
++   +0 < . 1301:1401(100) ack 1 win 257
++   +0 < . 1201:1301(100) ack 1 win 257
++   +0 < . 1101:1201(100) ack 1 win 257
++   +0 < . 1001:1101(100) ack 1 win 257
++   +0 < . 901:1001(100) ack 1 win 257
++   +0 < . 801:901(100) ack 1 win 257
++   +0 < . 701:801(100) ack 1 win 257
++   +0 < . 601:701(100) ack 1 win 257
++   +0 < . 501:601(100) ack 1 win 257
++   +0 < . 401:501(100) ack 1 win 257
++   +0 < . 301:401(100) ack 1 win 257
++   +0 < . 201:301(100) ack 1 win 257
++
++   +0 `nstat -sz | grep -q "^TcpExtTCPRcvCollapsed  *[1-9]"`
++   +0 `nstat -sz | grep -q "^TcpExtOfoPruned  *0 "`
++
++// Fill the first hole: 1:12301 is moved to the receive queue.
++// A partial read leaves a partially consumed skb at the head of the
++// receive queue.
++   +0 < . 1:201(200) ack 1 win 257
++   +0 read(4, ..., 100) = 100
++
++// More out-of-order segments (12601:17601), following the small range:
++// the receive queue has to be collapsed as well.
++   +0 < . 17501:17601(100) ack 1 win 257
++   +0 < . 17401:17501(100) ack 1 win 257
++   +0 < . 17301:17401(100) ack 1 win 257
++   +0 < . 17201:17301(100) ack 1 win 257
++   +0 < . 17101:17201(100) ack 1 win 257
++   +0 < . 17001:17101(100) ack 1 win 257
++   +0 < . 16901:17001(100) ack 1 win 257
++   +0 < . 16801:16901(100) ack 1 win 257
++   +0 < . 16701:16801(100) ack 1 win 257
++   +0 < . 16601:16701(100) ack 1 win 257
++   +0 < . 16501:16601(100) ack 1 win 257
++   +0 < . 16401:16501(100) ack 1 win 257
++   +0 < . 16301:16401(100) ack 1 win 257
++   +0 < . 16201:16301(100) ack 1 win 257
++   +0 < . 16101:16201(100) ack 1 win 257
++   +0 < . 16001:16101(100) ack 1 win 257
++   +0 < . 15901:16001(100) ack 1 win 257
++   +0 < . 15801:15901(100) ack 1 win 257
++   +0 < . 15701:15801(100) ack 1 win 257
++   +0 < . 15601:15701(100) ack 1 win 257
++   +0 < . 15501:15601(100) ack 1 win 257
++   +0 < . 15401:15501(100) ack 1 win 257
++   +0 < . 15301:15401(100) ack 1 win 257
++   +0 < . 15201:15301(100) ack 1 win 257
++   +0 < . 15101:15201(100) ack 1 win 257
++   +0 < . 15001:15101(100) ack 1 win 257
++   +0 < . 14901:15001(100) ack 1 win 257
++   +0 < . 14801:14901(100) ack 1 win 257
++   +0 < . 14701:14801(100) ack 1 win 257
++   +0 < . 14601:14701(100) ack 1 win 257
++   +0 < . 14501:14601(100) ack 1 win 257
++   +0 < . 14401:14501(100) ack 1 win 257
++   +0 < . 14301:14401(100) ack 1 win 257
++   +0 < . 14201:14301(100) ack 1 win 257
++   +0 < . 14101:14201(100) ack 1 win 257
++   +0 < . 14001:14101(100) ack 1 win 257
++   +0 < . 13901:14001(100) ack 1 win 257
++   +0 < . 13801:13901(100) ack 1 win 257
++   +0 < . 13701:13801(100) ack 1 win 257
++   +0 < . 13601:13701(100) ack 1 win 257
++   +0 < . 13501:13601(100) ack 1 win 257
++   +0 < . 13401:13501(100) ack 1 win 257
++   +0 < . 13301:13401(100) ack 1 win 257
++   +0 < . 13201:13301(100) ack 1 win 257
++   +0 < . 13101:13201(100) ack 1 win 257
++   +0 < . 13001:13101(100) ack 1 win 257
++   +0 < . 12901:13001(100) ack 1 win 257
++   +0 < . 12801:12901(100) ack 1 win 257
++   +0 < . 12701:12801(100) ack 1 win 257
++   +0 < . 12601:12701(100) ack 1 win 257
++
++// Fill the second hole and check that all the payload can be read:
++// nothing was dropped to make room.
++   +0 < . 12301:12401(100) ack 1 win 257
++   +0 read(4, ..., 30000) = 17500
++
++   +0 `nstat -sz | grep -q "^TcpExtOfoPruned  *0 "`
++   +0 `nstat -sz | grep -q "^TcpExtRcvPruned  *0 "`
++   +0 `nstat -sz | grep -q "^TcpExtTCPRcvCollapseSkipped  *0 "`
 -- 
 2.53.0
 
