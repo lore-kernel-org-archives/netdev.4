@@ -1,106 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794663407;
-	b=zuN5+SDFDN2dKrpXuGvPV0fT84z63QAzI0dP2xvHm98QH6iT9qzkaGr4ouBYjKCpv2y+
-	 UdD4jJbPMej5LlV8gT6k50q5fbpWO0oVg841WwxITjaGd3TJs9wMbjJbrBM9mPCALg/IR
-	 KSk76kBY+6EYIkqsFM2/0yTp76AshZ7Bu5PDElsoGjp0ygQrD8xrxj8lM+MiQ2vcdSZTe
-	 DsQz1LLkgIHDZsrXFH7ptmqKvpIa9QzAQYqBKi32RzQ7nN1o4U727+urlCc52iz+R2yo9
-	 c+poHa+rcAOUB4sMclCKNFRZE9U2ymY1hf7oyDBkbk+n4aAdGzflZa0viUh8owHYbBA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794663407;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794663446;
+	b=B4qNKEV0Av1Lxqd6a0tXRynCigQ3bvlkL4W+nDdTvI/et8ev1Zzj6I1kOMaUGBsa0cCi
+	 0ZGW4RnI+4EpYUmogbJ/PLv+li5K33rhUmV+0GNqRxGKtsjlDnruXIWwgfCbaWJ3TGvDr
+	 EZm4vQ3QFoSwXVkds+E7LatAMzP9gtHS/6ThtugMjfjkm8C4SIQ1+5jbySir43yT3jvp9
+	 /TtawL0EYV8k7unLbkxJ/zyFikSbVvYahEUn/qeg2/zSi4Wsom/0KDR6NyAPVOWFGxdXP
+	 e57jKOW0a7WcBHxIw6FdJm13KXpwks8sV/i7mePH2a7bQx36S5pUCJMSNcrq1RCoGqA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794663446;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=nxrZJxHUg2O9j8zi4wkVtSZmuc/DWB6+tE9tT3nYX8c=;
-	b=nPGWLr5zoXE2kEX2LABvt6qUVpIj31T7V48hMlk28IrqdSrSmU4WtExyUpGCwYDqD1Un
-	 7TE0xG0LiUDcV0jFoIlbIlu1Umbz+Dcdee7B+yRjWrjAgjoLRewo3f937yoiPrNputCPD
-	 Rj6qD+0FQ+RQJOXd6a4WgBCbdSLrxl4J5KR+SEDErarh6udsYQ5D11vRO3ZV3Yk24ItpR
-	 C7YeKjJxnZcq88gh1HRGutXMUypfHpWKpnhwfiNNRnBmwQIakuPr7/0S/6GJ9GElmJFcp
-	 6mzttuLA7Q7S3V169a9MjvH4RfLiA/YOIexWwYkxYTEl7YitRxC4PxiR8XhltunEFLA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=grische.xyz;
-	spf=pass smtp.mailfrom=grische.xyz;
-	dkim=pass header.d=grische.xyz header.i=@grische.xyz header.a=rsa-sha256 header.s=google header.b=MNy13gTL;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=d1dGGKhX00LCOKp0RTB4V4U0p/3/TPwG7x8i8TvKBao=;
+	b=i2xOrrI4Az0HHBDTpl1UiWO1DoWW0pSNSj7GCmtL0db/ub27XJ4Eeb9WiCSsbExbK92q
+	 8LRX83+gZtka/AACW3cRa2TFdMyJ2I6LoCpvjPX9r/8a75kst87yYK5Ct5HHdk5CHKsM1
+	 hTyjAriS+4AcYnzWnZcqaBjbK0RHA/0EtZVjjePGa5dm0i++8lb3VN9ql2QFOW33lZl7I
+	 oqiS/2n1/0pYRrRkmP8W1Z9NH5jwZ7MAuwn0jqSm7r/R2kx6bSje+wm1rLZkHxwYaTiBg
+	 0sz611et7/p39TAjVQ6C6A5VFGkCrUp/6p3idn+7np8jIiOSONTjmoYALaPm7aEhXOw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V0DVzrQ3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.50
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 524C4606A891
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:36:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 524C4606A891
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=grische.xyz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=grische.xyz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B04ED606A333
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:37:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B04ED606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=grische.xyz header.i=@grische.xyz header.a=rsa-sha256 header.s=google header.b=MNy13gTL
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-48e10a70540so962692f8f.1
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 05:36:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V0DVzrQ3
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c5075fa7ed0so375576466b.2
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 05:37:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794663444; cv=none;
+        d=google.com; s=arc-20260327;
+        b=os2JWM90rGfApozjK19PG3QfKTbcpr7WzaQxAdeSQN1AHnaTKwf8xR38XWRnd7TZm9
+         Vl1VBcv308+7bSSNQ92wyCybjnWV5aGVslZVVrSf9qrPlggycr8sGn+JDnd5sqJ4BIrA
+         wOY8QqZ8M4YWJuqpwLkrHh6FeXa4t+PA42O8HQTckcBZjHwJ/Fkdr+JfCfqW2oA/cSwW
+         DLeYEnxknnZ1mTaf4xWyFkVX+Ixm0BaN43eq1dc70B/viw4oVdHxL13iJKxYN7Zn2WDP
+         2+GOx4O372Su/Fr5GgPDRF7mTba48gvZhSqg3QEoPTaHBQw87vBaoEEXy0e1YVKmPwZi
+         e2jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=d1dGGKhX00LCOKp0RTB4V4U0p/3/TPwG7x8i8TvKBao=;
+        fh=vQrbgOYrRK9zxY3iDyNoUc0Pkl2p5A7XoDZnigS8jhs=;
+        b=RJsoFRjXh8zG6lcUuD2O9d8R4OuF76YXH7ZWYbrCIqgWcTGOUdqo3yBpC5zVQN0dMj
+         j75mg/KNQBwh+OQhQBVHy1TFH3ay7yuukKCGQCwke03whQmsKxupKA/JUbtd6HMQi/+D
+         ycOin0t4NdQyL70Y+O8H9zIPAEY2K1rpkOr4GpAkzfnfGvgCFLRcSSoUSOOjOyOUWj5K
+         dxu6fXEVAo3pg8Pdxq/PyeeRm75NFlGHVVS+Q/AQHjj0GthZTVojv2fzwqr2agiDirrZ
+         9TIlye2DqxVvFEuZyYTgzFDRf3EsuK9kQfJQ9ITQtRor/1PDe1dY2BzKLEqoue2U+hKq
+         4y/Q==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=grische.xyz; s=google; t=1794663406; x=1795268206; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nxrZJxHUg2O9j8zi4wkVtSZmuc/DWB6+tE9tT3nYX8c=;
-        b=MNy13gTLmC76O2NwWxzMLq2bD2NcAS2Lmb+Fa3QAE5m3tgPQDQl/dmDgGSBdSkVSXM
-         jo7SSTHv6JwLuKfNswjxK4G+NRrtPwxEFluwI1dZ1LCBs2oAjApsc2mI1Apv+ilRrROY
-         K46icOMtrBYmvhpyDkK38wTxSxfIeRGUbx6Fr8v8CmvbnTTlM8I4Ou+0sEivLrrzS/8N
-         R9OKZ31N8fOJ5RtReTqWfpVyjMlpwrkDQiCLrzuE1wjnedpYqztGKEPtAV62PUFHoTIB
-         PPDQur2xPCsj+0uWGKSMxDXEpQRrgpdiiQMlO2m0nzR6hC9dpNppZyzFw9myK7+h01q5
-         soAA==
+        d=gmail.com; s=20260707; t=1794663444; x=1795268244; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=d1dGGKhX00LCOKp0RTB4V4U0p/3/TPwG7x8i8TvKBao=;
+        b=V0DVzrQ3UtNS2CGItTaibnG4J77tS7qMIR3c3C2ZUlh81GURnIp8X/IHvzSGRyT9ls
+         zjvCcMSGfVsCr6PaYL7s/vQfBw5Mif7+7tUD0srSf73nlG5orBcEr38slNFK3s40BEI2
+         7P3tnLj21L2r9iq1fBalGmh9cWBfRaIGzosEYay/i4E+/pcIFFHj2aP00nst0S6qHd6J
+         o/X6UWXAn5i2xjeOmvPTXT6Ku4VxLGqH9IukfZrHdwmQeffXKQ1EEEj4+Y8Ud/51mgzP
+         hYSzzU0nDdx3vWOvn6HCLUOcY6VNwAbS3mh+1q0boLKaBCkOkU/W8ctopAqNAKKW/Jrn
+         WAgw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794663406; x=1795268206;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nxrZJxHUg2O9j8zi4wkVtSZmuc/DWB6+tE9tT3nYX8c=;
-        b=KgxXE+G/8bJUqsFN1/P7pEUvWywul+cGtdoovuRQgzpOpZCnwNlPndkunrgRVUO7Fk
-         TmQx5jzlfOm9RPJRf9gsAvfirVPley5zTxeXpxFeANJCrimiAe1eKkzCJh45Od/2mxvx
-         j0v0TmKTzChS6LPXjneFT6Qx8IeNpqahos10Ewt6Bn+7N3mBInKgYCgiobf0xQ7LHDX7
-         NhUmh94RTdW4LvwsYfCOOBjJzI8CIiaThOx57/IaZDS4Vs1Itwm6EIx2dbdlf5FmG6jL
-         jtfhSHxpDDmKbqwv9xABdF5qgecgoAgYXHYuY1JWaBL786MDgEDQyERW5R5BJtUETOqO
-         4xPw==
-X-Gm-Message-State: APuU4Z+4Z+OkxsgS1PpDLR4rIhpdF1ycmctWchDgD3BDJfwNZgo0IOpe
-	IOYIEJDOaCL3VjTZCegPPLs12bqNGP+PMQ5Khg5f4vQED00tMbec8V9SKKwxRNVVrqaY/n9u2OP
-	tXP/Ff6nR7Q==
-X-Gm-Gg: AYBFou3qeQ6AK54e6n3swVIjRMYnfGGx3qk4kKU0p0ehAOdg9hm1KUldKO0nkEGeYtq
-	QXs0KpWWoNEHtzgqQbomQmERXo1mdLqvKsolwePxP6MapJk/PpOlri9r/1W5kS12rgYOYEPa5iw
-	ic1Mu2QGQNmsCVCRFNBthM3iMsQCBN/ROzk93NzjHnK+0YqhT80KU7CQDH681hOd9d1MdEOuMD7
-	LjiGqqaAYm+R19fyj9He+FPExhsW9k5IHA+XSU6GnlKw5NoaUE5RBA05IIlzNf3Kv30InJ5cFfx
-	s+px2MVebne3VD6B7weH0ALO3vOjpR3c7dRriNZltglnKZbpsFC/dS+Vt41tOZKfm02Quiphv7u
-	sYLcBaYn2OHeFvLHAD4KNKLGIW4vZ+gS6vJ2DbcaqqDK18BAWv4yoIKU/MQ4Y6b4IUx9kdTbIxP
-	r6b3T20zLUZXGWhQAiwfpyvyKHGTHh9HASMm6TGkH8HlPTvha03zxSWqnNZ9qcQKcbam2Vu1YNF
-	pv3KG/it/nU9IdouKWFI9upzxb0sVyh7eOXNVcqECn65WUDBA8qlgrzjBasMOwRNHY/Ayt3856i
-	1h7iSRQJzIhUN9Afh/YOYwiqIw==
-X-Received: by 2002:a5d:5e85:0:b0:48d:f391:5c45 with SMTP id ffacd0b85a97d-49c740bcf7amr10850377f8f.42.1794663405564;
-        Sat, 14 Nov 2026 05:36:45 -0800 (PST)
-Received: from lake ([2a02:810d:d09:1b65:1a41:5e41:61a6:f0b6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49d69c21a17sm6657866f8f.50.2026.11.14.05.36.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 05:36:45 -0800 (PST)
-From: Christian Schmidbauer <opensource@grische.xyz>
-To: netdev@vger.kernel.org
-Cc: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Christian Schmidbauer <opensource@grische.xyz>,
-	stable@vger.kernel.org,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Aaro Koskinen <aaro.koskinen@nokia.com>,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 2/3] net: stmmac: dwmac1000: don't discard frames with only a checksum error
-Date: Sat, 14 Nov 2026 14:36:38 +0100
-Message-ID: <20261114133640.3285413-3-opensource@grische.xyz>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261114133640.3285413-1-opensource@grische.xyz>
-References: <20261114133640.3285413-1-opensource@grische.xyz>
+        d=1e100.net; s=20260707; t=1794663444; x=1795268244;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=d1dGGKhX00LCOKp0RTB4V4U0p/3/TPwG7x8i8TvKBao=;
+        b=VvX00gfn43ZtwmPZ9/fVOYT+KQnWJD8gOS+0q+os4jlEBadeAbXME6qWH77w92IEAk
+         vzojGUQtgEJfIWUyaMIOim/W5IwIXr770F5CWmkmYHs0dONlQevm0+SvaaR8E/YVzHh2
+         XZnFrQwSPeQv+M83ZyChE72TXr6COQ6/NtL3kcd69fcxldOZpwW43YtaOuRlADgLCLEt
+         1vB09dvutHT5+S26CM6I79CrRxBJCt7kaBMrajmep0XC9qg63/C8BDekBPjsGrWnI3nI
+         848BRqofW28c397RMOoPrCi8N+u+Abo5DPtBzVenR+AxD4+p705AkZ48PnqHoA28phsz
+         lXDg==
+X-Forwarded-Encrypted: i=1; AL+hErELZev33jFBWXeoHuWqAAEARCtKksQRRFsEYpuGQHhj1NP+HIY32K5pC0cdazJUculnI+a5Z5c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/yMIFuSAkgAzrTH9Rc7KvWg6PVk2Nd4gGXTcfzXqQkK7HmOsio
+	WFzPC0dek9M48fETI13pcVXFxlPLVR9oCLmDKnPk0ABK3cfblauwFQP2PB+Dq/+sk4oUqLLYdun
+	/pPIyoPmcyWmxVsvL2pZ+ZFGaC5PwWcs=
+X-Gm-Gg: AYBFou34rCRgD5OqMQ9SzVwGIEAyWim67cnABdZL9BDY1yfxyDoWyGCekE/8N9v3atZ
+	lUO5GA0HvMPL3ezmETdp/1JQ8A+fhpqduH9WDOOFubuSH2nzL2Vx9J1ibSl3lyKPMnhrqqnWlHl
+	BTplhjPK5zMFn8bT2Oge9Jnt8yc0da1ee8qYTry69YQv0W+6JsMGOvAA4rKvmYOboMEaPJsRxQO
+	U823L1ulrqI1ryjdftn+n6PT4yUD/gO/iMGP/t/EcD0EB6dow4skWvkXkZR6lJJEIc7rMKrGGQk
+	lbuqXbMfrhdohzz0fmoGXiKSSo5MipftUJIQLvNkzr0BDJ9SpQ0Uy9zELhenRCM1HZ6lsHcrenE
+	NzSBL6Ly1jx8HAu0cUvQvJtZ5M6yidar354CKhg==
+X-Received: by 2002:a17:907:3e1f:b0:c3e:f39b:2286 with SMTP id
+ a640c23a62f3a-c5095db45d8mr475395466b.0.1794663443789; Sat, 14 Nov 2026
+ 05:37:23 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,76 +104,69 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261113110546.173624-1-a.shimko.dev@gmail.com>
+ <20261113110546.173624-4-a.shimko.dev@gmail.com> <8ef5b0a7-58f6-4c62-8153-6a9c8d3703f7@lunn.ch>
+In-Reply-To: <8ef5b0a7-58f6-4c62-8153-6a9c8d3703f7@lunn.ch>
+From: Artem Shimko <a.shimko.dev@gmail.com>
+Date: Sat, 14 Nov 2026 16:37:12 +0300
+X-Gm-Features: AclHuK8XI7bnok_ObDtOfMHWf2vbfB49mnYymQ3JtOPklAmq8NLX7LejygF9N-8
+Message-ID: <CAOPX745=Mx9Q+Wijt9+=Mmjtdk4fsenEeV2h0gPCvNpqc8kN=A@mail.gmail.com>
+Subject: Re: [PATCH net-next 3/3] net: phy: dap8211r: add led hardware control support
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, maxime.chevallier@bootlin.com, 
+	pavel@ucw.cz, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-leds@vger.kernel.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On dwmac1000 with enhanced descriptors, the hardware sets the Error
-Summary (ES) bit of the Rx descriptor not only for L2 errors but also
-for an L3/L4 checksum error. enh_desc_get_rx_status() returns
-discard_frame whenever ES is set, and since commit 1b746ce8b397 ("net:
-stmmac: don't overwrite discard_frame status") the checksum status is
-only evaluated for good frames.
+Hi Andrew,
 
-Return discard_frame only when ES comes with one of the L2 error bits.
-A frame with only a checksum error is then reported as csum_none and
-reaches the stack as CHECKSUM_NONE, so the stack verifies the checksum
-itself. This matches dwmac4, whose Error Summary bit does not cover
-checksum errors.
+On Fri, Nov 13, 2026 at 11:32=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote=
+:
+>
+> > +#define DAP8211R_LED_ACT_BLINK               BIT(13)
+> > +#define DAP8211R_LED_FULL_DUPLEX     BIT(12)
+> > +#define DAP8211R_LED_HALF_DUPLEX     BIT(11)
+> > +#define DAP8211R_LED_TX                      BIT(10)
+> > +#define DAP8211R_LED_RX                      BIT(9)
+> > +#define DAP8211R_LED_LINK_1000               BIT(6)
+> > +#define DAP8211R_LED_LINK_100                BIT(5)
+> > +#define DAP8211R_LED_LINK_10         BIT(4)
+>
+> Do any of these bits allow forced on/off?
 
-RDES0 bit 7 is not in the mask, because depending on the core and on
-Rx checksum offload it reports a timestamp, an IP header checksum error
-or a giant frame, and enh_desc_get_rx_status() cannot tell which. In
-threshold Rx mode, a giant frame that fits one buffer therefore reaches
-the stack with a verified FCS.
+These bits only control the indication of connection status, speed,
+duplex mode, and activity.
 
-Also remove the pr_err that enh_desc_get_rx_status() prints when bit 7
-is set. Once the MAC stops dropping checksum-error frames, any host on
-the link can flood the kernel log by sending frames with a bad IPv4
-header checksum.
+The LED_COMCON register does include "force-on/force-off" bits,
+but i have intentionally chosen not to use them here.
+To be honest, i=E2=80=99m not yet convinced that they need to be added.
 
-This prepares for setting DMA_CONTROL_DT, which makes the MAC deliver
-checksum-error frames instead of dropping them in its Rx FIFO.
+In any case, if you think they are needed, i'll add them.
 
-Fixes: 1b746ce8b397 ("net: stmmac: don't overwrite discard_frame status")
-Cc: <stable@vger.kernel.org> # 6.6.x: ee0aace5f844: net: stmmac: Correctly handle Rx checksum offload errors
-Cc: <stable@vger.kernel.org> # 6.6.x
-Assisted-by: Claude:claude-opus-4-8
-Signed-off-by: Christian Schmidbauer <opensource@grische.xyz>
----
-v2:
-- Drop RDES0_LENGTH_ERROR from the mask of Error Summary bits. The
-  length check further down already discards such a frame.
-- Explain in the commit message why RDES0 bit 7 is not treated as an
-  L2 error.
-v1: https://lore.kernel.org/netdev/20261020190319.884375-1-opensource@grische.xyz/
- drivers/net/ethernet/stmicro/stmmac/enh_desc.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+> > +static int dap8211r_led_hw_is_supported(struct phy_device *phydev, u8 =
+index, unsigned long rules)
+> > +{
+> > +     switch (index) {
+> > +     case DAP8211R_LED_ID_0:
+> > +             fallthrough;
+> > +     case DAP8211R_LED_ID_1:
+> > +             fallthrough;
+> > +     case DAP8211R_LED_ID_2:
+> > +             break;
+>
+> You can collapse case statements, without fallthrough, if there is no
+> code.
+>
+> It is also possible to do:
+>
+> case DAP8211R_LED_ID_0..DAP8211R_LED_ID_2:
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-index 7ece8d4157a8..d0622f2605aa 100644
---- a/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/enh_desc.c
-@@ -216,9 +216,6 @@ static int enh_desc_get_rx_status(struct stmmac_extra_stats *x,
- 		if (unlikely(rdes0 & RDES0_OVERFLOW_ERROR))
- 			x->rx_gmac_overflow++;
- 
--		if (unlikely(rdes0 & RDES0_IPC_CSUM_ERROR))
--			pr_err("\tIPC Csum Error/Giant frame\n");
--
- 		if (unlikely(rdes0 & RDES0_COLLISION))
- 			x->rx_collision++;
- 		if (unlikely(rdes0 & RDES0_RECEIVE_WATCHDOG))
-@@ -230,7 +227,10 @@ static int enh_desc_get_rx_status(struct stmmac_extra_stats *x,
- 		if (unlikely(rdes0 & RDES0_CRC_ERROR)) {
- 			x->rx_crc_errors++;
- 		}
--		ret = discard_frame;
-+		if (rdes0 & (RDES0_DESCRIPTOR_ERROR | RDES0_OVERFLOW_ERROR |
-+			     RDES0_COLLISION | RDES0_RECEIVE_WATCHDOG |
-+			     RDES0_MII_ERROR | RDES0_CRC_ERROR))
-+			ret = discard_frame;
- 	}
- 
- 	/* After a payload csum error, the ES bit is set.
--- 
-2.54.0
+Agreed =3D)
 
+Thank you for your review.
+
+Best regards,
+artem
