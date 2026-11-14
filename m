@@ -1,101 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.175
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794672880;
-	b=yFv9cdesqScZeW4Z2aQkWAkzqPVdFkq9s/hszpJQImfIU4tj44BAmm9T2W7NYd+axC9d
-	 ut3ZHB1flP00bG86a/JI1sEtzdCIXRYnPFeWrjrK1/w1UQ69nEMRG1f4qo+/rz+Mpho+a
-	 8jTzPAt7E2vpXzZzDXIeZ80fgusgePUrVjgtW8TKyEY2PL1DiGThmrHretD+JnCnMLN3o
-	 0acG51D2unGYrTghuzZVkQ3DYXKxlX55X1UfReUc1qcqKoOr4Afu18Z+VjZ6TtXmgpYT6
-	 pVmHcelpNmsEl61EsJnP1xQMJMLYbgeSktcNbcr+SSaP52oXwm8DJ5bR10i6mOu4Dgw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794672880;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794672891;
+	b=ffntBD0Svec7gK9IxJUqP0gLznpLHRkp82h9zR2yVK1e1I5TyKkUUdF8nsKBGonyS4CA
+	 KQLK+4Ngt8T6Dc89+nI/1bx7XItgWK745a2is7wyeHHrKEq0/Zw63YnoqDTnIJRXtGsIZ
+	 Ls3WK18Lc83bmd45Q5PMP5zRaT6Iv4S0pvpGz86DX83BxQJumlbW91+C8a8iru7uEbfC+
+	 /3mxsbIUp5RSrxBBMlbDPldA+j+XoDQSrFzXhMM55mT31CTmaJBo/kGRFBOqlY+/ADZzq
+	 lkXhCVXo68ObYcvbt1jH+NyQAwMZEHyEX5hLcoZwKKu34ugV3n3bCsoQyBo5W23HiVA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794672891;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=j8apjl5nKZpbhUKAqnsuXWh8fD6xWu4DQgoUsG2JJJo=;
-	b=2ArxBazuApjKay42M/PXlV7lW1YLUgabQZK7JOjhP54ceTeQ32UwCI8yFUNWdeSdfCq8
-	 kYG9p2yhuiYZ0hXRQ1WlLp+bEtO/4200mXhRz4PDbii4KSdAQJPF8AeR4DqUmsgE2Jrzw
-	 PrqLZjpXKNQadxBBghxYpYDxPE2XFAxqfpWJZtps5PgQOapcw+nOw9Lq7uNkQTljQSNoA
-	 Dlmg4E6HtIB5T4ojVSZ1vPK1yzCmKYJHq57QmuFwZ/6fH/W7wbL+vABwHdmDKFbO26TK7
-	 aruGQgWqOVjGoFrHSXz8OEtZRa0LDs8OdBQewYLqzR8ePZzX9lLN5FQ7maxSReerbpg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eGnH8kXM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.175
-Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com [209.85.160.175])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=3sqpU8GPZ9NrmcusC926FJ2/d9OHjNPoL86X3BTLLLY=;
+	b=QWreShiGzAlW6RKf+VThHGA5y1UIRw3E7fSZZa7KdTKvvhGBmrSST23gJyVtbxfKPDnW
+	 bkga2k8912v+0eAEEm0XKfVqWGAS2mDB4fXQyx19llSBnEgJ6JHyrT05SwyiOfykg2wXj
+	 J8tnnu/nKOkx1Ldxlz1YNYtIG8hJzA5inMPTUxjdzV3qlRMr68CmfrowN9J74BFgI8VPs
+	 HMbrE/n8LBDbAZfnDjKbv51LxnScblTZXakT7r1F1sQ2znz96gMXDZfV930hDnGEr6yhG
+	 qn5bUA2Jqg3pK7D4aJJDwWmdHnEjim/8OohE3noSNFIKHJQygRXaZ1zFAEdFdiVIySA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OuRN94qG;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C164606A329
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:14:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C164606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95B80606A327
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:14:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95B80606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=eGnH8kXM
-Received: by mail-qt1-f175.google.com with SMTP id d75a77b69052e-55c7445cf85so114831cf.1
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 08:14:40 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794672879; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ZMJl5WQLM0pVxPP4MuDkMh34/VEisZiuD327unQzonj2JrZJauiKLiu08fBEA8cetv
-         su/G8392Xk9fcA8+A3UqE8HnDA/GDWomYNUF7Z4tOhC3XEYDwGoAqSmgLyhTRtTirERN
-         cKSaUxVYlxfldHYeCyU3buDOt5zytT9ShPMXqHnrQmUyqOkwR8uG7TFQl9WAIvLDGQZz
-         P676Cf5ym8WGd1rD7tN8CQmD8MLM5jwcxVJhObteDWNKsuvZKSrxxhH7XsqMhJGT7I2f
-         UfzcYiyOSA2k4p4VnfsuegHhY2XFnaybyOoEcfEAG7oE9sShhS4QfUo3ZsdgM1mqAUBc
-         8tAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=j8apjl5nKZpbhUKAqnsuXWh8fD6xWu4DQgoUsG2JJJo=;
-        fh=yQ0FGAj5+0o2agVINlm9vulKqwxR/uq0C6bxoEWIYh8=;
-        b=aQ1u/6JjhcLlVOFyymd4AOsm7L7BLi1SdpTDFanhh0qz5FshIoUWitSTGnb2FlxW+W
-         GjJATUorUC0PHHizN4dVX7gcS25Q57J+TB+fDsayi3NYS0HyKf3k9cPZ1mP3vGer3b6D
-         P+FOlUiqBIdV44un+M5k40tQmyK9E46ZIwNPk7d4HgZegLkBSsc5v0n+DZJ7TU+YYJcV
-         vFut4ouxg9njcZB/y+4uIPEubf6qLOzB0HRtnaP34l3efeAm0Fzt3U51jxeU3isPiq7R
-         GNPG3ydbcaT6RMbk3ht9K67//i2mGgDZj9iEGFkAyVBTYZUg0tgq6Yt7ZjIVmexDZFQO
-         PnvQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OuRN94qG
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-37986eb6fa2so1686426eec.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 08:14:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794672879; x=1795277679; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1794672890; x=1795277690; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=j8apjl5nKZpbhUKAqnsuXWh8fD6xWu4DQgoUsG2JJJo=;
-        b=eGnH8kXMOYxC2TlWp4DVV3gFXtmUqtPsMEjaeD15pze6UXKcTQk0PVcY2uu88INmhy
-         cQUr9WEkFjDQ5HeF4AE6m2Tudp7FCIF5CKTgK1EcnR07aNwNxqADbdO9eCaezTJUgtqm
-         Fb4i2HWdBNYqQQumVPu+XIKwapyBXUNPo8zxsuaFeKFnAti+agc5Qgv4TJ++gkYDTzKz
-         U5M9p6WJkHeu7Pk89bjg8ZGAsXSj1U6XFwKM9chftOZCCjy4IfUmjXrulYXGqWbbKmaM
-         TFYH/pKdO/TMo5YxegGwUcggTRsZZTp2dYhIHBSzWafLSFHWPyyvGygDoSxX4Sbwjx+Z
-         B/9w==
+        bh=3sqpU8GPZ9NrmcusC926FJ2/d9OHjNPoL86X3BTLLLY=;
+        b=OuRN94qGpwYMXkosjY20bBJ1Rx1uS8Q0bl0tI1pyn/oGTgdx83g/GGWsDzqclGl6y0
+         UxrcRE3+hlT9Otv5AbpBkOeIgDwSkLAUnfRjlewPW+ZOePyeXi3BuiIRvzqoiy9oE4RC
+         0bNrgpO4YsArYfhzU1pNr4fPGZqLUVK8OItPILVkzyotnkRYHl/0NCA6+8EYRoLqrQs3
+         ER2CuJrdt3f0wNZYNUFUnns2q3dNMk93+YLtPpLHEiYzCW0DxudsfKHt/77FBduAfXHv
+         7/mFR+5n5YgNQET/IhDkGdgekVaypVpwqY+rF/m1PdPNOBYWTjm+m6xeLC+9J25vW4HD
+         uyLg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794672879; x=1795277679;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794672890; x=1795277690;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=j8apjl5nKZpbhUKAqnsuXWh8fD6xWu4DQgoUsG2JJJo=;
-        b=ann0JvOftt4HVcMGYdoPCMdHFd4Qm4qpU2qyOWmqhxuvqhjK6HXEnmtSUFPcW32jVo
-         1UbJOdtWnh6gaGcxblLv/wWfIPnCDwKwR2Q2T3Pm5iKcS6YgNA/iVlaZIQxEecN0vE1B
-         4K8rz6WnP8Vlf1FaOw3l+NbMaLhGwg71/s1imLz+Mes2hhiMXNo2SSlRWNRYe1SLyNmZ
-         GHVkxRqh4j/bB3nLYDHhfkdYUbmNCu/6nCtJly3Cds9D2i1zYipGbY1qDTsUiLHhfi+l
-         Uo4jxW5hmpeDCpZEXp/qLttMsNRhoghsxwpVhrjh70kjQWg5a0TPvdICIadafoyc/zz6
-         A5sQ==
-X-Forwarded-Encrypted: i=1; AL+hErEGwnQhZvEzAPFWLjPik0QBF8rMgDDGnoAX1BARkkRIne5UB6nqzTq5HRe0NaAzkVd+cMxv198=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8i/2g7UQp6Az9w0Tgl5AsQlwhE+o6hm9stvWl2j6yEM3l1BJED
-	Run50cci75rzgdjtAlwZCtyNCt88HcCaaG8n/kvQ3Kef31WVwcKxPXfgpuCR2hSvde6X7DW7ppp
-	fKiQrn+bk6qbFUoIDSfSkWLI/tpHL8L/GAj2LPv/gS7w0jNFqpfl9DMFTdEQ=
-X-Gm-Gg: AYBFou1iXQXxCrUAWjWQJa8mnnfQQ+rRjirvP9lUxsJ0qRnNXuTtkiI8SlTr7rzGZyn
-	IRQ3Q6R6R3yTs5PbqxyLhLx9Ff8IBb2ZKYSP5XGRMk0i2yh6cug2i2pp5craXA+uxn+pOK0IOs0
-	N4BhieVdhHqK2GgGX9YNF39UDUhqbFPZIjMDpLQelQhP4NfWs+B6DCik0gunQ5yKolQ1gwkk4Af
-	VcpqCRok11fipMAyTrNJQ6Tk07uAXpw0uGiv4M5dNko2wtOK64qz+Ob52mZr3jjlxcv97xgED+y
-	/16O2e/t7JPcaNmVOBue48rconZU1+n/O3a+SfEozFymkfqZ2eFkkVdo52xmsBv0O38jmQFPbjG
-	XUy4hk6QLOQdPCc/FZOoeMnmKXoVfzCmdDR4GVV8OAMB0joi1OrF9+Z14lB4qL8NUrx6epRtRuZ
-	upeswPa5+4BwYtXUndUegSmhJT3Hw=
-X-Received: by 2002:a05:622a:230f:b0:55b:ab4a:6fad with SMTP id
- d75a77b69052e-55c67104981mr13076961cf.9.1794672878652; Sat, 14 Nov 2026
- 08:14:38 -0800 (PST)
+        bh=3sqpU8GPZ9NrmcusC926FJ2/d9OHjNPoL86X3BTLLLY=;
+        b=e0UJuGemZFN8WpuEpuMG1B8loucehHcjfr9x+x2s76jEaiPlwDrSp1ieDFxDv4pUy5
+         UBol+LMgeweXJgT+7Qb1vpF/pTKi8tBKQuz+Qw4kNjLITn8uIQAXYq37ZfIYf3WqVg14
+         R9Rseuft/mJHHdN2hNYDSNZ22OXqfNIZW6rLgbphrZchKa/Xl1VVvXGtQ0Y80qaSSzJI
+         bo3OgKRhN+XKmJwpPxjLmpv3jiiRxgSJqonKnrcT2NLTXMMmnB78vFsVXiJZswKw9zVY
+         Zpdpvj+BhrGJHL6wveGnPaQHigFereXpl93NoQu6CuDZHV4xLes+V9YHs6hzwA6Yu/o5
+         8bVw==
+X-Forwarded-Encrypted: i=1; AL+hErE0eoEskFiG3LNW6fqn3VkzW4BsoSVKY7HdJHxrHUxUotsqJquMT8UXQL45WKgvXzi30sCRN4M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9luNX01Ngl109OTraWyVYMoK3ZMpFhr/dQCcoehA4MG/G1d+eY
+	9r+eAZgJnpcYVJ1TiaU/Ptk8D0noTN8XJ5Sp8bdyBgyQIrxJvwLVmkxJGNVblQ==
+X-Gm-Gg: AYBFou3xzi7NYNHazmZecgzTSYy8mSg46AjgyZaSuzqM5itBiKqjpS734Hak1HGbxXi
+	KBSNQxWUuu1Fs7SgAisnUBBECtFlZjZvGV/IBj0UzEO61ly7P1Bi0X5125ppuRFKhustY5Amaso
+	boWivgHNYsrKCzV/kemu54F14AvsIbuGR4idoJ9O4SQb2HQzRCrfJIn80TOF+XP/mqCNTNXW8Bq
+	i/RN6nH0XdxuZB05FG3L3v9F3Ss7MBhmjhOFXwzNTwed2xkg3lqeuZpxGTCINTxJuEFel6A6sPv
+	yWbhn6LqBhHeyG15djY2oI+Sf3KhUu4wxvNakh6uqRjglKyg6yImsWURc3rXWeoVZijGrUou2KA
+	Xay4UgMHhcCIjsYdmpqaio7HjdzKg0ZrY4vlxAMv3yNW7AkvetKTOx4a6QQDIyQ1XxqTgpINdXd
+	3wmw/e8rGJ/2J2+8mvK0ME9No4psSk8lgyshji3JEMpmdMofaOn9YTjqB3e8KcW9x4liKhg0I/F
+	HH4iFPKFwKXXKEaswPemi436X3dt6nuu6FHeSC2NKBxLwm3VhGQoFhza1ynsjE/TOIFH3RQiETb
+	jGKinb7ADBYjS0QU4t6ce/zedHOb6CY9Wp9iuRKOuvsNUGv+
+X-Received: by 2002:a05:7301:9e4c:b0:366:dbf9:32bd with SMTP id 5a478bee46e88-37965da96cdmr4576757eec.9.1794672889400;
+        Sat, 14 Nov 2026 08:14:49 -0800 (PST)
+Received: from v4bel ([58.123.110.97])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37955ffcbc9sm26690995eec.18.2026.11.14.08.14.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 08:14:47 -0800 (PST)
+Date: Sun, 15 Nov 2026 01:14:40 +0900
+From: Hyunwoo Kim <imv4bel@gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Neal Cardwell <ncardwell@google.com>,
+	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
+	Sashiko AI review <netdev-bot+sashiko@kernel.org>,
+	imv4bel@gmail.com
+Subject: Re: [PATCH net] tcp: purge Fast Open RST queue when listen() fails
+Message-ID: <aviI8PdhtmKW1cNO@v4bel>
+References: <20261114111247.21995-1-edumazet@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,43 +101,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111-mtu-probing-series-v4-0-6f2e484ca8ea@gmail.com> <20261111-mtu-probing-series-v4-4-6f2e484ca8ea@gmail.com>
-In-Reply-To: <20261111-mtu-probing-series-v4-4-6f2e484ca8ea@gmail.com>
-From: Neal Cardwell <ncardwell@google.com>
-Date: Sat, 14 Nov 2026 11:14:19 -0500
-X-Gm-Features: AclHuK9fNu1No-43bBVfzzgRbtaoksUaeXTfvDONR5zNzzDJjI-OMhnJGTsg3KY
-Message-ID: <CADVnQykdN2GhRDNsA6yMoMcj4Yig2gYt=i96zfbVOSmP=qb1jA@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 4/4] selftests/net: packetdrill: add TCP MTU
- probing test
-To: echoowall@gmail.com
-Cc: pabeni@redhat.com, kuba@kernel.org, shuah@kernel.org, edumazet@kernel.org, 
-	horms@kernel.org, kuniyu@google.com, davem@davemloft.net, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	netdev@vger.kernel.org, panweiping3@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261114111247.21995-1-edumazet@kernel.org>
 
-On Tue, Nov 10, 2026 at 11:46=E2=80=AFAM Yongjian Wang via B4 Relay
-<devnull+echoowall.gmail.com@kernel.org> wrote:
->
-> From: Yongjian Wang <echoowall@gmail.com>
->
-> Packetization layer path MTU discovery (net.ipv4.tcp_mtu_probing=3D2) has
-> no selftest coverage.
->
-> Add a test for an active connection. Check that it starts at
-> tcp_base_mss, that it sends the first probe half way between
-> tcp_base_mss and the peer's MSS once cwnd allows it, and that an
-> acknowledged probe raises the MSS and leads to a larger probe.
->
-> The SYN offers timestamps and the scripted SYN-ACK declines them.
-> This also checks that MTU probing uses the negotiated header length
-> for the initial send MSS.
->
-> Signed-off-by: Yongjian Wang <echoowall@gmail.com>
+On Sat, Nov 14, 2026 at 12:12:47PM +0100, Eric Dumazet wrote:
+> inet_csk_listen_start() moves the socket to TCP_LISTEN before calling
+> ->get_port() and ->hash(). If one of them fails, the socket goes back
+> to TCP_CLOSE without going through inet_csk_listen_stop().
+> 
+> If the socket was a Fast Open listener in a previous life, and was
+> stopped with shutdown(SHUT_RD) or connect(AF_UNSPEC) while an accepted
+> Fast Open child was still in TCP_SYN_RECV state, the request_sock of
+> this child still points to the listener.
+> 
+> A valid RST received for this child while the listener is transiently
+> in TCP_LISTEN state makes reqsk_fastopen_remove() queue the
+> request_sock in rskq_rst_head. When listen() fails, for instance with
+> -EADDRINUSE because another SO_REUSEADDR socket started listening on
+> the same port, nothing reclaims it:
+> 
+> - __tcp_close(), tcp_disconnect() and tcp_abort() only call
+>   inet_csk_listen_stop() for sockets in TCP_LISTEN state.
+> 
+> - A later successful listen() overwrites rskq_rst_head in
+>   reqsk_queue_alloc().
+> 
+> The request_sock is leaked, together with the reference it holds
+> on the listener.
+> 
+> Move the rskq_rst_head purge to a helper, and call it from the
+> inet_csk_listen_start() error path as well, after the socket state
+> has been set back to TCP_CLOSE: reqsk_fastopen_remove() checks
+> sk_state under fastopenq.lock, so it either queued the request before
+> the purge acquires the lock, or does not queue it at all.
+> 
+> Reported-by: Sashiko AI review <netdev-bot+sashiko@kernel.org>
+> Closes: https://lore.kernel.org/netdev/179450310167.2199510.18107423940014989443@kernel.org/
+> Fixes: 0536fcc039a8 ("tcp: prepare fastopen code for upcoming listener changes")
+> Signed-off-by: Eric Dumazet <edumazet@kernel.org>
+
+Reviewed-by: Hyunwoo Kim <imv4bel@gmail.com>
+
+LGTM.
+
 > ---
+> Cc: Hyunwoo Kim <imv4bel@gmail.com>
+> ---
+>  net/ipv4/inet_connection_sock.c | 35 ++++++++++++++++++++++-----------
+>  1 file changed, 24 insertions(+), 11 deletions(-)
+> 
+> diff --git a/net/ipv4/inet_connection_sock.c b/net/ipv4/inet_connection_sock.c
+> index ca3057192e6d..c33b0095468a 100644
+> --- a/net/ipv4/inet_connection_sock.c
+> +++ b/net/ipv4/inet_connection_sock.c
+> @@ -1331,6 +1331,22 @@ static int inet_ulp_can_listen(const struct sock *sk)
+>  	return 0;
+>  }
+>  
+> +/* Free all the reqs queued in rskq_rst_head. */
+> +static void reqsk_fastopen_purge_rst(struct request_sock_queue *queue)
+> +{
+> +	struct request_sock *next, *req;
+> +
+> +	spin_lock_bh(&queue->fastopenq.lock);
+> +	req = queue->fastopenq.rskq_rst_head;
+> +	queue->fastopenq.rskq_rst_head = NULL;
+> +	spin_unlock_bh(&queue->fastopenq.lock);
+> +	while (req != NULL) {
+> +		next = req->dl_next;
+> +		reqsk_put(req);
+> +		req = next;
+> +	}
+> +}
+> +
+>  static void reqsk_queue_alloc(struct request_sock_queue *queue)
+>  {
+>  	queue->fastopenq.rskq_rst_head = NULL;
+> @@ -1373,6 +1389,12 @@ int inet_csk_listen_start(struct sock *sk)
+>  	}
+>  
+>  	inet_sk_set_state(sk, TCP_CLOSE);
+> +
+> +	/* A Fast Open child accepted before a previous shutdown() of this
+> +	 * listener might have queued its request in rskq_rst_head while
+> +	 * we were transiently in TCP_LISTEN state.
+> +	 */
+> +	reqsk_fastopen_purge_rst(&icsk->icsk_accept_queue);
+>  	return err;
+>  }
+>  
+> @@ -1477,7 +1499,7 @@ void inet_csk_listen_stop(struct sock *sk)
+>  {
+>  	struct inet_connection_sock *icsk = inet_csk(sk);
+>  	struct request_sock_queue *queue = &icsk->icsk_accept_queue;
+> -	struct request_sock *next, *req;
+> +	struct request_sock *req;
+>  
+>  	/* Following specs, it would be better either to send FIN
+>  	 * (and enter FIN-WAIT-1, it is normal close)
+> @@ -1533,16 +1555,7 @@ void inet_csk_listen_stop(struct sock *sk)
+>  		if (!has_current_bpf_ctx())
+>  			cond_resched();
+>  	}
+> -	/* Free all the reqs queued in rskq_rst_head. */
+> -	spin_lock_bh(&queue->fastopenq.lock);
+> -	req = queue->fastopenq.rskq_rst_head;
+> -	queue->fastopenq.rskq_rst_head = NULL;
+> -	spin_unlock_bh(&queue->fastopenq.lock);
+> -	while (req != NULL) {
+> -		next = req->dl_next;
+> -		reqsk_put(req);
+> -		req = next;
+> -	}
+> +	reqsk_fastopen_purge_rst(queue);
+>  	WARN_ON_ONCE(sk->sk_ack_backlog);
+>  }
+>  
+> -- 
+> 2.53.0
+> 
 
-Reviewed-by: Neal Cardwell <ncardwell@google.com>
 
-Thanks!
-neal
+Best regards,
+Hyunwoo Kim
