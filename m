@@ -1,100 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.48
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794662234;
-	b=5NCRwyhD6Q3msnSmN5Tch1OV6yz6PAQO0oie/5xEebi0Cho/iDazH3OqRhs0eCUO2duK
-	 J4kyOmaBSQmPY5RS75K42T2G47Hq6oZkAfJ1nX1tnveFG6U30Bb2+xdMj0WAQLUP7nwPo
-	 kNy0Gh1P6pzgaZ+tRDfleVWlMimAOtocxSZ0G5C/Ke5uN4FF7rZgUvvyotJy5+QBcg11M
-	 jk1KCR/r7jGqz9orUuubcxx/hdd2SKox5jsArQpJ8rTV3Sgkk/MmYjR6XqARWugSE3j3i
-	 lz9G/kRHrGB3AE2BQXz3EsaTm+KK9+keKzLNll/U07iTE+jE6LwqXY0L3Xbtv87/cfA==
+	t=1794662358;
+	b=0eR2lQHI/UF/TK1CWyZW+CK/yVhZMzJC9i7+HetUE6wgwUBljRvRuk3fv9PiHGAMZ+2v
+	 aFa4lwibS5R28fWK3kKn7qg4otol3K0FNF1WwVMNL+BXW3xjopCqNxCYkQ8yxR7zAftM/
+	 lIO5rlIYZwgT3mZiQ2F8NGX818GS4EPY8ePULdm9+MqQRftFg2FmV6bEkuG4M3YjTg9xo
+	 OhUgUH/G9pF/wP28vARW6LBJ9j91D0dJtrxZYrB9hubxb4eFwDvcqDuO/tZj6sE0bfyuA
+	 fPc8x+w0YdmS3scLg9QbVWqHQKb9xk3zrckXS+zB46pIhVeVGHOIh7oUUUm641Aecfg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794662234;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794662358;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ITM4+BMzeI3EvIOixDqTXlM4tReFquWP1v2DgL7ZSL4=;
-	b=DLzNsE5W+8g4NOY4T1SseJDCztITvxmScVBSxt8V/51juWwP0HLeqt8brWQLw6aPsyQW
-	 9kOlU/mr3EqQA9ONlpbPy4WzA+Min2FxsPY1fKaAppI/I+PvCPzXELRtnrihFt/0RROAD
-	 0xgXvFyb84pgcXIu129bZxRiYEE5EzfDfk1ljjZftARH84Kl6bYjw/JT0+AUSVym3DDsO
-	 DtsgaHIpu4Q8iyztQSM0KRP3/TuSGdPmxe8piGKCkr4iG2dmivBI+rkrq7hafuL9EO+vO
-	 lxLxI6rlM5PXCFTp0X36tHDeXTRtfU4LM5ZzAwcI0p3z2qtIa6vIwIpigfomqJBDD4g==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=wxTYhvRvzFYh+gzRWgScWVeMkBBcGFa2zq2R3c9b1pU=;
+	b=vRjS4Ay+sNpNGUESVjH+EfFoQJDotB1eVOyJVb7fP29Eclkwg4uIG9WrzQOiwVNSLYN2
+	 Iv8Kt3M4zLNYOGWLO4uYlfmcH5/rvEIsdkkhY16YEAs1i2wjD26hpUaaljttOItsjiAgW
+	 z1kmiSDVGo+ZyU3srXYO1n3YMGLS3yZnS4+1fv71fLYWYv43ifkwgUiUzBWapCRpMF0nl
+	 4IClDsbxa34UVm7z4jESRGmXFtZAI9h05LbY0zMPugk2yTzvcE/0xNLn9Xan6mBryq1qN
+	 YGJmk7m9zmiS3+SJB12FEVCKUuHtS3m5UE2X4M3iPrbhKLuaOCboim1T3jCP6ZJeuJA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bkBiYsFf;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	dmarc=pass header.from=grische.xyz;
+	spf=pass smtp.mailfrom=grische.xyz;
+	dkim=pass header.d=grische.xyz header.i=@grische.xyz header.a=rsa-sha256 header.s=google header.b=AIhhcIk8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.48
+Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 460F3606A335
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:17:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 460F3606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67845606A331
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:19:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67845606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=grische.xyz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=grische.xyz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bkBiYsFf
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c505b2e1cb9so325078066b.2
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 05:17:14 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794662233; cv=none;
+	dkim=pass (2048-bit key) header.d=grische.xyz header.i=@grische.xyz header.a=rsa-sha256 header.s=google header.b=AIhhcIk8
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c4697404c2bso296406766b.2
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 05:19:18 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794662356; cv=none;
         d=google.com; s=arc-20260327;
-        b=rp8zJTyfh3h8PRI4VVREt9AG3gVO1pSxZqrkoFc5m4aAHxFIYSUW0An3ArUhTFX5kg
-         sNxjjLtrGu11EIX8qijlnCOnWaZZ/3cN4lcaDnmzcUAmOxXzZfD8q1TLhtLuBTBPGd54
-         IQdQZEJO0eVgl9uJkRnyKFB1mIYZIvrgTOn7EL/Ts3490Ryk9+mRvm8yUIoiRs38wS8J
-         gw80zV9xhb9qdDARbK9ibah+mGGtdNoiTMLo4a8y2Jhlbe/4ZqCQJyQZKsYB97SE1Eei
-         DiNFJv0I8LfsYn8FKf9KLP2JcbpNMOesphEnCjEQ2U19zQjnQXwDzsVpLX1n4z7u+Ma2
-         gr9w==
+        b=XFS5lfyCr8pssjqmANe6RWONgCGuSyHq9kJSIrm0tGNHkGhPF/eZfiYDpP1IUEsC36
+         znm9VgRgDpk87AkiZTrk+SM11QWl53Lb2uQhMw+Dx6xR3UjYtgul+jmfxF9o9z76aiIv
+         +mhhXpP0Vm24EE5eSDtilyRZf+eiHmKyibqGRI5h1DDEZnu7kbN4HDkV55IL0Zf9CORw
+         NfCArggXU8QcqVP5IWgDcKfbhotA66wG0vn324O5g3kEjwcpzp93+C9EgsUQhGZSMlUd
+         iYZUR+/eRxcGwkFUEA0OuKYfrFqfefWArvcmRipi8D2CBLwViY8z6AMa8ejXXmnRUnxp
+         cmTg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=ITM4+BMzeI3EvIOixDqTXlM4tReFquWP1v2DgL7ZSL4=;
-        fh=zP2Ztd5nkXUbToAxsnpxzPZMcAZ8Dxt+stu0LyHboPo=;
-        b=p9L+Rz4yYgkA0jMvSOXNJHBI/DUru144AUjH/Vi0rUk9a+3Yg+t4ofDcJfcoKMgRsF
-         yGsBodpxbH3CPOIjnUiyBikh7FubayMtX9k4lnntaKa0gFxEHy9F+x08mZq53Vvl5xH+
-         V91H7N4OCoSpKLVjtLYwNqyAugU46kPB0CvldfvkHz+/pZbdjBsYZQjmpfGPhVNc3ZSH
-         1TMKC14i+EU2GtNWXuRBkmhsHrqRPIRUWq+/BYHsF4k2jLDtf5Y3LUut5YlKfyRPUL5h
-         FroJlzfSlfeT0z2S/XqE9WqzXYMzbRm6yo+Csc4e87FLU1Bz7cf6XD15gsuY0HS16SDl
-         WSag==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=wxTYhvRvzFYh+gzRWgScWVeMkBBcGFa2zq2R3c9b1pU=;
+        fh=GrHJMKqgsr/fNoi3YWi9L0fTIP6fy4o6lxCqCBbufTc=;
+        b=bRNatNB7lePDRLLAA1mCaeUhsV7dI7biWjVcZfwx2n4eMMoHx37DoTDGGCa6f5GQ1A
+         WGXEM0ftwNJacAblzuJinnZDM/17g596KtpIImdEjHCrY6U1BpIst+UffEd7e+f03sxZ
+         Upr83sjHz23MpbeKFI/N8zr4Yb/RN6I3Xl1XMtodvxmMSS5LEDdEPimlwJNZaNjre3r5
+         e61USjat3aDOjbxWEpkIYYLyNE8iiP3CYuejXlqvVEPqEFMat6HB4dc40lMQUChcGohh
+         lZ9q3Z2myV3VAVculkTt2YQbO0QQ/BFQu82G4ccPNja/jmsN99lMVmCNrT5cFrGuKYCG
+         Tvzg==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794662233; x=1795267033; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ITM4+BMzeI3EvIOixDqTXlM4tReFquWP1v2DgL7ZSL4=;
-        b=bkBiYsFfmEtp7IJKvH7hEn7KTFWusZlaAuAdlpmYXF803sUqFCC1KYxa9tyrf34zN1
-         XEF5zkbgkyIS48qvP5a5GB3ex7t7UtUZYJboxL0XL4tLGHUYaONVZb6rUO8eATYZ1QXL
-         8+UQQA+DM8uDBp6Hk2hDrEFaQbRoNXoI4sdU/oLAIoBHSwdiO0Ay272h0WfUXQYhiEyJ
-         e2QaMbc1FuXjzS/yNEbZqG1YlIpj/OsymtVLBErLFBFscJ/L9ut44gQSUhbnqudxfjKt
-         sK7WJvoJ/AvY0cJmbn/C2ArMEwRPABus1HpWmclIlurEsjmpX9yiYldYqDoxhrn8mpyz
-         4Fxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794662233; x=1795267033;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=grische.xyz; s=google; t=1794662356; x=1795267156; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ITM4+BMzeI3EvIOixDqTXlM4tReFquWP1v2DgL7ZSL4=;
-        b=UkCdZidO886MwAPIR/lcHJEC33jLJzAPzqOjueMkTYI1SS89syt0MQl8NhDslNUA2f
-         4/fwSmqZHgwWEFirRRJBCdt8MrfVy2baLM1K4Owi/MzzGUHa23hHMj3bsMrfh89BVE2z
-         yus8V9u/afsk4GoWZt6aml+WzZY3dAi2rVPsbzQ1/jdj0j/zp/lsKBXukiXuNH64ohbn
-         em7/f794zenn6QlRs800+e3g3B5ETb16CYtxa2U4CqJI2ey1Bps1pNG4DA+jho0lV/ix
-         4pY1ATv1dQbeOww2kkHpGJtFTWvYQVzMoKFGfGMNhJXN/gjfXjvfsezttHAevzZf25Wa
-         688Q==
-X-Forwarded-Encrypted: i=1; AL+hErFZKObJFfudUTGtdqZ0kQRhLnDlCGkQAjxDeHkiLfIA0Y8jPiuZSKOedKEHWB6R3n5ZdyixPW8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+8LKETGy5e1O7exjj7buqirpxv3xpr5fkm2eEBuNIcwidVTnEo
-	RhtwpglrB7dyztc4KMSMQLmC+iUrnjThNYeUogMp9GEMEptbXwYTVDOrtnSE5R0bEgCQ8THPr/m
-	3K/ERdImvHWFnEKqGrKbS6j/G27LKABs=
-X-Gm-Gg: AYBFou0n2qTxqMgU811snIdmeO8Eur6GQ2uY5dZMl2feTtUmorIKJtqthpoUIVIxEip
-	BPm5y3NwJI/6ufI/XUkGRyhneY1Z5fKaDSiOT871b7NX+KOE1cwGRsRM4VQA2G4LTz6av31ydQB
-	Hu3Gz9fBefqv/FVkmZ6kwnGbEQeW+J7FOTizOb4k5NynzOvEfUjVGM4nxBVK4vxNpufiyjgvCaQ
-	zm6kReyb45tzISw5Uq1RGjNd4/sL+OVjLh6+WehgbNchazsjfjWBqoxEW3L2K7BTlVM7wU0RnSs
-	TqfW/2nBJEpgw5vI3M4iqkOKYxNbFcQIPA7NvRCadgNvY8yJKHgIwlK+0UYvmj2TpxKD24lRgqg
-	xcvyk50D44BVt8BRuVxn1DAbYuMGrL0z30GkJQw==
-X-Received: by 2002:a17:906:dc91:b0:c50:5a93:3bd7 with SMTP id
- a640c23a62f3a-c509614d52cmr448037466b.3.1794662232406; Sat, 14 Nov 2026
- 05:17:12 -0800 (PST)
+        bh=wxTYhvRvzFYh+gzRWgScWVeMkBBcGFa2zq2R3c9b1pU=;
+        b=AIhhcIk85BpB5XYi6cQKrNiT+cwhJuJ1jWvI4eV3TZOOah99AEdPKxD0Qi3qUD1vqS
+         pRwkjuvf66o/kCetMo/LYQ3YQqacYyIiBzGmz3Z50wqEcBxLPUXevRrE58C0b0nlHE19
+         rM4F6FX0Z4g/lOcbUqCZx5+hWvwx+cdKZ/ctH5H8u+CPcnjZ0TYa8L6a+aDHLI6g1H3a
+         DZPvtV6IiS7DzEti0DNFEUrwRXgAAPLZDuaYY/feNgGzDL1u6ERtphD/ewuSaNIqVBN2
+         yTNVNqXW3PVlCzIaoVLUkxAmFwhutRm76yxDgwl/L6fRhnxPTKrTNOK/jyoyouFqow5Q
+         aJbw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794662356; x=1795267156;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=wxTYhvRvzFYh+gzRWgScWVeMkBBcGFa2zq2R3c9b1pU=;
+        b=XMtZncc8ykFCMPtT4IjLKhHqwDYHTkuIpMPv8uFU9kKvbXFTSvKNm/lm5lmTYHeY8i
+         uEZeyBav0Fy5QA4qTIYTpFvvTRZTXMe+oyhIej9xk/60r/+QrS02YoiC7R/xNSR6rfE2
+         2k19qPsN31rXwG7Gkg2ZdxgQbq/ix+DOH7jhzma9sDyOrPCsL5HYcJ2SftCKzCjHCyEv
+         5ia9r283Wp3tdvtid7/DuNvrNOhWeHK4rzHpKVVjzw2K355VJY2F6b+Avp54C5fmd9CU
+         ZxRhBrZhrEEkgi9MAlrxyDLbhoIHY4Umehd5HScwaGmBGafmMtvnICfviWYGhR5YGkST
+         om+w==
+X-Gm-Message-State: APuU4Z+YGwZ+l3KVL9iMTSWt8IK27qy8gMtfxfqg5FgYIcZI8YvVs3aN
+	bgYFX8pee2L4OWbOEvyEYjkE5mUhVcO4iSaw+nmLVzCAmoL/OU4qd/IYtl8dD/BC9mCzk+UyHtv
+	bk+uI4SYGamD6/Qf5AFF5ggGyj4M5505P1TBYDS5Xd1zMVx79R1djtVs=
+X-Gm-Gg: AYBFou2+sQOvA5KdYFVikI2ilrsDgepoUZWlfZv+TdAzYgN2Te3QvFqadHA6vAaYzhu
+	+cWg8bBxkTTa1Fh2JKz12IzGGT9PEYTeZw8Bwf5OKFIwifd0PtjpEMwDCCNM2KEDJZowOovr/Jl
+	fj7zS7NpJKXEDXKsR5lvggO9zkLywnv86d/1uVukFyix1kVkKkBsglR0YUqrNnNh66/m3NHQEyS
+	YimhMbV8LyZd/M7u9XyNzh9mWjK21hSbF7tfxW0ZRipwEurVjs3d2eJXp9yWXS+9ivY/UxKvWz1
+	u9xoZFQI5P0qv070c4SZXL4mj+Y8uxeCJznStgSpNxP/7nW/ACqiozoYYch1Dq4ZfTzXrXb/ENX
+	xiM735S8WFtAfwCI0A4POBQvgq+Au+hYEMMrjvZ3yNI+j5AYgv2leKorEWtjPzxgT5pxg51o=
+X-Received: by 2002:a17:907:9622:b0:c3f:dce3:20c5 with SMTP id
+ a640c23a62f3a-c50968394b6mr566230866b.44.1794662356386; Sat, 14 Nov 2026
+ 05:19:16 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,63 +102,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113110546.173624-1-a.shimko.dev@gmail.com>
- <20261113110546.173624-2-a.shimko.dev@gmail.com> <20261113-good-renovator-99924ca0d55b@spud>
-In-Reply-To: <20261113-good-renovator-99924ca0d55b@spud>
-From: Artem Shimko <a.shimko.dev@gmail.com>
-Date: Sat, 14 Nov 2026 16:17:01 +0300
-X-Gm-Features: AclHuK8rhFfFvkBwbKflVQt0QnoMak0rCeWcBpwf3o6KE4ySn9wUi4t5_Sc9CCY
-Message-ID: <CAOPX74613tpMONAYkvY+6=UqDtJ7h8r8FmHmnodmNZ3Zi3RBbw@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/3] dt-bindings: net: dptel,dap8211r: add led nodes
-To: Conor Dooley <conor@kernel.org>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, 
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	maxime.chevallier@bootlin.com, pavel@ucw.cz, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-leds@vger.kernel.org, 
-	netdev@vger.kernel.org
+References: <20261104151914.2651241-1-opensource@grische.xyz> <20261104151914.2651241-3-opensource@grische.xyz>
+In-Reply-To: <20261104151914.2651241-3-opensource@grische.xyz>
+From: Christian Schmidbauer <opensource@grische.xyz>
+Date: Sat, 14 Nov 2026 14:18:51 +0100
+X-Gm-Features: AclHuK-t4Vi3tD5hB2DBl1bIr6nwi9vm4FOrc1kbogOcAMqHwa7CaPoB_seqTKw
+Message-ID: <CALsH2cy0OUN+6EA3Jt0e8B5JGGhVpyR=EuFOaJvxOv-LnfOOvw@mail.gmail.com>
+Subject: Re: [PATCH net v2 2/3] net: stmmac: dwmac1000: don't discard frames
+ with only a checksum error
+To: netdev@vger.kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	Oleksij Rempel <o.rempel@pengutronix.de>, stable@vger.kernel.org, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Aaro Koskinen <aaro.koskinen@nokia.com>, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hi Conor,
+Replying to the Sashiko review [1]:
 
-On Fri, Nov 13, 2026 at 8:17=E2=80=AFPM Conor Dooley <conor@kernel.org> wro=
-te:
+> Suppose the MAC sets ES on an oversized frame with a valid FCS only
+> because of bit 7. Is that frame still dropped here?
 
-> > +  leds:
-> > +    type: object
-> > +    description:
-> > +      Optional node describing the three configurable LEDs of the PHY.
-> > +      Each LED can be assigned a color, function and default trigger
-> > +      (e.g. "netdev" for link/activity indication).
->
-> Please add some blank lines here,
->
-> > +    patternProperties:
-> > +      '^led@[0-2]$':
-> > +        type: object
->
-> here,
->
-> > +        properties:
-> > +          reg:
-> > +            maxItems: 1
->
-> here,
->
-> > +        required:
-> > +          - reg
->
-> and here.
->
-> > +        additionalProperties: true
->
-> This whole leds node needs to go down below tx-internal-delay-ps, child
-> nodes are typically sorted after regular properties.
->
-> pw-bot: changes-requested
+No. In threshold Rx mode it reaches the stack if it fits one Rx buffer.
+It is marked CHECKSUM_UNNECESSARY only when Rx COE is on and the
+engine reported no error for it.
 
-Thank you for your review, i'll all of the above.
+> The giant-frame status is also no longer recorded anywhere.
+> [...]
+> Could the status parser be told what bit 7 means (Rx COE enabled and
+> its type, ATDS or advanced timestamping)? Then bit 7 could be part of
+> the mask whenever it means Giant Frame.
 
-Best regards,
-artem
+Dropping or counting such a frame needs a new argument for the
+rx_status callback, which all four descriptor implementations and both
+Rx paths use. I would rather not change that interface in a fix for
+net in order to drop an intact frame, and I have no testing hardware
+on which bit 7 reports a giant frame.
+
+[1] https://netdev-ai.bots.linux.dev/sashiko/#/message/20261104151914.2651241-3-opensource%40grische.xyz
