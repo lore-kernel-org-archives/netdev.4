@@ -1,80 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.170
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794657557;
-	b=Tn+z8g8SpbCGRZMwggwwWXQ3iLuD0RSvHXrv2ptDshHUJK3lluiOVvCMWpQpBhmIYH01
-	 gDS/R1HCfNTW9n2tsSUOCIO3Qd9QB1aaYeoPs215JUFyeF9npWfCnQgN9T01eEr7eZ3YJ
-	 buEkSe8HLIGvIRcYE7QNG8baZgkQiwoVr8W2ixMd1HwbdUNeJnqox9Un9t+DLgA5LgwuR
-	 L1AFxt3yeDrVQSmI+tbvAP2MzHKUjec1ceZwVLktOY1UGRef4mrtfKHdSgJgaJIIZ5xYu
-	 m/+UENS3vmCZOVJlGUuR5VFVP4+AdiAwZDoRMwKBYktKYjwuQgyfqROOGOTfJAfvJpg==
+	t=1794657899;
+	b=c1gCwTyKl8xozRteSCgYR7MJ/G8b9POd6bbhzrfCEGjqzV9A2Gzan6vUrUWvgiu7f5cF
+	 rY/T1Eft0EjWPBiiMC2n/HiCkMisnc0ICNwwseH7CQCtu3IgMbHb9snO+V/IUULKy58bn
+	 bxnHiWyZWxPqEfjtN2JAgO0R47N1sg2Sv1+r97uXdc/iCByMwGjWBdJBIBGPz2tcxdyk7
+	 un+9JLFMUiltxj2nfUWNG2WwUzELwNWnfzUGIVRQuERYLTYYd5c4QfoOOHcsQFc17Yx1o
+	 tXPRaz0F/iOa1omebJMEex+uEpSq58LTWkKqV5Bq0dS9fB3/imBMisfvXJ/+fUKTluQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794657557;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=SGPTqsO6MgAYzZAWhqQxqhnt7jBagpsmDsCAnKu5nao=;
-	b=Be0r7pALKXpRUlOjsCxpV4ZQv0S1RpqDEYMW+htTuuxp5x+d/9+r/XhMawkDplc19hXi
-	 RpT72axOrWfj2RL3KM9Q3XHy3PQXrn7MaO8Qx3McBJ/Yt1MhlRVjmnUQVErmdCmsPYqA/
-	 Vpx4pTO+VBDONQCwndbpyeZrZhx1PcLshrFW6icEuaZnooKQ7bFwLIbI4dNksSJ2fjLyM
-	 lm+EOWB4bIXMElgfsJ6Ep6V+O8NR9vmGxsxOVvmsi/xApiWujplY3WjeMv4CdFOnIkGuv
-	 bPcxxOJcbLITGc2sU63m13lHes9FZlSbdiqYv9fTM9zfuY4MRguT4hWgxfnbB9UvWdw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794657899;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=gKJ+mTdGFKhhnohs/NLJjgkzp0d0JdJ5SvOCcapXCp4=;
+	b=VVIQ99syWov/A7pBJVVs58ut3D65BmgZrk466ncz4lgn+BokMiS8YABSTifCd1S8f6Qu
+	 sZotFjXrl7yRl294pHmuXBzsr8frChOpI2p4PKU/EelcxClWfMz6r1NZgCbO3gVzxg1cI
+	 4kWdqG9h7ul6mKgxHE2i3xTFdSE2AcIbvoBKr9KtIH3Z+ZIRlbrCjHHV7xkbgScNvFJ2a
+	 H06DrjgGjJ2wVE6e0Lc3fUC7aaBIjkLQZV0OFhFofxf4bPhQ9eLpXsFkeZJ6d1fbyrunr
+	 Sqa0pfQZd0LJWB/mF36O2xRFbRkaEAN0/s/7zl9H10v/BcLfS970c+uD4tHHx2WAE+w==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J7vwetrx;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F057F606A338;
-	Sat, 14 Nov 2026 11:59:16 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J7vwetrx
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794657556;
-	b=04s91OPQNRyVs09VVJRhJcKLGFeR1jyG1DQTkf1jIbTsF9wfP+bgRjKlu3U8VOWaIi8E
-	 g3SCPVfklehPr0xgFTcfS/V1eBMffgj+FVv/xgNBF8Pqo+x/XSNeh2phQc2LhzkjYGUgF
-	 cjMBabiuRAfPjJRkfJ8LqkUBFq5yZihCUHk2oM0uy05o5jOwrHLJ83tBfkjOtyEPbv5ow
-	 7VsmLFG7KGpurBlrW4lgl3GFS7knAvbF+Nwq5W1apLrfkROOzd5Hib3lBEHnVxrJD7FeL
-	 ro8ovkiethvmkEGkt8HzXaMGugcmuVKV0yXDg0yXjno30DKK6765We06ozPj++TCXYA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794657556;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=SGPTqsO6MgAYzZAWhqQxqhnt7jBagpsmDsCAnKu5nao=;
-	b=CKC05pA1VU2pF3yMKIqP/seHa6/Ri4inRp/7GmR2CXR6dt6quVxzvMGs4ViGlGc99cUh
-	 BgRf1FHkt02AFKt6MenqVjE58ctMixZsCU99G9z3jjE8B3K21h/+QzZXZLti2hQIEqhJa
-	 /1DDObn6vwH+dI7gm+dwvG1TfXg7b+5KGca/PoC+sot4lqgVDtPC1Pi9QMLzNg/JxFnZ1
-	 pgMUyULIJsKNDl1y6cUlg+5BAQtKQOXYXeTlpDsNlFVz8gqJniP04VDAOk3nQDf2l7nII
-	 sCxg//5E0LMqRUE+owCYrAtAw01rs/FtYLzfu7B7vhVJlPNg6Ny7Z5E4cAE7qkanffw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=t8fY95lo;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id B97EF1F000C5;
-	Sat, 14 Nov 2026 11:59:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794657556;
-	bh=SGPTqsO6MgAYzZAWhqQxqhnt7jBagpsmDsCAnKu5nao=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=J7vwetrxyhgDc1bMZ02w0+zfMKCB8p51gWPYAribfNwcqQ0fjeAP/YrgjjaE9SELV
-	 imGJVzErQWwi6z0g7Lm4unkWamVcRcWMyTJGHwefaTfDeNuUqnLeHOs5zughJqeZX2
-	 IyUTUYn7CkBg3rrt/fXt9ZdCR2FMc3VqP8AjNLV8ak9XdrWMTi/++R44vx5IgiDFwP
-	 U74rqQT1Bq65FhqnYjccM/iZoVIIHHc5C5pTaax5CXcN22c77/d/caQ6JlL7tSiHt/
-	 3egI5cTjDLaLG6MtE5w6xvEAGslnyo18WO0RGMKSmEIyg3xVzcCaFhxgASHktdb6VW
-	 o8tno/znEtRyw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1953149D63;
-	Sat, 14 Nov 2026 11:59:15 +0000 (UTC)
-From: Jerome Mohm via B4 Relay <devnull+jrmmhm.kernel.eldare.de@kernel.org>
-Subject: [PATCH net v6 0/2] vsock/bpf: fix recvmsg deadlock and
- zero-length, OOB, errqueue reads
-Date: Sat, 14 Nov 2026 12:59:13 +0100
-Message-Id: <20261114-kbh3-1-022-fix-v2-v6-0-96b6029bbffa@eldare.de>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B2E0606A323
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 12:04:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B2E0606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=t8fY95lo
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8b9c51097e2so958503b3a.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 04:04:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794657898; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KyuDwh7FomLELWjtAuXQjj7D4kpg3NqL2p0fCQC9HsQOwvPHAfkspD4h5ZoMNvk1HD
+         GrByRkHMMOuOBGf8YvaQyECz+zmSFzAd5ZJPbXu2/MEo989eBHzW9NM8jp/Tk6jRb094
+         ecPz2q8kvtNqlGls3IPl4cjutSU7/f2++IYnfFo4w36f1vgyVAVdH2k4MfSxDqA8gkNA
+         Q2G3O7acod5LBBzbSsLCg8xZIW2A/Ze6geASR53bqV2z/bMgdGH0MCw2t7v9QmD5owcQ
+         iCvSDtgKJ/xj3oBBGp4zJBN7J9744AbbMfs1lWsOpTPabzIV0vutEAWm5e2E3KOeIa5H
+         6RNQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=gKJ+mTdGFKhhnohs/NLJjgkzp0d0JdJ5SvOCcapXCp4=;
+        fh=rt2bBtfPTBjsa1SR4isBQmBEoLq90E9Z9XMTQkUv2DI=;
+        b=qqtIszBc5kdz5AiiBoKIYCi12/brtHjUIhC7bt71KeFMRdX4Q5TFQeUUffeQ8OpVsi
+         IjHk31OXCiJTUXTenMUDh5RRFz6WCOW+BOasV560JiRkXIyDzfYWc9M6uBLotQHML8N0
+         DltQ8o25jLQkKJnaVA/zp62/+bcG0eneVZgKF1GWYufDjX2MinZL0r8tSQ3UnOFfRfTT
+         b1m11IKGsZoUEC8sf5K21cJqWtU47EE+ebh0xLWoVgSm/oo0SNqRFN2725qbTJMmIAis
+         K2yeRb24ygMZpbMPa9cfNisqw+CEM/IYN7qtuAf6clJRGzOuIOTR9YYjkiGzBZDCqf2h
+         r2xQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mojatatu.com; s=google; t=1794657898; x=1795262698; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gKJ+mTdGFKhhnohs/NLJjgkzp0d0JdJ5SvOCcapXCp4=;
+        b=t8fY95louL73YALHqWLdAldiJ/r4amI16c1eqOrXx3jcxfMoZqAtjWM75h5sjD1Mpp
+         lMgAUBaz5oH5XGG95vbTUw6EcYJB1G6zGGuvqnJ2snSxN7Pvp385ga6Xft+w3+RcOsPK
+         KyVCico6t7O6BtTDrKWFmk1JK1g553StTKLZs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794657898; x=1795262698;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gKJ+mTdGFKhhnohs/NLJjgkzp0d0JdJ5SvOCcapXCp4=;
+        b=g7o3ORMummmsNLD8S7sDyKlnhCgkSwj/NlsgcCJ4s3QAGzPh8T5PN4GQ3U3PkAb6HB
+         7fLoSlpXmQYQavJwGdBTZvSrMEPT2BIPxhLEyxHvHrrQUHTyDJzuSMjvYNnFuYgIzbzm
+         vHr3/c5AC8a5/Lt5ttgORddfzb4xOxxV/0jACZePyPgNzltchhPiLHTt+vyhFZroW++m
+         crH+Ha0vI7nU0gTBE8/lbSSr6oxZZNvl+wRu+pon1fUvxXVTZhCSR+n4ZWctIhWJpZ4W
+         ABKrVV0a1gZ2DTUVA2haytnpQ81cqJkjIMZybCS80U+XjaZsg+72fjdXRKt2QpWbgOav
+         ikoQ==
+X-Gm-Message-State: APuU4Z/adH+45N1lLa40xAOT/iv6H9FzYpJMW4ilEymyeh2MUjfvj5+8
+	g8teLN7uAYlS7q60DMkcyoxY51AStlI/73vU9yu62519jAwd8RetHGy9LqjJP1CQ161ev22R+wu
+	b4OZ0cUhemqPwjaFGj9yCN9284hBjxNQqCoAjNoAk
+X-Gm-Gg: AYBFou2nh2KdINY/fjbLYRIxvK9DfqD+tKULYj6PON/rwxbRu6tC6f7juenREbC4l3g
+	1yM7+RVPPjAj2MRHzk5yrKRchAKn1AhK3j0aXUcuM/amfRHfDkd2vhex2z6RZs44oFZx3ONzt9C
+	zZQP4C6Zv1rA1dK7z7w10Nnuun46y4SiIYN8x2IkcRVJ2HegAWJAgX7O7Gcm9ZA2XoV2ZiuDzSo
+	tKUCQRbMSSwNOhXmnYyE3VSF8NTW66fCQmResI4m83rZwfZeJw1JWAoE2gzlBQ2l6+PlbZOzb2H
+	N0ZSH9Dzn1fbE2EslLhJ7viyuWQabKIObrHIv57BK/58EBWpWfT1tTSyIC2d+BR+TERUQRPR8K4
+	WxArjHJ/xR9ylKCaCuHlKgdfn6ABgtsBdKn6g7CMdl2s++J+iYq3JCZp+jyvSMXavssX0tM4mkv
+	qA8advOCTNWKyHXvw=
+X-Received: by 2002:a05:6a00:188e:b0:8b0:4e79:b3b7 with SMTP id
+ d2e1a72fcca58-8beb63a2bd2mr4941673b3a.31.1794657897786; Sat, 14 Nov 2026
+ 04:04:57 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,102 +101,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33NTU7DMBAF4KtUXmM0YztO3FXvgVj4Z0zcorSyg
- wWqcnfcsKBUEcs38+abKyuUExW2311ZpppKOk8t6Kcd86Od3oin0DITIDQCID+5UXLkIASP6ZN
- XwUlGVMKAVmhZu7tkapvVfGETzez1Z1g+3JH8fNNutTGV+Zy/1s8V1/I/Tyq27KMl0w0WTa8P9
- B5spudAq1/lnSCGLUFy4M5D3wknggzuUVC/AoLeElQTfB+k7kEOqMKj0N0LZkvoWlbB2AgqQrR
- /hGVZvgFGlmr6jwEAAA==
-X-Change-ID: 20261001-kbh3-1-022-fix-v2-e3f14290641a
-To: Stefano Garzarella <sgarzare@redhat.com>, 
- Bobby Eshleman <bobbyeshleman@meta.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, "Michael S. Tsirkin" <mst@redhat.com>, 
- Alexei Starovoitov <ast@kernel.org>
-Cc: Michal Luczaj <mhal@rbox.co>, virtualization@lists.linux.dev, 
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- stable@vger.kernel.org, Jerome Mohm <jrmmhm.kernel@eldare.de>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794657554; l=3483;
- i=jrmmhm.kernel@eldare.de; s=20260928; h=from:subject:message-id;
- bh=oCUVwPiXCeqIHuwbjnx61UNm7RpiSOaK8qnCMX86plA=;
- b=SBtY0Q0J4mm6Q5RNdLEvY46voh9guicx+y7o6EeKYnrkbLGQroplH/ZgLm0FekY0GT9EANt5k
- fyggqJnITvNDzzWXP1kUw+f8D9weMdXgDvXxpdIsdCHH6H3Nhvt//FA
-X-Developer-Key: i=jrmmhm.kernel@eldare.de; a=ed25519;
- pk=xRCxNXbnNottaHpmvPDAOC9NuMJxqKo24abkehKRVlo=
-X-Endpoint-Received: by B4 Relay for jrmmhm.kernel@eldare.de/20260928 with
- auth_id=1075
-X-Original-From: Jerome Mohm <jrmmhm.kernel@eldare.de>
-Reply-To: jrmmhm.kernel@eldare.de
+References: <20261113185553.171059-1-toddfreed@meta.com> <20261113185553.171059-2-toddfreed@meta.com>
+In-Reply-To: <20261113185553.171059-2-toddfreed@meta.com>
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+Date: Sat, 14 Nov 2026 07:04:46 -0500
+X-Gm-Features: AclHuK-HzRxyaz50x2QBJn-n5uNP2J1O-ML4FbLSRGjiewNn8xPID_Ky1F0Sj0M
+Message-ID: <CAM0EoMnJEGweo2oxJsgAjuwLDHrMAEEwuisFX-CDSbj+TvK3PQ@mail.gmail.com>
+Subject: Re: [PATCH net 1/3] net/sched: act_mirred: don't send decrypted skbs
+ from egress to ingress
+To: Todd Freed <toddfreed@meta.com>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Daniel Zahka <daniel.zahka@gmail.com>, 
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, Wei Wang <weiwan@google.com>, 
+	Jiri Pirko <jiri@resnulli.us>, Alexei Starovoitov <ast@kernel.org>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Sabrina Dubroca <sd@queasysnail.net>, Boris Pismenny <borisp@nvidia.com>, 
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On a vsock socket in a sockmap, a blocking recv() deadlocks with the
-virtio delivery worker and stops all vsock rx on that worker, and
-zero-length, MSG_OOB and MSG_ERRQUEUE reads spin with the lock held,
-wait, or consume stream bytes. Both come from the commit that added
-sockmap support. Patch 1 hands those reads to __vsock_recvmsg(), and
-patch 2 releases the lock around the wait and makes the wait loop.
+On Fri, Nov 13, 2026 at 1:56=E2=80=AFPM Todd Freed <toddfreed@meta.com> wro=
+te:
+>
+> On transmit, skb->decrypted means that the device must encrypt the
+> packet, e.g. a packet of a kTLS or PSP device offload socket.
+>
+> On receive, skb->decrypted means that the device decrypted the packet,
+> and kTLS device offload trusts it as such (tls_device_decrypted()).
+>
+> A packet which mirred redirects or mirrors from egress to ingress keeps
+> the bit. On ingress, it then claims to have been decrypted by the device,
+> although it was never encrypted, and its payload, which was to be
+> encrypted before leaving the host, could then be forwarded in cleartext.
+>
+> Clearing skb->decrypted would not work, because that is what indicates
+> intent to encrypt the packet.
+>
+> Don't send decrypted skbs from egress to ingress: a redirected one is
+> dropped, a mirrored one isn't copied.
+>
+> Fixes: 414776621d10 ("net/tls: prevent skb_orphan() from leaking TLS plai=
+n text with offload")
+> Signed-off-by: Todd Freed <toddfreed@meta.com>
 
-The deadlock and the MSG_ERRQUEUE case were found with the help of
-Anthropic's Claude, with Stefano adding the stream-byte part; the other
-cases come from the netdev Sashiko reviews and Alexei. The reproducers
-are available on request.
+Missing Cc: stable other than that:
+Reviewed-by: Jamal Hadi Salim <jhs@mojatatu.com>
 
-Changes in v6:
-- Split into two patches, the zero-length, MSG_OOB and MSG_ERRQUEUE
-  early return first, as Stefano preferred; the deadlock fix does not
-  need it. This is the reverse of the v3 and v4 order, and 2/2 no
-  longer argues for one patch.
-- 2/2: check the transport in the wait loop before the data, so a
-  reader that wakes after a failed connect() has dropped the transport
-  no longer calls the data check, which warns (netdev Sashiko review).
-  I check the transport instead of swapping the two tests because
-  hv_sock reports the peer's FIN from its has_data() callback. The
-  WARN_ON_ONCE() at the top of vsock_bpf_recvmsg() is unchanged.
-- 2/2: reword the comment above vsock_rx_done() (Sashiko).
-- 2/2: leave Sashiko's signal-and-timeout point as is: such a reader
-  gets -EAGAIN where a native one gets -EINTR (see my v5 reply).
-- Rebase onto current net.
-- Link to v5: https://patch.msgid.link/20261109-kbh3-1-022-fix-v2-v5-1-4d9af04f0fad@eldare.de
+unrelated - are you sure patch 3 belongs in net? Feels more like net-next.
+psp_reply_set_decrypted() only sets the bit when the association has a
+Tx key (which you are testing here).
 
-Changes in v5: one patch on Alexei's approach, falling back to
-__vsock_recvmsg() instead of copying its return values, which also
-replaced the v4 comments; covers the Sashiko review of v4; don't cite
-the selftests as coverage of the wait (Alexei).
-Changes in v4: comments, one data <= 0 check and message changes
-(Stefano); rebase; retest with a new dataless-wakeup reproducer.
-Changes in v3: split into two patches after Michal's note; end the
-wait after a reset read with SO_ERROR, and MSG_OOB returns -EOPNOTSUPP
-(Sashiko).
-Changes in v2: loop in the wait and stop on sk_err and peer shutdown,
-len == 0 guard (Sashiko); MSG_ERRQUEUE to the native path.
+cheers,
+jamal
 
-Not tested: the lost-transport case and SHUT_RD with a pending socket
-error (both checked in the code only), transports other than
-virtio-vsock (PCI) and vsock-loopback, more than one run per
-reproducer, a sockmap delete while a reader sleeps, the signal and
-timeout case above, the vmtest.sh ns_* tests, W=1 builds beyond
-vsock_bpf.o, the selftests on patch 1 alone, and anything after the
-rebase: the runs were on the previous net head, and the rebase leaves
-vsock_bpf.c unchanged.
-Still left for separate patches, as in v5: data that sits only in
-psock->ingress_skb (the loop can now reach that case after a wakeup
-without data), and READ_ONCE()/WRITE_ONCE() for the lockless accesses.
-
----
-Jerome Mohm (2):
-      vsock/bpf: fix zero-length, MSG_OOB and MSG_ERRQUEUE reads
-      vsock/bpf: release sock lock while waiting for data in recvmsg
-
- net/vmw_vsock/vsock_bpf.c | 45 ++++++++++++++++++++++++++++++---------------
- 1 file changed, 30 insertions(+), 15 deletions(-)
----
-base-commit: ead6fa9a0ab194f02a2f36d634b193e9c5f9a1c6
-change-id: 20261001-kbh3-1-022-fix-v2-e3f14290641a
-
-Best regards,
---  
-Jerome Mohm <jrmmhm.kernel@eldare.de>
-
-
+PS:- on your question regarding sashiko-nipa reviews: They show up on
+the mailing list - but sometimes its unreliable so an alternative is
+to visit the website: https://netdev-ai.bots.linux.dev/sashiko
+> ---
+>  net/sched/act_mirred.c | 6 ++++++
+>  1 file changed, 6 insertions(+)
+>
+> diff --git a/net/sched/act_mirred.c b/net/sched/act_mirred.c
+> index 1c98e4d81ebe..52c3eeab381a 100644
+> --- a/net/sched/act_mirred.c
+> +++ b/net/sched/act_mirred.c
+> @@ -285,6 +285,12 @@ static int tcf_mirred_to_dev(struct sk_buff *skb, st=
+ruct tcf_mirred *m,
+>                 goto err_cant_do;
+>         }
+>
+> +       /* On transmit, decrypted asks the device to encrypt the packet. =
+Sent
+> +        * to ingress, the packet would read as decrypted by the device.
+> +        */
+> +       if (unlikely(want_ingress && !at_ingress && skb_is_decrypted(skb)=
+))
+> +               goto err_cant_do;
+> +
+>         /* we could easily avoid the clone only if called by ingress and =
+clsact;
+>          * since we can't easily detect the clsact caller, skip clone onl=
+y for
+>          * ingress - that covers the TC S/W datapath.
+> --
+> 2.53.1-Meta
+>
