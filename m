@@ -1,102 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794641405;
-	b=fidAEiNvY9Cxb84L/FR3x9zzQZFSYQE18F2V0t46Y31HCJzenpPuPBF0uwlk4ugDNia+
-	 GwESV04eUQrVWKjC2iVhUcCD7xFwyNeVx5YoqLOqDLGPaLggjhQUtAHr0r0UmnTFBZEu2
-	 jsWpJW2Xcv/aI9L16FBOVttWAF2w8gf77htpyUEhLtAmFiGA3POsljTQihnr+4vXuy6wQ
-	 YbgxNUnIhj8Xq3pLW34bkQiQJPwOviGzP0v+BBtvzihrviqeMzFEzlOK/ZTtdEBuswJUc
-	 X6Zz7HdB8WR8AC7SsQ3zt198PShR1yl1aHHP/b3HNGC0DrC9rCGZaHbKriz6twIWiOQ==
+	t=1794641594;
+	b=2x8N6rtOo/hjmIK9/lA3q0XFVgo4XmJkjBUzmAV+mf8XyeiVujkYcW80ufCkw5ak9TuY
+	 Ydm4SfVjB7ZZXw2rckfBZUCN1mJ10HpgD7ULTsntObtlfUfXyOsBnwX5eUYGvhFsFU4eb
+	 ZGLzPw9wdsRNxFkixV1xua6h95srD6jlfqinplQwuik9YvQOTTEkYm9cP2x3QyRL+nKxY
+	 VDEfm0OsZawfcfs9bLzUy5YR6R6dDJ1njLmv0KBxbev7FFJlzCzbVDe7mNrYV43FFei6y
+	 yCEB7MqhiiWRRnPA1giigWW2wLVF/nYIzXqvK4Ofvnk4+UkvoC6YrkNBEYyUGOjPy1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794641405;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=SOxV9gWxcelbH4hLfP0QpC3+Z3ja0CyXlMq5J4ZxgCw=;
-	b=pCrYSmh8A61j+z3q5bI5hlLCtTSTHuo7dI/zqepjDuNqVgIIt/EbgTUSg84XY/oZ7UfT
-	 CY9OXzuXcn4qK+B73odEVrE6HglqWpJXJFIGz7GNiSjn1v0zEJN3aNswDaKuDQqS4rZoN
-	 QwhIq0o0NzeE2FxEocGm+jfqNg+Fl8GjncnN5V5McXG7XbnlZacOD3FmHDwmeTOJx/PsN
-	 cNPVoTtL9S+NYn8dgqfdqzK6raYMGUxWcR0xRFIpRvQ4SiBX58Mk/JEhnxchlGkjwFJzN
-	 SQmkdPbZcKdHfYlqyUpDX1bEn0SSgX0jx7tJ0CUK9gRxyecJMasoMB/JwQ2TTLE5hFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794641594;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=mIqG4gDjs7qWgNSrfHEZi4r8CEaK0H3ibIoVTKmXC9M=;
+	b=ctr7Q4zGO3lc7eDi0+FI6pKqFr8J1bJfUAplf05M5hXc9TQJ9b77bQKdUe4t2jlVu7Z7
+	 kgXXgltFH/ROFs/n+cOnd+zk/EyekE/2QW5MoAZxk5KFlXwZ7RAF2f5fnCL76QGB/Yz7C
+	 3RGEZSSC7G9IZj8Bx481hhVjZu1oJMnHW0ChRarJvqvNbighJDWIMrozLo6zJJ4N3r5s1
+	 uZnCye1X6hnduown4kg0DEC8+O3YrpzTugDJ9mSFQONYZ/3oGWNCe/hs8IyQD4wkHrq4r
+	 c+85Dlr2kwt6t3U1xzVhG+LQ/It8tNXgAxH0nl+VRIiMoAvq4TSzGghi/Nxd+hhhm3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=G6wRsCdm;
-	arc=none smtp.remote-ip=198.175.65.9
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="VjnO8/qN";
+	arc=none smtp.remote-ip=209.85.214.200
+Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C020606A329;
-	Sat, 14 Nov 2026 07:30:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C020606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2078B606A327
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:33:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2078B606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=G6wRsCdm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794641405; x=1826177405;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jtBq9+EiJWNmieGYq6I71zFt7YpP0HRvAchRg22hg6M=;
-  b=G6wRsCdm0KYYgzup0Su8GXgOCtUTQJj1a75LJ5+rbm3ylx3ks1RlBapC
-   xTJKtbPsBe8Z+A566XMplwBEuIlYcw4qZA3CQ5+oWiaSuDY5tlwsLt7MY
-   7GeMmhT7BS7t4X06S6IEg6ad2J1KTm4d9NZ7aqqZZYwMomSUH1YBMI78F
-   Yg0su+Ws+PlT5xwa0eX6BiQgmWrxHs1yCgHVJM7tNiXxwfs7woVzI/ML+
-   NLFM3VR0FOelCVSMlwAzhstrZVCa8X6/qbHiwUogwHoI6Kj3rsU50hpC6
-   fMPq1p3jG5rpt7Lmx9VtZl3k9rwweMYDyl03chY1SNRdGULpBlNwBbCkm
-   A==;
-X-CSE-ConnectionGUID: +ENSf6YCSnu7sco/ziEGCw==
-X-CSE-MsgGUID: b7CtPwN0Q7KMinJPDWtqng==
-X-IronPort-AV: E=McAfee;i="6800,10657,11965"; a="3303345"
-X-IronPort-AV: E=Sophos;i="6.27,213,1787036400"; 
-   d="scan'208";a="3303345"
-Received: from fmviesa013.fm.intel.com ([10.60.135.153])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Nov 2026 23:30:04 -0800
-X-CSE-ConnectionGUID: TUfNe519Q/CkIvW4UvGnKQ==
-X-CSE-MsgGUID: SXjkN1z4Q2q+4o3j3GnYZQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,213,1787036400"; 
-   d="scan'208";a="11011097"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by fmviesa013.fm.intel.com with ESMTP; 13 Nov 2026 23:29:56 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xS8Cv-0000000154q-0ykP;
-	Sat, 14 Nov 2026 07:29:53 +0000
-Date: Sat, 14 Nov 2026 15:29:13 +0800
-From: kernel test robot <lkp@intel.com>
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-	Sumit Garg <sumit.garg@oss.qualcomm.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Dmitry Baryshkov <lumag@kernel.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
-	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
-	Bryan O'Donoghue <bod@kernel.org>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Alex Elder <elder@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Jeff Johnson <jjohnson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-media@vger.kernel.org, netdev@vger.kernel.org,
-	Abel Vesa <abelvesa@kernel.org>, Sean Paul <sean@poorly.run>,
-	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jesszhan0024@gmail.com>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v2 2/9] remoteproc: qcom_wcnss: migrate to
- qcom_mdt_pas_load() and qcom_pas_prepare_and_auth_reset()
-Message-ID: <202611141531.Yu2Xl6F2-lkp@intel.com>
-References: <20261113185009.157893-3-mukesh.ojha@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=VjnO8/qN
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ea63087d79so17041585ad.3
+        for <netdev@vger.kernel.org>; Fri, 13 Nov 2026 23:33:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794641593; x=1795246393; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mIqG4gDjs7qWgNSrfHEZi4r8CEaK0H3ibIoVTKmXC9M=;
+        b=VjnO8/qN9HKKidM9JOEQtM25OmpQbG9qTz6MeThIgpFMuFrsLGP5A2Ope4XO8oexDk
+         3DTLgeaGoIyBAFfTct7K/xq6oBMghIIf3kA6wc2ekKMvnxtP8OtAHEctJN8Ca3Njo8q6
+         wWdirrbEtPSSIH3IQ0ZDBTRqZr4lkbhYqTNhlOZsEUK10dAASj0RTp5Kb0HlJNf3cN97
+         SddPzafva9uw3iJPrfMzoprpWtzVrf3YzGqPpsvB1MrWIDRrM+xtmmQ2K7V1iLwRbsoX
+         s1yqn5QaTTfR/RXTvolCbveFU/tgSiDDHHoMPVwypBEPIfzqbdpqReapPTMntsSuxaHH
+         wh1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794641593; x=1795246393;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=mIqG4gDjs7qWgNSrfHEZi4r8CEaK0H3ibIoVTKmXC9M=;
+        b=YZsg9TIfN83pjTn5C31bS+5twLfYlXrEjJmVrTEAFHjbMtTLIXdXj3pPmHPaJkxFft
+         IdEKYg8dieBBsHWCrvLVM+ErwjYqFDXWKVZjS86IHKfJaGSw2NZQJU4CIHZ3HqSiSXyb
+         Db8Qadi1XhWNg+m8MRr38Bssmwo3Gx02uJu+jfKo0+ybuM66tUewW0E/xbTQbRFomftk
+         jSUrpuA+TeleEUDF2mVj2W0LF7nnAQQYAOeyCfELhQjfWXx3Oo7Q7OwXoXOjnu+MrqWM
+         XQMAQM4qs74iGzVabZFQKAJMYslVLRzQPT9fZyhZQU+fdvJYs1kSJYeaV162KcNTsWLg
+         vI8A==
+X-Forwarded-Encrypted: i=1; AL+hErFvJfnnSpgfKbkfIW6nA4+/KrqIKmbEiUaSgrYVl/jCYNqh40E4UCQLGJ99D5owScOBGwdfGKc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9YSP/OmWX8i1zZlC06UqvddLV216M1F/DkZOfzVe8cZkITr6Qi
+	uTfYW94wJ/Mq9Ja+CXNlTaCFW9DgxMS9df9AKhSEq0Z99nc9NW0SoaZrrxP5LxOAxNbRIlRZf1P
+	KFqJDnA==
+X-Received: from plbl7.prod.google.com ([2002:a17:902:eb07:b0:2eb:2db:b93d])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:d54e:b0:2e9:6790:212c
+ with SMTP id d9443c01a7336-2ee0dee857emr53512405ad.30.1794641593150; Fri, 13
+ Nov 2026 23:33:13 -0800 (PST)
+Date: Sat, 14 Nov 2026 07:33:12 +0000
+In-Reply-To: <20261111225148.88506-2-sidchintamaneni@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,65 +77,37 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261113185009.157893-3-mukesh.ojha@oss.qualcomm.com>
+Mime-Version: 1.0
+References: <20261111225148.88506-1-sidchintamaneni@gmail.com> <20261111225148.88506-2-sidchintamaneni@gmail.com>
+Message-ID: <avgOk7BctoXaaoZx@google.com>
+Subject: Re: [PATCH net v2 1/2] af_unix: Fix scm_stat.nr_fds leak in unix_dgram_disconnected().
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Shuah Khan <shuah@kernel.org>, Kirill Tkhai <tkhai@ya.ru>, apais@microsoft.com, 
+	hargar@linux.microsoft.com, rlmenge@gmail.com, egoriluk@gmail.com, 
+	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-Hi Mukesh,
+On Wed, 11 Nov 2026 22:51:47 +0000, Siddharth Chintamaneni wrote:
+> When a connected SOCK_DGRAM socket disconnects (e.g. via connect() with
+> AF_UNSPEC), reconnects to a different peer, or observes a dead peer in
+> unix_dgram_sendmsg(), unix_dgram_disconnected() purges all unread
+> datagrams from sk->sk_receive_queue via skb_queue_purge_reason().
+> 
+> Because skb_queue_purge_reason() frees each skb without calling
+> scm_stat_del(sk, skb), any SCM_RIGHTS file descriptors attached to the
+> purged skbs remain permanently accounted in u->scm_stat.nr_fds (reported
+> as scm_fds in /proc/<pid>/fdinfo/<fd>) for the remaining lifetime of the
+> socket.
+> 
+> Move scm_stat_add() and scm_stat_del() above unix_dgram_disconnected(),
+> splice sk->sk_receive_queue onto a local list under the queue lock, and
+> call scm_stat_del() before kfree_skb_reason() on each purged skb.
+> 
+> Fixes: 3c32da19a858 ("unix: Show number of pending scm files of receive queue in fdinfo")
+> Signed-off-by: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
 
-kernel test robot noticed the following build errors:
-
-[auto build test ERROR on remoteproc/rproc-next]
-[also build test ERROR on drm-misc/drm-misc-next ath/ath-next linus/master v7.4-rc2 next-20261112]
-[cannot apply to linux-review/Mukesh-Ojha/remoteproc-qcom_wcnss-migrate-to-qcom_mdt_pas_load-and-qcom_pas_prepare_and_auth_reset/20260925-212730]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Mukesh-Ojha/firmware-qcom-pas-add-qcom_pas_context_init-for-pre-allocated-context/20261114-002001
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/remoteproc/linux.git rproc-next
-patch link:    https://lore.kernel.org/r/20261113185009.157893-3-mukesh.ojha%40oss.qualcomm.com
-patch subject: [PATCH v2 2/9] remoteproc: qcom_wcnss: migrate to qcom_mdt_pas_load() and qcom_pas_prepare_and_auth_reset()
-config: arm-defconfig (https://download.01.org/0day-ci/archive/20261114/202611141531.Yu2Xl6F2-lkp@intel.com/config)
-compiler: clang version 24.0.0git (https://github.com/llvm/llvm-project 1b1fed44d3dcca649a9877915d57c3357a98124e)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261114/202611141531.Yu2Xl6F2-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202611141531.Yu2Xl6F2-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/remoteproc/qcom_wcnss.c:161:63: error: incompatible integer to pointer conversion passing 'phys_addr_t' (aka 'unsigned int') to parameter of type 'phys_addr_t *' (aka 'unsigned int *'); take the address with & [-Wint-conversion]
-     161 |         ret = qcom_mdt_pas_load(wcnss->pas_ctx, fw, rproc->firmware, wcnss->mem_reloc);
-         |                                                                      ^~~~~~~~~~~~~~~~
-         |                                                                      &
-   include/linux/soc/qcom/mdt_loader.h:24:44: note: passing argument to parameter 'reloc_base' here
-      24 |                       const char *firmware, phys_addr_t *reloc_base);
-         |                                                          ^
-   1 error generated.
-
-
-vim +161 drivers/remoteproc/qcom_wcnss.c
-
-   155	
-   156	static int wcnss_load(struct rproc *rproc, const struct firmware *fw)
-   157	{
-   158		struct qcom_wcnss *wcnss = rproc->priv;
-   159		int ret;
-   160	
- > 161		ret = qcom_mdt_pas_load(wcnss->pas_ctx, fw, rproc->firmware, wcnss->mem_reloc);
-   162		if (ret)
-   163			return ret;
-   164	
-   165		qcom_pil_info_store("wcnss", wcnss->mem_phys, wcnss->mem_size);
-   166	
-   167		return 0;
-   168	}
-   169	
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
