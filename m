@@ -1,88 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.235
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794661777;
-	b=f2J+Ssk59E/VREdtTsclO+2i3+p9dyd9qTJOjoe2IeAlLR7U3GCaMenKgFUJmnyFeO5w
-	 kZy3FJ9jdUvAYKcAqZgL42dTZXv0R1XUXNs0HPp8NLTwjYIRJRYt6G2TbKY52B0q63iZv
-	 AnVAbPLlGhrdXzAEDpzh6iGljrT3WZDKZaaOcieJ2mhq0fKBLW625OIxg5wJnbxUCHC7l
-	 6U2oBDxl3GctNHWt2zF/oPGF52odQ4l0NsYebabjLXvH0w5iD1L08eHu454RntvHhkq8y
-	 oo3mYOuKBEamjvCJDOr7xa2eCYtQrO3UjWEXMPHgvMXxetI3lxQwd/rItdcuANYcdTQ==
+	t=1794661781;
+	b=BFDOwXz0XNT6LdhaJosI93qbcR3aHjOYZNUg+DqrJvrz7XM+WfG5tVMPq8AxX8wi4RGR
+	 e7u4lhAcqcD6vqTfD9AHWUCicSxv4eWD3xPCl/onE+fuzT+OK2xaXn8n5WmPU70cUhZ7z
+	 0mqohWyjIQPVAWiJxcyzARC+8zeh/dWuY/9eXysx3MEX45DtBPGIwOmpva7FXyu+Vm3F+
+	 wlehTm/bZSR5Z9CYgrBjsttqdaPRZomLACDVeaX8DGoE5ZpMed1JzVGQBnEMxBhCrX9MB
+	 QLyoW1spymXoRmaKKt0SdgglgCPcMa04YvGbvWWHxSYLiKCI8gjUtc7Nx5EPqLqz4Jw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794661777;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yTztLTqw12rdN7/Uw5DEdcju+OrXmRfrHG3yaxKlPWM=;
-	b=2dNKiYYv8OdoOitWT8Lv3+HgF95fwEMN6V6EoS308ZqpyMHPwGPt8ekLINJymo/xiWzh
-	 3jkY/YmbBN8vufjoMOoD24XtBYV4vrs6Zc0t50Gbu4AkxB7mHqnrkDKw5f9r7CsAEHkKy
-	 InXfl6IuS6UlgqjYKgrOWk/uhc/MF86c+X+lU5ZQhy662El/LJdxDrt1FEfjVaazZb3RU
-	 YzfnGwhKkP4t7k4TubABqfvSmqpr4zU1mhWZeXBGg1D9e6KMCaPc4mamsE0S50t/Y1+l+
-	 02/ni0q3LbaVuk7dGxFmIdY01ptXnfst4/QFxL7HPryeBEYbQ74g/+/g28A0ERtGfbg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794661781;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=NDK6iLGoU71raS2SgqQLHOQWV8qCulebQnSVWkxP4N8=;
+	b=MzK2Bpzv1Us8EhqSa75xcR6OvgrAYuZl/1ygBla/nBzXK5ORGCYbpy69Lnea7LrlRsjh
+	 SMtPjoO0+Xwb5I+/znZ0XflLAUNf25oonlZHCkwCBfw8mp5J00dDSeW+CdkRRE96OHUZ9
+	 GduD1aS9kflj8VfkNuY8wo9Knl4uX+myyalqjTiTBYSVW0qNcHuI770U7wUDNkscTH2x1
+	 hhYqiExsCRD20o2zoO95Wv6mX4xH6esA7UH2aAJ+XDUJQ9zR+W55nE/5ePVHfCrxb1B1Q
+	 /xA1/8zAlHLI0RNmGWGSHNc7aWhr/i5h4XOvWcd5WSrKrcfcbspGmGpYRxtUzb2Xb8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="JLH/p4+a";
-	arc=none smtp.remote-ip=203.205.221.235
-Received: from out203-205-221-235.mail.qq.com (out203-205-221-235.mail.qq.com [203.205.221.235])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hoFWaj8p;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E502E6077E3A
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:09:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E502E6077E3A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63D2260A260B;
+	Sat, 14 Nov 2026 13:09:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=JLH/p4+a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794661775; bh=yTztLTqw12rdN7/Uw5DEdcju+OrXmRfrHG3yaxKlPWM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=JLH/p4+aEBwFkkI32rUuo+ynCUteBbQVDFloAkKjfk5naEvFQH4l8QDZxBxQcy1en
-	 EU318Hj9JIKq+NGER6D49rODtRpTgjyZOmrbL+5/GRQpwnX7MUFClbOQpZyx0IlYqg
-	 RwrAQ0TtnRZoNwT31efc8UrvPXEBLXgl4lARqPYA=
-Received: from localhost.localdomain ([2409:8d5c:8f0:65e5:7443:873c:1230:8af8])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id 25C3B2E4; Sat, 14 Nov 2026 21:09:28 +0800
-X-QQ-mid: xmsmtpt1794661771tdqou28dd
-Message-ID: <tencent_CCBF2706A4D1AFF8F48632FE8B56FB67E207@qq.com>
-X-QQ-XMAILINFO: NXvILt21hDllwcpAvgNDyJaP3Mj2Oh3Q+AM5iYKyy9Ic5OJiZvts7IvEZZIi7y
-	 MkaIJPwVXaXBc8Bk2BaznScevLgueoqpT/7ArIHa/FoABY/8Du9wMa8ldUAda2F9SPSrplr6SlDw
-	 arQwl310dptb7AP3phS/0dsbBEy+MBvUEsN5ZzkV7wcRUG0LaOqtfzVSEkgDstL1mWbgTmt2THl2
-	 HazgXxt1UpcAz/XpJGwpfZEHd9fECsA6FehL8vFzFUST4hEtC/syyNmkyAnAQ7evqZwEO/7w1TK0
-	 59+URA7mG95/8eTDkVIddn28x1XAbcwZqOPB2BbdmhwaBFhy/8jgA0z16a8vkfisEjEU/YU0WKzK
-	 PzWj/ADlKZnf9Zk3fHHSn7BrXHPm9llMPjj5p1+4WosOvuqCuJic/cOhtPL+XYF4kobYAjm9asxZ
-	 f7+T1dxfnNmasTDDYnT/XhCCE0nKtS0To8+H1BAC87h3rOEgqWu8Mk4lfKdRlR8MJJzP3daOjME+
-	 Tr6QDPEsZgJ8cMKtIPKwCjUC3HbT+AeIUjDQu0JQz3Ch46QyjLKBM4MNSrBIzRoQ+tnp2m5xRR9N
-	 +eLeCdtM63JqmkbtZW7Gpc7HmRZ3Zs9BctCna2K7XwSHFZj5oqZzhxU+hHvy+qPgQ4E0SIKwg2Yj
-	 8fGx+Ic+x1J0guK/OPXFN5CEdyl+AP/fhDSaEUjb10CIXiEd7ofaQxD8rXXTx9WeQ9NCzweL73F1
-	 c+yAawEhtKTIku+a4OM9oRrVCatZlApkSKobi2yB+YWgTThBX/uc18FbYCzv8u3wt37xoZjLdOyH
-	 i8diLSFkymjsPiVbykWy9NRIS2SJd+/mf3fHjgszfodI/r45TBC+XHZ2cKk7vvvZMCV3Ru4QTgkD
-	 af0ExYRXoiJ8l0NP1tAUbWGExPxhyRG4Iob+MpXjLoyLM10aYE4B2Z/QevA1MMZF/mAhsOIZmnJj
-	 4iVy9HfAaT4ZodUuiwxYcJdPXMXwYtWIlmG71zmAUjwJMC9Hioefijn/5MvKtetBWs6drTDYDbU7
-	 +28mKYxvljXbtL86GZBj8fKJaAsZxu1JiIl8t6ev190i05neFvx3AWeyWy0wziNpRnj5f9/43RuW
-	 XLJrvBT0EAsVPRaF/u5MMXAZqXT7W8VshYntxXEIYoF2CQkJiflu7URo+k2L4JugK5osuz
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-From: Hang Nan <2122295973@qq.com>
-To: netdev@vger.kernel.org
-Cc: mptcp@lists.linux.dev,
-	matttbe@kernel.org,
-	martineau@kernel.org,
-	geliang@kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kuniyu@google.com,
-	willemb@google.com,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	2122295973@qq.com
-Subject: [PATCH net v3 1/4] net: mptcp: take token lookup references with acquire ordering
-Date: Sat, 14 Nov 2026 21:09:24 +0800
-X-OQ-MSGID: <20261114130927.91839-2-2122295973@qq.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261114130927.91839-1-2122295973@qq.com>
-References: <20261114130927.91839-1-2122295973@qq.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hoFWaj8p
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A26C1F000C5;
+	Sat, 14 Nov 2026 13:09:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794661781;
+	bh=NDK6iLGoU71raS2SgqQLHOQWV8qCulebQnSVWkxP4N8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=hoFWaj8pvuO5W4IMFMMHBQHXMNLjNH8JHfJrDEmFAYaD9asZ5QMfu4dOUECaNFmWb
+	 f5k0eyP7Kyys7O1qt1H853aLKDmH4CIdCdqekph1EhrZbDKl0mxNkgwIVT9HDOt3XC
+	 O3bGQDa7op33lAEoqksi8s58BT8ulOMAO60OcbJMkq0yL+u5csuTYRPB7smWs86ksl
+	 ospRai6EuGNd+GhCYkKlfBdmljxPJpsYewArnoRX5o2L7xJTjyoZG5c+NVbvTvPVPv
+	 JUbdkCHF4KynQMxadnOeQj/61m6YmnVQxmfl/9pKanW0zQl5nFhfpaBX+TBYt4fp5N
+	 X2KWpck2qoGkQ==
+From: Christian Brauner <brauner@kernel.org>
+Date: Sat, 14 Nov 2026 14:02:16 +0100
+Subject: [PATCH RFC v2 35/42] zloop: refuse zone files on pseudo
+ filesystems
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,71 +53,73 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261114-work-loop-pseudo-v2-35-98639a2286fb@kernel.org>
+References: <20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org>
+In-Reply-To: <20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, 
+ Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
+ linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, 
+ target-devel@vger.kernel.org, driver-core@lists.linux.dev, 
+ linux-mm@kvack.org, bpf@vger.kernel.org, 
+ linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+ apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, 
+ netdev@vger.kernel.org, fuse-devel@lists.linux.dev, 
+ linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, 
+ ocfs2-devel@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-usb@vger.kernel.org, 
+ Amir Goldstein <amir73il@gmail.com>, linux-erofs@lists.ozlabs.org, 
+ linux-kselftest@vger.kernel.org, 
+ "Christian Brauner (Amutable)" <brauner@kernel.org>
+X-Mailer: b4 0.17-dev-ce4c1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1408; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=FWktvag3hP7CxJ2aHsFycQWntpQ2NlX5K0UkpLEDOgs=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWT9iOmTbNEV636a62R6kHG9SdDEX8xMuUodXbnngjbwb
+ l/iW72lo5SFQYyLQVZMkcWh3SRcbjlPxWajTA2YOaxMIEMYuDgFYCJWJgz/E+5wxiw8Ms/ho0RZ
+ slhBp+vsmI/Z9zf941dJmu0vfvbnSoa/svdmna/i63v7pKntle3q1EqNfZxyTU7nC55fEOXNvXy
+ KEQA=
+X-Developer-Key: i=brauner@kernel.org; a=openpgp;
+ fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 
-mptcp_token_get_sock() and mptcp_token_iter_next() take a reference on a
-socket found on an RCU-protected hash chain and then re-read state to
-decide whether that socket is the one they were looking for.  The
-re-validation is only meaningful if it is ordered after the reference
-acquisition.
+zloop opens its zone files by name below the base directory but a bind
+mount can put any file there, including a procfs or sysfs file. Refuse
+files on pseudo filesystems as zone files just like loop does by
+switching to file_check_backing().
 
-The sockets come from mptcp_prot.slab, which is SLAB_TYPESAFE_BY_RCU, so
-the memory a reader still points at can be freed and reallocated as a new
-mptcp socket while the reader is between the chain walk and the
-increment.  The new owner publishes itself in sock_init_data_uid() with
+Note that the helper only accepts regular files. So far zloop took
+anything with ->read_iter() and ->write_iter() as a zone file. That
+includes character devices, FIFOs and block devices if someone put them
+where zloop expects a zone file. Zone files are created by zloop itself
+and zloop truncates them to size and to reset and finish zones which
+only works for regular files. So refuse everything else.
 
-	smp_wmb();
-	refcount_set(&sk->sk_refcnt, 1);
-
-and initialises the rest of the socket only afterwards.  A reader whose
-increment does not carry acquire ordering can have the re-read of
-msk->token and sock_net(sk) satisfied before the increment, that is
-against the old object's contents, while the increment itself succeeds on
-the new one.  The lookup would then hand back a socket that belongs to a
-different connection, or one that is not initialised yet.
-
-refcount_inc_not_zero() has not provided that ordering since
-commit fb041bb7c0a9 ("locking/refcount: Consolidate implementations of refcount_t"),
-which removed the ordering the previous atomic_add_unless() based
-implementation gave; refcount.h names this exact case as the reason the
-acquire variants exist.
-
-commit 5b5d8f351dd9 ("net: restore refcount ordering for lockless socket access")
-restored the ordering for the IPv4/IPv6 established lookups,
-inet_twsk_purge() and bpf_sk_assign().  These two mptcp sites have the
-same shape and are converted as well.  There is no behaviour change on
-strongly ordered CPUs.
-
-Fixes: 2c5ebd001d4f ("mptcp: refactor token container")
-Fixes: 96d890daad05 ("mptcp: add msk interations helper")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hang Nan <2122295973@qq.com>
+Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 ---
- net/mptcp/token.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/block/zloop.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/net/mptcp/token.c b/net/mptcp/token.c
-index e0f2823f92ef..3429b43a9f7c 100644
---- a/net/mptcp/token.c
-+++ b/net/mptcp/token.c
-@@ -309,7 +309,7 @@ struct mptcp_sock *mptcp_token_get_sock(struct net *net, u32 token)
- 		    !net_eq(sock_net(sk), net))
- 			continue;
+diff --git a/drivers/block/zloop.c b/drivers/block/zloop.c
+index 65634a39b0bfc..6f79b9ddbbe00 100644
+--- a/drivers/block/zloop.c
++++ b/drivers/block/zloop.c
+@@ -1132,10 +1132,9 @@ static int zloop_init_zone(struct zloop_device *zlo, struct zloop_options *opts,
+ 		return PTR_ERR(zone->file);
+ 	}
  
--		if (!refcount_inc_not_zero(&sk->sk_refcnt))
-+		if (!refcount_inc_not_zero_acquire(&sk->sk_refcnt))
- 			goto not_found;
+-	if (!zone->file->f_op->read_iter || !zone->file->f_op->write_iter) {
+-		ret = -EINVAL;
++	ret = file_check_backing(zone->file, FMODE_READ | FMODE_WRITE, 0);
++	if (ret)
+ 		goto out_fput;
+-	}
  
- 		if (READ_ONCE(msk->token) != token ||
-@@ -370,7 +370,7 @@ struct mptcp_sock *mptcp_token_iter_next(const struct net *net, long *s_slot,
- 			if (num <= *s_num)
- 				continue;
- 
--			if (!refcount_inc_not_zero(&sk->sk_refcnt))
-+			if (!refcount_inc_not_zero_acquire(&sk->sk_refcnt))
- 				continue;
- 
- 			if (!net_eq(sock_net(sk), net)) {
+ 	if (zlo->block_size) {
+ 		ret = zloop_get_block_size(zlo, zone);
+
 -- 
-2.47.3
+2.53.0
 
