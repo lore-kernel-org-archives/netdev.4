@@ -1,117 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=216.71.131.47
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794677186;
-	b=0WLaMt/8r8Up9KNp/ungsi90v6DFcZAlLzaaHuj+alBp7q8N2iIHL5Hgx20kuT4+vTM4
-	 3+/TmhQI+uqhSU2Vzn41l/7qRe4gBr7KroOsHs49WP5+S9F+fUgo2t3ZrHCByqUIyxHuq
-	 rZVu0LQ6ral+CFxlautkYpiS+KhtaN7KgedBXVKgXWelgT7WSjqEuOuCukPyOfVI0MGHD
-	 Dl2VbIh8aCDtwmjvR2iFpfzxhdldsxVdD3TXXGj5+jjczH6eCl7CRw6sDQdhiEn69Y2yw
-	 4FuhA3QHwKPD1H+NhTnhFctNh58yj3r2o8ksWK9O/4QKpWT3EZTUE+nJ7jbkwTDKp8Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794677186;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-Talos-CUID:X-Talos-MUID:Received:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=pNlkMR1Y+qYvvWpXp8OjQMZBWQMli333/U7YTlBCYQk=;
-	b=1jPUXtBSiFhRW4jtxcogEvA4nHGN7ulG+5JfVWxctEEbD6iCI4p+wTi7yNJwirqmEcjz
-	 JpuBXG8JzJdmHXdvhr2bg7eaRy+mLN17OU5fPwcHZT2Hav7fX9B5fChqd0M/NZ3FUWlZe
-	 +35v1A/uYdxGcnTIH389pVWuNBC1LqdI/uBcIsCRa3hPIX7PXQTkKCErHKZv1zuS+cGem
-	 xDzpTo77FRH5o8BV3ShaCuAcMsjrMMQH9RfvJgrLzWNcR3iiqezZ7+2Cra6SO/3mq51cm
-	 BpOf9WpD0G5BNrr2SLKJb/zihjj16+lbCRHFD8CQN1FeE7MSzWEI7xB90aRXGnHa0kQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uwaterloo.ca;
-	spf=pass smtp.mailfrom=uwaterloo.ca;
-	dkim=pass header.d=uwaterloo.ca header.i=@uwaterloo.ca header.a=rsa-sha256 header.s=ces2 header.b="B/jodgRe";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=216.71.131.47
-Received: from esa.hc503-62.ca.iphmx.com (esa.hc503-62.ca.iphmx.com [216.71.131.47])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9E9CB606A327;
-	Sat, 14 Nov 2026 17:26:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E9CB606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=uwaterloo.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uwaterloo.ca
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794677734;
+	b=nC/u4KG1TpS7H6BD/4m8zpxD+U64IpZ26xS3R4BDrEs/YU8z1SMog2gydajjWbHBjphp
+	 IFaP7wMSn8bQrSHbB40SC04t4Dc8vuBdhIv14cbCIvMQ/g30StnvkSkBOO3qoDBwnQwif
+	 E3djfH4E1wgDVa+6LboZB1dNB0zmnyafXcju0nUzWiuLF9Uh2bNzRkTtALJxo08miXGlu
+	 GM+RGyji+xkLZL+M4crZVMnrFQ61Et7nf+AAG7CZosPo4p+cP46HY/OSMGBU1JdAV8U53
+	 GkoJm/PMnHjbri9o0sJLiSoYMuVwzRQYwwrJM7AlkY40XW3CS3YLaOLGELnzjlo2cLQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794677734;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Details-Enc:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=ya1SkaOxN+nS5fikk2w3MoZXNnvyzLHOp+OqqLQDueM=;
+	b=HliCT7qLAfdvCe0BteS4ItwX4gmVw6u40q1OUzHMpbCogeZ+SkLMSyoCl8Dlpi57WRAT
+	 mFNJRXpX7sxp4W+fHyjWkAIEVkyy1vjYx4Og8QEhEDP6sW/ToIChF4bZ2tptNQC8putYy
+	 82uCQSLTpgJ+Sr+eBhPPaNEz0c7KEWYB4j7C2mXpefHtuLV93wGrDEwfyVk4Uu6wjQquk
+	 aUjFS/LYSwn22iT3HlTNNi+sHc/fBzeUxKOvdliz+JjQa9tyK+bn0BA8Bh1bYIy9pTufx
+	 7hSycMximXIXRHwseT40LGCHxPTXEL6jnQLosatUOIU4SlHxbX0Lp+dFYyd8HAYbl+g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=LugsiSZs;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=j66U9PhL;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2F48606A32D
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 17:35:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2F48606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uwaterloo.ca header.i=@uwaterloo.ca header.a=rsa-sha256 header.s=ces2 header.b=B/jodgRe
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=uwaterloo.ca; i=@uwaterloo.ca; q=dns/txt; s=ces2;
-  t=1794677185; x=1826213185;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=vA6ZIZKalp7yRGuem8MPo8M7/9e1wM4CoHAN+g02Tjo=;
-  b=B/jodgRe0X4afMckA/VngHYOkwG8BHo5oaURdVITN5nrdHIzd36nZdov
-   ak4qNdtzLYOkF78zIIM2ULJZxYUATugZmn3cSw09dSD+lyhlD0AYcEm9x
-   gbTGE57RHEyiOJklzyfPfF1Fd+SoPKsphjU7v24UvoHhXInaTfI12Kb9+
-   0=;
-X-CSE-ConnectionGUID: YYHSK8O8TD++qhln1UNspw==
-X-CSE-MsgGUID: 2yWcyG8MTvS+5y/gOJtIEA==
-X-Talos-CUID: =?us-ascii?q?9a23=3AA6D9DGuLQtLWj7vnJYOqDayT6IsUQ13m7yf3c3O?=
- =?us-ascii?q?USiVwSLmTEGK247t7xp8=3D?=
-X-Talos-MUID: 9a23:MocASQjPLKYUE0xqClmrIMMpbtZX6LWBWGUxj65F5tjDOgtSJxawpWHi
-Received: from mail-canadacentralazon11020123.outbound.protection.outlook.com (HELO YT3PR01CU008.outbound.protection.outlook.com) ([52.101.189.123])
-  by ob1.hc503-62.ca.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2026 12:26:12 -0500
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TvWWgd8uYdPNmrihYTAzMTgLIvJE/IRd/0ljU2Ka/Rlgb8qJkNoNRC2IGPGleONmwUSv5AFE17Vgrbw6TLPACxpYbNY6cXIQieeBl/CoT4sMK/Eut+y5CIaA1WaJrpaMr+i6emOUKfr97xqvnNXjfcJV5t31Xpu0XoEcUb6M4njRIP4PfW58P7HyiPdzcnnEvxTAzYvcyIjqh8cKlWGW8eKnx7FMeN8rxOxUIYmbEYzLxlZEHyKx6KetruBFFyMi8ZNqDDVr7VBcmJd//ixMwYtUeaorFpyw7dUtCf5OxPN4LfkpDF8sb24f7Gl9Q6pPQmPEhbDKFlA3aQVoODckKA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pNlkMR1Y+qYvvWpXp8OjQMZBWQMli333/U7YTlBCYQk=;
- b=CbiElb31bsJITwBWYDHA11nOUmGmMgw//KINaNxdvRWO4I9FFsSVvOtYKIeLOGRDooR+KMMmxbWYjW0DlOiuZJL4cV2PvBHSkL0rG6mrMb7HlT7ItZQHj8mziWU5OLmlp3EMnto8TCQourpcVyna+G3o7T7U42cLZM7rA397C9juBRNxnvdu7+lzw7gLsEcFqViNeicAKUEJMPpwEw6OjwqrydhDLpnQImiq/wa4sznk4h3kMHlObH0jMo9bJLaoWTgeIpVZYxx2K1IQdVHKZE54QySZ2Vpubv52PSPJdxiIOHlahAAH7GfaoPs0OppVfQHkb/weWsCiBDI3Q4GGUg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=uwaterloo.ca; dmarc=pass action=none header.from=uwaterloo.ca;
- dkim=pass header.d=uwaterloo.ca; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=uwaterloo.ca;
-Received: from YT5PR01MB11875.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:17c::24) by YT6PR01MB11070.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:13c::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Sat, 14 Nov
- 2026 17:26:09 +0000
-Received: from YT5PR01MB11875.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::b6d9:6c24:ae98:688]) by YT5PR01MB11875.CANPRD01.PROD.OUTLOOK.COM
- ([fe80::b6d9:6c24:ae98:688%5]) with mapi id 15.21.0615.012; Sat, 14 Nov 2026
- 17:26:09 +0000
-Message-ID: <321482ad-e462-4791-b08b-652d66a2452f@uwaterloo.ca>
-Date: Sat, 14 Nov 2026 12:26:08 -0500
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: cancel napi->timer after the grace period in
- netif_napi_del()
-To: Mani Tofigh <mt4022@columbia.edu>, Eric Dumazet <edumazet@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Joe Damato <joe@dama.to>, Dragos Tatulea <dtatulea@nvidia.com>,
- Kuniyuki Iwashima <kuniyu@google.com>,
- Stanislav Fomichev <sdf.kernel@gmail.com>,
- Sridhar Samudrala <sridhar.samudrala@intel.com>,
- Cosmin Ratiu <cratiu@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Wang Zhan <wang.zhan@smartx.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, tz2294@columbia.edu
-References: <20261103-napi-timer-cancel-v1-1-55c631ad5286@columbia.edu>
- <CAL4WiioJuY1L5ji7tVXggp=FDm3eidwekpxqAMdnxWUyiTR3fg@mail.gmail.com>
- <ae3e5838-6985-48be-bd99-fa5a21143942@uwaterloo.ca>
- <06ca7638-85a6-4fb6-9cac-b495d213ac05@columbia.edu>
-Content-Language: en-CA, de-DE
-From: Martin Karsten <mkarsten@uwaterloo.ca>
-In-Reply-To: <06ca7638-85a6-4fb6-9cac-b495d213ac05@columbia.edu>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: YT4PR01CA0015.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:d1::22) To YT5PR01MB11875.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:17c::24)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=LugsiSZs;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=j66U9PhL
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AEDmQLK2218791
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 17:35:32 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=ya1SkaOxN+nS5fikk2w3MoZX
+	NnvyzLHOp+OqqLQDueM=; b=LugsiSZsik90iK3dBFx3l+VUGOfHWx7eatFVAfqS
+	+KIfOQdGvqZabGJzU6ZqlxjefnYB+dtqoW1+A1ZrlFHQzsnfdUakG2v8cWa7Ppou
+	a8jYG3E8BOE0MfZuO+vN7Xt4wTii41bXBaLJipaY8wQ9lDfN94P87aJBYvF8ZoUQ
+	sfE1pSOS+jJx7TOStiUFz1iVuqi4uYXmp8WEjFVSj9hYQjDzjAW80YUUNgYpbVTB
+	uDEiHjcEFhpZF2Bk+CmR/2Kerubb8Oj3xKqt0C5hCU2Mi7mWvqZOhiwptK4x1aWt
+	nxBpsWFUu8cPWm5GdyYSHF7D8OsUbo5evNTvtViXsxLceQ==
+Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hxhj41c8f-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 17:35:32 +0000 (GMT)
+Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-9495876f8beso219813085a.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 09:35:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794677732; x=1795282532; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ya1SkaOxN+nS5fikk2w3MoZXNnvyzLHOp+OqqLQDueM=;
+        b=j66U9PhLIZTGAOOCdCWa8oyE+pYGJbR7inhVetMOjq9Mhmxww8hYKoweoUK0JbxnXP
+         os+GpJkmd3rzBdZbSMqEVKUIk1oHsm7EqC5TbN7smIYz9W4TTw0gTnd+jKQX/5rLHsiT
+         TD9MAI8zpYO+ILIu9w6XLBMiMQmo2rAP59a9ROJMFJZSVH1Wcx4zxFbcfh7uMGoSykpt
+         dpEzhFKJVUTZ4Xg3bW/Yh1IB0aWUqUmvQM9icpKFB2/Fs20UMi0Ex6BgQkNCd6HIXosx
+         uEYtzSfzDQNhxJ3rP1mkENui7V2eTPUc0bUfEwPi46SC4vGnobZa8BWUit2KEuV7O49G
+         Kx/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794677732; x=1795282532;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ya1SkaOxN+nS5fikk2w3MoZXNnvyzLHOp+OqqLQDueM=;
+        b=2zI3o1jAuyVVRpQJi7XeeU01F4sqCPqKa5HgULqjmD19s7gFtD/4SFgLAZZS1gAnIx
+         bpORoPMeciDVBzPDiTk/E/r/CiNM+rDhNJKeDfr79xobZ8XJLp1kNCjBQSvR5XOEc+Zw
+         1k94z1Z4XB6i5uu16pIe3S8Lk2R86H9e/UJXe0x9FtxzjBIib5/QHUiwWLyAF6w2sdAe
+         VBQNsh7gx1ObA0FKtyKq3YORVkufeo6FxTIj2THBDr/elTzxNH9O8bgMHvpoba4Goa5w
+         LHdqNMtDQQ72Ij9JPrcsANnick7a8kyAQqtPOR97GnJsDpA5mksZXCrV3f+Rtg8YLrsD
+         w0qQ==
+X-Forwarded-Encrypted: i=1; AL+hErExuaS5oq+E3xm2VqIeSPPv7vEyIGbNGkoe11xz6ZLMefQjzl67F8sAWXxYdw5KRFxOgUwh7oI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cyVd3TB6eYDJwLWCKejfY/IsCFzeotZkOXRqbg95P96be2Uwn
+	aeZyb7mD6p0JyBGAJmlIjI4JlnPDzrbNkS8R4WphTSXTGDk4TQ15TJUJBJtK6/7IhCgsPpfm9Ln
+	gkSpxtP0rp9B476a5R+/mFQn1stXx3ljgiiEvNghAnj23aBmtAuPQ0+PeRCM=
+X-Gm-Gg: AYBFou1V4B1F7d1ImK8XIIbXZDEdoI3AF1nVKAqq4hxzUL6KHtqTylAe/7kk9SckvPW
+	Eb/pB4kBMOUzn5eSCdlmf3Of5ynGuU9ALF7NytxMaUWFyfkG8y2MaOXIN+x7rDnLe7WOK9X/LDw
+	SpE1dHfRwmo/p/Gc522LPXwYgkesUuJVG7mtUg00QxzH19+87BwOm9uvq5YoW8EKSJQmL+9GA3Y
+	LoGDx131aajmUXaryOwNAASu9bO7TNbu8PQ+QnR8nawdJIhSziHwMPBsi5OinR7DQCUKGhGf//G
+	8zjc5rqYBkQ6AY0xCYVnSl9s1dXJMROblsrTA0VkZW7ITi+jMVp0BNIxPKevZY0FppHrGCeoU/r
+	Ioq4WvBQlfk1jVPdla9bK8uw6ZTG1Na1cr27uAVBH9d8JjoyFB1Z3tr4hYofD2g==
+X-Received: by 2002:a05:620a:2a14:b0:93c:6534:d04d with SMTP id af79cd13be357-9494bbcd0ebmr940946785a.35.1794677731491;
+        Sat, 14 Nov 2026 09:35:31 -0800 (PST)
+X-Received: by 2002:a05:620a:2a14:b0:93c:6534:d04d with SMTP id af79cd13be357-9494bbcd0ebmr940941885a.35.1794677730859;
+        Sat, 14 Nov 2026 09:35:30 -0800 (PST)
+Received: from localhost ([93.66.91.216])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb55ac0e3fsm125451425e9.5.2026.11.14.09.35.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 09:35:29 -0800 (PST)
+Date: Sat, 14 Nov 2026 18:35:28 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        richardcochran@gmail.com, Jose.Abreu@synopsys.com,
+        netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net] net: stmmac: re-base EST after PTP settime64
+Message-ID: <avib4GD-_vySRw70@lore-desk>
+References: <20261111-stmmac_set_time-est_lock-v1-1-da1554f233e6@oss.qualcomm.com>
+ <179461436943.2199510.3966572269599982119@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -121,90 +122,331 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: YT5PR01MB11875:EE_|YT6PR01MB11070:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0aa1c799-f59c-491a-99cd-08df42745f4f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|786006|7416014|376014|1800799024|366016|23010399003|11063799006|4143699003|56012099006|261028144727099003|261022105027099003|261022075727099003|10067099003|261026140227099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	hGTCO8qq6ocgUxf4wmFSVYuk/yE0KesawXYE7LVuN5WdfYYSxTzZRHgFrdiS71S2IuxyCH19ZEJXTZFw2xzt8H/cGLr2B9RWOWrB4iioqhGd1TPcESNxJHtHUNyRrdr7CG9ru1dI8eqraz1m17oWm7vGJa/CGnKHyUg3RABygvTUMhOaWaLg3BGKriJCj2R5ubNNKPtR4rooIiXG4nWLBwdYvUYH503WA0MPMgXBdS5vTAlsajrZaf5Zoi8EXK4Qw0OGLZjYGgaAQ+xJvzR9tJQ7zbLMZ1C6l2nq4Gv0sM7ZRNhCeaIBn3L7IsAY7LeraLHsAbG2li9JDpyk2y8EjOvJBjRhI9kBQ/F4O5LQztozKo/CgQGWvuOlHEo+XNkYtIIDrOz7bjjSOZbAuqOOXXzycRV0kw68V09qJdHIUj2Pq3jkxiFNHLjkIdzcZt5iYOere4HaKBWE+//2mZTNJGnP92yaBLx1JSeORlBmVOC1ygK8hwcO6T/ZgZJ4r2u/VeZMFw3x/nBo/iYEj7/lQGXRPwDv1kgCBZutZgM0mEJlCLR1My2omzoAeyuJg0wyJTs7RSVvI8oOu8HP+fqJ6WNDIICnsoKmUsYjX+Xa6ZBSqQzH1LBquVSy1w7dfbxUdhUHUPjC7XPpgr/91MdH67SIkXc4HypBXmC5m5Mq+24=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:YT5PR01MB11875.CANPRD01.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(786006)(7416014)(376014)(1800799024)(366016)(23010399003)(11063799006)(4143699003)(56012099006)(261028144727099003)(261022105027099003)(261022075727099003)(10067099003)(261026140227099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?VG50NDBPbXFHaFR4c2xhZGhHMWxRKy9iS2s3R28vVnFWOWwzeWIyTTVSdzJw?=
- =?utf-8?B?MlZsR0VZeURUM1ZXRk1kRUFyWjRTWGEwZ1g2TWJ0eVNJdFFIaHJkWFpoamtq?=
- =?utf-8?B?bVc2QjUrRjR0QVFaVk9WZVk0eFVDMzdyaThoUXRGU2x6QWpDeGVrbTJleVAv?=
- =?utf-8?B?bEcyZEFoc0FGcmU4YkgxR093L25JVFcyWG1tVVEwcHJZaGFIcTh0NGpSUmRt?=
- =?utf-8?B?elpxSGJJenR6MTJyTjVtQjRCSjRyZktRZW1keUVtZ0JXRlRUZkMvRGNET2Ew?=
- =?utf-8?B?RTlsTVgrUU1WNDJxVHJMeTRHYTRjT0JLZmM1TmtGZzBXazUzSFRpTlpTSnhI?=
- =?utf-8?B?aTVZWDJIZ245RVhUdXkxVE1seTUvQUV5a3NOL3pleUZWZ3FjckJ1VmNqT012?=
- =?utf-8?B?UzNsRW9haGpRQ3RVQTFaMDFqT1FRcDZnUklkckJEYm9iSmw0VzF6WlJlVk5x?=
- =?utf-8?B?bndSTEUyU2g3aWdlM0twTWJwcnRYWDBhR3dkWDg3QlZacXBMa3RCWHpmMjJF?=
- =?utf-8?B?aXVHdVZQUTNleWE0enM4K1RtejJFTVVtUklTSTVMSFd2QTZaNUVQMVA4bHJE?=
- =?utf-8?B?dHJMNGxzdU1BancyU205b0lxam5FYTJSRHNwTEwrblBIRWg3ZkwyUGg0U1ZQ?=
- =?utf-8?B?bnhNS3BzUTMwRmxTbCsxYnRHYjJwaE9NVEtvbUlqSjZsVmdMSWkyTDZZcG9o?=
- =?utf-8?B?YWhKbWZqUk1yMkNDRkJibjljemVNenBLQVZndE9XUlRpdE4rTE1LcmY5NUxz?=
- =?utf-8?B?UGVmaWcreFpCSnVrdmRWcUdCcFlmNEMvVGFPWi9VL1hTOUo1M2Z0ejRZRFJS?=
- =?utf-8?B?dnBuQ0g5cFZtOU1qRGErajNrMjJiMTJmamUxMmh2TEtRMnpEbG9nWWozRWdn?=
- =?utf-8?B?VWZKcnFCcGc3cHR2YTNwUUozT0lyd04ram9aMjErOHVCKzM3dVpvL0pCeGcx?=
- =?utf-8?B?U1V0YzJaVklaTVI2V0dIRVdnZ085YzROOC9UREZ4aVR0WGN6TVdMS2MzMVRj?=
- =?utf-8?B?UG9UTDlsUVhwOUp3MzdVS0YrdEdsRjJRV3FmcGJUdkIvbEJpOTlaQmpCemYr?=
- =?utf-8?B?b01NOVpYN1BKYmVybmtGNzNrcnRGSDBmR280dkJTSHk0blNqdUFiTjhaZmNq?=
- =?utf-8?B?eWt2UG9mY3NKTHdNNzh1dVBXUzJVOFV0ZVoySEVPVndKNjR0TjdlWWluMjBu?=
- =?utf-8?B?TUNYcm1Td09ka0crbFhoeUFNdWlnckpBTGlhTTk1cXA4Y2ZJL0JEWXZ1L0pL?=
- =?utf-8?B?QnhJeEdoMnZRT1VlY0I2T1hUMWZXbi8yWWtXOFBRcll3aTlsaDFHYUVrU01Q?=
- =?utf-8?B?YTdqeXRUelgwV0xDeThycStBWTVoVENiSjdGT0U2QWI1VVIwZzZYYVpyWHZu?=
- =?utf-8?B?NmdPQzB5eGVKd2xFdWxXR1Y4ZU5HRkE4M2xPWllrZTdpVXZUbUZKU0dMK1U3?=
- =?utf-8?B?QUFlUjV4bDk3MkRIaVZTQ3BHN29WY1NyejlPV053NXRmUURtblp0YUt2cCt4?=
- =?utf-8?B?ZFlrZHROc0NYeEpsL0xINVFVK2VsdjdZblpEQ2JISTErNi9NT0NQd3JONEJu?=
- =?utf-8?B?YXgvbXpJdG9XR3NoOXdqakd6ekRoaXJUTkNWT3A4OHdLdE9IaEs1ZWFrU2NV?=
- =?utf-8?B?QTBoUmowOU4rNTlUV0llbkFxb1NwdFFjVzQ3UGg4YU1OUktmTHBmaWpMWlRy?=
- =?utf-8?B?dDBtUjdFajErM2hQQXpWWWRqbTk5RUxFNEpSaTV1ZVNoUUxOMXhRQUZNTXln?=
- =?utf-8?B?L0RxWUZwdkVaTzVhZkN2dkhwYWI2dStwdUxGUWNTaDBYZnI0MTRoV2YxWjBq?=
- =?utf-8?B?RW1OdGYvaEVPWFZDWU5SYnhuSitGdmRObHFHMmlMMC9nNzV6R1I1c2J6ZFdH?=
- =?utf-8?B?LzA4ZEZZTzNUVkIxdDNHSDMzWGdEYmJQWitmMElJUXkvNW5SNWY3MXIxNjNK?=
- =?utf-8?B?TFBMbTJXUTBPc1Z2UlViaTdrZzRsTHdvRnNxbWMwUXppTkpNNzA1aUlRV0Ur?=
- =?utf-8?B?bDVCMGxwd1pvMDhKS0ZHWTFKVC9VQ1pGWTJkQ1REUit5TFd1VXFVbG9FRURx?=
- =?utf-8?B?Q05lT2I5ZVpPRWkxZ2VFd3VqSVpCbVJZd1Z0TjB0ejBxUThRS2FGUkd2aUVW?=
- =?utf-8?B?b3ZtMldMWHl2WVZJdlJRWUNxaW51YmpRb09McUUvZVlvUFlMTEhNY2F2Y2ps?=
- =?utf-8?B?b2Q1cFFCemJKME8yRHA3a1ErOGk4U0lxczhGYmx3Wk1zcFJ6dUZuN01OUUF1?=
- =?utf-8?B?N0xUWDNNNW1JQzhvMVVWKzE5b1VlYUxkTlI2Y1lvaW1Cb0JRQWVjTkZUY2s3?=
- =?utf-8?B?akJtNndkWW5vSi82SWwzTkVETXpkREZwb2hkYjd6Q1g1RWdDT1RRUT09?=
-X-Exchange-RoutingPolicyChecked:
-	YJjqJU1dccyCVOnMR8OiLrFB0hkm3870UPjzVuxqYronQyPQhDmXhaFhxPLdzMYJRPDa8U5Z3hqyp8J+QraOmZnvcYojWdNQiKcC0z2o3HMdi4uidMuf+TMtpLQ+Y9waBK9DaAgdUXQVKr7ewfZEt8DH0eWi+7A1F4ouiK20aSyNyvLQTQJGqRX0AuRzqd4FKY+H0kCgaNC03ietZ/7Sk9DrdIDRrc/mSbT9yLDWVsywqED2l/aARXcPidB8inI1j8TgTXoXPFwz18y4PV/74n47yfZS0gQ0GBBHc7eyxCGWYm39duRB+IzDoONP3S2Czmqpd9xTn3f5Defy12B8gQ==
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-ExternalHop-MessageData-0:
-	mQAPxI7jyO4DCu/Lee/j74ippSEXeGZ2YkVN4YPSZRWmXRmALf51/ngClgYFqE0M9TzNwc9dfPD2AHLSil4wBEcYADxQ7xKwCFCLNLtaLTZYDsVq7QZQXCyYfy24tvBZCypVLNaPORWQL95Vg+5ajSo/QmgI1fJAM/MxJd4q0YtZhrpm/R/WE8uliM5QwAMSp2oKN0gFJGc25Z0433HV8BkO6bIhgGJfgTXpJYQEtEj5C2WkHZ1M9mgGWTlbgG0qqgtWX1acMcYogiloM3Q68mYKiKUM7Y4cmukTUZI3e2aiFRQx/Gfs+D2SehyFFSi1Ut3Iz8hRcqrZ6a343VluD/876XoLIHtWfJTI6woHjtnnxOezX2FjRY5uSJeF1B+zQmQA0LU8GcBndtTXoH8Eu5Xn0Tk4qvFWlssbadh50172l5M1OBzXQDB3aQg56xJr+6bY5bHl8fhvta016uMo+VRFtsJq3VJf7tpmexq4lhXN3NDxw86PA3ntKbnu7B0VUjY7gEcopSPV7kYjk4sIb5TXZBXI8KK+UFCtZIgX2/s9M0nK31SOmxP5eqGQ0ji9dkFz/Z24JA7d3lBuhmOb/50a2wsPt4RrY/QQZIx0h6qaP6p2s3bHXKt/MwfdOrOA
-X-OriginatorOrg: uwaterloo.ca
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0aa1c799-f59c-491a-99cd-08df42745f4f
-X-MS-Exchange-CrossTenant-AuthSource: YT5PR01MB11875.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Nov 2026 17:26:09.3443
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 723a5a87-f39a-4a22-9247-3fc240c01396
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5ZUgO/T0Mxwl1MHgwumwiWuyCcoHemsCU2VQnUN2Nx6LgwkFZmTP3JFS/xOPPTf54UBCQEr1p6GKUVLkXXElmQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT6PR01MB11070
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="7ZBwauAhLgdMSXs7"
+Content-Disposition: inline
+In-Reply-To: <179461436943.2199510.3966572269599982119@kernel.org>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE0MDA2OSBTYWx0ZWRfX5NQHMJgo2+vU
+ C4L4M2S8IM3TT4/eoWk4HXuRrsUdGkY+eVqfPYyzwS1+1mv/0NtXWv+SNOWCg+hgUl3Gog7rziG
+ CuyfrJ/nsxS8yWegEJM1Lp09CIgXkNFWvkg/+HtqOWXznxL60vuOIQbBm5NHxF2y9FRDEyqF9ac
+ LYfWxXDyw9joI/95PqSKNGftP9x1Gndn851flWgVrtDYjhOtCnj9Qan1X0R2JUlpFqdn187RbPv
+ 4QXD9909bRC/d3KtxUBxA4MMFLOKuAiWIStUts0iAC/p71LUXkpXuVnv4nEZ6UsZ45BPhqXZhZf
+ 6dfEWdTrglfYaNScjkikBcAO8frx5LjfQJkO78jqjy+3URbLQllUHzakRGdBz/dnOxoIqYoce1p
+ ImkeZyWLEwssDiElID4b4ztJEpZJy3VKha/mtwYUqgAf+qKDbtXw1WUg385SIxORQDKZ78qTxaY
+ zxFVqywSQT5mzkv0xCg==
+X-Authority-Analysis: v=2.4 cv=av0nmiZV c=1 sm=1 tr=0 ts=6af89be4 cx=c_pps
+ a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=8zQ3sPA27H7dy4zktjPBAQ==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=bC-a23v3AAAA:8
+ a=EUspDBNiAAAA:8 a=9R54UkLUAAAA:8 a=VwQbUJbxAAAA:8 a=P-IC7800AAAA:8
+ a=WSH4S4wLhjpOz4qybXQA:9 a=QEXdDO2ut3YA:10 a=wVBckmvFIwzeoRS6_l8A:9
+ a=PEH46H7Ffwr30OY-TuGO:22 a=FO4_E8m0qiDe52t0p3_H:22 a=YTcpBFlVQWkNscrzJ_Dz:22
+ a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-GUID: cq4ZGZbO5iJDUEk-sCsrsr9rwg4Vbuqq
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE0MDA2OSBTYWx0ZWRfXzQ8umDor0hL6
+ yRCHc4DdWStTfQGBYj/WHrzG0AeHn1cntIeCK3SesXOMVCHvpSrDsQBLhZCOBet9MYD10hnJinN
+ 9T+ZLdLeK8ysIyXgslQ3fSPEfUsRuLI=
+X-Proofpoint-ORIG-GUID: cq4ZGZbO5iJDUEk-sCsrsr9rwg4Vbuqq
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-14_04,2026-11-11_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 suspectscore=0 phishscore=0 bulkscore=0 lowpriorityscore=0
+ impostorscore=0 clxscore=1015 spamscore=0 priorityscore=1501 adultscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611140069
 
-On 2026-11-05 16:43, Mani Tofigh wrote:
-> On 11/3/26 7:55 PM, Martin Karsten wrote:
->>      if (unlikely(napi_is_scheduled(n)))
->>        hrtimer_cancel(&n->timer);
-> 
-> 
-> This worked here too, but I think the cancel could hit a timer that a
-> new owner just armed (e.g., a busy poller that clears SCHED and arms
-> its own timer right before our check). I'll go with Eric's version.
+--7ZBwauAhLgdMSXs7
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Thanks, agreed, I missed that. But, could we use the new DISABLED flag 
-from commit 8dc87fc5d6a0 ("net: Use a dedicated flag to track disabled 
-napi instances") instead of SCHED with the same logic? Just thinking out 
-loud here.
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+>=20
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 3 =C2=B7 Low: 0
+>=20
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>=20
+> - [Medium] The commit message gets stmmac_adjust_time() wrong, and it
+>   uses that function as the model for the new code.
+> - [Medium] stmmac_adjust_time() and stmmac_set_time() are the .adjtime
+>   and .settime64 callbacks in the same ops tables (stmmac_ptp.c lines=E2=
+=80=A6
+> - [Medium] In stmmac_set_time() the new code ignores the return values of
+>   both stmmac_est_configure(..., false) and __stmmac_setup_est(), and=E2=
+=80=A6
+>=20
+> --
+>=20
+> net: stmmac: re-base EST after PTP settime64
+>=20
+> This patch makes stmmac_set_time() take est_lock and disable EST before
+> it steps the PHC with stmmac_init_systime(). Afterwards it re-bases EST
+> through __stmmac_setup_est(). The goal is to stop EST from running with
+> a stale base time after clock_settime() on the PHC.
+>=20
+> > stmmac_set_time() initializes the PTP clock through
+> > stmmac_init_systime() (TSINIT) while holding only ptp_lock.  It neither
+> > takes est_lock nor disables and re-bases EST around the step, unlike
+> > stmmac_adjust_time(), which performs TSUPDT through
+> > stmmac_adjust_systime() under est_lock.
+>=20
+> [ ... ]
+>=20
+> > Take est_lock for the whole disable/step/reprogram sequence, as
+> > stmmac_adjust_time() does: disable EST before initializing the clock and
+> > call __stmmac_setup_est() afterwards so the base time is recomputed from
+> > the reserved taprio base time and the new clock.
+>=20
+> [Severity: Medium]
+> Does this match what stmmac_adjust_time() does? In stmmac_ptp.c,
+> stmmac_adjust_time() releases est_lock before the step and takes it
+> again afterwards:
+>=20
+> stmmac_adjust_time() {
+>     ...
+> 	mutex_lock(&priv->est_lock);
+> 	if (priv->est && priv->est->enable)
+> 		stmmac_est_configure(priv, priv, priv->est,
+> 				     priv->plat->clk_ptp_rate, false);
+> 	mutex_unlock(&priv->est_lock);
+>=20
+> 	write_lock_irqsave(&priv->ptp_lock, flags);
+> 	stmmac_adjust_systime(priv, priv->ptpaddr, sec, nsec, neg_adj, xmac);
+> 	write_unlock_irqrestore(&priv->ptp_lock, flags);
+>=20
+> 	mutex_lock(&priv->est_lock);
+> 	if (priv->est && priv->est->enable)
+> 		__stmmac_setup_est(priv);
+> 	mutex_unlock(&priv->est_lock);
+>     ...
+> }
+>=20
+> So TSUPDT runs under ptp_lock only, not under est_lock. The new
+> stmmac_set_time() holds est_lock across the write side of ptp_lock, and
+> stmmac_adjust_time() never nests the locks that way.
+>=20
+> The est_lock -> ptp_lock (read) ordering does already exist through
+> __stmmac_setup_est()->gettimex64(), and stmmac_init_systime() does use
+> readl_poll_timeout_atomic(). That part of the ordering argument holds. The
+> precedent of stmmac_adjust_time() holding est_lock across the step does
+> not.
+>=20
+> Could the commit message describe what stmmac_adjust_time() actually
+> does?
 
-Best,
-Martin
+This issue is already fixed in the following commit:
 
+commit b0816917a4f7194cca81288fd339d285d8d793b5
+Author: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date:   Mon Nov 2 18:37:56 2026 +0100
+
+    net: stmmac: keep est_lock across PTP clock adjustment
+
+    stmmac_adjust_time() disables EST, drops est_lock to step the PTP clock,
+    and then reacquires the lock to reprogram EST using a base time computed
+    from the new clock value.
+
+    That leaves a window where a concurrent tc_taprio_configure() can progr=
+am
+    EST enabled with a base time derived from the pre-step clock.  The gate
+    schedule then runs across the PTP step with a stale base time until
+    stmmac_adjust_time() reprograms it.
+
+    Keep est_lock held for the whole disable/step/reprogram sequence so no
+    other EST user can program the block while the clock is being stepped.
+
+    This does not introduce a new lock ordering: __stmmac_setup_est() alrea=
+dy
+    takes ptp_lock through gettimex64() while holding est_lock, and
+    stmmac_adjust_systime() uses readl_poll_timeout_atomic(), so it does not
+    sleep under ptp_lock.
+
+    Cc: stable+noautosel@kernel.org # LLM report + LLM fix, not seen in rea=
+l life
+    Fixes: 23d96de472f7 ("net: stmmac: re-apply taprio offload in __stmmac_=
+open() and stmmac_resume()")
+    Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+    Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+    Link: https://patch.msgid.link/20261102-stmmac-ptp-est-lock-v1-1-76fbc0=
+cb230d@oss.qualcomm.com
+    Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+
+>=20
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c b/drivers=
+/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+> > index 31a66e855d6b1..6370bdc6c58b5 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ptp.c
+> > @@ -129,10 +129,19 @@ static int stmmac_set_time(struct ptp_clock_info =
+*ptp,
+> >  	    container_of(ptp, struct stmmac_priv, ptp_clock_ops);
+> >  	unsigned long flags;
+> > =20
+> > +	mutex_lock(&priv->est_lock);
+>=20
+> [Severity: Medium]
+> stmmac_set_time() now holds est_lock for the whole disable/step/re-base
+> sequence. Its sibling .adjtime callback, stmmac_adjust_time(), still
+> releases est_lock between disabling EST and the TSUPDT step (see the
+> snippet above).
+>=20
+> Can tc_taprio_configure() still get into that window?
+>=20
+> CPU1                                  CPU2
+> stmmac_adjust_time()
+>   mutex_lock(&priv->est_lock)
+>   stmmac_est_configure(..., false)
+>   mutex_unlock(&priv->est_lock)
+>                                       tc_taprio_configure()
+>                                         mutex_lock(&priv->est_lock)
+>                                         gettimex64()  /* pre-step clock */
+>                                         stmmac_est_configure(..., true)
+>                                         priv->est->enable =3D true
+>                                         mutex_unlock(&priv->est_lock)
+>   write_lock_irqsave(&priv->ptp_lock)
+>   stmmac_adjust_systime()  /* EST enabled in hardware */
+>   write_unlock_irqrestore(&priv->ptp_lock)
+>   mutex_lock(&priv->est_lock)
+>   __stmmac_setup_est()
+>=20
+> In that case EST is running in hardware while the clock is stepped. That
+> goes against the "If EST is enabled, disabled it before adjust ptp time"
+> comment in stmmac_adjust_time(). The later __stmmac_setup_est() re-base
+> corrects the base time, so the effect lasts only as long as the window.
+>=20
+> The commit message treats stmmac_adjust_time() as already covering this
+> case. Should stmmac_adjust_time() also hold est_lock across the step, so
+> that the .adjtime and .settime64 paths behave the same way?
+
+This issue is already fixed in the following commit:
+
+commit b0816917a4f7194cca81288fd339d285d8d793b5
+Author: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date:   Mon Nov 2 18:37:56 2026 +0100
+
+    net: stmmac: keep est_lock across PTP clock adjustment
+
+    stmmac_adjust_time() disables EST, drops est_lock to step the PTP clock,
+    and then reacquires the lock to reprogram EST using a base time computed
+    from the new clock value.
+
+    That leaves a window where a concurrent tc_taprio_configure() can progr=
+am
+    EST enabled with a base time derived from the pre-step clock.  The gate
+    schedule then runs across the PTP step with a stale base time until
+    stmmac_adjust_time() reprograms it.
+
+    Keep est_lock held for the whole disable/step/reprogram sequence so no
+    other EST user can program the block while the clock is being stepped.
+
+    This does not introduce a new lock ordering: __stmmac_setup_est() alrea=
+dy
+    takes ptp_lock through gettimex64() while holding est_lock, and
+    stmmac_adjust_systime() uses readl_poll_timeout_atomic(), so it does not
+    sleep under ptp_lock.
+
+    Cc: stable+noautosel@kernel.org # LLM report + LLM fix, not seen in rea=
+l life
+    Fixes: 23d96de472f7 ("net: stmmac: re-apply taprio offload in __stmmac_=
+open() and stmmac_resume()")
+    Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+    Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+    Link: https://patch.msgid.link/20261102-stmmac-ptp-est-lock-v1-1-76fbc0=
+cb230d@oss.qualcomm.com
+    Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+
+>=20
+> > +	if (priv->est && priv->est->enable)
+> > +		stmmac_est_configure(priv, priv, priv->est,
+> > +				     priv->plat->clk_ptp_rate, false);
+> > +
+> >  	write_lock_irqsave(&priv->ptp_lock, flags);
+> >  	stmmac_init_systime(priv, priv->ptpaddr, ts->tv_sec, ts->tv_nsec);
+> >  	write_unlock_irqrestore(&priv->ptp_lock, flags);
+> > =20
+> > +	if (priv->est && priv->est->enable)
+> > +		__stmmac_setup_est(priv);
+> > +	mutex_unlock(&priv->est_lock);
+> > +
+> >  	return 0;
+> >  }
+>=20
+> [Severity: Medium]
+> Should the return values of stmmac_est_configure(..., false) and
+> __stmmac_setup_est() be checked here?
+>=20
+> est_configure() in stmmac_est.c writes each register through est_write().
+> est_write() polls with readl_poll_timeout() and can return -ETIMEDOUT. On
+> any failure, est_configure() returns early, before it writes EST_CONTROL
+> and EST_INT_EN:
+>=20
+> est_configure() {
+>     ...
+> 	if (ret)
+> 		return ret;
+>=20
+> 	for (i =3D 0; i < cfg->gcl_size; i++) {
+> 		ret =3D est_write(est_addr, i, cfg->gcl[i], true);
+> 		if (ret)
+> 			return ret;
+> 	}
+>     ...
+> }
+>=20
+> If the disable call fails, EEST stays set and stmmac_init_systime()
+> steps the clock while EST is still running. That is the situation this
+> patch is meant to avoid.
+>=20
+> If the disable succeeds but the re-enable inside __stmmac_setup_est()
+> fails, EST stays off in hardware. __stmmac_setup_est() only logs the
+> error:
+>=20
+> __stmmac_setup_est() {
+>     ...
+> 	if (err) {
+> 		netdev_err(priv->dev, "failed to re-configure EST\n");
+> 		return err;
+> 	}
+>     ...
+> }
+>=20
+> priv->est->enable is still true and stmmac_set_time() returns 0. Taprio
+> then believes the gate schedule is active until taprio is reconfigured.
+> On a similar failure, tc_taprio_configure() clears priv->est->enable, and
+> stmmac_setup_est() passes the error up.
+>=20
+> stmmac_adjust_time() already ignores these return values in the same way.
+> This patch adds the same pattern to the settime64 path.
+
+I implemented the same approach used in stmmac_adjust_time() where we do not
+consider the stmmac_est_configure()/__stmmac_setup_est() return value.
+I think we can address it with a follow-up patch for both stmmac_adjust_tim=
+e()
+and stmmac_set_time().
+
+Regards,
+Lorenzo
+
+>=20
+> --=20
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261111-stmmac_set_time-est_lock-v1-1-da1554f233e6%40oss.qualcomm.com
+
+--7ZBwauAhLgdMSXs7
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCavib4AAKCRA6cBh0uS2t
+rKeBAQC2Gvy2hZlkLB8Y7T5dOa/LBcq3pba1rqG796bNNAgMYQD+LHsnF5ayVxiw
+CcoIJH2dEgoUduex0WUA4duoBGSdUAM=
+=ORkf
+-----END PGP SIGNATURE-----
+
+--7ZBwauAhLgdMSXs7--
