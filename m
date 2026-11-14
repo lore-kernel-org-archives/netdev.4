@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794663406;
-	b=vfy3/9/GOC6C/cfmlulfwb5D33POxp7yM5fRDi2ngizpO9rX+upOaLCWJKJj/uG2iief
-	 HFF83KMU3vV0+xDYhWmjdEov4eH8/m4OBmHDV5J4BmNbujtiHDcSrADrTlE1Eilc7r7nX
-	 t1nVBoGkV6NnFvTZyeDNnmjRMlZ/PguMxPQsSOfh3sBuNKoyyHMB39C0/T/qE0V/HHfQa
-	 Bln3a3mpHcLqpYO7snNd5uPlw9pg5eh917IrSevXH3c0v4oHs2bh9tvzEWF1ZbxEHtaSv
-	 HyY6FGs/I+6OB+Ly4o0SU9MEF0z5RcGRmbCzbAfhhy8L177ddIuR7BY6sh9SV4x3s9g==
+	t=1794663409;
+	b=VijkxeQ0mm3Rk40UuOgnWK454/HVdts4BIVmcB3vx/QZJeiUc3U4PJceCjNmgzV2dFgY
+	 c+PG+N29xFuTYlbekiTiPkS6FTL10mBilflro1UmcaqNvjH7rMH923tIBBqg4ZCAywXFc
+	 VywSyFL508R6u3QCdvf+oMRBEDHTmQmYiE459sfon8LHMD4J1rqJVGf+5K8VOFp2UPDX/
+	 3S0X2/Ut4GHTFDZfrgsEdQnMIfM8tv4JXAtHjtK+aJUwpr9KnLWdxPiTPBpI9qPyUmrZ4
+	 CXnWUWVppv+hM0YFeGEZ//mW+jHp5vT49jKZKwAny4ICdpi72b1VRYtL7k20fga/AgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794663406;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794663409;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=1kasbafd3T9Fhrw7R0Nr/dFHUF4ChKeJYhTGf2AiF+Y=;
-	b=Zs71sJUogN19ZHdBFOfs4R0zekoJgHWVAtpCUSIbWm4FivgwHVwntTW7fwXc4G5F5vAF
-	 WPMnItz1yhDlPNVVl2yOZdrAGIyp9wKXBAy14elbgiTu3mObQIBZudn+SEfuzbUJVZpwC
-	 dxb+CRDXyLdY5IHKyVehcsVgLFCtXsYgrWRBa9a2U96J4Eb8JhU2v9vh68vhL8+TMAzOm
-	 uz8LavRP+9XHsP5IIUF3MElxel6tgU0M3uip+ixl+3rBBcR90S7WpBrjMoHEJvOCQlw3f
-	 NLElze37/bC3weRe1ArLjqM3oHKYSLmCYMoT1rMfyQEJz+YzhKak5d3rozZnoMfOKIg==
+	bh=EiwQ9+40yAXFn07zwAJTDOokEVNTIlZDDkhdTgBrFpo=;
+	b=QP/1lGzFyv97g0j0cSVOFoYKG8F/o7Xoxup2W2mxCaNOIO5SE99II70Ht0oGzNTQ1aCT
+	 KiFgbs6Iwl2Guqly+R6tY4CprJUtaHr3VOk7ZisjImHZuAPbkvMLU/jvvOMb83EQNoncr
+	 /5IlG4VFQMR7uDMScHikgm9fZveZN6VorJj19+C1Ob8wAV4S3MdafzicySxPg3svuGD3d
+	 D3Ka9rLMHnGBiazoiytfXgHyejHbTd4EodywJ3if3308TGyEy5FMyFzAtDrjSuD06EIaZ
+	 JJWXMGrAZwwiplbMayBLoYVNCEFTlH2DcYjV2Ur+mDc0M359ZJIA9wwMGU8+E5bNDtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=grische.xyz;
 	spf=pass smtp.mailfrom=grische.xyz;
-	dkim=pass header.d=grische.xyz header.i=@grische.xyz header.a=rsa-sha256 header.s=google header.b=RLiTW4j2;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	dkim=pass header.d=grische.xyz header.i=@grische.xyz header.a=rsa-sha256 header.s=google header.b=MkOH2p7S;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFB09606A333
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:36:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AFB09606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3697606A8AB
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:36:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3697606A8AB
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=grische.xyz
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=grische.xyz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=grische.xyz header.i=@grische.xyz header.a=rsa-sha256 header.s=google header.b=RLiTW4j2
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a00so1829915e9.3
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 05:36:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=grische.xyz header.i=@grische.xyz header.a=rsa-sha256 header.s=google header.b=MkOH2p7S
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-492690dd5daso2136319f8f.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 05:36:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=grische.xyz; s=google; t=1794663404; x=1795268204; darn=vger.kernel.org;
+        d=grische.xyz; s=google; t=1794663407; x=1795268207; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1kasbafd3T9Fhrw7R0Nr/dFHUF4ChKeJYhTGf2AiF+Y=;
-        b=RLiTW4j2PZ22Di6wXigCid5UZFJoV8dam7pEz8ccG+3BR1ZeTpnU/jNYAdUaF6+GKV
-         i4u/7Ahng6orsr62b4sAutMAc49qkZhOwoBVIUV7+sQMzQ/RECJlhxBglurbIjPkJ7c1
-         80jVIZDhu7AB1+KcwjFjddolobsJ/sVfAdM2BVtyRYJ8rONTqblrO3dBwr6f6esVg1Ek
-         sBFq+16x+IvjNW+wRQYuZxLo9ySeio0fArjTkHjGFAnz2LVbcyXrgkANCZHgChnkDoA9
-         5QNoMASS08Vn34NZb9IBUnhw0jMaxOUbNcHwbUBD8oKt7dUPJgFjGvNz3Cs1ZB0H/DXb
-         jRRw==
+        bh=EiwQ9+40yAXFn07zwAJTDOokEVNTIlZDDkhdTgBrFpo=;
+        b=MkOH2p7SuwAXsiBq4F55QCEzAIz0+ZP/EFEvsb8IrMkKeZQzocxAzYRj6AE5tUbRi9
+         cPaNBaLSJu49yc6AZ9LQSqsDGCJh2XkmMWBonuz2UcF4sWovTmScDqzMTUz/vcorBCM7
+         vTTP6IAybe8Wfp0/upllpHC9ycYA+AeL5bVTfkW+vZw0uYO5Ycvzupt1YyzKmhoULi+L
+         Bl0Rjq+xfyD+L7awyp3v1oo+EiRPKgeGbHV1TWE5574ikJnN5t86Ks2wkSnz6J7Reysk
+         BQlQmiH60b8nOoyZNpkyS3xSI8yOn3CdWUxGw5y+BJeykHjKLqm7UULdot7aCuuK19JP
+         ARNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794663404; x=1795268204;
+        d=1e100.net; s=20260707; t=1794663407; x=1795268207;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=1kasbafd3T9Fhrw7R0Nr/dFHUF4ChKeJYhTGf2AiF+Y=;
-        b=05v5IetSCbiZFovP9sPwHVxCEGDQZ8g4lH5VnC/zOfjPpPlagdX98gBnQCOR0Q+Vow
-         oa8OxOnjX/90Uml4vOeEGBJuEIThUH+0Dl/2MfGpLpG5UaHIf+/sTYP9mjoHTzRNwqvp
-         MYXa8hLzly2ca9Yppdojkaazc8uee8yx4EFMYdeRuNmeCANdde+bCnvYNFUdh2tqtKnC
-         k5doeCqa/HFUEWLn6BIoMwHoAEGhQfKXuibIPyMt1l8hkKCzQKeVmRqAtjzDjuEu0nZl
-         BYMenfzIv5zSEmIVMBhrZF3lcGg79ER/ZRTDkg6mPOznnaVA7Qsc5nYqlNcdXjGVXAh8
-         XAfQ==
-X-Gm-Message-State: APuU4Z8zns97F1oBc/9JP8kd/jhap37K4t2soiDlQKZiJvSw5f4xtqIY
-	NnfC+yGrGg7UPvrLkd3m9tvRUAaQSJQrMttKukgOYIDKQQylx9P4kN++kKHI8wv3CWlpRWCAuQw
-	P2fqpDO/FRA==
-X-Gm-Gg: AYBFou0RK8eC89yzOcPNmNS56iDxmDur3+Y83QfaRd0pmpBVuS+VX1Nn5t36ISQCgsn
-	pkNiu15vQ9fSCMiFD6eVdC0C3k5Z3A9zft1c7PkNs2Bjv7Pxm2oeuT5vk9zqxTTarlj6o81JmkF
-	iTySbVDde5tThsNko9Ar/DhM/WcWY9XSsOmTSrU5ua2JOvbZam+WL3YppIxVX7WI+lEJut0qymj
-	PgCMh1auNoESDGaebRjUkRvG4XUDKl/KO/VTtkvdYz3DUTd6bjjwQWVzQQsPD3//diVA8NlxcqF
-	dkl5DBAssYbF2iy+hbd7HI90DfZjPPrLE0l+T3sNj8eBOGgNIKOYnIE+B9jLfGqJC3KmDM7UMF5
-	UgUYPD300MCuGMaV7W0VwkLhFvDqYnGTLZw5PO+Nz58YOcnpKxK9vA0WlOZVOl9MjDRXEJU/GXG
-	TtqYfYNceb5hiali+r4sJdQBesv3zHSWmZTDtpmdaA/2sEghHDybuPCmUyKcI+JDU+uDow5u5XQ
-	UzaAYfQwTUy30ABK5gzbnrmV1/+pK2IwdoIG3uI9N2E9YPFUJAGB1Mjcl6VRL6DAmYcX9BVCKJp
-	J9YPmyx31xEX+F2YAbptuO6a8G50uDVtj721/vS6/9IIeFY=
-X-Received: by 2002:a5d:5f03:0:b0:491:e062:383d with SMTP id ffacd0b85a97d-49c7390fb5emr10908010f8f.57.1794663404019;
-        Sat, 14 Nov 2026 05:36:44 -0800 (PST)
+        bh=EiwQ9+40yAXFn07zwAJTDOokEVNTIlZDDkhdTgBrFpo=;
+        b=LJWwJgo+T8B2tD/loOaWERQOPqedOggeqajVVWSsj2E7MU6TMukdRifQTtjabOUdpt
+         FIpCRxZ/rMhO7OLaBrlKmGYhzHeDOMVWs78Bvnj16i9LrOMz2rW00p8ef7UWPIWZUR8F
+         rOmNW8JGC1baEj/oxqTA06AZXfNnjAfTG17UPVi2uAHHXuCIBvB3/SviaxjJ4aqJnaxO
+         EIL+SCd3EHJ3PmKDqlzS2MFPRRBYVBJdIKIJ6IUynyyfwVd2+ox8TjDZwvv5lGn9W6Mw
+         MlyMOLkXgLwQzdIcEpa9+0KZQS/df2oCrh6MXgcTx1VLr6FwakD1vTt4DJuBthmEEPP9
+         JSBQ==
+X-Gm-Message-State: APuU4Z+Yq7J2cuykpJrrv0OVkplvS+MrQ97i4j/nnADYiL2L/qEx7Bc8
+	U+v/NeeoYtGajXceFm5uMcWc8pPMguRtcwwGhIRpgMoKF62tpNv0zGmZq9ZsRoEcV2Z2CCOm6oi
+	REuHXtmxQBw==
+X-Gm-Gg: AYBFou2dFXyLIdlBWsxdBN4e7Uv6TpKEPHGyXkRuMhee+c1bx0hVwN59xvrPZN9vja8
+	n6TsChmCZ3UpOZ87UCUYv5MkguRWx8c81srs33Szxx7f99aOhABpDU6QOpmLY8ipjTUzvhz8gVW
+	dy4FRTP+LaunwjtqcREE1MMmnGt5jD0e/BZKLOryKQ42ORO8Wb4HFwyt+net6aWEPDe8+zy+UN8
+	68Lzto7jp0+cU/PZgz2sCG921Y4GKvzPHab7Q2DJYEz2lGR06m+XUxfO2GZ4KSQx4IoGLEDXEQv
+	YJiomtbotBhZobXJQQ3LgW4Qww6Wc2JjqiDIOy0bF+E/TugAfsXqqSD5auAsJIJpRd5/t8yXbv8
+	yXNETZULBpMdNJiR131M2nhJaZwDyY9kGbTb5o1O+SRhMl1p68rscyKFo20eJvYQ25K1yY+gPyd
+	7CtVVsjnWI6rxa/EbHRHLRnTH58hVx7N5z+0RJe7RN2zVVdWtQDZNKotd6AdW2V/noL0EPEiPoL
+	f6Twu/wS31xyNPqpn6f/VrOptC65JR8XbOSuHMfqlts7kZ0T1HDE3JcweNJMPAtIZuwDxSmgeGj
+	zFQ3iiF9jUOFgoxyiTxCofYhnMSHU1XuC3aWKwLs3JbIQV6T
+X-Received: by 2002:a05:6000:480e:b0:48d:ff71:dd9d with SMTP id ffacd0b85a97d-49c7044c40dmr10978358f8f.23.1794663407155;
+        Sat, 14 Nov 2026 05:36:47 -0800 (PST)
 Received: from lake ([2a02:810d:d09:1b65:1a41:5e41:61a6:f0b6])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49d69c21a17sm6657866f8f.50.2026.11.14.05.36.42
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49d69c21a17sm6657866f8f.50.2026.11.14.05.36.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 05:36:43 -0800 (PST)
+        Sat, 14 Nov 2026 05:36:46 -0800 (PST)
 From: Christian Schmidbauer <opensource@grische.xyz>
 To: netdev@vger.kernel.org
 Cc: maxime.chevallier@bootlin.com,
@@ -91,19 +91,13 @@ Cc: maxime.chevallier@bootlin.com,
 	stable@vger.kernel.org,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Ong Boon Leong <boon.leong.ong@intel.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: [PATCH net v3 1/3] net: stmmac: honour Rx checksum errors in the AF_XDP zero-copy path
-Date: Sat, 14 Nov 2026 14:36:37 +0100
-Message-ID: <20261114133640.3285413-2-opensource@grische.xyz>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v3 3/3] net: stmmac: dwmac1000: stop hardware from dropping checksum-error packets
+Date: Sat, 14 Nov 2026 14:36:39 +0100
+Message-ID: <20261114133640.3285413-4-opensource@grische.xyz>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <20261114133640.3285413-1-opensource@grische.xyz>
 References: <20261114133640.3285413-1-opensource@grische.xyz>
@@ -118,59 +112,88 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Commit ee0aace5f844 ("net: stmmac: Correctly handle Rx checksum offload
-errors") taught stmmac_rx() to honour the csum_none status, but
-stmmac_dispatch_skb_zc() still ignores it and sets CHECKSUM_UNNECESSARY
-for every IP frame whenever the checksum offload engine (CoE) is
-enabled.
+When the checksum offload engine (CoE) is enabled, the dwmac1000 MAC
+silently drops any frame for which the engine detects a checksum error,
+before the driver sees it.
 
-Since commit fe4042797651 ("net: stmmac: dwmac4: stop hardware from
-dropping checksum-error packets") dwmac4 delivers such frames instead of
-dropping them, so this path receives them.
+This breaks VXLAN over IPv6 with zero UDP checksums, which RFC 6935 and
+RFC 6936 allow for tunnels.
 
-Mark the skb CHECKSUM_NONE when csum_none is set, as stmmac_rx() does.
+Set DMA_CONTROL_DT so that such frames are delivered instead of dropped,
+as commit fe4042797651 ("net: stmmac: dwmac4: stop hardware from
+dropping checksum-error packets") did for dwmac4. CoE remains enabled,
+so the driver still sees the error status and marks the skb
+CHECKSUM_NONE for the stack to verify.
 
-Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-Cc: <stable@vger.kernel.org>
-Assisted-by: Claude:claude-opus-5-5
+Set the bit only with enhanced descriptors. The normal descriptor parser
+does not report a checksum-only error to the stack, so cores that use
+it keep dropping such frames in hardware anyway.
+
+Tested on an Aruba AP-325 (ipq806x-gmac-dwmac) with Rx checksum offload
+on.
+
+Link: https://lore.kernel.org/all/20250625132117.1b3264e8@kernel.org/
+Link: https://github.com/freifunk-gluon/gluon/issues/3783
+Fixes: 47dd7a540b8a ("net: add support for STMicroelectronics Ethernet controllers.")
+Cc: <stable@vger.kernel.org> # 6.6.x: ee0aace5f844: net: stmmac: Correctly handle Rx checksum offload errors
+Cc: <stable@vger.kernel.org> # 6.6.x
+Assisted-by: Claude:claude-opus-4-8
 Signed-off-by: Christian Schmidbauer <opensource@grische.xyz>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+Depends on patches 1 and 2 of this series.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 7ffed295eb14..3e5803db19b4 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5547,7 +5547,7 @@ static struct sk_buff *stmmac_construct_skb_zc(struct stmmac_channel *ch,
+v3:
+- Move code comment of DMA_CONTROL_DT on the line of the define, similar
+  to the original version in commit 47dd7a540b8a ("net: add support for
+  STMicroelectronics Ethernet controllers.").
+v2:
+- Set DMA_CONTROL_DT only with enhanced descriptors. The normal
+  descriptor parser does not report a checksum-only error, so cores
+  with normal descriptors and Type 2 CoE keep the hardware drop.
+v1: https://lore.kernel.org/netdev/20261020190319.884375-1-opensource@grische.xyz/
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000.h     | 2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c | 8 ++++++++
+ 2 files changed, 9 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+index 1de1f929d61c..55d9c39287f1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000.h
+@@ -162,7 +162,7 @@ enum rx_tx_priority_ratio {
+ /* DMA CRS Control and Status Register Mapping */
  
- static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
- 				   struct dma_desc *p, struct dma_desc *np,
--				   struct xdp_buff *xdp)
-+				   struct xdp_buff *xdp, int status)
+ /* DMA operation mode defines (start/stop tx/rx are placed in common header)*/
+-/* Disable Drop TCP/IP csum error */
++#define DMA_CONTROL_DT		0x04000000	/* Disable Drop of TCP/IP csum errors */
+ #define DMA_CONTROL_RSF		0x02000000	/* Receive Store and Forward */
+ #define DMA_CONTROL_DFF		0x01000000	/* Disaable flushing */
+ /* Threshold for Activating the FC */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+index 3ac7a7949529..31d5f79ef560 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_dma.c
+@@ -15,6 +15,7 @@
+ #include <linux/io.h>
+ #include "dwmac1000.h"
+ #include "dwmac_dma.h"
++#include "stmmac.h"
+ 
+ static void dwmac1000_dma_axi(void __iomem *ioaddr, struct stmmac_axi *axi)
  {
- 	struct stmmac_rxq_stats *rxq_stats = &priv->xstats.rxq_stats[queue];
- 	struct stmmac_channel *ch = &priv->channel[queue];
-@@ -5575,7 +5575,8 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
+@@ -129,6 +130,13 @@ static void dwmac1000_dma_operation_mode_rx(struct stmmac_priv *priv,
+ {
+ 	u32 csr6 = readl(ioaddr + DMA_CHAN_CONTROL(channel));
  
- 	skb->protocol = eth_type_trans(skb, priv->dev);
- 
--	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
-+	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
-+	    (status & csum_none))
- 		skb_checksum_none_assert(skb);
- 	else
- 		skb->ip_summed = CHECKSUM_UNNECESSARY;
-@@ -5789,7 +5790,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
- 
- 		switch (res) {
- 		case STMMAC_XDP_PASS:
--			stmmac_dispatch_skb_zc(priv, queue, p, np, buf->xdp);
-+			stmmac_dispatch_skb_zc(priv, queue, p, np, buf->xdp,
-+					       status);
- 			xsk_buff_free(buf->xdp);
- 			break;
- 		case STMMAC_XDP_CONSUMED:
++	/* Deliver checksum-error frames only with enhanced
++	 * descriptors, because the normal descriptor parser does not
++	 * report a checksum-only error.
++	 */
++	if (priv->plat->enh_desc)
++		csr6 |= DMA_CONTROL_DT;
++
+ 	if (mode == SF_DMA_MODE) {
+ 		pr_debug("GMAC: enable RX store and forward mode\n");
+ 		csr6 |= DMA_CONTROL_RSF | DMA_CONTROL_DFF;
 -- 
 2.54.0
 
