@@ -1,129 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.156
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794660951;
-	b=W0zdFLSTyEW3ZC7CJBeBmwAwoxXUiARS1fi/L1d5Srss9EgLN3H3TsfnePATXRazME2b
-	 SDVBMvd4WFLpHFh4d9eaCsUt300z6zvULdEuya9ZxiW7UaDGPMWjMyXAZxJxwLKvlD93Y
-	 kyTMQsCCEKwoNWZBFpvmWfPFM824nFNU2hfnbpO/4sixf029ObJLwW7/JPWYkM0M54xKo
-	 JRa2xT4GJyYnVVL8IzbOfijKz2GFoYh1cEvJCgg9W9JGntxT4vmGxLFpgXjFrs9Xc3zvA
-	 JSuKqBTlNj18xOc7ZLAZNjLF/Ng0kpk2NibMbAqTfslNaQHSEDsi1FQ0cx/lJ8BFPng==
+	t=1794660975;
+	b=nJY6Qy81c8eTcv/PN2aSxo0gDkDKm36lF1zaRfbkdMNxxwfgnE+bdnL6vvkDzKLFShAv
+	 s4k71HfQbX/L7E1ZSp0ay2zS4rRRt3lg1WvHaKNFEMDAWHivtGMdCaeDN0PYhOeFc43sg
+	 yru5JD+SA0k1KwL36uwR/LWjBYZuOf/09R/wq0j09bKWiyCrcVOP3Z7HNQjr3pZzIJK3q
+	 BpO26yJkhbz3P1FzUSxUV1/+a3XjpCyVeNRZC4Jf9JN4Dv+xFyCIMhlzuX/VIhshb+iFL
+	 oieevdRYsRTqaxM8Vo+yFccXfsdLqLeStiWCBoKykNQL1n/+khxnVFW3Y6xqtUv2nuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794660951;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=vIuZzjSinRxDY+zCm2U1qFSdh7xsPJf789P0S8sw/Dc=;
-	b=kLnYsptQKI61q3MUdRCUOgbfBvHpHDYA7AI9Lv6o9aul4UT7Q6WQAj3DXlud+85bKj1G
-	 gmL4TDG7En9oT4ASHkjF2z7Uozo2gZogq+lG4lcsp82smNwQdydFqoDFbHnz9fycbX//p
-	 JI6j/kL/lhCUiIlnsS+TbvLURKh7Igr88e5j/dStnr7tpNAlDaomKbGYY7OGwvEXfIV7M
-	 BW3EvAkdO/nsiW89XBPD21N9RGg8ODbMzSzKIzpgbZu6HBkWkiKeydddvIivG1cx3lpo9
-	 fA1peXcl2vRkJMgjUekeEFlLxHj6yHIVAI7qD9Biq3wCdtRsHl9tXtXMd7C7M8AuM8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794660975;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Qwj16+X92OdYAGNxs/Vl6la6Mew3rTAyjN2yfxuPiQg=;
+	b=kHRhxM0ixUbYX23J7gLAOPTCgpQckZRJ1DDmzgn1kzgYPIfXTVoTdyk35dI4ih40XwTF
+	 UAnEwrk5Dl7LQcKyWC/n4B3rZbZP1hdeXsfSAjFLMIj1XjS57ZrVyyAgNIbaT9c7L3XZb
+	 EnwQZ2kCMyw2Z4u1fabGSmVIBFhH+yn1y+lDYJGbQwUi1jwocn0USnyOanUtX30UxPCJD
+	 i/Fexc061mHFFrKyOvGSraSrSUG24KlUNz112PEFMSs8KYJsUApjha96JuhXXlvkRvHry
+	 EhUHN0WHtIKXuRzJrNQ/uqVh2uF1jne87DrMpMgN6IdqepR5Q7wdArdaYEmmbmKobHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ragnatech.se;
-	spf=pass smtp.mailfrom=ragnatech.se;
-	dkim=pass header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=Feqs3f+C;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=57ED2Cub;
-	arc=none smtp.remote-ip=202.12.124.156
-Received: from fhigh-b5-smtp.messagingengine.com (fhigh-b5-smtp.messagingengine.com [202.12.124.156])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=cloudlinux.com;
+	spf=pass smtp.mailfrom=cloudlinux.com;
+	dkim=pass header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=NICbofQR;
+	arc=none smtp.remote-ip=209.85.216.49
+Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2011606A32E
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 12:55:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2011606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ragnatech.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ragnatech.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52C52606A331
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 12:56:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 52C52606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cloudlinux.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudlinux.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ragnatech.se header.i=@ragnatech.se header.a=rsa-sha256 header.s=fm2 header.b=Feqs3f+C;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=57ED2Cub
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 717CB7A0056
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:55:50 -0500 (EST)
-Received: from phl-frontend-04 ([10.202.2.163])
-  by phl-compute-02.internal (MEProxy); Sat, 14 Nov 2026 07:55:50 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ragnatech.se; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1794660947;
-	 x=1794747347; bh=vIuZzjSinRxDY+zCm2U1qFSdh7xsPJf789P0S8sw/Dc=; b=
-	Feqs3f+C+Dt3q3nqYWakkuyPb5Qy1JAUzTCiYu9A9OLc8+IZ+Dfi7x+mO5nRlyET
-	cADh42s+kF7ffuWBMFoHcZnXPcH9lRvgMIgHBv0aC2QG452WrJkvkw2RQRAWDivq
-	WhxxluaytiUVAnw/Y6B/dPvrB1Zb8YG63Sb/joV5fTdCTx/VjqS0ukU92PQKoScr
-	OCkOqIRRH1u8hgxGUBgazNJQNV/Gr0lXevpnNBfpJIaXq5ExxUbCEony0+Zv5mPB
-	iLkK+fbri56uTpRWRrQLVsoY0o1cPCpW6/8mfosWM7uUQBMJ41LS2K1q9PeKQWzp
-	X6vbqoHIKhA+IlTnQsooVg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794660947; x=
-	1794747347; bh=vIuZzjSinRxDY+zCm2U1qFSdh7xsPJf789P0S8sw/Dc=; b=5
-	7ED2CubAqBDxg9hCmwM89B2B1ahThDiZYyyx+6+RmeQpxj1a5B1ZX6ADy9SrvWox
-	StIQKc8Ab0G/lwyvwHHa6rHO7t9DXIIPNuQ4f7m7LGXm7Ci3q9QhvLLu7yv+iyIo
-	4jbbmrBmo1xN22DVTd3uTP+faBWFzm++69pH2+cHp3yyDfDULRT0jjTxpw9E9e23
-	9UEmcCDmj42vVP9cY8S0t9eoXZyYI3XCQEni5E65vnn49al87TDwR79lCSgE38ng
-	982hcv5sbdFbE0sbBNXoOv0idByfdRUETire1rnw5uwpAWE69vwmWeIwpKPdWFAQ
-	eGzB/0kyQXr7+GakyNWgg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=ragnatech.se a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1794660947; d=ragnatech.se;
-	mf=PG5pa2xhcy5zb2Rlcmx1bmQrcmVuZXNhc0ByYWduYXRlY2guc2U+;
-	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:NPLubQcmHDNw6Q42WzMFfzdKXmxOqVivWapn0iXotby7DT9
-	fenUoEEMt+CYyyVvs1K7jHygerS0jdw2eaOUXOFtGtYMyNe7b+cDq1k9zhDMGEjU
-	lwT0Vmx9AhRl5ZeKOhgTRovalN8YPgTP/3j+NFOrU9x1uUyuL1j09KfSfrCQWo2J
-	IYDfKzRz9pjtBe3DSv47tlkFdjjtR5KDSGa8pldo9Z1izNbJwCh5JOIMuN2EGTRg
-	DSAODM/aLe8bps3TySuxTBbgB7SpvxVyFTGzovBm03Tx8TbTjcTKb+1Bn1eAVpf9
-	VuJC0ndTrLS98W5/ZX1VKh6wiFV1IR9MeZAtDdw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=13;
-	hn=cc,content-disposition,content-transfer-encoding,
-	content-type,date,feedback-id,from,in-reply-to,message-id,
-	mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:JX5FzESmgpUsESvHuc2ohLHpTPvUvYazjnwvs00wNko=:ND/8t9BGEC7w5414Fo46okQsCh2BXHBaLKxcjtf7YXk=;
-X-ME-Sender: <xms:U1r4aogwuWRQFo3_KujnXDdOVeGd7Zr5SR0j3JpibiYKxNL64svLnw>
-    <xme:U1r4apx1_I6EXLoYU0OwU_9Ln2kSZHyRzPxK39A5sBgyvBpeMbXfpl7Q59fJIeVGQ
-    33S_7_IXTGEivUIprkNwFfWC61Y4u1QxymFvoJmRZ7MdKTmNb9NFgeo>
-X-ME-Received: <xmr:U1r4auxal7G4bvekc9bGHLMOHLwW4bGBNZ5rkr0LCKlyPwnkHjBZaZfydm7h3hMJPPUw8JWR_bSkVtbQx0ThZoKx3sG2e9s>
-X-ME-Proxy-Cause: dmFkZTEpt7PksyEXwjhHgpW1CBAo73QUZ4yNfyBBluBuK1XXwc+j76jocZP+MKKlueYKIf
-    WE6OnyIWQrowLVdVNPijF9apwvZ751hPGJzEZh/8AQTjRCDPTnFwRZUJ8xKDrLpWGm3JRF
-    40St8hs5B1BMkdR7DSYW2bu7eEJ+BHsHEJsTubk7eGYaCClnZwNkRi19POkodLHMqii07j
-    hLIBvKb+bUaJVaKT+KVSjmtVeR6UiWbQu1gh3KM8h9PjcizbTXyynn4Ztjamveezz2Flbj
-    mi2OSWIdYTYaeLILzSBHNfrTY7encU8uSOFxuOldtj+S0w+Qb0QctNauP2uRyfIloX5yp8
-    2nbNH+fufhZJpJTfvn/3nUqWG6uPHW8lts+RL/sHB33YGFEJHWsLsT2bf9Yk/1ORwIwEFo
-    Ice6rGUHI4deqNHmoxdUl1i6VLgcUsiA/uP9Amaq/diivAxtxQn2LT2098ZZLAUya1oOmY
-    f4pQlLZvEthEoxlZKdh/kHXLuaXG1vfGs7za1+lzWr2fYFpoDZNwYP0vc8ziVklc6Mk1SK
-    kiT5UdCv429viUW+Lc3v4oi4w+l21Y4sNiyJ7qLVK1gt+dQw0EDRAURLREnJY6CmCZjEEI
-    YdQN68no5vHl0r0XrM/23pwYgqClqsfz4SnH1Ttk5IMVDNFOefne9777lPiQ
-X-ME-Proxy: <xmx:U1r4arpVzHQlvAj3P4e_h_6W4hQuyW-PPb3YqPSdY0L4c98mYmHXxA>
-    <xmx:U1r4aplbND9c7GTUhzC9h_LgY6XtGc8n10qbqqXKjkURJ2g7eF5iDw>
-    <xmx:U1r4aswsmRYr4a4mi4BQe6REb-LMc8qCxwhf-EeR4K5RO9zoRRv3tw>
-    <xmx:U1r4am1kLYfKPVQC_kEOCvYgS41lm_gegIIgZmIDEzbI9dHv83rq2A>
-    <xmx:U1r4aqmdNXvfnaR7Mb257UcXqRq196Lx9-o-u4r_qccsEhLZan8c9pSA>
-Feedback-ID: i80c9496c:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sat,
- 14 Nov 2026 07:55:46 -0500 (EST)
-Date: Sat, 14 Nov 2026 13:55:45 +0100
-From: Niklas =?utf-8?Q?S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-To: netdev-bot+sashiko@kernel.org
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	geert+renesas@glider.be, magnus.damm@gmail.com,
-	richardcochran@gmail.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, vadim.fedorenko@linux.dev,
-	sergei.shtylyov@gmail.com, linux-renesas-soc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v8 3/3] arm64: dts: renesas: r8a779g0: Add gPTP
- node
-Message-ID: <20261114125545.GC938627@ragnatech.se>
-References: <20261110080727.2377040-4-niklas.soderlund+renesas@ragnatech.se>
- <179465147165.2199510.7987717328787148087@kernel.org>
+	dkim=pass (2048-bit key) header.d=cloudlinux.com header.i=@cloudlinux.com header.a=rsa-sha256 header.s=google header.b=NICbofQR
+Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so3094618a91.3
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 04:56:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudlinux.com; s=google; t=1794660974; x=1795265774; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Qwj16+X92OdYAGNxs/Vl6la6Mew3rTAyjN2yfxuPiQg=;
+        b=NICbofQRsUoCCo0rtelZz8jSPL5MoUVsfXwtBkORVxRXVaNBLXDkdU/fKNqtO5PzU4
+         KPlMLe+WRz6W3taJeYFH8NUIKOxcrlJdzyxd7SNbBacuxGci52/ERqLnkpd9tBSbcqP+
+         dqIccPke+VaM2vOKGM5C14YDI+613R8DdS+rgv56ZsKn8kuDE3+PRusP0Wk/yR8UOAw6
+         aothGZYHAhaljJov2ywLuIXZA2EJjSZzRcvHr5D8AKFUM8tZjTmYqWmHJ9bHYMq2zhs7
+         iHHdTfSmoLVzPGXDLjyP4xj+R9DVAJzc/7QfzJyuhdttCNobUEfEuH/Kv2IHDEwWMCqP
+         JINQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794660974; x=1795265774;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Qwj16+X92OdYAGNxs/Vl6la6Mew3rTAyjN2yfxuPiQg=;
+        b=abX3XoyDG8FHhnO3R7irGTIyBwPECLeByjMTKjoOcdHUt4904EM+k9sYYfELS8Y3wP
+         qiYX3PBul/I5KA2YQw2mDIdApj/MJeVzyTlsOj+5Os9qELriF5in7qXyuXrO/lZPFAMT
+         yeAUwu+kMZpxLkV4QxFitfU6eWkLj1m3xNUSH7et9W0zjB8gnaUsLWql3o7aFG/vXsya
+         srXP1CeOLxwR5C2Z8xqm8BpKEyacEkr0qrL/DEDdlhJHicRxQOsi5T5cA5C/Gn33+MBn
+         RQLHQrvsm/wz5LCBUJh1M2lRNHF2uOsxIHgPFUgPCoa/7RI3918KnqsDaVcfL+i3RtVE
+         bm4w==
+X-Forwarded-Encrypted: i=1; AL+hErHNYSRRl4opIXZd+tiBDcnKz+rOTjbU3PWlrNmbpTbyOGl7OVwuiQs3AISafMo3+jACdlDmMH0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8jv6CxygdbUXmEzNBCWkSK3Lw0kqqYiGfDu4Tv/+033zBLimUd
+	1XhY6dzzMdDrjSrOi69PpXFllJ33Q42wu39iSTKT5t1sh+MNZl/otCulYZPXB6NgIrQ=
+X-Gm-Gg: AYBFou2QhGnCLR+vsQx3CYrBT2NeCgXwlHnDwzRFhYKUvuzNsVo/ZiK5EJkshz6QfWq
+	zTHEvpYqg1+h//uDAzgb/vfzHJjZ88LPeDDHsjBK3c0DazeyD9aXzxddVpICwe6w89GmvdSlNp0
+	SbQLgUtU7l3JFPa4VCcX5GhiB+MHiXWm42sDQ4jwJtMthRYBSuOMFHqoPVwqgeaxCUGGr+1XfE5
+	7zwh8RW80wcDjKI6VCplocuv2VCQYLfE+ge0pBx05LjCypbkIMbF1OLNRoZXjyxtphywT4umuCn
+	otp78GoO4ay5PagwG0qfHjUC1M1XeGJ0PKk8puh03PCB0kV7b98RyjIDmOhymxHqIGjGZTcyyGe
+	jsmZzdXobQ4dDM+LynBF1yKzsgmO3ozdmpCA2qguj/ikFJ76EDqLLtUzLxXbSu6/P5N8E7Tw5yA
+	Gtyx38Fh716oXPCxt/lc5OwoA/lvlHT7+uvlE3YgZOoRUECezol5e9O+8w8KRcfaqpCgqF5RABd
+	3jl4e0Pj6NTI9i/SZb7tfIkjMDBBK0inIHm/LeoA84+Pkoh66ElJlH9vgSY1K32MfnXoZwpe360
+	GSgB/xEqRbUnxQjShGSo6HY6K9S+S1D7dc5/JPE=
+X-Received: by 2002:a17:90b:2c8d:b0:3ab:e588:c2a8 with SMTP id 98e67ed59e1d1-3b1b0d8a4d0mr5854784a91.64.1794660973616;
+        Sat, 14 Nov 2026 04:56:13 -0800 (PST)
+Received: from rmustafin-laptop ([27.79.41.63])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cddc18c800esm2332710a12.29.2026.11.14.04.56.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 04:56:13 -0800 (PST)
+From: Rustam Mustafin <rmustafin@cloudlinux.com>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Rustam Mustafin <rmustafin@cloudlinux.com>,
+	stable@vger.kernel.org
+Subject: [PATCH ipsec] xfrm6: gate the local error on the frame's own socket
+Date: Sat, 14 Nov 2026 19:55:52 +0700
+Message-ID: <20261114125552.1319352-1-rmustafin@cloudlinux.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -133,122 +103,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179465147165.2199510.7987717328787148087@kernel.org>
 
-On 2026-11-14 10:17:51 +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The new `gptp: ptp@e6449000` node in
->   arch/arm64/boot/dts/renesas/r8a779g0.dtsi uses `reg = <0 0xe6449000 0…
+__xfrm6_output() decides to report a too big frame as a local error by
+looking at its sk argument, but xfrm_local_error() reports to skb->sk
+and dereferences it unchecked.  The two differ for a UDP tunnel: vxlan,
+geneve and other udp_tunnel6_xmit_skb() users pass the tunnel socket as
+sk, while a frame they forward has no skb->sk.  When such a frame takes
+an IPv6 tunnel mode xfrm bundle and exceeds its MTU, xfrm_local_error()
+oopses on skb->sk->sk_family in softirq context:
 
-That is correct, please read cover letter.
+  KASAN: null-ptr-deref in range [0x0000000000000010-0x0000000000000017]
+  RIP: 0010:xfrm_local_error+0x92/0x190
+  Call Trace:
+   <IRQ>
+   xfrm6_output+0x599/0xae0
+   udp_tunnel6_xmit_skb+0x713/0xd90
+   vxlan_xmit_one+0x1ebc/0x3490
+   vxlan_xmit+0x1369/0x6540
+   dev_hard_start_xmit+0xe3/0x5b0
+   __dev_queue_xmit+0x18e7/0x3550
+   ip6_output+0x360/0xec0
+   ip6_forward+0x1573/0x35c0
 
-> 
-> --
-> 
-> arm64: dts: renesas: r8a779g0: Add gPTP node
-> 
-> This adds a gptp: ptp@e6449000 node to the R-Car V4H SoC dtsi. The commit
-> message says the gPTP module is shared between the RAVB and RTSN Ethernet
-> devices.
-> 
-> > diff --git a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> > index 5284923b6cef7..f2d6696680db8 100644
-> > --- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> > +++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> > @@ -606,6 +606,15 @@ mfis: system-controller@e6260000 {
-> >  			status = "disabled";
-> >  		};
-> >  
-> > +		gptp: ptp@e6449000 {
-> > +			compatible = "renesas,r8a779g0-gptp", "renesas,rcar-gen4-gptp";
-> > +			reg = <0 0xe6449000 0 0x500>;
-> > +			clocks = <&cpg CPG_MOD 2723>;
-> > +			power-domains = <&sysc R8A779G0_PD_ALWAYS_ON>;
-> > +			resets = <&cpg 2723>;
-> > +			status = "disabled";
-> > +		};
-> > +
-> >  		tsn0: ethernet@e6460000 {
-> >  			compatible = "renesas,r8a779g0-ethertsn", "renesas,rcar-gen4-ethertsn";
-> >  			reg = <0 0xe6460000 0 0x7000>,
-> 
-> [Severity: Medium]
-> Can tsn0 and the new gptp node both be enabled on the same board?
-> 
-> The existing tsn0 node, which this patch does not change, already claims
-> the same window as its second reg entry:
-> 
-> 	tsn0: ethernet@e6460000 {
-> 		reg = <0 0xe6460000 0 0x7000>,
-> 		      <0 0xe6449000 0 0x500>;
-> 		reg-names = "tsnes", "gptp";
-> 		...
-> 		clocks = <&cpg CPG_MOD 2723>;
-> 		resets = <&cpg 2723>;
-> 
-> rtsn_probe() in drivers/net/ethernet/renesas/rtsn.c maps that region
-> exclusively and runs the timer itself:
-> 
-> 	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "gptp");
-> 	...
-> 	ptpaddr = devm_ioremap_resource(&pdev->dev, res);
-> 	if (IS_ERR(ptpaddr)) {
-> 		ret = PTR_ERR(ptpaddr);
-> 		goto error_free;
-> 	}
-> 
-> 	priv->ptp_priv = rcar_gen4_ptp_alloc(pdev, ptpaddr);
-> 
-> ptp_rcar_gen4_probe() in drivers/ptp/ptp_rcar_gen4.c claims the same
-> range:
-> 
-> 	priv->base = devm_platform_ioremap_resource(pdev, 0);
-> 	if (IS_ERR(priv->base))
-> 		return PTR_ERR(priv->base);
-> 
-> If a board sets both &tsn0 and &gptp to okay, the device that probes
-> second should get -EBUSY from its request on 0xe6449000-0xe64494ff. When
-> rtsn is the one that fails, the whole TSN Ethernet interface is lost,
-> because a failed gptp mapping takes the error_free path in rtsn_probe().
-> 
-> The commit message says:
-> 
->     The gPTP module is shared between the RAVB and RTSN Ethernet devices on
->     the SoC.
-> 
-> The new renesas,rcar-gen4-gptp.yaml binding also says "On R-Car V4H it is
-> shared between RTSN and RAVB". However, renesas,ethertsn.yaml still
-> requires the gptp reg entry on the TSN node. rtsn also has no ptp-timer
-> phandle path. No DTS under arch/arm64/boot/dts/renesas/ references &gptp
-> yet, so RAVB is not connected to this node either. RAVB uses the timer
-> only through of_parse_phandle(..., "ptp-timer", 0).
-> 
-> Would it make sense to either move RTSN over to the shared node or
-> document that the two nodes are mutually exclusive? Moving RTSN would mean
-> dropping the gptp reg from tsn0 and from the ethertsn binding, and
-> switching rtsn to a ptp-timer phandle.
-> 
-> A shared-node conversion would also need to handle reset 2723. rtsn takes
-> it with the exclusive devm_reset_control_get() and pulses it in
-> rtsn_reset(). That looks like it would wipe the timer setup, which
-> ptp_rcar_gen4_probe() writes only once.
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110080727.2377040-1-niklas.soderlund%2Brenesas%40ragnatech.se
+Commit 1620c88887b1 ("xfrm: Fix the usage of skb->sk") changed this
+test from skb->sk to sk.  Test skb_to_full_sk(skb) instead, as
+xfrm6_tunnel_check_size() already does; commit 6973a21ee73c
+("ipv6: xfrm: use full sockets in local error paths") made the IPv6
+callees use full sockets the same way.
 
+A frame without a socket then goes to ip6_fragment(), which sends an
+ICMPv6 Packet Too Big to the source address of the outer header, the
+local tunnel endpoint, and drops the frame, as before 1620c88887b1.  A
+caller that passes a NULL sk while skb->sk is set, such as
+ip6tunnel_xmit(NULL, ...) in ip6_tunnel.c, takes the local error path
+again, also as before that commit.
+
+Fixes: 1620c88887b1 ("xfrm: Fix the usage of skb->sk")
+Cc: stable@vger.kernel.org
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Rustam Mustafin <rmustafin@cloudlinux.com>
+---
+
+Notes:
+    Tested in virtme-ng on 7e1392a42ea2 (v7.4-rc2+) with KASAN: vxlan over
+    an IPv6 ESP tunnel, a forwarded frame above the bundle MTU.
+    Unpatched: the oops above.
+    Patched: no oops in 3 runs.  A separate run with nstat in the
+    forwarding netns shows Ip6FragFails 0->2, Icmp6OutPktTooBigs 0->2 and
+    Ip6FragCreates 0->0.
+    The reproducer script is available on request.
+    
+    Not changed here:
+    - The xfrm6_local_dontfrag(sk) test in the same function still uses the
+      argument.  Its callee xfrm6_local_rxpmtu() returns on a NULL skb->sk
+      since 6973a21ee73c, so that mismatch does not oops.
+    - iptfs_is_too_big() has the same sk vs skb->sk mismatch (IPv6 oops,
+      IPv4 silent drop).  It is left for a separate patch; it was already
+      pointed out in two reviews:
+      https://lore.kernel.org/r/20260908224856.1591189-1-kuba@kernel.org
+      https://lore.kernel.org/r/179369310739.488856.16665150928122536725@kernel.org
+
+ net/ipv6/xfrm6_output.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/net/ipv6/xfrm6_output.c b/net/ipv6/xfrm6_output.c
+index 44b221a09a0c..54fcf4b43091 100644
+--- a/net/ipv6/xfrm6_output.c
++++ b/net/ipv6/xfrm6_output.c
+@@ -95,7 +95,10 @@ static int __xfrm6_output(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 	} else if (toobig && xfrm6_noneed_fragment(skb)) {
+ 		skb->ignore_df = 1;
+ 		goto skip_frag;
+-	} else if (!skb->ignore_df && toobig && sk) {
++	} else if (!skb->ignore_df && toobig && skb_to_full_sk(skb)) {
++		/* xfrm_local_error() reports to skb->sk; a forwarded frame
++		 * sent through a UDP tunnel has none, sk is the tunnel's.
++		 */
+ 		xfrm_local_error(skb, mtu);
+ 		kfree_skb(skb);
+ 		return -EMSGSIZE;
+
+base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
 -- 
-Kind Regards,
-Niklas Söderlund
+2.52.0
+
