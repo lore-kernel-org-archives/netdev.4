@@ -1,60 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794676194;
-	b=gAJGbMLyImWhDLTun45/KYNuXVY0LnSHHIxPK0uW7LT/CR765qXVeNlGhvGPnHF7WFfF
-	 nD3yUZqIoXEngMZRa8bZ1YCmjiJC1falqqAVl8MxigTe8VMERbcik1QiwLAAcfMr3H5xU
-	 VkbpXdLW/OjLFrkTsdNt3kQxymza0n+/nSfpIW/BGoSplzqeRoYP4yQWjLSltTUesU30n
-	 0cCi2JdQpAAmeXEgk7DaP9JQbH+lIBIM6eEgDBvCy2bh0c7baan63zURir0uIc/QaKPtU
-	 jdjEHoYf9lBQ3h05RT/mtnex5jtASlg9KSs+lNfHgvdtTHg0dXMWidm7RP26rdK2gbA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794676194;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=FqN4KDJIxmU9Q0izWI8VvuQ7FOMtenlG/mu/G5wNfQI=;
-	b=xcirxJN+3arySARqW9Fk5QGClqz8DYNZbECJjW8rzU0rWpTJUbPYhF3ccfIt8nhWZqck
-	 daLrbB4GxnqKIhWw6DAYzooj0tNdnrtDCaCROBHfpqNmQBZBsHqAVdROZ2bPwdgjcyk1s
-	 bZ65YYfT/YKPMieCF5UGt0Fd57GaYFIQU3NFTomViYva+2V/ARrSCe7U/QdOEN2NQnFnZ
-	 5dzumnbw7VmIRurMFQjPHJFe7g87+lZ5CSKuBOZU4W7JoqhjCdVij1ewUXc3m/baYFfP/
-	 ppLF5rNnHr340NoxqAzJ/x6l8JThV9CaufwL/5X6h69J1JIdb0NdTPSSKqAB59r69kA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oJ0KiTP1;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794676924;
+	b=x5q6jCTAfYHmi6SL0KnrpIAr++YN8t9yb3AxvC/1vncFa6687IGau2sc/SXtR9OFmyPj
+	 VULSvYq45ucyESb+2zlMb2mGXr9Sqg2o49f3tu8X/E+YFtZhtNkfZpjkf6NeKFClg5iBp
+	 FUYczD36Zq+JQVtZSafcTORVHgUvq/STJGaPB15/566dzGBhlBbIjXJJpEhWeWx5uArCZ
+	 GbUge6odT/EXBuM6/NUVPzOwciZ6Xhvx9dLbL/7wOHZofN18EkuAqRgvWBNraN87p6c6V
+	 bxsKUEv/VBWQxF8NQWwGzIA4hmdRxswR2yXlriXNlQDtULAd/6ydmWo0byQryHdKRAA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794676924;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=1FxwB/4fd1fC7Ne8SpykVHTVQmn++Y9ZKfC2D6FASKM=;
+	b=RiquJ/lQI5Trf9wFrxM5kKxKlIJQ9F8/jwQ96gL9KGVy7qOab3FoFstaqNCmfeS8SR9a
+	 dDRlwBwMJzq3dbGUjQtDwmTpQjC4gQqrndHVe/CilBebJRleiQ2HTAh4URz1Z9I6QEi9Q
+	 LFCvtFbui1CKRznpFE8Aw8LO+BcocURq8B+8TtlRGv1mTVppdDFXgDyeqlMTbIXbAI8MJ
+	 /PBfWGdOikk3gM6eVk3Y7Z5ScTIn6DkAaTANR2qkgebQxQbNTqojwgl7lR7wQ55E+UT4+
+	 x2GieIv8zNoCssA/K2cagFI7PocpphDkqrD8te39SQ+gXMs5h89ZyJwUvHkgrhrbGHg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="XXp/MagJ";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.53
+Received: from mail-ot1-f53.google.com (mail-ot1-f53.google.com [209.85.210.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6421606A330;
-	Sat, 14 Nov 2026 17:09:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7EF6606A329
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 17:22:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7EF6606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oJ0KiTP1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D06A91F000C5;
-	Sat, 14 Nov 2026 17:09:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794676194;
-	bh=FqN4KDJIxmU9Q0izWI8VvuQ7FOMtenlG/mu/G5wNfQI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=oJ0KiTP1QWhKE07HqLIv9lKb2Y9MR0hJK8ZIAvVeJKfiZ9mLuZClbjotW7YAezHwE
-	 sONCvmSf7v1mc9EougkcF9GC/oGQnyCLnsbCxdDBJn6naBvBpo3G8CtY1CUFPjLTy7
-	 ptEGoQGBo36HrEmClqaSZsSS4RUSqzPOpuW3BsUQcK6o3voe7qcUX1hfv5vvL3QaWq
-	 TARg4vevZrTcHbUWppcEqOhgVcESiZ6Akz6HAN6hKhHLJezBuSCjR73/YOayPj+Rbt
-	 jDShlTJBNVUQs+Wk18uHOxXwgDweuBjOsJOx2jTY5z2pQ2JvgjvriV2IQqZiMN4BPo
-	 SOPOBUjTgNM3Q==
-Subject: Re: [PATCH net-next v3 3/3] selftests: tc-testing: pin DRR and ETS
- deficit refill semantics
-From: netdev-bot+sashiko@kernel.org
-To: victor@mojatatu.com
-Cc: netdev@vger.kernel.org, jiri@resnulli.us, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- jhs@mojatatu.com, sashiko-bot@kernel.org, shuah@kernel.org,
- linux-kselftest@vger.kernel.org
-Date: Sat, 14 Nov 2026 17:09:53 +0000
-Message-ID: <179467619339.2199510.6248385322007095412@kernel.org>
-In-Reply-To: <QDISC-TIAE.v3.r0.20261109173518-3@mojatatu.com>
-References: <QDISC-TIAE.v3.r0.20261109173518-3@mojatatu.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XXp/MagJ
+Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-86156cf8a7eso2675629a34.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 09:22:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794676922; cv=none;
+        d=google.com; s=arc-20260327;
+        b=si0tVbRLLrtQHPQTwA3cPIaJKxZ2nBNT4/if8Zto5h1iBnF3pICJTldBXfXqubBSne
+         aYS7dtnrTpurrHwBIDfx0+fEO/dqkVlQ9dzSIABSJzln10o6pAqnEv1abY+CgErpw4MV
+         jGykSWUU0YIE7Iw+uaTGDHPcq9u/Q6aLcqfMuEFsIeh3dytxLOWVT2UlPnI4GqtHc8FB
+         COtf8FF04Z1xvzNoflSdh47T+JI0sYIRf+tpMQKpS4oTNiN9JV29I5wH46Z7/5CEy6Rj
+         0A6P0K9Hg0yf7RiuApxF+k4ZQ8hr4H/flfGglI5qx+kd99LuflwV8VI0y4WqxMzhh+g5
+         bG+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1FxwB/4fd1fC7Ne8SpykVHTVQmn++Y9ZKfC2D6FASKM=;
+        fh=2mQ6x3Ft1FiNjVJrxYghLjCzHXq6VPPwsGoMPIfyGxI=;
+        b=eiiRRBRjNGZ3MQLf56bxP9srqV8aQ/SyTODnK6AGjEkCDu8y3KkTh6gDBmdB9zFQeO
+         b4Dz9lzeLfAv0CUG99TBCz1ZBmWSWDUXBqNWQEp/Ry/zRE4hc2mJYuLhe32CdFtYjM7Q
+         e56oLwHEdbynH8NAtW5G/J+BxOsnKjayEAthvvRgJfIQUhitYc+vW5g+ShdBJSQ8ZG8+
+         lozzYYbCaM0XD17XFuCnNjueFvb0+WpD4GUglQrlVltcafClUp4nsa7JNmg0S82pLJdK
+         6/aH5IQOExS/WmcPfYVXtnWdkgNYe6sjWzpzf+PliRpZB5xa89jahyYDTqoEZoJzk43b
+         TIDw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794676922; x=1795281722; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1FxwB/4fd1fC7Ne8SpykVHTVQmn++Y9ZKfC2D6FASKM=;
+        b=XXp/MagJ1q3w15vWYVb8uhUnb3rtWUUJZ5FnR0tFsqofzsXOkQRWRm/2tpCGXbQURC
+         1Nhg+wKdpfe31bkt/3gf7/WjgmOunWutiW/MciotDR429NgI6zYmKy7PHGl33Q0JDT2N
+         xTgrd927pqrn87NMS5Lvg1vHf/Tz1zXSC6Pie5Q/0VJwFpZLFA/Y6JSXvvfQVK+4bCN9
+         PQzeLtCo4uiXK6E08q6tOoUR9ILaviuEul1tg1zm4nrrRIrf8ZdJ1Uoti0Td47VBSNGL
+         hnU0shwWH+hfPo0OSkeU23GbxZhsEODskWWrUXnhGNcOSOfrdVBN0PapIIi+H+wpAXU5
+         2FUA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794676922; x=1795281722;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1FxwB/4fd1fC7Ne8SpykVHTVQmn++Y9ZKfC2D6FASKM=;
+        b=etiZJ4LKFKK7oe5jhweCloBkUcUEPsgIC0VQC6lFTtnVEhUMUWVAUk4reZa+xQPQ0g
+         YzTLZ1mf74yovZSoCiJtQvfvyL/NBs9YMzxCY+qnnZN+GpltaRXJezkJkaA+WERDr+79
+         9Nll3b5yCowsbTlcYYl1VJi5d3bHuh2WMUs59k8z4ibYCFYZYAVKWWRMXmG4gtaIieaY
+         rPRlWu5cQVHroIx0ZlAENkBxaXthq8A5XucdG8Z4iuB4MBZ8mpAS2OZ+bz49tV5Y1B9o
+         R+kshGVYNPgMsLfp44aeoLJ1BckUgWTzF4c+Rnwb845KZd15ufWR9hHdsGLKtTE55CHu
+         OXig==
+X-Forwarded-Encrypted: i=1; AL+hErEev/nfo3J8Z424wijy/itEi5bxVQjDQY0QEVLlJC2zdZteH5bg4vKSXbYLzJo+XWYeacho888=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9SsCX4ampLmpJS2ICrM1Qo71sQhrwiGf/q+aLK3UN3uqCTEipP
+	Eu8dOzIp8BGPBUl0zjLFMCT24WP3H3h2D1YVI5N7FbqFij4wlc9gWi1jou1LLQ+J+KNiXb0mPZw
+	xkANfLeN/8idUh/cLU4NafcMNXB9mhPmkrWDUwAYTkCC8WyE=
+X-Gm-Gg: AYBFou0fDgKkaaoQk6ukZRipS0zENlSr+qEVWalKq5ehFCysd1D/sBpyVJG6YQEklYs
+	ORBcMFCNIK3Sx1bB6DmoHPnPGHQw1R1KEzFcgG3Y/kdzILgTxdC9rNqCcGW5PVIKYTXK9cSwQA0
+	PTaa4hqH+UvAtsKWGx95XuhpOZAQv8wJi8TX7foFydZYbOa7aPQG+k5/YNoxp1QLI7w8E+w5HU8
+	QNTC59KXzmMyTB7OTZPz0FqfKg0fXGPCXmjhgO282b9PlnRDa1FjOm8E/qYffzzIQ3t1ravan3c
+	wc0wtndcjkrgyJyzxL2WxvEFbJW81kX+2BCSXQRuEKEiioNOwQwBIjBute0plVEzYYmSWBxzqZr
+	GNLYFpFiOTBqiqx3Yz/5SOoQ1RCD0OGypbrrNXmGVS+5daIpy96pn0ycl4nbZIwX+ghDq1xd8Yd
+	wfWy+f01O8zAHQKA==
+X-Received: by 2002:a05:6808:190a:b0:53c:4502:971d with SMTP id
+ 5614622812f47-56cd88e794emr6967709b6e.36.1794676921875; Sat, 14 Nov 2026
+ 09:22:01 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,231 +105,134 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <9b73858d-fc09-4988-8bab-fd7b88db9412@yahoo.com>
+ <39e46930-0d24-46d6-8861-5dd309bb7640@yahoo.com> <1e8da5e3-0d1c-4ce6-bb3c-4b9b7a5789a6@c127.dev>
+ <f84cfedb-b551-4316-8d2b-4d6e06fc151b@yahoo.com> <b68807e4-1470-4f4b-8975-e8a70dffd011@c127.dev>
+ <20261111152158.467255-1-kuncy7@gmail.com>
+In-Reply-To: <20261111152158.467255-1-kuncy7@gmail.com>
+From: gabon pivovich <gabonpivovich@gmail.com>
+Date: Sat, 14 Nov 2026 20:21:50 +0300
+X-Gm-Features: AclHuK-dmGD1oYDEecnkca6jhtE7I1ej1lLyGD1r05U1Rlwmm1WEtVbhDOg3YL8
+Message-ID: <CAOaAmLwEBfKsx3K=dr5nBPmJ9keHAvAOSgp7iLEciKH20pcSdw@mail.gmail.com>
+Subject: Re: [PATCH net-next v9 08/11] net: dsa: realtek: rtl8365mb: re-latch
+ the family D SerDes
+To: Stanislaw Pal <kuncy7@gmail.com>
+Cc: Johan Alvarado <contact@c127.dev>, Mieczyslaw Nalewaj <namiltd@yahoo.com>, alvin.sipraga@analog.com, 
+	linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
+	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, gusfmora@gmail.com, 
+	fabianotassotti@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+On Tue, Nov 10, 2026 Johan Alvarado wrote:
+> Oleg, could you check this on the AX55 before the first ifup of the
+> conduit? A single register read tells:
+>
+>   devmem 0x98218    # UNIPHY MISC2: 0x70 =3D SGMII, 0x50 =3D SGMII+
+[...]
+> Oleg, if the AX55 can take it, a reboot loop with that commit and
+> without patch 8 would settle this.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+Hi Johan, Mieczyslaw, Alvin,
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I tested this on my Archer AX55 v1 (IPQ5018 + RTL8367S-VB, family D,
+CPU port 6 at 2500base-x, booting from NAND).
 
-- [Medium] All three new tests pass or fail based on wall-clock timing,
-  with roughly ±0.5 s of margin, and nothing synchronises them with when…
-- [Low] The commit message says only 57a1 and 2177 put netem under the
-  classful qdisc and log the "non-work-conserving?" warning.
-- [Low] In ETS test 2177, band 1:1 is expected to show "bytes": 1514,
-  "packets": 1, although the band was never served (backlog 3028, qlen…
-- [Low] The commit says it pins the DRR/ETS deficit refill 'so a change
-  to the refill loop can't silently alter the result'.
+Tree: OpenWrt main (24c13d794c) with the family D series from
+PR #19644 (v10-pre4), without the re-latch patch and without the
+conduit ordering patch, plus your commit 50e49862d2ba on top.
 
---
+MISC2 register:
+- In U-Boot (stock TP-Link bootloader): 0x70, so the bootloader hands
+  the UNIPHY over in SGMII here too.
+- In Linux with your commit it reads 0x50 already in preinit. I could
+  not catch the state before the first open from Linux, because
+  OpenWrt preinit brings eth0 up at about 7.0 s.
 
-selftests: tc-testing: pin DRR and ETS deficit refill semantics
+Timing in the log: the switch configures its CPU port at about 4.86 s,
+eth0 at about 7.0 s, the same two second gap you described.
 
-This commit adds three tc-testing cases. 3f3e checks the DRR deficit after
-a 1514-byte packet at quantum 256. 57a1 and 2177 check that DRR and ETS
-serve a 514-byte packet before a 1514-byte one, using netem delay under the
-classful qdisc to hold packets while stats are inspected.
+Reboot loop: 16 boots, 16 good, 0 broken. On every boot the router
+pinged a PC on a LAN port, the switch CPU port counted received
+octets, and FCS and symbol errors stayed at 0.
 
-> diff --git a/tools/testing/selftests/tc-testing/tc-tests/qdiscs/drr.json b/tools/testing/selftests/tc-testing/tc-tests/qdiscs/drr.json
-> index 2b61d8d79bde8..d7ac32294738e 100644
-> --- a/tools/testing/selftests/tc-testing/tc-tests/qdiscs/drr.json
-> +++ b/tools/testing/selftests/tc-testing/tc-tests/qdiscs/drr.json
-> @@ -86,5 +86,87 @@
+I did not run the same loop on this tree without your commit.
 
-[ ... ]
+Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com> # Archer AX55 v1, RTL836=
+7S-VB
 
-> +        "setup": [
-> +            "$IP addr add 10.10.11.10/24 dev $DUMMY",
-> +            "$TC qdisc add dev $DUMMY root handle 1: drr",
-> +            "$TC class add dev $DUMMY parent 1: classid 1:1 drr quantum 256",
-> +            "$TC qdisc add dev $DUMMY parent 1:1 handle 10: netem delay 2s limit 10",
+Best regards,
+Oleg
 
-[Severity: Low]
-The commit message says:
 
-    57a1 and 2177 put netem under the classful qdisc, so they log the usual
-    "non-work-conserving?" warning.
-
-3f3e also puts netem under DRR class 1:1 here, so doesn't it log the same
-warning? The first ping packet is enqueued and qdisc_run() calls
-drr_dequeue(). netem's peek, qdisc_peek_dequeued()->netem_dequeue(),
-returns NULL because the packet is not due for 2s:
-
-net/sched/sch_drr.c:drr_dequeue() {
-    ...
-		skb = cl->qdisc->ops->peek(cl->qdisc);
-		if (skb == NULL) {
-			qdisc_warn_nonwc(__func__, cl->qdisc);
-			goto out;
-		}
-    ...
-}
-
-Each test creates a new netem qdisc with TCQ_F_WARN_NONWC clear, so it
-looks like all three tests print the warning, not two.
-
-Should the commit message say that all three tests log it?
-
-> +            "$TC filter add dev $DUMMY parent 1: protocol ip prio 1 u32 match u32 0 0 flowid 1:1",
-> +            "ping -c 2 -s 1472 -i 1 10.10.11.11 -I $DUMMY -W 0.01 >/dev/null 2>&1 &"
-> +        ],
-> +        "cmdUnderTest": "sleep 2.5",
-> +        "expExitCode": "0",
-> +        "verifyCmd": "$TC -s class show dev $DUMMY",
-> +        "matchPattern": "deficit 22b",
-
-[Severity: Medium]
-Can these tests fail intermittently because of scheduling latency?
-
-nsPlugin runs the traffic generators in the background with & through ip
-netns exec. The verify step then runs after a fixed sleep 2.5. Nothing
-ties the verify step to the time the packets are actually enqueued.
-
-In 3f3e, ping sends at T+d1 and T+d1+1, and netem releases each packet 2s
-later. drr_dump_class_stats() reports the deficit only while the class is
-backlogged:
-
-net/sched/sch_drr.c:drr_dump_class_stats() {
-    ...
-	if (qlen)
-		xstats.deficit = READ_ONCE(cl->deficit);
-    ...
-}
-
-So "deficit 22b" only matches while the first packet has been dequeued and
-the second is still held by netem. If ping start-up or tdc overhead moves
-things by more than about 0.5s, tc prints either deficit 256b (nothing
-released yet) or deficit 0b (class drained).
-
-57a1 and 2177 have the same problem. Batch 1 is released at about T0+p1+3,
-and verify runs at about T0+1+2.5 plus overhead:
-
-- If starting ip netns exec plus python3 takes more than about 0.5s,
-  batch 1 is still held at verify time. Class 1:2 then shows bytes 0 with
-  backlog 1028 / qlen 2 instead of 514 / 1.
-- If tdc overhead between setup and verify is too large, batch 2 is
-  released and backlog/qlen change.
-
-tdc.sh runs tdc.py -J"$(nproc)", which adds CPU contention. Debug kernels
-such as KASAN or lockdep slow start-up further.
-
-Could the tests wait for the packets to appear in the qdisc backlog before
-the timed window starts? Alternatively, could the margin between the netem
-delay and the verify time be made wider?
-
-[ ... ]
-
-> +        "cmdUnderTest": "sleep 2.5",
-> +        "expExitCode": "0",
-> +        "verifyCmd": "$TC -j -s class show dev $DUMMY",
-> +        "matchJSON": [
-> +            {
-> +                "class": "drr",
-> +                "handle": "1:1",
-> +                "root": true,
-> +                "stats": {
-> +                    "bytes": 0,
-> +                    "packets": 0,
-> +                    "backlog": 3028,
-> +                    "qlen": 2
-> +                }
-> +            },
-
-[Severity: Low]
-The commit message says the tests ensure "a change to the refill loop
-can't silently alter the result". Does 57a1 actually pin the multi-class
-refill?
-
-This matchJSON only checks bytes, packets, backlog and qlen, which only
-shows the service order. The batched refill in drr_dequeue() adds
-rounds * quantum to every active class:
-
-net/sched/sch_drr.c:drr_dequeue() {
-    ...
-			if (skip && rounds != UINT_MAX) {
-				list_for_each_entry(iter, &q->active, alist)
-					WRITE_ONCE(iter->deficit,
-						   iter->deficit + rounds *
-						   READ_ONCE(iter->quantum));
-    ...
-}
-
-Suppose that loop were changed to refill only the first class. B would
-still be dequeued first, and the asserted stats would match exactly.
-Class 1:1's deficit, though, would end at 1280 (or 768) instead of 1024.
-Class 1:2 ends at 254 in both cases. 3f3e has only one class, so it can't
-tell these cases apart either.
-
-Class 1:1 still has qlen 2 at verify time, so drr_dump_class_stats()
-exports its deficit. Could 57a1 also check the per-class deficits (1024
-and 254)? ETS does not export a deficit, so 2177 can only check the order.
-
-[ ... ]
-
-> diff --git a/tools/testing/selftests/tc-testing/tc-tests/qdiscs/ets.json b/tools/testing/selftests/tc-testing/tc-tests/qdiscs/ets.json
-> index d2eab61c099a8..ea3adba2f06c7 100644
-> --- a/tools/testing/selftests/tc-testing/tc-tests/qdiscs/ets.json
-> +++ b/tools/testing/selftests/tc-testing/tc-tests/qdiscs/ets.json
-> @@ -1007,5 +1007,59 @@
-
-[ ... ]
-
-> +        "verifyCmd": "$TC -j -s class show dev $DUMMY",
-> +        "matchJSON": [
-> +            {
-> +                "class": "ets",
-> +                "handle": "1:1",
-> +                "root": true,
-> +                "stats": {
-> +                    "bytes": 1514,
-> +                    "packets": 1,
-> +                    "backlog": 3028,
-> +                    "qlen": 2
-> +                }
-> +            },
-
-[Severity: Low]
-Is "bytes": 1514, "packets": 1 the intended expectation for band 1:1?
-
-Band 1:1 still has backlog 3028 and qlen 2. Both 1514-byte packets are
-still queued, so the band was never served. The count seems to come from
-netem's accounting at peek time. ets_class_dump_stats() reports the
-child's bstats:
-
-net/sched/sch_ets.c:ets_class_dump_stats() {
-    ...
-	if (gnet_stats_copy_basic(d, NULL, &cl_q->bstats, true) < 0 ||
-    ...
-}
-
-netem's peek is qdisc_peek_dequeued(), which calls netem_dequeue(). That
-updates bstats before the skb is stashed back in gso_skb:
-
-net/sched/sch_netem.c:netem_dequeue() {
-    ...
-deliver:
-		qdisc_qstats_backlog_dec(sch, skb);
-		qdisc_bstats_update(sch, skb);
-		return skb;
-    ...
-}
-
-So a single ETS peek of the first A packet sets band 1:1 to 1514/1.
-
-The DRR version, 57a1, runs the same scenario and expects bytes 0 /
-packets 0. That is because drr_dump_class_stats() reports cl->bstats,
-which is only updated on a real dequeue.
-
-The expectation here depends on how netem accounts a peek. Could band 1:1
-check only backlog/qlen, so the test does not break if that accounting
-changes while ETS scheduling stays the same?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-TIAE.v3.r0.20261109173518%40mojatatu.com
+=D1=81=D1=80, 11 =D0=BD=D0=BE=D1=8F=D0=B1. 2026=E2=80=AF=D0=B3. =D0=B2 18:2=
+2, Stanislaw Pal <kuncy7@gmail.com>:
+>
+> Hi Johan,
+>
+> On Tue, Nov 10, 2026 at 12:49:04AM -0500, Johan Alvarado wrote:
+> > Oleg, could you check this on the AX55 before the first ifup of the
+> > conduit? A single register read tells:
+> >
+> >   devmem 0x98218    # UNIPHY MISC2: 0x70 =3D SGMII, 0x50 =3D SGMII+
+>
+> I can't answer for Oleg's unit. Mine is an Archer AX55 v1 with an
+> RTL8367S, family C like your MR80X v2, so this is a second family C
+> board, not the family D answer.
+>
+> That image has no /dev/mem, so I printed MISC2 and MODE_CTRL from
+> qca-uniphy instead: at probe, around your preconfig, and before and
+> after every pcs_config(). On every boot, warm and cold, probe reads
+> MISC2 0x70 and MODE_CTRL 0x421. Without your commit, SGMII+ (0x50,
+> 0x821) shows up at the first pcs_config(), at about 7.4 s, while the
+> switch configures 2500base-x at about 5.0 s.
+>
+> One note on the values. In the pcs-qca-uniphy table, MISC2[6:4] =3D 7
+> (0x70) is the USXGMII value; SGMII is 0x30 and SGMII+ is 0x50, as
+> FlyFish-go pointed out on an RC3000 v3 [1]. MODE_CTRL says the same as
+> your reading, though: 0x421 has SGMII_MODE (bit 10) set and 0x821 has
+> SGPLUS_MODE (bit 11). So the hand-over is SGMII either way, and 0x70 in
+> MISC2 is just not what tells it. On his board, MISC2 reads 0x70 after
+> the boot loader's block reset when U-Boot runs no network command, and
+> 0x30 after a U-Boot ping.
+>
+> Reboot loop on our OpenWrt tree (6.18, dwmac-ipq5018 + qca-uniphy), with
+> the OpenWrt ordering patch removed in both images. A boot counts as
+> broken on ping loss to a host on lan1, or FCS errors or PAUSE frames on
+> CPU port 6.
+>
+> - Without your commit: 2 of 15 broken.
+>   - In one, the switch sent PAUSE frames to the CPU (1368 on port 6) and
+>     to lan1, and almost nothing got through. No FCS errors.
+>   - In the other, frames from lan1 reached the CPU, but nothing from the
+>     CPU went out on lan1, although port 6 ifInOctets kept counting. No
+>     FCS errors, no PAUSE frames.
+>   In our tree the conduit is closed and opened again at about 26 s
+>   (pcs_config() runs again, the UNIPHY already in SGMII+), and that
+>   didn't cure either boot. This fits your note that a re-sequence on the
+>   SoC side does not help.
+>
+> - With your commit: 0 of 23 broken (20 reboots, 3 power cycles). The
+>   preconfig puts the UNIPHY in SGMII+ at about 2.1 s, 3.2-3.3 s before
+>   the switch configures its port, and pcs_config() at open finds the
+>   mode already set.
+>
+> 2 of 15 against 0 of 23 is weak on its own, but it points the same way
+> as your 18 of 51 against 0 of 32. In the same thread [1], FlyFish-go ran
+> the RC3000 v3 (RTL8367S, family C) at 2500base-x with only the OpenWrt
+> ordering patch removed: 4 of 7 cold boots broken, against 0 of 5 with
+> it. In every broken boot the SoC-to-switch direction was the one that
+> failed.
+>
+> I have put the same result on your OpenWrt PR [2].
+>
+> Tested-by: Stanislaw Pal <kuncy7@gmail.com> # Archer AX55 v1
+>
+> [1] https://github.com/kuncy7/openwrt-nss-edma/pull/73#issuecomment-67964=
+51511
+> [2] https://github.com/openwrt/openwrt/pull/26597
+>
+> Best regards,
+> Stanislaw
