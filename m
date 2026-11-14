@@ -1,88 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.190
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794661786;
-	b=eIFKQXKm6QjZmYJleOPlwN+H3A46jEc51PdPFDBSYApYQzECNW4wwFdXV6Glu5pUgAwk
-	 MOoLlwDTk+KYxlxwj+Hv58161OgSoXM9e/04GowRtI+583vsxwzS2KA8PyW+Wo1tG/D9H
-	 pZXEqkcLmgGb5deyGfIBtqu7eyHrqUzdLjvMBbAlOAiUCgoyBO3IsZJy21bi3Fl+9Tk5N
-	 IhezRalhWbHdSzuRDGkb7rFDVc2ZMT7WATpNXVHaNH+8TdI8gBE5W5YF736sAoa1tZ8aD
-	 Zh6cqllmNykvGtKWmcASyWdPZaIoIv2ScDZnoSMK/k2JnyqNWArCiSEj/Ok+/1uLxJQ==
+	t=1794661788;
+	b=0kbxMEQmCdqqyQy9iqn8h2TbAgiuHzEA5THSX6p9JRRNqzLmlcymMJ+d6bae0MDZP0n7
+	 AALhF1L/B3v2+hGWeWzFW6tKYRbSssP7WbwUK/IMWXFvXvds1c7Bn0GyIlNxT36cb4qdI
+	 VVirDrlQ9/Wsuv4QPm08Tle6VEb0ymHCV53Jw9dtORx+quypnAqOleXvsqjTSWnhbJilD
+	 Qg5oJuUwolWQxIR34U5PjYo+LDDJLALJN9MTTlk74VuqRKaog54aFxoBtwHdO2OHgcS+z
+	 O96DWll1EfFAU3+gDP5V/wqlHCpbxxBtGJJAa6eQviK5ekyBpusYVv4fP2ewItHzXEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794661786;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=ptAK2PfuAn77oHZ/Ek1nHocPe/xXcFqzM2kqY1MBHQA=;
-	b=Kd1P9Hv0HxjqmEsaZUCVqvn5Rcd49cw+B9v+RI51i0dBrE5woTHZyQ4JDJvSUTeWDvPU
-	 ghUtZ7AY1Mmntl2U0z940nv2kKDHIvg9/ZjaB+yXeOSfx87oJP8pd2UzmRTLCS856bvKO
-	 9G0birAFoS6XHGhu6kKKgi6/mfuScEYEHDrAL0YE0r3pHbtcBjhOfcPh5ZiaZTOOpvKM0
-	 CJCUkql/ABcrOdjWicPN0BBwI1Y8Es1hFNf/vPk3n9t/BHhjvp0uu7uMSO5ynfr6HNJtu
-	 /TpK1jNV72+PKcijIhJWC8iNpa+P36gxzephLancpoMvU9276JgmbrnVb/ZlxaIBUnw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794661788;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=TzlH4lJ7ZSZIblRm06H21pfwXJAWDZmkD7RxeUrwAwo=;
+	b=feWPRbmBvaAcfSgqoWPXMSu3F1SZc5re0T8rw5bmZKEp99DvDq9EnHCMRz7dwMR5Wc6w
+	 sjF9MLGjxCojLbSKOUPx9vVpNI4O4mzPYQkjPJvuaNvqpkbD8BA+yXdUp89LFUn77u+wH
+	 5WsMH8qF7J6IjzIeouUqAiyTK2bslZhrkf1CpDzL+xc6HvdzXG4W0F+vadRzGw3Pyk4Zr
+	 jOuzOxqA/c3yfMGDpoQggdbdmmYdq0QK/o2/Yxby/kzqHaJcJGIEvdvLCg3TTGIdhJe3x
+	 kcgF5LHhXSSiZvQZgbwG3O95ve/IIBdiytVksJCRLXHTXRs2J/nH9ePzHE8KP0cu8cA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=x0ELlvH+;
-	arc=none smtp.remote-ip=203.205.221.190
-Received: from out203-205-221-190.mail.qq.com (out203-205-221-190.mail.qq.com [203.205.221.190])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GlyL6zOy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73AFA60A6F53
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:09:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73AFA60A6F53
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21ADC6079E1F;
+	Sat, 14 Nov 2026 13:09:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=x0ELlvH+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794661778; bh=ptAK2PfuAn77oHZ/Ek1nHocPe/xXcFqzM2kqY1MBHQA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=x0ELlvH+oI6lwYCLAelq+HYAJoM6Eg/3h2UoDlt9MbZ0AMmOXJW4xoWWsYsMls9nN
-	 3k6gApyWj3cFlixEw3lMSCwOOoUca1cNyiiECuKT7q+P/+XGf9/qIXGAufobYZDl9L
-	 Mtp5SYjBTqm5ZhM6q9Bhf2FH15G9bpQCH1ojL8q8=
-Received: from localhost.localdomain ([2409:8d5c:8f0:65e5:7443:873c:1230:8af8])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id 25C3B2E4; Sat, 14 Nov 2026 21:09:28 +0800
-X-QQ-mid: xmsmtpt1794661773tm1g0da2u
-Message-ID: <tencent_BF4B5FE9E95165CF1734F65EC40D4FEB4808@qq.com>
-X-QQ-XMAILINFO: NbgegmlEc3Jue+F2vLrGacWsZf+O1K50A2SxhzxbnblTYVisPlYosMMO9+GzfQ
-	 KkU/rLf3pqY/SQG0YYi3MjAPAU+YHFdMvV2FPEbi1pZeuZoeiGo0iZqSFulBSgQT76JhT02EDSNr
-	 S2HuW0ZteksJch8+czq8sNa/DWTSHuKRrtHHd3/zDbN3yoeEYtu3zkfGm7Y4MTRJFYya0jH/ZMeE
-	 kC5369UlwjKaN46W127L2qf068duoUjmpo6GEb77X331rTnf94y2LPolmXWOSUwWfjx8CuLX6bIQ
-	 jfct3kGfLdK1Gb/Zez8p/aP87RN4v+Pn/cvmJzv11pyAr/fRFIr/4cVHlURDWHStAQxUyqjwfhU7
-	 I5xLPDEQingaftMvED1PPFFpI3v3223l5czpKauufO2CmyD83+SzCYelZO9h0WUlCqQ0aF9kZhb4
-	 yzPU3R6WxpwxlC7duKwhE/DisUN3/5s8gGd8XgKgpQBgvn+tOq4NTACP0kxc6C0S7mJPUDxsCQKd
-	 VX0LOqLJ9E5AmBlPMTut8fmtco2ndjI/v2Y2sheVz5o75DIM07gA5MhmtxaPqLzPcyzo2MZ0zliw
-	 3ukgTPLDwBkOR1d+YVDO7yJvdrZE1+YmPD3L6PPE5ehkzO+HILG58y30KOIzi1gMjP9uUd9Mr6xA
-	 A2qy5yWnUUiAHv1mnPfFsYQV+Mlxrl+dgD3tMsUO/Dfvhq3w/02p5BogoUiBY/I/yaEoW/KNDERP
-	 bRsRqMuWNf9lpZvC18FCGwA0iAFozQEFm9fuew1iqRG+wEi1+UEJlffPJpwAFJyi508tSUVSraCu
-	 ImDFXmxe6f124UrdPvLr5z9tx6jSt1jiveU0ElG1hWQrogWrX+DtPUpZ9/6+ltmH+j/2xZL+B6bU
-	 kqOFssgLN3iPAlKAR/J/RSfMCkuShrj0t5AcGLHbZFvDs/wHPZWBAUNRKubVHWmNAWVSHpOQu2lR
-	 tWbdW1SY2fVIQaYs8XCn0LMsDJcN/vQAAsHcFo848vkKE3qoVUZdMU7xx7lvdDb+6B1jzjXmSJbL
-	 Xi+c5rz8ZBRHIl+7kuzPWyjb+jbOFg4Z+et97GtqaAl4Hfl4Ry+7EyHAzn5pUWGpQ6hVYLKe3PTb
-	 T8lOXM1KIJmjO6EGRRxld+yuhS2Q==
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-From: Hang Nan <2122295973@qq.com>
-To: netdev@vger.kernel.org
-Cc: mptcp@lists.linux.dev,
-	matttbe@kernel.org,
-	martineau@kernel.org,
-	geliang@kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kuniyu@google.com,
-	willemb@google.com,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	2122295973@qq.com
-Subject: [PATCH net v3 2/4] net: core: take the reuseport migration reference with acquire ordering
-Date: Sat, 14 Nov 2026 21:09:25 +0800
-X-OQ-MSGID: <20261114130927.91839-3-2122295973@qq.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261114130927.91839-1-2122295973@qq.com>
-References: <20261114130927.91839-1-2122295973@qq.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GlyL6zOy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF37C1F000C5;
+	Sat, 14 Nov 2026 13:09:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794661788;
+	bh=TzlH4lJ7ZSZIblRm06H21pfwXJAWDZmkD7RxeUrwAwo=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=GlyL6zOy3U34aQUy3eHEQO1vIyJXeAiTdOGtABLlkjbMnvKHjyhKDScl3Hk7rbn/i
+	 bUN/hnUMxKho/1WWAiF8JiculAXTejCCuJ3FonfhnSNp937ufCy4qoRmfbGVvZHsH7
+	 9rlf5d2C3SdZVqBTg4J8yIIUsxC5D98LB2FsGhf59wAx6+iIV/zNQO/IKTaGaMPHTI
+	 VX46CiB8pXPS+hXzwpsFz2BDETD3xysRH8Rj/RJaz/eTFDnVWydJvu5JEiwzj8rnWQ
+	 EWDXUNsiasluJEgOXK7yZCzr+ogHhW+EDBwb4kKVBL61Tujac2yGBy06BywSGLd7Mo
+	 Pny//KWEyQopg==
+From: Christian Brauner <brauner@kernel.org>
+Date: Sat, 14 Nov 2026 14:02:17 +0100
+Subject: [PATCH RFC v2 36/42] nvmet: refuse files on pseudo filesystems as
+ namespace backing files
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,46 +53,74 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261114-work-loop-pseudo-v2-36-98639a2286fb@kernel.org>
+References: <20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org>
+In-Reply-To: <20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org>
+To: linux-fsdevel@vger.kernel.org
+Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, 
+ Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
+ linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, 
+ target-devel@vger.kernel.org, driver-core@lists.linux.dev, 
+ linux-mm@kvack.org, bpf@vger.kernel.org, 
+ linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+ apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, 
+ netdev@vger.kernel.org, fuse-devel@lists.linux.dev, 
+ linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, 
+ ocfs2-devel@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-usb@vger.kernel.org, 
+ Amir Goldstein <amir73il@gmail.com>, linux-erofs@lists.ozlabs.org, 
+ linux-kselftest@vger.kernel.org, 
+ "Christian Brauner (Amutable)" <brauner@kernel.org>
+X-Mailer: b4 0.17-dev-ce4c1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1428; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=T+p95LnTvG69fzj91gxDjYpoYRzamfjNk16RgT8U7v8=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWT9iOn/sX7W5ofcrzdtZCmXtdsrsyZy06+ylnkxnetWq
+ G9bLL97VkcpC4MYF4OsmCKLQ7tJuNxynorNRpkaMHNYmUCGMHBxCsBElN4x/E+qPMN83LkkV8+9
+ 6emz+TtUM58mNc28vP//+pR517bGGTYz/NOw1Z5h9eBm2/zf+wUFPT6nLXtx+IKQe7yGYPaa6P/
+ 27ZwA
+X-Developer-Key: i=brauner@kernel.org; a=openpgp;
+ fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 
-reuseport_migrate_sock() returns a listener with a reference held, and
-every caller immediately reads that listener: tcp_v4_rcv() and
-tcp_v6_rcv() pass it to tcp_filter() and tcp_check_req(), and the
-request-socket paths clone its state.  A listener removed from the
-reuseport group concurrently with that lookup must not be observed in a
-half-torn-down state after the reference was successfully taken.
+The file backend takes any file that can be opened for reading and
+writing. With buffered_io=1 that includes files on procfs or sysfs which
+then get read and written by a kernel worker on behalf of the host.
+Refuse files on pseudo filesystems just like loop does by switching to
+file_check_backing().
 
-refcount_inc_not_zero() lost its acquire ordering in commit fb041bb7c0a9
-("locking/refcount: Consolidate implementations of refcount_t"), so these
-subsequent reads are not ordered against the reference acquisition.  Use
-refcount_inc_not_zero_acquire(), as was done for the established-socket
-lookups, inet_twsk_purge() and bpf_sk_assign() in commit 5b5d8f351dd9
-("net: restore refcount ordering for lockless socket access").
+Note that the helper only accepts regular files and block devices. A
+block device ends up in the file backend when buffered_io is set. But
+so far the file backend also took anything else with ->read_iter() and
+->write_iter() such as character devices and FIFOs. The size of the
+namespace is the size of the inode which is zero for all of them. So
+such a namespace was unusable anyway. Refuse them.
 
-No behaviour change on strongly ordered architectures.
-
-Fixes: 1cd62c21572c ("tcp: Add reuseport_migrate_sock() to select a new listener.")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hang Nan <2122295973@qq.com>
+Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 ---
- net/core/sock_reuseport.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+ drivers/nvme/target/io-cmd-file.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
 
-diff --git a/net/core/sock_reuseport.c b/net/core/sock_reuseport.c
-index b9e5648fa4c5..56230aa55a3e 100644
---- a/net/core/sock_reuseport.c
-+++ b/net/core/sock_reuseport.c
-@@ -667,7 +667,8 @@ struct sock *reuseport_migrate_sock(struct sock *sk,
- 	if (!nsk)
- 		nsk = reuseport_select_sock_by_hash(reuse, hash, socks);
- 
--	if (IS_ERR_OR_NULL(nsk) || unlikely(!refcount_inc_not_zero(&nsk->sk_refcnt))) {
-+	if (IS_ERR_OR_NULL(nsk) ||
-+	    unlikely(!refcount_inc_not_zero_acquire(&nsk->sk_refcnt))) {
- 		nsk = NULL;
- 		goto failure;
+diff --git a/drivers/nvme/target/io-cmd-file.c b/drivers/nvme/target/io-cmd-file.c
+index dfa8aa46188c8..2249ad3bb46d8 100644
+--- a/drivers/nvme/target/io-cmd-file.c
++++ b/drivers/nvme/target/io-cmd-file.c
+@@ -47,10 +47,9 @@ int nvmet_file_ns_enable(struct nvmet_ns *ns)
+ 		return ret;
  	}
--- 
-2.47.3
+ 
+-	if (!ns->file->f_op->read_iter || !ns->file->f_op->write_iter) {
+-		ret = -EINVAL;
++	ret = file_check_backing(ns->file, FMODE_READ | FMODE_WRITE, S_IFBLK);
++	if (ret)
+ 		goto err;
+-	}
+ 
+ 	nvmet_file_ns_revalidate(ns);
+ 
 
+-- 
+2.53.0
 
