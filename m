@@ -1,70 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794692764;
-	b=KtuaVfsIHMBZBAyxJm/kZs1z1Qgqx4fTp95ctGkMAQwV2EqZcPdA3mbV8XWGOM3jTjrF
-	 Pzx4z8AOTzRXIriupdW3UctO45LOyUJLSebI21p9T6RS+5l5kRq/AW5XSpxcn8Ay/Q4dz
-	 jIocA7TjcujmdYakDRZwA6wjoxONyhhzNkfHeiy+gjAT9Put9AZhjMdcOVn/JMJEJjHIO
-	 F8UU4a5xsXNZ6jJNrlynyDqGbYRUmBy0m4nyMkybSh/wV7HxlMmK/l/cxKPH34aNT2gA4
-	 Ji3+C5is7gRityqV5BtEUyMUXZ5fA5RoGoxVAjEXi+CGFdHcLUZwjVsHyaju6NV4i4w==
+	t=1794693291;
+	b=ivX6Xb5FAMgBdbwk7GUKEfiEY40kgWQA5ndwuMbevK5ubtsCCrUciHgZRgnepPMSNwZt
+	 s4tP4W+h9708MS43ZnA1HfhOje3vLSpldfcY0qFokow17EktIt6xLqAyzD4/qrRvTqTdf
+	 /CBC1+zBT29mQ1SojVCoZUGtUcKeW9GYvxQOU4v81ArUmuLqhiWPLerqk2dO97ybws80A
+	 kYkxi6DMcJY6qBQ/x3UGSOtbeAOoFbXsl5LFde0RrgB99NDLSXzOfi3cjRT1CDGu5LIMu
+	 sOb9z9aE2Qja7KAWlwKTbbJKy3LGz8efbo2iKqIlySkus0Hg4enB5tNYvnIjReXS9pQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794692764;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=gqg88/emFc38P4J1Mas5qTG5S+BH3tBGNUdqoIHsm7I=;
-	b=bvwscu6/rsonQnRD+8u8OJ/PPM2OYWKFomRmio5q4Q4/LsIxKukVtCJ831kfomP7hhuv
-	 MWFvZ6pwdaN9CYBbMEWgZi8mTDM66Py0cgNK36iOjzzGtZ0Dn1vKR1AHES40uKjZnvjyM
-	 +395GWA6gK6abEwLHgYmjiOb7xMAo1757+PQd7jThhRGmYz8NwdWj2HGnjA7S5PHnJgIu
-	 LuPPhlVIlCQlgucFLohPbuZL8d/f6g5kgBtT6OfSMdgQYIG1GpqAlGLOCb19LWvt1J6Pt
-	 aemskW/wE3NWUEckEnWayBDyAsLhWLjOqTxnoExUrt2TZRSQ6C3OGWZD9B91LqaZNRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794693291;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=MU5XNgGhJm4qGtdrFglh8iv5ciWWvcUh9TpKkyBJYjo=;
+	b=1mtuoLG3H58nd7ImEukPs54W/uWXxguugKyZ/zt4CqZxWTwx9UgLMbXLmEcGtfRm0VRz
+	 jnZBMK6xaRtm7sIIrd/DaV6nktGWC/yhC4EcTL4h7zXED/tC6O72+8mTSPkhTktRCPsys
+	 TS57uKsc/BE9pdtStD5SyjO50WUjJ2lbbl9q8GWEE8dLHDjRsPYlDtQUPN/7uI0Iysbde
+	 6mC5lCmeMfdyhWUcyyvnqMjXHWWYlmtDsDZkWKUUfq53LuCd7SOChXKyqBlPLXdSYkqY8
+	 /I+ypS9/tR07P/zYb+Vf/Y+kxJjCM04bih1zyEwoOFvn/CiNBmGc4H2lHLdY7j64ejw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=R4aioWO4;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FIy92zB+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1140606A323;
-	Sat, 14 Nov 2026 21:46:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C1140606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E1EB606A323;
+	Sat, 14 Nov 2026 21:54:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=R4aioWO4
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=gqg88/emFc38P4J1Mas5qTG5S+BH3tBGNUdqoIHsm7I=; b=R4aioWO4OX11sBMgPDbwz90NWc
-	G4oO/MrOZDziirRTPzZZ+D4atniVjcEpLbQIrlXlHHDSQjRmO/2hJRVdqs+pVo+mEBI6hI5S8D69C
-	TgJVL0UclzH3qecoZ8IY9wmP6ZlLsl9c3yGycBo7Rztnl/4dUI4F0R4QsqslbT5UhSRs=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xSLZF-00GXW7-O7; Sat, 14 Nov 2026 22:45:49 +0100
-Date: Sat, 14 Nov 2026 22:45:49 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: aiyengar1990@gmail.com
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: stmmac: dwmac-sun8i: Fix use-after-free
- in the MDIO mux error path
-Message-ID: <f4a0dbf2-4266-4397-a1f5-62b1bc7f3fb2@lunn.ch>
-References: <20261113-sun8i-emac-mux-uaf-v2-1-6203666b2687@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FIy92zB+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BCA71F000C4;
+	Sat, 14 Nov 2026 21:54:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794693290;
+	bh=MU5XNgGhJm4qGtdrFglh8iv5ciWWvcUh9TpKkyBJYjo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=FIy92zB+Q6XXV11Bx9r1d6hblgiehsd1O2WYa4ANqHuoaMNzzpTo/kyfrrl5vWJqU
+	 ntQlUQLehZaQBgb5PHB5XgsgvcpzvDKacjzaPI1D0mhsgTUlE44bsX7wUuFZlbKEVy
+	 2bf9iGRkxrODGLkzXesChHlOpfKM10Ar21sYj0wFzavx9W02CRh/nVciBf1lbn33of
+	 RFNAI7U3T2zGoe8QK8NctZ4IPimWP2/h2Wjo3dajkFGo7hKnMdTyDdQrkd/NIOxJeq
+	 4KueXIk2XzkN6Oe+3U49dByhB2/gIMk6xuZPod2J7aymfou+3hjeBLx6QqpqyydE14
+	 fsnMkL8jCu8lw==
+Date: Sat, 14 Nov 2026 22:54:42 +0100
+From: Christian Brauner <brauner@kernel.org>
+To: Chris Down <chris@chrisdown.name>
+Cc: linux-fsdevel@vger.kernel.org, Jann Horn <jannh@google.com>, 
+	Chris Mason <mason@kernel.org>, Josef Bacik <josef@toxicpanda.com>, 
+	Christoph Hellwig <hch@lst.de>, linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, target-devel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-mm@kvack.org, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, apparmor@lists.ubuntu.com, 
+	linux-nfs@vger.kernel.org, netdev@vger.kernel.org, fuse-devel@lists.linux.dev, 
+	linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, ocfs2-devel@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-usb@vger.kernel.org, 
+	Amir Goldstein <amir73il@gmail.com>, linux-erofs@lists.ozlabs.org, linux-kselftest@vger.kernel.org, 
+	Alexander Mikhalitsyn <alex@amutable.com>
+Subject: Re: [PATCH RFC v2 17/42] securityfs: use fc_init_pseudo()
+Message-ID: <20261114-wohnprojekt-rational-ersetzbar-b338c88cba70@brauner>
+References: <20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org>
+ <20261114-work-loop-pseudo-v2-17-98639a2286fb@kernel.org>
+ <20261114120555.cbfaf8ab8a92fb25@chrisdown.name>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,37 +68,23 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261113-sun8i-emac-mux-uaf-v2-1-6203666b2687@gmail.com>
+In-Reply-To: <20261114120555.cbfaf8ab8a92fb25@chrisdown.name>
 
-On Fri, Nov 13, 2026 at 07:55:00AM +0000, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
-> 
-> If mdio_mux_init() fails after the scan of the internal bus has powered
-> the internal PHY (the external bus returns -EPROBE_DEFER, or an
-> allocation fails), the dwmac_mux error path puts rst_ephy and ephy_clk
-> and then calls stmmac_pltfr_remove(). sun8i_dwmac_exit() then unpowers
-> the PHY through the clock and reset control that were just released.
-> 
-> Unpower the internal PHY before releasing them, as sun8i_dwmac_remove()
-> does.
-> 
-> Fixes: 529254216773 ("net: stmmac: dwmac-sun8i: Balance internal PHY resource references")
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-> ---
-> Sashiko's review of another dwmac-sun8i series of mine pointed this
-> out. Build-tested only (arm64 and arm, W=1): I have no board with the
-> internal PHY (H3, H5 or V3s), so the error path was not exercised.
-> 
-> This patch was developed with Claude (Anthropic), which checked the
-> report against the code and wrote the fix and the commit message. I
-> reviewed it.
-> ---
-> Changes in v2:
-> - Target net-next instead of net, drop Cc: stable (Andrew Lunn)
+On Sat, Nov 14, 2026 at 12:05:55PM -0800, Chris Down wrote:
+> Not a big deal, but userspace can see that node too, as
+> /sys/kernel/security/apparmor/.null. Opening it by path works in current
+> kernels and fails with EACCES after this patch. Now, I don't know of
+> anything that does that, but selinuxfs gets SB_I_NODEV cleared again in
+> the next patch for the same kind of node, so I think we should do the
+> same thing here. If not, it would be good to have a line in the
+> changelog saying that opening it by path is meant to stop working.
 
-Maybe i was not explicitly, sorry. If it is for net-next, it should
-not have a Fixes: tag.
+Yeah, seems fine. Though, afaict aa refuses every read and write on
+.null in aa_file_perm(). So this change only moves the EACCES from
+read()/write() to open(). But I guess open() failing might be an issue,
+idk.
 
-	Andrew
+I really really dislike this device node abuse on for both lsms. It's
+sketchy as hell.
