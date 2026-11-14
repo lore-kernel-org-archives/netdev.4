@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794637352;
-	b=uUekq7dQRIbNmqFu7Y4gOc3slyA7flUA0a1+ilHtQ8VUGQT3BwFjrA5v6mmvYma7S2cq
-	 evwPBj7CSk09nboX+TRtiairsZBuSW8l1rNNhzev0QmHPx8rixnMlq0mW738HCrp719Sk
-	 lohuPQrzSaE+qnE7rTNABw+M3yGlu7r0Sd8YyT3ziXLJH72Qh+SANd+6BL/HNyVwWiL4K
-	 5n1IqsQRlY51tC+weM5kCp+5M8gcIq8LAlg9E+reH3uISIZJb3MVmzTn6sVeC6XxbP+Ik
-	 f3AWMTkjW64jremM7+FywZE8PMqV/WrMO5SDkWKtkQwd5NCTeTbgOWFBdi6paT2jGVw==
+	t=1794637545;
+	b=EDXZieeXCA8BEQQVE5dl76ThUayz/8bJNXnxY4jDyTS28jcb3bhsMM7qb4YVafbIpJ1x
+	 JYJdInVF+K8ABU/kedOwkbBFzIwyJdpDQGiykcgLgHwy33k6E1vZanEgBdg2C/XjqZ+Kj
+	 o0SvtNSH3Tz/BYIH3Y+qsdCX+53htkd3nRndFeXv3UOkHxDjCbtbDst4bRh7aJJmI3a/0
+	 y6HfKmlGCUME/a9lc3e0o2mpp9vlhAJolw6NUsYnPr2d7wDwdUHjtRFx5iSZJ4vQkAMK1
+	 HrlDlhmVvB2O5+OpokFSgtkbq+p6cZQ5Oyfz66RieFxUIeTdLNWslFYdy9a4UAfEuvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794637352;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794637545;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=KyLpXKnKTIyQF0OFuEovgw/bxqguxRHqnAp90g8bfao=;
-	b=2dM4uJxrEDHuJtS3uCg2TG3v/AbetjLRpYf8seLU32S9Ec24KcCp1aAViAEySS+5Csgz
-	 f5bFzV+v76kMytfhD0Z8PxrH0IQ26/7nG3N+MAaHojc2BzhKkYKpDFk/O9tavI3/w3/5v
-	 PZrjyPJeBet02fKAUUQDWLd0p56j/QTDN8dvvNM42iT8Xzmoy0o/EkIaCtZankWVU0HA2
-	 0/SA/W2bRijBgruuUfNwE5HTjDI6crcex9Kiokx50d4boFR9g2OKjtcnUynE9bIwC0t25
-	 T2DXUvLXcIV/wiXQbK9YQsYquzeZ8NgfWIBI986/lzT2dkpTJEu2GcYIXzlK+qlw81A==
+	bh=f1uKAHfLkKAcTOJ7We/ICrLc1X5GLK9RGzsgIrAvm2Y=;
+	b=RPCYpQgM0Z4Yk0IqjY+qTYepmaRFhX6jEKlcSDFMqaAzalx8qgb2g6we9Wgp12B4MSTs
+	 ogE9NqPGYgducEqjtcFoO4U1Q3WARgqCSTGgKYjs5EKoktPy6IhAbezdcCRRBZDtMoRwL
+	 weXHD1JTTgwoI5lFZKWNjxNILoP57tD2CVT2reRYcS3cldBrJQDjpwYgeVbzYk6uAMXKc
+	 OouFvARq1X4o3w4JkgW/PwylE1pCnQijDZjelRMBvLmLlln8imP8gRJxOiQIHMq+NgsMN
+	 ZCM8G0/I0VckmJ/VceFm8DW4sR6hwYE3L9XvkjwzpTnDU3CqDAC4azALcOGt9KFjxEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=mMJFUWim;
-	arc=none smtp.remote-ip=209.85.210.198
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Nwhc0MCz;
+	arc=none smtp.remote-ip=209.85.216.72
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D93D606A323
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 06:22:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D93D606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97D68606A330
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 06:25:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97D68606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=mMJFUWim
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-89f84753b43so1218102b3a.1
-        for <netdev@vger.kernel.org>; Fri, 13 Nov 2026 22:22:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Nwhc0MCz
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3b08aee6b3eso1464797a91.3
+        for <netdev@vger.kernel.org>; Fri, 13 Nov 2026 22:25:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794637352; x=1795242152; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794637544; x=1795242344; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KyLpXKnKTIyQF0OFuEovgw/bxqguxRHqnAp90g8bfao=;
-        b=mMJFUWimdqfkp4EJbS3j07OIyHMSPjcmBn5T4H4u3G6CfdkQg7do7nYlqgilY03S2H
-         /SI4eTidz6FAlIz/hn+/Ox/47OjRrNQSbDNszCmAN+0tzFR3IJNH5F6eEecioZAenTkP
-         OjqMuD36Dz6M/OXCNTijKKaB1UmkUGXV/Bca9LZDgVvDo8aNGDQcq7kbg0i9Y49XkedY
-         CVH37XGJTStX9gk6abeZtqcwNBsD7tNWOZXzlfIBnguxddWQURDpljblDA/Q6ln4ZcR3
-         5Ln4LMRrffERmhiBN4+jMQ6qiYRW2pl52L/NLOwu4LppLLygxYLDcYJ0J9hXDd3dZTZk
-         PoUg==
+        bh=f1uKAHfLkKAcTOJ7We/ICrLc1X5GLK9RGzsgIrAvm2Y=;
+        b=Nwhc0MCzbSYPuNNbwR8XSTcIxOAE4l4DwXd6OJGo6xMpTAlIQroUO2R1yHY4R/qnqb
+         LAN0sZ3NBD4WUdGraiMf29yNuNGFcAk3ZQdAFg1sAFFnMSRBk2/tRUv9TAGT7S2YJcAU
+         praLP6mgHYhXVBhT50NKmDSe3LhdpYquqg3cAluCZ6rCACmsAkOP26wbar3y5uKtrxZH
+         NWramTRZVChFKcjuc9uP5zdXO48JcXBMCS2ASH53JOk93dizCTnDyZjS0k0DYRncUpb8
+         Zg5kr6U9mQBKivVNnyfBll6OJNHsJckKZNGfsW0eW3TmcPDAHoeQ2FP1lNxkKu4ecjGO
+         mDrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794637352; x=1795242152;
+        d=1e100.net; s=20260707; t=1794637544; x=1795242344;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=KyLpXKnKTIyQF0OFuEovgw/bxqguxRHqnAp90g8bfao=;
-        b=jYluZVclZtgFSETpEON7TwbJV5IAJV7WSwhyrHLq8MVsjXOZhlpQY0y3aoEEhbvOV+
-         KVllL4aNkojjE8awhcZbQAUxgiPE84iAcq6IFqRCPOHEKwF20b23glVvlJpfLXGlMhjo
-         X/PxW2Lh+B8vR36493Yu8NE+ru+1VLxZhngjUPx4stdeYgmnX4f/vFpQibOwJMdRf7FQ
-         rS2O6F3jdl8hCg4CNI5mSXwn/YI7sLYsHkJyh6NCb+KNp/LgaWH0eCW1GHhrgNw1RjnV
-         CVM9s5teWSIgf/bKYhDVq7mExxVENr4beoFLdWjMmMQBoDlS5yp6AMUZtvMkEmsyWckM
-         IiCg==
-X-Forwarded-Encrypted: i=1; AL+hErE0cG0T9VVB7BU9/G/YRknxIPLzvEOgkVwdG6pL8MxOb15HOIB8LHk38QVwZm2MQ2NWQrVDAnc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8d0IYyQvQ4ul8ZYnRSPFrA6XWqYiACSMppx9Nb4K2neM/Q4SGT
-	CQRRcnpnxdyhha+wZ0VB3WmQf4vfX05Dl1o32mX4vSkWQ7fg5LC6R7pPHCuivmA5HRMkttXueOZ
-	yPPan3Q==
-X-Received: from pffj8-n1.prod.google.com ([2002:a05:6a00:c2c8:10b0:8b6:c93c:12fa])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:17a8:b0:88d:3f61:20f3
- with SMTP id d2e1a72fcca58-8beb80023bbmr4277418b3a.54.1794637351416; Fri, 13
- Nov 2026 22:22:31 -0800 (PST)
-Date: Sat, 14 Nov 2026 06:22:30 +0000
-In-Reply-To: <20261111-mtu-probing-series-v4-4-6f2e484ca8ea@gmail.com>
+        bh=f1uKAHfLkKAcTOJ7We/ICrLc1X5GLK9RGzsgIrAvm2Y=;
+        b=J02yoZYTwPwn/mJLgUSBzMxh0nAEwE72ilUO81LFTQ0sEGEmkX61kkT9WSjGsV7KzW
+         3giPckqSPplf3YjckgSv+hynyUMwX9bvOZDAgrrhlNeo3JSnFmDl3H15HpXmO9Sl5H5F
+         HS+ICoiQ05YGpVI9bhLbVz5hFDxu8XVZagWpa6iGgEjmXuDXMMaLnCaile0EaZIs8OAr
+         S+dyH3j3VYh+mJ0AbOpNFlXJ51TDElWusVxRjilwtSH3IVzPTdH/D5x1kKrA5xLGd/Ui
+         S0XOMS6zS7cG+2HcimbwndDW/hozVaXeRRgiT5jCQJIJp8dfsvcxXkYkSiOOE5KoXOiI
+         6kPg==
+X-Forwarded-Encrypted: i=1; AL+hErFbmCuk2H350AKryihLVXwsyi5FuCmbmZe/QwZOUDxySpVdADJBwvjIpzlukbyHTFxmNqVeyF4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/zO46QiGxCvKAts9sbblMm8xhAkXibTJCrL1xM/fvodo8o8DX/
+	A1Jxf78uHGScE4Pw7a1HbVcakog5jpLyqERUxcZ04X/7pHZLEgGU3l/41+FYHx/ahXB6vL3Y7Ft
+	trZ22eA==
+X-Received: from pjuz16.prod.google.com ([2002:a17:90a:d790:b0:3b0:7a3d:ca4b])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:5703:b0:3ab:de4:7fa5
+ with SMTP id 98e67ed59e1d1-3b1b0b659b2mr5001372a91.56.1794637543782; Fri, 13
+ Nov 2026 22:25:43 -0800 (PST)
+Date: Sat, 14 Nov 2026 06:25:43 +0000
+In-Reply-To: <20261110204524.82341-1-ethanf108@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,33 +78,87 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261111-mtu-probing-series-v4-0-6f2e484ca8ea@gmail.com> <20261111-mtu-probing-series-v4-4-6f2e484ca8ea@gmail.com>
-Message-ID: <avf-GWBmzjHr5agk@google.com>
-Subject: Re: [PATCH net-next v4 4/4] selftests/net: packetdrill: add TCP MTU
- probing test
+References: <20261110204524.82341-1-ethanf108@gmail.com>
+Message-ID: <avf-PdwTjpqN7d0D@google.com>
+Subject: Re: [PATCH] net: remove CONFIG_NETDEVICES requirement for
+ SO_BINDTODEVICE and SO_BINDTOIFINDEX
 From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Yongjian Wang <echoowall@gmail.com>
-Cc: pabeni@redhat.com, kuba@kernel.org, shuah@kernel.org, edumazet@kernel.org, 
-	horms@kernel.org, ncardwell@google.com, davem@davemloft.net, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	netdev@vger.kernel.org, panweiping3@gmail.com
+To: Ethan Ferguson <ethanf108@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 
-On Wed, 11 Nov 2026 00:45:58 +0800, Yongjian Wang wrote:
-> Packetization layer path MTU discovery (net.ipv4.tcp_mtu_probing=2) has
-> no selftest coverage.
+On Tue, 10 Nov 2026 15:45:24 -0500, Ethan Ferguson wrote:
+> The SO_BINDTODEVICE and SO_BINDTOIFINDEX sockopts return -ENOPROTOOPT
+> if CONFIG_NETDEVICES is disabled, even if the lo interface exists. I
+> believe it would be prudent to allow for valid bindings even if
+> CONFIG_NETDEVICES were disabled, as an error here would be inconsistent.
 > 
-> Add a test for an active connection. Check that it starts at
-> tcp_base_mss, that it sends the first probe half way between
-> tcp_base_mss and the peer's MSS once cwnd allows it, and that an
-> acknowledged probe raises the MSS and leads to a larger probe.
+> Signed-off-by: Ethan Ferguson <ethanf108@gmail.com>
 > 
-> The SYN offers timestamps and the scripted SYN-ACK declines them.
-> This also checks that MTU probing uses the negotiated header length
-> for the initial send MSS.
+> ---
+>  net/core/sock.c | 56 +++++++++++++------------------------------------
+>  1 file changed, 15 insertions(+), 41 deletions(-)
 > 
-> Signed-off-by: Yongjian Wang <echoowall@gmail.com>
+> diff --git a/net/core/sock.c b/net/core/sock.c
+> index e8551df8330f..d2da59700ecf 100644
+> --- a/net/core/sock.c
+> +++ b/net/core/sock.c
+> @@ -634,18 +634,14 @@ EXPORT_SYMBOL(sk_dst_check);
+>  
+>  static int sock_bindtoindex_locked(struct sock *sk, int ifindex)
+>  {
+> -	int ret = -ENOPROTOOPT;
+> -#ifdef CONFIG_NETDEVICES
+>  	struct net *net = sock_net(sk);
+>  
+>  	/* Sorry... */
+> -	ret = -EPERM;
+>  	if (sk->sk_bound_dev_if && !ns_capable(net->user_ns, CAP_NET_RAW))
+> -		goto out;
+> +		return -EPERM;
+>  
+> -	ret = -EINVAL;
+>  	if (ifindex < 0)
+> -		goto out;
+> +		return -EINVAL;
+>  
+>  	/* Paired with all READ_ONCE() done locklessly. */
+>  	WRITE_ONCE(sk->sk_bound_dev_if, ifindex);
+> @@ -654,12 +650,7 @@ static int sock_bindtoindex_locked(struct sock *sk, int ifindex)
+>  		sk->sk_prot->rehash(sk);
+>  	sk_dst_reset(sk);
+>  
+> -	ret = 0;
+> -
+> -out:
+> -#endif
+> -
+> -	return ret;
+> +	return 0;
+>  }
+>  
+>  int sock_bindtoindex(struct sock *sk, int ifindex, bool lock_sk)
+> @@ -678,15 +669,12 @@ EXPORT_SYMBOL(sock_bindtoindex);
+>  
+>  static int sock_setbindtodevice(struct sock *sk, sockptr_t optval, int optlen)
+>  {
+> -	int ret = -ENOPROTOOPT;
+> -#ifdef CONFIG_NETDEVICES
+> +	int ret, index;
+>  	struct net *net = sock_net(sk);
+>  	char devname[IFNAMSIZ];
+> -	int index;
 
-Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
+nit: keep the reverse xmas tree order.
 
-Thanks
+Also, please specify the target tree in the Subject.
+
+  [PATCH net-next v2] ....
+
+See Documentation/process/maintainer-netdev.rst
+
+---
+pw-bot: cr
