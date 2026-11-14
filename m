@@ -1,107 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794696808;
-	b=gYudBmeCmBOggVQHKDEUNzcibIcoAn2pFXRuAfa59BmM76C45sjYPwKZn43MSOic9jfn
-	 gkxs7lhv4s58/cXJUUSCq2RpWrgxy5S5gDxfq99pqHZH427BaATolk4iGFY+tXUBXg7WD
-	 ObFSwanbuzinJkuL9YexF25z0zAxCayQKto/rOL98yhPefzBxu7meWdgWMylq07XjoSQO
-	 YjK6wHba/ySfrM7CIH6lZRHLRsRecPDJYIS0URzy32mp05TiqDuzai30jLjoMruPmvo+q
-	 E87L9jEYnkzm/vRIBS3WD7roKe7bh05RQ4rvyhsBQ0X99Sy/SUbBKpD2Lblu6gHSR5Q==
+	t=1794696903;
+	b=LGPs2rrE3tszJHUvXA6FeC8j2NPdgq0HQHYumx4RLVuoAwxy4QqRbSMH6aNzAodenCE9
+	 57PnBVkx8dyRHdL+GG93Jfl7AhndaKVo0vf8Ul0wfsKZj414cjKNE56KcZxYY/cM0GhpJ
+	 LmKPtjU3MNdAuDUP+rnpMn4Iqummk7f/W8LJa9L9nzs94OpgDtLaA3p0KrHK/Z/AGAEnu
+	 yHdb9rCpooPrADjiOj6SWIFtpfTtzmn+LZX/KtiozFKyciMF1nSjnOqv83j+AQaT5yJG4
+	 Qx/0+DAFt2Y0y6hQCrC6ib9fFkrs5oZ8ZO2CxG3uQ9oU47on32rfjguHRb8zJDl9XnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794696808;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=zfcSy76pYo4+KmPuxjlwpmlNL9IIkiVdSH2l/JZ+u80=;
-	b=VsedK4JL3iCEDKKZqkkqQYeHZpB5gX9CuO2Y7Zeplh45eZuNdrvA+/ZtYBM+zPlq7pjf
-	 klHEhGrHnAAZV2AV/BzCwxIvR2Udw0ILeSGIu9BPWrc8hIvTC80sm1R4MH002DDZL1Neb
-	 VKThn96c7eNvqDEHEXdYCUGYkiHCN0HRrcx/9J+ZOJUCsSeP71ympCaxAKonecdr1jsJN
-	 Ei+KBTSI3Hj8Y72zzCZCo7XV9bCs+G6ONdTolzRNlhvPCoV5M8WDBNllxXlSnqu81BQqS
-	 quKFSQhppECQtHG0xmzFJnx37V6MvPK9iUes6MzVkwknSXFoFZ8IGON+AD5BGKmUGIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794696903;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=AwLtpM86VpsnnK+7uMHIt8eLqok2JSlouQ2cKrdoe24=;
+	b=Ro7hmhcWYokOycUBcftfUvVmCmmXcOZpjKgYYeKYyWR1/6y2rQ+PlR1YDNS+Ox2gmcMQ
+	 AxsoSh640wxrg4lojrYO7hF9DSi9lN8KcgnLf6vL/Lk/iwi/UTutJAOa1bVDfN/VVX4hg
+	 4rdENisThRxShZYrwzBBXHjaXPrJOrJLQ1t3UBhPJg81Fvx5Jfh7WRC0Io5zLid/G4Tkc
+	 gY1eyrq5SqGvJyjG4Yqh6IP4GQXMOXv3vZ5iIC9CvwIEUlLCWJ5wj9aeKla1emwc2iLv+
+	 t7OxkhVA9toS9fPWVpXlQ5AW3wKae/OZUEI3lRcnCRT8V9BYwbJCJ9S5YZtQsEnUgtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=WVDVM5XQ;
-	arc=none smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PaRg3yZ2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D43BE606A336
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 22:53:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D43BE606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FEFA606A329;
+	Sat, 14 Nov 2026 22:55:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=WVDVM5XQ
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c506a231b88so334043766b.3
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 14:53:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1794696806; x=1795301606; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=zfcSy76pYo4+KmPuxjlwpmlNL9IIkiVdSH2l/JZ+u80=;
-        b=WVDVM5XQG3t/Bo7HS7Tigvyud05fMDOAaA8BPCeYOMI6LaIvUW2FX8gVx2f2baykr+
-         d1TdeGs0Ul/DdFpwSaTgwfvK6i2Up0BHJzTCYhQAUDrheAUAaEgAFvXyW4M63SHSNMfL
-         quvRbJt650ysIa5khgGUmixmcazBUEPPwfBDtpSHsL/Z9mz/o6FbiUfkVEJqT4RXnaCm
-         YqLQNQi9hUD0IHinpo3nMI+JQ7FOohAqtx0tP/Ncd3wjS6Xs8pFIDRU3vIb4JiMqWTAf
-         8qmdanyktukRUAS6BuacjKgppybfuy4tezD4EBQ3OF3PmbOo+6b2zL3PDhOO0Cdyn4x4
-         AgQw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794696806; x=1795301606;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zfcSy76pYo4+KmPuxjlwpmlNL9IIkiVdSH2l/JZ+u80=;
-        b=edfBKLPk5HrCXNHrkKrpDksNbOLDBpQvbu+b7vxV7Z9TwJ3rGJwVSmzvEllK5OGDfQ
-         3stCvpsv+mBsYxunV1OEwy7MFcCSynNOKA6tzBU0itiAvLYUDt4UDKJoN4BqKPjUGS//
-         6uPn0QaY0UU0Az8Op9nEnhNPoxJXDnKV7ONJoTdTZ0V+RFBovHSCOIG5Amz0sdNNQmQh
-         iDn5g7OmwnZN8Ncqy7ThqUclKrj/Iyk3mYoBgN7M350IMr2osEFd1p9v4XhAjVhqrdZZ
-         nzF8k1O+2psYrAmWM7eBI5/2ePBmEgd/27P04WuFqB0U+v2BnnZhHiMf3D7/0NGiaXKv
-         Vxkw==
-X-Gm-Message-State: APuU4Z+8RonX+k2QNnpaipaggLbJoe+VBNPAYNbEgJyNy3ZEyydWP16z
-	Mpqjrfi6b7dQ6Z8injC7yOGg9sy+1u3AGE4Gf+wNfikcAWBdY/2hnRGoUNC9c6bRQQ9q5g2FUYb
-	5NrK2Vlyo
-X-Gm-Gg: AYBFou3vnhz+W2M+bBtUreMKOoMg4AB2UGHt5z3Q4novXkerSpG+QZLZQc3OrDGvehH
-	EQe7pR5FOgETfHrFnCU0ZtEsGSrF8e36Ac8d5m9uIndE40J0bn+73L3FnXDOObeh558uk59URCs
-	/a0PviNmT/d6s9wpSoMs/4xli64UPdfWhLlgeCp1cNPZyh4oaakVQ8IxBoE5m3ZLhyEL6IqzY3e
-	GYq15EIP6P1h5keQwd+Qe7GJ7vJd+sBoLmCQrW640+G/wrzKechS7pvQ3FXWgVcZwP7qrZvEtZX
-	pZYKPb/AF1EsYLBKNoQOrrA2BQ7PmloxLUF02NWmSLRgDUpcp98lAGnQsj5fJNBCS1YUKCiZnf7
-	hoy40ZE7YI6uYOEb7j4T47J/vX97VJJX3S8hAySfZKc7ZbwjAwBfCLc/SfM+kiqkzzkqooMqmjo
-	eE621nvsaMin/KNS6NR+A/raof1TeTjzvUUc9pfKQQphyZUgDUr0900fBm96e4yunEfNmkbSgun
-	uN4URM0CwMUYrB8vJmyaLpBbOa8FovUhBSKGWgCWxEn6bOcNzTO8VS78gNhr9p3WX3INgyadRPp
-	1OuRu6SGmPDft2fp2/SBwTarSRb6E1J0+vulfL+6cFcxcpErCd6GGOmfxs4BytNFx+EcoSuDsJ4
-	Yzdra/bGGDa34oV/Y7ItLmXnhi/uwIJ5VDZBrshfkXXv/08BzzfOGNdVrK3YGsXjaPqvQ6wZUTR
-	zXPzV/r7hodAp39Zochi/JjWj8FVYWKooOwn6xYeulKN6Cp8mpMLeuGyDKwetTic1DvQSOrb/42
-	elF47B9pmOjOKX0tyeegTAeceCzQXvw3YXUM3zn5wzEIDkeSKEiEhKI68na2n0i47+EiV7+7M52
-	qWIJb+jBoYui1QicepBjXRT/hXv5+v/epDDhlJnZa0NFfe7O1p0wRZsrJzVRwZ05ZxdbGCRYF0D
-	gihvMSbhDww==
-X-Received: by 2002:a17:906:9fcd:b0:c50:9149:48e4 with SMTP id a640c23a62f3a-c50963db437mr499324666b.11.1794696806243;
-        Sat, 14 Nov 2026 14:53:26 -0800 (PST)
-Received: from Desktop.fritz.box (p200300f24709e8006da21e9e53ecde1c.dip0.t-ipconnect.de. [2003:f2:4709:e800:6da2:1e9e:53ec:de1c])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095b56df7sm262479666b.47.2026.11.14.14.53.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 14:53:25 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>
-Cc: netdev@vger.kernel.org,
-	bridge@lists.linux.dev,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 1/2] net: bridge: switchdev: add br_switchdev_fdb_find_port()
-Date: Sat, 14 Nov 2026 23:53:22 +0100
-Message-ID: <ce6ea6a96b66c70b882832a07c36caf12193c6c2.1794696609.git.julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <cover.1794696608.git.julius@bairaktaris.de>
-References: <cover.1794696608.git.julius@bairaktaris.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PaRg3yZ2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3CC91F000C4;
+	Sat, 14 Nov 2026 22:55:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794696903;
+	bh=AwLtpM86VpsnnK+7uMHIt8eLqok2JSlouQ2cKrdoe24=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PaRg3yZ2KodS4qjZTfLXAgWRKyc3dVn4Y7qSiVlmcl9ANTZP9U6aYG5+ClzLFbp1u
+	 i95xLc6DjBLiPkK86ymbA9CDlmRnRj12xVY/Z6fRw2D7faFpsOuvLwlJZUpE0Fx0vB
+	 u4F4WGrNVlEQUhDRIw9UnfR8tr89X4pBZcIOQl4Jxj5hu1Om5UjpRmkPdHQetXnFjF
+	 abQlqHN6JKKDIubWIQDqUmzFkEPJieOloPi4UzYkv2z6NF/eg4I5eTIcDrwPt7ULL0
+	 JRYL+rV0QhELnsd8a0if+U67SrJYCaVJxUvIMv8AKXUbULqyDWKhe3ttCOH1/Q39bU
+	 MeKzQYjNy/zrg==
+Subject:
+ Re: [PATCH net 2/2] selftests: netfilter: cover IPv6 FIB rule suppression
+From: netdev-bot+sashiko@kernel.org
+To: leonard@lausen.nl
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
+ shuah@kernel.org, daniel@iogearbox.net, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Sat, 14 Nov 2026 22:55:01 +0000
+Message-ID: <179469690148.2199510.9157183592994872143@kernel.org>
+In-Reply-To: <20261110131638.15004-7-leonard@lausen.nl>
+References: <20261110131638.15004-7-leonard@lausen.nl>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,150 +66,188 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Add an RCU lookup that returns the device br_switchdev_fdb_notify()
-reports an FDB entry on: its port, or the bridge for a local entry. It
-does not find the entries whose addition the bridge does not notify to
-switchdev: locked entries, entries the user added as "master dynamic",
-and entries a switchdev driver learned.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-A switchdev driver that handles FDB events from a workqueue cannot take
-RTNL for br_fdb_find_port(), and has to look up where the bridge has an
-entry when it handles an event. The next patch uses the helper for this
-in DSA. The filter of br_switchdev_fdb_notify() moves into a helper that
-both use, with no functional change; the learning path does not change.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
----
-Changes in v2:
-- Kernel-doc and message state what the lookup returns: the bridge for
-  a local entry, the port otherwise, nothing for locked, "master
-  dynamic" and driver-learned entries.
-- Report whether the entry was added by the user.
-- The message names the DSA caller.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
- include/linux/if_bridge.h | 14 ++++++++
- net/bridge/br_switchdev.c | 72 ++++++++++++++++++++++++++++++++++-----
- 2 files changed, 77 insertions(+), 9 deletions(-)
+- [Medium] The ICMPv6 neighbour discovery replies that this test itself
+  triggers can make the existing logging RPF rule fire, and…
+- [Low] The new reject-route checks in nft_fib.sh only create legacy
+  reject route types, via `ip -6 route replace $type default table 128`…
 
-diff --git a/include/linux/if_bridge.h b/include/linux/if_bridge.h
-index 75673b8bffcb8..027147d618a4e 100644
---- a/include/linux/if_bridge.h
-+++ b/include/linux/if_bridge.h
-@@ -201,6 +201,20 @@ static inline int br_mst_get_state(const struct net_device *dev, u16 msti,
- }
- #endif
- 
-+#if IS_ENABLED(CONFIG_BRIDGE) && IS_ENABLED(CONFIG_NET_SWITCHDEV)
-+struct net_device *br_switchdev_fdb_find_port(struct net_device *br_dev,
-+					      const unsigned char *addr,
-+					      u16 vid, bool *added_by_user);
-+#else
-+static inline struct net_device *
-+br_switchdev_fdb_find_port(struct net_device *br_dev,
-+			   const unsigned char *addr, u16 vid,
-+			   bool *added_by_user)
-+{
-+	return NULL;
-+}
-+#endif
-+
- #if IS_ENABLED(CONFIG_BRIDGE)
- struct net_device *br_fdb_find_port(const struct net_device *br_dev,
- 				    const unsigned char *addr,
-diff --git a/net/bridge/br_switchdev.c b/net/bridge/br_switchdev.c
-index 10f3aea6a1f82..f832657c0c22e 100644
---- a/net/bridge/br_switchdev.c
-+++ b/net/bridge/br_switchdev.c
-@@ -141,14 +141,10 @@ static void br_switchdev_fdb_populate(struct net_bridge *br,
- 	item->info.ctx = ctx;
- }
- 
--void
--br_switchdev_fdb_notify(struct net_bridge *br,
--			const struct net_bridge_fdb_entry *fdb, int type)
-+static bool br_switchdev_fdb_notifies(const struct net_bridge_fdb_entry *fdb)
- {
--	struct switchdev_notifier_fdb_info item;
--
- 	if (test_bit(BR_FDB_LOCKED, &fdb->flags))
--		return;
-+		return false;
- 
- 	/* Entries with these flags were created using ndm_state == NUD_REACHABLE,
- 	 * ndm_flags == NTF_MASTER( | NTF_STICKY), ext_flags == 0 by something
-@@ -156,9 +152,67 @@ br_switchdev_fdb_notify(struct net_bridge *br,
- 	 * Drivers don't know how to deal with these, so don't notify them to
- 	 * avoid confusing them.
- 	 */
--	if (test_bit(BR_FDB_ADDED_BY_USER, &fdb->flags) &&
--	    !test_bit(BR_FDB_STATIC, &fdb->flags) &&
--	    !test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags))
-+	return !test_bit(BR_FDB_ADDED_BY_USER, &fdb->flags) ||
-+	       test_bit(BR_FDB_STATIC, &fdb->flags) ||
-+	       test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags);
-+}
-+
-+/**
-+ * br_switchdev_fdb_find_port - find the device a switchdev entry is reported on
-+ * @br_dev: the bridge device
-+ * @addr: the MAC address of the entry
-+ * @vid: the VLAN of the entry
-+ * @added_by_user: set to whether the entry was added by the user, may be NULL
-+ *
-+ * Must be called under RCU; the device is valid until the read-side critical
-+ * section ends.
-+ *
-+ * Return: the device that br_switchdev_fdb_notify() reports the entry for
-+ * @addr and @vid on: its port, or @br_dev for a local entry. NULL if there is
-+ * no such entry, or if it is locked, was added with "master dynamic", or was
-+ * learned by a switchdev driver, whose addition br_switchdev_fdb_notify()
-+ * does not report.
-+ */
-+struct net_device *br_switchdev_fdb_find_port(struct net_device *br_dev,
-+					      const unsigned char *addr,
-+					      u16 vid, bool *added_by_user)
-+{
-+	const struct net_bridge_port *p;
-+	struct net_bridge_fdb_entry *f;
-+	bool by_user;
-+
-+	RCU_LOCKDEP_WARN(!rcu_read_lock_held(), "suspicious use outside RCU");
-+
-+	if (!netif_is_bridge_master(br_dev))
-+		return NULL;
-+
-+	f = br_fdb_find_rcu(netdev_priv(br_dev), addr, vid);
-+	if (!f || !br_switchdev_fdb_notifies(f))
-+		return NULL;
-+
-+	by_user = test_bit(BR_FDB_ADDED_BY_USER, &f->flags);
-+	if (!by_user && test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &f->flags))
-+		return NULL;
-+
-+	if (added_by_user)
-+		*added_by_user = by_user;
-+
-+	if (test_bit(BR_FDB_LOCAL, &f->flags))
-+		return br_dev;
-+
-+	p = br_fdb_dst_port(f);
-+
-+	return p ? p->dev : NULL;
-+}
-+EXPORT_SYMBOL_GPL(br_switchdev_fdb_find_port);
-+
-+void
-+br_switchdev_fdb_notify(struct net_bridge *br,
-+			const struct net_bridge_fdb_entry *fdb, int type)
-+{
-+	struct switchdev_notifier_fdb_info item;
-+
-+	if (!br_switchdev_fdb_notifies(fdb))
- 		return;
- 
- 	br_switchdev_fdb_populate(br, &item, fdb, NULL);
+--
+
+selftests: netfilter: cover IPv6 FIB rule suppression
+
+This commit extends nft_fib.sh to exercise suppress_prefixlength and
+suppress_ifgroup for IPv6 FIB rules. It checks that default routes and
+routes through a matching interface group are suppressed. It also checks
+that non-default routes and nonmatching groups stay usable, and that
+blackhole, unreachable and prohibit routes remain terminal.
+
+> diff --git a/tools/testing/selftests/net/netfilter/nft_fib.sh b/tools/testing/selftests/net/netfilter/nft_fib.sh
+> index 04544905c2164..02b6257946694 100755
+> --- a/tools/testing/selftests/net/netfilter/nft_fib.sh
+> +++ b/tools/testing/selftests/net/netfilter/nft_fib.sh
+> @@ -202,6 +202,38 @@ check_fib_counter() {
+>  	return 0
+>  }
+>  
+> +# Count and drop probes before the existing RPF rules can log expected failures.
+> +test_fib_suppress() {
+> +	local label="$1" expected="$2"
+> +	local result="${3:-oifname}" err=0
+> +
+> +	ip netns exec "$nsrouter" nft -f /dev/stdin <<EOF || return 1
+> +flush table ip6 filter
+> +table ip6 filter {
+> +	chain prerouting {
+> +		type filter hook prerouting priority -1;
+> +		ip6 saddr dead:1::99 icmpv6 type echo-request \
+> +			fib saddr . mark $result "$expected" counter drop
+> +	}
+> +}
+> +EOF
+
+[Severity: Medium]
+
+The comment above test_fib_suppress() says probes are dropped before the
+existing RPF rules can log expected failures. This chain only matches
+echo-request, though.
+
+Can other ICMPv6 packets from dead:1::99 still reach the logging rule that
+load_ruleset() installed on nsrouter?
+
+load_ruleset() {
+    ...
+	        fib saddr . iif oif missing counter log prefix "$netns nft_rpfilter: " drop
+    ...
+}
+
+In most of the states this block sets up, dead:1::99 does not resolve to
+veth0. In "retain non-default route" and "retain nonmatching interface
+group" the lookup picks dead:1::/64 dev veth1. In the six reject loop
+states, nft_fib6_eval() returns with no oif.
+
+The block itself looks like it produces such a packet:
+
+1. The first ping makes ns1 send an NS from dead:1::99. ndisc_recv_ns() on
+   nsrouter creates a NUD_STALE neighbour entry. Sending the NA reply moves
+   it to NUD_DELAY with a DELAY_PROBE_TIME (5s) timer.
+
+2. All echo-requests are dropped, so nothing confirms the entry. About 5s
+   later neigh_timer_handler() moves it to NUD_PROBE, and nsrouter sends a
+   unicast NS to dead:1::99.
+
+3. ns1 answers through ndisc_send_na(). The target is its own address, so
+   the NA is sourced from dead:1::99:
+
+   net/ipv6/ndisc.c:ndisc_send_na() {
+       ...
+	ifp = ipv6_get_ifaddr(dev_net(dev), solicited_addr, dev, 1);
+	if (ifp) {
+		src_addr = solicited_addr;
+       ...
+   }
+
+4. The NA does not match the echo-request chain. The RPF rule checks it
+   under the current pref 100/101 rules, then logs and drops it. With
+   ucast_probes=3, nsrouter retries at about +1s and +2s.
+
+ns1's own NUD probes do not seem to cause this. In the NUD_PROBE state,
+ndisc_send_ns() uses the link-local source, and the "to dead:1::99" rules
+do not match that. The trigger is nsrouter's NUD_DELAY to NUD_PROBE
+transition.
+
+Right after the block, check_drops() greps the global dmesg:
+
+    test_ping 10.0.2.1 dead:2::1 || exit 1
+    check_drops
+
+Would this print "FAIL: rpfilter did drop packets" and set ret=1?
+
+That would also hide the later "PASS: fib expression did not cause
+unwanted packet drops" message, even when every suppression check passed.
+It only happens if the block runs longer than about 5s after the first
+probe. That seems plausible on slow or debug kernels such as KASAN or
+lockdep builds.
+
+Some possible ways to avoid it:
+
+- Install permanent neighbour entries on both sides while the block runs.
+- Temporarily flush or replace the logging inet prerouting rule.
+- Also drop nd-neighbor-advert from dead:1::99 in the priority -1 chain.
+
+An accept in the priority -1 chain would not help, because the priority 0
+base chain still runs.
+
+[ ... ]
+
+> @@ -724,6 +756,42 @@ test_fib_vrf()
+
+[ ... ]
+
+> +# Reject routes use loopback (group 0) and must remain terminal.
+> +ip -net "$nsrouter" -6 route flush table 128
+> +for suppress in suppress_prefixlength suppress_ifgroup; do
+> +	ip -net "$nsrouter" -6 rule del pref 100
+> +	ip -net "$nsrouter" -6 rule add pref 100 to dead:1::99 table 128 "$suppress" 0 || exit 1
+> +	for type in blackhole unreachable prohibit; do
+> +		ip -net "$nsrouter" -6 route replace "$type" default table 128 || exit 1
+> +		test_fib_suppress "retain $type ($suppress)" "$type" type || ret=1
+> +	done
+> +done
+
+[Severity: Low]
+
+This loop only creates legacy reject route types. Should it also cover a
+route that uses a blackhole nexthop object?
+
+The companion commit "ipv6: honor rule suppression in raw FIB lookups"
+reads the result flags in fib6_rule_suppress(). Its commit message says
+this is so blackhole nexthop objects are covered too:
+
+net/ipv6/fib6_rules.c:fib6_rule_suppress() {
+    ...
+	if (arg->lookup_ptr == fib6_table_lookup) {
+		/* Raw lookups report reject routes without an error. */
+		if (res->fib6_flags & RTF_REJECT)
+			return false;
+    ...
+}
+
+Blackhole, unreachable and prohibit routes have RTF_REJECT both in
+f6i->fib6_flags and in the result. A blackhole nexthop sets it only in the
+result, in __find_rr_leaf():
+
+net/ipv6/route.c:__find_rr_leaf() {
+    ...
+			if (nexthop_is_blackhole(f6i->nh)) {
+				res->fib6_flags = RTF_REJECT;
+				res->fib6_type = RTN_BLACKHOLE;
+    ...
+}
+
+This means the new checks cannot tell res->fib6_flags apart from
+res->f6i->fib6_flags.
+
+Suppose the guard were changed to read the FIB entry flags. A blackhole
+nexthop default route in table 128 would then be suppressed, and the lookup
+would fall through to table 129 (veth0). The tests here would still pass.
+
+Something like this inside the suppress loop might cover it:
+
+    ip -net "$nsrouter" nexthop add id N blackhole
+    ip -net "$nsrouter" -6 route replace default nhid N table 128
+    test_fib_suppress "retain blackhole nexthop ($suppress)" blackhole type
+
 -- 
-2.53.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110131638.15004-3-leonard%40lausen.nl
