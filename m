@@ -1,136 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794690308;
-	b=VhHCuxhY2bL8LK65N0fMQCP2s4ji/jPtSvKtKzloce3a2whHhE4hez87nhUkDBS7noKN
-	 bqyX9f9/fKNXnZEBHQIYCV5SyldjfLnLqtEIhVxGIZEkf9eOX2X473WTHlgBl0uytIJSm
-	 Y+opKrvvsIx+L9FaXpskgbmE6yx+FeRIImwTwO/+VoKFIjcbuUUMSljPqVj8pSGmji/fo
-	 9JL/XWWm+f0SvwEMBrCkWaV3BmeOypC32GMFZ+fEiM+mAFgGI02ZPezTQxY4POv6Lbm17
-	 m0AkDADe+IR7kDZTGiXxVtCGgdrRBDLzph71CS1Urb49tRwdetwu50kCRVGqrDOiPEw==
+	t=1794691682;
+	b=Mn/xSmRV5FLQU/wzou2bBKdrKC4U6jsOxTPiF+ItWuh41jrvr4U0QN7u6mY+n1czH1a/
+	 WSppVgtymG+XIDaovgI2qc0T+q/YR9JU2pRnhVqt0EN/seXrYNKcMPryw1L3WQ2djigWF
+	 2hiOSgHUk1ZyWbhw8pfsj8NlVoM6piBKhhJV/U1OwGqwAtW7z270WbYqV8LgvCITfWVMf
+	 hJEl+q9O872HX06Qbqzfo4c8OWhpb4j/L1Q2Z5gLWx6MbaiZVGzJfkePz8Fytd3SFZVVS
+	 I3XDiKLaomLzQKg8VXytHGvUxNh1Cu0EWWm126d++hoM5Fl5gGqW7dLyW7Xz0SPU/pQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794690308;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=S6r9JliYuLkU6bNVnsHUex3XuU8S/UM2soCRpJowQjE=;
-	b=pO/0ZQDDLxSmAUt/eM8rrIRKlQgZVsZcY6epVzACIAmDq/7CS8V+aMv2n47EkpEF+4tE
-	 snJuxroAqKl09JvJujK3XNJVP8l8g4bI8G96ExmR8t9quLW5hlcr3VgyLFCvcuA67bwi/
-	 QWhbzGQ7w1msTCEvE0nXonJ/6sSJ6mOdIXFCDEZQvNRb2azVmWRS2Ax20WVyN75Tg3uc2
-	 HEtRZXWLM9gROsTArDuovTyXb+2Thrgb2rbDORrYZsyUAWFan2XwxAv9rQ34GwLOhTiiJ
-	 B/0OhLNIHXMLXC3QavvMHyDomtIsiUYuCFR++SOM5IQA0p+jUtQlayGUPwJ12AWa4qQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794691682;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=aVQSe+ztLuuVQxQ0MYdkDhLji+45l67wuJIEeQLK6Nc=;
+	b=UNoWVNJvmXPneGUXc52bJU5g+OAHK/quLkCrfwYDVrfmwsx72ayABMwFfnhZ0MDaiwUj
+	 fBKNS+1zL7SruL25qNX+JAWWz/6eLf4npdG1g5zm29GoFLa95XBK3Ildf6Fy6n12Q+3+H
+	 t2bf9HI7Oq3hXD/nazVxP3CFwM7GXBdglonzgDUWkxSrBrtVOp55rl+M8UmLvF359Xngb
+	 UR/KFtJegY5MokbAq7/Sx3uv0sPKX1hXM1U+rPJ+mJCNJ9dImwoSVvJnQDexwtJWNnUT2
+	 QF48AOpHweEmMAkwOftjoM6yTVba4WMVk3qK1t9JKGs/JYZhDLxy1soPBE+MEpLROTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=Fb5v+9t5;
-	arc=none smtp.remote-ip=209.85.208.44
-Received: from mail-ed1-f44.google.com (mail-ed1-f44.google.com [209.85.208.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=DgnE4Ee7;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9097C606A331
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 21:05:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9097C606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6D37606A327;
+	Sat, 14 Nov 2026 21:28:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6D37606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=Fb5v+9t5
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-6b587591414so2858259a12.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 13:05:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1794690307; x=1795295107; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=S6r9JliYuLkU6bNVnsHUex3XuU8S/UM2soCRpJowQjE=;
-        b=Fb5v+9t5HQpH99lBDL6eSyXCd561d6T4RIG3tul3obk+hV+lLvqwx2E/a53VBrruzj
-         C7QdCNRUNH/J3utrvpe2c/geGqZ5Sl8S8ROXMNSnD6HIxac1Ng+Ry9w9h6KKx9WqPGRk
-         nL5/soLI9m/NrOZQjEKC8IeWYL9z0hSTP62ueEx8glDPxYjodiB5UKN/us3YZ/pjLuiy
-         jR7DawCFm/DODgpczCGYTo42aYB6PExJBlNnAUTnFQ1VK90sXBu/fB3nC7A4lv4SEGbL
-         FCfXgTsCZXAhHYy7HOtrxslAD9W2+jbfWDGJdsvIuv9xo7so5tZou4C9uFbhXQelwj4a
-         ryLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794690307; x=1795295107;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S6r9JliYuLkU6bNVnsHUex3XuU8S/UM2soCRpJowQjE=;
-        b=iWZc6cqW++QY6SbeHFYlnBITx5M6HVEK5nWsUQZ2dFeHhJluh9trUuZ7O0ma+KRBa5
-         BH5bGeJt0/v00FbEJsl8ANMdvOPRVhREWXJqCVKyYeq7T3Szi/UUz1p7CHFwb5dZON4h
-         XeHxGL/SnbJI8KvVAkIIXOgLt3ZaXh6ZHcKSvWBaNuEekGLDFoxsKbew5BhFLt9yi+f7
-         58B+Zs/NmwqBB94ubaPYP2q8qiMYoOV6KwRbsd+keM8zV7mtbhONn4k5gMkGMcRBmyh8
-         fW8ZZQ/uEQh0pMJanHFSeQ41zHsWxPDEGYQTXv17RBn7xKX5tdu4sIvaZDF3mCJvROax
-         zKXg==
-X-Gm-Message-State: APuU4Z+OB368VWP9M6Cr4hy+ZB6lPHjisWo7WayFpfMwfVViKiwcRkz7
-	gReHhIi9V4bMzk/2J/kYOuqQu47XZSY3ZbKgTLvEx7M+BTZsqPIfXvDpUXpW3ojU4w==
-X-Gm-Gg: AYBFou1z4yofBkveqi0knXxHsKUidJqV4VZrOcM/9KIPTR00YQI/WzRVjRzVNqr4EP3
-	uqsbYaeab42Io52kDhV1Zw8bjpEhNw8PWOHu/3e2m86YyBMtLum0BNHab0Ta3rFjJaNck8eLOR6
-	8jXloP5QRPYsMzN/Yl3EwCxIaS0duOMlWnHYMNLqXCECoSEemSvK+U5uyvoz8ZjCp+pV+5hE8I6
-	0GGm+Dka6oWUBWyThjANCwK6uas56IElstCiQV+xVbJsPBU+00QFd+tploxy1tWddymcT+jPr7D
-	1FEdTwqvN/kfczQHJKOGv6PM6g55YCugg4Yv+t1bOKv0/6HAITNX+k2+7TT0bj5b/9t8xJF6WsV
-	L3uwUKKTvfZguQD9izg3EEVRSSllNUJlQ/Gpx4wrwXzQIWsEq0s/Bhn1q9oOQ3GtgkGusbXTf6f
-	wfBjo1w/7IBxz7mViu/MerpXaJMpDZ18C69v40KXQxxAccEU3dslUpzuUMHMAe1lKIQYy/m5x3x
-	AuwkqaNkInQJQLlTavZEgmiXzotSBzlzBj0B5JIvqavbUiKW6Mp0I4jMImdQEjBBky8HJG9vwo0
-	QCf2nFZh83/Yy4ZaS5PnT3AE9d/MJI6ujT2KFgfJC+8grCD8XW0GCflZ7eG2Z6pdgNS6r4mbW3t
-	PZNLc9cUBKV2s8pBLXHlaAtjtJRfdaccXhudbe9YXGZ+iDAa/VjH1ZhKfgFG6T+u1niigYcyFDD
-	IlBIzZywCL6l2wUR9gHczai4C/YsBKAyzBU8ggC7NPFu580zh6GcSOt3ILMF4V5AFgiA030OmyA
-	4/AADqX0eA0I8HeN8B5vIOM3NL3iSGobBwfkb7Oi4dAUNpYNlNKYNRzQUftlH7ceimqNLEKH03D
-	aqMhml+/sSlhoq3kH7RryMr5
-X-Received: by 2002:a05:6402:42c7:b0:6b7:eda4:e136 with SMTP id 4fb4d7f45d1cf-6b7eda4e281mr1321653a12.41.1794690306618;
-        Sat, 14 Nov 2026 13:05:06 -0800 (PST)
-Received: from Desktop.fritz.box ([185.181.130.189])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b7c2361280sm2705836a12.10.2026.11.14.13.05.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 13:05:05 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	andrew+netdev@lunn.ch,
-	dsahern@kernel.org,
-	idosch@nvidia.com,
-	ncardwell@google.com,
-	kuniyu@google.com,
-	richardbgobert@gmail.com,
-	willemb@google.com,
-	ecree.xilinx@gmail.com,
-	linux-net-drivers@amd.com,
-	saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	leon@kernel.org,
-	linux-rdma@vger.kernel.org,
-	alexei.starovoitov@gmail.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	martin.lau@linux.dev,
-	andrii@kernel.org,
-	eddyz87@gmail.com,
-	memxor@gmail.com,
-	song@kernel.org,
-	yonghong.song@linux.dev,
-	jolsa@kernel.org,
-	emil@etsalapatis.com,
-	ihor.solodrai@linux.dev,
-	corbet@lwn.net,
-	rdunlap@infradead.org,
-	skhan@linuxfoundation.org,
-	shuah@kernel.org,
-	bpf@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=DgnE4Ee7
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=aVQSe+ztLuuVQxQ0MYdkDhLji+45l67wuJIEeQLK6Nc=; b=DgnE4Ee7uhkBmka8KpKaXwmbBi
+	48+4IBQBLw/PLaqJSL7yTQ1Pqos8ame8T9jU5Uyjgga2oYy3sX7LQMzeACdd5HwYHHIk+b6BejUOR
+	r4gciBxT90LdmXOrpxpOzNx8cH0MDh/rkXJ3TDxksEG6mk2U+U5l/yuK+DHNb/c4dGZY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xSLHl-00GXQr-37; Sat, 14 Nov 2026 22:27:45 +0100
+Date: Sat, 14 Nov 2026 22:27:45 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: David Yang <mmyangfl@gmail.com>
+Cc: netdev@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2 0/2] net: keep the TCP fixed-ID flags on the header they describe
-Date: Sat, 14 Nov 2026 22:05:02 +0100
-Message-ID: <20261114210502.787195-1-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <179468119953.2168702.10813567320493574993@kernel.org>
-References: <cover.1794139176.git.julius@bairaktaris.de> <179468119953.2168702.10813567320493574993@kernel.org>
+Subject: Re: [PATCH net-next] net: dsa: motorcomm: Resync SMI slave after
+ interrupted MDIO access
+Message-ID: <d03e27a4-4777-4477-b827-0fda7a112ec9@lunn.ch>
+References: <20261111163954.1132921-1-mmyangfl@gmail.com>
+ <54eced73-d0ee-41da-9ff4-63aa88667d23@lunn.ch>
+ <CAAXyoMOokp1yJYKo-r9MFehrVTLcL9+eQQ386Ycwmw0ut-KVYg@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -140,17 +67,33 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAAXyoMOokp1yJYKo-r9MFehrVTLcL9+eQQ386Ycwmw0ut-KVYg@mail.gmail.com>
 
-On Sat, 14 Nov 2026 18:33:19 +0000, netdev-bot+sinfo@kernel.org wrote:
-> - How the issue was discovered, e.g. hit in production, hit during
->   development, syzbot report, manual code inspection, LLM or static
->   analysis tool scan.
+> > > @@ -136,6 +230,9 @@ static int yt921x_reg_mdio_read(void *context, u32 reg, u32 *valp)
+> > >
+> > >  end:
+> > >       mutex_unlock(&bus->mdio_lock);
+> > > +
+> > > +     if (res)
+> > > +             mdio->synced = false;
+> >
+> > Why defer the recovery to the next transaction? Why not do it now. And
+> > if the recovery fails, you can report the transaction which actually
+> > killed it, which might be useful for debugging.
+> >
+> >        Andrew
+> 
+> If the recovery fails, you have to, anyway, try to resync in the next
+> transaction, so recovery here does not help other than adding more
+> code.
 
-Reported by the hosted Sashiko AI review of v2 2/3 of my "ipmr: forward
-GSO multicast packets" series:
-https://lore.kernel.org/netdev/179182559332.434549.18294510093742639467@kernel.org/
-I then reproduced it with the selftest in patch 2: on net, 6 of its 18
-cases fail in 2 of 2 runs.
+I don't know why it adds more code. You don't need mdio->synced. You
+just call the recovery function. If it fails, it fails, and you assume
+the switch is dead, but report the error and keep going. The next
+transaction is also likely to fail, probably causing another sync
+attempt, which might work, but by then, you have to assume the switch
+is wrongly configured, even if the transaction works.
 
-Julius
+	Andrew
