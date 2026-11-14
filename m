@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794641316;
-	b=cMIDcO1jikPCipC/qFyQ2JGRqE/fgR2FsCWp5QFuNNdGqwzgSt8AGpsmaiOuzjLO5eIS
-	 kyCUiZ0k4mFxE6bHBwHlxKb1BA+4oQLSWVlG4QCApKbH65nMUzfiIp9dXsghhte6R4OXs
-	 mf4gngisv6u4fJgY5Ejj9cR//LwSiEkDromcIjJY/vzpQRVl/6bq11o9ypblbxRAiwOCU
-	 dLNnU42nwDXgF0b8Gr6ZI/m3YB4ZuAYeKvaAFdk33FS3xhi9OrvmwSd+vs3PD08tHiedR
-	 zrbF2/N18RDyeLM0rLNJrqnItYPwi6C/E0zVqc4MfWFuOsbDiUWXMAVs448UZhtmJKw==
+	t=1794641393;
+	b=VSBwXN6Ly+laa1RVIFVbOJWB2kodgmQYgZRCHBqYI0S7f1OFq9/cc9m12faV9WynTSj1
+	 R/QMQZUCTJcleR2WGkS5BdQiu7MF8f63mGDznIzjIJXz2nVIckiNXUhdgLWsw8MHrX8h/
+	 KSvVsgQjnQ2cQ/KZc2ZyFAD+WY4UqgwQslNXekvJUPHugUaeIMd9N3atMNzA3IkALPswv
+	 OA9YWB7hLnGP17aYn2b/wUN2hoQn+De9NeCvmIU1iHl6lKWCuuFACK+mbzzLebzPgqyNx
+	 PPDsf1xj3hZZIWUbc2j2raY03MIFa7c6JS74mPtq8ffi6AbNKt3lxe1ju17S1cDtXBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794641316;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794641393;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=ZUmq/AHkNakT7HaOv5RMPiqqshA3T3BUppFdjgJH3H8=;
-	b=5o1H9YuG1hhUm2chfRpZ5vUp3Z+wLm+R12hMcn+zqR1yq7Vs+zTYmK298NAtCiRKMP3s
-	 QC4ymH+6ecGqAK0/Rqm0tNSHHRoqQJxBPcX84D1YsXkCjDHnwJ+NjjHVDnDyZyi5QW4hJ
-	 4qO6L599I3rtfLgeWXv2mE0xBLCRsmT+C1fIYOW7A8zfHwg2Z6pTxta0+rwkAmZcrFEhq
-	 vIc7vg3SmRO2tRkXj9tqdVNG+3od8D+trlWAXji+KKbJtFENdggWu5pEzd3kzBewMCfnx
-	 TXO5a2f0OtQ+OervpgCWuUVw1RNOpOJxcKOmOuwXZq0ve5oFSp/+soVncX5rkGnW8SA==
+	bh=YscHU8cxmYbOE+D0m/M4PBQW0cNNFEC4g/fELP/11Pw=;
+	b=Az2lUmtKRvRI0cdK2Gfh43wEhsww/s3R+PLfAaGLg5+/lJLs0OyKTJ4sI/yeCOPS1ZEu
+	 PS/kM8ZQMG1AUsLRnzABylcSNM8OjpBkA+xVjdjKDcJzn/wtJe9LwI5gbb39yE8hdXAps
+	 IJSyH+aPiYG8N1PR9bi8khyAKiAAsVSrOUqTG5dGYDTJIIca2D0aQjzWjhog/4pGdyRnw
+	 5wWLBeT4QJRVpdKedm7ihiW3mnFEn1fh39qniT7XEPlINIRv5IV5lbFeyaluKdKT62o8I
+	 xuklSCcDdUpKFqkI7HqIbpF1juiEThwBZWwRGLaDuQpuHp3+uOIsTz8JR2JsrlLe8qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JphWNBTa;
-	arc=none smtp.remote-ip=209.85.216.71
-Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aL2wuFjo;
+	arc=none smtp.remote-ip=209.85.216.72
+Received: from mail-pj1-f72.google.com (mail-pj1-f72.google.com [209.85.216.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E136606A329
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:28:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E136606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB690606A323
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:29:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB690606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JphWNBTa
-Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3b15e47e57fso1043899a91.3
-        for <netdev@vger.kernel.org>; Fri, 13 Nov 2026 23:28:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aL2wuFjo
+Received: by mail-pj1-f72.google.com with SMTP id 98e67ed59e1d1-3b07b06027eso2357410a91.0
+        for <netdev@vger.kernel.org>; Fri, 13 Nov 2026 23:29:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794641315; x=1795246115; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794641392; x=1795246192; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZUmq/AHkNakT7HaOv5RMPiqqshA3T3BUppFdjgJH3H8=;
-        b=JphWNBTa0MysOtfljwluIzxQpgBb4srmXPAiYuHn+LD9l6dGRPGc4Ir5+ckJVNh4v0
-         Vj8vRMyPfD+lrJexHDsG9k11M2w+pz7t6ONU3FgC0Ry58L2Oen1OsVKDt0x0QSN43PQs
-         i01ig1PN0a6kNaUNhXV6plrJumm5YXmwmXbkW/7Hx0b2bVEG5cgU50QF0m3KMJ4FMExd
-         A8SVuSw/6TEDNm9OpLnyH4GRHbEv3p51UNqesePVDGs5wYWzPZxQjuLKB0wHj4kQ0NwH
-         jRzb0HwYWNzM8e2aQzHBiAF4koJHzT7scHHKBYsP/5lWAdQOeJ+bFqKkx91yyyKzIyO0
-         CBJw==
+        bh=YscHU8cxmYbOE+D0m/M4PBQW0cNNFEC4g/fELP/11Pw=;
+        b=aL2wuFjomcsvsfQmrCeIzXmKyM/FDwAhfsv09F0lNDUgz9JuANGlYt/QreGkeMnYny
+         IjWDDx07aAvuofmQ+rPn8ayCCQjiFZ6Bdr/MTVAQ8bzKhjk4bnvVo/r4h5P0UziJU1EN
+         Ox9z+Lvxf57ofAOz4ukf3LyIWjuXWYozEEw4ZrAfEcYHjT2xY2eP5R9DEE9zH86bryoS
+         jVJX1cW6OFoO/7PZE5PHn4fHyK+sc7UdnBCxgnSzUA6eVzj4DIA1CZze5LRqf2rADghB
+         2onp8c+5TDdHjrQuNaEt48thf6zhZFVw2FkEHAyImbXRkp+VkfXGvoaK9nMxNcJy6Yjh
+         vMgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794641315; x=1795246115;
+        d=1e100.net; s=20260707; t=1794641392; x=1795246192;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=ZUmq/AHkNakT7HaOv5RMPiqqshA3T3BUppFdjgJH3H8=;
-        b=Eu13BYg/dSxoqguPPGruP59uwOj73do2fQJdZ/yC4rmK/ekmwOLfQVFFJvKefUjt8V
-         MZztNIpyBUmqEexAiZoKkxabvJL6Oru29m+71iaEYnyDsJDbHxvE2OMpy1tpXBzp3IM6
-         /H3UM70KypnVMYlq8d/5heF8mzyZpBjz8ZuDdqsYz0iqd1JUuALQr3h4gA3ln6rvlQR1
-         Vj4iAJliRx5A74Bq8pNzWstaSqIIUrjDwjVFNPQONm2rygDRyZhgI4cKP+QbrJZ4+9mR
-         uHxqZIMuOwFcxvtATdaDt53v6JstIV/sLB1OnZyw8blKZ7ZZGNiGVEUThypDkcj22uMC
-         IRQg==
-X-Forwarded-Encrypted: i=1; AL+hErErFWa+LrFsQGyiTfpb/uBaEsbEw0AUct6tdUGKyJrItGWyPhRlfY/Jc4Rkveni7hiQBJYF/h4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8pD9T459zZaTe+gI+BrQbT+dpSHjzsvs0PDeHyctVQyzqPuLZz
-	3PJZ526bnzcGEvDV4HNQhfMSihsYNY6r/7BrUxatFdHqe2TYam1EbLcMWehSuQ4R5iqN45CmrDV
-	GDs2exw==
-X-Received: from pjbbu21.prod.google.com ([2002:a17:90a:ee55:b0:3a7:d1df:7b34])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:35c6:b0:3b0:e2a9:345a
- with SMTP id 98e67ed59e1d1-3b1b0b9b782mr4266092a91.64.1794641314735; Fri, 13
- Nov 2026 23:28:34 -0800 (PST)
-Date: Sat, 14 Nov 2026 07:28:34 +0000
-In-Reply-To: <20261111174704.24312-2-juanagusnicco@gmail.com>
+        bh=YscHU8cxmYbOE+D0m/M4PBQW0cNNFEC4g/fELP/11Pw=;
+        b=Ug8l2U8bwKoAn5UDYn0Bn99AjXciNgJ74MrSflOQ0JWs7R5i4S/xYJFIM8x0rQs1+N
+         lHq7aMbKpSTdjC/DuwrxKnbVsPGb1mfLnE54A+9PUHNHXZRGtNZKP77rVg+xCWbFcbau
+         EShxpGFcb4RYiSF62EZsfdy89LLXm2/iQk1Z2pvA8qEzi9HvZ5JIN0r76Rjt3ieviV7x
+         n/e0BoBJb1sq2CBpsS6rKjV8j583wDTSoWRBtdpwllVF+5DcBwxShFSYaVgDWTQMU+20
+         rXeVY5F7g/qBC+hq19X0zdFSPrRZkN7ntrvESQe5GwbZF7f/hUxrA22owFMgpUMNhC8c
+         S+Yw==
+X-Forwarded-Encrypted: i=1; AL+hErHpCKgiqJTkIvxEBA/MoM9qX5rlG1yfuis5ah39JrZuQFALzQ5M9sADh/nRXc040mIEtTVyuZ0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9muQM6YCsJugGZyGiFTyVsytJ3JWzfAxdSejkAXILhk4FWY5AU
+	aFIjvZxYHCbwvjJBucL84yzeDQqRoJhYFcBrD5SAuNhhqLLD7IlXlY54iZTpbzhhdT6Rd6+EJxP
+	4eVIgSA==
+X-Received: from pjbdt22.prod.google.com ([2002:a17:90a:fa56:b0:3ae:825a:57e3])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:c106:b0:3ab:d45c:59da
+ with SMTP id 98e67ed59e1d1-3b1b0a3288fmr4973155a91.40.1794641391863; Fri, 13
+ Nov 2026 23:29:51 -0800 (PST)
+Date: Sat, 14 Nov 2026 07:29:51 +0000
+In-Reply-To: <20261111174704.24312-3-juanagusnicco@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,48 +78,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261111174704.24312-1-juanagusnicco@gmail.com> <20261111174704.24312-2-juanagusnicco@gmail.com>
-Message-ID: <avgNl96dmc23KOrW@google.com>
-Subject: Re: [PATCH net v2 1/2] tcp: Fix the SO_REUSEPORT bind cache admitting
- a conflicting socket
+References: <20261111174704.24312-1-juanagusnicco@gmail.com> <20261111174704.24312-3-juanagusnicco@gmail.com>
+Message-ID: <avgNulWmQTaUHD3N@google.com>
+Subject: Re: [PATCH net v2 2/2] selftests: net: Add SO_REUSEPORT bind cache
+ test to bind_wildcard.c
 From: Kuniyuki Iwashima <kuniyu@google.com>
 To: Juan Agustin Niccolini <juanagusnicco@gmail.com>
 Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
 	pabeni@redhat.com, horms@kernel.org, ncardwell@google.com, 
 	josef@toxicpanda.com, jbacik@fb.com, shuah@kernel.org, 
 	linux-kselftest@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="us-ascii"
 
-On Wed, 11 Nov 2026 12:47:03 -0500, Juan Agustin Niccolini wrote:
-> When the port is in the FASTREUSEPORT_STRICT state, inet_csk_get_port()
-> skips the bind conflict check if sk_reuseport_match() finds the new
-> socket's address covered by the socket cached in tb->fast_*.
+On Wed, 11 Nov 2026 12:47:04 -0500, Juan Agustin Niccolini wrote:
+> Add a test for the bug fixed by "tcp: Fix the SO_REUSEPORT bind cache
+> admitting a conflicting socket". With a 0.0.0.0 listener on the port, a
+> v6only [::] SO_REUSEPORT socket fills the bind cache, and a dual-stack
+> [::] SO_REUSEPORT socket must then fail to bind with EADDRINUSE.
 > 
-> This is only safe if both sockets match on everything
-> inet_bind_conflict() reads. The cache misses some of it:
+> Without the fix:
 > 
-> - It does not record sk_bound_dev_if or sk_reuse.
-> - It records the family and IPV6_V6ONLY but never compares them with
->   the new socket, so a cached v6only [::] (or 0.0.0.0) socket covers
->   a dual-stack [::] socket.
+>   #  RUN           global.reuseport_v6only_cache ...
+>   # bind_wildcard.c:860:reuseport_v6only_cache:Expected ret (0) == -1 (-1)
+>   # reuseport_v6only_cache: Test terminated by assertion
+>   #          FAIL  global.reuseport_v6only_cache
+>   not ok 1 global.reuseport_v6only_cache
 > 
-> As a result, an unprivileged user can bind and listen on a port that
-> another user is listening on, for example a dual-stack [::] socket on
-> top of a 0.0.0.0 listener:
+> With it:
 > 
->   victim:   bind(0.0.0.0:P), listen()
->   attacker: SO_REUSEPORT + IPV6_V6ONLY, bind([::]:P)   /* fills cache */
->   attacker: SO_REUSEPORT, bind([::]:P), listen()       /* should fail */
+>   #  RUN           global.reuseport_v6only_cache ...
+>   #            OK  global.reuseport_v6only_cache
+>   ok 1 global.reuseport_v6only_cache
 > 
-> Only take the fast path when the new socket matches the cached one in
-> family, IPV6_V6ONLY, bound device and SO_REUSEADDR. Identical
-> SO_REUSEPORT listeners, the workload this cache was added for, still
-> skip the scan (binding 16384 of them: 9.80 ms before, 9.86 ms after,
-> 5874 ms with the full check every time).
-> 
-> Fixes: 637bc8bbe6c0 ("inet: reset tb->fastreuseport when adding a reuseport sk")
-> Cc: stable@vger.kernel.org
 > Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
 
 Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
