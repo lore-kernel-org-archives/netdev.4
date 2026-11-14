@@ -1,106 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794694561;
-	b=UmZ1Wi+uJow0AwiJLnDpERF37H8aDq0oyUbOnwYJ4zVLn8WL5pHGU9DqvUk/B8rNu3cj
-	 Bcm+vT96mmvksKrDrey9mAe66zENFEwCndREL5Bd12nrNJdCjncfILrAg7S7mO61X9vTK
-	 K3aniKbk6LhEQNy1syP4uuDDqzn65AfX+1SJiC4Jv3WYOgpcvJUHNhX6VR+/4+UNKP5q4
-	 1vRV4A5AOk/5lRxZbPaNPGeHzXECEMC3wBlDQX8YFw3wsYwopIRLAN0pP5pI1kPyeKeyL
-	 Ed2VhJN22sEpqR9/ZQilfdh7gDPeie8EhgDXk7KtrbROtg+iiQST13Dqsd8wla7PwHQ==
+	t=1794695272;
+	b=IA0qTXcNHmU3Nd5aWhUdiNpQIfqjb1s+dFpqngQZGObdGHS2/RvPaqMy2IUDI44X0s3K
+	 rVO8YLCI/zyeQ30YMnXfJDzhAegGYiCajSgZ7nItP2xDDpHie6TM8oRL8GdS5m0YLHdt6
+	 syF6vpRATXoXxz5rDNl9EuDljRjblgmAuf6Uq8jDkt7gB8RB18lmsJCrydxuDNK/11gi7
+	 wwtnt5IHYeoD8iZr3xz322xSGP/XGLBbyurQA+GCk+KQTmGeYX87RP2JGrldDGH7lK+/j
+	 /eD6cbJVu/MKlMny0OxfCRcmW/EvF/yM18j/nW32GVdFWZU2tbijq4nA7pgoN4YQShA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794694561;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794695272;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vVFQu5tmbsGUy5eDDIaYC2PNXdJQ/xEX0QGUSt8uN7Y=;
-	b=g/UUWtc0i79rsalym9uklIub6L/pLwjkqUO90zr0WVQz5IwoVLilmBuAiLIb4CuUoiRX
-	 WSfVMBmCTb6byV0TzUBqzarz4qktu+lQ7hYqcqrcq7CwmqJj/TrXe2np1BRW2b7ZHvO5W
-	 4FUO9Eq7m5Ix0hV6sCVUrXuvLwKFHbDwvpXg9/etLRYsbP/yRWA+XEWNEHlEgx3+tfJmZ
-	 QxQJKMDKzWE+c8B5BCC2lmprq6+qdV4NGzp8MK9Ekxm4X+uzwZvHfHY3n3LvUWfXWIcvU
-	 Gg2GsbShZy2rKVI7vQC+MK6WCDUOEzKMJNHSZUrgOgmbuKc+LuSPBrSo4n4TyVOK7yQ==
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=d8bnd7SDpe8UrkEnsKXdhWTdf3Rk+9zb9OfZ0A4bXQY=;
+	b=vPBIVVYmZQgxIyzA4Ah3mgfym4tddEyd5pFIyDTEL/VPNz9tpHomVzKMp7m7xHFriKoh
+	 WLEFixY2De1/iUXS1p1/ZgXPcFdSR1SBh1JnFQX/msFWtHVET4HM2ZELD2DER5Ws3P4ft
+	 y7xi+asiU4KKZHxYc3SP3PqpL1PNT/WjkFrWMu3YiPt3214Raz7F6fRYxTuE/+78NT5Ez
+	 2ifNw0wAJd9f+2fEzdZ2sSOM+CBEgqCHWEHzouIs5Wh/D9s7ORBXEbuv3GKlua3bmuX70
+	 /TaW9Kfbjxae43cRbmgGZ0OV6ClDPK5+UuXpqDM2fj+/4Fdi6J1mW5lGbBdcG4d5dJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V+8qV9Dl;
-	arc=none smtp.remote-ip=209.85.221.44
-Received: from mail-wr1-f44.google.com (mail-wr1-f44.google.com [209.85.221.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0NijiX8d;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 705EB606A8A8
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 22:16:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 705EB606A8A8
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37F86606A32D
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 22:27:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37F86606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V+8qV9Dl
-Received: by mail-wr1-f44.google.com with SMTP id ffacd0b85a97d-491971ac844so2102380f8f.2
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 14:16:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0NijiX8d
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-48e46e449e8so1798570f8f.3
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 14:27:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794694559; x=1795299359; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vVFQu5tmbsGUy5eDDIaYC2PNXdJQ/xEX0QGUSt8uN7Y=;
-        b=V+8qV9Dl3l/bisIEe2xrnamURGQ+S2e+aTIrbgzpgAMmD+00Ks2W403SUDBmmBlfws
-         IZI2j+5Uejpm5+eFwoL8FP6QGrvMj2BTgK+XvQPSWDKYSzbcl1Evt+6w14RxHaKpr4jY
-         7SeejsusyIMA2VvExhEf3/hQ/X52UBeU5WO1z3YNkPFwwrvqTu7pJ8J5oHeqZeo/giEk
-         lGoO2UpsIk8djcIg5RjyWYGcsIGViqxeajdETOfcR3RITMAs1iFeJsNX1E2FCKFUl4/Y
-         eAuO9Fclbe10eyxGw+PmGNiN0MewPeuLPWAIizWBp9csGER7plurI3/DG0NKVgJVmbEg
-         XjwA==
+        d=gmail.com; s=20260707; t=1794695269; x=1795300069; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=d8bnd7SDpe8UrkEnsKXdhWTdf3Rk+9zb9OfZ0A4bXQY=;
+        b=0NijiX8d1vE+GPA1QhDh9A/J5vIJnBdCXUdZpEarKfTpCsTOLwBY1zR+pW4vE1ywlL
+         TTNF4KP86tA+LJfMV6RhsHQ2AaNlHym3c3wcZep2m/vouUOeVwZ54mJQ1Olwdu2V3l1e
+         Qxg5QJY9gQ/GPL0OeHBvDD0yWcw9ODJygtXk8GXX3Z4cihkw/hmL9W7UnA7/qvX38CAj
+         pHkPwdMDT/hqLniEOALp7HKWe6CZEoc0horXJvQk0SjeYVlOgk71KqgvsMCHWUH7k29x
+         oHVy/uFhfkfPKJx8eWa6fouvmXYb/BBRlZZhaOHTkZ8++Bd2TzQrI+1uyO0RieLcqPY7
+         IgIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794694559; x=1795299359;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vVFQu5tmbsGUy5eDDIaYC2PNXdJQ/xEX0QGUSt8uN7Y=;
-        b=qrme4oCVvImM8iJhivJJDgCScJhmOHJBD4Q/CRcyXTlFDjEObMboiOm6Iqe0LNhjFJ
-         aG6cbckEGzZr9LSXuSZwhIf4sMOfcfkF2VHGQTR8TP974D3HqGQgLRA7dA/djAqvCarU
-         sPHIplDFKXFlOlqVTGh8e/gnaq4zR66vZ1wpHnzhbOBld14DJgbQv29ZKFI8mpKXnnYp
-         94Xwa4IjKz7q5bGrUmJ6M3y2e2NW9cFmMTFTMShrvC/sNHImQtxu9gDRrXiozXujinLP
-         nLs8JzD2o1TGKvjpQLH6GJb9ivY5FrkUZiK4UYmhsSBJ5NfLGlhGgBxBMOo83EyPjyUh
-         6qpA==
-X-Gm-Message-State: APuU4Z9C2Vb/IM7YW/TpM9Liae4unGB1iO4m803o5i+j1tAkRwmAWowl
-	/C6Wll8lX9YVBuGMLEzsXOUlK4CYo3EVlGU46iZKGRB8bNRxPC+3hPakAWufIuBkXQg=
-X-Gm-Gg: AYBFou2SW7F/5LEkW8Am+wMrRS+TO/iweQgm/LHFZJtUZzNCN3TaQZ63aAfr8dUKys6
-	1FFZGALQx9wajSHnpC5l8DI8uFE/QUs7xbAI2RHcyALfrW4W1+fCTufT8mRnN46NJatEcdJEYbq
-	+6LeilcpRhri2bf4ClTRyvsbBottPc/6wsqBeKqfZZqfxFePNXaWZqajsw33a5Zguvgj4rKgqCA
-	CEItrl6V7WrhnGmUrSQ8bLTIDoV6+gAe0lteh3k0fQfYX3yiDkEO7Ll+2Ki9Y12+zDhzSAK1XDn
-	arNtmdFKRLnXF4+r8UNoWL7eT8r22phBcuXHP7QyfTzUrXDRTaQqdnQ+2NjQOcjLm6wLk9Vvr/j
-	LPJe/bwEm62rmrhOQtpur0qFmChoJVXPUupr/R1MhDn87eZYP58/HC7FdpoLO8fhXQmfOnjztPH
-	3unEQnBTjPIBLOXQiIwKbSJX+/uQ3S4OB9y4XSqXq/GsGhrfpDYIQRqnArjGuUMlcYfLO3HotVL
-	ixOon+DCaaaxwjKv7LmsYXsHx5+gaRVy1x57YntlufZJcV+QFo2MBM/WtfVYty3bQDhHcaB+nMo
-	Dj+8k25VgL45gp3v4xz+dIc=
-X-Received: by 2002:adf:e007:0:20b0:48e:3697:708d with SMTP id ffacd0b85a97d-49c70ed8e41mr10700834f8f.12.1794694558600;
-        Sat, 14 Nov 2026 14:15:58 -0800 (PST)
-Received: from kali ([169.224.126.250])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c5d223a29sm13514941f8f.8.2026.11.14.14.15.55
+        d=1e100.net; s=20260707; t=1794695269; x=1795300069;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=d8bnd7SDpe8UrkEnsKXdhWTdf3Rk+9zb9OfZ0A4bXQY=;
+        b=AZPF2ubPy5n6FMPuupdd4q7CUMJNN6HkweG/rNMIRPswnLD2QLBDTyh132iha8kGBs
+         JtX/sWrl2S4a/4rN+p6xFEoiEyBWBHobyVusH//oZZ7mqLEArRN/k/LjXvd4nRNL4JKy
+         5zIEgHiZOdTvOUmijxL/eFH5XATDWnaBAyVb2dXDgR3mXo8SK8oqTRsOhh9xWyYumY+v
+         gZDovKaO11ejXH+PYgFNFPAEhygRUfl5osvsc9DMzZhvitbc5pgv9ZrM8VDgU2+alWNn
+         GlJ5lmx6cKOK9pRDklMFQgvaGax033ylr8eCA0Ma5K4Hh60aX3grhkNJ2RRizLlbmiyq
+         R4YA==
+X-Gm-Message-State: APuU4Z+AcQ1/dSroHEuKnwJi8s6hv9+89kerHKHgGBKQQggLqWS3lYvx
+	kBYHFHfCR/l4P7QxUavjGGXjhXI6BSwKBYBxOM/O885TnoWyhRl3cy34DKGxW3Jq
+X-Gm-Gg: AYBFou1EYS9CxKUM02TGV+c+MTJ2/UFzSjmxTC7sg335K7gOL8hd2hz1FZkgLJ8ESUS
+	CwNvyKoYGWCPQ3ttqW8hGgh5IzRP01ysOVPOMg+7pq8XqlSt6/v5WX+iSBWSG63IKaXNHyu1asJ
+	pjNqyP/n1Hj6jQGWo33cdWFNZfe3gPZPXhErw/P0q/c5ZxUBAUNJCXbVk/fMlnYz8WeiIu8fl/R
+	7z+ml78PyfMabIhvxvvahs2LG0Ejwjs55k1XZLifhVbeNeqwr1syL6TsYIhbeMVl8AuwYqjrS1T
+	R2w0eqxqarUAXErW6TYVcUq0GNu9V+T6LPpansMi9ubrS8dsOTttyqOrNmk3sYMhmh6k+Qa4z25
+	Pu0O8z4VBDbzpxcNvCMJ39FhlO3XKyQCcfiOcy8y4LQoLFQ70hTL5yaHwTfkCHNkBsKWz4jTfmq
+	K1Q3VM71eAGKROyAF0DTOXcB5y2NkRDQPcDXWcR2W7APwuXhGkn4zeKoPyF8Qh2D5zYXwoRndy/
+	lkpqpYq7yfCJer4miPccdD0RuKehh10BvJfVGeugjAoyjaetuySEjQYzDm+yKF106dk1CbCW0fJ
+	Y2uqXlHjK7D6C+4d6c/0Rk3EiTXUWKE1QvsIUf4xaarkILvI5da/0q4x9cb1aEeIAarro0QdEE9
+	jA86Tk0POYytyS9a1Rly6n5lCp94/0UbhMukokNrIH8kRFIoxgx69wQlY
+X-Received: by 2002:a05:6000:4284:b0:492:820d:5e6 with SMTP id ffacd0b85a97d-49c72ba6660mr16824578f8f.49.1794695269403;
+        Sat, 14 Nov 2026 14:27:49 -0800 (PST)
+Received: from pc.tail250202.ts.net ([87.110.86.243])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c60f8c248sm12835727f8f.58.2026.11.14.14.27.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 14:15:58 -0800 (PST)
-From: Ali Firas <alishmery18@gmail.com>
-To: netdev@vger.kernel.org,
-	idosch@nvidia.com
-Cc: kuba@kernel.org,
-	pabeni@redhat.com,
+        Sat, 14 Nov 2026 14:27:47 -0800 (PST)
+From: Janis Edvarts Lacis <janislacis06@gmail.com>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
 	davem@davemloft.net,
 	edumazet@kernel.org,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org,
-	razor@blackwall.org,
-	roopa@nvidia.com,
-	kuniyu@google.com,
-	petrm@nvidia.com,
-	aroulin@nvidia.com,
-	shuah@kernel.org,
-	linux-kselftest@vger.kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	wellslutw@gmail.com,
 	linux-kernel@vger.kernel.org,
-	Ali Firas <alishmery18@gmail.com>
-Subject: [PATCH net-next v5 8/8] selftests: net: test the vxlan vnifilter request limit and dump replay
-Date: Sun, 15 Nov 2026 01:14:12 +0300
-Message-ID: <20261114221412.255825-9-alishmery18@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261114221412.255825-1-alishmery18@gmail.com>
-References: <20261114221412.255825-1-alishmery18@gmail.com>
+	Janis Edvarts Lacis <janislacis06@gmail.com>
+Subject: [PATCH net] net: ethernet: sunplus: check budget before calling napi_complete_done()
+Date: Sun, 15 Nov 2026 00:27:44 +0200
+Message-ID: <20261114222744.535158-1-janislacis06@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,351 +101,70 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Extend the vnifilter tests for the request-size limit, the 24-bit VNI
-range, the dump/replay round trip the limit requires, the rollback of a
-VNI add that fails, and an FDB update that is refused.
+Sunplus drivers currently do napi_complete() after each rx/tx poll is
+done without checking whether budget was exhausted or not. Interrupts
+are also unmasked before the call to napi_complete().
 
-The API test gains: the largest accepted add and one VNI past it; a
-rejected oversized add and a rejected multi-entry add whose entries are
-each under the limit but sum over it, each checked to install nothing
-(the range is asserted absent first, since vxlan_vni_add() folds an
-existing VNI into the update path and would return 0 either way). The cap
-is symmetric, so it also checks a maximum-size delete accepted and a
-max+1 delete rejected, with every VNI in the max+1 range installed first
-so the refusal can only come from the cap; a within-cap delete of a
-never-installed range, which must fail on the missing VNI; and an
-inverted range accepted as a no-op. The 24-bit bound is checked on each
-endpoint alone: a lone VNI past the space is sent as START only and is
-refused only by the START bound, and a two-VNI range from a valid START
-is refused only by the END bound. The absence probes use vni_listed(),
-which fails when "bridge vni show" itself fails, so a failed show cannot
-pass for "absent".
+Replace napi_complete() with napi_complete_done() and add a check for
+budget_left. Call napi_complete_done() only when the budget has been
+not exhausted fully, e.g. budget_left > 0 and unmask interrupts only when
+napi_complete_done() returns true.
 
-vxlan_vnifilter_dump_replay() builds a contiguous run twice the limit
-from two requests, each checked on its own, and requires the dump to
-report exactly 10000-14095 and 14096-18191. It then replays every
-reported range into a second device and requires all to be accepted and
-the two dumps to match. bridge(8) prints entries, not netlink messages,
-and no YNL spec covers RTM_GETTUNNEL, so this replays one entry per
-request and cannot see the per-message budget of "vxlan: vnifilter:
-clamp the dumped VNI range to the request limit"; that budget was
-checked with raw netlink outside the tree.
+I do not have the hardware necessary, this patch is not tested on real
+hardware.
 
-vxlan_vnifilter_add_rollback() drives, without a memory cgroup, both
-failures that "vxlan: vnifilter: roll back a VNI add that fails" undoes:
-a VNI whose default FDB entry does not fit under maxaddress, and a VNI
-whose group join would exceed net.ipv4.igmp_max_memberships. Each add
-must fail and leave the VNI absent.
-
-vxlan_vnifilter_refused_fdb_update() covers "vxlan: leave FDB state and
-flags unchanged when an update fails". On a device with ageing 1, a
-replace of a VNI's permanent default entry with a dynamic one must be
-refused and leave the entry permanent: a dynamic entry added after it
-is aged out first, which bounds the wait, and the default entry must
-still be listed as permanent. Without that patch the refused replace
-leaves the entry dynamic and the same ageing pass deletes it. The case
-checks the end state only: a refused request that changed the state
-and put it back before returning would pass it too, and only an ageing
-pass running at that moment could tell the two apart.
-
-vxlan_vnifilter_api() had no teardown of its own device and namespace;
-add veth-host and the test netns to cleanup(), which runs on EXIT, so a
-failing case does not leave them or its entries behind.
-
-Suggested-by: Ido Schimmel <idosch@nvidia.com>
-Signed-off-by: Ali Firas <alishmery18@gmail.com>
+Fixes: fd3040b9394c ("net: ethernet: Add driver for Sunplus SP7021")
+Signed-off-by: Janis Edvarts Lacis <janislacis06@gmail.com>
 ---
-v5: absence probes fail when "bridge vni show" fails; each populate step
-is logged; the dump is checked against the literal split; replay uses
-its own result variable; START-only and END-only out-of-range cases
-replace 100-4294967295, which the request cap refuses with or without
-the END bound; new rollback cases (review of v4); a refused replace of a
-VNI's permanent default entry must leave it permanent through an ageing
-pass; lines wrapped to 80 columns. v4: assert the dump is non-empty
-before replay, so the replay case cannot pass vacuously; rebased.
+ drivers/net/ethernet/sunplus/spl2sw_int.c | 26 ++++++++++++-----------
+ 1 file changed, 14 insertions(+), 12 deletions(-)
 
- .../selftests/net/test_vxlan_vnifiltering.sh  | 246 +++++++++++++++++-
- 1 file changed, 245 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/net/test_vxlan_vnifiltering.sh b/tools/testing/selftests/net/test_vxlan_vnifiltering.sh
-index 6fb5af013dac..fb8401399b09 100755
---- a/tools/testing/selftests/net/test_vxlan_vnifiltering.sh
-+++ b/tools/testing/selftests/net/test_vxlan_vnifiltering.sh
-@@ -84,6 +84,9 @@ ret=0
- # all tests in this script. Can be overridden with -t option
- TESTS="
- 	vxlan_vnifilter_api
-+	vxlan_vnifilter_dump_replay
-+	vxlan_vnifilter_add_rollback
-+	vxlan_vnifilter_refused_fdb_update
- 	vxlan_vnifilter_datapath
- 	vxlan_vnifilter_datapath_pervni
- 	vxlan_vnifilter_datapath_mgroup
-@@ -139,8 +142,9 @@ check_vm_connectivity() {
- cleanup() {
- 	ip link del veth-hv-1 2>/dev/null || true
- 	ip link del vethhv-11 vethhv-12 vethhv-21 vethhv-22 2>/dev/null || true
-+	ip link del veth-host 2>/dev/null || true
+diff --git a/drivers/net/ethernet/sunplus/spl2sw_int.c b/drivers/net/ethernet/sunplus/spl2sw_int.c
+index a37c9a4c281f..1aada11429d4 100644
+--- a/drivers/net/ethernet/sunplus/spl2sw_int.c
++++ b/drivers/net/ethernet/sunplus/spl2sw_int.c
+@@ -125,13 +125,14 @@ int spl2sw_rx_poll(struct napi_struct *napi, int budget)
+ 			h_desc = comm->rx_desc[queue] + rx_pos;
+ 	}
  
--	cleanup_ns $hv_1 $hv_2 $vm_11 $vm_21 $vm_12 $vm_22 $vm_31 $vm_32
-+	cleanup_ns $hv_1 $hv_2 $vm_11 $vm_21 $vm_12 $vm_22 $vm_31 $vm_32 $testns
+-	spin_lock_irqsave(&comm->int_mask_lock, flags);
+-	mask = readl(comm->l2sw_reg_base + L2SW_SW_INT_MASK_0);
+-	mask &= ~MAC_INT_RX;
+-	writel(mask, comm->l2sw_reg_base + L2SW_SW_INT_MASK_0);
+-	spin_unlock_irqrestore(&comm->int_mask_lock, flags);
++	if (budget_left > 0 && napi_complete_done(napi, budget - budget_left)) {
++		spin_lock_irqsave(&comm->int_mask_lock, flags);
++		mask = readl(comm->l2sw_reg_base + L2SW_SW_INT_MASK_0);
++		mask &= ~MAC_INT_RX;
++		writel(mask, comm->l2sw_reg_base + L2SW_SW_INT_MASK_0);
++		spin_unlock_irqrestore(&comm->int_mask_lock, flags);
++	}
+ 
+-	napi_complete(napi);
+ 	return budget - budget_left;
  }
  
- trap cleanup EXIT
-@@ -285,6 +289,37 @@ cleanup_vnifilter_api()
- 	ip netns del $testns 2>/dev/null || true
+@@ -198,13 +199,14 @@ int spl2sw_tx_poll(struct napi_struct *napi, int budget)
+ 
+ 	spin_unlock(&comm->tx_lock);
+ 
+-	spin_lock_irqsave(&comm->int_mask_lock, flags);
+-	mask = readl(comm->l2sw_reg_base + L2SW_SW_INT_MASK_0);
+-	mask &= ~MAC_INT_TX;
+-	writel(mask, comm->l2sw_reg_base + L2SW_SW_INT_MASK_0);
+-	spin_unlock_irqrestore(&comm->int_mask_lock, flags);
++	if (budget_left > 0 && napi_complete_done(napi, budget - budget_left)) {
++		spin_lock_irqsave(&comm->int_mask_lock, flags);
++		mask = readl(comm->l2sw_reg_base + L2SW_SW_INT_MASK_0);
++		mask &= ~MAC_INT_TX;
++		writel(mask, comm->l2sw_reg_base + L2SW_SW_INT_MASK_0);
++		spin_unlock_irqrestore(&comm->int_mask_lock, flags);
++	}
+ 
+-	napi_complete(napi);
+ 	return budget - budget_left;
  }
  
-+# Succeed if "bridge vni show" lists VNI $2 on device $1. A failed show
-+# returns 2, so a probe expecting the VNI to be absent cannot pass on it.
-+vni_listed()
-+{
-+	local out
-+
-+	out=$(bridge -netns $testns vni show dev $1) || return 2
-+	grep -qw "$2" <<< "$out"
-+}
-+
-+# Print the VNI ranges "bridge vni show" reports for device $1, sorted;
-+# fail if the show itself fails.
-+vni_ranges()
-+{
-+	local out
-+
-+	out=$(bridge -netns $testns vni show dev $1) || return 1
-+	grep -oE '[0-9]+-[0-9]+|[0-9]{2,}' <<< "$out" | sort
-+}
-+
-+# Succeed if "bridge fdb show" lists, on device $1, an entry whose line
-+# matches the extended regex $2. A failed show returns 2, so a probe
-+# expecting the entry to be absent cannot pass on it.
-+fdb_listed()
-+{
-+	local out
-+
-+	out=$(bridge -netns $testns fdb show dev $1) || return 2
-+	grep -qE "$2" <<< "$out"
-+}
-+
- # tests vxlan filtering api
- vxlan_vnifilter_api()
- {
-@@ -347,6 +382,215 @@ vxlan_vnifilter_api()
- 	# change vxlan vnifilter flag
- 	run_cmd "ip -netns $testns link set dev vxlan-ext1 type vxlan external novnifilter"
- 	log_test $? 2 "Cannot unset vnifilter flag on a device"
-+
-+	# A single request may add at most 4096 VNIs. bridge(8) puts one
-+	# VXLAN_VNIFILTER_ENTRY per comma-separated item into a single message,
-+	# so both the single-entry and the multi-entry paths are reachable here.
-+
-+	# The largest accepted add, and one VNI more rejected.
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 vni 10000-14095"
-+	log_test $? 0 "Add a request of the maximum VNI count"
-+
-+	# The rejected oversized add must install nothing. Assert the range is
-+	# absent first: vxlan_vni_add() folds an already-present VNI into the
-+	# update path and returns 0, so a later probe cannot tell "installed
-+	# nothing" from "installed part" unless it started absent.
-+	run_cmd "vni_listed vxlan-ext1 20000"
-+	log_test $? 1 "VNI 20000 absent before the oversized add"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 vni 20000-24096"
-+	log_test $? 255 "Cannot add a request over the maximum VNI count"
-+	run_cmd "vni_listed vxlan-ext1 20000"
-+	log_test $? 1 "The rejected oversized add installed nothing"
-+
-+	# Two entries each under the limit but summing over it: the per-message
-+	# total is what is bounded, not the span of one entry. This is the shape
-+	# a per-entry check would have let through.
-+	run_cmd "vni_listed vxlan-ext1 30000"
-+	log_test $? 1 "VNI 30000 absent before the oversized multi-entry add"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 \
-+		 vni 30000-32047,32048-34097"
-+	log_test $? 255 "Cannot add multiple entries summing over the maximum"
-+	run_cmd "vni_listed vxlan-ext1 30000"
-+	log_test $? 1 "The rejected multi-entry add installed nothing"
-+
-+	# The cap is symmetric: a delete may touch at most the maximum too.
-+	# Install a maximum-size range and the VNI past it, so the max+1 delete
-+	# below has every VNI present and can only be refused by the cap, not by
-+	# a missing VNI.
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 vni 40000-44095"
-+	log_test $? 0 "Populate a maximum-size range to delete"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 vni 44096"
-+	log_test $? 0 "Add the VNI past the maximum range"
-+	run_cmd "bridge -netns $testns vni del dev vxlan-ext1 vni 40000-44096"
-+	log_test $? 255 "Cannot delete a request over the maximum VNI count"
-+	run_cmd "bridge -netns $testns vni del dev vxlan-ext1 vni 40000-44095"
-+	log_test $? 0 "Delete a request of the maximum VNI count"
-+	run_cmd "bridge -netns $testns vni del dev vxlan-ext1 vni 44096"
-+	log_test $? 0 "Delete the VNI past the maximum range"
-+
-+	# A within-cap delete of a never-installed range reaches the handler and
-+	# fails there on the missing VNI, not on the cap.
-+	run_cmd "bridge -netns $testns vni del dev vxlan-ext1 vni 50000-50010"
-+	log_test $? 255 "Cannot delete a range that was never installed"
-+
-+	# A start above the end selects nothing and is accepted as a no-op.
-+	# Use a VNI no earlier case installs, so the absence check is
-+	# meaningful.
-+	run_cmd "vni_listed vxlan-ext1 55000"
-+	log_test $? 1 "VNI 55000 absent before the inverted range"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 vni 55000-50000"
-+	log_test $? 0 "An inverted range is accepted as a no-op"
-+	run_cmd "vni_listed vxlan-ext1 55000"
-+	log_test $? 1 "The inverted range installed nothing"
-+
-+	# The VXLAN header carries 24 bits, and both endpoints are bounded. A
-+	# lone VNI is sent as START only and spans one VNI, so only the START
-+	# bound refuses it; a range from a valid START spans two VNIs, so only
-+	# the END bound refuses it. Neither is large enough for the request
-+	# limit to catch.
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 vni 16777215"
-+	log_test $? 0 "Add the highest VNI the header can carry"
-+	run_cmd "bridge -netns $testns vni del dev vxlan-ext1 vni 16777215"
-+	log_test $? 0 "Delete the highest VNI the header can carry"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 vni 16777216"
-+	log_test $? 255 "Cannot add a VNI past the 24-bit space"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-ext1 \
-+		 vni 16777215-16777216"
-+	log_test $? 255 "Cannot add a range whose END leaves the 24-bit space"
-+}
-+
-+# A device may hold a contiguous run longer than one request's limit, built
-+# from several requests. The dump coalesces it, so the dump must break the run
-+# into entries each no larger than the limit, or the configuration it reports
-+# cannot be replayed. Install such a run, then feed every range the dump
-+# reports back into a second device and require all to be accepted.
-+vxlan_vnifilter_dump_replay()
-+{
-+	local opts="external vnifilter local 172.16.0.1 dev veth-testns"
-+	local range replay_rc src_ranges dst_ranges
-+
-+	cleanup_vnifilter_api &>/dev/null
-+	setup_vnifilter_api
-+
-+	# The destination is on a different dstport so re-adding the same VNIs
-+	# does not collide with the source under vxlan_vni_in_use().
-+	run_cmd "ip -netns $testns link add vxlan-src type vxlan $opts \
-+		 dstport 4789"
-+	log_test $? 0 "dump/replay: create source device"
-+	run_cmd "ip -netns $testns link add vxlan-dst type vxlan $opts \
-+		 dstport 4790"
-+	log_test $? 0 "dump/replay: create destination device"
-+
-+	# 8192 contiguous VNIs sharing the default remote: one run, twice the
-+	# limit, installed in two accepted requests.
-+	run_cmd "bridge -netns $testns vni add dev vxlan-src vni 10000-14095"
-+	log_test $? 0 "dump/replay: populate the first half of the run"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-src vni 14096-18191"
-+	log_test $? 0 "dump/replay: populate the second half of the run"
-+
-+	# The run must come back split at the limit, exactly. Comparing with
-+	# the literal split, not only with the replayed copy, also catches a
-+	# dump that drops or repeats VNIs where it resumes.
-+	src_ranges=$(vni_ranges vxlan-src)
-+	log_test $? 0 "dump/replay: dump the source device"
-+	[ "$src_ranges" = "$(printf '10000-14095\n14096-18191')" ]
-+	log_test $? 0 "dump/replay: the run is dumped split at the limit"
-+
-+	# bridge(8) prints entries, not netlink messages, so this replays one
-+	# entry per request; it does not see the per-message budget.
-+	replay_rc=0
-+	for range in $src_ranges; do
-+		bridge -netns $testns vni add dev vxlan-dst vni "$range" \
-+			2>/dev/null || replay_rc=$?
-+	done
-+	log_test $replay_rc 0 "dump/replay: replay accepts every dumped entry"
-+
-+	dst_ranges=$(vni_ranges vxlan-dst)
-+	log_test $? 0 "dump/replay: dump the destination device"
-+	[ "$src_ranges" = "$dst_ranges" ]
-+	log_test $? 0 "dump/replay: source and destination dump the same ranges"
-+}
-+
-+# A VNI whose add fails must not be left installed. Two steps can fail
-+# after the VNI is published, and both are reachable without memory
-+# pressure: installing its default FDB entry, once the device holds
-+# maxaddress entries, and joining its group, once the socket holds
-+# net.ipv4.igmp_max_memberships groups.
-+vxlan_vnifilter_add_rollback()
-+{
-+	local opts="external vnifilter local 172.16.0.1 dev veth-testns"
-+	local full="dstport 4789 remote 172.16.0.2 maxaddress 1"
-+	local groups grp vni k fail=0
-+
-+	cleanup_vnifilter_api &>/dev/null
-+	setup_vnifilter_api
-+
-+	# The device's own default entry uses up maxaddress 1, so no VNI that
-+	# inherits the device remote can install its own.
-+	run_cmd "ip -netns $testns link add vxlan-full type vxlan $opts $full"
-+	log_test $? 0 "rollback: create a device with room for one FDB entry"
-+	run_cmd "ip -netns $testns link set dev vxlan-full up"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-full vni 100"
-+	log_test $? 255 "rollback: refuse a VNI whose FDB entry does not fit"
-+	run_cmd "vni_listed vxlan-full 100"
-+	log_test $? 1 "rollback: the VNI whose FDB entry failed is absent"
-+
-+	groups=$(ip netns exec $testns sysctl -n net.ipv4.igmp_max_memberships)
-+	run_cmd "ip -netns $testns link add vxlan-mc type vxlan $opts \
-+		 dstport 4790"
-+	log_test $? 0 "rollback: create a device for multicast groups"
-+	run_cmd "ip -netns $testns link set dev vxlan-mc up"
-+	# VNIs above 255 so that no group address can match the VNI probe.
-+	for k in $(seq 1 $groups); do
-+		grp=239.1.$((k / 256)).$((k % 256))
-+		bridge -netns $testns vni add dev vxlan-mc vni $((1000 + k)) \
-+			group $grp 2>/dev/null || fail=1
-+	done
-+	log_test $fail 0 "rollback: join as many groups as the socket allows"
-+	vni=$((1001 + groups))
-+	run_cmd "bridge -netns $testns vni add dev vxlan-mc vni $vni \
-+		 group 239.2.0.1"
-+	log_test $? 255 "rollback: refuse a VNI whose group cannot be joined"
-+	run_cmd "vni_listed vxlan-mc $vni"
-+	log_test $? 1 "rollback: the VNI whose join failed is not installed"
-+}
-+
-+# A refused FDB update must leave the entry's state as it was. Replacing a
-+# VNI's permanent default (all-zeros) entry with a dynamic one is refused,
-+# because only unicast entries can be replaced, so the entry must stay
-+# permanent and survive ageing. A dynamic entry added after the refused
-+# request is due for ageing no earlier than the default entry, so once it
-+# has been aged out the default entry has been through the same pass. The
-+# check is on the end state only: a request that changed the state and
-+# put it back before returning would pass it too.
-+vxlan_vnifilter_refused_fdb_update()
-+{
-+	local opts="external vnifilter local 172.16.0.1 dev veth-testns"
-+	local zero="^00:00:00:00:00:00 dst 172.16.0.2 .*src_vni 100 .*self"
-+	local mac=02:00:00:00:00:01
-+
-+	cleanup_vnifilter_api &>/dev/null
-+	setup_vnifilter_api
-+
-+	run_cmd "ip -netns $testns link add vxlan-age type vxlan $opts \
-+		 dstport 4789 ageing 1"
-+	log_test $? 0 "refused update: create a device with ageing 1"
-+	run_cmd "ip -netns $testns link set dev vxlan-age up"
-+	run_cmd "bridge -netns $testns vni add dev vxlan-age vni 100 \
-+		 remote 172.16.0.2"
-+	log_test $? 0 "refused update: add a VNI with a remote"
-+	run_cmd "fdb_listed vxlan-age '$zero permanent'"
-+	log_test $? 0 "refused update: the VNI's default entry is permanent"
-+	run_cmd "bridge -netns $testns fdb replace 00:00:00:00:00:00 \
-+		 dev vxlan-age dst 172.16.0.3 src_vni 100 self dynamic"
-+	log_test $? 255 "refused update: cannot replace the default entry"
-+	run_cmd "bridge -netns $testns fdb add $mac dev vxlan-age \
-+		 dst 172.16.0.4 src_vni 100 self dynamic"
-+	log_test $? 0 "refused update: add a dynamic entry"
-+	slowwait 25 eval "! fdb_listed vxlan-age '^$mac '"
-+	log_test $? 0 "refused update: the dynamic entry is aged out"
-+	run_cmd "fdb_listed vxlan-age '$zero permanent'"
-+	log_test $? 0 "refused update: the default entry is still permanent"
- }
- 
- # Sanity test vnifilter datapath
 -- 
-2.53.0
+2.43.0
 
