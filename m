@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794682859;
-	b=D34hL/FB7aZWxFSjc20cKeDqaWRlBQKmPIVbdeCOs0tGMFm0njnkRI1YRl1XGy2ES49r
-	 79xbMuLsqXhVxYX7/+yiQTFz5vOng+FD8Dhq5IljbbdlZK7Lvay1DoxSofTkyQDUPoeZ+
-	 sHzZUl/igQOH8xCXpbMgTvfIfSGa2Ay5Y8SSxZCwmNd8DF6hdcOTh2gAgaspuAkkS5CfG
-	 3h0yzIPGxzHaAIeaaVHSEA/KqvnGHc3GWXUlbGTbesw4XMM/jPLk5KeBbuo6OdfPA5vKt
-	 d2MZjvyO/FNRsy076UxjsjO6TVVXl24dKX0aUrBE+4bkkPFx021CFd3xa2J+wAkehFQ==
+	t=1794682861;
+	b=BcJddnqbTBsomYIo8vJwjf1gg1Fieg+CsH8xvvwXnh6zDacl8qpiNUzcplw4uQI8FVHu
+	 Gw5RjnRKQWYnQRofDqDBTIBBrzvSRvG7qglpyxv6brKROTBso8EXMQzP+tUWCC2j+/jIf
+	 XXrisdDsXXm2u5WG/IuO8cvITQ2ZEViQeHkVMQnsc4wFjo0lGvTxb7lLDxrto2N/m3skx
+	 5yNZmY8b99p8QaGjhH/27n/HKov5IK2nrRO/Hjl2X2JP78OiyQUCxUMIRrYZ1Iul4B7kK
+	 4VYN1/EZQ3LwjtLAtvlKwCbt9UeluHrrtNky7REFEKqV+6Oz7iRUg//gZpiFGNw2loQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794682859;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794682861;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=zfEy1sXdvZlECu986bz1DTufnCl+5cAMZjDHBpXD1BY=;
-	b=1/J4loy0aH3qCXUwhul4fLehVlSmJ6ig02BV5SedcqLb59rzbsrQh+lJkMp8zgrVTJMj
-	 kukT8GwzRONttIqAA0/5BC4ki6Erz8BEZ8ZnaBqZNBWUcikzMg6/Q0qHwDCPSoaMGm19y
-	 TGV0TxpJDqV7VufigZEQgRnLDakmDEAbSKZldPcZiLT9Vanq6OY3KUj7DEGAoZ2aolXgC
-	 lhBtTyf5R6y2y0xWLmI0j0xBOCHDvfbxMcdPcY3o1+izZAflg0wm1OtvCJOHFaUQE/0vV
-	 N+snX1pyskQ+zG8iLSG5Lw2q6uuwPG29UBVXNUawWlcYu6N7FyuusaRD10rOfm5a+VA==
+	bh=o4zipBxrf57Ip5A3uG09UJtOdVO+Is3MJ1ZNofk0WJg=;
+	b=zqtzg3sMuuTGFOpFdPKKEePo8KK3LFySkKJsX8gRUDM8jh8qSlA1OgD49+VG7ijBo3sM
+	 fQFh+qA4oxX4qbW9+TAPz9bcDWApFbP5EsxKJ5IbvE12NvoIurzHEHHYod0X/Z667S9+t
+	 tCrIXohddZ7yZoQ1A/oUK6ctNjhhPgbvd8qp2OCuKXLCX7Se+pZCIKF0BUsf4703725V0
+	 sVNUi5kq2kcgjTm9DVEnnZAvzZ26gix2cXp2TLi9a6JyuBmFsEX+Y1eRkzVBdQfjX98S9
+	 V5tpHL8xKhY50Ji762pEAHWmS9wH+J6pTwln9Aj0pDCOx2wQ+C7ZVzrZuEYICbEH3fA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=1wt.eu;
 	spf=pass smtp.mailfrom=1wt.eu;
-	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=PpHsXMVG;
+	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=hq9pPgtO;
 	arc=none smtp.remote-ip=51.159.59.229
 Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 479C9606A33D;
-	Sat, 14 Nov 2026 19:00:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 479C9606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50D4F60A261F;
+	Sat, 14 Nov 2026 19:01:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50D4F60A261F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=PpHsXMVG
+	dkim=pass (1024-bit key) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=hq9pPgtO
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
-	t=1794682837; bh=zfEy1sXdvZlECu986bz1DTufnCl+5cAMZjDHBpXD1BY=;
+	t=1794682837; bh=o4zipBxrf57Ip5A3uG09UJtOdVO+Is3MJ1ZNofk0WJg=;
 	h=From:Message-ID:From;
-	b=PpHsXMVGHveyP9dtBIyKc/i4C19dYJ0737q8nEyzymhMRs/mclz0FAxpzQiJaZQfq
-	 UuF6QdY8AFP0Gz0HIK4tHKa0dzPAEJ9dqOL6jNdcM6da4Tz7BEjljqGMWHBEHFaFHH
-	 R7DbSnAJbU1SQ6KTd7++s4kL/gEAN69wmO0el2y0=
+	b=hq9pPgtOGKYMI769+9JaRgZ5xBf3AYiQfmug4deuJLdSm6C0Eik0v9u9xKc2huAmi
+	 4FLxLB7jaFcdiW+F5l593Wqm7S7pqBBa0qhJIGl7P1Jh/aD8H3vq3MuxqbJ8qfOYV2
+	 dClHCH0ZsP4Z1Njl7sSOnRdX2zy4r9OyPpHUes90=
 Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
-	by mta1.formilux.org (Postfix) with ESMTP id 39D6EC095D;
+	by mta1.formilux.org (Postfix) with ESMTP id AB43AC0963;
 	Sat, 14 Nov 2026 20:00:37 +0100 (CET)
 From: Willy Tarreau <w@1wt.eu>
 To: Jonathan Corbet <corbet@lwn.net>
@@ -51,9 +51,9 @@ Cc: skhan@linuxfoundation.org, Randy Dunlap <rdunlap@infradead.org>,
         "David S. Miller" <davem@davemloft.net>,
         Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
         Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>
-Subject: [PATCH v2 02/14] docs: security-bugs: clarify when to Cc the security team
-Date: Sat, 14 Nov 2026 20:00:02 +0100
-Message-ID: <20261114190014.17826-3-w@1wt.eu>
+Subject: [PATCH v2 05/14] docs: security-bugs: explain how to send a fix that can be applied
+Date: Sat, 14 Nov 2026 20:00:05 +0100
+Message-ID: <20261114190014.17826-6-w@1wt.eu>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20261114190014.17826-1-w@1wt.eu>
 References: <20261114190014.17826-1-w@1wt.eu>
@@ -68,94 +68,91 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The rules indicating when to Cc the security team were a bit confusing,
-because "Identifying contacts" said to always Cc it, while the details
-said it was only needed for small teams or for the first few reports,
-and nothing said what to do when the impact is unclear or when posting
-to a public list.
+Most fixes accompanying security reports cannot be applied with git am,
+either because they were damaged by the mailer, or because they just
+lack a commit message, and the vast majority of our responses to
+reporters are about the patch format. The doc only said to format the
+fix "in a way that can be immediately merged", but by now it has
+become clear that for many reporters it doesn't have the same meaning
+as for maintainers.
 
-Let's try to clarify this a little bit now that the rules have evolved
-a few times, while not changing what already works fine nor from what
-is being properly practiced. It also clarifies the "within a week" by
-insisting not to ask before that delay.
-
-This patch changes the unconditional Cc at the top to "when needed, see
-below", and groups all cases in a single list that's easier to verify
-for the reporter.
+Let's give concrete methods: preferably the report as the cover letter
+of the series produced by git format-patch, then the fix sent as a reply
+to the report, and as a last resort the patch attached, with a warning
+that some maintainers won't look at it. Let's also explain how to deal
+with public patches and private reports.
 
 Reviewed-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 Reviewed-by: Johan Hovold <johan@kernel.org>
 Signed-off-by: Willy Tarreau <w@1wt.eu>
 ---
- Documentation/process/security-bugs.rst | 48 +++++++++++++++++--------
- 1 file changed, 34 insertions(+), 14 deletions(-)
+ Documentation/process/security-bugs.rst | 46 +++++++++++++++++++++++--
+ 1 file changed, 44 insertions(+), 2 deletions(-)
 
 diff --git a/Documentation/process/security-bugs.rst b/Documentation/process/security-bugs.rst
-index 3575af5274f04..157e84c0d12a5 100644
+index 2744259267170..42b7926f3021c 100644
 --- a/Documentation/process/security-bugs.rst
 +++ b/Documentation/process/security-bugs.rst
-@@ -190,11 +190,11 @@ Identifying contacts
- --------------------
+@@ -307,8 +307,9 @@ Please send **plain text** emails without attachments where possible.
+ It is much harder to have a context-quoted discussion about a complex
+ issue if all the details are hidden away in attachments.  Think of it like a
+ :doc:`regular patch submission <../process/submitting-patches>`
+-(even if you don't have a patch yet): describe the problem and impact, list
+-reproduction steps, and follow it with a proposed fix, all in plain text.
++(even if you don't have a patch yet): describe the problem and impact, and
++list reproduction steps, all in plain text, then provide a proposed fix as
++described below.
+ Markdown, HTML and RST formatted reports are particularly frowned upon since
+ they're quite hard to read for humans and encourage to use dedicated viewers,
+ sometimes online, which by definition is not acceptable for a confidential
+@@ -316,6 +317,47 @@ security report. Note that some mailers tend to mangle formatting of plain
+ text by default, please consult Documentation/process/email-clients.rst for
+ more info.
  
- The most effective way to report a security bug is to send it directly to the
--affected subsystem's maintainers and Cc: the Linux kernel security team.  Do
--not send it to a public list at this stage, unless you have good reasons to
--consider the issue as being public or trivial to discover (e.g. result of a
--widely available automated vulnerability scanning tool that can be repeated by
--anyone, or use of AI-based tools).
-+affected subsystem's maintainers, and to Cc: the Linux kernel security team
-+when needed (see below).  Do not send it to a public list at this stage,
-+unless you have good reasons to consider the issue as being public or trivial
-+to discover (e.g. result of a widely available automated vulnerability
-+scanning tool that can be repeated by anyone, or use of AI-based tools).
++Sending a fix
++~~~~~~~~~~~~~
++
++Most fixes sent along with reports cannot be applied as-is because they were
++damaged by the mailer or lacking a commit message, forcing maintainers to ask
++for a resend. A fix must be applicable using ``git am``, which is most easily
++achieved by letting git produce and send the messages (see
++Documentation/process/submitting-patches.rst).
++
++When the fix is meant to only be sent privately, the preferred method is to
++send the report as a cover letter of a series, followed by the fix::
++
++  $ git format-patch --cover-letter -1
++  (edit 0000-cover-letter.patch and replace the subject and text with the
++   report's subject and text)
++  $ git send-email --suppress-cc=all --to=<maintainers> 000*.patch
++
++The recipients are those determined above (add ``--cc=`` for the security team
++when needed). The ``--suppress-cc=all`` option is important: without it,
++``git send-email`` also sends the messages to addresses found in the patch's
++tags (e.g. ``Cc: stable@vger.kernel.org``), which would leak the report to a
++public list.
++
++If the report was already sent, the fix may be sent as a reply to it, to the
++same recipients, for example using ``git send-email --suppress-cc=all
++--in-reply-to=<report's Message-ID>``. As a last resort, when none of these
++methods is possible, the file produced by ``git format-patch`` may be attached
++as-is to the report, but be aware that some maintainers will not look at
++attachments. However, never attach more than one patch per message without
++being explicitly invited to so, as this would significantly complicate reviews.
++
++When the fix is meant to be public (e.g. for bugs found using AI-based tools,
++see above), send it using ``git send-email`` to the maintainers and lists
++reported by get_maintainer.pl (i.e. without the ``--no-l`` option), with a
++commit message that does not detail how to exploit the bug. Then send the
++report and the reproducer privately to the maintainers (and to the security
++team when needed), mentioning the patch's Message-ID or its link on
++https://lore.kernel.org/ so that they can be matched. The report may also be
++sent as a reply to the public message, after carefully removing all public
++addresses from the To: and Cc: fields.
++
+ After sending the report
+ ------------------------
  
- Finding the maintainers
- ~~~~~~~~~~~~~~~~~~~~~~~
-@@ -250,15 +250,35 @@ equally be forwarded as-is to the relevant maintainers.
- Copying the security team
- ~~~~~~~~~~~~~~~~~~~~~~~~~
- 
--The report must be sent to maintainers.  If there are two or fewer
--recipients in your message, you must also always Cc: the Linux kernel
--security team who will ensure the message is delivered to the proper
--people, and will be able to assist small maintainer teams with processes
--they may not be familiar with.  For larger teams, Cc: the Linux kernel
--security team for your first few reports or when seeking specific help,
--such as when resending a message which got no response within a week.
--Once you have become comfortable with the process for a few reports, it is
--no longer necessary to Cc: the security list when sending to large teams.
-+The report must be sent to maintainers.  You must also Cc: the Linux kernel
-+security team in any of the following cases:
-+
-+  * it is your first report: many first reports are incomplete, too long, too
-+    strong, difficult to handle, and put a lot of pressure on maintainers. The
-+    security team will help with the process and with the qualification of the
-+    issue. Note that this rule also applies if you were asked to fix or adjust
-+    a previous submission;
-+
-+  * there are two or fewer maintainers among the recipients: the security
-+    team will ensure the message is delivered to the proper people, and
-+    will be able to assist small maintainer teams with processes they may
-+    not be familiar with;
-+
-+  * the maintainers could not be clearly identified (see above);
-+
-+  * the impact of the issue is uncertain and needs to be qualified. In this
-+    case, your must clearly state upfront that you are seeking help to qualify
-+    this impact, and you will need to share any information you have;
-+
-+  * you are seeking specific help, such as when resending a message which got
-+    no response within a week (and please do not ask for feedback before such
-+    a delay, some subsystems have a long report queue, and some maintainers can
-+    only read them in their spare time).
-+
-+Otherwise, when a report of clear impact is sent to a larger team of clearly
-+identified maintainers, it is not necessary to Cc: the security list.  Never
-+Cc: the security list on a message sent to a public list.
-+
- The Linux kernel security team can be contacted by email at
- <security@kernel.org>.  This is a private list of security officers
- who will help verify the bug report and assist developers working on a fix.
 -- 
 2.52.0
 
