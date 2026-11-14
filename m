@@ -1,99 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794665602;
-	b=4UZkbxLHIaaO7nvx+j8qUOO29IQFDSu4hzP52p506GvlMVMgpwMYjWpZVVqYp9/KN6CQ
-	 suBGIUstyhegzQ1DTSE5+IlS9+OaYcqDhVQ9lr2ki1OvC2QqI0yj+S2Y8mpi+g48ndHf7
-	 0zgo+6g1wy9T0PjXpucXe1RpWYo+h9hnFu6m26E+ljzm+OZJ1ap2oJoWBU08mpCV8UNRV
-	 0qsP6wnF8TPHpyLCniIxwQMFo+DtEfIpKje7v9TKYIfCFyN5MJfEdh8NYc8uw79XU7z0L
-	 0jIDkFJOc/ri8BZ5G0LzoW653eESXoeeh72TMw8QYYHEDrXuB8vMT0mJmd1J5gs4XnQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794665602;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=/lYN5cpAnwcvRLwVXKb5jg7Q77SzumSKXZpj2QEfzSE=;
-	b=FtIwD7IYwFLRvtIbAB9j96wD8GDjvIjeGrK/1X0wg+q0qhHxSdGhUuaV0js/3vJnWTOM
-	 E+dI4WyueyYXTWs75k25kACh4f9tLxLWmIKlzG4JTZo7hLDAHUTzovffKw+/fHVoCf2na
-	 /Mimlya0vUXRBFUWhb9L8Y2yAtkDy0MfeMisrEkaXhFXtoWTq5DoeaGzwCbVj0eOhEmnR
-	 SdkmQ3DfNbEcZHdJTWh7JO0GlwU4HeUfx1J5KxnrV/NjPCvTsfTLRZust1ytaVh+Vvuvo
-	 ibDqJFY1dB4IccD+xT9IYQJslH+Rg8Nu2229jpveTXLFse2qQLDo0T1c4Y2Lmaj8ixw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PefjNSwK;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794665699;
+	b=M7vr4gyPutrTsTlYsceULCQe3Irq/6b4Ogzvuy0qM87Qapt+fUQVD1NHdCTugSyk1WsA
+	 d7gJrxzB8Oi2J5KmijtHMCo/1SEloZhz/z3bJ1DupZHtcKn8Peo1CYecChZGw0LEJLhGj
+	 GE5dvU5PazKACAzetEOMsz/HGMhdctrGPC9Qix1A7/H+cQs6P7/DaAm2mvPntNhy6V+IG
+	 qojtT5VnNzCkdTSqgpodz8uY/gPB1aJijDuivKi+pbkxXVuUzkEQeFD9F2bqaI/dw70aF
+	 4BWOINxACJZ9wr9nE+9NtZIdIyAeqKXZv7+TOTK+cpgDAIFt8pTuE6muAliBWSRI/rQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794665699;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=G4u5AhIOFg3Un7/OVQVhcKducbdMvClYNxtPBHy/Mz8=;
+	b=sEuU+jJJn0Oc7TmwbmdQWL1/wFJIwOROre9o/noRGqBjAQ/RWjayleGV7wFAzPbGoQiK
+	 H/1RCrKeCumsW090xPo7Ji7NDy6M5fet15Qqqnt95l8loYH0CR4eLFPHyDg/ieRZmiXcS
+	 bOyU0wP7dkFAJtT0TmX0pmdkY8rCoRwRw9auQMwrYbCeoDQtvDEbkD5nxJ9c4HEJsITr6
+	 fVPOnm5OJgxPOdfJ9SZYI5ppEwf+KBEvIq3ObDpqDboLXPyH5Qn9u+v0e3HeZ3KZmODNq
+	 x58t2/l2xUBUHXo6+SRQ+1Zc8LHIWyoeljZdXDKJ1C3rM/XmCaLnlF2y6smG8giz5og==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="hVrZ/rGO";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F85E606A327;
+	Sat, 14 Nov 2026 14:14:59 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hVrZ/rGO
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794665699;
+	b=RvjmogUU3g74TpbeFcqom0zbCVG3TzvQ9Iw2LdjpiS1XOLDYqrvrwCx7tYxI2ZesHdL4
+	 WVwKA7MU1iUq7IuFqk3EvIuOOHmhGeiEfLxLYw6fa/palMSFFv3eM8qu81H2JNUH8ZXuz
+	 lKMGiAFBIhPInKv9mJlUjMz+0boxtybX/LfcgLGlVgs3/hLtStg4IBNHm1gOm8NMQ4gk1
+	 t5lO756i75ViDcind1tXnmVgrUVs5TikMSiThLXqgkFR0jrwSeCV7pCXicE0C+2zyro2q
+	 9UO7YFHHzcIuD1zQnQvCe7DYc2Ch4GdEJs/pJGOegS+i1gMdHREpa3PXHbfZyCSGZqg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794665699;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=G4u5AhIOFg3Un7/OVQVhcKducbdMvClYNxtPBHy/Mz8=;
+	b=iz/ge9ybdGVyeJt70tfC4QYFyn9WqD9vIwIsKgIBquHrhd6uKCscsldbmIx9tOhNSeus
+	 uo25VkuyITZVfvzQMHSqPtVXWbJt8/MH7VN0Uv+gOUenYX/iYYZs1XgZuy0ajsUSHUSUO
+	 R3X4HZoSwF0m9aOWdHxBOpWHHbX1DDsk2OninsBIwvLdGvs0J0j1n2nsantP3Il57HKHu
+	 rlSbTkW8+mHXCzAIviAsbtXj7Eb1amOpdvEpuZCC3XTxMkHH6QYQTsE9a0ycvgS6uUDYG
+	 TF53FzUgWt3exG88UDNnDuA/xx2XZp/wVe+RB+ogt0xB29S17eSVQGmA1tF+M7QBDrg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38B1A606A327
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 14:13:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38B1A606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PefjNSwK
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2e9d7791b00so22129265ad.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 06:13:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794665601; x=1795270401; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/lYN5cpAnwcvRLwVXKb5jg7Q77SzumSKXZpj2QEfzSE=;
-        b=PefjNSwKA83Q9XnZkTR47Rv7Ph8C3n2d81LF7aoXPv/tSDKxDwxbeGFRPLnE5vWK1V
-         0uKVkIumRKcpAGAFtMHk/ngx084YRUXyzAfWNB0StBSy0RmYWb494bbHhQFzGzBrq8vF
-         0rGOIm6w411b4HzQ+C9PvmoEpUOY5T+QNxZdHDifN10q4EGPAJ2zgkfv2/ODBOGLzzIK
-         rC1eU/yIXFfZV37+0HM/1/IQotKbkiQCunu850lBNxrZxjXdidrkHAnt8K/bLmy5Ttux
-         X8WuQJPGtWZX4rk/SqwapAFwA6F4KTzwJwFX3etpmU88x7XpEwpQsvCZvKX0ILvaKKvx
-         leUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794665601; x=1795270401;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=/lYN5cpAnwcvRLwVXKb5jg7Q77SzumSKXZpj2QEfzSE=;
-        b=rEu1s2bZmwYZz9se8+YauC0X5iLOLaUC3IUhrxbvyOVgz4sbf67OQP7LliUvgBKdVZ
-         Q7IJlCvIXB6iwRO4ShecG6Ur6h1YzbfcUHve3LM7vuLK5bXzTjAxfIVbsQggPBwIonHf
-         4j3kdulgyP+LP+uK/5IsAdt624/lLpWIP1A1MLhxvuW1EPsw15eIbTtOM9cOAoT5pbm2
-         vfJiMkSwcVR/BdKZlWp7jyxhfrZrnfRRTo4wPt3QK2C3fg+e0CwR0NhGEaIVej4sjp+5
-         P+ZPxEmGKQRFmdHcoLBnYNQ0t4ztqeInjO2wQABBjupHdVAG7Ds9FvJBjK7um3L5vB+A
-         PFWQ==
-X-Forwarded-Encrypted: i=1; AL+hErHEqCuwmlfcaAFYHJOeLk1Uq1AaLJ5WlxXkpPaHhi9UU6PVo52rT2ozSS+v4yxjTt1f/SSWfgg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z87P2nVDzHT/XVqSHsCFSVGygPWwBwQ4kNYFKcY/sa4d34Sw9oR
-	dkiCXiDVVcsA4LiXsXE/KFfhPslmBJ4AHuFTACBbi/ElnznedqNaQRzA
-X-Gm-Gg: AYBFou23YeRicjhYnmor5hPM6QJ5gQsDLWsdw146hxrRJ5Ak/nwF8siudd4de+p0W+c
-	g/10bEqaKqnz1LgwBcSKQG9uQsrKNRDhow8wR3nK86JM+pDLyNq8mz9Y31L4119eIIx1VUp5FWy
-	nqyBJUDPzaf9pVqzHwbsqH1tYYvvadFcx/WgyyFqjjNdcHkYtPgsRTrFXKpeoNSROHK1H3MZak0
-	K1An0SVeNLPuntwKbUX8t4yPFod9+CJtBPgNmaS5vVEGIOyBwUtLGmjMlfuHLJRIW9SaqLbCOtw
-	1KoPv+UQ3weRrNLwD15iju4OX4FykxVes+w09VxG7zEsPfDfRJLQBoAeSGqsEL/N6fdDS/EWge7
-	+uenkYD56QCY9o6GuUBxGnCs+1iNNLCPKFiUfQfUBlg03CxkDo330qyS048cT4f9U8P8+UUnddE
-	bwUr/yKNV+jK7fjJ29oFARHg1cTaR9Lmk92cezuIPVbGeNTF2hkuzV9dSasawfYjFj6/nhvI+A6
-	jk3ELnoXCbOpGSuh31KPmVVuRMeICoSTK4iSA6m6V2HeagrdX43tqJ/MUorMLtDrXj2dIUbWBQT
-	LaUVhRCa68wwmvh1FMOtEFGRnnSCI8e+XQJFz3xbp/iRbLmMWVvl/wFZ/ZUfDDiVA2RKW8VYiB9
-	L
-X-Received: by 2002:a17:902:db0c:b0:2ed:b7e4:f52 with SMTP id d9443c01a7336-2ee0dd907f9mr51917735ad.57.1794665601458;
-        Sat, 14 Nov 2026 06:13:21 -0800 (PST)
-Received: from LDYT9Q2G2M ([2a09:bac1:7680:450::1c:35f])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ee0f8d9966sm21077595ad.61.2026.11.14.06.13.18
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sat, 14 Nov 2026 06:13:21 -0800 (PST)
-From: Zhiqi Zhang <zhiqizhangg@gmail.com>
-To: Eric Dumazet <edumazet@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Kuniyuki Iwashima <kuniyu@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Tim Fuechsel <t.fuechsel@gmx.de>,
-	Lukas Prause <lukas.prause@ikt.uni-hannover.de>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] tcp: roccet: do not restart from idle on RTO retransmission
-Date: Sat, 14 Nov 2026 22:13:15 +0800
-Message-ID: <20261114141315.19007-1-zhiqizhangg@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	by smtp.kernel.org (Postfix) with ESMTPS id 5B0DB1F000C4;
+	Sat, 14 Nov 2026 14:14:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794665698;
+	bh=G4u5AhIOFg3Un7/OVQVhcKducbdMvClYNxtPBHy/Mz8=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=hVrZ/rGO3odB2su7yszr8y9pYB3O5fkkH6BnS1a8frqlgG1e6wpck42mn/s7IFZnM
+	 WlwVnCJVjRVLrN0fkai0ez2ltB16WTXLJg5vxTMfBNoaZcOnQ/NVVJKEB7mXq3Lm4x
+	 M+akdMp+bkgOHLSNAM2avjj134+t930xXgIYcPrMVsVVdm2l6zejyT00d1seEYdmNW
+	 pg9WLRd46Zf4QI4j759AcmsWTV2WhTnPK0Iqylp7rxhjmvvRJtlhIy1uQ7qXgiT8WG
+	 FBhyBLR5kUwJUqHUAiFaZKtfP4pEs7IJCRprXj7ASv8RyVYoZZEZHEIyQgt2SqwVoy
+	 TPP7CukSQJCUA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id CA43649DC2;
+	Sat, 14 Nov 2026 14:14:57 +0000 (UTC)
+From: Bryam Vargas via B4 Relay <devnull+hexlabsecurity.proton.me@kernel.org>
+Date: Sat, 14 Nov 2026 09:14:58 -0500
+Subject: [PATCH net] net/smc: set the lkey of every SGE in
+ smcr_tx_rdma_writes()
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,76 +83,103 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261114-b4-disp-dd99cd41-v1-1-009e1c022346@proton.me>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQqDMBAAvyJ77oIbEyH9SumhZte6PaSStaUg/
+ t1ojzMws4JJUTG4NisU+arpO1egSwNpeuSnoHJlcK3ricjj4JHVZmSOMbEndL4fKcRAoWOo2Vx
+ k1N+5vEGWBe5/aZ/hJWk5ZrBtO8eVIEx5AAAA
+X-Change-ID: 20261114-b4-disp-dd99cd41-246f1595153d
+To: Eric Dumazet <edumazet@kernel.org>, 
+ Mahanta Jambigi <mjambigi@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, 
+ Jakub Kicinski <kuba@kernel.org>, "D. Wythe" <alibuda@linux.alibaba.com>, 
+ Sidraya Jayagond <sidraya@linux.ibm.com>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Dust Li <dust.li@linux.alibaba.com>
+Cc: Simon Horman <horms@kernel.org>, Tony Lu <tonylu@linux.alibaba.com>, 
+ linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Wen Gu <guwen@linux.alibaba.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794665697; l=3051;
+ i=hexlabsecurity@proton.me; s=default; h=from:subject:message-id;
+ bh=dkZIYkWO+afWCtaRXB6rlTNCb1w2kuhU8KVl6AzBpmo=;
+ b=Fm8nUYS5YgF6A3OcDnR5fkM8Orc+GUr95QOvYntRgXnITsnFV4EDHR4MiR8VzCWTYThWu/cjf
+ Zs0fz8/hNPpB+OWQnISb0UUVBidefyMvTCFi4cHl1aZbeW+xNJm+A35
+X-Developer-Key: i=hexlabsecurity@proton.me; a=ed25519;
+ pk=xw1AhCtQdvuoQc+bOQIYy9o8G++cp4/VniI2G/tc3G8=
+X-Endpoint-Received: by B4 Relay for hexlabsecurity@proton.me/default with
+ auth_id=893
+X-Original-From: Bryam Vargas <hexlabsecurity@proton.me>
+Reply-To: hexlabsecurity@proton.me
+Content-Transfer-Encoding: 7bit
 
-roccet sets .cong_control, so tcp_slow_start_after_idle_check() returns
-early and roccet implements the idle restart in cwnd_event_tx_start().
+From: Bryam Vargas <hexlabsecurity@proton.me>
 
-An RTO retransmission also raises CA_EVENT_TX_START.  tcp_enter_loss()
-marks the outstanding packets lost, which drains the in-flight count
-while packets_out stays non-zero, and the RTO timer expires at least
-icsk_rto after the last send.  The idle restart then overwrites the
-snd_ssthresh that roccet_state(TCP_CA_Loss) just set:
+smcr_tx_rdma_writes() sets the lkey of an SGE only for a virtually
+contiguous send buffer; for a physically contiguous one it leaves the
+lkey the work request slot already holds. With net.smc.smcr_buf_type=2
+a send buffer falls back to vzalloc() when alloc_pages() fails, so one
+link carries both kinds, and a slot last used by a virtually contiguous
+buffer posts the DMA address of a physically contiguous one under the
+earlier buffer's MR lkey. That write fails, the link goes down and,
+with no link to switch to, the link group is terminated with all of
+its connections.
 
-  tcp_enter_loss()
-    roccet_recalc_ssthresh()       ssthresh = 0.7 * cwnd
-    roccet_state(TCP_CA_Loss)      cwnd = TCP_INIT_CWND,
-                                   ssthresh = max(ssthresh, cwnd)
-  tcp_retransmit_skb()
-    tcp_event_data_sent()          CA_EVENT_TX_START
-    roccet_cwnd_event_tx_start()   ssthresh = cwnd = TCP_INIT_CWND,
-                                   state = LAUNCH
+Set the lkey on both branches: the MR's for a virtually contiguous
+buffer, local_dma_lkey otherwise.
 
-The flow loses the reduced ssthresh and cannot slow start back to the
-pre-loss window; CUBIC growth restarts from TCP_INIT_CWND with
-last_max_cwnd reset.  Skip the idle restart while packets are
-outstanding, matching tcp_slow_start_after_idle_check().
-
-Measured with a loopback sender and 100% netem loss after cwnd reached
-about 126, reading TCP_INFO on the sender:
-
-  before fix: ssthresh during RTO = 10 (TCP_INIT_CWND)
-  after fix:  ssthresh during RTO = 88 (0.7 * cwnd preserved)
-
-The same issue was raised in the Sashiko review of the initial series.
-
-Fixes: 819d59638796 ("tcp: Add TCP ROCCET congestion control module.")
-Link: https://lore.kernel.org/all/179179785248.434549.16829837649351382748@kernel.org/
-Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+Fixes: b8d199451c99 ("net/smc: Allow virtually contiguous sndbufs or RMBs for SMC-R")
+Cc: stable@vger.kernel.org
+Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
 ---
+Repro on SMC-Rv2 with soft-RoCE (rxe) over a veth pair between two
+namespaces, one link, 64 KiB send buffers; smc.ko built from the
+base-commit below, with and without the patch, on a v7.4-rc2 KASAN
+kernel. smcr_buf_type=2 is set in init_net, where the rxe devices are.
+A test-only knob in smc.ko fails alloc_pages() for the server's first
+send buffer, so connection A gets a virtually contiguous send buffer
+and connection B a physically contiguous one. The server sends 1 MiB on
+A, then 1 MiB on B, in 16 KiB writes.
 
-AI assistance:
+Unpatched, B's first RDMA write is posted with the lkey of A's MR
+(recorded by test code added to smc.ko). None of its 16384 bytes reach
+the peer, though send() returned 16384. The write and the CDC message
+behind it both complete with IB_WC_WR_FLUSH_ERR. By reading rxe (not
+measured), the requester rejects the write, puts the QP in the error
+state and flushes the send queue. The link goes down and the link group
+is terminated, so A is aborted too: its next send() fails with EPIPE.
+Patched, both streams arrive intact and the link stays up. Both builds
+also deliver both streams intact with smcr_buf_type=0, with
+smcr_buf_type=1, and with smcr_buf_type=2 without the knob. No KASAN
+splat in any run.
+---
+ net/smc/smc_tx.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-- DeepSeek (deepseek-flash) generated the code change.
-- I wrote the tests and reviewed the code.
-- I wrote the documentation and the changelog, and used DeepSeek to
-  polish the wording.
-
- net/ipv4/tcp_roccet.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
-
-diff --git a/net/ipv4/tcp_roccet.c b/net/ipv4/tcp_roccet.c
-index 04b9e5246..4b4621a79 100644
---- a/net/ipv4/tcp_roccet.c
-+++ b/net/ipv4/tcp_roccet.c
-@@ -1144,8 +1144,15 @@ static void roccet_cwnd_event_tx_start(struct sock *sk)
- 			ca->epoch_start = now;
- 	}
+diff --git a/net/smc/smc_tx.c b/net/smc/smc_tx.c
+index 0f0c6df3bf2c..2c8bcaccad83 100644
+--- a/net/smc/smc_tx.c
++++ b/net/smc/smc_tx.c
+@@ -393,9 +393,9 @@ static int smcr_tx_rdma_writes(struct smc_connection *conn, size_t len,
+ 			sge[srcchunk].addr = conn->sndbuf_desc->is_vm ?
+ 				(virt_addr + src_off) : (base_addr + src_off);
+ 			sge[srcchunk].length = src_len;
+-			if (conn->sndbuf_desc->is_vm)
+-				sge[srcchunk].lkey =
+-					conn->sndbuf_desc->mr[link->link_idx]->lkey;
++			sge[srcchunk].lkey = conn->sndbuf_desc->is_vm ?
++				conn->sndbuf_desc->mr[link->link_idx]->lkey :
++				link->roce_pd->local_dma_lkey;
+ 			num_sges++;
  
--	/* After idle periods, go into LAUNCH with slow start */
--	if (READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_slow_start_after_idle) &&
-+	/*
-+	 * Skip the idle restart when packets are outstanding.  An RTO
-+	 * retransmission also raises CA_EVENT_TX_START: loss marking drains
-+	 * the in-flight count while packets_out stays non-zero.  Restarting
-+	 * there overwrites the snd_ssthresh preserved by roccet_state().
-+	 * Cf. tcp_slow_start_after_idle_check().
-+	 */
-+	if (!tp->packets_out &&
-+	    READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_slow_start_after_idle) &&
- 	    delta >= inet_csk(sk)->icsk_rto) {
- 		tp->snd_ssthresh = tcp_snd_cwnd(tp);
- 		tcp_snd_cwnd_set(tp, min(TCP_INIT_CWND, tp->snd_cwnd_clamp));
--- 
-2.54.0 (Apple Git-157)
+ 			src_off += src_len;
+
+---
+base-commit: ead6fa9a0ab194f02a2f36d634b193e9c5f9a1c6
+change-id: 20261114-b4-disp-dd99cd41-246f1595153d
+
+Best regards,
+--  
+Bryam Vargas <hexlabsecurity@proton.me>
+
 
