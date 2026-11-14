@@ -1,74 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794642802;
-	b=oscB+6hWghJBdzsa4kNtNR4taVKW1DxvHKCIAyPoKU2mNdwND+9CABmIQWcUElauZ+nv
-	 6zmj2bMoXTinhWeYDaen3n/Noq3AHGPx+O/ihXYkD8v3Eg+TwXOSfHrHm44oVQCAYX92+
-	 wah4PvFX/4gYZ0jMYiFnFNkGMImPDF10QtnsCd1J3ajB94zanPA6VYhjh+gzksrgKpZRo
-	 CxygxhCa/XKx4wLp3DgkcMLzbUyFmBvA+gg1DXFuPaddKwNLbLZjRnHAhhgSOfdwcdfzR
-	 zdRPX853hlESI8Co+T22PvPtRsD+mJM89xV0bQQWa3tua7omj+2Q1oX3An0AjJgmvDw==
+	t=1794647566;
+	b=FQm8iGRtJZdLX21mh1LcF2NX/utPdsoBdfkgsPzfMsiNfq90uRlVSEq49o2ZwHo+hSpT
+	 lrEKsa4TjF2o495j42ukLzYjylHvmvZNx0SC6p6iT6iHPtxx0+iprbUpFdCNDS/71pXWB
+	 RmsZ1dz6Dwz8sUQT+pQvWfdqKT0W5khnlHSciDJ+VYstMQ79tifD/AGqlgdeehGu4edds
+	 UK/dlIlD8YTZb6WSjMIru/oBbZkhI5dsFL47RDjzKoXbkkwCji0Z52q8JrNgcZe/43PGn
+	 a/lTpQaqtPp2cKKY6enaEPPIVlrm/DjJjkeN937F6Aburo1QYT/YdLp0jwek2Ytv9+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794642802;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794647566;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=Oh/mhrRlY1hzHfSankT6HJSljxVCxzPE9l8vrGjjWKk=;
-	b=NgmWLMihTEPNHnCu1eZ/35iGqaKIpTKH1KSF5c7pPq+m04TFyduKj5E3oc9z5vGpPtBv
-	 D8Mut3aL/zWwmdqPg51MejnwkjHUiOFjg41VJ1wHUKlHz5lEklRLJA92k1FJu36zqBBXf
-	 mbRKBnznfBUa7aofmzNM7v+keHjLd0WHICckH/hn9a3ykbNQmBBeD5EoPuOO2UEfJGuQ+
-	 X60BFUjKuo46RRvahnHqGQpQy6647U2KS7Zs8SVjwUWPUBCBc7KMMcisJikR5xv9HSdqe
-	 YnYZrXyTMetAFeLhYncsL5ZyvOTPnxqwFLsALGQAWl3j1mXLQz0ysGzNdujMs+73cBQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=QTbQToynBqwf3n1SZSg1pf/eN+ziaT5I0ox1EckFMS8=;
+	b=Toh+FISBZL+SKXRWm+570tlvw55706Gjft4DytH850GpydMsbPiNBxZq2A9V6aSuyRV2
+	 21jnFVjwViHam8x1LiFbFSjHmXfHNgVxqiKbVH2ft6BkKfhh/bp7SKABARbFacVqdnPix
+	 e34/CUSLKq7dBWHUmHryxSHoSG+8CPf6V8TlJMnVe04lo//hl3UAnyx9m9RzogYFqqF0e
+	 zofEfPsIo4im8fOgqD/dmz2+WbH7DWNzOm86/vYcShWkX9cAFWSeCy19BzaOyjrdAfpdW
+	 k5+RBNj26guVwLO1ufQ41qkRf/Yi58vwh4u06GZy8g95+h9OV9hdj6jmJr6aPkGCDxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EU9x0Gyg;
-	arc=none smtp.remote-ip=209.85.210.197
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RV6mQUGj;
+	arc=none smtp.remote-ip=74.125.227.137
+Received: from mail-pj2-f9.google.com (mail-pj2-f9.google.com [74.125.227.137])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EE51606A332
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:53:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EE51606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8F97606A88F
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 09:12:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8F97606A88F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EU9x0Gyg
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8b647bbf87aso1321219b3a.2
-        for <netdev@vger.kernel.org>; Fri, 13 Nov 2026 23:53:22 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RV6mQUGj
+Received: by mail-pj2-f9.google.com with SMTP id d9443c01a7336-2e97ddaf3c4so5655265ad.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 01:12:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794642801; x=1795247601; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Oh/mhrRlY1hzHfSankT6HJSljxVCxzPE9l8vrGjjWKk=;
-        b=EU9x0Gyg2vYJ4w09VNBpcRpLNQY5npITXlcuv3IY1iz7pbjExj2p2a/uvyEjaerkum
-         K3mRfpTf0AVzKmESFuO8r03c0KbLK+tlW3f6nn6NlER3GknKiNj9Qo8Bi0TUOjyFFvcU
-         Zo1ME4iCk5i1v9g7BtoISgq8PVEhp/H+QhWIEnl71uaTLhyo7VaG0OpYXcU70arPf0XW
-         4X4ePACjTLy6LozsiGGxVM+M/14WI8XmQRKtt+Q/VEGxAc54af3HNOgvlEgXzEs8Ahzc
-         yBUuzyh0a/kMvrgtGPTpZSBpSIIfe2IW7MSKbnNrpOFdQa05EtVmZrJ11NDiAiDlmK5D
-         BvjQ==
+        d=gmail.com; s=20260707; t=1794647565; x=1795252365; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=QTbQToynBqwf3n1SZSg1pf/eN+ziaT5I0ox1EckFMS8=;
+        b=RV6mQUGj7+F93NrSqCxxKeUED01cOhim5hASqZ3AYiS1YT0y21Kl3GdKHKu1t9l44t
+         GSQ37UxZasL+fHnTpBsopAbYWA903/H4/llyno2eMbaCzFwjioBAJ3jm5EseGU8Oud3r
+         OwE5LQPoW2sTjoOPLTS7t5z6j/aTatIHwVuOjyFblgKtjfE8HVpYYHYcljsWeUC0zB2z
+         38H8L4C31ZV5BOP2BiGXW58+M7b1OgIt0VnoSK2dzT4vepwOIeVumpezx1CXurFoWicV
+         0bApP5+CmlF1jpQmgBpMhJUlu0DqVwao0lCMUtf3vwZ1iSNCAXUlGQ7ugD/V0VNLSluF
+         HHdw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794642801; x=1795247601;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1794647565; x=1795252365;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Oh/mhrRlY1hzHfSankT6HJSljxVCxzPE9l8vrGjjWKk=;
-        b=V+wR/kDbItkUffkX9mg7roXuE0RXggKgRwV9dDa+r78NAaFwmf8omkA7MHUesOmof3
-         +SgnnvcTdSZEoyDQ8CANsxe7UFVtdZsVfY/5GNoiCF9c/t5whKncUOPAMNXUttj7FbMl
-         s53A3TYkWjqd+aA9Tpv5ae1V1GaJ/iaWVxbvzpyWYfgPoTrFjrKL3eFc0bfeH1PzEnbf
-         8E3G+Yeyns/HhGSQP+hyl/MRsZslge0syQNVft8eXHnJHVqTOIPzTsjF1AQHFDm4roKM
-         4wKr9uVRYy/9zMJesiYbEYO0mB7EiGp3x91oZJiGizxfNkBn6kse3ZAm3/fAHCZfdwSB
-         Q+qw==
-X-Forwarded-Encrypted: i=1; AL+hErGIBrfOJRGA4UCmZJ4H3hw8fDl6u2eVCW9CeS+OxFq6+mfxL7IyjxtK1rQPDKc2Q4Yxz/NETMU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/XVl9JL3sOltZGs1yPSdRWLoZGMIqKqiZcObgSFxVi4i/JS6Df
-	4uLDI/bLlhf4B5qru9+eQp+4BrpV9nxL+SeDI9w7EewODyJn+5/HmbcksfMVs3w1RGdSOn9n6up
-	ZdSdxkg==
-X-Received: from pgij15.prod.google.com ([2002:a05:6a02:840f:b0:cca:d82:90fc])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:a382:b0:3f9:9114:8045
- with SMTP id adf61e73a8af0-3f99114b75bmr595819637.43.1794642801339; Fri, 13
- Nov 2026 23:53:21 -0800 (PST)
-Date: Sat, 14 Nov 2026 07:53:20 +0000
-In-Reply-To: <20261111225148.88506-3-sidchintamaneni@gmail.com>
+        bh=QTbQToynBqwf3n1SZSg1pf/eN+ziaT5I0ox1EckFMS8=;
+        b=IAYV9b12oKwwRuWmeIQoKqEih566MQrpiFXjZ7l9OZKzvdl9h/5ukxtQ7dF3mcGVIT
+         WPmziS1BZh7ZUHmPNHORM+TufeBxOZJL2YRzzQznSZiQosyrJ0UYssKjrr6BAsVlAjI6
+         Ywjj8+RiJ1WVyZsyibGEBOZsAfCvbqAe3CZjeno+AQcF78hLLv4Z+GdYZ29UaNUXESsQ
+         EcwNxjWD6dh6UHQ9WBXt8UumLgHNSmSzutAj41GbeSLIAvqZmRu6dBWnsdWlqZQ0CpNJ
+         7CdZbKSYuCA3Ku6isl2bYts1khcjnvRy601AM/pn1P9u1nch0AqTKDChH9MbV2jssszI
+         +QQA==
+X-Forwarded-Encrypted: i=1; AL+hErEa3m0oPQHRnlmDIWqM6PPLt2J/RV41cEmAdSzoWDRm7cBhgum+voYGeaEAOW4TV3glhEH486I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9YIDOEARIr6JiHV8Es1vGKQntnqjn7VOYpP79wR8RyN8wNtDOi
+	wmNp1Xr+BgOaaJGJH1rcAhwJfRlcHO0ECDUyYl0dhKK37SGkl7EANGhd
+X-Gm-Gg: AYBFou0/t7V921+hqPiz3RHjq7n8Pa182fX2CqXFsq/jI9bW2RxxIo//n3nYIwARWdP
+	jNNPRvGSfNzuAsVEsEz3yqm/C7vOwu2zdNijIqVmmUMAeq/NDicJvUM2VyW03dAKSvnTajS5uwZ
+	gb5/gm6bovZHLHrX/xpcJuqLag+67PK3P34RX2W+OCJKqDpcuRtSdOvPeGed/iYDZzZFzAXK5nf
+	8V1TSz3x7mjVbNtCsFt8Ba/LFjMN/NMF/f68cHRvcMk0TRib/P8Ir78Fq3fpxn/V+X842J0lb5c
+	RLlwfNMALxI2Gq1DQOhglMbtKiMHNrV5UMqVmOe/Ghji1vBy8eCFdbDhmS6ZEgqcUN9lUpCNHHM
+	Q2If7vbusfYjXqrWOPYe2NNBARdL2fJH9qYl7fu8aoMe3cwdVimQYVx8JYAjeSZyw/PAL4cb72x
+	rwmi/D08jNcEZ/fR+8mn2SvkNk5586+VMfU93V784j5d2kfEcKQW0R3DDc8s9OeEI0BRmbU1sLW
+	roQTDYq69Sr3/pFqLaMdOkQLBxzfLxauf3zpsHCaYN4I9xRPQ2bYOLt47V2v9L+KxQxqO7Kv+9h
+	FXh569cZJCfKKQ3mcdv8nNi5oqI1WSHa51+0PRCghos3U/LvdRM6
+X-Received: by 2002:a17:90a:c88b:b0:3ae:6fda:78b1 with SMTP id 98e67ed59e1d1-3b1b0b6049emr4722150a91.43.1794647565057;
+        Sat, 14 Nov 2026 01:12:45 -0800 (PST)
+Received: from kernel-lab.tail5e91bb.ts.net ([2409:8950:57d:63:2b6e:fd48:7485:9720])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1aeb179fasm8311897a91.4.2026.11.14.01.12.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 01:12:44 -0800 (PST)
+From: Yingjie Wang <flashhhhha@gmail.com>
+To: steffen.klassert@secunet.com
+Cc: herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	jhs@mojatatu.com,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH ipsec] xfrm: avoid wrapping AEVENT timer thresholds
+Date: Sat, 14 Nov 2026 17:12:39 +0800
+Message-ID: <20261114091239.780633-1-flashhhhha@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,131 +102,74 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261111225148.88506-1-sidchintamaneni@gmail.com> <20261111225148.88506-3-sidchintamaneni@gmail.com>
-Message-ID: <avgQgQeWDfQMQgvl@google.com>
-Subject: Re: [PATCH net v2 2/2] selftest: af_unix: Test scm_fds on dgram disconnect.
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
-Cc: "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Shuah Khan <shuah@kernel.org>, Kirill Tkhai <tkhai@ya.ru>, apais@microsoft.com, 
-	hargar@linux.microsoft.com, rlmenge@gmail.com, egoriluk@gmail.com, 
-	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Wed, 11 Nov 2026 22:51:48 +0000, Siddharth Chintamaneni wrote:
-> Add dgram_disconnect_fdinfo in scm_rights.c verifying that scm_fds in
-> /proc/self/fdinfo/<fd> returns to 0 when a connected SOCK_DGRAM socket
-> with queued SCM_RIGHTS datagrams disconnects via connect(AF_UNSPEC) or
-> observes a dead peer in send().
-> 
-> Signed-off-by: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
-> ---
->  .../selftests/net/af_unix/scm_rights.c        | 79 +++++++++++++++++++
->  1 file changed, 79 insertions(+)
-> 
-> diff --git a/tools/testing/selftests/net/af_unix/scm_rights.c b/tools/testing/selftests/net/af_unix/scm_rights.c
-> index c165f250220a..ced83d3173b7 100644
-> --- a/tools/testing/selftests/net/af_unix/scm_rights.c
-> +++ b/tools/testing/selftests/net/af_unix/scm_rights.c
-> @@ -395,4 +395,83 @@ TEST_F(scm_rights, mixed_lowpoint)
->  	close_sockets(6);
->  }
->  
-> +static int count_scm_fds(struct __test_metadata *_metadata, int fd)
-> +{
-> +	char path[64], *line = NULL;
-> +	int scm_fds = -1, ret;
-> +	size_t unused = 0;
-> +	FILE *f;
-> +
-> +	snprintf(path, sizeof(path), "/proc/self/fdinfo/%d", fd);
-> +
-> +	f = fopen(path, "r");
-> +	ASSERT_NE(NULL, f);
-> +
-> +	while (getline(&line, &unused, f) != -1) {
-> +		if (strncmp(line, "scm_fds:", 8))
-> +			continue;
-> +
-> +		ret = sscanf(line + 8, "%d", &scm_fds);
-> +		ASSERT_EQ(1, ret);
-> +
-> +		break;
-> +	}
-> +
-> +	free(line);
-> +
-> +	ret = fclose(f);
-> +	ASSERT_EQ(0, ret);
-> +
-> +	return scm_fds;
-> +}
-> +
-> +TEST(dgram_disconnect_fdinfo)
-> +{
-> +	const FIXTURE_VARIANT(scm_rights) variant = {
-> +		.name = "UNIX ",
-> +		.type = SOCK_DGRAM,
-> +	};
-> +	FIXTURE_DATA(scm_rights) self = {};
-> +	struct sockaddr addr = {
-> +		.sa_family = AF_UNSPEC,
-> +	};
-> +	int ret;
-> +
-> +	ret = unshare(CLONE_NEWNET);
-> +	ASSERT_EQ(0, ret);
-> +	ASSERT_EQ(0, count_sockets(_metadata, &variant));
+net->xfrm.sysctl_aevent_etime is stored in 100ms units, but the
+conversion in xfrm_state_construct() multiplies it by HZ while it is
+still a u32. Large values can wrap before the division by
+XFRM_AE_ETH_M, disabling the replay timer or turning a long threshold
+into a short delay.
 
-nit: count_sockets() is not needed.
+Do the conversion in u64 and clamp the resulting jiffies value to the
+range representable by replay_maxage and safe for jiffies comparisons.
+Use div_u64() so 32-bit builds do not require compiler runtime helpers
+for the u64 division. Use widened arithmetic when reporting
+XFRMA_ETIMER_THRESH as well, so large stored values do not wrap during
+readback.
 
+On x86-64 with HZ=1000, setting xfrm_aevent_etime to 536870912 made
+XFRMA_ETIMER_THRESH read back as 0 on the base kernel and 42949672 with
+this fix. A normal value of 8 read back as 8 on both kernels.
 
-> +
-> +	create_socketpairs(_metadata, &self, &variant, 2);
-> +
-> +	/* 1. Disconnect via connect(AF_UNSPEC) */
-> +	__send_fd(_metadata, &self, &variant, 0, 0);
-> +	ASSERT_EQ(2, count_scm_fds(_metadata, self.fd[0]));
-> +
-> +	ret = connect(self.fd[0], &addr, sizeof(addr.sa_family));
-> +	ASSERT_EQ(0, ret);
-> +	ASSERT_EQ(0, count_scm_fds(_metadata, self.fd[0]));
-> +
-> +	/* 2. Dead-peer disconnect via send() */
-> +	__send_fd(_metadata, &self, &variant, 1, 1);
-> +	ASSERT_EQ(2, count_scm_fds(_metadata, self.fd[2]));
-> +
-> +	ret = close(self.fd[3]);
-> +	ASSERT_EQ(0, ret);
-> +
-> +	ret = send(self.fd[2], "x", 1, 0);
-> +	ASSERT_EQ(-1, ret);
-> +	ASSERT_EQ(ECONNREFUSED, errno);
-> +	ASSERT_EQ(0, count_scm_fds(_metadata, self.fd[2]));
-> +
-> +	ret = close(self.fd[0]);
-> +	ASSERT_EQ(0, ret);
-> +	ret = close(self.fd[1]);
-> +	ASSERT_EQ(0, ret);
-> +	ret = close(self.fd[2]);
-> +	ASSERT_EQ(0, ret);
-> +
-> +	sleep(1);
-> +	ASSERT_EQ(0, count_sockets(_metadata, &variant));
+Fixes: d51d081d6504 ("[IPSEC]: Sync series - user")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yingjie Wang <flashhhhha@gmail.com>
+---
+ net/xfrm/xfrm_user.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
-Same, these two lines are unnecessary.
+diff --git a/net/xfrm/xfrm_user.c b/net/xfrm/xfrm_user.c
+index a5fbe38839c4..4a676a6aa53e 100644
+--- a/net/xfrm/xfrm_user.c
++++ b/net/xfrm/xfrm_user.c
+@@ -924,6 +924,14 @@ static void xfrm_smark_init(struct nlattr **attrs, struct xfrm_mark *m)
+ 	}
+ }
+ 
++static u32 xfrm_aevent_etime_to_jiffies(u32 etime)
++{
++	u64 maxage = min_t(u64, U32_MAX, MAX_JIFFY_OFFSET);
++	u64 j = div_u64((u64)etime * HZ, XFRM_AE_ETH_M);
++
++	return min_t(u64, j, maxage);
++}
++
+ static struct xfrm_state *xfrm_state_construct(struct net *net,
+ 					       struct xfrm_usersa_info *p,
+ 					       struct nlattr **attrs,
+@@ -1022,7 +1030,8 @@ static struct xfrm_state *xfrm_state_construct(struct net *net,
+ 	x->km.seq = p->seq;
+ 	x->replay_maxdiff = net->xfrm.sysctl_aevent_rseqth;
+ 	/* sysctl_xfrm_aevent_etime is in 100ms units */
+-	x->replay_maxage = (net->xfrm.sysctl_aevent_etime*HZ)/XFRM_AE_ETH_M;
++	x->replay_maxage =
++		xfrm_aevent_etime_to_jiffies(net->xfrm.sysctl_aevent_etime);
+ 
+ 	if ((err = xfrm_init_replay(x, extack)))
+ 		goto error;
+@@ -2782,8 +2791,10 @@ static int build_aevent(struct sk_buff *skb, struct xfrm_state *x, const struct
+ 			goto out_cancel;
+ 	}
+ 	if (id->flags & XFRM_AE_ETHR) {
++		u64 etime = div_u64((u64)x->replay_maxage * XFRM_AE_ETH_M, HZ);
++
+ 		err = nla_put_u32(skb, XFRMA_ETIMER_THRESH,
+-				  x->replay_maxage * 10 / HZ);
++				  min_t(u64, etime, U32_MAX));
+ 		if (err)
+ 			goto out_cancel;
+ 	}
+-- 
+2.43.0
 
-sleep() and count_sockets() in FIXTURE_TEARDOWN(scm_rights)
-were to wait GC to purge cyclic references, but this test does
-not create that.
-
-
-> +}
-> +
->  TEST_HARNESS_MAIN
-> -- 
-> 2.43.0
-> 
