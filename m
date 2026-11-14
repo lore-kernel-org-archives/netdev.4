@@ -1,93 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794640772;
-	b=r05ASegyiM6A85+EvPYKa55FtG+TgJOS00DBCvvKgrhz0mVLAR7SUayZkF6ISvuHFrvO
-	 JwWiAxgeCbHzr1dwFZaSG9n8UPjpQBkzMzbYMPKTvVkkl9s1OnrARQvbH8ZmOShPpRCW6
-	 L6cQNUjz7fuCl3cCPYUx6gP7JyqzUcWtMjm4rsoXv++v9ONfnH3Se9YeujC2a3PtLkYpT
-	 GuRxG9FNjph24E3zpCoX7c/x5sDZj1V/h/OC93U01iYhyUPqbF7fy6YlKK/uU2HA1xXao
-	 s0qvCPj65LM7oZNJGtRW5WevAk9Ir5wZizu+lGpvkyUZl2KwptUH7ApUOGrwaBLf4nQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794640772;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=8/GdzvtxKmiHkx7Wprg5vBg/lLqnSbK4sHJwh0fCEF0=;
-	b=1azGnS3Se2ISaTsEjGg8Fx1edFhy9yA0rqI7nTAoUPaD5h7oV3/kjU9/fK+Wn2QeFvo7
-	 /n+8th9quiJsgP9wOpQAEz3he8ngeNoaK0n8iiEghnbeYxpKHpXV+RyHozaVf/PX+y7KW
-	 wGCLrP4RpWdzspSkNjhazQRXIXt1omR+2ohvlstVXdYDs9BrqHX+6lwOpsTwNcdBFuGJA
-	 fqB45/8eGrHi6FIkRfGzKAHBh2wIVsU44KKBzbnGGWxbYlOjvNcJJ4DFSOiOaanPFdyN4
-	 G+aIR/zeVw5z4D64jvRaSulbosBVqWhU9w1eKuSAVH2hlBcnYSAL+pGQepxP+fyEJig==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=H6iatDZ3;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.71
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794641316;
+	b=cMIDcO1jikPCipC/qFyQ2JGRqE/fgR2FsCWp5QFuNNdGqwzgSt8AGpsmaiOuzjLO5eIS
+	 kyCUiZ0k4mFxE6bHBwHlxKb1BA+4oQLSWVlG4QCApKbH65nMUzfiIp9dXsghhte6R4OXs
+	 mf4gngisv6u4fJgY5Ejj9cR//LwSiEkDromcIjJY/vzpQRVl/6bq11o9ypblbxRAiwOCU
+	 dLNnU42nwDXgF0b8Gr6ZI/m3YB4ZuAYeKvaAFdk33FS3xhi9OrvmwSd+vs3PD08tHiedR
+	 zrbF2/N18RDyeLM0rLNJrqnItYPwi6C/E0zVqc4MfWFuOsbDiUWXMAVs448UZhtmJKw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794641316;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=ZUmq/AHkNakT7HaOv5RMPiqqshA3T3BUppFdjgJH3H8=;
+	b=5o1H9YuG1hhUm2chfRpZ5vUp3Z+wLm+R12hMcn+zqR1yq7Vs+zTYmK298NAtCiRKMP3s
+	 QC4ymH+6ecGqAK0/Rqm0tNSHHRoqQJxBPcX84D1YsXkCjDHnwJ+NjjHVDnDyZyi5QW4hJ
+	 4qO6L599I3rtfLgeWXv2mE0xBLCRsmT+C1fIYOW7A8zfHwg2Z6pTxta0+rwkAmZcrFEhq
+	 vIc7vg3SmRO2tRkXj9tqdVNG+3od8D+trlWAXji+KKbJtFENdggWu5pEzd3kzBewMCfnx
+	 TXO5a2f0OtQ+OervpgCWuUVw1RNOpOJxcKOmOuwXZq0ve5oFSp/+soVncX5rkGnW8SA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JphWNBTa;
+	arc=none smtp.remote-ip=209.85.216.71
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com [209.85.216.71])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0374606A329;
-	Sat, 14 Nov 2026 07:19:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0374606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E136606A329
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:28:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E136606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=H6iatDZ3
-Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::109])
-	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9900A20167D;
-	Sat, 14 Nov 2026 08:19:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794640768;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8/GdzvtxKmiHkx7Wprg5vBg/lLqnSbK4sHJwh0fCEF0=;
-	b=H6iatDZ3jxMyvn1FSBCMwP6IoQgQVoRDrO+bMQ3UT/rI/sFbTC2A/aS33e9LS2ximbkest
-	DgLifX8j8PutkI4FviHqly8L29CKLTRTsSYY3+7Z6i9VOn5SbFoKly+8DXOxejVe2TyqYM
-	8yRg2eNvAWGTQ8VfvBXoykP5oNhds6O8yz5rcRKajaDUGNE50AnC5rs6aRqQf3sapC7h8P
-	lXAvN2FglmbJc2oLaw9x/VAJWj/IJ+xnOsyvcMbtM7GxLj99Y1zW7o7Ne5CzOgNZzVjg2T
-	vZqXyl6QINwgzqGEKWUARNWAz6cJtqNLGB59TFBXe4mW33StyCv7Z9xySSP6JQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794640768;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=8/GdzvtxKmiHkx7Wprg5vBg/lLqnSbK4sHJwh0fCEF0=;
-	b=YBsJfh3+5eL27NpeThVdcrO+FAYXtUd0vmL1Yj75odPC/sNNQj3loUZ1/fHuQUjiLPE8t/
-	Ll7MxhOtLIMfBRQyDyVuwFZTTj7I5Pi8UH6zD7gTTjCALeUq+2zEHZ4j4lt32QYEyP2MRR
-	3R89CkN2vGenIJ24pgHBEfIaehBGPeUzJg/xMU7tYw6NiN9SMlIjnumIp7LiuultSC3UqX
-	WtK/wzPsEXT4cH1SkA3i2+5EV+HWxFw+axo2rmmRU4uZlpNyaXIHZlV313FjZjAitsNmnw
-	1syQx1VbRuABW8JVyPvjMkYRcqU2yROY8i/BIpH0naguhF2dEdjchedpofbJXw==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794640768; a=rsa-sha256;
-	cv=none;
-	b=ZZGVU2/5L8jDFs9KwASXmvmgLZyYVWHRwGc3v8rbeUBwQpgjYWppEWEN/40vs4npXkscN5
-	Fq4DVKIvI7w+mCQ946Rv6QvZ3huecrNDE5JLcvUXTmrmmd2tQRmBcNbqfABFS+5DwccBmu
-	Uu5NmL0Pn6/fBV8Wgq06Yi3RQGt9Nr4lLuUVH9OVo1xvEpWrMyXEvG+nPwmhx8SUF3Hvy/
-	DbKgRojw2u7bajo+5KFMcDWsuXiMxFAauWUc0CNQyJ3BzFaAOpQqINQDRE25i8z4NwfLu8
-	0HtxGFmBHKlYabrQQlhP2hpOdP+sIPmi+AITRKo+aaWz6kC8x4N1tOavY9IcFQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
-Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1058)
-	id 6A3531C00E0; Sat, 14 Nov 2026 08:19:28 +0100 (CET)
-Date: Sat, 14 Nov 2026 08:19:28 +0100
-From: Oleksij Rempel <o.rempel@pengutronix.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, kernel@pengutronix.de,
-	Jens Emil Schulz =?utf-8?Q?=C3=98stergaard?= <jensemil.schulzostergaard@microchip.com>
-Subject: Re: [PATCH net-next 3/3] net: dsa: forget the port ageing time when
- the port leaves the bridge
-Message-ID: <avgLgGkgh8sJAqNE@pengutronix.de>
-References: <20261104-ksz-stp-ageing-v1-0-2c2bc7217dea@pengutronix.de>
- <20261104-ksz-stp-ageing-v1-3-2c2bc7217dea@pengutronix.de>
- <ac9079a2-a197-4572-9771-c04d4bba438f@lunn.ch>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=JphWNBTa
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3b15e47e57fso1043899a91.3
+        for <netdev@vger.kernel.org>; Fri, 13 Nov 2026 23:28:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794641315; x=1795246115; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZUmq/AHkNakT7HaOv5RMPiqqshA3T3BUppFdjgJH3H8=;
+        b=JphWNBTa0MysOtfljwluIzxQpgBb4srmXPAiYuHn+LD9l6dGRPGc4Ir5+ckJVNh4v0
+         Vj8vRMyPfD+lrJexHDsG9k11M2w+pz7t6ONU3FgC0Ry58L2Oen1OsVKDt0x0QSN43PQs
+         i01ig1PN0a6kNaUNhXV6plrJumm5YXmwmXbkW/7Hx0b2bVEG5cgU50QF0m3KMJ4FMExd
+         A8SVuSw/6TEDNm9OpLnyH4GRHbEv3p51UNqesePVDGs5wYWzPZxQjuLKB0wHj4kQ0NwH
+         jRzb0HwYWNzM8e2aQzHBiAF4koJHzT7scHHKBYsP/5lWAdQOeJ+bFqKkx91yyyKzIyO0
+         CBJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794641315; x=1795246115;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZUmq/AHkNakT7HaOv5RMPiqqshA3T3BUppFdjgJH3H8=;
+        b=Eu13BYg/dSxoqguPPGruP59uwOj73do2fQJdZ/yC4rmK/ekmwOLfQVFFJvKefUjt8V
+         MZztNIpyBUmqEexAiZoKkxabvJL6Oru29m+71iaEYnyDsJDbHxvE2OMpy1tpXBzp3IM6
+         /H3UM70KypnVMYlq8d/5heF8mzyZpBjz8ZuDdqsYz0iqd1JUuALQr3h4gA3ln6rvlQR1
+         Vj4iAJliRx5A74Bq8pNzWstaSqIIUrjDwjVFNPQONm2rygDRyZhgI4cKP+QbrJZ4+9mR
+         uHxqZIMuOwFcxvtATdaDt53v6JstIV/sLB1OnZyw8blKZ7ZZGNiGVEUThypDkcj22uMC
+         IRQg==
+X-Forwarded-Encrypted: i=1; AL+hErErFWa+LrFsQGyiTfpb/uBaEsbEw0AUct6tdUGKyJrItGWyPhRlfY/Jc4Rkveni7hiQBJYF/h4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8pD9T459zZaTe+gI+BrQbT+dpSHjzsvs0PDeHyctVQyzqPuLZz
+	3PJZ526bnzcGEvDV4HNQhfMSihsYNY6r/7BrUxatFdHqe2TYam1EbLcMWehSuQ4R5iqN45CmrDV
+	GDs2exw==
+X-Received: from pjbbu21.prod.google.com ([2002:a17:90a:ee55:b0:3a7:d1df:7b34])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:35c6:b0:3b0:e2a9:345a
+ with SMTP id 98e67ed59e1d1-3b1b0b9b782mr4266092a91.64.1794641314735; Fri, 13
+ Nov 2026 23:28:34 -0800 (PST)
+Date: Sat, 14 Nov 2026 07:28:34 +0000
+In-Reply-To: <20261111174704.24312-2-juanagusnicco@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,37 +77,49 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <ac9079a2-a197-4572-9771-c04d4bba438f@lunn.ch>
+Mime-Version: 1.0
+References: <20261111174704.24312-1-juanagusnicco@gmail.com> <20261111174704.24312-2-juanagusnicco@gmail.com>
+Message-ID: <avgNl96dmc23KOrW@google.com>
+Subject: Re: [PATCH net v2 1/2] tcp: Fix the SO_REUSEPORT bind cache admitting
+ a conflicting socket
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
+	pabeni@redhat.com, horms@kernel.org, ncardwell@google.com, 
+	josef@toxicpanda.com, jbacik@fb.com, shuah@kernel.org, 
+	linux-kselftest@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-On Fri, Nov 06, 2026 at 02:30:05PM +0100, Andrew Lunn wrote:
-> On Wed, Nov 04, 2026 at 12:48:30PM +0100, Oleksij Rempel wrote:
-> > A port that leaves the bridge keeps its cached dp->ageing_time, and it
-> > still counts for dsa_switch_fastest_ageing_time(). A port that leaves
-> > during an STP topology change keeps the switch at the short value until
-> > the port joins a bridge again.
-> >
-> > Clear the cached value when the port leaves the bridge. The switch is
-> > not reprogrammed on leave. If the leaving port held the shortest ageing
-> > time, for example during a topology change, the switch keeps that value
-> > until the next ageing time change or bridge join in the DSA tree.
->
-> Does the software bridge trigger an ageing time change soon
-> afterwards?
+On Wed, 11 Nov 2026 12:47:03 -0500, Juan Agustin Niccolini wrote:
+> When the port is in the FASTREUSEPORT_STRICT state, inet_csk_get_port()
+> skips the bind conflict check if sk_reuseport_match() finds the new
+> socket's address covered by the socket cached in tb->fast_*.
+> 
+> This is only safe if both sockets match on everything
+> inet_bind_conflict() reads. The cache misses some of it:
+> 
+> - It does not record sk_bound_dev_if or sk_reuse.
+> - It records the family and IPV6_V6ONLY but never compares them with
+>   the new socket, so a cached v6only [::] (or 0.0.0.0) socket covers
+>   a dual-stack [::] socket.
+> 
+> As a result, an unprivileged user can bind and listen on a port that
+> another user is listening on, for example a dual-stack [::] socket on
+> top of a 0.0.0.0 listener:
+> 
+>   victim:   bind(0.0.0.0:P), listen()
+>   attacker: SO_REUSEPORT + IPV6_V6ONLY, bind([::]:P)   /* fills cache */
+>   attacker: SO_REUSEPORT, bind([::]:P), listen()       /* should fail */
+> 
+> Only take the fast path when the new socket matches the cached one in
+> family, IPV6_V6ONLY, bound device and SO_REUSEADDR. Identical
+> SO_REUSEPORT listeners, the workload this cache was added for, still
+> skip the scan (binding 16384 of them: 9.80 ms before, 9.86 ms after,
+> 5874 ms with the full check every time).
+> 
+> Fixes: 637bc8bbe6c0 ("inet: reset tb->fastreuseport when adding a reuseport sk")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
 
-Only if a topology change is running. Its end is the next change.
-
-> Does a port leaving the software bridge trigger a topology change?
-
-Sometimes, for example when the bridge becomes root afterwards. In my
-test it didn't
-
-> I'm just trying to understand how long the fast ageing value will be
-> left in place.
-
-With patch 3, until the topology change ends. Without it, until the port
-joins a bridge again.
-
-Oleksij
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
