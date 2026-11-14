@@ -1,66 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794669201;
-	b=CUKoYp2U2MA8riAPF+LP+nMV+W4D44Dx8UjpyQz3NpcRur6rKLjffPj89gxfuTTWjaYK
-	 X8scJeT6rL5+ME+QQ4G4YhYNtaeCecBupbKAdrOHGmYCtEcUBTy13we/Qwk8qUtuwJ9NM
-	 P+XJBmQe6x2ZDzGfH0gKJM2oiToQORWWe8POHecG38R2vGDgrNb/iL2niiVDiXEUHc3nr
-	 VN87xH45GizEOtOvIVqVAnpc6EGDIIZ6J0AQ1TzWkUEKjD//X8M5ifaM0l7UnIMgwW1k1
-	 QcQapJgK9hWHMsVarSjU5u5hLYUUDrB+obyqRcJ4zXWS4VNdpcHi1ilztzTwoMXKzDQ==
+	t=1794669295;
+	b=VOIXoS/6RRZghXFj2Y/e0GQYz6LzeRnDEe+VOpVYUqVahFGfULHBvmXLUVo/73pBSD1R
+	 UdM8I+P6A5eaju+oRG3n0xh93qiReIcghFz7Mprkp4owpzf51Ovm1OjP6mA/LiFO1UhHH
+	 YpOOp5A1gHrWvo87QmM91j84sO3EF07ss0mwiNcoH9rG9e3Q1GDmG24ynIPi7Bz08UZO3
+	 WpD2HsyIwVrlCgizw+xRyFiXKzDPEtwtcXsPCL4VkCdxFk1y/f5PBZGzNIqQnaLqW/vNc
+	 hmL/oZzcX7w2eep/XyovnOPSHqmOjUVXbyg3ap8ViBm464W3R+6zL9ihpXiMbe/mbTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794669201;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=wFqrOxAE0jUNhM0GP0+sz9CdX/wTyVhI9aY4WYVWrCk=;
-	b=Y/ZQ6YUsthQjMi0zf7k20mrFOS1z2dOLtMrDeCFGplOuy1o/XQQy6o5IkzTQJEF8grde
-	 X0aA59hbB7fXqUbal0klMmc5qGqCuig0naB6qsg6e3ZhL/8XI6G9dt5zFOxl6BFEOO055
-	 2mu4Twy2Gj6X08s7k6VHHsaHNiVTA4xzFVF2wf857ZKMaU6xTO0Yow5YXzVCXSrLCqyq6
-	 oWaFgnh1YJvMHRRh1cTJB4HX34EDt65drwkoR7pFhiAL3NcfzexAagNYPkI2EfCNTyogf
-	 5coFUR7A24SODkE8rqn5WpJKuPOBLmGq/LtEMOPJSZ55hWRUX198YRLvQOxdThTDwtg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794669295;
+	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=2Os4f9WdWDGemUXCp5xc3FrN8m+AVPs5CTPpzaiqx+M=;
+	b=vsinEDRalceg5jRQeaG9zNfCs4guntf/clka1JlulDL4rRwiRPv2YGD6WD/VSz9bllXn
+	 GBXK9+cDBzaqFTnQYbt3Rd6rX91wYcExLUFvJ5mbXNDi6KQ2queCNzQtKQje6iPL5eoj3
+	 nqtbwFhXudCEzZVaz10I+cQL09+MdYLh0D/VEIjbjSc5TQuqA7TphloAJT4OYA3m/Zezj
+	 NVK6uge4JMgyH5mhlzpzM2Fy/qHdsablXFckqkyTDkcy1mdcqI3bO1blR6s0YtpGP7q15
+	 Qtwco4gj7e1zFk0maLE7mLSLWdW551iOm+CcEktd7nnH6al8GyULcBIWvm8gzf/NwtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=rxV9lEAd;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EsCMcgsj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B9E7606A327;
-	Sat, 14 Nov 2026 15:13:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B9E7606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B396606A32D
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:14:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=rxV9lEAd
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=wFqrOxAE0jUNhM0GP0+sz9CdX/wTyVhI9aY4WYVWrCk=; b=rx
-	V9lEAdGc6BI4U4ve9yMhF/Gy8fDmqmDSkPB/55KhfjWbCD1cHOMBBUYtVsuavHvZjDqQknztMnD66
-	KDy39hzGhyk6iudARj17aZBUikihCS0/cUqDy6nYFrOSGUd34PEAKaDgk9Euwf8E3G1n/ffSbFVlS
-	T7QVHcVmfVwYyM4=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xSFRF-00GViN-9n; Sat, 14 Nov 2026 16:13:09 +0100
-Date: Sat, 14 Nov 2026 16:13:09 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Artem Shimko <a.shimko.dev@gmail.com>
-Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	maxime.chevallier@bootlin.com, pavel@ucw.cz,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-leds@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next 3/3] net: phy: dap8211r: add led hardware
- control support
-Message-ID: <43b83555-df27-4b8b-a1d4-bf0cd9c46893@lunn.ch>
-References: <20261113110546.173624-1-a.shimko.dev@gmail.com>
- <20261113110546.173624-4-a.shimko.dev@gmail.com>
- <8ef5b0a7-58f6-4c62-8153-6a9c8d3703f7@lunn.ch>
- <CAOPX745=Mx9Q+Wijt9+=Mmjtdk4fsenEeV2h0gPCvNpqc8kN=A@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EsCMcgsj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEF801F000C9
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:14:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794669295;
+	bh=2Os4f9WdWDGemUXCp5xc3FrN8m+AVPs5CTPpzaiqx+M=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=EsCMcgsjMzThraV9dXyFbtNqnP0PCn7OajYJxmuc64cO+zhmGWYjmKDNrIi9MAp09
+	 Ztzl8hGh8yPFP5OYPvJyw9dNsobgkaqHFQ2LvJIlQhK/SZ8VJ3JbYX86iG+V/A5VM7
+	 azECCNOlTiMsDgL+NM1I4dKEqlvMin9W9/QHiqxh5mrqUOxs7UDb9D3dAnk5AzUw76
+	 qUrWOalIdfRMQUlEX0G1IMM3wYLDHilFbehl/6ymjuTM51DZ90jZe5niCeNG0IuRjh
+	 305uKx2LNtiLAn97scbiKFZ6h3giz6zXcEylBNep8oVY3wptX2c6lHLc25C5FgDHQA
+	 yRq5CgXLfaAzA==
+Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-4aff682aadeso1315764fac.3
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:14:54 -0800 (PST)
+X-Gm-Message-State: APuU4Z+usctaqQdkhI1hAntC3ZY7BzV7kmKxSqEBl2kgw55wJvUhmnUd
+	x6Aw9cld5Nw39qwBTLR+sQ8oeORaadv2EQM2VDcRPMfSzu11xqD1D4r/R924NSioX4jueFutGv1
+	xcTBqZcFgcb/23dmVFT1nt+Ku6X/JJa0=
+X-Received: by 2002:a05:6870:c087:b0:485:d31b:7761 with SMTP id
+ 586e51a60fabf-4afdf4316e8mr5067496fac.31.1794669294220; Sat, 14 Nov 2026
+ 07:14:54 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,21 +58,237 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOPX745=Mx9Q+Wijt9+=Mmjtdk4fsenEeV2h0gPCvNpqc8kN=A@mail.gmail.com>
+References: <20261113195553.2220562-1-joshwash@google.com>
+In-Reply-To: <20261113195553.2220562-1-joshwash@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Sat, 14 Nov 2026 16:14:42 +0100
+X-Gmail-Original-Message-ID: <CAL4WiioeNVQwPnZjJLh-Tcev8f-pm5z2dRrJ0k8ZStg5bWt9uA@mail.gmail.com>
+X-Gm-Features: AclHuK-1gN5WyFopKS6Ic6W_qMT25iT5u41cEHbc6BqYNpQg0DlCIbZIgmKDK70
+Message-ID: <CAL4WiioeNVQwPnZjJLh-Tcev8f-pm5z2dRrJ0k8ZStg5bWt9uA@mail.gmail.com>
+Subject: Re: [PATCH net] gve: fix checksum state and gso_segs of HW-GRO packets
+To: Joshua Washington <joshwash@google.com>
+Cc: netdev@vger.kernel.org, Harshitha Ramamurthy <hramamurthy@google.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jordan Rhee <jordanrhee@google.com>, 
+	Ankit Garg <nktgrg@google.com>, Tim Hostetler <thostet@google.com>, 
+	Willem de Bruijn <willemb@google.com>, linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Praveen Kaligineedi <pkaligineedi@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> The LED_COMCON register does include "force-on/force-off" bits,
-> but i have intentionally chosen not to use them here.
-> To be honest, i’m not yet convinced that they need to be added.
+Le ven. 13 nov. 2026 =C3=A0 20:56, Joshua Washington <joshwash@google.com> =
+a =C3=A9crit :
+>
+> From: Ankit Garg <nktgrg@google.com>
+>
+> With HW-GRO enabled, gve_rx_complete_rsc() turns a coalesced packet into
+> a GSO skb by setting gso_size, gso_segs and gso_type, but leaves it
+> CHECKSUM_UNNECESSARY with th->check as the device wrote it. Unlike
+> tcp4_gro_complete() and tcp6_gro_complete() for a SW-GRO packet, it does
+> not seed th->check with the TCP pseudo-header checksum or set
+> CHECKSUM_PARTIAL.
+>
+> The GRO stack completes a HW-GRO skb itself only if it holds the skb for
+> merging (since commit 5eddb24901ee ("gro: add support of (hw)gro packets
+> to gro stack")). Otherwise the skb is delivered as is, e.g. with rx-gro
+> off or for a packet that is flushed immediately (e.g. with PSH set). If
+> such an skb is forwarded out of a TSO-capable device, netif_needs_gso()
+> accepts it as CHECKSUM_UNNECESSARY and the device segments it with a
+> bogus checksum seed, so every segment is dropped by the receiver. This
+> blackholes forwarded TCP traffic on VMs acting as routers or NAT
+> gateways and was observed on VMs in real use.
+>
+> Fix it in a manner consistent with other drivers with HW-GRO: set the
+> network and transport headers and, for packets whose checksum the device
+> verified, seed th->check with the pseudo-header checksum and call
+> tcp_gro_complete(), passing gso_segs through NAPI_GRO_CB(skb)->count.
+> skb->data points at the Ethernet header on the napi_gro_frags() path and
+> at the IP header on the header-split and copybreak paths, so account for
+> that when setting the network header. Since the header layout now
+> matters, tell IPv4 from IPv6 by the EtherType, as qede and bnx2x do,
+> rather than by the packet type.
+>
+> Also compute gso_segs from the TCP payload length. It was computed from
+> skb->data_len, which is 0 for a packet that rx_copybreak copied whole
+> into the linear part, leaving such packets with gso_segs 0 and a
+> non-zero gso_size.
+>
+> Fixes: e637c244b954 ("gve: Advertise NETIF_F_GRO_HW instead of NETIF_F_LR=
+O")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Joshua Washington <joshwash@google.com>
+> Reviewed-by: Jordan Rhee <jordanrhee@google.com>
+> Reviewed-by: Praveen Kaligineedi <pkaligineedi@google.com>
+> Signed-off-by: Ankit Garg <nktgrg@google.com>
+> ---
+>  drivers/net/ethernet/google/gve/gve_rx_dqo.c | 69 +++++++++++++++-----
+>  1 file changed, 53 insertions(+), 16 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/google/gve/gve_rx_dqo.c b/drivers/net/e=
+thernet/google/gve/gve_rx_dqo.c
+> index 82ed5e48b00a..58696d26c698 100644
+> --- a/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+> +++ b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+> @@ -13,6 +13,7 @@
+>  #include <linux/ipv6.h>
+>  #include <linux/skbuff.h>
+>  #include <linux/slab.h>
+> +#include <net/gro.h>
+>  #include <net/ip6_checksum.h>
+>  #include <net/ipv6.h>
+>  #include <net/tcp.h>
+> @@ -1000,13 +1001,34 @@ static int gve_rx_dqo(struct napi_struct *napi, s=
+truct gve_rx_ring *rx,
+>         return -ENOMEM;
+>  }
+>
+> +/* Prepare a HW-GRO packet the way tcp4/6_gro_complete() prepare a SW-GR=
+O
+> + * packet, so that it can be resegmented by GSO or TSO if it is forwarde=
+d:
+> + * seed th->check with the TCP pseudo-header checksum and set CHECKSUM_P=
+ARTIAL.
+> + */
+> +static void gve_rx_fixup_gro_checksum(struct sk_buff *skb)
+> +{
+> +       int len =3D skb->len - skb_transport_offset(skb);
+> +       struct tcphdr *th =3D tcp_hdr(skb);
+> +
+> +       if (skb_shinfo(skb)->gso_type & SKB_GSO_TCPV4)
+> +               th->check =3D ~tcp_v4_check(len, ip_hdr(skb)->saddr,
+> +                                         ip_hdr(skb)->daddr, 0);
+> +       else
+> +               th->check =3D ~tcp_v6_check(len, &ipv6_hdr(skb)->saddr,
+> +                                         &ipv6_hdr(skb)->daddr, 0);
+> +
+> +       NAPI_GRO_CB(skb)->count =3D skb_shinfo(skb)->gso_segs;
+> +       tcp_gro_complete(skb);
+> +}
+> +
+>  static int gve_rx_complete_rsc(struct sk_buff *skb,
+>                                const struct gve_rx_compl_desc_dqo *desc,
+>                                struct gve_ptype ptype)
+>  {
+>         struct skb_shared_info *shinfo =3D skb_shinfo(skb);
+> -       int rsc_segments, rsc_seg_len, hdr_len;
+> +       int rsc_seg_len, hdr_len, nhoff, thoff;
+>         skb_frag_t *frag;
+> +       __be16 proto;
+>         void *va;
+>
+>         /* HW-GRO only coalesces TCP. */
+> @@ -1017,20 +1039,11 @@ static int gve_rx_complete_rsc(struct sk_buff *sk=
+b,
+>         if (!rsc_seg_len)
+>                 return 0;
+>
+> -       switch (ptype.l3_type) {
+> -       case GVE_L3_TYPE_IPV4:
+> -               shinfo->gso_type =3D SKB_GSO_TCPV4;
+> -               break;
+> -       case GVE_L3_TYPE_IPV6:
+> -               shinfo->gso_type =3D SKB_GSO_TCPV6;
+> -               break;
+> -       default:
+> -               return -EINVAL;
 
-They allow you to implement set_brightness. That is ideally the base
-for all LEDs, being able to turn them on/off. If you can do that, all
-the trigger can work with software driving the LEDs. You can show the
-heartbeat, shift-lock, and all networking settings.
+Before this patch the L3 type came from ptype.l3_type, now it comes from
+the EtherType. A VLAN tagged frame (gve does not strip tags) would have
+been accepted before, and is now dropped and accounted in
+rx_desc_err_dropped_pkt. nhoff =3D ETH_HLEN has the same assumption.
 
-Making use of the hardware to blink on network activity is an optional
-extra, reduced the CPU load etc, but just nice to have.
+Can the device coalesce VLAN tagged frames ?
 
-	Andrew
+If not, please say so in the changelog. Otherwise this needs to be
+handled, like idpf_rx_rsc() does with eth_type_vlan().
+
+> -       }
+> -
+>         if (skb_headlen(skb)) {
+> -               /* With header-split, payload is in the non-linear part *=
+/
+> -               rsc_segments =3D DIV_ROUND_UP(skb->data_len, rsc_seg_len)=
+;
+> +               /* With header-split or copybreak, eth_type_trans() has a=
+lready
+> +                * pulled the Ethernet header.
+> +                */
+> +               nhoff =3D 0;
+>         } else {
+>                 /* HW-GRO packets are guaranteed to have complete TCP/IP
+>                  * headers in frag[0] when header-split is not enabled.
+> @@ -1039,7 +1052,6 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
+>                 va =3D skb_frag_address(frag);
+>                 hdr_len =3D
+>                         eth_get_headlen(skb->dev, va, skb_frag_size(frag)=
+);
+> -               rsc_segments =3D DIV_ROUND_UP(skb->len - hdr_len, rsc_seg=
+_len);
+>                 skb_copy_to_linear_data(skb, va, hdr_len);
+>                 skb_frag_size_sub(frag, hdr_len);
+>                 /* Verify we didn't empty the fragment completely as that=
+ could
+> @@ -1049,10 +1061,35 @@ static int gve_rx_complete_rsc(struct sk_buff *sk=
+b,
+>                 skb_frag_off_add(frag, hdr_len);
+>                 skb->data_len -=3D hdr_len;
+>                 skb->tail +=3D hdr_len;
+> +               /* napi_gro_frags() pulls the Ethernet header later. */
+> +               nhoff =3D ETH_HLEN;
+>         }
+> +
+> +       skb_set_network_header(skb, nhoff);
+> +       proto =3D nhoff ? ((struct ethhdr *)skb->data)->h_proto : skb->pr=
+otocol;
+> +       switch (proto) {
+> +       case htons(ETH_P_IP):
+> +               shinfo->gso_type =3D SKB_GSO_TCPV4;
+> +               thoff =3D nhoff + ip_hdrlen(skb);
+> +               break;
+> +       case htons(ETH_P_IPV6):
+> +               shinfo->gso_type =3D SKB_GSO_TCPV6;
+> +               thoff =3D nhoff + sizeof(struct ipv6hdr);
+> +               break;
+> +       default:
+> +               return -EINVAL;
+> +       }
+> +       skb_set_transport_header(skb, thoff);
+> +
+>         shinfo->gso_size =3D rsc_seg_len;
+> -       shinfo->gso_segs =3D rsc_segments;
+> +       shinfo->gso_segs =3D DIV_ROUND_UP(skb->len - thoff - tcp_hdrlen(s=
+kb),
+> +                                       rsc_seg_len);
+> +
+> +       if (!IS_ENABLED(CONFIG_INET) ||
+> +           unlikely(skb->ip_summed !=3D CHECKSUM_UNNECESSARY))
+> +               return 0;
+>
+> +       gve_rx_fixup_gro_checksum(skb);
+
+thoff is derived from iph->ihl, and tcp_hdrlen() from th->doff, both read
+from the packet, and nothing checks that the TCP header is actually in
+the linear part before we read th->doff and write th->check.
+
+On the copybreak path the head was allocated by napi_alloc_skb(buf_len),
+so a short frame with desc->rsc set and a large ihl ends up reading and
+writing past the copied data. Same thing on the napi_get_frags() path if
+eth_get_headlen() returned less than the full headers.
+
+The old code was trusting the device as well, but it was not writing
+into the headers.
+
+I think we want something like this, before using tcp_hdr(skb):
+
+        if (unlikely(thoff + sizeof(struct tcphdr) > skb_headlen(skb)))
+                return -EINVAL;
+
+        if (unlikely(skb->len < thoff + tcp_hdrlen(skb)))
+                return -EINVAL;
+
+(skb_headlen() is hdr_len on the napi_get_frags() path at this point,
+so one check covers both cases.)
+
+This also makes sure gso_segs can not be computed from a negative length.
+
+Thanks.
