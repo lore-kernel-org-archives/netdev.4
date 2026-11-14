@@ -1,55 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794670693;
-	b=xkoKeMulzUvdTxCbp6UATlu34Je+d0ksXOIr00geT9OYlch0sesUvxvNL0sKRPuof/gm
-	 AwOm7Chnnj4ArmfTlaQwD0YWphI9Sa5RiaE8gUvwC6xnFHEf7jD9kEhd54mMkFwsWm1Ad
-	 0VvwfN4vv012S3IWh+YJBALptNx/Y8ovM5/IwKmyDG9E9/VFIf7iWTu5KSZlJZJYNONf4
-	 Mb5lU1sLoKRiwqb25gOmvqGTVX4xsUXTiD+CL4sjeKLSgwUlh6Tz1S8rEj83ao77htm00
-	 Jh1HByP2toheRrh5QJlo9/8lqZAc9dTpG9yUk0TbaBVNSq/FpRqyZ4JmS7Zda3JeuoA==
+	t=1794670708;
+	b=1bYSRSjYFNgIPWl1G8UlJgRiuDl8BI11A1s4X8CArWgiAnU8riKR9mV1F42PtibOQhYX
+	 ac2weE+5fcvWgRQKV9NVSjJENQOR5bQRjNQYApB8ZABeJkxM/dWNqRovkjRSfKZo6Bp14
+	 jel2DzvA09bJTMn24i3JGccAOTuxDXgd4v1SXVYJcZrKI3OHhJu4PrS0pE7KItmihErsC
+	 +mfs5SNuUjiHRD42dFM86VSJp4YphsEJYNSaLOdyPZ5exFHQ60b1aUFXl8aD9wpSCg3Gx
+	 lCiAm7ZEYpsbAE7B+ZmXSeU4Kbw60qaU7LYIna66H0FKg8Ehq+U2DR/bBvLnwk9iUIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794670693;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=lZLJy6bzNUWfLiwfp/OHIdREPsKJ7Su3AkHPHH7wh/8=;
-	b=YbUx/7HXR0ZPmhtg92AXO6Qixlm0Ya+nuFvRBlf2VCcCXv1sYdjLsO3zLvBTMySpNxDt
-	 uG0BW3jgg/U0aQ3fMApm3kDSv6Kg9pYPWcGseHHTnEYo/Xq9VY3ioDewTDpsphy5CYtWc
-	 mYU5EKCJ06ptvmCKn139b/0lAoFSnIkQnjy1zx8/VwgJMjCUdKkTuSkK9+lre4m7kdBO3
-	 sE4t0tggNXCmQfN6raD6SVsGlQ7CUe16ikbXg5ZGv/vS9cm8ktwcyDRPJ3ZrPHdRas8/e
-	 YqHqxNWCgtrcXaxYzixB9T8hblUH1jeAuNg4m3W1RO6j47DQtn5ZBuASoWexFtehfNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794670708;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=4xB13t/qikSGlf5PM+4NV5sg6iC2/DLGLtE12IAvGY4=;
+	b=MxhSoHtlNZW/8hazM0/0nazC0v7kfcO/AqTs3KAWS9rUS+ieKoFpDBAJywKdZ5aiojIi
+	 v6qHMHB3W4cR+ulHD28vyCupVm4w8Gi57qmB/rD6onLS6mKn9LQoVaxgEzDLr2KFcqJbe
+	 P32H/FRdq/n7si911Yb8+soC1K7kE7hJK8im7CtgCgEtYIdYMGlNvI1IbGvgaw72C989W
+	 Pnq3s5TFHGriUv24/cOsM3pE4U/wUF8h9gdZzJYqIAIW5DFWr5EiZMwiYeMGxEhcLPkDD
+	 78EW/OMvqeYh+Qh/aQuRtohT5bN3tBrJSvWCyG4XtkFvz2XUKXp9XbRR0GjBiloFzag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J14Na+tt;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JMK0lNWQ;
+	arc=none smtp.remote-ip=74.125.82.52
+Received: from mail-dl1-f52.google.com (mail-dl1-f52.google.com [74.125.82.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA5BE606A327
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:38:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84CCA606A323
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:38:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84CCA606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=J14Na+tt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 837601F000C6
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:38:12 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794670692;
-	bh=lZLJy6bzNUWfLiwfp/OHIdREPsKJ7Su3AkHPHH7wh/8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=J14Na+ttPobaKmHX9bYSE41A7sQBsSPeDsYJoirRsm27ASs3BRvMfQd+Ofyr3nBGo
-	 B4UZRiG9JLDlO1N5QrNqPdDUKsO4S4QEoZz+vDCRQbiuEXVkb95XYtaPCYgn2BJ9VU
-	 QfKZjQEQ9OYgFVFScUCpGfSca9wUPm55nwUwYOzvPH8i9GnpMJUcZKVT2NGTil4OV5
-	 vHoUukHrOpanAOlF23AJ0jxQjUT2ieK1J9DpD9MNsnxNtG0onXqTpRuWnbVt41uwBR
-	 A2ISSk5ww8bCsa6qryqkVzTn7m8RxnUKbMVu1xo7/PU6DNQv9lJ3QiDMSGMJILen1D
-	 Viqt8ENpabIKA==
-Received: by mail-oo1-f42.google.com with SMTP id 006d021491bc7-71ad2c6491fso278484eaf.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:38:12 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEXfsr7q3PGUI8O5KgCqDul/O/WAV3dKzD6MgM+uys68hLleEa3kdY/xxeJiBO0aIb4ctjUnr8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z95mgkm2Izw7Feq7I7raZaWho8O5INieSkpC2yvc6BlO2Vt1xsS
-	9xFO3L8VymSUKJviiEZDi/dz9bo45LP3HsXm2o0bCqmbVvVbAvmfGtYo1xX8UcWwIPw24lbMPtI
-	b+FDhfAx984Y2U/nAYK5RKmNGJ7GK5h4=
-X-Received: by 2002:a05:6820:60c:b0:70e:177b:eafd with SMTP id
- 006d021491bc7-71ab5086aa7mr2905723eaf.16.1794670691913; Sat, 14 Nov 2026
- 07:38:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JMK0lNWQ
+Received: by mail-dl1-f52.google.com with SMTP id a92af1059eb24-1a3c08d6928so2720953c88.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:38:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794670708; x=1795275508; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=4xB13t/qikSGlf5PM+4NV5sg6iC2/DLGLtE12IAvGY4=;
+        b=JMK0lNWQ4acWBiUS8eVeyG451iSPxaDJGQL+kQ1xkFo+XDmzc8+HXj2AqPLOoun/w2
+         W367K0mWM8/dG865GvIMPnFQIG3CtuUS6gp0iLJN7XfdKIOXByLk3rpKqSfTZs2Poi9C
+         l9h6apnrN6yd2aIyf6NsR9MjM+kbtaoi19uHHX3S5BZKTStD8gNnbBMMDPH65rF7FTH6
+         cUgftdWeVVQVTOw5XNVKBO5GArgg4SwSxl9/izRqsdxfedU679aNhUNNOfraCNzoKE4I
+         UwW2nE1bdRhSrqU9YyhMFx60zxcPb1PIlJHwFpXnqBx54OpT6CMUcgzEdlFvwP5SoWG7
+         5LnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794670708; x=1795275508;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=4xB13t/qikSGlf5PM+4NV5sg6iC2/DLGLtE12IAvGY4=;
+        b=iDIqJLQKQ/BxdXh5e2N+gG6/TFppJ8vkFSY7+YmrEWCfYaI+0LTml45R4I6rwhCBeL
+         6xmLA0nU6O4GyT6iWOyob7vYQu3rav7SLx2sgtpcqh+Hdhbf/kXZ9qkXHdSQDTTXG4iD
+         y0/c+l3FtGOjtmQPL2keLJyrM9aAT8+ItVDXoeJ4rbDEXkIl3Lj+CbMH2SiQB+C6s3JL
+         B7uWERaM3KENdY2QRi0vkRDXrfq6imIYB/5J4Zz1WTi0zFzl73+a8fbt5/+926uAvR7A
+         MbULeFgYTQERmXLkE/CK6didjhnLjurJFc2XKU4WROKyOkgsJYMzBhoCDKlH5UFokQgZ
+         l94A==
+X-Gm-Message-State: APuU4Z9J2BuopK6IHtu11KA+v96QmvtThINADR5j+LjFT9sDpNcq1Q67
+	/lo6q52Q7liCe6dWpwW8HX/ymHDNDStCkPRT2mHXFEJVLwrAc9JijeNsuk/TLGrI
+X-Gm-Gg: AYBFou2xhv4L6cAVfd3uJ5wSlzfAX1/ehZAVEeW8HvRUTXz6MBo5HvWnzdKWTyqXQpj
+	vYznDcsmDomLDf3KcTRKMEpOpZrWp5WOJFJSXN9NMjj05RkQ7tXxa0RTeu9n0a7nTHpcrqxg8SX
+	B/XIlAw8vj/w+tvXu/6ei17FNyR/1mOEQ4a46dBHkhpBormjYhUA1TF7jz34LXTgyaDPQlso+XS
+	1Y7p/lpU76DjGqhha3wYeDMEcTFFftW/udpjq4FoFEGq/jw2Jm8UAaaqiLTtt8a7HpohqfPXJM7
+	d01w+l3yg4fECNOOXZihdCm2aMqKnbARnoRY/IP0wYB6RTEi4bTtfBFmsZwRmkixZw3XmfkkIcC
+	Erqgixu197zhYYWFydmGy9Qc9J5xhGIbfvJfFSa7WmZFYPJv53NKsmO8JFdxMEpyHGSwT4ZhUIh
+	5Y9mTu8fEmaUYYLMbVbl1mOn+rhqPIXR7koUKRQISVGXuqSHHn9lG+LfFxXAgNhTnCh+YMHy+GS
+	9IXL+V4HfvbOUoKgE431ScxVUoue8DGuvYjdaaTqvpcvvH/l7IZUSaYZkg/WoFVVbtkamSPvjjh
+	j6hwlkZUW7KIVWqNbvWU4D2XKoIDOCJ1f/mQvDeSamcaZs2NkBa/J8lAJhmVAsVDoKLX5aldew=
+	=
+X-Received: by 2002:a05:701b:2202:b0:16e:c820:b20d with SMTP id a92af1059eb24-1b50302b736mr5463987c88.5.1794670707564;
+        Sat, 14 Nov 2026 07:38:27 -0800 (PST)
+Received: from umang-Inspiron-3501 ([2401:4900:1c60:38c8:74f6:e2c1:4674:3e44])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b50319e381sm16513014c88.12.2026.11.14.07.38.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 07:38:27 -0800 (PST)
+From: Umang Pokhriyal <umangpokhriyall@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next] tun: don't steer a flow to a queue index that no longer exists
+Date: Sat, 14 Nov 2026 21:06:17 +0530
+Message-ID: <20261114153617.102288-1-umangpokhriyall@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,41 +99,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261114040101.1043546-1-kuniyu@google.com> <20261114040101.1043546-8-kuniyu@google.com>
-In-Reply-To: <20261114040101.1043546-8-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Sat, 14 Nov 2026 16:38:00 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqY-8011r9W_mGk1ZRZhmO2ac58s0ZiHEtKDyMzYrd1zg@mail.gmail.com>
-X-Gm-Features: AclHuK_0vQH_kcXOb_-kASCC9WUkmMpDMZVq3vl7tNG4sb5I7vb4f70hvWqu3eQ
-Message-ID: <CAL4WiiqY-8011r9W_mGk1ZRZhmO2ac58s0ZiHEtKDyMzYrd1zg@mail.gmail.com>
-Subject: Re: [PATCH v1 net-next 7/8] tcp: Batch memory accounting in tcp_collapse().
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Le sam. 14 nov. 2026 =C3=A0 05:01, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
->
-> Once tcp_collapse_one() calls sock_rfree(), skb->truesize is
-> reclaimed to sk->sk_forward_alloc by sk_mem_uncharge().
->
-> However, sk_mem_uncharge() rounds down sk->sk_forward_alloc
-> immediately once it reaches 4K since commit 4890b686f408 ("net:
-> keep sk->sk_forward_alloc as small as possible").
->
-> This unnecessarily reclaims memory for newly allocated skbs,
-> and the following skb_set_owner_r() for them underflows
-> sk->sk_forward_alloc without sk_forced_mem_schedule().
->
-> Let's cache the delta during tcp_collapse() and batch accounting
-> at the end.
->
-> Then, we no longer need sk_forced_mem_schedule(), and instead
-> DEBUG_NET_WARN_ON_ONCE() is added to catch a future issue.
->
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+A multi-queue tun device keeps a flow table that maps each flow to the
+index of the queue it last used, so that packets sent back to the flow
+go to the same queue. When a queue is removed, the last queue moves
+into its index. An entry that still holds the last queue's old index
+then holds an index that no longer exists. Packets of that flow are
+sent to queue 0 with a "selects TX queue" warning, until the flow sends
+again or its entry expires after a few seconds.
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Commit 4cc0a3f89707 ("tun: delete the flow entries of the moved queue
+on detach") deletes those entries when the queue is removed. As the
+Sashiko review linked below points out, a send running at the same
+moment can still write the old index back right after the delete.
+
+Rather than taking a lock on every send to close that window, check the
+index when an entry is used. If the entry holds an index that no longer
+exists, choose the queue by hash, as is done for a flow with no entry.
+The index is read only once, since a concurrent send can change it.
+
+The race has not been seen in practice. The fix was tested in a guest
+with stale entries left in place. Flows that all went to queue 0 with
+the warning are now spread over the remaining queues.
+
+Link: https://lore.kernel.org/netdev/179415734502.994134.10139593761656069984@kernel.org/
+Signed-off-by: Umang Pokhriyal <umangpokhriyall@gmail.com>
+---
+ drivers/net/tun.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+index dcec7311e6..5367975ff8 100644
+--- a/drivers/net/tun.c
++++ b/drivers/net/tun.c
+@@ -471,13 +471,15 @@ static u16 tun_automq_select_queue(struct tun_struct *tun, struct sk_buff *skb)
+ 	txq = __skb_get_hash_symmetric(skb);
+ 	e = tun_flow_find(&tun->flows[tun_hashfn(txq)], txq);
+ 	if (e) {
++		u32 queue_index = READ_ONCE(e->queue_index);
++
+ 		tun_flow_save_rps_rxhash(e, txq);
+-		txq = e->queue_index;
+-	} else {
+-		txq = reciprocal_scale(txq, numqueues);
++		/* A racing update can leave the old index of a moved queue */
++		if (likely(queue_index < numqueues))
++			return queue_index;
+ 	}
+ 
+-	return txq;
++	return reciprocal_scale(txq, numqueues);
+ }
+ 
+ static u16 tun_ebpf_select_queue(struct tun_struct *tun, struct sk_buff *skb)
+-- 
+2.53.0
+
