@@ -1,55 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794670305;
-	b=Z2Vi079xa5KbVN3G4Z1ICisaKuAwpW9jFXMBc7oPtqbe5TXwQeDKjZDE/BZcX3+Ynrk0
-	 bq2cTxqx8iXAxManhldNvjiQRhx1DFh53gESBzG6xGjRk5hgMphtyNGApAi31L3ATezyp
-	 Nk+pGEdNXrC+MOreQTktViXuRGV8uWeh5kxoOMsHbPEw+LlMVs3h3heA7ptHeH4ihhUhu
-	 ND08xoFcN64AbxIR/b5qpi11NBpBlsiEFnOD2WRsPCFp6kzrYmZzA9YSJzG7WtiM6zVJv
-	 OcE/oPVfPVEdsP7xixYkBm/uEIWa9eYahzkbBZDDZO91QPzWfXdfb8riqpWNvMVymiw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794670305;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=VQl4+torRmWh44depGiD8RWKcnHcYoG2BZy0f7lfgaY=;
-	b=J2W6ykuXB/h2DO5xKTux+6Xl62y1KjPqmHmTeyBpl6iGJKlxnzS+IAbj6W2M2rzevghW
-	 1jswxCYhUpAeMOTdsqjd4HD/cT92gKgevtaEt2z0diyRSHmqKp1bkM1OP7Qh43+rouSiJ
-	 dCFbD/uOMYoUyQGXC3jo2LmZvveXJt+G/DFgDhOCbubVkYXqQuYNQSJRvxh2ZXSngX48q
-	 1fMgyJiiVASCM81pLpZAPfYU6GwjC6O6HcYgM20ms76KRiPkV7PD6EK8LEO0idKkrkmcy
-	 8wgEJKCISKghOGtMtUddDVXJq5V0qVHybcJBCghrP1n33+UhBvkphcK3sVMQ9vTO+bQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QqpfNtvR;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794670357;
+	b=opyuOUK2TZ2jX3TScDHsMTNtU07Qpvf9fEvUmJ99bPbB1FxE3P8XWaRrnWrDfLrufuTB
+	 iEl53VTfXPcyRIaslrFOidTlNkjE4CtDHtCOJ0W2qHCj4nAVb6ZHME07QF9KMUM/Dtc+E
+	 iqksmFrawFi5RkcySpURI+BAZHvlXrcewz4FlLzVBPaY1FvGBT0ISwCMp3vk7+zWFi+Gl
+	 mwdM3etTTCIrka+gEQP+4kGIlV3Xoj83gujDglVvY749I1fBFjsYTlXOm+PBxKGnMEf7V
+	 HzIB9ZIBnrJ/rVuIXy1lhSTreIJrztoBjvOQqNl88dmnAmBqrkW53LbE3atyBewrkWA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794670357;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=YjN6mtWcOCsjlBrJP8cJGczeHs+0ITKRtbxV1uFNID4=;
+	b=EiTmJwxKx+CGVRmm1AO98+OD3Fg8JEEy98UvY5MjhxTLzsfZ9TgCB18j1M8br1aikSHW
+	 nnB6jBUc3lthQd5ps493lsMAplUKtoH89gTNyFvHllgbmQT0v2PUKAKsjnNTO/n726rYo
+	 89yTaJr7osv834Co/pXGUlwrZ6D+3ttTQnVg3pP1tOy5J4FK7RVsj/0Pha0I+yD+iDaNp
+	 tMfD8ikIO6l9jvaDd6sUwpnJBtuUCvbjZF24sakvXkoj+XPoE6JikDI+6zazzS9vTkMc0
+	 lX8zbJFNVsEN2Acy3Yu+q0d8n+7Yqm3TP3pd9aYG0BcZLkxJQlODDqmmP8jivpqO48g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pgrOhZRp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.52
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 567A1606A323
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:31:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35006606A32E
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:32:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35006606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QqpfNtvR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DF881F000C4
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:31:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794670305;
-	bh=VQl4+torRmWh44depGiD8RWKcnHcYoG2BZy0f7lfgaY=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=QqpfNtvRj6HqABjXGhF0fLr28QS6XholUynu0RyvIC1qohx1TvXDcR1RBqcfoNbnF
-	 zLxu9zseEdfQyTr+bH5EBr0KutoEfxBrdqa8bksVv3hDZIpxSHvpcz80DqFV3QGWXh
-	 TFgIuuY+vJbHqSTabjM/vJrpDSQ4Ervf9X7WpJGxVrIrQdpIiOxVQnS19pU2YaAfvT
-	 8aIIgbxtpHv9sN0LReQqefYaiQvOy58psxRF3+PDz4sM41Il1InosbjPCc+dJQyBBE
-	 Nev9eY3ogMMYCgDwg3pwrPsK9za4NQ5UIaZTodUrGtXgf74mBGdfK4PSSviYN39cqK
-	 xZRFNUvwb55mA==
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-6df5e315bd1so2428303eaf.2
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:31:45 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFkLk9KR0YDHFp0RutTvGpfeTl5OGFFU+7IoOkWmw7EvvrSxT1uBhPyoH89YkzMNKRfWS+AFXI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/OceNwFtpKK8AWO9FAllH8y3jl1uMzMA3kJGQLK0DDbGHy+bs9
-	DS3a2EblMlxCpYJOCFlL01FBGd0tluMwVPhgCL2fgmrXpwtGvozjxlNuwz87PNu9Xc74ESYKk2Y
-	J3UJwfF2JlvACFp41LCTlQpfH2NopKa4=
-X-Received: by 2002:a05:6820:7085:10b0:71a:deda:68ce with SMTP id
- 006d021491bc7-71adeda6e86mr306725eaf.81.1794670304555; Sat, 14 Nov 2026
- 07:31:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pgrOhZRp
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c50cc7540b7so287766b.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:32:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794670355; cv=none;
+        d=google.com; s=arc-20260327;
+        b=iqQBBd83CDxE6LLSo9jkX5zItOOv7SIHDyvM1Px9ZiOJAjdol1rbOPHWTqhpHevzoY
+         5eQF8nOWQgEKX+IZZjgYIGKRSprhZSFjFf7X4jIyqNn0LoVybODoOwUCZpIopHMYw4Wi
+         a2ZRf+jvcjlwWoxwN1eeJzGDVwMolrQfPsVhIlg5HiDcewKM5I3qaPIHRqSLtac0SapS
+         x3yZLNmaHnmMVMR60n1SNNdFQ/+0hhnZMJsH2zFEtWMHm3OjIBt1jUcMgn1xXm+dMsKK
+         HL6/waftGGHgUn4zae8TaE4y5xNA0PyzC0Pm+/oBtrPwwLTAbRMPqpCi3mVuiDtJZgbh
+         xFOA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=YjN6mtWcOCsjlBrJP8cJGczeHs+0ITKRtbxV1uFNID4=;
+        fh=AAwkIr9L7oWs9EQ86M9WSc7kXELngaaFJ/6BqPtjOG8=;
+        b=HkxMJwneLlqlAYiR2U1LJkpuIsA2uKZ4kE5X5Hq1I/KiS+DXDvVz5VfQ27hCdx9j40
+         ry4Ih2wx+/BAwvBNBPmGsRRbNHfyOlcRqvEAjZ4sPYkAuGN3/ivAm7jExSoscbjX+MOE
+         UQq+N4meyIz9qMWOVgRlVevnRzc2zM4Bv+Id36zXnyyxqAJ1ZOg+98e8QjiV6tqRx38x
+         +/Ikzt75bH+gr6IWg9CLU5uxEUaOjIPsUkh87vw3NwFQbD+76uolR3Suv3qgu8BzRFqo
+         lDxu1xzBBFglJMKVx6KpkSJwSdQ+fflWqMvYMtpmDBIMwR90ZY72IF0B342/+PejrlBQ
+         RNKA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794670355; x=1795275155; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=YjN6mtWcOCsjlBrJP8cJGczeHs+0ITKRtbxV1uFNID4=;
+        b=pgrOhZRp05KImLhRrhLjrWt50iEsX2rldYqswYgsVQNsni6GZ7hMZFhhEAsvzYl+XI
+         pDxmlgRtgXeVD282942Y9MC1GgAIs4rNVhm9odZW/f2y2srKDssKPHzL037mIIt7q6UE
+         tYe4MH3o76oQ5NfhwSZxAoN+RwnvALSJclUP8WgvpS8B/+J7dSGb4FwmSL9M7f+4e7TI
+         jPqnY564o9gAucXpqlDNyAV+Ml9dr6o+UXPsD1dWTw3G6g6JvW7b6X2gsL2fuVsOMB4U
+         NYynnyQli0Zr172tTLKl3QPS2vt1trdjq1+3vrarZJXPCSRrSjs+1oogfjcKHzGciZ2B
+         zskg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794670355; x=1795275155;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YjN6mtWcOCsjlBrJP8cJGczeHs+0ITKRtbxV1uFNID4=;
+        b=1xd04QJG5uX0Z82/9vjW6aR/ZDOo48qisL7C2XbPNvlct7jjttoKzHED6qfUPOs97u
+         oFIpBv52KPV9KRK7WE5DoMKEA6g/X8/LBt6pYEXrR4awMdsfpgQiFMq0ziBIRz5Ywxws
+         QBUD9rq0NhLcOe9pdQW9chBtX7KrEyLsQuv4uxphbsfWAoGRhjRgmjPZXUwykCPIeXpW
+         8wMZyMUL6ZCs3W//RDBZ25YdE/Rh1DSr8m0WKtrdZ2Sur8zmb9ljmWRjv/JI/vL3oICF
+         ivFuvQyIpFX9MTzdC5CPIsAvdY06ASBHUG+QvlEcS09mXDJ8U6jPLI7OcjJKqH3RpX3q
+         eDmA==
+X-Forwarded-Encrypted: i=1; AL+hErFxTStr+FoIuUhina77pXTJ8bnIw6IHMWWAGjg4DH5Vuy5aSnvM+/ttz3/oH0M3vUBumNvvMiE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+6zgTmNG6F2+m8E3Z4FD3htb8lMYiCGUBkmScPlu6fraIJKm9e
+	xkX2cHvsLiVQyLJCRJprzSgtMvsJxb/YUQ+3U+arv5d3Q9e2c6m92F0pq/FppiP9ANsIz85q+5c
+	M2qsCsFiIQjhv8rKUc/Ea3fYrldxUQIo=
+X-Gm-Gg: AYBFou1sr4C7QsR3fnV3eC4LcIRgBp8mPFYcs2rnDf1lRJxU20IeGdu63sbEZBmIVbO
+	WmKlmE1a+/VT68FFl+TvipqmgMMiSjDxRaiKZcjB3jhVwerrSMMsC0BlB1QxSBGHzSd3bqdmUwg
+	wfaEGDIzd0qjv9EtnCmWjQC6/RUWx9k1ymftzmdZf1u6FpwxR9oCGsXupvGg+IAYJ6hfonJczFB
+	1afzcVcE2M2kFVJPX82xDivxwI2Lv0xWkUuxnj5MxJQ20inDoEFhiQcyjWe4sGfV5eeMURMvhiW
+	yOhGkEBwW2c2kgg5Zirq7BHZq5PqUJ6MFI1W8J9qf7+legmcZYAaIB4zItTvIVhHTjNOcIfMrDr
+	ALR7qChuc21P2l69gj2Rb96HQet2wzv2Yalv2PA==
+X-Received: by 2002:a17:906:9f8e:b0:c4c:b4fe:c9f1 with SMTP id
+ a640c23a62f3a-c5096385149mr526284666b.35.1794670355209; Sat, 14 Nov 2026
+ 07:32:35 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,75 +104,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261114040101.1043546-1-kuniyu@google.com>
-In-Reply-To: <20261114040101.1043546-1-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Sat, 14 Nov 2026 16:31:31 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqekjxZw3EoDYXLc0Phd3i0GStE2ZHWQkH2iAkSM5D8TQ@mail.gmail.com>
-X-Gm-Features: AclHuK9EqHKICbtgVYLFdumnaFtuCF-ZR2TMXGt0b3cUpY2XP5UFZp5GrVuvHm8
-Message-ID: <CAL4WiiqekjxZw3EoDYXLc0Phd3i0GStE2ZHWQkH2iAkSM5D8TQ@mail.gmail.com>
-Subject: Re: [PATCH v1 net-next 0/8] tcp: Prevent tcp_collapse() from bloating queue.
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
+References: <20261113110546.173624-1-a.shimko.dev@gmail.com>
+ <20261113110546.173624-4-a.shimko.dev@gmail.com> <8ef5b0a7-58f6-4c62-8153-6a9c8d3703f7@lunn.ch>
+ <CAOPX745=Mx9Q+Wijt9+=Mmjtdk4fsenEeV2h0gPCvNpqc8kN=A@mail.gmail.com> <43b83555-df27-4b8b-a1d4-bf0cd9c46893@lunn.ch>
+In-Reply-To: <43b83555-df27-4b8b-a1d4-bf0cd9c46893@lunn.ch>
+From: Artem Shimko <a.shimko.dev@gmail.com>
+Date: Sat, 14 Nov 2026 18:32:24 +0300
+X-Gm-Features: AclHuK8X0DQZe3Z31cK9XuFE51dX6ITpI-bm5svIaVnP3cI8G5bXUmovC3tRnYs
+Message-ID: <CAOPX746c7uJt1fhV6s2=VjjeinQs+R4zDmMqCO3_UqkMrjzMew@mail.gmail.com>
+Subject: Re: [PATCH net-next 3/3] net: phy: dap8211r: add led hardware control support
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, maxime.chevallier@bootlin.com, 
+	pavel@ucw.cz, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-leds@vger.kernel.org, netdev@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Le sam. 14 nov. 2026 =C3=A0 05:01, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
+Hi Andrew,
+
+On Sat, Nov 14, 2026 at 6:13=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
 >
-> This is a follow-up for commit 031c403d13e5 ("tcp: do not let
-> tcp_collapse() drive sk_forward_alloc negative").
+> > The LED_COMCON register does include "force-on/force-off" bits,
+> > but i have intentionally chosen not to use them here.
+> > To be honest, i=E2=80=99m not yet convinced that they need to be added.
 >
-> The core algorithm in tcp_collapse() is so simple and has not
-> been changed since commit 1da177e4c3f4 ("Linux-2.6.12-rc2");
-> finding a collapsible skb and repacking it into up-to-SKB_MAX_ORDER()
-> skb.
+> They allow you to implement set_brightness. That is ideally the base
+> for all LEDs, being able to turn them on/off. If you can do that, all
+> the trigger can work with software driving the LEDs. You can show the
+> heartbeat, shift-lock, and all networking settings.
 >
-> Now that we use 4K MSS and tp->scaling_ratio, the simple algorithm
-> does not work well, and it could even end up consuming more memory
-> contrary to the intention.
->
-> For example, the scaling ratio of SKB_MAX_ORDER() is 222, but
-> typically tp->scaling_ratio for 4K MSS flow is 252, and repacking
-> data rather bloats high-density skb.
->
-> Also, once a low-density skb starts collapsing, it drags all the
-> following skbs into collapsing regardless of the density.
->
-> This series changes the algorithm so that it skips high-density
-> skb and a single low-density skb between high-density skbs, batches
-> memory accounting at the end, and removes sk_forced_mem_schedule().
->
+> Making use of the hardware to blink on network activity is an optional
+> extra, reduced the CPU load etc, but just nice to have.
 
-Thanks for working on this.
+I got it, thanks for the clarification, will do.
 
-I went through the series and ran it on a KASAN + DEBUG_NET kernel:
-your packetdrill test, a packetdrill test collapsing the out-of-order
-queue, and a loopback stress test (1-byte writes, small SO_RCVBUF,
-payload checked by the reader). No splat, no corrupted payload.
-
-I have comments on patches 1, 3, 4, 5 and 8.
-
-One general remark: the series keeps linear skbs of
-SKB_MAX_ORDER(0, 0) bytes as the collapse target, and uses their
-density (86 %) as the definition of a dense skb.
-
-I have been working on a patch storing the collapsed payload in
-order-0 page frags instead: alloc_skb(0), then up to MAX_SKB_FRAGS
-pages added while copying. A full skb is then about 98 % dense, like
-a 4K MSS GRO packet, and:
-
-- There are fewer skbs in the receive queue and in the out-of-order
-  rbtree (one skb per 68 KB instead of one per 3.7 KB).
-
-- Payload sits in full page-aligned frags, usable by
-  TCP_ZEROCOPY_RECEIVE.
-
-This does not replace your series: the selection logic (skip dense
-skbs, stop at the first non bloated skb, skip ranges that would not
-shrink) is still needed. But TCP_COLLAPSE_MAX_SIZE,
-TCP_COLLAPSE_SCALING_RATIO, the estimation added in patch 5 and the
-pool added in patch 6 are all built around the linear format, so I
-prefer to mention it now.
+Best regards,
+artem
