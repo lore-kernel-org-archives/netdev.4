@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794670377;
-	b=q1dZAebTq3uKON18ne+AVkLe/2eCjg/YFOKJE51qQCMyKM3OmgPbLWUDJt0K9UGePfVI
-	 8xZ9T3jrA77cLGRQJoIcIy7xiM2vsMR9QSYuIRAQkoEYLeOJXgRm3bOOw8XfsuDaEN8vW
-	 QSLX2E5591UqYmT7gwxXY5Tt/3pwU6Fve4RoG90HolV3Extc3OdgXsA2OAQrXye3aeelC
-	 ZyqS7ZT49fWoBrz2Dw3dadWGBRalXonAVrEYrhwjo+zpEM3TN3zV3QYxAauZMOihGRNPG
-	 uaQse9JYk/cxIw63392S48v1umM64SkyiGsAHQzD3whrKpjTrKDt8bLwwdf7UdnmzdQ==
+	t=1794670427;
+	b=V264Wp12/pplngChxbxGt/bgxfit7HyAL2S/5IF3aOmfb11p0sVK69uQGxBDd5GsnqOy
+	 IL2prQ8pYPqB/iGH85GOhJtcfugbbhYOx+CGxklI8BlLViJlHV5DnA4A7vN4a5mgspnRH
+	 e/OFiJ+l8nUphVpK6u69SWzx4FVhH60TxKNBQhs8sbFJoudSkuzmM2WgILez5AdWuDZ60
+	 2ufMI1ObcBA3hemE3IsroeDr76Q6x8pznphAZN+odQFmXBUHitDG0IKTBri2NZBKvx9xu
+	 HrpBe6KQSVjqR2UGKAunaK3L/L0b/+fhRl0RIqh7ypobmyC6HfmZwmRk5kY+PN2VJ9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794670377;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794670427;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=tOdFgq6NJE5ZahFuNxVKUFHDjUOWhxrNt70ospd2l6U=;
-	b=PvrgInYag2ZIyvCSvLUjPnLUTLGQaY4HPw1W15E4LeUD5f6k+omiy3a4E9Su0gY0RBrS
-	 5LgERqeKEQcfUdhGry9X9Y3LA98MmBC/ziJFkXnDmz1tdPTP7H8KBSCLvnVNzTvtGA91I
-	 1xwCiBuzScVZ0Xz/ZhYUtBRNE4vLZQ7DxWOoxcj/Sa8SJFWuBj7fHRCgLya3J5OwSHdGN
-	 wuuiHqZevEf3/r2vfMTiQSxXB1apNGqGTf81IOKyW41CUbhZygnXjbrYeC0NK12zvAuhZ
-	 RoR7AVrfmy3aHNUYBVdJPlWqqYcMRVwXSCUHG2Wd1cQ4n7oNJ5L/kTaZSHUhH4UJHGg==
+	bh=6IGjr6D6fzEJZcvgx9FvyfcpYyzq4AV1N2b99/KEpNg=;
+	b=u4zhPepoeATCf2GZfidpQaHBXaNnKnfDoGpOnFPIZtNLSPyWTAuziOqB0By6LGWBLq0o
+	 uG+fpo7A7XnOZ4W/yJUS021UduWmNbHIT2IaKfgSV67KWyx8uivLHDuZvy/ZuZaJWMrf0
+	 VOGjkXjYt1RGK4QSmwfrvpoAZ+zdnk3BbRA1sYl58funYyyfP9kHEfLFRZbB5+JrGinze
+	 dCJ/FKTfYalhcxpInOAbFV4A4offZBeEITHSP40C7VJ/eUQ07DYvwTF+3VQfTcv86gcSv
+	 mrNEYFSgCTQw+022bW7s7fnhoBC11YACbmX10scSDXn+bLYEzoKLtJVWvf3f6OxEzVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MODdELXk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WEQgjd7X;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71A06606A332
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:32:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A666D606A323
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:33:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MODdELXk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 157A41F000C9
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:32:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WEQgjd7X
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3EF9F1F000CA
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:33:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794670377;
-	bh=tOdFgq6NJE5ZahFuNxVKUFHDjUOWhxrNt70ospd2l6U=;
+	s=k20260515; t=1794670427;
+	bh=6IGjr6D6fzEJZcvgx9FvyfcpYyzq4AV1N2b99/KEpNg=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=MODdELXkolKksSulE5BngSIPe4RIgVMDNSyKYElgVBsPRVci7V8bOdc42hT2iOm3y
-	 23UQTi80zop/5PfAuhJHNlFJGEeOTb7a1bD6tOGXPLlkdWbAYND/0rrhvekbQyMCy1
-	 UX2pwNPFK1vnpwTvwgbC7Jr8hGBicbyYUmtY7iLxk1arsMdPdVV5qumDR5h1di5xrs
-	 OB9phOX9VB0fYokQszTOdJe0B3fiKgiPbEIh73UFMtP0JQSFCFmSmiMw1FpH+LiQav
-	 fCxklqqRd8/9K1RqdBIAzFMJCm/J6uAu4+wPd5XuZOwN/zkG6zk2DWOTRgbj7Vhg8+
-	 G0fZ7+yAdisew==
-Received: by mail-ot1-f41.google.com with SMTP id 46e09a7af769-7f84a55cc06so1894070a34.2
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:32:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErH199I5Wi1nDhbpnzfmITrb9GYZTLkdMXC4Jy+pLaEoc5/zVEQUB473ujZlxoc3JK4NQJOyMyM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z810KDUA6drqIfzZsL3d6+QGUzxW3qNdqt8fHS7syE+EUfQYyGp
-	2F8G/dD6P0e8t+2CHBb7mIYKB3EJpkAb/49Vg6IT9YuL2efkq+7gnzB6UqN/OuV0TEjO1eOAmVf
-	N9q1SqXNz41V6V9BPteaMkhP8uuyAM7Y=
-X-Received: by 2002:a05:6820:2205:b0:713:e404:a96c with SMTP id
- 006d021491bc7-71ab4f76653mr3292281eaf.43.1794670376429; Sat, 14 Nov 2026
- 07:32:56 -0800 (PST)
+	b=WEQgjd7XTtS6AvRw4v+wDDtXlD70vtoYdoOHpI+EWpmGz4G0JwXsUe+HVYIBVrSZP
+	 iM1faR91oPUjCEmJsmwDTCR3hhUoIHC9l/huV7ByJaq9bT9IfG/Y5udD3JmcjCUOEw
+	 eyLsM88L4fkQUNFNJgKLZrbWidS3EAJ55NKlghmmAmno/XkEP9DwdqapIR9r5QMFbL
+	 FRyXrwkNJaU+fxZxlGpvF+iB9v6iPI82edUi8WuCUl8gTEMs/14zCcQIuuG5/FPF/j
+	 GWaL4kVU4d7TCLU1dVh3/BOLkPEZ3UwGrXcYS0xWrYIcjDwNylECUH0NKc8PzDwUvj
+	 9OTQ1xaehshlQ==
+Received: by mail-oo1-f44.google.com with SMTP id 006d021491bc7-70b875f6f1fso2597953eaf.2
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 07:33:47 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFsofQenUsl8i4yakbiQgI4TFTGozrGbF6XfhZnyPTgOOrw/ZtNr6cl0PC8HPtJFOKaatDhdLU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zEF7nxj9PtnGWQ5aB0cVtMuP9IN145tsovMrZz1CUb6+SqltU
+	4dxIFY2pvFYGmXV5pswJz/GiAHq1JUZvLJZx9IPRojH1Rr9u2gQVCtCHdfLekVDDVK3bLBpI38e
+	ZfBC7hHYByJMuUBG1r1M9wIv2pPmu+CM=
+X-Received: by 2002:a05:6820:1628:b0:6e1:d890:3825 with SMTP id
+ 006d021491bc7-71ab4fde843mr3391591eaf.18.1794670426591; Sat, 14 Nov 2026
+ 07:33:46 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,14 +59,14 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261114040101.1043546-1-kuniyu@google.com> <20261114040101.1043546-2-kuniyu@google.com>
-In-Reply-To: <20261114040101.1043546-2-kuniyu@google.com>
+References: <20261114040101.1043546-1-kuniyu@google.com> <20261114040101.1043546-3-kuniyu@google.com>
+In-Reply-To: <20261114040101.1043546-3-kuniyu@google.com>
 From: Eric Dumazet <edumazet@kernel.org>
-Date: Sat, 14 Nov 2026 16:32:43 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiiq9VH0hw0=TnDc_f5v4AMpkFpuRB4t8vNME-KzKKzy1uQ@mail.gmail.com>
-X-Gm-Features: AclHuK_8xRSr4TiVruPvCxLe3Za149WO2vqfnb-l2Cr7CYIDmjFWSjCAt489d4Q
-Message-ID: <CAL4Wiiq9VH0hw0=TnDc_f5v4AMpkFpuRB4t8vNME-KzKKzy1uQ@mail.gmail.com>
-Subject: Re: [PATCH v1 net-next 1/8] tcp: Clean up the first loop in tcp_collapse().
+Date: Sat, 14 Nov 2026 16:33:35 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirVAvjv-+2LJbkRcVQ+t_Fh5_Nt9kkJbJsYo7fd9HTXFQ@mail.gmail.com>
+X-Gm-Features: AclHuK80nYn4Q1sDQa4udRyJHlmcCD3KHwEsRvAyWMrOkp-LVugCKTsBVeSd6uU
+Message-ID: <CAL4WiirVAvjv-+2LJbkRcVQ+t_Fh5_Nt9kkJbJsYo7fd9HTXFQ@mail.gmail.com>
+Subject: Re: [PATCH v1 net-next 2/8] tcp: Don't collapse high density skb.
 To: Kuniyuki Iwashima <kuniyu@google.com>
 Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
@@ -77,37 +77,29 @@ Content-Transfer-Encoding: quoted-printable
 Le sam. 14 nov. 2026 =C3=A0 05:01, Kuniyuki Iwashima <kuniyu@google.com> a =
 =C3=A9crit :
 >
-> tcp_collapse() detects skb to start collapsing from in the
-> first loop.
+> tcp_collapse() starts collapsing skb to a new skb if either
+> of the following is true:
 >
-> If the last skb has SYN or FIN, the condition is tested
-> again after the loop.
+>   1. skb is less dense compared to tp->scaling_ratio
+>   2. skb has read data before @start
 >
-> skb_frags_readable() is placed inside and outside of the
-> loop as well.
+> However, this could make situation worse.
 >
-> If we goto skip_this in both cases, we can remove the second
-> tests and simply replace end_of_skbs with the inverted loop
-> condition.
+> The new skb size is SKB_TRUESIZE(SKB_MAX_ORDER(0, 0)) at most,
+> and with PAGE_SIZE being 4K, its scaling_ratio is 222 (86%).
 >
-> Then, we do not need a test for tcp_collapse_one() too.
+> If 4K-MSS GRO skb updates tp->scaling_ratio, it can be larger
+> than 222.
 >
-> Also, skb_frags_readable() should be tested after the fully
-> overlapping check.
+> Then, even the newly collapsed skb could be detected as bloated
+> by the next tcp_collapse().
 >
-> Let's clean up the loop.
-
-This is not only a cleanup.
-
-Before this patch, when a SYN/FIN skb was overlapping with the next
-skb, the loop was left with end_of_skbs =3D=3D false, and the test
-following the loop made tcp_collapse() return: nothing after this skb
-was collapsed.
-
-After this patch, this skb is skipped and the following skbs are
-considered.
-
-I think the new behavior is fine, but please mention it in the
-changelog.
+> Also, even when only a few bytes are read from GRO skb, it is
+> collapsed by the 2nd rule, making less-efficient skb.
+>
+> Let's cap tp->scaling_ratio with the collapsed skb's maximum
+> scaling_ratio and use unread bytes for bloat detection.
+>
+> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
 
 Reviewed-by: Eric Dumazet <edumazet@kernel.org>
