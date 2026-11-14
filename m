@@ -1,101 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.176
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794683334;
-	b=GpE+sfOuVnYMR0PjcDozeNOFvoO6ClU/BZNlYD1UdoSb/zvQ+RDo6geZNJ4bL9TUBgh6
-	 JBVx5ch0Jt+Mc59/1quSvemVdypRYEkmjB8HhJ0ICkgvQW78Ps57wtd1rkod1btNAyJFf
-	 6sqORDbHCBTYsT9XlAGNI5IkjivXThYyrru59NQru73ndwyao0VABM0WG3TTirZpLmUXJ
-	 EMBCuHnIs6UpcbQIy1It0Vxmcxavb3ftBRHssI8vxIUvbarlHOL2hOUPxXPyFCnCUp2W0
-	 a8IZu5lf3nKXNSBMQSY1DydpUHsBMq+4gbg2PLrZrB2f3IRHoJgt7WdMghFNPCwFYeg==
+	t=1794683369;
+	b=xMWQOUoBEdxT9HCIjukw8LdjbHgcK4TDeOFQmoC1h0KqG9pz5kfbsXvaJFbjqKYZYG0h
+	 6aZiKnEbTEJNWIgp+ZDWz+OPAfYpXiUnKqaDh/l5TFJYRUsTeXMmUGcy00DyHjMGIJ2D6
+	 u6BtTMPFfuVAycUCAA4S030Tz3mJs2Qi250/3f5MHw2z4d6ytDyY7LqSPlEdaHRsojivO
+	 bNvsQGD3rhaH9cikGxmxrM3ZZLu5BZ4sUbbbSZtEzZet/xV8diSzvHIRTxgl1e24rosjm
+	 1hiKVNS+L60n3uLko1c8VEyIGT8TjN9KXnFrPRvicU5nBd6TBULkKqw7F0ApaZtKNuw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794683334;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=lxmRDFoHxpt+qxahysWPY8cNjC08++XK90U4r6nVLsw=;
-	b=fY6gB4Atu4lOJitrSn23cEcqV22ujlYi6iIPA38cZ9z07z+NZetfQGdk+ydrX8Hm8tzc
-	 C2bKlGAzVN/k0BmApvXD+jdQ/Zyl5onA6tql1hRkPg6TTT37tgKu8KsK/8CRw1VspcVTc
-	 WdcnLcadwbNb4SXL9K4UtFMOFvL6WhV7nT12CeYUbxyP1iPaaZgdlbErHt9bmd1+NoqW8
-	 OwTkdna/whTZjC4KYh8JZ7yLWgjbXBAUdOtQjFJY5hnnV7u0xb0lABcRmTxxxCqST3Ou/
-	 RxOZOl8CRrBhnxf/CgkNAsQcn/AUenIxjLrBwgecOXrik7BDteTYdG+48UaVBSj5X5g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794683369;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=DgpYO/VSAfAhMfvdbl5shO5wtKU1LiPu1ETvfgfLye0=;
+	b=wKdBCKedzm5iVnPKpIOjcbHEuBGgOUL4aADU+3+zFqFY+HcA7XFByaMwhCJ4VrpQykuY
+	 EddwYAREd3P8z6hEFC/CXDIpv3gI8z56BGxodTbYddhVWSCf2xZDf7DwQyl40Tp7EGlxL
+	 cTNH3ujuiEXQ+d8qezSfBlKJaDOdPmyMwVanETKzYsMvf7Q/bBwaLbpwNNGChP8l0T1tz
+	 ABrzqhrhqBO/erQ49J56MOBiuMANapasdQtwtTMMeYLt/zZy1iyLmEjK61C2fAeB5i5D+
+	 rXuYF8CRx+1kVZkbd1gftle95cVQldj2JWEOtENdcoRXkF3wFmNLia8yBjJGhGOjQ5Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hX6nwmg8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b5o62hjG;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EE0B606A327;
+	Sat, 14 Nov 2026 19:09:29 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b5o62hjG
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794683369;
+	b=v0+FXH3ujV66egQAqsg3Ets65w10eAN/1pfKA8X1r5vfj6A3ONgqVBmCoAlGHw3e3Atg
+	 uFHZr3Pg+sY83zugZ7ec94jMUtFpEbMgKRS4nxYbvYN3Krb/QrgsfXtTtGFh2jPo61c+X
+	 O2uD+HwhRVHypG4b86tOxcY9BGfsHmxJGso9/j3I17gstK7RQRY5OsjYcqKchq6bVDXLu
+	 V+PG0eoBB4DdYVKqBHHUoB6hiVX6434dLiwHh6kWXxsuLBkdKeNyzQMDQvn8rreFSSb9K
+	 B/axO1GggyZBHSwOGIchorFad0xUxQEdOhroze6rdRyNFlOR7+JR3JhE9h5eeV4Ro8Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794683369;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=DgpYO/VSAfAhMfvdbl5shO5wtKU1LiPu1ETvfgfLye0=;
+	b=1Gv9EJKkWMqM13+HQorYOCHUAOEOIDYAbLy7tcB9Zrjpt4p0hp1oJd75KqCRiwKdhfH3
+	 ZJcCUqPqHvOjCGPPSoBXu4DwHjnFrFkHES2moa5VIMoRLaaXvW+4mGRwcfrDIyWC+k5eu
+	 X5d/wsGdPlWkQTNYEBByKuxw9tnrbbga4u3dTVIoSADlKPmE243XpSzMaarP9WUtTJtqh
+	 WLIIL9QJGTW2WJluegBgpPpvnp/yZkMV62d8f31YHBK6B5qPyMPvgYl4cPU7jCUCHiBYO
+	 0ANsLP64TT0QJ4YpSq6YCt4qj+AMKGorFponkKOu2Nj3HLogen7LSbkXN+RclgNgqew==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 958A7606A330
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 19:08:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 958A7606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hX6nwmg8
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2e99b1e5b4cso12447035ad.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 11:08:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794683333; cv=none;
-        d=google.com; s=arc-20260327;
-        b=i4JPcxPdGf3jg0C+tz/NUr/aCUrpKnd8js8KdWxW/T9+gmIWrlV2wxx8NqfGvdwSri
-         sSpyzr6RfnF+mi7MNQUk/jR74Rfno6s2VVK4tdYRZXbAZ/7XCbu3yFIqPtQgLUsqjY+3
-         NTk4fZOUgRDfUCwzBqzf0qatfw4jg91FiyDNuqjfABlEM6L9D2Z6k8i6IGy3gmXTPEBk
-         QWgZao8iX+PLeVnHMFoPHQPnQhu5s1HU6Y9dqb1UXTHnzoeJLMLyGT4ahya72L8WOiU1
-         BwWpcZMqz6LDcYJprHyjrp2on9+Saya212bzuHL7Nz2WBVfMnP2GHwldOZT2LAbBLHGQ
-         Umrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=lxmRDFoHxpt+qxahysWPY8cNjC08++XK90U4r6nVLsw=;
-        fh=0Bwm3NlyoyOBjYakV6iagexMH9hS2JitIUT3LHFb2h4=;
-        b=jx3Wx8kbrcYR5pHJExAkfFcv8ZrrXdJj5D182eyZcCwcFrN86KwITOzSgOdaHwtvBx
-         O1BQXcZD0zq1CqxLGbVD5aj6RL3LovbO5egEfvGq9o75lLwDVSeZTfUaHzP/d3hVm+Gg
-         Z/woHiMXFiS2RmR1Xlm4ifU4GtQjgCudOiyqwfwZDUYZHvMUMbtM0xnaB4PJcelovr4E
-         5vDSq+BS9YFK1vXSrnkRIcK52OZz4Y/+QWLYe+dTw61RYfub3mm45xT6tvQdxXF+mwX6
-         H357Boq4abzuwWWONrzXFx+1EWGbqsMN7/FstAZ7JTP1fAPgxdgXS/2HjvzIlESrJcr9
-         2dKw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794683333; x=1795288133; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lxmRDFoHxpt+qxahysWPY8cNjC08++XK90U4r6nVLsw=;
-        b=hX6nwmg8Rs65GoXZ5zZB7Gd+AOh9hOUa96uBWwnYwRTzYswLc3aPgt1QSSWIWJ2ZNL
-         w1OYUFY9NOmjZaShrhx2Jj1npiVNQ04Y6Hhu/S4bTfRY274mBn73KcPczVJKNfaDyTq/
-         s3EPjaXHTJx4ZUmVMtOGA+yLUeLpUtEhqR20JdQzsRQOCACtHjU4EzlwKOZC7SIxXH1w
-         /D4nbX2IcT9o7JbKePam36e+s+dAAKf2HaVd137ni10RqdwaEWxW0E6gqIN2/d1OAQBG
-         HpgEmk+cE8pKWnk/iVZuCp+BQ/Maeb2RHfQd/nXiMu3P8rJ1lUkCy8bZejy+nfIARXfJ
-         sWdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794683333; x=1795288133;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lxmRDFoHxpt+qxahysWPY8cNjC08++XK90U4r6nVLsw=;
-        b=x+dMcpbYRb3JMiEJ3BcRH/c66vKk7J+q+GinYYzxCVDl0EwTN6KP7BQRXBTc5JR3mJ
-         ttKYSrJRXVRwKt7z9QbYsjnOzqiVWMUUo3zcK1wJdZbtevF4/2BtlnDOG/HcISn+vub/
-         V6jyhgIi82BLuleqab4lyZ1mQJ8HyQAV+gn7543lr3tsSDwRZfuAOAvLYndXJ9IlrtNo
-         F5mOQnSTQgaTGZmt6oYi12fjpmpt/pzZ6gmIWhTDL8qocL5mMsPEibGCZaDgYEA6CF8A
-         qdgNcvSIW+74N8Y6AdRD4AvSwoYWUPK5asX4o2a/fQRypNHQ2YW5bOaQePcysoagDdzf
-         vPbQ==
-X-Forwarded-Encrypted: i=1; AL+hErEGybQzNx+Fr/GF6hdhRXoT0HeP9lNZUC5bBo6sdyi1rRsaAIh049ic7Offlt1Gpu1fsIKtTro=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/iiv6kUXhfU81EvmBP2cF4GDozdSwo6DIHjyxjRXmU43hVi6eD
-	htZh8x2TwrLSkJD7Qis/peu0pMgzpUJnXIUTWw2jQJF0CpiAEGVA7VSVzs3wAo92fMhze9gKHXX
-	Fv3LFG9Hay6bEOeSK/nf0GCrLVp+cttA=
-X-Gm-Gg: AYBFou3Rwddwr5+c8C5CatGVZiC/Ud9Wt9eC3PIhFz72wogaBDeS1yez0ruORco67yI
-	fNWokvHRVh9W7AflRcxGDarGz1hccWBDyuLIi22yGuRGwIDqB1Mx3WiMC7L1M2UHvXxGAp/Es8p
-	fkxCwpJpZl5uZ5oiBNVOgQRJw84tI6m+Jpk56zaAURmiKYltR9hHIe6WF+7pC/BZaPcU++w9lXd
-	h5lZmc+q78NUDl3vmBb/THKggaILj3mQWj6p8cja09aTLlBP/ekv3Sw6XjQkscL2/9nNeFeTd/l
-	L9vqnIU4B8ohRxxiW1tKhfZzDylOhTnCxtmnuqjBOlDVLFivqmRLzBSEpMoAnb9RX0s0AqAPJU7
-	lmzyouhdhhZ4CsUyBdWsyaVW0peHu92fTh+MpgzX/oLa9LnxOk0r+4NZbBsHodneVv7TLwQagMv
-	jgMYgG17FhaAaKF++smbhe8V63C1r/dcHD85v1Ecg8lf7NuV/9++A=
-X-Received: by 2002:a17:902:da86:b0:2ed:1fb0:7784 with SMTP id
- d9443c01a7336-2ee0da7bd5fmr58535095ad.10.1794683332797; Sat, 14 Nov 2026
- 11:08:52 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id B3C801F000C4;
+	Sat, 14 Nov 2026 19:09:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794683369;
+	bh=DgpYO/VSAfAhMfvdbl5shO5wtKU1LiPu1ETvfgfLye0=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=b5o62hjGuh5zTpsuAztcENuS/XaJ7Asc2pOomM2eqLRH/loCPnPjM48CvMuutVuhN
+	 YNBv04w1ca0yKZPMIv6JLxnlKXVuKuqdIID9xKg2cupzRrGhg4LyYRNVs7SIMtkb/5
+	 abRL6DsSZ6JQiqMD0HfYn9fXBCtAgcSbKBYUO6BG3AEd7gMZvGH/hR4ZZTb7ZiYLGZ
+	 FV1hGeRv3BFmcfpw/SJfnZuvI+ofHT6alNJDXV4xD8VfvmuG2vbcVxC6sP4fQ6opsL
+	 UZdJDN0SOPGjtRMH4rv2pmzszIXwpie90Hurvp1yCFRUALOKav7viGENLvaWaHokuc
+	 w6NAwlV948hMg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 3D7BF49E36;
+	Sat, 14 Nov 2026 19:09:28 +0000 (UTC)
+From: Bryam Vargas via B4 Relay <devnull+hexlabsecurity.proton.me@kernel.org>
+Date: Sat, 14 Nov 2026 14:09:28 -0500
+Subject: [PATCH net v2 1/2] dibs: loopback: reset the client id when the
+ owner unregisters a DMB
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,47 +83,94 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261030042138.73739-1-kylebot@openai.com>
-In-Reply-To: <20261030042138.73739-1-kylebot@openai.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Sat, 14 Nov 2026 11:08:40 -0800
-X-Gm-Features: AclHuK--H_3_n6VCnyOL61NaQc63vtDDD0D0yPb0rGJY-Xl4-Bos2pmaPEQ1p5E
-Message-ID: <CAADnVQJ=nsuU6GTJFG8VnF1drWW9pQOy9=fB3UhUyRYAOUmGuQ@mail.gmail.com>
-Subject: Re: [PATCH] net: skmsg: fix copy cursor when coalescing clones
-To: Kyle Zeng <kylebot@openai.com>
-Cc: bpf <bpf@vger.kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
-	Jakub Sitnicki <jakub@cloudflare.com>, Jiayuan Chen <jiayuan.chen@linux.dev>, 
-	Network Development <netdev@vger.kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
-	outbounddisclosures@openai.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261114-b4-disp-4e6374c2-v2-1-3b7050bddef7@proton.me>
+References: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me>
+In-Reply-To: <20261114-b4-disp-4e6374c2-v2-0-3b7050bddef7@proton.me>
+To: Dust Li <dust.li@linux.alibaba.com>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Mahanta Jambigi <mjambigi@linux.ibm.com>, 
+ Alexandra Winter <wintera@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Sidraya Jayagond <sidraya@linux.ibm.com>, 
+ "D. Wythe" <alibuda@linux.alibaba.com>
+Cc: Hidayath Khan <hidayath@linux.ibm.com>, linux-kernel@vger.kernel.org, 
+ linux-rdma@vger.kernel.org, netdev@vger.kernel.org, 
+ Simon Horman <horms@kernel.org>, Tony Lu <tonylu@linux.alibaba.com>, 
+ Wen Gu <guwen@linux.alibaba.com>, linux-s390@vger.kernel.org, 
+ Wenjia Zhang <wenjia@linux.ibm.com>, Julian Ruess <julianr@linux.ibm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794683367; l=2169;
+ i=hexlabsecurity@proton.me; s=default; h=from:subject:message-id;
+ bh=KBghDMOoyAS0OHozRJLfnD9xGKdfuhieCEeZH/+0AEo=;
+ b=/9l8QPQYZLAIou3waAEOmy+zpFjlJVw19f5ZDrxH/n1Pdo4KNR8nNujFrK+VzFgABmShbGPew
+ W6a1rVU+4TLC7ExKV491fm+hkAuA4Or/R3n7Sqkr50NmdSy6nTUKyVp
+X-Developer-Key: i=hexlabsecurity@proton.me; a=ed25519;
+ pk=xw1AhCtQdvuoQc+bOQIYy9o8G++cp4/VniI2G/tc3G8=
+X-Endpoint-Received: by B4 Relay for hexlabsecurity@proton.me/default with
+ auth_id=893
+X-Original-From: Bryam Vargas <hexlabsecurity@proton.me>
+Reply-To: hexlabsecurity@proton.me
+Content-Transfer-Encoding: 7bit
 
-On Thu, Oct 29, 2026 at 9:22=E2=80=AFPM Kyle Zeng <kylebot@openai.com> wrot=
-e:
->
-> A splice or zero-copy append can leave the destination copy cursor at
-> sg.end. If sk_msg_clone() subsequently coalesces with the last entry,
-> sg.end does not advance and the cursor still points at an unused slot.
-> sk_msg_memcopy_from_iter() can then walk around the ring and write into
-> older entries, including file pages spliced from a read-only descriptor.
->
-> Software TLS can reach this with an ordinary MSG_MORE send after a file
-> splice and a splice from another TCP socket. Both TCP and the TLS
-> encrypted-message allocation can use the sending task's page fragment,
-> so the TCP-sourced plaintext can be contiguous with the next cloned
-> encrypted-message range.
->
-> When coalescing with an exhausted destination, move the copy cursor to
-> the tail and set copybreak to its old length before extending it. Find
-> the actual tail on each iteration using the ring iterator, including
-> when end wraps to zero. Leave an existing copy cursor unchanged and
-> preserve the normal coalescing, reference counting, and memory charging.
->
-> Fixes: fda497e5f5b8 ("Optimize sk_msg_clone() by data merge to end dst sg=
- entry")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Kyle Zeng <kylebot@openai.com>
+From: Bryam Vargas <hexlabsecurity@proton.me>
 
-pls respin and target bpf tree.
+dibs_lo_unregister_dmb() resets the DMB's dmb_clientid_arr[] entry only
+on the last put. If an attacher still holds the DMB, as when an SMC link
+group is freed while a peer is still attached, the entry stays set after
+the attacher's dibs_lo_detach_dmb() frees the DMB.
+dibs_unregister_client() then warns at rmmod smc and returns -EBUSY,
+which smc_ism_exit() ignores: smc stays in clients[] and dibs->subs[],
+and a later dibs_dev_add() or dibs_dev_del() (rmmod dibs, ISM hotplug)
+calls into the unloaded module.
 
-pw-bot: cr
+Reset the entry when the owner unregisters, before its put, as
+ism_unregister_dmb() does. The index stays allocated until the last put,
+and the attacher's writes no longer raise an interrupt for a client that
+gave the DMB up.
+
+Fixes: cc21191b584c ("dibs: Move data path to dibs layer")
+Cc: stable@vger.kernel.org
+Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
+---
+ drivers/dibs/dibs_loopback.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/dibs/dibs_loopback.c b/drivers/dibs/dibs_loopback.c
+index 44a2e74c2efc..566e61a013d0 100644
+--- a/drivers/dibs/dibs_loopback.c
++++ b/drivers/dibs/dibs_loopback.c
+@@ -138,6 +138,13 @@ static int dibs_lo_unregister_dmb(struct dibs_dev *dibs, struct dibs_dmb *dmb)
+ 
+ 	ldev = dibs->drv_priv;
+ 
++	/* Reset before the owner's put: after it, an attacher's detach can
++	 * free the index for a new DMB.
++	 */
++	spin_lock_irqsave(&dibs->lock, flags);
++	dibs->dmb_clientid_arr[dmb->idx] = NO_DIBS_CLIENT;
++	spin_unlock_irqrestore(&dibs->lock, flags);
++
+ 	/* find dmb from hash table */
+ 	write_lock_bh(&ldev->dmb_ht_lock);
+ 	hash_for_each_possible(ldev->dmb_ht, tmp_node, list, dmb->dmb_tok) {
+@@ -155,13 +162,8 @@ static int dibs_lo_unregister_dmb(struct dibs_dev *dibs, struct dibs_dmb *dmb)
+ 		hash_del(&dmb_node->list);
+ 	write_unlock_bh(&ldev->dmb_ht_lock);
+ 
+-	if (last) {
+-		spin_lock_irqsave(&dibs->lock, flags);
+-		dibs->dmb_clientid_arr[dmb_node->sba_idx] = NO_DIBS_CLIENT;
+-		spin_unlock_irqrestore(&dibs->lock, flags);
+-
++	if (last)
+ 		dibs_lo_free_dmb(ldev, dmb_node);
+-	}
+ 	return 0;
+ }
+ 
+
+-- 
+2.56.0
+
+
