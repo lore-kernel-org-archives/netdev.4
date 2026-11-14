@@ -1,61 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794667559;
-	b=Mcv0oiQWnMyEjZY2CEDFEPdHiUvgDMlIxtWlcgzHLlrcaIVo0NUZTYLpTv819Rkr6QJS
-	 9fBGET23+oaZfNcWroGXeHEDc+iIrUTFO4DHyjJGenk7hPdTyg+QuTdThfDjWyBsMk96Q
-	 qNB2WDWqq37NFLUXXGOMnStGsmLDpKAxCUAzNrvOR+B/lYOX2lq0Bul04Om8++Jc/VkLc
-	 E+cqnf/9had9BN3r4/kfCqTq9YuWLm1ojh0NcMyGE5Jd3bkm3gMdNcRAm7jz5Mu/DRJna
-	 GzdSOzBypxEXoQ12iismYTqlfTTCIPEU0yGl1WhmG1WMf8PrnCTibrNLs8lfNiMt8Zg==
+	t=1794667855;
+	b=Rd/fpXzCMofdoWljLukMkDBq156f2lfHu/tyuVbX+x7NxC9CdsgFtTWL+ePehTKcn5pH
+	 iwRYqFZ4KZq+Tm9Te/2z8yJdhMP1xEKDbGZozddivVZgGn2td07QJ91YwIqdK9lieWCBM
+	 ndjc0pKYIkC59lv5uqkFp1i8ZRsSfYjgv2/Zx9uWqW9SZHw94oHaN4BQwaARqe7mgeqIp
+	 MVlBFglGJ9VEnJF2vQlQjei/3Sfp6SXszVh4OsFWMELwAT+Lgd2ao02pl5ylTe8+sX41F
+	 L3FEpYcBFfWzSBvaVsEt+z8qFcTPiV9rzCKDetWBz9b7uu2BcBoRe7UPPt5hQFi+O4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794667559;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=dQKkTV59PA9gDrnFZqTN77W5XNr80hjLVJl64KfD5Hc=;
-	b=FSHXEGwCGH+KrXWRgJLqA1ugEUkByRF26moFO4MoCmGYikyCMITRiyEWxoXybal5hAA6
-	 P+uQCgO38SvTqLy/Q003ahaPaeHwPEq3BSnrZLbZ0zMhswKq7TG1GmtUdapeBWv0nzk8s
-	 eO8QZFMkqs5hl3XSUomAiYWupP8TmiY9k+TRoYsuG0oKrGoIjpdmTXM4PbB5CNcQ4y/8p
-	 7utdawJL+gvVXTyCWGSiXv4VOe+kLARRIOS5tacTVLGrhiv+QAnPyVV0W2vF86rdi2t3M
-	 c9FLr2mvsE0Lxcrv2Vc+BNHPraXKNI8IuiU2WF0w+xZnerV/MYPpPjqUYIYriiYTGfg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794667855;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=IWB0UASjsW7G8RxuPodnDnfnf95ZQ/rwz8c9sMUFiBk=;
+	b=OmeMRSwNw+NhCQx0MIzFCunxONaqLbQzKlrtrLXJby9VRck1kKLG8WRCtwDy9mqBv9Hb
+	 WFwljyDj1SCuhhS5K0tNkvDtvAiFsPS4oEk016mf1bhftVVUGq/tae5XPNgv4gWSRXmtI
+	 y82g+kJKXyIpgRoDycEYaoREpg7TkSUJ2fXMAuWOTeaEbEJAZy5fKOQJmHB3sAX07kEGS
+	 T3l8X9xGhbmG/xxHDQYacxcYZnNdvGU+GpB09e+WggeFambwzGFXeBNJgUGJOCQfWUKPp
+	 Fdy8/tqd1pt+mkHviJk0Mdm9gcCHBscTzVx8lF4i1kZmlmNFuGZht+aDh1WBdaZsSDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="kabNH/F3";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E4qdlJT4;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B50D606A33D;
-	Sat, 14 Nov 2026 14:45:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9489F606A327;
+	Sat, 14 Nov 2026 14:50:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9489F606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kabNH/F3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A9491F000C4;
-	Sat, 14 Nov 2026 14:45:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794667559;
-	bh=dQKkTV59PA9gDrnFZqTN77W5XNr80hjLVJl64KfD5Hc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=kabNH/F3S+UrrEuuedgxRELY4hGwCq7FxgQvEhMoV4jRhY7vkx6F92lrJq4frCiFd
-	 tXrj8jUX5WG0tI6YZgKKjfOgjsBJWnv1PrpreIVwMmB7UeG+GMKwAvso2kAHnff7Ak
-	 EBWG3VYa776D8wSvmgWTHJ3lBgrLY+ckOqxffc9CawGLaCAwry6x6H+ZngBmHhydef
-	 SHOml4ylCYxBQJgIdzYAWFXOIBMpghoj+d48h5ACUZH/usWPPfKxTcqAcQNxO9SW4q
-	 KF8MiHpo+pul+NID+RkmqAISGpmt8p9yMlk7Y5BuyisPU8igSBWKsvHRoZ7wH8mtkO
-	 yUpdCgjtR/oBQ==
-Subject: Re: [PATCH net v2 2/2] net: add a KUnit test for the
- alloc_skb_with_frags() tail split
-From: netdev-bot+sashiko@kernel.org
-To: yanhaishuang@cmss.chinamobile.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, almasrymina@google.com,
- daniel@iogearbox.net, willemb@google.com, willemdebruijn.kernel@gmail.com,
- mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com,
- narcisav.kernel@gmail.com, linux-kernel@vger.kernel.org
-Date: Sat, 14 Nov 2026 14:45:58 +0000
-Message-ID: <179466755804.2199510.1095568480643973664@kernel.org>
-In-Reply-To: <20261110162418.28322-3-yanhaishuang@cmss.chinamobile.com>
-References: <20261110162418.28322-3-yanhaishuang@cmss.chinamobile.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=E4qdlJT4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794667855; x=1826203855;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=xfSb5R7QVeGowcxt6acIHVsFPIN1UpvT8ACebsp3uZs=;
+  b=E4qdlJT4UzjHtJQjflayjr+ildmt6kSXIpoRdU0TISCmsI1Iy/yiSO/f
+   DNGIilGhwwFwy+bYXA813eQ9CtJCu+9+DklZ680+5nfEJbb7ZOz/iD0Js
+   3o+S+DgaRPH71JYKIoYZP2la9khtO386NKjakOU8+IhyLidh7K73953Qo
+   N/yX1l7w35VmPrsnP1mQbRJk2/2R2JcK3rbK1cdXnMD0xBc9/pDXM3GDZ
+   CGbp9PoOVFL+1vbcB+owYs472jqODcYauS0QrtEqaAL7Uu032RPnqERZp
+   HJwqnLAYxlbwtaG//TQpIQjDlnt44gT0AaZLjxfVS5ENUhTO3kCQPnDG2
+   A==;
+X-CSE-ConnectionGUID: WhrrB8lCTXO8Ntqgt4emYQ==
+X-CSE-MsgGUID: idvXyHUtSAqna8DCx9QXWA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11966"; a="3491724"
+X-IronPort-AV: E=Sophos;i="6.27,213,1787036400"; 
+   d="scan'208";a="3491724"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 14 Nov 2026 06:50:54 -0800
+X-CSE-ConnectionGUID: WDUILf8cSCuARF2hXQQ1Ig==
+X-CSE-MsgGUID: wIArbPdDQ7Wlmv3HV+HTsA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,213,1787036400"; 
+   d="scan'208";a="9160945"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 14 Nov 2026 06:50:47 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xSF5Y-000000015cW-0yZg;
+	Sat, 14 Nov 2026 14:50:44 +0000
+Date: Sat, 14 Nov 2026 22:49:59 +0800
+From: kernel test robot <lkp@intel.com>
+To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+	Sumit Garg <sumit.garg@oss.qualcomm.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Dmitry Baryshkov <lumag@kernel.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Vikash Garodia <vikash.garodia@oss.qualcomm.com>,
+	Dikshita Agarwal <dikshita.agarwal@oss.qualcomm.com>,
+	Bryan O'Donoghue <bod@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Alex Elder <elder@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Jeff Johnson <jjohnson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: oe-kbuild-all@lists.linux.dev, linux-media@vger.kernel.org,
+	netdev@vger.kernel.org, Abel Vesa <abelvesa@kernel.org>,
+	Sean Paul <sean@poorly.run>,
+	Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jesszhan0024@gmail.com>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH v2 2/9] remoteproc: qcom_wcnss: migrate to
+ qcom_mdt_pas_load() and qcom_pas_prepare_and_auth_reset()
+Message-ID: <202611142207.UkqcyoQJ-lkp@intel.com>
+References: <20261113185009.157893-3-mukesh.ojha@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,107 +106,70 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113185009.157893-3-mukesh.ojha@oss.qualcomm.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hi Mukesh,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+kernel test robot noticed the following build errors:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+[auto build test ERROR on remoteproc/rproc-next]
+[also build test ERROR on drm-misc/drm-misc-next ath/ath-next linus/master v7.4-rc2 next-20261113]
+[cannot apply to linux-review/Mukesh-Ojha/remoteproc-qcom_wcnss-migrate-to-qcom_mdt_pas_load-and-qcom_pas_prepare_and_auth_reset/20260925-212730]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-- [Medium] The skip probe in alloc_skb_with_frags_test_tail()
-  (net/core/net_test.c) cannot do what its comment says ("Don't report a…
+url:    https://github.com/intel-lab-lkp/linux/commits/Mukesh-Ojha/firmware-qcom-pas-add-qcom_pas_context_init-for-pre-allocated-context/20261114-002001
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/remoteproc/linux.git rproc-next
+patch link:    https://lore.kernel.org/r/20261113185009.157893-3-mukesh.ojha%40oss.qualcomm.com
+patch subject: [PATCH v2 2/9] remoteproc: qcom_wcnss: migrate to qcom_mdt_pas_load() and qcom_pas_prepare_and_auth_reset()
+config: arm64-defconfig (https://download.01.org/0day-ci/archive/20261114/202611142207.UkqcyoQJ-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 16.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261114/202611142207.UkqcyoQJ-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611142207.UkqcyoQJ-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   drivers/remoteproc/qcom_wcnss.c: In function 'wcnss_load':
+>> drivers/remoteproc/qcom_wcnss.c:161:75: error: passing argument 4 of 'qcom_mdt_pas_load' makes pointer from integer without a cast [-Wint-conversion]
+     161 |         ret = qcom_mdt_pas_load(wcnss->pas_ctx, fw, rproc->firmware, wcnss->mem_reloc);
+         |                                                                      ~~~~~^~~~~~~~~~~
+         |                                                                           |
+         |                                                                           phys_addr_t {aka long long unsigned int}
+   drivers/remoteproc/qcom_wcnss.c:161:75: note: possible fix: take the address with '&'
+     161 |         ret = qcom_mdt_pas_load(wcnss->pas_ctx, fw, rproc->firmware, wcnss->mem_reloc);
+         |                                                                      ~~~~~^~~~~~~~~~~
+         |                                                                      &
+   In file included from drivers/remoteproc/qcom_wcnss.c:25:
+   include/linux/soc/qcom/mdt_loader.h:24:58: note: expected 'phys_addr_t *' {aka 'long long unsigned int *'} but argument is of type 'phys_addr_t' {aka 'long long unsigned int'}
+      24 |                       const char *firmware, phys_addr_t *reloc_base);
+         |                                             ~~~~~~~~~~~~~^~~~~~~~~~
+
+
+vim +/qcom_mdt_pas_load +161 drivers/remoteproc/qcom_wcnss.c
+
+   155	
+   156	static int wcnss_load(struct rproc *rproc, const struct firmware *fw)
+   157	{
+   158		struct qcom_wcnss *wcnss = rproc->priv;
+   159		int ret;
+   160	
+ > 161		ret = qcom_mdt_pas_load(wcnss->pas_ctx, fw, rproc->firmware, wcnss->mem_reloc);
+   162		if (ret)
+   163			return ret;
+   164	
+   165		qcom_pil_info_store("wcnss", wcnss->mem_phys, wcnss->mem_size);
+   166	
+   167		return 0;
+   168	}
+   169	
 
 --
-
-net: add a KUnit test for the alloc_skb_with_frags() tail split
-
-This adds a KUnit case that asks alloc_skb_with_frags() for
-MAX_SKB_FRAGS - 2 order-3 chunks plus a 7 page tail. Before the fix it
-references, splitting that tail ran out of frags. If the allocation fails
-and a single order-3 page can't be allocated either, the test is meant to
-skip rather than fail.
-
-> diff --git a/net/core/net_test.c b/net/core/net_test.c
-> index 2b5080c226636..de4d246f2f7ab 100644
-> --- a/net/core/net_test.c
-> +++ b/net/core/net_test.c
-> @@ -1721,7 +1721,42 @@ static void netmem_ref_test_tcp_devmem_recv(struct kunit *test)
-
-[ ... ]
-
-> +	skb = alloc_skb_with_frags(0, len, PAGE_ALLOC_COSTLY_ORDER, &err,
-> +				   GFP_KERNEL);
-> +	if (!skb) {
-> +		struct page *page;
-> +
-> +		/* Don't report a lack of high-order pages as a failure. */
-> +		page = alloc_pages(GFP_KERNEL | __GFP_NOWARN | __GFP_NORETRY,
-> +				   PAGE_ALLOC_COSTLY_ORDER);
-> +		if (!page)
-> +			kunit_skip(test, "no order-%d pages",
-> +				   PAGE_ALLOC_COSTLY_ORDER);
-> +		__free_pages(page, PAGE_ALLOC_COSTLY_ORDER);
-> +	}
-> +	KUNIT_ASSERT_NOT_NULL_MSG(test, skb, "err %d", err);
-
-[Severity: Medium]
-Does probing for a single order-3 page catch the case the comment
-describes?
-
-For this len, alloc_skb_with_frags() never lets a leading chunk drop
-below order 3. At nr_frags = k, the check is:
-
-net/core/skbuff.c:alloc_skb_with_frags() {
-    ...
-			can_shrink = DIV_ROUND_UP(data_len, smaller) <=
-				     MAX_SKB_FRAGS - nr_frags;
-    ...
-}
-
-This works out to 2*MAX_SKB_FRAGS - 2 - 2k <= MAX_SKB_FRAGS - k. That
-holds only once k >= MAX_SKB_FRAGS - 2. So each of the first
-MAX_SKB_FRAGS - 2 chunks has to get an order-3 page, or the function
-does goto failure. In total the call needs roughly MAX_SKB_FRAGS - 1
-order-3 pages, not one.
-
-When the call fails partway through, the failure path does:
-
-failure:
-	kfree_skb(skb);
-	return NULL;
-
-This frees every order-3 page already placed in the frags. Since
-pcp_allowed_order(3) is true, those pages land on this CPU's per-CPU
-free lists right before the probe runs. The single
-alloc_pages(..., PAGE_ALLOC_COSTLY_ORDER) probe will then almost always
-succeed, the skip is not taken, and KUNIT_ASSERT_NOT_NULL_MSG() reports
-a failure.
-
-So the test seems to skip only when the very first order-3 allocation
-fails. A host with some order-3 pages, but fewer than MAX_SKB_FRAGS - 1,
-would still report a failure. That doesn't match "so that a host with
-fragmented memory does not report this as a regression" in the commit
-message.
-
-Could the probe check the real requirement instead? For example, it
-could try to hold MAX_SKB_FRAGS - 1 order-3 pages at once, or treat
--ENOBUFS as a skip unless a stronger check shows enough pages were
-available.
-
-> +
-> +	for (i = 0; i < skb_shinfo(skb)->nr_frags; i++)
-> +		frags_len += skb_frag_size(&skb_shinfo(skb)->frags[i]);
-> +	KUNIT_EXPECT_EQ(test, frags_len, len);
-> +
-> +	kfree_skb(skb);
-> +}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110162418.28322-1-yanhaishuang%40cmss.chinamobile.com
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
