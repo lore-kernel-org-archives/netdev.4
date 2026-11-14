@@ -1,79 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794666384;
-	b=w92FW+8k5fEw2/lG2gRUORy+f2EBwQTXekvE3vWVO5muoD05hDCi0bkan/xT6JZk+DSA
-	 qyokn3dgytHKQc/OTcp30rmfm9jCiIQ1WSuu/EBqPS/yiTmI5bV6Bksy14vAkYbi+5WKE
-	 yxwPZp39kdgyJU0YvNxxEImU2/hFxP5My3/NzOzY403tfhU+ldMIkxZ8MrRYh006VFUDP
-	 kzkIl772DXPh3Uw6dZ4tkBBCzp+dr6lb3gZE8sTXPJfZNtC7iYgZAsFjcB+C+ZHbfW44O
-	 05fA4MFmRKIfV+Fr6oBJmYJM9//HYHf1K21GMCDxe13w1856lFQkk8pLvkFIjI6B+Zg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794666384;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Wjg/hmR2F1mQvKNh7DvhNzVPRNABdhbsmvxGWJAb9g8=;
-	b=KRjhaoTDeBcJPstooEmT41+UYdu27/NW3CjKZsZ1Qv2ICNoDKU638g3AhcKe7eXai8Sr
-	 G+vE60xF/Xtk7neJh8tAxwK1hAwonCB8aQU6DuCao4+qLpiXIK/2UuL2QikaZx8o060E+
-	 lidBvxb0j6tsCIoh7a4g5HsxGpTVcLtuTl1TcKStDP74PZk7JwtWqHqms6kpK/YPdWglU
-	 hCiMqmJWJd8phwSNEOtJIK4+3lvojCs08U6hF6E6INhh2AylG26gZhSq2vtAad8V1AdxT
-	 eJ82tIL8W28ikPvH6HQcHvXNqZJefq7HzOULLc3m6Fl8I8YngtOauyvaeE2oCzlA/1A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XA0zLuT6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE42B606A33E;
-	Sat, 14 Nov 2026 14:26:24 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XA0zLuT6
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794666384;
-	b=L/wfocZYPOblzkG2V1BHW0SbINcl3DdBndNjtVIbsFP7+QtyUZBWdViyAIjcNktSWP+W
-	 byqElod0sui0AJOZA0pjYdjBgQ5cBUaEWld/p1+eol/rRdRfBurq/lSAZoQ/t70PbFyll
-	 5YXZ3kgfLolctvc1xhwaO8I7NFbuje1VM6uBPqAS3Yd5LKoLwQ0hvaxRgze+KgssdApv9
-	 v+wFopASA6vqTNwAhkAT96OhJs3+hl3mWKBvEL3YNVl5dNnXG/fdIdz75voSHs9kIGZSn
-	 t8ADJgbkBroNcp+li/IRU3x/viPwznAIGXpARhR1MqvAK5q3cmFcDjVZz/H4q3g4iyQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794666384;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=Wjg/hmR2F1mQvKNh7DvhNzVPRNABdhbsmvxGWJAb9g8=;
-	b=E2PT82NGAdnWAxwHA8EneiFyZaIM0S3o6j6YYLAuhYQ3CsPZA24uPNaqvSBrWF8quxlN
-	 rg+it5jT0sFM/mCnYNVQVNtc7KkUmPmZJBfRGLxmIt2Wyl+D8I6925EdZzW2K7anACFQe
-	 4q2dszws1NzLw3BzbMs0hWF9lJMx96g2yYHI7aCFRBIoUekdT3XwJi73PFs6no9o3VWGj
-	 x4FXXrUVNkrOfGOB3s+dqYhkFHmz32LV5aUoHYPFV9dBcG6yILFj6wGdldf0B4x2e2iYn
-	 FBSjwi1/fT/ZqN2X+F/uQkbbc0R19cNSroNrXVew0yZRonRZUJL2gWQEzilEodXmJnQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794666396;
+	b=xWrxFJJIromsMW1M2S0k3RfYOFw2aCCqIcchhBF+gotCgI4ZvWwpqS03gKqr6dL+BSoe
+	 Uv8h0J+QV3xQLykI4Frjsf0ZomJjDFfjlJq3zDvXLThi56mAydIisvdkoKDRPAnEvi6Pk
+	 ex3RMmgevNBzBKS4D6t6no/kDebLf28bx/laIDaSBHGGjFBAyi5oXF6zO2gQMxopYba0j
+	 FjVd6e/G6vWy1sroVsc3XYrKHiktQmY8HOp22PraoO6xfeoWSNA7rByJYlAvL5631M1NO
+	 ST9y02Z4DSS9bowqPhgQv4yAWQhn7PiF96T/Z4X1UVFOu/yO2YquO0KFyapywcsHiFg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794666396;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=VKfbvGk8Y/jU9HbOgEOEZOjAkLHcru43E0pVFPAYJBM=;
+	b=wUY1SOQqcOfHHc/H/peoYlIwWGaPYfredzome9ePyrrLc/xhEEUzY9Tc2YppLc1fZ1pc
+	 qCLmBV0m2cbhaNrYRE+QzAOKHsR/ZkLnHYEwx8PIpBPyc+lse4Qb3kMTUqcGPgv/6ht8D
+	 3l4jMHvxi6ztG9B3Hw9zA/UmpiGIdaYEm7NFsZbmnEJlUzMXbrkiCGqR0UeaUm5W9cRuZ
+	 gnJ4MY/vWpUa5xWxFMLcrpU0bcrTcJ1i+3I6NeAxS8stGPMLeeMGQLLcK9zazpLtb3W4p
+	 niajLeXBvd8KpRp7MPauw0ZU2G2/gFkI3jObXG1gL0oUCn8l0LQ3A0ioCQBFy635fIw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eAZna+tX;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 03E241F000C6;
-	Sat, 14 Nov 2026 14:26:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794666384;
-	bh=Wjg/hmR2F1mQvKNh7DvhNzVPRNABdhbsmvxGWJAb9g8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=XA0zLuT6tf7GC82CZjCVaVQOT9dxN+FR/ZOqWSO+3zv0TwE6IRHbTrU/4FTLG4inp
-	 Y4bWjktMTT1TI1V52Es8mUuy7rFpDCkV+Io1/XAxPpHjU+B81X0sd+3Nhr/BhEY5tO
-	 LqolbQqK6ywUn6u9cU9XyCgijJ8K6zhFh264BPd3VRcZlDuUrbI42UHqTK2L/+d5vx
-	 6qMiJvCQYrdIs3HfoSmLsBVMX8lo0THyq3JunY9OZ4YdfI03L1Y1wjrtZYG8wycxzr
-	 Yptj9KNHzBDU0z4JveLh4FaBl4g/umkaoUm/gAYuGYu/zxTUJ6HeCDGq35F/Wx8bxX
-	 v1xSvnHEANvrw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8216C49E0F;
-	Sat, 14 Nov 2026 14:26:22 +0000 (UTC)
-From: Manivannan Sadhasivam via B4 Relay <devnull+manivannan.sadhasivam.oss.qualcomm.com@kernel.org>
-Date: Sat, 14 Nov 2026 06:26:14 -0800
-Subject: [PATCH net-next v6 2/4] net: qrtr: Assign unique node id for MHI
- endpoints
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36989606A895
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 14:26:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36989606A895
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eAZna+tX
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4a210470b49so15746705e9.2
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 06:26:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794666393; x=1795271193; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VKfbvGk8Y/jU9HbOgEOEZOjAkLHcru43E0pVFPAYJBM=;
+        b=eAZna+tXxLHQBQjgU3iwpvOZANU9R4AEtsIrkYmiARdvgN06PGElj+I1cI38pK8He4
+         +gwSV9xNkqVNYOv5l3NRSgV9qxM3v8mbn48QbiN68s8bQ1mHCF7bXSg0FTs3mcRObQxN
+         LFJEbliDECAqwz9Dy9A8MVrSXEFKpebB5vV+QxV2ewwivm6NymgE3izByhdTzkDc8Lwn
+         l0Vfq3KeUkNSxoG/corxVbWNL58cxqymMBFKhgB800FDrVuBkLm5axGsFktOsRL51oXw
+         Cvl3y7j37cIDhM7PHrL+x5jXIaoxivkRAlvWR5qMYUc29vMifKo+fCjN1MLbgS1EZowj
+         ZTEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794666393; x=1795271193;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VKfbvGk8Y/jU9HbOgEOEZOjAkLHcru43E0pVFPAYJBM=;
+        b=XiTlxE0ox8Y8Ho/CqgdAIx9HHEJiuy0qZhs4JkulGGoKM6arIkbEMBFSdpt7E3ugfD
+         NvAtR+/D9gJoLrE7jVQSEJa57Nk7SfCPhSRW5fpBQTwBf9cdA3JJTDpgVl0M93A3paso
+         LjddMtcxxcoQ17wZ8AXHIujM9k7Cm5pKPoAzSp5znRrynDvh73aRinVr6DAmW4OUGrM5
+         dlLCpv+WQiEpNETYUWwfQJgFN3LOytzKqNjyYX7NsVXvxyFAkfJ4r7IZJkUPXDDDkfZk
+         xFGYpZukQro5j3CCfuw7xZE0fxMWLdaKSxdMcVeAFeE06xCdmLJPjJu+5+fDBuNeMLKs
+         i/pg==
+X-Forwarded-Encrypted: i=1; AL+hErGeBFw1gVb09TlHhWoyrupfzZ7MH9IKb9fJ/ELFsNUd/13Dch2ZEEeV/goMuGA/evB7sZ80Aro=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8N+/w2Pz1fRjcsHPgoeAuzYvyfpKjz0Je0vS+YO2wsUNZ4cF2N
+	tQKDEByoxjWTUwlQY9nzEJsBkTwJ24KgOC2n87k94bj8G+zBYJToMicd
+X-Gm-Gg: AYBFou3v0h2c/QGNGRvIrss770Qgu/EQR9g8LHZrdv5FzAHnVBblJsBWDa5odCsUqvi
+	+vwa7MuXGYXSYm43B6tZASdNB6VR5Gm5uV8dEsTh142UUC3MNR8FIygTnU61cIB+l6zNKsj3B+O
+	t3pk88A/G37YFsTPhdR0s5JoEm5Nl0wsc29e1Cnf4iUxXbaTDp3eBFdmTbfjnbx/UGxEuPFOPNX
+	y8yx1qGIALkVySojReSc0vCAmr3tHfKsU36+s4XYqumFWYrIM5GostCCNHL9dbHNk+2NGfjvJn9
+	WnijfhnYvi1Ele0bqvtOR/Sk1rm618/2miqHkolq6filiyemHZSCny9uxAJQze7dAPWNCq2iPZH
+	44MOzXArjMzj+DWxsPf5OwK0qJ0HZTNRSKMrr8UrnECSHfRWaWEUxQmbFc2TjHTE2C2cKjVJJPU
+	p6SIz3A/TS1JIXLU38BRsDWyZ8JmiJ5DIaMggbVAmG4l9YtYSS+ash/WBH53wppU6IX/+3xIpjA
+	FcJhhsX07PtnAkiStGNZ0E9dpEQGnnaUR1Y4Cr0X39s8Wp7gWtbSXzGsUaih1oEo55kjH5vS1rH
+	Ab+DIYCtsTEOSytguBVKZ6qlnsHWEaAL/RQ4NMsKBS1I/d27ShDzQKz1kWl1WxJk2w==
+X-Received: by 2002:a05:600c:544:b0:4ba:2bfc:c8b5 with SMTP id 5b1f17b1804b1-4bb55a662f9mr81819625e9.10.1794666393381;
+        Sat, 14 Nov 2026 06:26:33 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb4e2842e6sm245199735e9.4.2026.11.14.06.26.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 06:26:33 -0800 (PST)
+Date: Sat, 14 Nov 2026 14:26:31 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Demian Shulhan <demyansh@gmail.com>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, Jakub Kicinski
+ <kuba@kernel.org>, Nathan Chancellor <nathan@kernel.org>, Saeed Bishara
+ <saeed.bishara.os@gmail.com>, Eric Biggers <ebiggers@kernel.org>, Ard
+ Biesheuvel <ardb@kernel.org>, Robin Murphy <robin.murphy@arm.com>, Andrew
+ Morton <akpm@linux-foundation.org>, Marco Elver <elver@google.com>, David
+ Gow <davidgow@google.com>, Brendan Higgins <brendan.higgins@linux.dev>,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ kunit-dev@googlegroups.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] arm64: csum: Add fused copy and Internet
+ checksum
+Message-ID: <20261114142631.7352b895@pumpkin>
+In-Reply-To: <20261114040943.219870-2-demyansh@gmail.com>
+References: <20261114040943.219870-1-demyansh@gmail.com>
+	<20261114040943.219870-2-demyansh@gmail.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,139 +107,222 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261114-qrtr-multi-ep-v6-2-2eb9885659e2@oss.qualcomm.com>
-References: <20261114-qrtr-multi-ep-v6-0-2eb9885659e2@oss.qualcomm.com>
-In-Reply-To: <20261114-qrtr-multi-ep-v6-0-2eb9885659e2@oss.qualcomm.com>
-To: Manivannan Sadhasivam <mani@kernel.org>, 
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Jeff Johnson <jjohnson@kernel.org>, Eric Dumazet <edumazet@kernel.org>, 
- Eric Dumazet <edumazet@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org, 
- ath11k@lists.infradead.org, ath12k@lists.infradead.org, 
- Bjorn Andersson <andersson@kernel.org>, 
- Chris Lew <christopher.lew@oss.qualcomm.com>, 
- Deepak Kumar Singh <deepak.singh@oss.qualcomm.com>, 
- Raj Kumar Bhagat <raj.bhagat@oss.qualcomm.com>, 
- Juha-Matti Tilli <juha-matti.tilli@iki.fi>, 
- Jeff Hugo <jeff.hugo@oss.qualcomm.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3283;
- i=manivannan.sadhasivam@oss.qualcomm.com; h=from:subject:message-id;
- bh=/mk4KdzpVcWWvNuNI4IR+JOBKyEh5ixXNDCmghcPA1w=;
- b=owEBbQGS/pANAwAKAVWfEeb+kc71AcsmYgBq+G+Lh1Yq2gHtGGj+kgVuJakXYCcwOfivdyhI6
- PSJIar0jdGJATMEAAEKAB0WIQRnpUMqgUjL2KRYJ5dVnxHm/pHO9QUCavhviwAKCRBVnxHm/pHO
- 9VUAB/9IzaGbMTpsXnd2PGz8c3gcqZy+Z+jxOiamRn/UjfTo06hrOYU1fkCp+YemMD12Oe2ymlA
- 2hpgWJ6qfcSNmWm7QP212nafX4Lc5oyHEMB7W3Ir6lJqtSzNsCDe+BGVjgmmN6015Yhe4sYrTkg
- gHsZDn75WBS6NAYOqbskC0/QzAz0w9/j2xoaih8eNdwDGxEwUHHcrMfXrhXonk2nGK62Ao1EyMD
- 7fB+4+NX4XCtn/0mzlP90JAz5snM/9h0ivmzv5+o6LBgFslxqA+ML64Ru7BZtwrdgR6A7NGhA8O
- 4uc76PuzAFjH5V44iL5Qqc/CDtgAdqHEnyjkaL5CGZU0G1HE
-X-Developer-Key: i=manivannan.sadhasivam@oss.qualcomm.com; a=openpgp;
- fpr=C668AEC3C3188E4C611465E7488550E901166008
-X-Endpoint-Received: by B4 Relay for
- manivannan.sadhasivam@oss.qualcomm.com/default with auth_id=461
-X-Original-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
-Reply-To: manivannan.sadhasivam@oss.qualcomm.com
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-From: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
+On Sat, 14 Nov 2026 03:57:00 +0000
+Demian Shulhan <demyansh@gmail.com> wrote:
 
-Now that the QRTR driver allows using the unique node id for each device,
-which is different from the node id received from the remote node, compute
-a unique node id using a new API, qrtr_host_node_id().
+> arm64 currently falls back to the generic csum_partial_copy_nocheck() in
+> lib/checksum.c, which performs memcpy() followed by a second pass in
+> csum_partial(). This double pass is hit on software GSO paths
+> (skb_segment() without SG or TX checksum offload, e.g. TCP over
+> WireGuard) and UDP/ICMP replies.
+> 
+> Implement a single-pass csum_partial_copy_nocheck() in
+> arch/arm64/lib/csum.c using four independent __uint128_t accumulators
+> over a 32-byte stride, followed by 16/8/4/2/1-byte tail handling. Each
+> word is read once into a GPR before storing and summing, emitting paired
+> ldp/stp and adds/cinc carry propagation with no stack frame.
 
-This API takes the 'index' parameter and adds it to QRTR_NODE_HOST_BASE.
-The index comes from an allocator, so the host assigned ids are unique
-among themselves. The base is chosen just above the 16-bit range a v2
-header can express, so an endpoint using v2 can never claim an id in the
-host range. An endpoint using v1 can claim any 32-bit id, so a collision
-is possible, but unlikely as the firmware assigned node ids are either
-smaller than this base or in the range of 0x08e5ff85. Such a collision is
-caught when the id is added to the node lookup table.
+Is that right?
+I thought ldp/stp required aligned addresses.
+The code below is using get_unaligned().
+I think the timings below are for ldp/stp?
 
-Finally, call the new API from MHI endpoint driver by passing the MHI
-controller index as the parameter. The MHI controller index is unique for
-each controller, thereby for each MHI endpoint device.
+> 
+> Throughput on ARM Neoverse-V2 (Google Axion, 3.0 GHz, GCC 15.2 -O2,
+> warm L1 cache):
+> 
+>    len   memcpy + do_csum   csum_partial_copy_nocheck   speedup
+>   ----   ----------------   -------------------------   -------
+>     64         10245 MB/s                  15902 MB/s    +55.2%
+>    256         18851 MB/s                  26026 MB/s    +38.1%
+>    512         22465 MB/s                  28421 MB/s    +26.5%
+>   1024         24330 MB/s                  29900 MB/s    +22.9%
+>   1368         24192 MB/s                  30221 MB/s    +24.9%
+>   1448         24188 MB/s                  30279 MB/s    +25.2%
+>   1500         24165 MB/s                  30096 MB/s    +24.5%
+>   4096         25299 MB/s                  29946 MB/s    +18.4%
 
-Signed-off-by: Manivannan Sadhasivam <manivannan.sadhasivam@oss.qualcomm.com>
----
- MAINTAINERS        |  1 +
- include/net/qrtr.h | 27 +++++++++++++++++++++++++++
- net/qrtr/mhi.c     |  4 +++-
- 3 files changed, 31 insertions(+), 1 deletion(-)
+That is topping out at 10 bytes/clock.
+Each loop iteration copies 32 bytes - so must take 3 clocks.
+Which means it must be doing 16 byte read/write in a single clock.
+So rather begs the question of why it is limited by the loop control
+and checksum instructions rather than the memory accesses.
+The checksum code needs 4 ALU instructions (for 16 bytes), if the CPU
+can execute more than that then there is half a chance of getting the
+loop down to 2 clocks.
+Just moving one (or both) the pointer updates into the middle may help.
+Otherwise you try using negative offsets from the end of the buffer
+and 'reg + reg' addressing (will need more pointers since I don't think
+arm has 'reg + reg + offset' addressing.
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 0cf311e6c4be..dfec5181c6e1 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23139,6 +23139,7 @@ QUALCOMM IPC ROUTER (QRTR) DRIVER
- M:	Manivannan Sadhasivam <mani@kernel.org>
- L:	linux-arm-msm@vger.kernel.org
- S:	Maintained
-+F:	include/net/qrtr.h
- F:	include/trace/events/qrtr.h
- F:	include/uapi/linux/qrtr.h
- F:	net/qrtr/
-diff --git a/include/net/qrtr.h b/include/net/qrtr.h
-new file mode 100644
-index 000000000000..e2a8d93564b5
---- /dev/null
-+++ b/include/net/qrtr.h
-@@ -0,0 +1,27 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+
-+#ifndef _NET_QRTR_H
-+#define _NET_QRTR_H
-+
-+#include <linux/types.h>
-+
-+/*
-+ * Base for the node ids the host assigns to endpoints. It sits just above the
-+ * 16-bit range a v2 header can express, so a v2 endpoint can never claim an id
-+ * in it. A v1 endpoint can claim any 32-bit id, so a collision is possible,
-+ * but unlikely as the firmware assigned node ids are either smaller than this
-+ * base or in the range of 0x08e5ff85. A collision is caught when the id is
-+ * added to the node lookup table.
-+ */
-+#define QRTR_NODE_HOST_BASE 0x10000u
-+
-+/*
-+ * Compute host node id from a per-device index. The index must be unique among
-+ * the host assigned endpoints.
-+ */
-+static inline unsigned int qrtr_host_node_id(unsigned int index)
-+{
-+	return QRTR_NODE_HOST_BASE + index;
-+}
-+
-+#endif /* _NET_QRTR_H */
-diff --git a/net/qrtr/mhi.c b/net/qrtr/mhi.c
-index 1040c3c8cfd6..e9377f818b4d 100644
---- a/net/qrtr/mhi.c
-+++ b/net/qrtr/mhi.c
-@@ -6,6 +6,7 @@
- #include <linux/mhi.h>
- #include <linux/module.h>
- #include <linux/skbuff.h>
-+#include <net/qrtr.h>
- #include <net/sock.h>
- 
- #include "qrtr.h"
-@@ -127,7 +128,8 @@ static int qcom_mhi_qrtr_probe(struct mhi_device *mhi_dev,
- 	if (rc)
- 		return rc;
- 
--	rc = qrtr_endpoint_register(&qdev->ep, QRTR_EP_NID_AUTO);
-+	rc = qrtr_endpoint_register(&qdev->ep,
-+				    qrtr_host_node_id(mhi_dev->mhi_cntrl->index));
- 	if (rc)
- 		goto err_unprepare;
- 
+> 
+> Suggested-by: David Laight <david.laight.linux@gmail.com>
+> Signed-off-by: Demian Shulhan <demyansh@gmail.com>
+> ---
+>  arch/arm64/include/asm/checksum.h |   3 +
+>  arch/arm64/lib/csum.c             | 100 ++++++++++++++++++++++++++++++
+>  2 files changed, 103 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/checksum.h b/arch/arm64/include/asm/checksum.h
+> index dc52b733675d..9f766db01152 100644
+> --- a/arch/arm64/include/asm/checksum.h
+> +++ b/arch/arm64/include/asm/checksum.h
+> @@ -44,6 +44,9 @@ static inline __sum16 ip_fast_csum(const void *iph, unsigned int ihl)
+>  extern unsigned int do_csum(const unsigned char *buff, int len);
+>  #define do_csum do_csum
+>  
+> +#define _HAVE_ARCH_CSUM_AND_COPY
+> +__wsum csum_partial_copy_nocheck(const void *src, void *dst, int len);
+> +
+>  #include <asm-generic/checksum.h>
+>  
+>  #endif	/* __ASM_CHECKSUM_H */
+> diff --git a/arch/arm64/lib/csum.c b/arch/arm64/lib/csum.c
+> index 75db718e5b6a..a9617cde28c1 100644
+> --- a/arch/arm64/lib/csum.c
+> +++ b/arch/arm64/lib/csum.c
+> @@ -2,8 +2,10 @@
+>  // Copyright (C) 2019-2020 Arm Ltd.
+>  
+>  #include <linux/compiler.h>
+> +#include <linux/export.h>
+>  #include <linux/kasan-checks.h>
+>  #include <linux/kernel.h>
+> +#include <linux/unaligned.h>
+>  
+>  #include <net/checksum.h>
+>  
+> @@ -116,6 +118,104 @@ unsigned int __no_sanitize_address do_csum(const unsigned char *buff, int len)
+>  	return sum >> 16;
+>  }
+>  
+> +static __always_inline __wsum csum_fold128(__uint128_t sum)
+> +{
+> +	u64 s;
+> +
+> +	sum += (sum >> 64) | (sum << 64);
+> +	s = sum >> 64;
+> +	s += (s >> 32) | (s << 32);
+> +	return (__force __wsum)(u32)(s >> 32);
+> +}
+> +
+> +/*
+> + * Single-pass copy and ones' complement sum. Each word is read once into a
+> + * GPR before storing and summing, so the returned sum always matches @dst
+> + * even if @src is concurrently modified.
+> + */
+> +__wsum csum_partial_copy_nocheck(const void *src, void *dst, int len)
+> +{
+> +	const u8 *s = src;
+> +	u8 *d = dst;
+> +	__uint128_t sum0 = 0, sum1 = 0, sum2 = 0, sum3 = 0;
+> +	unsigned int n;
+> +
+> +	if (unlikely(len <= 0))
+> +		return 0;
 
--- 
-2.43.0
+Hmmm...
+Does zero actually happen often enough for that to be a gain?
+Even with the unlikely() it is likely to slow down the normal path.
+And that assumes that the branch isn't mispredicted and that gcc
+doesn't ignore the unlikely(). 
 
+> +
+> +	n = (unsigned int)len >> 5;
+> +	if (n) {
+> +		do {
+> +			u64 v0, v1;
+> +
+> +			v0 = get_unaligned((const u64 *)s);
+> +			v1 = get_unaligned((const u64 *)(s + 8));
+> +			put_unaligned(v0, (u64 *)d);
+> +			put_unaligned(v1, (u64 *)(d + 8));
+> +			sum0 += v0;
+> +			sum1 += v1;
+> +
+> +			v0 = get_unaligned((const u64 *)(s + 16));
+> +			v1 = get_unaligned((const u64 *)(s + 24));
+> +			put_unaligned(v0, (u64 *)(d + 16));
+> +			put_unaligned(v1, (u64 *)(d + 24));
+> +			sum2 += v0;
+> +			sum3 += v1;
+
+Is using sum0/1 here actually slower?
+My 'gut feel' is that it won't be - and saves the adds below.
+
+It is also worth checking that gcc doesn't zero extend v0 into a
+register and then do a full 128bit add.
+I'm sure I looked at the code using only 64bit variables for:
+			sum0 += v0;
+			carry0 += sum0 < v0;
+both gcc and clang used 'add 0 with carry' for the second line.
+
+> +
+> +			s += 32;
+> +			d += 32;
+> +		} while (--n);
+
+It is a shame to have to update 3 variables here.
+They may be taking the 3rd clock.
+
+David
+
+
+> +
+> +		sum0 += sum2;
+> +		sum1 += sum3;
+> +	}
+> +
+> +	if (len & 16) {
+> +		u64 v0 = get_unaligned((const u64 *)s);
+> +		u64 v1 = get_unaligned((const u64 *)(s + 8));
+> +
+> +		put_unaligned(v0, (u64 *)d);
+> +		put_unaligned(v1, (u64 *)(d + 8));
+> +		sum0 += v0;
+> +		sum1 += v1;
+> +		s += 16;
+> +		d += 16;
+> +	}
+> +	if (len & 8) {
+> +		u64 v = get_unaligned((const u64 *)s);
+> +
+> +		put_unaligned(v, (u64 *)d);
+> +		sum0 += v;
+> +		s += 8;
+> +		d += 8;
+> +	}
+> +	if (len & 4) {
+> +		u32 v = get_unaligned((const u32 *)s);
+> +
+> +		put_unaligned(v, (u32 *)d);
+> +		sum1 += v;
+> +		s += 4;
+> +		d += 4;
+> +	}
+> +	if (len & 2) {
+> +		u16 v = get_unaligned((const u16 *)s);
+> +
+> +		put_unaligned(v, (u16 *)d);
+> +		sum0 += v;
+> +		s += 2;
+> +		d += 2;
+> +	}
+> +	if (len & 1) {
+> +		u8 v = *s;
+> +
+> +		*d = v;
+> +		sum1 += v;
+> +	}
+> +
+> +	return csum_fold128(sum0 + sum1);
+> +}
+> +EXPORT_SYMBOL(csum_partial_copy_nocheck);
+> +
+>  __sum16 csum_ipv6_magic(const struct in6_addr *saddr,
+>  			const struct in6_addr *daddr,
+>  			__u32 len, __u8 proto, __wsum csum)
 
