@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794682212;
-	b=1UuXkcb5plrk3tZhhJ7Eghmt0cOlFc3gmnSI0DgTzxqHO6PjzrEdd5pnrejtgTEqtYYa
-	 rP3PGZhjQvk+u8xQDUMZ1s9z3H9G23/jNS3r5JYoycytKtciAKJXUg8G43yGKeJPvv6ob
-	 ln3QAKj1hAbzrZpQxBVbZg5N1dVdHRoDdlUn1z/bQt+iLiMWQb0It4vVhcnPgT8a0fvvz
-	 J0hYTYLABWFBTUcKb2oJWWIlhGIdjDkoZwkdk+xtJny/39csTz3btyy1+9utx7mSPbwp7
-	 6wrLsKdS8/aeJBalY/8pIRsXaYx+ImXLrr+lw9jUE400LMN8dAQFcrgo9fW6e3Y997w==
+	t=1794682210;
+	b=ojTmQ47c/z1zflaMIuSjdlEgXpLjt0NJSLHW+54RrbNxmFahz+YF7iT2TK/YnPBW65Da
+	 uF9t+FScXreAT3420gtWPRN5ZWu2HDjGzIlJy5/linIijH25FUmz0H8mY+DVYlLeh6LaI
+	 KhMwFBWPwnBYmXEBRL8flF/HLEOhNvq4/fuy+c3ekukziXk0FaMUDp6iAUXfAP1EIHkpx
+	 S34LQ5mVsPQtQsqCLTD3/rgqzHny0uHqH8ewM2AyDptAC+LxJA+iEK7PxagDeKQby4O5R
+	 /FCHw/knymGQvWAAgghBN/ZaSsG1tuRzrnYTQVzaV4VQjTlAkEUAvpw7dCN7ix5nkEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794682212;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794682210;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=fEnV7meHeIXrbVFY6btGf5S6ZSC7MZxfBU/Gv7848Sg=;
-	b=qPV17k2RDCzhaqCbrezkXq0JA15HG8+QrKETsB5m9HE/qBLgPru8Y3a4gFNeqH9Uqs7F
-	 Y46X2bl/hO44oMV2tEwZ81N3lGHJOmtAe8Dgn93KJEcP1IJp9D782e/la8SdpWpJxRUhS
-	 nro4xsOT7UG/wAaU7kW5eJWL9/YOmFHZN+4Ygn+njFjLWvrjk0Q2s45Ot/3SMs5bXNebp
-	 8dTQBOTQUNPvTeBL3K2DHCP0bAzEXdz4F1d72YDh6uUel2xcgzjM+qjhHhdshGrRrdoy9
-	 IpuFeMAWNN7MCB1SsG+uV5L0RfE80JWPYGD1yp9exihv1wMBs1/RtEd613y+ayh7VvQ==
+	bh=5I4qyEYssU3zNRO/FO8xvGNwCTadYFMngnpQRP9R7jI=;
+	b=iAnL3FALPYOWffkVmzNPsFylWPJOHEWLCW27UqeKeKtdPWHI7Ek7fE4U5tdvf7k3lWTo
+	 9ST/aaQUCRNUs8KO2UurzTnyD6miZ2YQX5m8o02EnuFS/RLw0EpoWYJysI7+XNceLh+mt
+	 bpyjrv5Ek+5NAdm8q7j0kXa6fspvQBJhB2Ob4Uhkq80J6iuD5Ita+nUZTkVOLcbYqCjN4
+	 H1C1WTEPJClhD/0aYfUrLtR2F/bDe0riJmFL81j0iSuNCZ19Sa5uJxR/5qU+U1uzfgiv6
+	 UIKYE7s9xKohy1TOAZxXJd2GRK01ONiTreTJAm+uUinLY45rBxybbhkCrup1rm3fwRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FvFmHS+5;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HdNmeGhB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3B75606A33D;
-	Sat, 14 Nov 2026 18:50:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86EF4606A32D;
+	Sat, 14 Nov 2026 18:50:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FvFmHS+5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0E91F000C4;
-	Sat, 14 Nov 2026 18:50:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HdNmeGhB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44D3A1F000C4;
+	Sat, 14 Nov 2026 18:50:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794682211;
-	bh=fEnV7meHeIXrbVFY6btGf5S6ZSC7MZxfBU/Gv7848Sg=;
+	s=k20260515; t=1794682210;
+	bh=5I4qyEYssU3zNRO/FO8xvGNwCTadYFMngnpQRP9R7jI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=FvFmHS+5+QWxgtOwZTk/Y0D+SqDIHf0VYPzmVLeWjONAqHuW/t2jQRbuoPckf452l
-	 2yis/DCXEOZ9/JqbF+uxZlSCtivMICeIQooAoDxqULDSBs0OxwFYXDesotmA4wAw+S
-	 IjGw9IZ2u+lRuiU9RSUm4R3yBcth0yk9hkT9MYkJ/9NZC9tjcx0V/ndN5YMc7yDec6
-	 MOg9RZ4G+Z1dsEWgdUTV3zUnQReGYUUKIi2D0B4NWWLALLpkklZp7BAQ/zMqLTEcCd
-	 oktWRpJjtMyOPVI1rFDu7AcfWUr0TRrcBOS2A31nbCYNqgDJkEeDuZjyj8dloqZ0g2
-	 Gj0pgfLPikesQ==
+	b=HdNmeGhBo75ENZCUXLxr5D9wCVO/ni6dZ69ycK+kUU0JqX+1tUgJDUr5FdoKYkdjS
+	 8qX18L8s5rFGX/csebiZwqJV3GBsmuoT6f7yUerm7d3r9lucWnAPQmv0klBBKw1Mib
+	 7rlLSrZiaxZlLpdx50EH3LAcX+awD31Y+TRgcLvxe161tEOkKNzt+kO6onMSDiN+qa
+	 K4h2LHaD+YNDHnG7kUtRdYAiPD4CDozZZWFu4sChYnSRvhqiZUBvyWGVKc9ILvJhYf
+	 mdLDkN7FA2YNS9+PV7qSQ3DScG3kCAL7u9iE2rmu/txnOB/bMDhk8IRjbJrDKy3jgq
+	 4oAc7Adu4rmew==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4411380821F;
-	Sat, 14 Nov 2026 18:50:11 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3A4380821F;
+	Sat, 14 Nov 2026 18:50:10 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,43 +54,61 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] bpf: fix verifier model mismatch on __sk_buff.remote_port
- narrow read
+Subject: Re: [PATCH bpf-next v3 0/8] bpf, sockmap: Restrict iter-context
+ sockmap updates to sockmap iterators
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179468221032.2337414.16612050775582398663.git-patchwork-notify@kernel.org>
-Date: Sat, 14 Nov 2026 18:50:10 +0000
-References: <20261105060331.1912252-1-bsdhenrymartin@gmail.com>
-In-Reply-To: <20261105060331.1912252-1-bsdhenrymartin@gmail.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>
+ <179468220878.2337414.13541371504623047471.git-patchwork-notify@kernel.org>
+Date: Sat, 14 Nov 2026 18:50:08 +0000
+References: <20261107-sockmap-update-limit-iter-v3-0-7c0bad1ad036@rbox.co>
+In-Reply-To: <20261107-sockmap-update-limit-iter-v3-0-7c0bad1ad036@rbox.co>
+To: Michal Luczaj <mhal@rbox.co>
 Cc: ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
- eddyz87@gmail.com, memxor@gmail.com, john.fastabend@gmail.com,
- bpf@vger.kernel.org, netdev@vger.kernel.org, stable@vger.kernel.org
+ eddyz87@gmail.com, memxor@gmail.com, martin.lau@linux.dev, song@kernel.org,
+ yonghong.song@linux.dev, jolsa@kernel.org, emil@etsalapatis.com,
+ ihor.solodrai@linux.dev, shuah@kernel.org, john.fastabend@gmail.com,
+ edumazet@kernel.org, kuniyu@google.com, pabeni@redhat.com,
+ willemb@google.com, jakub@cloudflare.com, jiayuan.chen@linux.dev,
+ davem@davemloft.net, kuba@kernel.org, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, sdf@fomichev.me,
+ bpf@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ linux-doc@vger.kernel.org, sashiko-bot@kernel.org
 
 Hello:
 
-This patch was applied to bpf/bpf.git (master)
+This series was applied to bpf/bpf.git (master)
 by Alexei Starovoitov <ast@kernel.org>:
 
-On Thu,  5 Nov 2026 14:03:31 +0800 you wrote:
-> On little endian, the ctx access conversion for __sk_buff.remote_port
-> loads the 16-bit skc_dport and shifts it left by 16, producing a
-> 4-byte value of up to 0xffff0000.  It reports its width through
-> bpf_target_off() as 2, the member size.
+On Sat, 07 Nov 2026 18:58:22 +0100 you wrote:
+> Follow-up to Sashiko's report [1] and the decision to restrict which
+> iterator may perform sockmap updates [2]. Series started short: remove
+> about-to-be-stale test, restrict updates, add a negative test. Then it
+> expanded: mark bpf_iter__sockmap::sk as PTR_TRUSTED, restrict
+> bpf_sock_destroy() callers to iter/{tcp,udp}, few little tweaks.
 > 
-> A 2-byte read is a narrower load of this 4-byte ctx field, but the
-> fixup pass only masks the result when the access size is smaller
-> than the reported width, so the masking is skipped.  The verifier
-> models the register as [0, 0xffff] while the runtime value is
-> [0, 0xffff0000].  Arithmetic the verifier folds to a constant can
-> therefore take any 16-bit port value at runtime, enabling
-> out-of-bounds reads and writes relative to map values.
+> [1]: https://msgid.link/20260626205814.BAC3C1F000E9@smtp.kernel.org
+> [2]: https://msgid.link/87echn2fhd.fsf@cloudflare.com
 > 
 > [...]
 
 Here is the summary with links:
-  - bpf: fix verifier model mismatch on __sk_buff.remote_port narrow read
-    https://git.kernel.org/bpf/bpf/c/4722bac72de6
+  - [bpf-next,v3,1/8] selftests/bpf: Remove sockmap update from bpf_iter_unix
+    https://git.kernel.org/bpf/bpf/c/271e7fdce958
+  - [bpf-next,v3,2/8] bpf, sockmap: Restrict iter-context sockmap updates to iter/sockmap
+    https://git.kernel.org/bpf/bpf/c/18f6c47d1097
+  - [bpf-next,v3,3/8] selftests/bpf: Add negative test for sockmap update from non-sockmap iter
+    https://git.kernel.org/bpf/bpf/c/e16c83fa764f
+  - [bpf-next,v3,4/8] bpf, docs: Document BPF_ITER_NOSLEEP
+    https://git.kernel.org/bpf/bpf/c/c8d1abec6472
+  - [bpf-next,v3,5/8] bpf: Restrict bpf_sock_destroy() to iter/{tcp,udp}
+    https://git.kernel.org/bpf/bpf/c/3164b25576aa
+  - [bpf-next,v3,6/8] bpf: Mark bpf_iter__sockmap::sk as PTR_TRUSTED
+    https://git.kernel.org/bpf/bpf/c/dd6e63efc2be
+  - [bpf-next,v3,7/8] selftests/bpf: Add iter/sockmap bpf_sock_destroy() negative test
+    https://git.kernel.org/bpf/bpf/c/b7f6028a7bc3
+  - [bpf-next,v3,8/8] bpf: Fix "unresolved symbol tcp_request_sock" build error
+    https://git.kernel.org/bpf/bpf/c/22bc1ef8ac82
 
 You are awesome, thank you!
 -- 
