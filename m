@@ -1,61 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794670843;
-	b=vi+MQ6yLPytyTx+91pLCdSVn4LPMZgoCQdR2pQnb94V4kaSUW9y3Ocs8rcjwBekpXQSi
-	 Umv9Ej7RX3R/AG0FGkRqkxhyBoz04SBD2zUCm5RWu8URcKWpwhJorOvVAVXLnQ88tW9BS
-	 w9qqlZadnQoGP7kctdTL6ZZ6+p2iltDjtUefbH0Vel5PiqTgxSHj6XDZqAf08sdtGoYW+
-	 U6lu7kq7tuRgkhDeMlwYrCrjp3XgWJv1af4/yFI7qFokZ1eQJ7c1AAxeFZF2jNULJlHXN
-	 bJ/fs1s9g+K7KLPC8bGsOWoABN7c1tJgVg0J839fBIz1MFS5efLuFKsUEXOQeF48k7Q==
+	t=1794671516;
+	b=gsgHqLj10oItL9ujY2tzG0EvvF6z1SlFkqPR6n8+Mb2DDCWfBge/Rf0pj1Ecxi7byoMi
+	 QAnEkeZyhPSRv0zUQcfoCZXnu8Nrm0MA/sS04qNqNbxUR+MiZ4+gLFE3imdjdFXeJx5QD
+	 EeWXwQ8OZNz1mw/qq4ihRtXaKT7O3kcE0qs84Bi6wpu7n2F1YKETz0lEFceDOWa4QDszL
+	 gecFlP1IVRfExe6uPuKIRlsamIcitTxJBwcTDRXx6yVdi20R2XjtWeQiReQHk6e4Cb8FJ
+	 AOtoOEha46dNm/xT2iwj0I0HziLekHuzZibnuFLuXVMXLoA3rSsn00f40YEgoO58W1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794670843;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=Danho8kSiKQHq08Zb9vx8F6XBw/ja+vgqnHZ4RsTBHU=;
-	b=EUADrD4/ZotzP2aXTWX/oxJwFpR+Xa63BGD8N3z6Dr57qJUHMDvb7rhWk7r4wdqbtH2W
-	 ZgsgqpH1aXFb4e8xYc6/OYhXbC6JZYMI656wVXuQSSMJL9y22H1yRWdI7IMvDibmc4vya
-	 NpJLaLgfaLzKEfKmxSxIf7leFMbVKeNT5dutcfoU4LduuAqBw3b9Stg0AXSC5LRxqToDR
-	 QXNkEJfektlLZ+ZeRLzDDeI/kTbZ2Q2rq8/ZmPR9/GrnlgYKq2OjsuWI/52gT011/N0tf
-	 qIF4MgVpFSxN11DRDt5RhpUxM3RcpcOsi8GRmlVPOyRFk1nQpPDXDZuo112Fgx8QXug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794671516;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=Esh3mCRQ6Hawt8OVn8zEQDrtOsUfPqr901OBn9+X8bc=;
+	b=Osp63NOQ+ZlZ6OTY9NCNAE4zCnF5XUk6JKuZgNmuCFdPEhJxGfp6UMi/8FQlR8pK8wLM
+	 qKg9VbQHSby+IWubwC9Ph7l734EGnob0ddtazoqZjlGxtShDEHDUUahgrdIKCqni+TlPM
+	 HOL7eKmVCPdMXQ5l43tceQFYfkc75f196nGzLvEZ9Nw3iKIwjFVESp4+yasvCn0S9kQPt
+	 gKWnUT2uX11ZlFLcuaYoyygo+VyxwOV5WG5E2pH2kF83FPouk6GevBckRKZN2LojvO/fp
+	 L6sAkVi5XU1RGfvwHbHqOUadsttMZ/jQNoNKrtRjcXRf+ivPl8ClTeC7VlNg0n+teWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=FsGyj6PK;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K8GywdhQ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78EE2606A323;
-	Sat, 14 Nov 2026 15:40:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 78EE2606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 608C7606A327
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 15:51:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=FsGyj6PK
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Danho8kSiKQHq08Zb9vx8F6XBw/ja+vgqnHZ4RsTBHU=; b=FsGyj6PKCp+qr7NZ/hWhXOh+pl
-	S0ClFLsTUqoeZ+HpcsSq3jx2jnTVJZhOx+NzdvIZ4e+vDmB/hFI6bGVNJ9prbSyrBgN470tX8v5oa
-	zqqMaAEIvUp5NgW8Q/3gPoJWYMWBLoauOUHr0bGic9lK6a6cndSj0TQmwOUIOsd0dWec=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xSFrp-00GVtl-H1; Sat, 14 Nov 2026 16:40:37 +0100
-Date: Sat, 14 Nov 2026 16:40:37 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: David Yang <mmyangfl@gmail.com>
-Cc: netdev@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next] net: dsa: motorcomm: Resync SMI slave after
- interrupted MDIO access
-Message-ID: <54eced73-d0ee-41da-9ff4-63aa88667d23@lunn.ch>
-References: <20261111163954.1132921-1-mmyangfl@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K8GywdhQ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18FC81F000C4;
+	Sat, 14 Nov 2026 15:51:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794671515;
+	bh=Esh3mCRQ6Hawt8OVn8zEQDrtOsUfPqr901OBn9+X8bc=;
+	h=From:To:Cc:Subject:Date;
+	b=K8GywdhQhmczFnRE9/FqcRawF5wD0p/gVZFE60jKHArFx+N5bS0njdo2mcfuZJz58
+	 dJf41a0TVkJ/28HA0f7+kRGKMdmlKVs6mURVMwjm3pHUsnxvEFJXBjDhxjIFAc3ee5
+	 uGwj4VELP1ik27MlOWlMR+awqhBdHnqgv9m4E9kDaZBSlq+uXg4vRN8TRydM0GFUJg
+	 piWGEFwzreULApK+8bYK87vCNgGm24RI3bmqKGxQMeXe8SzyKsetuUiqqB7tkNOY6S
+	 2hORUVE1JkSxZN8MOT05zy9nydzNHJx+BypLwrLl7FlZux68xU0UhJ7ajhD4mqYf4P
+	 g05TW1x9ZdIog==
+From: Eric Dumazet <edumazet@kernel.org>
+To: "David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Neal Cardwell <ncardwell@google.com>
+Cc: Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	Eric Dumazet <edumazet@kernel.org>
+Subject: [PATCH net-next 0/5] tcp: better visibility when receive queues are full
+Date: Sat, 14 Nov 2026 16:51:45 +0100
+Message-ID: <20261114155150.235743-1-edumazet@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,36 +61,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261111163954.1132921-1-mmyangfl@gmail.com>
+Content-Transfer-Encoding: 8bit
 
->  static int yt921x_reg_mdio_read(void *context, u32 reg, u32 *valp)
->  {
->  	struct yt921x_reg_mdio *mdio = context;
-> @@ -108,6 +196,12 @@ static int yt921x_reg_mdio_read(void *context, u32 reg, u32 *valp)
->  	u32 val;
->  	int res;
->  
-> +	if (!mdio->synced) {
-> +		res = yt921x_reg_mdio_resync(mdio);
-> +		if (res)
-> +			return res;
-> +	}
-> +
->  	/* Hold the mdio bus lock to avoid (un)locking for 4 times */
->  	mutex_lock_nested(&bus->mdio_lock, MDIO_MUTEX_NESTED);
->  
-> @@ -136,6 +230,9 @@ static int yt921x_reg_mdio_read(void *context, u32 reg, u32 *valp)
->  
->  end:
->  	mutex_unlock(&bus->mdio_lock);
-> +
-> +	if (res)
-> +		mdio->synced = false;
+When a TCP socket can not queue an incoming packet, it is currently
+hard to tell why, and how often the stack had to work to make room.
 
-Why defer the recovery to the next transaction? Why not do it now. And
-if the recovery fails, you can report the transaction which actually
-killed it, which might be useful for debugging.
+Patch 1 adds TcpExtTCPRcvCollapseSkipped, counting the collapses
+skipped by the rate limit added in commit c2213d9b61c1 ("tcp: rate
+limit receive queue collapsing"). Patch 2 is the packetdrill test
+for this rate limit.
 
-       Andrew
+Patch 3 reports SKB_DROP_REASON_SOCKET_RCVBUFF instead of
+SKB_DROP_REASON_PROTO_MEM when the socket is over sk_rcvbuf.
+
+Patch 4 adds SKB_DROP_REASON_MEMCG, to tell memory cgroup charge
+failures from protocol memory limits.
+
+Patch 5 adds a packetdrill test exercising tcp_collapse() on both
+the out-of-order queue and the receive queue: no existing test
+was reaching its copy loop.
+
+Eric Dumazet (5):
+  tcp: add TCPRcvCollapseSkipped counter
+  selftests/net: packetdrill: add tcp_rcv_collapse_ratelimit.pkt
+  tcp: use SKB_DROP_REASON_SOCKET_RCVBUFF when over sk_rcvbuf
+  net: add SKB_DROP_REASON_MEMCG
+  selftests/net: packetdrill: add tcp_rcv_collapse.pkt
+
+ Documentation/networking/snmp_counter.rst     |   7 +
+ include/net/dropreason-core.h                 |   6 +
+ include/net/sock.h                            |  33 ++-
+ include/uapi/linux/snmp.h                     |   1 +
+ net/core/sock.c                               |  62 +++--
+ net/ipv4/proc.c                               |   1 +
+ net/ipv4/tcp_input.c                          |  42 ++--
+ .../net/packetdrill/tcp_rcv_collapse.pkt      | 230 ++++++++++++++++++
+ .../tcp_rcv_collapse_ratelimit.pkt            |  96 ++++++++
+ 9 files changed, 439 insertions(+), 39 deletions(-)
+ create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rcv_collapse.pkt
+ create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rcv_collapse_ratelimit.pkt
+
+-- 
+2.53.0
+
