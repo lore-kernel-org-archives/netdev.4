@@ -1,102 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.44
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794672473;
-	b=Wwk53FhffvSMn85v6rBoBS2gDLUO+ANXFp2+Yt9KIPlr3EsKqwlu3JChAym8BvThaVyW
-	 XXkVIjx8pJayPuXRa1y6D1YJm6LRtE6tgltdz5NrPK0N4DU56mPomgmLvabPxjv8YbjcP
-	 U5va/X5eXupzQQPoVI970eNuw2gYA1dfD4gLdZynxgupluHaGIqZajffT6iJH64m622+a
-	 RwM05oXDDJzkZP4gJEGCEeRF+EEx32WySz/L2SAI2aopXsCKxZ8Yg23mK9iWf8YQWGzdY
-	 sC/t2xUJHRIR0mQLUeCKUffXVrJwa6aHIPBlpltKtf8LOaXY54OvDVLd3eCICmYvCXg==
+	t=1794672720;
+	b=ZXMQxiFjz1NHd0R8avpGVO0YC96knh/Ko57NtMLFkRYqCJeJKOvEljCWKtsoyQCRawgM
+	 u+sXqgiKPRiSXickd8xyd7j/JU43tb2YD4EwwUgQ75d4+Kt+UyneDXWfAuzJej5qYH3nh
+	 dba2eq78f7aLn4LHie0YL0mHyoRiMCijVnkMYyEzzj7VPRZe+NCC6uq8QqYE/4/hdFZ8p
+	 zDUchsbVDI1FkiMpTEpffDN3bqEKmMnt26AO2LYPoqwDYq8Vf717A7AcYOyKR0LQ3McrU
+	 MKVFstGXdriCqyQjwH41Or801xC5fOvdrTQxxGPOS1tGeI3TncamVIHqfUP6SAp0Jyg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794672473;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794672720;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=an3kCK4L6fdSMAjvEFasfLoHSmzT6HolukDgWBOE/rc=;
-	b=YGfuOSapOlZPuONt/x67vWBcQQG26v8ogusOs/6o5TCInXyWvvao+dueiWs2JuuYROGC
-	 A/um+zUccLUFtaOVsyBo/au1wtXOUJIdCCaDvDVQ6zKHguBDvjADGxyCc7vCrxjFo/dwm
-	 Y5sftvh/Y5UR07XF+ElfqEHypx6fcYDD9v5LkKh29Svbqm4OE2oC8VBYKypHre6rtahNK
-	 53AOyY2ruwiiyyosHjrnEdeagx6Wg5E61Wi5ytD1E2O8/FQR21NWLG7FR0W6tgCr9i/l1
-	 uxcLdC+Iyl/rxZHvYph0jSK2OX/tsCCsPREA951evgy4fO7jKF9wC2vogjrm05ASXnw==
+	bh=rAXOsiY7dgF8E9nvWQfWLqo1mF0hHpyBG3jPK7/IHMQ=;
+	b=wqrGnRBIZxxIIywmwDxXU+TkwZ1H/v6LpftC89vvKut9POvL8SOjntPH8zx+cWWxQG8E
+	 U4HjIxDCTVc47hU8Va+0HNdMoD6SYdUzj1s4Fric3G0G3CmlWa6nKJWCsA2mXUZ0xMhng
+	 wwbV2X+5IpOltW5SzV6UTjzXGCBICHuTt7QXNJbWtB5ru8+xzlhSCecSJ2AuLCN/Q+7dz
+	 9xnoof3ctwQldvEgnXBcnd3IfTYIwOXWQ/IR9G75hl1wvqr5oroyPTAXEnBLWKf+50a7J
+	 HwwekI+Rtoi5h00bW5+7GXduyO/T+PxNheksVf3f7ZSw6q18HJZUzOnLoZEjoTgEOcQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EM8HOOKX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.44
-Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bCmLBMrs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
+Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58DF5606A330
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:07:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58DF5606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83368606A330
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:11:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83368606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EM8HOOKX
-Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-1b3ada81853so1898403c88.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 08:07:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794672472; cv=none;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bCmLBMrs
+Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-54492d8a988so108241cf.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 08:11:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794672718; cv=none;
         d=google.com; s=arc-20260327;
-        b=hYzef4DEdjT/8nkATBmzXib+lsvrM3pmLk6d90jWOAn8DSNxtIzl5nZH2M1n9rteSi
-         05mFSBTrnt87hyunGJBaxGNAJP5DVcK6nwj+O0joZnGktyxU9/PsWtlaDm7FWAd4N/Qa
-         gwMiLUgqia6FUrQ3jBMMIPNjlhGIoO8QeSo9VLdHoo8r0XxjUIPM+cxMSzI5poovN533
-         MMTqrWRdlyflU6XLvHjQhsaxy3HhyF5R4aQs0CrTASQE0r/+HYjs1xUKsLTtvMMJjkbw
-         +7Nt9xZcA3ZpPIopMgSuwoOw2eL8AJkgYaaJU94G9VoQtqZ8OKySmler3SVl7ojCzPnQ
-         PLrw==
+        b=JtN4JtpmY119V5atUJynYnpazVoLW4uICyYIk83zW8gZlXX9PWG1SISrPN0X58ePvl
+         vVv4Gp1nFkfQxKSx4h1GgRc2yaXTQBCLuiS/cfTEdXWA5+zL8uhKRFwpaVcXwfaipAcq
+         YRzbKxdgMCOe01CysyhbqqTr3TNE4vDOPBPl5FNusytTql5cbVzi/FKj8TR+pKO/ZkHe
+         YYRCWFmQOODWyUDsLOXoxni6ggODuywf0zkSpz+um/JrHFGqQEa/1kz0WXVeS4+Wdwwn
+         Id+7hF/1P+LRbt0bBlyEL5hQr9XFP00MwFW+BHIVci586FyUrkE/lojwpVPtN+tGYfYs
+         lDoA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=an3kCK4L6fdSMAjvEFasfLoHSmzT6HolukDgWBOE/rc=;
-        fh=q4M+8b/8XtJQ2KCR5uqj+wKFpdQs5MzvxMz+NCo6MSw=;
-        b=PsFYJ3ExusuUCUmgfsgYsuIteOdg35QWthTDVJ3GU5v+N7pe+RDkQV+jjTLcU+VNq3
-         h7kRY/L3Zw2i6MeDmW9Y3kqQWuFKwYinKC+jPqNk3KnXcveEoUGPc1zVrjrcBtow8llJ
-         M3RZgDk9czsywecGumkNULD5r7nKps7I+pKKweU+TIVWObaMVakmTSPSrJPg5uCm3gvS
-         /aQZ7b/z+hVPP21sgM2+Z0oLod58MsLeZzQ1nQs0CeHAw8GRXAX5L6F9Z1dO1WB7bu9j
-         zTEW3z0ybn4zNwbqCNYQiM54RY6grZyfOZ2Kdv0TTf17h0Sb4GavkCg8AGMX6sZNzN66
-         zE2g==;
+        bh=rAXOsiY7dgF8E9nvWQfWLqo1mF0hHpyBG3jPK7/IHMQ=;
+        fh=jowRCpWPLyzo1+fQECi/tevxGeiOv9P0qQN4JXaJ6Ps=;
+        b=MOddEt0tIDeQzTuBE3qOWi0AmgG7Ie3c1N3MPZtNG/JQB6dKS4YGHnNKwExWqD+iEH
+         marC2YMJ2tbqNFgJZzgk4fSZBwDMUhsMEBmhviFFZk5RnYdJX3zV58SEADWP0cK3m0ls
+         Ex3hFB0NL0Pk8hz67Jn9wX+wlRoHkKjyxXr98Q2I2S2OcHKlS+O5CLJpaZ7/4HgfPZ3P
+         aJCBq5knQ1Ocd5INBgcg6JSA+o6ZJ5/vJEe6jeCfE8KVx2UqCCPbx8rj6AnlWQNdt08s
+         CYeZYYp24IZfLj4lp+jBSgWpMQwcaChaAI1mBbvcLw3c2H39tsYR1+ej4zHbstS++QF5
+         6LTg==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794672472; x=1795277272; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794672718; x=1795277518; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=an3kCK4L6fdSMAjvEFasfLoHSmzT6HolukDgWBOE/rc=;
-        b=EM8HOOKXkXs2sle8jxXpESIIPu7gh94FpbgAGesjMfR2ipa9+RZ0VcDGSEUb0jeQal
-         /D3g5w3fCOh74bbYcyPtSGU4fCaMxeALAwXdRJUhO3n+/GzdtCFAF9GwgSbTCgCGn0TR
-         CqzasPhCdtzS1o647naLUNctVPpF/Mbt96xSaw5j31sg9E/HskFhL+9LqMF8XsFG1Ka0
-         5jGd0xuDlGlhWcA+0E/qdBK+ZgRUNCCw076nkSnCTnaf49ka6c9SaGgm9bdrKmvlO9Rm
-         JPAYWilY/U/7u3hl+sNoZotHEyKtc86P/m2PRD2s34mpZgSuysYAsXae47Ckq1+boDXC
-         poEQ==
+        bh=rAXOsiY7dgF8E9nvWQfWLqo1mF0hHpyBG3jPK7/IHMQ=;
+        b=bCmLBMrsoS+E3FJJS14wew7hWIzp/cpZA9aiKnclbK84765KkPFQee3u3wA/T/u+/e
+         Bo+/LU+J7yY8R5ef1Nk0gTxuxnjUT3vuIwzINP7WEWgIvcBUSnN3GuU9dvzsUq2dGtks
+         jfWz63UG9DdqOtOTHwd6lGqOm4Z6zzPdtdOY8pJtf3Knv3LM3yUHrl2mjfZ0HAlH83Hn
+         iQt9L5+xs99sc4ist1nJ0zfTFqgYoaM/OBm4uKtKqkM3oKRhTX8oc3YgJ2p7w/TYVTBy
+         FjZ+qy2L1c+ZWy9ooKdoCo7qlx3z2rkDAbdEeK+OYnBqX4vOqo7PRBjSocymbAgDnw0R
+         B07Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794672472; x=1795277272;
+        d=1e100.net; s=20260707; t=1794672718; x=1795277518;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=an3kCK4L6fdSMAjvEFasfLoHSmzT6HolukDgWBOE/rc=;
-        b=W9jCvlA21uh5TIGf7bJ2a68Dim4+uGzGnQK1nwRecIWXV3qpJwopEU1500LvGTBN/R
-         3YjgFUwzcEWMQFA0flA+GzApgWNvCrHiPOPYyRVYCEGx/y543gxa5xOvH1ZrBnAu0fwI
-         NnF9obGU9PxV3+T0GfVTcpTFmRzHhW/eejvH5CiIkkcozB99bWDv5erkv7UPNKZBgqna
-         IR81u+z2snjTIoUYSnnRiWT20P0jFI4G5fACxNuk2GihFvMv0eqkTkW0QcZuX2Db/V37
-         sqNAzLy75WhBacAdIZL2XZtmqNUoHwGDRgitT3gEXeZbHyGU4xbYWboUEvdwp/DC1Lhc
-         339g==
-X-Forwarded-Encrypted: i=1; AL+hErEQVdJIYQO5Ywho+3jiWIUr0n9N9zOAaCHxGkTXri+OK6Yam7HkuHR+yP++3pUUJDXzA9gfmiU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z83xVYtIrv+l55l166s52TnfcvQhTV+BjKNZtXikey6h91J9lt8
-	41S8Kxwu/cj/gvZzwD2SAk0d8+VjvjvT7W0HFacMPu6Iz1ylzZ+HM2LAxRpdiBWv3w3FMp0eqXF
-	c9ULDiW42pKEzbJ/ezfDawi/San3NEG/hoAQNLXD8
-X-Gm-Gg: AYBFou0CZ2YHf1V1wrLCGis408B4fC4iR2Fb7h88FUbJwyaVqSyvc7STg2qYceoMheH
-	tAXMqSNck/cryOjfgRhNruF88fWg/fBRdiEEzodeUOh0tGrjyvqFBNa9zYjiHp4XGpxStoEO2Rg
-	/KOx9QRjHN9Wd1RM604z2SKSxE3fmuR3fZxNvyXngtEChMhMzbrwAR/pNSyoUoiHfJLm2M/3csx
-	RjU+4kGJRxIbB9+lHhgZYzqEWp0MFB/snD9kulJD9DJmKMoZyu18IfzQkPH4jlhBFwH4xp6ki6u
-	PSgENyH29HiNH4oFJpXk/wNcxLe0/byAP9iWdvMxGN5fLhepPiwduXhDGU2WCBf/4d83XDBJ9ce
-	JZqYMexVlun8qk6xCKav4FQvBOlx8nyHqHGpEkJrdLgFMPbW80XdrzYpc6Yz0FNGWPSeLxzmZPI
-	LxoPeVuicLFKDRY7s1lh7rfh94JvuemtaECoOYXS3SQugzGl8qi9l2C5Yt+rndSQKIPzGMCYtza
-	1Vsb4aqzg==
-X-Received: by 2002:a05:701b:4558:10b0:159:aa67:28c1 with SMTP id
- a92af1059eb24-1b5031006f4mr5525004c88.20.1794672471459; Sat, 14 Nov 2026
- 08:07:51 -0800 (PST)
+        bh=rAXOsiY7dgF8E9nvWQfWLqo1mF0hHpyBG3jPK7/IHMQ=;
+        b=A/I4wvpYM59xEZ9xXZpbioK9GtAJHECQXboa65c3lvrjIs4wkRoFx/1d2BLV94NG36
+         9l45p03jWWH0xTSZFaCvSCchWI40gFTJ1uD6NuJTOmx3jLeUzK4QKQnCpkKAmqikVMqm
+         wnE3xB54jOIG6VWbsImsFd+xQGQM+zvZQAtLD6skEq6zl/sb5VHLT7aZGsPsH2Pz8ic1
+         4zUvCyWMFnn0ZVoNp3M7xuwwvwyRBybosKDSOI+DmSvPLAryGZxHEjdcgnB0MS1XhRk0
+         KxMnx7SRzCxq/Gfis5WL6uJfZcGYTfF9g/ZBIs2N+w+N4VFEIrOUqXe5TXtSmFZRqstL
+         3vXA==
+X-Forwarded-Encrypted: i=1; AL+hErEoccNabMExORtMOxchTEtwCPAb+jPOiHQOEKcWw8bmYTc1yZ2Z732SVxYUXuZBE05HbwSI3ic=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8CBn4/XCE3Pk0fFaWnUNrpiIyiaVKXRFq8U5JsiH7TrjGTzVPY
+	LiNowNP+e1vaWSRCbM4t/69jjgTnKte8VWzvjFyBFKGSe3iLuf7QaDWCB18rjJL3JzpTOQ25KfP
+	JJUvaIg3i0UfAOXEOxWIlgEvriuOJSydwfXPnQG2/
+X-Gm-Gg: AYBFou1/AMRHwcgckJT1a7+IvCq05Cct/wCxT3IJv0Xc8PBj0RvGaf//wF3DBR4uBnF
+	RTsRAk77KUFT2t4MtSJWaeSbCnROX/oUJa2kfXad61n+k49w66C/uHov37ovwJcuwMYooG2bOpO
+	a93DihY87eWL4Y7V91/1m5SaJdFT0ImTSAc2pvlpvqHtRg49arBIZ5x1NMQhf/r1aqYTQ26AtWD
+	PfukmOMzkuHafmcmgn0aLsN78b2q+uN0Uv1kmGSu2zxS2JECWDqFo7RY2l+LUY45nPFC7olm6Ol
+	juTkk8g5uswcsRsVhqyt6XGfPrEILLMAnTT2lvvkQdskLtPO2pn7xNGhg2IWAhPzuQPccEKCPKU
+	0O3gVBxiv/0CyhIdKM0DvFc5LJ0C5sWyFHQoIvUtxfXz7B6kWM8fzySsCRG9ukgYq+QrOwpmo6m
+	6vmCL2QR4JrbyYPsLRbN/h5BHnc/k=
+X-Received: by 2002:a05:622a:1f13:b0:536:353e:8d2a with SMTP id
+ d75a77b69052e-55c420acbb5mr16403621cf.1.1794672717702; Sat, 14 Nov 2026
+ 08:11:57 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,63 +105,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261114040101.1043546-1-kuniyu@google.com> <20261114040101.1043546-2-kuniyu@google.com>
- <CAL4Wiiq9VH0hw0=TnDc_f5v4AMpkFpuRB4t8vNME-KzKKzy1uQ@mail.gmail.com>
-In-Reply-To: <CAL4Wiiq9VH0hw0=TnDc_f5v4AMpkFpuRB4t8vNME-KzKKzy1uQ@mail.gmail.com>
-From: Kuniyuki Iwashima <kuniyu@google.com>
-Date: Sat, 14 Nov 2026 08:07:40 -0800
-X-Gm-Features: AclHuK9M0h3L2Edp8g_DMTAT0Avzo6dD2oqoMsDM9nCD3Iwykny-FS6BUuxMc3Y
-Message-ID: <CAAVpQUDB8RFaHCHnZKRodm0xhJz=zQWxF_69j46=uo4NP1-PQQ@mail.gmail.com>
-Subject: Re: [PATCH v1 net-next 1/8] tcp: Clean up the first loop in tcp_collapse().
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
+References: <20261111-mtu-probing-series-v4-0-6f2e484ca8ea@gmail.com> <20261111-mtu-probing-series-v4-1-6f2e484ca8ea@gmail.com>
+In-Reply-To: <20261111-mtu-probing-series-v4-1-6f2e484ca8ea@gmail.com>
+From: Neal Cardwell <ncardwell@google.com>
+Date: Sat, 14 Nov 2026 11:11:39 -0500
+X-Gm-Features: AclHuK_-nV7pf1PB8PO4ykYtxVbAD9myD3UdJz53eZ7VZY4ZOzGRrnnpG944peE
+Message-ID: <CADVnQymNTE-Etw4hhAgCAz9B86qzpFye9vZPkE_W62c2hY4Q8A@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 1/4] tcp: initialize MTU probing before
+ syncing MSS at connection setup
+To: echoowall@gmail.com
+Cc: pabeni@redhat.com, kuba@kernel.org, shuah@kernel.org, edumazet@kernel.org, 
+	horms@kernel.org, kuniyu@google.com, davem@davemloft.net, 
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	netdev@vger.kernel.org, panweiping3@gmail.com
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Sat, Nov 14, 2026 at 7:32=E2=80=AFAM Eric Dumazet <edumazet@kernel.org> =
-wrote:
+On Tue, Nov 10, 2026 at 11:46=E2=80=AFAM Yongjian Wang via B4 Relay
+<devnull+echoowall.gmail.com@kernel.org> wrote:
 >
-> Le sam. 14 nov. 2026 =C3=A0 05:01, Kuniyuki Iwashima <kuniyu@google.com> =
-a =C3=A9crit :
-> >
-> > tcp_collapse() detects skb to start collapsing from in the
-> > first loop.
-> >
-> > If the last skb has SYN or FIN, the condition is tested
-> > again after the loop.
-> >
-> > skb_frags_readable() is placed inside and outside of the
-> > loop as well.
-> >
-> > If we goto skip_this in both cases, we can remove the second
-> > tests and simply replace end_of_skbs with the inverted loop
-> > condition.
-> >
-> > Then, we do not need a test for tcp_collapse_one() too.
-> >
-> > Also, skb_frags_readable() should be tested after the fully
-> > overlapping check.
-> >
-> > Let's clean up the loop.
+> From: Yongjian Wang <echoowall@gmail.com>
 >
-> This is not only a cleanup.
+> With tcp_mtu_probing=3D2, a passive connection starts at the full MSS
+> rather than tcp_base_mss. The IPv4 and IPv6 syn_recv_sock() paths
+> call tcp_sync_mss() before tcp_init_transfer() enables MTU probing.
+> With tcp_base_mss=3D1024, the first successful probe can therefore lower
+> the MSS from 1460 to 1242. On a black hole path, the first reduction
+> skips 1024 and goes straight to 512.
 >
-> Before this patch, when a SYN/FIN skb was overlapping with the next
-> skb, the loop was left with end_of_skbs =3D=3D false, and the test
-> following the loop made tcp_collapse() return: nothing after this skb
-> was collapsed.
+> The issue surfaced while developing packetdrill coverage for MTU
+> probing and comparing the initial send MSS on active and passive
+> IPv4 connections.
 >
-> After this patch, this skb is skipped and the following skbs are
-> considered.
+> Commit 4d83e1773031 ("tcp: delete redundant calls of tcp_mtup_init()")
+> removed tcp_mtup_init() from the passive setup paths.
+> Commit 27204aaa9dc6
+> ("tcp: uniform the set up of sockets after successful connection")
+> later moved MTU probing initialization into tcp_init_transfer(),
+> away from tcp_sync_mss().
 >
-> I think the new behavior is fine, but please mention it in the
-> changelog.
+> Initialize MTU probing immediately before the existing tcp_sync_mss()
+> calls in the IPv4 and IPv6 passive setup paths and when processing
+> a SYN-ACK for an active connection. Remove the late initialization
+> from tcp_init_transfer(). This lets tcp_sync_mss() apply tcp_base_mss
+> without adding another MSS calculation to connection setup. The
+> crossed-SYN path already uses this order.
+>
+> Fixes: 4d83e1773031 ("tcp: delete redundant calls of tcp_mtup_init()")
+> Suggested-by: Kuniyuki Iwashima <kuniyu@google.com>
+> Suggested-by: Neal Cardwell <ncardwell@google.com>
+> Signed-off-by: Yongjian Wang <echoowall@gmail.com>
+> Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
+> ---
 
-Will add more description in v2.
+Reviewed-by: Neal Cardwell <ncardwell@google.com>
 
->
-> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-
-Thank you!
+Thanks!
+neal
