@@ -1,108 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794673610;
-	b=ZwQ8WCKYNO96XTP26GyuJHpgpLobFlthrzbiZ8DrlbYfmSYwxY/bH/B8LKRU+l1UwqdM
-	 ZcpvOz7Q77hOBC0B4fCQ3DyosyVE20sojnNdhxsGMnGvIahf0VjfZiM3wOpyzQn9iw9fa
-	 ErHPzW6sq+dntyYTPUyEd24jyJ0UxgRsC6bs1GkfIq9j4vntnjnXQclv6b7i4L1od7Xv9
-	 g0NIMXGl6U+dD5NrQHqLrLBPpSlfrS22kH9XoSKY5KN0FdruHRN1NC8futytVfn7rPS08
-	 XUK20j7uHzFruOvVP5V17txIRqmpfZfQ/RWSOjtZRhpbleKhy3bmm2r0n4Pkc4i5J1A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794673610;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794673734;
+	b=qvmskCC+LBgxdtIb8oaZApBrKvfrMmrTCFZv6RLfW0gKblOh8HiWjd4pwb+20E3KIwij
+	 8JWKKHWZmhHUEiUsGWuIegLzzolgaV1lGVflky1TwTD6Mpde6LFUJt8lKCcbP8f1jtjzA
+	 QQ7EwibKUuEcJTQvX75LYxoD6BNJzZ3O5t/I/Cma7dhXkLFdBWpcUanKA/hmzRA7FchRr
+	 aADZ0YEKcvnWZWLe46lHtnhotELOFWIsBqzsUBP5pzWQaDl1vGaupr841mSH0/dxHh5io
+	 Kse6BxpgTsZZIURQplaHGGsBQQqnqLu2PAEbUwGpCXt2prfsbV1/aNl/Q3AiHygnp+g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794673734;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=soJ4jjpDPBCnxqBMue7ymudhbAVotnUPrgSAUa7XWXo=;
-	b=ACRJ/PlCUBG1nGhqcIj23LjyEuux5eMbn3Zu514o0kHZbnSDILQLUA6OtB9YGHKVZn0R
-	 XBO9+DA7+I9+xMWc+RULihNF+45O9DGLOxKQn3paKTHk3X3D+sLf4x7UTdnneLlDric+U
-	 R+pTvzZDnP5ap7Rn0G8YjinHqk0tILLreoZcQWFMC5V7Kvr4TSIUwWj8G0vPGNzJSwi2A
-	 MLEtz+zLz1yWr5H/yijPDhIVksbRJqAsqGVaUAqJccktC6ERx7r+uRFUlZGmgCgrReG86
-	 I1aVK6XVKRDQPNcF1miTnw68j90AdKjquqqFjyT/yW6/6wovr12GPdQUnXvNKVQj9HQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0PE367vk;
-	arc=none smtp.remote-ip=209.85.214.179
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=fhEz7jamMKCmwsixi+Ij3hAkM3Z9cVZ4jyi4ZnXszm8=;
+	b=gHsV4GP6dSWtwlGECbVEU0CYbl3utrGNYrNdd9E7/0SltWPBRc/nMQipONlEkDFqqj/o
+	 0A3gWnblTj5MyQ/fv1ol5m2EWYX+jIwgiHQr6C0DqqCgbZbRqls5UiuiVxx6n9oAdYGlV
+	 Jh5trKtmDHg2di89rgXM/EFADOopCB02WybEHkiW3hZhpGmOUKOBiVbhZSQ3P9Q61v8U2
+	 A/WmDNgNw50SIeR2MZZdWQineE/0VTANA7eD6G7Ajp2U/YY/6gX+XbwGkJcxMQWwxcfj5
+	 zzqcGQrjhUrTaEsKcnNJtl0DyytepvbQADZv56zg1LjRe+NZx34lFIzXOYkOjhRAXAA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MmO0g1YQ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.82.51
+Received: from mail-dl1-f51.google.com (mail-dl1-f51.google.com [74.125.82.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15936606A8A5
-	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:26:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15936606A8A5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CC6F606A329
+	for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:28:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CC6F606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0PE367vk
-Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2ede35b0cf2so16036205ad.2
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 08:26:49 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MmO0g1YQ
+Received: by mail-dl1-f51.google.com with SMTP id a92af1059eb24-170135e43c7so3017953c88.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 08:28:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794673733; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MIbd0TIsCWZMWFkaw/jofUkfRm+dCx4K4TIxK34UfRUgFLUbknX9d4WrXwavffkdXv
+         vWCMojtsrzumAp8Q+3f1+2GT4jMHWwe+LPfbfTRJdS9HAbDuHEKpRzUWIypr9dI8frUq
+         wEqW0+bIhjlOaZLKSP9AMFnqHHTpZ+azfKk9pgY1Iri4d3hkq30uTjQFRu53G5fMuqk3
+         zwpfENruJtQ+YRzp8n3E3H6Puok8l9cSfaR87vnkyzPLycbaTDpx7ig3bhoLk4L9oVgs
+         JlCUqsgQZ6of7vVkBeoxu4npkS/azauJr15HnQnJ+atLS7ONeBlsQYtqYSrgiLm+a816
+         qN7Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=fhEz7jamMKCmwsixi+Ij3hAkM3Z9cVZ4jyi4ZnXszm8=;
+        fh=Smk6RATpix4CKDKjmTlh2d/sxeL63me4OR894a0kZRE=;
+        b=lcdU4WpL7qsGUCmpjWq4Vt1GI/Wxqx6LcPfbA+Nw+pWcRqMVbr1o5BKHSKueHBXUwh
+         QZMQ25u0k+2MahjzFdN4XyTC4svu7rEiY+PntO2k1FthDeR7ebRLbcOwT5uWub6g8I+F
+         Sk3uMX+Pq2Ct+6YdzUEPpY7fUGjd0WN70pXBTR05alRWam8YvCrurYS141iDSkbX09r+
+         iO4c4Mgj7gRKDKfVd1YIRrwiyGUX9vXa7I/crjJEQMT9vrssO3sLOqf263t3EaPTLke9
+         1WIdeeportjH/Odc0OMo5ikGAkmHQfpz7zJc/82EnyC3VSzrG8rVzBngkF+owNiQZW6K
+         UU8w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794673609; x=1795278409; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=soJ4jjpDPBCnxqBMue7ymudhbAVotnUPrgSAUa7XWXo=;
-        b=0PE367vkhMov64BmEHF86qirTh/Zmd0NSzk3nADN94n23tbjdGS+qcKsgD5PGI3qnx
-         yWS8iMxIyoa7AAlQ/E37sXKWDZ0+MS9yIZjfrfdMjNC0Thf3pkkl97FYGRClRhuBLLzg
-         rXhivnz0kCOlq35pKwouKf2g6hOCQSXTAqM5Y/YWkXGv5wB0VXPgv86XY1C/3vkGX1C3
-         UayUE200nbgk91Nfnq/GPSxl/SWuSLMWf7Goo0bAmUTk0fUHufyu5eWQF61zNx+lw+uN
-         Ar/i/zGogt3DIeWHK4PF2jWmZNM/Jrz4VMNNfHsc+sOwaN0k9om0F8t0CLzw2J38YpEm
-         ZmQg==
+        d=google.com; s=20260707; t=1794673733; x=1795278533; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=fhEz7jamMKCmwsixi+Ij3hAkM3Z9cVZ4jyi4ZnXszm8=;
+        b=MmO0g1YQPiGdxVBsFg7TKeAlTOx2D5cSIxxYP/IP7+UiwDwB0Lzp0qvl1ruYMDZn5Q
+         Nn/Fm8MuEvVbdpMKEx2fgUDfLlOmXTYjtnBcQ1DkqsItKmzN1SGeKtqByykvzUtNwRfN
+         S9yaKF3rMqzh9L8mVMAztLBqsHfAm+svrR6vMX+9P1PsRJLMeLXWmMz4CTiZN2yzTbZu
+         Mv6xX0qURhrDp8iefNZDFMCpOj5hFb3jROlAcwvnwLScxfGsQ3g96g3DIxKy1jlcPT3Q
+         xD0/UVtMz5rg++ZAsMyoUe77TcPafWmJHxsVHdd9LrG8pw2ZcizO3NGfdQ7WQMPCJbQf
+         DtSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794673609; x=1795278409;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=soJ4jjpDPBCnxqBMue7ymudhbAVotnUPrgSAUa7XWXo=;
-        b=ATAX+p/RlwFTOBUxUJfCQ1OA+Su6UVeXlBUZhCqJz/JbTucPGz2l+nTtSf3bYb0FxB
-         ZUnRIErPH0bv9CWS0QeN4UhFoP1uVX+u2kFmkYRirzmaXppc5C17UJ1pjT+hqs5//uDk
-         Y1hTR8RcCCQkPrRz0pxnP67el7v969u0TTWyCi0i7DaQdOXTqCw9ujFW/7frDlU0CiPs
-         oHKbatHeoBcrMom6FG6p2CdwlvB0eFSJMZ62dzS6PJ8ZPb+VZYoXXnyIxMirh4iXaBHM
-         7FRsQ392G0NgD3i8MMwRpIZuS3acNu8Dj5RUcaoctTYmZWcHGzuJRfllOAgDbf8MhHYg
-         HknA==
-X-Forwarded-Encrypted: i=1; AL+hErGzdPWWCV9Qw1YM+OatTw8mDbrGsyTyn0vd9JVWfAvcO8xB/bv3OORUZAuQ06KFtinH7xdmpjA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+daO+Q3qNvu0VyiAGPjB5fUZCCPnukzVttVq2/AIP0wqdiksjX
-	4PszMCon5yujHIoQBsY2deLMKAp1Kt3EteojA2UV7xUqzGOW5a+ACFw7
-X-Gm-Gg: AYBFou2oGLk8/QweHNJIpuh5j8WyEDLtcjfH61l6uMDczHGb8FKE0W1QzO/QbWHfQb5
-	UJJWhlfYas69W96iyUdy/oS9WvLWO/h/opRA8csImJMxAvybvAxka7P9yNGcdgasv4YItVYIuiF
-	v7vhGIO2aGYo6XoGP9Qu7Lno8xBsNykzKOorvoMYNHTo2IHcTg4NHQ1OxXrgeXZkOz8+ZbD7IIM
-	xb4iKEfB9dxqV2Vuwggoanw9U9lFIon9yeVyjFJf0HtFdjHO10pO47BZRrtxEBCHnkePbOS6X1E
-	oG0Xwyl4oOUqK9QoffeLaUxjjAde1dmRXmMDLSGEPYIHbdWDMcqCuA2rJhjOVsDU6WIuFQibf2T
-	Pvc3R9IYHmqiVPMfA19Q16n8OpZbnP/kLmRR2bz9I9W54FZ6w4DK75eaLkkNjnfz5qS+BIZrYsc
-	dN5lEhPM5oedhLKd/f76hOpBZhpSPhSvV303d+FjIGmv4LrEFymvP4fZeM4nchiIZXvv3VUK3x5
-	azBElqND6J+qQnPC2qyasvBhLQg2IVIagvFcJnLoTbZCQEV+u0UfQUHE7Ust0q+/8hotOh3Emr8
-	BdcqgKYXACnPMVfMusbv3koJ0L2LXJh3pi1MkE7aBPq4A9JsUxYcoMNc6yMe/NWC5mUTPdPfqlB
-	uTldGw5dNwmEetsymq0QiZJse1vv2FcqoVKj82MAXXt6K7BRvPkIXNZ5Ptbg1m91UTs+dV56F1u
-	l6qVxO1ZgvWVOL+yDYCnZa6iTWGyzXkWRGTmC+RW+M
-X-Received: by 2002:a17:90a:d2cf:b0:3aa:fdad:7d6e with SMTP id 98e67ed59e1d1-3b1b0b669d6mr5757395a91.10.1794673609429;
-        Sat, 14 Nov 2026 08:26:49 -0800 (PST)
-Received: from sid-dev-env.cgrhrlrrq2nuffriizdlnb1x4b.xx.internal.cloudapp.net ([4.155.54.158])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1aec622b6sm10229142a91.11.2026.11.14.08.26.48
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 08:26:49 -0800 (PST)
-From: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
-To: Kuniyuki Iwashima <kuniyu@google.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Kirill Tkhai <tkhai@ya.ru>,
-	apais@microsoft.com,
-	hargar@linux.microsoft.com,
-	rlmenge@gmail.com,
-	egoriluk@gmail.com,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Siddharth Chintamaneni <sidchintamaneni@gmail.com>
-Subject: [PATCH net v3 2/2] selftest: af_unix: Test scm_fds on dgram disconnect.
-Date: Sat, 14 Nov 2026 16:26:32 +0000
-Message-ID: <20261114162632.16346-3-sidchintamaneni@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261114162632.16346-1-sidchintamaneni@gmail.com>
-References: <20261114162632.16346-1-sidchintamaneni@gmail.com>
+        d=1e100.net; s=20260707; t=1794673733; x=1795278533;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fhEz7jamMKCmwsixi+Ij3hAkM3Z9cVZ4jyi4ZnXszm8=;
+        b=CUNs+LbGKqHRaHhGZNpTlYvHKl3hWX1+gCLm5mksKHgbeHsf7/d9jpUbYshExsHNQM
+         dIn0sHTISf9MtMFOFti+0j3PAhqDOFmoVsp0owyAYZ1CokOdjg3Dj+mwOvq1g/l5tX0T
+         wfuGqNl1CzKj5HF56N21O5snDG8somJDRx8KA6eIze0BE8E/dIp8Iz993ttvXYPyyBWN
+         VsJ2IQrdTmTVvArwGwOSyzWHKs33eT0dwbDpIOG120Xe/LRDvOPIShQ7OfvejZsLnSLi
+         ju/2vuUlGfRnDoqT8QdKuHkKqRIQ1jXaRzUOz5Mdvu68spM9q9M6sSFDJHjpELdy5kMM
+         0D4Q==
+X-Forwarded-Encrypted: i=1; AL+hErG+qW1eIAmfEaS8gtAOhSiw0SLHphmx/61I6XWaMyhVKAoTTizkR/VdNsWpPOt9E7XdtBjNVF8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Tvw5fSYkmGCbxr5+4aLh2dz9QTg84W10OgigdOG4f9A4Xn8vf
+	bnXoKy8oEZZg8iOaUCT0wBmYowex3cmn7B4IQ6rHlBnmcyZYuFDY6vVoQvAzgikJsQgHoI65rCL
+	G+pOws/ZRszDwT2TUHKH3kCFu5zvpWLFcn/rP5hmJ
+X-Gm-Gg: AYBFou3UG6KpC2bswLgnoOoy+8fagSTowNuK+ORu9SNJTXQQLNcRjOCpedc+U/OVf2F
+	NN9mKWmzY99v9GhkpCstfynpZf6OvQyyeMmosUUfZ56LFiiXlsJnWHpGuOZ4JxSOWYrp3v6aPLq
+	eMAnjlwwnYSyd+R8hwx9yi9btYbAW6LHfir8Znyc0d0QWsWdTyf1t0AISqwIj9kReHfzTuLJzb7
+	7vdR2VY2enAN9x8L/4sz3cW6reXnFaGk/0yZ5qce/W+ixiSKzJL8X9/1p1fMrLMUvDGcOjlh+b0
+	/wcqdRcPkIM3uySetBuSpquEV1bP3hD+MfYYkyFyoK2ogFLObq6yfVjPKD9zZsqYYAtaU/miZdt
+	Am2mpwhSWYI+rnW2433NV6L20cNPfG4foQkBIs3GEp7+ueqXP+e8zorOFv3goJfV48sPPhYAUER
+	uUMh+NQwCrlnl4PcVWmCvdXMv353GsJrZtneqGspinWOMHC2lPsx0YS2M8XoSpfGOB0CmI+/Ga6
+	UolKwrq3w==
+X-Received: by 2002:a05:7022:2390:b0:18d:96e8:b913 with SMTP id
+ a92af1059eb24-1b503195191mr8358359c88.47.1794673732155; Sat, 14 Nov 2026
+ 08:28:52 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,102 +106,32 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261114155150.235743-1-edumazet@kernel.org> <20261114155150.235743-2-edumazet@kernel.org>
+In-Reply-To: <20261114155150.235743-2-edumazet@kernel.org>
+From: Kuniyuki Iwashima <kuniyu@google.com>
+Date: Sat, 14 Nov 2026 08:28:41 -0800
+X-Gm-Features: AclHuK-NaIdeMoKd9bNTVBrUhFuHZ7iGJ6TLWjyyIM-skVqbnoAqEwOOhdxTdyU
+Message-ID: <CAAVpQUDGALyfHnHdqEwE+VxYqZAuET=Y2j7i-FSX4zHwmN_GXQ@mail.gmail.com>
+Subject: Re: [PATCH net-next 1/5] tcp: add TCPRcvCollapseSkipped counter
+To: Eric Dumazet <edumazet@kernel.org>
+Cc: "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Neal Cardwell <ncardwell@google.com>, 
+	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Add dgram_disconnect_fdinfo in scm_rights.c verifying that scm_fds in
-/proc/self/fdinfo/<fd> returns to 0 when a connected SOCK_DGRAM socket
-with queued SCM_RIGHTS datagrams disconnects via connect(AF_UNSPEC) or
-observes a dead peer in send().
+On Sat, Nov 14, 2026 at 7:52=E2=80=AFAM Eric Dumazet <edumazet@kernel.org> =
+wrote:
+>
+> Commit c2213d9b61c1 ("tcp: rate limit receive queue collapsing") rate
+> limits collapsing in tcp_prune_queue(): it is only attempted when at
+> least 1/8 of sk_rcvbuf of new memory was queued in the receive queues
+> since the previous collapse.
+>
+> Add a TcpExtTCPRcvCollapseSkipped counter, incremented when a collapse
+> is skipped for this reason. A high rate can indicate a peer repeatedly
+> sending segments that can not be queued.
+>
+> Signed-off-by: Eric Dumazet <edumazet@kernel.org>
 
-Signed-off-by: Siddharth Chintamaneni <sidchintamaneni@gmail.com>
----
- .../selftests/net/af_unix/scm_rights.c        | 75 +++++++++++++++++++
- 1 file changed, 75 insertions(+)
-
-diff --git a/tools/testing/selftests/net/af_unix/scm_rights.c b/tools/testing/selftests/net/af_unix/scm_rights.c
-index c165f250220a..19aa26c60f3b 100644
---- a/tools/testing/selftests/net/af_unix/scm_rights.c
-+++ b/tools/testing/selftests/net/af_unix/scm_rights.c
-@@ -395,4 +395,79 @@ TEST_F(scm_rights, mixed_lowpoint)
- 	close_sockets(6);
- }
- 
-+static int count_scm_fds(struct __test_metadata *_metadata, int fd)
-+{
-+	char path[64], *line = NULL;
-+	int scm_fds = -1, ret;
-+	size_t unused = 0;
-+	FILE *f;
-+
-+	snprintf(path, sizeof(path), "/proc/self/fdinfo/%d", fd);
-+
-+	f = fopen(path, "r");
-+	ASSERT_NE(NULL, f);
-+
-+	while (getline(&line, &unused, f) != -1) {
-+		if (strncmp(line, "scm_fds:", 8))
-+			continue;
-+
-+		ret = sscanf(line + 8, "%d", &scm_fds);
-+		ASSERT_EQ(1, ret);
-+
-+		break;
-+	}
-+
-+	free(line);
-+
-+	ret = fclose(f);
-+	ASSERT_EQ(0, ret);
-+
-+	return scm_fds;
-+}
-+
-+TEST(dgram_disconnect_fdinfo)
-+{
-+	const FIXTURE_VARIANT(scm_rights) variant = {
-+		.name = "UNIX ",
-+		.type = SOCK_DGRAM,
-+	};
-+	FIXTURE_DATA(scm_rights) self = {};
-+	struct sockaddr addr = {
-+		.sa_family = AF_UNSPEC,
-+	};
-+	int ret;
-+
-+	ret = unshare(CLONE_NEWNET);
-+	ASSERT_EQ(0, ret);
-+
-+	create_socketpairs(_metadata, &self, &variant, 2);
-+
-+	/* 1. Disconnect via connect(AF_UNSPEC) */
-+	__send_fd(_metadata, &self, &variant, 0, 0);
-+	ASSERT_EQ(2, count_scm_fds(_metadata, self.fd[0]));
-+
-+	ret = connect(self.fd[0], &addr, sizeof(addr.sa_family));
-+	ASSERT_EQ(0, ret);
-+	ASSERT_EQ(0, count_scm_fds(_metadata, self.fd[0]));
-+
-+	/* 2. Dead-peer disconnect via send() */
-+	__send_fd(_metadata, &self, &variant, 1, 1);
-+	ASSERT_EQ(2, count_scm_fds(_metadata, self.fd[2]));
-+
-+	ret = close(self.fd[3]);
-+	ASSERT_EQ(0, ret);
-+
-+	ret = send(self.fd[2], "x", 1, 0);
-+	ASSERT_EQ(-1, ret);
-+	ASSERT_EQ(ECONNREFUSED, errno);
-+	ASSERT_EQ(0, count_scm_fds(_metadata, self.fd[2]));
-+
-+	ret = close(self.fd[0]);
-+	ASSERT_EQ(0, ret);
-+	ret = close(self.fd[1]);
-+	ASSERT_EQ(0, ret);
-+	ret = close(self.fd[2]);
-+	ASSERT_EQ(0, ret);
-+}
-+
- TEST_HARNESS_MAIN
--- 
-2.43.0
-
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
