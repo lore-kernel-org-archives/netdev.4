@@ -1,74 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794749135;
-	b=v9ShPQ5QFR4YtcKHA+T9kNDi7ZnBTXTDXpt7imxkXRJglZLak5q/jHPcZx4KPPKbbmxt
-	 ntRzn0lIm7HW1a325lfK4J7oU3eXpUl5GhSZOgM0ArGb9HgNi/2qQ2IL5TrX+bT7n8GsC
-	 gnIt/tuIuFZ1+yS8e6X1cSBqVjSf2QcN0HsdBgdUTokV+m8DncUvwRrC+DylFwz5DTFHI
-	 4d4aMqKLe24JVmpAxtz32Ur1um+zAbhuMcCAnWWAXhtI6W3BO24DoLwip1oomuhE2drrh
-	 sia67JGgiSrzOK72HtIq3nrMXwTKFi8IOB1jH1cfVxziM+JlpGGFcGX56B+PTD7Q9jw==
+	t=1794749178;
+	b=is9zGGFd+CiyWj/CnzDJ0EXhh+JbU0v8aQ63XvbGYYhPSXp81/aE+JgJwUe28XI332Sz
+	 wPT+twAxx9cyne86J2eKLvBAqs+rQjk77Ee7w6F8BROIV5ryLNeXRSd67suPDAgaW3DBX
+	 3IZQxfO8VdzuuuL8jP8EQLgukm3fFR7xFXPEH6bDgEFCgEREdXawPmwpghVqzKVkSOvgH
+	 5reiZN7FGYqDg8zbM6Al3tS2OLBPOfIsNfHZDUjeppf6FyRHu34QkXxg5NhbZi5QNOdo5
+	 F/jVElBh85vlhFODeAY58Ts5iZfp1IuC8fbYCjsjn3MNw55E/1mUp7olzwq3VKnQWMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794749135;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Scanned-By;
-	bh=3yaLh8HZvDvcHsFzqRw29DroL2qOToEPrETKS7oqVCA=;
-	b=YuKPsSX1Xg+WUuWDxhrsUKizHifbgcjUq750O9cSgnILeAqIbKk9ojCjUsCOW9nnHNl+
-	 11CQAK/FXlgjwv9IbhGZpMQdq2XkThw7HlVoslpyXfJ4Z3tEXZfjoxREwf8TSdSVeTLiJ
-	 n/lk6vYDbuGMJNak5WxSjX4AAXnRNFrJX0TSVIojd5+UjpNZ30x7NRzZJbVn/hC37cAXO
-	 v6bS9pD7kx2oxHQ5RuenDGHZzmqOaYYJWwyCk7V7jKQASWGqHsFmc84w6wwf0gVbe6FxL
-	 P7PNGQJnPBGMrsnQRbNnUVwq+N3NqRedVqpCesnAh+jNEEwLVq5bIzpRwSeHXrn2xrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794749178;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=+e9lBaxj2RZ0ZeX4Opx/X6I6Bw5jb8RH55Fa71bptw0=;
+	b=QFTvNAiLug66hSgcstN8yAklmHjRS2Tnn1jcxjFA0VWi997X9VbN23i/KKWF+EIdOl1o
+	 VxhjZ51+6hvbWacVacsNO6dv5Meqi8KeLWRuS0BaFz3CsDtBfJ360QBElDLL9+JXqkeJK
+	 rsSRrpTL0y7ZXJv6qq7j0fC9hbmXdGaAb+zcITUneKrK9CIkp0twrTeBf0wr3zQbRSkZ8
+	 6p6YPQVZ6fEczGBKROOfwU2XvDq1Q2TM352Tdj2KK67ht8CVC5qJeptG78GiVHx3YdVyu
+	 H5hd5ejH7cILDbCdIOTxC0X9TEUNu0SiXLwZ1Hm1ZI5d5XGIN5djADK0oHpaCzPXCJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IFIdV2hb;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WA6slowg;
+	arc=none smtp.remote-ip=74.125.82.49
+Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1C32606A31D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:25:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1C32606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4814A606A31D
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:26:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4814A606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IFIdV2hb
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794749133;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to; bh=3yaLh8HZvDvcHsFzqRw29DroL2qOToEPrETKS7oqVCA=;
-	b=IFIdV2hbFVbD/PYmdbQQaM7plV+SXf0S6zu1ujymwOX+t1i324/Um7b96KAghVRh2Y+Rxq
-	TuAz7Z4Zubh9g0UvFGZdmQlXNMaOov30JdpclD4X2K/c+ps81XIvey1xMScPiK84YvRCSh
-	6D2Lm7eVJpdvi1J0rdrBvPWwPHwJ2qM=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-261-sBKeRBPbNeiXKeoQscWcBA-1; Sun,
- 15 Nov 2026 08:25:30 -0500
-X-MC-Unique: sBKeRBPbNeiXKeoQscWcBA-1
-X-Mimecast-MFC-AGG-ID: sBKeRBPbNeiXKeoQscWcBA_1794749129
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E4D041956042;
-	Sun, 15 Nov 2026 13:25:28 +0000 (UTC)
-Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id D36691956087;
-	Sun, 15 Nov 2026 13:25:26 +0000 (UTC)
-Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
-	oleg@redhat.com; Sun, 15 Nov 2026 14:25:28 +0100 (CET)
-Date: Sun, 15 Nov 2026 14:25:25 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: Allison Henderson <achender@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Joel Granados <joel.granados@kernel.org>, edumazet@google.com,
-	horms@kernel.org, netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org
-Subject: [PATCH v2 net-next 5/5] net/rds: remove dead sysctl declarations
-Message-ID: <avmyxTOuUkKnOaM5@redhat.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WA6slowg
+Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-15ea896ddc8so3721588c88.0
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 05:26:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794749177; x=1795353977; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+e9lBaxj2RZ0ZeX4Opx/X6I6Bw5jb8RH55Fa71bptw0=;
+        b=WA6slowgRj1VJByjh1ROMR0y30Jy0uu6JUq+8Scgum+oZRppAyM6CP6gBGgn8XU0Zu
+         e0VJZ8IWpZ8L8mOlnpyiSHi9hhtk9jomRqhg9KOoL9DExWedZL1FH8d2m3uWM1WCXyK4
+         /tJ6qsAnEeQ2vkCDOfonSC651rP8Bg3HrzwujTbhGS081nn0PtKiNj4Ztq3oYNooPNkg
+         +PI0dtFHxXPfXmnKctSWUrAWWFwrSdNL+e+bqNvTZDfTquV6+KJS9F+HrQLuSdvZz0+4
+         Cd6Dl7S9GEzKdslQ0kCV+F1cMKNO3sJfMhN1Gxk1zBSzWgtq9vAppsZD+5EST4c9v09Z
+         ih5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794749177; x=1795353977;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+e9lBaxj2RZ0ZeX4Opx/X6I6Bw5jb8RH55Fa71bptw0=;
+        b=kgLE9eXQ9/10zHxIkeNma5bvbVD+1qedyWaMT7exkzQvIuFehhsRaGIlnXVWPwkeNE
+         yueFaF543SGqnvuD8+oND9UqyuPjMpbvaPeMWHCUt1BNElfiapH2NG/0uN0haDlX3Iem
+         V6pb0QQco2mZleH2R8PXP0qReJ1dxv2IcJ9SJVqFnx9P7hGPE4WEh7UkXLKC/YumDxSM
+         5Wm0h36F1i67sMlxa2dA+hOPrVOtSsmMNylMLRQMYDSk9qPnIy47VI9EcgqaGK6EapU9
+         v66AqmmYqP9xufRZT4EgXRkn09NSeUFU4RsltBHbmnzeOH8hr7gsVb2BAHgvnW0fqGQu
+         bUbA==
+X-Forwarded-Encrypted: i=1; AL+hErERsvXpQq87eAozqg5u++XaANchsQqkbTvdv9b74ylxXhyywqSIQESMaMR79IUynQ2XE8ZZ70E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9wpCh0l1yrcFqiY5vaFO3vasDZhUBsTJpzb2wjp8dnjAaM06v7
+	vhpNrPEPI5RTjda0565rofFHeXwkt2r8FEfAYttdJ7tGow94MV1kT6NS
+X-Gm-Gg: AYBFou1Bz+U42uPEzbyaba/R5wyCQv9wGt/r2Rj0eC8R/Zg3SSXK30m5pnQvJKnpOyd
+	45NG8f5TGtsxqqlOM4ZgPmwA3XlFypuPf+kZcD2N+ZKLXqEFAxM834gsktXvT0oBggmhBQ9d6Ie
+	8+M0q2ue/S39BmRBC4zvNTndfP22fK2/UrBxfDFm3MsLjIPD9NKWFnkU5WXXPzBiFEJXURANR6O
+	shn3pFCglQUYXE/OtSLrfBkK8Nd7+ltQs3AhjnEI4eBTsiy1238+yLDh410BMAF4Uj/smuZMAzC
+	cQezVK+pexnwiUh5a9Pb+Qztp9JgZCR6B/1SKigw5rsPV/2pHN7SNPAnTBeT+d4L31Eo1BwROxF
+	tTdtkXCqcmslmZLRv7tvnLbDNRghF3xOHLKhg4jbrXzReEa4mwjnQDoVFqA2Z4EI+WFDe8YYX6N
+	dS8h/OfWNT7FlrvFwhLXwUWxKtyCfZRy+HDynF0chRSgkPG5ihErPo7tQWRTTIN5U3RXJB9/gxi
+	rFRQ/kLysF2wf9FdwJYbN3FCLS8P0+3Hzz2YIrbvYGZ549J3M4sxhsJty6NTObwh1NnVqAWPsim
+	LiT14g5zLWGliND7eus7EFSfKzNG
+X-Received: by 2002:a05:7301:5518:b0:379:d02f:dfe8 with SMTP id 5a478bee46e88-379d02fe0b9mr6467112eec.14.1794749177124;
+        Sun, 15 Nov 2026 05:26:17 -0800 (PST)
+Received: from thangnn-ASUS.. ([2a09:bac5:d45c:e6::17:34a])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bad6casm24465309eec.26.2026.11.15.05.26.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 05:26:16 -0800 (PST)
+From: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Cc: Christian Hopps <chopps@labn.net>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com
+Subject: [PATCH ipsec] xfrm: iptfs: force a dst reference before queueing an skb
+Date: Sun, 15 Nov 2026 20:26:11 +0700
+Message-ID: <20261115132611.427311-1-ngocthang2710.1999@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,55 +103,64 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <avmymGvelu00X5EH@redhat.com>
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+Content-Transfer-Encoding: 8bit
 
-Several sysctl variables are declared in ib.h and rds.h but are never
-defined or used; git-grep finds nothing.
+iptfs_output_collect() is the dst->output hook and runs under the
+caller's RCU read lock. It queues the skb and sends it later from the
+iptfs hrtimer. The skb may still carry a noref dst, e.g. one set by
+__ip_queue_xmit() via skb_dst_set_noref(). Once the RCU section ends,
+nothing keeps that dst alive.
 
-Signed-off-by: Oleg Nesterov <oleg@redhat.com>
-Reviewed-by: Allison Henderson <achender@kernel.org>
-Tested-by: Allison Henderson <achender@kernel.org>
+When the timer fires, xfrm_output_one() calls skb_dst_force() outside
+any RCU section:
+
+  WARNING: include/net/dst.h:326 at xfrm_output_resume+0x41d9/0x64e0
+  Call Trace:
+   xfrm_output_one net/xfrm/xfrm_output.c:549 [inline]
+   xfrm_output_resume+0x41d9/0x64e0 net/xfrm/xfrm_output.c:597
+   iptfs_output_queued net/xfrm/xfrm_iptfs.c:2325 [inline]
+   iptfs_delay_timer+0x3803/0x4310 net/xfrm/xfrm_iptfs.c:2362
+   __run_hrtimer kernel/time/hrtimer.c [inline]
+   __hrtimer_run_queues+0x3bc/0xa10 kernel/time/hrtimer.c
+   hrtimer_run_softirq+0x1e3/0x2e0 kernel/time/hrtimer.c:2153
+   handle_softirqs+0x265/0x8d0 kernel/softirq.c:669
+
+The warning also means the queued skb may point to a dst that has
+already been freed.
+
+Take a reference with skb_dst_force() while still under RCU, as other
+deferred xmit paths do, and drop the skb if its dst is already gone.
+
+Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
+Reported-by: syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=622de7e1f18a30fc404a
+Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
 ---
- net/rds/ib.h  | 1 -
- net/rds/rds.h | 5 -----
- 2 files changed, 6 deletions(-)
+Tested in QEMU with the syzbot C reproducer on origin/master (23c62304dde2),
+60s per run: unpatched kernel hits 48 of these warnings; patched kernel
+hits 0 in 3 runs, with no KASAN reports.
 
-diff --git a/net/rds/ib.h b/net/rds/ib.h
-index 1901226368c9..a7f0005c5a0f 100644
---- a/net/rds/ib.h
-+++ b/net/rds/ib.h
-@@ -448,7 +448,6 @@ void rds_ib_sysctl_exit(void);
- extern unsigned long rds_ib_sysctl_max_send_wr;
- extern unsigned long rds_ib_sysctl_max_recv_wr;
- extern unsigned long rds_ib_sysctl_max_unsig_wrs;
--extern unsigned long rds_ib_sysctl_max_unsig_bytes;
- extern unsigned long rds_ib_sysctl_max_recv_allocation;
- extern unsigned int rds_ib_sysctl_flow_control;
+ net/xfrm/xfrm_iptfs.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
+index 0313a43aa8a9..3fff835497b9 100644
+--- a/net/xfrm/xfrm_iptfs.c
++++ b/net/xfrm/xfrm_iptfs.c
+@@ -1914,6 +1914,13 @@ static int iptfs_output_collect(struct net *net, struct sock *sk, struct sk_buff
+ 			continue;
+ 		}
  
-diff --git a/net/rds/rds.h b/net/rds/rds.h
-index e3937c1ff3a1..2d061b16966e 100644
---- a/net/rds/rds.h
-+++ b/net/rds/rds.h
-@@ -1027,16 +1027,11 @@ void rds_stats_info_copy(struct rds_info_iterator *iter,
- /* sysctl.c */
- int rds_sysctl_init(void);
- void rds_sysctl_exit(void);
--extern unsigned long rds_sysctl_sndbuf_min;
--extern unsigned long rds_sysctl_sndbuf_default;
--extern unsigned long rds_sysctl_sndbuf_max;
- extern unsigned long rds_sysctl_reconnect_min_jiffies;
- extern unsigned long rds_sysctl_reconnect_max_jiffies;
- extern unsigned int  rds_sysctl_max_unacked_packets;
- extern unsigned int  rds_sysctl_max_unacked_bytes;
- extern unsigned int  rds_sysctl_ping_enable;
--extern unsigned long rds_sysctl_trace_flags;
--extern unsigned int  rds_sysctl_trace_level;
- 
- /* threads.c */
- int rds_threads_init(void);
++		/* The queued skb outlives our RCU section, so pin its dst. */
++		if (!skb_dst_force(skb)) {
++			XFRM_INC_STATS(net, LINUX_MIB_XFRMOUTERROR);
++			kfree_skb(skb);
++			continue;
++		}
++
+ 		/* Enqueue to send in tunnel */
+ 		ok = iptfs_enqueue(xtfs, skb);
+ 		if (!ok)
 -- 
-2.55.0
+2.43.0
 
