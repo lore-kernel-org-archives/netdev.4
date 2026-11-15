@@ -1,54 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794731056;
-	b=ntZvR6ro3oFythSlpGWx19mZlol+ho1AeCVEZ52PjB0U13MWraC86W8pWSu8tsfivs3F
-	 3ZEl/XZF5mTpOJ/rYyvksAOJQKKv6iKDHt8Lm6C5zjS9WF6BjGcXzkgPvIeNZcXzU0oc5
-	 KWNSoChbXMUPG/dgJBDZXRWIGiz7LBEkn+FxJo5Tck9/psaBvofhBm7QaFN5MEDZXwbmr
-	 3Z1ZKhmZNSGBeN/TK4Bah+YP1G8o/MkMXiKBzXL9XsDNVuJCLvHykc3TOnDvp8P2uRl9g
-	 UDNjadyNIOUguQMeivpiB/AsF9pdcNwx5HPiZC7rVv6Pti53fOdMTZCOW5rCzSx6azg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794731056;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Hq186HcHzYDaq7zOMRjbrOqIIwfSHvf8FBnXTnHKzXM=;
-	b=rVp1EAyM4qCOY0833tRiiprIbs/7PYkOEIm4ooVk9Oj9+LC3ODhLxc21DhBwXbA7bMwx
-	 d1naiBllS2b4whqt6Vrw6Sv3DD/Obvi21ItBER5zB5H/QwX14FY910kkJXNJd3DCyP26B
-	 0Xp9DRa03V8d6v0f5wjj6X84LTAejbg9EghXgtwMY4gI+ZLJvEvIMarc/wJ4LmVsV+zPr
-	 KES9/uIutfKIaZXjDuaV3I0jVNlPmMcf4b06VDNnasiagNG4jU7qCgvuqRL1amlPKESo5
-	 wBlnidTZwOtZt3gn9L2PEiPWFHOXEC5yiPGXJ1ab1Va/pqbxnWXtK2KBET7NEykd5tg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQ8gElEn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.56
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794731603;
+	b=x9/5CNa+OJSmXM2RBOn1VzK6ufSXdkIBw2KFInRyE6xfx8TIiQtJ916zmjDmDa6tZhIf
+	 D6ubgVQ9JMclYNbRjm6llsrBySOpcOsFG7aDmPXTyxFwPTaZK+7rLBFYtSm5WN/aJLo0N
+	 E1dwtQ+pBf/VG7Jl82nRZR0VE9XMY2LFRbnpUtLb4SFiH0h8pwshGA+2ZkTT1zUhURom6
+	 CenqEbsxYlmh1HKDwoPo3Eh4w5ckELMp66MRQ5UoXYGGJdvWXMhF3ukoAq03XuFzKIs7P
+	 B3qggNh3H2MxGZNl8LVWtAKocr+gs77G7YmvkbA4UhS0VoUF01hfQSphOsXriRi6L4g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794731603;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=vIEaZdhJOgwBvONbgkhfl6j7iPHJref3ZYSoInj3kxM=;
+	b=j/mvV3gO1ltYEz66sqAW7cjTOyEK35jMQNave3PrRZYIERYiLPG/UxTlMOm6kqMhiZOj
+	 DT3uo1IVJSq5/Gq2hQCMtG8/+aW2GkOQiM7NMNdgdr/9YTz4bRI3jiqXugc9WbK+iFyGi
+	 lf1RHzJJkryfRkloezUSWACeW7kaiiu1GfsN7nPJKJCUNBbkfiknhcPI5xnUtFnB2vyZZ
+	 pQvDWkrZ2f293jtTlekvGs/kz7jdaidagdfWY8/r+9BY7mlaG/8qNHNstsi9QUZypHYF6
+	 pK0GPTKtMvhKeT9+K7PcglMECwTF7Aa6dHmdPN3vaDSm44rKdLH4vd+2DXQMgBDeaHw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=q9nsvps0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.56
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012056.outbound.protection.outlook.com [52.101.53.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE8F6606A33B
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:24:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05527606A327;
+	Sun, 15 Nov 2026 08:33:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05527606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQ8gElEn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8533F1F000C6
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:24:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794731055;
-	bh=Hq186HcHzYDaq7zOMRjbrOqIIwfSHvf8FBnXTnHKzXM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=EQ8gElEn+s4NqzNS5KqWN3kSvI6ph+XLoMLW4SuYbcAC77irL5Rw71hMl13khtfUC
-	 w/gIGMyyc+vrbb7oLdzYstdCjZfP9/gMb9wiiQKElbVXKIKfIVdst8L0/+kydgakjs
-	 qXw08gATlgXosPffII6Y1uup1yPUH+oOmv6+5B414pvzBSbaY3KWV4vtkrtB48mABm
-	 CwE2LQA/C5nsXoPliB+lWKfZsFLgBQop65lbqrGoj/L3yqoFkcilsUandcT3MTiLyg
-	 iXLECPul4Vq06LWyyG3MokQoMrqwKQ1QuQpv3zWbTGjiOr0RgfupJLBjp2yFcHqPfX
-	 E8T7MWklGOt1Q==
-Received: by mail-oo1-f52.google.com with SMTP id 006d021491bc7-71ad099391dso339080eaf.3
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:24:15 -0800 (PST)
-X-Gm-Message-State: APuU4Z/xJZXiZPr751JlU0Oe+UstPYiup486PhXOxclU+lkV9CdFrr7e
-	Nqg6lZRFqip/Cn8Cz7aKUWIF9Z3s2oTMXieYsSifmEzkGUiMTRrA2nKMkFO9/bZOU8qdBYOEVXR
-	NhaXLpKFizvAsD/N6gfDMIVjsdrFg8CU=
-X-Received: by 2002:a05:6820:a70c:10b0:71a:eea9:8173 with SMTP id
- 006d021491bc7-71aeea9868fmr74562eaf.85.1794731054847; Sun, 15 Nov 2026
- 00:24:14 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=q9nsvps0
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iZKBcWV23KW3jtg4BPlfcPiYQVDsahjj/YY7erPBSDHvuggvttevpJByauQhoXlp0qnGwsf4H5bnDPTqMjzPvBG0ImILlZ8SsDE6vtXdxT5uv3ti6P+Ox7YmvLxdmFOWsnj+t1FcipRXQA2A2NOrgCchUh/Cw56ck9Oi0bG5QCE4kba4NDpm1N3JrQOSO6W9tAqSfKpgiu4Y1cbiK5mEaGaGeRkFuDRgaaR9BdFuFLPhVTWJGZtS8cjODckKd7i9QKm55SKvcTZSaIQcW4/2JBM6//DlLnaEwDDmqB/5H7VlGd4pES7w1tbo3ToLbBzhtajKlAULcxbDovGX0Awmbw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=vIEaZdhJOgwBvONbgkhfl6j7iPHJref3ZYSoInj3kxM=;
+ b=Ppn3UNNSJ1AKwqWOdzb7uUWHK4Us5zCXAHLXhsrNy95A39VNRWFGw2kHrC5WwRSjWgKYVMwKMSYcAwb1IH9BsAhptKl1F8Yt9y4re7Hgjyf9zimyzDlXs0j3jidLCq5PkZoM6sIAJP8VRz0AN+Qe0oOE/yupipPgYHnkWPppfFTDnD/EgN3+0K6fPhpoPoGoJWiWsztcVpUrbnbWhMJC4YUvGF4LNc5mPOJToIjUzml30lxXKksXa8rZyiSeEKqsDp0k7gpk6mwhhWs6mm6K6yqpEscK+6KWs+jIL2ELl5RVxqV17tC/Zd4NuAjm8Ih6tRCdZlZEH9xlamuOJFzBLg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vIEaZdhJOgwBvONbgkhfl6j7iPHJref3ZYSoInj3kxM=;
+ b=q9nsvps0m/71OV0vwRLmO14V4zf6ImRqdokt/uOepmfo07ITE+aGg8MjdA6/zJeWytwPwv7vzDPLy73/zn2FTlhs6w7C1wkovzIbAoSLSuivxkM8631dBKNEhpULHkjXzmjDxOKwW/k1ZWLKPE6IkX9hbGsvw1jbSkqSDTu2ltH8wpQ86aa2JZGASpGNbRo2ZHAzZd2Bo9qbuVU/g7YQqjV7DTHT83oqOelXKWWGL0SBbCIKAjI+cUhHB6BGU52NJe3EPSkpv6RoMv5Y1sjibPYHDZuIuQG7qW9ownn4gg5S24+cf22edu5pipSqeSKscmODpFmDoMpE++R7tOWbuw==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by DS7PR12MB9044.namprd12.prod.outlook.com (2603:10b6:8:e3::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Sun, 15 Nov
+ 2026 08:31:26 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0615.009; Sun, 15 Nov 2026
+ 08:31:26 +0000
+Date: Sun, 15 Nov 2026 10:31:18 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: liamsmith827 <liamsmith827@grapheneos.org>
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Liam Smith <liamsmith827@proton.me>
+Subject: Re: [PATCH net-next v3 4/4] ipv4: replace obsolete routing comment
+Message-ID: <20261115083118.GC3764829@shredder>
+References: <20261112235932.23836-1-liamsmith827@grapheneos.org>
+ <20261112235932.23836-5-liamsmith827@grapheneos.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112235932.23836-5-liamsmith827@grapheneos.org>
+X-ClientProxiedBy: MR1P264CA0025.FRAP264.PROD.OUTLOOK.COM
+ (2603:10a6:501:2f::12) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,137 +101,154 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cover.1794672619.git.x-professor@outlook.com>
-In-Reply-To: <cover.1794672619.git.x-professor@outlook.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Sun, 15 Nov 2026 09:24:04 +0100
-X-Gmail-Original-Message-ID: <CAL4WiirENP_SBccpu3qq51f6u4E7BwFoadEARZctwm0CGNCusg@mail.gmail.com>
-X-Gm-Features: AclHuK-t99I7UXoH9TmlU6O0jB4ekfdvLqJegkYIbqioWircJJ73o_0Q7EGKhbQ
-Message-ID: <CAL4WiirENP_SBccpu3qq51f6u4E7BwFoadEARZctwm0CGNCusg@mail.gmail.com>
-Subject: Re: [PATCH net v2 0/2] tcp/mptcp: prevent blackhole timeout
- arithmetic wraparound
-To: Yingjie Wang <x-professor@outlook.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "corbet@lwn.net" <corbet@lwn.net>, 
-	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "rdunlap@infradead.org" <rdunlap@infradead.org>, 
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "ncardwell@google.com" <ncardwell@google.com>, 
-	"gang.yan@linux.dev" <gang.yan@linux.dev>, "kuniyu@google.com" <kuniyu@google.com>, 
-	"davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>, 
-	"pabeni@redhat.com" <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>, 
-	"matttbe@kernel.org" <matttbe@kernel.org>, "martineau@kernel.org" <martineau@kernel.org>, 
-	"geliang@kernel.org" <geliang@kernel.org>, "ycheng@google.com" <ycheng@google.com>, 
-	"weiwan@google.com" <weiwan@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|DS7PR12MB9044:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf2e9790-f9e5-45f5-f42d-08df42f2d6d5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|366016|376014|7416014|23010399003|18002099003|22082099003|3023799007|4143699003|11063799006|56012099006|10067099003|261022075727099003|261026121527099003|261021135927099003|261021123027099003|261021121427099003|261009223027099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	5SynxB1VUIBl1sfB3xjtTIYinZQoJFwW4pG3Z8Bg0h8YLn0ZIH1cgTo7cRiNcI5bmGfqPXHWgzlCH5LmvNZ/EbQmf79+JPqJsdZ44CMt6B+oGvfSmaUVvOUniPvBRWoayIEvh4wHmSD2NStc4T0WbYYF1zaPc+20IB1KEZC35Kj0j+MZKlJhs2r0qPRO6xgwguj1xPKZfG7efIw+DgzRh8NsvPgITn3dUkaFHlTGxFsZBFqbWKY6J8HJhWSoXUYeSXXe38pnsS4/jd5OsEMSCWoYoKcwqQxEmaIyoXmrw9ZcjSNIEw2edRMrRLjZqyG5Tz++fu4GNfw/bwahSUKBsozzbwezeAStdMhUXA/ve3C4pDNTR5c6SXFnzilcM6FL1ot9jRg1lbH+QQ/GiV+juqIM4UYBY01J67dUdeSe6TR8tZsSMlrbZ+3VWsIQ6eqkuJIq+IYXZor1ciw1gh7tzwA+AC7GPV1skG1ubl0L5PAEXWOJs9tWopojxujIRQfPdAsI0CiZGnzswjp4weJt2lwWph9QVFV6r9EfOZenbW5O2auQ//BlOx7dO50b4ZAIhofDm0IHazlUYLIGGrLFo821IfS0+yEwhLK+qsotOYAvNQFvpZeik3YlQvJNx3KS3a2nSoRPDh5ZcllyonDdCmPqbS5YwNUkploeM4kHOFA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(23010399003)(18002099003)(22082099003)(3023799007)(4143699003)(11063799006)(56012099006)(10067099003)(261022075727099003)(261026121527099003)(261021135927099003)(261021123027099003)(261021121427099003)(261009223027099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?2/29xwSj/b1FViDB54Dm3LiP6xYe5dv4oXCOrMnTxtWX0IU6DmQSXNVw0Aeo?=
+ =?us-ascii?Q?PM0ceAiLvhUCpx8oru0n5GUCpfRmPedM4+RrkueTHsyDlUXsN4kPh0QVwoNe?=
+ =?us-ascii?Q?QauD+V7yTr8b7vdch2shz6eMPTYCabS0KAh0u13ypVTaW2q4r8JLeUxn4Os3?=
+ =?us-ascii?Q?7YLU4G8AQdmJT/zWfhSaJWqFaTGA+U4MI+0lQ1Xim3wOsjnlR73shNQEz1uJ?=
+ =?us-ascii?Q?i08Ezv9r+iqAuOVMeP0uYplIvQq31YT1c7YAuyuq84m9tErtEc48dTenvBDp?=
+ =?us-ascii?Q?9z7aCkD34iKIc+KYaefAVZ+ILYWHMQwNUKQ8Yp8igo36eyq9tVPHYa4/oJkh?=
+ =?us-ascii?Q?CziGNJ/E1y2RnKf0JRQREN8i2A3xrveLYkViExP9B55h3zwi3+HYtZL7USzy?=
+ =?us-ascii?Q?N927y9bGxJl9PP8RCgjNC7LZYtRgxSI5yfIMKd8fXNc7RSHrvf6ejxfBezZP?=
+ =?us-ascii?Q?sUXRGsO/JRG880h+hqcf2My4A0Pwdcchra6lSXUwBC/yjYyT6W8sjV73wHfq?=
+ =?us-ascii?Q?sCAWQdJVyRODIIkrl6g8IkevyHSWNwIAYGU5OpwzDaBk3vdxcjAUY+IOA1RE?=
+ =?us-ascii?Q?QNh3H9iioBLuGlwqCuUlVQ51WfNEp0VoY+O9QpuHCrM5mjHNIqyh82u/VvQ0?=
+ =?us-ascii?Q?XTtxREWxO9iqLD6UKZ/ZW70xoLdslznGEcWFfki9mbwBDATWVL+sGEl1FFm7?=
+ =?us-ascii?Q?kyxylNOup6gV+j5BkM0xy1ubKdIKptG9gYeFrrdQw9CTMIcaWLrFpAaRQDjv?=
+ =?us-ascii?Q?e8wc45IGJqjugXUxWtj5Yqvl+QSyEn6F7PQggIa3eiZ8dd1C0pGKH03DpAt5?=
+ =?us-ascii?Q?LEjlgktBxLxD0IJmqpkxgZ5xUaFquaO2o+swMnQTOW+mZ7uxnMCLZCcBtwmP?=
+ =?us-ascii?Q?GqcNCn616jIfH1uZBX/eyCC3o2HH//j5GpnCr7soTMu7jHZvh7mbc1d9xVhR?=
+ =?us-ascii?Q?v6UeD6i5VP0N9xsSQQn+sSZ2Lz7VeKEUxHqTPH6917gByoyL50b0OSIUJbwJ?=
+ =?us-ascii?Q?uSsz6xLc7KeKdhAPajqfPFCqf05EmhvS5rcxTsw4dJOFTqavQ280DutIY4oI?=
+ =?us-ascii?Q?h5cw1WBSib09oPFlXwoe0xIodtAMPCGR9AsIPA3QG/9LfUIzFlY3W3FiQYSK?=
+ =?us-ascii?Q?zNOLeSNqsbHeTKkjzTYA0KpEKFGu+9o0S4+7zHavtij5aez/V9h98WVTvMUa?=
+ =?us-ascii?Q?JHqiE2Xpn09YEcC7eXAPqAOAYDvg1bDGftPRbcn9uVkIPqBjqSBmDSAMXb3Y?=
+ =?us-ascii?Q?rncM3L+dsDzmnP/Zhp1l+l2DfO5dDLOC9tRtHLnKe5uvYxy92Otq+VOCIRcU?=
+ =?us-ascii?Q?GeXo9uT7qlciT0MOjITo3lIe3a+TpeKJaDQ4M7JvVD11/MKDEp88uP4Wiq+M?=
+ =?us-ascii?Q?ca2mYpqH8EeksZeI+S2fx6Fc6vtPPWdzN7WSWNmiVZwPdIXGUG8wE34URNWO?=
+ =?us-ascii?Q?dOS0JpiKYtjoLYiCDeAo+As6inuwdye+TYtbqSvH3MkgL3ndUKmALd3pAtrd?=
+ =?us-ascii?Q?ft//JTwpjxqIf/WA99BaVrIzLE5l6dssumJA+wGl3MGqY87ddBXzKh+L4kCH?=
+ =?us-ascii?Q?rRL1opC+02OKws/GdOVREgrWg6XktHOGI/lyKBxJl+taA4RufW3piAfFIV0C?=
+ =?us-ascii?Q?hvZe0cHmkh7pbHxJogZDb6B+vF2bcNJejsoNB3NjTDKJhkmXgasFx+SWF0Tk?=
+ =?us-ascii?Q?ekQcrtKUzvtSre4aA0qZax+DB4knYX4T1aMc6CAn7aCscf5p?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf2e9790-f9e5-45f5-f42d-08df42f2d6d5
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2026 08:31:26.5574
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 85hlvP2VR2/9zen2YJFQfopU6DGzg4nmTph/5r8SNnXYRR2r+oRPPnAK9wPS58KvGsvh9HUjsqFkQiVgocPibQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9044
 
-Le sam. 14 nov. 2026 =C3=A0 17:12, Yingjie Wang <x-professor@outlook.com> a=
- =C3=A9crit :
->
-> The TCP Fast Open and MPTCP blackhole handlers multiply writable timeout
-> sysctl values before adding the result to a jiffies timestamp. The
-> multiplication is performed in 32-bit unsigned arithmetic, so a large
-> value can wrap into a short delay even on a 64-bit kernel.
->
-> With HZ=3D1000, a timeout of 6912213 seconds and the maximum multiplier o=
-f
-> 64 should produce 442,381,632,000 jiffies, but the current calculations
-> truncate the result to 512 jiffies. Both patches compute the delay in u64
-> and cap it at MAX_JIFFY_OFFSET before adding it to the saved timestamp.
->
-> The issues were found using a static analysis tool. In the v1 arithmetic
-> A/B tests, loopback reproducers induced 12 blackholes, waited 1.2 seconds=
-,
-> and then made a new connection:
->
->   TFO:   base probe 1.026 s, TCPFastOpenActiveFail +1;
->          fixed probe 0.000 s, TCPFastOpenActiveFail +0.
->   MPTCP: base probe 3.087 s, MPCapableSYNTXDisabled +0;
->          fixed probe 0.000 s, MPCapableSYNTXDisabled +1.
->
-> The TFO counter records another failed active Fast Open attempt. The
-> MPTCP counter records a connection that skips MP_CAPABLE and falls back t=
-o
-> TCP while active MPTCP is disabled.
->
-> Changes since v1:
->
-> - Add a reasonable upper bound for the TCP Fast Open sysctl, as requested
->   by Kuniyuki Iwashima. This version proposes one day (86400 seconds),
->   using the existing IPv4 one_day_secs bound, and documents that limit.
->   Keep the existing MPTCP sysctl input range.
+On Thu, Nov 12, 2026 at 11:59:32PM +0000, liamsmith827 wrote:
+> From: Liam Smith <liamsmith827@proton.me>
+> 
+> Replace an existing comment which describes obsolete fib_lookup(),
+> MSG_DONTROUTE and IPv6 behavior.
+> 
+> Signed-off-by: Liam Smith <liamsmith827@proton.me>
+> ---
+>  net/ipv4/route.c | 27 +++++++++++----------------
+>  1 file changed, 11 insertions(+), 16 deletions(-)
+> 
+> diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+> index 03db105303b4..d862b5ecad71 100644
+> --- a/net/ipv4/route.c
+> +++ b/net/ipv4/route.c
+> @@ -2856,24 +2856,19 @@ struct rtable *ip_route_output_key_hash_rcu(struct net *net, struct flowi4 *fl4,
+>  		if (fl4->flowi4_oif &&
+>  		    (ipv4_is_multicast(fl4->daddr) ||
+>  		     (!fl4->flowi4_l3mdev && err == -ESRCH))) {
+> -			/* Apparently, routing tables are wrong. Assume,
+> -			 * that the destination is on link.
+> +			/* When oif is specified, fib_lookup() is called
+> +			 * primarily to determine if the destination is
+> +			 * accessible directly or through a gateway. It also
+> +			 * checks whether there are any traffic restrictions
+> +			 * (blackhole, prohibit, unreachable), or if there's a
+> +			 * routing lookup miss.
+>  			 *
+> -			 * WHY? DW.
+> -			 * Because we are allowed to send to iface
+> -			 * even if it has NO routes and NO assigned
+> -			 * addresses. When oif is specified, routing
 
-The one day limit, the u64 computation and the clamp look fine to me
-for the TCP side: with HZ=3D1000, 64 * 86400 * HZ still does not fit in
-32 bits, and 32-bit kernels need the interval to stay below 2^31 jiffies
-for time_before().
+The new comment should include the motivation for the fallback.
+Something like [1].
 
-Why is MPTCP left alone? Kuniyuki's remark applies equally to
-net.mptcp.blackhole_timeout: nobody needs a multi-day initial timeout
-there either. I will let MPTCP maintainers decide, but having the two
-sysctls behave differently looks odd.
+> -			 * tables are looked up with only one purpose:
+> -			 * to catch if destination is gatewayed, rather than
+> -			 * direct. Moreover, if MSG_DONTROUTE is set,
+> -			 * we send packet, ignoring both routing tables
+> -			 * and ifaddr state. --ANK
+> -			 *
+> -			 *
+> -			 * We could make it even if oif is unknown,
+> -			 * likely IPv6, but we do not.
+> +			 * This fallback path is always taken for multicast,
+> +			 * regardless of any restrictions or misses. Non-vrf
+> +			 * unicast does honor restrictions, but falls back if
+> +			 * there's a miss. The destination is assumed on-link
+> +			 * for both.
+>  			 */
+> -
+>  			if (fl4->saddr == 0)
+>  				fl4->saddr = inet_select_addr(dev_out, 0,
+>  							      RT_SCOPE_LINK);
 
-> - Clarify that the multiplier is limited to 64 and the final delay is
->   separately capped for safe jiffies comparisons on 32-bit systems,
->   addressing Gang Yan's comment. Keep the READ_ONCE/WRITE_ONCE pairing
->   annotations next to the timestamp reads.
-> - Identify the original runtime results as v1 evidence in both commits.
+[1]
+diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+index 18cb8bfc5bfc..0b5f6e9cc437 100644
+--- a/net/ipv4/route.c
++++ b/net/ipv4/route.c
+@@ -2859,24 +2859,18 @@ struct rtable *ip_route_output_key_hash_rcu(struct net *net, struct flowi4 *fl4,
+ 		if (fl4->flowi4_oif &&
+ 		    (ipv4_is_multicast(fl4->daddr) ||
+ 		     (!fl4->flowi4_l3mdev && err == -ESRCH))) {
+-			/* Apparently, routing tables are wrong. Assume,
+-			 * that the destination is on link.
++			/* We are allowed to send packets via the specified
++			 * interface even if it does not have any routes.
++			 * Upon a lookup miss, assume that the destination is
++			 * on-link, unless the interface is a VRF device or
++			 * enslaved to one.
+ 			 *
+-			 * WHY? DW.
+-			 * Because we are allowed to send to iface
+-			 * even if it has NO routes and NO assigned
+-			 * addresses. When oif is specified, routing
+-			 * tables are looked up with only one purpose:
+-			 * to catch if destination is gatewayed, rather than
+-			 * direct. Moreover, if MSG_DONTROUTE is set,
+-			 * we send packet, ignoring both routing tables
+-			 * and ifaddr state. --ANK
+-			 *
+-			 *
+-			 * We could make it even if oif is unknown,
+-			 * likely IPv6, but we do not.
++			 * Unreachable, blackhole and prohibit routes / rules
++			 * are honored, but not for multicast packets.
++			 * Multicast in a VRF relies on this fallback since
++			 * the lookup hits the unreachable default route in
++			 * the VRF table.
+ 			 */
+-
+ 			if (fl4->saddr == 0)
+ 				fl4->saddr = inet_select_addr(dev_out, 0,
+ 							      RT_SCOPE_LINK);
 
-Please do not do that. The changelog of each patch should describe the
-problem and the fix. Version history and test notes ("In the v1
-arithmetic-only test...", "On the v2 kernel...") belong in the cover
-letter or after the --- marker, not in the commit message.
-
-> - Retain Gang Yan's Reviewed-by tag on the unchanged MPTCP arithmetic fix=
-.
->
-> v1: https://lore.kernel.org/r/cover.1794325665.git.x-professor@outlook.co=
-m
->
-> On the final v2 x86-64 HZ=3D1000 kernel, TCP accepts 86400 and rejects 86=
-401;
-> MPTCP still accepts 86401 and INT_MAX. Boundary tests also cover zero,
-> negative and oversized values, failed-write preservation, defaults, and
-> network namespace isolation. The large timeout used in the v1 TFO test
-> is now rejected by the TCP sysctl limit.
->
-> The MPTCP blackhole test was rerun on this v2 kernel: all 12 clients
-> completed, and the probe used TCP fallback directly (0.000 s,
-> MPCapableSYNTXDisabled +1). The full x86-64 kernel build and affected
-> object builds on x86-64 and i386 passed. The upstream TCP and MPTCP
-> selftest suites were not run. Full allyesconfig/allmodconfig W=3D1 builds
-> stopped at warnings promoted to
-> errors in unchanged lockdep, coda, and x86 callthunks code;
-> the affected objects passed W=3D1 KCFLAGS=3D-Werror in both configuration=
-s.
->
-> The patches are independent and have separate Fixes tags.
-
-About the Fixes/stable tags:
-
-This needs an admin to set a timeout nobody would use, and the only
-consequence is that active TFO (or MPTCP) is retried sooner than
-requested.
-
-Also patch 1 now makes the TCP sysctl reject values that were accepted
-before. I do not think we want that in stable trees.
-
-Please drop the Cc: stable and target net-next.
-
-Thanks.
-
->
-> Yingjie Wang (2):
->   tcp: avoid wrapping Fast Open blackhole timeout
->   mptcp: avoid wrapping blackhole timeout
->
->  Documentation/networking/ip-sysctl.rst |  1 +
->  net/ipv4/sysctl_net_ipv4.c             |  1 +
->  net/ipv4/tcp_fastopen.c                | 12 +++++++++---
->  net/mptcp/ctrl.c                       | 12 +++++++++---
->  4 files changed, 20 insertions(+), 6 deletions(-)
->
->
-> base-commit: 30c71476d842b094651bd7712f6c8ee8716147d0
-> --
-> 2.43.0
->
