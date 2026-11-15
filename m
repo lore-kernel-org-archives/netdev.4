@@ -1,60 +1,76 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794776661;
-	b=2OF/EyiyTycTXUd/0t+QwQLMFI9xxafjBboQ+45Llfj0mPultQgJ/1FPboV3eIWyfRLr
-	 lt7AoZUOcYJagr0S46qdgYRVRc6LxkmW2DhVSQ4RatTTS2lQhBc+eEnxr95E/XX/nXclS
-	 nww/6PHCaAv2VRal/XLYBNYnVUC8iapT+vykKmfRRc+rsXETnitooHYXfMH8IU3PFRMa+
-	 gWhOARjOECAlcCney5hQS2eNztHD4RzC44zF7R2oHRwEW3+5dpb/07n88z21DUWUosu0u
-	 pRSdWStAFYsMo9jkRqdfjz14ROfXN6eVVGP6GmbRZyS2YOviVS6P38h339cmbOyBIBw==
+	t=1794777197;
+	b=NOyjRReX7YEdzr7wrXnM+flIT0lcvlcJSBtCT9lZA49nm/BGjhPaNSsay79P2B6xmJsL
+	 ZXWWgumQAtY5lUI86Z/cfEy+bG2ISwintdjtlbjTxURIIBI/fLfMWVcBrWcDNaBBhgKqG
+	 b/ZwN4zd3S5Tx4+oapkSh2W8W7e80oHdVISTM4ST0rxDLd5GWH2/AiwNKb3Om8PJu3FFw
+	 UOT5GRBDLySlWoTE/Gvc2WqyyoyKffUYUNi61lHJA5PR/FFzgDm8t1Y3vrQ5omKR7RcYG
+	 SltN3XBZsTHcDgI7H94KRR97h6UITMYcb0mteaXkzWPa9EYTphzpAaz7teCUlU7OXgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794776661;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=PibRXBXiLpEoEbrOvo9EmvvXD/tNRe86o7ZaehpKWYs=;
-	b=2yOZ71hCEXVkQp3dDiVgqh/Uyy4KHtdrA4yPvRsG8z0J3bR1ze8vRsmfWa2MZK+J3WTl
-	 elhEodNDQCt8lVyh3rpHxCkGSP5ySUE1/KEZVQRAPw4SoVW1X3DGFn0JQ8+9iAge9zy+g
-	 wC0CKBzQHfrghSpPaqLGYO9N/1amXSB1DAffckWD15PizprVVCI5u9JlijKK3fFEei/w6
-	 t6QCO8b96p2psHqnc+1GO3B+KozAuhueJCYkAzNviEdLlq6prLc6/kS2o113qB1crCZWp
-	 o0e6FCJrlVVeMtxh/vE2ZRW4G/7S0gyKG+BBhZdgxJTsZilJdT4NUT1XzCLHpXgu0gA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794777197;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=Dl2GSKLNZwxHnys/gmOepf+Z7DTsWvB68DYjsGWZv64=;
+	b=TxPDETuG8JRheq5bumrsFf2WzyLiwwd86kG0CGR/OoqwIOyE18In8FvwHd+mkGAMeDHt
+	 YhhBwpsPGbvsWwr4cH8QF7+SxpmwaP4FUC3hyCj/phgD1n1+bqlW6gGRSd0KqwHlGN4lC
+	 5vt606VRmodnERqi/V83HziHSBN20N7XeIquwLpQpDBxc6jVMUn9C2yQBVsn96JWBaAQ6
+	 Dkm7m69gyX4Av0pCiTyOYhmQfO3VlfFuxzlWyMRljfI1YYwrEKUrhoML1CHsaSqa5GAjZ
+	 riyvEsqvNRqXqpUKjTbUdgq8BYfmU3XfMUjzO08EMJqPyGEugFs/bfCGZElSaaJfV/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="K8vh/Cdp";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GS99ENSk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 725FC606A33A;
-	Sun, 15 Nov 2026 21:04:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E568B606A31F;
+	Sun, 15 Nov 2026 21:13:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K8vh/Cdp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 511531F000D0;
-	Sun, 15 Nov 2026 21:04:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GS99ENSk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D9511F000C4;
+	Sun, 15 Nov 2026 21:13:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794776661;
-	bh=PibRXBXiLpEoEbrOvo9EmvvXD/tNRe86o7ZaehpKWYs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=K8vh/CdpYRyzwm0mUWnyI8gQ53va8B51wGcaknHqxStrbFH0AOJs/yiYVXL8vwuAI
-	 u6ABzUdt4hA0NXAYqXMRhgUWePQEbxOpKsqtu1SRm7kQ8/TVz7YwkvaKQuxaa+t03w
-	 /RJuvOkbtP6Z6Kh3pQ07oLA3OqYC988MO2xVJkt+FysoJKxi1B5XengvfhtdMX01vq
-	 oQ/fska3x/C8swtUp9rdcujdL+wX9aeijnkgbB9bp0jm76EuQkC+WslEp4M6SpyHoY
-	 tRJO8ISjjwlNp8WigaBXH3QYsUqBEopsfTUu2vh/TyNo5mMsKbiAj3bhFuKpbTyyTt
-	 MwQAMkhSGpAxw==
-Subject: Re: [PATCH net] net: macb: limit jumbo frames to the RX buffer size
-From: netdev-bot+sashiko@kernel.org
-To: gaohan@iscas.ac.cn
-Cc: theo.lebrun@bootlin.com, conor.dooley@microchip.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- punnaia@xilinx.com, harini.katakam@xilinx.com,
- linux-riscv@lists.infradead.org, rabenda.cn@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, zhengjingkun@iscas.ac.cn
-Date: Sun, 15 Nov 2026 21:04:19 +0000
-Message-ID: <179477665987.3136.1735758740648548604@kernel.org>
-In-Reply-To: <20261114-macb-jumbo-jml-v1-1-f501395eaf9e@iscas.ac.cn>
-References: <20261114-macb-jumbo-jml-v1-1-f501395eaf9e@iscas.ac.cn>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1794777196;
+	bh=Dl2GSKLNZwxHnys/gmOepf+Z7DTsWvB68DYjsGWZv64=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=GS99ENSkyF3TPKalnRsitjk9MfxxCoI6uu2CrsWuj6OXs2LGrdDdsTtemrKU81oTS
+	 NQz61UnwJFhSzPQx45UBtUCU4SHKf9nYerW8/f0vMoe4Nnc0PqiDPZ6GkUmC8WfdEr
+	 81svY8FiHAcrkEj9C1GqS0Y+SS20Rz6IEPoAbbjdiVpqAFlGrVvJXGcD5WO8EKnA+x
+	 aORjlLA0gh6XEt6NUM0wUGse7rdtOVrYDdvQCgqJBfwtLeYGvawNqjgaOBHHR7rTya
+	 Uj3Y8dY+wyYgPhRcmdYuNHbD31nus/Dx1xO68JCpIEI/mZzl1dYaqUpZosbs3C3yT1
+	 1tvvicofqqg6A==
+Date: Sun, 15 Nov 2026 13:13:14 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+Cc: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
+ <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+ <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
+ Alexander Duyck <alexanderduyck@fb.com>, kernel-team@meta.com, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Jesper Dangaard Brouer <hawk@kernel.org>, Ilias
+ Apalodimas <ilias.apalodimas@linaro.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend
+ <john.fastabend@gmail.com>, Pavel Begunkov <asml.silence@gmail.com>, Jens
+ Axboe <axboe@kernel.dk>, Andrii Nakryiko <andrii@kernel.org>, Eduard
+ Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil
+ Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
+ netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org, Mina
+ Almasry <almasrymina@google.com>, "Mike Marciniszyn (Meta)"
+ <mike.marciniszyn@gmail.com>, Weiming Shi <bestswngs@gmail.com>, Nikolay
+ Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, Alexander
+ Lobakin <aleksander.lobakin@intel.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Stuart Clark <stuclar@meta.com>
+Subject: Re: [PATCH net-next v1 01/11] net: Get skb fragment addresses
+ through netmem
+Message-ID: <20261115131314.2d3ab96f@kernel.org>
+In-Reply-To: <20261110102039.1002605-2-bjorn@kernel.org>
+References: <20261110102039.1002605-1-bjorn@kernel.org>
+	<20261110102039.1002605-2-bjorn@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,94 +80,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Tue, 10 Nov 2026 11:20:22 +0100 Bj=C3=B6rn T=C3=B6pel wrote:
+> skb_frag_address() goes through struct page, so a net_iov never has an
+> address. Only unreadable memory should lack one: XDP and BPF read
+> fragments through this helper, and AF_XDP UMEM will back readable
+> net_iovs. netmem_address() also returns NULL, not a bogus pointer, for
+> an unmapped highmem page.
+>=20
+> Generic code needs the size of a net_iov to find its address, so keep
+> it in struct net_iov_area instead of the devmem binding.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In drivers/net/ethernet/cadence/macb_main.c,
-  gem_jumbo_max_len() sets the GEM JML register to rx_buffer_size -…
-
---
-
-net: macb: limit jumbo frames to the RX buffer size
-
-This commit moves the JML register write from macb_init_hw() into
-macb_configure_dma(). It now derives the JML value from the RX buffer
-size rather than from jumbo_max_len. With this, the MAC drops frames that
-would otherwise be split over several RX descriptors and then rejected
-by gem_rx().
-
-> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index 5ad0e32e2b400..e7c9bb24c377b 100644
-> --- a/drivers/net/ethernet/cadence/macb_main.c
-> +++ b/drivers/net/ethernet/cadence/macb_main.c
-> @@ -3240,6 +3240,18 @@ static u32 macb_dbw(struct macb *bp)
->  	}
->  }
->  
-> +/* Longest frame that fits in a single RX buffer */
-> +static u32 gem_jumbo_max_len(struct macb *bp)
-> +{
-> +	u32 len = bp->ctx->rx_buffer_size;
-> +
-> +	/* Frame data starts NET_IP_ALIGN bytes into the buffer without RSC */
-> +	if (!(bp->caps & MACB_CAPS_RSC))
-> +		len -= NET_IP_ALIGN;
-> +
-> +	return min(len, bp->jumbo_max_len);
-> +}
-
-[Severity: Medium]
-Is the value returned here 4 bytes smaller than the longest frame that
-actually fits in one RX buffer?
-
-macb_init_hw() always sets DRFCS. The MAC strips the FCS before DMA, so
-the FCS never takes up space in the RX buffer:
-
-	config |= MACB_BIT(DRFCS);		/* Discard Rx FCS */
-
-The rest of the driver treats jumbo_max_len, and so JML, as an on-wire
-length that includes the FCS. For example, macb_probe() does:
-
-	netdev->max_mtu = MIN(bp->jumbo_max_len, RX_BUFFER_MAX) -
-				ETH_HLEN - ETH_FCS_LEN;
-
-Without RSC, that makes the largest wire frame that fits in one
-descriptor rx_buffer_size - NET_IP_ALIGN + ETH_FCS_LEN. Wire frames from
-rx_buffer_size - 1 to rx_buffer_size + 2 bytes fit in a single buffer
-and were received before this patch. With the JML programmed by
-macb_configure_dma(), the MAC now drops them.
-
-Some concrete cases:
-
-On pic64hpsc (jumbo_max_len = 16383), max_mtu is
-MIN(16383, 16320) - 18 = 16302. macb_rx_buffer_size() returns
-MIN(16302 + 20, RX_BUFFER_MAX) = 16320, so JML becomes 16318. A
-full-size untagged frame at MTU 16302 is 16320 bytes on the wire, so the
-MAC drops it. Yet its 16316 stored bytes plus the 2 byte offset fit in
-the buffer. MTU 16301 fails the same way.
-
-macb_rx_buffer_size() does not reserve VLAN_HLEN. At MTU 1513-1516,
-rx_buffer_size is 1536 and JML is 1534. MTU-sized VLAN tagged frames
-(1535-1538 bytes on the wire) are therefore dropped, even though they
-fit in the buffer. MTU 9001-9004 has the same problem.
-
-With QinQ at MTU 9000, a 9026 byte frame is larger than JML 9022 and is
-dropped. Its 9022 stored bytes plus 2 fit in the 9024 byte buffer.
-
-Should this add ETH_FCS_LEN, relying on DRFCS always being set, before
-clamping to jumbo_max_len? The reported FU740 default MTU case would
-still be fixed with that change.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261114-macb-jumbo-jml-v1-1-f501395eaf9e%40iscas.ac.cn
+IIRC netmem is supposed to be used for frags and memory CPU never needs
+to access. This patch looks odd. I haven't read the rest of the series
+yet but at the very least commit message should explain why this
+aberration is needed / correct.
