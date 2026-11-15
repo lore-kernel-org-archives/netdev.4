@@ -1,105 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794777697;
-	b=kbrhmHMISGUEKPKGf7DKsDXR/b+xGGetIsrpi3saYpoDT+qjz2l10366A+MBN+dy7DxY
-	 hkus7a4iPaGDlKFyKEoI3Z6A1GEjuJfAtdA/a+q4FHZMPc4HbK6xw0Z2EcRSynHsPQzFq
-	 CAM76jd0aYsd8NkLMrql1ePvHEfpY1OL0Qzfnhe+s++/XUc4JpQjO8ktkZWulLj4l66Y+
-	 +9SD7PisZJKT7thMR/TqBpsmOMyclNHXgbIplWNcexaLE1QefAM6ZLOODmAE3EeEVIihB
-	 Oa+pBgWxkKY9UIjF6af8EYdY+TyBFYI6vPKfIFj/27oxQUAHjFdskxA99NRa/lRrT2w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794777697;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794778482;
+	b=X507RJdbDRPNmhSrkaAR1H3vfw5dlQ54xFhVO9GSB3yvhSVsMLp5z5YtjCLKY7B3vtM3
+	 XziXDrqbqBmLkWQltlqPyiNnmpKpLgIfBKNszbLoNWft69oLtdHUt8tcwv/GIghQzqcLp
+	 +h+YJWobu8d5gvBRl50byk0qTiVEVUF1mZX6HIUEhJxpxx5QIpS9+LoEa9bDrHclPjZcl
+	 eEG8l2Q+5Q4MiX3cJ2pfhkpDTCcJw6mFUiIzeTRMmJwNPKTvWFy3SSzy9N+/hiUnlaQXs
+	 eLv64SfKxngSbSH/deTKpGv1ORFTe8oelH3lnmUbMYHCkN5G1Yamdko42vKjKUGYwWw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794778482;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=U+TujgQ1BSv/6MjNJRe3WggEHkX9fvK2a6kRHkLOphI=;
-	b=E8XYzBBt6vgjRQU7nwcXWvHjFuFYAdsIwFDzOasBNDDQ6E/Ev2AFFRFj11+OhB44hawi
-	 kdwDSOzON+J97LBLp2mrRkE9cmWYz42L6W2q4CGpbLUl97kzyNzjohhqxyr6r2LL7BaCM
-	 yS2OKCEWRNVSPyoP2zkFmJoMnFwZ4OPLtzJqdv1YcboLIqokTB7qHzrmt3iRa+L8aSejf
-	 YJb2fjKzQQhjiOE9q1hhKjcWj8vVP4UnXsoUe6j82ya5F/b925eRESBN+uWHqbMkQMwOD
-	 ap+k1bgFevkRTGmfZqNhr44rdoEihoybEQd7rqalYapXlJoO4Ooww97dZI8IuDf0DMw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=agEhoXKQ;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=cs9JHELr5d8wuCO3bjOm1h46Bh/lIS6/9xmpt7kk/0s=;
+	b=rMcG966Whlb/8XxAQa66vQ8MNxzBpeVNQEnpZ7KupllyCHXNWtAdUiK4gdkzlHJOBBbF
+	 Ui3572BjC+L7YgzVfPLUV9c7kl1XvOWxPGrFpQNrolNBJjh9IBw4A1V4Q4NRQNOthn7UD
+	 QP1Er4SQJSROOVhfi7Hm2rA42nNknGz3zQIQplt7qn779dW7HDkhWTAW4/oBDwbdPUdis
+	 qyBxz/Ci4G7m8eX6xWkOhArccIQF97w8ukpDbRloM+1T+nQMiNRi3ejI6gF9VM+5wlO79
+	 QT77S1RVlMk13n3+Ym8HhIROozSLER/58a49X5eH6x1XCqRn8PpvzqXb8sqaOEC2jgQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cloudflare.com;
+	spf=pass smtp.mailfrom=cloudflare.com;
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=LQb7bpGA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.53
+Received: from mail-ot1-f53.google.com (mail-ot1-f53.google.com [209.85.210.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A002606A32C
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 21:21:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A002606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61F8E606A330
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 21:34:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61F8E606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=agEhoXKQ
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a7a3b29c11so2977315e9.0
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:21:37 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=LQb7bpGA
+Received: by mail-ot1-f53.google.com with SMTP id 46e09a7af769-85c1135c286so2838759a34.1
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:34:42 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794778481; cv=none;
+        d=google.com; s=arc-20260327;
+        b=g9zZO/qPBTLeMjpZso/emEldPVOnmDsvvlJ//GjoutIISzJ2q7M4nx41FuccWboz61
+         IXghtVdgebbvy3z1B7XZcfqG8+MeMv1tDo00EjNkCn93RK7HdH9Efx40uXFJph4XCazp
+         d4dCWjY7HBbcEsxIb0NsdUawY1kPZ5rZ1u4+Fz3ak5Bw9PLIvm5jPgM9UwyHcObr87k6
+         QKqq60xZ9MjB648N5er4V1+6FzsfnwlmAPj00uQ5yW1BW+XR3UbganJ13cLEYfn6PyhG
+         Pg1Du2j0QOhBnRwh72rcj/ELEw9T0N7Jd9jfawGBboFmU5DkvEOKxBeSQmzj858Sd7yK
+         x0Iw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=cs9JHELr5d8wuCO3bjOm1h46Bh/lIS6/9xmpt7kk/0s=;
+        fh=kojixtvBpjk/xRIaQ3//4I53+Uid43O4FaEW64nZ/IQ=;
+        b=SxuASXiUdBg0Eb7/8OKCqyQq7SMq6WDxkb8MgOdJnPRDK4gUf4bA58ibmqL8cOpFTd
+         owi/PoGKWGZOS1OgVMJCdIUEVctnf+jkn4xmYXaMJaf1GgtNrPDJkKUPQrmrRZ4SOKiN
+         qm2VO/D1gW4V9GyWKPvCx73XaMGk7LzsKIIUStMw2ZtNP+83ss0AiuGtKgSdR63006oN
+         P6uHmv5zwwR+P5migVzn5BU0pO/vlwO6FXM0fE3+w0Igg3sSNIAsXpe94O5TkstUPrut
+         q8wsfX4MvrKipf6x7RIlOLtud/o6W51Aolh7prpqs26pXwlGka5/nrKUBwteRUxfzdKz
+         c0uw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794777695; x=1795382495; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=U+TujgQ1BSv/6MjNJRe3WggEHkX9fvK2a6kRHkLOphI=;
-        b=agEhoXKQZko8bWKNlYxvZnSuZxTEFOAB6dprNXg3wBYx1g+Ln8WIwf64vbZs/XcPON
-         0/QhMLpasTuzhFHeo2IeqL71xMbjbhWyUYmFw7eXnGCKieUdV3jr3VwLzkL89cSULzMB
-         xAvKL6ck0ocm9TP4QAEy8ka5xvnobcyDJ/jRdS/TLdB/oLEFdQ+iiGgSOOmZepsfkYgO
-         DVh8+4lCkqX8Vopm2PCo+FoTW7JhKM5cHIbSPA5fWhJAK02mwBR6AomTb/JGDc8S+xo6
-         A4wlSMc3Qxz18C/gZ6OW3d3yJHpIFgPY9uvsP2VlxtWYVPLc9BnPdg6CEmcmdGzqNWv0
-         uCdQ==
+        d=cloudflare.com; s=google09082023; t=1794778481; x=1795383281; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cs9JHELr5d8wuCO3bjOm1h46Bh/lIS6/9xmpt7kk/0s=;
+        b=LQb7bpGA03szUtIQx3bHdBEh40GP6gIqmFccn3+VEv955kr1PLbIVOR0uUlP87lFx7
+         4/Dra29lac4PuGRuM3R/yXVFBmgDTi6WO6vI85vAlw0n1V34Jf/hJpYsAkBnMRiQ6mqh
+         V3GMoen874LPOwBhk897GpaUo6XfRFJm+vBswGdzMb2I2uQPn0fQN6MCPQCsjuKV7gfF
+         2GSizdod0eYE/AaE3zaC/iLIkeED6WCx5HrEXxJh4s8Cvi4lLu6aOzwNQot2VdIdJN3y
+         8Bx0WHoW4EgCtFvY1FZetZuaNHmmrlxLT56LB0/prybZyypsd1+ABS5X/os09adxvk+0
+         glnA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794777695; x=1795382495;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=U+TujgQ1BSv/6MjNJRe3WggEHkX9fvK2a6kRHkLOphI=;
-        b=yzV8ih66yn1MlfnrTUN7IS0n03isGbmb0r2AUlflpbAemyimF2AvNaiOTScbg4XbQk
-         m5j/YONAjGgyAKMLz44aCZABoX6Mwrvv/nNCWn1gchRRR/pSQSlwFC7ODJDVleQk+p3R
-         U+31+BISe1f8ZL3ALPHl+pO0bGeWv6qlQ4JOWa3U5kEhXdsac4z5twAsLSBh/0DfGu0R
-         H2e7800zfuVEMFh+9Qj8E6mymdRXg2PX/X0qmxSQji5MwCzn2ZbAUGZvQgQ9WB5cwW9C
-         D7JtLP4tpjhAtHW8AmWEVES2vUeBzMKXx6+akfmnp9We/mgslicp3Sb+drZ1yEKNv+Ct
-         cX1g==
-X-Forwarded-Encrypted: i=1; AL+hErEOJP5hDeFhGfRxWy/gME2sYmC9+n7fKSBJL4F0KzynOMAZTM9SN63ay+IWFKlgti4ZNiGb4rw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CSH48r4slh+tLlEggSYBQwkFs+Cf4CC+x4hkZK8fr2x5BIyM4
-	EeHDDMnpWe9StwXn1D5vVXX56jH2HHrkSTgLADFra//okvBAKL334dKM
-X-Gm-Gg: AYBFou1C5gtZf4DkqeyK+QJYBBF2wL1RjP6cVeFrL6kBz5vcsQ6k35U8+9eGyMUBmt6
-	EhRkXDSUUb2rkxx9HIm7qlPtNa8v47HeTO+sjQ5P1SgCOot/61njupuvqDnAG1FhCvAsIVKDbsF
-	ccpyT4xA0ylnqL664PbcEOQTwEn6O95bDTpYsLMG6EYozUDHb+4vqQgRiVAFB2L8pmCBYbCFNy3
-	ntFhdWRIn/JQ/m93ENq/QAeKmoC1DSbzMlfQCfKvMvU2qnneZMthYxRzodhlAWc8feifrAjkGSO
-	LlYFom7JXtHar8Ylz15/sD+Ekusjs0lmVDmkgBJaQ5bYqnFDuC9tBI1l6gwJVQB1tNs3N3a133f
-	tNe7kiksp8Hk2+w136LJ15jBO21u0DXYFW7DkEYjKZHf6uNb+xCvuI97LZ+VTWFs0nvoK5ia0fB
-	Y49+jZXSel/tTeDFXFRJRfsxLYL2Lm2KIjhSUMAOJgbjB92QhmPqs4dm/8sN9YSzWogfGQIuxdr
-	i+5/sKIUFpChhk7Yhu30DERaIFDhcqiy68TeSKkWDxNB0Sbm14FQ9MGnPxVlHDKU56ybZmwCju/
-	bVD5dv0nzx6sYr+TdeAl8bWwKCvMpBb/FbuuCKjBjewZ/1F75EzjG1q2Ow3cNKigToGb2OsC
-X-Received: by 2002:a05:600d:644d:20b0:4a1:b027:99ef with SMTP id 5b1f17b1804b1-4bb55a3f05cmr146093485e9.2.1794777695431;
-        Sun, 15 Nov 2026 13:21:35 -0800 (PST)
-Received: from Nuel20.localdomain ([105.112.221.201])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb55a0ffcdsm217726975e9.0.2026.11.15.13.21.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 13:21:34 -0800 (PST)
-From: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-To: kuba@kernel.org,
-	tianyi@cloudflare.com,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	skhan@linuxfoundation.org,
-	Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Subject: [PATCH] selftests: net: veth: propagate channel-check failures to exit status
-Date: Sun, 15 Nov 2026 22:21:16 +0100
-Message-ID: <20261115212117.48496-1-emmaonana18@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20260707; t=1794778481; x=1795383281;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=cs9JHELr5d8wuCO3bjOm1h46Bh/lIS6/9xmpt7kk/0s=;
+        b=nEob8IgM9/NBIKOOWTW5335qneX/UPX5JCJXHu7/Qnu8d+vMwv+Uqh5IcdiQAnKxIa
+         44SXEgH8zZb3M76ZzcPy81mAx4nzn0usOC7AwliTnovOC/HYo0sGHcRTzuVC+13lHGat
+         aueIqUGX+7bNA9JZ/oUhBakMr13j61H4aRiX11rQzVhv7d5yO5UG+qOj2682LJR5YGAx
+         EZQsdU3pGXmM02H93wbw6elYPtC5X+FvL6523tslWE2vSSCS2n3/GBeie3kGzK6sr7Ri
+         u7GEqkT8kRmCu7k9xgbbrm685JKuyJfn6Lghtz0Ht0PC2Cs0Ir99QkSlHXTWYgw+IXMk
+         njnQ==
+X-Forwarded-Encrypted: i=1; AL+hErHbPHdsOyRDWHU9LLxmrz6GKwQ7MhtwYDQM2/cFlGsYHf9XSyON5D7ZIUk5IYGS0wx6SXTjn2U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z884j3D9qJU07snWUin/u+TwiaXFGRIpVRnbWe4c5Yzf0nr9z8d
+	WkNk3mIV/ODiN2a5F2PQbO3Rp3IBJRQKStfXniFIAEzGXNJq6IOGurzzuEfkVBkyfAYmdYj/2jK
+	wPRqj6eTPa04bxwbjSJxFUzULV5mKOoojA/gKF3P7+A==
+X-Gm-Gg: AYBFou1DtquvlFV3FaVYBsBPh2jDNt7++8scclyjAIL+vF30shn6TOSAxzKLjL9UimR
+	MoqfoM1vplZj52XsNPb2QyBwrT6MqyjQrt1zVUnnL9q0f0NSoz6lA6LReHD6Govd/JsKcWgNybZ
+	4N2U9A6X9MlB0b9pTrnQyfkXQjXVfd8/z/woL3OPDEAhV/9qp5/CxSI20mz06r/TlaNQuUzx1gt
+	luwfWmBB5dFwPQ0UOMMmi7drMSnksOGQvh/+oOGftxhBk78oDSqiXXz70hyjmF+0eud89wJ9Pb5
+	+EjFo+BmdoUVovpLGKWfAgrlGDwH/f8NvxqtFXmrVSDjEMZu7RiFWTKdKZEe3TNspyorVoXPqkp
+	ujhzcfbalihff3pcB7aRnVbr/vXt3wdLRC+H3ll3tDCpLnZHS5VZrlEilyJjsSoqALhabOP4ljy
+	73Zu9DkT3Nug==
+X-Received: by 2002:a05:6820:3389:10b0:717:866:abde with SMTP id
+ 006d021491bc7-71ab50b64f8mr4048862eaf.50.1794778481265; Sun, 15 Nov 2026
+ 13:34:41 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,32 +104,28 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261115212117.48496-1-emmaonana18@gmail.com>
+In-Reply-To: <20261115212117.48496-1-emmaonana18@gmail.com>
+From: Tianyi Gao <tianyi@cloudflare.com>
+Date: Sun, 15 Nov 2026 21:34:29 +0000
+X-Gm-Features: AclHuK-PPhL2FyJA0xoMqtYefnBbjo3uLjHDcDBJy-SQemPSC9ZW6IQWHZkbIBg
+Message-ID: <CAG4wq-exUYFvw4i=gQZhwC8fF3tnhmOMtv+NceYTBEx_TO+F7w@mail.gmail.com>
+Subject: [PATCH] selftests: net: veth: propagate channel-check failures to
+ exit status
+To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Cc: kuba@kernel.org, netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, davem@davemloft.net, 
+	edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org, 
+	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org, 
+	john.fastabend@gmail.com, sdf@fomichev.me, skhan@linuxfoundation.org
+Content-Type: text/plain; charset="UTF-8"
 
-chk_channels() reports mismatches with a "fail" line but never sets
-ret, so the script exits 0 even when channel counts are wrong. Every
-other check helper in the file (__chk_flag, chk_xdp_feature, chk_gro)
-sets ret=1 on failure, and all chk_channels() call sites expect the
-check to pass. Set ret=1 on mismatch.
+On Sun, 15 Nov 2026 22:21:16 +0100 Omokefe Emmanuel Onanaroghene wrote:
+> Fixes: c017800af5c71 ("selftests: net: veth: test peer ndo-xmit after GRO toggle while down")
 
-Fixes: c017800af5c71 ("selftests: net: veth: test peer ndo-xmit after GRO toggle while down")
-Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
----
- tools/testing/selftests/net/veth.sh | 1 +
- 1 file changed, 1 insertion(+)
+The Fixes tag should point to the commit that added chk_channels():
 
-diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-index 64c2a5a59821d..5c1dbe1516bb4 100755
---- a/tools/testing/selftests/net/veth.sh
-+++ b/tools/testing/selftests/net/veth.sh
-@@ -130,6 +130,7 @@ chk_channels() {
- 		echo " ok "
- 	else
- 		echo " fail rx:$rx:$cur_rx tx:$tx:$cur_tx combined:n/a:$cur_combined"
-+		ret=1
- 	fi
- }
- 
--- 
-2.43.0
+Fixes: 1ec2230fc721 ("selftests: net: veth: add tests for set_channel")
 
+c017800af5c7 did not change this helper. The bug is present since
+v5.15.
