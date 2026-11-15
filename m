@@ -1,101 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.4
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794739163;
-	b=nCnBNGnjCPfmPr9MCbliZ3IHS24hImyMFNQmkRIpwkp3qhJBcExlK1A6L25HFkiFhZc7
-	 xDcS97OGfXRSrBuECEJheluApTK0h9jpeA6OtA0bYDSKNsIVumpbh6uRh6C6zsLJ7RNKX
-	 hcEiHlKT5RdjK/VYfGUQ7hBOXJXFFIhaICAPVtPUdfcUTl6/7kemGdzN2jXpkjGsM/9ad
-	 6ZYPFa2X+9ASVq8Jbd9JcnYYsyJfXeT4KfHeyQ3daeqOdr7iR+v1rsTYjCjxVuLetRFo2
-	 JV2lOdf3hArcn1FnKqqMGdFTnYGLozQs4N7kKzzdiRv0Dh8vytIBmqwHdkGxBUM/YPg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794739163;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=o6e5RjUi6SxFqxQYYOh4pbeW5UuGJFIN6PorK+EKSDY=;
-	b=KIQmwAlS06aGTT2q06cFvy6B5ruxzNYKbD0POc9DTvjbvmFzUCVcqnpF5+wh+c3n3vlQ
-	 vBfr63FM8hekeFabnVN5PqlwUTvsV07ufkvQa5n1I+v6UwfySz1cX2ObOR9m9+lKGIMx2
-	 DhM4ghfsI3WF5EUvGIx5uyvh5la0brLRQ48vMSBHa+iUARy/GDc9bHfVrXerGgpsW4PH9
-	 /5KD/wqEp3aijrCWIJmu09XpBbxCTYV9+dzZu7Cm9rP0VGi84fMHaSNazyNQQ8mThovRH
-	 r4Leq+3hJsHZptnyR2znB2aXtBh6kcjVqmlWESsEAM0njfMDkN/y19s7zFAqBWToZ4g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Rd3YUliR;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.4
-Received: from PH0PR06CU001.outbound.protection.outlook.com (mail-westus3azon11011004.outbound.protection.outlook.com [40.107.208.4])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794739440;
+	b=277xzkgYI+NjnSzlDWmJ4iR/jHEj3xOxukWjVuH4y6knIt9bbl0rx5SJkT1+AQW0rwG0
+	 gJSv1JQFYtYQM0qzArMZvGL7UVRp5KEIvMfb+uETbB/ktziNPa810exPBt7ONxXFQ3DlC
+	 eBx9o4NjFvgG09UgfV6368GToFhj9Zqslf3QWlnbuSFrkdk/YBh2eme9Nn2EmGZ76qHHU
+	 8wFwpIJXJEM9HRTb+ArF0nMHUvZSeNXext+5Obyyx+6gkWZdspv5ptOR09Yo3nYIzvWfH
+	 Q60SIFPswDTJLXew5TC2aARyivhUMHd2tNiPlwEgP4kmV6YgIB9zZVfS2xAdWaz15cw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794739440;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=M7q3XhZjIgILEi4FdjQiYVSDqbk2Z9+UcwOqPf7M1/A=;
+	b=ODhFZDM+3dq42aAgLvfCsTelp7oJj6C+Odl0Okk7+bgF/B96EAPUqv/pQkzHj9jnmNjj
+	 bvlR9dEkxI1Q1aYBpRgTSCsQ5IzKlAqj9fTMimdY6zhgn4jwvq3K9j3y7fia43dIqF0C+
+	 jXobSIEhKv18K5NkC/vc7pBacAB9bmUhoBBhZxLtiieN40sBUce+M4aOdmrDKv8YbrWJS
+	 bcj4cDRTmFDpXxnvivdbeBothC5wej/W0cF9HyDjAXHQPPgdltYcyrkI2SvEUp0i80Wqq
+	 hJMgirxIcuhqR34eVBxrscrOw0zKHY8vyG13Pmsv7sWEKlKnvNiFmbB+iaT5oG4Fq4g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AeUAfFIt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E834E606A31A;
-	Sun, 15 Nov 2026 10:39:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E834E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4F88606A31D;
+	Sun, 15 Nov 2026 10:44:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Rd3YUliR
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OCnfEvphiv6j8KxaCplUFyueIGHPTj/CmoOsdt3tCaOu/npmUP5lCLKSXOIppVHnhwTd+Z7N+38pC9Y0RlPK48LBrCL4wd/eWlJYZ+zrqoL1n5wbjR001BVfPOYSEhP7IM4aHtEdZh+2w06hGhszmlbkDw0hAao8GirVxoNf2PYvugIHfRSUMoe8E4/ZGD2Rs08rAJjhY0HJzuWPU8axNuokpKkp3a5OrOjXWFH6H3d+gIu87GRUH5JEyeBewHlEDYVWliYM41N/rakfeAHGLihcP/oYtAUO8t+cUX/sE1lSq1WNWskvaGJNtzixqsTFb62ZaGk/fadUZFQAa3xtQg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=o6e5RjUi6SxFqxQYYOh4pbeW5UuGJFIN6PorK+EKSDY=;
- b=XaYPhZlnW8oosAvHdkq4LbraeyeHMVLAhwJJFEa1TvH00d7pH9AsCbymFPEXvIx2/Ic9wQ/GJOz4dHzzkHNkQm1lXqkVV72g0WDCnLo7hBhjk9VW/bzxhGI0ioLWfJdsmycBPI9iCR6gqDtiZWA2XIDrrVkSELYuFjR7oAOOqFdFzJyh5bWy+QyGcgDGmzg4Al/EAxjXDJM9pWkq5aG6ykwQMjgzeqVsg1dZno1DMKYu4PyWcgWYwh/3rXxOWrTTYKgIgsU6V4S/o1spLjMmFyXNUMq+afZqbmFn83VW39Fl2Hqs2gh/5IXzLthCVCD2BtJ42GKdpEgJs8uvWWKHjw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=o6e5RjUi6SxFqxQYYOh4pbeW5UuGJFIN6PorK+EKSDY=;
- b=Rd3YUliR9wIAiQ7tT4Q/7yxmPbModkF19nNghsSSL33EEgthVWVRNjSHJmybG1izbVn98ZjzvjQKdEYHBrw49d6TEZSyp67/tZlhgdSTis3I7TqTCPLsqJK+pXFwQCUbQrdQtxZfd+B7LTN3lptDCY7v6NXL3T2O93c3xxhhAKD8Q3R16W9/7x+HMnOWtrvXzo5/yMBahFKXqKxsQftGxyBbKf+MC88yiXgAEWKZzu6qkEkro0cIhvJQ5rc/AQGkw7ZmXmhVU8jsn6u7aL8qSYHRF+I85attqMfgaHsrmo25xSBwcHnJZQ5jrMJIifAiUcvHJP70Q36O0p5e2Df8ug==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from MW4PR12MB6802.namprd12.prod.outlook.com (2603:10b6:303:20f::19)
- by SA1PR12MB7200.namprd12.prod.outlook.com (2603:10b6:806:2bb::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.8; Sun, 15 Nov
- 2026 10:39:19 +0000
-Received: from MW4PR12MB6802.namprd12.prod.outlook.com
- ([fe80::51f4:a3d9:b44e:9587]) by MW4PR12MB6802.namprd12.prod.outlook.com
- ([fe80::51f4:a3d9:b44e:9587%4]) with mapi id 15.21.0615.012; Sun, 15 Nov 2026
- 10:39:19 +0000
-Message-ID: <baf3a990-c9a7-4bf1-a1a7-a2b8976591bc@nvidia.com>
-Date: Sun, 15 Nov 2026 12:39:11 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4] net/mlx5e: advertise tcp-data-split support
-To: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>,
- "David S. Miller" <davem@davemloft.net>
-Cc: Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Mark Bloch <mbloch@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Gal Pressman <gal@nvidia.com>, Cosmin Ratiu <cratiu@nvidia.com>,
- Dragos Tatulea <dtatulea@nvidia.com>, Carolina Jubran <cjubran@nvidia.com>,
- =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-rdma@vger.kernel.org" <linux-rdma@vger.kernel.org>
-References: <20261111170558.1654691-1-dimitri.daskalakis1@gmail.com>
-Content-Language: en-US
-From: Nimrod Oren <noren@nvidia.com>
-In-Reply-To: <20261111170558.1654691-1-dimitri.daskalakis1@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MR1P264CA0133.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:51::18) To MW4PR12MB6802.namprd12.prod.outlook.com
- (2603:10b6:303:20f::19)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AeUAfFIt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 169F91F000C6;
+	Sun, 15 Nov 2026 10:44:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794739440;
+	bh=M7q3XhZjIgILEi4FdjQiYVSDqbk2Z9+UcwOqPf7M1/A=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=AeUAfFItkVVRp5bTvSTFjDeHDYNEYvM4O5BdA7kmULxNkZa9fZu39iCGNwwpZ39B5
+	 iRK65c2cwPH9/yzOG/0qS6+53Z1iU0xJd9+U9KGu1tADbh45FR+RC4TwgTsZFf6auK
+	 Sky1cCxoxLTahy/0BkMewmsDvQ5Z7bN0eGTDUCD/gJ1AindVPej4vM/FJIeBxKlYBE
+	 6h76iPLtsL96F2ILVqeflxIwb7fHYP+wLoqYQ7arMv6A47MuByyed2StJOKSuxWDuE
+	 b41j8345woVKZREpgI/PKXvuCEUMIn1pEGpytoFQ2kuVy55cDtXxp2qkigih3CqZoq
+	 IeFyf11JCqVgQ==
+Subject: Re: [PATCH net] nfc: llcp: fix SNL PDU size truncation in
+ nfc_llcp_allocate_snl()
+From: netdev-bot+sashiko@kernel.org
+To: xiaolinkui@126.com
+Cc: david@ixit.cz, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, oe-linux-nfc@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn,
+ yangguikun19@qq.com, stable@vger.kernel.org
+Date: Sun, 15 Nov 2026 10:43:59 +0000
+Message-ID: <179473943962.2199510.6509653868703486721@kernel.org>
+In-Reply-To: <20261111095907.3366028-1-xiaolinkui@126.com>
+References: <20261111095907.3366028-1-xiaolinkui@126.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,82 +64,147 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR12MB6802:EE_|SA1PR12MB7200:EE_
-X-MS-Office365-Filtering-Correlation-Id: da91095d-0391-4aea-9e8d-08df4304b471
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|7416014|1800799024|376014|23010399003|11063799006|10067099003|56012099006|261026121527099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	LQJi7BCaNzaTPUSP5I3icjArGrWxrDfoOhsMiJ+zHUMONQFSUPaFWlnfZR5rV6WTO42fqrU+ntjR6m37uENY/IGZrjt5sz1BeTiWTkxhdmEN4O7aYzndbq2eJFrCSwEeHBrsscO/Yu0T08f2xfMGLRTnhAh4t1Wl4opxtch1+Eh8z1ZENtO6SPJi2//xC87xCVlK+E0y6RtMT/RBYJKm3KISAZUBcYGBuLb5YiYw5l4lR4FSe+P/DbaY2H+rmqRbM1dSFf9EiQrnOIXztna6FyJ8xC7uuj94xSahGO4XwWxD2cS2fkTMcOWnznE2wjn33T6uGRpcS8EhOjL04ZUl+IO8z2tSwDL2QZTheFr9x+72WwSt7p2JNeEOvT2aVY8I4Tkm5epIbHoSbWB/GZUc5nAFWoHjD4AjEHPM+UKrvD0bhS0uyA2Lqh02Yy6TOUHl0uvfNEg69Aol417xhreyVAcmPj+2kOabNcHHF7ODCD83JTSDj8IQ5KKMG+vbIFtmjaVpF1Mfq6Iz1STiAEjQhTVObq4145fRIEz8fpogHhFRq6uEH3gu3eQhKtBuUNFC5KrIEbMOiEnfREGz3XOCjTqiZathKvX4X51q2KcWzIsIYbLhktsnKt23qNI8xX9flZxWkGeBW2I4GQDLVa5CjmJdNQcEtZcizBC76p/ML0o=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR12MB6802.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(1800799024)(376014)(23010399003)(11063799006)(10067099003)(56012099006)(261026121527099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?cTVHOWNVeUFGQ3FhZnZObHJyYlptRVVaMGdoa1d2bXU1eGF5dzlmSDVoZTVm?=
- =?utf-8?B?Tnd5Mk9OSXNNSjlydTQyVmpSUGtYK2VvWkgyajQrVjMydnQrL0dlS2JIWEgy?=
- =?utf-8?B?ODlkOFpKeEoyZmlsUXN1a05GZ1FlRFlkSUUyRVVJaUwyMG55SHFWVTVCTHFP?=
- =?utf-8?B?dThkM3NCOXVzOXlHRkIvUTlBaC92OTVuc25YNCtQZmludGFQZFk0azFYcmE0?=
- =?utf-8?B?UlRjNHJ0cXVZYThFSkpsWGJNMm1vZU9OaU0yeUY0YVdVTER2YVBsVUY3a0pw?=
- =?utf-8?B?b29SKzBEOVVzVEEvRjFhcmE3R1kydzIydi96MVJJYyt0Tm12eTRqYUVWK2g2?=
- =?utf-8?B?MlVXNnBZOW45RzNucTVjT3hPQ1pVZzVzUjNOZWpYYkoxK050Y21nZ0oySHJU?=
- =?utf-8?B?RjdzaGlZK0ZubUhhRU9DRjdZTDBabVBKQTV2KzhqOVhueEZNWlZocTdpMTFK?=
- =?utf-8?B?M2R4UC9LT29NUnZkcHpqUmFmczhmOTZ0YTR5Wkl1RE9nZDhpRzdMdWdJTUhI?=
- =?utf-8?B?aDQzVmt4OU1KQU15cDZTTEdCSU91alJBbTBQOG5UV091Y0VDWnFZSFFwUEtF?=
- =?utf-8?B?Z1Q0U2NjdCtKWHRpVFhrbDkvbmFDT0lwYmMwbGZ1THlwNXU3VFluSEd1ZDJk?=
- =?utf-8?B?VG8yQUhQOEFLNzVSQjFDK2NjaUs1SGRaWU8rN1AxazY5MnROdTc4MkJiMjlm?=
- =?utf-8?B?MHFXNzd4SDNVdEtqTmJ4V1YwbTVRcXI5OE01SXlDQ211dUw0dkF4QktlOGFP?=
- =?utf-8?B?ME92U1B3aDg0Y2N3ODZFVTZSU1BqOTlTZmgrUW04cnpBN2lDVllHNEwwa0lz?=
- =?utf-8?B?NE1YS0VQeS9sVG43SEFTRkJTYW5qckRWYjlYaE1xaDlST1lQamg5NW5VWS9S?=
- =?utf-8?B?d1d0YVd0MFlTZlNON2ZXdGcxcVpNSWlyVENkQmFJKzlJTmQyN3VqQm15UFJZ?=
- =?utf-8?B?Y2hjdFZqTFIyVERHS09hWk5vQVlLeUJtSm4vMWFaY29HTTh5UWxBMmo2U2VT?=
- =?utf-8?B?MzRocG5mTFNCUXM3dTJIRmNWOW1Tajd0SW9lRjVmaGRYQjJiMGJSZ2s5Yk5V?=
- =?utf-8?B?OEFFVFczSnVqZjNGUXZZcGQxdnhmZlpSV0lFNUxSclppSUU5eWRTeHI5QVBu?=
- =?utf-8?B?dmdOOWxsTnNVSm1rRjBOb1pQVEFseTFGSjYyc25ITlQ4WjBTNDlqTDBnZ3BV?=
- =?utf-8?B?RllQMUpobGh3ZXpoWmhiUnVUYk1DeEJpa3ZEZFNKS2pOT3lLMEJGZEczdlMz?=
- =?utf-8?B?bVRXRnc5MElLMkc4aExxSkdMM2tVMzlQZFhERHllMjRGdlFRQ1Z1WG9tTVpj?=
- =?utf-8?B?WWNQeEE4M1g5bjZ4d00wZjRRN2pvTGVWZ1NXSTN5ZEU1TkNrUzVzb05sbUNY?=
- =?utf-8?B?YkRsYmlONXhtL0NuVWFGS1lVQ3E4dWM5L1Ivb3hkYmd2aFNxcnRmMitXWVh1?=
- =?utf-8?B?UFFDUDgxU3NxOUFqZnJkSG05UGNST2dRbXdReHB1MGxVV2RpMmNEa0s4YkJp?=
- =?utf-8?B?RFlmY3liZkIwendGWjM3YnNoWXdGNzdvN1p2d0YrUjBzQ0Y4dEJDUUVTbGRo?=
- =?utf-8?B?NGhubFl3emhXVjcwQW9QYTlWSDdHNExITDJjVlIxL0Z6LzU1UnN6Y3J6cjZY?=
- =?utf-8?B?a0hpK3pSS0NEdko4ZmNLUCs5anF5VERna0JuWFBMZGFzbUY4aUl1YUkwTG00?=
- =?utf-8?B?R3pIelFNcTlIajZYMjh2eVMrY2tvcWVtejRnZ2RBeEo5ME9wR3lDZGd3Mlhi?=
- =?utf-8?B?dUJ3Y0k4OE14c1F5ZHY0RHdWdnc4OVo2Rlk2L2Vycldsa0VJTytPelgwTmJt?=
- =?utf-8?B?NjhJNW5VS21lbkkxUXRIcmYzMWw3dFZDYnhpTEpoMVY5dmdvOFNzQ0pXQVR4?=
- =?utf-8?B?YW4rUGNOWW42Y0RkWVIzZG1zRTdVS3pxMTJuZ3RySFRScWFjSm1UQitrK0k1?=
- =?utf-8?B?VnJFMFo0dlBTUnFVVEN1WU80WWM4Q2dhWVF4MTZiWkdXQnl4RWh2VmdIdys4?=
- =?utf-8?B?eFFpNUU3cVl1cDNPdTlndzE3b3daSllaOGpYK1NjMENSenFBdDBOcXRCM1F3?=
- =?utf-8?B?b2pvOVZrWW5qOVJsckZsRTRBVmorSTE5dC95TkhiWEVUNzYwdDJYV3Y2eXJo?=
- =?utf-8?B?UlhXZjJSVmhqekFPQWgwK1hUdW5uVUxhVE1GVTFoRVpwWnBnVzhYemVzVXBY?=
- =?utf-8?B?RTFaemgrMnEvUndRNDA3ank5c2pyOG5hZWV0M1NaWloxZEEzZ1NlcnRYTW44?=
- =?utf-8?B?RUJyRGRvS3gxeE01OEd4NTUvQ3dXZGhSWHRqU2FxNW5hdzFaaHZId3FlQmVX?=
- =?utf-8?Q?kvULhm1o/qKuG3taLO?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: da91095d-0391-4aea-9e8d-08df4304b471
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR12MB6802.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2026 10:39:19.7267
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qQZk9uGmkypvywY6uGpGhXJ46eRVUwzIOJb5899x5BGlif72coSviE8reR17J1FOzcuLEgWWpyxino9dqNtKZg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB7200
 
-On 11/11/2026 19:05, Dimitri Daskalakis wrote:
-> Changes in v4:
-> - Nimrod and sashiko pointed out that not reporting DISABLED for
->   tcp-data-split makes the feature look unsupported. This conflicted
->   with my attempt to block users from setting DISABLED, locally sashiko
->   found several scenarios where ring changes would get blocked.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Can you please share those scenarios?
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
 
-I think blocking 'disabled' was the right direction. Allowing it doesn't
-give users anything new, only a way to pin HW-GRO off, at the cost of
-another dependency between the two knobs in mlx5e_fix_features().
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-We can still report 'disabled' when HW-GRO is supported but off.
+- [Medium] The commit message names the wrong trigger and leaves out the
+  real one.
 
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the patch
+  makes it easier to reach.
+
+--
+
+nfc: llcp: fix SNL PDU size truncation in nfc_llcp_allocate_snl()
+
+This commit changes the size accumulator in nfc_llcp_allocate_snl() from
+u16 to size_t, so the SNL PDU allocation size can no longer wrap before
+alloc_skb(). The commit message says the overflow comes from
+nfc_genl_llc_sdreq() building many SDREQ TLVs out of a netlink request.
+
+Link: https://lore.kernel.org/netdev/tencent_634C55A23C7CCCA3985283BFED46A69C9E09@qq.com/
+
+> nfc_genl_llc_sdreq() walks the nested NFC_ATTR_LLC_SDP attributes of a
+> GENL_ADMIN_PERM request, builds one SDREQ TLV per attribute and sums
+> their lengths into the size_t tlvs_len. Each URI is capped at
+> U8_MAX - 4 bytes by nfc_sdp_genl_policy, so every TLV fits in its u8
+> tlv_len, but nothing caps the number of attributes, so tlvs_len can
+> exceed U16_MAX.
+
+[Severity: Medium]
+
+Can this netlink path actually wrap the u16?
+
+nfc_genl_llc_sdreq() only walks a single attribute:
+
+    nla_for_each_nested(attr, info->attrs[NFC_ATTR_LLC_SDP], rem) {
+
+NFC_ATTR_LLC_SDP is one NLA_NESTED attribute, and its nla_len is a
+__u16, so the nested payload is at most 65531 bytes.
+
+Each entry costs at least 8 bytes of nest and URI attribute headers plus
+NLA_ALIGN(uri_len), and it produces a TLV of only uri_len + 3 bytes. With
+uri_len = 251 that comes to about 64014 TLV bytes at most. The
+LLCP_HEADER_SIZE, NFC_HEADER_SIZE, tx_headroom and tx_tailroom that
+nfc_llcp_allocate_snl() adds are small for the in-tree drivers.
+
+The path that does look able to wrap is the remote SDRES one:
+
+nfc_llcp_recv_snl()
+    nfc_llcp_build_sdres_tlv()   /* 4 bytes per 3-byte SDREQ TLV */
+    nfc_llcp_send_snl_sdres(local, &llc_sdres_list, sdres_tlvs_len)
+        nfc_llcp_allocate_snl()
+
+A peer in NFC range can send one SNL PDU packed with 3-byte SDREQ TLVs
+(type, len=1, tid). sdres_tlvs_len then grows to about 4/3 of the frame
+size.
+
+Neither nci_add_rx_data_frag() (via skb_cow_head()) nor
+digital_recv_dep_data_gather() (via skb_copy_expand()) caps the
+reassembled frame. An SNL PDU of about 49 KB would therefore wrap the old
+u16 size and hit skb_over_panic() in nfc_llcp_send_snl_sdres().
+
+The code change fixes both senders, since they share
+nfc_llcp_allocate_snl(). Could the commit message describe the SDRES path
+that an unprivileged remote peer can trigger, instead of the
+GENL_ADMIN_PERM netlink path? As written, it reads as if the bug needs
+CAP_NET_ADMIN to trigger.
+
+> diff --git a/net/nfc/llcp_commands.c b/net/nfc/llcp_commands.c
+> index 80a00938c8696..0a3d66e6cd59f 100644
+> --- a/net/nfc/llcp_commands.c
+> +++ b/net/nfc/llcp_commands.c
+> @@ -542,7 +542,7 @@ static struct sk_buff *nfc_llcp_allocate_snl(struct nfc_llcp_local *local,
+>  {
+>  	struct sk_buff *skb;
+>  	struct nfc_dev *dev;
+> -	u16 size = 0;
+> +	size_t size = 0;
+
+[Severity: High]
+
+This is a pre-existing issue, but now that size no longer wraps, does
+nfc_llcp_recv_snl() leak the llc_sdres_list entries when alloc_skb() fails
+here?
+
+nfc_llcp_send_snl_sdres() returns before the loop that frees the entries:
+
+net/nfc/llcp_commands.c:nfc_llcp_send_snl_sdres() {
+	skb = nfc_llcp_allocate_snl(local, tlvs_len);
+	if (IS_ERR(skb))
+		return PTR_ERR(skb);
+
+	hlist_for_each_entry_safe(sdp, n, tlv_list, node) {
+		skb_put_data(skb, sdp->tlv, sdp->tlv_len);
+
+		hlist_del(&sdp->node);
+
+		nfc_llcp_free_sdp_tlv(sdp);
+	}
+    ...
+}
+
+nfc_llcp_recv_snl() ignores the return value, and the list head is on its
+stack:
+
+net/nfc/llcp_core.c:nfc_llcp_recv_snl() {
+	HLIST_HEAD(llc_sdres_list);
+    ...
+	if (!hlist_empty(&llc_sdres_list))
+		nfc_llcp_send_snl_sdres(local, &llc_sdres_list, sdres_tlvs_len);
+}
+
+Each SDREQ TLV from the peer leaves behind a struct nfc_llcp_sdp_tlv and
+its 4-byte tlv buffer. That is about 72 bytes for every 3 bytes on the
+wire.
+
+Before this change, a frame that needed more than 64 KiB wrapped size and
+panicked. Now alloc_skb() gets the full size, about 4/3 of the frame.
+
+That allocation can fail for costly orders under fragmentation. It always
+fails once the request is above MAX_PAGE_ORDER: on x86-64 with 4 KiB
+pages, that is an SDRES over 4 MiB, from an SNL PDU of about 3 MiB.
+
+Frame reassembly has no cap, so one such frame would leak around 1M
+entries, roughly 72 MB. Repeated frames could drive the system to OOM.
+
+The same leak happens when local->dev is NULL and nfc_llcp_allocate_snl()
+returns -ENODEV.
+
+Should the tlv_list entries be freed on this error path, either in
+nfc_llcp_send_snl_sdres() or in its caller?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111095907.3366028-1-xiaolinkui%40126.com
