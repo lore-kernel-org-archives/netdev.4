@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.87
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794725295;
-	b=fqlxIjcb0NXIi3zPYCfdGzNpPspfuSPnah4/XGBFSLkKc1wb14INjaFPsJpmrWlDHB8T
-	 T0Et8Ieka6kmPIX+0jTf8zeFWhsqZ+fVLan6s25F6akMvl1JHHpuF/1sTDQtzxneQPynJ
-	 +dRW4zMXRlH7/ZfOCu6eYI1QJjMs8na1P4w5kLBlV6FBnsV6aps5W2HYw9PzfFT64Utmh
-	 xi1Do06ARmUFtBjhwTuLxt5rLw1Er3fVNNaZpeg7KFdmtdWxhTr9cFF8mIV+rsayleEvn
-	 xREIM4XRyeqT7jwMInZeoIU/aRPJXG3yzNpTDhsyyWOCbHnfnp60eE6kzwyPiBStGcw==
+	t=1794726784;
+	b=hDuj7EdEiMRIDCG6R6nTAzgJc9yEznQFOclhIFRpR8Q+6tbPHN8DhhMf669fPZ48RV3l
+	 V/hcNos1zT3zyi9wlpcQLKRsuenwBuHwgWPKDzo4MroKjtqiyT8MIv5auMPWbf7Zb6inT
+	 KanQJ3RskD5MwE26zNlrncSZja6go0ZZSfc490LBJDKsaSuao0APbmFulAMgcY9wHukBr
+	 8uXTEB3Z91eBOQWelC5modJA8eRKS6OfxkMP6av+hIZ3cyhbNS59BOONIBDiqVuBL4Xiw
+	 2attX717PpX0si2CT+Arbdw5J4m5iUy82B3IWSBQXGkYycj27wUAM7DS7qbdFXj0HTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794725295;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=dyenbPZNtGuUfwVU+kdmxfuV+o4Dxas+l3oqGSTufiY=;
-	b=q+HIepLPlfqeux9V6RhRIldK/uPiPMxMkF1oRaD4DuRsp+7Dq3mItvskThu/Wmo7HFym
-	 amRSoSMEobXaQ4oHmmL5zOdnjtnejG/ZsjemIjvayzd+pN58OmDmYlqZOAyv99blVD1xE
-	 3USC3SptRc9FmzRRqkIf55KcAEe1LsbIjuzfMrf1I5eQzjjF7i5wN06/foPjxs62O575+
-	 2OTEbEA5ksjFG9xlAqUwTO9LuKuy9EqHEdBWa2RWmcXhMRu91JE/iXpb9PQa16CeGeKOr
-	 qZu+urM+GjI/m/5imbG75+CFGmI6/t0ydAk85uyz6oI8oaocVVHMWO3VKJxk4GxWmzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794726784;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=0Z+TaypX6Nv4nbH4lcelIKsz6XBKBS8H3IpTVaphkkM=;
+	b=0A3J3WO6L7YNP6uIOEaUudTqi6SeZ90eXUeSow61twLvWdf8ZxmEWPSNCNpImsc1YAd5
+	 0lqqS2z6YRHvq/vidanPGKjxEiJ5fb0RZ7kptnpcrexpd2WwytbrZgl8100XZpRUhvtjy
+	 mab4QY3WI22lIz6b3NtI7cKv7qWuHAKgSBy7lstITkPsJdTvtnDVXSLG/JTEuTD7D/ph3
+	 JkQWCgIezGrYA0Vz+iPt0u6tj3OvaZNstJtuM/cAIjA7Ul/qdzTHqYbARgnqd7ZBj0mUV
+	 ClQ26mAZ1qmg+hy/hfiUypfqgoUESOEZUMm4KBKTahjgVKnzbuxPJpEFK8emsQHFBsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="k/WRPb0z";
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=xytmkvBI;
+	arc=none smtp.remote-ip=162.62.57.87
+Received: from out162-62-57-87.mail.qq.com (out162-62-57-87.mail.qq.com [162.62.57.87])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 461E7606A32C
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 06:48:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 461E7606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AA9B606A329
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 07:13:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AA9B606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k/WRPb0z
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b10ca4e3f9so1206206a91.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 22:48:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794725294; x=1795330094; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dyenbPZNtGuUfwVU+kdmxfuV+o4Dxas+l3oqGSTufiY=;
-        b=k/WRPb0zHWBZf1QiP72VaQpemhqNKerApg2KK1po+DTMJKAcfP6CVsyjWUXKiWkqWS
-         oYl4wtKoQPLWlq+UIhnicENs1ZanTCxO6GcThB7fUwj0sIvEFY7UIzwkM4bxPxqU1tgp
-         1ZieLik0fruRBHQiCVEJc3ORgY3XjuqNSobx6OKZdDlWym74jUPegxFqHvkWatwi8xRn
-         Q+SJhGnCU05I3iu84fHcEapWJwda9STXKJbe7+szKx6DmW38cvPU7+l0yk3A8LXxP46T
-         ARzhyW+IPmYxxCnZ2+PHMVAjWvHuq0jK2HgC5J3xVwg55pxXD9EkL/CeXF9+35leSOZ5
-         u6gQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794725294; x=1795330094;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dyenbPZNtGuUfwVU+kdmxfuV+o4Dxas+l3oqGSTufiY=;
-        b=m+USq7VprkCk5vdVfhHs39fzhiAX9U2ed75WbZwcmzV/Ussb+x/nnFSRipKTkM740O
-         30BEPVSmZNQ97zNSGh4MiZm8uMds/ZsP0NyPcp3f5vUaA1ALeblyiJpoz1gAkxYX03uE
-         mzs85LM+WFkoJpexrUXeQOoOKHLmE2TaHuuHORjyGBAYgHHUW4cyl9B5/LGZ/1uRoft6
-         RTrHQP2j7x0/GV8TgPyhdVN1LUl85jeC0GFGIBWSXoyZ2vYoVJ/Zm0PBVjsQ4faMTKxX
-         4HL3ouq5cqEFSA0/Py3uPhBAc/4HH9j+UDPfTwY58eKLVP0D22kg/EJew0xuLFqEsH+p
-         PRSA==
-X-Gm-Message-State: APuU4Z8WTccfzraYUxGVIiBajqpkKG8UvLwS7cw7Ca9UU6t3DR8UcAnO
-	TBQ7MRqxD2nsV89ZuF4a1dUnPBtG6DQ6xIhcu91Cn2O2HwKUfMfjqQAa
-X-Gm-Gg: AYBFou3R2B1b4JjKy2qIg0vRmNfu4MhVImnyPD1bWcdua4LfYrlhsK8V1c5KcQm6OYJ
-	UcE22qDt6cbEhT4tCqe5FPGV8soUnzaXipiMqV6/9fXby9oVFYjE/2BFeWJ36b+5bmEATEQXWKN
-	g69w0k9DAecSEKFoqwAhp7XOWyqsicKhOb3PzfS1tHUx4K7Db4f6Bi/8UOk6KEuU7U5BQWt80OA
-	R7+mKM1XqjvdHJ4NHrEH6BuaXODmckpirTlaetgr77jRsqM/w+Vu6jQH4XNnG5drOCeAj4sT685
-	93yNxAguVintxhqH9ngBtB2EIp0/95VreXFPvuvhPjNG11mVBGpJpQRoZcaKoKZ+RkmsXyxW6yV
-	knqiagm1XzHlaTmISfQSB99YIR66kMyJuCfEoZ1uqHK0qbif9g8LEefeXwPLh3AbioWWSFL9NwL
-	bxM7Mq7bzowe8sxh3HCQ6tF7kikKtsAlS/1mp6IWH2LfI5kPUcGE+t8CtTmM6ma+WvdX7JAODv/
-	/8ewhJRkNlXdg+7zUxO4EAOLfbabs9+P8gWofSRtkRBOjKdsuZ7qDeR0dZb2qn1sjPJCz/FcKcy
-	gHXY6ALXSkDqDL7CUxzMndfbPhyWwsurOrqvJE5zrKJSoRSMt94JsgS+48YxEnYOVCUDyA3bg9K
-	ZzlqDX47S5SHD4HCkdP1lZunWn7pWCANHgdFtaXPwgQVTUK3rabKMW74o
-X-Received: by 2002:a17:90b:3806:b0:3a8:f70f:2437 with SMTP id 98e67ed59e1d1-3b1b0b53ad8mr6483603a91.50.1794725294505;
-        Sat, 14 Nov 2026 22:48:14 -0800 (PST)
-Received: from [169.254.3.1] ([143.248.188.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b197d27d26sm16136309a91.13.2026.11.14.22.48.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 22:48:14 -0800 (PST)
-From: SeungJong Ha <engineer.jjhama@gmail.com>
-Date: Sun, 15 Nov 2026 15:47:38 +0900
-Subject: [PATCH RESEND net-next v2 3/3] rust: net: phy: pass a MaybeLocked
- device to soft_reset
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=xytmkvBI
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794726773; bh=0Z+TaypX6Nv4nbH4lcelIKsz6XBKBS8H3IpTVaphkkM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=xytmkvBI4I1yUosmCtKrJ62gocZgx8c8HQqpRle8x2vIu1oSSNVkilMqAfTZLHPSV
+	 HjoCSExMB49b6zGK+iMoyd6CwyDIVKlDjRSZT2Mn2l4PVQ30i+Xo1a58julnSPxggq
+	 CMfom4kyIzty+CvxYzOvjUQYAY5jko4Oibu2T5wI=
+Received: from ubuntu.. ([112.3.92.91])
+	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
+	id 331A3A28; Sun, 15 Nov 2026 15:12:49 +0800
+X-QQ-mid: xmsmtpt1794726769tl3iiugjm
+Message-ID: <tencent_2A5F8EBA9EC78CA99CD080386A68EE90B506@qq.com>
+X-QQ-XMAILINFO: NdB5/PuY7PjGlSs9wjl/U+WvFpZYh9a6snnY723MQPkFp3jWEfdaUypSk6u9iO
+	 UvE9UPD6/PP5l71k3VtBz8cfNcAa12joolprQjDypB06mvYblW86l8ZLdLRf39PZPN4161mefRqn
+	 Q6saEYAAdxuYtKNRWlt6qPIyqkpX54tyfsvs1A4erDfb8DY4EVMiEvAL0npmAmbVziBM/oL5712Q
+	 rMv+3Ni4mrtNS5xMIbgbmsiwn/qG7xOGQ5EtA7CLSabl/PWxeL+rw+Ja6PV/Zac0/fC7L+TIOTop
+	 7y1PNLN40oQrgg0albd0+0OUF6YJXWEnb4rt8kEsb7KGMdAsFImo2SR+6jxsTZnO83a3v2wEIAc7
+	 hXpZV4sS+JNEkgjW4qtt5Lt+ThUaLNmMoNxZqzRjwpu8gjLpIXDogx61wY+LYYo+R2FXVEck+/1P
+	 1o5UooS9L+d0c2Mq4yCBQp5/G/C436vMIfxElG1UwR3G8OSz08h+4eWiN1myiqac3tjWkITiJDuD
+	 jZcEMnIve2iAbC/s+9CKTd2GQN0g4oEn2ngtCarzsvuSLrJjgUUM5/50bdHcS2ogsNodcrsdpBiL
+	 0n/nn/dedKobCFvgydIuVhRjt9UCKgI+YmNxZYh/EPU2yTQMSlg7En4UoWdhtPwHOL9jRTWkHy0c
+	 4vGW0xKK0Y1CV3EMYK587SDQM5vghaD3WqYUNeuVxSs3y30f5wc6qzylLUwfO79On4BIjjfh70fl
+	 oxXNNcSN9AhElrjAQuf3146s95kFPoLQq1pun5pbu5xKSojIfmHzRa9gYUxYVYbo944onVluCZbs
+	 o/ZbTaZO3DjYoVkJX1OX8xbE/CV+PNBtx4rE1j3Ps/XS9PBh70yAnVCdDxcykw8UhFkv4PLCrNFR
+	 K/4KgsZ4gt3mmncUsPGPMYD7Afrd5FYsbGxB+QhWEKaTbTq7e194Kv3w+CwcWt5StnktRh72BU4j
+	 s0lPAJ787awXGjxqqADtAToXlOeYC28j5ul6iCcTdv4Mk7mP2px7mOI5PyhzQBAgAdD89fv0ipNG
+	 Ru5i2x+CQebhLTidbIafsg7BZtHIeZrwkIZCfJCxtW4LIc5wznE461GF1M/KTK9uzSY/2rObMUyr
+	 ZbP9g+s9PP++VvNDk=
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+From: Congjie Zhou <zcjie0802@qq.com>
+To: netdev@vger.kernel.org
+Cc: mst@redhat.com,
+	jasowangio@gmail.com,
+	eperezma@redhat.com,
+	xuanzhuo@linux.alibaba.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	zcjie0802@qq.com
+Subject: [PATCH net v2 1/2] net: napi: add completion with an ordered IRQ mask callback
+Date: Sun, 15 Nov 2026 15:12:45 +0800
+X-OQ-MSGID: <20261115071246.9096-1-zcjie0802@qq.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com>
+References: <tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,109 +91,130 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261115-exp-phy-rs-maybelocked-v2-3-8fa7897a0352@gmail.com>
-References: <20261115-exp-phy-rs-maybelocked-v2-0-8fa7897a0352@gmail.com>
-In-Reply-To: <20261115-exp-phy-rs-maybelocked-v2-0-8fa7897a0352@gmail.com>
-To: FUJITA Tomonori <fujita.tomonori@gmail.com>, 
- Trevor Gross <tmgross@umich.edu>, "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
- Gary Guo <gary@garyguo.net>, 
- =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
- Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
- Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
- Daniel Almeida <daniel.almeida@collabora.com>, 
- Tamir Duberstein <tamird@kernel.org>, 
- Alexandre Courbot <acourbot@nvidia.com>, 
- =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, rust-for-linux@vger.kernel.org, 
- linux-kernel@vger.kernel.org, SeungJong Ha <engineer.jjhama@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 
-phy_init_hw() calls `soft_reset` both with and without
-`phy_device->lock`, but `soft_reset_callback` hands the driver a
-`Locked` device and its SAFETY comment says the lock is held.
+napi_complete_done() can clear SCHED, arm the watchdog and return false
+when deferring hard IRQs. A false return therefore does not guarantee
+that the caller still owns NAPI. Masking interrupts after this return
+can overwrite the interrupt state established by a successor poll.
 
-Pass a `&mut Device<MaybeLocked>` instead and correct the SAFETY
-comment. Update ax88796b_rust, the only implementation.
+Add napi_complete_done_with_irq_mask() with a mask callback that runs on
+false-return paths before ownership can be handed off. The callback
+must be non-sleeping, idempotent and leave NAPI state unchanged, since
+a state-update retry may invoke it more than once.
 
-Signed-off-by: SeungJong Ha <engineer.jjhama@gmail.com>
+Keep napi_complete_done() as a wrapper without a callback, and inline
+the shared implementation to eliminate the callback path for existing
+callers.
+
+Signed-off-by: Congjie Zhou <zcjie0802@qq.com>
 ---
- drivers/net/phy/ax88796b_rust.rs | 8 ++++----
- rust/kernel/net/phy.rs           | 7 +++----
- 2 files changed, 7 insertions(+), 8 deletions(-)
+Changes in v2:
+ - Add the Fixes tag to patch 2/2; no code changes in either patch.
 
-diff --git a/drivers/net/phy/ax88796b_rust.rs b/drivers/net/phy/ax88796b_rust.rs
-index 2d24628a4e58..88e6e3c88b44 100644
---- a/drivers/net/phy/ax88796b_rust.rs
-+++ b/drivers/net/phy/ax88796b_rust.rs
-@@ -30,7 +30,7 @@
- // BMCR_RESET bit and poll for the reset bit to be cleared.
- // Toggle BMCR_RESET bit off to accommodate broken AX8796B PHY implementation
- // such as used on the Individual Computers' X-Surf 100 Zorro card.
--fn asix_soft_reset(dev: &mut phy::Device) -> Result {
-+fn asix_soft_reset(dev: &mut phy::Device<phy::MaybeLocked>) -> Result {
-     dev.write(C22::BMCR, 0)?;
-     dev.genphy_soft_reset()
- }
-@@ -85,7 +85,7 @@ fn resume(dev: &mut phy::Device) -> Result {
-         dev.genphy_resume()
-     }
- 
--    fn soft_reset(dev: &mut phy::Device) -> Result {
-+    fn soft_reset(dev: &mut phy::Device<phy::MaybeLocked>) -> Result {
-         asix_soft_reset(dev)
-     }
- 
-@@ -115,7 +115,7 @@ fn resume(dev: &mut phy::Device) -> Result {
-         dev.genphy_resume()
-     }
- 
--    fn soft_reset(dev: &mut phy::Device) -> Result {
-+    fn soft_reset(dev: &mut phy::Device<phy::MaybeLocked>) -> Result {
-         asix_soft_reset(dev)
-     }
- }
-@@ -127,7 +127,7 @@ impl Driver for PhyAX88796B {
-     const NAME: &'static CStr = c"Asix Electronics AX88796B";
-     const PHY_DEVICE_ID: DeviceId = DeviceId::new_with_model_mask(0x003b1841);
- 
--    fn soft_reset(dev: &mut phy::Device) -> Result {
-+    fn soft_reset(dev: &mut phy::Device<phy::MaybeLocked>) -> Result {
-         asix_soft_reset(dev)
-     }
- }
-diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
-index 105a1b727a08..46602798e8ac 100644
---- a/rust/kernel/net/phy.rs
-+++ b/rust/kernel/net/phy.rs
-@@ -358,9 +358,8 @@ impl<T: Driver> Adapter<T> {
-     /// `phydev` must be passed by the corresponding callback in `phy_driver`.
-     unsafe extern "C" fn soft_reset_callback(phydev: *mut bindings::phy_device) -> c_int {
-         from_result(|| {
--            // SAFETY: This callback is called only in contexts
--            // where we hold `phy_device->lock`, so the accessors on
--            // `Device` are okay to call.
-+            // SAFETY: `phydev` is valid for the callback. `phy_init_hw()` calls `soft_reset` both
-+            // with and without `phy_device->lock`, which is the `MaybeLocked` context.
-             let dev = unsafe { Device::from_raw(phydev) };
-             T::soft_reset(dev)?;
-             Ok(0)
-@@ -575,7 +574,7 @@ pub trait Driver {
-     const PHY_DEVICE_ID: DeviceId = DeviceId::new_with_custom_mask(0, 0);
- 
-     /// Issues a PHY software reset.
--    fn soft_reset(_dev: &mut Device) -> Result {
-+    fn soft_reset(_dev: &mut Device<MaybeLocked>) -> Result {
-         build_error!(VTABLE_DEFAULT_ERROR)
-     }
- 
+v1: https://lore.kernel.org/netdev/tencent_74EA7A2E8BF5758E9C5EF18C9B1CED401D06@qq.com/
+Bug report: https://lore.kernel.org/netdev/tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com/
+Discovery and validation: https://lore.kernel.org/netdev/tencent_4DBDF69909B9FD811F54F2DC0E6BAC1C0507@qq.com/
 
+ include/linux/netdevice.h | 18 ++++++++++++++++++
+ net/core/dev.c            | 29 +++++++++++++++++++++++++++--
+ 2 files changed, 45 insertions(+), 2 deletions(-)
+
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+index 435be7880..810527cd8 100644
+--- a/include/linux/netdevice.h
++++ b/include/linux/netdevice.h
+@@ -601,6 +601,24 @@ static inline void napi_schedule_irqoff(struct napi_struct *n)
+  */
+ bool napi_complete_done(struct napi_struct *n, int work_done);
+ 
++/**
++ * napi_complete_done_with_irq_mask - complete with an ordered IRQ mask callback
++ * @n: NAPI context
++ * @work_done: number of packets processed
++ * @mask: non-sleeping, idempotent device interrupt mask callback
++ * @data: callback argument
++ *
++ * Like napi_complete_done(), but call @mask on false-return paths before
++ * releasing NAPI ownership. Drivers which prepare interrupt rearming before
++ * completion must not mask interrupts after ownership has been released.
++ * The callback must not modify NAPI state and may run more than once if the
++ * state update is retried.
++ *
++ * Return: false if device interrupts have been masked by the callback.
++ */
++bool napi_complete_done_with_irq_mask(struct napi_struct *n, int work_done,
++				      void (*mask)(void *data), void *data);
++
+ static inline bool napi_complete(struct napi_struct *n)
+ {
+ 	return napi_complete_done(n, 0);
+diff --git a/net/core/dev.c b/net/core/dev.c
+index df1a840b0..4ba9e4c1b 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -7001,7 +7001,10 @@ void __napi_schedule_irqoff(struct napi_struct *n)
+ }
+ EXPORT_SYMBOL(__napi_schedule_irqoff);
+ 
+-bool napi_complete_done(struct napi_struct *n, int work_done)
++/* Inline so the legacy API eliminates the optional mask callback path. */
++static __always_inline bool
++__napi_complete_done(struct napi_struct *n, int work_done,
++		     void (*mask)(void *data), void *data)
+ {
+ 	unsigned long flags, val, new, timeout = 0;
+ 	bool ret = true;
+@@ -7013,8 +7016,11 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
+ 	 *    the guarantee we will be called later.
+ 	 */
+ 	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
+-				 NAPIF_STATE_IN_BUSY_POLL)))
++				 NAPIF_STATE_IN_BUSY_POLL))) {
++		if (mask)
++			mask(data);
+ 		return false;
++	}
+ 
+ 	if (work_done) {
+ 		if (n->gro.bitmask)
+@@ -7047,6 +7053,13 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
+ 	do {
+ 		WARN_ON_ONCE(!(val & NAPIF_STATE_SCHED));
+ 
++		/*
++		 * A false result is not proof of retained ownership. Mask
++		 * before the state transition lets another CPU enter poll.
++		 */
++		if (mask && (!ret || (val & NAPIF_STATE_MISSED)))
++			mask(data);
++
+ 		new = val & ~(NAPIF_STATE_MISSED | NAPIF_STATE_SCHED |
+ 			      NAPIF_STATE_SCHED_THREADED |
+ 			      NAPIF_STATE_PREFER_BUSY_POLL);
+@@ -7069,8 +7082,20 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
+ 			      HRTIMER_MODE_REL_PINNED);
+ 	return ret;
+ }
++
++bool napi_complete_done(struct napi_struct *n, int work_done)
++{
++	return __napi_complete_done(n, work_done, NULL, NULL);
++}
+ EXPORT_SYMBOL(napi_complete_done);
+ 
++bool napi_complete_done_with_irq_mask(struct napi_struct *n, int work_done,
++				      void (*mask)(void *data), void *data)
++{
++	return __napi_complete_done(n, work_done, mask, data);
++}
++EXPORT_SYMBOL(napi_complete_done_with_irq_mask);
++
+ static void __skb_defer_free_flush(struct skb_defer_node *sdn, int budget)
+ {
+ 	struct llist_node *free_list;
+
+base-commit: b3dfbde62cf1981c4638939c159dfd087b7a72e9
 -- 
-2.54.0
+2.43.0
 
