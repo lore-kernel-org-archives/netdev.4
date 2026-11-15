@@ -1,87 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=43.163.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794726785;
-	b=0BEQrcOMR5eSXdeA2qpBatkmPJdtRHRZgyCQ57CH2oVTU3yvxFmq7AOEUdy8YURQh+1C
-	 8xIeadlfoan/f2iKxS8Nb6toGkQtSQ8VpRfciMJ/txvKgBVmn+5DdsR1Fxu/0af1Aa4gI
-	 UljQwQjnbJB8+CPQnQgFC4ieOBMRDNuR5sNzzLZIMrkNnuSuqnial8NeVDrj0cdexO7It
-	 s1nXgQOXfipECfuxaX0wey194xVV5hAeFX78RkZKLVOrpbcpmQOPJMTvMO/dLcK3G9DY+
-	 7CshZKHux+XqxaO4SnqbFU8Oc3hApKQcs6Di/nhS9SoxJp8tLzMsWjJeuWPb0BsG8Yw==
+	t=1794726812;
+	b=H5YXHE0wYw7Vdz8yCjnYQpgQyCVZDiv/22au7US/IiXJwzp/XopF0vngnghyMXXjhqHJ
+	 EIdghWWFl3sVT590YZhRWSxPG+nNuJXQpoLmYaqQxkqQhWvTPzixxp4OvoH/aewTO6zFN
+	 c4hinp8J1qtM+k8CZkEPTRyQobzMaYoCorGEiRWBSG4Nfiay8g/KDR9cTVAz0FrHNgr63
+	 dtRHrJ7NxOzxe/LvmDL1yBhdyEFTJK4aEH3HC7vU82/qyV0ZHLkQc0kh50WyAJXwWUDRt
+	 TiwwdoQgNDGVHkF1tkB6YhXTHCKhJ2iNFDj1+WgCCnr6FSr0v32p4XRcJ/WTPydvqgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794726785;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vuZUVGeksjaM3h7mHsO4bBjAJIcJ89o8RP3K8dhbMg4=;
-	b=j6mF7nhGpZxs5rBTFrqhHmx6uD8b6TFRIdlFag7qdKf7maePD7ya7WWQrrNumZ/6zE6j
-	 LfVMvFdRK3Uv1X9H9D8Te9CHqzrhhJMMjxTod6rkyZ4fvlQmve/vqhmjqt3f23FzmgcXb
-	 YNfMk3EIb6VfnbH12IDmkaDlxDX2AJmiHL4oe1U3iTCn6xNr56sH+zR7t79vGFjImjjg1
-	 tMNuPmi2WlUzRGfWC2qu73z6Renj3BuBKsvhEgH9aNRBhWF1pXtEn2T2RtpZjDN33R2FH
-	 69pdLwPKAEHrtzk8vF93LbREhQmsu+UTuaCoeGaomkdb37+FFq5zuYLD10cr6CQ7wFA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794726812;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=i0sztYeDoa78GRxByi5DPGRDZ13zK/I8mczcB1W5Z+o=;
+	b=PqQhDLk0x6ypFmnw7nxme1RBPFwkx20d/XN6ivSX4LjgHGOU2aibUSTMRZj7AdC6nsHG
+	 3Db7TM0bfchclhZvD2H/EAdh+PWpi/iT7lqdqJW2jve9a3Zi9PSfWACJHHn441dABRwwI
+	 JjrAzteBFfSCHRzg2Q6nz1Y1SwJ4B6NOB2InFvFIxa/MjbAEtGMdb7kZOlrBuorWAKIRd
+	 /tQgTql6jo/uEIjwtCy/EC/nkjpDKytpX0Vn9F8AbhgyI6JHoUBv6n3CflbeIlzIVPC36
+	 fFxCm+rgf8D1rFReWTONeohe02JxlwV0rvw9Ptw/zHnxuyeIuPlDJ7cAbb0goshgA4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=mBVTxcPk;
-	arc=none smtp.remote-ip=43.163.128.47
-Received: from xmbghk7.mail.qq.com (xmbghk7.mail.qq.com [43.163.128.47])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f0EKiv+f;
+	arc=none smtp.remote-ip=74.125.82.181
+Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92BB2606A32D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 07:13:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92BB2606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 680D4606A333
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 07:13:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 680D4606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=mBVTxcPk
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794726776; bh=vuZUVGeksjaM3h7mHsO4bBjAJIcJ89o8RP3K8dhbMg4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mBVTxcPkx6OulJnjfnyG+r2L2/+8bRLU2mNXRXKcPitxfzKbOwpSmKA8hVO77wJR5
-	 a16vcluzuBL4Zj9O8i8hA+jcL/6XyGTT8QzouzskAAinoSJeLGBI0B+jqdDiQnkCWD
-	 a+ghOdSss4T6F9aJCdAYYwYYAfyNnaBqMA9qbGD8=
-Received: from ubuntu.. ([112.3.92.91])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id 331A3A28; Sun, 15 Nov 2026 15:12:49 +0800
-X-QQ-mid: xmsmtpt1794726771tum14ob3x
-Message-ID: <tencent_E27D0F1CA04EE58A5873E5A4EBBDCDF8C80A@qq.com>
-X-QQ-XMAILINFO: NMiAo2azIaDAW5+IjjMFFIGcEI025b2QqjSkDGS1qobrC5TTKyHeKryYKOwjyP
-	 NY/THjFavgpatcaPuUgURuMt7obA7DSz/ePWu9ZMrsgbdpQfRH5IJfA0+0Ce6HHsB3oFsc29XneF
-	 XYws71zQ3BpFyRKsrLJj2PhjXVAieTBBDpCEMd/CPiDHB2hlwyvwvxoqpdghLXBx/B3H6bw+c5zj
-	 yzN8GQsGPanVvB6XPswtQkQHjhtL36t9mA3EKHHOVDp37h39w1H0PA2W+Vy6ffb3jp3vdI/ZWS30
-	 nBEhM+F5IT1FlJkj7X4smYFhOE9R8fvGejJ172M2NT5UehuUF3otjIsZVtio2cjJlJVxA9SV8gDI
-	 Ndccfh7WMHGpsDWm3YTV/1VyywtPhR6JOZjkacEhNaTjtqcbxZKICyCdrZBYCX5DORjsIbBOBYlP
-	 /5aIn/Iqjv9rFAgqKCQFgH8FUc7dNJIOaBDkstFLDr/fepO+P5FAtHvtaa1yIag9HHbg6fFuahkR
-	 L1chNaRHZvbhOFSOeNnIKUCrYtMwPVf53MdmNoT7upUSodVJK7kh1nCtOXqoITU/zae7+kArP2nF
-	 w8FdP+PShqt8HLohscN3idXLuYCCbVcOhcXVMPMqa6d/7Pbs95x9VhgksHR2fiMxx0q/K3vPMZAB
-	 /RdhGwtcRB3m5Bgat2FAl8OWCqHPMcW9PsxyD8gG+kC25/wlDj/C8hmnNhPI5vjU50pq/IRqeOux
-	 P0CrTzm+hG8AMdUdNtDsMN2iNPc2a6fKZ2OQAXagdBfYjCM9dWdx8s01BHgk1/1dsb/RHEDtkHT4
-	 fnQ65hreK1rZh2kF/mlAA5+MU86aRlm++KRt/WbmwJ1S/UhiH5PJBOBUY30+SBuo4gInOZeCffqt
-	 CQaPjoGonPa/68mOhkMt27H80UvQekPhiGXLF2U64HP3fg8jK4HOE5ncrYgwF5YLu4AWz31KlHI9
-	 lWLuh/JmDRQNdQ5CtQFZYXA7vwOF7++2O4KIuabJNSDz9Q7su3Gbo1GqU8+Gtx7VGw+rgc03PbBU
-	 iFdTcjTp7EgS3dZ7JJEQmhhqs+WiujuGDqyOa1YAASGoSPfmRUTQ+9BHThDiLuI02Anuk/0Ecc32
-	 2iesHRoQY0OzynL9Y=
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-From: Congjie Zhou <zcjie0802@qq.com>
-To: netdev@vger.kernel.org
-Cc: mst@redhat.com,
-	jasowangio@gmail.com,
-	eperezma@redhat.com,
-	xuanzhuo@linux.alibaba.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	virtualization@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	zcjie0802@qq.com
-Subject: [PATCH net v2 2/2] virtio_net: mask callbacks before releasing NAPI ownership
-Date: Sun, 15 Nov 2026 15:12:46 +0800
-X-OQ-MSGID: <20261115071246.9096-2-zcjie0802@qq.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com>
-References: <tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f0EKiv+f
+Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-36f8cdd30beso3116738eec.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 23:13:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794726811; x=1795331611; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=i0sztYeDoa78GRxByi5DPGRDZ13zK/I8mczcB1W5Z+o=;
+        b=f0EKiv+f25sXRcQmBoiK+WsCsclD9PQHa+U5z3sGf3KR1sS3ZNEEroqRh6RNiac07P
+         vGJPEugwLNmQaWqJhCPHikaN8XT33PRVwWCxE9PqkkLJA6butk39sYE2ryU8qCsIMdGI
+         yo50td1Os6it0j1WrNa5HxnLEw4W7aO/qgSsYPJply/RpIro6UCSg0Mbr4ks/thyRkDc
+         jq1OBKLqGUt/bM6QVBsbrIsF1mbjoO/AbvtSri1zHl8+S2Sf3KoNhgqJldsJW2yIuTc5
+         6FJrXgJQKS6UwdWBKS3YQ4l597qJpRKbmN+vGilzta6Rl47F1I/gy3R+i3U13Lj6DU+d
+         z+8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794726811; x=1795331611;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=i0sztYeDoa78GRxByi5DPGRDZ13zK/I8mczcB1W5Z+o=;
+        b=yfTUEQTKXxwDWcJkq4Xqh0Cqltq/QOhSJhNtAZECmBO1AeQk0kE1FJt9j+PMEdqf53
+         e1jBYreLy/Qe2ebQVg+honP2Tl/trshWqsJNy6hQUtiK08mEiBRclFQVumFrFBwgxn+f
+         rRPk0nfw6Li8nWR2mlC7m885z6eGDvmvIvIW1VOTKlYVYf0lLKrg/FACOUYVQGYgH8oz
+         H1+VkCZGAis5vL/hWwyZaDBAVZ/0AdPHHD/x2Iilp18UNW+D+x6nuNtmwfrLYpe5VQP+
+         FtEEN7g12nDqu43avO9lMJoNwRPRBZgi9KrMmL2y0kmF9/zvOklqPW7gExmwb5VO3vRw
+         OV3Q==
+X-Forwarded-Encrypted: i=1; AL+hErH0IhijJKbp3GXQgPokB6ZOoZ80EvT6yCsk++yOS74m7trVz7fyswyZTN9zwfpzQlsUwIIgxes=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ajLp+9VuUdIOjwKuHfi/UBn68l1X0tgERjwa15rGf5sAsAgP7
+	vw0j393U095QXOkxJYBUKY42+5V4sWOHRWyIW5NvgqHS1W9iKhms80ZZ
+X-Gm-Gg: AYBFou2p2m4xlc7tkaoCbJoHjjbXWI/eJKKvEFG7i2XhmxmbyV7rOLt5mIofwgSjbaU
+	kqdjOXQjui0bBjEJ02lA4vRvYh6L/pYNsxSaQkyO+Et4gdnskmYTGFzqLtE1MkHJznXvw0joNWv
+	j/p2QL70WfV9S9FVVkO98WfixadqY0fuyN2crm/CcQxXa/AJE2111hnwV1f4odrwBrl4B1YZsYT
+	R1h9d1453Nt6nA+8dBDfv/hAXMqqtKDB7KYsVVYJWr9j5EBaS3yvN5Nd/2JfXP0UnOvmJWp38td
+	/QiXL30IsR5ElJ53F/AECVVr4OxyNEf8NW2InsCCBqInisvQp3xxq0dh9usA1VLFoGj7zFG+ip3
+	Uf5jyVYCkOIYrD6YUPVFfqYxA9hBWqkQXL4HQob7pNrCbSSZflfxSzEwXZgM2oZ3OwIyxW3OGyC
+	9DRWCabo6p+3o9OBIzZn63wIBADJqpGz6wVh5mzDh0RkJAypcGHFlF94ec8CdkJolRYtdrlBfj2
+	v/NJXZ7SmpaK7X8Y3ajWDvQqmpDRhzuT/fQ+YqFVspqXu1zsTluWAY2xjTtWkC+gfNBTyeJ5hb2
+	Cr8MgqsTMCrD0BSU6AYdByuVH2Q=
+X-Received: by 2002:a05:7300:6148:b0:36a:7bb7:4609 with SMTP id 5a478bee46e88-37967dd7e1dmr11471490eec.34.1794726811302;
+        Sat, 14 Nov 2026 23:13:31 -0800 (PST)
+Received: from pve-server ([49.205.216.49])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bad134sm27441185eec.27.2026.11.14.23.13.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 23:13:30 -0800 (PST)
+From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
+ Andrew Morton <akpm@linux-foundation.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, "David S.
+ Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, Donald
+ Dutile <ddutile@redhat.com>, Eric Chanudet <echanude@redhat.com>, Heiko
+ Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen
+ <chenhuacai@kernel.org>, Kent Overstreet <kent.overstreet@linux.dev>,
+ Liviu Dudau <liviu@dudau.co.uk>, Luis Chamberlain <mcgrof@kernel.org>,
+ Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu
+ <mhiramat@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, Nadav Amit
+ <nadav.amit@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Peter
+ Zijlstra <peterz@infradead.org>, Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?=
+ <philmd@linaro.org>, Rick Edgecombe <rick.p.edgecombe@intel.com>, Russell
+ King <linux@armlinux.org.uk>, Sam Ravnborg <sam@ravnborg.org>, Song Liu
+ <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
+ Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
+ <tglx@linutronix.de>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mips@vger.kernel.org, linux-mm@kvack.org,
+ linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
+ loongarch@lists.linux.dev, netdev@vger.kernel.org,
+ sparclinux@vger.kernel.org, x86@kernel.org, Madhavan Srinivasan
+ <maddy@linux.ibm.com>
+Subject: Re: [PATCH RESEND v8 11/16] powerpc: extend execmem_params for kprobes allocations
+In-Reply-To: <avlTdlK9ErlqVRYl@kernel.org>
+Date: Sun, 15 Nov 2026 12:33:31 +0530
+Message-ID: <4idi8tks.ritesh.list@gmail.com>
+References: <20240505160628.2323363-1-rppt@kernel.org> <20240505160628.2323363-12-rppt@kernel.org> <3f7af771-87a7-4ae7-9919-bc4c23bd31c9@kernel.org> <avlTdlK9ErlqVRYl@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,70 +120,76 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-virtqueue_napi_complete() prepares callbacks before calling
-napi_complete_done(), then disables them if completion returns false.
-On the hard IRQ deferral path, completion can release NAPI ownership
-and arm the watchdog before returning false.
+Mike Rapoport <rppt@kernel.org> writes:
 
-A successor poll can rearm callbacks and complete before the old caller
-executes virtqueue_disable_cb(). The stale mask then disables
-notifications again. If the one-shot watchdog has already run, no NAPI
-owner or timer remains to consume later used entries, causing a
-persistent RX stall.
+> Hi Christophe,
+>
+> On Fri, Nov 13, 2026 at 03:36:01PM +0100, Christophe Leroy (CS GROUP) wro=
+te:
+>> Hi Mike,
+>>=20
+>> Looks like I missed this change ...
+>>=20
 
-Use napi_complete_done_with_irq_mask() to disable callbacks before
-completion can hand NAPI to a successor, and remove the stale mask after
-a false return. Keep virtqueue_enable_cb_prepare() before completion:
-moving it after ownership release would reintroduce the RX virtqueue
-race fixed by commit cbdadbbf0c79 ("virtio_net: fix race in RX VQ
-processing").
+I didn't initially get what Christophe meant here. Then I came across this
+reply of from him[1]. So looks like somehow between v3 to v8, something got
+changed?=20
 
-Fixes: 6f8b12d661d0 ("net: napi: add hard irqs deferral feature")
-Signed-off-by: Congjie Zhou <zcjie0802@qq.com>
----
-Changes in v2:
- - Add the Fixes tag to patch 2/2; no code changes in either patch.
+    On powerpc book3s/32, vmalloc space is not executable. Only modules=20
+    space is executable. X/NX cannot be set on a per page basis, it can onl=
+y=20
+    be set on a 256 Mbytes segment basis.
 
-v1: https://lore.kernel.org/netdev/tencent_74EA7A2E8BF5758E9C5EF18C9B1CED401D06@qq.com/
-Bug report: https://lore.kernel.org/netdev/tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com/
-Discovery and validation: https://lore.kernel.org/netdev/tencent_4DBDF69909B9FD811F54F2DC0E6BAC1C0507@qq.com/
+    See commit c49643319715 ("powerpc/32s: Only leave NX unset on segments=
+=20
+    used for modules") and 6ca055322da8 ("powerpc/32s: Use dedicated segmen=
+t=20
+    for modules with STRICT_KERNEL_RWX") and 7bee31ad8e2f ("powerpc/32s: Fi=
+x=20
+    is_module_segment() when MODULES_VADDR is defined").
 
- drivers/net/virtio_net.c | 10 +++++++---
- 1 file changed, 7 insertions(+), 3 deletions(-)
+    So if your intention is still to have an executable kprobes, then you=20
+    can't use vmalloc address space.
 
-diff --git a/drivers/net/virtio_net.c b/drivers/net/virtio_net.c
-index dd2c41ef6..0de6bd95a 100644
---- a/drivers/net/virtio_net.c
-+++ b/drivers/net/virtio_net.c
-@@ -727,19 +727,23 @@ static void virtqueue_napi_schedule(struct napi_struct *napi,
- 	}
- }
- 
-+static void virtqueue_napi_mask(void *data)
-+{
-+	virtqueue_disable_cb(data);
-+}
-+
- static bool virtqueue_napi_complete(struct napi_struct *napi,
- 				    struct virtqueue *vq, int processed)
- {
- 	int opaque;
- 
- 	opaque = virtqueue_enable_cb_prepare(vq);
--	if (napi_complete_done(napi, processed)) {
-+	if (napi_complete_done_with_irq_mask(napi, processed,
-+					     virtqueue_napi_mask, vq)) {
- 		if (unlikely(virtqueue_poll(vq, opaque)))
- 			virtqueue_napi_schedule(napi, vq);
- 		else
- 			return true;
--	} else {
--		virtqueue_disable_cb(vq);
- 	}
- 
- 	return false;
--- 
-2.43.0
+[1]: https://lore.kernel.org/all/1cb41761-29d0-5d33-b7c1-0ca3acaa810d@csgro=
+up.eu/
+
+>> Le 05/05/2024 =C3=A0 18:06, Mike Rapoport a =C3=A9crit=C2=A0:
+>> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+>> >=20
+>> > powerpc overrides kprobes::alloc_insn_page() to remove writable
+>> > permissions when STRICT_MODULE_RWX is on.
+>> >=20
+>> > Add definition of EXECMEM_KRPOBES to execmem_params to allow using the
+>> > generic kprobes::alloc_insn_page() with the desired permissions.
+>> >=20
+>> > As powerpc uses breakpoint instructions to inject kprobes, it does not
+>> > need to constrain kprobe allocations to the modules area and can use t=
+he
+>> > entire vmalloc address space.
+>>=20
+>> Using breakpoint means the segment must still be executable.
+>> On book3s/32 VMALLOC segment is not executable, while module segment is.
+>>=20
+>> See commit 6ca055322da8 ("powerpc/32s: Use dedicated segment for modules
+>> with STRICT_KERNEL_RWX")
+>>=20
+>> See report and fix at https://lore.kernel.org/all/ed03d290d440d579a81ae0=
+b7de5243721291d903.1794543909.git.ritesh.list@gmail.com/
+>
+> I'll take a look, thanks!
+>=20=20
+
+Thanks Mike for taking a look. Sorry, I should have ccd'd you there, I
+guess I missed it. However, the changes are these one here [2][3]
+
+[2]: https://lore.kernel.org/linuxppc-dev/82c4973addebd82923c460cb44221f5b7=
+6146afe.1794572365.git.ritesh.list@gmail.com/
+[3]: https://lore.kernel.org/linuxppc-dev/f75f2cf97f44375fd2c8820e0caeab703=
+cdb371c.1794572365.git.ritesh.list@gmail.com/
+
+-ritesh
 
