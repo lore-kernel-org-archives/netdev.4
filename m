@@ -1,54 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794736718;
-	b=gh+nIW4Db9h/pXXA9MVBTF7jO/9TZRmuBs5bifkO/9I5/YPnACAvWp/Lx/6iWztQiaic
-	 yiBqfMvh2R01sYsdW9KRaO4gKYic40qe5DMjDFSzb2nGYlALy8em67n2WImV5J103V2UU
-	 gJS8yh/znswNMyvF32W4fPZS2Do4JbIeYVWhjHZLT9nnUr937r97th5LHjF4wUUeYCZ5q
-	 hr35vZm2I2zioJg3yKFMpRbGMnjOIS+cc4FEBj0+qtTco4/c2iNLjnAtSXpSt4zRI9ZR3
-	 0Y5Vl3RHEq3fIiOce4695XA1aLGZb20y1tm5b4nX5q3aLtIqEAFDc0eo0nLlWsRXcpw==
+	t=1794737230;
+	b=xtpHVfVNvF9z3mM0y/eaF20aURzY2tNwrgXUhIa9B6Tsc6nHqxXPrNN90ilb6N4eetlG
+	 7UguI3YXw/HCtNCeF3XhUIF0DkjhGTnBXH0brFP4bCHmPAlhJZGnQ7KIHkdd1DWgkeH4y
+	 oljDGgWoT+iS36xX09knIKIU639dC7Os+3nwwZepxNVdz6io6isbailHW3fBjPngtgx4/
+	 cjokTffAqshUnV/m4yQvyB19LhETudsg+gMZZe++KLLAqqfo0c0+LslSrlvltS6g6/Y+Z
+	 7cJ9P/RC9ljkFlA0OHFcYWRQ6yBh+iQsvbGVP8lshgAmPU323nykbaf5sLJntRb7TSQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794736718;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type:Content-Transfer-Encoding;
-	bh=+twLC24k76JaJfVXGnex0iphgAHZtLWPYMiM4tTcxt0=;
-	b=gpwNxUw2oasTfhjglY8txvVPNJP9qmttKR9DhaT3RWev6BCysJstS4Waxz65afVB6IKR
-	 fIrwLrWl43qmBEm5bzsi57YfFIVPK5wjRJf/JzJnv5UeMqCgVW4QUGYqpUKNc94Q1j0lb
-	 MBF1cuyHuu8YUn3sH2BzGK2nXN5iB0FvGJxjkw4BUQWwH+Y+Sqn0WfusVealEavNu/pAj
-	 +tOZ4LYODMvJQFkvb8mVAAkvqaI1z0+nHTtqn2OjmDZt+sG3OnrmzbFC75ttVVweprZ2e
-	 aAhjy+pZWMObVTc8Pdo1NguwuZ+yOI1C9iIrYy0mS7wikcpvrptTu3SsNkoEIzepFhg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794737230;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=V+In7gmI1ji2UpEbRCQj7fypfCz9nawcGkzoWv2rtF8=;
+	b=5tnIy0llqXVBQOjA6sYlyeleO5TlWAx35+cNWnFy8epTACZMLlpLM9G+D+4lUZsE/7l2
+	 LPd65xAQw2SlaCGo9qaMndkXRrR+dmYsMGi5XjjN0NzPg3CGwuoG8HpORJQnHN3oNWER6
+	 Xbqtgpa8VlWQi6ho72x+MT9mxTUqcEH1bAfwZpAk5xARZb18LZW4A+z/NMFgXbP8z+InL
+	 5jZPwGq7fl5JA9Z503id8ZPk6Xsy+tEQGQGCJ6Bompl8Asn1zk13Qk7c3SCy9HfpgylC3
+	 JTywUmO9HCIEmPHnm0l/7R6rwZDXsLmU4TxSNTKTw8QTJ32hJr9YLKtfrnnJH4cRsGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E6gpLYH2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E41C8606A323
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 09:58:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E41C8606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4cc89e86e4dso3225607b6e.2
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 01:58:37 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794736717; x=1795341517;
-        h=content-transfer-encoding:content-type:to:from:subject:message-id
-         :date:mime-version:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+twLC24k76JaJfVXGnex0iphgAHZtLWPYMiM4tTcxt0=;
-        b=sq0wBQJ3sPBjnmqbtgPPagEtQwXaITagaA6pvlwhhXJ4jPEAVZmgBeS5f8m4SDxWPF
-         JwY9sM/gIvGY+XwMvLBitZWojis2wZnifw2793ZKLj+fcPdn/5VenToWCPlMnfjVuXJZ
-         APeCpTlOWZ2iG25oO83zE0dMz1XpBo8F4SRXioQgx0BQ+Z+N/UpGUdp14n7ixDYGmPm4
-         M/2N7uggdJwKKfaGH412e+Uv0sJjjIstpMmmloytcaLcRaQfjxzpdzjr4CrmTYx+Al99
-         w8tD9pzXsyXrppW8/aTDdiJaxuiKt5Yzo0P1x+rpXmRYhwvpSHVQmfYeXHG92pTF9onm
-         9CxA==
-X-Forwarded-Encrypted: i=1; AL+hErGxJvKjj80EbNzTvQQoWbezKLIB3UFHcICSjrVhmfAXBwU4W5C5GgElVckBTrPkES5L1nqLJsM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+JQvfgjoW/qO9/GRadHQSZttyPp0BP6uVYmFNl1lrNxdQxwjig
-	w+I2KL7sxL4eIkmzEcNiAaj2UvnGc84gptzIacW98TgVm86Zj9QomYllqP0NJwKIkU5rh9rQymZ
-	j67AgyjdWsGjQYWdGV2HiV1iVK6PtTqsVWk2Bm6siCBxGY6sSU4Ue4AJ/Zvs=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88493606A323;
+	Sun, 15 Nov 2026 10:07:10 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=E6gpLYH2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF4161F000C4;
+	Sun, 15 Nov 2026 10:07:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794737230;
+	bh=V+In7gmI1ji2UpEbRCQj7fypfCz9nawcGkzoWv2rtF8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=E6gpLYH22JqHqUtS0+M85cVkQUWnVMYFKhX5LXSQrPKGPnKqk22IDRt4g7++MK4uu
+	 gDow/8FUMChYi3NHEoa8cKGe/s5AcDCXOA7E88fyhpuDuoL9GKj0+Yo+xDXBHNDRvx
+	 j8DKTa9aZZ9mIjCjKCd5VDHRtWeplFHMdhIM8mPe2umqQz0x9EQ5Jx+f1LRdR0BMMw
+	 3utFErsPXqjSwasZwuWbOefnyHHGRYdp+XHLuu3X1739NiBj3Kn6M6T2bXL6vNX4/K
+	 1VevWBEWtKvzjxwgw5aRi3k3uxY7DcIBd/ZPv9wbsT2RvM0ls2JKlpwJPXwXloSjhc
+	 /aUjXnjkdR28g==
+Subject: Re: [PATCH net-next] ipv6: check mc_forwarding before calling
+ ip6mr_get_route()
+From: netdev-bot+sashiko@kernel.org
+To: sunwenbo@cmss.chinamobile.com
+Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 1342116488@qq.com
+Date: Sun, 15 Nov 2026 10:07:09 +0000
+Message-ID: <179473722928.2199510.16768078668045707324@kernel.org>
+In-Reply-To: <20261111094528.425826-1-sunwenbo@cmss.chinamobile.com>
+References: <20261111094528.425826-1-sunwenbo@cmss.chinamobile.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,144 +63,157 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:811b:b0:572:878:fccf with SMTP id
- 5614622812f47-5720878fd52mr2201182b6e.59.1794736716909; Sun, 15 Nov 2026
- 01:58:36 -0800 (PST)
-Date: Sun, 15 Nov 2026 01:58:36 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6af9824c.920b2b3a.148c65.0009.GAE@google.com>
-Subject: [syzbot] [net?] WARNING in devlink_free (2)
-From: syzbot <syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com>
-To: davem@davemloft.net, edumazet@kernel.org, horms@kernel.org, 
-	jiri@resnulli.us, kuba@kernel.org, linux-kernel@vger.kernel.org, 
-	netdev@vger.kernel.org, pabeni@redhat.com, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hello,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-syzbot found the following issue on:
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-HEAD commit:    aa40afa831eb tcp: fix NULL pointer dereference when restar.=
-.
-git tree:       net
-console output: https://syzkaller.appspot.com/x/log.txt?x=3D1582ee3d580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=3Dd44b06612b68f56
-dashboard link: https://syzkaller.appspot.com/bug?extid=3Dbbd81e1e2276c534d=
-ea1
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Unfortunately, I don't have any reproducer for this issue yet.
+- [Medium] The fix only works when no multicast routing daemon is
+  running.
+- [Medium] The patch says it aligns rt6_fill_node() with IPv4's
+  rt_fill_info(), but it copies only half of the IPv4 condition.
+- [Low] The commit fixes a user-visible netlink failure ('RTNETLINK
+  answers: Message too long' from RTM_GETROUTE for an IPv6 multicast…
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/2e5d84927015/disk-=
-aa40afa8.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/e267992573f1/vmlinux-=
-aa40afa8.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/828d3e3f2df4/bzI=
-mage-aa40afa8.xz
+--
 
-AI-generated root cause summary:
-In netdevsim, switchdev eswitch mode can be enabled with zero VFs configure=
-d,
-allowing userspace to create devlink rate nodes via netlink. However, durin=
-g
-device teardown or reload in nsim_dev_reload_destroy(), the cleanup call to
-nsim_esw_legacy_enable()=E2=80=94which invokes devl_rate_nodes_destroy()=E2=
-=80=94is
-conditionally guarded by if (nsim_dev_get_vfs(nsim_dev)). When VFs were nev=
-er
-configured (num_vfs =3D=3D 0), nsim_esw_legacy_enable() is bypassed, leavin=
-g
-devlink_rate nodes in devlink->rate_list and triggering the
-WARN_ON(devlink_rates_check(devlink, NULL, NULL)) sanity check in
-devlink_free().
+ipv6: check mc_forwarding before calling ip6mr_get_route()
 
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=3Dbbd81e1e2=
-276c534dea1
+With this patch, rt6_fill_node() calls ip6mr_get_route() only when
+mc_forwarding is non-zero. A route get for a multicast destination with an
+input interface then no longer fails with -EMSGSIZE when no multicast
+routing daemon is running. The commit message says this aligns IPv6 with
+the IPv4 rt_fill_info() behavior.
 
-IMPORTANT: if you fix the issue, please add the following tag to the commit=
-:
-Reported-by: syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com
+> Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
 
-netdevsim netdevsim0 netdevsim0 (unregistering): unset [0, 0] type 1 family=
- 0 port 8472 - 0
-netdevsim netdevsim0 netdevsim0 (unregistering): unset [1, 0] type 2 family=
- 0 port 6081 - 0
-netdevsim netdevsim0 netdevsim0 (unregistering): unset [1, 1] type 2 family=
- 0 port 20004 - 0
-------------[ cut here ]------------
-devlink_rates_check(devlink, NULL, NULL)
-WARNING: net/devlink/core.c:544 at devlink_free+0x359/0x450 net/devlink/cor=
-e.c:544, CPU#1: syz-executor/17425
-Modules linked in:
-CPU: 1 UID: 0 PID: 17425 Comm: syz-executor Not tainted syzkaller #0 PREEMP=
-T(full)=20
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Goo=
-gle 11/06/2026
-RIP: 0010:devlink_free+0x359/0x450 net/devlink/core.c:544
-Code: 00 e8 fb 62 e8 f6 5b 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc e8 =
-e6 62 e8 f6 90 0f 0b 90 e9 02 fd ff ff e8 d8 62 e8 f6 90 <0f> 0b 90 e9 29 f=
-d ff ff e8 ca 62 e8 f6 90 0f 0b 90 e9 59 fd ff ff
-RSP: 0018:ffffc900038a78b8 EFLAGS: 00010293
-RAX: ffffffff8ae0be08 RBX: ffff8880797aa000 RCX: ffff8880546a9f40
-RDX: 0000000000000000 RSI: 00000000fffffff0 RDI: 0000000000000000
-RBP: 00000000fffffff0 R08: ffffffff91be00bf R09: 1ffffffff237c017
-R10: dffffc0000000000 R11: 0000000000000000 R12: dffffc0000000000
-R13: 1ffff1100f2f5400 R14: ffff8880797aa1f8 R15: ffff8880797aa3e0
-FS:  000055557a90f500(0000) GS:ffff888123508000(0000) knlGS:000000000000000=
-0
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 00007fd61b5f0ce0 CR3: 000000002bf22000 CR4: 00000000003526f0
-Call Trace:
- <TASK>
- nsim_drv_remove+0x146/0x170 drivers/net/netdevsim/dev.c:1736
- device_remove drivers/base/dd.c:617 [inline]
- __device_release_driver drivers/base/dd.c:1357 [inline]
- device_release_driver_internal+0x42b/0x7d0 drivers/base/dd.c:1380
- bus_remove_device+0x444/0x560 drivers/base/bus.c:678
- device_del+0x524/0x8f0 drivers/base/core.c:3967
- device_unregister+0x21/0xf0 drivers/base/core.c:4008
- nsim_bus_dev_del drivers/net/netdevsim/bus.c:488 [inline]
- del_device_store+0x2b5/0x370 drivers/net/netdevsim/bus.c:243
- kernfs_fop_write_iter+0x3a4/0x540 fs/kernfs/file.c:345
- new_sync_write fs/read_write.c:575 [inline]
- vfs_write+0x612/0xba0 fs/read_write.c:667
- ksys_write+0x150/0x270 fs/read_write.c:719
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x16a/0x530 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7ffbf2169d0e
-Code: 08 0f 85 a5 a8 ff ff 49 89 fb 48 89 f0 48 89 d7 48 89 ce 4c 89 c2 4d =
-89 ca 4c 8b 44 24 08 4c 8b 4c 24 10 4c 89 5c 24 08 0f 05 <c3> 66 2e 0f 1f 8=
-4 00 00 00 00 00 0f 1f 80 00 00 00 00 48 83 ec 08
-RSP: 002b:00007ffef50b4238 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
-RAX: ffffffffffffffda RBX: 000055557a90f500 RCX: 00007ffbf2169d0e
-RDX: 0000000000000001 RSI: 00007ffef50b42c0 RDI: 0000000000000005
-RBP: 00007ffbf223891c R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000001
-R13: 00007ffef50b42c0 R14: 00007ffef50b4b00 R15: 0000000000000003
- </TASK>
+[Severity: Low]
+Should this have a Fixes: tag, and possibly a Cc to stable?
 
+The patch fixes a user-visible "RTNETLINK answers: Message too long" error
+from RTM_GETROUTE. git blame shows that the ungated ip6mr_get_route() call
+in rt6_fill_node() was added by:
 
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+commit 7bc570c8b4f7 ("[IPV6] MROUTE: Support multicast forwarding.")
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+The current err < 0 to nla_put_failure mapping came later, from
+fd61c6ba313d ("net: ipv6: remove nowait arg to rt6_fill_node").
+inet6_rtm_getroute() has never set skb->dev on the reply skb, so the
+failure has been reachable since then.
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+Without a Fixes: tag, the stable tooling will not pick this up.
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
+> diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+> index 04098cf32eabe..cb8cfd8b5c8b7 100644
+> --- a/net/ipv6/route.c
+> +++ b/net/ipv6/route.c
+> @@ -5862,7 +5862,8 @@ static int rt6_fill_node(struct net *net, struct sk_buff *skb,
+>  #endif
+>  	if (iif) {
+>  #ifdef CONFIG_IPV6_MROUTE
+> -		if (ipv6_addr_is_multicast(&rt6_dst->addr)) {
+> +		if (ipv6_addr_is_multicast(&rt6_dst->addr) &&
+> +		    atomic_read(&net->ipv6.devconf_all->mc_forwarding)) {
 
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
+[Severity: Medium]
+Doesn't this still return -EMSGSIZE whenever a multicast routing daemon is
+running?
 
-If you want to undo deduplication, reply with:
-#syz undup
+The commit message links "skb->dev is NULL" to multicast routing being
+inactive. However, inet6_rtm_getroute() never sets skb->dev on the reply
+skb, whatever the value of mc_forwarding:
+
+net/ipv6/route.c:inet6_rtm_getroute() {
+    ...
+	skb = alloc_skb(NLMSG_GOODSIZE, GFP_KERNEL);
+    ...
+	skb_dst_set(skb, &rt->dst);
+    ...
+}
+
+The iif device is resolved earlier with dev_get_by_index_rcu(), but it is
+only used for ip6_route_input_lookup().
+
+Because skb->dev is NULL, ip6mr_get_route() skips the (*,G) fallback, and
+every cache miss ends up here:
+
+net/ipv6/ip6mr.c:ip6mr_get_route() {
+    ...
+	cache = ip6mr_cache_find(mrt, &rt->rt6i_src.addr, &rt->rt6i_dst.addr);
+	if (!cache && skb->dev) {
+    ...
+		dev = skb->dev;
+		if (!dev || (vif = ip6mr_find_vif(mrt, dev)) < 0) {
+			rcu_read_unlock();
+			return -ENODEV;
+		}
+    ...
+}
+
+A cache hit also looks unlikely. The lookup uses rt6i_src and rt6i_dst of
+the pcpu route. ip6_rt_copy_init() copies those from the FIB prefix (for
+example ff00::/8), not from the queried S,G:
+
+	rt->rt6i_dst = f6i->fib6_dst;
+
+So when mc_forwarding != 0, the path is still:
+
+inet6_rtm_getroute()
+  rt6_fill_node()
+    ip6mr_get_route()      -> -ENODEV
+    goto nla_put_failure  -> -EMSGSIZE
+
+The IPv4 code that the commit says it aligns with sets skb->dev in
+inet_rtm_getroute():
+
+	fl4.flowi4_iif = iif; /* for rt_fill_info */
+	skb->dev	= dev;
+
+For output lookups it uses net->loopback_dev. rt_fill_info() also passes
+fl4->saddr and fl4->daddr to ipmr_get_route().
+
+Would it make sense to also set skb->dev in inet6_rtm_getroute(), look up
+the queried S,G, or stop mapping ip6mr_get_route() errors to -EMSGSIZE?
+Any of these would also cover the case where a daemon is running.
+
+[Severity: Medium]
+Should this also exclude link-local and node-local multicast, as the IPv4
+condition does?
+
+rt_fill_info() in net/ipv4/route.c uses:
+
+			if (ipv4_is_multicast(dst) &&
+			    !ipv4_is_local_multicast(dst) &&
+			    IPV4_DEVCONF_ALL_RO(net, MC_FORWARDING)) {
+
+On IPv6, ip6_mc_input() never forwards loopback-scope or link-local
+groups:
+
+	if (atomic_read(&dev_net_rcu(skb->dev)->ipv6.devconf_all->mc_forwarding) &&
+	    !(ipv6_addr_type(&hdr->daddr) &
+	      (IPV6_ADDR_LOOPBACK|IPV6_ADDR_LINKLOCAL)) &&
+
+This means no MFC state can ever exist for those groups.
+
+With this patch, a query such as "ip -6 route get ff02::1 from fe80::1 iif
+eth0" still reaches ip6mr_get_route() whenever mc_forwarding != 0. It gets
+-ENODEV there and returns -EMSGSIZE. For the same kind of query, IPv4
+returns RTA_IIF and a normal local route.
+
+Also, rt6_dst->addr is the route prefix (typically ff00::/8 from
+addrconf), not the queried group. Would a scope check need to test dest
+instead in order to work?
+
+>  			int err = ip6mr_get_route(net, skb, rtm, portid);
+>  
+>  			if (err == 0)
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111094528.425826-1-sunwenbo%40cmss.chinamobile.com
