@@ -1,81 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794759010;
-	b=B6yLWqyGNAvkmzZ+KVdlmXpSm6DDyM1W7bJN3jzOBTYTKVT/O2mdOcQ+g/bmft3nhCRd
-	 00jDbnDp1kBy9lJ7LknaI3n+Hp/ifFvb5Sv8X/VgOQ/3KHQBMKuFhkxw7AXnYCI/yh/Vs
-	 iMAygBmTKP1xOnP0NGcIEtg9GGPltb7a9f7Vb3lq4mOobI8a5HY+bfitzhA1dI9COa2JE
-	 hUoRE72IoLG3xJ20DBvHAKHs/d1xVOSh0UtTFADMg5LjbhrLV0VMhQjoFUqLemDNonI7B
-	 sRLFAa+KRgTWK1qMRCZAH3F5TDrW3V6uiKFn27DH8dIjSFQrT5X8vThX8faSIIk284g==
+	t=1794759441;
+	b=ahcwkk7y7ixgplUnSbf5c+Tah0Pmil3KkJn8/FZ0bdetFbizJkga5bD4E1MeRe2eOve2
+	 pDHKO47ikorOzPT4NSeHbnC0FCCRmcrTTA9r/FVZTT//CfDYZv1pqaxRMDsBuRfA9VJVl
+	 tQ9wpsXgLK/4oVhoC1m5nKem2MkgBKJ9gLQpNK3kmUKJlENR6URCLfW8oPrRBXQlL/mvE
+	 YwtKe9E3EDQW4wge0yR1QtHJ1nN/hIXxOzrQ1plyxm5NJAElhsIhJMp26zr8mElGGAy9k
+	 qu5Zz1Sx1VDsc7jGz05vA34CQQbErIlOKEaio7p00HPR8GiQTNxt1cSs2ftmFJPjZjw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794759010;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=w38rqGNrGDLCqa74mPssK7iYVtNKY8BC2nJHasK7eRI=;
-	b=nI8xU3sb6NEfIPqixLR3XAGCDd1/r9cP+VbvncOeQXz82Gh+l86sUbM+SLNov48mLSHx
-	 ehbumSPVkC5W7XX0S01rmXDZnBM7VM0U1809lpKEIomjGvTHNmnrxpn7rs5L8x8BduMfK
-	 UWf29HbYXJtshVgolsXHXMORAtoFiCW+mP+kyF9Jv6RLhtn6T98XtWcwYtEiiHmdW3ohv
-	 xjDuvcQ6rq/gTnzesvVh7MWcdZN5Rg3u70w7BTLC9pMl9uMgN88MimX48xAKeBo2WfaaT
-	 otzf9O0Z7Uz2V3f4XcetoPj19tZuDqo88zj0+ZndOBxElJDiZKOodiJIF/O583zndrA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794759441;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=q/z14z+d7POgY9c+yc0G66ZMePGWOZhS5NXoDt9IfGc=;
+	b=yMc1JKllQDAh2LhaKyMj5NvW3U1Wx37POMUYu1TerxP6CZ/PBKWa5tOORR+XMA67elHo
+	 sNGTtSndX08CGbuoyTcvWofjnj9tyoXswi6aDk0TnmvJ6eVVQ+heuH+cmirM8SIsrEK3J
+	 +YC+kYFAS1ZPcXCDnJ51BcODAtx6jMqJwzeSNrJHPvNB628Ot8M5yYnuYgCLyoY9DWf0m
+	 vG9+DiC8v6E0mbkqKfrYJQXIw83aeO6rBFb4TyV6P0aBhhi8B1aygVtEZLz3YlFFtGTJA
+	 QZQZjjIoXkUvM6VnndE36RaRrsTDicP/upMNpHodrpLR4NGA8pOckOqj7l6BZMdM0Pg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ssi.bg;
-	spf=pass smtp.mailfrom=ssi.bg;
-	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=VLfjhweh;
-	arc=none smtp.remote-ip=193.238.174.39
-Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R2rJaiQ5;
+	arc=none smtp.remote-ip=209.85.208.45
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EDC0606A31E;
-	Sun, 15 Nov 2026 16:10:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EDC0606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9719606A31D
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 16:17:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9719606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=VLfjhweh
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id 03348213FD;
-	Sun, 15 Nov 2026 18:10:05 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=w38rqGNrGDLCqa74mPssK7iYVtNKY8BC2nJHasK7eRI=; b=VLfjhwehPmzT
-	waBTOCTGdOoc65YijRE9PDgaJm2duQHE3fmvO0Q48dy64sHwUp9l/KIZaQBVJVLD
-	ogbTgQYIgaDZ/yhYnM8TOPuo9OJFB+oeLry0g3+xp60o80mN6UAALb5s1ednSQrZ
-	oswcMUUbMQSH+WMVAr5xNM1RywFXFJw+NDl9npRj9uCkcEPBH/AJlF7TBK/dD8lL
-	eR+ZITyXnu+t7WeOw02qWqojZ1sVleJ+UG6NM7Eotavid8A51oSdKMnKNKOTsR44
-	Urc8xOOCDP36TZiqYh22uJOPg5LojfNqKJiWyhGglCgFRECn+tH6ZKyTB/QEREdi
-	ybnfZp1L9D2Eqw0upOxxvG1Cd3XSPlc3vqljXbHilKmKCRZjUfWQ1W97d3RX2BCP
-	JxIEV3zAODejaqplIs3gDmzTEWb6wufy4KzvyDB38pCTKotfM/k7L7sPF+hgU8Yd
-	Ncfd15W2uRIkt9RNs11bkkAvMWVrWkdFDFUi6ZSr3JmOJ4k6P3wL5dBLlex1Gwu4
-	NXgB5EdyGv+4TA4tw0vJXzSzxIUZpyeyA6fXfVC3QDA0h7+0RpbInHfPd1MMAM+f
-	wOObpGtv2uf+KCK/V+nzR53tc902weizEXvEWEGPuDvFKrpnZ4A/ejttVfeAUMiK
-	uyCjweLi4HygwvKpcyEZH/Hlge/O/QA=
-Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Sun, 15 Nov 2026 18:10:04 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by box.ssi.bg (Potsfix) with ESMTPSA id 416C160121;
-	Sun, 15 Nov 2026 18:10:04 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AFG9uRb118090;
-	Sun, 15 Nov 2026 18:09:57 +0200
-Date: Sun, 15 Nov 2026 18:09:56 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: Yalagada Pavan Kumar <pavankumaryalagada@gmail.com>
-cc: Simon Horman <horms@verge.net.au>, pablo@netfilter.org, fw@strlen.de,
-        phil@nwl.cc, "David S. Miller" <davem@davemloft.net>,
-        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-        netdev@vger.kernel.org, lvs-devel@vger.kernel.org,
-        netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
-        linux-kernel <linux-kernel@vger.kernel.org>, skhan@linuxfoundation.org,
-        syzbot+84e27adb95fd2a1fe9bb@syzkaller.appspotmail.com,
-        stable@vger.kernel.org, Wei Wang <weiwan@google.com>
-Subject: Re: [PATCH net] ipvs: wait for RCU callbacks before dst_ops
- teardown
-In-Reply-To: <20261114195410.96503-1-pavankumaryalagada@gmail.com>
-Message-ID: <8473d38d-2d50-ad77-18c1-29bbdda56616@ssi.bg>
-References: <20261114195410.96503-1-pavankumaryalagada@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R2rJaiQ5
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b56bbf8330so3553036a12.3
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:17:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794759439; x=1795364239; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=q/z14z+d7POgY9c+yc0G66ZMePGWOZhS5NXoDt9IfGc=;
+        b=R2rJaiQ5HqWalGyhLP6BMT2OUXd2xSj7dwmo3raaDreSDVlsh0SXIqrJvIz7Umj1ke
+         iqXhOtvHFOlwItAGVn7ePPpyXoVPUG1UvvHNP/flsEHZKgJG7TOAt16YHnR8VosReTof
+         i5pQ8UELMRn2LySK6mJkLCUZFFZ/ZVW6J+zyNd+CxEd8I8OPS7rBRi2Lp90oFBimDoJh
+         q0hzdml2jg1San9mUlzZ2uHV9hLtF2tC+elpQyFBm7MEYdKuxmm4CsheWxvzBKS9h8lv
+         fhT/E86cAWJkTw3yexjtEZIibs29IZT+3wl5NRPagNRV0NZEFXbfXSzVFmvEduBbwOwd
+         z7jA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794759439; x=1795364239;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=q/z14z+d7POgY9c+yc0G66ZMePGWOZhS5NXoDt9IfGc=;
+        b=SY+STMvJweqmUUCaUKAfPibm2oluepuZ0uvZATpiQGJYI22mgLEpzYL/AoMUmr5PbE
+         KDkXA6Bf9eYoq3TBIQiNX1OvTziuyF5SXFcGS8C3gMfbYJ68uStRjtE/acNXSmTg1Y1X
+         V12lxz740gpr3sU/I5e2pd51w05cNMXYnGqu3wVhWz6hULZyiVmw5kg6NyUuM7+S9DjS
+         V0vu9VsDdaXsMN9H/H/jdKOXeFxdTjPjNjjtcD2D+VpGxOJDhHARAB6qVuTTXPROukpH
+         ez2G8d3poQ6GjUHQqz4avhB3BoSYklWzdSO6/yXgtwZpL5QeZqCCl2p8FmPjVIy7HqL8
+         +/jQ==
+X-Gm-Message-State: APuU4Z99LBtozLj6ZASwIokkBTFViA8oty3oLHhsaHnKDqnRr1EKPQ50
+	8dcCSMH3kjyHBzyScEaBqO1F1qorj4PnnGbWq2dxZOjwtJzx1M5XRvPB
+X-Gm-Gg: AYBFou30Q2NYY2FEh7ZoD7V/hgaUJ8AUUQD1LcgFhpA7yONPecr2P4yhe/Fut9VgS96
+	PdlSds0518i6cu/bS3RURG4k+NrYgY2Hy/0bN/vehvgIWwRPX/iUtY3HqQoaXmE5q2mRDgCi0zv
+	5VGlGjqGIZIxgDBaxv6TacmR16HApU5j0w5TFPI58qSU8QLRpqDDU3icDVjiyE0OxNhTWmQrnlR
+	gx/jWyXFE5xed6A14mPCcJPMq510yAWy/B8Avix4eL/TF3FwRA4DuRPG+mHxPU+h9f2Z6UQK1J+
+	x/ourpCARSqv6UHunHzhlb/rh3zLNKbPDqgAY/paaFJle00K42oO7lV3MjfW3awVVCAGJlB3G1B
+	nF6opon49BXLyaSrceKhy8yqRVCgizcx5442+aiYNd1XVzB1M4JYDWJfJ1sN1B1jys/3fQyYeqD
+	lB7bhWdgNnwSMhtaIWRgfDVe/wOm8eszffxSaYtGeWUpA+qsG6My1Ec09Qc9agZ3+iL1iSbkv1F
+	n/F76WVSIzzlN5PRlLJV6HKwlWfllcPn56OVPvdMZYQfw0KMjuKmAHzUuFe3PfpL6etLxKWk6bF
+	qHOmp/eO3//6EnTvNyp6IokPJyO7xxJygEt1mrKoLS8OQYGVkHF7H9EBj92ZEA8bXkssNZQV/lJ
+	uXuiBWoOzuZYLDBGmSZcw4Zal19dP31CfckgJzxwwh5GYQM5PhwgsADEtD/oI+qR3kGQteglNtC
+	xU7+rejrQ3Zsxx1z6zDiW4JQ==
+X-Received: by 2002:a17:907:1c85:b0:c49:b8ec:a9e3 with SMTP id a640c23a62f3a-c50963bbc82mr656270766b.43.1794759439146;
+        Sun, 15 Nov 2026 08:17:19 -0800 (PST)
+Received: from desktop.home.arpa (2a02-1810-1e16-ac80-898e-1938-27eb-b890.ip6.access.telenet.be. [2a02:1810:1e16:ac80:898e:1938:27eb:b890])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095b57c5bsm319832666b.49.2026.11.15.08.17.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 08:17:18 -0800 (PST)
+From: Stijn Cleynhens <stijncleynhens@gmail.com>
+To: Jakub Kicinski <kuba@kernel.org>,
+	Luiz Angelo Daros de Luca <luizluca@gmail.com>
+Cc: netdev@vger.kernel.org,
+	netdev-bot+sashiko@kernel.org,
+	Linus Walleij <linusw@kernel.org>,
+	=?UTF-8?q?Alvin=20=C5=A0ipraga?= <alvin.sipraga@analog.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Mieczyslaw Nalewaj <namiltd@yahoo.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 2/2] net: dsa: realtek: rtl8365mb: keep the neutral PVID in VLAN-unaware bridges
+Date: Sun, 15 Nov 2026 17:17:01 +0100
+Message-ID: <20261115161701.2351256-1-stijncleynhens@gmail.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <179432406157.994134.6897059294926012210@kernel.org>
+References: <179432406157.994134.6897059294926012210@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,85 +108,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 
+On Tue, 10 Nov 2026 15:21:01 +0000 netdev-bot+sashiko@kernel.org wrote:
+> - [High] In VLAN-unaware bridges, rtl8365mb_port_commit_pvid() now sets
+>   pvid = 0 (VLANMC index 0, EVID 0).
 
-	Hello,
+Jakub, as you asked for a reply: the review is correct. Multicast
+entries have no EFID, so with all VLAN-unaware bridges and standalone
+ports classified to VID 0 and VID 0 in IVL, they share one {MAC, VID 0}
+entry. v3 will not do that.
 
-	Adding Wei Wang to the CC list...
+Luiz, this ties in with your mail. One correction first: the patch
+does not move ports without a PVID to the bridge PVID, it does the
+reverse, it keeps the neutral PVID on the ports of a VLAN-unaware
+bridge. Your main point stands though, and I tested the SVL direction
+on hardware.
 
-On Sun, 15 Nov 2026, pavankumaryalagada@gmail.com wrote:
+The switch has a port-based FID (enable mask at 0x07ac, one FID per
+port from 0x07ad). I tried it on an RTL8367S and on an RTL8367S-VB, the
+latter with the L2 entry layout from Mieczyslaw's v10:
 
-> From: Yalagada Pavan Kumar <pavankumaryalagada@gmail.com>
-> 
-> During network namespace cleanup, IPVS releases cached destinations
-> using RCU callbacks. However, ip6_route_net_exit() destroys the
-> per-CPU destination counters before these callbacks complete.
-> The RCU callbacks call dst_release(), which updates the destroyed
-> counters and causes a NULL pointer dereference in
-> percpu_counter_add_batch().
-> 
-> Call rcu_barrier() at the end of __ip_vs_cleanup_batch() to make
-> sure all pending IPVS RCU callbacks finish before the destination
-> counters are destroyed.
+ - The port-based FID alone changes nothing while the VLAN4k entry of
+   the VLAN a frame is classified to has IVL set. The learned key
+   stays {MAC, VID}.
 
-	What you see is a result of more fundamental problem.
-IPVS is supposed to catch all NETDEV_DOWN events coming from the
-pernet device phase which come before the pernet subsys phase.
-So, on cleanup_net IPVS is supposed to run its subsys cleanup
-with no traffic, no devs, no cached dsts, no netfilter hooks, etc.
+ - With that VLAN4k entry in SVL, the learned key is {MAC, FID}, and
+   the FID is the one of the ingress port, not the one in the VLAN4k
+   entry.
 
-	But in my tests free_fib_info_rcu -> fib_nh_release ->
-fib_nh_common_release -> rt_fibinfo_free_cpus calls
-dst_dev_put() where the dst device that IPVS listens for is replaced
-with a blackhole_netdev. This happens before the NETDEV_DOWN
-event and as result IPVS misses the event because dst->dev is
-already replaced and does not match. When such dst_cache
-remains for the pernet subsys cleanup you see these crashes
-because IPVS has another problem that it does not call
-dst_release immediately but from RCU callback.
+ - A static unicast entry written as SVL with the port's FID replaces
+   the learned one in place. The roaming case from the commit message
+   passes, 10 of 10 pings, on both chips.
 
-	I now created a change to call dst_release immediately
-but the problem with the blackholing before NETDEV_DOWN remains.
-It can hurt other event listeners.
+ - Multicast entries follow the port's FID as well. With an SVL entry
+   whose only member is an unused port, 0 of about 40 frames reached
+   the CPU while the ingress port had the entry's FID, and 38 (39 on
+   the VB) once I gave the port another FID.
 
-	My tests were with tools/testing/selftests/net/netfilter/ipvs.sh
-where I modify it to run only the NAT test. What I see is veth12
-to be blackholed before its NETDEV_DOWN event and ip_vs_forget_dev()
-missed it. Trying to find more information...
+ - Two VLAN-unaware bridges on the RTL8367S, each with its own FID: the
+   same MAC and the same group in both give separate entries, deleting
+   the group in one bridge leaves the other's entry alone, and traffic
+   of one bridge does not hit the entry of the other.
 
-> 
-> Reported-by: syzbot+84e27adb95fd2a1fe9bb@syzkaller.appspotmail.com
-> Link: https://lore.kernel.org/all/6af795e2.98e60839.1e023a.00d4.GAE@google.com/T/
-> Closes: https://syzkaller.appspot.com/bug?extid=84e27adb95fd2a1fe9bb
-> Fixes: 026ace060dfe ("ipvs: optimize dst usage for real server")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Yalagada Pavan Kumar <pavankumaryalagada@gmail.com>
-> ---
->  net/netfilter/ipvs/ip_vs_core.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/net/netfilter/ipvs/ip_vs_core.c b/net/netfilter/ipvs/ip_vs_core.c
-> index 8a3c880fdb26..9c456efe13c7 100644
-> --- a/net/netfilter/ipvs/ip_vs_core.c
-> +++ b/net/netfilter/ipvs/ip_vs_core.c
-> @@ -2553,6 +2553,11 @@ static void __net_exit __ip_vs_cleanup_batch(struct list_head *net_list)
->  		IP_VS_DBG(2, "ipvs netns %d released\n", ipvs->gen);
->  		net->ipvs = NULL;
->  	}
-> +
-> +	/*
-> +	 * Wait for ip_vs_dest_dst_rcu_free() callbacks before dst_ops teardown
-> +	 */
-> +	rcu_barrier();
->  }
->  
->  static void __net_exit __ip_vs_dev_cleanup_batch(struct list_head *net_list)
-> -- 
-> 2.43.0
+ - Tagged frames, on both chips: with the VLAN4k entry of VLAN 20 in
+   SVL, a station sending in VLAN 20 is learned as {MAC, port FID} and
+   the roaming case passes, 10 of 10. With the entry in IVL as today it
+   fails, 0 of 10.
 
-Regards
+So for v3 I would drop patch 1, leave VLAN 0 in SVL, and:
 
---
-Julian Anastasov <ja@ssi.bg>
+ - give each VLAN-unaware bridge its own FID and enable it on the
+   ports of the bridge while they do not filter,
+ - keep the neutral PVID on those ports, as patch 2 does now, so that
+   untagged frames are classified to a VLAN in SVL,
+ - write the VID 0 FDB and MDB entries from DSA as SVL with the FID of
+   the bridge,
+ - as a separate patch, write a VLAN4k entry as IVL only while one of
+   its member ports filters, and as SVL otherwise, so that tagged
+   frames in a VLAN-unaware bridge are looked up by MAC as well.
 
+VID 0 is then no longer part of any lookup key, and multicast is
+separated per bridge by the FID. vlan_filtering_is_global is not
+needed. What remains is a VLAN that a filtering and a non-filtering
+bridge on the same switch both use: it stays in IVL.
+
+The FID is 4 bits on the RTL8367S and 2 bits on the VB, which limits
+the number of such bridges.
+
+Does this direction work for you? As this is no longer a small fix, I
+will send v3 for net-next, keeping the Fixes tag, unless you prefer it
+in net.
+
+pw-bot: cr
+
+Stijn
