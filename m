@@ -1,59 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794732994;
-	b=FDsRHFXq4+/9AzyQ1O60TCzb4kLDX8S1UoFL1L6HZuvOyAqRpcNmsl7PlULranM2Zsrq
-	 EIDPAllGSHHzPmMd/hmHv5U86DdYdA+At3/DMT381UMd5/S7+68P3S4qxsAPk4BuCqePQ
-	 bs0QXOn+5zCLEmP01dd29lE6Kxo1wmT+JMonPrmMT3/37F9lMVnTkvrGq9oPxtdp5szjc
-	 rKxxM67STDVNJ99O88OyS0F9K2IVKommO67wQWBayvObQxe90B0w0F+Y2gJMcnUyptieR
-	 kEzedew5hr1vCJg3sBqKTleCM8WZZVImRm0/YJ9Ypq0q44LrfvkmuRjiNXnL0oaQvQQ==
+	t=1794733363;
+	b=JOZOS91caO5Oh5MjkwRXdguWehV3XdlfqkdPkf4FNVjGSz4dt2s9hG7hLeORtVHpLsY5
+	 AgEQG/J+Jfaz+PwXTHcAHbEHEPUbgiFW0zsdO6haAaUVSNf7TRrfjPDSTxa1L9q04VJuT
+	 FVQ5DNboyDIIZ0+xmrUWMWNO6QyrsSIlc5wYMPB1X9u3zokcAdYHwON6QI8Rzkj/YhSQ+
+	 68N/2tWqJLqTR/IqZmrpDLYWCbOORfhc8J4uvJbNrbLV6piE2CEe4W52H9QghTqoSaeyr
+	 y7sE5JAI9sVx0FKmKd8WGnc2yiLi+rX0Ef87xhSII/Dhy/iXWY3RuvJnc6X9x5UN6Og==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794732994;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794733363;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=hZutrCgrHp+HfKt1eaWw1kaNR+voSV9Gbn2B4Nn674s=;
-	b=sHqBHR59RFx6TvcRDdqAWJTEu+ljopSiVXrssxct0CQKSHmZHzibck7G9YbZgZR6+g0S
-	 u0K/LWfVHCcDN9+9aGGh9Wmnw4RUbM90lswZGBEpSNTiaVr4Tkiw0kAMhjdbyHpBBrsDd
-	 CIf0thbD/stSdAuvuJUAGXCbNcUtu7KSiCuod0RNcTFgzdITuC8BdSdoqT8tJe4BNwCnK
-	 eaNPyDqj+JNdZ1jmNi8Ctgwenm2iIDt9GrvtAnSeIrN592rJcYRdBZlxpABaJoTDFI+gL
-	 OEyeK6Qm0lBLngeXNqOS6desZz9c+YEwas5EH1QBK8lwOd/7CIgg8K9m/iK/1EyzXQw==
+	bh=IECuPvYqDvrPjFIwkCwuFMCKIO5iJNpL4meqkxu4bcg=;
+	b=5ACSkokmALoMWwZ1z59F2cXlSTvGh8DMGtC3rj3Kea8p8hGTkerXaPMSB2LSGxDKqYKk
+	 R62AkhYkixYfsu/PSNw9guy4o6OupReL1BiLNF3A1gOcFh8vchT4mvB8r6YUEpdQK0Ve2
+	 ro/nBHwqdJuvat3DnxtjQhTMd+ZixotBkKlKFB650/dCXUCxTFgcD7bkl4OD2Ym9sZwpY
+	 PRuwE1M5CexxhJXRi70TDC3th76qMrGpcsnukWNBfbi+5rWep10xf+RiMUY5LfiF9bE+T
+	 vARCHx+xlhWlUIKmkFXcSqXQIhGxzbMjy/S0KKtHWYYP9XQL0o96yHMD8zGeTVJ23xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lRgNKMA7;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="OlMJF/PT";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C982B606A32D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:56:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD478606A31A;
+	Sun, 15 Nov 2026 09:02:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lRgNKMA7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8EED1F000C5;
-	Sun, 15 Nov 2026 08:56:33 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OlMJF/PT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87D351F000C4;
+	Sun, 15 Nov 2026 09:02:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794732994;
-	bh=hZutrCgrHp+HfKt1eaWw1kaNR+voSV9Gbn2B4Nn674s=;
+	s=k20260515; t=1794733363;
+	bh=IECuPvYqDvrPjFIwkCwuFMCKIO5iJNpL4meqkxu4bcg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lRgNKMA7JJMdxp4FPHSJCFpnuTfWW7I348qFqJemuv7VpVrQkmO4wH2SX4rDpmxV2
-	 RssQcef8v/ip34HWPc2f+1QPiFNCUJHFUir0at5eQU/f967GHbKWQQBst49cpPy3xQ
-	 d9QIWdAAoF+hdfG6lTTM1mitZ0O5EumMErCoLp1hxbjrzegWjumx3KcH7tAsOee4nb
-	 2sGm5RJAwFyt4oEEusxL9EZA4c7T2R7YQmj7Rg/usdQYeOj5KopQeWlVchsHrxsOr+
-	 jaxrPk5yS0jFDtVRe+nmOprNeJzJEJBEdwgsvob6b5erdIbozYq+y7ipG8hb/9QkZV
-	 VItKbY5O4Qn8g==
-Subject: Re: [PATCH net-next v2 3/3] ipv6: use the lookup cookie when caching
- the dst in sockets
+	b=OlMJF/PTCRHcGPHcQfjfaw+o92mAEoZTFwOFGpkjbU6IEQ1fryoEPfgB6agfDmaRX
+	 zCAVDCZlE4DJkgOw3Buy7/cj39S7AoU8NOOAke72savCIM+uYiykYQm91P4RX8kcma
+	 AN3psKsvprZ0Eb5fUSMKOBfr4C6MPM4+mRGPC8oUXfR+OGwgk/vrPutjr+RF1EHeYc
+	 k18skX/CVS1vwF0qeIlLfTGVikGbroWv5rSu8FFDWB6SjbCGwXnYzW2VVovZWBspWB
+	 RKVKsx9bNtbdhq3xpVzzC6UTq9HfOA01XgDc9KFcpOFs9tuvzbBlIRKbmby7xq1ppR
+	 frFb3OTZxy7jA==
+Subject: Re: [PATCH net 1/1] af_packet: Fix wrong timestamps in tcpdump
 From: netdev-bot+sashiko@kernel.org
-To: ralf@mandelbit.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, ncardwell@google.com, kuniyu@google.com,
- steffen.klassert@secunet.com, herbert@gondor.apana.org.au, fw@strlen.de,
- sd@queasysnail.net
-Date: Sun, 15 Nov 2026 08:56:33 +0000
-Message-ID: <179473299346.2199510.11559140714770152951@kernel.org>
-In-Reply-To: <43917b9119e13e54dcde0e2941d3f4a1fe255df7.1794384146.git.ralf@mandelbit.com>
-References: <43917b9119e13e54dcde0e2941d3f4a1fe255df7.1794384146.git.ralf@mandelbit.com>
-X-sashiko-severity: High
+To: khai.wen.tan@linux.intel.com
+Cc: willemdebruijn.kernel@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ richardcochran@gmail.com, vinicius.gomes@intel.com,
+ anthony.l.nguyen@intel.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ yoong.siang.song@intel.com, hong.aun.looi@intel.com, khai.wen.tan@intel.com
+Date: Sun, 15 Nov 2026 09:02:42 +0000
+Message-ID: <179473336203.2199510.3698244415513534220@kernel.org>
+In-Reply-To: <20261111053728.2611070-1-khai.wen.tan@linux.intel.com>
+References: <20261111053728.2611070-1-khai.wen.tan@linux.intel.com>
+X-sashiko-severity: Critical
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,10 +66,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 6 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 1
+Critical: 1 · High: 1 · Medium: 1 · Low: 3
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -77,139 +77,246 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] Incomplete fix: on the TCP side only tcp_v6_connect() was
-  converted.
-- [Medium] The same bug class remains in the SCTP per-transport dst
-  cache.
-- [Low] The commit fixes a user-visible security problem: 'a socket that
-  should be using IPsec keeps sending plaintext until the FIB changes…
+- [Critical] Wild pointer dereference (oops) in
+  igc_get_tstamp()/tsnep_netdev_get_tstamp() reached from…
+- [High] Kernel pointer leak to user space through tp_sec/tp_nsec is
+  still reachable for stacked devices.
+- [Medium] In tpacket_get_timestamp() (net/packet/af_packet.c:465-471)
+  the patch derives `cycles = sk_tsflags & SOF_TIMESTAMPING_BIND_PHC`…
+- [Low] The commit message understates the impact and does not cover the
+  full scope of the change.
+- [Low] The Fixes: tag points to a later user, not the root cause.
+- [Low] The new early return in tpacket_get_timestamp()
+  (net/packet/af_packet.c:467-472) no longer falls back to the software…
 
 --
 
-ipv6: use the lookup cookie when caching the dst in sockets
+af_packet: Fix wrong timestamps in tcpdump
 
-This commit changes tcp_v6_connect(), ip6_datagram_dst_update() and
-ip6_sk_dst_lookup_flow() to store the cookie returned by
-ip6_dst_lookup_flow_cookie(). Before, they read rt6_get_cookie() after
-the route and xfrm lookup. It adds ip6_dst_store_cookie() for this, and
-ip6_dst_store() stays as a wrapper that still reads the cookie after the
-lookup.
+This commit makes the mmap'ed AF_PACKET RX and TX ring paths get hardware
+timestamps through netdev_get_tstamp(). That way, drivers that implement
+.ndo_get_tstamp(), such as igc, report correct values. tpacket_get_timestamp()
+now takes a net_device and the socket's sk_tsflags, and uses
+SOF_TIMESTAMPING_BIND_PHC to pick cycles mode.
 
-> Store the cookie returned by ip6_dst_lookup_flow_cookie instead. Add
-> ip6_dst_store_cookie for this and keep ip6_dst_store for callers that
-> have no lookup cookie.
+> Since commit 97dc7cd92ac6 ("ptp: Support late timestamp determination"),
+> timestamps may need to be retrieved with input from the driver
+> .ndo_get_tstamp(). Support was missing from mmap'ed AF_PACKET sockets.
 >
-> Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+> The problem was noticed using the igc driver, that since commit
+> 069b142f5819 ("igc: Add support for PTP .getcyclesx64()") has migrated to
+> use .ndo_get_tstamp() that timestamps were wrong on the receiving side,
+> when using tcpdump.
 
 [Severity: Low]
-This isn't a bug, but should this have a Fixes: tag and Cc: stable? The
-commit message describes a socket that "keeps sending plaintext" when it
-should be using IPsec.
+Is "wrong timestamps" the whole impact? For igc and tsnep, the
+skb_shared_hwtstamps union holds netdev_data, which is a kernel virtual
+address into the RX buffer. Before this patch, tpacket_get_timestamp()
+wrote that pointer value into tp_sec/tp_nsec in the user-mapped ring.
 
-The patch also calls ip6_dst_lookup_flow_cookie(). That helper comes from
-the previous patch in the series ("ipv6: add ip6_dst_lookup_flow_cookie"),
-which also changes ip6_dst_check() behaviour for nexthop-object dsts. So
-this patch can't be backported on its own. Could the dependency be noted
-for stable?
+Could the message say this is a kernel pointer disclosure, so stable and
+security triage can see it?
 
-> diff --git a/include/net/ip6_route.h b/include/net/ip6_route.h
-> index 95f936be32c6c..2684f6069a5e1 100644
-> --- a/include/net/ip6_route.h
-> +++ b/include/net/ip6_route.h
+The message also only mentions the receiving side. The patch also changes
+__packet_set_timestamp() on the TX ring completion path, which now calls the
+driver's ndo_get_tstamp() through skb->dev. Could that change be explained
+as well?
+
+> Fixes: 069b142f5819 ("igc: Add support for PTP .getcyclesx64()")
+
+[Severity: Low]
+Should this Fixes: tag point at 97dc7cd92ac6 instead? The commit message
+names that commit as the origin of the problem. tsnep has also implemented
+.ndo_get_tstamp() with netdev_data since 0abb62b68252 (2022), which is older
+than the igc commit named here.
+
+Stable trees that have tsnep's ndo_get_tstamp() but not 069b142f5819 would
+not pick up this fix from the current tag.
+
+> diff --git a/net/packet/af_packet.c b/net/packet/af_packet.c
+> index cf6429f094772..7197236c8a3b3 100644
+> --- a/net/packet/af_packet.c
+> +++ b/net/packet/af_packet.c
+> @@ -456,15 +456,20 @@ static int __packet_get_status(const struct packet_sock *po, void *frame)
+>  	}
+>  }
+>  
+> -static __u32 tpacket_get_timestamp(struct sk_buff *skb, struct timespec64 *ts,
+> -				   unsigned int flags)
+> +static __u32 tpacket_get_timestamp(struct net_device *dev, struct sk_buff *skb,
+> +				   struct timespec64 *ts, unsigned int flags,
+> +				   unsigned int sk_tsflags)
+>  {
+>  	struct skb_shared_hwtstamps *shhwtstamps = skb_hwtstamps(skb);
+>  
+> -	if (shhwtstamps &&
+> -	    (flags & SOF_TIMESTAMPING_RAW_HARDWARE) &&
+> -	    ktime_to_timespec64_cond(shhwtstamps->hwtstamp, ts))
+> -		return TP_STATUS_TS_RAW_HARDWARE;
+> +	bool cycles = sk_tsflags & SOF_TIMESTAMPING_BIND_PHC;
+
+[Severity: Medium]
+Is a ptp_convert_timestamp() step missing here? With cycles set,
+igc_get_tstamp() returns a value based on the free-running timer1:
+
+drivers/net/ethernet/intel/igc/igc_main.c:igc_get_tstamp() {
+    ...
+	if (cycles)
+		timestamp = igc_ptp_rx_pktstamp(adapter, tstamp->timer1);
+    ...
+}
+
+tsnep returns rx_inline->counter. In net/socket.c, __sock_recv_timestamp()
+and skb_get_tx_timestamp() always follow this with a conversion into the
+bound vclock:
+
+		if (tsflags & SOF_TIMESTAMPING_BIND_PHC)
+			hwtstamp = ptp_convert_timestamp(&hwtstamp,
+							 READ_ONCE(sk->sk_bind_phc));
+
+af_packet never reads sk_bind_phc. A packet socket using SO_TIMESTAMPING
+with SOF_TIMESTAMPING_BIND_PHC would then get the raw counter in
+tp_sec/tp_nsec, marked TP_STATUS_TS_RAW_HARDWARE. That value matches neither
+the physical PHC nor the bound vclock.
+
+Drivers without ndo_get_tstamp() ignore BIND_PHC on this path. So the same
+socket setting would give timestamps from different clock domains depending
+on the NIC.
+
+> +
+> +	if (shhwtstamps && shhwtstamps->hwtstamp &&
+> +	    (flags & SOF_TIMESTAMPING_RAW_HARDWARE)) {
+> +		ktime_t tstamp = netdev_get_tstamp(dev, shhwtstamps, cycles);
+
+[Severity: Critical]
+Can this treat a ktime value as a pointer and dereference it?
+netdev_get_tstamp() is called for any non-zero hwtstamp. However, the union
+only holds a driver cookie when SKBTX_HW_TSTAMP_NETDEV is set. Both
+ndo_get_tstamp() implementations dereference netdev_data without any check:
+
+drivers/net/ethernet/intel/igc/igc_main.c:igc_get_tstamp() {
+    ...
+	tstamp = hwtstamps->netdev_data;
+
+	if (cycles)
+		timestamp = igc_ptp_rx_pktstamp(adapter, tstamp->timer1);
+	else
+		timestamp = igc_ptp_rx_pktstamp(adapter, tstamp->timer0);
+    ...
+}
+
+tsnep_netdev_get_tstamp() does the same with struct tsnep_rx_inline.
+
+One way to reach this: a packet arrives on a NIC that stores a plain ktime
+RX hardware timestamp (igb, ixgbe, mlx5, ice, ...). It is then routed,
+bridged or mirred out an igc or tsnep port. Nothing on those paths seems to
+clear skb_hwtstamps(), and the clone made in dev_queue_xmit_nit() shares
+shinfo:
+
+ip_forward / br_forward / tcf_mirred
+  dev_queue_xmit()
+    dev_queue_xmit_nit()
+      deliver_skb(skb2, pt_prev, skb->dev)    /* dev is the igc port */
+        tpacket_rcv()
+          tpacket_get_timestamp()
+            netdev_get_tstamp(dev, ...)
+              igc_get_tstamp()
+                tstamp->timer0                /* tstamp is a ktime */
+
+Take an mmap'ed capture on the igc port that asks for raw hardware
+timestamps, for example tcpdump -j adapter_unsynced. On x86-64, wouldn't
+this dereference a non-canonical address in softirq or xmit context?
+
+A forwarded igc-to-igc or tsnep-to-igc skb would also decode another
+adapter's cookie with the wrong PHC or struct layout. That is because dev
+here is the tap's device, not the device that produced the timestamp.
+
+The socket path guards against both cases in net/socket.c:
+
+		if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP_NETDEV)
+			hwtstamp = get_timestamp(sk, skb, &if_index);
+		else
+			hwtstamp = shhwtstamps->hwtstamp;
+
+get_timestamp() then finds the producing device with
+dev_get_by_napi_id(skb_napi_id(skb)) under rcu_read_lock(). Could
+af_packet do the same?
+
+Before this patch, af_packet only copied the union value and never
+dereferenced it.
+
+> +
+> +		return ktime_to_timespec64_cond(tstamp, ts) ? TP_STATUS_TS_RAW_HARDWARE : 0;
+
+[Severity: Low]
+Is skipping the software fallback here intended? The old code fell through
+to skb_tstamp() when the hardware branch failed. Now, if ndo_get_tstamp()
+converts the cookie to 0, this returns 0 and never tries the
+SOF_TIMESTAMPING_SOFTWARE branch.
+
+In that case tpacket_rcv() falls back to ktime_get_real_ts64(), and
+__packet_set_timestamp() writes no timestamp. That doesn't match the comment
+in tpacket_rcv():
+
+	/* Always timestamp; prefer an existing software timestamp taken
+	 * closer to the time of capture.
+	 */
+
+The driver conversion has to produce exactly 0 for this to happen, so it
+should be rare.
+
+> +	}
+>  
+>  	if ((flags & SOF_TIMESTAMPING_SOFTWARE) &&
+>  	    ktime_to_timespec64_cond(skb_tstamp(skb), ts))
 
 [ ... ]
 
-> @@ -266,8 +266,16 @@ static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
->  #endif
->  }
->  
-> +static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
-> +				 bool daddr_set,
-> +				 bool saddr_set)
-> +{
-> +	ip6_dst_store_cookie(sk, dst, rt6_get_cookie(dst_rt6_info(dst)),
-> +			     daddr_set, saddr_set);
-> +}
+> @@ -2424,9 +2434,10 @@ static int tpacket_rcv(struct sk_buff *skb, struct net_device *dev,
+>  	/* Always timestamp; prefer an existing software timestamp taken
+>  	 * closer to the time of capture.
+>  	 */
+> -	ts_status = tpacket_get_timestamp(skb, &ts,
+> +	ts_status = tpacket_get_timestamp(dev, skb, &ts,
+>  					  READ_ONCE(po->tp_tstamp) |
+> -					  SOF_TIMESTAMPING_SOFTWARE);
+> +					  SOF_TIMESTAMPING_SOFTWARE,
+> +					  READ_ONCE(sk->sk_tsflags));
 
 [Severity: High]
-Is the TCP side of this fix complete? The commit message says this
-"affects TCP and connected UDP sockets alike", but tcp_v6_connect() is
-the only TCP path converted. Other TCPv6 paths still call
-ip6_dst_lookup_flow() and then ip6_dst_store(), so they still read the
-cookie after xfrm_lookup_route() has returned.
+Can the netdev_data kernel pointer still leak into the ring when dev is not
+the device that produced the timestamp? For igc and tsnep RX skbs,
+skb_hwtstamps(skb)->netdev_data points into the RX buffer.
 
-Here is inet6_csk_route_socket() in net/ipv6/inet6_connection_sock.c:
+The same skb can reach tpacket_rcv() with dev set to an upper device. One
+case is vlan_do_receive() or an rx_handler returning RX_HANDLER_ANOTHER in
+__netif_receive_skb_core():
 
-	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
+		if (vlan_do_receive(&skb))
+			goto another_round;
 
-	if (!IS_ERR(dst))
-		ip6_dst_store(sk, dst, false, false);
+This walks skb->dev->ptype_all again for the VLAN, macvlan, ipvlan, bond or
+bridge device. Forwarding to a non-igc egress port or a veth peer does the
+same.
 
-inet6_csk_xmit() reaches this whenever __sk_dst_check(sk, np->dst_cookie)
-fails. inet6_csk_update_pmtu() also reaches it through
-tcp_v6_mtu_reduced(), and a remote peer can trigger that path with
-ICMPv6 Packet Too Big.
+Only igc and tsnep implement ndo_get_tstamp(). For any other device,
+netdev_get_tstamp() falls back to:
 
-inet6_sk_rebuild_header() in net/ipv6/af_inet6.c has the same
-lookup/store pair. It is ipv6_specific.rebuild_header, and tcp_connect()
-calls it right after tcp_v6_connect(). Suppose
-ip6_dst_lookup_flow_cookie() saw the generation move and returned cookie
-0. Then __sk_dst_check() fails immediately, and the lookup is redone
-through the unconverted path inside the same connect() call. The
-retransmit path also reaches inet6_sk_rebuild_header().
+	return hwtstamps->hwtstamp;
 
-tcp_v6_syn_recv_sock() in net/ipv6/tcp_ipv6.c gets its dst from
-inet6_csk_route_req(). That function calls ip6_dst_lookup_flow() without
-capturing a cookie. tcp_v6_syn_recv_sock() then runs
-tcp_create_openreq_child() before it does:
+That is the pointer read back as a ktime, and tpacket_get_timestamp()
+reports it with TP_STATUS_TS_RAW_HARDWARE. A direct-map address is a small
+negative s64 in nanoseconds, so the full pointer looks recoverable from
+tp_sec/tp_nsec.
 
-	ip6_dst_store(newsk, dst, false, false);
+__packet_set_timestamp() passes skb->dev the same way. Would gating on
+SKBTX_HW_TSTAMP_NETDEV and finding the producing device with
+dev_get_by_napi_id(), as get_timestamp() in net/socket.c does, fix both
+callers?
 
-So every passively opened IPv6 TCP socket has the same window.
-
-An xfrm policy insertion goes through
-rt_genid_bump_ipv6()->__fib6_flush_trees(), which invalidates every
-cached socket dst. Established sockets therefore re-route through
-inet6_csk_route_socket() right after a policy change.
-
-Suppose another policy is inserted during that re-lookup, which can
-happen when an IKE daemon installs several policies back to back. Can
-the plain route then be cached with the post-insertion serial? If so,
-inet6_csk_xmit() would keep accepting it and send plaintext.
-
-The commit message says ip6_dst_store is kept "for callers that have no
-lookup cookie". Each of these callers does its own ip6_dst_lookup_flow(),
-though, so each could use ip6_dst_lookup_flow_cookie() with
-ip6_dst_store_cookie(). For the passive-open path, inet6_csk_route_req()
-would need to return the cookie.
-
-The kernel-doc of ip6_dst_lookup_flow_cookie() also says "A caller caching
-the dst should use this cookie when validating it with dst_check."
-
-[Severity: Medium]
-Does the same window remain in the SCTP per-transport dst cache?
-sctp_v6_get_dst() in net/sctp/ipv6.c does its route and policy lookup
-through ip6_dst_lookup_flow() and stores the result in t->dst. Only after
-that does it read the cookie:
-
-	rt = dst_rt6_info(dst);
-	t->dst_cookie = rt6_get_cookie(rt);
-
-sctp_transport_dst_check() later validates t->dst against that cookie.
-If an xfrm policy insertion restamps fn_sernum between the lookup and
-this read, could an SCTP association over IPv6 keep using the route that
-was found without the policy?
-
-dst_cache_set_ip6() in net/core/dst_cache.c has the same pattern. IPv6
-UDP tunnels and ip6_tunnel use it:
-
-	dst_cache_per_cpu_dst_set(idst, dst,
-				  rt6_get_cookie(dst_rt6_info(dst)));
-
-The previous patch in the series describes the problem as affecting all
-"callers that keep a dst in a persistent cache". Should these sites also
-be converted to ip6_dst_lookup_flow_cookie(), or at least mentioned in
-the commit message?
+>  	if (!ts_status)
+>  		ktime_get_real_ts64(&ts);
+>
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794384146.git.ralf%40mandelbit.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111053728.2611070-1-khai.wen.tan%40linux.intel.com
