@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794715853;
-	b=pXuovoEkRTEMyvvzimoiqG++XiqZzHmXUszirMczZiqvk+LF6CMmVcw13hn4anJy/Kuk
-	 Cs8cejWkDg8th/pIh0Z4Xnu96U5L0mZ5ZUOd5GWssM674JtXL3A5ZFoM4EcjX8CsEyo8p
-	 HxvffZxnkhJrIEegQOerAJ9lOHUJ7MnrowYznxZ2Rsn1PQmaWhjDhgbk8uXV21eLboP08
-	 LVieyuY7I5vFHwt5EYNYn+eX8EimDM2XObniAqwHk8Fxc5ui3u4tX99ExS+mFEo3k7erg
-	 MOLb7e8ImduqdKOlS5y9WH+dLu2rXqqUUkqYKCP0lPT0c0sT0HaFDAQASdcyXF0R4nA==
+	t=1794715854;
+	b=lxCSzyjkgbhJmHJ6CfVVu4StElQChH49v00hfBxZHnlM89vZLxqJAQb4jk6M9EZ6FTpk
+	 4r8nhJP2O/nyltxfRmXkWK5yrUBkiWJdzS0+QVyUKwa54OBeAqLY85omHS+0fVbck6HWV
+	 jYJU991jRSXFcd2u37wu2tZ/W0AE+0K4zNJbp9PjMHjzP87ImKyH/CsQBsSJ76m1Idu+2
+	 /LgWae8YS3fpIKd+9xhWou1S+5qlhQinw5oOGJgbgedrirE7rZ/NXp4XEb6msvji0l8ms
+	 beK8ToFmc5OWE1MifG0yzXo6fVF7lCzlTFYSh6ziiAGl8eNkgPFPonbOXb0oSWFOxHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794715853;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794715854;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=rlRzOAPCRngy/bL8DyI0XFpgtucuf34SjRajoMzLA/E=;
-	b=HFN+LPngMGczek+/RSL06BNhQG+fd8JY4xkzoSYMLc1AvJyyezgmz/HsTfXUpSY2zoXD
-	 33hZoT60ijgpnsYR2m7lwqpMIilof5x9JSeeFgTc1/138MEL8PA4nNSfnWlDQbwXb6enB
-	 9tcEqXQ8wyb7ZEBbGs7D1LDCD7p6Bt5G6Ry+jRFpFjwo+JqQmGw35tNMg4JJHLzRCDiEs
-	 JC4SNHWT8oH21Xb1Aoo+b7B8I0jSs0HQGVTE02VuXrnTqxikzb8sepokgI1UtAgQCAopz
-	 tb23HXCk00l7ox7rt+0I3r0NgRuVxoDnzYa5xSdW4Sk0SmjtHuj0+KViFGS21x00cTw==
+	bh=T2PCQ24rcTY2zFQSzsrl4wzyPOBFrVHAmJUkjy6sF60=;
+	b=jes9jUrmDuqJz/FeEVqmoQAycn2bflY51krrlkoX6ZwuA3B0RzdWtJj0cTiLe7CiDwmg
+	 v93cx1Dgby/Tb6Iw7HvQABztn+wfjhbUEX39NIYKKnyMBslfkkYhhITlcZEFdHrMzqw8Z
+	 QZ/nPUUCFgpaCBsqGsuiwMUOFsOLRHFRIYKx24pCxm5KzQl9CDwM0tE67u9WqF2b79n48
+	 bzPXaPTiEoZkuJtu/VXE5aMsIE55X8aR0+A3Yqj3Q356tuLork6553Oz2VmQPSd4qTdNs
+	 frde3ga8R/aB9DRVcz2bVsj2XrqC9x7TyQg6PiLuOXpYpgr+RAOCO29enzJBBSaOTmQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c+pdlUmW;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SljNCKbo;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91410606A323
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 04:10:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D740D606A885
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 04:10:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c+pdlUmW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E69DC1F000C4;
-	Sun, 15 Nov 2026 04:10:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SljNCKbo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1192E1F000C7;
+	Sun, 15 Nov 2026 04:10:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794715853;
-	bh=rlRzOAPCRngy/bL8DyI0XFpgtucuf34SjRajoMzLA/E=;
+	s=k20260515; t=1794715854;
+	bh=T2PCQ24rcTY2zFQSzsrl4wzyPOBFrVHAmJUkjy6sF60=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=c+pdlUmWLlTi0gFcX99G8ZzGMT+9/xlOUGIVlS8j/QVVxp1MfUIPdDAYkOKGubfEX
-	 l2yNCe1BiBSdFDnTjZ1UvFSyJU89VnMhe2NMxT925+1gCcVO+BR561B6n+5hk/P8cO
-	 SRCXQhSqOD6kcc1qTylB5OXRt4RVC6u/pp2BnNxJ9N/tCFV9J0VyCgIYCws1jlVb6m
-	 HtB5AHYD+qLw2el9ComhN99f5ugqglJP6QlwDp1FGiuOEADx64ImKWKf7woQ5TJLRg
-	 YD9z0c9WJ2qONRrdewSKw8GnNIUyE9ZCj2M/o7OzObG1DVcZW407ppdgqiKk9O8Pqy
-	 MAulz9wJRxZcQ==
-Subject:
- Re: [PATCH v1 net-next 6/8] tcp: Allocate all new skb before collapsing.
+	b=SljNCKboEt6NEeUQnE/wHtVdh+R1gE+DQ7ESSSlnejD/fVvuUdnTi3sGRhDJdfG8j
+	 SE5P53o2DBpqJp5zxdgGeTu324+ZENsQovq2Iw1fGRPAWxX8+qzn4x4jbaARrg2Bgk
+	 EmIINkmHAYLhypm1LpU840v1Kuv2hVW2BQsvhNIumud8t7SEnHp95pzmiE6AFor1T9
+	 P+/8HFZX+KXEiFgesf/miN1kaEaQhvPQGHn951kMg19XacyrdEUuDs+b0pEMZXqAPb
+	 MDoo5nWMxdxyXySLBRR7AE0ogljgJ5+mbKRlySWDWNA2h5jbpoSLCB9w5WFv1Y/ZkN
+	 94nZoh/mqSkjw==
+Subject: Re: [PATCH v1 net-next 8/8] selftest: packetdrill: Add test for
+ tcp_collapse().
 From: netdev-bot+sashiko@kernel.org
 To: kuniyu@google.com
 Cc: edumazet@kernel.org, ncardwell@google.com, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com,
  netdev@vger.kernel.org
-Date: Sun, 15 Nov 2026 04:10:52 +0000
-Message-ID: <179471585247.2199510.2265123752105906742@kernel.org>
-In-Reply-To: <20261114040101.1043546-7-kuniyu@google.com>
-References: <20261114040101.1043546-7-kuniyu@google.com>
-X-sashiko-severity: Medium
+Date: Sun, 15 Nov 2026 04:10:53 +0000
+Message-ID: <179471585361.2199510.8278791801489281054@kernel.org>
+In-Reply-To: <20261114040101.1043546-9-kuniyu@google.com>
+References: <20261114040101.1043546-9-kuniyu@google.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,159 +64,77 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In tcp_collapse() (net/ipv4/tcp_input.c), the new
-  TCP_COLLAPSE_MAX_TOTAL_SIZE cap sits inside the second operand of…
-- [Low] Concern: preallocating every skb makes tcp_collapse() all-or-
-  nothing per section.
+- [Low] The commit message does not accurately describe the test in
+  tools/testing/selftests/net/packetdrill/tcp_collapse.pkt.
 
 --
 
-tcp: Allocate all new skb before collapsing.
+selftest: packetdrill: Add test for tcp_collapse().
 
-This commit changes tcp_collapse() to preallocate every replacement skb
-for a section into a temporary pool before copying any data. An
-alloc_skb() failure therefore no longer leaves partially-copied skbs and
-duplicates in the queue. To bound the batch, the section size is capped at
-TCP_COLLAPSE_MAX_TOTAL_SIZE (16 skbs). The exceptions are a single bloated
-skb and overlapping OOO skbs.
+This adds a packetdrill test, tcp_collapse.pkt. It checks that
+tcp_collapse() only collapses runs of low-density skbs, and leaves
+high-density skbs and an isolated low-density skb alone. It also makes
+ksft_runner.sh skip any script whose PAGE_SIZE define does not match
+getconf PAGESIZE.
 
-> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-> index fe71305f6e673..9f32577b0b53c 100644
-> --- a/net/ipv4/tcp_input.c
-> +++ b/net/ipv4/tcp_input.c
-
-[ ... ]
-
-> @@ -5908,8 +5911,9 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->  
->  		/* seq and end_seq must increase monotonically for rbtree. */
->  		if ((list || !before(TCP_SKB_CB(n)->seq, sub_end)) &&
-> -		    !tcp_collapse_skb_bloated(n, sub_end,
-> -					      TCP_COLLAPSE_SCALING_RATIO))
-> +		    (TCP_SKB_CB(n)->end_seq - start >= TCP_COLLAPSE_MAX_TOTAL_SIZE ||
-> +		     !tcp_collapse_skb_bloated(n, sub_end,
-> +					       TCP_COLLAPSE_SCALING_RATIO)))
->  			break;
->  
->  		sub_end = TCP_SKB_CB(n)->end_seq;
-
-[Severity: Medium]
-
-Can the TCP_COLLAPSE_MAX_TOTAL_SIZE cap ever stop the section on the OOO
-overlap path?
-
-For the OOO rbtree (list == NULL), suppose n partially overlaps the
-section, so n->seq < sub_end and n->end_seq > sub_end. Then the first
-operand of the && is false. Neither the cap nor tcp_collapse_skb_bloated()
-is checked, and sub_end keeps growing.
-
-The peer controls seq and end_seq. tcp_data_queue_ofo() keeps partially
-overlapping segments in the tree:
-
-net/ipv4/tcp_input.c:tcp_data_queue_ofo() {
-    ...
-			if (after(seq, TCP_SKB_CB(skb1)->seq)) {
-				/* Partial overlap. */
-				tcp_dsack_set(sk, seq, TCP_SKB_CB(skb1)->end_seq);
-			} else {
-    ...
-}
-
-So a chain of segments, each starting just before the previous one ends,
-can turn into a single section. Its size is limited only by the OOO memory
-of the socket.
-
-Only the first skb has to be bloated. The overlap also inflates
-old_truesize, so the old_truesize > new_truesize check is easy to pass.
-
-> @@ -5932,14 +5938,19 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->  		goto restart;
->  	}
->  
-> -	while (before(start, sub_end)) {
-> -		int copy = min_t(int, TCP_COLLAPSE_MAX_SIZE, sub_end - start);
-> -		struct sk_buff *nskb;
-> -
-> -		nskb = alloc_skb(copy, GFP_ATOMIC);
-> +	while (nskbs--) {
-> +		nskb = alloc_skb(nskbs ? TCP_COLLAPSE_MAX_SIZE : remainder,
-> +				 GFP_ATOMIC);
->  		if (!nskb)
->  			goto end;
->  
-> +		__skb_queue_tail(&pool, nskb);
-> +	}
-
-This loop then allocates every replacement skb with GFP_ATOMIC. All of
-them sit in pool before any source skb is freed or any new skb is charged
-to the socket.
-
-Before this patch, alloc_skb() alternated with
-tcp_collapse_one()->__kfree_skb(), so only about one extra skb was in
-flight at a time. Now the number in flight is about
-ceil((sub_end - start) / TCP_COLLAPSE_MAX_SIZE). With one-byte overlaps and
-typical MSS truesize, that is roughly 0.7x the OOO memory of the socket,
-on top of the existing queue.
-
-A larger all-or-nothing batch is also more likely to fail under the memory
-pressure that triggers collapse. In that case goto end frees the pool and
-tcp_prune_queue() falls back to tcp_prune_ofo_queue().
-
-The commit message does mention this exception:
-
-  except when a single bloated skb or overlapping OOO skbs
-  must be collapsed together to free the original skb or keep the
-  rbtree monotonic.
-
-However, the size of the overlapping OOO case is controlled by the peer
-and bounded only by the OOO queue. Should the overlap path be bounded as
-well? If not, could the commit message say that this exception is not
-covered by the bound on the temporary allocation?
+> tcp_collapse() now does not collapse high-density skbs and a
+> low-density skb sandwitched by hihg-density skbs.
+>
+> tcp_collapse.pkt verifies the behaviour by
+>
+> 1. set a large SO_RCVBUF
+> 2. send one high-density skb with 100 bytes read()
+> 3. send one high-density skb
+> 4. send one low-density skb
+> 5. send one high-density skb
+> 6. send 30 low-density skbs
+> 7. set a small SO_RCVBUF
+> 8. send a small data to trigger tcp_collapse()
+> 9. check TcpExtTCPRcvCollapsed via nstat
+>
+> Without the series, the first high-density skb is collapsed.
+> In addition, the first low-density skb drags the following
+> high-density skb into collapsing, consuming more memory.
+>
+> If we remove sk_forced_mem_schedule() without this series,
+> sk->sk_forwad_alloc becomes negative at the end of tcp_collapse().
 
 [Severity: Low]
+Is a step missing from this list? Between steps 6 and 7,
+tcp_collapse.pkt queues one more 62,000 B high-density segment:
 
-Each section is now all-or-nothing. A single alloc_skb() failure in this
-loop jumps to end, and nothing is reclaimed for this section or for any
-later one. Even in the capped case, up to 16 skbs (about 70 KiB on 4 KiB
-pages) are held before any source skb is freed.
+// 5. Queue a trailing high-density 62,000 B segment.
+   +0 < P. 217001:279001(62000) ack 1 win 65535
+    * > .  1:1(0) ack 279001
 
-The unused skbs are released by __skb_queue_purge_reason() at end, so
-nothing leaks.
+The file header says the test checks that tcp_collapse() "skips leading
+and trailing high-density skbs". The SO_RCVBUF shrink comment gives
+sk_rmem_alloc as 334,592, and that figure seems to count four
+high-density skbs, not three.
 
-The commit message describes this tradeoff ("It is only when all
-candidates are properly collapsed that we can save memory" and "a small
-tradeoff to bound the temporary allocation"). The goto end on allocation
-failure was also already there before this patch.
+The last paragraph says sk_forward_alloc goes negative if
+sk_forced_mem_schedule() is removed without the series. Does this test
+catch that case?
 
-Is it intended that one failed batch also skips the remaining sections,
-rather than only the current one?
+The test only passes or fails on three checks:
 
-> +
-> +	while (before(start, sub_end)) {
-> +		int copy = min_t(int, TCP_COLLAPSE_MAX_SIZE, sub_end - start);
-> +
-> +		nskb = __skb_dequeue(&pool);
+- TcpExtTCPRcvCollapsed equals 30
+- TcpExtTCPRcvQDrop does not appear
+- the final read() returns 279900:
 
-[ ... ]
+   +0 read(4, ..., 300000) = 279900
 
-> @@ -5985,6 +5996,8 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->  end:
->  	skb_queue_walk_safe(&tmp, skb, n)
->  		tcp_rbtree_insert(root, skb);
-> +
-> +	__skb_queue_purge_reason(&pool, SKB_CONSUMED);
->  }
+None of these checks sk_forward_alloc. Could the message say that the
+test does not cover this case?
+
+The message also has a few typos: sandwitched (sandwiched), hihg-density
+(high-density), and sk_forwad_alloc (sk_forward_alloc).
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261114040101.1043546-1-kuniyu%40google.com
