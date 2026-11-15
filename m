@@ -1,80 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794742961;
-	b=PlD0ZAIvv5v9Jz62OOkuYB1Obgc26I9jYXe4kofZBBut0iIJnDdQxcqwmgSOIlvIHxme
-	 Y1dpa6PcqhtwFyzRfX9jfD2Pv9t+IiwaywSrr98i+Qw2BmPnkEG3W4UDr5cGimHL06HQx
-	 T6/3OzNpe9DZqyrtbU5CWrve/PaAfUtaNycYe2Gp2nufBRtb4SDf7BteFCQ2zHE2oIOvb
-	 4VUYGseZW9EtDOGZkAU+CAT7ULS9DuqbTjzwsrgNCVsb8rjZglXc1FFF4X0W51nRSA23/
-	 GtSAncAhihjjhGR8ENwXZDvFaVUG9cIBJDLeH0IWEJYipjdCAyfVYFwNNekcp52by+Q==
+	t=1794742965;
+	b=pbO2YqzFOLVHpUjtNlWXbMQwHXHTKuP/mFjmHl1wLhrGbdRB2jzQqcLFy19TTigcVmIw
+	 RzkI+nc5GThTVimIB+BUKJIGqavtO9dG/Fs/kaqQpD9hKrSh39/VTv93I3BvfhZDOOqvY
+	 E6ym1i1qq/RF7eDC6UwWKykPflfXQfmdA36Zxhxc3HXYw5lT+02dRSzsX0TOIUmY6zSlo
+	 bzn+A50Q3H+g7wuXLcdRaGt3y3d/1sjCzuDTunXF8Zc2+uuAlwJgrHhchQHQfxMkP9859
+	 sthMXzZBaRRNYo6A4qdUvDLi7Pldi8dpuRZxWa0FaUif+xVxHPEzFcemtusjXNbUm5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794742961;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794742965;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=GAy8mI/qOiqS0+CAJuRmtxRG7FkEVXydteGLGUAp1pg=;
-	b=qGkIjdLANo/WdM5gbfT8r5b6nj6KAMHA0wJbnNzuxMjm7pdPQv54YP7UDVHqmNykV6Mz
-	 zweaLtYLQlgy0DZuUFTXfMVblBxTXEp9eP2pNee4YddJ27RS+4gXgnVKBh/P6VTz9+VV1
-	 Zc5YX+lZlWFGzTSNJ8Vgi7DhDoviwmdQdZ2aT0WlMsTvHK/DT69xdPR1p72A+YYZy4VEu
-	 JOROtHWBhkUZzVt48uGtQejOMqTBYXBxI7byEG8Hv2KrNSx34B/U7Vayew75NYAxjsIzC
-	 E5w09H8mYBnOd52+4MK4viB0CzlakN+Nt8/w0EQtuxjjgRwTt/z8ow5pQQrS1jPiuZw==
+	bh=IvIEFoX9Gp+Y7CbxFyyYFIIDn8ikvGnI11j3avLfflQ=;
+	b=ppUXhotLqH/Pf3cSSKtXbYgr2F3RaeHt/w3gmNu/AN6ax6pIwzQ0t1D0djH2fVV+S84E
+	 eewfwEvB32aytr2+yJgvx7OKsdEWc70yapLPFhz7FbzTOwqpm5jYH/Xt35WZPgDyQ0Ila
+	 bMVU64JAdMrxOfAsDwZ7PjvLHSyH5JkTK8W5J901amdARxuiInDB/Mdc3CPQknaqac1Ep
+	 Au33V6sfgyTD6IvH7KXPqnW59Hueswiy0QynSViI0NSO4Qr35plmAJnpf7UCzWzbjkD0p
+	 5t33cwc48JVokuewIcc5rMXAgWEN56t7dFeSmA3nftUOQOtyhVjqkHTKXvGRrrqYd3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JzvNv9PX;
-	arc=none smtp.remote-ip=209.85.128.47
-Received: from mail-wm1-f47.google.com (mail-wm1-f47.google.com [209.85.128.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F4zFlkDu;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106A8606A31D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:42:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 106A8606A31D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F2D9606A31A
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:42:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F2D9606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JzvNv9PX
-Received: by mail-wm1-f47.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so550785e9.0
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 03:42:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F4zFlkDu
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso13321175e9.1
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 03:42:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794742959; x=1795347759; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794742964; x=1795347764; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=GAy8mI/qOiqS0+CAJuRmtxRG7FkEVXydteGLGUAp1pg=;
-        b=JzvNv9PXMogFqMX/lOS5IuyM2E4+9jhrFlNE9eLYrWuVT5O+jGKWkIO7mM63aUEZoh
-         +o9hwqSk+Da4g4kN2Lw/q+F+1n3dAU03WZtOc8cMc0LhfHAN/eVbY86gKsvWorceGj1e
-         7FsMR50nh4NEcWgXCrTLor1ObBHYt9R0gwA27cNGWtgn1vnli/khD5jV85gVTDp+6nUE
-         a9g4cM3xHrFvlS/Q+SK+TcoeTThuyv5jhIOgs3EiCx8AVtV76Wtfk3TEej0l09ewLY8U
-         lPy13WsX1YucpNvvBsKAMvFZLgRZKx3ibdLaXnS0lcRptcsjMoqU/ePOVaGCGaHIL3k4
-         xlTw==
+        bh=IvIEFoX9Gp+Y7CbxFyyYFIIDn8ikvGnI11j3avLfflQ=;
+        b=F4zFlkDu03Tccb+UY9MZouBAmFkH0LxqYlmxL2W2TWh40xdiRimMbIR03thI5yK+U4
+         kl2l4YVRbN3p0CDUlMdsdxQi8fafLwqRTeRWn8wDgzY+qsiL4ktFYOPJc0+LiMVmcITt
+         64JT+sgb7tCFx1JDNEQr4N8s2BFZDJbpFv+XnCtqekl7s5/aL8GtlzEUJjPo7rDCGx2H
+         91zdFs+MiUxFJiEYFul2Ktx9AsHWavLgj/PstK7BDL4uV2xGjUvWA0lf/u21llxi7YXd
+         MsTComYkHpSEpzgiSWnP/Zu3S0L4XpxAyyp8EC22BzSdhEbougC87+nyTip9YiYsAKFE
+         FVFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794742959; x=1795347759;
+        d=1e100.net; s=20260707; t=1794742964; x=1795347764;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=GAy8mI/qOiqS0+CAJuRmtxRG7FkEVXydteGLGUAp1pg=;
-        b=Yvt+eN7KwY/z8KXoZqZoxqBd7ogOFD5AVrh0GiulfWkEMRJlM8gFw/6qQt11ozQY41
-         XcouZPjv8i+JjiKT32cf20MdJIIAeDLUhfyhYeOtLqxwyQso+Rr/0Slk84WXrYlBIfWZ
-         7mabo1lathwSt38qhfcN1Lcr+97e+SS8EEE/A//Wl3sY3YVx1rit+kZSQ7NeSf/y0/mL
-         qhhUbXxaSgGaULEnuYiDKuJ/vqSlXweRLV8tqVgVTkrgJpbpS1aEvxC9ah2yOjsYtzRe
-         QZCO1ZRzvhwlIhc8R2o6wfS4McXaM4GI9VTkAkR+5gTKJidFuogszNCgGxxUIkazYKt4
-         c54w==
-X-Gm-Message-State: APuU4Z97moMhQJMDBXMB+LlmoB0KXBT4rSxwyS/efyNVYb8PKg1Tx/d2
-	DqTP209WvE5l4IVv4AvgsDjHd0RNe2Zqh64E+ykHCuAmauQP4/Z1AXJ+3s8i+Q==
-X-Gm-Gg: AYBFou3UDlz/dLfUzX2LZDSOllCwjsCc/JC5yhueXGDpBqyMJlRD5I487az1iDgOYjA
-	Rty1IRzx7ux0WpSOligSit0EHV63mQUpE/fRziRrS2JefCrUebOrSFOhQNeUjat8k0ivEJD5MgC
-	4aDs9RGi1BV8j83HMQmw1ror59M3d+ED+uNyB+f5zcXFoluiqwsbmPmPL99gpWthgvmEJ/LzRwT
-	lf2YEwazc+4sji3onOallyP/ygT3brIvLwV6dL7331qK2B5Z4+Qqo+GzwJSiXoYEB9teOuDf0Vk
-	/UtRu+cqdOze0wMc5h2wPhGgF09PG4dUJainwv3hDdomOxdGiywAZYKwpOPh7RuUbSLVtIVcsG1
-	SlgykqQdzMTcK5I1F2y+u2ou6dFAgd5rOFHQ0YBHAhKlEoHHE8K81V3uwmwxkGTeAOxnE11vIwT
-	f+78vimHOmGysOCWnkS54L9vhak13Z56jkz9wffD46hyNCcUfGpF8ni2UkK8O52I+aKrxQbU4xs
-	B6YNtcMx1kHXgXXI3QmrPCwnAaE6rO8cVig1Txk4Jl/4rYzP5/IwvwlgKgLS69YflgiKKl6rW9Q
-	HMzY1Ts3cv16YRZGkmifFBrOSjS9W0wII0YZZRTy2jqEaQ==
-X-Received: by 2002:a05:600c:548b:b0:4a2:1364:252b with SMTP id 5b1f17b1804b1-4bb55ab07c6mr162264925e9.35.1794742959013;
-        Sun, 15 Nov 2026 03:42:39 -0800 (PST)
+        bh=IvIEFoX9Gp+Y7CbxFyyYFIIDn8ikvGnI11j3avLfflQ=;
+        b=ZTzb7iZSYVxw8teOZw/bHc8s2l02DuBm8a0i0D2X6TWoOaLR+PYwwPpt/RrI2J6Z0g
+         aRPt5gh95hVRin8uaYnTyHPMwGko+7/dpdxW+jp8wiIuaElwEevgmArrXZThR/pVtyJb
+         UGfN3gJ1AlOnRc5+5GnxSCfuwsqZcSu/J/1tdeQeiXfYRCFfv473jwnV9P5h0a5wor/E
+         jZwv2cRtPU79VtT2tgMAD+o0kmrERQUc++2JBY77IEhcfuGdsXgC0BOb3d+ZW4tqcP8p
+         vjSI9ZKT8pF9jPbhXgtmkEuZfcBHYN4iwv+rBVuV0y0CqBsqtdeB0o+Bm2XluR4Ow+Fk
+         TT/A==
+X-Gm-Message-State: APuU4Z/+GqMD3SkHkCTRR2xQzAgwH/No5d+oIbTnqbpKwkq2EvAPcd5k
+	HdtE9ACZ5xQjVD10xgGmB+XpNaoVQBcHR0P/hxDab9CXyOy2jgUQPi2UucoqZQ==
+X-Gm-Gg: AYBFou1BU71t0JSb4OUrQXotwX1GmRSUZzM86BsD7K+2OZDld1kMA/b0tV5+PSRQ96b
+	T9Af0sQoN+n21kfdw6pA6Dycrq08fskWaJfAEKTBWPuuiVFpcM1k8YHjmsdU/0VvMHKb90ll7vM
+	a0HbFBz4Nuyu6pOpWGMX7TbzRR4wpSA0iRRuN9EYz65QTbAhZASewl+t5ZEFXkzuiSkUie4ib24
+	gHyR6l+O1Mw3dkTjhRr9QRGyZrENwhFU0wOIUXS3PUUBnUu+0IaTWR4m5lLzpZ8sphZpE+hQRbk
+	fHFKvFeBH0DYEgLfdrJAaEWCu1wzgu3GFxxs+RQIkeQAxzvoXQ0/6ontJOWfDRcAPnKPhNhFhJP
+	7Vy1yz4PwY880DIp1MJnYkZfQSeb5/+bOJVCQt1yJ3Fh6LO1LVV4Cy7cn5JovHjp8WOWjfQvsxB
+	m2lUCRjBRdJUQQ1ITmvZgyzcslLqQkK4njA3ONqbgFuJQwqIfO9aLUEDp46pW7R9T86TsVU1gll
+	tBPtLHh1E8TgTbbkZN9BT9qZU3DXwcGPTUuFOzTtBwl1BT0d3R6zRocuncduJpZJIPPjVnRyQa9
+	OJkPhaaB/FuWZ7xdoIQ7sJx5HwbN3xfax/N44RXf/0Nu09vAYQd+9linA1Hb7fIWE3c=
+X-Received: by 2002:a05:600c:524a:b0:4bb:6cef:d14b with SMTP id 5b1f17b1804b1-4bb6cefd40dmr20629275e9.2.1794742963680;
+        Sun, 15 Nov 2026 03:42:43 -0800 (PST)
 Received: from localhost.localdomain ([2a06:c701:474b:1700:da41:1869:5f63:edb1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb55ac1159sm188277905e9.4.2026.11.15.03.42.36
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb4e29daa5sm314858475e9.12.2026.11.15.03.42.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 03:42:38 -0800 (PST)
+        Sun, 15 Nov 2026 03:42:43 -0800 (PST)
 From: Avi Weiss <thnkslprpt@gmail.com>
 To: netdev@vger.kernel.org
 Cc: akiyano@amazon.com,
@@ -84,10 +84,10 @@ Cc: akiyano@amazon.com,
 	edumazet@kernel.org,
 	kuba@kernel.org,
 	pabeni@redhat.com,
-	evostrov@amazon.com
-Subject: [PATCH net v2 RESEND] net: ena: avoid double-counting TX DMA mappings on failure
-Date: Sun, 15 Nov 2026 13:42:34 +0200
-Message-ID: <20261115114233.2307630-2-thnkslprpt@gmail.com>
+	atrwajee@amazon.com
+Subject: [PATCH net v2 RESEND] net: ena: set admin device pointer before queue allocations
+Date: Sun, 15 Nov 2026 13:42:40 +0200
+Message-ID: <20261115114239.2308017-2-thnkslprpt@gmail.com>
 X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -100,38 +100,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ena_tx_map_skb() increments tx_info->num_of_bufs after each successful
-DMA mapping. If a later fragment mapping fails, the error path adds the
-fragment index to this count before calling ena_unmap_tx_buff(). This
-can cause DMA unmapping of buffers that were never mapped and
-out-of-bounds access to the buffer array.
+From: Wajeeh Atrash <atrwajee@amazon.com>
 
-Remove the extra increment so that cleanup uses only the number of
-successfully mapped buffers.
+On the first probe, ena_com_admin_init() allocates the completion
+contexts and admin SQ/CQ buffers before setting admin_queue->ena_dev.
+Their allocation failure paths log through this pointer, which is
+still NULL. A failed allocation therefore dereferences NULL instead
+of returning -ENOMEM.
 
-Discovered by comparing the in-tree ENA driver with Amazon's standalone
-ENA driver.
+Set admin_queue->ena_dev before the first allocation so the helpers
+can log errors and return -ENOMEM normally.
 
-Compiled with W=1 under x86_64 defconfig and allmodconfig configurations.
-Fixes: 38005ca816a7 ("net: ena: add functions for handling Low Latency Queues in ena_netdev")
-Signed-off-by: Evgeny Ostrovsky <evostrov@amazon.com>
+This issue has already been fixed in Amazon's standalone ENA driver
+(commit 7d1dc4341d4f).
+
+Fixes: da580ca8de2c ("net: ena: add device distinct log prefix to files")
+Signed-off-by: Wajeeh Atrash <atrwajee@amazon.com>
 Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
 ---
- drivers/net/ethernet/amazon/ena/ena_netdev.c | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/net/ethernet/amazon/ena/ena_com.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/amazon/ena/ena_netdev.c b/drivers/net/ethernet/amazon/ena/ena_netdev.c
-index 7eb6456ed0d5..e0df628e1df6 100644
---- a/drivers/net/ethernet/amazon/ena/ena_netdev.c
-+++ b/drivers/net/ethernet/amazon/ena/ena_netdev.c
-@@ -2608,7 +2608,6 @@ static int ena_tx_map_skb(struct ena_ring *tx_ring,
+diff --git a/drivers/net/ethernet/amazon/ena/ena_com.c b/drivers/net/ethernet/amazon/ena/ena_com.c
+index 297fb36ab8c16..9b14cddf4432e 100644
+--- a/drivers/net/ethernet/amazon/ena/ena_com.c
++++ b/drivers/net/ethernet/amazon/ena/ena_com.c
+@@ -1992,6 +1992,7 @@ int ena_com_admin_init(struct ena_com_dev *ena_dev,
  
- 	tx_info->skb = NULL;
+ 	admin_queue->q_depth = ENA_ADMIN_QUEUE_DEPTH;
  
--	tx_info->num_of_bufs += i;
- 	ena_unmap_tx_buff(tx_ring, tx_info);
++	admin_queue->ena_dev = ena_dev;
+ 	admin_queue->q_dmadev = ena_dev->dmadev;
+ 	admin_queue->polling = false;
+ 	admin_queue->curr_cmd_id = 0;
+@@ -2045,7 +2046,6 @@ int ena_com_admin_init(struct ena_com_dev *ena_dev,
+ 	if (ret)
+ 		goto error;
  
- 	return -EINVAL;
+-	admin_queue->ena_dev = ena_dev;
+ 	admin_queue->running_state = true;
+ 
+ 	return 0;
 -- 
 2.43.0
 
