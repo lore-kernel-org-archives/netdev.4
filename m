@@ -1,61 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794718616;
-	b=CUFcF5Jkpxkg0M2wiPBG3EQcxtm2lOzjgOms5QpglLL6juPHFK4gjkHxnqJUzWLvZvVv
-	 nzSDG4QgTfdpa6647jS5+JOw10A+JaIkddHnY2IQJLxTR+atkG5X035V8qF21Xu8JZWQr
-	 ZtcmwO642sgG2oyYglkmTARA3c6aW0CwZ27HMsVhS6ya23bmjpyPOxpFB04nXUJPUd21K
-	 OV9ZLfNdV3ijKAhYdeioeHG2uZ9Qbp0oD7/sXlJ62ciOOA9qpCbCJvRjqZ4HVI59rV76r
-	 gvcI81aC6zkDxX0r1e0cBICkG0R0u4lCvJjOjOnztNtihtjmYnlFdP+kCQWrPn0c6EQ==
+	t=1794720090;
+	b=y+ZvOIEv3SAGpnZiGKgQIwY6Mh5SUhlostn/VQNjlprIDIDi8I+AzgejbIRAZCzEnAv7
+	 +hc27ETeDvKtFKNp1zddMrXU1XR1YoLZZFPfBBtr/agbpiKPzuNNtWwIecE4w+78BbP0d
+	 IEUnkE7raU1+KOC7pcif02bGynl0/Nuf0a2DDhvmcQKQiX7mPhKJUHhomCwQcZOqyvx7a
+	 LhRVVFhAkGnD/kkEtkC4DTfF4qmgXe/RC9UFo/BTxdFYU8vT4d7eFFwaqy1S4RxLx905u
+	 siucmt+c9KyncJEcw/UelF7CskXcfzIq/dgkeKAJXat6d45VrBACfThuGxxjbq9BS2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794718616;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794720090;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=/fmDDtqLSG4Bq7qUyj2IQPO7WGyW7QN3QsMqxKbW2rU=;
-	b=U2CIQEsVCbYZVGbxj47SQ9366KAwV3N27AfTSRCCUl9Mgcko1FXUTB3MLcUJX/BOFhu9
-	 wTu3pUIy2Yl0q6lUuFVhGtb1+wVutFRi+0YgQBfooONl3EW6HXoGUI1yAgd7QW9A1hF4e
-	 VWoEzUgui1bbMBikPG9c5yPpK4hyl80VSNOF4yM96wBHp7es0dnYcjRLhk42VYG0qC00V
-	 NOqkZtr9I4oFjpCSiPKm8Kd9eiKMqo9m07lFlrTLk8Lcv+WXIw9LeFPePYO19C2JHE1aM
-	 9lCQBNgRoq2I3OK4Fz8mahhl6CBHsYFDzCnoN5D7NXn0MfrwtuIr1khtsw835o9L3+A==
+	bh=xOqIZDOVem0rH3DFVodrMQurwQCioC/lXxRcUKM4shg=;
+	b=Ngjyt4+2whH4ArGch8dtpFM0V8B4yFFpcxeQxn0m+KxMkToKB+Kwn/psfHRWCv3I3R5t
+	 3/2NkPaUuuO7xs4reHOtzn9d45Agx+LO+jIZOv+L9KTMjwQj2obHydJfLCguZ5K/KarqK
+	 8sVymdwDLC+9uStl6z/vXzYcvsNhqeZUhJ2WZkVkgQEjnPrCnzpEcR5l6cUfyGfQelNzf
+	 UkHFJKmpph+nd4E5Ywkk1uBNfbZHU/s3imvpW+msGZrFZjMZIq9S8G7sK2t+fUCRf/yDF
+	 xzWas0pU6g6vhX/JTA1IPkSNRhTF0w48IdQl27wiu+RZWyDhGbI7/CaAvh9YCVm9x/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LIgFDQNC;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HhPu2EJM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DB7F606A89F;
-	Sun, 15 Nov 2026 04:56:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C793D606A327;
+	Sun, 15 Nov 2026 05:21:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LIgFDQNC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3FBC1F000C4;
-	Sun, 15 Nov 2026 04:56:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HhPu2EJM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A10E71F000C4;
+	Sun, 15 Nov 2026 05:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794718616;
-	bh=/fmDDtqLSG4Bq7qUyj2IQPO7WGyW7QN3QsMqxKbW2rU=;
+	s=k20260515; t=1794720090;
+	bh=xOqIZDOVem0rH3DFVodrMQurwQCioC/lXxRcUKM4shg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LIgFDQNCDwCzENyuWP9mZTSbKM1WfkSuvHNEHhpLRsUPG2Yv0EO5A2E5datvG9cuL
-	 j1aKD2T3wJ0ZRHoTNYC85BYEVY2yqzxKkr7Ab6AQduc6v3ZzbmnKYa+Dfl2+z18SWz
-	 VWIif5+YgQ85rBGEts22Im13N0Oi80b//Q1DbV2rho4T1RcM26QzUwf4NKdo9262KG
-	 1Qm8D/q9PThXUX5yZHWSKcmQ7ZCFDWszwyw61kcxD3RUUrtjbgjWqRHm9iWsEk9S6x
-	 vOfRoXzyTmd5scF04OtdzBEmftkdql00HR/2Qjo3WoxUFOWWM1qlpLRZ0SsfdXfxKV
-	 AHst4D/6SCRZQ==
-Subject: Re: [PATCH net-next v02 3/5] hinic3: fix some checkpatchs.
+	b=HhPu2EJMu+PVaTix0N0SAs9uIexGMNqwrDgK5YHs++2b5wzyziEkCRZR9Z6598vE1
+	 oM0b/zHtlFvwFJ6feWgehk9dzzZHEkvu83FDFrpLl71RM+pAG6PvCmxx8HdEUwFSwU
+	 0OqGDjOw4GAvKuctUcWozv4wSa0x95p7zCHQBnN0rHwkILLEMnBKxN01WVF8I996++
+	 O1HqTVgip2SvI7nfCd1HqY7nDo7CfcADlyrloKL9YR74UXoXPZj8itEEm5WgKE+tJu
+	 KLKkHmVGDS6hHDUGUQELjc+7gp4iX/GrVWb0mDIPzmvv7QAi/ddzVH3Ys6fyyNfDgx
+	 DYAfHYD/aoriQ==
+Subject: Re: [PATCH net 1/2] net: usb: smsc95xx: propagate MDIO reset errors
 From: netdev-bot+sashiko@kernel.org
-To: gongfan1@huawei.com
-Cc: wudi234@huawei.com, tengpeisen@huawei.com, netdev@vger.kernel.org,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, andrew+netdev@lunn.ch, ioana.ciornei@nxp.com,
- maxime.chevallier@bootlin.com, mohsin.bashr@gmail.com,
- dimitri.daskalakis1@gmail.com, hramamurthy@google.com,
- larysa.zaremba@intel.com, vadim.fedorenko@linux.dev,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- zhoushuai28@huawei.com, wulike1@huawei.com
-Date: Sun, 15 Nov 2026 04:56:54 +0000
-Message-ID: <179471861453.2199510.9158722374869867897@kernel.org>
-In-Reply-To: <a9a5d01e087f5240b514bdf878162a3f42f7291a.1794371175.git.gongfan1@huawei.com>
-References: <a9a5d01e087f5240b514bdf878162a3f42f7291a.1794371175.git.gongfan1@huawei.com>
-X-sashiko-severity: Low
+To: artem122novak@gmail.com
+Cc: steve.glendinning@shawell.net, UNGLinuxDriver@microchip.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, alexandru.tachici@analog.com,
+ andre.edich@microchip.com, netdev@vger.kernel.org, linux-usb@vger.kernel.org
+Date: Sun, 15 Nov 2026 05:21:29 +0000
+Message-ID: <179472008914.2199510.6969426942670882537@kernel.org>
+In-Reply-To: <20261114050954.275495-2-artem122novak@gmail.com>
+References: <20261114050954.275495-2-artem122novak@gmail.com>
+X-sashiko-severity: Critical
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -68,67 +64,125 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 1 · High: 0 · Medium: 0 · Low: 0
 
-- [Low] The commit "hinic3: fix some checkpatchs." changes only style,
-  but it carries `Fixes: 73f37a7e1993 ("hinic3: Queue pair resource…
-- [Low] The commit message is only the subject "hinic3: fix some
-  checkpatchs." plus the `Fixes:` tag and sign-offs.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Critical] The patch makes smsc95xx_mdiobus_reset()
+  (drivers/net/usb/smsc95xx.c) return `ret` instead of 0.
 
 --
 
-hinic3: fix some checkpatchs.
+net: usb: smsc95xx: propagate MDIO reset errors
 
-This commit renames the trxq_params parameter to q_params in
-hinic3_alloc_channel_resources() and hinic3_free_channel_resources().
-It also moves the return type of both functions onto its own line.
-Nothing else in the code changes.
+This patch changes smsc95xx_mdiobus_reset() so it returns the result of
+the PM_CTRL register accesses instead of always returning 0. The goal is
+to report a failed external PHY reset to the caller.
 
-> hinic3: fix some checkpatchs.
+> diff --git a/drivers/net/usb/smsc95xx.c b/drivers/net/usb/smsc95xx.c
+> index 130a460c1f546..f85ee5f8a5394 100644
+> --- a/drivers/net/usb/smsc95xx.c
+> +++ b/drivers/net/usb/smsc95xx.c
+> @@ -291,7 +291,7 @@ static int smsc95xx_mdiobus_reset(struct mii_bus *bus)
+>  reset_out:
+>  	mutex_unlock(&dev->phy_mutex);
+>  
+> -	return 0;
+> +	return ret;
+>  }
 
-[Severity: Low]
-This isn't a bug, but the commit message has nothing besides the subject
-and the tags.
+[Severity: Critical]
+What value does ret hold here when the reset succeeds?
 
-It doesn't say which checkpatch warning is being fixed. The old
-continuation lines were about 87 columns wide. Default checkpatch
-(max_line_length=100) doesn't flag that, so only an 80 column run would
-report them.
+smsc95xx_write_reg() passes back the result of usbnet_write_cmd()
+unchanged. That result is the byte count from usb_control_msg():
 
-It also doesn't mention the trxq_params -> q_params rename, or that the
-change has no functional effect.
+drivers/net/usb/smsc95xx.c:smsc95xx_write_reg() {
+    ...
+	ret = fn(dev, USB_VENDOR_REQUEST_WRITE_REGISTER, USB_DIR_OUT
+		 | USB_TYPE_VENDOR | USB_RECIP_DEVICE,
+		 0, index, &buf, 4);
+	if (ret < 0 && ret != -ENODEV)
+		netdev_warn(dev->net, "Failed to write reg index 0x%08x: %d\n",
+			    index, ret);
 
-Could a short description be added? checkpatch itself warns when the
-commit description is missing.
+	return ret;
+}
 
-> Fixes: 73f37a7e1993 ("hinic3: Queue pair resource initialization")
+smsc95xx_read_reg() also returns 4 on success. After a successful
+external PHY reset, both "if (ret < 0)" checks pass, and the function
+now returns 4 instead of 0.
 
-[Severity: Low]
-Is the Fixes: tag appropriate here?
+__mdiobus_register() treats any non-zero value as a failure:
 
-In drivers/net/ethernet/huawei/hinic3/hinic3_netdev_ops.c, the diff
-renames trxq_params to q_params. It also re-wraps the signatures of
-hinic3_alloc_channel_resources() and hinic3_free_channel_resources().
+drivers/net/phy/mdio_bus_provider.c:__mdiobus_register() {
+    ...
+	if (bus->reset) {
+		err = bus->reset(bus);
+		if (err)
+			goto error_reset_gpiod;
+	}
+    ...
+}
 
-No expressions, calls, ordering or error paths change. The callers are
-untouched, and the generated code should be the same.
+It calls device_del() and returns 4. smsc95xx_bind() then takes its
+error path:
 
-Commit 73f37a7e1993 did add these functions, but this patch doesn't fix
-a bug in them.
+	ret = mdiobus_register(pdata->mdiobus);
+	if (ret) {
+		netdev_err(dev->net, "Could not register MDIO bus\n");
+		goto free_mdio;
+	}
 
-The other patches in this series are fixes aimed at net. Examples are
-"hinic3: Solve an stall issue in hinic3_rx_poll()" and "hinic3: Avoid
-concurrent updates on 32-bit systems.".
+That path runs mdiobus_free(), irq_dispose_mapping(),
+irq_domain_remove(), irq_domain_free_fwnode() and kfree(pdata). It
+then returns 4 and leaves dev->driver_priv pointing at the freed pdata.
 
-With the tag, could this cosmetic change be taken into net? Could stable
-or AUTOSEL then pick it up for every tree that contains 73f37a7e1993?
+usbnet_probe() only aborts on negative values:
 
-Would it be better to drop this patch from the fix series, or to resend
-it to net-next without the Fixes: tag?
+	status = info->bind(dev, udev);
+	if (status < 0)
+		goto out1;
+
+Probe therefore goes on to register_netdev() with these leftovers:
+
+  - dev->driver_priv pointing at freed memory
+  - a freed mii_bus
+  - a NULL dev->net->phydev
+
+Wouldn't later driver callbacks then use pdata after it was freed? One
+example is the pdata->pm_task dereference in smsc95xx_read_reg() and
+smsc95xx_write_reg().
+
+smsc95xx_unbind() runs on disconnect, or when probe fails after bind
+and calls info->unbind. In that case it would:
+
+  - call phy_disconnect() on a NULL phydev
+  - call mdiobus_unregister() and mdiobus_free() on the freed mii_bus
+  - free the irqdomain and fwnode a second time
+  - call kfree(pdata) a second time
+
+Can this double free pdata?
+
+This path is taken whenever HW_CFG_PSEL_ is set. That seems to break
+every probe of a device with an external PHY, which is the setup
+809ff97a677f was fixing. The bit is read from the device, so an
+emulated or malicious USB device could trigger this as well.
+
+The next patch in the series, "net: usb: smsc95xx: propagate MDIO write
+errors", does not touch smsc95xx_mdiobus_reset(). The problem would
+still be there at the end of the series.
+
+Would something like "return ret < 0 ? ret : 0;", or setting ret = 0
+after the successful write, keep the error propagation and still return
+0 on success?
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794371175.git.gongfan1%40huawei.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261114050954.275495-1-artem122novak%40gmail.com
