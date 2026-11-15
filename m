@@ -1,52 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794732484;
-	b=MC9vsDtKng6s4PWGe2W1GHMP/Ym1nFMv9D17wM5EpE4sbjW/7pC475ZMAQNB1kBmis+p
-	 OJMbj4ceSj/oqLL6pS+fEjVxD8DwVwkNlC+ePKe0IzvxMyivqDnA1Gv8BG/wT30yEHeAR
-	 Xwr3t8khXnu09aQXS/+7Ky3k+0YQW9lWe/+mYaPIA6/Nqx/rG/ycWpgJjH2uXVzz05EiZ
-	 tuH6fxVJDupYTbimFk7sbghZ7tWavhUiFs/95AJcmATeepl3J+hKfryrpbr4oHFScpu8T
-	 dQZ96GnHuEo5cf11OAsFP9lkYRBM75J5JewyHURdXKWpH7pAY1llCCaKqlfUbzt4rHA==
+	t=1794732866;
+	b=vmxkG95vgxNJw5djFNY9hjs0EGtK8pPnsOIHlhGILceW2w9MJEzo68CgS3RGRAzeG2TE
+	 mi0LpIqDAPpAlYI1b9vv4k1JGlXzbtaE7lY962/wCXcnyhe8grvxMMx2sy3kH9Dgrf9Pv
+	 lZNnttleT7Z7fzgeSxtLiFJUzN3R5NuTUMcy2duNo4lZUSribEGXbrH3yzkW3aL/F9rIU
+	 xBS5vOX2JCz2dLddjqc9ORvNqOgRZmlcN0o3/kv+UwkqykkSgqA/prp3m3M2ShnxiKE6l
+	 tGWnVOUliLGC6Go6RSfwBV0zZqxGT54yo+zlxXtFHogL9uovuLw1Jwx2kreToHewXfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794732484;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=uPPg0EzF0XkV3FTMCRiVAvj2KrnUFtGRJ3oRND3vRZM=;
-	b=JOGkSSfRdrWLgYMPVu+PbwFa819we/aVTE5bwkh3/UmIkt8AY+4lexzgOv030lpjBIwr
-	 1ll/8AdO4q2n+9PruHm/FmkWWi3GghgO+To/BXFGsQaUOGwgEXVEDNiU+Lhk04GVlK8z4
-	 r/MDvt1tHL4EQ3lmHE5QgbO0OJeDHu7l5pDluQjnEhj8JP42LmlINTc50Gg9/1M0J3ute
-	 KlKC34hpBExyatQBSvxOk6uEw5Zx4DdPSTHZqjMH1tPxYWI9fTMVcyQAdKeLEo8maX36W
-	 3OZ0LDh62kp7HzmuyVE0wV0RwHbakD7QA7QXNAaLQgpgItt9KV2/a/2D/lv7v5qTgOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794732866;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tNFwIny9vR4/dtjp+ZSTec8BndrnFquzWtty+qMHocc=;
+	b=u2mEJ2dM3GEeQA5Yx3jyuzEaOVV2f4JkwqtjiWdtFOay89C4PyCk0rtUSKLblGL2qd2Q
+	 cZTnLeuUu99JBVzREo/ChLPxY9roDv7oytJT6iGC7l54gLz9eCNiyzXdSPSvyivbIZJ+I
+	 9nCg5X4kTyPKJmrXUdIv97DO/VY0Q3tsISOkoYkN88Y+QJ0eUOQ8UQBZUjSLUu+5+Z8HE
+	 EXXVnt4KRH0G2MBdFcNU+BzPg/ioF0wAMfiO9QO+jVtUliD+43lcXQVprsBwaPbZ21C5z
+	 7sbuP+JnLi3CUSiw1nSRerCoJiwYIUVVi7pYnciOJHx4sWUVYJPczXc1Cma/FTwB7RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=corp.free.fr;
-	spf=pass smtp.mailfrom=corp.free.fr;
-	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b="hGMo/JPZ";
-	arc=none smtp.remote-ip=212.27.60.169
-Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jsmfTUYf;
+	arc=none smtp.remote-ip=74.125.229.9
+Received: from mail-dy2-f9.google.com (mail-dy2-f9.google.com [74.125.229.9])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD277606A327;
-	Sun, 15 Nov 2026 08:48:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD277606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57B88606A31D
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:54:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57B88606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=hGMo/JPZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
-	t=1794732474; bh=5uvVqzK9P8/E9voTDvHAYhseKqu/N7Z++XtENzAy8bU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hGMo/JPZdze1z9fdRrRQZlUK+MI+GtaZzrBmpYzilOo88fi2nMw3VWkS0dfWsM2yO
-	 GhPpv7EwlHuzVdlwmWl2s1dyApHzgR/qpEP2v2320Uobbiibp3Q+rUfWyFqepcgGsZ
-	 LU6xxj4Mj2Z015MxYgwF/CiyXA8aqholFHvkzKRztYcrn8hcga6nhU8R3LSl226RdI
-	 5hwdeU2FF9v+TIV8c8Dvea/2M7NAl1PCyTT404YipVKxdgX8uT/0fjKojXIyBlIxtg
-	 DZmLyGufJ7QqQDv4nTa4zej3Mz7GuV/Hz116Oo6XMAe66bB73zIqTtqY+rJ9xe19wu
-	 b1hJq0mhsH2+g==
-Received: from [0.0.0.0] (unknown [213.228.1.188])
-	by rcs.proxad.net (Postfix) with ESMTPSA id 0584944C0202;
-	Sun, 15 Nov 2026 09:47:52 +0100 (CET)
-Message-ID: <8c5a16d1-5307-450f-9f83-911c871321c5@corp.free.fr>
-Date: Sun, 15 Nov 2026 09:47:52 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jsmfTUYf
+Received: by mail-dy2-f9.google.com with SMTP id 5a478bee46e88-377157fde7bso926493eec.0
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:54:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794732865; x=1795337665; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tNFwIny9vR4/dtjp+ZSTec8BndrnFquzWtty+qMHocc=;
+        b=jsmfTUYf9Zp/e0epLXvwAdxeVcb8c9E6NfI2YdOmZW9bc6soKN3+DCmJnj//3qoi4b
+         RYCGU6g+Bo2/Hx66TXuty9ztzjnaRIFy5b8CiUWLhzN5qEA7ZJBbVa/4ohg+t46vOT0P
+         AdTtCENJjN7uEXdztQ1ov3k355dd9Gfc5kV1KTHF6T036DTYdGumEdDILm9Uq2W/p6SP
+         ZWBkvdifyprjbugg4rztU8kEEbd3Hrc0BdnUbfl7jyf1ws3T72+Fx+tFkEjho/x+JjqL
+         /sliJ3cdR1MMX3/nQBhnpwQiZhkj8mDgh+6/YlqKMIGr+gHFfwlYKfpHV7AySsAcf4Zr
+         K4Dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794732865; x=1795337665;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tNFwIny9vR4/dtjp+ZSTec8BndrnFquzWtty+qMHocc=;
+        b=dvIexIKYDBGtCzQVMHlizGc/s9MfwSUcSXvVkKa2LhEj+Jn8ZY3IjC9UhOxwD4IdiO
+         QzkYPoVUw+ZXsDraLVuSHeL6JHl/9xjTIEwdOTrnzFVGAgQhk+s9WTV5uStE1VhFPNf5
+         JPrz3Rxy7z/3lmE8UiAhyQ1dJC6r/2ODmI6hkULMuZZQkSdL2uTmIXbQm7DaJLIOb5D0
+         ltdIq/31W0fZr/+FVNbxoWD6dPReynNSo9EMEGplnj2zKO6W7oKvEK/zBXai2KMCfnHq
+         Iq8GVCL78dOLbmcHsG3spjq5MwrxMEwYEXmpIiAUJANsYP9UHtPb5ijIEzbiM6d1J/3J
+         nsMA==
+X-Forwarded-Encrypted: i=1; AL+hErHRN9kMLqKYPVFwjSa2Ib2dJSHWDlBqHgvB8nAUyg19FKllym//D44SsYdmVk3IckW8K7IrZA8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+1YMVSp/0T7VMjV3cjKLzyGwA1yefSfjoMUlurJArg2bUElKI8
+	Zwq22YnWR/ldO5jnmPWHpQ2Xrjc5oU3lfob89MJ1uhrXN9B/t2yt3LnH
+X-Gm-Gg: AYBFou280VuP+yP04l4l18H2E1I3yNpjvrvqTsGOoinB73tZAFxhErJk6XhlgEIMkNv
+	KO2bR9rHWHAyT2mfkEQ8+fka3borKS6VmOmvHYeKN3if4hKC/bRgDFWlyXAe1TayfEY+KcvCzan
+	r+39nKJ62WN4eSXfIxjweTMVGppKY6uaEirfwwoZkqSGYYt4RKxNBd0tO6wrVFSi4EENJS6/lYU
+	lMJezRrUS2aVdt2Aj5GMON2Yee3NS7UP38ddtKyoP+3ap3Cjfqj0VjiVadsH/6i46BaFcrzcncn
+	JiiPoO6HzH0Bf63/P94oHP2jDZk49ZzElhqW/7Jb34k4THEpIC2Q+DiinvDGL7M9TvtB+k6OQWQ
+	j1HiUv+ayUeePzpVJcU7i7TYqxlMkndltkK3XB9bE0sQ9rTtKP7wsZs3zpo3v4sKZkKgt0yw0oN
+	k32eXhEMmkXcswzHjT0gM+/Wg8iTmVR2KiGJTINCqvPnpBuRgf2cKX43zzkArVwvkiAvyRDTqGT
+	9XJKKz/XLrRl9m9pksdXust+XyaQy/AJzbX8wV3DAu1jJ0TMOZFmvaE6Yt0gwkxW6WjYzIjiA3p
+	at0EOstT9308KiO6bDesdxm1oduVJgjoEQOJ9KTCFCGAZwJ2RWgqoavhTODbPVjpDR9BhYxYuFs
+	eCje8GYxfT9et/q0CLLU7lTEL09q9CT2poDW5ofF26plot6XQHq9E1o+9KkE=
+X-Received: by 2002:a05:693c:4141:10b0:36a:15cb:30bf with SMTP id 5a478bee46e88-37966b52639mr7954428eec.13.1794732865444;
+        Sun, 15 Nov 2026 00:54:25 -0800 (PST)
+Received: from localhost.localdomain ([98.148.34.5])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bad6casm22437361eec.26.2026.11.15.00.54.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 00:54:25 -0800 (PST)
+From: Hungyu Lin <dennylin0707@gmail.com>
+To: davem@davemloft.net
+Cc: edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	yuantan098@gmail.com,
+	n05ec@lzu.edu.cn,
+	ylong030@ucr.edu,
+	andrew@lunn.ch,
+	f.fainelli@gmail.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	dennylin0707@gmail.com
+Subject: [PATCH net-next v2] vlan: remove MII ioctl forwarding
+Date: Sun, 15 Nov 2026 08:53:43 +0000
+Message-ID: <20261115085343.53218-1-dennylin0707@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,99 +105,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 02/10] cxgb4: flower: refuse a tunnel key wider
- than the VNI
-To: netdev-bot+sashiko@kernel.org
-Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com, mbloch@nvidia.com,
- jhs@mojatatu.com, jiri@resnulli.us, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, michael.chan@broadcom.com,
- pavan.chebbi@broadcom.com, bharat@chelsio.com, donald.hunter@gmail.com,
- corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
- dsahern@kernel.org, idosch@nvidia.com, shuah@kernel.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- oss-drivers@corigine.com
-References: <20261109131039.959438-3-acassen@corp.free.fr>
- <179442431962.2199510.14986379471426017@kernel.org>
-Content-Language: en-US
-From: Alexandre Cassen <acassen@corp.free.fr>
-In-Reply-To: <179442431962.2199510.14986379471426017@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/11/26 20:11, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Low]
-> The commit message says the truncation can already be hit today. Should
-> this carry a Fixes: tag, and possibly go through net?
+VLAN devices forward SIOCGMIIPHY, SIOCGMIIREG and SIOCSMIIREG to the
+lower device. This exposes the lower device's PHY through the VLAN
+even when the two devices are in different network namespaces.
 
-v2 adds the tag, with matching ones on the nfp and mlx5 patches. The 
-series stays on net-next. The bug needs a key that no VNI can carry, the 
-rest of the series depends on these checks.
+Bonding used MII ioctls as a fallback for link monitoring. Commit
+23a6037ce76c ("bonding: Remove support for use_carrier") removed
+that fallback.
 
+Remove vlan_dev_ioctl() and its ndo_eth_ioctl hook so MII ioctls on
+VLAN devices return -EOPNOTSUPP. Applications that need PHY access
+can issue these ioctls on the lower device.
 
-> [Severity: Medium]
-> Does this check cover the case the commit message describes? It only
-> looks at match.key->keyid. The hazard named in the changelog is a mask
-> that only covers bits above 23.
+Suggested-by: Jakub Kicinski <kuba@kernel.org>
+Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+---
+v2:
+  - Remove MII ioctl forwarding entirely and target net-next.
+v1: https://lore.kernel.org/netdev/20261106124639.12584-1-dennylin0707@gmail.com/
 
-No. v2 also refuses a mask that leaves no VNI bit.
+ net/8021q/vlan_dev.c | 24 ------------------------
+ 1 file changed, 24 deletions(-)
 
+diff --git a/net/8021q/vlan_dev.c b/net/8021q/vlan_dev.c
+index bca0a3693636..cff36d3fc6c8 100644
+--- a/net/8021q/vlan_dev.c
++++ b/net/8021q/vlan_dev.c
+@@ -406,29 +406,6 @@ static int vlan_hwtstamp_set(struct net_device *dev,
+ 	return generic_hwtstamp_set_lower(real_dev, cfg, extack);
+ }
+ 
+-static int vlan_dev_ioctl(struct net_device *dev, struct ifreq *ifr, int cmd)
+-{
+-	struct net_device *real_dev = vlan_dev_priv(dev)->real_dev;
+-	struct ifreq ifrr;
+-	int err = -EOPNOTSUPP;
+-
+-	strscpy_pad(ifrr.ifr_name, real_dev->name, IFNAMSIZ);
+-	ifrr.ifr_ifru = ifr->ifr_ifru;
+-
+-	switch (cmd) {
+-	case SIOCGMIIPHY:
+-	case SIOCGMIIREG:
+-	case SIOCSMIIREG:
+-		err = dev_eth_ioctl(real_dev, &ifrr, cmd);
+-		break;
+-	}
+-
+-	if (!err)
+-		ifr->ifr_ifru = ifrr.ifr_ifru;
+-
+-	return err;
+-}
+-
+ static int vlan_dev_neigh_setup(struct net_device *dev, struct neigh_parms *pa)
+ {
+ 	struct net_device *real_dev = vlan_dev_priv(dev)->real_dev;
+@@ -1105,7 +1082,6 @@ static const struct net_device_ops vlan_netdev_ops = {
+ 	.ndo_set_rx_mode	= vlan_dev_set_rx_mode,
+ 	.ndo_change_rx_flags	= vlan_dev_change_rx_flags,
+ 	.ndo_work		= vlan_dev_work,
+-	.ndo_eth_ioctl		= vlan_dev_ioctl,
+ 	.ndo_neigh_setup	= vlan_dev_neigh_setup,
+ 	.ndo_get_stats64	= vlan_dev_get_stats64,
+ #if IS_ENABLED(CONFIG_FCOE)
 
-> [Severity: Medium]
-> This is a pre-existing issue and was not introduced by this patch. It
-> causes the same symptom the commit message names ("The rule would match
-> any traffic its other keys allow"), but it depends on the firmware
-> configuration.
-> 
-> validate_filter() in cxgb4_filter.c checks encap_vld only against fconf
-> VNIC_ID_F and the chip version:
-> 
-> 	    unsupported(fconf, VNIC_ID_F, fs->val.encap_vld,
-> 			fs->mask.encap_vld) ||
->      ...
-> 	if (fs->val.encap_vld &&
-> 	    CHELSIO_CHIP_VERSION(adapter->params.chip) < CHELSIO_T6)
-> 		return -EOPNOTSUPP;
-> 
-> It never checks that iconf (TP_INGRESS_CONFIG) has USE_ENC_IDX_F set.
-> 
-> In __cxgb4_set_filter(), the VNI is programmed only in the USE_ENC_IDX_F
-> branch:
-> 
-> 	iconf = adapter->params.tp.ingress_config;
-> 	if (iconf & VNIC_F) {
-> 		f->fs.val.ovlan = (fs->val.pf << 13) | fs->val.vf;
-> 		f->fs.mask.ovlan = (fs->mask.pf << 13) | fs->mask.vf;
-> 		f->fs.val.ovlan_vld = fs->val.pfvf_vld;
-> 		f->fs.mask.ovlan_vld = fs->mask.pfvf_vld;
-> 	} else if (iconf & USE_ENC_IDX_F) {
-> 		if (f->fs.val.encap_vld) {
-> 			...
-> 			ret = t4_alloc_encap_mac_filt(adapter, pi->viid,
-> 			...
-> 
-> If iconf has VNIC_F, ovlan_vld is overwritten with pfvf_vld, which is 0
-> for a flower rule. If iconf has neither bit, nothing is programmed.
-> 
-> set_filter_wr() has no VNI field, so tunnel information reaches hardware
-> only through ovlan/ovlan_vld. In both cases the FW_FILTER_WR is sent
-> without any VNI constraint.
-> 
-> On a T6 with such a firmware config, could a rule like "flower skip_sw
-> enc_key_id 5 action drop" be reported as offloaded with a VNI match, but
-> drop all ingress traffic on the port that matches its other keys?
-> 
-> Flower doesn't reach the hash filter path for these rules, since
-> is_filter_exact_match() returns false when fs->mask.encap_vld is set.
-> 
-> One possible fix would be for validate_filter() to reject encap_vld
-> unless (iconf & USE_ENC_IDX_F).
-
-
-This predates the series. I can't test cxgb4 or its firmware 
-configurations, I leave it to the cxgb4 maintainers.
-
-pw-bot: cr
-
+base-commit: d1f4b7c6b997c29de67ad7178ababac2328cb1b4
