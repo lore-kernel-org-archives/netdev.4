@@ -1,60 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794730785;
-	b=TCAeYFlAbzo44BVn1wKZKnvyRC1/K8wmbNs6uROMybmkcs9UM4/EXV0QFroPoYgw255/
-	 ww5ZchPNbr3QJR1P10BOC8/TLPPqUbZr3uMl4jxuYJfnnubuFalfTUMLMNd6HnqWsscB1
-	 FlR2XUKC9bWUEjIlqB8JmHtu8Zh2kYjXJyDc7967nuJmClpyI3i+3S5LQ5WVa4ZkmXEbC
-	 z4gZ2j7svrFJQxQA3u3b1/qI7Kl/TLv0zT4Dld3OiPHoiYE624/i+/icv/WKIafhCQXXm
-	 dGFETtxeuidzz7BshL12KlJP4zb2e40jo7GttqrOJl9F4sc/tvvwcnaZK/vFn5IvUPg==
+	t=1794730963;
+	b=dhUO2TfiiwD0W4lUf4rZMeSIYnTJYvACdoBbxQFJJOBYw6VbmAo2/YtUPNb0qp5wxFb6
+	 c9sznYrLR3A3cyW7kVPivuTRwkdSXr04QF1w5iFNd6mRf9uL7uhKn6zB/E903t7l5fRe+
+	 33P96fpeJXbTp1H1kHSMepFBMNj9fIpoGfG92nlKPZLFOU0AX7SdBa01erXHIA/luAh3A
+	 MJJHE7Am6YW01KB4hHqyo6ZoOVlxHwbJuJ1EOn8qP0xXpzqHKYJSMNtGYyenYD9yB3MVq
+	 W021ZGDf8Yl+A8sEyYEaF3AitOJTOpDQfVP4kqaNgZPVRMady4PtVQ0PZusSdikNgGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794730785;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=80w8iL2W9gryhtVUMyqRJV/LWO4hHCXkBwuL/bmEPOU=;
-	b=5hodXCKunjZCoRGjgyjyBA4THdrxuSX8FXXYwcgy3PxSSTNq0tmgW7g8SGUXc61rFvE1
-	 yvo8xbFlVTgkx4KwHq2huwERQcxkRrMllzBfoeWgCYDkImDFio+hNZ0FxW5dkUrtiO4lN
-	 sDd9WbPvSa5LAwYBKT2PZKvWh7+texYRh5i8AK1qotHd3ErD3JBPEEB25zC1qKDR0Vm7Q
-	 637VnNt5PdhsYXSagwh8Ii9SS3LgpKBUi4xhULIjA5rtqBUWJIbJbldh/aRBPtCIMmjyf
-	 SU92OccrzRhH2usrWah9smseU2SwddwoU6Fjk0SKTmOZIJfJIiopvATQFX8WvQKx0tA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794730963;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=hOqx9PI7nO87s05epf/KxKW2rSgtDSMLjv2nLVv2RsY=;
+	b=E00gJ7MmHBwD0TBGr/DjXYsPxTQXmCqlFfeqsn+oL/VX7h3EHF7auq6LMkWh7sz9UV2P
+	 OXkO8QvJ6k10LWxk1godV0zJGYk/CVr05hV5eovjd4mqugGby7ZSoaoreso2J+Z9yKND7
+	 /nWLlT6W3CIPxEeRTLiQxaMG2YlDZ2p3kFm10PWc3/NwUmlHTtA3efCUbtASX8re2Z2N1
+	 scZ+mjAVkR6VbMbgX02257afMwSTLXllaYqhyKTJ0s7h7H/MCIe9ly5SZ0V0JpAWtZ5gN
+	 emkxN4vl+H+sxAdw43dtbVlUs11vlpcjDoZnlQPsJU7GfCXG7MwWoJJShTriDFy0WBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ey+epUG5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="U1ZJ/qw4";
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=DmTM11z2;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E104606A32E;
-	Sun, 15 Nov 2026 08:19:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC756606A329
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:22:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC756606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ey+epUG5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A8BFD1F000C4;
-	Sun, 15 Nov 2026 08:19:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794730785;
-	bh=80w8iL2W9gryhtVUMyqRJV/LWO4hHCXkBwuL/bmEPOU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ey+epUG5GVqMxwfyLdvkzjamSP7BZiuKBDukA1SSruUwSeXRwO8C6wPjQBvaa4FOM
-	 ax29sd05p7SaRBJoodPJ0a24rG0oU3gNI5yAgwZ8NMNJ0vxmMosU2gfc5EhE9VI1+W
-	 8FJl5M5IsYrKldlO91t+nOIatQTFob6Y7lo11fRb38rnm6ATLd/rgumKBOJF/UW0ji
-	 HoVFLdTv6Oxh7QiKwcT6siPTG6DBZH2qM3HxKP2DzHHDZ/OhWkovCDYkdCAoRDcL/G
-	 VcfiWHA8nvebsSyNee7yoHIPPmun4PWIhQ+KowQJ9SNI8EFgz4gZxrsqGHHpkIMxHF
-	 As9urmXH19lvg==
-Subject: Re: [PATCH net-next v2] net: phy: aquantia: Poll global status
- register for provision ID
-From: netdev-bot+sashiko@kernel.org
-To: hongmei.xu@oss.qualcomm.com
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- sagar.cheluvegowda@oss.qualcomm.com
-Date: Sun, 15 Nov 2026 08:19:44 +0000
-Message-ID: <179473078423.2199510.11398825136938509686@kernel.org>
-In-Reply-To: <20261111-aquantia-poll-global-status-register-v2-1-b602fc7e80a9@oss.qualcomm.com>
-References: <20261111-aquantia-poll-global-status-register-v2-1-b602fc7e80a9@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=U1ZJ/qw4;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=DmTM11z2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1794730961;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=hOqx9PI7nO87s05epf/KxKW2rSgtDSMLjv2nLVv2RsY=;
+	b=U1ZJ/qw4M7mVztCrKbqJdmcZa2mWB3lDxcYPV6VksfpVHeovY+w2uh8+jFOrIhphcDyKZb
+	k+FgeWZeGhSXt53IV1BdLzTa8f7xV5Ev5AbP2yhvULuV2w+ebFPB5BwNci/mcJmorJ6CW+
+	KzLPdEme3yDV9ZUynergdfb3V09GWng=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-628-6A8D2YpENhqP2MA4f2bkOA-1; Sun, 15 Nov 2026 03:22:39 -0500
+X-MC-Unique: 6A8D2YpENhqP2MA4f2bkOA-1
+X-Mimecast-MFC-AGG-ID: 6A8D2YpENhqP2MA4f2bkOA_1794730958
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4bb68d624baso3294265e9.2
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:22:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1794730958; x=1795335758; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hOqx9PI7nO87s05epf/KxKW2rSgtDSMLjv2nLVv2RsY=;
+        b=DmTM11z2mj0Ygyj+SNk4FmJDtfZr0mpv1PUS2jGNBIKf8NMHOQcQqCCVH78jJnYr8w
+         BcLd6CjxdqglHGwJ5zLoZ2EH+AXT5DksN/YWmNfMWshEiGPfB5wbL3ur3RXMt+eak/bo
+         AJU3htHY47nwfMp58dD7JeMtvLCU83xjPwW+zQGwNZUK53OG10JeUWhK4dqc4phQswdW
+         Ar/lr9h7EaYwautyYFc1ZvinugH7pbRkEDJxsZ/bXqOBotJbEZcAGAiALRAhePW6TbLY
+         iL0iS/8I5xz+qWtOxPYrgduXx37RHZ69MBAqu39Tu6g0e1g5xBYYkd11SclSGtv3Hsdb
+         8IOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794730958; x=1795335758;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hOqx9PI7nO87s05epf/KxKW2rSgtDSMLjv2nLVv2RsY=;
+        b=eKaghwgrjEznar3Mu4PihjaLUEHH3DfA5yNMO3e2JCyseCxXNKcBQEz7PTg/vTIOWW
+         Nxk128JAK8JVEtDdFRdKUPZ/73DQXQaNTWLYvhqw2L8QTwQNnX1JbKqLhuodCKTNhsI6
+         jZc164GS2k+3EXOUMhJpnnnuJp9jOTnCQuIR9M/xMU7t7NpEh2jCIBpYzJL9a5AiCC30
+         jBRuLeGCpY7M2a6GNH3xuxx9j2HM2Vufk3Obv5yWSNI9SnUpTAhyhtm0oOqBbK/qdNgO
+         fCwFGZYB3Ld6VafQhKtufTGgiDHzOE0nqKzvbkj6vyXjMng9Xl7gzjWBXY/WuoK13hNH
+         ROMQ==
+X-Forwarded-Encrypted: i=1; AL+hErFb0+ufugQAXmBz7kXvtVlgbE4ZwadgWv+M414Ei7OfO4p5lAwL0/DDnNGSAFT3dwJngx8j9Oo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ax2xBk6AOYRTPnuJekFdgNavBzB/Wdl9QZrd7Rwyg1H4DeEje
+	dGoDqRi6keHlJeeAUG9va4HjalRAaBzuZiLqICRAtXDfWYPTPdZfk8VtMwWnMfDHYYFqIRhPPnX
+	zcU/TGQIial7pBoq3J4QD3dppvbmGU20Wv8qF2eUwOBvA8so2ccCrfCHtaQ==
+X-Gm-Gg: AYBFou3pO1nbdmNYS1iJ6l/NoeyGabguPb0ma8XI9zMoBQQmQY6GImQHGlxLHHEPAwH
+	H8pAOCNbOLpyuBmvEPO5mc888MDlTmcCjNQd9MC4a7a1hqNKlfZWvMIS6LEouq0XL1njCwgKWZE
+	E3tRRbsICxQ6r1j8ugvdGrYjHgE8jTpAYoW5nuHBoMaEuqGgoZIqr+sFPuEcTZiA0mBfi+m5LQD
+	HMArQdas9jSzAWw62ZRuClkMARlYn31rDDd4Z2chCXR1QBhIrAxU0CWVWTZXRKS7t61WEN1gjng
+	Rq/+QuDI9b5/yLcaXIhrmnoPmXrNftG0pZGtyS75gYPlpERiRrMERjPHjHYYd5+2S2NNZQ0hHSJ
+	0IOuUULVIYf6cp0Wi4NqMJuW1kWBmNHzzfNu6mwmCTsJQlamEwqz2kA==
+X-Received: by 2002:a05:600c:b86:b0:4b5:d95c:2378 with SMTP id 5b1f17b1804b1-4bb55ac4030mr155906555e9.34.1794730958281;
+        Sun, 15 Nov 2026 00:22:38 -0800 (PST)
+X-Received: by 2002:a05:600c:b86:b0:4b5:d95c:2378 with SMTP id 5b1f17b1804b1-4bb55ac4030mr155906215e9.34.1794730957813;
+        Sun, 15 Nov 2026 00:22:37 -0800 (PST)
+Received: from sgarzare-redhat ([193.207.75.235])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb4e2adf53sm297980195e9.15.2026.11.15.00.22.34
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 00:22:36 -0800 (PST)
+Date: Sun, 15 Nov 2026 09:22:22 +0100
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: Sergio Lopez <slp@redhat.com>
+Cc: Bryan Tan <bryan-bt.tan@broadcom.com>, 
+	Vishnu Dasa <vishnu.dasa@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, linux-kernel@vger.kernel.org, virtualization@lists.linux.dev, 
+	netdev@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] vsock/vmci: reject datagram binds in local network
+ namespaces
+Message-ID: <avlpwYZr4pSpunEl@sgarzare-redhat>
+References: <20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,198 +120,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com>
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
+On Fri, Nov 13, 2026 at 06:04:40PM +0100, Sergio Lopez wrote:
+>VMCI already rejects datagram sends from local network namespaces, but a
+>datagram bind still creates a receive handle in VMCI's global port space.
+>A VMCI sender outside the namespace can therefore deliver to the local
+>socket. Its handle also prevents a global-namespace socket from binding
+>the same port.
+>
+>Reject VMCI datagram binds in local namespaces. No namespace-local
+>datagram transport exists, so EOPNOTSUPP reflects the available receive
+>paths. The receive callback also rejects any local-mode socket as a
+>defensive check.
+>
+>In a KASAN/lockdep QEMU guest, a reproducer observed cross-namespace
+>delivery and the global port collision before the fix. After the fix,
+>local bind returns EOPNOTSUPP, the global bind succeeds, and a global
+>VMCI datagram still reaches the global socket.
+>
+>Fixes: eafb64f40ca4 ("vsock: add netns to vsock core")
+>Cc: stable@vger.kernel.org
+>Link: https://lore.kernel.org/all/sashiko-outbox-212907@kernel.org/
+>Signed-off-by: Sergio Lopez <slp@redhat.com>
+>---
+> net/vmw_vsock/vmci_transport.c | 6 ++++++
+> 1 file changed, 6 insertions(+)
+>
+>diff --git a/net/vmw_vsock/vmci_transport.c 
+>b/net/vmw_vsock/vmci_transport.c
+>index 1f186e8f8364..282131544c42 100644
+>--- a/net/vmw_vsock/vmci_transport.c
+>+++ b/net/vmw_vsock/vmci_transport.c
+>@@ -627,6 +627,8 @@ static int vmci_transport_recv_dgram_cb(void *data, struct vmci_datagram *dg)
+> 	 * outside of the create and destruct socket functions.
+> 	 */
+> 	vsk = vsock_sk(sk);
+>+	if (!vsock_net_mode_global(vsk))
+>+		return VMCI_ERROR_NO_ACCESS;
+> 	if (!vmci_transport_allow_dgram(vsk, dg->src.context))
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 3
+Why duplicating the VMCI_ERROR_NO_ACCESS return? Can we just put them in 
+OR ?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The rest LGTM, if you respin, maybe we should mention that also 
+connect() and sendmsg() are affected since they call vsock_auto_bind().
 
-- [Medium] In aqr_wait_reset_complete()
-  (drivers/net/phy/aquantia/aquantia_main.c:708-721), the new second…
-- [Medium] net: phy: aquantia: propagate MDIO read error in
-  aqr_wait_reset_complete()
-- [Low] The comment above aqr_wait_reset_complete()
-  (aquantia_main.c:684-690) was not updated.
-- [Low] On a provisioning-ID timeout, aqr_wait_reset_complete()
-  (aquantia_main.c:717-719) prints 'Firmware provisioning ID not ready;…
-- [Low] net: phy: aquantia: missing Fixes trailer for
-  aqr_wait_reset_complete() fix
+@Bryan, @Vishnu PTAL.
 
---
+Thanks,
+Stefano
 
-net: phy: aquantia: Poll global status register for provision ID
+> 		return VMCI_ERROR_NO_ACCESS;
+>
+>@@ -1697,6 +1699,10 @@ static int vmci_transport_dgram_bind(struct vsock_sock *vsk,
+> 	u32 flags;
+> 	int err;
+>
+>+	/* VMCI handles are global and cannot serve local namespaces. */
+>+	if (!vsock_net_mode_global(vsk))
+>+		return -EOPNOTSUPP;
+>+
+> 	/* VMCI will select a resource ID for us if we provide
+> 	 * VMCI_INVALID_ID.
+> 	 */
+>
+>---
+>base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
+>change-id: 20261113-vsock-vmci-netns-isolation-7e46732dcd73
+>
+>Best regards,
+>-- 
+>Sergio Lopez <slp@redhat.com>
+>
 
-This commit adds a second poll to aqr_wait_reset_complete(). Once the
-firmware ID shows up, the poll waits for the provisioning ID field in
-VEND1_GLOBAL_RSVD_STAT1 to become non-zero. If the poll times out, it
-logs a warning and the function still returns 0. The stated reasons
-are link failures seen on AQR113 and correct fingerprinting of AQR412C
-MUSX firmware.
-
-> diff --git a/drivers/net/phy/aquantia/aquantia_main.c b/drivers/net/phy/aquantia/aquantia_main.c
-> index e95d391a6dc23..bed891cfaaa1b 100644
-> --- a/drivers/net/phy/aquantia/aquantia_main.c
-> +++ b/drivers/net/phy/aquantia/aquantia_main.c
-> @@ -702,7 +702,23 @@ int aqr_wait_reset_complete(struct phy_device *phydev)
->  		return val;
->  	}
->  
-> -	return ret;
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = read_poll_timeout(phy_read_mmd, val,
-> +				val < 0 ||
-> +				FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_PROV_ID, val),
-> +				AQR_FW_WAIT_SLEEP_US, AQR_FW_WAIT_TIMEOUT_US,
-> +				false, phydev, MDIO_MMD_VEND1,
-> +				VEND1_GLOBAL_RSVD_STAT1);
-
-[Severity: Low]
-The commit message describes two problems: link failures seen during
-AQR113 bring-up, and an AQR412C MUSX fingerprint that can't be built
-correctly. Both come from aqr_wait_reset_complete() treating a
-non-zero VEND1_GLOBAL_FW_ID as the end of chip initialization, before
-the provisioning ID in VEND1_GLOBAL_RSVD_STAT1 is set.
-
-If this is meant as a bug fix, should it carry a Fixes tag? The
-FW_ID-only poll appears to go back to commit 43429a0353af ("net: phy:
-aquantia: report PHY details like firmware version"). That commit
-added aqr107_wait_reset_complete(), which was later renamed to
-aqr_wait_reset_complete().
-
-Without the tag, stable maintainers and backporters have no easy way
-to tell that this change addresses a problem in released kernels. And
-if it is a fix, should it go to net rather than net-next?
-
-[Severity: Medium]
-This poll only exits on a non-zero PROV_ID or a read error. If a
-firmware image reports PROV_ID == 0, will every call sleep the full
-AQR_FW_WAIT_TIMEOUT_US (2 s) and then return 0 anyway?
-
-The commit message says "not all PHYs require a valid provision ID",
-which suggests PROV_ID can stay 0 on some images.
-
-In the driver, prov_id only matters for one fingerprint:
-
-  AQR_G3_V4_3_C_AQR_NXP_SPF_30841_MUSX_ID40019_VER1198
-      AQR_FW_FINGERPRINT(4, 3, 0xc, 1, 40019, 1198)
-
-That fingerprint is only checked for PHY_ID_AQR412C, in
-aqr_translate_interface().
-
-aqr_wait_reset_complete() has two callers, and both now pay for this
-wait:
-
-  aqr107_probe()
-    aqr_firmware_load()
-      aqr_wait_reset_complete()
-
-  phy_attach_direct() / mdio_bus_phy_resume()
-    phy_init_hw()
-      aqr_gen1_config_init()
-        aqr_wait_reset_complete()
-
-With such an image, would each port lose about 4 s across probe and
-attach, and then 2 s plus a warning on every later attach and resume?
-On quad-port parts like AQR412/AQR412C, that cost applies to each port.
-
-Before this patch, both paths returned as soon as FW_ID was non-zero.
-Could the PROV_ID wait be limited to the PHYs or firmware images that
-need it?
-
-> +	if (val < 0)
-> +		phydev_warn(phydev, "Failed to read VEND1_GLOBAL_RSVD_STAT1: %pe\n",
-> +			    ERR_PTR(val));
-> +	else if (ret)
-> +		phydev_warn(phydev, "Firmware provisioning ID not ready; "
-> +			    "interface mode detection may be incorrect\n");
-
-[Severity: Medium]
-If phy_read_mmd() fails while polling VEND1_GLOBAL_RSVD_STAT1, the
-val < 0 term ends read_poll_timeout() right away with ret == 0. The
-code then logs a warning and returns 0, so the MDIO error is lost.
-
-The VEND1_GLOBAL_FW_ID poll just above handles the same case with
-phydev_err() and returns val. Is it intended that a read error here
-is non-fatal? The commit message only says that the timeout case
-should not fail probe.
-
-Both callers act on the return value:
-
-  aqr107_probe()
-    aqr_firmware_load()
-      aqr_wait_reset_complete()
-
-aqr_firmware_load() treats 0 as "Some firmware is loaded => do
-nothing". Any other negative value goes to the default branch, which
-passes the PHY read error back to aqr107_probe(). With this change, an
-MDIO failure on RSVD_STAT1 looks like ready firmware, and probe goes
-on.
-
-  phy_init_hw()
-    aqr_gen1_config_init()
-      aqr_wait_reset_complete()
-
-aqr_gen1_config_init() only builds the fingerprint when the return
-value is 0. After a read error it now goes on to
-aqr_build_fingerprint() and the rest of the PHY configuration, even
-though the provisioning ID was never seen.
-
-Could the val < 0 case return val, the same way the FW_ID poll does,
-and leave only the timeout as a warning?
-
-[Severity: Low]
-This warning can fire on every model that uses aqr107_probe() and
-aqr_gen1_config_init(), such as AQR105, AQR107, AQCS109, AQR111,
-AQR112, AQR113, AQR114C, AQR115 and AQR813. Is "interface mode
-detection may be incorrect" accurate for those?
-
-The provisioning ID only affects the interface mode in
-aqr_translate_interface():
-
-	if (phy_id_compare(phydev->drv->phy_id, PHY_ID_AQR412C, phydev->drv->phy_id_mask) &&
-	    priv->fingerprint == AQR_G3_V4_3_C_AQR_NXP_SPF_30841_MUSX_ID40019_VER1198 &&
-	    interface == PHY_INTERFACE_MODE_USXGMII)
-		return PHY_INTERFACE_MODE_10G_QXGMII;
-
-So on other models, a missing provisioning ID can't cause wrong
-interface detection.
-
-The message also doesn't mention the link failures that the commit
-message describes for AQR113.
-
-> +
-> +	return 0;
->  }
-
-[Severity: Low]
-This isn't a bug, but the comment above aqr_wait_reset_complete() was
-not updated:
-
-/* If we configure settings whilst firmware is still initializing the chip,
- * then these settings may be overwritten. Therefore make sure chip
- * initialization has completed. Use presence of the firmware ID as
- * indicator for initialization having completed.
- * The chip also provides a "reset completed" bit, but it's cleared after
- * read. Therefore function would time out if called again.
- */
-
-It still names FW_ID as the only sign that initialization is complete.
-It doesn't mention the second, non-fatal wait on the provisioning ID.
-
-Also, on PHYs where PROV_ID stays 0, every call from
-aqr_firmware_load() and aqr_gen1_config_init() now times out again.
-Isn't that the repeated-call timeout this comment says the design
-avoids?
-
-Could the comment be updated to match the new behavior?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111-aquantia-poll-global-status-register-v2-1-b602fc7e80a9%40oss.qualcomm.com
