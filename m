@@ -1,62 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.87
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794757981;
-	b=MP/7O4FomxD7Aw9uNgnEYJ1cT+t96IoW+cVjYPitt8f5mz7lRvhZ4Xs8yNSbZhWyL/07
-	 d2PszTzrTKf2QNqKHTsi64hDIVFCa/HmN9qWAyTptiJe8rZjsCZV4urD2TBp0R7vobb3Y
-	 inWDQU1RCDTk8cs/NGzaEMgTYHTBBgys0pcOjyNdrLnQsyV4nLn3oDDzTQDQfomTokXZN
-	 xH1A5aP0A2j6oUfw1mE/ME6HiWtrmvuwJP8MHdqTzasb5XeazL9v3Uh9H4JTf5Fz2Bht6
-	 PQbCs+784PVgV0XYzqd8u5dPYISX94wizBEmun5m1PtL+F1m6WdvzLiwws5IR5BMuPw==
+	t=1794758272;
+	b=p5oyYRHNCyoidJFwjoDg4bEsnqdde9/Oe4qqbul0t7Nsd8yxiOnSWIfIU0TTfW21hsLg
+	 RalbKLaF7+vRZBfpmY+uUd42SleMmaWBiFVcb9F5E3bbScFwPyqaUQm2dtyh4q06nN6dA
+	 Zf69lRddBRBhUfoBL/k9H4RmD7e5qHaR0WH/kqb/MYyq1CryhISZAseorwtL1h1aADjc5
+	 iZ3oXxKd+xuxLEnB3Q+zD4iFtP+sP1MtBw4cEMIsZ7/fSP8lwW+I8XxSP3VxNocThokf/
+	 luIbZOMZcOegSkb63vQa4LCHKmT0xv7kp2ErtzloE1e0L1k0vrj8ZsXfggLUSGBa4zQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794757981;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=3w2k8dv60M9yhIxrZGVgOz8RjAq82d6eRw88JC7KQX8=;
-	b=1ynuJPiki3JTSRFxKCdWQSWzZDEafgvVsw7zn85u9/eaPJWjXWmdyVXQMV3oX9PpHquF
-	 9P0FTIAAvKYafXel4fxZXPL58bZ7Z31JGL7gPGQqH5odfjThnwvkcnJhq/Sy6ycC3Dsxj
-	 PTOKWRT0Ax3by5o/v6bPpxCh1cTCCWaQYdrm7aJWmIBSaUI4/2ENr9ScxpDO2wPqAVYTq
-	 eQocRzIa+chgLP42rkncPFbcn2RLA2WSC96LxvKdqeG2zoKlqvLJT3AR5NwIMjUGthAVY
-	 dTMY7C7gfWr/u6+SyjHy15wiqGnpzPK/3lX1ZPSGoQtQ5enN0tQeKUnkiZu6uak21/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794758272;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version;
+	bh=o+XltfqJrZ95a6qdyrBWf8fYWe7VspmbFRBcyA2Af60=;
+	b=4TZuU+bl4ZZeINK6RZrAbZCMes/ZET8XwfIuPoSjaJCEsAUsVMEdFiKqXTCBb+TqXpcR
+	 x82U6HhF/YZZgd2e2leMCTfXI7nB8i8RK9KmaeX2Icv4h4efeuIs5WpD1pgsBo3FNKCg0
+	 nyXmHK1lFt+RxTPkUfHmHPOhnjxzSSeK0KbDE+rFk7C0AxLMro1WuoROG327VbyEfuxfS
+	 2t5RyLnuCoUwEOvUNww8+wGVkeRBksnwALJQXsnqEUa100l8tJ8CGApzLRiQDh25CEEgE
+	 juJdV25PNuT+o1gMM0ccLQCei1JPdCrOyDqJzbDAWzthyvoTvRPc/MP76RodBPGNVrA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=5PuG6+tJ;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=kobgKXOA;
+	arc=none smtp.remote-ip=162.62.57.87
+Received: from out162-62-57-87.mail.qq.com (out162-62-57-87.mail.qq.com [162.62.57.87])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA2D5606A334;
-	Sun, 15 Nov 2026 15:53:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA2D5606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17A73606A33E
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 15:57:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17A73606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=5PuG6+tJ
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=3w2k8dv60M9yhIxrZGVgOz8RjAq82d6eRw88JC7KQX8=; b=5PuG6+tJNvkZcOd+koxl9dO8Up
-	2s8H+g6pF4Nty9+e3X93gr8+RsU+m25LMKR0z9qxMzeLJFfTUfgk/fCkKP8ClkHHQmkNPtK7DfBnq
-	WVr8jYk7pkpGY+qGnIUBKGDL84cKBCUxOAa5zHeeYxYwLHeAIzF+AOBkVhEHRg8WKHxU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xScXH-00GdYo-RW; Sun, 15 Nov 2026 16:52:55 +0100
-Date: Sun, 15 Nov 2026 16:52:55 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	llvm@lists.linux.dev, stable@vger.kernel.org
-Subject: Re: [PATCH net] net: microchip: encx24j600: Avoid unsequenced
- accesses to jiffies in encx24j600_tx()
-Message-ID: <58014e4c-fd79-44d7-af47-35da26616570@lunn.ch>
-References: <20261114-encx24j600-wunsequenced-v1-1-c978fc36cacd@kernel.org>
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=kobgKXOA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794758265; bh=o+XltfqJrZ95a6qdyrBWf8fYWe7VspmbFRBcyA2Af60=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=kobgKXOAsg5+xHaP1djE8bGgJsgAtadgWvObfORQmaYTw7+8YGzJFLi1ioKrfb9pJ
+	 WnUfL4V8xGa0l46uplKZ2zBnPf04+IVxBc+mIewNXbQXSt6/UVGGXijVD0UDoPm2B5
+	 +BRzQoNZp/1JPBaXjFWLmSa+8zK2J6s9nIOdlAVI=
+Received: from [127.0.0.1] ([2409:8d5c:8f0:65e5:103b:e9c7:571:634c])
+	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
+	id E6931827; Sun, 15 Nov 2026 23:57:41 +0800
+X-QQ-mid: xmsmtpt1794758261twipasb0b
+Message-ID: <tencent_B3B795CD5D04DB5F115B3CED23D57EF9A40A@qq.com>
+X-QQ-XMAILINFO: N/WmRbclY25Gc3Kg9n4OQQyzt3Yrgm+67u9HPDMgjYzX0dIkePlahq3yL1TsBZ
+	 IoNShSC/xl/hfDG94CfHQFQubLBSfN3k1Jsk3iY1MjI3GzE2cLKhtmkeTUa1ckqtHNbMqa9aYH/n
+	 IlHvHE8PsQBXB6fTCCxRZWNceP3kUWB/Py8mvjPO4RZrANd5JRZyuowdePUZyKPnzym1sIhtTcNb
+	 JQMuqig3Y7+ZZcCTUPSWaA8Zanu0VWnSSy38Jvq4tHG4jRwkP34CeY1+gpaplYcT5DEKMX1P4nhH
+	 pfF6s6tsrHivYf7s0VJGPbvtS9rPfmI2if1wViL4j/fo7TX7rqre9XDGj3abp1u9Fii1GhbarRxa
+	 wCoAQURsOhKY5e3r+QuldjAyzqVSLWSP2+I6yxFK0eAnwgc/joUOXed3KRPM+dqJmCrehNAOXeKR
+	 quF1KPpPeWbfGtJBZD/ZyFcKEeZNb9wJwbq1pPb+CaKoahhoNQFso1pFwTAQT3lGcChQCO1tKFzV
+	 mxZaNjmkFJ2JK72g7mu7NvOtjQN2NIjzf/Nh69Ema8ZfydBKUBb+9dOxflQxZ7T/os5+M2c5SFg5
+	 /bXbSbfZZVPnZ8fUBWNENa99t+r1d+NdnH4WWEuXw0fmTjt9j6f4qGxzuie4fvOi/rykHJnRdyWK
+	 XEFqPuM70EOCBUlFemwM6nxfn6DqgiPp983yhdPy56ZYvtb9WdHo9rJdqOP3CKHQK0LjaI2n1j5Z
+	 HVqqEuJ/awFGPxleg7d6/8lgMDw0XwJPzSDpaFw3x2XPqiRnQel1o2rR3/Ci2mskOPq2k7ubkpai
+	 +iEqHs6yw0ybta5VLT6e9yEtusRMaiLwhiYNvepswdrkRElxpBEtnt4b26SYrVU0tB6skpHmX14A
+	 qvuGR+eqYv/8tS9F1FDQlaOS567XyV7E1H7uljY/vEdiJalggy2gsIpR6+XXqTqxezZreo3in+qV
+	 PbQYzS2qPTHWZ21FhyVDQUqcllIOHIsARlKg/tKjt1e9aN3OoXusPFRP2RrxQ69HvKDqBlgLUQyl
+	 6PUq63/CJ/W0VGINOTm22LXd54Ge/pIzR8wjrgp4Z9XLHU1jdZSUfMHnrE8XKryL9Q2Uhtgkx6j0
+	 kCXUCa471CZbJgNwI=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+From: Hang Nan <2122295973@qq.com>
+To: sashiko-bot@kernel.org
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, matttbe@kernel.org,
+ martineau@kernel.org, geliang@kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ kuniyu@google.com, willemb@google.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, 2122295973@qq.com
+Subject: Re: [PATCH net v3 2/4] net: core: take the reuseport migration
+ reference with acquire ordering
+Date: Sun, 15 Nov 2026 23:57:40 +0800
+X-OQ-MSGID: <179475826068.178830.14957974064477086476@qq.com>
+In-Reply-To: <20261114130927.91839-3-2122295973@qq.com>
+References: <20261114130927.91839-1-2122295973@qq.com>
+ <20261114130927.91839-3-2122295973@qq.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,35 +86,29 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261114-encx24j600-wunsequenced-v1-1-c978fc36cacd@kernel.org>
 
-On Sat, Nov 14, 2026 at 09:38:26PM -0700, Nathan Chancellor wrote:
-> After a recent improvement in clang to warn on unsequenced accesses to
-> volatile variables [1], an instance appears in encx24j600_tx(), which
-> can break the build with CONFIG_WERROR=y / W=e:
-> 
->   drivers/net/ethernet/microchip/encx24j600.c:898:14: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
->     898 |                   jiffies, jiffies - dev_trans_start(dev));
->         |                   ~~~~~~~  ^
-> 
-> Per C11 5.1.2.3.2, accessing a volatile object is a side effect. Per C11
-> 6.5.2, unsequenced side effects on the same scalar object are undefined
-> behavior. Per C11 6.5.2.2.10/12, the evaluation of arguments in a
-> function call is indeterminately sequenced, meaning any side effects in
-> the arguments are unsequenced.
-> 
-> Add a local variable to hold the value of jiffies before the function
-> call so that there are no unsequenced side effects, clearing up the
-> warning.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 04fbfce7a222 ("net: Microchip encx24j600 driver")
-> Closes: https://github.com/ClangBuiltLinux/linux/issues/2196
-> Link: https://github.com/llvm/llvm-project/commit/955715460eaf9188c241c74750637fc82dfcc423 [1]
-> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Thanks, agreed - the patch is dropped in v4, and the series is now three
+patches: the two mptcp token patches and the iterator one, unchanged.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+One correction to the reasoning: TCP sockets are allocated from a
+SLAB_TYPESAFE_BY_RCU slab too (tcp_prot.slab_flags in net/ipv4/tcp_ipv4.c),
+so "not a SLAB_TYPESAFE_BY_RCU lookup" is not what separates this site
+from the ones in 5b5d8f351dd9 ("net: restore refcount ordering for
+lockless socket access").  What separates it is the second half of your
+argument, which I agree with: the acquire only orders a validation
+performed after the increment, and reuseport_migrate_sock() performs
+none.  It takes the reference, unlocks and returns the listener; the
+callers go straight to tcp_filter() and tcp_check_req(), and the state
+they actually depend on is re-checked under queue->rskq_lock in
+inet_csk_reqsk_queue_add() (net/ipv4/inet_connection_sock.c:1403), which
+drops the child when sk->sk_state is not TCP_LISTEN.  Ordering the
+increment changes nothing about what any of those paths observe, so the
+change was cosmetic and I should not have included it.
 
-    Andrew
+I also considered adding the missing post-acquire validation instead
+(re-checking sk_state or membership in the reuseport group), but that
+would duplicate the check that already exists in inet_csk_reqsk_queue_add
+under the queue lock, so dropping the patch seemed the honest fix.
+
+pw-bot: cr
+
