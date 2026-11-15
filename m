@@ -1,99 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794727625;
-	b=Kxhx/Z+6OYabY6pd4nvm7kBQbrWMc/IlNkuhDg3IqvmIZ6i2+noxC58G/emGDa/0SQAr
-	 kSOrn6hTHj84fNP561I2kpyGVhYqVlKNV0D1DewVaW2o71m21kTJQvPcm9LAwWQUdMp8V
-	 +ZrWFJZP6p1M80KDoAcyHv0fJ5GePsx2MTN7dlTwPssRARoLiyCbFbiz2DNvxpY6pA57X
-	 SnzraN0Rz4jLI1E+uS40uOi6eyopKK7G0NnJammn+QMq/COhP9pbgyDahzj5wiPBluNdE
-	 ME4OPNhW9qr0Y5L9FTT/VHrZbbiOhyDGRp0yYsotjuX847rrwt/SfI2m5r65scVemXg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794727625;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=TrrlP/d2HPiRLz955YcqAu5XPgbopln3GH9fAOXdYkM=;
-	b=Bdz4rJTgCjxwg1y54o7PiW13/yMesUvn0WKOKH0U6T4q7fn62nD3W/15bWde/PHCNNlx
-	 l3lO/WHtF82PRUv+aIvLx1IJSQp7UNDqLiaoqlWPnZG4+mmk+oZzb+xvunHl2rxz6QMaP
-	 ZE2P3KENW/0Nj9q+16pCC+s7gIUkV2zJs8VWZabyFW14KxQFmnMKpLQCMK/Y3MfiXY1xZ
-	 +Hm3HLD49EKQYGenzcXqyyE33cEvQVtdP4U/c+UaYqcvociFQVFtFTORed7hq8KYvxpYG
-	 l52MQ4tU4J155OMkCEYr08KcqeRgKWrSTRLr98OtTkkg3zlCkDI36uj6jL6ubl/wo8w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ArAH8QDJ;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.64
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794727807;
+	b=bOBo39LvPpkDidoi2r1dhD5JQ4WeqVe0fAl/59FCAkIsiFVfvT2jAOEreupfGfI7uj1G
+	 E0kqM2D4wRveIqnZYVvMqUXnQfeAyBDul9PL0RXc/nJqlXN9623NwG/1+5IGhNW2XwoTZ
+	 bicpIT1QnffodFD4VfRZ1K2hC0cIJ5oCqsKEwgyb6NQtn9tlcsX5DyeJL/a3qt1wnJQFX
+	 bg8X4TiuW4ex8Eixlf+RWuPA1lmgEgBD9cpSXW7kSMdgVNTCFjkv1HEUxlLuws2zCz3wr
+	 RnYCiKvwCMYdUwTr992gLz3t61/xsd+DUEehJJhoVp3Fp7do7CRvyrLKJNNHbtjoq4A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794727807;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=sFRNHl/A+EBSc+ljJstso20ObPhS8+gGdpPRrKt1w80=;
+	b=SDg7tiPS9UfdVzM5Iv8MULXgiQRDidkzzzU2cTjpLnx8AWgtJH/AKwKzRlK9L3bJ6T2b
+	 zR1eTH3SrfI7e2lh8UlB8YJ2yfl3xlNjqFzsGX0zez/4zlc6JFbd0DxnRUOFvFU53WFd1
+	 IQOL/iEmj4pn+cmox1KM1nhsvrp28TM/phzGLS0XDD/y8A9i228iTKksYvdQlpfk3Uce8
+	 WOAj7TPxnOYqoihY/U4tUYIY3C+68YS16lUyRoL9N9v83+Hu42GQbbpIaBEv800oSRGu1
+	 IAy4kNlSvaSb1Wr+0AL6EKXk1n9Lk1+ACuhAtF5Jtp1Tv7HQpuNyQoS9AhYzq3Cs/sQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=K7gpPQNA;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.64
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010064.outbound.protection.outlook.com [52.101.193.64])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57885606A31D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 07:27:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57885606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB4ED606A31D;
+	Sun, 15 Nov 2026 07:30:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB4ED606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ArAH8QDJ
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso1400747eec.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 23:27:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794727624; x=1795332424; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TrrlP/d2HPiRLz955YcqAu5XPgbopln3GH9fAOXdYkM=;
-        b=ArAH8QDJ0NRIHsNmYkVmnnLvmiV3n81oyQ9UekY3EGQ0Qoxf8NFJyWX57VdgqgeeVe
-         lBLD03/lQqyZiwJS+xN46W/80ChWKzltdNexrlAcico785RB1izAXKDUgdewrcImasZU
-         5q2jd6p9VqgM5z/wqt0kM/TFm7IREzJR6dw580Bau9WGO4KZVLjiliIGTKSAfQ1F52zr
-         vGdw+u1cQyFNqRNuPi3OggBLZe/DzyRRLWC+gwnoSTGy+SufWCtvw32KVxVpPs/Cur0X
-         +LJtumV7Fri8PtM4xCJ5vD08P4mrtnADKqoCUFOGkRCkPaV8+mjJNJ7WTFfgoBm75lyH
-         CNHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794727624; x=1795332424;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=TrrlP/d2HPiRLz955YcqAu5XPgbopln3GH9fAOXdYkM=;
-        b=xFlfn52oKGgbr+C/L9DwAhHjLRg74DIwMiF7XZHffLKhrqewuV54lWqc/lrguO83BK
-         g6DsbSSdg8gFpP9fUR926annlE89ue7RJunROVka8fS8RUqW5gfeCntUiGtWBBZbcXXh
-         uNvUMny8VhJOCfBPg3L9R/s2N7NK4cqkudg/oMUw10mpJt17Bx5prmZV3yVw5xGpR3Cj
-         T6rDNDQUM8V9/8BkTpWEPw7xU5z8Lziy1lTUfMdjm5Gb7zIGn1LrPoKdvglgf5Kl7yyM
-         rjcqHC/e1lIMsCiNq0sG43q5YLSyjZPVGUOgF8WERNsXGc0B5hi8NokH8rh8/oN0wkYq
-         4QSg==
-X-Gm-Message-State: APuU4Z9x+6oTW5BLmqlnqM670RFIqeqzxi1vr3q+S/MYUp8cEnPkJiFH
-	+LtBuCzG9MPhiGLUnYeXNT0DjAowPfh+9jEleyzrijpCR4i65y5tEKqzIoxZey+s
-X-Gm-Gg: AYBFou0HGHxdS3JCqU8j8BX6NcR8ldC7aZK8KANJikalfZkWtJK7OJxK8gC26jkDswl
-	AUTFcYxFFncFGbn0pOCJPEuUW4tLiJwyWIXMUUQth3IHwK/QqR+1DlGUUfrkc+DnqL6XqgGC+bx
-	OTS3dKc96ofIzAu/i4HY5cW6kl/34TV61p4lFrwSJrvC+oPv9+bQhQkZjEGPRLd+Qgdp62JkOsp
-	auMsdpvh0KUWEEYkps41pWZU4jfDkdh/+SVIi26ehDVROjB4u5BEuYpzKUORZsxVtn+bc6DO7C9
-	RiVAjNCEJAh2XEAAKCnISAbLTWK7ax/dKN/pYJvo70l3jajxpv/neWBIMpcSdXh+bfieVUI+zpe
-	jpNJov+rg/r+9mlXyoUrBu9z/xS+3gWn8ncixOy/yzng85B2yHvb66AxhJgm18fZ8Xg9+5yGAyF
-	dhqgIBciDP204ExoEj3MvrLSHARFolaFkqedNSAK47wat6ObenWcIejd+nE63Xa5DLHhp/Rtht0
-	veYL00jRRNpjLRa94fhPkDSeeAdS58tJjQyOftKHLCf9HCO6jZtJqh3WWfSHak81INU9COwxdFh
-	cC/8KHUkpSTKDZkFuOT0GiLatg==
-X-Received: by 2002:a05:7300:828e:b0:356:7ddb:2e54 with SMTP id 5a478bee46e88-37966a5ce93mr7033920eec.29.1794727624218;
-        Sat, 14 Nov 2026 23:27:04 -0800 (PST)
-Received: from houminxi ([61.170.225.237])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3795378d7e5sm22411234eec.3.2026.11.14.23.27.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 23:27:03 -0800 (PST)
-From: Minxi Hou <houminxi@gmail.com>
-To: netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Aaron Conole <aconole@redhat.com>,
-	Eelco Chaudron <echaudro@redhat.com>,
-	Ilya Maximets <i.maximets@ovn.org>
-Subject: [PATCH net-next v8 3/3] netlink: specs: correct the ovs specs where they do not match the kernel
-Date: Sun, 15 Nov 2026 02:26:38 -0500
-Message-ID: <20261115072638.3163018-4-houminxi@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261115072638.3163018-1-houminxi@gmail.com>
-References: <20261115072638.3163018-1-houminxi@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=K7gpPQNA
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=H+f4pAtiphNBVySsDIQwnbxRk0yHRzA+fUZSWj5A52icZNDV/xTmUIIPlZkojRhLFC9LU8UaMqsglSxcTYhAN1xKjk7JDvIyEby4SbgXvrZd29AXoFLHXJazwH5y7fvxq5cQQ80T0oGjht2EnI27C/eKq8+XdGs0p5hRHyqkhfntBMoLHx05EpmuIBFaBnXzJhYkY4vjygnWhNeEPP7w6PrWw2VKbUkqukSce5qLD2l6ZLqOphmjEMqn0VJRlHzUtkelDb+its8GZjQvqtvhYSdn53e2MLuY72jFPk+BKmylpWd4Pt7fQfIWI5xBsKcOMFgRalaFHoKlFV0f7LUkLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sFRNHl/A+EBSc+ljJstso20ObPhS8+gGdpPRrKt1w80=;
+ b=IbVvgTbsKtRo7OB86lG6NXdW2FEGfDip0Aazvyo4HwCS6zJB9MA3ws6WbNXJC6mWi48yXp4nfThbg3wsNpyGiS8W8QPHyh6anHHYtfnPvGL/R/RFMOnbjEq6rnQsrq1YydX3dahzW+AyeLHT6SRCSio2sOJAfA/Ocd5vrevEKc17DQLiFx9Os77b2tB/1ZC+srtv2ku50P0sXDqdy2DBABri4/xQohH4F1k2UMjNKO+KBNYea3l+nQVACJe+aJvmqVsy6sUFYH2AdE1N6vZMcMpAAFWJn7u4CCY1o2N7AvHhdq2605KfQKKr/dmtwMVwgIhxywh74WmmaDXJ3GIvAg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sFRNHl/A+EBSc+ljJstso20ObPhS8+gGdpPRrKt1w80=;
+ b=K7gpPQNAqZsnJiLKwQyUySt43qwrwPQFbb0MnHvC6RqicNPjiNalhp0jSf1bY+KMnlzpIEvECcGl7BDeJ/x0xvHWxepWyFyFrIubSYBXAwUiyVq9mQvocspXD9RWhCnQremkFc2g6yk5Zg+WnN7i+fgmosMuFFAyPb+kNUA5eWNUZKeC+Hl6crDlnaVXdE+nn39FuElwbXWqDSd4AEkuJR3Cl7IHjlreTgMovV+SpC+Agsh1iFBExObWAUn9q+mf5X3h3r/JdL6SubwGj+BbSc4fCIJ5gHc/d97inhfVPWbWxNCE9GOmFKF9hM801R++JButTOlqJKDZE6/ok7ngSA==
+Received: from MW4PR02CA0029.namprd02.prod.outlook.com (2603:10b6:303:16d::34)
+ by MN2PR12MB4079.namprd12.prod.outlook.com (2603:10b6:208:1d5::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Sun, 15 Nov
+ 2026 07:30:01 +0000
+Received: from BY1PEPF00026967.namprd05.prod.outlook.com
+ (2603:10b6:303:16d:cafe::8f) by MW4PR02CA0029.outlook.office365.com
+ (2603:10b6:303:16d::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Sun,
+ 15 Nov 2026 07:30:01 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BY1PEPF00026967.mail.protection.outlook.com (10.167.244.151) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Sun, 15 Nov 2026 07:30:01 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Sat, 14 Nov
+ 2026 23:29:46 -0800
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Sat, 14 Nov
+ 2026 23:29:46 -0800
+Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.6)
+ with Microsoft SMTP Server id 15.2.2562.56 via Frontend Transport; Sat, 14
+ Nov 2026 23:29:40 -0800
+From: Tariq Toukan <tariqt@nvidia.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+CC: Alexei Starovoitov <ast@kernel.org>, <bpf@vger.kernel.org>, "Carolina
+ Jubran" <cjubran@nvidia.com>, Daniel Borkmann <daniel@iogearbox.net>, "Gal
+ Pressman" <gal@nvidia.com>, Jesper Dangaard Brouer <hawk@kernel.org>, "John
+ Fastabend" <john.fastabend@gmail.com>, Leon Romanovsky <leon@kernel.org>,
+	"open list" <linux-kernel@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
+	Mark Bloch <mbloch@nvidia.com>, Nimrod Oren <noren@nvidia.com>, Saeed
+ Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, Stanislav
+ Fomichev <sdf@fomichev.me>, Tariq Toukan <tariqt@nvidia.com>
+Subject: [PATCH net] net/mlx5e: Fix XSK pool corruption when switching channels
+Date: Sun, 15 Nov 2026 09:29:34 +0200
+Message-ID: <20261115072934.353341-1-tariqt@nvidia.com>
+X-Mailer: git-send-email 2.44.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,291 +121,111 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BY1PEPF00026967:EE_|MN2PR12MB4079:EE_
+X-MS-Office365-Filtering-Correlation-Id: a18c81c7-f9ba-4039-5294-08df42ea426b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|7416014|1800799024|23010399003|82310400026|36860700016|10067099003|11063799006|56012099006|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261022075727099003|261021121427099003|261102123227099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	mMss/ffZN5xNu632jl93QLbbBsDYVxgSD/VBCPyspBu6St81KUvp2+cl40qrwCpJ8tsGvuZ9ZDixxqbGOeZHXTtRCuFkou0yOubgJBs9g6WS4wTh4adTyRHNUIPPMSSA8/jIs6s6tn6TOMoXEm9TnztTyh/ZQK072572Iz8wv9tHtDGlU1xUt+UOl0dmKOg5F7e6JCX7yqHWhOu/3ENsogBeriuIVqrhmbad9ByBmfu+TZPVE8unuuw1iAf+Ex2kIc4jpOGlNvJgfW2/3oBJT24ZvhyjNkq2h/pH+8KeqbXuaiHcwMmnp2Kf5blIe2hq4R9n+s9F9SFQC+gF4sgK4fYSjEwTfNLOXnjPZ+Z9r74+zR3Z1n05BzlBTT/XO0zgboL0DOtME/bH8rMJsUyaxd6TRWF/vL3tnKDkURza9gmnertzMEZrkWM3hn7La+xHJokflIM++vgmWmEEdFylrck5rUwRqMSDiv9EEbUiyrG1D3r9fqNrVilrtMCXUOcq/splUyZPdj+/KKrW6Q4bEHNDvDa8PicPIeyAXV5iw18DGknruljaT+zaxrae2URxRqqIemTWcnMVZHGDTmdH8gUzAeXGlIkqiVtGXgyXDiZIvRAW8vO2RfrBkXgBIYDUnyRC34CLWNtKSeLFiIZyeeXHKKSYUc3Cuufp0PjxwNfY1QHxhL4jvZO8iVRaDwNjcRpxSzmAwkUgRE+Jb6OZZg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(23010399003)(82310400026)(36860700016)(10067099003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261022075727099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	SqN7nNEBWRfJRBSGviImOrPNwm43N9JLb2WzTnQTuU5M/z6tt1Vm7Osb1b3M0Vn4odBemndmtig30njG8DYMjvmVaWIc9OJIsXTDX3xGnvUtpAf3BIYnjgB/lYAPjFC7vhQ4RN5mxFGsfS3JLKrGHCGQQyh7NX844OzHOQMr43Hjpy6QIaAJWy8kEqPkK62Mv3Mgo3wPX0ZEIRSMjkkxK2HFQg8XzvuQK6pJ3a7BJB2kElr2SsQiYKzpj73ckBhAiwJbbS0WdmrdzHNA+LxMvf8e73YNM8b4zOl7R772rH3pro+AVljF2k/QAdQkBLwBW9j0e0qq0YmH2x2iypwP893UIo1hVjJg0DVbWlMpUEfwO30EIELTyX+AfIKXqrl26WmHs0kTC8Ugb5tUGglc0APjS7Fa62pkaEso0py/vSjxWAWmAI5Mf5xtZ4jV9MFa
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2026 07:30:01.3750
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a18c81c7-f9ba-4039-5294-08df42ea426b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BY1PEPF00026967.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4079
 
-The vport netnsid attribute is signed in the kernel: vport_policy declares
-it NLA_S32 and ovs_vport_cmd_fill_info() sends it with nla_put_s32(). A
-client reading it as unsigned turns the -1 that peernet2id_alloc() returns
-when it cannot assign an identifier into 4294967295. Declare it s32, and
-say the same in the uapi comment, which also never said the value is -1
-when no identifier could be assigned.
+From: Gal Pressman <gal@nvidia.com>
 
-Two dumps shared a request list with their get operation, while the dump
-handlers read no request attribute. Each dump now has a request list of its
-own with no attributes, so neither advertises an attribute the kernel would
-ignore.
+When the device supports tis_tir_td_order, mlx5e_safe_switch_params()
+closes the old channels only after the new ones are activated.  With an
+AF_XDP socket bound, the old and the new channel hold an XSK RQ on the
+same pool.
 
-Four lists named attributes their handler never reads or sends. The vport
-delete goes through lookup_vport() and reads no type. The datapath reply
-does not carry upcall-pid, which the uapi reserves for the new request, so
-the reply list drops it and the ynl selftest stops printing that field. The
-vport new request named the nested options, which the kernel accepts and
-ignores. The packet miss event shared its list with the userspace action
-event, which alone fills userdata, actions, the tunnel key and the length
-of a truncated packet, so the miss event now lists only what a miss sends.
+The old RQ returns its buffers to the pool while the new RQ is already
+allocating from it. Since the pool is lockless and expects a single user
+at a time, it gets out of sync.
 
-The vport get request can also be answered by port number, because
-lookup_vport() falls back to it when the request carries no name, so list
-port-no there. The datapath get is served by the name, or by the header
-ifindex when the name is absent, which its doc now says, and all four ovs
-specs document the header struct the same way. The vport new doc gains the
-constraint that an ifindex is only accepted for an internal vport.
+Close the old XSK queues before activating the new channels, the rest of
+the old channels can still be closed later.
 
-The uapi note on the vport name now covers requests other than new and
-dump, and names the header member the lookup uses. The note on options says
-what the kernel does with the attribute instead of leaving it to the vport
-type.
+The crash was hit by our regression tests, with a random sequence of
+binding xdpsock to every queue and later changing the ring size.
 
-The packet spec declared neither the validate flags nor the admin
-permission that the kernel registers on the execute operation.
+This resolves the following call trace:
+  BUG: kernel NULL pointer dereference, address: 0000000000000068
+  RIP: 0010:mlx5e_free_rx_mpwqe+0x113/0x250 [mlx5_core]
+  Call Trace:
+   mlx5e_dealloc_rx_mpwqe+0x38/0xb0 [mlx5_core]
+   mlx5e_free_rx_descs+0x126/0x170 [mlx5_core]
+   mlx5e_close_rq+0x81/0xb0 [mlx5_core]
+   mlx5e_close_channels+0x4b/0xa0 [mlx5_core]
+   mlx5e_safe_switch_params+0x34d/0x3e0 [mlx5_core]
+   mlx5e_xdp_set+0x287/0x3a0 [mlx5_core]
+   dev_xdp_install+0x269/0x400
 
-The vport spec also declared family version 2 where the kernel registers 1.
-
-None of this comes from the set operations added earlier in the series; the
-specs have been wrong since the families were introduced.
-
-Signed-off-by: Minxi Hou <houminxi@gmail.com>
+Fixes: 3b88a535a8e1 ("net/mlx5e: Defer channels closure to reduce interface down time")
+Signed-off-by: Gal Pressman <gal@nvidia.com>
+Reviewed-by: Nimrod Oren <noren@nvidia.com>
+Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
 ---
- Documentation/netlink/specs/ovs_datapath.yaml | 16 +++++++++----
- Documentation/netlink/specs/ovs_packet.yaml   | 20 +++++++++++-----
- Documentation/netlink/specs/ovs_vport.yaml    | 24 ++++++++++++-------
- include/uapi/linux/openvswitch.h              | 14 ++++++-----
- tools/net/ynl/tests/ovs.c                     |  5 ++--
- 5 files changed, 51 insertions(+), 28 deletions(-)
+ .../net/ethernet/mellanox/mlx5/core/en_main.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/Documentation/netlink/specs/ovs_datapath.yaml b/Documentation/netlink/specs/ovs_datapath.yaml
-index 6232760224dc..94ab15251e2a 100644
---- a/Documentation/netlink/specs/ovs_datapath.yaml
-+++ b/Documentation/netlink/specs/ovs_datapath.yaml
-@@ -12,6 +12,8 @@ definitions:
-   -
-     name: ovs-header
-     type: struct
-+    doc: |
-+      Header for OVS Generic Netlink messages.
-     members:
-       -
-         name: dp-ifindex
-@@ -118,24 +120,28 @@ operations:
-   list:
-     -
-       name: get
--      doc: Get / dump OVS data path configuration and state
-+      doc: |
-+        Get one OVS data path by name, or by the ifindex in the header when
-+        the request carries no name.
-       value: 3
-       attribute-set: datapath
-       dont-validate: [strict, dump]
--      do: &dp-get-op
-+      do:
-         request:
-           attributes:
-             - name
--        reply:
-+        reply: &dp-reply
-           attributes:
-             - name
--            - upcall-pid
-             - stats
-             - megaflow-stats
-             - user-features
-             - masks-cache-size
-             - per-cpu-pids
--      dump: *dp-get-op
-+      dump:
-+        request:
-+          attributes: []
-+        reply: *dp-reply
-     -
-       name: new
-       doc: |
-diff --git a/Documentation/netlink/specs/ovs_packet.yaml b/Documentation/netlink/specs/ovs_packet.yaml
-index e4c5f24b3b01..a9ee84be6e22 100644
---- a/Documentation/netlink/specs/ovs_packet.yaml
-+++ b/Documentation/netlink/specs/ovs_packet.yaml
-@@ -22,6 +22,8 @@ definitions:
-   -
-     name: ovs-header
-     type: struct
-+    doc: |
-+      Header for OVS Generic Netlink messages.
-     members:
-       -
-         name: dp-ifindex
-@@ -97,14 +99,10 @@ operations:
-       value: 1
-       attribute-set: packet
-       event:
--        attributes: &event-attrs
-+        attributes:
-           - packet
-           - key
--          - userdata
--          - actions
--          - egress-tun-key
-           - mru
--          - len
-           - hash
-     -
-       name: action
-@@ -112,12 +110,22 @@ operations:
-       value: 2
-       attribute-set: packet
-       event:
--        attributes: *event-attrs
-+        attributes: &event-attrs
-+          - packet
-+          - key
-+          - userdata
-+          - actions
-+          - egress-tun-key
-+          - mru
-+          - len
-+          - hash
-     -
-       name: execute
-       doc: Apply actions to a packet.
-       value: 3
-       attribute-set: packet
-+      dont-validate: [strict, dump]
-+      flags: [uns-admin-perm]
-       do:
-         request:
-           attributes:
-diff --git a/Documentation/netlink/specs/ovs_vport.yaml b/Documentation/netlink/specs/ovs_vport.yaml
-index af7ee56f5f90..7626b578c568 100644
---- a/Documentation/netlink/specs/ovs_vport.yaml
-+++ b/Documentation/netlink/specs/ovs_vport.yaml
-@@ -1,7 +1,7 @@
- # SPDX-License-Identifier: ((GPL-2.0 WITH Linux-syscall-note) OR BSD-3-Clause)
- ---
- name: ovs_vport
--version: 2
-+version: 1
- protocol: genetlink-legacy
- uapi-header: linux/openvswitch.h
- 
-@@ -12,6 +12,8 @@ definitions:
-   -
-     name: ovs-header
-     type: struct
-+    doc: |
-+      Header for OVS Generic Netlink messages.
-     members:
-       -
-         name: dp-ifindex
-@@ -116,7 +118,7 @@ attribute-sets:
-           min: 0
-       -
-         name: netnsid
--        type: u32
-+        type: s32
-       -
-         name: upcall-stats
-         type: nest
-@@ -128,7 +130,9 @@ operations:
-   list:
-     -
-       name: new
--      doc: Create a new OVS vport
-+      doc: |
-+        Create a new OVS vport. An ifindex is accepted only for an
-+        internal vport; any other type returns -EOPNOTSUPP.
-       attribute-set: vport
-       dont-validate: [strict, dump]
-       flags: [uns-admin-perm]
-@@ -140,7 +144,6 @@ operations:
-             - upcall-pid
-             - port-no
-             - ifindex
--            - options
-     -
-       name: del
-       doc: Delete existing OVS vport from a data path
-@@ -151,17 +154,19 @@ operations:
-         request:
-           attributes:
-             - port-no
--            - type
-             - name
-     -
-       name: get
--      doc: Get / dump OVS vport configuration and state
-+      doc: |
-+        Get one OVS vport by name, or by port number when the request
-+        carries no name.
-       attribute-set: vport
-       dont-validate: [strict, dump]
--      do: &vport-get-op
-+      do:
-         request:
-           attributes:
-             - name
-+            - port-no
-         reply: &dev-all
-           attributes:
-             - port-no
-@@ -172,7 +177,10 @@ operations:
-             - ifindex
-             - netnsid
-             - upcall-stats
--      dump: *vport-get-op
-+      dump:
-+        request:
-+          attributes: []
-+        reply: *dev-all
-     -
-       name: set
-       doc: |
-diff --git a/include/uapi/linux/openvswitch.h b/include/uapi/linux/openvswitch.h
-index bd77e6fb4a95..b111eb9a0066 100644
---- a/include/uapi/linux/openvswitch.h
-+++ b/include/uapi/linux/openvswitch.h
-@@ -293,7 +293,9 @@ enum ovs_vport_type {
-  * packets sent or received through the vport.
-  * @OVS_VPORT_ATTR_IFINDEX: Provides the ifindex of a vport, or sets the desired
-  * ifindex while creating a new vport with type %OVS_VPORT_TYPE_INTERNAL.
-- * @OVS_VPORT_ATTR_NETNSID: Provides the netns id of the vport if it's not local.
-+ * @OVS_VPORT_ATTR_NETNSID: Provides the netns id of the vport if it's not
-+ * local, as a signed 32-bit value.  The value is -1 when the identifier could
-+ * not be assigned.
-  * @OVS_VPORT_ATTR_UPCALL_STATS: Provides upcall statistics for a vport.
-  * Contains nested %OVS_VPORT_UPCALL_ATTR_* attributes.
-  *
-@@ -303,12 +305,12 @@ enum ovs_vport_type {
-  * For %OVS_VPORT_CMD_NEW requests, the %OVS_VPORT_ATTR_TYPE and
-  * %OVS_VPORT_ATTR_NAME attributes are required.  %OVS_VPORT_ATTR_PORT_NO is
-  * optional; if not specified a free port number is automatically selected.
-- * Whether %OVS_VPORT_ATTR_OPTIONS is required or optional depends on the type
-- * of vport.  None of currently supported vport types support options.
-+ * None of currently supported vport types support options, so
-+ * %OVS_VPORT_ATTR_OPTIONS is ignored in a %OVS_VPORT_CMD_NEW request and
-+ * rejected with -EOPNOTSUPP in a %OVS_VPORT_CMD_SET request.
-  *
-- * For other requests, if %OVS_VPORT_ATTR_NAME is specified then it is used to
-- * look up the vport to operate on; otherwise dp_idx from the &struct
-- * ovs_header plus %OVS_VPORT_ATTR_PORT_NO determine the vport.
-+ * For requests other than new and dump, if %OVS_VPORT_ATTR_NAME is specified
-+ * then it is used to look up the vport to operate on; otherwise dp_ifindex from
-  */
- enum ovs_vport_attr {
- 	/* private: */
-diff --git a/tools/net/ynl/tests/ovs.c b/tools/net/ynl/tests/ovs.c
-index d49f5a8e647e..fea7609a68b9 100644
---- a/tools/net/ynl/tests/ovs.c
-+++ b/tools/net/ynl/tests/ovs.c
-@@ -16,9 +16,8 @@ static void ovs_print_datapath(struct __test_metadata *_metadata,
- 		return;
- 
- 	EXPECT_TRUE((bool)dp->_hdr.dp_ifindex);
--	ksft_print_msg("%s(%d): pid:%u cache:%u\n",
--		       dp->name, dp->_hdr.dp_ifindex,
--		       dp->upcall_pid, dp->masks_cache_size);
-+	ksft_print_msg("%s(%d): cache:%u\n",
-+		       dp->name, dp->_hdr.dp_ifindex, dp->masks_cache_size);
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
+index 72bca10c579d..97081a644d5a 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
+@@ -3421,6 +3421,23 @@ static int mlx5e_switch_priv_params(struct mlx5e_priv *priv,
+ 	return 0;
  }
  
- FIXTURE(ovs)
++/* The old and the new channel of the same index are bound to the same
++ * XSK pool, which is lockless and expects a single user at a time.
++ * Close the old XSK queues before the new ones are activated, even
++ * when the closure of the rest of the old channels is deferred.
++ */
++static void mlx5e_close_channels_xsk(struct mlx5e_channels *chs)
++{
++	int i;
++
++	for (i = 0; i < chs->num; i++) {
++		struct mlx5e_channel *c = chs->c[i];
++
++		if (test_bit(MLX5E_CHANNEL_STATE_XSK, c->state))
++			mlx5e_close_xsk(c);
++	}
++}
++
+ static int mlx5e_switch_priv_channels(struct mlx5e_priv *priv,
+ 				      struct mlx5e_channels *old_chs,
+ 				      struct mlx5e_channels *new_chs,
+@@ -3452,6 +3469,8 @@ static int mlx5e_switch_priv_channels(struct mlx5e_priv *priv,
+ 	mlx5e_set_xdp_feature(priv);
+ 	if (!MLX5_CAP_GEN(priv->mdev, tis_tir_td_order))
+ 		mlx5e_close_channels(old_chs);
++	else
++		mlx5e_close_channels_xsk(old_chs);
+ 	priv->profile->update_rx(priv);
+ 
+ 	mlx5e_selq_apply(&priv->selq);
+
+base-commit: b71c101bbb9814d163c00234d43c41f0a17907d4
 -- 
-2.56.0
+2.44.0
 
