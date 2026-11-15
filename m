@@ -1,99 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.179
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794705398;
-	b=qKD3Q5Qj0nBHEqXLyKykI7MWgqI+HJCY+schw/cq+AIBdswOfoRPNaQCEc/gqlJh7IWI
-	 yPzkpiXoTGSzomZcskMOE+8GtCa33WxCaBt/QwVN2QZAEPzoxvwlFYgwSOwd0McsdUtMN
-	 mmAm/ZlCX4EdCy6qlfxkaop0taiEKo1IMejvT3/89DvQ/rorVeZsD4Y12YurKus4+LWfF
-	 CSPdHYYEYNZmOzSSX4RNQ0BUibDVN1AIAEoURtRT3Dkb+U9WBb+IjTC1vhFvsvTAl8U4I
-	 awPtSwJRtn79at0B2ELaX1G4KSKu1XmkVhFSZBMk6PL6qMebjycJRtqR/FhL04Wck3w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794705398;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=F8dpUgzOoxPx+Jh3a8nIBQMmsbWct5uSooKKOFeDY9U=;
-	b=OAWokyBJTtW0unJmkES8H0A41DBKA2skqpopZxW9kIYs60LqEBbyQy3NlS+6Re+AeKgA
-	 bse9FCzHeZJF2no1Apxx+MXc6g3DVW8yLuGAhLq5Kg7w2YPh1nTkOb+NdW77NQfsOAY/1
-	 j9RwPnq3z+sIrMDvx0gm3QUi36ngbzuQO+MnyvZNDQSqFEXtxq2Xqpki0tEXUddFhwJr+
-	 8YSaXnKoQ2WbVfAM3uFos3xMM4dryoePHI0/q2oCIyuo7hOdJ3zkZlEjjw84Zio3tAt+7
-	 Rsr4HEosmU1YS781PheQAaSUWkjZ80Y0/fvUJ+w4hz5n3iiw5MT4NdkikhowehBgXHw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JQznWoGM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.179
-Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com [209.85.222.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794705525;
+	b=en9M2yanM47yyWA6tvSK29MrX53AlXgjkzXIcFVM6ihpLDv0/F29cdb8MdFEZAx4APRp
+	 1FvxPdcLi6uSrG3zt1Jtu++/cfaNxC/VAloWAHyUUBSqLVP1kXPtitif3JO/jYD3OZ495
+	 Gl3BS67GyUlOw8ZydwqwvasKLsFSa0KLhkASFQXNKLBt0ZnkqIe/I7UlYyWR56hsaaY0K
+	 2Vdw3PI/OHJJ0NdMXxNmRKVTLaaLlNahUcxVVqPdkZBXkz9RqAzFhtK0Wu391FP2ZOPrw
+	 pHZDak97GrGkgO4ifxfjgexTxsPU4tOTbJXYFjeBIRcL0VWxo7E9fz5FBUnHEFuANpQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794705525;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=4qd6hX1WLftDV2sN2gyXYqHiJIx56OqOiY6Zn5Q3OFQ=;
+	b=i5Kpu7HWGDxdqYuAB6d3/exJ2SliKsfBaTRYxuokTaVv3j7h5lmid3lX0/WUneHoiaIN
+	 Q0rnMf4WwdO/cpOhUBzD7PR4All4QAd0suIrxem7iLRXuJI8WHRnf++KbsV/xptzJoNsy
+	 nruqUjHGPi9h4yh1qnb3UwBErlpCnOiFWYy9Y8JK7tfoM53ugLJrhg6lhUqpTt2vBJYYG
+	 9vlGK6RwSlqrZYTTWE8Jg7yI/r5+OxJ7QRrUX+GnC+Ogq2UR+t+5UNVzJZTzXkVAv/uQS
+	 BGxJVzLBYJJBylfXQkwJStbimVc9FQ2CM6sq3pP1gw5scXFHqia/ua5IaYUcuVPBISg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A9E4V40Y;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA200606A327
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 01:16:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA200606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BD43606A323
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 01:18:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JQznWoGM
-Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-94961b68685so104643485a.3
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 17:16:37 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794705397; cv=none;
-        d=google.com; s=arc-20260327;
-        b=qvU1l7MjZdzoguwu+wK/U/GDm60WJnDxuZYpYokB7Enrm7Wg7ZNTmTRLsfM8N7HjjR
-         Ph6asuIzx2H+UtOfLvNdalXf9ze4k5/8zpz19jJsNLc8ZBRtSFmYTQoLH+zy7uFlznYT
-         OkKP9rBCnB8DkjngBLXssY01fS6B85SLX5gD5RQ7X/creHZ+f9UW2N0z9+gR99cCWSOy
-         dJK6OZeJZw5wOPaOxv7fdQDh/RYixxYepPuo8ZnGXr5mJ7sZIPOBvuVCHftoeXQHcRSo
-         cBLfIHYtKZvqwdtyZ7kBvtcbBGMfKRBT8W4XLMx7/D0Bv1vxmKar103GD9ks5FpsSceV
-         x25A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=F8dpUgzOoxPx+Jh3a8nIBQMmsbWct5uSooKKOFeDY9U=;
-        fh=l7fkyklq/OWv7B8gwCOlTLxgz0MMLDmb/+63JaidC2w=;
-        b=mDcoX+6+5QNxx5S8Qb2lhWqu/qjQddUrf7Ru349wIN6pexQEYUR8TCNRI4XD/9VYjF
-         wYMQ8i5hpAgY6wbmdnLGxDqYLKDJ1DHgkVmqE12vmUz3cDKBFdawM6BYPGus+zsYA+vL
-         O2X93XC+AAz0KaPNLGcXFpj5EPlCwlM73qtEhrbS1qJFwX0EWEI8sIreQtIv2TZLDYIv
-         TZ9m7LQ+ca5svtdppcsD/5k9DcFhS5iJzK0YDAuQ2tBTw/5YHrWd5zihjUW4YRc1oc7r
-         JibB/ysfGco7uFaSFWkQa/ctC+EnS4U3aKl3auctdjVkR4BcAWbQLmSAuhYki6U06+8p
-         VwOg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794705397; x=1795310197; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=F8dpUgzOoxPx+Jh3a8nIBQMmsbWct5uSooKKOFeDY9U=;
-        b=JQznWoGMMEvrXiC5W/x5Co6h5tvsVl7HknKCyg50kuuVMWqNOT6wFRtq/r3URx6fR7
-         ZWomhYnJdg8WAb1J6zVX7mbftIrAXLv21D0+y5l2IyGvS63uHEs5nkmsisg6183Df1ev
-         vPt9VvVUG+4tLMuHvo7sNk6RWDWPmidtc3ylEG0NcPgwsrENxnlF9R3QyntH4yxdW0DY
-         MvXSLG2i/F64cL19/I60RXqVP6M85jvxzCwrHvfoogBhThjPLHfBTnJM5eE8CnPclH6H
-         //rTTrv9Qkcrn69s9RYeQrVaG+4/AHb/wc5haby/HFg4IoIyO8kdyS29tFwau37xuN/a
-         p3fQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794705397; x=1795310197;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=F8dpUgzOoxPx+Jh3a8nIBQMmsbWct5uSooKKOFeDY9U=;
-        b=YHyMzz333zl5UwOFkEu2But3a4k6/dqNN6Qux+bAOaBce5bo8XoWnifZES8AksI/81
-         NLrTUz6fGsmIhxXz5QQTTBPsjdtkCSMf0z5U4RF9UseURq+PUVhQvcz9wy0yH5fNT1Kk
-         aLchjYRTRQdGW2dLhwR4bbAWse5NlUIcOmRlO867N1qJEJq7fUFVy25B5hbd8mQkY8x1
-         o9kNaQ+J0pJi/9+cxNwaMLXFJspXUSubfPqUwrcpLKf/wNfuQezApfo6g5kU3vWAQws3
-         eHxCF4bW3nB3Sfs3oFRB249WF52S6IU+rNTfkpZYOyPXp85ZVpMNqwHqaMjgVcJThtRd
-         vlBA==
-X-Forwarded-Encrypted: i=1; AL+hErGvUm9AdWN7IXIamM+RVNHaLCb/JYBM1GI9TF5lhhvK/37b4jjwjlHJ4sqWYTUhwLCPYDujjpw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+aHZkpGPc6fyPeGyTfq0BKqSXD6Npl3mKFfQrX1Xmxmdz3+knM
-	L2mY/DX8xVrUfB0cbH1e/QbRDh2097zO1Dh9hC/zZ2sQPkqHtzuOmwPD5Xcf9xldzpVetQrkuz6
-	aMlT/hKe4Mn30km33OzSIA2/bEh2oO6w=
-X-Gm-Gg: AYBFou0UKG15LT+ZC42N838QJoPC/VsNyPFZSlsY6Ww3uGbKnsrNPOKB5hhZxAne0MK
-	xc3PXaLx2CghA7IEyRAt+rS+v1zdrU2qYqv8BsN/zxUtXRgKlJbBomk59AiudXlBnzuc1gWZT3k
-	KTj/FyZcq/jg6unrLoxrcRY3mF6E3aC3hxY9N93gLI8QPwylfjx/HKQA1ORoKoAqz98pzxmODTl
-	dLiY8PsU4vzpeUPMD57wWKtTQlwWk8kOQ2JFkNx67YwtTxmOiTml9wrBYw6ObvzFO2ivGKwY/4f
-	Zz1M0iSktlkzBNDtHKq2diabtw0ctd3MOdfZ+cDruYwoi8F7zKU7BvjdIxhE5YrwG1ZL2T27rkT
-	/trscIh9I7jQPxsGalX6mDoALJ/aJeEEvM+AgRnnT/wYXw/JBIwADdA50LJKQrZPlSaBNfrA=
-X-Received: by 2002:a05:620a:3194:b0:93f:1e3c:4a31 with SMTP id
- af79cd13be357-9494bc489cemr1205984085a.61.1794705396536; Sat, 14 Nov 2026
- 17:16:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A9E4V40Y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 807331F000C4;
+	Sun, 15 Nov 2026 01:18:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794705525;
+	bh=4qd6hX1WLftDV2sN2gyXYqHiJIx56OqOiY6Zn5Q3OFQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=A9E4V40YP3N0SXyJwn1LfpIQkGtQEd4HOosPESNfzjIFtSDXH6oJx95ecGDtq+pWo
+	 GMoe2St9hgfFSqmopP2nqRp+0W2atWrlO1A6T1eFsO/BgdNfh8/FaAo6P98vk4P14J
+	 k5EaZEySl/XXTAU9q0JP2ltA9MCUuHfnL9i7rxoeyUHpTpMWZh4efkljkT7P6B8qz1
+	 UMTuianNqBv43pgdidUpxldUAK1TU5to2gCwdKM7p8XGAGueC8MhYnh9ujKU6tZI4E
+	 Mz4BjZeAR3hA0lcgKeImp6t7/d68V145m+Td3GR3F0E8po+kYA6n/uysbXfQQbmxWE
+	 mFNcb8hcRxPoA==
+Subject: Re: [PATCH net v2] vxlan: reset the remote's dst cache when snooping
+ moves a MAC
+From: netdev-bot+sashiko@kernel.org
+To: ilskdw@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, kuniyu@google.com,
+ mschiffer@universe-factory.net
+Date: Sun, 15 Nov 2026 01:18:44 +0000
+Message-ID: <179470552404.2199510.13614872178874456081@kernel.org>
+In-Reply-To: <20261110153020.9635-1-ilskdw@gmail.com>
+References: <20261110153020.9635-1-ilskdw@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,492 +63,185 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261103041134.33310-1-physicalmtea@gmail.com>
- <20261103041134.33310-5-physicalmtea@gmail.com> <auxHe77Kv3tS4hjJ@sgarzare-redhat>
- <CAJwVaMK6UpxOmCbuzGK15h+DhN5H6cj6cy-=gCHtSxoVbLfzwA@mail.gmail.com> <avX1+7zxl9OWGUGI@devvm29614.prn0.facebook.com>
-In-Reply-To: <avX1+7zxl9OWGUGI@devvm29614.prn0.facebook.com>
-From: Jia Jia <physicalmtea@gmail.com>
-Date: Sun, 15 Nov 2026 09:15:58 +0800
-X-Gm-Features: AclHuK-T0MEDdJ39kG7QgYlQtmmMpMQfQ5G4jecRDwhf-cJbDIFNw63bcWzZktY
-Message-ID: <CAJwVaMK8_HxMjCVQwmwet+sphKHSM-L0eCogdzu1tZfLqCukSA@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 4/5] vsock/virtio: coalesce native RX
- write-space notifications
-To: Bobby Eshleman <bobbyeshleman@gmail.com>
-Cc: Stefano Garzarella <sgarzare@redhat.com>, netdev@vger.kernel.org, stefanha@redhat.com, 
-	mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com, 
-	xuanzhuo@linux.alibaba.com, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kvm@vger.kernel.org, 
-	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 
->
-> On Fri, Nov 06, 2026 at 08:49:17PM +0800, Jia Jia wrote:
-> > >
-> > > On Tue, Nov 03, 2026 at 12:11:33PM +0800, Jia Jia wrote:
-> > > >Each received packet can update peer credit and call sk_write_space(). A
-> > > >writer cannot consume that credit while the virtio RX worker retains the
-> > > >socket lock, so repeated native write-space notifications in one RX batch
-> > > >are unnecessary.
-> > > >
-> > > >This patch coalesces write-space notifications on the native AF_VSOCK path;
-> > > >data-ready remains per-packet here.
-> > > >
-> > > >The batching patch establishes batch ownership before its first packet.
-> > > >This lets this patch record a pending notification for that packet and
-> > > >flush it even if the packet immediately ends the batch. Deliver it while
-> > > >holding the socket lock to preserve the callback context of the existing
-> > > >receive path. A following patch changes that timing together with
-> > > >data-ready handling.
-> > >
-> > > Can you report performance data related to this patch also here?
-> > >
-> > > IIUC this is not giving a lot of advantage, so my question is if this
-> > > more complexity really add a value for us.
-> > >
-> >
-> > Sure. The performance tests currently cover patches 4 and 5 together,
-> > so I will include those results here.
-> >
-> > They do not add another broad throughput improvement. I kept the
-> > combined notification change because of the cycles/byte results.
-> >
-> > With P1-P3 only, against baseline:
-> >
-> >   Buffer size  baseline cycles/B  PATCH cycles/B  cycles change (95% CI)
-> >   64B        66.728    61.220  -8.25% [-18.99%, +3.91%]
-> >   256B       14.363    14.515  +1.06% [ -4.22%, +6.64%]
-> >   512B        7.792     7.578  -2.74% [ -6.55%, +1.23%]
-> >   1K          3.988     4.032  +1.09% [ -1.64%, +3.88%]
-> >   4K          2.063     1.973  -4.38% [ -8.23%, -0.37%]
-> >   8K          1.702     1.667  -2.06% [ -7.99%, +4.25%]
-> >   16K         1.473     1.475  +0.17% [ -5.06%, +5.68%]
-> >   64K         1.385     1.358  -1.96% [-10.61%, +7.53%]
-> >
-> > Only the 4K interval excluded zero. With the full series, against
-> > baseline:
-> >
-> >   Buffer size  baseline cycles/B  PATCH cycles/B  cycles change (95% CI)
-> >   64B        65.282    57.843  -11.40% [-13.77%, -8.95%]
-> >   256B       14.710    13.813   -6.10% [ -7.89%, -4.28%]
-> >   512B        7.709     7.188   -6.75% [ -8.79%, -4.66%]
-> >   1K          4.075     3.862   -5.23% [ -6.80%, -3.63%]
-> >   4K          2.034     1.887   -7.21% [ -8.67%, -5.72%]
-> >   8K          1.664     1.568   -5.78% [ -7.83%, -3.69%]
-> >   16K         1.450     1.385   -4.48% [ -6.08%, -2.86%]
-> >   64K         1.338     1.317   -1.51% [ -3.21%, +0.22%]
-> >
-> > From 64B through 16K those intervals stay below zero. 64B through 1K
-> > did not show that in the P1-P3 run.
-> >
-> > This is also why I spent the time making this work with sockmap.
-> >
-> > The value I see is lower RX CPU cost, not another large throughput
-> > gain. I am still unsure the extra code is worth it, and I would like
-> > your opinion.
-> >
-> > Thanks,
-> > Jia
-> >
-> > > >
-> > > >Capture the native write-space callback before socket publication and
-> > > >access it through AF_VSOCK helpers. Sockmap can change the protocol,
-> > > >write-space callback, and psock marker without the socket lock. Serialize
-> > > >each batch eligibility check with sk_callback_lock; if a packet boundary
-> > > >observes a replacement, finish the batch and use the regular per-packet
-> > > >path.
-> > > >
-> > > >Packets admitted on the native path use the saved native callback at batch
-> > > >finish. Reloading a current sockmap callback would not synchronize its
-> > > >invocation with teardown; a wrapper seen before teardown need not forward
-> > > >the native wakeup after its psock is gone.
-> > >
-> > > I really don't understand the goal of this patch, and why we need to
-> > > store the "native" sk_write_space.
-> > >
-> >
-> > Actually, I kept this as a separate patch so the two notification changes
-> > could be tested separately. This patch provides a complete intermediate
-> > state: it coalesces native sk_write_space() notifications while keeping the
-> > callback invocation under the socket lock. Patch 5 then coalesces
-> > sk_data_ready() and moves both deferred callbacks after release_sock().
-> >
-> > The coalescing is limited to packets for which can_receive() sees
-> > sk_write_space still set to the native callback. That callback wakes waiters.
-> > The sockmap wrapper can also schedule psock work before forwarding
-> > the saved callback, so I do not coalesce it.
-> >
-> > Batch finish also needs the saved pointer if the callback changes before
-> > the batch ends. If another packet arrives, can_receive() detects the
-> > replacement
-> > and its caller finishes the batch. A write-space notification already
-> > recorded for
-> > the batch still uses the native callback.
-> >
-> > Reloading sk->sk_write_space at finish could capture the sockmap wrapper just
-> > before teardown. If teardown removes the psock before the callback is invoked,
-> > the wrapper no longer forwards the native wakeup.
->
-> I'm not sure I understand the bug avoided by saving sk_write_space.
->
-> If it changes mid-batch to the psock callback, the work that gets
-> scheduled by sockmap will eventually acquire the socket lock via
-> sock_sendmsg(), so the present batch will become owned in whole by the
-> new socket anyway.
->
-> I think that is perfectly acceptable semantics (when you redirect with
-> sockmap, any current or later batch will be owned by the new sender). I
-> don't think we need pkt redirection to be exactly in sync with
-> installing the socket into sockmap at the exact pkt boundary if at least
-> the batch boundary is in sync. The batch would just be "eventually
-> consistent" with the new sockmap state.
->
-> WDYT?
->
-> I understand the sk_data_ready is a different matter because of the
-> per-skb ->read_skb callback.
->
-> My suggestion, if it works, would be to just do one sk_write_space call
-> per batch, whichever cb it happens to be when the batch processing is
-> done.
->
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Thanks for the suggestion. I'll look into it.
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-The pointer is there because sk_psock_write_space() forwards its saved
-callback only when it still finds a psock. With no psock it returns, and the
-writer is not woken. sk_psock_drop() restores sk_write_space and clears
-the psock under the write side of sk_callback_lock, without the socket lock.
-If finish loads the current callback and calls it outside that lock, RX can load
-the wrapper, drop can clear the psock, and the wrapper then finds nothing
-to forward.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-What I can see so far is that, without the saved pointer, that call would
-need to run under read_lock_bh(&sk->sk_callback_lock). drop takes the
-write side, so it cannot enter between the load and the call. The saved
-pointer would then have nothing left to do. I'll check that.
+- [Medium] In vxlan_snoop() (drivers/net/vxlan/vxlan_core.c), the
+  migration branch now does `rdst->remote_ifindex = ifindex`.
+- [Medium] The stale-dst_cache problem this patch claims to fix can still
+  happen through a race.
+- [Low] The patch adds lockless plain writes of rdst->remote_ifindex and
+  of the rdst->offloaded bitfield in the vxlan_snoop() migration branch…
 
-Thanks
+--
 
-> >
-> > > >
-> > > >Signed-off-by: Jia Jia <physicalmtea@gmail.com>
-> > > >---
-> > > > include/linux/virtio_vsock.h            |  4 +-
-> > > > include/net/af_vsock.h                  |  7 +++
-> > > > net/vmw_vsock/af_vsock.c                | 16 +++++
-> > > > net/vmw_vsock/virtio_transport_common.c | 78 +++++++++++++++++--------
-> > > > 4 files changed, 81 insertions(+), 24 deletions(-)
-> > > >
-> > > >diff --git a/include/linux/virtio_vsock.h b/include/linux/virtio_vsock.h
-> > > >index 748633aa0cc81..bf28e8e32e280 100644
-> > > >--- a/include/linux/virtio_vsock.h
-> > > >+++ b/include/linux/virtio_vsock.h
-> > > >@@ -287,12 +287,14 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
-> > > >  * Initialize a batch to zero before use. A non-empty batch owns @sk's socket
-> > > >  * lock and the reference returned by vsock_find_connected_socket_net(). The
-> > > >  * caller retains both until it calls virtio_transport_rx_batch_finish(). An
-> > > >- * empty batch owns neither.
-> > > >+ * empty batch owns neither. A pending native write-space notification belongs
-> > > >+ * to the lock holder and is delivered by virtio_transport_rx_batch_finish().
-> > > >  */
-> > > > struct virtio_transport_rx_batch {
-> > > >       struct sock *sk;
-> > > >       unsigned int pkts;
-> > > >       size_t bytes;
-> > > >+      bool write_space_pending;
-> > > > };
-> > > >
-> > > > static inline bool
-> > > >diff --git a/include/net/af_vsock.h b/include/net/af_vsock.h
-> > > >index 5549298c1ec6b..b76ab565ea58b 100644
-> > > >--- a/include/net/af_vsock.h
-> > > >+++ b/include/net/af_vsock.h
-> > > >@@ -63,6 +63,11 @@ struct vsock_sock {
-> > > >       u32 peer_shutdown;
-> > > >       bool sent_request;
-> > > >       bool ignore_connecting_rst;
-> > > >+      /*
-> > > >+       * Captured before the socket is published. This identifies AF_VSOCK's
-> > > >+       * native write-space callback after a consumer has replaced it.
-> > > >+       */
-> > > >+      void (*native_write_space)(struct sock *sk);
-> > > >
-> > > >       /* Protected by lock_sock(sk) */
-> > > >       u64 buffer_size;
-> > > >@@ -78,6 +83,8 @@ s64 vsock_stream_has_data(struct vsock_sock *vsk);
-> > > > s64 vsock_stream_has_space(struct vsock_sock *vsk);
-> > > > struct sock *vsock_create_connected(struct sock *parent);
-> > > > void vsock_data_ready(struct sock *sk);
-> > > >+bool vsock_write_space_is_native(const struct sock *sk);
-> > > >+void vsock_call_native_write_space(struct sock *sk);
-> > > >
-> > > > /**** TRANSPORT ****/
-> > > >
-> > > >diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
-> > > >index 44cee74519555..e39567990539f 100644
-> > > >--- a/net/vmw_vsock/af_vsock.c
-> > > >+++ b/net/vmw_vsock/af_vsock.c
-> > > >@@ -958,6 +958,7 @@ static struct sock *__vsock_create(struct net *net,
-> > > >               sk->sk_type = type;
-> > > >
-> > > >       vsk = vsock_sk(sk);
-> > > >+      vsk->native_write_space = sk->sk_write_space;
-> > > >       vsock_addr_init(&vsk->local_addr, VMADDR_CID_ANY, VMADDR_PORT_ANY);
-> > > >       vsock_addr_init(&vsk->remote_addr, VMADDR_CID_ANY, VMADDR_PORT_ANY);
-> > > >
-> > > >@@ -1122,6 +1123,21 @@ void vsock_data_ready(struct sock *sk)
-> > > > }
-> > > > EXPORT_SYMBOL_GPL(vsock_data_ready);
-> > > >
-> > > >+bool vsock_write_space_is_native(const struct sock *sk)
-> > > >+{
-> > > >+      const struct vsock_sock *vsk = vsock_sk(sk);
-> > > >+
-> > > >+      return READ_ONCE(sk->sk_write_space) ==
-> > > >+             READ_ONCE(vsk->native_write_space);
-> > > >+}
-> > > >+EXPORT_SYMBOL_GPL(vsock_write_space_is_native);
-> > > >+
-> > > >+void vsock_call_native_write_space(struct sock *sk)
-> > > >+{
-> > > >+      vsock_sk(sk)->native_write_space(sk);
-> > > >+}
-> > > >+EXPORT_SYMBOL_GPL(vsock_call_native_write_space);
-> > > >+
-> > > > /* Dummy callback required by sockmap.
-> > > >  * See unconditional call of saved_close() in sock_map_close().
-> > > >  */
-> > > >diff --git a/net/vmw_vsock/virtio_transport_common.c b/net/vmw_vsock/virtio_transport_common.c
-> > > >index f83e5b2edce35..af26344678e41 100644
-> > > >--- a/net/vmw_vsock/virtio_transport_common.c
-> > > >+++ b/net/vmw_vsock/virtio_transport_common.c
-> > > >@@ -1865,31 +1865,55 @@ virtio_transport_rx_batch_can_continue(struct virtio_transport *t,
-> > > >              !virtio_transport_rx_buf_full(vvs);
-> > > > }
-> > > >
-> > > >-/* The caller holds sk's socket lock. */
-> > > >+/* The caller holds sk's socket and callback locks. */
-> > > > static bool
-> > > >-virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
-> > > >-                                    struct sock *sk, u32 len)
-> > > >+__virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
-> > > >+                                      struct sock *sk, u32 len)
-> > > > {
-> > > >       if (!virtio_transport_rx_batch_can_continue(t, sk, len))
-> > > >               return false;
-> > > >
-> > > >       /*
-> > > >-       * Sockmap can replace sk_prot and publish a psock without the socket lock.
-> > > >-       * Check both at each packet boundary; a boundary that sees a replacement
-> > > >-       * returns to the existing per-packet path.
-> > > >+       * Sockmap can replace sk_prot or sk_write_space, and publish a psock,
-> > > >+       * without the socket lock. Coalescing is safe only for the native
-> > > >+       * write-space callback, so a boundary that sees a replacement returns to
-> > > >+       * the existing per-packet path.
-> > > >        */
-> > > >       return READ_ONCE(sk->sk_prot) == sk->sk_prot_creator &&
-> > > >+             vsock_write_space_is_native(sk) &&
-> > >
-> > > I'm confused, why for sk_prot we are doing the check here, while for
-> > > sk_write_space we need a new API?
-> > >
-> >
-> > sk_prot can be compared with sk_prot_creator. sk_write_space
-> > has no field like that, and sock_def_write_space() is static.
-> > I save the callback in __vsock_create(), after the socket is
-> > initialized and before it is published. The helpers compare
-> > against that pointer and call it.
-> >
-> > > >              !virtio_transport_sock_has_psock(sk);
-> > > > }
-> > > >
-> > > >+/*
-> > > >+ * Sockmap teardown restores the native protocol and write-space callback
-> > > >+ * under sk_callback_lock. Serialize each packet admission check with those
-> > > >+ * updates.
-> > > >+ */
-> > > >+static bool
-> > > >+virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
-> > > >+                                    struct sock *sk, u32 len)
-> > > >+{
-> > > >+      bool batchable;
-> > > >+
-> > > >+      read_lock_bh(&sk->sk_callback_lock);
-> > > >+      batchable = __virtio_transport_rx_batch_can_receive(t, sk, len);
-> > > >+      read_unlock_bh(&sk->sk_callback_lock);
-> > > >+
-> > > >+      return batchable;
-> > > >+}
-> > > >+
-> > > > /*
-> > > >  * The caller holds sk's socket lock. If @batchable is non-NULL, update it
-> > > >  * after processing @skb to say whether a native STREAM/RW batch can continue.
-> > > >+ * When @batch is non-NULL, record a native write-space notification for batch
-> > > >+ * finish. A writer cannot consume the updated credit until this lock is
-> > > >+ * released.
-> > > >  */
-> > > > static void
-> > > > virtio_transport_recv_pkt_locked(struct virtio_transport *t,
-> > > >                                struct sk_buff *skb, struct sock *sk,
-> > > >-                               struct net *net, bool *batchable)
-> > > >+                               struct net *net, bool *batchable,
-> > > >+                               struct virtio_transport_rx_batch *batch)
-> > >
-> > > Do we really need bot batchable and batch ?
-> > >
-> >
-> > Agreed, we don't. I'll clean that up in the next version. Thanks
-> >
-> > > > {
-> > > >       struct virtio_vsock_hdr *hdr = virtio_vsock_hdr(skb);
-> > > >       struct vsock_sock *vsk = vsock_sk(sk);
-> > > >@@ -1921,8 +1945,12 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
-> > > >       if (vsk->local_addr.svm_cid != VMADDR_CID_ANY)
-> > > >               vsk->local_addr.svm_cid = le64_to_cpu(hdr->dst_cid);
-> > > >
-> > > >-      if (space_available)
-> > > >-              sk->sk_write_space(sk);
-> > > >+      if (space_available) {
-> > > >+              if (batch)
-> > > >+                      batch->write_space_pending = true;
-> > > >+              else
-> > > >+                      sk->sk_write_space(sk);
-> > > >+      }
-> > > >
-> > > >       switch (sk->sk_state) {
-> > > >       case TCP_LISTEN:
-> > > >@@ -1947,7 +1975,7 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
-> > > >       }
-> > > >
-> > > >       if (batchable)
-> > > >-              *batchable = virtio_transport_rx_batch_can_receive(t, sk, 0);
-> > > >+              *batchable = virtio_transport_rx_batch_can_continue(t, sk, 0);
-> > >
-> > > Why this change?
-> > >
-> >
-> > This runs after the packet has been handled. can_receive() decides
-> > whether a packet may be processed in the batch, so I do not call it
-> > again here. can_continue() checks whether the socket state, type,
-> > transport, and RX limits still allow the batch to remain active. If it
-> > returns false, the caller releases the socket lock and drops the
-> > connected reference.
-> >
-> > A change to sk_prot, sk_write_space, or the psock is seen by
-> > can_receive() before the next packet is processed, and that packet takes
-> > the regular path.
->
-> I think squashing would avoid the churn.
->
+vxlan: reset the remote's dst cache when snooping moves a MAC
 
-Sure, understood. Thanks.
+When a learned MAC moves to a new remote, the vxlan_snoop() migration
+branch now resets the remote's dst_cache, updates remote_ifindex and
+clears offloaded, the same way vxlan_fdb_replace() does. This fixes stale
+cached routes after a MAC move. It also stops the repeated RTM_NEWNEIGH
+notifications when a MAC moves to or from an IPv6 link-local remote.
 
-> >
-> > > > }
-> > > >
-> > > > /* We are under the virtio-vsock's vsock->rx_lock or vhost-vsock's vq->mutex
-> > > >@@ -1991,7 +2019,7 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
-> > > >               goto free_pkt;
-> > > >
-> > > >       lock_sock(sk);
-> > > >-      virtio_transport_recv_pkt_locked(t, skb, sk, net, NULL);
-> > > >+      virtio_transport_recv_pkt_locked(t, skb, sk, net, NULL, NULL);
-> > > >
-> > > >       release_sock(sk);
-> > > >
-> > > >@@ -2008,20 +2036,31 @@ EXPORT_SYMBOL_GPL(virtio_transport_recv_pkt);
-> > > >
-> > > > /*
-> > > >  * Release an active RX batch. A non-empty batch holds the socket lock and the
-> > > >- * reference returned by vsock_find_connected_socket_net(). An empty batch
-> > > >- * holds neither.
-> > > >+ * reference returned by vsock_find_connected_socket_net(). Deliver any
-> > > >+ * deferred native write-space notification while holding the lock, preserving
-> > > >+ * the callback context of the regular receive path. An empty batch holds
-> > > >+ * neither.
-> > > >  */
-> > > > void virtio_transport_rx_batch_finish(struct virtio_transport_rx_batch *batch)
-> > > > {
-> > > >+      bool write_space_pending = batch->write_space_pending;
-> > > >       struct sock *sk = batch->sk;
-> > > >
-> > > >       batch->sk = NULL;
-> > > >       batch->pkts = 0;
-> > > >       batch->bytes = 0;
-> > > >+      batch->write_space_pending = false;
-> > > >
-> > > >       if (!sk)
-> > > >               return;
-> > > >
-> > > >+      /*
-> > > >+       * The packet was admitted with the native callback. Do not reload a current
-> > > >+       * callback here: sockmap can replace or remove its wrapper independently.
-> > > >+       */
-> > > >+      if (write_space_pending)
-> > > >+              vsock_call_native_write_space(sk);
-> > > >+
-> > > >       release_sock(sk);
-> > > >       sock_put(sk);
-> > > > }
-> > > >@@ -2080,7 +2119,8 @@ virtio_transport_rx_batch_process(struct virtio_transport *t,
-> > > >               return;
-> > > >       }
-> > > >
-> > > >-      virtio_transport_recv_pkt_locked(t, skb, batch->sk, net, &batchable);
-> > > >+      virtio_transport_recv_pkt_locked(t, skb, batch->sk, net, &batchable,
-> > > >+                                       batch);
-> > > >       if (!batchable) {
-> > > >               virtio_transport_rx_batch_finish(batch);
-> > > >               return;
-> > > >@@ -2158,16 +2198,8 @@ void virtio_transport_recv_pkt_batch(struct virtio_transport *t,
-> > > >       }
-> > > >
-> > > >       lock_sock(sk);
-> > > >-      /*
-> > > >-       * Serialize initial admission with sockmap's callback updates. Later
-> > > >-       * packet boundaries recheck native state and end a batch when they
-> > > >-       * observe a replacement.
-> > > >-       */
-> > > >-      read_lock_bh(&sk->sk_callback_lock);
-> > > >       batchable = virtio_transport_rx_batch_can_receive(t, sk, len);
-> > > >-      read_unlock_bh(&sk->sk_callback_lock);
-> > >
-> > > Can we avoid this change and do this in the previous patch?
-> > >
-> > > Please avoid as much as you can change code introduced in the same series.
-> > >
-> >
-> > Sure, understood.
-> >
-> > > >       if (!batchable) {
-> > > >-              /* State or receive-buffer failures keep the regular lookup path. */
-> > >
-> > > Why removing this comment just added by previous patch?
-> > >
-> >
-> > This patch adds a replaced sk_write_space as another reason for
-> > can_receive() to return false, and that case does not take the regular
-> > lookup path. I removed the old comment because it no longer
-> > described the distinction completely, but I forgot to add the replacement.
-> > Sorry about that, and thanks for catching it.
-> >
-> > > >               if (!virtio_transport_rx_batch_can_continue(t, sk, len)) {
-> > > >                       release_sock(sk);
-> > > >                       sock_put(sk);
-> > > >@@ -2176,7 +2208,7 @@ void virtio_transport_recv_pkt_batch(struct virtio_transport *t,
-> > > >
-> > > >               virtio_transport_trace_recv_pkt(hdr, &src, &dst);
-> > > >               if (virtio_transport_recv_pkt_set_owner(skb, sk))
-> > > >-                      virtio_transport_recv_pkt_locked(t, skb, sk, net, NULL);
-> > > >+                      virtio_transport_recv_pkt_locked(t, skb, sk, net, NULL, NULL);
-> > > >               else
-> > > >                       kfree_skb(skb);
-> > > >
-> > > >--
-> > > >2.53.0
-> > > >
-> > >
->
->
-> Thanks,
-> Bobby
+> diff --git a/drivers/net/vxlan/vxlan_core.c b/drivers/net/vxlan/vxlan_core.c
+> index d11028b374721..6bc54642e7f45 100644
+> --- a/drivers/net/vxlan/vxlan_core.c
+> +++ b/drivers/net/vxlan/vxlan_core.c
+> @@ -1482,7 +1482,10 @@ static enum skb_drop_reason vxlan_snoop(struct net_device *dev,
+>  				    "%pM migrated from %pIS to %pIS\n",
+>  				    src_mac, &rdst->remote_ip.sa, &src_ip->sa);
+>  
+> +		dst_cache_reset(&rdst->dst_cache);
+>  		rdst->remote_ip = *src_ip;
+
+[Severity: Medium]
+Can a concurrent transmit still put the old remote's route back into the
+cache after this reset?
+
+dst_cache_reset() only stores jiffies in reset_ts. The remote_ip and
+remote_ifindex stores that follow are plain stores, with no lock against
+the lockless xmit path. vxlan_xmit_one() reads the key from rdst before it
+looks up the cache:
+
+drivers/net/vxlan/vxlan_core.c:vxlan_xmit_one() {
+    ...
+	ifindex = rdst->remote_ifindex;
+
+	if (addr_family == AF_INET) {
+		key.u.ipv4.src = cfg->saddr.sin.sin_addr.s_addr;
+		key.u.ipv4.dst = rdst->remote_ip.sin.sin_addr.s_addr;
+    ...
+}
+
+On a miss, dst_cache_per_cpu_get() stamps the per-cpu entry with the
+current jiffies:
+
+net/core/dst_cache.c:dst_cache_per_cpu_get() {
+    ...
+	if (unlikely(!time_after(idst->refresh_ts,
+				 READ_ONCE(dst_cache->reset_ts)) ||
+    ...
+fail:
+	idst->refresh_ts = jiffies;
+	return NULL;
+}
+
+dst_cache_set_ip4() does not touch refresh_ts. Consider this interleaving:
+
+CPU1 (xmit to the MAC)            CPU2 (vxlan_snoop)
+reads old rdst->remote_ip
+                                  dst_cache_reset() (reset_ts = J)
+                                  rdst->remote_ip = *src_ip
+dst_cache_get() in jiffy J + 1
+  miss, refresh_ts = J + 1
+route lookup with old key
+dst_cache_set_ip4() old route
+
+The cached entry now looks newer than reset_ts, so later transmits to the
+MAC on CPU1 would use the old remote's next hop. Packets from the new
+remote take the early return, so the cache is not reset again.
+
+Would this bring back the blackhole described in the changelog, until
+something like "ip route flush cache" runs? The window is narrow, but in
+the live migration case there is usually traffic to the MAC while it
+moves.
+
+Moving the reset after the field stores does not appear to close the
+window. The reader still builds its key before it checks reset_ts, and
+freshness is only tracked in jiffies.
+
+vxlan_fdb_replace() uses the same order. The hash_lock it holds does not
+exclude xmit readers either.
+
+> +		rdst->remote_ifindex = ifindex;
+
+[Severity: Medium]
+Does this overwrite a user-configured egress interface with 0?
+
+In vxlan_snoop(), ifindex is only set from src_ifindex for IPv6 link-local
+sources. For IPv4 and global IPv6 sources it stays 0.
+
+A user can create a dynamic entry with NDA_IFINDEX, for example:
+
+  bridge fdb add <mac> dev vxlan0 dst 10.0.0.2 via eth1 dynamic
+
+vxlan_fdb_parse() stores that in remote_ifindex. On a learning device,
+the first packet from 10.0.0.2 with that inner source MAC does not take
+the early return, because remote_ifindex != 0:
+
+	if (likely(vxlan_addr_equal(&rdst->remote_ip, src_ip) &&
+		   rdst->remote_ifindex == ifindex))
+		return SKB_NOT_DROPPED_YET;
+
+The static guard only skips NUD_PERMANENT and NUD_NOARP entries, so the
+packet enters the migration branch. It logs "migrated from A to A" even
+though the IP has not changed. With this patch, the branch also sets
+remote_ifindex to 0, resets the dst cache and clears offloaded.
+
+After that, vxlan_xmit_one() passes ifindex 0 to udp_tunnel_dst_lookup()
+and falls back to sk_bound_dev_if, so the configured underlay interface
+is no longer used.
+
+vxlan_fdb_info() also stops reporting NDA_IFINDEX for the entry:
+
+	if (rdst->remote_ifindex &&
+	    nla_put_u32(skb, NDA_IFINDEX, rdst->remote_ifindex))
+
+Before this patch the configured ifindex was kept, although every packet
+produced a notification (the behaviour since 87613de95041).
+
+Is it intended that the snoop path treats ifindex 0 as an authoritative
+new value here? 0 only means the ifindex is unknown, so this path cannot
+tell a user-configured ifindex from a stale learned one.
+
+> +		rdst->offloaded = false;
+>  		vxlan_fdb_notify(vxlan, f, rdst, RTM_NEWNEIGH, true, NULL);
+
+[Severity: Low]
+Should this branch take vxlan->hash_lock, as the else branch in
+vxlan_snoop() already does?
+
+The new remote_ifindex and offloaded writes are lockless and run in
+softirq under RCU only. The other writers of these fields hold hash_lock:
+vxlan_fdb_offloaded_set(), vxlan_fdb_replace() and
+vxlan_fdb_clear_offload().
+
+For example, vxlan_fdb_offloaded_set() is reached from mlxsw's
+SWITCHDEV_VXLAN_FDB_OFFLOADED work, and mlxsw supports VXLAN_F_LEARN. It
+could race like this:
+
+CPU0 (vxlan_fdb_offloaded_set)       CPU1 (vxlan_snoop)
+spin_lock_bh(&vxlan->hash_lock)
+vxlan_fdb_find_rdst() matches on
+  old remote_ip/remote_ifindex
+                                     rdst->remote_ip = *src_ip
+                                     rdst->remote_ifindex = ifindex
+                                     rdst->offloaded = false
+rdst->offloaded = fdb_info->offloaded
+
+The new remote would then be reported with NTF_OFFLOADED even though the
+hardware has not been programmed for it.
+
+Two RX CPUs snooping the same MAC from different VTEPs could also race in
+this branch. The result could combine remote_ip from one packet with
+remote_ifindex from the other. vxlan_fdb_switchdev_notifier_info() could
+then snapshot that torn tuple.
+
+The remote_ip store predates this patch. The new remote_ifindex and
+offloaded writes also have no WRITE_ONCE()/READ_ONCE() pairing, so KCSAN
+is likely to report them.
+
+Taking hash_lock here and re-checking the entry once it is held would
+serialize these writes the same way vxlan_fdb_replace() is serialized.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110153020.9635-1-ilskdw%40gmail.com
