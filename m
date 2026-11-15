@@ -1,62 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794728579;
-	b=D8bP+M2kCXO7yF9v3ezEfCdxFNERPJ7rZO641hRHdiALMl1BieE1XFI8VtChqulFvGlc
-	 8vDxCfjuru+07RInhEwbjDgnQzscTn6UD/zS9II2Un06jDmP7AJ8gnmLJ0QjI5rOILoKk
-	 LJGKznEEyyuprrkEwGZ9wjSutPxW2pfg0dMha7gY68yI6FTTpjsWZMlk5p/fmP+KKu7k1
-	 wk7T15u7Y9yBXofoDvgSiBHtN2LEOEzrJq3eDt/b/pg8YRojuUGdMquA0d6qci60Zo+di
-	 MQoKM+oUDu2GGNRPfMaonRfxZUMiwL1j+kfP92QYsDaQ49dzVkJJPz6L8+C4228IoNg==
+	t=1794728581;
+	b=KZZ1SKNp8i9Th7lEqIq6L0TCztJWyXQO+F3Qc5T3KE4kP5BQxUim6/FXjZKEQqIefJbU
+	 E4EQJJAdVAFeqNlcQ7dcL/p7lRnjxgxyOxyk45MAd49eKg8ctncUwcblp7BdyjugYW4K6
+	 kBjBXz2+m/3T9ODj7hs6y6kOWMDKhqjYMEKc+naKgNQOGtLeIrZtBEugZbaSUuRjA14Wn
+	 powHrhdjHoX0neDx/ShF74TGdahAGxlpQnG5EDiUbXDnJt9l9zYjeWbLgOytV3ueXCL/3
+	 EbV+opv8qKKUIszV/V1AWPOFgcmhnwHJP/1rejCqvrasqDIqaPV90Bp73InLwQQONhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794728579;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794728581;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=BnAgR70dI64mrGytYJ8dh2rslfwpurTWIUgVQFHKtog=;
-	b=3HS7e7Gtp9qcRt38aWgqp5Y99TxUzjXVWj5pzt4T6UZFgFE63/QrCQOrz6D4RnG/tMTt
-	 ZRD1sZ3AhgQ36OwluduK65Kn8YXT+7SY/akyhBZO5ZhEZxbvSSQmONyWSS6BG+7qiJsgK
-	 RKxn51Y0G1HQz7hPpAkBDstysOVmCXzOa4142b9t5RRLuD4ugOloAH6R6QNVEiOyNjsEu
-	 19fnPe3CCSWYTDLgjorDYhrwiUJbisaIUTN3l8M+gWF0+NIIT1y7q8RcJMcdbgr/oY2tt
-	 JKXDNIIARegBpxMY8P26SOFhp56EcWZIu6XW/cjQ0ZECf/voKWFroW2V/5odowIVlEQ==
+	bh=Cn1hqHiLQJcX9AvOPTcWUfgzPP39MReCfQbew9UssmY=;
+	b=k+OxGW4sJH96TW1ECZGjba+HlwcQ0MzyDdZd4tc3S4PVCo8QPLn0AJXoixh0I7bUIqSz
+	 +Bhsq1h718rgch2+FJ1t6PCed7zShLBIGVou5R/oYodV5QJgIT3LSd8Ng4m5fvnJIgZD9
+	 Z/dPfI2LJ3H2u/Bh9NEvTZfTeT+ZHnCCEzRcaPiPkArE1TU9tTjhqudMrQo6rAYznWZc5
+	 JTzSd2RrX94XsYcJKU7IiSm1/umf2kR0TljeMOYBPZRqsUAtnnXjZIP2UugHFfGBoBdD5
+	 SFzHWcYzXEcSjZN0P7Y0cAkPGKDpaXE+99PgoTRfEAAbHth+TLqhlogUd+9jClHHuiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jG9ILaf6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=No5Ya2Ys;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FE01606A331;
-	Sun, 15 Nov 2026 07:42:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26C78606A333;
+	Sun, 15 Nov 2026 07:43:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jG9ILaf6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0AB231F000C4;
-	Sun, 15 Nov 2026 07:42:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=No5Ya2Ys
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530ED1F000C9;
+	Sun, 15 Nov 2026 07:43:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794728579;
-	bh=BnAgR70dI64mrGytYJ8dh2rslfwpurTWIUgVQFHKtog=;
+	s=k20260515; t=1794728581;
+	bh=Cn1hqHiLQJcX9AvOPTcWUfgzPP39MReCfQbew9UssmY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=jG9ILaf62hiV+h0J94yiV39nP/SghgM7S/2YiZWx+1zAzXhiq/g1Enhw9CmLSAUIL
-	 6aFMio48HgSxsdKFO7R5GYifcBypAfbuLDya6inq0PRuqy3JZ5W+Zc5WED7MYNhttX
-	 rVIVdLhiVR2Px34l4uAzQ0gDMM3hyvjbWsUhQjVblx4EuulKClK+WZY0ZSZSJKWN1p
-	 ic0Ck20pRhXSjsIxCS9/Uxy5iUJgQulgRTAqtniNMTHTgZ5+OCX3E6Bz33PkwtkQhw
-	 PbZvhp8stOxmAUvccijHFo3PMqDA4SsWR0/AD7eVj7NKnjq014orhjn67cAkdK6S4m
-	 n+K3/4G0uYVuA==
-Subject: Re: [PATCH net v5 2/2] selftests: net: add a vhost-net test for the
- tun NAPI queue bound
+	b=No5Ya2YsMEXvoYeGNBaO8CbHekDrIpZkiLkSrGlbbI9J0DEAuv3HNeQwO9NeDTrY9
+	 XorRY7KYbSv7yFWnku1aQyWktoCENsqvXw1AJhcVkNK1eeOMmJrurPhz7uuHR4oeBe
+	 IC777mkDpN6KrjgXx5i17OTqTLrQIS3z73z7xY7vPDCWk521w2nn+Zbu3S7N8jNd7E
+	 k6QeNeCjz8lfwrJWLL9VdkA4jVwXq1hxBDvH+QCCcpkTYEMFlbEYsTXBQ9GUxU5sjE
+	 dqpF5RVmWxnmu2KOsrxjNjrkldOSFvYRBDeZq/ruRknx4IEGFEsSgglo8HBs21LEEH
+	 j+KrM1I5RRyLg==
+Subject:
+ Re: [PATCH net-next] net: ethtool: request rtnl_lock for ETHTOOL_MSG_PORT_GET
 From: netdev-bot+sashiko@kernel.org
-To: antonio@mandelbit.com
-Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, mst@redhat.com,
- eperezma@redhat.com, shuah@kernel.org, ast@kernel.org, daniel@iogearbox.net,
- hawk@kernel.org, john.fastabend@gmail.com, sdf@fomichev.me,
- maheshb@google.com, peterpenkov96@gmail.com, netdev@vger.kernel.org,
- virtualization@lists.linux.dev, linux-kselftest@vger.kernel.org,
- bpf@vger.kernel.org
-Date: Sun, 15 Nov 2026 07:42:57 +0000
-Message-ID: <179472857762.2199510.12782959547104801304@kernel.org>
-In-Reply-To: <20261111014208.1795777-3-antonio@mandelbit.com>
-References: <20261111014208.1795777-3-antonio@mandelbit.com>
-X-sashiko-severity: Medium
+To: xiaolinkui@126.com
+Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, sdf@fomichev.me,
+ jacob.e.keller@intel.com, bjorn@kernel.org, alexanderduyck@fb.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
+Date: Sun, 15 Nov 2026 07:42:59 +0000
+Message-ID: <179472857971.2199510.5265696099741665969@kernel.org>
+In-Reply-To: <20261111072724.3295527-1-xiaolinkui@126.com>
+References: <20261111072724.3295527-1-xiaolinkui@126.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -69,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 5 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 4
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -80,209 +76,101 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] napi_queue_bounded lowers the system-wide
-  net.core.netdev_max_backlog to 8 (tun_vhost.c:379).
-- [Low] Claim: the zerocopy variant only tests a dropped zerocopy buffer
-  by chance, because vhost_net_tx_select_zcopy() turns zerocopy off once…
-- [Low] The commit message says that if a dropped zerocopy buffer is
-  never completed, 'closing vhost-net then blocks until the buffer is…
-- [Low] The header comment in tun_vhost.c (lines 15-19) says that with
-  netdev_max_backlog below 64, only the NAPI schedule done on a queue-…
-- [Low] Claim: tv_reap() (tun_vhost.c:353-357) trusts used-ring ids and
-  used->idx from vhost, so a bad id or an inflated count could overflow…
+- [High] The fix covers only one of several commands with the same bug.
 
 --
 
-selftests: net: add a vhost-net test for the tun NAPI queue bound
+net: ethtool: request rtnl_lock for ETHTOOL_MSG_PORT_GET
 
-This adds a kselftest that sends 16k packets from vhost-net into an
-IFF_NAPI tap device with netdev_max_backlog lowered to 8. It covers the
-batch, copy and zerocopy paths. It checks that excess packets are dropped
-and counted, that the queue keeps draining, and that every buffer comes
-back to the ring.
+This commit adds an ETHTOOL_MSG_PORT_GET case to
+ethtool_nl_msg_needs_rtnl(), so that ethnl_default_doit() keeps rtnl_lock
+for PORT_GET on ops-locked devices. It does this because
+phy_link_topo_get_port() asserts RTNL before it reads topo->ports.
 
-> to the ring. If a dropped zerocopy buffer is never completed, the test
-> fails, and closing vhost-net then blocks until the buffer is released.
+> diff --git a/net/ethtool/common.h b/net/ethtool/common.h
+> index b062e99e89dbf..372304722ecc4 100644
+> --- a/net/ethtool/common.h
+> +++ b/net/ethtool/common.h
+> @@ -124,6 +124,14 @@ ethtool_nl_msg_needs_rtnl(const struct net_device *dev, u8 cmd)
+>  		 * these cases are Netlink-only.
+>  		 */
+>  		return true;
+> +	case ETHTOOL_MSG_PORT_GET:
+> +		/*
+> +		 * port_prepare_data() resolves the port through
+> +		 * phy_link_topo_get_port(), which asserts rtnl_lock before
+> +		 * reading topo->ports. There is no corresponding ethtool
+> +		 * ioctl, so this case is Netlink-only.
+> +		 */
+> +		return true;
+>  	}
+>  	return false;
+>  }
 
-[Severity: Low]
-Is "blocks until the buffer is released" accurate for the case this test
-is meant to catch? A buffer that is never completed is also never
-released.
+[Severity: High]
+Is PORT_GET the only command with this problem? The commit message says
+an ops-locked device with a link topology "trips the ASSERT_RTNL()
+warning", and it calls this patch "the missing case". However,
+ethnl_req_get_phydev() checks the same condition before it reads the
+topology:
 
-FIXTURE_TEARDOWN(tun_vhost) calls close(self->vhost). That goes through
-vhost_net_release()->vhost_net_flush()->vhost_net_ubuf_put_and_wait():
+net/ethtool/netlink.c:ethnl_req_get_phydev() {
+    ...
+	/* If there is no PHY in sight there's no need for assert locking */
+	if (!phy_link_topo_empty(req_info->dev))
+		ASSERT_RTNL();
 
-	wait_event(ubufs->wait, !atomic_read(&ubufs->refcount));
+	if (!req_info->phy_index)
+		return req_info->dev->phydev;
 
-This is an uninterruptible wait with no timeout.
+	phydev = phy_link_topo_get_phy(req_info->dev, req_info->phy_index);
+    ...
+}
 
-The harness still records a failure. After 30s, __wait_for_test() sends
-SIGKILL to the process group and prints "Test terminated by timeout".
+The prepare_data or set callbacks of these commands call
+ethnl_req_get_phydev() unconditionally:
 
-The child stuck in D state still holds its inherited stdout/stderr,
-though. So the tap_prefix side of the pipeline in run_one() in
-kselftest/runner.sh never sees EOF, and run_kselftest.sh hangs. The stuck
-process also pins the vhost_net module and triggers hung task warnings.
+  STRSET_GET      strset_prepare_data()
+  LINKSTATE_GET   linkstate_prepare_data()
+  STATS_GET
+  PHY_GET
+  PLCA_GET_CFG, PLCA_SET_CFG, PLCA_GET_STATUS
+  PSE_GET, PSE_SET
+  MSE_GET
 
-Could the commit message say that on an affected kernel this variant
-leaves an unkillable process and can hang the runner?
+All of them go through ethnl_default_doit(), ethnl_default_dump_one() or
+ethnl_default_set_doit(), which compute:
 
-> diff --git a/tools/testing/selftests/net/tun_vhost.c b/tools/testing/selftests/net/tun_vhost.c
-> new file mode 100644
-> index 0000000000000..ed35435df90eb
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/tun_vhost.c
-> @@ -0,0 +1,409 @@
+	need_rtnl = !netdev_need_ops_lock(req_info->dev) ||
+		    ethtool_nl_msg_needs_rtnl(req_info->dev, cmd);
 
-[ ... ]
+ethtool_nl_msg_needs_rtnl() still has no case for these commands, so they
+fall through to "return false". LINKSTATE_GET is covered only when the
+driver sets ETHTOOL_OP_NEEDS_RTNL_GLINK.
 
-> + * Tun schedules NAPI after a batch, after the last of a series of MSG_MORE
-> + * packets, once more than NAPI_POLL_WEIGHT (64) packets are queued, and
-> + * when it drops a packet because the queue is full. With netdev_max_backlog
-> + * below 64, the queue always overflows and only the last of these keeps it
-> + * draining while the sender keeps sending.
+The cable test handlers ethnl_act_cable_test() and
+ethnl_act_cable_test_tdr() have the same gap. They call
+ethnl_req_get_phydev() after netdev_lock_ops_compat(), which takes only
+netdev_lock() on an ops-locked device.
 
-[Severity: Low]
-Is this accurate for the batch variant?
+So take the device the commit message describes, one that is ops-locked
+and has a non-NULL dev->link_topo. Wouldn't a plain "ethtool <dev>" still
+hit the ASSERT_RTNL() WARN through STRSET_GET or LINKSTATE_GET, before
+PORT_GET is ever issued? Those paths would also still look up topo->phys
+and use the returned phy_device without RTNL. That could race with PHY
+removal, for example an SFP unplug, which runs under RTNL.
 
-tun_sendmsg() handles the whole TUN_MSG_PTR batch under
-local_bh_disable(). It schedules NAPI whenever anything was queued:
+As with PORT_GET, this is latent today. None of the in-tree drivers that
+use request_ops_lock, queue_mgmt_ops or net_shaper_ops register PHYs into
+the link topology.
 
-	if (tfile->napi_enabled && queued > 0)
-		napi_schedule(&tfile->napi);
+The PORT_GET change on its own looks correct. Should the patch either
+cover these sibling commands or narrow what the commit message claims?
+Some ways to cover them:
 
-local_bh_enable() follows, which runs the NET_RX softirq inline and drains
-the queue. Each batch therefore starts with an empty queue. About 9 of
-every 64 XDP buffers get queued, so queued > 0 is always true.
-
-That means the drop-time napi_schedule() in tun_xdp_one() never runs in
-the case it exists for, where nothing in the batch gets queued:
-
-	if (tfile->napi_enabled &&
-	    unlikely(tun_napi_queue_full(&tfile->sk.sk_write_queue))) {
-		napi_schedule(&tfile->napi);
-
-If that schedule were removed, delivery would stay around 2300 of 16384.
-That is well above TV_PKTS / 64.
-
-So can EXPECT_GE(delivered, TV_PKTS / 64) catch a regression of that
-schedule in the batch variant?
-
-The copy and zerocopy variants do seem to depend on the drop-time schedule
-in tun_get_user(). There the last packet without MSG_MORE is itself
-dropped before it can reach the !more napi_schedule().
-
-[ ... ]
-
-> +FIXTURE_VARIANT_ADD(tun_vhost, zerocopy)
-> +{
-> +	.limit_sndbuf = true,
-> +	.zerocopy = true,
-> +	.pktlen = 1000,
-> +};
-
-[Severity: Low]
-Does this variant always reach the dropped zerocopy path?
-vhost_net_tx_select_zcopy() turns zerocopy off once errors build up:
-
-	return !net->tx_flush &&
-		net->tx_packets / 64 >= net->tx_zcopy_err;
-
->From the current code, it looks like it does reach that path on every run:
-
-- VHOST_NET_SET_BACKEND resets tx_packets and tx_zcopy_err, and
-  vhost_net_tx_packet() resets them again every 1024 packets.
-- tv_post() publishes all 256 descriptors at once, so MSG_MORE is set on
-  every packet but the last.
-- Packet 10 is then dropped in tun_get_user() while tx_zcopy_err is still
-  0:
-
-	if (tfile->napi_enabled &&
-	    unlikely(tun_napi_queue_full(&tfile->sk.sk_write_queue))) {
-		...
-			uarg->ops->complete(NULL, uarg, false);
-
-So the coverage claim in the commit message appears to hold, and no change
-seems needed here. The test just doesn't assert that a zerocopy drop
-actually happened.
-
-[ ... ]
-
-> +/* reap returned buffers, waiting up to @ms for at least one */
-> +static int tv_reap(struct tv_ring *r, int ms)
-> +{
-
-[ ... ]
-
-> +		while (r->used_idx != used) {
-> +			struct vring_used_elem *e;
-> +
-> +			e = &r->vr.used->ring[r->used_idx % TV_RING_NUM];
-> +			r->free[r->nfree++] = le32toh(e->id);
-
-[Severity: Low]
-This isn't a bug, but tv_reap() stores the id written by the kernel into
-free[] without checking it against TV_RING_NUM. tv_post() later uses that
-id to index vr.desc[].
-
-vhost_get_vq_desc() already rejects heads outside the ring:
-
-	if (unlikely(head >= vq->num)) {
-		vq_err(vq, "Guest says index %u > %u is available",
-
-Used entries also only come from heads the test made available. So with a
-correct kernel this can't overflow free[], and a broken vhost could at
-worst crash the test process itself.
-
-[ ... ]
-
-> +TEST_F(tun_vhost, napi_queue_bounded)
-> +{
-> +	struct tv_stats before, after;
-> +	unsigned long long delivered, dropped;
-> +	int posted = 0, reaped = 0, n;
-> +
-> +	ASSERT_EQ(tv_read_stats(TV_IFNAME, &before), 0);
-> +	/* lowered only now, so that a failed setup leaves it alone */
-> +	ASSERT_EQ(pwrite(self->backlog_fd, TV_BACKLOG, strlen(TV_BACKLOG), 0),
-> +		  strlen(TV_BACKLOG));
-> +
-> +	while (reaped < TV_PKTS) {
-> +		n = tv_post(&self->ring, variant->pktlen, TV_PKTS - posted);
-> +		ASSERT_GE(n, 0);
-> +		posted += n;
-> +		n = tv_reap(&self->ring, 5000);
-
-[Severity: Medium]
-What restores the global net.core.netdev_max_backlog if the test is killed
-before FIXTURE_TEARDOWN(tun_vhost) runs?
-
-That teardown only runs in the forked test child. With a plain
-FIXTURE_TEARDOWN, the parent-side teardown_fn(true, ...) call in
-__TEST_F_IMPL() does nothing.
-
-On the default 30s harness timeout, __wait_for_test() does:
-
-	kill(-(t->pid), SIGKILL);
-
-That kills the whole process group, wrapper and child, without running any
-teardown. SIGINT, SIGSEGV or an OOM kill of the child have the same
-effect.
-
-The loop has no overall deadline either. Each tv_reap(..., 5000) returns
-as soon as one buffer comes back, and at least 64 rounds are needed. A
-slow kernel that keeps returning buffers slowly can therefore run past 30s
-without any ASSERT firing.
-
-In that case the host is left with netdev_max_backlog set to 8 until a
-reboot or manual reset. This affects later tests in the same run and any
-traffic that uses the per-CPU backlog.
-
-FIXTURE_TEARDOWN_PARENT alone would not help, because the wrapper is in
-the killed process group too. Would a per-loop deadline well under the
-harness timeout, and/or TEST_F_TIMEOUT, make sure the restore path runs?
-
-[ ... ]
+  - add a case for each of these commands
+  - force need_rtnl whenever !phy_link_topo_empty(dev)
+  - move the topology xarrays under the instance lock
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111014208.1795777-1-antonio%40mandelbit.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111072724.3295527-1-xiaolinkui%40126.com
