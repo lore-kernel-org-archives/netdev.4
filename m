@@ -1,63 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794785168;
-	b=TWk/s2xJqphGzSc9ZaV87hsfiXY8CB7F9zF/IJ3yDKySZ8P3GHtc4If744rgLzZQ4dq1
-	 4cfCHYFOuvRtoAlkS/kJSbOMj479N/tcfo/NsPlEOAXCDnAF1mgDl59M5plxEEahKgWLt
-	 5wgHbcfOFMSF3q9N+fRjTrcbBGDxoP6jB+Sh7bvDa2KTCKAhhByRK61uD5zM3EtbvdON1
-	 iwK2lGfHVUsYPuy/ba/Y4K/sVKRIh5Mo/jUWwbSmSPBPcqHkKqs+xzx/reMrP4rXCAkzc
-	 ewlC1fRiOI+SSSwi/C/Bemw7Ljg62Mo5XhsDZCLWYwARhyl4HBE2DhKghvjxjeZnkMA==
+	t=1794785201;
+	b=RBEIUNgwpGlis96vRYtIU8l20GwIuunNXCOMS7rCbjTYbzsx8yx7mTMa+uVq0ob4W9P6
+	 M3sQYVDsHTmSyPBYpPNpb2NlE4oLZDvacEtRM8Iuc5rLlrvg/mVTsv3DcFZzPQYeS+Sxb
+	 eSiLeczkm1Ytk+1Cj+O51o+RASu5i/q/waxKjQ323RK8I6HISz8eaehAouinUn4lEsT3n
+	 hvz5f3JyeuD9QAL/GfELqVphPco31aKfi5DOpP55WNd7TEQOx3oAYvuEx7cKNFnBn4UT2
+	 p/fQzDrgh15pPRKYDpI0y1w+rdKBfX9y46QugzpTFduIL/JFtKvMpLWIDDcTsJSrnNw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794785168;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=x85rV6ErTUGgBMMy18yTIHAPRKiJWwfdzOK1PAX3FNg=;
-	b=bMKQCNjcnySpMFh6n+6m6aGis3dZL68PZ/vH/iuPvNDmDJQz/LgwDfGKCncbhaG5GY5n
-	 UmF/BaZlHT5EzrkDa4oqOFozLMzebFCTBNA4TodECIQ7lb8fIm1OUPx3qGt1rJCcjvZJk
-	 TxgbYLUybXczi9NVg3LVGBe0t/G1OLXWq07lcy9CMOdkTvt4xrtoT4y3QHdA0iftg3EwF
-	 Odd2FGUDC4cXH+QNaWAvdDR5hD9ubk5jzW8D3LBsSM5ajwySLW5W68IgCfAmsldEX8py+
-	 OHI6+20yAzqWf7Iq0e7Pnzl2QfAeT0I5MoU4QPV5M/JyJ4axzOA10uwcWkpyucllxcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794785201;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
+	bh=20xh83TZY5Uy9+3Rpue534EqUQXyz0SBbzg5tu3uVBA=;
+	b=pRAMGyA4rExNgjsXLik2kH6L5iCI/X86GT+eRM4ygiIQEQNJf/7No3PEFI1TMSrI5nC3
+	 OORL8d9DK4Fe94HcMoYOyXunUyhi/drcScOSkRfuwZOVlSP6riOWzh5rLUK0fL97e4aWs
+	 QL1NAxI+6P3IkyC9JvB9CVIhU/eYzsXSl/sPCPl32BkmWOJCSeo9c21NQgKbWbseve3SV
+	 IqmNzZWker2jTcrGNCRKaYJuZYgD0zgsH9HGmLgEOYp+PPNbMepYmIVj6i86bTVHqwyQk
+	 iBS2W+a+1TRAQa64J6gn7w4hXgXTa/AaCuzyEOvvl0/LPDvN+x4OMO+fVMp3rmd4+wg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=mNYTx8aA;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gj10Swzo;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id E6909606A329;
-	Sun, 15 Nov 2026 23:26:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6909606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E34B606A329
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 23:26:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E34B606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=mNYTx8aA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1794785165;
-	bh=x85rV6ErTUGgBMMy18yTIHAPRKiJWwfdzOK1PAX3FNg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mNYTx8aAV8ChKRG/0mROJZClotygh8Yr1Sme9Agi0Jlt34HRJ9beMresFdEHoU82i
-	 vRzO+BItU4yfCIQGUVzO/GlSHFI1asHQar5MjDhktTEQZNva6Wu4OWaDnhEzMjqN8M
-	 8yw+584bLiOo14YYtpjuFlu3QuSobxuCMGlKY+sofGMZxQPkzBfplR1OH+cT8vMNgG
-	 Hk+SBlKcfSAdq7P7m2UjKcaIxjaU+LIZ05gZnQyJlG7LWr75eUByq2i8RNUU859M12
-	 dP1xSJrw6Xht38jleTyzQAcHILau7w7ZjCC7M6wcZqS2rq7c+Mkf/iXV+5o0YLi+wt
-	 wkMnUSpdH54lQ==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 769E3601C9;
-	Mon, 16 Nov 2026 00:26:05 +0100 (CET)
-Date: Mon, 16 Nov 2026 00:26:03 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
-	netdev@vger.kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	edumazet@kernel.org, horms@kernel.org, fw@strlen.de, ja@ssi.bg
-Subject: Re: [PATCH net-next 04/15] net: ethernet: mtk_ppe: update stats on
- flow deletion
-Message-ID: <avo_iwv4AZdPu2Lm@chamomile>
-References: <20261113031251.2437074-5-pablo@netfilter.org>
- <179462662226.2199510.18334585380250309949@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gj10Swzo
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cddff772fffso91378a12.0
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 15:26:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794785199; x=1795389999; darn=vger.kernel.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=20xh83TZY5Uy9+3Rpue534EqUQXyz0SBbzg5tu3uVBA=;
+        b=gj10SwzoKMqoqx9yr7X2Fju4cNBju2Oqd5X0Ay4Y61hHfD7PCDp9yiFRZZggUUCphi
+         EgquiXzLIx6aY4R2RTd5ZLyzF7a+dFyArlFGpwOF8hzIuQxpoF1rvqBPTA90bbQtiSc3
+         ZX0RVckXRZHz0dFR0n/+vn5BPOC/cB4YcRGnL/oyILEIke66Jod48SG+Qv5PIZtk+cJ3
+         a4jGk58g4rcuy6H/nHZi7pTcKmRSJIlcgRxeZ8a/8BRn14ucVJyS4iEkzUGGbVSfsTxE
+         PA1L6L9cE4UDQma31GznSkYOnY4WfVQEo52nxdxOSnQrrOnmbWew4sNB0BE/xLjNWEuG
+         NuZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794785199; x=1795389999;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=20xh83TZY5Uy9+3Rpue534EqUQXyz0SBbzg5tu3uVBA=;
+        b=IxyCkssBarpIuDEvXQHhb0gGXvzOPz4wAYqPY6y6GHpl/RFEpnq2TGqb8jRsgPo1jb
+         M0AeYmWhU5EEaAP2w2UHk1k/nOA3gZpAP+Q+nMivYhDtLkvBfL+JyA8YP6UAUCPvZmU/
+         OdLZYFMxq8yrkTuc+faf6elqMkpceG74wVuqiVvz8ovoWp0EC6nw4oxYlJEuV65mnyTc
+         TP/1ZLH/sZVQYre6NepDoNTCE7qZdBFYvLzvJ3seDGVOyRSbHI4PNTablt14G1Z6f0aJ
+         wrz/K8IaYaKpxHYrMxIdF9Rqi9U1mt0T9+Csm8DC9rG6UZyzRsoFJT38kR8bow3ukJEs
+         U1wg==
+X-Forwarded-Encrypted: i=1; AL+hErGckDi3bdNyWo/0BFPVecfRg+7FI8Fp/9z9wyJbOI1Q4Hj7bWyRrZ4kOVxglE3Eiqz3pUUytOU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Rtaf8wpaRGkN9L8scF3kN8kDQgu4zRmnYiqAdQ+eKntCsHmnh
+	6uktD2btpnTwu9iKIU/4W97VobYReURXuikJhXN1ebxUFO3fVdhGVWCU
+X-Gm-Gg: AYBFou1sPPCQVmUQPDXQNLS+tXaWz4Jl3o/3APY3l5aPvgFi1uyHxYC1jrgMHgQGmR2
+	vmqNEj2/LfCMeqe8eSOtU3m4xerU8f0ibwcaxsJjteAw9adIEbSF1SxxI1saRoJA4DML3XHbN6n
+	TxERs5U4/TmOimyccU3YquWO2eJVed178wJLLXWfZOZi7GE7U5uP+mrdxZonS59JEH8nBxisR/F
+	D+gJnPDwm/H+R2wNt0GGQQhqWcRUpwoKyl4uAM2PFuVLpcURir3sOZ2Sj4TvsFi6Gl+kzXYbR8t
+	JUJKUjXt3z9xyccEuWjeJPprsXKluELZi7JYkEteKeC5+HuIs1dx9pkINaUDUpmAZbGXGtucq+/
+	IQsDyQRBYCS/sN/cWQTv8+/vwQORlajgupWcvfUO9eUTu1pmI/XvIOEZFzIGvXaQaXJLgfCeKFV
+	jYu+sl5EiYx39ZywXQezI31NNwMdKa5ZUAUxgX1zQWTb+P7/OfoTIclahBGBtWeRwKipEqxUgiQ
+	G4PtHmHjgswNqShfJorC5QgQw7NIKWhOnHFd8x5CPZmxsTPKiuVDOUML+oUInovRwdVv7llToU1
+	rpwBo5b2/AwHTvDU4tinqJENtbi78LabMLpOjyCrrXwPOy/GUTNW3B41JZHS2N6c8CRbw2C0lD2
+	4iXp1RtBx/TiX9KHjOrZUivy1KpC0sib3GQ==
+X-Received: by 2002:a17:90b:2e06:b0:3ac:8897:7bab with SMTP id 98e67ed59e1d1-3b1b07e1cd4mr8163612a91.6.1794785199420;
+        Sun, 15 Nov 2026 15:26:39 -0800 (PST)
+Received: from localhost ([153.61.198.241])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1b3f09b92sm6832094a91.4.2026.11.15.15.26.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 15 Nov 2026 15:26:39 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,168 +88,74 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179462662226.2199510.18334585380250309949@kernel.org>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Sun, 15 Nov 2026 23:26:38 +0000
+Message-Id: <DMW695ICRVGM.2YJJUJQ12T0V6@gmail.com>
+Cc: <bpf@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, "Sashiko" <sashiko-bot@kernel.org>
+Subject: Re: [PATCH bpf-next v3 0/8] bpf, sockmap: Restrict iter-context
+ sockmap updates to sockmap iterators
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Michal Luczaj" <mhal@rbox.co>, "Alexei Starovoitov" <ast@kernel.org>,
+ "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar
+ Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
+ <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
+ Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
+ <ihor.solodrai@linux.dev>, "Shuah Khan" <shuah@kernel.org>, "John
+ Fastabend" <john.fastabend@gmail.com>, "Eric Dumazet"
+ <edumazet@kernel.org>, "Kuniyuki Iwashima" <kuniyu@google.com>, "Paolo
+ Abeni" <pabeni@redhat.com>, "Willem de Bruijn" <willemb@google.com>, "Jakub
+ Sitnicki" <jakub@cloudflare.com>, "Jiayuan Chen" <jiayuan.chen@linux.dev>,
+ "David S. Miller" <davem@davemloft.net>, "Jakub Kicinski"
+ <kuba@kernel.org>, "Simon Horman" <horms@kernel.org>, "Jonathan Corbet"
+ <corbet@lwn.net>, "Shuah Khan" <skhan@linuxfoundation.org>, "Randy Dunlap"
+ <rdunlap@infradead.org>, "Stanislav Fomichev" <sdf@fomichev.me>
+X-Mailer: aerc 0.20.1-355-gf870624f6c37
+References: <20261107-sockmap-update-limit-iter-v3-0-7c0bad1ad036@rbox.co>
+ <DMV5NLOEYFGF.C7ITHCRCNA7P@gmail.com>
+ <e8f1736e-3f13-4f92-ad69-8b166c41e68a@rbox.co>
+In-Reply-To: <e8f1736e-3f13-4f92-ad69-8b166c41e68a@rbox.co>
 
-On Sat, Nov 14, 2026 at 03:23:42AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] Bridge (L2) flows on mtk_ppe: the new destroy-time call to
->   mtk_flow_offload_update_stats() read-clears the hardware MIB counter…
-> - [Medium] mtk_flow_offload_destroy() takes the final MIB snapshot before
->   it invalidates the hardware FOE entry, so the 'last stats sync' on…
-> 
-> --
-> 
-> net: ethernet: mtk_ppe: update stats on flow deletion
-> 
-> This moves the stats collection out of mtk_flow_offload_stats() into a new
-> helper, mtk_flow_offload_update_stats(). The helper is also called from
-> mtk_flow_offload_destroy(), so the final hardware counters are reported
-> when a flow is deleted. This follows "netfilter: flowtable: retrieve stats
-> on flow deletion".
-> 
-> > diff --git a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> > index 99b28aaa7cc47..8ca694bb5e1b7 100644
-> > --- a/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> > +++ b/drivers/net/ethernet/mediatek/mtk_ppe_offload.c
-> > @@ -526,6 +526,24 @@ mtk_flow_offload_replace(struct mtk_eth *eth, struct flow_cls_offload *f,
-> >  	return err;
-> >  }
-> >  
-> > +static void
-> > +mtk_flow_offload_update_stats(struct mtk_eth *eth, struct flow_cls_offload *f,
-> > +			      struct mtk_flow_entry *entry)
-> > +{
-> > +	struct mtk_foe_accounting diff;
-> > +	u32 idle;
-> > +
-> > +	idle = mtk_foe_entry_idle_time(eth->ppe[entry->ppe_index], entry);
-> > +	f->stats.lastused = jiffies - idle * HZ;
-> > +
-> > +	if (entry->hash != 0xFFFF &&
-> > +	    mtk_foe_entry_get_mib(eth->ppe[entry->ppe_index], entry->hash,
-> > +				  &diff)) {
-> 
-> [Severity: Medium]
-> When a bridge (L2) flow is destroyed, can this read-clear the hardware
-> counter of an unrelated flow?
+On Sun Nov 15, 2026 at 11:10 PM UTC, Michal Luczaj wrote:
+> On 11/14/26 19:45, Alexei Starovoitov wrote:
+>> On Sat Nov 7, 2026 at 5:58 PM UTC, Michal Luczaj wrote:
+>>> Follow-up to Sashiko's report [1] and the decision to restrict which
+>>> iterator may perform sockmap updates [2]. Series started short: remove
+>>> about-to-be-stale test, restrict updates, add a negative test. Then it
+>>> expanded: mark bpf_iter__sockmap::sk as PTR_TRUSTED, restrict
+>>> bpf_sock_destroy() callers to iter/{tcp,udp}, few little tweaks.
+>>>
+>>> [1]: https://msgid.link/20260626205814.BAC3C1F000E9@smtp.kernel.org
+>>> [2]: https://msgid.link/87echn2fhd.fsf@cloudflare.com
+>>>
+>>> Signed-off-by: Michal Luczaj <mhal@rbox.co>
+>>> ---
+>>> Changes in v3:
+>>> - Drop RFC prefix
+>>> - Update bpf_iter_reg::feature docs
+>>> - Fix tcp_request_sock BTF build error
+>>> - Restrict allowed callers of bpf_sock_destroy() to iter/{tcp,udp} (Ale=
+xei)
+>>> - Link to v2: https://patch.msgid.link/20261102-sockmap-update-limit-it=
+er-v2-0-e96a63c43b39@rbox.co
+>>=20
+>> Sorry for the delay. Applied.
+>
+> No problem, thanks.
+>
+> To follow up on bpf_iter__unix::unix_sk, looks like there's a single help=
+er
+> that will become unusable from iter/unix (once plain-PTR_TO_BTF_ID is
+> gone): bpf_get_socket_cookie(). PTR_TRUSTED then?
 
-Maybe, but that is a pre-existing issue.
+I have a patch that 'forks' bpf_get_socket_cookie() into two helpers.
+One for trusted and one for untrusted.
 
-This patch is just adapting the driver to use the new call to stats
-when deleting a flow, it reuses the existing codebase.
+Also have a patch set that removes legacy ptr_to_btf_id for good.
+Hopefully will send today or tomorrow.
 
-> For a flower rule with only ETH_ADDRS, mtk_flow_offload_replace()
-> allocates the entry with kzalloc_obj(), so entry->hash starts at 0.
-> mtk_foe_entry_commit() then takes the L2 path:
-> 
-> drivers/net/ethernet/mediatek/mtk_ppe.c:mtk_foe_entry_commit() {
-> 	...
-> 	if (type == MTK_PPE_PKT_TYPE_BRIDGE)
-> 		return mtk_foe_entry_commit_l2(ppe, entry);
-> 
-> 	hash = mtk_ppe_hash_entry(ppe->eth, &entry->data);
-> 	entry->hash = 0xffff;
-> 	...
-> }
-> 
-> mtk_foe_entry_commit_l2() never sets entry->hash = 0xffff. The base L2
-> entry is not on the foe_flow lists, so __mtk_ppe_check_skb() never updates
-> its hash. mtk_flow_entry_update_l2() only touches the subflow hashes. As a
-> result, the base entry keeps hash == 0 for its whole lifetime.
-> 
-> That means the entry->hash != 0xFFFF check passes and
-> mtk_foe_entry_get_mib(ppe, 0, &diff) runs. mtk_ppe_start() enables
-> MTK_PPE_MIB_CFG_RD_CLR, so this read zeroes the MIB counter of whatever
-> flow is bound at FOE index 0, for example an nf_flowtable L3 flow. Those
-> packets and bytes get charged to the L2 rule and never reach their real
-> owner.
-> 
-> The bridge flow's own counters live in the subflow slots on
-> entry->l2_flows, and this function never reads them. So the destroy-time
-> stats for L2 flows are wrong as well.
-> 
-> The missing 0xffff on L2 base entries is not new. Before this patch,
-> though, mtk_flow_offload_destroy() never touched the MIB. Now every
-> FLOW_CLS_DESTROY of a bridge flow does this read-clear, even when nobody
-> requested stats for that rule.
-> 
-> Should L2 base entries be skipped here? Alternatively, should
-> mtk_foe_entry_commit_l2() set entry->hash to 0xffff?
-> 
-> > +		f->stats.pkts += diff.packets;
-> > +		f->stats.bytes += diff.bytes;
-> > +	}
-> > +}
-> > +
-> >  static int
-> >  mtk_flow_offload_destroy(struct mtk_eth *eth, struct flow_cls_offload *f)
-> >  {
-> > @@ -536,6 +554,8 @@ mtk_flow_offload_destroy(struct mtk_eth *eth, struct flow_cls_offload *f)
-> >  	if (!entry)
-> >  		return -ENOENT;
-> >  
-> > +	mtk_flow_offload_update_stats(eth, f, entry);
-> > +
-> >  	mtk_foe_entry_clear(eth->ppe[entry->ppe_index], entry);
-> 
-> [Severity: Medium]
-> Is this snapshot really the final one for the flow?
-> 
-> mtk_flow_offload_update_stats() read-clears MIB[entry->hash] while the
-> hardware FOE entry is still in BIND state. ppe_lock is dropped between
-> the two steps. The entry is only invalidated later, under ppe_lock, in
-> __mtk_foe_entry_clear():
-> 
-> drivers/net/ethernet/mediatek/mtk_ppe.c:__mtk_foe_entry_clear() {
-> 	...
-> 		hwe->ib1 &= ~MTK_FOE_IB1_STATE;
-> 		hwe->ib1 |= FIELD_PREP(MTK_FOE_IB1_STATE, MTK_FOE_STATE_INVALID);
-> 		dma_wmb();
-> 		mtk_ppe_cache_clear(ppe);
-> 
-> 		if (ppe->accounting) {
-> 			...
-> 			acct->packets = 0;
-> 			acct->bytes = 0;
-> 		}
-> 	}
-> 	entry->hash = 0xffff;
-> 	...
-> }
-> 
-> Between the MIB read and the invalidation, the PPE keeps forwarding and
-> counting packets for this flow. That traffic never reaches f->stats. It
-> stays in the hardware MIB counter, because only the software acct_table
-> is zeroed here.
-> 
-> __mtk_foe_entry_commit() doesn't clear the MIB either. So the next
-> read-clear of that index charges those packets to whichever flow binds
-> the slot next.
-> 
-> This happens whenever an active flow is torn down, for example on a
-> flowtable flush, a conntrack flush or a ruleset deletion.
-> 
-> Would it work to invalidate the entry first and then drain
-> MIB[saved hash]?
-> 
-> >  	rhashtable_remove_fast(&eth->flow_table, &entry->node,
-> >  			       mtk_flow_ht_params);
-> 
-> [ ... ]
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113031251.2437074-2-pablo%40netfilter.org
