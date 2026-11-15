@@ -1,63 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794728577;
-	b=AG7ELtfXGb/4mduRseYk78Lj60dzEW5u+QhR7Ga+rrnoJmitHd4OFk3jvTtK2K97DEgJ
-	 BfTuaHTsYIsslsu7ZqvcR596UwFKlz7c5XNLLaz+8q0ksjskqFOoZIyLYeCzksv68pNJu
-	 DVDbsjN55v74i6ECCQkcApcE8nRCnnUthR20ce+JfsMmIr3A6Gae0kzCS6tVARuFdhRK1
-	 0hzarw6lmoLNR6tXy/AuySdt2/0tAKNnwFEmbmGZicIpVkh06jFeG4T0ad8uQrjToZiQD
-	 us7eMQyNgG6M9LIYFyKLxSgZT51LA8d1asQzcTXPj4+d4taSWwqPDuUoTEzHvf3hudQ==
+	t=1794728758;
+	b=Ksa+OqgnRLQgLvoYL///Gapxod8bTpiuAJgPY4DMAQuzpGQElGHCXnWsR08HWXdLjgmU
+	 GUOmZQT/Xa4GRoT0Qq6eS3SCGILA3nmREc8ujrBbJngZ/MXTzylYFGPHh6PtGM+LvAbVN
+	 1P68mcU/v3i21zVTVwCXI+VIXoe00wXG1bZRalqgiQ0ZaDxUA8/o0XGr+kVzxcFAUBxuu
+	 Oo43sozfXir51ex3rLoh5AJ4VAqPFxs7Vn86yqogWqnfpLS8oIMehC9D+SlFcA9bpBA2y
+	 L41wPxGoLP5Sk+L6+2dJl3V+ksAVtwEVSXQwDQ/323hIuXCW2n1tva1NGZCdFScvryw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794728577;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=GPVorwWextWqTeqhLKlgJWaB2HerQm/MmIfhM1PDl2w=;
-	b=fWLRDBTizf14awtzL/Eop6M0KMkMFmjENe8oYbTD016RqdrWrSYKoa68z1KZkx+kuMlp
-	 4gEPmUpROyrRrA4X1Cf5wyqRNAlG4X9rsib2kT0fshB78kZ73qoVuMgasVixdkTQNHU96
-	 2qQIJYUa2eiB7TiqIos/7Q17wJECWgAgLGKI2Lq88MXwPUK0jB3GtZKgefaYEQWuMQdsm
-	 Fts1bO7Tx/DKIfkyhEonrHhVkVxPD24TY7dO/F7Tvv7ccmD8UKoMShN4VS+TBtsN1njka
-	 QlVyzld5k3J8gFlopjODrdf9YGa2CKcsBsyb9elV90LbItB1uyfgGnOI6O5JMW3Ogfg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794728758;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=PleiPueCH9hpIoxgC5EU+oGizyNRMx9QSVsy9vFMuYc=;
+	b=y3OcrwIYq/+q1xmKjOzSBIOa/S5XlTEK8knaGKAWx7DVMW8UWZg24mMy4tTEXupGLtIr
+	 IyriELJPPVggTnJMU1mINXJhw3wDMQL4fiEj8b26HSvps9xRy51Y8TWjK8bP6HkXM5JHS
+	 0ueSyg2i25hMdvdVVpnbYMe6IXbty4YlW+bvQHzkQ1VooeH8bDds3NkqSKewEAu82ME+i
+	 jk/f4K8ZP1MelbL5V8I4bO3TOJSlmh7SD32Rr1L1dV+p4NOKcbpwjMWNN1S4ZyvYIzoaq
+	 UqwHgAzPmpGDrI7rNSbrVmp0gLaoA4Z9qgmez3Js3nQpLENN1k6+RVM83XTSqHt99Hg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KA9hFhdc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xJk4uMWp;
+	arc=none smtp.remote-ip=209.85.210.46
+Received: from mail-ot1-f46.google.com (mail-ot1-f46.google.com [209.85.210.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8B5E606A31A;
-	Sun, 15 Nov 2026 07:42:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 220F6606A31D
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 07:45:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 220F6606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KA9hFhdc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5371A1F000C4;
-	Sun, 15 Nov 2026 07:42:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794728577;
-	bh=GPVorwWextWqTeqhLKlgJWaB2HerQm/MmIfhM1PDl2w=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=KA9hFhdck9Pu0lR2PrmhwtsDEAvpYWSx2ULFs9xe8v42JnsLvlTL9VTH1YD/0KQzI
-	 ejzUQnKFBhTpv5vIhRvfiNJ9gw9oB1RbSmj0/PiJNo96TBXhWcyd1S9v+VjtdEoROI
-	 tV9z87/AmMV0mu4Oh1b1WfE9BNi7icrFg3Lik9P2pgTigu09OWkEUb1cWrt4qP0TN1
-	 fBAm2VusjA6VVhBK1yKmGJ/ugo58sBzS7eTruLD6k8kqWoC617h0FxWiPmrbAJ08Ry
-	 7/EkBoBNjj6wqNa5V6u8WYH9UGKp0dnNoDnZbRHY9whoItb6Vq/B4VjtKFkXQDK3Ho
-	 GX/F/bWX8u1zg==
-Subject: Re: [PATCH net v5 1/2] tun: bound the NAPI receive queue
-From: netdev-bot+sashiko@kernel.org
-To: antonio@mandelbit.com
-Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, mst@redhat.com,
- eperezma@redhat.com, shuah@kernel.org, ast@kernel.org, daniel@iogearbox.net,
- hawk@kernel.org, john.fastabend@gmail.com, sdf@fomichev.me,
- maheshb@google.com, peterpenkov96@gmail.com, netdev@vger.kernel.org,
- virtualization@lists.linux.dev, linux-kselftest@vger.kernel.org,
- bpf@vger.kernel.org
-Date: Sun, 15 Nov 2026 07:42:55 +0000
-Message-ID: <179472857592.2199510.16416804582528441222@kernel.org>
-In-Reply-To: <20261111014208.1795777-2-antonio@mandelbit.com>
-References: <20261111014208.1795777-2-antonio@mandelbit.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xJk4uMWp
+Received: by mail-ot1-f46.google.com with SMTP id 46e09a7af769-833e671ee9fso3593258a34.0
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 23:45:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794728757; x=1795333557; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=PleiPueCH9hpIoxgC5EU+oGizyNRMx9QSVsy9vFMuYc=;
+        b=xJk4uMWpCiZ6G2s7rWpiHLeggzGdvma3jmXAmPOpY2O78sYu1VUmxlkqnM2JokxPzy
+         S1puLmfRw8juF9iirGOyPmagsn0Ot1kxHjMmyVV/tH28ykkb9PzkuWRTO7pjAiBxWEBR
+         zTatD8bXeza51KycKCM5eHAqCkYEQLa/AeRrJa7DKDPVcTHmb2eYCPU3CZI7u3MGsuUU
+         WypEQvRT2TE1CGq2Hu3/62nuRGc7uDrbJbn1jY3Q7dI9fKmsEpvYl47z+8oSHBuy+68z
+         3RfIeWfI3khlCJYpdGDOu1pU850bTONLyfdE+qEw/lblH34Z0bgRSHAde5yCsSxnLy0t
+         1QFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794728757; x=1795333557;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PleiPueCH9hpIoxgC5EU+oGizyNRMx9QSVsy9vFMuYc=;
+        b=kMXW3a9Rk0fEc0lfYzYCYqZhAyr2Iji2zg9nj+hs2hjqIEPwPslidlJX6OJdWzGk7q
+         MWMnm9c9itN5cZyk7ITEnKesbWc7aH+aCkHnULMwRSweQPriEdkLb1iBVX3IIly5H6nS
+         AYUpc4cxbkkH3itlh9w8FU4TUhwYXiYuSNE4k68ge4EKnBPX4ROc115ataxRYIbtWdrm
+         /HP1cQm57APFFOZApM2q3SOewUX5LJ+ssw2sd9Z+9Jk8tQ3u8dj7dDAd/FO7PHQSj5Av
+         qRZLMx/Mg9wrh/ryXxvHT3GgTcg7KEeV2bUvZUXx6eLblmqjhPsDwwUgNiDkGYeWVPK/
+         HOow==
+X-Forwarded-Encrypted: i=1; AL+hErGzR5CWZ7gCPoLOeNjj5CpwOLn3T9GlxxgZHU6d37cY6hjetx9Asq+M+tPRAjo4966oLZHCcnA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z83VRS6K4zHGRkl5u+g1AxLTkVr9nwnDq87bnYrYrY3HI9ChFKm
+	sW0RW+0/HL5//14qIJmDmG96Epa7alccEN9hYVUu5Bwhn6T7UxCd9xc2
+X-Gm-Gg: AYBFou3V+RJdimWgjtYXLuTic1iRPVdkdcLytX94cKYugmKmXMTHaMbMYHDBszULKTb
+	bABYCCY5Vf9AOtcwiJtCAiH8AYRX03PJsW7eIn8zJb9iXjDJlY1X0MIR0rrEeCIJhv6ErpKMiXq
+	MpobRGxyVb+I/vrEMnFZG5ucVHce13Kkx1bnzWR9gAjSiHuZEu+EQj5DnLFN7o7WyLjKrocP2VK
+	QoeyMjoVDrb+M+Ar0h0BWWSsOVP/grT4Mxya+uXvrEE/ZgpYcukdDkDXD52D4RbKMwKCgURLuwy
+	t2/1RAzTmGmPGtq1ElcusBIxTsf1447cXFlBQ6IpUB3dwLKpcPLyiD8+kcuVm3poqASAqpUHOc9
+	Cr9rk2d5DmIz1VNTC+Sh693cUluvRO40fnJWIeJyHpoNbCAgXFEKoV6+vdllJvmt3a+pOzt0r1Y
+	xSgqFjlgI3bVV3/CyGzd9TQYeR2wLp96Lsa0hcJ+s9EtqpxKlTksxEoZqfsdFYgy69bV0PD/7Cx
+	IV6R3B32BdCLQAI5DFLQZeZMkLBEg7qV7/MAT48+gKoOq1Ag91/Br2D+nHSDbGkD5QypEpg+ghA
+	Ha3nXc+287aE0JJZsM8d+JiV5JitCXEKjkN9PYZ1eBuMNIX+bOskzhWSAtVruaeebEN083vunwI
+	3zQYEGhHHDtHaEBsolYd1MEHWzn6LlDeCwy00mirD5tYKCS9hPAsgFIFYkWS3uSzJ5abLWXlQVc
+	u3tipVq7O9uGQCEzg1Db5ywNQkpyFjiwsMiQynpRLDBYxiuokwxmw=
+X-Received: by 2002:a05:6808:4f5e:b0:53b:11c7:2da0 with SMTP id 5614622812f47-56e63285bd9mr7499537b6e.21.1794728757024;
+        Sat, 14 Nov 2026 23:45:57 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4afe233371fsm4831390fac.16.2026.11.14.23.45.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 23:45:56 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Subject: [PATCH net-next v5 0/3] net: phy: report ACx00 receive statistics
+Date: Sun, 15 Nov 2026 00:45:44 -0700
+Message-Id: <20261115-submit-acx00-phy-stats-v1-v5-0-ed81a7f54373@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,184 +93,120 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33OzU7EIBDA8VfZcHaUjyllPfkexgPQ6RZj6aZg0
+ 82m7y6tGtc9NOECM/zyv7JEY6DEng9XNtIUUhhiuVQPB+Y7G08EoSl3JrnUgkuE9On6kMH6mXM
+ 4dxdI2eYEk4DGKNPWNSKSYeX/eaQ2zJv9yiJliDRn9vY9Kcw7+bzS666zicCNNvpuffrdfupti
+ Ou8CykP42XLnMQm/hRVO0XllCzVoBaEunH85VTAj0c/9FvHJP+kQu1JskjKG6s1Iq+9uJfUrXT
+ ckxRwaJ3XSta+coT3Et5IQu1JWKSj0c5YtMLU/5qWZfkCG3yqydwBAAA=
+X-Change-ID: 20261024-submit-acx00-phy-stats-v1-d838f77444e8
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>, 
+ linux-doc@vger.kernel.org
+X-Mailer: b4 0.15.2
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+AC200 and AC300 count bytes in received frames including those with CRC
+errors. Expose that hardware total through a new optional PHY
+rx_bytes_total statistic. The existing successful-byte counter cannot be
+derived because the hardware does not separately count damaged-frame
+lengths.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 2
+Report successful packets and CRC errors through the existing rx_packets
+and rx_errors fields. Bracket the raw packet count with matching CRC
+counts before subtracting; bytes and CRC errors can still advance when
+sustained errors prevent a coherent packet sample.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Assisted-by: Codex:gpt-6-astra
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 
-- [High] The new bound is a packet count on each tun_file's
-  sk_write_queue, compared against net_hotdata.max_backlog (default…
-- [Low] The new full-queue check runs before every XDP hook, in both
-  paths the patch changes.
-- [Low] The new comment in tun_napi_receive() says it takes "at most
-  budget skbs, so that the queue never looks emptier to writers than it…
+---
+Changes in v5:
+- Split the existing PHY statistics group-name documentation correction
+  into a separate patch, following Andrew's review.
+- Narrow the generic statistics addition to the inclusive receive-byte
+  counter.
+- Derive successful packets from a coherent packet/CRC pair and report
+  them through the existing rx_packets field.
+- Keep collecting CRC errors and inclusive bytes when sustained errors
+  prevent a coherent pair, with separate baselines and sampling times.
+- Skip invalid or unstable byte samples without discarding usable frame
+  samples, retaining the measured byte modulus and sampling-gap limit.
+- Rebase onto current net-next.
+- Link to v4: https://patch.msgid.link/20261113-submit-acx00-phy-stats-v1-v4-0-986b8a4a1871@gmail.com
 
---
+Changes in v4:
+- Invalidate the ACx00 baseline before accessing counters in soft_reset,
+  since phylib may already have reset the hardware before the callback.
+- Start a new collection interval on resume and after gaps of at least
+  320 seconds, including system sleep, preserving collected totals without
+  interpreting unobserved traffic modulo the hardware counter width.
+- Clarify that the byte modulus and frame-byte boundaries were measured
+  on both AC200 and AC300.
+- Specify matching frame-byte boundaries for both PHY byte counters and
+  explain that phydev corrects the documented name of the existing group.
+- Mark the DP83TG720 conversion as unsuitable for automatic stable
+  selection without the new receive-total API.
+- Rebase onto current net-next.
+- Link to v3: https://patch.msgid.link/20261109-submit-acx00-phy-stats-v1-v3-0-fbc6327c5be4@gmail.com
 
-tun: bound the NAPI receive queue
+Changes in v3:
+- Add generic PHY receive-total packet and byte counters in a preparatory
+  patch, retaining the existing successful-traffic counters and their IDs.
+- Report ACx00 packet and byte totals through the new fields, leaving
+  successful-only counters unset.
+- Convert DP83TG720's inclusive RX packet count to the new total field.
+- Bound coherent-counter sampling to three attempts and skip unstable
+  snapshots without making phylib take the link down.
+- Reject out-of-range byte samples before updating the hardware baseline
+  or accumulated totals, retaining MDIO and page-restoration errors.
+- Rebase onto current net-next.
+- Link to v2: https://patch.msgid.link/20261102-submit-acx00-phy-stats-v1-v2-1-3c8a664407c1@gmail.com
 
-In IFF_NAPI mode, this patch drops new packets in tun_get_user() and
-tun_xdp_one() once the tfile's sk_write_queue holds more than
-netdev_max_backlog packets, and counts them as rx_dropped. It also changes
-tun_napi_receive() to take at most budget skbs from the queue instead of
-splicing out the whole queue and putting the rest back.
+Changes in v2:
+- Rebase onto current net-next and repost after the merge window.
+- No functional changes.
+- Link to v1: https://patch.msgid.link/20261025-submit-acx00-phy-stats-v1-v1-1-d3d461e46db0@gmail.com
 
-> diff --git a/drivers/net/tun.c b/drivers/net/tun.c
-> index 3b292bce4438c..e2fda570b90f6 100644
-> --- a/drivers/net/tun.c
-> +++ b/drivers/net/tun.c
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+To: "David S. Miller" <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Simon Horman <horms@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
 
-[ ... ]
+---
+James Hilliard (3):
+      docs: networking: correct the PHY statistics group name
+      ethtool: add a PHY receive byte total
+      net: phy: acx00: report receive statistics
 
-> @@ -227,6 +228,16 @@ struct veth {
->  static void tun_flow_init(struct tun_struct *tun);
->  static void tun_flow_uninit(struct tun_struct *tun);
->  
-> +/* In IFF_NAPI mode written packets wait in the tfile's sk_write_queue for the
-> + * NAPI poll, which may run later in a kthread or ksoftirqd. Bound that queue
-> + * like the per-CPU backlog of netif_rx().
-> + */
-> +static bool tun_napi_queue_full(const struct sk_buff_head *queue)
-> +{
-> +	return skb_queue_len_lockless(queue) >
-> +	       READ_ONCE(net_hotdata.max_backlog);
-> +}
+ Documentation/networking/ethtool-netlink.rst |  15 +-
+ drivers/net/phy/xpowers/acx00.c              | 223 ++++++++++++++++++++++++++-
+ include/linux/ethtool.h                      |   8 +-
+ include/uapi/linux/ethtool_netlink.h         |   1 +
+ net/ethtool/stats.c                          |   5 +-
+ 5 files changed, 246 insertions(+), 6 deletions(-)
+---
+base-commit: d1f4b7c6b997c29de67ad7178ababac2328cb1b4
+change-id: 20261024-submit-acx00-phy-stats-v1-d838f77444e8
 
-[Severity: High]
-Does a per-queue packet count bound the uncharged memory that an
-unprivileged user can pin?
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
-This limit is about 1000 packets on one tfile's sk_write_queue. It has no
-byte accounting and no limit across tfiles. The same user who can run the
-reproducer can also open IFF_MULTI_QUEUE devices. tun_set_iff() only checks
-CAP_NET_ADMIN in the user's own user namespace:
-
-    int queues = ifr->ifr_flags & IFF_MULTI_QUEUE ?
-                 MAX_TAP_QUEUES : 1;
-
-    if (!ns_capable(net->user_ns, CAP_NET_ADMIN))
-        return -EPERM;
-
-That gives up to 256 queues per device, and as many devices as
-RLIMIT_NOFILE allows. Each tfile still has sk_sndbuf = INT_MAX from
-tun_chr_open(), and its queued skbs are not charged to the writer's memcg.
-The only admission check on the write path is this one in tun_get_user()
-and tun_xdp_one().
-
-The commit message says:
-
-    Still open: the limit counts packets rather than bytes and applies per
-    queue, so with large packets and many queues (IFF_MULTI_QUEUE works in a
-    user namespace too) the queued skbs, which are not charged to the
-    writer's memcg, can still add up to an OOM. This is hard to reach in
-    practice: with large packets the writer's copy is slower than the NAPI
-    poll, so the queue does not fill.
-
-That argument covers large packets only. The reproducer itself shows
-1400-byte writes outrunning threaded NAPI. All queues drain on the same
-CPUs, so if the writer cycles small packets through every queue fd, can
-each queue reach max_backlog?
-
-With roughly 2.3 KB of truesize per 1400-byte skb, about 1000 tfiles (the
-default soft RLIMIT_NOFILE) would pin around 2.3 GB, and a higher fd limit
-pins more. Does that still allow the global OOM from a memcg-limited user
-that this patch is meant to fix?
-
-A bound that does not scale with the number of tfiles would close this.
-Two options would be charging queued skb truesize to the socket or memcg on
-every enqueue path, or a per-device or per-netns aggregate limit. Either
-would replace the per-queue packet count.
-
-> +
->  static int tun_napi_receive(struct napi_struct *napi, int budget)
->  {
->  	struct tun_file *tfile = container_of(napi, struct tun_file, napi);
-> @@ -237,21 +248,24 @@ static int tun_napi_receive(struct napi_struct *napi, int budget)
->  
->  	__skb_queue_head_init(&process_queue);
->  
-> +	/* Take at most budget skbs, so that the queue never looks emptier to
-> +	 * writers than it is.
-> +	 */
->  	spin_lock(&queue->lock);
-> -	skb_queue_splice_tail_init(queue, &process_queue);
-> +	if (skb_queue_len(queue) <= budget) {
-> +		skb_queue_splice_tail_init(queue, &process_queue);
-> +	} else {
-> +		while (skb_queue_len(&process_queue) < budget &&
-> +		       (skb = __skb_dequeue(queue)))
-> +			__skb_queue_tail(&process_queue, skb);
-> +	}
->  	spin_unlock(&queue->lock);
->  
-> -	while (received < budget && (skb = __skb_dequeue(&process_queue))) {
-> +	while ((skb = __skb_dequeue(&process_queue))) {
->  		napi_gro_receive(napi, skb);
->  		++received;
->  	}
-
-[Severity: Low]
-Is the "never looks emptier to writers than it is" part of this comment
-accurate?
-
-When skb_queue_len(queue) <= budget, skb_queue_splice_tail_init() resets
-the queue's qlen to 0. Otherwise each __skb_dequeue() lowers qlen by one,
-for up to budget skbs.
-
-In both cases, while napi_gro_receive() works through process_queue,
-possibly on another CPU with threaded NAPI, tun_napi_queue_full() sees up to
-budget fewer pending skbs than are really pending. The real bound comes out
-to about max_backlog + budget, plus one per concurrent lockless writer.
-
-This is much better than hiding the whole backlog as before. Could the
-comment say the queue looks emptier by at most budget, so later code does
-not rely on a strict invariant?
-
-[ ... ]
-
-> @@ -2561,6 +2593,17 @@ static int tun_xdp_one(struct tun_struct *tun,
->  		return -EIO;
->  	}
->  
-> +	/* NAPI queue full: drop, and schedule NAPI so that it drains even if
-> +	 * nothing in this batch gets queued
-> +	 */
-> +	if (tfile->napi_enabled &&
-> +	    unlikely(tun_napi_queue_full(&tfile->sk.sk_write_queue))) {
-> +		napi_schedule(&tfile->napi);
-> +		put_page(virt_to_head_page(xdp->data));
-> +		dev_core_stats_rx_dropped_inc(tun->dev);
-> +		return 0;
-> +	}
-> +
->  	xdp_prog = rcu_dereference(tun->xdp_prog);
-
-[Severity: Low]
-Should this check come after the XDP program runs?
-
-Here it sits before rcu_dereference(tun->xdp_prog) and bpf_prog_run_xdp().
-In tun_get_user() the new check also comes before tun_build_skb(), which
-runs native XDP and returns NULL when the program consumes the packet, and
-before do_xdp_generic().
-
-Packets the program would REDIRECT, TX or DROP never reach sk_write_queue.
-They add nothing to the queue being bounded.
-
-Once XDP_PASS traffic fills the queue past netdev_max_backlog, those packets
-are dropped without the program seeing them. They are also counted in
-rx_dropped. Would redirected or XDP_TX flows on that tfile stall whenever
-the stack path is congested?
-
-The commit message only says packets are dropped "before allocating and
-copying them". If this trade-off is intended, could the commit message
-mention the effect on XDP?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111014208.1795777-1-antonio%40mandelbit.com
