@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794732993;
-	b=QIq9GTNAr7Iq0+UaEwre0Iay0NUfB1RqFO63bif71J8XQWezIvcgWw48lHMJUlZxGnYP
-	 Jy5tdMd+ClmMLv/r7wjJbG0GYqEfOGGs4XK106fnxbmFH7onLvgciPULRjGN6M7OU433A
-	 YpqkrDTrwtae7vLVnyK0uA3p8AqfbsyzOWOF52rxlBy2SPUPkeUM/g1Ev+ymt0JFhv2YQ
-	 FufIffjxbvL+dWZgglPG3h63WCF/N//7CgvFexne//gz1DX+9ApRBABJmbiiPcoyoeZKu
-	 OXjXu+4Z2XN3wv7DqCA07opXC5jZ4X1m9seiah/i1tJz17q6KSjcnEf+iwzVNYV1u2A==
+	t=1794732994;
+	b=FDsRHFXq4+/9AzyQ1O60TCzb4kLDX8S1UoFL1L6HZuvOyAqRpcNmsl7PlULranM2Zsrq
+	 EIDPAllGSHHzPmMd/hmHv5U86DdYdA+At3/DMT381UMd5/S7+68P3S4qxsAPk4BuCqePQ
+	 bs0QXOn+5zCLEmP01dd29lE6Kxo1wmT+JMonPrmMT3/37F9lMVnTkvrGq9oPxtdp5szjc
+	 rKxxM67STDVNJ99O88OyS0F9K2IVKommO67wQWBayvObQxe90B0w0F+Y2gJMcnUyptieR
+	 kEzedew5hr1vCJg3sBqKTleCM8WZZVImRm0/YJ9Ypq0q44LrfvkmuRjiNXnL0oaQvQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794732993;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794732994;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=2UW9jHJgU3GDTCyDqq3tjM1WJfMeCrwjZ8NO71WNV7w=;
-	b=UQBWGpHqveqsbq1IU4hECry8l1aiWLuALgFBqAh0DFqLeC9ExX7GHnd4SnUrSEoDIMV3
-	 LcBqDOCag4KjfjRVlp0b+WnGXLKfDgErfYNJYbjiZ/qFv98Jye0Y4rxyYr9tLJbsTkth4
-	 LMogKgZwTM8TSpzKITvlNzj+irYyixXA7HnJjPwT78SfCQrPD7DrsoXFXaGY/DwpNdk16
-	 sXU3IgDHeBXTx0ztVPTKMu21WeqZ3vJaRWVEEZDe3CCNFCLoNfW2tSdQOi+zdUFkFQT5d
-	 vKOQpilRYaGP2PZoInQcsOS7BDqj5NO4hc9WcQNGR45rDEhSKLIOls5/J61P7R7bnIA==
+	bh=hZutrCgrHp+HfKt1eaWw1kaNR+voSV9Gbn2B4Nn674s=;
+	b=sHqBHR59RFx6TvcRDdqAWJTEu+ljopSiVXrssxct0CQKSHmZHzibck7G9YbZgZR6+g0S
+	 u0K/LWfVHCcDN9+9aGGh9Wmnw4RUbM90lswZGBEpSNTiaVr4Tkiw0kAMhjdbyHpBBrsDd
+	 CIf0thbD/stSdAuvuJUAGXCbNcUtu7KSiCuod0RNcTFgzdITuC8BdSdoqT8tJe4BNwCnK
+	 eaNPyDqj+JNdZ1jmNi8Ctgwenm2iIDt9GrvtAnSeIrN592rJcYRdBZlxpABaJoTDFI+gL
+	 OEyeK6Qm0lBLngeXNqOS6desZz9c+YEwas5EH1QBK8lwOd/7CIgg8K9m/iK/1EyzXQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WmKQccVx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lRgNKMA7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0509606A330
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:56:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C982B606A32D
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:56:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WmKQccVx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86F781F000C4;
-	Sun, 15 Nov 2026 08:56:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lRgNKMA7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8EED1F000C5;
+	Sun, 15 Nov 2026 08:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794732993;
-	bh=2UW9jHJgU3GDTCyDqq3tjM1WJfMeCrwjZ8NO71WNV7w=;
+	s=k20260515; t=1794732994;
+	bh=hZutrCgrHp+HfKt1eaWw1kaNR+voSV9Gbn2B4Nn674s=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WmKQccVxJbfJypLYF4z03WRNQ1C9BNQwitnZxK0EBEB12bUYbOQ79O4RwB73VbswZ
-	 56xLkhDd+4nVci4+qv1HQbRlDWVnbyowoPTo5Lu5Yl+tSR88uATUe5S0krq/TShuNB
-	 e2uwEBZJzCAVAA7fNWxazZqkhOepFSPqoJNJw3lJbGhROwW88SupUjbmk+fmPYf2Jo
-	 yS4bbZ7hKkQS7TapPK3ZsakcNlHJu0H9gN/VFpqox7XgWUHeBJP2vmwLmLdbul6r/w
-	 liZ7Pso+EfNqF2U/+lWk491/jqWxiLBHo9dJgdMR/DY9HpxesKJCZV8fF7kPfwIgjE
-	 qZqq4BZUYNenA==
-Subject: Re: [PATCH net-next v2 2/3] ipv6: add ip6_dst_lookup_flow_cookie
+	b=lRgNKMA7JJMdxp4FPHSJCFpnuTfWW7I348qFqJemuv7VpVrQkmO4wH2SX4rDpmxV2
+	 RssQcef8v/ip34HWPc2f+1QPiFNCUJHFUir0at5eQU/f967GHbKWQQBst49cpPy3xQ
+	 d9QIWdAAoF+hdfG6lTTM1mitZ0O5EumMErCoLp1hxbjrzegWjumx3KcH7tAsOee4nb
+	 2sGm5RJAwFyt4oEEusxL9EZA4c7T2R7YQmj7Rg/usdQYeOj5KopQeWlVchsHrxsOr+
+	 jaxrPk5yS0jFDtVRe+nmOprNeJzJEJBEdwgsvob6b5erdIbozYq+y7ipG8hb/9QkZV
+	 VItKbY5O4Qn8g==
+Subject: Re: [PATCH net-next v2 3/3] ipv6: use the lookup cookie when caching
+ the dst in sockets
 From: netdev-bot+sashiko@kernel.org
 To: ralf@mandelbit.com
 Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
@@ -48,10 +49,10 @@ Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
  horms@kernel.org, ncardwell@google.com, kuniyu@google.com,
  steffen.klassert@secunet.com, herbert@gondor.apana.org.au, fw@strlen.de,
  sd@queasysnail.net
-Date: Sun, 15 Nov 2026 08:56:32 +0000
-Message-ID: <179473299212.2199510.11039200949372183485@kernel.org>
-In-Reply-To: <e48cac0cdf9f3adcedecbbfff4a314a98bc22d01.1794384146.git.ralf@mandelbit.com>
-References: <e48cac0cdf9f3adcedecbbfff4a314a98bc22d01.1794384146.git.ralf@mandelbit.com>
+Date: Sun, 15 Nov 2026 08:56:33 +0000
+Message-ID: <179473299346.2199510.11559140714770152951@kernel.org>
+In-Reply-To: <43917b9119e13e54dcde0e2941d3f4a1fe255df7.1794384146.git.ralf@mandelbit.com>
+References: <43917b9119e13e54dcde0e2941d3f4a1fe255df7.1794384146.git.ralf@mandelbit.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +66,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,187 +77,139 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The stale-cookie race that this patch describes as a general
-  flaw of 'callers that keep a dst in a persistent cache' is still…
-- [Medium] The gen0/gen1 check in ip6_dst_lookup_flow_cookie() only
-  notices a FIB change if the writer updates routing state before…
+- [High] Incomplete fix: on the TCP side only tcp_v6_connect() was
+  converted.
+- [Medium] The same bug class remains in the SCTP per-transport dst
+  cache.
+- [Low] The commit fixes a user-visible security problem: 'a socket that
+  should be using IPsec keeps sending plaintext until the FIB changes…
 
 --
 
-ipv6: add ip6_dst_lookup_flow_cookie
+ipv6: use the lookup cookie when caching the dst in sockets
 
-This commit adds ip6_dst_lookup_flow_cookie(). It returns the dst
-together with a validation cookie that is sampled between two reads of
-the IPv6 generation, and the cookie is 0 if the generation moved during
-the lookup. For nexthop-object dsts, ip6_dst_check() now also requires
-the cookie to match rt->sernum.
+This commit changes tcp_v6_connect(), ip6_datagram_dst_update() and
+ip6_sk_dst_lookup_flow() to store the cookie returned by
+ip6_dst_lookup_flow_cookie(). Before, they read rt6_get_cookie() after
+the route and xfrm lookup. It adds ip6_dst_store_cookie() for this, and
+ip6_dst_store() stays as a wrapper that still reads the cookie after the
+lookup.
 
-> diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
-> index 25fe0ba98b1a6..1b273714f7cc3 100644
-> --- a/net/ipv6/ip6_output.c
-> +++ b/net/ipv6/ip6_output.c
+> Store the cookie returned by ip6_dst_lookup_flow_cookie instead. Add
+> ip6_dst_store_cookie for this and keep ip6_dst_store for callers that
+> have no lookup cookie.
+>
+> Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+
+[Severity: Low]
+This isn't a bug, but should this have a Fixes: tag and Cc: stable? The
+commit message describes a socket that "keeps sending plaintext" when it
+should be using IPsec.
+
+The patch also calls ip6_dst_lookup_flow_cookie(). That helper comes from
+the previous patch in the series ("ipv6: add ip6_dst_lookup_flow_cookie"),
+which also changes ip6_dst_check() behaviour for nexthop-object dsts. So
+this patch can't be backported on its own. Could the dependency be noted
+for stable?
+
+> diff --git a/include/net/ip6_route.h b/include/net/ip6_route.h
+> index 95f936be32c6c..2684f6069a5e1 100644
+> --- a/include/net/ip6_route.h
+> +++ b/include/net/ip6_route.h
 
 [ ... ]
 
-> @@ -1300,6 +1299,54 @@ struct dst_entry *ip6_dst_lookup_flow(struct net *net, const struct sock *sk, st
+> @@ -266,8 +266,16 @@ static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
+>  #endif
 >  }
->  EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow);
 >  
-> +/**
-> + *	ip6_dst_lookup_flow_cookie - perform route lookup on flow with ipsec
-> + *				     and return the matching dst cookie
-
-[ ... ]
-
-> + *	Same as ip6_dst_lookup_flow, but also returns the cookie describing
-> + *	the routing state the dst was obtained from. A caller caching the dst
-> + *	should use this cookie when validating it with dst_check. If the
-> + *	IPv6 FIB changed during the lookup, a route dst no longer validates
-> + *	with it. An xfrm bundle is validated by xfrm and ignores the cookie.
+> +static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
+> +				 bool daddr_set,
+> +				 bool saddr_set)
+> +{
+> +	ip6_dst_store_cookie(sk, dst, rt6_get_cookie(dst_rt6_info(dst)),
+> +			     daddr_set, saddr_set);
+> +}
 
 [Severity: High]
-The commit message describes the stale cookie as a problem for "Callers
-that keep a dst in a persistent cache", and names an xfrm policy
-insertion as one trigger. This patch converts no callers.
+Is the TCP side of this fix complete? The commit message says this
+"affects TCP and connected UDP sockets alike", but tcp_v6_connect() is
+the only TCP path converted. Other TCPv6 paths still call
+ip6_dst_lookup_flow() and then ip6_dst_store(), so they still read the
+cookie after xfrm_lookup_route() has returned.
 
-At the end of the series, only tcp_v6_connect(), ip6_datagram_dst_update()
-and ip6_sk_dst_lookup_flow() are converted, by "ipv6: use the lookup
-cookie when caching the dst in sockets".
+Here is inet6_csk_route_socket() in net/ipv6/inet6_connection_sock.c:
 
-Are the remaining persistent caches still exposed to the same race? The
-TCP re-route path, for example, still does this:
-
-net/ipv6/inet6_connection_sock.c:inet6_csk_route_socket() {
-    ...
 	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
 
 	if (!IS_ERR(dst))
 		ip6_dst_store(sk, dst, false, false);
-    ...
-}
 
-ip6_dst_store() reads rt6_get_cookie() only after the lookup has
-returned. This path runs from inet6_csk_xmit() whenever __sk_dst_check()
-fails, and that happens right after a rt_genid_bump_ipv6().
+inet6_csk_xmit() reaches this whenever __sk_dst_check(sk, np->dst_cookie)
+fails. inet6_csk_update_pmtu() also reaches it through
+tcp_v6_mtu_reduced(), and a remote peer can trigger that path with
+ICMPv6 Packet Too Big.
 
-tcp_v6_syn_recv_sock() has the same pattern for accepted sockets. Its
-window runs from inet6_csk_route_req() to ip6_dst_store().
-inet6_sk_rebuild_header() has the same pattern too.
+inet6_sk_rebuild_header() in net/ipv6/af_inet6.c has the same
+lookup/store pair. It is ipv6_specific.rebuild_header, and tcp_connect()
+calls it right after tcp_v6_connect(). Suppose
+ip6_dst_lookup_flow_cookie() saw the generation move and returned cookie
+0. Then __sk_dst_check() fails immediately, and the lookup is redone
+through the unconverted path inside the same connect() call. The
+retransmit path also reaches inet6_sk_rebuild_header().
 
-dst_cache_set_ip6() computes the cookie itself:
+tcp_v6_syn_recv_sock() in net/ipv6/tcp_ipv6.c gets its dst from
+inet6_csk_route_req(). That function calls ip6_dst_lookup_flow() without
+capturing a cookie. tcp_v6_syn_recv_sock() then runs
+tcp_create_openreq_child() before it does:
 
-net/core/dst_cache.c:dst_cache_set_ip6() {
-    ...
-	dst_cache_per_cpu_dst_set(idst, dst,
-				  rt6_get_cookie(dst_rt6_info(dst)));
-    ...
-}
+	ip6_dst_store(newsk, dst, false, false);
 
-It has no parameter for a cookie from the caller. Without a new dst_cache
-API, these users can't adopt the new helper:
+So every passively opened IPv6 TCP socket has the same window.
 
-- udp_tunnel6_dst_lookup() (vxlan, geneve, bareudp)
-- ip6_tunnel
-- wireguard
-- ovpn
-- the seg6, rpl, ioam6 and ila lwtunnels
-- tipc
+An xfrm policy insertion goes through
+rt_genid_bump_ipv6()->__fib6_flush_trees(), which invalidates every
+cached socket dst. Established sockets therefore re-route through
+inet6_csk_route_socket() right after a policy change.
 
-Suppose this sequence lands between ip6_dst_lookup_flow() and
-rt6_get_cookie() in any of these paths:
+Suppose another policy is inserted during that re-lookup, which can
+happen when an IKE daemon installs several policies back to back. Can
+the plain route then be cached with the post-insertion serial? If so,
+inet6_csk_xmit() would keep accepting it and send plaintext.
 
-xfrm_policy_insert()->rt_genid_bump_ipv6()->__fib6_flush_trees()
+The commit message says ip6_dst_store is kept "for callers that have no
+lookup cookie". Each of these callers does its own ip6_dst_lookup_flow(),
+though, so each could use ip6_dst_lookup_flow_cookie() with
+ip6_dst_store_cookie(). For the passive-open path, inet6_csk_route_req()
+would need to return the cookie.
 
-The plain route would then be cached with the post-insertion serial and
-keep passing rt6_check().
-
-Wouldn't that socket or tunnel keep sending without the new IPsec policy
-until the next FIB change? That is the plaintext leak this series sets
-out to close.
-
-> + *
-> + *	Return: a valid dst pointer on success or a pointer encoded error code.
-> + */
-> +struct dst_entry *ip6_dst_lookup_flow_cookie(struct net *net,
-> +					     const struct sock *sk,
-> +					     struct flowi6 *fl6,
-> +					     const struct in6_addr *final_dst,
-> +					     u32 *cookie)
-> +{
-> +	const struct rt6_info *rt;
-> +	struct dst_entry *dst;
-> +	int gen0, gen1;
-> +
-> +	gen0 = rt_genid_ipv6(net);
-> +	/* read the generation before looking at the FIB or xfrm policies */
-> +	smp_rmb();
-> +
-> +	dst = ip6_dst_lookup_flow(net, sk, fl6, final_dst);
-> +	if (IS_ERR(dst))
-> +		return dst;
-> +
-> +	rt = dst_rt6_info(dst);
-> +	*cookie = rt->sernum ? gen0 : rt6_get_cookie(rt);
-> +
-> +	/* keep the FIB and cookie reads before the final generation read */
-> +	smp_rmb();
-> +	gen1 = rt_genid_ipv6(net);
-> +	if (unlikely(gen0 != gen1))
-> +		*cookie = 0;
+The kernel-doc of ip6_dst_lookup_flow_cookie() also says "A caller caching
+the dst should use this cookie when validating it with dst_check."
 
 [Severity: Medium]
-Can the gen0/gen1 check catch writers that bump the serial before they
-finish updating the routing state?
+Does the same window remain in the SCTP per-transport dst cache?
+sctp_v6_get_dst() in net/sctp/ipv6.c does its route and policy lookup
+through ip6_dst_lookup_flow() and stores the result in t->dst. Only after
+that does it read the cookie:
 
-fib6_ifup() clears the nh flags, bumps the serial, and only then
-rebalances:
+	rt = dst_rt6_info(dst);
+	t->dst_cookie = rt6_get_cookie(rt);
 
-net/ipv6/route.c:fib6_ifup() {
-    ...
-		rt->fib6_nh->fib_nh_flags &= ~arg->nh_flags;
-		fib6_update_sernum_upto_root(net, rt);
-		rt6_multipath_rebalance(rt);
-    ...
-}
+sctp_transport_dst_check() later validates t->dst against that cookie.
+If an xfrm policy insertion restamps fn_sernum between the lookup and
+this read, could an SCTP association over IPv6 keep using the route that
+was found without the policy?
 
-fib6_ifdown() uses the same order for NETDEV_DOWN on multipath routes,
-and also for NETDEV_CHANGE:
+dst_cache_set_ip6() in net/core/dst_cache.c has the same pattern. IPv6
+UDP tunnels and ip6_tunnel use it:
 
-net/ipv6/route.c:fib6_ifdown() {
-    ...
-			rt6_multipath_nh_flags_set(rt, dev, RTNH_F_DEAD |
-						   RTNH_F_LINKDOWN);
-			fib6_update_sernum(net, rt);
-			rt6_multipath_rebalance(rt);
-		}
-		return -2;
-    ...
-}
+	dst_cache_per_cpu_dst_set(idst, dst,
+				  rt6_get_cookie(dst_rt6_info(dst)));
 
-The -2 return makes the walker skip the other siblings, so no second
-bump follows the rebalance.
-
-Suppose gen0 reads the new serial N+1 and fib6_select_path() runs before
-rt6_multipath_rebalance(). The lookup then sees the old
-fib_nh_upper_bound values. rt6_get_cookie() returns fn_sernum N+1 and
-gen1 is also N+1, so the returned cookie is valid. rt6_check() keeps
-accepting the dst after that.
-
-rt6_score_route() doesn't check RTNH_F_DEAD or RTNH_F_LINKDOWN. Could
-the cached dst then stay pinned to a nexthop that was just marked dead
-or link-down, or to a stale weight split, until some unrelated FIB
-change?
-
-The writer ordering predates this patch. Still, the kdoc above says "If
-the IPv6 FIB changed during the lookup, a route dst no longer validates
-with it", and that doesn't seem to hold for these writers.
-
-> +
-> +	return dst;
-> +}
-> +EXPORT_SYMBOL_GPL(ip6_dst_lookup_flow_cookie);
-
-[ ... ]
+The previous patch in the series describes the problem as affecting all
+"callers that keep a dst in a persistent cache". Should these sites also
+be converted to ip6_dst_lookup_flow_cookie(), or at least mentioned in
+the commit message?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794384146.git.ralf%40mandelbit.com
