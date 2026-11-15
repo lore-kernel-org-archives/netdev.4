@@ -1,77 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794768726;
-	b=NXVsAl7r3sZX2EjYc/qH2G5tnpg2W3pJql8V05IZBnOm5ZeBCwPd4YvGWNIqBm4ClhRL
-	 e3InZbYUwZIgifGQ1CbNUO5h8t9JLrTFwQh9FwOyLvTxlA0X0U4g5QoTNFqNfFuGIcqZ1
-	 0oAqwfHrWZe3B9WaYkYBVAf7XSMHoa0vKAPa2s0eU0hLd9VXvvtLcQDiLpqGZIxxLhuFm
-	 sittHRpyUsQEG7js9xbzpRfKKUSqQclo1udWOnkaj4IDh2/rJ2dLQYtYTIqhtVL+DjA3t
-	 PJ/GE9BXZuT71HOGMfN7dXm7vIipu7FvqxiqZsbQec6gSDTS9vxrtrPFofqQhnm7GzA==
+	t=1794768852;
+	b=Ed38CsGuTE060QpP9n/z9MVX7CDa5fw+oWtF4Bwt3rEVb+/wyj+bj/xlvXZfhg9XglpY
+	 UXO/nbAiYRwjH9xLETarg1Iop7+bY/xSmeJzQjozugqCVUm/ndlwnLTmYN/gr8s8qURXT
+	 hXBTF6DMs9itVTceMaovQu21iGW9XjmI+5kchyh9dZP3l2gXyPzxvFpwE7X0uQSzEvY/u
+	 Cf7oEF4qWq698qNjhEZYXT230cyJY0ztIHBd2hmT1b47LoWO9B5FDSgxo9losVYs5KeBT
+	 yVqNDpMykVvrmDIyDkKvqhJHx1Zx+QdVZc2OrnWfNANNtCrd4ofX1SbTCIcCZmSdW3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794768726;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=SdudER1+z7QJDiZ1Nnh2ZbZ2E80axq39/K+Tsu5UA/w=;
-	b=wLfRl8I7bgWf/d4cB/GdGcHCJdGtgBhH0P3dQVbCAH9LUlfvLO/pZcIosQ7J8yvKRCB8
-	 vWJ2o/gW0vpO5RRRjgUnWd5DTmPv0jJ4hlT4uUHnYB0QGmeCL2/wbqgVpo50zXHD5q3+S
-	 Rp31DKslsa0WgoLz8twGGSYtxY42i2aWUQnq33urjw+kvfBmrLYBBWGsQZKc4KQ8i19C/
-	 CVkcZ3tSRxyceF0NxWlwZVnHwEzNhMbG8rlyAYyNEwvGiVu+0Wgt19v4a4v7Q4/EbRyoU
-	 Re+t/1qpxCo0z+csJC1qsB8M1IaOG191OCXb6UGyV2QrhAHqOs8inGhw85Tsjr5OyzA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794768852;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=jt+5Fdp6Nd5TfgPTmrxAirK3h6kimHDVngEaUqwJ+z0=;
+	b=dslWBkSwQwQ7ffeXXrSGMeSHs+zO1mcGaWINjOSREPMSCUBBiajee5m0rs6RzIzSGmln
+	 Qa1kQxu+EeGMJAb489dQITV3JfSjGTpmyjx9eQhAaL8PHXK6SRGovVDvFvZYmZk12oZ3N
+	 9PNbo+OhI1eyf9EKoeJQ2R5ynjryE65KFZeMIDkPu8/fc4wpO48oRAJ74HxKrW1wqLkcc
+	 eX8pu8jUg/wYvOcZuZNVVHKDhzWfR7FkKQpX106SzgM51LJJcfs07VcaJAcpR+wc68Ct4
+	 PLLPIVsAjNKfZqFghmL8YJPQ1kSVDoLgbQMT1OoGJIZoF5sPauVbhoLQdWBiDU/3cfA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yi4oaMcO;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=2FYJnfsm;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45979606A31D;
-	Sun, 15 Nov 2026 18:52:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06163606A327;
+	Sun, 15 Nov 2026 18:54:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06163606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yi4oaMcO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 940D41F000C4;
-	Sun, 15 Nov 2026 18:52:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794768725;
-	bh=SdudER1+z7QJDiZ1Nnh2ZbZ2E80axq39/K+Tsu5UA/w=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Yi4oaMcOGX2qt7K6xqQ1ukn3u3IMrRR9Vyw5Msfzk3hAI8l8HV/yfhWxljmFTkgXe
-	 QewrDoa47Q8taP+G8Cw5AWN7uDgarEMA0qA82uQHDKhScIKK1ZpA9Crlfy9f9AjtEx
-	 uRXn46e/XmiB/CTeO2qOXT6V+0x9UtPa4PY8kRz5EgO2XXdYO0fs55Tbo7W8EZm9MK
-	 7216YnY0EOU37M4AYq7EdEuJSOX6jJHDJeDBZCDQoyFxLtvcnNdLTYNeohvpNzPjwq
-	 7EgC17gY/t/VY3BRoZCfyJ2sTgIAmko21KncSHOQ3pB1WvZb2IhxIkg3rBUwW1lTMt
-	 D5JoYQJimN3QQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Mina Almasry <almasrymina@google.com>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
- <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Alexander Duyck <alexanderduyck@fb.com>,
- kernel-team@meta.com, Andrew Lunn <andrew+netdev@lunn.ch>, Jesper Dangaard
- Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, Pavel
- Begunkov <asml.silence@gmail.com>, Jens Axboe <axboe@kernel.dk>, Andrii
- Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar
- Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau
- <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
- <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
- netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org,
- "Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>, Weiming Shi
- <bestswngs@gmail.com>, Nikolay Aleksandrov <razor@blackwall.org>, David
- Wei <dw@davidwei.uk>, Alexander Lobakin <aleksander.lobakin@intel.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Stuart Clark
- <stuclar@meta.com>
-Subject: Re: [PATCH net-next v1 03/11] xdp: Copy buffers with restricted
- lifetime
-In-Reply-To: <CAHS8izMhFEMu+v4zAm6VqjU=Lz=vMn58Ft6HKya1L-uNY0hL-A@mail.gmail.com>
-References: <20261110102039.1002605-1-bjorn@kernel.org>
- <20261110102039.1002605-4-bjorn@kernel.org>
- <CAHS8izMhFEMu+v4zAm6VqjU=Lz=vMn58Ft6HKya1L-uNY0hL-A@mail.gmail.com>
-Date: Sun, 15 Nov 2026 19:52:01 +0100
-Message-ID: <874idij5bi.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=2FYJnfsm
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=jt+5Fdp6Nd5TfgPTmrxAirK3h6kimHDVngEaUqwJ+z0=; b=2FYJnfsma+81uptEgE3L9Dekl+
+	DqfhuN2o6vGEhVxZKrhy3da2OzYdcBo9gyzC2ydzH55HXUwfr3Q2kgei4zn6RkL52/FCMpr/Xz8uv
+	InmiGgZQS5NS+YiwHzd381o+uKp/WTwg00B0v0WcCXHK/q4NxfZ8WVfwiDM0mgp+bOxc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xSfMZ-00GeZ5-2H; Sun, 15 Nov 2026 19:54:03 +0100
+Date: Sun, 15 Nov 2026 19:54:03 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Aleksander Jan Bajkowski <olek2@wp.pl>
+Cc: olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next] net: dsa: mv88e6xxx: Enable LED control on
+ 88E6171
+Message-ID: <501adfa2-70dd-4fc0-b972-eb29785116e2@lunn.ch>
+References: <20261115181305.2860498-1-olek2@wp.pl>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,54 +63,91 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261115181305.2860498-1-olek2@wp.pl>
 
-Mina Almasry <almasrymina@google.com> writes:
+On Sun, Nov 15, 2026 at 07:12:36PM +0100, Aleksander Jan Bajkowski wrote:
+> Enable LED control on the Marvell 88E6171. This switch uses a register
+> layout similar to the 6352 family, but has 4 LEDs instead of 2. Hardware
+> triggers are not supported at this moment.
 
-> On Tue, Nov 10, 2026 at 2:21=E2=80=AFAM Bj=C3=B6rn T=C3=B6pel <bjorn@kern=
-el.org> wrote:
->>
->> UMEM stays mapped writable in userspace, and it has a fixed number of
->> chunks. The stack must not keep its chunks in an skb or an xdp_frame.
->> Mark the providers whose buffers the stack may keep with
->> MP_CAP_RETAIN, and copy packets of the others on XDP_PASS, on
->> conversion to a frame, and on redirects other than XSKMAP.
->>
->
-> I'm not understanding why that needs special handling. Devmem stays
-> mapped and writeable and did not need MP_CAP_RETAIN. Also, today the
-> stack can keep any pp page in the socket's receive queue for arbitrary
-> time without _RETAIN. I'm espcially confused you're not adding _RETAIN
-> as a cap to existing providers, but their netmems can be retained.
+Please break this patch up.
 
-This patch does give devmem and io_uring zcrx MP_CAP_RETAIN, and pages
-need nothing... a pool without a provider is retainable. Only UMEM
-isn't.
+.num_leds makes a lot of sense, but please introduce it as a patch.
 
-The stack never reads devmem or io_uring zcrx payloads, so it doesn't
-matter that userspace can write them. UMEM is readable, and the stack
-would parse headers and payload that the application can change under
-it. An AF_XDP socket also has a fixed set of chunks, and chunks held in
-skbs elsewhere starve it. Driver zero copy copies on XDP_PASS for the
-same reasons, in xdp_build_skb_from_zc(); this does the same for
-provider buffers.
+.led_hw_triggers i'm not sure about. But please add it as a patch of
+its own.
 
->> The head chunk is writable by userspace, so it cannot hold
->> skb_shared_info, and virt_to_netmem() cannot find a net_iov head.
->> Drivers pass kernel memory for both to xdp_init_buff_netmem().
->>
->> A static key keeps the check off while no such page pool exists. A
->> frame copy is linear, so a multi-buffer packet of such a provider
->> cannot go to a device or CPU map.
->>
->
-> Did this actually improve perf? I recall that when I benchmarked the
-> performance improvement, it was questionable.
+> @@ -4609,6 +4609,7 @@ static const struct mv88e6xxx_ops mv88e6171_ops = {
+>  	.port_pause_limit = mv88e6097_port_pause_limit,
+>  	.port_disable_learn_limit = mv88e6xxx_port_disable_learn_limit,
+>  	.port_disable_pri_override = mv88e6xxx_port_disable_pri_override,
+> +	.port_setup_leds = mv88e6xxx_port_setup_leds,
+>  	.port_get_cmode = mv88e6352_port_get_cmode,
+>  	.port_setup_message_port = mv88e6xxx_setup_message_port,
+>  	.stats_snapshot = mv88e6xxx_g1_stats_snapshot,
 
-I have no numbers for it, and it goes in v2. With the frag walk gone, as
-agreed with Stan, the only check left under the key is for page heads,
-and no provider hands out pages.
+static const struct mv88e6xxx_ops mv88e6171_ops = {
+	/* MV88E6XXX_FAMILY_6351
 
+I assume these changes work for all members of the family?
 
-Bj=C3=B6rn
+> @@ -301,6 +305,8 @@ struct mv88e6xxx_port {
+>  	bool fiber;
+>  	struct led_classdev led0;
+>  	struct led_classdev led1;
+> +	struct led_classdev led2;
+> +	struct led_classdev led3;
+
+Maybe turn it into an array?
+
+> -	if (led == 1)
+> +	if (led == 3)
+> +		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED3_SEL_MASK;
+> +	else if (led == 2)
+> +		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED2_SEL_MASK;
+> +	else if (led == 1)
+>  		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED1_SEL_MASK;
+>  	else
+>  		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED0_SEL_MASK;
+
+Seems like this should be turned into a switch statement? Or can this
+be simplified with some simple arithmetic or FIELD_PREP?
+
+> +static int mv88e6xxx_led2_brightness_set_blocking(struct led_classdev *ldev,
+> +						  enum led_brightness brightness)
+> +{
+> +	struct mv88e6xxx_port *p = container_of(ldev, struct mv88e6xxx_port, led2);
+> +	int err;
+> +
+> +	mv88e6xxx_reg_lock(p->chip);
+> +	err = mv88e6xxx_led_brightness_set(p, 2, brightness);
+> +	mv88e6xxx_reg_unlock(p->chip);
+> +
+> +	return err;
+> +}
+> +
+> +static int mv88e6xxx_led3_brightness_set_blocking(struct led_classdev *ldev,
+> +						  enum led_brightness brightness)
+> +{
+> +	struct mv88e6xxx_port *p = container_of(ldev, struct mv88e6xxx_port, led3);
+> +	int err;
+> +
+> +	mv88e6xxx_reg_lock(p->chip);
+> +	err = mv88e6xxx_led_brightness_set(p, 3, brightness);
+> +	mv88e6xxx_reg_unlock(p->chip);
+> +
+> +	return err;
+> +}
+
+Maybe mv88e6xxx_ledx_brightness_set_blocking(), and 4 one line
+wrappers around it?
+
+The current code is not scaling well, so please look at refactoring it
+make it scale.
+
+Lots of small patches, which are obviously correct, and good commit
+messages.
+
+     Andrew
