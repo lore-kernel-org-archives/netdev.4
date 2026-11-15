@@ -1,66 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.77.101.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794766399;
-	b=S+ssKgyoinjasd+HeMmWo2GfZrnj9dCocnHWMXpa6z1XCcR+wuuCC495DaPjg7Y1dwWu
-	 i020Ra+9LUDUMjRXolueE0AArseLjIiWsDc+kS+BOtxbkSdpYS/l/MqYIDNGRuoqha/RL
-	 hAHsj8SSKoyBFsILpZrQr4Y+3JMTR+Qlj8fOywHHAyfLKdhNSlWWS6vJVZLGdmimBmYQ2
-	 BaTJr0PcdhUHuyEBVtGpRVi4n7+QpI52kTG/S154OTZ3lzyxlwuQB0LEly9c2P00ULJfd
-	 IaFqdJV5LeSI40EpTa6Nnh9HOhipKUVa/mL9Wow1ODFKYSQTBkNJkRm3+3nbYUpJgpw==
+	t=1794766560;
+	b=cgutWME+5xCYvyEZQXATOtCwCp6Zce7x30YaSL1aLBNecN4kcZkOzKKqlydUg7QhEZam
+	 2AHp1yjESWSM4JFdd2ALq12IGcs/GuM5YstF9upoLP1Kc1lgFJvmTKIi7fr+KC+VlpPvj
+	 hxBIfNk3E0zj8Zzzl55Mrn+4PtnFOxke16zMU8NV1lm6ihIjj/oTiO98Jp/890vQSLctm
+	 fUkQuVSVZiIV3HMlYtZ8o4LzsvIGXMAeID6rxY2hrOM4ICp7enT4BDXJkAw6oN0ABI6O4
+	 o9/qLWnrb9Fh2s1qpoobOzAQ4wcZCG893NaqZtVrNc461FO1q5EoQc3tSulfwAkpVhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794766399;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-WP-DKIM-Status:X-WP-MailID:X-WP-AV:X-WP-SPAM;
-	bh=kK2frOMgBCKtDzXe5QocnQYkVRKVN6JDEORW9JLOVVA=;
-	b=EKJKyER58D8H7DhGzg/1/vTczhUYCAkUI8BPga0CcInNiXOR39O46TOP3/GkbfeOgsfR
-	 iUSAcFkNUp+6uM6A2Wz5FvHmNRlIEhBTRwyKyGdQkMfhH/nZTf7torWpYa7GHqH+a2qYT
-	 XJzvEBiWutc/7agE7Z6jWilDClLRZQNZHQujKqzXkHYL/OP9QM1HiRs7QAWLkAv5BQR4d
-	 6amvo2X0fC9alvqYSrHsz9XRGIT75HW87Dmf3NMwDa+AUjwWRvYDO2lEWytfubiUv2Z/f
-	 rDmELrNFmR86/JhKR6loFP5Nyf88PLmD57EjQDy4p8kywlZPtZfZO3ximtmaGPwNxFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794766560;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=ALqxl7BK5WNsyNSlxc602DJmMV8b2cEMDj7sWULgqJM=;
+	b=c6iQtZqFnwhMixfyYYDeRSFhFER1y7Rfftu5M9qsdV6WOMyVjYgbbKAd9M3E5mOE3Thf
+	 9c9UoSf8XQPmvSHoUvWDZV61EPIGVcTLunnttbZnjfAsdFCxol8HL27BLqt/f831O6no2
+	 RgnltkjkoMGYCpVWIbBAyKthMfRJCFy7lxdZWKZsqPYCncctTAiUY+4j9sbjc6N48V1dw
+	 Zsy6HEBbVuUSjr1yEkbcCxljcP+W023He31LZgjiMYsfIZsRO2brUrxUtFkkKZk5TpmUy
+	 LTmVT2MVgNgSgycSlH748Bh/Nf+iLdrfrEbXp1ivkw9GoHcyM1nZRCqKDtgwa+J7Yyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wp.pl;
-	spf=pass smtp.mailfrom=wp.pl;
-	dkim=pass header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=oGPo+Y6D;
-	arc=none smtp.remote-ip=212.77.101.10
-Received: from mx3.wp.pl (mx3.wp.pl [212.77.101.10])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dv1RhaD/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5599606A31A
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:13:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5599606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=wp.pl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wp.pl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0F66606A31F;
+	Sun, 15 Nov 2026 18:15:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=oGPo+Y6D
-Received: (wp-smtpd smtp.wp.pl 38243 invoked from network); 15 Nov 2026 19:13:09 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=s20261001;
-          t=1794766389; bh=kK2frOMgBCKtDzXe5QocnQYkVRKVN6JDEORW9JLOVVA=;
-          h=From:To:Cc:Subject;
-          b=oGPo+Y6DNxFNR97jjN2+35Azxja31mxGMn3I85fKOWiJpvixUQd7x4eGESrAyhX/D
-           z7LaB7iNKFOM+04Cn+xmx78FHPQc9uVTYoCzJPysgPYKjMh06PUHsOVwsVmv/spGev
-           y3ByK+tJbZD4a0uyX0O/0d2MCPv1H6a5Ka1JsIDkRaiWeahVOG7AYcF8SVm95Rr+Ye
-           FZsmAF8DmbKTHKdDu87q6CLdZJzA1qTSMV5PExbIzpDAk5ULwU35QttNP9mpennR0E
-           Xy+5wKJvu632gEgJjZ1cEyikKPNB/pFUPhmBv9YB6HA77YwAVhy7NGej4UUyUd61Cf
-           SoT7zVImQ94qQ==
-Received: from abajkowski.lan (83.24.146.222.ipv4.supernova.orange.pl [83.24.146.222])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <andrew@lunn.ch>; 15 Nov 2026 19:13:09 +0100
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: andrew@lunn.ch,
-	olteanv@gmail.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
-Subject: [PATCH net-next] net: dsa: mv88e6xxx: Enable LED control on 88E6171
-Date: Sun, 15 Nov 2026 19:12:36 +0100
-Message-ID: <20261115181305.2860498-1-olek2@wp.pl>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dv1RhaD/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA5271F000C4;
+	Sun, 15 Nov 2026 18:15:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794766559;
+	bh=ALqxl7BK5WNsyNSlxc602DJmMV8b2cEMDj7sWULgqJM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=dv1RhaD/uIlDqLMwurh+RmZLMkdy2CWEBTSoQgalFD4PzOpkaeSVp7+wQkbfSmjaA
+	 kfC+yPhSpdU5w8X6cvkGhvT4mtvKYWM2XKWOZtkLkNCxgTVlCxvodOuF79HLW+5Ftr
+	 SQ2bpkfEUhXgl9A8n4qflWSCcLmpyTygZoX78AhdTPJJG8BBMWWqRB+o4fMJbtCY9G
+	 gpDN92OLyXFWsIy0Lsy0FYIa0sQ6xHhH0hdkRFkZj9Wd5Mpr8jzMv3yZyb8TQkf20e
+	 bILxJtxTbB3nrC4cF+NlRlf3WMNFCgDvijn01eTbajK4aWu9fiHjvvJ0siejFtdmDG
+	 JUKRZXaMsJT0g==
+Subject: Re: [PATCH net v2 1/2] tcp: Fix the SO_REUSEPORT bind cache admitting
+ a conflicting socket
+From: netdev-bot+sashiko@kernel.org
+To: juanagusnicco@gmail.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ josef@toxicpanda.com, jbacik@fb.com, shuah@kernel.org,
+ linux-kselftest@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Sun, 15 Nov 2026 18:15:58 +0000
+Message-ID: <179476655840.3136.16698637030692656920@kernel.org>
+In-Reply-To: <20261111174704.24312-2-juanagusnicco@gmail.com>
+References: <20261111174704.24312-2-juanagusnicco@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,469 +65,135 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-WP-DKIM-Status: good (id: wp.pl)                                                      
-X-WP-MailID: 2f515d80f9e9118dad2db32fa420577f
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 000000B [wRPk]                               
 
-Enable LED control on the Marvell 88E6171. This switch uses a register
-layout similar to the 6352 family, but has 4 LEDs instead of 2. Hardware
-triggers are not supported at this moment.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
----
- drivers/net/dsa/mv88e6xxx/chip.c |  10 ++
- drivers/net/dsa/mv88e6xxx/chip.h |  16 ++++
- drivers/net/dsa/mv88e6xxx/leds.c | 155 ++++++++++++++++++++++++++-----
- drivers/net/dsa/mv88e6xxx/port.h |  35 +++++++
- 4 files changed, 191 insertions(+), 25 deletions(-)
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-diff --git a/drivers/net/dsa/mv88e6xxx/chip.c b/drivers/net/dsa/mv88e6xxx/chip.c
-index 425fd2d22c28..ac25a6711ac6 100644
---- a/drivers/net/dsa/mv88e6xxx/chip.c
-+++ b/drivers/net/dsa/mv88e6xxx/chip.c
-@@ -4609,6 +4609,7 @@ static const struct mv88e6xxx_ops mv88e6171_ops = {
- 	.port_pause_limit = mv88e6097_port_pause_limit,
- 	.port_disable_learn_limit = mv88e6xxx_port_disable_learn_limit,
- 	.port_disable_pri_override = mv88e6xxx_port_disable_pri_override,
-+	.port_setup_leds = mv88e6xxx_port_setup_leds,
- 	.port_get_cmode = mv88e6352_port_get_cmode,
- 	.port_setup_message_port = mv88e6xxx_setup_message_port,
- 	.stats_snapshot = mv88e6xxx_g1_stats_snapshot,
-@@ -6014,6 +6015,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.num_macs = 8192,
- 		.num_ports = 7,
- 		.num_internal_phys = 5,
-+		.num_leds = 4,
- 		.max_vid = 4095,
- 		.max_sid = 63,
- 		.port_base_addr = 0x10,
-@@ -6040,6 +6042,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.num_ports = 7,
- 		.num_internal_phys = 5,
- 		.num_gpio = 15,
-+		.num_leds = 2,
- 		.max_vid = 4095,
- 		.max_sid = 63,
- 		.port_base_addr = 0x10,
-@@ -6052,6 +6055,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.stats_type = STATS_TYPE_BANK0 | STATS_TYPE_PORT,
- 		.atu_move_port_mask = 0xf,
- 		.pvt = true,
-+		.led_hw_triggers = true,
- 		.multi_chip = true,
- 		.edsa_support = MV88E6XXX_EDSA_SUPPORTED,
- 		.ops = &mv88e6172_ops,
-@@ -6091,6 +6095,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.num_ports = 7,
- 		.num_internal_phys = 5,
- 		.num_gpio = 15,
-+		.num_leds = 2,
- 		.max_vid = 4095,
- 		.max_sid = 63,
- 		.port_base_addr = 0x10,
-@@ -6103,6 +6108,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.stats_type = STATS_TYPE_BANK0 | STATS_TYPE_PORT,
- 		.atu_move_port_mask = 0xf,
- 		.pvt = true,
-+		.led_hw_triggers = true,
- 		.multi_chip = true,
- 		.edsa_support = MV88E6XXX_EDSA_SUPPORTED,
- 		.ops = &mv88e6176_ops,
-@@ -6291,6 +6297,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.num_ports = 7,
- 		.num_internal_phys = 5,
- 		.num_gpio = 15,
-+		.num_leds = 2,
- 		.max_vid = 4095,
- 		.max_sid = 63,
- 		.port_base_addr = 0x10,
-@@ -6303,6 +6310,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.stats_type = STATS_TYPE_BANK0 | STATS_TYPE_PORT,
- 		.atu_move_port_mask = 0xf,
- 		.pvt = true,
-+		.led_hw_triggers = true,
- 		.multi_chip = true,
- 		.edsa_support = MV88E6XXX_EDSA_SUPPORTED,
- 		.ptp_support = true,
-@@ -6500,6 +6508,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.num_ports = 7,
- 		.num_internal_phys = 5,
- 		.num_gpio = 15,
-+		.num_leds = 2,
- 		.max_vid = 4095,
- 		.max_sid = 63,
- 		.port_base_addr = 0x10,
-@@ -6512,6 +6521,7 @@ static const struct mv88e6xxx_info mv88e6xxx_table[] = {
- 		.stats_type = STATS_TYPE_BANK0 | STATS_TYPE_PORT,
- 		.atu_move_port_mask = 0xf,
- 		.pvt = true,
-+		.led_hw_triggers = true,
- 		.multi_chip = true,
- 		.edsa_support = MV88E6XXX_EDSA_SUPPORTED,
- 		.ptp_support = true,
-diff --git a/drivers/net/dsa/mv88e6xxx/chip.h b/drivers/net/dsa/mv88e6xxx/chip.h
-index e966e7c4cc5d..deb32fe46954 100644
---- a/drivers/net/dsa/mv88e6xxx/chip.h
-+++ b/drivers/net/dsa/mv88e6xxx/chip.h
-@@ -135,6 +135,7 @@ struct mv88e6xxx_info {
- 	unsigned int num_ports;
- 	unsigned int num_internal_phys;
- 	unsigned int num_gpio;
-+	unsigned int num_leds;
- 	unsigned int num_tcam_entries;
- 	unsigned int max_vid;
- 	unsigned int max_sid;
-@@ -149,6 +150,9 @@ struct mv88e6xxx_info {
- 	int stats_type;
- 	bool pvt;
- 
-+	/* Support hardware LED triggers */
-+	bool led_hw_triggers;
-+
- 	/* Mark certain ports as invalid. This is required for example for the
- 	 * MV88E6220 (which is in general a MV88E6250 with 7 ports) but the
- 	 * ports 2-4 are not routet to pins.
-@@ -301,6 +305,8 @@ struct mv88e6xxx_port {
- 	bool fiber;
- 	struct led_classdev led0;
- 	struct led_classdev led1;
-+	struct led_classdev led2;
-+	struct led_classdev led3;
- 
- 	/* MacAuth Bypass control flag */
- 	bool mab;
-@@ -810,6 +816,11 @@ static inline bool mv88e6xxx_has_pvt(struct mv88e6xxx_chip *chip)
- 	return chip->info->pvt;
- }
- 
-+static inline bool mv88e6xxx_has_led_hw_triggers(struct mv88e6xxx_chip *chip)
-+{
-+	return chip->info->led_hw_triggers;
-+}
-+
- static inline bool mv88e6xxx_has_lag(struct mv88e6xxx_chip *chip)
- {
- 	return !!chip->info->global2_addr;
-@@ -855,6 +866,11 @@ static inline unsigned int mv88e6xxx_num_gpio(struct mv88e6xxx_chip *chip)
- 	return chip->info->num_gpio;
- }
- 
-+static inline unsigned int mv88e6xxx_num_leds(struct mv88e6xxx_chip *chip)
-+{
-+	return chip->info->num_leds;
-+}
-+
- static inline bool mv88e6xxx_is_invalid_port(struct mv88e6xxx_chip *chip, int port)
- {
- 	return (chip->info->invalid_port_mask & BIT(port)) != 0;
-diff --git a/drivers/net/dsa/mv88e6xxx/leds.c b/drivers/net/dsa/mv88e6xxx/leds.c
-index ab3bc645da56..925c120afba3 100644
---- a/drivers/net/dsa/mv88e6xxx/leds.c
-+++ b/drivers/net/dsa/mv88e6xxx/leds.c
-@@ -37,32 +37,53 @@ static int mv88e6xxx_led_brightness_set(struct mv88e6xxx_port *p, int led,
- 	u16 reg;
- 	int err;
- 
--	err = mv88e6xxx_port_led_read(p->chip, p->port,
--				      MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL,
--				      &reg);
-+	if (led == 2 || led == 3)
-+		err = mv88e6xxx_port_led_read(p->chip, p->port,
-+					      MV88E6XXX_PORT_LED_CONTROL_POINTER_LED23_CTRL,
-+					      &reg);
-+	else
-+		err = mv88e6xxx_port_led_read(p->chip, p->port,
-+					      MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL,
-+					      &reg);
-+
- 	if (err)
- 		return err;
- 
--	if (led == 1)
-+	if (led == 3)
-+		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED3_SEL_MASK;
-+	else if (led == 2)
-+		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED2_SEL_MASK;
-+	else if (led == 1)
- 		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED1_SEL_MASK;
- 	else
- 		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED0_SEL_MASK;
- 
- 	if (brightness) {
- 		/* Selector 0x0f == Force LED ON */
--		if (led == 1)
-+		if (led == 3)
-+			reg |= MV88E6XXX_PORT_LED_CONTROL_LED3_SELF;
-+		else if (led == 2)
-+			reg |= MV88E6XXX_PORT_LED_CONTROL_LED2_SELF;
-+		else if (led == 1)
- 			reg |= MV88E6XXX_PORT_LED_CONTROL_LED1_SELF;
- 		else
- 			reg |= MV88E6XXX_PORT_LED_CONTROL_LED0_SELF;
- 	} else {
- 		/* Selector 0x0e == Force LED OFF */
--		if (led == 1)
-+		if (led == 3)
-+			reg |= MV88E6XXX_PORT_LED_CONTROL_LED3_SELE;
-+		else if (led == 2)
-+			reg |= MV88E6XXX_PORT_LED_CONTROL_LED2_SELE;
-+		else if (led == 1)
- 			reg |= MV88E6XXX_PORT_LED_CONTROL_LED1_SELE;
- 		else
- 			reg |= MV88E6XXX_PORT_LED_CONTROL_LED0_SELE;
- 	}
- 
--	reg |= MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL;
-+	if (led == 2 || led == 3)
-+		reg |= MV88E6XXX_PORT_LED_CONTROL_POINTER_LED23_CTRL;
-+	else
-+		reg |= MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL;
- 
- 	return mv88e6xxx_port_led_write(p->chip, p->port, reg);
- }
-@@ -93,6 +114,32 @@ static int mv88e6xxx_led1_brightness_set_blocking(struct led_classdev *ldev,
- 	return err;
- }
- 
-+static int mv88e6xxx_led2_brightness_set_blocking(struct led_classdev *ldev,
-+						  enum led_brightness brightness)
-+{
-+	struct mv88e6xxx_port *p = container_of(ldev, struct mv88e6xxx_port, led2);
-+	int err;
-+
-+	mv88e6xxx_reg_lock(p->chip);
-+	err = mv88e6xxx_led_brightness_set(p, 2, brightness);
-+	mv88e6xxx_reg_unlock(p->chip);
-+
-+	return err;
-+}
-+
-+static int mv88e6xxx_led3_brightness_set_blocking(struct led_classdev *ldev,
-+						  enum led_brightness brightness)
-+{
-+	struct mv88e6xxx_port *p = container_of(ldev, struct mv88e6xxx_port, led3);
-+	int err;
-+
-+	mv88e6xxx_reg_lock(p->chip);
-+	err = mv88e6xxx_led_brightness_set(p, 3, brightness);
-+	mv88e6xxx_reg_unlock(p->chip);
-+
-+	return err;
-+}
-+
- struct mv88e6xxx_led_hwconfig {
- 	int led;
- 	u8 portmask;
-@@ -526,24 +573,40 @@ static int mv88e6xxx_led_blink_set(struct mv88e6xxx_port *p, int led,
- 	if (err)
- 		return err;
- 
--	err = mv88e6xxx_port_led_read(p->chip, p->port,
--				      MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL,
--				      &reg);
-+	if (led == 2 || led == 3)
-+		err = mv88e6xxx_port_led_read(p->chip, p->port,
-+					      MV88E6XXX_PORT_LED_CONTROL_POINTER_LED23_CTRL,
-+					      &reg);
-+	else
-+		err = mv88e6xxx_port_led_read(p->chip, p->port,
-+					      MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL,
-+					      &reg);
- 	if (err)
- 		return err;
- 
--	if (led == 1)
-+	if (led == 3)
-+		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED3_SEL_MASK;
-+	else if (led == 2)
-+		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED2_SEL_MASK;
-+	else if (led == 1)
- 		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED1_SEL_MASK;
- 	else
- 		reg &= ~MV88E6XXX_PORT_LED_CONTROL_LED0_SEL_MASK;
- 
- 	/* This will select the forced blinking status */
--	if (led == 1)
-+	if (led == 3)
-+		reg |= MV88E6XXX_PORT_LED_CONTROL_LED3_SELD;
-+	else if (led == 2)
-+		reg |= MV88E6XXX_PORT_LED_CONTROL_LED2_SELD;
-+	else if (led == 1)
- 		reg |= MV88E6XXX_PORT_LED_CONTROL_LED1_SELD;
- 	else
- 		reg |= MV88E6XXX_PORT_LED_CONTROL_LED0_SELD;
- 
--	reg |= MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL;
-+	if (led == 2 || led == 3)
-+		reg |= MV88E6XXX_PORT_LED_CONTROL_POINTER_LED23_CTRL;
-+	else
-+		reg |= MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL;
- 
- 	return mv88e6xxx_port_led_write(p->chip, p->port, reg);
- }
-@@ -576,6 +639,34 @@ static int mv88e6xxx_led1_blink_set(struct led_classdev *ldev,
- 	return err;
- }
- 
-+static int mv88e6xxx_led2_blink_set(struct led_classdev *ldev,
-+				    unsigned long *delay_on,
-+				    unsigned long *delay_off)
-+{
-+	struct mv88e6xxx_port *p = container_of(ldev, struct mv88e6xxx_port, led2);
-+	int err;
-+
-+	mv88e6xxx_reg_lock(p->chip);
-+	err = mv88e6xxx_led_blink_set(p, 2, delay_on, delay_off);
-+	mv88e6xxx_reg_unlock(p->chip);
-+
-+	return err;
-+}
-+
-+static int mv88e6xxx_led3_blink_set(struct led_classdev *ldev,
-+				    unsigned long *delay_on,
-+				    unsigned long *delay_off)
-+{
-+	struct mv88e6xxx_port *p = container_of(ldev, struct mv88e6xxx_port, led3);
-+	int err;
-+
-+	mv88e6xxx_reg_lock(p->chip);
-+	err = mv88e6xxx_led_blink_set(p, 3, delay_on, delay_off);
-+	mv88e6xxx_reg_unlock(p->chip);
-+
-+	return err;
-+}
-+
- static int
- mv88e6xxx_led0_hw_control_is_supported(struct led_classdev *ldev, unsigned long rules)
- {
-@@ -771,13 +862,13 @@ int mv88e6xxx_port_setup_leds(struct mv88e6xxx_chip *chip, int port)
- 	}
- 
- 	fwnode_for_each_child_node(leds, led) {
--		/* Reg represent the led number of the port, max 2
-+		/* Reg represent the led number of the port, max 4
- 		 * LEDs can be connected to each port, in some designs
- 		 * only one LED is connected.
- 		 */
- 		if (fwnode_property_read_u32(led, "reg", &led_num))
- 			continue;
--		if (led_num > 1) {
-+		if (led_num >= mv88e6xxx_num_leds(chip)) {
- 			dev_err(dev, "invalid LED specified port %d\n", port);
- 			ret = -EINVAL;
- 			goto err_put_led;
-@@ -785,8 +876,12 @@ int mv88e6xxx_port_setup_leds(struct mv88e6xxx_chip *chip, int port)
- 
- 		if (led_num == 0)
- 			l = &p->led0;
--		else
-+		else if (led_num == 1)
- 			l = &p->led1;
-+		else if (led_num == 2)
-+			l = &p->led2;
-+		else
-+			l = &p->led3;
- 
- 		state = led_init_default_state_get(led);
- 		switch (state) {
-@@ -805,17 +900,27 @@ int mv88e6xxx_port_setup_leds(struct mv88e6xxx_chip *chip, int port)
- 		if (led_num == 0) {
- 			l->brightness_set_blocking = mv88e6xxx_led0_brightness_set_blocking;
- 			l->blink_set = mv88e6xxx_led0_blink_set;
--			l->hw_control_is_supported = mv88e6xxx_led0_hw_control_is_supported;
--			l->hw_control_set = mv88e6xxx_led0_hw_control_set;
--			l->hw_control_get = mv88e6xxx_led0_hw_control_get;
--			l->hw_control_get_device = mv88e6xxx_led0_hw_control_get_device;
--		} else {
-+			if (mv88e6xxx_has_led_hw_triggers(chip)) {
-+				l->hw_control_is_supported = mv88e6xxx_led0_hw_control_is_supported;
-+				l->hw_control_set = mv88e6xxx_led0_hw_control_set;
-+				l->hw_control_get = mv88e6xxx_led0_hw_control_get;
-+				l->hw_control_get_device = mv88e6xxx_led0_hw_control_get_device;
-+			}
-+		} else if (led_num == 1) {
- 			l->brightness_set_blocking = mv88e6xxx_led1_brightness_set_blocking;
- 			l->blink_set = mv88e6xxx_led1_blink_set;
--			l->hw_control_is_supported = mv88e6xxx_led1_hw_control_is_supported;
--			l->hw_control_set = mv88e6xxx_led1_hw_control_set;
--			l->hw_control_get = mv88e6xxx_led1_hw_control_get;
--			l->hw_control_get_device = mv88e6xxx_led1_hw_control_get_device;
-+			if (mv88e6xxx_has_led_hw_triggers(chip)) {
-+				l->hw_control_is_supported = mv88e6xxx_led1_hw_control_is_supported;
-+				l->hw_control_set = mv88e6xxx_led1_hw_control_set;
-+				l->hw_control_get = mv88e6xxx_led1_hw_control_get;
-+				l->hw_control_get_device = mv88e6xxx_led1_hw_control_get_device;
-+			}
-+		} else if (led_num == 2) {
-+			l->brightness_set_blocking = mv88e6xxx_led2_brightness_set_blocking;
-+			l->blink_set = mv88e6xxx_led2_blink_set;
-+		} else {
-+			l->brightness_set_blocking = mv88e6xxx_led3_brightness_set_blocking;
-+			l->blink_set = mv88e6xxx_led3_blink_set;
- 		}
- 		l->hw_control_trigger = "netdev";
- 
-diff --git a/drivers/net/dsa/mv88e6xxx/port.h b/drivers/net/dsa/mv88e6xxx/port.h
-index 5b6cde9f7406..45d062af50ea 100644
---- a/drivers/net/dsa/mv88e6xxx/port.h
-+++ b/drivers/net/dsa/mv88e6xxx/port.h
-@@ -317,12 +317,15 @@
- #define MV88E6XXX_PORT_LED_CONTROL_UPDATE			BIT(15)
- #define MV88E6XXX_PORT_LED_CONTROL_POINTER_MASK			GENMASK(14, 12)
- #define MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL		(0x00 << 12) /* Control for LED 0 and 1 */
-+#define MV88E6XXX_PORT_LED_CONTROL_POINTER_LED23_CTRL		(0x01 << 12) /* Control for LED 2 and 3 */
- #define MV88E6XXX_PORT_LED_CONTROL_POINTER_STRETCH_BLINK	(0x06 << 12) /* Stetch and Blink Rate */
- #define MV88E6XXX_PORT_LED_CONTROL_POINTER_CNTL_SPECIAL		(0x07 << 12) /* Control for the Port's Special LED */
- #define MV88E6XXX_PORT_LED_CONTROL_DATA_MASK			GENMASK(10, 0)
- /* Selection masks valid for either port 1,2,3,4 or 5 */
- #define MV88E6XXX_PORT_LED_CONTROL_LED0_SEL_MASK		GENMASK(3, 0)
- #define MV88E6XXX_PORT_LED_CONTROL_LED1_SEL_MASK		GENMASK(7, 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL_MASK		GENMASK(3, 0)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL_MASK		GENMASK(7, 4)
- /* Selection control for LED 0 and 1, ports 5 and 6 only has LED 0
-  * Bits  Function
-  * 0..3  LED 0 control selector on ports 1-5
-@@ -415,6 +418,38 @@
- #define MV88E6XXX_PORT_LED_CONTROL_LED1_SELD			(0xd << 4)
- #define MV88E6XXX_PORT_LED_CONTROL_LED1_SELE			(0xe << 4)
- #define MV88E6XXX_PORT_LED_CONTROL_LED1_SELF			(0xf << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL0			0x0
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL1			0x1
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL2			0x2
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL3			0x3
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL4			0x4
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL5			0x5
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL6			0x6
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL7			0x7
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL8			0x8
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SEL9			0x9
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SELA			0xa
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SELB			0xb
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SELC			0xc
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SELD			0xd
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SELE			0xe
-+#define MV88E6XXX_PORT_LED_CONTROL_LED2_SELF			0xf
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL0			(0x0 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL1			(0x1 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL2			(0x2 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL3			(0x3 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL4			(0x4 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL5			(0x5 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL6			(0x6 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL7			(0x7 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL8			(0x8 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SEL9			(0x9 << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SELA			(0xa << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SELB			(0xb << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SELC			(0xc << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SELD			(0xd << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SELE			(0xe << 4)
-+#define MV88E6XXX_PORT_LED_CONTROL_LED3_SELF			(0xf << 4)
- /* Stretch and Blink Rate Control (Index 0x06 of LED Control) */
- /* Pulse Stretch Selection for all LED's on this port */
- #define MV88E6XXX_PORT_LED_CONTROL_0x06_PULSE_STRETCH_NONE	(0 << 4)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The fix still lets the SO_REUSEPORT bind cache admit a
+  conflicting socket.
+
+--
+
+tcp: Fix the SO_REUSEPORT bind cache admitting a conflicting socket
+
+This commit adds fast_sk_reuse and fast_bound_dev_if to struct
+inet_bind_bucket. In the FASTREUSEPORT_STRICT state, sk_reuseport_match()
+now skips the bind conflict check only when the new socket matches the
+cached socket's family, IPV6_V6ONLY, bound device and SO_REUSEADDR.
+
+> diff --git a/net/ipv4/inet_connection_sock.c b/net/ipv4/inet_connection_sock.c
+> index e56beec438773..70b8662b30048 100644
+> --- a/net/ipv4/inet_connection_sock.c
+> +++ b/net/ipv4/inet_connection_sock.c
+> @@ -420,13 +420,18 @@ static inline int sk_reuseport_match(struct inet_bind_bucket *tb,
+>  		return 0;
+>  	if (!uid_eq(tb->fastuid, sk_uid(sk)))
+>  		return 0;
+> -	/* We only need to check the rcv_saddr if this tb was once marked
+> +	/* We only need to check the fast_* fields if this tb was once marked
+>  	 * without fastreuseport and then was reset, as we can only know that
+> -	 * the fast_*rcv_saddr doesn't have any conflicts with the socks on the
+> -	 * owners list.
+> +	 * the socket they describe doesn't have any conflicts with the socks
+> +	 * on the owners list.
+>  	 */
+>  	if (tb->fastreuseport == FASTREUSEPORT_ANY)
+>  		return 1;
+> +	if (tb->fast_sk_family != sk->sk_family ||
+> +	    tb->fast_ipv6_only != ipv6_only_sock(sk) ||
+> +	    tb->fast_bound_dev_if != sk->sk_bound_dev_if ||
+> +	    tb->fast_sk_reuse != sk->sk_reuse)
+> +		return 0;
+
+[ ... ]
+
+> @@ -482,6 +489,8 @@ void inet_csk_update_fastreuse(const struct sock *sk,
+>  				tb->fast_rcv_saddr = sk->sk_rcv_saddr;
+>  				tb->fast_ipv6_only = ipv6_only_sock(sk);
+>  				tb->fast_sk_family = sk->sk_family;
+> +				tb->fast_sk_reuse = sk->sk_reuse;
+> +				tb->fast_bound_dev_if = sk->sk_bound_dev_if;
+>  #if IS_ENABLED(CONFIG_IPV6)
+>  				tb->fast_v6_rcv_saddr = sk->sk_v6_rcv_saddr;
+>  #endif
+
+[Severity: High]
+Can a socket that never went through a bind conflict check still fill the
+STRICT cache?
+
+The rewritten comment in sk_reuseport_match() assumes the cached socket
+has no conflicts with the sockets on the owners list.
+
+__inet_inherit_port() breaks that assumption. When the child's port
+differs from the listener's bucket port (the TPROXY redirect case
+described in the NOTE there), it calls inet_csk_update_fastreuse() for
+the child. It never checks the child against the owners of the target
+bucket:
+
+net/ipv4/inet_hashtables.c:__inet_inherit_port() {
+    ...
+	if (tb->port != port) {
+		...
+		update_fastreuse = true;
+
+		goto bhash2_find;
+    ...
+	if (update_fastreuse)
+		inet_csk_update_fastreuse(child, tb, tb2);
+    ...
+}
+
+The child copies sk_reuseport and sk_uid from the listener, and
+sk_clone_lock() clears sk_reuseport_cb.
+
+Suppose a listener without SO_REUSEPORT owns the target port. Then
+tb->fastreuseport is 0 and sk_reuseport_match() returns 0. The else
+branch above therefore resets the bucket to FASTREUSEPORT_STRICT with the
+child's uid, address, family, v6only, sk_reuse and bound_dev_if.
+
+One possible sequence:
+
+1. user B, no SO_REUSEPORT: bind(0.0.0.0:P), listen()
+   tb(P)->fastreuseport is 0
+
+2. TPROXY steers a connection for X:P to listener L (user A,
+   SO_REUSEPORT) on port Q
+   __inet_inherit_port()->inet_csk_update_fastreuse() puts the child
+   in tb(P), which becomes STRICT with fast_rcv_saddr = X and
+   fastuid = A
+
+3. user A sets SO_REUSEPORT (plus IP_FREEBIND if X is not local), uses
+   the same family, v6only, device and SO_REUSEADDR as the child, and
+   calls bind(X:P)
+   inet_csk_get_port()->sk_reuseport_match() returns 1, so
+   check_bind_conflict = false
+
+4. user A calls listen()
+   get_port() matches again and skips inet_bhash2_addr_any_conflict()
+   and inet_csk_bind_conflict() again
+
+A full check would return EADDRINUSE here, because inet_bind_conflict()
+sees !sk2->sk_reuseport for user B's listener.
+
+The new field comparisons cannot catch this, since the cached values
+really do belong to the child. The setup needs a TPROXY rule configured
+with CAP_NET_ADMIN, and the attacker has to run as the proxy listener's
+uid. The final bind() and listen() need no privilege.
+
+The selftest patch that follows in this series does not touch kernel
+code, so this path is still open after the whole series.
+
+Should an inherited child be kept out of the STRICT cache unless it was
+conflict-checked? For example, this path could set tb->fastreuseport = 0
+instead of resetting the cache to the child's attributes.
+
 -- 
-2.55.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111174704.24312-1-juanagusnicco%40gmail.com
