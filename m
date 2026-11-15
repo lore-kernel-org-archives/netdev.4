@@ -1,94 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.143.172.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794742965;
-	b=pbO2YqzFOLVHpUjtNlWXbMQwHXHTKuP/mFjmHl1wLhrGbdRB2jzQqcLFy19TTigcVmIw
-	 RzkI+nc5GThTVimIB+BUKJIGqavtO9dG/Fs/kaqQpD9hKrSh39/VTv93I3BvfhZDOOqvY
-	 E6ym1i1qq/RF7eDC6UwWKykPflfXQfmdA36Zxhxc3HXYw5lT+02dRSzsX0TOIUmY6zSlo
-	 bzn+A50Q3H+g7wuXLcdRaGt3y3d/1sjCzuDTunXF8Zc2+uuAlwJgrHhchQHQfxMkP9859
-	 sthMXzZBaRRNYo6A4qdUvDLi7Pldi8dpuRZxWa0FaUif+xVxHPEzFcemtusjXNbUm5g==
+	t=1794743166;
+	b=gz3sME6Rov87pNqenyHOMJvxjnm19UFEHN/dNd/OA5XzNrQQb5XobqeoP9FxF+N/wAIv
+	 1uuMnPI4sBqlNEkiTNSylVCQ7y1eUQlL5vg7cQwD1A81B2sLJtWATwD7Oi45dk8GuU52A
+	 Mnb7A3pXQpLGFX8TEV9RZAVb6Li4W6N8zlqAJCkX6uSSMg9yZAQwgNxdltkjz/buBnS1H
+	 A6SAXRAqCEDDxMXKz1OmchLA8E/mtZcHnsDbt44OpsSzqFMIhu1p5GIv0ATtzlXMZmqv6
+	 Irgp7DkqqAPCU7VZ5dqE4VzSUsLXzYfvdPy85QWw2bld98mnmAXR+m9XpSCbJ82djCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794742965;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=IvIEFoX9Gp+Y7CbxFyyYFIIDn8ikvGnI11j3avLfflQ=;
-	b=ppUXhotLqH/Pf3cSSKtXbYgr2F3RaeHt/w3gmNu/AN6ax6pIwzQ0t1D0djH2fVV+S84E
-	 eewfwEvB32aytr2+yJgvx7OKsdEWc70yapLPFhz7FbzTOwqpm5jYH/Xt35WZPgDyQ0Ila
-	 bMVU64JAdMrxOfAsDwZ7PjvLHSyH5JkTK8W5J901amdARxuiInDB/Mdc3CPQknaqac1Ep
-	 Au33V6sfgyTD6IvH7KXPqnW59Hueswiy0QynSViI0NSO4Qr35plmAJnpf7UCzWzbjkD0p
-	 5t33cwc48JVokuewIcc5rMXAgWEN56t7dFeSmA3nftUOQOtyhVjqkHTKXvGRrrqYd3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794743166;
+	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Bar:X-Rspamd-Report:X-Rspamd-Score:DKIM-Signature;
+	bh=E2qAcR3rEBfe73Lo3oxL5x8qblh3Zs/YTkiFBzYgfAo=;
+	b=S2obdK2uTe4aUSSVeiGuootpS0iIPN0gm1/RlIZsfTJ54eIekL5SEtKxUOzQHzb1FZfY
+	 XGybcFXr1sO5KPTDEEbVs6+5XfPJvBOjjV/mBcmcU+DHdFBQmDFgW1Sy4FRClmkMPTu/N
+	 VgOzfJ5fD+uOAQ39f/xi//k5j0G4apapv/YVkveUCshNTSYVjgtlf7xioMa4UzplX0poj
+	 2EwGltthJYrH8JiXckedDReFzNQRMValHN9iHPonbBx6XLorjybgtKNyXX7yFvq1410fQ
+	 fJgTO9zDtZ30ASJkwQ3y5JyRTdQZsI1GmrwEIcVlPaO5DWrxRw7RjUo/lYZjc7K9lIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F4zFlkDu;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=lausen.nl;
+	spf=pass smtp.mailfrom=lausen.nl;
+	dkim=pass header.d=lausen.nl header.i=@lausen.nl header.a=rsa-sha256 header.s=uberspace header.b=hBMYvwQt;
+	arc=none smtp.remote-ip=95.143.172.20
+Received: from mailgate01.uberspace.is (mailgate01.uberspace.is [95.143.172.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F2D9606A31A
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:42:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F2D9606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CECAF606A32C
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:46:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CECAF606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lausen.nl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lausen.nl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F4zFlkDu
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4a207b02a2cso13321175e9.1
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 03:42:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794742964; x=1795347764; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IvIEFoX9Gp+Y7CbxFyyYFIIDn8ikvGnI11j3avLfflQ=;
-        b=F4zFlkDu03Tccb+UY9MZouBAmFkH0LxqYlmxL2W2TWh40xdiRimMbIR03thI5yK+U4
-         kl2l4YVRbN3p0CDUlMdsdxQi8fafLwqRTeRWn8wDgzY+qsiL4ktFYOPJc0+LiMVmcITt
-         64JT+sgb7tCFx1JDNEQr4N8s2BFZDJbpFv+XnCtqekl7s5/aL8GtlzEUJjPo7rDCGx2H
-         91zdFs+MiUxFJiEYFul2Ktx9AsHWavLgj/PstK7BDL4uV2xGjUvWA0lf/u21llxi7YXd
-         MsTComYkHpSEpzgiSWnP/Zu3S0L4XpxAyyp8EC22BzSdhEbougC87+nyTip9YiYsAKFE
-         FVFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794742964; x=1795347764;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IvIEFoX9Gp+Y7CbxFyyYFIIDn8ikvGnI11j3avLfflQ=;
-        b=ZTzb7iZSYVxw8teOZw/bHc8s2l02DuBm8a0i0D2X6TWoOaLR+PYwwPpt/RrI2J6Z0g
-         aRPt5gh95hVRin8uaYnTyHPMwGko+7/dpdxW+jp8wiIuaElwEevgmArrXZThR/pVtyJb
-         UGfN3gJ1AlOnRc5+5GnxSCfuwsqZcSu/J/1tdeQeiXfYRCFfv473jwnV9P5h0a5wor/E
-         jZwv2cRtPU79VtT2tgMAD+o0kmrERQUc++2JBY77IEhcfuGdsXgC0BOb3d+ZW4tqcP8p
-         vjSI9ZKT8pF9jPbhXgtmkEuZfcBHYN4iwv+rBVuV0y0CqBsqtdeB0o+Bm2XluR4Ow+Fk
-         TT/A==
-X-Gm-Message-State: APuU4Z/+GqMD3SkHkCTRR2xQzAgwH/No5d+oIbTnqbpKwkq2EvAPcd5k
-	HdtE9ACZ5xQjVD10xgGmB+XpNaoVQBcHR0P/hxDab9CXyOy2jgUQPi2UucoqZQ==
-X-Gm-Gg: AYBFou1BU71t0JSb4OUrQXotwX1GmRSUZzM86BsD7K+2OZDld1kMA/b0tV5+PSRQ96b
-	T9Af0sQoN+n21kfdw6pA6Dycrq08fskWaJfAEKTBWPuuiVFpcM1k8YHjmsdU/0VvMHKb90ll7vM
-	a0HbFBz4Nuyu6pOpWGMX7TbzRR4wpSA0iRRuN9EYz65QTbAhZASewl+t5ZEFXkzuiSkUie4ib24
-	gHyR6l+O1Mw3dkTjhRr9QRGyZrENwhFU0wOIUXS3PUUBnUu+0IaTWR4m5lLzpZ8sphZpE+hQRbk
-	fHFKvFeBH0DYEgLfdrJAaEWCu1wzgu3GFxxs+RQIkeQAxzvoXQ0/6ontJOWfDRcAPnKPhNhFhJP
-	7Vy1yz4PwY880DIp1MJnYkZfQSeb5/+bOJVCQt1yJ3Fh6LO1LVV4Cy7cn5JovHjp8WOWjfQvsxB
-	m2lUCRjBRdJUQQ1ITmvZgyzcslLqQkK4njA3ONqbgFuJQwqIfO9aLUEDp46pW7R9T86TsVU1gll
-	tBPtLHh1E8TgTbbkZN9BT9qZU3DXwcGPTUuFOzTtBwl1BT0d3R6zRocuncduJpZJIPPjVnRyQa9
-	OJkPhaaB/FuWZ7xdoIQ7sJx5HwbN3xfax/N44RXf/0Nu09vAYQd+9linA1Hb7fIWE3c=
-X-Received: by 2002:a05:600c:524a:b0:4bb:6cef:d14b with SMTP id 5b1f17b1804b1-4bb6cefd40dmr20629275e9.2.1794742963680;
-        Sun, 15 Nov 2026 03:42:43 -0800 (PST)
-Received: from localhost.localdomain ([2a06:c701:474b:1700:da41:1869:5f63:edb1])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb4e29daa5sm314858475e9.12.2026.11.15.03.42.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 03:42:43 -0800 (PST)
-From: Avi Weiss <thnkslprpt@gmail.com>
+	dkim=pass (4096-bit key) header.d=lausen.nl header.i=@lausen.nl header.a=rsa-sha256 header.s=uberspace header.b=hBMYvwQt
+Received: from devico.uberspace.de (devico.uberspace.de [185.26.156.185])
+	by mailgate01.uberspace.is (Postfix) with ESMTPS id 0553660BE4
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 12:45:56 +0100 (CET)
+Received: (qmail 18858 invoked by uid 990); 15 Nov 2026 11:45:55 -0000
+Authentication-Results: devico.uberspace.de;
+	auth=pass (plain)
+Received: from unknown (HELO unknown) (::1)
+	by devico.uberspace.de (Haraka/3.1.1) with ESMTPSA; Sun, 15 Nov 2026 12:45:55 +0100
+From: Leonard Lausen <leonard@lausen.nl>
 To: netdev@vger.kernel.org
-Cc: akiyano@amazon.com,
-	darinzon@amazon.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	atrwajee@amazon.com
-Subject: [PATCH net v2 RESEND] net: ena: set admin device pointer before queue allocations
-Date: Sun, 15 Nov 2026 13:42:40 +0200
-Message-ID: <20261115114239.2308017-2-thnkslprpt@gmail.com>
-X-Mailer: git-send-email 2.43.0
+Cc: leonard@lausen.nl,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	Shuah Khan <shuah@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2 0/2] ipv6: honor prefix-length suppression in raw FIB lookups
+Date: Sun, 15 Nov 2026 11:44:30 +0000
+Message-ID: <20261115114434.10343-2-leonard@lausen.nl>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,48 +74,71 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Bar: -
+X-Rspamd-Report: MID_CONTAINS_FROM(1) BAYES_HAM(-2.996479) MIME_GOOD(-0.1) R_MISSING_CHARSET(0.5)
+X-Rspamd-Score: -1.596479
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=lausen.nl; s=uberspace;
+	h=from:to:cc:subject:date;
+	bh=wAe5ZC7Fm6uGqNNB9AvG9s41KNLGeyY8d6FFjcwChUQ=;
+	b=hBMYvwQtliYC27OwjBCkct5rQ5I9TOX82SHf5qDl1W8KWgAMU8Dwo3hKcwL2oSc4E4HUo0y0ZQ
+	/KcaJsGFQDKhnf+Hkx+PJnhV5289P5LXk58ma+9qsebA9sEkhcEZdvQpEshq9R+mq6WrV4ZlXWLi
+	evq4QHZOlv6A1AQD84xXR7UV9sX/UwYmGI3Lkb1pg/jOeufGDxvkBOgdHytO3nLGuZrQk9bWRLUa
+	XVgxc40D2krSPa0VykTp6y/KGb3qjfdlATHCQnnMIFT3GW4oU31Rz/CsqC85YPtEH1oowlJba+6a
+	Pr6ohGrjMwDWEz6+dH7AzUa4vxKucYWJ9FyAd52N6Yd+kwYXARZqXVFJj7XTXcyqEEd9sIA/7Pv1
+	L5TZanwBKVIfYBiT5bRZEd4rKVnU+TMGx+zDFeMowNcPgDaT6uKQQMmbDpCBbutCdq/SroHWNwvE
+	hHF9wW/9Ug6y1FM5Co0MLOnuOFyBDwU7Tamufr5sK+V6qQqUKzPSEwiFGs/jfe1fqOKTGWSbfdVJ
+	4qtc4hMFGyfaUlGFc/yM61ya/08xigQCGrgQM77mWtv/CAnmxrCGAPTb9alG7KvTMHqIxQoq21xl
+	g5bbjy93bmLZHfA1c3bfSyPT9m+eSVPgEQkQn/eIj8MeesAwS4YQTDwoGurDFoLmn1auhJOGLxWc
+	M=
 
-From: Wajeeh Atrash <atrwajee@amazon.com>
+Following Sashiko's automated review, v2 is limited to
+suppress_prefixlength. The review identified that v1 evaluated
+suppress_ifgroup before final multipath selection; I reproduced the
+resulting disagreement between raw and ordinary lookups. Interface-group
+suppression needs separate work and is left unchanged in this revision.
 
-On the first probe, ena_com_admin_init() allocates the completion
-contexts and admin SQ/CQ buffers before setting admin_queue->ena_dev.
-Their allocation failure paths log through this pointer, which is
-still NULL. A failed allocation therefore dereferences NULL instead
-of returning -ENOMEM.
+Prefix suppression is sufficient for the reported VPN failure: nftables
+can otherwise return a main-table default that an ordinary lookup
+suppresses before continuing to the VPN table. Strict reverse-path
+filtering then drops replies arriving through the VPN.
 
-Set admin_queue->ena_dev before the first allocation so the helpers
-can log errors and return -ENOMEM normally.
+Patch 1 adds a raw prefix-length check while preserving RTF_REJECT results
+and leaving dst-based handling unchanged. Patch 2 extends nft_fib.sh with
+six checks using its existing topology and counter helper.
 
-This issue has already been fixed in Amazon's standalone ENA driver
-(commit 7d1dc4341d4f).
+Changes since v1:
+- Drop raw suppress_ifgroup support and its tests. Table lookup can return
+  a different nexthop from the final multipath selection used by ordinary
+  routing and BPF, so suppression cannot safely use that initial device.
+- Install the router's logging RPF rules after the suppression checks and
+  policy-rule cleanup. This prevents neighbour advertisements from being
+  logged and dropped during intentionally different reverse-route states.
+- Add a blackhole nexthop-object case, which distinguishes rejection flags
+  in the lookup result from those in the FIB entry.
 
-Fixes: da580ca8de2c ("net: ena: add device distinct log prefix to files")
-Signed-off-by: Wajeeh Atrash <atrwajee@amazon.com>
-Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
----
- drivers/net/ethernet/amazon/ena/ena_com.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+V1: https://lore.kernel.org/netdev/20261110131638.15004-3-leonard@lausen.nl/
 
-diff --git a/drivers/net/ethernet/amazon/ena/ena_com.c b/drivers/net/ethernet/amazon/ena/ena_com.c
-index 297fb36ab8c16..9b14cddf4432e 100644
---- a/drivers/net/ethernet/amazon/ena/ena_com.c
-+++ b/drivers/net/ethernet/amazon/ena/ena_com.c
-@@ -1992,6 +1992,7 @@ int ena_com_admin_init(struct ena_com_dev *ena_dev,
- 
- 	admin_queue->q_depth = ENA_ADMIN_QUEUE_DEPTH;
- 
-+	admin_queue->ena_dev = ena_dev;
- 	admin_queue->q_dmadev = ena_dev->dmadev;
- 	admin_queue->polling = false;
- 	admin_queue->curr_cmd_id = 0;
-@@ -2045,7 +2046,6 @@ int ena_com_admin_init(struct ena_com_dev *ena_dev,
- 	if (ret)
- 		goto error;
- 
--	admin_queue->ena_dev = ena_dev;
- 	admin_queue->running_state = true;
- 
- 	return 0;
+Tested on the rebuilt v7.4-rc2-based kernel: all six added checks pass,
+and the full nft_fib.sh run exits 0. A run with an eight-second delay also
+passes, allowing neighbour discovery to complete. Separate probes confirm
+that reject routes remain terminal and raw interface-group suppression
+is unchanged.
+
+OpenAI Codex assisted with investigation, reproduction, implementation,
+tests and descriptions. The prompts asked it to investigate the
+Wireguard VPN failure.
+
+Leonard Lausen (2):
+  ipv6: honor prefix-length suppression in raw FIB lookups
+  selftests: netfilter: cover IPv6 FIB prefix suppression
+
+ net/ipv6/fib6_rules.c                         |  9 ++-
+ .../selftests/net/netfilter/nft_fib.sh        | 63 ++++++++++++++++++-
+ 2 files changed, 70 insertions(+), 2 deletions(-)
+
+
+base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
 -- 
-2.43.0
+2.55.0
 
