@@ -1,74 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794703208;
-	b=qcvngE7nEX4PGTJhBdp4cKnSc1+0IeoInebx15zphNzqBiogLBJ+gkwk3cQ6OwD8aWBh
-	 xW/jWPODAtM7C8f1BeNe157EBvdPxuXLVd2a2W4czZRy5OY/hMJ8bPJSVeL1+/Wt2rCNH
-	 5Q5JuG6WiZ9eNqycDiDqffnZDkWYoEOIRRL2dvW0aeQwdKqgnUaRme8zIWXIMuuEdDqk+
-	 VLbhgc98JAHtyuIeNOBGdE9H49d8Tm7SiAotTVlp2ugkZvzSMTM53jk/DhepAZPpr3qdv
-	 BDa3VlQW9ycztelilhsN5GpspZAgDUh31dohr74xD2z+iW888kX4eFhOVu9S+awn0aw==
+	t=1794703507;
+	b=PqwvUisL9W150wvZQVM0LxfT7+x+Yde2UICgJ/cUkGs2MSO32tPpHpboFBX7tpLCf5CX
+	 ueFHR8uvRihbu+iARhurLvNUXTO1lMV8lO1TiokAiA2eesP9liRz7ETLeunQ9HagIAbx7
+	 lrkm0ozSIghrYbYFeF5kcYS9jSUL+Jw4DG+jvJ0FROkrPrpeFp8Wv7tshC9WY5q3XmS3b
+	 3GITbzt2PFMFuCR/n+kuD8mqFhAkyxia3YVLLLPe0x1XRoNfRDI2L9R8DziVbdkYUbedU
+	 d+FLpSlMPBKpFmbLdOMH+ZsxvcJio5COQhNr0djRLwYdeLlzane2/sQcNoK455G0G6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794703208;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
-	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=UgDDWaqaaS/aiO86WDODrYk/EL2uW+1mnI6To16WgSk=;
-	b=AiSaj32k6UP2HHJ2gwwzGeoGdYSxJOgC8azK3l8vUV1zXy6ZpTuho5MDa2x9srG9bcnG
-	 a4yH0O9DF8DmAgifEWmaklpSyxImLjfVU182IYXKeh2CARJVePJjeWojIH3+rxi0/Vd5Q
-	 QJCyKcKh68PWYsFNgfSCz+xFjtOoING1bTCQ/0jZYDbzQXETQEby6bCyUbZ/RngR9/xWM
-	 s2OLLv0wrxQrIm5971OvubH1yiitbDbAsEz5zsrLcudEe9CN5ML4H18y8yhtbb+xfJe8y
-	 T5Ef1bXu6CyOsG/pgucGOz3ngSBbSKLPLHlOuBsguQXYm5Rps0Y9fHtDgaKtWmJ/oLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794703507;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=RiNYzztBiVox2P9vASzVZ5SqLcQATUvhICdg6qPjINc=;
+	b=bEvGR7IsJC8IkAVL0p2QwYghgRVywWDo91nFraBHqIUaGzVFSGfQv2J3zjh6lgJOwLf/
+	 knTMA7LCIQBgWkY5xB+NSj6LAYA+tWjqRikNQ3DKMmW1kZamBSiztEhY+T3uB8XpRAgeE
+	 0aZ/CmUlJFsz/OVD0L2anoH1ZD36AzyHW+ZHs+ezrfEztiVMykRXNDueUgzdQpzBrNX8t
+	 DAHGLisDLethz5SHfqMXLHCTMgA0rmKS1ZXk2MqTJQmPuKKbsQ4AxUKnT4s84eAA678TS
+	 uyvmELTvkv7MKqXDndYWr80mUVYN4qeCH23NglAuAyJoQ4q2xhUFuioFcGvdKyjOXGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q+FuumOG;
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9oIFjIp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A790606A89D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:40:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A790606A89D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E432606A332;
+	Sun, 15 Nov 2026 00:45:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Q+FuumOG
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3b45597c7so5117137c88.1
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:40:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794703207; x=1795308007; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UgDDWaqaaS/aiO86WDODrYk/EL2uW+1mnI6To16WgSk=;
-        b=Q+FuumOGIxeLSmXWXt3zAZM3NE8DXetRicg3BZZ3uxe/rw4g9OMn//8ussnzJp+/l+
-         sE7VLAThwrDIpmLp/nq219EUXCTbnbaaqii64Lz9dNwN9J6T0z26XFoM92WJP7dA577M
-         ZqzyOHU1tkrF7OorCfu4L5I37Wv+8Fmejf2if1V21YnTRSCBygpt+ncZxIIn+NISB0dF
-         OtZrYzXzAXGSH3aLp24hNzrGXCK0qxZBLcg01B9q9mYW2CUmOig2Lbng9UkLe0pK+Qzi
-         dRGxGYfjNUChynNl/ze2JDFMU4dSwcStnKBBrdGa1M5IVdulEWsxCYu2GCC29IF6y1ZW
-         Sn7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794703207; x=1795308007;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UgDDWaqaaS/aiO86WDODrYk/EL2uW+1mnI6To16WgSk=;
-        b=WPnZ0s7dvrbMHMXDG/Ex8Uej7cipFcz21dzcRj7JwTtDSjns+xzZA01UjSolrcTyv0
-         JkYfFV8UmfNZHpuAvLGiWkpXJTnQRd1ipi/flc5oj4SrOMBuHmuqfokdXwm1zuoz7FjM
-         cIvTtRUXVzpLWOlvZO5xklqq9TryY+O7rXGyPYqmlmFiyldw/6afQkLrSxows68rDh+4
-         31QUHNxLSOGxx5bg8eoKM/lcPboMatuUJRlbp1VPnTLr6dHnF0sbhMcd/xMwQDVzp3qS
-         UFYOUzd+Y6rbioLYnEtfxWzoAqtYYGhJs5XrRMS0+luLNzGzsoIqU9MncfxyUdnuF4iE
-         cFlg==
-X-Gm-Message-State: APuU4Z9OnzDirLJEALuGprDn4dQHnu494jl5kX6AVCw0czuRFSBh4IBQ
-	hzQ3fPeEEG2UbCq2xVCFCdYxyLnlkUOwOADeqdrhDuCGl9gOa0gLt1OZdw9uecPSE7vQJWrqOPt
-	U7i5UPOLp5qKTfNLrA+gge0todMSx2rHznukskFio9tfpknKtrfG6LLhuzl40Zu512NqA8S9Zad
-	zoEbY1k5jqsQNUMWd025COy9wbtZMUvK1k0aMyZqak5Mk+tY6L3/5Rlh/+LLMli5Q=
-X-Received: from dlbsw4.prod.google.com ([2002:a05:7022:3a84:b0:1af:74c2:e2b])
- (user=almasrymina job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:701b:2706:b0:1b5:126c:eb88 with SMTP id a92af1059eb24-1b5126cec12mr3641935c88.45.1794703207011;
- Sat, 14 Nov 2026 16:40:07 -0800 (PST)
-Date: Sun, 15 Nov 2026 00:40:03 +0000
-In-Reply-To: <20261115004003.3695475-1-almasrymina@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B9oIFjIp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D23961F000C6;
+	Sun, 15 Nov 2026 00:45:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794703506;
+	bh=RiNYzztBiVox2P9vASzVZ5SqLcQATUvhICdg6qPjINc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=B9oIFjIpjbmmPQ+cWOXhJq27CVqHZyMqMXeRl0v0fIqJUPmhOAKcHMx5KH964FbWa
+	 JytEmlvgcb06DNNDmXNvsxW/WOMXVjUudSCAK5fQ4Jtu5+GyhhihJFhh0+E5aD4LSV
+	 GaJFmAHqKaIbM1KMdJBgQ9Hq2ROYo2jjX/M5VJSWP6chZdXE+7rbkiwIJ895jBD+qN
+	 UyCp8lni+zNkBTTa+HlbEkZHOd6VH5KMo/UFGeZoJC6gVA+Z1fRzW6wT4zc+4JCPmW
+	 vqPG7LqdsN3DWUOVrzq6jos3lFVumqCw/LyUVHmGJFeJQ3aWG6CUEm0Mz5iZnjHkmp
+	 T1arq23Wx508Q==
+Subject:
+ Re: [PATCH net-next v6 2/3] net: ethernet: mtk_eth_soc: skip page_pool
+From: netdev-bot+sashiko@kernel.org
+To: sandeeph@loljews.com
+Cc: netdev@vger.kernel.org, nbd@nbd.name, lorenzo@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, linux@armlinux.org.uk,
+ daniel@makrotopia.org, mason-cw.chang@mediatek.com, frank-w@public-files.de,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Sun, 15 Nov 2026 00:45:05 +0000
+Message-ID: <179470350538.2199510.6670148874523069932@kernel.org>
+In-Reply-To: <patch-2a89212e66b84e37783e0d2ebdaa0a75@loljews.com>
+References: <patch-2a89212e66b84e37783e0d2ebdaa0a75@loljews.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,74 +66,188 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261115004003.3695475-1-almasrymina@google.com>
-X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
-Message-ID: <20261115004003.3695475-4-almasrymina@google.com>
-Subject: [PATCH net-next v5 3/3] tcp: propagate skb_zcopy() uarg in tcp_mtu_probe()
-From: Mina Almasry <almasrymina@google.com>
-To: netdev@vger.kernel.org
-Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>, 
-	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, 
-	Josef Bacik <josef@toxicpanda.com>, Kaiyuan Zhang <kaiyuanz@google.com>, 
-	Willem de Bruijn <willemb@google.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Pavel Begunkov <asml.silence@gmail.com>, 
-	Daniel Borkmann <daniel@iogearbox.net>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
 
-tcp_clone_payload() takes references on source skb fragments when
-building an MTU probe skb, but never attaches the source skb's zerocopy
-ubuf_info (uarg) to the probe skb. When tcp_mtu_probe() subsequently
-frees fully consumed source skbs via tcp_eat_one_skb(), skb_release_data()
-drops their uarg references and can deliver the zerocopy completion to
-userspace while the unacknowledged probe skb still references the user
-buffers.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Additionally, tcp_can_coalesce_send_queue_head() only checks
-skb_pure_zcopy_same() (which compares SKBFL_PURE_ZEROCOPY), allowing
-adjacent zerocopy skbs with different uargs (or a mixed-zerocopy skb and
-a non-zerocopy skb) to be coalesced into a single probe skb that can
-only hold one destructor_arg.
+Critical: 0 · High: 0 · Medium: 1 (2) · Low: 1
 
-Reject coalescing across different skb_zcopy() uargs in
-tcp_can_coalesce_send_queue_head() and propagate the uarg to the probe
-skb via skb_zcopy_set() in tcp_clone_payload().
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-This is a pre-existing issue found by manual code inspection and LLM
-review; it was not triggered in production. Verified with the net_core
-KUnit test suite; not tested on real hardware.
+- [Medium] mtk_rx_alloc() (drivers/net/ethernet/mediatek/mtk_eth_soc.c)
+  now creates the page_pool only when `ring->buf_size <=…
+- [Low] The new comment in mtk_rx_alloc() and this commit's message both
+  name `mtk_max_buf_alloc()` as the fallback allocator.
 
-Fixes: 736013292e3c ("tcp: let tcp_mtu_probe() build headless packets")
-Signed-off-by: Mina Almasry <almasrymina@google.com>
----
- net/ipv4/tcp_output.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+Pre-existing issues:
+- [Medium] This problem wasn't introduced by this patch, but
+  mtk_rx_alloc() leaks ring->data on two error paths.
+- [Medium] This problem wasn't introduced by this patch, but
+  mtk_rx_clean() calls `dma_unmap_single(eth->dma_dev, rxd1|addr64,…
 
-diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
-index 19059d03152e..bedf828cc0e0 100644
---- a/net/ipv4/tcp_output.c
-+++ b/net/ipv4/tcp_output.c
-@@ -2664,7 +2664,9 @@ static bool tcp_can_coalesce_send_queue_head(struct sock *sk, int len)
- 		if (len <= skb->len)
- 			break;
- 
--		if (tcp_has_tx_tstamp(skb) || !tcp_skb_can_collapse(skb, next))
-+		if (tcp_has_tx_tstamp(skb) ||
-+		    !tcp_skb_can_collapse(skb, next) ||
-+		    skb_zcopy(skb) != skb_zcopy(next))
- 			return false;
- 
- 		len -= skb->len;
-@@ -2718,6 +2720,7 @@ static int tcp_clone_payload(struct sock *sk, struct sk_buff *to,
- 	WARN_ON_ONCE(len != probe_size);
- 	for (i = 0; i < nr_frags; i++)
- 		skb_frag_ref(to, i);
-+	skb_zcopy_set(to, skb_zcopy(tcp_send_head(sk)), NULL);
- 
- 	skb_shinfo(to)->nr_frags = nr_frags;
- 	to->truesize += probe_size;
+--
+
+net: ethernet: mtk_eth_soc: skip page_pool
+
+This patch makes mtk_rx_alloc() create a page_pool only when the ring's
+descriptor length (ring->buf_size) fits within MTK_PP_MAX_BUF_SIZE. Larger
+rings fall back to the netdev_alloc_frag() path. With the current MTU
+limits the gate always passes. It is meant to take effect with the 9K
+jumbo support that follows.
+
+Link: https://github.com/mediatek/mtk-openwrt-feeds
+
+> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> index 6c8b039fad415..16c3e4157085b 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> @@ -2824,7 +2824,13 @@ static int mtk_rx_alloc(struct mtk_eth *eth, int ring_no, int rx_flag)
+>  	if (!ring->data)
+>  		return -ENOMEM;
+>  
+> -	if (mtk_page_pool_enabled(eth)) {
+> +	/* A page_pool hands out order-0 pages and is created with
+> +	 * MTK_PP_MAX_BUF_SIZE, so it can only back a ring whose descriptor
+> +	 * length fits.  Larger rings use the netdev_alloc_frag()/
+> +	 * mtk_max_buf_alloc() path below instead.
+> +	 */
+
+[Severity: Low]
+This isn't a bug, but mtk_max_buf_alloc() doesn't exist yet at this commit.
+The fallback below still calls the LRO-sized allocator:
+
+			if (ring->frag_size <= PAGE_SIZE)
+				data = netdev_alloc_frag(ring->frag_size);
+			else
+				data = mtk_max_lro_buf_alloc(GFP_KERNEL);
+
+The commit message has the same forward reference:
+
+    Gate the pool on ring->buf_size <= MTK_PP_MAX_BUF_SIZE and let larger
+    rings use the netdev_alloc_frag()/mtk_max_buf_alloc() path that already
+    exists.
+
+mtk_max_buf_alloc() comes from the next patch, "net: ethernet:
+mtk_eth_soc: add 9K jumbo". That patch renames mtk_max_lro_buf_alloc() and
+sizes the buffer from ring->frag_size.
+
+Could this patch name mtk_max_lro_buf_alloc() instead, or leave the
+reference to the later patch?
+
+> +	if (mtk_page_pool_enabled(eth) &&
+> +	    ring->buf_size <= MTK_PP_MAX_BUF_SIZE) {
+
+[Severity: Medium]
+When this condition is false on a netsys v2+ SoC, ring->page_pool stays
+NULL and ring->xdp_q is never registered. XDP only runs inside the
+page_pool branch of mtk_poll_rx():
+
+mtk_poll_rx() {
+    ...
+		if (ring->page_pool) {
+			...
+			ret = mtk_xdp_run(eth, ring, &xdp, netdev);
+			...
+		} else {
+			...
+}
+
+At this commit, the XDP admission checks still compare only the per-device
+MTU against MTK_PP_MAX_BUF_SIZE:
+
+mtk_xdp_setup() {
+    ...
+	if (dev->mtu > MTK_PP_MAX_BUF_SIZE) {
+    ...
+}
+
+mtk_change_mtu() {
+	int length = new_mtu + MTK_RX_ETH_HLEN;
+    ...
+	if (rcu_access_pointer(eth->prog) &&
+	    length > MTK_PP_MAX_BUF_SIZE) {
+    ...
+}
+
+Once the shared rings can grow past MTK_PP_MAX_BUF_SIZE, could an XDP
+program attach successfully and then never run? Every packet would then be
+handled as if the program returned XDP_PASS.
+
+This can't trigger at this commit. Non-LRO rings have a buf_size of about
+2110, and HW-LRO rings only exist on netsys v1, where the page_pool is
+disabled.
+
+The next patch, "net: ethernet: mtk_eth_soc: add 9K jumbo", changes
+mtk_xdp_setup() and mtk_change_mtu() to check the shared rx_buf_len. That
+appears to make the admission checks match this gate.
+
+Would it be cleaner to make the admission checks use the same length as
+this gate in this patch, so each step of the series stays consistent?
+
+>  		struct page_pool *pp;
+>  
+>  		pp = mtk_create_page_pool(eth, &ring->xdp_q, ring_no,
+
+[Severity: Medium]
+This isn't a bug introduced by this patch, but does mtk_rx_alloc() leak
+ring->data on the error paths right after this?
+
+		if (IS_ERR(pp))
+			return PTR_ERR(pp);
+	...
+	ring->dma = mtk_dma_ring_alloc(eth,
+				       rx_dma_size * eth->soc->rx.desc_size,
+				       &ring->phys,
+				       rx_flag == MTK_RX_FLAGS_NORMAL);
+	if (!ring->dma)
+		return -ENOMEM;
+
+Both paths return with ring->data allocated and ring->dma still NULL. The
+cleanup through mtk_start_dma()->mtk_dma_free()->mtk_rx_clean() only frees
+the array when both pointers are set:
+
+mtk_rx_clean() {
+	...
+	if (ring->data && ring->dma) {
+		...
+		kfree(ring->data);
+		ring->data = NULL;
+	}
+	...
+}
+
+The next mtk_rx_alloc() then overwrites ring->data. So each time ndo_open
+fails at either step, the old array of rx_dma_size pointers is lost.
+
+[Severity: Medium]
+This is a pre-existing issue, but now that the page_pool decision is made
+per ring, should mtk_rx_clean() follow it too? It unmaps every live RX
+buffer unconditionally:
+
+mtk_rx_clean() {
+	...
+			dma_unmap_single(eth->dma_dev, ((u64)rxd->rxd1 | addr64),
+					 ring->buf_size, DMA_FROM_DEVICE);
+			mtk_rx_put_buff(ring, ring->data[i], false);
+	...
+}
+
+For page_pool rings, the pool owns the mapping (PP_FLAG_DMA_MAP), and
+rxd1 holds page_pool_get_dma_addr(page) + MTK_PP_HEADROOM from
+mtk_page_pool_get_buff().
+
+Doesn't this unmap an offset address with ring->buf_size, and then have
+the pool unmap the same page again with PAGE_SIZE when it is destroyed?
+With CONFIG_DMA_API_DEBUG this would be reported. With an IOMMU or swiotlb
+bouncing, it could corrupt the mapping state.
+
+mtk_rx_put_buff() already checks ring->page_pool to decide how to free the
+buffer. Should dma_unmap_single() be skipped under the same condition?
+
 -- 
-2.56.0.611.g1030f0b940-goog
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/patch-4b4c5003bcf028fafd094e719c5e910b%40loljews.com
