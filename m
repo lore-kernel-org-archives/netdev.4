@@ -1,80 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794706161;
-	b=4JaaoD6ZsUqe55uwJVmQzOZri85HpXqfnex/G8VaPNEw3hJm2MwxnxX4RdKAyCDjkxPh
-	 KsaRqHbSvq/OVNwm995owbxKfrjs9QJDnyiER1bdQ5ssRkoE8fmL0OYB5i4+is2E3KUbe
-	 J2P37OHoeqpT3YoaiwztvQ4K3cxLQFA0GPujdRqPGU3fJ/EoYufvrrn4VsSxEhQEafqfC
-	 UNXp0PGuK0+E4MsACCaaYQrpFg8/uLUEDrVZvDLiYygnad6S4Taem6nOhZaNAMfmMG08a
-	 7P7XiaSC+bL+Z8tYQ70cCUQaIYgDDsHOK+HIz9tj/AnIlpcBvE0aEvWVTJCPTkbnAWg==
+	t=1794706162;
+	b=g6SoY+AiziTaa4RfG/+ZPxW6nQOX3UlhvA8LCx0oPfW/UahZYSXUZGrpexUhXT63WAQV
+	 rmgpi9DGKoecX59bLQy5rtea0sKRu+0suB0wHOLQ6N+jnX6hNQQyYNhxxb40bCo2++mnX
+	 QSzrqKWEtgkpUxTsMARWqmUSm/FGFiqXsgCBr//28IkoohdjDnSlg6zgdUqf9pDbakaJ7
+	 JuQtwWLe8ft//ORZUYZZHy5K6S/jSggvtXGTEDAHm5eUQxVpq7Ke8P+UWx/nXsmLq2LCG
+	 Wm7SbRo+Vikh6oQrQNMqxuso2XqeOzX5NAQRebB4PO5HMX5+4mek6w2qcuohk5ei+zQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794706161;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=WMRJFRdz54ypydmrLKwzyosHgQcoYTroU6myUEXpf4U=;
-	b=HbUrUGcLTl0NdxnGmF4PffHkWcAXR3rxLewH5BqRFX7WVEStRruqH+bAiiLHnmWFQayO
-	 dZXPvQaeKqOrZX8vXXKCgdJHOkwxZGiKxDLzLcQ77pSvA81Ee4tW/sQL55BhSdPpqrNu+
-	 Ghmcj+lfcDDGzCbzkBSaIie3rGx5sRTJnUKMtOe5tPDeZtLpcMCc+sIwbxsOxu8uUV/yd
-	 8iFxR7E9+TTOoBLnd8fapAMkMksZEJkvT+4uj/ltvKWbvZ3D+y17yAwZwEhL4gqGI9oc/
-	 anafgGBJzYwaGMcWQpZRH3ZdI+0UFb9aPTKDYXImmrMF/fIomL7XPbY3ZHknuGYqMZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794706162;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=mT40bKyW0u0WOY7XlPRVT6yQTk7LxdFdLJ70C6kIqfg=;
+	b=sM4dgo8Qc54AC97sc5PLUlWLhZaiL4pBsH2RY/Y6QZTMwlA1oDQuM32tR6yNzZmy/nNf
+	 F4qIWnycbcxWFY0nUdDkyufzCXl1Zux0MRE+iA84OANgdmfaJo5Vx4BfsEjPgpQP0UoMp
+	 ANnG9L3YibcAJiTF+RSRiSeDzZxCj41iVCres0qTIrLvEmp5SkSZ4V01KMaAB+FdQd6il
+	 pa+XxiL/dbg4zmfyOQUI5gAIpCwn/ENP83H7pU4M7ri33+9mb7rTZcmroDL0i7+RmO6zA
+	 JLJ7aFynrbDsHBIUIB68ppDGyLhLUwrao2xNJZP0pcNv7pCql7G0wst0aiD4EJvEQbg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BzuF8v9J;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="lJ/dXxzg";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68FAF606A32F;
-	Sun, 15 Nov 2026 01:29:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC0B5606A8A8;
+	Sun, 15 Nov 2026 01:29:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BzuF8v9J
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lJ/dXxzg
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794706161;
-	b=pPP7RvuR3cHlMijF4h8vmrQ8psCJ6l0Zz+FEH16OavN/O+SJnq7/hzwKNPX/J5Vk5V35
-	 rNMMK3FvozhvsqA7QbhAIv3g01r5cvep6MB7DXSSMajPwhICe5VPA35B0TJmuQK71HF4m
-	 D/K+IYySrcexyhYvdRV8KmUbfLqG3wQyOVnkCRxD/GSlzjJS/MzLS9A08xoSYitxYJKRA
-	 cgCxfYseNqSbG0JH0oXyAerH+U0zPG5rEtjbTiEmz95Hj/dXOyfTGnVFvl+syyQj/kL6k
-	 SHZ66pN07mllnZypOJU0L1Afn5yLc0Z4XjCZbEgV80ZtDwuU2HNI1GJ9vEKlM4DqO7Q==
+	t=1794706162;
+	b=RHPawRy6Xd/sbhZUY5VgJ2uuN3vJcdryx8tZiA03QmV5QoGlDovSK2Y5yWfmbA0VNLFA
+	 ueoBFsNd5mG9OJYNZ2M1lhnXiKkRiVgLBkmIv5P1n5dS6cWZ8DcIU6eHVEM7zi6k3M2Qy
+	 YC0ML4U70JDRIxooMZMNUt73rt+ZSPW11WaVlv0NIUzFWStgwzx4cz3Io/07/AQPFOULc
+	 QP6cuJbnz9SDlVEag6QpT84vgbpHXrUr41IUGG5HsxyWML2OV031M6XZvqXMT8ufxEada
+	 hlvK92hVhuJhGhQoP3mwPOvDVKuUQV746TFWxWmVVmLfSC2KkSsLYLEbPrFhOUpJvbg==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794706161;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=WMRJFRdz54ypydmrLKwzyosHgQcoYTroU6myUEXpf4U=;
-	b=MHlt9/4lXKIxY49t0VvZtK+wMC54KOKvFf33SMWf4h3fQ662nKAo/fy6HwfPklSELC8z
-	 9IJQU7SzqVKS+i7lUc9jESvoqkMDLCh9qBZP98fxGRaLtWaiPJmNJi0TM1ZQotyM3K2IH
-	 QRQD8nRrBU5euuh4i7AACHUw7RaZIFFCukTupbTOXP5p74s1xsVHbPoRMklIrhyE2cZNT
-	 6wDf6tpQggGlHoW9za1xbv430+juBPKmsH0z9gRZEIL34s8yFrBsu1Fzc8trTthAyKiYi
-	 L5IAvApI2sazA5Zb6DDWjk899z8E1uuy1O2berLQww8hPEYQI3OqdGxZ0IBLmL35xbA==
+	c=relaxed/relaxed; t=1794706162;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=mT40bKyW0u0WOY7XlPRVT6yQTk7LxdFdLJ70C6kIqfg=;
+	b=zpQTdIU9E0fy7PxpG1CVM2GrSHKZ+i60uTxbN069e11rbxL09E4gja5d7pqzVL0YbJjr
+	 91h3jKcXwQQ2W/D4tOgISHKc/LaPlJLI+TGd2NZS7ZpNh7nH9DfTxts5LgXp8fCFXWhoN
+	 cRDgo3le4BQFL6hybWzl+SFz61mxHW+tIMIfjMyJax9cvO/xtzBOqpZ2RqmjqNB3Fl9fl
+	 VAem/saZNRYqexGnDFUtM9fiegwk0d3hZaHFoKComrskwRQv0gBK/K3fRiSfuH8vceHvm
+	 D+eSfZf2OSRfwhj8LLAN8VOJqgQpEn2RshuWjpQrAAHFYe9TCCJS4NIC+3GHTlCGNRw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id D70A81F000C4;
-	Sun, 15 Nov 2026 01:29:19 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 5A9531F000C9;
+	Sun, 15 Nov 2026 01:29:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794706161;
-	bh=WMRJFRdz54ypydmrLKwzyosHgQcoYTroU6myUEXpf4U=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=BzuF8v9JD/k2c7uRoPlZqwCtZ0IUlGJdo7hCHpcGct+9w+hGfWxGbdj1cz1JPcIk7
-	 uGQm3zV6Nqe2CNnx1YCM8hZRj/luV+jJIPJSwx0jxXjshAY8V/G1q7z1vr3suEap87
-	 YfAbyK7/05FXCGI2IVmQ9ekAoGUf1GjE3J+lZn7mbA4AxezziWvoIotxsC7/a61ny4
-	 SHCm0RPWT1w5GAy2wHARM97R0HF5nMIaYw4CwDzYdS6WD0pK2Nyph4UqEej7yDbyHq
-	 dZ+VEsGDOJXcIw4tTcVDZZCZZ2hjw5Gv18T4qXuA2Y5+yIpx2UnUUqcALgoTaODymV
-	 P99qyXyjvE4QQ==
+	s=k20260515; t=1794706162;
+	bh=mT40bKyW0u0WOY7XlPRVT6yQTk7LxdFdLJ70C6kIqfg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=lJ/dXxzgKH/LYYxfO9qknkuN5e4M8XDzCiyTNX0gZSetHg/cW7uGkoFM0CrMKBYYK
+	 QcS5gA+RB5A36GB2SU+6dCKy+y2WOg7cK40R/iXcKUpsBZJ8eREUf4tvFqsQAFQgsU
+	 dABoZHM08eH+NOunyUTO6faNJHFuFSOBCbGXGryrIngKK545LjYR1tASnSNe4DxhFg
+	 ZGfEGonL8UGdsCA9EgTQxhoiNMm759HN5c63Ci6AhdruYnGIex2pCmzf+S009PqnZv
+	 nEaudKrWZ2NNhsc/dIO4GqlKTy89WoBcw4fHjN/huJYznVeRpJ5WzZ0SJKC641ppau
+	 keqFyzuQVVzLg==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 36AA049EFF;
+	by lkml.kernel.org (Postfix) with ESMTP id CEE9C49F1C;
 	Sun, 15 Nov 2026 01:29:19 +0000 (UTC)
 From: Bryam Vargas via B4 Relay <devnull+hexlabsecurity.proton.me@kernel.org>
-Subject: [PATCH RFC net v4 0/8] net/iucv: serialize the HiperSockets
- receive path with the socket lock
-Date: Sat, 14 Nov 2026 20:29:18 -0500
-Message-Id: <20261114-b4-disp-fc0634a3-v4-0-f96c506447ce@proton.me>
+Date: Sat, 14 Nov 2026 20:29:23 -0500
+Subject: [PATCH RFC net v4 5/8] net/iucv: factor out the HiperSockets frame
+ dispatch and state changes
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,11 +84,9 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQ6CQAxFr0K6tgmFYRLcmngAtsYFU4rWxUima
- EwId3eA5fs/7y1gklQMzsUCSb5q+o4Z3KkAfvbxIahDZqjKyhORw+BwUJtw5NLXrq+xJQ7UUMO
- tJ8jalGTU3568QXe9bFuUGe7HZ5/wEp63JqzrHzIaFPmAAAAA
-X-Change-ID: 20261114-b4-disp-fc0634a3-91cb1515c961
+Message-Id: <20261114-b4-disp-fc0634a3-v4-5-f96c506447ce@proton.me>
+References: <20261114-b4-disp-fc0634a3-v4-0-f96c506447ce@proton.me>
+In-Reply-To: <20261114-b4-disp-fc0634a3-v4-0-f96c506447ce@proton.me>
 To: Jakub Kicinski <kuba@kernel.org>, 
  Alexandra Winter <wintera@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, 
  "David S. Miller" <davem@davemloft.net>, 
@@ -99,195 +96,266 @@ Cc: Thorsten Winkler <twinkler@linux.ibm.com>,
  linux-kernel@vger.kernel.org, Nagamani PV <nagamani@linux.ibm.com>, 
  linux-s390@vger.kernel.org
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794706158; l=10108;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794706158; l=7474;
  i=hexlabsecurity@proton.me; s=default; h=from:subject:message-id;
- bh=NNR0QywEUYNspRhbVSWl8eAEaherI5Lxm/o/sZprxBg=;
- b=CKu1SX5uOUbGMf5oe/VTsvzg+1Iz0SMTC8++X+/d99c8m878cxWf4YsXRHWaXbTHpZ8TRJ+N3
- ML0upHJH4JdAITGwV1e2RD90VMGL2dLMH7fnHEwoGR3KI+usPhAFCTS
+ bh=BNAZtikCBJei0ASy2WgzatfOm8YeIdFf9/iGDFegDGE=;
+ b=v9r8wsBSEJ+0vY0TkPxfLeNVfcaTN6qXU346I+rouF+9JEbcekGF95oVXvhqkXKlajmJ3erQr
+ VXF6+psv5cBBd0UE2cjETWL1jzhn68zDAYP9LoJ5tldc9ZifbQI2u/T
 X-Developer-Key: i=hexlabsecurity@proton.me; a=ed25519;
  pk=xw1AhCtQdvuoQc+bOQIYy9o8G++cp4/VniI2G/tc3G8=
 X-Endpoint-Received: by B4 Relay for hexlabsecurity@proton.me/default with
  auth_id=893
 X-Original-From: Bryam Vargas <hexlabsecurity@proton.me>
 Reply-To: hexlabsecurity@proton.me
+Content-Transfer-Encoding: 7bit
 
-v4 of stage 1 of the socket-locking rework [1]. It is v3 [2] with the
-two findings of the AI review of v3 fixed ([3] on 1/7, [4] on 3/7) and
-the dev_hold() the netdev CI flagged replaced. Nobody else has reviewed
-v3 yet, so the rest is unchanged.
+From: Bryam Vargas <hexlabsecurity@proton.me>
 
-  1/8  a msglimit changed while the SYN is out no longer closes the
-       socket on a peer that kept to its window, nor stalls that peer
-  2/8  iucv_send_ctrl() leaves sk_shutdown alone (new)
-  3/8  sendmsg() fails with -EPIPE when sending is shut down while it
-       waits for the window
-  4/8  recvmsg() under lock_sock()
-  5/8  the frame dispatch and three state changes moved into functions
-       of their own, no functional change
-  6/8  the HiperSockets rx path under the socket lock: a control frame
-       waits for the task that owns the socket
-  7/8  shutdown(SHUT_RD) against a frame in flight
-  8/8  EOF, not -ENOTCONN, for a reader parked when the peer closes
+Move the switch on the frame type out of afiucv_hs_rcv() into
+afiucv_hs_dispatch(), and the state changes a SYN|ACK, a SYN|FIN and a
+FIN make into afiucv_hs_synack(), afiucv_hs_synfin() and
+afiucv_hs_fin(). The three are still called under the bh_lock_sock() of
+their callbacks, which now test sk where they tested iucv_sk(sk), a
+cast of it. They are defined ahead of iucv_proto: the next patch
+reaches them from proto->release_cb. afiucv_hs_synfin() and
+afiucv_hs_fin() are the same for now and stay two: a later patch sets
+RCV_SHUTDOWN in the second only.
 
-1/8 to 3/8 and 8/8 are fixes in their own right. 1/8 to 3/8 each apply
-to net without the rest; 3/8 is complete only on top of 2/8. 8/8 is
-written on top of 6/8: its hunks are in functions that 4/8 and 5/8 add.
+No functional change. The next patch runs the dispatch from a second
+place and the three state changes from the task that owns the socket.
 
-Alexandra, 2/8 needs your call. v3 dropped the iucv_send_ctrl() rewrite
-as you asked, and 2/8 brings back one part of it: the function no longer
-clears SEND_SHUTDOWN around its allocation. That clear is behind the
-finding on v3 3/7 [4], behind the bit my copy of Hidayath's sk_shutdown
-test loses, and behind the two items v3's notes left open under 2/7 and
-7/7. The rest stays out: the allocation still asks for room in
-sk_sndbuf, for every control frame. Is the SEND_SHUTDOWN part fine as a
-patch of its own? If not I can fold it into 4/8; 3/8 then has the gap
-the note of v3 2/7 described, up to 4/8.
-
-RFC because one thing is missing that I can't provide. Hidayath,
-Alexandra: could one of you run v4 on z/VM the way Hidayath ran v1 [5]?
-I depend on those numbers: my setup was tuned against that run, and the
-series moves enough code to need one again before this is a PATCH. What
-I'd compare is below, with net as the baseline (the numbers from [5] in
-parentheses, on net-next unless marked). Each line names the patch where
-the code changes; the kernels I ran for it are under that patch:
-
-- recvrecv (3917 backwards reads): 0 from 4/8 on
-- sk_shutdown (565 of 7281 cycles): 0 from 2/8 on, as in my setup, or
-  from 4/8 if that test also loses the bit the way 4/8's second item
-  describes
-- shut_rd (32 of 212): as net up to 5/8, 0 from 6/8 on. 6/8 leaves the
-  window KCSAN reported on v1 [6], which shut_rd did not hit there and
-  hits here only with a udelay() added to widen it; 7/8 closes it
-- the blocked reader (-ENOTCONN in 13627 of 13627): EOF in all with 8/8
-- rxclose (51 of 906): 0 with 8/8
-- SO_MSGLIMIT lowered in IUCV_BOUND (1 message lost in 6297 cycles on
-  v1; none on net-next, which has no budget): none lost at any step.
-  The budget comes back with 6/8 and counts against the window of 1/8
-- KCSAN: the 29 reports on net-next gone, the 6 between afiucv_hs_rcv()
-  and iucv_send_ctrl() and the 2 between iucv_send_ctrl() and
-  iucv_sock_shutdown() with 2/8, the 19 between recvmsg() and
-  iucv_sock_shutdown() with 4/8, the 2 between afiucv_hs_rcv() and
-  iucv_sock_shutdown() with 7/8. Up to 7/8 the receive wait still reads
-  sk_shutdown with READ_ONCE() against shutdown()'s plain write, so a
-  report of that pair can stay until then, and on a z/VM socket after
-  it: 7/8 marks the write on the HiperSockets branch only. The hs_dev
-  report of the v1 run [6] is not one of the 29; 1/2 of the two fixes
-  posted for net on 28 Oct [7] is for it, and is not in this series
-
-My setup is QEMU TCG with an emulated HiperSockets adapter and CP, so
-rates and real SMP come only from the hardware, and I have no KCSAN
-build of it. Where the two disagree, the hardware is the reference.
-
-Changes in v4 (details below the --- of each patch):
-
-- 1/8: a second SYN of the socket carries the window the first one gave
-  and records nothing, and the window is recorded when the first SYN is
-  handed to the device, not while its header is built (AI review [3])
-- 2/8 is new, see above. With it the writer that 4/8 lets wait for send
-  memory without the socket lock returns -EPIPE when shutdown(SHUT_WR)
-  runs meanwhile; in v3 it could sleep through that wake-up (AI review
-  [4])
-- 6/8: the SYN that waits in the backlog holds its device with
-  netdev_hold() and netdev_put() (netdev CI)
-- 4/8 and 7/8: message only, for what 2/8 changes under them
-
-Not in v4, and what that costs: five of my 53 default tests (the set v2
-was tested with) fail on v4, as they do on net. With the three pieces
-v3 dropped applied on top again (the rest of the iucv_send_ctrl()
-rewrite, the window update only while connected, the credit reset), all
-53 pass.
-
-- iucv_send_ctrl() still needs room in sk_sndbuf for every control
-  frame. With the send memory used up, which on HiperSockets lasts until
-  TX completion, shutdown(SHUT_WR) sends no SHT and the peer never reads
-  EOF (two tests), and the FIN of NETDEV_GOING_DOWN does not go out
-  (one)
-- recvmsg() still sends a window update after the peer's FIN, a frame
-  nobody uses (one); [7] 2/2 has the test for it
-- a window update that finds no room leaves its credit, and the SHT read
-  next is counted past the window: WARN_ON() and -EFAULT where EOF was
-  due (one). [7] 2/2 ends that by not counting the SHT
-
-net fails three more: two that 3/8 fixes and one that 8/8 fixes.
-
-Tested on s390x under QEMU TCG, KASAN + PROVE_LOCKING +
-DEBUG_ATOMIC_SLEEP, on net main, against the emulated adapter under the
-real qeth and qdio drivers and the emulated CP, as v3 was. Two vCPUs
-under -icount, which runs one at a time; the race tests also with seeded
-short slices, and the two-reader test of 4/8 under MTTCG. No KASAN or
-lockdep splat on net, at any step of the series or on the kernels that
-follow. Of 25 kernels each with one piece of the series taken out or
-changed (6 for 1/8, 1 for 2/8, 3 for 3/8, 1 for 4/8, 10 for 6/8, 1 for
-7/8, 3 for 8/8; the tracker build under 6/8 is not one of them), 23 fail
-a test the series passes; two of the 23 need a test kernel under them,
-one that drops the first SYN in the device (1/8) and one that makes two
-waits overlap (2/8). The other two show only with a delay added to hold
-their window open: the one without 7/8's spinlock and the one without
-the receive-queue test in 8/8's wait. The numbers are below the --- of
-each patch. Logs on request.
-
-Still open, as in v3: afiucv_hs_callback_txnotify() and the z/VM
-callbacks change sk_state without checking whether a task owns the
-socket, and so does afiucv_netdev_event(), whose fix Nagamani is holding
-for this series [8]. backlog_skb_q stays unbounded for a peer that
-ignores its window. A listener with a full accept queue still leaks the
-child of the SYN it refuses (measured on net and with the series,
-numbers under 6/8), and so does a SYN|ACK that fails to go out (by
-inspection) [9]. connect() tests sk_state before lock_sock(), so a
-connected socket can still send a SYN [3]. On a z/VM socket
-iucv_sock_shutdown() and recvmsg() update sk_shutdown under lock_sock()
-and iucv_callback_shutdown() under bh_lock_sock(), so either side can
-lose its bit, and iucv_callback_rx() tests RCV_SHUTDOWN with no lock:
-7/8 takes the spinlock on the HiperSockets branch only. And
-iucv_callback_connreq() answers a path request for a listener that
-close() is emptying, the race 6/8 closes for a HiperSockets SYN.
-
-Seen while working on v4, in net as well and not touched here:
-
-- a HiperSockets recv() that owes a window update while the send memory
-  is full sets IUCV_DISCONN: iucv_send_ctrl() finds no room and
-  recvmsg() takes that for a dead path. It is the same failed update as
-  in the last item of "Not in v4": that item is what the next read does
-  with the credit, this one the state the socket is left in. Measured on
-  net and with the series
-- a z/VM sendmsg() that waits for send memory is not ended when the
-  peer severs the path: the memory is freed only at close(). By
-  inspection
-- afiucv_hs_send() passes NET_XMIT_DROP through, so a send() or
-  connect() whose frame the qdisc dropped returns 1. By inspection for
-  the qdisc; the test kernel of 1/8 that drops the SYN shows the
-  connect() half
-
-[1] https://lore.kernel.org/all/20260724222917.134769-1-hexlabsecurity@proton.me/
-[2] https://lore.kernel.org/netdev/20261110-b4-disp-2a6b4364-v3-0-35677b68e697@proton.me/
-[3] https://lore.kernel.org/all/sashiko-outbox-210383@kernel.org/
-[4] https://lore.kernel.org/all/sashiko-outbox-210385@kernel.org/
-[5] https://lore.kernel.org/netdev/51a4a40a-f34b-4d41-b049-69aa53f4dcf5@linux.ibm.com/
-[6] https://lore.kernel.org/netdev/b3fea2ca-25ff-42c0-812c-f8cc6bb6667e@linux.ibm.com/
-[7] https://lore.kernel.org/netdev/20261028-b4-disp-dd3e4ebb-v2-0-3747658d59bd@proton.me/
-[8] https://lore.kernel.org/netdev/1d9d3cc1-24fb-40e0-a4c7-6fbfbcf4dc37@linux.ibm.com/
-[9] https://lore.kernel.org/netdev/5f88daf4-cd8e-4464-b132-ac45be205121@linux.ibm.com/
-
+Cc: stable@vger.kernel.org # 6.18.x, needed by the next patch
+Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
 ---
-Bryam Vargas (8):
-      net/iucv: keep the window given to the peer in a field of its own
-      net/iucv: do not clear SEND_SHUTDOWN to send a control frame
-      net/iucv: fail sendmsg() with EPIPE once sending is shut down
-      net/iucv: run recvmsg() under the socket lock
-      net/iucv: factor out the HiperSockets frame dispatch and state changes
-      net/iucv: serialize HiperSockets receive with the socket lock
-      net/iucv: set RCV_SHUTDOWN under the socket spinlock
-      net/iucv: return EOF to a reader parked when the peer closes
+v4: unchanged, was 4/7.
+v3: https://lore.kernel.org/netdev/20261110-b4-disp-2a6b4364-v3-4-35677b68e697@proton.me/
 
- include/net/iucv/af_iucv.h |   8 +
- net/iucv/af_iucv.c         | 687 +++++++++++++++++++++++++++++++++++++--------
- 2 files changed, 579 insertions(+), 116 deletions(-)
+checkpatch asks for a Fixes: tag because of the stable line. There is
+none to give: the patch fixes nothing and is marked for stable only so
+that 6/8 applies there.
+
+The kernel with 1/8 to 5/8 gives the result of the one with 1/8 to 4/8
+in every test: the 53 default ones and the 28 opt-in ones (window,
+strays, connect(), leaks).
 ---
-base-commit: 8373c4e8863ac5f5120d200527aca9880330f343
-change-id: 20261114-b4-disp-fc0634a3-91cb1515c961
+ net/iucv/af_iucv.c | 151 ++++++++++++++++++++++++++++++++++-------------------
+ 1 file changed, 97 insertions(+), 54 deletions(-)
 
-Best regards,
---  
-Bryam Vargas <hexlabsecurity@proton.me>
+diff --git a/net/iucv/af_iucv.c b/net/iucv/af_iucv.c
+index 80eb90b1ef3c..957315bec2b4 100644
+--- a/net/iucv/af_iucv.c
++++ b/net/iucv/af_iucv.c
+@@ -39,6 +39,44 @@
+ 
+ static char iucv_userid[80];
+ 
++/**
++ * afiucv_hs_synack() - connect a socket, on the SYN|ACK to its SYN
++ * @sk:		the socket, in IUCV_BOUND
++ * @window:	the window in the SYN|ACK: the frames the peer takes from us
++ *
++ * Context: Softirq, under bh_lock_sock().
++ */
++static void afiucv_hs_synack(struct sock *sk, u16 window)
++{
++	iucv_sk(sk)->msglimit_peer = window;
++	sk->sk_state = IUCV_CONNECTED;
++	sk->sk_state_change(sk);
++}
++
++/**
++ * afiucv_hs_synfin() - refuse a socket, on the SYN|FIN to its SYN
++ * @sk:		the socket, in IUCV_BOUND
++ *
++ * Context: As afiucv_hs_synack().
++ */
++static void afiucv_hs_synfin(struct sock *sk)
++{
++	sk->sk_state = IUCV_DISCONN;
++	sk->sk_state_change(sk);
++}
++
++/**
++ * afiucv_hs_fin() - disconnect a socket, on the FIN of its peer
++ * @sk:		the socket, in IUCV_CONNECTED
++ *
++ * Context: As afiucv_hs_synack().
++ */
++static void afiucv_hs_fin(struct sock *sk)
++{
++	sk->sk_state = IUCV_DISCONN;
++	sk->sk_state_change(sk);
++}
++
+ static struct proto iucv_proto = {
+ 	.name		= "AF_IUCV",
+ 	.owner		= THIS_MODULE,
+@@ -2041,17 +2079,13 @@ static int afiucv_hs_callback_syn(struct sock *sk, struct sk_buff *skb)
+  */
+ static int afiucv_hs_callback_synack(struct sock *sk, struct sk_buff *skb)
+ {
+-	struct iucv_sock *iucv = iucv_sk(sk);
+-
+-	if (!iucv || sk->sk_state != IUCV_BOUND) {
++	if (!sk || sk->sk_state != IUCV_BOUND) {
+ 		kfree_skb(skb);
+ 		return NET_RX_SUCCESS;
+ 	}
+ 
+ 	bh_lock_sock(sk);
+-	iucv->msglimit_peer = iucv_trans_hdr(skb)->window;
+-	sk->sk_state = IUCV_CONNECTED;
+-	sk->sk_state_change(sk);
++	afiucv_hs_synack(sk, iucv_trans_hdr(skb)->window);
+ 	bh_unlock_sock(sk);
+ 	consume_skb(skb);
+ 	return NET_RX_SUCCESS;
+@@ -2062,16 +2096,13 @@ static int afiucv_hs_callback_synack(struct sock *sk, struct sk_buff *skb)
+  */
+ static int afiucv_hs_callback_synfin(struct sock *sk, struct sk_buff *skb)
+ {
+-	struct iucv_sock *iucv = iucv_sk(sk);
+-
+-	if (!iucv || sk->sk_state != IUCV_BOUND) {
++	if (!sk || sk->sk_state != IUCV_BOUND) {
+ 		kfree_skb(skb);
+ 		return NET_RX_SUCCESS;
+ 	}
+ 
+ 	bh_lock_sock(sk);
+-	sk->sk_state = IUCV_DISCONN;
+-	sk->sk_state_change(sk);
++	afiucv_hs_synfin(sk);
+ 	bh_unlock_sock(sk);
+ 	consume_skb(skb);
+ 	return NET_RX_SUCCESS;
+@@ -2082,19 +2113,15 @@ static int afiucv_hs_callback_synfin(struct sock *sk, struct sk_buff *skb)
+  */
+ static int afiucv_hs_callback_fin(struct sock *sk, struct sk_buff *skb)
+ {
+-	struct iucv_sock *iucv = iucv_sk(sk);
+-
+ 	/* other end of connection closed */
+-	if (!iucv) {
++	if (!sk) {
+ 		kfree_skb(skb);
+ 		return NET_RX_SUCCESS;
+ 	}
+ 
+ 	bh_lock_sock(sk);
+-	if (sk->sk_state == IUCV_CONNECTED) {
+-		sk->sk_state = IUCV_DISCONN;
+-		sk->sk_state_change(sk);
+-	}
++	if (sk->sk_state == IUCV_CONNECTED)
++		afiucv_hs_fin(sk);
+ 	bh_unlock_sock(sk);
+ 	consume_skb(skb);
+ 	return NET_RX_SUCCESS;
+@@ -2162,6 +2189,57 @@ static int afiucv_hs_callback_rx(struct sock *sk, struct sk_buff *skb)
+ 	return NET_RX_SUCCESS;
+ }
+ 
++/**
++ * afiucv_hs_dispatch() - run the callback of a frame
++ * @sk:		the socket the frame is for, or NULL if there is none
++ * @skb:	the frame
++ *
++ * Context: Softirq.
++ * Return: NET_RX_SUCCESS.
++ */
++static int afiucv_hs_dispatch(struct sock *sk, struct sk_buff *skb)
++{
++	struct af_iucv_trans_hdr *trans_hdr = iucv_trans_hdr(skb);
++	int err = NET_RX_SUCCESS;
++
++	switch (trans_hdr->flags) {
++	case AF_IUCV_FLAG_SYN:
++		/* connect request */
++		err = afiucv_hs_callback_syn(sk, skb);
++		break;
++	case (AF_IUCV_FLAG_SYN | AF_IUCV_FLAG_ACK):
++		/* connect request confirmed */
++		err = afiucv_hs_callback_synack(sk, skb);
++		break;
++	case (AF_IUCV_FLAG_SYN | AF_IUCV_FLAG_FIN):
++		/* connect request refused */
++		err = afiucv_hs_callback_synfin(sk, skb);
++		break;
++	case (AF_IUCV_FLAG_FIN):
++		/* close request */
++		err = afiucv_hs_callback_fin(sk, skb);
++		break;
++	case (AF_IUCV_FLAG_WIN):
++		err = afiucv_hs_callback_win(sk, skb);
++		if (skb->len == sizeof(struct af_iucv_trans_hdr)) {
++			consume_skb(skb);
++			break;
++		}
++		fallthrough;	/* and receive non-zero length data */
++	case (AF_IUCV_FLAG_SHT):
++		/* shutdown request */
++		fallthrough;	/* and receive zero length data */
++	case 0:
++		/* plain data frame */
++		IUCV_SKB_CB(skb)->class = trans_hdr->iucv_hdr.class;
++		err = afiucv_hs_callback_rx(sk, skb);
++		break;
++	default:
++		kfree_skb(skb);
++	}
++	return err;
++}
++
+ /*
+  * afiucv_hs_rcv() - base function for arriving data through HiperSockets
+  *                   transport
+@@ -2242,42 +2320,7 @@ static int afiucv_hs_rcv(struct sk_buff *skb, struct net_device *dev,
+ 	 data -> send FIN
+ 	 SYN|ACK, SYN|FIN, FIN -> no action? */
+ 
+-	switch (trans_hdr->flags) {
+-	case AF_IUCV_FLAG_SYN:
+-		/* connect request */
+-		err = afiucv_hs_callback_syn(sk, skb);
+-		break;
+-	case (AF_IUCV_FLAG_SYN | AF_IUCV_FLAG_ACK):
+-		/* connect request confirmed */
+-		err = afiucv_hs_callback_synack(sk, skb);
+-		break;
+-	case (AF_IUCV_FLAG_SYN | AF_IUCV_FLAG_FIN):
+-		/* connect request refused */
+-		err = afiucv_hs_callback_synfin(sk, skb);
+-		break;
+-	case (AF_IUCV_FLAG_FIN):
+-		/* close request */
+-		err = afiucv_hs_callback_fin(sk, skb);
+-		break;
+-	case (AF_IUCV_FLAG_WIN):
+-		err = afiucv_hs_callback_win(sk, skb);
+-		if (skb->len == sizeof(struct af_iucv_trans_hdr)) {
+-			consume_skb(skb);
+-			break;
+-		}
+-		fallthrough;	/* and receive non-zero length data */
+-	case (AF_IUCV_FLAG_SHT):
+-		/* shutdown request */
+-		fallthrough;	/* and receive zero length data */
+-	case 0:
+-		/* plain data frame */
+-		IUCV_SKB_CB(skb)->class = trans_hdr->iucv_hdr.class;
+-		err = afiucv_hs_callback_rx(sk, skb);
+-		break;
+-	default:
+-		kfree_skb(skb);
+-	}
+-
++	err = afiucv_hs_dispatch(sk, skb);
+ 	if (sk)
+ 		sock_put(sk);
+ 	return err;
+
+-- 
+2.56.0
 
 
