@@ -1,116 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794726812;
-	b=H5YXHE0wYw7Vdz8yCjnYQpgQyCVZDiv/22au7US/IiXJwzp/XopF0vngnghyMXXjhqHJ
-	 EIdghWWFl3sVT590YZhRWSxPG+nNuJXQpoLmYaqQxkqQhWvTPzixxp4OvoH/aewTO6zFN
-	 c4hinp8J1qtM+k8CZkEPTRyQobzMaYoCorGEiRWBSG4Nfiay8g/KDR9cTVAz0FrHNgr63
-	 dtRHrJ7NxOzxe/LvmDL1yBhdyEFTJK4aEH3HC7vU82/qyV0ZHLkQc0kh50WyAJXwWUDRt
-	 TiwwdoQgNDGVHkF1tkB6YhXTHCKhJ2iNFDj1+WgCCnr6FSr0v32p4XRcJ/WTPydvqgw==
+	t=1794727273;
+	b=jbbFXDxC9XtLctDRxfIVOpjWsxAT5/MCqNZkXQagia+F5mRAQCk9dbsD05RJNdebO6Av
+	 GevcoCyQI09WPEB/c5WaL2mYTdBlKIeQ/oXczrpmf/9utOjfJh9U1nXaB8RcslXVLM0ay
+	 lyiCVHXKnaiS41pVlxv0hB0GzD37fb3dBrMTcOwHydlxOJ8CG5Kx0eww8SOWaQcVzkgif
+	 Ua+3DTcZoYl1gCp+bEqOKfdhIUHSAX7FQasbaF0jwO0SwEybmuS1vuNrx4Ndh1bXXUTUI
+	 EjkpQFb9OATOR624kIWIcdLVasM50cKE5uv1Fz/LYkkUFKfVHhB63CdFFEgNaCaugog==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794726812;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:In-Reply-To:Date:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=i0sztYeDoa78GRxByi5DPGRDZ13zK/I8mczcB1W5Z+o=;
-	b=PqQhDLk0x6ypFmnw7nxme1RBPFwkx20d/XN6ivSX4LjgHGOU2aibUSTMRZj7AdC6nsHG
-	 3Db7TM0bfchclhZvD2H/EAdh+PWpi/iT7lqdqJW2jve9a3Zi9PSfWACJHHn441dABRwwI
-	 JjrAzteBFfSCHRzg2Q6nz1Y1SwJ4B6NOB2InFvFIxa/MjbAEtGMdb7kZOlrBuorWAKIRd
-	 /tQgTql6jo/uEIjwtCy/EC/nkjpDKytpX0Vn9F8AbhgyI6JHoUBv6n3CflbeIlzIVPC36
-	 fFxCm+rgf8D1rFReWTONeohe02JxlwV0rvw9Ptw/zHnxuyeIuPlDJ7cAbb0goshgA4A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794727273;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=rQkXsM7aTK1ejfcEgqQ8A28+qA/EL1BgfPpRxPrkcmM=;
+	b=srEtkfBKrYmn6xG4n/O1XAGu8gQBNdjJdUdlNgq0OapqPixAp/TB+ZU+2Q50VCTxys0U
+	 a6T7W9EuBKQPLLKZ1fbcnSAJKpzS+02Y60bCRCReIQiyhr4S29sQqz4eMw79i8zxh5SCP
+	 VSiULkgZMDn9ucg3zJNpYPpuWfO0iO9dKBelgXYPPo8EH8+/dYT68N75OjPLWFdk+Lx9M
+	 z84ax29T3RjFDMQaWDbo8kTohSIdX8F7DqHMdrx5pLyetGxHX7UX2A9NU4VBj8t0muMzt
+	 4kJ5KPfxkd1VheXd6TxoFj85ypr8QB9Ip7sJXyGtZw36HmH8836+7JFjuLIFyXivqig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f0EKiv+f;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="WBSPv3/5";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 680D4606A333
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 07:13:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 680D4606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FECE606A31A;
+	Sun, 15 Nov 2026 07:21:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f0EKiv+f
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-36f8cdd30beso3116738eec.1
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 23:13:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794726811; x=1795331611; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :message-id:date:in-reply-to:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=i0sztYeDoa78GRxByi5DPGRDZ13zK/I8mczcB1W5Z+o=;
-        b=f0EKiv+f25sXRcQmBoiK+WsCsclD9PQHa+U5z3sGf3KR1sS3ZNEEroqRh6RNiac07P
-         vGJPEugwLNmQaWqJhCPHikaN8XT33PRVwWCxE9PqkkLJA6butk39sYE2ryU8qCsIMdGI
-         yo50td1Os6it0j1WrNa5HxnLEw4W7aO/qgSsYPJply/RpIro6UCSg0Mbr4ks/thyRkDc
-         jq1OBKLqGUt/bM6QVBsbrIsF1mbjoO/AbvtSri1zHl8+S2Sf3KoNhgqJldsJW2yIuTc5
-         6FJrXgJQKS6UwdWBKS3YQ4l597qJpRKbmN+vGilzta6Rl47F1I/gy3R+i3U13Lj6DU+d
-         z+8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794726811; x=1795331611;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :message-id:date:in-reply-to:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=i0sztYeDoa78GRxByi5DPGRDZ13zK/I8mczcB1W5Z+o=;
-        b=yfTUEQTKXxwDWcJkq4Xqh0Cqltq/QOhSJhNtAZECmBO1AeQk0kE1FJt9j+PMEdqf53
-         e1jBYreLy/Qe2ebQVg+honP2Tl/trshWqsJNy6hQUtiK08mEiBRclFQVumFrFBwgxn+f
-         rRPk0nfw6Li8nWR2mlC7m885z6eGDvmvIvIW1VOTKlYVYf0lLKrg/FACOUYVQGYgH8oz
-         H1+VkCZGAis5vL/hWwyZaDBAVZ/0AdPHHD/x2Iilp18UNW+D+x6nuNtmwfrLYpe5VQP+
-         FtEEN7g12nDqu43avO9lMJoNwRPRBZgi9KrMmL2y0kmF9/zvOklqPW7gExmwb5VO3vRw
-         OV3Q==
-X-Forwarded-Encrypted: i=1; AL+hErH0IhijJKbp3GXQgPokB6ZOoZ80EvT6yCsk++yOS74m7trVz7fyswyZTN9zwfpzQlsUwIIgxes=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ajLp+9VuUdIOjwKuHfi/UBn68l1X0tgERjwa15rGf5sAsAgP7
-	vw0j393U095QXOkxJYBUKY42+5V4sWOHRWyIW5NvgqHS1W9iKhms80ZZ
-X-Gm-Gg: AYBFou2p2m4xlc7tkaoCbJoHjjbXWI/eJKKvEFG7i2XhmxmbyV7rOLt5mIofwgSjbaU
-	kqdjOXQjui0bBjEJ02lA4vRvYh6L/pYNsxSaQkyO+Et4gdnskmYTGFzqLtE1MkHJznXvw0joNWv
-	j/p2QL70WfV9S9FVVkO98WfixadqY0fuyN2crm/CcQxXa/AJE2111hnwV1f4odrwBrl4B1YZsYT
-	R1h9d1453Nt6nA+8dBDfv/hAXMqqtKDB7KYsVVYJWr9j5EBaS3yvN5Nd/2JfXP0UnOvmJWp38td
-	/QiXL30IsR5ElJ53F/AECVVr4OxyNEf8NW2InsCCBqInisvQp3xxq0dh9usA1VLFoGj7zFG+ip3
-	Uf5jyVYCkOIYrD6YUPVFfqYxA9hBWqkQXL4HQob7pNrCbSSZflfxSzEwXZgM2oZ3OwIyxW3OGyC
-	9DRWCabo6p+3o9OBIzZn63wIBADJqpGz6wVh5mzDh0RkJAypcGHFlF94ec8CdkJolRYtdrlBfj2
-	v/NJXZ7SmpaK7X8Y3ajWDvQqmpDRhzuT/fQ+YqFVspqXu1zsTluWAY2xjTtWkC+gfNBTyeJ5hb2
-	Cr8MgqsTMCrD0BSU6AYdByuVH2Q=
-X-Received: by 2002:a05:7300:6148:b0:36a:7bb7:4609 with SMTP id 5a478bee46e88-37967dd7e1dmr11471490eec.34.1794726811302;
-        Sat, 14 Nov 2026 23:13:31 -0800 (PST)
-Received: from pve-server ([49.205.216.49])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bad134sm27441185eec.27.2026.11.14.23.13.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 23:13:30 -0800 (PST)
-From: Ritesh Harjani (IBM) <ritesh.list@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>, "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Alexandre Ghiti <alexghiti@rivosinc.com>,
- Andrew Morton <akpm@linux-foundation.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, "David S.
- Miller" <davem@davemloft.net>, Dinh Nguyen <dinguyen@kernel.org>, Donald
- Dutile <ddutile@redhat.com>, Eric Chanudet <echanude@redhat.com>, Heiko
- Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>, Huacai Chen
- <chenhuacai@kernel.org>, Kent Overstreet <kent.overstreet@linux.dev>,
- Liviu Dudau <liviu@dudau.co.uk>, Luis Chamberlain <mcgrof@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Masami Hiramatsu
- <mhiramat@kernel.org>, Michael Ellerman <mpe@ellerman.id.au>, Nadav Amit
- <nadav.amit@gmail.com>, Palmer Dabbelt <palmer@dabbelt.com>, Peter
- Zijlstra <peterz@infradead.org>, Philippe =?utf-8?Q?Mathieu-Daud=C3=A9?=
- <philmd@linaro.org>, Rick Edgecombe <rick.p.edgecombe@intel.com>, Russell
- King <linux@armlinux.org.uk>, Sam Ravnborg <sam@ravnborg.org>, Song Liu
- <song@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, Thomas
- Bogendoerfer <tsbogend@alpha.franken.de>, Thomas Gleixner
- <tglx@linutronix.de>, Will Deacon <will@kernel.org>, bpf@vger.kernel.org,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mips@vger.kernel.org, linux-mm@kvack.org,
- linux-modules@vger.kernel.org, linux-parisc@vger.kernel.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- loongarch@lists.linux.dev, netdev@vger.kernel.org,
- sparclinux@vger.kernel.org, x86@kernel.org, Madhavan Srinivasan
- <maddy@linux.ibm.com>
-Subject: Re: [PATCH RESEND v8 11/16] powerpc: extend execmem_params for kprobes allocations
-In-Reply-To: <avlTdlK9ErlqVRYl@kernel.org>
-Date: Sun, 15 Nov 2026 12:33:31 +0530
-Message-ID: <4idi8tks.ritesh.list@gmail.com>
-References: <20240505160628.2323363-1-rppt@kernel.org> <20240505160628.2323363-12-rppt@kernel.org> <3f7af771-87a7-4ae7-9919-bc4c23bd31c9@kernel.org> <avlTdlK9ErlqVRYl@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WBSPv3/5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EECE1F000C4;
+	Sun, 15 Nov 2026 07:21:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794727273;
+	bh=rQkXsM7aTK1ejfcEgqQ8A28+qA/EL1BgfPpRxPrkcmM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WBSPv3/5mQQn/Yr4p7hQKzQf7t7BgsLBY8A33mwoBMkC0Ii9VhGPbcAf09pKp370X
+	 rnM1l/BKKXKK+ou24cATlwOfI/ng7SWcSRH2/z46EVqAJyxZeZMaC6cu4gg1uZ0jJW
+	 XSmgn+5s21FPyV8UXQ92yW7tY2zY7kTI1dtOved2V6o+ylxLhii5Z7n6ev9abEFD7c
+	 Dj30pR/mdGkkiA4Lx6UjxbzZtiQoEJvkz4QUtyFngEjS+wJ7oC41K/2KjfArbAT/8d
+	 RlrYkvA96cF1fhuuIV3B3xnyMrbkdKEe1yRtFJuv/0rTFsLfT0tWELgocdbCLnFwVt
+	 s3uZPPf1+khVQ==
+Subject: Re: [PATCH net v5 4/8] ipv4: icmp: don't quote decrypted payload in
+ icmp errors
+From: netdev-bot+sashiko@kernel.org
+To: toddfreed@meta.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+ bjorn@kernel.org, borisp@nvidia.com, cratiu@nvidia.com,
+ daniel.zahka@gmail.com, dsahern@kernel.org, dtatulea@nvidia.com,
+ edumazet@kernel.org, idosch@nvidia.com, kuba@kernel.org,
+ john.fastabend@gmail.com, leon@kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
+ mbloch@nvidia.com, pabeni@redhat.com, raeds@nvidia.com,
+ rrameshbabu@nvidia.com, sd@queasysnail.net, saeedm@nvidia.com,
+ shuah@kernel.org, horms@kernel.org, tariqt@nvidia.com, weiwan@google.com,
+ willemdebruijn.kernel@gmail.com
+Date: Sun, 15 Nov 2026 07:21:10 +0000
+Message-ID: <179472727079.2199510.11728930190494845454@kernel.org>
+In-Reply-To: <20261111001831.3710881-5-toddfreed@meta.com>
+References: <20261111001831.3710881-5-toddfreed@meta.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -120,76 +70,108 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
 
-Mike Rapoport <rppt@kernel.org> writes:
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-> Hi Christophe,
->
-> On Fri, Nov 13, 2026 at 03:36:01PM +0100, Christophe Leroy (CS GROUP) wro=
-te:
->> Hi Mike,
->>=20
->> Looks like I missed this change ...
->>=20
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-I didn't initially get what Christophe meant here. Then I came across this
-reply of from him[1]. So looks like somehow between v3 to v8, something got
-changed?=20
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-    On powerpc book3s/32, vmalloc space is not executable. Only modules=20
-    space is executable. X/NX cannot be set on a per page basis, it can onl=
-y=20
-    be set on a 256 Mbytes segment basis.
+- [High] Incomplete fix, and the commit message is wrong about which
+  reject paths it covers.
 
-    See commit c49643319715 ("powerpc/32s: Only leave NX unset on segments=
-=20
-    used for modules") and 6ca055322da8 ("powerpc/32s: Use dedicated segmen=
-t=20
-    for modules with STRICT_KERNEL_RWX") and 7bee31ad8e2f ("powerpc/32s: Fi=
-x=20
-    is_module_segment() when MODULES_VADDR is defined").
+--
 
-    So if your intention is still to have an executable kprobes, then you=20
-    can't use vmalloc address space.
+ipv4: icmp: don't quote decrypted payload in icmp errors
 
-[1]: https://lore.kernel.org/all/1cb41761-29d0-5d33-b7c1-0ca3acaa810d@csgro=
-up.eu/
+This patch makes __icmp_send() skip the ICMP error when the invoking
+skb has skb->decrypted set. The one exception is a locally originated
+skb whose error is routed to a local address. The goal is to stop
+device-decrypted kTLS or PSP data from being quoted back onto the
+network in cleartext.
 
->> Le 05/05/2024 =C3=A0 18:06, Mike Rapoport a =C3=A9crit=C2=A0:
->> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
->> >=20
->> > powerpc overrides kprobes::alloc_insn_page() to remove writable
->> > permissions when STRICT_MODULE_RWX is on.
->> >=20
->> > Add definition of EXECMEM_KRPOBES to execmem_params to allow using the
->> > generic kprobes::alloc_insn_page() with the desired permissions.
->> >=20
->> > As powerpc uses breakpoint instructions to inject kprobes, it does not
->> > need to constrain kprobe allocations to the modules area and can use t=
-he
->> > entire vmalloc address space.
->>=20
->> Using breakpoint means the segment must still be executable.
->> On book3s/32 VMALLOC segment is not executable, while module segment is.
->>=20
->> See commit 6ca055322da8 ("powerpc/32s: Use dedicated segment for modules
->> with STRICT_KERNEL_RWX")
->>=20
->> See report and fix at https://lore.kernel.org/all/ed03d290d440d579a81ae0=
-b7de5243721291d903.1794543909.git.ritesh.list@gmail.com/
->
-> I'll take a look, thanks!
->=20=20
+Closes: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261023234640.1459291-1-toddfreed%40meta.com
 
-Thanks Mike for taking a look. Sorry, I should have ccd'd you there, I
-guess I missed it. However, the changes are these one here [2][3]
+> diff --git a/net/ipv4/icmp.c b/net/ipv4/icmp.c
+> index 90c0e22c29bea..e11008aa4cecd 100644
+> --- a/net/ipv4/icmp.c
+> +++ b/net/ipv4/icmp.c
+> @@ -979,6 +979,18 @@ void __icmp_send(struct sk_buff *skb_in, int type, int code, __be32 info,
+>  	if (rt->rt_flags & (RTCF_BROADCAST | RTCF_MULTICAST))
+>  		goto ende;
+>  
+> +	/* Don't send parts of a decrypted skb onto the network. A received skb
+> +	 * was decrypted by the device, and the transport header may have been
+> +	 * encrypted. The different offloads can't be distinguished in all cases
+> +	 * so simply don't send the error.
+> +	 *
+> +	 * A locally originated skb to be encrypted may be quoted if its source
+> +	 * address (target of the error) is local.
+> +	 */
+> +	if (unlikely(skb_is_decrypted(skb_in)) &&
+> +	    (skb_in->skb_iif || !(rt->rt_flags & RTCF_LOCAL)))
+> +		goto ende;
 
-[2]: https://lore.kernel.org/linuxppc-dev/82c4973addebd82923c460cb44221f5b7=
-6146afe.1794572365.git.ritesh.list@gmail.com/
-[3]: https://lore.kernel.org/linuxppc-dev/f75f2cf97f44375fd2c8820e0caeab703=
-cdb371c.1794572365.git.ritesh.list@gmail.com/
+[Severity: High]
+Does this check cover every reject path the commit message names? The
+commit message says:
 
--ritesh
+    a reject rule (iptables REJECT, nft reject) sends its icmp error with
+    icmp_send(), through nf_send_unreach(). so now, a received packet which
+    the device decrypted, and which hits a reject rule in the INPUT or
+    FORWARD chain, is now dropped without a reply, like a drop rule.
 
+That is true for iptables REJECT and for the nft ip and inet families.
+The nft netdev and bridge families are different. They build their own
+ICMP error and never reach __icmp_send():
+
+nft_reject_netdev_eval()
+  nft_reject_netdev_send_v4_unreach()
+    nf_reject_skb_v4_unreach()
+    nft_reject_queue_xmit()
+      dev_queue_xmit()
+
+nft_reject_br_send_v4_unreach()
+  nf_reject_skb_v4_unreach()
+  br_forward()
+
+nf_reject_skb_v4_unreach() copies the original packet into the error
+and has no skb_is_decrypted() check:
+
+net/ipv4/netfilter/nf_reject_ipv4.c:nf_reject_skb_v4_unreach() {
+    ...
+	/* RFC says return as much as we can without exceeding 576 bytes. */
+	len = min_t(unsigned int, 536, oldskb->len);
+    ...
+	skb_put_data(nskb, skb_network_header(oldskb), len);
+    ...
+}
+
+Take an nft netdev reject rule on the ingress hook of a NIC that does
+kTLS or PSP RX offload. The ingress hook in __netif_receive_skb_core()
+sees the skb after the driver has decrypted it.
+
+Wouldn't the ICMP error then send the decrypted TCP payload (kTLS), or
+the TCP header plus payload (PSP), out in cleartext?
+
+The new nskb has decrypted == 0, so nothing later on the tx path stops
+it. The bridge family uses the same helper. A decrypted skb on a bridge
+port is less likely, but the code doesn't rule it out.
+
+The rest of the series doesn't seem to close this gap either. The ipv6
+follow-up, "ipv6: icmpv6: don't quote decrypted payload in icmpv6
+errors", seems to leave the same gap in nf_reject_skb_v6_unreach() for
+the netdev and bridge families.
+
+Should the check also go into nf_reject_skb_v4_unreach() and
+nf_reject_skb_v6_unreach(), or into their callers? If not, could the
+commit message be narrowed to the reject paths that are actually
+covered?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111001831.3710881-1-toddfreed%40meta.com
