@@ -1,97 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794743726;
-	b=Kq73LfL6U1kS7buiiwr/pDpjDIAmrjPOFfuY83Y7d93digKJ805HB4QO8P4pbCTOxciC
-	 v2sl9wbjN/BINwbGfvdAgtBCiasJeWq/unjUEW6sHHMc5SKCBR76s8yvsRH2tGy1gb8Cy
-	 HPQc7M/1tgj4pgpUcC9PX/isiS2mFGMCyLPgXAmG6YPoKnVumzMjAYihx3YbDvVHEIrTQ
-	 LEXxb6xY/Q/c4zXtlUcsjjWRCh09HLjiClsmxWcjSySG7wR+T2XDS2zQTN/8PQ5O0ojki
-	 noORf10f1x/SY4HW16ewQeRTUhYwn8Xw8ZagcgMo+0bX63SojKMa65ZgcWwgCmwyiWg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794743726;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=b0eGFIX/6uoUZeRa1M1W5P5iJHYrKtJzm9/hzLAT3yM=;
-	b=WhionMePgDp0MJeIOqgjQwqyVu0NGRVU3BwFx9p73hCn1I+Pv2KC6f1bp/kCprE0tshX
-	 9dn5o2M3tJLRDXO5aDnlgeAaYk3PdMe/EkGfd/uZgrDoUCSNw2MtNBZJb+yJNbrv4b8jz
-	 Po7b88mu1GyDrXs8FKn4qrxAoZwVHrws2VO2zdRSbWGVKoKQYU/dWGSgay8Yn7xv1D4Xh
-	 Z95vF6/eqGI5so2i6al3txT9YW+AcCdJtf/QEoSW8E5x1rxsIPmTIozWpXU+qOM0lK89A
-	 rQMlcU42ONDLqo5Z28tuJJghVhUElsWmsDBEGD05V+2LCIO1eq6ml2FU4aB76qawFvA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=gSkMjB11;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794744589;
+	b=Cx+dFpnWtW55uNVNJS3+m/+qQCCOFH/PWxlsSF31WLdxJpGITSB/kJUl096nHWXW67wO
+	 UKoBe6NcQr5bSQ2eyjUDE2BjDLM6AWEkbPMZSPETns6a6ooizQjWs//lLxtfqNnPU320G
+	 Xh9NZIBAlnkT7yWjH48iGaVNndlxfrLGOOGyisBjk77PqDU1l26x3wJFGvwARRyMDe5le
+	 r2X28RHhBFzuOfEUnkpH5H3W6+btyfh0Nwxz/gRSmbkDpJE+UCBVPGvomrdHSlbw7xXoL
+	 x7PE+60a+XDTvTHLAxjTPQR+Wmz9VCzUBZ1LSiCCyoajrZMWQqvPVXA2u++vWkZgndA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794744589;
+	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
+	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Mailer;
+	bh=FNh/mYJ+0jsVySuFyl1eF/vkWOtkKDGeVp6wS/ZBews=;
+	b=YUIUregmZVsjdeQXxg4nCW7HtwNAbEICcvtXmdRa0W/X8yrsYNVJMCMoCSTgBnCMkRYi
+	 sBY6SyUyXc1RXmfKGxPF9/tkpDNbIeySEwgZDYQroTNUH5qDj8yl+sW6LJBv7ALll7aVB
+	 /YyMGodrM/IS/Sz8lqO+V5bDnu3880fUL3FscSAk+KRtGVVIOqOdsObTT8FZVC0FYtaZL
+	 G9s7KByD587VxMWD6vlfv1Hk1HkQbacEG8z/asd8tZvU77wgUGX0ogf4cDqVXP9IR0xB2
+	 /6lGqGt5Y3hl/DiCT9VA4yf8g1Ez/WKNoOB7idHEi/T2pFf4eLovobjzzTD/SexIFgQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=COQR12yc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC893606A31D;
-	Sun, 15 Nov 2026 11:55:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC893606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75018606A31E;
+	Sun, 15 Nov 2026 12:09:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=gSkMjB11
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B4CF9201BC8;
-	Sun, 15 Nov 2026 12:55:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794743723;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b0eGFIX/6uoUZeRa1M1W5P5iJHYrKtJzm9/hzLAT3yM=;
-	b=gSkMjB11VhG08Uy9HHFzb2c+cDvDtTFOsiRcH4+R7yajH3I1Qz+UB5+h0ZvLm6xdWs73vx
-	qVNv8SZfkCfQj6nUhOJq03q864DPVF2CbXms7MMjSQjv0PKTQgn0kvSerGny5X6jAwYcqu
-	/90BAvJKY7Ch4KHLSBnqbat1bfELr+5/WJz72O8l+RZIVyBWA93WdytktjhXVw8S8NI1VC
-	LEYVt5UUCAwe3nwtW76mKrK81jkE8UyOyB1CRwIIgYtHOkaLk6pBWPU9tuAcF3RnmQ3u1Z
-	DuT0esn5UDNNLzhx1pz6jTqYJwQeh4tbgChmuqCiSpswbiC8mFNoCovv6EdD4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794743723;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=b0eGFIX/6uoUZeRa1M1W5P5iJHYrKtJzm9/hzLAT3yM=;
-	b=WV9TXnZKOfrOLdKOlFysGcFNpWMvd/nBadZxYAx4sUGgeYk3Q3WRrONBY6aELeRlN7WHKZ
-	oyB0axTxTLhguEMzgdpcb1x2bL5CAFPM0RT+l2Dv4fK1fBkmupN57u3bSEYYmbOOjzxab9
-	DvPMOWQB/iBHt+EKYecK0l0JjiXpLwEKd9GiMoMDUf0ZLZvNLg9+xJs9Ba9lKsS/2oncE1
-	PNYMy33YTvd0UPe7/7eqvpEuZYwq8M8p4CnXt5baGy/CnfpMqpmVj35q/DKeKUd7NK0I/7
-	cPpwMDgvL1a3P2xJhuhlWf9ye8x/eAdChJ4tDIUbwXSp6f6e8MpvuY3rUokluQ==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794743723; a=rsa-sha256;
-	cv=none;
-	b=W/ag6xoCdxgULcI9eogkEQs4Q9Ui2XdkD6XAdHIqapkpGtAdG1/ZsfstSj5de4IYF8qP5C
-	gicmsr7517AOBxzOdnz4z3tdlKJWKPFHzwY3PCYJvcFKqUN/JsstlI+g2WiMC1mwwBrR6h
-	FQIb2HHj1US+TcMUAzP7Z2+b/+yl/7UOG8JrM5N/lMhSCzj5fdOCgdJddLtJoJ8Le4rzPe
-	jAfkyuCbk5P3umtth3XHLhwM0rl40NSj4Ak00Qt4bDcCQrqySqFUhS0QInf6xzF8dY4yQs
-	dFs3Sj0Wae03Vh3gRPqKTn5uSRoIL6VFmpz/u4kklmAZJeVVpNOItRgNxO89Ig==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1xSYpP-004HEq-1y;
-	Sun, 15 Nov 2026 12:55:23 +0100
-Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 4A1165EC3DA;
-	Sun, 15 Nov 2026 11:55:23 +0000 (UTC)
-Date: Sun, 15 Nov 2026 12:55:22 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: Oliver Hartkopp <socketcan@hartkopp.net>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org, 
-	linux-can@vger.kernel.org, kernel@pengutronix.de
-Subject: Re: [PATCH net 0/9] pull-request: can 2026-11-15
-Message-ID: <20261115-muscular-expert-kelpie-9706be-mkl@pengutronix.de>
-References: <20261115095746.709371-1-mkl@pengutronix.de>
- <20261115-musical-garnet-turtle-de4539-mkl@pengutronix.de>
- <bb2a488f-5734-40e6-b673-84612f6173f1@hartkopp.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=COQR12yc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E8E1F000C5;
+	Sun, 15 Nov 2026 12:09:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794744589;
+	bh=FNh/mYJ+0jsVySuFyl1eF/vkWOtkKDGeVp6wS/ZBews=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date;
+	b=COQR12ycgObj/tV9ywWCW5uOL6FzCyVdAqEyCCOkqcWAMBoIsZ8+0eCVe3GiqLntm
+	 nxCHBsePYJaWCeZop9ugxWHjlb16dOzKOCe/vdsb9SoXo/+PSl2LmVwP8sIClw25XF
+	 JEolYk1mjcto2obTzm2rdyLvpgzeIZuuHioWYMSnEuxfynPxTxrBIJlSnwQ9H7HLy5
+	 slZnoZ191iSiPiHqeBLScoG3de8cv7HOonAFbGYzA6GSzB+idNwm6EP2Dr/tuOwF57
+	 ZrHQ48I3rKqzYQqW2GBk4mUUICYx0nDCHzwRjdL/7uhZqERMPqjQuA4W4KowrbUeB4
+	 zieXkY1lpVoyg==
+From: Chen-Yu Tsai <wens@kernel.org>
+To: Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, 
+ Junhui Liu <junhui.liu@pigmoral.tech>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, linux-riscv@lists.infradead.org, 
+ netdev@vger.kernel.org, Jerome Brunet <jbrunet@baylibre.com>, 
+ Enzo Adriano <enzo.adriano.code@gmail.com>, 
+ Andre Przywara <andre.przywara@arm.com>, Norman Herms <dockseed@proton.me>, 
+ Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+In-Reply-To: <20261112-a733-clk-v7-0-db7c5451ffa2@pigmoral.tech>
+References: <20261112-a733-clk-v7-0-db7c5451ffa2@pigmoral.tech>
+Subject: Re: [PATCH v7 0/8] clk: sunxi-ng: Add support for Allwinner A733
+ CCU and PRCM
+Message-Id: <179474458449.3130971.12008198786411487989.b4-ty@kernel.org>
+Date: Sun, 15 Nov 2026 20:09:44 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,66 +74,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="b6mukjhabdvhctf3"
-Content-Disposition: inline
-In-Reply-To: <bb2a488f-5734-40e6-b673-84612f6173f1@hartkopp.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 
+On Thu, 12 Nov 2026 15:11:49 +0800, Junhui Liu wrote:
+> Add support for the main CCU and the PRCM module (R-CCU) found in the
+> Allwinner A733 SoC. The clock architecture is derived from the previous
+> A523 design, with the MCU_CCU removed and the clock tree extended for
+> the additional functional blocks found on the A733.
+> 
+> The A733 introduces a "pll-ref" clock that normalizes the physical
+> oscillator frequency, which can be 19.2MHz, 24MHz, or 26MHz, into a
+> consistent 24MHz reference for the PLL clock tree.
+> 
+> [...]
 
---b6mukjhabdvhctf3
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH net 0/9] pull-request: can 2026-11-15
-MIME-Version: 1.0
+Applied to sunxi/clk-for-7.5 in sunxi, thanks!
 
-On 15.11.2026 12:23:39, Oliver Hartkopp wrote:
->
->
-> On 15.11.26 11:18, Marc Kleine-Budde wrote:
-> > On 15.11.2026 10:54:51, Marc Kleine-Budde wrote:
-> > > Hello netdev-team,
-> > >
-> > > this is a pull request of 9 patches for net/main.
-> > >
-> > > this first 3 patches are by Zhu Ling and fix problems with the CAN
-> > > netlink handling.
-> > >
-> > > A patch by my fixes a kernel memory information leak over USB in the
-> > > gs_usb driver.
-> > >
-> > > The last 5 patches are by Oliver Hartkopp and avoid RTNL stalls in
-> > > CAN_RAW, CAN_ISOTP and CAN_BCM protocols.
-> >
-> > I described patches in topological order, which is intuitive when
-> > looking at the git tree. However the linearized order of patches in this
-> > email patch series is chronological :/ - Sorry, I've added the missing
-> > "--topo-order" to my git send-email script.
-> >
-> Funny :)
->
-> Anyway the current patch order is correct to be applied.
+[1/8] dt-bindings: clk: sun60i-a733-ccu: Add Allwinner A733 support
+      https://git.kernel.org/sunxi/linux/c/39e4303e8bbc
+[2/8] clk: sunxi-ng: sdm: Add dual patterns support
+      https://git.kernel.org/sunxi/linux/c/b213bddd53ab
+[3/8] clk: sunxi-ng: a733: Add PRCM CCU
+      https://git.kernel.org/sunxi/linux/c/2a5ae6df088b
+[4/8] clk: sunxi-ng: a733: Add PLL clocks support
+      https://git.kernel.org/sunxi/linux/c/93c637ce9f0a
+[5/8] clk: sunxi-ng: a733: Add bus clocks support
+      https://git.kernel.org/sunxi/linux/c/103168ac6eec
+[6/8] clk: sunxi-ng: a733: Add mod clocks support
+      https://git.kernel.org/sunxi/linux/c/4646c19620e6
+[7/8] clk: sunxi-ng: a733: Add bus clock gates
+      https://git.kernel.org/sunxi/linux/c/ed757071ac3d
+[8/8] clk: sunxi-ng: a733: Add reset lines
+      https://git.kernel.org/sunxi/linux/c/308e4087bbda
 
-The netdev people usually merge the tag, the emails are relevant for
-review.
+Best regards,
+-- 
+Chen-Yu Tsai <wens@kernel.org>
 
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---b6mukjhabdvhctf3
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCavmdpwAKCRDMOmT6rpmt
-0lyEAPwNbq0e8SB6/YoLl9pIwm0s2IiXm3IkF0c22koqunSe9QEA5yn/CjHM4KfI
-cgjKAoXyOuADKwRCfeIhNWX2Ij3dbgI=
-=t6Ne
------END PGP SIGNATURE-----
-
---b6mukjhabdvhctf3--
