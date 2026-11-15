@@ -1,101 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794701934;
-	b=4Wl35lj8cELvbdPGX9CfJFSw4mnPeraygPUZ6brxtJCidrO95GOPuG4q6WxLTyQ8Krvm
-	 uAih6/PRlCdmt5VUWcxdCrfkPKh8E7LGYmKpbq0qzvSIvsmpMLN6NKFAejq6BqKX1SZXi
-	 0Sx0N9E7o4bxi1pcjxnSQMhKzgCtoTAwSW+Ny8yV8Ls3WLm9yB8ZdKhJy3J64gg8n+RsM
-	 QYdE94a20m3K9ZIvF+1NyVcoFvH/o865eXUSyYxRy4Oql6jG5prquH4LOIAXMe0JpMn6R
-	 Mg4Tb+bmHK2HxXIqsxL0XET6CbBcZsUfW+DIC/HKvGXBd+mKqpC+2PYNzhJuExvs+bA==
+	t=1794703205;
+	b=pvfyFmvtAQnaQ8ss9jcACF/z9755fOdQMXtslyxnuuGbwgj/iQnsBkGqOP+ECQYmhisd
+	 ZG2K6WcfezL8lcZImoZiVyTha2G+HaOx1g1W+6+JlrymmfSm2LMwAOQUw+bD9qLGamB3m
+	 JxKnl7hgZ+LbRFH7/iZUNvYd/kxIDiRx+i20maN8JGQhHEadfy6TRTRb9O2sra+YkZqQk
+	 OMVMCYjyOfUz6+gLUtFTHhkjkrbSD4ZKPP0qX4ODqcFJDsotX67kO4V4JUqcf5e7HKXMf
+	 +2WenhF4iNRzwjmYQ24fbUXmAhdECgzORfrSE3FlSQIXTSWZwzGjx5Z3hTQ1G9t+koQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794701934;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794703205;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=JejavGOhT29+kYZxPl7g8FlCzMWntZ9rMxIL0KrRCgg=;
-	b=rPlEtPwzkAk34LQLoss0RXJT0nAfn1RIvCpx6oNH5RMLLMuHkSn4QTZpAW5q/HI1QmFy
-	 YM14gJDuQiDwzOjAgd0uZaUPG4wQaGr0M5JYkZbRxCOewquUldmCqsfstfyR3/Wns421V
-	 49GXy46+Mu/RGTUXeMTZioSy1K3/r0tg/RoAQiO2/+ZNUEAAIDO7Svgs/lDXx/8h36hyk
-	 5ivc3U4kanwpZKO1C7LRvgLZr0ncUxtnD+SGpjFEW/8M8vBSQAO7LxyAgiuFRvYcY8iUm
-	 /d0gELCeBkpTsnns3Ne33qoCXT1eayCVzrjhT9gH3bfQiMWnZgqd9Utlps7NhOLcwDQ==
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=ghyyyMShfprSIjcu4sKZdV7cO51zD2ouEy83EYOaPGc=;
+	b=CzdhLMMjF8oE0UbPjEISWM9WSuzS9rPBBDEmUIF1lLKFCf8JSgLRPf+KIfYHymVNdmKG
+	 GCToS4BErz6ItvZRqGyWciqYcTf1hond92bTwNS537ilbI9tb7JjPqbMb+DdC9ZsoVS50
+	 ggUwwnqENA1Wg2QRwS7c4kZuGBjt6CcwHwsSB1nbdPCxVW1E9X1n28iJVMAC+KXRugYDA
+	 fi8BdMCjLHTym32ebhH5t/25sFzW5k+qiYQF5KJtJGhh1JBCuMai9CfcOCzC6rxiHbZtP
+	 zeb8g9OiQHPBJjZsl6r1pY7W/kvt3zeMlB48a7U3G/BHipM8NFbWOAeJyyo5xZWadhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=CLZiqkUi;
-	arc=none smtp.remote-ip=209.85.222.181
-Received: from mail-qk1-f181.google.com (mail-qk1-f181.google.com [209.85.222.181])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MZwvnFYm;
+	arc=none smtp.remote-ip=74.125.82.197
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8AF1606A330
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:18:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8AF1606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53C93606A32C
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:40:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53C93606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=CLZiqkUi
-Received: by mail-qk1-f181.google.com with SMTP id af79cd13be357-943e8d35f74so287664185a.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:18:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MZwvnFYm
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-341eff9e381so3545110eec.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:40:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1794701933; x=1795306733; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=JejavGOhT29+kYZxPl7g8FlCzMWntZ9rMxIL0KrRCgg=;
-        b=CLZiqkUiy/GqoMK+wOyDEYP2H1dJ227AZJ9Z8XC3+j1I4tBq57Tz++CXSvWNkYlb1I
-         VH2/IrtUDdGMYYvSoMK49waU3rQ192zmkKPi5Wg9y4HR5rwHpUHO1D5pTrHi/mjEW9ct
-         GjKEr6kPgjPz7Ih1wSoqksm3BM/X1CgQs/Nd7pC9tQm3Eg//Y544Zu37OsmxUkHS3zwG
-         v6YsLfw9Z91eCnVaMbOCLeTv8KXuhpzuciXLUppvC8Iecs9A3aeapVStAQ1VxeYMJ7qc
-         l1ArYTSfSCx9dF6vfeVBrF9tsGfoKDta0ay7l7p2DzlbvCgV7rpqxyL6obw1+5WQeRbb
-         OTkg==
+        d=google.com; s=20260707; t=1794703204; x=1795308004; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ghyyyMShfprSIjcu4sKZdV7cO51zD2ouEy83EYOaPGc=;
+        b=MZwvnFYmxpp2tcKd/0nL+1w1Rpi02N0UkeZ8PdILp6gi7OqcpteY7kpG3l6iLpFEz+
+         L/4Bb3lHZepII5+VdiXeeMd+0x+6TFyTK1DKFvgG36mwRcGMR89IvAJDXcBX65i+EX3p
+         Bsify0hVZW4j4HRPdvfoOC6ZqovC+hJ8j+3cP1t/UYoUCGpoPETHleNkUrpHZBtp5NXF
+         10QGbRTD0VKX3YCTdFU3029PAnR/ATC+Tr6/oRcLqOY+QtWg3fh/E6kVt41pLsT1rAVd
+         /fvuiJ4B3xxEHjqZQ2ueVxZ3BOVhtWbfVXsEKotrgLK4Dq+rLiQQ6RzuZ444BwEHt0PG
+         iUfw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794701933; x=1795306733;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1794703204; x=1795308004;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=JejavGOhT29+kYZxPl7g8FlCzMWntZ9rMxIL0KrRCgg=;
-        b=LCd2tRE7P5PCoW3TuIAmbTUfBY6a7nt/23PVzRglVBfOeU9QoCxhKBFpsGZDVbSkhp
-         sxzZyk4w6QRVS2RfFKOpcgWUrgt64P/EamI3YKvGMxQ8n+FipwVjQGB66Pn3lEgcFDCm
-         45YUJavKWPgNRUSw8tugskXR6wPnUIFSRnzKqrGw7ivJt+sBCnvGH1DF+oDwemjj9sVs
-         FnsPybeRJkSbG67AZVjPpMW3LiyHSkvqdWd1HTt0haFM5nw7BdFUdITr1ghkburWc3F0
-         n9WMAAirnIpdl6N9Ls2PXmiyeW95ifB4EbHI2ruvQTappOJCFNTBHme5civuxx7Mopz5
-         8bjQ==
-X-Forwarded-Encrypted: i=1; AL+hErEgm5Jn3R5gNnNUW0YOL+yduGh9V8Ve5j9ucSikor1btyH68f7QIr9rpRFE/72Ids2GuXq2qq4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/jOUmYEzVQup1FKY1Eq2xUSq27KnLn8D52P5B0Jyur8hSAMvwh
-	JNGTq1MaHtOSnTgw4jMVtSb76dl44p3s+Jm8lW/F9QhJFHGS/34NxAHTzwUgVLE24dU=
-X-Gm-Gg: AYBFou0eRBCPO/TgHiei8PevrP4m3ScEyhb3/U6+a8Q5m1t8i2vZHHEorHSxM7/8MwV
-	sdKF4OaN6oxvGwdwWbpX6TiKe4f5uA0UbFGSF0blGaNangUawrQ/t5Tit++bkG5TlNa6pjrKj9v
-	bWLmNJXcY9/MeXDAH3GozNoCwfMNW80j6D7xWhUBTLPg7RZTQ6nrD9c3XeRtJUirll4kpTnWNwD
-	VrG9vzL0SQiru9TkzaJGLQRlFFoBx/RwL/Fj4u4BbJZuYO9GgRYo1eAixSlAcG5C777Z0XTUca0
-	/gseYA3xmxTVrqrrdJnONUGvJnM42cKpp6VhaYHSYwyLYC0UznOGz3G5BsjYa7Te1h5KZTW1SL5
-	IFq+xRdsVwDaA2ArIYvdMAfvGC6J9kSQEt7I0we9OioOkojZyk0bvVgfvWZqo2pm7K6mcwedRCb
-	4Z+/ZBDt054TbvRGt/PP5tcgq1xaJJCTXw9RyoXASu1SMyfm9+S5PeeOUgQ9dLw6A7GjtzLAFSA
-	2Uedoh/TcnCROPH9coYvhJALSh/JKe4mjK0nZMNAwcgKM5FzCYdFEDKkKo6C8cvl/c8b/togyUY
-	yhE0vw==
-X-Received: by 2002:a05:620a:2b96:b0:93e:5fbf:a41c with SMTP id af79cd13be357-9494bbb7e8dmr1069300885a.16.1794701932860;
-        Sat, 14 Nov 2026 16:18:52 -0800 (PST)
-Received: from ziepe.ca ([142.166.156.71])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9494c8f92bbsm512903785a.40.2026.11.14.16.18.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 16:18:52 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xSNxL-00000005ESx-1JsN;
-	Sat, 14 Nov 2026 20:18:51 -0400
-Date: Sat, 14 Nov 2026 20:18:51 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Aibing Chen <chenaibing@cmss.chinamobile.com>
-Cc: leon@kernel.org, achender@kernel.org, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, linux-rdma@vger.kernel.org,
-	netdev@vger.kernel.org, rds-devel@oss.oracle.com,
-	linux-kernel@vger.kernel.org, hdanton@sina.com,
-	hackerowskiy@gmail.com,
-	syzbot+ccdb5058c3df2d94811c@syzkaller.appspotmail.com
-Subject: Re: [PATCH] RDMA/cma: add rdma_destroy_id_wq() and use it from RDS
-Message-ID: <20261115001851.GH2532299@ziepe.ca>
-References: <20261114150541.1908-1-chenaibing@cmss.chinamobile.com>
+        bh=ghyyyMShfprSIjcu4sKZdV7cO51zD2ouEy83EYOaPGc=;
+        b=jwPgh8d3PoFN+qfYlSWEosurnaxV5NcPFjLh4fqaFtVgd4kV5+wrQezxHfTTPZwG3E
+         Uq56W1eDd04jfbYk6MbiNnFXKpi7lh3Z7crh5CWzOHfkjSSiKsEvkaL0S6sfUGbIJCNI
+         qS2TfrrXw/5g3a4kPMoqiq6g4lfeVZKt021SP75U+frvMlAl+m7gNCOQ8BGbg/gIb+Z0
+         TkLSI5u3PvqVEV4lcmSoWxrEWs2OJjQAFkZSfo/WsZGdrAVoibhVQ7YIlz/OZiJ1s/+0
+         J0BzHdq/PoF81BxM1dFQ1n3UEpFqGqPzDQ3w5N/oRLVorvI+SJvDzFLS6vkIHnBTn+s1
+         rlGg==
+X-Gm-Message-State: APuU4Z/p/Ddw9xZvpjwU/d7M/m8kAxXX0RjhfeoHFJzqhQJAwUdd1NCx
+	w4F9vob/fDf7pw0zYmrsbygsELBqbP9I53uCIkhECRvoKmhxyz3BdTQvLtCrzblmz8hJgAl/ZlW
+	mUvRQa7swxkVnehfKIUgx74nqFVjMXfXkGYybggcXgzkmDS8jbUwJJTvuEObvJeAKD+29ftYnAz
+	nfA2mLbqlNJrIEgQMbxRnPH13/h10OaNt1bCkwSx9fsKWDUOeo2I2C29eiYTZ0cI4=
+X-Received: from dyp9.prod.google.com ([2002:a05:693c:65c9:b0:366:233a:49c7])
+ (user=almasrymina job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:7301:1285:b0:376:6aea:ab with SMTP id 5a478bee46e88-3796337238amr8971605eec.3.1794703203810;
+ Sat, 14 Nov 2026 16:40:03 -0800 (PST)
+Date: Sun, 15 Nov 2026 00:40:00 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,36 +75,90 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261114150541.1908-1-chenaibing@cmss.chinamobile.com>
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
+Message-ID: <20261115004003.3695475-1-almasrymina@google.com>
+Subject: [PATCH net-next v5 0/3] net: prevent mixing incompatible memory
+ providers in skbs
+From: Mina Almasry <almasrymina@google.com>
+To: netdev@vger.kernel.org
+Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, 
+	Josef Bacik <josef@toxicpanda.com>, Kaiyuan Zhang <kaiyuanz@google.com>, 
+	Willem de Bruijn <willemb@google.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Pavel Begunkov <asml.silence@gmail.com>, 
+	Daniel Borkmann <daniel@iogearbox.net>
+Content-Type: text/plain; charset="UTF-8"
 
-On Sat, Nov 14, 2026 at 11:05:41PM +0800, Aibing Chen wrote:
-> syzbot reported a possible circular locking dependency between
-> rds_trans_sem and the RDMA CM handler mutex:
-> 
->   CPU0 (bind path)                    CPU1 (CM callback path)
->   ----                                ----
->   down_read(&rds_trans_sem)           mutex_lock(&handler_mutex)
->   rds_ib_laddr_check()                cma_ib_req_handler()
->     rdma_destroy_id()                   rds_ib_cm_handle_connect()
->       mutex_lock(&handler_mutex)          rds_conn_create()
->                                             rds_trans_get_preferred()
->                                               down_read(&rds_trans_sem)
-> 
-> rds_ib_laddr_check_cm() destroys the CM id from inside
-> rds_trans_get_preferred()'s read-side critical section, while CM
-> callbacks create RDS connections (taking the same read lock) from
-> under handler_mutex.
-> 
-> Break the cycle by destroying the CM id asynchronously: add
-> rdma_destroy_id_wq(), which queues the destruction on cma_wq, and
-> switch rds_ib_laddr_check_cm() to it.  The destroy work is embedded
-> in struct rdma_id_private, which keeps the id alive until the work
-> runs; rds does not touch cm_id after the destroy call.
+Enforce that all fragments in a nonlinear skb come from compatible
+memory providers (and for devmem, the exact same binding).
 
-This doesn't seem like it should be the core codes problem? Why can't
-rds do the workqueue?
+Patch 1 fixes skb->unreadable propagation in skb_split() and skb_shift().
+Patch 2 adds skb_net_iov_provider(), skb_mem_provider_compat(), and
+skb_frags_can_coalesce(), and enforces provider/binding compatibility
+across TX, TCP, GRO, skb_shift(), and skb_try_coalesce().
+Patch 3 propagates the skb_zcopy() uarg to the probe skb in
+tcp_mtu_probe() / tcp_clone_payload() and rejects coalescing across
+different uargs.
 
-Jason
+v4 -> v5:
+- Drop skb_has_net_iovs() and check skb_frags_readable() and
+  skb_shinfo(skb)->nr_frags directly in skb_net_iov_provider() and
+  net_devmem_skb_binding().
+- Add patch 3 to propagate the skb_zcopy() uarg in tcp_mtu_probe() /
+  tcp_clone_payload().
+- v4: https://lore.kernel.org/netdev/20261108013838.1454450-1-almasrymina@google.com/
+
+v3 -> v4:
+- Fold skb_shinfo(skb)->nr_frags into skb_has_net_iovs() and drop
+  redundant nr_frags checks in skb_net_iov_provider() and
+  net_devmem_skb_binding() (Stanislav Fomichev).
+- Remove the empty-skb check and redundant !skb_has_net_iovs(skb1)
+  branch from skb_mem_provider_compat(), and add a comment on the
+  early skb_has_net_iovs() check (Stanislav Fomichev).
+- Propagate skb->unreadable and compare skb_frag_netmem() directly in
+  tcp_clone_payload() instead of rejecting unreadable skbs in
+  tcp_can_coalesce_send_queue_head().
+- v3: https://lore.kernel.org/netdev/20261104042521.3979880-1-almasrymina@google.com/
+
+v2 -> v3:
+- Drop patch 2 ('netmem: store memory provider private pointer directly
+  in struct net_iov') and compare net_iov_owner(niov) (for devmem) /
+  niov->desc.pp (for other net_iov providers) directly in
+  skb_mem_provider_compat() (Stanislav Fomichev).
+- Squash the skb_frags_can_coalesce() helper patch into its caller patch
+  (Stanislav Fomichev).
+- v2: https://lore.kernel.org/netdev/20261102231827.4088254-1-almasrymina@google.com/
+
+v1 -> v2:
+- Generalize the check across TX, TCP collapse, GRO, IP defrag,
+  skb_shift(), and skb_try_coalesce() by storing mp_priv directly in
+  struct net_iov and introducing skb_frags_can_coalesce().
+- Fix skb->unreadable propagation in skb_split() and skb_shift().
+- Add KUnit coverage for cross-provider and cross-binding rejection.
+- v1: https://lore.kernel.org/netdev/20261008034027.1403188-1-almasrymina@google.com/
+
+Mina Almasry (3):
+  net: fix skb->unreadable propagation in skb_split() and skb_shift()
+  net: prevent mixing frags from different memory providers or bindings
+  tcp: propagate skb_zcopy() uarg in tcp_mtu_probe()
+
+ include/linux/skbuff.h | 55 ++++++++++++++++++++++++++++++++++++++++++
+ include/net/tcp.h      |  5 ++--
+ net/core/datagram.c    |  4 +--
+ net/core/dev.c         | 14 ++++-------
+ net/core/devmem.h      | 22 +++++++++++++++++
+ net/core/gro.c         | 16 ++++--------
+ net/core/net_test.c    | 42 +++++++++++++++++++++++++++-----
+ net/core/skbuff.c      | 32 ++++++++++++------------
+ net/ipv4/tcp.c         |  3 ++-
+ net/ipv4/tcp_output.c  |  9 +++++--
+ 10 files changed, 153 insertions(+), 49 deletions(-)
+
+
+base-commit: 6964ff21c5d8b75649211a52dbfd92753e605649
+-- 
+2.56.0.611.g1030f0b940-goog
+
