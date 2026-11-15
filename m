@@ -1,124 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.153
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794743271;
-	b=WwQi6vQzCdjqXHoLRlVh74eKYZZwJ+pylC8Xu9zlifFMbcrNv9zuN8+neUgNcQnjXeHc
-	 JTIHOBhp4resVv4W6zXg+l6uJ/AM44U/21w37PfDMkO23g80kZdq3WwcmVZyQ5gtM1KT5
-	 KAPl+EPvGLI9VG/UECpziHOzFgauohka29XLTGl9G3r/NAqgt9rIBZ6/WSi1IupHXoYNN
-	 qAqI2AJGxPd5j9VlriAQ9UPRBt7n2rNY/0IDL+WR6qoxB29dF7VfEBnyv9Zs3A2q6awAu
-	 lUhitFQjAdO7xba0aSaXtC/XhbdzsiatShmcO+2pTAOz9RP6+NlH6wstgLCVreczcTw==
+	t=1794743660;
+	b=SlnDamIdTg/+RoBBPTQUPlECCF04ges0XjNHr3ojVQzgsKczAqAXZCHiunpSq96cFmWg
+	 jEbp4+nJJHBxWg05jKKaEofGNL6zTOWoqdi36joMtyxnORyE4yGzJ3fNdN8alEkwUKPYS
+	 QHm6h4whLzp8y8qbiNr/qA4HodP0iuNCojy0OJqMeHDItTtBD2k3vEBgKSWzSRrnG2hTI
+	 ch1yYFrJwNAV81ETC8yaID+xJOPhBx6XH2xtg3+r2Kb2x4OT7rX5ywYJvWYxS4E1jdLEG
+	 u8J0GB2umDW+iRAkVlF6tW0iP0RIwVZRIc2yBI1S+sAQSOnshnUV70FPrfhwV9H4CbQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794743271;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
-	 Mime-Version:Content-Type:Content-Transfer-Encoding;
-	bh=lI724t7k9EPrebnQ2BhOfSZtdqpTgQ4IuGkGe8WYslo=;
-	b=RZ+WCCOlYaRW3S+Yf59LvGDeWpFu3WmufsadMAu+pbOEywpxm77Ug73W8cejhDRmOJqc
-	 vFXnVoMemF+4PYyLTPpjBQpOg3u+zPDMXiEdbQVOKIL4GjK5sIYRq0jOqXHjKvHGCxKhF
-	 Gwv9xBgLCvy9P7R5DY1buOu1SNu+OMvNbQhV02XqJm+PK4HpzBuAlp1nqbzYiZ2SQvK9K
-	 +jNcNqds+LxXsZYDLSS+FgqtW0q71A3S725wsW/cxPtbUCgUQDpHI5TkYvww6LpPCWc2c
-	 tWoFRboMenWJotbFgnXoV/1Zk6/xB4mln7lU7D2Mpkh0xh/Vh/7m+/CgLWmRDghTgrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794743660;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Q6PkhZN1LO5aZYteXn+u1sosgPv/a8y6Vpaj2cYwuTI=;
+	b=DN6SCr/r0zt7TA45tKmtB7sehloJojrHd9aMZKq3MrLhUi3JtGQD9nioF4bua/JnREWO
+	 yyTpgc7w0GiL/ZpRENFPe6PG9agiVlB4VvuNd0b8fmrUgd6gzBO4OVhyuS5tCLgXiyfqj
+	 x9NFG6QX8RUAXhGFvA5SoqxHBm+lHMzLrzz8gYGaeE9JaXEN7l9KKB/iklFWXran8o2+U
+	 R5l8CGBtQr811S0hSG5mQileZRwARLbLwV718UhrJ5az4mkZTjuoggwYEnITBJ70yyCPn
+	 Cn6cqeJvuBY4lM7z4yYONaI8sQwSL0Am9M9QxJBg5x3f3YxOyW/h+BoSUdm0POLlwBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=flapping.org;
-	spf=pass smtp.mailfrom=flapping.org;
-	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=gDm3tTyB;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="S/OWFhYp";
-	arc=none smtp.remote-ip=202.12.124.153
-Received: from fhigh-b2-smtp.messagingengine.com (fhigh-b2-smtp.messagingengine.com [202.12.124.153])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HSCx49Z2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E6C0606A31A
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:47:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E6C0606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3929D606A31F;
+	Sun, 15 Nov 2026 11:54:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=gDm3tTyB;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=S/OWFhYp
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 333D47A007A
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 06:47:49 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-01.internal (MEProxy); Sun, 15 Nov 2026 06:47:49 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1794743267;
-	 x=1794829667; bh=lI724t7k9EPrebnQ2BhOfSZtdqpTgQ4IuGkGe8WYslo=; b=
-	gDm3tTyBbcDh0QKRW9E5Qj5qfMAZnQ5n2y/ybvgnDdUYAfpuxHjg5+CfK9YdqkuL
-	x7tgrJiwedQSzqAff6pi2xjJ17zaKU8nVeTJdjNFb7sGviy/U0+cfGGjAWMbSctf
-	YFo/9RG+5TsIEW+2NYXdZlUsrhQkUbYzuddYFQsqIn3RfwjmQ8dwUGOgi+Up4f0d
-	46ZY5Kw2PRbGwGFoHAVTk8PPyPl/Tx6ys9CXDCTnhiTgGOjkY9QJrEUg7zQy46jm
-	mYaR4AVhVctI6Pkveh3vnrqnyKDP55qgMTpbYGs7KYFdk8NC0ztp299d9q1/4L89
-	W7MCIUSN1q4s8Z57bjAJGQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794743267; x=
-	1794829667; bh=lI724t7k9EPrebnQ2BhOfSZtdqpTgQ4IuGkGe8WYslo=; b=S
-	/OWFhYpQLipal5EkNqqp6aygm4kg41dJjOK8gxDsZ1ozFsE/KRQfOJAL/+Eo/UXi
-	TOdTFD0uKJMTFWV7qDVCcEYIJ2PkKy1cie5XTmvUFDYi2u+pUquu7n9ABsleIiFw
-	7RoZha90u+gi5c2cl8FV0qhZQN8Z8boyYy4HnT17sE8ASSA4do7X1fp/xVpphRD0
-	8FNirkxHZmV0yzhwOnNAkTkP+kKr1xZ8dyEavm8v/2YExVR1OmZ/qE+XwVgA8aF5
-	OgRlhPp6EF7y955DJhIeRDQ/9DAJeSQT1/kN05Fsiqz3mHNous3OeQNMviOhmXPy
-	7eC0vGa5mjqd5yVuSbsgQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=flapping.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1794743267; d=flapping.org;
-	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
-	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:r7lKYtHwAczJnsxtnvd6qcq2dNOoXTM1ajioM1AqcQbrOaj
-	uDHP2PfLG1lbtOfwgOcijuQ2z6jVTH7RQFWaBUoYTHAvswtDBfFWZv/A1UlOUQ0a
-	KkdidTD7FyIFIzEtQkIOEjLkLgbgx5a7n+N23wsBwWu96deDYq3xcwQvcDrs0GCy
-	UiLjBQbI860stbN0pfxd/Wlo9Rf9a2GRe4K3jEIdINrYAiWXJi2HiZbkR0pCjTcf
-	BBkteZh3o3T03LqNhwwvRvfpAnRzA/HsJigFJ4d2w3BDM8NsbCX5Hi8RkVv/7zPN
-	DEX6C45OI1uTshfI+XJem7+loxSDgk+1QwopUQQ==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:D0f4AVjtNwMxTvq2SdaVeL5yib32Ay9IkIlmEIaNsUw=:vdKxAE3gCrExJAQbL7PzlMgK3RhoD6xitvL41p2jKbM=;
-X-ME-Sender: <xms:45v5auZMHpPE8QETAnYHGOcbs0flnlISMj5gVRCyNOzJ-uGAw6r4Qg>
-    <xme:45v5avrnfZcYo4QkS6uDyB_Hux8RckKVzWy1Nuev6JQZPXZowBmdfk0dpTANNKLct
-    HU5x6uQFUey0sK6DNq85V4F5cQY2CE9RUJE2aEuYJX3GhamKnJ_QOI>
-X-ME-Received: <xmr:45v5aiSlzDz1BqYRSVpdlCjyvD8JFpf6XNNu5kzZ-kaVpzOM7JedGx8EN0HkYVXvlpPuGmkXGF9oZdiJraliHROC>
-X-ME-Proxy-Cause: dmFkZTFO+5jNL0/l2J1HUjaU6NRdwp+L8DRzrx3jXz44XNU7TirSz+thrk/dabj/RqQVzj
-    hAdcvy/STO6NVRNIUaCR1vNG3Spt1bnbI2chYs/ysz5F86QM83uvQY0R5y4IIvxJdSoEfl
-    XdoUtYUHYggScqytctF//z2qA7a5VscFIeFAqpuAwdEu//ilH7L0Skyl28SAq/FDVXRz3J
-    9kbPLSl5lC1893sLsEWqW05kAzxI8JUWR4jeTPzCzGyLfhQYL9oKt6CQqQ+1kDgVvhnP/F
-    HIGYZWeW9S6auvimv6C7mtH4wl2ZNFRfFTnNGeMaM/FyMJ4F/ahBYKwblxYzBZaaRfXMI+
-    SaLhillDBzaKYH3dB6QRTfqZn3NHQCGPj3p9xOxlMEa51gnzGkqmeTA9QOPNuounUIJSDz
-    mjwBWVGzdcoc9CgHqmvo1h2Hy+bqHsNvOJYShOJxWxhgwRTCtrvnbLHsBV0zyE7saQqrOv
-    rwKebbIRMimWk8yHp0NkC8/eAG65D7bB0mRlMj5nfHZD87tUDD++Y7q3iZpBZkSma5a2cO
-    mMjiVqv0RunbA9GVv34smtkbNXpT8Mjwqpes6DTtmXBPWju3A7sma7p9t36mueOvF2cC4o
-    5h0s4DABDAYmH2UwEVxOgu+JcLEXsmR7wBZuxAuInPpoPZ4QDwl7GNwW2olg
-X-ME-Proxy: <xmx:45v5ajp7lSvEhbnRPhdpLfBev0Q4xwf__MY8bOWrTfrR-5gy5Ne7Qw>
-    <xmx:45v5as2unpCs-vDRVojYAf7WLhSndv0kbLNnb8oQwF-q6OFGEir3QA>
-    <xmx:45v5ai4Gysx03hQol3q_b4WAVIlFFy6SlXFvfQAv_IazeKWD-xDcmw>
-    <xmx:45v5agQvSxIdRu3ptSBD8L2z9hCtK3MTb0M-EoDDVavlqyh6oPR83w>
-    <xmx:45v5apYrVDeQQ195k8Yv1qju_Y2MLip1JM0cJ5TzAeP0QYb9WzvWGbot>
-Feedback-ID: i51fe4b43:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 15 Nov 2026 06:47:44 -0500 (EST)
-Date: Sun, 15 Nov 2026 20:47:41 +0900 (JST)
-Message-Id: <20261115.204741.1750241782166111925.tomo@flapping.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: johan@kernel.org, fujita.tomonori@gmail.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, netdev@vger.kernel.org, stable@vger.kernel.org,
- hfdevel@gmx.net
-Subject: Re: [PATCH net] net: tn40xx: fix swnode use-after-free on probe
- failure
-From: FUJITA Tomonori <tomo@flapping.org>
-In-Reply-To: <179452098811.2199510.15081106290449010908@kernel.org>
-References: <20261110100051.2567443-1-johan@kernel.org>
-	<179452098811.2199510.15081106290449010908@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HSCx49Z2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD1A91F000C4;
+	Sun, 15 Nov 2026 11:54:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794743659;
+	bh=Q6PkhZN1LO5aZYteXn+u1sosgPv/a8y6Vpaj2cYwuTI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=HSCx49Z2F7XRlnxLS9u+rO23/JtsmVV5ff/jbEH3Y7JbEfemE7W7UqQRGRHZ5MdSm
+	 A0Wdjo4UuOp+7xPbLE47JAfCB6pOCGGIfHvQ3lJma2di8mjNXNmRbWtCEPhOgun6O9
+	 T47qMy7p6jHkE+G6tr0pCbLJBlRpH05fRIhs9HHvvNN1O2JZFSZ/dslT9eW5bb6Och
+	 eEec9VMAeXrd03CSBQtny59WgX1u0SjIzzn9J31p/UANd0/QoSxdPolE5ZUVK7wSGQ
+	 /P0/OF1haSUmDIewEka+MJPrF88BajcjDqaORsCRXzalSOk2gc4LyzPI8TEx/u0wMQ
+	 scgb59hHNrvWw==
+Subject: Re: [PATCH] bpf, sockmap: fix cork data loss after redirect
+From: netdev-bot+sashiko@kernel.org
+To: omermetekaya0@gmail.com
+Cc: john.fastabend@gmail.com, jakub@cloudflare.com, jiayuan.chen@linux.dev,
+ edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ daniel@iogearbox.net, ast@kernel.org, netdev@vger.kernel.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Sun, 15 Nov 2026 11:54:18 +0000
+Message-ID: <179474365842.2199510.4530388049204286583@kernel.org>
+In-Reply-To: <20261114115222.180345-1-omermetekaya0@gmail.com>
+References: <20261114115222.180345-1-omermetekaya0@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -127,30 +63,222 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
 
-On Thu, 12 Nov 2026 22:03:08 +0000
-netdev-bot+sashiko@kernel.org wrote:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
->> --- a/drivers/net/ethernet/tehuti/tn40_mdio.c
->> +++ b/drivers/net/ethernet/tehuti/tn40_mdio.c
->> @@ -157,7 +157,6 @@ void tn40_swnodes_cleanup(struct tn40_priv *priv)
->>  {
->>  	/* cleanup of swnodes is only needed for AQR105-based cards */
->>  	if (priv->pdev->device == PCI_DEVICE_ID_TEHUTI_TN9510) {
->> -		fwnode_handle_put(dev_fwnode(&priv->mdio->dev));
-> 
-> [Severity: High]
-> Is this put really stray? It seems to balance the reference that the MDIO
-> core takes on the bus fwnode when the bus is registered:
+Critical: 0 · High: 1 (1) · Medium: 1 · Low: 0
 
-I think Sashiko's analysis is correct:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-- The fwnode_handle_put() in tn40_swnodes_cleanup() drops the
-  reference taken by fwnode_handle_get() in __mdiobus_register().
+- [High] The patch adds a memory leak in tcp_bpf_send_verdict()
+  (net/ipv4/tcp_bpf.c).
+- [Medium] bpf, sockmap: stale msg->cork_bytes re-corks data in
+  tcp_bpf_send_verdict()
 
-- tn40_swnodes_cleanup() calls device_remove_software_node(), which
-  sets bus->dev.fwnode to NULL. So the fwnode_handle_put() in
-  mdiobus_release() does nothing for this bus.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the patch
+  makes it reachable in more ways.
+
+--
+
+bpf, sockmap: fix cork data loss after redirect
+
+This patch changes the cork cleanup in the __SK_REDIRECT case of
+tcp_bpf_send_verdict(). The corked sk_msg is now freed only when it has
+been fully consumed or the redirect failed. Otherwise it is kept so the
+more_data loop can send the remaining bytes.
+
+> diff --git a/net/ipv4/tcp_bpf.c b/net/ipv4/tcp_bpf.c
+> index 8cf63a9e7fed1..e6a8184aad6a4 100644
+> --- a/net/ipv4/tcp_bpf.c
+> +++ b/net/ipv4/tcp_bpf.c
+> @@ -499,9 +499,13 @@ static int tcp_bpf_send_verdict(struct sock *sk, struct sk_psock *psock,
+>  				*copied -= free;
+>  		}
+>  		if (cork) {
+> -			sk_msg_free(sk, msg);
+> -			kfree(msg);
+> -			msg = NULL;
+> +			if (ret < 0 ||
+> +			    !msg->sg.data[msg->sg.start].page_link ||
+> +			    !msg->sg.data[msg->sg.start].length) {
+> +				sk_msg_free(sk, msg);
+> +				kfree(msg);
+> +				msg = NULL;
+> +			}
+
+[Severity: Medium]
+When the redirect keeps a partially sent cork alive, can the leftover
+bytes get re-corked even though the program did not ask for it?
+
+msg->cork_bytes is only written by sk_msg_init() and
+bpf_msg_cork_bytes(). When the cork is satisfied, tcp_bpf_sendmsg()
+clears psock->cork_bytes and sets psock->eval to __SK_NONE. It leaves
+psock->cork->cork_bytes at the old threshold.
+sk_psock_msg_verdict() does not reset it before running the program
+either.
+
+With this patch the sequence looks like this:
+
+  - the program calls bpf_msg_cork_bytes(msg, N), and the message is
+    copied into psock->cork with cork_bytes == N
+  - later sends fill the cork, so msg->sg.size >= N, and the program
+    returns a redirect with apply_bytes smaller than sg.size
+  - tcp_bpf_sendmsg_redir() sends apply_bytes, psock->apply_bytes
+    drops to 0, psock->eval becomes __SK_NONE, and msg is now kept
+    alive
+  - at more_data the program runs again on the leftover, and it may
+    not call bpf_msg_cork_bytes() at all
+
+msg->cork_bytes is still N, and the leftover sg.size is usually
+smaller than N, so this check fires:
+
+	if (msg->cork_bytes &&
+	    msg->cork_bytes > msg->sg.size && !enospc) {
+		psock->cork_bytes = msg->cork_bytes - msg->sg.size;
+
+The leftover is parked in a new psock->cork, and nothing is sent until
+the application writes another N - sg.size bytes. An application that
+waits for a reply before sending more would stall. This is also the
+path that orphans the detached cork, as noted above.
+
+Before this patch the cork was always freed after the redirect, so the
+stale cork_bytes was never looked at again in this case. The on-stack
+msg from tcp_bpf_sendmsg() can probably hit the same stale value on
+the existing more_data loop, so part of this may be pre-existing. The
+patch does make the cork case reach it.
+
+Should msg->cork_bytes be cleared when tcp_bpf_sendmsg() decides the
+cork is fully accounted? Or should sk_psock_msg_verdict() reset it
+before each program run? I am not sure which semantics SK_MSG programs
+are expected to rely on across reruns.
+
+[Severity: High]
+Does this leak the corked struct sk_msg when data remains?
+
+Earlier in the same __SK_REDIRECT case, the cork has already been
+detached from the psock:
+
+		if (psock->cork) {
+			cork = true;
+			psock->cork = NULL;
+		}
+
+Once this branch keeps msg alive, the local msg is the only reference to
+the kzalloc'd cork. Neither sk_psock_cork_free() nor tcp_bpf_sendmsg() can
+reach it any more.
+
+The code then jumps back to more_data. On the next pass, the only exit
+that kfree()s the struct is another __SK_REDIRECT that fully consumes the
+message or fails. The other exits appear to leak it.
+
+The first one is the re-cork path. Only bpf_msg_cork_bytes() and
+sk_msg_init() write msg->cork_bytes, so it is never reset. After a
+partial redirect the remaining sg.size is usually smaller than cork_bytes:
+
+	if (msg->cork_bytes &&
+	    msg->cork_bytes > msg->sg.size && !enospc) {
+		psock->cork_bytes = msg->cork_bytes - msg->sg.size;
+		if (!psock->cork) {
+			psock->cork = kzalloc_obj(*psock->cork,
+						  GFP_ATOMIC | __GFP_NOWARN);
+			if (!psock->cork) {
+				sk_msg_free(sk, msg);
+				*copied = 0;
+				return -ENOMEM;
+			}
+		}
+		memcpy(psock->cork, msg, sizeof(*msg));
+		return 0;
+	}
+
+psock->cork is NULL at this point, so a new cork is allocated, the old
+struct is copied into it, and the old struct is orphaned. The -ENOMEM
+branch also only calls sk_msg_free().
+
+The second one is the __SK_PASS case. It never calls kfree(msg), whether
+the push succeeds or fails. This case is reached when the program returns
+SK_PASS, or when the msg_parser has been detached.
+
+The third one is the __SK_DROP/default case. It calls sk_msg_free() and
+returns -EACCES without calling kfree(msg).
+
+Before this patch, the cork branch always freed msg and set it to NULL.
+So a detached heap cork never went back through the loop.
+
+The existing test_txmsg_cork_hangs case in test_sockmap.c sets
+txmsg_redir = 1, txmsg_apply = 4097 and txmsg_cork = 4097. It probably
+takes the re-cork path, because the test program calls
+bpf_msg_cork_bytes() on every run. The test does not check for leaks.
+
+Could the leftover be handed back to psock->cork? Alternatively, could the
+code track that msg is a detached heap cork and kfree() it on every exit?
+
+>  			ret = 0;
+>  		}
+>  		break;
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch, but
+the patch adds another way to reach it.
+
+tcp_bpf_send_verdict() drops the socket lock around
+tcp_bpf_sendmsg_redir(). It then goes back to more_data without
+re-checking psock->cork, psock->eval, psock->sk_redir or
+psock->apply_bytes.
+
+The __SK_REDIRECT case also assumes that a non-NULL psock->cork is the
+local msg, and never checks msg == psock->cork. The re-cork path also
+memcpy()s over any existing psock->cork.
+
+Can a second sender on the same socket race with this window?
+
+Thread A                                Thread B
+tcp_bpf_sendmsg()
+  msg_tx = &tmp (psock->cork == NULL)
+  tcp_bpf_send_verdict()
+    __SK_REDIRECT, apply_bytes < size
+    apply_bytes hits 0, eval = __SK_NONE
+    release_sock(sk)
+    tcp_bpf_sendmsg_redir()             tcp_bpf_sendmsg()
+                                          lock_sock(sk)
+                                          program sets cork_bytes
+                                          psock->cork = M2 (kzalloc)
+                                          memcpy(psock->cork, msg, ...)
+                                          release_sock(sk)
+    lock_sock(sk)
+    data remains, goto more_data
+
+Thread A can then go one of two ways.
+
+If it takes the re-cork path, memcpy(M2, msg) overwrites thread B's
+message. B's data is lost, and its sg pages and sk_mem charge leak.
+
+If it takes __SK_REDIRECT, it sets cork = true and psock->cork = NULL
+without owning M2, so M2 leaks. An example is thread A sending exactly
+3 * 4097 bytes with apply = cork = 4097.
+
+In that case msg is still the on-stack tmp from tcp_bpf_sendmsg():
+
+		if (psock->cork) {
+			msg_tx = psock->cork;
+		} else {
+			msg_tx = &tmp;
+			sk_msg_init(msg_tx);
+		}
+
+When the redirect fully consumes the message or fails, the cork cleanup
+runs sk_msg_free(sk, msg) and kfree(msg) on a stack address.
+
+With this patch, a detached heap cork msg can now also go around the loop
+after the lock is dropped. So both outcomes can now also leak or
+overwrite M2 when msg is a heap cork.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261114115222.180345-1-omermetekaya0%40gmail.com
