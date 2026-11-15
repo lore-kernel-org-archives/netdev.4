@@ -1,72 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794703205;
-	b=pvfyFmvtAQnaQ8ss9jcACF/z9755fOdQMXtslyxnuuGbwgj/iQnsBkGqOP+ECQYmhisd
-	 ZG2K6WcfezL8lcZImoZiVyTha2G+HaOx1g1W+6+JlrymmfSm2LMwAOQUw+bD9qLGamB3m
-	 JxKnl7hgZ+LbRFH7/iZUNvYd/kxIDiRx+i20maN8JGQhHEadfy6TRTRb9O2sra+YkZqQk
-	 OMVMCYjyOfUz6+gLUtFTHhkjkrbSD4ZKPP0qX4ODqcFJDsotX67kO4V4JUqcf5e7HKXMf
-	 +2WenhF4iNRzwjmYQ24fbUXmAhdECgzORfrSE3FlSQIXTSWZwzGjx5Z3hTQ1G9t+koQ==
+	t=1794703206;
+	b=m9LGRGt0Wwd13ArD5OjdU8C3PJVcVm9evSIlrPbDwuYc4OJwtGseQ9AuFGtsrs6/OhZV
+	 J0/ieIwqJQnNXOFktG4hDZ2UAIGtbH4c0zq6nEOexGMq/MyHjGDc/jcDUah9HKJY4q+hh
+	 2p27QZSJA6e+dREu+F+il4+R+K8VK7AufD4XR55olLZ0vy9t+XVyBrm4RwlxCwbCaktK5
+	 4UJ+o5ieHkGKzgJyYEN0ACQmdSVFa8dc/uA7mPH3b0NuZ1331ShCutSITfBaJJdIxHM0A
+	 FO6UAQ5D73r2SjVkV4v2mnJwwVtf6vuHovSq+X16KkyyAe3TmeVr72kXqZq1t+SmkOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794703205;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794703206;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=ghyyyMShfprSIjcu4sKZdV7cO51zD2ouEy83EYOaPGc=;
-	b=CzdhLMMjF8oE0UbPjEISWM9WSuzS9rPBBDEmUIF1lLKFCf8JSgLRPf+KIfYHymVNdmKG
-	 GCToS4BErz6ItvZRqGyWciqYcTf1hond92bTwNS537ilbI9tb7JjPqbMb+DdC9ZsoVS50
-	 ggUwwnqENA1Wg2QRwS7c4kZuGBjt6CcwHwsSB1nbdPCxVW1E9X1n28iJVMAC+KXRugYDA
-	 fi8BdMCjLHTym32ebhH5t/25sFzW5k+qiYQF5KJtJGhh1JBCuMai9CfcOCzC6rxiHbZtP
-	 zeb8g9OiQHPBJjZsl6r1pY7W/kvt3zeMlB48a7U3G/BHipM8NFbWOAeJyyo5xZWadhw==
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=ZVrOegmY0YJieEFM4WZoqJaWGp10ZlMFIEfoRDr37KQ=;
+	b=SpgdGv1OkhkZM6xzho1vlnhwHwF3xpKJAtlzO2hPCuLwZrJQVrecmp2YpEyPIRV4zLxK
+	 G1G+Ryz6wOXWtU1dRp4Jsn1w4/oEdwvTo5i/ex2e4MfhDoiIXmpP78lNPHw/+GZcS4u82
+	 3eMP8pSkrpAj19o1dIDyjpbIY3Ey19eTvJcuvLtqCJUhpJ5Uu7jasD6YmmUwRV7zIXZ6R
+	 CjlcPlnnXsYMDEUB1QJBmYuQ9rOxYbEIc7tHtL9qtwkNHohB6KW0Z44bDT+hUoy7qYbtF
+	 Xic63nBJnnc/01WmTqhAZSZ/cddbA7HrRlEOTM2FB/zk4uloqUIiLXLbA8sSDJSSaXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MZwvnFYm;
-	arc=none smtp.remote-ip=74.125.82.197
-Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jWFbI0St;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53C93606A32C
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:40:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53C93606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ADB0606A337
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:40:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5ADB0606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=MZwvnFYm
-Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-341eff9e381so3545110eec.1
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:40:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jWFbI0St
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-341eff9e381so3545130eec.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:40:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794703204; x=1795308004; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ghyyyMShfprSIjcu4sKZdV7cO51zD2ouEy83EYOaPGc=;
-        b=MZwvnFYmxpp2tcKd/0nL+1w1Rpi02N0UkeZ8PdILp6gi7OqcpteY7kpG3l6iLpFEz+
-         L/4Bb3lHZepII5+VdiXeeMd+0x+6TFyTK1DKFvgG36mwRcGMR89IvAJDXcBX65i+EX3p
-         Bsify0hVZW4j4HRPdvfoOC6ZqovC+hJ8j+3cP1t/UYoUCGpoPETHleNkUrpHZBtp5NXF
-         10QGbRTD0VKX3YCTdFU3029PAnR/ATC+Tr6/oRcLqOY+QtWg3fh/E6kVt41pLsT1rAVd
-         /fvuiJ4B3xxEHjqZQ2ueVxZ3BOVhtWbfVXsEKotrgLK4Dq+rLiQQ6RzuZ444BwEHt0PG
-         iUfw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794703204; x=1795308004;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1794703205; x=1795308005; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ghyyyMShfprSIjcu4sKZdV7cO51zD2ouEy83EYOaPGc=;
-        b=jwPgh8d3PoFN+qfYlSWEosurnaxV5NcPFjLh4fqaFtVgd4kV5+wrQezxHfTTPZwG3E
-         Uq56W1eDd04jfbYk6MbiNnFXKpi7lh3Z7crh5CWzOHfkjSSiKsEvkaL0S6sfUGbIJCNI
-         qS2TfrrXw/5g3a4kPMoqiq6g4lfeVZKt021SP75U+frvMlAl+m7gNCOQ8BGbg/gIb+Z0
-         TkLSI5u3PvqVEV4lcmSoWxrEWs2OJjQAFkZSfo/WsZGdrAVoibhVQ7YIlz/OZiJ1s/+0
-         J0BzHdq/PoF81BxM1dFQ1n3UEpFqGqPzDQ3w5N/oRLVorvI+SJvDzFLS6vkIHnBTn+s1
-         rlGg==
-X-Gm-Message-State: APuU4Z/p/Ddw9xZvpjwU/d7M/m8kAxXX0RjhfeoHFJzqhQJAwUdd1NCx
-	w4F9vob/fDf7pw0zYmrsbygsELBqbP9I53uCIkhECRvoKmhxyz3BdTQvLtCrzblmz8hJgAl/ZlW
-	mUvRQa7swxkVnehfKIUgx74nqFVjMXfXkGYybggcXgzkmDS8jbUwJJTvuEObvJeAKD+29ftYnAz
-	nfA2mLbqlNJrIEgQMbxRnPH13/h10OaNt1bCkwSx9fsKWDUOeo2I2C29eiYTZ0cI4=
-X-Received: from dyp9.prod.google.com ([2002:a05:693c:65c9:b0:366:233a:49c7])
+        bh=ZVrOegmY0YJieEFM4WZoqJaWGp10ZlMFIEfoRDr37KQ=;
+        b=jWFbI0StH4kwRNmVtrdLlCwT0MVW1ZK0uool8mJgjrQfYZfjOozju0+oVOC8BlrtWf
+         z2GbCNhAi/DwMrmZZGYVzvQxE2y6oPLYJ7W1PnoBItcx6N+BwxbtCJM6dDC3RngQgs0T
+         20JS8sW+oYOYcV2WwzE9xMZ3EEnQZ7MRJSrClIQv89Fzs5tRDNeeMy3O7qlAylVSddjV
+         RFzzz2F8aSfKT7FYSyLaFGgT1Pj4Fb7/DLCJzaSTTRww7zm8k7OVG0GfcL2h0foaw9X+
+         kSQiAjUYebAsK0ElPSOqKpeb9QEAzwDv6557/VHW03wy9hD/uvF0iDcVvBXx4OaTDaog
+         IjJQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794703205; x=1795308005;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZVrOegmY0YJieEFM4WZoqJaWGp10ZlMFIEfoRDr37KQ=;
+        b=RQcT75jzYLBfcD9z6RSnm1n3ZhipbNnOQT873uf9xDB/OM4SKRnLhC+qQI9y11kTRA
+         7yruYGV/Jk3ymAU89xVWDB9Og/DJSQjlHqcxkIGPdysMjXQk5XVbTogQdmXM7LcyxQ11
+         SkTkGQwn0U/ws39hKiv8Xdh9ANBXM+USp1K1rBDFA4wPjSN1bPuYCRh62RGy0cXQP+ql
+         lGRx+HjnPJnAIwOg8ButoS0hZhoYQg1Wmn6PMYURnxA+H+deNO8MgskGpkTeX8XgtrKd
+         uEWzkiZ1i1swfo8HRVQd4xBQVQcr4gsf2Iucs8FyPQMklTA6dr4Q0MhMAY487JIw91u+
+         EMfw==
+X-Gm-Message-State: APuU4Z9PD9dbuH2JZEFNk12aLm7ikF5x1dEdZth004gWBcis7ZUc71XI
+	QOMuL8XwX7xFwrI1dNodB25c8861gsukNMd/Qu/nIPOUwHT9olWT4kNbxITQPK9v3getsh3qlEr
+	AJdbheLq7Elt32Fnq1tLMn0R7mgc2cJ6TjqlXWM8Fgi+b+bEr/nCgG24kVgqtQ2juB+TcRD1Ikj
+	GvCpc+NNT3y0MtRuFkuQuOSDdYAtHYEIW3jU9gdVezhrTaQom4NIOja8phvw8+2s4=
+X-Received: from dldz2-n2.prod.google.com ([2002:a05:701b:4182:20b0:1b2:5271:f03b])
  (user=almasrymina job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:7301:1285:b0:376:6aea:ab with SMTP id 5a478bee46e88-3796337238amr8971605eec.3.1794703203810;
- Sat, 14 Nov 2026 16:40:03 -0800 (PST)
-Date: Sun, 15 Nov 2026 00:40:00 +0000
+ 2002:a05:7022:f905:b0:1a6:53cc:7454 with SMTP id a92af1059eb24-1b50311d32amr6524859c88.27.1794703204891;
+ Sat, 14 Nov 2026 16:40:04 -0800 (PST)
+Date: Sun, 15 Nov 2026 00:40:01 +0000
+In-Reply-To: <20261115004003.3695475-1-almasrymina@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,10 +78,11 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
+References: <20261115004003.3695475-1-almasrymina@google.com>
 X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
-Message-ID: <20261115004003.3695475-1-almasrymina@google.com>
-Subject: [PATCH net-next v5 0/3] net: prevent mixing incompatible memory
- providers in skbs
+Message-ID: <20261115004003.3695475-2-almasrymina@google.com>
+Subject: [PATCH net-next v5 1/3] net: fix skb->unreadable propagation in
+ skb_split() and skb_shift()
 From: Mina Almasry <almasrymina@google.com>
 To: netdev@vger.kernel.org
 Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>, 
@@ -92,73 +95,66 @@ Cc: Mina Almasry <almasrymina@google.com>, Eric Dumazet <edumazet@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>
 Content-Type: text/plain; charset="UTF-8"
 
-Enforce that all fragments in a nonlinear skb come from compatible
-memory providers (and for devmem, the exact same binding).
+skb_split() and skb_shift() do not accurately maintain skb->unreadable
+when moving fragments between skbs:
 
-Patch 1 fixes skb->unreadable propagation in skb_split() and skb_shift().
-Patch 2 adds skb_net_iov_provider(), skb_mem_provider_compat(), and
-skb_frags_can_coalesce(), and enforces provider/binding compatibility
-across TX, TCP, GRO, skb_shift(), and skb_try_coalesce().
-Patch 3 propagates the skb_zcopy() uarg to the probe skb in
-tcp_mtu_probe() / tcp_clone_payload() and rejects coalescing across
-different uargs.
+- skb_split_inside_header() moves all fragments out of skb into skb1
+  (leaving skb with nr_frags == 0 and only host-readable linear memory),
+  but leaves skb->unreadable set on skb.
+- skb_split_no_header() unconditionally copies skb->unreadable to skb1
+  even if 0 fragments were moved to skb1 (k == 0), and leaves
+  skb->unreadable set on skb when splitting at skb_headlen(skb) moves
+  all fragments into skb1 (!skb_shinfo(skb)->nr_frags).
+- skb_shift() does not clear skb->unreadable after all fragments are
+  shifted out of skb.
 
-v4 -> v5:
-- Drop skb_has_net_iovs() and check skb_frags_readable() and
-  skb_shinfo(skb)->nr_frags directly in skb_net_iov_provider() and
-  net_devmem_skb_binding().
-- Add patch 3 to propagate the skb_zcopy() uarg in tcp_mtu_probe() /
-  tcp_clone_payload().
-- v4: https://lore.kernel.org/netdev/20261108013838.1454450-1-almasrymina@google.com/
+Fix all three cases so skb->unreadable accurately tracks whether the
+remaining fragments in each skb are unreadable.
 
-v3 -> v4:
-- Fold skb_shinfo(skb)->nr_frags into skb_has_net_iovs() and drop
-  redundant nr_frags checks in skb_net_iov_provider() and
-  net_devmem_skb_binding() (Stanislav Fomichev).
-- Remove the empty-skb check and redundant !skb_has_net_iovs(skb1)
-  branch from skb_mem_provider_compat(), and add a comment on the
-  early skb_has_net_iovs() check (Stanislav Fomichev).
-- Propagate skb->unreadable and compare skb_frag_netmem() directly in
-  tcp_clone_payload() instead of rejecting unreadable skbs in
-  tcp_can_coalesce_send_queue_head().
-- v3: https://lore.kernel.org/netdev/20261104042521.3979880-1-almasrymina@google.com/
+This issue is theoretical and was found by manual code inspection and
+LLM review; it was not triggered in production. Verified with the
+net_core KUnit test suite; not tested on real hardware.
 
-v2 -> v3:
-- Drop patch 2 ('netmem: store memory provider private pointer directly
-  in struct net_iov') and compare net_iov_owner(niov) (for devmem) /
-  niov->desc.pp (for other net_iov providers) directly in
-  skb_mem_provider_compat() (Stanislav Fomichev).
-- Squash the skb_frags_can_coalesce() helper patch into its caller patch
-  (Stanislav Fomichev).
-- v2: https://lore.kernel.org/netdev/20261102231827.4088254-1-almasrymina@google.com/
+Fixes: 65249feb6b3d ("net: add support for skbs with unreadable frags")
+Acked-by: Stanislav Fomichev <sdf@fomichev.me>
+Signed-off-by: Mina Almasry <almasrymina@google.com>
+---
+ net/core/skbuff.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-v1 -> v2:
-- Generalize the check across TX, TCP collapse, GRO, IP defrag,
-  skb_shift(), and skb_try_coalesce() by storing mp_priv directly in
-  struct net_iov and introducing skb_frags_can_coalesce().
-- Fix skb->unreadable propagation in skb_split() and skb_shift().
-- Add KUnit coverage for cross-provider and cross-binding rejection.
-- v1: https://lore.kernel.org/netdev/20261008034027.1403188-1-almasrymina@google.com/
-
-Mina Almasry (3):
-  net: fix skb->unreadable propagation in skb_split() and skb_shift()
-  net: prevent mixing frags from different memory providers or bindings
-  tcp: propagate skb_zcopy() uarg in tcp_mtu_probe()
-
- include/linux/skbuff.h | 55 ++++++++++++++++++++++++++++++++++++++++++
- include/net/tcp.h      |  5 ++--
- net/core/datagram.c    |  4 +--
- net/core/dev.c         | 14 ++++-------
- net/core/devmem.h      | 22 +++++++++++++++++
- net/core/gro.c         | 16 ++++--------
- net/core/net_test.c    | 42 +++++++++++++++++++++++++++-----
- net/core/skbuff.c      | 32 ++++++++++++------------
- net/ipv4/tcp.c         |  3 ++-
- net/ipv4/tcp_output.c  |  9 +++++--
- 10 files changed, 153 insertions(+), 49 deletions(-)
-
-
-base-commit: 6964ff21c5d8b75649211a52dbfd92753e605649
+diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+index 2e81aacc998b..4b18717e230e 100644
+--- a/net/core/skbuff.c
++++ b/net/core/skbuff.c
+@@ -4508,6 +4508,7 @@ static inline void skb_split_inside_header(struct sk_buff *skb,
+ 
+ 	skb_shinfo(skb1)->nr_frags = skb_shinfo(skb)->nr_frags;
+ 	skb1->unreadable	   = skb->unreadable;
++	skb->unreadable		   = 0;
+ 	skb_shinfo(skb)->nr_frags  = 0;
+ 	skb1->data_len		   = skb->data_len;
+ 	skb1->len		   += skb1->data_len;
+@@ -4556,7 +4557,10 @@ static inline void skb_split_no_header(struct sk_buff *skb,
+ 	}
+ 	skb_shinfo(skb1)->nr_frags = k;
+ 
+-	skb1->unreadable = skb->unreadable;
++	if (k)
++		skb1->unreadable = skb->unreadable;
++	if (!skb_shinfo(skb)->nr_frags)
++		skb->unreadable = 0;
+ }
+ 
+ /**
+@@ -4730,6 +4734,8 @@ int skb_shift(struct sk_buff *tgt, struct sk_buff *skb, int shiftlen)
+ 	skb->ip_summed = CHECKSUM_PARTIAL;
+ 
+ 	skb_shinfo(tgt)->flags |= skb_shinfo(skb)->flags & SKBFL_SHARED_FRAG;
++	if (!skb_shinfo(skb)->nr_frags && !skb_has_frag_list(skb))
++		skb->unreadable = 0;
+ 
+ 	skb_len_add(skb, -shiftlen);
+ 	skb_len_add(tgt, shiftlen);
 -- 
 2.56.0.611.g1030f0b940-goog
 
