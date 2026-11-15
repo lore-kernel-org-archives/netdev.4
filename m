@@ -1,87 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794786284;
-	b=W6Vajzvirmw2csBtf1xUgCY9XDqxt2+8ZqZivpYBb+lfZDDIRWTWU+cTwhsJS+Shi/dU
-	 GxPDSvmbQwpXe7dxJpoy+l/u+Trdr/emFi4S3TViDKBDdalc88iHd6LnexTJbjVRifz9o
-	 nORN8higc/RY8bMoROrm9qVcO36/aopM+OXhxbYHh2XLqB9xn4vqKX5UCyUV/cqKq3uMe
-	 85gM6EeagZFTN/5yTlUCz4YCLu9UxCAzUFsN8siBnzUTuy13+rWDaOjz8/mH2FCEVNg5C
-	 p0dvW/277MhapNp7xyO914bK9aNMycMpybnVjG+CFWnDetnt7UU76wlWT8WOHiSfsNQ==
+	t=1794786419;
+	b=HFEu2nLKsLWCbV4fLGVCl0ARbJXfiuQp+Vh9qGAgb3n2hTo0VLq3gd5Z9HbAXBPDWm2t
+	 DvtJ7SZJErkFsgmw00ppAWjEugPF+cel/v34bWxxi2lFUVUBiltvJnGTUum6nSqioBfpM
+	 uUVI1VfDKEhI0G3wg+0ehiB+LfIvu9PhMl56LuYtM4tqxt94ED6oQ33uypLdXpap7kR+D
+	 6uEgvMrsP7dIBxBqg4cEocHcNMJgPVF2SCVtSFRvRQZe1Im7EvbMy/I+fNhBZaA4IE69e
+	 Ex409DKmXQSKEA9pWbqyWrfZKfskvpem4jtS0KYAQuoTbtpMMlF/8LEbGIfNHXC6dwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794786284;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=4Yyald/k2SpE5bBdBLoGU8cqFJpt1zNGrikmS9/w2fA=;
-	b=EL0cf/6RnR1Elxw/vcYDzZTvUFabCDzUI5nXoh6jnxY9fztLUW7M7cqNHvs8Oeqlk7kN
-	 hN6NhQReQD8g/iJT8q14JM3Lxmqo5zfzLCZqyumT5w8VZfHYVkv1+WNB4mPsjNN+wzm0+
-	 j4nGaeJjadhp5wwP64ZTR7a5rUXA3oyk6mvfa45utST2iKmhl8qsY7T0fJGGnHI2TRRxu
-	 qLxNrq2LOa46OouQfuYQiZTUk3J+iOnNWMr1isbGb3RsmkCkoSbPPbVoLv1okLXxVOGGY
-	 wrATQ+MnEnYdwGt9m55x1Gjehr+BCqqZrKyEuxh8DocBhRX8pPm6Uluk9/LrmAqv3zw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794786419;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=4FXFrfDW68p2ZmuJnmPotANMx0Dmm0w6nypgxRy6L9g=;
+	b=o+YxKLXRaC/NTjROnNJ2ggylJqPsG88AfyCtTk08CLYNbJ1GWl44g3Kx7x93ixGTeih5
+	 p9a6CVB9GGfLvW9vPh8k88bvufDuwNsFk5xXAhfNhBJ3wXPzPzCnCaZZMaI6yvq9bMGWk
+	 JquW/cUABi426eHHu+OsYuuid126dYD7TOsNBK/0Q5zRbAc9y04ZKZJqNMQvKgBzsV2qJ
+	 Z6LKRzYmMkXv8bXcI8LUCrkxt0Gj7fwguzdA0kWA2tJrImUnr4DzYexn1ALYw6ddAtVkK
+	 p7D20aGgcx0liwyCyapNk6aCP5STgRGd2Qo72ajYBXqiWwV/1kmd/Hb3KlhP/wq1EKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lFGDgQwd;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=netfilter.org;
+	spf=pass smtp.mailfrom=netfilter.org;
+	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Dd+r1sfD;
+	arc=none smtp.remote-ip=217.70.190.124
+Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16AFF606A323
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 23:44:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16AFF606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 20223606A31F;
+	Sun, 15 Nov 2026 23:46:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20223606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lFGDgQwd
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so3724475e9.0
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 15:44:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794786282; x=1795391082; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4Yyald/k2SpE5bBdBLoGU8cqFJpt1zNGrikmS9/w2fA=;
-        b=lFGDgQwde8oaEpGgZg5OdthYNSMH9GlXKUXhhbKrSbrlTyIdEooDhBdfpEkBh5jXXC
-         7hKzUNBveAgzmr/ptZopXmwudejrsNZ+aBZkF/qAbJWFRHlscoEUmOdvCUwp8hbaRXqi
-         fNUkQ1h9uSf6ybdlK5z8+C9KESoYFdDlQHg/B6ZX6JeklK1qK7IaKW1BOoryNMiRSaSY
-         wL/vubVwX6eUYhsIr/5COggndBs8exMepPJBsvsg+Y+9SwlX9yFmEwjofOiXZChGpicC
-         FI0YdCFRfkOMUeSmdu/GA0iWhwt6Wx9RCsEapkHDY/Ml1Y/gvjuzwjb3vVXf+HLl8qgn
-         JdhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794786282; x=1795391082;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4Yyald/k2SpE5bBdBLoGU8cqFJpt1zNGrikmS9/w2fA=;
-        b=DfRYJzLsz62ewD4TFas0eRUl8xRB3Q87VezzG408ViFvmFZBh9j3vSMoi1MtpW+zey
-         OsuVxxdPd13hGglRX6N2hu7KyR5Ng3rvRiITmJHcQS90VPGU/NKBqd7G2JC8yrT271bl
-         jn9m2Eyfj6E8W+gx3JKx3pVtZcxr4sDW8x1BKuYyLYxF1NzU09P3H/3AzQvZ5l4UAwCH
-         7P0dsRoRqE4kZZWBi4Awx0Y/n4CC+xFR/hyL2yrICkhEF1CIzI/v4C+Ly5bhcZap4bAv
-         Vvg28kOefRjQzWt5RUJRN35c+kUZVWAgIdZ+eLEFvXKNpZnDcAam7fxHz87P+ojj+E6d
-         e58w==
-X-Gm-Message-State: APuU4Z+FnLoceToPtg27ZW45YbSRdntyyIf6S1oVRTuFZ5kmVZAEhsOz
-	At0FjJ7eK4NreaiI7u75iS+hhcGFwEOZaemQYE34/iXzjJC/nxfzlFW9
-X-Gm-Gg: AYBFou3lJ2r6IAAgLmT4VHsAg76ghGc1pCcPdyJxnvyKp0Ag+sC6N0I+EKKQgV+Emel
-	3B1w5ec7F850cmoP9h4oaxYX46XyjSA/W8US2HD2rCPrQC9+370/0A+9oD3tBo6QjxvZGL1etG9
-	O/50k6b/MZfOJEbLYTj58UIgEr0nYujSshbwiv3wemF9yYEzvwqWLKxEi50VA0gcB3yahdmYx/d
-	Xa9pbYOJswNwl6I6kSl3Pk5400qD5poU/zq+lKw0TAa/kBt8pRjG9pvdVVpJwjAlg0oXl4vudaJ
-	6HolJxxHoV/luQ2KL2HTdWoD3qsw4+DwM+G+d23pxFB+4T53SNiWnbzRQNCmRrOH4YkHHY0aQW6
-	6C91Mv2XUj/zma9FdYtQ4jXotBY8TFkZo2tEw9emB8YIvjFknt3CT6L2HY089IiegLJfy2vwm5b
-	6CnTB+SS7bNC4OMOoo+wAubS/7GRTnYwHbqs0vN39MRBJeaSgurB4a52fX8NU0XWvS1rUlUf2Wa
-	JbgKg4Fz6EGXxtxiHqEsnltrEF57J+OrAtdHJ7UXZO82Eokebso7pbOLFmIIcWbWgsnnN9YzacX
-	AmKEiaW7DMMv7exK7r807Tb50ePGtEgo7Y4fx7G6Pj6vdG8a+l1yiCrSszmDzi/c5Uu0aO0rSjN
-	H5g==
-X-Received: by 2002:a05:600c:628c:b0:4a5:26b8:4507 with SMTP id 5b1f17b1804b1-4bb55a7f827mr196246865e9.21.1794786282330;
-        Sun, 15 Nov 2026 15:44:42 -0800 (PST)
-Received: from ?IPV6:2a02:a03f:a75e:9a00:dc16:e6:68d4:aed9? ([2a02:a03f:a75e:9a00:dc16:e6:68d4:aed9])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb65ce005bsm164069805e9.14.2026.11.15.15.44.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 15 Nov 2026 15:44:42 -0800 (PST)
-Message-ID: <d520d0a9-4f10-42a4-ad08-6a1080226626@gmail.com>
-Date: Mon, 16 Nov 2026 00:44:41 +0100
+	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Dd+r1sfD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1794786416;
+	bh=4FXFrfDW68p2ZmuJnmPotANMx0Dmm0w6nypgxRy6L9g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Dd+r1sfDT9Sf7+n2u2kjbeYE0ucVdxs4PA62TvV9V3i+WZOz4+h39l4ddHMdViLDS
+	 Ekq/lAzR+jgAFpTxNaZlNIBiplt5hLAGKQFllgDmYxs7uMPzcjU5UUsISUY5pbKKE5
+	 o93jA1cIcde+WmPBhqM60dhxDWsgNdkoXi/aHzImyU5TkqlTLTVD+ntmVdCp7qkB+G
+	 BAQElAIY0wyAjS2l6poF2crezdstjj1ySpYlVeGvC1IooQpuqK0rLJu/cqN7ByJuPb
+	 cuB1UwF0mN/iuNV1tnOcfraGEPMaxxK7E6SQUhAWZuS765VNDGWe9EzEaxC+uh0Kvn
+	 IvWkCUbnmDzgA==
+Received: from netfilter.org (mail-agni [217.70.190.124])
+	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 87B736005D;
+	Mon, 16 Nov 2026 00:46:56 +0100 (CET)
+Date: Mon, 16 Nov 2026 00:46:53 +0100
+From: Pablo Neira Ayuso <pablo@netfilter.org>
+To: netfilter-devel@vger.kernel.org
+Cc: davem@davemloft.net, netdev@vger.kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, edumazet@kernel.org, horms@kernel.org,
+	fw@strlen.de, ja@ssi.bg
+Subject: Re: [PATCH net-next 00/15] Netfilter updates for net-next
+Message-ID: <avpEbealnVae3W22@chamomile>
+References: <20261113031251.2437074-1-pablo@netfilter.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,44 +65,172 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/2] ipv6: drop encapsulated packets when no source
- address is available
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- andrea.mayer@uniroma2.it
-References: <20261115000047.14669-1-justin.iurman@gmail.com>
- <179477328585.3291.12843361003997824029@kernel.org>
-Content-Language: en-US
-From: Justin Iurman <justin.iurman@gmail.com>
-In-Reply-To: <179477328585.3291.12843361003997824029@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20261113031251.2437074-1-pablo@netfilter.org>
 
-On 11/15/26 21:08, netdev-bot+sinfo@kernel.org wrote:
-> Hi!
-> 
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
-> 
->   - How the issue was discovered, e.g. hit in production, hit during
->     development, syzbot report, manual code inspection, LLM or static
->     analysis tool scan.
-> 
->   - Whether the issue was actually triggered, or is only theoretical
->     (e.g. found by LLM and not proven at runtime). If it was triggered
->     please include the symptoms, like the stack trace or kernel messages.
-> 
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
+Hi,
 
-Found by manual code inspection (had this one in my queue for a long 
-time). It can be easily reproduced with a node that has no usable IPv6 
-address (no address on its interfaces, loopback down) forwarding traffic 
-(e.g., pings to make it simple) into a seg6 or ioam6 encap route with no 
-tunnel source configured. The outer source address of the encapsulated 
-packets is never selected: ioam6 sends them with the inner source 
-address (i.e., incorrect), while seg6 leaves it uninitialized (i.e., 
-packets dropped as invalid: Ip6InAddrErrors).
+I'm attaching a quick summary to address the LLM generated reports:
+
+Patch #1 LLM reviewer refers to CLOSING state which is not covered by
+this patch, which is aiming at the TEARDOWN state.
+
+Patch #2 still needs to use the dst that is passed via flow_tuple,
+ie. use tuple dst_cache.
+
+Patch #3 LLM reviewer refers to a possible different scenario where
+stats can get lost, ie. conntrack -D or -F. I don't think that belongs
+to this patch, this possibly need a delayed ct event delivery for 
+
+Patch #4 and #5 LLM reviewer provides hints to improve drivers, these
+patches only adapted the existing code to fetch stats from the delete
+entry command.
+
+Patch #8 LLM reviewer refers to missing update in selftest, which
+breaks.
+
+Patch #11 LLM reviewer mentions that the new selftest script does not
+cover for all UDP checksum scenarios in the flowtable. I don't see a
+review why this cannot be improved in a follow up.
+
+For patches #2 and #8 a version 2 of these PR might be needed.
+
+But for the remaining patches, I think it is not the way to go to
+address the issues described in those patches.
+
+I can repost a v2 without patches #2 and #8.
+
+Anything else, LGTM as is.
+
+On Fri, Nov 13, 2026 at 04:12:36AM +0100, Pablo Neira Ayuso wrote:
+> Hi,
+> 
+> The following patchset contains Netfilter updates for net-next, mostly
+> including flowtable fixes and improvements:
+> 
+> 1) Do not offload flows to hardware from the packet path if they are
+>    already being torn down.
+> 
+> 2) Fix PMTU discovery in nf_flow_tunnel_ip6ip6_push(): update the PMTU
+>    before skb_scrub_packet() drops the dst, otherwise the update is
+>    silently lost. From Lorenzo Bianconi.
+> 
+> 3) Fetch hardware stats when a flow is deleted, so the last stats sync
+>    with the conntrack entry is no longer missed. Update the mtk_ppe and
+>    airoha drivers to use this. From Lorenzo Bianconi and me.
+> 
+> 4) Fix xt_time monthday computation for dates from 2040 on by using
+>    time64_to_tm() instead of the days_since_epoch[] table. This also
+>    shrinks the xt_time object by about 23%. From Fernando F. Mancera.
+> 
+> 5) Do not offload multicast flows from nft_flow_offload, from Koral Ilgun.
+> 
+> 6) Make the nf_hooks_lwtunnel sysctl read-only in non-init netns so
+>    unprivileged users cannot toggle the global static branch.
+>    From Pablo Neira Ayuso.
+> 
+> 7) Purge the remaining flowtable entries directly when the flowtable
+>    is destroyed instead of going through the hardware offload
+>    workqueue, which may fail to allocate work.
+> 
+> 8) Remove a no-op loop initializer in the nf_queue selftest to silence
+>    a clang -Wunused-value warning. From Sasha Levin.
+> 
+> 9) Do not scrub the skb as crossing netns in the IPIP flowtable tx
+>    path, so the skb mark is preserved.
+> 
+> 10) Do not let the DEV_PATH_TUN entry set h_source from the tunnel
+>     device's dev_addr. Before this patch, fast-path frames went out with
+>     part of the tunnel's local IP address as the Ethernet source MAC.
+>     This broke offloaded flows on DS-Lite over PPPoE. From Marek
+>     Majkowski.
+> 
+> 11) Clear IPS_OFFLOAD_BIT only once, as part of the one-time teardown
+>     transition. Before this patch, a repeated teardown of an expired
+>     hardware flow could clear the bit owned by a replacement flow for
+>     the same conntrack entry. From João Silva.
+> 
+> 12) Call skb_ensure_writable() in nfnetlink_queue before writing
+>     NFQA_L2HDR over the mac header. Before this patch, the write could
+>     corrupt cloned frames that bridge flooding sends to other ports.
+>     From Tamaki Yanagawa.
+> 
+> 13) Add a UDP flowtable offload selftest for IPv4 and IPv6, with and
+>     without masquerade. From Jiri Peska.
+> 
+> Please, pull these changes from:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/netfilter/nf-next.git nf-next-26-11-13
+> 
+> Thanks.
+> 
+> ----------------------------------------------------------------
+> 
+> The following changes since commit 573af801552999954caa8347e4490b04cf4763f0:
+> 
+>   Merge git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net (2026-11-12 14:54:47 -0800)
+> 
+> are available in the Git repository at:
+> 
+>   git://git.kernel.org/pub/scm/linux/kernel/git/netfilter/nf-next.git nf-next-26-11-13
+> 
+> for you to fetch changes up to 4810f60b9f0e9111cd0dcbfd2ca7a7c591a57464:
+> 
+>   selftests: netfilter: add UDP flowtable offload test (2026-11-13 04:06:51 +0100)
+> 
+> ----------------------------------------------------------------
+> netfilter pull request 26-11-13
+> 
+> ----------------------------------------------------------------
+> Fernando Fernandez Mancera (1):
+>       netfilter: xt_time: fix monthday computation for dates past 2039
+> 
+> Jiri Peska (1):
+>       selftests: netfilter: add UDP flowtable offload test
+> 
+> João Silva (1):
+>       netfilter: flowtable: do not clear the offload bit twice
+> 
+> Koral Ilgun (1):
+>       netfilter: nft_flow_offload: do not offload multicast
+> 
+> Lorenzo Bianconi (2):
+>       netfilter: flowtable: fix pmtu discovery in nf_flow_tunnel_ip6ip6_push()
+>       net: airoha: update stats on flow deletion
+> 
+> Marek Majkowski (1):
+>       netfilter: flowtable: tunnel device poisons h_source of fast-path frames
+> 
+> Pablo Neira Ayuso (6):
+>       netfilter: flowtable: do not hw offload flows in teardown state
+>       netfilter: flowtable: retrieve stats on flow deletion
+>       net: ethernet: mtk_ppe: update stats on flow deletion
+>       netfilter: lwtunnel: expose read-only sysctl nf_hooks_lwtunnel for non init-netns
+>       netfilter: flowtable: purge entries immediately when destroying the flowtable
+>       netfilter: flowtable: do not scrub as crossing netns
+> 
+> Sasha Levin (1):
+>       selftests: netfilter: nf_queue: drop the no-op loop initializer
+> 
+> Tamaki Yanagawa (1):
+>       netfilter: nfnetlink_queue: make skb writable before writing NFQA_L2HDR
+> 
+>  drivers/net/ethernet/airoha/airoha_ppe.c           |  31 +--
+>  drivers/net/ethernet/mediatek/mtk_ppe_offload.c    |  32 ++-
+>  include/net/netfilter/nf_flow_table.h              |   3 +-
+>  net/netfilter/nf_flow_table_core.c                 |  35 ++-
+>  net/netfilter/nf_flow_table_ip.c                   |   4 +-
+>  net/netfilter/nf_flow_table_offload.c              |  83 ++++---
+>  net/netfilter/nf_flow_table_path.c                 |   7 +-
+>  net/netfilter/nf_hooks_lwtunnel.c                  |  12 +-
+>  net/netfilter/nfnetlink_queue.c                    |   7 +-
+>  net/netfilter/nft_flow_offload.c                   |   5 +
+>  net/netfilter/xt_time.c                            |  82 +------
+>  tools/testing/selftests/net/netfilter/Makefile     |   1 +
+>  tools/testing/selftests/net/netfilter/nf_queue.c   |   2 +-
+>  .../selftests/net/netfilter/nft_flowtable_udp.sh   | 238 +++++++++++++++++++++
+>  14 files changed, 398 insertions(+), 144 deletions(-)
+>  create mode 100755 tools/testing/selftests/net/netfilter/nft_flowtable_udp.sh
+> 
