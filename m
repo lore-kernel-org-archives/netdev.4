@@ -1,84 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794771545;
-	b=ht9e48ECeeIMNUqO+SRYsM/BmzBRrlj9HEetx5xgSeK9e1Pr9flttt4fE0Rj/X3byksg
-	 7Ig3hjz4aMw7jH/cmNiz9GPrDs/q+LLev7lZz2JnEW+CUukGFg1lplAfmWfjFu/5b8urH
-	 U8n7G/j56i2srEiI0eId/aDUoVHdF5Lq5MlopxZD0Z0YaOpZfdryHU98DNpux4hpy9q67
-	 jKfgsTZz/b2f0V7qLuh6vo99MI4AvSUkcVmAb1Yd4fErYQlU1Usy50QDBHraaLKiOADjQ
-	 3o8gPouYIMIByJ5oRcbL5/q7NcfYODzyPzEKAB2/fR8JJ9wB7E1k5fM7ggxZDtgruNg==
+	t=1794771573;
+	b=Up1Pqj/G5z7dwqgMeC+YNnjM81yMxamNVqa5siZaHN0BYNYlcV4ZZi1hpi0GHFHgrrSn
+	 pbdhrR4YA+L2BcBkunGNIbcbM/1+myVksQMBLtWZtBM94i0PrrwAtNs7I0fXZ2rqbED7N
+	 5R2FKb8jtSKNP/1ufaJ8zHrEcnz5yr5NeGlOM6YTfjZo+qLcaelfBVkY7vgzELYHnZEDk
+	 6rHncFLTsGNLCQjxLCCAHYtAkwaeLYx6Nr5jSXtPx0tGPZ6ObIvfpG3IbRKJttA5nTntT
+	 vYeQbuIsXzSpwCiLgyRx8HI73XCvAsBohs2vBED4xw7va5sjooN+WevAiZG7Ug9INkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794771545;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=nhfeoYtF7WorX7zGjUIuskRdAMeUM/Fthys1xBCjJm0=;
-	b=nOxt/zB4e2MAd88yK2g6LfDYzNXqU2MvfapAk8CsotFrau6kNJE6jd2C4FpfLSoBibwx
-	 nwaFAItza7ciyuNcjDA1bqIGJj1ifKkikkjg/D8uztDgjs6+gGHXii6+23VYWCjUEAAOm
-	 +L3RdHRMjSmCGAEnCxxzffrq03qLuCrZPAh3pzKjNgf8XqddbUcxBz0RLyoLiBZWLYnrU
-	 D/wmyfYxkQ1qM01MKOW06kkeccG6Lp5+28SOPJA1C39o6iDqXs2416W6pwfljMUdzJgrz
-	 TcXduxZsgFgd4ym2bKWQVc5tcRIflntz2Vg5ZDx/KjVyYDUPmWY36P4PHOme6Bt9OtA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794771573;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=jWvcQguugJJmaOTWfGcO5C8vl8bBwsJMp17FuaFFPd8=;
+	b=HPVZda1SvkSKgHNVKkotHJm1Pczccu1kjucv+AMBWYAJVeNOJ7Eic/rQhulAONKlT6XU
+	 ZxeRgrsJWrBqN3smfN+c2788AKEeLQ7VaEYSnepQSbfXbi3BbwNLTbrSfS4tAijdCfJnI
+	 qj5cfYeRslxtRGhG9YfXmSfXGCZc76SGjwM6NgpNPtg+DaU+8b4GXTTQHu3N6u/E3IaJ8
+	 6hbSATBp64/uTcO8gy5RS//yinNrUvanJXBF8ZsU4vXzU44rRxdMb1oWKdzHYyTAdjFx/
+	 rFEkkmiQV4SnDmjQgYV2WqKxPUzR1P4LDFUkoFfs9sTy7Um2xy3C7/Syuj2AiX4jt9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVa3kJOZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=g+NJQwOj;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 179CA606A333;
-	Sun, 15 Nov 2026 19:39:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34AAC606A881;
+	Sun, 15 Nov 2026 19:39:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34AAC606A881
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVa3kJOZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C8141F000C4;
-	Sun, 15 Nov 2026 19:39:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794771544;
-	bh=nhfeoYtF7WorX7zGjUIuskRdAMeUM/Fthys1xBCjJm0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=dVa3kJOZBz7IO1OByxjM4DlK62AKKz9Ka3JoFzukyf8Mtt0WvAaVeywOTe2Oxg/b8
-	 pJyd/Hcb01G5boe98nFycm5mUUClT8X7Ntu/1hFxdikFhRyhtf5j8ITJmO/TeBJjtn
-	 MllBZTZzBOIQzHQks6G53m4E5EztR9RrlaTTKls1hOvK+K0NTFkTZ0W9xoU+OfWydr
-	 ehuUkkZB4od/5R7m6mbCjNblOJ3ivYl6FVgGGrPUx9aJuPBpos7I+xoq6QBgkYsa+6
-	 gWd3jR4JLD89gS/0b1XfIfCvKSoESH/3bKWJJBKhwwBrXXZ7j6EIEV0axeTCYXQoLi
-	 8Uf7b4PEUNkjQ==
-Date: Sun, 15 Nov 2026 11:39:02 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Tianyi Gao <tianyi@cloudflare.com>
-Cc: Stanislav Fomichev <sdf.kernel@gmail.com>, bpf@vger.kernel.org,
- netdev@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, Daniel
- Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>,
- Martin KaFai Lau <martin.lau@linux.dev>, Jesper Dangaard Brouer
- <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, Stanislav
- Fomichev <sdf@fomichev.me>, Lorenzo Bianconi <lorenzo@kernel.org>, Vladimir
- Vdovin <deliran@verdict.gg>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon
- Horman <horms@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, Donald
- Hunter <donald.hunter@gmail.com>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil
- Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
- Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel
- <przemyslaw.kitszel@intel.com>, Maciej Fijalkowski
- <maciej.fijalkowski@intel.com>, Alexander Lobakin
- <aleksander.lobakin@intel.com>, Magnus Karlsson
- <magnus.karlsson@intel.com>, Tushar Vyavahare <tushar.vyavahare@intel.com>,
- Jason Xing <kerneljasonxing@gmail.com>, Nikolay Aleksandrov
- <razor@blackwall.org>, Madalin Bucur <madalin.bucur@nxp.com>, Ioana Ciornei
- <ioana.ciornei@nxp.com>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Shuah Khan <shuah@kernel.org>, Randy Dunlap
- <rdunlap@infradead.org>, Nathan Chancellor <nathan@kernel.org>, Nick
- Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>, Chris J Arges
- <carges@cloudflare.com>, Jakub Sitnicki <jakub@cloudflare.com>,
- linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, llvm@lists.linux.dev,
- kernel-team@cloudflare.com
-Subject: Re: [PATCH bpf-next 00/15] xdp: add SKB core extensions to keep RX
- metadata until skb creation
-Message-ID: <20261115113902.4834dda6@kernel.org>
-In-Reply-To: <CAG4wq-egD55NZDw+OKVKTKN2tQJ9oKEC504wFv=xoMXyJ-0z4g@mail.gmail.com>
-References: <cover.1794281983.git.tianyi@cloudflare.com>
-	<avOvI8xrHI0dwyHj@devvm16445.scu0.facebook.com>
-	<CAG4wq-egD55NZDw+OKVKTKN2tQJ9oKEC504wFv=xoMXyJ-0z4g@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=g+NJQwOj
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D7757A1649;
+	Sun, 15 Nov 2026 20:39:22 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1794771564; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=jWvcQguugJJmaOTWfGcO5C8vl8bBwsJMp17FuaFFPd8=;
+	b=g+NJQwOjR1M5zeuXwatlNshn+nXRLYrqnCyBYGIZznNDkD/VFqCwESuWkyS8wi8wo65nmU
+	KoaQ9V5PQCEwp8eY3LRzro3yrOzUBOQqD/cRr3yoCLtNsiTVQQKMq8SSxi0jzsJdRZevPC
+	7c9Sb4sD9YK7if4n2zkB8kdq7akvuT6vrXCABP35LT9VO7j23p0i2svN0hzM1/SBlTrGDW
+	sQ1Cr3301piW+w7zpxzobifeK1iIpNSo/EdX4hJXivqiaMo31Z2QvBcfJn6ysT6HTqNJuu
+	aqXMK+O/fdmSwZCytVmlzr3Pnq7whVaY31rPCdS0GUxCiMhJw1E5LGP7+9fu1w==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,16 +53,63 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Date: Sun, 15 Nov 2026 20:39:22 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Paolo Valerio
+ <pvalerio@redhat.com>, Vladimir Kondratiev
+ <vladimir.kondratiev@mobileye.com>, Gregory CLEMENT
+ <gregory.clement@bootlin.com>, =?UTF-8?Q?Beno=C3=AEt_Monin?=
+ <benoit.monin@bootlin.com>, Tawfik Bayouk <tawfik.bayouk@mobileye.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>
+Subject: Re: [PATCH net-next v6 1/2] net: macb: implement
+ ethtool_ops.get|set_channels()
+In-Reply-To: <20261113-macb-set-channels-v6-1-5de59d9e7f02@bootlin.com>
+References: <20261113-macb-set-channels-v6-0-5de59d9e7f02@bootlin.com>
+ <20261113-macb-set-channels-v6-1-5de59d9e7f02@bootlin.com>
+Message-ID: <0d65e4cc9a68684cd69ffa7feb5b7440@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Wed, 11 Nov 2026 01:07:46 +0000 Tianyi Gao wrote:
-> - On veth, an XDP program removes software GSO from the peer, limits
->   its MTU, and can copy skbs from the peer.
+Hi Théo
 
-Could you remind us why you XDP_REDIRECT xdp_frames to the veth
-if you end up allocating the skb on the veth, anyway?
+On 13.11.2026 18:32, Théo Lebrun wrote:
 
-I thought that was to let veth run its own prog before skb is allocated
-but you're saying that you want to avoid veth having a prog, so clearly
-it's not that.
+> [...]
+
+> @@ -3351,16 +3374,21 @@ static void macb_context_swap_end(struct macb 
+> *bp,
+> 
+>  	lockdep_assert_held(&bp->mac_cfg_lock);
+> 
+> -	/* Swap contexts & give buffer pointers to HW. */
+> +	/* Swap contexts & give buffer pointers to HW.
+> +	 * !new_ctx means that the swap failed and we keep the old context.
+> +	 */
+> +
+> +	if (new_ctx) {
+> +		old_ctx = bp->ctx;
+> +		WRITE_ONCE(bp->ctx, new_ctx);
+> +		wmb(); /* ensure IRQ enabled below read the new context */
+> +	}
+> 
+> -	old_ctx = bp->ctx;
+> -	WRITE_ONCE(bp->ctx, new_ctx);
+> -	wmb(); /* ensure IRQ enabled below read the new context */
+>  	macb_init_buffers(bp);
+
+The NULL case reuses the old rings without mog_init_rings(). The HW
+restarts at descriptor 0 but head/tail don't, so Tx stalls after a
+failed ethtool -L? macb_hresp_error_task() reinits the rings first.
+
+> [...]
+
+Regards,
+Nicolai
