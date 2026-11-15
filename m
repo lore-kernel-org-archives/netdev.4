@@ -1,57 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.226.149.38
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794784176;
-	b=V5UyaAQ0Mqqimps2r5Gy7m29JvqJRFgbqnMRMmVgwRfUCjv/bEJiqfNve7r4CBuVzX+J
-	 o7XqSh+0+vOKPQ0u+K7PcnpPGMZZMsw4bZstTHc0HOx8mAsyKmAwWulhOLLUgJ7mY7yuu
-	 nBFU8bO+5SY8KYeMqA8d+PE5OQDrDCZK8HT4uBTZmo+ZqzIL4o2aME0IIvVh/PEb9TIhX
-	 1GmahuJ5mMLTC8Qeuva7dw/PpU6i7vdSohmxoU1bl5OVXDZw3PZYnc6zu6KdUC37nwr5W
-	 YyaTXNA/rZ9Jmih4rh6iWX38+pwEwkGe/unwEUBzYr7Xfzm+Xs/sBBqlwR9tyWR3eLA==
+	t=1794784256;
+	b=xYdaOoTcCw2a6cYLdHoGLhxHyu9jmDLHErFUgrt9BFIxSBx2Eh3R0DDkawajECV8oV98
+	 oXwJqOyS7IBCahQ+VscnTb1Nd1iKjragDB+D4HLRvTGsXdFRzWxookco0dlAUEBr05FLk
+	 ku4ZdeOuVR7gl63tQfCrbexkU0AqVuGz86fB2xACjakLhhSgR9cevS4nfZVS7O2UIa481
+	 vte2KQw3Ugq4csXvNPXQZQMNHYKZJ+oZvbZDtvUuy3hVd+L9bTCBZAqoxoPZxqxKCRlQ3
+	 B0ffRvuQIS7qXyw3FF+9x72NSuCiSjKHhFw1djEjAbk4Tj1zMOddax4mTCAJku5P15Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794784176;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=fcySjAgXRv1Omeu2uLTfEyvofesTjl/NbY/HSOVg4ec=;
-	b=aSG9D6UqcFcrymuTlkFEkft1AXX2FCFUKeNhGAZp87kkeFCCiyc7aWHFD9L2Ir2r8FTV
-	 Ly12SIiM603T/JkDfqF9/p/79Ptv5kDSofejEynq7kzUZQLo8BDV8Zg1UZXOGNijb59n3
-	 RqJiLUXDMlCDiUZj0flckmet1jbBdajplVtli9o61trkxS7Iyne56fjE/hpDdbcmk9RoT
-	 1FFLVGGjUYeV8ePln2VkjsZUV9qrWq9LkwfCJvIS6OHvOlY821nfcHdvppaXDlR6AbtEf
-	 aCpCenwYEqGyA6Xy5uidEjl8Zy4VLRFqX6wIkUOj6fXNVu+S0vagyeGLFPFdHhiU7+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794784256;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=54DqklQJRU5E5sAvgMJe/3GZgyr2z79+L1pPnq+zQII=;
+	b=fDkkS+xiXJ1BxX7WjJ9C+OPQEuLYuKz6v6FYZ7j0++EONf8GGv25loAp5iojsSr9w5zZ
+	 XxwU/bu47F6wH69DyTBnZBSTIDIpt1+vV6krsBgTN+6vkHVpEcKTR5hzUaGImDy3GnP/d
+	 NwzAyUK+MmfkQdwvdmQg+67KzynYTPTNOmDqZsD1VSSZQJNifPjOHk/P40oGe14rCPeYJ
+	 LXRo626gUNe9qD068njJ9OpZUYC8IFYYqcCGBo2WVV7sP2ZYWoVEsWji9BhAhVKJrpDMp
+	 6uVCzmz+eI6/rbV+FFQ+TqT8q19WH/JQzlU+ugoIZb5Z48on9QGdCewRzMZeu/ur/Mg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iMyHLiEA;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=rbox.co;
+	spf=pass smtp.mailfrom=rbox.co;
+	dkim=pass header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=F3DWF8eP;
+	arc=none smtp.remote-ip=185.226.149.38
+Received: from mailtransmit05.runbox.com (mailtransmit05.runbox.com [185.226.149.38])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4940C606A323
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 23:09:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00B03606A323;
+	Sun, 15 Nov 2026 23:10:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00B03606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rbox.co
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rbox.co
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iMyHLiEA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDAA91F000C4;
-	Sun, 15 Nov 2026 23:09:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794784175;
-	bh=fcySjAgXRv1Omeu2uLTfEyvofesTjl/NbY/HSOVg4ec=;
-	h=From:To:Cc:Subject:Date;
-	b=iMyHLiEABx76W2qPYcp0ne+sEnp5KPMJy5xjquofbvVyKJQWSukK2XnTkD4Lvvn1r
-	 P6p1bFEMleM9RA9sp7i10x70XNa/43rnF2EP5pGa+lfKYsKK/0RyPHl96zu9yxmMWs
-	 WEeEobMW1mKfgJaR91GUpKPQ6tjGkd+xtsG5Dju9+UH31QwnaqF2lswUNHJRWgeUzT
-	 BtuMCV1l9ziMKT9ix6zMP74QqtH1a+rXMJhCLBYdU82GpBmqALpKiL6Miq/wljefrn
-	 zr1X1y/YPjseLcpihooW0cZ5GvC5BdoqAlTVNe8utzm/g7UKSpIgemIau7H0L2m5zT
-	 TnDN01xU0y+eQ==
-From: Imre Kaloz <kaloz@kernel.org>
-To: netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Elad Nachman <enachman@marvell.com>,
-	Oleksandr Mazur <oleksandr.mazur@plvision.eu>
-Subject: [PATCH net v2] net: marvell: prestera: disable port before changing its MAC mode
-Date: Mon, 16 Nov 2026 00:08:12 +0100
-Message-ID: <20261115230812.29644-1-kaloz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key, unprotected) header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=F3DWF8eP
+Received: from mailtransmit02.runbox ([10.9.9.162] helo=aibo.runbox.com)
+	by mailtransmit05.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <mhal@rbox.co>)
+	id 1xSjMy-00FKBo-SX; Mon, 16 Nov 2026 00:10:44 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rbox.co;
+	s=selector1; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
+	Cc:To:Subject:From:MIME-Version:Date:Message-ID;
+	bh=54DqklQJRU5E5sAvgMJe/3GZgyr2z79+L1pPnq+zQII=; b=F3DWF8ePjOro893G9DPFG9cjA5
+	m/V/eoM7PuzpWe9M9OfLhr61T5tRk3EJqylSekZclnYIqLPteYV68SY9FSU5u00hqJ5KvXkon639Z
+	yjz9GkcQOuaCnaAyspNsaErReoRkUNgPDTs3xVe4aLTjtAemeC4wwt+B3i8yKVJAi0eXvFuHzpBwl
+	xGMKL2gc/YXjrfgMfpnMlv7eoQGc6O4Fi5y6wlk39seZJSoBLRrJfBuUVXxDahZRDfWdzzJ1yuqj6
+	cqQhTCWnTzn4MAgPwUyouA8ESD4chI15qM04xXnNJ7pLlgPvJNPqisz6Ql3owj2F/6sZ5Hzr52kNT
+	u9l6tWpA==;
+Received: from [10.9.9.73] (helo=submission02.runbox)
+	by mailtransmit02.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <mhal@rbox.co>)
+	id 1xSjMh-0004wX-B4; Mon, 16 Nov 2026 00:10:27 +0100
+Received: by submission02.runbox with esmtpsa  [Authenticated ID (604044)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.95)
+	id 1xSjMb-000ing-CY;
+	Mon, 16 Nov 2026 00:10:21 +0100
+Message-ID: <6bdfe6f7-aba8-4fb8-ac24-62fe020e1422@rbox.co>
+Date: Mon, 16 Nov 2026 00:10:19 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,77 +66,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+From: Michal Luczaj <mhal@rbox.co>
+Subject: Re: [PATCH net-next v6 1/8] vsock: only undo SS_CONNECTING when
+ connect() fails
+To: Bobby Eshleman <bobbyeshleman@meta.com>,
+ Stefano Garzarella <sgarzare@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
+ Stefan Hajnoczi <stefanha@redhat.com>, "Michael S. Tsirkin"
+ <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>,
+ Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Shuah Khan <shuah@kernel.org>,
+ Randy Dunlap <rdunlap@infradead.org>, Donald Hunter
+ <donald.hunter@gmail.com>, Eric Dumazet <edumazet@kernel.org>,
+ George Zhang <georgezhang@vmware.com>, Andy King <acking@vmware.com>,
+ Dmitry Torokhov <dtor@vmware.com>
+Cc: virtualization@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ kvm@vger.kernel.org, linux-kselftest@vger.kernel.org, sargun@sargun.me,
+ jlinbox@meta.com, Bobby Eshleman <bobbyeshleman@gmail.com>
+References: <20261113-vsock-guest-ns-v6-0-3737ce4673c0@meta.com>
+ <20261113-vsock-guest-ns-v6-1-3737ce4673c0@meta.com>
+Content-Language: pl-PL, en-GB
+In-Reply-To: <20261113-vsock-guest-ns-v6-1-3737ce4673c0@meta.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-prestera_pcs_config() writes a new mode, speed or inband setting to an
-enabled port. The firmware can then report link down until the port is
-disabled and enabled again.
+On 11/14/26 04:14, Bobby Eshleman wrote:
+> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
+> can complete the handshake, setting sock->state to SS_CONNECTED, and then
+> reset the connection, e.g. in vhost_vsock_reset_orphans(),
+> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
+> connect() gets the lock back, it finds sk_err set and moves the socket
+> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
+> and a connect() to a CID on another transport makes
+> vsock_assign_transport() release the transport the socket was connected
+> on.
+> 
+> Only move the socket back to SS_UNCONNECTED if it is still
+> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
+> another connect() fails with -EISCONN.
+> 
+> Fixes: d021c344051a ("VSOCK: Introduce VM Sockets")
+> Suggested-by: Michal Luczaj <mhal@rbox.co>
+> Link: https://lore.kernel.org/netdev/179447093204.2199510.8895677421994612994@kernel.org/
+> Signed-off-by: Bobby Eshleman <bobbyeshleman@meta.com>
 
-Disable the port before such a write. 2500BASE-X and SGMII share one MAC
-mode, so SGMII sets its own speed and the speed is compared as well.
-Exercising this needs a link partner, so no in-tree test covers it.
+Reviewed-by: Michal Luczaj <mhal@rbox.co>
 
-Fixes: 52323ef75414 ("net: marvell: prestera: add phylink support")
-Signed-off-by: Imre Kaloz <kaloz@kernel.org>
----
-Changes in v2:
-- Also disable the port on a speed change and set the SGMII speed, so
-  that a switch between 2500BASE-X and SGMII, which share one MAC mode,
-  is covered.
-- Elad's Reviewed-by from v1 is not carried over, given the changes to the logic.
-- Link to v1: https://lore.kernel.org/netdev/20261111101521.9878-1-kaloz@kernel.org/
+Thanks! To be precise, the Link: above is more of Sashiko's musings on
+what's wrong with Jerome's (not merged) patch. The patch of yours makes it
+moot.
 
- .../ethernet/marvell/prestera/prestera_main.c   | 17 ++++++++++++++++-
- 1 file changed, 16 insertions(+), 1 deletion(-)
+I believe the first time lore mentions the issue at hand:
+Link:
+https://lore.kernel.org/netdev/20260909-vsock-connect-reset-closing-v1-1-50298b9ccfbf@rbox.co/
 
-diff --git a/drivers/net/ethernet/marvell/prestera/prestera_main.c b/drivers/net/ethernet/marvell/prestera/prestera_main.c
-index a82e7a8029851..3173145573600 100644
---- a/drivers/net/ethernet/marvell/prestera/prestera_main.c
-+++ b/drivers/net/ethernet/marvell/prestera/prestera_main.c
-@@ -307,13 +307,14 @@ static int prestera_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 			       bool permit_pause_to_mac)
- {
- 	struct prestera_port *port = prestera_pcs_to_port(pcs);
--	struct prestera_port_mac_config cfg_mac;
-+	struct prestera_port_mac_config cfg_mac, old;
- 	int err;
- 
- 	err = prestera_port_cfg_mac_read(port, &cfg_mac);
- 	if (err)
- 		return err;
- 
-+	old = cfg_mac;
- 	cfg_mac.admin = true;
- 	cfg_mac.fec = PRESTERA_PORT_FEC_OFF;
- 	cfg_mac.inband = neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED;
-@@ -329,6 +330,7 @@ static int prestera_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 		cfg_mac.mode = PRESTERA_MAC_MODE_SGMII;
- 		break;
- 	case PHY_INTERFACE_MODE_SGMII:
-+		cfg_mac.speed = SPEED_1000;
- 		cfg_mac.mode = PRESTERA_MAC_MODE_SGMII;
- 		break;
- 	case PHY_INTERFACE_MODE_1000BASEX:
-@@ -339,6 +341,19 @@ static int prestera_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
- 		break;
- 	}
- 
-+	/* Firmware may not report link up after the mode, speed or inband
-+	 * setting of an enabled port changes until the port is disabled and
-+	 * re-enabled.
-+	 */
-+	if (old.admin && (old.mode != cfg_mac.mode ||
-+			  old.speed != cfg_mac.speed ||
-+			  old.inband != cfg_mac.inband)) {
-+		old.admin = false;
-+		err = prestera_port_cfg_mac_write(port, &old);
-+		if (err)
-+			return err;
-+	}
-+
- 	err = prestera_port_cfg_mac_write(port, &cfg_mac);
- 	if (err)
- 		return err;
--- 
-2.47.3
+And there was at least one report off-list, so:
+Reported-by: Kyle Zeng <kylebot@openai.com>
+
+BTW, I've noticed Sashiko already commented on this patch. I feel I'm
+responsible for that wall of text, so I took the liberty to reply. Hope
+this will help.
 
