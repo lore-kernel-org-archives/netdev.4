@@ -1,54 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794746010;
-	b=T3mvkQxn1/2W3ySQzpA7d58sYi+KP+9UDpwWXXC3qD/pCXtnE20GhLAEcVBP6D+UxdXo
-	 3Nylf+DWzub+exabxh4eQBWH/yc1mAKgOVAzU/EFNOl9hY5LeQaFdUiatcXBVn3BxDPxs
-	 k5NUArDnKTBQhVzRqaVs7BGfx6xZ2LUKhBHVV9iOXyhgKT3YtpIOh5z+7bOXyNTbcXpPA
-	 GSJm4GmjDb4VjvKzKUPWJBYkXmZ3a76EEhilJhY7BtiP0GRAuFg1zWX/ayBPk5SCFGQjL
-	 F3fdUr4c2eFfHyNUGXgv6g0jfyj49Z+3OcE0jq8x7Pgh9Qv5gtNHgZjvZE+3yPDJo6Q==
+	t=1794746073;
+	b=l+VlWVBkFEqJF1N/ADT8cSOVP4Me8j1KVj7/hXmWVFkrMExTHmC7BtvHV/an3LlcFiP1
+	 awsKP0Rhr41r4HWwirAI8bD+6W6aJpwX3iKKKCgOj2FaPPBrvxpOkBPxbH/EpXcce84Q/
+	 fHrJ1uBR3jkdQonKphdovMBn8S3CrdY4LBdr2ysRdDe8eTJqdBDTJV0hr19PvPpADy5dG
+	 ATe5UPT+nAMPeD8OVyOFeX7XbuUgIgMFlhXFTmXosRebvcjJ9ZSSgnZ0yBf7lin9iXBpG
+	 bOWMQ07NOnL1WzdJbnxCpOSnBEw1KZDTLcq8kLbf9CF8fhiP/PYebDzzDQzK5psBCQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794746010;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=P0L0ftbj+kIt53ureHmiQ7Y/IcbNESkfV8kHEr8QUa8=;
-	b=qjB0ExHiQWjCvIOyIZP+LahVVn2VnzH2ZNFbnBSPtxvknFx+O1LiEnIiwDmHX7ySy/8E
-	 fzX+H3ERhro6uLFNoCJzP7KhBf6pI3B8yWvS09Um20UOYn4kLSJSiA2P1LwPahFSxic8e
-	 SjYX0epl5c1LOCoWVLVIK7dVuYNU3U++KE8P+Ne4Yjnssm6p43HwvcTqcticSeFPxnLM4
-	 NMQ6ZS+LawuvLaVJXp5ipfvk/R34DepstGJw4Z+mn/63pVk8Pb6cUqtfZWwh8O2d61R7U
-	 yOQJZ239AKi0FgSwGmizwq21UTXwBDvZBMWPAfWR4+QRusCs+U5lwPNM05ByhksLEJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794746073;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:Content-Type:
+	 MIME-Version:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=5d99x9Z7iGP/XoNMh8Cda41fFbLCQQN+rYDaKXQczIY=;
+	b=W1attjA1WUeGsVveaRLy7ixfBV7x1x9oEkEt8Eg8XbxtJqMV+3YRW1OrCg/CBrJcrMNS
+	 tQygWdj4HHy8pnmF35z3V+hS8kqjCqvbxwqoH5IA7RzhJ5OvnyR3n86K3z4f6H9290hF9
+	 CPR+Lgixampph19SGhzv3atPu/s+fOAY8L8An+UD/x/PsE+OLxbsEhDP14IxRzO7i00UQ
+	 jmQeTcnsUQNlj4qorJadFGQJtc0lahDCLLfPL+u8ApbQRlGBrYgY731qLxV7H42RFv80f
+	 kcUKAmF0jHAgw/xWQ/CxLcHQtIa4PKTAtT/45amCK6MDbLAJebE815+uGJjDPxaxDEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.210.72
-Received: from mail-ot1-f72.google.com (mail-ot1-f72.google.com [209.85.210.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39AEF606A32C
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 12:33:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39AEF606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-ot1-f72.google.com with SMTP id 46e09a7af769-862ae90bbdfso946148a34.1
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 04:33:30 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794746009; x=1795350809;
-        h=content-type:to:from:subject:message-id:date:mime-version
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=P0L0ftbj+kIt53ureHmiQ7Y/IcbNESkfV8kHEr8QUa8=;
-        b=Ig/g08r3JjK92qpe35fcc0yZ9/KbxoOdEke7327FqWCdNB0pg70jd3DrMTiJnuOUbJ
-         NLA/cuQA8YZDIF1gMDyIWG2xXE2un99j61PJaRf5raOypu4zW0yURgeCNVd8ZwPspzGb
-         A6+vrr3twtKY3FCkwgqBYPtt/CW1UH/mWGHeQ8EZZ2z1M2fvVN+iodXzGTKdkkazn7El
-         0EBV3ZDRe2RkLs4xUtIdLZBInIMxwL5wcH66ZOEa6FXzYk71++3xe+5KHkO23yENXPCr
-         Rwez2aVlq9eKVuy7NmurVSd1uMq+HfhEFOb/wZo0/gXP6UmVa6nsDOdNmqvz660dSH4R
-         NXRQ==
-X-Forwarded-Encrypted: i=1; AL+hErGWNaRJFt++m/Ij/5JgrL3u9e2XwsN1weCqqKpoIJfLqxU5sl2TlOG3fDW/Vab61ejOgq6oYL4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9InDphM4dvnxDuEiMCGiPPMXUUzK0167+NN+/iyUb82ziDYKlI
-	QzM4IQueCLSXko4O6P9nWXIRW8wjjQWyu+mrbirMYWvcebhhQi7ye78KAxmLBFvpQzZjnqALbBh
-	JI5ifiSLb9yhcUEa+EBnvnKMcOGPd3M63o4ymDBk1OEZVHgu38kbAW4yBLxc=
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=RdsDG4jx;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2BB8F606A32E;
+	Sun, 15 Nov 2026 12:34:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BB8F606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=RdsDG4jx
+Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 5440920B7169;
+	Sun, 15 Nov 2026 04:34:21 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5440920B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1794746062;
+	bh=5d99x9Z7iGP/XoNMh8Cda41fFbLCQQN+rYDaKXQczIY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=RdsDG4jxnOTbRCcRLKn8KqNbjJNqcL7K8pXNK/914kpDO8n8yeqxYHuWtNeJbLBUq
+	 DKTedkh6++WOqmHvLYlX0r6oycUAo72qMSzKNx1zb+ZrFuMCYrvEmX9MFTvJsakBD1
+	 WBDB//+dnecoe92lyu/QgI3LR5oZ3YEAvQPsC7xo=
+From: Wei Hu <weh@linux.microsoft.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: longli@kernel.org,
+	kotaranov@microsoft.com,
+	kuba@kernel.org,
+	davem@davemloft.net,
+	pabeni@redhat.com,
+	edumazet@google.com,
+	andrew+netdev@lunn.ch,
+	jgg@ziepe.ca,
+	leon@kernel.org,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	shradhagupta@linux.microsoft.com,
+	horms@kernel.org,
+	ernis@linux.microsoft.com,
+	stephen@networkplumber.org,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	gargaditya@linux.microsoft.com,
+	kees+treewide@kernel.org,
+	kees@kernel.org,
+	mawasthi@linux.microsoft.com,
+	weh@microsoft.com,
+	edumazet@kernel.org
+Subject: Re: [PATCH net-next v10 2/4] net: mana: give each HWC message slot its own completion state
+Date: Sun, 15 Nov 2026 12:34:11 +0000
+Message-ID: <179457550419.109246.17805974147168949918.hwc-v10-all-reviews-p2@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179455239815.2199510.4673285259543925635@kernel.org>
+References: <d3c71452bb2938a5c1fcfebb32d44827eaea94e9.1794208055.git.weh@linux.microsoft.com>  <179455239815.2199510.4673285259543925635@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,48 +86,65 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:e88:b0:55c:8ed:4db8 with SMTP id
- 5614622812f47-56e65a413efmr5878322b6e.62.1794746009242; Sun, 15 Nov 2026
- 04:33:29 -0800 (PST)
-Date: Sun, 15 Nov 2026 04:33:29 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6af9a699.78cd6c47.117a81.0005.GAE@google.com>
-Subject: [syzbot] Monthly wireguard report (Nov 2026)
-From: syzbot <syzbot+listd270b2ab9f81057c7dc8@syzkaller.appspotmail.com>
-To: Jason@zx2c4.com, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	syzkaller-bugs@googlegroups.com, wireguard@lists.zx2c4.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hello wireguard maintainers/developers,
-
-This is a 31-day syzbot report for the wireguard subsystem.
-All related reports/information can be found at:
-https://syzkaller.appspot.com/upstream/s/wireguard
-
-During the period, 0 new issues were detected and 0 were fixed.
-In total, 5 issues are still open and 21 have already been fixed.
-There is also 1 low-priority issue.
-
-Some of the still happening issues:
-
-Ref Crashes Repro Title
-<1> 111     Yes   BUG: workqueue lockup in wg_packet_encrypt_worker
-                  https://syzkaller.appspot.com/bug?extid=ce2a09d03fdc079a46e9
-<2> 60      Yes   BUG: workqueue lockup in wg_packet_decrypt_worker
-                  https://syzkaller.appspot.com/bug?extid=d0d2f1a65f45b319d25d
-<3> 21      Yes   INFO: rcu detected stall in wg_packet_handshake_receive_worker (3)
-                  https://syzkaller.appspot.com/bug?extid=48f45f6dd79ca20c3283
-
----
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
-
-To disable reminders for individual bugs, reply with the following command:
-#syz set <Ref> no-reminders
-
-To change bug's subsystems, reply with:
-#syz set <Ref> subsystems: new-subsystem
-
-You may send multiple commands in a single email message.
+Thanks for the review.=0D
+=0D
+I will include the small metadata follow-up below in v11. The four Medium=0D
+findings are pre-existing and will be addressed separately. Where later=0D
+patches already provide protection in the completed feature series, I=0D
+have noted that distinction below.=0D
+=0D
+> These changes fix bugs that can already be hit in the baseline, but the=0D
+> commit has no Fixes: tag and no stable note. Should it have them?=0D
+=0D
+Agreed. I verified the original-driver commit ca9c54d2d6a5 and will add=0D
+the applicable Fixes metadata. I will explicitly describe the stale=0D
+caller-storage and stale-completion bugs, and make the dependency on the=0D
+following quarantine patch clear for backporters.=0D
+=0D
+Patch 2 alone does not solve response correlation or TX-buffer reuse after=
+=0D
+a timeout. The backport guidance will say so; I am not proposing automatic=
+=0D
+stable pickup of the complete feature stack.=0D
+=0D
+> This isn't a bug introduced by this patch, but can a late response for a=
+=0D
+> request that timed out still reach the next request that reuses the same=
+=0D
+> msg_id?=0D
+=0D
+This is pre-existing. We will address it separately for the baseline.=0D
+As the review notes, patch 3 already keeps the ID quarantined in the=0D
+completed series. That protection will be preserved in the respin.=0D
+=0D
+> This isn't a bug introduced by this patch, but can this memcpy() read pas=
+t=0D
+> the end of the RX slot?=0D
+=0D
+This is pre-existing. We will address it separately for the baseline.=0D
+Patch 4 already checks the requested response size against the effective=0D
+RX limit and slot capacity before admission in the completed series.=0D
+This is not a claim that standalone patch 2 fixes the bound.=0D
+=0D
+> This is a pre-existing issue, but is the TX DMA buffer for this msg_id sa=
+fe=0D
+> to reuse at this point?=0D
+=0D
+The early TX-buffer reuse is pre-existing. We will address it separately=0D
+for the baseline. In the completed feature series, patch 3 retains the=0D
+slot and its TX buffer while the response-side ownership is outstanding.=0D
+The respin will not undo that quarantine to make admission succeed.=0D
+=0D
+> This isn't a bug introduced by this patch, but the caller of this=0D
+> function, mana_hwc_rx_event_handler(), drops the RX buffer when the devic=
+e=0D
+> sends an out-of-range msg_id:=0D
+=0D
+The missing RX-buffer repost is pre-existing and remains outside this=0D
+series' changes. We will address it separately, rather than silently=0D
+folding an unrelated RX recovery fix into this respin.=0D
+=0D
+Regards,=0D
+Wei=0D
