@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794771349;
-	b=DUub6+QwHTJ+h6QNP2VXQDqciDN5oLAv2htibi7zKkYTAlbGaHvBi3WhQ4LQqf2rWXGH
-	 iEednBPa578GCiNltVsEFtfSKDdyhCHazjkHX4t1bQZCJg7d5N81NHkMZe9N7GJEX16S9
-	 aahf2aV3RORg/nxyOmqEMaamgTIXkrUtsn4yd+EVqd1EoUcJjocSrH0T+eb6xSfrxIgIj
-	 Wme2HRnoGz2UGwTNSosFCztiJPwzS4VShM/HGcBtSh6er+XnupvpIb/eRPMoc5Nf/k/5f
-	 t0qThPDEvZVS+TCtFSYucnADFuETDrhgbNttzO8LX3DeS7Oj6UPC82nxgdTqfSuBERw==
+	b=mSAYiJ+Nhtz51LUzp5DL+bzwFRH0jPqC2alsKy8QUtJz1PdCpN9Y+XBp5hZhs71oRoIn
+	 kCIRohm985MIEjku/a9TeLxT+cgsn5n4oCenWJskZZeqlZRGUTIC4pQPb7Q9yitaQQl1l
+	 AMWNIpygUggBHlXf4LrCDDQ7UmEPrCKnCMoZ+HGknpWwM8p8vaq9z4so82lEEVlhleJgl
+	 u8SUIiYeWMpKR9IYZiBl0VRju2nHxKAHYAGO0Fswd1uw++nR7k1cEf16BS2xy6FiIRRnH
+	 t55OHBeNlxLlbbgAj9qwvZJEa6AsCubbmQ/hfhFgnBRGxL67GWuCLQRSgjwXxQ1GLtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794771349;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=tK8pY04ULzlkXT8YAD8XuTJKOa5LokDbsoPvaMBMCag=;
-	b=pthfN6NPX7YGHs+PP8MIamGTGcixgn3GRKTxKUNjkgecRVMvOHVHwMZEFNPUd2Jzsq8v
-	 ZJcBjKT3HHxkFvt6WRqsRttEdQwl5NtagRJLbVQYOmTEb4SaQ/ioi+oqJ7/e/61IYX/bF
-	 IRfY9SMPxV4RQ3D85xw2G95pGnJAdgkfbpyHleX1CrspeOs7FZ3H5N7RnEoy8MCFnmqSh
-	 JD/XPmAt8DCXRum4x2mSS1UysgXgy98w2W3foHE5LIUjQc6i37beJVpmzJfIgGPSHye8x
-	 eVbGEagH0sU+wX5mjOB4gboBJp0g3Ec3nHVmoVdupgP7zqPev3pGNqCEyxx7KQUdirg==
+	bh=F1yhPQtGuQiIVxyFRyGRvPMKXeA34EsZZQXwH34MUDA=;
+	b=wIAINESEmDAFfAV1dvxT4PnKGq5KVgvsd16C9uFKf1EH/dlQfSSEY+FstECcoGZB5spS
+	 4p/gxO0FvpIPYASyzw7IoPAz+52tjzLUyLQBmI0OfUU1ObbbnaIwm+uLUSF94H/cEsYEz
+	 Pf8b91li45v/dw2kwNdQ79YqdFINoSTKxvbAPeHXsQaGS08y9tNxgSnBoZIbIfMtpBA5/
+	 rUxEQirber2A/Kf1atyS9WyeLqW2zAbtvQQNBYJRQnhemyQlz79PyocvycGhVZTWfuF6e
+	 XAK3znz6y8TC2/WPyxL7Bstsw5KNFqzWVc9kcr8qcjAKXNJKAo83p/CFTE58ApIT2gA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cloudflare.com;
 	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=MMyf1xFt;
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=Ddd1tPw9;
+	arc=none smtp.remote-ip=209.85.218.48
+Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com [209.85.218.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE244606A88A
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 19:35:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE244606A88A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7F62606A88C
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 19:35:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7F62606A88C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=MMyf1xFt
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c50e26763a4so958366b.1
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:35:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=Ddd1tPw9
+Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c4322d310e7so529098966b.0
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:35:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1794771343; x=1795376143; darn=vger.kernel.org;
+        d=cloudflare.com; s=google09082023; t=1794771346; x=1795376146; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tK8pY04ULzlkXT8YAD8XuTJKOa5LokDbsoPvaMBMCag=;
-        b=MMyf1xFtg5f7mLaOMXYxwa47KeuCHgfiZd8RIsmV+iKswcuNbpdOy7R6jGAcXURrwd
-         F9fdnbsev7jw10wt1hakRflYdyGA/wcopixTTlIQ/KEcoddgo6WPW+gC2I9Qzz7PVxw3
-         xWoqQ3exgnLR2Qx0ckTJQAR3Uf55mo3ZyB0Svwq3WvRzn5depXvTQ+5SWPVKzCf8KKKV
-         thiKRleMyXRmUXqkjy2I+ufHBP25FpqQXotf8fiA95joB47SvZzHwHSUa51oX20TSRIj
-         Z17FItr8Hz2yhbhmP0lO0jxZzI453u/Vx8IdaXeKXw9avYW3DIDDKNkU3owggpV1YVXM
-         qpOQ==
+        bh=F1yhPQtGuQiIVxyFRyGRvPMKXeA34EsZZQXwH34MUDA=;
+        b=Ddd1tPw9RAVNYmD12nYH3+lDIsw1GToia/TS6/59V68w+pW8wA2Ki3VhpKYAmnAnO2
+         jeIup19iPB0uS7rCH8PHJknGTdquhpQx2Qjpmmka9fpGIOzuEmYt9M8ptEi6A3JxT3sW
+         8/5pEYQxQBHdAfY4aAei+Fe/QAvKlUNOfVgnhjlqSKYKTBbZho6GMt7Gb3uOropgCzPy
+         a23XRIktJ0XNMq4SRpqeM5KE18pG/hlNQY5EGHXdW2tj9yQRW76VFLzawNBjI1QEyEIW
+         OG7/xrshCkTwNomu8g7+z4o1ieIbvizWy6KJncCgY85zVeU9d1mOPszv4TDP4XwOUcee
+         L2kA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794771343; x=1795376143;
+        d=1e100.net; s=20260707; t=1794771346; x=1795376146;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tK8pY04ULzlkXT8YAD8XuTJKOa5LokDbsoPvaMBMCag=;
-        b=z5mlSYxBnfS1a4rxbpXZe9Hi0x/AMbRzLP4WVzdn34lO1upEfSw1wBtFatypB3r4k9
-         T55e7e04GEZxJrKcnlz1QR/Bc4SO7WZjiePI61Rk5flnBxZjY8QyYIWZAxvyy9Cl9UP6
-         m3w0DLUtPDERJzZs6ZBQvIo+QsrN71YBUpuul5verX4TfBb+TkKYcLk/rXOYDqVil1WU
-         KdnkC4gYnBs8ODhmNlNz9qTJ5Irh2A5s/gBwFlYWp4aQwY/L9mPmTb1a3nZIyY71y4Yq
-         Mgq8u8g1Q/WOoZ5v7RRFtBTzKnvmCLSFHVoD/Pcf2P0CPYrSmh64BIughnzlEGYcBLnd
-         IGPw==
-X-Gm-Message-State: APuU4Z+9Y0LHnPHG/tCtPNcHa9/4I2SbawO3JppgDBWwXxJ9Ra+sr9S4
-	0k5qBsHInd5k2Dx6cynjDmP5p3LoLbFvv2qTaG7Ielu+CjTJ2MqEvPobj2Bf2Y6/43maRwqi4BC
-	UE1SOq/4=
-X-Gm-Gg: AYBFou1b7j1baOgMiC6S0Vo/xNNYVaC4Etw4P28bqICaAETqKVyfU9i89ih5SW7KbkR
-	6wRNvvlgtj/ScdzHVUqZZI8cH9lWURVcW/XoMfUI1m1zc8V1tU87UrW9jnWY5oi3KvqReGd4njs
-	+iPIt22/BnM5bF9y+7Uuob5neW4X06iGsgdb4jx5BwHvkDv8aJLNJLIkjX07Ao+vqbwqGwvzafF
-	9uB1Y9dJOy5lE52qnEKBMEuVgvWaxFbe4FEsfZhfD231xuewouA2vQoFiSAuud1BQKpNHKIkEyR
-	/hKJ/bBP+8DUtXuAeql9/R/Dw+sra9xKT6Azqv7OhEoesFXrrmTaGpURyitPtC2LDXBqboOmWQ+
-	EeR8Y3N0QJZ2T206AZ83rUJ62g1gtcwrNpGcG4GbvF/NHrJbnKy/pJgCzPnnByU6rmek0iWuLkN
-	06im/KBJG24AiPd+K9JpQ4uTNbV5fWGjU/69W8BvJyP14vkSPySQFovley5WlVN96NyE2WNJ5P/
-	eIS21mGOKLHMv5fMPIvDvInE9HC3mamP1R+htGIBFirNH8KTd5ULX8j5by7Pn37bY3/pT7zJNwa
-	rAHfirKAcM8EeIbidJ/+vBtB0bPulAd2YsE8d7gvaotP55WTYelf5dBPsbBUX5gRDxLYe2vLM12
-	8zos=
-X-Received: by 2002:a17:907:c05:b0:c2e:378c:8ce3 with SMTP id a640c23a62f3a-c509634a522mr696307566b.32.1794771343416;
-        Sun, 15 Nov 2026 11:35:43 -0800 (PST)
+        bh=F1yhPQtGuQiIVxyFRyGRvPMKXeA34EsZZQXwH34MUDA=;
+        b=oCXuQ5P2DX9qSnTkAa8aqBoTLliZEjC5RGkq9MEv6lOFq4ZFW6L2YRVJbUz0m+mJ8z
+         y/2/McSh9K0VQ+c2Ac8/PwnUtqooIFYgO0QwdB3wYAubWiYecx1CGnR8AGBy/nAqoASC
+         7tD2vXQVo5iQ0Tu6HU10UdrknthWtolmboan3EFZ5GGxtRRAPxKu2LQ7RJ8f/UxWMMU0
+         COyghOMaIMX8uhgrA6LQKIzTMwEZMu1R9P45iN8+oIspKFLEMgCNgs9L0Fs4ws6pSPGa
+         OPjw6S5Au6j8AiC3TmzNq7KjMjsU9GTlLt6YagdcygdkpZPelu+SnAk7ndNvksqeN5Q2
+         IbWQ==
+X-Gm-Message-State: APuU4Z8+Q/vXp8+Jx7+cq6yGeGvdYXuXza3NgmoOoEGNRpivzuyAjvb+
+	BQjMT99ZAj9UNoaRFZDD2oKIEGDJpL2FUXro0lSx1tdVLohXrNLy8Vy51xaZz5bx2mCyRcdVPW9
+	I+vw22Ok=
+X-Gm-Gg: AYBFou1Ss/mr3TQE+HldOow9avThixyX1cgl6Nb9aYlWfN/Uhu3eIgy1Pow1iuLY95c
+	+1ocnB/sOVzuXnJ+Q1YiqL3ipvNEdhS15AO6xPx3TSzyixzYmZxe89A0BdE4DVRnOfHkaApH/ZE
+	FnlbynRX+Cbpuk0KwTvZwI+cga1oRuGMXeH7ZU1rrtr4QKrD/O653bKcz0Bs3Ij/1vy1c8Gvczk
+	7ugQPUcujUAXGMB0nkLADsgm9uc791AcYC2ZoK99woK8kJ6reJZnB9FqSe3VnAoy6mlc9INY8aD
+	Zl3TsudH9AUzHvm9rjbN1IVUhODBlO266JyGrnEBIB5vWEtMlO77k068IPI0XlLGdU3C1nu7mVf
+	Ehc5+RS4PBQ3UPnonfFToS27KV2sAeMK1+8eJWvJcAJzdmEDhA0A0V9aXHvfGsfxofw93d/gcjT
+	ofdVu3w9477RjBoU62Av8w0yZaNWPC2GeONACHoAbiiQVFhXkkbiVNOwkc3AwSWj13MU2oWwp4T
+	NAhbTvyqF5rorplMweNg838NZngNMg80fGlY/0Ph3Ar9mK8Zh0aMXkXCGI3pmzsPpvBmP+WKWek
+	hUJlD7x3mj3L/kgHC2RuH6YpmcvaRtv2OQZ1YGYYD6lvkdCc0i2pUI1uhFo=
+X-Received: by 2002:a17:907:94cb:b0:c2e:3a72:ffbd with SMTP id a640c23a62f3a-c5096389759mr692569266b.41.1794771346212;
+        Sun, 15 Nov 2026 11:35:46 -0800 (PST)
 Received: from L9JK9NPFH9 ([104.28.20.57])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095b24b88sm340448766b.16.2026.11.15.11.35.40
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095b24b88sm340448766b.16.2026.11.15.11.35.44
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 15 Nov 2026 11:35:42 -0800 (PST)
+        Sun, 15 Nov 2026 11:35:45 -0800 (PST)
 From: Tianyi Gao <tianyi@cloudflare.com>
 To: netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch,
@@ -101,9 +100,9 @@ Cc: andrew+netdev@lunn.ch,
 	kernel-team@cloudflare.com,
 	tianyi.gao@linux.dev,
 	Tianyi Gao <tianyi@cloudflare.com>
-Subject: [PATCH net-next v3 3/5] selftests: net: veth: test RX queue NAPI links
-Date: Sun, 15 Nov 2026 19:35:29 +0000
-Message-ID: <20261115193531.57679-4-tianyi@cloudflare.com>
+Subject: [PATCH net-next v3 5/5] selftests: net: veth: test that RX queues keep their NAPI IDs
+Date: Sun, 15 Nov 2026 19:35:31 +0000
+Message-ID: <20261115193531.57679-6-tianyi@cloudflare.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261115193531.57679-1-tianyi@cloudflare.com>
 References: <20261115193531.57679-1-tianyi@cloudflare.com>
@@ -118,63 +117,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Add checks that each RX queue is linked to a NAPI instance of the
-device while NAPI is enabled, and is not linked otherwise.
+Add a check that each RX queue keeps its NAPI ID when veth deletes its
+NAPI instance and adds it again.
 
-chk_queue_napi() reads queue-get and napi-get with the ynl CLI, as the
-ndo-xmit checks do. It checks with jq that the napi-ids of the RX queues
-are the IDs of the NAPI instances, and that the expected number of
-queues is linked. The checks run with GRO on and with XDP attached, and
-across RX channel changes and link down/up. They are skipped if the ynl
-CLI or jq is not found.
+get_napi_ids() reads the NAPI ID of each RX queue with the ynl CLI. The
+test saves the IDs once GRO is on. chk_napi_ids() compares them with
+the saved IDs after ethtool -L raises the number of RX queues, after
+XDP is attached with GRO off, and after link down/up. A failed read
+fails the check.
 
 Signed-off-by: Tianyi Gao <tianyi@cloudflare.com>
 ---
- tools/testing/selftests/net/veth.sh | 79 ++++++++++++++++++++++++++++-
- 1 file changed, 78 insertions(+), 1 deletion(-)
+ tools/testing/selftests/net/veth.sh | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
 
 diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-index 64c2a5a59821..685209995485 100755
+index 685209995485..9496b599d722 100755
 --- a/tools/testing/selftests/net/veth.sh
 +++ b/tools/testing/selftests/net/veth.sh
-@@ -110,6 +110,44 @@ chk_xdp_feature() {
+@@ -148,6 +148,30 @@ chk_queue_napi() {
  	fi
  }
  
-+chk_queue_napi() {
-+	local msg="$1"
-+	local target=$2
-+	local expected=$3
-+	local ns=$BASE$target
++get_napi_ids() {
++	local ns=$BASE$1
 +	local ifindex
-+	local queues
-+	local napis
-+	local st
-+	local linked
 +
-+	ifindex=`ip netns exec $ns cat /sys/class/net/veth$target/ifindex`
-+	queues=`ip netns exec $ns "$YNL" --family netdev --dump queue-get \
-+		--output-json --json "{\"ifindex\": $ifindex}" 2>&1`
-+	st=$?
-+	napis=`ip netns exec $ns "$YNL" --family netdev --dump napi-get \
-+		--output-json --json "{\"ifindex\": $ifindex}" 2>&1` || st=$?
++	ifindex=`ip netns exec $ns cat /sys/class/net/veth$1/ifindex`
++	ip netns exec $ns "$YNL" --family netdev --dump queue-get \
++		--output-json --json "{\"ifindex\": $ifindex}" |
++		jq -c 'sort_by(.id) | map(select(.type == "rx") | ."napi-id")'
++}
 +
++chk_napi_ids() {
++	local msg="$1"
++	local ids
++
++	ids=`get_napi_ids $2`
 +	printf "%-60s" "$msg"
-+	if [ $st -ne 0 ]; then
-+		echo " fail - ynl cli error: $queues $napis"
-+		ret=1
-+		return
-+	fi
-+
-+	queues=`echo "$queues" | \
-+		jq -c 'map(select(.type == "rx") | ."napi-id" // empty) | sort'`
-+	napis=`echo "$napis" | jq -c 'map(.id) | sort'`
-+	linked=`echo "$queues" | jq length`
-+
-+	if [ "$queues" = "$napis" ] && [ "$linked" = "$expected" ]; then
++	if [ -n "$ids" ] && [ "$ids" = "$NAPI_IDS" ]; then
 +		echo " ok "
 +	else
-+		echo " fail - expected $expected found $queues napis $napis"
++		echo " fail - expected $NAPI_IDS found $ids"
 +		ret=1
 +	fi
 +}
@@ -182,61 +166,39 @@ index 64c2a5a59821..685209995485 100755
  chk_channels() {
  	local msg="$1"
  	local target=$2
-@@ -330,7 +368,8 @@ fi
- 
- [ $CPUS -lt 2 ] && echo "Only one CPU available, some tests will be skipped"
- [ $STRESS -gt 0 -a $CPUS -lt 3 ] && echo " stress test will be skipped, too"
--[ ! -f "$YNL" ] && echo "ynl cli not found, ndo-xmit tests will be skipped"
-+[ ! -f "$YNL" ] && echo "ynl cli not found, ndo-xmit/napi tests will be skipped"
-+[ ! -x "$(command -v jq)" ] && echo "jq not found, napi tests will be skipped"
- 
- chk_channels_carrier up up || ret=1
- chk_channels_carrier up down || ret=1
-@@ -443,6 +482,44 @@ else
- fi
- cleanup
- 
-+if [ -f "$YNL" ] && [ -x "$(command -v jq)" ]; then
-+	create_ns
-+	RXQ=1
-+	if [ $CPUS -gt 1 ]; then
-+		ip netns exec $NS_DST ethtool -L veth$DST rx 2
-+		RXQ=2
-+	fi
-+	chk_queue_napi "queue napi - default" $DST 0
-+	ip netns exec $NS_DST ethtool -K veth$DST gro on
-+	chk_queue_napi "           - with gro on" $DST $RXQ
-+	if [ $CPUS -gt 1 ]; then
-+		ip netns exec $NS_DST ethtool -L veth$DST rx 1
-+		chk_queue_napi "           - fewer rx channels with gro" $DST 1
-+		ip netns exec $NS_DST ethtool -L veth$DST rx 2
-+		chk_queue_napi "           - more rx channels with gro" $DST 2
-+	fi
-+	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} section xdp
-+	chk_queue_napi "           - with gro and xdp on" $DST $RXQ
-+	ip -n $NS_DST link set dev veth$DST xdp off
-+	chk_queue_napi "           - after xdp off with gro on" $DST $RXQ
-+	ip netns exec $NS_DST ethtool -K veth$DST gro off
-+	chk_queue_napi "           - after gro off" $DST 0
-+	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} section xdp
-+	chk_queue_napi "           - with xdp on" $DST $RXQ
-+	if [ $CPUS -gt 1 ]; then
-+		ip netns exec $NS_DST ethtool -L veth$DST rx 1
-+		chk_queue_napi "           - fewer rx channels with xdp" $DST 1
-+		ip netns exec $NS_DST ethtool -L veth$DST rx 2
-+		chk_queue_napi "           - more rx channels with xdp" $DST 2
-+	fi
-+	ip -n $NS_DST link set dev veth$DST down
-+	ip -n $NS_DST link set dev veth$DST up
-+	chk_queue_napi "           - after down and up" $DST $RXQ
-+	ip -n $NS_DST link set dev veth$DST xdp off
-+	chk_queue_napi "           - after xdp off" $DST 0
-+	cleanup
-+fi
-+
- create_ns
- 
- CUR_TX=1
+@@ -492,11 +516,13 @@ if [ -f "$YNL" ] && [ -x "$(command -v jq)" ]; then
+ 	chk_queue_napi "queue napi - default" $DST 0
+ 	ip netns exec $NS_DST ethtool -K veth$DST gro on
+ 	chk_queue_napi "           - with gro on" $DST $RXQ
++	NAPI_IDS=`get_napi_ids $DST`
+ 	if [ $CPUS -gt 1 ]; then
+ 		ip netns exec $NS_DST ethtool -L veth$DST rx 1
+ 		chk_queue_napi "           - fewer rx channels with gro" $DST 1
+ 		ip netns exec $NS_DST ethtool -L veth$DST rx 2
+ 		chk_queue_napi "           - more rx channels with gro" $DST 2
++		chk_napi_ids "           - same napi ids" $DST
+ 	fi
+ 	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} section xdp
+ 	chk_queue_napi "           - with gro and xdp on" $DST $RXQ
+@@ -506,15 +532,18 @@ if [ -f "$YNL" ] && [ -x "$(command -v jq)" ]; then
+ 	chk_queue_napi "           - after gro off" $DST 0
+ 	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} section xdp
+ 	chk_queue_napi "           - with xdp on" $DST $RXQ
++	chk_napi_ids "           - same napi ids" $DST
+ 	if [ $CPUS -gt 1 ]; then
+ 		ip netns exec $NS_DST ethtool -L veth$DST rx 1
+ 		chk_queue_napi "           - fewer rx channels with xdp" $DST 1
+ 		ip netns exec $NS_DST ethtool -L veth$DST rx 2
+ 		chk_queue_napi "           - more rx channels with xdp" $DST 2
++		chk_napi_ids "           - same napi ids" $DST
+ 	fi
+ 	ip -n $NS_DST link set dev veth$DST down
+ 	ip -n $NS_DST link set dev veth$DST up
+ 	chk_queue_napi "           - after down and up" $DST $RXQ
++	chk_napi_ids "           - same napi ids" $DST
+ 	ip -n $NS_DST link set dev veth$DST xdp off
+ 	chk_queue_napi "           - after xdp off" $DST 0
+ 	cleanup
 -- 
 2.56.0
 
