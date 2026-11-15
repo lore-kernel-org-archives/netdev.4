@@ -1,97 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794700873;
-	b=Nnd38i3VI00nL6qqLD+xdRkwDtksMN8jIuPIeCyCfGdNYR08gnb8ybTbXOPLb0EKlcho
-	 utzQbz6yWtIKuyfiUnoX67oPcRxyuClwmx4WycPiJ5ZLvz+AarDPIeXc0gHI7FN7EUl0N
-	 hxYXokvgaIDMeJ84uj/5jRq29vatny2bkuKDyPY2VDsULUGrISIlE1vtNzenJEQ4lGDlc
-	 Ho5wuNplEbacDcaUsq494cc9jwExMvXMtvCiZ/HdyJCoUB97OO2Yex9RGiLTf+ySlP9dB
-	 5TOlvKM61qh0HVZk96v2a1N+umegbhZq5lGRoR+rLbpFDfoNkZO6scg7Op3TQ0tp7AA==
+	t=1794701859;
+	b=TCvRTOJu9LsdRGMcI+KToQZeYZmJ/x0EP/HsR0FkHTbdNUQzrJLJiARgVsKip38qAFwd
+	 3YKukzlvhkMpiKzOu2rCi9ID8I/wuJVe23q5Clz2HBbQu1SrkhzEvietlHdN5OLmIw9HG
+	 aoW9N60RuiFtRww0mbavSYR3KQy9OKE8FwTyQXy1EmzGYXjO8ckMcMCsdd4TlXhSFto7k
+	 zLjSVWqOvD7yy6s/C1z9/fJXPKLziBH9cw3LDcd/bu5evHnfX3BoK8hTd+/t3A93SqaiE
+	 4FCN4pOso0rIlaU92epQ8ypK6DLPUu8wB6K02GGfjgQg7mG+hkibaLJ5zck1UQybx9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794700873;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=nzjK3qRl+Pu4qquC/Ip3LRng8SL8FLwBXbtkRFDwJZU=;
-	b=VnmMvoVRUuB9G8v190i7/J3VNas29jXJoz6fHl7g3RvHwQROWxVKY93f3hfiO2748AZK
-	 39rtg17AQ8xZ9xIe87OY+bM35lYDDEXyAUVm3BDNpmmwzaSvlEQkm2djoAj9NwWR/knL2
-	 /i4mPu9Ea1/ZtCDFqHkJo3YmV7gFEExbgKqmmAaxUn0rRLhfRR7NNvaAtsEgj3f0JXHUs
-	 wfVcGzi4V+z/wc1pmfVzVVhHggb8tvNo021hgoGpanHusp6lNLZv+UrYxhrXTr0z6f/hV
-	 H1cw5jQ4AQVJWbs0k3/YJPmdoc1s1y0oTIf8Dm3CdSwzBq+BZV+4TpUSH+JDaFhS68w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794701859;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=cPHfgVRbTXSIyS09BtGyAOJjL7U98A/heN5ufhZ98sw=;
+	b=NQwgXIKiEHvLMO5/ueq0LVSP1knRS/UeDMBlj5EE/Zh5Xcqk+zmpCYTw3hvBiXGY2db+
+	 DoYPhXfQV/o0HJb8Bjdjbrww2ULXSOWGCPDzzjjttVKATbPmG/urQ0ZFowQwqxTtA0p0K
+	 /LZSfbzP0Ev/4aaEnVxEJaAdgEtN1DZFG9xsVv3OwhtsspfqMLaSFXQvvY/rIasuPLsU8
+	 phkv1TI4XJQbZrzoZmNZS892QzM3qhPLSsi5ZNYZ5lRJg0jQtWIpbi/vO7DIzcVgo0rjg
+	 uyTPxuxcUAPbDn/UzQ3vLlrbKtmlocL1/MUlgrn7nd5DxU+Ai6x+T9wwTDmgobP1Chw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nhcjVLPy;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gfi2vrD9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E9D2606A33F
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:01:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E9D2606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 529A9606A323;
+	Sun, 15 Nov 2026 00:17:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nhcjVLPy
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a2d6d01ecbso15701655e9.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:01:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794700872; x=1795305672; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nzjK3qRl+Pu4qquC/Ip3LRng8SL8FLwBXbtkRFDwJZU=;
-        b=nhcjVLPyGGAlUPHUMwU5aP1EA7J/dnRJpYp7JFVpQ9c+yKtyLaDuHgTTAnfUxinbwd
-         Qt79Df8XQnZCdlfVpFs5CF3To8N8jrDp9XQi+4uzc1bpp3x+zNdh4b5nrc7AGMwROfvh
-         Ms59q0W707FzdCGEjD7QSaWFb77H06FQ+E9x29irC6NSHv5g+UFAIy8ZLDi1LcSegp+h
-         NC3z1xdDcMqDlzN55alJ8N74Zujb85z6IOof8afnDCh9aj+I/blEVZ2vf/w3ZtQfBW+y
-         2cA5dpNy0GTVRKMs9DI8myZf/vf1xCNgi84ENLCIkNb0TR1ohON0n+opcGwZyMu4oR1A
-         8XMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794700872; x=1795305672;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nzjK3qRl+Pu4qquC/Ip3LRng8SL8FLwBXbtkRFDwJZU=;
-        b=I8Aze6ONA/J0+ExYFPsdrkyLwoymL42hO6SvTWXn9mP5RPBbps/rBvZGUDdJKQsCvB
-         rEICiBlqW+Qu+nO/E8eGglV8MMYDH+jqGs9Nly8Oz/GhE8rj6UHPKE+JX/qmW7mDlGOr
-         co5fE2ioUZmihz6jcI441CgLa3NIjWDHIvoPCD0OMbtKsPzf2iXp7pG8HrpZOIvd3YJH
-         H+ioHYTrfccH0nqxxK5MbB4A1A/Gzji5vmLRj892+zPmPmQmjXze1Gv7g+NK3fR1pDm/
-         vYuF97tLG9t39ouS7FVXNSmSnOZCKUYTjoQDyG0b1t/h22rMDWcKrvNBV2elbKjTtbFG
-         8u7w==
-X-Gm-Message-State: APuU4Z8f6WdS22CW3yE+nNI/y/LgThBQKWjkFw4dOc4Ry8uqaZYW9NYo
-	x6mT3SSbhDevb6gVLgvP3/VBMU6K8f7+beBvQW7ja+SYr6zAiekD1WUTfQ+3iw==
-X-Gm-Gg: AYBFou0EfPetEI6jKBpR+G0QeTWBJaVt01dq68QdEfoGq9wOdap6of181bndHzKz91G
-	yP/V5JxXPG2fqNjDFCsc8PS06SyyjfDvOs2oFAyIhWionyNHPptYobYx7X02Yj8Zi6fpDeRpey4
-	dvKMX915feg3gf337is/XaptwYkwJ9YFAY88PY+JzGueUA1GBSmBRJ3t9NC0rZW6+fbDY0+o3K1
-	+GEbFppE92a/SxneWuboH1JWyYgOb3eyY36aFYjyEI5hoQlSZbD5Y/JCusL5qUoJcY4NYWNPpUh
-	pG91c6xDI/Wrquc0Uwk4zXgCjrbtEPM5JNZsy9li2Mo16iYbqlQRJTyMatKwudenzW+g/i6pmRb
-	f+ixOsgcD2IOzOljHRo7QUTvFLdmM/MT13ntkAWddPaPZYoY1mCCFRPiMf51tBls28DJI71mz1l
-	KsYMkJk+3N21azqMZ+cKEaofyuIw19ahJRjznxFKNeIGvLLQT7h6b3tk/puBbZewJo50KS1yU7s
-	AiWPb1stLAPmkk1epN6/dkbFR7OGzHSpsnGx+KX59CdJUcbZ7H1qK1qzZ45glrGY7dTtOK13WTQ
-	TixvJb5fxsU1EjN8OkVf2I+/DV9eDAqfKL4WO6NTOqLB4VYvaQQ=
-X-Received: by 2002:a05:600c:6092:b0:4a3:5aea:21e5 with SMTP id 5b1f17b1804b1-4bb55a42ff2mr131541855e9.9.1794700871490;
-        Sat, 14 Nov 2026 16:01:11 -0800 (PST)
-Received: from localhost.localdomain ([2a02:a03f:a75e:9a00:a644:3b4b:4691:92a4])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb5b4a3fcdsm142366405e9.0.2026.11.14.16.01.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 16:01:10 -0800 (PST)
-From: Justin Iurman <justin.iurman@gmail.com>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	andrea.mayer@uniroma2.it,
-	justin.iurman@gmail.com
-Subject: [PATCH net 2/2] seg6: drop the packet if no outer source address is available
-Date: Sun, 15 Nov 2026 01:00:47 +0100
-Message-Id: <20261115000047.14669-3-justin.iurman@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261115000047.14669-1-justin.iurman@gmail.com>
-References: <20261115000047.14669-1-justin.iurman@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gfi2vrD9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3E7A1F000C4;
+	Sun, 15 Nov 2026 00:17:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794701859;
+	bh=cPHfgVRbTXSIyS09BtGyAOJjL7U98A/heN5ufhZ98sw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=gfi2vrD9i2UYqF1SKKqh0K99NwXjNMB3ECILkZsvnsAuYv5ILsOYPVv1HZbx7mlBw
+	 lT25ksmiw1a3ErvglCh2weS6sx54JMBKFUR91X/JEUAU45H8U3g+3nb2XBHtpzL3Pq
+	 11gOR6MuVxI9tSVAXdE8DhHCB1CHzp7o0vV+3sH9Gs4ucY+9ARHir+ASlGs+42eL+a
+	 VkW9gRnGoAngNHZ/JR4G57LI04fa4PSZoQwuwosL/JRQHD9Asfpt/skc8KdMUqJNX3
+	 7eNiU3H8zq/NOZ7nIaxPQQtyslPue9YUPeCLgONQ3HNctV6xtb7YyULdbN4YOZSdel
+	 i8QH6I8H/IR6w==
+Subject:
+ Re: [PATCH net v3] net: preserve skb header offsets during headroom changes
+From: netdev-bot+sashiko@kernel.org
+To: kylebot@openai.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+ edumazet@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Date: Sun, 15 Nov 2026 00:17:38 +0000
+Message-ID: <179470185834.2199510.9040920740659295930@kernel.org>
+In-Reply-To: <20261113235019.74384-1-kylebot@openai.com>
+References: <20261113235019.74384-1-kylebot@openai.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,94 +63,207 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-When no tunnel source is configured, set_tun_src() ignores the return
-value of ipv6_dev_get_saddr(). On failure, the source address of the
-freshly pushed outer header is never written, so the packet is sent
-with whatever stale bytes were in the skb headroom.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Return the error from set_tun_src() and drop the packet; all callers
-of the encap functions already handle their errors.
+Critical: 0 · High: 1 · Medium: 2 · Low: 0
 
-Fixes: 6c8702c60b88 ("ipv6: sr: add support for SRH encapsulation and injection with lwtunnels")
-Signed-off-by: Justin Iurman <justin.iurman@gmail.com>
----
- net/ipv6/seg6_iptunnel.c | 26 ++++++++++++++++++--------
- 1 file changed, 18 insertions(+), 8 deletions(-)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-diff --git a/net/ipv6/seg6_iptunnel.c b/net/ipv6/seg6_iptunnel.c
-index 3bc47c5614ff..395614fdb83f 100644
---- a/net/ipv6/seg6_iptunnel.c
-+++ b/net/ipv6/seg6_iptunnel.c
-@@ -107,12 +107,13 @@ static int nla_put_srh(struct sk_buff *skb, int attrtype,
- 	return 0;
- }
- 
--static void set_tun_src(struct net *net, struct net_device *dev,
--			struct in6_addr *daddr, struct in6_addr *saddr,
--			struct in6_addr *route_tunsrc)
-+static int set_tun_src(struct net *net, struct net_device *dev,
-+		       struct in6_addr *daddr, struct in6_addr *saddr,
-+		       struct in6_addr *route_tunsrc)
- {
- 	struct seg6_pernet_data *sdata = seg6_pernet(net);
- 	struct in6_addr *tun_src;
-+	int err = 0;
- 
- 	/* Priority order to select tunnel source address:
- 	 *  1. per route source address (if configured)
-@@ -128,12 +129,14 @@ static void set_tun_src(struct net *net, struct net_device *dev,
- 		if (!ipv6_addr_any(tun_src)) {
- 			memcpy(saddr, tun_src, sizeof(struct in6_addr));
- 		} else {
--			ipv6_dev_get_saddr(net, dev, daddr,
--					   IPV6_PREFER_SRC_PUBLIC, saddr);
-+			err = ipv6_dev_get_saddr(net, dev, daddr,
-+						 IPV6_PREFER_SRC_PUBLIC, saddr);
- 		}
- 
- 		rcu_read_unlock();
- 	}
-+
-+	return err;
- }
- 
- /* Compute flowlabel for outer IPv6 header */
-@@ -213,7 +216,9 @@ static int __seg6_do_srh_encap(struct sk_buff *skb, struct ipv6_sr_hdr *osrh,
- 	isrh->nexthdr = proto;
- 
- 	hdr->daddr = isrh->segments[isrh->first_segment];
--	set_tun_src(net, dev, &hdr->daddr, &hdr->saddr, route_tunsrc);
-+	err = set_tun_src(net, dev, &hdr->daddr, &hdr->saddr, route_tunsrc);
-+	if (unlikely(err))
-+		return err;
- 
- #ifdef CONFIG_IPV6_SEG6_HMAC
- 	if (sr_has_hmac(isrh)) {
-@@ -304,7 +309,10 @@ static int seg6_do_srh_encap_red(struct sk_buff *skb,
- 	if (skip_srh) {
- 		hdr->nexthdr = proto;
- 
--		set_tun_src(net, dev, &hdr->daddr, &hdr->saddr, route_tunsrc);
-+		err = set_tun_src(net, dev, &hdr->daddr, &hdr->saddr,
-+				  route_tunsrc);
-+		if (unlikely(err))
-+			return err;
- 		goto out;
- 	}
- 
-@@ -340,7 +348,9 @@ static int seg6_do_srh_encap_red(struct sk_buff *skb,
- 
- srcaddr:
- 	isrh->nexthdr = proto;
--	set_tun_src(net, dev, &hdr->daddr, &hdr->saddr, route_tunsrc);
-+	err = set_tun_src(net, dev, &hdr->daddr, &hdr->saddr, route_tunsrc);
-+	if (unlikely(err))
-+		return err;
- 
- #ifdef CONFIG_IPV6_SEG6_HMAC
- 	if (unlikely(!skip_srh && sr_has_hmac(isrh))) {
+- [High] The fix is incomplete.
+- [Medium] skb_header_offsets_fit() checks only some of the head-relative
+  offsets that skb_headers_offset_update() moves.
+- [Medium] mpls: mpls_forward() checks skb_headroom() after reading
+  wrapped mpls_hdr()
+
+--
+
+net: preserve skb header offsets during headroom changes
+
+This patch adds skb_header_offsets_fit() so that pskb_expand_head() and
+skb_copy_expand() reject headroom growth that would wrap the 16-bit skb
+header offsets. It also adds headroom bounds checks to skb_mpls_pop(),
+mpls_forward() and mpls_xmit(), so a large-headroom device such as netkit
+can no longer push network_header past U16_MAX on those paths.
+
+> diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+> index 1ac1e327ac4c6..bc836adafecd9 100644
+> --- a/net/core/skbuff.c
+> +++ b/net/core/skbuff.c
+> @@ -2130,6 +2130,28 @@ struct sk_buff *skb_clone(struct sk_buff *skb, gfp_t gfp_mask)
+>  }
+>  EXPORT_SYMBOL(skb_clone);
+>  
+> +static bool skb_header_offsets_fit(const struct sk_buff *skb,
+> +				   unsigned int nhead)
+> +{
+> +	if (!nhead)
+> +		return true;
+> +	if (nhead > U16_MAX - skb->network_header)
+> +		return false;
+> +	if (skb_transport_header_was_set(skb) &&
+> +	    nhead >= U16_MAX - skb->transport_header)
+> +		return false;
+> +	if (skb_mac_header_was_set(skb) &&
+> +	    nhead >= U16_MAX - skb->mac_header)
+> +		return false;
+> +	if (skb->ip_summed == CHECKSUM_PARTIAL &&
+> +	    nhead > U16_MAX - skb->csum_start)
+> +		return false;
+> +	if (skb_inner_network_header_was_set(skb) &&
+> +	    nhead > U16_MAX - skb->inner_network_header)
+> +		return false;
+> +	return true;
+> +}
+
+[Severity: Medium]
+Should inner_transport_header and inner_mac_header be checked here too?
+
+skb_headers_offset_update() moves all three inner offsets unconditionally:
+
+net/core/skbuff.c:skb_headers_offset_update() {
+    ...
+	skb->inner_transport_header += off;
+	skb->inner_network_header += off;
+	skb->inner_mac_header += off;
+}
+
+On an encapsulated skb, inner_transport_header usually sits past
+inner_network_header by the inner L3 header length (20 bytes for IPv4, 40
+or more for IPv6). An nhead between U16_MAX - inner_transport_header and
+U16_MAX - inner_network_header passes this check. inner_transport_header
+then still wraps to a small value behind skb->data.
+
+One way to reach this is __skb_cow() from ip_forward() with a
+large-headroom egress device such as netkit. inner_mac_header isn't
+checked either, and it has no unset sentinel.
+
+Could the wrapped inner offsets then confuse tunnel GSO and header length
+users such as skb_inner_transport_offset(), inner_tcp_hdrlen() and driver
+TSO setup?
+
+> +
+>  void skb_headers_offset_update(struct sk_buff *skb, int off)
+>  {
+>  	/* Only adjust this if it actually is csum_start rather than csum */
+
+[ ... ]
+
+> diff --git a/net/mpls/mpls_iptunnel.c b/net/mpls/mpls_iptunnel.c
+> index 1a1a0eb5b787f..5123394234cc5 100644
+> --- a/net/mpls/mpls_iptunnel.c
+> +++ b/net/mpls/mpls_iptunnel.c
+> @@ -59,6 +59,9 @@ static int mpls_xmit(struct sk_buff *skb)
+>  	    !dst->lwtstate || skb_warn_if_lro(skb))
+>  		goto drop;
+>  
+> +	if (unlikely(skb_headroom(skb) > U16_MAX))
+> +		goto drop;
+> +
+
+[Severity: Medium]
+This check runs after mpls_forward() has already read the label.
+
+By the time mpls_forward() is called, __netif_receive_skb_core() has
+done skb_reset_network_header(). Suppose the skb arrived with headroom
+above U16_MAX, for example looped back from a netkit peer with a large
+needed_headroom after eth_type_trans() pulled ETH_HLEN. Then
+network_header is already truncated and no longer points at skb->data.
+
+mpls_hdr() is just skb_network_header(). So before the new check is
+reached:
+
+mpls_forward()
+    hdr = mpls_hdr(skb);
+    dec = mpls_entry_decode(hdr);
+    rt = mpls_route_input_rcu(net, dec.label);
+    ...
+    nh = mpls_select_multipath(rt, skb);
+
+This decodes a label from stale headroom bytes near skb->head.
+mpls_select_multipath() -> mpls_multipath_hash() then walks up to
+MAX_MP_SELECT_LABELS entries plus an inner IPv4/IPv6 header from the
+same wrapped pointer.
+
+The earlier pskb_may_pull(skb, sizeof(*hdr)) only guarantees bytes at
+skb->data, not at the wrapped network header. The route lookup and the
+multipath hash are computed on garbage. A lookup miss is also counted
+as rx_noroute rather than rx_errors.
+
+v3 moved the mpls_xmit() check ahead of ip_hdr()/ipv6_hdr() for exactly
+this reason. Shouldn't the mpls_forward() check also go before the
+first mpls_hdr() access, for example right after pskb_may_pull()?
+skb_headroom() doesn't change between there and the pop. The same
+U16_MAX - sizeof(*hdr) bound would then reject both the offset that
+wrapped on receive and the one skb_reset_network_header() would
+produce after skb_pull().
+
+[Severity: High]
+This check covers the MPLS LWT path. Can the same network_header wrap and
+out-of-bounds eth_header() write still happen with no MPLS involved and
+without going through pskb_expand_head()?
+
+netkit accepts any u16 headroom and stores it in needed_headroom:
+
+drivers/net/netkit.c:netkit_new_link() {
+    ...
+		if (data[IFLA_NETKIT_HEADROOM])
+			headroom = nla_get_u16(data[IFLA_NETKIT_HEADROOM]);
+    ...
+	if (headroom)
+		dev->needed_headroom = headroom;
+    ...
+}
+
+netkit_set_headroom() does the same. netkit uses ether_setup(), so
+hard_header_len is 14. With a headroom of about 65506 or more,
+LL_RESERVED_SPACE(dev) becomes ((14 + 65535) & ~15) + 16 = 65552, which is
+above U16_MAX.
+
+A UDP socket or an unprivileged ping socket sending over a route to that
+device then goes through:
+
+__ip_append_data()
+    hh_len = LL_RESERVED_SPACE(rt->dst.dev);
+    skb_reserve(skb, hh_len + exthdrlen);
+    skb_reset_network_header(skb);
+
+skb_reset_network_header() only has a DEBUG_NET_WARN_ON_ONCE(), so
+network_header is silently truncated to 16 and transport_header to 36.
+
+ip_finish_output2() only expands the head when headroom is short:
+
+	if (unlikely(skb_headroom(skb) < hh_len && dev->header_ops)) {
+		skb = skb_expand_head(skb, hh_len);
+
+Here headroom is already >= hh_len, so neither pskb_expand_head() nor the
+new skb_header_offsets_fit() check runs.
+
+neigh_resolve_output() or neigh_connected_output() then does:
+
+	__skb_pull(skb, skb_network_offset(skb));
+
+The offset is -65536, which is 0xFFFF0000 as an unsigned value. skb->data
+moves forward by about 4 GiB, and dev_hard_header()->eth_header()->
+skb_push() writes 14 bytes there. skb_under_panic() doesn't fire because
+data is still above head.
+
+This is the failure the commit message describes. Creating the netkit
+device only needs CAP_NET_ADMIN, which an unprivileged user namespace
+provides.
+
+Would it be better to fix the root cause, for example by capping the
+netkit headroom so LL_RESERVED_SPACE() always fits in the 16-bit offsets,
+rather than adding checks to individual consumers like mpls_xmit()?
+
+>  	skb_forward_csum(skb);
+>  
+>  	tun_encap_info = mpls_lwtunnel_encap(dst->lwtstate);
+
 -- 
-2.34.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113235019.74384-1-kylebot%40openai.com
