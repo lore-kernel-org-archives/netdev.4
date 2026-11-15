@@ -1,116 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794730963;
-	b=dhUO2TfiiwD0W4lUf4rZMeSIYnTJYvACdoBbxQFJJOBYw6VbmAo2/YtUPNb0qp5wxFb6
-	 c9sznYrLR3A3cyW7kVPivuTRwkdSXr04QF1w5iFNd6mRf9uL7uhKn6zB/E903t7l5fRe+
-	 33P96fpeJXbTp1H1kHSMepFBMNj9fIpoGfG92nlKPZLFOU0AX7SdBa01erXHIA/luAh3A
-	 MJJHE7Am6YW01KB4hHqyo6ZoOVlxHwbJuJ1EOn8qP0xXpzqHKYJSMNtGYyenYD9yB3MVq
-	 W021ZGDf8Yl+A8sEyYEaF3AitOJTOpDQfVP4kqaNgZPVRMady4PtVQ0PZusSdikNgGw==
+	t=1794731056;
+	b=ntZvR6ro3oFythSlpGWx19mZlol+ho1AeCVEZ52PjB0U13MWraC86W8pWSu8tsfivs3F
+	 3ZEl/XZF5mTpOJ/rYyvksAOJQKKv6iKDHt8Lm6C5zjS9WF6BjGcXzkgPvIeNZcXzU0oc5
+	 KWNSoChbXMUPG/dgJBDZXRWIGiz7LBEkn+FxJo5Tck9/psaBvofhBm7QaFN5MEDZXwbmr
+	 3Z1ZKhmZNSGBeN/TK4Bah+YP1G8o/MkMXiKBzXL9XsDNVuJCLvHykc3TOnDvp8P2uRl9g
+	 UDNjadyNIOUguQMeivpiB/AsF9pdcNwx5HPiZC7rVv6Pti53fOdMTZCOW5rCzSx6azg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794730963;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=hOqx9PI7nO87s05epf/KxKW2rSgtDSMLjv2nLVv2RsY=;
-	b=E00gJ7MmHBwD0TBGr/DjXYsPxTQXmCqlFfeqsn+oL/VX7h3EHF7auq6LMkWh7sz9UV2P
-	 OXkO8QvJ6k10LWxk1godV0zJGYk/CVr05hV5eovjd4mqugGby7ZSoaoreso2J+Z9yKND7
-	 /nWLlT6W3CIPxEeRTLiQxaMG2YlDZ2p3kFm10PWc3/NwUmlHTtA3efCUbtASX8re2Z2N1
-	 scZ+mjAVkR6VbMbgX02257afMwSTLXllaYqhyKTJ0s7h7H/MCIe9ly5SZ0V0JpAWtZ5gN
-	 emkxN4vl+H+sxAdw43dtbVlUs11vlpcjDoZnlQPsJU7GfCXG7MwWoJJShTriDFy0WBA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794731056;
+	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Hq186HcHzYDaq7zOMRjbrOqIIwfSHvf8FBnXTnHKzXM=;
+	b=rVp1EAyM4qCOY0833tRiiprIbs/7PYkOEIm4ooVk9Oj9+LC3ODhLxc21DhBwXbA7bMwx
+	 d1naiBllS2b4whqt6Vrw6Sv3DD/Obvi21ItBER5zB5H/QwX14FY910kkJXNJd3DCyP26B
+	 0Xp9DRa03V8d6v0f5wjj6X84LTAejbg9EghXgtwMY4gI+ZLJvEvIMarc/wJ4LmVsV+zPr
+	 KES9/uIutfKIaZXjDuaV3I0jVNlPmMcf4b06VDNnasiagNG4jU7qCgvuqRL1amlPKESo5
+	 wBlnidTZwOtZt3gn9L2PEiPWFHOXEC5yiPGXJ1ab1Va/pqbxnWXtK2KBET7NEykd5tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="U1ZJ/qw4";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=DmTM11z2;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQ8gElEn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC756606A329
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:22:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC756606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE8F6606A33B
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:24:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=U1ZJ/qw4;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=DmTM11z2
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794730961;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hOqx9PI7nO87s05epf/KxKW2rSgtDSMLjv2nLVv2RsY=;
-	b=U1ZJ/qw4M7mVztCrKbqJdmcZa2mWB3lDxcYPV6VksfpVHeovY+w2uh8+jFOrIhphcDyKZb
-	k+FgeWZeGhSXt53IV1BdLzTa8f7xV5Ev5AbP2yhvULuV2w+ebFPB5BwNci/mcJmorJ6CW+
-	KzLPdEme3yDV9ZUynergdfb3V09GWng=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-628-6A8D2YpENhqP2MA4f2bkOA-1; Sun, 15 Nov 2026 03:22:39 -0500
-X-MC-Unique: 6A8D2YpENhqP2MA4f2bkOA-1
-X-Mimecast-MFC-AGG-ID: 6A8D2YpENhqP2MA4f2bkOA_1794730958
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4bb68d624baso3294265e9.2
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:22:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1794730958; x=1795335758; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hOqx9PI7nO87s05epf/KxKW2rSgtDSMLjv2nLVv2RsY=;
-        b=DmTM11z2mj0Ygyj+SNk4FmJDtfZr0mpv1PUS2jGNBIKf8NMHOQcQqCCVH78jJnYr8w
-         BcLd6CjxdqglHGwJ5zLoZ2EH+AXT5DksN/YWmNfMWshEiGPfB5wbL3ur3RXMt+eak/bo
-         AJU3htHY47nwfMp58dD7JeMtvLCU83xjPwW+zQGwNZUK53OG10JeUWhK4dqc4phQswdW
-         Ar/lr9h7EaYwautyYFc1ZvinugH7pbRkEDJxsZ/bXqOBotJbEZcAGAiALRAhePW6TbLY
-         iL0iS/8I5xz+qWtOxPYrgduXx37RHZ69MBAqu39Tu6g0e1g5xBYYkd11SclSGtv3Hsdb
-         8IOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794730958; x=1795335758;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hOqx9PI7nO87s05epf/KxKW2rSgtDSMLjv2nLVv2RsY=;
-        b=eKaghwgrjEznar3Mu4PihjaLUEHH3DfA5yNMO3e2JCyseCxXNKcBQEz7PTg/vTIOWW
-         Nxk128JAK8JVEtDdFRdKUPZ/73DQXQaNTWLYvhqw2L8QTwQNnX1JbKqLhuodCKTNhsI6
-         jZc164GS2k+3EXOUMhJpnnnuJp9jOTnCQuIR9M/xMU7t7NpEh2jCIBpYzJL9a5AiCC30
-         jBRuLeGCpY7M2a6GNH3xuxx9j2HM2Vufk3Obv5yWSNI9SnUpTAhyhtm0oOqBbK/qdNgO
-         fCwFGZYB3Ld6VafQhKtufTGgiDHzOE0nqKzvbkj6vyXjMng9Xl7gzjWBXY/WuoK13hNH
-         ROMQ==
-X-Forwarded-Encrypted: i=1; AL+hErFb0+ufugQAXmBz7kXvtVlgbE4ZwadgWv+M414Ei7OfO4p5lAwL0/DDnNGSAFT3dwJngx8j9Oo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ax2xBk6AOYRTPnuJekFdgNavBzB/Wdl9QZrd7Rwyg1H4DeEje
-	dGoDqRi6keHlJeeAUG9va4HjalRAaBzuZiLqICRAtXDfWYPTPdZfk8VtMwWnMfDHYYFqIRhPPnX
-	zcU/TGQIial7pBoq3J4QD3dppvbmGU20Wv8qF2eUwOBvA8so2ccCrfCHtaQ==
-X-Gm-Gg: AYBFou3pO1nbdmNYS1iJ6l/NoeyGabguPb0ma8XI9zMoBQQmQY6GImQHGlxLHHEPAwH
-	H8pAOCNbOLpyuBmvEPO5mc888MDlTmcCjNQd9MC4a7a1hqNKlfZWvMIS6LEouq0XL1njCwgKWZE
-	E3tRRbsICxQ6r1j8ugvdGrYjHgE8jTpAYoW5nuHBoMaEuqGgoZIqr+sFPuEcTZiA0mBfi+m5LQD
-	HMArQdas9jSzAWw62ZRuClkMARlYn31rDDd4Z2chCXR1QBhIrAxU0CWVWTZXRKS7t61WEN1gjng
-	Rq/+QuDI9b5/yLcaXIhrmnoPmXrNftG0pZGtyS75gYPlpERiRrMERjPHjHYYd5+2S2NNZQ0hHSJ
-	0IOuUULVIYf6cp0Wi4NqMJuW1kWBmNHzzfNu6mwmCTsJQlamEwqz2kA==
-X-Received: by 2002:a05:600c:b86:b0:4b5:d95c:2378 with SMTP id 5b1f17b1804b1-4bb55ac4030mr155906555e9.34.1794730958281;
-        Sun, 15 Nov 2026 00:22:38 -0800 (PST)
-X-Received: by 2002:a05:600c:b86:b0:4b5:d95c:2378 with SMTP id 5b1f17b1804b1-4bb55ac4030mr155906215e9.34.1794730957813;
-        Sun, 15 Nov 2026 00:22:37 -0800 (PST)
-Received: from sgarzare-redhat ([193.207.75.235])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb4e2adf53sm297980195e9.15.2026.11.15.00.22.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 00:22:36 -0800 (PST)
-Date: Sun, 15 Nov 2026 09:22:22 +0100
-From: Stefano Garzarella <sgarzare@redhat.com>
-To: Sergio Lopez <slp@redhat.com>
-Cc: Bryan Tan <bryan-bt.tan@broadcom.com>, 
-	Vishnu Dasa <vishnu.dasa@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	"Michael S. Tsirkin" <mst@redhat.com>, linux-kernel@vger.kernel.org, virtualization@lists.linux.dev, 
-	netdev@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH] vsock/vmci: reject datagram binds in local network
- namespaces
-Message-ID: <avlpwYZr4pSpunEl@sgarzare-redhat>
-References: <20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EQ8gElEn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8533F1F000C6
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:24:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794731055;
+	bh=Hq186HcHzYDaq7zOMRjbrOqIIwfSHvf8FBnXTnHKzXM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=EQ8gElEn+s4NqzNS5KqWN3kSvI6ph+XLoMLW4SuYbcAC77irL5Rw71hMl13khtfUC
+	 w/gIGMyyc+vrbb7oLdzYstdCjZfP9/gMb9wiiQKElbVXKIKfIVdst8L0/+kydgakjs
+	 qXw08gATlgXosPffII6Y1uup1yPUH+oOmv6+5B414pvzBSbaY3KWV4vtkrtB48mABm
+	 CwE2LQA/C5nsXoPliB+lWKfZsFLgBQop65lbqrGoj/L3yqoFkcilsUandcT3MTiLyg
+	 iXLECPul4Vq06LWyyG3MokQoMrqwKQ1QuQpv3zWbTGjiOr0RgfupJLBjp2yFcHqPfX
+	 E8T7MWklGOt1Q==
+Received: by mail-oo1-f52.google.com with SMTP id 006d021491bc7-71ad099391dso339080eaf.3
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:24:15 -0800 (PST)
+X-Gm-Message-State: APuU4Z/xJZXiZPr751JlU0Oe+UstPYiup486PhXOxclU+lkV9CdFrr7e
+	Nqg6lZRFqip/Cn8Cz7aKUWIF9Z3s2oTMXieYsSifmEzkGUiMTRrA2nKMkFO9/bZOU8qdBYOEVXR
+	NhaXLpKFizvAsD/N6gfDMIVjsdrFg8CU=
+X-Received: by 2002:a05:6820:a70c:10b0:71a:eea9:8173 with SMTP id
+ 006d021491bc7-71aeea9868fmr74562eaf.85.1794731054847; Sun, 15 Nov 2026
+ 00:24:14 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -120,79 +58,137 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20261113-vsock-vmci-netns-isolation-v1-1-ced02054ea61@redhat.com>
+References: <cover.1794672619.git.x-professor@outlook.com>
+In-Reply-To: <cover.1794672619.git.x-professor@outlook.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Sun, 15 Nov 2026 09:24:04 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirENP_SBccpu3qq51f6u4E7BwFoadEARZctwm0CGNCusg@mail.gmail.com>
+X-Gm-Features: AclHuK-t99I7UXoH9TmlU6O0jB4ekfdvLqJegkYIbqioWircJJ73o_0Q7EGKhbQ
+Message-ID: <CAL4WiirENP_SBccpu3qq51f6u4E7BwFoadEARZctwm0CGNCusg@mail.gmail.com>
+Subject: Re: [PATCH net v2 0/2] tcp/mptcp: prevent blackhole timeout
+ arithmetic wraparound
+To: Yingjie Wang <x-professor@outlook.com>
+Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>, 
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "corbet@lwn.net" <corbet@lwn.net>, 
+	"skhan@linuxfoundation.org" <skhan@linuxfoundation.org>, "rdunlap@infradead.org" <rdunlap@infradead.org>, 
+	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, "ncardwell@google.com" <ncardwell@google.com>, 
+	"gang.yan@linux.dev" <gang.yan@linux.dev>, "kuniyu@google.com" <kuniyu@google.com>, 
+	"davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>, 
+	"pabeni@redhat.com" <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>, 
+	"matttbe@kernel.org" <matttbe@kernel.org>, "martineau@kernel.org" <martineau@kernel.org>, 
+	"geliang@kernel.org" <geliang@kernel.org>, "ycheng@google.com" <ycheng@google.com>, 
+	"weiwan@google.com" <weiwan@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 13, 2026 at 06:04:40PM +0100, Sergio Lopez wrote:
->VMCI already rejects datagram sends from local network namespaces, but a
->datagram bind still creates a receive handle in VMCI's global port space.
->A VMCI sender outside the namespace can therefore deliver to the local
->socket. Its handle also prevents a global-namespace socket from binding
->the same port.
+Le sam. 14 nov. 2026 =C3=A0 17:12, Yingjie Wang <x-professor@outlook.com> a=
+ =C3=A9crit :
 >
->Reject VMCI datagram binds in local namespaces. No namespace-local
->datagram transport exists, so EOPNOTSUPP reflects the available receive
->paths. The receive callback also rejects any local-mode socket as a
->defensive check.
+> The TCP Fast Open and MPTCP blackhole handlers multiply writable timeout
+> sysctl values before adding the result to a jiffies timestamp. The
+> multiplication is performed in 32-bit unsigned arithmetic, so a large
+> value can wrap into a short delay even on a 64-bit kernel.
 >
->In a KASAN/lockdep QEMU guest, a reproducer observed cross-namespace
->delivery and the global port collision before the fix. After the fix,
->local bind returns EOPNOTSUPP, the global bind succeeds, and a global
->VMCI datagram still reaches the global socket.
+> With HZ=3D1000, a timeout of 6912213 seconds and the maximum multiplier o=
+f
+> 64 should produce 442,381,632,000 jiffies, but the current calculations
+> truncate the result to 512 jiffies. Both patches compute the delay in u64
+> and cap it at MAX_JIFFY_OFFSET before adding it to the saved timestamp.
 >
->Fixes: eafb64f40ca4 ("vsock: add netns to vsock core")
->Cc: stable@vger.kernel.org
->Link: https://lore.kernel.org/all/sashiko-outbox-212907@kernel.org/
->Signed-off-by: Sergio Lopez <slp@redhat.com>
->---
-> net/vmw_vsock/vmci_transport.c | 6 ++++++
-> 1 file changed, 6 insertions(+)
+> The issues were found using a static analysis tool. In the v1 arithmetic
+> A/B tests, loopback reproducers induced 12 blackholes, waited 1.2 seconds=
+,
+> and then made a new connection:
 >
->diff --git a/net/vmw_vsock/vmci_transport.c 
->b/net/vmw_vsock/vmci_transport.c
->index 1f186e8f8364..282131544c42 100644
->--- a/net/vmw_vsock/vmci_transport.c
->+++ b/net/vmw_vsock/vmci_transport.c
->@@ -627,6 +627,8 @@ static int vmci_transport_recv_dgram_cb(void *data, struct vmci_datagram *dg)
-> 	 * outside of the create and destruct socket functions.
-> 	 */
-> 	vsk = vsock_sk(sk);
->+	if (!vsock_net_mode_global(vsk))
->+		return VMCI_ERROR_NO_ACCESS;
-> 	if (!vmci_transport_allow_dgram(vsk, dg->src.context))
+>   TFO:   base probe 1.026 s, TCPFastOpenActiveFail +1;
+>          fixed probe 0.000 s, TCPFastOpenActiveFail +0.
+>   MPTCP: base probe 3.087 s, MPCapableSYNTXDisabled +0;
+>          fixed probe 0.000 s, MPCapableSYNTXDisabled +1.
+>
+> The TFO counter records another failed active Fast Open attempt. The
+> MPTCP counter records a connection that skips MP_CAPABLE and falls back t=
+o
+> TCP while active MPTCP is disabled.
+>
+> Changes since v1:
+>
+> - Add a reasonable upper bound for the TCP Fast Open sysctl, as requested
+>   by Kuniyuki Iwashima. This version proposes one day (86400 seconds),
+>   using the existing IPv4 one_day_secs bound, and documents that limit.
+>   Keep the existing MPTCP sysctl input range.
 
-Why duplicating the VMCI_ERROR_NO_ACCESS return? Can we just put them in 
-OR ?
+The one day limit, the u64 computation and the clamp look fine to me
+for the TCP side: with HZ=3D1000, 64 * 86400 * HZ still does not fit in
+32 bits, and 32-bit kernels need the interval to stay below 2^31 jiffies
+for time_before().
 
-The rest LGTM, if you respin, maybe we should mention that also 
-connect() and sendmsg() are affected since they call vsock_auto_bind().
+Why is MPTCP left alone? Kuniyuki's remark applies equally to
+net.mptcp.blackhole_timeout: nobody needs a multi-day initial timeout
+there either. I will let MPTCP maintainers decide, but having the two
+sysctls behave differently looks odd.
 
-@Bryan, @Vishnu PTAL.
+> - Clarify that the multiplier is limited to 64 and the final delay is
+>   separately capped for safe jiffies comparisons on 32-bit systems,
+>   addressing Gang Yan's comment. Keep the READ_ONCE/WRITE_ONCE pairing
+>   annotations next to the timestamp reads.
+> - Identify the original runtime results as v1 evidence in both commits.
 
-Thanks,
-Stefano
+Please do not do that. The changelog of each patch should describe the
+problem and the fix. Version history and test notes ("In the v1
+arithmetic-only test...", "On the v2 kernel...") belong in the cover
+letter or after the --- marker, not in the commit message.
 
-> 		return VMCI_ERROR_NO_ACCESS;
+> - Retain Gang Yan's Reviewed-by tag on the unchanged MPTCP arithmetic fix=
+.
 >
->@@ -1697,6 +1699,10 @@ static int vmci_transport_dgram_bind(struct vsock_sock *vsk,
-> 	u32 flags;
-> 	int err;
+> v1: https://lore.kernel.org/r/cover.1794325665.git.x-professor@outlook.co=
+m
 >
->+	/* VMCI handles are global and cannot serve local namespaces. */
->+	if (!vsock_net_mode_global(vsk))
->+		return -EOPNOTSUPP;
->+
-> 	/* VMCI will select a resource ID for us if we provide
-> 	 * VMCI_INVALID_ID.
-> 	 */
+> On the final v2 x86-64 HZ=3D1000 kernel, TCP accepts 86400 and rejects 86=
+401;
+> MPTCP still accepts 86401 and INT_MAX. Boundary tests also cover zero,
+> negative and oversized values, failed-write preservation, defaults, and
+> network namespace isolation. The large timeout used in the v1 TFO test
+> is now rejected by the TCP sysctl limit.
 >
->---
->base-commit: 65ba8f34ec886ec72b2c07ddc8cf3d815c32869d
->change-id: 20261113-vsock-vmci-netns-isolation-7e46732dcd73
+> The MPTCP blackhole test was rerun on this v2 kernel: all 12 clients
+> completed, and the probe used TCP fallback directly (0.000 s,
+> MPCapableSYNTXDisabled +1). The full x86-64 kernel build and affected
+> object builds on x86-64 and i386 passed. The upstream TCP and MPTCP
+> selftest suites were not run. Full allyesconfig/allmodconfig W=3D1 builds
+> stopped at warnings promoted to
+> errors in unchanged lockdep, coda, and x86 callthunks code;
+> the affected objects passed W=3D1 KCFLAGS=3D-Werror in both configuration=
+s.
 >
->Best regards,
->-- 
->Sergio Lopez <slp@redhat.com>
->
+> The patches are independent and have separate Fixes tags.
 
+About the Fixes/stable tags:
+
+This needs an admin to set a timeout nobody would use, and the only
+consequence is that active TFO (or MPTCP) is retried sooner than
+requested.
+
+Also patch 1 now makes the TCP sysctl reject values that were accepted
+before. I do not think we want that in stable trees.
+
+Please drop the Cc: stable and target net-next.
+
+Thanks.
+
+>
+> Yingjie Wang (2):
+>   tcp: avoid wrapping Fast Open blackhole timeout
+>   mptcp: avoid wrapping blackhole timeout
+>
+>  Documentation/networking/ip-sysctl.rst |  1 +
+>  net/ipv4/sysctl_net_ipv4.c             |  1 +
+>  net/ipv4/tcp_fastopen.c                | 12 +++++++++---
+>  net/mptcp/ctrl.c                       | 12 +++++++++---
+>  4 files changed, 20 insertions(+), 6 deletions(-)
+>
+>
+> base-commit: 30c71476d842b094651bd7712f6c8ee8716147d0
+> --
+> 2.43.0
+>
