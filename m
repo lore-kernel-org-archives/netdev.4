@@ -1,100 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794750566;
-	b=VhtNDQq1DNP7CEcCtcwXA71Pi9SjWaREkgvRdiTxn052vNBaINIDFsPFPQ5UUGf/56DV
-	 iu+AO6pDV952a02YGmacM8pc4XM9G/s//GPQH2TYWaj44Ja16Lx2b5X8XvHKUjK3nCh2l
-	 EC2uvfy+SkGwfBw58rqn1/ygjNtZpWHSfd3UGUST4b6uaafQ0qquVcTOVynv/G7+7U41N
-	 zgi+AUYm1BVDFECWo67hXtkTZ2zYYjKX36asoXewuWL8JZ0HP+TYTGEuxxlxlLcfBQc1k
-	 ZKQhHVeUypP9KPyvJZS10tZ/rj8gLvrQH0xlmW7fDtxeSXWK3+JWUEsze4luT/7QSjA==
+	t=1794751588;
+	b=EyI0aXk3Zvel8EmqHnc1VkOC9Ddbc/4oO5w2xXHFq8Va8uhOmg7Dwr3lmX7oOkie+0ET
+	 5ypTjW+lQnKypnKqLYOW+rx6QIZxD9dORlUQu311jGOLzgeh3MLAaQDxnG/LoFuUvaTC+
+	 eYIHKLcQLzo2e1MpiaXy2mzYd+ZA4QsL9JpimQzo3rHzZyBiApoKDJq49sYlRrzjinTkC
+	 gRnqpCCLYrUnJ8YN37ioeDTG9l1pX/2qCuD6xTO1VOqEkAHBvtyrsIHXZioMdI94F59gr
+	 fOcV6nA1G31QGVzv70maCghbsOg5gokhoah9Zzz7flF2JdXqkkcJ/yVYIE3LKmfpKXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794750566;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=sjZ8k8T7PvKA8j8UcuMcMJQ9cW1ScO0YNNkYRf0WN3E=;
-	b=fEd4zCKvl3AMSzU0vN+4nnpdwwd3naPX84KV7+wO6dLiOJN5PbO67h+UBLPCtyUV2WFU
-	 t3sTckRwOsWDssHoxAMtPKJalbjpbaXKkIzDGJ5IH0nswYZrEOLaFwh5jSNJ8CT4XA05g
-	 aojKhld18/Mh9dGH3scwTxVKLVrWEcgDvVHUiDxKqulIA3eQRs5bmw/hyzpVQL599dQhN
-	 6Hp3M4tU02IfrvgT+aCBbE7ZmXZSFRO/jpcDZU+huECH9oi1ghKCb69gZgUnGUWKqws9J
-	 yIm8s3TQRwUMNvE289Ms/so5GbMb/k+C+sZexNrwnePeMMnh+QQW3YXFoqX27gV7AFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794751588;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Pw6ELLof8sXq1rGGaq/DDPI7LyWqO6k2g8iDxpoOW4k=;
+	b=aiU0SPP/YHith1RP21CEEWy5K2EOUHgOPlOXuq+kMFo9ScCeF4pYu5q+H2j4Ar3jn8Xn
+	 SHuNARDcoVXG8Gjfcr4/bc6W/g+DGj+CO5cu1JZT7DTEVUW4antPOjaHtRx9IuH5k9QeT
+	 Z9XdokYjYeBCCrHMc3t1R6Djw1YRbtWnADTeCQD30KXhsc85IgBtNsWY6BucVku68JCj4
+	 Yr3jii/EZ/nj0WEHQPreWvKmYHXHy7Zp3o9//RWOEnKCdCA+wCuVzUT9uEcPBY7Gn6gyE
+	 HQB8VN5PLYH99Jw4+A/vbm7F8vQq8faNPZuEv3pWtyE57WcozJSHbu+IYtE37LbNqeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VinQC1TW;
-	arc=none smtp.remote-ip=209.85.218.41
-Received: from mail-ej1-f41.google.com (mail-ej1-f41.google.com [209.85.218.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O+iT5rMc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F206606A31D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:49:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F206606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8041606A32C;
+	Sun, 15 Nov 2026 14:06:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VinQC1TW
-Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-c45551fa84eso523721866b.3
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 05:49:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794750564; x=1795355364; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=sjZ8k8T7PvKA8j8UcuMcMJQ9cW1ScO0YNNkYRf0WN3E=;
-        b=VinQC1TWx0LeaMKDlhsfSpWq3Deuy5SBZaKufwhNgIQ0oWLtJeMyeHHILvP1ivt8UD
-         bln7itfhJ5aoO7OLEJeXYYMrUksih944swOijz3EPPm0K3lka/j+xRPC/kC23zhVDmro
-         qfPZQg7YhqQI8MZqnjDOS2o+aE3XeJqVQVFIe9YIopzgV5cG5SrnxD6G4kCSY4Y2reL1
-         LtoG6Yp+SVDdE69z7mwByH5ltzVhcMyJR5tGzJaCh68cLCCJhexjDpmez9xFf5vp8E43
-         6Ij6eYpigZc3No3Imr2OAW8Nd+jTzi6LhkvdBAvTB1aeIvjmGs3wuLeKfuCGGqZuUV8w
-         /sWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794750564; x=1795355364;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sjZ8k8T7PvKA8j8UcuMcMJQ9cW1ScO0YNNkYRf0WN3E=;
-        b=Jaqm1QfxsupR+Lrb/cwbIVsm0drSN2prDkZT83b0Pms4bxOgjpsq3zR4MIaBhdvV/6
-         CaxfR3yNrFM8R3yonHcf+uzUsboyPKCoDAtDMQOix1ojNaZJjjcIgEJPfxXXRA54sY9r
-         E/XPFuyvw7gMkPVcBj7yLOw4osEj1shQBE0GSNs4Z6DoRPOX4JoRxgAw1uaLyoBeZZN4
-         TKN/BqtGpydRGRtxwCEL3LEZnDcLyK21e8691APlBCGzOImhWNyA62JE6SOl/lzX7RUy
-         50jQBQY8J/67WqStVrS2FtOhCZr3NQtRA/oDAbjYMYd2NMo8s1MT6Jq/msy51ACb4ION
-         0TXw==
-X-Gm-Message-State: APuU4Z88oAdmHHVJtcPHA89gYNadPuyVraRWTniLkjEFuEEnFhWvE2Dg
-	kYkeIfi3LDB1gLyBQXdy0/xEyxWvjpNYNBYwB7ZaJ/kCG/d+xfEK1o5DsWO9tYzY
-X-Gm-Gg: AYBFou3Y9tMZKJYu2VvJKIM7PzOBiQOqgpoNwrP2bULq2s+bUnBMLEVEAImBjRjL+VF
-	OeKf7r/TcoSEcyt0nRwqJZ+OAG0dNYi5jnD4fweWs/mCPJeywUcFR+LHC+rhORZrx9eHb0KZnSV
-	5533TV36hw6nNHlLdUEljIlmX9KSEAZKqa3czQ6NjIhchxkqrPmIZzJFhQ+medWLZHcZcWioUwm
-	YCGOKii7Y14fu3nsR5ObRQWCVunVo0bxcHn4rXwOjebQaoT9ByVcXQYuTQpRZNA4kIDgHeBz+Gm
-	rO7TReyMLR3E4IoVoSO6Qldfvj9FETMJn2hLYNpf0KXcJ382JUQXDx34YoFZO1FKkNm2CPte12C
-	lYB4NqcK5GosBDbmDouosMhKmfereXyl9Im3xr/c7cPoGRXjUWdwfNmpggtFhKpkL1h1U2DmIE+
-	H12aJCr78KMKUWJMs4b2A/IQ0u9P+Fpt4744VAkYMgyxVd1PdKpg9Yxf4P9PjSkTy9B2ViWutYn
-	3D50VWbKTJoc3pL9pkWSZRbLRZ39wdzMAs4X5A4Tkf/0bYmc6kPwPADbaz/77PhTpNjV0Y4axRg
-	ca/62DBXy/jFkjoW2Hh/0FQ83njTRN0bIybx27sO
-X-Received: by 2002:a17:906:d542:b0:c29:d31f:7d6a with SMTP id a640c23a62f3a-c509642ad87mr549257466b.35.1794750563634;
-        Sun, 15 Nov 2026 05:49:23 -0800 (PST)
-Received: from kordpc.lan ([2a13:e746:396c:c600::8fa])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095b7eb14sm314858866b.75.2026.11.15.05.49.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 05:49:23 -0800 (PST)
-From: Kordian Chmielewski <kudzo51@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	bcm-kernel-feedback-list@broadcom.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O+iT5rMc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2D331F000C4;
+	Sun, 15 Nov 2026 14:06:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794751588;
+	bh=Pw6ELLof8sXq1rGGaq/DDPI7LyWqO6k2g8iDxpoOW4k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=O+iT5rMcq8IDu1WnLz6Ns8IvESGfuXg4dLg0WX1nCCgR+TdO+YhE0wdkTQhZ04qAi
+	 S1npAWF7syolLd+vdRJB0xkhK+efTUkGld+IO9zwCWA9WWMRHymT0NVtrqLKwutBOe
+	 wcySn0Y5Cni2h5vQGfECL7XAsKmqyyjx3yxrGaFNbM7+aAt9ey4Kwvydre3rF0HWxc
+	 8wGdhw3/8aYarFLuRJrIFQTRip/WaT05OG2ZJzg7j778/ZDORJt9eAP4Tiq173syb+
+	 VvsWq3hmqkcobI4iKQB2riIpZvWKJma9vgU9rPoUeiUVXjBjZISFmvAJOEhk48RXMv
+	 bPoGc2atEpP6A==
+Date: Sun, 15 Nov 2026 16:06:24 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Edward Srouji <edwards@nvidia.com>
+Cc: Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v3 1/7] net: bcm4908_enet: fix the TX ring wrap
-Date: Sun, 15 Nov 2026 14:49:20 +0100
-Message-ID: <20261115134920.55329-1-kudzo51@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261113235847.517308-2-kudzo51@gmail.com>
-References: <20261113235847.517308-2-kudzo51@gmail.com>
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Yishai Hadas <yishaih@mellanox.com>,
+	linux-rdma@vger.kernel.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Mark Bloch <markb@mellanox.com>,
+	Michael Gur <michaelgur@nvidia.com>,
+	Patrisious Haddad <phaddad@nvidia.com>
+Subject: Re: [PATCH rdma-next 0/5] RDMA/mlx5: Add NIC_RX_CLASS steering
+ domain for RDMA classification
+Message-ID: <20261115140624.GF42525@unreal>
+References: <20261103-rdma-rx-classifier-v1-0-1ad6c8cfe936@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,26 +65,57 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261103-rdma-rx-classifier-v1-0-1ad6c8cfe936@nvidia.com>
 
-Sashiko's review of this patch [1] attributes one Medium point to it:
-start_xmit() still stops the queue with netif_stop_queue() when the
-descriptor at write_idx has OWN set, and poll_tx() no longer wakes the
-queue unconditionally, so a stale OWN descriptor after ifdown/ifup could
-stop the queue for good.
+On Tue, Nov 03, 2026 at 08:12:48PM +0200, Edward Srouji wrote:
+> mlx5 devices recognise RDMA traffic on receive with a fixed classifier: UDP
+> destination port 4791. Packets that match are handed to the RDMA receive path
+> (NIC_RX_RDMA); everything else continues down the normal NIC RX path.
+> 
+> RDMA transports that identify their packet differently don't reach the
+> RDMA receive path as they use a different packet format entirely.
+> 
+> This series adds NIC_RX_CLASS, a new per-vport receive steering domain placed
+> ahead of NIC_RX/NIC_RX_RDMA. It gives a privileged RDMA transport manager a
+> programmable classification stage that supports matching on arbitrary header
+> fields and marking the packet as RDMA.
+> 
+> NIC_RX_CLASS reuses the model used by RDMA_TRANSPORT_RX/TX domains:
+> - one root namespace per vport, owned by the eswitch manager;
+> - targeted from userspace by `ib_port`, as with the existing per-vport
+>   domains;
+> - gated by `rdma_transport_manager`, and by
+>   `rdma_transport_manager_other_eswitch` for the cross-eswitch (LAG /
+>   socket-direct) case;
+> - restricted to callers holding the same UCAP that per-port matchers already
+>   require, so an unprivileged process cannot program another vport's
+>   classification.
+> 
+> A rule in this domain takes no destination: it matches, attaches a
+> modify-header action to mark the packet as RDMA and explicitly allows it
+> onward. ALLOW is the only terminal action the domain accepts; a flow counter
+> may be attached alongside it.
+> 
+> Patch 1 adds the IFC bits, patch 2 fixes ALLOW handling in the FTE merge
+> logic, patch 3 unifies the per-vport root namespace init/cleanup helpers,
+> and patch 4 adds the NIC_RX_CLASS domain itself. Patch 5 exposes the new
+> domain and the ALLOW action to userspace.
+> 
+> Patches 1-4 are mlx5_core changes and are targeted at the shared mlx5-next
+> branch, prefixed accordingly; patch 5 depends on them and is targeted at
+> rdma-next.
+> 
+> Signed-off-by: Edward Srouji <edwards@nvidia.com>
+> ---
+> Michael Gur (5):
+>       net/mlx5: Add NIC_RX_CLASS IFC bits
+>       net/mlx5: fs, treat ALLOW as a conflicting action upon merge
+>       net/mlx5: fs, refactor RDMA transport manager root namespace init/cleanup
+>       net/mlx5: fs, add NIC_RX_CLASS steering domain support
+>       RDMA/mlx5: Expose NIC_RX_CLASS flow table type to userspace
 
-In the case the review describes, the ring is empty: start_xmit()
-returns before anything has kicked the DMA, so no TX interrupt comes
-and poll_tx() never runs. That stop could not be undone before this
-patch either; patch 3's changelog describes it. With stale OWN
-descriptors further in the ring and frames in flight, the old
-unconditional wake could undo such a stop and the new wake does not,
-until patch 3 removes the check and clears the TX descriptors when the
-ring is initialised. I left that change in patch 3 so that this one
-stays the ring wrap fix.
+I applied this to mlx5-next and rdma-next.
 
-The other points in that review are older than this series. Patches 3,
-6 and 7 fix three of them, and the missing TX interrupt is the question
-I asked under v2.
-
-[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113235847.517308-1-kudzo51%40gmail.com
+Thanks
