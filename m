@@ -1,62 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794703506;
-	b=ihageXefE71lueHHQeWAO7AIZVsZJPQiedxbmkFJYmcgbAgiRey+nHDK2Z/h0j0jFXFk
-	 2wMn3CP03KL/ltfp7OAeLR6ujuv8mEoim66RuzrR5gBdEjhGQJtg7YgOJNxBNaXZek1wK
-	 QUrkb7FmtVeOephcj1WYmQn7TDw5svgOHq5EM5s9yNtyv6wm3aO/0Is/4pKa3fPirf8Bq
-	 X4/WaVgH0ZPQKHfZwX4Tt059LasW3tvDSkfh4HKcGRFi2OxSCzCuAkpn14ut4L6DP3Z2m
-	 ydIJEZ8gcEPx42FzpEBZOsxg00jfHN2XrAhKXJusqJ2YER8Lb8VJBM2w/5yHJDzYZMQ==
+	t=1794704165;
+	b=DP3l6izzBQO4g7QdnbgAB1rt9rnJ3NKMeTWKb1GzJaPBCerFf5g6Ec+5YjLFwieNvFg9
+	 7TPApk7Q87Y9UtCA68/423iPOtyXnCkJPJ7R93GYxvQB0lgsOvEwhOQygvJ5pOHm/8WRj
+	 3psHyHu46ybU3Tw/jbLCqJ9wdXOB2CNcnwtP+a1F0IcZX013v6VE1k3zuC8zlJcQ8RnH6
+	 OvnIT0jzW5l6i84BMIoXg9fAipQJL3Z8odbPo37xllVx2rZ8x4DOgZChGD0jxDeYrjVuj
+	 TzIG9rtoVADEgYSRw0UlJk6HuP+FNS49P4McXEPinkvMFFEtR7AIRY8n9YUD/pnh5iQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794703506;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=p1qeezPkjYvl7m0buWilarmr+j2OC6NCeVnUky5I7Ec=;
-	b=W7LOaNbefHt2nSLFyBfBBT+Ymk3FhNDz1mSG1oz5mbjl4GY8y0rn9vmRQXCCGPDVVaTw
-	 KTVl/3riEURowI+s9Miy42YOnCdU0uuZ3lZqLzFSZlkjQSwugn3+Eaq56Y7Od7nxMvc21
-	 SHrQuZrRztYfoqhe4qMov9sEJtN9D5lDclSQ+zbHf9khRqxvqlWO8uzc3kHtDtKPPYjsU
-	 r5wfW4ueha7Tz7YGpQoby+gmlc4y69yjM4qbGBTqRx6UZIr5fPpMJKl/nSm3sRp9lq/tR
-	 pUyP5vBG1X2HhtX17xbRJPpUW/N7YMya9MzSyud5ygXY7aRI0feMlcKvaHq+NhL28jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794704165;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TEe8D5P09T7tDxCiTRWgdiV435JqX7aUW5WkZ/vkqBo=;
+	b=wHtOofwjV1mmCysG45v5kNiPmDVHv8x10nx8sbIjuiQEHPKVe3UYa861AFxfVaqRoOtm
+	 qmKBn+oU/bpb728/azv8iIku17Ssk6EMR3OR6oDn9vmUoFsSERdpEBDqCDFu/WjzpOXO1
+	 wML+vqe7fIjPfMPVas9EtAdkamqOF4P7z/s/PusDT2Xq8MteXpitWtGt7G6I8+z+Ifn1N
+	 FxNW6zozx+sGdheMvwqT77QOPRZ2NcfQ4x1hbUmUAg+/sf3wLMuE2lCX1PFvlRDfQZkB1
+	 Sk/T/W7uDFMujrDu0iqfWpeElL+2QlyEBvM81vd4Ef1EZZoYZQEWcCHKyDPe+bxYLLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wd70A3+b;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=bairaktaris.de;
+	spf=pass smtp.mailfrom=bairaktaris.de;
+	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=i+nkYYZ5;
+	arc=none smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13ADE606A323;
-	Sun, 15 Nov 2026 00:45:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CAEB606A323
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:56:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CAEB606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Wd70A3+b
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 547D91F000C5;
-	Sun, 15 Nov 2026 00:45:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794703505;
-	bh=p1qeezPkjYvl7m0buWilarmr+j2OC6NCeVnUky5I7Ec=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Wd70A3+bv0aZmQ/elxnY9+B8Gdb5zZ2T+8MT97x8b2jpwba7sdix9RBhgo5wJFd/u
-	 0ZL7dD+iz69zk+ANATes9YnkytLrURvVag+CDosKM10OQGRvQJBDOMzvf8uZ/q6Bmp
-	 TBI+RwiaJUmaGAleMRXQVo2rUDEeGSrWwrIfGZqtC1ES3Mw2HJ3UzYtyPuAjwoWQLj
-	 70rMAV2CdmsnwHGCPOsc/suOiBD2aLgqMXe5MoLtaCVSDAz2R4IGqmjZFaAqTOwbyv
-	 gyKvkbwhwIwO3RqBzg/v4oA0O8Rra4qENJDC0yYFsf7JBI7yn+Iq+pWz5T9Bjz79U/
-	 Z6wnD3unudI5A==
-Subject: Re: [PATCH net-next v6 1/3] net: ethernet: mtk_eth_soc: fix the RX
-From: netdev-bot+sashiko@kernel.org
-To: sandeeph@loljews.com
-Cc: netdev@vger.kernel.org, nbd@nbd.name, lorenzo@kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, linux@armlinux.org.uk,
- daniel@makrotopia.org, mason-cw.chang@mediatek.com, frank-w@public-files.de,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Sun, 15 Nov 2026 00:45:03 +0000
-Message-ID: <179470350391.2199510.1485391861090132860@kernel.org>
-In-Reply-To: <patch-4b4c5003bcf028fafd094e719c5e910b@loljews.com>
-References: <patch-4b4c5003bcf028fafd094e719c5e910b@loljews.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=i+nkYYZ5
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c4d581da0aaso294727766b.2
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:56:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bairaktaris.de; s=google; t=1794704163; x=1795308963; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TEe8D5P09T7tDxCiTRWgdiV435JqX7aUW5WkZ/vkqBo=;
+        b=i+nkYYZ5WZXVA6Sd0W0lzQbXlYxqA3vHmcbCdRKjpn6GwmxOBt05KqSQ42DKqy2cB1
+         2d/22IZLsvA89rAo79MhNCwBgNaGQ9I2YD2u+KeqgnU1FJcVAyt6LwMsEw3yEYiLLTDw
+         AzN90wQSgNRtob67YBfLzt8kjyvPMrcoCJnssaYlsV/3uC33vxMnZDVO/UEW+yL5a69n
+         tBXiIJUPWoT0C/QF7yksztaJOXgNm77b6NxI9KseoF4vphdyh3W4qoFbUZvl7njsKRlC
+         UcaseQlog7w9NR6qwYDsadwyGTzbkca2RPxxAUK0Z5nWg01wE+icO99+cwTLCjzDaXXG
+         jenw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794704163; x=1795308963;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TEe8D5P09T7tDxCiTRWgdiV435JqX7aUW5WkZ/vkqBo=;
+        b=IcLhkTffERqmCq08i+jwddFgUGAtwCVUcFo0PJgU1bFlbWipwGQshW7hlXWbWiGsQ0
+         +5Q/l0IVoYHc820iEVbytXGXMC3bjcefYSh7xLFuo7sCfg3otbcSuYvDqYNJim1ks+ah
+         S8HXVA6vDN0fPGXah3nZM+gppnj8Jec38Fkvg4UmbobPflYWqiIC/alYro30Rn2SUj60
+         9DjLN93iqDp5McTTkj/morEFeioZkE2kSnWoDSU2UBK0s8c9ablDASAGjistVzIBA0kd
+         ll71M0IJvgNaazVBMAIlCq1SqvrGB4T0IB3Vl9qs0n2bLdYTQPuuzCZlyv1ra/q2c6w9
+         19nA==
+X-Forwarded-Encrypted: i=1; AL+hErH2yIrWpi5nC71vuojKwidmyzLEgHrsad13yD0HPlqRhaCXUqn1RHBrIlcqmCBil0sbwic0+gw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Y+LcH4bFK0XZGqTva+dUodMSkecTdKXKcaOZWURFmYzWqENH7
+	hJ+P5HDGCvnKsLb3CC9P6bLWM40iPZaf/47ksANj48wBsBk4IfxlrjZgbKfUCXYJoQ==
+X-Gm-Gg: AYBFou0/KyB4749RIs4Q6ohUrEuj8LH5YODHDdHLTp6sHraptsdpXrUr/YesXXD7Qqm
+	SXXTCoeMHknEOmsU0juKcpajXWo6Z4r1Qtk3jZr+T81J2ccWotm5bP+nt9qFSMqcTwUhgBQEM73
+	QqxPzMpnM+c7nnZH13N1Xk7pXjZV9LfbFBLpb+SfXeJMY8gA7lg3VpnqjJXbsOB91zodZaJRK6S
+	9V5WSL72n9yxeZQkyhXeWQIcTKpHENLnlcT72ztpeEobGBmtqVL14CkoGVeF+3Cmc7Z6FEyFY75
+	yg2DwX6ih8+HVIk2jSQOBy3aYg0mTQXC+GD6douKtlOSqxoIldBcoGr/qPHYYBO4d8/MO9AxN8s
+	9ftTthRM8lV2DLHcaaZr/UPdZcEZcoYCfJcQVTuOZ57fcIF0vV7ISTSklHIT1EzVvt6ktNHeOVa
+	eYlf6xISmN+0pTQLuvzDbtSKwJAdudnRrmXcAF5h+UwcJ7Kqq7G08UTA2sJIWJMQnhDVGIiMkCV
+	nfSDPqMdixvNsD7Xv+J2xZxL+O2NxPfvShqSjB/pj3HTHZc8e8vRX2cti1wmRw+3V5xB5oTE/WN
+	T1LY/0kG8lmG0gJOXF92hEvrWjegVBIFvAwX46fb2NyXqPR/7O/hHdFn1QieMi2O2gLXMvXvjF7
+	Na8p3P+3rHSi7nHOWeYQhFVLmXBaQJwwZC/JppKQQbaRuwtzi72TXIjhleNwAmPQXAlZcmRxC0J
+	xVYkxALCzyBV25/QV36lhpwpzM3belGD2xtpbnuwFi0qqPIddYKvfd6mk/dVONm+ATknH93DTr9
+	A6uxyMnp+ondR1r9PLNBUOWwAs45ZfdlsPQY4gTa+NjpLKeb+rs0nFCiZg00H3U2mednymWL4+0
+	h6bZW7T65gYSgqCVdnYst/5aJTIRABS3LkeXCoZhB2DPQ6qIH48LNp67FSaDKzIFOg77Uxm7
+X-Received: by 2002:a17:907:3d44:b0:c40:4965:72c3 with SMTP id a640c23a62f3a-c509637c12emr491035466b.19.1794704162921;
+        Sat, 14 Nov 2026 16:56:02 -0800 (PST)
+Received: from Desktop (p200300f2470a670069e45948b1a17361.dip0.t-ipconnect.de. [2003:f2:470a:6700:69e4:5948:b1a1:7361])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095b921d4sm266313166b.83.2026.11.14.16.55.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 16:56:01 -0800 (PST)
+From: Julius Bairaktaris <julius@bairaktaris.de>
+To: netfilter-devel@vger.kernel.org
+Cc: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Eric Woudstra <ericwouds@gmail.com>,
+	netdev@vger.kernel.org,
+	bridge@lists.linux.dev,
+	coreteam@netfilter.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH nf-next v10 0/3] netfilter: flowtable: tear down bridged flows on layer 2 roaming
+Date: Sun, 15 Nov 2026 01:55:52 +0100
+Message-ID: <20261115005555.645727-1-julius@bairaktaris.de>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,114 +112,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+A flowtable flow that transmits straight to a bridge port keeps sending
+to the old port when the host moves to another port, for example a Wi-Fi
+station roaming between access points.
 
-Low priority / nit picks for your consideration:
+Patch 1 is a bridge fix the series needs: br_fill_forward_path() fills a
+path to a port that does not forward (STP blocking or disabled, an MST
+vlan not forwarding), so the flowtable transmits where the bridge would
+not. Patch 2 makes the gc tear a flow down when the fdb entry moves or
+the port no longer forwards in its vid. It is Pablo's patch with my
+changes on top: it keeps his authorship, his Signed-off-by from his
+posting and a note of what I changed. Patch 3 adds selftest cases.
 
-- [Low] The commit message for "net: ethernet: mtk_eth_soc: fix the RX"
-  gets the history and cause backwards.
-- [Low] The subject line "net: ethernet: mtk_eth_soc: fix the RX" does
-  not say what is being fixed.
+The gc finds the bridge port from out.ifidx through the vlan devices of
+the path and the bridge from the port, and looks the entry up in the vid
+the forward path used, which the tuple now keeps in out.bridge_vid. With
+two bridges on the path it also checks the outer one. struct
+flow_offload grows from 296 to 312 bytes on x86_64; its slab cache is
+SLAB_HWCACHE_ALIGN, so an object takes 320 bytes either way. A gc pass
+over 2000 flows, 1021 of them offloaded to a bridge port, took 277 to
+278 us with the series and 171 to 281 us without it (median of each of
+three runs), and no flow was torn down.
 
---
+Tested on nf-next 734bef548a96 in an x86_64 guest with PROVE_LOCKING:
+nft_flowtable.sh passes three runs out of three, including the eighteen
+roaming cases in both of its passes, with no lockdep splat; the "block"
+case took its final form after those runs and passes three runs of its
+own. On v9 the cases for the fixes of this version fail (stacked
+bridges, the untagged vlan that is not the pvid, the disabled port, the
+vlan leaving the port); without the series every roaming case but "del"
+and "age" fails. net/netfilter and net/bridge build without warnings
+with W=1 (x86_64 allmodconfig), each patch on its own, and with
+BRIDGE_VLAN_FILTERING off.
 
-net: ethernet: mtk_eth_soc: fix the RX
+I used Claude (Anthropic) to help write these patches.
 
-This patch resets dma_addr to DMA_MAPPING_ERROR at the start of every
-loop iteration in mtk_poll_rx(). Without it, a descriptor that goes to
-release_desc without a new mapping can pick up high address bits left
-over from an earlier iteration. That matters on MTK_36BIT_DMA SoCs with
-DRAM above 4 GiB.
+Changes in v10:
+- the tuple keeps the vid of the fdb lookup (out.bridge_vid) instead of
+  the bridge_vlan bit and the port pvid: a bridge vlan that leaves the
+  port untagged is popped from the encap stack (DEV_PATH_BR_VLAN_UNTAG)
+  or never pushed (DEV_PATH_BR_VLAN_KEEP), so v9 looked in the pvid of
+  the port, which is another vlan when the untagged one is not the pvid,
+  and kept the stale flow (Sashiko). This answers Pablo's v7 question on
+  bridge_vid: no bit can recover that vid
+- the gc also tears the flow down when the port stops forwarding in its
+  vid (STP blocking or a disabled port, a vlan removed from the port,
+  vlan_filtering toggled); v9 kept sending to a disabled port and in a
+  vlan removed from the port. The new patch 1 keeps the forward path
+  from recreating such a flow
+- with two stacked bridges the gc checks the outer one too; v9 checked
+  only the bridge of the transmit port and missed a move on the outer
+- selftest: vid 10 untagged on ports of pvid 1 through a vlan device on
+  the bridge and through the bridge pvid; a move from behind the inner
+  to a port of the outer bridge; the host's port disabled; the vlan
+  leaving the port; vlan_filtering turned off before a roam
+- selftest: the IPv4 roaming cases turn IPv6 off on the host, whose
+  router solicitations crossed the bridge and refreshed the entry the
+  "age" case waits to expire (2 of 8 runs failed)
+- selftest: lines wrapped to 80 columns, namespace names initialised
+  (NIPA checkpatch and shellcheck on v9)
+- Cc coreteam and linux-kselftest (NIPA cc_maintainers on v9)
 
-> That protection was added by commit 6e0490fc36cd ("net: ethernet:
-> mtk_eth_soc: fix SER panic with 4GB+ RAM") for the MTK_RESETTING path,
-> but commit e10a35abb3da ("net: ethernet: mtk_eth_soc: fix
-> uninitialized variable") moved the DMA_MAPPING_ERROR initialisation
-> out of the loop, so it only holds for the first iteration.
+Changes in v9:
+- reset port_vlans at each bridge in the forward path, so the gc checks
+  the bridge the flow transmits on: with a vlan device of one bridge
+  enslaved to another, v8 counted the vlans below both bridges, looked
+  up the bridge port from the wrong device and read past encap[]
+  (Sashiko)
+- selftest: a bridge port that is a vlan device of another bridge
+- selftest: the roaming cases give socat five times SOCAT_TIMEOUT, as
+  roam_stop() ends it; on a loaded host a case took 109 s and the 60 s
+  timeout ended the transfer before the check
+- authorship: Pablo's patch is credited as such, with his sign-off from
+  his posting and a note of my changes, instead of Co-developed-by; his
+  paragraph on the switchdev notifier alternative is back in the commit
+  message
+- rebased onto current nf-next
 
-[Severity: Low]
-Is this history accurate? e10a35abb3da is dated 2023-09-10 and
-6e0490fc36cd is dated 2025-04-27, so e10a35abb3da came first.
+Changes in v8:
+- drop bridge_ifidx and bridge_vid (Pablo): the bridge port is found
+  from out.ifidx through the vlan devices below the port, the vid comes
+  from the encap stack (bridge_vlan bit) or is the pvid of an untagged
+  port of a vlan_filtering bridge
+- the fdb check sits in nf_flow_dst_valid() next to nf_flow_dst_check(),
+  the hook is fdb_valid_dst() again, and the comments Pablo pointed out
+  are gone
 
-e10a35abb3da also does not appear to move an initialiser out of the
-loop. Before it, mtk_poll_rx() declared dma_addr inside the while loop
-with no initialiser:
+v9: https://lore.kernel.org/netfilter-devel/20261108155344.35845-1-julius@bairaktaris.de/
+v8: https://lore.kernel.org/netfilter-devel/20261017235849.1066624-1-julius@bairaktaris.de/
+v7: https://lore.kernel.org/netfilter-devel/20261014235628.197976-1-julius@bairaktaris.de/
+v6: https://lore.kernel.org/netfilter-devel/20261004171605.3544792-1-julius@bairaktaris.de/
+v5: https://lore.kernel.org/netfilter-devel/20260914072541.897040-1-julius@bairaktaris.de/
+Pablo's patch: https://lore.kernel.org/netfilter-devel/20261014210256.1573072-1-pablo@netfilter.org/
 
-    dma_addr_t dma_addr;
+Julius Bairaktaris (2):
+  net: bridge: fill a forward path only to a port that forwards
+  selftests: netfilter: nft_flowtable.sh: roam a host between two bridge
+    ports
 
-e10a35abb3da moved the declaration to function scope:
+Pablo Neira Ayuso (1):
+  netfilter: flowtable: tear down direct xmit flows when the fdb entry
+    moves
 
-    dma_addr_t dma_addr = DMA_MAPPING_ERROR;
+ include/linux/netfilter.h                     |   7 +
+ include/net/netfilter/nf_flow_table.h         |  22 +-
+ net/bridge/Makefile                           |   2 +
+ net/bridge/br.c                               |   2 +
+ net/bridge/br_device.c                        |   2 +-
+ net/bridge/br_forward.c                       |  19 +
+ net/bridge/br_nf_utils.c                      |  35 ++
+ net/bridge/br_private.h                       |  14 +
+ net/netfilter/core.c                          |   3 +
+ net/netfilter/nf_flow_table_core.c            |  68 +++-
+ net/netfilter/nf_flow_table_path.c            |  29 +-
+ .../selftests/net/netfilter/nft_flowtable.sh  | 364 ++++++++++++++++++
+ 12 files changed, 561 insertions(+), 6 deletions(-)
+ create mode 100644 net/bridge/br_nf_utils.c
 
-It also added the first dma_addr != DMA_MAPPING_ERROR check at
-release_desc. Later, 6e0490fc36cd replaced that check with the FIELD_GET()
-branch:
 
-    if (unlikely(dma_addr == DMA_MAPPING_ERROR))
-        addr64 = FIELD_GET(RX_DMA_ADDR64_MASK,
-                           rxd->rxd2);
-    else
-        addr64 = RX_DMA_PREP_ADDR64(dma_addr);
-
-So that branch only ever worked for the first loop iteration. Nothing
-broke it later. Could the message give the order that way?
-
-The message also does not say that this fix depends on the FIELD_GET()
-branch from 6e0490fc36cd. Both hunks touch only the declaration and the
-top of the loop, which have looked the same since e10a35abb3da. So the
-patch would apply cleanly to a tree that has e10a35abb3da but not
-6e0490fc36cd.
-
-In that tree, every descriptor reaching release_desc would hit the
-dma_addr == DMA_MAPPING_ERROR case and skip RX_DMA_PREP_ADDR64(). Its
-high address bits would then be cleared. That is the original SER
-failure, now on every iteration instead of only the first.
-
-6e0490fc36cd carries Fixes: 2d75891ebc09, so most stable trees probably
-have it already. Would it still help to name 6e0490fc36cd as a
-prerequisite?
-
-> net: ethernet: mtk_eth_soc: fix the RX
-
-[Severity: Low]
-This isn't a bug, but the subject does not say what is being fixed.
-Something like "reset dma_addr per RX descriptor" or "keep descriptor
-high address bits on release" would be more specific.
-
-> With MTK_36BIT_DMA and DRAM above 4 GiB the hardware then DMAs the next
-> frame to an address that is neither buffer, and the driver passes the
-> stale contents of the untouched buffer up the stack.
-
-Could the consequence be stated more directly? Before this patch, a
-stale dma_addr from an earlier iteration reaches release_desc in
-mtk_poll_rx() and goes through:
-
-    addr64 = RX_DMA_PREP_ADDR64(dma_addr);
-    ...
-    rxd->rxd2 = RX_DMA_PREP_PLEN0(ring->buf_size) | addr64;
-
-RX_DMA_PREP_ADDR64() fills RX_DMA_ADDR64_MASK, which holds physical
-address bits 35:32. These bits are combined with the current buffer's
-low bits in rxd1. The device then writes received frames to the same
-offset in a different 4 GiB window. That is silent DMA corruption of
-memory the driver does not own.
-
-The mismatched address is also passed to dma_unmap_single() later. One
-caller is mtk_poll_rx() itself, on the non-page_pool path:
-
-    if (MTK_HAS_CAPS(eth->soc->caps, MTK_36BIT_DMA))
-        addr64 = RX_DMA_GET_ADDR64(trxd.rxd2);
-
-    dma_unmap_single(eth->dma_dev, ((u64)trxd.rxd1 | addr64),
-                     ring->buf_size, DMA_FROM_DEVICE);
-
-The other is mtk_rx_clean() during SER.
-
-Would it be worth calling this memory corruption in the message, so
-stable and security triage can judge how urgent it is?
-
+base-commit: 734bef548a96e8774d6eef5dfa2026c6edc4e80b
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/patch-4b4c5003bcf028fafd094e719c5e910b%40loljews.com
+2.53.0
+
