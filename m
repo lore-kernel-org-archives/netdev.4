@@ -1,63 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794762064;
-	b=SeWTOSGhQTEaFvFxhJ8aHhQQuqrQilyR1Fuy2Jnt3aGtF/psJ+B6I8EO+eJuDEaYVVbm
-	 Ogq8zVtSe0ey5qBxpNj98D6pmNeFnS3L7JnfrFPLIt6ue+iVLeZ16qrxK8CiXqOjqIENo
-	 XBxP5PaUBzCK78GgU0pY7CGC8eVMC3/odgI6r/3aDmcTm6TUL6s4vKTMi2JaBevMKAa5E
-	 aJxuCEnjlj8EvsXiDAVTQeOUDmbgkQ8kiuUNnJcvZs8GBqAjt5IzqKyrkRsJt4ukPfbU7
-	 ONJoqeu9KnwUKYXwG6qozSQhDGrTfmPBEdNt+IJ75Q8YSjl/2x1//wHdFobKhz7ygog==
+	t=1794762281;
+	b=buzl2u29pYRuqCmFNJJGLRNGovV79T5KN7La2NmWb20JdGqxjLaEWvZpgorrnAI7JbG3
+	 eenH9i/Uhc2pI3zwJXgOabz+H3ZYTxgAKS7f1EPhjwLBvqcL6p+7bTxi+Ln3EFW84Zwke
+	 2C1GNMdOJLOqzFg6IiLJj9Ag7HRp+bxfkCeFP/0N3WjJw2FBrSo01NSpR9Le61Psr8vLq
+	 H0cKRSUQxyVIEjqV3HE8VPIZ4hHCizNgeZmwEoYEu3NlsL7TDmwC7NyrNhMsjck1JGiyM
+	 G5ki1xk9SiJ9QZO4z/i5xX11HiDRcs2hxrDuJjl4eUy+ZbJHt3qoKnbeZdbryiDdjug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794762064;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=vlZl5lyf06RdJazenuU5uu1ZB2/A9/qrv1wTC/8Uozw=;
-	b=o13MQrOrDAw/+LGOSyMAnqMk8wx40uIK7rkpwQO8mAjpKohDiGu2gCwg79jViFzERkvG
-	 ta/r0igl1x0J03PZhrles1sbwhYTVX7zcUTBovSOYnzBJajwH67EcCDPoU+AjSXJzhpki
-	 LnHXO1y7jOUDDF17Ci+PSKV1YbAd96XT+xLn/o965tXZESODEUy0x94xZjH00ZVSczMUW
-	 yZLINvHRRxTJAYfazEcGxJsN5bBqdpAFf3Dvs8jQlIc33WiZJCBR+MuSn95dri9IybTdq
-	 jPzOArV0Z75dCQ8Ah7orVrxG8M39nxsG9ptLao68Lpt6uLVo307NYp37BBoUMg6Izjg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794762281;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=J6V0Kz0XMpC5wJkQlSs9iIsGa6Tot3NeP2rg3wU4mYg=;
+	b=xqu6cEWADUeqW2DLlONQe3Rlh9FTe4a0wZ/tH7Wp8hwDHA4nXPpsYPIXeIsoP8DPZRvw
+	 5gktPf9ElSAFkfgX9Qh5WqEG1aRQ9Bx/erJwheiPYK6wJF1KiXKTB1XaMs6QzMDqvFLPt
+	 j4B0JNLqJHGi0g/RHQzqTbUiBZH+UgI8HvIGiuPiJPBYfpEm5qKLnQm13iQBIwLRqe1Vk
+	 +UwcGTjW6NFNAKJo444TWdLfhoKImJZvA2QIfEiZQRb3pPsupTsqHg9rImX1jwTnFKBMr
+	 Tqom9pQh1hnF/RUgdj2V67VxWDVGTU30++0Nr4wl4WswxAhFMEgfvXEMR+bfVwd1s9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gmVluvr9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b="hR/6g12X";
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C99EF606A31F;
-	Sun, 15 Nov 2026 17:01:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BA68606A31D;
+	Sun, 15 Nov 2026 17:04:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BA68606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gmVluvr9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7B70A1F000C4;
-	Sun, 15 Nov 2026 17:01:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794762064;
-	bh=vlZl5lyf06RdJazenuU5uu1ZB2/A9/qrv1wTC/8Uozw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=gmVluvr9Qad3/lxS3sb/8u4thCf/3QNGBR2/ohidWYqSHICI9N0UpVtAfWeyH9m5N
-	 aoW+u2icFuLdYPRiim+Swdxu2N/HQvonFUUSxy1+aj2DUW8O93zSYhcCzMMaPqQ6o0
-	 ViP6pc+qcn0P0YEfOD8NgUJ7FhN00DlQctsglE4bFoZHSF/B39Fi5oCJgmj0O07+uy
-	 hUYJOk/UCZccG/HHysttMpjsfp7vcIoxlzEI7NDjiP/+4hqhDM9WIqC3AF+xZGq/gh
-	 9V5dLKey+nnoMIIEGsSqFxbfE1nr/MTixiK9wdEOb+pnnxaPgTc8KrzGtLO/jjjvYO
-	 AQidKyzVH5Law==
-Subject: Re: [PATCH net-next 3/3] selftests: net: getsockopt_iter: cover tcp
-From: netdev-bot+sashiko@kernel.org
-To: leitao@debian.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, kuniyu@google.com, willemb@google.com,
- ncardwell@google.com, daniel@iogearbox.net, john.fastabend@gmail.com,
- sdf@fomichev.me, martin.lau@linux.dev, ast@kernel.org, andrii@kernel.org,
- eddyz87@gmail.com, memxor@gmail.com, song@kernel.org, yonghong.song@linux.dev,
- jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
- shuah@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, linux-kselftest@vger.kernel.org, kernel-team@meta.com
-Date: Sun, 15 Nov 2026 17:01:02 +0000
-Message-ID: <179476206200.2199510.1878424671448402630@kernel.org>
-In-Reply-To: <20261112-getsockopt_phase7-v1-3-1eb759dd0929@debian.org>
-References: <20261112-getsockopt_phase7-v1-3-1eb759dd0929@debian.org>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hR/6g12X
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=J6
+	V0Kz0XMpC5wJkQlSs9iIsGa6Tot3NeP2rg3wU4mYg=; b=hR/6g12XkkFjrk/aoh
+	7V/vYb0LTdmLsPVEY4FqXUexd13Y0Swxc12TEw5r0RXVnsOrflAwrmfNvNm7q7vR
+	VlEdoVbVg2TXgJL1jTlwjw/81Wm9bzczCY9D1ps77txnl8RDYgv776BaVdWaGMyj
+	WRacK4GJpKzsXJfsD6NoWsKQ0=
+Received: from user-VMware-Virtual-Platform.localdomain (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id PigvCgAXb0L75flqS77DGA--.57717S2;
+	Mon, 16 Nov 2026 01:03:55 +0800 (CST)
+From: Ziheng Wei <zihengw03@163.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net] net: phy: reject non-PHY mdio devices in phy_connect()
+Date: Mon, 16 Nov 2026 01:03:54 +0800
+Message-ID: <20261115170354.944219-1-zihengw03@163.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <04781560-2b66-4ac2-9e7c-a786be43fc10@lunn.ch>
+References: <20261115161811.941022-1-zihengw03@163.com> <06c3990a-8f2d-4e8c-931f-6ad77a79a84b@lunn.ch> <20261115164233.942709-1-zihengw03@163.com> <04781560-2b66-4ac2-9e7c-a786be43fc10@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,114 +69,17 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PigvCgAXb0L75flqS77DGA--.57717S2
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxUTYhFUUUUU
+X-CM-SenderInfo: p2lkv0ljzqjqqrwthudrp/xtbC7hvQIWr55ftAkQAA3Y
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Sun, Nov 15, 2026 at 05:53PM +0100, Andrew Lunn wrote:
+> You have to defend your own patch. Do you think it is worth having?
 
-Low priority / nit picks for your consideration:
+No. Without a real user hitting it, I don't think it is worth the
+churn. Please drop it, and thanks for the review.
 
-- [Low] In tools/testing/selftests/net/getsockopt_iter.c, the test
-  tcp/nodelay_undersize_clamped is commented "Unlike IPv4, TCP clamps…
-- [Low] In tools/testing/selftests/net/getsockopt_iter.c, the test
-  tcp/zerocopy_receive_oversize_clamped is commented "A larger struct is…
+Ziheng
 
---
-
-selftests: net: getsockopt_iter: cover tcp
-
-This commit adds a tcp fixture to the getsockopt_iter selftest. The fixture
-sets up a loopback connection with TCP_SAVE_SYN on the listener. The new
-tests cover do_tcp_getsockopt() clamping, zero-length replies, the
-TCP_SAVED_SYN length-then-EINVAL path, and the TCP_ZEROCOPY_RECEIVE struct
-size handling.
-
-> diff --git a/tools/testing/selftests/net/getsockopt_iter.c b/tools/testing/selftests/net/getsockopt_iter.c
-> index 2367fce226d4c..4e51c8aa6a855 100644
-> --- a/tools/testing/selftests/net/getsockopt_iter.c
-> +++ b/tools/testing/selftests/net/getsockopt_iter.c
-
-[ ... ]
-
-> +/* Unlike IPv4, TCP clamps the reply rather than shrinking it to a byte. */
-> +TEST_F(tcp, nodelay_undersize_clamped)
-> +{
-> +	socklen_t optlen = 1;
-> +	int val = 0;
-> +
-> +	ASSERT_EQ(0, getsockopt(self->fd, IPPROTO_TCP, TCP_NODELAY, &val,
-> +				&optlen));
-> +	ASSERT_EQ(1, optlen);
-> +}
-
-[Severity: Low]
-Does this test actually show the difference the comment describes?
-
-With optlen = 1, both paths report the same length. do_tcp_getsockopt()
-clamps:
-
-net/ipv4/tcp.c:do_tcp_getsockopt() {
-    ...
-	len = min_t(unsigned int, len, sizeof(int));
-    ...
-}
-
-and do_ip_getsockopt() also ends up with optlen = 1:
-
-net/ipv4/ip_sockglue.c:do_ip_getsockopt() {
-    ...
-	if (len < sizeof(int) && len > 0 && val >= 0 && val <= 255) {
-		unsigned char ucval = (unsigned char)val;
-
-		sopt->optlen = 1;
-    ...
-}
-
-So if TCP started shrinking sub-int replies to a single byte the way SOL_IP
-does, this test would still pass.
-
-The ip/ttl_single_byte and ipv6/hops_sub_int tests in the same file use a
-3-byte buffer, which does tell the two apart. Would optlen = 2 or 3, with a
-check that optlen is unchanged, match the intent of the comment better?
-
-[ ... ]
-
-> +/* A larger struct is cut down to the kernel's, if its tail is zero. */
-> +TEST_F(tcp, zerocopy_receive_oversize_clamped)
-> +{
-> +	char buf[256] = {};
-> +	socklen_t optlen = sizeof(buf);
-> +
-> +	ASSERT_EQ(0, getsockopt(self->fd, IPPROTO_TCP, TCP_ZEROCOPY_RECEIVE,
-> +				buf, &optlen));
-> +	ASSERT_GE(optlen, sizeof(struct tcp_zerocopy_receive));
-> +	ASSERT_LT(optlen, sizeof(buf));
-> +}
-
-[Severity: Low]
-Should this assert the exact clamped length? When the tail is zero, the
-kernel sets optlen to the size of its own struct:
-
-net/ipv4/tcp.c:do_tcp_getsockopt() {
-    ...
-	if (unlikely(len > sizeof(zc))) {
-		...
-		len = sizeof(zc);
-		sopt->optlen = len;
-    ...
-}
-
-That is the uapi struct tcp_zerocopy_receive from include/uapi/linux/tcp.h,
-which is 64 bytes.
-
-The test includes netinet/tcp.h, so sizeof(struct tcp_zerocopy_receive) here
-is the 16-byte glibc struct the commit message mentions. That means any
-optlen from 16 to 255 passes. A clamp to the wrong size, such as one of the
-older 16 or 40 byte layouts, would not be caught.
-
-raw/icmpfilter_oversize_clamped in the same file uses ASSERT_EQ against the
-exact struct size. Could this test do the same with the kernel struct size
-(64)?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-getsockopt_phase7-v1-0-1eb759dd0929%40debian.org
