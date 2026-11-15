@@ -1,56 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794715851;
-	b=dNo1GcOmpR//ZDIBu3/vf172lR+nvEYBC+E+sbU3KuIXdcd4cOWv3X4CrULyaYNnD3Jw
-	 +eO9kn2h2VmOOpdY9pq8MAi+l47sGzfs6AuQCuaQZWCqcwVGpQOQ67iBfxfrW1FCkxC/A
-	 7HUvvy8wDX7EcoJXZLhW/y+rC+AmdnBtXnMw+8Mlx9bk6wahFfBKdVFO89EXQ/2eOLUxZ
-	 P9WHb+FkH7/ZUGt8/8bSCV0aUXAQj8m/yCDkImjdn9aqgs29vN/0r4hCIVHZ2fbiBvSNO
-	 cK58Ufb5H/g/RuHNMChrssalcyGFz1aEUco6hg4ikr2ace6+R2LeQ5pHhsIo07UaYRw==
+	t=1794715852;
+	b=s9iSk8bBUFRPpapaadLofsNUw6BzH4n3tLNE91uPnYRjCNsVdMbGY4JQOGMKJHckcDur
+	 WvYHraF+pYNv4eXitpGtmWlExvc0MpFNdzFXMOA/kEpc9m5XoNYq7FkQFNV/vfo36PavK
+	 3ZP9X6vTCBSe1N2wK5PF0unZDlkMR7zRlJMfIIVTcjyDUZROrvdCdajme4QfL0/agbNMQ
+	 J2csA0I56rDFyx/FmO33YplYdj0ZC7WFmFC/NnxHOYeaFTNdQtxJ3OG17VvquD/SN//6L
+	 zHnCq0GM20ahkIowxYECgz6eUhXCRvCMaomQmUr1XzzIU+vC8RWflzY/YG/hK3AP4pA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794715851;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794715852;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=tsLCwFlP8oV0uxIOwY1n3e/7rDkFW/5EHcAnj0k6cBU=;
-	b=VZttnuGINwTYmEsKGzBUMXCjYf3HulXfWsuDWjxkYz8cXhFps5xRIIkvZ4OSmCWfo6vb
-	 rZJttEL9SbGKH/MEoZKxDMcs245rSyrIdD1xnadyp+5Lqn2LwFrbgb5D/KOY3QbsOTBrG
-	 zjqllp2QNNP2IzAxyUCSD7SVrfZsFUjmUrT1caFQ6ZldHye3BMcMx3YdjPEYO6yDbYapp
-	 6y/t6tdHwSVpKcv47Z2txZHTBedOFe/yM8B5rovHlnnh7U38c8nyBfD9xLGfKqojdS8Pt
-	 jdRVQWdBtuRN3aBLnImxgFZe3hB+XxG6DALpMjTo45mOdB/cW3kKDYDf71Du51qkGzg==
+	bh=U/hbHlod/r8hdzYS9HIa6oyqSeN/dIcMx6Puc22TzW8=;
+	b=B1TwwPzoKlPJOsVg7moZE+sgaHQ0qtamYF58nWp86R0RdubwQgc8lO5w+ui+SRKO+wnT
+	 aTJ0v2YSu7joWfx97uPiVdy+poKPSffSKXlSaoTELHftoj4ulJg01CXdEgY3fK6AbVKja
+	 zIbtibCZn5Gp6pVqYlHy2+bO/ZZtFpBEc6jdjlbmbLelNecGem+6rnmj/nDfwIQncAaS1
+	 VytO9rx7hWuNYC6qRgNjCUpkf4nXiC4YSI/opG9Oa19dfF9EuBJvrEgSCYQ8p1SfzQ25m
+	 D/fYUZDOVsJ5ciDM9WNwuJqVG+MhwewC0has94Wr3hiRmAGOYPyXYQ6eOLhj9M8w5ww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NUVHtCPo;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SPzRw8c8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8224B606A327
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 04:10:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DD6A606A334
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 04:10:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NUVHtCPo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7CBC1F000C4;
-	Sun, 15 Nov 2026 04:10:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SPzRw8c8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5F0E1F000C4;
+	Sun, 15 Nov 2026 04:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794715851;
-	bh=tsLCwFlP8oV0uxIOwY1n3e/7rDkFW/5EHcAnj0k6cBU=;
+	s=k20260515; t=1794715852;
+	bh=U/hbHlod/r8hdzYS9HIa6oyqSeN/dIcMx6Puc22TzW8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NUVHtCPoba7GDwYb73IYD07zpC1Is4uHZlfPm7KwsgwwteCyR6oddB194N/ouAau+
-	 jLVA54EsyIbhKtq+mtocMh2mSzM4HRub7eqxYOmY15yuN/gKKo6n3cg51Z33zUpsaE
-	 Aiw/nDjvyAINz663LYMuQm+RTS1zzbCKDlvJfIepyEyxGVZRbVubAhmHEAJLMsW3Gi
-	 2lYUuEb1/bCdDIY1E9XW4MGGB89QpSxnq3Raeoz+jkiatuRJEBWRwQb4646vZpWijM
-	 ARnSGjEQbUQNIZK7+2tnQqanlw7yF6A1As2LQOtQnU55mKHhK0KrJpUia8VgDDquee
-	 5ZhD9VI69n1Jg==
-Subject:
- Re: [PATCH v1 net-next 1/8] tcp: Clean up the first loop in tcp_collapse().
+	b=SPzRw8c8aTYDTIjW11cPk8Y1ej6jiQ56DZEvY+DRkJ6ZqBbnEzsWOMlbfUAG9v5f/
+	 7VGpbaMMxkaGthkw4YzB4cZDSK0lRMky7/oUGRbdl8z32kppEqIhHet1SdAlTRkSJD
+	 /MfXFU1fd0S6JNwpRBi/seYsO5r+pEWkb4Y/dUW/TEzpItyNWqJ+WGKoqyAVOVBhA1
+	 aKcqocbWBpw6zbgTCt7rtmFgDEy6JXg3+Bl29hXKSPeWnXEjCoW6YvGmdWP1anr3La
+	 8r+ffZr1aFcqY0Os+0y/gGtO6la9pMJRqS10cguAEm/QFUnsby+m9nxYEuQPrceWh9
+	 cF9XXd+rG/8kg==
+Subject: Re: [PATCH v1 net-next 3/8] tcp: Stop collapsing if not bloated.
 From: netdev-bot+sashiko@kernel.org
 To: kuniyu@google.com
 Cc: edumazet@kernel.org, ncardwell@google.com, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com,
  netdev@vger.kernel.org
-Date: Sun, 15 Nov 2026 04:10:50 +0000
-Message-ID: <179471585026.2199510.8755335400317906663@kernel.org>
-In-Reply-To: <20261114040101.1043546-2-kuniyu@google.com>
-References: <20261114040101.1043546-2-kuniyu@google.com>
+Date: Sun, 15 Nov 2026 04:10:51 +0000
+Message-ID: <179471585136.2199510.5242413969655893867@kernel.org>
+In-Reply-To: <20261114040101.1043546-4-kuniyu@google.com>
+References: <20261114040101.1043546-4-kuniyu@google.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -70,111 +69,67 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The patch is titled a clean-up, and its message presents the
-  change as equivalent to the old code ("If we goto skip_this in both…
+- [Low] The header comment on tcp_collapse() in net/ipv4/tcp_input.c
+  (line 5841-5842) was edited by this patch to read "Collapse contiguous…
 
 --
 
-tcp: Clean up the first loop in tcp_collapse().
+tcp: Stop collapsing if not bloated.
 
-This commit restructures the first loop of tcp_collapse(). The SYN/FIN
-and skb_frags_readable() checks are folded into one goto skip_this test,
-and the end_of_skbs flag is replaced with the inverted loop condition.
-It also moves the readability check after the fully overlapping check.
+This commit changes tcp_collapse() so it only collapses ranges of bloated
+skbs. It no longer starts collapsing because the next skb overlaps, and it
+no longer runs on until the tail. The end parameter is dropped. A local
+sub_end is computed for each bloated range, and the function restarts the
+search after each range.
 
 > diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-> index a2074a1af4222..32e63d089db89 100644
+> index e07f433474093..5bd42a74c6f58 100644
 > --- a/net/ipv4/tcp_input.c
 > +++ b/net/ipv4/tcp_input.c
-> @@ -5839,23 +5839,17 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
-
-[ ... ]
-
->  restart:
-> -	for (end_of_skbs = true; skb != NULL && skb != tail; skb = n) {
-> +	for (; skb && skb != tail; skb = n) {
->  		n = tcp_skb_next(skb, list);
+> @@ -5839,7 +5839,7 @@ static struct sk_buff *tcp_collapse_one(struct sock *sk, struct sk_buff *skb,
+>  }
 >  
-> -		if (!skb_frags_readable(skb))
-> -			goto skip_this;
-> -
->  		/* No new bits? It is possible on ofo queue. */
->  		if (!before(start, TCP_SKB_CB(skb)->end_seq)) {
->  			skb = tcp_collapse_one(sk, skb, list, root);
-> -			if (!skb)
-> -				break;
->  			goto restart;
->  		}
->  
-> @@ -5864,27 +5858,25 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->  		 * - bloated or contains data before "start" or
->  		 *   overlaps to the next one and mptcp allow collapsing.
->  		 */
-> -		if (!(TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN)) &&
-> -		    (tcp_win_from_space(sk, skb->truesize) > skb->len ||
-> -		     before(TCP_SKB_CB(skb)->seq, start))) {
-> -			end_of_skbs = false;
-> +		if (!skb_frags_readable(skb) ||
-> +		    TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN))
-> +			goto skip_this;
+>  /* Collapse contiguous sequence of skbs head..tail with
+> - * sequence numbers start..end.
+> + * sequence numbers start..sub_end.
 
 [Severity: Low]
-The commit message describes this as an equivalent clean-up:
+This isn't a bug, but should this header comment for tcp_collapse() be
+reworded rather than just renamed?
 
-  If we goto skip_this in both cases, we can remove the second
-  tests and simply replace end_of_skbs with the inverted loop
-  condition.
+sub_end is a local variable, not a parameter. The second loop recomputes
+it for each bloated sub-range, and it changes after every goto restart.
+Someone reading the function's contract won't know what sub_end refers to.
 
-Is that true for SYN/FIN skbs? Before this patch, take a SYN or FIN skb
-whose readable successor n overlaps it and is allowed by
-tcp_skb_can_collapse_rx(). That skb reached the second break with
-end_of_skbs = false:
+The comment also still says head..tail is collapsed as one contiguous run.
+With this patch, non-bloated skbs are skipped, each sub-range stops at the
+first non-bloated, non-overlapping skb, and only the bloated sub-ranges
+inside head..tail are collapsed.
 
-	if (n && n != tail && skb_frags_readable(n) &&
-	    tcp_skb_can_collapse_rx(skb, n) &&
-	    TCP_SKB_CB(skb)->end_seq != TCP_SKB_CB(n)->seq) {
-		end_of_skbs = false;
-		break;
-	}
+The comment above the caller, tcp_collapse_ofo_queue(), has the same
+mismatch:
 
-The post-loop test then returned early:
+/* Collapse ofo queue. Algorithm: select contiguous sequence of skbs
+ * and tcp_collapse() them until all the queue is collapsed.
+ */
 
-	if (end_of_skbs ||
-	    (TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN)) ||
-	    !skb_frags_readable(skb))
-		return;
+The last patch in the series still leaves the header comment as
+start..sub_end.
 
-So nothing in the head..tail range was collapsed in that call. The
-post-loop SYN/FIN test was not redundant.
-
-With this patch every SYN/FIN skb goes to skip_this. start advances and
-scanning continues, so later skbs in the same range can now be collapsed.
-A peer can reach this path, for example with a FIN segment followed by an
-overlapping segment in the ofo queue.
-
-The readability reordering also changes behaviour. Unreadable (devmem)
-skbs that lie entirely below start used to be skipped. Now they are
-unlinked and freed by tcp_collapse_one(), which also increments
-LINUX_MIB_TCPRCVCOLLAPSED. The message only says:
-
-  Also, skb_frags_readable() should be tested after the fully
-  overlapping check.
-
-It gives no reason for the change.
-
-The new behaviour looks safe as far as I can tell. The copy loop still
-stops at SYN/FIN skbs, and offset stays non-negative.
-
-Could the changelog state both the SYN/FIN change and the devmem change
-explicitly, rather than presenting the patch as a pure clean-up? The first
-loop at the end of the series still behaves this way, so this patch looks
-like the right place to describe it.
-
-> +
-> +		if (tcp_win_from_space(sk, skb->truesize) > skb->len ||
-> +		    before(TCP_SKB_CB(skb)->seq, start))
->  			break;
-> -		}
+>   *
+>   * If tail is NULL, this means until the end of the queue.
+>   *
+> @@ -5848,15 +5848,18 @@ static struct sk_buff *tcp_collapse_one(struct sock *sk, struct sk_buff *skb,
+>   */
+>  static void
+>  tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
+> -	     struct sk_buff *head, struct sk_buff *tail, u32 start, u32 end)
+> +	     struct sk_buff *head, struct sk_buff *tail, u32 start)
+>  {
+>  	struct sk_buff *skb = head, *n;
+>  	struct sk_buff_head tmp;
+>  	u8 scaling_ratio;
+> +	u32 sub_end;
 
 [ ... ]
 
