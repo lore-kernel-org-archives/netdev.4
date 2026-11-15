@@ -1,89 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.43
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794728763;
-	b=kKnT5lFD5Ks4PbVm6WRr8NdLer8MVxWmB2fxOxobDckXY5S+cNhONxV6AuPEUxLk0sfp
-	 U6ZaRHHHcnhDZ8zJKQ7Gk0/+Af1U0XCxSVmnP9Dds7wYtGfg0XAuzAKeoiYxWlTB4PbGH
-	 1O+pgzC/M6ALM50PzPiz1TdL1W+dMNVf3N4sE7seK9OkajXdIxjQYpOa27BtFd3xDRy1c
-	 1NjOw1gdHX1ph7fXbCMSt+pQakGQZXJki+ySvxiGWKcvFK+yqob4Yaf+LGMr3/J1pkq+i
-	 gdu9LtYUNuxRWFxNq1u9hH0ENs1zALXVreq0pVI27Tc6uVN4boPpvK5xVeblzg2GUaw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794728763;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=rymuhktwQJ9PFg77mV8i09arETjbmjVYcXdkkfDrn5I=;
-	b=jsGI1n7PsHaQndp0fGH94YmFJfaMkhWY2xD0bPQQzuiU0/nHpNa+d/rSsrmEpfgh7zTr
-	 KGoaorekLsUj5ZXAoJKUOEWjyMaGwy1wU1caCp4eTbjgpupNga+jNdcLgBHB8yzoEGR/5
-	 p+95fDWXqhC3bwb8Xv5xHXn99OQ9gEm7CrXZnNiEDzr8ilPEnr3VFr/xa0cOtvp56/z3Y
-	 kjpnlmUfVGL/6xWoRT0N4cEzANKeXghfAKZWXBGRzcc7RFbzOMO1eSEGdColib1fefcK2
-	 mkPZNJunvuhCFvsfArFJHJTB9XcgRqbzmMwU12e/tEMdJ6XNU0pktx5uBeMQEbmpOCA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UWp9FlyF;
-	arc=none smtp.remote-ip=209.85.160.43
-Received: from mail-oa1-f43.google.com (mail-oa1-f43.google.com [209.85.160.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.40
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794729596;
+	b=rPaZ0XAFI83XgShLHdBaglmxqEap+s0aCntqbb2QHtc1wMLBIgoCmOwtsrzNf9aJkbot
+	 EsQplHBd4Se2V0AUItL2qo7hTJ/cneNVNBz+4Ot0AVBsWEfMS+OU7/gs2tzZZ1/wRfiu/
+	 NHa+oSH/G5PZXFzwzQKQRgku8jxKPPQArW0BUUAESR4iznMpTaOdle2S+rYtsex4O2+8W
+	 +jIRIhCa9BCBxBJ7+IyJSKZzo7Wv1byekHQr5hs0PJdrjR4DTAaVSgZRn9tbL5i2QliYo
+	 CD8xHW7k2NijazSNjdUh0eH83Ee4MpjAoc7bz3Zm9MqN0HFJ93Pw9/Isn+n1AcGJ/2g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794729596;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=KW4Kp1AEZ6gwMSV1Tz5nFF3z6uJuuqWonI0EWbfACTw=;
+	b=PJjbjepVXUv64Mis/0d5u/FSx8noE0nywN/sK5p4iKyEq6+PMRxGKufZn2I2i44RBb5D
+	 rAHiPqyN3rqZ4Ed94DKuMS64Cw+C4PjD5WiNTE21pDQG/GI1EIu1vQ3VHCjX4zKdSEj7U
+	 NIsoMuxFuiuxhiJr28YkD1eMZSfaeof3YP83d/fG4B3IO1Mn4WAxHFNNun6nqIfpy9/bK
+	 IWaIX+PtpdfYloF3NwPR1CRnztYi5TdIWmoTfyz9JpFBQoVmqq04TUrWFWwj8B9mWEEmU
+	 hnkIN0aXZJRj6P818K02ZT4k/tdbbSe23cvevYVPp1z41i7udSJilVYP4mTMOKUhMXA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="M2mCe5D/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.40
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010040.outbound.protection.outlook.com [52.101.56.40])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38E49606A89A
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 07:46:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38E49606A89A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 855A7606A327;
+	Sun, 15 Nov 2026 07:59:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 855A7606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UWp9FlyF
-Received: by mail-oa1-f43.google.com with SMTP id 586e51a60fabf-48ed0b68895so2191799fac.1
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 23:46:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794728761; x=1795333561; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rymuhktwQJ9PFg77mV8i09arETjbmjVYcXdkkfDrn5I=;
-        b=UWp9FlyFTLZi68cdIHhoAIkL0mz+Ft+NEtXp6BXQpDbRuwMUyub5F5DxmFJwSAFeU/
-         /Yx5e/136fFsqKSIuNOZQZ+OCpM+kzVThgnmsDMcY6FfcW7sZZIaYUfk5nE2sQtDJmrX
-         VohFd9tpXrdDZnQFa4Xc05SfIMBtaJxAeb1+sJG324dIeHs1oyq1EIkHM2oNunts7EQD
-         AXX3Dl8NktfXrnyVpteX+dfcR/Lp03g2OJBBDoDg/7ELOUQnZYgkqGbJfPXMlQe90y+z
-         uvxBVkCtkzqPsdzgJNmKH3unB8rPYSe1Y7m0C3QMctNt7Nhy0ZOY5LVXJbUVb2v07m2N
-         GoVA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794728761; x=1795333561;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=rymuhktwQJ9PFg77mV8i09arETjbmjVYcXdkkfDrn5I=;
-        b=jHDazmClhm/y36ehPoyl8rXR3SX1+/dXoisoE95Mye5ktvM1ZYA3Qv/DS1yXRAR2qr
-         Bk54vS0PhOh+SAUbZ9eR/Ex7asCMUkGoRWDcUQ6hFgIZuevXgee/VHZ9i6LeaXFGHCzz
-         xu+26M30FsQkV/ZsdU/c/hE/Oo54noWtHOdAatB+jHArhSd/UfiKJGUeKq28MrIAujZs
-         fbAynfYLsq4V7VK+gEH02+ipyRirvsUhh6/z1ziWGnlCkYVPs8K5YYPlf2cujFIC+g3p
-         HCRw0/iETNSv5e+BT+60iRz83VyoWhhRkcEoXxreYsiBnXOR+1W6W0DCHqVkrFd7sWAT
-         bKmQ==
-X-Forwarded-Encrypted: i=1; AL+hErGcsN2gMK0guiEZWkN9hq8lIDkKV4sBQPmhBsZAd5y6VJ6zfEKggnpT29i1aqSUa+1YdQjzFsQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+LSnMX06PqoEvTgy+tDtxV72+wm1sfi9t/Y7tH7NChsOn0kVHR
-	hWrceFVHHTvTDN2drnUCcyFptJsq7ObyjAxnBSLRkd8yN8FhPOI2GJyq
-X-Gm-Gg: AYBFou2cxwchYfzLZybCPtV2oGWzIhjjNBlFs1e1inkPHm7P/09ohL2PGIx5h1PBfqX
-	Jo784SSWs/JeQmj+twzIWScFKKM3PpKABAU5wTa28rXq0qzNUyHFFTpOO2hC7z0XSW5GUghe3P8
-	nZ2IfhP6RoaXzxI62725goKQQRlyDz/J/WJY2fqYUW5RH+V8lXqpFbBCk2bbwANeJFCwoZB7oKg
-	YFz2+R5/y3qfEIOiMt4/9fwS/AC8Hg8IrsHf4TC5kFjo3cznNFSVjvDA8WMjTVM+jHxb73uR9TK
-	pRxPy0l5lm/OJusC/CDqRYOR/jwmyPlQb3TjxIxi1s/pN377OmbN5bH2GldGNnP1037Y8cR1cKC
-	sC5+TxhCdfdi5b3Vp5qitJBcAxNTvaAhNvwRQ2hu3mNOdY05PTNc8Zmeg9iHNbPe70tYWzCF9Hv
-	m8sgbuRKuoGhEE9ZD9RvDHJvk4BRUqt0xo7fWODNSNaz2hqcDRwtBPWN1eq9oaNNgw2KjKTl/AP
-	VToo0PhKhUo8erGG9FeWHOgsLAOCFDABnuVPGkQCdsNiRdgO+enLA3yDPopu7fXKMDhDzqZgSyg
-	cO6pyf/ef9bdG5BiezFnmsTNcbYmhSEGuKJdY/kFX2hX1fKb2ad7VYHkfuYmnlPI2PHBQI4SQvp
-	91jlI088ADA6+Y7qIO7IXQulkkXVIILUoPz42LmsaTKI3nJq9Eub6/0KI2LBKWNcad44CmP88jB
-	/yw9L671d+twhhQIDXX/XxJpI0nE2D8rFLCpi4+EDgj8ovugS7FKevBj5aW0xSXBuxM3BwV1TV
-X-Received: by 2002:a05:6870:d14b:b0:49d:6a41:29ff with SMTP id 586e51a60fabf-4afdf79923amr6129180fac.51.1794728761035;
-        Sat, 14 Nov 2026 23:46:01 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4afe233371fsm4831390fac.16.2026.11.14.23.45.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 23:46:00 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Sun, 15 Nov 2026 00:45:47 -0700
-Subject: [PATCH net-next v5 3/3] net: phy: acx00: report receive statistics
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=M2mCe5D/
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=yBALRlos/1hRm4KGRRlRf1KkPHdj1aIO8dt9i5D51m/dui72L06SFTt580tvhliBpTHmNKK4ZD3QM92X7e8nHWOH8FhAbr79rTHG6jlT8RxOSJAS0+U7miixQoeDtBbNU73jrCVYmjVUiXGaido3pZ96LJyGF7fjiEbtEpXm++V3FujAJhHMtp0l7hiqJBbTSJJRuuTIF5y2J9xeJMNEiuQlImaHWiwIzcvTpFL0/ZsBGaAdF0A0fkdJb//tS3UBRRxCFHZaVzYRj/vcnEtY15/g+Z02ZjH1Wu+S7VGjjXuya954Y4iDoReOKeWwdN9agy/ArXAnAB4P6fas1cr7kA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KW4Kp1AEZ6gwMSV1Tz5nFF3z6uJuuqWonI0EWbfACTw=;
+ b=Ld5PKLclPF35qdxgzfhXW3J4x7NEvwgN99Ntse010TxSY0cAEEpxshB7Y89SVwDLbEPxMFqNZybpzhUTF/sSJf4U1CZ5yNE+6TqI56NNddkND+i4FpZOL9LeefOW+QgMDoKU8nBexhNXImhemrAt1kJ7Zw2IJaVhwRBun+kDobcvMDQ5ULLCLNoLh38VpLcj9qlP2r6TSdz0Mn5mlCHephbVpEm2ovp3jJPmSIy9Q2tihhq2bpnrF+/lY6hHVIH1Z0+xQ3p5qg7mKx4x9WITfMqsQ71wcblhoO2HTjWaIaa5gCuc3uAI4kRp0JO12qOaGJrchAqk8Tmrvt0aRgXZiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KW4Kp1AEZ6gwMSV1Tz5nFF3z6uJuuqWonI0EWbfACTw=;
+ b=M2mCe5D/EKWgoxhzczbRrtHTfnrou/v22INFSeEzz8aHfwYNkAew5Zpwk4P5dg5DxNcu7nfWnneGNDP8BZE2E0g9mGLxW05jFS+QHI113JG0uAWSyJCr20+ViOLfNLP4APgnCVd2mT2pCsJjaSF7i3fbo9rV1juemCM/oVZel6w9blqZEBhfVayNri4N9f2xPlSFltBbkjVteOGi94Yu+UvBdweoznDhQV+D/D527HypLB9+hWcBbrgnRuAlRtzQdniPNgQlhyC6UoeEr9V0O297PD2zlZaj3XuK6+cYAHr2KuJhIRx10RXgrLJBqtXnyvRs77Qs6QkbFXajxCHT5Q==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA4PR12MB932075.namprd12.prod.outlook.com
+ (2603:10b6:207:12d::15) by DS0PR12MB7849.namprd12.prod.outlook.com
+ (2603:10b6:8:141::14) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Sun, 15 Nov
+ 2026 07:59:49 +0000
+Received: from IA4PR12MB932075.namprd12.prod.outlook.com
+ ([fe80::5a6f:1f74:6ccb:cf2f]) by IA4PR12MB932075.namprd12.prod.outlook.com
+ ([fe80::5a6f:1f74:6ccb:cf2f%5]) with mapi id 15.21.0615.012; Sun, 15 Nov 2026
+ 07:59:49 +0000
+Message-ID: <2cf34dbe-8965-4917-861f-b9306153f850@nvidia.com>
+Date: Sun, 15 Nov 2026 09:59:42 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next V2 10/13] net: devmem: add
+ netdev_has_dmabuf_binding() helper
+To: Dragos Tatulea <dtatulea@nvidia.com>,
+ Stanislav Fomichev <sdf.kernel@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org,
+ Paolo Abeni <pabeni@redhat.com>, Bobby Eshleman <bobbyeshleman@meta.com>,
+ Carolina Jubran <cjubran@nvidia.com>, Cosmin Ratiu <cratiu@nvidia.com>,
+ Daniel Borkmann <daniel@iogearbox.net>, David Wei <dw@davidwei.uk>,
+ Erfan Sharafzadeh <erfansh@meta.com>, Gal Pressman <gal@nvidia.com>,
+ Jacob Keller <Jacob.e.keller@intel.com>, Kaifeng Wang <kaifengw@google.com>,
+ Leon Romanovsky <leon@kernel.org>, open list <linux-kernel@vger.kernel.org>,
+ linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>,
+ Matt Fleming <mfleming@cloudflare.com>, Mina Almasry
+ <almasrymina@google.com>, Nikolay Aleksandrov <razor@blackwall.org>,
+ Saeed Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, William Tu <witu@nvidia.com>,
+ Bobby Eshleman <bobbyeshleman@gmail.com>
+References: <20261110183826.2927274-1-tariqt@nvidia.com>
+ <20261110183826.2927274-11-tariqt@nvidia.com>
+ <avTdfAaW9tlBRM34@devvm16445.scu0.facebook.com>
+ <ebd14110-49f4-4fbd-9dbe-1c39a1706da9@nvidia.com>
+Content-Language: en-US
+From: Tariq Toukan <tariqt@nvidia.com>
+In-Reply-To: <ebd14110-49f4-4fbd-9dbe-1c39a1706da9@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TL2P290CA0014.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:2::17) To IA4PR12MB932075.namprd12.prod.outlook.com
+ (2603:10b6:207:12d::15)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,385 +115,205 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261115-submit-acx00-phy-stats-v1-v5-3-ed81a7f54373@gmail.com>
-References: <20261115-submit-acx00-phy-stats-v1-v5-0-ed81a7f54373@gmail.com>
-In-Reply-To: <20261115-submit-acx00-phy-stats-v1-v5-0-ed81a7f54373@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
- Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>, 
- linux-doc@vger.kernel.org
-X-Mailer: b4 0.15.2
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA4PR12MB932075:EE_|DS0PR12MB7849:EE_
+X-MS-Office365-Filtering-Correlation-Id: de7f22be-7e93-4577-58f4-08df42ee6bd5
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|10067099003|4143699003|11063799006|56012099006|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261102123227099003|261009223027099003|18002099003|22082099003;
+X-Microsoft-Antispam-Message-Info:
+	QuuHYf7tYvxAIYoS60CnHug9vOSlhaNExmV9qGAGklqfo+5FFuUL3JWzmIob9kl0ueyCgrFvwLujEQIcxFU1h9E/wP4D/HtDUWXEQkUasSr1ZwIF6cIxfq2mvUH1Af2lon+55gt3UxK5r2TGGmk1K0ixhJEbaw3CpAvZotjHi+9U/lQJ4du6z9MnIDM6fDrIsIdVZ0Dwd2JmgpXeUjrjwOJdULqwxBliRxraHrlF43dWQSSpMNVce3ASeWk2RBD19E3LrCyQcmm0lKk/OHjtEeT78JIEvONUB8a6Mdw52WAQvtypadUWjVYXvWtrcwOsS95K0JcWyfBNIHfqSHP0pZMcyAKN3OdL5PmReflWbEU8GxBY5IIdx5FJmpanJh+xT0+dRNVrLzQ0ojZFBwXWUPssg4xRB5wg3G9H4e2hNZ6BWH59yhbH+c+VwBf97Zzb1gwilb4M2Q+BP/SsTIxBe4gB2NNSGEuCe559kv9H+fcbm3iONs0LN4S8PuN2Z57aN3hYk9pNkCY1T/9YIVtelAlrP+JMaPm7Rr3Q7MJ1KeFRwrUWKXA22beXo0BsQR4Gbs8e0/OU2/KSphh+Cc+sm++zFdhm7ooSLPvNtsA4uGP4OLxSObtTeHb2rEcJojrZQIegnIRVOVuK66DgqzWTIYHbLbfP777YM/+LI8w2dmo=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB932075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(10067099003)(4143699003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?cUdBdFpvWmkyZlRhb0JJUFRyaVdQRjh1dnJRMFlublowY0FjR3BsVkRpOEJm?=
+ =?utf-8?B?bVFPMW52OFJjc3phVElocTNMTzZEbkI5S0lld25vWVc3UXNTSmFsYXpxNGQ0?=
+ =?utf-8?B?dHpvdllsZ21HMEp2OUdUb0o4dzY4Y1J6TE44UU1qUU1VdUhHdm00ZWQzR0xo?=
+ =?utf-8?B?SHJGRzRKSkcrSGsrZU5DVGtlZEM0VFYzNVNXUVBORDlVemF5THFGRk1MNUR5?=
+ =?utf-8?B?YjZyVnlpUm5NenhOeEZpcTNVZFBKVHkxc2JTS2NaZUxjTVkzcTM4dHEzRE5v?=
+ =?utf-8?B?dzZyZHM4QlZySXFwQlYwOEdzZStBejg2TVFkZTM2a3NVbmRIbGRkM05vbVRB?=
+ =?utf-8?B?SEd3dUIzVUVaSlFiSVdwd2FENGN2TFhOcTlzdG1LMlJ1NEJ3THBTTFovU252?=
+ =?utf-8?B?VlhTR2JPRmtEcFY3QmxFRXJ5b3pKMmxsVWpQZU00SkE1UVNzcXBUZ0dBamt2?=
+ =?utf-8?B?eEFlRjVjZ0V6WEh6OWxsTlNDTGRXRWY3ZENzZEs3Q0VocU1hOXJCcUNIUEgy?=
+ =?utf-8?B?STNuT2laUzRhYnVrMzgwa2N5UWhQcjJkSkpPdWx4YVNIdDNzYWJZZ1BreklN?=
+ =?utf-8?B?WkM1Q091MkljQ3ZmK2Zvbm9xN1lZQU9iRENrVWdTeTA0d2tyZmRIaFFFOG5F?=
+ =?utf-8?B?TkJBN2NoVFIvUHEzbkxubEZPOUE0NmZnbVZhNkZvVXNVRFJxNzRMSTFhaFUv?=
+ =?utf-8?B?a3FLcXp0YWthNGdvd2kzYXk3eXhFWS9YQVE0ZjR4akFNc0EveERtOGxqOTRr?=
+ =?utf-8?B?dkVQdnlBQlF1bFA0U3lCa3Z3K3ExNVpoczUvaWxWekhYVmVFVUh5NXpOUlIz?=
+ =?utf-8?B?czA2bG9nL2ZoQWZ0WkVUQ0ZXWXlNMDVMc3pmcUJjRzN3VUROZEl3Um9oZVk1?=
+ =?utf-8?B?U1lMdWUvMDNXVWFiMW9CcWY5dURuTG5LR3VZYlREeCs2TmczejFCY05QRHJS?=
+ =?utf-8?B?UGZzMjQxNjRJQ1g3dEp5UlYwdE8zbzcydHFaMVNPeUVBbTdjbE9jNXNORHJ1?=
+ =?utf-8?B?UlNCazh6cVRIRzFiUEs2NWhLelJTbWZJbTRtb3NNY1J3OWh4UUJ2UXNvOXRD?=
+ =?utf-8?B?Y21ueVhudzkxODZJN0R4Y2tGb1R5TE13M1JhTUhhQjEyQjJSdW4xQWx1aVIx?=
+ =?utf-8?B?QS9pUU5KTzFMK1JsMS9weGFlVE94L1lnV3hwekIzdXdXZHAwV1RaSmFVay9J?=
+ =?utf-8?B?MWFTbG9Qa0VQMDhkZHNBWWkxcS9VYnI4UTgvQStWZGVxUzdFOWtMcnYySGpj?=
+ =?utf-8?B?OWR0MjZMWllIaTFFWFY1ZjhyQXNrRm1GbjFSSGFoUWZHVGJkdGU2VWpBTWMy?=
+ =?utf-8?B?aTUvM0xjYU5ZSnhhT1NmZ3djdVJDbmlXNDBhellRK0czOGFFQkZHTlVma1g4?=
+ =?utf-8?B?eklLbFFGd2FmNFBJR3UydUZrZ3hib0pVMzRxNzlIRHNnbEN0Sk03cnFnQVlW?=
+ =?utf-8?B?MjY0a0hGTTJFSDZrY0NNWFFESzdoMjYycVpBT2FBVGdUUmo5WmFRSGFKTHYw?=
+ =?utf-8?B?ZU43SVFjdVVKajdXMHRrOEJHVmVFR25zR3YraFV5ai8xeEd0c1Z3bHFPN0Uw?=
+ =?utf-8?B?eUxHQlhyL2RHV0lSNjJTcEJuWjQxRzFFbTAzUzY5T3JkanlZZUE2MU5GbzZQ?=
+ =?utf-8?B?ckxidlVhVWdwbzZuY0txMnQ2cG1ESDAycGxLYlE3WnBTeloycXZZZzZLWExP?=
+ =?utf-8?B?eUFjRmkzSjNUWDAvU0x2ZGlwRmN4V1lpaS9XSHFLajd1Z3F4Nm5xdDhWWmpy?=
+ =?utf-8?B?aHZsWmpFcDdtTjFzZTc4WUQ5a3BQWnRiOWtycGZ5eFluanVmS0dyOUhEVU9k?=
+ =?utf-8?B?ZmdkUXhiSkpZckFFSUs5R081OTRyZGJqdFh1cGJjU0pnb0xwbUNrNGtLeWJ0?=
+ =?utf-8?B?MWxUTTc5RUFHUElzMmJ1TUFxQXJLZE91TkVMUDQyOGk3RUtiV2pCTzhtTDlQ?=
+ =?utf-8?B?SHJJanViSVQwTlZsK1VHemM3N2FndGIvMWZNako4bjBhejhNWHhvNWZSNUtV?=
+ =?utf-8?B?WnY2M29nVCtBYnlRaDdxU1BuN2JQRzFFbnc2bC9rUDg2ZDJnVkZ0aW02Vk80?=
+ =?utf-8?B?ZlEwV2tBeFp6Vmpxejl5bnF2QWZaVHpBTWsrcG8zQ1gvZDFmSlRuWklCdUJQ?=
+ =?utf-8?B?bE5mK3hhSmo5MnovVTFzUG5HKzBOMWRaK0hpZ2ptaE8ydkRBOVR5U2RCVW8r?=
+ =?utf-8?B?bm5Dc1AwTzBVMkdhM2VEbVlHOXVtd0dFSkZxZktyZ2w0NTBEZWtDQStLYkJj?=
+ =?utf-8?B?MDNZNG5wMmxLNWtndERtWHhybHA5bFBLTWdSTXdWdjFLMnNGcWJNSWxSMGFB?=
+ =?utf-8?B?a0RNVE9xYW9VSUpESDAwNFhhbU9XL214QzhZMnVjOElTNHVBTVpWdz09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: de7f22be-7e93-4577-58f4-08df42ee6bd5
+X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB932075.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2026 07:59:48.9501
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CVpMWAlvBcnASfrGZYpXVzJdbVIaA5fOHpcuzn5tZwQBduAes5SkA9AOczjlnumjv4a0401iLyrI1UtutGnN5w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7849
 
-AC200 and AC300 count received frames including those with CRC errors.
-Subtract the CRC-error count to report successful frames through the
-existing PHY rx_packets statistic, and report CRC errors through
-rx_errors. Report the hardware byte total through rx_bytes_total, leaving
-the successful-only rx_bytes unset because damaged-frame lengths are not
-available separately.
 
-The free-running packet and CRC-error counters both wrap at 2^32.
-Read each counter high/low/high to detect a carry, and bracket the packet
-read with an unchanged CRC count before subtracting. Their difference
-also wraps at 2^32. Accumulate its wrap-adjusted deltas in a 64-bit total.
 
-Hardware measurements on AC200 and AC300 established a receive-byte
-modulus of 4,000,000,000. The byte counts include Ethernet headers, padding
-and FCS, but exclude preamble and SFD. Apply that modulus to byte deltas
-and skip byte samples at or above it without changing their baseline.
+On 13/11/2026 17:00, Dragos Tatulea wrote:
+> On 11.11.26 22:46, Stanislav Fomichev wrote:
+>> On 11/10, Tariq Toukan wrote:
+>>> From: Dragos Tatulea <dtatulea@nvidia.com>
+>>>
+>>> Currently there is no way to check whether a dmabuf is bound on a TX
+>>> queue. RX side has netif_rxq_has_unreadable_mp() which gives a hint
+>>> of it.
+>>>
+>>> To help with that, add a helper to check whether a devmem dmabuf
+>>> binding may still be in use on a given netdev, optionally filtered by
+>>> the DMA device the dmabuf was mapped against.
+>>>
+>>> A binding can outlive the user's unbind: it can still be referenced by
+>>> in-flight TX skbs, whose DMA mappings are only valid for the device the
+>>> dmabuf was attached to. Reporting such a binding as gone would let a
+>>> driver swap the DMA device out from under those skbs. Bindings stay in
+>>> the bindings xarray until they are freed, so walk it and report every
+>>> binding of the netdev that is still mapped. Bindings that were already
+>>> unmapped are not reported.
+>>>
+>>> This API is necessary for the upcoming support of data direct in mlx5e.
+>>>
+>>> Signed-off-by: Dragos Tatulea <dtatulea@nvidia.com>
+>>> Cc: Bobby Eshleman <bobbyeshleman@gmail.com>
+>>> Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
+>>> ---
+>>>   include/net/netmem.h | 24 ++++++++++++++++++++++++
+>>>   net/core/devmem.c    | 43 +++++++++++++++++++++++++++++++++++++++++++
+>>>   2 files changed, 67 insertions(+)
+>>>
+>>> diff --git a/include/net/netmem.h b/include/net/netmem.h
+>>> index fb693bc1702a..35bb6fa0f719 100644
+>>> --- a/include/net/netmem.h
+>>> +++ b/include/net/netmem.h
+>>> @@ -397,16 +397,40 @@ static inline unsigned long netmem_get_dma_addr(netmem_ref netmem)
+>>>   	return netmem_to_nmdesc(netmem)->dma_addr;
+>>>   }
+>>>   
+>>> +struct net_device;
+>>> +
+>>>   #if defined(CONFIG_NET_DEVMEM)
+>>>   static inline bool net_is_devmem_iov(const struct net_iov *niov)
+>>>   {
+>>>   	return niov->type == NET_IOV_DMABUF;
+>>>   }
+>>> +
+>>> +/**
+>>> + * netdev_has_dmabuf_binding - is there a dmabuf binding for a
+>>> + * given @dev and @dma_dev
+>>> + *
+>>> + * @dev: netdev to check bindings
+>>> + * @dma_dev: dma device to check, when NULL it will not be checked
+>>> + *
+>>> + * A binding is reported for as long as it is mapped, which can be long
+>>> + * after the user unbound it: net_iovs of a TX binding can still be queued
+>>> + * in flight, with DMA mappings that are only valid for the device the dmabuf
+>>> + * was attached to.
+>>> + *
+>>> + * Return: true if a binding is found under @dev and possibly @dma_dev
+>>> + */
+>>> +bool netdev_has_dmabuf_binding(struct net_device *dev, struct device *dma_dev);
+>>>   #else
+>>>   static inline bool net_is_devmem_iov(const struct net_iov *niov)
+>>>   {
+>>>   	return false;
+>>>   }
+>>> +
+>>> +static inline bool netdev_has_dmabuf_binding(struct net_device *dev,
+>>> +					     struct device *dma_dev)
+>>> +{
+>>> +	return false;
+>>> +}
+>>>   #endif
+>>>   
+>>>   void net_iov_inc_ref(struct net_iov *niov);
+>>> diff --git a/net/core/devmem.c b/net/core/devmem.c
+>>> index 5c7d9640e9d1..dd3987bbd9f6 100644
+>>> --- a/net/core/devmem.c
+>>> +++ b/net/core/devmem.c
+>>> @@ -513,6 +513,49 @@ struct net_devmem_dmabuf_binding *net_devmem_lookup_dmabuf(u32 id)
+>>>   	return binding;
+>>>   }
+>>>   
+>>> +/* The attachment is cleared once the binding has been unmapped. */
+>>> +static bool
+>>> +net_devmem_binding_mapped_to(struct net_devmem_dmabuf_binding *binding,
+>>> +			     struct device *dma_dev)
+>>> +{
+>>> +	lockdep_assert_held(&binding->lock);
+>>> +
+>>> +	return binding->attachment &&
+>>> +	       (!dma_dev || binding->attachment->dev == dma_dev);
+>>> +}
+>>> +
+>>> +bool netdev_has_dmabuf_binding(struct net_device *dev, struct device *dma_dev)
+>>> +{
+>>> +	struct net_devmem_dmabuf_binding *binding;
+>>> +	unsigned long xa_idx;
+>>> +	bool found = false;
+>>> +
+>>> +	netdev_assert_locked(dev);
+>>> +
+>>> +	/* A binding stays in the xarray until it is freed. binding->dev is
+>>> +	 * only cleared under the instance lock of that netdev, and the free
+>>> +	 * takes it before erasing the binding, so a binding found under @dev
+>>> +	 * stays alive while the xarray lock is dropped.
+>>> +	 */
+>>> +	xa_lock(&net_devmem_dmabuf_bindings);
+>>> +	xa_for_each(&net_devmem_dmabuf_bindings, xa_idx, binding) {
+>>> +		if (READ_ONCE(binding->dev) != dev)
+>>> +			continue;
+>>> +
+>>> +		xa_unlock(&net_devmem_dmabuf_bindings);
+>>> +		mutex_lock(&binding->lock);
+>>> +		found = net_devmem_binding_mapped_to(binding, dma_dev);
+>>> +		mutex_unlock(&binding->lock);
+>>> +		xa_lock(&net_devmem_dmabuf_bindings);
+>>
+>> Sorry, my cache is already empty after c4466d2c3e77.. I wonder if it would
+>> be easier to change kfree(binding) to kfree_rcu(binding, ...) and then
+>> we can rcu_lock/xa_for_each here without xa_lock/mutex? All we care is our
+>> netdev bindings, and these are not being changed as long as we
+>> hold the instance lock (but the other ones are now concurrently freed,
+>> hence rcu so we can safely do READ_ONCE on the binding)..
+>>
+>> And then the same applies to path 11?
+>>
+>> (trying to keep all the complexity in net_devmem_dev_unregister)
+> Done. Will be part of v3. Code does look cleaner now for both patches.
+> Thanks for the suggestion!
+> 
 
-Bound sampling retries to avoid retaining the PHY and MDIO locks
-indefinitely. When CRC errors keep arriving, update rx_errors from the
-latest stable error read without advancing the successful-frame baseline.
-A later coherent pair accounts for the intervening successful frames.
-Collect bytes independently of that pair. An unstable sample is not an
-MDIO error: returning a synthetic error from update_stats would make
-phylib take the link down. Real MDIO errors, including page-restoration
-failures, still propagate.
+pw-bot: cr
 
-Serialize sampling, reporting and power transitions with the package
-mutex. Commit samples only after page restoration succeeds, and return
-cached totals from get_phy_stats without further MDIO access.
-
-Invalidate baselines before soft_reset or power-off, since phylib may
-already have reset the counters. Take a best-effort snapshot before
-suspend and start new intervals on resume, including when WoL retained
-power while polling stopped. Keep a separate sampling time for each
-counter and discard deltas after gaps of at least 320 seconds, including
-system sleep and register-read time. At 100 Mb/s, that bounds the byte
-counter and conservatively bounds the frame counters even at one frame
-per received byte. Retain accumulated totals across these gaps and power
-transitions, without inventing an unobservable number of counter cycles.
-
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
----
- drivers/net/phy/xpowers/acx00.c | 223 +++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 220 insertions(+), 3 deletions(-)
-
-diff --git a/drivers/net/phy/xpowers/acx00.c b/drivers/net/phy/xpowers/acx00.c
-index cee6c7ff0278..691f4931af46 100644
---- a/drivers/net/phy/xpowers/acx00.c
-+++ b/drivers/net/phy/xpowers/acx00.c
-@@ -8,12 +8,14 @@
- 
- #include <linux/bitfield.h>
- #include <linux/device.h>
-+#include <linux/ethtool.h>
- #include <linux/module.h>
- #include <linux/mutex.h>
- #include <linux/nvmem-consumer.h>
- #include <linux/of.h>
- #include <linux/phy.h>
- #include <linux/slab.h>
-+#include <linux/timekeeping.h>
- 
- #include "../phylib.h"
- #include "acx00.h"
-@@ -31,6 +33,7 @@
- #define ACX00_PAGE_2				2
- #define ACX00_PAGE_6				6
- #define ACX00_PAGE_8				8
-+#define ACX00_PAGE_9				9
- 
- #define ACX00_PAGE0_GLOBAL_CONFIG_REG		0x13
- #define ACX00_PAGE0_XMII_RX_CLOCK_INVERT	BIT(12)
-@@ -76,6 +79,26 @@
- 	(ACX00_PAGE8_AUTO_CAL_TX_LEVEL_ADJUST_BYPASS | \
- 	 ACX00_PAGE8_AUTO_CAL_LOW_CAL_OPAQUE_BITS)
- 
-+#define ACX00_PAGE9_RX_BYTES_HIGH_REG		0x19
-+#define ACX00_PAGE9_RX_PACKETS_HIGH_REG		0x1b
-+#define ACX00_PAGE9_RX_CRC_ERRORS_HIGH_REG	0x1d
-+
-+/*
-+ * AC200 and AC300 hardware testing confirmed that the receive byte counter
-+ * wraps at 4,000,000,000 rather than 2^32.
-+ */
-+#define ACX00_RX_BYTES_WRAP			4000000000ULL
-+/* At 100 Mb/s, a full byte-counter cycle takes at least 320 seconds. */
-+#define ACX00_STATS_MAX_INTERVAL_MS		(ACX00_RX_BYTES_WRAP * 8 / (SPEED_100 * 1000))
-+#define ACX00_COUNTER_READ_ATTEMPTS		3
-+
-+enum acx00_ephy_stat {
-+	ACX00_STAT_RX_PACKETS,
-+	ACX00_STAT_RX_CRC_ERRORS,
-+	ACX00_STAT_RX_BYTES,
-+	ACX00_NUM_STATS,
-+};
-+
- /*
-  * Another integration of this exact-ID PHY documents its digital vendor
-  * register map, which also matches the observed ACx00 reset values. The ACx00
-@@ -86,11 +109,16 @@
- struct acx00_ephy_priv {
- 	struct phy_device *phydev;
- 	struct acx00_ephy_control *control;
--	/* Serializes package state and multi-register power sequences. */
-+	/* Serializes package state, power sequences and statistics. */
- 	struct mutex state_lock;
- 	bool is_ac300;
- 	bool use_low_calibration_tuning;
- 	bool xmii_rx_clock_inverted;
-+	bool stats_active;
-+	u8 stats_valid;
-+	ktime_t stats_start[ACX00_NUM_STATS];
-+	u32 stats_last[ACX00_NUM_STATS];
-+	u64 stats[ACX00_NUM_STATS];
- };
- 
- static int acx00_ephy_read_page(struct phy_device *phydev)
-@@ -110,6 +138,169 @@ static int acx00_ephy_write_page(struct phy_device *phydev, int page)
- 			   FIELD_PREP(ACX00_PAGE_SELECT_MASK, page));
- }
- 
-+/* Return 0 on success, 1 for an unstable sample, or a negative MDIO error. */
-+static int acx00_ephy_read_counter(struct phy_device *phydev, u8 reg, u32 *count)
-+{
-+	int high, low, check;
-+	int i;
-+
-+	/* The free-running counter can carry while its two halves are read. */
-+	for (i = 0; i < ACX00_COUNTER_READ_ATTEMPTS; i++) {
-+		high = __phy_read(phydev, reg);
-+		if (high < 0)
-+			return high;
-+		low = __phy_read(phydev, reg + 1);
-+		if (low < 0)
-+			return low;
-+		check = __phy_read(phydev, reg);
-+		if (check < 0)
-+			return check;
-+		if (high != check)
-+			continue;
-+
-+		*count = (u32)high << 16 | low;
-+		return 0;
-+	}
-+
-+	return 1;
-+}
-+
-+/* Return a mask of usable counters, or a negative MDIO error. */
-+static int acx00_ephy_read_counts(struct phy_device *phydev, u32 *counts)
-+{
-+	u32 packets, errors;
-+	int ret;
-+	int i;
-+
-+	ret = acx00_ephy_read_counter(phydev, ACX00_PAGE9_RX_CRC_ERRORS_HIGH_REG,
-+				      &counts[ACX00_STAT_RX_CRC_ERRORS]);
-+	if (ret)
-+		return ret < 0 ? ret : 0;
-+
-+	/* Bracket the packet counter with an unchanged CRC count. */
-+	for (i = 0; i < ACX00_COUNTER_READ_ATTEMPTS; i++) {
-+		ret = acx00_ephy_read_counter(phydev, ACX00_PAGE9_RX_PACKETS_HIGH_REG,
-+					      &packets);
-+		if (ret < 0)
-+			return ret;
-+		if (ret)
-+			break;
-+		ret = acx00_ephy_read_counter(phydev, ACX00_PAGE9_RX_CRC_ERRORS_HIGH_REG,
-+					      &errors);
-+		if (ret < 0)
-+			return ret;
-+		if (ret)
-+			break;
-+		if (errors == counts[ACX00_STAT_RX_CRC_ERRORS]) {
-+			/* Both hardware counters and their difference wrap at 2^32. */
-+			counts[ACX00_STAT_RX_PACKETS] = packets - errors;
-+			return BIT(ACX00_STAT_RX_PACKETS) | BIT(ACX00_STAT_RX_CRC_ERRORS);
-+		}
-+		counts[ACX00_STAT_RX_CRC_ERRORS] = errors;
-+	}
-+
-+	/* Keep reporting errors even when no coherent packet sample is possible. */
-+	return BIT(ACX00_STAT_RX_CRC_ERRORS);
-+}
-+
-+static int __acx00_ephy_update_stats(struct phy_device *phydev)
-+{
-+	struct acx00_ephy_priv *priv = phydev->priv;
-+	u32 counts[ACX00_NUM_STATS];
-+	ktime_t start;
-+	int oldpage;
-+	int valid;
-+	int ret;
-+	int i;
-+
-+	lockdep_assert_held(&priv->state_lock);
-+
-+	if (!priv->stats_active)
-+		return 0;
-+
-+	start = ktime_get_boottime();
-+	oldpage = phy_select_page(phydev, ACX00_PAGE_9);
-+	if (oldpage < 0)
-+		return phy_restore_page(phydev, oldpage, oldpage);
-+
-+	valid = acx00_ephy_read_counts(phydev, counts);
-+	if (valid < 0) {
-+		ret = valid;
-+		goto out_restore_page;
-+	}
-+
-+	ret = acx00_ephy_read_counter(phydev, ACX00_PAGE9_RX_BYTES_HIGH_REG,
-+				      &counts[ACX00_STAT_RX_BYTES]);
-+	if (ret < 0)
-+		goto out_restore_page;
-+	if (!ret && counts[ACX00_STAT_RX_BYTES] < ACX00_RX_BYTES_WRAP)
-+		valid |= BIT(ACX00_STAT_RX_BYTES);
-+	ret = valid;
-+
-+out_restore_page:
-+	ret = phy_restore_page(phydev, oldpage, ret);
-+	if (ret < 0)
-+		return ret;
-+
-+	for (i = 0; i < ACX00_NUM_STATS; i++) {
-+		u64 count;
-+
-+		if (!(ret & BIT(i)))
-+			continue;
-+		count = counts[i];
-+
-+		/* Include sleep and read time; unseen cycles cannot be recovered. */
-+		if ((priv->stats_valid & BIT(i)) &&
-+		    ktime_ms_delta(ktime_get_boottime(), priv->stats_start[i]) <
-+		    (s64)ACX00_STATS_MAX_INTERVAL_MS) {
-+			if (count < priv->stats_last[i])
-+				count += i == ACX00_STAT_RX_BYTES ?
-+					ACX00_RX_BYTES_WRAP : BIT_ULL(32);
-+			priv->stats[i] += count - priv->stats_last[i];
-+		}
-+		priv->stats_last[i] = counts[i];
-+		priv->stats_start[i] = start;
-+		priv->stats_valid |= BIT(i);
-+	}
-+
-+	return 0;
-+}
-+
-+static int acx00_ephy_update_stats(struct phy_device *phydev)
-+{
-+	struct acx00_ephy_priv *priv = phydev->priv;
-+	int ret;
-+
-+	mutex_lock(&priv->state_lock);
-+	ret = __acx00_ephy_update_stats(phydev);
-+	mutex_unlock(&priv->state_lock);
-+
-+	return ret;
-+}
-+
-+static void acx00_ephy_get_phy_stats(struct phy_device *phydev,
-+				     struct ethtool_eth_phy_stats *eth_stats,
-+				     struct ethtool_phy_stats *stats)
-+{
-+	struct acx00_ephy_priv *priv = phydev->priv;
-+
-+	mutex_lock(&priv->state_lock);
-+	stats->rx_packets = priv->stats[ACX00_STAT_RX_PACKETS];
-+	stats->rx_errors = priv->stats[ACX00_STAT_RX_CRC_ERRORS];
-+	stats->rx_bytes_total = priv->stats[ACX00_STAT_RX_BYTES];
-+	mutex_unlock(&priv->state_lock);
-+}
-+
-+static void acx00_ephy_snapshot_stats(struct phy_device *phydev)
-+{
-+	int ret;
-+
-+	/* Statistics collection must not prevent reset or power management. */
-+	ret = __acx00_ephy_update_stats(phydev);
-+	if (ret)
-+		phydev_dbg(phydev, "failed to snapshot statistics: %pe\n", ERR_PTR(ret));
-+}
-+
- static int acx00_ephy_control_power_on(struct acx00_ephy_priv *priv)
- {
- 	lockdep_assert_held(&priv->state_lock);
-@@ -122,6 +313,10 @@ static int acx00_ephy_control_power_off(struct acx00_ephy_priv *priv)
- {
- 	lockdep_assert_held(&priv->state_lock);
- 
-+	/* Even a failed power-off can have reset the hardware counter. */
-+	priv->stats_active = false;
-+	priv->stats_valid = 0;
-+
- 	return priv->control->power_off(priv->control);
- }
- 
-@@ -350,6 +545,10 @@ static int acx00_ephy_soft_reset(struct phy_device *phydev)
- 
- 	mutex_lock(&priv->state_lock);
- 
-+	/* phylib may already have reset the counters before calling us. */
-+	priv->stats_active = false;
-+	priv->stats_valid = 0;
-+
- 	ret = acx00_ephy_set_interface(phydev);
- 	if (ret)
- 		goto out_power_off;
-@@ -475,10 +674,21 @@ static int __acx00_ephy_config_init(struct phy_device *phydev)
- 
- 	/* Restore the standard EEE policy retained by phylib across resets. */
- 	ret = genphy_c45_an_config_eee_aneg(phydev);
--	if (ret <= 0)
-+	if (ret < 0)
- 		return ret;
-+	if (ret > 0) {
-+		ret = genphy_restart_aneg(phydev);
-+		if (ret)
-+			return ret;
-+	}
-+
-+	if (!priv->stats_active) {
-+		/* Establish a new baseline after reset, retaining the software total. */
-+		priv->stats_active = true;
-+		acx00_ephy_snapshot_stats(phydev);
-+	}
- 
--	return genphy_restart_aneg(phydev);
-+	return 0;
- }
- 
- static int acx00_ephy_config_init(struct phy_device *phydev)
-@@ -534,6 +744,9 @@ static int acx00_ephy_resume(struct phy_device *phydev)
- 	int ret;
- 
- 	mutex_lock(&priv->state_lock);
-+	/* WoL can keep the PHY counting while phylib polling is stopped. */
-+	priv->stats_active = false;
-+	priv->stats_valid = 0;
- 	ret = __acx00_ephy_power_on_and_resume(phydev);
- 	mutex_unlock(&priv->state_lock);
- 
-@@ -550,6 +763,8 @@ static int acx00_ephy_suspend(struct phy_device *phydev)
- 	mutex_lock(&phydev->lock);
- 	mutex_lock(&priv->state_lock);
- 
-+	acx00_ephy_snapshot_stats(phydev);
-+
- 	ret = genphy_suspend(phydev);
- 	if (ret)
- 		goto out_unlock;
-@@ -616,6 +831,8 @@ static struct phy_driver acx00_ephy_driver[] = {
- 		.soft_reset = acx00_ephy_soft_reset,
- 		.config_init = acx00_ephy_config_init,
- 		.disable_autonomous_eee = acx00_ephy_disable_autonomous_eee,
-+		.get_phy_stats = acx00_ephy_get_phy_stats,
-+		.update_stats = acx00_ephy_update_stats,
- 		.suspend = acx00_ephy_suspend,
- 		.resume = acx00_ephy_resume,
- 	},
-
--- 
-2.53.0
 
