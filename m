@@ -1,99 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794749178;
-	b=is9zGGFd+CiyWj/CnzDJ0EXhh+JbU0v8aQ63XvbGYYhPSXp81/aE+JgJwUe28XI332Sz
-	 wPT+twAxx9cyne86J2eKLvBAqs+rQjk77Ee7w6F8BROIV5ryLNeXRSd67suPDAgaW3DBX
-	 3IZQxfO8VdzuuuL8jP8EQLgukm3fFR7xFXPEH6bDgEFCgEREdXawPmwpghVqzKVkSOvgH
-	 5reiZN7FGYqDg8zbM6Al3tS2OLBPOfIsNfHZDUjeppf6FyRHu34QkXxg5NhbZi5QNOdo5
-	 F/jVElBh85vlhFODeAY58Ts5iZfp1IuC8fbYCjsjn3MNw55E/1mUp7olzwq3VKnQWMg==
+	t=1794750039;
+	b=c5alXUQ2jZ3oGjY809QLCZOrlji/NPgV5tiDaA85QZlviaiBB6l8Mg1LU+R5eggs8p4N
+	 289Gf6ZSmu1Psg/jpZNdVFKPqladBl+ZC/p1KXkdXKhI6pVGxFn7sKmTyXfc9pJS0fiXa
+	 6J4gYUL/xFHvy3LqYFoAriPCUL57SlikBFTrmVFWD4SC4+MonCKihUrOy45/5fhwdH/In
+	 ggOWJSsz+AMVNZLg6JiUtPSVAlKFGPOkDqD1XjD5vERjcWpQQg6qIszw5ljnLFjW/2XP3
+	 aDym06JakPOzA3VX6uLiH5jYO8OHXfWwswVTqtJI5+A1Esu91Oy6SPBT3/i4vnG6KLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794749178;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794750039;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=+e9lBaxj2RZ0ZeX4Opx/X6I6Bw5jb8RH55Fa71bptw0=;
-	b=QFTvNAiLug66hSgcstN8yAklmHjRS2Tnn1jcxjFA0VWi997X9VbN23i/KKWF+EIdOl1o
-	 VxhjZ51+6hvbWacVacsNO6dv5Meqi8KeLWRuS0BaFz3CsDtBfJ360QBElDLL9+JXqkeJK
-	 rsSRrpTL0y7ZXJv6qq7j0fC9hbmXdGaAb+zcITUneKrK9CIkp0twrTeBf0wr3zQbRSkZ8
-	 6p6YPQVZ6fEczGBKROOfwU2XvDq1Q2TM352Tdj2KK67ht8CVC5qJeptG78GiVHx3YdVyu
-	 H5hd5ejH7cILDbCdIOTxC0X9TEUNu0SiXLwZ1Hm1ZI5d5XGIN5djADK0oHpaCzPXCJw==
+	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=L9Z2e0KuO6yFLSMGIY9LHrayXw4tNQJoHgaVpcSQaXQ=;
+	b=Y53hvmCzGzMPOiwy0vV2KMEmlYCr9cyKWscObWNQdfql1Ia7W8lkYnrdFeiguCeEbWO/
+	 LFkDdK6LJH03SESwQePfzrd+4N+1xR8p+o7TTvtXxi4sNiTap/dEUHvMSa8eFfEV0eLkS
+	 1dncLd8gl5pcHhucD6EhMwqbpb1K8t1URgz0kb034jLNUAi6vUZ+h2JUtFD4VFD0dKhIY
+	 /eXd13rE5Ek6BHAq4RetiUeDXW/3c7J7MyITY0tF+9NfxvtqWDwvE1vftbJ89a/msAtom
+	 VJkQ/DMj7VFWuUou8XeUGfFk5mSbTcAb98zBAsm7R3s2eNJO2/C6+6IkWpUXUvN6qqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WA6slowg;
-	arc=none smtp.remote-ip=74.125.82.49
-Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NgWsEksX;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4814A606A31D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:26:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4814A606A31D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADA1D606A31A
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:40:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADA1D606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WA6slowg
-Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-15ea896ddc8so3721588c88.0
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 05:26:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NgWsEksX
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb5f49a61bso5000425e9.0
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 05:40:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794749177; x=1795353977; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+e9lBaxj2RZ0ZeX4Opx/X6I6Bw5jb8RH55Fa71bptw0=;
-        b=WA6slowgRj1VJByjh1ROMR0y30Jy0uu6JUq+8Scgum+oZRppAyM6CP6gBGgn8XU0Zu
-         e0VJZ8IWpZ8L8mOlnpyiSHi9hhtk9jomRqhg9KOoL9DExWedZL1FH8d2m3uWM1WCXyK4
-         /tJ6qsAnEeQ2vkCDOfonSC651rP8Bg3HrzwujTbhGS081nn0PtKiNj4Ztq3oYNooPNkg
-         +PI0dtFHxXPfXmnKctSWUrAWWFwrSdNL+e+bqNvTZDfTquV6+KJS9F+HrQLuSdvZz0+4
-         Cd6Dl7S9GEzKdslQ0kCV+F1cMKNO3sJfMhN1Gxk1zBSzWgtq9vAppsZD+5EST4c9v09Z
-         ih5Q==
+        d=gmail.com; s=20260707; t=1794750037; x=1795354837; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=L9Z2e0KuO6yFLSMGIY9LHrayXw4tNQJoHgaVpcSQaXQ=;
+        b=NgWsEksX/0sYm1633PJw++fnv/VFkAE9SBWZqgL49Z0r6u+NlQ8FKbl7D3VIBcWqcI
+         17ANU0aAU5L8z0DEl4dWWrE+iFUqCt2LpQHVfSGlnx0TEXaDTW91gqH0Ja3e4sSWKF94
+         PEgTtvnyxibKHo4BaCAIzAhIJH3o1i794DsXmXz0Odb7OxsOCdigBl7xuF9+VCHtoPHI
+         MNo+vsC8o8p5vxBdtu0bCkH/oxq9k2DuuRIvmzmRvU9gdR0kaRIH42tF4W9Qn1xnFzFn
+         CWehJF1YalfdmSNCFW4ZPuJY9Zztj9GsCkL7G84FEt49LEA9Wp3wxToKi5ojth00zYxz
+         iQ0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794749177; x=1795353977;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+e9lBaxj2RZ0ZeX4Opx/X6I6Bw5jb8RH55Fa71bptw0=;
-        b=kgLE9eXQ9/10zHxIkeNma5bvbVD+1qedyWaMT7exkzQvIuFehhsRaGIlnXVWPwkeNE
-         yueFaF543SGqnvuD8+oND9UqyuPjMpbvaPeMWHCUt1BNElfiapH2NG/0uN0haDlX3Iem
-         V6pb0QQco2mZleH2R8PXP0qReJ1dxv2IcJ9SJVqFnx9P7hGPE4WEh7UkXLKC/YumDxSM
-         5Wm0h36F1i67sMlxa2dA+hOPrVOtSsmMNylMLRQMYDSk9qPnIy47VI9EcgqaGK6EapU9
-         v66AqmmYqP9xufRZT4EgXRkn09NSeUFU4RsltBHbmnzeOH8hr7gsVb2BAHgvnW0fqGQu
-         bUbA==
-X-Forwarded-Encrypted: i=1; AL+hErERsvXpQq87eAozqg5u++XaANchsQqkbTvdv9b74ylxXhyywqSIQESMaMR79IUynQ2XE8ZZ70E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9wpCh0l1yrcFqiY5vaFO3vasDZhUBsTJpzb2wjp8dnjAaM06v7
-	vhpNrPEPI5RTjda0565rofFHeXwkt2r8FEfAYttdJ7tGow94MV1kT6NS
-X-Gm-Gg: AYBFou1Bz+U42uPEzbyaba/R5wyCQv9wGt/r2Rj0eC8R/Zg3SSXK30m5pnQvJKnpOyd
-	45NG8f5TGtsxqqlOM4ZgPmwA3XlFypuPf+kZcD2N+ZKLXqEFAxM834gsktXvT0oBggmhBQ9d6Ie
-	8+M0q2ue/S39BmRBC4zvNTndfP22fK2/UrBxfDFm3MsLjIPD9NKWFnkU5WXXPzBiFEJXURANR6O
-	shn3pFCglQUYXE/OtSLrfBkK8Nd7+ltQs3AhjnEI4eBTsiy1238+yLDh410BMAF4Uj/smuZMAzC
-	cQezVK+pexnwiUh5a9Pb+Qztp9JgZCR6B/1SKigw5rsPV/2pHN7SNPAnTBeT+d4L31Eo1BwROxF
-	tTdtkXCqcmslmZLRv7tvnLbDNRghF3xOHLKhg4jbrXzReEa4mwjnQDoVFqA2Z4EI+WFDe8YYX6N
-	dS8h/OfWNT7FlrvFwhLXwUWxKtyCfZRy+HDynF0chRSgkPG5ihErPo7tQWRTTIN5U3RXJB9/gxi
-	rFRQ/kLysF2wf9FdwJYbN3FCLS8P0+3Hzz2YIrbvYGZ549J3M4sxhsJty6NTObwh1NnVqAWPsim
-	LiT14g5zLWGliND7eus7EFSfKzNG
-X-Received: by 2002:a05:7301:5518:b0:379:d02f:dfe8 with SMTP id 5a478bee46e88-379d02fe0b9mr6467112eec.14.1794749177124;
-        Sun, 15 Nov 2026 05:26:17 -0800 (PST)
-Received: from thangnn-ASUS.. ([2a09:bac5:d45c:e6::17:34a])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bad6casm24465309eec.26.2026.11.15.05.26.14
+        d=1e100.net; s=20260707; t=1794750037; x=1795354837;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=L9Z2e0KuO6yFLSMGIY9LHrayXw4tNQJoHgaVpcSQaXQ=;
+        b=v207Jr/duueW0BpeqPx2fk0IGWbqro/t6YwheTgLaiTmHZnazsAvkTX06rkv3oOndM
+         fvZxNpaHyd7D2PqL8HfpWn7N6FZ5uTHUMjoCZTPKQPUi6TZCDURoz7/8gv7E2BJpBw5s
+         Y6bZ6gZFhQ/vU4eTZePygDU4VWeGmvnB55vSY9Vi5RUhQHdD0Jlf8yW+F2xUJ88KhMq4
+         wilYiQAAMGLO7fkc+lRWrBLXhQGlaR7EKaON2MjDEhPFuzVrdp2zT+a569VB4u3HxqMF
+         cJ6sxCeKKVAZM9mR1LyrD/WFsmbbwB0PpuTA2pBsIra4X0qDpoBu+Qvdd74sl9uj5yZY
+         zftQ==
+X-Forwarded-Encrypted: i=1; AL+hErGcRD8eVTOx6PDiyCkZ8y/RWfTeG/aWYN8p/GltQAwBvW75p1NjQUYd1TtM3QElIIIh3c+ctDE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z97f6ievO5ppfTnQ3/U177q0E2k4RqkEmptlKAHz3VtZhZlXoop
+	PczB78mHJ6ievbPuuWLXMpwzM+txoo8oqO3HmtnEwMYrf4eyRnK9X0Dj
+X-Gm-Gg: AYBFou0HQ7Q/aBr9cLJP7050Q9ryeewiB1Er2tD0RFr4/E5dVpBCjEtnMkib9kRA2Sc
+	Dw4Y0OjcPBivVMIimu9DDnXZIGEhtqV/DVniu1F03cDNiyXYIOhl8awF0x4EdQOxIzXurbKKCRo
+	ySS3gXLKClUZcTOpQ9RF+4b71zS1ebVV943IaasH+zVNtPAG2UVGXgoRzcduxgP1hlC5KNqbbCA
+	TqpWvom56IXKf9C0fnQyPricYHJWClo2x8RZ8Jb1XAra4XkCsP+y5Sr0IBJzJHrxtXlc4L2AsxE
+	iAD0FJbzTkKSnxOq7TYCasMALag+Bg+HYMXuADR3vO3IeEqLwzLuRrZLo4r9LLut5ANGS6hEz+a
+	tlaQNDcv6Qw1Fv1JoaO9eC5avBh5n5ZSTLBX/VHB1qCqZezvycO8eLGVNsXwsZ+pN5NAO1Fd/Rx
+	hbfNCZOl6Jp27hCOCJNOut4RkzuU6N9RqANqmik0lXynHOqDsphdZEhICNUYzsLu0AILlF+k7O9
+	Cn8Mge5lX4B20P5EKlUvSVOQ/ykAi8JsXgIUe4lozT/fshpap3nYZKtdIcV+YUGnB+4MFEOX2Fg
+	F3/6EvBJ0tR0yPJgA+iKb9GPO0mMSZBi1yit4bdJ1uFg5CpbQ7DuTXqAWL9fKDHmlQ==
+X-Received: by 2002:a05:600c:4f93:b0:49f:fd2d:23c7 with SMTP id 5b1f17b1804b1-4bb55ab36famr171020575e9.27.1794750036927;
+        Sun, 15 Nov 2026 05:40:36 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb55a0ffcdsm195768565e9.0.2026.11.15.05.40.35
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 05:26:16 -0800 (PST)
-From: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>
-Cc: Christian Hopps <chopps@labn.net>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com
-Subject: [PATCH ipsec] xfrm: iptfs: force a dst reference before queueing an skb
-Date: Sun, 15 Nov 2026 20:26:11 +0700
-Message-ID: <20261115132611.427311-1-ngocthang2710.1999@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        Sun, 15 Nov 2026 05:40:36 -0800 (PST)
+Date: Sun, 15 Nov 2026 13:40:34 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Wei Jie Law <law.wei.jie@gt.tech.gov.sg>
+Cc: Thangaraj Samynathan <Thangaraj.S@microchip.com>,
+ UNGLinuxDriver@microchip.com, Andrew Lunn <andrew+netdev@lunn.ch>, "David S
+ . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Woojung Huh
+ <woojung.huh@microchip.com>, netdev@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-kernel@vger.kernel.org, Wei Jie Law
+ <98lawweijie@gmail.com>, Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH net-next v5 1/2] net: usb: lan78xx: do not update
+ statistics after a failed read
+Message-ID: <20261115134034.042486ca@pumpkin>
+In-Reply-To: <20261111013454.34542-2-law.wei.jie@gt.tech.gov.sg>
+References: <20261111013454.34542-1-law.wei.jie@gt.tech.gov.sg>
+	<20261111013454.34542-2-law.wei.jie@gt.tech.gov.sg>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,64 +105,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-iptfs_output_collect() is the dst->output hook and runs under the
-caller's RCU read lock. It queues the skb and sends it later from the
-iptfs hrtimer. The skb may still carry a noref dst, e.g. one set by
-__ip_queue_xmit() via skb_dst_set_noref(). Once the RCU section ends,
-nothing keeps that dst alive.
+On Wed, 11 Nov 2026 09:34:53 +0800
+Wei Jie Law <law.wei.jie@gt.tech.gov.sg> wrote:
 
-When the timer fires, xfrm_output_one() calls skb_dst_force() outside
-any RCU section:
+> lan78xx_update_stats() reads the hardware counters into an on-stack
+> struct lan78xx_statstage. If lan78xx_read_stats() fails, only the
+> rollover check is skipped: the counters are still recomputed from the
+> uninitialized stack buffer and stored in dev->stats.curr_stat, which is
+> then reported to user space by ethtool -S.
+> 
+> Keep the previous values when the read fails.
+> 
+> Found by code review with LLM assistance. Tested together with the next
+> patch, which makes short reads fail: with an emulated device, ethtool -S
+> then keeps reporting the previous counters.
+> 
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+> Signed-off-by: Wei Jie Law <law.wei.jie@gt.tech.gov.sg>
+> ---
+>  drivers/net/usb/lan78xx.c | 8 +++++---
+>  1 file changed, 5 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/net/usb/lan78xx.c b/drivers/net/usb/lan78xx.c
+> index d73002b2c21a..76c2d98b49df 100644
+> --- a/drivers/net/usb/lan78xx.c
+> +++ b/drivers/net/usb/lan78xx.c
+> @@ -789,11 +789,13 @@ static void lan78xx_update_stats(struct lan78xx_net *dev)
+>  
+>  	mutex_lock(&dev->stats.access_lock);
+>  
+> -	if (lan78xx_read_stats(dev, &lan78xx_stats) > 0)
+> +	if (lan78xx_read_stats(dev, &lan78xx_stats) > 0) {
+>  		lan78xx_check_stat_rollover(dev, &lan78xx_stats);
+>  
+> -	for (i = 0; i < (sizeof(lan78xx_stats) / (sizeof(u32))); i++)
+> -		data[i] = (u64)p[i] + ((u64)count[i] * ((u64)max[i] + 1));
+> +		for (i = 0; i < (sizeof(lan78xx_stats) / (sizeof(u32))); i++)
+> +			data[i] = (u64)p[i] +
+> +				  ((u64)count[i] * ((u64)max[i] + 1));
 
-  WARNING: include/net/dst.h:326 at xfrm_output_resume+0x41d9/0x64e0
-  Call Trace:
-   xfrm_output_one net/xfrm/xfrm_output.c:549 [inline]
-   xfrm_output_resume+0x41d9/0x64e0 net/xfrm/xfrm_output.c:597
-   iptfs_output_queued net/xfrm/xfrm_iptfs.c:2325 [inline]
-   iptfs_delay_timer+0x3803/0x4310 net/xfrm/xfrm_iptfs.c:2362
-   __run_hrtimer kernel/time/hrtimer.c [inline]
-   __hrtimer_run_queues+0x3bc/0xa10 kernel/time/hrtimer.c
-   hrtimer_run_softirq+0x1e3/0x2e0 kernel/time/hrtimer.c:2153
-   handle_softirqs+0x265/0x8d0 kernel/softirq.c:669
+You only need to promote one of the values to u64.
+Even just changing the 1 to 1uLL will do.
 
-The warning also means the queued skb may point to a dst that has
-already been freed.
+That made be look at the related code.
 
-Take a reference with skb_dst_force() while still under RCU, as other
-deferred xmit paths do, and drop the skb if its dst is already gone.
+This function has a large on-stack buffer (about 800 bytes from a quick
+count). But lan78xx_read_stats() (now) calls kmalloc() - probably because
+it cant use an on-stack buffer for the usb transfer.
+If you need to call kmalloc() it might as well be for the larger structure.
 
-Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
-Reported-by: syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=622de7e1f18a30fc404a
-Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
----
-Tested in QEMU with the syzbot C reproducer on origin/master (23c62304dde2),
-60s per run: unpatched kernel hits 48 of these warnings; patched kernel
-hits 0 in 3 runs, with no KASAN reports.
+There are a lot of stats, and two structures (one u32 and on u64) that have
+to match, not only that but a lot (but not all) the code ends up treating
+the structures as arrays.
+It is probably worth just changing them to arrays and using an enum for
+the indexes.
 
- net/xfrm/xfrm_iptfs.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+Oh - glad to see you fixed (finally) the massive 'truesize' bug.
+When I was testing this driver (may years ago, and the product that would
+have used it got cancelled) I found a bug with one of the usb3 host
+controllers that it only processed one request from one of the control
+rings for each 'doorbell' write. The setup code could send them too fast
+and it all got very confusing - don't know if that got fixed.
+I've actually got the host that failed, but I don't think I've got the
+usb ethernet device.
 
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 0313a43aa8a9..3fff835497b9 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -1914,6 +1914,13 @@ static int iptfs_output_collect(struct net *net, struct sock *sk, struct sk_buff
- 			continue;
- 		}
- 
-+		/* The queued skb outlives our RCU section, so pin its dst. */
-+		if (!skb_dst_force(skb)) {
-+			XFRM_INC_STATS(net, LINUX_MIB_XFRMOUTERROR);
-+			kfree_skb(skb);
-+			continue;
-+		}
-+
- 		/* Enqueue to send in tunnel */
- 		ok = iptfs_enqueue(xtfs, skb);
- 		if (!ok)
--- 
-2.43.0
+David
+
+
+
+> +	}
+>  
+>  	mutex_unlock(&dev->stats.access_lock);
+>  
 
