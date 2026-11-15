@@ -1,85 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794785201;
-	b=RBEIUNgwpGlis96vRYtIU8l20GwIuunNXCOMS7rCbjTYbzsx8yx7mTMa+uVq0ob4W9P6
-	 M3sQYVDsHTmSyPBYpPNpb2NlE4oLZDvacEtRM8Iuc5rLlrvg/mVTsv3DcFZzPQYeS+Sxb
-	 eSiLeczkm1Ytk+1Cj+O51o+RASu5i/q/waxKjQ323RK8I6HISz8eaehAouinUn4lEsT3n
-	 hvz5f3JyeuD9QAL/GfELqVphPco31aKfi5DOpP55WNd7TEQOx3oAYvuEx7cKNFnBn4UT2
-	 p/fQzDrgh15pPRKYDpI0y1w+rdKBfX9y46QugzpTFduIL/JFtKvMpLWIDDcTsJSrnNw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794785201;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.181
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794785219;
+	b=vLHW8Ax9PZSY84Ar3PRbJaPkSGnh7C+mOgX83IDR6v73kgJyac8k/5sUzhVU99iBYkfy
+	 bv1tFnqcNJU+3RaaX7TOKTIG9/gVcFReD/PMjCehzQSt5x2OPyRfTJ4xbRxDDYupy1cRN
+	 chHaBfYKBymZpZB3KI5mTH1goaH8k7wQ9vK8ZKmz1TS7T774jlM5UnBamFbjNP0siupLU
+	 HzHkxGRJY8l3p0IyXtwnibWgD8iD9Cair0FnXaE/xmTFCxBXm1mdDpHy6ovn7JlPnv0gr
+	 qDHgzUmD1bF4FwPEmok3lQx0vDOWt/u5Cup+Eh/+AjWPFNxK9oAXT8xmR0oyoLjnsEg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794785219;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Cc:Subject:From:To:X-Mailer:References:In-Reply-To;
-	bh=20xh83TZY5Uy9+3Rpue534EqUQXyz0SBbzg5tu3uVBA=;
-	b=pRAMGyA4rExNgjsXLik2kH6L5iCI/X86GT+eRM4ygiIQEQNJf/7No3PEFI1TMSrI5nC3
-	 OORL8d9DK4Fe94HcMoYOyXunUyhi/drcScOSkRfuwZOVlSP6riOWzh5rLUK0fL97e4aWs
-	 QL1NAxI+6P3IkyC9JvB9CVIhU/eYzsXSl/sPCPl32BkmWOJCSeo9c21NQgKbWbseve3SV
-	 IqmNzZWker2jTcrGNCRKaYJuZYgD0zgsH9HGmLgEOYp+PPNbMepYmIVj6i86bTVHqwyQk
-	 iBS2W+a+1TRAQa64J6gn7w4hXgXTa/AaCuzyEOvvl0/LPDvN+x4OMO+fVMp3rmd4+wg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gj10Swzo;
-	arc=none smtp.remote-ip=209.85.215.175
-Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=S7sUxxOjR8dG97fsnQkso2azf9gww/Gfl7/yzKc8Re8=;
+	b=bQZcmLUkArdSguHuKI0IsFK2G5OGP4ro5opqrs8/9X3ltAOotYXAZX2Zhr0IyCMl5NC/
+	 AGhUbQhJAlgp4hqQnSOHelGYKXFvYThVJljKi45CQYm5eIeCMG8lR/BfLHhLsXlsalm+M
+	 TNUrHfeVfqsFr+zwIPXWLA/tszIMM2BL1txMMW5hznMmy5aFnQT39MA6fYUQ9+fpjke0/
+	 ZX62PVbc3rJiIRcupTgs/klcS/g1EILFuIpII9L83lk1FXOafMs56/MTI6IZo8PoKAUNw
+	 4RbMSXx5Q5QmKJ7lNDV10tmkxauS0IURIwZMFzIHBIUUZTd8fNdPm1SgN69SxsLdxMQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=rEWXnzDK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.181
+Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E34B606A329
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 23:26:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E34B606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C518D606A329
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 23:26:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C518D606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gj10Swzo
-Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cddff772fffso91378a12.0
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 15:26:40 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=rEWXnzDK
+Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8b29b83fdf1so1400268b3a.2
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 15:26:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794785218; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OKxnwbt776TJGrkSqw+96YR31fGxY/23SBRDett5Em3DM3zz2mipedXsj4mt4UwJTt
+         YStMFwn6Lx+9LbJnlJ1/HFLXoJqgVzoVWnpJkvVfsaQUQtG9oefU0UfRZlKH4pEgbiZS
+         rAfVJpdgmoAbn8X9I1u57ZSLPbGgoifpskptWlUEF6khDYpIrDAo0qSTwEHZ90JZvBR/
+         TgXqYq7g9jswrN9CRm7mg6dj3+hpPgmMZe8VoHr/vgb/+1sM6P6zZsvjLSc8h060mSS9
+         7elFVoxWA4eF4Aln51Y/ozi0jA7WUquIK28fksUgePKW4awztVHNXroWqvJa63neiCK8
+         W8uw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=S7sUxxOjR8dG97fsnQkso2azf9gww/Gfl7/yzKc8Re8=;
+        fh=8RmJ1TkJL7iN+NvlkjYMunY5KmL2jMvo7FSORUvpFYc=;
+        b=j3iqBL3BMUdajcH/620VQVrsJ7+fc1uB2Dw1ASLGsKxUx9fckuJR6Tv5Dd7GGFN2H8
+         C0MJP75CJIy/uC+88UqYwF+CGUpqYKWiVSIC0NiHdotpzHGYHHF5EzGfYPe7y6wa5Dso
+         eushmyT0Y7uVF9wJkvKDGXH96P/8QtMpO/DJdSRmhM0qIf2CQ6Xi4er/hV7rTYOiTQp1
+         DGaq1aLjxmyBmMkX2PBj8vMvOaBvdSFMkSC7na0jeLTVzmxabAw9agXElFvoFs4KvaeK
+         fhY710ZhCYF778VCy1xVfj1L39oWBsTm8UnLWDHl18EEpBv1aPJh57wkfIcYRF4cgblK
+         z5fQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794785199; x=1795389999; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=20xh83TZY5Uy9+3Rpue534EqUQXyz0SBbzg5tu3uVBA=;
-        b=gj10SwzoKMqoqx9yr7X2Fju4cNBju2Oqd5X0Ay4Y61hHfD7PCDp9yiFRZZggUUCphi
-         EgquiXzLIx6aY4R2RTd5ZLyzF7a+dFyArlFGpwOF8hzIuQxpoF1rvqBPTA90bbQtiSc3
-         ZX0RVckXRZHz0dFR0n/+vn5BPOC/cB4YcRGnL/oyILEIke66Jod48SG+Qv5PIZtk+cJ3
-         a4jGk58g4rcuy6H/nHZi7pTcKmRSJIlcgRxeZ8a/8BRn14ucVJyS4iEkzUGGbVSfsTxE
-         PA1L6L9cE4UDQma31GznSkYOnY4WfVQEo52nxdxOSnQrrOnmbWew4sNB0BE/xLjNWEuG
-         NuZg==
+        d=mojatatu.com; s=google; t=1794785218; x=1795390018; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=S7sUxxOjR8dG97fsnQkso2azf9gww/Gfl7/yzKc8Re8=;
+        b=rEWXnzDK2MWC7y6VIpU145cB4rjCv0L5lm5GGhn79QDKjesIZIFdyfJZ0NRN6M2vuV
+         hQPJlYXHXrl9/lwiUfrMSZsGMY5WlgyfDAPLGYi8NDPvNcBC1DK64dRbqANpJHDO/o9v
+         A3cnDVs3Kbv9fDDA0m+ZVEtyICkNq/BcqQLHo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794785199; x=1795389999;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1794785218; x=1795390018;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=20xh83TZY5Uy9+3Rpue534EqUQXyz0SBbzg5tu3uVBA=;
-        b=IxyCkssBarpIuDEvXQHhb0gGXvzOPz4wAYqPY6y6GHpl/RFEpnq2TGqb8jRsgPo1jb
-         M0AeYmWhU5EEaAP2w2UHk1k/nOA3gZpAP+Q+nMivYhDtLkvBfL+JyA8YP6UAUCPvZmU/
-         OdLZYFMxq8yrkTuc+faf6elqMkpceG74wVuqiVvz8ovoWp0EC6nw4oxYlJEuV65mnyTc
-         TP/1ZLH/sZVQYre6NepDoNTCE7qZdBFYvLzvJ3seDGVOyRSbHI4PNTablt14G1Z6f0aJ
-         wrz/K8IaYaKpxHYrMxIdF9Rqi9U1mt0T9+Csm8DC9rG6UZyzRsoFJT38kR8bow3ukJEs
-         U1wg==
-X-Forwarded-Encrypted: i=1; AL+hErGckDi3bdNyWo/0BFPVecfRg+7FI8Fp/9z9wyJbOI1Q4Hj7bWyRrZ4kOVxglE3Eiqz3pUUytOU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Rtaf8wpaRGkN9L8scF3kN8kDQgu4zRmnYiqAdQ+eKntCsHmnh
-	6uktD2btpnTwu9iKIU/4W97VobYReURXuikJhXN1ebxUFO3fVdhGVWCU
-X-Gm-Gg: AYBFou1sPPCQVmUQPDXQNLS+tXaWz4Jl3o/3APY3l5aPvgFi1uyHxYC1jrgMHgQGmR2
-	vmqNEj2/LfCMeqe8eSOtU3m4xerU8f0ibwcaxsJjteAw9adIEbSF1SxxI1saRoJA4DML3XHbN6n
-	TxERs5U4/TmOimyccU3YquWO2eJVed178wJLLXWfZOZi7GE7U5uP+mrdxZonS59JEH8nBxisR/F
-	D+gJnPDwm/H+R2wNt0GGQQhqWcRUpwoKyl4uAM2PFuVLpcURir3sOZ2Sj4TvsFi6Gl+kzXYbR8t
-	JUJKUjXt3z9xyccEuWjeJPprsXKluELZi7JYkEteKeC5+HuIs1dx9pkINaUDUpmAZbGXGtucq+/
-	IQsDyQRBYCS/sN/cWQTv8+/vwQORlajgupWcvfUO9eUTu1pmI/XvIOEZFzIGvXaQaXJLgfCeKFV
-	jYu+sl5EiYx39ZywXQezI31NNwMdKa5ZUAUxgX1zQWTb+P7/OfoTIclahBGBtWeRwKipEqxUgiQ
-	G4PtHmHjgswNqShfJorC5QgQw7NIKWhOnHFd8x5CPZmxsTPKiuVDOUML+oUInovRwdVv7llToU1
-	rpwBo5b2/AwHTvDU4tinqJENtbi78LabMLpOjyCrrXwPOy/GUTNW3B41JZHS2N6c8CRbw2C0lD2
-	4iXp1RtBx/TiX9KHjOrZUivy1KpC0sib3GQ==
-X-Received: by 2002:a17:90b:2e06:b0:3ac:8897:7bab with SMTP id 98e67ed59e1d1-3b1b07e1cd4mr8163612a91.6.1794785199420;
-        Sun, 15 Nov 2026 15:26:39 -0800 (PST)
-Received: from localhost ([153.61.198.241])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1b3f09b92sm6832094a91.4.2026.11.15.15.26.38
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 15 Nov 2026 15:26:39 -0800 (PST)
+        bh=S7sUxxOjR8dG97fsnQkso2azf9gww/Gfl7/yzKc8Re8=;
+        b=z30wtQUR16xtvkTvaWncHvQhFvaofVy/aGsh5uBPu42qfbyJUXBm3YsC4hXOs45h0o
+         CF0PULnSQiiRpRwzXDhaPe8yfAdv6K68xV1PgeUTAqk/uUhlfaJiuAVuGwi9xcridCpA
+         JfYeh9iRV6Er7mdoqe1PJk9GXXR/cFq6yPqQYryCjZbNccUuiihVS9ml20PpeA5Gbj7i
+         OxYNOOctsB1OssWLt4zLhhxgzLQNcIdkKM+w3XXQpc+giR93VQA9VgDDwm0AELswJDC/
+         iGkDGadSyl7kE1cI3azgYWIpT1OGEjviEjvLvuNsOyP8cQByQnWD9LBowkSi3rw0av5Z
+         EOfQ==
+X-Gm-Message-State: APuU4Z9xcljFYC8rlCRJ1qGFbdcZVuGB0Wveo1SnaXfHti+l+2bOcMxl
+	3kYTAUNw+fWIe3E57+oEbm/DBjijBUiMLH6aLRxYMIQ9WyUXXouRBsXn+AMnNj48yMLD1KN4gou
+	78Xv6Tg+drFaHFmBUnv21WMdZM7u//6RDaZ6coYPR
+X-Gm-Gg: AYBFou21rksCwpKI3QwwrEFj3D+pkQWWgCgGb8/GoQ7LG9aQ1ksXYZ/oKfQptbKqyRy
+	KFlsPPTvqxF1wDZTitd+OOkfcO6ikwDkJsmyHVxpE6DGOL02YMojArtHlmXQj/ySqvGGKlNuHWd
+	R0J+TyEeTqH+8PpKyI5bKXes+kX8QwprdmVfdMMhbv7KuuEeqfilfL6hJR6FqNNg5pw4ESPx5UI
+	b1Cc47v8NZdGADuR+DRFDhFYEFZwXYRnMG1u5nbcGnyxu+rsjlDaKccRjxJMi4u5+NKY9lGCf80
+	8+hEt3bNuXyyhGIouZeD4QuWUkfz2ddigWfVbgU3y3WYkU6LVtLKkpsJAKkc5OwNK6QUkzJi4W5
+	eSYPNZq5PZcKp5DGP/wxpUljVlDgeJQCGB+m7GAUWEdI69VcLlP89jRTjS9syPK9hBzmedRZGyl
+	pBWg3VzW1VBAX1XZryNAdauPlb7B1C6DPieDu9
+X-Received: by 2002:a05:6a00:22d2:b0:878:34d7:69b2 with SMTP id
+ d2e1a72fcca58-8beb7a246c3mr7580094b3a.57.1794785218099; Sun, 15 Nov 2026
+ 15:26:58 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,74 +100,200 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
+MIME-Version: 1.0
+References: <QDISC-6HS9.v4.r0.20261111094338-1@mojatatu.com> <179475765049.2199510.14948882455046575190@kernel.org>
+In-Reply-To: <179475765049.2199510.14948882455046575190@kernel.org>
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+Date: Sun, 15 Nov 2026 18:26:46 -0500
+X-Gm-Features: AclHuK_eTuwrE8e6HXSsCYU9ijyR2ZQyojeGZtN2xoEOB1ZZirMWjoCaM0BPz_U
+Message-ID: <CAM0EoM=SAaQUa0vZnBAPeAtRpQ4FPxng1hdNbm2LqOo00FrxBw@mail.gmail.com>
+Subject: Re: [PATCH net v4 1/3] net/sched: sch_teql: unshare the header before
+ writing and fix retry strip
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, victor@mojatatu.com, jiri@resnulli.us, 
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	horms@kernel.org, stable@vger.kernel.org, sashiko-bot@kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Sun, 15 Nov 2026 23:26:38 +0000
-Message-Id: <DMW695ICRVGM.2YJJUJQ12T0V6@gmail.com>
-Cc: <bpf@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, "Sashiko" <sashiko-bot@kernel.org>
-Subject: Re: [PATCH bpf-next v3 0/8] bpf, sockmap: Restrict iter-context
- sockmap updates to sockmap iterators
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Michal Luczaj" <mhal@rbox.co>, "Alexei Starovoitov" <ast@kernel.org>,
- "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Kumar
- Kartikeya Dwivedi" <memxor@gmail.com>, "Martin KaFai Lau"
- <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>, "Shuah Khan" <shuah@kernel.org>, "John
- Fastabend" <john.fastabend@gmail.com>, "Eric Dumazet"
- <edumazet@kernel.org>, "Kuniyuki Iwashima" <kuniyu@google.com>, "Paolo
- Abeni" <pabeni@redhat.com>, "Willem de Bruijn" <willemb@google.com>, "Jakub
- Sitnicki" <jakub@cloudflare.com>, "Jiayuan Chen" <jiayuan.chen@linux.dev>,
- "David S. Miller" <davem@davemloft.net>, "Jakub Kicinski"
- <kuba@kernel.org>, "Simon Horman" <horms@kernel.org>, "Jonathan Corbet"
- <corbet@lwn.net>, "Shuah Khan" <skhan@linuxfoundation.org>, "Randy Dunlap"
- <rdunlap@infradead.org>, "Stanislav Fomichev" <sdf@fomichev.me>
-X-Mailer: aerc 0.20.1-355-gf870624f6c37
-References: <20261107-sockmap-update-limit-iter-v3-0-7c0bad1ad036@rbox.co>
- <DMV5NLOEYFGF.C7ITHCRCNA7P@gmail.com>
- <e8f1736e-3f13-4f92-ad69-8b166c41e68a@rbox.co>
-In-Reply-To: <e8f1736e-3f13-4f92-ad69-8b166c41e68a@rbox.co>
 
-On Sun Nov 15, 2026 at 11:10 PM UTC, Michal Luczaj wrote:
-> On 11/14/26 19:45, Alexei Starovoitov wrote:
->> On Sat Nov 7, 2026 at 5:58 PM UTC, Michal Luczaj wrote:
->>> Follow-up to Sashiko's report [1] and the decision to restrict which
->>> iterator may perform sockmap updates [2]. Series started short: remove
->>> about-to-be-stale test, restrict updates, add a negative test. Then it
->>> expanded: mark bpf_iter__sockmap::sk as PTR_TRUSTED, restrict
->>> bpf_sock_destroy() callers to iter/{tcp,udp}, few little tweaks.
->>>
->>> [1]: https://msgid.link/20260626205814.BAC3C1F000E9@smtp.kernel.org
->>> [2]: https://msgid.link/87echn2fhd.fsf@cloudflare.com
->>>
->>> Signed-off-by: Michal Luczaj <mhal@rbox.co>
->>> ---
->>> Changes in v3:
->>> - Drop RFC prefix
->>> - Update bpf_iter_reg::feature docs
->>> - Fix tcp_request_sock BTF build error
->>> - Restrict allowed callers of bpf_sock_destroy() to iter/{tcp,udp} (Ale=
-xei)
->>> - Link to v2: https://patch.msgid.link/20261102-sockmap-update-limit-it=
-er-v2-0-e96a63c43b39@rbox.co
->>=20
->> Sorry for the delay. Applied.
+On Sun, Nov 15, 2026 at 10:47=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wr=
+ote:
 >
-> No problem, thanks.
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
 >
-> To follow up on bpf_iter__unix::unix_sk, looks like there's a single help=
-er
-> that will become unusable from iter/unix (once plain-PTR_TO_BTF_ID is
-> gone): bpf_get_socket_cookie(). PTR_TRUSTED then?
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] The fix leaves a gap: `skb_cow_head()` in `__teql_resolve()`
+>   (net/sched/sch_teql.c) only runs when `neigh_event_send(n, skb_res) =3D=
+=3D=E2=80=A6
 
-I have a patch that 'forks' bpf_get_socket_cookie() into two helpers.
-One for trusted and one for untrusted.
+I think this one deserves a respin. Will send a v5 in the morning.
 
-Also have a patch set that removes legacy ptr_to_btf_id for good.
-Hopefully will send today or tomorrow.
+pw-bot: cr
 
+cheers,
+jamal
+
+> --
+>
+> net/sched: sch_teql: unshare the header before writing and fix retry stri=
+p
+>
+> This patch calls skb_cow_head() in __teql_resolve() before
+> dev_hard_header() writes the slave's link header, so that a header-cloned
+> skb does not corrupt the other clone. It also records how many header byt=
+es
+> each slave added in teql_master_xmit() and pulls back only that many on
+> retry. As a result, an AF_PACKET frame with no dst keeps its user-supplie=
+d
+> header.
+>
+> Link: https://lore.kernel.org/netdev/20260824115928.4099988-1-victor@moja=
+tatu.com/
+> Link: https://lore.kernel.org/netdev/20261110101908.2e64e8e9@kernel.org/
+>
+> > diff --git a/net/sched/sch_teql.c b/net/sched/sch_teql.c
+> > index dc21cd9704a25..3f781a3ffb41a 100644
+> > --- a/net/sched/sch_teql.c
+> > +++ b/net/sched/sch_teql.c
+>
+> [ ... ]
+>
+> > @@ -293,15 +293,24 @@ __teql_resolve(struct sk_buff *skb, struct sk_buf=
+f *skb_res,
+> >       }
+> >
+> >       if (neigh_event_send(n, skb_res) =3D=3D 0) {
+> > +             int off =3D skb_network_offset(skb);
+> >               char haddr[MAX_ADDR_LEN];
+> >
+> >               neigh_ha_snapshot(haddr, n, dev);
+> > +             /* Unshare the header before dev_hard_header() writes to =
+it. */
+> > +             if (skb_cow_head(skb, LL_RESERVED_SPACE(dev)) < 0) {
+> > +                     err =3D -ENOMEM;
+> > +                     goto out;
+> > +             }
+> >               if (dev_hard_header(skb, dev, ntohs(skb_protocol(skb, fal=
+se)),
+> >                                   haddr, NULL, skb->len) < 0)
+> >                       err =3D -EINVAL;
+> > +             /* The bytes prepended above skb->data, pulled back on re=
+try. */
+> > +             *hlen =3D skb_network_offset(skb) - off;
+> >       } else {
+> >               err =3D (skb_res =3D=3D NULL) ? -EAGAIN : 1;
+> >       }
+>
+> [Severity: Medium]
+> The skb_cow_head() only runs when neigh_event_send() returns 0. What
+> happens to a header-cloned skb that takes the else branch instead?
+>
+> Suppose every slave neighbour is unresolved on the first pass of
+> teql_master_xmit(). Then neigh_event_send(n, NULL) fails, teql_resolve()
+> returns -EAGAIN and nores is set, and no unshare has run. teql then
+> restarts with the same skb as skb_res:
+>
+> teql_master_xmit() {
+>     ...
+>         if (nores && skb_res =3D=3D NULL) {
+>                 skb_res =3D skb;
+>                 rcu_read_unlock();
+>                 goto restart;
+>         }
+>     ...
+> }
+>
+> On the restart, neigh_event_send(n, skb_res) parks the skb on the slave
+> neighbour's arp_queue with its header still cloned:
+>
+> net/core/neighbour.c:__neigh_event_send() {
+>     ...
+>                         skb_dst_force(skb);
+>                         __skb_queue_tail(&neigh->arp_queue, skb);
+>     ...
+> }
+>
+> The usual reinjection path is covered. The skb's dst resolves to teql0's
+> own neighbour, whose output is neigh_direct_output(). That re-enters
+> teql_master_xmit(), where the new skb_cow_head() runs.
+>
+> However, neigh_update_process_arp_queue() can fall back to a different
+> neighbour:
+>
+> net/core/neighbour.c:neigh_update_process_arp_queue() {
+>     ...
+>                 n2 =3D NULL;
+>                 if (dst &&
+>                     READ_ONCE(dst->obsolete) !=3D DST_OBSOLETE_DEAD) {
+>                         n2 =3D dst_neigh_lookup_skb(dst, skb);
+>                         if (n2)
+>                                 n1 =3D n2;
+>                 }
+>                 READ_ONCE(n1->output)(n1, skb);
+>     ...
+> }
+>
+> This happens in two cases:
+>
+> - The dst became DST_OBSOLETE_DEAD while the skb was parked (for example,
+>   a route delete that ends in dst_dev_put()), or dst_neigh_lookup_skb()
+>   fails. Then n1 stays the slave's neighbour.
+>
+> - In the tc-mirred setup from the commit message, the dst belongs to the
+>   physical device, so n1 is that device's neighbour.
+>
+> In both cases neigh_resolve_output() writes the link header without
+> checking skb_header_cloned():
+>
+> net/core/neighbour.c:neigh_resolve_output() {
+>     ...
+>                         __skb_pull(skb, skb_network_offset(skb));
+>                         seq =3D read_seqbegin(&neigh->ha_lock);
+>                         err =3D dev_hard_header(skb, dev, ntohs(skb->prot=
+ocol),
+>                                               neigh->ha, NULL, skb->len);
+>     ...
+> }
+>
+> Can this overwrite the link header of the other clone, such as the mirred
+> original still pending on the physical device or a PF_PACKET tap clone? I=
+n
+> the mirred case the bytes written are usually identical, but they differ =
+if
+> the lladdr changed in the meantime.
+>
+> The commit message says "a header-cloned skb is unshared before the write=
+",
+> but the arp_queue handoff does not seem to be covered.
+>
+> The later patches in the series don't add an unshare on this path either:
+>
+> - "net: neighbour: reinject a parked skb through a headerless output
+>   device" only rewrites skb->dev for a headerless n1.
+>
+> - "net/sched: sch_teql: keep skb->dev consistent on the arp-queue path"
+>   only moves the skb->dev =3D slave assignment.
+>
+> Would it work to call skb_cow_head() before neigh_event_send(n, skb_res),
+> or once at the top of teql_master_xmit()?
+>
+> > +out:
+> >       neigh_release(n);
+> >       return err;
+> >  }
+>
+> [ ... ]
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/QDISC-6HS9.v4.r0.20261111094338%40mojatatu.com
