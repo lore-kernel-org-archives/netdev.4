@@ -1,62 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794747714;
-	b=4JXQKYmm8QQxDiKaBxQAnlzL4wFAOzI6SQ69qeEZVx0N5gosH+B/sp6EDME/1XeMckY3
-	 1DHDNJiNnkdbziUm3KPFvwYqd3cpRofhmtS+zFTYOU27jpSDmOgBessiOGJs4+LoOXFXu
-	 tWyW8X3PiteK+XuDNLdHg6TQUkx82AlPfjH/AwglwoJUTbcUGzTbQX6p5ghX/H5u0j1R2
-	 vhcJhRczBN+9Mh7j5ErYyTcbZtIpzlBSc2yQvxxY+31ym3XuU8OrmnV4bz7CKWN8J6I+f
-	 9Z9Kh4SUNnIDIBWElMfmeeVBVNBEYoRwdJzJ+3aC3n5RMAUykAGEHbU0fZxa+98G/Xw==
+	t=1794747753;
+	b=ezaDU5GiR5AD2c8ZZVq7bpYtoprKgxifxiV6Wr1R2oe/5aLeDCAG2eVh72/iEeqmWpUN
+	 pwGG1U7iWvZmgBOgRjgKzoxobI9KxvLjjLrDv/9qb6cm4c6axCX6XpvwYZUM+i0wIDXls
+	 6/s+OuV+//roxOW0Idd55945wGijp44NT2Ks+QOHEo3Tm7VQX6bRYIJnEG4Th29gdvi4s
+	 210oCZPPBcCNcqvnmkgpTVDKVwlKQV5CkpsvyZ35BgvGS7miErkUn40H9XHrjkFnxIvum
+	 +SsNE+3Y+riTydshMWZJCWJbfBNhHFs0NekqQ9VNjO23Hht6cYvSOj12VIAzFJHOAtw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794747714;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=s7T3M0WgVLcc+Nb3njHO+7UDHxjTn/GApNJ1wnwNQVA=;
-	b=ug/e2lZMAJWndDnwq9O1aqT3bivkG5xYW9Vl80Ehm0CrwCSN2wBvkg/PfXNby6E5yT2Z
-	 K/Q3zmlpQfA5w/7pu4dzpCRTH98w88U1H6c0BC+uc9zUz34pSD68JRApRLAGGOqW3jmVj
-	 pLXXT2SsowCmNX+/DEQdFhsV0GUAYMQdaFA2zUzCXic14yZr2xs5Km4JsyWjASZlSfHKV
-	 t9RYb4TzjS5jmBeXXjsdzN4MvKeV+3SeXSTXbsO0aYAGlV5OccYqVXEPE+LT1i1gcZCKO
-	 i4hQ3+64FPRX5D0Ea7WRnpyUHxwd9ppBueGNYYa5Kh4n4hegBPpoKX2jiZLW27hKDvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794747753;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=3tJIKpc8AwX5cndBfqHiESi1n0+LeUDLJZqK1Qyg4iM=;
+	b=JRkc+rGFABMVvN4lMlEySY7UDYect0ZU/hwC3ciUEC+sN6s6PzPFRr1WaHcDewyQ/GDe
+	 mpYToe20Uqw6JnYMM3XSXICvRh2fHPuItmEHayg+niIlgHeNG0DuTv/+h7iNcJ2RD0aYg
+	 5z+VmDkYi7imUr6JqMTB/mx/C4vXLEKYDmd46Vw0MkRjQnIqiOmQq8aKRc+O8OnRpyOKZ
+	 MAlDnVpDpDjFNKZBuJDMNSt6xHeJwwWOi9maLuDweEwrz1cp0RguTZgQBnd9r4GaOHRtt
+	 STskttkzorOoMComgmiDwBoguxDC6V5YQ24oAxnc/El+a1x+i47T93CZFPPXRAilPdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGPRr54o;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YKc4QGjQ;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1144606A33E;
-	Sun, 15 Nov 2026 13:01:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E502E606A323
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:02:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E502E606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DGPRr54o
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F19341F000C6;
-	Sun, 15 Nov 2026 13:01:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794747714;
-	bh=s7T3M0WgVLcc+Nb3njHO+7UDHxjTn/GApNJ1wnwNQVA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DGPRr54oSQfEiRYK9UXBfUM7+LIfwFjlsN1AlIF/bWDOMZqQP6T51f/04TpcPSYnn
-	 CB9lfoGpdWiUT//lBwkYMFYhKmx+hPrwX5/jUTUaQ6bsEG88XcDPWuIkbYkxI2meKl
-	 uDiND1lZ1dy4woqk21J5hJbF2vqB4rXYsHS4qc0bkMprhhG90lXqCpNGFIAO2nDgto
-	 FI65dcY6HnUTK2GMTZmpNmkgSgH8QAkzM9rNyd8qNhEzloQlIl7Z/3ORoawh2xGOx/
-	 koyTpAk2oDjMnLqmykkb86Bw8N3qMxCpp1MTAuox5lNRv0kmm+8v9yS8BqeSaKN+/z
-	 yv6SHBHRuDHHw==
-Subject:
- Re: [PATCH net-next v7 8/9] net: bcmgenet: allow the MTU to be changed
-From: netdev-bot+sashiko@kernel.org
-To: nb@tipi-net.de
-Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- f.fainelli@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- pierremarinleclercq88@gmail.com, dave.stevenson@raspberrypi.com,
- justin.chen@broadcom.com
-Date: Sun, 15 Nov 2026 13:01:53 +0000
-Message-ID: <179474771357.2199510.15722627746438398810@kernel.org>
-In-Reply-To: <20261112-nb-genet-mtu-nn-v2-v7-8-43a5d90b3256@tipi-net.de>
-References: <20261112-nb-genet-mtu-nn-v2-v7-8-43a5d90b3256@tipi-net.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YKc4QGjQ
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-ccca948203aso1145361a12.3
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 05:02:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794747751; x=1795352551; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3tJIKpc8AwX5cndBfqHiESi1n0+LeUDLJZqK1Qyg4iM=;
+        b=YKc4QGjQNt/gGYhDJ4lxQX1TkkYRNscLLuZGvr7CtEt83aw0KqQ3p6DeMi/mIz1U4u
+         BLdzV9L+PY07ztVEL/TQ+ZOgnScdtEoiu9cDKSSOJEam+nfmOtbuifn6Dlkl5xxNCzvT
+         /2EZeddOARxcGiesVGzSUfJhBexGvPaFQ6/pmuHc1vbSyJnUAcLkcIMxV9wFsKEeI1sV
+         8Y56/NomkFz/T2gXk4jw/D8kG52Sx1Rflj9NTQ1qMQ7yKAO9QNdWSQ1pugJsYUmUqk84
+         p3N3vv6clQcD0u5CptP2HCL6kk4Yz/f5hJa+j2916li8iM9MN+s2CgVLQVloB6DxeQ85
+         xacw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794747751; x=1795352551;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3tJIKpc8AwX5cndBfqHiESi1n0+LeUDLJZqK1Qyg4iM=;
+        b=uWWhl5oJiqvbohwQy82kRYJmpMQ9kZNyXnO95QJom8w/7BnHEKm/O4iyy7Un7ee78X
+         7XSLBP9JT9ojrHtdWCpzgfoOfVQAD56EtAffC4i44Vxl+nKZ8wXBo701iMs22HehPx8l
+         YW5h1cNMniTB5+deK0gEPSiE9laqab4kQlEly0kOOXCJ3eLWW5N0kmtCN8eS3AiA6oi4
+         iKZnUzo9IE1ASXY3E1Sip8zPWPEKqWYYrlH95mKSL0QSB9JTu5IrEJ/YuSsTAcRMntHG
+         P9UdZ6j2sUOn0fHOrhpe8SHfaeHJuJ1HArTocpIKf1VtcXs7UcpxCHi2rDM0zzQL9NrL
+         8MlQ==
+X-Forwarded-Encrypted: i=1; AL+hErHTvrZk4gKGNCjrVWqEZkabTb4+U0pG5XRWmHKBTfmY/OOi5lm2Ue/VvC085TslWXJnsxbz8vE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+m6fZE3gMv+uwWvteinyfQhIpwcw7fUkRjNgs+EPvDzJeGcdJ7
+	y9ExHICQhz5MBw1Cx7iWtxLN1H+/F+nqdIFX4+vbB2cQlJQY4+MMdSEZgXpaogCd8nJ6SgqE
+X-Gm-Gg: AYBFou3vyxk1QkYgqOFnZBEyRYRk3nstPTGpuJQSZ3cC2WuVd1uWEQVu7Iu13GpYC71
+	ZPrjNkQH+xpt2Q3UXj7I14rdhdb4zvvSsmvcds2M6zWbCx5izJcODaEo06peQf4xU2iBN1Yd+4j
+	sxFw+lXS2+s6l8JarwXjXYe+gKrY/aaxCodmlc9uJeKRG8F8izodcnCPewEBp8x0g+s2ljIWHwa
+	3cBOfhKv7FOfRCc6Sj1FoDvgV01aoUA2aV9RfNKPpagZqQ9Ab0IfnP1bZbH1m72JrkRreLmyk8r
+	lOQhV1LjNHpzgqfA89+UErI/qyk3qVlRDQ4N9mw7tVJMOZ6XctgdAKOvFA0C2beK01NvLAnMA/W
+	de9s/m1x9ZMN0DOmtsFbaSLrGRIbOv050yxeNM1jT6P/vx8laxgPmucmfMxB9SIyZ9gwhv+fK4U
+	HqN+QNObIn4M5D+tbW9W5fUga73in4b8/dQbeaUIhm5IwI/aqcSGFzlvNT/3paJr0Pm75H0se0C
+	uC5AjP0pEO1GNPhcNqXjLeSVzOAaGauOpAO9K42WkLJKQ8kET0TQi4FmkAGrUSrAlvl1iWyGLTB
+	2JKYX1s6UFxtMS0WT76CgG86fw3GLPB06HjTcXqv97YaEZGz2pya//0ceMcTaojg60MXXCCrUNo
+	1I6uLTDXi+H8bORcC4hfwjNZgahAs+KT5M9tvf+QJe0yXqEehrJ2QY9s8eEM0wFlodtf3ae9m9v
+	SAJgH9tlL9ZoKdsnIOvv2qeRt5+AR952YqjpmE/9iqNH3vZv2MFJ9sFv+MbIwR2g//3nE2n9n7s
+	Ec/SGmKmcxXGPXq/uW7vdMCxCCRVXdad/hHb2APo8Uj6ykxUQn534Ue4P3ymJrN
+X-Received: by 2002:a17:90b:54cb:b0:3b0:ac2c:1619 with SMTP id 98e67ed59e1d1-3b1b0a5064cmr7142317a91.39.1794747751079;
+        Sun, 15 Nov 2026 05:02:31 -0800 (PST)
+Received: from localhost.localdomain (123-243-92-89.static.tpgi.com.au. [123.243.92.89])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b197d35ac2sm17691691a91.17.2026.11.15.05.02.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 05:02:29 -0800 (PST)
+From: Daniel Wade <danjwade95@gmail.com>
+To: Nikolay Aleksandrov <razor@blackwall.org>,
+	Ido Schimmel <idosch@nvidia.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	bridge@lists.linux.dev,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] net: bridge: fix skb leak of reinjected link-local frames
+Date: Sun, 15 Nov 2026 23:32:11 +1030
+Message-Id: <20261115130211.7724-1-danjwade95@gmail.com>
+X-Mailer: git-send-email 2.39.0.windows.2
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,284 +104,109 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+br_handle_frame() passes the link-local frames it neither forwards nor
+delivers (01:80:c2:00:00:02 to 0d and 0f, unless set in the group
+forward mask) through NF_HOOK() at NF_BR_LOCAL_IN. Since commit
+3b2e2904deb3 ("net: bridge: fix per-port af_packet sockets") the okfn
+only learns the source and returns 1, which becomes RX_HANDLER_PASS.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+That commit sent the nf_queue case to RX_HANDLER_CONSUMED, which is
+right for the synchronous return, but the frame comes back: on
+reinjection nf_reinject() calls the okfn and ignores its return value,
+because every other okfn consumes the skb. This one no longer does, so
+nothing frees the frame. NFQA_CFG_F_FAIL_OPEN leaks it the same way
+with no verdict at all, when the queue or the listener's socket is full.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Each frame leaks an skb, and one sent from a local socket keeps that
+socket charged, so neither it nor the network namespace holding it is
+freed. Bridge, rule and queue need only CAP_NET_ADMIN in a netns, so
+with user namespaces an unprivileged user can exhaust kernel memory.
 
-- [Medium] The probe change raises dev->max_mtu for every version except
-  v1 (bcmgenet.c:4433-4434, `if (!GENET_IS_V1(priv)) dev->max_mtu =…
-- [Medium] net: bcmgenet: mismatched dma_unmap_page() in
-  bcmgenet_free_tx_cb()
-- [Low] bcmgenet_change_mtu()
-  (drivers/net/ethernet/broadcom/genet/bcmgenet.c:3990) restarts the…
+nf_reinject() cannot free the skb on a 1 from the okfn, because other
+okfns return NET_RX_DROP, which is 1, after freeing it.
 
---
+Call nf_hook() instead of NF_HOOK() and do the learning and the
+RX_HANDLER_PASS return in br_handle_frame() on 1, as the 0x00 and 0x0e
+cases already do and as vrf_rcv_nfhook() does. The okfn then runs only
+for a reinjected frame, which br_handle_frame() has already reported
+consumed and cannot pass on the port, so it learns from the frame and
+frees it. These frames were not delivered before this change either.
 
-net: bcmgenet: allow the MTU to be changed
+Also set *pskb before the new RX_HANDLER_PASS, as the other such
+returns do; skb_share_check() may have replaced the skb, and the commit
+above added that return without the assignment.
 
-This commit sets dev->max_mtu for GENET v2 and later. The value comes from
-the packet ready threshold and the page size. It also adds
-bcmgenet_change_mtu(), which restarts the DMA datapath in place while the
-PHY keeps running. MTU changes that stay at or below ETH_DATA_LEN skip the
-restart.
+Discovered by an AI code review agent and reproduced on unmodified
+mainline under KASAN: an unprivileged user in a new user and network
+namespace bridged a veth, queued link-local frames to an NFQUEUE
+listener that accepted every one, and leaked an skb per frame. With
+this patch the reinjected frames are freed and nothing leaks.
 
-Link: https://github.com/raspberrypi/linux/issues/5561
+Fixes: 3b2e2904deb3 ("net: bridge: fix per-port af_packet sockets")
+Cc: stable@vger.kernel.org
+Signed-off-by: Daniel Wade <danjwade95@gmail.com>
+---
+Tested in a KVM guest on mainline b3dfbde62cf1 with KASAN and
+PROVE_LOCKING, running as nobody under "unshare -Urn". No kernel
+modification, debug patch or injected delay was needed to reproduce.
+Before: 192000 bytes charged on the sending socket, unchanged 2 s
+later. After: 0 bytes, no KASAN report or lockdep warning, and
+br_input.o builds clean at W=1.
 
-> diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-> index 3cbffbc333dea..30ba77931c4f0 100644
-> --- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-> +++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+Not tested: NF_STOP, NFQA_CFG_F_FAIL_OPEN, real EAPOL traffic, the
+netfilter and bridge selftests, CONFIG_NETFILTER=n.
 
-[ ... ]
+Applies to v7.2-rc5, v6.12.117, next-20261109 and 7e1392a42ea2.
 
-> +static int bcmgenet_change_mtu(struct net_device *dev, int new_mtu)
-> +{
+The Fixes commit was checked against torvalds/linux: it adds both the
+"return 1" okfn and the RX_HANDLER_PASS return without the *pskb
+assignment.
 
-[ ... ]
+ net/bridge/br_input.c |   18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
 
-> +	/* The PHY stays up, hold its lock. A link event would otherwise take
-> +	 * the MAC out of reset and enable it mid rewrite.
-> +	 */
-> +	mutex_lock(&dev->phydev->lock);
-> +	bcmgenet_netif_stop(dev, false);
-
-[ ... ]
-
-> +	bcmgenet_hfb_restore(priv);
-> +	bcmgenet_netif_start(dev, false);
-> +	mutex_unlock(&dev->phydev->lock);
-> +
-> +	/* bcmgenet_netif_start() only restores the link interrupt */
-> +	if (bcmgenet_has_mdio_intr(priv))
-> +		bcmgenet_intrl2_0_writel(priv, UMAC_IRQ_MDIO_EVENT,
-> +					 INTRL2_CPU_MASK_CLEAR);
-> +
-> +	/* Interrupts were off, so a latched link event is lost. Internal PHYs
-> +	 * on v1-v4 are not polled either.
-> +	 */
-> +	phy_mac_interrupt(dev->phydev);
-
-[Severity: Low]
-Does this restart also lose a pending UMAC_IRQ_PHY_DET_R event?
-
-Inside bcmgenet_netif_stop(), bcmgenet_intr_disable() clears the latched
-INTRL2_0 status. After that, the bottom half is cancelled:
-
-bcmgenet_netif_stop() {
-    ...
-	cancel_work_sync(&priv->bcmgenet_irq_work);
-    ...
-}
-
-If the work was queued but had not run yet, its bits stay in
-priv->irq0_stat and nothing queues the work again.
-
-On v1-v3 with an internal PHY, bcmgenet_link_intr_enable() enables
-UMAC_IRQ_PHY_DET_R. Only bcmgenet_irq_task() handles it:
-
-	if (status & UMAC_IRQ_PHY_DET_R &&
-	    priv->dev->phydev->autoneg != AUTONEG_ENABLE) {
-		phy_init_hw(priv->dev->phydev);
-		genphy_config_aneg(priv->dev->phydev);
-
-This is the 40nm EPHY energy-detect workaround from commit 25382b991d25
-("net: bcmgenet: reset 40nm EPHY on energy detect").
-
-The link event is replayed with phy_mac_interrupt(), but the PHY_DET_R
-event is not. If an energy-detect event lands in the restart window, which
-includes the sleep in bcmgenet_dma_teardown(), or sits in the cancelled
-work item, is the EPHY soft reset skipped until some unrelated isr0 event
-queues the work again?
-
-Before this patch, bcmgenet_netif_stop() was only followed by close/open
-or suspend/resume, and both reinitialise the PHY.
-
-Would it work to schedule bcmgenet_irq_work after bcmgenet_netif_start()
-when priv->irq0_stat is non-zero? Another option is to replay the PHY_DET_R
-handling the same way the link event is replayed.
-
-The later patch "reassemble jumbo frames from status block fragments" does
-not touch bcmgenet_change_mtu(), so this seems to remain at the end of the
-series.
-
-[ ... ]
-
-> @@ -4345,8 +4425,14 @@ static int bcmgenet_probe(struct platform_device *pdev)
->  	/* Mii wait queue */
->  	init_waitqueue_head(&priv->wq);
->  	bcmgenet_hfb_init(priv);
-> +
->  	priv->rx_buf_len = bcmgenet_rx_buf_len(dev->mtu);
->  	priv->tx_thld_len = bcmgenet_tx_pkt_rdy_thld(dev->mtu) * ENET_THLD_UNIT;
-> +
-> +	/* v1 cannot program the thresholds, so it stays at the default MTU */
-> +	if (!GENET_IS_V1(priv))
-> +		dev->max_mtu = ENET_MAX_MTU;
-
-[Severity: Medium]
-Has GENET v2 been confirmed to handle the larger thresholds this enables?
-
-On v2, any MTU above ETH_DATA_LEN makes bcmgenet_tx_pkt_rdy_thld() return
-ENET_THLD_MAX (0xf0, 3840 bytes). bcmgenet_set_mtu_regs() then programs
-that value, together with a larger RBUF_PKT_RDY_THLD and
-UMAC_MAX_FRAME_LEN.
-
-init_umac() only programs the buffer sizing register on v3 and later:
-
-	if (!GENET_IS_V1(priv) && !GENET_IS_V2(priv))
-		bcmgenet_rbuf_writel(priv, 1, RBUF_TBUF_SIZE_CTRL);
-
-So v2 keeps whatever RBUF/TBUF partitioning it has at reset. Its RBUF
-register layout also differs from v3 and later, for example
-RBUF_OVFL_CNT_V2 versus RBUF_OVFL_CNT_V3PLUS.
-
-The commit message only explains why v1 is excluded.
-
-What if the v2 TBUF cannot buffer up to the 3840 byte threshold, or the v2
-RBUF cannot hold the larger frames? Large-frame TX could then stall, and
-the earlier patch "split frames that end just past the transmit threshold"
-shows this can leave TX DMA unable to halt. RX could also overflow.
-
-The last patch in the series raises ENET_MAX_MTU for v2 to 16347 and keeps
-the 0xf0 TX threshold. Its RTL confirmation covers only RX frame splitting.
-
-Should max_mtu be limited to the versions known to work until v2 is
-confirmed on hardware?
-
->  	INIT_WORK(&priv->bcmgenet_irq_work, bcmgenet_irq_task);
-
-[ ... ]
-
-> @@ -3981,6 +3987,79 @@ static int bcmgenet_change_carrier(struct net_device *dev, bool new_carrier)
->  	return 0;
->  }
->  
-> +static int bcmgenet_change_mtu(struct net_device *dev, int new_mtu)
-> +{
-> +	struct bcmgenet_priv *priv = netdev_priv(dev);
-> +	unsigned int old_mtu = dev->mtu;
-> +	struct bcmgenet_dma_set set;
-> +	int ret;
-> +
-> +	/* Below ETH_DATA_LEN everything is floored, so there is nothing to
-> +	 * reprogram. Same when a failed resume left the datapath down.
-> +	 */
-> +	if (!netif_running(dev) || !priv->tx_cbs ||
-> +	    max_t(unsigned int, old_mtu, ETH_DATA_LEN) ==
-> +	    max_t(unsigned int, new_mtu, ETH_DATA_LEN)) {
-> +		WRITE_ONCE(dev->mtu, new_mtu);
-> +		priv->rx_buf_len = bcmgenet_rx_buf_len(new_mtu);
-> +		return 0;
-> +	}
-> +
-> +	ret = bcmgenet_alloc_dma(priv, bcmgenet_rx_buf_len(new_mtu), &set);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* The watchdog trips on an idle queue once the rings are gone */
-> +	netif_device_detach(dev);
-> +
-> +	/* The PHY stays up, hold its lock. A link event would otherwise take
-> +	 * the MAC out of reset and enable it mid rewrite.
-> +	 */
-> +	mutex_lock(&dev->phydev->lock);
-> +	bcmgenet_netif_stop(dev, false);
-> +
-> +	WRITE_ONCE(dev->mtu, new_mtu);
-> +	priv->rx_buf_len = bcmgenet_rx_buf_len(new_mtu);
-> +	bcmgenet_set_mtu_regs(priv, new_mtu);
-> +
-> +	ret = bcmgenet_init_dma(priv, true, &set);
-> +	if (ret) {
-> +		/* The datapath is gone, do not leave the interface up */
-> +		netdev_err(dev, "failed to initialize DMA, closing\n");
-> +		WRITE_ONCE(dev->mtu, old_mtu);
-> +		priv->rx_buf_len = bcmgenet_rx_buf_len(old_mtu);
-> +		mutex_unlock(&dev->phydev->lock);
-> +		/* bcmgenet_close() attaches the device again */
-> +		netif_close(dev);
-> +		return ret;
-> +	}
-> +
-> +	bcmgenet_hfb_restore(priv);
-> +	bcmgenet_netif_start(dev, false);
-> +	mutex_unlock(&dev->phydev->lock);
-> +
-> +	/* bcmgenet_netif_start() only restores the link interrupt */
-> +	if (bcmgenet_has_mdio_intr(priv))
-> +		bcmgenet_intrl2_0_writel(priv, UMAC_IRQ_MDIO_EVENT,
-> +					 INTRL2_CPU_MASK_CLEAR);
-> +
-> +	/* Interrupts were off, so a latched link event is lost. Internal PHYs
-> +	 * on v1-v4 are not polled either.
-> +	 */
-> +	phy_mac_interrupt(dev->phydev);
-> +
-> +	netif_device_attach(dev);
-> +
-> +	/* Filter updates that came in while the device was detached got
-> +	 * dropped. An IPv6 join does not hold RTNL.
-> +	 */
-> +	netif_addr_lock_bh(dev);
-> +	bcmgenet_set_rx_mode(dev);
-> +	netif_addr_unlock_bh(dev);
-> +
-> +	return 0;
-> +}
-> +
->  static const struct net_device_ops bcmgenet_netdev_ops = {
->  	.ndo_open		= bcmgenet_open,
->  	.ndo_stop		= bcmgenet_close,
-
-[Severity: Medium]
-Once this lets frames grow past priv->tx_thld_len, does the threshold
-split in bcmgenet_xmit() release the head buffer with the wrong DMA API
-call?
-
-For a linear skb, skb_headlen() already covers priv->tx_thld_len. The
-covered < priv->tx_thld_len loop in bcmgenet_xmit() then never runs,
-so split_i stays 0. On the first descriptor, GENET_CB(skb)->first_cb is
-set to that control block and skb->data is mapped with
-dma_map_single(). Because i == split_i, the same control block also
-becomes GENET_CB(skb)->split_cb. Its dma_addr and dma_len are cleared,
-and the mapping passes to the next control block through
-split_mapping.
-
-bcmgenet_free_tx_cb() then does:
-
-	if (cb != GENET_CB(skb)->split_cb) {
-		if (cb == GENET_CB(skb)->first_cb)
-			dma_unmap_single(...);
-		else
-			dma_unmap_page(...);
-
-The first control block is skipped because it is split_cb. The
-continuation control block now owns the dma_map_single() mapping, but
-it is not first_cb, so it gets dma_unmap_page(). TX completion, ring
-reclaim and the out_unmap_frags unwind all take this path.
-
-On most platforms both calls end up doing the same work. Still, the
-mapping type mismatch breaks the DMA API contract, and
-CONFIG_DMA_API_DEBUG will complain about it for these frames.
-
-At the default MTU the split window does not appear to be reachable. It
-looks like bcmgenet_change_mtu() and the larger ENET_MAX_MTU are what
-expose it. The code itself comes from the earlier patch "split frames
-that end just past the transmit threshold", so the fix probably belongs
-there.
-
-What is the preferred way to track this? One option is to record on
-the control block that owns the mapping whether it came from
-dma_map_single(), instead of comparing against first_cb. Another is to
-move first_cb to the continuation descriptor when split_i is 0.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-nb-genet-mtu-nn-v2-v7-0-43a5d90b3256%40tipi-net.de
+diff --git a/net/bridge/br_input.c b/net/bridge/br_input.c
+index fc2e381..b5bd9d6 100644
+--- a/net/bridge/br_input.c
++++ b/net/bridge/br_input.c
+@@ -257,13 +257,18 @@ static void __br_handle_local_finish(struct sk_buff *skb)
+ 		br_fdb_update(p->br, p, vlan, eth_hdr(skb)->h_source, 0);
+ }
+ 
+-/* note: already called with rcu_read_lock */
++/* okfn of the link-local NF_BR_LOCAL_IN hook in br_handle_frame(). It is
++ * only called when a queued frame is reinjected, after br_handle_frame()
++ * returned RX_HANDLER_CONSUMED for it, so the frame can no longer be
++ * passed up on the port and has to be freed here.
++ * note: already called with rcu_read_lock
++ */
+ static int br_handle_local_finish(struct net *net, struct sock *sk, struct sk_buff *skb)
+ {
+ 	__br_handle_local_finish(skb);
++	kfree_skb(skb);
+ 
+-	/* return 1 to signal the okfn() was called so it's ok to use the skb */
+-	return 1;
++	return 0;
+ }
+ 
+ static int nf_hook_bridge_pre(struct sk_buff *skb, struct sk_buff **pskb)
+@@ -424,11 +429,14 @@ static rx_handler_result_t br_handle_frame(struct sk_buff **pskb)
+ 		/* The else clause should be hit when nf_hook():
+ 		 *   - returns < 0 (drop/error)
+ 		 *   - returns = 0 (stolen/nf_queue)
+-		 * Thus return 1 from the okfn() to signal the skb is ok to pass
++		 * On 1 the frame is passed on here. The okfn() only runs if a
++		 * queued frame is reinjected later, and must consume it then.
+ 		 */
+-		if (NF_HOOK(NFPROTO_BRIDGE, NF_BR_LOCAL_IN,
++		if (nf_hook(NFPROTO_BRIDGE, NF_BR_LOCAL_IN,
+ 			    dev_net(skb->dev), NULL, skb, skb->dev, NULL,
+ 			    br_handle_local_finish) == 1) {
++			*pskb = skb;
++			__br_handle_local_finish(skb);
+ 			return RX_HANDLER_PASS;
+ 		} else {
+ 			return RX_HANDLER_CONSUMED;
