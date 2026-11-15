@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794712704;
-	b=lKcK5XmvB6ObZk+hjtkFSyN/2rO+bK0Y6PJpYQ21lekmPQn3B+1MCS7NGxDqQ4fVhuXG
-	 CjByBhResrN4ICUM22QArbH4hSGh7ogCzAq5CBG2qe4fi6t1GkGzZdBdSY5CfAcNCHmdN
-	 07rsB190WCrh+jIXHF9jzOkdUwt9nSSbQjUabgc9a56OfcEF+DleuD0/RJ+VZ1GdswX6W
-	 eonjdwC9hkIdQMVJaL4Cbt+GjqtZaPxB7SLpg17803ZUpoaTjOLp1HzUD6YyGDJ2rQQm5
-	 4M0xNPJfPoEyvtSDb26sOAocXWR8Nro5KW6bcUtKnpSXB0TUqP9PsgXkG2KzGf3/Ejg==
+	t=1794712710;
+	b=SG3Mwj2GoERnO9UWrdAKlxBYMIQ9nbpgmEI5583gC8Op5ru/2TyTsYqeVKZTgUJN3bcR
+	 LcePwUbblFEbxtiZtsrdmc/o74AS+90Roh/Z/fRyqLwKwTw3lLS8B5LQTUNoWRldTXz5i
+	 kxSZTLTHO7vDcCsTiC9Rh6v+YNCdePw+1GbF+D8Y0Wn574o2iTNiElvMxHEBenIezV6XM
+	 AcDmFT8B/INmzdRxiSKgGEHZaPHLNH7luKIs/Mj++n83N/NfPZdgn6ckee8NhvXEQh6aM
+	 qSD3bS/Le4sZNbQJCBB1nino4v4We5AncBmBydj+G8x8Xm+Lo1gYlCw5DmHQzSp5bUQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794712704;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794712710;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=sXM91livLE5Zk7S7Dfg6Y9lrZXf4Fd/4eAz8t9MEIm8=;
-	b=2P2w9Okd4THanSjs274HsBVD/ZU9uhP4bfoTwSeoV1CUKNr6YLIrtPhoK/+dXCAdTVKj
-	 8hYVrHpiSrdLQ6O4BT7MwZm5I56bHHhWOP0zbUMG/vokqdW7bYWQfO3ga/hIJbUWl0DT5
-	 m+5x3Bwz5W92YY/U3V58eH+ogmL6SaUvXaBJXxgFGWezX6cDQnDVfQcLs6tXboq91Sy2b
-	 1jCLyJY/uBs6YqmmVKAgvThfiNE+NvdMeO+iSMMf5GA3GaSy2lnWEZmvawAFshMdbfMYr
-	 4Fy4E41AeXnSbVOvz63jGNDw3FKKMy/MDFfeZwt4LhHiGQBoApOksFmpHC/U0gzETWg==
+	bh=Xqkmq+KJ2/HtU3nnCQ54j5ML6laUMMrM5zulVXs75RE=;
+	b=m3aOTNMuIpjdOxTR9Ibdeo28m3dbvKtnYvNVLP06IftrbCMMVid3AB5xChKKjZL3kMx+
+	 bpPxIekqHufADT6G+tEKREW5s5LYk3gyJz/uvN5T1n1PBVfYt++T7eAHTCXdYsBznZ2Ng
+	 xHZXxLy6sqrcJT2hPLAqsdPTF2+RFg9oK1rMlk7ufybOCkXR993eCabVSQkvz+E4D1qfi
+	 qhzTEDYS27s+PabR38TcwHMbx5KzTN5amj5AeW+qjK4e+uzLRJjsFG2x6hZWW+GbyM8xg
+	 hdtgTTnhr3vy9+M3SOtTVYgP2nd9y3+7H5RzhRdw6EG3Ygb1ey6a3HmrAe+YoQDevfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fWQJbWfT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=olyVM2U2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B8E160A380F;
-	Sun, 15 Nov 2026 03:18:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 012CB606A891;
+	Sun, 15 Nov 2026 03:18:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fWQJbWfT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 215341F000C4;
-	Sun, 15 Nov 2026 03:18:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=olyVM2U2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AB2A1F000D0;
+	Sun, 15 Nov 2026 03:18:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794712704;
-	bh=sXM91livLE5Zk7S7Dfg6Y9lrZXf4Fd/4eAz8t9MEIm8=;
+	s=k20260515; t=1794712709;
+	bh=Xqkmq+KJ2/HtU3nnCQ54j5ML6laUMMrM5zulVXs75RE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fWQJbWfTzXJTI68Gmqq6o5l+FKTYFql6yb608yBx6OPusDJ343mZmEMnyQ0dl7ZtM
-	 JZQGqJo7tKbQFfgjY62+AvN76PqlIMce5pF/jnp4wyW9tQY8LLqrd7DOa4RvJGkmP0
-	 0QET56NfDPahoetP5kcPqh5upHHc3slkNNXxQaN6U3ihuoBAFJ12cukdQzHdXQjCl9
-	 geEMCrssWPG1CA6nTmXamzYfTy9UeBjb/Ek0VtmdzXsAyckpDSVc1Q9vlfEp52aesd
-	 Ai5abYGjRQbCYSvHq0noZAUhgra2CDIr+zhgazOM0Di+4+PEiIN2ws39KKQm59zMx1
-	 uDJLALkLZ/5VA==
-Subject: Re: [PATCH net-next v1 08/15] psp: only give time-wait sockets of psp
- connections a validator
+	b=olyVM2U2Aghqs20/HIhJGzxuOPZytZp20BXK6kDJZG7fEqVSYDHQfu9aHJgTG0O3S
+	 tjTfvrSoLJW1mGGIRFh7fLTGgkUnB/u4EUzkL1RuPSaXzzt6cOPRF8jseKIfQ3sMv9
+	 JzQ+3e7tVwVW4ToyOU+pWm9q1vF7uya1N0OIlLqlnYQeNXIa1uO2UNvTcIwZ0+Szmo
+	 H3cJdRxlG8MHbSfZqFn6OBLryQX2l6kqMfItgEtybaVIvNEvUZv6hJ58G9B/kuBVaZ
+	 MwWjTgAKVLl6TCtRlHRz1DxmjD0n63YI2y27hpyipZT90m7wT0VHA+0LSyvt/m/mOb
+	 3jBWkkhpVdXtQ==
+Subject: Re: [PATCH net-next v1 13/15] selftests: tc-testing: run dependsOn
+ probes outside the test namespace
 From: netdev-bot+sashiko@kernel.org
 To: toddfreed@meta.com
 Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
@@ -52,11 +52,11 @@ Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
  linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
  martin.lau@linux.dev, pabeni@redhat.com, saeedm@nvidia.com, horms@kernel.org,
  tariqt@nvidia.com, weiwan@google.com, willemdebruijn.kernel@gmail.com
-Date: Sun, 15 Nov 2026 03:18:22 +0000
-Message-ID: <179471270271.2199510.4403404984222798506@kernel.org>
-In-Reply-To: <20261111005533.6436-9-toddfreed@meta.com>
-References: <20261111005533.6436-9-toddfreed@meta.com>
-X-sashiko-severity: High
+Date: Sun, 15 Nov 2026 03:18:28 +0000
+Message-ID: <179471270808.2199510.6514314455565065109@kernel.org>
+In-Reply-To: <20261111005533.6436-14-toddfreed@meta.com>
+References: <20261111005533.6436-14-toddfreed@meta.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -69,111 +69,102 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] psp_twsk_init() (net/psp/psp_sock.c) now sets
-  tw->tw_validate_xmit_skb = psp_validate_xmit whenever the full socket…
+- [Low] The patch fixes a real regression but has no Fixes: tag.
+- [Low] run_one_test() now passes a new stage string, 'probe', to every
+  plugin's adjust_command(stage, command) hook.
 
 --
 
-psp: only give time-wait sockets of psp connections a validator
+selftests: tc-testing: run dependsOn probes outside the test namespace
 
-This commit changes psp_twsk_init() so that tw_validate_xmit_skb is set
-only when the full socket has a psp association, not on every tcp
-time-wait socket. It prepares for the upcoming tc psp action, which
-treats a socket that has a validator as having its own encryption
-offload.
+This changes run_one_test() in tdc.py so the dependsOn probe is passed to
+exec_cmd() with a new 'probe' stage instead of 'execute'. With that stage,
+nsPlugin does not put "ip netns exec" in front of the probe, so the probe
+runs in the base namespace and the probe-gated tests are no longer always
+skipped.
 
-> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
-> index 609b06c7af65b..664955bfb4fdb 100644
-> --- a/net/psp/psp_sock.c
-> +++ b/net/psp/psp_sock.c
-> @@ -330,10 +330,14 @@ void psp_twsk_init(struct inet_timewait_sock *tw, const struct sock *sk)
->  {
->  	struct psp_assoc *pas = psp_sk_assoc(sk);
->  
-> -	if (pas)
-> +	if (pas) {
->  		refcount_inc(&pas->refcnt);
-> +		/* Only for PSP connections: a validator makes the socket
-> +		 * look like it has an encryption offload of its own
-> +		 */
-> +		tw->tw_validate_xmit_skb = psp_validate_xmit;
+> diff --git a/tools/testing/selftests/tc-testing/tdc.py b/tools/testing/selftests/tc-testing/tdc.py
+> index 511d66c36a2a0..541caf984519f 100755
+> --- a/tools/testing/selftests/tc-testing/tdc.py
+> +++ b/tools/testing/selftests/tc-testing/tdc.py
+> @@ -399,7 +399,7 @@ def run_one_test(pm, args, index, tidx):
+>      if 'dependsOn' in tidx:
+>          if (args.verbose > 0):
+>              print('probe command for test skip')
+> -        (p, procout) = exec_cmd(tidx, args, pm, 'execute', tidx['dependsOn'])
+> +        (p, procout) = exec_cmd(tidx, args, pm, 'probe', tidx['dependsOn'])
 
-[Severity: High]
-Should this also check pas->tx.spi? As written, an Rx-only association
-(pas->tx.spi == 0) also gets the validator here.
+[Severity: Low]
 
-On a full socket, the validator is installed only after a Tx key is set,
-in psp_sock_set_tx_key():
+Should this patch have a Fixes: tag?
 
-    WRITE_ONCE(sk->sk_validate_xmit_skb, psp_validate_xmit);
+The probe block came from commit 7f3f86402609 ("selftests: tc-testing: add
+"depends_on" property to skip tests"). At that time nsPlugin used one
+shared netns that was created ahead of time, so the probe worked.
 
-psp_sock_assoc_set_rx() publishes sk->psp_assoc but never sets
-sk->sk_validate_xmit_skb. A connection that did rx-assoc but never
-tx-assoc therefore has no validator while it is a full socket. It gains
-one when it enters TIME_WAIT.
+Commit 98cfbe4234a4 ("selftests/tc-testing: localize test resources")
+moved tests to per-test tcut-<random> namespaces. It also wrote the
+'execute' stage call shown above. In run_one_test(), the probe still runs
+before the per-test suffix is added:
 
-Other places that decide whether a connection is PSP-encrypted test
-pas && pas->tx.spi. These include psp_reply_set_decrypted() in this same
-file:
+    NAMES['NS'] = '{}-{}'.format(NAMES['NS'], tidx['random'])
 
-    if (pas && pas->tx.spi)
-        skb->decrypted = 1;
+It also runs before pm.call_pre_case() creates the namespace. As a result,
+nsPlugin's adjust_command() wraps the probe in a netns exec for the bare
+"tcut" name, and no namespace with that name is ever created.
 
-and also psp_enqueue_set_decrypted() and psp_sk_overhead() in
-include/net/psp/functions.h.
+Because of this, the mirred dependsOn probes added later in dcfaf1f758ee
+("selftests/tc-testing: require an up to date iproute2 for blockcast
+tests") could never pass.
 
-With the act_psp patch later in the series, tcf_psp_sk_offload() returns
-true for a TIME_WAIT socket that has a tw_validate_xmit_skb:
+Would this tag fit?
 
-    return sk_is_inet(sk) && sk->sk_state == TCP_TIME_WAIT &&
-           inet_twsk(sk)->tw_validate_xmit_skb;
+Fixes: 98cfbe4234a4 ("selftests/tc-testing: localize test resources")
 
-tcf_psp_act() then drops the packet with SKB_DROP_REASON_PSP_OUTPUT. In
-addition, sk_validate_xmit_skb() in net/core/dev.c drops skbs carrying a
-PSP metadata dst when the time-wait socket has a validator.
+[Severity: Low]
 
-TIME_WAIT replies get skb->sk = tw through skb_set_owner_edemux() from
-ip_send_unicast_reply() and tcp_v6_send_response(). The resulting
-sequence looks like this:
+This passes a new stage string, 'probe', to the adjust_command() hook of
+every plugin. Should the in-tree docs list it?
 
-  psp_sock_assoc_set_rx()       sk->psp_assoc set, tx.spi == 0, no validator
-  connection closes
-  psp_twsk_init()               tw_validate_xmit_skb set since pas != NULL
-  TW ACK/RST reply, skb->sk = tw
-  tcf_psp_act() ENCAP
-    tcf_psp_sk_offload()        true -> TC_ACT_SHOT
+The stage list in tools/testing/selftests/tc-testing/README reads:
 
-So an egress psp encap rule that covers such a connection encapsulates
-its packets while the socket is full. Once the socket is in TIME_WAIT,
-the same rule drops its ACK and RST replies. Is this the inconsistency
-the commit message describes? It seems to remain for Rx-only
-associations.
+  The stages are identified by the following strings:
 
-An Rx-only socket has no Tx offload of its own.
-Documentation/networking/psp.rst lists Tx as plain text in the Rx PSP
-state.
+    - pre  (pre-suite)
+    - setup
+    - command
+    - verify
+    - teardown
+    - post (post-suite)
 
-Would gating on pas && pas->tx.spi, as psp_reply_set_decrypted() does,
-match the full-socket rule? Copying the validator only when
-sk->sk_validate_xmit_skb == psp_validate_xmit would be another option.
+creating-plugins/AddingPlugins.txt also leaves 'probe' out of both its
+phase list and its "The stages are represented by the following strings"
+list. The commented stage-dispatch template in TdcPlugin.adjust_command()
+has no 'probe' branch either.
 
-> +	}
->  	rcu_assign_pointer(tw->psp_assoc, pas);
-> -	tw->tw_validate_xmit_skb = psp_validate_xmit;
->  }
+The dependsOn description in creating-testcases/AddingTestCases.txt only
+says:
 
-[ ... ]
+  dependsOn:    Same as 'skip', but the value is executed as a command. The test
+                is skipped when the command returns non-zero.
+
+Probes now run in the base namespace, outside the test netns. A future
+dependsOn command that uses per-test devices such as $DEV0, $DEV1 or
+$DUMMY would fail, and its test would just be skipped. Could this be noted
+in the dependsOn description?
+
+The fix also depends on plugins passing unknown stages through unchanged.
+nsPlugin and valgrindPlugin both do that today.
+
+The existing lists were already out of date ('command' rather than
+'execute'). The missing 'probe' entry and the base-namespace behaviour of
+dependsOn are new with this patch.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111005533.6436-1-toddfreed%40meta.com
