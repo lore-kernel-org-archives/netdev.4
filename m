@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794782085;
-	b=UGSX2NrmfZWnsgiM/9WXXkyTUij9PLC7dBuQHqWjJKI5S39rat/uuPANEQNQDrztGlcR
-	 sLpHUAP8pQCbDznDmsbUixm7XNGM9f1j4ZHouziErUHpeptKnIJelcd4GzsuH5Eg0RS7c
-	 0b7H9MHn9VNPZW/uri3sZmd29hXiH2eBEzsbvpV5dsJ0lPZX/XyZnqrk8bIqDCQS/Jhl0
-	 cS0zySAnhq472k8cVoBFoy7Gx0wYdhWsfOp9BQ/OMnGduUorK9kD03bAGRuvytU7N9+qg
-	 WVWb4gKV/NEv+wEvXcO4UAXHYqPiFAzI4wdF/7v22ttDuGUIXZEj8T8SDPGbfrIIQ8g==
+	t=1794782086;
+	b=wziC6m3NiKFHtwUisS9j208AFhk7xbSI5CrmgSbZ7AxkhPm169AhfSyYz39nD0zU/v90
+	 EUWnAAiXjK5uIRkE12a3ITfc4FbLgjyoP0Og2XiSohf6QNedK3p8SB+BXSQeWwIm6HGEV
+	 lZH8HEiRhxJytUSc627OueLhRzc0Yckvb0fw+lRlb31Qnc19TkihXHqY3OipiCmEAx3mO
+	 yAU9zqWegCgjLn7GGzEFMVuTkYFjqmu4zYlBpbfA90Mw33giLIOwCl7K9eXRO01eXdq/s
+	 8dw/D3mocGmNrOeipA+uKihzdjUk5hbkO3bOVfr5yPjrEiabJsVgi9y6jVG+g7JwWKg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794782085;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794782086;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=inUC0SkyqCWXT74KU7Ifm0uEpFiY4HdTsNKZBYvwNYA=;
-	b=3oSQ91ugakDZe5ZzD0aPNO6vbNdf/FdHKQciOWeGrourb5ur6nh0soEBV4tpIMkGU5Uv
-	 D7ZeYYVqrNbSBV0kUDOtjXiLpkuQB7QlovvnwfcHwLs4uKTEIoVx+QGrblwc5XKSlQwRm
-	 v4gMTj4xfFLIxvcCYox4CQKMnulL/s+JIOPlsIgFfynRCtLWKlBTpuorW/rfN/Ce0MHCv
-	 bH5aUpwuR6Zfa832mccHqpq6Cwc07O5LvClNsLLL6aI74QO8AVrI1lceMuWbM2tU9Lo8O
-	 YVc7P4lHkUxwcvR+yurvJQv+OU2p9KBCmF8a7wCVWWpBM7EtRakSplwVHG3bIXydHOw==
+	bh=pqczHe4Cm0qmJ6912SxcOWo52myBz3hiM5iIE2Sijfk=;
+	b=HHXDGwkrxmd2YMAeUxcZuycE/Ek56lu73fQD+/WbYOkYZ0SFv0koAdi9RrKQEmoKls3T
+	 e3M7qA3cmxgcvbnsOEtWSukWTpCWuc+R+LcBq3eRCzO9kth+YlmgQ4hcHeMu6o5d6lFSn
+	 yFte4fYwM4PfCcYI7uLBEMiWjjmMM+Mp95P9eln8nmSijqQGFVCAb5Kz1MXO9RIMOfzs0
+	 JZSZ/kN0POCB4iysteldE0ZMAhi6kaHaNrep2yactccOuRoFH6qlOxB5V0okOa0MH6/ST
+	 +pNKudZOfG4oWKTmo2m4xLbWs5Ntdr/5DBgVUOOfRzf15EMSSL/Q4NhEfpsZnNcTHBQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kd6C8JiL;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yb90OE87;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA952606A33E;
-	Sun, 15 Nov 2026 22:34:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D2BC606A881;
+	Sun, 15 Nov 2026 22:34:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kd6C8JiL
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yb90OE87
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794782085;
-	b=ZTaNg5ObAEkXF1v2+25qroM6TeDPPsxgdb9CTnNPbNWdXvnGui2mboTNoRD51w69whQS
-	 4fJU6BmW7fqdcGAyiM7VUFWgMDclY+vaoB7NDvCb2VzHUSmoWzgpQtJTCV1TGSMSC9HHI
-	 PpUrf8H7KUi8C/G9EsCTXqyzj5Y2ypXQt7Gk2vtZuWNX8upin2yMQw4kWC1kE9GEI3wyL
-	 Kv0nkHmQW9c8l3xPDJ0yq4XjxBvuADwcos3D9xOy0o9J37HTpcV61c7KDw3+8MtBnx8oi
-	 GYj6lGhGxMKYN2SXnXUwDEVfEqrEbnqYLwrUkyjwLpH4B4fJSqTgOsyAgLOIQ1EGoFA==
+	t=1794782086;
+	b=rlmRvyY3q9DcTsMo5ynO5jQ7r8bfj9j5npraBuYe8KFS1SI89GSwYmeeK0uoxJWcnT3h
+	 ZlX5aOd6SOXsn3cHjwDPh46riW1g9I6ayOFR2k+yzb2yaOHrGBNyggNOoqxqO0tRfQLCg
+	 +VRCBbLxM4G7OGO5rLdAdE2DQMP5cikfZ9FJfW5Py7PwUd37Fo0rGQSmmlse/1K0vDoWn
+	 iSXbMBrGyjvrd8TlMDnw0FzaMHruX0QBf82IpQ/hOqWm+UBRKrbZHgRiK454N4I88D3vy
+	 ewpkWyamvVYal0FDO8psgEfLXdhEebnhuWJ5ohTr+VhwIX/ROYkqA0uG5Xz1rcs1znQ==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794782085;
+	c=relaxed/relaxed; t=1794782086;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=inUC0SkyqCWXT74KU7Ifm0uEpFiY4HdTsNKZBYvwNYA=;
-	b=T+WVf8CUc8eIU507U8O1yfZn+MUCg2AHDzz2mAe/GAAHlQX18c8bMv6q4v+er4XzP0sN
-	 TL+oVQ2DbmIrnW/R3mAQlvtx5RYUrighQjv6lrdAdqzqidOiZrm8u7oMu/u8U6MeuZnCx
-	 09of/28g1TJvibUlQ6zABMFRSUxWJ/aBKA7ahjUWK1rzNpCPBT9P3+DwXtmp6nqN0cUWP
-	 +XFf82d0tnX8S40xqnj2afNkcwV6m61T0qZtBSUQFjgi4p4hr+83HGzo07xe4AmNRO4cR
-	 JQnQG60Ricp6yVPmmpkzrov6+g7G2z+P1+a39T+rhrDitWeoA6POAy3XqBjhQjNpMXA==
+	bh=pqczHe4Cm0qmJ6912SxcOWo52myBz3hiM5iIE2Sijfk=;
+	b=JvmV8xz4nvcVuPwWy3WNsqxEnK0Zo+CM9gxf7qGdB/AXDKVHREcIoTCrtumFV5hoEajS
+	 LOMVEj71JXro8viNvqxQFZPjVXqTl1aTZe90VWU6jwscXmVlxYqLkDHx7muPNFlcKqidK
+	 kDlUMqIcJ5IGSYtefapw7v7fco2N8dmDGkqaCVtEwYnrufyQMCVOtR8SVAfzcj9hsfVnj
+	 8/f4CEvwVJ9Hv74M8MZgSmG/J22GJtzD15LeWH2FXoSpoz33+HoxdH80rD55OZXGEBIpp
+	 VNih2OSfl9Li0LqDMm9I/5E7o/UVFAQ5wEa8dsKqDtytrcztHue2k4NEYrk7Q1H8l6w==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id F0F151F000C7;
-	Sun, 15 Nov 2026 22:34:43 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id DCC571F000CC;
+	Sun, 15 Nov 2026 22:34:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794782085;
-	bh=inUC0SkyqCWXT74KU7Ifm0uEpFiY4HdTsNKZBYvwNYA=;
+	s=k20260515; t=1794782086;
+	bh=pqczHe4Cm0qmJ6912SxcOWo52myBz3hiM5iIE2Sijfk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Kd6C8JiLlQa/rOQOCE5bgkxio+pFPagJ/70dwKul6SA6cU+wCFKVUfH1kxVF8QSW5
-	 tTZy1HbfY2TUCf9ok76oT4XW4B9uS+0Z/cjPquVyxVHSc8WP0k8qrwnG4HtoQHCPMF
-	 tT/MBI5gvohWzfmV7ApSIHmxJIesW/Eg97nhp1CU4Sfq9cYtbwxxtqvOb13RzT50yN
-	 LXHy14isE9J1/CpjNOdH9O6am42Tnzsl64wlyTGwuzTvd/OIqWMYcMxifwfYoGoXd0
-	 jzafC73OOa2IoVtEpOebQTZ37xgpGR/G80E3C5UJaU4w7JWr6EhQbvYCDWxh6ociQK
-	 MCjYGb40qz2xA==
+	b=Yb90OE87XholEcT+l3AVhBB22W/ClnAHxlqgXPDHlycurVzyYM1R/8t4fC3qd6sdG
+	 KzH507+WCFHcW4YlCSTRyhz6IrSWKDzhKo9LV8xs+6l0gZQKZINkGsIS19X8tq7fbU
+	 Vv0L3AODRPnnd8bBiNYSTCGAb81BtnLLrDWylJKw4Vz/5IfKXQDTuojvQc0XYmBjiC
+	 yKZ5Eo8S/V0JUJeGr3TBJvw4c31WnUbRE303hU+RTovwdydUD3Y5fE2Rw1/ga6aQDy
+	 /ZMclWzzT7JBrzl3bbXSjdE03meAqhYP7TXwfKOwKzpesSEygPI5mnTaC7lvqigLxQ
+	 NgOX+hMJ4CsiA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 78EEE4A249;
+	by lkml.kernel.org (Postfix) with ESMTP id BFC504A255;
 	Sun, 15 Nov 2026 22:34:43 +0000 (UTC)
 From: Alireza Asgari via B4 Relay <devnull+alireza.asgari.net@kernel.org>
-Date: Sun, 15 Nov 2026 22:34:43 +0000
-Subject: [PATCH RFC nf-next 3/9] memcg: add KUnit coverage for memory.high
- accounting
+Date: Sun, 15 Nov 2026 22:34:46 +0000
+Subject: [PATCH RFC nf-next 6/9] netfilter: nfqueue: account saved skb
+ bytes per queue
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261115-b4-nfqueue-memory-accounting-v1-3-b9cc30819997@asgari.net>
+Message-Id: <20261115-b4-nfqueue-memory-accounting-v1-6-b9cc30819997@asgari.net>
 References: <20261115-b4-nfqueue-memory-accounting-v1-0-b9cc30819997@asgari.net>
 In-Reply-To: <20261115-b4-nfqueue-memory-accounting-v1-0-b9cc30819997@asgari.net>
 To: netfilter-devel@vger.kernel.org, linux-mm@kvack.org
@@ -101,11 +101,11 @@ Cc: Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>,
  cgroups@vger.kernel.org, netdev@vger.kernel.org, 
  linux-kselftest@vger.kernel.org, Alireza Asgari <alireza@asgari.net>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794782082; l=7275;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794782082; l=8527;
  i=alireza@asgari.net; s=alireza-kernel; h=from:subject:message-id;
- bh=Z6QbxMTafWb669wa4rTvonBSA708LhbpJBhhLrjki24=;
- b=CTVYi/Mx/6tdBxGj1tMEaVxZ4E6RcSaznHu6ApJh54WF1KH1hRJxcddFgzH1qWKDbzNfOcV30
- v0PQd775resDas0IBE0A8BwvOYL7y6bK7g1wh1mSmjVRgTtqEV3pkrZ
+ bh=5VLqD9hrhT1MpNUocVL10oVpUb4KAqRndB+1hfVAv+c=;
+ b=LhT3DhnLw1RGO11l0Nui1rJW18n0Ql3De38AdIwBgIQsb+M6+rLSlaBQ5uHvKK9PmMp8gO5JA
+ uAK5NmbIcgLA/SoI70QJbwmrFEYfDJutbpjnQ0pVJIc8qTsu1wVbv/+
 X-Developer-Key: i=alireza@asgari.net; a=ed25519;
  pk=wuQ0/M69FqoVnrCMUJ13EQCwrCwVjCrtz75k15vW8tw=
 X-Endpoint-Received: by B4 Relay for alireza@asgari.net/alireza-kernel with
@@ -116,227 +116,230 @@ Content-Transfer-Encoding: 7bit
 
 From: Alireza Asgari <alireza@asgari.net>
 
-Exercise deferred page-debt saturation and the bounded delay arithmetic
-without requiring very large memory allocations.
+The packet-count limit does not bound how much skb memory a queue can
+retain: packets with different truesize values consume the same one
+entry. Add a local byte allowance alongside the existing packet limit.
 
-The debt test calls the real charge path using an isolated page-counter
-fixture, small GFP_NOWAIT charges, and seeded debt values. It restores
-task state and fixture counters before checking results. The arithmetic
-cases call the internal helpers directly, including one-page debt and
-large numerators whose scaled product would overflow u64.
+Derive the allowance from queue_maxlen times an aligned skb shell plus
+a nominal 2048-byte complete head. This is a proposed policy, not a
+promise that every packet fitting a nominal payload size is admitted.
+Page-backed receive heads can exceed the allowance of a small queue.
 
-Keep this coverage independent of the capacity-reservation interface so
-the generic MM fixes can be reviewed and tested separately. The tests
-require built-in KUnit and memcg support on either word size.
+Record admission-time skb truesize only after insertion succeeds. Keep
+that saved cost while verdict handlers detach entries, and subtract it
+before reinjection, including early consume paths. Undo it if the
+userspace notification fails. Later payload replacement does not change
+the saved cost. Segmented packets account each inserted segment.
 
+Use subtraction-based admission checks that remain safe after a live
+limit reduction. Retain existing entries when shrinking and refuse new
+ones until both limits permit admission. Byte refusal follows the
+existing drop or FAIL_OPEN policy.
+
+This implements the local accounting part of Florian Westphal's
+suggestion; shared owner accounting follows in the next patch.
+
+Link: https://lists.openwall.net/netdev/2026/11/06/366
 Signed-off-by: Alireza Asgari <alireza@asgari.net>
 ---
- mm/Kconfig                |  10 +++
- mm/memcontrol.c           |   4 ++
- mm/memcontrol_high_test.c | 162 ++++++++++++++++++++++++++++++++++++++++++++++
- 3 files changed, 176 insertions(+)
+ include/net/netfilter/nf_queue.h |  1 +
+ net/netfilter/nfnetlink_queue.c  | 59 +++++++++++++++++++++++++++++++++++-----
+ 2 files changed, 53 insertions(+), 7 deletions(-)
 
-diff --git a/mm/Kconfig b/mm/Kconfig
-index afff1b25b543..dd763d3d0e36 100644
---- a/mm/Kconfig
-+++ b/mm/Kconfig
-@@ -1531,6 +1531,16 @@ config PTDUMP
- 	bool
+diff --git a/include/net/netfilter/nf_queue.h b/include/net/netfilter/nf_queue.h
+index 4a8cefd8398d..5644a1ad32d5 100644
+--- a/include/net/netfilter/nf_queue.h
++++ b/include/net/netfilter/nf_queue.h
+@@ -16,6 +16,7 @@ struct nf_queue_entry {
+ 	struct sk_buff		*skb;
+ 	struct net_device	*skb_dev;
+ 	unsigned int		id;
++	unsigned int truesize; /* saved NFQUEUE charge, zero if uncharged */
+ 	unsigned int		hook_index;	/* index in hook_entries->hook[] */
+ #if IS_ENABLED(CONFIG_BRIDGE_NETFILTER)
+ 	struct net_device	*bridge_dev;
+diff --git a/net/netfilter/nfnetlink_queue.c b/net/netfilter/nfnetlink_queue.c
+index 862d2a762106..d1e6e02e144b 100644
+--- a/net/netfilter/nfnetlink_queue.c
++++ b/net/netfilter/nfnetlink_queue.c
+@@ -92,6 +92,8 @@ struct nfqnl_instance {
+ 	unsigned int	queue_total;
+ 	unsigned int	id_sequence;		/* 'sequence' of pkt ids */
+ 	struct list_head queue_list;		/* packets in queue */
++	u64 mem_limit;
++	u64 mem_used;
+ };
  
- 
-+config MEMCG_HIGH_KUNIT_TEST
-+	bool "Memory cgroup high limit tests" if !KUNIT_ALL_TESTS
-+	depends on MEMCG && KUNIT=y
-+	default KUNIT_ALL_TESTS
-+	help
-+	  Test deferred memory.high debt saturation through the real charging
-+	  path with isolated counters and small charges. Delay tests cover
-+	  fixed-point rounding and arithmetic bounds on 32-bit and 64-bit
-+	  kernels. Say N unless developing memory cgroup high limit handling.
-+
- source "mm/damon/Kconfig"
- 
- endmenu
-diff --git a/mm/memcontrol.c b/mm/memcontrol.c
-index 665ce8dfb9ec..446b60ca6aef 100644
---- a/mm/memcontrol.c
-+++ b/mm/memcontrol.c
-@@ -6532,3 +6532,7 @@ void mem_cgroup_show_protected_memory(struct mem_cgroup *memcg)
- 		K(atomic_long_read(&memcg->memory.children_min_usage)),
- 		K(atomic_long_read(&memcg->memory.children_low_usage)));
+ typedef int (*nfqnl_cmpfn)(struct nf_queue_entry *, unsigned long);
+@@ -138,6 +140,28 @@ instance_lookup(struct nfnl_queue_net *q, u_int16_t queue_num)
+ 	return NULL;
  }
-+
-+#if IS_ENABLED(CONFIG_MEMCG_HIGH_KUNIT_TEST)
-+#include "memcontrol_high_test.c"
-+#endif
-diff --git a/mm/memcontrol_high_test.c b/mm/memcontrol_high_test.c
-new file mode 100644
-index 000000000000..bf792d398021
---- /dev/null
-+++ b/mm/memcontrol_high_test.c
-@@ -0,0 +1,162 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+
-+#include <kunit/test.h>
-+
-+static void memcg_high_test_restore_counter(struct page_counter *counter,
-+					    unsigned long before)
+ 
++static u64 nfqnl_mem_limit(unsigned int maxlen)
 +{
-+	unsigned long after = page_counter_read(counter);
-+
-+	if (after > before)
-+		page_counter_uncharge(counter, after - before);
-+	else if (after < before)
-+		page_counter_charge(counter, before - after);
++	/* Match the skb shell alignment included in skb->truesize. */
++	return (u64)maxlen * (SKB_DATA_ALIGN(sizeof(struct sk_buff)) + 2048);
 +}
 +
-+static void memcg_high_test_debt(struct kunit *test)
++static bool nfqnl_mem_full(const struct nfqnl_instance *queue,
++			   unsigned int truesize)
 +{
-+	const unsigned int nr_pages = MEMCG_CHARGE_BATCH + 1;
-+	const struct {
-+		unsigned int before;
-+		unsigned int expected;
-+	} cases[] = {
-+		{ 0, nr_pages },
-+		{ UINT_MAX - nr_pages, UINT_MAX },
-+		{ UINT_MAX - nr_pages + 1, UINT_MAX },
-+		{ UINT_MAX, UINT_MAX },
-+	};
-+	struct mem_cgroup *memcg;
-+	unsigned int i;
-+
-+	memcg = kunit_kzalloc(test, sizeof(*memcg), GFP_KERNEL);
-+	KUNIT_ASSERT_NOT_NULL(test, memcg);
-+	page_counter_init(&memcg->memory, NULL, false);
-+	page_counter_init(&memcg->memsw, NULL, false);
-+	page_counter_init(&memcg->swap, NULL, false);
-+	page_counter_set_high(&memcg->memory, 0);
-+	page_counter_set_high(&memcg->swap, PAGE_COUNTER_MAX);
-+
-+	for (i = 0; i < ARRAY_SIZE(cases); i++) {
-+		unsigned int saved = current->memcg_nr_pages_over_high;
-+		bool notify = test_thread_flag(TIF_NOTIFY_RESUME);
-+		unsigned int debt;
-+		bool notified;
-+		int ret;
-+
-+		/*
-+		 * Exceed the stock batch to use the real counter charge path
-+		 * without leaving a reference to this isolated fixture in stock.
-+		 * GFP_NOWAIT defers reclaim until return to userspace.
-+		 */
-+		current->memcg_nr_pages_over_high = cases[i].before;
-+		ret = try_charge_memcg(memcg, GFP_NOWAIT, nr_pages);
-+		debt = current->memcg_nr_pages_over_high;
-+		notified = test_thread_flag(TIF_NOTIFY_RESUME);
-+
-+		/* Restore the test task before any assertion can abort the case. */
-+		current->memcg_nr_pages_over_high = saved;
-+		if (!notify)
-+			clear_thread_flag(TIF_NOTIFY_RESUME);
-+		memcg_high_test_restore_counter(&memcg->memory, 0);
-+		if (do_memsw_account())
-+			memcg_high_test_restore_counter(&memcg->memsw, 0);
-+
-+		KUNIT_EXPECT_EQ_MSG(test, ret, 0, "case %u", i);
-+		KUNIT_EXPECT_EQ_MSG(test, debt, cases[i].expected, "case %u",
-+				    i);
-+		KUNIT_EXPECT_TRUE_MSG(test, notified, "case %u", i);
-+	}
++	return queue->mem_used > queue->mem_limit ||
++	       truesize > queue->mem_limit - queue->mem_used;
 +}
 +
-+static void memcg_high_test_overage(struct kunit *test)
++/* All release paths use the saved admission cost, including notification undo. */
++static void nfqnl_mem_uncharge(struct nfqnl_instance *queue,
++			       struct nf_queue_entry *entry)
 +{
-+	const unsigned long large_high = 1UL << (BITS_PER_LONG - 3);
-+	const struct {
-+		unsigned long usage;
-+		unsigned long high;
-+		u64 expected;
-+	} cases[] = {
-+		{ 0, 0, 0 },
-+		{ 1, 0, 0 },
-+		{ 2, 0, 1ULL << 20 },
-+		{ 99, 100, 0 },
-+		{ 100, 100, 0 },
-+		{ 110, 100, 104857 },
-+		{ 150, 100, 524288 },
-+		{ 299, 100, 2086666 },
-+		{ 300, 100, 2ULL << 20 },
-+		{ 301, 100, 2ULL << 20 },
-+		{ ULONG_MAX, 1, 2ULL << 20 },
-+		{ ULONG_MAX, ULONG_MAX - 1, 0 },
-+		/* A modest ratio whose scaled numerator exceeds u64 on 64-bit. */
-+		{ large_high + large_high / 16, large_high, 1ULL << 16 },
-+	};
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(cases); i++)
-+		KUNIT_EXPECT_EQ_MSG(
-+			test, calculate_overage(cases[i].usage, cases[i].high),
-+			cases[i].expected, "case %u", i);
++	lockdep_assert_held(&queue->lock);
++	queue->mem_used -= entry->truesize;
++	entry->truesize = 0;
 +}
 +
-+static void memcg_high_test_delay(struct kunit *test)
+ static struct nfqnl_instance *
+ instance_create(struct nfnl_queue_net *q, u_int16_t queue_num, u32 portid)
+ {
+@@ -152,6 +176,7 @@ instance_create(struct nfnl_queue_net *q, u_int16_t queue_num, u32 portid)
+ 	inst->queue_num = queue_num;
+ 	inst->peer_portid = portid;
+ 	inst->queue_maxlen = NFQNL_QMAX_DEFAULT;
++	inst->mem_limit = nfqnl_mem_limit(NFQNL_QMAX_DEFAULT);
+ 	inst->copy_range = NFQNL_MAX_COPY_RANGE;
+ 	inst->copy_mode = NFQNL_COPY_NONE;
+ 	spin_lock_init(&inst->lock);
+@@ -199,6 +224,7 @@ static void instance_destroy_work(struct work_struct *work)
+ 	rcu_read_lock();
+ 	nfqnl_flush(inst, NULL, 0);
+ 	rcu_read_unlock();
++	WARN_ON_ONCE(inst->mem_used);
+ 
+ 	rhashtable_destroy(&inst->nfqnl_packet_map);
+ 
+@@ -235,6 +261,8 @@ __enqueue_entry(struct nfqnl_instance *queue, struct nf_queue_entry *entry)
+ 
+ 	list_add_tail(&entry->list, &queue->queue_list);
+ 	queue->queue_total++;
++	entry->truesize = entry->skb->truesize;
++	queue->mem_used += entry->truesize;
+ 
+ 	return 0;
+ }
+@@ -493,7 +521,7 @@ static bool nf_bridge_ports_valid(const struct nf_queue_entry *entry)
+ 	return true;
+ }
+ 
+-static void nfqnl_reinject(struct nf_queue_entry *entry, unsigned int verdict)
++static void __nfqnl_reinject(struct nf_queue_entry *entry, unsigned int verdict)
+ {
+ 	const struct nf_ct_hook *ct_hook;
+ 
+@@ -544,6 +572,15 @@ static void nfqnl_reinject(struct nf_queue_entry *entry, unsigned int verdict)
+ 	nf_reinject(entry, verdict);
+ }
+ 
++static void nfqnl_reinject(struct nfqnl_instance *queue,
++			   struct nf_queue_entry *entry, unsigned int verdict)
 +{
-+	const unsigned long cap = MEMCG_MAX_HIGH_DELAY_JIFFIES;
-+	const struct {
-+		unsigned int pages;
-+		u64 overage;
-+		unsigned long expected;
-+	} cases[] = {
-+		{ 0, 0, 0 },
-+		{ 0, U64_MAX, 0 },
-+		{ UINT_MAX, 0, 0 },
-+		{ 1, 1ULL << 16, (HZ / 4) / 64 },
-+		{ 63, 1ULL << 16, (HZ / 4) * 63 / 64 },
-+		{ 64, 1ULL << 16, HZ / 4 },
-+		{ 65, 1ULL << 16, (HZ / 4) * 65 / 64 },
-+		{ UINT_MAX, 1ULL << 16, cap },
-+		{ 64, 1ULL << 17, HZ },
-+		/* Apply debt scaling before the cap, including sub-batch debt. */
-+		{ 1, 1ULL << 18, HZ / 16 },
-+		{ 1, 1ULL << 20, HZ },
-+		{ 2, 1ULL << 20, cap },
-+		{ 1, 2ULL << 20, cap },
-+		{ 64, 1ULL << 32, cap },
-+		{ UINT_MAX, 1ULL << 32, cap },
-+		{ 1, U64_MAX, cap },
-+		{ UINT_MAX, U64_MAX, cap },
-+	};
-+	unsigned long delay;
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(cases); i++)
-+		KUNIT_EXPECT_EQ_MSG(test,
-+				    calculate_high_delay(cases[i].pages,
-+							 cases[i].overage),
-+				    cases[i].expected, "case %u", i);
-+
-+	/* 32 GiB over an 8 MiB high limit, expressed in 4 KiB pages. */
-+	KUNIT_EXPECT_EQ(
-+		test,
-+		calculate_high_delay(64, calculate_overage((1UL << 23) + 2048,
-+							   2048)),
-+		cap);
-+	/* Both memory and swap contributions are bounded before addition. */
-+	delay = calculate_high_delay(UINT_MAX, U64_MAX);
-+	delay += calculate_high_delay(UINT_MAX, U64_MAX);
-+	KUNIT_EXPECT_EQ(test, delay, 2 * cap);
++	spin_lock_bh(&queue->lock);
++	nfqnl_mem_uncharge(queue, entry);
++	spin_unlock_bh(&queue->lock);
++	__nfqnl_reinject(entry, verdict);
 +}
 +
-+static struct kunit_case memcg_high_test_cases[] = {
-+	KUNIT_CASE(memcg_high_test_debt),
-+	KUNIT_CASE(memcg_high_test_overage),
-+	KUNIT_CASE(memcg_high_test_delay),
-+	{}
-+};
-+
-+static struct kunit_suite memcg_high_test_suite = {
-+	.name = "memcg_high",
-+	.test_cases = memcg_high_test_cases,
-+};
-+
-+kunit_test_suite(memcg_high_test_suite);
+ static void
+ nfqnl_flush(struct nfqnl_instance *queue, nfqnl_cmpfn cmpfn, unsigned long data)
+ {
+@@ -553,7 +590,8 @@ nfqnl_flush(struct nfqnl_instance *queue, nfqnl_cmpfn cmpfn, unsigned long data)
+ 	list_for_each_entry_safe(entry, next, &queue->queue_list, list) {
+ 		if (!cmpfn || cmpfn(entry, data)) {
+ 			__dequeue_entry(queue, entry);
+-			nfqnl_reinject(entry, NF_DROP);
++			nfqnl_mem_uncharge(queue, entry);
++			__nfqnl_reinject(entry, NF_DROP);
+ 		}
+ 	}
+ 	spin_unlock_bh(&queue->lock);
+@@ -1004,6 +1042,7 @@ __nfqnl_enqueue_packet(struct net *net, struct nfqnl_instance *queue,
+ 	__be32 *packet_id_ptr;
+ 	int failopen = 0;
+ 
++	entry->truesize = 0;
+ 	nskb = nfqnl_build_packet_message(net, queue, entry, &packet_id_ptr);
+ 	if (nskb == NULL) {
+ 		err = -ENOMEM;
+@@ -1011,7 +1050,8 @@ __nfqnl_enqueue_packet(struct net *net, struct nfqnl_instance *queue,
+ 	}
+ 	spin_lock_bh(&queue->lock);
+ 
+-	if (queue->queue_total >= queue->queue_maxlen)
++	if (queue->queue_total >= queue->queue_maxlen ||
++	    nfqnl_mem_full(queue, entry->skb->truesize))
+ 		goto err_out_queue_drop;
+ 
+ 	entry->id = ++queue->id_sequence;
+@@ -1027,6 +1067,7 @@ __nfqnl_enqueue_packet(struct net *net, struct nfqnl_instance *queue,
+ 	if (err < 0) {
+ 		/* Unicast failed - remove entry we just inserted */
+ 		__dequeue_entry(queue, entry);
++		nfqnl_mem_uncharge(queue, entry);
+ 
+ 		if (queue->flags & NFQA_CFG_F_FAIL_OPEN) {
+ 			failopen = 1;
+@@ -1050,6 +1091,9 @@ __nfqnl_enqueue_packet(struct net *net, struct nfqnl_instance *queue,
+ 		if (queue->queue_total >= queue->queue_maxlen)
+ 			net_warn_ratelimited("nf_queue: full at %d entries, dropping packets(s)\n",
+ 					     queue->queue_total);
++		else if (nfqnl_mem_full(queue, entry->skb->truesize))
++			net_warn_ratelimited(
++				"nf_queue: byte limit reached, dropping packet\n");
+ 		else
+ 			net_warn_ratelimited("nf_queue: hash insert failed: %d\n", err);
+ 	}
+@@ -1057,7 +1101,7 @@ __nfqnl_enqueue_packet(struct net *net, struct nfqnl_instance *queue,
+ err_out_unlock:
+ 	spin_unlock_bh(&queue->lock);
+ 	if (failopen)
+-		nfqnl_reinject(entry, NF_ACCEPT);
++		nfqnl_reinject(queue, entry, NF_ACCEPT);
+ err_out:
+ 	return err;
+ }
+@@ -1773,7 +1817,7 @@ static int nfqnl_recv_verdict_batch(struct sk_buff *skb,
+ 		if (nfqa[NFQA_PRIORITY])
+ 			entry->skb->priority = ntohl(nla_get_be32(nfqa[NFQA_PRIORITY]));
+ 
+-		nfqnl_reinject(entry, verdict);
++		nfqnl_reinject(queue, entry, verdict);
+ 	}
+ 	return 0;
+ }
+@@ -1885,7 +1929,7 @@ static int nfqnl_recv_verdict(struct sk_buff *skb, const struct nfnl_info *info,
+ 	if (entry->state.pf == PF_BRIDGE) {
+ 		err = nfqa_parse_bridge(entry, nfqa);
+ 		if (err < 0) {
+-			nfqnl_reinject(entry, NF_DROP);
++			nfqnl_reinject(queue, entry, NF_DROP);
+ 			return err;
+ 		}
+ 	}
+@@ -1907,7 +1951,7 @@ static int nfqnl_recv_verdict(struct sk_buff *skb, const struct nfnl_info *info,
+ 	if (nfqa[NFQA_PRIORITY])
+ 		entry->skb->priority = ntohl(nla_get_be32(nfqa[NFQA_PRIORITY]));
+ 
+-	nfqnl_reinject(entry, verdict);
++	nfqnl_reinject(queue, entry, verdict);
+ 	return 0;
+ }
+ 
+@@ -2037,6 +2081,7 @@ static int nfqnl_recv_config(struct sk_buff *skb, const struct nfnl_info *info,
+ 
+ 		spin_lock_bh(&queue->lock);
+ 		queue->queue_maxlen = ntohl(*queue_maxlen);
++		queue->mem_limit = nfqnl_mem_limit(queue->queue_maxlen);
+ 		spin_unlock_bh(&queue->lock);
+ 	}
+ 
 
 -- 
 2.34.1
