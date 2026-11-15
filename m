@@ -1,74 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794709572;
-	b=yNyDoyeSjYnG6Zm0hooLTLPOJ7NT8cclw0BRNKhotCggJAnFUvVz8Q+KVYZ4X08CMelK
-	 RYkfVM0wV1Ipcq2ANszJPEFseDDMupLI3qGEPSVCG80PzpJVNKMerFQkPLYD1Ifuhai4t
-	 xHBDLRyZPE9F1DRCAM2bfuCX9/0u37L13GfttipDUJ29wufITWdEjKbDoDDWkOrhwFhDc
-	 bMB7Rjko0uNenbRFPZNQmNdTPy1K1n+We2HiTXokiM1/2nRqONJd4tUAv1nyAqkbei6so
-	 BhMq8yQzB0ZoDeMbEFO6leZsq7ZzWohroZWq1A2Iq3Ef6BvD66eMeJya1qX02iLIxRA==
+	t=1794711435;
+	b=Cjm266A+AFOzdGcsH+7ZPpHousrqd7FvaIP/QO5cKlOfgk7W5rghOUxsc3avF5128j5G
+	 LIXVvNQLlXEV3S7qFyX+Y9zZdLq2/rfp4xHJks8PCvbZ8ZYqO0EEayM+Yt9gXNS13aFEE
+	 4MojaVlYOCHNV7UMfAcuqHhmi5IdLuRP2ORE1HmX4ZpzCK/UBqJi3WJTrxO8wMpc/38Il
+	 5L8B8gx+Ul0mZaQCq8xFwiBUKOkSlLTfPqFTg5dNMnp5d0/PRq5k03HNkXY+R0USV7O73
+	 UUmvEze0i2C4rhoQZnj+k65QutyE2OX0eT+9aZ2AXyKKvK0pkdyv+h/t5Ts20Cziwyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794709572;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794711435;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
-	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=M3P7ujHQBJpighPNvjdFs5yAEbsTyYNTue7OiVYVJQQ=;
-	b=HF8xgE4z+fl74QuLwwQ6OY8vi1d5jUgSfuEOw67API7eepHOwL24Eb5w/0hl271DDVor
-	 /vcfqiwF3qG4cY+6cYFF5TF3x1MRNrofiyUVY49taH/EBxy9QLjqQZHfxy8B4oRn/AmZl
-	 gVWwvihBlPl4vQHl6DJflwvvkkU2RsWGD/lPaoW0npzrvOZA/61vEgI0MOla2NiKNajoc
-	 kFyy+/I8jJkfKlfE2ElAXyylGQD1ZhpZUo20DvSHEyx3bzGPQSkhESBnfqrbAO63fe7no
-	 emApm3dYU8wzXVKGmXiZ9F/wsGnke5yytYybrlJD6s62ZxPpgqfSeBUP0c4/ihQSGPw==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=k8oz3BQ/HZy3PG6rhWbidZddgjCFH79voNOxMT0Y3dQ=;
+	b=lnlQhhxoB00A30O9k5QH+UfPfcLugLfleMuI4A0pBRAZ1pIP9AKeZQuvIoCL+Eb2TYar
+	 fqYeRZippd9zZIrjBaBVU/QbArDfoFYaAyESJTeg+NIjU/p3rtATwybTuztnUij1IY/le
+	 QwJ0QNrDHSqIjDsjbWHuJMUUGhuFK1YnvyxyQX1Dw7/C4Gk6DrUWT8O9wXZVvxzmhekKr
+	 uI9PVYeqthvyxOfRf0UcRLIQP4oQUQ3wzMA975khQZfoHekrvTwfdU4SFXGH4BF8adgjV
+	 EY6p1CQl16+fCB90862o02gKsyi/ipcKHxBaUmPH7Lv1j+LNqAjgAj6WRWWwGewMDDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ASmKgKJx;
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZBMlvkKh;
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8243E606A8A7
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 02:26:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8243E606A8A7
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--almasrymina.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48F8F606A329
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 02:57:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48F8F606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ASmKgKJx
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-33713e5e6daso2173585eec.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 18:26:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZBMlvkKh
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-37628596783so3970856eec.1
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 18:57:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794709572; x=1795314372; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=M3P7ujHQBJpighPNvjdFs5yAEbsTyYNTue7OiVYVJQQ=;
-        b=ASmKgKJxNjKYd/ZMsY9OrXyOtBxzaMBDC6c7a3DvDywLwczRohEQoQEZrlEGh04Ecf
-         1Ziv0ElN9qYWlfLhPsp5PEgf6vwq9c5UiJnyOQsYmQP1Ks/gItnsA3wNvNO5MJWv+8Y9
-         9fz1tk3xUWnJmLB5BddugecZ1EELuGwsTdE14oU9puEvahgUlSCgjGcCcYfdYhCneCoR
-         LaNj8QN4gMKxrrihcdvG9HTJ8Iktgpi2DisSLtp2stpDSzK5kNeK39BPRGESw48KqQOP
-         931JfruaT+QljSzCUPoHbAc5VT2+uJRWXiR558uqdICq6oCYQe0iMcrkojH4qsRy60qm
-         nlhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794709572; x=1795314372;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1794711434; x=1795316234; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=M3P7ujHQBJpighPNvjdFs5yAEbsTyYNTue7OiVYVJQQ=;
-        b=qRKvLHFbdaRzkrGeQgXe5HenU+lDCgvBp72YmHR2OEI8jL5vhjsYTi2QNGrClS2YkA
-         BGLw8Ios7pC0/hzDQhHLtp164MgMDIPyUI81h5ag0zX24PCRm0bjT4J6nx08MGf0Qk+L
-         Q/f9NMgbp6yHnF5ma5WK1Sfm6L76Y+8zImGON5jKLgcTgGgb6ntLb/wqBlcby43a0n78
-         fSTjSItMO4pgMfU2cXrnMTtgHIXUWKOdXpKMdUmo690tyCCS3C3V+QC3AeIqxtK/gCJt
-         fOcOm8s9eDVeNgkXnHWPUDSq7ch1o6HaJTQG0i/VMz5vQVcjH9rZBrXnvULAmKpgZUL4
-         dPpQ==
-X-Gm-Message-State: APuU4Z+N+n0qMlyFfoHOuHyEembOEANgXSJgEeZs1pY4vZ0SX8SrKGHt
-	06MR+0vvH3dN7GLVu00pJuXS7RCmgwKzNn3srhktV5I8KVP4jvnxKn/rUKv7T2AxQaiitl38p5U
-	oTMNRXpJTOYEmaS4FvV6NrL6v7st4aqoqQaVBFB4PydxxcOvcwG3ga/rgFUYPtr4bVWYMyYhTz9
-	vMZBfmc1mcWxWkuHhIOopA1t+D6Rz3p9nIZK3cf7HmYR+0SWZJQ5ruqQLUiLhMYUw=
-X-Received: from dlbpt1.prod.google.com ([2002:a05:7022:e801:b0:1b0:ab15:db1d])
- (user=almasrymina job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:701b:4354:b0:14c:1f57:3e86 with SMTP id a92af1059eb24-1b50312160emr6123231c88.47.1794709570523;
- Sat, 14 Nov 2026 18:26:10 -0800 (PST)
-Date: Sun, 15 Nov 2026 02:26:03 +0000
-In-Reply-To: <20261115022607.348112-1-almasrymina@google.com>
+        bh=k8oz3BQ/HZy3PG6rhWbidZddgjCFH79voNOxMT0Y3dQ=;
+        b=ZBMlvkKh6cHMxXN1iorhJZvHD9gBK9TBMWMt+LC7sdr2QqPGNXiCfTeRMXsXx5+O0g
+         8ejKHCnW1fTPGdI68XmXTQMxhNplXK1zADJaIzkFNnmzIg/RAZWX8Jkom5nt6Hkf5mRO
+         wxE8x3FFZBi4mQ3zHgE4yLEjtU+tYmVjCbSTRLesAT2Y2OE7vCVc2vDKP0j6jdsrs1In
+         KcL9BVLWGLT8D3dG9tp10fCXqVs0J3r7ut0vEL+ApmBzR8d8FL5XijHJMCOtkLhv/HDK
+         k3cyq/JpxidJopJ38WYoZEN9zCRPRoqF2LVTpu+QMajWBfNE5aYdUObD4BXARYLogtzQ
+         xXkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794711434; x=1795316234;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=k8oz3BQ/HZy3PG6rhWbidZddgjCFH79voNOxMT0Y3dQ=;
+        b=1MQ7V6OfjA5I0y1eXxEOiCzj7T+O2k/lsGX2bz/xFDfTmB7JRMDfIywZ3ub9kGwIMD
+         apXuXEyWD7PFG7/IEOiiVGAuuQ61XqexrgxuelBBGYozY3+baH80mv44wWDz9x5EHclD
+         MN6xK3dwAV938E1Ojhoj0dWDg6h1aSlpf2msCcDTR+wzLhlfaVrkFJifqA63ZH9FgYYE
+         bijtiPM0HwnNCzqzHbHt2G0Ylk+r5lBV6Vy8U4KQUrkguxDzlpXp+feLr5vkPs1bLICj
+         pzwp5Y1KBJpPMWDaoYZ4ZZUrSQDMY0b5o5hJX5dFU/dD1YEBrJhZx/XKL/bzr6fPlsaF
+         jUjw==
+X-Forwarded-Encrypted: i=1; AL+hErFPmNtSI1zBGvJOjq4+AXfHQKb2gcRtBUzQVTQyJWjU6KMA7gTCi7W1CWhSPoXZWM+WwhTlr5A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8HhMdmor7PkMGi4rDPgZ2BhbfIj4Tqs9+oPXDMkRXoaW1wW6No
+	FuSXhYrYOTQmdzbzXsQkyUmOd1NnKmBULzf9RoYvbt8SxJ9LbiJBVd+q
+X-Gm-Gg: AYBFou0o/VXNco6hduiJRDfC+Lv0rQcf20szYmMsHjXwynRLAZqrblQH0+4b2QSOOuc
+	xKaBPqJY2pqZ5VUlUsWB/ZKuaSxboYbX90IuV8lyyo1Hj62o1jFXAtIMvEesx4jNnhdTEFtgvN4
+	RASbwtYVKoeScRE2P/vXDHR1uE+pS3e03dTI3p9ti+hbLCwgFu1ghuHJQZugihmb6Z1cWMi83tt
+	eainONTsXfKvQrcwU9YWk/LBmwlQfvZTKBvu4LAgoVOugnw/4/AUlaR1ei59g1TMhSzTPjQLzhk
+	KceouMwKKUvdiNTuSJw5fI7Q9MFFkx3pEfT3d67nFGFUvAWV5hacPqOrwYlTwQ1XU9v9oA2J2Me
+	QTPcglaP7h1AwSj0T1Km439m0lFwi/Mge+Vsv1yF3tDHPjXh5PfNGWSmLJBk3+SQTEdzIJIAxR4
+	6QYi93hJ5875ESDQAX4OmZ7De1bDmnNCa/SPJ+X0wg4xs10mGpOTvr0Qhqu/VZQsoXX9IwhJVuy
+	5q9HRKNRMzqmt6PzNldBIckLScv+k6LBX+C9MIVyjWFWTQBGVeXrw+H5YFn2zguiCT021xUCVP4
+	uLbIJcBegz6OlpGs8hbmCo2NRScoNVV/i3Q8fIoDILylRhhnlRoiB+7OwspCHf1EGwIJSNE1lfP
+	Bg58fM00aKsn0aWP4un7L5+a1UIgWM/JDAPa0gG2QKOVxHSHkbfiwQGFQoTbh6NXXuCVzOWIKgw
+	==
+X-Received: by 2002:a05:7300:8248:b0:36c:a084:30a4 with SMTP id 5a478bee46e88-37966960b23mr6871516eec.21.1794711434128;
+        Sat, 14 Nov 2026 18:57:14 -0800 (PST)
+Received: from ramen-dev-security-2.asia-south1-c.c.ramen-dev-345017.internal (90.156.200.35.bc.googleusercontent.com. [35.200.156.90])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37955a1c5c2sm22022472eec.14.2026.11.14.18.57.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 18:57:13 -0800 (PST)
+From: Anil Kaushik <anilkaushikwireless@gmail.com>
+To: nicolas.dichtel@6wind.com,
+	netdev@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	idosch@nvidia.com,
+	jacob.e.keller@intel.com,
+	jiri@resnulli.us,
+	fw@strlen.de,
+	martineau@kernel.org,
+	v3rdant.xiang@gmail.com,
+	aliceryhl@google.com,
+	linux-kernel@vger.kernel.org,
+	anilkaushikwireless@gmail.com
+Subject: Re: [PATCH net v6] genetlink: Reject joining multicast groups no family owns
+Date: Sun, 15 Nov 2026 02:57:06 +0000
+Message-Id: <20261115025706.1441789-1-anilkaushikwireless@gmail.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <2a362c31-2659-4a5d-a7b5-a50f646020b9@6wind.com>
+References: <20261112094205.1120090-1-anilkaushikwireless@gmail.com> <2a362c31-2659-4a5d-a7b5-a50f646020b9@6wind.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,295 +111,14 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261115022607.348112-1-almasrymina@google.com>
-X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
-Message-ID: <20261115022607.348112-3-almasrymina@google.com>
-Subject: [PATCH net-next v3 2/6] net: devmem: rename binding dev and vdev to
- map_dev and bind_dev
-From: Mina Almasry <almasrymina@google.com>
-To: netdev@vger.kernel.org
-Cc: Mina Almasry <almasrymina@google.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Weiming Shi <bestswngs@gmail.com>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Nikolay Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, 
-	Stanislav Fomichev <sdf.kernel@gmail.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
-	Dragos Tatulea <dtatulea@nvidia.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-struct net_devmem_dmabuf_binding currently tracks two device pointers
-under the names 'dev' and 'vdev':
+On Fri, Nov 13, 2026 at 04:11:05PM +0100, Nicolas Dichtel wrote:
+> Could these tests be added in selftests?
 
-- 'dev' is the physical net_device whose dma_dev holds the DMA mapping.
-- 'vdev' is the virtual net_device the user bound to when using leased
-  queues.
+Yes, I will add a selftest for it. I will wait a day or two for more
+review and then send v7 with the test as a second patch.
 
-Rename 'dev' to 'map_dev' and 'vdev' to 'bind_dev' (typed as struct
-net_device *), and rename the matching local variable in
-netdev_nl_bind_tx_doit() from 'bind_dev' to 'map_dev' to match. No
-functional change.
-
-Reviewed-by: Dragos Tatulea <dtatulea@nvidia.com>
-Signed-off-by: Mina Almasry <almasrymina@google.com>
----
- net/core/dev.c         |  2 +-
- net/core/devmem.c      | 38 ++++++++++++++++++++------------------
- net/core/devmem.h      | 17 +++++++++--------
- net/core/netdev-genl.c | 31 +++++++++++++++----------------
- 4 files changed, 45 insertions(+), 43 deletions(-)
-
-diff --git a/net/core/dev.c b/net/core/dev.c
-index a230ecce9327d..405811b99589b 100644
---- a/net/core/dev.c
-+++ b/net/core/dev.c
-@@ -4192,7 +4192,7 @@ static struct sk_buff *validate_xmit_unreadable_skb(struct sk_buff *skb,
- 		niov = netmem_to_net_iov(skb_frag_netmem(&shinfo->frags[0]));
- 		if (net_is_devmem_iov(niov) &&
- 		    (net_devmem_iov_binding(niov)->direction != DMA_TO_DEVICE ||
--		     READ_ONCE(net_devmem_iov_binding(niov)->dev) != dev))
-+		     READ_ONCE(net_devmem_iov_binding(niov)->map_dev) != dev))
- 			goto out_free;
- 	}
- 
-diff --git a/net/core/devmem.c b/net/core/devmem.c
-index 6fa7b909b86e8..db60d1b5ea229 100644
---- a/net/core/devmem.c
-+++ b/net/core/devmem.c
-@@ -157,7 +157,7 @@ void __net_devmem_dmabuf_binding_free(struct work_struct *wq)
- 		     binding->area.num_niovs, binding->free_count);
- 
- 	kvfree(binding->area.niovs);
--	dev = net_devmem_lock_dev(&binding->dev, &dev_tracker);
-+	dev = net_devmem_lock_dev(&binding->map_dev, &dev_tracker);
- 	net_devmem_dmabuf_binding_unmap(binding);
- 	xa_erase(&net_devmem_dmabuf_bindings, binding->id);
- 	net_devmem_unlock_dev(dev, &dev_tracker);
-@@ -227,13 +227,14 @@ void net_devmem_unbind_dmabuf(struct net_devmem_dmabuf_binding *binding)
- 
- 		rxq_idx = get_netdev_rx_queue_index(rxq);
- 
--		if (netif_mp_close_rxq(binding->dev, rxq_idx, &mp_params))
-+		if (netif_mp_close_rxq(binding->map_dev, rxq_idx, &mp_params))
- 			busy = true;
- 	}
- 
--	if (binding->direction == DMA_FROM_DEVICE && binding->dev && !busy) {
-+	if (binding->direction == DMA_FROM_DEVICE && binding->map_dev &&
-+	    !busy) {
- 		net_devmem_dmabuf_binding_unmap(binding);
--		WRITE_ONCE(binding->dev, NULL);
-+		WRITE_ONCE(binding->map_dev, NULL);
- 	}
- 
- 	percpu_ref_kill(&binding->ref);
-@@ -252,16 +253,16 @@ void net_devmem_dev_unregister(struct net_device *dev)
- 	xa_lock(&net_devmem_dmabuf_bindings);
- 	xa_for_each(&net_devmem_dmabuf_bindings, xa_idx, binding) {
- 		if (binding->direction == DMA_FROM_DEVICE) {
--			if (READ_ONCE(binding->dev) != dev ||
-+			if (READ_ONCE(binding->map_dev) != dev ||
- 			    xa_get_mark(&net_devmem_dmabuf_bindings, xa_idx,
- 					NET_DEVMEM_BINDING_LIVE))
- 				continue;
- 		} else {
--			if (READ_ONCE(binding->vdev) == dev)
--				WRITE_ONCE(binding->vdev, NULL);
--			if (READ_ONCE(binding->dev) != dev)
-+			if (READ_ONCE(binding->bind_dev) == dev)
-+				WRITE_ONCE(binding->bind_dev, NULL);
-+			if (READ_ONCE(binding->map_dev) != dev)
- 				continue;
--			WRITE_ONCE(binding->vdev, NULL);
-+			WRITE_ONCE(binding->bind_dev, NULL);
- 			__xa_clear_mark(&net_devmem_dmabuf_bindings, xa_idx,
- 					NET_DEVMEM_BINDING_LIVE);
- 		}
-@@ -270,7 +271,7 @@ void net_devmem_dev_unregister(struct net_device *dev)
- 		if (!netif_is_queue_leasee(dev))
- 			net_devmem_dmabuf_binding_unmap(binding);
- 		xa_lock(&net_devmem_dmabuf_bindings);
--		WRITE_ONCE(binding->dev, NULL);
-+		WRITE_ONCE(binding->map_dev, NULL);
- 	}
- 	xa_unlock(&net_devmem_dmabuf_bindings);
- }
-@@ -304,7 +305,8 @@ int net_devmem_bind_dmabuf_to_queue(struct net_device *dev, u32 rxq_idx,
- }
- 
- struct net_devmem_dmabuf_binding *
--net_devmem_bind_dmabuf(struct net_device *dev, void *vdev,
-+net_devmem_bind_dmabuf(struct net_device *map_dev,
-+		       struct net_device *bind_dev,
- 		       struct device *dma_dev,
- 		       enum dma_data_direction direction,
- 		       unsigned int dmabuf_fd, unsigned int niov_shift,
-@@ -332,14 +334,14 @@ net_devmem_bind_dmabuf(struct net_device *dev, void *vdev,
- 		return ERR_CAST(dmabuf);
- 
- 	binding = kzalloc_node(sizeof(*binding), GFP_KERNEL,
--			       dev_to_node(&dev->dev));
-+			       dev_to_node(&map_dev->dev));
- 	if (!binding) {
- 		err = -ENOMEM;
- 		goto err_put_dmabuf;
- 	}
- 
--	binding->dev = dev;
--	binding->vdev = vdev;
-+	binding->map_dev = map_dev;
-+	binding->bind_dev = bind_dev;
- 	write_pnet(&binding->net, sock_net(nl_sk));
- 	binding->uid = sk_uid(nl_sk);
- 	binding->niov_shift = niov_shift;
-@@ -558,8 +560,8 @@ struct net_devmem_dmabuf_binding *net_devmem_get_binding(struct sock *sk,
- 	 */
- 	dst_dev = dst_dev_rcu(dst);
- 	if (unlikely(!dst_dev) ||
--	    unlikely(dst_dev != READ_ONCE(binding->dev) &&
--		     dst_dev != READ_ONCE(binding->vdev))) {
-+	    unlikely(dst_dev != READ_ONCE(binding->map_dev) &&
-+		     dst_dev != READ_ONCE(binding->bind_dev))) {
- 		err = -ENODEV;
- 		goto out_unlock;
- 	}
-@@ -683,8 +685,8 @@ static void mp_dmabuf_devmem_uninstall(void *mp_priv,
- 		if (xa_empty(&binding->bound_rxqs)) {
- 			if (!rxq->lease)
- 				net_devmem_dmabuf_binding_unmap(binding);
--			ASSERT_EXCLUSIVE_WRITER(binding->dev);
--			WRITE_ONCE(binding->dev, NULL);
-+			ASSERT_EXCLUSIVE_WRITER(binding->map_dev);
-+			WRITE_ONCE(binding->map_dev, NULL);
- 		}
- 		break;
- 	}
-diff --git a/net/core/devmem.h b/net/core/devmem.h
-index c0aaba0041ff6..9dcb629e10bfd 100644
---- a/net/core/devmem.h
-+++ b/net/core/devmem.h
-@@ -22,14 +22,13 @@ struct net_devmem_dmabuf_binding {
- 	struct dma_buf_attachment *attachment;
- 	struct sg_table *sgt;
- 	/* Physical NIC that does the actual DMA for this binding. Set at bind
--	 * time and cleared to NULL under netdev_lock(dev).
-+	 * time and cleared to NULL under netdev_lock(map_dev).
- 	 */
--	struct net_device *dev;
--	/* Opaque cookie identifying the virtual device (e.g. netkit) the user
--	 * called bind-tx on. Used only for pointer comparison via READ_ONCE()
--	 * and cleared with WRITE_ONCE() on unregistration. Never dereferenced.
-+	struct net_device *map_dev;
-+	/* Device the user called bind-rx or bind-tx on. Set at bind time and
-+	 * cleared to NULL on unregistration.
- 	 */
--	void *vdev;
-+	struct net_device *bind_dev;
- 	possible_net_t net;
- 	kuid_t uid;
- 	/* Serialize net_devmem_dmabuf_binding_unmap() on attachment and sgt */
-@@ -91,7 +90,8 @@ struct net_devmem_dmabuf_binding {
- #if defined(CONFIG_NET_DEVMEM)
- void __net_devmem_dmabuf_binding_free(struct work_struct *wq);
- struct net_devmem_dmabuf_binding *
--net_devmem_bind_dmabuf(struct net_device *dev, void *vdev,
-+net_devmem_bind_dmabuf(struct net_device *map_dev,
-+		       struct net_device *bind_dev,
- 		       struct device *dma_dev,
- 		       enum dma_data_direction direction,
- 		       unsigned int dmabuf_fd, unsigned int niov_shift,
-@@ -171,7 +171,8 @@ static inline void net_devmem_net_iov_dec_ref(struct net_iov *niov)
- }
- 
- static inline struct net_devmem_dmabuf_binding *
--net_devmem_bind_dmabuf(struct net_device *dev, void *vdev,
-+net_devmem_bind_dmabuf(struct net_device *map_dev,
-+		       struct net_device *bind_dev,
- 		       struct device *dma_dev,
- 		       enum dma_data_direction direction,
- 		       unsigned int dmabuf_fd,
-diff --git a/net/core/netdev-genl.c b/net/core/netdev-genl.c
-index 2826f7e328340..962d7a8c75e9a 100644
---- a/net/core/netdev-genl.c
-+++ b/net/core/netdev-genl.c
-@@ -1195,9 +1195,8 @@ netdev_find_netmem_tx_dev(struct net_device *dev)
- int netdev_nl_bind_tx_doit(struct sk_buff *skb, struct genl_info *info)
- {
- 	struct net_devmem_dmabuf_binding *binding;
--	struct net_device *bind_dev;
-+	struct net_device *netdev, *map_dev;
- 	struct netdev_nl_sock *priv;
--	struct net_device *netdev;
- 	struct device *dma_dev;
- 	u32 ifindex, dmabuf_fd;
- 	struct sk_buff *rsp;
-@@ -1245,27 +1244,27 @@ int netdev_nl_bind_tx_doit(struct sk_buff *skb, struct genl_info *info)
- 		goto err_unlock_netdev;
- 	}
- 
--	bind_dev = netdev_find_netmem_tx_dev(netdev);
--	if (!bind_dev) {
-+	map_dev = netdev_find_netmem_tx_dev(netdev);
-+	if (!map_dev) {
- 		err = -EOPNOTSUPP;
- 		NL_SET_ERR_MSG(info->extack,
- 			       "No DMA-capable device found for netmem TX");
- 		goto err_unlock_netdev;
- 	}
- 
--	if (bind_dev != netdev)
--		netdev_lock(bind_dev);
-+	if (map_dev != netdev)
-+		netdev_lock(map_dev);
- 
--	dma_dev = netdev_queue_get_dma_dev(bind_dev, 0, NETDEV_QUEUE_TYPE_TX);
-+	dma_dev = netdev_queue_get_dma_dev(map_dev, 0, NETDEV_QUEUE_TYPE_TX);
- 
--	binding = net_devmem_bind_dmabuf(bind_dev,
--					 bind_dev != netdev ? netdev : NULL,
-+	binding = net_devmem_bind_dmabuf(map_dev,
-+					 map_dev != netdev ? netdev : NULL,
- 					 dma_dev, DMA_TO_DEVICE, dmabuf_fd,
- 					 PAGE_SHIFT, priv, NETLINK_CB(skb).sk,
- 					 info->extack);
- 	if (IS_ERR(binding)) {
- 		err = PTR_ERR(binding);
--		goto err_unlock_bind_dev;
-+		goto err_unlock_map_dev;
- 	}
- 
- 	/* rsp was allocated large enough */
-@@ -1273,16 +1272,16 @@ int netdev_nl_bind_tx_doit(struct sk_buff *skb, struct genl_info *info)
- 
- 	genlmsg_end(rsp, hdr);
- 
--	if (bind_dev != netdev)
--		netdev_unlock(bind_dev);
-+	if (map_dev != netdev)
-+		netdev_unlock(map_dev);
- 	netdev_unlock(netdev);
- 	mutex_unlock(&priv->lock);
- 
- 	return genlmsg_reply(rsp, info);
- 
--err_unlock_bind_dev:
--	if (bind_dev != netdev)
--		netdev_unlock(bind_dev);
-+err_unlock_map_dev:
-+	if (map_dev != netdev)
-+		netdev_unlock(map_dev);
- err_unlock_netdev:
- 	netdev_unlock(netdev);
- err_unlock_sock:
-@@ -1476,7 +1475,7 @@ void netdev_nl_sock_priv_destroy(struct netdev_nl_sock *priv)
- 
- 	mutex_lock(&priv->lock);
- 	list_for_each_entry_safe(binding, temp, &priv->bindings, list) {
--		dev = net_devmem_lock_dev(&binding->dev, &dev_tracker);
-+		dev = net_devmem_lock_dev(&binding->map_dev, &dev_tracker);
- 		net_devmem_unbind_dmabuf(binding);
- 		net_devmem_unlock_dev(dev, &dev_tracker);
- 	}
--- 
-2.56.0.611.g1030f0b940-goog
-
+Thanks,
+Anil
