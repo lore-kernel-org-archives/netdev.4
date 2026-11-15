@@ -1,22 +1,23 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=50.16.246.183
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=13.216.54.180
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1794735948;
-	b=5FN8TnyrDG8b8TMWZK4GHBWFDsgpD8sW/dOO1xbTnxfBH53nen0pUP1IQvF7q04HuTHK
-	 YV7YucVP56/J5m7znkC9hvf5IvraCExepxGfE6oTousC5rWxBYnv+naxO1cqlb7RLow+3
-	 B7CoyW41v9G+O6dYIZE7FbRueRFKbyxWbecXxKGFiMPCYo5nndBsa9oGxdAuYkw2X5Vdv
-	 LnB2v/9W/CwRCjx0hG9ZD6h2ZTGZRV6gSlAAJ/nkyapxWqkkhs6gE+FQh/cQ9tbeETAlP
-	 pvsjH+G4/9vtKoJPPU0JMFRDOrbGx8cpOaMzobusFhyK4F2RZGHNfx2H8zzw7nAiFzA==
+	t=1794736091;
+	b=wpZI8aLSZ1Syc53yxYWLKT7migVErDKW4QDy/ygVRGb/UvbslYUg2kPv3Z+4Y2DSVVcM
+	 p+IKUgGnV/0Jpy7GX4dgZnitNxATSLtI/hPNe6E7u6A3hLeDnYmn/bVvbHqZsHQ+xe/qQ
+	 Q+Kusg7oC4C+edVV/i/IgLNGzImvtcAapr6sq4BYbZtscV0QXf87Ff8J+iDMS9TP9U79s
+	 DbMBjigb3cvE/RRfH3E9L/WkCrlQsrma41uS5KoDkSo+1iyCyjzK4x1fXyg9vbeTblJ9z
+	 PRJQudLXY0Y4PPBUjttmkJWBzn/IDzUs0LMWloWcE4got85EHlpcMU32iT188b/pgNA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794735948;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794736091;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:Subject:Thread-Topic:Received:Received:
-	 X-Farcaster-Flow-ID:Received:Received:Received:Received:From:To:CC:
-	 Thread-Index:Date:Deferred-Delivery:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 X-Farcaster-Flow-ID:Received:Received:Received:Received:Received:From:
+	 To:CC:Thread-Index:Date:Deferred-Delivery:Message-ID:References:
+	 In-Reply-To:Accept-Language:Content-Language:X-MS-Has-Attach:
+	 X-MS-TNEF-Correlator:x-ms-publictraffictype:
+	 x-ms-traffictypediagnostic:x-ms-office365-filtering-correlation-id:
+	 x-ms-exchange-senderadcheck:x-ms-exchange-antispam-relay:
+	 x-microsoft-antispam:x-microsoft-antispam-message-info:
+	 x-forefront-antispam-report:
 	 x-ms-exchange-antispam-messagedata-chunkcount:
 	 x-ms-exchange-antispam-messagedata-0:
 	 x-ms-exchange-antispam-messagedata-1:Content-Type:
@@ -29,68 +30,71 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
 	 X-MS-Exchange-CrossTenant-userprincipalname:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=ZuheCz02aKL/7mbMf07GcqPL0kipOYxR1eLr5THYMqQ=;
-	b=wla7hL7kv8aZgcQCYZsedaC6BxDdayB6an105dd83GOw9Xwu34ThMxl2QOygv4sIV4F0
-	 wlnWr3dONzhcVaXvDyYrqaMMCWcoOcyZQ1U5HMqyWoOi8fbjULbcFu5AbjIut5E5zSU7D
-	 WazC+hGCQjjXF7nzkVz4pjZIW3Q8zIa9RhuMyhhpqiMPYQ03oK08PNvEjXAnRZaBHuI2/
-	 RWIqukPb9cQYX7iiSfPs7MXcWzppdRcTn5lw6/nD2AqhD+knBqeLMIfNmAG3HkffANpYd
-	 apgSDyz+w532FqmR1ASF/NTPSmay+xRd8nxlGjY1bogMzmTr2CF/D+ZkRR6kUQHj8yw==
+	bh=B0GviV6Itqjhb/JXz7mUn/GBl2X2JI3n4hR1xkqKu5U=;
+	b=nVPoBIqFG80BJE6nkVY0rp7zw3xa7gkSlWjx1/EQJoQGykddMsqZW1eHNuuoDgr63eNL
+	 oVnJfptMwKqhwOyqZ2Tv99jJAxXB/W+Tn/z4B46DR0z6HoZ0WyGnN+Wqk27idYIqbQLas
+	 SjnIZv97enb4OeB+AnAZYEJrrG8BrODMdGhrCnHboAowCgm31UHAD3ObZmWcUwf803C82
+	 iZpE4VzdoSiE6sBUAP6fbrSKusO0Jnk5HoIAXH4Mll1YZHG07pWrPmYE7NsvBTUastAWN
+	 rC7fljaGQGaHdmUO9gVIfkv7tVCZvd5ohkRGSa7c0NzXy//tz6GhBoZ7797cpW8Bfkw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amazon.com;
 	spf=pass smtp.mailfrom=amazon.com;
-	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=osyA7OEC;
-	arc=fail smtp.remote-ip=50.16.246.183
-Received: from iad-out-014.esa.us-east-1.outbound.mail-perimeter.amazon.com (iad-out-014.esa.us-east-1.outbound.mail-perimeter.amazon.com [50.16.246.183])
+	dkim=pass header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=Zy8yaD+B;
+	arc=fail smtp.remote-ip=13.216.54.180
+Received: from iad-out-002.esa.us-east-1.outbound.mail-perimeter.amazon.com (iad-out-002.esa.us-east-1.outbound.mail-perimeter.amazon.com [13.216.54.180])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64577606A31F
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 09:45:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64577606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32AF8606A31F
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 09:48:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32AF8606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amazon.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amazon.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=osyA7OEC
+	dkim=pass (2048-bit key) header.d=amazon.com header.i=@amazon.com header.a=rsa-sha256 header.s=amazoncorp2 header.b=Zy8yaD+B
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1794735947; x=1826271947;
+  t=1794736091; x=1826272091;
   h=from:to:cc:date:message-id:references:in-reply-to:
    content-transfer-encoding:mime-version:subject;
-  bh=ZuheCz02aKL/7mbMf07GcqPL0kipOYxR1eLr5THYMqQ=;
-  b=osyA7OECd0NG8XFbwenGu3MYGAhm1BSpkTJ3k2mFdU3Ghs7q14MThmbF
-   sMfRXstQ9oCSO+3GZMeMdE+3geIcnHqcn8qj6ed2mkRhNT7Z2lTMWPgCF
-   KflIU0YhLTjzQ7nWGjHw/97+j5xpEauoTbRj+cSITHBQXZXoeYfUXFphJ
-   j6kNTmcBb9FZqBvK0zP/A7/CiFQi3McOywXCwxgJ0QBYt8syCHHWNgiX+
-   UYB3nygxtN+l0p1FdVXsRSXBNA2aLO77RRjJLnE7zazvKHKya2uyRu1Ln
-   2fhkQkP+rAftg9ebf+rIFjQ6an6tbZEOZBZoQZtTmazwAzGCwLwmZSWOx
-   Q==;
-X-CSE-ConnectionGUID: PuuHHHuGSfay/Kr6Wrwuzg==
-X-CSE-MsgGUID: 17R9njO0Suee1/R3+c1A0g==
+  bh=B0GviV6Itqjhb/JXz7mUn/GBl2X2JI3n4hR1xkqKu5U=;
+  b=Zy8yaD+BjRxNVJh4uQvtdCZdL6hYr/JhzQjwKsmoGZxfiMER0xJoCE7Q
+   um69J3Ec6m2EeZhL9TXe2PPHZ4Fp9ThDJ/xE0YYbaQJFaxkDyIgSItSWY
+   wAY4zW93Xt2gQEY+cR3KUScSfRB7R9XTJeQ1MYpgYoC0baQ9qQY0BWYn3
+   Pmp72mj4nZ1qYsqEFjhN1fY6ahO8YHcMfXVygrafsCWZtnnkB7P7rcE7L
+   V1L1EA5DADnRt49Be9Z0FeIJXvjbNjViDz1TUMfPM6aEh6Dq/p5Ek9WNz
+   vzXBV238J2IfBYMiyq3zvkEMr1Bu/8Ui/wLZu+njtigTq4guyMZtIfS1z
+   w==;
+X-CSE-ConnectionGUID: cFGwCutrS3WPzPk10DF8ig==
+X-CSE-MsgGUID: 4o0QrNh1SBuaY7uJpS6SgQ==
 X-IronPort-AV: E=Sophos;i="6.27,214,1787011200"; 
-   d="scan'208";a="31410830"
-Subject: RE: [PATCH net v2] net: ena: set admin device pointer before queue
- allocations
-Thread-Topic: [PATCH net v2] net: ena: set admin device pointer before queue allocations
+   d="scan'208";a="31982887"
+Subject: RE: [PATCH net v2] net: ena: avoid double-counting TX DMA mappings on failure
+Thread-Topic: [PATCH net v2] net: ena: avoid double-counting TX DMA mappings on failure
 Received: from ip-10-4-7-229.ec2.internal (HELO smtpout.naws.us-east-1.prod.farcaster.email.amazon.dev) ([10.4.7.229])
-  by internal-iad-out-014.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Nov 2026 09:45:43 +0000
-Received: from EX19MTAUEC001.ant.amazon.com [52.94.133.134:30771]
- by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.18.132:2525] with esmtp (Farcaster)
- id d50c9c6a-57eb-408e-81c2-9624738bf0e4; Sun, 15 Nov 2026 09:45:43 +0000 (UTC)
-X-Farcaster-Flow-ID: d50c9c6a-57eb-408e-81c2-9624738bf0e4
-Received: from EX19EXOUEA002.ant.amazon.com (10.252.134.207) by
- EX19MTAUEC001.ant.amazon.com (10.252.135.222) with Microsoft SMTP Server
+  by internal-iad-out-002.esa.us-east-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 15 Nov 2026 09:48:06 +0000
+Received: from EX19MTAUEA001.ant.amazon.com [72.21.196.67:19034]
+ by smtpin.naws.us-east-1.prod.farcaster.email.amazon.dev [10.0.51.112:2525] with esmtp (Farcaster)
+ id daa39a9a-3dfb-4690-9b68-d28e3e25bdc6; Sun, 15 Nov 2026 09:48:06 +0000 (UTC)
+X-Farcaster-Flow-ID: daa39a9a-3dfb-4690-9b68-d28e3e25bdc6
+Received: from EX19EXOUEB002.ant.amazon.com (10.252.135.74) by
+ EX19MTAUEA001.ant.amazon.com (10.252.134.203) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
- Sun, 15 Nov 2026 09:45:43 +0000
-Received: from DS2PR08CU001.outbound.protection.outlook.com (10.252.134.239)
- by EX19EXOUEA002.ant.amazon.com (10.252.134.207) with Microsoft SMTP Server
+ Sun, 15 Nov 2026 09:48:06 +0000
+Received: from EX19EXOUEC001.ant.amazon.com (10.252.135.173) by
+ EX19EXOUEB002.ant.amazon.com (10.252.135.74) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56;
+ Sun, 15 Nov 2026 09:48:06 +0000
+Received: from DM2PR04CU003.outbound.protection.outlook.com (10.252.135.42) by
+ EX19EXOUEC001.ant.amazon.com (10.252.135.173) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.56
- via Frontend Transport; Sun, 15 Nov 2026 09:45:42 +0000
+ via Frontend Transport; Sun, 15 Nov 2026 09:48:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=boAvX+UHBZOTgEtwmQVa1GvwqgaSpQjq00NCXJuzF1AN7TEeyBzp7c5yCaBV6MsAvQ7QpQh3k6IZYQh2zIf7M+HAU6f7NO3l8P3sL8gvmARhtoRmS8zn6idW9xfkwgOX9X7v+yPR65MK4bZ5hONoUi4YTABai5blRoP8AANSo50iioZTpuRT1K0PD4kO512G+A2ltBzQfwugSCTEIhTfP3tZ0j8b15yxbDRxQqYnai4hbRhFhNR44THto3IYh/7g/0sPZDukICpfyyV/+miKaEDMhGAhCOJPBf6JV6YnGGJZmyfHAA4UnnPTnOZKyz1//IJuvbi1r/e4ayxBnXPfCA==
+ b=NqMEIvA8z34RCEHM1hgOiXBgfBeqfICBKE90IJnDvilYPqKl8e5Jg792w7KgD/sYmIMEVuD/26vccMMtcpetdn+EikVdTR/9KVTAMJ1GTPwKY3dl7xthDr670x89A8+AhtigziaWQW+zmwsiLo4Z7C0IFI+zWRHJrSKqGfKsmF675+mw/q4KSO4YAkIC3tMMwZ7jOrgKfEMiBx9bSGmDAb3dWziNGvNTwIQuAdsONPy+5pZZqJ2t3cV5qtLXcwxnpvVuIiNOODmL7KGTmGcfDPf1ihsUHtvWhMLn7ennOQ8gItq0Jkt+zEfpnvR6Wq8wyqSSye4YFXHpYexKKSaNJw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZuheCz02aKL/7mbMf07GcqPL0kipOYxR1eLr5THYMqQ=;
- b=OdTb0IqXZfvjmdiGKbdgJYjqYgald1SnPOylwdYWyWg4710SQTf4Zq+CuKB7IhC8aY3F/HaUOb+aB3nSKfObY/wJOmUPebbTcliswiCQMmlWOLFFtOT/n8O3dYDONn0jeUyrjNutIqXNltFz65NgyII8cZ4dAfcIZOURoWzpkV6yKWP4n+6MIg/vfmWF6GMAxK3nxNa5baZvlEo/zpVHthLMJ37h5X69ieR0FZWAP/KuC59ihGBJjG2bauvbZB/bTIzgQ/YUcdfPqtUh4SJ4CqHCaAyJ9g4BrSkctvuVGfuFvT8kQ4MYX5sYWNTf/WW1p2wjTASDNhNzsAwEKVM7cA==
+ bh=B0GviV6Itqjhb/JXz7mUn/GBl2X2JI3n4hR1xkqKu5U=;
+ b=xrXUqs1qaUzTcjBOizxwAkJUI/KN1zfAExJOfd7rJGfCe7ahTc7jCnmSG1RcLPqaN/SF6MAFKaD21UwZEHKeEf90D+bGKVx1Lf1QnNxKlOrIbqCuSttiondX2J1bfTaIaIlnlH+8GJCZ3T7clHouovs0E+KI4m+xiCT9uHAzT7faDWhVeDVNCOlfQfSUPWJ4+MzJZbtX6idYLy7WdfnGeru+sHVBUW8sJrplCmaPIKeBcl7Eqa5djxTc8LKiwB873HgFWruFjmpBSNp1KG/ttFPZTsqU8NaInkUgeOBaYzvCJ4c3gvRDkEB5aW5lMTSmO4ZhV96AxGXevVkwQKWG/A==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=amazon.com; dmarc=pass action=none header.from=amazon.com;
  dkim=pass header.d=amazon.com; arc=none
@@ -98,25 +102,25 @@ Received: from BYAPR18MB2600.namprd18.prod.outlook.com (2603:10b6:a03:13a::13)
  by DS6PR18MB554262.namprd18.prod.outlook.com (2603:10b6:8:416::21) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Sun, 15 Nov
- 2026 09:45:34 +0000
+ 2026 09:47:04 +0000
 Received: from BYAPR18MB2600.namprd18.prod.outlook.com
  ([fe80::bb21:2c9e:69f:5ebb]) by BYAPR18MB2600.namprd18.prod.outlook.com
  ([fe80::bb21:2c9e:69f:5ebb%5]) with mapi id 15.21.0615.009; Sun, 15 Nov 2026
- 09:45:34 +0000
+ 09:47:04 +0000
 From: "Kiyanovski, Arthur" <akiyano@amazon.com>
 To: Avi Weiss <thnkslprpt@gmail.com>, "netdev@vger.kernel.org"
 	<netdev@vger.kernel.org>
 CC: "Arinzon, David" <darinzon@amazon.com>, "andrew+netdev@lunn.ch"
 	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
 	"edumazet@kernel.org" <edumazet@kernel.org>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>, "Atrash, Wajeeh"
-	<atrwajee@amazon.com>, "Brandes, Shai" <shaibran@amazon.com>
-Thread-Index: AQHddAVZhq7YQ6P3aUKFH0Fn2k/Hk7cu450Q
-Date: Sun, 15 Nov 2026 09:45:29 +0000
-Deferred-Delivery: Sun, 15 Nov 2026 09:45:12 +0000
-Message-ID: <BYAPR18MB2600A2AB66E4BF84E545E1BED97D2@BYAPR18MB2600.namprd18.prod.outlook.com>
-References: <20261114065618.488248-2-thnkslprpt@gmail.com>
-In-Reply-To: <20261114065618.488248-2-thnkslprpt@gmail.com>
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>, "Ostrovsky,
+ Evgeny" <evostrov@amazon.com>, "Brandes, Shai" <shaibran@amazon.com>
+Thread-Index: AQHddAVZfxALgayUIEuwyOj8qmPEebcu49DQ
+Date: Sun, 15 Nov 2026 09:46:44 +0000
+Deferred-Delivery: Sun, 15 Nov 2026 09:45:51 +0000
+Message-ID: <BYAPR18MB2600CF080577180F6B9DE03FD97D2@BYAPR18MB2600.namprd18.prod.outlook.com>
+References: <20261114065634.488832-2-thnkslprpt@gmail.com>
+In-Reply-To: <20261114065634.488832-2-thnkslprpt@gmail.com>
 Accept-Language: en-US
 Content-Language: en-US
 X-MS-Has-Attach:
@@ -125,44 +129,44 @@ authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=amazon.com;
 x-ms-publictraffictype: Email
 x-ms-traffictypediagnostic: BYAPR18MB2600:EE_|DS6PR18MB554262:EE_
-x-ms-office365-filtering-correlation-id: d9e1f879-41b7-418d-933a-08df42fd31cf
+x-ms-office365-filtering-correlation-id: e72d0c55-b32d-4c5f-5a1d-08df42fd6775
 x-ms-exchange-senderadcheck: 1
 x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|10070799003|1800799024|366016|376014|261028144727099003|261026140227099003|261026121527099003|261102123227099003|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261022113327099003|38070700021|11063799006|56012099006|10067099003|22082099003|18002099003|261009223027099003;
-x-microsoft-antispam-message-info: 6C9cggp+GTQMOXjk8smCYGG2xGah4yNLVD3oCwcKbnphcj4WYrA3I82+GCNSYIQcm8L2aNiu8l6q0E7mi/bvf56u/75QajbWGUK5O8e9oYEaOrKG/hz6Nn9jiG+/3FdqGlLBM+PnNpY/AgfK2P+gnVCLzzNrD0zTnFP5jhDgWuV9xX9O2w+UM+byGUO/SAGL3cpiTOkhCQau1Hw5kOGFRggdSd5jdizGdN5Y/FlE3DsXzWxX8boTVyYafkCYDKR04OTOFyf9z0cc/V3fKlvd4aMUGnLeR8j+ysT3ifqEOuxJC8Zbx4E68SR2YpJ+pcN1Cyju/pLare3IE4EWV/Yk4j22vnA4xymoIl9veqADPQlZSfY9SLR9L5bTRBBXBXCjfknO2nOsDm//lEN+adJ1Rh1VMRIC9pSwFhPF05Q/Ax4+12Ri4Tu5DNn+YdyiU1C8aEWB5rVFrwvsLDC+UrASHoeSsH6976bXW3st4U0bDjts9ypO1NP+/Ty+cNWRfh0PJSBAqz7P/ktLCngIc2w9PjhcNnJwhK88GVJckYTWNbCkc1fASk7GP4EIr44FJ505WAFzjeCe1ROto0LL5C7xm6WqOkCCFLryUc/0hp5BNu6cT0CMjbcNNUCceeHCgnWeO7wCLa7QU/BPQ/BHaM6RoAKkHaMCbXR/MHsbASKSl1b+tcNHoh6/SuSEBmCuwPvJTlmWDkRjGLXxqZ61jn4zt//ge7V6covzISlIDA1g91o=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR18MB2600.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(1800799024)(366016)(376014)(261028144727099003)(261026140227099003)(261026121527099003)(261102123227099003)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261022113327099003)(38070700021)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(261009223027099003);DIR:OUT;SFP:1101;
+x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|10070799003|1800799024|366016|376014|261028144727099003|261026140227099003|261026121527099003|261102123227099003|261021123027099003|261021121427099003|261022105027099003|261022075727099003|261022113327099003|38070700021|11063799006|56012099006|10067099003|22082099003|18002099003|261009223027099003|6133799003;
+x-microsoft-antispam-message-info: 4pawS+FCd5mp6u3ka8UymzIep4VyO6G01Z3w1EwUWSn2kMbcOAXeT6mtlklZ2laI6sYyPhHE7zxrsBoynHfFyMXZ+dSkCWKsobg+Er8uODyYwaTTyUcFb5Q2XdWDDcByy1den3jVvFGLdf+kQ+nOLnMmjGLg19+JXBqlB7m1LqoUOigpMjMA+w9krdwOQH10Ooave9XTpLwQYoprd1iWCP7Ghh74unn5zBv06beKaSa5Gtj7G36fXCB4XT0HYke2/mkSVA871O835mPBrzT+AN84nyXCQ3Oe3ikJRjGfVdwgQpvEnIDe8zoaUip/r8j34ehFF4cZbni7N9/RT7Z/Q59fAM38bUdWyQUunL8Ws1FFg3KJlmWyPEz6HDqNgbX+3cZsjZW7oTj2yNVz+XSN5uyE13XsiVCNVUaINbYDE+TRUcvqhe3Z6skf9gGuOogpk+0CKkvdUdQxKX64zRmPue69pWeG0N2/TM8fU2za9GGKjmXhN3kPd4ZTmty3uss2pDig1WgawkaKi7mqCOlyU/tDgs6M76ACK9sG0FN7XmBnG/9MyI02LUAdF22REgJSN2I61oPxFRewCM2opFfdaGQjnF0UEzODLkiOYZ26/fKXrkt8YFQ0zX1vFgVqPlER8aM75JPRkf8+yaOY5eKdwc8Sh3UzSQamh2ZX65S2VoH0YiH1MloODyGbW7hFI0RBGl1KDDUC7lIuxMQE8YMS/Q==
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR18MB2600.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(10070799003)(1800799024)(366016)(376014)(261028144727099003)(261026140227099003)(261026121527099003)(261102123227099003)(261021123027099003)(261021121427099003)(261022105027099003)(261022075727099003)(261022113327099003)(38070700021)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(261009223027099003)(6133799003);DIR:OUT;SFP:1101;
 x-ms-exchange-antispam-messagedata-chunkcount: 2
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?PGEjBfIU7ZibBeT4dpBpaTX+wIx3cNvtZciCddpiYMjrIJzrhtSZWMn6Drup?=
- =?us-ascii?Q?yIAdlTncO+PeLXdnOg6lpru7sbxlER9doc2D70K+ffBi1VmWCOaO6qL0td/4?=
- =?us-ascii?Q?fiZVyjOdGDpWKV/Z9i7vOJsZvEw3DHZVPGWwnoDqTfoFj9J8lyPpgRouMUid?=
- =?us-ascii?Q?EBZxTjQAGkW4FI9kUJ+m4qnVOgrldL1ajR54tt53cAi6tpvV/Qa+3HLDGYD/?=
- =?us-ascii?Q?TZjREikyUjr60QNEvs/Oj2odJlc5H1vxgXt034T+0BuDWdFGuM/fUKkM7fvc?=
- =?us-ascii?Q?6jfU5M5R+lKWf3QGHd6g05uY7qzdVaYmXYBgN61AQQnXKOWcsTw1qE2STAs9?=
- =?us-ascii?Q?EpITbe7GHNh+sC2jHuADy2bc5p5EtWSR/0VliC2LALjmVmMdxBhReUwnnzlF?=
- =?us-ascii?Q?zVNJfw7HlJEAhvgRVeXYGGMpeDQVJ/ELhg3hZK4Llh2v2r/jhevr9CAIjDck?=
- =?us-ascii?Q?d6q+elrIrF3YLgLDzvZ+n5UVRhhVM4bK5EX0WaxxlXjt5yx5Msa3lKAGpWV8?=
- =?us-ascii?Q?dPhNl5ExizDB67YzAPxtBRz0HCYTp5LWezisERu52CL5rA28OhHI6MXTCxy6?=
- =?us-ascii?Q?jXOwB/6+LjOAdnXlbgWQVz3Dr6ut0GZAUWMEkbW4jSwJQfpS5AY4bhxVhLqN?=
- =?us-ascii?Q?4Vwu8+7DgSDAzzHa0iVtVizGegPI+8i5SVIHwu2w7Rv9KMTdzqd2PDaHvvSn?=
- =?us-ascii?Q?hCh0+t0oU3ZKKRM9pLGCbpOPrMlqIHAeHbY9rQpYIM9/ErljQqIMn9Ti9mFr?=
- =?us-ascii?Q?gJqtDgaoUGEPT9oXKrGZJe2CFfYugTuU5xAEiuOtuyG9GQGqi5wWgiVc/OHz?=
- =?us-ascii?Q?cZEN5KeKujH5VMHTfz5z1/Mw8kRv2tgSYgYrGI9V+UogKuizxIFbMZwGys9l?=
- =?us-ascii?Q?wxX+dqqOeqf+ghR2fLqS/2lADqVnunh3rueWhmuDMDwiiTwM4JckkzIPOqWl?=
- =?us-ascii?Q?XdSZSMMmYzZZnhlCXZWhMmdu7WgIJPPns2PtX1mcuJ2V6DpWcgLTrO2B5rMa?=
- =?us-ascii?Q?vta25e8UqIPQXhXQunsEqJ0gltF9aH75DpyqVsill+IW/CmCOjf4cuS9krRH?=
- =?us-ascii?Q?QmBkIZbU9fuzirySLIb1lbcG5HyCSLhq27/Cd4NsAZdURRZKFaAMmrt6d1a6?=
- =?us-ascii?Q?3ChhICFdByurGbDpMekLbWaeBXgxtnIzXb9XZCzAfDQoDqUVMiffeRIbq3rY?=
- =?us-ascii?Q?SrTy3cEbVfHc6mfIo2mjZDrFYTp0GWUXtXVN9Hm41Zjfz3yuBhb6eUdXJg0y?=
- =?us-ascii?Q?y6jo+OiqYSlPIymiXQvb168Zr2X6KnlWHPwvpcqwUCDRlHblHPlmaLbw1OgL?=
- =?us-ascii?Q?a7GpdlLB6v69iftpuIW37P4IJcy/yUedC/RTTdgBBnd7NhOqFDSm9b11U7ND?=
- =?us-ascii?Q?Cu+EjuzMrB/5d5JuFcyBhUca/wmAE8iHneFl7A9oBFaFGckHZvtm10JinRsZ?=
- =?us-ascii?Q?/Ey2EqbXI8sZPxrOuGvKUUncg5LMicJB7e2GHvqjTsTiRlCh/cH19PjAISoP?=
- =?us-ascii?Q?rLB7hPd4CQaZg8x7J8hKf0cGBONXW+MLeI6nBh+V/7RkyoIYspiIsPmsANib?=
- =?us-ascii?Q?X7jDbkFpP/zuJ3ckISC0YUl48LQmxks8UMVyEo53VqzD9AnVDELoR2FGAHfw?=
- =?us-ascii?Q?7Qv9Sot7IZPWWGmcRw/IDn4Gt3LC9vgHITpIFOMW4nH7IIDhUyE2nf7Qrvrw?=
- =?us-ascii?Q?lahiqAJPwQ/mQV4Rfr6c//zIxViTcQRAyI9jdDehONZ8dhJ7tw+m5hNcj3OV?=
- =?us-ascii?Q?X0JsO8p4Hh0jfBULfgTR1FYD0pOraoGio9b024CZy/b8cZuhx1iBQA8Iv6Fz?=
-x-ms-exchange-antispam-messagedata-1: SMe9QoKf49cD5w==
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?1eDCiZBGVd0ArPuTJaNVH1uPasIEOVnH9komlX+B+XZiZJY+3+PRxr5kLlcD?=
+ =?us-ascii?Q?mFUt4fB0vgZh7Dw99xiSqTGIiXdEWiD1u7OVAeWoN7gGThhARVwPb/9I719K?=
+ =?us-ascii?Q?pAr6ftyOODr5GcdFmL/8EUaxajDpJQuOGzLNK6W86iFCCuzoT0vMsz5uS1At?=
+ =?us-ascii?Q?nTbKJiz2lD1DTa9TBHO15kEt/zVE7x30U7B4JugBc6REg98PW0NFdgVM4GrZ?=
+ =?us-ascii?Q?HUbv4sfPJso+xgSfBwBAtOaUf4AzmMx/+1NeO4S3M6VLxwuDzUmemVtEFIf2?=
+ =?us-ascii?Q?SV3H3ZFX0+mbLUHb2/29xn9gmRUi0v4NBTq94FhFbrpwcy4c1dBpbJBarbTo?=
+ =?us-ascii?Q?cIWWZmkXPgQRcoUkPOFst9pvD0/PRApC43N1GTXIkRqx3P49mOU6SD3vEwDz?=
+ =?us-ascii?Q?UsiY+I1Dvd9q8Evz7R3+2WvZywwYPK9kagufeeIP9tY/Ue411LPUU/xi2uey?=
+ =?us-ascii?Q?WD0Byx242eIGzuX2nRDzO2e8oCw0j53UhEE9edbSk7Csk7wBdmOrzrJ523ym?=
+ =?us-ascii?Q?GGASnGGIlVzymhouDYH6hbpQknyRMXvCC8lCdLOudg1RQj26y+7q18I2ohrd?=
+ =?us-ascii?Q?yxuSc8AwxAZvxKAO0QJoVWOCs5ChlRNLZGjcfYSpVMFoqn27h36PSsepP32/?=
+ =?us-ascii?Q?J0uoVsxIzXpKoeLC5zN6zLCcfOl/NZdvEv+hvadQjR0OXZAoTjkEopN4oHtG?=
+ =?us-ascii?Q?rNAnK1E4+6ZiZQShrp7VrFU7XFm4Yglq9WKbtORZOkSd6r26ICGpZgkV8udz?=
+ =?us-ascii?Q?PajOvaSeWc3+LdmZOFcPl5tB/mA6N+ixS0IqHx5YMJIx4SJdFmRmLqePMcaM?=
+ =?us-ascii?Q?xlQamPjQxKvM0W54YQAvsja7/Ryoq/UCUXnmZFA8MLSKVpTjsz4fNs2UjT/F?=
+ =?us-ascii?Q?x07zComqFnB2a1jretDu+wOavj/jvzqcmsqri6zV/NiR/BnQ7Ac6K+bypuS0?=
+ =?us-ascii?Q?NLjAUDsgOdMv2dN9UM0uEESFThcg+kzPakTvrS78lgCLSUH5yMUY7bp1Q3dM?=
+ =?us-ascii?Q?d1Hzon7TXSEDszn5gM4BGm4v26RwKyJ/UagGx/msNovGUu5KA67YKEinqQch?=
+ =?us-ascii?Q?j49KCpX35vkSNblfyuGvl4sMB6PWE4VtdrKvKlVyabnuvssm96XPaBBNYC5c?=
+ =?us-ascii?Q?EiwkdlWnGxPorLY/t2fzAd37vbH72aeKz+SkYY3qZLulTB9GOEWel6d7XM+c?=
+ =?us-ascii?Q?+ryMdnCC5TdWBR4F9/JLJTi7bR5eMqE8Sa2aP0WYHhhlTeb72WiIx6+3NOoc?=
+ =?us-ascii?Q?x1p6u181msoJ7rYTi4HrIsF+we10t8qX2ghlV4n61NL9NWW7P1CcykSJyTPB?=
+ =?us-ascii?Q?1QHt1Ha81VeDO82zBrfwvNyDLc/+uiRgXKxnwI+CelXzOb3LFtEjElx2jNO9?=
+ =?us-ascii?Q?5ixr8w7jhLR5XQVCzZ7K4cBSXVUAkrhlBPLJMjQznnLfntl94Iyu3x7e6QC3?=
+ =?us-ascii?Q?TR0rJf/Je/yLbfzzGVTBwD26Q447Q7+F5G183F85CUROvHu/Njz9oFnWjRvR?=
+ =?us-ascii?Q?cap3s6pL8bDpH0fznJwWKdsRfRf+KOW4vga+uCpTcHYSMe/PNaKtyZpGRitB?=
+ =?us-ascii?Q?bm/5CCQgU/ueSsy0X/Ov9kopFYuC6pGh4WD1P0kLjtMS3H7WnRjdms64o1Y3?=
+ =?us-ascii?Q?OirLoYfe13IISnHZgydAqWwUIRW2qStwfoKvbMkDjd8+TajDpJXJ77H6b6sV?=
+ =?us-ascii?Q?fNvVquESdLowda+aQyolp3UHv0SAez8Ih9ecrNIAegSywDw/u+0lC7750p+S?=
+ =?us-ascii?Q?cFIaPG4y7tOqqCkPPM0sPRYpP6caqFD9SvLYCmxVYifmkIifxJ97kk4HM7D6?=
+x-ms-exchange-antispam-messagedata-1: 5DDgbddUYAh1eg==
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: netdev@vger.kernel.org
@@ -174,16 +178,16 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: mFLBbkCzxlHBF3tF3IAg5Cxb8IkHC4q6mYKPD5n0flk+4nydn04GNikHu9lkWxEN50hHjv/mq0QjZ9wmvMKF963vq5MR2EQ19BwIjcVtcG0OhnCIryqj4xj/fgmd8TiDKA5iE0xEHFqJUovM8zQgDcUhtQ7+NpNKR6a8D5zxZpzZoJTvg7riZqAGVoQO1Q50GWCYTvMKCAocapUFi/92ylMGntKBZtyFZ92fREI9pnQ70jy3uKEmFi+2R6wZlqYTzb0rA5uMQb0FMinjqZDxoPxJQCKrNEnfl6afqX5TH8QsjhGqaQJ5+Gew0hsg4L6rCFZfMwnkmZ5b5zZlUmwwpw==
+X-Exchange-RoutingPolicyChecked: Z+0E/pVkblSmCqEvDKflEtXBM4XDvPGbTLOEX5eQR+ROhKyjpnZX9Y+ak5MFYtqZnqclsdMbdQYzGYflXvSAGCaoymKLs/FaQmu0iSKCbfTJDiNZ8Db60+j+YZNURD4r9kgUbAtB/41ELlEE40GTsnwiUmlP7Nv73JeXvGqFKh749M2k88OJkXrrZ80BKLXvsh5tZkUdbLBhz5pqzvgnJ6Rfn5C5giNhbMf+1FHJR+XwMxTfHnEBs3JNP4KntSDIjYnybEvJGel7llAved8L1MFG8Lh+elTN0IetBsiixIQbOmG89csaI5yZ1vAcXQvgbpXPBXSscTzywN4fT5Y6tA==
 X-MS-Exchange-CrossTenant-AuthAs: Internal
 X-MS-Exchange-CrossTenant-AuthSource: BYAPR18MB2600.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d9e1f879-41b7-418d-933a-08df42fd31cf
-X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Nov 2026 09:45:33.9434
+X-MS-Exchange-CrossTenant-Network-Message-Id: e72d0c55-b32d-4c5f-5a1d-08df42fd6775
+X-MS-Exchange-CrossTenant-originalarrivaltime: 15 Nov 2026 09:47:03.9491
  (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 5280104a-472d-4538-9ccf-1e1d0efe8b1b
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: enzakVkwGwU42iTkbSK6Lu1b0tw0hCZxqT8oNSAa48WrjGmPjRBkmqwENwnpdoezrZ/wzaiolzDuC7QlsX6KcA==
+X-MS-Exchange-CrossTenant-userprincipalname: w9mE1sFBkg1gE1VCww7vNCLX2bjR9DZ0X1XYVYJHpe2TR6ra7jKfpS5U3ndk7vcmWnpSMU6vF7jLytNJoNMk/w==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS6PR18MB554262
 X-OriginatorOrg: amazon.com
 
@@ -191,15 +195,14 @@ X-OriginatorOrg: amazon.com
 
 > -----Original Message-----
 > From: Avi Weiss <thnkslprpt@gmail.com>
-> Sent: Friday, November 13, 2026 10:56 PM
+> Sent: Friday, November 13, 2026 10:57 PM
 > To: netdev@vger.kernel.org
 > Cc: Kiyanovski, Arthur <akiyano@amazon.com>; Arinzon, David
 > <darinzon@amazon.com>; andrew+netdev@lunn.ch; davem@davemloft.net;
-> edumazet@kernel.org; kuba@kernel.org; pabeni@redhat.com; Atrash,
-> Wajeeh <atrwajee@amazon.com>; Avi Weiss <thnkslprpt@gmail.com>
-> Subject: [EXTERNAL] [PATCH net v2] net: ena: set admin device pointer bef=
-ore
-> queue allocations
+> edumazet@kernel.org; kuba@kernel.org; pabeni@redhat.com; Ostrovsky,
+> Evgeny <evostrov@amazon.com>; Avi Weiss <thnkslprpt@gmail.com>
+> Subject: [EXTERNAL] [PATCH net v2] net: ena: avoid double-counting TX DMA
+> mappings on failure
 >=20
 > CAUTION: This email originated from outside of the organization. Do not c=
 lick
@@ -208,59 +211,48 @@ lick
 >=20
 >=20
 >=20
-> From: Wajeeh Atrash <atrwajee@amazon.com>
+> ena_tx_map_skb() increments tx_info->num_of_bufs after each successful
+> DMA mapping. If a later fragment mapping fails, the error path adds the
+> fragment index to this count before calling ena_unmap_tx_buff(). This can
+> cause DMA unmapping of buffers that were never mapped and out-of-
+> bounds access to the buffer array.
 >=20
-> On the first probe, ena_com_admin_init() allocates the completion
-> contexts and admin SQ/CQ buffers before setting admin_queue->ena_dev.
-> Their allocation failure paths log through this pointer, which is
-> still NULL. A failed allocation therefore dereferences NULL instead
-> of returning -ENOMEM.
+> Remove the extra increment so that cleanup uses only the number of
+> successfully mapped buffers.
 >=20
-> Set admin_queue->ena_dev before the first allocation so the helpers
-> can log errors and return -ENOMEM normally.
+> Discovered by comparing the in-tree ENA driver with Amazon's standalone
+> ENA driver.
 >=20
-> This issue has already been fixed in Amazon's standalone ENA driver
-> (commit 7d1dc4341d4f).
->=20
-> Fixes: da580ca8de2c ("net: ena: add device distinct log prefix to files")
-> Signed-off-by: Wajeeh Atrash <atrwajee@amazon.com>
+> Compiled with W=3D1 under x86_64 defconfig and allmodconfig configuration=
+s.
+> Fixes: 38005ca816a7 ("net: ena: add functions for handling Low Latency
+> Queues in ena_netdev")
+> Signed-off-by: Evgeny Ostrovsky <evostrov@amazon.com>
 > Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
 > ---
 > v2:
->   - target net instead of net-next
->   - credit Wajeeh Atrash as the author and add his Signed-off-by
->   - place the ena_dev assignment directly above q_dmadev
+>   - add Evgeny Ostrovsky's Signed-off-by
 >=20
->  drivers/net/ethernet/amazon/ena/ena_com.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+>  drivers/net/ethernet/amazon/ena/ena_netdev.c | 1 -
+>  1 file changed, 1 deletion(-)
 >=20
-> diff --git a/drivers/net/ethernet/amazon/ena/ena_com.c
-> b/drivers/net/ethernet/amazon/ena/ena_com.c
-> index 297fb36ab8c16..9b14cddf4432e 100644
-> --- a/drivers/net/ethernet/amazon/ena/ena_com.c
-> +++ b/drivers/net/ethernet/amazon/ena/ena_com.c
-> @@ -1992,6 +1992,7 @@ int ena_com_admin_init(struct ena_com_dev
-> *ena_dev,
+> diff --git a/drivers/net/ethernet/amazon/ena/ena_netdev.c
+> b/drivers/net/ethernet/amazon/ena/ena_netdev.c
+> index 7eb6456ed0d5..e0df628e1df6 100644
+> --- a/drivers/net/ethernet/amazon/ena/ena_netdev.c
+> +++ b/drivers/net/ethernet/amazon/ena/ena_netdev.c
+> @@ -2608,7 +2608,6 @@ static int ena_tx_map_skb(struct ena_ring *tx_ring,
 >=20
->         admin_queue->q_depth =3D ENA_ADMIN_QUEUE_DEPTH;
+>         tx_info->skb =3D NULL;
 >=20
-> +       admin_queue->ena_dev =3D ena_dev;
->         admin_queue->q_dmadev =3D ena_dev->dmadev;
->         admin_queue->polling =3D false;
->         admin_queue->curr_cmd_id =3D 0;
-> @@ -2045,7 +2046,6 @@ int ena_com_admin_init(struct ena_com_dev
-> *ena_dev,
->         if (ret)
->                 goto error;
+> -       tx_info->num_of_bufs +=3D i;
+>         ena_unmap_tx_buff(tx_ring, tx_info);
 >=20
-> -       admin_queue->ena_dev =3D ena_dev;
->         admin_queue->running_state =3D true;
+>         return -EINVAL;
 >=20
->         return 0;
->=20
-> base-commit: 070411c1590c8172eb4d86f045d99c372f22fe23
+> base-commit: 30c71476d842b094651bd7712f6c8ee8716147d0
 > --
 > 2.43.0
 
-Reviewed-by: Arthur Kiyanovski <akiyano@amazon.com>
 
+Reviewed-by: Arthur Kiyanovski <akiyano@amazon.com>
