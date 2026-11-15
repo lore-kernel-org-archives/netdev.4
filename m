@@ -1,100 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794760319;
-	b=M28PDArIHmmul+T/p2c8TJaXd56Tax7N8Q+faALO4+px2SIK7O8y7dIugH3jmJchBouh
-	 Q5UcoYrgiiwhVMwS60TuPgDrBRPnhcBtco5ruRKYBDa1f5ALCeQv/b64teJtUdOq6eAP3
-	 4cVRDzejasf+9CFzjEs5ueiOt5JmNZtMDxy+dA0CqLHfj45iUPd7ci+gp1a3GjqgIKa2n
-	 53GccUVYOdXD2YU4aF8Ox8X+vk5lWXkNBGnKgJXpGDwPO86lnVKUcwfaqvc6BUbe37utC
-	 I7ls2pt/r8fXXBKyFZVqL1/3+NBFbT5oEg3O9SJ7nDX+mztLeKrr4NeBlRND5dHTq/Q==
+	t=1794760960;
+	b=Pf+DVRIHlBw8z5lLGv4H6Gd6YGcZWlCaNUUO4D/KRhhpB1b1IX0OrZ+zsEnuFL3muP5j
+	 NkRYgvGYAJc2r+gALjZ44ltdiW7wU1E9S3xHEIfy20M1sB834SaF5SE/P9NlTac58FpNQ
+	 uS7OTzRQxfEF6sz4+jIc1djoyGi9n/LaxRERIqNne0O8PG8qIeTP7+eddETJFx3bm1MeS
+	 NtVjJODvy4obr/sPEeXaiP3wDiTT+emm2KyIGR1kfsSOYlaijoiy66wJRmkxbWfs4k2ol
+	 H4QcfkPialMzp0DlJ7/LVgvt9pBcAMB3Ptm5HK+ca/x2nMEsWbz4Z3RXGhdNZd0SaPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794760319;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=MUJSvVP7LEz8fYGv9nEpVgaQTe1si3u9N7fYat0z0xE=;
-	b=otZg0rrFYl4L4NMN7Ncc1iG+nbt3Ti7TRIeqS5B9E5UytMqSqpEJJbG9I2Pwz8FKEAt9
-	 BN+lRh4pGQOkqK5d134YRmHizaieXrEUYJh8pQNlcbKl//+rMj7EMJ3+RtscRP2EqhPhm
-	 m1VeIoWb8px3nbGe6lkRfpNdx5/oBFDZEHKhqb4fagMsFggJuZAs5TecqC54nhVqt5QhH
-	 ZsFQLA10LcyrHHSaMTGFIcnw+lhDVjzdCjvtF4vjX4Wuh6Dbde/Xxjmiog+A3wJhKaaQ4
-	 KKiaVgkLwZN65BYV1nM3UrcxTWUUeToTO+ut5svwG8u6wFerLAXFSghZxd3SaP1vxHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794760960;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=gWeY517Ke0uGVHUv0TVgDQAs3UNrX8FLyLwTiu4EloA=;
+	b=1Mm/AGrlqBAK1kjSedPWwC8KlnmYdCWxyZFt55OHHkxi0ZkXMIDE8cxX+CX10deH6yZR
+	 0ACAqg9WxYoCNoZJhRJxZFEhk5I7bxGtObVh2Q4Dk2XA5piqu8psWgJLSuF4NzVNPpyQi
+	 3RQtPzAFubiCFODgdErr9qGimeX9dSGqx5hMbgsb3jjI7BpdFU3Y/jcOblCZLuTxj9FS9
+	 KglX4Lknsar1EVEZLVCc6eer3QliW9+elcP8tBUhV+SvmeHFOxjIGlRYiq8k4wxz0MkNY
+	 XeUbWjZT8R+Y2VrBKdfNoL5BTdrLrQ2Qea/waZSILuqhfItbS8AdDCZUdePDW6TcKVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VlTkUuDL;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jeQahA+l;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7160B606A327
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 16:31:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7160B606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DFF7606A337;
+	Sun, 15 Nov 2026 16:42:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VlTkUuDL
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-37600b0db49so3264904eec.1
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 08:31:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794760318; x=1795365118; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MUJSvVP7LEz8fYGv9nEpVgaQTe1si3u9N7fYat0z0xE=;
-        b=VlTkUuDLMednBLS9B4dak+VN8na/29efZ8tAshLILu/RhLHPX4x6ZdHfvY8ctu/nTX
-         KfxMqJDsEZqiDPXZ0wI4xkiGeWC249iTux6y+j6Jq13jjYzo/NtF6L8UJ8dDPtn7QmxT
-         hjFUJTqjZMmzcDbDhYtQmv3/Lhzys3AVWGFocADWkd7XogpMKULIW6AEqUuOsNu3ysU9
-         XR9v/bbw5we7+KMe/KUtEYXzTRi6NFigQ7LMEGuscbGjSCMc+CwhGXU4fJQWNzNiF8ej
-         Ht0Ma3kYF/2VyiQdon+5cdzpY+LrHEBcoRh5jBvRbcgw5M6UyR1BxCkHDMvE+Vfjoo2R
-         0nqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794760318; x=1795365118;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MUJSvVP7LEz8fYGv9nEpVgaQTe1si3u9N7fYat0z0xE=;
-        b=YlJGgDwymbNVW3BfaWzAtn+Wk+KoIBG+FEoQlMySVMmHy0GS8AyPGpdz7Kv/D+SumO
-         AbQoN+C3GhBfYkwOvqD/4hU5UntofGoQNhnOad3yiMeP8bZnuvxlQUBNdSXJrgIut8PJ
-         7CQXpbJes5u+MIw/OFQy6T0Hb+N31b05GynhvneIr5RqOYO6MsuIAQb5ExYdfCyKq5mT
-         okcXsPv3yYKgfI6PmSAsZlVTG1yTEn4gMGfEP9CrrIYvm66DXVSF0vuJ70hufbKoR5vi
-         7ZqZvHEMT5KJJKCpFVgJogsE/CrTf1zKJWWKJ2azPl/TzuuxEvuPVAYeuv0tP6n2GTnR
-         XaBQ==
-X-Gm-Message-State: APuU4Z9s1zUHjb/G0PYXOnRXEHkGYMoYt96bmlfiSLdmcTLpbWJc9WYh
-	9pu6rfaeRb0mVTgdTreAYe1Di5wZuI6YTotS6p3XqPXKA4NrVKvCetEVKZv3K1em
-X-Gm-Gg: AYBFou2QrspnaxwEMkItz2BFWrXzM8WGi+kLJwGHe3PqIczGE8suBUTRi3zQ3DpMJoR
-	yihcojqN2d5FQtn3VZ3YkWmz1IhWi2P62sSmMD1jYubmbkbluhuOOviwge7JrWzXPGLJ571V476
-	uRqJIBEf2hG3chl76ZapXisvb604VBWmYbx3eV0aRFz7PUe+hskXuTLa5ffjHMgi97TvZO7fEB1
-	dxJel1AS4GJAP3I6RZ7H9zZJumw3xAz6T0Zp8GVOPnPrXHfe3IxPb6Nm8tr0GQjAN07++TvrpkR
-	T8RSzC5l3yybhVTyju8+smJ8E3xXpjSVZWHYE9Z/mSW5dNqiRSSb+6Z4oGEwDpShyMLAZRDY+X1
-	8lmrr7HkUa2tznbM207oMI0q6oh9WAHKikkNgz+qLypurnu/rC+D9T60FU3YfHt+a219wClaMsK
-	wmSxz3HHuBzT8/em8UvjS4N5Fq8DJ1L4NaG6R2F1+s4xak2/Ye3bs3eup9FW2xV5bMHXDmUB7hX
-	+iWX/eNid0GPn1AWJaUfZy7J/KL9av3BdmqTuM+xRkUn61Mm7J97Byb77rz8YBxRfKwgWWQ4hI4
-	9IiQuBI9D3z0kSkGFpMkYSx8
-X-Received: by 2002:a05:7301:1887:b0:36d:6a77:960a with SMTP id 5a478bee46e88-37963564b9fmr7366228eec.1.1794760317291;
-        Sun, 15 Nov 2026 08:31:57 -0800 (PST)
-Received: from houminxi ([61.170.225.237])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bb0c40sm27775320eec.28.2026.11.15.08.31.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 08:31:56 -0800 (PST)
-From: Minxi Hou <houminxi@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Aaron Conole <aconole@redhat.com>,
-	Eelco Chaudron <echaudro@redhat.com>,
-	Ilya Maximets <i.maximets@ovn.org>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	Minxi Hou <houminxi@gmail.com>
-Subject: [PATCH net v4 2/2] selftests/net/openvswitch: check that a failed set keeps the features
-Date: Sun, 15 Nov 2026 11:31:34 -0500
-Message-ID: <20261115163134.3202677-3-houminxi@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261115163134.3202677-1-houminxi@gmail.com>
-References: <20261115163134.3202677-1-houminxi@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jeQahA+l
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C80331F000C8;
+	Sun, 15 Nov 2026 16:42:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794760960;
+	bh=gWeY517Ke0uGVHUv0TVgDQAs3UNrX8FLyLwTiu4EloA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jeQahA+lxYYyOfLeiHudF2Q59ebsIsygaAoe87xAPFPiR8y9ZQdQ4HvmHKwUUGeUe
+	 eXXApPZ0heuigybhyIeqcel8MWbbiYvI6QEkFuGwCAGEr4jDOlx6DQww8iFLbnkQxr
+	 +s8S1NjPV9lxz7p4hAbtNt88ijBC/odZvvQSQG9Y84XfCOHTOiwc6XusT9OGi4F1bj
+	 SCIGCKB0sL7L2AeCin55wPaktjzXmTzWp3q8zF0EIyDalfaINgmvtktKwVGcrx7sOw
+	 433t4XXH9SiO21XqE3yxXAWeUgdO8AiDWY3QRBUdDGFyPujVvD8WbWJ2InYKOwnAJG
+	 ltZ4kagFLcjQA==
+Subject: Re: [PATCH net-next v17 4/4] net: dsa: lan9645x: add basic dsa driver
+ for LAN9645X
+From: netdev-bot+sashiko@kernel.org
+To: jensemil.schulzostergaard@microchip.com
+Cc: UNGLinuxDriver@microchip.com, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ woojung.huh@microchip.com, linux@armlinux.org.uk,
+ Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
+ geert+renesas@glider.be, magnus.damm@gmail.com, edumazet@kernel.org,
+ richardcochran@gmail.com, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org
+Date: Sun, 15 Nov 2026 16:42:38 +0000
+Message-ID: <179476095835.2199510.1283236817441472762@kernel.org>
+In-Reply-To: <20261111-dsa_lan9645x_switch_driver_base-v17-4-83a471c5bddb@microchip.com>
+References: <20261111-dsa_lan9645x_switch_driver_base-v17-4-83a471c5bddb@microchip.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,348 +69,268 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Add a set-dp command to ovs-dpctl for the kernel's datapath SET command,
-and two tests that use it.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-The first test clears the features of a fresh datapath, sets the dispatch
-bit with a valid pid list, and clears them again. It then sends a set that
-would set that bit with an empty per-cpu-pids. The request has to fail
-with EINVAL, and the datapath has to keep reporting the features it had,
-which a kernel that records them before the change reads as 0x8 instead of
-0x0. A second request sends OVS_DP_CMD_NEW for that name from an outdated
-client, which makes the kernel drop the features, and a further set has
-to work.
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-The second test covers the recirc bit. It sets that bit on a fresh datapath
-and sends a set that would set the dispatch bit with an empty per-cpu-pids.
-The rejected request has to leave the recirc bit in place. A kernel that
-records the features first reads 0x8 there instead of 0x4. A datapath
-holds that bit only when the tc skb extension is compiled in, so the test
-prints the reason and skips when the kernel answers EOPNOTSUPP, and any
-other failure of that request fails the test. CONFIG_NET_TC_SKB_EXT
-depends on CONFIG_NET_CLS_ACT and both sit under CONFIG_NET_SCHED, so the
-selftest config fragment selects all three.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The reference count itself is not visible from user space, so the steps
-that use an outdated client only show that those paths run and that a
-datapath keeps working across them.
+- [Medium] The driver never explicitly initializes the analyzer MAC table
+  or VLAN table.
+- [Low] Several comments and register writes in this patch describe
+  features the driver does not have.
+- [Low] In lan9645x_phylink_mac_link_up() (lan9645x_phylink.c), the
+  comment above the DEV_CLOCK_CFG write gives the…
+- [Low] For the NPI port, lan9645x_port_set_maxlen() (lan9645x_port.c)
+  adds both LAN9645X_IFH_LEN_BYTES (28) and LAN9645X_LONG_PREFIX_LEN…
 
-set-dp sends the features it is given. When --features is left out it
-sends the features the datapath reports, and it refuses to send the
-request when the datapath reports none. A pid list that is not a list of
-numbers is reported as such, and empty entries are dropped.
+--
 
-Signed-off-by: Minxi Hou <houminxi@gmail.com>
----
- .../testing/selftests/net/openvswitch/config  |   3 +
- .../selftests/net/openvswitch/openvswitch.sh  | 173 ++++++++++++++++++
- .../selftests/net/openvswitch/ovs-dpctl.py    |  61 ++++++
- 3 files changed, 237 insertions(+)
+net: dsa: lan9645x: add basic dsa driver for LAN9645X
 
-diff --git a/tools/testing/selftests/net/openvswitch/config b/tools/testing/selftests/net/openvswitch/config
-index 15685d242813..38fa1477b7cd 100644
---- a/tools/testing/selftests/net/openvswitch/config
-+++ b/tools/testing/selftests/net/openvswitch/config
-@@ -2,10 +2,13 @@ CONFIG_GENEVE=m
- CONFIG_INET_DIAG=y
- CONFIG_IP_SCTP=y
- CONFIG_IPV6=y
-+CONFIG_NET_CLS_ACT=y
- CONFIG_NETFILTER=y
- CONFIG_NETFILTER_ADVANCED=y
- CONFIG_NET_IPGRE=m
- CONFIG_NET_IPGRE_DEMUX=m
-+CONFIG_NET_SCHED=y
-+CONFIG_NET_TC_SKB_EXT=y
- CONFIG_NF_CONNTRACK=m
- CONFIG_NF_CONNTRACK_OVS=y
- CONFIG_NF_CT_PROTO_SCTP=y
-diff --git a/tools/testing/selftests/net/openvswitch/openvswitch.sh b/tools/testing/selftests/net/openvswitch/openvswitch.sh
-index 21444657a040..559c25d51099 100755
---- a/tools/testing/selftests/net/openvswitch/openvswitch.sh
-+++ b/tools/testing/selftests/net/openvswitch/openvswitch.sh
-@@ -24,6 +24,8 @@ tests="
- 	nat_connect_v4				ip4-nat-xon: Basic ipv4 tcp connection via NAT
- 	nat_related_v4				ip4-nat-related: ICMP related matches work with SNAT
- 	netlink_checks				ovsnl: validate netlink attrs and settings
-+	dp_features				ovsdp: failed set keeps bits
-+	dp_features_recirc			ovsdp: recirc bit survives
- 	upcall_interfaces			ovs: test the upcall interfaces
- 	tunnel_metadata				ovs: test extraction of tunnel metadata
- 	drop_reason				drop: test drop reasons are emitted
-@@ -44,6 +46,11 @@ info() {
- 	[ $VERBOSE = 0 ] || echo $*
- }
- 
-+# ovs_sbx sends everything a command prints to debug.log, and a failing run
-+# deletes that file. Keep a handle on the real stdout so a failure reason
-+# still reaches the CI log.
-+exec 9>&1
-+
- ovs_wait() {
- 	info "waiting $WAIT_TIMEOUT s for: $@"
- 
-@@ -1409,6 +1416,172 @@ test_netlink_checks () {
- 	return 0
- }
- 
-+ovs_dp_features_set() {
-+	python3 $ovs_base/ovs-dpctl.py set-dp "$@"
-+}
-+
-+ovs_dp_features_check() {
-+	local out
-+
-+	# A show that fails and a datapath that reports other features are
-+	# different faults, so they return different statuses. ovs-dpctl prints
-+	# the value with %X, so convert before comparing.
-+	out=$(python3 $ovs_base/ovs-dpctl.py show "$1") || {
-+		printf '# could not read the datapath %s\n' "$1" >&9
-+		return 2
-+	}
-+	printf '%s\n' "$out" |
-+		grep -q "features: 0x$(printf '%X' "$2")\$"
-+}
-+
-+# info() writes debug.log, and a failing run deletes that file, so a FAIL
-+# would reach CI with no reason. Say it on stdout instead.
-+ovs_fail() {
-+	printf '# %s\n' "$*" >&9
-+	return 1
-+}
-+
-+ovs_dp_features_expect() {
-+	ovs_dp_features_check "$1" "$2"
-+	case $? in
-+	0) return 0 ;;
-+	# The check itself reported that it could not read the datapath.
-+	2) return 1 ;;
-+	esac
-+	ovs_fail "$3"
-+}
-+
-+# EOPNOTSUPP is not in the base errno list and its number differs by
-+# architecture, so ask python instead of hard-coding one.
-+ovs_errno() {
-+	local n
-+
-+	n=$(python3 -c "import errno; print(errno.$1)" 2>/dev/null)
-+	if [ -z "$n" ]; then
-+		printf '# could not read errno.%s from python\n' "$1" >&9
-+		return 1
-+	fi
-+	printf '%s\n' "$n"
-+}
-+
-+# dp_features test
-+# - a set with the dispatch bit and pids is accepted and reported back
-+# - a set with an empty per-cpu-pids is rejected with EINVAL and leaves
-+#   the features as they were
-+# - an outdated new request drops the features, and sets work afterwards
-+test_dp_features() {
-+	local t="test_dp_features"
-+	local dp="dpfeat0"
-+
-+	sbx_add "$t" || return $?
-+	ovs_add_dp "$t" "$dp" || return 1
-+
-+	info "clear the datapath features"
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 0 || return 1
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 0 \
-+	    "features were not cleared" || return 1
-+
-+	# 8 is OVS_DP_F_DISPATCH_UPCALL_PER_CPU, the bit that makes the
-+	# kernel read per-cpu-pids.
-+	info "a set with the dispatch bit and pids is accepted"
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 \
-+	    --per-cpu-pids 1,2 || return 1
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 8 \
-+	    "the accepted set was not applied" || return 1
-+
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 0 || return 1
-+
-+	# ovs-dpctl sends the empty list as an attribute with no payload,
-+	# which is what the kernel rejects.
-+	info "a set with an empty per-cpu-pids is rejected"
-+	einval=$(ovs_errno EINVAL) || return 1
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 \
-+	    --per-cpu-pids "" &> /dev/null
-+	rc=$?
-+	[ $rc -eq "$einval" ] || {
-+		ovs_fail "the empty per-cpu-pids set failed with $rc"
-+		return 1
-+	}
-+
-+	info "the rejected set keeps the features it had"
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 0 \
-+	    "the rejected set was recorded" || return 1
-+
-+	# An outdated client that asks for an existing datapath again makes
-+	# the kernel drop its features. The datapath keeps working.
-+	info "an outdated new request drops the features"
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 || return 1
-+	ovs_sbx "$t" python3 $ovs_base/ovs-dpctl.py add-dp "$dp" -V 1:0 || {
-+		ovs_fail "the outdated add request did not run"
-+		return 1
-+	}
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 0 \
-+	    "the outdated new request did not drop the features" || return 1
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 || {
-+		ovs_fail "the datapath stopped accepting sets"
-+		return 1
-+	}
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 8 \
-+	    "the reset datapath took no features" || return 1
-+
-+	return 0
-+}
-+
-+# dp_features_recirc test
-+# - a datapath that holds the recirc bit keeps it across a rejected set
-+# - an outdated new request drops the features
-+# - the bit needs CONFIG_NET_TC_SKB_EXT, so the test skips without it
-+test_dp_features_recirc() {
-+	local t="test_dp_features_recirc"
-+	local dp="dpfeat1"
-+
-+	sbx_add "$t" || return $?
-+	ovs_add_dp "$t" "$dp" || return 1
-+
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 0 || return 1
-+
-+	# 4 is OVS_DP_F_TC_RECIRC_SHARING. The kernel takes the bit only when
-+	# the tc skb extension is compiled in.
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 4 &> /dev/null
-+	rc=$?
-+	if [ $rc -ne 0 ]; then
-+		eopnotsupp=$(ovs_errno EOPNOTSUPP) || return 1
-+		if [ $rc -eq "$eopnotsupp" ]; then
-+			# info() only writes debug.log, which CI does not keep.
-+			printf "# tc skb extension is not compiled in,"
-+			printf " skipping recirc\n"
-+			ovs_exit_sig
-+			return $ksft_skip
-+		fi
-+		info "the recirc set failed with $rc"
-+		return 1
-+	fi
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 4 \
-+	    "the accepted recirc set was not applied" || return 1
-+
-+	info "the rejected set keeps the recirc bit"
-+	einval=$(ovs_errno EINVAL) || return 1
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 \
-+	    --per-cpu-pids "" &> /dev/null
-+	rc=$?
-+	[ $rc -eq "$einval" ] || {
-+		ovs_fail "the rejected set failed with $rc"
-+		return 1
-+	}
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 4 \
-+	    "the rejected set dropped the recirc bit" || return 1
-+
-+	info "an outdated new request drops the features"
-+	ovs_sbx "$t" python3 $ovs_base/ovs-dpctl.py add-dp "$dp" -V 1:0 || {
-+		ovs_fail "the outdated add request did not run"
-+		return 1
-+	}
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 0 \
-+	    "the outdated new request did not drop the features" || return 1
-+
-+	return 0
-+}
-+
- test_upcall_interfaces() {
- 	sbx_add "test_upcall_interfaces" || return 1
- 
-diff --git a/tools/testing/selftests/net/openvswitch/ovs-dpctl.py b/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-index 1615843c225e..ee3b69a6fe19 100644
---- a/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-+++ b/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-@@ -2301,6 +2301,25 @@ class OvsDatapath(GenericNetlinkSocket):
- 
-         return reply
- 
-+    def set(self, dpname, ifindex=0, features=None, per_cpu_pids=None):
-+        """ Send OVS_DP_CMD_SET for a datapath. """
-+        msg = OvsDatapath.dp_cmd_msg()
-+        msg["cmd"] = OVS_DP_CMD_SET
-+        msg["version"] = OVS_DATAPATH_VERSION
-+        msg["reserved"] = 0
-+        msg["dpifindex"] = ifindex
-+        msg["attrs"].append(["OVS_DP_ATTR_NAME", dpname])
-+        if features is not None:
-+            msg["attrs"].append(["OVS_DP_ATTR_USER_FEATURES", features])
-+        if per_cpu_pids is not None:
-+            msg["attrs"].append(["OVS_DP_ATTR_PER_CPU_PIDS", per_cpu_pids])
-+
-+        reply = self.nlm_request(
-+            msg, msg_type=self.prid, msg_flags=NLM_F_REQUEST | NLM_F_ACK
-+        )
-+
-+        return reply[0]
-+
-     def create(
-         self, dpname, shouldUpcall=False, versionStr=None, p=OvsPacket()
-     ):
-@@ -2961,6 +2980,23 @@ def main(argv):
-     deldpcmd = subparsers.add_parser("del-dp")
-     deldpcmd.add_argument("deldp", help="Datapath Name")
- 
-+    setdpcmd = subparsers.add_parser("set-dp")
-+    setdpcmd.add_argument("setdp", help="Datapath Name")
-+    setdpcmd.add_argument(
-+        "-f",
-+        "--features",
-+        type=lambda x: int(x, 0),
-+        default=None,
-+        help="Datapath user features, defaults to the current value",
-+    )
-+    setdpcmd.add_argument(
-+        "-p",
-+        "--per-cpu-pids",
-+        type=str,
-+        default=None,
-+        help="Comma separated upcall pids, an empty string sends none",
-+    )
-+
-     addifcmd = subparsers.add_parser("add-if")
-     addifcmd.add_argument("dpname", help="Datapath Name")
-     addifcmd.add_argument("addif", help="Interface name for adding")
-@@ -3057,6 +3093,31 @@ def main(argv):
-             ovspk.upcall_handler(ovsflow)
-     elif hasattr(args, "deldp"):
-         ovsdp.destroy(args.deldp)
-+    elif hasattr(args, "setdp"):
-+        rep = ovsdp.info(args.setdp, 0)
-+        if rep is None:
-+            print(f"DP '{args.setdp}' not found.")
-+            return 1
-+        pids = None
-+        if args.per_cpu_pids is not None:
-+            try:
-+                pids = [int(x) for x in args.per_cpu_pids.split(",")
-+                        if x != ""]
-+            except ValueError:
-+                print(f"invalid per-cpu-pids: {args.per_cpu_pids}")
-+                return 1
-+        features = args.features
-+        if features is None:
-+            features = rep.get_attr("OVS_DP_ATTR_USER_FEATURES")
-+            if features is None:
-+                print(f"DP '{args.setdp}' does not report its features")
-+                return 1
-+        try:
-+            ovsdp.set(args.setdp, rep["dpifindex"], features, pids)
-+        except NetlinkError as ne:
-+            print(f"set failed: {ne.args[1]}")
-+            return ne.code
-+        print(f"DP '{args.setdp}' updated")
-     elif hasattr(args, "addif"):
-         rep = ovsdp.info(args.dpname, 0)
-         if rep is None:
+This adds a basic DSA driver for the Microchip LAN9645x switch. The driver
+gets named regmaps from a parent device. All ports run as standalone ports,
+with phylink integration for the internal CuPHYs on ports 0-4 and RGMII on
+ports 7-8. SerDes modes are left for follow-up patches.
+
+> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+> new file mode 100644
+> index 0000000000000..0eee05034458b
+> --- /dev/null
+> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+> @@ -0,0 +1,464 @@
+
+[ ... ]
+
+> +static int lan9645x_reset_switch(struct lan9645x *lan9645x)
+> +{
+> +	u32 rst_cfg, val = 0;
+> +	int err;
+> +
+> +	/* The parent must reset the whole chip before instantiating its
+> +	 * children, so the switch core is disabled when we get here. The
+> +	 * sequence below must not run more than once: initializing the
+> +	 * memories on a running core corrupts pointers inside the queue
+> +	 * system, which eventually fills up and stops passing traffic. If the
+> +	 * core is already enabled the chip was not reset, so skip it.
+> +	 */
+> +	err = regmap_read(lan_rmap(lan9645x, SYS_RESET_CFG),
+> +			  lan_rel_addr(SYS_RESET_CFG), &rst_cfg);
+> +	if (err)
+> +		return err;
+> +
+> +	if (SYS_RESET_CFG_CORE_ENA_GET(rst_cfg))
+> +		return 0;
+
+[Severity: Medium]
+
+If CORE_ENA is already set, this returns before SYS_RAM_INIT. That is the
+only memory or table initialization in the driver. On this path, is anything
+clearing the analyzer MAC table and the VLAN table?
+
+ANA_MACACCESS and ANA_VLANACCESS are defined in lan9645x_regs.h, but no
+driver file uses them. lan966x runs the same RAM_INIT sequence and then
+issues MACACCESS_CMD_INIT (lan966x_mac.c) and VLANACCESS_CMD_INIT
+(lan966x_vlan.c) as separate steps.
+
+This path can be reached after kexec, because lan9645x_shutdown() only
+calls dsa_switch_shutdown() and leaves the core enabled with the tables
+populated. It can also be reached with a bootloader that leaves the switch
+running.
+
+The driver depends on flooding to deliver host traffic: learning is
+disabled, PGID_SRC + p is 0, and PGID_UC/MC/BC include the CPU port
+module. Suppose the analyzer behaves like ocelot and lan966x, and a stale
+unicast entry points at another front port. Would DEST resolve to that
+port, PGID_SRC then mask it to nothing, and the frame be dropped before
+the CPU sees it?
+
+Dynamic entries would age out through ANA_AUTOAGE after about 300 seconds.
+Static entries would never age out.
+
+lan9645x_setup() also sets ANA_PGID_CFG.OBEY_VLAN on every destination
+PGID. Does the CPU copy then depend on inherited VLAN table contents, such
+as VLAN_PGID_CPU_DIS, that the driver never programs?
+
+[ ... ]
+
+> +static int lan9645x_setup(struct dsa_switch *ds)
+> +{
+
+[ ... ]
+
+> +	/* Link Aggregation Mode: NETDEV_LAG_HASH_L2 */
+> +	lan_wr(ANA_AGGR_CFG_AC_SMAC_ENA |
+> +	       ANA_AGGR_CFG_AC_DMAC_ENA,
+> +	       lan9645x, ANA_AGGR_CFG);
+
+[ ... ]
+
+> +	/* Disable learning for frames discarded by VLAN ingress filtering */
+> +	lan_rmw(ANA_ADVLEARN_VLAN_CHK_SET(1),
+> +		ANA_ADVLEARN_VLAN_CHK,
+> +		lan9645x, ANA_ADVLEARN);
+
+[ ... ]
+
+> +	/* Setup flooding PGIDs for IPv4/IPv6 multicast. Control and dataplane
+> +	 * use the same masks. Control frames are redirected to CPU, and
+> +	 * the network stack is responsible for forwarding these.
+> +	 * The dataplane is forwarding according to the offloaded MDB entries.
+> +	 */
+
+[Severity: Low]
+
+This isn't a bug, but this comment says control frames are redirected to
+the CPU and the dataplane forwards according to offloaded MDB entries. Does
+the driver set up either of these in this patch?
+
+Nothing sets ANA_CPU_FWD_CFG_IGMP_REDIR_ENA or
+ANA_CPU_FWD_CFG_MLD_REDIR_ENA. lan9645x_switch_ops also has no port_mdb_add
+or port_mdb_del.
+
+Some other writes look left over from functionality the v16 changelog
+says was dropped:
+
+  - The ANA_AGGR_CFG write under "Link Aggregation Mode:
+    NETDEV_LAG_HASH_L2". There are no LAG ops.
+
+  - The ANA_ADVLEARN VLAN_CHK write. lan9645x_port_setup() disables
+    learning on every port with ANA_PORT_CFG_LEARN_ENA_SET(0).
+
+  - ANA_PGID(PGID_CPU) in lan9645x_port_cpu_init(). It is written once and
+    never used as a destination.
+
+The comment in include/linux/dsa/lan9645x.h, added by the tag driver patch
+earlier in this series, has the same mismatch:
+
+  /* Chip has 8 cpu queues. The cpu queues used by a frame are passed as a mask in
+   * the IFH on extraction. We use this to avoid classifying BPDU, IGMP and MLD
+   * frames in the tag driver.
+   */
+
+The switch driver only programs LAN9645X_CPUQ_TRAP, for BPDUs through
+ANA_CPUQ_8021_CFG. LAN9645X_CPUQ_COPY and the IGMP/MLD queues in
+ANA_CPUQ_CFG are never configured.
+
+Could these comments and writes be dropped or changed to match what the
+driver does now?
+
+[ ... ]
+
+> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_phylink.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_phylink.c
+> new file mode 100644
+> index 0000000000000..7ca4a67d154e9
+> --- /dev/null
+> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_phylink.c
+> @@ -0,0 +1,315 @@
+
+[ ... ]
+
+> +static void lan9645x_phylink_mac_link_up(struct phylink_config *config,
+> +					 struct phy_device *phydev,
+> +					 unsigned int link_an_mode,
+> +					 phy_interface_t interface, int speed,
+> +					 int duplex, bool tx_pause,
+> +					 bool rx_pause)
+> +{
+
+[ ... ]
+
+> +	fc_spd = lan9645x_speed_fc_enc(gspeed);
+
+[ ... ]
+
+> +	/* Take out the clock from reset. Note this write will set all these
+> +	 * fields to zero:
+
+[ ... ]
+
+> +	 * This linkspeed field has a slightly different encoding from others:
+> +	 *
+> +	 * - 0 is no-link
+> +	 * - 1 is both 2500/1000
+> +	 * - 2 is 100mbit
+> +	 * - 3 is 10mbit
+> +	 *
+> +	 */
+> +	lan_wr(DEV_CLOCK_CFG_LINK_SPEED_SET(fc_spd),
+> +	       lan9645x,
+> +	       DEV_CLOCK_CFG(p->chip_port));
+
+[Severity: Low]
+
+fc_spd comes from lan9645x_speed_fc_enc(). That helper is documented as
+the PFC_CFG.FC_LINK_SPEED encoding, and it maps 2500 to 0:
+
+lan9645x_main.h:lan9645x_speed_fc_enc() {
+	...
+	case LAN9645X_SPEED_2500:
+		return 0;
+	...
+}
+
+The comment just above says this field uses a different encoding, where
+0 means no-link. Should DEV_CLOCK_CFG.LINK_SPEED have its own encoding
+instead of reusing fc_spd?
+
+For 10/100/1000 the two encodings agree. SPEED_2500 cannot reach this code
+today, because lan9645x_phylink_get_caps() does not advertise MAC_2500FD
+and the speed switch returns early for anything else.
+
+When 2500BASE-X support is added, would DEV_CLOCK_CFG be programmed as
+no-link? For reference, lan966x uses one encoding for both registers, with
+2500 mapped to 1.
+
+[ ... ]
+
+> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_port.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_port.c
+> new file mode 100644
+> index 0000000000000..4d2d922bacba6
+> --- /dev/null
+> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_port.c
+> @@ -0,0 +1,166 @@
+
+[ ... ]
+
+> +/* VLAN tag overhead is handled by DEV_MAC_TAGS_CFG */
+> +int lan9645x_port_set_maxlen(struct lan9645x *lan9645x, int port, size_t sdu)
+> +{
+> +	struct lan9645x_port *p = lan9645x_to_port(lan9645x, port);
+> +	int maxlen = sdu + ETH_HLEN + ETH_FCS_LEN;
+> +
+> +	if (port == lan9645x->npi) {
+> +		maxlen += LAN9645X_IFH_LEN_BYTES;
+> +		maxlen += LAN9645X_LONG_PREFIX_LEN;
+> +	}
+
+[Severity: Low]
+
+Is LAN9645X_LONG_PREFIX_LEN needed here? lan9645x_npi_port_init()
+configures injection with no prefix:
+
+	lan_rmw(SYS_PORT_MODE_INCL_XTR_HDR_SET(LAN9645X_TAG_PREFIX_LONG) |
+		SYS_PORT_MODE_INCL_INJ_HDR_SET(LAN9645X_TAG_PREFIX_NONE),
+
+lan9645x_xmit() in the tag driver only pushes the 28-byte IFH. The long
+prefix is only used on extraction.
+
+ocelot_port_set_maxlen() sizes the NPI MAXLEN from the injection prefix
+(npi_inj_prefix). If DEV_MAC_MAXLEN_CFG works the same way on this chip,
+the NPI port accepts frames 16 bytes longer than needed. The pause
+watermarks derived from 4 * maxlen and 6 * maxlen would also be slightly
+larger than intended.
+
+If MAXLEN here also limits frames sent with the extraction header, could a
+comment say why the extraction prefix is counted?
+
+[ ... ]
+
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111-dsa_lan9645x_switch_driver_base-v17-0-83a471c5bddb%40microchip.com
