@@ -1,108 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794711435;
-	b=Cjm266A+AFOzdGcsH+7ZPpHousrqd7FvaIP/QO5cKlOfgk7W5rghOUxsc3avF5128j5G
-	 LIXVvNQLlXEV3S7qFyX+Y9zZdLq2/rfp4xHJks8PCvbZ8ZYqO0EEayM+Yt9gXNS13aFEE
-	 4MojaVlYOCHNV7UMfAcuqHhmi5IdLuRP2ORE1HmX4ZpzCK/UBqJi3WJTrxO8wMpc/38Il
-	 5L8B8gx+Ul0mZaQCq8xFwiBUKOkSlLTfPqFTg5dNMnp5d0/PRq5k03HNkXY+R0USV7O73
-	 UUmvEze0i2C4rhoQZnj+k65QutyE2OX0eT+9aZ2AXyKKvK0pkdyv+h/t5Ts20Cziwyg==
+	t=1794712697;
+	b=29edEMgNlNGYtWuXXmVbPV8FM1uZk2j9sFrSgPhB8MGd0Pq6p6y7R1hit81fC2aoyLdQ
+	 bLR2AmEWEBK5+X0piA1vzHgQy0DdGocCOA3suiPrJPP/nqXTn3mB7E31+5EH2N7ESi95D
+	 RqVEyt47hsWlsGlZFtyzGK8a0uXFCf3cmpDuGV3fT/PB+LLgg7JpXXiLnByCaSs2cUbtN
+	 /2F5Swu0GMHU1JP7sTejF4RPd+isKuhSRbi55Lv8Xennha9cHSQk9oX2lbDC5QCtDWgzx
+	 Rh8mEWdwlvQPGgjBUmEYRhI1FFDGDLOcWGQnqw+3Xznfia59fFSdsyYmEGGOdEI91Cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794711435;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=k8oz3BQ/HZy3PG6rhWbidZddgjCFH79voNOxMT0Y3dQ=;
-	b=lnlQhhxoB00A30O9k5QH+UfPfcLugLfleMuI4A0pBRAZ1pIP9AKeZQuvIoCL+Eb2TYar
-	 fqYeRZippd9zZIrjBaBVU/QbArDfoFYaAyESJTeg+NIjU/p3rtATwybTuztnUij1IY/le
-	 QwJ0QNrDHSqIjDsjbWHuJMUUGhuFK1YnvyxyQX1Dw7/C4Gk6DrUWT8O9wXZVvxzmhekKr
-	 uI9PVYeqthvyxOfRf0UcRLIQP4oQUQ3wzMA975khQZfoHekrvTwfdU4SFXGH4BF8adgjV
-	 EY6p1CQl16+fCB90862o02gKsyi/ipcKHxBaUmPH7Lv1j+LNqAjgAj6WRWWwGewMDDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794712697;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=RHK+oDroh+BWIdQDKlDOU+2VRgKkyUtO9u0OdXOwLJs=;
+	b=LgMMv5u1cUfGuW/MbKwCZh1EYLnBIg9ZuXqtIVridXGX12pcrrbX4u/NGh1zKF18Mb8k
+	 alsLkkUFkmePrxd+KJB8OC1pdx1jaEBvhGNKhzjzWKhosdxahuj052m6jQnGnLASa4RvU
+	 TUzoZA29DqHdWNl9RxIVEvIcvkKpFPRICxQRNp32qddWrbz3uA6Ri9oQeXh/40X0meIm4
+	 vk3bW6sI/v5VMslyxi8IkJrAVR+GiiHrXOiyb568CUpE6Y3k2HpAJnpo+t6sV01M4Jeli
+	 Mo54X5y7GwaOzXn7i6/BAmYYNivp0h6jsVsarMJKDUTyI3b7f58Ql1B+z9HJIZXRKvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZBMlvkKh;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=guf6ZVDm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48F8F606A329
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 02:57:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48F8F606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4663606A889;
+	Sun, 15 Nov 2026 03:18:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZBMlvkKh
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-37628596783so3970856eec.1
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 18:57:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794711434; x=1795316234; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=k8oz3BQ/HZy3PG6rhWbidZddgjCFH79voNOxMT0Y3dQ=;
-        b=ZBMlvkKh6cHMxXN1iorhJZvHD9gBK9TBMWMt+LC7sdr2QqPGNXiCfTeRMXsXx5+O0g
-         8ejKHCnW1fTPGdI68XmXTQMxhNplXK1zADJaIzkFNnmzIg/RAZWX8Jkom5nt6Hkf5mRO
-         wxE8x3FFZBi4mQ3zHgE4yLEjtU+tYmVjCbSTRLesAT2Y2OE7vCVc2vDKP0j6jdsrs1In
-         KcL9BVLWGLT8D3dG9tp10fCXqVs0J3r7ut0vEL+ApmBzR8d8FL5XijHJMCOtkLhv/HDK
-         k3cyq/JpxidJopJ38WYoZEN9zCRPRoqF2LVTpu+QMajWBfNE5aYdUObD4BXARYLogtzQ
-         xXkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794711434; x=1795316234;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=k8oz3BQ/HZy3PG6rhWbidZddgjCFH79voNOxMT0Y3dQ=;
-        b=1MQ7V6OfjA5I0y1eXxEOiCzj7T+O2k/lsGX2bz/xFDfTmB7JRMDfIywZ3ub9kGwIMD
-         apXuXEyWD7PFG7/IEOiiVGAuuQ61XqexrgxuelBBGYozY3+baH80mv44wWDz9x5EHclD
-         MN6xK3dwAV938E1Ojhoj0dWDg6h1aSlpf2msCcDTR+wzLhlfaVrkFJifqA63ZH9FgYYE
-         bijtiPM0HwnNCzqzHbHt2G0Ylk+r5lBV6Vy8U4KQUrkguxDzlpXp+feLr5vkPs1bLICj
-         pzwp5Y1KBJpPMWDaoYZ4ZZUrSQDMY0b5o5hJX5dFU/dD1YEBrJhZx/XKL/bzr6fPlsaF
-         jUjw==
-X-Forwarded-Encrypted: i=1; AL+hErFPmNtSI1zBGvJOjq4+AXfHQKb2gcRtBUzQVTQyJWjU6KMA7gTCi7W1CWhSPoXZWM+WwhTlr5A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8HhMdmor7PkMGi4rDPgZ2BhbfIj4Tqs9+oPXDMkRXoaW1wW6No
-	FuSXhYrYOTQmdzbzXsQkyUmOd1NnKmBULzf9RoYvbt8SxJ9LbiJBVd+q
-X-Gm-Gg: AYBFou0o/VXNco6hduiJRDfC+Lv0rQcf20szYmMsHjXwynRLAZqrblQH0+4b2QSOOuc
-	xKaBPqJY2pqZ5VUlUsWB/ZKuaSxboYbX90IuV8lyyo1Hj62o1jFXAtIMvEesx4jNnhdTEFtgvN4
-	RASbwtYVKoeScRE2P/vXDHR1uE+pS3e03dTI3p9ti+hbLCwgFu1ghuHJQZugihmb6Z1cWMi83tt
-	eainONTsXfKvQrcwU9YWk/LBmwlQfvZTKBvu4LAgoVOugnw/4/AUlaR1ei59g1TMhSzTPjQLzhk
-	KceouMwKKUvdiNTuSJw5fI7Q9MFFkx3pEfT3d67nFGFUvAWV5hacPqOrwYlTwQ1XU9v9oA2J2Me
-	QTPcglaP7h1AwSj0T1Km439m0lFwi/Mge+Vsv1yF3tDHPjXh5PfNGWSmLJBk3+SQTEdzIJIAxR4
-	6QYi93hJ5875ESDQAX4OmZ7De1bDmnNCa/SPJ+X0wg4xs10mGpOTvr0Qhqu/VZQsoXX9IwhJVuy
-	5q9HRKNRMzqmt6PzNldBIckLScv+k6LBX+C9MIVyjWFWTQBGVeXrw+H5YFn2zguiCT021xUCVP4
-	uLbIJcBegz6OlpGs8hbmCo2NRScoNVV/i3Q8fIoDILylRhhnlRoiB+7OwspCHf1EGwIJSNE1lfP
-	Bg58fM00aKsn0aWP4un7L5+a1UIgWM/JDAPa0gG2QKOVxHSHkbfiwQGFQoTbh6NXXuCVzOWIKgw
-	==
-X-Received: by 2002:a05:7300:8248:b0:36c:a084:30a4 with SMTP id 5a478bee46e88-37966960b23mr6871516eec.21.1794711434128;
-        Sat, 14 Nov 2026 18:57:14 -0800 (PST)
-Received: from ramen-dev-security-2.asia-south1-c.c.ramen-dev-345017.internal (90.156.200.35.bc.googleusercontent.com. [35.200.156.90])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37955a1c5c2sm22022472eec.14.2026.11.14.18.57.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 18:57:13 -0800 (PST)
-From: Anil Kaushik <anilkaushikwireless@gmail.com>
-To: nicolas.dichtel@6wind.com,
-	netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	idosch@nvidia.com,
-	jacob.e.keller@intel.com,
-	jiri@resnulli.us,
-	fw@strlen.de,
-	martineau@kernel.org,
-	v3rdant.xiang@gmail.com,
-	aliceryhl@google.com,
-	linux-kernel@vger.kernel.org,
-	anilkaushikwireless@gmail.com
-Subject: Re: [PATCH net v6] genetlink: Reject joining multicast groups no family owns
-Date: Sun, 15 Nov 2026 02:57:06 +0000
-Message-Id: <20261115025706.1441789-1-anilkaushikwireless@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <2a362c31-2659-4a5d-a7b5-a50f646020b9@6wind.com>
-References: <20261112094205.1120090-1-anilkaushikwireless@gmail.com> <2a362c31-2659-4a5d-a7b5-a50f646020b9@6wind.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=guf6ZVDm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76E1D1F000C4;
+	Sun, 15 Nov 2026 03:18:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794712696;
+	bh=RHK+oDroh+BWIdQDKlDOU+2VRgKkyUtO9u0OdXOwLJs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=guf6ZVDmwaky8SEJp57VkXtN6Ss2A0cMWAFtCpeJkNgcuac1a0hgIhGyT7sas1KCS
+	 1tXHkr0a09hmP/DodxQD7dfLH6N69ho5Wro6/JB0OeDs396wIrERLXi6qHFWZZ6Qjc
+	 LoAel+Pp780j4ZGXc/H6v4iWnGWrvKjc0zcfsStIVQqKSZsfK2fHoWAbR5rsCifQSX
+	 vSZ6ovuAVU3mnVw1UtlXD3ViRNRDkNQV0UCdX6rLp+bcyVAKdbnpzhgU9Lq++VvkyB
+	 AQ+EJIpRrTQ4Yk7HRxxPCodwE5kA2GBr1TP7qwyx9U/YFsb2IE51b0x6VqyTapRsBY
+	 r7Jze/vdNp5/g==
+Subject: Re: [PATCH net-next v1 04/15] psp: add support for socket-less psp
+ associations
+From: netdev-bot+sashiko@kernel.org
+To: toddfreed@meta.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+ bjorn@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net,
+ daniel.zahka@gmail.com, donald.hunter@gmail.com, edumazet@kernel.org,
+ kuba@kernel.org, jhs@mojatatu.com, jiri@resnulli.us, john.fastabend@gmail.com,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
+ martin.lau@linux.dev, pabeni@redhat.com, saeedm@nvidia.com, horms@kernel.org,
+ tariqt@nvidia.com, weiwan@google.com, willemdebruijn.kernel@gmail.com
+Date: Sun, 15 Nov 2026 03:18:15 +0000
+Message-ID: <179471269504.2199510.18115986956046547098@kernel.org>
+In-Reply-To: <20261111005533.6436-5-toddfreed@meta.com>
+References: <20261111005533.6436-5-toddfreed@meta.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,13 +68,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 13, 2026 at 04:11:05PM +0100, Nicolas Dichtel wrote:
-> Could these tests be added in selftests?
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Yes, I will add a selftest for it. I will wait a day or two for more
-review and then send v7 with the test as a second patch.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Thanks,
-Anil
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The commit message misdescribes how keys are handled by the
+  new socket-less association API.
+
+--
+
+psp: add support for socket-less psp associations
+
+This commit adds a registry of PSP associations that are not bound to a
+socket. Each one is either an Rx or a Tx association and is referenced
+by an ID. It also adds the rx-spi-alloc, assoc-add, assoc-del and
+assoc-get netlink commands, which are admin-only, to manage these
+associations.
+
+> key material enters through netlink and is never reported back. no key
+> is stored for rx associations, and users reference associations by id
+> and never handle keys
+
+[Severity: Medium]
+Is this paragraph accurate? The code in this patch seems to do the
+opposite in two places.
+
+psp_nl_rx_spi_alloc_doit() in net/psp/psp_nl.c returns the
+device-derived Rx key to user space:
+
+net/psp/psp_nl.c:psp_nl_rx_spi_alloc_doit() {
+    ...
+	if (nla_put_u32(rsp, PSP_A_ASSOC_ID, pas->id) ||
+	    nla_put_u32(rsp, PSP_A_ASSOC_DEV_ID, psd->id) ||
+	    psp_nl_put_key(rsp, PSP_A_ASSOC_RX_KEY, version, &key)) {
+    ...
+}
+
+psp_nl_put_key() emits PSP_A_KEYS_KEY with key_sz raw key bytes. The
+rx-spi-alloc doc in psp.yaml says the same thing: the key "must be
+passed to the peer out of band".
+
+psp_nl_assoc_add_doit() also requires user space to supply the raw Tx
+key bytes:
+
+net/psp/psp_nl.c:psp_nl_assoc_add_doit() {
+    ...
+	err = psp_nl_parse_key(info, PSP_A_ASSOC_TX_KEY, &key, key_sz);
+    ...
+}
+
+So user space does handle keys, and rx-spi-alloc does report key
+material back.
+
+The code only seems to guarantee two narrower things. No Rx key is
+stored in the association, and assoc-get reports only the SPI.
+
+Could the commit message describe that more precisely? For example:
+"the Rx key is returned once, by rx-spi-alloc, and is never stored or
+reported by assoc-get".
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111005533.6436-1-toddfreed%40meta.com
