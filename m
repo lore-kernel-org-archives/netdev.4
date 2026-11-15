@@ -1,59 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794756512;
-	b=OJzfPp32abcI//HKqkpASpmxJzjKr1QM/iH7e1txupvNmy8X/ZrfHSrt7V/xQqteqEAa
-	 oEtDvF95wAo0pDn2WMAIyYK6vIwXazfYXdsCF19nFhVZQzNg8asMTDj+HJbi217oG3cu2
-	 Gd7inoLGjqSYLwzK+1HNClqWt1swjZtmZk5OjY43hiTN8TRXIt3gOYkEeHwulQWo9umAi
-	 6pIBfrKDtYgj2a4P1PPVRJy1QYc5cNOs3cPRHKDeoiHNKyHOr2n2q7NVMn2kNqJFp8AUB
-	 uLJqSISUbeNgUCM621rG8n3tp/OeIs8Zr/4PAIJX+qRMilpZSeyryyOs2YwCFx+pAkQ==
+	t=1794757101;
+	b=fdY310yyBC5j0Hu8KVtJwMTFa0SQQWCvlnZSOe+bnYKzR4XDSrYQLXDhpb/B/mjrdZnJ
+	 wZmdmX73ID2uoyC3AXkLFpuIP615tbp3jZsdxMw3bLVayz3eHKNjlZxQGTst9/U6pCuDv
+	 GT7UqP0ERZC6oDI1wHCD7tz04C9sD7WL5BvlqSnlBTAGTodtJk0LQX8Sw06omi0q8W1W9
+	 r3E14NxGrgMyNF2k3oQg6d7iKU9vFonhB3QDRctJT0B7LKVUoEMuoB6arkLpG9/jTJ53v
+	 HPvhMEYz40n6fyl/qmXy2vhkNqy5vOKLreKFPFYbDCNiDSyh7y0frWYWqgeOaZ9VoIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794756512;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=SoP8Bse4OlNySerJkzY9+iacRNqIuoKa0s/LS7tQjZ1nh62qsvhefBRvgz1RrBSQBHTL
-	 raPtrnpPj4+EEQ+IgUz8mK8RqUErHI3i2/Qn+5x+b0xD0W0Fvtq+wvuOSf46PDDpOIj1m
-	 F15dpbEFH2EbIIr1nW9/iOQOK746il7mKDc4U0AJUwazxClbjYJbOzA2TY9f9Yzock+32
-	 JV9zYtrHwnHqOjaAa39CoHVqmJPGZflFbd+fX7YcH6WR0FOpjg7siJbAOWEkcS69sjj9K
-	 2t5MFjyKQ9gDGGIZLpE7BMyRdkwSgsMPMA3Dy6BSnT5JXX1l9PL6OGecO4j9v/8zxXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794757101;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=kjUb2QBVxfOsNlHQ0DPSHIBk+8dBDbVKHbOy3HIK0ps=;
+	b=ZqShYqKTfE/KgPyq+aXmXa4Upa9OEAaskyGU23tMkZ6tr+YPIAOGflMp01W+pqxoKsEC
+	 qHX0CM0LK9+iU/vBkTQvFNeSMrkRduSgW6J+gzmotazMRPFGInc7Ihm+LhbkdnjESqUC5
+	 7JT8sHNIzEUynVeDfoaZUyQAb+9ixPLLyQljq73QoG44WTT9htkbvxY4Zh+IoyoDOOSVR
+	 KwbwYRkA78dzpweCTw6A3peo2QRJsH76ouGHTsK7gfGn2xJ1ddq5W1E+jkwmUj2V6IeG1
+	 x4094NgVRFaC2zjLZfBs7bCbS/lUoPteaeOLbMa3I67zjx76Y10nNUEMXcK4EN+XasA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CryTOao2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=djoWjanA;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A5F7606A31A;
-	Sun, 15 Nov 2026 15:28:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DDC9606A323;
+	Sun, 15 Nov 2026 15:38:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DDC9606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CryTOao2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D0E41F000C4;
-	Sun, 15 Nov 2026 15:28:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794756512;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=CryTOao2uPKoxH+tDiiogYd8Zy2jqY3v4uLHLyPj2c5UW19nSGoj6devW/G5fq4oK
-	 3FFMkKpnQ9WY5Pg/0St9elXjq4VoDio3X/b8AmralKxOhuue83v6ej4txyWtPHgjJe
-	 dv0J0+EegfiAshun1LPID6+Os411TM44+H9MrzcsJ3TR1mD6zhpsrdF7UdMRb6nPA0
-	 hbf8+tWcT0C7vqZTGft3UgjOjegFXRB/uoKpATvktJc1nZqveBPxVAqEKs59vAXxqq
-	 eZ0tCpEcSGeR28YdauM5jNWvvb/XWCrs5DchCEnu2LrIvZJpULyCNGVw9A843tzFSW
-	 9Y632Du1Ir4tg==
-From: netdev-bot+sinfo@kernel.org
-To: Shihuang Liu <shlomojune6@gmail.com>
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, edumazet@kernel.org,
- kuniyu@google.com, pabeni@redhat.com, willemb@google.com, davem@davemloft.net,
- kuba@kernel.org, horms@kernel.org, Linux kernel audit <audit@example.invalid>
-Subject: 
- Re: [PATCH v1] net: sock_reuseport: check program type on the migration path
-Date: Sun, 15 Nov 2026 15:28:30 +0000
-Message-ID: <179475651094.2168702.1367450794308731343@kernel.org>
-In-Reply-To: <20261115152408.48205-1-shlomojune6@gmail.com>
-References: <20261115152408.48205-1-shlomojune6@gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=djoWjanA
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=kjUb2QBVxfOsNlHQ0DPSHIBk+8dBDbVKHbOy3HIK0ps=; b=djoWjanAFV8NB/jD9HENjMURCS
+	OONd5UOcpqmbiSEnRDz7gJL3l0E4rhIs3yfSyyRgQdDMjR/FqoRha3GqAWzCk00uFzcwgYNSWYDxh
+	l3kSg93tj3eeQZoAQ12qXbZY32/HzDGRfWkcRBbx1WR9NlJI1UFAVWxmX4KQ46JLS9hU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xScJ3-00GdPP-M5; Sun, 15 Nov 2026 16:38:13 +0100
+Date: Sun, 15 Nov 2026 16:38:13 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Arun Ramadoss <arun.ramadoss@microchip.com>,
+	Jiri Pirko <jiri@resnulli.us>, Linus Walleij <linusw@kernel.org>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Vivien Didelot <vivien.didelot@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, kernel@pengutronix.de,
+	Jens Emil Schulz =?iso-8859-1?Q?=D8stergaard?= <jensemil.schulzostergaard@microchip.com>
+Subject: Re: [PATCH net-next v2 1/3] net: dsa: microchip: ksz9477: apply a
+ shorter ageing time at once
+Message-ID: <8a5d8502-3c38-4161-9b1d-381ef6e2344c@lunn.ch>
+References: <20261115-ksz-stp-ageing-v2-0-7af27320033e@pengutronix.de>
+ <20261115-ksz-stp-ageing-v2-1-7af27320033e@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,22 +73,40 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261115-ksz-stp-ageing-v2-1-7af27320033e@pengutronix.de>
 
-Hi!
+On Sun, Nov 15, 2026 at 11:59:51AM +0100, Oleksij Rempel wrote:
+> Pulse Fast Aging when the programmed ageing time gets shorter or the Age
+> Count gets smaller.
+> 
+> The ageing time is Age Count times Age Period. An entry stores the Age
+> Count when it is updated, as the datasheet says. The datasheet does not
+> say when a new Age Period applies.
+> 
+> Without the pulse, stale entries outlived an STP topology change. In my
+> STP tests the switch ran at 300 s as 4 x 75 s, its reset value. With
+> forward_delay 4 s, the bridge asks for an ageing time of 8 s. Read back
+> right after the write, the register showed 8 s. In three tests, an
+> entry learned before the change still stayed for more than a minute. I
+> think the switch uses the new Age Period only after the running one
+> ends.
+> 
+> The pulse is also needed when the ageing time grows but the Age Count
+> shrinks. From 8 s (4 x 2 s) to 31 s (1 x 31 s), an entry stayed about
+> 63 s in one test.
+> 
+> On a KSZ9893 the pulse removed the dynamic entries on the one user port
+> I tested. The new period then started right away.
+> 
+> I found this in STP tests on a KSZ9893. I tested the fix there with
+> kernel STP and with STP off. With mstpd I checked only the programmed
+> ageing time, not the FDB.
+> 
+> Fixes: 2c119d9982b1 ("net: dsa: microchip: add the support for set_ageing_time")
+> Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+    Andrew
