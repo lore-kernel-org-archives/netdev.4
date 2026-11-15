@@ -1,60 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794773203;
-	b=OxYmcVUpZ3J53bSctqXE+V+1NU66p+830W87td94Pka2RG41lF8YsYSSwlsuaHuJVbhc
-	 Z9iafLuFXRUpj5aGy9zC75IlMS1WE4Xiokq1oJND1Qh7E7wZV8Gb3n7oXh069rs02/Z8O
-	 OTU0JoewLpTl9Wyyc0MZk270xod7mCPXDIlFOMc5HXOl3bmEEDOXJWS/yRaggH7SISnOM
-	 ZLCKYi9KuH3J/3fTD9ZKVaZqiias/G8CFgBnPNLIDBxGPFtURldWaLYK6HNKX2OXEzROG
-	 L4UNgZFma25ikWMt3w/fe/WawPhvZuh17GYL2bN8B1xiaqrHgg1kvBfPYCqEZLvHxzg==
+	t=1794773287;
+	b=WEGjf08e3u4c+PpnMQV5FjP8cg08ps0ZfFMzK+5TX/V53pR/BJ0e/sJmF/A3xc9tqVu5
+	 QRgJIGqFTC+m70aliX93JauxL8cEvnt95XIbP2JyqPwqZ+Gf+ouSFIAK9AKBrQ82KFO3G
+	 ecjwcSq6NRaY8TdOwHkLDTApx5vFatvZsjph6WzLAqp3pz7v8XLOjGCAoCM4ISy780fAQ
+	 41ttMPu7fe4oqm/6EE9CdHwbdqzpnEK6Bezce+yOxvaV9WDiikM2xjBehmQtvQM4IRrGi
+	 OHSjTxlnGL0DOIA/iuXb9fw/vjIasKFR2It2zlIl0KmiKY8p7FAfgT0DZqPenlpHZRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794773203;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794773287;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
 	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=FegrIPvODOEzqKHv8Rsml+EnC09v68w3H734EdRf0fT0aesYN+B19FsZ5wGUBNG8jiU6
-	 NDJ7tof8Mg0IhheOGtaHkS6E1RpwUwoATf5pkPbRHT3b9yz8HORIMysQwKQbXDLU23s85
-	 lV0R4JyvDG6kFaxcO4vbbK4HYvvVXTjrWr+KERHN0tHm2eXFcF96RgtR9WHc2RCMy8q9b
-	 KidYcB3a8SfHGuPTOkC5Tg0FeACDwrCC+C76dY1A3im9xjMfUPCzoft+WQgwtbGmSIb06
-	 8lm7afTz/16CqCeSl+groo7Tqy5Pxu2G46r4oG12Ldf4EelMqomvA1nb7S1v2xw3tLA==
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=HnvOQuKDFnuJfaOdEmyGq37csbBE1fD8h18S2RrhTvxcE5QxoYsRwd11XG119GRVfxfY
+	 e0ALq94CdC/ZlP5cpXxxaTQ4m7FDdIR4unAzNjkbMCQVppWj23BI69BFwHhgH8GdZoyMF
+	 7cog5XEm4ljW2a0Y6CYYbMbf9dtv6obi1vLfYiIUvuMxfyiNIOD6d8koxbhP5JCcZJFGe
+	 BcFY6U8tdAPsqp1fvaKlcNZu4imuYdsWu+JCwCfeAGRQOKXCQ22JWbQaunvBMyPset2IV
+	 6Gj00nKkjw3Yu1BONYCCP4Dz/+P8K2TDOk8/gkq+MavpOkSF6tIYMhKbsYfsNnEDx2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mkz+ZLjM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m4SNkqSb;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CDAC606A323;
-	Sun, 15 Nov 2026 20:06:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FAFF606A323
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 20:08:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mkz+ZLjM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 676D01F000C8;
-	Sun, 15 Nov 2026 20:06:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m4SNkqSb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD7E1F000C4;
+	Sun, 15 Nov 2026 20:08:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794773203;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	s=k20260515; t=1794773286;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=mkz+ZLjMQQbWj3jrrdh2wqUEdfHCES6fcwj6quLYq2oPcpHhVEkpk28Ai8q13VLpt
-	 puqsQB7qBEyhTBMPRydgOUgNIGieSiMGR7A0XOpJhSgWY3WrWhLoWxdeRRhUjLG49+
-	 cMBpAiI5qihDdSCNzfNPUjMXd9fzaVNcERYAAi6CCDWMRJSDO22yL6XPJQsM4prkeZ
-	 +prUQ215c/ssZ6UA3LzDe2LRPny3uKazM+X7Wt9AAllEJruJQdVbUGsUEmBDfxWZaT
-	 uQqyk01HZNw2xUwPouzjS+lyRYlXiEnL/FUDEgrgCiTf6M9lTD4uvxpUtc8gpDDI53
-	 y9XGfBdMc0N+Q==
+	b=m4SNkqSbN27aRUQvbTnsWbNoqaK4a0+r00BNLrCPJQ8ehMDeOf/A69uhBMUruGmfZ
+	 R6443GrizI01Q3tMqDeSdGZQIHD77wgY3xdz1AWulsFIP6nQ3/o6+eHqKKr7nMQ5dT
+	 llyCZ3qOPowpFxRdIIGgvDJdUOP81G/G8sJDPHXh5RJpL11tFvzGt2MXtdE3XL9gM5
+	 dSvYWLjMN4YpS6cwCkChGK6MgCPmLPmBCNQUQvhIL9OLT2pTUZqTzXheInx0RQhlF3
+	 daVAFs1PDAzgjfscw40hhzaIP6YanB7VO+8HEGzvvjsZf+KeGeaKCjdvS8N9ZWVUXa
+	 2uM1tuKpG1m1g==
 From: netdev-bot+sinfo@kernel.org
-To: Julius Bairaktaris <julius@bairaktaris.de>
-Cc: Nikolay Aleksandrov <razor@blackwall.org>,
- Ido Schimmel <idosch@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Vladimir Oltean <olteanv@gmail.com>, netdev@vger.kernel.org,
- bridge@lists.linux.dev, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 0/2] net: dsa: fix host fdb refcount when an
- entry roams
-Date: Sun, 15 Nov 2026 20:06:41 +0000
-Message-ID: <179477320197.3291.2172653342533166243@kernel.org>
-In-Reply-To: <cover.1794696608.git.julius@bairaktaris.de>
-References: <cover.1794696608.git.julius@bairaktaris.de>
+To: Justin Iurman <justin.iurman@gmail.com>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ andrea.mayer@uniroma2.it
+Subject: Re: [PATCH net 0/2] ipv6: drop encapsulated packets when no source
+ address is available
+Date: Sun, 15 Nov 2026 20:08:05 +0000
+Message-ID: <179477328585.3291.12843361003997824029@kernel.org>
+In-Reply-To: <20261115000047.14669-1-justin.iurman@gmail.com>
+References: <20261115000047.14669-1-justin.iurman@gmail.com>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -76,6 +72,10 @@ commit messages seem to be missing some information:
  - How the issue was discovered, e.g. hit in production, hit during
    development, syzbot report, manual code inspection, LLM or static
    analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
 Please do not repost the series just to address the above. Instead,
 reply to this email with the missing information, so that reviewers
