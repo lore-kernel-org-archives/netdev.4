@@ -1,111 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.45
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794704177;
-	b=zUHab4hByCWiydrwCwxd5n23sQtr2VlSaWGgj4OGiqo6FawRZ1/O6jBlM0gcERfEze1G
-	 Wq/8UTk/kWSdyqWhc+MIk3Z3WYOraaYh8ky+USYuJisBaTgmobOJ2B1n6Lvm7urtWjE7C
-	 Y/Pf94h4eNAISZMEvpTM7s0ADEkxIgUKGcwK2VElRuC/zsgtseJyP/sPdRAI2Sd8lDOmd
-	 +3CEV371oZRTdJWV7SwQxPD3Tcpaf2jgY2adsf4cdpndP1qj1o5HUdinfYawHz78ClPUR
-	 c/UXJUYLkqOo2C8lYzACYHGT73zHRGMGye8URMa5I6hCkVFEAXZMq6FIGG4cZ+mI+eQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794704177;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.179
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794705398;
+	b=qKD3Q5Qj0nBHEqXLyKykI7MWgqI+HJCY+schw/cq+AIBdswOfoRPNaQCEc/gqlJh7IWI
+	 yPzkpiXoTGSzomZcskMOE+8GtCa33WxCaBt/QwVN2QZAEPzoxvwlFYgwSOwd0McsdUtMN
+	 mmAm/ZlCX4EdCy6qlfxkaop0taiEKo1IMejvT3/89DvQ/rorVeZsD4Y12YurKus4+LWfF
+	 CSPdHYYEYNZmOzSSX4RNQ0BUibDVN1AIAEoURtRT3Dkb+U9WBb+IjTC1vhFvsvTAl8U4I
+	 awPtSwJRtn79at0B2ELaX1G4KSKu1XmkVhFSZBMk6PL6qMebjycJRtqR/FhL04Wck3w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794705398;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Uog2DUXpaE9MlsvIhp7brTPyfcLl2qmPjN0vFybGnao=;
-	b=UB9WnknlYv3579LK4xzHagRZ4t5IlulRYbkobkkuulhuykdjSLU4Z8zYPw/depC/fkN5
-	 YVpVMEWlzqlXI80ofV1ylkiP4emlP7s+riJ+C5PhTdtZ51HoVsgBWwj25ZaKQr4SLKJdH
-	 QvRvauQrB6BJls0xJ4o3NU4L1ug/hJGNGjl+pOAabtqMPdv0Y75pkIoe2CtzhxPyMHi+c
-	 Ned4KaIH7qUXj/mV6otgWHgT0BuSZor2rkPi7ox4aYASX/abkZtjK4joiMbLd7nBlGBZW
-	 Rd5cHF135/6GtoPyq5NMM0C/u2OFDSwG426ljF84nDCOcIPvaOrMh+RCmZM8jnThrdA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bairaktaris.de;
-	spf=pass smtp.mailfrom=bairaktaris.de;
-	dkim=pass header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=ycuiTXa1;
-	arc=none smtp.remote-ip=209.85.218.45
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=F8dpUgzOoxPx+Jh3a8nIBQMmsbWct5uSooKKOFeDY9U=;
+	b=OAWokyBJTtW0unJmkES8H0A41DBKA2skqpopZxW9kIYs60LqEBbyQy3NlS+6Re+AeKgA
+	 bse9FCzHeZJF2no1Apxx+MXc6g3DVW8yLuGAhLq5Kg7w2YPh1nTkOb+NdW77NQfsOAY/1
+	 j9RwPnq3z+sIrMDvx0gm3QUi36ngbzuQO+MnyvZNDQSqFEXtxq2Xqpki0tEXUddFhwJr+
+	 8YSaXnKoQ2WbVfAM3uFos3xMM4dryoePHI0/q2oCIyuo7hOdJ3zkZlEjjw84Zio3tAt+7
+	 Rsr4HEosmU1YS781PheQAaSUWkjZ80Y0/fvUJ+w4hz5n3iiw5MT4NdkikhowehBgXHw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JQznWoGM;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.179
+Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com [209.85.222.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27DA7606A891
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 00:56:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27DA7606A891
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bairaktaris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bairaktaris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA200606A327
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 01:16:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA200606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bairaktaris.de header.i=@bairaktaris.de header.a=rsa-sha256 header.s=google header.b=ycuiTXa1
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c4d21051042so409070866b.0
-        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 16:56:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JQznWoGM
+Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-94961b68685so104643485a.3
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 17:16:37 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794705397; cv=none;
+        d=google.com; s=arc-20260327;
+        b=qvU1l7MjZdzoguwu+wK/U/GDm60WJnDxuZYpYokB7Enrm7Wg7ZNTmTRLsfM8N7HjjR
+         Ph6asuIzx2H+UtOfLvNdalXf9ze4k5/8zpz19jJsNLc8ZBRtSFmYTQoLH+zy7uFlznYT
+         OkKP9rBCnB8DkjngBLXssY01fS6B85SLX5gD5RQ7X/creHZ+f9UW2N0z9+gR99cCWSOy
+         dJK6OZeJZw5wOPaOxv7fdQDh/RYixxYepPuo8ZnGXr5mJ7sZIPOBvuVCHftoeXQHcRSo
+         cBLfIHYtKZvqwdtyZ7kBvtcbBGMfKRBT8W4XLMx7/D0Bv1vxmKar103GD9ks5FpsSceV
+         x25A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=F8dpUgzOoxPx+Jh3a8nIBQMmsbWct5uSooKKOFeDY9U=;
+        fh=l7fkyklq/OWv7B8gwCOlTLxgz0MMLDmb/+63JaidC2w=;
+        b=mDcoX+6+5QNxx5S8Qb2lhWqu/qjQddUrf7Ru349wIN6pexQEYUR8TCNRI4XD/9VYjF
+         wYMQ8i5hpAgY6wbmdnLGxDqYLKDJ1DHgkVmqE12vmUz3cDKBFdawM6BYPGus+zsYA+vL
+         O2X93XC+AAz0KaPNLGcXFpj5EPlCwlM73qtEhrbS1qJFwX0EWEI8sIreQtIv2TZLDYIv
+         TZ9m7LQ+ca5svtdppcsD/5k9DcFhS5iJzK0YDAuQ2tBTw/5YHrWd5zihjUW4YRc1oc7r
+         JibB/ysfGco7uFaSFWkQa/ctC+EnS4U3aKl3auctdjVkR4BcAWbQLmSAuhYki6U06+8p
+         VwOg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bairaktaris.de; s=google; t=1794704175; x=1795308975; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Uog2DUXpaE9MlsvIhp7brTPyfcLl2qmPjN0vFybGnao=;
-        b=ycuiTXa1MAM5lRMTWMtvjlVPMwTTuWOj7vJObAa2/tujat7iI21TXdAx5DMNXXcikF
-         ThbJQK7409FWPK4AwZwJrflqN5AjK44+qXXV8BtJJCjMEbBZiqYb7OOJRKJIL1ygZozs
-         vrW2ExfWeZP3FTOEcPUavwequI5rjwzODV1JN5YG01nMC/5pVM7POPtyGbau16HBWjl4
-         VroAaK+WRIxuv/zKsAKSQLdrH0/ZKPBYAs2T1VTygnMlFzdnw1WekPvb4VuBMnBJH2bm
-         8JVH59FEP/W+r01BV9CI0Nxf5xTVd1FSQUMLQH3Dcll86nZvcHRrfFnqw/1dwWOPjFKw
-         wtIg==
+        d=gmail.com; s=20260707; t=1794705397; x=1795310197; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=F8dpUgzOoxPx+Jh3a8nIBQMmsbWct5uSooKKOFeDY9U=;
+        b=JQznWoGMMEvrXiC5W/x5Co6h5tvsVl7HknKCyg50kuuVMWqNOT6wFRtq/r3URx6fR7
+         ZWomhYnJdg8WAb1J6zVX7mbftIrAXLv21D0+y5l2IyGvS63uHEs5nkmsisg6183Df1ev
+         vPt9VvVUG+4tLMuHvo7sNk6RWDWPmidtc3ylEG0NcPgwsrENxnlF9R3QyntH4yxdW0DY
+         MvXSLG2i/F64cL19/I60RXqVP6M85jvxzCwrHvfoogBhThjPLHfBTnJM5eE8CnPclH6H
+         //rTTrv9Qkcrn69s9RYeQrVaG+4/AHb/wc5haby/HFg4IoIyO8kdyS29tFwau37xuN/a
+         p3fQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794704175; x=1795308975;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Uog2DUXpaE9MlsvIhp7brTPyfcLl2qmPjN0vFybGnao=;
-        b=vQrs8sGByr6ZMXwqUlCNdUpKeOqJ0Hl293yZ4uEWIZiMeIyFIWHUojt8QVbvw+ygzb
-         032rT9tl44GBg4wOA0fGDa52rHXr/8H+LyPX783O0gfuzY0bUSKq8+qbbgJKAsOA6Q3p
-         DOOwq2EsJ3RN3LktPJm1eeYIl1ArdcS6y77szACknT6rDvMvU53PUnRyKZZLK9Q8LAFP
-         XWgDU4l+8aP36PrDnLsTepNA1C2vVBv4+3OhL1sZ0913iKnIaC5NtWL58PQUPQVl1Aot
-         +lmgXuBz0Vt9KPgobmJomv70ytPnxeAjJ/3D9p4wvUfzB9j4+R5L05QSvtDz5Iib8myk
-         rCNQ==
-X-Forwarded-Encrypted: i=1; AL+hErEpEGSs/xgqYrpPturoIkrpbELFEIwBFvqS0GdqyTADcdCXo+cjXtXGBnFd88Bha6kGMdYBJbQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/kD7TLxdKALQRaL/yf6ILqX/yFr9gvQaxO8soXhqJ8BCkvxwsn
-	UMpmSdnCn3vI8BhycrXyLbjyQiOY3J2vsYkIccOBlm+HNZ8YVGgNabt0vZM5Jjs4fw==
-X-Gm-Gg: AYBFou0nmKnohmM4dqZe2tXeYCtwu3NbsnT93tLKlmR6UwVhRG2GmCNcCO6rvW8g3UD
-	KaAebeCRiS2ZERFARcIyyoB8H7BHXTjBTK7tdpGYqKS7KoeaBHkUfvMBf4zD8tz0KD2eVaPifPt
-	UevIn0X5OxTO241frsa8uMxjpy7kIAv6NLy80fIGZ2zhyI6JJ5NkepY27WfjVuMlLj0AMJ+tAtJ
-	KAqYEVwAxdRpHDxvy+zDOim+uYsoFMv+oawvZht7SU8Chvib2Z1fHRMI/LnUHI9ZR8fE+dy98UT
-	JNAhobqQ4aLzt5NxmcHiPMFgsSeYOsNHeXv7qpen/Gd750JDsjGtPPNvLgW7mfkvPzXV4gu980E
-	+4LSxbuhmrSZ0vonjuHdZMMDlRu48h2AzP1e4m5tyPtEWPf1fiUs8yDyuGMX9NlPN5BeIbf3zhE
-	0SIeLM6MIJc5lHIl54sFC+XdqfW0aGR9diD91RJTIeZOtcxrP741gRa35jfp2MYTvWEBppnARrD
-	J0UYBpkerV18tafp2cZm1FHe6E70J0qDEjIr2zB/KoOPYTZ2KJOSXdmaqn0q424mJRIO6dDxE+F
-	yezVp2rEy3hvuenrNEgAwlPceNUBN1CLvMMu+PpDnOpgkvK58x+Ms40gOcI0zmT3qh+Z08vwkRy
-	FFis3/1ppUiuFnSQ7tKLUgWTMtL4t3MZAdXroFr4Mi/Q8bXY12bPi1yHmuQefRU25puFrywivXQ
-	VdfKPBpPPYp7SIcfMLM8T2s2t5ZhbGEDXOpO/ik8ewrbgyAJi4IaLz6O0JVaxrBo7JeedTl0YLc
-	KU5EC1YA4OTcJYtNU6hgpId92KmjtX5DD/6wg1RhgkUGVUiJgkOiKawZ+j/pvj7/QusNXHOAuw3
-	aXwrkcwifvQ8HEtcl81IiHE5U0EVm6gNq0HS4Kb4pcRpS977Ll2hvSCMENPUaCA0K70luDDi
-X-Received: by 2002:a17:907:ea91:b0:c4d:2cb4:7bbd with SMTP id a640c23a62f3a-c50963fae13mr575498666b.47.1794704175500;
-        Sat, 14 Nov 2026 16:56:15 -0800 (PST)
-Received: from Desktop (p200300f2470a670069e45948b1a17361.dip0.t-ipconnect.de. [2003:f2:470a:6700:69e4:5948:b1a1:7361])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095b921d4sm266313166b.83.2026.11.14.16.56.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 14 Nov 2026 16:56:14 -0800 (PST)
-From: Julius Bairaktaris <julius@bairaktaris.de>
-To: netfilter-devel@vger.kernel.org
-Cc: Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Eric Woudstra <ericwouds@gmail.com>,
-	netdev@vger.kernel.org,
-	bridge@lists.linux.dev,
-	coreteam@netfilter.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH nf-next v10 3/3] selftests: netfilter: nft_flowtable.sh: roam a host between two bridge ports
-Date: Sun, 15 Nov 2026 01:55:55 +0100
-Message-ID: <20261115005555.645727-4-julius@bairaktaris.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261115005555.645727-1-julius@bairaktaris.de>
-References: <20261115005555.645727-1-julius@bairaktaris.de>
+        d=1e100.net; s=20260707; t=1794705397; x=1795310197;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=F8dpUgzOoxPx+Jh3a8nIBQMmsbWct5uSooKKOFeDY9U=;
+        b=YHyMzz333zl5UwOFkEu2But3a4k6/dqNN6Qux+bAOaBce5bo8XoWnifZES8AksI/81
+         NLrTUz6fGsmIhxXz5QQTTBPsjdtkCSMf0z5U4RF9UseURq+PUVhQvcz9wy0yH5fNT1Kk
+         aLchjYRTRQdGW2dLhwR4bbAWse5NlUIcOmRlO867N1qJEJq7fUFVy25B5hbd8mQkY8x1
+         o9kNaQ+J0pJi/9+cxNwaMLXFJspXUSubfPqUwrcpLKf/wNfuQezApfo6g5kU3vWAQws3
+         eHxCF4bW3nB3Sfs3oFRB249WF52S6IU+rNTfkpZYOyPXp85ZVpMNqwHqaMjgVcJThtRd
+         vlBA==
+X-Forwarded-Encrypted: i=1; AL+hErGvUm9AdWN7IXIamM+RVNHaLCb/JYBM1GI9TF5lhhvK/37b4jjwjlHJ4sqWYTUhwLCPYDujjpw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+aHZkpGPc6fyPeGyTfq0BKqSXD6Npl3mKFfQrX1Xmxmdz3+knM
+	L2mY/DX8xVrUfB0cbH1e/QbRDh2097zO1Dh9hC/zZ2sQPkqHtzuOmwPD5Xcf9xldzpVetQrkuz6
+	aMlT/hKe4Mn30km33OzSIA2/bEh2oO6w=
+X-Gm-Gg: AYBFou0UKG15LT+ZC42N838QJoPC/VsNyPFZSlsY6Ww3uGbKnsrNPOKB5hhZxAne0MK
+	xc3PXaLx2CghA7IEyRAt+rS+v1zdrU2qYqv8BsN/zxUtXRgKlJbBomk59AiudXlBnzuc1gWZT3k
+	KTj/FyZcq/jg6unrLoxrcRY3mF6E3aC3hxY9N93gLI8QPwylfjx/HKQA1ORoKoAqz98pzxmODTl
+	dLiY8PsU4vzpeUPMD57wWKtTQlwWk8kOQ2JFkNx67YwtTxmOiTml9wrBYw6ObvzFO2ivGKwY/4f
+	Zz1M0iSktlkzBNDtHKq2diabtw0ctd3MOdfZ+cDruYwoi8F7zKU7BvjdIxhE5YrwG1ZL2T27rkT
+	/trscIh9I7jQPxsGalX6mDoALJ/aJeEEvM+AgRnnT/wYXw/JBIwADdA50LJKQrZPlSaBNfrA=
+X-Received: by 2002:a05:620a:3194:b0:93f:1e3c:4a31 with SMTP id
+ af79cd13be357-9494bc489cemr1205984085a.61.1794705396536; Sat, 14 Nov 2026
+ 17:16:36 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,415 +103,492 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261103041134.33310-1-physicalmtea@gmail.com>
+ <20261103041134.33310-5-physicalmtea@gmail.com> <auxHe77Kv3tS4hjJ@sgarzare-redhat>
+ <CAJwVaMK6UpxOmCbuzGK15h+DhN5H6cj6cy-=gCHtSxoVbLfzwA@mail.gmail.com> <avX1+7zxl9OWGUGI@devvm29614.prn0.facebook.com>
+In-Reply-To: <avX1+7zxl9OWGUGI@devvm29614.prn0.facebook.com>
+From: Jia Jia <physicalmtea@gmail.com>
+Date: Sun, 15 Nov 2026 09:15:58 +0800
+X-Gm-Features: AclHuK-T0MEDdJ39kG7QgYlQtmmMpMQfQ5G4jecRDwhf-cJbDIFNw63bcWzZktY
+Message-ID: <CAJwVaMK8_HxMjCVQwmwet+sphKHSM-L0eCogdzu1tZfLqCukSA@mail.gmail.com>
+Subject: Re: [PATCH net-next v5 4/5] vsock/virtio: coalesce native RX
+ write-space notifications
+To: Bobby Eshleman <bobbyeshleman@gmail.com>
+Cc: Stefano Garzarella <sgarzare@redhat.com>, netdev@vger.kernel.org, stefanha@redhat.com, 
+	mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com, 
+	xuanzhuo@linux.alibaba.com, davem@davemloft.net, edumazet@google.com, 
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kvm@vger.kernel.org, 
+	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Move a host to another port of a bridge on the router while its flow is
-offloaded, and check that the transfer continues and is offloaded again.
-The cases are plain and vlan bridge ports, vlan ports whose real devices
-are ports of another bridge, "bridge fdb replace", a pinned and then
-deleted fdb entry, an aged out entry (the flow must stay), the plain
-case over IPv6, and a vlan_filtering bridge with untagged ports, with
-tagged plain and vlan ports, and with the router address on a vlan
-device on the bridge. Two cases give the ports vid 10 untagged while
-their pvid stays 1, with a host that tags what it sends: the router
-address on a vlan device on the bridge, and on the bridge with pvid 10.
-With "stack" the bridge port is a vlan device of another bridge, and
-with "stackout" the host moves from behind that bridge to a port of the
-outer one. Three cases check that the flow follows what the bridge
-delivers: the host's port is disabled and its vlan leaves the port
-(the flow must stop in both), and vlan_filtering is turned off before
-the host roams.
+>
+> On Fri, Nov 06, 2026 at 08:49:17PM +0800, Jia Jia wrote:
+> > >
+> > > On Tue, Nov 03, 2026 at 12:11:33PM +0800, Jia Jia wrote:
+> > > >Each received packet can update peer credit and call sk_write_space(). A
+> > > >writer cannot consume that credit while the virtio RX worker retains the
+> > > >socket lock, so repeated native write-space notifications in one RX batch
+> > > >are unnecessary.
+> > > >
+> > > >This patch coalesces write-space notifications on the native AF_VSOCK path;
+> > > >data-ready remains per-packet here.
+> > > >
+> > > >The batching patch establishes batch ownership before its first packet.
+> > > >This lets this patch record a pending notification for that packet and
+> > > >flush it even if the packet immediately ends the batch. Deliver it while
+> > > >holding the socket lock to preserve the callback context of the existing
+> > > >receive path. A following patch changes that timing together with
+> > > >data-ready handling.
+> > >
+> > > Can you report performance data related to this patch also here?
+> > >
+> > > IIUC this is not giving a lot of advantage, so my question is if this
+> > > more complexity really add a value for us.
+> > >
+> >
+> > Sure. The performance tests currently cover patches 4 and 5 together,
+> > so I will include those results here.
+> >
+> > They do not add another broad throughput improvement. I kept the
+> > combined notification change because of the cycles/byte results.
+> >
+> > With P1-P3 only, against baseline:
+> >
+> >   Buffer size  baseline cycles/B  PATCH cycles/B  cycles change (95% CI)
+> >   64B        66.728    61.220  -8.25% [-18.99%, +3.91%]
+> >   256B       14.363    14.515  +1.06% [ -4.22%, +6.64%]
+> >   512B        7.792     7.578  -2.74% [ -6.55%, +1.23%]
+> >   1K          3.988     4.032  +1.09% [ -1.64%, +3.88%]
+> >   4K          2.063     1.973  -4.38% [ -8.23%, -0.37%]
+> >   8K          1.702     1.667  -2.06% [ -7.99%, +4.25%]
+> >   16K         1.473     1.475  +0.17% [ -5.06%, +5.68%]
+> >   64K         1.385     1.358  -1.96% [-10.61%, +7.53%]
+> >
+> > Only the 4K interval excluded zero. With the full series, against
+> > baseline:
+> >
+> >   Buffer size  baseline cycles/B  PATCH cycles/B  cycles change (95% CI)
+> >   64B        65.282    57.843  -11.40% [-13.77%, -8.95%]
+> >   256B       14.710    13.813   -6.10% [ -7.89%, -4.28%]
+> >   512B        7.709     7.188   -6.75% [ -8.79%, -4.66%]
+> >   1K          4.075     3.862   -5.23% [ -6.80%, -3.63%]
+> >   4K          2.034     1.887   -7.21% [ -8.67%, -5.72%]
+> >   8K          1.664     1.568   -5.78% [ -7.83%, -3.69%]
+> >   16K         1.450     1.385   -4.48% [ -6.08%, -2.86%]
+> >   64K         1.338     1.317   -1.51% [ -3.21%, +0.22%]
+> >
+> > From 64B through 16K those intervals stay below zero. 64B through 1K
+> > did not show that in the P1-P3 run.
+> >
+> > This is also why I spent the time making this work with sockmap.
+> >
+> > The value I see is lower RX CPU cost, not another large throughput
+> > gain. I am still unsure the extra code is worth it, and I would like
+> > your opinion.
+> >
+> > Thanks,
+> > Jia
+> >
+> > > >
+> > > >Capture the native write-space callback before socket publication and
+> > > >access it through AF_VSOCK helpers. Sockmap can change the protocol,
+> > > >write-space callback, and psock marker without the socket lock. Serialize
+> > > >each batch eligibility check with sk_callback_lock; if a packet boundary
+> > > >observes a replacement, finish the batch and use the regular per-packet
+> > > >path.
+> > > >
+> > > >Packets admitted on the native path use the saved native callback at batch
+> > > >finish. Reloading a current sockmap callback would not synchronize its
+> > > >invocation with teardown; a wrapper seen before teardown need not forward
+> > > >the native wakeup after its psock is gone.
+> > >
+> > > I really don't understand the goal of this patch, and why we need to
+> > > store the "native" sk_write_space.
+> > >
+> >
+> > Actually, I kept this as a separate patch so the two notification changes
+> > could be tested separately. This patch provides a complete intermediate
+> > state: it coalesces native sk_write_space() notifications while keeping the
+> > callback invocation under the socket lock. Patch 5 then coalesces
+> > sk_data_ready() and moves both deferred callbacks after release_sock().
+> >
+> > The coalescing is limited to packets for which can_receive() sees
+> > sk_write_space still set to the native callback. That callback wakes waiters.
+> > The sockmap wrapper can also schedule psock work before forwarding
+> > the saved callback, so I do not coalesce it.
+> >
+> > Batch finish also needs the saved pointer if the callback changes before
+> > the batch ends. If another packet arrives, can_receive() detects the
+> > replacement
+> > and its caller finishes the batch. A write-space notification already
+> > recorded for
+> > the batch still uses the native callback.
+> >
+> > Reloading sk->sk_write_space at finish could capture the sockmap wrapper just
+> > before teardown. If teardown removes the psock before the callback is invoked,
+> > the wrapper no longer forwards the native wakeup.
+>
+> I'm not sure I understand the bug avoided by saving sk_write_space.
+>
+> If it changes mid-batch to the psock callback, the work that gets
+> scheduled by sockmap will eventually acquire the socket lock via
+> sock_sendmsg(), so the present batch will become owned in whole by the
+> new socket anyway.
+>
+> I think that is perfectly acceptable semantics (when you redirect with
+> sockmap, any current or later batch will be owned by the new sender). I
+> don't think we need pkt redirection to be exactly in sync with
+> installing the socket into sockmap at the exact pkt boundary if at least
+> the batch boundary is in sync. The batch would just be "eventually
+> consistent" with the new sockmap state.
+>
+> WDYT?
+>
+> I understand the sk_data_ready is a different matter because of the
+> per-skb ->read_skb callback.
+>
+> My suggestion, if it works, would be to just do one sk_write_space call
+> per batch, whichever cb it happens to be when the batch processing is
+> done.
+>
 
-Without the gc check the transfer stalls when the host moves.
+Thanks for the suggestion. I'll look into it.
 
-Signed-off-by: Julius Bairaktaris <julius@bairaktaris.de>
----
-v10: cases for an untagged vlan that is not the port pvid, a move from
-behind the inner to a port of the outer bridge, a disabled port, a vlan
-leaving the port and vlan_filtering turned off; IPv6 off on the host for
-the IPv4 cases, whose router solicitations refreshed the fdb entry of
-the "age" case; lines wrapped to 80 columns; rns1, rnsr and rns2
-initialised for shellcheck
-v9: https://lore.kernel.org/netfilter-devel/20261108155344.35845-3-julius@bairaktaris.de/
+The pointer is there because sk_psock_write_space() forwards its saved
+callback only when it still finds a psock. With no psock it returns, and the
+writer is not woken. sk_psock_drop() restores sk_write_space and clears
+the psock under the write side of sk_callback_lock, without the socket lock.
+If finish loads the current callback and calls it outside that lock, RX can load
+the wrapper, drop can clear the psock, and the wrapper then finds nothing
+to forward.
 
- .../selftests/net/netfilter/nft_flowtable.sh  | 364 ++++++++++++++++++
- 1 file changed, 364 insertions(+)
+What I can see so far is that, without the saved pointer, that call would
+need to run under read_lock_bh(&sk->sk_callback_lock). drop takes the
+write side, so it cannot enter between the load and the call. The saved
+pointer would then have nothing left to do. I'll check that.
 
-diff --git a/tools/testing/selftests/net/netfilter/nft_flowtable.sh b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-index 449c518bd947d..80caf262f1112 100755
---- a/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-+++ b/tools/testing/selftests/net/netfilter/nft_flowtable.sh
-@@ -851,6 +851,370 @@ test_ipip
- 
- test_bridge
- 
-+# set by setup_ns, which reuses a name it already holds
-+rns1="" rnsr="" rns2=""
-+
-+# Roam a host between two ports of a bridge on the router while its flow is
-+# offloaded, as a station moving between two access points attached to ports
-+# of one bridge. The host keeps its address and mac on a bridge of its own and
-+# roams by moving that bridge's port, so only the fdb changes. With a vid the
-+# bridge ports are vlan devices, whose ifindex differs from the device the
-+# flow transmits on. With "replace" the router's fdb entry is sticky and the
-+# move is a "bridge fdb replace". With "del" the host stays, its entry is
-+# pinned to the other port and then deleted, and a ping relearns it. With
-+# "age" the host stays and its entry ages out, which must not tear the flow
-+# down. A flow that stays on the fast path leaves no more than a few packets
-+# in the forward chain, the counter tells offloaded from slow path. The plain
-+# roam also runs over IPv6, and on a vlan_filtering bridge: with untagged
-+# ports ("vf"), whose fdb entries are keyed by the pvid of the port, with
-+# tagged ports ("tag"), and with untagged ports and the router address on a
-+# vlan device on the bridge ("upper"). "asym" and "asymkeep" give the ports
-+# vid 10 untagged while their pvid stays 1 and the host tags what it sends,
-+# with the router address on a vlan device on the bridge or on the bridge with
-+# pvid 10. With "stack" the port of br0 is a vlan device on br1, whose ports
-+# the host moves between; with "stackout" the host moves from behind br1 to a
-+# port of br0. With "block" the host's port is set to the disabled state,
-+# which must stop the flow. With "vdel" the host's vlan leaves its port, which
-+# must stop the flow, and with "toggle" vlan_filtering is turned off before
-+# the host roams.
-+test_bridge_roam()
-+{
-+	local vid=$1 how=$2 fam=${3:-4} vf=$4 trunk=$5
-+	local p0=sr0 p1=sr1 r0=rr0 r1=rr1 rbr=br0
-+	local mac=02:00:00:09:01:99
-+	local what="roaming on bridge${vf:+ with vlan_filtering}"
-+	[ "$vf" = tag ] && what="$what and tagged ports"
-+	[ "$vf" = upper ] && what="$what and a vlan device on the bridge"
-+	[ "$vf" = asym ] && what="$what, a vlan device on the bridge"
-+	[ "$vf" = asymkeep ] && what="$what and the bridge pvid"
-+	[ "${vf#asym}" != "$vf" ] && what="$what untagged on ports of pvid 1"
-+	what="$what${vid:+ with vlan ports}"
-+	case "$how" in
-+	block) what="$what, the host's port disabled" ;;
-+	vdel) what="$what, the vlan leaving the port" ;;
-+	toggle) what="$what, vlan_filtering turned off" ;;
-+	?*) what="$what by fdb $how" ;;
-+	esac
-+	[ "$trunk" = trunk ] &&
-+		what="$what whose real devices are ports of another bridge"
-+	[ "$trunk" = stack ] && what="$what on a vlan device of another bridge"
-+	[ "$trunk" = stackout ] &&
-+		what="$what from a vlan device of another bridge to a port"
-+	local ftdevs="rr0, rr1, rw0"
-+	local hn=10.9.1 wn=10.9.2 dot=. len=24 nodad="" ip6="" srv=10.9.2.99
-+	local min=10000000
-+	local dev old new slow fdb lpid cpid win=2
-+
-+	if [ "$fam" = 6 ]; then
-+		hn=dead:9:1 wn=dead:9:2 dot=:: len=64 nodad=nodad ip6=-6
-+		srv="[dead:9:2::99]"
-+		what="$what over IPv6"
-+	fi
-+
-+	setup_ns rns1 rnsr rns2
-+	# router solicitations of the host would pass the bridge and refresh
-+	# its fdb entry
-+	if [ "$fam" = 4 ]; then
-+		ip netns exec "$rns1" sysctl -q \
-+			net.ipv6.conf.all.disable_ipv6=1 \
-+			net.ipv6.conf.default.disable_ipv6=1
-+	fi
-+
-+	if ! ip -net "$rnsr" link add br0 type bridge \
-+	     ${vf:+vlan_filtering 1} 2>/dev/null; then
-+		echo "SKIP: could not add bridge for $what"
-+		[ "$ret" -eq 0 ] && ret=$ksft_skip
-+		return
-+	fi
-+
-+	ip link add sr0 netns "$rns1" type veth peer name rr0 netns "$rnsr"
-+	ip link add sr1 netns "$rns1" type veth peer name rr1 netns "$rnsr"
-+	ip link add rw0 netns "$rnsr" type veth peer name w0 netns "$rns2"
-+	if [ "$trunk" = stackout ]; then
-+		ip link add sr2 netns "$rns1" type veth peer name rr2 \
-+			netns "$rnsr"
-+		ip -net "$rns1" link set sr2 up
-+		ip -net "$rnsr" link set rr2 up
-+		ftdevs="$ftdevs, rr2"
-+	fi
-+	for dev in sr0 sr1; do
-+		ip -net "$rns1" link set "$dev" up
-+	done
-+	for dev in rr0 rr1; do
-+		ip -net "$rnsr" link set "$dev" up
-+	done
-+
-+	if [ -n "$vid" ]; then
-+		for dev in sr0 sr1; do
-+			ip -net "$rns1" link add link "$dev" name "$dev.$vid" \
-+				type vlan id "$vid"
-+			ip -net "$rns1" link set "$dev.$vid" up
-+		done
-+		p0=sr0.$vid; p1=sr1.$vid
-+	fi
-+	if [ -n "$vid" ] && [ "${trunk#stack}" = "$trunk" ]; then
-+		for dev in rr0 rr1; do
-+			ip -net "$rnsr" link add link "$dev" name "$dev.$vid" \
-+				type vlan id "$vid"
-+			ip -net "$rnsr" link set "$dev.$vid" up
-+		done
-+		r0=rr0.$vid; r1=rr1.$vid
-+	fi
-+	if [ -n "$trunk" ]; then
-+		ip -net "$rnsr" link add br1 type bridge
-+		ip -net "$rnsr" link set rr0 master br1
-+		ip -net "$rnsr" link set rr1 master br1
-+		ip -net "$rnsr" link set br1 up
-+	fi
-+	if [ "${trunk#stack}" != "$trunk" ]; then
-+		ip -net "$rnsr" link add link br1 name br1.$vid \
-+			type vlan id "$vid"
-+		ip -net "$rnsr" link set br1.$vid up
-+		r0=br1.$vid; r1=br1.$vid
-+	fi
-+	# the host moves from behind br1 to a port of br0
-+	[ "$trunk" = stackout ] && { r1=rr2; p1=sr2; }
-+
-+	ip -net "$rnsr" link set "$r0" master br0
-+	[ "$r1" != "$r0" ] && ip -net "$rnsr" link set "$r1" master br0
-+	ip -net "$rnsr" link set br0 up
-+	if [ "$vf" = tag ]; then
-+		for dev in "$r0" "$r1"; do
-+			bridge -n "$rnsr" vlan add vid 10 dev "$dev"
-+		done
-+		bridge -n "$rnsr" vlan add vid 10 dev br0 self pvid untagged
-+		for dev in "$p0" "$p1"; do
-+			ip -net "$rns1" link add link "$dev" name "$dev.10" \
-+				type vlan id 10
-+			ip -net "$rns1" link set "$dev.10" up
-+		done
-+		p0=$p0.10; p1=$p1.10
-+	elif [ "$vf" = upper ]; then
-+		for dev in "$r0" "$r1"; do
-+			bridge -n "$rnsr" vlan add vid 10 dev "$dev" \
-+				pvid untagged
-+		done
-+		bridge -n "$rnsr" vlan add vid 10 dev br0 self
-+		ip -net "$rnsr" link add link br0 name br0.10 type vlan id 10
-+		ip -net "$rnsr" link set br0.10 up
-+		rbr=br0.10
-+	elif [ "$vf" = asym ] || [ "$vf" = asymkeep ]; then
-+		# vid 10 leaves the ports untagged but is not their pvid; the
-+		# host tags what it sends, so the entry is learned in vid 10.
-+		for dev in "$r0" "$r1"; do
-+			bridge -n "$rnsr" vlan add vid 10 dev "$dev" untagged
-+		done
-+		if [ "$vf" = asym ]; then
-+			bridge -n "$rnsr" vlan add vid 10 dev br0 self
-+			ip -net "$rnsr" link add link br0 name br0.10 \
-+				type vlan id 10
-+			ip -net "$rnsr" link set br0.10 up
-+			rbr=br0.10
-+		else
-+			bridge -n "$rnsr" vlan add vid 10 dev br0 self \
-+				pvid untagged
-+		fi
-+	fi
-+	ip -net "$rnsr" addr add $hn${dot}1/$len dev $rbr $nodad
-+	ip -net "$rnsr" addr add $wn${dot}1/$len dev rw0 $nodad
-+	ip -net "$rnsr" link set rw0 up
-+	ip netns exec "$rnsr" sysctl -q net.ipv4.ip_forward=1
-+	ip netns exec "$rnsr" sysctl -q net.ipv6.conf.all.forwarding=1
-+
-+	# the host takes untagged frames into vid 10 and sends it tagged
-+	host_port() {
-+		ip -net "$rns1" link set "$1" master stbr
-+		if [ "$vf" = asym ] || [ "$vf" = asymkeep ]; then
-+			bridge -n "$rns1" vlan add vid 10 dev "$1" pvid
-+			bridge -n "$rns1" vlan del vid 1 dev "$1"
-+		fi
-+	}
-+	ip -net "$rns1" link add stbr type bridge
-+	if [ "$vf" = asym ] || [ "$vf" = asymkeep ]; then
-+		ip -net "$rns1" link set stbr type bridge vlan_filtering 1
-+		bridge -n "$rns1" vlan add vid 10 dev stbr self pvid untagged
-+		bridge -n "$rns1" vlan del vid 1 dev stbr self
-+	fi
-+	ip -net "$rns1" link set stbr address $mac
-+	host_port "$p0"
-+	ip -net "$rns1" link set stbr up
-+	ip -net "$rns1" addr add $hn${dot}99/$len dev stbr $nodad
-+	ip $ip6 -net "$rns1" route add default via $hn${dot}1
-+
-+	ip -net "$rns2" addr add $wn${dot}99/$len dev w0 $nodad
-+	ip -net "$rns2" link set w0 up
-+	ip $ip6 -net "$rns2" route add default via $wn${dot}1
-+
-+	# no neighbour probes, so the host only sends when it receives
-+	ip -net "$rnsr" neigh replace $hn${dot}99 lladdr $mac nud permanent \
-+		dev $rbr
-+	ip -net "$rns1" neigh replace $hn${dot}1 nud permanent dev stbr \
-+		lladdr "$(ip -net "$rnsr" -br link show br0 | awk '{print $3}')"
-+
-+	if ! ip netns exec "$rnsr" nft -f - <<EOF
-+table inet filter {
-+  counter roam_repl { }
-+  flowtable f1 { hook ingress priority 0; devices = { $ftdevs }; }
-+  chain forward {
-+    type filter hook forward priority 0; policy accept;
-+    meta oif "rw0" tcp dport 12345 flow add @f1
-+    meta iif "rw0" tcp sport 12345 counter name roam_repl flow add @f1
-+  }
-+}
-+EOF
-+	then
-+		echo "SKIP: could not load ruleset for $what"
-+		[ "$ret" -eq 0 ] && ret=$ksft_skip
-+		return
-+	fi
-+
-+	# the host discards what it receives, its socket byte counter is read
-+	rx_bytes() { ip netns exec "$rns1" ss -tin "dst $srv" 2>/dev/null |
-+		grep -o 'bytes_received:[0-9]*' | head -1 | cut -d: -f2; }
-+	rx_started() { local n; n=$(rx_bytes); [ "${n:-0}" -gt 0 ]; }
-+	# forward chain packets of the reply direction since the last call
-+	slow_pkts() { ip netns exec "$rnsr" \
-+			nft reset counter inet filter roam_repl |
-+		grep -o 'packets [0-9]*' | cut -d' ' -f2; }
-+	roam_listener_ready() {
-+		ss -N "$rns2" -lnt -o "sport = :12345" | grep -q 12345
-+	}
-+
-+	roam_stop() {
-+		kill "$cpid" "$lpid" 2>/dev/null
-+		wait "$cpid" "$lpid" 2>/dev/null
-+	}
-+
-+	timeout $((SOCAT_TIMEOUT * 5)) ip netns exec "$rns2" socat -u \
-+		OPEN:/dev/zero TCP$fam-LISTEN:12345,reuseaddr &
-+	lpid=$!
-+	if ! busywait "$BUSYWAIT_TIMEOUT" roam_listener_ready; then
-+		echo "FAIL: $what: listener did not start" 1>&2
-+		ret=1
-+		kill "$lpid" 2>/dev/null; wait "$lpid" 2>/dev/null
-+		return
-+	fi
-+	timeout $((SOCAT_TIMEOUT * 5)) ip netns exec "$rns1" socat -u \
-+		TCP$fam:$srv:12345 OPEN:/dev/null &
-+	cpid=$!
-+
-+	if ! busywait "$BUSYWAIT_TIMEOUT" rx_started; then
-+		echo "FAIL: $what: transfer did not start" 1>&2
-+		ret=1
-+		roam_stop
-+		return
-+	fi
-+	sleep 2
-+	slow_pkts > /dev/null
-+	old=$(rx_bytes)
-+	sleep 2
-+	new=$(rx_bytes)
-+	slow=$(slow_pkts)
-+	if [ -z "$slow" ] || [ $((${new:-0} - ${old:-0})) -lt $min ] ||
-+	   [ "$slow" -gt 100 ]; then
-+		echo "FAIL: $what: not offloaded before the roam:" \
-+		     "$((${new:-0} - ${old:-0})) bytes," \
-+		     "${slow:-no} forward chain packets" 1>&2
-+		ret=1
-+		roam_stop
-+		return
-+	fi
-+
-+	if [ "$how" = age ]; then
-+		# ageing_time is in centiseconds
-+		ip -net "$rnsr" link set br0 type bridge ageing_time 200
-+		win=10
-+	elif [ "$how" = del ]; then
-+		bridge -n "$rnsr" fdb replace $mac dev "$r1" \
-+			master static sticky
-+		sleep 2
-+		bridge -n "$rnsr" fdb del $mac dev "$r1" master static
-+		ip netns exec "$rns1" ping $ip6 -c 2 -W 1 -q $hn${dot}1 \
-+			>/dev/null 2>&1
-+	elif [ "$how" = block ]; then
-+		# the bridge no longer delivers there, nor may the flow; the
-+		# disabled state sticks without STP and keeps the fdb
-+		bridge -n "$rnsr" link set dev "$r0" state 0
-+	elif [ "$how" = vdel ]; then
-+		# the bridge no longer delivers to the host, nor may the flow
-+		bridge -n "$rnsr" vlan del vid 1 dev "$r0"
-+	else
-+		# roam: move the host bridge to the other port and send on it
-+		if [ "$how" = toggle ]; then
-+			ip -net "$rnsr" link set br0 type bridge \
-+				vlan_filtering 0
-+			sleep 2
-+		fi
-+		if [ "$how" = replace ]; then
-+			bridge -n "$rnsr" fdb replace $mac dev "$r0" \
-+				master static sticky
-+		fi
-+		ip -net "$rns1" link set "$p0" nomaster
-+		host_port "$p1"
-+		ip netns exec "$rns1" ping $ip6 -c 2 -W 1 -q $hn${dot}1 \
-+			>/dev/null 2>&1
-+		if [ "$how" = replace ]; then
-+			bridge -n "$rnsr" fdb replace $mac dev "$r1" \
-+				master static sticky
-+		fi
-+	fi
-+
-+	# the bytes in flight at the roam drain within the first seconds; a
-+	# stale flow delivers nothing after that, a torn down one resumes and
-+	# is offloaded again.
-+	sleep 4
-+	old=$(rx_bytes)
-+	sleep 4
-+	new=$(rx_bytes)
-+	slow_pkts > /dev/null
-+	sleep $win
-+	slow=$(slow_pkts)
-+	# before the host's FIN passes the bridge and relearns the entry
-+	fdb=$(bridge -n "$rnsr" fdb show br br0 | grep "$mac.*master")
-+	roam_stop
-+
-+	if [ "$how" = vdel ] || [ "$how" = block ]; then
-+		if [ $((${new:-0} - ${old:-0})) -gt 0 ]; then
-+			echo "FAIL: $what: $((${new:-0} - ${old:-0})) bytes" \
-+			     "delivered to a port that does not forward" 1>&2
-+			ret=1
-+		else
-+			echo "PASS: flow offload for $what"
-+		fi
-+	elif [ "$how" = age ] && [ -n "$fdb" ]; then
-+		echo "FAIL: $what: the host's fdb entry did not age out" 1>&2
-+		ret=1
-+	elif [ $((${new:-0} - ${old:-0})) -lt $min ]; then
-+		echo "FAIL: $what: transfer stalled after the roam" 1>&2
-+		ret=1
-+	elif [ "$slow" != 0 ]; then
-+		echo "FAIL: $what: $slow forward chain packets after the roam" \
-+			1>&2
-+		ret=1
-+	else
-+		echo "PASS: flow offload for $what"
-+	fi
-+}
-+
-+test_bridge_roam ""
-+test_bridge_roam 100
-+test_bridge_roam "" replace
-+test_bridge_roam "" del
-+test_bridge_roam "" age
-+test_bridge_roam "" "" 6
-+test_bridge_roam "" "" 4 vf
-+test_bridge_roam "" "" 4 tag
-+test_bridge_roam 100 "" 4 tag
-+test_bridge_roam 100 "" 4 "" trunk
-+test_bridge_roam 100 "" 4 "" stack
-+test_bridge_roam 100 "" 4 "" stackout
-+test_bridge_roam "" block
-+test_bridge_roam "" vdel 4 vf
-+test_bridge_roam "" toggle 4 vf
-+test_bridge_roam "" "" 4 upper
-+test_bridge_roam "" "" 4 asym
-+test_bridge_roam "" "" 4 asymkeep
-+
- KEY_SHA="0x"$(ps -af | sha1sum | cut -d " " -f 1)
- KEY_AES="0x"$(ps -af | md5sum | cut -d " " -f 1)
- SPI1=$RANDOM
--- 
-2.53.0
+Thanks
 
+> >
+> > > >
+> > > >Signed-off-by: Jia Jia <physicalmtea@gmail.com>
+> > > >---
+> > > > include/linux/virtio_vsock.h            |  4 +-
+> > > > include/net/af_vsock.h                  |  7 +++
+> > > > net/vmw_vsock/af_vsock.c                | 16 +++++
+> > > > net/vmw_vsock/virtio_transport_common.c | 78 +++++++++++++++++--------
+> > > > 4 files changed, 81 insertions(+), 24 deletions(-)
+> > > >
+> > > >diff --git a/include/linux/virtio_vsock.h b/include/linux/virtio_vsock.h
+> > > >index 748633aa0cc81..bf28e8e32e280 100644
+> > > >--- a/include/linux/virtio_vsock.h
+> > > >+++ b/include/linux/virtio_vsock.h
+> > > >@@ -287,12 +287,14 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
+> > > >  * Initialize a batch to zero before use. A non-empty batch owns @sk's socket
+> > > >  * lock and the reference returned by vsock_find_connected_socket_net(). The
+> > > >  * caller retains both until it calls virtio_transport_rx_batch_finish(). An
+> > > >- * empty batch owns neither.
+> > > >+ * empty batch owns neither. A pending native write-space notification belongs
+> > > >+ * to the lock holder and is delivered by virtio_transport_rx_batch_finish().
+> > > >  */
+> > > > struct virtio_transport_rx_batch {
+> > > >       struct sock *sk;
+> > > >       unsigned int pkts;
+> > > >       size_t bytes;
+> > > >+      bool write_space_pending;
+> > > > };
+> > > >
+> > > > static inline bool
+> > > >diff --git a/include/net/af_vsock.h b/include/net/af_vsock.h
+> > > >index 5549298c1ec6b..b76ab565ea58b 100644
+> > > >--- a/include/net/af_vsock.h
+> > > >+++ b/include/net/af_vsock.h
+> > > >@@ -63,6 +63,11 @@ struct vsock_sock {
+> > > >       u32 peer_shutdown;
+> > > >       bool sent_request;
+> > > >       bool ignore_connecting_rst;
+> > > >+      /*
+> > > >+       * Captured before the socket is published. This identifies AF_VSOCK's
+> > > >+       * native write-space callback after a consumer has replaced it.
+> > > >+       */
+> > > >+      void (*native_write_space)(struct sock *sk);
+> > > >
+> > > >       /* Protected by lock_sock(sk) */
+> > > >       u64 buffer_size;
+> > > >@@ -78,6 +83,8 @@ s64 vsock_stream_has_data(struct vsock_sock *vsk);
+> > > > s64 vsock_stream_has_space(struct vsock_sock *vsk);
+> > > > struct sock *vsock_create_connected(struct sock *parent);
+> > > > void vsock_data_ready(struct sock *sk);
+> > > >+bool vsock_write_space_is_native(const struct sock *sk);
+> > > >+void vsock_call_native_write_space(struct sock *sk);
+> > > >
+> > > > /**** TRANSPORT ****/
+> > > >
+> > > >diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
+> > > >index 44cee74519555..e39567990539f 100644
+> > > >--- a/net/vmw_vsock/af_vsock.c
+> > > >+++ b/net/vmw_vsock/af_vsock.c
+> > > >@@ -958,6 +958,7 @@ static struct sock *__vsock_create(struct net *net,
+> > > >               sk->sk_type = type;
+> > > >
+> > > >       vsk = vsock_sk(sk);
+> > > >+      vsk->native_write_space = sk->sk_write_space;
+> > > >       vsock_addr_init(&vsk->local_addr, VMADDR_CID_ANY, VMADDR_PORT_ANY);
+> > > >       vsock_addr_init(&vsk->remote_addr, VMADDR_CID_ANY, VMADDR_PORT_ANY);
+> > > >
+> > > >@@ -1122,6 +1123,21 @@ void vsock_data_ready(struct sock *sk)
+> > > > }
+> > > > EXPORT_SYMBOL_GPL(vsock_data_ready);
+> > > >
+> > > >+bool vsock_write_space_is_native(const struct sock *sk)
+> > > >+{
+> > > >+      const struct vsock_sock *vsk = vsock_sk(sk);
+> > > >+
+> > > >+      return READ_ONCE(sk->sk_write_space) ==
+> > > >+             READ_ONCE(vsk->native_write_space);
+> > > >+}
+> > > >+EXPORT_SYMBOL_GPL(vsock_write_space_is_native);
+> > > >+
+> > > >+void vsock_call_native_write_space(struct sock *sk)
+> > > >+{
+> > > >+      vsock_sk(sk)->native_write_space(sk);
+> > > >+}
+> > > >+EXPORT_SYMBOL_GPL(vsock_call_native_write_space);
+> > > >+
+> > > > /* Dummy callback required by sockmap.
+> > > >  * See unconditional call of saved_close() in sock_map_close().
+> > > >  */
+> > > >diff --git a/net/vmw_vsock/virtio_transport_common.c b/net/vmw_vsock/virtio_transport_common.c
+> > > >index f83e5b2edce35..af26344678e41 100644
+> > > >--- a/net/vmw_vsock/virtio_transport_common.c
+> > > >+++ b/net/vmw_vsock/virtio_transport_common.c
+> > > >@@ -1865,31 +1865,55 @@ virtio_transport_rx_batch_can_continue(struct virtio_transport *t,
+> > > >              !virtio_transport_rx_buf_full(vvs);
+> > > > }
+> > > >
+> > > >-/* The caller holds sk's socket lock. */
+> > > >+/* The caller holds sk's socket and callback locks. */
+> > > > static bool
+> > > >-virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
+> > > >-                                    struct sock *sk, u32 len)
+> > > >+__virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
+> > > >+                                      struct sock *sk, u32 len)
+> > > > {
+> > > >       if (!virtio_transport_rx_batch_can_continue(t, sk, len))
+> > > >               return false;
+> > > >
+> > > >       /*
+> > > >-       * Sockmap can replace sk_prot and publish a psock without the socket lock.
+> > > >-       * Check both at each packet boundary; a boundary that sees a replacement
+> > > >-       * returns to the existing per-packet path.
+> > > >+       * Sockmap can replace sk_prot or sk_write_space, and publish a psock,
+> > > >+       * without the socket lock. Coalescing is safe only for the native
+> > > >+       * write-space callback, so a boundary that sees a replacement returns to
+> > > >+       * the existing per-packet path.
+> > > >        */
+> > > >       return READ_ONCE(sk->sk_prot) == sk->sk_prot_creator &&
+> > > >+             vsock_write_space_is_native(sk) &&
+> > >
+> > > I'm confused, why for sk_prot we are doing the check here, while for
+> > > sk_write_space we need a new API?
+> > >
+> >
+> > sk_prot can be compared with sk_prot_creator. sk_write_space
+> > has no field like that, and sock_def_write_space() is static.
+> > I save the callback in __vsock_create(), after the socket is
+> > initialized and before it is published. The helpers compare
+> > against that pointer and call it.
+> >
+> > > >              !virtio_transport_sock_has_psock(sk);
+> > > > }
+> > > >
+> > > >+/*
+> > > >+ * Sockmap teardown restores the native protocol and write-space callback
+> > > >+ * under sk_callback_lock. Serialize each packet admission check with those
+> > > >+ * updates.
+> > > >+ */
+> > > >+static bool
+> > > >+virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
+> > > >+                                    struct sock *sk, u32 len)
+> > > >+{
+> > > >+      bool batchable;
+> > > >+
+> > > >+      read_lock_bh(&sk->sk_callback_lock);
+> > > >+      batchable = __virtio_transport_rx_batch_can_receive(t, sk, len);
+> > > >+      read_unlock_bh(&sk->sk_callback_lock);
+> > > >+
+> > > >+      return batchable;
+> > > >+}
+> > > >+
+> > > > /*
+> > > >  * The caller holds sk's socket lock. If @batchable is non-NULL, update it
+> > > >  * after processing @skb to say whether a native STREAM/RW batch can continue.
+> > > >+ * When @batch is non-NULL, record a native write-space notification for batch
+> > > >+ * finish. A writer cannot consume the updated credit until this lock is
+> > > >+ * released.
+> > > >  */
+> > > > static void
+> > > > virtio_transport_recv_pkt_locked(struct virtio_transport *t,
+> > > >                                struct sk_buff *skb, struct sock *sk,
+> > > >-                               struct net *net, bool *batchable)
+> > > >+                               struct net *net, bool *batchable,
+> > > >+                               struct virtio_transport_rx_batch *batch)
+> > >
+> > > Do we really need bot batchable and batch ?
+> > >
+> >
+> > Agreed, we don't. I'll clean that up in the next version. Thanks
+> >
+> > > > {
+> > > >       struct virtio_vsock_hdr *hdr = virtio_vsock_hdr(skb);
+> > > >       struct vsock_sock *vsk = vsock_sk(sk);
+> > > >@@ -1921,8 +1945,12 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
+> > > >       if (vsk->local_addr.svm_cid != VMADDR_CID_ANY)
+> > > >               vsk->local_addr.svm_cid = le64_to_cpu(hdr->dst_cid);
+> > > >
+> > > >-      if (space_available)
+> > > >-              sk->sk_write_space(sk);
+> > > >+      if (space_available) {
+> > > >+              if (batch)
+> > > >+                      batch->write_space_pending = true;
+> > > >+              else
+> > > >+                      sk->sk_write_space(sk);
+> > > >+      }
+> > > >
+> > > >       switch (sk->sk_state) {
+> > > >       case TCP_LISTEN:
+> > > >@@ -1947,7 +1975,7 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
+> > > >       }
+> > > >
+> > > >       if (batchable)
+> > > >-              *batchable = virtio_transport_rx_batch_can_receive(t, sk, 0);
+> > > >+              *batchable = virtio_transport_rx_batch_can_continue(t, sk, 0);
+> > >
+> > > Why this change?
+> > >
+> >
+> > This runs after the packet has been handled. can_receive() decides
+> > whether a packet may be processed in the batch, so I do not call it
+> > again here. can_continue() checks whether the socket state, type,
+> > transport, and RX limits still allow the batch to remain active. If it
+> > returns false, the caller releases the socket lock and drops the
+> > connected reference.
+> >
+> > A change to sk_prot, sk_write_space, or the psock is seen by
+> > can_receive() before the next packet is processed, and that packet takes
+> > the regular path.
+>
+> I think squashing would avoid the churn.
+>
+
+Sure, understood. Thanks.
+
+> >
+> > > > }
+> > > >
+> > > > /* We are under the virtio-vsock's vsock->rx_lock or vhost-vsock's vq->mutex
+> > > >@@ -1991,7 +2019,7 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
+> > > >               goto free_pkt;
+> > > >
+> > > >       lock_sock(sk);
+> > > >-      virtio_transport_recv_pkt_locked(t, skb, sk, net, NULL);
+> > > >+      virtio_transport_recv_pkt_locked(t, skb, sk, net, NULL, NULL);
+> > > >
+> > > >       release_sock(sk);
+> > > >
+> > > >@@ -2008,20 +2036,31 @@ EXPORT_SYMBOL_GPL(virtio_transport_recv_pkt);
+> > > >
+> > > > /*
+> > > >  * Release an active RX batch. A non-empty batch holds the socket lock and the
+> > > >- * reference returned by vsock_find_connected_socket_net(). An empty batch
+> > > >- * holds neither.
+> > > >+ * reference returned by vsock_find_connected_socket_net(). Deliver any
+> > > >+ * deferred native write-space notification while holding the lock, preserving
+> > > >+ * the callback context of the regular receive path. An empty batch holds
+> > > >+ * neither.
+> > > >  */
+> > > > void virtio_transport_rx_batch_finish(struct virtio_transport_rx_batch *batch)
+> > > > {
+> > > >+      bool write_space_pending = batch->write_space_pending;
+> > > >       struct sock *sk = batch->sk;
+> > > >
+> > > >       batch->sk = NULL;
+> > > >       batch->pkts = 0;
+> > > >       batch->bytes = 0;
+> > > >+      batch->write_space_pending = false;
+> > > >
+> > > >       if (!sk)
+> > > >               return;
+> > > >
+> > > >+      /*
+> > > >+       * The packet was admitted with the native callback. Do not reload a current
+> > > >+       * callback here: sockmap can replace or remove its wrapper independently.
+> > > >+       */
+> > > >+      if (write_space_pending)
+> > > >+              vsock_call_native_write_space(sk);
+> > > >+
+> > > >       release_sock(sk);
+> > > >       sock_put(sk);
+> > > > }
+> > > >@@ -2080,7 +2119,8 @@ virtio_transport_rx_batch_process(struct virtio_transport *t,
+> > > >               return;
+> > > >       }
+> > > >
+> > > >-      virtio_transport_recv_pkt_locked(t, skb, batch->sk, net, &batchable);
+> > > >+      virtio_transport_recv_pkt_locked(t, skb, batch->sk, net, &batchable,
+> > > >+                                       batch);
+> > > >       if (!batchable) {
+> > > >               virtio_transport_rx_batch_finish(batch);
+> > > >               return;
+> > > >@@ -2158,16 +2198,8 @@ void virtio_transport_recv_pkt_batch(struct virtio_transport *t,
+> > > >       }
+> > > >
+> > > >       lock_sock(sk);
+> > > >-      /*
+> > > >-       * Serialize initial admission with sockmap's callback updates. Later
+> > > >-       * packet boundaries recheck native state and end a batch when they
+> > > >-       * observe a replacement.
+> > > >-       */
+> > > >-      read_lock_bh(&sk->sk_callback_lock);
+> > > >       batchable = virtio_transport_rx_batch_can_receive(t, sk, len);
+> > > >-      read_unlock_bh(&sk->sk_callback_lock);
+> > >
+> > > Can we avoid this change and do this in the previous patch?
+> > >
+> > > Please avoid as much as you can change code introduced in the same series.
+> > >
+> >
+> > Sure, understood.
+> >
+> > > >       if (!batchable) {
+> > > >-              /* State or receive-buffer failures keep the regular lookup path. */
+> > >
+> > > Why removing this comment just added by previous patch?
+> > >
+> >
+> > This patch adds a replaced sk_write_space as another reason for
+> > can_receive() to return false, and that case does not take the regular
+> > lookup path. I removed the old comment because it no longer
+> > described the distinction completely, but I forgot to add the replacement.
+> > Sorry about that, and thanks for catching it.
+> >
+> > > >               if (!virtio_transport_rx_batch_can_continue(t, sk, len)) {
+> > > >                       release_sock(sk);
+> > > >                       sock_put(sk);
+> > > >@@ -2176,7 +2208,7 @@ void virtio_transport_recv_pkt_batch(struct virtio_transport *t,
+> > > >
+> > > >               virtio_transport_trace_recv_pkt(hdr, &src, &dst);
+> > > >               if (virtio_transport_recv_pkt_set_owner(skb, sk))
+> > > >-                      virtio_transport_recv_pkt_locked(t, skb, sk, net, NULL);
+> > > >+                      virtio_transport_recv_pkt_locked(t, skb, sk, net, NULL, NULL);
+> > > >               else
+> > > >                       kfree_skb(skb);
+> > > >
+> > > >--
+> > > >2.53.0
+> > > >
+> > >
+>
+>
+> Thanks,
+> Bobby
