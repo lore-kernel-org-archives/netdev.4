@@ -1,70 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794737817;
-	b=5MyasK6XdjaaOdUuAVWN1i4M5Ez25csz44fP5eKMkmP9jgaJxdlE8jNyaKHvHeHXUXNn
-	 OexhIwP8yXTAyBTUmq9y9Nt2w1pvIUuZa+4LhKz5F++IuKkgpyCHy2Bmuyr/w8+3hJF/o
-	 EKZJwFGbLsDp2v8AGjFiJuCnMDcGHV68Hq6dvr1dvxjzhz8M556dVhTQ2zbXcu/v/Y4XJ
-	 jylzAmypss8+Wz9aHS5dX5zwQLivhMxb1isHpfBGiSMyrBa+0mFBA2LyVFoW4wtInLk2V
-	 13Fou74eGeXxl/5bEvlIqZ5DFV1x/eKryFkTS+PJ/hLSTKmmdILTBbqmrrGewb+9Osw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794737817;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=cbIBX/u18CTG47SpI1ezRb64cX82qK6+CTmQksOFjn0=;
-	b=wGHhCy0higJpvR5sP9WXyUDUqHWG2waJNrHr5bgYRiYqh70mA9x4XbcHtxV5k4maCDHg
-	 evRq7ttYtS/VVftQbVumuhTybGwb/XpHw2v0nJWvWpJQrrTzcUdgUoWbRQ1KqGghHiImQ
-	 ptAZ+Ny9D9fK/RIwOCQbWxVUklL+fFS2X88nMKwq1mTo9RrQmP7y+4LVO+dpQ3aqy8yDn
-	 t70thLYphy2cIONAwpQKFHU/Tu/kzEHmETkBJ7UcaSWgM3ejzYl4mFYnlAiNolQkeW0jH
-	 2svQsYpnjZCEGm5pSuqS9/hhABkVHkggknJ9GHFdzatfbz/va3PeSGCz5ywjCNosGew==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=dhZrIw99;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DEFC2606A31F;
-	Sun, 15 Nov 2026 10:16:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DEFC2606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794737934;
+	b=NF4ZGXQfthKttJcv/Wvb7ZRZDS9gYj5ZbRu2RsmShcvZPrK6cF8EoRVRNRzbXe7Mbze1
+	 1deHCX0TxKzyrnRRojYqiM0SKJ3IMfTPaeyqFUiCx9Hj0yQPrBfyqecGAqZSbISAr+ToV
+	 e6y2SYMAncQinbgMs1mHPm9qNavD4SUrazq3QjsZrhmNIIVhO947ndDVKy2355T+0oers
+	 q60zzd9F9fUsJz3we0aNFVYyswwtKitmE0OU46qjopQ1ZMOAzu7Ta6ycXUjHGjMAeEiEg
+	 /b4BrkULHjgkgrjGKNFtJ75ztSBxorfhW0r6ywEOnU5vdo+83rT/TYzC3MsFfz6nnKA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794737934;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=1BF2Bs9rqN0MniwVQkaS00LnVzUoMb3mDzrjuBYVGfU=;
+	b=LOI+4wKRpUxbNvGwoFspXPwh8nVyOho/B2ICTqfTr2yQky7C58c4RtnBODBMBfqFQvWs
+	 mX+4Dj1wgHGHqj0tkel8l6UUx/pQXUKe7KLOw5ieE8f4UGxsUoXspf/WpT8wGE5Zj8Kf9
+	 e1nGhRyw5UmE2CdENp18sDejrPisYTtSPyIsx8DZ0t27eLjF0ZsTE2kuduYzIulq3rPGb
+	 FYlH1KKI6peK+gv297jvalSK79BBVli38ZvkK8eQ4nH0pTaHvBa+QHp/tJWrBqcSSBtNi
+	 VZxa3j9uV5kKepgnBvikKrdy1AlouiqSleO2R/A9pG75M2zRI4mC+hJeryq1WxJz7dA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=VR674hDP;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 968F8606A31D;
+	Sun, 15 Nov 2026 10:18:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 968F8606A31D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=dhZrIw99
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=dhZrIw99afblWNJB8lLoZ9wljNP+6opFQYD86wK1PsgBSFDZ9Hnp2sSE5lqgnJfqono6NAFHrQOgy
-	 dv/TaL7bC0g3bTdx6WLvk1Jmh39fDTs/O/7NCKfH8qMx3KAhrIEvkSy3l4oymJbQMM+B7wGNe59tty
-	 /7rK3imCArqCTId4=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96af9868aed2-fb459;
-	Sun, 15 Nov 2026 18:16:49 +0800 (CST)
-X-RM-TRANSID:2ee96af9868aed2-fb459
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr03-12003 (RichMail) with SMTP id 2ee36af9868f834-6066e;
-	Sun, 15 Nov 2026 18:16:49 +0800 (CST)
-X-RM-TRANSID:2ee36af9868f834-6066e
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] net: hso: fix tx skb leak and a race on the stashed skb
-Date: Sun, 15 Nov 2026 18:16:46 +0800
-Message-ID: <20261115101646.244-1-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <20261114093133.465-1-chenaibing@cmss.chinamobile.com>
-References: <20261114093133.465-1-chenaibing@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=VR674hDP
+Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
+	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 569FC201E6E;
+	Sun, 15 Nov 2026 11:18:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1794737931;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1BF2Bs9rqN0MniwVQkaS00LnVzUoMb3mDzrjuBYVGfU=;
+	b=VR674hDPyxw70DPJ70LPPLqMNB3s0MYR0oZkB43/VMAW/WlvAwxZgXJL89hwXLd1GekLmb
+	G7FdC3pUAjsdRdwh81jMswy72ETu11W4Pkr9ig4kbXsl1YIZqgLJVZX00Z/cDDNIycQX8p
+	AYi3HVukkmx7NIJ7YZNnng60xnsvAHhrIYnmtFy67VqQWRl0brf5FihUJZYb6kzuoUgj7/
+	FUTybIK8Rm1mHVD73WoLhxOtYwGJoi+hqWHUXBRNjuGT+r2veIKGLd79m19jG3PAC/n6V1
+	6ohXIzJsgIvZMGREYflfGqcrH/H6i7kN7g9QQJ2CGAcpr9IQ0G8mOxePjvEcwQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1794737931;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=1BF2Bs9rqN0MniwVQkaS00LnVzUoMb3mDzrjuBYVGfU=;
+	b=WWjvhKw/F1doJ4BRVnzqA/kNTPTzQ/4r5c3SijbHP/UtbZhZo8Iu42qdi/nM0aBJKm1nqc
+	EAseocgMs/hYn8euiipG2LGRB35qDawhPLxKk8/NH8tYF7L2cH2at7O4llFZPRL9lXRxzb
+	RqYMnU8EVMdgBDjY1eYQ6k7i1Vr+Cuy5ut02m4y6ODciVEVfp0EL0SM8L4vcO3U0xEqcrL
+	rUVSVnjcpd2WBXN78qgMeqEHOifPOHba6OwfwGUHQUxCJRxjikdhQnpclNh2W+En/hwmoq
+	vR1vcLbH0pzrjJszDSEYM9rqLghWq849Fn8J8xLHqx1J+SDxl80I4qPU43a7gQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794737931; a=rsa-sha256;
+	cv=none;
+	b=Fjn/mSd9SN6PvUVLv/wH3irra66gxEYdXeRN186U8AgLmqwTqG/apWEu42v4k7+DGvD+5V
+	N8jfbJOEQySiLf9w7b1q5cSPBH3FpfTBS+peETiXOLzSY6h4M/70Wz+rya8VOtNMWf0ZmV
+	4tZjJisHW4kCIH8QuqUSkfcPQi+J0IcEYTCFR8VmS4FueyBCnLAdajjXRwK9Br47xPtdQ7
+	dwv0pRAPg1XA9aHXvRTpWn4tZi46SSPsp2pLlLyXJ2UMMgURMc2Oul+AcuclbaFHYGRcnu
+	CdpYB7oro5DpIpUJOe70ZWJvh55vhdk+ZIp+XgwdyCVvAkHTGNzzlYjjF18JDQ==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mkl@pengutronix.de>)
+	id 1xSXJz-004GnZ-0k;
+	Sun, 15 Nov 2026 11:18:51 +0100
+Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	(Authenticated sender: mkl-all@blackshift.org)
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 012D85EC2E5;
+	Sun, 15 Nov 2026 10:18:50 +0000 (UTC)
+Date: Sun, 15 Nov 2026 11:18:50 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: netdev@vger.kernel.org
+Cc: davem@davemloft.net, kuba@kernel.org, linux-can@vger.kernel.org, 
+	kernel@pengutronix.de
+Subject: Re: [PATCH net 0/9] pull-request: can 2026-11-15
+Message-ID: <20261115-musical-garnet-turtle-de4539-mkl@pengutronix.de>
+References: <20261115095746.709371-1-mkl@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,98 +99,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-
-hso_net_start_xmit() stashes the skb in odev->skb_tx_buf and stops the
-queue when hso_get_activity() reports -EAGAIN, which happens when the
-USB device is suspended or no longer configured.  If the interface is
-then brought down, or the device is disconnected, that skb is simply
-left behind: hso_net_close() and hso_free_net_device() never release
-it, and hso_net_open() clears the pointer, so the skb and its data
-buffer are leaked.
-
-hso_resume() loses a frame in the same way when the device is still not
-ready: it passes skb_tx_buf to hso_net_start_xmit() and then clears the
-pointer unconditionally, so a frame stashed again by that call is never
-freed.
-
-Free the pending skb in hso_net_close() and take ownership of the
-pointer with xchg() in both places, so that only one of the close and
-resume paths can obtain it.  hso_resume() also drops the frame instead
-of transmitting it when the interface has already been stopped.
-
-Reported-by: syzbot+bf62ca9997f43d2fa521@syzkaller.appspotmail.com
-Link: https://lore.kernel.org/all/6af74e31.fe96acdb.12252b.0009.GAE@google.com/
-Fixes: 72dc1c096c70 ("HSO: add option hso driver")
-Fixes: c213f286f2cf ("[netdrvr] hso: dev_kfree_skb crash fix")
-Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
----
-v2:
-- take the stashed skb with xchg() in hso_net_close() and hso_resume(),
-  so that only one path can free it (race reported by sashiko).
-- drop the frame in hso_resume() instead of transmitting it after the
-  interface was stopped.
-- add the two Fixes tags.
-
- drivers/net/usb/hso.c | 22 ++++++++++++++++++----
- 1 file changed, 18 insertions(+), 4 deletions(-)
-
-diff --git a/drivers/net/usb/hso.c b/drivers/net/usb/hso.c
-index 71caa3764..ba59bdefd 100644
---- a/drivers/net/usb/hso.c
-+++ b/drivers/net/usb/hso.c
-@@ -720,6 +720,7 @@ static int hso_net_open(struct net_device *net)
- static int hso_net_close(struct net_device *net)
- {
- 	struct hso_net *odev = netdev_priv(net);
-+	struct sk_buff *skb;
- 
- 	/* we don't need the queue anymore */
- 	netif_stop_queue(net);
-@@ -728,6 +729,14 @@ static int hso_net_close(struct net_device *net)
- 
- 	hso_stop_net_device(odev->parent);
- 
-+	/*
-+	 * Take ownership of a frame stashed by hso_net_start_xmit() and drop it.
-+	 * hso_resume() takes it the same way, so only one of the two paths frees
-+	 * it.
-+	 */
-+	skb = xchg(&odev->skb_tx_buf, NULL);
-+	dev_kfree_skb(skb);
-+
- 	/* done */
- 	return 0;
- }
-@@ -3032,6 +3041,7 @@ static int hso_resume(struct usb_interface *iface)
- {
- 	int i, result = 0;
- 	struct hso_net *hso_net;
-+	struct sk_buff *skb;
- 
- 	/* Start all serial ports */
- 	for (i = 0; i < HSO_SERIAL_TTY_MINORS; i++) {
-@@ -3054,13 +3064,17 @@ static int hso_resume(struct usb_interface *iface)
- 			if (hso_net->flags & IFF_UP) {
- 				/* First transmit any lingering data,
- 				   then restart the device. */
--				if (hso_net->skb_tx_buf) {
-+				skb = xchg(&hso_net->skb_tx_buf, NULL);
-+				if (skb) {
- 					dev_dbg(&iface->dev,
- 						"Transmitting"
- 						" lingering data\n");
--					hso_net_start_xmit(hso_net->skb_tx_buf,
--							   hso_net->net);
--					hso_net->skb_tx_buf = NULL;
-+					if (test_bit(HSO_NET_RUNNING,
-+						     &hso_net->flags))
-+						hso_net_start_xmit(skb,
-+								   hso_net->net);
-+					else
-+						dev_kfree_skb(skb);
- 				}
- 				result = hso_start_net_device(network_table[i]);
- 				if (result)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jfcr3vakt764zkhp"
+Content-Disposition: inline
+In-Reply-To: <20261115095746.709371-1-mkl@pengutronix.de>
 
 
+--jfcr3vakt764zkhp
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH net 0/9] pull-request: can 2026-11-15
+MIME-Version: 1.0
+
+On 15.11.2026 10:54:51, Marc Kleine-Budde wrote:
+> Hello netdev-team,
+>
+> this is a pull request of 9 patches for net/main.
+>
+> this first 3 patches are by Zhu Ling and fix problems with the CAN
+> netlink handling.
+>
+> A patch by my fixes a kernel memory information leak over USB in the
+> gs_usb driver.
+>
+> The last 5 patches are by Oliver Hartkopp and avoid RTNL stalls in
+> CAN_RAW, CAN_ISOTP and CAN_BCM protocols.
+
+I described patches in topological order, which is intuitive when
+looking at the git tree. However the linearized order of patches in this
+email patch series is chronological :/ - Sorry, I've added the missing
+"--topo-order" to my git send-email script.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--jfcr3vakt764zkhp
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCavmHCAAKCRDMOmT6rpmt
+0hRpAP0eGExsnEnJrYnQMv+QxaCB4ycJwL/p5j7TOy+MaJq1HAD+NA6lr+8TS+JJ
+v8sRPnzWrx6ptCV7aows+kM20quVkw8=
+=fWGZ
+-----END PGP SIGNATURE-----
+
+--jfcr3vakt764zkhp--
