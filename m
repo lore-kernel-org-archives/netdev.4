@@ -1,41 +1,41 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794736674;
-	b=U0b/4AE30zEaSAhlj6N7V41pa1SpuYOU3uzd+tik9I5CStK0rOipsat/5hGWS+0IT3ec
-	 0IVEN3NxlatFPElqARFM5eZCL+QdIr+sBAEu9mhmup4DDLtbAUddZEG0gSiT4s7OUfkyz
-	 VlA/Fn3joKPHM9BXUAUwbycXBTpmbWtdpTywNiI58WgwtmHBbg3Awlz9C9Hu6R6GMIs6H
-	 tz+qNm34DYLfI0G8ivLOQv+wp++nYKlhcWBtklGf49qkQJRWd+uJc6SDK/O2ArUvWxWfI
-	 Tjp6et1I67KY/E4YVeuknYQx3ASqgN/JICldUKVL0vgdRDmKrf2tqxLhlrInf0RG9Cw==
+	t=1794736676;
+	b=BWFcsv9mGkJR4psoQ6svMM5Cf0G6oQTAhYC88fJ8WvMvnlQbWbWGyQK22Kf2deoydwDj
+	 Ly/rB/dtodaIv8ocOUW4M0wa6AhsUD+nw4Lj50I+Z13/hEAOuh7XX0T1WQ4b3jc/e2RkG
+	 VD/QdSseAB0I4U/Z2O9LN8LMTPKiYuU5Uy/dxvDffJuesmbLi4cSK3HQhoQmBX2cGW/BS
+	 KHx47EfWWDcI90N63E8eMNEGk96MojhfhnHhWgNMS45WO0+d03w6t2eYrR/UFgdEqbPZR
+	 Nt3zauaqSKWviU1x9FxxIUxF9omrrFCg04T/JQUD2MMdKMt6TYycVVQPxbhTOeEIuog==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794736674;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794736676;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:Cc:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=2CVzP+WkYD9DwT6dhmfg7RSkn3jXjLANkl9tqbbq2n4=;
-	b=oMOLvSJY33vL/zgki4e5/Gts/zbRifZ4e/OLCd5KlaKVuJPevF6Io4IqxsXJ5rbrMt38
-	 CUBSqipQMetj5CAJBzeMo9BaWN4Ln0yzA+jusoxbU63e/sTZEZWGNhu2zQqkBdzwiDK76
-	 C9NUwk9CNhw96/k9y9Yfrq0bR7h/88uu9nozpef2eesQyfQuPlI3xkHkkd/LbvxR29zBK
-	 UVyju7bLOZLA5GdCSNGy58yScQxUXyf1BfRfDL8jjbwV2uqREoFhRvZnxNwaHv0r34rxN
-	 ghVz2pBYtXs+LzD2YDylaxxXq/qFqrgiU6fnru579X5SJys3c04+BJCcEu5XDbxnTGw==
+	bh=aPf4nWP/msnsObcEmYeM7UUyuMAGJkUfnjaCBIfLpmw=;
+	b=R8moAkzzXUQTV60hgqGQkDVdFqSAqDJMcbiO3/LXH3Bn16cd/GitoGIXW3ouSbQw6qaD
+	 yQr9NDyZbtW4hnp53F2QLEizngjKkdQs/6EgfTxhcqL8GBJik6nbvDlHgh160yoHZzFfp
+	 yj3P7cezuxJwg93c8cZlreDkNKvyn64L5bVeZ0HRNJoLok3JlnqfbIzlSigtO0axwckVl
+	 2XzAgX5X9PgiBuP47T81qPrBWe/n7czLVQ9my8lRBJ8GTm5LGRHP+4VgnJy6mmllpK6GG
+	 8KKt9ROCFWZ17BYEiBrnpPrW6mLNpMSwEZCYJxeWWIG4XHTZWgin++DJXQ6sLtXhJZQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=pengutronix.de;
 	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Tr+ta9iW;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=daDK35jL;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68EE6606A31F;
-	Sun, 15 Nov 2026 09:57:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68EE6606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C4E2606A89A;
+	Sun, 15 Nov 2026 09:57:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C4E2606A89A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Tr+ta9iW
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=daDK35jL
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 77AA02059FD;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 98031205A08;
 	Sun, 15 Nov 2026 10:57:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1794736670;
@@ -43,31 +43,31 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2CVzP+WkYD9DwT6dhmfg7RSkn3jXjLANkl9tqbbq2n4=;
-	b=Tr+ta9iWK+My+UG1JPRk2HTe5Wn1ISOVerkM3pUHRrMi1BrnuUZJyYS7yxI1LAEncTHXyO
-	5WG11Na3L9XeZQMsgzfl6uhjGc8WQXu7UPc/lvUjA/ApSUkIXvKWNmR2QKwNVzHAHSqrGA
-	fp+lNd1+kV6CLndM5R4YiNqpRe1GdTFfYSxCS9gvyW93WHx/5TPROwG4hs0WHo0UkAufPJ
-	xHOxlkU2ifOXwcp/MXCP8+WCKMYZrik3o8dFDxt7g8aikiBrTyQWFdkMCSmzNGrDVHRcZH
-	pGIQasXFkG4meLqvDPSsKDVPN28rH3HgjVdAOrwVoJqhtaHuSdlevPPj+RB+gQ==
+	bh=aPf4nWP/msnsObcEmYeM7UUyuMAGJkUfnjaCBIfLpmw=;
+	b=daDK35jLYErpRJFXDE0LTo2teGQ87nYoowfmOMnNdGhpm1sr5CA8cXm6XCfTzEn9D8K2/W
+	pMaEff5pI2RFWIbF3CIOsv3drRjkVB7S4441WlYoH2WlN0UDgUgksLvnV/34yZB170h+gp
+	7IMUkSj2cOu5hE7igHKlcP7XsfRjLETGdeXPkB6LykvjsZf59BqxHwskmSYxeVMa7S09Bx
+	Ubeik1vjVMzpjA/zql8LMwfg8I/6jVNmm01BI5Q8k9KT8WmqZGfTPA/SE3ESLdNzqZ8XmY
+	Tw8PmfcDY5chmjFdpAMv4X5RzM5wK7+70RxQg8k1SqDVRFxyWKuvZIxsxyj9Xw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1794736670;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2CVzP+WkYD9DwT6dhmfg7RSkn3jXjLANkl9tqbbq2n4=;
-	b=fsHGxc2fJjhpJjcKLZ23YZwLdAsx18KBxOYPI0lH2aU4VWsDgnq0m6Jwa37b9CtZ+gE1x/
-	o89lFMj1+0i0cu3ixQs4KfGVK9nk/gJz+BXOnCor8d9QgEu+HYMLdGDVERYRGEoB6YFdZR
-	LrBXxNf3gaOxku4xETsAmX0G8fp5kzDnfP16QmmBEgE287A1+6ZP5S93ouN5saJFD7CRWI
-	g6XlS7ybJEGFfFnUSHYWGu4jy16KXE1NZLffnCpyWgl8gGQNJ/CkXy/bEl3YQe/HLKOPWM
-	6is58ArYmFR9Z0oLFuuSNjzDH429zO3xJQ8REhw9yknyZnF93mZ2XrtiYttX8w==
+	bh=aPf4nWP/msnsObcEmYeM7UUyuMAGJkUfnjaCBIfLpmw=;
+	b=GMteqbHVS3dtARIyr0zxsD+GuAZ5cz0P63zjREhUiyAqqfT6xGE1B3QM+bQoqTgW3HGplz
+	KwmVdprUlzzsBGzHjsP54s2RwgSuqzmR7anwgAsfPm8Ijo6KP1XeEQrkXN/kBTuCMTPx4r
+	fGjiL7hNijgxeIkVu+Cj52iK6+u0WyarNW2HBedl++g0BmN2IPPyXPNISBGtbjsWptSW8q
+	EZxEvO7J+vSqwcp3B0oevQAxiNvoC+YliP5+fClxwdY7Kn1ZEfIAhyWfPTuOKhpbfCNqCc
+	iYUlo0MtJHpp8TH2h9W/Lgq3ejBfbVstIOJ72g5rA4fjkg4esbviiqsAqt2DPw==
 ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794736670; a=rsa-sha256;
 	cv=none;
-	b=bMZPhCdlqD9EnBd/Pqh//Swhh2NJuAw5R/liyiMI4bCZK3i8M8coBSUhP2l9UP2+2Q4iFL
-	/pup7d4Jgj6S+YQT5OzwCIgdyKXS6t+M/cvjXNsEC4fUtCyOwq3ZN26o4nF09HSVxGFCJ2
-	+F5Hw8EMhYabRW1ws3iXpkhqq+pjs8jZ/KWC8oCz1TuE6HXF8JqDdygnzUS1XIUzZ/M2C9
-	RmcSp/7mBIK47ARLHzf75MzvG7KhvD91QNtzX4RNg1YmaR+PeOrQWqhMGPNeuZGe/lfO8+
-	dN1hY0IA63S9H81zaLiwXxKwZRc/KL0r1hZqeb7cCaQu9PqvGyiivtelTc0V7A==
+	b=DkkbDeWPyeVu15C2liKP+9GDCcUUR0a0yAtyXxAMrOM1LJoX3LsluOIHTRSQc4SlQ2iNVb
+	cHJV44mxidzVioj4C08cjqshtqW8ez01qqYkHlJdCYCE/5hmz5V+EE6HEseeVuX9qyFAUG
+	iA92Oee+xyDjz0A2D7NN8bIvQA1Wj7cnoGrghVLr++VqFKK/XjA/2+OfK/tRYVWXP2GIwk
+	R4B6SiNMULzgfPEstiOZBVZeBUFySsFwUNLGA5U2ehNoQ/NtB+kSlNk+5n/MJRGD9ilKDe
+	kCFvcV+UCJfqEIbiv/zy5KY9ahFhmquYs97ckZJaS6o3K3CPDQvZTb/i5S5t5w==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
@@ -75,14 +75,14 @@ Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjor
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <mkl@pengutronix.de>)
-	id 1xSWze-004GWJ-19;
+	id 1xSWze-004GWQ-1X;
 	Sun, 15 Nov 2026 10:57:50 +0100
 Received: from blackshift.org (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(Client did not present a certificate)
 	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 15E4A5EC250;
+	by smtp.blackshift.org (Postfix) with ESMTPSA id 32EF25EC253;
 	Sun, 15 Nov 2026 09:57:50 +0000 (UTC)
 From: Marc Kleine-Budde <mkl@pengutronix.de>
 To: netdev@vger.kernel.org
@@ -90,12 +90,13 @@ Cc: davem@davemloft.net,
 	kuba@kernel.org,
 	linux-can@vger.kernel.org,
 	kernel@pengutronix.de,
-	Oliver Hartkopp <socketcan@hartkopp.net>,
+	Zhu Ling <zhuling0805@qq.com>,
 	stable@vger.kernel.org,
+	Sashiko <sashiko-bot@kernel.org>,
 	Marc Kleine-Budde <mkl@pengutronix.de>
-Subject: [PATCH net 4/9] can: raw: use a private mutex instead of lock_sock()
-Date: Sun, 15 Nov 2026 10:54:55 +0100
-Message-ID: <20261115095746.709371-5-mkl@pengutronix.de>
+Subject: [PATCH net 7/9] can: netlink: fix CAN XL PWM attribute sizing
+Date: Sun, 15 Nov 2026 10:54:58 +0100
+Message-ID: <20261115095746.709371-8-mkl@pengutronix.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261115095746.709371-1-mkl@pengutronix.de>
 References: <20261115095746.709371-1-mkl@pengutronix.de>
@@ -110,210 +111,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Oliver Hartkopp <socketcan@hartkopp.net>
+From: Zhu Ling <zhuling0805@qq.com>
 
-raw_notify() takes lock_sock() of the sockets that are bound to a
-vanishing CAN device while holding RTNL. Any path that holds the socket
-lock while accessing user space can therefore block RTNL. Since
-commit 43c973a0887d ("can: raw, isotp: copy socket options outside of
-lock_sock()") the CAN_RAW specific socket options copy their values
-outside of the socket lock, but the generic SOL_SOCKET options in
-sk_setsockopt() and sk_getsockopt() still access user space under
-sockopt_lock_sock(), e.g. for SO_ATTACH_FILTER, SO_LINGER or SO_TXTIME.
-A stalled copy, e.g. on a FUSE backed mapping, then blocks raw_notify()
-and RTNL on the unregistration or namespace change of the bound CAN
-device.
+can_pwm_fill_info() emits the PWM capability limits whenever pwm_const is
+present, regardless of whether TMS is enabled. In contrast,
+can_pwm_get_size() currently returns 0 when TMS is disabled. It
+therefore underestimates the required netlink message size by the nested
+attribute header and 6 u32 attributes.
 
-CAN_RAW only uses lock_sock() to serialize its own state: the binding,
-the filters and the CAN_RAW socket options. It does not use the socket
-backlog, as raw_rcv() queues the frames directly to the socket.
+Always account for the PWM capability attributes when pwm_const is present,
+and account for the 3 runtime PWM values only when TMS is enabled.
 
-Replace lock_sock() with the mutex conf_lock in struct raw_sock. The
-generic socket options do not take this mutex, so they can not block
-raw_notify() anymore. No user space access happens while the mutex is
-held. The memory allocations for the CAN receivers in can_rx_register()
-are still done under the mutex, as they have been under lock_sock()
-before.
-
-Sashiko suggested to hold not only the filter copy in raw_getsockopt()
-under the new conf_lock mutex but to also protect ro->raw_vcid_opts.
-This change will be addressed in a follow-up patch as it goes beyond a
-simple lock replacement intended for stable.
-
-Fixes: c18ce101f2e4 ("[CAN]: Add raw protocol")
-Cc: stable@vger.kernel.org # depends on "can: raw, isotp: copy socket options outside of lock_sock()"
-Tested-by: Oliver Hartkopp <socketcan@hartkopp.net>
-Signed-off-by: Oliver Hartkopp <socketcan@hartkopp.net>
-Link: https://patch.msgid.link/20261113-can-bcmlock-memcg-v5-3-634c0e04bc72@hartkopp.net
+Fixes: 46552323fa67 ("can: netlink: add PWM netlink interface")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhu Ling <zhuling0805@qq.com>
+Link: https://patch.msgid.link/tencent_9A525E0656A4F7D4CA9CFA1AB1A4BFC6D706@qq.com
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/bug/linux-3924d490-baed-49dc-880a-6fd1163cf08d
+Reviewed-by: Marc Kleine-Budde <mkl@pengutronix.de>
 Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 ---
- net/can/raw.c | 41 ++++++++++++++++++++++-------------------
- 1 file changed, 22 insertions(+), 19 deletions(-)
+ drivers/net/can/dev/netlink.c | 10 ++++++----
+ 1 file changed, 6 insertions(+), 4 deletions(-)
 
-diff --git a/net/can/raw.c b/net/can/raw.c
-index f14270b56f52..b69eaadc5e93 100644
---- a/net/can/raw.c
-+++ b/net/can/raw.c
-@@ -103,6 +103,7 @@ struct raw_sock {
- 	struct can_filter dfilter; /* default/single filter */
- 	struct can_filter *filter; /* pointer to filter(s) */
- 	struct uniqframe __percpu *uniq;
-+	struct mutex conf_lock; /* protects bind, filters and setsockopt */
- };
- 
- static LIST_HEAD(raw_notifier_list);
-@@ -319,7 +320,7 @@ static void raw_notify(struct raw_sock *ro, unsigned long msg,
- 
- 	/* Lockless fast path, ro->bind_dev covers a concurrent bind().
- 	 * Read it before ro->dev, pairs with smp_store_release() in
--	 * raw_bind(). A stale ro->bind_dev only costs a lock_sock().
-+	 * raw_bind(). A stale ro->bind_dev only costs a mutex_lock().
- 	 */
- 	bind_dev = smp_load_acquire(&ro->bind_dev);
- 	if (READ_ONCE(ro->dev) != dev &&
-@@ -328,9 +329,9 @@ static void raw_notify(struct raw_sock *ro, unsigned long msg,
- 
- 	switch (msg) {
- 	case NETDEV_UNREGISTER:
--		lock_sock(sk);
-+		mutex_lock(&ro->conf_lock);
- 		if (ro->dev != dev) {
--			release_sock(sk);
-+			mutex_unlock(&ro->conf_lock);
- 			break;
- 		}
- 
-@@ -351,7 +352,7 @@ static void raw_notify(struct raw_sock *ro, unsigned long msg,
- 		sk->sk_err = ENODEV;
- 		if (!sock_flag(sk, SOCK_DEAD))
- 			sk_error_report(sk);
--		release_sock(sk);
-+		mutex_unlock(&ro->conf_lock);
- 		break;
- 
- 	case NETDEV_DOWN:
-@@ -401,6 +402,7 @@ static int raw_init(struct sock *sk)
- 	ro->ifindex          = 0;
- 	ro->dev              = NULL;
- 	ro->bind_dev         = NULL;
-+	mutex_init(&ro->conf_lock);
- 
- 	/* set default filter to single entry dfilter */
- 	ro->dfilter.can_id   = 0;
-@@ -451,7 +453,7 @@ static int raw_release(struct socket *sock)
- 	list_del(&ro->notifier);
- 	spin_unlock(&raw_notifier_lock);
- 
--	lock_sock(sk);
-+	mutex_lock(&ro->conf_lock);
- 
- 	/* remove current filters & unregister
- 	 * the tracked reference ro->dev keeps the device's receive lists
-@@ -474,11 +476,11 @@ static int raw_release(struct socket *sock)
- 	ro->dev = NULL;
- 	ro->count = 0;
- 
-+	mutex_unlock(&ro->conf_lock);
-+
- 	sock_orphan(sk);
- 	sock->sk = NULL;
- 
--	release_sock(sk);
--
- 	sock_prot_inuse_add(net, sk->sk_prot, -1);
- 	sock_put(sk);
- 
-@@ -500,8 +502,8 @@ static int raw_bind(struct socket *sock, struct sockaddr_unsized *uaddr, int len
- 	if (addr->can_family != AF_CAN)
- 		return -EINVAL;
- 
--	/* lock_sock() serializes the binding with raw_notify() */
--	lock_sock(sk);
-+	/* ro->conf_lock serializes the binding with raw_notify() */
-+	mutex_lock(&ro->conf_lock);
- 
- 	if (ro->bound && addr->can_ifindex == ro->ifindex)
- 		goto out;
-@@ -581,7 +583,7 @@ static int raw_bind(struct socket *sock, struct sockaddr_unsized *uaddr, int len
- 			sk_error_report(sk);
- 	}
- 
--	release_sock(sk);
-+	mutex_unlock(&ro->conf_lock);
- 
- 	return err;
- }
-@@ -621,7 +623,7 @@ static int raw_setsockopt_locked(struct socket *sock, int optname,
- 		 *
- 		 * The reg_state check is only a shortcut: On a concurrent
- 		 * unregistration or namespace change raw_notify() waits for
--		 * lock_sock() and removes the filters set here.
-+		 * ro->conf_lock and removes the filters set here.
- 		 */
- 		dev = ro->dev;
- 		if (ro->bound && dev &&
-@@ -730,6 +732,7 @@ static int raw_setsockopt(struct socket *sock, int level, int optname,
- 			  sockptr_t optval, unsigned int optlen)
+diff --git a/drivers/net/can/dev/netlink.c b/drivers/net/can/dev/netlink.c
+index c0367c9e65f4..5a3c453a65a7 100644
+--- a/drivers/net/can/dev/netlink.c
++++ b/drivers/net/can/dev/netlink.c
+@@ -783,7 +783,7 @@ static size_t can_pwm_get_size(const struct can_pwm_const *pwm_const,
  {
- 	struct sock *sk = sock->sk;
-+	struct raw_sock *ro = raw_sk(sk);
- 	struct can_filter *filter = NULL;  /* dyn. alloc'ed filters */
- 	struct can_filter sfilter;         /* single filter */
- 	union {
-@@ -744,9 +747,9 @@ static int raw_setsockopt(struct socket *sock, int level, int optname,
- 	if (level != SOL_CAN_RAW)
- 		return -EINVAL;
+ 	size_t size;
  
--	/* Copy the option values from user space before lock_sock(), so a
--	 * stalled copy can not block raw_notify() waiting for lock_sock()
--	 * under RTNL.
-+	/* Copy the option values from user space before taking ro->conf_lock,
-+	 * so a stalled copy can not block raw_notify() waiting for
-+	 * ro->conf_lock under RTNL.
- 	 */
- 	switch (optname) {
- 	case CAN_RAW_FILTER:
-@@ -798,11 +801,11 @@ static int raw_setsockopt(struct socket *sock, int level, int optname,
- 			return -EFAULT;
- 	}
+-	if (!pwm_const || !pwm_on)
++	if (!pwm_const)
+ 		return 0;
  
--	lock_sock(sk);
-+	mutex_lock(&ro->conf_lock);
+ 	size = nla_total_size(0);			/* nest IFLA_CAN_PWM */
+@@ -795,9 +795,11 @@ static size_t can_pwm_get_size(const struct can_pwm_const *pwm_const,
+ 	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWMO_MIN */
+ 	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWMO_MAX */
  
- 	err = raw_setsockopt_locked(sock, optname, &val, filter, count);
+-	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWMS */
+-	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWML */
+-	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWMO */
++	if (pwm_on) {
++		size += nla_total_size(sizeof(u32));	/* IFLA_CAN_PWM_PWMS */
++		size += nla_total_size(sizeof(u32));	/* IFLA_CAN_PWM_PWML */
++		size += nla_total_size(sizeof(u32));	/* IFLA_CAN_PWM_PWMO */
++	}
  
--	release_sock(sk);
-+	mutex_unlock(&ro->conf_lock);
- 
- 	/* on error free the filters allocated for CAN_RAW_FILTER above */
- 	if (err && count > 1)
-@@ -831,7 +834,7 @@ static int raw_getsockopt(struct socket *sock, int level, int optname,
- 		struct can_filter *filter = NULL;
- 		int err = 0;
- 
--		lock_sock(sk);
-+		mutex_lock(&ro->conf_lock);
- 		if (ro->count > 0) {
- 			int fsize = ro->count * sizeof(struct can_filter);
- 
-@@ -843,7 +846,7 @@ static int raw_getsockopt(struct socket *sock, int level, int optname,
- 			} else {
- 				if (len > fsize)
- 					len = fsize;
--				/* copy to user space after release_sock() */
-+				/* copy to user space after mutex_unlock() */
- 				filter = kmemdup(ro->filter, len, GFP_KERNEL);
- 				if (!filter)
- 					err = -ENOMEM;
-@@ -851,7 +854,7 @@ static int raw_getsockopt(struct socket *sock, int level, int optname,
- 		} else {
- 			len = 0;
- 		}
--		release_sock(sk);
-+		mutex_unlock(&ro->conf_lock);
- 
- 		if (filter) {
- 			if (copy_to_iter(filter, len, &opt->iter_out) != len)
+ 	return size;
+ }
 -- 
 2.53.0
 
