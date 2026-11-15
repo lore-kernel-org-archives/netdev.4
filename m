@@ -1,65 +1,124 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794743271;
-	b=BdK9H1y+HNRqD/jOpQfiJ8CK50RxEZMCjwgIS48DNkylfGZf+h7yYt+dLR/rohWShFPk
-	 wfY+Vi1XUiR4xQoz/9dl0reIiXKOG5wLW7gkB4jYbbvKAp0onbjRpWAq3h6DDbAxHfbTR
-	 5/PaQlaVaf7TtFwba6zsHiW9KlQbLjzo0EerdKKIi48ZFuJLc3WH+ltRAnMLBo+gAqRpL
-	 ov61lFfeKEVmTbros4bY5hLqTBfdHKhysZz363XUX2UJKA7MroJWDEdJE++rHrOfqDHYG
-	 NlZSY4qxT1OqOgEdTD541oNseZI8+FDCzpXM+gOKg5I+2qmGEiQp5Da0bFa+VHsozfA==
+	b=WwQi6vQzCdjqXHoLRlVh74eKYZZwJ+pylC8Xu9zlifFMbcrNv9zuN8+neUgNcQnjXeHc
+	 JTIHOBhp4resVv4W6zXg+l6uJ/AM44U/21w37PfDMkO23g80kZdq3WwcmVZyQ5gtM1KT5
+	 KAPl+EPvGLI9VG/UECpziHOzFgauohka29XLTGl9G3r/NAqgt9rIBZ6/WSi1IupHXoYNN
+	 qAqI2AJGxPd5j9VlriAQ9UPRBt7n2rNY/0IDL+WR6qoxB29dF7VfEBnyv9Zs3A2q6awAu
+	 lUhitFQjAdO7xba0aSaXtC/XhbdzsiatShmcO+2pTAOz9RP6+NlH6wstgLCVreczcTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794743271;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=dUUoDFkPJkBg6tiiX+gwUNqdlWB0vRGU4J1TlhHh7ZE=;
-	b=iuKSIOwNdjXAi2+nKsqu7pIfpzXuLtuj3wXCa1g9MN5BFnFnH+efqOzfUtJXvT2zUGGl
-	 V9IfHEzKQzynFa9Fuo1ssXUF+7C+Eoevg9R/uDVp3b207QzEgfuu6a4+z5JoRhmzh2QN0
-	 9vJY2NJZgqRfrAE94UuSb7lSNUhcz8q8wGqjWRw5n7k7BXCLYZBSkg22ZgvSiHJnnwpNY
-	 2bXzqhTqJYzU82V3hEswRLXZDMXOPwMPocN2bf1yYrFAEINhs1DN1LNIND4gakdX7BwOF
-	 /NBQXI11IeC+qk96wRGrOuIRB815lx2fweUabl5k2cTyNpurMwEGTlfjb0o79097iFQ==
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
+	 Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=lI724t7k9EPrebnQ2BhOfSZtdqpTgQ4IuGkGe8WYslo=;
+	b=RZ+WCCOlYaRW3S+Yf59LvGDeWpFu3WmufsadMAu+pbOEywpxm77Ug73W8cejhDRmOJqc
+	 vFXnVoMemF+4PYyLTPpjBQpOg3u+zPDMXiEdbQVOKIL4GjK5sIYRq0jOqXHjKvHGCxKhF
+	 Gwv9xBgLCvy9P7R5DY1buOu1SNu+OMvNbQhV02XqJm+PK4HpzBuAlp1nqbzYiZ2SQvK9K
+	 +jNcNqds+LxXsZYDLSS+FgqtW0q71A3S725wsW/cxPtbUCgUQDpHI5TkYvww6LpPCWc2c
+	 tWoFRboMenWJotbFgnXoV/1Zk6/xB4mln7lU7D2Mpkh0xh/Vh/7m+/CgLWmRDghTgrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O5UCROmp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=flapping.org;
+	spf=pass smtp.mailfrom=flapping.org;
+	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=gDm3tTyB;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="S/OWFhYp";
+	arc=none smtp.remote-ip=202.12.124.153
+Received: from fhigh-b2-smtp.messagingengine.com (fhigh-b2-smtp.messagingengine.com [202.12.124.153])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5C6D606A32E;
-	Sun, 15 Nov 2026 11:47:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E6C0606A31A
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:47:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E6C0606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O5UCROmp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FF671F000C4;
-	Sun, 15 Nov 2026 11:47:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794743270;
-	bh=dUUoDFkPJkBg6tiiX+gwUNqdlWB0vRGU4J1TlhHh7ZE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=O5UCROmpYOxPof//EVMXlzhE8CwpBAuLxySuhjVJTwgdWIcUjDEHfxQDjag+uTRua
-	 Z+qDIjnj4mqHBNrUw8Ko1zjkZMcqAeFq8ldvZlzCVbByFB+ptCuml13g6R68XiAcOc
-	 tTmUPUcRTu4mDvyiHtXFi/q4pZoMhhtkVDTdv1WqLRxEzoDBelkcsk5jYXJt2EAUob
-	 xjg6qsjtw4gR2WGGuYhHVN3Y9VjEoACQTHM3FtneMm5yNVilA99bE1xWageT1rHDiS
-	 UNAqlNNFNjgatsQNOofsxEUu3m18tcJw6JldfrHIojxyBAVmlXl979klg5KOmmNJfI
-	 Ivyq26TJMKVYg==
-Date: Sun, 15 Nov 2026 12:47:41 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Amir Goldstein <amir73il@gmail.com>
-Cc: Chris Down <chris@chrisdown.name>, linux-fsdevel@vger.kernel.org, 
-	Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, 
-	Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, linux-block@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-nvme@lists.infradead.org, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, 
-	target-devel@vger.kernel.org, driver-core@lists.linux.dev, linux-mm@kvack.org, 
-	bpf@vger.kernel.org, linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
-	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, netdev@vger.kernel.org, 
-	fuse-devel@lists.linux.dev, linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, 
-	ocfs2-devel@lists.linux.dev, linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-usb@vger.kernel.org, linux-erofs@lists.ozlabs.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH RFC v2 33/42] fs: add file_check_backing()
-Message-ID: <20261115-boxen-mundschutz-jacht-0ab871beca58@brauner>
-References: <20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org>
- <20261114-work-loop-pseudo-v2-33-98639a2286fb@kernel.org>
- <20261114120557.4bc1eb6e57218cdc@chrisdown.name>
- <CAOQ4uxhGxpBtMZ5kfuzR1tQAewiecoX7UjXQRo91QjJHH9T_Yw@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=gDm3tTyB;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=S/OWFhYp
+Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 333D47A007A
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 06:47:49 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-01.internal (MEProxy); Sun, 15 Nov 2026 06:47:49 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1794743267;
+	 x=1794829667; bh=lI724t7k9EPrebnQ2BhOfSZtdqpTgQ4IuGkGe8WYslo=; b=
+	gDm3tTyBbcDh0QKRW9E5Qj5qfMAZnQ5n2y/ybvgnDdUYAfpuxHjg5+CfK9YdqkuL
+	x7tgrJiwedQSzqAff6pi2xjJ17zaKU8nVeTJdjNFb7sGviy/U0+cfGGjAWMbSctf
+	YFo/9RG+5TsIEW+2NYXdZlUsrhQkUbYzuddYFQsqIn3RfwjmQ8dwUGOgi+Up4f0d
+	46ZY5Kw2PRbGwGFoHAVTk8PPyPl/Tx6ys9CXDCTnhiTgGOjkY9QJrEUg7zQy46jm
+	mYaR4AVhVctI6Pkveh3vnrqnyKDP55qgMTpbYGs7KYFdk8NC0ztp299d9q1/4L89
+	W7MCIUSN1q4s8Z57bjAJGQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794743267; x=
+	1794829667; bh=lI724t7k9EPrebnQ2BhOfSZtdqpTgQ4IuGkGe8WYslo=; b=S
+	/OWFhYpQLipal5EkNqqp6aygm4kg41dJjOK8gxDsZ1ozFsE/KRQfOJAL/+Eo/UXi
+	TOdTFD0uKJMTFWV7qDVCcEYIJ2PkKy1cie5XTmvUFDYi2u+pUquu7n9ABsleIiFw
+	7RoZha90u+gi5c2cl8FV0qhZQN8Z8boyYy4HnT17sE8ASSA4do7X1fp/xVpphRD0
+	8FNirkxHZmV0yzhwOnNAkTkP+kKr1xZ8dyEavm8v/2YExVR1OmZ/qE+XwVgA8aF5
+	OgRlhPp6EF7y955DJhIeRDQ/9DAJeSQT1/kN05Fsiqz3mHNous3OeQNMviOhmXPy
+	7eC0vGa5mjqd5yVuSbsgQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=flapping.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1794743267; d=flapping.org;
+	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:r7lKYtHwAczJnsxtnvd6qcq2dNOoXTM1ajioM1AqcQbrOaj
+	uDHP2PfLG1lbtOfwgOcijuQ2z6jVTH7RQFWaBUoYTHAvswtDBfFWZv/A1UlOUQ0a
+	KkdidTD7FyIFIzEtQkIOEjLkLgbgx5a7n+N23wsBwWu96deDYq3xcwQvcDrs0GCy
+	UiLjBQbI860stbN0pfxd/Wlo9Rf9a2GRe4K3jEIdINrYAiWXJi2HiZbkR0pCjTcf
+	BBkteZh3o3T03LqNhwwvRvfpAnRzA/HsJigFJ4d2w3BDM8NsbCX5Hi8RkVv/7zPN
+	DEX6C45OI1uTshfI+XJem7+loxSDgk+1QwopUQQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:D0f4AVjtNwMxTvq2SdaVeL5yib32Ay9IkIlmEIaNsUw=:vdKxAE3gCrExJAQbL7PzlMgK3RhoD6xitvL41p2jKbM=;
+X-ME-Sender: <xms:45v5auZMHpPE8QETAnYHGOcbs0flnlISMj5gVRCyNOzJ-uGAw6r4Qg>
+    <xme:45v5avrnfZcYo4QkS6uDyB_Hux8RckKVzWy1Nuev6JQZPXZowBmdfk0dpTANNKLct
+    HU5x6uQFUey0sK6DNq85V4F5cQY2CE9RUJE2aEuYJX3GhamKnJ_QOI>
+X-ME-Received: <xmr:45v5aiSlzDz1BqYRSVpdlCjyvD8JFpf6XNNu5kzZ-kaVpzOM7JedGx8EN0HkYVXvlpPuGmkXGF9oZdiJraliHROC>
+X-ME-Proxy-Cause: dmFkZTFO+5jNL0/l2J1HUjaU6NRdwp+L8DRzrx3jXz44XNU7TirSz+thrk/dabj/RqQVzj
+    hAdcvy/STO6NVRNIUaCR1vNG3Spt1bnbI2chYs/ysz5F86QM83uvQY0R5y4IIvxJdSoEfl
+    XdoUtYUHYggScqytctF//z2qA7a5VscFIeFAqpuAwdEu//ilH7L0Skyl28SAq/FDVXRz3J
+    9kbPLSl5lC1893sLsEWqW05kAzxI8JUWR4jeTPzCzGyLfhQYL9oKt6CQqQ+1kDgVvhnP/F
+    HIGYZWeW9S6auvimv6C7mtH4wl2ZNFRfFTnNGeMaM/FyMJ4F/ahBYKwblxYzBZaaRfXMI+
+    SaLhillDBzaKYH3dB6QRTfqZn3NHQCGPj3p9xOxlMEa51gnzGkqmeTA9QOPNuounUIJSDz
+    mjwBWVGzdcoc9CgHqmvo1h2Hy+bqHsNvOJYShOJxWxhgwRTCtrvnbLHsBV0zyE7saQqrOv
+    rwKebbIRMimWk8yHp0NkC8/eAG65D7bB0mRlMj5nfHZD87tUDD++Y7q3iZpBZkSma5a2cO
+    mMjiVqv0RunbA9GVv34smtkbNXpT8Mjwqpes6DTtmXBPWju3A7sma7p9t36mueOvF2cC4o
+    5h0s4DABDAYmH2UwEVxOgu+JcLEXsmR7wBZuxAuInPpoPZ4QDwl7GNwW2olg
+X-ME-Proxy: <xmx:45v5ajp7lSvEhbnRPhdpLfBev0Q4xwf__MY8bOWrTfrR-5gy5Ne7Qw>
+    <xmx:45v5as2unpCs-vDRVojYAf7WLhSndv0kbLNnb8oQwF-q6OFGEir3QA>
+    <xmx:45v5ai4Gysx03hQol3q_b4WAVIlFFy6SlXFvfQAv_IazeKWD-xDcmw>
+    <xmx:45v5agQvSxIdRu3ptSBD8L2z9hCtK3MTb0M-EoDDVavlqyh6oPR83w>
+    <xmx:45v5apYrVDeQQ195k8Yv1qju_Y2MLip1JM0cJ5TzAeP0QYb9WzvWGbot>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 15 Nov 2026 06:47:44 -0500 (EST)
+Date: Sun, 15 Nov 2026 20:47:41 +0900 (JST)
+Message-Id: <20261115.204741.1750241782166111925.tomo@flapping.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: johan@kernel.org, fujita.tomonori@gmail.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, netdev@vger.kernel.org, stable@vger.kernel.org,
+ hfdevel@gmx.net
+Subject: Re: [PATCH net] net: tn40xx: fix swnode use-after-free on probe
+ failure
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <179452098811.2199510.15081106290449010908@kernel.org>
+References: <20261110100051.2567443-1-johan@kernel.org>
+	<179452098811.2199510.15081106290449010908@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,71 +127,30 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOQ4uxhGxpBtMZ5kfuzR1tQAewiecoX7UjXQRo91QjJHH9T_Yw@mail.gmail.com>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-On Sun, Nov 15, 2026 at 12:19:57AM +0100, Amir Goldstein wrote:
-> On Sat, Nov 14, 2026 at 9:06 PM Chris Down <chris@chrisdown.name> wrote:
-> >
-> > Hi Christian,
-> >
-> > Christian Brauner writes:
-> > >+      /* Look through stacking filesystems at the inode with the data. */
-> > >+      if (d_real_inode(file->f_path.dentry)->i_sb->s_iflags & SB_I_PSEUDO)
-> > >+              return -EINVAL;
-> >
-> > This looks good in general, but what the bots said about O_PATH files
-> > here is real. With FMODE_PATH this is reached for a file that was never
-> > opened, so on overlayfs nothing has been through ovl_open() to look up
-> > the lowerdata of a metacopy file yet. ovl_d_real() then does the lookup
-> > itself, and when that fails it hits the WARN(1) at its end and returns
-> > the overlayfs dentry, so the check passes as well.
-> >
-> > Only fuse passes FMODE_PATH, so it takes CAP_SYS_ADMIN to get there, but
-> > it's easy to trigger with that. From a quick test with a metacopy file
-> > whose redirect into a data-only layer points at nothing, registering an
-> > O_PATH fd of it with FUSE_DEV_IOC_BACKING_OPEN gives
-> >
-> >      ovl_d_real(/f, 0): real dentry not found
-> >      WARNING: fs/overlayfs/super.c:79 at ovl_d_real+0xc9/0x210
-> >      [...]
-> >       file_check_backing+0x308/0x5e0
-> >       fuse_backing_new+0x219/0x4a0
-> >       fuse_backing_open+0xe8/0x390
-> >       fuse_dev_ioctl+0x53a/0x7d0
-> >
-> > and the ioctl still succeeds. A normal open of that file fails with
-> > ENOENT, so nothing could have used it as a backing file anyway, but with
-> > panic_on_warn this is now a panic.
-> >
-> > Maybe ovl_d_real() should just stop warning when the lookup fails, now
-> > that it has a caller that isn't trace_uprobe?
+On Thu, 12 Nov 2026 22:03:08 +0000
+netdev-bot+sashiko@kernel.org wrote:
+
+>> --- a/drivers/net/ethernet/tehuti/tn40_mdio.c
+>> +++ b/drivers/net/ethernet/tehuti/tn40_mdio.c
+>> @@ -157,7 +157,6 @@ void tn40_swnodes_cleanup(struct tn40_priv *priv)
+>>  {
+>>  	/* cleanup of swnodes is only needed for AQR105-based cards */
+>>  	if (priv->pdev->device == PCI_DEVICE_ID_TEHUTI_TN9510) {
+>> -		fwnode_handle_put(dev_fwnode(&priv->mdio->dev));
 > 
-> Yeh I guess that this needs to be a Fixes for lazy data lookup.
+> [Severity: High]
+> Is this put really stray? It seems to balance the reference that the MDIO
+> core takes on the bus fwnode when the bus is registered:
 
-I have a fix for that.
+I think Sashiko's analysis is correct:
 
-> The correct fix would be to teach all the callers to deal with an error.
+- The fwnode_handle_put() in tn40_swnodes_cleanup() drops the
+  reference taken by fwnode_handle_get() in __mdiobus_register().
 
-I've also implemented that. It wasn't that hard and it's also a bug. Not
-a bad one but still.
-
-> > The check would still pass
-> > for an O_PATH file whose lowerdata couldn't be looked up at that point,
-> > though.
-> 
-> One observation relevant to this patch set is that a datadir layer has no
-> business being a pseudo fs and that can and should be blocked explicitly
-> at overlayfs mount time.
-
-I agree.
-
-> The other observation is that fuse_passthrough_open() should probably
-> check the backing_file that was opened for io in addition to checking
-> in fuse_backing_open(), which could have different FMODE and specifically
-> could be FMODE_PATH.
-
-Sounds good.
+- tn40_swnodes_cleanup() calls device_remove_software_node(), which
+  sets bus->dev.fwnode to NULL. So the fwnode_handle_put() in
+  mdiobus_release() does nothing for this bus.
