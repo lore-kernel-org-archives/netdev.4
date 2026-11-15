@@ -1,59 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794725066;
-	b=sXKpzUp2SGRZe2Iva3E4/Z9Od23KOv9m+L8R8THD5ZYayovFKW0Qoc6GqIYmQf2oeqDJ
-	 AkHpoTehbDNphy4aUH6ySXpgh1Yb54HEjrdogfMNjTZMF2FuLffN/vZAeWwO6byVfBLij
-	 OQK85rbfP/zFE5y2ZuHeD3gqL0Kzr968n5zySdO5oUGwUXZWWooUd9i+0dHEYfeqwCCgi
-	 14UxdcMBqT3+Lill9X4ViLX0xl2e/mtjUJGa4d0+whP3v9W+q1uNBFQf8fIUO86hHzD3R
-	 dZVYvYEAw4UNpb6QDMecNIF2iwr4Vr4hh7KF8WRfVaeVS0gsYFWUCu2qXvuk6En6y2w==
+	t=1794725275;
+	b=ynt1DwJR9tdZpIgz8iXcQJrlJhR9X7QQvureReJutl35/FnCXAg3e3eTHsW2EjmJgO3q
+	 Fco4vVPZu+7baoWogXZH6KWYd8bzDB2hfvNL1so1CmrYjLcGCB0Kc3JQeP6mKlb1w/g4r
+	 fklUBj970U0/8eTl0QIcW20YPKDk34QLB9Jrcg5e8rOhEPKahfH6jhS+8Z0OEvdbxVfmy
+	 VTu3EbT7xh4Se/j3oQFdG9GUEaQ9ISQT5f7WJhlqqHccFZFmRAYhLCwmMk4OoV050EXFe
+	 Wt0p2qI4o9wRoX5/lkfsC9oSNtXxqqCsEmy0tO70zWB3vhr6szoNOMzF/06xo/O/r4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794725066;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=nZfP+S5UZacNyW+Lf9JcRXg2idiFCnjaG4BODuy49Mo=;
-	b=QJch6kJZiqNS6fhoYZwaOIEQz9o98IpAkFUp9IleqLQsyKJzU1Etz7yZq99UMTVIHu9J
-	 uQ5prO+6AY1ew+r+py0ie2Z+Da59BUwTM2uLVnMBu67RS0jCdkWnJVkE8DKdHPVjU/vrj
-	 VsiApU/PJwUZOXM9T8FHalfVOEhAoIPba//G/6pdti1PQTMd/6M1Bi25SpaBBaF/5UrTh
-	 PrVIRKdyoJVaAdvzWapqBqOQhibyWxELFt7/Zu+kkG6luDnXxj0+mrosqUiBpBISdzCjl
-	 a4Ib0tUZauF0gWZVYHv/GGyi+aGQ+2IDK3BWUVaPM/nE6nL/kLC62bzZ9hdO9vr0pxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794725275;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:To:Cc:
+	 X-Mailer;
+	bh=tCOuiXg8kpPxflANatAGCcoqQ3Bqdp5UPGwZfT0KsEg=;
+	b=IRecuMGz9VWLXsiFQjd+HWB224qU7qfECBSIGtv+bEkYCtJm0QJ/wIgQhj2GkO9o6P4v
+	 fe8l27qob3xC4X3wYC9dJbl66i+fvX7MFEWJEwQ0mOC/nzJI9/djrKos1OF5+lGXoH6b/
+	 h6pdZLMJvPQ+7+6KIfNM8gqv2An1YjlE2KJFwRBRaxROiNqaLWeTk39l5d8t31adCrYY3
+	 Ot1o9ZvnUi6tgkhkVj1SwHSMAOtMVNCIwgSlUHZM3bW11FwrYjEjGsaFLsaH1B6vljDrJ
+	 9IIL2HArlVroCO5sKePXGJE02W+2bK6dItcHmYtSTTysbNbOa7XkPApT0n2uYSvk8EQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=boJmcIrg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oJz2hC3C;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06D7A606A327;
-	Sun, 15 Nov 2026 06:44:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D10B2606A323
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 06:47:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D10B2606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=boJmcIrg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3648B1F000C4;
-	Sun, 15 Nov 2026 06:44:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794725065;
-	bh=nZfP+S5UZacNyW+Lf9JcRXg2idiFCnjaG4BODuy49Mo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=boJmcIrgMuZOlVs0spqIA5UZzvpKl4wW3bRy70KABKDLroGsF4ZY5K92kiKXVbyWT
-	 xKFDEa5K6vgfkR70G7Nuc1uHr5qzkd5uCpCjkZ0M7Z8F6PEDgkz5xAz4hmZ2sbHzQ3
-	 woC0sIBQrSCXZWyMTxWMg7K12YPD5vqS+t9akdYrmBhttHVNKdvPkMuyJt7AY2Imtr
-	 Cy/hYiW42rh3DBxIgZFf/l0MT17Nw99FcAH28olb3OKK0XnWQ7Ykp7t+N0hMaAdzbM
-	 4QKdsaTldiuRd17S0YtvHvwC5Svd7NwUAL82nrvFZzSdTC9p7s2UNznWmEGKoUomLz
-	 PIZ0gRNFhrNBw==
-Subject: Re: [PATCH net-next] net: dsa: b53: mirror BPDUs to CPU port 5 when
- port 8 is not a CPU port
-From: netdev-bot+sashiko@kernel.org
-To: joseph@telaak.dev
-Cc: florian.fainelli@broadcom.com, jonas.gorski@gmail.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Sun, 15 Nov 2026 06:44:24 +0000
-Message-ID: <179472506475.2199510.697226978948266850@kernel.org>
-In-Reply-To: <20261111-b53-bpdu-mirror-v1-1-f9f32e9d25db@telaak.dev>
-References: <20261111-b53-bpdu-mirror-v1-1-f9f32e9d25db@telaak.dev>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oJz2hC3C
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b15e46698aso2044164a91.3
+        for <netdev@vger.kernel.org>; Sat, 14 Nov 2026 22:47:54 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794725274; x=1795330074; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=tCOuiXg8kpPxflANatAGCcoqQ3Bqdp5UPGwZfT0KsEg=;
+        b=oJz2hC3ClvJrfhKNgz2wQryvBei6eSKNVOTwRwIrluYR/TalqWb8P0ajRdbbki1okt
+         7/mhDKKbseYy7ovi8vY5DAOsNoE0GiFVY2PF4YmfAfSb1MdwAEe4I0pvuvF2wEiVQ23i
+         5nVELoisMLrVlGv+K6fVFmUiCRv33Zi4GOkvJMqf2Wie7FstaCerZX1Mf6tDYkA5HkUV
+         Klr0tccU6VrlHU6rs9XUX05jHZ12cNDMrB7KA0rXj8h6PFghS19tXeJ6I4HsiHuh3ld9
+         Y/ZWkdTEZPCJkpvu31RUmCLrgVIquGTCfyM8LWN9sJBR3mT9yVECKwbs9LT6/Sq77jok
+         8MUQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794725274; x=1795330074;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=tCOuiXg8kpPxflANatAGCcoqQ3Bqdp5UPGwZfT0KsEg=;
+        b=XPsZzWBZ0YsVlrzJ1nfVfTjGCKXKCIbMNuP1j86uC32VUhcTF2SmV7MtyYQImnbHD6
+         YbqImr/mpaF5s0paqesSpiKsprF9Km34U1iGCgWNfhl/6DA9jCyAqfS/cIPuCcf3ezwu
+         E/60HUB1GNM1RIQ+QsE6p2Lr57R/E9bfn5aoMJAi7QTpM64oIdP7cgrwvespF0nbpOX8
+         LxI4K88sJx69B+2pmKtNRCI2c327Ncu7YTiMmHF7TCThu5eLUQjFr3sg+kv2+Rg6ZW0U
+         EXZQFvoZe1zZQpTM3fgVkiuYgdxT00TckJdipKdx1zEgKKwK2fgdAsuRy+TKCb0Y3eU0
+         AlXw==
+X-Gm-Message-State: APuU4Z+yEmmfi0E0ps1/dyg0/xrIKxW1Xk6XivddwP/IE859YXrXGBLk
+	Z+iRcfiIfAjKq30YIZYeAZAWjFdBJOUSZiHLUQ3IxwGBv7IolwJ2UmE7
+X-Gm-Gg: AYBFou1Jt39m2IbhWqKtutEIdQTu0JYEu3+wYjGXOqHLaYWUgmadrnnIOILCQNrY0uG
+	IHxze1lfKLhQ0ffWz6w1qPyno2DIkk3xbe+Oki1PTRUQJVWRNKxNC7FmXg5XN45syqtCnObNI9z
+	aFdhBYJBfX/XSn9Dhqhrc2+iyFVYT+VaFCybdAKW5EtswEzVsY05CPD7HAZV9B5A3pRq2oEq4qe
+	WGxMblrlX9K1bmijAxHf2d9fMHJAOltDOjiJSdEf8qMW3zhqIGXkkixGGOl5n+EkUPJN90x5O/H
+	4l1D1wzvuRI3OJX3oPOzggOlaH0lSG8vQt0f6qmW9fxeLYfsnVO8ZL/86PrrZgCQlzvP8azcHj3
+	G2YjrtwgpjE+TvxT57WC4Pv9NMC/NUosnEIoMITKoyHWkCF2691umb0rBgWmf1GQ9FrBnGRjhME
+	e3dcuBKhG25+fo6DLZJNArHVa9NizNLmSDV6vvdbyTqud0F0yZMeWG6SZ/LmrjCJSHzmlDx7lBJ
+	/cwudnKYf9aTAFFTGSsYd+wPYwuHIbur+1wjnVAvW1v87rAPAS2FhkUAdxkC9d7B0OWtsJpMGim
+	+W2fVpZu5Y8OHdawrQQSnnDn0zAOhdI4Zn8OMus5gft9HEwRZB6I7RfU1bT/vptejeCS/d0qadH
+	5YLJusmLaciXBVbX9ljTO9xVkX2s4JnVqXjeKE7AvH9KHl5cqdXHonwTw63Gqwpe8vNJNUt+UqF
+	BnaQ==
+X-Received: by 2002:a17:90b:54cb:b0:3b0:ac2c:1619 with SMTP id 98e67ed59e1d1-3b1b0a5064cmr6609898a91.39.1794725274127;
+        Sat, 14 Nov 2026 22:47:54 -0800 (PST)
+Received: from [169.254.3.1] ([143.248.188.96])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b197d27d26sm16136309a91.13.2026.11.14.22.47.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 14 Nov 2026 22:47:53 -0800 (PST)
+From: SeungJong Ha <engineer.jjhama@gmail.com>
+Subject: [net-next PATCH RESEND v2 0/3] rust: net: phy: soft_reset may run
+ without phy_device->lock
+Date: Sun, 15 Nov 2026 15:47:35 +0900
+Message-Id: <20261115-exp-phy-rs-maybelocked-v2-0-8fa7897a0352@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,110 +93,84 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>, 
+ Trevor Gross <tmgross@umich.edu>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, SeungJong Ha <engineer.jjhama@gmail.com>
+X-Mailer: b4 0.15.2
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+The Rust PHY abstraction tells `soft_reset` that PHYLIB holds
+`phy_device->lock`, but phy_init_hw() calls it both with and without the
+lock. This was found while auditing the SAFETY comments of Rust
+abstractions against their C callers, and confirmed with Clang's context
+analysis [1].
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Patch 1 drops `read_mmd` and `write_mmd`, which make the same claim, run
+under the MDIO bus lock instead, and have no users. Patch 2 makes
+`Device` generic over a lock context, and patch 3 gives `soft_reset` the
+`MaybeLocked` one.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+`match_phy_device` is left as it is. It runs on devices that may be
+unbound or bound to another driver, which is a binding question rather
+than a locking one; I think it fits better with moving `phy::Device`
+onto `device::DeviceContext`, as `pci::Device` does.
 
-- [High] The new condition in b53_brcm_hdr_setup() calls
-  `!dsa_is_cpu_port(ds, B53_CPU_PORT)` (port 8) without checking that…
-- [Low] The commit fixes a user-visible bug but has no Fixes: tag.
+No in-tree driver is affected, so if this is not worth doing before
+there is a real user, I am happy to drop it.
 
+The audit, the patches and their changelogs were done with an AI coding
+assistant (Claude Code, Claude Opus 5.5) and reviewed line by line by
+me. Compile-tested only.
+
+Changes in v2:
+- Keep `&mut self` on the moved methods, so that `match_phy_device` does
+  not gain register access (netdev AI review)
+- Give only `soft_reset` the `MaybeLocked` context
+- Drop `read_mmd` and `write_mmd` instead of leaving them `Locked`
+- Document how PHYLIB calls the `Locked` callbacks, and fix the
+  `from_raw()`, `phy_id()` and `genphy_soft_reset()` SAFETY comments
+- Link to v1: https://lore.kernel.org/r/20261110-exp-phy-rs-maybelocked-v1-0-3023cc9055e9@gmail.com
+
+[1] https://docs.kernel.org/dev-tools/context-analysis.html
+
+---
+Changes in v2:
+- EDITME: describe what is new in this series revision.
+- EDITME: use bulletpoints and terse descriptions.
+- Link to v1: https://patch.msgid.link/20261110-exp-phy-rs-maybelocked-v1-0-3023cc9055e9@gmail.com
+
+---
+SeungJong Ha (3):
+      rust: net: phy: drop read_mmd and write_mmd from Driver
+      rust: net: phy: make Device generic over a lock context
+      rust: net: phy: pass a MaybeLocked device to soft_reset
+
+ drivers/net/phy/ax88796b_rust.rs |   8 +-
+ rust/kernel/net/phy.rs           | 206 +++++++++++++++++++--------------------
+ rust/kernel/net/phy/reg.rs       |  17 ++--
+ 3 files changed, 112 insertions(+), 119 deletions(-)
+---
+base-commit: 573af801552999954caa8347e4490b04cf4763f0
+change-id: 20261110-exp-phy-rs-maybelocked-ddc59993efba
+
+Best regards,
 --
-
-net: dsa: b53: mirror BPDUs to CPU port 5 when port 8 is not a CPU port
-
-On BCM531x5 switches where port 5 is the CPU port and port 8 is not,
-this patch uses the ingress mirror to copy frames sent to the bridge
-group address from the user ports to port 5. It also refuses tc
-mirroring on those boards, because the switch has only one mirror.
-
-> Signed-off-by: Joseph Telaak <joseph@telaak.dev>
-
-[Severity: Low]
-Should this commit carry a Fixes: tag?
-
-The notes below the --- line name 8fab459e69ab ("net: dsa: b53: Enable
-Broadcom tags for 531x5/539x families"), but those notes are dropped
-when the patch is applied.
-
-That commit added the dual-IMP selection for port 5 in
-b53_brcm_hdr_setup():
-
-	else if (port == 5)
-		hdr_ctl |= GC_FRM_MGMT_PORT_M;
-
-Without the tag, nothing in the applied commit records which kernels
-lose BPDUs on these boards.
-
-> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-> index a2a5754c413c6..6b33775c75985 100644
-> --- a/drivers/net/dsa/b53/b53_common.c
-> +++ b/drivers/net/dsa/b53/b53_common.c
-> @@ -797,6 +797,24 @@ void b53_brcm_hdr_setup(struct dsa_switch *ds, int port)
->  		hdr_ctl |= GC_FRM_MGMT_PORT_M;
->  	b53_write8(dev, B53_MGMT_PAGE, B53_GLOBAL_CONFIG, hdr_ctl);
->  
-> +	/* With port 5 as the CPU port, a BCM531x5 runs in dual-IMP mode and
-> +	 * traps BPDUs from LAN ports to port 8. When port 8 is not a CPU
-> +	 * port, mirror them to port 5 instead. This takes the switch's only
-> +	 * mirror, so tc mirroring is refused.
-> +	 */
-> +	if (tag_en && port == 5 && is531x5(dev) &&
-> +	    !dsa_is_cpu_port(ds, B53_CPU_PORT)) {
-
-[Severity: High]
-Can dsa_is_cpu_port(ds, B53_CPU_PORT) dereference a NULL pointer when
-port 8 has no dsa_port?
-
-DSA creates dsa_port objects only for indices below ds->num_ports
-(dsa_switch_touch_ports()). b53_switch_init() derives that count from
-enabled_ports:
-
-	dev->num_ports = fls(dev->enabled_ports);
-
-	dev->ds->num_ports = min_t(unsigned int, dev->num_ports, DSA_MAX_PORTS);
-
-When platform data is supplied (for example, b53_spi_probe() takes it
-from spi->dev.platform_data), b53_switch_register() replaces the chip
-table mask:
-
-		dev->enabled_ports = dev->pdata->enabled_ports;
-
-Take a BCM531x5 described this way, using port 5 as the CPU port and
-with BIT(8) cleared in enabled_ports (for example 0x3f). That leaves
-ds->num_ports at 6, and the call chain becomes:
-
-b53_setup()
-  b53_enable_cpu_port(dev, 5)
-    b53_brcm_hdr_setup(ds, 5)
-      dsa_is_cpu_port(ds, 8)
-        dsa_to_port(ds, 8)    <- no index 8 on dst->ports, returns NULL
-        ->type                <- NULL dereference
-
-dsa_to_port() returns NULL when no port matches, and dsa_is_cpu_port()
-uses the result without checking it. Before this patch, b53 did not look
-up the dsa_port for B53_CPU_PORT.
-
-Boards probed from DT get the chip table mask, which includes port 8,
-so only boards using b53_platform_data can hit this.
-
-Could a missing port 8 count as not a CPU port, so the BPDU mirror is
-still installed? Something like:
-
-	(B53_CPU_PORT >= ds->num_ports || !dsa_is_cpu_port(ds, B53_CPU_PORT))
-
-> +		b53_write48(dev, B53_MGMT_PAGE, B53_IG_MIR_MAC,
-> +			    ether_addr_to_u64(eth_stp_addr));
-
-[ ... ]
-
+SeungJong Ha <engineer.jjhama@gmail.com>
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111-b53-bpdu-mirror-v1-1-f9f32e9d25db%40telaak.dev
+SeungJong Ha <engineer.jjhama@gmail.com>
+
