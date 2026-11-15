@@ -1,100 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.144
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794741482;
-	b=SpRkP+IoWpHlL4yDfDJvh73peNHl5KcodljY6sc0qdM2SpJGj/sK/bn9VZwX5git0h1l
-	 pTnQu4LKAIaUL6tfHQnEAcblmT9nbt4ehIsPM0wT2BLqrrCcuaYxOEz1AOArv5VK7/Py8
-	 Z3ZDIWSkmNSq7MFmpSgWx8wAHpBP0Dyco3Os4u59yjSVGhbF4fjYYvkCyRlIQa1LyEdTN
-	 ZIMACcY8o7sX4I54SZfNgRVTcoia8u0I3PJHa4huKgnkBACbKgb2zSXeuOkyHZCigLCFZ
-	 JiAFOFLSwMiXiM/J9N3LbrXWIIgpx+NbL7j9n6IZQFPgvnBI04mwT3oddD6hY/0cXyw==
+	t=1794741664;
+	b=dS2Dsc/cNOa0Km3JtxaLaObZJE//rzql7z3gnNnYGL5hQu5cHVOlLEIu7rI2CyHvdloT
+	 vKU8hl8pw+j1KVwW8bhFO/jmhs1oNL22PtyLsqbvcepj1MKPUX0UHyrA7eQh7VMoRkvmZ
+	 QvO74fm9SEUxee1PQ35uSw2K95rfWWfd3ATmC1Xx3DNdnhyTtVQYShRl9Q1y5pTpM7DJr
+	 BUASZAYC6tBWJfFDJB++jv6vC1VO17wjkwzg5erXYLPlqbY6EoKYfgKqUtVbrr8tFqJa2
+	 4SDdps9Cy5j4GMr4Lo9T3dG4IdvkZUyYxiwYxthQDRH5ErZ2trYQ1q3yJ8GIxeQm81w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794741482;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=0MFn0SwmKvzqZy236PQ2mSoWTCxqLcQeT9u2UUqbkyA=;
-	b=5S3Ck4GyPms+NPE4/W94wmXipxjZPjkyKwHKLz0mKpZX5OfQrG6frSwLEkSYfVkkyCoH
-	 2m/9H+Ha3KClFv+jlCb3LEKst7smF1h++oxEQ//ozTemrSpUAF/3ig3ZMAVnNb/Vil/Xc
-	 kmnpWqTiYiI7vXuxFg4JIEeWMK/c6PeySQ/0gIBomPxo6Q/G88x7O3F80FW3ReLWSaPIT
-	 eIPi8xROW8Pk33xnhunqS53MjCDw0EL+VAdvMSL9XWa8GwyYovZJgMM62bjau164IxLlq
-	 KH06ZrVZJELdPDqIktA/E+rqIbiTP/71gmaEmFXKyLE4jvCUPCwzCG7mhgHMQNzzrpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794741664;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:X-ME-Sender:
+	 X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:Date:
+	 From:To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=zvMxoLGnfRp8tv67Jq4LKWZMseIi6n4cTVWrV6bYWbc=;
+	b=ueXLCJsCN9vMHpsDi92caYBb086+It5Y6vNIR4x75QNWqbhq/Xoqr9WZ9+zZMaG50ODC
+	 PsZIe2ET+tbIyAYLnLqyVNlr3J8XiHTJJlTZ/6FXVm94DLQ6KKDhstrKx/dH2hFoJPZiN
+	 QRRwPPTwiWa09iSK0i1VcFFBZD9WxqWlkq7qfDGvluDif3OKcYkno6MCnZN2Vhr2/b4v4
+	 dZaAKIHYJkImrn7gQAes/PDB8D2pkzlNH0oEllFm2HjlGhrRprittZAUqm2scpGf0OnB9
+	 knTzm6OCfQ9dkF73a8SK54XNkw9K3X8bqGE43cxhNRO5YXHfWSVDMfk0d3jeEhdYH+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nebusec.ai;
-	spf=pass smtp.mailfrom=nebusec.ai;
-	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=GLOISEcx;
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=idosch.org;
+	spf=none smtp.mailfrom=idosch.org;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=5HHvSaac;
+	arc=none smtp.remote-ip=103.168.172.144
+Received: from fout-a1-smtp.messagingengine.com (fout-a1-smtp.messagingengine.com [103.168.172.144])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC2E4606A31D
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 11:18:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC2E4606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44E14606A31E;
+	Sun, 15 Nov 2026 11:21:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44E14606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=idosch.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=idosch.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=GLOISEcx
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b09a83d12aso2707914a91.2
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 03:18:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nebusec.ai; s=google; t=1794741481; x=1795346281; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=0MFn0SwmKvzqZy236PQ2mSoWTCxqLcQeT9u2UUqbkyA=;
-        b=GLOISEcxuuLcfZm3ipE6Yaz28kG2F9MnHKZ8WannWzlZYobXfQaai7I6SvVfMrzrG8
-         gIYBilr36Ol8RrhF6YZM87XMXWGHBhz/fpmWeZI0jUxxAIQzomG58Ypto1iDXbm1Tk7l
-         0blAt8nfgJk54Op5A3GOE1CSGbmB2OP0EN/WPhSFwzHmCNIBOGADenUSmvy5uD6cN9Qz
-         uS9W2+sNI69Oqf/vBwChph/xKeLYr7B24dGP2EeLWqKk15BI7GhLbQZXf1gcUiJXRz28
-         xfFcPAxzXUuWwOmRSfaRObIVWjG/h+6kRmaNIId16Pc4N+NdcXSVo2WuD8Wfv4ZRI4Gd
-         NobA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794741481; x=1795346281;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=0MFn0SwmKvzqZy236PQ2mSoWTCxqLcQeT9u2UUqbkyA=;
-        b=Aq0pSSYIg7xyZ1XPc12Bs3YOQdZO+qUVtzUMvQslJL9T25dCAmCRlEAIlBXvwQmGyx
-         oh5DAfkF4WQD/VGZslFxkSlRhherwdGBYpHEewIfZkWW2Wf8qKo9TJrKHQG6knOFMdCf
-         NTQjGvhLQCzItkiy84f2zOalRapVmmZjxwarkv2mEM4vC/YTOHfMA5xmH86GzGUt3S8q
-         lWbmlR9NwB2QXP2E4BoncWGu0BMMr125sHY6tHFKNtD2AmXlrMf2qmfbbyq78xQ5mwLW
-         3K2nKWxIYYn6OciqUPmvWGbPSbKYTAY/82SKo0wD3nYT9Airlj/R979+XDDgshbN5lZG
-         fIyA==
-X-Gm-Message-State: APuU4Z/jKjGe1nMLaCnt/Kf3kOECXkx4FUeWKSPnu+xrtOvl3fW09jmr
-	0FlTwaDUt/9W2KmxP6dfM1XLskx8gYUh+GlzUloeKV1nwUVILB7/ghWqeWHqpsxW3ZrrrQrbSU2
-	QRPGKWnlL
-X-Gm-Gg: AYBFou1+HmPWiNoaSPzb9qJ7jRL+GXnAtnu3CSAnmn/P05/42NiFA/ClJjNf58NedPd
-	bq2KNTjpwx2jLYHDtdzyZZ38hoThBoO1xtZUwu7RwnKkc8lb3ZhKTqxwRXG/KxPzcs5rrgRHGDN
-	ZIiBv4pel1eyLD6FJu0A8aXE/IhGREEQm2dXxD8kkFN4VIBfpWV+aJnR/7qewl8zYxT5gQefXqA
-	IQEQPYz62Kz2YtcLgYrXJ3ardABCaaU1rVJxzR95/Ha7adQhTmvyifvz92psN3ZYCTkcrOnEy/1
-	/1L5B1uXozVNdN7NFFxygyUEdO3ZMFTmMtXXyii8xHqLW5DV90H40ehaAQnfdGlgsyDoJMVf03/
-	BdympiFpF9cWB+3qIgtszpLL2u2DfqXFW+ysDJhYR4DvEjP9rTfDTFtpAbsJD0wVVYKQojb5bEw
-	xKjMejGE1gvSNo93Dw0t/+p6xrGkJUCgpQI+eXoj2/Ld4j7TAUswHvDD/I8vzmMOTYWJkb2aj1E
-	+cmsCgba7XBppFLNTBzic8xgIQQqC0R2yk7lXNSETRAmQwxWoovrT5Sd8BrD4fhI1iMjpbSmoKk
-	81Ybva/rY/aA3Onuk/Z6BMgisIro/VpIa/LA9EzXpWhApFv6i2MKDdr215mEfhMy0gbz7yWjuSc
-	d/8eHHB9xqBCsJzDgNC9o
-X-Received: by 2002:a17:90b:4d0b:b0:3b0:b03b:699f with SMTP id 98e67ed59e1d1-3b1b089e039mr8216439a91.1.1794741480916;
-        Sun, 15 Nov 2026 03:18:00 -0800 (PST)
-Received: from 24c857d0c3be.. ([122.51.212.64])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cdddc55efefsm2160435a12.6.2026.11.15.03.17.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 03:17:59 -0800 (PST)
-From: Zihan Xi <zihanx@nebusec.ai>
-To: netdev@vger.kernel.org
-Cc: dsahern@kernel.org,
-	idosch@nvidia.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	vega@nebusec.ai,
-	zihanx@nebusec.ai
-Subject: [PATCH net v2 1/1] ipv6: mcast: pass resolved interface to source update
-Date: Sun, 15 Nov 2026 11:17:45 +0000
-Message-ID: <43dfcc2e60579f68e436ade82bbd7ab7c727e250.1794738094.git.zihanx@nebusec.ai>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1794738094.git.zihanx@nebusec.ai>
-References: <cover.1794738094.git.zihanx@nebusec.ai>
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=5HHvSaac
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfout.phl.internal (Postfix) with ESMTP id 3ED72EC0170;
+	Sun, 15 Nov 2026 06:21:02 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-04.internal (MEProxy); Sun, 15 Nov 2026 06:21:02 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1794741662; x=1794828062; bh=zvMxoLGnfRp8tv67Jq4LKWZMseIi6n4cTVW
+	rV6bYWbc=; b=5HHvSaacFfQyShlbT5WKZ2ky52H6HNyVSA8lpIdIA9Cyn/62tDZ
+	8QydcnNK2ZSh5po6r+CiFmp8WnEF7+rH4P14vyqkgvz9YFsQQmQoUVIx5SBsCkc5
+	iqHeGv+Oxk6ojWdGByvblj1kiuzkNRRVB3u4shdN4hOfmyIafJxmF7mF8tvgQfPw
+	F8Xr0Emywln+FIp+V5867oLK2evKldoJcjy0TI3qAvhgUZ952vNGB96OaFM/tMZ+
+	K9oUYY6o+9L7bVWmn57P7SK23pjwJTZNZzo2qfjX94kYGwzU2VvFl9WBR1DLzed+
+	nE8hfJXgjaJohvQwF7U2C/08W001MrP7MWA==
+X-ME-Sender: <xms:nZX5amgxwxCwj_Dr5EhBPzGy_Vjy8JbGqnKrKpGirFVdJ0gMl2boCQ>
+    <xme:nZX5agbFxQ7RbvUX56iVxuTnvI1ZVlLNb7-BHDbzn3gXEBHGj4k3FQf8DI2RvC1YM
+    W62lqL5mNN_IiktI5bTDNjX4_ll09dplMZPIC10rBSElJEFahk>
+X-ME-Received: <xmr:nZX5ammFv571J8salEjiw2C2w8BFalzep2SZrFF-TolQeY3TAaTtrybE>
+X-ME-Proxy-Cause: dmFkZTEUg9AShikM2WElaOQw8QsfrZsSnDDjyKJ+vhQ7mihu5UdoMhDaECuZNvQaIBj6/G
+    3zODFH303/a3RTn8Uo7Sxrk6mBOm4LoFBeaqEr+4zRHeFUimykUy9sDkB4et0n6Goh9F5O
+    +vmyN9QfgxjAbCFtqut3Et71mpOCyVgfZRMzBYKXVovrtFk9DQenBbcSaOydvBMeVicGer
+    pRXPyVpas3o7Ivq7o9FNHKeDxypdDXfDuyO4OCuBklVFdRh88RsEs4IfEIfJn5QgkrPxAK
+    hLhPisoqDpsrNouYBHds/wHjFT6tWlGyQ0En6Kgytcmb39/FoPojbMbUdS4YX3OJREnqkh
+    Ag0joBmiC59blbunpGLW7dp6Z1bncvvSRAaw510cC+HawuHbjI6WDpUnNcFnONmMHNU2zy
+    8btBDejU520TDEY2X1hduDYxDhsF2rNd1gbRuLrchJEyQV1WkLXMKXOAs1jhtXwqdFFnOL
+    ftBSkfedGQb1WzAr89z/rv+jmqWkeRE6GuaQ+94SAMBxT4J49MIKYK7+Jqv5K3HC8+p7q1
+    s2gA1uCv6e+9CgLOtgwI/m9TZzqGTZmbaTKpytwO4pBRnYJE1DBKPUWOoz7B73MznzuTY1
+    EADsxCO2yAR8sW8FbrA5XSoDyNstaRmlZ+fjiPA2oxNMprH/QoWzomkAEK0g
+X-ME-Proxy: <xmx:nZX5auyhbPA-YnY1Z-9SdtCgWkYBO2fR64LdhwOpsOeFeu8uaT_8TA>
+    <xmx:nZX5ak__98NWzudIVK6VVIgvaybGw2nQ3v_uJDPjZa4D_AM_9npLyw>
+    <xmx:nZX5apB4TsxkMuw1MeWX8_gRT4Mjmz1G_pC8DoZvPvH8ot6r2Y5swA>
+    <xmx:nZX5arpXcDxlWmNuQPdjjPpdi5gFz0YZsCvB8hZLpFZEViCAChQALg>
+    <xmx:npX5ao4_-nTj9e87Nx2nf0Zi4xPuTamN0A6KuM5pmXFd834pod5fl98S>
+Feedback-ID: i494840e7:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 15 Nov 2026 06:21:00 -0500 (EST)
+Date: Sun, 15 Nov 2026 13:20:58 +0200
+From: Ido Schimmel <idosch@idosch.org>
+To: Weiming Shi <bestswngs@gmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	David Ahern <dsahern@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Kees Cook <kees@kernel.org>,
+	"Gustavo A . R . Silva" <gustavoars@kernel.org>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org, bpf@vger.kernel.org,
+	Xiang Mei <xmei5@asu.edu>, stable@vger.kernel.org,
+	co+beaa1ed2d7aaec16@bugs.sh
+Subject: Re: [PATCH net] net: initialize ICMP error queue opt_stats
+Message-ID: <20261115112058.GA3951124@shredder>
+References: <20261111170528.495116-3-bestswngs@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,184 +98,132 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261111170528.495116-3-bestswngs@gmail.com>
 
-When gsr_interface is zero, the SSM join helper resolves the default
-interface before checking for an existing membership. ip6_mc_source()
-then resolves the route again. A route change between these lookups can
-leave a membership on the first device while the source update fails on
-the second.
+On Wed, Nov 11, 2026 at 09:05:30AM -0800, Weiming Shi wrote:
+> ip_icmp_error() and ipv6_icmp_error() clone a received ICMP skb before
+> building its error queue entry.  skb_clone() preserves the complete control
+> buffer, while the IP receive paths initialize only the portion aliased by
+> sock_exterr_skb::header.  The two functions initialize ee, addr_offset, and
+> port, but leave the final byte containing opt_stats and unused untouched.
+> A TCX classifier can leave bpf_skb_data_end::data_end across that byte,
+> forging opt_stats and making __sock_recv_timestamp() pass skb->len bytes
+> from skb->data to put_cmsg().  For a non-linear ICMP skb, this reads beyond
+> its linear head.
+> 
+> Initialize both bitfields in the two clone-based producers.  Do not clear
+> the whole sock_exterr_skb because the error receive paths consume the saved
+> IP control-buffer header.
+> 
+>   usercopy: Kernel memory exposure attempt detected from SLUB object
+>             'skbuff_small_head' (offset 72, size 59964)!
+>   kernel BUG at mm/usercopy.c:102!
+>   Oops: invalid opcode: 0000 [#1] SMP KASAN NOPTI
+>   RIP: usercopy_abort (mm/usercopy.c:102)
+>   Call Trace:
+>    __check_heap_object (mm/slub.c:8146)
+>    __check_object_size (mm/usercopy.c:258)
+>    put_cmsg (net/core/scm.c:276)
+>    __sock_recv_timestamp (net/socket.c:1061)
+>    ip_recv_error (net/ipv4/ip_sockglue.c:550)
+>    udp_recvmsg (net/ipv4/udp.c:2034)
+>    inet_recvmsg (net/ipv4/af_inet.c:896)
+>    sock_recvmsg (net/socket.c:1159)
+>    ____sys_recvmsg (net/socket.c:2918)
+>    ___sys_recvmsg (net/socket.c:2961)
+>    __sys_recvmsg (net/socket.c:2993)
+>    do_syscall_64 (arch/x86/entry/syscall_64.c:94)
+>    entry_SYSCALL_64_after_hwframe (arch/x86/entry/entry_64.S:130)
+>   Kernel panic - not syncing: Fatal exception
+> 
+> With HARDENED_USERCOPY enabled, the reproducer aborted the unpatched kernel
+> on its first packet.  With runtime usercopy checks disabled and KASAN left
+> in report mode, the same recvmsg() returned 59,964 control-message data
+> bytes sourced past a 704-byte skb head.  Beyond offset 1,024, 58,932 bytes
+> differed from the prefilled userspace marker, including 6,288 nonzero
+> bytes.  The patched build completed 2,000 packets under both configurations
+> without a forged SCM_TIMESTAMPING_OPT_STATS message or sanitizer report.
+> Networking selftests were not run.
+> 
+> Fixes: 4ef1b2869447 ("tcp: mark skbs with SCM_TIMESTAMPING_OPT_STATS")
+> Cc: stable@vger.kernel.org
+> Reported-by: <co+beaa1ed2d7aaec16@bugs.sh>
+> Signed-off-by: Weiming Shi <bestswngs@gmail.com>
+> 
+> ---
+>  net/ipv4/ip_sockglue.c | 2 ++
+>  net/ipv6/datagram.c    | 2 ++
+>  2 files changed, 4 insertions(+)
+> 
+> diff --git a/net/ipv4/ip_sockglue.c b/net/ipv4/ip_sockglue.c
+> index a55ef327ec93..3ab84a4c31e5 100644
+> --- a/net/ipv4/ip_sockglue.c
+> +++ b/net/ipv4/ip_sockglue.c
+> @@ -429,6 +429,8 @@ void ip_icmp_error(struct sock *sk, struct sk_buff *skb, int err,
+>  	serr->addr_offset = (u8 *)&(((struct iphdr *)(icmp_hdr(skb) + 1))->daddr) -
+>  				   skb_network_header(skb);
+>  	serr->port = port;
+> +	serr->opt_stats = 0;
+> +	serr->unused = 0;
+>  
+>  	if (skb_pull(skb, payload - skb->data)) {
+>  		if (inet_test_bit(RECVERR_RFC4884, sk))
+> diff --git a/net/ipv6/datagram.c b/net/ipv6/datagram.c
+> index ca3605acb433..85f646f8d059 100644
+> --- a/net/ipv6/datagram.c
+> +++ b/net/ipv6/datagram.c
+> @@ -330,6 +330,8 @@ void ipv6_icmp_error(struct sock *sk, struct sk_buff *skb, int err,
+>  	serr->addr_offset = (u8 *)&(((struct ipv6hdr *)(icmph + 1))->daddr) -
+>  				  skb_network_header(skb);
+>  	serr->port = port;
+> +	serr->opt_stats = 0;
+> +	serr->unused = 0;
+>  
+>  	__skb_pull(skb, payload - skb->data);
 
-Return the resolved ifindex from ipv6_sock_mc_join_ssm() and pass it to
-the source update. This follows the IPv4 group-source path, which writes
-the resolved interface back to the request before updating the source
-filter. Both membership lookup and source update now use one route
-selection.
+How about [1] instead?
 
-The resolved-interface duplicate check also applies to ordinary ASM
-IPV6_ADD_MEMBERSHIP and MCAST_JOIN_GROUP calls with ifindex zero. Such
-joins check duplicates on the route-selected interface, allowing the
-same group to be joined on another interface.
+Allows us to avoid potential issues in the future.
 
-Source-filter operations with no membership on the resolved interface
-may return -EINVAL; specify its ifindex to operate on a membership
-elsewhere.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Reported-by: Vega <vega@nebusec.ai>
-Signed-off-by: Zihan Xi <zihanx@nebusec.ai>
----
- include/net/ipv6.h       |  3 ++-
- net/ipv6/ipv6_sockglue.c |  5 ++++-
- net/ipv6/mcast.c         | 39 ++++++++++++++++++++++++---------------
- 3 files changed, 30 insertions(+), 17 deletions(-)
-
-diff --git a/include/net/ipv6.h b/include/net/ipv6.h
-index 3de07e738538..aa5f130eb9be 100644
---- a/include/net/ipv6.h
-+++ b/include/net/ipv6.h
-@@ -1230,7 +1230,8 @@ void ipv6_sysctl_unregister(void);
- int ipv6_sock_mc_join(struct sock *sk, int ifindex,
- 		      const struct in6_addr *addr);
- int ipv6_sock_mc_join_ssm(struct sock *sk, int ifindex,
--			  const struct in6_addr *addr, unsigned int mode);
-+			  const struct in6_addr *addr, unsigned int mode,
-+			  int *resolved_ifindex);
- int ipv6_sock_mc_drop(struct sock *sk, int ifindex,
- 		      const struct in6_addr *addr);
+[1]
+diff --git a/net/ipv4/ip_sockglue.c b/net/ipv4/ip_sockglue.c
+index e06c1f48ecad..096546727c3d 100644
+--- a/net/ipv4/ip_sockglue.c
++++ b/net/ipv4/ip_sockglue.c
+@@ -419,13 +419,12 @@ void ip_icmp_error(struct sock *sk, struct sk_buff *skb, int err,
+ 		return;
  
-diff --git a/net/ipv6/ipv6_sockglue.c b/net/ipv6/ipv6_sockglue.c
-index 4b3536571c98..5253ddd6a248 100644
---- a/net/ipv6/ipv6_sockglue.c
-+++ b/net/ipv6/ipv6_sockglue.c
-@@ -166,15 +166,18 @@ static int do_ipv6_mcast_group_source(struct sock *sk, int optname,
- 		add = 0;
- 	} else if (optname == MCAST_JOIN_SOURCE_GROUP) {
- 		struct sockaddr_in6 *psin6;
-+		int resolved_ifindex;
- 		int retv;
+ 	serr = SKB_EXT_ERR(skb);
++	memset_after(serr, 0, header);
+ 	serr->ee.ee_errno = err;
+ 	serr->ee.ee_origin = SO_EE_ORIGIN_ICMP;
+ 	serr->ee.ee_type = icmp_hdr(skb)->type;
+ 	serr->ee.ee_code = icmp_hdr(skb)->code;
+-	serr->ee.ee_pad = 0;
+ 	serr->ee.ee_info = info;
+-	serr->ee.ee_data = 0;
+ 	serr->addr_offset = (u8 *)&(((struct iphdr *)(icmp_hdr(skb) + 1))->daddr) -
+ 				   skb_network_header(skb);
+ 	serr->port = port;
+diff --git a/net/ipv6/datagram.c b/net/ipv6/datagram.c
+index ff7a7ffbf983..f932d5a0d618 100644
+--- a/net/ipv6/datagram.c
++++ b/net/ipv6/datagram.c
+@@ -324,13 +324,12 @@ void ipv6_icmp_error(struct sock *sk, struct sk_buff *skb, int err,
+ 	skb->protocol = htons(ETH_P_IPV6);
  
- 		psin6 = (struct sockaddr_in6 *)&greqs.gsr_group;
- 		retv = ipv6_sock_mc_join_ssm(sk, greqs.gsr_interface,
- 					     &psin6->sin6_addr,
--					     MCAST_INCLUDE);
-+					     MCAST_INCLUDE,
-+					     &resolved_ifindex);
- 		/* prior join w/ different source is ok */
- 		if (retv && retv != -EADDRINUSE)
- 			return retv;
-+		greqs.gsr_interface = resolved_ifindex;
- 		omode = MCAST_INCLUDE;
- 		add = 1;
- 	} else /* MCAST_LEAVE_SOURCE_GROUP */ {
-diff --git a/net/ipv6/mcast.c b/net/ipv6/mcast.c
-index ecef55f26189..3f2a431ea0c8 100644
---- a/net/ipv6/mcast.c
-+++ b/net/ipv6/mcast.c
-@@ -196,7 +196,8 @@ static struct net_device *ip6_mc_find_dev(struct net *net,
-  *	socket join on multicast group
-  */
- static int __ipv6_sock_mc_join(struct sock *sk, int ifindex,
--			       const struct in6_addr *addr, unsigned int mode)
-+			       const struct in6_addr *addr, unsigned int mode,
-+			       int *resolved_ifindex)
- {
- 	struct ipv6_pinfo *np = inet6_sk(sk);
- 	struct ipv6_mc_socklist *mc_lst;
-@@ -207,25 +208,30 @@ static int __ipv6_sock_mc_join(struct sock *sk, int ifindex,
- 	if (!ipv6_addr_is_multicast(addr))
- 		return -EINVAL;
- 
-+	dev = ip6_mc_find_dev(net, addr, ifindex);
-+	if (!dev)
-+		return -ENODEV;
-+	ifindex = dev->ifindex;
-+	if (resolved_ifindex)
-+		*resolved_ifindex = ifindex;
-+
- 	for_each_pmc_socklock(np, sk, mc_lst) {
--		if ((ifindex == 0 || mc_lst->ifindex == ifindex) &&
--		    ipv6_addr_equal(&mc_lst->addr, addr))
-+		if (mc_lst->ifindex == ifindex &&
-+		    ipv6_addr_equal(&mc_lst->addr, addr)) {
-+			dev_put(dev);
- 			return -EADDRINUSE;
-+		}
- 	}
- 
- 	mc_lst = sock_kmalloc(sk, sizeof(struct ipv6_mc_socklist), GFP_KERNEL);
--	if (!mc_lst)
-+	if (!mc_lst) {
-+		dev_put(dev);
- 		return -ENOMEM;
-+	}
- 
- 	mc_lst->next = NULL;
- 	mc_lst->addr = *addr;
- 
--	dev = ip6_mc_find_dev(net, addr, ifindex);
--	if (!dev) {
--		sock_kfree_s(sk, mc_lst, sizeof(*mc_lst));
--		return -ENODEV;
--	}
--
- 	mc_lst->ifindex = dev->ifindex;
- 	mc_lst->sfmode = mode;
- 	RCU_INIT_POINTER(mc_lst->sflist, NULL);
-@@ -249,14 +255,15 @@ static int __ipv6_sock_mc_join(struct sock *sk, int ifindex,
- 
- int ipv6_sock_mc_join(struct sock *sk, int ifindex, const struct in6_addr *addr)
- {
--	return __ipv6_sock_mc_join(sk, ifindex, addr, MCAST_EXCLUDE);
-+	return __ipv6_sock_mc_join(sk, ifindex, addr, MCAST_EXCLUDE, NULL);
- }
- EXPORT_SYMBOL(ipv6_sock_mc_join);
- 
- int ipv6_sock_mc_join_ssm(struct sock *sk, int ifindex,
--			  const struct in6_addr *addr, unsigned int mode)
-+			  const struct in6_addr *addr, unsigned int mode,
-+			  int *resolved_ifindex)
- {
--	return __ipv6_sock_mc_join(sk, ifindex, addr, mode);
-+	return __ipv6_sock_mc_join(sk, ifindex, addr, mode, resolved_ifindex);
- }
- 
- /*
-@@ -362,6 +369,7 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
- 	struct net *net = sock_net(sk);
- 	struct ipv6_mc_socklist *pmc;
- 	struct inet6_dev *idev;
-+	int ifindex;
- 	int leavegroup = 0;
- 	int i, j;
- 	int err;
-@@ -375,6 +383,7 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
- 	idev = ip6_mc_find_idev(net, group, pgsr->gsr_interface);
- 	if (!idev)
- 		return -ENODEV;
-+	ifindex = idev->dev->ifindex;
- 
- 	mutex_lock(&idev->mc_lock);
- 
-@@ -386,7 +395,7 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
- 	err = -EADDRNOTAVAIL;
- 
- 	for_each_pmc_socklock(inet6, sk, pmc) {
--		if (pgsr->gsr_interface && pmc->ifindex != pgsr->gsr_interface)
-+		if (pmc->ifindex != ifindex)
- 			continue;
- 		if (ipv6_addr_equal(&pmc->addr, group))
- 			break;
-@@ -497,7 +506,7 @@ int ip6_mc_source(int add, int omode, struct sock *sk,
- 	mutex_unlock(&idev->mc_lock);
- 	in6_dev_put(idev);
- 	if (leavegroup)
--		err = ipv6_sock_mc_drop(sk, pgsr->gsr_interface, group);
-+		err = ipv6_sock_mc_drop(sk, ifindex, group);
- 	return err;
- }
- 
--- 
-2.43.0
+ 	serr = SKB_EXT_ERR(skb);
++	memset_after(serr, 0, header);
+ 	serr->ee.ee_errno = err;
+ 	serr->ee.ee_origin = SO_EE_ORIGIN_ICMP6;
+ 	serr->ee.ee_type = icmph->icmp6_type;
+ 	serr->ee.ee_code = icmph->icmp6_code;
+-	serr->ee.ee_pad = 0;
+ 	serr->ee.ee_info = info;
+-	serr->ee.ee_data = 0;
+ 	serr->addr_offset = (u8 *)&(((struct ipv6hdr *)(icmph + 1))->daddr) -
+ 				  skb_network_header(skb);
+ 	serr->port = port;
 
