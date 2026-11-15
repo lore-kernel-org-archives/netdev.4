@@ -1,79 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794747831;
-	b=gVYhySjdC5jgbVu7jeO1rE12dc4E3c9oKXGo3s0yMnPtze5/6MyoyNDTQAUi9xctu7Gy
-	 nd43y+ZyxU7s38Mg2AY724m3aPpJW/aaBwcAjuDx9ery3b9dxm1W4dtpsTL8shDVMfVbP
-	 +M7dRmXSDaxnMLZCS36owabYoWNRgadubLifj0BMqwxQrasNN7LBA7wgT8ZMu0xHFdjJv
-	 wuJKwphNNBwaugm8WPkEfPrgilrlafNfhvhBwVo2pXFBD69md/7xq4qR//t6XsMDLTy6E
-	 M95i7HpBFAaISdVeH4jKXwO8NqBSYKNTtGJPQ44AxIugVqzoFEYN2yI03Q11+0H8HPw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794747831;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=pon4Orxf+wxXpPtJNQHkuozRV8DRO+bVJt+AyFuNNgA=;
-	b=IGSHvNm/ZcTx7qFBWjHJ+jW3rBjF6mwPel1eFqTIH5VbtH1Q00AIw7PtFLMnPo6rzWIa
-	 M8uh9FBtNUuth7UG7DDb0aGIEVWAtMUjrebu5Viw/ifySoyWgA0jNijh7bek+dIxNJw7p
-	 487zvWgHGPAFKevePd6b0YTgWGEsXpKEurJ/iz0+9eytEmK5G1F5Ht4/JQWw7CgC5c34A
-	 X3gGUN7Y2+yxhRml4MyRxA8ZEBHZq9Ov0Tl2X9mJJxl/NLyHHLX39mcCyocQh/XAeY2eC
-	 V/hXN1fmMw3CwVBnBu2WscZCJzuI3k5Lu1c58TRWjOh/TYiKQCCaw6CMJE3vmcXtWNw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NFY7bNbw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2089E606A31D;
-	Sun, 15 Nov 2026 13:03:50 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NFY7bNbw
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794747830;
-	b=OUSONZFJMDovmjRzOroXfDbn33rzW2XFbRIc/4GuTGtdQySrNYMcSSHHYh7PJ57KKZXv
-	 a8R0Sj/qeIwZSlDZZm4PwYGu5u+91rkzQKpRSb+HjB3UrtD3cYD1yY9DqN2Uxy3sMroln
-	 ifKrsJIgM7MffpL/KMDt/ffa6yDNaxhe2GUt78Hqmy55tJ4gPpG8jTXioAYy0lRu85KiU
-	 Boj6LFoL5IQEa9NaDe/j0DvEbiCk/T0F84mnZ3MUmpHb6AOQRnP27+6ypTMn5tAnD2kQ2
-	 q9UoAThK0GnIsZ0htAOyGt3JYGEk+k+J/pRvBynNDU6Im/ZGXeSj6uF/pjR8BViNfZA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794747830;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=pon4Orxf+wxXpPtJNQHkuozRV8DRO+bVJt+AyFuNNgA=;
-	b=kAnKTk9er5e3nGLoMvCY9CImUXq8sj/CAcBcY3B4h2I80mxZlZhaoLQLrHxQt35gIIlf
-	 htEFrqafR67XuwSWgpfnRmjCvHIWbJ62o/n1UzQlaU2aW3JRBHCcxYYZjbDe9kRSzA0ft
-	 8E7FwB+jcUkKGL0xpOyarMIhGy/ZuxrYaSFxSUhAyE7uof8XdeCA2jZIH4xfSIqujRGpE
-	 bADcJqUFmY5LbXdinE7t2vFnH+b+WL2mGRrM2YFdk0LZ8fB5L097h4entF2KZfEQkpNk0
-	 rBradvBQQKSMGEZgFxI0Bav42V8YaufbLtszlpInchMZLKA5QwAU9PYAhRu3LN/Uvjw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794749091;
+	b=zG/YhTYqWExSQ5jG2HQkRt24JFiWN8rjY0m0xpc/e6WCmiBNKm7IipNlO39x8+Y+l+pp
+	 dce0Mo7OTO0MtrNQX/jqepjyaklvaliq3jASbMvjP4Ohf3gYKRlvG2fPE0LhtkXm2drlD
+	 g2IvSb7Wx6vW78BgWNtaDqYcp0HtsoZlhZ1w0BGNP3uuOlSal2AXOuESpKvOqnioZJ4H5
+	 y8CqOHqS0uiFSRT0QV+o9PpGU2xCKrBAtInFAM8FJepyoknwSJO0ItLrVtmB+yVv259UE
+	 +/TckIBcbXzJ55RRwiwohaSwhTWUEY07MmuZ0+eQemdcZ/ThCxZ1+wJ3E9jCByZMU/A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794749091;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:MIME-Version:Content-Type:Content-Disposition:
+	 X-Scanned-By;
+	bh=VTcvXdmY523c7IwXtXWkhth4SRtYhV4Dr8uIsB5kB5E=;
+	b=kRSHEi8/DkKbHPIQ9D8P76zqFoSXb6lgEVCzcMGcYU6939rnQvVMMNO0qSnnBqoKWIHZ
+	 a78DphtOjpzszTJ5t5T0HgMuFaBOHteRLOPhHCQ2DzqMUEtSI5xGHrLeDqP4PbxgTEfmV
+	 oLfxTImfeM7GlnqQ+4OrG31GDI1MYasPclCJi4+NCHd/x0gjFbg6SRy3YZynscr/+1o/y
+	 u7Vp9lMc7Z1NKw3TfqXr+aqzfLkYUmqQrj+0FpUv3y8n2Gbra89raDIMtm4bkj9o3fcHG
+	 aVqVbPPf+lrB3tHgX/jRiSRekeh2JeZ6MQQGKeHTYR/PV8hTNLNSd4KtRXdb8UZMWSw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QQX0RX7l;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 47B021F000C4;
-	Sun, 15 Nov 2026 13:03:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794747830;
-	bh=pon4Orxf+wxXpPtJNQHkuozRV8DRO+bVJt+AyFuNNgA=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=NFY7bNbw18avbta8RqY+5u9GzDzbq00ccvEyvbnxPMuJo3Y56XBdtw6n0iqENZaAv
-	 v/2wCrRgp3/NKpuB4p6fNjOvkSetxw1TIg/4ccQeU2VSDXDSvhXKj020bJsRhRyLvN
-	 iBf6sXH3VnOXT2eJIamdEyIE86HodgChNM9PpOV7C9Rr4RYLmAEb4SXtoqv23845LI
-	 NQSfmLRLxXbNGXJ+lqW3Rq72AF6I7/Xo6vMW8xdi9Aik9HptaAcRJ/kDuZuFQycRW8
-	 QQ/SvrkK5+koWDh/K/6uVkMDGMjF41tg+dohe/pda2MhlEE2bAJ9e1qW8rKUdel+i9
-	 0WyY+JuRbKUpg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 9C0A94A09B;
-	Sun, 15 Nov 2026 13:03:49 +0000 (UTC)
-From: Alexey Skidanov via B4 Relay <devnull+alexeys.xsightlabs.com@kernel.org>
-Date: Sun, 15 Nov 2026 15:03:29 +0200
-Subject: [PATCH net] selftests: drv-net: psp: skip unsupported versions in
- netkit data test
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82F25606A327
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 13:24:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82F25606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=QQX0RX7l
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1794749089;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type;
+	bh=VTcvXdmY523c7IwXtXWkhth4SRtYhV4Dr8uIsB5kB5E=;
+	b=QQX0RX7lB7rWkpAxSq0eu7kSfDKik/C+zb83AusnEL8WLOSqzAPrQtWgwlQ2C0Bqy4KeFC
+	y1UXbLR4UuwIhXhvfF7sy9jDl7lCZehFqs+RMNWdXG7lsfuq9gDHV17EUZsJ+7VJblwtXN
+	r67Uzu9aKrIsStRTz+zk2jTNoGqfqeA=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-625-NFyHoO_NMJK367sy937hKA-1; Sun,
+ 15 Nov 2026 08:24:46 -0500
+X-MC-Unique: NFyHoO_NMJK367sy937hKA-1
+X-Mimecast-MFC-AGG-ID: NFyHoO_NMJK367sy937hKA_1794749084
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9642319560A7;
+	Sun, 15 Nov 2026 13:24:44 +0000 (UTC)
+Received: from onestero-thinkpadp1gen7.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 567FB30001B9;
+	Sun, 15 Nov 2026 13:24:42 +0000 (UTC)
+Received: by onestero-thinkpadp1gen7.tpbc.csb (nbSMTP-1.00) for uid 13628
+	oleg@redhat.com; Sun, 15 Nov 2026 14:24:44 +0100 (CET)
+Date: Sun, 15 Nov 2026 14:24:40 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: Allison Henderson <achender@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Joel Granados <joel.granados@kernel.org>, edumazet@google.com,
+	horms@kernel.org, netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org
+Subject: [PATCH v2 net-next 0/5] net/rds: move sysctl-only code under
+ CONFIG_SYSCTL
+Message-ID: <avmymGvelu00X5EH@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,75 +79,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261115-main-v1-1-7011cd84e54a@xsightlabs.com>
-X-B4-Tracking: v=1; b=H4sIAKCt+WoC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDIzNDQ0NT3dzEzDxdgyRj87SkVNNUwxQjJaDSgqLUtMwKsDHRSnmpJUqxtbU
- AdT6qw1sAAAA=
-X-Change-ID: 20261115-main-0b37fbe5e1d2
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Shuah Khan <shuah@kernel.org>, Wei Wang <weiwan@google.com>
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- linux-kernel@vger.kernel.org, guyt@xsightlabs.com, 
- Alexey Skidanov <alexeys@xsightlabs.com>, 
- Lior Yizchak <liory@xsightlabs.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794747829; l=1543;
- i=alexeys@xsightlabs.com; s=20261115; h=from:subject:message-id;
- bh=+HHsLPET6WB6VgqdrP9TIelZlMYJuT8XLUrUt8UuqfA=;
- b=vVXw9si6EHE39Eo2dXea6LyskLSwuKQn3lHCXtuRRoLGUziB4aoRDjPgOp+NV7p3TzDUs3tu5
- g/A3NOSYmkgD2g/WBTPcfCZDxW5rub9IeXDMvfNx86udW9Ok7PKo00K
-X-Developer-Key: i=alexeys@xsightlabs.com; a=ed25519;
- pk=ve3muo5qeQ0fgK78LFE9NWqGShBLIHZrMBKOM0exhfY=
-X-Endpoint-Received: by B4 Relay for alexeys@xsightlabs.com/20261115 with
- auth_id=1532
-X-Original-From: Alexey Skidanov <alexeys@xsightlabs.com>
-Reply-To: alexeys@xsightlabs.com
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 
-From: Alexey Skidanov <alexeys@xsightlabs.com>
+Compile tested with CONFIG_RDS CONFIG_RDS_RDMA CONFIG_RDS_TCP CONFIG_RDS_DEBUG,
+the kernel builds with or without CONFIG_SYSCTL.
 
-data_basic_send_netkit_psp_assoc() runs for PSP versions 0-3. The
-non-netkit data path already skips versions the device does not
-advertise in psp-versions-cap. The netkit path does not, so those
-cases fail instead of skipping.
+v2: rebased on net-next/main, added the acks from Allison (thanks!)
 
-Version 0 stays mandatory. Skip an unadvertised version before opening
-the PSP connection.
-
-Fixes: 43cf629700fa ("selftests/net: psp: add dev-assoc data path test")
-Signed-off-by: Alexey Skidanov <alexeys@xsightlabs.com>
-Signed-off-by: Lior Yizchak <liory@xsightlabs.com>
+Oleg.
 ---
- tools/testing/selftests/drivers/net/psp.py | 6 ++++++
- 1 file changed, 6 insertions(+)
 
-diff --git a/tools/testing/selftests/drivers/net/psp.py b/tools/testing/selftests/drivers/net/psp.py
-index c114d2245135..7c8fb2200b39 100755
---- a/tools/testing/selftests/drivers/net/psp.py
-+++ b/tools/testing/selftests/drivers/net/psp.py
-@@ -728,6 +728,12 @@ def _data_basic_send_netkit_psp_assoc(cfg, version, ipver):
-     """
-     _assoc_nk_guest(cfg)
- 
-+    # Version 0 is required by spec, don't let it skip
-+    if version:
-+        name = cfg.pspnl.consts["version"].entries_by_val[version].name
-+        if name not in cfg.psp_info['psp-versions-cap']:
-+            raise KsftSkipEx("PSP version not supported", name)
-+
-     # Enter guest namespace (netns) to run PSP test
-     with NetNSEnter(cfg.netns.name):
-         cfg.pspnl = PSPFamily()
-
+ net/rds/ib.h        |   1 -
+ net/rds/ib_sysctl.c |  33 +++++---
+ net/rds/rds.h       |   5 --
+ net/rds/sysctl.c    |  26 ++++--
+ net/rds/tcp.c       | 230 ++++++++++++++++++++++++++++------------------------
+ net/rds/tcp.h       |   2 +
+ 6 files changed, 168 insertions(+), 129 deletions(-)
 ---
-base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
-change-id: 20261115-main-0b37fbe5e1d2
-
-Best regards,
--- 
-Alexey Skidanov <alexeys@xsightlabs.com>
-
+base-commit: 6964ff21c5d8b75649211a52dbfd92753e605649
 
