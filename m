@@ -1,102 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.38
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794757611;
-	b=wYcT+SVJrp2cXUlPOda1YTP2rmwMCOnOjoqSRZU94cBk6rJVyzD6jKRDruyMXqpWQ4/q
-	 kSyzthJnH+c+qUa9JR1E0gkdIjDi9DXMK92ZAfoiu2OiIE+1boPmUu4+F23R/sPbXWvNP
-	 EiksZqFZfjWBct3hhQBc4FjDXxJCg+EmNvfORA19GqUjSUvZ8UwB60M/MUVOYz5ke7QFP
-	 IMq0jRqOm9ES8cfPWBBBonbfUjIo2KKFPqxp/Y8WXZFvasTLtl+BAwpzdtXbqJRIp9VhA
-	 JqGdEYpRUR7kYOmVnjTo6x8HJkb6Plkx94HMKkx1Nhgi5I3HatzT8tCtgLIx8slcGsA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794757611;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=XgFVgtZJKwd0/J16bgpaB5ANWZ4t9GVYEDengX8O708=;
-	b=3nQwe5IDacpZ+CqrKen4cFtreBzmrC+gwUFMynXiYN2ilOVZLDMZejqFVs03OSOGlc45
-	 j5oDBJvDmbE9Y9s+hXMNnuNapGfKx4GCgObUucP171ERHvgD8Etx3lx1fyiVTxBeZwso1
-	 ESdREeB7+ScMR95+KI4nhg4tq2WffdGHkrl+m90wI07MHR1zQJFTYciukc1VHf6itc25L
-	 9nSOjv6O1gvLkyEaC1fJt88PJawOAHoPOgXI4dBtKeT//ii3mLsfZ0ETa+XWbREet3+oe
-	 QDeSdPIETrPEDOJQT5srhfZuvTUL9UsiXjoDWeNqjfz9zJWm4rUndN0nOJ7lr6/tGrQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="iGv8ml/t";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.38
-Received: from PH0PR06CU001.outbound.protection.outlook.com (mail-westus3azon11011038.outbound.protection.outlook.com [40.107.208.38])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794757652;
+	b=Yglm5Qcx5XOWzd8+RSvzKCX44tfcuYJ57ZlY0DyZRSNvxsspf1agYl4Rm7Xmty3JrsRO
+	 ok61UYsScSAYHrQlmdC/ykwZWn/mrZKvkhfJMNKn9RjSFx2Oz6c4GdJvwLA+fHGXIFey0
+	 UgTLs4VzcqifzjFoH6/MQTBBSn2dp7cPuieJ7qn2s/myYTEP11JvHPrbOLJbfCNZbpapA
+	 yCmC3QP4hsKQnNQV+0Fv9v+i/xfQ0Xhx8GS5JCxmluYwikrnrK4xBzQGtrnfTGTROMj6X
+	 gfuOyLI7n6ZS5hALNu5juJ0qcoPeIdIDjYms2ymbjJpBGHTYkk5kcUIuFYD0njKa7Ew==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794757652;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=ssC+l7FHTZNvjshh4+FS/k6nvNfv//7Ip2k4X6XbrQg=;
+	b=fQ92xgGaZHgCohPl0qhI1Y6gpwblYhFPIJ95CIROMVUp6DjHfnsDUEf8LcyNUK2DEjYp
+	 2s7rqNZBI2rK5F3OmMndbI0/YJnlXJzcl0kEY8RUMLMYfY5fxZcEdYFtmA4KxIih3x1qr
+	 qdWxUq1vwrqD5wMhA/phavP/EAvvyKIDrkxzo1hXvab9FVaBLv3wD+up4pw36ij9S1VoG
+	 tlxUJXg0aOQu62jRE7hgpdMePFRk++Ysmd8VK0iS+9yjFS8aXISa1Gw/Yk4aJxflaK8tp
+	 a6be5S2R9Q8l5ODVu3o0trYiDmNtO0jTuZxbhvNc2N1W7Jo6qF5MWJ+SGDhol3qso6A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bBnDOjBI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3921F606A31D;
-	Sun, 15 Nov 2026 15:46:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3921F606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07D62606A31A;
+	Sun, 15 Nov 2026 15:47:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=iGv8ml/t
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EE61sxprMzk/mWM6070x0iEyhCRlH30mftQG5v5V1TreElcPO45o8YMJCzEIIUQJRoCDIpI45VwFPZRbmnPVvyTn0B5R1qfJvwV5XdgboIXPsMu8SVdN38Ie8CWhwlUPi4+REBfYlrYlHgikg8VqAQchrfwkbJKyf1XUNZyPhiwlMASFbHHZklwooB4lYLF8YbUityxYan9efigidYhnoAB0i/CyLgf20HaVPcQCSQJXDfuPeapoTXlPnibur0JeWcpFsydWXxAXjPgXkN8sexXAMZtAZtruRzZauQq/XVxVeTvXjV4agqIvdrmZoaWpVWRlo+u6iE+jjWpiiiNh2A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XgFVgtZJKwd0/J16bgpaB5ANWZ4t9GVYEDengX8O708=;
- b=xUztpdbThU6QLzUjowCKH3RSE8ifY0nXNTkUmgvBSHR4pdsSkjEjXlLHTFRSTeMEEI22FBYBG6GV6aK9Bs4SKbnmFVK3QCWcVD6gfTPj1bKde7nJg2cjzv+a4qbPVVp29Jc2RM1zj2AmeCUcofx/JQ86CFUL6tFK+oErck1oCHmE70g4zJemL2N71F83zfSffzeyutUZNb6pD8MdFbx19euqozH7A3uCe6qh91oYia9l0gp8CJw2ePtp0g4S/r5YUsBnCUe1yGvS4w0y/eesThAutrsw8WPPriySgZ8MyiqdHhQZWw+yb/Ta2pcK/fB5D2tv8f41lJYroUVtG8G+lw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XgFVgtZJKwd0/J16bgpaB5ANWZ4t9GVYEDengX8O708=;
- b=iGv8ml/tg97cugoJ73pR8wvuxEqMle5pD5wGaB5jAUWz580rrhCmjDjTcojIRK8l0AXqZu7UqgdWY+FhEb0mbbgC6dD01/67kGrgN/JTPfM8/Ivo/du7wilqtAZMGVCxsNGNBfmGM4BBlSgjtW7CYdrQ+zsQjADuBgOLSG8W00KmTH7CaBvuKZ49tpzW7x3ZGVkYNzmyZ0SLIqqrwSbSh8W4vrIeAPLQmDK8bo1ZAjzNW3yavrddaI3YVOYHHoPC5jUS57RpYkF97aA+PGdhRAix4H5QRzToPqRkRkTDrc/7uvyW/WByey01a15q/U4RZPyvNP1Dvmk7kQWdP3ZP2w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
- by SJ2PR12MB9164.namprd12.prod.outlook.com (2603:10b6:a03:556::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.10; Sun, 15 Nov
- 2026 15:46:47 +0000
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0615.009; Sun, 15 Nov 2026
- 15:46:47 +0000
-Date: Sun, 15 Nov 2026 17:46:39 +0200
-From: Ido Schimmel <idosch@nvidia.com>
-To: Leonard Lausen <leonard@lausen.nl>
-Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-	Shuah Khan <shuah@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2 1/2] ipv6: honor prefix-length suppression in raw
- FIB lookups
-Message-ID: <20261115154639.GA4121811@shredder>
-References: <20261115114434.10343-2-leonard@lausen.nl>
- <20261115114434.10343-4-leonard@lausen.nl>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261115114434.10343-4-leonard@lausen.nl>
-X-ClientProxiedBy: MR1P264CA0110.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:50::19) To LV8PR12MB9407.namprd12.prod.outlook.com
- (2603:10b6:408:1f9::13)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bBnDOjBI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01E9D1F000C4;
+	Sun, 15 Nov 2026 15:47:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794757651;
+	bh=ssC+l7FHTZNvjshh4+FS/k6nvNfv//7Ip2k4X6XbrQg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bBnDOjBI5rEpcIDxpLhV1OI9mZbML0CcNkvS1nKwGqiQqWn3z31/EXGwmqRp0YUAT
+	 zPaituEts5BfK//OsZlPUbhOiAfFfxluDU6BqKCd2FdtH0a0XPY7amcE4EF9VU7LWV
+	 TDgjZyRq/6l3pA6VW2a7+akXKbYDtqJ27stWVlOSQ6yHgPjytosqs36Gq3wi7nbwLU
+	 rKVQdSq53X8Ckej8GC1I+pHU4t5Pl1mqrlTuxNyzA4OtcELSMGwWCbfSItKVZOqZl3
+	 QIqf0FnJjl1Xry4YNM7JBR+4J9+goB0KLLgFD5dUUxFOyngCO1grbkHGJMHcz/b4JZ
+	 wpac5Pdp8Pt/A==
+Subject: Re: [PATCH net v4 1/3] net/sched: sch_teql: unshare the header before
+ writing and fix retry strip
+From: netdev-bot+sashiko@kernel.org
+To: jhs@mojatatu.com
+Cc: netdev@vger.kernel.org, victor@mojatatu.com, jiri@resnulli.us,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, stable@vger.kernel.org, sashiko-bot@kernel.org
+Date: Sun, 15 Nov 2026 15:47:30 +0000
+Message-ID: <179475765049.2199510.14948882455046575190@kernel.org>
+In-Reply-To: <QDISC-6HS9.v4.r0.20261111094338-1@mojatatu.com>
+References: <QDISC-6HS9.v4.r0.20261111094338-1@mojatatu.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,178 +63,159 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|SJ2PR12MB9164:EE_
-X-MS-Office365-Filtering-Correlation-Id: 22e6bfd1-e951-4428-d60d-08df432fa815
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|1800799024|366016|23010399003|10067099003|11063799006|5023799004|4143699003|56012099006|261021123027099003|261021121427099003|261009223027099003|261102123227099003|261026140227099003|261022105027099003|261022075727099003|261026121527099003|261028144727099003|20052099010|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	rDkP8eLVVTQyeAI7Fh7HpkyKE74NBSiVihhfvQYdK3kEwVHKLz237H1xBiiG2iglVyafDpgOcGTKHYGmL6cthKlG/nvICqOs+ZyqqjQXqdKWz0YKaeunENN/pU5h4F6ozFGMvIU5IWA7HN6ZOPeAYtIJ3B389cn2GnAtJtkoSFfAytmxrOtjWmDaevyCFU5Nc3gWX2Z3IO6tviUO3DNBQjbx7T5zWGHAymNq59rXW/TexnzniGG7yNxo40k9H0KoxyXl0RjrnYgBwpVeLjJ8910Y9dVTe/qYCEMHfTyohSFARJtdl5UJEHajIVNyzikN79pg0J8Q1NP5Jz9T+/xTOpXO/y7ZetA7nQ9WM+OlSmSiZxcbDu/76mBKRBVQ3GEZvCJ5VVMKcEDqrTnBqPnSqMMPdehrepHbJlo0TZ/M51NOP0le8r5cmYLawUu2rH7X7OEg08b/w1zPeT8bPxV+dmSgzvhC3Oh1C5zrb6KBDY9nFnh4FQSmtb6vdQSwdeQgOIVockSv5ITMI1RYPRsLhe/wnQhJf8cz6POzlLtCBHJcCL8YDZHH5Gw+tNBK6cFtnQWS9MDG5NUf/EtIhTNigt6nOLjomFSOTqT4EGJ+jDlxUmkQR8uGMS/6kXIv3dXoS7IzvTEDYl0wS5sprulWldzre2EYKOCO2rR8yELfJgk=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(23010399003)(10067099003)(11063799006)(5023799004)(4143699003)(56012099006)(261021123027099003)(261021121427099003)(261009223027099003)(261102123227099003)(261026140227099003)(261022105027099003)(261022075727099003)(261026121527099003)(261028144727099003)(20052099010)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?SzVSTZc7Y6F5bixiby+P7ds6XQTexv0Jfs2xl82gzSB4zEfqpTpmS+GMFYiH?=
- =?us-ascii?Q?zXG3k7tRnEeKsXJwjLtGxa+ua7GyDCYjHPwclyRS+itvNhtgv/PfyDiqZDM8?=
- =?us-ascii?Q?Jyf1o7egc1HID8ka8VvVZ6Vb0gJnTtmmGJ6WQ2ZtzBgCmOW1lkJY1ViJOcQH?=
- =?us-ascii?Q?3bGO9GnpLS42z+KBXzmEnkEzmf1SApPpPLRGkymKPQ+xMpWKboKeTsgAdpQ/?=
- =?us-ascii?Q?MHrJNipbEgBdVYcvTNT4KuLwgLwZ5T6LZOhgwrdHcXC1+7mZidxHMvgsxQz9?=
- =?us-ascii?Q?gffPJm33uDvsz4RQOlpU28d83QYOE4pis2vM5Nkh+455t+WNtvNjivSWTLXF?=
- =?us-ascii?Q?GtoXQT3Iss6Ejzs0JTLqWfqAKeIwR3aO6bZz4AoxlRUYmSqo3v6f9a9ei8nB?=
- =?us-ascii?Q?iFmAQjwPoMdkRIozX0+FwgMhBu7fMeuSXPC0U5dGeDskvsAMfJlNXQjUcW5Z?=
- =?us-ascii?Q?iCuDA9j6q0W0HVaZzPawUIa7TsWM5HVKRXqc1InD3sSASoCSlpuS2GYyHhVS?=
- =?us-ascii?Q?d12/8YAyrCenftAg7rWUCjHyDeCbFnVEhA0PNLz144rcXpjPhY3jPuHqDfqk?=
- =?us-ascii?Q?YpXEZkSajzBBLXSN4rNlG/OHzQ/VanaUQN/JiMPxDMl077jmWZM+yJxbkJVx?=
- =?us-ascii?Q?hMOWnW2K6TLtWdOW9Ehc9Fd3yhbNgbcdqfbM9ATOCTV8ODANWY4NgObQ0mnR?=
- =?us-ascii?Q?NIqowBy2aO1CUP9o4TM4iDodVNGrViLOIHRJXk2OZcQPga7St5uR2+S5A7oG?=
- =?us-ascii?Q?+/ng8uZ+ZbxRgdi8swHU3NmpusDst925hrjlNTnEw08yTqDgouCIzMhkXjW0?=
- =?us-ascii?Q?DXO9ITGLRSvSWoqBEQyRkL6Vz4c9RSQ5z7Lo6E81hQu4GxKcxAfO7hCV3jvo?=
- =?us-ascii?Q?mV2j4XcxaW2FiR+VHoSz4cWdjfw522Q6FIY8pql+kGiQgYO7h2EkIQsh29O/?=
- =?us-ascii?Q?jnBHhtaYnhuqfv93KWVQfMILVa3iEUGa/Cy/vVt0Zn00C6nJxoy6ifJn+jn4?=
- =?us-ascii?Q?GY2KPQj6sk0z/HrBef8jS4qOlFPvbiONPGmDGz/tbo47h/uftcHNKEP1yNbu?=
- =?us-ascii?Q?xy4Da7EHz6/t7Jd4HJwZOoQ6V2w4UHtZtpNp9v5YIkoo/14B9m4MWG188xI3?=
- =?us-ascii?Q?2BVjPoQJHHlWD1g8TsseOENW7dsU1w1Rial3JPDMa7ND4yFyOKm7xyNpKXDy?=
- =?us-ascii?Q?7zmTkKD6pPWOc7qoKS08Vx3lsyBsR++Q+BpsECdeFKTb/Kq5qc+xXopVqgaB?=
- =?us-ascii?Q?k9XhWlWFbcTLu153c9CN+Rxlpl+d9eY/Sn1tsf1NVFz/KgE2Luu49EpnQZXs?=
- =?us-ascii?Q?MfjkGeK7nLfkbfvA+PK1zfMxipF/muYnN55he+OSC+JDCPDHHT86ICLrf9zH?=
- =?us-ascii?Q?TiQsm8pprFx1fAAWfW7tIFCr99gaePss8JBPUjNU2bbtGxqY/PU64q+AsGxj?=
- =?us-ascii?Q?tXblBS5mnPxnGor4kcQra2oNmKnnH25816UTEqFQH9M6l7Lq8dlQqi9tmeG4?=
- =?us-ascii?Q?XhxMuiqEOlEZACf+ogtUM/9ezDQFHvYZUsVNITbR1+CUjxQGEfgmJgcq0l77?=
- =?us-ascii?Q?ZWJD23sqxp/UB37aL3jpx8y4FYcMVNg6dRhGIkvdiy0n3tzsXZTKVnYELMzn?=
- =?us-ascii?Q?BZK3tPmbZcvmD4t+hHj9XWd8use3vQEr5pinelxyvBB8Wh1EJsz6OqfDDUua?=
- =?us-ascii?Q?MVP5SVxQlCr0oDbiGxDDyGV1En+z2PK4OLP/fLGBJtiP2dRL?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 22e6bfd1-e951-4428-d60d-08df432fa815
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 15 Nov 2026 15:46:47.4889
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 3113TvLNSWv56b0PNAtRz7txxgrbfa48zYMaLYAlSutdUsbUylp+/5+yz+AmoE3f70cqn7o/S/UI3AF6444Qyw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB9164
 
-On Sun, Nov 15, 2026 at 11:44:32AM +0000, Leonard Lausen wrote:
-> IPv6 raw FIB lookups populate f6i and nh in fib6_result, but not rt6.
-> fib6_rule_suppress() only examines rt6, so fib6_lookup() ignores
-> suppress_prefixlength.
-> 
-> With a policy rule that suppresses the main-table default before looking
-> in a VPN table, an ordinary route lookup selects the VPN while an nftables
-> FIB lookup returns the suppressed default. Strict reverse-path filtering
-> can then drop replies arriving over the VPN.
-> 
-> For raw lookups, evaluate suppress_prefixlength against the FIB entry's
-> destination prefix length. Preserve results marked RTF_REJECT: raw lookups
-> can return zero with a rejection encoded in the result, while dst-based
-> lookups return an error and skip suppression. Check the result flags so
-> blackhole nexthop objects are covered as well.
-> 
-> Keep the dst-based path unchanged. Raw suppress_ifgroup handling also
-> remains unchanged because the table lookup's nexthop need not be the
-> final multipath selection.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Never heard of "IPv6 raw FIB lookups". This commit message [1] is easier
-to understand.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-BTW, I think that fib6_rule_suppress() should always work on the FIB
-entry ('rt->from') instead of the dst entry. Currently, if the default
-route has an exception for the destination (e.g., via PMTU), then the
-default route will not be suppressed since 'rt->rt6i_dst.plen' is 128.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I will add it to my TODO list. This patch doesn't need to fix it.
+- [Medium] The fix leaves a gap: `skb_cow_head()` in `__teql_resolve()`
+  (net/sched/sch_teql.c) only runs when `neigh_event_send(n, skb_res) ==…
 
-> 
-> Fixes: 138118ec96cb ("net/ipv6: Add fib6_lookup")
+--
 
-Should be:
+net/sched: sch_teql: unshare the header before writing and fix retry strip
 
-Fixes: 1c32b24c234b ("netfilter: nft_fib_ipv6: switch to fib6_lookup")
+This patch calls skb_cow_head() in __teql_resolve() before
+dev_hard_header() writes the slave's link header, so that a header-cloned
+skb does not corrupt the other clone. It also records how many header bytes
+each slave added in teql_master_xmit() and pulls back only that many on
+retry. As a result, an AF_PACKET frame with no dst keeps its user-supplied
+header.
 
-The tag should point to the commit that introduced the regression.
+Link: https://lore.kernel.org/netdev/20260824115928.4099988-1-victor@mojatatu.com/
+Link: https://lore.kernel.org/netdev/20261110101908.2e64e8e9@kernel.org/
 
-> Link: https://github.com/firewalld/firewalld/issues/1600
-> Assisted-by: LLM
+> diff --git a/net/sched/sch_teql.c b/net/sched/sch_teql.c
+> index dc21cd9704a25..3f781a3ffb41a 100644
+> --- a/net/sched/sch_teql.c
+> +++ b/net/sched/sch_teql.c
 
-Please remove this tag. See commit 1e035297ffda ("docs: remove
-Assisted-by references").
+[ ... ]
 
-> Signed-off-by: Leonard Lausen <leonard@lausen.nl>
-> ---
-> Investigated with AI assistance after VPN failures. Reproduced on
-> unmodified v7.4-rc2 and verified with nft_fib.sh on the rebuilt kernel.
-> 
->  net/ipv6/fib6_rules.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
-> 
-> diff --git a/net/ipv6/fib6_rules.c b/net/ipv6/fib6_rules.c
-> index 0ffd7b47a046..ceb4180bcf2f 100644
-> --- a/net/ipv6/fib6_rules.c
-> +++ b/net/ipv6/fib6_rules.c
-> @@ -283,9 +283,16 @@ INDIRECT_CALLABLE_SCOPE bool fib6_rule_suppress(struct fib_rule *rule,
->  						struct fib_lookup_arg *arg)
->  {
->  	struct fib6_result *res = arg->result;
-> -	struct rt6_info *rt = res->rt6;
-> +	struct rt6_info *rt;
-
-Unnecessary change, please drop. It also breaks reverse xmas tree:
-
-https://docs.kernel.org/next/process/maintainer-netdev.html#local-variable-ordering-reverse-xmas-tree-rcs
-
->  	struct net_device *dev = NULL;
+> @@ -293,15 +293,24 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
+>  	}
 >  
-> +	if (arg->lookup_ptr == fib6_table_lookup) {
-> +		/* Raw lookups report reject routes without an error. */
-
-/* fib6_table_lookup() returns 0 for reject routes. */
-
-> +		return !(res->fib6_flags & RTF_REJECT) &&
-> +		       res->f6i->fib6_dst.plen <= rule->suppress_prefixlen;
-> +	}
-> +
-> +	rt = res->rt6;
->  	if (!rt)
->  		return false;
+>  	if (neigh_event_send(n, skb_res) == 0) {
+> +		int off = skb_network_offset(skb);
+>  		char haddr[MAX_ADDR_LEN];
 >  
-> -- 
-> 2.55.0
-> 
+>  		neigh_ha_snapshot(haddr, n, dev);
+> +		/* Unshare the header before dev_hard_header() writes to it. */
+> +		if (skb_cow_head(skb, LL_RESERVED_SPACE(dev)) < 0) {
+> +			err = -ENOMEM;
+> +			goto out;
+> +		}
+>  		if (dev_hard_header(skb, dev, ntohs(skb_protocol(skb, false)),
+>  				    haddr, NULL, skb->len) < 0)
+>  			err = -EINVAL;
+> +		/* The bytes prepended above skb->data, pulled back on retry. */
+> +		*hlen = skb_network_offset(skb) - off;
+>  	} else {
+>  		err = (skb_res == NULL) ? -EAGAIN : 1;
+>  	}
 
-[1]
-ipv6: Honor suppress_prefixlength in fib6_lookup()
+[Severity: Medium]
+The skb_cow_head() only runs when neigh_event_send() returns 0. What
+happens to a header-cloned skb that takes the else branch instead?
 
-When custom FIB rules are configured, fib6_lookup() performs the lookup
-via fib6_rule_action_alt() which calls fib6_table_lookup() and only
-populates the f6i, nh, fib6_flags and fib6_type fields of the FIB
-result. However, fib6_rule_suppress() only examines the rt6 field, which
-is only populated when the lookup is performed via one of the callers of
-fib6_rule_lookup() such as ip6_route_output(). As a result,
-fib6_lookup() ignores suppress_prefixlength.
+Suppose every slave neighbour is unresolved on the first pass of
+teql_master_xmit(). Then neigh_event_send(n, NULL) fails, teql_resolve()
+returns -EAGAIN and nores is set, and no unshare has run. teql then
+restarts with the same skb as skb_res:
 
-This was not a problem for nftables until commit 1c32b24c234b
-("netfilter: nft_fib_ipv6: switch to fib6_lookup") switched the FIB
-expression from ip6_route_lookup() / nf_ip6_route() to fib6_lookup().
-Since then, with a rule that suppresses the default route in the main
-table before looking up a VPN table (as commonly configured for
-WireGuard), the FIB expression returns the suppressed default route
-instead of the VPN route. Strict reverse path filtering then drops
-replies received over the VPN.
+teql_master_xmit() {
+    ...
+	if (nores && skb_res == NULL) {
+		skb_res = skb;
+		rcu_read_unlock();
+		goto restart;
+	}
+    ...
+}
 
-Fix by evaluating suppress_prefixlength against the prefix length of
-the FIB entry when the lookup is performed via fib6_lookup().
+On the restart, neigh_event_send(n, skb_res) parks the skb on the slave
+neighbour's arp_queue with its header still cloned:
 
-fib_rules_lookup() only invokes the suppress callback when the rule
-action returns 0. Unlike __fib6_rule_action(), fib6_rule_action_alt()
-returns 0 for reject routes and instead sets RTF_REJECT in the result.
-Do not suppress such routes so that they continue to terminate the
-lookup, as with ip6_route_output() and IPv4. Check the flags in the
-result rather than in the FIB entry so that blackhole nexthop objects
-are also covered.
+net/core/neighbour.c:__neigh_event_send() {
+    ...
+			skb_dst_force(skb);
+			__skb_queue_tail(&neigh->arp_queue, skb);
+    ...
+}
 
-suppress_ifgroup is not handled since fib6_table_lookup() does not
-perform multipath selection and the nexthop it returns might not be the
-one that is eventually used.
+The usual reinjection path is covered. The skb's dst resolves to teql0's
+own neighbour, whose output is neigh_direct_output(). That re-enters
+teql_master_xmit(), where the new skb_cow_head() runs.
+
+However, neigh_update_process_arp_queue() can fall back to a different
+neighbour:
+
+net/core/neighbour.c:neigh_update_process_arp_queue() {
+    ...
+		n2 = NULL;
+		if (dst &&
+		    READ_ONCE(dst->obsolete) != DST_OBSOLETE_DEAD) {
+			n2 = dst_neigh_lookup_skb(dst, skb);
+			if (n2)
+				n1 = n2;
+		}
+		READ_ONCE(n1->output)(n1, skb);
+    ...
+}
+
+This happens in two cases:
+
+- The dst became DST_OBSOLETE_DEAD while the skb was parked (for example,
+  a route delete that ends in dst_dev_put()), or dst_neigh_lookup_skb()
+  fails. Then n1 stays the slave's neighbour.
+
+- In the tc-mirred setup from the commit message, the dst belongs to the
+  physical device, so n1 is that device's neighbour.
+
+In both cases neigh_resolve_output() writes the link header without
+checking skb_header_cloned():
+
+net/core/neighbour.c:neigh_resolve_output() {
+    ...
+			__skb_pull(skb, skb_network_offset(skb));
+			seq = read_seqbegin(&neigh->ha_lock);
+			err = dev_hard_header(skb, dev, ntohs(skb->protocol),
+					      neigh->ha, NULL, skb->len);
+    ...
+}
+
+Can this overwrite the link header of the other clone, such as the mirred
+original still pending on the physical device or a PF_PACKET tap clone? In
+the mirred case the bytes written are usually identical, but they differ if
+the lladdr changed in the meantime.
+
+The commit message says "a header-cloned skb is unshared before the write",
+but the arp_queue handoff does not seem to be covered.
+
+The later patches in the series don't add an unshare on this path either:
+
+- "net: neighbour: reinject a parked skb through a headerless output
+  device" only rewrites skb->dev for a headerless n1.
+
+- "net/sched: sch_teql: keep skb->dev consistent on the arp-queue path"
+  only moves the skb->dev = slave assignment.
+
+Would it work to call skb_cow_head() before neigh_event_send(n, skb_res),
+or once at the top of teql_master_xmit()?
+
+> +out:
+>  	neigh_release(n);
+>  	return err;
+>  }
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v4.r0.20261111094338%40mojatatu.com
