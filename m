@@ -1,61 +1,89 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794722859;
-	b=i+BvhvgqjGlclKe4B4ebHIMTanvepI9Z3KyNApFBfftygSFTqtc5i2SITXZVs6n0TWba
-	 fgBTOlNTrJ91bkMR/xVvgYRc4BIL/5OQwsFPobO1r9OY1gfZBxFtx2PSejSu71ZJ52hkh
-	 Q71l9nvY+wNqgjWUaoA7bOIcHDAO9j6cYXj2ix8jjwrYnNClXFTrcQDY1w7F7qPvR1ku2
-	 BGGaTHED2o8EnXk6Zg1chVRZQ7xZ/xaUgjt9sSDA2avulqJGXoX4cwZCdksKflTHwqd6Q
-	 9QqN1eEMy7FnCzTr8NDsZ9hkeofbsi+BQyng3aPNJUjXrhBcTl1LnEUTB0bbqmksZqw==
+	t=1794724744;
+	b=RfPXdTfAIy1ysjOFvtCTRQMxC+F3xOpE4hDmDl8rVT57PkmAljINPwPslLJGny4jBQCt
+	 eJhagj1Ge7cZZe0fxwGj8K8Xu2yazP7Gfpj03cJtkXUI3NBXM/DlB0QLA0IJhixNbBwjB
+	 mZaPefrO03klqZZk3fBQ5lPo3nN4C8/OZbq8axuE0wOyZjJ3FKc2MIgAmoQXCIgJNweNn
+	 Ai5W3gLl1eMXuxRTj3qqwVmVZJ6MQOuNU6uWF5ucCyOTVlfRTTDGD9BIzrMqznQE++/TE
+	 TV39guLR/nF1vFv2UhTy6olzozYW8q9xiOtLodUNl+4WYJAaUAVDKGv6hBkXITKA6dA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794722859;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ZdGWU1xDsfsW7sNtgyXBAi046XdVD06gOAW+d954Fvw=;
-	b=N+grmT/N/kPI43+8gTUYHZs18XijYmDFQ+qZNNTNeUVCyV7Bi+OLeRC0ZCpjJTXBkO4L
-	 T0VLtB+ooTPZXZ56aI8JHIPfRvaX5SGckJDQYQbVzQY8Uai8F/5pNAL8NOjIMhVYxwtgt
-	 ISiKMOwH7F4MV5YArF9os7Ip5FSvTQf4YDhm7q87Yt+RFmj14PYeoqCR7e56y23n8qc5g
-	 ZwBx508F1puPt5wn4N31w4Jm1fvIh36hjhS3Gs1h9B+lsyTm8LJyg9u/IME3k33Ji7HbM
-	 CtOTSQPwHzYsGlxRtGfDI84SJGBEZ2fsIpKZ5JZ9LPw4+HDhSV8FnnzU/nL4dl8RibA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794724744;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=5uzNQjIqKu1Z5H5h4ULFcPsML/9M2qNB6yySUHBpd2Q=;
+	b=h/AP1EZHYqg1tUtXFrQDnze6+q1cmHPahHxpMrVoJED9C10jFUDrV+eTss2V+6e5Txo4
+	 uOtWg177eJ0EYJe3dNwCCMRkmcUdsrobpGfqTlGMbEV4fohtS5UrR9fnNWmDK7yiQKVSo
+	 lvXyluqIVz4JMkc15So0HpwtGomN7fS/5lCGSELj0kYIId9RfS2tDeV6eqBWc5dX+IEW3
+	 vJt/2AI2Tb7/xkrdWLn8j5QdiSbjFlOi02IpXFjszjANEkVaz0SeVJP4qM9YGASjJj+uF
+	 84fasrzTtew0nqHJb1nxrkIZORmmCKztn6nAvhCEDxjWL+1U7gyT/fNoFkBfW5wjJLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fCicJp5/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XY6g0QDN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85348606A323;
-	Sun, 15 Nov 2026 06:07:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06DB7606A323;
+	Sun, 15 Nov 2026 06:39:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fCicJp5/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FAF21F000C4;
-	Sun, 15 Nov 2026 06:07:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XY6g0QDN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FF9C1F000C4;
+	Sun, 15 Nov 2026 06:38:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794722859;
-	bh=ZdGWU1xDsfsW7sNtgyXBAi046XdVD06gOAW+d954Fvw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fCicJp5/S2leanAXVxExUMcrj2N5Jxq4uTRUvLk5AzCcWAZj7kuFBAki1wK0Da31R
-	 N0fKdPUvXAd++kMWpNZWOQe+qBeUN2JYsH58kO6g/L46VsLlVSv3N5BPmo97oOc3PE
-	 sKrPfXwqv00+sd/1+KPngdbe9mBkIbN2BAA+PjNomsOUD6dix4d6V055o9hzYIom4/
-	 v7ELF20lNQInUR26YgIRUMPr72Ir0+A559rJKNfpXIxW888pHNi2R3tQeE/mMZlsVL
-	 B4l10C++BGzMkwQyGR3Aue3+uQVFiYRcWt/36JA8Ie63R9WilunVyQlUecshF//t8v
-	 imT91m0bxLqOQ==
-Subject: Re: [PATCH net v7 2/6] amt: fix use-after-free when a Membership
- Update re-arms a freed tunnel
-From: netdev-bot+sashiko@kernel.org
-To: omar@blockcast.net
-Cc: ap420073@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, horms@kernel.org,
- bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
- linux-rt-devel@lists.linux.dev, kuniyu@google.com
-Date: Sun, 15 Nov 2026 06:07:37 +0000
-Message-ID: <179472285784.2199510.18288706993986643464@kernel.org>
-In-Reply-To: <20261110210538.217936-3-omar@blockcast.net>
-References: <20261110210538.217936-3-omar@blockcast.net>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1794724743;
+	bh=5uzNQjIqKu1Z5H5h4ULFcPsML/9M2qNB6yySUHBpd2Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=XY6g0QDNlp+U9PsTjMW6Z7U+4AKhATHLs5He0CZN49f2Nu0bcao4bAPuuwEsft6FI
+	 TWnoj+VGBoUPTmb0EJCJXCsTtwSE0k13bv5Te+OZ5Acn6pVLSE5i/fhLT5QGKgwaOk
+	 Ucb2W6afh0Q1yzMIuWl0IoyL1xjTDc8J5WHHCJWlw82oKPLfFptJE13O1Ok9X62IyP
+	 xkoneXTm1OtIXF7WSDiXJH8M/fRN/bG7+qbjc7kJUeud8mWA9cz/xm6XTt15y1BZge
+	 qGkeMJ/mOBJIxREW4t6uml5kStkcI3+UGIwjK5RYkeEIMSPndyRf3R1y4lpuaoL/kN
+	 M2jExDr2sEOLQ==
+Date: Sun, 15 Nov 2026 08:38:46 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	"Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Dinh Nguyen <dinguyen@kernel.org>,
+	Donald Dutile <ddutile@redhat.com>,
+	Eric Chanudet <echanude@redhat.com>,
+	Heiko Carstens <hca@linux.ibm.com>, Helge Deller <deller@gmx.de>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Kent Overstreet <kent.overstreet@linux.dev>,
+	Liviu Dudau <liviu@dudau.co.uk>,
+	Luis Chamberlain <mcgrof@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nadav Amit <nadav.amit@gmail.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Philippe =?iso-8859-1?Q?Mathieu-Daud=E9?= <philmd@linaro.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Sam Ravnborg <sam@ravnborg.org>, Song Liu <song@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
+	bpf@vger.kernel.org, linux-arch@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-mips@vger.kernel.org,
+	linux-mm@kvack.org, linux-modules@vger.kernel.org,
+	linux-parisc@vger.kernel.org, linux-riscv@lists.infradead.org,
+	linux-s390@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+	netdev@vger.kernel.org, sparclinux@vger.kernel.org, x86@kernel.org
+Subject: Re: [PATCH RESEND v8 11/16] powerpc: extend execmem_params for
+ kprobes allocations
+Message-ID: <avlTdlK9ErlqVRYl@kernel.org>
+References: <20240505160628.2323363-1-rppt@kernel.org>
+ <20240505160628.2323363-12-rppt@kernel.org>
+ <3f7af771-87a7-4ae7-9919-bc4c23bd31c9@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,133 +93,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <3f7af771-87a7-4ae7-9919-bc4c23bd31c9@kernel.org>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hi Christophe,
 
-Critical: 0 Â· High: 0 Â· Medium: 1 Â· Low: 0
+On Fri, Nov 13, 2026 at 03:36:01PM +0100, Christophe Leroy (CS GROUP) wrote:
+> Hi Mike,
+> 
+> Looks like I missed this change ...
+> 
+> Le 05/05/2024 à 18:06, Mike Rapoport a écrit :
+> > From: "Mike Rapoport (IBM)" <rppt@kernel.org>
+> > 
+> > powerpc overrides kprobes::alloc_insn_page() to remove writable
+> > permissions when STRICT_MODULE_RWX is on.
+> > 
+> > Add definition of EXECMEM_KRPOBES to execmem_params to allow using the
+> > generic kprobes::alloc_insn_page() with the desired permissions.
+> > 
+> > As powerpc uses breakpoint instructions to inject kprobes, it does not
+> > need to constrain kprobe allocations to the modules area and can use the
+> > entire vmalloc address space.
+> 
+> Using breakpoint means the segment must still be executable.
+> On book3s/32 VMALLOC segment is not executable, while module segment is.
+> 
+> See commit 6ca055322da8 ("powerpc/32s: Use dedicated segment for modules
+> with STRICT_KERNEL_RWX")
+> 
+> See report and fix at https://lore.kernel.org/all/ed03d290d440d579a81ae0b7de5243721291d903.1794543909.git.ritesh.list@gmail.com/
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] This patch adds a parking stage for group nodes before they
-  are freed, and nothing enforces a limit on how many can be parked.
-
---
-
-amt: fix use-after-free when a Membership Update re-arms a freed tunnel
-
-This patch reworks tunnel, group and source lifetime handling in the AMT
-relay to close several use-after-free and double free races. Tunnel expiry
-now re-arms itself from a last_seen timestamp, and nodes are marked dead
-under tunnel->lock. Deleted groups and sources are parked on global GC
-lists, and once AMT_GC_KICK (2048) nodes are parked a drain is queued
-immediately.
-
-> diff --git a/drivers/net/amt.c b/drivers/net/amt.c
-> index 3a703b79f2c9a..fc3900e255ca2 100644
-> --- a/drivers/net/amt.c
-> +++ b/drivers/net/amt.c
-
-[ ... ]
-
-> @@ -106,6 +120,62 @@ static void amt_source_gc_work(struct work_struct *work)
->  	spin_unlock_bh(&source_gc_lock);
->  }
->  
-> +static void __amt_group_gc_work(void)
-> +{
-
-[ ... ]
-
-> +	hlist_for_each_entry_safe(gnode, t, &gc_list, gc_node) {
-> +		cancel_delayed_work_sync(&gnode->group_timer);
-> +		hlist_del_init(&gnode->gc_node);
-> +		kfree_rcu(gnode, rcu);
-> +		cond_resched();
-> +	}
-> +}
-
-[ ... ]
-
-> +static void amt_gc_parked(void)
-> +{
-> +	if (++amt_gc_queued == AMT_GC_KICK)
-> +		mod_delayed_work(amt_wq, &group_gc_wq, 0);
-> +}
-
-[ ... ]
-
-> @@ -266,10 +347,11 @@ static void amt_del_group(struct amt_dev *amt, struct amt_group_node *gnode)
->  		hlist_for_each_entry_safe(snode, t, &gnode->sources[i], node)
->  			amt_destroy_source(snode);
->  
-> -	/* tunnel->lock was acquired outside of amt_del_group()
-> -	 * But rcu_read_lock() was acquired too so It's safe.
-> -	 */
-> -	kfree_rcu(gnode, rcu);
-> +	WRITE_ONCE(gnode->tunnel_list, NULL);
-> +	spin_lock_bh(&source_gc_lock);
-> +	hlist_add_head(&gnode->gc_node, &group_gc_list);
-> +	amt_gc_parked();
-> +	spin_unlock_bh(&source_gc_lock);
->  }
-
-[Severity: Medium]
-Is there anything that actually limits how many groups end up on
-group_gc_list?
-
-Before this patch, amt_del_group() passed the group straight to
-kfree_rcu(). Now it decrements tunnel->nr_groups and parks the group on
-the module-global group_gc_list. Each parked group is sizeof(*gnode) plus
-256 hlist_heads, so a kmalloc-4k object.
-
-amt_add_group() only checks the per-tunnel count:
-
-	if (tunnel->nr_groups >= amt->max_groups)
-		return ERR_PTR(-ENOSPC);
-
-nr_groups is decremented before the group is parked. That means an
-authenticated gateway sending IGMPv2 Report/Leave pairs, or the MLDv1
-equivalents, parks one group per pair and never reaches max_groups:
-
-  amt_igmpv2_report_handler()->amt_add_group()
-  amt_igmpv2_leave_handler()->amt_del_group()
-
-amt_gc_parked() never refuses or throttles parking. It queues the drain
-once, at the moment the counter equals AMT_GC_KICK. A single work item does
-the draining, amt_group_gc_work()->__amt_group_gc_work(), with one
-cancel_delayed_work_sync(), kfree_rcu() and cond_resched() per node. With
-several tunnels (different source ports or addresses), groups can be
-parked from softirq on many CPUs at once.
-
-Can the backlog keep growing if parking outpaces that one worker? Two
-examples would be RSS spreading Leave or Done floods across CPUs, or
-softirq load starving the unbound kworker. The per-CPU kfree_rcu() batching
-used before had a shrinker. This list has no shrinker and no high-water
-mark.
-
-The commit message says:
-
-  the kick keeps the backlog near that instead of letting it grow for
-  up to 30 seconds
-
-Is that enforced anywhere, or does it rely on the drain keeping up?
-
-The lists and counters are also shared by every AMT device in every
-network namespace. Churn on one device grows the backlog for all of them,
-and it also lengthens the __amt_group_gc_work() drains that amt_dev_stop()
-runs under RTNL for other devices.
-
-Would a hard cap on amt_gc_queued, checked in amt_add_group() where groups
-are admitted, fit better here?
-
-Later patches in the series don't seem to change this either.
-amt_gc_parked(), amt_del_group() and amt_add_group() are still the same in
-"amt: create relay tunnels only from authenticated Updates".
+I'll take a look, thanks!
+ 
+> Christophe
 
 -- 
-Sashiko AI review Â· https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110210538.217936-1-omar%40blockcast.net
+Sincerely yours,
+Mike.
