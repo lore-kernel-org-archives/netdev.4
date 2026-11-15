@@ -1,79 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794706161;
-	b=SCQUZ+y16tPw2EclmrGlln1gJu2NHtNbucW1lhi/zbJHYr8vIio3rgTEA7zjaN8t9+Pe
-	 XwxTbHqrx0QYIF7yALhfUj0+UwAM5Vt3/dZcpASgAZ2VMKiCks05f/tGg8yijh4LKNJkr
-	 VrlVTpwYsW3dsEL08jCtBmNKJLnA7UwupZNpY1DooYggl6+gQe5Zlf+rHDPJPqONF3prU
-	 +mODsbuimkw7sYF8KJI6uReELQwZllSz5N+FXLSdli6D8x867RCaPungoTZ1dcxvqk2/i
-	 Z57TjWofIyF5cfj86lRcgaB0vySbBEw8ZRVWBN3ZyvgLwdM4PwjBmnZQMAWqaJYjtaQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794706161;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=2iqmL6iOJMo3g565VJI0+HoAhWzhBx4D71mFA2rHpQU=;
-	b=sHVlfNkL/GIkbZX96C3Qs5YD9JumzpGpqpK22sUS8xDg8VHymf+xofg4ekIneCNzlzW4
-	 RttQOQB8c4hjJx9mXBcIICFAEPGLoLAdk0KuIDqWRC2ixS8hlBzYGdBgWDogU7hxuHYjS
-	 bZbZRQongp5tjFL3enZWuR0UxzsPxDB7IHX1d2khPl251poVDgWshbo8dhm5wLSWViWRf
-	 YA9kcOvoWDATFDZDwK4nmcT4GtF1jLHV7jYaSjjvqwBKiHrxiRkaVNRd6iKYRI5xgQ9+r
-	 RKY/z07o6GVmiHBKohrbnSWH2vF8VpzuwIb+K9lMP+v+LuHF4vcpbHU08s4HlTRhlIw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTj7kHYb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794708835;
+	b=2NX+Oz5y1UuFiNcR2JDlWmj9WiKfdL1elu0WK0JNW2Lwwgel+3RRVsVqJX42cnOndslH
+	 eH3X1nnYOJAyXxt/FVwMMQL1yLauMGMXrNmRjMn96cM4nzS2ZXZYSi8Lp74R6+Jk8CRBb
+	 Y3D61CXfWMv9+i9yGyfegvBK0BWCbKrtRWq44eFw3J2KHvAXTLKOzfna+m7F2hCtKm4Eq
+	 38dNfdzXk3nOJ1A/EylXU5m+OuDMf/GEevx71Z32zgDtcj+dGkPSX4F8kEM09gCXZWBS+
+	 kErIf3Bhw0+ICABtD9Asfiyee6etIlM0X11dlYbfUkQdTevVCbMgJelabda6RcsQjVQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794708835;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=qLd1t2SOPSrsBdIc+eu+GEo/ZR66HR89GcURxW95eic=;
+	b=X5UiqdG4fIL7ro9sOO1DqAVclhIaShqIgTJCEcXyND779hfW0hVcXKgU6s3VNB1pd2XT
+	 r4zTB4rB2O56glmnbIdA5ULyLIGX65631hIfKL4l4uolMThr5X0ORIp0kB/4CHiub3OLs
+	 w9yWELuUC94Du1kFgh99FSeS3jJhSkkHBUGrZyYOdIyGwB/vAIdm5YbzCxD3P0+Lq12QP
+	 K8ia6pR+7/xDHNC+UuAVIy3zEok85pCx3EWscBxrmhWAfsCE6RuLHfTpiCv26dWFOub0F
+	 w0qrzQLseI8aGZICD+bnwHgzpjnHSq21powAPtMeL+bJTbSUICBwvlupb2B+BVk6OHg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AXA7/8mC";
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D108E606A33F;
-	Sun, 15 Nov 2026 01:29:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7B3B606A333;
+	Sun, 15 Nov 2026 02:13:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fTj7kHYb
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794706161;
-	b=wm4l7SjYmEdyYK4iSQnhFuXsppn+UPkM89sWRJqSGBCMeweNEvTJsoXm4QLJO9zIWfSn
-	 0Pjlm6R3B+mR0R6jTHLmdRbbgcALKYe+zpKXNUdmqlEkmslfizIC/juDMJ205R8lQxVIw
-	 vRNtEOnlOK3OqrrtgWzcyFZHPCMu4mQfqcZ59AejYNYRqneuV9BdK+lUyK/kxshjxtF82
-	 M3hcFxflJwIwGqcLG9TUdiHJt23eL5PyEVF90jPVRX+ejxJwkpN3PCGirRyvcv/s0RmlH
-	 M5G9xaK1iksNKAG5ttf45k6uEdUfFZtyHepTErNU6q2PugxPPfGLHp4eMF5q0GVG+PA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794706161;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=2iqmL6iOJMo3g565VJI0+HoAhWzhBx4D71mFA2rHpQU=;
-	b=kvRyc//kqodMnZPaJu5Ic+G1BcKpa03z4+jMPCCFAxhDrGZqF6LFiU7iXb0zXyiDj8vH
-	 HCC8BQzxv/lLyiayW8jzVdg3aJq91uM0ur7uR0R08daGqQY22KEATC05Pa9OMekC+un6w
-	 YycmbbdblNDJbmmAg2YkirmEQOVp7oIOcaDATliHXN7fRHZ/dmghUf/ZtmtVfD+jZc8qs
-	 L+VC8irlvQaGkLCYrGbMP3EW+/T2i+9th+PO9Ayn8cXYfa6oHKvHB9fduzHhOEhOqUsDr
-	 dN7vc3hfPHYykZagvIasBltNlyIDEGapUo20EujMJUm9cKMM5pYehmc/hCB5JstKNDw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 0AD281F000C6;
-	Sun, 15 Nov 2026 01:29:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AXA7/8mC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93DDA1F000C5;
+	Sun, 15 Nov 2026 02:13:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794706161;
-	bh=2iqmL6iOJMo3g565VJI0+HoAhWzhBx4D71mFA2rHpQU=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=fTj7kHYbZ2k0FG6zC6fb2DcwcGsF5flCvmqS69FKgyDyB9e3Rsr0BMpoipjVLimjE
-	 +0ozCaMXjEfTTDThovC84dYBSelqh/jh4pgHGqnMDuCjyAN2kx+ajq3aUCfzHXwiEr
-	 69YxV6MvziR0bcgMsu7apaIFty+95X8EpvbEFvgscmC0VlhHOiCcVR6ZRh89n1LF/H
-	 AkDg8HMPZycLMcGb9qz6URTzFknt563mm/pvJkPFoW6+yodjluMqfVlVaj8ydzHtSr
-	 mhrPLDrErnan1ZmR4KwtdDeYMIlf14L8a73ss9A0cZq7Aean9LPMhft0zcMqX/4u8O
-	 PKO819uT+G64g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8AA7E49F10;
-	Sun, 15 Nov 2026 01:29:19 +0000 (UTC)
-From: Bryam Vargas via B4 Relay <devnull+hexlabsecurity.proton.me@kernel.org>
-Date: Sat, 14 Nov 2026 20:29:20 -0500
-Subject: [PATCH RFC net v4 2/8] net/iucv: do not clear SEND_SHUTDOWN to
- send a control frame
+	s=k20260515; t=1794708835;
+	bh=qLd1t2SOPSrsBdIc+eu+GEo/ZR66HR89GcURxW95eic=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=AXA7/8mCjPW2MkXeT5B8ez40/dmEKtV7Cuihb3Hn8nhZCs80bnCDHrRK4h+OE2YFz
+	 75f+u5paslGhtxqqKOKjabSlOy+ZlsKh50xJWSOOp3l4VlQYK6gAB5afKkh7EylCfv
+	 1El+7x/8dvxUKlYw8tBPGeLDueUDC2dIApiSzBeVXcb9b5VYkEW/AiGvS0UlQGBE19
+	 HKaS7t6UWmsCdvAD7kUh9dmHNKfL5TuXUHeTu1HzV/zmx85svUCgY2vysrCGVrSKBy
+	 78fNMZTmO1DlhVwTONOoBY70G/gVZ9yLayeDRrKBiSVd0NP4ZM0WVjeespGlg67sfa
+	 RSXt54So2sFfA==
+Subject:
+ Re: [PATCH net-next v2 2/3] veth: link RX queues to their NAPI instances
+From: netdev-bot+sashiko@kernel.org
+To: tianyi@cloudflare.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, toke@redhat.com,
+ lorenzo@kernel.org, horms@kernel.org, bpf@vger.kernel.org, shuah@kernel.org,
+ hawk@kernel.org, kernel-team@cloudflare.com, ast@kernel.org,
+ daniel@iogearbox.net, john.fastabend@gmail.com, sdf@fomichev.me,
+ linux-kselftest@vger.kernel.org
+Date: Sun, 15 Nov 2026 02:13:54 +0000
+Message-ID: <179470883411.2199510.13825316417997386083@kernel.org>
+In-Reply-To: <20261111015922.67745-3-tianyi@cloudflare.com>
+References: <20261111015922.67745-3-tianyi@cloudflare.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,143 +66,100 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261114-b4-disp-fc0634a3-v4-2-f96c506447ce@proton.me>
-References: <20261114-b4-disp-fc0634a3-v4-0-f96c506447ce@proton.me>
-In-Reply-To: <20261114-b4-disp-fc0634a3-v4-0-f96c506447ce@proton.me>
-To: Jakub Kicinski <kuba@kernel.org>, 
- Alexandra Winter <wintera@linux.ibm.com>, Paolo Abeni <pabeni@redhat.com>, 
- "David S. Miller" <davem@davemloft.net>, 
- Hidayath Khan <hidayath@linux.ibm.com>, Eric Dumazet <edumazet@kernel.org>
-Cc: Thorsten Winkler <twinkler@linux.ibm.com>, 
- Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Nagamani PV <nagamani@linux.ibm.com>, 
- linux-s390@vger.kernel.org
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794706158; l=4835;
- i=hexlabsecurity@proton.me; s=default; h=from:subject:message-id;
- bh=B0pcVs5Hy8pGhGv4ssAFevhx+TtT3x9fnZV79eL5Myk=;
- b=kjWnMMaH391XKhaNxRPLC+8ay25iNjrng9/kRN9eRWRQmvStNbnSxI61QVHQ2jaGzFhWNihNZ
- tJl7VnQwKDxCF41/HZEENC7Bm38xDazdmgA/10wNkrzt7hnzS9UmD/V
-X-Developer-Key: i=hexlabsecurity@proton.me; a=ed25519;
- pk=xw1AhCtQdvuoQc+bOQIYy9o8G++cp4/VniI2G/tc3G8=
-X-Endpoint-Received: by B4 Relay for hexlabsecurity@proton.me/default with
- auth_id=893
-X-Original-From: Bryam Vargas <hexlabsecurity@proton.me>
-Reply-To: hexlabsecurity@proton.me
-Content-Transfer-Encoding: 7bit
 
-From: Bryam Vargas <hexlabsecurity@proton.me>
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-iucv_send_ctrl() allocates with sock_alloc_send_skb(), which fails once
-SEND_SHUTDOWN is set, so it clears the bit first and writes a copy of
-sk_shutdown back afterwards. recvmsg() calls it for a window update and
-the NETDEV_GOING_DOWN notifier for a FIN, both without the socket lock.
-On a socket that has shut down sending:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- A shutdown(SHUT_RD) done in between is undone when the copy is
-  written back: the call returned 0 and the socket still receives.
-- sendmsg() can find SEND_SHUTDOWN clear and send data after the SHT of
-  a shutdown(SHUT_WR) that already returned.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Allocate the control frame with sock_wmalloc() behind the test of
-sk_sndbuf that sock_alloc_send_skb() makes, and leave sk_shutdown alone.
+- [Medium] In drivers/net/veth.c, veth_napi_enable_range() still creates
+  the per-queue NAPI with plain netif_napi_add(dev, &rq->xdp_napi,…
 
-Fixes: 4e0ad3221691 ("Subject: [PATCH] af_iucv: enable control sends in case of SEND_SHUTDOWN")
-Cc: stable@vger.kernel.org # 6.18.x
-Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
----
-New in v4. iucv_send_ctrl() clearing SEND_SHUTDOWN is what the AI
-review of v3 3/7 is about ([4] in the cover letter), what the notes of
-v3 2/7 and 7/7 left open, and where my copy of Hidayath's sk_shutdown
-test loses its bit. v2 rewrote the function and v3 dropped that on
-Alexandra's review. This is only the part about sk_shutdown; the
-allocation that ignores sk_sndbuf for a FIN and the first SHT stays out
-(cover letter, "Not in v4"). It goes ahead of 3/8 and 4/8: the test 3/8
-adds and the wait 4/8 moves out of the socket lock both rely on the bit
-staying set.
+--
 
-The first item, in the emulated setup: a task reads on a socket shut
-down for sending, with SO_MSGLIMIT 2 so that nearly every read sends a
-window update, and another calls shutdown(SHUT_RD). Over four runs of
-200 cycles poll() then shows no EPOLLRDHUP in 12 to 57 cycles of a run
-on net and with 1/8, and in none from this patch on.
+veth: link RX queues to their NAPI instances
 
-The wake-up the AI review describes is the one for the memory wait of
-4/8, and missing it takes two waits that overlap, so a test kernel on
-top of the series has them: the writer sleeps 1000 ms between releasing
-the socket and its wait for send memory, a window update waits 1500 ms
-in iucv_send_ctrl() ahead of its allocation, and the sk_state_change()
-that recvmsg() calls when its window update finds no room is taken out,
-as it would wake the writer. A writer blocks with the send memory full
-and SO_SNDTIMEO 8 s, shutdown(SHUT_WR) follows at 200 ms, and at 300 ms
-a recv() that owes a window update. The writer returns -EPIPE after
-1803 ms, when the reader lets go of the socket lock. With the clear and
-the restore put back around that delay it sleeps until its timeout,
-9193 ms. Without the reader the writer returns on both kernels when the
-1000 ms are over.
+This patch links each veth RX queue to its NAPI instance with
+netif_queue_set_napi(). The link is set after napi_enable() and cleared
+before napi_disable(). With it, queue-get reports a napi-id, and AF_XDP
+copy-mode sockets bound to a veth queue get a NAPI ID for busy polling.
 
-By inspection:
-- the second item of the message
-- poll() on a socket shut down both ways reported no EPOLLHUP while
-  the bit was clear
-- sock_alloc_send_skb() also returned and cleared a pending sk_err,
-  which af_iucv sets only at the end of close(), after its FIN
-- SOCK_NOSPACE is no longer set; SOCKWQ_ASYNC_NOSPACE still is, for a
-  socket with O_ASYNC
-- I have no KCSAN build: of Hidayath's reports on net-next, the 6
-  between afiucv_hs_rcv() and iucv_send_ctrl() and the 2 between
-  iucv_send_ctrl() and iucv_sock_shutdown() are on these writes
----
- net/iucv/af_iucv.c | 27 +++++++++++++--------------
- 1 file changed, 13 insertions(+), 14 deletions(-)
+> diff --git a/drivers/net/veth.c b/drivers/net/veth.c
+> index f5097696df15e..c042771864051 100644
+> --- a/drivers/net/veth.c
+> +++ b/drivers/net/veth.c
+> @@ -1062,6 +1062,8 @@ static int veth_napi_enable_range(struct net_device *dev, int start, int end)
+>  		netif_napi_add(dev, &rq->xdp_napi, veth_poll);
+>  		rcu_assign_pointer(rq->xdp_prog, priv->_xdp_prog);
+>  		napi_enable(&rq->xdp_napi);
+> +		netif_queue_set_napi(dev, i, NETDEV_QUEUE_TYPE_RX,
+> +				     &rq->xdp_napi);
 
-diff --git a/net/iucv/af_iucv.c b/net/iucv/af_iucv.c
-index daed2a3cfd66..92468293f7c1 100644
---- a/net/iucv/af_iucv.c
-+++ b/net/iucv/af_iucv.c
-@@ -401,26 +401,25 @@ static void iucv_sever_path(struct sock *sk, int with_user_data)
- static int iucv_send_ctrl(struct sock *sk, u8 flags)
- {
- 	struct iucv_sock *iucv = iucv_sk(sk);
--	int err = 0;
- 	int blen;
- 	struct sk_buff *skb;
--	u8 shutdown = 0;
- 
- 	blen = sizeof(struct af_iucv_trans_hdr) +
- 	       LL_RESERVED_SPACE(iucv->hs_dev);
--	if (sk->sk_shutdown & SEND_SHUTDOWN) {
--		/* controlling flags should be sent anyway */
--		shutdown = sk->sk_shutdown;
--		sk->sk_shutdown &= RCV_SHUTDOWN;
--	}
--	skb = sock_alloc_send_skb(sk, blen, 1, &err);
--	if (skb) {
--		skb_reserve(skb, blen);
--		err = afiucv_hs_send(NULL, sk, skb, flags);
-+	/* Control frames go out after a shutdown too, so this is not
-+	 * sock_alloc_send_skb(), which fails on SEND_SHUTDOWN. sk_shutdown is
-+	 * left alone: it is read without the socket lock, and not every
-+	 * caller here holds it.
-+	 */
-+	if (sk_wmem_alloc_get(sk) >= READ_ONCE(sk->sk_sndbuf)) {
-+		sk_set_bit(SOCKWQ_ASYNC_NOSPACE, sk);
-+		return -EAGAIN;
- 	}
--	if (shutdown)
--		sk->sk_shutdown = shutdown;
--	return err;
-+	skb = sock_wmalloc(sk, blen, 1, sk->sk_allocation);
-+	if (!skb)
-+		return -ENOBUFS;
-+	skb_reserve(skb, blen);
-+	return afiucv_hs_send(NULL, sk, skb, flags);
- }
- 
- /**
+[Severity: Medium]
+Should this be netif_napi_add_config(dev, &rq->xdp_napi, veth_poll, i)
+rather than netif_napi_add()?
+
+As written, the queue-to-NAPI link only holds until the next
+reconfiguration. veth_napi_del_range() deletes the NAPI completely, via
+napi_disable() and then __netif_napi_del(). On the next enable,
+napi_enable_locked() finds no n->config and allocates a new ID:
+
+net/core/dev.c:napi_enable_locked() {
+    ...
+	if (n->config)
+		napi_restore_config(n);
+	else
+		napi_hash_add(n);
+    ...
+}
+
+So the same queue gets a new napi-id after each of these:
+
+  - ip link set down/up (veth_close()/veth_open())
+  - XDP detach and re-attach (veth_xdp_set())
+  - a GRO toggle without XDP (veth_set_features())
+  - ethtool -L (veth_disable_range_safe()/veth_enable_range_safe())
+
+Any per-NAPI settings applied with napi-set are dropped silently on each
+of these paths. That covers defer-hard-irqs, gro-flush-timeout,
+irq-suspend-timeout and threaded.
+
+An AF_XDP copy-mode socket is affected the same way. xsk_bind() records
+the ID only once:
+
+net/xdp/xsk.c:xsk_bind() {
+    ...
+		if (rxq->napi)
+			__sk_mark_napi_id_once(sk, rxq->napi->napi_id);
+    ...
+}
+
+The xsk notifier only unbinds on NETDEV_UNREGISTER, so the socket stays
+bound across a down/up and keeps the old ID. Would sk_busy_loop() then
+call napi_busy_loop() with an ID that no longer resolves, so busy polling
+stops without any error?
+
+The commit message gives napi-set and AF_XDP busy polling as the
+motivation. Documentation/networking/napi.rst ("Persistent NAPI config")
+says "Drivers should try to use netif_napi_add_config() whenever
+possible." The queue index i is already available here, and
+dev->napi_config has max(num_tx_queues, num_rx_queues) entries.
+
+The selftest added later in this series ("selftests: net: veth: test RX
+queue NAPI links") checks that the IDs match napi-get after each step.
+It does not check that they stay the same across these reconfigurations.
+
+>  		rcu_assign_pointer(priv->rq[i].napi, &priv->rq[i].xdp_napi);
+>  	}
+>  
+
+[ ... ]
 
 -- 
-2.56.0
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111015922.67745-1-tianyi%40cloudflare.com
