@@ -1,57 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794728581;
-	b=KZZ1SKNp8i9Th7lEqIq6L0TCztJWyXQO+F3Qc5T3KE4kP5BQxUim6/FXjZKEQqIefJbU
-	 E4EQJJAdVAFeqNlcQ7dcL/p7lRnjxgxyOxyk45MAd49eKg8ctncUwcblp7BdyjugYW4K6
-	 kBjBXz2+m/3T9ODj7hs6y6kOWMDKhqjYMEKc+naKgNQOGtLeIrZtBEugZbaSUuRjA14Wn
-	 powHrhdjHoX0neDx/ShF74TGdahAGxlpQnG5EDiUbXDnJt9l9zYjeWbLgOytV3ueXCL/3
-	 EbV+opv8qKKUIszV/V1AWPOFgcmhnwHJP/1rejCqvrasqDIqaPV90Bp73InLwQQONhw==
+	t=1794728577;
+	b=AG7ELtfXGb/4mduRseYk78Lj60dzEW5u+QhR7Ga+rrnoJmitHd4OFk3jvTtK2K97DEgJ
+	 BfTuaHTsYIsslsu7ZqvcR596UwFKlz7c5XNLLaz+8q0ksjskqFOoZIyLYeCzksv68pNJu
+	 DVDbsjN55v74i6ECCQkcApcE8nRCnnUthR20ce+JfsMmIr3A6Gae0kzCS6tVARuFdhRK1
+	 0hzarw6lmoLNR6tXy/AuySdt2/0tAKNnwFEmbmGZicIpVkh06jFeG4T0ad8uQrjToZiQD
+	 us7eMQyNgG6M9LIYFyKLxSgZT51LA8d1asQzcTXPj4+d4taSWwqPDuUoTEzHvf3hudQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794728581;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794728577;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Cn1hqHiLQJcX9AvOPTcWUfgzPP39MReCfQbew9UssmY=;
-	b=k+OxGW4sJH96TW1ECZGjba+HlwcQ0MzyDdZd4tc3S4PVCo8QPLn0AJXoixh0I7bUIqSz
-	 +Bhsq1h718rgch2+FJ1t6PCed7zShLBIGVou5R/oYodV5QJgIT3LSd8Ng4m5fvnJIgZD9
-	 Z/dPfI2LJ3H2u/Bh9NEvTZfTeT+ZHnCCEzRcaPiPkArE1TU9tTjhqudMrQo6rAYznWZc5
-	 JTzSd2RrX94XsYcJKU7IiSm1/umf2kR0TljeMOYBPZRqsUAtnnXjZIP2UugHFfGBoBdD5
-	 SFzHWcYzXEcSjZN0P7Y0cAkPGKDpaXE+99PgoTRfEAAbHth+TLqhlogUd+9jClHHuiA==
+	bh=GPVorwWextWqTeqhLKlgJWaB2HerQm/MmIfhM1PDl2w=;
+	b=fWLRDBTizf14awtzL/Eop6M0KMkMFmjENe8oYbTD016RqdrWrSYKoa68z1KZkx+kuMlp
+	 4gEPmUpROyrRrA4X1Cf5wyqRNAlG4X9rsib2kT0fshB78kZ73qoVuMgasVixdkTQNHU96
+	 2qQIJYUa2eiB7TiqIos/7Q17wJECWgAgLGKI2Lq88MXwPUK0jB3GtZKgefaYEQWuMQdsm
+	 Fts1bO7Tx/DKIfkyhEonrHhVkVxPD24TY7dO/F7Tvv7ccmD8UKoMShN4VS+TBtsN1njka
+	 QlVyzld5k3J8gFlopjODrdf9YGa2CKcsBsyb9elV90LbItB1uyfgGnOI6O5JMW3Ogfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=No5Ya2Ys;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KA9hFhdc;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26C78606A333;
-	Sun, 15 Nov 2026 07:43:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8B5E606A31A;
+	Sun, 15 Nov 2026 07:42:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=No5Ya2Ys
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530ED1F000C9;
-	Sun, 15 Nov 2026 07:43:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KA9hFhdc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5371A1F000C4;
+	Sun, 15 Nov 2026 07:42:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794728581;
-	bh=Cn1hqHiLQJcX9AvOPTcWUfgzPP39MReCfQbew9UssmY=;
+	s=k20260515; t=1794728577;
+	bh=GPVorwWextWqTeqhLKlgJWaB2HerQm/MmIfhM1PDl2w=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=No5Ya2YsMEXvoYeGNBaO8CbHekDrIpZkiLkSrGlbbI9J0DEAuv3HNeQwO9NeDTrY9
-	 XorRY7KYbSv7yFWnku1aQyWktoCENsqvXw1AJhcVkNK1eeOMmJrurPhz7uuHR4oeBe
-	 IC777mkDpN6KrjgXx5i17OTqTLrQIS3z73z7xY7vPDCWk521w2nn+Zbu3S7N8jNd7E
-	 k6QeNeCjz8lfwrJWLL9VdkA4jVwXq1hxBDvH+QCCcpkTYEMFlbEYsTXBQ9GUxU5sjE
-	 dqpF5RVmWxnmu2KOsrxjNjrkldOSFvYRBDeZq/ruRknx4IEGFEsSgglo8HBs21LEEH
-	 j+KrM1I5RRyLg==
-Subject:
- Re: [PATCH net-next] net: ethtool: request rtnl_lock for ETHTOOL_MSG_PORT_GET
+	b=KA9hFhdck9Pu0lR2PrmhwtsDEAvpYWSx2ULFs9xe8v42JnsLvlTL9VTH1YD/0KQzI
+	 ejzUQnKFBhTpv5vIhRvfiNJ9gw9oB1RbSmj0/PiJNo96TBXhWcyd1S9v+VjtdEoROI
+	 tV9z87/AmMV0mu4Oh1b1WfE9BNi7icrFg3Lik9P2pgTigu09OWkEUb1cWrt4qP0TN1
+	 fBAm2VusjA6VVhBK1yKmGJ/ugo58sBzS7eTruLD6k8kqWoC617h0FxWiPmrbAJ08Ry
+	 7/EkBoBNjj6wqNa5V6u8WYH9UGKp0dnNoDnZbRHY9whoItb6Vq/B4VjtKFkXQDK3Ho
+	 GX/F/bWX8u1zg==
+Subject: Re: [PATCH net v5 1/2] tun: bound the NAPI receive queue
 From: netdev-bot+sashiko@kernel.org
-To: xiaolinkui@126.com
-Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- pabeni@redhat.com, horms@kernel.org, sdf@fomichev.me,
- jacob.e.keller@intel.com, bjorn@kernel.org, alexanderduyck@fb.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
-Date: Sun, 15 Nov 2026 07:42:59 +0000
-Message-ID: <179472857971.2199510.5265696099741665969@kernel.org>
-In-Reply-To: <20261111072724.3295527-1-xiaolinkui@126.com>
-References: <20261111072724.3295527-1-xiaolinkui@126.com>
+To: antonio@mandelbit.com
+Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, mst@redhat.com,
+ eperezma@redhat.com, shuah@kernel.org, ast@kernel.org, daniel@iogearbox.net,
+ hawk@kernel.org, john.fastabend@gmail.com, sdf@fomichev.me,
+ maheshb@google.com, peterpenkov96@gmail.com, netdev@vger.kernel.org,
+ virtualization@lists.linux.dev, linux-kselftest@vger.kernel.org,
+ bpf@vger.kernel.org
+Date: Sun, 15 Nov 2026 07:42:55 +0000
+Message-ID: <179472857592.2199510.16416804582528441222@kernel.org>
+In-Reply-To: <20261111014208.1795777-2-antonio@mandelbit.com>
+References: <20261111014208.1795777-2-antonio@mandelbit.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +68,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,101 +79,172 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The fix covers only one of several commands with the same bug.
+- [High] The new bound is a packet count on each tun_file's
+  sk_write_queue, compared against net_hotdata.max_backlog (default…
+- [Low] The new full-queue check runs before every XDP hook, in both
+  paths the patch changes.
+- [Low] The new comment in tun_napi_receive() says it takes "at most
+  budget skbs, so that the queue never looks emptier to writers than it…
 
 --
 
-net: ethtool: request rtnl_lock for ETHTOOL_MSG_PORT_GET
+tun: bound the NAPI receive queue
 
-This commit adds an ETHTOOL_MSG_PORT_GET case to
-ethtool_nl_msg_needs_rtnl(), so that ethnl_default_doit() keeps rtnl_lock
-for PORT_GET on ops-locked devices. It does this because
-phy_link_topo_get_port() asserts RTNL before it reads topo->ports.
+In IFF_NAPI mode, this patch drops new packets in tun_get_user() and
+tun_xdp_one() once the tfile's sk_write_queue holds more than
+netdev_max_backlog packets, and counts them as rx_dropped. It also changes
+tun_napi_receive() to take at most budget skbs from the queue instead of
+splicing out the whole queue and putting the rest back.
 
-> diff --git a/net/ethtool/common.h b/net/ethtool/common.h
-> index b062e99e89dbf..372304722ecc4 100644
-> --- a/net/ethtool/common.h
-> +++ b/net/ethtool/common.h
-> @@ -124,6 +124,14 @@ ethtool_nl_msg_needs_rtnl(const struct net_device *dev, u8 cmd)
->  		 * these cases are Netlink-only.
->  		 */
->  		return true;
-> +	case ETHTOOL_MSG_PORT_GET:
-> +		/*
-> +		 * port_prepare_data() resolves the port through
-> +		 * phy_link_topo_get_port(), which asserts rtnl_lock before
-> +		 * reading topo->ports. There is no corresponding ethtool
-> +		 * ioctl, so this case is Netlink-only.
-> +		 */
-> +		return true;
->  	}
->  	return false;
->  }
+> diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+> index 3b292bce4438c..e2fda570b90f6 100644
+> --- a/drivers/net/tun.c
+> +++ b/drivers/net/tun.c
+
+[ ... ]
+
+> @@ -227,6 +228,16 @@ struct veth {
+>  static void tun_flow_init(struct tun_struct *tun);
+>  static void tun_flow_uninit(struct tun_struct *tun);
+>  
+> +/* In IFF_NAPI mode written packets wait in the tfile's sk_write_queue for the
+> + * NAPI poll, which may run later in a kthread or ksoftirqd. Bound that queue
+> + * like the per-CPU backlog of netif_rx().
+> + */
+> +static bool tun_napi_queue_full(const struct sk_buff_head *queue)
+> +{
+> +	return skb_queue_len_lockless(queue) >
+> +	       READ_ONCE(net_hotdata.max_backlog);
+> +}
 
 [Severity: High]
-Is PORT_GET the only command with this problem? The commit message says
-an ops-locked device with a link topology "trips the ASSERT_RTNL()
-warning", and it calls this patch "the missing case". However,
-ethnl_req_get_phydev() checks the same condition before it reads the
-topology:
+Does a per-queue packet count bound the uncharged memory that an
+unprivileged user can pin?
 
-net/ethtool/netlink.c:ethnl_req_get_phydev() {
-    ...
-	/* If there is no PHY in sight there's no need for assert locking */
-	if (!phy_link_topo_empty(req_info->dev))
-		ASSERT_RTNL();
+This limit is about 1000 packets on one tfile's sk_write_queue. It has no
+byte accounting and no limit across tfiles. The same user who can run the
+reproducer can also open IFF_MULTI_QUEUE devices. tun_set_iff() only checks
+CAP_NET_ADMIN in the user's own user namespace:
 
-	if (!req_info->phy_index)
-		return req_info->dev->phydev;
+    int queues = ifr->ifr_flags & IFF_MULTI_QUEUE ?
+                 MAX_TAP_QUEUES : 1;
 
-	phydev = phy_link_topo_get_phy(req_info->dev, req_info->phy_index);
-    ...
-}
+    if (!ns_capable(net->user_ns, CAP_NET_ADMIN))
+        return -EPERM;
 
-The prepare_data or set callbacks of these commands call
-ethnl_req_get_phydev() unconditionally:
+That gives up to 256 queues per device, and as many devices as
+RLIMIT_NOFILE allows. Each tfile still has sk_sndbuf = INT_MAX from
+tun_chr_open(), and its queued skbs are not charged to the writer's memcg.
+The only admission check on the write path is this one in tun_get_user()
+and tun_xdp_one().
 
-  STRSET_GET      strset_prepare_data()
-  LINKSTATE_GET   linkstate_prepare_data()
-  STATS_GET
-  PHY_GET
-  PLCA_GET_CFG, PLCA_SET_CFG, PLCA_GET_STATUS
-  PSE_GET, PSE_SET
-  MSE_GET
+The commit message says:
 
-All of them go through ethnl_default_doit(), ethnl_default_dump_one() or
-ethnl_default_set_doit(), which compute:
+    Still open: the limit counts packets rather than bytes and applies per
+    queue, so with large packets and many queues (IFF_MULTI_QUEUE works in a
+    user namespace too) the queued skbs, which are not charged to the
+    writer's memcg, can still add up to an OOM. This is hard to reach in
+    practice: with large packets the writer's copy is slower than the NAPI
+    poll, so the queue does not fill.
 
-	need_rtnl = !netdev_need_ops_lock(req_info->dev) ||
-		    ethtool_nl_msg_needs_rtnl(req_info->dev, cmd);
+That argument covers large packets only. The reproducer itself shows
+1400-byte writes outrunning threaded NAPI. All queues drain on the same
+CPUs, so if the writer cycles small packets through every queue fd, can
+each queue reach max_backlog?
 
-ethtool_nl_msg_needs_rtnl() still has no case for these commands, so they
-fall through to "return false". LINKSTATE_GET is covered only when the
-driver sets ETHTOOL_OP_NEEDS_RTNL_GLINK.
+With roughly 2.3 KB of truesize per 1400-byte skb, about 1000 tfiles (the
+default soft RLIMIT_NOFILE) would pin around 2.3 GB, and a higher fd limit
+pins more. Does that still allow the global OOM from a memcg-limited user
+that this patch is meant to fix?
 
-The cable test handlers ethnl_act_cable_test() and
-ethnl_act_cable_test_tdr() have the same gap. They call
-ethnl_req_get_phydev() after netdev_lock_ops_compat(), which takes only
-netdev_lock() on an ops-locked device.
+A bound that does not scale with the number of tfiles would close this.
+Two options would be charging queued skb truesize to the socket or memcg on
+every enqueue path, or a per-device or per-netns aggregate limit. Either
+would replace the per-queue packet count.
 
-So take the device the commit message describes, one that is ops-locked
-and has a non-NULL dev->link_topo. Wouldn't a plain "ethtool <dev>" still
-hit the ASSERT_RTNL() WARN through STRSET_GET or LINKSTATE_GET, before
-PORT_GET is ever issued? Those paths would also still look up topo->phys
-and use the returned phy_device without RTNL. That could race with PHY
-removal, for example an SFP unplug, which runs under RTNL.
+> +
+>  static int tun_napi_receive(struct napi_struct *napi, int budget)
+>  {
+>  	struct tun_file *tfile = container_of(napi, struct tun_file, napi);
+> @@ -237,21 +248,24 @@ static int tun_napi_receive(struct napi_struct *napi, int budget)
+>  
+>  	__skb_queue_head_init(&process_queue);
+>  
+> +	/* Take at most budget skbs, so that the queue never looks emptier to
+> +	 * writers than it is.
+> +	 */
+>  	spin_lock(&queue->lock);
+> -	skb_queue_splice_tail_init(queue, &process_queue);
+> +	if (skb_queue_len(queue) <= budget) {
+> +		skb_queue_splice_tail_init(queue, &process_queue);
+> +	} else {
+> +		while (skb_queue_len(&process_queue) < budget &&
+> +		       (skb = __skb_dequeue(queue)))
+> +			__skb_queue_tail(&process_queue, skb);
+> +	}
+>  	spin_unlock(&queue->lock);
+>  
+> -	while (received < budget && (skb = __skb_dequeue(&process_queue))) {
+> +	while ((skb = __skb_dequeue(&process_queue))) {
+>  		napi_gro_receive(napi, skb);
+>  		++received;
+>  	}
 
-As with PORT_GET, this is latent today. None of the in-tree drivers that
-use request_ops_lock, queue_mgmt_ops or net_shaper_ops register PHYs into
-the link topology.
+[Severity: Low]
+Is the "never looks emptier to writers than it is" part of this comment
+accurate?
 
-The PORT_GET change on its own looks correct. Should the patch either
-cover these sibling commands or narrow what the commit message claims?
-Some ways to cover them:
+When skb_queue_len(queue) <= budget, skb_queue_splice_tail_init() resets
+the queue's qlen to 0. Otherwise each __skb_dequeue() lowers qlen by one,
+for up to budget skbs.
 
-  - add a case for each of these commands
-  - force need_rtnl whenever !phy_link_topo_empty(dev)
-  - move the topology xarrays under the instance lock
+In both cases, while napi_gro_receive() works through process_queue,
+possibly on another CPU with threaded NAPI, tun_napi_queue_full() sees up to
+budget fewer pending skbs than are really pending. The real bound comes out
+to about max_backlog + budget, plus one per concurrent lockless writer.
+
+This is much better than hiding the whole backlog as before. Could the
+comment say the queue looks emptier by at most budget, so later code does
+not rely on a strict invariant?
+
+[ ... ]
+
+> @@ -2561,6 +2593,17 @@ static int tun_xdp_one(struct tun_struct *tun,
+>  		return -EIO;
+>  	}
+>  
+> +	/* NAPI queue full: drop, and schedule NAPI so that it drains even if
+> +	 * nothing in this batch gets queued
+> +	 */
+> +	if (tfile->napi_enabled &&
+> +	    unlikely(tun_napi_queue_full(&tfile->sk.sk_write_queue))) {
+> +		napi_schedule(&tfile->napi);
+> +		put_page(virt_to_head_page(xdp->data));
+> +		dev_core_stats_rx_dropped_inc(tun->dev);
+> +		return 0;
+> +	}
+> +
+>  	xdp_prog = rcu_dereference(tun->xdp_prog);
+
+[Severity: Low]
+Should this check come after the XDP program runs?
+
+Here it sits before rcu_dereference(tun->xdp_prog) and bpf_prog_run_xdp().
+In tun_get_user() the new check also comes before tun_build_skb(), which
+runs native XDP and returns NULL when the program consumes the packet, and
+before do_xdp_generic().
+
+Packets the program would REDIRECT, TX or DROP never reach sk_write_queue.
+They add nothing to the queue being bounded.
+
+Once XDP_PASS traffic fills the queue past netdev_max_backlog, those packets
+are dropped without the program seeing them. They are also counted in
+rx_dropped. Would redirected or XDP_TX flows on that tfile stall whenever
+the stack path is congested?
+
+The commit message only says packets are dropped "before allocating and
+copying them". If this trade-off is intended, could the commit message
+mention the effect on XDP?
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111072724.3295527-1-xiaolinkui%40126.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111014208.1795777-1-antonio%40mandelbit.com
