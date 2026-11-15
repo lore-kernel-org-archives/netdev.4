@@ -1,95 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794737934;
-	b=NF4ZGXQfthKttJcv/Wvb7ZRZDS9gYj5ZbRu2RsmShcvZPrK6cF8EoRVRNRzbXe7Mbze1
-	 1deHCX0TxKzyrnRRojYqiM0SKJ3IMfTPaeyqFUiCx9Hj0yQPrBfyqecGAqZSbISAr+ToV
-	 e6y2SYMAncQinbgMs1mHPm9qNavD4SUrazq3QjsZrhmNIIVhO947ndDVKy2355T+0oers
-	 q60zzd9F9fUsJz3we0aNFVYyswwtKitmE0OU46qjopQ1ZMOAzu7Ta6ycXUjHGjMAeEiEg
-	 /b4BrkULHjgkgrjGKNFtJ75ztSBxorfhW0r6ywEOnU5vdo+83rT/TYzC3MsFfz6nnKA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794737934;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=1BF2Bs9rqN0MniwVQkaS00LnVzUoMb3mDzrjuBYVGfU=;
-	b=LOI+4wKRpUxbNvGwoFspXPwh8nVyOho/B2ICTqfTr2yQky7C58c4RtnBODBMBfqFQvWs
-	 mX+4Dj1wgHGHqj0tkel8l6UUx/pQXUKe7KLOw5ieE8f4UGxsUoXspf/WpT8wGE5Zj8Kf9
-	 e1nGhRyw5UmE2CdENp18sDejrPisYTtSPyIsx8DZ0t27eLjF0ZsTE2kuduYzIulq3rPGb
-	 FYlH1KKI6peK+gv297jvalSK79BBVli38ZvkK8eQ4nH0pTaHvBa+QHp/tJWrBqcSSBtNi
-	 VZxa3j9uV5kKepgnBvikKrdy1AlouiqSleO2R/A9pG75M2zRI4mC+hJeryq1WxJz7dA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=VR674hDP;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.174
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794737957;
+	b=CY3qnKlfVyNxoQ1UHo9Uh5j7o11Su23mlHAOGe51p85Xg6ZjMv77wzg0u7wb4KOzpCxs
+	 Ndfz5g88mm5791kxm37jIrtu/q9Lpgo/bGU0L2TKIZ/a8vPqtgv2wVA5Rc7pnfRprkdda
+	 F9zmm0WSdGP1v6QTkmrvk4L7dqEcmB9KcuGaWl4BAfvyS1o6OJuYGjUCaSsL2KEYWthot
+	 nW5TTJtgxA+ZlzBz/FNwDYU1Bk8kBnBqQOaZ1sH/dPDFpwHKreogj05hsEfWho9M2jGo3
+	 tmhaB/2xIi6OuhKOKi8d5K4N/wpcdLNJcAMyx8efT+wZKVJTAg7kyEqAxhBOU6m5i3w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794737957;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=qhcPhq0Poj4iCa3rvuLGMg5AWfvy/+rEzDOs01y4iq8=;
+	b=qPytZHe/vwwUbwrXWOP4cn0MmWPF/OtJFVwPADU7f/gJQB17H/cOpmVQWtSZ3McMariq
+	 CqrJpmr48kiLt1ZcOgmLpbxbnXHAvA2hkzlc0QFjoZHu5x2eHpbDIfJkJpabvstL5OaVf
+	 A+d967HPiplBS/fkq7SInVe0FzsQxt8uq5C/Ypb7QGcwQZO2o0W1tf8Kg8VB4meg/iB6c
+	 dREXvcD3yrSCpfR3RgdgYk9OjvQblJkD5LUb5z8N4uVkSz95rrKM/oy6fxo8rnBpqK3Mr
+	 wQ6nhgkuWohdHLw1a0IIDEuwD7NFesdr1OLEMIBK6/BPDUGwwgFR5t8toyXPrTKDheQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=hwoze4w0;
+	arc=none smtp.remote-ip=209.85.222.174
+Received: from mail-qk1-f174.google.com (mail-qk1-f174.google.com [209.85.222.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 968F8606A31D;
-	Sun, 15 Nov 2026 10:18:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 968F8606A31D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41BCA606A31A
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 10:19:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41BCA606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=VR674hDP
-Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
-	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 569FC201E6E;
-	Sun, 15 Nov 2026 11:18:51 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794737931;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1BF2Bs9rqN0MniwVQkaS00LnVzUoMb3mDzrjuBYVGfU=;
-	b=VR674hDPyxw70DPJ70LPPLqMNB3s0MYR0oZkB43/VMAW/WlvAwxZgXJL89hwXLd1GekLmb
-	G7FdC3pUAjsdRdwh81jMswy72ETu11W4Pkr9ig4kbXsl1YIZqgLJVZX00Z/cDDNIycQX8p
-	AYi3HVukkmx7NIJ7YZNnng60xnsvAHhrIYnmtFy67VqQWRl0brf5FihUJZYb6kzuoUgj7/
-	FUTybIK8Rm1mHVD73WoLhxOtYwGJoi+hqWHUXBRNjuGT+r2veIKGLd79m19jG3PAC/n6V1
-	6ohXIzJsgIvZMGREYflfGqcrH/H6i7kN7g9QQJ2CGAcpr9IQ0G8mOxePjvEcwQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794737931;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=1BF2Bs9rqN0MniwVQkaS00LnVzUoMb3mDzrjuBYVGfU=;
-	b=WWjvhKw/F1doJ4BRVnzqA/kNTPTzQ/4r5c3SijbHP/UtbZhZo8Iu42qdi/nM0aBJKm1nqc
-	EAseocgMs/hYn8euiipG2LGRB35qDawhPLxKk8/NH8tYF7L2cH2at7O4llFZPRL9lXRxzb
-	RqYMnU8EVMdgBDjY1eYQ6k7i1Vr+Cuy5ut02m4y6ODciVEVfp0EL0SM8L4vcO3U0xEqcrL
-	rUVSVnjcpd2WBXN78qgMeqEHOifPOHba6OwfwGUHQUxCJRxjikdhQnpclNh2W+En/hwmoq
-	vR1vcLbH0pzrjJszDSEYM9rqLghWq849Fn8J8xLHqx1J+SDxl80I4qPU43a7gQ==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794737931; a=rsa-sha256;
-	cv=none;
-	b=Fjn/mSd9SN6PvUVLv/wH3irra66gxEYdXeRN186U8AgLmqwTqG/apWEu42v4k7+DGvD+5V
-	N8jfbJOEQySiLf9w7b1q5cSPBH3FpfTBS+peETiXOLzSY6h4M/70Wz+rya8VOtNMWf0ZmV
-	4tZjJisHW4kCIH8QuqUSkfcPQi+J0IcEYTCFR8VmS4FueyBCnLAdajjXRwK9Br47xPtdQ7
-	dwv0pRAPg1XA9aHXvRTpWn4tZi46SSPsp2pLlLyXJ2UMMgURMc2Oul+AcuclbaFHYGRcnu
-	CdpYB7oro5DpIpUJOe70ZWJvh55vhdk+ZIp+XgwdyCVvAkHTGNzzlYjjF18JDQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjornoya.blackshift.org)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mkl@pengutronix.de>)
-	id 1xSXJz-004GnZ-0k;
-	Sun, 15 Nov 2026 11:18:51 +0100
-Received: from pengutronix.de (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange x25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id 012D85EC2E5;
-	Sun, 15 Nov 2026 10:18:50 +0000 (UTC)
-Date: Sun, 15 Nov 2026 11:18:50 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
+	dkim=pass (1024-bit key, unprotected) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=hwoze4w0
+Received: by mail-qk1-f174.google.com with SMTP id af79cd13be357-9495d543c42so214375985a.3
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 02:19:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mojatatu.com; s=google; t=1794737956; x=1795342756; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qhcPhq0Poj4iCa3rvuLGMg5AWfvy/+rEzDOs01y4iq8=;
+        b=hwoze4w0rvuTE/eDhIh+PGCQ2dn2uYdjHJRefHcraIQCVyJq0WbeToxGPxoQpmSfo9
+         UYSMcei1lLgnMoV7XTXwA+F/thuBJjrxH1nrjFQVni9PqvNZ/vUQIMUg9Lw7uGZi9hQ4
+         EnTUPHG02moNEDY+XB+FnSFmR35ApXAC5iSF8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794737956; x=1795342756;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qhcPhq0Poj4iCa3rvuLGMg5AWfvy/+rEzDOs01y4iq8=;
+        b=zBh2ngRGCZcfaTEDDmEOONVlKt2t/EHpt5sh0eAko0LZ2uQGmaTzdoMnbvxoHWAYp2
+         soYo3FGbq3sXjvMwfKtp8RBgAq1GP7dwehJUMfs/tHw6eA9LcgvpsuYlDUwctrGVjtGa
+         VkAOMrQ/nAg1pYwR/VOvwFeRFM60VpyeEfhEvgwA1ZAcDlvBZsLKgSqXl2r6cOtIDq9H
+         /JAWaeW8GgMDKPeXsZEDHBK2wcLoxFLkl42MuouE5mHO4VL4PUmJWRnCI996/RDYqT1Z
+         YXcn//79917f3EOx2F3lU0r6yXciIRMbOr1u3W7kthENOr07LtsoI65LracloYJEYH/Y
+         Xq4A==
+X-Gm-Message-State: APuU4Z/+nPYvF3keQrktkF5sBzoakk7AIVlLMBcsC5hVNM2eU7zagdTU
+	5b8IcJZJZZs5be6a29XiVOvoCjikrg9t+cq8lrTPwBTndQMuCDnlyrAVkqTRzNT6SSDshviJU7P
+	KkeY=
+X-Gm-Gg: AYBFou18VR04MfTgR36nPEQhM9oxumIC8leI4RBqak8BhCGRqzaRmgaJdWPEg6MxTnd
+	NmKdKloUIyLgQZbiNga7wWrsIFLvCs5vEVTYaaU/dYwXJH7AlJWZ2Z3KZmonDu0IdJ+17qsr1cf
+	09fX4m4DvoKjfx2NYXKv+EiHlF3qf1tHtjSgyD+9ZGdVUSBdu1BnSgcRqICUYunpUm26dWhpWQ9
+	+2PyC1jXglRCgALRoQAca/c5c6YK7RwnKFngapvj1l/wn4/kAwmrum4pwf/OC73mptrSi6ZoTZx
+	+uQvbY/zEGnBZ7eEcqRY5CNmJcgUfVBdJlEvlTgWJCYvf/lplL08dH2VgkIYIDAVrWtnrXj5wFZ
+	Pi0i3LLSrSTHIgtkwbkkIiOAc467qW6lk+ak0C4cogpVEEFw1kteX+v4OMv2TmzGKZaSTiUcDgD
+	gPgsl0nrqCray0a4NayaccWEMgTmX0twrMgrB03gCcCpDzeGN41eCyB0a4FMFkyCMGKnF6ipWjM
+	pvFpjpAqWlg6DuEPLKE7YvnrVPdqilMUg/zJM+mGIJYOCrnSSKhqCeFX//Iclh/wa9c3mkSMK7/
+	OSoawPBPaZvh8S2cFnjbjALrwmlkh8jgeKhLgeYeHfK5h7SqNBh/oxeSBEeuQJ6XUH9IFsR+hdZ
+	g
+X-Received: by 2002:a05:620a:44d4:b0:949:6fd6:d05c with SMTP id af79cd13be357-9496fd6d08dmr443603885a.42.1794737956093;
+        Sun, 15 Nov 2026 02:19:16 -0800 (PST)
+Received: from mbili.waya ([64.203.83.2])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9494c6025f5sm592337085a.5.2026.11.15.02.19.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 02:19:15 -0800 (PST)
+From: Jamal Hadi Salim <jhs@mojatatu.com>
 To: netdev@vger.kernel.org
-Cc: davem@davemloft.net, kuba@kernel.org, linux-can@vger.kernel.org, 
-	kernel@pengutronix.de
-Subject: Re: [PATCH net 0/9] pull-request: can 2026-11-15
-Message-ID: <20261115-musical-garnet-turtle-de4539-mkl@pengutronix.de>
-References: <20261115095746.709371-1-mkl@pengutronix.de>
+Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	ipsec@lists.linux.dev,
+	bpf@vger.kernel.org,
+	Jiri Pirko <jiri@resnulli.us>,
+	Victor Nogueira <victor@mojatatu.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	Sashiko <sashiko-bot@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: [PATCH net-next v3 0/4] net: drop the stale dst when steering to another device
+Date: Sun, 15 Nov 2026 05:19:07 -0500
+Message-Id: <CORE-9NOG.v3.r0.20261115050625@mojatatu.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,56 +120,117 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="jfcr3vakt764zkhp"
-Content-Disposition: inline
-In-Reply-To: <20261115095746.709371-1-mkl@pengutronix.de>
+Content-Transfer-Encoding: 8bit
 
+This patchset is created to address constant whining by both sashikos
+about this being an issue when fixing a UAF on a teql issue, see:
+https://lore.kernel.org/netdev/QDISC-6HS9.v4.r0.20261111094338@mojatatu.com/
 
---jfcr3vakt764zkhp
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH net 0/9] pull-request: can 2026-11-15
-MIME-Version: 1.0
+Two producers steer a packet to a network device of their choosing and
+then hand it to the neighbour layer for link-layer resolution:
 
-On 15.11.2026 10:54:51, Marc Kleine-Budde wrote:
-> Hello netdev-team,
->
-> this is a pull request of 9 patches for net/main.
->
-> this first 3 patches are by Zhu Ling and fix problems with the CAN
-> netlink handling.
->
-> A patch by my fixes a kernel memory information leak over USB in the
-> gs_usb driver.
->
-> The last 5 patches are by Oliver Hartkopp and avoid RTNL stalls in
-> CAN_RAW, CAN_ISOTP and CAN_BCM protocols.
+  3/4 netfilter: the neighbour variant of nft `fwd`, on the netdev egress
+      hook
+  4/4 bpf: `bpf_redirect_neigh()` when the program supplies the nexthop
 
-I described patches in topological order, which is intuitive when
-looking at the git tree. However the linearized order of patches in this
-email patch series is chronological :/ - Sorry, I've added the missing
-"--topo-order" to my git send-email script.
+Both rewrite `skb->dev` to the target device and leave the skb's dst
+pointing at the route the packet arrived through. When the target
+device's neighbour for the nexthop is incomplete the packet is parked on
+that neighbour's arp_queue, and draining the queue re-looks the neighbour
+up from the stale dst. The frame is therefore built with the original
+device's link-layer header and then transmitted on the target device: the
+packet leaves with another device's addresses, and the sender never
+learns that its nexthop was unreachable.
 
-regards,
-Marc
+This is explicit: the steer-to-another-device path never worked in this
+respect, so there is nothing here to regress. Both producers shipped with
+`skb->dev` swapped to the target device and the route's dst still
+attached, and the arp_queue drain has re-derived the neighbour from that
+dst for as long as either producer has existed; the invariant "the skb's
+dst describes where the skb is going", which the routing path keeps when
+it steers, was never established for these two entry points. With no
+commit to anchor with a `Fixes:` tag and no crash, UAF or lockup
+involved, the series targets net-next and does not nominate `Cc: stable`:
+a backport would change long-standing redirect behaviour for no
+crash-class benefit.
 
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+More context: this came out of the review of the fix for a parked skb
+being resolved against the wrong device in sch_teql, posted separately and
+not part of this series. The neighbour code's queue drain is doing the
+right thing there, it re-derives the neighbour from the skb, so the repair
+belongs with the producers rather than with the drain path. Both
+producers are fixed in the same series so neither is left behind; each
+patch that changes a producer carries its own reproduction recipe.
 
---jfcr3vakt764zkhp
-Content-Type: application/pgp-signature; name="signature.asc"
+The reproduction for both arms is a pair of veth devices, one of them
+with an unresolved neighbour, plus a capture on the target's peer: the
+captured frame's source and destination addresses name the device whose
+neighbour was used to build it.
 
------BEGIN PGP SIGNATURE-----
+v2 drops the dst only when it describes a route, and keeps what the route
+carries (thanks to Pablo for catching this). A `DST_METADATA` dst is the
+tunnel template a tunnel helper attached to the packet, not a route, and
+dropping it would discard the encapsulation parameters, so it is left in
+place. A route carries encapsulation parameters too when it was installed
+with an ip, ip6 or xfrm encapsulation; 2/4 adds a helper that moves them
+onto a metadata dst before the route is released, so a producer that
+steers into an external tunnel device still finds them in
+`skb_tunnel_info()`, and one that steers into a `collect_md` xfrm interface
+still finds its `if_id` and underlying device. Neither case weakens the fix:
+a metadata dst resolves neighbours through `dst_blackhole_ops`, whose lookup
+returns NULL, so the queue drain keeps the parking (target-device) neighbour
+exactly as it does with no dst at all.
 
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCavmHCAAKCRDMOmT6rpmt
-0hRpAP0eGExsnEnJrYnQMv+QxaCB4ycJwL/p5j7TOy+MaJq1HAD+NA6lr+8TS+JJ
-v8sRPnzWrx6ptCV7aows+kM20quVkw8=
-=fWGZ
------END PGP SIGNATURE-----
+1/4 is a prerequisite on the xfrm path turned up after Pablo's comment.
+The interface that consumes that metadata puts the original route back on the
+skb before the xfrm lookup, which needs its family, and installing a
+reference counted route over a dst slot that is still occupied trips the
+slot assertion; the slot is cleared first. The same overwrite is in the
+tc-bpf helper that attaches the metadata, so both sites are fixed in that patch.
 
---jfcr3vakt764zkhp--
+Closes: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v3.r0.20261103062649-2@mojatatu.com
+Link: https://lore.kernel.org/netdev/20261026160747.283702-1-horms@kernel.org/
+Link: https://lore.kernel.org/netdev/QDISC-6HS9.v4.r0.20261111094338@mojatatu.com/
+Link: https://lore.kernel.org/netdev/avTfQjFQYR2NNdRg@chamomile/
+
+---
+
+v2 -> v3:
+- Patch 2/4: Document the return value of skb_dst_drop_keep_metadata() in
+  its kernel-doc comment. The missing `Return:` section was caught by
+  NIPA CI.
+
+v1 -> v2:
+- Do not drop a dst that is not a route: a DST_METADATA dst is the tunnel
+  template a tunnel helper attached to the packet, and dropping it discards
+  the encapsulation parameters (Pablo Neira Ayuso).
+- Keep a route's encapsulation parameters as well: a route installed with an
+  ip, ip6 or xfrm encapsulation carries them in dst->lwtstate, which a drop
+  would discard before a downstream tunnel or xfrm device could use them.
+  The dst release now goes through a helper that moves them onto a metadata
+  dst first (new 2/4).
+- Fix the dst slot the xfrm consumer restores: a collect_md xfrm interface
+  puts the original route back before the xfrm lookup, and installing it
+  over a dst that is still there trips the slot assertion.  New 1/4 clears
+  the slot first at both that site and in the tc-bpf helper that attaches
+  the metadata.
+
+Jamal Hadi Salim (4):
+  net: xfrm: interface: restore dst_orig on every xfrm interface
+  net: dst: keep the LWT metadata of a dropped route
+  netfilter: nft_fwd_netdev: drop the stale dst when steering to a
+    device
+  bpf: drop the stale dst when redirecting to an explicit nexthop
+
+ include/net/dst_metadata.h     |  1 +
+ include/net/xfrm.h             |  2 -
+ net/core/dst.c                 | 76 ++++++++++++++++++++++++++++++++++
+ net/core/filter.c              | 12 ++----
+ net/netfilter/nft_fwd_netdev.c |  6 +++
+ net/xfrm/xfrm_interface_bpf.c  | 16 +++----
+ net/xfrm/xfrm_interface_core.c | 22 +++++-----
+ 7 files changed, 104 insertions(+), 31 deletions(-)
+
+-- 
+2.43.0
+
