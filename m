@@ -1,73 +1,71 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794736673;
-	b=qwSiEdzDeHEx0ANMq+ny8akKVcvjE/6CL7fsLvw9xJAUYvCfyi3BNKJcU5OdgrjSqjNu
-	 dbrgNT6dVdvlpKSqk3Y1nWScGbpLNYIfqSzTfJewVQSuGcxL7+yjGU/p7qAfCeosx26ZH
-	 TeBqOXKrzyCNRUCJjEXipn0nEVGJmeWcwAH5agyF9W0g2dD2b7AuGXAKg0yxOt0laQFgU
-	 qWL6jDnE7fZLldyVrNm8MOhhcgSoQwMFvXl+z60j6xg0pc30iiGQwOt+kYGd6O6DJTkly
-	 FWm0nuzoNjpcptG0cSieknOFqgdD5aT+5dpd3AoLJHq4wrLbe6s7ddhRneye9L0yhOQ==
+	t=1794736674;
+	b=2t6zQQQB+k7SNqtEYRAYWxMFxevkeWN0+Ctb9t3zZIl/vORveXDbbILoQevgekUu+BxB
+	 8vC5uMaF7P488XaWGU2pTLY3412MWJ8kx619Y8rEeBnfzrpJpuslR9SMrNjK+nkJ7M2I8
+	 3Wmn9f8MmPkhaAHdUx8pjEHrJ+nZ77wROxvF17vwElgDjiT1evp7hkh0CzuT3+FxYUpFF
+	 HVT4TVwScYqIX+j9d1akjdmF34mHmv/nMEJD8rjQFlpLcP4EVetcsnORrQP8BP//CvGQw
+	 cyfbX4X8vktZy/QXUXFHBAsycNFFXA+SDY1wYoe0yNeAbB/GlRxrZt4k1jJFwBgKA7g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794736673;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794736674;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=2nY/ayje3+JPnCx7z8WQFg6FuGXbG9QAAK0fBDATWBI=;
-	b=pB3ajow3x+0cTIHJJeIuLoKdZlK+1Z/2fhhU2Cnqty5+tOw1XkIxgMtPZ8ZjW+69NBjY
-	 4yR/jHQFS2x0szImEHL9cmhhJ/8t8O589Q9lAHoqnCw9PewqvuMShQpQJcBWbbyX2E2nX
-	 kpeZgGjje29wUlMtrYjZ+6niQoseyHejTYTA5cby5CfTWSLl7mzki8Y3XkBjijMGqVu1g
-	 /AgDGaRDN0ONoZAdw7E4RCPNqOVf15SJqS7hCaBY+byzuwpB32V5qMfNK5N8ugxYsxvAq
-	 sHVlwhmuXd91yQs82AYWd/ozGDWswiuUxoDk7NFxjPtB0Gs3pgccNDggwwwKZIpjQRQ==
+	bh=b0f7y6aJ4qU3mQm4d7rAxcNcJOa4auBZkUYDTEPNs2w=;
+	b=UakFtxki5u8tXjW0DXrBbNYCkADeIBcDOry0rZxUwlCnJf3lCAZUGBUBhFW0uGXI7W8q
+	 dOlEdQrGQ4wvy1nOgt0H8ySPPAH5NW46DLNWsPnmEAaIfqDeRou/bOOMwKA1ecoWgs9rf
+	 z0FelY0K+qZ/ljr2TSNqsPoEeELdMF+L0yzYlao2uR1yuIrJbHojgq6QYUyhIrDVZihlw
+	 z9o9tDx6wDwuZpk6615JPHj7IBECUK+p59DOI5kzDWEyG2IJilbKavB4ujc7bWfI6Am01
+	 Dk+hAdrxn1tgSPcSr6V8PToEUpMbZc3VAfbT49jeS+w7G83kV1LpHMfF0P5PkmbSVKA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=pengutronix.de;
 	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=AQyovum+;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=XR6WzWRi;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69072606A329;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68FD2606A327;
 	Sun, 15 Nov 2026 09:57:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69072606A329
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68FD2606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=AQyovum+
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=XR6WzWRi
 Received: from drehscheibe.grey.stw.pengutronix.de (drehscheibe.grey.stw.pengutronix.de [IPv6:2a0a:edc0:0:c01:1d::a2])
 	(Authenticated sender: relay-from-drehscheibe.grey.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 55CD2201E6E;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 46035201CE0;
 	Sun, 15 Nov 2026 10:57:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1794736670;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2nY/ayje3+JPnCx7z8WQFg6FuGXbG9QAAK0fBDATWBI=;
-	b=AQyovum+9D21dgrW7E4RqmhFvZIX/zXdEfKaEw/SwH0WYV5qFvgZPfKy6tRSfznfjNzBme
-	F/CoHstc/o0Xm04dfH9Z5A7bcTeUkUMWvNEM/C8saUxPv4OhwrHhCTDjNQUqA0hVj8Y/N5
-	HI2qk0yqGbMBTr+bUuxZmTx9XW3IHy8l8tV+ivrp+5zrif6LDdL43CtF4s9jlt2TznLmTT
-	DTclR8/XtmqGUDnodDR3/DyYh+lofQoSNK8UVaJT+DCjVlcIZoM19+cfbMggnaJzhjET7Q
-	EdF3bug5hzjfxKMzTDVIG7QbvIvokdw/hYXpF5fmyF48beEXbqstaP136Omrkw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=b0f7y6aJ4qU3mQm4d7rAxcNcJOa4auBZkUYDTEPNs2w=;
+	b=XR6WzWRi1Uf0Sl6YALGL7apiKIFvEeZM2vSlCtw/8SMPvpmY6F9klzUYWf46+JxBO39Vrl
+	m0or1v78MaB5nSkHhs3AClNMOKgsdjT+cbAug4rKZFrKYKn80+tXnoKsIFLi+V2exN6UCr
+	LcmkW6kTHejebflZmHg7vMVsMJqP8EJp/4bWl1bYLeVYCcoN+YSZXDL6pZ/vDHSdZqpEbw
+	pL2XAtBp4FktaxLnvdIMmXyNfTwiUEokor5TgHBML9+B6vPaYEvl3yxGRM1GqNTq/SCor/
+	qQmZwrXx36pAXdffL5A+nhJ/hdbXfW3WkqOr2oXzhKSe/zJjumFc7g4nSiGQPg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1794736670;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2nY/ayje3+JPnCx7z8WQFg6FuGXbG9QAAK0fBDATWBI=;
-	b=ZmFkz3Vmof08Tut+I5tBCDgTs+Enu6RdJmK4a8NIMpH+nrOuCc9GFH3UZqit5ItNih9Rso
-	CblN3hjxTfQg4Eprvdl+RIjUv/Rlv1Z3gPNJJFJqHhCKoVm7u1O388Yr6bOT2gSRasQcCo
-	dMuBsc/10VxDcnq4xnjB5YVEZl5WAu8yGlJLS3PIoiaZmfhxtNhuu+nUDw/KjF/ICb/jVN
-	oN77un3jmghPklE3uFD82H+E3hu4etn0hR4kZb6KdcLH6NZmxaTFuPHcXE9yT50c9Jowij
-	mklhTgJzeYxJE14nvCWPf2ZKx3vQ/16FEMHCFZ768p+y2cp96lz0Z1zQKVQB4Q==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=b0f7y6aJ4qU3mQm4d7rAxcNcJOa4auBZkUYDTEPNs2w=;
+	b=HxFk6+DOxXOkmW3cM7a+BoMyDLyTLcBbOkXujOmJoGa6IalbPosphVH/WRexeFfIHF/QNe
+	CpE/3bNESBrUTCMGroiUq62PRyVQX8bzKTrshnnyXBFkKbrpj99+99ro+oBIyrLXSoWG+Q
+	leJ2LrKi4VXC3wSbE3fmWkx3Hl5l6bELMn4+jrIXl9BFrdnJUZJ3qHJ10QbQHtACINH3/c
+	HRC982wuTG6qrhUIdExOnuswGCSFFBoaDm4V6wk+7eFFqsbK6Ns1BVZiR0mZqPTrCYNV28
+	TjVP/ejgtx7zzpzc8hGCdlrtxsyFKHzrIX7WqzQxG4N4Y6OvsRqgQegwSHH/Qg==
 ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794736670; a=rsa-sha256;
 	cv=none;
-	b=cu0xk3o/Q44suSLzrxq8LoPkpqP1Ur1fe5F1r8qMJPHVuNzuOjl4A8eu4JP8C1MssrW0XP
-	ydQVEgcUP0fPwTg8FI+P15Cqhtk/hlS7+iaelRhyKXLyz3/VJDHT43U/elu4sbdaDFBVUK
-	0DFpIiheFGd3dy97OZO0yUhvQW1o0/3WUcvZCrwBMCCbx23SebwZ0w/yid1CxLriE2j+1B
-	odRtq3PKqdQ/ryZmDsZvnp3adIh/nzt12eDm0PBMvI5wYPukGBl970RJ0w2BZcywTGh4iR
-	zTM/RLws22A7GMnVzLJOqdkKLXng7+bUrQsk4KOKTbYPaojRogW/JF0NSbg3CA==
+	b=fUk1kc/tSPSYVjueSIDMAcfsegLABVN7VRrtxRSrmckuOz9e38DB23IWU/x+CovIT711dA
+	SLDj+5m57EScxoeu9TFI03ssxGU0gLFVNlShBOUVMc9mt5Ol/QWN+t35DJ6yy+s0fbU5qY
+	mIgkvfojjJGDRyhCAG8poq4nVu90nq2JC2q0wCP8G+/QNDGtgt1W0Z+lMOQAQdArbrM/h8
+	qEZ/FE8f3y7ZGVUsCD65LxJSj3qbsgueJ1cQ0u7diEqKxfN8xUyF64IKVIkGtErIXh1qh2
+	uMwIN6H3CA/47O+wN7qHwU3YNOIku8Jr2QuH3qmhcuKji/YEOxXiDDMBU15xRQ==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=relay-from-drehscheibe.grey.stw.pengutronix.de smtp.mailfrom=mkl@pengutronix.de
@@ -75,30 +73,25 @@ Received: from moin.white.stw.pengutronix.de ([2a0a:edc0:0:b01:1d::7b] helo=bjor
 	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <mkl@pengutronix.de>)
-	id 1xSWze-004GWG-0h;
+	id 1xSWze-004GWF-0Y;
 	Sun, 15 Nov 2026 10:57:50 +0100
 Received: from blackshift.org (p4ffb23c7.dip0.t-ipconnect.de [79.251.35.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(Client did not present a certificate)
 	(Authenticated sender: mkl-all@blackshift.org)
-	by smtp.blackshift.org (Postfix) with ESMTPSA id EE5EF5EC24D;
+	by smtp.blackshift.org (Postfix) with ESMTPSA id E68545EC24C;
 	Sun, 15 Nov 2026 09:57:49 +0000 (UTC)
 From: Marc Kleine-Budde <mkl@pengutronix.de>
 To: netdev@vger.kernel.org
 Cc: davem@davemloft.net,
 	kuba@kernel.org,
 	linux-can@vger.kernel.org,
-	kernel@pengutronix.de,
-	Oliver Hartkopp <socketcan@hartkopp.net>,
-	stable@vger.kernel.org,
-	Marc Kleine-Budde <mkl@pengutronix.de>
-Subject: [PATCH net 1/9] can: bcm: copy the CAN frames outside of lock_sock()
-Date: Sun, 15 Nov 2026 10:54:52 +0100
-Message-ID: <20261115095746.709371-2-mkl@pengutronix.de>
+	kernel@pengutronix.de
+Subject: [PATCH net 0/9] pull-request: can 2026-11-15
+Date: Sun, 15 Nov 2026 10:54:51 +0100
+Message-ID: <20261115095746.709371-1-mkl@pengutronix.de>
 X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261115095746.709371-1-mkl@pengutronix.de>
-References: <20261115095746.709371-1-mkl@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,145 +103,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Oliver Hartkopp <socketcan@hartkopp.net>
+Hello netdev-team,
 
-bcm_sendmsg() copies the CAN frames of TX_SETUP, RX_SETUP and TX_SEND
-from user space while holding lock_sock(). A copy that faults or
-stalls, e.g. on a FUSE backed mapping, holds lock_sock() for its whole
-duration.
+this is a pull request of 9 patches for net/main.
 
-bcm_notify() takes lock_sock() of every CAN_BCM socket in the namespace
-of a vanishing CAN device while holding RTNL, independent of the
-binding of the socket. So a stalled copy on any CAN_BCM socket can
-block RTNL on the unregistration or namespace change of a CAN device in
-this namespace, e.g. of a vcan device in an unprivileged user and
-network namespace.
+this first 3 patches are by Zhu Ling and fix problems with the CAN
+netlink handling.
 
-Copy the CAN frames that the opcode handler reads to kernel memory
-before lock_sock() and hand them to the handlers with a kvec based
-msghdr. bcm_tx_setup(), bcm_rx_setup() and bcm_tx_send() keep their
-checks and read the frames with memcpy_from_msg() as before. Up to
-sizeof(struct canfd_frame) bytes, i.e. a single CAN FD frame or up to
-four CAN CC frames, are copied to a buffer on the stack, more frames to
-a kvmalloc() buffer of up to MAX_NFRAMES + 1 CAN FD frames.
+A patch by my fixes a kernel memory information leak over USB in the
+gs_usb driver.
 
-As the frames are copied before lock_sock() now, a failing copy is
-reported before the error conditions that are checked under
-lock_sock(). This is in line with POSIX, which does not define an
-order in which multiple error conditions are detected and reported.
+The last 5 patches are by Oliver Hartkopp and avoid RTNL stalls in
+CAN_RAW, CAN_ISOTP and CAN_BCM protocols.
 
-The generic SOL_SOCKET options in sk_setsockopt() and sk_getsockopt(),
-e.g. SO_ATTACH_FILTER, still access user space under the socket lock.
-This is not specific to CAN_BCM and not addressed by this patch.
+regards,
+Marc
 
-Fixes: ffd980f976e7 ("[CAN]: Add broadcast manager (bcm) protocol")
-Cc: stable@vger.kernel.org
-Signed-off-by: Oliver Hartkopp <socketcan@hartkopp.net>
-Link: https://patch.msgid.link/20261113-can-bcmlock-memcg-v5-1-634c0e04bc72@hartkopp.net
-Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 ---
- net/can/bcm.c | 55 ++++++++++++++++++++++++++++++++++++++++++++++++---
- 1 file changed, 52 insertions(+), 3 deletions(-)
 
-diff --git a/net/can/bcm.c b/net/can/bcm.c
-index 7bd2aa39777a..3f4c8d828337 100644
---- a/net/can/bcm.c
-+++ b/net/can/bcm.c
-@@ -1643,6 +1643,11 @@ static int bcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
- 	struct bcm_sock *bo = bcm_sk(sk);
- 	int ifindex;
- 	struct bcm_msg_head msg_head;
-+	struct msghdr fmsg = {};	/* CAN frames copied to kernel memory */
-+	struct kvec kv;
-+	struct canfd_frame sframe;	/* stack buffer for up to CANFD_MTU bytes */
-+	void *frames = &sframe;
-+	size_t flen = 0;
- 	int cfsiz;
- 	int ret; /* read bytes or error codes as return value */
- 
-@@ -1663,6 +1668,47 @@ static int bcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
- 	if ((size - MHSIZ) % cfsiz)
- 		return -EINVAL;
- 
-+	/* Copy the CAN frames from user space before lock_sock(), so a
-+	 * stalled copy can not block bcm_notify() waiting for lock_sock()
-+	 * under RTNL. Only the frames the opcode handler reads are copied.
-+	 * The handlers keep their checks and read the frames from fmsg.
-+	 */
-+	switch (msg_head.opcode) {
-+	case TX_SETUP:
-+		if (msg_head.nframes >= 1 && msg_head.nframes <= MAX_NFRAMES)
-+			flen = msg_head.nframes * cfsiz;
-+		break;
-+
-+	case RX_SETUP:
-+		if (!(msg_head.flags & RX_FILTER_ID) &&
-+		    msg_head.nframes <= MAX_NFRAMES + 1)
-+			flen = msg_head.nframes * cfsiz;
-+		break;
-+
-+	case TX_SEND:
-+		if (msg_head.nframes == 1 && size == cfsiz + MHSIZ)
-+			flen = cfsiz;
-+		break;
-+	}
-+
-+	/* a message with missing frames still fails in the handler */
-+	flen = min(flen, msg_data_left(msg));
-+
-+	if (flen > sizeof(sframe)) {
-+		frames = kvmalloc(flen, GFP_KERNEL);
-+		if (!frames)
-+			return -ENOMEM;
-+	}
-+
-+	if (!copy_from_iter_full(frames, flen, &msg->msg_iter)) {
-+		ret = -EFAULT;
-+		goto out_free;
-+	}
-+
-+	kv.iov_base = frames;
-+	kv.iov_len = flen;
-+	iov_iter_kvec(&fmsg.msg_iter, ITER_SOURCE, &kv, 1, flen);
-+
- 	lock_sock(sk);
- 
- 	/* Re-validate under the socket lock: a concurrent bcm_notify()
-@@ -1721,11 +1767,11 @@ static int bcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
- 	switch (msg_head.opcode) {
- 
- 	case TX_SETUP:
--		ret = bcm_tx_setup(&msg_head, msg, ifindex, sk);
-+		ret = bcm_tx_setup(&msg_head, &fmsg, ifindex, sk);
- 		break;
- 
- 	case RX_SETUP:
--		ret = bcm_rx_setup(&msg_head, msg, ifindex, sk);
-+		ret = bcm_rx_setup(&msg_head, &fmsg, ifindex, sk);
- 		break;
- 
- 	case TX_DELETE:
-@@ -1759,7 +1805,7 @@ static int bcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
- 		if ((msg_head.nframes != 1) || (size != cfsiz + MHSIZ))
- 			ret = -EINVAL;
- 		else
--			ret = bcm_tx_send(msg, ifindex, sk, cfsiz);
-+			ret = bcm_tx_send(&fmsg, ifindex, sk, cfsiz);
- 		break;
- 
- 	default:
-@@ -1769,6 +1815,9 @@ static int bcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
- 
- out_release:
- 	release_sock(sk);
-+out_free:
-+	if (frames != &sframe)
-+		kvfree(frames);
- 
- 	return ret;
- }
+  tcp: fix NULL pointer dereference when restarting a Fast Open listener (2026-11-13 16:46:31 -0800)
 
-base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
--- 
-2.53.0
+are available in the Git repository at:
 
+  git://git.kernel.org/pub/scm/linux/kernel/git/mkl/linux-can.git tags/linux-can-fixes-for-7.4-20261115
+
+for you to fetch changes up to 48bcad36a131fa67a29a5ac430aceedf2d6f3d0f:
+
+  Merge patch series "can: avoid RTNL stalls in CAN_RAW, CAN_ISOTP and CAN_BCM" (2026-11-15 10:46:59 +0100)
+
+----------------------------------------------------------------
+linux-can-fixes-for-7.4-20261115
+
+----------------------------------------------------------------
+Marc Kleine-Budde (2):
+      can: gs_usb: gs_can_start_xmit(): don't leak uninitialized memory over USB
+      Merge patch series "can: avoid RTNL stalls in CAN_RAW, CAN_ISOTP and CAN_BCM"
+
+Oliver Hartkopp (5):
+      can: bcm: copy the CAN frames outside of lock_sock()
+      can: bcm: do not remove the procfs entry in bcm_notify()
+      can: raw: use a private mutex instead of lock_sock()
+      can: isotp: use a private mutex instead of lock_sock()
+      can: bcm: use a private mutex instead of lock_sock()
+
+Zhu Ling (3):
+      can: netlink: fix static FD-NON-ISO mode validation
+      can: netlink: fix IFLA_CAN_BITRATE_MAX attribute sizing
+      can: netlink: fix CAN XL PWM attribute sizing
+
+ drivers/net/can/dev/netlink.c |  18 ++++---
+ drivers/net/can/usb/gs_usb.c  |   2 +-
+ net/can/bcm.c                 | 114 ++++++++++++++++++++++++++++++------------
+ net/can/isotp.c               |  28 ++++++-----
+ net/can/raw.c                 |  41 ++++++++-------
+ 5 files changed, 130 insertions(+), 73 deletions(-)
