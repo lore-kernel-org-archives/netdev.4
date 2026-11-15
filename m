@@ -1,57 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794735609;
-	b=jD1Y8tCQhfLqhhYeJRFogWy9nrbOYRGRvltIJ72+w6vWPeNI0LrvyE3LLiNtgiMISeki
-	 qs+99YpmEowIPicdmUiwXwDZRcn6fimD5EWcBPIA2tz+oEUaDkVkMKFo4+bAadICWXX1Y
-	 MsAFPDVgpps23JT8Blqre8OC2ZQOznd16JDOM32FyBmiRBQB2SsjnvX1m+JAJZZl9DWQE
-	 2ksOAsNYtzWUTCgZ/+rGt0sqVUPRsM8gSIPbWH6ub4zSSddGn8I8YV/0i0SFX0pIFI421
-	 bYMmMoZY2jk0b6lL0vIF301iOWMGvXA01ON0D9nNbZ7DsLL5HoE4Xfd+0zzEYq9Lacg==
+	t=1794735739;
+	b=txTFXU2EFNnx1DUyNePbKi2iL86sV+Xk/xcloOA0codrBUUCRehcVNgwVYgqGXUOggDQ
+	 VD1F6CJpWhioZL1mYz5l39m3fMb8sres9zCs6yTnVnfoVTtLe3vAW7YmHXdTvtw9FRhB5
+	 aoN2y5ZdzroQeC0waW/shv0neaZMFD76nMh8hD8rwNx55dFlh4QZSaKimBFjI/Qp8pPWY
+	 anVDpwe3WiaGtUmQN0LNGprdr5x30S3UiY7K0EsTpi546V/sVmDBvqwWLqn8ZXsfIp5NP
+	 B8lRpFeVThg+6KP1S35XkDMZ45v8a39G/ZAnW09QKNqDx4y6wBC+B98syED5F7XQQyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794735609;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Auji9buz7SC60r+Rg/chnteRrB53AV4gVEU0ZMZqUdI=;
-	b=rGZKKN3zIhYvG5yuIfkIV78lg14mpmMS8tSOtFXLLYMEReEJF27czoETxd0oyEcPFNid
-	 H4OA/VdQBE08Bjax8AG7g/UazlqLNVp5j3FLKObn7/OsnRUnNZY8lrqprmOoWpP2tlL5T
-	 Nb7VKw3+/YJkWmBpHeoiYWJ01SZg6ugBDM+UQEek41sucwfi/HxQp+IZvSRfPaz1bgV6m
-	 gfZ9RY4+5HhXEalmuxQyXa7aAXMN1OCELQnZP8t7Mfolr5aJBQ5dzlkHqDQZBjoY4kVtM
-	 CGxN+P4NS+zNygNGlDXllwYLGjBiYjnL50AJbFEjuiCSQkNL8hycScJUgTOMxUZIL4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794735739;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type;
+	bh=jyi0ZYdSXMFjxWis5yIKPZ/e/pVOg1Og2RcpInXXxw8=;
+	b=tuooyiX6mZQbxCTeKjjMduXr1KKh/LQXZJh3DbGvyRsjjYD5sY40Nr9SDLiowSbaME8K
+	 3oiT4vb6xyXHAppETe4ba28vG4ocoz8wy4x77rVms2/yMPoa0ZdtyPyFBTayEbJ34vbhZ
+	 vsEAeAZNsJAhFzFG08RdYVaqGSHkumFQ11luA3w1k26FJADYeVehLUlhAOasjOhWr/SPD
+	 lXy6ttVS7jxyacryh+6/PHZvzQBQRt06MSilOXGX/q/7GoPj2Y3962Murke88bOotFVg6
+	 7sobQkHK4I9tZo8yyrFxF4VAskblPzWK6a19oRtAAgwJGY6rFqr2dvHSpCifC6V2IMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=proton.me;
-	spf=pass smtp.mailfrom=proton.me;
-	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=UQRlNGn8;
-	arc=none smtp.remote-ip=185.70.43.19
-Received: from mail-4319.protonmail.ch (mail-4319.protonmail.ch [185.70.43.19])
+	dmarc=pass header.from=narfation.org;
+	spf=pass smtp.mailfrom=narfation.org;
+	dkim=pass header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=2dJ5YK7Q;
+	arc=none smtp.remote-ip=213.160.73.56
+Received: from dvalin.narfation.org (dvalin.narfation.org [213.160.73.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 107EA606A31A;
-	Sun, 15 Nov 2026 09:40:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 107EA606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9880B606A31E
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 09:42:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9880B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=narfation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=narfation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=UQRlNGn8
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
-	s=protonmail2; t=1794735604; x=1794994804;
-	bh=Auji9buz7SC60r+Rg/chnteRrB53AV4gVEU0ZMZqUdI=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=UQRlNGn8hLopV55LMiNIrBGxtjhrPRSzhQ9hReMvVWMJt3aeZBGrqDzLXVw60E94U
-	 MbZbsiySCfWteVhXXn2Wfj5MgcQPsWWR9l63bR4mgpy6WOZhQt9LQroPWMtPXbw8o9
-	 WZ8WlnG0Bl2eINRVpHCj3qhB2WI2eLvcCaGVVBP/n7u6QuADan2kwO3l+VEF9ktvNq
-	 5FJsmKojZ1IIQFMN9dzxCDTgeaznEFSTfUsgM93syFd7Z7S+mSNZ6hUzSNeRXmO7CN
-	 zaaLPTbwvAd21TJE4h5WyK2qvy84e7/SJz3RpYFenHMnCM5iurUIKqhRq8GU4dsHHK
-	 8HucgT50kNuMA==
-Date: Sun, 15 Nov 2026 09:40:01 +0000
-To: Jonas Jelonek <jelonek.jonas@gmail.com>, Jonas Jelonek <jonas@jonasjelonek.de>
-From: John <therealgraysky@proton.me>
-Cc: leksij Rempel <o.rempel@pengutronix.de>, Kory Maincent <kory.maincent@bootlin.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: [PATCH net-next] net: pse-pd: realtek-pse-mcu: add RTL8238C device ID
-Message-ID: <EEsDzyK4pKqMZ9P6eCtfk5Qp2SXyprlFB4e4uQ7_O1iw3BuvnNm95DKBxuHy-mp3vdmUWhob9UWOzN9VWXoYyQIADqKPNvJt_gfaLaWpSkU=@proton.me>
-Feedback-ID: 47473199:user:proton
-X-Pm-Message-ID: 6cab9253a13400a28241ff7c52ae7468db8bcade
+	dkim=pass (1024-bit key) header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=2dJ5YK7Q
+Received: by dvalin.narfation.org (Postfix) id BAC5A1FD16;
+	Sun, 15 Nov 2026 09:42:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=narfation.org;
+	s=20121; t=1794735736;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jyi0ZYdSXMFjxWis5yIKPZ/e/pVOg1Og2RcpInXXxw8=;
+	b=2dJ5YK7QgAfvNQVVaVJdmuWNlNlG87tdSddq1xEh5UJBMdX58p49zinqu6YR6whGjIz/LD
+	prKGB6QESgD1kXYCieRxW6E2EWWDHtl6szTA5Qk5WqrIgD9aAmkAxygZq3IIPk+84cf2VL
+	QlXVmQ6fmMB3n8E4qWSK8NPL9ZVfpfU=
+From: Sven Eckelmann <sven@narfation.org>
+To: Simon Wunderlich <sw@simonwunderlich.de>, sashiko-reviews@lists.linux.dev
+Cc: marek.lindner@mailbox.org, antonio@mandelbit.com, netdev@vger.kernel.org,
+ b.a.t.m.a.n@lists.open-mesh.org
+Subject:
+ Re: [PATCH net-next 04/15] batman-adv: tt: use dedicated key type for hashes
+Date: Sun, 15 Nov 2026 10:42:13 +0100
+Message-ID: <4777859.LvFx2qVVIh@sven-desktop>
+In-Reply-To: <sashiko-outbox-215350@kernel.org>
+References:
+ <20261114091556.3336038-1-sw@simonwunderlich.de>
+ <20261114091556.3336038-5-sw@simonwunderlich.de>
+ <sashiko-outbox-215350@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,65 +65,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; boundary="nextPart2433226.ElGaqSPkdT";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
 
-From: John Audia <therealgraysky@proton.me>
+--nextPart2433226.ElGaqSPkdT
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Sven Eckelmann <sven@narfation.org>
+Date: Sun, 15 Nov 2026 10:42:13 +0100
+Message-ID: <4777859.LvFx2qVVIh@sven-desktop>
+In-Reply-To: <sashiko-outbox-215350@kernel.org>
+MIME-Version: 1.0
 
-Some Ubiquiti USW Pro Max 16 PoE units (boardrevision 3) carry a PSE
-MCU that reports device id 0x0238, so probe fails with "unknown PSE id
-0x238". poemgr names this id RTL8238C.
+On Sunday, 15 November 2026 10:24:43 CET sashiko-bot@kernel.org wrote:
+[...]
+> [Severity: Medium]
+> This problem wasn't introduced by this patch, but can batadv_tt_local_crc()
+> include a BATADV_TT_CLIENT_PENDING entry in the local CRC calculation
+> [1]?
+> 
+> batadv_tt_local_commit_changes_nolock() runs
+> batadv_tt_local_purge_pending_clients() and batadv_tt_local_update_crc()
+> sequentially under per-bucket locks, and batadv_tt_local_crc() only skips
+> BATADV_TT_CLIENT_NEW:
+> 
+> CPU0                                    CPU1
+> batadv_tt_local_commit_changes_nolock()
+>   batadv_tt_local_purge_pending_clients()
+>                                         batadv_tt_purge()
+>                                           batadv_tt_local_purge()
+>                                             ...
+>                                               common->flags |=
+>                                                 BATADV_TT_CLIENT_PENDING
+>   batadv_tt_local_update_crc()
+>     batadv_tt_local_crc()
+>       includes pending entry in crc     <-- CRC mismatch
+> 
+> The local CRC then disagrees with the committed translation table state and
+> triggers unnecessary full TT synchronizations across the mesh.
 
-The high byte of the id follows the chip revision, as with RTL8239
-(0x0039) and RTL8239C (0x0139), so add RTL8238C with the same power
-limits and power limit command as the RTL8238B (0x0138). Tested on such
-a unit, PoE works on all ports used.
 
-Link: https://github.com/blocktrron/poemgr/blob/17771dd7b3a74a64c14351d1cbf=
-8e61676934cbe/rtl8239.h#L13
-Signed-off-by: John Audia <therealgraysky@proton.me>
----
- drivers/net/pse-pd/realtek-pse-mcu-core.c | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+Not related to this patch. And the patchset to handle this better is pending [1].
 
-diff --git a/drivers/net/pse-pd/realtek-pse-mcu-core.c b/drivers/net/pse-pd=
-/realtek-pse-mcu-core.c
-index c70b09ca2012..9ae61184b573 100644
---- a/drivers/net/pse-pd/realtek-pse-mcu-core.c
-+++ b/drivers/net/pse-pd/realtek-pse-mcu-core.c
-@@ -43,6 +43,7 @@
- #include "realtek-pse-mcu.h"
-=20
- #define RTPSE_MCU_DEVICE_ID_RTL8238B=09=090x0138
-+#define RTPSE_MCU_DEVICE_ID_RTL8238C=09=090x0238
- #define RTPSE_MCU_DEVICE_ID_RTL8239=09=090x0039
- #define RTPSE_MCU_DEVICE_ID_RTL8239C=09=090x0139
- #define RTPSE_MCU_DEVICE_ID_BCM59111=09=090xe111
-@@ -159,6 +160,14 @@ static const struct rtpse_mcu_chip_info rtl8238b_info =
-=3D {
- =09.pw_set_lsb_mW =3D 200,
- };
-=20
-+static const struct rtpse_mcu_chip_info rtl8238c_info =3D {
-+=09.max_mW_per_port =3D 30000,
-+=09.name =3D "RTL8238C",
-+=09.pw_read_lsb_mW =3D 200,
-+=09.pw_set_cmd =3D RTPSE_MCU_CMD_PORT_SET_POWER_LIMIT,
-+=09.pw_set_lsb_mW =3D 200,
-+};
-+
- static const struct rtpse_mcu_chip_info rtl8239_info =3D {
- =09.max_mW_per_port =3D 90000,
- =09.name =3D "RTL8239",
-@@ -746,6 +755,9 @@ static int rtpse_mcu_discover(struct rtpse_mcu_ctrl *ps=
-e, struct rtpse_mcu_info
- =09case RTPSE_MCU_DEVICE_ID_RTL8238B:
- =09=09pse->chip =3D &rtl8238b_info;
- =09=09break;
-+=09case RTPSE_MCU_DEVICE_ID_RTL8238C:
-+=09=09pse->chip =3D &rtl8238c_info;
-+=09=09break;
- =09case RTPSE_MCU_DEVICE_ID_RTL8239:
- =09=09pse->chip =3D &rtl8239_info;
- =09=09break;
+Regards,
+	Sven
+
+[1] https://git.open-mesh.org/pub/ecsv/batman-adv.git/log/?h=b4/tt-avoid-unhashed-event
+--nextPart2433226.ElGaqSPkdT
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQS81G/PswftH/OW8cVND3cr0xT1ywUCavl+dQAKCRBND3cr0xT1
+y6oOAQCKyP0GEmH1xuxYPjD3qa2YYZvDjNW99ur5+VT7Yt97uQEA4rDoEHRecu4r
+PYXljqTRHgyXPN3+KI4Z3DyQouxt3g8=
+=CaO4
+-----END PGP SIGNATURE-----
+
+--nextPart2433226.ElGaqSPkdT--
+
+
 
