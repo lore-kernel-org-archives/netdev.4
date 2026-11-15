@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794783692;
-	b=pX65DbnJ9nfiqZ1xXas3GTVTzTnBN4dDFGad+JZnnEadKnZ7r0SPtljukb/QHBUgCGrA
-	 QPgg6xNWK+9rZtaoOnqjG2SwNIalu6YI7jIXNG7z/M/AuQLxL0SI3EGs3nAuFM2Qnvm33
-	 Ly8HTNbmrsr8u1zpcFAszSeZcjVEOIvMtx9ORkWZ3bwHdyEkYJY2fZXCFbHxFnoe0qSsJ
-	 lhYmAv7viOCMrdHL+ATFoFp0E71nyZiRryQ68n2Xx3F1MBXCSuhKt+ipQ/UpqeTS6ZXSq
-	 vpoXeGsRIJOIyhhZWAqUPW4RxkqU02eq4mHv9hJK1XnAYfODhGxLQRhPgXD6HUj8Cew==
+	t=1794783693;
+	b=ryEAA+dCOZ135tHqr0PMl9b/ZiK8/YjxnxY5PtLxdYAKScMZldmS3PF6cMssoSgnNQGR
+	 Sr++XQ1u29ZZAAs7Ki+JBnSd5Jr+V2Krfgrw7QbN7ub7q8rkiQu7syHwTMV5/pApOX9CZ
+	 u+/Wk9yMTQajOcp7BKVRYtlqXsLWyCkhEm9uFnouzM5st4os1J7aPcMO8ISLEgcPl98xz
+	 kV3+QQuXuVsdcQ/37E+CAKQ/ZSJ7zSwVWT9KRuquNSdADSyFYYa1CWt87L3FxTpI6f5Ck
+	 j8X19Mcc6GAqAKHcFtNIN8X/guxoo28D11iw/LMvNh44argK9vBbaGquVmeQOQ8kQ2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794783692;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794783693;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=DyXscBM6rKSqAxqGibRfOYNr5/PSL7sFuhg7DlIKEfA=;
-	b=wDPrLmxew+8+xDjv8pc+OrlFXFYd3S42BF3JUo6E5ir+CJeqhxxUX24N1yAdnQO1a1Z7
-	 wmzswBUv9sR+EQubtineNjoxO0phQs8/SNh6DF3f560kdU0pPWD7M4h80UEXfxOg5zAmA
-	 T9NGErqVWVGRKAubrPWU+bUiCBBKlpQeEMjtfflIu1ddOJv3IF0d8D6paDslXT8RyRAN+
-	 2xTQEnK+iR1cFE28nzyJoID+6Ydn6/ws5zduPRUcNCznIdP9aUr+ycI+w2QT7XgoBPls7
-	 olLDblnL9QqpDiD3OhvA25lpY9iOtaH0wkWJH5Hzvx4UsnLQ/WkCScdF5fCjMmIhUmg==
+	bh=+estSKTP5vos6ferPHC7vSoZbFx1RtdPQ+GvGUrze6E=;
+	b=CQmLuWDAbNnhHlVlMmyO/OZMfGdvcRHDG7r82ZG1h+6xYqRIKe5FpGtUBn69ko+0HkS4
+	 cBmYIsSi4cMpq2bIAoeUgmXnq3zRHRcEaTPMQ6ubpU9nA0ASITOnZ3JkY3lmjqRuYUhPL
+	 aMDBIiyPifb29EBo4fY77KW1uOMIxFkd89ZMXzt2RaBBTIzyeXBrVi0v3ZXEFehIj3Z6E
+	 phvuAr1OSnX4kTLCtzZDRPDYcAFuqSVtjctj9grG5ZaL5a30WfuWw+Rp/Qt6b9fs7/iQc
+	 KTN8nh7rfqNUHwpnMPuSZhuJjueNupyqUrXcWT92yJWH2EwAUUltX5fPk4jyUHiiSYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FXHHCxhR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nx3hwOTh;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 839DF606A31F;
-	Sun, 15 Nov 2026 23:01:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E846606A335;
+	Sun, 15 Nov 2026 23:01:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FXHHCxhR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93FF61F000C4;
-	Sun, 15 Nov 2026 23:01:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nx3hwOTh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B935F1F000C4;
+	Sun, 15 Nov 2026 23:01:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794783692;
-	bh=DyXscBM6rKSqAxqGibRfOYNr5/PSL7sFuhg7DlIKEfA=;
+	s=k20260515; t=1794783693;
+	bh=+estSKTP5vos6ferPHC7vSoZbFx1RtdPQ+GvGUrze6E=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FXHHCxhRVx9uv5flE81n4x05x9YNK3FhbWGO0dErAF9ezUtlut4nNc86kZ7n91ziX
-	 amUHKsOudXuFkomzogVCTPLZpTSOah5jqxJY9LI102749HJ/rmnkGB52frsBYz2ww3
-	 vWePh7nsygehVTXbKutWknUCcsCmgrzCniqCTNQPMz76/IGdjlTacT2H9j6wL4kjJu
-	 bSS+2M4lew3cCo7hUu30sYAZrsYSELQnZisAYG3J899wM1U5WUO/ON9A45s2S0A3Df
-	 Ownzt2n8yC2LBDDIk+Nsjli/WH0Th/EEklDwyFk57h4N4qKdf+nqQs7GFIGdllBeXO
-	 yNbJPjroKirqw==
+	b=Nx3hwOThc9u41gYjCnWnze4IknSu0jwtA5857xSfUL65VKEt1dbhsVSO7Xl8InBGS
+	 +Yndk6v/GZvJ7B4bxbXZCUIy+zU4qwYI5XIBvJbg4PeSKnIeShEx7qc4RxSYsevxJZ
+	 s27JM8hECFLb0NdfOcrGgxrUJ7x4jCLJCoS/pIDg7c7sfGZ/t8KMYZ038DDHh0n2v7
+	 5xhj2nrnakPK/xNUHRB50gxoZQTqE5qPjAsXw1XmzGwr7UdhV+YXYVIR2ZPuM467Ir
+	 DrXl62MRVnoRo3FUkrDNOvFpWKZQTcBgrJF90GtuNj+9q4NR1bS6tNCsy9Dt7hsoYe
+	 6y0UW9pNMRP4g==
 Subject:
- Re: [PATCH net 2/3] net: dsa: motorcomm: Rewrite FDB entry on port migration
+ Re: [PATCH net 3/3] net: dsa: motorcomm: Use VID 0 as the unaware PVID
 From: netdev-bot+sashiko@kernel.org
 To: mmyangfl@gmail.com
 Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
  linux-kernel@vger.kernel.org
-Date: Sun, 15 Nov 2026 23:01:31 +0000
-Message-ID: <179478369106.3136.17586264754426731793@kernel.org>
-In-Reply-To: <20261111234110.1449602-3-mmyangfl@gmail.com>
-References: <20261111234110.1449602-3-mmyangfl@gmail.com>
+Date: Sun, 15 Nov 2026 23:01:32 +0000
+Message-ID: <179478369229.3136.1576101942763120343@kernel.org>
+In-Reply-To: <20261111234110.1449602-4-mmyangfl@gmail.com>
+References: <20261111234110.1449602-4-mmyangfl@gmail.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -64,10 +64,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Critical: 0 · High: 1 (1) · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,146 +75,221 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The fix is incomplete: an address that moves between a user port
-  and the host (CPU port) still leaves a stale port bit in the hardware…
-- [Low] yt921x_dsa_port_fdb_add() now calls dsa_bridge_ports(ds, bdev).
+- [High] In the most common case the fix never takes effect.
+- [Medium] A port that leaves a VLAN-aware bridge ends up standalone with
+  PVID 0 instead of 4095.
+- [Medium] The patch removes the setup-time write in
+  yt921x_chip_setup_dsa() that set the VID 0 VLAN entry to LEARN_DIS,…
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  yt921x_vlan_filtering(), yt921x_dsa_port_vlan_add() and…
 
 --
 
-net: dsa: motorcomm: Rewrite FDB entry on port migration
+net: dsa: motorcomm: Use VID 0 as the unaware PVID
 
-This commit merges yt921x_fdb_join() and yt921x_fdb_leave() into a single
-yt921x_fdb_update() helper that takes separate leave and join port masks.
-yt921x_dsa_port_fdb_add() now passes the bridge port mask as the leave
-mask, so ports left behind when an address migrates are dropped from the
-hardware entry.
+This patch changes the PVID of VLAN-unaware bridge ports in the yt921x
+driver from 4095 to 0. The goal is for the switchdev FDB entries, which are
+reported with VID 0, to be hit by hardware lookups. It also removes the
+setup-time programming of the VID 0 VLAN entry, and standalone ports keep
+PVID 4095.
 
 > diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-> index f34f37b736249..d84e1f6dad843 100644
+> index d84e1f6dad843..5cc8a21c9d55f 100644
 > --- a/drivers/net/dsa/motorcomm/chip.c
 > +++ b/drivers/net/dsa/motorcomm/chip.c
 
 [ ... ]
 
-> @@ -877,10 +872,17 @@ yt921x_dsa_port_fdb_add(struct dsa_switch *ds, int port,
->  			const unsigned char *addr, u16 vid, struct dsa_db db)
->  {
->  	struct yt921x_priv *priv = dsa_to_yt921x_priv(ds);
-> +	struct dsa_port *dp = dsa_to_port(ds, port);
-> +	u32 bridge_ports_mask = 0;
-> +	struct net_device *bdev;
->  	int res;
+> @@ -962,7 +961,7 @@ yt921x_vlan_filtering(struct yt921x_priv *priv, int port, bool vlan_filtering)
+>  	bdev = dsa_port_bridge_dev_get(dp);
 >  
-> +	bdev = dsa_port_bridge_dev_get(dp);
-> +	if (bdev)
-> +		bridge_ports_mask = dsa_bridge_ports(ds, bdev);
-
-[Severity: Low]
-Is it safe to walk every port's dp->bridge here without rtnl?
-
-dsa_bridge_ports() does a plain load of dp->bridge, then reads
-dp->bridge->dev, for each user port via dsa_port_bridge_dev_get(). This
-path runs from dsa_user_switchdev_event_work() on dsa_owq, and rtnl_lock is
-not held there. Before this patch, the driver only called
-dsa_bridge_ports() from the bridge_join and bridge_flags paths, which hold
-rtnl.
-
-The bridge leave path looks covered. dsa_port_pre_bridge_leave() flushes
-dsa_owq under rtnl before dsa_port_bridge_destroy() runs. The rollback in
-dsa_port_bridge_join() in net/dsa/port.c does not flush first, though:
-
-out_rollback:
-	dsa_port_bridge_destroy(dp, br);
-
-Say FDB work queued by an earlier static fdb add on port 1 is still running
-when a bridge join on port 2 fails. The work could load dp2->bridge just
-before the kfree() and then read ->dev from freed memory.
-
-The loaded value is only compared with bdev, so the practical impact is
-small. Separately, bridge_join stores to dp->bridge on another port with a
-plain write. That is a data race with this reader that KCSAN can see.
-
-DSA core already does similar lockless cross-port reads in
-dsa_foreign_dev_check() and dsa_tree_offloads_bridge_dev().
-
-Could the port's own bridge come from the db argument (db.bridge) rather
-than re-reading dp->bridge outside rtnl?
-
-> +
->  	mutex_lock(&priv->reg_lock);
-> -	res = yt921x_fdb_join(priv, addr, vid, BIT(port));
-> +	res = yt921x_fdb_update(priv, addr, vid, bridge_ports_mask, BIT(port));
+>  	if (!bdev || !vlan_filtering)
+> -		pvid = YT921X_VID_UNWARE;
+> +		pvid = 0;
 
 [Severity: High]
-Does this still leave a stale port bit when an address moves between a user
-port and the host?
 
-The leave mask comes from the target port's own dp->bridge. This driver
-sets ds->assisted_learning_on_cpu_port, so DSA installs host addresses by
-calling .port_fdb_add() with port set to the CPU port. dp->bridge is only
-set on user ports, so bdev is NULL and bridge_ports_mask is 0.
+Does this assignment run when a standalone port joins a VLAN-unaware
+bridge?
 
-yt921x_fdb_update(priv, addr, vid, 0, BIT(cpu)) then keeps every existing
-egress bit. The existing entry is already STATIC, so ctrl1 == val1 and the
-full clear in yt921x_fdb_update() is skipped as well:
+yt921x_port_setup() calls yt921x_userport_standalone(), so the port starts
+at PVID 4095. The join path never touches PORTn_VLAN_CTRL:
 
-	ctrl1 = val1;
-	if (join_ports_mask) {
-		ctrl1 &= ~YT921X_FDB_IO1_STATUS_M;
-		ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
-		if (ctrl1 != val1)
-			ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
+yt921x_dsa_port_bridge_join()
+  yt921x_bridge_join()
+    yt921x_userport_bridge()   /* only clears YT921X_PORT_LEARN_DIS */
+    yt921x_bridge()            /* only rewrites PORTn_ISOLATION */
+
+The DSA core then calls dsa_port_vlan_filtering(dp, false) from
+dsa_port_switchdev_sync_attrs(). That call returns early because the port
+is already unaware, and the driver sets neither
+needs_standalone_vlan_filtering nor vlan_filtering_is_global:
+
+net/dsa/port.c:dsa_port_vlan_filtering() {
+    ...
+	if (dsa_port_is_vlan_filtering(dp) == vlan_filtering)
+		return 0;
+    ...
+}
+
+So yt921x_vlan_filtering() is never called. The replayed default_pvid VLAN
+goes to yt921x_pvid_set(), which also skips the PVID write when the port is
+not filtering:
+
+	if (vlan_filtering) {
+		res = yt921x_port_set_pvid(priv, port, vid);
+		...
 	}
-	ctrl2 |= YT921X_FDB_IO2_EGR_PORTS(join_ports_mask);
 
-The result is still an OR-in, not a rewrite of the whole entry.
+In the default "ip link set lanX master br0" case with vlan_filtering=0,
+does the hardware keep classifying untagged and priority-tagged frames to
+VID 4095? If so, the VID 0 entries installed by yt921x_dsa_port_fdb_add()
+would still never be hit, which is the problem this patch sets out to fix.
 
-One way to reach this: take a static entry on swp1 and use bridge fdb
-replace to point it at a foreign interface in the same bridge, or replace
-it with a local/permanent entry. fdb_add_entry()->fdb_update_dst() only
-sends RTM_NEWNEIGH, so swp1 never gets a SWITCHDEV_FDB_DEL_TO_DEVICE:
+Before this patch, standalone and unaware ports both used 4095, so join did
+not need a PVID write. Should yt921x_bridge_join() or
+yt921x_userport_bridge() now set PVID 0 when the bridge is not VLAN
+filtering?
 
-fdb_add_entry()
-  fdb_update_dst()
-  fdb_notify(br, fdb, RTM_NEWNEIGH, true)
-    dsa_user_fdb_event()            /* host_addr = true */
-      dsa_port_bridge_host_fdb_add()
-        dsa_switch_host_fdb_add()
-          dsa_port_do_fdb_add(cpu_dp)
-            yt921x_dsa_port_fdb_add()   /* port == CPU port */
+[Severity: Medium]
 
-The swp1 bit then stays in a STATIC entry that DSA no longer tracks. A
-later host fdb del clears only the CPU bit. Fast age through
-yt921x_fdb_flush_port(..., false) does not flush static entries. Unicast
-frames for that MAC keep going out of swp1.
+The !bdev case now gets PVID 0 as well. What happens when a port leaves a
+VLAN-aware bridge?
 
-The reverse direction seems to have the same problem.
-dsa_switch_for_each_bridge_member() only iterates user ports, so the mask
-from dsa_bridge_ports() never includes a CPU port. When a host address is
-re-pointed to swp1, the old CPU port bit is never cleared, and frames for
-that MAC also go to the CPU.
+The commit message says "The standalone default of 4095 stays". However,
+dsa_port_bridge_leave() runs things in this order:
 
-The commit message says:
+dsa_port_bridge_leave()
+  dsa_port_bridge_destroy()           /* dp->bridge = NULL */
+  DSA_NOTIFIER_BRIDGE_LEAVE
+    yt921x_bridge_leave()
+      yt921x_userport_standalone()    /* PVID 4095 */
+  dsa_port_switchdev_unsync_attrs()
+    dsa_port_reset_vlan_filtering()
+      dsa_port_vlan_filtering(dp, false)
+        yt921x_vlan_filtering(priv, port, false)
 
-  "rewrite the whole entry on add with the bridge port mask as the leave
-  mask, so that ports left behind by the migration are dropped from the
-  entry."
+At the last step dsa_port_bridge_dev_get(dp) returns NULL, so this branch
+overwrites 4095 with 0. The old code wrote 4095 here.
 
-but egress bits for ports outside the bridge's user ports are kept.
+Can the standalone port then classify into FID 0, which the VLAN-unaware
+bridges now use? The comment in yt921x_chip_setup_dsa() says port
+isolation is applied after the FDB lookup. A frame on the standalone port
+whose DA hits a FID 0 entry for a bridged port would then be dropped by
+isolation, rather than trapped to the CPU as unknown unicast.
 
-The later patches in the series, up to "Use VID 0 as the unaware PVID",
-don't appear to change yt921x_dsa_port_fdb_add() or yt921x_fdb_update().
+The standalone PVID also starts to depend on history. It is 4095 after
+setup or after leaving an unaware bridge, but 0 after leaving an aware
+bridge. Should the !bdev case keep 4095?
 
-For DSA_DB_BRIDGE host adds, db.bridge is a copy of *dp->bridge. Only .num
-is zeroed, because fdb_isolation is not set.
+>  	else
+>  		br_vlan_get_pvid(bdev, &pvid);
 
-Could db.bridge.dev be used to work out the bridge mask for CPU port
-calls? Could the CPU ports also be added to the leave mask for user port
-calls?
+[Severity: High]
 
->  	mutex_unlock(&priv->reg_lock);
+This isn't a bug introduced by this patch, but is br_vlan_get_pvid() given
+the right device here?
+
+bdev comes from dsa_port_bridge_dev_get(dp), so it is the bridge master.
+For a bridge master, br_vlan_get_pvid() returns the PVID of the bridge's
+own VLAN group:
+
+net/bridge/br_vlan.c:br_vlan_get_pvid() {
+    ...
+	else if (netif_is_bridge_master(dev))
+		vg = br_vlan_group(netdev_priv(dev));
+    ...
+}
+
+That is the host PVID, not the PVID of the port being configured. When
+vlan_filtering is enabled, a port set up with pvid 10 would get the
+bridge's PVID (for example 1) written into PORTn_VLAN_CTRL.CVID.
+
+yt921x_dsa_port_vlan_add() and yt921x_dsa_port_vlan_del() make the same
+comparison:
+
+		bdev = dsa_port_bridge_dev_get(dp);
+		if (bdev) {
+			br_vlan_get_pvid(bdev, &pvid);
+			if (pvid == vid)
+				res = yt921x_pvid_clear(priv, port);
+		}
+
+Take the common sequence "bridge vlan add dev lanX vid 10 pvid untagged;
+bridge vlan del dev lanX vid 1". When vid 1 is deleted, the bridge
+master's PVID is still 1.
+
+Would that call yt921x_pvid_clear(), write PVID 0 and set
+CVLAN_DROP_UNTAGGED? All untagged ingress on lanX would then be dropped,
+while the software bridge still thinks lanX has PVID 10.
+
+>  	res = yt921x_port_set_pvid(priv, port, pvid);
+
+[ ... ]
+
+> @@ -2336,15 +2333,6 @@ static int yt921x_chip_setup_dsa(struct yt921x_priv *priv)
+>  	if (res)
+>  		return res;
 >  
->  	return res;
+> -	/* Tagged VID 0 should be treated as untagged, which confuses the
+> -	 * hardware a lot
+> -	 */
+> -	ctrls[0] = YT921X_VLAN_CTRLa_LEARN_DIS | YT921X_VLAN_CTRLa_PORTS_M;
+> -	ctrls[1] = 0;
+> -	res = yt921x_reg64_write(priv, YT921X_VLANn_CTRL(0), ctrls);
+> -	if (res)
+> -		return res;
+> -
+
+[Severity: Medium]
+
+VID 0 is now the classification VLAN and FID for every VLAN-unaware
+bridge. With this write removed, what programs the VID 0 entry?
+
+The entry is left at hardware reset defaults for learning, membership and
+untag. yt921x_dsa_port_vlan_add() and yt921x_dsa_port_vlan_del() have no
+special case for VID 0, so the 8021q auto VID 0 can rewrite it.
+
+8021q adds VID 0 through vlan_vid0_add() on NETDEV_UP when
+NETIF_F_HW_VLAN_CTAG_FILTER is set. DSA sets that feature while the port
+is VLAN filtering. The add reaches yt921x_vlan_add(priv, port, 0, false),
+which sets the port and CPU member bits and clears UNTAG_PORTn.
+
+When the bridge then switches to vlan_filtering=0:
+
+dsa_user_manage_vlan_filtering(false)
+  vlan_for_each(user, dsa_user_clear_vlan, user)
+    yt921x_dsa_port_vlan_del(vid 0)
+      yt921x_vlan_del(priv, port, 0)
+
+and yt921x_vlan_del() does:
+
+	masks[0] = YT921X_VLAN_CTRLa_PORTn(port);
+	masks[1] = YT921X_VLAN_CTRLb_UNTAG_PORTn(port);
+
+	return yt921x_reg64_clear_bits(priv, YT921X_VLANn_CTRL(vid), masks);
+
+Does this remove the port from the VLAN entry that the unaware bridge now
+forwards in?
+
+VLAN-aware ports with no PVID also classify to VID 0, through
+yt921x_pvid_clear() or yt921x_vlan_filtering() with pvid 0. LEARN_DIS is no
+longer set on VID 0. Can frames accepted there, such as priority-tagged
+frames if CVLAN_DROP_UNTAGGED does not cover them, be learnt into the FID 0
+table that the unaware bridges use?
+
+The comment in yt921x_dsa_port_vlan_add() also looks stale for VID 0:
+
+	/* CPU port is supposed to be a member of every VLAN; see
+	 * yt921x_vlan_add() and yt921x_port_setup()
+	 */
+
+Apart from 8021q, nothing adds the CPU port to VLAN 0 any more.
+
+>  	return 0;
+>  }
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111234110.1449602-1-mmyangfl%40gmail.com
