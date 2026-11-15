@@ -1,73 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794783072;
-	b=LUCEMLh+j56/bYqcKcov/QjZN4u1c3aUSWW9hSrl3UJ7cB/tdAUVgJahole0HJ/K6JYC
-	 5kO2lxWDHN0tktLrPHIGz2P71F57vqrTYOyfjZL6OzAWPgQtujyqbtnzkvhfmSeHlYfHH
-	 Db5pyltBcF5HrqWjjHb0He6aoX3hXCOsa0BMZrtQtoAyCAFnKf6lD8TNTJHAyUtNTGKQO
-	 T9+Zw8IOmA1++XHVqnA85wBYUNTPis0bowA9Sxwk3+uALdcQb6JDfAaUP8oNQt+UH5zCQ
-	 B+U7HoGqfi1jSgxUUp6zP2jQX5PDogJPU5dDI+Rd7lg8QGvAsQV78gXiSl41I07BcIQ==
+	t=1794783106;
+	b=e7G7RGMlEYRNKuXKOz/SzMgVSdEuCP8UgGme8Adu+tdtSluaetURXy9Zy+lx8EzbSkmY
+	 X1CxfgRYgt3TLdgRTl9YexUHRXDWtHc3fPhRjWUNP9hVY7Co9OciwvXfZCZTB3YqQY9bF
+	 6Ou8RzWWmz0UBSgQ3ipQNkfCIz5JBHytnGJK9cQbh8ecxbUiaI/thDSwcDrW0u12l1V80
+	 UDqjn1CE0QplsGx+HezDbDCrBRhR20RrCpW9H4ALlfJIdy1kouGWLHvG9NAm+PQacMBXv
+	 ak24AW6Ni4Lie5iAx9WOwGd7ai0w2FqEMOXxtWJKIfb56vkNFtINMAreVmeeEoQ48CA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794783072;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=D3mzLcFvo9mS0Li7vIPTrzwd8eAC+u78WLPEJvvVn5w=;
-	b=PmERRr4SzVfhGg87t+TJnIkaTY3I0GmTCIhL8ZiSW7f1Gr2HtQPlem1wbYAvd2QArXY6
-	 /JkdYpGXXOmSEFU1DMRUww+Abla7yN9SylSb8iHAfG1jmFAcjpvK9VNFusg6Pw1vYF2Fr
-	 TaSEBbKJuxB75Q9H9paHNiSluqOEH4KQYQo/QALoSww3rZ6FnyTEhwc3Q1Tyv6o3INnla
-	 vKX3orwCwIoKOSSjF+iVS/bTX1g7RGt2MKSln6OlojGZVgJ35j5TkEj6UOcHcJP+T34/w
-	 xZzzAe91Eca0wq5vpWkwrHCB/ugEj/7gaFydnpSF5BjVCguJh0SbiVDS8s0reF0oE+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794783106;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=0pLj+olZoSsGogi6vlPNdxgybAe1TouvBILAaXOZkU4=;
+	b=5LxwvcMWntqWakbyiLDZHK9nqxqeXi8NMhKMk9Tbprt+5f/LME2dzotYwWii0ZqUVuug
+	 qw8QbPV8fjBAw/h5MIdZGfrq9JRmXV8zQ3a2T5vzxQ38atkZQD4pOt/NKjmJg2KRb20lR
+	 MC8kwf70TBU/8nkF1EdmSMVMd2R0ZAZ1IHqveqCi4KnmatRmv92VPrI/HOiosuYvomJvA
+	 VXtQooqPC/aA11yws6DUF7kLX4pUst/1J37JnRzZdmMR7FYQsl6mO+3NTaLGw9ryevwWE
+	 o3hC84TRwX1Pli9hy6Zr65eaVvSNisXoqvUHy1/zRqXWDyWzgO+e7MIXlfl8TGypFEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IyCn9hBT;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="byXV765/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89FC4606A329
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 22:51:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA492606A31F;
+	Sun, 15 Nov 2026 22:51:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IyCn9hBT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2FCA1F000C4;
-	Sun, 15 Nov 2026 22:51:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=byXV765/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E31EE1F000C4;
+	Sun, 15 Nov 2026 22:51:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794783072;
-	bh=D3mzLcFvo9mS0Li7vIPTrzwd8eAC+u78WLPEJvvVn5w=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=IyCn9hBTDwd+BXsDUDKuP7TRIfUtz/3nd23IE/Z9Nm2vCnKG+27ncQAPZC8UOGvvs
-	 ngSPFZ90UX6NRPaSfWQSPxxlUuu6FR+ChYLutE7PaqHTfZoVVlF2Qfw0Jyh9fu997n
-	 uVNsyenC3Bqc1NwCpKoYs85CjhssMojM4QPy8YsJ9cXqssxav0Q29rqP0f6Myr3BE8
-	 W1P5WYRgFQdquz3O1QG6RdZxHxGiEQa+gP9Qws5vkN3isNxo+Z2UFgfIPM/UxnGUzx
-	 4aRHc1Pi3HcKzosAOg4R8xpoNgiK46pqKCFRdOjNNtUNW9buWedxaIUS5jzC3feELl
-	 iFe8cwNR7c0Ag==
-Received: from ams-compute-01.internal (ams-compute-01.internal [10.64.2.61])
-	by mailfauth.ams.internal (Postfix) with ESMTP id 3C009198003A;
-	Sun, 15 Nov 2026 17:51:10 -0500 (EST)
-Received: from ams-imap-19 ([10.64.2.39])
-  by ams-compute-01.internal (MEProxy); Sun, 15 Nov 2026 17:51:10 -0500
-X-ME-Sender: <xms:Wzf6av2sCzyLNFEGWgfrcaK3FE6PaTO9yWQhyVJEDxofwqWPQlS6PQ>
-    <xme:Wzf6ao7JLsnAQvstX6lwGsq2ptK0B3YXlsoTF3cudOAG_s55XcPIE1msHz2DbZyiD
-    3UaPFcEwNPBs8Wet9c_EuxATYf1CA2lampxehEpGVAuKY9LUTWiTjGN>
-X-ME-Proxy-Cause: dmFkZTGFVelylG9Fs6YXmYo6ufowmflM2xIi3GLx9bd2COtxcMxRDdby4dhzYdqsYUfzOi
-    SyV5gZUyFEqidS3OyFrsQz8CzCXzO/GQbDufhtmh8vlH5BtzMEjqvC9zhouXZo8AF/hcL8
-    WLqvYZJZjRdS4k2AifKr9na39n8fNVr48YM/IvxDe5N1d+6qcFsELEGsH21J30Z4GcLCEJ
-    uAJqfVmogALHFVvMO6N6UjR3TjcVttGmepkUNGvmg5GlUzEKRdPH2eGJMWUubp201sUsig
-    ggxMSsoeF3WJ/ceIQLkiJ3B8X9LNPS/3KgLPDNhT4aZGNw+TD4EgkHjlK9iXVZMO9bbwck
-    vqKWTJzJOaxsFVvU9x7pPsgiO4IZWMJpK5Wm+ZFPj7WHkamYGcDJOhjl9TOBlr1m9pXfOG
-    LHgoHC8i0dtSr+u6B9I5mvGTplaqOR+hnojX2aF5Bf36dqGgGPNXOrd20uC/NTXdItvSth
-    PhtZpfix3GnM/fPj2wGhs0oB4dBP6BuxN1lfP7YQsofAKk372H2qfcUzXJuCl+MwMEJ0Iq
-    tJvKC8w3XlA4E0Bm8KONQ6I8qPSAoWZeaBa+FwGAh2KaJ5aQWSld1DdchcuSHgSwASjgtH
-    ANwlX/GIteBcBAMr2S3SuPv1TszhBwNLhdYMemvQMmnHUU+QTsq49Fmjj6qA
-X-ME-Proxy: <xmx:Xjf6arJpuD-xRcgMsfTn286cPRTOMfYm3lfYL1vegbMD4LarcUvV_w>
-    <xmx:Xjf6apIKfBENZY2MFYh_OkVr0nMSrocK6Qsd5m0FodO3EJ7EBVBsAw>
-    <xmx:Xjf6aqU6JmZiWc9xKFxEACOOogZV9FXi8YLD6gGzHaPSHsEsYkNYZQ>
-    <xmx:Xjf6aik0y91oWDm0-m_tOkAE_u1YKP0Nol6h_mrfZhOA5CXPFTAIxA>
-    <xmx:Xjf6aglc8SbTJ0-p-AHVEhsL0i9wth55wupvWC9dkmmm-3eAagoUWUiz>
-Feedback-ID: ia3204a8f:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id CC5FC2F8005A; Sun, 15 Nov 2026 17:51:07 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20260515; t=1794783106;
+	bh=0pLj+olZoSsGogi6vlPNdxgybAe1TouvBILAaXOZkU4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=byXV765/qIpG5ugJXO9Hg56ukuj2ntuD1afLRTqgvNpOMVZdA7OcViBHPRNTozoBJ
+	 ffH18wRor9fbGwdjKdR2w5grpsmk6dFWFhin9ky8GmPheSvSna8qIPbX74Ul6nK0BX
+	 MklV8M9qwDJb3KUMW1I7QCMQNXQd4cQgyp3aCsgTWPh4qsKLsxu6zucfJmpf503Vte
+	 bMJIUnPaB/UFon4LILgKkhh3Q5y+slYKVgO1MV3aSza7RlgG+7YBLVxT6rEzRIbgDt
+	 A5GYL7/5vP1lm0aK15txn1tkP+ISGFpkU4rCkD97i61DwsTa+204QsvRwyePaTpIjH
+	 706ImYB9G2tpg==
+Subject: Re: [PATCH net v2] udp_tunnel: fix GRO callback mismatch during setup
+From: netdev-bot+sashiko@kernel.org
+To: Jeremy.Jean@oss.cyber.gouv.fr
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Date: Sun, 15 Nov 2026 22:51:45 +0000
+Message-ID: <179478310543.3136.4977357785981182737@kernel.org>
+In-Reply-To: <20261111214622.2482547-2-Jeremy.Jean@oss.cyber.gouv.fr>
+References: <20261111214622.2482547-2-Jeremy.Jean@oss.cyber.gouv.fr>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,94 +62,237 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: APqG7cBtEf9F
-Date: Sun, 15 Nov 2026 23:50:37 +0100
-From: "Imre Kaloz" <kaloz@kernel.org>
-To: "Elad Nachman" <enachman@marvell.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Cc: "David S . Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>,
- "Oleksandr Mazur" <oleksandr.mazur@plvision.eu>
-Message-Id: <80c7731e-41ee-4e14-a262-a2bc18136ef6@app.fastmail.com>
-In-Reply-To: 
- <BL1PPFB0715B38B6145C7DCFD147033D05BDB7D2@BL1PPFB0715B38B.namprd18.prod.outlook.com>
-References: <20261111101521.9878-1-kaloz@kernel.org>
- <BL1PPFB0715B38B6145C7DCFD147033D05BDB7D2@BL1PPFB0715B38B.namprd18.prod.outlook.com>
-Subject: Re: [EXTERNAL] [PATCH net] net: marvell: prestera: disable port before
- changing its MAC mode
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
 
-Hi,
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-On Sun, Nov 15, 2026, at 17:49, Elad Nachman wrote:
->> prestera_pcs_config() writes a new mode or inband setting to a port
->> that is already enabled, as when phylink switches an SFP port to
->> inband SGMII. The firmware can then report link down and no link up
->> until the port is disabled and enabled again.
->> 
->> Disable the port before such a write. Exercising this needs a link
->> partner, so no in-tree test covers it.
->> 
->> Fixes: 52323ef75414 ("net: marvell: prestera: add phylink support")
->> Signed-off-by: Imre Kaloz <kaloz@kernel.org>
->> ---
->>  .../net/ethernet/marvell/prestera/prestera_main.c  | 14 +++++++++++++-
->>  1 file changed, 13 insertions(+), 1 deletion(-)
->> 
->> diff --git a/drivers/net/ethernet/marvell/prestera/prestera_main.c b/drivers/net/ethernet/marvell/prestera/prestera_main.c
->> index a82e7a8029851..39ebd1944be55 100644
->> --- a/drivers/net/ethernet/marvell/prestera/prestera_main.c
->> +++ b/drivers/net/ethernet/marvell/prestera/prestera_main.c
->> @@ -307,13 +307,14 @@ static int prestera_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
->>                              bool permit_pause_to_mac)
->>  {
->>       struct prestera_port *port = prestera_pcs_to_port(pcs);
->> -     struct prestera_port_mac_config cfg_mac;
->> +     struct prestera_port_mac_config cfg_mac, old;
->>       int err;
->> 
->>       err = prestera_port_cfg_mac_read(port, &cfg_mac);
->>       if (err)
->>               return err;
->> 
->> +     old = cfg_mac;
->>       cfg_mac.admin = true;
->>       cfg_mac.fec = PRESTERA_PORT_FEC_OFF;
->>       cfg_mac.inband = neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED;
->> @@ -339,6 +340,17 @@ static int prestera_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
->>               break;
->>       }
->> 
->> +     /* Firmware may not report link up after the mode or inband setting of
->> +      * an enabled port changes until the port is disabled and re-enabled.
->> +      */
->> +     if (old.admin && (old.mode != cfg_mac.mode ||
->> +                       old.inband != cfg_mac.inband)) {
->> +             old.admin = false;
->> +             err = prestera_port_cfg_mac_write(port, &old);
->> +             if (err)
->> +                     return err;
->> +     }
->> +
->>       err = prestera_port_cfg_mac_write(port, &cfg_mac);
->>       if (err)
->>               return err;
->> --
->> 2.47.3
->> 
-> 
-> Reviewed-by: Elad Nachman <enachman@marvell.com>
+Critical: 0 · High: 1 · Medium: 2 · Low: 1
 
-Thanks, Elad.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The Sashiko review found that a switch between 2500BASE-X and SGMII,
-which share one MAC mode, skips the disable. v2 also compares the
-speed and sets it for SGMII. Since that changes the logic you
-reviewed, v2 will not carry your Reviewed-by; I would be glad if you
-could look at v2 and add it there.
+- [High] The fix still lets receive and completion use different tunnel
+  parsers on the same packet, so the out-of-bounds write the commit…
+- [Medium] udp_tunnel_gro_count only describes how the head skb of a GRO
+  entry was parsed, not the packets merged into it, so packets in the…
+- [Medium] The Fixes: tag blames only 5d7f5b2f6b93 ("udp_tunnel: use
+  static call for GRO hooks when possible", v6.16), but part of what the…
+- [Low] The new synchronize_net() in udp_tunnel_update_gro_rcv()
+  (net/ipv4/udp_offload.c:139) runs with the global…
 
+--
 
-Thanks,
-Imre
+udp_tunnel: fix GRO callback mismatch during setup
+
+setup_udp_tunnel_sock() now writes gro_complete first and publishes
+gro_receive last with release semantics, and udp_gro_receive() reads
+gro_receive once. A new per-skb udp_tunnel_gro_count in napi_gro_cb is
+incremented for each tunnel gro_receive callback and consumed in
+udp_gro_complete(). The static call is used only when its target matches
+the socket's callback, and a grace period is waited before resetting it.
+
+> Fixes: 5d7f5b2f6b93 ("udp_tunnel: use static call for GRO hooks when possible")
+
+[Severity: Medium]
+Is 5d7f5b2f6b93 the only commit that should be named here?
+
+That commit added the static call machinery and udp_tunnel_gro_rcv(). It
+did not touch the gro_receive/gro_complete stores in
+setup_udp_tunnel_sock() or this check in udp_gro_complete():
+
+    if (sk && udp_sk(sk)->gro_complete) {
+
+The older mismatch goes like this. Receive treats the packet as plain UDP
+and holds it through udp_gro_receive_segment(). One example is sk == NULL
+because udp_encap_needed_key is not enabled yet, on a device with
+NETIF_F_GRO_UDP_FWD. setup_udp_tunnel_sock() then sets gro_complete. The
+unconditional lookup in udp_gro_complete() finds the socket and runs the
+tunnel gro_complete on a packet that was never tunnel-parsed.
+
+The new udp_tunnel_gro_count is what closes that case: with a count of 0
+the packet goes to udp_gro_complete_segment(). The commit message only
+describes the socket callbacks and the global static call disagreeing,
+though.
+
+Stable tooling relies on the Fixes: tag, so kernels without 5d7f5b2f6b93
+(6.12, 6.6, 6.1, ...) would not get this fix. Could another Fixes: tag be
+added for the commit that introduced socket-based UDP tunnel GRO
+completion, or at least a note in the commit message?
+
+> diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
+> index b77ae2f00c626..92c5e34bcf734 100644
+> --- a/net/ipv4/udp_offload.c
+> +++ b/net/ipv4/udp_offload.c
+> @@ -136,6 +136,7 @@ void udp_tunnel_update_gro_rcv(struct sock *sk, bool add)
+>  		static_branch_enable(&udp_tunnel_static_call);
+>  	} else if (old_gro_type_nr == 1) {
+>  		static_branch_disable(&udp_tunnel_static_call);
+> +		synchronize_net();
+>  		static_call_update(udp_tunnel_gro_rcv, dummy_gro_rcv);
+>  	}
+
+[Severity: Low]
+This synchronize_net() runs with the global udp_tunnel_gro_type_lock mutex
+held. Is that a concern, given that unprivileged users can reach this
+path?
+
+udp_lib_setsockopt(UDP_ENCAP, UDP_ENCAP_ESPINUDP) on a socket with
+UDP_GRO set:
+    set_xfrm_gro_udp_encap_rcv()->udp_tunnel_update_gro_rcv(sk, true)
+
+close():
+    udp_destroy_sock()->udp_tunnel_cleanup_gro()
+        ->udp_tunnel_update_gro_rcv(sk, false)
+
+These callers don't hold rtnl, so synchronize_net() turns into a regular
+synchronize_rcu(). An unprivileged process can keep triggering the 1->0
+or 1->2 transitions, for example by alternating xfrm4/xfrm6 ESP-in-UDP
+sockets.
+
+vxlan, geneve and fou setup and teardown take the same mutex, usually
+under rtnl. Would they then wait behind those grace periods and add to
+rtnl latency?
+
+[ ... ]
+
+> @@ -847,7 +863,7 @@ struct sk_buff *udp_gro_receive(struct list_head *head, struct sk_buff *skb,
+>  
+>  	skb_gro_pull(skb, sizeof(struct udphdr)); /* pull encapsulating udp header */
+>  	skb_gro_postpull_rcsum(skb, uh, sizeof(struct udphdr));
+> -	pp = udp_tunnel_gro_rcv(sk, head, skb);
+> +	pp = udp_tunnel_gro_rcv(gro_receive, sk, head, skb);
+>  
+>  out:
+>  	skb_gro_flush_final(skb, pp, flush);
+
+[Severity: Medium]
+Does udp_tunnel_gro_count cover the packets merged into a held GRO entry,
+or only the head skb?
+
+Say a packet P is held before setup_udp_tunnel_sock() publishes
+gro_receive. P goes through udp_gro_receive_segment() in one of two ways:
+
+  - NETIF_F_GRO_FRAGLIST, with is_flist = 1 because the kernel tunnel
+    socket lacks GRO_ENABLED
+  - sk == NULL plus NETIF_F_GRO_UDP_FWD while udp_encap_needed_key is
+    still off
+
+Either way, P has udp_tunnel_gro_count == 0 and encap_mark == 0.
+
+A packet S on the same outer flow arrives after setup and takes the
+tunnel path. The loop over head above only compares the ports and
+whether the checksum is zero:
+
+    if ((*(u32 *)&uh->source != *(u32 *)&uh2->source) ||
+        (!uh->check ^ !uh2->check)) {
+
+Nothing checks whether p itself was tunnel-parsed. Then
+udp_tunnel_gro_rcv()->vxlan_gro_receive()->eth/inet/tcp gro_receive walk
+P at p->data + off_vx and the inner offsets. They can merge S's inner
+payload into P through skb_gro_receive() or skb_gro_receive_list().
+
+At flush, udp_gro_complete() (or the fraglist shortcut in
+udp4/6_gro_complete()) looks only at P's own count of 0. It completes the
+aggregate as plain SKB_GSO_UDP_L4 or fraglist. P's gso_size is the outer
+UDP payload size, but the merged data has its tunnel and inner headers
+stripped.
+
+Can this corrupt segmentation and payload for packets that arrive during
+the setup window?
+
+For napi_gro_frags() style drivers, P's linear area ends at the outer UDP
+payload (see gro_try_pull_from_frag0()). Would S's tunnel receive then
+also read P's inner headers beyond skb_headlen(P)?
+
+[ ... ]
+
+> @@ -933,7 +950,12 @@ int udp_gro_complete(struct sk_buff *skb, int nhoff,
+>  
+>  	sk = INDIRECT_CALL_INET(lookup, udp6_lib_lookup_skb,
+>  				udp4_lib_lookup_skb, skb, uh->source, uh->dest);
+> -	if (sk && udp_sk(sk)->gro_complete) {
+> +	if (NAPI_GRO_CB(skb)->udp_tunnel_gro_count) {
+> +		NAPI_GRO_CB(skb)->udp_tunnel_gro_count--;
+> +		if (sk)
+> +			gro_complete = READ_ONCE(udp_sk(sk)->gro_complete);
+> +	}
+> +	if (gro_complete) {
+>  		skb_shinfo(skb)->gso_type = uh->check ? SKB_GSO_UDP_TUNNEL_CSUM
+>  					: SKB_GSO_UDP_TUNNEL;
+>  
+
+[Severity: High]
+Does the counter actually tie completion to the gro_receive that ran at
+receive time?
+
+udp_tunnel_gro_rcv() only increments udp_tunnel_gro_count. It does not
+record which callback or socket ran. Here udp_gro_complete() still does a
+fresh udp4_lib_lookup_skb()/udp6_lib_lookup_skb() at flush time. Whenever
+the counter is non-zero, it calls the gro_complete of whatever socket
+that lookup returns.
+
+Held GRO packets are not inside an RCU section. They can stay held across
+NAPI polls when gro_flush_timeout and napi_defer_hard_irqs are set, since
+napi_complete_done() only does gro_flush_normal(&n->gro, !!timeout). So
+something like this looks possible:
+
+  vxlan_gro_receive() aggregates the packet, udp_tunnel_gro_count = 1,
+  and the packet is held on the NAPI GRO list
+
+  the vxlan link is deleted:
+    vxlan_sock_release()->udp_tunnel_sock_release()
+    (nothing flushes the lower device's GRO lists)
+
+  a fou/GUE port is added on the same UDP port:
+    setup_udp_tunnel_sock() runs while the packet is still held
+
+  flush:
+    udp_gro_complete()->udp4_lib_lookup_skb() returns the GUE socket
+    gro_complete is gue_gro_complete()
+
+gue_gro_complete() in net/ipv4/fou_core.c then does:
+
+    guehlen = sizeof(*guehdr) + (guehdr->hlen << 2);
+    ...
+    err = ops->callbacks.gro_complete(skb, nhoff + guehlen);
+
+hlen comes from vxlan header bytes. vxlan_gro_prepare_receive() only
+compared those bytes for flags and VNI, so guehlen can be up to 128
+bytes. The inner inet/ipv6 gro_complete handlers then write
+tot_len/payload_len/check and dispatch L4 completes at offsets that
+receive never validated.
+
+Can this still cause the slab-out-of-bounds write shown in the KASAN
+report in the commit message? It needs CAP_NET_ADMIN in a netns, which
+an unprivileged user can get through a user namespace with a tun
+IFF_NAPI device.
+
+The opposite case also seems possible. If the new socket has no
+gro_complete, or the completion lookup returns NULL while the receive
+lookup found a socket, the counter is still consumed. Then
+udp_gro_complete_segment() marks a tunnel-aggregated skb as plain
+SKB_GSO_UDP_L4.
+
+One way for the two lookups to differ is the port-only fast path in
+udp4_gro_lookup_skb():
+
+    sk = udp_tunnel_sk(net, false);
+    if (sk && dport == htons(sk->sk_num))
+        return sk;
+
+__udp4_lib_lookup() at completion has no such path. A VRF slave with
+udp_l3mdev_accept=0 is one example.
+
+This sequence could also happen before this patch. However, the stated
+goal of the patch is to stop receive and completion from parsing one
+packet differently. Would it work better to record at receive time which
+callback or socket ran, or to refuse tunnel completion when they differ,
+instead of counting callbacks?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111214622.2482547-2-Jeremy.Jean%40oss.cyber.gouv.fr
