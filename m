@@ -1,85 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794745198;
-	b=26YtiMExZW8ivvoM5zdVA9B2koUZ+HiLj6W1vrTx1xlcUt3D5yUKFPEAAi8W5MkPDNof
-	 WsbSFxwDr17ccbmyQIFexeAnFPHsrcJRQ2GkkP8eGf8MaPMoSeX2NnhBI03Z0XxiSAost
-	 BokzaiTaGjLVDeLigxJ77rKwIOXDoouB9sWl96vUnm+z/HFepX/to428rIVvXlWj4Rqpe
-	 xwJreO4t4aSFdgqdGYVbvlglYgtDxgk0vdL0dSzydNBfKJfcC2Tv7n2/EgmFcVIUAn3FI
-	 Te1y5udvB4Hr9zInhJ5fCGlTQhSV8Eqt+4WCDF2Gnr+uycmh36/s5H9OtMLX3kukwtA==
+	t=1794745203;
+	b=HM5a44UZnqoEiFLU/cd43hP7L/VTK5DZultt+T7PSPDbc/JHNgZqRyevuYCfPHJ2eySz
+	 ZIZQYnV/RVWvYXdS6BBRV1Si5Smz4c226uUee7ZG66XRp6k/foHDPa4ne1c++FCQ34GYt
+	 oixNor7xH4iSeKge9o0ccY6hSXS/s9NBittU/y+Nhpl6aRJrByEKG/wrk2ATiL590XK3F
+	 Gaiuo8WH+KoZzkY5/YU8Zn+lvQgZ9Ae4s7/Fcl/LGuLBWKQsk2D3liO/DDOVQQ6pCb463
+	 zyyjJ9qDzuw6DCklyf6swmuS6EzGvr25yZCt7faZSkA6LmTtzK7Q4PBED5MlBTW4weg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794745198;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794745203;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=zJN4lywKLy/TUZfdqzX6Td/YHV+fU03Rlar+Ys9YZUE=;
-	b=Wy0zPLNrB2FZc0Wt62unWEXT41u6Gl2G8/DgLcp2GV9i/l6AW0y23dRIPGQpO9fYsPdQ
-	 LFlyLU1S/8eXfHb7Gfj3uvZbY/Ya9lM+G8smKyimbLQ3RCCxEA62Y8EuIzpxxrtdWdXES
-	 7o8OffGxyoz8A1b/n31lYr2v7a2Uhjbi067JeYnJZuF+S0ivZx4n2gkUD/GsLWTT6nYzM
-	 3Gyra5GvvEzECr2pmC/9Ep00Bc6+IYEA8OZu690p+9Y2AwgJtreJc0rEZThyJyU9Hh9BY
-	 bKlQBCxMSQZy1ETc8fuSIyvehVREgwQ6+a4hV9ITcSlhxmyXv8nT2yI8YyhJq0RaL+Q==
+	bh=stEeShhDgMgVvmA1klXyj8SxljseTC1hT6IQUE2U1uM=;
+	b=RtlzjTEvW8ndQFpLNzMyjW3ateGvrxgUF0vjcOiZIZToSxg/JV+4V1TcBUIT/NAAG3F4
+	 XlHdBCrPtPP8JevjscLUgFxZqQpS22IBzmwCGlaE5FpJrrhXDepDoVMHVK0E/z7NlC1bV
+	 NVvZRMZk2ECqzzuHHBYx+RXnMA7dUeyHRnxzGoNchz3ji7Igdu2AEgPEQ3XTih2whj5K+
+	 07bGMdcx84Dsi3X00Pa8q/Fy21Yx9fJ8qgZZ04755i/vQM+sN4WuNab9SPF2LpwHl5qgZ
+	 IzPCBlCSEwpZYtjFU3JgOHWqNdtEjKqeS2pybk0Rnr1mIfk1CaIVhVT5TKHzaHQ4Adw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0YZ0sa5Q;
-	arc=none smtp.remote-ip=209.85.215.177
-Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fbI9ZHM3;
+	arc=none smtp.remote-ip=209.85.216.45
+Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com [209.85.216.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14016606A31E
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 12:19:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14016606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F13CE606A333
+	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 12:20:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F13CE606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0YZ0sa5Q
-Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cdb2dfcca94so1175979a12.1
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 04:19:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fbI9ZHM3
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-3b0d0b80fb9so1931906a91.1
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 04:20:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794745197; x=1795349997; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794745202; x=1795350002; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=zJN4lywKLy/TUZfdqzX6Td/YHV+fU03Rlar+Ys9YZUE=;
-        b=0YZ0sa5QpD227IeTPFtWCW5Asq0BwvMZIk8Brt0vPYEOKMr++pqwRtkUDr9RmxBjD9
-         QeYPVlTbKj0lspfE5B7yp8d+EHfebnp5pDX49xjNiDDZpqJohmxVDi/NG9HOmXDEuPYV
-         nvU2iOyKghE9DHMIuGPLHpdrQkG0Dg4hy66kXeb/4xbYMwJVg7rdMWRO7hJudZdrvLpQ
-         9YBoyLKJC7Kuw2rC3IzP1oCwhKMtlkaPQtup7kgKwjytPRaqG0ZhIw57OTYLjCHypzm+
-         eopzKOzRPdHnVlOIQ3WRXEWVXX0mEhARlbo+v3vah20fDKak5e6/lxgvREinWSe8o8V4
-         g8Qg==
+        bh=stEeShhDgMgVvmA1klXyj8SxljseTC1hT6IQUE2U1uM=;
+        b=fbI9ZHM3cEVryOSo/Loc77LlmCa4UD/eQZqbHKTcPNZUxxZfYndbLAvy4t6BdNl9nM
+         QxpwrYE9wqeeHFblJlrPk6OpofY5WfY9ev6XFxLu53BzPa5hdZk0uptIjZQfDb9OnLu1
+         uPQ4QWpVNHFdYReyoTzuPuVKY7XIaEu2m6HVXIEzY0rNMf5HQT916qPXWJIYjDdwUktv
+         XCnQkj5FIk1w/yCUyTYCOBuw3JNVEZV4dgNZFkX6yJdjnBBWgjUW8N9wJuQRkuqTMf/p
+         1LC/V2zrF9zK3ULxGqAaXGgVJHP0ije8FsIjNlQTlyZumqqxArKv080qfF2G1Q5cLu+u
+         2SoA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794745197; x=1795349997;
+        d=1e100.net; s=20260707; t=1794745202; x=1795350002;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=zJN4lywKLy/TUZfdqzX6Td/YHV+fU03Rlar+Ys9YZUE=;
-        b=vKuSYdyil4EvOoFZb5JqkpJa6jcjXvqAK9vZpKKKckfTHqL3+omxB7MWf7bszP460l
-         ggcgDNE1cjPICAXeB/DIeB9szLifJaRI1jJdTQAdXG5Kghwmmy/MvLkOILTqLYWOYhl0
-         bp92+DmNUbWXJ+PgEVb7iV7WJCfqTdv9iqVJqDXj1okmA8JuK6EnRvbJfYebPR5NuR5z
-         MaDwGzklayKcL3tFprfGd+kQE550vtjQkB/UiZe27vFxTg3fiujE7Rtj7H/PnEcc8ngC
-         1YE0a3tl48r/g7LGuZqJYLumrWuNr4Mx9B4g4epgAJJq4Pt1lVZSuPOcTKF2OQLLfd9N
-         ZBgw==
-X-Forwarded-Encrypted: i=1; AL+hErErOnyFmUPonE2rZUoRE9hxC1RBP1VcK7fRQvhhUFEx0zDYLLH+f1U9rmT5jcB8qB80qaiEQnA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9klzoRgXhbkjMcVXoi45I66LpeAIMRrB8PXtcj68KDrntzLrzn
-	0gwivWgZb9xYdPBE7KJGrZaOmoENOudsrXwdgWBs/CSHbbTB/jx9iQBA
-X-Gm-Gg: AYBFou1JIa40RcQXLLRNq5w3U5y3d4zh9HCqdvx+JfYDY6rgnP0d6VPD8cXoCjQ3X4b
-	h0SF4c15DlBOeJC3sgRd1bK40TuF9UKlkPrdSxDa0C6Iwmc5Xgmjn99RxIF9Z5VQdv+XsTnWLDL
-	lCcZaNS6NjcAotCG/eWc67l4V5GSpnlbvVntld/OhUuwrqqKcNI9rK93fXeEdCS/3rFietJAKsf
-	43soiT2xtpr7uSL8hkJfebN7N+/d5iM34ptD3WiCdzf9yyFavVAJTCnATczrpM9kRy4fXMkrHY1
-	9I4zt1vLdZMq96MbhRxQ85nM2Rv8HuzLVFFtLMUIgCvsSZXC0YKw7L6OtxbLg9/wB0ntJVZpkct
-	OrcJFH/Pu7U+xZp/ssv8o4f+F2UfQwo52Da2VBe7Z00cc+Qhzkfh4PREWcEwbM0gykKawU9Cnu+
-	yzJtYMLnBsoNa4lG3Qlixq3Ib8zi/eu/JAEjwY3UbcKCfLiC1y3Y5+G5L8hWvZRuq4hfLFeNAff
-	HzsHStV+hLQ0e/jYo62P2tjfKYVQQV1LEwGOVbhBBMyeOSE2/Jofz+/1X7gXXKPRvpTJy0VpvIh
-	P9xAvP5mb9m3eMbSrt6A1UwKundsuqoy72OhApgr6FdT/avQ4FQHWQ2qSouJ3W8AhBSpTsJCfNP
-	qJ0Ati8pVzWc7Y5iHIp5IkWIPQR3Ko8XnypnY8ZIGI1p7IKLaBkbxQk/dxoKqN9lvV+yIoF7lDZ
-	ffB70eLeiB0dWMpP3e4VJRaanQa4tMO56Vtcew+Uk05GuJDBQd7TYeacvMc3n7RSltDIOWH/fsV
-	AnDPRlhSSafroevvhP65qHt9OTRkQjGYM2KnUcPBsKAwJa6rPBwC4tpmUmSwXTQ
-X-Received: by 2002:a17:90b:3ec9:b0:3ac:83c1:2c0 with SMTP id 98e67ed59e1d1-3b1b0b8695cmr7315282a91.64.1794745197326;
-        Sun, 15 Nov 2026 04:19:57 -0800 (PST)
+        bh=stEeShhDgMgVvmA1klXyj8SxljseTC1hT6IQUE2U1uM=;
+        b=m8BF7MB+5td3D1qs69Y2jtLmp0mgMRwNFJh4LT8QQk+BsTf7OufdFtx+P92uwO1jNQ
+         QsPkH/VzaIJH6b33p6VEEk3nmP93fIU+n2JvMcbzzSR8PwumOLfV4sv7Pkwfcc9cbfGj
+         gSKXN3d0emkzNWi8psxiVKzpJzFbBWNDl1GJRxeKubz4ifOohjX2JfmO1cEaJ88xASnZ
+         68EVxM70kScV86t/TMprcKNAknixxUd0eImTOalGSk8hhrUwzH+80Z/V9ucXSSMYbr06
+         YmE8YHAl5Cq6ZXljv2AUFdYexSbvetJUbWbSG/B1jpzKYG1ltIsUr/AeCyB6U+EiaSp9
+         ZSbw==
+X-Forwarded-Encrypted: i=1; AL+hErEDWkUcUkIaOmIsrgG7/ApndFHE2AtVABG37opJIwA1UqMddDuTfk3d3JDR2E1Tmq3DfCqaOvc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/D7vR0yJUD2DaGIhiRkDVfFh5Zui7LCprbBPLR6E4OQFbeejIv
+	1hcAYSNZYn0gb9EK6GxnZJ6AUX8n1foR4h++TYZ+xe862RCuHpoqujp0Bj0vpNf0
+X-Gm-Gg: AYBFou11jNJxz67pr+nxZZKToPZdBku+APofe1c1j2+31ghm1YTdb+bWqBIaJY6e8F9
+	1v/dFAW0iEO211xPo4lEPE1sjCY/+1aAaRpa2fiOz9BFFyyUkeXO40xW6tjmv018dMofbpJI6RI
+	Dob3Q2wJoIP1vWXrz+XjyEUqRW1TwJJu5tblFHwQtcxc7ZnqaC+pAQc6O28+I1m+ii+hVjzAHzv
+	mL0EJ7FUfqdVuPeVVyW+3ah3i9OmqHMxRj4vDAyToKrJGvwOQobPpbY6N9w5atz8rC9qHmd6aN+
+	LVXdLd4O0EuKIOvzx3Vy5nMFAMcvCa3eR0Nvvbl5NacXiZlv2Hy+5rGl+nerc3rFrd9GIQUHo9Q
+	Wmql8vaYu7vwr2k0PhS/7KW4dQAKU7UGR7VqJgRq6ph6T1rvlZQSP0rOSlx7KaqUMIGrX9c/y/q
+	x407Gnh41VU7qmncdXgyXon81meBJaCVqqweAcssVvyZBXQH/9BHD9y27Ihn+UZCmso2+zmDmiI
+	O6M+ORR2LFgWNeqFoqzUBlyQBQFzLcTR9zYh7siEOCXxTEu5MOiIwvcJXDHG7oktYU1A4dytOYx
+	OwKIVtBoikiR5CgH4MUTWF05VxJj/kRF4QcpXRtynIZWb0ES/uQzk+pQQ13M6XWLBEQeb33FXxo
+	zyMz9M1GbxKqRU7OgdDkSxP2te5vdayWuc7G79v9njS9O1+2DDZmMnTBf0w8erT9DzYFEc7wvH5
+	qzcGc0k2mV1W22Ldkal70MAsISJR+mmJBaJevmNIFO1xPut7S+4Wiu6/2UxVOUm1PQlyjnsVTbR
+	kK2ttC5gdhCjgyfWx517Wfnl8im1s+Nt+6HQb2VYVFoouqcVUgrbzBuPXaFXNZb
+X-Received: by 2002:a17:90b:5585:b0:3b0:9e2f:cfc3 with SMTP id 98e67ed59e1d1-3b1b0a0ddf5mr7271589a91.32.1794745201749;
+        Sun, 15 Nov 2026 04:20:01 -0800 (PST)
 Received: from localhost.localdomain (123-243-92-89.static.tpgi.com.au. [123.243.92.89])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1aec622b6sm13828101a91.11.2026.11.15.04.19.52
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1aec622b6sm13828101a91.11.2026.11.15.04.19.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 04:19:55 -0800 (PST)
+        Sun, 15 Nov 2026 04:20:01 -0800 (PST)
 From: Daniel Wade <danjwade95@gmail.com>
 To: David Howells <dhowells@redhat.com>,
 	Marc Dionne <marc.dionne@auristor.com>
@@ -91,9 +91,9 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	linux-afs@lists.infradead.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net] rxrpc: Don't send on a service call before its connection is secured
-Date: Sun, 15 Nov 2026 22:49:34 +1030
-Message-Id: <20261115121936.5523-1-danjwade95@gmail.com>
+Subject: [PATCH net] rxrpc: Fix rxkad to use the key's rxkad token, not the first token
+Date: Sun, 15 Nov 2026 22:49:35 +1030
+Message-Id: <20261115121936.5523-2-danjwade95@gmail.com>
 X-Mailer: git-send-email 2.39.0.windows.2
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -106,115 +106,152 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A service connection learns its security level only when the client's
-RESPONSE has been verified; until then conn->security_level is 0 and
-rxkad's cipher is NULL.  Since commit 41b996ce83bf ("rxrpc: Fix call state
-set to not include the SERVER_SECURING state") a call leaves
-SERVER_SECURING as soon as the request is queued, so rxrpc_send_data()
-accepts a reply while the connection is still being challenged.
+rxkad takes conn->key->payload.data[0] as its token, but
+rxrpc_init_client_call_security() may have chosen rxkad because of a
+token that is not the first in the key.  Since YFS-RxGK support was added
+the parser accepts rxgk tokens whatever the configuration, while the rxgk
+class is only registered under CONFIG_RXGK=y.  So with CONFIG_RXGK=n a
+key holding [YFS-RxGK, rxkad] gets rxkad security and rxkad reads the
+struct rxgk_key as a struct rxkad_key.
 
-rxkad lays a DATA buffer out from the level at allocation but transforms
-it from the level again at seal, and a partly filled buffer survives in
-call->tx_pending across sendmsg() calls.  A buffer laid out at level 0
-has no room for the security header, so if the RESPONSE raises the level
-to 2 before the seal, rxkad_secure_packet_encrypt() pads and encrypts
-round_up(8 + len, 8) bytes in place: 8 to 15 bytes past the end of the
-page fragment, which are then transmitted.  rxgk splits the work the same
-way and dereferences a NULL key context instead.
+rxkad_respond_to_challenge() then takes the ticket length from bits 16-31
+of the rxgk token's lifetime, which the key's creator sets freely, and
+copies up to 65535 bytes from offset 28 of an object that is only 72 to
+136 bytes.  It sends what it read, including the kernel pointers in the
+rxgk_key, to the peer in the RESPONSE.  Neither making such a key nor
+placing a call needs privilege.
 
-Refuse to queue data on a service call until its connection has reached
-RXRPC_CONN_SERVICE, returning -EBUSY as rxrpc_do_sendmsg() already does
-for a call still receiving its request.  The state is read under
-conn->state_lock, so a sender that sees RXRPC_CONN_SERVICE also sees the
-level and keys installed before it.
+Add a helper that finds the rxkad token and use it in
+rxkad_prime_packet_security(), rxkad_secure_packet_encrypt(),
+rxkad_verify_packet_2() and rxkad_respond_to_challenge(), aborting in the
+last if there is none.  A key's token list does not change once
+instantiated, so the token stays valid as long as conn->key is held.
 
 Discovered by an AI code review agent, reproduced on unmodified mainline
-with KASAN: a server replying with MSG_MORE before the client's RESPONSE
-was processed got every reply moved down by 8 bytes.  Same on v6.12.117.
-With this patch the early sendmsg() calls return EBUSY and the replies
-arrive intact.
+with CONFIG_RXGK=n: with [YFS-RxGK, rxkad] the server aborted with
+RXKADBADTICKET, and a KASAN kernel whose compiler instruments memcpy()
+reported a 64-byte slab-out-of-bounds read 28 bytes into an 88-byte
+kmalloc-96 region.  With this patch both orders succeed and KASAN is
+silent.
 
-Fixes: 41b996ce83bf ("rxrpc: Fix call state set to not include the SERVER_SECURING state")
+Fixes: 0ca100ff4df6 ("rxrpc: Add YFS RxGK (GSSAPI) security class")
 Cc: stable@vger.kernel.org
 Signed-off-by: Daniel Wade <danjwade95@gmail.com>
 ---
 Tested on mainline b3dfbde62cf1 in a 2-vCPU KVM guest with KASAN and
 PROVE_LOCKING, AF_RXRPC and RXKAD built in, CONFIG_RXGK not set.  The
-test runs as an unprivileged user and makes its client ticket with
-AF_ALG ecb(des), so crypto.af_alg_restrict was set to 0 in the guest.
-20 calls per kernel: unmodified, every reply arrived moved down by 8
-bytes; with this patch, every reply arrived intact.  Same on v6.12.117.
+test runs as an unprivileged user against an AF_RXRPC server of its own
+at security level 2, and makes the rxkad ticket with AF_ALG ecb(des), so
+crypto.af_alg_restrict was set to 0 in the guest.  The rxgk token's
+lifetime was chosen to give a ticket length of 64; any value up to 65535
+is accepted.
 
-KASAN stayed quiet throughout, as expected: page fragments are not
-tracked per allocation, and here the 12-byte overrun falls into the 56
-bytes of alignment padding behind the 1416-byte fragment.
+Unmodified, [rxkad, rxgk] succeeded and [rxgk, rxkad] aborted with
+RXKADBADTICKET, the RESPONSE copying 64 bytes from 28 bytes into the
+88-byte rxgk_key.  With this patch both orders succeed.
 
-Behaviour change: a server that sends on a charged user call ID before
-it has been told about the call now gets EBUSY while the connection is
-still being challenged.  If that sendmsg() also carried RXRPC_TX_LENGTH
-the length has already been recorded, so a retry that passes it again
-gets EINVAL.  Client calls and unsecured service connections are
-unchanged.
+On the same source built with GCC 13.3.0, where
+CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX makes KASAN check mem*() ranges,
+the unmodified kernel reports:
 
-Stable: trees without 7801c42c3bb7 ("rxrpc: Fix update of
-call->tx_pending without holding lock") return directly from
-rxrpc_send_data(), so there the new call site needs "return ret;"
-instead of "goto out_unlock;".  6.6.y was not examined.
+  BUG: KASAN: slab-out-of-bounds in skb_store_bits+0x3de/0x840
+  Read of size 64 at addr ffff888009d2121c by task kworker/u9:1/229
+  which belongs to the cache kmalloc-96 of size 96
+  allocated 88-byte region [ffff888009d21200, ffff888009d21258)
 
-Not tested: rxgk, IPv6, interoperation with AFS servers or clients.  The
-rxgk consequences described above come from reading net/rxrpc/rxgk.c and
-crypto/krb5 only.
+and nothing with this patch.  A KASAN kernel built with GCC 11 does not
+report it: that compiler cannot emit __asan_memcpy(), and on x86
+mm/kasan/shadow.c then provides no checking memcpy() at all.
+
+The NULL check in rxkad_respond_to_challenge() cannot trigger today, as
+both client and service connections reach it with a key that holds an
+rxkad token.  It is there because the helper can return NULL and the
+function's output goes on the wire.  At level 2 the encrypt and decrypt
+paths now walk the token list per packet: one step for an ordinary key,
+at most AFSTOKEN_MAX (8).
+
+Stable: v6.16 and later are affected; 6.12.y is not, as its key parser
+stores only rxkad tokens.  Between 6.16 and 7.1 the prime, encrypt and
+decrypt hunks need their context adjusted; the change is the same.
+
+Not tested: CONFIG_RXGK=y, security levels 0 and 1, the AF_RXRPC KUnit
+test, interoperation with AFS servers or clients.
 
 The test program is not included here; it is available on request.
 
- net/rxrpc/sendmsg.c |   37 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 37 insertions(+)
-diff --git a/net/rxrpc/sendmsg.c b/net/rxrpc/sendmsg.c
-index 312be27ca75..a2f0bc19109 100644
---- a/net/rxrpc/sendmsg.c
-+++ b/net/rxrpc/sendmsg.c
-@@ -89,6 +89,31 @@ static int rxrpc_wait_to_be_connected(struct rxrpc_call *call, long *timeo)
- 	return ret;
+ net/rxrpc/rxkad.c |   31 ++++++++++++++++++++++++++-----
+ 1 file changed, 26 insertions(+), 5 deletions(-)
+diff --git a/net/rxrpc/rxkad.c b/net/rxrpc/rxkad.c
+index ca9f0e82cb9..dbfdaf78d90 100644
+--- a/net/rxrpc/rxkad.c
++++ b/net/rxrpc/rxkad.c
+@@ -175,6 +175,22 @@ static struct rxrpc_txbuf *rxkad_alloc_txbuf(struct rxrpc_call *call, size_t rem
+ 	return txb;
  }
  
 +/*
-+ * Check that a service call's connection is secured.  A DATA buffer's layout
-+ * depends on the security level, which isn't known until the client's
-+ * RESPONSE is verified.  The lock pairs with rxrpc_process_event() setting
-+ * the level and keys before the state.
++ * Find the rxkad token in a key.  rxkad may have been chosen because of a
++ * token that isn't the first (see rxrpc_init_client_call_security()), so
++ * payload.data[0] mustn't be assumed to be one.
 + */
-+static int rxrpc_check_service_secured(struct rxrpc_call *call)
++static const struct rxrpc_key_token *rxkad_find_token(const struct key *key)
 +{
-+	struct rxrpc_connection *conn = call->conn;
-+	enum rxrpc_conn_proto_state state;
++	const struct rxrpc_key_token *token;
 +
-+	spin_lock_irq(&conn->state_lock);
-+	state = conn->state;
-+	spin_unlock_irq(&conn->state_lock);
-+
-+	switch (state) {
-+	case RXRPC_CONN_SERVICE:
-+		return 0;
-+	case RXRPC_CONN_ABORTED:
-+		return -ECONNABORTED;
-+	default:
-+		return -EBUSY;
++	for (token = key->payload.data[0]; token; token = token->next) {
++		if (token->security_index == RXRPC_SECURITY_RXKAD)
++			return token;
 +	}
++	return NULL;
 +}
 +
  /*
-  * Return true if there's sufficient Tx queue space.
-  */
-@@ -349,6 +374,12 @@ static int rxrpc_send_data(struct rxrpc_sock *rx,
- 			goto out_unlock;
- 	}
+  * prime the encryption state with the invariant parts of a connection's
+  * description
+@@ -182,14 +198,14 @@ static struct rxrpc_txbuf *rxkad_alloc_txbuf(struct rxrpc_call *call, size_t rem
+ static void rxkad_prime_packet_security(struct rxrpc_connection *conn,
+ 					const struct fcrypt_key *cipher)
+ {
+-	struct rxrpc_key_token *token;
++	const struct rxrpc_key_token *token;
+ 	__be32 tmpbuf[4];
  
-+	if (rxrpc_is_service_call(call)) {
-+		ret = rxrpc_check_service_secured(call);
-+		if (ret < 0)
-+			goto out_unlock;
-+	}
-+
- 	/* this should be in poll */
- 	sk_clear_bit(SOCKWQ_ASYNC_NOSPACE, sk);
+ 	_enter("");
  
+ 	if (!conn->key)
+ 		return;
+-	token = conn->key->payload.data[0];
++	token = rxkad_find_token(conn->key);
+ 
+ 	tmpbuf[0] = htonl(conn->proto.epoch);
+ 	tmpbuf[1] = htonl(conn->proto.cid);
+@@ -266,7 +282,7 @@ static void rxkad_secure_packet_encrypt(const struct rxrpc_call *call,
+ 	/* Now txb->pkt_len % FCRYPT_BSIZE == 0. */
+ 
+ 	/* encrypt from the session key */
+-	token = call->conn->key->payload.data[0];
++	token = rxkad_find_token(call->conn->key);
+ 	fcrypt_pcbc_encrypt(call->conn->rxkad.cipher, token->kad->session_key,
+ 			    rxkhdr, rxkhdr, txb->pkt_len / FCRYPT_BSIZE);
+ 	_leave("");
+@@ -412,7 +428,7 @@ static int rxkad_verify_packet_2(struct rxrpc_call *call, struct sk_buff *skb,
+ 	len = round_down(len, 8);
+ 
+ 	/* decrypt from the session key */
+-	token = call->conn->key->payload.data[0];
++	token = rxkad_find_token(call->conn->key);
+ 	fcrypt_pcbc_decrypt(call->conn->rxkad.cipher, token->kad->session_key,
+ 			    data, data, len / FCRYPT_BSIZE);
+ 
+@@ -710,7 +726,10 @@ static int rxkad_respond_to_challenge(struct rxrpc_connection *conn,
+ 		return rxrpc_abort_conn(conn, challenge, RXKADEXPIRED, ret,
+ 					rxkad_abort_chall_key_expired);
+ 
+-	token = conn->key->payload.data[0];
++	token = rxkad_find_token(conn->key);
++	if (!token)
++		return rxrpc_abort_conn(conn, challenge, RX_PROTOCOL_ERROR,
++					-EPROTO, rxkad_abort_chall_no_key);
+ 
+ 	/* build the response packet */
+ 	len = sizeof(struct rxrpc_wire_header) +
