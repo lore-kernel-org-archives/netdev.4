@@ -1,89 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.87
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794758286;
-	b=mTc5Vg4yHdrQAOwHQ60I6Mvfn5UJ3Vjwfy19skMfty/xPSyC4se/zDk584zCIH+0xmS1
-	 ECx7PHuZ1a8kVvfSbtArUMWSUe5PMo9RTrAbnjsqLx171zyZuK7GOf9AG5Q8irEwGj34g
-	 u7y62pfsEn89pCoJTFocu9GRfGujddCdmKIC3Wao8rr0QSACn5aDsHY+xMu7BU+2Yds4w
-	 C7kuTo6wzNBxDkJBKg0tgOXVtthdKC4DhZ2q7KhYMN8t0sjk9j9+538k2eVomUH/wPam5
-	 FrZAJuiRsIhVAUsyaaovhWEcpN+Goh/p8SYWw+X4/La2meXKGGb/34rlPa9kZCJhadw==
+	t=1794758569;
+	b=h8ZwtUFJ6MerzPfqmIXhKJzkorLkio8LtRBVGZU67SxCrXtpZWd/absH2eti27Xqlkp0
+	 ZaqffasvPiXRQpYYVwL6BsWm9spS0mpGZ7LsE34p7kZaIZGLDUWN+RrXIhm/FOc4sv9ZM
+	 aoUKZvF68X7x5KiKdocEwbjLjU9VOqkzDIUw6Z6BPP21E5ovIOXbFmo6CtT4GPphDfaK3
+	 ckbWK+IvxyhBOkeCWYkRhwHF8YO0r53WKmSSU1Hxfd0SOismL/7IukSwintqhsEDyIqQp
+	 IljCdjA4ge4C9RIlOf2OCS+WPg0eOSxef0R1OEim/1FlJLCMlrZaq/YzBmO/uhc1NgQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794758286;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=P6Yuh683q5aNH3HN18bjb0/+LSo0udXf08N/NrFxA9s=;
-	b=2RAk4i+/fl106jo/6Eou8xtM2fAvAxm6xBKBD8Ts0AVr/qyVGksYiSeY17KhPcvzt4Ea
-	 XhhlW/uw8paS27SHsxLuXcIrkXxwwlrKaT0TspOP+7Tbh6KgjmRerVTOtGdaBgp9g1thL
-	 ZwrZyuMNG3J36YlpKcjbqd3el7bzSapbuP0dLlUSzddh974Akfo2Cfze4m0/FJl9uIrpN
-	 48m/+n4eb64oTgWVde88rylKWk1X7gCIOxGfIfsfKWTlX6EKjhS+F8DvowN77eGAHBrXx
-	 nskDyg8Llxh4Id4D8ND+mNYL3x96K6WMi9RH3/3AvFg/dfh7fQpk0B9Mvw8zQZ9qivg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794758569;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=PxPneTBKBcIwmLSq0P7KwXhX0yhOffKOv9PdYMrIZVs=;
+	b=gvi3oTej7EdVtLacaMhhPxazCFPAKlxHPLgP6vb3qW8qyYJ/3LxP6dFqvHfsY+eitHuN
+	 w/UdHjERX9S2k1MyFEG6U4O5WTyA/yL9L3VH9KjA+1Iit/DLU+xbyITeVO+t9rgve+PTp
+	 TAN0/LXfObe9jbkWWq6v9E6KAN1n1h8p4iOaktA5PT+VAGs73MGdxt4NL8oxrOYzUQU4U
+	 f7Oj6xlfhhHWKrVwbppU3n45lLZxKPDteqDBnXSl/8ogwvNck9OI50NSIJZdlk9AyRoIi
+	 4koTA47ZprRlqyFuDW8am97ndiDbmaJjUldx4Q5ghAN7PtCT3L/uQwaE8IPlx7HxWGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=jiuJ87M1;
-	arc=none smtp.remote-ip=162.62.57.87
-Received: from out162-62-57-87.mail.qq.com (out162-62-57-87.mail.qq.com [162.62.57.87])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WkxR9A+Z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7B25606A8A0
-	for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 15:58:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7B25606A8A0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B753C606A31A;
+	Sun, 15 Nov 2026 16:02:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=jiuJ87M1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794758281; bh=P6Yuh683q5aNH3HN18bjb0/+LSo0udXf08N/NrFxA9s=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=jiuJ87M1miPF1rOjwNNhGHY8FDRjh/W4RNlnNKcDUKpqZMkK2tYGrJJytB2ZZUlbe
-	 3vKJQhnDNwsOGLBFBQ9Zs7sdTdP8IU0hiM4ZASyaazHy7elUsC+eaXdWT3SYiBc6lD
-	 ebhlu3ZAE2xz2d+JH8rhtfK+xzu22YsSnCPCF+DE=
-Received: from localhost.localdomain ([2409:8d5c:8f0:65e5:103b:e9c7:571:634c])
-	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
-	id E701F634; Sun, 15 Nov 2026 23:57:48 +0800
-X-QQ-mid: xmsmtpt1794758276ts8204fuk
-Message-ID: <tencent_647B95315D18DBA311A33E8120517E1DA60A@qq.com>
-X-QQ-XMAILINFO: M1MPMfFwhktTc5Lq75+GxKYba1EwgBbknoSdzVahXq96JdfuepVwINZizr/3z6
-	 EqsRscknwvhOoa01E5YvqKsXMOcAZTCpzLVys4mGZiASftATx+0sT/VHuttBGBZdXpsv2J3SxGdn
-	 YZCYpTsC2g0K/PJZYWVQ3n1a62VowBPhn7C1rY9xyJWJQ4WPfnYY7xFrg+Vpyjxf/10tvsjyrRJe
-	 pb1bVor63qPXVugYO8lggiTu21NGMVW3/3UIUdUG5mFg5/OAd18FSXvdyDFVsy2g7sq8AkqDA7uK
-	 4n6zZcKg1QmTolumyHzlHj0r2nutjXa6/weoFSYjDgSjXamKek7PB8u1iqTMm20H3lvUoOyAhUKq
-	 nBnjS1/sn1e6GC0fPiPsAWWu/l4oxWtuH7tpJKK4akuvuPRdjWbqMaZmYmhOCfNxoY/GIyvmPg1/
-	 pGT/X1n5BP93mO4eyfFXUEC0LpYSPkjc3ApriIwI+l7iXnZlP8O1L915DlKAP+smEjieIN8YqUir
-	 YDGWFsu3KUNtbpG53eTdSiEtbXhHxzCfTjVmTzE/7IHYVMNE449IL6Axs8eglUG48gozqzCidK6I
-	 G943VgOAlunYY4GEMA/S8PxWWPyWRoIUmmrUJCxfvZTrEqa90iog5mvnB1EmIMFsStjFlsjCHq0J
-	 Xw/uuv1Cpob2pXzlJvf3axP4HdhJLWGNJE8lq1hOiilSY+bamX8uB/t1rinpZguBjFd33UlTIX0Q
-	 scJ+AwVrRVAHGCH8MiM0iGlIOCL78X4Y9vM52nGjTCj85sjZ3W0gcKDkfM8WQQbPkioG9MZ8qS4u
-	 sOqhWpJ5GMK4N02jaQyKKiq5F3ex1bT8FD/eEwjU4vKUfqQgIqVW/7677b0GYPUNHWQ7y+wuedsg
-	 Z7H2D90yIjohp5WPgGzDfpDMzs1OXO613lz5HT3PcTJMeHSyF4ZzcfRCsoE2u3am5tlN00cthBK4
-	 BDjqAV/q1T32LCvSXTXT+nzb2SARh7i8jl/wFHFTseP1Xvbj5srJ4q8qelPEzNNQHSTZwBnSPjKL
-	 pDGiIlynM1xbEszv75swU0hdZajyeOdFhc226HFd1sSqXGAsZfe115GKSSvKfYdimfhu4hxrrDq8
-	 N8WZYTvNbqXkmqE9CbM1QZjukFp9USz2B5caH02wG7aNLOu9pcWNmbO1It0YOAh5ENK4fVrgWS0K
-	 bfHkCTwNDcrL7nEdMzdSGUrlHLNt5J9IR0TJw=
-X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
-From: Hang Nan <2122295973@qq.com>
-To: netdev@vger.kernel.org
-Cc: mptcp@lists.linux.dev,
-	matttbe@kernel.org,
-	martineau@kernel.org,
-	geliang@kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kuniyu@google.com,
-	willemb@google.com,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	2122295973@qq.com
-Subject: [PATCH net v4 3/3] net: mptcp: verify the token slot in mptcp_token_iter_next()
-Date: Sun, 15 Nov 2026 23:57:47 +0800
-X-OQ-MSGID: <20261115155747.178858-4-2122295973@qq.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261115155747.178858-1-2122295973@qq.com>
-References: <20261115155747.178858-1-2122295973@qq.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WkxR9A+Z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 028B91F000CC;
+	Sun, 15 Nov 2026 16:02:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794758569;
+	bh=PxPneTBKBcIwmLSq0P7KwXhX0yhOffKOv9PdYMrIZVs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WkxR9A+Z2chV56lMBRSdQ2pZG0DuNotLU+BmQ1hL3UdZoiwfmG7zHFpDozrbgBAyl
+	 GQtB4PMBK01XRV/i6gEhgdOg19Y521CCrESqkeaAOlzwEZwREksl31kRGqJlfttJYP
+	 hXlYk+nElL+uIRyzuoHfg0IQFYNYfk941r7JEFyo014Vx5uH14lZnYdr9QmXxtBoC7
+	 fBuiql76wC4zSjQgiIj+vGIOyLRYISwAMWBnCg1rVpHtr06U0y51YTFf97EQp/6N8X
+	 rLk5Z96Q0Ea5qr77SeZ3gYhAdv+aiVAJrtYPzQQxXIbdkty35DfBl6nJYiT9KOYo3+
+	 aswfyU3KVUyrQ==
+Subject: Re: [PATCH net-next] net: dsa: motorcomm: Resync SMI slave after
+ interrupted MDIO access
+From: netdev-bot+sashiko@kernel.org
+To: mmyangfl@gmail.com
+Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org
+Date: Sun, 15 Nov 2026 16:02:48 +0000
+Message-ID: <179475856853.2199510.11675474406929032398@kernel.org>
+In-Reply-To: <20261111163954.1132921-1-mmyangfl@gmail.com>
+References: <20261111163954.1132921-1-mmyangfl@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,49 +63,222 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-mptcp_token_iter_next() takes a reference on a socket found on the chain
-of the slot it is walking and then re-checks only net_eq().  A socket
-that was freed and whose memory has been reused by a new msk in the same
-network namespace passes that check while it is still zeroed, and the
-callers - mptcp_diag and the userspace path manager - then use mptcp_pm
-state that has not been initialised yet.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-The token of a socket on a chain always hashes to the slot being walked,
-and token 0 is never assigned, so re-read the token after the acquisition
-and drop the socket unless it is non-zero and still maps to this slot.
+Critical: 0 · High: 1 · Medium: 1 · Low: 1
 
-Fixes: 96d890daad05 ("mptcp: add msk interations helper")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hang Nan <2122295973@qq.com>
----
- net/mptcp/token.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-diff --git a/net/mptcp/token.c b/net/mptcp/token.c
-index 8a603fc8dc05..48470d6e751d 100644
---- a/net/mptcp/token.c
-+++ b/net/mptcp/token.c
-@@ -355,6 +355,7 @@ struct mptcp_sock *mptcp_token_iter_next(const struct net *net, long *s_slot,
- 	struct mptcp_sock *ret = NULL;
- 	struct hlist_nulls_node *pos;
- 	int slot, num = 0;
-+	u32 token;
- 
- 	for (slot = *s_slot; slot <= token_mask; *s_num = 0, slot++) {
- 		struct token_bucket *bucket = &token_hash[slot];
-@@ -377,7 +378,9 @@ struct mptcp_sock *mptcp_token_iter_next(const struct net *net, long *s_slot,
- 			if (!refcount_inc_not_zero_acquire(&sk->sk_refcnt))
- 				continue;
- 
--			if (!net_eq(sock_net(sk), net)) {
-+			token = READ_ONCE(mptcp_sk(sk)->token);
-+			if (!token || (token & token_mask) != slot ||
-+			    !net_eq(sock_net(sk), net)) {
- 				sock_put(sk);
- 				continue;
- 			}
+- [High] yt921x_reg_mdio_resync() does not reliably realign the SMI slave
+  after an interrupted write, even by the patch's own state table.
+- [Medium] yt921x_mdio_probe() allocates mdio with devm_kzalloc(), so
+  synced starts out false.
+- [Low] The commit message presents this as a fix for a user-visible
+  defect: one interrupted MDIO access leaves the SMI slave misaligned,…
+
+--
+
+net: dsa: motorcomm: Resync SMI slave after interrupted MDIO access
+
+This patch adds a synced flag to struct yt921x_reg_mdio. It also adds
+yt921x_reg_mdio_resync(), which sends a fixed sequence of MDIO frames to
+realign the SMI slave state machine before the next register access, and
+clears the flag whenever an access fails. The flag starts out false, so
+the first access after probe always runs the resync.
+
+> The driver so far assumed every access succeeds, and relied on manual
+> resetting when the state machine wedged.
+
+[Severity: Low]
+This reads as a fix for a user-visible problem, but there's no Fixes:
+tag. The access helpers that assumed every access succeeds appear to come
+from:
+
+186623f4aa72 ("net: dsa: yt921x: Add support for Motorcomm YT921x")
+
+Should a Fixes: tag pointing at that commit be added, so stable trees
+that carry the driver can pick up this recovery?
+
+> diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
+> index 33e5fc127244d..8b6c9739b6841 100644
+> --- a/drivers/net/dsa/motorcomm/chip.c
+> +++ b/drivers/net/dsa/motorcomm/chip.c
+> @@ -94,10 +94,98 @@ struct yt921x_reg_mdio {
+
+[ ... ]
+
+> + * State Input Next Comment
+> + * ----- ----- ---- -------
+> + * AH    aw    AL
+> + * AH    dr    AH   `0xdead` sentinel
+> + * AL    aw    DH
+> + * AL    dr    AL   `0xdead` sentinel
+> + * DHr   aw    AH   abort, frame discarded
+> + * DHr   dr    DLr
+> + * DLr   aw    AH   abort, frame discarded
+> + * DLr   dr    AH   the access is done
+> + * DHw   aw    AH   abort, frame discarded
+> + * DHw   dw    DLw
+> + * DLw   aw    AL   abort, frame consumed as next access's addr-hi
+> + * DLw   dr    ?    `0xdead` sentinel; stay or advance undetermined
+> + * DLw   dw    AH   the access commits
+> + *
+> + * The table lists the whitelisted frames only; any other REGAD/op combination
+> + * is not characterized and is never emitted here.
+> + *
+> + * The resync sequence is dr, dr, aw, aw, dr, dr, plus one more dr as a sanity
+> + * check: the machine must be back at AH, which reads the `0xdead` sentinel.
+> + */
+> +static int yt921x_reg_mdio_resync(struct yt921x_reg_mdio *mdio)
+> +{
+
+[ ... ]
+
+> +	/* dr */
+> +	res = __mdiobus_read(bus, addr, reg_data);
+> +	if (res < 0)
+> +		goto end;
+> +	/* dr */
+> +	res = __mdiobus_read(bus, addr, reg_data);
+> +	if (res < 0)
+> +		goto end;
+> +	/* aw */
+> +	res = __mdiobus_write(bus, addr, reg_addr, 0);
+> +	if (res)
+> +		goto end;
+> +	/* aw */
+> +	res = __mdiobus_write(bus, addr, reg_addr, 0);
+> +	if (res)
+> +		goto end;
+> +	/* dr */
+> +	res = __mdiobus_read(bus, addr, reg_data);
+> +	if (res < 0)
+> +		goto end;
+> +	/* dr */
+> +	res = __mdiobus_read(bus, addr, reg_data);
+> +	if (res < 0)
+> +		goto end;
+> +	/* AH --dr--> AH */
+> +	res = __mdiobus_read(bus, addr, reg_data);
+> +	if (res < 0)
+> +		goto end;
+> +	res = res != 0xdead ? -EIO : 0;
+> +
+> +end:
+> +	mutex_unlock(&bus->mdio_lock);
+> +
+> +	mdio->synced = !res;
+> +	return res;
+> +}
+
+[Severity: High]
+Does this sequence realign the slave when it starts in DHw?
+
+The table has no row for DHw + dr, and the comment says uncharacterized
+combinations are never emitted here. Even so, yt921x_reg_mdio_resync()
+always starts with two dr frames, whatever state the slave is in.
+
+DHw can be reached from yt921x_reg_mdio_write() in two ways:
+
+- The aw(lo) frame is latched by the slave, but the controller still
+  reports an error.
+- aw(lo) succeeds, and the first data write fails before the slave
+  latches it:
+
+yt921x_reg_mdio_write() {
+    ...
+	res = __mdiobus_write(bus, addr, reg_data, (u16)(val >> 16));
+	if (res)
+		goto end;
+    ...
+}
+
+Either way synced becomes false, and the next access runs the resync
+starting from DHw.
+
+Suppose DHw + dr is a no-op, the same as dr in AH and AL. Then the
+sequence would go:
+
+DHw -dr-> DHw -dr-> DHw -aw-> AH (abort) -aw-> AL -dr-> AL -dr-> AL
+
+The final dr in AL then returns 0xdead, per the "AL dr AL" row.
+
+Can the res != 0xdead check tell AH apart from AL? By the table, dr
+returns 0xdead in AH, AL and DLw. So the check would pass, and
+mdio->synced would be set to true while the slave is still at AL.
+
+What happens on the next access after that? A read would go:
+
+AL -aw-> DHr -aw-> AH (abort) -dr-> 0xdead -dr-> 0xdead
+
+yt921x_reg_mdio_read() would then return success with *valp = 0xdeaddead.
+yt921x_reg_update_bits() in smi.c could write (0xdeaddead & ~mask) | val
+back to a real register, because by then the slave is at AH and that
+write commits.
+
+A write would go AL -aw-> DHw -aw-> AH (abort), followed by dw, dw in
+AH. The table doesn't cover that, so the write would be lost while still
+returning success.
+
+synced is only cleared when __mdiobus_read() or __mdiobus_write() returns
+an error, so neither case would be detected.
+
+Would a sequence built only from whitelisted transitions work better? One
+example is aw, dr, dr, aw, aw, dr, dr. The leading aw aborts from DHr, DLr
+and DHw, and DLw + aw is a documented abort.
+
+Ending with a full read of a register whose known value is not 0xdead
+would also let the check tell AH from AL.
+
+> @@ -108,6 +196,12 @@ static int yt921x_reg_mdio_read(void *context, u32 reg, u32 *valp)
+>  	u32 val;
+>  	int res;
+>  
+> +	if (!mdio->synced) {
+> +		res = yt921x_reg_mdio_resync(mdio);
+> +		if (res)
+> +			return res;
+> +	}
+> +
+
+[Severity: Medium]
+yt921x_mdio_probe() allocates mdio with devm_kzalloc(), so synced starts
+out false. The first register access at probe therefore goes through the
+resync:
+
+yt921x_dsa_setup()
+  yt921x_chip_reset()
+    yt921x_chip_detect()
+      yt921x_reg_read(priv, YT921X_CHIP_ID, &chipid)
+        yt921x_reg_mdio_read()
+          yt921x_reg_mdio_resync()
+
+A supported part might return something other than exactly 0xdead for a
+data read in AH. In that case yt921x_reg_mdio_resync() returns -EIO
+without logging anything. yt921x_chip_detect() passes the error straight
+up, so its "Unexpected chipid" and "Unsupported chipid" messages can no
+longer be reached.
+
+Every later access would then retry the full 7-frame resync, and each
+attempt would fail silently with -EIO.
+
+Is the 0xdead sentinel known to hold on all of YT9213, YT9214, YT9215
+and YT9218? The driver header mentions only YT9215+SGMII as tested, and
+the commit message doesn't mention the sentinel.
+
+Could the resync print something when the sentinel doesn't match, so
+this new failure mode can be diagnosed?
+
+Also, each resync does a real read access of register 0x0 (aw 0, aw 0,
+dr, dr). The commit message doesn't mention that either.
+
+[ ... ]
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261111163954.1132921-1-mmyangfl%40gmail.com
