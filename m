@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794796277;
-	b=XLg3oHcL76MtkKcPXQuzl74mBiTlnDUpOYwT5Z8RDBedZ7p8tUECcTXmqmHO1YGrDMk1
-	 0+wf+XQ4Fm8p0scq/W+HuO3/bOENWQtTmzx23PxKVUKO7ElvI/czpeHuIzF1wpxYpAGVD
-	 RgokkXmHJQBum1eeIHOVD8QejCHH+zzbNd+G3xMw6Ca0jN4C8uJ175nVit9ylKBJ9JDHd
-	 ihb7xfzlFO8jEuG+cWgsu/vpxpopZFgzumdW3baOZDxVqAecLs31eEvedy10HotO46Fk2
-	 xVSFSXBEX0nAGfdmZ/avutbDC5A4WzpP2PUYhBFAPmymMVGhRKTvmCR1qFXkj5ACUgg==
+	t=1794796336;
+	b=BqcgzyVQcSYe07uTkWPzFLWFeOxf7MTwdx8C+YhVMUnQMAb8sS9nC9Tl6WehdYpC+8wy
+	 eEPxW6Qd7AKn12zNrC4bt4eXkcarUZLypb1NeHs1EiMqUVfen32MRctf8EJ2skA+2uDJd
+	 uTSGdWfGPQxY/7KsmvfUI7o7QXpJUoXFKquGlFcTpaJJRhC8LIcfgt2XT5/GfqhU5R1Lv
+	 uRQzxE5BYncSZ330ADuysey+enEeVIFk+k9nSJSZgnjTTrvSvKrqZNuSZi/5GBPe2vfbi
+	 CxnTh/b7opU681ZtV95Nt6ZeAGZyymYobN5HsifNq1mEJBUvkiVgL9HzLmK1q2MbwIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794796277;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794796336;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=FKvjlHRiAkBBGldi8tqyRzKJUO6RZBtUR9E6f1vPWnc=;
-	b=ErApH5LZJooPXYV1aEuFpPlxLl0gZPUoWRQHwbfoqthWkaWAg2ADP71Nsprz7O3Yg/RN
-	 irK42+OxwFoK9dE0H7AdBl8JCtXNkQSPswHESA4A+rdnHvu6aAQY1g3UKSxtSBY1/EoRI
-	 Qwt6zORWMocsIfSb7jydPFcqqyn+b7NZIDj0oFs/ZCHZaT+5soUlx5hws4SmiQZauNyJT
-	 Vx0DdA+jpLBA+7KhRp5s3Q24prFdHcd7lhKuZPGvMfkzlZOPvQATmCcPVVpnHvxoMOXuQ
-	 x5xFiP1fOqp8ww3jkmN9Rj+n/4ZAcOptiqJV7Fhp6U4YOKe2wc5OAfEyKM5BKI+PHxQ==
+	bh=HL9KJ6zJx0cYgN2NafMIfK7yVZJpUohcZPTXV+OQ/Ow=;
+	b=cXCfV0fdJyImPwok8YoTHfsvtz781AtxxPWMYwYiDli+q9mVJXEnPj3ZUSrM6UA+Ln1f
+	 WchNOTNGIp4ZObNvflmltyhQmf+lw5BSHqsf3iroROdF0HrcGJEqKF9AQEd3ULWNe3ixW
+	 2SB5pnr3fTAYNRoCZJ5HPbN2BpSOVxbyztJp0HqHfsqR2mxaWk86t73Bhssb71nCt4/hZ
+	 6VC9yN9OYNe1IT69vmmyIzIXYfGGF0+a6j2WT9uMQKeyLlFqxEz0w0nlcs6UFW0CMPuU4
+	 km1eqvFwH9nubZg8G8AF+NRx7PsFT/nQ3j4WZ1MmyotsQS/H2vk60sSlKDZl4pJozdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=qQGkvwKg;
-	arc=none smtp.remote-ip=209.85.221.200
-Received: from mail-vk1-f200.google.com (mail-vk1-f200.google.com [209.85.221.200])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=p5qduGPN;
+	arc=none smtp.remote-ip=209.85.222.69
+Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com [209.85.222.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BBDA8606A31F
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:31:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BBDA8606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FD52606A329
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:32:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FD52606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=qQGkvwKg
-Received: by mail-vk1-f200.google.com with SMTP id 71dfb90a1353d-5edf86a8c00so815136e0c.0
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:31:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=p5qduGPN
+Received: by mail-ua1-f69.google.com with SMTP id a1e0cc1a2514c-99c47fe8cacso2700559241.1
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:32:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794796275; x=1795401075; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794796335; x=1795401135; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=FKvjlHRiAkBBGldi8tqyRzKJUO6RZBtUR9E6f1vPWnc=;
-        b=qQGkvwKgwAzg0VnMZ6FFjeYVUpUB4G4gESIRB+Ywv+2DN09rzQiGU8vUDpVFIWU1S1
-         ZuAvM/aukev+kpYmOin8pWhcjmyM6SNl7u65+t02vJhqAt5JIBe/Y8KwgmncnZEjogAR
-         HCqQutGR8HYJY4jhJ0y+6fw8KhNNVpAAjXYhCHHOGFkWZP3P6kwyH1UPqajZaXMFkt04
-         iM124aJ+XvWt9dXZVP8oL7pqAtWAy5tgqdV1C7A9kr4WYwIDIOiWRQph5jovxFpAFKfF
-         M5xRDTpLrt5sRuymBZ1WQnEaAgTTr7HWmow0oj19uSqCkFhG/DPjo6fyAbohq/YmSWRO
-         75aA==
+        bh=HL9KJ6zJx0cYgN2NafMIfK7yVZJpUohcZPTXV+OQ/Ow=;
+        b=p5qduGPNWYEdMm58fmgaqV+WWGO2kO1BdwPyIACIzLv+7zdvvT129FbE/bFatUg8IE
+         rjLFwG17fbP3emtXYQWIvrDJb0hqMwGIX0/DqhRD7ycbV3ROoBpYtMXibjB1rUpFA5DO
+         tDG1OqWUzm/3jHdAFCGuHrGmp/nMdPeWuApD8+29AWjZH4lBoXeaCdU3f3cc234gaLbO
+         cBvt/m2c77eyyMKM22rxO4YukmySjv1LXhF3e2KFUX8j3Jb5K0s5csW8K6IZDk+UUIwh
+         CVwcjGmRStMNa5DoQF22nmtDqRTF86YWOEbo36vUKEHD3AWiUb8xp+hBjbkksZd1QIyw
+         F0Hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794796275; x=1795401075;
+        d=1e100.net; s=20260707; t=1794796335; x=1795401135;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=FKvjlHRiAkBBGldi8tqyRzKJUO6RZBtUR9E6f1vPWnc=;
-        b=PfCGaBYW4zqFpMlMHzOK+s6hrpOMobe9ueBXh+lcaY6zFbB66yYTWlDFFnN2iT3370
-         AQGZdaqfPRjbsieLWNh3SgpHz05YMlLwF21cz9mXK4NXwPmlJxig61PaFj7uTJ5hIeE0
-         teDE02aewueMWEsuvVmbYmwBWe7kllbEtoF1CGZH1dAOopCrZYhXPuV7zot7PxUMFG+z
-         Jx+56xFHHOpbFoZMKKnMMf5RQtW65L8gCR2AVPatk47njcmEhHQUFJLiIh03TfNit8zm
-         Nh2daJxILOvcD1EEJp7UWhzgd9oWFDRcRK+5I9SE7xxc1Yjt9vwDh1ij/cqGHOD/XUQ2
-         fBQg==
-X-Forwarded-Encrypted: i=1; AL+hErHjQCCIxUCWKxe3pxT7YTIa9l8FDjDS1GUc71lo4ZgYTxAu2E7e+zn7EJ6Q/eUu9ItJ7zD9e+s=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/aabpezv6oWvT0cYVwGrX5OlFIytrCzNyfEmGuKR57le3nQs/e
-	sfkha/xqvn9CIjoKPMl71pY4PShOW5Fd2b7+S3dHZ3a2YPlroQqhGt1+jAxr3+H2Yy9rOnYea3I
-	xuvBMF1u4hdWD2TTB8u/QhSVOdA==
-X-Received: from uapk12.prod.google.com ([2002:ab0:734c:0:b0:99e:2b39:a3b1])
+        bh=HL9KJ6zJx0cYgN2NafMIfK7yVZJpUohcZPTXV+OQ/Ow=;
+        b=Ar43QPKaGZBXuQJhr7oJO7Ub55U3LXBRACbCYxJb6siRm7C372J0oYg3en/8zGaCju
+         IZFnumwKOC31jPAjUC2Qdjr5TXsr0E9slMEDT+DoS8bZmlrgAOa5HboU383+SbJ1P+h+
+         BjdnnCuSdMB8WUcUQXKoXwLUOpR0en6cxAiL7opagbiVrJhFNY6VnOPMCm2N/mm/4TLn
+         i2pnKh2VpnKGCezw7hCv4gvIxtYfsJzLfv8rRkIv7GK0Zt7JngKgkUOO5E84FiNTGkOo
+         LV2tZo+rtZqZXuuXrb+4QHtLp28S1LzhLuTtjf99S/6tXdmtYuwPYJjtF9i7lzJInNfV
+         Z5Gw==
+X-Forwarded-Encrypted: i=1; AL+hErHtHPmC4jf7d45dfFlbfLW8ssscnQcBOWoqgOoHn9lLvNkLkYagNX01Fn0eKVKBc0qMXHaARQg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9DSZwE3D6R1QPkf5zEuELVXDdyw2ghkAUiYwy5oI8IHtFdbWjR
+	+Nc2dulVWiJO2kcRhIgirmqNQLpnJEWSHb1tOSXrpSqby14Z//EFVCFQ7uAApu6xK/L9B8y0iBj
+	5yeYPc8z5LKdw8+Rxncu4ctVuGw==
+X-Received: from uabig12.prod.google.com ([2002:a05:6130:1ecc:b0:99e:b1a:30])
  (user=thaisonphan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6102:2922:b0:7a7:198a:c2c6 with SMTP id ada2fe7eead31-7d64db3c827mr2441486137.36.1794796275267;
- Sun, 15 Nov 2026 18:31:15 -0800 (PST)
-Date: Mon, 16 Nov 2026 02:30:29 +0000
-In-Reply-To: <CAL4Wiioi-t+gKL3dLDWcTrd57tv9TEoXUxh8gHjCQSDyT7Xxyw@mail.gmail.com>
+ 2002:a05:6102:510f:b0:7ad:3ad3:997a with SMTP id ada2fe7eead31-7d64d45ce68mr3464173137.5.1794796335056;
+ Sun, 15 Nov 2026 18:32:15 -0800 (PST)
+Date: Mon, 16 Nov 2026 02:32:11 +0000
+In-Reply-To: <CAL4Wiipd8pVX8Rxkof+29iSmfoAC5tytsOh0afnovEwaZ4NEjQ@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,10 +80,11 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 References: <20261114161248.3428695-1-thaisonphan@google.com>
- <20261114161248.3428695-2-thaisonphan@google.com> <CAL4Wiioi-t+gKL3dLDWcTrd57tv9TEoXUxh8gHjCQSDyT7Xxyw@mail.gmail.com>
+ <20261114161248.3428695-3-thaisonphan@google.com> <CAL4Wiipd8pVX8Rxkof+29iSmfoAC5tytsOh0afnovEwaZ4NEjQ@mail.gmail.com>
 X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
-Message-ID: <20261116023029.128997-1-thaisonphan@google.com>
-Subject: Re: [PATCH net 1/2] tcp: initialize ir_rmt_addr and ir_loc_addr in cookie_v6_check()
+Message-ID: <20261116023211.129862-1-thaisonphan@google.com>
+Subject: Re: [PATCH net 2/2] tcp: accecn: initialize AccECN fields in
+ syncookie path
 From: Thaison Phan <thaisonphan@google.com>
 To: edumazet@kernel.org
 Cc: chia-yu.chang@nokia-bell-labs.com, davem@davemloft.net, horms@kernel.org, 
@@ -93,30 +94,31 @@ Cc: chia-yu.chang@nokia-bell-labs.com, davem@davemloft.net, horms@kernel.org,
 	thaisonphan@google.com
 Content-Type: text/plain; charset="UTF-8"
 
-On Sun, Nov 15, 2026 at 09:06:59AM +0100, Eric Dumazet wrote:
-> Nice catch, but KASAN does not report uninitialized reads.
-> Was this KMSAN, or did you notice garbage in the inet_sock_set_state
-> tracepoint output?
-> 
-> Please say which in the changelog, and include the report or the
-> trace line if you have one.
+On Sun, Nov 15, 2026 at 09:13:02AM +0100, Eric Dumazet wrote:
+> This is a different bug than the uninitialized fields above, with
+> a different impact. I would prefer two patches, one per bug, but
+> since both Fixes: commits landed in the same release I will not
+> insist.
 
-I should have explained KASAN's relation to the bug better. It was not caught
-by a KASAN/KMSAN report itself, but originally noticed via an out-of-tree
-socket hook observing inet_sk(sk)->inet_saddr != LOOPBACK4_IPV6 on KASAN test
-runs, and reproduced upstream via the inet_sock_set_state tracepoint.
+Makes sense. I'll make sure to split independent fixes into separate patches
+in the future.
 
-When KASAN is enabled, SLUB_RCU_DEBUG is enabled by default, introducing an RCU
-grace period before freeing the request_sock from the initial SYN. Without that
-grace period, cookie_v6_check() typically reuses the warm request_sock whose
-ir_rmt_addr and ir_loc_addr were already set to LOOPBACK4_IPV6. With the grace
-period, cookie_v6_check() gets a cold slab object instead, e.g. (with
-slub_debug=P, expecting 127.0.0.6):
+> Same remark as for the LOOPBACK4_IPV6 patch: KASAN does not catch
+> uninitialized bitfields. Please say how the failure was observed
+> (KMSAN, tcpi_accecn_fail_mode in TCP_INFO on the child, ...).
 
-  ... sock:inet_sock_set_state: family=AF_INET6 protocol=IPPROTO_TCP \
-      sport=59839 dport=41050 \
-      saddr=90.90.90.90 daddr=90.90.90.90 \
-      saddrv6=::1 daddrv6=::1 \
-      oldstate=TCP_LISTEN newstate=TCP_SYN_RECV
+This was spotted by code inspection (with AI assistance) comparing
+tcp_openreq_init() and cookie_tcp_reqsk_init() while investigating the
+LOOPBACK4_IPV6 bug. We then verified it on a kernel with SLUB_RCU_DEBUG=y and
+slub_debug=P (preventing reuse of the warm request_sock from the initial SYN),
+observing bogus tcpi_accecn_fail_mode and tcpi_accecn_opt_seen values in
+TCP_INFO on the accepted child socket (as well as tcpi_accecn_fail_mode=0x2
+when the listener sends ECT(0) on the SYN-ACK).
 
-I'll clarify this and include the trace output in the v2 changelog.
+I'll update the v2 changelog with these details.
+
+> I think syn_ect_snt is always overwritten in cookie_{v4,v6}_check()
+> before being read, this line is not needed?
+
+Agreed, cookie_{v4,v6}_check() always overwrite syn_ect_snt before
+tcp_get_cookie_sock() reads it. I'll drop that line in v2.
