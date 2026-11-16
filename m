@@ -1,95 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794866010;
-	b=VjOb31kWtTendU1mUMcB5bkgje5xmjyrbXB/CDdyfsTyxOAJ6rrjpIej11MBYtjPirRO
-	 Ry4k2fnHka7m8JOGlBMjGHQnelRfsL2+1d2oVe+P+E4pd6HNmnUzD/KS5lstp1Lc4peZO
-	 7X9LJaQlaiWkAySKLqHATs1pI76zibFvIdlKgXFXbtm1bnzLjTHWlPwjQ795uPW4ZoTrw
-	 wVRXLrEgrXccZ5L5lqEIvorCQygw7iIZCLylYMK1CruKhI70xlEA9XK/LsfgAN1kbRN1a
-	 yfdI8+WV/yeVzolGF6XZuaHlsc29we/TZTZGt1jzcfGTrbKnpQ6llVMqpMx+Pp8UELg==
+	t=1794866358;
+	b=HvOdHxQ58f+xQPmloHWUV7DVHFC/fl8MhUBLR2fjKciM1padHgYbjg3GOXsyXHC0KIW6
+	 CvWckv8kXTWZwrkaw7WOQj7hT28dpBgYgW5cg+YjrDSj6H49vijcQwlFsE8OJsxZ/ep2L
+	 8uuL2Mg45tqHOGyqYDX2jq1LWqCkw6mfRWII425uATV/FAumUCy3ylYrKspZ4qHmW6w93
+	 NrUazWdI08poZ4uTopMyZ6lzay3CHbABP+6cz9fclPg9xizUm2IpDPJyzjcckV6IZTvom
+	 cQ89lszEKTc+IL7bbG3Xzxfnrmv0mzbgPSwMcBHu21RvAJcc4DzMW69RK4r+EMbD9XQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794866010;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794866358;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=ZxM9DBn9x54akqpkzn9sBtaRSKG943eg3cl8Nel3kzo=;
-	b=u99oTYCDaoJk214Ni/i6caKox2gvCNpUpRnVJFGGpqsFGEvsTgY2YJaPzgnISP5rFwlE
-	 XedK4GAHhkgLHp71coF2pEShfJNEBBx5zBIruPVLshoDcttCAF+Fm3GQEDcReA/nVb6pe
-	 5zvM976RGdQeUzZTwgLy8fondwLBs3RlR6sUhnquST/s6ohmqVDM8gC5ZoPZfV6TRQZkV
-	 w47tU+abN1/9gSOcqOdIrkS0i/jM/mFo7rdkBkoacBp9EgQo/rEpzHUAXtzJncnEbRXXL
-	 ukl8HgayeoZZHOPtE9cr0nuZ1o3ypirHGipLYj2YlzKHwaW5a2n7MiuKn0t5sC2vL+Q==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=zBAw8dUpXWrrifwZKQf8BbOPDmksqO35VTEdiKGvRdg=;
+	b=F4akaYb6/ZSDmysd34at0ETx0MBjFg4EExWQg8Mq5z+ga+s6rQLiFq6XBPqeY2lDGJz3
+	 BNvsyyMmZnK542ZzmyKeogSGlLz1/RhqtsAZSONmj5ULvIGszEyfoZb0445I1PfEdFUO6
+	 UQcNL7ammho6/zD16KGlxJPivnFxautU3EFTcoyknb28MczrHG43FORiqMJiYxjSS88lk
+	 vgDDTHsF6FNWdcv4+Z1MIUj0jX5CCb1C3OqzsEwMbHT5lRqMSBaSv62kMHyiGZAP4n1lX
+	 iXdIhhpL0uFDidDu31V5CJJ+YyYDH7Fqw0VkxJMIGTBURDIYGotRi0v4aVP22xPlUBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EGFEKEqv;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jYBaJrwu;
+	arc=none smtp.remote-ip=209.85.217.69
+Received: from mail-vs1-f69.google.com (mail-vs1-f69.google.com [209.85.217.69])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35555606A322
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:53:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35555606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7535A606A33D
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:59:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7535A606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EGFEKEqv
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so31286105e9.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:53:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=jYBaJrwu
+Received: by mail-vs1-f69.google.com with SMTP id ada2fe7eead31-7d2e2cd9c85so3207665137.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:59:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794866009; x=1795470809; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ZxM9DBn9x54akqpkzn9sBtaRSKG943eg3cl8Nel3kzo=;
-        b=EGFEKEqv8Wun1nH9x3q6NPhZLAuJ35WMTdBXnIGHyzw2sFb+CDsdn2o1BH1Aa9kU9y
-         uxoft//SzoGgO8OppW6Q+yuFjOr9ovW7HM9svUFJHBpR6roS+bXL7zhKj7DOzfdYjYzz
-         M8QMv+k2U6H/hbAv0qGIpiO0PE8sqWKFT9ALnrfwq5MOQwbKjOmgPd8zMRqAbBMpeq5i
-         beE1Lw+ORPcVdR8xLarxv1PDsC1yPPvjA31dLDzXHtkPBXegT0EfVhxvdyklK9HiKhsy
-         ZsZUCGs1WNa8vehACjDvUeTFkhxyolzxs8fYLRYohY9baiJHgmihyzgDbEo6MwBhsz12
-         rEOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794866009; x=1795470809;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1794866357; x=1795471157; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=ZxM9DBn9x54akqpkzn9sBtaRSKG943eg3cl8Nel3kzo=;
-        b=Lf3o3tsX4y26yAWgL45+971WgzD10+4Sc9Ge5LXj9FY2FEy2H0LTEeAuE80NjDkmnY
-         1q6DmiBY5xsTXfzy4Xo3DUdL8zk/HmNUAJeIb6IsBsRIgqLhoyPlVsKHOqhAX6LUuA49
-         CHLdeD5AvyPk3rphZoz5EpJrEt/vYpXbWODpo1BhoABr9/hlpMrofs1bl1hMW9fQSJ3Q
-         MNLyD+q4JKA8gzYCoczx6s4SdZ0LvAqBvEVCasS6uWQSvP7ZDkBzWuNNRhG6QlgoYEF2
-         yk6W7YiE9ZxPDdgXOaiaJku2/04MFasATcXeDOtOmk7HA2vmxPRxX2/PLy50b4VgPTeB
-         lADg==
-X-Gm-Message-State: APuU4Z8K/fuLxS/3udL0fxOOw52qovxTrPcTiOpVlOmZMtWlxgCY9si/
-	CRNdagOu+E1JQArJlXBNgntsLGGJwYwHcA2lL/7aiP6Li9MOWU8j83f2
-X-Gm-Gg: AYBFou3L+UNRW4iQqtD+rt0H2EI7tG6sRYXZ4KuyDGVopLOmR3yg/HrZ/vTJCkjPtOM
-	+tJjuBvzKWIl8InXpyvtJgd9+B/7lNywE/mDUdenz8wHEZFi44UKfaIIB47kpiYwSTAXzc4IGyS
-	8xetBAfdW8LWxC613HE5QKPYrEmCr/V1p4zGv8dBRUMWYqMuF65h9bEscPIsQZTVQTE6mMC/iFz
-	AfJPC60WnKNPgB+XaQ7S/o9i0AI+9HYIy3Pp7byngyf6U7f8792to49GS+U0JAlh1UOEc2xBlHi
-	Yl550N5hQGPjGBdH2Tt9YPTzqj4oX+bMOp4y/YCrDoHzauDGC+27+LgcCE0Q1gdKDJEFbITeO4K
-	r8IZvYy9ezwDdH/vBp2pYcsdR5QNr4vEPBVi85zDPCujJKE8P0mo9wOAGdu+Lafl7FThw+kj2V9
-	qkfD9UoTOIiMJ2tsJt427F2et6+QDyUqaLmGQGlB2hXv3tJDBLvIH5IAWIMhJq+Dd6zcBsQ0Wg/
-	PxHVkoP/AyHSM4FuBnf7fiJV35BhxsNj9siORwEzUt1ISQCSk4CtYF4QINw5yruAnB5L0dADQR7
-	U21b6g//Z6766FxJiRuUZuGqcSEn2JmFo+3boo4a2TdvuIdHauwZjAF+aWReaauxNUcg4tck5Ur
-	vwr/9OJujfjYPqL2N+Dyeoj+gMUqyz5rmBN04L9A2bu567PRh/jpl9QLM
-X-Received: by 2002:a05:600c:a313:b0:4a2:397:73fd with SMTP id 5b1f17b1804b1-4bb55a50c90mr194484255e9.12.1794866008541;
-        Mon, 16 Nov 2026 13:53:28 -0800 (PST)
-Received: from pc.tail250202.ts.net ([87.110.86.243])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb5f350d51sm104287115e9.4.2026.11.16.13.53.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 13:53:28 -0800 (PST)
-Date: Mon, 16 Nov 2026 23:53:26 +0200
-From: Janis Edvarts Lacis <janislacis06@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, wellslutw@gmail.com, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: ethernet: sunplus: check budget before calling
- napi_complete_done()
-Message-ID: <7zevuoiao6ildvkxt5baqnalb3nrx736krdxkbrbxouelukveq@2wo6m6cfl6rn>
-References: <20261114222744.535158-1-janislacis06@gmail.com>
- <26c5c08f-d6f5-49b2-9fa8-de6f8c244a78@lunn.ch>
+        bh=zBAw8dUpXWrrifwZKQf8BbOPDmksqO35VTEdiKGvRdg=;
+        b=jYBaJrwuepVTUU6d1yi/dQxjFzIul4hpcJ76pIc9G/Uvuj/jiqT8o5nw2IKaZbwlAT
+         5wl3G96Q9o8GtygjXozKV6gMl5B35cr/8+X3jn//cJhsfqwMPbliu8KMD5q19bBb5eii
+         mlmx/rqwoQkpBKmiCuPaEs9beGGbj2C+HQWJ5T18qLKrCx27b7KGHYNlmvoHtDcXBmK6
+         h6+cidKqWqPba6q8UN2+ZL54aHEyX6zoYIWzrpN5Gk/fzxXcBZggURN07wYCR4syz9Ta
+         VcgtnUviwzccehGi6WRw5m1NnsFb8UWGPsINCcYFWJjDwkjIg1zCdvGg8EFf9cdW3DGg
+         NjsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794866357; x=1795471157;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zBAw8dUpXWrrifwZKQf8BbOPDmksqO35VTEdiKGvRdg=;
+        b=lMVuO8nVV5ReQj8oP4k3wMYpht0eLvibgOUVclIZe45kKKDaaYQ1A4abXsBjlnfYQW
+         RO395e5VXpZkwLypcwefCg8f0J82atXCJB0yxzn7GBgbfzhCcWRkD3On9AKV6gJ5SMce
+         8x0tF4q/A2+9toctAYj5b5eaOn6eFWOhbm8lRtXXvtNGfFpnHIpZxtL6/bHp/UpAbnc3
+         q5lDaFlVcW23knC8Sg4k3KyFK/hR7LReovaEWfxnLbhqb7PVCadBLW+G1px8uwElVbbG
+         NmFUKY3KyA/Dza4NKua9n89cUaMwmUs+fUlsy4CuX3V/LiPXzMZDYZ07HEWDB+8IwJ/G
+         7TBQ==
+X-Forwarded-Encrypted: i=1; AL+hErFusiOA4um6fSDZYCMm0Q8WAmqmQdXMfy7Ezwv7u/B8xhqCEzu+UKcihyiaBDjFmat/MbXZ1VQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+qZyxpRS2D8dcAuL9z+aBJ00rptVdcEDMoxdZlORoNuNhpJLbn
+	x1bxNwyMXHXjvMffcZl6v7UmorAIjdd2UIDo7ev3kt7+GQGLPArnIvA/TpOIjQLT+T6aarpfgKR
+	RTsO53km0m2ibtLyclLouDxXHVA==
+X-Received: from vsrf7.prod.google.com ([2002:a67:fd07:0:b0:7bd:f662:422f])
+ (user=thaisonphan job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6102:548e:b0:7d2:cbb5:71f9 with SMTP id ada2fe7eead31-7d64d6ed863mr4498585137.7.1794866357091;
+ Mon, 16 Nov 2026 13:59:17 -0800 (PST)
+Date: Mon, 16 Nov 2026 21:58:56 +0000
+In-Reply-To: <AS2PR07MB912321354BBBB27BEC882C11A37C2@AS2PR07MB9123.eurprd07.prod.outlook.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,48 +78,38 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <26c5c08f-d6f5-49b2-9fa8-de6f8c244a78@lunn.ch>
+Mime-Version: 1.0
+References: <20261114161248.3428695-1-thaisonphan@google.com>
+ <20261114161248.3428695-3-thaisonphan@google.com> <AS2PR07MB912321354BBBB27BEC882C11A37C2@AS2PR07MB9123.eurprd07.prod.outlook.com>
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
+Message-ID: <20261116215856.813379-1-thaisonphan@google.com>
+Subject: Re: [PATCH net 2/2] tcp: accecn: initialize AccECN fields in
+ syncookie path
+From: Thaison Phan <thaisonphan@google.com>
+To: "Chia-Yu Chang (Nokia)" <chia-yu.chang@nokia-bell-labs.com>
+Cc: Thaison Phan <thaisonphan@google.com>, Eric Dumazet <edumazet@kernel.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	"=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ij@kernel.org>, "Olivier Tilmans (Nokia)" <olivier.tilmans@nokia.com>, 
+	Simon Horman <horms@kernel.org>, Stan Iliev <stani@google.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 15 Nov 16:50, Andrew Lunn wrote:
->On Sun, Nov 15, 2026 at 12:27:44AM +0200, Janis Edvarts Lacis wrote:
->> Sunplus drivers currently do napi_complete() after each rx/tx poll is
->> done without checking whether budget was exhausted or not. Interrupts
->> are also unmasked before the call to napi_complete().
->>
->> Replace napi_complete() with napi_complete_done() and add a check for
->> budget_left. Call napi_complete_done() only when the budget has been
->> not exhausted fully, e.g. budget_left > 0 and unmask interrupts only when
->> napi_complete_done() returns true.
->>
->> I do not have the hardware necessary, this patch is not tested on real
->> hardware.
->>
->> Fixes: fd3040b9394c ("net: ethernet: Add driver for Sunplus SP7021")
->> Signed-off-by: Janis Edvarts Lacis <janislacis06@gmail.com>
->
->Does this bother anybody? If not, net-next. No Fixes: tag.
+On Mon, Nov 16, 2026 at 02:16:40PM +0000, Chia-Yu Chang (Nokia) wrote:
+> Thanks for the fix, the only change I propose is to clarify the above message into:
+> 
+> "For AccECN connections where the listener marks ECT on the SYN-ACK, leaving
+> syn_ect_snt as 0 causes tcp_accecn_third_ack() to see a mismatch between the
+> expected Not-ECT and the peer's reflected ECT in the ACE field, erroneously
+> flagging TCP_ACCECN_ACE_FAIL_RECV in accecn_fail_mode.
+> Refer to Table 4 of RFC 9768 for more details."
+> 
+> Because RFC3168 ECN does not use this syn_ect_snt.
 
-Will do in the v2.
+Thanks for reviewing. That wording is clearer and more precise.
 
->
->Given that you have not tested this, how confident are you it is
->correct?
+I sent out v2 [1] yesterday before seeing your note, so once the 24-hour
+repost window passes I will send a v3 incorporating your clarification
+(assuming v2 hasn't already been picked up by then).
 
-I am fairly confident the change is correct, as the documentation
-supports it. When netpoll calls the poll function with budget = 0, 
-napi_complete() returns false, but the driver ignores the return 
-value and unmasks interrupts anyway.
-
-During normal NAPI polling, budget is set to default (64), but the
-driver has less descriptors and it looks at each one at most once.
-Therefore, on this path, the only benefit of this patch is that
-interrupts are unmasked after napi_complete_done() instead of before, as
-in the old version.
-
-Of course, actual testing on a device would be great though.
-
-Best regards,
-Janis
+[1] https://lore.kernel.org/netdev/20261116023709.132684-1-thaisonphan@google.com/
