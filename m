@@ -1,57 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794871880;
-	b=fXotdqsbwm8GXOQsvRJWHO7Y6VJP8UW7agQ8xHEXN+C64X0xORGWG1Hr6/sPG6vtzUmb
-	 EOMZrF9ggPy9B3z2mWOOifNjpe7MbmIwzrp6dGz1AWB1LOi3hgGAktb4ZxhdXTNqPCBin
-	 Rk8S8/tzxqHwRY6LyPmXaRRDhz7664Wa2QHhSWsjeO4GJgj2RtHN2L3+w+Ttq5mabPMLf
-	 9hk2WTya5z7iZcy9OfzrzDEVDsscpbJk1pbW6ZXo/emmsX5qjLth9QAewspOzP2q0b0Lq
-	 yN7TTUnyixVyKuaB8SDdhcqR7EywfFFRayRgnotNY3iSVj56iiPm1nLVGXtaHUnZF7Q==
+	t=1794872411;
+	b=FB5pgoByVpDFb96u7hW51sVPeGdhDl4PRn2V+wb3nixSrJ0+JXTcDcNbkaiXBRR3x6cy
+	 ZhWeB7AsOxcUGmCuxMzlM4GtQ2EhnyNtPeYBpwAkZDeut9giQA3X71qtOiAQyW+XjxuPZ
+	 FfOfYb3dUGlawLUembAXCCeGIgWqcpJP4XNUIWEVYm2x+Pip15sbBb6Xjl/vxJCMQkr7S
+	 sSktH6RFU58iB+u0TILjr8HsydCMQni5atZJlJv72SG5TU1PPzG3fvHUgpMzGP+AHDjYX
+	 +AFkqPg+xqAbqQAZLnZr+0d9NEmx2BWmf4s+gYATNXYYNeBl2AgcLnLLV6tsKoRpmZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794871880;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=xfMs+Qf9XdOxHXeSqXFaYB/VT0nJ0LMrNDOzxuv8Ri8=;
-	b=MyOIuqMeitvY5VS+ejCP3Sit/6CwSzBQkYu287gu5CKucobu1dW9yi3EbBWOWb5LsaBq
-	 hzjk0JWmCWoOq6va9ZioCwzkJKir9N6mhoLKphETB1f0Jzom8Qs4Ghs398XE7nq8XdA6W
-	 soUoHemaR71CqTktDzINT0E0uFRDNbgyvwgYaGhHgLHO/tv3N5aTIc+niJGSb1aw7OZwE
-	 FNKEYhURQiuYWnfuiu+8OBSDFs/Hq+eLT9fPdDokYl0psNxX+y4JUm991A+adXzCdI0EY
-	 VDMN5BwE0AdtUqWx+QXqerHtmBCEn7u1Njx4vXmxgnm8InVty8lqCMaQeRg6IuOv/5w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794872411;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=9GzQqN9C4tUUY50++Ccr1EqxmPJKMHeJ+ACKBWOxuPc=;
+	b=RYtOKrio94R6bcwe5dmqUQi+cM1NFmz5JiHsTvnG5NbtEhaCYOb6ox3TcG0oS8Bydgga
+	 coIxS3Mck16wVG2z5gw1Lp04JjVbXJlz9yVxNvCL35eMp7JeCCbzuNH6PK/f2FqRPe1xf
+	 y0Urw/EmTHkoxQsBgIxx+bog2aSEzXUM4PGU4dDBYmXyoC5e/J7fKpvbBLvEahGkUkz6u
+	 z+8Rke+jAo3VB/5/QKUSiH4IqYEY9vSga7+wnmTT8gbFS+/vDHrAMue1yNTyAbNbxiply
+	 hmYGaC4PVE6GZykuxBYXdo9n6+dwPWz0xv5wlzYM+VCb/NfOKAfB+SekS/W7yixOF3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iAOeq0Xp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Xj4unxS/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F8BA606A31C;
-	Mon, 16 Nov 2026 23:31:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 521BF606A893;
+	Mon, 16 Nov 2026 23:40:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iAOeq0Xp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D48D21F000C4;
-	Mon, 16 Nov 2026 23:31:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xj4unxS/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16C001F000C7;
+	Mon, 16 Nov 2026 23:40:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794871880;
-	bh=xfMs+Qf9XdOxHXeSqXFaYB/VT0nJ0LMrNDOzxuv8Ri8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=iAOeq0Xpbmml1zZXbNmyAOrGrOTKX4aUya82sPHsuuue5nbJSkFwMNwXX1CQImAI6
-	 2lgNwwL/t1ImlVbJc+8tYNlmYuQIDzS2Dkay1y50CYxMbyNemoq+WGtF8TPvfg4eTJ
-	 IXc8Z+dN6Sz/e4HsjM6ZWv4ZDADpNMMVUjqdJlqMbBekCq++28qMUdCSKY6YSh3651
-	 6ONvakqti4xCeuqTV9SPjN3YgffAMsUUThrrDc1n1OqUehwjJyM6hQVDOcqmntn1OF
-	 sPYAdkruhJBhp+l8Opu27l0CWfRo0B4B/82Ojo1ulnTmAmN8KAxwv0XeSQl1Yr4Xb0
-	 zOqxR1qagqzRg==
-Date: Mon, 16 Nov 2026 15:31:19 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Breno Leitao <leitao@debian.org>
-Cc: Gustavo Luiz Duarte <gustavold@gmail.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
-Subject: Re: [PATCH net] netconsole: harden the enablement through configfs.
-Message-ID: <20261116153119.617c24f0@kernel.org>
-In-Reply-To: <avXe0feXzRL33bzs@gmail.com>
-References: <20261112-netcons_double_cleanup-v1-1-d5ff8167e05a@debian.org>
-	<avXe0feXzRL33bzs@gmail.com>
+	s=k20260515; t=1794872411;
+	bh=9GzQqN9C4tUUY50++Ccr1EqxmPJKMHeJ+ACKBWOxuPc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=Xj4unxS/rxg5vxfGApfZ9BwrIpuqHufMfiIXUzjCZqV2Avy0yBHIxqLFqrOnb14kc
+	 C+dkrh7BlI0BkxpXdu/bPjMuVixFO6sswdYJU8ZrdSSfCNSRD+NTBtYvX8+mxeYCCm
+	 MMuCbgsXtlA2sGeA5/23/NKluELTQ6S7dtQqPBNFtPvcpPY0cCNluL43Sd6ll03mfB
+	 BenkyoT8K6WOXfrSK0/gfkBcMJOuQ9/kvXv2neslma6D0zhOMNB29H+DDSjDqjEGhj
+	 n7mYtWgTGyjj0Kd4K16r5g27YnTM9WfXtl5vqJMpb3KCBIEzBHhSyEgwa8vIT6enjO
+	 +HJFsUF/KAC3A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F14B0391B059;
+	Mon, 16 Nov 2026 23:40:10 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,20 +53,44 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v4] ipv6: ioam6: do not modify shared tuninfo
+ eh.nexthdr
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179487240952.241382.3388765976328461502.git-patchwork-notify@kernel.org>
+Date: Mon, 16 Nov 2026 23:40:09 +0000
+References: <20261112-ipv6_ioam_lock-v4-1-89e3381be525@kylinos.cn>
+In-Reply-To: <20261112-ipv6_ioam_lock-v4-1-89e3381be525@kylinos.cn>
+To: Hangbin Liu <hangbin.liu@linux.dev>
+Cc: justin.iurman@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, liuhangbin@kylinos.cn,
+ netdev-bot+sashiko@kernel.org
 
-On Thu, 12 Nov 2026 07:45:13 -0800 Breno Leitao wrote:
-> On Thu, Nov 12, 2026 at 06:04:58AM -0800, Breno Leitao wrote:
-> > ---
-> > Given this is not super critical or hardly faced in production, I am
-> > sending this to net-next, even with a 'Fixes:' tag.  
+Hello:
+
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 12 Nov 2026 13:46:44 +0800 you wrote:
+> From: Hangbin Liu <liuhangbin@kylinos.cn>
 > 
-> My tag ended up being 'net' instead of 'net-next', sorry. This patch was
-> made on net-next, and that is where we should have apply, ignoring the
-> `net` tag.
+> ioam6_do_inline() and ioam6_do_encap() stored the next header into
+> the shared ilwt->tuninfo template and then memcpy()ed it into the
+> skb. The lwtstate is used from multiple CPUs without locking, so
+> another packet can overwrite eh.nexthdr between the store and the
+> memcpy.
+> 
+> [...]
 
-Since it doesn't apply to net the CI won't handle it at all.
-You'll need to repost with the right tree tag.
+Here is the summary with links:
+  - [net,v4] ipv6: ioam6: do not modify shared tuninfo eh.nexthdr
+    https://git.kernel.org/netdev/net/c/5aac571d9190
+
+You are awesome, thank you!
 -- 
-pw-bot: cr
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
