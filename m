@@ -1,67 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.154
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794789871;
-	b=SYnBH11OW/E0M7iKtnT/IsaH/MU1ASsN3FHNUrZ6cfwwz/P3/xGtHmxC1gjgJmupJ1Hx
-	 Lt67poQ+N52+wrzWnHwPaNYiCpFfh2e6sVSOKuQD2SpIDOwuanoKaAW0R6nNDsH2LLJEl
-	 Ortr/DVjEDm6kbyl97VT4RgXiOfCwtptjCN27W7tTc3WR3m0rfo8z0+VTD4KPkN+gN4IM
-	 Eng4S/Xi9EYJm/G+YeDl+vem/1KyHN+p4C1bhcSf0Gst0cHym5tnCQQUFPtwbn/5GRIi5
-	 WHifq+gzCszb9yQyd2lds5dD6HEPj5XkhgPIQMGui+6cQj1OAgPE5wacQq+Eh77pZcw==
+	t=1794789906;
+	b=a+XP9WTzhTZ3rLDKyEZIlDjrjCEHg8nSr0oUwxmOtznAwqGbrFbWJdR2Ld4yWEvXmEsf
+	 NkoOTJ2DFtvkxhMpfpyvGiq3swQhtI2zEOvPloT9Eu4jp3WUXfr38PFlxdtL39D+XXC30
+	 CF+9g9bhpH+BIf3kGA1l9MhBawqZGpSutRUAPvbV52AhTIqBHkEOOnGR9thj3Mq47+jFy
+	 Ad+awtu0sCuMH6Fvb4e4+pBlsWph0EurUnXqAK4oVaCOPrFwaUitPCg6bVn3jKF3cA0r/
+	 6EA4tA8aiIs8xOgWGsNHK/UXxpvm1R8+EifK2K6EisSgoT2xTzxxcnZyNn3EFwUK+Dg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794789871;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=Pfem3amVboWFNSoH9/fnY9z5JPbkcKITUXo/Bj0wFNk=;
-	b=aBm7lsApMUyu6KSz5osBRX9ywn0zga2MSLx8dX618w66+Zkggq0zcRfuEu9kgDcUAPgQ
-	 W075o7WMSpnGJo4dM2xTnwYZMkpEqmRqijspfEYSi/HkiozuY5VowUllYKtiaC+gHpfoq
-	 dQvb4Iayg9jgJocaQZNrOHTPyL94hJl/xTia01b/BxU3S8ZOS0EblzC+vF08pd4Iz1LXE
-	 zVx8ZsWVh2q3bxylpFaCSPKykugIqWaSn0+52+//1PIOD6UzSXFCDuBJZslGs6Afn9BgH
-	 RhT2Z3lYGdrRAnqxdwwkrIaLGQZPoCiw2lGbC75LLWweRzABUuHgwWA9zcCj7mqrDRA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794789906;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=ctZSRWrZZMy13MxbtfbQBUphTOZaOpODMuYrXj3Muzo=;
+	b=dNJHJ/TghY4dULq+2ySu//+5C63qylQ+VnL8UtgA9LMjKJJQdjEmBSVimXRiQZD1P918
+	 ez8fls0K7aLV9jQKV4lO4FLbRL5V0a/Jdpcwvz8xswMur+iDwh6S/Z6g3YliV0hMID7mA
+	 bitpkCxezyZCacoo3ly9ypUcMdFZ1xQQsLJ8SZFAHtCLAN4gDdHj23xxqyCcETIVPJDrQ
+	 riaWqgMlpSPIS/4riQtcGgIuoGdkviXtahWH8Lpn/hiBecrseWZrb/KwWDm2dAXl2vQ9p
+	 ERdIbKdsWT8q49bN9rBhK53g/BN5z0/YhDnrxKUQcLwXE/V7gxdz8BwbtUoWjw7ZOIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=mhUTY3Tw;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IBEsriqu;
+	arc=none smtp.remote-ip=95.215.58.154
+Received: from mta1.migadu.com (out-154.mta1.migadu.com [95.215.58.154])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD788606A33F;
-	Mon, 16 Nov 2026 00:44:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD788606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A5BF606A329
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 00:45:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A5BF606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=mhUTY3Tw
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1794789868;
-	bh=Pfem3amVboWFNSoH9/fnY9z5JPbkcKITUXo/Bj0wFNk=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=mhUTY3TwNpJ3Pt74vXI8/TtNpaiex0VbXdiWUGe3iBdm6dUO138ekjsPfK2iWoALw
-	 ZT5bN8EBTzEm1eIrAAJorAnbMiOu40U25AUXasdlgiDGV4p4wm5ECoN2QpoI3C3FY6
-	 MVykzdEeYatdXqCUaGqVukJp+4JUbzvzAWPf+GwvRd9wV12a7MvjZ5+SR0HkwK4NW8
-	 A/hrSGlwiFbSq0I9HC3QBy1pKUdi3i/BwWaKUrxfikuVb0wJOtEas/rzFM3abbHTiP
-	 FoN5RYs0j62YJOFSWrJabvYoJi5tC0mKKpke9fMUv/mG5HqxWoHK6jfl6Sir6vfBw3
-	 wo4sYqb8tYPfw==
-Received: from localhost.localdomain (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with ESMTPSA id 2EB7F6005F;
-	Mon, 16 Nov 2026 01:44:28 +0100 (CET)
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: netfilter-devel@vger.kernel.org
-Cc: davem@davemloft.net,
-	netdev@vger.kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	fw@strlen.de,
-	ja@ssi.bg
-Subject: [PATCH net 11/11] ipvs: wait grace period before reusing destinations
-Date: Mon, 16 Nov 2026 01:44:04 +0100
-Message-ID: <20261116004404.2821183-12-pablo@netfilter.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261116004404.2821183-1-pablo@netfilter.org>
-References: <20261116004404.2821183-1-pablo@netfilter.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IBEsriqu
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=G+X74yAedzt/K4RCiUDrNtK1i7drT5QJjzIXNFk4vww=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794789903; v=1; x=1795394703;
+ b=IBEsriquxLQpHaiQoo7fJyBU3Hl2c37GSs5Fz75e3PxPCbQNnrwWNEdPIcRJoHHBoghqE1v5
+ p6EJRjcRrkFgC1yHDgwtAKkrp4yRSC0pI+CdPcmh5JbYjkOwgrj0BnJIXUk9CpluIJj1oT//jTV
+ gLssOFaUmoTgOm3AyfSN07tU=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 27cf97a24d1aab7b;
+	Mon, 16 Nov 2026 00:45:02 +0000
+X-Mizu-Trace-ID: 27cf97a24d1aab7b
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 16 Nov 2026 08:44:56 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+Cc: Jiri Pirko <jiri@resnulli.us>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	1342116488@qq.com
+Subject: Re: [PATCH net v3] team: validate the length of U32 and S32 option
+ data
+Message-ID: <avpSCLnDT69U4ei9@fedora>
+References: <20261113090108.175889-1-sunwenbo@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,322 +68,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113090108.175889-1-sunwenbo@cmss.chinamobile.com>
 
-From: Darong Lu <zzyy19904204639@163.com>
+On Fri, Nov 13, 2026 at 05:01:08PM +0800, Wenbo Sun wrote:
+> In team_nl_options_set_doit(), the policy for TEAM_ATTR_OPTION_DATA in
+> team_attr_option_nl_policy is NLA_BINARY because the payload layout
+> varies with the option type.
+> 
+> For TEAM_OPTION_TYPE_U32 and TEAM_OPTION_TYPE_S32, the payload is
+> read directly with nla_get_u32(attr_data) and nla_get_s32(attr_data)
+> without checking its attribute length. When userspace supplies a
+> truncated attribute (0 to 3 bytes), nla_get_u32() or nla_get_s32()
+> performs an out-of-bounds read past the attribute buffer. Conversely,
+> oversized payloads (> 4 bytes) would also have trailing bytes
+> silently ignored instead of being rejected as invalid input.
+> 
+> Validate that nla_len(attr_data) equals sizeof(u32) or sizeof(s32)
+> for TEAM_OPTION_TYPE_U32 and TEAM_OPTION_TYPE_S32 respectively, and
+> return -EINVAL otherwise, consistent with how NLA_U32/NLA_S32
+> attributes are validated and similar to commit 5bef3ac184b5 ("team:
+> better TEAM_OPTION_TYPE_STRING validation").
+> 
+> This issue was identified with the assistance of an LLM-based code
+> review of Netlink option handlers in the team driver, confirmed by
+> sending malformed U32 (notify_peers_count) and S32 (priority) option
+> attributes on a UML kernel, and verified after the patch that
+> invalid lengths (0..3, 5, and 8 bytes) are rejected with -EINVAL while
+> valid 4-byte options still work as expected.
+> 
+> Built with W=1 on UML, x86_64 allmodconfig, and x86_64 allyesconfig with
+> zero new warnings or errors.
+> 
+> Fixes: 3d249d4ca7d0 ("net: introduce ethernet teaming device")
+> Fixes: 69821638b274 ("team: add signed 32-bit team option type")
+> Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+> ---
+> 
+> Changes in v3:
+> - Add Fixes: 69821638b274 ("team: add signed 32-bit team option type") for
+>   the TEAM_OPTION_TYPE_S32 check, as suggested by Hangbin Liu.
+> - Rebase onto latest mainline (7e1392a42ea2) with no functional code
+>   changes.
+> - Link to v2: https://lore.kernel.org/r/20261112090030.172342-1-sunwenbo@cmss.chinamobile.com
+> 
+> Changes in v2:
+> - Check exact length (!= sizeof(u32) / != sizeof(s32)) instead of
+>   only rejecting truncated payloads (<), as suggested by Hangbin Liu.
+> - Extended the UML test to also cover oversized option payloads.
+> - Link to v1: https://lore.kernel.org/r/20261111085924.360720-1-sunwenbo@cmss.chinamobile.com
+> 
+>  drivers/net/team/team_core.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+> 
+> diff --git a/drivers/net/team/team_core.c b/drivers/net/team/team_core.c
+> index cfb833c307c1..65ac25e97ae3 100644
+> --- a/drivers/net/team/team_core.c
+> +++ b/drivers/net/team/team_core.c
+> @@ -2834,6 +2834,10 @@ int team_nl_options_set_doit(struct sk_buff *skb, struct genl_info *info)
+>  			ctx.info = opt_inst_info;
+>  			switch (opt_type) {
+>  			case TEAM_OPTION_TYPE_U32:
+> +				if (nla_len(attr_data) != sizeof(u32)) {
+> +					err = -EINVAL;
+> +					goto team_put;
+> +				}
+>  				ctx.data.u32_val = nla_get_u32(attr_data);
+>  				break;
+>  			case TEAM_OPTION_TYPE_STRING:
+> @@ -2853,6 +2857,10 @@ int team_nl_options_set_doit(struct sk_buff *skb, struct genl_info *info)
+>  				ctx.data.bool_val = attr_data ? true : false;
+>  				break;
+>  			case TEAM_OPTION_TYPE_S32:
+> +				if (nla_len(attr_data) != sizeof(s32)) {
+> +					err = -EINVAL;
+> +					goto team_put;
+> +				}
+>  				ctx.data.s32_val = nla_get_s32(attr_data);
+>  				break;
+>  			default:
+> -- 
+> 2.33.0
+> 
+> 
 
-An IPVS destination can be removed from a service and immediately reused
-from dest_trash before an RCU grace period has elapsed. Reusing its n_list
-or d_list can make existing readers follow links into another service or
-real-server hash chain.
-
-The grace-period cookie is also saved when a live destination is unhashed
-for an edit and consumed when it is rehashed. Describe rcu_state as the
-cookie for an unlink, covering both trash and rehash cases.
-
-When a destination is retrieved from dest_trash, ip_vs_add_dest() currently
-restarts its estimator before waiting for the grace period.
-If the estimator was on a tick chain, ip_vs_stop_estimator() removed
-est->list with hlist_del_rcu(), so an estimator kthread can still be
-traversing that node.
-ip_vs_start_estimator() rewrites the node on its temporary list on success,
-or initializes it on failure, before the current wait. A reader can then
-follow the changed link or stop traversing the chain early.
-
-Wait immediately after retrieving the destination, before starting its
-estimator. The conditional grace-period wait then covers the destination
-list, real-server hash and estimator list on both estimator success and
-failure paths.
-
-Fixes: bcbde4c0a755 ("ipvs: make the service replacement more robust")
-Cc: stable@vger.kernel.org
-Reported-by: Vega <vega@nebusec.ai>
-Reported-by: Darong Lu <zzyy19904204639@163.com>
-Co-developed-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-Signed-off-by: Darong Lu <zzyy19904204639@163.com>
-Signed-off-by: Ren Wei <weir@nebusec.ai>
-Signed-off-by: Julian Anastasov <ja@ssi.bg>
-Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>
----
- include/net/ip_vs.h            |   4 +-
- net/netfilter/ipvs/ip_vs_ctl.c | 110 ++++++++++++++++++++++++++-------
- 2 files changed, 91 insertions(+), 23 deletions(-)
-
-diff --git a/include/net/ip_vs.h b/include/net/ip_vs.h
-index c1f7a3f144f1..8dc80d5d42dc 100644
---- a/include/net/ip_vs.h
-+++ b/include/net/ip_vs.h
-@@ -1021,7 +1021,9 @@ struct ip_vs_dest {
- 
- 	struct rcu_head		rcu_head;
- 	struct list_head	t_list;		/* in dest_trash */
--	unsigned int		in_rs_table:1;	/* we are in rs_table */
-+	unsigned long		rcu_state;	/* GP cookie on unlink (trash or rehash) */
-+	unsigned int		in_rs_table:1,	/* we are in rs_table */
-+				need_gp:1;	/* Need GP on rehash */
- };
- 
- /* The scheduler object */
-diff --git a/net/netfilter/ipvs/ip_vs_ctl.c b/net/netfilter/ipvs/ip_vs_ctl.c
-index 5868adda6ed6..be818bf7d380 100644
---- a/net/netfilter/ipvs/ip_vs_ctl.c
-+++ b/net/netfilter/ipvs/ip_vs_ctl.c
-@@ -64,7 +64,8 @@ int ip_vs_get_debug_level(void)
- 
- 
- /*  Protos */
--static void __ip_vs_del_service(struct ip_vs_service *svc, bool cleanup);
-+static void __ip_vs_del_service(struct ip_vs_service *svc,
-+				struct list_head *dest_trash, bool cleanup);
- 
- 
- #ifdef CONFIG_IP_VS_IPV6
-@@ -918,6 +919,11 @@ static void ip_vs_rs_hash(struct netns_ipvs *ipvs, struct ip_vs_dest *dest)
- 	 */
- 	hash = ip_vs_rs_hashkey(dest->af, &dest->addr, port);
- 
-+	/* Need RCU grace period when rehashing */
-+	if (dest->need_gp) {
-+		cond_synchronize_rcu(dest->rcu_state);
-+		dest->need_gp = 0;
-+	}
- 	hlist_add_head_rcu(&dest->d_list, &ipvs->rs_table[hash]);
- 	dest->in_rs_table = 1;
- }
-@@ -1111,6 +1117,8 @@ ip_vs_trash_get_dest(struct ip_vs_service *svc, int dest_af,
- 	struct ip_vs_dest *dest;
- 	struct netns_ipvs *ipvs = svc->ipvs;
- 
-+	lockdep_assert_held(&ipvs->service_mutex);
-+
- 	/*
- 	 * Find the destination in trash
- 	 */
-@@ -1144,24 +1152,57 @@ ip_vs_trash_get_dest(struct ip_vs_service *svc, int dest_af,
- 	return dest;
- }
- 
--/* Put destination in trash */
--static void ip_vs_trash_put_dest(struct netns_ipvs *ipvs,
-+/* Add destination in temp list for trash */
-+static void ip_vs_trash_add_dest(struct netns_ipvs *ipvs,
- 				 struct ip_vs_dest *dest, unsigned long istart,
--				 bool cleanup)
-+				 struct list_head *dest_trash)
- {
--	spin_lock_bh(&ipvs->dest_trash_lock);
- 	IP_VS_DBG_BUF(3, "Moving dest %s:%u into trash, dest->refcnt=%d\n",
- 		      IP_VS_DBG_ADDR(dest->af, &dest->addr), ntohs(dest->port),
- 		      refcount_read(&dest->refcnt));
-+	/* dest lives in trash with reference */
-+	list_add(&dest->t_list, dest_trash);
-+	dest->idle_start = istart;
-+}
-+
-+/* Put destinations in trash */
-+static void ip_vs_trash_put_dests(struct netns_ipvs *ipvs,
-+				  struct list_head *dest_trash, bool cleanup)
-+{
-+	spin_lock_bh(&ipvs->dest_trash_lock);
- 	if (list_empty(&ipvs->dest_trash) && !cleanup)
- 		mod_timer(&ipvs->dest_trash_timer,
- 			  jiffies + (IP_VS_DEST_TRASH_PERIOD >> 1));
--	/* dest lives in trash with reference */
--	list_add(&dest->t_list, &ipvs->dest_trash);
--	dest->idle_start = istart;
-+	list_splice(dest_trash, &ipvs->dest_trash);
- 	spin_unlock_bh(&ipvs->dest_trash_lock);
- }
- 
-+/* Put destination back in trash */
-+static void ip_vs_trash_put_back(struct netns_ipvs *ipvs,
-+				 struct ip_vs_dest *dest)
-+{
-+	LIST_HEAD(dest_trash);
-+
-+	ip_vs_trash_add_dest(ipvs, dest, dest->idle_start, &dest_trash);
-+	ip_vs_trash_put_dests(ipvs, &dest_trash, false);
-+}
-+
-+/* Put destinations in trash and save the RCU state */
-+static void ip_vs_trash_save_dests(struct netns_ipvs *ipvs,
-+				   struct list_head *dest_trash, bool cleanup)
-+{
-+	struct ip_vs_dest *dest;
-+	unsigned long rcu_state;
-+
-+	if (!list_empty(dest_trash)) {
-+		/* Remember when dests were removed and added to dest_trash */
-+		rcu_state = get_state_synchronize_rcu();
-+		list_for_each_entry(dest, dest_trash, t_list)
-+			dest->rcu_state = rcu_state;
-+		ip_vs_trash_put_dests(ipvs, dest_trash, cleanup);
-+	}
-+}
-+
- static void ip_vs_dest_rcu_free(struct rcu_head *head)
- {
- 	struct ip_vs_dest *dest;
-@@ -1377,8 +1418,16 @@ __ip_vs_update_dest(struct ip_vs_service *svc, struct ip_vs_dest *dest,
- 	if ((udest->conn_flags & IP_VS_CONN_F_FWD_MASK) !=
- 	    IP_VS_DFWD_METHOD(dest) ||
- 	    udest->tun_type != dest->tun_type ||
--	    udest->tun_port != dest->tun_port)
-+	    udest->tun_port != dest->tun_port) {
-+		bool unlinked = dest->in_rs_table;
-+
- 		ip_vs_rs_unhash(dest);
-+		if (unlinked) {
-+			dest->rcu_state = get_state_synchronize_rcu();
-+			/* Need grace period in this or next dest update */
-+			dest->need_gp = 1;
-+		}
-+	}
- 
- 	/* set the tunnel info */
- 	dest->tun_type = udest->tun_type;
-@@ -1562,6 +1611,11 @@ ip_vs_add_dest(struct ip_vs_service *svc, struct ip_vs_dest_user_kern *udest)
- 	dest = ip_vs_trash_get_dest(svc, udest->af, &daddr, dport);
- 
- 	if (dest != NULL) {
-+		/* Readers may still follow the n_list, d_list or estimator list
-+		 * links. Wait before reusing any of them.
-+		 */
-+		cond_synchronize_rcu(dest->rcu_state);
-+
- 		IP_VS_DBG_BUF(3, "Get destination %s:%u from trash, "
- 			      "dest->refcnt=%d, service %u/%s:%u\n",
- 			      IP_VS_DBG_ADDR(udest->af, &daddr), ntohs(dport),
-@@ -1572,11 +1626,14 @@ ip_vs_add_dest(struct ip_vs_service *svc, struct ip_vs_dest_user_kern *udest)
- 
- 		ret = ip_vs_start_estimator(svc->ipvs, &dest->stats);
- 		/* On error put back dest into the trash */
--		if (ret < 0)
--			ip_vs_trash_put_dest(svc->ipvs, dest, dest->idle_start,
--					     false);
--		else
-+		if (ret < 0) {
-+			ip_vs_trash_put_back(svc->ipvs, dest);
-+		} else {
-+			/* need_gp matters only on dest edit, reinit it */
-+			dest->need_gp = 0;
-+
- 			__ip_vs_update_dest(svc, dest, udest, 1);
-+		}
- 	} else {
- 		/*
- 		 * Allocate and initialize the dest structure
-@@ -1640,7 +1697,7 @@ ip_vs_edit_dest(struct ip_vs_service *svc, struct ip_vs_dest_user_kern *udest)
-  *	Delete a destination (must be already unlinked from the service)
-  */
- static void __ip_vs_del_dest(struct netns_ipvs *ipvs, struct ip_vs_dest *dest,
--			     bool cleanup)
-+			     struct list_head *dest_trash, bool cleanup)
- {
- 	ip_vs_stop_estimator(ipvs, &dest->stats);
- 
-@@ -1649,7 +1706,7 @@ static void __ip_vs_del_dest(struct netns_ipvs *ipvs, struct ip_vs_dest *dest,
- 	 */
- 	ip_vs_rs_unhash(dest);
- 
--	ip_vs_trash_put_dest(ipvs, dest, 0, cleanup);
-+	ip_vs_trash_add_dest(ipvs, dest, 0, dest_trash);
- 
- 	/* Queue up delayed work to expire all no destination connections.
- 	 * No-op when CONFIG_SYSCTL is disabled.
-@@ -1699,6 +1756,7 @@ ip_vs_del_dest(struct ip_vs_service *svc, struct ip_vs_dest_user_kern *udest)
- {
- 	struct ip_vs_dest *dest;
- 	__be16 dport = udest->port;
-+	LIST_HEAD(dest_trash);
- 
- 	/* We use function that requires RCU lock */
- 	rcu_read_lock();
-@@ -1718,7 +1776,9 @@ ip_vs_del_dest(struct ip_vs_service *svc, struct ip_vs_dest_user_kern *udest)
- 	/*
- 	 *	Delete the destination
- 	 */
--	__ip_vs_del_dest(svc->ipvs, dest, false);
-+	__ip_vs_del_dest(svc->ipvs, dest, &dest_trash, false);
-+
-+	ip_vs_trash_save_dests(svc->ipvs, &dest_trash, false);
- 
- 	return 0;
- }
-@@ -2063,7 +2123,8 @@ ip_vs_edit_service(struct ip_vs_service *svc, struct ip_vs_service_user_kern *u)
-  *	- The service must be unlinked, unlocked and not referenced!
-  *	- We are called under _bh lock
-  */
--static void __ip_vs_del_service(struct ip_vs_service *svc, bool cleanup)
-+static void __ip_vs_del_service(struct ip_vs_service *svc,
-+				struct list_head *dest_trash, bool cleanup)
- {
- 	struct ip_vs_dest *dest, *nxt;
- 	struct ip_vs_scheduler *old_sched;
-@@ -2097,7 +2158,7 @@ static void __ip_vs_del_service(struct ip_vs_service *svc, bool cleanup)
- 	 */
- 	list_for_each_entry_safe(dest, nxt, &svc->destinations, n_list) {
- 		__ip_vs_unlink_dest(svc, dest, 0);
--		__ip_vs_del_dest(svc->ipvs, dest, cleanup);
-+		__ip_vs_del_dest(svc->ipvs, dest, dest_trash, cleanup);
- 	}
- 
- 	/*
-@@ -2120,7 +2181,8 @@ static void __ip_vs_del_service(struct ip_vs_service *svc, bool cleanup)
- /*
-  * Unlink a service from list and try to delete it if its refcnt reached 0
-  */
--static void ip_vs_unlink_service(struct ip_vs_service *svc, bool cleanup)
-+static void ip_vs_unlink_service(struct ip_vs_service *svc,
-+				 struct list_head *dest_trash, bool cleanup)
- {
- 	ip_vs_unregister_conntrack(svc);
- 	/* Hold svc to avoid double release from dest_trash */
-@@ -2130,7 +2192,7 @@ static void ip_vs_unlink_service(struct ip_vs_service *svc, bool cleanup)
- 	 */
- 	ip_vs_svc_unhash(svc);
- 
--	__ip_vs_del_service(svc, cleanup);
-+	__ip_vs_del_service(svc, dest_trash, cleanup);
- }
- 
- /*
-@@ -2140,12 +2202,14 @@ static int ip_vs_del_service(struct ip_vs_service *svc)
- {
- 	struct netns_ipvs *ipvs;
- 	struct ip_vs_rht *t, *p;
-+	LIST_HEAD(dest_trash);
- 	int ns;
- 
- 	if (svc == NULL)
- 		return -EEXIST;
- 	ipvs = svc->ipvs;
--	ip_vs_unlink_service(svc, false);
-+	ip_vs_unlink_service(svc, &dest_trash, false);
-+	ip_vs_trash_save_dests(ipvs, &dest_trash, false);
- 
- 	/* Drop the table if no more services */
- 	ns = ip_vs_get_num_services(ipvs);
-@@ -2196,6 +2260,7 @@ static int ip_vs_flush(struct netns_ipvs *ipvs, bool cleanup)
- 	struct hlist_bl_node *ne;
- 	struct hlist_bl_node *e;
- 	struct ip_vs_rht *t, *p;
-+	LIST_HEAD(dest_trash);
- 
- 	/* Stop the resizer and drop the tables */
- 	if (!test_and_set_bit(IP_VS_WORK_SVC_NORESIZE, &ipvs->work_flags))
-@@ -2205,8 +2270,9 @@ static int ip_vs_flush(struct netns_ipvs *ipvs, bool cleanup)
- 	if (ip_vs_get_num_services(ipvs)) {
- 		ip_vs_rht_walk_buckets(ipvs->svc_table, head) {
- 			hlist_bl_for_each_entry_safe(svc, e, ne, head, s_list)
--				ip_vs_unlink_service(svc, cleanup);
-+				ip_vs_unlink_service(svc, &dest_trash, cleanup);
- 		}
-+		ip_vs_trash_save_dests(ipvs, &dest_trash, cleanup);
- 	}
- 
- 	/* Unregister the hash table and release it after RCU grace period */
--- 
-2.47.3
-
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
