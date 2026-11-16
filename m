@@ -1,77 +1,45 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794843687;
-	b=OS6RhQm4RGQp43V58sZhel3Uib4jGbTu9NdWruBHn0lHQCvep7zM5rms2THzD/0ycyz8
-	 Xdkxz4hnHl8iN0tBdHQbLPzJAvH/oY/FpcZ70LJhCD+gBGgRIISgciJWxTvSlZF4PpQDB
-	 em2+me89DH3yIIM5NG118QLnzok9iGmbP5DG+pzG40jc9qPgKIiVPwOQD4E/XYLWXEy93
-	 C+MfGmAuqBLutP3ioHe5RQ46tS1thpnxYSDhjzPUcpcIX6J0nef/NjuJs5AXwXB5GBLzN
-	 mUICMDZzMujBBntTQ0WKE7QU/F35CNKyQqmcQ2ruHJNsdoLDAlsrWUxb7S2WmSnQCpw==
+	t=1794843811;
+	b=enMJZ19VCM0FCy4lb2x6bMiMSneb+9GiOqFL8eRByeUnUnrKvILVpat8WGdK/bwOeEGm
+	 9p19pJ2AqvdztrIbg95VAB+yoHLUgnSJ3WKWOxm/V0HG32VL3kph/p3eb9qFWqHe+A4Fo
+	 DuFUDsx35QKQ+T5OUaRajtM7RzvaIZ3bU6ntGwqmawxf86oxc4T9iTgORKbi3elFF+6+A
+	 g60egGXjsSnjZx3pnpAHAE40T7ClQ5Smi2L/sa49zYm/gLBjsKGVSJiNHtThoTjRcLw2/
+	 nKwif9nDt5XkIlQMvPVopnlqIPXeF+Ki5UciOCtnj/V3i3JQSstlQbbDqChEjSU6v4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794843687;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=W/Ym3u4usM4ArSt2EhaBMBkXZ0AvTiTm9s1YVFwTSto=;
-	b=HZV50LSDSLAJC5hXZHws+xjUSCTsGlazDzOQky7dMsAorROCBy8bb+8UHMT2kMIVNGeO
-	 Ein6vurYnkHDRw5YTwwd6FmrTBoZ//qgx0Nxn1vDWlMoRIRV7jpnNzoHMgiAdywoNMrSU
-	 /mLDV36UKCaP/SwGxJLVORb3ZDJbaCO/52DIOxjAEvIige2fbiS69N014R9vbYA5r3y8k
-	 KdrtrobsM1Mc47rXnShmIA4GBRy/+0SZ3F3liBlHPsDg3A5pzZX3GfJRmMerYmQAuER+D
-	 n/HRK/pLoo5JLqGZcQFt57TVimJ2p/1IxDYZ1JoX0nLl15Hk0SQZbmB+Yu7e5x0YXhA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794843811;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=sMpwlgIA254zxEV/NYN8JgBT7BlDFMozhjYDwTjAaB4=;
+	b=1zkENAbWVcoiPf6JEd/x7nmY+C4vMfx6b4RB9e4ch49ic31fS/TVGuaE6D06VOoEfKeA
+	 SNByavNfFQRj4JtMSxCVesCRdYa3F5AYy0tR3KPzs3zrB7jOT+V8iooPMFvKmpBBldYlV
+	 90vJU21GmAmWNgmH9tNQIxIk1uvOFxV0vZpXvX5CRhg24r1pmC3xZTElrnErNxeyWsOcb
+	 gkP7KkDclGl7Xuo2u06WWcnXsdToRHKAvMcsjp8rz+WjAki9A0wTt6KpVqLEmd2FpkMeA
+	 pfu5n0PwrLlAHlAsW5aJvZWwP2E+RmlbKEJGSP8LG0CVUU0dHPa/IPiGYbvKAfsz2Kg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ssi.bg;
-	spf=pass smtp.mailfrom=ssi.bg;
-	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=YYrhCjGJ;
-	arc=none smtp.remote-ip=193.238.174.39
-Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mA71D1LW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26EEE606A31C;
-	Mon, 16 Nov 2026 15:41:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26EEE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20B33606A322;
+	Mon, 16 Nov 2026 15:43:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=YYrhCjGJ
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id C3DAB21B52;
-	Mon, 16 Nov 2026 17:41:17 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=W/Ym3u4usM4ArSt2EhaBMBkXZ0AvTiTm9s1YVFwTSto=; b=YYrhCjGJ1ikC
-	4u5g9qFaxvjjIgwvHb2kLdkFC4YIJJtt+K09RY9FM/9eW2qpRDguxL79bc99DhmA
-	/gCMhIvoRVD1Sh8fEDFsFRBNqQaDdBRbXC1OxGVOR4NQYSnzhsvpshz9d/ARpcOD
-	8s+LXScD9eUcDgvY7fbdQensJjCdpcHTUc9lQjilVqT98EafBi6oEUOUVkaVqQhd
-	XKkKKCQzSvZ91OqdC/Pafx1cy4Gg23MGFbJIGcsSBtDSHvoVuYgE1Wbm5DKPPees
-	RIzLEwiHQRdvmheqBZB8wqGyZGOmTKnVI4ywy0gooyDJv+zpM/ahamAMZYkyG6e+
-	MFCjh2CJL+FFpwZO3y0qJVSjdIIIOuqDWM59Rs2fEuzUpP9490iKb89MOVD3kQlD
-	V/GKs5uQ+5qk8aJNSKiLiKqzgSW8Zd0tdYlQ3MG4vmLOGYySLIIFcUyMUCcjGPXi
-	p9dYgVgkjPx7f+eoTP3lVcyd1hIbQlWyy9dhHiAsCahuDEcPVy1XJW5NB6+702+3
-	bkYfDlWMIzgZl4JhP/hO1O0TBJt+JpDaZebtiNDHezfUW1eE827uj9QxWUoNOCNT
-	zHppA0ycefDfoREwgOA2pwQ+6oIscrlGc4PZi5c9TSW8br8O84EILVqM8Eh6yHNs
-	2116gZmx75r7ZYYeHizAq8DQLNyw1pM=
-Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Mon, 16 Nov 2026 17:41:17 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by box.ssi.bg (Potsfix) with ESMTPSA id 5F05B60B48;
-	Mon, 16 Nov 2026 17:41:17 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AGFf59c081465;
-	Mon, 16 Nov 2026 17:41:06 +0200
-Date: Mon, 16 Nov 2026 17:41:05 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: Theodor Arsenij Larionov-Trichkine <theodorlarionov@gmail.com>
-cc: Pablo Neira Ayuso <pablo@netfilter.org>, Simon Horman <horms@verge.net.au>,
-        Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-        lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org,
-        netdev@vger.kernel.org, coreteam@netfilter.org
-Subject: Re: [PATCH nf v3] ipvs: ftp: do not link expectations to unconfirmed
- conntracks
-In-Reply-To: <CAEZyMPB+oNBrnxV09Ji-Ao7Bcs93Qg=qx0B_b=3ULFx3nEFo+Q@mail.gmail.com>
-Message-ID: <2bd179df-abde-19d7-0bd4-996b7adcc5d7@ssi.bg>
-References: <20261116101506.98853-1-theodorlarionov@gmail.com> <avrgKSO8nfTnv4iL@chamomile> <CAEZyMPB+oNBrnxV09Ji-Ao7Bcs93Qg=qx0B_b=3ULFx3nEFo+Q@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mA71D1LW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CE2F1F000C4;
+	Mon, 16 Nov 2026 15:43:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794843810;
+	bh=sMpwlgIA254zxEV/NYN8JgBT7BlDFMozhjYDwTjAaB4=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=mA71D1LWDMFFCnTL2BFgJ0DmsAHG10HapEgN3rLfA9XFZ2cAKJhxDZuFtecXZOAxT
+	 9Ng3Ld+z2HCmk50slHxe/yJ+Ski0QdZIBpzoj/Pe5DdTViVsATbt8Ec1ucNLC6Ftz+
+	 hOYUuFShgMnAkak+CkozH6YFPHqTG+fgtOv4WVmedVtzaYZe4LBuU+QXszRqmFhtOw
+	 DdQMyW4M2sA8vJ3lunwnEtYHxsC9wwXNCrEv7DsyaSVVFGc9MPX+gn0Oc9p/gTO/PD
+	 ruPRlssP23Rk9HesqyG2xQPFOqaoIkFD0hFtWMWMNm9pIfW4K5U3hoCv8a3UwMMTTZ
+	 LIm3zeL8nH3tw==
+Content-Type: multipart/mixed; boundary="===============0547861428020528411=="
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,66 +49,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/mixed; boundary="-1463811672-845209124-1794843669=:8917"
+Message-Id: <71941ec27b3bbadc76cdd36b00a4ebc33425b04f3e64a7ddc1431dcc5697856d@mail.kernel.org>
+In-Reply-To: <20261116145318.34084-1-shijing.wuqi@linux.alibaba.com>
+References: <20261116145318.34084-1-shijing.wuqi@linux.alibaba.com>
+Subject: Re: [PATCH bpf-next v3] bpf, mprog: Defer RCU synchronization until peer reuse
+From: bot+bpf-ci@kernel.org
+To: shijing.wuqi@linux.alibaba.com,daniel@iogearbox.net,ast@kernel.org,andrii@kernel.org,razor@blackwall.org,bpf@vger.kernel.org,netdev@vger.kernel.org
+Cc: martin.lau@linux.dev,john.fastabend@gmail.com,sdf@fomichev.me,eddyz87@gmail.com,memxor@gmail.com,song@kernel.org,yonghong.song@linux.dev,jolsa@kernel.org,emil@etsalapatis.com,ihor.solodrai@linux.dev,kuba@kernel.org,pabeni@redhat.com,edumazet@kernel.org,davem@davemloft.net,andrew+netdev@lunn.ch,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Mon, 16 Nov 2026 15:43:29 +0000 (UTC)
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
+--===============0547861428020528411==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
 
----1463811672-845209124-1794843669=:8917
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8BIT
+> bpf, mprog: Defer RCU synchronization until peer reuse
+
+TL;DR: Commit message nits only: rename the "v3" column in the benchmark
+table, and move the BPF CI link and pass counts below the '---' line. No code
+issues raised.
+
+>     bpf, mprog: Defer RCU synchronization until peer reuse
+>
+>     [ ... ]
+>
+>     A/B on the same bpf-next base (8835113107b2), identical configs apart
+>     from LOCALVERSION, lock/RCU debugging off, 64 vCPU KVM guest. Average
+>     operation latency. The attach rows use 30 samples each. The detach
+>     row measures close(link_fd), excluding the first detach in each run:
+>     35 samples across five runs of eight links.
+>       scenario                 base        v3        speedup
+>       first link attach        14.377 ms   268.4 us    54x
+>       first prog attach        12.411 ms   290.0 us    43x
+>       clsact qdisc first       11.562 ms   116.2 us    99x
+>       detach after detach      6.2 ms     5.2 ms     ~1x
+>
+>     [ ... ]
+>
+>     Functional checks pass and a 300-cycle attach/detach churn under live
+>     traffic shows no splats.
+>     BPF CI: https://github.com/kernel-patches/bpf/pull/14821 (39 passed,
+>     0 failed; x86_64 gcc-15/llvm-21, aarch64, s390x).
+
+This isn't a bug, but could the "v3" column in the benchmark table be
+renamed (for example "patched"), since a patch revision label means nothing
+once the commit is in git history?
+
+Also, could the "BPF CI: https://github.com/kernel-patches/bpf/pull/14821
+(39 passed, 0 failed; ...)" line and its pass counts be moved below the
+'---' line so they do not end up in git history?
 
 
-	Hi Theodor,
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
 
-On Mon, 16 Nov 2026, Theodor Arsenij Larionov-Trichkine wrote:
-
-> On Mon, Nov 16, 2026 at 1:51 PM Pablo Neira Ayuso <pablo@netfilter.org> wrote:
-> > I think this is coming a bit late?
-> >
-> > Maybe it is possible to check this earlier in this path?
-> 
-> You mean returning at the top of ip_vs_ftp_out() if the ct is not
-> confirmed, and letting the packet through untouched? Or even before
-> ip_vs_ftp_out() gets called?
-
-	Early in ip_vs_ftp_out but you have to base this patch on
-top of the template fix:
-
-ipvs: ftp: skip conntrack templates in ip_vs_ftp_out
-
-	Or to wait it to be included in the nf tree.
-
-	Then after the:
-
-	if (cp->state != IP_VS_TCP_S_ESTABLISHED)
-		return 1;
-
-+	ct = nf_ct_get(skb, &ctinfo);
-+	if (!ct || !nf_ct_is_confirmed(ct) || nf_ct_is_template(ct))
-+		return 0;
-+	/* seqadj extension not created by original packet? We usually
-+	 * add the extension for the first packet in ip_vs_update_conntrack().
-+	 */
-+	if (!nfct_seqadj(ct))
-+		return 0;
-
-	I.e. we want:
-
-- ct to be present
-- this should not be the first packet (nf_ct_is_confirmed)
-- should not be template
-- the first packet should create seqadj ext before confirmation,
-in ip_vs_update_conntrack()
-
-	By moving it early we drop the PASV response without
-creating IPVS expectation (NO_CPORT connection).
-
-	I hope the above is correct :)
-
-Regards
-
---
-Julian Anastasov <ja@ssi.bg>
----1463811672-845209124-1794843669=:8917--
-
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/43894793326
+--===============0547861428020528411==--
