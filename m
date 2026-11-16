@@ -1,95 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.227
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.100
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794868001;
-	b=uulcaCujMcpPqvN3gjqG+OMF0rTCTpNvuvLztI757zJPqsHQ/c+Qi37+A3WkOjs5gdsa
-	 r4WmUmA7vFT2gcwvsuIa1iUX76dlWxVaHFyfCBNV1nxDZLdcLG3P8S6VW5Tn66Ty50Q0E
-	 rX/MozbGP6l3iiQXbE+BNRT9r86XnPYZYYG2LGs/CUUb0j7kTYafxeklV/KGwaSMRVzAp
-	 4GQ5Z9BN3wJhx8lh9jmdwq/2Cb1KTCb5onPpR70xy6oEtrG/OZlJByOzJb21XnZie/qrq
-	 OTwK2bl93DTvEqDWyMgJWn1W/hM7z38ucdks8+aaunt2VYecoWep8qycEh1KqX3Yduw==
+	t=1794868009;
+	b=EwsUZxm6CVmSLqP2wSeVdw91vPzYYwunL/eBJOrDoF19x+v0UeoUcusrWD1uq68mQ0mB
+	 SWCi/zEPu/fxD1EQUGg5aFIjlb0ijrnTK44eWUQhg1btNlzlunKlDTvc5O4PJs0yd1zTF
+	 VbfGjVv0KUvnNpFqL7noqPVC8kplNAJUcuZCOep+/8PaYsQuLNAaFnwaHvcK9OaM/peer
+	 n4JRA16FYTa+M5L/IheMWYlT1FmtNs5Iwh1y9Kocj2p5poBww1o6WbwyxH5d6FBms1YTk
+	 4lU4u9VwuQKXJ8jla70qdo2W+QxX+6YJQxWIIbLJg+mk2nEtOzlNiqUqoaqyJ4F1wqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794868001;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794868009;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
 	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
 	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=V3wZFfi8ysQ6Ok1PCACbsrquVcIk7f7cYNcZ/2x7GgA=;
-	b=ud3gjxFF7piRmumZNdaLajK4r+32VA3Q/M5Hh81OmCHp/dVXdYut4xmR9/YEOVDIRbXg
-	 n+P6n15DUyiYRXnnxL2tLyvYe7aavk6HCupr95ZQ9kNg+VhNeWNirWbv8dWbTtFIwFfnj
-	 UP4U91+e5Yd1s8ec1JrICjdEmfSZvKOfM7e7zVNXW3+XXYjo5tpiBOgv15QX4BZD30/aE
-	 OY9Q4fwYVR0iLx4e9a39o14LJo13RzH3o8Vw/1r6jtMSLEvhMVRQ6sPqESmRwVkswqqdI
-	 P1nuLmr4fajFA6UWys5qnq+zCYGbVskjVTnbHgWxZlGs0fhBI1GYVSFBpCe6czNbS7Q==
+	bh=li4hDxbmbbiHSFMw7cXOofvlksN+B4sSXWcRWHEvsrQ=;
+	b=RssBjOC8xPvqjdsumBkiXtDJww95TvfKCYKBcnWpc3/ca7y0O7RTnCiYZ2V5Ar+VjqWL
+	 e0MiGXKWv4PWgnRDHtFsSt/Mbf8nFdilzmZCRRdno4sVOQ72rutkVKabFdFW/uakzrpvX
+	 cJbp5z1hmwatx1Z7kyFX//UNrVhY4CztQKZYwvU3EmOoQFMD3kdN4L2GFvXEqxgZR3+N6
+	 0FVjtbSqufA890n2HFT8PRBUqk2PB04leXhHxyuYWeV2rKhv6i2/gvM+bbKgFeKWfBjO8
+	 lMvsJ/x1KPXB0yfgu7+KQqKGGkUXHmTrAaFo00W6d1OUpN48IedS2Eo6f5UTkqRc6sQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=broadcom.com;
 	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="ZY/ImITZ";
-	arc=none smtp.remote-ip=209.85.215.227
-Received: from mail-pg1-f227.google.com (mail-pg1-f227.google.com [209.85.215.227])
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="JPZQF/gD";
+	arc=none smtp.remote-ip=209.85.161.100
+Received: from mail-oo1-f100.google.com (mail-oo1-f100.google.com [209.85.161.100])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A4CD60A2605
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:26:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A4CD60A2605
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1826606A339
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:26:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1826606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ZY/ImITZ
-Received: by mail-pg1-f227.google.com with SMTP id 41be03b00d2f7-cdb684859cbso2827485a12.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:26:38 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=JPZQF/gD
+Received: by mail-oo1-f100.google.com with SMTP id 006d021491bc7-6df5e315bd1so4107446eaf.2
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:26:47 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794867998; x=1795472798;
+        d=1e100.net; s=20260707; t=1794868007; x=1795472807;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=V3wZFfi8ysQ6Ok1PCACbsrquVcIk7f7cYNcZ/2x7GgA=;
-        b=0RCZ8IPpZ5BxX5U8EE5fSv9pSggI2sJ0lJCSZCqJLwC2PdvukH/Dk7DrLjtXjtzLFU
-         FpUrr8/AaooonY90rMzhf9SHd5Ff9WDVO8YH3Qcyo8U3ulzWCCHN/51O28DTJNGbDosK
-         wTKs895lDKM2vmZeAQAVEybXgxgZZoSV0EWVpKeqedj+2kByxgdGDjycjz5umWx77tXf
-         1jMvqO8BVfotW6NTmOD1CmNq74ewsgZT8l2aSM7euoSsEivEx3ExnvuppfPQDMkVKEug
-         YoBFeCAcgf1wGc9vJi2BSp3ReeDV51nXzAmlf7x8DDCrf2iwJHXfvRy7xW6mA3VLDT5x
-         dJgA==
-X-Gm-Message-State: APuU4Z9whqmIRy+v+isTpv00UVBTQuyNVo2XZBpcnIMPhHXN8EHYYO6G
-	xCeafytG9gal5JNPOBfpkifIvf0mnum9Jfu98YPLRL1uJ9Dga/6SxARdxncrMnGZoKmTaAzj5kG
-	KCjtSOd/kZC2x38/ANdx0H2GejPPWcO+8TunFYY1HRCYhj5vdzMnqGyxSqg+9OnP0Pm3CDXlWIm
-	Qs5dXPDO7BsoD1ja8Sk5RcOsX2jSOQyhMdgym4255wGOUs2L9NSF7siQKMW+3Vz0ms8qql16aJn
-	PE5ECeu0oKOtEO5
-X-Gm-Gg: AZFdTZf7zXgJV8zfKswgpouBN//dGyRQiSCqIm4Jjry3p2UGnXW4NAN1l0/7UFaHjuw
-	76vMeefi6ByM8Q8pAJQEPa2v9JXu5PWkJdfE11urcD9Dg87F0dYs5FZSGkTE5VRcui/o6LWUFqh
-	RQHLmqKy6twTf4TTvHXjQnUY1KLN4b0I854b6H1VbtN+T1qxjvn2/chfijjVABqB6a12Dbf509s
-	O4e8q7Tmo9mhN2GAvPP0ZL+VW70dkDXUdURVmnVEBjcgpVJKA2DXDuP4LFGl0NIOyWnYCZoeKZN
-	EIEiitOmJlxdS7R2hGN1hHMkhN/z2rX/xuBXTxcJG+PHUkVW44BS23JfrwW24QB8psuFMenWjzO
-	7FQTEy5uLfUQw+0zH4QKh5xFM8m+e2o144RG+yM5h9Y0o3X+T8xEUWxErCmLFfx8Y+aPmEau4QT
-	wlG5NKEIUBrtOoPvRXZaPJxocrefy++wq0KaamgfVt
-X-Received: by 2002:a17:90b:540c:b0:3ad:ce34:f63c with SMTP id 98e67ed59e1d1-3b1b0a03973mr11702103a91.30.1794867998251;
-        Mon, 16 Nov 2026 14:26:38 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3abf029a5sm501672a91.5.2026.11.16.14.26.37
+        bh=li4hDxbmbbiHSFMw7cXOofvlksN+B4sSXWcRWHEvsrQ=;
+        b=NtT60y8/gh3xOhe/zgU/GC265Q8dkcilgc5ykURdoyzuIjD9f+Ox3ZquK5Ke0vXeB2
+         QHuugG91Jwq8uyk5dCuC61SglceSY9YbvJ4RrHYtOIi5BkMJOKzs2ZqRk3i1enZAvmrB
+         JlVNOXlZvyvww3TiMXQxrjISZ9o5/DnKKXSu/nQGdIP3OEN6TQJMSVeirm4TGbmURr76
+         dCCtvBRKS3fJifIMEmdruL5wlCLfrigHvmNfeNYDzPWuhLV/FW4ndynu/T8x+Hbn/1pQ
+         KJQGlwrrVeJNlJXZ1uzzM1IfcLm2axdwszM7rNv0cngZgmVI3Z/IWeEwf3MUMnZiEGB9
+         mj6w==
+X-Gm-Message-State: APuU4Z9abHGumG5OnOFzQF88OVqyNBVRSa1XRKzom81f1yAzk7r63i/s
+	ffo+PHgMmkF+vnQoyYOlo5jR0k3Mt3lPrMst9X6g6rlCnFlU+2PsbOgHycHfOxoZcWRqMzHnmA2
+	+t54ZAwzJO49ogjD8YhhBTVw8zD6cTFEjm/Cn6sYpBcEHWuPsBM/wtuW8NHS64B64VuFNEcyNR1
+	B5jKS4aFzE0sLqP7ehp/ZxhXZO+qZUnYRIIqalvp2z8rd8OHVDaHcG0cDH6za1Q2esIz6Gm6zY2
+	lXDorOZ9uQ8+1Tn
+X-Gm-Gg: AYBFou0+8pfqzup9SWspcSmBjarUcUL7s/4RBKBlovU3unupj0SMIATL5QGOkWl21Lu
+	UpwnAGK68EWhxGeza4dqIAVwhC+ewav2P2IqeZZnpB0+EhNYRTJ1SrnO2DCt3KlnHaj6m6vf4hD
+	zH+WIG1u0QzOR1x2FNeIFwBFGoBQjqaYbYKcuJlcJir73PdK8tiMJRB84kBrsgdvyz4C7DAcIgO
+	g2VpxFSyYD1JsXw6ob2aWkJs2LQF0LYagjw9GXVttqFHUPd/xzARgjgtG0WuR15QzBQVhJ24XdJ
+	Aae21Bp75RpRNydG3znbNMwmFiXL5OBZmawnmx+KHIi0e9+CHo5Q/8Vl+r3jslDKstNg2+vDYnm
+	Fjuffqw4Vv8/Nueo4bEBvew2pSKdhZRAAlkbNl3VSnQmYJiG+TFrUkYOFXJOH52sPM3ZGs7mz2s
+	gOAezFD8N4oz2fOl7Bb7tHd65fQMKOp0HA7rm5LtSa
+X-Received: by 2002:a05:6820:f014:b0:70a:4053:52e7 with SMTP id 006d021491bc7-71ab4d0695bmr8136757eaf.8.1794868006750;
+        Mon, 16 Nov 2026 14:26:46 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
+        by smtp-relay.gmail.com with ESMTPS id 006d021491bc7-71ab41a3ff8sm193709eaf.22.2026.11.16.14.26.46
         for <netdev@vger.kernel.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Nov 2026 14:26:38 -0800 (PST)
+        Mon, 16 Nov 2026 14:26:46 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-378722fd4a3so4434408eec.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:26:36 -0800 (PST)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-33713e5e6daso3610062eec.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:26:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794867996; x=1795472796; darn=vger.kernel.org;
+        d=broadcom.com; s=google; t=1794868005; x=1795472805; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=V3wZFfi8ysQ6Ok1PCACbsrquVcIk7f7cYNcZ/2x7GgA=;
-        b=ZY/ImITZLgF2sGx4ovrhGDf/MOr6Uvss1KTwsJPGVzUpxFMX3g/JYeVHNvFTTZBNiY
-         yKP5oy3zeqwfeZuEdbmWq1LVlPUOi5g12MMTx5eL123yMEXk9iecHou964tI5c/v1IBf
-         1KPoEtH8EE6E9AfCe5yq/pTXfD7DLMNznYjnI=
-X-Received: by 2002:a05:7300:d0a2:b0:36e:ff7e:e57f with SMTP id 5a478bee46e88-3796628f98fmr11580089eec.19.1794867995556;
-        Mon, 16 Nov 2026 14:26:35 -0800 (PST)
-X-Received: by 2002:a05:7300:d0a2:b0:36e:ff7e:e57f with SMTP id 5a478bee46e88-3796628f98fmr11580026eec.19.1794867994411;
-        Mon, 16 Nov 2026 14:26:34 -0800 (PST)
+        bh=li4hDxbmbbiHSFMw7cXOofvlksN+B4sSXWcRWHEvsrQ=;
+        b=JPZQF/gDbfnRwZ9IkE6ZShZAlpjTZ8ZxK3oXKH16dJL4ddZnzHKXmOVWgqar8Ow1wR
+         BYRFbV4dXBECwhruWi+W8dEQzRK8m8jBHznPOe/+ZMf+GecWkveQzzmWxc5ao5Be3cwC
+         U5W64qW6UlcNP9/5411V/ObeqxllQZgr3Bu3w=
+X-Received: by 2002:a05:7301:2a9c:b0:372:79a0:e8a3 with SMTP id 5a478bee46e88-37963374fdemr11871988eec.1.1794868004190;
+        Mon, 16 Nov 2026 14:26:44 -0800 (PST)
+X-Received: by 2002:a05:7301:2a9c:b0:372:79a0:e8a3 with SMTP id 5a478bee46e88-37963374fdemr11871924eec.1.1794868002757;
+        Mon, 16 Nov 2026 14:26:42 -0800 (PST)
 Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-379560f5e06sm50176624eec.19.2026.11.16.14.26.31
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-379560f5e06sm50176624eec.19.2026.11.16.14.26.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 14:26:33 -0800 (PST)
+        Mon, 16 Nov 2026 14:26:42 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: netdev@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -115,9 +115,9 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	linux-doc@vger.kernel.org (open list:DOCUMENTATION),
 	netfilter-devel@vger.kernel.org (open list:NETFILTER),
 	coreteam@netfilter.org (open list:NETFILTER)
-Subject: [PATCH net-next 5/9] net: dsa: add Broadcom FA metadata and IPv4 exception paths
-Date: Mon, 16 Nov 2026 14:25:15 -0800
-Message-ID: <20261116222519.1416501-6-florian.fainelli@broadcom.com>
+Subject: [PATCH net-next 8/9] net: add KUnit coverage for FA and flowtable path validation
+Date: Mon, 16 Nov 2026 14:25:18 -0800
+Message-ID: <20261116222519.1416501-9-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
 References: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
@@ -133,925 +133,1459 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Add a brcm-fa tagger for the prepended Northstar miss descriptor, with
-hash, bucket and parser status fields distinct from ordinary switch
-tags. Select it only for an explicitly connected accelerator on
-GMAC2/port 8.
+Exercise Northstar NAT fields, byte order, protocol-aware hash learning,
+TCP control identity, lookup gating, MTU tracking and owner
+invalidation. Check B53 UDF layout and every IPv4 packet length, failed-
+guard readiness, and FA/ordinary switch tags.
 
-Original FA ignores standalone switch exceptions and its key lacks input
-port, TTL, packet length and TCP flags. Reserve B53 CFP rules to
-redirect SYN/FIN/RST, TTL 0/1 and lengths above 1500 through port
-5/GMAC0, outside FA. Per-port router-MAC allow rules and a default IPv4
-trap prevent a live tuple from bypassing Linux ingress policy on another
-switch port. Nine masked length prefixes cover 1501 through 65535.
-Preserve VLAN, EAP and STP filtering, and keep ordinary data flooding
-off the auxiliary CPU.
+Test cached-route owner validation with route-cookie expiry, changed or
+invalid neighbours, absent route context and unsupported stacked paths.
+Require explicit owner validation to detect an expired validation-only
+dst even though the generic packet/GC helper ignores that reference.
 
-Update MAC guards through a netdevice notifier after DSA registration.
-Coordinate guard and conduit readiness with an RCU-protected backend
-registry. Disable admission and retire entries before removing any
-exception path. Keep incomplete or failed guards disabled across bridge
-join and leave, using the same readiness checks as conduit changes.
-Decode embedded auxiliary tags before delivering those packets to Linux;
-retain strict validation of ordinary Broadcom tags.
+Add seven scenarios using real route initialization and the private GC
+step: ordinary direct software forwarding, validation-only references,
+direct tunnels with and without hardware requested, neighbour routes
+with and without hardware requested, and XFRM. Check legacy validation
+policy, GC teardown and balanced dst references. The validation-only
+scenario fails both packet and GC expectations before the policy fix.
+
+The independent netfilter prerequisite already carries its two lifetime
+tests and standalone configuration. Extend that test configuration's
+help for these path cases, embed private tests in their parent units,
+and keep the combined FA configuration beside the backend.
 
 Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 ---
- drivers/net/dsa/b53/Kconfig      |   1 +
- drivers/net/dsa/b53/b53_common.c | 423 ++++++++++++++++++++++++++++++-
- drivers/net/dsa/b53/b53_priv.h   |   6 +
- drivers/net/dsa/b53/b53_regs.h   |  39 +++
- include/linux/dsa/brcm.h         |  19 ++
- include/net/dsa.h                |   2 +
- net/dsa/Kconfig                  |   9 +
- net/dsa/tag_brcm.c               | 116 ++++++++-
- 8 files changed, 603 insertions(+), 12 deletions(-)
+ MAINTAINERS                                   |   3 +
+ drivers/net/dsa/b53/Kconfig                   |  11 +
+ drivers/net/dsa/b53/b53_common.c              |   4 +
+ drivers/net/dsa/b53/b53_fa_test.c             | 102 +++
+ drivers/net/ethernet/broadcom/.kunitconfig    |  21 +
+ drivers/net/ethernet/broadcom/Kconfig         |  11 +
+ .../net/ethernet/broadcom/bcm-ns-fa-test.c    | 661 ++++++++++++++++++
+ drivers/net/ethernet/broadcom/bcm-ns-fa.c     |   4 +
+ net/dsa/Kconfig                               |  11 +
+ net/dsa/tag_brcm.c                            |   4 +
+ net/dsa/tag_brcm_test.c                       | 199 ++++++
+ net/netfilter/Kconfig                         |  10 +-
+ net/netfilter/nf_flow_table_core_test.c       |  85 +++
+ net/netfilter/nf_flow_table_offload.c         |   4 +
+ net/netfilter/nf_flow_table_offload_test.c    | 129 ++++
+ 15 files changed, 1254 insertions(+), 5 deletions(-)
+ create mode 100644 drivers/net/dsa/b53/b53_fa_test.c
+ create mode 100644 drivers/net/ethernet/broadcom/.kunitconfig
+ create mode 100644 drivers/net/ethernet/broadcom/bcm-ns-fa-test.c
+ create mode 100644 net/dsa/tag_brcm_test.c
+ create mode 100644 net/netfilter/nf_flow_table_offload_test.c
 
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 80969b91af40..c05ac2258889 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -5305,6 +5305,7 @@ F:	drivers/net/dsa/bcm_sf2*
+ F:	include/linux/dsa/brcm.h
+ F:	include/linux/platform_data/b53.h
+ F:	net/dsa/tag_brcm.c
++F:	net/dsa/tag_brcm_test.c
+ 
+ BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE
+ M:	Florian Fainelli <florian.fainelli@broadcom.com>
+@@ -5671,6 +5672,8 @@ S:	Maintained
+ F:	Documentation/devicetree/bindings/net/brcm,amac.yaml
+ F:	Documentation/devicetree/bindings/net/brcm,bcm4708-fa.yaml
+ F:	Documentation/devicetree/bindings/net/brcm,bcm5301x-gmac.yaml
++F:	drivers/net/dsa/b53/b53_fa_test.c
++F:	drivers/net/ethernet/broadcom/.kunitconfig
+ F:	drivers/net/ethernet/broadcom/bcm-ns-fa*
+ F:	drivers/net/ethernet/broadcom/bgmac*
+ F:	drivers/net/ethernet/broadcom/unimac.h
 diff --git a/drivers/net/dsa/b53/Kconfig b/drivers/net/dsa/b53/Kconfig
-index 915008e8eff5..8e2a8c20bc4a 100644
+index 8e2a8c20bc4a..5a03bacef2e5 100644
 --- a/drivers/net/dsa/b53/Kconfig
 +++ b/drivers/net/dsa/b53/Kconfig
-@@ -7,6 +7,7 @@ menuconfig B53
- 	select NET_DSA_TAG_BRCM_LEGACY
- 	select NET_DSA_TAG_BRCM_LEGACY_FCS
- 	select NET_DSA_TAG_BRCM_PREPEND
-+	select NET_DSA_TAG_BRCM_FA
- 	help
- 	  This driver adds support for Broadcom managed switch chips. It supports
+@@ -13,6 +13,17 @@ menuconfig B53
  	  BCM5325E, BCM5365, BCM539x, BCM53115 and BCM53125 as well as BCM63XX
+ 	  integrated switches.
+ 
++config B53_FA_KUNIT_TEST
++	bool "KUnit tests for B53 FA exception guards" if !KUNIT_ALL_TESTS
++	depends on KUNIT=y && B53
++	default KUNIT_ALL_TESTS
++	help
++	  Tests are compiled into the parent driver and require built-in KUnit.
++	  Verify the original FA classifier field layout and complete packet
++	  length range used to divert unsafe packets around the accelerator.
++	  Check cross-word destination MAC encoding and every 16-bit IPv4
++	  packet length against the standard MTU without accessing hardware.
++
+ config B53_SPI_DRIVER
+ 	tristate "B53 SPI connected switch driver"
+ 	depends on B53 && SPI
 diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-index b7aff5e238e8..3e8c9679836d 100644
+index 3e8c9679836d..25bb23a51952 100644
 --- a/drivers/net/dsa/b53/b53_common.c
 +++ b/drivers/net/dsa/b53/b53_common.c
-@@ -17,19 +17,25 @@
-  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/delay.h>
-+#include <linux/dsa/brcm.h>
- #include <linux/export.h>
- #include <linux/gpio/consumer.h>
-+#include <linux/in.h>
-+#include <linux/iopoll.h>
- #include <linux/kernel.h>
- #include <linux/math.h>
- #include <linux/minmax.h>
- #include <linux/module.h>
-+#include <linux/of.h>
- #include <linux/platform_data/b53.h>
- #include <linux/phy.h>
- #include <linux/phylink.h>
- #include <linux/etherdevice.h>
- #include <linux/if_bridge.h>
- #include <linux/if_vlan.h>
-+#include <linux/unaligned.h>
- #include <net/dsa.h>
- 
- #include "b53_regs.h"
-@@ -667,9 +673,10 @@ static void b53_eee_enable_set(struct dsa_switch *ds, int port, bool enable)
- int b53_setup_port(struct dsa_switch *ds, int port)
- {
- 	struct b53_device *dev = ds->priv;
-+	bool auxiliary = dev->fa_cfp_enabled && port == 5;
- 
--	b53_port_set_ucast_flood(dev, port, true);
--	b53_port_set_mcast_flood(dev, port, true);
-+	b53_port_set_ucast_flood(dev, port, !auxiliary);
-+	b53_port_set_mcast_flood(dev, port, !auxiliary);
- 	b53_port_set_learning(dev, port, false);
- 	b53_port_set_isolated(dev, port, false);
- 
-@@ -678,7 +685,8 @@ int b53_setup_port(struct dsa_switch *ds, int port)
- 	 * dropping frames because it isn't allowed to forward there.
- 	 */
- 	if (dsa_is_user_port(ds, port))
--		b53_set_eap_mode(dev, port, EAP_MODE_SIMPLIFIED);
-+		b53_set_eap_mode(dev, port, dev->fa_cfp_enabled ? EAP_MODE_BASIC :
-+			 EAP_MODE_SIMPLIFIED);
- 
- 	if (is5325(dev) &&
- 	    in_range(port, 1, 4)) {
-@@ -728,6 +736,8 @@ int b53_enable_port(struct dsa_switch *ds, int port, struct phy_device *phy)
- 	pvlan &= ~0x1ff;
- 	pvlan |= BIT(port);
- 	pvlan |= dev->ports[port].vlan_ctl_mask;
-+	if (dev->fa_cfp_enabled && (dev->fa_cfp_ports & BIT(port)))
-+		pvlan |= BIT(5);
- 	b53_write16(dev, B53_PVLAN_PAGE, B53_PVLAN_PORT_MASK(port), pvlan);
- 
- 	b53_imp_vlan_setup(ds, cpu_port);
-@@ -1326,6 +1336,315 @@ int b53_setup_devlink_resources(struct dsa_switch *ds)
- }
- EXPORT_SYMBOL(b53_setup_devlink_resources);
- 
-+static int b53_fa_cfp_wait(struct b53_device *dev, u32 mask)
-+{
-+	u32 val;
-+	int ret, err;
-+
-+	ret = read_poll_timeout(b53_read32, err, err || !(val & mask),
-+				10, 10000, false, dev, B53_CFP_TCAM_PAGE,
-+				B53_CFP_ACC, &val);
-+	return ret ?: err;
-+}
-+
-+static int b53_fa_cfp_write(struct b53_device *dev, unsigned int index, u32 ram)
-+{
-+	int err;
-+
-+	err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_ACC,
-+			  CFP_ACC_INDEX(index) | ram | CFP_ACC_WRITE | CFP_ACC_START);
-+	return err ?: b53_fa_cfp_wait(dev, CFP_ACC_START);
-+}
-+
-+#define B53_FA_ALLOW_BASE 16
-+#define B53_FA_DEFAULT_RULE 24
-+
-+static void b53_fa_udf(u32 data[8], u32 mask[8], unsigned int udf,
-+		       u16 value, u16 bits)
-+{
-+	unsigned int bit = CFP_TCAM_UDF_OFFSET + 16 * udf;
-+	unsigned int word = bit / 32;
-+	unsigned int shift = bit % 32;
-+
-+	data[word] |= (u32)value << shift;
-+	mask[word] |= (u32)bits << shift;
-+	if (shift > 16) {
-+		data[word + 1] |= value >> (32 - shift);
-+		mask[word + 1] |= bits >> (32 - shift);
-+	}
-+	data[5] |= CFP_TCAM5_UDF_VALID(udf);
-+	mask[5] |= CFP_TCAM5_UDF_VALID(udf);
-+}
-+
-+static int b53_fa_rule(struct b53_device *dev, unsigned int index,
-+		       const u32 data[8], const u32 mask[8], bool trap)
-+{
-+	unsigned int i;
-+	int err;
-+
-+	for (i = 0; i < 8; i++) {
-+		err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_DATA(i), data[i]);
-+		if (!err)
-+			err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_MASK(i), mask[i]);
-+		if (err)
-+			return err;
-+	}
-+	err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_ACTION(0),
-+			  trap ? CFP_ACT0_FWD_MAP_REPLACE | CFP_ACT0_DST_PORT5 |
-+				CFP_ACT0_REASON_TERMINATION : 0);
-+	if (!err)
-+		err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_ACTION(1),
-+				  trap ? CFP_ACT1_CLASS_ID(1) | CFP_ACT1_FWD_MAP_REPLACE |
-+				  CFP_ACT1_DST_PORT5 : 0);
-+	if (!err)
-+		err = b53_fa_cfp_write(dev, index, CFP_ACC_ACTION);
-+	if (!err)
-+		err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_METER, 0);
-+	if (!err)
-+		err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_METER + 4, 0);
-+	if (!err)
-+		err = b53_fa_cfp_write(dev, index, CFP_ACC_METER);
-+	return err ?: b53_fa_cfp_write(dev, index, CFP_ACC_TCAM);
-+}
-+
-+static const u16 b53_fa_lengths[][2] = {
-+	{ 1501, 0xffff }, { 1502, 0xfffe }, { 1504, 0xffe0 },
-+	{ 1536, 0xfe00 }, { 2048, 0xf800 }, { 4096, 0xf000 },
-+	{ 8192, 0xe000 }, { 16384, 0xc000 }, { 32768, 0x8000 },
-+};
-+
-+static int b53_fa_guards(struct b53_device *dev)
-+{
-+	u32 data[8] = {}, mask[8] = {};
-+	unsigned int i;
-+	int err;
-+
-+	/* UDF A1: IPv4 TTL/protocol; A2: IPv4 total length. */
-+	err = b53_write8(dev, B53_CFP_PAGE, B53_CFP_UDF1_A0 + 1,
-+			 CFP_UDF_BASE_END_L2 | CFP_UDF_OFFSET(4));
-+	if (!err)
-+		err = b53_write8(dev, B53_CFP_PAGE, B53_CFP_UDF1_A0 + 2,
-+				 CFP_UDF_BASE_END_L2 | CFP_UDF_OFFSET(1));
-+	for (i = 0; !err && i < 3; i++)
-+		err = b53_write8(dev, B53_CFP_PAGE, B53_CFP_UDF1_A0 + 3 + i, i);
-+	if (err)
-+		return err;
-+	data[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE1;
-+	mask[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE_MASK;
-+	mask[6] = CFP_TCAM6_L3_FRAMING; /* IPv4, including options and fragments. */
-+	b53_fa_udf(data, mask, 1, 0, 0xfe00); /* TTL 0 or 1. */
-+	err = b53_fa_rule(dev, 3, data, mask, true);
-+	for (i = 0; !err && i < ARRAY_SIZE(b53_fa_lengths); i++) {
-+		memset(data, 0, sizeof(data));
-+		memset(mask, 0, sizeof(mask));
-+		data[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE1;
-+		mask[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE_MASK;
-+		mask[6] = CFP_TCAM6_L3_FRAMING;
-+		b53_fa_udf(data, mask, 2, b53_fa_lengths[i][0], b53_fa_lengths[i][1]);
-+		err = b53_fa_rule(dev, 4 + i, data, mask, true);
-+	}
-+	if (err)
-+		return err;
-+	/* Only a port's own router MAC may take the inline data path. These
-+	 * allow rules are populated after DSA has registered its user devices.
-+	 */
-+	memset(data, 0, sizeof(data));
-+	memset(mask, 0, sizeof(mask));
-+	data[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE1;
-+	mask[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE_MASK;
-+	mask[6] = CFP_TCAM6_L3_FRAMING;
-+	return b53_fa_rule(dev, B53_FA_DEFAULT_RULE, data, mask, true);
-+}
-+
-+/* Original FA ignores switch exceptions on its inline port. Redirect IPv4
-+ * exceptions through GMAC0/IMP5, outside FA, while GMAC2/IMP8 carries data.
-+ * Reserve classifier rules only when the board describes both CPU paths.
-+ */
-+static int b53_fa_setup(struct b53_device *dev)
-+{
-+	struct dsa_port *dp;
-+	unsigned int rule, i;
-+	u32 data[8], mask[8];
-+	int err;
-+
-+	if (!is5301x(dev) || dev->tag_protocol != DSA_TAG_PROTO_BRCM_FA ||
-+	    !dsa_is_cpu_port(dev->ds, 5) || !dsa_is_cpu_port(dev->ds, 8))
-+		return 0;
-+
-+	err = b53_write16(dev, B53_CFP_PAGE, B53_CFP_CTRL, 0);
-+	if (err)
-+		return err;
-+	err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_ACC, CFP_ACC_RESET);
-+	if (!err)
-+		err = b53_fa_cfp_wait(dev, CFP_ACC_RESET);
-+	if (err)
-+		return err;
-+	/* Slice 1 UDF A0 extracts TCP bytes 12..13, relative to the parsed end of L3.
-+	 * This also works with IP options. Match the individual
-+	 * FIN/SYN/RST bits, never payload bytes in UDP packets. Slice 0
-+	 * with a nonzero class ID would request a chained search instead.
-+	 */
-+	err = b53_write8(dev, B53_CFP_PAGE, B53_CFP_UDF1_A0,
-+			 CFP_UDF_BASE_END_L3 | CFP_UDF_OFFSET(6));
-+	if (err)
-+		return err;
-+	for (rule = 0; rule < 3; rule++) {
-+		memset(data, 0, sizeof(data));
-+		memset(mask, 0, sizeof(mask));
-+		data[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE1 | CFP_TCAM0_UDF0_FLAG(rule);
-+		/* Slice 1; FIN, SYN or RST. */
-+		mask[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE_MASK | CFP_TCAM0_UDF0_FLAG(rule);
-+		data[5] = CFP_TCAM5_UDF_VALID(0); /* UDF A0 valid. */
-+		mask[5] = CFP_TCAM5_UDF_VALID(0);
-+		data[6] = FIELD_PREP(CFP_TCAM6_IP_PROTOCOL, IPPROTO_TCP);
-+		mask[6] = CFP_TCAM6_L3_FRAMING | CFP_TCAM6_IP_PROTOCOL | CFP_TCAM6_IP_FRAGMENT;
-+		for (i = 0; i < ARRAY_SIZE(data); i++) {
-+			err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_DATA(i), data[i]);
-+			if (!err)
-+				err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_MASK(i), mask[i]);
-+			if (err)
-+				return err;
-+		}
-+		/* Both meter outcomes redirect to IMP5, with class 1 and a
-+		 * termination reason. Preserve VLAN, EAP and STP filtering.
-+		 */
-+		err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_ACTION(0),
-+				  CFP_ACT0_FWD_MAP_REPLACE | CFP_ACT0_DST_PORT5 |
-+				CFP_ACT0_REASON_TERMINATION);
-+		if (!err)
-+			err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_ACTION(1),
-+					  CFP_ACT1_CLASS_ID(1) | CFP_ACT1_FWD_MAP_REPLACE |
-+					  CFP_ACT1_DST_PORT5);
-+		if (!err)
-+			err = b53_fa_cfp_write(dev, rule, CFP_ACC_ACTION);
-+		if (!err)
-+			err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_METER, 0);
-+		if (!err)
-+			err = b53_write32(dev, B53_CFP_TCAM_PAGE, B53_CFP_METER + 4, 0);
-+		if (!err)
-+			err = b53_fa_cfp_write(dev, rule, CFP_ACC_METER);
-+		if (!err)
-+			err = b53_fa_cfp_write(dev, rule, CFP_ACC_TCAM);
-+		if (err)
-+			return err;
-+	}
-+	err = b53_fa_guards(dev);
-+	if (err)
-+		return err;
-+	/* Ordinary flooding must reach only the data CPU, not both MACs. */
-+	b53_port_set_ucast_flood(dev, 5, false);
-+	b53_port_set_mcast_flood(dev, 5, false);
-+	err = b53_write8(dev, B53_CTRL_PAGE, B53_PORT_CTRL(5), PORT_CTRL_RX_UCST_EN);
-+	if (err)
-+		return err;
-+	dev->fa_cfp_ports = 0;
-+	dsa_switch_for_each_user_port(dp, dev->ds)
-+		dev->fa_cfp_ports |= BIT(dp->index);
-+	/* The conduit state callback enables these rules after GMAC0 is up. */
-+	err = b53_write16(dev, B53_CFP_PAGE, B53_CFP_CTRL, 0);
-+	if (!err)
-+		dev->fa_cfp_enabled = true;
-+	return err;
-+}
-+
-+static bool b53_fa_ready(struct b53_device *dev, bool operational)
-+{
-+	return operational && dev->fa_guards_ready && !dev->fa_guards_failed;
-+}
-+
-+static int b53_fa_port(struct b53_device *dev, int port, bool standalone)
-+{
-+	struct dsa_port *control = dsa_to_port(dev->ds, 5);
-+	bool ready;
-+	u16 ports;
-+	int err;
-+
-+	if (!dev->fa_cfp_enabled)
-+		return 0;
-+	ports = dev->fa_cfp_ports & ~BIT(port);
-+	if (standalone)
-+		ports |= BIT(port);
-+	ready = b53_fa_ready(dev, dsa_port_conduit_is_operational(control));
-+	err = b53_write16(dev, B53_CFP_PAGE, B53_CFP_CTRL,
-+			  ready ? ports : 0);
-+	if (!err)
-+		dev->fa_cfp_ports = ports;
-+	return err;
-+}
-+
-+static void b53_fa_conduit_state_change(struct dsa_switch *ds,
-+					const struct net_device *conduit, bool operational)
-+{
-+	struct b53_device *dev = ds->priv;
-+	struct dsa_port *control, *data;
-+	bool ready;
-+	int err;
-+
-+	if (!dev->fa_cfp_enabled)
-+		return;
-+	control = dsa_to_port(ds, 5);
-+	data = dsa_to_port(ds, 8);
-+	if (conduit != control->conduit)
-+		return;
-+	ready = b53_fa_ready(dev, operational);
-+	/* Retire offloads before removing any of the physical exception paths. */
-+	brcm_fa_control_set_ready(data->conduit, false);
-+	err = b53_write16(dev, B53_CFP_PAGE, B53_CFP_CTRL, ready ? dev->fa_cfp_ports : 0);
-+	if (err) {
-+		dev_err(ds->dev, "failed to update FA exception path: %d\n", err);
-+		return;
-+	}
-+	if (ready)
-+		brcm_fa_control_set_ready(data->conduit, true);
-+}
-+
-+static int b53_fa_netdev_event(struct notifier_block *nb, unsigned long event, void *ptr)
-+{
-+	struct b53_device *dev = container_of(nb, struct b53_device, fa_netdev_nb);
-+	struct net_device *netdev = netdev_notifier_info_to_dev(ptr);
-+	struct dsa_port *dp, *control, *data_cpu;
-+	u32 data[8] = {}, mask[8] = {};
-+	unsigned int i;
-+	int err;
-+
-+	if (dev->fa_stopping || !dsa_user_dev_check(netdev) ||
-+	    (event != NETDEV_REGISTER && event != NETDEV_UP &&
-+	     event != NETDEV_PRE_CHANGEADDR && event != NETDEV_CHANGEADDR))
-+		return NOTIFY_DONE;
-+	dp = dsa_port_from_netdev(netdev);
-+	if (dp->ds != dev->ds || dp->index >= 8)
-+		return NOTIFY_DONE;
-+	control = dsa_to_port(dev->ds, 5);
-+	data_cpu = dsa_to_port(dev->ds, 8);
-+	brcm_fa_control_set_ready(data_cpu->conduit, false);
-+	if (event != NETDEV_PRE_CHANGEADDR) {
-+		data[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE1;
-+		mask[0] = CFP_TCAM0_VALID | CFP_TCAM0_SLICE_MASK;
-+		mask[6] = CFP_TCAM6_L3_FRAMING;
-+		data[7] = BIT(dp->index);
-+		mask[7] = CFP_TCAM7_SOURCE_PORTS;
-+		for (i = 0; i < 3; i++)
-+			b53_fa_udf(data, mask, 3 + i, get_unaligned_be16(netdev->dev_addr + 2 * i),
-+				   0xffff);
-+	}
-+	err = b53_fa_rule(dev, B53_FA_ALLOW_BASE + dp->index, data, mask, false);
-+	if (err) {
-+		dev->fa_guards_failed = true;
-+		dev_err(dev->dev, "failed to update FA ingress guard: %d\n", err);
-+	} else if (event != NETDEV_PRE_CHANGEADDR) {
-+		b53_fa_conduit_state_change(dev->ds, control->conduit,
-+					    dsa_port_conduit_is_operational(control));
-+	}
-+	return NOTIFY_DONE;
-+}
-+
-+static void b53_fa_unregister_notifier(void *ptr)
-+{
-+	struct b53_device *dev = ptr;
-+
-+	unregister_netdevice_notifier(&dev->fa_netdev_nb);
-+}
-+
- static int b53_setup(struct dsa_switch *ds)
- {
- 	struct b53_device *dev = ds->priv;
-@@ -1391,11 +1710,20 @@ static int b53_setup(struct dsa_switch *ds)
- 	if (ret)
- 		return ret;
- 
-+	ret = b53_fa_setup(dev);
-+	if (ret)
-+		return ret;
-+
- 	return b53_setup_devlink_resources(ds);
- }
- 
- static void b53_teardown(struct dsa_switch *ds)
- {
-+	struct b53_device *dev = ds->priv;
-+
-+	dev->fa_stopping = true;
-+	if (dev->fa_cfp_enabled)
-+		b53_write16(dev, B53_CFP_PAGE, B53_CFP_CTRL, 0);
- 	dsa_devlink_resources_unregister(ds);
- }
- 
-@@ -2332,6 +2660,7 @@ int b53_br_join(struct dsa_switch *ds, int port, struct dsa_bridge bridge,
- 	s8 cpu_port = dsa_to_port(ds, port)->cpu_dp->index;
- 	u16 pvlan, reg, pvid;
- 	unsigned int i;
-+	int err;
- 
- 	/* On 7278, port 7 which connects to the ASP should only receive
- 	 * traffic from matching CFP rules.
-@@ -2339,6 +2668,10 @@ int b53_br_join(struct dsa_switch *ds, int port, struct dsa_bridge bridge,
- 	if (dev->chip_id == BCM7278_DEVICE_ID && port == 7)
- 		return -EINVAL;
- 
-+	err = b53_fa_port(dev, port, false);
-+	if (err)
-+		return err;
-+
- 	pvid = b53_default_pvid(dev);
- 	vl = &dev->vlans[pvid];
- 
-@@ -2417,8 +2750,11 @@ void b53_br_leave(struct dsa_switch *ds, int port, struct dsa_bridge bridge)
- 	}
- 
- 	/* Enable redirection of unknown SA to the CPU port */
--	b53_set_eap_mode(dev, port, EAP_MODE_SIMPLIFIED);
-+	b53_set_eap_mode(dev, port, dev->fa_cfp_enabled ? EAP_MODE_BASIC :
-+			 EAP_MODE_SIMPLIFIED);
- 
-+	if (dev->fa_cfp_enabled)
-+		pvlan |= BIT(5);
- 	b53_write16(dev, B53_PVLAN_PAGE, B53_PVLAN_PORT_MASK(port), pvlan);
- 	dev->ports[port].vlan_ctl_mask = pvlan;
- 
-@@ -2439,6 +2775,10 @@ void b53_br_leave(struct dsa_switch *ds, int port, struct dsa_bridge bridge)
- 		vl->members |= BIT(port);
- 		b53_set_vlan_entry(dev, pvid, vl);
- 	}
-+	if (b53_fa_port(dev, port, true)) {
-+		dev_err(ds->dev, "failed to restore FA classification on port %d\n", port);
-+		b53_disable_port(ds, port);
-+	}
- }
- EXPORT_SYMBOL(b53_br_leave);
- 
-@@ -2552,6 +2892,7 @@ static bool b53_can_enable_brcm_tags(struct dsa_switch *ds, int port,
- 	switch (tag_protocol) {
- 	case DSA_TAG_PROTO_BRCM:
- 	case DSA_TAG_PROTO_BRCM_PREPEND:
-+	case DSA_TAG_PROTO_BRCM_FA:
- 		dev_warn(ds->dev,
- 			 "Port %d is stacked to Broadcom tag switch\n", port);
- 		ret = false;
-@@ -2564,6 +2905,46 @@ static bool b53_can_enable_brcm_tags(struct dsa_switch *ds, int port,
- 	return ret;
- }
- 
-+static bool b53_uses_fa_tag(struct dsa_switch *ds, int port)
-+{
-+	struct device_node *ports, *node, *ethernet = NULL, *fa = NULL;
-+	struct b53_device *dev = ds->priv;
-+	bool enabled = false;
-+	u32 index;
-+
-+	if (port != B53_CPU_PORT)
-+		return false;
-+	/* CPU5 may be parsed before CPU8 has a dsa_port firmware node. */
-+	ports = of_get_child_by_name(ds->dev->of_node, "ports");
-+	if (!ports)
-+		ports = of_get_child_by_name(ds->dev->of_node, "ethernet-ports");
-+	for_each_available_child_of_node(ports, node) {
-+		if (of_property_read_u32(node, "reg", &index) || index != B53_CPU_PORT)
-+			continue;
-+		ethernet = of_parse_phandle(node, "ethernet", 0);
-+		fa = of_parse_phandle(ethernet, "brcm,flow-accelerator", 0);
-+		enabled = IS_ENABLED(CONFIG_BCM_NS_FA) && of_device_is_available(fa) &&
-+			  (dev->chip_id == BCM53011_DEVICE_ID ||
-+			   dev->chip_id == BCM53012_DEVICE_ID ||
-+			   (is5301x(dev) && of_device_is_compatible(fa, "brcm,bcm4708-fa")));
-+		of_node_put(node);
-+		break;
-+	}
-+	of_node_put(ports);
-+	of_node_put(fa);
-+	of_node_put(ethernet);
-+	return enabled;
-+}
-+
-+static struct dsa_port *b53_preferred_cpu_port(struct dsa_switch *ds)
-+{
-+	struct b53_device *dev = ds->priv;
-+
-+	if (is5301x(dev) && dsa_is_cpu_port(ds, B53_CPU_PORT) && b53_uses_fa_tag(ds, B53_CPU_PORT))
-+		return dsa_to_port(ds, B53_CPU_PORT);
-+	return NULL;
-+}
-+
- enum dsa_tag_protocol b53_get_tag_protocol(struct dsa_switch *ds, int port,
- 					   enum dsa_tag_protocol mprot)
- {
-@@ -2583,6 +2964,11 @@ enum dsa_tag_protocol b53_get_tag_protocol(struct dsa_switch *ds, int port,
- 		goto out;
- 	}
- 
-+	if (b53_uses_fa_tag(ds, B53_CPU_PORT)) {
-+		dev->tag_protocol = DSA_TAG_PROTO_BRCM_FA;
-+		goto out;
-+	}
-+
- 	/* Broadcom BCM58xx chips have a flow accelerator on Port 8
- 	 * which requires us to use the prepended Broadcom tag type
- 	 */
-@@ -2763,6 +3149,8 @@ static const struct phylink_mac_ops b53_phylink_mac_ops = {
- 
- static const struct dsa_switch_ops b53_switch_ops = {
- 	.get_tag_protocol	= b53_get_tag_protocol,
-+	.preferred_default_local_cpu_port = b53_preferred_cpu_port,
-+	.conduit_state_change = b53_fa_conduit_state_change,
- 	.setup			= b53_setup,
- 	.teardown		= b53_teardown,
- 	.get_strings		= b53_get_strings,
-@@ -3385,7 +3773,32 @@ int b53_switch_register(struct b53_device *dev)
- 	dev_info(dev->dev, "found switch: %s, rev %i\n",
- 		 dev->name, dev->core_rev);
- 
--	return dsa_register_switch(dev->ds);
-+	ret = dsa_register_switch(dev->ds);
-+	if (ret || !dev->fa_cfp_enabled)
-+		return ret;
-+	/* Registration replays existing user devices, after their MACs and
-+	 * DSA private data are initialized. Keep lookup gated until it finishes.
-+	 */
-+	dev->fa_netdev_nb.notifier_call = b53_fa_netdev_event;
-+	ret = register_netdevice_notifier(&dev->fa_netdev_nb);
-+	if (ret)
-+		goto unregister_switch;
-+	ret = devm_add_action_or_reset(dev->dev, b53_fa_unregister_notifier, dev);
-+	if (ret)
-+		goto unregister_switch;
-+	dev->fa_guards_ready = true;
-+	if (!dev->fa_guards_failed) {
-+		struct dsa_port *control = dsa_to_port(dev->ds, 5);
-+
-+		rtnl_lock();
-+		b53_fa_conduit_state_change(dev->ds, control->conduit,
-+					    dsa_port_conduit_is_operational(control));
-+		rtnl_unlock();
-+	}
-+	return 0;
-+unregister_switch:
-+	dsa_unregister_switch(dev->ds);
-+	return ret;
+@@ -3802,6 +3802,10 @@ int b53_switch_register(struct b53_device *dev)
  }
  EXPORT_SYMBOL(b53_switch_register);
  
-diff --git a/drivers/net/dsa/b53/b53_priv.h b/drivers/net/dsa/b53/b53_priv.h
-index c4d2a41c714f..ed663067a865 100644
---- a/drivers/net/dsa/b53/b53_priv.h
-+++ b/drivers/net/dsa/b53/b53_priv.h
-@@ -153,6 +153,12 @@ struct b53_device {
- 	u8 num_arl_bins;
- 	u16 num_arl_buckets;
- 	enum dsa_tag_protocol tag_protocol;
-+	u16 fa_cfp_ports;
-+	bool fa_cfp_enabled;
-+	bool fa_guards_ready;
-+	bool fa_guards_failed;
-+	bool fa_stopping;
-+	struct notifier_block fa_netdev_nb;
- 
- 	/* used ports mask */
- 	u16 enabled_ports;
-diff --git a/drivers/net/dsa/b53/b53_regs.h b/drivers/net/dsa/b53/b53_regs.h
-index cfdb5ed38326..4ca7ea64efc6 100644
---- a/drivers/net/dsa/b53/b53_regs.h
-+++ b/drivers/net/dsa/b53/b53_regs.h
-@@ -614,4 +614,43 @@
- /* CFP Control Register with ports map (8 bit) */
- #define B53_CFP_CTRL			0x00
- 
-+/* Northstar CFP indirect table port. */
-+#define B53_CFP_TCAM_PAGE		0xa0
-+#define B53_CFP_ACC			0x00
-+#define  CFP_ACC_START			BIT(0)
-+#define  CFP_ACC_WRITE			(2 << 1)
-+#define  CFP_ACC_TCAM			BIT(10)
-+#define  CFP_ACC_ACTION			(2 << 10)
-+#define  CFP_ACC_METER			(4 << 10)
-+#define  CFP_ACC_RESET			BIT(15)
-+#define  CFP_ACC_INDEX(n)		((n) << 16)
-+#define B53_CFP_DATA(n)			(0x10 + (n) * 4)
-+#define B53_CFP_MASK(n)			(0x30 + (n) * 4)
-+#define B53_CFP_ACTION(n)		(0x50 + (n) * 4)
-+#define B53_CFP_METER			0x60
-+#define B53_CFP_UDF1_A0			0x20
-+#define  CFP_UDF_BASE_END_L2		(2 << 5)
-+#define  CFP_UDF_BASE_END_L3		(3 << 5)
-+#define  CFP_UDF_OFFSET(n)		(n)
++#if IS_ENABLED(CONFIG_B53_FA_KUNIT_TEST)
++#include "b53_fa_test.c"
++#endif
 +
-+/* Slice 1 IPv4 key fields, indexed by DATA/MASK word. */
-+#define CFP_TCAM0_VALID			GENMASK(1, 0)
-+#define CFP_TCAM0_SLICE1			BIT(2)
-+#define CFP_TCAM0_SLICE_MASK		GENMASK(3, 2)
-+#define CFP_TCAM0_UDF0_FLAG(n)		BIT(8 + (n))
-+#define CFP_TCAM_UDF_OFFSET		8
-+#define CFP_TCAM5_UDF_VALID(n)		BIT(24 + (n))
-+#define CFP_TCAM6_L3_FRAMING		GENMASK(25, 24)
-+#define CFP_TCAM6_IP_PROTOCOL		GENMASK(15, 8)
-+#define CFP_TCAM6_IP_FRAGMENT		BIT(7)
-+#define CFP_TCAM7_SOURCE_PORTS		GENMASK(7, 0)
+ MODULE_AUTHOR("Jonas Gorski <jogo@openwrt.org>");
+ MODULE_DESCRIPTION("B53 switch library");
+ MODULE_LICENSE("Dual BSD/GPL");
+diff --git a/drivers/net/dsa/b53/b53_fa_test.c b/drivers/net/dsa/b53/b53_fa_test.c
+new file mode 100644
+index 000000000000..1806c87a54fb
+--- /dev/null
++++ b/drivers/net/dsa/b53/b53_fa_test.c
+@@ -0,0 +1,102 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <kunit/test.h>
 +
-+/* Both meter outcomes replace the destination map with CPU port 5. */
-+#define CFP_ACT0_FWD_MAP_REPLACE		(2 << 24)
-+#define CFP_ACT0_DST_PORT5		BIT(19)
-+#define CFP_ACT0_REASON_TERMINATION	BIT(6)
-+#define CFP_ACT1_CLASS_ID(n)		((n) << 20)
-+#define CFP_ACT1_FWD_MAP_REPLACE		(2 << 11)
-+#define CFP_ACT1_DST_PORT5		BIT(6)
++static int b53_fa_test_write16(struct b53_device *dev, u8 page, u8 reg, u16 value)
++{
++	u16 *control = dev->priv;
 +
- #endif /* !__B53_REGS_H */
-diff --git a/include/linux/dsa/brcm.h b/include/linux/dsa/brcm.h
-index 47545a948784..9bfba22b4977 100644
---- a/include/linux/dsa/brcm.h
-+++ b/include/linux/dsa/brcm.h
-@@ -8,6 +8,25 @@
- #ifndef _NET_DSA_BRCM_H
- #define _NET_DSA_BRCM_H
- 
-+#include <linux/list.h>
-+#include <linux/types.h>
++	if (page != B53_CFP_PAGE || reg != B53_CFP_CTRL)
++		return -EINVAL;
++	*control = value;
++	return 0;
++}
 +
-+struct net_device;
-+struct sk_buff;
++static void b53_fa_test_port_guards(struct kunit *test)
++{
++	static const struct b53_io_ops ops = { .write16 = b53_fa_test_write16 };
++	struct b53_device *dev = kunit_kzalloc(test, sizeof(*dev), GFP_KERNEL);
++	struct dsa_switch_tree tree = {};
++	struct dsa_switch ds = { .dst = &tree };
++	struct dsa_port control = {
++		.ds = &ds, .index = 5, .type = DSA_PORT_TYPE_CPU,
++		.conduit_admin_up = true, .conduit_oper_up = true,
++	};
++	u16 map = 0;
 +
-+/* Original FA control packets arrive through the auxiliary CPU port. */
-+struct brcm_fa_control {
-+	struct list_head list;
-+	struct net_device *conduit;
-+	void (*receive)(void *priv, struct sk_buff *skb, unsigned int port);
-+	void (*state_change)(void *priv, bool ready);
-+	void *priv;
++	KUNIT_ASSERT_NOT_NULL(test, dev);
++	INIT_LIST_HEAD(&tree.ports);
++	list_add(&control.list, &tree.ports);
++	dev->ds = &ds;
++	dev->ops = &ops;
++	dev->priv = &map;
++	dev->fa_cfp_enabled = true;
++	dev->fa_cfp_ports = BIT(0) | BIT(1);
++	mutex_init(&dev->reg_mutex);
++
++	/* Bridge changes must not resurrect incomplete or failed guards. */
++	KUNIT_ASSERT_EQ(test, b53_fa_port(dev, 0, false), 0);
++	KUNIT_EXPECT_EQ(test, map, (u16)0);
++	dev->fa_guards_ready = true;
++	KUNIT_ASSERT_EQ(test, b53_fa_port(dev, 0, true), 0);
++	KUNIT_EXPECT_EQ(test, map, (u16)(BIT(0) | BIT(1)));
++	dev->fa_guards_failed = true;
++	KUNIT_ASSERT_EQ(test, b53_fa_port(dev, 0, false), 0);
++	KUNIT_EXPECT_EQ(test, map, (u16)0);
++	KUNIT_ASSERT_EQ(test, b53_fa_port(dev, 0, true), 0);
++	KUNIT_EXPECT_EQ(test, map, (u16)0);
++	KUNIT_EXPECT_EQ(test, dev->fa_cfp_ports, (u16)(BIT(0) | BIT(1)));
++	dev->fa_guards_failed = false;
++	control.conduit_oper_up = false;
++	KUNIT_ASSERT_EQ(test, b53_fa_port(dev, 0, false), 0);
++	KUNIT_EXPECT_EQ(test, map, (u16)0);
++}
++
++static void b53_fa_test_length_range(struct kunit *test)
++{
++	unsigned int length, i;
++
++	for (length = 0; length <= U16_MAX; length++) {
++		bool trap = false;
++
++		for (i = 0; i < ARRAY_SIZE(b53_fa_lengths); i++)
++			if ((length & b53_fa_lengths[i][1]) == b53_fa_lengths[i][0])
++				trap = true;
++		KUNIT_ASSERT_EQ_MSG(test, trap, length > ETH_DATA_LEN, "length %u", length);
++	}
++}
++
++static void b53_fa_test_udf_layout(struct kunit *test)
++{
++	u32 data[8] = {}, mask[8] = {};
++
++	b53_fa_udf(data, mask, 2, 1501, 0xffff);
++	KUNIT_EXPECT_EQ(test, data[1], 0x0005dd00U);
++	KUNIT_EXPECT_EQ(test, mask[1], 0x00ffff00U);
++	KUNIT_EXPECT_EQ(test, mask[5], (u32)BIT(26));
++	memset(data, 0, sizeof(data));
++	memset(mask, 0, sizeof(mask));
++	b53_fa_udf(data, mask, 3, 0x0200, 0xffff);
++	b53_fa_udf(data, mask, 4, 0x0000, 0xffff);
++	b53_fa_udf(data, mask, 5, 0x0101, 0xffff);
++	KUNIT_EXPECT_EQ(test, data[1], 0U);
++	KUNIT_EXPECT_EQ(test, data[2], 0x01000002U);
++	KUNIT_EXPECT_EQ(test, data[3], 1U);
++	KUNIT_EXPECT_EQ(test, mask[1], 0xff000000U);
++	KUNIT_EXPECT_EQ(test, mask[2], 0xffffffffU);
++	KUNIT_EXPECT_EQ(test, mask[3], 0x000000ffU);
++	KUNIT_EXPECT_EQ(test, mask[5], (u32)(BIT(27) | BIT(28) | BIT(29)));
++}
++
++static struct kunit_case b53_fa_cases[] = {
++	KUNIT_CASE(b53_fa_test_port_guards),
++	KUNIT_CASE(b53_fa_test_length_range),
++	KUNIT_CASE(b53_fa_test_udf_layout),
++	{}
 +};
 +
-+void brcm_fa_control_register(struct brcm_fa_control *control);
-+void brcm_fa_control_unregister(struct brcm_fa_control *control);
-+void brcm_fa_control_set_ready(struct net_device *conduit, bool ready);
++static struct kunit_suite b53_fa_suite = {
++	.name = "b53-fa-guards",
++	.test_cases = b53_fa_cases,
++};
 +
- /* Broadcom tag specific helpers to insert and extract queue/port number */
- #define BRCM_TAG_SET_PORT_QUEUE(p, q)	((p) << 8 | q)
- #define BRCM_TAG_GET_PORT(v)		((v) >> 8)
-diff --git a/include/net/dsa.h b/include/net/dsa.h
-index 5d12191b6f6f..5f926b7fde5b 100644
---- a/include/net/dsa.h
-+++ b/include/net/dsa.h
-@@ -62,6 +62,7 @@ struct tc_action;
- #define DSA_TAG_PROTO_KSZ8463_VALUE		34
- #define DSA_TAG_PROTO_MT7628_VALUE		35
- #define DSA_TAG_PROTO_KS8995_VALUE		36
-+#define DSA_TAG_PROTO_BRCM_FA_VALUE		37
++kunit_test_suite(b53_fa_suite);
+diff --git a/drivers/net/ethernet/broadcom/.kunitconfig b/drivers/net/ethernet/broadcom/.kunitconfig
+new file mode 100644
+index 000000000000..9772432ffc32
+--- /dev/null
++++ b/drivers/net/ethernet/broadcom/.kunitconfig
+@@ -0,0 +1,21 @@
++CONFIG_KUNIT=y
++CONFIG_DEBUG_KERNEL=y
++CONFIG_NET_DEV_REFCNT_TRACKER=y
++CONFIG_COMPILE_TEST=y
++CONFIG_NET=y
++CONFIG_INET=y
++CONFIG_NETDEVICES=y
++CONFIG_NET_VENDOR_BROADCOM=y
++CONFIG_NETFILTER=y
++CONFIG_NF_CONNTRACK=y
++CONFIG_NF_TABLES=y
++CONFIG_NF_FLOW_TABLE=y
++CONFIG_NF_FLOW_TABLE_KUNIT_TEST=y
++CONFIG_NET_DSA=y
++CONFIG_OF=y
++CONFIG_BCM_NS_FA=y
++CONFIG_BCM_NS_FA_KUNIT_TEST=y
++CONFIG_NET_DSA_TAG_BRCM_FA=y
++CONFIG_NET_DSA_TAG_BRCM_FA_KUNIT_TEST=y
++CONFIG_B53=y
++CONFIG_B53_FA_KUNIT_TEST=y
+diff --git a/drivers/net/ethernet/broadcom/Kconfig b/drivers/net/ethernet/broadcom/Kconfig
+index 865b346a7249..f6cbe63b576b 100644
+--- a/drivers/net/ethernet/broadcom/Kconfig
++++ b/drivers/net/ethernet/broadcom/Kconfig
+@@ -190,6 +190,17 @@ config BCM_NS_FA_FAULT_INJECTION
+ 	  reprobe and leaves forwarding to software. Intended for driver testing.
+ 	  Injection is disabled by default and can be armed through debugfs.
  
- enum dsa_tag_protocol {
- 	DSA_TAG_PROTO_NONE		= DSA_TAG_PROTO_NONE_VALUE,
-@@ -69,6 +70,7 @@ enum dsa_tag_protocol {
- 	DSA_TAG_PROTO_BRCM_LEGACY	= DSA_TAG_PROTO_BRCM_LEGACY_VALUE,
- 	DSA_TAG_PROTO_BRCM_LEGACY_FCS	= DSA_TAG_PROTO_BRCM_LEGACY_FCS_VALUE,
- 	DSA_TAG_PROTO_BRCM_PREPEND	= DSA_TAG_PROTO_BRCM_PREPEND_VALUE,
-+	DSA_TAG_PROTO_BRCM_FA		= DSA_TAG_PROTO_BRCM_FA_VALUE,
- 	DSA_TAG_PROTO_DSA		= DSA_TAG_PROTO_DSA_VALUE,
- 	DSA_TAG_PROTO_EDSA		= DSA_TAG_PROTO_EDSA_VALUE,
- 	DSA_TAG_PROTO_GSWIP		= DSA_TAG_PROTO_GSWIP_VALUE,
++config BCM_NS_FA_KUNIT_TEST
++	bool "KUnit tests for the Northstar flow accelerator" if !KUNIT_ALL_TESTS
++	depends on KUNIT=y && BCM_NS_FA
++	default KUNIT_ALL_TESTS
++	help
++	  Test NAT action validation, table field encoding, and RX hash learning.
++	  Exercise upper-device inspection under RCU with real netdevices.
++	  Tests are compiled into the parent driver and require built-in KUnit.
++	  These tests run without an accelerator and do not simulate table I/O.
++	  Use the hardware validation plan to check actual forwarding.
++
+ config BGMAC_BCMA
+ 	tristate "Broadcom iProc GBit BCMA support"
+ 	depends on BCM_NS_FA || !BCM_NS_FA
+diff --git a/drivers/net/ethernet/broadcom/bcm-ns-fa-test.c b/drivers/net/ethernet/broadcom/bcm-ns-fa-test.c
+new file mode 100644
+index 000000000000..59406f84809e
+--- /dev/null
++++ b/drivers/net/ethernet/broadcom/bcm-ns-fa-test.c
+@@ -0,0 +1,661 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Included in bcm-ns-fa.c to exercise private table formats and validation. */
++#include <kunit/test.h>
++#include <net/lwtunnel.h>
++#include <net/nexthop.h>
++#include <linux/rtnetlink.h>
++
++static const struct net_device_ops fa_test_netdev_ops;
++
++static void fa_test_free_netdev(void *data)
++{
++	struct net_device *dev = data;
++
++	if (dev->reg_state == NETREG_REGISTERED)
++		unregister_netdev(dev);
++	free_netdev(dev);
++}
++
++static void fa_test_upper_device_rcu(struct kunit *test)
++{
++	struct net_device *lower, *upper;
++	bool has_upper;
++	int err;
++
++	lower = alloc_etherdev(0);
++	KUNIT_ASSERT_NOT_NULL(test, lower);
++	err = kunit_add_action_or_reset(test, fa_test_free_netdev, lower);
++	KUNIT_ASSERT_EQ(test, err, 0);
++	upper = alloc_etherdev(0);
++	KUNIT_ASSERT_NOT_NULL(test, upper);
++	err = kunit_add_action_or_reset(test, fa_test_free_netdev, upper);
++	KUNIT_ASSERT_EQ(test, err, 0);
++	lower->netdev_ops = &fa_test_netdev_ops;
++	upper->netdev_ops = &fa_test_netdev_ops;
++	eth_hw_addr_random(lower);
++	eth_hw_addr_random(upper);
++	KUNIT_ASSERT_EQ(test, register_netdev(lower), 0);
++	KUNIT_ASSERT_EQ(test, register_netdev(upper), 0);
++
++	/* Rule workers inspect topology under RCU without taking RTNL. */
++	rcu_read_lock();
++	has_upper = fa_has_upper_dev_rcu(lower);
++	rcu_read_unlock();
++	KUNIT_EXPECT_FALSE(test, has_upper);
++
++	rtnl_lock();
++	err = netdev_upper_dev_link(lower, upper, NULL);
++	rtnl_unlock();
++	KUNIT_ASSERT_EQ(test, err, 0);
++	rcu_read_lock();
++	has_upper = fa_has_upper_dev_rcu(lower);
++	rcu_read_unlock();
++	KUNIT_EXPECT_TRUE(test, has_upper);
++
++	rtnl_lock();
++	netdev_upper_dev_unlink(lower, upper);
++	rtnl_unlock();
++	rcu_read_lock();
++	has_upper = fa_has_upper_dev_rcu(lower);
++	rcu_read_unlock();
++	KUNIT_EXPECT_FALSE(test, has_upper);
++}
++
++static u64 fa_test_bits(const u32 *data, unsigned int low, unsigned int width)
++{
++	u64 val = 0;
++	unsigned int i;
++
++	for (i = 0; i < width; i++)
++		if (data[(low + i) / 32] & BIT((low + i) % 32))
++			val |= BIT_ULL(i);
++	return val;
++}
++
++static void fa_test_encode(struct kunit *test)
++{
++	struct fa_rule rule = {
++		.tuple = { cpu_to_be32(0xc0000202), cpu_to_be32(0xc6336402),
++			   cpu_to_be16(0x1234), cpu_to_be16(0xabcd) },
++		.remap_ip = 0xcb007109,
++		.remap_port = 0x5678,
++		.action = FA_ACT_REMAP_IP | FA_ACT_REMAP_PORT,
++		.direction = FA_DIR_DNAT,
++	};
++	u32 data[8] = {};
++
++	fa_encode(&rule, 3, 127, 4, data);
++	/* Compare against the bit ranges in the hardware table definition,
++	 * including fields that straddle words and host/network byte order.
++	 */
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 0, 35), 0ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 35, 2), 3ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 37, 1), 0ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 38, 2), 3ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 40, 7), 127ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 47, 32), 0xcb007109ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 79, 16), 0x5678ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 95, 16), 0xabcdULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 111, 16), 0x1234ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 127, 1), 0ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 128, 32), 0xc6336402ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 160, 32), 0xc0000202ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 192, 1), 1ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 193, 10), 16ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 209, 3), 1ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 212, 1), 1ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 255, 1), 1ULL);
++}
++
++static void fa_test_mac_encode(struct kunit *test)
++{
++	const u8 addr[ETH_ALEN] = { 0xfe, 0xdc, 0xba, 0x98, 0x76, 0x54 };
++	u32 data[8] = {};
++
++	fa_mac_encode(addr, true, false, data);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 0, 1), 1ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 1, 48), 0xfedcba987654ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 49, 15), 0ULL);
++	memset(data, 0, sizeof(data));
++	fa_mac_encode(addr, false, false, data);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 0, 1), 0ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 1, 48), 0xfedcba987654ULL);
++	memset(data, 0, sizeof(data));
++	fa_mac_encode(addr, false, true, data);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 0, 1), 0ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 1, 2), 2ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 3, 16), 0ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 19, 48), 0xfedcba987654ULL);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 67, 29), 0ULL);
++	/* Hit-count bits must exclude the adjacent timestamp and action bits. */
++	data[0] = U32_MAX;
++	data[1] = U32_MAX;
++	KUNIT_EXPECT_EQ(test, fa_hits(data), U32_MAX);
++	data[0] = 7;
++	data[1] = ~7U;
++	KUNIT_EXPECT_EQ(test, fa_hits(data), 0U);
++}
++
++static void fa_test_nat_actions(struct kunit *test)
++{
++	struct fa_rule rule = { .direction = FA_DIR_UNSET, .l4proto = IPPROTO_UDP };
++	struct flow_action_entry act = {
++		.mangle = {
++			.htype = FLOW_ACT_MANGLE_HDR_TYPE_IP4,
++			.offset = offsetof(struct iphdr, saddr),
++			.val = (__force u32)cpu_to_be32(0xc0000201),
++		},
++	};
++
++	KUNIT_ASSERT_EQ(test, fa_mangle(&rule, &act), 0);
++	KUNIT_EXPECT_EQ(test, rule.remap_ip, 0xc0000201U);
++	KUNIT_EXPECT_EQ(test, rule.direction, 0);
++	act.mangle.htype = FLOW_ACT_MANGLE_HDR_TYPE_UDP;
++	act.mangle.offset = 0;
++	act.mangle.mask = (__force u32)cpu_to_be32(0x0000ffff);
++	act.mangle.val = (__force u32)cpu_to_be32(0xabcd0000);
++	KUNIT_ASSERT_EQ(test, fa_mangle(&rule, &act), 0);
++	KUNIT_EXPECT_EQ(test, rule.remap_port, (u16)0xabcd);
++	KUNIT_EXPECT_EQ(test, rule.action, (u8)3);
++	/* Opposite-side rewrites cannot share a hardware entry. */
++	act.mangle.mask = (__force u32)cpu_to_be32(0xffff0000);
++	KUNIT_EXPECT_EQ(test, fa_mangle(&rule, &act), -EOPNOTSUPP);
++	/* Partial IPv4 masks and arbitrary offsets must not be accepted. */
++	act.mangle.htype = FLOW_ACT_MANGLE_HDR_TYPE_IP4;
++	act.mangle.offset = offsetof(struct iphdr, daddr);
++	act.mangle.mask = 1;
++	KUNIT_EXPECT_EQ(test, fa_mangle(&rule, &act), -EOPNOTSUPP);
++	act.mangle.mask = 0;
++	act.mangle.offset = offsetof(struct iphdr, ttl);
++	KUNIT_EXPECT_EQ(test, fa_mangle(&rule, &act), -EOPNOTSUPP);
++}
++
++static void fa_test_ethernet_actions(struct kunit *test)
++{
++	const u8 expected[12] = { 0x02, 1, 2, 3, 4, 5, 0x02, 6, 7, 8, 9, 10 };
++	struct fa_rule rule = {};
++	struct flow_action_entry act = {
++		.mangle.htype = FLOW_ACT_MANGLE_HDR_TYPE_ETH,
++	};
++	int i;
++
++	for (i = 0; i < sizeof(expected); i += 4) {
++		act.mangle.offset = i;
++		memcpy(&act.mangle.val, expected + i, 4);
++		KUNIT_ASSERT_EQ(test, fa_mangle(&rule, &act), 0);
++	}
++	KUNIT_EXPECT_MEMEQ(test, rule.eth, expected, sizeof(expected));
++	KUNIT_EXPECT_PTR_EQ(test, memchr_inv(rule.eth_mask, 0xff, 12), NULL);
++	act.mangle.offset = 9;
++	KUNIT_EXPECT_EQ(test, fa_mangle(&rule, &act), -EOPNOTSUPP);
++}
++
++static void fa_test_rx_learning(struct kunit *test)
++{
++	struct bcm_ns_fa *fa = kunit_kzalloc(test, sizeof(*fa), GFP_KERNEL);
++	struct sk_buff *skb;
++	struct ethhdr *eth;
++	struct iphdr *ip;
++	struct udphdr *udp;
++	u8 *tag;
++
++	KUNIT_ASSERT_NOT_NULL(test, fa);
++	fa->learned = kunit_kcalloc(test, FA_SLOTS, sizeof(*fa->learned), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, fa->learned);
++	spin_lock_init(&fa->learn_lock);
++	INIT_LIST_HEAD(&fa->entries);
++	skb = alloc_skb(64, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, skb);
++	tag = skb_put_zero(skb, 4 + ETH_HLEN + sizeof(*ip) + sizeof(*udp));
++	tag[0] = FA_MISS_OPCODE << 5;
++	tag[1] = 0xfe;
++	tag[3] = 3;
++	eth = (void *)(tag + 4);
++	eth->h_proto = htons(ETH_P_IP);
++	eth->h_dest[0] = 2;
++	ip = (void *)(eth + 1);
++	ip->version = 4;
++	ip->ihl = 5;
++	ip->protocol = IPPROTO_UDP;
++	ip->tot_len = htons(sizeof(*ip) + sizeof(*udp));
++	ip->saddr = htonl(0xc0000201);
++	ip->daddr = htonl(0xc6336402);
++	udp = (void *)(ip + 1);
++	udp->source = htons(1234);
++	udp->dest = htons(5678);
++	ip->check = ip_fast_csum(ip, ip->ihl);
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 1U);
++	KUNIT_EXPECT_TRUE(test, fa->learned[0].valid);
++	KUNIT_EXPECT_EQ(test, fa->learned[0].hash, (u8)0xfe);
++	KUNIT_EXPECT_EQ(test, fa->learned[0].port, (u8)3);
++	KUNIT_EXPECT_EQ(test, fa->learned[0].tuple.src, htonl(0xc0000201));
++	KUNIT_EXPECT_EQ(test, fa->learned[0].tuple.dport, htons(5678));
++	/* Preserve metadata for the brcm-fa DSA tagger. */
++	KUNIT_EXPECT_EQ(test, tag[0], (u8)(FA_MISS_OPCODE << 5));
++	ip->frag_off = htons(IP_MF);
++	ip->check = 0;
++	ip->check = ip_fast_csum(ip, ip->ihl);
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 1U);
++	ip->frag_off = 0;
++	ip->check = 0;
++	ip->check = ip_fast_csum(ip, ip->ihl);
++	tag[2] = 1;
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 1U);
++	tag[2] = 0;
++	ip->protocol = IPPROTO_TCP;
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 1U);
++	ip->protocol = IPPROTO_UDP;
++	eth->h_proto = htons(ETH_P_8021Q);
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 1U);
++	skb_trim(skb, 3);
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 1U);
++	kfree_skb(skb);
++}
++
++static void fa_test_tcp_encode_and_mangle(struct kunit *test)
++{
++	struct fa_rule rule = { .l4proto = IPPROTO_TCP, .direction = FA_DIR_UNSET };
++	struct flow_action_entry act = {
++		.mangle = {
++			.htype = FLOW_ACT_MANGLE_HDR_TYPE_TCP,
++			.mask = (__force u32)cpu_to_be32(0xffff0000),
++			.val = (__force u32)cpu_to_be32(0x00001234),
++		},
++	};
++	u32 data[8] = {};
++
++	KUNIT_ASSERT_EQ(test, fa_mangle(&rule, &act), 0);
++	KUNIT_EXPECT_EQ(test, rule.remap_port, (u16)0x1234);
++	KUNIT_EXPECT_EQ(test, rule.direction, 1);
++	act.mangle.htype = FLOW_ACT_MANGLE_HDR_TYPE_UDP;
++	KUNIT_EXPECT_EQ(test, fa_mangle(&rule, &act), -EOPNOTSUPP);
++	fa_encode(&rule, 1, 2, 3, data);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 127, 1), 1ULL);
++	rule.l4proto = IPPROTO_UDP;
++	fa_encode(&rule, 1, 2, 3, data);
++	KUNIT_EXPECT_EQ(test, fa_test_bits(data, 127, 1), 0ULL);
++}
++
++static void fa_test_tcp_identity(struct kunit *test)
++{
++	struct fa_rule rule = {
++		.tuple = { cpu_to_be32(0xc0000202), cpu_to_be32(0xc6336402),
++			   cpu_to_be16(40000), cpu_to_be16(5001) },
++		.l4proto = IPPROTO_TCP,
++		.remap_ip = 0xcb007101,
++		.remap_port = 45000,
++		.action = FA_ACT_REMAP_IP | FA_ACT_REMAP_PORT,
++	};
++	struct fa_flow entry = { .l4proto = IPPROTO_TCP, .in_port = 3 };
++	struct fa_learned learn = { .valid = true, .l4proto = IPPROTO_UDP };
++	struct fa_tuple reply, control;
++
++	fa_reply_tuple(&rule, &reply);
++	KUNIT_EXPECT_EQ(test, reply.src, rule.tuple.dst);
++	KUNIT_EXPECT_EQ(test, reply.dst, htonl(rule.remap_ip));
++	KUNIT_EXPECT_EQ(test, reply.sport, rule.tuple.dport);
++	KUNIT_EXPECT_EQ(test, reply.dport, htons(rule.remap_port));
++	rule.direction = FA_DIR_DNAT;
++	fa_reply_tuple(&rule, &reply);
++	KUNIT_EXPECT_EQ(test, reply.src, htonl(rule.remap_ip));
++	KUNIT_EXPECT_EQ(test, reply.dst, rule.tuple.src);
++	KUNIT_EXPECT_EQ(test, reply.sport, htons(rule.remap_port));
++	KUNIT_EXPECT_EQ(test, reply.dport, rule.tuple.sport);
++
++	entry.tuple = rule.tuple;
++	control = rule.tuple;
++	KUNIT_EXPECT_TRUE(test, fa_control_match(&entry, &control, 3, true));
++	KUNIT_EXPECT_FALSE(test, fa_control_match(&entry, &control, 2, true));
++	control.sport++;
++	KUNIT_EXPECT_FALSE(test, fa_control_match(&entry, &control, 3, true));
++	KUNIT_EXPECT_TRUE(test, fa_control_match(&entry, &control, 3, false));
++	entry.l4proto = IPPROTO_UDP;
++	KUNIT_EXPECT_FALSE(test, fa_control_match(&entry, &control, 3, false));
++
++	/* Equal TCP/UDP four-tuples must never share a learned hash. A TCP
++	 * control packet also invalidates observations from the old lifetime.
++	 */
++	learn.tuple = rule.tuple;
++	KUNIT_EXPECT_FALSE(test, fa_learn_matches(&learn, &rule, 0));
++	learn.l4proto = IPPROTO_TCP;
++	KUNIT_EXPECT_TRUE(test, fa_learn_matches(&learn, &rule, 0));
++	KUNIT_EXPECT_FALSE(test, fa_learn_matches(&learn, &rule, 1));
++	rule.l4proto = IPPROTO_UDP;
++	learn.l4proto = IPPROTO_UDP;
++	/* UDP uses the route/neighbour epoch, independent of TCP controls. */
++	KUNIT_EXPECT_TRUE(test, fa_learn_matches(&learn, &rule, 0));
++	KUNIT_EXPECT_FALSE(test, fa_learn_matches(&learn, &rule, 1));
++}
++
++static void fa_test_tcp_rx_control(struct kunit *test)
++{
++	struct bcm_ns_fa *fa = kunit_kzalloc(test, sizeof(*fa), GFP_KERNEL);
++	struct sk_buff *skb;
++	struct ethhdr *eth;
++	struct iphdr *ip;
++	struct tcphdr *tcp;
++	u8 *tag;
++
++	KUNIT_ASSERT_NOT_NULL(test, fa);
++	fa->learned = kunit_kcalloc(test, FA_SLOTS, sizeof(*fa->learned), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, fa->learned);
++	INIT_LIST_HEAD(&fa->entries);
++	spin_lock_init(&fa->learn_lock);
++	skb = alloc_skb(128, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, skb);
++	tag = skb_put_zero(skb, FA_TAG_LEN + ETH_HLEN + sizeof(*ip) + sizeof(*tcp));
++	tag[0] = FA_MISS_OPCODE << 5;
++	tag[1] = 0xab;
++	tag[3] = 2;
++	eth = (void *)(tag + FA_TAG_LEN);
++	eth->h_proto = htons(ETH_P_IP);
++	ip = (void *)(eth + 1);
++	ip->version = 4;
++	ip->ihl = 5;
++	ip->protocol = IPPROTO_TCP;
++	ip->tot_len = htons(sizeof(*ip) + sizeof(*tcp));
++	ip->saddr = htonl(0xc0000202);
++	ip->daddr = htonl(0xc6336402);
++	ip->check = ip_fast_csum(ip, ip->ihl);
++	tcp = (void *)(ip + 1);
++	tcp->doff = 5;
++	tcp->source = htons(40000);
++	tcp->dest = htons(5001);
++	tcp->syn = 1;
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 0U);
++	KUNIT_EXPECT_EQ(test, fa->control_generation, 1UL);
++	tcp->syn = 0;
++	tcp->ack = 1;
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 1U);
++	KUNIT_EXPECT_EQ(test, fa->learned[0].l4proto, (u8)IPPROTO_TCP);
++	KUNIT_EXPECT_EQ(test, fa->learned[0].hash, (u8)0xab);
++	KUNIT_EXPECT_EQ(test, fa->learned[0].generation, 1UL);
++	/* Opcode-zero switch traps contain no hash, but still retire TCP. */
++	tag[0] = 0;
++	tag[1] = 1;
++	tag[2] = BIT(3);
++	tcp->fin = 1;
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->learn_next, 1U);
++	KUNIT_EXPECT_EQ(test, fa->control_generation, 2UL);
++	tcp->fin = 0;
++	tcp->rst = 1;
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->control_generation, 3UL);
++	tcp->doff = 4;
++	bcm_ns_fa_rx(fa, skb);
++	KUNIT_EXPECT_EQ(test, fa->control_generation, 3UL);
++	kfree_skb(skb);
++}
++
++static void fa_test_tcp_control_readiness(struct kunit *test)
++{
++	struct bcm_ns_fa *fa = kunit_kzalloc(test, sizeof(*fa), GFP_KERNEL);
++
++	KUNIT_ASSERT_NOT_NULL(test, fa);
++	fa->regs = (void __iomem *)kunit_kzalloc(test, 0xc0, GFP_KERNEL);
++	fa->learned = kunit_kcalloc(test, FA_SLOTS, sizeof(*fa->learned), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, fa->regs);
++	KUNIT_ASSERT_NOT_NULL(test, fa->learned);
++	mutex_init(&fa->lock);
++	spin_lock_init(&fa->learn_lock);
++	fa_control_state_change(fa, true);
++	KUNIT_EXPECT_TRUE(test, fa->tcp_ready);
++	fa_control_state_change(fa, false);
++	KUNIT_EXPECT_FALSE(test, fa->tcp_ready);
++	fa->stopping = true;
++	fa_control_state_change(fa, true);
++	KUNIT_EXPECT_FALSE(test, fa->tcp_ready);
++}
++
++static void fa_test_lookup_gate_preserves_tags(struct kunit *test)
++{
++	struct bcm_ns_fa *fa = kunit_kzalloc(test, sizeof(*fa), GFP_KERNEL);
++	u32 *regs = kunit_kzalloc(test, 0xc0, GFP_KERNEL);
++	u32 control = FA_CTL_CRC_OVERWRITE | FA_CTL_NO_DA_CHECK;
++	u32 header = FA_BRCM_HW | FA_BRCM_RX | FA_BRCM_TX | FA_BRCM_PARSE_EXCEPTIONS;
++
++	KUNIT_ASSERT_NOT_NULL(test, fa);
++	KUNIT_ASSERT_NOT_NULL(test, regs);
++	fa->regs = (void __iomem *)regs;
++	writel(control, fa->regs + FA_CTL);
++	writel(header, fa->regs + FA_BRCM_HDR);
++	fa->enabled = true;
++	fa->tcp_ready = true;
++	fa->route_mtu_ok = true;
++	fa_lookup_update(fa);
++	KUNIT_EXPECT_EQ(test, readl(fa->regs + FA_L2_ETHERTYPE),
++			(u32)(ETH_P_IP | ETH_P_IPV6 << 16));
++	fa->control_pending = true;
++	fa_lookup_update(fa);
++	KUNIT_EXPECT_EQ(test, readl(fa->regs + FA_L2_ETHERTYPE), 0U);
++	fa->control_pending = false;
++	fa_lookup_update(fa);
++	KUNIT_EXPECT_NE(test, readl(fa->regs + FA_L2_ETHERTYPE), 0U);
++	fa->route_mtu_ok = false;
++	fa_lookup_update(fa);
++	KUNIT_EXPECT_EQ(test, readl(fa->regs + FA_L2_ETHERTYPE), 0U);
++	fa->route_mtu_ok = true;
++	fa->tcp_ready = false;
++	fa_lookup_update(fa);
++	KUNIT_EXPECT_EQ(test, readl(fa->regs + FA_L2_ETHERTYPE), 0U);
++	fa->tcp_ready = true;
++	fa->enabled = false;
++	fa_lookup_update(fa);
++	KUNIT_EXPECT_EQ(test, readl(fa->regs + FA_L2_ETHERTYPE), 0U);
++	KUNIT_EXPECT_EQ(test, readl(fa->regs + FA_CTL), control);
++	KUNIT_EXPECT_EQ(test, readl(fa->regs + FA_BRCM_HDR), header);
++}
++
++static void fa_test_mtu_cleanup(void *ptr)
++{
++	struct bcm_ns_fa *fa = ptr;
++
++	fa_fib_reset(&fa->fib_nb);
++}
++
++static void fa_test_route_mtu(struct kunit *test)
++{
++	struct bcm_ns_fa *fa = kunit_kzalloc(test, sizeof(*fa), GFP_KERNEL);
++	struct dst_metrics metrics = {};
++	struct fib_info fi = { .fib_metrics = &metrics };
++	struct fib_entry_notifier_info entry = {
++		.info.family = AF_INET, .fi = &fi, .tb_id = RT_TABLE_MAIN,
++		.dst = 0xc0000200, .dst_len = 24,
++	};
++
++	KUNIT_ASSERT_NOT_NULL(test, fa);
++	spin_lock_init(&fa->learn_lock);
++	hash_init(fa->mtu_routes);
++	KUNIT_ASSERT_EQ(test, kunit_add_action_or_reset(test, fa_test_mtu_cleanup, fa), 0);
++
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	KUNIT_EXPECT_TRUE(test, fa->route_mtu_ok);
++	metrics.metrics[RTAX_MTU - 1] = 1500;
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	KUNIT_EXPECT_TRUE(test, fa->route_mtu_ok);
++	metrics.metrics[RTAX_MTU - 1] = 1200;
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	KUNIT_EXPECT_FALSE(test, fa->route_mtu_ok);
++	KUNIT_EXPECT_EQ(test, fa->nr_mtu_routes, 1U);
++	/* Replays/replacements are idempotent; tables and prefixes are distinct. */
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	KUNIT_EXPECT_EQ(test, fa->nr_mtu_routes, 1U);
++	entry.tb_id++;
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	entry.dst_len++;
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	KUNIT_EXPECT_EQ(test, fa->nr_mtu_routes, 3U);
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_DEL, &entry);
++	entry.dst_len--;
++	metrics.metrics[RTAX_MTU - 1] = 1500;
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	KUNIT_EXPECT_FALSE(test, fa->route_mtu_ok);
++	entry.tb_id--;
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	KUNIT_EXPECT_EQ(test, fa->nr_mtu_routes, 0U);
++	KUNIT_EXPECT_TRUE(test, fa->route_mtu_ok);
++	/* A registration retry must discard a partial replay before starting over. */
++	metrics.metrics[RTAX_MTU - 1] = 1000;
++	fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	fa_fib_reset(&fa->fib_nb);
++	KUNIT_EXPECT_TRUE(test, hash_empty(fa->mtu_routes));
++	KUNIT_EXPECT_TRUE(test, fa->route_mtu_ok);
++}
++
++static void fa_test_route_mtu_capacity(struct kunit *test)
++{
++	struct bcm_ns_fa *fa = kunit_kzalloc(test, sizeof(*fa), GFP_KERNEL);
++	struct dst_metrics metrics = {};
++	struct fib_info fi = { .fib_metrics = &metrics };
++	struct fib_entry_notifier_info entry = {
++		.info.family = AF_INET, .fi = &fi, .tb_id = RT_TABLE_MAIN, .dst_len = 32,
++	};
++	unsigned int i;
++
++	KUNIT_ASSERT_NOT_NULL(test, fa);
++	spin_lock_init(&fa->learn_lock);
++	hash_init(fa->mtu_routes);
++	KUNIT_ASSERT_EQ(test, kunit_add_action_or_reset(test, fa_test_mtu_cleanup, fa), 0);
++	/* Ordinary routes consume no tracking memory, regardless of FIB size. */
++	for (i = 0; i < 10000; i++) {
++		entry.dst = i;
++		fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	}
++	KUNIT_EXPECT_EQ(test, fa->nr_mtu_routes, 0U);
++	KUNIT_EXPECT_TRUE(test, fa->route_mtu_ok);
++	metrics.metrics[RTAX_MTU - 1] = 1200;
++	for (i = 0; i <= FA_MTU_ROUTES_MAX; i++) {
++		entry.dst = i;
++		fa_mtu_route_update(fa, FIB_EVENT_ENTRY_REPLACE, &entry);
++	}
++	KUNIT_EXPECT_EQ(test, fa->nr_mtu_routes, (unsigned int)FA_MTU_ROUTES_MAX);
++	KUNIT_EXPECT_TRUE(test, fa->mtu_tracking_failed);
++	for (i = 0; i < FA_MTU_ROUTES_MAX; i++) {
++		entry.dst = i;
++		fa_mtu_route_update(fa, FIB_EVENT_ENTRY_DEL, &entry);
++	}
++	KUNIT_EXPECT_EQ(test, fa->nr_mtu_routes, 0U);
++	KUNIT_EXPECT_FALSE(test, fa->route_mtu_ok);
++	fa_fib_reset(&fa->fib_nb);
++	KUNIT_EXPECT_TRUE(test, fa->route_mtu_ok);
++}
++
++static void fa_test_route_suitability(struct kunit *test)
++{
++	struct dst_metrics metrics = {};
++	struct fib_info fi = { .fib_metrics = &metrics, .fib_nhs = 1 };
++	struct fib_nh_common nhc = {};
++	struct fib_result res = { .fi = &fi, .nhc = &nhc, .type = RTN_UNICAST };
++	struct fa_rule rule = {};
++
++	rule.out = kunit_kzalloc(test, sizeof(*rule.out), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, rule.out);
++	nhc.nhc_dev = rule.out;
++	KUNIT_EXPECT_EQ(test, fa_route_supported(&rule, &res), 0);
++	/* A partial driver-side lookup cannot establish a stale owner. */
++	fi.fib_nhs = 2;
++	KUNIT_EXPECT_EQ(test, fa_route_supported(&rule, &res), -EOPNOTSUPP);
++	fi.fib_nhs = 1;
++	fi.nh = kunit_kzalloc(test, sizeof(*fi.nh), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, fi.nh);
++	KUNIT_EXPECT_EQ(test, fa_route_supported(&rule, &res), -EOPNOTSUPP);
++	fi.nh = NULL;
++	nhc.nhc_lwtstate = kunit_kzalloc(test, sizeof(*nhc.nhc_lwtstate), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, nhc.nhc_lwtstate);
++	KUNIT_EXPECT_EQ(test, fa_route_supported(&rule, &res), -EOPNOTSUPP);
++	nhc.nhc_lwtstate = NULL;
++	metrics.metrics[RTAX_MTU - 1] = 1200;
++	KUNIT_EXPECT_EQ(test, fa_route_supported(&rule, &res), -EOPNOTSUPP);
++	metrics.metrics[RTAX_MTU - 1] = 0;
++	nhc.nhc_gw_family = AF_INET6;
++	KUNIT_EXPECT_EQ(test, fa_route_supported(&rule, &res), -EOPNOTSUPP);
++	nhc.nhc_gw_family = 0;
++	nhc.nhc_dev = NULL;
++	KUNIT_EXPECT_EQ(test, fa_route_supported(&rule, &res), -EOPNOTSUPP);
++	nhc.nhc_dev = rule.out;
++	res.type = RTN_BLACKHOLE;
++	KUNIT_EXPECT_EQ(test, fa_route_supported(&rule, &res), -EOPNOTSUPP);
++}
++
++struct fa_test_owner {
++	struct bcm_ns_fa *fa;
++	unsigned int calls;
++	bool lookup_stopped;
++};
++
++static void fa_test_owner_invalidate(unsigned long cookie)
++{
++	struct fa_test_owner *owner = (struct fa_test_owner *)cookie;
++
++	owner->calls++;
++	owner->lookup_stopped = !readl(owner->fa->regs + FA_L2_ETHERTYPE);
++}
++
++static void fa_test_empty_work(struct work_struct *work)
++{
++}
++
++static void fa_test_invalidation(struct kunit *test)
++{
++	struct bcm_ns_fa *fa = kunit_kzalloc(test, sizeof(*fa), GFP_KERNEL);
++	struct fa_test_owner owner = { .fa = fa };
++	struct fa_flow entry = {
++		.cookie = (unsigned long)&owner,
++		.invalidate = fa_test_owner_invalidate,
++	};
++
++	KUNIT_ASSERT_NOT_NULL(test, fa);
++	fa->regs = (void __iomem *)kunit_kzalloc(test, 0xc0, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, fa->regs);
++	spin_lock_init(&fa->learn_lock);
++	INIT_WORK(&fa->control_work, fa_test_empty_work);
++	INIT_LIST_HEAD(&fa->entries);
++	list_add(&entry.list, &fa->entries);
++	fa->enabled = true;
++	fa->tcp_ready = true;
++	fa->route_mtu_ok = true;
++	fa_lookup_update(fa);
++	fa_invalidate(fa);
++	flush_work(&fa->control_work);
++	KUNIT_EXPECT_EQ(test, owner.calls, 1U);
++	KUNIT_EXPECT_TRUE(test, owner.lookup_stopped);
++	KUNIT_EXPECT_TRUE(test, test_bit(FA_FLOW_CLOSING, &entry.flags));
++	KUNIT_EXPECT_TRUE(test, fa->control_pending);
++	KUNIT_EXPECT_TRUE(test, fa->route_mtu_ok);
++	KUNIT_EXPECT_EQ(test, fa->invalidate_generation, 1UL);
++}
++
++static struct kunit_case fa_test_cases[] = {
++	KUNIT_CASE(fa_test_upper_device_rcu),
++	KUNIT_CASE(fa_test_encode),
++	KUNIT_CASE(fa_test_mac_encode),
++	KUNIT_CASE(fa_test_nat_actions),
++	KUNIT_CASE(fa_test_ethernet_actions),
++	KUNIT_CASE(fa_test_rx_learning),
++	KUNIT_CASE(fa_test_tcp_encode_and_mangle),
++	KUNIT_CASE(fa_test_tcp_identity),
++	KUNIT_CASE(fa_test_tcp_rx_control),
++	KUNIT_CASE(fa_test_tcp_control_readiness),
++	KUNIT_CASE(fa_test_lookup_gate_preserves_tags),
++	KUNIT_CASE(fa_test_route_mtu),
++	KUNIT_CASE(fa_test_route_mtu_capacity),
++	KUNIT_CASE(fa_test_route_suitability),
++	KUNIT_CASE(fa_test_invalidation),
++	{}
++};
++
++static struct kunit_suite fa_test_suite = {
++	.name = "bcm-ns-fa",
++	.test_cases = fa_test_cases,
++};
++
++kunit_test_suite(fa_test_suite);
+diff --git a/drivers/net/ethernet/broadcom/bcm-ns-fa.c b/drivers/net/ethernet/broadcom/bcm-ns-fa.c
+index 8665ba94cbab..4ee8e5c18bb8 100644
+--- a/drivers/net/ethernet/broadcom/bcm-ns-fa.c
++++ b/drivers/net/ethernet/broadcom/bcm-ns-fa.c
+@@ -1893,5 +1893,9 @@ struct bcm_ns_fa *bcm_ns_fa_init(struct net_device *dev)
+ }
+ EXPORT_SYMBOL_GPL(bcm_ns_fa_init);
+ 
++#if IS_ENABLED(CONFIG_BCM_NS_FA_KUNIT_TEST)
++#include "bcm-ns-fa-test.c"
++#endif
++
+ MODULE_DESCRIPTION("Broadcom Northstar IPv4 TCP/UDP NAT flow accelerator");
+ MODULE_LICENSE("GPL");
 diff --git a/net/dsa/Kconfig b/net/dsa/Kconfig
-index 4f44bf3ede23..2dffff2f6c34 100644
+index 2dffff2f6c34..33fa69d3f216 100644
 --- a/net/dsa/Kconfig
 +++ b/net/dsa/Kconfig
-@@ -69,6 +69,15 @@ config NET_DSA_TAG_BRCM_PREPEND
- 	  Broadcom switches which places the tag before the Ethernet header
- 	  (prepended).
+@@ -78,6 +78,17 @@ config NET_DSA_TAG_BRCM_FA
+ 	  switch port. Transmit uses the ordinary prepended Broadcom tag.
+ 	  Enable this for a B53 switch explicitly connected to an accelerator.
  
-+config NET_DSA_TAG_BRCM_FA
-+	tristate "Tag driver for the Broadcom Northstar flow accelerator"
-+	select NET_DSA_TAG_BRCM_COMMON
++config NET_DSA_TAG_BRCM_FA_KUNIT_TEST
++	bool "KUnit tests for Broadcom FA tags" if !KUNIT_ALL_TESTS
++	depends on KUNIT=y && NET_DSA_TAG_BRCM_FA
++	default KUNIT_ALL_TESTS
 +	help
-+	  Support the prepended four-byte FA metadata tag on Northstar GMAC2.
-+	  The receive format includes a hash, bucket, parser status, and input
-+	  switch port. Transmit uses the ordinary prepended Broadcom tag.
-+	  Enable this for a B53 switch explicitly connected to an accelerator.
++	  Tests are compiled into the parent driver and require built-in KUnit.
++	  Verify FA miss demultiplexing, parser-status handling, and rejection
++	  of unsupported opcodes without changing ordinary Broadcom tagging.
++	  Exercise source-port demultiplexing and consumption of the metadata
++	  tag through the receive path, without requiring a physical switch.
 +
  config NET_DSA_TAG_HELLCREEK
  	tristate "Tag driver for Hirschmann Hellcreek TSN switches"
  	help
 diff --git a/net/dsa/tag_brcm.c b/net/dsa/tag_brcm.c
-index b7c49822ca88..8d13a3c7de5e 100644
+index 8d13a3c7de5e..4a2c0a51db97 100644
 --- a/net/dsa/tag_brcm.c
 +++ b/net/dsa/tag_brcm.c
-@@ -9,6 +9,7 @@
- #include <linux/etherdevice.h>
- #include <linux/if_vlan.h>
- #include <linux/list.h>
-+#include <linux/mutex.h>
- #include <linux/slab.h>
+@@ -526,5 +526,9 @@ static struct dsa_tag_driver *dsa_tag_driver_array[] =	{
  
- #include "tag.h"
-@@ -17,6 +18,8 @@
- #define BRCM_LEGACY_NAME	"brcm-legacy"
- #define BRCM_LEGACY_FCS_NAME	"brcm-legacy-fcs"
- #define BRCM_PREPEND_NAME	"brcm-prepend"
-+#define BRCM_FA_NAME		"brcm-fa"
-+#define BRCM_FA_OPCODE_MISS	2
+ module_dsa_tag_drivers(dsa_tag_driver_array);
  
- /* Legacy Broadcom tag (6 bytes) */
- #define BRCM_LEG_TAG_LEN	6
-@@ -84,7 +87,8 @@
- #define BRCM_EG_PID_MASK	0x1f
- 
- #if IS_ENABLED(CONFIG_NET_DSA_TAG_BRCM) || \
--	IS_ENABLED(CONFIG_NET_DSA_TAG_BRCM_PREPEND)
-+	IS_ENABLED(CONFIG_NET_DSA_TAG_BRCM_PREPEND) || \
-+	IS_ENABLED(CONFIG_NET_DSA_TAG_BRCM_FA)
- 
- static struct sk_buff *brcm_tag_xmit_ll(struct sk_buff *skb,
- 					struct net_device *dev,
-@@ -146,9 +150,10 @@ static struct sk_buff *brcm_tag_xmit_ll(struct sk_buff *skb,
-  */
- static struct sk_buff *brcm_tag_rcv_ll(struct sk_buff *skb,
- 				       struct net_device *dev,
--				       unsigned int offset)
-+				       unsigned int offset, bool fa)
- {
- 	int source_port;
-+	u8 opcode;
- 	u8 *brcm_tag;
- 
- 	if (unlikely(!pskb_may_pull(skb, BRCM_TAG_LEN))) {
-@@ -158,8 +163,12 @@ static struct sk_buff *brcm_tag_rcv_ll(struct sk_buff *skb,
- 
- 	brcm_tag = skb->data - offset;
- 
--	/* The opcode should never be different than 0b000 */
--	if (unlikely((brcm_tag[0] >> BRCM_OPCODE_SHIFT) & BRCM_OPCODE_MASK)) {
-+	/* Opcode 2 is a four-byte FA miss descriptor. Its middle bytes
-+	 * contain the flow hash and parser status, not classification/reason.
-+	 * Timestamp descriptors (opcode 1, eight bytes) are not supported.
-+	 */
-+	opcode = (brcm_tag[0] >> BRCM_OPCODE_SHIFT) & BRCM_OPCODE_MASK;
-+	if (unlikely(opcode && !(fa && opcode == BRCM_FA_OPCODE_MISS))) {
- 		kfree_skb(skb);
- 		return NULL;
- 	}
-@@ -167,7 +176,7 @@ static struct sk_buff *brcm_tag_rcv_ll(struct sk_buff *skb,
- 	/* We should never see a reserved reason code without knowing how to
- 	 * handle it
- 	 */
--	if (unlikely(brcm_tag[2] & BRCM_EG_RC_RSVD)) {
-+	if (unlikely(!opcode && (brcm_tag[2] & BRCM_EG_RC_RSVD))) {
- 		kfree_skb(skb);
- 		return NULL;
- 	}
-@@ -205,7 +214,7 @@ static struct sk_buff *brcm_tag_rcv(struct sk_buff *skb, struct net_device *dev)
- 	struct sk_buff *nskb;
- 
- 	/* skb->data points to the EtherType, the tag is right before it */
--	nskb = brcm_tag_rcv_ll(skb, dev, 2);
-+	nskb = brcm_tag_rcv_ll(skb, dev, 2, false);
- 	if (!nskb)
- 		return nskb;
- 
-@@ -392,7 +401,7 @@ static struct sk_buff *brcm_tag_rcv_prepend(struct sk_buff *skb,
- 					    struct net_device *dev)
- {
- 	/* tag is prepended to the packet */
--	return brcm_tag_rcv_ll(skb, dev, ETH_HLEN);
-+	return brcm_tag_rcv_ll(skb, dev, ETH_HLEN, false);
- }
- 
- static const struct dsa_device_ops brcm_prepend_netdev_ops = {
-@@ -407,7 +416,100 @@ DSA_TAG_DRIVER(brcm_prepend_netdev_ops);
- MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_BRCM_PREPEND, BRCM_PREPEND_NAME);
- #endif
- 
-+#if IS_ENABLED(CONFIG_NET_DSA_TAG_BRCM_FA)
-+static LIST_HEAD(brcm_fa_controls);
-+static DEFINE_MUTEX(brcm_fa_control_lock);
++#if IS_ENABLED(CONFIG_NET_DSA_TAG_BRCM_FA_KUNIT_TEST)
++#include "tag_brcm_test.c"
++#endif
 +
-+void brcm_fa_control_register(struct brcm_fa_control *control)
-+{
-+	mutex_lock(&brcm_fa_control_lock);
-+	list_add_rcu(&control->list, &brcm_fa_controls);
-+	mutex_unlock(&brcm_fa_control_lock);
-+}
-+EXPORT_SYMBOL_GPL(brcm_fa_control_register);
+ MODULE_DESCRIPTION("DSA tag driver for Broadcom switches using in-frame headers");
+ MODULE_LICENSE("GPL");
+diff --git a/net/dsa/tag_brcm_test.c b/net/dsa/tag_brcm_test.c
+new file mode 100644
+index 000000000000..85499461e86b
+--- /dev/null
++++ b/net/dsa/tag_brcm_test.c
+@@ -0,0 +1,199 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/* Included in tag_brcm.c: test the real receive path with a minimal DSA tree. */
++#include <kunit/test.h>
 +
-+void brcm_fa_control_unregister(struct brcm_fa_control *control)
-+{
-+	mutex_lock(&brcm_fa_control_lock);
-+	list_del_rcu(&control->list);
-+	mutex_unlock(&brcm_fa_control_lock);
-+	synchronize_net();
-+}
-+EXPORT_SYMBOL_GPL(brcm_fa_control_unregister);
-+
-+void brcm_fa_control_set_ready(struct net_device *conduit, bool ready)
-+{
-+	struct brcm_fa_control *control;
-+
-+	/* State callbacks can sleep while retiring hardware entries. */
-+	mutex_lock(&brcm_fa_control_lock);
-+	list_for_each_entry(control, &brcm_fa_controls, list)
-+		if (control->conduit == conduit && control->state_change)
-+			control->state_change(control->priv, ready);
-+	mutex_unlock(&brcm_fa_control_lock);
-+}
-+EXPORT_SYMBOL_GPL(brcm_fa_control_set_ready);
-+
-+static struct sk_buff *brcm_fa_tag_xmit(struct sk_buff *skb,
-+					struct net_device *dev)
-+{
-+	struct dsa_port *dp = dsa_user_to_port(dev);
-+
-+	return brcm_tag_xmit_ll(skb, dev, dp->cpu_dp->index == 5 ? 2 * ETH_ALEN : 0);
-+}
-+
-+static struct sk_buff *brcm_fa_tag_rcv(struct sk_buff *skb, struct net_device *dev)
-+{
-+	struct dsa_port *cpu = dev->dsa_ptr;
-+	struct brcm_fa_control *control;
-+	struct dsa_port *data_cpu;
-+	unsigned int port;
-+	u8 reason;
-+
-+	if (cpu->index != 5)
-+		return brcm_tag_rcv_ll(skb, dev, ETH_HLEN, true);
-+	if (!pskb_may_pull(skb, BRCM_TAG_LEN))
-+		goto drop;
-+	reason = skb->data[0]; /* Embedded tag byte 2 after eth_type_trans(). */
-+	port = skb->data[1] & BRCM_EG_PID_MASK;
-+	skb = brcm_tag_rcv_ll(skb, dev, 2, false);
-+	if (!skb)
-+		return NULL;
-+	dsa_strip_etype_header(skb, BRCM_TAG_LEN);
-+	skb_set_mac_header(skb, -ETH_HLEN);
-+	if (!(reason & BRCM_EG_RC_PROT_TERM))
-+		return skb;
-+	data_cpu = dsa_to_port(cpu->ds, 8);
-+	if (!data_cpu || !dsa_port_is_cpu(data_cpu))
-+		return skb;
-+	rcu_read_lock();
-+	list_for_each_entry_rcu(control, &brcm_fa_controls, list)
-+		if (control->conduit == data_cpu->conduit)
-+			control->receive(control->priv, skb, port);
-+	rcu_read_unlock();
-+	return skb;
-+drop:
-+	kfree_skb(skb);
-+	return NULL;
-+}
-+
-+static const struct dsa_device_ops brcm_fa_netdev_ops = {
-+	.name = BRCM_FA_NAME,
-+	.proto = DSA_TAG_PROTO_BRCM_FA,
-+	.xmit = brcm_fa_tag_xmit,
-+	.rcv = brcm_fa_tag_rcv,
-+	.needed_headroom = BRCM_TAG_LEN,
-+	.promisc_on_conduit = true,
++struct brcm_fa_test_ctx {
++	struct dsa_switch_tree tree;
++	struct dsa_switch ds;
++	struct dsa_port cpu, user;
++	struct net_device *conduit, *port;
 +};
 +
-+DSA_TAG_DRIVER(brcm_fa_netdev_ops);
-+MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_BRCM_FA, BRCM_FA_NAME);
-+#endif
++static void brcm_fa_test_free_netdev(void *ptr)
++{
++	free_netdev(ptr);
++}
 +
- static struct dsa_tag_driver *dsa_tag_driver_array[] =	{
-+#if IS_ENABLED(CONFIG_NET_DSA_TAG_BRCM_FA)
-+	&DSA_TAG_DRIVER_NAME(brcm_fa_netdev_ops),
++static int brcm_fa_test_init(struct kunit *test)
++{
++	struct brcm_fa_test_ctx *ctx;
++	struct dsa_user_priv *priv;
++	int err;
++
++	ctx = kunit_kzalloc(test, sizeof(*ctx), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, ctx);
++	ctx->conduit = alloc_etherdev(0);
++	KUNIT_ASSERT_NOT_NULL(test, ctx->conduit);
++	err = kunit_add_action_or_reset(test, brcm_fa_test_free_netdev, ctx->conduit);
++	if (err)
++		return err;
++	ctx->port = alloc_etherdev(sizeof(*priv));
++	KUNIT_ASSERT_NOT_NULL(test, ctx->port);
++	err = kunit_add_action_or_reset(test, brcm_fa_test_free_netdev, ctx->port);
++	if (err)
++		return err;
++	INIT_LIST_HEAD(&ctx->tree.ports);
++	ctx->ds.dst = &ctx->tree;
++	ctx->cpu.index = 8;
++	ctx->cpu.type = DSA_PORT_TYPE_CPU;
++	ctx->cpu.ds = &ctx->ds;
++	ctx->cpu.dst = &ctx->tree;
++	ctx->user.ds = &ctx->ds;
++	ctx->user.dst = &ctx->tree;
++	ctx->user.index = 3;
++	ctx->user.type = DSA_PORT_TYPE_USER;
++	ctx->user.user = ctx->port;
++	list_add(&ctx->user.list, &ctx->tree.ports);
++	ctx->conduit->dsa_ptr = &ctx->cpu;
++	priv = netdev_priv(ctx->port);
++	priv->dp = &ctx->user;
++	test->priv = ctx;
++	return 0;
++}
++
++static struct sk_buff *brcm_fa_test_skb(u8 opcode, u8 status, u8 port)
++{
++	struct sk_buff *skb = alloc_skb(64, GFP_KERNEL);
++	u8 *data;
++
++	if (!skb)
++		return NULL;
++	data = skb_put_zero(skb, 64);
++	data[0] = opcode << BRCM_OPCODE_SHIFT;
++	data[1] = 0xff; /* Hash: not a classification identifier. */
++	data[2] = status;
++	data[3] = port;
++	/* Reproduce eth_type_trans(): the tagger gets data after ETH_HLEN. */
++	skb_reset_mac_header(skb);
++	skb_pull(skb, ETH_HLEN);
++	return skb;
++}
++
++static void brcm_fa_test_miss(struct kunit *test)
++{
++	struct brcm_fa_test_ctx *ctx = test->priv;
++	struct sk_buff *skb, *result;
++	u8 *start;
++
++	/* A parser failure is for the software IP stack to handle; it must
++	 * not be confused with the reserved bits in a normal switch reason.
++	 */
++	skb = brcm_fa_test_skb(BRCM_FA_OPCODE_MISS, 0xff, 3);
++	KUNIT_ASSERT_NOT_NULL(test, skb);
++	start = skb->data;
++	result = brcm_fa_tag_rcv(skb, ctx->conduit);
++	KUNIT_ASSERT_NOT_NULL(test, result);
++	KUNIT_EXPECT_PTR_EQ(test, result->dev, ctx->port);
++	KUNIT_EXPECT_PTR_EQ(test, result->data, start + BRCM_TAG_LEN);
++	KUNIT_EXPECT_EQ(test, result->len, 64U - ETH_HLEN - BRCM_TAG_LEN);
++	kfree_skb(result);
++}
++
++static void brcm_fa_test_opcodes(struct kunit *test)
++{
++	struct brcm_fa_test_ctx *ctx = test->priv;
++	struct sk_buff *skb, *result;
++	int opcode;
++
++	for (opcode = 0; opcode < 8; opcode++) {
++		skb = brcm_fa_test_skb(opcode, 0, 3);
++		KUNIT_ASSERT_NOT_NULL(test, skb);
++		result = brcm_fa_tag_rcv(skb, ctx->conduit);
++		if (!opcode || opcode == BRCM_FA_OPCODE_MISS) {
++			KUNIT_ASSERT_NOT_NULL(test, result);
++			kfree_skb(result);
++		} else {
++			KUNIT_EXPECT_PTR_EQ(test, result, NULL);
++		}
++	}
++}
++
++static void brcm_fa_test_strict_normal_tag(struct kunit *test)
++{
++	struct brcm_fa_test_ctx *ctx = test->priv;
++	struct sk_buff *skb;
++
++	skb = brcm_fa_test_skb(BRCM_FA_OPCODE_MISS, 0, 3);
++	KUNIT_ASSERT_NOT_NULL(test, skb);
++	KUNIT_EXPECT_PTR_EQ(test, brcm_tag_rcv_ll(skb, ctx->conduit, ETH_HLEN, false), NULL);
++	skb = brcm_fa_test_skb(0, BRCM_EG_RC_RSVD, 3);
++	KUNIT_ASSERT_NOT_NULL(test, skb);
++	KUNIT_EXPECT_PTR_EQ(test, brcm_fa_tag_rcv(skb, ctx->conduit), NULL);
++	skb = brcm_fa_test_skb(BRCM_FA_OPCODE_MISS, 0, 7);
++	KUNIT_ASSERT_NOT_NULL(test, skb);
++	KUNIT_EXPECT_PTR_EQ(test, brcm_fa_tag_rcv(skb, ctx->conduit), NULL);
++}
++
++struct brcm_fa_control_test {
++	unsigned int calls, port;
++	__be16 protocol;
++};
++
++static void brcm_fa_test_receive(void *priv, struct sk_buff *skb, unsigned int port)
++{
++	struct brcm_fa_control_test *state = priv;
++
++	state->calls++;
++	state->port = port;
++	state->protocol = eth_hdr(skb)->h_proto;
++}
++
++static void brcm_fa_test_auxiliary_control(struct kunit *test)
++{
++	struct brcm_fa_test_ctx *ctx = test->priv;
++	struct brcm_fa_control_test state = {};
++	struct brcm_fa_control control = {
++		.conduit = ctx->port,
++		.receive = brcm_fa_test_receive,
++		.priv = &state,
++	};
++	struct dsa_port *data_cpu;
++	struct sk_buff *skb, *result;
++	u8 *data;
++
++	data_cpu = kunit_kzalloc(test, sizeof(*data_cpu), GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, data_cpu);
++	data_cpu->ds = &ctx->ds;
++	data_cpu->type = DSA_PORT_TYPE_CPU;
++	data_cpu->index = 8;
++	data_cpu->conduit = ctx->port;
++	list_add(&data_cpu->list, &ctx->tree.ports);
++	ctx->cpu.index = 5;
++	skb = alloc_skb(64, GFP_KERNEL);
++	KUNIT_ASSERT_NOT_NULL(test, skb);
++	data = skb_put_zero(skb, 64);
++	data[0] = 2;
++	data[6] = 2;
++	data[13] = 1; /* Classification ID. */
++	data[14] = BRCM_EG_RC_PROT_TERM;
++	data[15] = 3;
++	put_unaligned_be16(ETH_P_IP, data + 16);
++	skb_reset_mac_header(skb);
++	skb_pull(skb, ETH_HLEN);
++	brcm_fa_control_register(&control);
++	result = brcm_fa_tag_rcv(skb, ctx->conduit);
++	brcm_fa_control_unregister(&control);
++	KUNIT_ASSERT_NOT_NULL(test, result);
++	KUNIT_EXPECT_PTR_EQ(test, result->dev, ctx->port);
++	KUNIT_EXPECT_EQ(test, result->len, 64U - ETH_HLEN - BRCM_TAG_LEN);
++	KUNIT_EXPECT_EQ(test, state.calls, 1U);
++	KUNIT_EXPECT_EQ(test, state.port, 3U);
++	KUNIT_EXPECT_EQ(test, state.protocol, htons(ETH_P_IP));
++	kfree_skb(result);
++}
++
++static struct kunit_case brcm_fa_test_cases[] = {
++	KUNIT_CASE(brcm_fa_test_miss),
++	KUNIT_CASE(brcm_fa_test_auxiliary_control),
++	KUNIT_CASE(brcm_fa_test_opcodes),
++	KUNIT_CASE(brcm_fa_test_strict_normal_tag),
++	{}
++};
++
++static struct kunit_suite brcm_fa_test_suite = {
++	.name = "brcm-fa-tag",
++	.init = brcm_fa_test_init,
++	.test_cases = brcm_fa_test_cases,
++};
++
++kunit_test_suite(brcm_fa_test_suite);
+diff --git a/net/netfilter/Kconfig b/net/netfilter/Kconfig
+index f565f87b3a6c..311a1910f6be 100644
+--- a/net/netfilter/Kconfig
++++ b/net/netfilter/Kconfig
+@@ -719,14 +719,14 @@ config NF_FLOW_TABLE
+ 	  To compile it as a module, choose M here.
+ 
+ config NF_FLOW_TABLE_KUNIT_TEST
+-	bool "KUnit tests for flowtable ownership" if !KUNIT_ALL_TESTS
++	bool "KUnit tests for flowtable ownership and cached paths" if !KUNIT_ALL_TESTS
+ 	depends on KUNIT=y && NF_FLOW_TABLE
+ 	default KUNIT_ALL_TESTS
+ 	help
+-	  Test conntrack offload ownership during flowtable teardown.
+-	  Require hash and asynchronous hardware deletion before re-enrolment.
+-	  Verify that late notifications cannot release a replacement owner.
+-	  These private tests are embedded in the flowtable core.
++	  Test flowtable ownership during asynchronous hardware deletion and
++	  repeated teardown notifications, and validate cached forwarding paths.
++	  Tests cover route expiry, neighbour changes and unsupported contexts.
++	  The tests are embedded in their parent translation units.
+ 
+ config NF_FLOW_TABLE_PROCFS
+ 	bool "Supply flow table statistics in procfs"
+diff --git a/net/netfilter/nf_flow_table_core_test.c b/net/netfilter/nf_flow_table_core_test.c
+index 378a1c60b50b..5c7645239d2e 100644
+--- a/net/netfilter/nf_flow_table_core_test.c
++++ b/net/netfilter/nf_flow_table_core_test.c
+@@ -72,9 +72,94 @@ static void nf_flow_test_hardware_retirement(struct kunit *test)
+ 	rhashtable_destroy(&table.rhashtable);
+ }
+ 
++static struct dst_entry *nf_flow_test_gc_dst_check(struct dst_entry *dst, u32 cookie)
++{
++	return dst->error ? NULL : dst;
++}
++
++static void nf_flow_test_gc_routes(struct kunit *test)
++{
++	static const struct {
++		const char *name;
++		enum flow_offload_xmit_type type;
++		bool keep_dst;
++		bool tunnel;
++		bool check;
++	} cases[] = {
++		{ "software direct", FLOW_OFFLOAD_XMIT_DIRECT, false, false, false },
++		{ "validation only", FLOW_OFFLOAD_XMIT_DIRECT, true, false, false },
++		{ "direct tunnel", FLOW_OFFLOAD_XMIT_DIRECT, false, true, true },
++		{ "HW direct tunnel", FLOW_OFFLOAD_XMIT_DIRECT, true, true, true },
++		{ "neighbour", FLOW_OFFLOAD_XMIT_NEIGH, false, false, true },
++		{ "HW neighbour", FLOW_OFFLOAD_XMIT_NEIGH, true, false, true },
++		{ "XFRM", FLOW_OFFLOAD_XMIT_XFRM, true, false, true },
++	};
++	static struct dst_ops ops = {
++		.family = AF_INET,
++		.check = nf_flow_test_gc_dst_check,
++	};
++	static struct nf_flowtable_type type;
++	unsigned int i, dir;
++
++	for (i = 0; i < ARRAY_SIZE(cases); i++) {
++		struct nf_flowtable table = { .type = &type };
++		struct nf_flow_route route = {};
++		struct flow_offload *flow;
++		struct net_device *dev;
++		struct rtable *rt;
++		struct nf_conn *ct;
++
++		flow = kunit_kzalloc(test, sizeof(*flow), GFP_KERNEL);
++		dev = kunit_kzalloc(test, sizeof(*dev), GFP_KERNEL);
++		rt = kunit_kcalloc(test, FLOW_OFFLOAD_DIR_MAX, sizeof(*rt), GFP_KERNEL);
++		ct = kunit_kzalloc(test, sizeof(*ct), GFP_KERNEL);
++		KUNIT_ASSERT_NOT_NULL(test, flow);
++		KUNIT_ASSERT_NOT_NULL(test, dev);
++		KUNIT_ASSERT_NOT_NULL(test, rt);
++		KUNIT_ASSERT_NOT_NULL(test, ct);
++		dev_net_set(dev, &init_net);
++		dev->mtu = 1500;
++		ct->tuplehash[0].tuple.dst.protonum = IPPROTO_ICMP;
++		refcount_set(&ct->ct_general.use, 2);
++		flow->ct = ct;
++		flow->timeout = nf_flowtable_time_stamp + NF_FLOW_TIMEOUT;
++		/* Avoid queuing real DELETE/STATS work from this private GC test. */
++		set_bit(NF_FLOW_HW, &flow->flags);
++		set_bit(NF_FLOW_HW_DYING, &flow->flags);
++		set_bit(IPS_OFFLOAD_BIT, &ct->status);
++		for (dir = 0; dir < FLOW_OFFLOAD_DIR_MAX; dir++) {
++			struct dst_entry *dst = &rt[dir].dst;
++
++			dst->dev = dev;
++			dst->ops = &ops;
++			dst->obsolete = DST_OBSOLETE_FORCE_CHK;
++			dst_init_metrics(dst, dst_default_metrics.metrics, true);
++			/* One fixture reference and one transferred route reference. */
++			rcuref_init(&dst->__rcuref, 2);
++			flow->tuplehash[dir].tuple.l3proto = NFPROTO_IPV4;
++			route.tuple[dir].dst = dst;
++			route.tuple[dir].xmit_type = cases[i].type;
++			route.tuple[dir].in.num_tuns = cases[i].tunnel;
++		}
++		flow_offload_route_init(flow, &route, cases[i].keep_dst);
++		/* Simulate the expired dst returned after an IPv4 generation change. */
++		rt[0].dst.error = ENETUNREACH;
++		KUNIT_EXPECT_EQ_MSG(test,
++				    !nf_flow_dst_check(&flow->tuplehash[0].tuple), cases[i].check,
++				    "packet path: %s", cases[i].name);
++		nf_flow_offload_gc_step(&table, flow, NULL);
++		KUNIT_EXPECT_EQ_MSG(test, test_bit(NF_FLOW_TEARDOWN, &flow->flags),
++				    cases[i].check, "GC path: %s", cases[i].name);
++		flow_offload_route_release(flow);
++		for (dir = 0; dir < FLOW_OFFLOAD_DIR_MAX; dir++)
++			KUNIT_EXPECT_EQ(test, rcuref_read(&rt[dir].dst.__rcuref), 1);
++	}
++}
++
+ static struct kunit_case nf_flow_lifetime_cases[] = {
+ 	KUNIT_CASE(nf_flow_test_teardown_repeat),
+ 	KUNIT_CASE(nf_flow_test_hardware_retirement),
++	KUNIT_CASE(nf_flow_test_gc_routes),
+ 	{}
+ };
+ 
+diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
+index 1f3adf70f598..272e96fa466b 100644
+--- a/net/netfilter/nf_flow_table_offload.c
++++ b/net/netfilter/nf_flow_table_offload.c
+@@ -1382,3 +1382,7 @@ void nf_flow_table_offload_exit(void)
+ 	destroy_workqueue(nf_flow_offload_del_wq);
+ 	destroy_workqueue(nf_flow_offload_stats_wq);
+ }
++
++#if IS_ENABLED(CONFIG_NF_FLOW_TABLE_KUNIT_TEST)
++#include "nf_flow_table_offload_test.c"
 +#endif
- #if IS_ENABLED(CONFIG_NET_DSA_TAG_BRCM)
- 	&DSA_TAG_DRIVER_NAME(brcm_netdev_ops),
- #endif
+diff --git a/net/netfilter/nf_flow_table_offload_test.c b/net/netfilter/nf_flow_table_offload_test.c
+new file mode 100644
+index 000000000000..7e1764a8298a
+--- /dev/null
++++ b/net/netfilter/nf_flow_table_offload_test.c
+@@ -0,0 +1,129 @@
++// SPDX-License-Identifier: GPL-2.0-only
++#include <kunit/test.h>
++
++struct nf_flow_test_path {
++	struct dst_entry dst;
++	struct neighbour neigh;
++};
++
++struct nf_flow_test_ctx {
++	struct flow_offload flow;
++	struct nf_flow_test_path paths[FLOW_OFFLOAD_DIR_MAX];
++	struct net_device *dev;
++};
++
++static struct dst_entry *nf_flow_test_dst_check(struct dst_entry *dst, u32 cookie)
++{
++	return !dst->error && cookie == 42 ? dst : NULL;
++}
++
++static struct neighbour *nf_flow_test_neigh(const struct dst_entry *dst,
++					    struct sk_buff *skb, const void *address)
++{
++	struct nf_flow_test_path *path = container_of(dst, struct nf_flow_test_path, dst);
++
++	return neigh_clone(&path->neigh);
++}
++
++static int nf_flow_test_init(struct kunit *test)
++{
++	static struct dst_ops ops = {
++		.family = AF_INET,
++		.check = nf_flow_test_dst_check,
++		.neigh_lookup = nf_flow_test_neigh,
++	};
++	const u8 mac[ETH_ALEN] = { 2, 0, 0, 0, 0, 1 };
++	struct nf_flow_test_ctx *ctx;
++	unsigned int dir;
++
++	ctx = kunit_kzalloc(test, sizeof(*ctx), GFP_KERNEL);
++	if (!ctx)
++		return -ENOMEM;
++	ctx->dev = kunit_kzalloc(test, sizeof(*ctx->dev), GFP_KERNEL);
++	if (!ctx->dev)
++		return -ENOMEM;
++	ctx->dev->ifindex = 10;
++	ctx->dev->addr_len = ETH_ALEN;
++	for (dir = 0; dir < FLOW_OFFLOAD_DIR_MAX; dir++) {
++		struct flow_offload_tuple *tuple = &ctx->flow.tuplehash[dir].tuple;
++		struct nf_flow_test_path *path = &ctx->paths[dir];
++
++		path->dst.dev = ctx->dev;
++		path->dst.ops = &ops;
++		path->dst.obsolete = DST_OBSOLETE_FORCE_CHK;
++		path->neigh.dev = ctx->dev;
++		path->neigh.nud_state = NUD_REACHABLE;
++		refcount_set(&path->neigh.refcnt, 1);
++		seqlock_init(&path->neigh.ha_lock);
++		ether_addr_copy(path->neigh.ha, mac);
++		tuple->dir = dir;
++		tuple->dst_cache = &path->dst;
++		tuple->dst_cookie = 42;
++		tuple->dst_validation_only = true;
++		tuple->xmit_type = FLOW_OFFLOAD_XMIT_DIRECT;
++		tuple->out.ifidx = ctx->dev->ifindex;
++		ether_addr_copy(tuple->out.h_dest, mac);
++	}
++	test->priv = ctx;
++	return 0;
++}
++
++static void nf_flow_test_cached_path(struct kunit *test)
++{
++	struct nf_flow_test_ctx *ctx = test->priv;
++	unsigned long cookie = (unsigned long)&ctx->flow.tuplehash[0].tuple;
++
++	/* Validation uses the selected dst and its cookie, without a new FIB
++	 * lookup that could omit mark/DSCP/oif from the owner's routing context.
++	 */
++	KUNIT_EXPECT_EQ(test, nf_flow_offload_validate(cookie), 0);
++	ctx->paths[1].dst.error = ENETUNREACH;
++	/* On-demand validation still checks a driver-only reference. */
++	KUNIT_EXPECT_TRUE(test, nf_flow_dst_check(&ctx->flow.tuplehash[1].tuple));
++	KUNIT_EXPECT_EQ(test, nf_flow_offload_validate(cookie), -ESTALE);
++	ctx->paths[1].dst.error = 0;
++	ctx->flow.tuplehash[1].tuple.dst_cookie = 41;
++	KUNIT_EXPECT_EQ(test, nf_flow_offload_validate(cookie), -ESTALE);
++	KUNIT_EXPECT_EQ(test, refcount_read(&ctx->paths[0].neigh.refcnt), 1);
++}
++
++static void nf_flow_test_neighbour_change(struct kunit *test)
++{
++	struct nf_flow_test_ctx *ctx = test->priv;
++	unsigned long cookie = (unsigned long)&ctx->flow.tuplehash[1].tuple;
++
++	ctx->paths[0].neigh.ha[5]++;
++	KUNIT_EXPECT_EQ(test, nf_flow_offload_validate(cookie), -ESTALE);
++	ctx->paths[0].neigh.ha[5]--;
++	ctx->paths[0].neigh.nud_state = NUD_FAILED;
++	KUNIT_EXPECT_EQ(test, nf_flow_offload_validate(cookie), -ESTALE);
++	KUNIT_EXPECT_EQ(test, refcount_read(&ctx->paths[0].neigh.refcnt), 1);
++}
++
++static void nf_flow_test_unsupported_context(struct kunit *test)
++{
++	struct nf_flow_test_ctx *ctx = test->priv;
++	unsigned long cookie = (unsigned long)&ctx->flow.tuplehash[0].tuple;
++	struct dst_entry *dst = ctx->flow.tuplehash[0].tuple.dst_cache;
++
++	ctx->flow.tuplehash[0].tuple.dst_cache = NULL;
++	KUNIT_EXPECT_EQ(test, nf_flow_offload_validate(cookie), -EOPNOTSUPP);
++	ctx->flow.tuplehash[0].tuple.dst_cache = dst;
++	ctx->flow.tuplehash[0].tuple.out.ifidx++;
++	KUNIT_EXPECT_EQ(test, nf_flow_offload_validate(cookie), -EOPNOTSUPP);
++}
++
++static struct kunit_case nf_flow_path_cases[] = {
++	KUNIT_CASE(nf_flow_test_cached_path),
++	KUNIT_CASE(nf_flow_test_neighbour_change),
++	KUNIT_CASE(nf_flow_test_unsupported_context),
++	{}
++};
++
++static struct kunit_suite nf_flow_path_suite = {
++	.name = "nf-flow-path",
++	.init = nf_flow_test_init,
++	.test_cases = nf_flow_path_cases,
++};
++
++kunit_test_suite(nf_flow_path_suite);
 -- 
 2.53.0
 
