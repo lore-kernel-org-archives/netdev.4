@@ -1,68 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794835445;
-	b=aJ98Y69caN3yeETmzhgbX2y2blb5PHnp0s52mqju/jRQQ8C85AHqDVioDJEWimRY6h8h
-	 2BeoKGZHN+h2UP9eveBbgXH+gx5EOaGHdcmgJTHLFOts15gL/U8SUnY0G9uWTPmE1nr7v
-	 ETUIQL34rQRaKqzHls+w8a850xE6dzn+BZ38LDTdjF/AqhLRWTo1KjmmVhiyGU3NlaOWs
-	 B5m9+78Vi0dhcoLVxO0l6yCnMxFfg2fbkCMD/EhdCqVXgCdLlWp7C2uOdNOs5SoXJEuyw
-	 NFWi8Z63QNTbR4+EANEQA2HIkG5LunVKN859zOHZJUdvW8Z/TkMm0Zvqud53ENrfTUA==
+	t=1794835823;
+	b=tdaThfxglQ+VkCLBBp3mjUOHRT0YWSZlT6DQj9HoDJzpV94ZXrGz6C00bQ3qnZcNIpQW
+	 c8C9ZogH7CwITrQhvb+y3jCZ+fmJRlmrH4cNVGEMJT0TjQlaINSCClOFo/PtM+05XrAoZ
+	 qY0lICNnrG6mZHuvZF/IuULeiRwIdu7xIV6FG5VHCpE4+6lC0HTmnKNLtXKOSSJZvG++y
+	 mJMA7WpvT4MO51WaPOVM0Pnq/Uauc+K/Uo54teC6z2jwdLUMjfBCLeDad5dlxwUmzGCYL
+	 hP0MivL+g+H7PBr+fM2SrqvYLi3geFrvXLvG6J1Lzthpja6jMbZP1OqtDKIHd4WuEWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794835445;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794835823;
 	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
 	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
 	 In-Reply-To;
-	bh=qx+AUpAhMJt1J7QRW7d2f1kOG/gDW9Kz+HDeXa559dw=;
-	b=ijx8d5vmYVDmDZZoJplIXFGr7WdI73WG9cNHq3TxGf4yLEjBdauFxdiwZR7GolxT5yj0
-	 JeL8vS6+eqXVezMtZyJjM/DNWGwL6+kQCQxQQa4qNZg6NsfyPxXPKlGZ3q9BeB5trAjVG
-	 gTph8dPBtWnFlsmFqge8j9HPBYGy1WnvJw0Rl1ezR2QJGpkltOPiFzkJgkv/BZGShH2BR
-	 LG564w26AkrMnCu6o7HmNddyi6OFp0Iik4dPzqM25Yfm9O2CKciC6YEwikO6MSU4pBZeh
-	 w6SfNax5iEMqgCu+W9Rui0w/PLONG7ew84kgaSr/VabXAI6ZT95BT4qsFJ5o8TlBCSg==
+	bh=vZaX2J5+vwNpID/DJxwist68NuONiDqxytoCJR8lOss=;
+	b=FmDNk6BfNQljEJLvTLkgibG17RKuUQS0FH6YgOOly/bb7pbILAj1mhh1D62ImC0xonjz
+	 gINn/hHx6mTg+FyHL3ioEgc7ybd9YFPgF0pH2LfyGCa7BzvR9IpQTvjN5DcBRVd3YnQX1
+	 5NP15ftqhyM1idMQ6JPxqzdWPHz/2IOXfd+JkcQJvoEgZn2jiPiSurHnmRF8vi020W2hR
+	 S6syRjcB7exJZaUQNANFwTJ5JUv8WBAItQ6xZY9yYTLK2/xX2XNjYgen5I/vITxeY01eM
+	 cI3Fj5WbpRd7woqYUE0GAJF22T7G3b/vf/CalLFR8eCpXLXIjhvWotODTfhKwO698VQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=lunn.ch;
 	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=xT2VUVRG;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ssNDR6M5;
 	arc=none smtp.remote-ip=156.67.10.101
 Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8880606A32A;
-	Mon, 16 Nov 2026 13:24:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8880606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24756606A32F;
+	Mon, 16 Nov 2026 13:30:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 24756606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=xT2VUVRG
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ssNDR6M5
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=qx+AUpAhMJt1J7QRW7d2f1kOG/gDW9Kz+HDeXa559dw=; b=xT2VUVRGEd4+VyjMQ/UWOuTdPW
-	GVaP5Yg0M5SyHLw9lojrZ9zsZR8J6M9eB3F7Kbo5ddhv30/b1tJPINV0LhHnK1BbgL8mheZMT4RNL
-	IUGclre9BAfvJJx6VSt/b4EXTwHxijZyd5MaoRna1WFIkWGwg4jxgElGv/yKjbIwft3A=;
+	bh=vZaX2J5+vwNpID/DJxwist68NuONiDqxytoCJR8lOss=; b=ssNDR6M5Er6lwcsinEhhxBV2Dl
+	VRlrbqsrWyVyZDrXmr4nZ4mOt4y6ofWZySGdlqL4phtKd3b77UJ1KmmFn/UGsOPWoY9Qn9UBifekO
+	dF9Z6XmE7bxRkF2DB7ghUentNC0n+PvzWjJfnuTfmuKaTtu6oIhjUA2q4FmDlCQj2syo=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1xSwgc-00Gv5D-9G; Mon, 16 Nov 2026 14:23:54 +0100
-Date: Mon, 16 Nov 2026 14:23:54 +0100
+	id 1xSwmh-00GvAN-Uq; Mon, 16 Nov 2026 14:30:11 +0100
+Date: Mon, 16 Nov 2026 14:30:11 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: Oleksij Rempel <o.rempel@pengutronix.de>
-Cc: James Hilliard <james.hilliard1@gmail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
+To: Francesco Dolcini <francesco@dolcini.it>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
 	Russell King <linux@armlinux.org.uk>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Subject: Re: [PATCH net-next v6 2/3] ethtool: include errored frames in PHY
- receive byte counts
-Message-ID: <46fc8da3-3995-4d9e-8c9d-2fd73764330a@lunn.ch>
-References: <20261116-submit-acx00-phy-stats-v1-v6-0-8feef8e76cd5@gmail.com>
- <20261116-submit-acx00-phy-stats-v1-v6-2-8feef8e76cd5@gmail.com>
- <avsBVtVgsluPNpVY@pengutronix.de>
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v1] net: pcs: xpcs: add 10000baseCR_Full to
+ 10GBASE-R link modes
+Message-ID: <2612f833-e468-42cf-819f-148027c22d52@lunn.ch>
+References: <20261116101644.83097-1-francesco@dolcini.it>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,18 +69,20 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <avsBVtVgsluPNpVY@pengutronix.de>
+In-Reply-To: <20261116101644.83097-1-francesco@dolcini.it>
 
-> For this series: keep rx_bytes as it is, report rx_packets and rx_errors
-> as you do, and keep the byte total driver-private for now.
+On Mon, Nov 16, 2026 at 11:16:44AM +0100, Francesco Dolcini wrote:
+> From: Francesco Dolcini <francesco.dolcini@toradex.com>
 > 
-> @Andrew?
+> An SFP+ direct attach cable is reported by the SFP layer as
+> 10000baseCR_Full, and this link mode is missing from the 10GBASE-R
+> supported list, therefore xpcs_validate() masks it away and the
+> 10GBASE-R interface cannot be used with such a cable.
+> 
+> Signed-off-by: Francesco Dolcini <francesco.dolcini@toradex.com>
 
-I replied to the previous thread, since discussion is still ongoing,
-and so there should not of been a new version posted....
+Looks sensible.
+
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
     Andrew
-
----
-pw-bot: cr
-    
