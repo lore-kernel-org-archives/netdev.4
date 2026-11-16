@@ -1,77 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.126.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794830426;
-	b=eZAgcarfa0DOm8VNJz5Joe2/h/iWuma35jSUdD8y9r3hGT2dU8kNqOh024VWF2OsL6Kz
-	 mYmMan8gcD2I1vJtFBwVgMr3CXrHPKuARR/SOufZbqDRLhgyoXmkzK/MvfwGayyRqOzs5
-	 yZe2p4h5YvIfSHgu+eT9HUe8IdzcZG++exVe2Sb4DcZpomNd/+l5ki7G/KvSorB04olJw
-	 hwdNukfTRkLdnqDchMeNwq4CumjrAGfp2kg7Izdqsmo2CRQ230Caw2EwLJ7u04Lz6qHbM
-	 ht3fDZoc38lTdG05yedOLQ/6/YGPlxWiqBDGp3KTxkEWkLnENaO220h7r/TdbOz28gQ==
+	t=1794830458;
+	b=0zcPHhetww1IiLEgBAyKRh/3Nb1Ms/IWJ2r/688ajgni3l6iix8oTATqqxLKFy1U06Na
+	 aUSxEDwBPDhtMV2uXcvGSMA/8LDNidkwXaXTySJqo5KZMOkuY9Uob1GWv75vW9fdmjaOD
+	 vsn03HxE5ioPGTNplf+RX9nm+9HP7ulm3GVrBmx6IZDp/47wtLsae+21dkhMxdkR1Oa34
+	 seCCbWnACKpVMo1HtCne/KB4ocvZg0bGBFJ1r3STRaj5rDKAbFazYmVEkHpi7C7fUgM0+
+	 DNzA++erLqKJgVBHVi9TYtsQEVSoBtS4LK5C3vpGrwelMmvWeF5NDTLrUPxKNayFRuQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794830426;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=5SjiDv7hAU9KASHccmkL8xIzSotpO3zTrmrUOcQQcQ8=;
-	b=m3P1AL727id4IjWJ3Y+g0ny26r9ehciJTh/w9EDm3vm2HegC8lqXG/YxJ5omP/OeEzpv
-	 LBC3lwFGXILTfEb/K2vyC4Z0+KQEwqWyuPT7x8dFR1mpx1MfzdTUlFxYMOIAB7niS0rKc
-	 yUc0obDD2l5CF2xJGjhbn9QCe54fay/Q8WLOjs92sBfz2o0BHBJv0kVb4eB8c/F8L1nq1
-	 3IsV8653I7ZX+m5gr2noQVhCbbdRgJ2u0x2qa2SV4icSAsKd9LnpMxCEUNa73jbwSjYUa
-	 QG+Y8vREZ9Eekx7Lh7CvCO9/AswbL9zgDDaFHTyzjQ3Lpmtis+Fu4YLptrOuEJuvaVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794830458;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=kLAz6sn1EqmF7aJ7KDEBtraVgj4ybxLcfJJY1MY6K34=;
+	b=Cf05xIlKlXSNIz/qsKAFBKqKl2EfrNRDx6gHaKLgRxRRbvnmhaGePLNqj3ItvXTuqw4t
+	 M5e6XnloBCqiqTc1zatOyLueucBsbY7gQW+wiermkcmt5r2NoUN9RDfAW70OZYd/S2VXE
+	 jaa36D/2hfRWYkyJYCsqHSPGSCppflM4UhtHPBXM2gu/ahpV9BxLrswKXxQrYxiFEKjOU
+	 AQF12vF00qqy+3BFda2VIewXUuIWQegADQm/qQk4Xo6lpVtU/kIhORVIhBVG0Qhhx9ktS
+	 JCdZ9RUhjH9vdLu6IPqGya1t8saiSlOssQ+9hZDPKNp2xLT04Wlpalmn02TCEmT/Yog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jonasjelonek.de;
-	spf=pass smtp.mailfrom=jonasjelonek.de;
-	dkim=pass header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=knhHn6rh;
-	arc=none smtp.remote-ip=212.227.126.131
-Received: from mout.kundenserver.de (mout.kundenserver.de [212.227.126.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HPhDK7mh;
+	arc=none smtp.remote-ip=209.85.221.72
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCCBD60A262B
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:00:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCCBD60A262B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jonasjelonek.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jonasjelonek.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D342606A338
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:00:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D342606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--aliceryhl.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=knhHn6rh
-DKIM2-Signature:  i=1; m=1; t=1794830423;
- mf=PGpvbmFzQGpvbmFzamVsb25lay5kZT4=;
- rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
- d=jonasjelonek.de;
- s=s1-ionos:rsa-sha256:IYclY2fD5oKuTfoZ0tJWk7tDOqPv
-   364M5LKN1VjlzQuVYYOn8lccAw7WZ2SvSrwQ0BZ+fN+3s6b02Q1LaMS/TZzOmbGv1CabBGed/Pe
-   EsvDiYtWWT8M7NzyaY4sbGAWd8EphN/PXr+hkRIFfJRvcakcbwGtklyrXOOv3c0YGlGw0B09Ix3
-   gwPqC4hvHWeoB7AcM8SrSV1RHDVWms+GkmDcLc40noJ6mbbV+YgUt23gvSwtU9FWopy3P5mwLpt
-   PZmcfC+qIXLWQ+1KsmY2FmkzatPz1EOpL9pi0YxMjv+vgq5qVMwKLg0sBPXoMi6hKVjq3xftPb7
-   lcVQlZob7V4cbA==;
-Message-Instance:  m=1;
- h=sha256:
-   5oSJwHQXmUuHon+NKbhbjXCd72u+GUSP7/RbRnh7JxM=:
-   5SjiDv7hAU9KASHccmkL8xIzSotpO3zTrmrUOcQQcQ8=,
-  sha512:
-   cUoPwLXxLIIKn7rl5mZfpzS+bXLBjzFsHlq2C5tp5jCClSz7MjHzOToPGL61SZDcpoGs+iijzsPoCY5me2RzZg==:
-   pSb8sFmeCbYAS6dYKHSXS/noKb7sN44wDHrT6vmhOwHql2qDtqlfh+YYky06tfl9UXLW+OrA3yiRQ9RZe9apMw==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jonasjelonek.de;
-	s=s1-ionos; t=1794830412; x=1795435212; i=jonas@jonasjelonek.de;
-	bh=5SjiDv7hAU9KASHccmkL8xIzSotpO3zTrmrUOcQQcQ8=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=knhHn6rhm1vGo+C8oIuuTjzTN1bVc8JLgpJL0taCgDmvquzPcdd345mYMscfB6W4
-	 Zy69JlsC5Hl2no2K4ifoFmc//XpzlU2Uz8qvsx0YwJXdGi0f+z2cuE4G1lzlt2dsm
-	 RqV8uX/5sLiPNPKPM5Jnnr6Fq5qSGLHSvLk/OuWFDmaNwU7+6Zr/QQosG4jPPr/rB
-	 GQe6XDAQmw76Y7kuQlb2KEtCZUCW4R0DSwHvA0VO5XoDnP4NMXR1gojBHHeDNO806
-	 Xay1nqWyxCLOFV1TvzuVGCUgDXg1UjNcuw03VtROLnUiXdip4RQUQyETxQ7a6dlom
-	 0zlvDoztnPKO8hxV+w==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue011
- [213.165.67.97]) with ESMTPSA (Nemesis) id 1MJEIl-1x8nGJ0I03-00QO57; Mon, 16
- Nov 2026 13:00:12 +0100
-Message-ID: <8dae3bb0-dce9-4efa-8ff8-0a7d59083bed@jonasjelonek.de>
-Date: Mon, 16 Nov 2026 13:00:10 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=HPhDK7mh
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e0461e040so2973441f8f.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:00:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794830456; x=1795435256; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kLAz6sn1EqmF7aJ7KDEBtraVgj4ybxLcfJJY1MY6K34=;
+        b=HPhDK7mhvKoexu3wV/J5cAKBVCjdxnE0WqiM219E8yH7eWl2bpFOUxbsfidw15OaBQ
+         3v/oOiLCUqOJKC7nE/sfeHMGODuUIsJx0HNirhnEfTrkTSlF6mxsAka4bN3HHTEKuz8X
+         I7ILCePljUvo3TBsSDLONNTI31MYsfntJafmj4EM/wfNH8zBljPNWXbjdXsxXgFWpxK7
+         QBsjZgUghWzTrvW3gB62VO1cEaBa05GYc2ZRtlRGIidAi9COFMIabjVojBmfGFLgZQra
+         H+ROglAj/Ny78kycfy7M7MzfDC6v9ICyF5eD9XUlfn5SvIi4OODpHA/Ny8dfvpbuHFYW
+         7n/w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794830456; x=1795435256;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=kLAz6sn1EqmF7aJ7KDEBtraVgj4ybxLcfJJY1MY6K34=;
+        b=JACq/g9eGcoAxvNY043EhhxqbX+V270WDvKjInUa4w4Skf9/ob54gzAc83o9H4IMSA
+         FFDQUo7XhsECQX0rz8+sJkyEQ3E0XsuQIYm5LbzZsMHHklbtd8UVbuJW6cAHCEkRVLAG
+         YGPpiFkx1o9/Gtg+Fp4HNGKmC9ZxtrJiLK/Iy661X+iLoh/V9YwEgDUsd+WF3bzi6bZw
+         jxKxq/qnlFk+9xNNBx4CDmvwHdqYN7KV+8pqbghgEj2Uyt1nxfDK3aw4fIDFqAHGaKZS
+         YUebmTPCaiOttAsix1D0cs9kCmkMptl2ncJ1rz1nbzY1SYzzf0RHlfgRAH86xV++JyVL
+         MJig==
+X-Forwarded-Encrypted: i=1; AL+hErF8PWZkld3yW4a/jZqH5UeotCFl5tNpSnQHtKsAV/HC7YWfIIaLV2PQb8BSonX+nIYyBPKt4aY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UixPh58rc4JvXFXr4ObrMsRHgNZnOsKIHY/+147VVSSFbFS3q
+	vZxPPwpvhKIyagavKdSDI5wYitEoF8zuJFe4kg52x7ftXRZpxjY0MWEN2JXIwtLuZVRnvNTCtHc
+	Q/kYT4Mc4c04sIhznhA==
+X-Received: from wrso13.prod.google.com ([2002:a5d:474d:0:b0:493:3d97:6e88])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:adf:e007:0:20b0:48e:3697:708d with SMTP id ffacd0b85a97d-49c70ed8e41mr16698595f8f.12.1794830455230;
+ Mon, 16 Nov 2026 04:00:55 -0800 (PST)
+Date: Mon, 16 Nov 2026 12:00:53 +0000
+In-Reply-To: <20261116-work-loop-pseudo-v3-12-8cbbea1cf34f@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,101 +78,33 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: pse-pd: realtek-pse-mcu: add RTL8238C
- device ID
-Content-Language: en-US
-To: John <therealgraysky@proton.me>
-Cc: leksij Rempel <o.rempel@pengutronix.de>,
- Kory Maincent <kory.maincent@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <EEsDzyK4pKqMZ9P6eCtfk5Qp2SXyprlFB4e4uQ7_O1iw3BuvnNm95DKBxuHy-mp3vdmUWhob9UWOzN9VWXoYyQIADqKPNvJt_gfaLaWpSkU=@proton.me>
-From: Jonas Jelonek <jonas@jonasjelonek.de>
-In-Reply-To: <EEsDzyK4pKqMZ9P6eCtfk5Qp2SXyprlFB4e4uQ7_O1iw3BuvnNm95DKBxuHy-mp3vdmUWhob9UWOzN9VWXoYyQIADqKPNvJt_gfaLaWpSkU=@proton.me>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Provags-ID: V03:K1:U7eZX4/8osm9ttKOrR370XiBqQRNx59LU9dIL+DxDoWj0cFo1eI
- Z2ePoAlcbJYjcDDqXgkkwBsdVHwg9T+yB4W7frC6UVt5CUOJ5kS+pvUOmpR9+6TNpEOguuI
- EkF46XGt1mjJk/XD6pBCeqo+vBV8O05EDopMBcfpYWvhHwrcc9UOkHhLyOlfpYCFNE9BLqj
- zBYSxVDrCa95t+e2eoS4g==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:sY307BdCvUM=;+9CE/fiaECSebreRr5S8uHgNhsg
- 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
+Mime-Version: 1.0
+References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org> <20261116-work-loop-pseudo-v3-12-8cbbea1cf34f@kernel.org>
+X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
+Message-ID: <20261116120053.371591-1-aliceryhl@google.com>
+Subject: Re: [PATCH RFC v3 12/44] rust_binderfs: use fc_init_pseudo()
+From: Alice Ryhl <aliceryhl@google.com>
+To: Christian Brauner <brauner@kernel.org>
+Cc: Alice Ryhl <aliceryhl@google.com>, linux-fsdevel@vger.kernel.org, 
+	Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef Bacik <josef@toxicpanda.com>, 
+	Christoph Hellwig <hch@lst.de>, linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, target-devel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-mm@kvack.org, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, netdev@vger.kernel.org, 
+	fuse-devel@lists.linux.dev, linux-efi@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, ocfs2-devel@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-usb@vger.kernel.org, Amir Goldstein <amir73il@gmail.com>, 
+	linux-erofs@lists.ozlabs.org, linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
+On Mon, Nov 16, 2026 at 12:04:45PM +0100, Christian Brauner wrote:
+> Initialize binderfs as a pseudo filesystem instead of raising SB_I_NOEXEC
+> by hand. This adds SB_I_PSEUDO. binderfs_fill_super() keeps clearing
+> SB_I_NODEV for the binder device nodes.
+> 
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 
-On 15.11.26 10:40, John wrote:
-> From: John Audia <therealgraysky@proton.me>
->
-> Some Ubiquiti USW Pro Max 16 PoE units (boardrevision 3) carry a PSE
-> MCU that reports device id 0x0238, so probe fails with "unknown PSE id
-> 0x238". poemgr names this id RTL8238C.
->
-> The high byte of the id follows the chip revision, as with RTL8239
-> (0x0039) and RTL8239C (0x0139), so add RTL8238C with the same power
-> limits and power limit command as the RTL8238B (0x0138). Tested on such
-> a unit, PoE works on all ports used.
->
-> Link: https://github.com/blocktrron/poemgr/blob/17771dd7b3a74a64c14351d1cbf8e61676934cbe/rtl8239.h#L13
-> Signed-off-by: John Audia <therealgraysky@proton.me>
->
-
-Reviewed-by: Jonas Jelonek <jonas@jonasjelonek.de>
-
-Best,
-Jonas
+Reviewed-by: Alice Ryhl <aliceryhl@google.com>
