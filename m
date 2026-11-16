@@ -1,65 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794823075;
-	b=M2liM+zJAEdOEBDI32rFKdEKVasLCxR7IMrIkBiImeXuanRs4c637Rpj/HQyjiAQriKc
-	 EDcosrq+3P7oZ2z1VnFWp++4WzoHASONbA8UXKFv4EUTcNqeQc1xBP1qfiWP0XJI2rxHB
-	 R82sSF+kfgIGdli6D0jwp4STDMy7MpbQSDKAz3afY3tthDbEjXWoEccgGed2ONIv++KfU
-	 0tPIhPClXtdezZIkq+MY1VdQauI+rDvFCzSbA0u8ycPSfu/v9EXea7aqR84W+bvBNdcTE
-	 6X55qi3DiUCC7ZwRhwbPm/F1i5tFdyGVc2Jj7xge0gwRM8kmh8QHMnJ/pQFOGFP9byQ==
+	t=1794824133;
+	b=i1t3IJ5rHExtKipgmUSu17zQ0Gpryww6n5atdaWB8VWdPRvUrGFcRL9B5wM3Tjs/bPaA
+	 8lo89nhrEvbVGeJ1L/q542qSpvV9X7KBGTx4XJETa1Pf4+xkYADJtRXlJOnYA+JIb0aib
+	 QI9zPWfodKzqL67v4bE0JIb+zGQum1CEP/eXP3nGtlmf0I688mmXJTwaRGsItOEgWBKlk
+	 L9WeXil09EIy+zoSJD8fXuuIBXyV1F3gEgvfjPIne5BKcYC9SU/tJ6pnszI2QOUcLaCvL
+	 D30RB/gpVm+4gE5J8jWXlUytjVV4M9sx9hzeKzDn+DX41wkOcEhxhxjGKU8yVadcLbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794823075;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
-	b=0vo7w6mZWkmXhGJxEnhLOttHOFqfj14Gy4DBnKHimI3Zgv+6PdcOSLTPI/AZ63tsZaK9
-	 p/vYPbxAsAaKw+YWFMFmiY4CgGSwVtCUB/4ZD2uaAno+aaosq/MqWyx1VakppnCKo/1rw
-	 6fNJ4wX8mTN4NaONDiOs2SYVRe8mzH55tLZHJQUmnu7Eu3OWYqbMat96H4v/2ky0C3pkZ
-	 jCuNGHt1PfGZUpc+AEUiXIjak9QfdDGo5iXwaWeXWBtW2j8QYTGUgZDpwgMG8HAmAwDBl
-	 2lQMx+2IbxkzRrPCt9zbk6q1x08WFNjaMWJEKbCFkt2DQW4QXHI7kTURqzpcc3TTphA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794824133;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=MmFHwFEuMpLfLRAKJJjBjIdikYWgskAg6Z40N1h66qk=;
+	b=NvFtxBEuwb5kqvTzVUwmHvFzApRv+RYpMTN161yBhcOMo5IgKJvs/jKsRbS7muZ0Pmdj
+	 TDXkX+xveJh7daRCXifyJmYoUNaROOso8/bY1K/LMgF/7tQHUfgq/7/vfL27LGQ5fnTMY
+	 I1OWLSyFmnUUk+hwA3KEdAZqQpaat8ZrdQ/xhzfqn50ZZvv1I1xjep9b0+Ce51d+PGLnQ
+	 Y/tLyMbtkB/WxoQxTM6wJYpXcdgwsefQhq1r3GGC9YqTJ8Gz3A8uVogPjJHIRDUrSN5I5
+	 u6eGgg9K7YkGfmfYbdSKKVQCA+plUvGLzCmMlurI/7MMEjrUoH4ztQ/MY2otaSXseJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dtrr7gO0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HgAYqc9G;
+	arc=none smtp.remote-ip=209.85.208.43
+Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com [209.85.208.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89F1B606A323;
-	Mon, 16 Nov 2026 09:57:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47D81606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:15:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47D81606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Dtrr7gO0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124181F000C4;
-	Mon, 16 Nov 2026 09:57:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794823075;
-	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Dtrr7gO0sedVdRES1cOcZqUPJJmPoNWt5retd61kAK/f3VXeb2DjCr0v3U+5xnFPU
-	 B7cAYcAPMcRX13oAF3QKLb2FrocpE6zR5oooLe9VLZOYEPZyYTBrLJ3NVH4K3ex98w
-	 PwrQsj2rc0Jl7Jl8gKx2W4USKQPLDcMXS6vWs3L1Ikv4NQ2ht1f+C01kmJrBzLtmNq
-	 ewE0n4+aH5CpN7wXOwYFVSAfGouJzzDPeOCTlBRP1eja1jCL/WA9ieLkRtvUpZOEPR
-	 ztjDCMc6jkfb77iTDRaZsR6Usb3dGF5u6goilC7G/RvBro4dl1BGFZgph0NkKOUpTF
-	 n3v9SYrJFredA==
-From: netdev-bot+sinfo@kernel.org
-To: Tommaso Merciai <tommaso.merciai.xr@bp.renesas.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, biju.das.jz@bp.renesas.com,
- tomm.merciai@gmail.com, dinghui@lixiang.com, dinghui1111@163.com
-Subject: Re: [PATCH net] net: stmmac: stop Tx NAPI before disabling the queues
-Date: Mon, 16 Nov 2026 09:57:53 +0000
-Message-ID: <179482307356.3291.12672863901613657171@kernel.org>
-In-Reply-To: <20261116-tm-stmmac-eth-s2idle-v1-1-bbe165b743b5@bp.renesas.com>
-References: <20261116-tm-stmmac-eth-s2idle-v1-1-bbe165b743b5@bp.renesas.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HgAYqc9G
+Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6b7efd3bc26so1628640a12.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:15:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794824132; x=1795428932; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MmFHwFEuMpLfLRAKJJjBjIdikYWgskAg6Z40N1h66qk=;
+        b=HgAYqc9G+r96o0aqLB0eD65XAGTpvqpGGt1tW8Ub7O/zlwjAXz1TJx3hFYyjVwyZ09
+         ECxETVeCo06ckRHSN36lx41RzEpKa2tvpIimz2927tVhlZPmryHZF2EL7RoebI89/kfv
+         fY4XMfG987AjFYznToDjdOG6cRZtFHqytosoCqFNm7pkBmCTuUTMhzaCvCKvZhw8BgSW
+         nb2VijaUGgqbOlOrDlLogUZwZVHbdXT/2BY7o76L+vWqspXux2lQVg0LxzJbjnvzXpeQ
+         b6+N6W7V2SaeT/vujdVrAi0PrvF14wgBNST8KCkL2miE0tnLXS+SXFukDhhwmIqG8Ry7
+         0bqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794824132; x=1795428932;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MmFHwFEuMpLfLRAKJJjBjIdikYWgskAg6Z40N1h66qk=;
+        b=HBzWmw2gxv3QX1lwoPHL2El6tZwU/A1g66a7ZAOOZiAar1b2+K1eXsGNkajGO0I2RF
+         PH/VsbF/3KqDkahjTFHLRPmLoctoi/6m/FpsDMjaJWVHjFdEeF1OZd1zdYl53rfK/BD8
+         1Hd0ohZRRSqUfINWFTtYnnEL1OrK3ww5ElDTB4PNRld7XPCv45wHFshZAf97GMthZVW3
+         nFetdtUn+dWsVUvx4626QoxDwm0y5SnRCOgabHEhoWCb5rL3a0muPKnYXr0UaHc5Odau
+         IKyl0PZzqGENy85x7DQW+zK4mOs2CrGS4IQWItqDPytlbp2MkzNyNEyU4iUkVvg0bwhH
+         Y1GQ==
+X-Forwarded-Encrypted: i=1; AL+hErGHuiD+zujdx0jfvKOSv1rQ7t4RSeMt54UD5cOk+nPZrXiSeQewpP3jvWPGRml/gal0JoMq+Vk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8yfmYStY2mPjsndDIGSeq4S9oIR87eO+shmkQJPXY76e9Wk0o2
+	oySNknlVaQELLN6zrKBg2zTywdNa9FeOvAwAkhfibxycjoCReJ+2NGsP
+X-Gm-Gg: AYBFou1ac9z/tWYbHaSfr+jJxBHw6oWkMI0zxZGbbngqeEzTgqtp1HwcHsz/bxBADXq
+	5HEcAjRNeBqdGPlwMpQcTyAjVnIDf5XyP30W3DlpL68n4OOambN9NENJdk4IbbwYc9QceIa7z8x
+	icyA/KljOJp6ZNvLE9ivqQLIXj+QUWWVYrBVkQjtEDu4OMDIglYQAoTOtLfZy1ksfyyCYg5ER+4
+	V3E3OQzinQq0M8xItNNmds44CEtJFV1zONzWAkiegQIniUI5Hw73y5AStIwpQLRmkGU3r40sJp0
+	JrBASBndFoa+XoJTs2VWa1Lwipw2nz5lBKa0s/lDxSIvn0WnP+jn+dg0+7O4qvCj/qxOiNyePsG
+	BZKf2s2w2lbzwfFN2YeekKT4ZMIjD58jgx+QKBO4nTsLGJC5gW9CAtSAozRIPwp6kbLSCiLiUgd
+	8/EhWcCDwti0yMMe2YH5DY6ABSrHH/o3YVhV6nkJzr94LFeLB9tiOIesuIEtauENW6OfExZH6X3
+	2e2fHqvg5duX7f0mUpmkLyCcm/CI5Vd7rbWzcZsjvyqf/UCddB/629WS2316QwAcBIeC6cQvOgj
+	ULEJtCg58v6uEQEUOhS1YMMCcKf1hjNTtQusmZ1xp0fy3s5GWd/MlyrSUjZH
+X-Received: by 2002:a05:6402:210e:b0:6b6:8ed8:765a with SMTP id 4fb4d7f45d1cf-6b7c0d06184mr7571102a12.38.1794824131325;
+        Mon, 16 Nov 2026 02:15:31 -0800 (PST)
+Received: from theodors-laptop.. ([5.255.118.7])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b7c24e7714sm4235699a12.28.2026.11.16.02.15.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 02:15:30 -0800 (PST)
+From: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: Julian Anastasov <ja@ssi.bg>,
+	Simon Horman <horms@verge.net.au>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	lvs-devel@vger.kernel.org,
+	netfilter-devel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	coreteam@netfilter.org,
+	Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+Subject: [PATCH nf v3] ipvs: ftp: do not link expectations to unconfirmed conntracks
+Date: Mon, 16 Nov 2026 13:15:06 +0300
+Message-Id: <20261116101506.98853-1-theodorlarionov@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,22 +101,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi!
+ip_vs_ftp_out() can link an expectation to an unconfirmed conntrack. A
+later extension add on the same packet, such as seqadj in
+ip_vs_update_conntrack() or NAT, then reallocates ct->ext and leaves the
+expectation pointing into the freed area:
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+  BUG: KASAN: slab-use-after-free in nf_ct_unlink_expect_report+0x490/0x4c0
+  Write of size 8 at addr ffff888004dd4e48 by task syz.2.17/649
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
+Link the expectation only to a confirmed conntrack.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Fixes: b25adce16064 ("ipvs: correct usage/allocation of seqadj ext in ipvs")
+Suggested-by: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: stable@vger.kernel.org
+Signed-off-by: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+---
+v3: skip unconfirmed conntracks, as suggested by Pablo; v2 did not
+cover NAT.
+v2: https://lore.kernel.org/netdev/20261113011447.2357709-8-pablo@netfilter.org/
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+ net/netfilter/ipvs/ip_vs_ftp.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/net/netfilter/ipvs/ip_vs_ftp.c b/net/netfilter/ipvs/ip_vs_ftp.c
+index 44de99f4d187..cb0cdc35a7c1 100644
+--- a/net/netfilter/ipvs/ip_vs_ftp.c
++++ b/net/netfilter/ipvs/ip_vs_ftp.c
+@@ -398,8 +398,10 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
+ 						   end - start,
+ 						   buf, buf_len);
+ 		if (mangled) {
+-			ip_vs_nfct_expect_related(skb, ct, n_cp,
+-						  ipvsh->protocol, 0, 0);
++			if (nf_ct_is_confirmed(ct))
++				ip_vs_nfct_expect_related(skb, ct, n_cp,
++							  ipvsh->protocol,
++							  0, 0);
+ 			if (skb->ip_summed == CHECKSUM_COMPLETE)
+ 				skb->ip_summed = CHECKSUM_UNNECESSARY;
+ 			/* csum is updated */
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.34.1
+
