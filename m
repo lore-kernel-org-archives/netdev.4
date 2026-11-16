@@ -1,73 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794857716;
-	b=Dq6Vr9gNL+GEfYcItZ0xIcXR4I2zKjEvsQyvbp8dwEe7jdaKwJq4JHrnGNBga1q8SqzY
-	 /V9DZGwQcgTeLAmt9QyXA+gusjYcUbVx653E/MBI2BfJz5P3SkIlOfGdDPrZFKo5zn+ck
-	 YgPubH6xKDFPaeh+63qNF3XQAV7QJU8ByEci3fRD3bp6Bip/HjSfQb4+r7KqRqTSlO6Vb
-	 UclRxyNuhEPRffEjutsqjVMwze9El8EGtgAIMDKwgoNtN1PDVnKVk8FidHUJBthq5DgIP
-	 SBL3JS1GNeT+8nrjHwC6/+tJIBVeabnxuweOB/pdy3Om7ItfytzYFSvYMeYNOTMB/TA==
+	t=1794858108;
+	b=aQ0j0mbjwGKiJ3D76SBVUwxwW07ZHx2DanWOt8jcGsGSxoWk3k4WdDtdoGufaF8fiDmP
+	 o0Yd77wSyQdAtRRftKt4DM1cNiZ62QiAxh6fOozIKTvlUEzYyCLH0tFqJUesiKzjBLRCL
+	 GsRqkR5U7cLi19nwCEYzIJJ/U0D3fe6r0Y+HkY6FrZ/4P8krZIEEnEMwYmmRU4GbPZfaN
+	 EzZ3QMwZdIi0H241CinheONa6QNzMRe0kDgdfe8+joAVBUt4itRCtizR/a4+FGbxfBkYL
+	 pVJAyYYkib8GaOfWX6sUlBGjjK5UJ/h5r7P5FH/0BOzuTlJ3xOnYwvRD2s45aVe9Pxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794857716;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=ex8sQsHIpPx0Nkd4LC2Tkk5aOBl+I7Jg5Gyc5xqzvWs=;
-	b=mu5mPPldaSUbn0q7GhLhyx0Bn/dYT8gxV6yDzfeslopFCXsAcP/Fp5U+9u+FotfVUm3B
-	 0DPvKoZXeiU4nPhOITLUSViAu+qABt5dKdkDutfGpVrIueYe8AsXRKuGSNxz+uEdKKRJC
-	 Rf97XELdvTESinGlOTOauo2XwiACSMu5knC4LV1/Yp8vCHGfI25LWsxb7ERCDTRGrlahk
-	 btCQhWACEnI6Kf6noy1cfpdYP+EgzYwlbG5wyeOtOOc4Tp+pBc+vvwPfsZVdr+3s++kAe
-	 gfG/nnSwx8h/OHaZDRDgwxOFdtzfc3IsNr1QGonfdJlNfXvOk2UT6T+PElcKddGUl8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794858108;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=8Qpg7Lun+rjFdnth3IEW1w73RGChqMu8em9m1BLidsM=;
+	b=qJylDtvFZsnwyR/gZ4aFAS3vwm+Op/d/Eg2BUZmZbBIf1zP/bCjcMxFp8bQb8mid7AY6
+	 vv5cYkKr9RUZu+WJZxTOx12oP7pjWGaeY3WuJEXqijXlv9B2x2Z6OrYzqFMLG5SA5tgV4
+	 DyfjB2UaZNLES2Ju+8c4atrI26OwrT35nXaHZhENWtLkf6ZLPrFezVnWrYTB6rIYZ1JKL
+	 TmwUo/ybg8p6iGlVMhfcde1JIncg2Lkx7iezlpl+s4yEGvEw+XbRzC7Glec5pz3UMI/8e
+	 Ez+1oI5yEiAszsDM9OvWI/kCjlQh0xOvviyheAjutfhVld3l5WvNNI3DOsEGM2UDzsQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TRJuwhmb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=networkplumber.org;
+	spf=pass smtp.mailfrom=networkplumber.org;
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=mzfzFhIU;
+	arc=none smtp.remote-ip=209.85.216.53
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33BDE606A322
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:35:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37E08606A31C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:41:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37E08606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TRJuwhmb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A40FE1F000C5;
-	Mon, 16 Nov 2026 19:35:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794857716;
-	bh=ex8sQsHIpPx0Nkd4LC2Tkk5aOBl+I7Jg5Gyc5xqzvWs=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=TRJuwhmbE2QVM975XTsOiQxVBpLb73RPDqfAHb2UNZ+rtGZoPsy/gOtYG4sjdu2/O
-	 9yJMlr6+KBttJpx32oAzkJnKRIpBhJyLxbnN9615uI3rTiMyU9Q4KR1bTS7jUVoJyL
-	 GqDAYOcglcyqx5m1EgFZRZT63MZAazHX0ETifAfr29S8/RNPk6Xppxc6b41O+d7xJM
-	 I9T0v+SCO4hAGy4R2S7dPCDUnPD8cYN61+GHpVUIpYWbmPOgvlXAMrexgp3XK32uRq
-	 30NuFWshSFAb3LL75GQl4fRn6CiYJivf3EJ+BKq8KMDsgYFki8xbPgm3qPd0nL5/l2
-	 umxJF4DVXWtNQ==
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfauth.phl.internal (Postfix) with ESMTP id F21DCF4008E;
-	Mon, 16 Nov 2026 14:35:14 -0500 (EST)
-Received: from phl-imap-04 ([10.202.2.82])
-  by phl-compute-02.internal (MEProxy); Mon, 16 Nov 2026 14:35:14 -0500
-X-ME-Sender: <xms:8lr7aqy2mio05VSyCMv9d5JzFlNbS5Z5HCwyJkxR3th3MGMJifRuyg>
-    <xme:8lr7ahEjHY5ZsaUt9-pDaEc3evfBzWl4tRgCsvzIgQ75fcRGAH2tc8gwt5RDbxGBu
-    XBF9_dK0TN7cY7FG6s96_FzsTA-GIZQW1KacC2bsNaPAt6qoUv7Q-Q>
-X-ME-Proxy-Cause: dmFkZTEDf1fF5fEjzXWosWKUidFpweRbW27lXH2eETu4hEuPB6N7vCEWuRexsuIK2XCxz6
-    1SJhRsOZ1wJzJ2XNS4wbK3MXOeiY+ZRjeQqtOZEU8I6FcVejjAACXS4aREsw+YLhui8r8w
-    75GysTZxGkHNZGJpo0hROO5mNVfHHVNm2H3JKd+MaWv0O7+znYjnPX6/D5p/YxniGAdIsD
-    P4L2mMThJcQm1hcEQb4dV/qARgqXDHDpbaQBjxkegRpWeV9k8Yd00aUmtQMp3SsFXMgqLD
-    Kkc+h/0j/216mCHf+RLvVDxHEoMI+kmiS7hNfVMIxjLamNIo6P9E9RkT8eb+xTFdZjE2C1
-    yWLVyuaWFClhd7btoVxPHuG/z1EuWrZnBK73SOPwUKRtv4De2gp7oatGCNgMgP3Key1skl
-    JNTwibMVjhNHut1owP6CDpbADG+dVALqfic5ZGTM7/vYIyl1t37ohmFVwNEi+2UDbKeSO3
-    qKg9rVhdra6qM3js+FSpYQcHoIcC8mgY4PsikFojyKrzAfnNOvZAeAPhARJDzjBILJlaAd
-    L/hrt+HUBqqNnAR+GlBXHGtB9S0YQMIVksbnqih0tUVzkCisAQ6e6bhZc/3wGR1oGYdyJi
-    hEe+oEN4fEd620Oe7CVEyLS5Wr3uoHMrIzK66FXQKlxKZir81QnmN/SywMJw
-X-ME-Proxy: <xmx:8lr7amuj-eeKiSi8PDxR64uhUmwW8-SUuJ67vxRGywCSyULcJvToyw>
-    <xmx:8lr7aq7aJ5q_eZpUxXF2jq7u5kH9P1v48QoScht4oPPpIp3GkevHdA>
-    <xmx:8lr7ai11A4ItBqtor-sHc3eigNSVTNxmjXX69khbYc3cXfsJQ5o2bA>
-    <xmx:8lr7aljF5bVi_RCIBQOZPaKB942nl3sGz9qQeWC_VY0f3wtJhM0foQ>
-    <xmx:8lr7aqqGJYCazqYZ-135JAkaCP1tqnUlPapmasY2uPW7DK-EbxLDB0Yb>
-Feedback-ID: i20964851:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D88E9B6006E; Mon, 16 Nov 2026 14:35:14 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=mzfzFhIU
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so4765609a91.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:41:47 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794858107; x=1795462907; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=8Qpg7Lun+rjFdnth3IEW1w73RGChqMu8em9m1BLidsM=;
+        b=mzfzFhIUgJ3D0WOPqxyezYM8JZ/K/Pl0BrLHzyeMNcvyMVII6OA//jCm4TMd0TwQTK
+         s6oDFbTRQ8nb3wAF7IjVqSQdMDs+/9NOjRtfMbxLv2Y83t12bi1seyLxyMoF1qF26Gzs
+         7CPKRXW6wQIEzHFD2IgdV12wy2w2WOekUlY0E7T1l8lvNSL78kavkCkYGamvD2FfqTLr
+         7bYHnMaW8MNYQEJ2fh/04zAscTLNAfz7hDxStZcDuCv53yRJ+rYoa5UUhgkcmUtR+BIm
+         +RsPgupzA3koqw7pNcxRc7Jv10xjLdnU8aHwftzBjXCM+KCQ5o2AtHRZIogZQN4k6Mdq
+         u5Yw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794858107; x=1795462907;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8Qpg7Lun+rjFdnth3IEW1w73RGChqMu8em9m1BLidsM=;
+        b=PgcBy5xPBgsEsHVChgJBQRZXMKc7fOFAx89kLGyE0t+hbU49GgnMR/XvMo7eDJIw9U
+         V7ftHdLibHYgBf2mle8T7/JdM5lbDbTVVwORTPODx1A/xfZ8+NDwUtHr+bODdRrlOCdk
+         I/nuWfECLxg4wThDAu1TkUx1Isf7OGb5lrk30TndRNKVxSrAwPO/3I8noTHLHuxuZ8+T
+         koggejkbaUm7B5NUOnI+K/tTkp4V86lEB7kf6MOOuooCKF2zYezPT6cqQ09YEZKg0Xrd
+         qtldNBq8jHjxqlr2r5o+isDuZv7gJbWZl4F0JYWaPTNn1laqTn2inH98A34/kwnNgc/x
+         Z8vg==
+X-Gm-Message-State: APuU4Z+r2/swa2P5ufyTYMPAoH7Je5AgzFae+NnJqwap8qvUoKYfCifU
+	oPvWg4LiZrQEtl8x15Y+K3JCPjStuHai202f4J5vxAeHO4txh9wgyzuB9hcgPpVjZgChecmw/mS
+	rXqDz9dE=
+X-Gm-Gg: AZFdTZciUZtoJVhbmxBBAN0TF5yNfFduQI8BtlaNWsz58YOZsYMBvGZ6DILLHdqjwqT
+	t713QcbDL3anRI4l/+jGz1+0XGmt2vl9d1u0pNqOi06tBzcYkcuvWEL7WVZ46vAcA+Q+BngFO/b
+	sKwPvRxeG440OmeOx5ttSEvL0C51ZCofd1aJS2dpHX+xh/8BMdS6SWJk5IwrRvbX3MZAdQyqWUg
+	EaDdih9GxRCKO9JOZUTaJIxbUYSIrQjr06uORmPTorWliROeBSvJtd+7Xhu/q//slFQriIMZ//V
+	JAGlJLysiWZdk1Sr/UszIzDRroQYOjeIKdtgk1lr7MrZZR0dzhvGl9EoNQvIU9d9SaToyN5uF5d
+	Fz1erkS/13P8fGlEi8583OiaZxkOB9MhDuEVexnsuFb4+i/dDo4JgG4HO4FfHoNEnF+pt5RD0rw
+	tEC/uVxlgM4FRWHX8xcVfj3OoWYNHxOLq9/Uvv5jtaIIB0VKcDdNyH1J/RlvdynQUVLF81wYCV9
+	mOgO8vHjdfSs7ln0o77nHsUfgRCTA+EGnkJ8XmkI7IxrOtnDHuG/ycUJ7HmpSpglg/KEySy+WlL
+	JVgsiaNsXB0eW9KwNhYuR8HzeFuujtv2YIoFPEIlIrqS5Q2Gk64i+Gzt1XgUp+gHPkFzM/+ydmt
+	ZBKGsZCaUxB08P3fCdGGv
+X-Received: by 2002:a17:90b:4cca:b0:3b1:96fe:f5d2 with SMTP id 98e67ed59e1d1-3b1b0da20c4mr11326055a91.65.1794858107296;
+        Mon, 16 Nov 2026 11:41:47 -0800 (PST)
+Received: from phoenix.local (204-195-112-43.wavecable.com. [204.195.112.43])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3abeb2517sm573244a91.15.2026.11.16.11.41.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 11:41:47 -0800 (PST)
+Date: Mon, 16 Nov 2026 11:41:44 -0800
+From: Stephen Hemminger <stephen@networkplumber.org>
+To: ojab <ojab@ojab.ru>
+Cc: netdev@vger.kernel.org
+Subject: Re: [PATCH] tc: fix build with flex>=2.6.5
+Message-ID: <20261116114144.45ccac93@phoenix.local>
+In-Reply-To: <20261112084107.517-1-ojab@ojab.ru>
+References: <20261112084107.517-1-ojab@ojab.ru>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,261 +97,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: AkKQlABzAp6g
-Date: Mon, 16 Nov 2026 14:34:54 -0500
-From: "Anna Schumaker" <anna@kernel.org>
-To: "Andrew Pam" <andrew@sericyb.com.au>,
- "Trond Myklebust" <trondmy@kernel.org>
-Cc: "Chuck Lever" <cel@kernel.org>, "Jeff Layton" <jlayton@kernel.org>,
- NeilBrown <neil@brown.name>, "Olga Kornievskaia" <okorniev@redhat.com>,
- "Dai Ngo" <Dai.Ngo@oracle.com>, "Tom Talpey" <tom@talpey.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, "Mike Snitzer" <snitzer@kernel.org>,
- linux-nfs@vger.kernel.org, linux-pm@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <51a2b5d3-4322-42ed-a2ee-e17c125865fa@app.fastmail.com>
-In-Reply-To: <20261116131428.1024230-4-andrew@sericyb.com.au>
-References: <20261116131428.1024230-1-andrew@sericyb.com.au>
- <20261116131428.1024230-4-andrew@sericyb.com.au>
-Subject: Re: [PATCH v2 3/3] SUNRPC: reconnect client transports after resuming from
- hibernation
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi Andrew,
+On Thu, 12 Nov 2026 08:41:07 +0000
+ojab <ojab@ojab.ru> wrote:
 
-On Mon, Nov 16, 2026, at 8:14 AM, Andrew Pam wrote:
-> With rpciod and xprtiod frozen across hibernation, no RPC is sent after
-> the snapshot. TCP can still acknowledge data the server sends then,
-> though: typically a reply that was in flight when the snapshot was
-> taken. The restored image has not seen that data, and the server, which
-> saw it acknowledged, will not send it again. The client then waits
-> indefinitely for replies that never arrive.
->
-> Captured in a QEMU test (below): on the one cycle of six that hung, the
-> client's TCP acknowledgement went backwards by 200 bytes after the
-> restore, and the requests outstanding (WRITE, COMMIT, GETATTR) stayed
-> queued on xprt_pending with no further progress.
->
-> After resuming, disconnect every client transport. Requests in flight
-> are retransmitted on the new connection, and the server answers any it
-> has already executed from its reply cache. Because nothing was sent
-> after the snapshot, NFSv4.1 session slot sequence ids still agree on
-> both sides.
->
-> The disconnect is done from a PM notifier at PM_POST_HIBERNATION, which
-> runs in the restored kernel once everything has thawed. It is also sent
-> when hibernation fails, where the reconnect is unnecessary but harmless.
-> xprt_put() may sleep, so references to the transports are taken under
-> the client list lock and RCU into an array, and released afterwards. The
-> array is sized by a counting pass first, so it is allocated with
-> GFP_KERNEL rather than under the locks, and the walk is repeated if
-> transports were added in between: one left out would stay stalled.
->
-> Tested in the QEMU setup described in the first patch of this series,
-> with 20 hibernations in test_resume mode back to back while NFS writes
-> (8 MB, fsync) and reads ran continuously. Without the series the client
-> hung on the first cycle; with only the first two patches, on the sixth.
-> With this patch all 20 cycles completed and I/O progressed on every
-> one. The capture shows the client's acknowledgement going backwards on
-> two of the old connections, and the client reconnecting and carrying on
-> both times. The single-hibernation test is unchanged apart from one
-> extra connection per resume: nothing reached the server during the
-> image write, and the client resumed without errors.
->
-> Drafted with an AI coding assistant (Claude), which also ran the tests.
->
-> Signed-off-by: Andrew Pam <andrew@sericyb.com.au>
+> Since flex-2.6.5 [1] `yyunput` takes a single argument and build fails
+> with:
+> ```
+> emp_ematch.l:35:69: error: macro =E2=80=98yyunput=E2=80=99 passed 2 argum=
+ents, but takes just 1
+>    35 |  static void __attribute__ ((unused)) yyunput (int c,char *buf_pt=
+r  );
+>       |                                                                  =
+   ^
+> emp_ematch.lex.c:466:9: note: macro =E2=80=98yyunput=E2=80=99 defined here
+>   466 | #define yyunput(c) yyunput_r( c, (yytext_ptr)  )
+>       |         ^~~~~~~
+> emp_ematch.l:35:39: error: variable or field =E2=80=98yyunput=E2=80=99 de=
+clared void
+>    35 |  static void __attribute__ ((unused)) yyunput (int c,char *buf_pt=
+r  );
+>       |                                       ^~~~~~~
+> emp_ematch.lex.c:1836:13: warning: =E2=80=98yyunput_r=E2=80=99 defined bu=
+t not used [-Wunused-function]
+>  1836 | static void yyunput_r (int c, char * yy_bp )
+>       |             ^~~~~~~~~
+> make[1]: *** [../config.mk:34: emp_ematch.lex.o] Error 1
+> ```
+>=20
+> Use new `YY_NO_YYUNPUT` to silence redefinition warning in this case
+> and skip `__attribute__ ((unused))`.
+>=20
+> [1] https://github.com/westes/flex/commit/721622ea6e6aaf3aa7e55d939679f21=
+e98b76d86
+>=20
+> Signed-off-by: ojab <ojab@ojab.ru>
 > ---
->  net/sunrpc/clnt.c        | 112 +++++++++++++++++++++++++++++++++++++++
->  net/sunrpc/sunrpc.h      |   2 +
->  net/sunrpc/sunrpc_syms.c |   7 +++
->  3 files changed, 121 insertions(+)
->
-> diff --git a/net/sunrpc/clnt.c b/net/sunrpc/clnt.c
-> index 2f076b4bfd54..f9c31c49dc0b 100644
-> --- a/net/sunrpc/clnt.c
-> +++ b/net/sunrpc/clnt.c
-> @@ -32,6 +32,8 @@
->  #include <linux/in.h>
->  #include <linux/in6.h>
->  #include <linux/un.h>
-> +#include <linux/suspend.h>
-> +#include <net/net_namespace.h>
-> 
->  #include <linux/sunrpc/clnt.h>
->  #include <linux/sunrpc/addr.h>
-> @@ -881,6 +883,116 @@ int rpc_clnt_iterate_for_each_xprt(struct rpc_clnt *clnt,
->  }
->  EXPORT_SYMBOL_GPL(rpc_clnt_iterate_for_each_xprt);
-> 
-> +/*
-> + * After hibernation takes its snapshot, the kernel keeps running with the
-> + * network up while it writes the image. rpciod and xprtiod are frozen by
-> + * then, so no RPC is sent, but TCP still acknowledges anything the server
-> + * sends, such as a reply that was in flight when the snapshot was taken.
-> + * The restored image has not seen that data, and the server will not send
-> + * it again, so the connection cannot make progress.
-> + *
-> + * Once the system has resumed, disconnect every client transport. Requests
-> + * in flight are retransmitted on a new connection, and the server answers
-> + * any it has already executed from its reply cache. Because nothing was
-> + * sent after the snapshot, NFSv4.1 session slot sequence ids still agree.
-> + */
-> +/*
-> + * Take a reference to each client transport in every network namespace and
-> + * store it in @xprts, up to @max of them. Returns the number of transports
-> + * found, which exceeds @max if the array was too small. Called with
-> + * net_rwsem held for reading.
-> + */
 
-What's with the weird double comment here? I like the second one better.
+There are couple of concerns with this patch.
 
-> +static unsigned int rpc_pm_get_xprts(struct rpc_xprt **xprts,
-> +				     unsigned int max)
-> +{
-> +	unsigned int n = 0;
-> +	struct net *net;
-> +
-> +	for_each_net(net) {
-> +		struct sunrpc_net *sn = net_generic(net, sunrpc_net_id);
-> +		struct rpc_clnt *clnt;
-> +
-> +		spin_lock(&sn->rpc_client_lock);
-> +		rcu_read_lock();
-> +		list_for_each_entry(clnt, &sn->all_clients, cl_clients) {
-> +			struct rpc_xprt_switch *xps;
-> +			struct rpc_xprt *xprt;
-> +
-> +			xps = rcu_dereference(clnt->cl_xpi.xpi_xpswitch);
-> +			if (!xps)
-> +				continue;
-> +			list_for_each_entry_rcu(xprt, &xps->xps_xprt_list,
-> +						xprt_switch) {
-> +				if (n < max) {
-> +					xprts[n] = xprt_get(xprt);
-> +					if (!xprts[n])
-> +						continue;
-> +				}
-> +				n++;
-> +			}
-> +		}
-> +		rcu_read_unlock();
-> +		spin_unlock(&sn->rpc_client_lock);
-> +	}
-> +	return n;
-> +}
-> +
-> +static int rpc_pm_notify(struct notifier_block *nb, unsigned long action,
-> +			 void *data)
-> +{
-> +	struct rpc_xprt **xprts = NULL;
-> +	unsigned int i, n, max = 0;
-> +
-> +	if (action != PM_POST_HIBERNATION)
-> +		return NOTIFY_DONE;
-> +
-> +	/*
-> +	 * The references are taken under spinlocks, but xprt_put() may sleep,
-> +	 * so collect them in an array and disconnect after the locks are
-> +	 * dropped. Count first so that the array can be allocated without
-> +	 * GFP_ATOMIC, and recount if transports were added in the meantime:
-> +	 * a transport left out would keep the stalled connection.
-> +	 */
+First, Signed-off-by should be a "Known identity" not short alias because i=
+t is interpreted
+as Developers Certificate of Origin. If you resend, please use something mo=
+re than just "ojab".
 
-Is there a way to do this without the double loop? The rpc_xprt_switch has a
-"xps_nxprts" field that should hold the number of xprts in the switch. Using
-that might be more straightforward than looping twice and counting.
+Also, it looks like flex version 2.6.5 change was later reverted.
+AI discovered:
+  flex 2.6.5 renamed yyunput() to yyunput_r(), but 2.6.12 reverted that
+  and restored the 2.6.4 behaviour (flex commit 160a160). Every version
+  in that window, 2.6.5 through 2.6.15, was tagged within the last week;
+  flex had been on 2.6.4 since 2017. So this works around a rename that
+  upstream has already backed out, in releases no distro ships.
 
-Thanks,
-Anna
+Bottom line: don't use development versions of flex
 
-> +	for (;;) {
-> +		down_read(&net_rwsem);
-> +		n = rpc_pm_get_xprts(xprts, max);
-> +		up_read(&net_rwsem);
-> +		if (n <= max)
-> +			break;
-> +
-> +		for (i = 0; i < max; i++)
-> +			xprt_put(xprts[i]);
-> +		kfree(xprts);
-> +		max = n + 8;
-> +		xprts = kmalloc_objs(*xprts, max);
-> +		if (!xprts) {
-> +			pr_warn("RPC: no memory to reset transports after resume\n");
-> +			return NOTIFY_DONE;
-> +		}
-> +	}
-> +
-> +	for (i = 0; i < n; i++) {
-> +		xprt_force_disconnect(xprts[i]);
-> +		xprt_put(xprts[i]);
-> +	}
-> +	kfree(xprts);
-> +	return NOTIFY_DONE;
-> +}
-> +
-> +static struct notifier_block rpc_pm_nb = {
-> +	.notifier_call = rpc_pm_notify,
-> +};
-> +
-> +int rpc_pm_notifier_register(void)
-> +{
-> +	return register_pm_notifier(&rpc_pm_nb);
-> +}
-> +
-> +void rpc_pm_notifier_unregister(void)
-> +{
-> +	unregister_pm_notifier(&rpc_pm_nb);
-> +}
-> +
->  /*
->   * Kill all tasks for the given client.
->   * XXX: kill their descendants as well?
-> diff --git a/net/sunrpc/sunrpc.h b/net/sunrpc/sunrpc.h
-> index 11b9e5cead8e..1833b167616c 100644
-> --- a/net/sunrpc/sunrpc.h
-> +++ b/net/sunrpc/sunrpc.h
-> @@ -43,6 +43,8 @@ struct rpc_task;
->  struct rpc_xprt;
->  int rpc_clients_notifier_register(void);
->  void rpc_clients_notifier_unregister(void);
-> +int rpc_pm_notifier_register(void);
-> +void rpc_pm_notifier_unregister(void);
->  void auth_domain_cleanup(void);
->  void svc_sock_update_bufs(struct svc_serv *serv);
->  enum svc_auth_status svc_authenticate(struct svc_rqst *rqstp);
-> diff --git a/net/sunrpc/sunrpc_syms.c b/net/sunrpc/sunrpc_syms.c
-> index 1a3884a0376a..d32786f51ae5 100644
-> --- a/net/sunrpc/sunrpc_syms.c
-> +++ b/net/sunrpc/sunrpc_syms.c
-> @@ -116,6 +116,10 @@ init_sunrpc(void)
->  	if (err)
->  		goto out6;
-> 
-> +	err = rpc_pm_notifier_register();
-> +	if (err)
-> +		goto out7;
-> +
->  	sunrpc_debugfs_init();
->  #if IS_ENABLED(CONFIG_SUNRPC_DEBUG)
->  	rpc_register_sysctl();
-> @@ -124,6 +128,8 @@ init_sunrpc(void)
->  	init_socket_xprt();	/* clnt sock transport */
->  	return 0;
-> 
-> +out7:
-> +	genl_unregister_family(&sunrpc_nl_family);
->  out6:
->  	rpc_sysfs_exit();
->  out5:
-> @@ -141,6 +147,7 @@ init_sunrpc(void)
->  static void __exit
->  cleanup_sunrpc(void)
->  {
-> +	rpc_pm_notifier_unregister();
->  	genl_unregister_family(&sunrpc_nl_family);
->  	rpc_sysfs_exit();
->  	rpc_cleanup_clids();
-> -- 
-> 2.53.0
+NAK
