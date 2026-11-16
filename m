@@ -1,75 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794796658;
-	b=FYAxX91QpVu8r5D2qiWEzpM/OQ3f1BIK7TZ5kPU3x8aM2TwChGLu9NSm1DAUpiMOydWS
-	 fkFGb57f4zK2ezMy84rLrCm3FhREyjKoVZd6MKc7kRmjg9AE66zSYCUv+mb1fNZolidIN
-	 QunHVjt8CpOMeN3R1EIfDNDJsh75Uh8AHovBoWoXU3XTSFihffEyRdgPmMAYQmx1/w5Oy
-	 kLs+Ui/HNjXXQn6gZI1LTtH9kUbLjEHppj0a+o380Y/wEGoOZpA+T+23tpnMGpcadtJO2
-	 eejMXNJiU3VeJew2cVRp1XLffkSx9Y59E2Qf3DeU2AqsPpJS6Hn34qRHKDu1tJr0o2w==
+	t=1794796868;
+	b=lb1CTR4YxXInAxAustb98gEQ+ctxwfjzaH3fN620kK8qoOjyLJI/2oLDrS4PKycoJjDq
+	 UPkPvmElwc9dkrivYo0Lc70B6UP7ffiLmk53WdpwFahm9666HSydOAmKPjbzefxgMTZ4c
+	 N8hE7Zti0vL3Dx85NqeRest+TtWKyAG2leDZ1oGBXBtcxBo2JNC6erlk4IqqKS41qRDrX
+	 dFY6EXRNflPVKjkF0/K/e+fUmZdBQgfe04NPw2WAnHPagtpdLuB0eVqE7Od5XDWpxIvp+
+	 VmOfzD1FAP5e8iFu5Fjsa7F0IPwpu3MFhBx2IFedz9MLS37WSO3lH639RlSpZSnoWqQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794796658;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794796868;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=1DE1zx2VFa9qUd9Uu0O8FBnLLNz1IzGMo61cjsDi4Ak=;
-	b=17f7P3TMzDtC6/+JhKK77ohHBQbwdJVnMKU2PCdoaPIKRGeMLttPIb7mUquY6xBHKWFG
-	 rTX8Aut/aex6OrC8KN/aRIL/MvR9FSDiif9VvxwWGgjqC4w3AR1kLRJkcLAcCRHapYXTn
-	 zsoaRCeD14h+PNibSkbAdhWQNh/Ft1Nvzb7zYxv3SjLf1ZXIOa0J+2EVRa84Wq2wWOGCz
-	 1uwjomwxh6zKy9zYibCOUAo7FRlJ4ZyseDCoEk3kMVJQE/LxXDH9q+AyEqPdLieuelfX/
-	 lGyhhePLvEjM90XXlAAqydsouNSQ/w0prEEpYrwQLZHAOXYFZGdwuDg0stRWAXMvi5w==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=V2OEn9tAKSN4sXOsuonmkzU2ywS3aimW3cs+6O3cqU0=;
+	b=xEP9NPhy11WjE8jTqS6/hmMfF2zZMhM8sYwpQ0X5NLGz4LcbEPaTE31/rbjkNW66zcaj
+	 GhvLpR8yt0WuT4+R5KjbYlDCdQaM03KAbBhF7S3P/8UP8OBXxi+s4gkWkAxvCA9fr8e7G
+	 G+bDfIYdajLAuROMOStMkQkEZfnlovW8u7kvj+P53afd8z7+BK1FVnLkpQxjHrqsNKoMd
+	 DhWrLXYSR92sKD2dPE3/k9CZXWGpTjYHFOlQNGVTBxRk62hyabnEEf2DD5OSQzbKDBHeD
+	 FcnTdHsJx7Y3k8bK6Z3XlRkcrqUnVlnUWQ1TAwwIvPoY/NrwAnwOWfCCby/uUVW/b5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CopQe4R8;
-	arc=none smtp.remote-ip=209.85.217.72
-Received: from mail-vs1-f72.google.com (mail-vs1-f72.google.com [209.85.217.72])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Fu067Wwl;
+	arc=none smtp.remote-ip=74.125.231.130
+Received: from mail-oo2-f2.google.com (mail-oo2-f2.google.com [74.125.231.130])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6B62606A334
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:37:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6B62606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 971FA606A321
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:41:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 971FA606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CopQe4R8
-Received: by mail-vs1-f72.google.com with SMTP id ada2fe7eead31-7d2c7428eb2so362619137.2
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:37:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Fu067Wwl
+Received: by mail-oo2-f2.google.com with SMTP id 46e09a7af769-862a00144f1so513942a34.0
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:41:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794796657; x=1795401457; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1DE1zx2VFa9qUd9Uu0O8FBnLLNz1IzGMo61cjsDi4Ak=;
-        b=CopQe4R8yNIYcFAOCuocpcLGRTybJxLmbZljpji/v8rU3tpkbXhVXZgfclaKE7mPb+
-         zvOJSiBTZX3G6/m82v914mXwDTC91a7QxArzfGhQjp6WlDdjyS2HGCS5RGZmK9VjcwuO
-         s8JMX73Y/M/cuWrR7MKSvUfCBYgMNYCj4OxayHKRusdl80+L6utnXrpQCfgNVBZAvOcC
-         mWOh1EW2qV8kpZSwunqhQVr4CHg/c/R52rd1GoDRJ0te0+8xwxCZJIyfijXsHaUfrGNz
-         /GaX8JzHF/lbQBRTA0azp152J/WpJvu8/qEJq/cFXtNp7jwL2ooPNE+iaW4l2tiICYrN
-         FK2Q==
+        d=gmail.com; s=20260707; t=1794796866; x=1795401666; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=V2OEn9tAKSN4sXOsuonmkzU2ywS3aimW3cs+6O3cqU0=;
+        b=Fu067WwlnNSDgeNFNMmXlAGr3qWf+wNIlIjF2/UUs3AZ8BqwuTRFwaVLXHoMHoitjQ
+         OmMHs8QjjIG/z7o5xJVKWU6KoZem/ZW4M6O4f/pOFff6k/kSbzm5+xMc+P5DgKzp2lrM
+         5xzY81eA0Pm0GWb57FNA/P65VmrDZkBmNaYBlCvhxUNUg4+9DfHuBCXEXJBWMSW7WYxL
+         2ZYuG+Txsf8zqwIpFd2WHnpd6YvQeh2EmkTDGvRGAFWhNRqeeZeFemYypUfXgNV4vsP7
+         CVq6WOVQ0m08vDz+xoOssyE3rQms0RWtsbprbqw91wGuEUVfBfVNwbZVYCFYdypjrAPx
+         v0og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794796657; x=1795401457;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1794796866; x=1795401666;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=1DE1zx2VFa9qUd9Uu0O8FBnLLNz1IzGMo61cjsDi4Ak=;
-        b=fdR7BLrqMTn5RWXCu4gxGkXRAAugpxETQo7FFiERhTd/W7uoKuFaIL/ksSxTHc3Lrd
-         ZsCP7YIdXFatDSHumI5g6ixfi29+mhsmbi/+0I47JnxBxytyEoKOm/OVUSkm+JVBWkjo
-         m2LtDJaUsxxdtsng+9KY0VJykQpFTEzAriyTWT9Voj2wrR6pqDS/P3t3H/jD1CS6DoV0
-         YqaT/cBNQd70JByg5y22OHplleWcBDikY/X5bz8Ph9O2+4VBp01NxWTRAq/07EkFMgCT
-         lfYjLTXRbIE7o1ziGyxrPl1y2l4+GunDOCVro/n6/gtPNihcknig9lzb7WWqwgGwKJPT
-         tK6A==
-X-Forwarded-Encrypted: i=1; AL+hErF+ClWJDHvdI9coUoLS07oLq2sDHkGs//YMd5/h34qdQ/jmhCQzzY2UfRdBRlE0LSZz2kMt4jE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Fs7ccz6DEx88FWbQOLc9kxUFZs8yDpp97FspbF+SQlETSjsCW
-	w985pKTFcKHPDeOxo9STcUa3kvZ9ctxBBHHK81n5HM61V/wlPFZRPG8hImORr60Nwb9xhbZdODk
-	bX79PGxGsRAD+LMENnQyH4a8lMA==
-X-Received: from vscc8-n1.prod.google.com ([2002:a05:6102:6308:10b0:7d6:46f2:b6a0])
- (user=thaisonphan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6102:a4b:b0:7cc:1192:563c with SMTP id ada2fe7eead31-7d64d770298mr2307128137.25.1794796656540;
- Sun, 15 Nov 2026 18:37:36 -0800 (PST)
-Date: Mon, 16 Nov 2026 02:37:09 +0000
-In-Reply-To: <20261116023709.132684-1-thaisonphan@google.com>
+        bh=V2OEn9tAKSN4sXOsuonmkzU2ywS3aimW3cs+6O3cqU0=;
+        b=rz42ErLpxTBG73GheZ8WIf75CbbZVr19Iac5ZJrEXkct1q2RcJPobWVmVKRwGezur1
+         croJe4U1NQ43XF32iGBjijs8fhQpoZNjliTeaPveucfx29xeA91Osz7UzSYoRzDT4Sot
+         fWIwuLg5hI0xacDEGPNXky8FRDIqoz5dGRJ1STknqU7JjjFHv2PtUky8xnZUhMSwPBAQ
+         9JwRkJKNkLQuhLhzU2tby0wAVaWWayVQk/a3RysXecYXQJ7Ahuhgu6ZJlkSW2uXgjEUz
+         /LStGBaNJaaHh3vgpb1M01MrEkNuhxvCCpkEBl3cJpnB+OmACjbiubIaKtI6yO5VnXSE
+         zwXw==
+X-Gm-Message-State: APuU4Z+Vmv/7xq7KcY5zeA288n7ZSfGL5CiWeYqE7B0IKNI2MapNafb/
+	Gj6ohzWTcjeQ6kejZtDU16HyNt8+OPlxENRkMFMG35HC0JGRCylKrToH
+X-Gm-Gg: AYBFou1v4rqM7YdKTnZYxlFtoGQEREsecdtFiIsZthH8951sE5O7ye+FJnw/RPukp7G
+	ApJiK9RJ3K1bqkwZbLewg5N0PBgdPp5CiVZgvKgQnppY8N2d+196wTxjlCONt2Xk5eVwcWcjH6x
+	XvRF5/mhJN+eOtUqoUfpOHAg0/WYjBuRTwmpLWID8eRKTse2ScYydljNXMyOkZIG50W37qLHdLM
+	OAJY0JGSFpzCSogeBPulxWeQpwy/5UHqHaJtRJXbhN3BDu3hnQNAoV5r6vxFp/4VlW/KYzuGWOr
+	OZJTGw/9XuvpnlIJEOZAgdCNDeBhckcxrsRBGfVYmraqRAwf2Nbqb++KU6ogEBekWcCOA+vNzl4
+	2KKSjtPrj7ylvzpwEaaNejMFGa3UIvrDRdP32kjm6iuaRacSx+kkiNBQUXFwYa2NmvOCb5Gemx0
+	3ZqCoc3/ivFnDAG0Yb+fyVJTkPcOj7GvMU2W7F5no2DhQtwaNg9lRMmgfWnMdTSc/U3/EFWeQCI
+	jljrVRhxTqJJEf/8WyXs5A2yLP6PEOY7zrE9xIlX1bn+kSY1KwDtcfup1SAiZPxLcmDaPVgZE8W
+	w+hmQVtX69OsK5aXOxfyTP++lyQ/GZIROPLeeOXPuKReHEBjKhU2x+NN4L/qo1KBuSs=
+X-Received: by 2002:a05:6830:a21b:10b0:81c:a6c8:8a65 with SMTP id 46e09a7af769-86289905565mr5197772a34.25.1794796866535;
+        Sun, 15 Nov 2026 18:41:06 -0800 (PST)
+Received: from localhost.localdomain ([14.22.11.162])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862a82c4625sm5441937a34.22.2026.11.15.18.41.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 18:41:04 -0800 (PST)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: Paolo Abeni <pabeni@redhat.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Stanislav Fomichev <sdf.kernel@gmail.com>,
+	Nicolas Dichtel <nicolas.dichtel@6wind.com>,
+	Yuyang Huang <sigefriedhyy@gmail.com>,
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH] net: fix uninitialized heap leak in multicast address dumps
+Date: Mon, 16 Nov 2026 10:40:56 +0800
+Message-ID: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,99 +101,47 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261116023709.132684-1-thaisonphan@google.com>
-X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
-Message-ID: <20261116023709.132684-3-thaisonphan@google.com>
-Subject: [PATCH net v2 2/2] tcp: accecn: initialize AccECN fields in syncookie path
-From: Thaison Phan <thaisonphan@google.com>
-To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	David Ahern <dsahern@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, "=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ij@kernel.org>, 
-	Olivier Tilmans <olivier.tilmans@nokia.com>, 
-	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Thaison Phan <thaisonphan@google.com>
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-cookie_tcp_reqsk_alloc() and bpf_sk_assign_tcp_reqsk() allocate struct
-request_sock without __GFP_ZERO, leaving saw_accecn_opt,
-accecn_fail_mode, syn_ect_rcv, and syn_ect_snt uninitialized. When
-accecn_ok is negotiated in cookie_{v4,v6}_check(),
-tcp_ecn_openreq_child() reads all four fields to initialize the child
-socket's AccECN state.
+__hw_addr_create() allocates entries with kmalloc() and initializes
+only addr_len bytes of ha->addr. Dump paths emit entries using the
+current dev->addr_len, which can grow after the entry was created:
+tun's TUNSETLINK changes a device from ARPHRD_NONE (addr_len 0) to
+ARPHRD_IP6GRE (addr_len 16). Both the RTM_GETMULTICAST dump and
+/proc/net/dev_mcast then emit up to 16 bytes of never-written slab
+memory per entry.
 
-In addition, because the temporary request_sock used to send a cookie
-SYN-ACK is immediately freed, treq->syn_ect_snt is lost. If the listener
-marks ECT (e.g. DCTCP), failing to record syn_ect_snt causes
-tcp_accecn_third_ack() to flag TCP_ACCECN_ACE_FAIL_RECV when the peer
-reflects ECT, disabling ECT for the rest of the connection.
+This discloses leftover kernel heap contents to anyone reading those
+interfaces.
 
-Initialize saw_accecn_opt, accecn_fail_mode, and syn_ect_rcv in
-cookie_tcp_reqsk_init() to match tcp_openreq_init(), and set syn_ect_snt
-from the listener's TOS/tclass in cookie_{v4,v6}_check() to match
-tcp_{v4,v6}_send_synack().
+Zero the tail of ha->addr at creation time, so dumps can only emit
+initialized bytes.
 
-Found by AI-assisted code inspection comparing tcp_openreq_init() and
-cookie_tcp_reqsk_init() while investigating the cookie_v6_check()
-LOOPBACK4_IPV6 bug. Reproduced in a QEMU VM with tcp_syncookies=2,
-tcp_ecn=3, SLUB_RCU_DEBUG=y, and slub_debug=P, observing bogus
-tcpi_accecn_fail_mode and tcpi_accecn_opt_seen values in TCP_INFO on the
-accepted child socket (and tcpi_accecn_fail_mode=0x2 on ECT(0)
-listeners), and tested with packetdrill AccECN and syncookie selftests.
-
-Fixes: 3cae34274c79 ("tcp: accecn: AccECN negotiation")
-Fixes: b40671b5ee58 ("tcp: accecn: AccECN option failure handling")
-Signed-off-by: Thaison Phan <thaisonphan@google.com>
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Cc: stable@vger.kernel.org
+Fixes: a748ee242681 ("net: move address list functions to a separate file")
+Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
 ---
-v2:
-  - drop redundant treq->syn_ect_snt = 0 in cookie_tcp_reqsk_init()
-    (Eric Dumazet)
-  - clarify how the bug was discovered and observed via TCP_INFO
-    (Eric Dumazet)
-  - add Reviewed-by tag from Eric Dumazet
-v1: https://lore.kernel.org/netdev/20261114161248.3428695-3-thaisonphan@google.com/
+ net/core/dev_addr_lists.c | 5 +++++
+ 1 file changed, 5 insertions(+)
 
- net/ipv4/syncookies.c | 4 ++++
- net/ipv6/syncookies.c | 1 +
- 2 files changed, 5 insertions(+)
-
-diff --git a/net/ipv4/syncookies.c b/net/ipv4/syncookies.c
-index 4e0ff3b82062..1a837ed6efa0 100644
---- a/net/ipv4/syncookies.c
-+++ b/net/ipv4/syncookies.c
-@@ -290,6 +290,9 @@ static int cookie_tcp_reqsk_init(struct sock *sk, struct sk_buff *skb,
- 	 */
- 	treq->txhash = treq->snt_isn;
- 	treq->syn_tos = TCP_SKB_CB(skb)->ip_dsfield;
-+	treq->saw_accecn_opt = TCP_ACCECN_OPT_NOT_SEEN;
-+	treq->accecn_fail_mode = 0;
-+	treq->syn_ect_rcv = 0;
- 
- #if IS_ENABLED(CONFIG_MPTCP)
- 	treq->is_mptcp = sk_is_mptcp(sk);
-@@ -502,6 +505,7 @@ struct sock *cookie_v4_check(struct sock *sk, struct sk_buff *skb)
- 		ireq->rcv_wscale = rcv_wscale;
- 	ireq->ecn_ok &= cookie_ecn_ok(net, &rt->dst);
- 	treq->accecn_ok = ireq->ecn_ok && cookie_accecn_ok(th);
-+	treq->syn_ect_snt = READ_ONCE(inet_sk(sk)->tos) & INET_ECN_MASK;
- 
- 	ret = tcp_get_cookie_sock(sk, skb, req, &rt->dst);
- 	/* ip_queue_xmit() depends on our flow being setup
-diff --git a/net/ipv6/syncookies.c b/net/ipv6/syncookies.c
-index b33011b71fff..7435ebcc366c 100644
---- a/net/ipv6/syncookies.c
-+++ b/net/ipv6/syncookies.c
-@@ -276,6 +276,7 @@ struct sock *cookie_v6_check(struct sock *sk, struct sk_buff *skb)
- 		ireq->rcv_wscale = rcv_wscale;
- 	ireq->ecn_ok &= cookie_ecn_ok(net, dst);
- 	tcp_rsk(req)->accecn_ok = ireq->ecn_ok && cookie_accecn_ok(th);
-+	tcp_rsk(req)->syn_ect_snt = READ_ONCE(np->tclass) & INET_ECN_MASK;
- 
- 	ret = tcp_get_cookie_sock(sk, skb, req, dst);
- 	if (!ret) {
+diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+index d827cc21867b..53a2dfa2706c 100644
+--- a/net/core/dev_addr_lists.c
++++ b/net/core/dev_addr_lists.c
+@@ -100,6 +100,11 @@ __hw_addr_create(const unsigned char *addr, int addr_len,
+ 	if (!ha)
+ 		return NULL;
+ 	memcpy(ha->addr, addr, addr_len);
++	/* Entries are dumped with the current dev->addr_len, which can grow
++	 * after creation (e.g. tun TUNSETLINK), so never leave the tail
++	 * uninitialized.
++	 */
++	memset(ha->addr + addr_len, 0, MAX_ADDR_LEN - addr_len);
+ 	ha->type = addr_type;
+ 	ha->refcount = 1;
+ 	ha->global_use = global;
 -- 
-2.56.0.611.g1030f0b940-goog
+2.43.7
 
