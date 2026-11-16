@@ -1,126 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794868423;
-	b=N/FlP1kZ4rZmhwoklj78kyzrCwpIkemKcDuj7M1N+cWkTaXS60qalR3e3av09r1va/Dh
-	 Rh02zKYaaxS1G7qyLOfzdAzlpyFbvGzUfjxU3mw74TX022BArzMrxx69nKINOk6SkU/Sz
-	 iQUGNMhWcqazTP9e8NFk++NQ9bANJVxIw/ygN5VK3/TEOhuWL4l/U0Ae8+ktkSFony5wY
-	 EmpYnYI5zzWPvBz0p6yhXJ2xJCog8C5eAn2AWltdoXQbx6tdooyHva/VzRsoEP2VCH/J1
-	 DsZ4rv2itKUDnv6bLzeNSdWAyMW8Yh6Cwza8m4C1gtTwI4020mCV7C1I9/hPK8E/Yxg==
+	t=1794868557;
+	b=K8sd3aSvwZQsPuaEdIpkOFzV7mqnj1N2M2qUVbAFh1wjmNKeJB2ODxpo3o5wF9xm9jdR
+	 vMmIq1xMPI0In65Qd4aRku4IF9Pg6hxjTTBJ7bYC9U+ODU7AWUUx8DsapYY0glwwGLYc+
+	 T2emNqzrS5QsRkBhYzWotwlUcbDKe36MoxDC7c6RGcMVmb98o4anEO7HydqZ5FZXsspUW
+	 WDoZdy4V404ONUqwm4Vuxf96X2OROj2E4AKuxM7XV3R49XkX6PWJX2Rtm+Q/nQ6MVB02o
+	 Nac+HOZ0DuyB/GQWtBI6cCr4lJcywIzPuDEEDxA0nqUjn8bWdRzZp0H+vBsTWOAk8tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794868423;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=42NWJDQZ2EtkvUcsZu/X6ZQPyfzCVmcoYq5gbzwq5uY=;
-	b=jzsLYnq8iNfelNPqmTZ2JZqroFWrzH/v9B2FN4NHC96xlP1UINF3BPSxlS1diR3uT1/n
-	 R0lCZx540v2Qr99RSB2lVgTnzj2UeA/vNm54eeY6lULle+g6PWISRYzvfJTcr+8wbGQFS
-	 yMig6gz/9eISy838pKYBFhdP4oAJ5G/AlQR/ILLc3nIlcoKkkncygVSXPcCLCW3dH+elG
-	 4YsvXt9A+V57BlTTjZVFhdPHk3gD+EW45foS4651vqxjrXMaYdI/iC3RwfGl6AbYqx5qA
-	 KmIIp1yR4uytpH4niuP7YpuyC3o8wVr90C2oVM7rkon+iAj0Wb6fXrmphQNb+bo4ZEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794868557;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=81QVFPNBMtvTkIPV7j0MW1cXGCru4h8AqI+bEJxsMBM=;
+	b=qfM4bSlRX3tsN/ZmpAl80hT8psJzEjtYk0IqjId4knoqNZSLX/lDtUiW0EvSHe57Nk7m
+	 8yxJ9f0uUc93f4wnUAYJAvJNiaPa69WqLOqSUQMvRJdrx/J2yCedX3U4X1fMhQdG7r8/N
+	 SHkLV3oiOUqrKGYLmNIMO6805F3kj8K4M/A/KfbzcYh39/EkFvBdRw8CK29d1kCiLnp9D
+	 duSDqsYqHqAlR2plX0yyxShqEV5odyurL1JqBTQRfAQl/Vo95j9QZfUgZgRVrbv0u6SGR
+	 AhEZkCJt4uaGu+2XWXFbup64Un+cAlR3R2BKiG8egJESe3A/f5FinXRQiKgQPR5PHhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Q6prqMnQ;
-	arc=none smtp.remote-ip=209.85.210.226
-Received: from mail-pf1-f226.google.com (mail-pf1-f226.google.com [209.85.210.226])
+	dmarc=pass header.from=networkplumber.org;
+	spf=pass smtp.mailfrom=networkplumber.org;
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="owckIJ/X";
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2609606A893
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:33:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2609606A893
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93320606A33F
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:35:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93320606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Q6prqMnQ
-Received: by mail-pf1-f226.google.com with SMTP id d2e1a72fcca58-8a07078200fso1809608b3a.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:33:42 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=owckIJ/X
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b3a9a4a765so287721a91.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:35:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794868556; x=1795473356; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=81QVFPNBMtvTkIPV7j0MW1cXGCru4h8AqI+bEJxsMBM=;
+        b=owckIJ/XO+KPuRSD616m6vMSHjh+drN6ZxgO9zBnFiKzRgM6hZUiDI3S2iqK42Avgv
+         RZncUo2cQVcynZtp0SHGFpgyn7iG0Fllc0gnSoemN52ss2+NNltcYh99vL2nmwNO4AML
+         T7THBJbcbr3tTmETCqBm34ft4svJPFkCJTsrHwY9wjTc2Ca4oY0lOZOE+VpT4/yZrlOq
+         j0vlJ3vmT2APXPdY/EjtGb4XlSNrm7WFSvpcSZT4nnzppIZfPQ1bnTlvfZBfJPUsINqk
+         S3z1GoWH2sJZck/lr6lS3NL385iFyfxnIlpc0A1tFzrBSVoRlg9py28pDZK7alqzJsUu
+         dJSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794868422; x=1795473222;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+        d=1e100.net; s=20260707; t=1794868556; x=1795473356;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=42NWJDQZ2EtkvUcsZu/X6ZQPyfzCVmcoYq5gbzwq5uY=;
-        b=b2S1rtROqNYtiJseEm71HPrMctYTetYYw6TTyI/YNYZ3BxkoILnA2XXNGOAomWTD7V
-         4YO3ltkTHHNF/h+UHj+EpfjBrQYDeHdSZMzuN6mccJUj5YfnDZoRFxEMzQtGnsDEExbs
-         7Z41GoJGQsqgSE5CeIF0Ur6O1pW9XkGhedJh+w3lIyd12Orvjhh2K213hlwpu4mxJBwH
-         E6ChFRQ7xx9CNTnJwyeR/Xp+HbZmurMDOY3yvcJu8aLhBZF9Q3JgoN9NZFsISQbGIaYD
-         Yzje9MKZ+StdsFSzISo4Ks9JEDIqf57yPE9iNkt9dXwoUIIlQthV3Y7+3c543mwQBzmz
-         d2jw==
-X-Gm-Message-State: APuU4Z97zMKMhWaDvzEN8uXPuFrNmV/wdBx99Zhf6Dl2JDB+KRqIg0Mj
-	u5ZafMByu0nkibd6FPgRlnbYw/Y59UUNNwcljoX5dau9A9dNWaLnJVOFDmaYvKdYtWhKHRsuIUN
-	cFBstBMDNGLw1qhZSybmmWJPPmWN7phimf7LCRG32nOU0HFnCWrpYeUeG2vQuiUkqQgSP9CQrBg
-	9E7tRYsL9LRfKjyJ8TZMnD5K0ddh+ZcHQ+1VwrjdQqDxlXHZIvP7gY4G4ZCZbz/TlbKcE9eJcyV
-	McSAekE1+yrrJPC
-X-Gm-Gg: AZFdTZc1ZTefeYFZyxIYcdv8EIC2KX4JY1/QFGPY9XkabvcQFLuT5hAJT7ixMV76SXo
-	E1zaXjK/rWXNX4hcvRnDqDlxb3wjKsNvdAAXD611z30iClCozl7fgakha8mJ+wj4Vh62GXZrgU3
-	sV0eVA+dMyUZhQChZsaER2nbQn1bzVrhRHpK8HzxXv2a69RMsbqCYTmGsAWAapqzEVM7wg2Tl4i
-	yMxS5Pu/Snt0ot6VbnV4X0Z31mz9Rqyl7dFzPB6a6Gh0dpG7mkNJC//8M8rMG9OvyB9VDcHW3xL
-	CoewbEKbE7OGyKcA8Kq1iYrXCHTZXRbaHl2ErEvIGVjqEkyViePYJqInFbVSx49Mc7m0aiB9JTE
-	B8wjKD1CLCIkO5k6zHyGHmdcE5PAiRHpOXeHwa7Y1+/epw/Gm0/I1J8TQXHchyo9hpfte25UzX4
-	6Q/+zo2kmF/qnqcJfLwvf+TjSEzUx++wg7uYt7nJr3
-X-Received: by 2002:a17:90a:8385:b0:3b3:b0f4:1beb with SMTP id 98e67ed59e1d1-3b3b0f4277emr200827a91.16.1794868421776;
-        Mon, 16 Nov 2026 14:33:41 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b1b63e7242sm3725285a91.4.2026.11.16.14.33.40
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Nov 2026 14:33:41 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-999bc06bfd0so3153878241.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:33:39 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794868419; x=1795473219; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=42NWJDQZ2EtkvUcsZu/X6ZQPyfzCVmcoYq5gbzwq5uY=;
-        b=Q6prqMnQAOhukui00IEyoBmGQdSCfoR9JbO/NgnRPgADX8M5+s8fOV0hZYRMh5yFOm
-         sT8/xRvmXwtJSl3GvfA5ha0cCOim4hKNtCvxY0MA7BEDBdo0ltHn2RUV035wwAW/Ed1e
-         e5gNjaae/LI7CfZOw6mM51/tLJTbpMU7Xj6Nw=
-X-Received: by 2002:a05:7301:5401:b0:35c:8b96:94d9 with SMTP id 5a478bee46e88-37966f31fddmr10107891eec.19.1794867997874;
-        Mon, 16 Nov 2026 14:26:37 -0800 (PST)
-X-Received: by 2002:a05:7301:5401:b0:35c:8b96:94d9 with SMTP id 5a478bee46e88-37966f31fddmr10107844eec.19.1794867996950;
-        Mon, 16 Nov 2026 14:26:36 -0800 (PST)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-379560f5e06sm50176624eec.19.2026.11.16.14.26.34
+        bh=81QVFPNBMtvTkIPV7j0MW1cXGCru4h8AqI+bEJxsMBM=;
+        b=Zu3xqwSEqqKlblNIy7Lo9ho6aqUAnW/Yo+zu7auzNTLJ4zWhI5Z4cerx15E5Un+pse
+         sV73hLUo2hb2rYsoe/1hDZdioB+aqG7MppMGB9I1SIMaoqkO9co5uMybQ8gqSlDCMbBK
+         Aj6Oqc0LRJ62XNdMnLwJJDJhAoASGiZJqOP3dCEU2s+T/XvEGD29BaxJ9V1FKBjjvqtf
+         sds1O8AsDsYtXjccHQ7h7u1zhjP/hH82EQyvbYzCSMS8SF6fu8Yko90tOtsqFJQ/TIVF
+         Wz2hDSmRRRZHTkKG/9/Zfrv3v9aIEQjVk7xGqyFSS5A+RJYD4yBC50ZS+d2gYtTO3zYb
+         nfeQ==
+X-Gm-Message-State: APuU4Z9ePreDfyzJRXpYvEKmUrqIr9aPY3GDeWu25PxwEimTMTU5HtKZ
+	Bc7JGrihrOBZIr4BqcdQ1giYhLr9yCWhadY0+RTRjGO9lzaos0WINMkCA57qiSFoziU=
+X-Gm-Gg: AZFdTZd4bwPPBjAeQ1oG8V/TuZWDw6bJreyCYx8N78QXW4Wt3ft2JbspmfioA5g5Vuh
+	vXQuPQ62TUC1mm0+J4MhOHQXMj506/iEYa8/HsWL5GquszDOASKQTp2cP0EH+hXf9LLVdPuE7rT
+	0opdSgr+KBDnHQbn2EuZumzinNa+O4o2oC/6C53P5FbaYC42qUG8/vzmToV41nzHUKG0ICps5bw
+	gal+c6G07quWR/fxqP3QW7VxUhvcEzMD5+Wo53HzJlpPPkVvbPs3YtiZlAh65ko/yC2CwOQXZZX
+	rWq815EBtHaOU2jvt8ZJiLFddSzWfQ5J1fLNwd1RyNqhdu1dZv5FJ7mkC82qlO/MldVR+fvgE55
+	TFz3SpC6lJv5tTth1GmAbWhqQwn3usfMNUwHFsHrhvwswHDp16s+9qmHXCrK1rFZuVkr3eZN4P5
+	+Ms1I46Gsdq8RqPRztmBFIycI+PMgqLOO2myd8SM+MCYQyIWLpRx7xgmKnETEh7tJHN165AbcrW
+	akg+1WTmax01amoqMf8IBm+GV9nJi4g2z5p1fAOpss8m+7TezOWL7Lacb+eHehDUzIb8YUERGeP
+	Z8LoUv9lWLbbo9ngVGuqUvuhJkllms7JGCFjKtrMbFcK2h0Vmybp26e41lUd9QELwEVsEpjbIaQ
+	PzjrpAmXd+fjVqMLkRxw=
+X-Received: by 2002:a17:90b:5647:b0:3ac:a521:95c with SMTP id 98e67ed59e1d1-3b1b0a4e8e4mr11200424a91.58.1794868555501;
+        Mon, 16 Nov 2026 14:35:55 -0800 (PST)
+Received: from phoenix.local (204-195-112-43.wavecable.com. [204.195.112.43])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3abbad610sm1021128a91.2.2026.11.16.14.35.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 14:26:35 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-kernel@vger.kernel.org (open list),
-	linux-doc@vger.kernel.org (open list:DOCUMENTATION),
-	netfilter-devel@vger.kernel.org (open list:NETFILTER),
-	coreteam@netfilter.org (open list:NETFILTER)
-Subject: [PATCH net-next 6/9] net: flow_offload: allow drivers to validate and invalidate cached paths
-Date: Mon, 16 Nov 2026 14:25:16 -0800
-Message-ID: <20261116222519.1416501-7-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
-References: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
+        Mon, 16 Nov 2026 14:35:55 -0800 (PST)
+Date: Mon, 16 Nov 2026 14:35:53 -0800
+From: Stephen Hemminger <stephen@networkplumber.org>
+To: Pranav Tathe <pranavtathe30@gmail.com>
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>
+Subject: Re: [PATCH iproute2-next] ip-link: document BOND type options in
+ man page
+Message-ID: <20261116143553.1b051ab9@phoenix.local>
+In-Reply-To: <20261110142527.257436-1-pranavtathe30@gmail.com>
+References: <20261110142527.257436-1-pranavtathe30@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -130,229 +97,117 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-A classifier does not necessarily contain the mark, DSCP and output-
-interface inputs used to select its forwarding path. A partial driver
-FIB lookup cannot establish that a cached software route is stale.
+On Tue, 10 Nov 2026 19:55:27 +0530
+Pranav Tathe <pranavtathe30@gmail.com> wrote:
 
-Provide optional owner validation and invalidation callbacks. Validation
-runs under RCU without sleeping and distinguishes a proven stale path
-from unavailable context. Retain direct-path dst references for hardware
-flowtables and validate the actual cached routes, cookies and direct
-Ethernet neighbours in both directions on demand.
+> The ip-link(8) man page documents master-side creation options for many
+> link types but has no "BOND Type Support" section, leaving the bond master
+> options (mode, miimon, arp_*, xmit_hash_policy, lacp_*, ad_*,
+> coupled_control, broadcast_neighbor, lacp_strict, arp_missed_max, ...)
+> undocumented, even though a "Bonding Slave Support" section already exists.
+> 
+> Add a "BOND Type Support" section modelled on "BRIDGE Type Support",
+> describing every bond master option accepted by iplink_bond.c. Option
+> descriptions are sourced from the kernel bonding documentation
+> (Documentation/networking/bonding.rst).
+> 
+> Signed-off-by: Pranav Tathe <pranavtathe30@gmail.com>
+> ---
+There is a tradeoff between more complete man page and duplicating what
+is already in the kernel documentation. I would rather have kernel doc
+as single source of truth and keep the ip man page to a minimum.
 
-Mark references retained only for driver validation. They must not opt
-plain direct flows into packet-path or GC route checks after unrelated
-IPv4 generation changes. Keep the existing checks for direct tunnel,
-neighbour and XFRM routes. The explicit owner callback bypasses that
-policy and validates the retained dst itself. Other hardware users and
-tables without a validating driver keep their existing automatic-check
-behaviour. Software-only direct flows retain their previous reference
-policy. Release retained references with the flow.
+The longer AI review is:
+------------------------
 
-Netfilter implements invalidation by marking the owning connection for
-teardown. Owners keep cookies valid through an RCU grace period after
-DESTROY; drivers stop issuing notifications when their rules are
-destroyed.
+Having a BOND section is welcome, and the option set you identified is
+right. But the per-option prose restates bonding.rst, and that overlap is
+what I would like to avoid. Documentation that is copied from the kernel
+drifts from it, and the man page has no way to notice.
 
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
- include/net/flow_offload.h            | 12 ++++++
- include/net/netfilter/nf_flow_table.h |  8 ++--
- net/netfilter/nf_flow_table_core.c    | 12 +++---
- net/netfilter/nf_flow_table_offload.c | 58 +++++++++++++++++++++++++++
- net/netfilter/nft_flow_offload.c      |  6 ++-
- 5 files changed, 87 insertions(+), 9 deletions(-)
+The miimon entry in this very patch shows how that goes:
 
-diff --git a/include/net/flow_offload.h b/include/net/flow_offload.h
-index 70a02ee14308..09301a924014 100644
---- a/include/net/flow_offload.h
-+++ b/include/net/flow_offload.h
-@@ -697,6 +697,18 @@ struct flow_cls_offload {
- 	bool use_act_stats;
- 	unsigned long cookie;
- 	struct flow_rule *rule;
-+	/* Optional owner notification when a rule no longer represents the path.
-+	 * Call under RCU; the owner retains the cookie and callback until a
-+	 * grace period after DESTROY. Drivers must stop new calls at DESTROY.
-+	 * The callback must not sleep or call back into the offload driver.
-+	 */
-+	void (*invalidate)(unsigned long cookie);
-+	/* Optional cached-path validation, called under RCU during REPLACE.
-+	 * Return 0 for a valid path, -ESTALE for a demonstrably stale path,
-+	 * or -EOPNOTSUPP when validation is unavailable. Do not sleep or
-+	 * call back into the driver. The callback does not invalidate its owner.
-+	 */
-+	int (*validate)(unsigned long cookie);
- 	struct flow_stats stats;
- 	u32 classid;
- };
-diff --git a/include/net/netfilter/nf_flow_table.h b/include/net/netfilter/nf_flow_table.h
-index 5b22d31cb140..99cb087ff0b2 100644
---- a/include/net/netfilter/nf_flow_table.h
-+++ b/include/net/netfilter/nf_flow_table.h
-@@ -154,7 +154,8 @@ struct flow_offload_tuple {
- 					encap_num:2,
- 					needs_gso_segment:1,
- 					tun_num:2,
--					in_vlan_ingress:2;
-+					in_vlan_ingress:2,
-+					dst_validation_only:1;
- 	u16				mtu;
- 	u32				dst_cookie;
- 	struct dst_entry		*dst_cache;
-@@ -305,7 +306,7 @@ nf_flow_table_offload_del_cb(struct nf_flowtable *flow_table,
- }
- 
- void flow_offload_route_init(struct flow_offload *flow,
--			     struct nf_flow_route *route);
-+			     struct nf_flow_route *route, bool keep_dst);
- 
- int flow_offload_add(struct nf_flowtable *flow_table, struct flow_offload *flow);
- void flow_offload_refresh(struct nf_flowtable *flow_table,
-@@ -313,7 +314,8 @@ void flow_offload_refresh(struct nf_flowtable *flow_table,
- 
- static inline bool nf_flow_dst_check(struct flow_offload_tuple *tuple)
- {
--	if (!tuple->dst_cache)
-+	/* A driver-only reference must not change direct-path/GC semantics. */
-+	if (!tuple->dst_cache || tuple->dst_validation_only)
- 		return true;
- 
- 	return dst_check(tuple->dst_cache, tuple->dst_cookie);
-diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
-index 4c82097cd50b..b16a336101af 100644
---- a/net/netfilter/nf_flow_table_core.c
-+++ b/net/netfilter/nf_flow_table_core.c
-@@ -96,7 +96,7 @@ static struct dst_entry *nft_route_dst_fetch(struct nf_flow_route *route,
- 
- static int flow_offload_fill_route(struct flow_offload *flow,
- 				   struct nf_flow_route *route,
--				   enum flow_offload_tuple_dir dir)
-+				   enum flow_offload_tuple_dir dir, bool keep_dst)
- {
- 	struct flow_offload_tuple *flow_tuple = &flow->tuplehash[dir].tuple;
- 	struct dst_entry *dst = nft_route_dst_fetch(route, dir);
-@@ -127,7 +127,9 @@ static int flow_offload_fill_route(struct flow_offload *flow,
- 
- 	switch (route->tuple[dir].xmit_type) {
- 	case FLOW_OFFLOAD_XMIT_DIRECT:
--		if (route->tuple[!dir].in.num_tuns) {
-+		flow_tuple->dst_validation_only = keep_dst &&
-+			!route->tuple[!dir].in.num_tuns;
-+		if (keep_dst || route->tuple[!dir].in.num_tuns) {
- 			flow_tuple->dst_cache = dst;
- 			flow_tuple->dst_cookie =
- 				flow_offload_dst_cookie(flow_tuple);
-@@ -162,10 +164,10 @@ static void nft_flow_dst_release(struct flow_offload *flow,
- }
- 
- void flow_offload_route_init(struct flow_offload *flow,
--			     struct nf_flow_route *route)
-+			     struct nf_flow_route *route, bool keep_dst)
- {
--	flow_offload_fill_route(flow, route, FLOW_OFFLOAD_DIR_ORIGINAL);
--	flow_offload_fill_route(flow, route, FLOW_OFFLOAD_DIR_REPLY);
-+	flow_offload_fill_route(flow, route, FLOW_OFFLOAD_DIR_ORIGINAL, keep_dst);
-+	flow_offload_fill_route(flow, route, FLOW_OFFLOAD_DIR_REPLY, keep_dst);
- 	flow->type = NF_FLOW_OFFLOAD_ROUTE;
- }
- EXPORT_SYMBOL_GPL(flow_offload_route_init);
-diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-index 4365859220e6..1f3adf70f598 100644
---- a/net/netfilter/nf_flow_table_offload.c
-+++ b/net/netfilter/nf_flow_table_offload.c
-@@ -885,6 +885,62 @@ static int nf_flow_offload_alloc(const struct flow_offload_work *offload,
- 	return 0;
- }
- 
-+static struct flow_offload *nf_flow_offload_cookie_flow(unsigned long cookie)
-+{
-+	struct flow_offload_tuple *tuple = (struct flow_offload_tuple *)cookie;
-+	struct flow_offload_tuple_rhash *tuplehash;
-+	struct flow_offload *flow;
-+
-+	tuplehash = container_of(tuple, struct flow_offload_tuple_rhash, tuple);
-+	flow = container_of(tuplehash, struct flow_offload, tuplehash[tuple->dir]);
-+	return flow;
-+}
-+
-+static void nf_flow_offload_invalidate(unsigned long cookie)
-+{
-+	flow_offload_teardown(nf_flow_offload_cookie_flow(cookie));
-+}
-+
-+static int nf_flow_offload_validate(unsigned long cookie)
-+{
-+	struct flow_offload *flow = nf_flow_offload_cookie_flow(cookie);
-+	unsigned int dir;
-+
-+	for (dir = 0; dir < FLOW_OFFLOAD_DIR_MAX; dir++) {
-+		struct flow_offload_tuple *tuple = &flow->tuplehash[dir].tuple;
-+		struct flow_offload_tuple *other = &flow->tuplehash[!dir].tuple;
-+		struct dst_entry *dst = tuple->dst_cache;
-+		struct neighbour *neigh;
-+		u8 mac[ETH_ALEN];
-+		bool valid;
-+
-+		if (!dst)
-+			return -EOPNOTSUPP;
-+		/* This is the actual route selected with the packet's policy
-+		 * context, including mark, DSCP and the reverse lookup's oif.
-+		 */
-+		if (!dst_check(dst, tuple->dst_cookie))
-+			return -ESTALE;
-+		if (tuple->xmit_type != FLOW_OFFLOAD_XMIT_DIRECT)
-+			continue;
-+		/* A stacked path may have a different final Ethernet neighbour.
-+		 * Do not mistake that unsupported context for a stale owner.
-+		 */
-+		if (dst->dev->ifindex != tuple->out.ifidx)
-+			return -EOPNOTSUPP;
-+		neigh = dst_neigh_lookup(dst, &other->src_v4);
-+		if (!neigh)
-+			return -ESTALE;
-+		neigh_ha_snapshot(mac, neigh, dst->dev);
-+		valid = (READ_ONCE(neigh->nud_state) & NUD_VALID) &&
-+			ether_addr_equal(mac, tuple->out.h_dest);
-+		neigh_release(neigh);
-+		if (!valid)
-+			return -ESTALE;
-+	}
-+	return 0;
-+}
-+
- static void nf_flow_offload_init(struct flow_cls_offload *cls_flow,
- 				 __be16 proto, int priority,
- 				 enum flow_cls_command cmd,
-@@ -896,6 +952,8 @@ static void nf_flow_offload_init(struct flow_cls_offload *cls_flow,
- 	cls_flow->common.extack = extack;
- 	cls_flow->command = cmd;
- 	cls_flow->cookie = (unsigned long)tuple;
-+	cls_flow->invalidate = nf_flow_offload_invalidate;
-+	cls_flow->validate = nf_flow_offload_validate;
- }
- 
- static int nf_flow_offload_tuple(struct nf_flowtable *flowtable,
-diff --git a/net/netfilter/nft_flow_offload.c b/net/netfilter/nft_flow_offload.c
-index d3c5651dd699..05207ca808ee 100644
---- a/net/netfilter/nft_flow_offload.c
-+++ b/net/netfilter/nft_flow_offload.c
-@@ -113,7 +113,11 @@ static void nft_flow_offload_eval(const struct nft_expr *expr,
- 	if (!flow)
- 		goto err_flow_alloc;
- 
--	flow_offload_route_init(flow, &route);
-+	/* Hardware admission may validate the route used to build a direct path.
-+	 * Keep its reference and cookie instead of reconstructing a lookup with
-+	 * incomplete policy-routing inputs in the driver.
-+	 */
-+	flow_offload_route_init(flow, &route, nf_flowtable_hw_offload(flowtable));
- 	if (tcph)
- 		flow_offload_ct_tcp(ct);
- 
--- 
-2.53.0
+> +.BI miimon " MIIMON "
+> +- specifies the MII link monitoring frequency in milliseconds. This
+> +determines how often the link state of each slave is inspected for link
+> +failures. A value of zero disables MII link monitoring. A value of 100
+> +is a good starting point. The default value is
+> +.BR 0 .
 
+0 is right for balance-rr, active-backup, balance-xor and broadcast, but
+not for the other three. Since
+
+  c1f897ce186a ("bonding: set default miimon value for non-arp modes if
+                not set")   [v4.18-rc7]
+
+setting the mode to 802.3ad, balance-tlb or balance-alb forces miimon to
+100 when it was left unspecified:
+
+	if (!bond_mode_uses_arp(newval->value)) {
+		...
+		if (!bond->params.miimon) {
+			/* set miimon to default value */
+			WRITE_ONCE(bond->params.miimon, BOND_DEFAULT_MIIMON);
+
+bond_mode_uses_arp() is false only for those three modes, and
+IFLA_BOND_MODE goes through __bond_opt_set(BOND_OPT_MODE), so
+
+	ip link add bond0 type bond mode 802.3ad
+
+comes up with miimon=100. That was the motivating case in c1f897ce186a;
+802.3ad needs link monitoring to work at all.
+
+And bonding.rst is not much better - it says
+
+	The default value is 100 if arp_interval is not set.
+
+which is imprecise in the other direction, since the kernel guard is on
+the mode, not on arp_interval. That wording came from
+
+  f036b97da67f ("Documentation: bonding: update miimon default to 100")
+
+four years after the behaviour changed. So this is a detail that two
+kernel doc revisions have not stated correctly, and copying it into
+ip-link(8) adds a third place to get it wrong.
+
+So for v2, I would keep the synopsis and the option list, which are the
+parts a reader needs from us, and cut the descriptions back to one line
+per option - roughly what it does and which modes it applies to - leaving
+semantics, defaults and valid ranges to the kernel. The BRIDGE section you
+modelled this on is already written that way:
+
+	.BI hello_time " HELLO_TIME "
+	- set the time in seconds between hello packets sent by the bridge,
+	when it is a root bridge or a designated bridges.
+	Only relevant if STP is enabled. Valid values are between 1 and 10.
+
+For miimon that is just
+
+	.BI miimon " MIIMON "
+	- specifies the MII link monitoring frequency in milliseconds. A
+	value of zero disables MII link monitoring.
+
+with the default left out entirely, rather than stated wrongly.
+
+Then one pointer after the synopsis covers all of it:
+
+	The options below mirror the bonding driver parameters. For their
+	full semantics, permitted values and defaults see the kernel
+	bonding documentation,
+	.B Documentation/networking/bonding.rst
+	in the Linux kernel source tree, or
+	.B https://www.kernel.org/doc/html/latest/networking/bonding.html
+	\&.
+
+tc-bpf(8) already cites Documentation/networking/ this way, so the style
+is not new here.
+
+On the rest: I checked every option in the new section against the option
+list in bond_parse_opt() - the set is complete in both directions, nothing
+documented that is not parsed and nothing parsed that is not documented,
+and the value lists and numeric codes all match. That part is solid and
+should carry over to v2 unchanged. The page also renders with no new groff
+warnings.
