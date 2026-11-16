@@ -1,54 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794867681;
-	b=t61v6YeTAto91/DzmC09uzF4ylkH15T6ktH4UXpROQzgtCtrm/WDuxgv+lj9XRqJRSRg
-	 aekHFrXxD1tRNBNYHPutZcztQL8TaUz7iAJI/XMW9MMxbbVViedUrNAnkZur+Y5FZ+/AT
-	 c9Uo6lpBD11Tqx3k8e0I3IUXmdKGkWO7rI9KMr/gSbHzg4Cj9szNMUgRMAGLTvX4xAmeG
-	 cygqQ76vLbAaD/AHIAQ+nIiDBiJHUFMETDyq4CclfpPzMFNyC1xwWmqYgR7DJk0ygqFrb
-	 V24PnzdMKDnMgMzBUBZwxaiDZwuwJv1vj5KENDJURyKLyD5gS6mHy2K/VC9ZPXbELgQ==
+	t=1794867987;
+	b=CVL/RsGCv77LcMruKecvvLv8aEUHcX9sgsUbsaSjkWx97AB5szuv1X7y8dQEi80uv5Qd
+	 ECItdCVkguayKbKe+d+mI0pV+6Ai6rivaZTseGvefN+a9j9KilHGDRgLeiNaMTzBNjbbV
+	 o/3XQMJXD32nqpmu97Xze0KtSQMpsLbPQdQ5APQ7xIW3ZMWkIieiiDaW5DsF/hT5SwoHM
+	 EfIWQ0C8/vB6lBVF3dsAb1/DYghvP8/OdvejyQ8GAXiLUizcawlmghenUJQ4+PWknAWb3
+	 5PKBPJGY0zMZoyxZgPe1YEd+EaLzYlOUuFiysEHHvl0UuXkTLhPZCfwlT7i9ggj2SWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794867681;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=BXL/fDhspKdov1Fv9R2cAMXBgedf/LG6cvi6/7Jo65c=;
-	b=NVwdxoYAW8UUkS37HCnUpIxatbGHdyqcbWW/sL7FwdzOdOyeyuatp8K2zKIkrjLHh+Bq
-	 DgcRfG6RQL3diGvGPv/xdSPALyhxspZvHGOlH8hY+Fm5+AobJbpOvvh0kT4UB8b4VdG2o
-	 KPnZ5M0jKw5/gDvkuOkF627k24G/JYBmlakHRqxhV5846mH9Jszb+1mfMYjmp97LENOM8
-	 84L3rH5mIVbMImEvjFrSd3CMtemKNR91YrXGNzm4d5oDaTmFAfQPT4ORu5zMYRCUWxCRL
-	 SKMpAwnaDcNtjs1pzfl/euwhyDgcdKBOkxtKyIlEd18KYfHOJdWj22LXYKO5QwAe70Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794867987;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=3SslE8qgO26XXBHOVGhvKn10x5qVEd0Ps4LIMSMCbA4=;
+	b=D+Np21aifrH3XO9jdCl2hE+41v71hmWGkfBqlSHdKuv6Gb3haJTu3ftQdarfeIwKkzGe
+	 7UskUctsBbFZeC7LKQvr40shhoavLFGuzJeL7zrpmJ4CTnyntrMh9UgBPiJPj9VHFvS3W
+	 3v87F5u/Lhf8QjhTIDzGsaFrtxjUfVOBrKglYz1TB1jet+ljoEK8tgjFJPZuOFXTCtEEZ
+	 KJChqqMzSvkyCwhE4pCSJgmoMlhzBC8YqzM23p+Ipn1xHwMzMW9YN3N0JMyAeIdxOcfc7
+	 fv+bk9qnJpk5L/DAyw6ne2VCJt92LBN3cHjZ069WHUrZRpy9pNMy/MBa6TYytJSLT0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VThYQCTK;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=amoT01zp;
+	arc=none smtp.remote-ip=209.85.214.227
+Received: from mail-pl1-f227.google.com (mail-pl1-f227.google.com [209.85.214.227])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1411E606A31C;
-	Mon, 16 Nov 2026 22:21:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1411E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94F80606A32A
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:26:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94F80606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=VThYQCTK
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=BXL/fDhspKdov1Fv9R2cAMXBgedf/LG6cvi6/7Jo65c=; b=VThYQCTK0+YExl2+ZO7Tuknnrf
-	6kyowduHpBQVpfb7n1tSXedtpFNkU4jMk3jIu9Hkgh6YTzADUmrCxgKLrv9IjmY8LwM/wyAWTvTDD
-	e/sSQp4UOb5tjuY3MxqRJvsxNsiNknNcq0RGaoSG8yJ8wUiQCVmAZBGlVLxfcZjyr94azpjr9IOnd
-	AWdz3ni0uhKjLd3gREkk+4rC3s26NSvhlfY2UUaXgX8uIh0R2U5pwjQCQjGVYJS1A2bXWMI8l49wW
-	l2fyCL1r+D2yYRXbpcd1pUH4Eqp+JWnGEwFXHp6SFfFUzbYmxjvOpOGIgf4yt8A3Gek5Rph3JughC
-	ysCNVjJg==;
-Received: from [50.53.43.113] (helo=[192.168.254.34])
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xT54Y-000000042c2-2GpG;
-	Mon, 16 Nov 2026 22:21:10 +0000
-Message-ID: <65bab646-fbf6-4da0-b833-2314d568a845@infradead.org>
-Date: Mon, 16 Nov 2026 14:21:07 -0800
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=amoT01zp
+Received: by mail-pl1-f227.google.com with SMTP id d9443c01a7336-2ed1414df17so19234585ad.2
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:26:26 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794867986; x=1795472786;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=3SslE8qgO26XXBHOVGhvKn10x5qVEd0Ps4LIMSMCbA4=;
+        b=ajwGqtVn/NogVsdApqhZ4/upQYyyHU0nuam1L6sumoqvBeMgO9E+LL98ynZtOVdERr
+         /sYuVCYY4HMuNdmUR1zpDf21wG/k3fBTMjNF7KBPlfo+DANTvCdvWeMnT+wY5EDoShqn
+         ZfP8+ZYQvvn0AQQ68K9ztNdE+3L21b50QAuhxc6X/QrcSuoTjykOBTRPazLlahqe5+po
+         v1ueX3U0i6VQDkV2q/eoqNFJeEgxAO8p8dpRbOks/CqQZodX9sNBJN8fU10WLIvs9p++
+         Y9s02rw60xnWI8Y1nIYaa9OjilYNvzVaGoNmF8RtNcJ2eKsWrNZ44OMGgCo6x4KUc3QP
+         Cwfg==
+X-Gm-Message-State: APuU4Z+Le23dHw7oY/X5AgMdX+5hy+dAuZhB6ut8xLhurFE2K/aLkFjE
+	SZYUpHbIpazo+VLaZK77w9GY7LbH2De3W58u/3CVlZhOoScjCMQWR9YbB6QcTdBeGQyRuAWfSbT
+	MRgiTqNGDHvdJDZxWWWVXd2COKDHdSYLbTBm6QX5NR/6hxH2BtNrwFzWEema9kZs+gzqwhPM3B8
+	MA0qexKAoSoisZWNCevE4iGxe32+XF7WCpjirlLcuiEGjwKgz6HUjLw380WNyYelCfufzIp9CKH
+	B5/GO0+5D7mbaX3
+X-Gm-Gg: AZFdTZcXJPEwlBXNsP7JCNOOL9sj5bMSDMLsJ6nXfZ6h/Vr33hhYaail6YPZYq+GlZO
+	dvr9VFV6nn2uzUYkAxjP5cz6QJQ9aJSG+n1JvKZyDC3u7r2QL7MFFENjsFNdyDH+b8ZgtKjp1O8
+	3LHD8QwYF3avFXjoJZ5qoJjFUSYqGD/ESOljmCa//yVZBF/QLwOPFLEdrgLQs0P7E3Alpi6+dDW
+	GOJzK1FTbL6atfX4it9wsM2HQXIyN70Z7ZwY5WKYed8YfwqRMC46b+FRaJ3CFviRapDodEsvZjs
+	4VEJ0uVelNZ6fMEvOZlj+hKJfyMiBP9I6AeBuU4ZSPvSKK11Vgm0swPLVPdZuedj5HCEYdvtNjq
+	aoiSJ4G/g0elZSHWi52Sb0dTq++BAW5MRdDX0ydnFgJ4sneNdQh8emD+d4hVXXY1AGmolUp2ac7
+	td+aZqdNxZ6fxn+zp8sWfLSP4uFe4leO1ovwpV5HKV
+X-Received: by 2002:a17:90b:2d44:b0:3ab:413:49b6 with SMTP id 98e67ed59e1d1-3b1b0a38e14mr11972132a91.41.1794867985764;
+        Mon, 16 Nov 2026 14:26:25 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b1c3e09606sm3764982a91.3.2026.11.16.14.26.25
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Nov 2026 14:26:25 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-36ecd5db581so4942725eec.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:26:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1794867984; x=1795472784; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3SslE8qgO26XXBHOVGhvKn10x5qVEd0Ps4LIMSMCbA4=;
+        b=amoT01zpW1QiyWV7iomzHY4VI3soQ9GJqEyg0fwZrUGc+2SAmFe7WWlkbH2pUYrzJV
+         S23qsAOVfZRSxhqClj8gXxMtFBxcClMDWLGRSEevbZyVVCXzHgv+YHrk+cifXiBbpOij
+         Jmm5hZM5UwAnBukIUdjljQrf5Gsy2oa9e9fcg=
+X-Received: by 2002:a05:7300:f797:b0:378:d42c:5064 with SMTP id 5a478bee46e88-379676f55ecmr11977706eec.41.1794867983709;
+        Mon, 16 Nov 2026 14:26:23 -0800 (PST)
+X-Received: by 2002:a05:7300:f797:b0:378:d42c:5064 with SMTP id 5a478bee46e88-379676f55ecmr11977651eec.41.1794867982905;
+        Mon, 16 Nov 2026 14:26:22 -0800 (PST)
+Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-379560f5e06sm50176624eec.19.2026.11.16.14.26.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 14:26:21 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	=?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Jonas Gorski <jonas.gorski@gmail.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-kernel@vger.kernel.org (open list),
+	linux-doc@vger.kernel.org (open list:DOCUMENTATION),
+	netfilter-devel@vger.kernel.org (open list:NETFILTER),
+	coreteam@netfilter.org (open list:NETFILTER)
+Subject: [PATCH net-next 0/9] net: bgmac: add Northstar IPv4 TCP/UDP NAT flowtable offload
+Date: Mon, 16 Nov 2026 14:25:10 -0800
+Message-ID: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,146 +126,77 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 09/12] docs: ioctl-number: update virtualization entries
-To: Sean Christopherson <seanjc@google.com>
-Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
- David Hildenbrand <david@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Jason Gunthorpe <jgg@nvidia.com>,
- Leon Romanovsky <leonro@nvidia.com>, linux-mm@kvack.org,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- linux-sound@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
- linux-block@vger.kernel.org, Marcel Holtmann <marcel@holtmann.org>,
- Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
- linux-bluetooth@vger.kernel.org,
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
- Jason Wang <jasowangio@gmail.com>, David Heidelberg <david@ixit.cz>,
- oe-linux-nfc@lists.linux.dev, Chas Williams <3chas3@gmail.com>,
- linux-atm-general@lists.sourceforge.net,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, Helge Deller <deller@gmx.de>,
- linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
- MPT-FusionLinux.pdl@broadcom.com,
- "James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
- "Martin K. Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org,
- Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Zhihao Cheng <chengzhihao1@huawei.com>, linux-mtd@lists.infradead.org,
- Neill Kapron <nkapron@google.com>, Andrey Konovalov <andreyknvl@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org,
- Juergen Gross <jgross@suse.com>, Stefano Stabellini
- <sstabellini@kernel.org>, xen-devel@lists.xenproject.org,
- Hans de Goede <hansg@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- "Michael S. Tsirkin" <mst@redhat.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
- <eperezma@redhat.com>, Paolo Bonzini <pbonzini@redhat.com>,
- kvm@vger.kernel.org, virtualization@lists.linux.dev, Jan Kara
- <jack@suse.cz>, linux-fsdevel@vger.kernel.org, Theodore Ts'o
- <tytso@mit.edu>, linux-ext4@vger.kernel.org,
- Mike Marshall <hubcap@omnibond.com>, devel@lists.orangefs.org,
- Paulo Alcantara <pc@manguebit.org>, Namjae Jeon <linkinjeon@kernel.org>,
- linux-cifs@vger.kernel.org, Jaegeuk Kim <jaegeuk@kernel.org>,
- Chao Yu <chao@kernel.org>, linux-f2fs-devel@lists.sourceforge.net,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Tzung-Bi Shih <tzungbi@kernel.org>, Benson Leung <bleung@chromium.org>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Alex Deucher <alexander.deucher@amd.com>,
- =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- amd-gfx@lists.freedesktop.org, Jani Nikula <jani.nikula@linux.intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
- Rodrigo Vivi <rodrigo.vivi@intel.com>, Tvrtko Ursulin
- <tursulin@ursulin.net>, intel-gfx@lists.freedesktop.org,
- Matthew Brost <matthew.brost@intel.com>,
- =?UTF-8?Q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
- intel-xe@lists.freedesktop.org
-References: <20261114202653.3113381-1-rdunlap@infradead.org>
- <20261114202653.3113381-10-rdunlap@infradead.org>
- <avsSjioXqbCOn834@seanjc-mac.roam.internal>
-Content-Language: en-US
-From: Randy Dunlap <rdunlap@infradead.org>
-In-Reply-To: <avsSjioXqbCOn834@seanjc-mac.roam.internal>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
+This patch series adds support for the Broadcom Northstar IPv4 TCP/UDP
+NAT flowtable hardware called Flow Accelerator (FA). There is a second
+generation called FA+/FA2 which will be added on top later on since it
+builds upon the custom Broadcom tag.
 
+Florian Fainelli (9):
+  net: ethernet: bgmac: validate RX length against the DMA packet
+    capacity
+  netfilter: flowtable: reject non-host IPv4 packets before lookup
+  netfilter: flowtable: retain offload ownership until deletion
+    completes
+  dt-bindings: net: describe the Northstar flow accelerator
+  net: dsa: add Broadcom FA metadata and IPv4 exception paths
+  net: flow_offload: allow drivers to validate and invalidate cached
+    paths
+  net: bgmac: add Northstar IPv4 TCP/UDP NAT flowtable offload
+  net: add KUnit coverage for FA and flowtable path validation
+  docs: net: document Northstar FA setup and NAT qualification
 
-On 11/16/26 6:26 AM, Sean Christopherson wrote:
-> On Sat, Nov 14, 2026, Randy Dunlap wrote:
->> Update the list of files where virtualization ioctls are defined.
->>
->> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
->> ---
->> [Since having multiple maintainers trying to merge these would
->> cause some conflicts, it would be more manageable for Jon to
->> take all of these through the docs-next tree.]
->>
->> Cc: Jonathan Corbet <corbet@lwn.net>
->> Cc: Shuah Khan <skhan@linuxfoundation.org>
->> Cc: linux-doc@vger.kernel.org
->> Cc: Juergen Gross <jgross@suse.com>
->> Cc: Stefano Stabellini <sstabellini@kernel.org>
->> Cc: xen-devel@lists.xenproject.org
->> Cc: Hans de Goede <hansg@kernel.org>
->> Cc: Arnd Bergmann <arnd@arndb.de>
->> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
->> Cc: "Michael S. Tsirkin" <mst@redhat.com>
->> Cc: Jason Wang <jasowangio@gmail.com>
->> Cc: Eugenio Pérez <eperezma@redhat.com>
->> Cc: Sean Christopherson <seanjc@google.com>
->> Cc: Paolo Bonzini <pbonzini@redhat.com>
->> Cc: kvm@vger.kernel.org
->> Cc: virtualization@lists.linux.dev
->>
->>  Documentation/userspace-api/ioctl/ioctl-number.rst |    6 ++++++
->>  1 file changed, 6 insertions(+)
->>
->> --- linux-next-20261113.orig/Documentation/userspace-api/ioctl/ioctl-number.rst
->> +++ linux-next-20261113/Documentation/userspace-api/ioctl/ioctl-number.rst
->> @@ -200,6 +200,7 @@ Code  Seq#    Include File
->>  'M'   01-03  drivers/scsi/megaraid/megaraid_sas.h
->>  'M'   00-03  drivers/video/fbdev/mb862xx/mb862xxfb.h
->>  'M'   00-0F  drivers/video/fsl-diu-fb.h                                conflict!
->> +'M'   01-03  xen/interface/xen-mca.h                                   conflict!
->>  'N'   00-1F  drivers/usb/scanner.h
->>  'N'   40-7F  uapi/linux/nvme_ioctl.h
->>  'N'   80-83  uapi/linux/ntsync.h and uapi/linux/nvme_ioctl.h           conflict!
->> @@ -239,6 +240,7 @@ Code  Seq#    Include File
->>  'U'   64     drivers/usb/misc/usbtest.c                                conflict!
->>  'V'   all    linux/vt.h                                                conflict!
->>  'V'   all    linux/videodev2.h                                         conflict!
->> +'V'   00-1F  linux/vboxguest.h                                         conflict!
->>  'V'   C0     linux/ivtvfb.h                                            conflict!
->>  'V'   C0     linux/ivtv.h                                              conflict!
->>  'V'   C0     media/si4713.h                                            conflict!
->> @@ -357,6 +359,7 @@ Code  Seq#    Include File
->>  '|'   80-9F  samples/                                                  Any sample and example drivers
->>  0x80  00-1F  linux/fb.h
->>  0x81  00-1F  linux/vduse.h
->> +             drivers/vdpa/vdpa_user/vduse_dev.c
->>  0x89  00-07  asm-generic/sockios.h
->>  0x89  06-07  linux/sockios.h
->>  0x89  0B-DF  linux/sockios.h
->> @@ -398,8 +401,11 @@ Code  Seq#    Include File
->>                                                                         <mailto:kvm@vger.kernel.org>
->>  0xAE  40-FF  linux/kvm.h                                               Kernel-based Virtual Machine
->>                                                                         <mailto:kvm@vger.kernel.org>
->> +0xAE  C6     arch/x86/kvm/x86.c                                        X86 KVM
-> 
-> I'd rather omit this entry.  0xAE C6 is covered by the entry above, and the horror
-> in arch/x86/kvm/x86.c is purely a 32-bit compatibility alias for an ioctl that is
-> defined in kvm.h (the structure payload defines an pointer instead of a __u64).
-
-OK.
-
-> If it's a sticking point, e.g. this will trip automated tooling over and over, then
-> I vote to move the relevant definitions to uapi headers, e.g.
-
-I don't know of anything like that.
+ .../bindings/net/brcm,bcm4708-fa.yaml         |   45 +
+ .../bindings/net/brcm,bcm5301x-gmac.yaml      |   27 +
+ .../ethernet/broadcom/bcm-ns-fa.rst           |  507 +++++
+ .../device_drivers/ethernet/index.rst         |    1 +
+ Documentation/networking/nf_flowtable.rst     |   13 +
+ MAINTAINERS                                   |    8 +
+ drivers/net/dsa/b53/Kconfig                   |   12 +
+ drivers/net/dsa/b53/b53_common.c              |  427 +++-
+ drivers/net/dsa/b53/b53_fa_test.c             |  102 +
+ drivers/net/dsa/b53/b53_priv.h                |    6 +
+ drivers/net/dsa/b53/b53_regs.h                |   39 +
+ drivers/net/ethernet/broadcom/.kunitconfig    |   21 +
+ drivers/net/ethernet/broadcom/Kconfig         |   35 +
+ drivers/net/ethernet/broadcom/Makefile        |    1 +
+ .../net/ethernet/broadcom/bcm-ns-fa-test.c    |  661 ++++++
+ drivers/net/ethernet/broadcom/bcm-ns-fa.c     | 1901 +++++++++++++++++
+ drivers/net/ethernet/broadcom/bcm-ns-fa.h     |   30 +
+ drivers/net/ethernet/broadcom/bgmac-bcma.c    |    5 +
+ drivers/net/ethernet/broadcom/bgmac.c         |   41 +-
+ drivers/net/ethernet/broadcom/bgmac.h         |    2 +
+ include/linux/dsa/brcm.h                      |   19 +
+ include/net/dsa.h                             |    2 +
+ include/net/flow_offload.h                    |   12 +
+ include/net/netfilter/nf_flow_table.h         |    8 +-
+ net/dsa/Kconfig                               |   20 +
+ net/dsa/tag_brcm.c                            |  120 +-
+ net/dsa/tag_brcm_test.c                       |  199 ++
+ net/netfilter/Kconfig                         |   10 +
+ net/netfilter/nf_flow_table_core.c            |   21 +-
+ net/netfilter/nf_flow_table_core_test.c       |  171 ++
+ net/netfilter/nf_flow_table_ip.c              |    4 +
+ net/netfilter/nf_flow_table_offload.c         |   62 +
+ net/netfilter/nf_flow_table_offload_test.c    |  129 ++
+ net/netfilter/nft_flow_offload.c              |    6 +-
+ .../kunit/configs/nf_flow_table.config        |    9 +
+ 35 files changed, 4651 insertions(+), 25 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/net/brcm,bcm4708-fa.yaml
+ create mode 100644 Documentation/devicetree/bindings/net/brcm,bcm5301x-gmac.yaml
+ create mode 100644 Documentation/networking/device_drivers/ethernet/broadcom/bcm-ns-fa.rst
+ create mode 100644 drivers/net/dsa/b53/b53_fa_test.c
+ create mode 100644 drivers/net/ethernet/broadcom/.kunitconfig
+ create mode 100644 drivers/net/ethernet/broadcom/bcm-ns-fa-test.c
+ create mode 100644 drivers/net/ethernet/broadcom/bcm-ns-fa.c
+ create mode 100644 drivers/net/ethernet/broadcom/bcm-ns-fa.h
+ create mode 100644 net/dsa/tag_brcm_test.c
+ create mode 100644 net/netfilter/nf_flow_table_core_test.c
+ create mode 100644 net/netfilter/nf_flow_table_offload_test.c
+ create mode 100644 tools/testing/kunit/configs/nf_flow_table.config
 
 -- 
-~Randy
+2.53.0
 
