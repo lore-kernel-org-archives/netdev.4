@@ -1,62 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.126.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794829784;
-	b=fjuasmjNNr60zigtll5AOE2Vt5LE2DziiBMUw7lgs/bZxcnD6Mjym34No6FtKwfh1MHs
-	 8tYOdT7WEAgWx8z9YM4Xt4R3omlQKv7nymVpuThgkeAl7wIlbzlztkTxYLEPsRgy8tVWp
-	 Rb+IqDDOwyPbzoYqfx/xRdHH+J5LoqbtIG33zMlvdZXO/m8flMWmNNkUMrULeLYMLOHFP
-	 /xG8QkRpDjR+zirkWi4Iik1AVRSVJJ8k5EdEq4Ke3Y73cMyyJRZqwaZFiZWvtFbVBWsU9
-	 SJqg667fNxxFYUD+IWoq3qDc7PocAx1hmwMUJltZEBQw2d7FA7o8OGvXk4JINN9MdKA==
+	t=1794829977;
+	b=lauWNlpnFqRJ9sLV41jc1fgf4fBqlXwhdyABH8KQAPqY3dNLzvZq1Jj+X4hCihqGEwkl
+	 IXja29tjfFrKWrPkYANMX6SPIgyAJxUs6+qcnntcVFh8UxyuYE2R1VKrwTfLS+EoKKh6H
+	 fFOBCSRlUmRDvxJg9urFBAtOJ9H7k34dFO8SN8mkgPnsDiQbjukgMYw1mKHqRrR8c/XFH
+	 FSvPbLkIUVYI/m8SAydcMsjoWrsmShfB0QvTGCRg/mXQPSbBeTFxwp+zqZ5G1TsEgu1P+
+	 OWEreYbfQUeh8cknTxLWZWSnxkU8L6lZW9AJbi7G0DKr3pYW5JfDTFsyHNtPrUohKxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794829784;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=YF9uPbRNMFJDe58jYR2SHD4cB2dtFZ0yoAnGUomr6pU=;
-	b=F1c26F/Wzq8uhh+m5nsaKCM5VP35zIuu+UwauZjQFM22G8SoJZotOIgAXS+FQtWAItfr
-	 ZH7lDu6Sb0k8qtf9kK4L3WZfCG9A5m+5N4HVVlOrTPFL2iA1VtcbaPzUIBe1+YwrpSQjA
-	 dShxZmt9G89ySm0gVChst9qTZUmZdWWjmRGxZRr+v/+RIUzPaxNQWs6zychcTlvBomsRw
-	 RRPG9zwSEJDHdFZ4My4jICNSvb2Ye5885cTzEWRGMPl0Ti8CfTGvChtCYxDyevZYJY1NW
-	 EkNPTpSXogcvmbCMyVVUiccrrUTczL9zHqY+srek4zGmyjKEu078/5qWXyJUQOkD9og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794829977;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Provags-ID:
+	 X-Spam-Flag:UI-OutboundReport;
+	bh=QKl6biuHmVZ144osj+Y/bygxREL7j7/9qjYKZx6b0pM=;
+	b=KvvU7DcvuCNYV93MrvZYI0/w0G5wAWDC2u3G+1vhToSBdLP2VsQH86b35YmndzWCDfpG
+	 kb/QrtRNR8zVfG/Ls7+1AXRQzNWASuEor2rHW4Z+XNrd3bjyNYcbnV6tn10HeIaaFEimS
+	 7HNMUdzakZxmYYHJZQGrZ3NB1lmU/oP7zZsJ/CJmpWZA1rfqycQbNGHPAX6dWm3XaoRZ0
+	 4FNfUGOKbMOzycmWXU9i5Sh+Xl/VRHfp62lA15gG2Ne4asYkhOV1u/SX0ZinLg8zUoRDQ
+	 y2bCQJK33s5dn+eQnYF+Nz3ngy5ZTOTV4wwLCBbg6ATsfogpBdx+WBVwbCvRC8DkxkA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HEJPA1ce;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=jonasjelonek.de;
+	spf=pass smtp.mailfrom=jonasjelonek.de;
+	dkim=pass header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=T6oX4GLN;
+	arc=none smtp.remote-ip=212.227.126.131
+Received: from mout.kundenserver.de (mout.kundenserver.de [212.227.126.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89550606A88E;
-	Mon, 16 Nov 2026 11:49:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97AE9606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:52:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97AE9606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jonasjelonek.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jonasjelonek.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HEJPA1ce
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 398271F000C6;
-	Mon, 16 Nov 2026 11:49:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794829784;
-	bh=YF9uPbRNMFJDe58jYR2SHD4cB2dtFZ0yoAnGUomr6pU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=HEJPA1ceqr2psUJ8fdQ8CCHLPdb+IpZhzdHtScMXHknNqxlLgsQ9aMskTepGY7IgG
-	 7FJXlbNEVxc8ibStAtjrUghOvUoIukPt677vQJ0IkW6xtlcT48kwb0aPz7ye5Cmkj+
-	 7MDURK9sSlEh+ucWrS7i8TtYrdkgIVHCBepA7mK11tp00NaTZtyjeIqQdZ1IcFSb85
-	 PEm8TVvPekcwfvifcFOHr9DAC0nPqlh7xEEzvZFG+cmQ1DIC7Nkb1MjuTRjle6NuYl
-	 pqqkGk8zxNrEjkKFZkSZacoJRGxKtGCzjZX5BdYpk5lRQnTR3q7t2EPdHq5digT4aW
-	 ZR5BjNfEPEbXg==
-Subject: Re: [PATCH net v2 2/2] selftests: netfilter: cover IPv6 FIB prefix
- suppression
-From: netdev-bot+sashiko@kernel.org
-To: leonard@lausen.nl
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
- shuah@kernel.org, daniel@iogearbox.net, netfilter-devel@vger.kernel.org,
- coreteam@netfilter.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 16 Nov 2026 11:49:42 +0000
-Message-ID: <179482978277.3136.16783433298012482293@kernel.org>
-In-Reply-To: <20261115114434.10343-6-leonard@lausen.nl>
-References: <20261115114434.10343-6-leonard@lausen.nl>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=T6oX4GLN
+DKIM2-Signature:  i=1; m=1; t=1794829974;
+ mf=PGpvbmFzQGpvbmFzamVsb25lay5kZT4=;
+ rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+ d=jonasjelonek.de;
+ s=s1-ionos:rsa-sha256:BMDMjOO00NqJ/uZWiUheMf4w4fVP
+   v/aC5sYpx1Ap3BdSeaVEHjVdHtgLn+4Dh/DKvsGu2u8KGe5PxBw+KxZR0ocoSPDj5nmu+3mQuhX
+   +4kJd7vMk3aP4PHAOnMCb5900OJF8iIOv245TaameLt+4MQTcvt5PfcxH69N7cFX0KjmeO8S9P0
+   08QPdhtyHvxWyFtxg3PiZTP5DTEkEl9xtMz43FkzVM5QZbGO4M89SnPDtV8Sqsj4278FwaTFkhh
+   +dIQAl1X8iywb1GdDe/fFLZBggK0+dLBKL0f39PKAnHXtWVpb+lgMdnVWqjWf0e3KBIGljCHs1g
+   1omSGPN+T64q+g==;
+Message-Instance:  m=1;
+ h=sha256:
+   f63jc5kGLHV+/hqch2Kfu6jdGgJLLAm1sBEooQkribg=:
+   bX4DJCoFLICTzjh9AkalZDfwids4N9EPguPfzH1fqto=,
+  sha512:
+   jiYm9YWEcNgz3bvH6nxOP/R5NcWkBVT1Fa3nzK7PjR8roYnmrT3XPvw3iKuMTqpFjOTOMGrZnhTVtZehM22sUg==:
+   +isPgwurQCoXtuBiycGNn/bjlRPgSaozdpKVGWLsf8tkWNRHYObgwR3Oju8TXW6N1kAQSeKCrSJHaFGU1s9aXQ==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jonasjelonek.de;
+	s=s1-ionos; t=1794829961; x=1795434761; i=jonas@jonasjelonek.de;
+	bh=QKl6biuHmVZ144osj+Y/bygxREL7j7/9qjYKZx6b0pM=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=T6oX4GLNyCp3gEl1dNojtNmO2JfgaMflc0PsJ6ZbtzJFDsjgZ4BfzJ+kaFBhpWEJ
+	 u/55JQVEke5caMX1eVh5wsFYW706xY0b4c+ZZPy6De2A7fFPtcTygcBn6Mwx3pDVC
+	 S+L0Q5qCE/CM5cj94FU86cqokprt8SPSqPi6ogveaew1QcGszdX6F5gpk4vYWQf5K
+	 Ry7Q1npCXw9amyC1ZJAkZ8FH3SydqCijy2VWPO2OIReMUaI8KiI9tsl4XiisNnyM4
+	 gDNmtY+GnwtlvmR+NYLEjpuBGEUK1GROAKjhzlaJNlLvMj4SKio4w168nQ1BtV6j1
+	 weJCJPSANurCUO4NYw==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue011
+ [213.165.67.97]) with ESMTPSA (Nemesis) id 1MAOa3-1xHbX82yx1-00HTjE; Mon, 16
+ Nov 2026 12:52:41 +0100
+From: Jonas Jelonek <jonas@jonasjelonek.de>
+To: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Sander Vanheule <sander@svanheule.net>,
+	Russell Senior <russell@personaltelco.net>,
+	Jonas Jelonek <jonas@jonasjelonek.de>
+Subject: [PATCH net-next v2 0/3] net: pse-pd: realtek-pse-mcu: establish power management configuration
+Date: Mon, 16 Nov 2026 11:52:21 +0000
+Message-ID: <20261116115224.1454885-1-jonas@jonasjelonek.de>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,200 +98,110 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:+zceGRhBo551DQ4jTZ2hiD/C9ASkWfBaCbYrcvOSoi1JfewI9ea
+ Fo2WCSIt5pgWygumBQ16PbG55lpMIeCcDwdirxsCp2pkk2xAXKFWIup0Y1Irt7hlF2RxI1v
+ r+wAoAxcqbGXjJVJtpSHGgS/0unwFLwoHZSZydgxsXM7p9yg00BJ5SOlddjhA9pe6QQrY0u
+ KZejuYrXYm9ml2ah/xjiw==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:OqVoz7ENvKg=;x+S4+mTPwVvFhVrFT5JyKbvq1kX
+ +mG1tqmQnob5lU1ljCKrG3Su6bw9knZNHEZfLF++/f7ScGdHE6ZU5SsjUHcHgrm+chUkzoZFN
+ Hc7aeu9ZYyDvpIjD5rDncxYjlx3HoSiURnKijZdhyFSaQiqdV7qsYMre3nbW3sYGUYKYWesm7
+ xJ9go9owfYSegGb4PRNwAUJkNpb/BCG5SwdYpAJlfUm/z6Ip3uHvbcMJUEsChHtzcNYAKhsna
+ 2gqm7wruQrQD+FI36xYDlzuwzIr2xpeC5U52e+Fgzl78SlESX9rr4PM5vxmw+/xQdgIKpUvyq
+ r++/mpIyhLHU87PGHsydpCviakkLpWhp7CwbpYSSkcPO5xv0KZebmglBudWJOYxBMV/FaOo4L
+ 5rpl8XvSLRJuXeXELPXA9sYhiWYraaY5uGvCNdsvcT+CVeLm7SQ7bImVtDA8HaHMUef72I4g2
+ CF0M6cP5OOHOPvxvT8StQgEYy3k5/5r8YwvFb949crFvCLGkklEwEfL7H9tscCf3nutKysZnb
+ /gJ9CMCfrTRZlPkqJOg1839AJ7/cphjdk3J48Zk8+FT1tBjUC0BiHRFMBXRh5coQhhzWyIt+0
+ CbXW3WjZcZA/Z68l86zqEeBwl1gu2mYC3ui4MUN5vj4RedhGgpagrKulliy85pzJ7UUA/Bdba
+ 1midB9uOCAyEXJNrtQILTTv8EsgyMRqKtMw9vNKFZO2NemymNzVv+4HYgecFidcc72vjXLara
+ zHK9H81cy0LaSyysNvB5x1BbJzqIYFaxnnuJcd6LfeQtrALlt4PAJ4pE1oHu0jkBOOMN59BpK
+ mqyDLzFObtp5yHk/c5ygOIXcydoS4MM662Cwh5+TmDhKroW2Ty1h+jZSHwZTBxiJQL4075E5y
+ hlJp+EB1cpqvVukFamlOTEoCSE90Fa6pOXgcRv1fgj+OBXRiDNlOD5CG0uQdcWes8KYP7mdLo
+ a81XtBFSYKwvI8/MCxVwEW/8u9BBpESZTB1Wc1OuVCKBEKTh/mOUo3oebbiatlEI9YRTqyHyc
+ 5tNa7HgotydspM2aERHAMAOeZwJ4hQJKVHC1wQmBDjV90gt/jJzaLIYORFi8+gFPFSbeNWrQL
+ ASRWdTJYBTY7Y/bDNmp0XW3NGWDpQifFd+lQQpdZzshX7sCoEnHSy6aBZ7o9WtcvfmdUwEmdM
+ ofdaOM9e42rJGJ/zkRVjWmKj6ueKMB0qYb764OuI9t955KNWWYekxImv3FzbLbS0f1akKGGt8
+ 9ifvvKnbxmb0y/C2deatFwE8VksGJMV+mjjN19uiB+f6zAnOUD5Zv4/pGFJ36uv7Aa8iGraNO
+ nLWKL49agY9Uw/iNAsyGWDwVcCOdstDncTQJyYhZSAlwMSzrDChlTxrIXYHV+37gjh2qBSlPH
+ aD7l1gqIHO/RyzPcuKpvdemskVuAxbBMfGe0AyG7QYLAe4n0Kpip2HCbH6Gqa3tlLcSG51csv
+ H1Gk/5qypn8qzRVtWbnUeQKnDA+hfJsd+VuWXKm4VCKr0RZpYpJauT0G/teJHab9SZG9oHaXL
+ 5yR0iaGBdkolZ/EoclWh4n0HFVxAs6sHcsQRoevYVRhT8Yyytj0UWl2wI1ZotUgco4w0k1pPu
+ KzYlnkiOXv7kwaH8/HArmmNX6HoWRclSIhdxTidwHUgMUfNL0N51D785Uyxo4Go+Elrl+vyY3
+ 7gnSlA1sJg0eYE+hb7JLQDe0rSO9pAygsqMjKJgwJ5OjEHGas/gz8/0q9ELf+Ff5jjeywNNK/
+ 4obd6NFcHmU5y3zdeZKspq2yUIq+Z2wHVSP0GfRAFDmGtC+AscsuSr2Wu6g0/C74uj6sl87kt
+ BRsQmwwFnzV5DvwXddQy+Ve5bVmHSf4pBgIR6iVzxRSJNmaBRZU+QZ4CsL9eWzKYT+S2p8TB1
+ xjeQ77c6Vim9l83E0JmGL2aIdCFg/HQsETzRq81xrqNJ7OisVHUlImGyRRmqeIICutUHUCLBI
+ Fw+2hwr1nnDUHxOPK30/XNuZcRjztmdnbEVjsPGigw/uR/ZY/gx7fNMD0FzV6PvOqeLVUkC3q
+ UV7/gLUcD8ZqhDSpTgqh/hw1SCqzcYN5aqxIXQa+hSsdw3FTz23kKdapyrBOURAEB7zGJKn5C
+ vIjXFsvBwXS62f2yE/SLlLeQEyZci+m1RfetBZ90cY+YFyGBbuK/Z+Myafj1nsedzJtMNO2PB
+ aZQMhN/N2Lq2IYH49hxuffPowiBtZ1zyR4tTl3khpKA8zk2IZvy41O7CxdC8azlII0CmJWcVJ
+ PHvYUvjJS5Pav84s5MoosnrFBMy3Ly66O4K8czum87RAg4V+ic2Wt84w5JjnAxgvTORt+F8IQ
+ Shj2II+hCjcb/OFiO67HW+c2L+Aj1Pm1x6CShx8xsrYINE0qUft9NNYOQBQSaFgN3SQ1t+IYw
+ ikkL+KH1eAVO3SvuaiNd4h6uxGvleNjml9Gw1V8xQe9rHNWXfsCeR8N4ooFRtj/1y/w5Nx3bQ
+ YJwxrSd3uNSLF+AQqfYeBrkPA3HQn3kK0Dvnq8Mxvc3thwekeDPeuRgagqu1mnTHSFhBfkT+n
+ 0I0f7T7gVEMFspBy/kpzSZk9tonjrlVXoXGhE26SIC6SolsDFlUx55s2iiyjpb7k2aglYxpcY
+ ppdSFJJcAqP1pYfquxPPetwKS9hOo4pJzyjZlGNRS3tIoJfWUarcsV+sfu4VDCIm1Qy9QZLEe
+ fcevqVsB4Up4Oc+E2m9qL+aVBojAn1M5m6n4Y9Ei1MI4rjv7t8TNgV7OkW9hMqnBdh3X8zLL6
+ BDJKuOkZhSLNMh9pK3bRocjICsFXYhhfYoKkta6WfFIEVpP1FQNeOrvC/Xcp9fWaXsU+bs6Qn
+ slsocuE0TeOFihOwfOtMarizUPpdXKu7y7/z65pN9nGH/63DIeAaKj948zOCZKITQbFEZTPyj
+ nPunot5jti3rKPtmetT0BRsUbPw8kduQmqoYL05te0mPdM5MYxbBE9kd9hoiDymEUSnYjtPie
+ pAgQD9kUvufmckgmMk0GAm2e+FJfs2XnqifzqDChPJRFGoutl2VsRA5AtLF6Brf/01jFjZYPw
+ AR40/Ywslwc4Gj2kUPKayoREcWTojlJvXlTkJcW8ZfyPKf+8cpFGykffnOyH2oDvthT0OeyVV
+ F5wMBzwz8usfBCI6+CBz7p5ova7d2KHCEYbBZG+rmXlvGGKZcDLIF3d3BFwhEla1V4SQR2kLZ
+ OvpEW2fyO5eYVBtAZdWlBuTF4CR2DLOyOr0WJJFezOuXalFstr8dfqLny8a4nV5ndlrQektfd
+ beyr8VE/I8lO39NAU3RD2ki7KJyVhheap1t6t317J2jIP5a5h1MrcM9QFcey4rlqNlE+dmZT/
+ fhmK4LnUR3uIEF3YfUNf6KpvIKBzg1Qwm0s/Mk261FkTw/oru74HbVD9m2vbc5AK31LKhMsPi
+ C58iwAf8nMVdO7Pvbfz3Ff8raXlXiqTWCDzwxY0J9XX8hNmYMC2GTz4p23L41JhBKhIHFR07i
+ frQlD3wD3NkJMG+zhlnwh00R8Tz5HARCnQw2x+5rCdGHqH9MSxWoFAzhhoOWKXW9idf9cXv3A
+ obMyCxXtrpv1JDp+2nsq5WV6OtPGtDXtvB+EcXCuSHh0QrLgCrXkjzCAx9ysddsOFNPfwA/PR
+ HaoXre/O8kbZJr8qg+1aG3GM/F5vxR726/AYGwn68jN6JQ8Wq+pS3UatFwCoSQCEFTDFEyGxi
+ P1GJVUO8hN5D0xS+B2b8JcFbvFUlrPuWNwmoxf6FsrqOQihX5k9FqLZ4yr6B4tGO7peNbmvXJ
+ 2KdJRlGOgE11gVXQ82OwJRnVEWBoFwp2oVrTnawMs0ARBAIsEv1gPxzujCW/eGGvWwTfbLuR7
+ 0+aSx+iCS5etL4wN4IwIo1sNv/Abd/yMCFYbgqIt5ITa/lRZoZOE3vdZSzVrYHwyIFk2OwYoJ
+ xschFznv9b3ZJKeCHvfvOZDFIC5FFPkNRblCiylz0U=
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Realtek PSE MCUs may start with a power-management configuration inherited
+from firmware defaults or previous host configuration. This series
+establishes an explicit configuration during probe: dynamic power manageme=
+nt
+with port priorities and, when a VMAIN regulator is provided, an aggregate
+limit matching the board's usable PoE allowance.
 
-Low priority / nit picks for your consideration:
+The budget and management mode are configured before ungating ports.
+VMAIN is used only for budget accounting, with managed reservation cleanup=
+;
+the rail is available independently of the host driver.
 
-- [Low] The new prefix-suppression block in
-  tools/testing/selftests/net/netfilter/nft_fib.sh runs at top level…
-- [Low] In test_fib_suppress()
-  (tools/testing/selftests/net/netfilter/nft_fib.sh, line 210), the per-…
-- [Low] The new block adds IPv6 policy rules in nsrouter (`ip -6 rule add
-  pref 100 ...` and `pref 101 ...`, lines 762-763) and deletes them at…
-- [Low] For the blackhole, unreachable, prohibit and blackhole-nexthop
-  cases, test_fib_suppress() (nft_fib.sh line 222) checks the nft side…
+Validation includes W=3D1 builds and checkpatch.pl. OpenCode assisted with
+review, implementation refinements and drafting this cover letter.
 
---
+=2D--
+Changes in v2:
+- Move the binding first and clarify accounting-only use of VMAIN.
+- Preserved Acked-by from Rob and Reviewed-by from Kory
+- Set the mode directly in the helper and shorten names to "mgmt".
+- Remove explicit VMAIN enable/disable; retain managed budget cleanup.
+- Drop the unrelated global-disable teardown patch.
 
-selftests: netfilter: cover IPv6 FIB prefix suppression
+v1: https://lore.kernel.org/netdev/20261103220312.860629-1-jonas@jonasjelo=
+nek.de/
 
-This patch extends nft_fib.sh with IPv6 policy routing checks. They
-verify that suppress_prefixlength 0 suppresses a default route but keeps
-a more-specific route. They also verify that blackhole, unreachable,
-prohibit and blackhole-nexthop routes stay terminal. Each check counts
-matching nft fib results, compares them with ip -6 route get, and the
-router's ruleset is now loaded after these checks.
+=2D--
+Jonas Jelonek (2):
+  dt-bindings: net: pse-pd: realtek,pse-mcu: add VMAIN supply
+  net: pse-pd: realtek-pse-mcu: configure global power budget
 
-> diff --git a/tools/testing/selftests/net/netfilter/nft_fib.sh b/tools/testing/selftests/net/netfilter/nft_fib.sh
-> index 04544905c2164..65d4687622e20 100755
-> --- a/tools/testing/selftests/net/netfilter/nft_fib.sh
-> +++ b/tools/testing/selftests/net/netfilter/nft_fib.sh
-> @@ -202,7 +202,38 @@ check_fib_counter() {
->  	return 0
->  }
->  
-> -load_ruleset "$nsrouter"
-> +# Count probes matching the expected FIB result, then drop them.
-> +test_fib_suppress() {
-> +	local label="$1" expected="$2"
-> +	local result="${3:-oifname}" err=0
-> +
-> +	ip netns exec "$nsrouter" nft -f /dev/stdin <<EOF || return 1
+Russell Senior (1):
+  net: pse-pd: realtek-pse-mcu: ensure MCU does dynamic power management
 
-[Severity: Low]
-If nft rejects this ruleset, test_fib_suppress() returns before it
-reaches the PASS/FAIL echo at the end. That can happen when
-nft_fib_ipv6 is unavailable or the "fib saddr . mark type" syntax is not
-supported.
+ .../net/pse-pd/realtek,pse-mcu-gen1.yaml      |   9 +
+ drivers/net/pse-pd/realtek-pse-mcu-core.c     | 155 +++++++++++++++++-
+ drivers/net/pse-pd/realtek-pse-mcu.h          |   3 +
+ 3 files changed, 164 insertions(+), 3 deletions(-)
 
-The callers' "|| ret=1" still makes the overall result FAIL. However,
-the log never prints "FAIL: <label>", so it doesn't show which of the
-six cases failed. It also doesn't show that the cause was a ruleset
-load error and not a FIB mismatch.
 
-Could this path print a labelled FAIL or SKIP? Other helpers in this
-file do that when a ruleset fails to load, for example test_fib_type().
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
+=2D-=20
+2.53.0
 
-> +flush table ip6 filter
-> +table ip6 filter {
-> +	chain prerouting {
-> +		type filter hook prerouting priority -1;
-> +		ip6 saddr dead:1::99 icmpv6 type echo-request \
-> +			fib saddr . mark $result "$expected" counter drop
-> +	}
-> +}
-> +EOF
-> +	ip netns exec "$ns1" ping -6 -c 1 -W 0.1 -q dead:1::1 > /dev/null 2>&1
-> +	if [ "$result" = type ]; then
-> +		ip -net "$nsrouter" -6 route get dead:1::99 from dead:1::1 > /dev/null 2>&1 && err=1
-
-[Severity: Low]
-In the type branch, the nft side has to match one exact result
-(fib saddr . mark type "$expected"). The route get side only checks that
-the lookup fails. Any non-zero exit counts as agreement, whether it is
--EINVAL for blackhole, -EHOSTUNREACH for unreachable, -EACCES for
-prohibit, or an unrelated error.
-
-The commit message says:
-
-    Require a positive packet counter for the expected nftables FIB result
-    and compare it with an ordinary route lookup.
-
-Does that comparison hold for the blackhole, unreachable, prohibit and
-blackhole nexthop cases? Only the oifname branch checks the actual
-result ("dev $expected ").
-
-Could the type branch check the error text instead (Invalid argument,
-No route to host, Permission denied)? Using ip -6 route get ... fibmatch
-would also work. Either way, the ordinary lookup would have to end on
-the same reject type.
-
-Table 129 gives a usable route for dead:1::99. If the dst path wrongly
-suppressed the reject route, route get would still succeed and the test
-would catch it. So the gap only covers a mismatched reject type.
-
-> +	else
-> +		ip -net "$nsrouter" -6 route get dead:1::99 from dead:1::1 |
-> +			grep -q "dev $expected " || err=1
-> +	fi
-
-[ ... ]
-
-> @@ -724,6 +755,36 @@ test_fib_vrf()
->  	check_fib_veth_vrf_type "fib expression address types match (iif in vrf)"
->  }
->  
-> +# Test prefix suppression before installing the router's logging RPF rules.
-> +# Neighbour discovery must remain usable even when reverse routes differ.
-> +ip -net "$nsrouter" -6 route add table 128 default dev veth1 || exit 1
-> +ip -net "$nsrouter" -6 route add table 129 dead:1::/64 dev veth0 || exit 1
-> +ip -net "$nsrouter" -6 rule add pref 100 to dead:1::99 table 128 suppress_prefixlength 0 || exit 1
-> +ip -net "$nsrouter" -6 rule add pref 101 to dead:1::99 table 129 || exit 1
-
-[Severity: Low]
-Adding these IPv6 rules in nsrouter latches fib6_has_custom_rules:
-
-net/ipv6/fib6_rules.c:fib6_rule_configure() {
-    ...
-	net->ipv6.fib6_has_custom_rules = true;
-    ...
-}
-
-Deleting the rules later in this block does not clear the flag. Only
-netns init resets it. fib6_lookup(), which nft_fib6_lookup() calls,
-branches on the flag:
-
-net/ipv6/fib6_rules.c:fib6_lookup() {
-    ...
-	if (net->ipv6.fib6_has_custom_rules) {
-    ...
-
-Before this patch, nsrouter had no IPv6 rules until test_fib_vrf(), and
-the PBR section only adds IPv4 rules. That means the IPv6 halves of
-several checks used to take the direct local/main table lookup in
-fib6_lookup():
-
-  - the unwanted-drop checks
-  - the loopback checks
-  - the fib counter check
-  - test_fib_type "policy routing" and "default table"
-
-Now that this block runs first, does nft_fib.sh still cover the IPv6
-lookup path without custom rules?
-
-Would that coverage survive if the suppression checks ran in a separate
-namespace, or after the tests that rely on having no custom IPv6 rules?
-
-> +ip netns exec "$nsrouter" nft add table ip6 filter || exit 1
-> +
-> +test_fib_suppress "suppress default route" veth0 || ret=1
-> +ip -net "$nsrouter" -6 route add table 128 dead:1::/64 dev veth1 || exit 1
-> +test_fib_suppress "retain non-default route" veth1 || ret=1
-> +ip -net "$nsrouter" -6 route del table 128 dead:1::/64 dev veth1 || exit 1
-> +
-> +for type in blackhole unreachable prohibit; do
-> +	ip -net "$nsrouter" -6 route replace "$type" default table 128 || exit 1
-> +	test_fib_suppress "retain $type" "$type" type || ret=1
-> +done
-> +
-> +ip -net "$nsrouter" -6 nexthop add id 1 blackhole || exit 1
-> +ip -net "$nsrouter" -6 route replace default nhid 1 table 128 || exit 1
-
-[Severity: Low]
-This block now runs at top level before load_ruleset "$nsrouter", the
-forwarding sysctls and the first test_ping. Every setup command here
-ends in "|| exit 1".
-
-If ip -6 rule add fails (a kernel without CONFIG_IPV6_MULTIPLE_TABLES),
-does the whole script exit with FAIL? The same question applies when
-ip -6 nexthop add fails (an iproute2 without nexthop object support).
-None of the existing checks would run then: unwanted-drop, loopback,
-fib counter, PBR, fib type and VRF.
-
-In other places, this script reports a missing feature as SKIP and keeps
-going, for example the veth check, test_fib_type() and
-load_pbr_ruleset(). Could these setup failures skip only the new
-suppression checks instead of exiting?
-
-The netfilter selftest config already sets
-CONFIG_IPV6_MULTIPLE_TABLES=y, so this mostly affects nonstandard
-environments.
-
-> +test_fib_suppress "retain blackhole nexthop" blackhole type || ret=1
-> +
-> +ip -net "$nsrouter" -6 rule del pref 100
-> +ip -net "$nsrouter" -6 rule del pref 101
-> +ip -net "$nsrouter" -6 route del table 128 default
-> +ip -net "$nsrouter" -6 route flush table 129
-> +ip -net "$nsrouter" -6 nexthop del id 1
-> +ip netns exec "$nsrouter" nft delete table ip6 filter
-> +load_ruleset "$nsrouter"
-> +
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115114434.10343-2-leonard%40lausen.nl
