@@ -1,55 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.62
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794843059;
-	b=kcJ6joc7Sy5I9D9vs4XtrSWfjCFCsonJFiqPuN/OaG4m/8Uy1442y3ZZomSkg05L//1o
-	 YvBk0uFlPD7mEWzQAVNM+3kIktXFZ1SgCmrdf2lL4DPqqiWEOFxm8nIORkAOk/aFjerC1
-	 4oL/ZbHr7EerJfTj69RZ04jrh6YJMmN9/83FmB6xkk23kNSLQMabOepjnPcbTTDl4u2Hk
-	 +NW/IvG0Q4sV2GFICPkaLPM4K+Ln3i0fXkSbhAX0bhXrEaQMA70XqEtYYHR53H+BobjTf
-	 SHkfwoevacRD/YPJD2KDl4wn1qceds10cH/yTHluNJbNUXjT8EiSR3knvMQYKGfnQ1Q==
+	t=1794843061;
+	b=ACa/lgxCMg8bAGKgyFMYVRuc1WhJRDxqCopxfkoIbLk7k0AuIz8OZTxmUDGKsjjYwY4u
+	 kzAU/1IvsLN6ISYEc7HFLO4Yq2nqCNKiM9ynt0AWlA0TWvIrJeel/5DNlCCRnULkt7vVy
+	 mGPmLzoONKk2YlgJJGpQKjFViMLfOuqXTbG92Al3lW6c5/DiDjhMxq8vt6pQQEbhwg1dY
+	 JPEjuFwl8WgVmiNdlYw4OUhD/ynbakWQujhjlt6QygnvfMdjN0x7/52OU79st5Ib2ITZq
+	 Q6CIcIjDQsLvmJ/6sPGLGu0f/YQyJ1n22bAprivI2yqgutGFzqOIKMOSFViLdCZ0M2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794843059;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794843061;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Rspamd-Queue-Id;
-	bh=CDG2+kMw+A8LdS/UvHCT6L9ztc9obDz1MKuAv6+QT7s=;
-	b=IhsWBy15HzdIJw9tfer1w28JbWPRFRutYMnBK323DqCKTGss40yLFsq1D+uMoNIozdkF
-	 B2W7bNL6Z22WCnHu9pRBlIGlzyTMuG3DKUB9SL+EUBsr8eYz4CUZWAoubUXOycjaZUtaP
-	 WgXV+PPlXcZvKhxz5SHY2Q+WPKw/CDXJ6QyWFTTX65pYOSk5+EMntdscrDbcHZXN1FD5A
-	 NN1bgU1Vy2Q+7z3dsU6H6tREfJ716G/r4JMAPzZo5lRRR8AywU3m77A3r1o71PwUgp69h
-	 yk0f3OFmpCvwJh+scgRkEZ+Zx0j60wiv+tRtSRvrHpKO8XGCFXRlxVrw/z6nLWP3TtA==
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=izMnGSi5/C4Zjs+ze3xoS9LB92c3fP1+bt3Aegm0+Zk=;
+	b=fwMr5iO4kC+P2RrvEfmZJaCjikq1cnhePv6ZKrCr5Djg3s1X1B+9Gf5s0GXyakoEyjMt
+	 QMYSc6vG8bNMUKO4HlXN/Uz6JYOEF4h/yWYAkID80S+mCiJLogCWq+j+h5ZAoEeftXjhh
+	 7sA9BluciFNHdokvBE+TiAgjuMFm45Sw79bkT+gzhTz8gM7Jj+o4ptR98qMW2w6joPcU3
+	 uL5AoYZQjQ5QkgxrCAhhn0jPUN1f4Vat+qHdNe49PjbR65DiB1OY9oG5sVFHZ11gFHCn/
+	 W18OdVwvKkhT+Xy7CCpx7fj+MGlFISWfQZAxu9Ka/YJFblxTmtae8FyUESOudU5ylzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mandelbit.com;
 	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=gE+671EV;
-	arc=none smtp.remote-ip=195.10.208.42
-Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=yvBI2C02;
+	arc=none smtp.remote-ip=195.10.208.62
+Received: from mout-b-202.mailbox.org (mout-b-202.mailbox.org [195.10.208.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B94E7606A33B;
-	Mon, 16 Nov 2026 15:30:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B94E7606A33B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79D2A606A884;
+	Mon, 16 Nov 2026 15:31:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79D2A606A884
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=gE+671EV
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=yvBI2C02
 Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jSsJT00SYz5wlN;
-	Mon, 16 Nov 2026 16:30:49 +0100 (CET)
+	by mout-b-202.mailbox.org (Postfix) with ESMTPS id 4jSsJV67ntzKm6H;
+	Mon, 16 Nov 2026 16:30:50 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1794843049;
+	s=MBO0001; t=1794843050;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=CDG2+kMw+A8LdS/UvHCT6L9ztc9obDz1MKuAv6+QT7s=;
-	b=gE+671EVtghWrZBCjDOxY/ecGHlbCPQ+wGkzJCOHk0bxqQr3m8U0XyXkjtfc09TD1uM1Rp
-	RYACVf22Ge9rcyGI9BH+ET6qllSddgxUOz7F6hzk5tfCFc9eDUXIGtMC3utQjUWvo4bI43
-	GGepx+n9U+/FbvTTb8jHA15vrbO4xlohzIlDO+w0ZPStbcRVBt1cSXH+cMVzEnNt1X62yW
-	UXRM3Fg93Lvl0i3p1g0PT0FlO7+3K3CpDNUtPnOAzGEnxKOUCdbwgTi4Fd5IrOVpbVWiaM
-	IwjFsG4JtTXvX/w1NyyN6ETvKtINRrLYv5aOta0YEvRTVIBWd8ERMtIzjD4N+A==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=izMnGSi5/C4Zjs+ze3xoS9LB92c3fP1+bt3Aegm0+Zk=;
+	b=yvBI2C02ZwFRuUGrao6VTZ+vHHaEgoU0fkE9KwDDWhJWCR3EEv2bTrmUCsBU+P2yLkVrv4
+	XEJo7hEuXHrl1uY98K31N0VINK6Evzn8dHmts1HGIEHUukiIUXIDe0kThTN+QcKQ3SD977
+	J+X0EIBZJ6vyjk0I9kcQ6flZRkD+3MmP1TzApAPuILY8MkOrdGeiluHAZoBcDnEMqVlIU6
+	hoRe7HYaI5T23ITn8r1c14614oWwXAXMRytC8lAVSf2inl1ImkGdq0/Tu2dLLqECAZ7wLH
+	/R5bmYU3Go8kCKkUfaW87aVTt0+l3pqFoPr9KHZBZm+9fWfTsGYZWsFA5MiGZg==
 Authentication-Results: outgoing_mbo_mout;
 	dkim=none;
 	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
@@ -63,16 +64,17 @@ Cc: Antonio Quartulli <antonio@mandelbit.com>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
 	Kurt Kanzenbach <kurt@linutronix.de>,
 	Joe Damato <joe@dama.to>,
-	"Yan, Zheng" <zheng.z.yan@intel.com>,
 	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 0/3] igb: fix runtime PM resume issues
-Date: Mon, 16 Nov 2026 16:30:36 +0100
-Message-ID: <20261116153041.3002666-1-antonio@mandelbit.com>
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH net v2 2/3] igb: link queues to NAPIs under RTNL after runtime resume
+Date: Mon, 16 Nov 2026 16:30:38 +0100
+Message-ID: <20261116153041.3002666-3-antonio@mandelbit.com>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261116153041.3002666-1-antonio@mandelbit.com>
+References: <20261116153041.3002666-1-antonio@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,32 +85,125 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jSsJT00SYz5wlN
+X-Rspamd-Queue-Id: 4jSsJV67ntzKm6H
 
-igb can be runtime suspended when the link goes down (with
-power/control set to auto). Resuming it calls functions that need RTNL
-without holding it (patches 1 and 2), and devices that can't signal a
-wake-up are suspended anyway, so their port stays down when the link
-comes back (patch 3).
+__igb_open() links queues to NAPIs with netif_queue_set_napi(), which
+requires RTNL, but RTNL isn't held when resuming from runtime suspend:
+this triggers "RTNL: assertion failed".
+
+Don't link them in __igb_open() when resuming: do it right away on
+system resume (RTNL held) and from a work item taking RTNL on runtime
+resume. The links can't be kept across a suspend, because
+__igb_shutdown() frees the q_vectors. These are only freed under RTNL
+with __IGB_DOWN set, so the work item checks __IGB_DOWN under RTNL.
 
 Tested with the 82576 emulated by QEMU.
 
-Changes in v2:
-- patch 1: keep setting the queue counts in __igb_open(), only skipping
-  them on runtime resume (Sashiko)
-- mention the tested hardware in the commit messages
+Fixes: b75a1dea500f ("igb: Link queues to NAPI instances")
+Cc: stable@vger.kernel.org # 6.16+
+Closes: https://bugzilla.ipfire.org/show_bug.cgi?id=13562
+Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+---
+v2: no code changes; mention the tested hardware.
 
-v1: https://lore.kernel.org/netdev/20261113105835.3821433-1-antonio@mandelbit.com/
-
-Antonio Quartulli (3):
-  igb: fix RTNL assertion when resuming from runtime suspend
-  igb: link queues to NAPIs under RTNL after runtime resume
-  igb: only allow runtime PM if the device can wake up
+Note: igc may have the same issue: __igc_open() also links queues to NAPIs
+(igc_set_queue_napi()) on the RTNL-less runtime resume path. We didn't
+have igc hardware to test a fix with, so no igc patch is sent for now.
 
  drivers/net/ethernet/intel/igb/igb.h      |  1 +
- drivers/net/ethernet/intel/igb/igb_main.c | 69 ++++++++++++++++++-----
- 2 files changed, 57 insertions(+), 13 deletions(-)
+ drivers/net/ethernet/intel/igb/igb_main.c | 38 +++++++++++++++++++++--
+ 2 files changed, 37 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/net/ethernet/intel/igb/igb.h b/drivers/net/ethernet/intel/igb/igb.h
+index 0fff1df..ea2d739 100644
+--- a/drivers/net/ethernet/intel/igb/igb.h
++++ b/drivers/net/ethernet/intel/igb/igb.h
+@@ -585,6 +585,7 @@ struct igb_adapter {
+ 
+ 	struct work_struct reset_task;
+ 	struct work_struct watchdog_task;
++	struct work_struct queue_napi_task;
+ 	bool fc_autoneg;
+ 	u8  tx_timeout_factor;
+ 	struct timer_list blink_timer;
+diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
+index 4447546..894eedb 100644
+--- a/drivers/net/ethernet/intel/igb/igb_main.c
++++ b/drivers/net/ethernet/intel/igb/igb_main.c
+@@ -2115,6 +2115,30 @@ void igb_set_queue_napi(struct igb_adapter *adapter, int vector,
+ 				     NETDEV_QUEUE_TYPE_TX, napi);
+ }
+ 
++static void igb_link_queue_napis(struct igb_adapter *adapter)
++{
++	int i;
++
++	for (i = 0; i < adapter->num_q_vectors; i++)
++		igb_set_queue_napi(adapter, i, &adapter->q_vector[i]->napi);
++}
++
++/* Linking queues to NAPIs requires RTNL, which isn't held when resuming
++ * from runtime suspend: do it from here instead. The q_vectors are only
++ * freed under RTNL with __IGB_DOWN set, so checking it under RTNL is safe.
++ */
++static void igb_queue_napi_task(struct work_struct *work)
++{
++	struct igb_adapter *adapter = container_of(work, struct igb_adapter,
++						   queue_napi_task);
++
++	rtnl_lock();
++	if (!test_bit(__IGB_DOWN, &adapter->state) &&
++	    netif_running(adapter->netdev))
++		igb_link_queue_napis(adapter);
++	rtnl_unlock();
++}
++
+ /**
+  *  igb_up - Open the interface and prepare it to handle traffic
+  *  @adapter: board private structure
+@@ -3426,6 +3450,7 @@ static int igb_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
+ 
+ 	INIT_WORK(&adapter->reset_task, igb_reset_task);
+ 	INIT_WORK(&adapter->watchdog_task, igb_watchdog_task);
++	INIT_WORK(&adapter->queue_napi_task, igb_queue_napi_task);
+ 
+ 	/* Initialize link properties that are user-changeable */
+ 	adapter->fc_autoneg = true;
+@@ -3890,6 +3915,7 @@ static void igb_remove(struct pci_dev *pdev)
+ 
+ 	cancel_work_sync(&adapter->reset_task);
+ 	cancel_work_sync(&adapter->watchdog_task);
++	cancel_work_sync(&adapter->queue_napi_task);
+ 
+ #ifdef CONFIG_IGB_DCA
+ 	if (adapter->flags & IGB_FLAG_DCA_ENABLED) {
+@@ -4199,7 +4225,8 @@ static int __igb_open(struct net_device *netdev, bool resuming)
+ 	for (i = 0; i < adapter->num_q_vectors; i++) {
+ 		napi = &adapter->q_vector[i]->napi;
+ 		napi_enable(napi);
+-		igb_set_queue_napi(adapter, i, napi);
++		if (!resuming)
++			igb_set_queue_napi(adapter, i, napi);
+ 	}
+ 
+ 	/* Clear any pending interrupts. */
+@@ -9637,8 +9664,15 @@ static int __igb_resume(struct device *dev, bool rpm)
+ 
+ 	if (!rpm)
+ 		rtnl_lock();
+-	if (!err && netif_running(netdev))
++	if (!err && netif_running(netdev)) {
+ 		err = __igb_open(netdev, true);
++		if (!err) {
++			if (rpm)
++				schedule_work(&adapter->queue_napi_task);
++			else
++				igb_link_queue_napis(adapter);
++		}
++	}
+ 
+ 	if (!err)
+ 		netif_device_attach(netdev);
 -- 
 2.56.0
 
