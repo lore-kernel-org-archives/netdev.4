@@ -1,101 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.180
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794856816;
-	b=i683H06H3QPHYaR+iOJdbP+QnnyplS1kQAdLC1Y93O9+CIf8M2fy/exmki8aI95K4SYL
-	 lHV25Kb4VaNx2hh+YXfFSnU0ccVjvLqwJ97ciNv4e0Jz2Sm1l5ktJDNrW2+injnSNeosu
-	 JdgQ8OImCwVW5paE65oFg/1ygRDJj8H8xkd7bpkptoyU7XrL2T/YbqUtbFd0tR7fZtPOn
-	 URhfQblyQHGolUpzOmPjeDQ5+Q/gK3hTncsHBP3Zz6JYhelvaBhNWwHoWFLK+xnoQtovJ
-	 cE4i9X+wxIZjtVQvx2yLfy/rpnQXEPJVFU8Rnq6yTSOrfzqlj6F4OL1EhyTN2Ae65AA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794856816;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=mCe6Bp3SM314rnTJTs464tCuYj4/L9FqVj7duj6GVqA=;
-	b=h5Sej2GSkWFppM0CSqYXFf1jS+nngBz3a5l3a7VSirq6r0euC75xc/Hf0AdcnbYTCPWh
-	 jlNIqDs4SG9zDsZHzQ/AvBaQB1dQkwjdqTpuwHmcpZ/ZRWG6QuDfLy1zLmRPjz9VdA3NK
-	 6Bn/J1kR6qKZTWIDpeukIzpAzK7zj84vqTkYK1zEgzPDNZdZnN0/sTtQzIJh8hFPGT0vs
-	 /78orbLcxCw/wffd/4Jy+FZcSba+OPdpw3VMhY6hGAEAa1l49pD/IzFjfVI1AuS+4DyCr
-	 Nvh5p5pRpPtmPaNP05iKtwkhyPILlGj7Cpfzk+ajz4EOsF1mwk43yJeBTW14+xOHFmQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xeY7gzSS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.180
-Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794857047;
+	b=1wEG/Azd+OubK9QjBmCEEtYXBVOqBBHs5VMrYaVp5Yhr6+MRDgbXoB8wzc4N1b+2NAFL
+	 3OV4Iy/llX/GQHUiuqPr9St767b+BvY4XFPMyCAhOtd3UyD9TkLM6I/EjCIsvOEBUf6tq
+	 5LszBJVzVWCXgbv+A/v1c5lbCXjvoVxd7xR+P/3WqU5nQDi6IKhPcVpgh1XwtVzNQjbzv
+	 aDvqn1Ao6sVg3z9EOfyMcmK3yt6VXjUqDb0MEh1aiNDo8cqtkEfTx28fAgM+wutz5VJLy
+	 cSYVqNI/Oo0GcPSs3ir8fegE0JOaeVInT6jBVRFVtesg1c3pBRWubDPlcv6cxOdbhYg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794857047;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=B/UNoClSHX853aynsyAH0lzmqdVObyKe2mic7O4QnJA=;
+	b=X4NpeBDgWJsb47Gw/PbBtRKvZZm3FbGK6umxCJVFawShzAj3WMlxcNVcLv020LU8kQCL
+	 9Y8c9vEseLLEA38DXCCkH1/PNjcCOSJx4D9rkFraSHW4DiVTXqTAVN799DOlK6FzRMG+t
+	 Pfzs9Xb9BU0ExOVntWyfD5S66iRgP3DuQXD5vxb+QWc9epCryEtPO8RTN6U3SNBDNoW9O
+	 zpJae+TC0AWsUK1HP+TJnR/1gDU38GJkrmFOmJqUFqgvc2eCNLUReBG9qWHaX5UCc4sUG
+	 Iz6uY9V8w2HhwLvbOCcwxIsYDI2DlPOYVcPglNK9jqC6gWa7KoDO3SV64BmXepuHm9w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d0HnLTg4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27DDD606A322
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:20:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27DDD606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90081606A31C;
+	Mon, 16 Nov 2026 19:24:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xeY7gzSS
-Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8a39e5161c1so4032870b3a.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:20:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794856814; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ODjlEWARpcLmJ9pECGtw5L73IArlhfabItaE04D931GIPcp/a2yPUNyzuln0IZJ8Z9
-         zUFJAj2vug+82bGthrgyCCJFWFVPLGflaVhCGBiagmGw5eQiyFNi66SoFthZV3dAGw+E
-         gme9zMYLnk4jCnfWj4aGvHum10bgtFEbh/bNa62a/FXdCrySQw6B8T6BrLjrJkRj8SvZ
-         v4ZrhWPSsLvuVAahI6jrOiVa7zCNLuUFjy9yaHCoxLfNxdccdyjHQWtmPUsG0kl2A4pR
-         iAQhMVNSy7ZWU75V48u+5AV0ekMwKb47h+fi5K0NGgdQ1nQ9u1I9FrccTHn1udmGN2CT
-         mCRA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=mCe6Bp3SM314rnTJTs464tCuYj4/L9FqVj7duj6GVqA=;
-        fh=G6F0VWxSNOYeUK2Cvo4nzYG+YpAI9rXg8wYDsHVSTOI=;
-        b=GAUHZyNOMC+3/XPA8NNuo5vLrZzhnFR7r7Xnn56V2rZIfjZ+08ChpJoNQyWugfLaod
-         YXpembq7Ph5wYHswCgEHJqPKxQdmHO+8zp6EegJXQZZ14r+c981kYyXgmb8JWUs6xzDc
-         mtP7D+f5n4+x587wQ7FxjD6A9ouBKBLlW0Gipj7UOnCCXXUtqyunPcOvdXvU4FGMRZM4
-         /332qtyp9n0yjYvjqu5dqzzEloD8WxHQBLv85TOJpunn+dDJrUyHMyINXNsM8nDEnpaQ
-         CWSi/u5bWzl9vyWJJkxlFzt1qWgpgM3nstXtp5iwPdGaOGEo5Q+uelVb+OYLEliegTFq
-         0O/w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794856814; x=1795461614; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mCe6Bp3SM314rnTJTs464tCuYj4/L9FqVj7duj6GVqA=;
-        b=xeY7gzSSCEuVOvYjp/AC0uzzuAsYcrN6pxNfPByiT8ldwrZXRQxmFBpfDD4bhGWg01
-         R4MoRCPnqnGB9JYIdLEL75YMl24QQ+etoZWZowzk9hWlZLhGqFAj2Ww/Jm71h6Vv7Rat
-         kzmyKrVRwXigpWyOLSEOQKYXEG5Km8Xd8qjHGPcEbO7aO8s3QMlsQDLDWRAoVCOo9kwR
-         ixPbjHWMDTY6qyVJpjdQM90un/qV9ouTiSXVT+y2OK85A5vJLivMpXS5piKQEGkBoS6c
-         9xYwyQH4ZbhU4IXPg3VU2CjjYeysClKYyVA26NO6WObtbI56PCRk34P4FFyeNcke5+Ch
-         yw+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794856814; x=1795461614;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mCe6Bp3SM314rnTJTs464tCuYj4/L9FqVj7duj6GVqA=;
-        b=bCSJXrkxNMtfkVx0J4LhiY/IevMG+fClW/5cJpyaLwrC+PvsvMSjv025z8tKesilZI
-         xzPXIydCOnIa1MFOsd4JQo7I2ungyHFj4oXjStGhKeVgyO7lJJKZ2UOxPl/CoZabYfJb
-         NXEUnBnvJxwAFXrha3Ya0QJbSQAcu8OpcnrVtFD1hKRZEhUUS0fIzEBRO8vavHVqUDOz
-         ycVyDjpF66iOh9FYWjPt54stZRkYO15DMqZD7NQ2Op56itssXiP7Lu1e8A/asNg5FdOi
-         AAF1lIEVak66v0MMEUqZNeZqVKIxrfaEHzWEFlPuDs5DMyPiM2IiyMiCUpBpDmBPPQQK
-         T0ZA==
-X-Forwarded-Encrypted: i=1; AL+hErFE4YmAGr5WmyEasoM8oec8BXiSft/p47BIZHnRk4AW9K70PN0VXNvNpvA3AMO/FDXGGIl1IcA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9mJNkRNCaTfFUT7kCNfrEzg+e3n2LXYi0EIt0IyDz3Pwf2WZqa
-	LULnYbW8QwkULzRaOgNLBs9ukq3W5gPsWZZPTbcybaqRRRM05d1tgS3mwQw37MYQJxXzinP6xjM
-	SqI2ycdyrvGabuw2beQCJZAi1L44mRRU=
-X-Gm-Gg: AYBFou0mT3WsYdMkjsfzcQ9/xLE+JZyAtbGeP5CcAujf2j41F0CH9KFG8dWDfy8/NeU
-	prxgoPkhwjaBgpYu4VP6M1udigIMxgx6chKPeehH+FD0H83OaCq14ZnNCePIq/h2S/j5XcRFqhn
-	kOoIQCz4aHmeK+56kDXzeJAXT0RGveAeYx5s6MX9w6hQ8nPfEYmrGJ13/gWUviHJ2hyC26jcdIx
-	cncjn73j1+LImcULsh+tpva7yJCp1V9+EooVG7eYP0trADWXNXItzyQHYrVVedkOErv3+MWiyHo
-	WZz2LVkMNyhEdVhhgo9lqGuTYT2vsR+s839NjWWjqcf8KBqiMG06/hkZIIlJ9ASORatZAf1LkyA
-	iEnuv7v0k5XPYxsaI5VS6ue4rlF/UiaBxFeVH5RAuVqYiKGhUM1w69Yd2tKShSqqhkHvLbt35jw
-	4jCcV4RbymMOWmhX9FV19VeiF2PCEiiiC/poQm
-X-Received: by 2002:a05:6a00:2d1b:b0:89e:37b0:d1bc with SMTP id
- d2e1a72fcca58-8beb658dfa5mr10967409b3a.28.1794856814201; Mon, 16 Nov 2026
- 11:20:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d0HnLTg4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A2581F000C4;
+	Mon, 16 Nov 2026 19:24:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794857047;
+	bh=B/UNoClSHX853aynsyAH0lzmqdVObyKe2mic7O4QnJA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=d0HnLTg4UYS+02ZceRAq1SAzNv9teK0zSpw1hF4LeP1EhlGqen++8v6PBXbecHSFw
+	 3tfT/JdKK2HfqN943WW7ERohLvHPz2k35pwbnEyR6oJa0XdSaa4A95ob9ukCjNnEIJ
+	 x1F1WPV4mN91DUB0iw+d5HLKxZZCkOPCvfayhB96LAPrDkFrgZLplx8yVsmU1UuDSx
+	 SBWZVN0zkFHNKTLqn89qNTrKHtsdj6TXWpaw8p867+kv6M3VwJ3bPv27WPjGtmLK7O
+	 OaZVOSiP2QLdEg8SgaSladmfoIDBPbfWP7FLasxyAJ884pZBY+4x7u/NXBbere48+K
+	 gBOugeETJ/5QQ==
+Subject: Re: [PATCH net] net: mdio: mux-meson-g12a: keep the MAC data path
+ when switching MDIO
+From: netdev-bot+sashiko@kernel.org
+To: iav@iav.lv
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com,
+ martin.blumenstingl@googlemail.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 16 Nov 2026 19:24:05 +0000
+Message-ID: <179485704584.3136.17355463997361048256@kernel.org>
+In-Reply-To: <20261115-g12a-mux-data-path-v1-1-011dad738698@iav.lv>
+References: <20261115-g12a-mux-data-path-v1-1-011dad738698@iav.lv>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,134 +66,140 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261113124625.4010206-5-edumazet@kernel.org> <179484404697.3136.10852363970744263229@kernel.org>
-In-Reply-To: <179484404697.3136.10852363970744263229@kernel.org>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Mon, 16 Nov 2026 14:20:03 -0500
-X-Gm-Features: AclHuK9lkGr_PDkzaRaW8fMRu4GpO2qf42caRW7hNGQP2NB-uQH93uU0ogZ3mOU
-Message-ID: <CADvbK_dKiTF4gSjsRuVKUDVTJn-EVVvunmhOOEGyG7Bt6jjeVw@mail.gmail.com>
-Subject: Re: [PATCH net 4/5] sctp: use skb_set_transport_header_careful() in sctp_v6_err()
-To: netdev-bot+sashiko@kernel.org
-Cc: edumazet@kernel.org, davem@davemloft.net, kuba@kernel.org, 
-	pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org, idosch@nvidia.com, 
-	willemdebruijn.kernel@gmail.com, marcelo.leitner@gmail.com, 
-	aconole@redhat.com, echaudro@redhat.com, i.maximets@ovn.org, 
-	daniel@iogearbox.net, justin.iurman@gmail.com, linus.luessing@c0d3.blue, 
-	sd@queasysnail.net, sbrivio@redhat.com, imv4bel@gmail.com, 
-	netdev@vger.kernel.org, linux-sctp@vger.kernel.org, dev@openvswitch.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 16, 2026 at 10:47=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wr=
-ote:
->
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] The main part of this concern is fixed later in the series.
->
-> --
->
-> sctp: use skb_set_transport_header_careful() in sctp_v6_err()
->
-> sctp_v6_err() now stores the ICMPv6 inner transport offset with
-> skb_set_transport_header_careful(). If the offset does not fit in the
-> 16-bit skb->transport_header field, the ICMPv6 error is ignored. Before,
-> the offset was silently truncated and sctp_err_lookup() read the SCTP
-> header from the wrong place.
->
-> > diff --git a/net/sctp/ipv6.c b/net/sctp/ipv6.c
-> > index 97390569c4bdc..ad5c951efdf06 100644
-> > --- a/net/sctp/ipv6.c
-> > +++ b/net/sctp/ipv6.c
-> > @@ -170,8 +170,11 @@ static int sctp_v6_err(struct sk_buff *skb, struct=
- inet6_skb_parm *opt,
-> >       /* Fix up skb to look at the embedded net header. */
-> >       saveip   =3D skb->network_header;
-> >       savesctp =3D skb->transport_header;
-> > +     if (unlikely(!skb_set_transport_header_careful(skb, offset))) {
-> > +             __ICMP6_INC_STATS(net, __in6_dev_get(skb->dev), ICMP6_MIB=
-_INERRORS);
-> > +             return -EINVAL;
-> > +     }
-> >       skb_reset_network_header(skb);
-> > -     skb_set_transport_header(skb, offset);
-> >       sk =3D sctp_err_lookup(net, AF_INET6, skb, sctp_hdr(skb), &asoc, =
-&transport);
->
-> [Severity: Medium]
->
-> This covers native SCTP. Can the SCTP-over-UDPv6 handler in the same file
-> still hand a wrapped transport header to sctp_err_lookup()?
->
-> sctp_udp_v6_err() is installed as encap_err_lookup. It still does an
-> unchecked 16-bit add:
->
-> net/sctp/ipv6.c:sctp_udp_v6_err() {
->     ...
->         skb->transport_header +=3D sizeof(struct udphdr);
->         sk =3D sctp_err_lookup(net, AF_INET6, skb, sctp_hdr(skb), &asoc, =
-&t);
->     ...
-> }
->
-> A later patch in this series ("udp: use skb_set_transport_header_careful(=
-)
-> in __udp6_lib_err_encap()") makes __udp6_lib_err_encap() store the UDP
-> header offset carefully. That check only makes sure the UDP header offset
-> itself fits and is not U16_MAX, so transport_header can still be as high
-> as 0xFFFE when sctp_udp_v6_err() runs.
->
-> For a UDP header offset between 0xFFF7 and 0xFFFE, adding 8 gives a bad
-> value:
->
->   - 0xFFF7 becomes 0xFFFF, the "not set" value. With CONFIG_DEBUG_NET thi=
-s
->     trips the DEBUG_NET_WARN_ON_ONCE() in skb_transport_header().
->   - 0xFFF8 to 0xFFFE wrap to 0..6, so sctp_hdr(skb) points at
->     skb->head + 0..6.
->
-> In the wrapped case, sctp_err_lookup() reads vtag from the wrong bytes.
-> sctp_v6_from_skb(), called through af->from_skb, also reads sh->source an=
-d
-> sh->dest from there for the association lookup. When vtag =3D=3D 0, the I=
-NIT
-> chunk is read with skb_header_pointer() at a negative
-> skb_transport_offset().
->
-> The commit message says "Should the value be truncated, sctp_err_lookup()
-> would read the SCTP header at the wrong place". Would it make sense to
-> also check, before the +=3D in sctp_udp_v6_err(), that transport_header +
-> sizeof(struct udphdr) fits in 16 bits and is not U16_MAX? Another option
-> is for __udp6_lib_err_encap() to reserve room for the payload header.
->
-> This needs the same large skb->data - skb->head precondition the series
-> describes, and there is no reproducer.
->
-> >       /* Put back, the original pointers. */
-> >       skb->network_header   =3D saveip;
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261113124625.4010206-1-edumazet%40kernel.org
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-The new skb->transport_header is used by sctp_hdr(skb) in af->from_skb()
-in sctp_err_lookup(). I think it's better to avoid changing
-skb->transport_header by passing sctphdr to af->from_skb(), which also
-makes code cleaner.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Hi Eric, you can either continue with the idea, or discard this patch and
-leave it to me.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks.
+- [Medium] The patch only sets the internal-PHY data-path bits when it
+  finds the internal PHY through the MAC's "phy-handle" property.
+
+--
+
+net: mdio: mux-meson-g12a: keep the MAC data path when switching MDIO
+
+With this change, switching to the internal MDIO bus no longer sets
+USE_INTERNAL and RX_CLK_EPHY in ETH_PHY_CNTL2 unconditionally. Those two
+bits route the MAC data path and RX clock to the internal PHY. They are
+now set only when the MAC's phy-handle points at a PHY on the internal
+mux bus. The aim is to stop external-PHY boards from losing RX after
+suspend/resume, when phylib touches the unattached internal PHY.
+
+> diff --git a/drivers/net/mdio/mdio-mux-meson-g12a.c b/drivers/net/mdio/mdio-mux-meson-g12a.c
+> index 71c44385489d4..ed688d48eaf08 100644
+> --- a/drivers/net/mdio/mdio-mux-meson-g12a.c
+> +++ b/drivers/net/mdio/mdio-mux-meson-g12a.c
+
+[ ... ]
+
+> @@ -169,10 +171,11 @@ static int g12a_enable_internal_mdio(struct g12a_mdio_mux *priv)
+>  		PHY_CNTL1_CLK_EN |
+>  		PHY_CNTL1_CLKFREQ;
+>  	writel(value, priv->regs + ETH_PHY_CNTL1);
+> -	writel(PHY_CNTL2_USE_INTERNAL |
+> -	       PHY_CNTL2_SMI_SRC_MAC |
+> -	       PHY_CNTL2_RX_CLK_EPHY,
+> -	       priv->regs + ETH_PHY_CNTL2);
+> +
+> +	cntl2 = PHY_CNTL2_SMI_SRC_MAC;
+> +	if (priv->mac_uses_internal_phy)
+> +		cntl2 |= PHY_CNTL2_USE_INTERNAL | PHY_CNTL2_RX_CLK_EPHY;
+> +	writel(cntl2, priv->regs + ETH_PHY_CNTL2);
+
+[ ... ]
+
+> @@ -301,6 +304,41 @@ static int g12a_ephy_glue_clk_register(struct device *dev)
+>  	return 0;
+>  }
+>  
+> +/* Like dwmac-rk: the PHY named by the MAC's phy-handle decides the data path */
+> +static bool g12a_mac_uses_internal_phy(struct device_node *mux_np)
+> +{
+> +	struct device_node *parent_bus, *mac, *phy, *phy_bus, *mux;
+> +	bool internal = false;
+> +	u32 reg;
+> +
+> +	parent_bus = of_parse_phandle(mux_np, "mdio-parent-bus", 0);
+> +	if (!parent_bus)
+> +		return false;
+> +
+> +	mac = of_get_parent(parent_bus);
+> +	of_node_put(parent_bus);
+> +	if (!mac)
+> +		return false;
+> +
+> +	phy = of_parse_phandle(mac, "phy-handle", 0);
+
+[Severity: Medium]
+Can this check pick a different PHY from the one stmmac actually
+attaches?
+
+Only "phy-handle" is read here. stmmac_init_phy() and
+phylink_fwnode_phy_connect() find the PHY through fwnode_get_phy_node().
+On DT, that function also falls back to the legacy "phy" and
+"phy-device" properties:
+
+drivers/net/phy/phy_device.c:fwnode_get_phy_node() {
+	...
+	phy_node = fwnode_find_reference(fwnode, "phy-handle", 0);
+	if (!IS_ERR(phy_node) || is_acpi_node(fwnode))
+		return phy_node;
+	phy_node = fwnode_find_reference(fwnode, "phy", 0);
+	if (!IS_ERR(phy_node))
+		return phy_node;
+	return fwnode_find_reference(fwnode, "phy-device", 0);
+}
+
+ethernet-controller.yaml still lists both names as deprecated aliases of
+phy-handle.
+
+Take a DT such as:
+
+  &ethmac { phy = <&internal_ephy>; phy-mode = "rmii"; };
+
+Before this patch, stmmac attached internal_ephy, and every switch to the
+internal bus wrote USE_INTERNAL | SMI_SRC_MAC | RX_CLK_EPHY.
+
+After this patch, g12a_mdio_mux_probe() sets mac_uses_internal_phy to
+false. stmmac still attaches the EPHY over MDIO, but
+g12a_enable_internal_mdio() writes only SMI_SRC_MAC. The MAC data path
+and RX clock then stay on the external pins. Would RX on such a board
+stop working, even though the link can come up?
+
+Every in-tree internal-PHY DT (sei510, u200, fbx8am, sei610,
+sm1-a95xf3-air, sm1-x96-air, s4-aq222, s4-vim1s, c3 boards) appears to
+use phy-handle. So this would only hit out-of-tree or
+bootloader-supplied DTs that use the deprecated names.
+
+The comment refers to dwmac-rk. dwmac-rk has read only phy-handle from
+the start, though, so it never broke a working setup. Here a setup that
+used to work would break.
+
+Would fwnode_get_phy_node(of_fwnode_handle(mac)), or the same
+three-property fallback, keep the mux in step with the PHY stmmac
+attaches?
+
+> +	of_node_put(mac);
+> +	if (!phy)
+> +		return false;
+
+[ ... ]
+
+> @@ -313,6 +351,7 @@ static int g12a_mdio_mux_probe(struct platform_device *pdev)
+>  		return -ENOMEM;
+>  
+>  	platform_set_drvdata(pdev, priv);
+> +	priv->mac_uses_internal_phy = g12a_mac_uses_internal_phy(dev->of_node);
+>  
+>  	priv->regs = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(priv->regs))
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115-g12a-mux-data-path-v1-1-011dad738698%40iav.lv
