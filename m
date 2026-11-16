@@ -1,95 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794834500;
-	b=D5abnTcpvfS4tC2jbMquEGjBv2amsSv5e1zu9BePzWOJ7QqowUS1rSN0F8mCFCM0nT26
-	 AZ6MnT7Wa3VotVHflyUvWiZt432fjIXPJKVyGH5jajWXvpvgnOLv5iDNs3Zu7obJaln/X
-	 rUHVJgHrZ3H+HnrUA96bt5stSYHR+zH7+vYZPSntLzvhq9GcraG1tOCxsI6QkLS3f5C1b
-	 X7Bq5TWCjDpMAiK2Hp7tlG3azIrJY65I8Vmt74bA3L26o/c8V0r623mM4N9106uU5AKH+
-	 E/u/vYH7SziamgQJCxqJsZFn37tfRJiWCb7k2zhbhAqm/g1igX+bH9R1BEpi2CfG6yA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794834500;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794834514;
+	b=4vnf/AxS4I8r4M8z4p4jWUpG0TzCw5kZh3+h68TeogcC8m/MCdfdYDTE1UQX2qL23RQz
+	 08zXU+ORIbnVoQbUOkyGGIkcL2DVfZ/WiL1VpnQ+vNU3hLyKhse+MqtOKUuKrCwO0NEEQ
+	 mmiD8/inK8rWUBwgSGGHKr3oT8f6nFEqTLbHU8oY4mnHVvVn+Eae+4ZXwtoxYGkotSq1j
+	 8mRrHXYOAIPJtV7lcWE+13g98qRfhnEwGlesB5gHKLFbDkZfP7kN1iHK8zddNKx5pISTc
+	 rExCy5Qh6uY3FL0oT7HLNl97S4fAV3mmJglc4rHPK6g7i8vpsHxczp/OvdOyNb/wTkw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794834514;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:
-	 X-Google-Original-From:Date:Subject:To:Cc:Message-ID;
-	bh=rG+GBh1fpgsQkz9UV4Ps5a8YglcFFYNsAq1Nml020MQ=;
-	b=LhtcrePS8G4Weln1L1ZOrLgvcqmbcUwLimcUJJRriEPiEa5quIzvab6elUzHX1cB7S9X
-	 uvgzi+uiKAoafcT87z5T5vaSaSoeBy4OJZ+/ETxzSR0/ZGZZjCrQ1ILyK43DpQoNwKIRu
-	 550q7Fq+77oyzwEt8bs6fKzRsPDBtCJY9FCzaNmve7Jnr+RDTsO21ciusaeRq6DsfPJtK
-	 7MJ+mP5kDpXGTRcCH8YBaSfk9NVf9Fmfik5lMj4o2AFPtM22ZsGcoSeSnNNl337RUuBBz
-	 /m1ZPlmVo1Guw52kn1m+uufoElsm3rMxogtDeG4U5QvNJyZTggy0fpYwuljd6pn4KxQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Un7tTl7i;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=SJJ2qpANvyTR8K9yLqvEvSV/pVuGUPXCU9gwVqvlEl8=;
+	b=Cet38Xq3DQMCxVvgZnDr2C3nGpf0tB2ZK7UShQeJpy37xYxp4aeAWvLDo7RBQKinyWXn
+	 GzbCG/NmZYOtH/vIkdPSpWMXcsBn8Kyl03VPP6iVaL/DyB4RDaoEoixgELOGIInVlzpyG
+	 y4e3TFmCnK4LGR9cA1qqYm2dGMiAtHhpC5x99mybqsdCgxrfplxW7923B8YQwGudygXSB
+	 PAxBsipEKXn9cVybTKT1t1diwIxWKp1tHrxraQefxK4NC22Rzff3h6tU7tGEkAW87tUQP
+	 zCek5aAJMYpVUjq++zor/ZB6s1z28xVlmjbziV4OfR7nXLuUk8WeHp0iF5jpUvOhuEg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cloudflare.com;
+	spf=pass smtp.mailfrom=cloudflare.com;
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=PnAQWxel;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.50
+Received: from mail-oo1-f50.google.com (mail-oo1-f50.google.com [209.85.161.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C60FC606A334
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:08:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C60FC606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5EC4606A337
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:08:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5EC4606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Un7tTl7i
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2efc5a60bd6so2733135ad.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 05:08:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=PnAQWxel
+Received: by mail-oo1-f50.google.com with SMTP id 006d021491bc7-71aea92f666so608110eaf.2
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 05:08:33 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794834513; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TbCCTrKMaoitYLvenjW75pLOviPQAwBXQmOP3UKUFGJw9cy/a0Hk69i9yL/RjFYPh9
+         Dt+MgOXPQEazlPH3U1tF7a48v6WEyMCupffuF1iEDzBydX7WZqnrOmfvo6I/3KCrxBBO
+         ruOuxs640L2WtlZNdPN528vcktCiSm4RkF/aC7dTK/6KQVQh0CApmn847sbMrTitpu+1
+         bd6BwSlma9GB08XXSb+mPJY5FqJLmfWBw7bSQi0R7IZfsE7jdwKRrJ3ipK3hN/ewLYrP
+         EbO4kU2PHiCA17mJfuyi/vAT4Di9kh0B0yh8vH8GKZ7CqvJxHtOjgN3bpnQgQC8+sBYO
+         VWmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=SJJ2qpANvyTR8K9yLqvEvSV/pVuGUPXCU9gwVqvlEl8=;
+        fh=34qlYoY+ZSwMqloBV/k4nOJ8yxFsaEmOy80cgd2EpHM=;
+        b=h2RSjNZyZ+B9MlazRzhep4VCc8425GKhH/BoP/NlOXFM1e0EpSg1ng3Juch2m9ftft
+         FY2vRGp3xafWf2Ajt40D1sENY62Hxnd/Unk5QKMga/CmQb63wqEr85FHf/c4QMt3u2nW
+         HBnGG5uBAEzcaFJJEj7++mfjkHVhxSkL/bl0umHo5nm5l31h/NmS/lQ6s+EUck7gFjLu
+         E2Ymz37UhBVAITIruETibQLl5AfTX5VcIlrGR4DDazKSubO2+/FW7VrgsZNlH4c673ih
+         M96b7I4a6mqdQzG1OYIoPA47sQPl27NPHUiTUew/e3TlIapBodnvS8mUJim/pd9oSFSm
+         RpQQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794834499; x=1795439299; darn=vger.kernel.org;
-        h=message-id:cc:to:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=rG+GBh1fpgsQkz9UV4Ps5a8YglcFFYNsAq1Nml020MQ=;
-        b=Un7tTl7icJ39KMFA/lBIRbrpAX70Zt+VEQWARqvvnZR3k2brwNKYku4YvriCV8S2S3
-         vjUccF6TuZuRjdZbfqZE96Jdzk5EnFovkKO9+cgNOjEk2WnUbk58hzrG9MbHQ8GI4+U8
-         fFwU9jSrp79CAnX9FbHnTunP2vQN1MaZjQxax5i3bdpX0IJbUemyFq9ykr5xKoTRyYHM
-         2U8JFb/GqFo70Fo4lvI8qeCkID9c4WdKQ+LXQRusMNKJTie6slH924/gCsqAV7IMwSf6
-         jcw5vNcvSsExNna/k427OUEPVwH1Er5kUts5XaLDy0YIFTQ9VpxDQWXEOOftOntZShZC
-         t4RA==
+        d=cloudflare.com; s=google09082023; t=1794834513; x=1795439313; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=SJJ2qpANvyTR8K9yLqvEvSV/pVuGUPXCU9gwVqvlEl8=;
+        b=PnAQWxelMKwpd/v8tbVyyOErhLwWUPNbTk2/4gueCFwPgYw6eHD6HmaM3cU08ZM+j6
+         oa5z84SDbXbMpZF+YkdoogskH90WSyO2Rh4Sw54JrWdnYU2ENifHszT2VKQRClf/mV4k
+         M6fLcrjpThvrZs59s+qKwl9uT9gWAo09lPVxe3keTMIesHftOhFOnMXBoTQoKklyIwpu
+         8xcVN2djQ6sruVDJvP0WoKsKGqpL+A1PFZ6/qAdLf+9fyy2wE07uL2z2G2z+kbl/pSDX
+         wohfgUgE3Wu4jCDfFixk85aNjSVvUrsuIr58jeTwo715+6AV7uFFgbcRxPM1CXiTWWqn
+         AUYg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794834499; x=1795439299;
-        h=message-id:cc:to:subject:date:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rG+GBh1fpgsQkz9UV4Ps5a8YglcFFYNsAq1Nml020MQ=;
-        b=WlqEtPvaxJFCDerS2PMjzmiEimA1dgmMdPjC9kekzG/zPOX0c+1F7d+Mxjx7JN+8S4
-         B8SHTecs/0d+9wekG/0/EEmEsneO/rK8iLW8hq8+j5sCXoZljZ+hEeB3UrGruSn3QVhp
-         hAkGSSfcIXDelh/JDl1Yjg9e7nCiLd3HOvpC68ZYuFcB1rQ6Zq7ZF/FZRibKVUwWpWtv
-         apS5Rwc5gz5J4HECvdidKVVDLshseSCz3q3PAvg15D/cs3VYIsxXEan3/pKB+3dtkB2x
-         sIsqJQ6t3dykx+6HyPepsv9quhiepHZ0vjYnPLdXLAHtbSYSZB8wKAvgYv4irFMsgcTe
-         4+qQ==
-X-Gm-Message-State: APuU4Z+D+Dp8QA3Bxn6nLyxGA8ijoxULRR5m1kc+xao/L1Aqubk5w61/
-	uT6nL+ZUXBlEgeJ824DCTK1bFTcV7P4/AWSXIGts+S6D4DAgAFFixRN6
-X-Gm-Gg: AYBFou1aFHYfYjroY7CLBAIr3skd3ka2WSx5zeLentqIylRGAq/fbKn+UK1FSgyEe5g
-	JPRYqmrhZV5nNWKrZTi7K8OHWRK+S3wTzGuoxoN5zGeNMImVlW1BGea3IHPmgyfwd6qv3aNnV3T
-	yI/czR1rRUsvX31lkO+4SEmD3fVQHHHC5zQP0H3B/XcCXlnP4zTsXyjwR+rB34HKXYGEZvQ9zC4
-	XExCmeLtm6X4ZtfnrKLErtmIUhFuazRQUEzE9UJ1WweT+aViVrLMmDQ0EEMYduOKpBuM69D+/8+
-	QdXuvgwOGhit7ijrfoT6RvpcF3MrE2KfuSYHTBjW2q9zjFm5yg/3Ij9eKiq52CpBCu977UwZ1yg
-	h9bmgPkpuZjoe1hP+V0a/LUOQ+M6x5/Q24gJB6TYqE21gD5/1X9J77bszOvjWuWvhqHF1PgHKAY
-	TI84Od4NXUf84w7+dkcuQp45RzSoGYRJlrRbEtaRXLwKjLmNeIQPoLMb4ERJSw8b+Ux1YYe7kZ4
-	pZVwZobOzx2cMqzPHcpVgcamW+d+HK03/dQPW5ABNrMtebM+TcIow793172Chi7hUK7G9terB3k
-	zUjixQFuGJ8TZruMZg==
-X-Received: by 2002:a17:902:cec1:b0:2e9:787c:8e68 with SMTP id d9443c01a7336-2ee0d36b42cmr109539545ad.0.1794834498913;
-        Mon, 16 Nov 2026 05:08:18 -0800 (PST)
-Received: from v2_send.eml ([2a09:bac5:4306:dc::16:229])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ee0f4ad50dsm38280985ad.7.2026.11.16.05.08.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 05:08:18 -0800 (PST)
-From: Haoran Wang <haoranwangsec@gmail.com>
-X-Google-Original-From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
-Date: Mon, 16 Nov 2026 21:08:02 +0800
-Subject: [PATCH net-next v2] net: sparx5: check DT port reg against chip port count
-To: Daniel Machon <daniel.machon@microchip.com>,
- Steen Hegelund <Steen.Hegelund@microchip.com>,
- UNGLinuxDriver@microchip.com
-Cc: netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>
-Message-ID: <20261116210802.2718-1-haoranwangsec@gmail.com>
+        d=1e100.net; s=20260707; t=1794834513; x=1795439313;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=SJJ2qpANvyTR8K9yLqvEvSV/pVuGUPXCU9gwVqvlEl8=;
+        b=Siei2Eh/l6vkYf4w3zbtmUIpc6bN5sNCXOXf9fe9Y/MUAuPJ7c7RhR13ETnAs1dKrT
+         qKQbpbAJn7dXU70yVrNVDsK1k4yEPfghVEGA/WcHu8WlDBb424Nvj+iLm98rPgw6R/GW
+         TCKpmrTAb2vyVWqrVitKyYJ6NxG9MzbmiL4Kidf6U43SUA2PBG7FnRbjVt7rctnjre9p
+         VdPaURG0PO0ybY39RYvufKQCln0hZKnHI1WhBzYugssReoQbsalfcaXMktaQa+pBA1Fe
+         E4qXZ6JHwKWD8/fRIMVHNuwwRBcNlBYQSQiZ/5oTYYXgEdNLIg6TRwr2+EKqfqs1owjh
+         eI6g==
+X-Forwarded-Encrypted: i=1; AL+hErFHV3rW1YN6OK8KLxkJHBs8BNAs7jGftzDe4r+hyr6jkeoR9nPawKsy8Dzl3Eknex6czE2Hb38=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+e2ZyG1I2NRlHY1dMaPh9syMX7kFeHdH7YpmOnVmvmEpfwKEwn
+	UhoJmWvsCFT7dcQmzJeEZpOGnkQU4rpFaeynwTVXrnkdKYeqkzWVt5uhcLZrRMLhnUTpQjuslMS
+	Jmtht7TtuxG8wSsQNpyBXn1yXVzlDpGAgFIuhya11RA==
+X-Gm-Gg: AYBFou3r4p3BvEW9AICa9Vp9ud3WKlQETpAhwy4C6rlmshtUkbV8P+KSiZ102VurHui
+	icCtmpKBoeW6+Ka2bejkJI7tSUr581Dy20mMa516xqDy0uEH+ZbYf4AYpw0RT4ObKL8IbE0rd9d
+	Zh7UAyGdded5GOoGBHS8DEDlf4FD3VU8WON7pCtqHvbX4/bHtnA9QVqUFx1zUtiPP3oiGtgjZU/
+	upKnoyK4fvVv9sXaAMTK8HBylERuDl/ZFb814PA4M0nOh9MxEdkeZd3r9iIV5gZg9eO5l9W4Nex
+	gJ71TOW7EGqjihbMXbIgEzT3X+ZF2h55r6yLAT9XtRtORJ3ytxKuTvlg06UdeHYYS+if45ZBlg+
+	FvLIwcP6yReJMWqe5wW4u6jPG0l0ViqqaG9B4L2mUWIgpmN8SdR/q+X7kHnG4L72dxD80WN411J
+	99k5ME+2LE/Q==
+X-Received: by 2002:a05:6820:761a:b0:70e:78ba:1193 with SMTP id
+ 006d021491bc7-71ab4f10ec2mr6796326eaf.27.1794834512803; Mon, 16 Nov 2026
+ 05:08:32 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,60 +103,36 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+References: <CAG4wq-cd01i7YrcFPmma=BXUcwn_PK=wneKW=vyEBYzQ3Bn7QA@mail.gmail.com>
+ <20261116084107.6675-1-emmaonana18@gmail.com>
+In-Reply-To: <20261116084107.6675-1-emmaonana18@gmail.com>
+From: Tianyi Gao <tianyi@cloudflare.com>
+Date: Mon, 16 Nov 2026 13:08:20 +0000
+X-Gm-Features: AclHuK8ATNHdUFf-g1l7OKHnDpIsGdknxqvgkzdQ5Cs4Ojj7SzQBhCC284Pvha0
+Message-ID: <CAG4wq-fhK3Mav3vLFUVYZhiXy9oF4CdazxkbOK2NNy7-KoLyXQ@mail.gmail.com>
+Subject: Re: [PATCH net v3 0/2] selftests: net: veth: propagate check failures
+ to exit status
+To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, kuba@kernel.org, davem@davemloft.net, 
+	edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org, 
+	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org, 
+	john.fastabend@gmail.com, sdf@fomichev.me, skhan@linuxfoundation.org
+Content-Type: text/plain; charset="UTF-8"
 
-mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
-portno, which sparx5_create_port() later uses to index the fixed-size
-sparx5->ports[] array:
+On Mon, 16 Nov 2026 09:41:05 +0100 Omokefe Emmanuel Onanaroghene wrote:
+> Changes v2 -> v3:
+> - Add Tianyi Gao's Tested-by to patch 1 (thanks!).
+> - Add patch 2 fixing the remaining three checks.
 
-    sparx5->ports[config->portno] = spx5_port;
+Thanks for fixing all four checks.
 
-The value is never validated, so an out-of-range 'reg' (runtime overlay,
-corrupted or attacker-controlled DTB, kexec-supplied or bootloader
-fixed-up DT) turns probe into an out-of-bounds write.
+Please be aware that it is recommended to wait at least 24 hours
+between postings [1].
 
-Skip port nodes with an out-of-range 'reg', as lan966x does in
-lan966x_probe_port(). The bound is the per-chip port count from the
-match data (sparx5->data->consts->n_ports), so lan969x, which shares
-this probe path and has only 30 ports, is bounded correctly as well.
+[1] https://docs.kernel.org/process/maintainer-netdev.html#resending-after-review
 
-Found by a scripted scan of of_property_read_u32() call sites used to
-index fixed-size arrays, followed by manual review. Verified at runtime
-on a pristine v7.4-rc2 arm64 QEMU virt machine (inline KASAN,
-CONFIG_SPARX5_SWITCH=m): an out-of-tree module supplies only a
-malicious DT overlay, the unmodified in-tree driver performs the store.
-reg = 15839 yields a KASAN use-after-free, reg = 0x20000000 a wild
-write 4 GiB out (paging oops), and reg = 65 silent in-struct corruption
-with a later NULL oops. With this patch all three are skipped. The PoC
-and full logs are posted in the thread. Not tested on real hardware,
-QEMU virt (cortex-a57) and compile testing only.
-
-Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
-Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
----
-v1 -> v2:
-
-- Check against sparx5->data->consts->n_ports instead of SPX5_PORTS,
-  so that lan969x (30 ports), which goes through the same probe, is
-  bounded correctly as well (Daniel Machon).
-- Document how the issue was found, the runtime verification and the
-  test setup, as requested by the patch bot.
-
- drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index 08a398a..1647067 100644
---- a/a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -845,6 +845,11 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
- 			dev_err(sparx5->dev, "port reg property error\n");
- 			continue;
- 		}
-+		if (portno >= sparx5->data->consts->n_ports) {
-+			dev_err(sparx5->dev, "port %u: reg out of range\n",
-+				portno);
-+			continue;
-+		}
- 		config = &configs[idx];
- 		conf = &config->conf;
- 		conf->speed = SPEED_UNKNOWN;
+Cheers,
+Tianyi
