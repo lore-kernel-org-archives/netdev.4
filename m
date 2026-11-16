@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794789857;
-	b=XS027jtN+VAOEZoOrn/U1X4hlNDzjWMCLRPmYP/4deRoca06KJVhU1dSufjm8abfa3wP
-	 na5e5qX7HkhZLcKX/zmO4DW8w8bX74UPyrnkEYGMRATcsAWw5KJExX1fFDJhUrA2uCaRm
-	 r8RhA5d9kKePHE1ajR97tmlE5PAY0uYKneSzGRIUnd/zBtjiOxplhPPWtCSnvkb//O1NS
-	 RksYyHhIMkPKeq8KRnCgVlCSpgtkQvJkFywQUQDIi1e3TT3Mpa7Z7aPlzgqNDO/yZiO4o
-	 UWB/8vc0yxXwYXn3fqVcpWyJayrL8LXiZZhMGDgA6Jqf+66oUuWDuW2e4txZ91pjFgw==
+	t=1794789863;
+	b=Pfb39RX0p7Gm93BEDhdzkeuQWu4zLSmH6+PSZCP/wx0i3dk5VyVa6oUK0kBD29vA9Gsa
+	 SJT2B11iBCOXQygkFF2Oc+PMW9S8O3Rfs8JpHJr092otutkyGdseQSsFMzsd5xiv0qgTx
+	 1YXF37021jwc/Z4XRtqz0Xu8NkexCdOLN0nSx2Igg9w8wijMqBqTag73lWtK+h/cNWiq+
+	 txIuBoz4iIuqEVTWQHEXn5FmkgNxBYCpIgLHsw4oY6Zx/E1IQQ9I6xOS3blvn4GkP3sae
+	 9qKx0z7KGQWMvoKBqodk8Jv5XsV9NxGkv1Pdy5y6pF4i34wGsi6Q4Z6ws/JV14Kih2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794789857;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794789863;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=DqYZNzAk0qOqQDAvzyRhmwlg8184xMVw/vNC+P20nIA=;
-	b=LgBAxRGY0oynVTgpR207bF0K84lBRCW3Qt84E6KxtYSL37fJ0+kwSgoKOwNfK/qstkZ3
-	 Dkm1wd2fPE/JyMERKDK/Df6j/U8833T28uPfro+S3w6q3vCdxArQqrwRF4Hxy57/i30VY
-	 VJ5EqcAIZ8g6WXqVwiLsfaTtk62TIyjlMfb+p2QWuOaSAj+MQgipzwnzVPQfGmnr17isr
-	 QZw2A9SebvbhB3KmfAEiya+hky3IhvK/tw7z+DQB4tXX0NjyS87vVbzpOLlIF9N1gY3LY
-	 mgBpCR0BBuSXrlfg117GifzWJuhXhiDJcisYdh+HHY7ZyAFGijb9sBTTfw319r/gFZA==
+	bh=n0B+sKvpe2H3MCp7hBtPgz4Tu1xCOpB3YNEStZ8qVTI=;
+	b=zEJMPQu34flNx2zKSXCC499+CCyaW67XRg/EP510JmNR1Zr2UoCpOW1qlsuLbMlUZ06k
+	 1BII0JDbFViUz313BeHv8tJHVt3Q6VGmH8V6L+Fi4O7cqwBqS2mXCYaZhPhGVX4vb7HC0
+	 xqo670qpooa+IWH0Wb9QGpkEZxgPglSUfVuOq1W1hsJYZfuBCZ/td/pF3JSZdph+tsTBS
+	 ciluQy/x02g6wcrzeto+cyo2X03eXn19sczoq2tCjvkjhVcd+BSkjicMlEyiROXhiwnY4
+	 92mRSJx1dAcTwKOTUVMCzwrrnY44+/f0ryiILYTQpQSh1nU6WcN/nVEzfaabE7gyDSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=netfilter.org;
 	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=WUWJHLUR;
+	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=n4z651hY;
 	arc=none smtp.remote-ip=217.70.190.124
 Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9000A606A33A;
-	Mon, 16 Nov 2026 00:44:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9000A606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7398C60A2604;
+	Mon, 16 Nov 2026 00:44:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7398C60A2604
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=WUWJHLUR
+	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=n4z651hY
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1794789854;
-	bh=DqYZNzAk0qOqQDAvzyRhmwlg8184xMVw/vNC+P20nIA=;
+	s=2025; t=1794789860;
+	bh=n0B+sKvpe2H3MCp7hBtPgz4Tu1xCOpB3YNEStZ8qVTI=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=WUWJHLURYNpRgRmxlVnFiow8o941my/t2JgLoVo9KPofa+FRDku+iVYXYKCWzIcsj
-	 hst18/2KRB8WEOZLvBDjpAg0UJRd+saUcUzrg/VuNIVbOCzd7h4lWr+4nupjnauzpk
-	 U9fXjRuVymQtNU5eI2Ct55Qt5fUJiczGz+y/449TKQ0VLOpa1z0KBMWiiU7ZqXXdlU
-	 9kF764wE2kfjUUa2c7SmzkJWU3mvKnBh7HGGMJCqhBs6doVzJHPUNAH/DVjxYyiCbf
-	 o8XX57pBaCPCSAXCJJTcHSoqBjq2/tqTo960TrBkcYeHzxwiuZPAZTGyCzVNTrFgwg
-	 c/kzmIZXZM+sw==
+	b=n4z651hY4quveujHnB7OI97vbkhgHiLVEZpmUdaGSxj8wOpZHeWOROy8uX/KXpu+6
+	 e2wVQd82PZIvn5466C8uxH0c95Q6oCiZlD913nLXWMFbUXNPT/YjTss2XBzBE426eb
+	 iH/XcH9vxJ009Kly/yBdDYukcO5dgz0i4zv3DbUayIprOTid0JDIUB7uWEfYgezKwr
+	 TF5cOZwwbNgjQzy/qPNmshsYKiuZpOgjdEWn5/cBGYQDxPS0GOJMBYZd9apofD5MBS
+	 +U0croOYGp3IWAvpf93N7vRCBlJPVOHaM5IbPoMXvkQFGyXC/cmm1+ZifawGFs9YSp
+	 bdLFDhXRc/NeA==
 Received: from localhost.localdomain (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with ESMTPSA id 02DBD6005F;
-	Mon, 16 Nov 2026 01:44:13 +0100 (CET)
+	by mail.netfilter.org (Postfix) with ESMTPSA id F26F66005B;
+	Mon, 16 Nov 2026 01:44:19 +0100 (CET)
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 To: netfilter-devel@vger.kernel.org
 Cc: davem@davemloft.net,
@@ -56,9 +56,9 @@ Cc: davem@davemloft.net,
 	horms@kernel.org,
 	fw@strlen.de,
 	ja@ssi.bg
-Subject: [PATCH net 02/11] ipvs: avoid stack overflow from recursive connection expiration
-Date: Mon, 16 Nov 2026 01:43:55 +0100
-Message-ID: <20261116004404.2821183-3-pablo@netfilter.org>
+Subject: [PATCH net 06/11] ipvs: read flags and seqs in master atomically
+Date: Mon, 16 Nov 2026 01:43:59 +0100
+Message-ID: <20261116004404.2821183-7-pablo@netfilter.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261116004404.2821183-1-pablo@netfilter.org>
 References: <20261116004404.2821183-1-pablo@netfilter.org>
@@ -73,137 +73,94 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Zihan Xi <zihanx@nebusec.ai>
+From: Julian Anastasov <ja@ssi.bg>
 
-When a controlled IPVS connection expires, its controller may be expired
-synchronously if it has no remaining controlled connections. A chain of
-controlled connections can then recurse through ip_vs_conn_expire() and
-exhaust the kernel stack during namespace cleanup.
+After we fixed the double read of cp->flags in the master with
+commit 3e3fe49e8678 ("ipvs: fix buffer overflow when sending sync messages")
+Sashiko reports that we should also read the cp->flags and the seqs
+atomically. So if the SEQ_MASK is set, re-read the flags and the
+seqs under cp->lock to provide a snapshot when sending the sync
+message.
 
-Continue expiration with the controller after the current connection has
-been fully cleaned up instead of calling ip_vs_conn_del() recursively. Keep
-the expiration walk under RCU, preserve the immediate-drop timeout for a
-controller with its own controller, and switch to deletion mode before the
-next iteration.
-
-This keeps controlled-connection cleanup synchronous while using one stack
-frame for the whole chain. The timer callback race during connection
-deletion is handled by the preceding connection-deletion fix.
-
-This patch depends on "ipvs: fix problems during connection deletion" to
-protect the iterative controller cleanup from the timer callback race.
-
-Fixes: f9200a52eedf ("ipvs: avoid expiring many connections from timer")
-Cc: stable@vger.kernel.org
-Reported-by: Vega <vega@nebusec.ai>
-Co-developed-by: Luxing Yin <root@tr0jan.top>
-Signed-off-by: Luxing Yin <root@tr0jan.top>
-Signed-off-by: Zihan Xi <zihanx@nebusec.ai>
+Fixes: 3e3fe49e8678 ("ipvs: fix buffer overflow when sending sync messages")
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260927220816.268206-1-pablo%40netfilter.org
 Signed-off-by: Julian Anastasov <ja@ssi.bg>
 Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>
 ---
- net/netfilter/ipvs/ip_vs_conn.c | 40 ++++++++++++++++++++++++---------
- 1 file changed, 29 insertions(+), 11 deletions(-)
+ net/netfilter/ipvs/ip_vs_sync.c | 23 ++++++++++++++++++++---
+ 1 file changed, 20 insertions(+), 3 deletions(-)
 
-diff --git a/net/netfilter/ipvs/ip_vs_conn.c b/net/netfilter/ipvs/ip_vs_conn.c
-index 86c5e6c7b5af..27db8d558a03 100644
---- a/net/netfilter/ipvs/ip_vs_conn.c
-+++ b/net/netfilter/ipvs/ip_vs_conn.c
-@@ -1336,9 +1336,23 @@ static void ip_vs_conn_rcu_free(struct rcu_head *head)
- 	kmem_cache_free(ip_vs_conn_cachep, cp);
- }
- 
--/* Try to delete connection while not holding reference.
-+/* Try to steal the reference from the pending timer.
-  * It can be called concurrently and always under RCU lock
-  * to protect from connection deletion from others.
-+ */
-+static bool ip_vs_conn_del_reference(struct ip_vs_conn *cp)
-+{
-+	/* Steal reference from the pending timer */
-+	if (!timer_delete(&cp->timer))
-+		return false;
-+
-+	/* Drop cp->control chain too */
-+	if (cp->control)
-+		cp->timeout = 0;
-+	return true;
-+}
-+
-+/* Try to delete connection while not holding reference.
-  * Used when we need to remove the connection immediately
-  * and without overloading the timer processing.
-  * OTOH, we use ip_vs_conn_expire_now() when we prefer to
-@@ -1347,13 +1361,8 @@ static void ip_vs_conn_rcu_free(struct rcu_head *head)
-  */
- static void ip_vs_conn_del(struct ip_vs_conn *cp)
+diff --git a/net/netfilter/ipvs/ip_vs_sync.c b/net/netfilter/ipvs/ip_vs_sync.c
+index ba2fa1f9d08e..f11c59eca553 100644
+--- a/net/netfilter/ipvs/ip_vs_sync.c
++++ b/net/netfilter/ipvs/ip_vs_sync.c
+@@ -539,6 +539,7 @@ static int ip_vs_sync_conn_needed(struct netns_ipvs *ipvs,
+ static void ip_vs_sync_conn_v0(struct netns_ipvs *ipvs, struct ip_vs_conn *cp,
+ 			       int pkts)
  {
--	/* Steal reference from the pending timer */
--	if (timer_delete(&cp->timer)) {
--		/* Drop cp->control chain too */
--		if (cp->control)
--			cp->timeout = 0;
-+	if (ip_vs_conn_del_reference(cp))
- 		ip_vs_conn_expire(&cp->timer);
--	}
- }
++	struct ip_vs_sync_conn_options opts;
+ 	struct ip_vs_sync_mesg_v0 *m;
+ 	struct ip_vs_sync_conn_v0 *s;
+ 	struct ip_vs_sync_buff *buff;
+@@ -557,6 +558,14 @@ static void ip_vs_sync_conn_v0(struct netns_ipvs *ipvs, struct ip_vs_conn *cp,
+ 	if (!ip_vs_sync_conn_needed(ipvs, cp, pkts))
+ 		return;
  
- /* Connection is removed in the following steps:
-@@ -1366,6 +1375,9 @@ static void ip_vs_conn_expire(struct timer_list *t)
- 	struct ip_vs_conn *cp = timer_container_of(cp, t, timer);
- 	struct netns_ipvs *ipvs = cp->ipvs;
- 
-+	rcu_read_lock();
++	if (flags & IP_VS_CONN_F_SEQ_MASK) {
++		/* Take atomic snapshot of flags and seqs */
++		spin_lock_bh(&cp->lock);
++		flags = cp->flags;
++		memcpy(&opts, &cp->sync_conn_opt, sizeof(opts));
++		spin_unlock_bh(&cp->lock);
++	}
 +
-+repeat:
- 	/*
- 	 *	do I control anybody?
- 	 */
-@@ -1375,19 +1387,18 @@ static void ip_vs_conn_expire(struct timer_list *t)
- 	/* Unlink conn if not referenced anymore */
- 	if (likely(ip_vs_conn_unlink(cp))) {
- 		struct ip_vs_conn *ct = cp->control;
-+		bool next = false;
- 
- 		/* does anybody control me? */
- 		if (ct) {
--			rcu_read_lock();
- 			ip_vs_control_del(cp);
- 			/* Drop CTL or non-assured TPL if not used anymore */
- 			if (!cp->timeout && !atomic_read(&ct->n_control) &&
- 			    (!(ct->flags & IP_VS_CONN_F_TEMPLATE) ||
- 			     !(ct->state & IP_VS_CTPL_S_ASSURED))) {
- 				IP_VS_DBG(4, "drop controlling connection\n");
--				ip_vs_conn_del(ct);
-+				next = ip_vs_conn_del_reference(ct);
- 			}
--			rcu_read_unlock();
- 		}
- 
- 		if ((cp->flags & IP_VS_CONN_F_NFCT) &&
-@@ -1414,7 +1425,11 @@ static void ip_vs_conn_expire(struct timer_list *t)
- 		else
- 			call_rcu(&cp->rcu_head, ip_vs_conn_rcu_free);
- 		atomic_dec(&ipvs->conn_count);
--		return;
-+		if (next) {
-+			cp = ct;
-+			goto repeat;
-+		}
-+		goto out;
+ 	spin_lock_bh(&ipvs->sync_buff_lock);
+ 	if (!(ipvs->sync_state & IP_VS_STATE_MASTER)) {
+ 		spin_unlock_bh(&ipvs->sync_buff_lock);
+@@ -604,7 +613,7 @@ static void ip_vs_sync_conn_v0(struct netns_ipvs *ipvs, struct ip_vs_conn *cp,
+ 	if (seq_mask) {
+ 		struct ip_vs_sync_conn_options *opt =
+ 			(struct ip_vs_sync_conn_options *)&s[1];
+-		memcpy(opt, &cp->sync_conn_opt, sizeof(*opt));
++		memcpy(opt, &opts, sizeof(*opt));
  	}
  
-   expire_later:
-@@ -1429,6 +1444,9 @@ static void ip_vs_conn_expire(struct timer_list *t)
- 		ip_vs_sync_conn(ipvs, cp, sysctl_sync_threshold(ipvs));
+ 	m->nr_conns++;
+@@ -630,6 +639,7 @@ static void ip_vs_sync_conn_v0(struct netns_ipvs *ipvs, struct ip_vs_conn *cp,
+  */
+ void ip_vs_sync_conn(struct netns_ipvs *ipvs, struct ip_vs_conn *cp, int pkts)
+ {
++	struct ip_vs_sync_conn_options opts;
+ 	struct ip_vs_sync_mesg *m;
+ 	union ip_vs_sync_conn *s;
+ 	struct ip_vs_sync_buff *buff;
+@@ -651,6 +661,13 @@ void ip_vs_sync_conn(struct netns_ipvs *ipvs, struct ip_vs_conn *cp, int pkts)
+ 	if (!ip_vs_sync_conn_needed(ipvs, cp, pkts))
+ 		goto control;
+ 	flags = READ_ONCE(cp->flags);
++	if (flags & IP_VS_CONN_F_SEQ_MASK) {
++		/* Take atomic snapshot of flags and seqs */
++		spin_lock_bh(&cp->lock);
++		flags = cp->flags;
++		memcpy(&opts, &cp->sync_conn_opt, sizeof(opts));
++		spin_unlock_bh(&cp->lock);
++	}
  
- 	__ip_vs_conn_put_timer(cp);
-+
-+out:
-+	rcu_read_unlock();
- }
- 
- /* Modify timer, so that it expires as soon as possible.
+ 	/* Sanity checks */
+ 	pe_name_len = 0;
+@@ -752,9 +769,9 @@ void ip_vs_sync_conn(struct netns_ipvs *ipvs, struct ip_vs_conn *cp, int pkts)
+ 	if (seq_mask) {
+ 		*(p++) = IPVS_OPT_SEQ_DATA;
+ 		*(p++) = sizeof(struct ip_vs_sync_conn_options);
+-		hton_seq(&cp->in_seq, (struct ip_vs_seq *)p);
++		hton_seq(&opts.in_seq, (struct ip_vs_seq *)p);
+ 		p += sizeof(struct ip_vs_seq);
+-		hton_seq(&cp->out_seq, (struct ip_vs_seq *)p);
++		hton_seq(&opts.out_seq, (struct ip_vs_seq *)p);
+ 		p += sizeof(struct ip_vs_seq);
+ 	}
+ 	/* Handle pe data */
 -- 
 2.47.3
 
