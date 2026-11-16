@@ -1,62 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794865803;
-	b=ginaVK4Z59tvW7RP7+AlcFadLZ9OnMwfCSkw71LfJdfKrkP/nj3VbKXqfxEZGpZyH2rK
-	 yWC/R9FOJGSRp56kOD3hJGuRR+X6uk6h1q+7NBahFSGjTTwHKMBEr9wVWxAlrRnFGqjmH
-	 z0jkQYZ65WauJIObhy9DNcRpifo1FnelO1i7Dj2cOa8+1puYfC7J5eqep+SfN2SP1sDsD
-	 Vx82ZGWZ2qBTyAAddlrGeL1Q1yHmMjYIzg5tbamsi/bQZmOYGwgZ0eLqt2uis500ykYot
-	 rubXA4Qjj2He3rfkkrYsrFE7DMhfZsQNagSdrstZvWbc4bXwAqm7EX+7FYBMF5ht/tg==
+	t=1794866010;
+	b=VjOb31kWtTendU1mUMcB5bkgje5xmjyrbXB/CDdyfsTyxOAJ6rrjpIej11MBYtjPirRO
+	 Ry4k2fnHka7m8JOGlBMjGHQnelRfsL2+1d2oVe+P+E4pd6HNmnUzD/KS5lstp1Lc4peZO
+	 7X9LJaQlaiWkAySKLqHATs1pI76zibFvIdlKgXFXbtm1bnzLjTHWlPwjQ795uPW4ZoTrw
+	 wVRXLrEgrXccZ5L5lqEIvorCQygw7iIZCLylYMK1CruKhI70xlEA9XK/LsfgAN1kbRN1a
+	 yfdI8+WV/yeVzolGF6XZuaHlsc29we/TZTZGt1jzcfGTrbKnpQ6llVMqpMx+Pp8UELg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794865803;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=+jsFqFzKZSD9MdsyE3tmoUMLAK/UTPTcstylH2JUgu4=;
-	b=xlCVtH9p2PHmtG/Z92wZSENW+93MWdobb3BRblIUvbRCQeyK7CIs11O7SbwJCKWjRcwo
-	 cGit9/hXHPdxYpogQkLp7QQ/FzFdIT66u57m5eOpBLJzXiVEoZPThPTy65xK0os1LgOw4
-	 hN/hY9AoJ9ClrFIBv5OBsnZBSlapjSo53m2mLZBB7Hbi+Y5yTn8MMCJKeM5H9bocdJIKF
-	 mldrEj2tZ36gCb7eEVCl0cclmOMfFnUOnEmw2G1gD/y7HotwlCpDtTDw9wyqXwZ2KmLAl
-	 cUUIhVeqvvbCir+9mQn4vcMLcBKUGN+wsgKKOnu5lEg9ZwP37d/FqGMgZAnSU2x9R5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794866010;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=ZxM9DBn9x54akqpkzn9sBtaRSKG943eg3cl8Nel3kzo=;
+	b=u99oTYCDaoJk214Ni/i6caKox2gvCNpUpRnVJFGGpqsFGEvsTgY2YJaPzgnISP5rFwlE
+	 XedK4GAHhkgLHp71coF2pEShfJNEBBx5zBIruPVLshoDcttCAF+Fm3GQEDcReA/nVb6pe
+	 5zvM976RGdQeUzZTwgLy8fondwLBs3RlR6sUhnquST/s6ohmqVDM8gC5ZoPZfV6TRQZkV
+	 w47tU+abN1/9gSOcqOdIrkS0i/jM/mFo7rdkBkoacBp9EgQo/rEpzHUAXtzJncnEbRXXL
+	 ukl8HgayeoZZHOPtE9cr0nuZ1o3ypirHGipLYj2YlzKHwaW5a2n7MiuKn0t5sC2vL+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k37Bv7TF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EGFEKEqv;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24A04606A31C;
-	Mon, 16 Nov 2026 21:50:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35555606A322
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:53:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35555606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k37Bv7TF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A821F000C4;
-	Mon, 16 Nov 2026 21:50:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794865803;
-	bh=+jsFqFzKZSD9MdsyE3tmoUMLAK/UTPTcstylH2JUgu4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=k37Bv7TFoT4Ul1KmSwB7KupyTlwJNzDlOaHHOeihdzkaaSpkbBcZ3J9+etgSXHsCW
-	 LQPigaHIBGR7hoYVXT2xaoqFHPdWDdujpYFYva0wTUU3lr4AGFhLB3IMZhZwtzrKop
-	 gcQRKcVKGVWTqi/LPmeXnMSGUGg4UHhuhjOEtT1QTXOhXupyWUDGWf/YfAtSk3sMNV
-	 A2XH1dMEIqloIxM/jZ6tUTM9+Mt6Ts8tiOvU9LF1MvRDzcA0HGe21JXIxRuI6FMHi+
-	 i+t1Gp6HE5HHQKZa8U26AHQwcpsMuUQZolpeeWyClydnidWS5tHg0W9efrQ32wgE4x
-	 I8A8gHaXPZ2NA==
-Subject: Re: [PATCH net v2] selftests: net: veth: propagate channel-check
- failures to exit status
-From: netdev-bot+sashiko@kernel.org
-To: emmaonana18@gmail.com
-Cc: kuba@kernel.org, tianyi@cloudflare.com, netdev@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- pabeni@redhat.com, horms@kernel.org, shuah@kernel.org, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- sdf@fomichev.me, skhan@linuxfoundation.org
-Date: Mon, 16 Nov 2026 21:50:01 +0000
-Message-ID: <179486580141.3136.15559598598860423821@kernel.org>
-In-Reply-To: <20261115214702.50817-1-emmaonana18@gmail.com>
-References: <20261115214702.50817-1-emmaonana18@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EGFEKEqv
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4a1fbd52ab6so31286105e9.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:53:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794866009; x=1795470809; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ZxM9DBn9x54akqpkzn9sBtaRSKG943eg3cl8Nel3kzo=;
+        b=EGFEKEqv8Wun1nH9x3q6NPhZLAuJ35WMTdBXnIGHyzw2sFb+CDsdn2o1BH1Aa9kU9y
+         uxoft//SzoGgO8OppW6Q+yuFjOr9ovW7HM9svUFJHBpR6roS+bXL7zhKj7DOzfdYjYzz
+         M8QMv+k2U6H/hbAv0qGIpiO0PE8sqWKFT9ALnrfwq5MOQwbKjOmgPd8zMRqAbBMpeq5i
+         beE1Lw+ORPcVdR8xLarxv1PDsC1yPPvjA31dLDzXHtkPBXegT0EfVhxvdyklK9HiKhsy
+         ZsZUCGs1WNa8vehACjDvUeTFkhxyolzxs8fYLRYohY9baiJHgmihyzgDbEo6MwBhsz12
+         rEOg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794866009; x=1795470809;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ZxM9DBn9x54akqpkzn9sBtaRSKG943eg3cl8Nel3kzo=;
+        b=Lf3o3tsX4y26yAWgL45+971WgzD10+4Sc9Ge5LXj9FY2FEy2H0LTEeAuE80NjDkmnY
+         1q6DmiBY5xsTXfzy4Xo3DUdL8zk/HmNUAJeIb6IsBsRIgqLhoyPlVsKHOqhAX6LUuA49
+         CHLdeD5AvyPk3rphZoz5EpJrEt/vYpXbWODpo1BhoABr9/hlpMrofs1bl1hMW9fQSJ3Q
+         MNLyD+q4JKA8gzYCoczx6s4SdZ0LvAqBvEVCasS6uWQSvP7ZDkBzWuNNRhG6QlgoYEF2
+         yk6W7YiE9ZxPDdgXOaiaJku2/04MFasATcXeDOtOmk7HA2vmxPRxX2/PLy50b4VgPTeB
+         lADg==
+X-Gm-Message-State: APuU4Z8K/fuLxS/3udL0fxOOw52qovxTrPcTiOpVlOmZMtWlxgCY9si/
+	CRNdagOu+E1JQArJlXBNgntsLGGJwYwHcA2lL/7aiP6Li9MOWU8j83f2
+X-Gm-Gg: AYBFou3L+UNRW4iQqtD+rt0H2EI7tG6sRYXZ4KuyDGVopLOmR3yg/HrZ/vTJCkjPtOM
+	+tJjuBvzKWIl8InXpyvtJgd9+B/7lNywE/mDUdenz8wHEZFi44UKfaIIB47kpiYwSTAXzc4IGyS
+	8xetBAfdW8LWxC613HE5QKPYrEmCr/V1p4zGv8dBRUMWYqMuF65h9bEscPIsQZTVQTE6mMC/iFz
+	AfJPC60WnKNPgB+XaQ7S/o9i0AI+9HYIy3Pp7byngyf6U7f8792to49GS+U0JAlh1UOEc2xBlHi
+	Yl550N5hQGPjGBdH2Tt9YPTzqj4oX+bMOp4y/YCrDoHzauDGC+27+LgcCE0Q1gdKDJEFbITeO4K
+	r8IZvYy9ezwDdH/vBp2pYcsdR5QNr4vEPBVi85zDPCujJKE8P0mo9wOAGdu+Lafl7FThw+kj2V9
+	qkfD9UoTOIiMJ2tsJt427F2et6+QDyUqaLmGQGlB2hXv3tJDBLvIH5IAWIMhJq+Dd6zcBsQ0Wg/
+	PxHVkoP/AyHSM4FuBnf7fiJV35BhxsNj9siORwEzUt1ISQCSk4CtYF4QINw5yruAnB5L0dADQR7
+	U21b6g//Z6766FxJiRuUZuGqcSEn2JmFo+3boo4a2TdvuIdHauwZjAF+aWReaauxNUcg4tck5Ur
+	vwr/9OJujfjYPqL2N+Dyeoj+gMUqyz5rmBN04L9A2bu567PRh/jpl9QLM
+X-Received: by 2002:a05:600c:a313:b0:4a2:397:73fd with SMTP id 5b1f17b1804b1-4bb55a50c90mr194484255e9.12.1794866008541;
+        Mon, 16 Nov 2026 13:53:28 -0800 (PST)
+Received: from pc.tail250202.ts.net ([87.110.86.243])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb5f350d51sm104287115e9.4.2026.11.16.13.53.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 13:53:28 -0800 (PST)
+Date: Mon, 16 Nov 2026 23:53:26 +0200
+From: Janis Edvarts Lacis <janislacis06@gmail.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, wellslutw@gmail.com, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: ethernet: sunplus: check budget before calling
+ napi_complete_done()
+Message-ID: <7zevuoiao6ildvkxt5baqnalb3nrx736krdxkbrbxouelukveq@2wo6m6cfl6rn>
+References: <20261114222744.535158-1-janislacis06@gmail.com>
+ <26c5c08f-d6f5-49b2-9fa8-de6f8c244a78@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,130 +99,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Disposition: inline
+In-Reply-To: <26c5c08f-d6f5-49b2-9fa8-de6f8c244a78@lunn.ch>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On 15 Nov 16:50, Andrew Lunn wrote:
+>On Sun, Nov 15, 2026 at 12:27:44AM +0200, Janis Edvarts Lacis wrote:
+>> Sunplus drivers currently do napi_complete() after each rx/tx poll is
+>> done without checking whether budget was exhausted or not. Interrupts
+>> are also unmasked before the call to napi_complete().
+>>
+>> Replace napi_complete() with napi_complete_done() and add a check for
+>> budget_left. Call napi_complete_done() only when the budget has been
+>> not exhausted fully, e.g. budget_left > 0 and unmask interrupts only when
+>> napi_complete_done() returns true.
+>>
+>> I do not have the hardware necessary, this patch is not tested on real
+>> hardware.
+>>
+>> Fixes: fd3040b9394c ("net: ethernet: Add driver for Sunplus SP7021")
+>> Signed-off-by: Janis Edvarts Lacis <janislacis06@gmail.com>
+>
+>Does this bother anybody? If not, net-next. No Fixes: tag.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+Will do in the v2.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+>
+>Given that you have not tested this, how confident are you it is
+>correct?
 
-- [High] The fix is incomplete.
-- [Medium] Because chk_channels() now sets ret=1, the "setting invalid
-  channels nr" check at tools/testing/selftests/net/veth.sh:467-468…
+I am fairly confident the change is correct, as the documentation
+supports it. When netpoll calls the poll function with budget = 0, 
+napi_complete() returns false, but the driver ignores the return 
+value and unmasks interrupts anyway.
 
---
+During normal NAPI polling, budget is set to default (64), but the
+driver has less descriptors and it looks at each one at most once.
+Therefore, on this path, the only benefit of this patch is that
+interrupts are unmasked after napi_complete_done() instead of before, as
+in the old version.
 
-selftests: net: veth: propagate channel-check failures to exit status
+Of course, actual testing on a device would be great though.
 
-This patch changes chk_channels() in tools/testing/selftests/net/veth.sh
-so that it sets ret=1 when the channel counts reported by ethtool do not
-match the expected values. A channel mismatch now gives the script a
-non-zero exit status.
-
-> diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-> index 64c2a5a59821d..5c1dbe1516bb4 100755
-> --- a/tools/testing/selftests/net/veth.sh
-> +++ b/tools/testing/selftests/net/veth.sh
-> @@ -130,6 +130,7 @@ chk_channels() {
->  		echo " ok "
->  	else
->  		echo " fail rx:$rx:$cur_rx tx:$tx:$cur_tx combined:n/a:$cur_combined"
-> +		ret=1
->  	fi
->  }
-
-[Severity: High]
-Is this fix complete?
-
-The commit in the Fixes: tag, 1ec2230fc721 ("selftests: net: veth: add
-tests for set_channel"), also added three inline channel/XDP checks to
-veth.sh. Each of them prints a fail line but never sets ret:
-
-	printf "%-60s" "bad setting: XDP with RX nr less than TX"
-	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
-		section xdp 2>/dev/null &&\
-		echo "fail - set operation successful ?!?" || echo " ok "
-
-	printf "%-60s" "bad setting: reducing RX nr below peer TX with XDP set"
-	ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null &&\
-		echo "fail - set operation successful ?!?" || echo " ok "
-
-	printf "%-60s" "bad setting: increasing peer TX nr above RX with XDP set"
-	ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null &&\
-		echo "fail - set operation successful ?!?" || echo " ok "
-
-These checks test the queue count limits in drivers/net/veth.c:
-
-veth_xdp_set():
-	if (dev->real_num_rx_queues < peer->real_num_tx_queues) {
-		...
-		err = -ENOSPC;
-
-veth_set_channels():
-	if (priv->_xdp_prog && peer && ch->rx_count < peer->real_num_tx_queues)
-		return -EINVAL;
-
-	if (peer && peer_priv && peer_priv->_xdp_prog && ch->tx_count > peer->real_num_rx_queues)
-		return -EINVAL;
-
-Suppose a kernel change lets one of these invalid configurations
-through. The script prints "fail - set operation successful ?!?", but it
-still reaches exit $ret with ret=0.
-
-The subject says channel-check failures now reach the exit status.
-Should these three sites set ret=1 too?
-
-[Severity: Medium]
-Now that this sets ret=1, can the "setting invalid channels nr" check
-fail the whole script on hosts where nproc is lower than
-num_possible_cpus()?
-
-The test gets its CPU count from nproc and treats CPUS + 1 as an invalid
-tx count:
-
-readonly CPUS=`nproc`
-[ ... ]
-ip netns exec $NS_DST ethtool -L veth$DST tx $((CPUS + 1)) 2>/dev/null
-chk_channels "setting invalid channels nr" $DST $CUR_RX $CUR_TX
-
-The kernel limit comes from num_possible_cpus() instead:
-
-drivers/net/veth.c:veth_get_num_queues() {
-	int queues = num_possible_cpus();
-	...
-}
-
-drivers/net/veth.c:veth_get_channels() {
-	...
-	channels->max_tx = dev->num_tx_queues;
-	channels->max_rx = dev->num_rx_queues;
-}
-
-ethnl_set_channels() in net/ethtool/channels.c rejects only
-tx_count > max_tx, and the ioctl path does the same.
-veth_set_channels() has no upper bound check of its own.
-
-On some hosts nproc is lower than num_possible_cpus(). Examples are QEMU
-with -smp N,maxcpus=M, firmware that lists hotpluggable CPU slots, or a
-process limited by taskset or cpuset. There the ethtool -L call
-succeeds, ethtool -l reports tx = CPUS + 1, and chk_channels() takes the
-else branch.
-
-Before this patch, that only printed a fail line. With ret=1, the
-selftest now fails even though the kernel behaved correctly.
-
-The commit message says:
-
-    all chk_channels() call sites expect the check to pass
-
-That doesn't hold for this call site on such hosts. Should the test pick
-its out-of-range tx value from the kernel's reported maximum instead of
-from nproc?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115214702.50817-1-emmaonana18%40gmail.com
+Best regards,
+Janis
