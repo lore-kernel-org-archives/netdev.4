@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.24
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.35
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794870438;
-	b=Qxb2RD1Pt1zINx1T8CHg4v3vdlGn2saBRo6iYTn4k+fqpi7Oo2OIFKDi2UBh+2z70wCF
-	 39j4WKDt9hr2XTmMRzFukJtp8Xtswc3OejJ1JXq7/ToGGlJ630UoD2ILRky3MiLNkZ/nZ
-	 1CSy2UFFF2pkrI1AWytKz4nIN2KazTivaFujaIuKhGeaTuLzj2zN9SGft2iiMn0ShAbXh
-	 X12MsMD0FtMXZc4YbGAJdKY2k093kf0OHTgdcXx2QKI0lIGsGz8C8wMIz80YOBv3MtT60
-	 PVr4rFxmwCRElRZoXAIomaVDhS4z/M2n7eMiUJKyG8wbz0t7/VjlmC3/ubk1jVgeibw==
+	t=1794870439;
+	b=G4XnAXkcih2pVHZGQohxQMeXNnzPfy6E8bAnntORfa5XVvpQD4TD/xZ3ikKJvIquo5lE
+	 b0Q+sCeR62Trxebcj+SpFbaKtkLtiK1IsVIB6PyXPV+PfoEMSjLe0I7/JkiH1WBNcsCfB
+	 NFWyoc15lD77PCMCTZCrt7KkayEK+hD/O7MWTHffGP4HN8kJgg1M4Ou/8KK1IC1SDr3lx
+	 7OFGWvaYItboqJCmePN87kdnWi1Rz8gOEUrd66eyWLtoxdM8iCVGlFDG3Jnlz2mx1Fa5q
+	 iLtLpgve7j9mpKanRg51E9iFfcu7AIBBIKB98ScnHvgOmdA9D3n9+9GWlsZaExtj+WA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794870438;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794870439;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
@@ -26,53 +26,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=HTElm5ghyXuWgFT987hazjTZewi0yjyuVLpJXxS3FKk=;
-	b=Fh9Nfyt4b5qoGb4/rYWFtATT6LFKsZrsR/cRO9c1a1W9MojSVzD6QzNDstZrqqd94IOp
-	 uZhxWQUhIynP7IsZD7UQAOkECwMFtszopzDjK9CzVaX1BrUzEqflMI/GW4eR1VMp2t8eq
-	 E4psGz2mo6dByqFhh/6SN7HhSxI3YojnRnObjPiUVULL6Lb4iL9a4hORhcZZKZv/EzJC8
-	 XezXcqRItlIwEHMJ6JYhEdsTASCsKNL+eaPBhaD9svYSYaAWmXqu7ltD6Q3DBfxZ5ESbk
-	 7XSArXstgdA9bzkCjE2sJ+w7Gr5/+1KegspoyZJM+9U7r6q1D58WcgiN7pAyDrmU9/A==
+	bh=zK3yfV2Q32q7z1JbyGUSceQl1X4q1GN2hGYNpEZKxUg=;
+	b=ZSMoKHvjlBLkVel1+g7ffp0FF1eqX33IE7Yr+++Uy4yi2uaNJToY5v4tTnheyuWz2mG5
+	 e96nsIO0+DXFI9CYaiiS7id+qDXs+YCDfmhAKURJ2LJNxV3zF6IFlMkSirx/ML0NnOwBH
+	 5j3zTgC9jhb+hSfdZ5zBIGTju0MmgPSCfr2Pf1LTgywMl0BLKNSztURezCVTo5S15i9dd
+	 nn6sa/LrpCSat7jLOlnL99+GS3TefPt+cOHzISdPGXPDjrOv/AtJg6iwi6W2LrFkMHdog
+	 O+BRHQtcnKSH3HyC9fYihd7GuBMQJOqKJNX8rBhz6JwK9yg39/msydODmtOmZQ1sOtg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=amd.com;
 	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=xU2lc3hV;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.24
-Received: from PH0PR06CU001.outbound.protection.outlook.com (mail-westus3azon11011024.outbound.protection.outlook.com [40.107.208.24])
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=WqHd0W2w;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.35
+Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012035.outbound.protection.outlook.com [40.93.195.35])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31072606A330
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:07:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31072606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE623606A893
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:07:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE623606A893
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=xU2lc3hV
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=WqHd0W2w
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aiF2ToOkqpGst0vKogv7KlVaDG178oo13LneaRrWs34o+aArTUWxgJQDbJRsvDisKUijYrPvXfIWKtQy7NQpvvDm5sOeLDOz4Af+hFqz+VmzALZVXG+VZKHRROY+wUbzws+yTLOSHiAN2Ih+Kqb+NvoB6zhTcCmB8ML4QVqB2v7iRlZ5PBb5pkYkfvJVSkYVl7kNU5ydInZf11/PCk/vIHAp8jEBPapZkaNF3iokg29BUKY8TmQuMmIkThahLwkOpRsphMm6a06OY73fYV7Q+ZTXMJKeKBSWV5YEkj7yH9rKVolwLpuUEr3nc9DsmM2jym9AYuj0sxxkvQhbGwwOOg==
+ b=rezMNIRdQnq2ESdR/SNFZ6Gd/V9oFgFS/ljr4XUFh+9u2IfVDltVVxCu7mmMD+gY7O3bB+HKKgw33aqxtxG2FIOBOhsoLIOfsWwJmkjUj3TalpXhXVRnJ+WEdwZB5abx7xzi3xPGQe06jKOLCmo87L8tTz0kIdROu2GXLmfCgdAjeoN/F7nPKIQTitszaxy16FwPv4IiuX9c6E0GRNWhaTfxQtv56uM59ns1QLPGnu2NaTRpTVSKEJrfCQhzsNrw2werapg7r7bcJIhJ4Qeq92OqRh/rx+vwrVwsyUQTy18Io3O0ylbw1+hE1hnXX9ljQaBvgWNm/9ztqknpRHkvwg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HTElm5ghyXuWgFT987hazjTZewi0yjyuVLpJXxS3FKk=;
- b=OS56eXNQnYo6tV/+ypKXKJKWPSwEeDTqfEeFdg5pZOFVMqlE+DukEJ0RUbiXKwI8VS5wVDXrg2J7XNni5Zn03Oviw3/WuAdXkV0ZX7S1yZDUU+SdSUV+uDQ+Gj/nPk7IIWIjkqQ61QdFbmwn795lIO7v0FaNLFoC7DcJt1S4agoyW+5YoAvhpxibjL/FDI9SEBguBkWYelOJT2RzD6XSuMktcLZye01/4QwExPU1UA2DjMsJ019edY1KajdBKFJZdbC08ZdivDECQjGwjSWneMBxmOzYYZZpXMPRW9ElkSzGnclvcYCVvTe3iO0MTpqpkj4iNLDppOTVDcegLT8yfQ==
+ bh=zK3yfV2Q32q7z1JbyGUSceQl1X4q1GN2hGYNpEZKxUg=;
+ b=lxmiU/XIoXjPAKyRx3ECFOCmVxcMUztoROIe4Zuk+Vp4BXj/dMMzHBHCmpQeaNVVRMO6fwcwmy2tuMT0G5595fgp6YtcrVO8tMU2dG30sVvumS+zgXcDK30s7oATlBKRYSifqAwjhVnC5Op7oTg9vX1cQgU4utQ6yvN+AimBJBQbuWpW1AGmtd1hEpjGrBrWsVRYmq2HbDSOkR4Q/99GxpKUeOHPeeVXABLmikgt7zD7JD7JqrtTBtiHI9cp7aT9NDiavPXhUHmISA4w3ZIqiIXvBeJNnr+imWSRJ5L3G/1tJlboHHz8Vd69jwollNnKeeHF+nV7ZBHZcxZ9Vs3QiA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
  dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
  header.from=amd.com; dkim=none (message not signed); arc=none (0)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HTElm5ghyXuWgFT987hazjTZewi0yjyuVLpJXxS3FKk=;
- b=xU2lc3hV1FlPtNHEJZvuqqDXH/tKIiwCKSLUSm+rUytpKFTqEAvG+M7dlhVqWg1KKoDO75XNg0Yv75SB46HLBKx145MhTpmsyEq4VMdgv5ahADrrwTwXd9FCNbosJUiOpGJAcioUup1BgjR4RGatS+WAh5oAMB+hTI3fPBtn3XI=
-Received: from BY3PR10CA0015.namprd10.prod.outlook.com (2603:10b6:a03:255::20)
- by SN7PR12MB7978.namprd12.prod.outlook.com (2603:10b6:806:34b::9) with
+ bh=zK3yfV2Q32q7z1JbyGUSceQl1X4q1GN2hGYNpEZKxUg=;
+ b=WqHd0W2wvhbfNHW5yLd+BpFtfQpY2Jb+ac8uyZ16N1tmdfo4mICvD0HihJKA3YOZ3YZro4S3PBwabRHVMaqp5mBqUOpd0IXAgPhYDFz0HW5P/iSUcoxlWfDSKRY5QzxtQFLAqIpbj1eul6irCprCwYqYPgRkRCc7GJwykOvSJnE=
+Received: from MW3PR06CA0024.namprd06.prod.outlook.com (2603:10b6:303:2a::29)
+ by SA1PR12MB9471.namprd12.prod.outlook.com (2603:10b6:806:458::12) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
- 2026 23:07:13 +0000
-Received: from MWH0EPF000A672E.namprd04.prod.outlook.com
- (2603:10b6:a03:255:cafe::20) by BY3PR10CA0015.outlook.office365.com
- (2603:10b6:a03:255::20) with Microsoft SMTP Server (version=TLS1_3,
+ 2026 23:07:15 +0000
+Received: from MWH0EPF000A6730.namprd04.prod.outlook.com
+ (2603:10b6:303:2a:cafe::6e) by MW3PR06CA0024.outlook.office365.com
+ (2603:10b6:303:2a::29) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Mon,
- 16 Nov 2026 23:07:13 +0000
+ 16 Nov 2026 23:07:14 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=amd.com;
@@ -80,17 +80,17 @@ Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
  165.204.84.17 as permitted sender) receiver=protection.outlook.com;
  client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
 Received: from satlexmb07.amd.com (165.204.84.17) by
- MWH0EPF000A672E.mail.protection.outlook.com (10.167.249.20) with Microsoft
+ MWH0EPF000A6730.mail.protection.outlook.com (10.167.249.22) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Mon, 16 Nov 2026 23:07:13 +0000
+ 15.21.615.4 via Frontend Transport; Mon, 16 Nov 2026 23:07:14 +0000
 Received: from SCSEJOYNER01.amd.com (10.180.168.240) by satlexmb07.amd.com
  (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 16 Nov
- 2026 17:07:11 -0600
+ 2026 17:07:13 -0600
 From: Eric Joyner <eric.joyner@amd.com>
-Date: Mon, 16 Nov 2026 15:06:55 -0800
-Subject: [PATCH net-next v4 2/6] ionic: report FEC off as a supported link
- mode
+Date: Mon, 16 Nov 2026 15:06:56 -0800
+Subject: [PATCH net-next v4 3/6] ionic: report the configured FEC mode in
+ ethtool_fecparam.fec
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,7 +102,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261116-ionic-get-fec-stats-v4-2-d25cae9f1e87@amd.com>
+Message-ID: <20261116-ionic-get-fec-stats-v4-3-d25cae9f1e87@amd.com>
 References: <20261116-ionic-get-fec-stats-v4-0-d25cae9f1e87@amd.com>
 In-Reply-To: <20261116-ionic-get-fec-stats-v4-0-d25cae9f1e87@amd.com>
 To: <netdev@vger.kernel.org>
@@ -117,70 +117,79 @@ X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
  (10.181.42.216)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000A672E:EE_|SN7PR12MB7978:EE_
-X-MS-Office365-Filtering-Correlation-Id: cca30886-6ea3-4918-472b-08df44365998
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A6730:EE_|SA1PR12MB9471:EE_
+X-MS-Office365-Filtering-Correlation-Id: a39aba71-3367-40c4-1f88-08df44365a83
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|1800799024|36860700016|376014|23010399003|18002099003|22082099003|261009223027099003|11063799006|56012099006|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261022105027099003|261021121427099003|261021123027099003|261021135927099003|10067099003;
+	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|18002099003|22082099003|6133799003|261009223027099003|11063799006|56012099006|261028144727099003|261102123227099003|261021123027099003|261026121527099003|261022105027099003|261021135927099003|261026140227099003|261021121427099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	flLxWg5Uh3vyKN4ok1VbhvknpJ3RTg3MTGUZzGrEmZh/ImbKS7Af/R1vgpWtTn5PL9Fs1BLbg5pgws+9uO3xaAhn75wc7Doid2qBVcsQZAIr9jXvChyc6T+IshJNYiOt75Cuy9bGFYXjaXxyZ+/Xd9vw0u5N1g/H3+15jAhaUSI5VsOIxf2VMzmUFXng969qZkM3M6dUMBgRy22aAeXGu/QB2emw+3pM2dAamvDk2jO1PzRovxWD7LeId8YJp/8bNUGHO65bjPk5rj+MRuPILKEn2gIvx598/2nH9Y+AeK6YJwYVVjbfewsXc++9qw19ZmwQtFWhh+LRFV0EFyDR3mBXM1NHFjblqRnQT0rWhnm5wnZ5z11E9sC7fGI82NU1f6AGgLd2WLPiF9J7ENANvWaKwwUO1OVebjkOoBm7G8rq2GzwvxPx92hFN/monSmGpjE7ta5BP217c0ZHtVrCJwRxXQ1ZgIcPUlQtFDe66fXpDGBwl22Tuoieh9Q/4I0UcQRtdG8eH/56Xteo+vxJ05Snyb2gjtD1PRjZuZFiMccZYJVmRVbmbNQYbfmoaxEqT/HC1/S+Hv9FoVZK9yrIZQnGXNRBM2RjgqP08gPkl71/REpy1KORSkFzZoZbCQa646v2vBMTlrG9bctEaVFZZekc4lS6bKpaAXsr1SiODGD9yNsqdjHZqJm+JXcfgo60JGV6ICQuX+f5eqHVv0s9fg==
+	3VCvhKbeX9XumGQdkAFRPWhDNDH5HDer/ULVdNMfSs5/cyVBR5qO5eCbUga7qfnJFSDygb54/X8ZBNCLV+0sKfuffX83JkXwXoDeQulNfs5K0zhVu6g+0hYQteKvucIscASaBc8M8KcfKjf7NrBc/qXVjFtMXJTuiabmFyekGySZ9IuhpeEQr6xDRlCBUE/Qvj2BmmbV5JUq3LoA8GODL4inWBsZugfXiPY2wkCbof3tLlS3hsl5KKhTFCdlohqayJ2hfkuDpZUE6aqYujigr7xMYBSG1Oe9VDTTlBXM8nhD3IDzhQLbNbG2rbMklhIHKkCcaL57+qTt6foFUlBPjBG/pHO3Ljz29AH2y757RUu1DWbFVQl8pGstwnejMpgMGuRKGDYxirKdQ1UdxX2PTS6bpzkaK8SXWvY/Kcz69siKLWOq1emBEKa+u1Bv3Tc2tn5UT5/HvEPF4JMB1EEIUqRaDcH+FL+v9oHY1PMi8EShBSP7elR03fE2B3OvWcMrs624pKziCFb/w4Sdk/2v1r4nKDO2tfl6dI3Fh+22O0uS1S5+azNj4wonnsgJEL4wmCe24BeCbRAv4lJzLLDinUVzpXpBGcsnoSty82TV++rIz6yrS7iLLTXaA7xZO9VfZx6gfhMhdZGEqxi8VyI358LayRJUFVbmHEJAMjdcdbZvOPKUUqIFjByNaiYIwbGZHgZ/Rb0bG0Qp95k+hweH3g==
 X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(376014)(23010399003)(18002099003)(22082099003)(261009223027099003)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261022105027099003)(261021121427099003)(261021123027099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(18002099003)(22082099003)(6133799003)(261009223027099003)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261021123027099003)(261026121527099003)(261022105027099003)(261021135927099003)(261026140227099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	sALHFtp45XJJ32K3vtz7f3Sx3SqAAsYm7DNp22X9VTkDLUQeqQkB30SeqSo4TcXVg/zOJlcc52+7faJINuYUkXnGWBlYeg3JdOkBvm5BBtLZIcGf7CaIyPVcZ3BDvO9KCGADFhJtH+8axE3wglOoaQ9EJFbyJxLW4dWBbMP9FAXYL1kM+9k6nv+5nl/G+2VvsrdhqnrAXqlZzInD/3S9J50SMGqfsaOxZa3gAMmsty3Xh/X5uRed3puRT9oTdfda7MDrH21Tpmf3kREyB0gH99wjx3+0ByS4JDEdfApFIQqht/n0G1ErpbVghG8gW0J+U854gp84XybZkRxApsK4y5yuPgkU2MwkzMCw5JkDGPPVVCKzHcJB+8ktEOB+XxC6FXoH/1pGvwdH+qewVkGUDnEPvOtnU2OfCUfb5rIF7hHEqjHAQ3MJkzoIUkc3z3QK
+	9D914uOOR7KvKDrdO+dOd1SsJawVZfYXO7S8AbY2QcGo6pGo2iizu63B61iSDPeiY9zUoghajhKjxQMihpkaGdrnvq7EPDM56YpiYWFn8Vm1C+6nTgB5H4bIGJPOaA9CE+VjFZvwa65F9YkTzI9XWk7Rcw7xd7lN3UYIp2PJU/vylR3SlVOr++nJBFkgDG/bQbuMi3h+/5phg+nlLYJKRI4ivft5Dsl029qc+Wt6ea1TegHUySLcfIpnoM0DcByfvlNDvwIB/iIB0gGcStM2vfFIAgrBHVQUBbh1p0QofaMLl3d643RSo1lRHodoAtKftLFqXjTNCtJUj3pwijqJ/+zMkdUASSZ8PZPe5xxse9u4TpzBojn4y6Fg/rNTUpXaJ7aznvJWMlzSB3HAeAJj08ijTUzFpcO4yjugij2zauoAG0Poylg0a9qr+arbwitk
 X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 23:07:13.1245
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 23:07:14.6053
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: cca30886-6ea3-4918-472b-08df44365998
+X-MS-Exchange-CrossTenant-Network-Message-Id: a39aba71-3367-40c4-1f88-08df44365a83
 X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	MWH0EPF000A672E.namprd04.prod.outlook.com
+	MWH0EPF000A6730.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7978
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB9471
 
-ionic_get_link_ksettings() lists BaseR and RS as supported FEC modes but
-never lists FEC off, although ionic_set_fecparam() accepts it.  Add
-FEC_NONE to the supported modes, and to the advertised modes when the
-port is configured with FEC off.
+From: "Nikhil P. Rao" <nikhil.rao@amd.com>
 
-Firmware does not report which FEC modes a port supports, so the list
-holds every mode an ionic device can use, and firmware rejects a
-request for a mode the port cannot run.  BaseR and RS are already
-listed on every port this way.  Off follows the same rule: AINIC
-firmware rejects it, while DSC firmware accepts it.
+ionic_get_fecparam() fills fec->fec with the constant
+ETHTOOL_FEC_OFF | ETHTOOL_FEC_RS | ETHTOOL_FEC_BASER.  The uAPI defines
+fec as the configured FEC modes, so a port configured for RS reports
+all three:
 
-Fixes: 4d03e00a2140 ("ionic: Add initial ethtool support")
+  Supported/Configured FEC encodings: Off RS BaseR
+
+where it should report RS alone.  Take fec->fec from config.fec_type.
+Supported modes belong in ETHTOOL_GLINKSETTINGS, which
+ionic_get_link_ksettings() already fills.
+
+fec->active_fec still reads config.fec_type; reporting the operational
+mode is a separate change.
+
+Fixes: e95f922f4c2f ("ionic: implement ethtool set-fec")
+Signed-off-by: Nikhil P. Rao <nikhil.rao@amd.com>
 Signed-off-by: Eric Joyner <eric.joyner@amd.com>
 ---
- drivers/net/ethernet/pensando/ionic/ionic_ethtool.c | 9 ++++++++-
- 1 file changed, 8 insertions(+), 1 deletion(-)
+ drivers/net/ethernet/pensando/ionic/ionic_ethtool.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
-index 119ac720c078..84378bef9fb8 100644
+index 84378bef9fb8..13b5874fe5ad 100644
 --- a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
 +++ b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
-@@ -298,9 +298,16 @@ static int ionic_get_link_ksettings(struct net_device *netdev,
+@@ -434,17 +434,18 @@ static int ionic_get_fecparam(struct net_device *netdev,
+ 	switch (lif->ionic->idev.port_info->config.fec_type) {
+ 	case IONIC_PORT_FEC_TYPE_NONE:
+ 		fec->active_fec = ETHTOOL_FEC_OFF;
++		fec->fec = ETHTOOL_FEC_OFF;
+ 		break;
+ 	case IONIC_PORT_FEC_TYPE_RS:
+ 		fec->active_fec = ETHTOOL_FEC_RS;
++		fec->fec = ETHTOOL_FEC_RS;
+ 		break;
+ 	case IONIC_PORT_FEC_TYPE_FC:
+ 		fec->active_fec = ETHTOOL_FEC_BASER;
++		fec->fec = ETHTOOL_FEC_BASER;
+ 		break;
+ 	}
  
- 	linkmode_copy(ks->link_modes.advertising, ks->link_modes.supported);
+-	fec->fec = ETHTOOL_FEC_OFF | ETHTOOL_FEC_RS | ETHTOOL_FEC_BASER;
+-
+ 	return 0;
+ }
  
-+	/* Firmware does not report which FEC modes a port supports, so list
-+	 * every mode an ionic device can use; firmware rejects a request for
-+	 * a mode the port cannot run.
-+	 */
-+	ethtool_link_ksettings_add_link_mode(ks, supported, FEC_NONE);
- 	ethtool_link_ksettings_add_link_mode(ks, supported, FEC_BASER);
- 	ethtool_link_ksettings_add_link_mode(ks, supported, FEC_RS);
--	if (idev->port_info->config.fec_type == IONIC_PORT_FEC_TYPE_FC)
-+	if (idev->port_info->config.fec_type == IONIC_PORT_FEC_TYPE_NONE)
-+		ethtool_link_ksettings_add_link_mode(ks, advertising, FEC_NONE);
-+	else if (idev->port_info->config.fec_type == IONIC_PORT_FEC_TYPE_FC)
- 		ethtool_link_ksettings_add_link_mode(ks, advertising, FEC_BASER);
- 	else if (idev->port_info->config.fec_type == IONIC_PORT_FEC_TYPE_RS)
- 		ethtool_link_ksettings_add_link_mode(ks, advertising, FEC_RS);
 
 -- 
 2.53.0
