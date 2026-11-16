@@ -1,112 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.126
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794839882;
-	b=E7Kp8dj+VZQBxH8x663hXNE/NbqkRWrU+8VIIPRNMLljKRqgkKacIjOXAgSpWag9Ek0d
-	 iAwOIRu80EGfYJKhpmRAG04EupHGh8vd/CRSYhNqzDLnWglPdV25WQVovrPZtyXKYmDL1
-	 hHoTA8Ko7ZiSxxav8EEnyfP9Hg9RbQXi8Vz97yPI7CwytrAioahnHaV8TXiHs/rAJvzfz
-	 pnIR0/aj2MUqfgbt3/oqMk2MW6RWoxXG+kLi11cscqdR8lFFTksc3ylrNUOyacwszbK6D
-	 agkREYOwIle3tjSIk3eBpNT3TrZMtERn+pX6DxM1D7LJZie+GFAOvyJSvLzdiVY2lwA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794839882;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:Content-Type:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=vuk1puCfh89SptU8HhOSqcMBZKvfplDkfrccjLK4vio=;
-	b=40VREou63Al4Pfm1A1YHwj07tOtQP3tQZDMR0GVOeg14z+6ATrA4s5ugw8m6MfLflKOc
-	 jMhJDrrkw7AloVSKVRxsL7vVCQY6aYKIebRgSiaXUS3kJ8IThnNI/9ujbdvzYzNpKjUv8
-	 uSoGcJt2oSt+eRs1u2wM8OAZvMoJUorbpHAlx6tcPtzvJ2rS7RGGt8OUqpyddNAAs/7DL
-	 nYFL6qMAmiiagM4bSedi/BNTSmrCHe9aQOWZV4D5DfD+5jJRLBcqO3NNG6gJRFs1ZyYJ6
-	 KLcA16/lwJNDWgEc+wNdFhPP/HWEna/sWi1AQK2ft1AI6OCAiRwoCL6fNevZbMD4TWw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=telcobridges.com;
-	spf=pass smtp.mailfrom=telcobridges.com;
-	dkim=pass header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=ntJUcxx1;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.193.126
-Received: from YT6PR01CU002.outbound.protection.outlook.com (mail-canadacentralazon11022126.outbound.protection.outlook.com [40.107.193.126])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794840008;
+	b=ZazUgzXDj72zXREDMTuRcTl3CeHfmVyuRyDdVWpO12wCqLKXBeO8Vgj8g85uzr/JTXto
+	 d79zSuOy9mlIg72X1v8pW3R6Kcs+t4f2a4A7vor46T46RnUQLPrfmrlwzS9b0f3P7Tf/g
+	 jpkYzcLe9KBABe4BzfyWZbMqc4Op1laarM5dYFWTei6idszf0uDYksAQrB+7ONf9s7AEq
+	 ii4XlbaBC0DR0BPH3UfQ724icUOsehNtL11waUdduKqQt5+I9hoBgbjz4A8EmWAiI44dB
+	 m8Z2T2OuWqbFzFfEyYgs03oie4rZ8bmbXFuWWTSMWXOannyg8Yod2KuT/PdZBhByYGA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794840008;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=l2EBpH08xKGjJnPxYpGviTvnZuT+6vV8X+V/VrgfnoA=;
+	b=BlkCvQxIz9tpI/q13meTlPvQj+9Bukmqn0UAux0BwYz7HwUwDWw9oXPPBPcsw9fZk5G1
+	 Wxv9TnKXX/SsDJurH10XNaIrOWFalpV5FkkWrfEyoPCFeji4uPtjYBrdx5J2UvrreI/cA
+	 bMvr39+o4MsaCSxklxe/1RRCMvG5CxEjhY1QecFcUvO6Vq9rxkd2wAtCwEhJIlf2p0jry
+	 fJTob/Ox+uR230XQ2mKp+6yZlb40rHixo2BC8MGVu8gjdZedg/wdE8F4jZa+VgSR0QMdv
+	 EwjSq1YZoA7PPxYzBiUFcCPHUF7HlB5+9UUO/SGKI5339ploMxbvIu6/nGc+RbGdLRg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="EzD/GQvN";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1B1B606A32C;
-	Mon, 16 Nov 2026 14:38:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1B1B606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=telcobridges.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=telcobridges.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14FD3606A32C;
+	Mon, 16 Nov 2026 14:40:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=telcobridges.com header.i=@telcobridges.com header.a=rsa-sha256 header.s=selector2 header.b=ntJUcxx1
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QKTWHRbWfV+bfYIdZJypgKskmm/IitT/7ZfL63GCfPQmULyg3fmdK5Gm5Leo3N0SPE8nCWS1TE/jOz1pClUmAj3RzK87YuUKj7M1xIeDgIVsnm3eKYCCJLFiVokle1VryyC7WX6RM2/JKM0dJdFaJxqvgAOGvXrKivOAH4CYl/3N8+5TNZ4rFxetnF0X6rmvg7mbFa8cl/NOhmC4UCqRp0sZPMrUw3TEYoWLgFx4DKQbRwt3H+zZD7qAZJErPoQqPB0tcq3meo94a0a7649W/eigULuqzwyOyky64GCrjQITzw3iBUR9/PvhOjfOkHa14B1mHh709NwDi3ugyJT0ow==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vuk1puCfh89SptU8HhOSqcMBZKvfplDkfrccjLK4vio=;
- b=r9rpkvLYmPjr1fXnNNJ4oaku64BNWsB8Oi5LrHLd4B29hwmzyQRdO9TQhgzcybiC0AGj4guT8e7kk9jDH99KYDHr2A1qPA6JDbP7fxyG7KcsH5q6gdiy6lWi7ZUWNNGAdJB3oX/08CV7sh5lLpE284+DqtgkzVetKSnfabkFypCB7pNFqO/37ycbEsZ2NPEdWquu9RS7vpue2yxzy5aQJNuZA5XaVC9VlaawEw4WJxkDxcCNrQZbt5cUpWQM5BtWokzc9zrtS5MD1yajYKoFEwA3/x9MVSEVxFCOoOMUWMsvp1o4ufNPmh92v8uTXIaFlMl5pJr308AUc4OyJDdzrA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 142.180.224.216) smtp.rcpttodomain=davemloft.net
- smtp.mailfrom=telcobridges.com; dmarc=pass (p=quarantine sp=quarantine
- pct=100) action=none header.from=telcobridges.com; dkim=none (message not
- signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=telcobridges.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vuk1puCfh89SptU8HhOSqcMBZKvfplDkfrccjLK4vio=;
- b=ntJUcxx1qZuq9KJRdf/1yqM77ThR7mFEpZCgk2NYx0v0PGYQz1fMuGTtsoFo87iQOe6eSxB1qqSMSZPBpuL8GT7C6jbtO7JOHsT9si+egMXx5aW/RHnUSJZ9QyIWYF5SbzW7erZcOLOI4l6qK8UeaZ5v99YpdQZjzI95dNh5nRI=
-Received: from YT1PR01CA0069.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b01:2d::8)
- by YT1PPF9A3978E32.CANPRD01.PROD.OUTLOOK.COM (2603:10b6:b08::56a) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
- 2026 14:37:54 +0000
-Received: from TO1PEPF00005346.CANPRD01.PROD.OUTLOOK.COM
- (2603:10b6:b01:2d:cafe::9) by YT1PR01CA0069.outlook.office365.com
- (2603:10b6:b01:2d::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Mon,
- 16 Nov 2026 14:37:54 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 142.180.224.216) smtp.mailfrom=telcobridges.com; dkim=none (message not
- signed) header.d=none;dmarc=pass action=none header.from=telcobridges.com;
-Received-SPF: Pass (protection.outlook.com: domain of telcobridges.com
- designates 142.180.224.216 as permitted sender)
- receiver=protection.outlook.com; client-ip=142.180.224.216;
- helo=srv-code1.telcobridges.lan; pr=C
-Received: from srv-code1.telcobridges.lan (142.180.224.216) by
- TO1PEPF00005346.mail.protection.outlook.com (10.167.241.6) with Microsoft
- SMTP Server id 15.21.615.4 via Frontend Transport; Mon, 16 Nov 2026 14:37:54
- +0000
-Received: from srv-vmware-cmcburney-tbos10.telcobridges.lan (unknown [10.0.0.68])
-	by srv-code1.telcobridges.lan (Postfix) with ESMTP id D58069628;
-	Mon, 16 Nov 2026 09:37:53 -0500 (EST)
-From: Curtis McBurney <cmcburney@telcobridges.com>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	andrew+netdev@lunn.ch,
-	willemb@google.com,
-	toke@redhat.com,
-	linux-kernel@vger.kernel.org,
-	Curtis McBurney <cmcburney@telcobridges.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net 1/2] net: keep txq->trans_start on repeated netif_tx_stop_queue()
-Date: Mon, 16 Nov 2026 09:37:15 -0500
-Message-ID: <20261116143716.367451-2-cmcburney@telcobridges.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261116143716.367451-1-cmcburney@telcobridges.com>
-References: <20261116143716.367451-1-cmcburney@telcobridges.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EzD/GQvN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2921F000C4;
+	Mon, 16 Nov 2026 14:40:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794840007;
+	bh=l2EBpH08xKGjJnPxYpGviTvnZuT+6vV8X+V/VrgfnoA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=EzD/GQvNR1otlSd8m8+eabMhI+h/azuepFBT9Ub3NmseDVOzAH7kWm0cTfaBVrwZN
+	 PYJa3KDrymDi8ElGdVUSB8ndLE1YlG64gmRyaFpm3SBlFmbXXYB3W//ePI8DFTSdpc
+	 vUN/AJ9yR4oSGMoTq4wmKbFkJBeP+LiFP+naYrQrTQdSU1wFI+wEPYyn6Wc+ACYm4q
+	 96X5AjYy+bOd81oyk8a61CxLWXFLnPWlu4Dtkx9fSZkGIM8pbH7cmR5O0O3QhMlVGW
+	 AGWdA9F9RAKNPbig7CQgrlVocvp9yPH0k3kMd3cQulE9G0WxQIEZ/bTDw2eDbg6VsY
+	 l5fteDhN/fhhQ==
+Message-ID: <1d43222e-b864-44a3-a159-575fc1a9b388@kernel.org>
+Date: Mon, 16 Nov 2026 15:40:01 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,118 +51,95 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TO1PEPF00005346:EE_|YT1PPF9A3978E32:EE_
-Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 70ad27ac-73d6-4340-16a5-08df43ef330f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|1800799024|36860700016|7416014|376014|23010399003|30052699003|18002099003|22082099003|261009223027099003|56012099006|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261022105027099003|261021123027099003|261022075727099003|261021121427099003|261021135927099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	aFEOMxpMkgKI12EiV+meieFb5X7ODEZ6OfSKsyWH6hgL/y3yphMAXPw+gYTAKrmgTXzpDRx3tK2SKO66n01lWkCTra2SwuV8OTlm+3kGImDCxH4Zb0nHJOleMZhHxxwNRlvx8IHTrlUW7R2C5iLH8JCEPrf9hqt2T5yfCQLPxiJkOC+HkJxEqHNFPCr24dqkI7SE3JyN4E4sPaQaIF2VvTBcouy0d11xdrk7jErAip2OJNZL489xUM0RAFJMY3STFaqGnWoh6B6ZG4880OngFdoPZFkUypVH6cRwl6WSE2BPjmD+vECcl0hf7I/f86tWL0cvw3VdzfTMmdfp9osFYDuh9OfuMmcb4GgTEHRHqSPHMgKiJL6QV0LX3SInUChmKT+mb0I/VuTEfJt56/nXCLB55A8y6XXrA/5fjOxBujAfQw/JSBnMCaGxUZMX2Ip/GsXOaB2QER3WmkCmZckem0fdC8bqBc4DUyfC4WfllRkaDWUKD6NqXSqVs5PxWTAvQ2IQ07HettgldI9h1XFJQpExTi/TwHdzrfbJpTM7U3azSkjHJJlByW+knkP/oPr8b8zHgI3bSo96xE7fzEUBB40Mx5nIemhjrdpsM8jn6Y9NLEfqug/Eg4Lq3KA/pk+CphPicQoCcxKgGtEJKNsC/pVIri0LJcaFFEk7w1eanrxq8ul2vWOGxlg27laAzp7/ADEhRe6kceiTMOnOAYdmuA==
-X-Forefront-Antispam-Report:
-	CIP:142.180.224.216;CTRY:CA;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:srv-code1.telcobridges.lan;PTR:ipagstaticip-a30715f8-af06-ab92-2e59-6516aeac2c90.sdsl.bell.ca;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(7416014)(376014)(23010399003)(30052699003)(18002099003)(22082099003)(261009223027099003)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261022105027099003)(261021123027099003)(261022075727099003)(261021121427099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	CocSfodjecDD9MbGOaxlVqLgXaig1Y3Hie2YqPvCOj8QKC6/S9MGbCJuY+Xy9qxaEdXJbIYhCpHzsUe5TLLXMONk0hWlX6UAGFAZQXnVwyJLJ2BC6YQ6pwBhuNcdDon7FvzRYOKkUEt5YNLXfSsbO9Sq6dWViA+SDgb/BNeLZK65IZnoEcTqjFjm7MyaBp7wQuZTTP5HrLFWbIoRpWaEBeqeT8jZvDZFO2xpwca4WJWvSAymDLW+YL+ikuCez35d1QsLupRzL1odb3sJ6DTTj1j4c8w36AUoNmsoCRmM6dMnEhXwLxDB9U+aax/Cj/Fl6UrwCFnMfBaaGSOcBaE6m77UDOK7YOwObYKVvmFT6Lro8WneFIBpVrOBsHx1dlETI844pRdQCe+jliQVfYP+lW0TI8KS+BDc+uAacyBYGTIalrgiAClPnYLu7M92OT5Z
-X-OriginatorOrg: telcobridges.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 14:37:54.2102
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70ad27ac-73d6-4340-16a5-08df43ef330f
-X-MS-Exchange-CrossTenant-Id: 5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=5dc833ed-bd96-4d5b-aaa0-0d8be83ae4e5;Ip=[142.180.224.216];Helo=[srv-code1.telcobridges.lan]
-X-MS-Exchange-CrossTenant-AuthSource:
-	TO1PEPF00005346.CANPRD01.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: YT1PPF9A3978E32
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net] mptcp: Avoid unsequenced accesses to jiffies in
+ mptcp_reset_tout_timer()
+Content-Language: fr
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
+ mptcp@lists.linux.dev, linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
+ stable@vger.kernel.org
+References: <20261114-mptcp-wunsequenced-v1-1-707a73a6c172@kernel.org>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <20261114-mptcp-wunsequenced-v1-1-707a73a6c172@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Since commit 95ecba62e2fd ("net: fix races in
-netdev_tx_sent_queue()/dev_watchdog()"), netif_tx_stop_queue() writes
-txq->trans_start on every call, also when the queue is already stopped.
+Hi Nathan,
 
-Several drivers stop the queue from their periodic Tx hang check and
-leave the recovery to dev_watchdog(). e1000, e1000e, igb and igc call
-netif_stop_queue() or netif_stop_subqueue() each time the hang check,
-requested every 2 seconds by the driver watchdog, finds the hang again,
-and do not wake the queue. Each call now moves trans_start forward, so
-dev_watchdog() never sees the queue stopped for longer than
-watchdog_timeo (5 seconds for these drivers). ndo_tx_timeout() is never
-called and the adapter is never reset: the driver logs "Detected Tx Unit
-Hang" every 2 seconds while the NIC stays hung.
+On 15/11/2026 05:30, Nathan Chancellor wrote:
+> After a recent improvement in clang to warn on unsequenced accesses to
+> volatile variables [1], an instance appears in mptcp_reset_tout_timer(),
+> which can break the build with CONFIG_WERROR=y / W=e:
+> 
+>   net/mptcp/protocol.c:3044:20: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
+>    3044 |                         tcp_jiffies32 + jiffies + mptcp_close_timeout(sk);
+>         |                         ~~~~~~~~~~~~~   ^
+> 
+> Per C11 5.1.2.3.2, accessing a volatile object is a side effect. Per C11
+> 6.5.2, unsequenced side effects on the same scalar object are undefined
+> behavior. Per C11 6.5.3, unless otherwise specified, side effects and
+> value computations of subexpressions are unsequenced within expressions.
+> 
+> Add an explicit sequence point by splitting the addition expression in
+> half, eliminating the undefined behavior and clearing up the warning.
 
-Write trans_start only when the driver stops a queue that it had not
-stopped yet, i.e. when __QUEUE_STATE_DRV_XOFF is clear. The write still
-happens before set_bit(), which keeps the ordering against
-dev_watchdog() added by 95ecba62e2fd. A queue stopped only by BQL
-(__QUEUE_STATE_STACK_XOFF) still gets a new trans_start when the driver
-stops it.
+Thank you for the fix, it looks good to me:
 
-The test_bit() and set_bit() pair is not atomic. If
-netif_tx_wake_queue() runs between the two, trans_start keeps the time
-of the previous stop and dev_watchdog() measures from that earlier stop.
-A timeout is then reported only if both stops together last longer than
-watchdog_timeo.
+Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 
-The issue was observed on a system in real use: a hung NIC kept
-reporting a Tx unit hang and was never reset. Code inspection then
-pointed to 95ecba62e2fd.
+@Net maintainers: this can be applied in net directly (simple, safe, and
+avoid build break with -Werror on newer version of clang).
 
-I reproduced the issue and tested the fix on an AlmaLinux 10 kernel
-(6.12.0-211.68.1.el10_2, which contains 95ecba62e2fd) with the e1000
-driver on a VMware-emulated Intel 82545EM. Reproducing required
-modifying the driver: a test-only module parameter makes
-e1000_clean_tx_irq() report a Tx unit hang on every hang check of one
-interface. netif_tx_stop_queue() is inlined into the driver, so the
-patched variant was e1000 built out of tree against the 6.12 headers
-with this change applied. With the fake hang held for 30 seconds:
-
-  unpatched: 15 "Detected Tx Unit Hang", no NETDEV WATCHDOG,
-             tx_timeout 0 -> 0
-  patched:   first "NETDEV WATCHDOG ... timed out 5054 ms" 5 seconds
-             after the first stop, followed by an adapter reset;
-             tx_timeout 0 -> 5
-
-This patch was not booted on the net tree. The KUnit tests added in the
-next patch pass with this change and fail without it.
-
-I wrote the fix. Claude Code (Anthropic) reviewed it, built the e1000
-reproducer and wrote this changelog.
-
-Fixes: 95ecba62e2fd ("net: fix races in netdev_tx_sent_queue()/dev_watchdog()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Curtis McBurney <cmcburney@telcobridges.com>
----
- include/linux/netdevice.h | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
-
-diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-index 435be7880d7e..6a488245db1e 100644
---- a/include/linux/netdevice.h
-+++ b/include/linux/netdevice.h
-@@ -3805,8 +3805,15 @@ static inline void netif_tx_wake_all_queues(struct net_device *dev)
- 
- static __always_inline void netif_tx_stop_queue(struct netdev_queue *dev_queue)
- {
--	/* Paired with READ_ONCE() from dev_watchdog() */
--	WRITE_ONCE(dev_queue->trans_start, jiffies);
-+	/* Only write trans_start on the initial state transition
-+	 * (when the DRV_XOFF bit changes from 0 to 1).
-+	 * This prevents recursive driver watchdog polls from continuously
-+	 * resetting the timeout timeline and blinding dev_watchdog().
-+	 *
-+	 * Paired with READ_ONCE() from dev_watchdog()
-+	 */
-+	if (!test_bit(__QUEUE_STATE_DRV_XOFF, &dev_queue->state))
-+		WRITE_ONCE(dev_queue->trans_start, jiffies);
- 
- 	/* This barrier is paired with smp_mb() from dev_watchdog() */
- 	smp_mb__before_atomic();
-
-base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+Cheers,
+Matt
 -- 
-2.52.0
+Sponsored by the NGI0 Core fund.
 
