@@ -1,81 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.40
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794819756;
-	b=rWORpJoE2XD3pmNjs/xCYgg/zw/j/9dUqwTlgSvc9Xslpc5O4lH+1hhsGnSL8617uX/v
-	 Eum3q6YzuFcDnVB4/9xavznVajLWpT0vpX4Kv5e8yXbru9doN2y7MWod5/5/4yYcLXXJ5
-	 SziH7nTb+gdNCaLecJe0XLYPKe1a7e9S5cPYDRQnL92AN0c3GS0h/3gzPt9QmAmjYyvOH
-	 c88XqK0Ms02tdLxrTiVe6vDqhcy+UPIHJ7nIn4VtjbRxLiyD9uFlqkSi2g5p+8axDA1sf
-	 2MS/g0eoTwxT7osWxz3HVvyHwW9MPz3t/oMYMDRZH+BLpCgHMEPwTup+URc1dK7Heog==
+	t=1794819871;
+	b=KgpwSLTxJ4MdovWzlPY6aZIeJmBsbB3Tspo/LPZD4vqxGsdIg0BogOSEwarpXxbM0rS1
+	 c6ddCA+6EsEMBDdtohzo7kYrnaVikEOGhlwTz9u9e1zc26T0Z8xjn2uND3uqRL0VuBNBj
+	 7huHalyrcsv63TDilV2wSXIJ1sWCVFO2AJjX9piVw1VjGl6xlCMdIB1WH2GTkHqudFp3T
+	 gvRRnlEZ6BTzFgVmq+vEBC2d82BlQYQoNHRI2uBcpIFoRsCt653KiHG7AqN6euR+l+s/8
+	 9PiwM599KU1O2qLD8ktYU+yFDtiMeUJ6h9OU/sonyW2BwtEzPpYLpo+6Gv8B3ZicvrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794819756;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=e1jHKgD0PHuVoAJ43vN9/cFeazU0vXqWKmj5q4/sSpU=;
-	b=5sw0JbMLBhrXnf3H8Z4YXFQVTp5V8/PVHof2nTxcbA46zGpYOzMGhn9x25FR8zKmfcsb
-	 IlpuBkJ55YsvFU0cq29yYKtSDadG04Lh2ZnQ8kZbGSqozNUO+MnT0PFiGP8Af19E/nqnP
-	 skmtcVOT/e5vZ081Kw9oWDx9cOqppNSfZIGL4eh7qo6BBtubggDF3yOXJ4qqzbLs3mq9B
-	 HyT7sX0/icjMr7XzGsK2RcR3G594X/oIgO4KNsPmqFD5b6gcKsw2jsbQez0JsoT4Vl2aC
-	 8/rMmqt8B1nq/pNsXXqOWXONNFXZZ68kvdJu7MpQ1qzULgREsdSt4JWNk855QVNxNtQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794819871;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Reply-To:Subject:To:Cc:References:From:
+	 Content-Language:Organization:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=WyPsK1iObrDROZAGJ0P1ZBjLWJj9SOCV8oqzrE6Bv9Y=;
+	b=DyGRnvITFzXWbSl33lyKyVROkyGBOH1Y+nkxm5lfRCukUDLoaeU2mzZ3RmcOEirTheG1
+	 pOFQpeF3kaxbcltBRG1co2lAZiRhAPMhPoZWbxWNEnSPmVsCHhhbfbk5EKo2rJ2+uNXdK
+	 7ZYjQhATTvKPXeHR0g27tc0I1/+WVLS3TVfvBOqBiYKrE5DpaG0JpqMkhe51d4Nz00xyK
+	 xElvuKMThYlCdGK/TE/GJxkJHOJFkDklG8NcB3hadWDHgn1ywhOh/rA02ZwDfHVJUJzuU
+	 SVCa0HVgSoCCCrnR9mBIhbqqyM26NVwP0UMvP62HDMbhjeiUHgXqolt2XKbWyH7FLLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=OWTNGCPS;
-	arc=none smtp.remote-ip=195.10.208.40
-Received: from mout-b-210.mailbox.org (mout-b-210.mailbox.org [195.10.208.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=6wind.com;
+	spf=pass smtp.mailfrom=6wind.com;
+	dkim=pass header.d=6wind.com header.i=@6wind.com header.a=rsa-sha256 header.s=google header.b=XHJL8met;
+	arc=none smtp.remote-ip=209.85.128.44
+Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CAC5606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:02:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CAC5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C1C1606A329
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:04:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C1C1606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=6wind.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=6wind.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=OWTNGCPS
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-210.mailbox.org (Postfix) with ESMTPS id 4jShhL4c35zFpXW;
-	Mon, 16 Nov 2026 10:02:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1794819746;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=e1jHKgD0PHuVoAJ43vN9/cFeazU0vXqWKmj5q4/sSpU=;
-	b=OWTNGCPSn2TLDY6BxTW8hPkHvliS4y2mkptCsHRFdIpWmw9hdbPIZVpiCaWzKvvfCP3MT9
-	gFWo4tJg/k5xPRftDXs0RST5/0Py+RKv4khavZsx3Y9dNOw2lN7cdlLdT86PNm9/dGZN9b
-	RHDqW+DLerspJ5+ytcJfYxoJ4Yj/bFs/8UQCEn5DdYU1rg4b/Fm54uU6rwbrTDsb1QH7bV
-	RcD8zeE5iDlN9JOgwN/UzYim4zFXtlBBZSzFzsIM2Y5d6/83TPb8fmxgcMSaahbUpP73o8
-	yJb6r63fzE/O7HaB1xzEHHKO5NeA3/Pycy9N7PNzgfaHeBtSlebnrJ8uMxMESQ==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org,
-	dsahern@kernel.org,
-	idosch@nvidia.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	ncardwell@google.com,
-	kuniyu@google.com,
-	steffen.klassert@secunet.com,
-	herbert@gondor.apana.org.au,
-	fw@strlen.de,
-	sd@queasysnail.net
-Subject: Re: [PATCH net-next v2 3/3] ipv6: use the lookup cookie when caching the dst in sockets
-Date: Mon, 16 Nov 2026 10:02:15 +0100
-Message-ID: <20261116090215.93209-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <179473299346.2199510.11559140714770152951@kernel.org>
-References: <179473299346.2199510.11559140714770152951@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=6wind.com header.i=@6wind.com header.a=rsa-sha256 header.s=google header.b=XHJL8met
+Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb66245c51so657275e9.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:04:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=6wind.com; s=google; t=1794819870; x=1795424670; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :content-language:from:references:cc:to:subject:reply-to:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=WyPsK1iObrDROZAGJ0P1ZBjLWJj9SOCV8oqzrE6Bv9Y=;
+        b=XHJL8metE6vh0GlQjKnJHCFZZ9z6Lxjc+BBbYYp5w7ESej30ltDmvr2FydmuA+ZvRu
+         s559RPBEhiNjyJP0RbryivsvgdcKgUi6FT1NFwTrynpqvHnnnAbK9NaaNVqEIdwAXE39
+         4yI/bQhxd1IrUU9PHK81XwOyLpz1jSJARFnxnxla9NlrCTM/W0bTUxQOktLuugi4HIJQ
+         RPT0cz7fq4K/4FGEHS3zWZdi2j5MvAZ5wdTo6/lP+qNLY7BvH8mj+ipVKXw+VsYpAXyM
+         OMdMWrMCQbcR1tGx0GCVoSYm7RCrx3k4Cf0C/k8chEx12ZJic6P9bhXmJI0jCQPCNN/m
+         r6hA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794819870; x=1795424670;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :content-language:from:references:cc:to:subject:reply-to:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=WyPsK1iObrDROZAGJ0P1ZBjLWJj9SOCV8oqzrE6Bv9Y=;
+        b=ZwgilCgXXMmRP87wpJyx9TYk12KpMrCP0e/V7qfKrp+UzUj+0vDI+lx+IdEipzpvv6
+         yh7BEfFrjRHszklIu+EBVxV0D/ELC1hBIlpbJBHkIURVuHV4j6+yzNFI2D+CVO33spLh
+         FWrSJ1Nh5RlZJGBQrqugfC2n2TDxYob6C5cED+9aXpWtuTiayk2AnvNfPOelZhlVXOfO
+         9yiBOa0EtKmqUjijiAXbnY0C5RorFl/6RiWTpnbK6icv9mLZFzP1rLG2c9F0oTTaNB70
+         RjArqy3PaGA4umOyXWedZ2HkTYs6Db4hUp6OOr+oq5AV4DbTEpWRq0KX9Wx2JOxbv4YM
+         dpjw==
+X-Gm-Message-State: APuU4Z/djAjr0pJJz5+hBK/p6NCMTYPHhi14JGaY5pfPorDgT/vGesNX
+	Q9zf5fQ/yLmSI7RbjCepKpL6QVyRQMQLLo9iJ3jdNyDZpEBTSM1DBWMq+Glt6csvZGM=
+X-Gm-Gg: AYBFou3vZzbQR7/oNdMAL/3q8Pmvm/WA3wUyN4Fiyj64EmN7gGswzPTVHiCSw40LTWp
+	oqn3032HlQtzZnuALAXU6wj1GdrmvxbOi9XTXCsmtwv9IoI7CEGyiFuZ7whD1ljlVodG2J6OCZI
+	33avuUrLU/W87k+ICT3V0OerfXGXwdx9Q7eN1JuHw2JuL4fqzWezQArl1CnCKK1znA+FVeIQWg4
+	zPiVaSl8AYfMthpjinm97b/yGMxgGdF7HiDp8s46XEFCmx1V0NF/SfkQbJg9Io1ci4pjXMrtFx4
+	moEQ4xgBnyJU4RMhMuDrILROdrXUiVa9dEX//vSCHecxaFeefDj1N9Ye6Zi7D7v+6YGZn7vqsom
+	eH707pIAKNW4Z7NrrzidtSBGs+BvBsAc7nkByrKXbP6P5TCJ41PZ0DjpokP0EjvL76ziQYewpk+
+	gTtysPBIOv0pMMF/9+Kgx8q3ATvvWL39H4K20TVTXSQp46wjdEOJPMUalzNZumY9ys4jG0VOZAV
+	LIAyhlbl7PVkTthIcRhSM7UYNc5NfTmjVykpyE9zvYSDWRLHoKIWUWp8AUreeThRBPh+zSGFRGV
+	AV4B3fho2xuJnnoGaCQmAklZf/JMTWpOHxJ031Hgv64gWIahTSrAMOXlcm+D6nI1OvzcARFX28l
+	yxiYJyQ==
+X-Received: by 2002:a05:600c:6c4e:b0:4bb:68ed:a356 with SMTP id 5b1f17b1804b1-4bb68eda491mr65161595e9.1.1794819869714;
+        Mon, 16 Nov 2026 01:04:29 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:ab7:2110:6a1d:efff:fe52:1959? ([2a01:e0a:ab7:2110:6a1d:efff:fe52:1959])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c81a63b1csm20157980f8f.4.2026.11.16.01.04.28
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Nov 2026 01:04:29 -0800 (PST)
+Message-ID: <e45eaa64-08e6-4ad4-845e-f844150f3542@6wind.com>
+Date: Mon, 16 Nov 2026 10:04:28 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,138 +92,44 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Reply-To: nicolas.dichtel@6wind.com
+Subject: Re: [PATCH] net: fix uninitialized heap leak in multicast address
+ dumps
+To: Henry Martin <bsdhenrymartin@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Simon Horman <horms@kernel.org>, Stanislav Fomichev <sdf.kernel@gmail.com>,
+ Yuyang Huang <sigefriedhyy@gmail.com>,
+ Aleksandr Loktionov <aleksandr.loktionov@intel.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
+From: Nicolas Dichtel <nicolas.dichtel@6wind.com>
+Content-Language: en-US
+Organization: 6WIND
+In-Reply-To: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jShhL4c35zFpXW
 
-On Sun, 15 Nov 2026 08:56:33 +0000, netdev-bot+sashiko@kernel.org wrote:
-> > Store the cookie returned by ip6_dst_lookup_flow_cookie instead. Add
-> > ip6_dst_store_cookie for this and keep ip6_dst_store for callers that
-> > have no lookup cookie.
-> >
-> > Signed-off-by: Ralf Lici <ralf@mandelbit.com>
->
-> [Severity: Low]
-> This isn't a bug, but should this have a Fixes: tag and Cc: stable? The
-> commit message describes a socket that "keeps sending plaintext" when it
-> should be using IPsec.
->
-> The patch also calls ip6_dst_lookup_flow_cookie(). That helper comes from
-> the previous patch in the series ("ipv6: add ip6_dst_lookup_flow_cookie"),
-> which also changes ip6_dst_check() behaviour for nexthop-object dsts. So
-> this patch can't be backported on its own. Could the dependency be noted
-> for stable?
->
+Le 16/11/2026 à 03:40, Henry Martin a écrit :
+> __hw_addr_create() allocates entries with kmalloc() and initializes
+> only addr_len bytes of ha->addr. Dump paths emit entries using the
+> current dev->addr_len, which can grow after the entry was created:
+> tun's TUNSETLINK changes a device from ARPHRD_NONE (addr_len 0) to
+> ARPHRD_IP6GRE (addr_len 16). Both the RTM_GETMULTICAST dump and
+> /proc/net/dev_mcast then emit up to 16 bytes of never-written slab
+> memory per entry.
+> 
+> This discloses leftover kernel heap contents to anyone reading those
+> interfaces.
+> 
+> Zero the tail of ha->addr at creation time, so dumps can only emit
+> initialized bytes.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: a748ee242681 ("net: move address list functions to a separate file")
+> Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
+> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
 
-The same historical and target-tree considerations discussed in my reply
-to Sashiko's review in patch 1/3 apply here as well. The late cookie
-sampling in the socket cache is already present in the initial Git
-import. I can clarify that attribution when revising the changelog.
-
-> > diff --git a/include/net/ip6_route.h b/include/net/ip6_route.h
-> > index 95f936be32c6c..2684f6069a5e1 100644
-> > --- a/include/net/ip6_route.h
-> > +++ b/include/net/ip6_route.h
->
-> [ ... ]
->
-> > @@ -266,8 +266,16 @@ static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
-> >  #endif
-> >  }
-> >  
-> > +static inline void ip6_dst_store(struct sock *sk, struct dst_entry *dst,
-> > +				 bool daddr_set,
-> > +				 bool saddr_set)
-> > +{
-> > +	ip6_dst_store_cookie(sk, dst, rt6_get_cookie(dst_rt6_info(dst)),
-> > +			     daddr_set, saddr_set);
-> > +}
->
-> [Severity: High]
-> Is the TCP side of this fix complete? The commit message says this
-> "affects TCP and connected UDP sockets alike", but tcp_v6_connect() is
-> the only TCP path converted. Other TCPv6 paths still call
-> ip6_dst_lookup_flow() and then ip6_dst_store(), so they still read the
-> cookie after xfrm_lookup_route() has returned.
->
-> Here is inet6_csk_route_socket() in net/ipv6/inet6_connection_sock.c:
->
-> 	dst = ip6_dst_lookup_flow(sock_net(sk), sk, fl6, final_p);
->
-> 	if (!IS_ERR(dst))
-> 		ip6_dst_store(sk, dst, false, false);
->
-> inet6_csk_xmit() reaches this whenever __sk_dst_check(sk, np->dst_cookie)
-> fails. inet6_csk_update_pmtu() also reaches it through
-> tcp_v6_mtu_reduced(), and a remote peer can trigger that path with
-> ICMPv6 Packet Too Big.
->
-> inet6_sk_rebuild_header() in net/ipv6/af_inet6.c has the same
-> lookup/store pair. It is ipv6_specific.rebuild_header, and tcp_connect()
-> calls it right after tcp_v6_connect(). Suppose
-> ip6_dst_lookup_flow_cookie() saw the generation move and returned cookie
-> 0. Then __sk_dst_check() fails immediately, and the lookup is redone
-> through the unconverted path inside the same connect() call. The
-> retransmit path also reaches inet6_sk_rebuild_header().
->
-> tcp_v6_syn_recv_sock() in net/ipv6/tcp_ipv6.c gets its dst from
-> inet6_csk_route_req(). That function calls ip6_dst_lookup_flow() without
-> capturing a cookie. tcp_v6_syn_recv_sock() then runs
-> tcp_create_openreq_child() before it does:
->
-> 	ip6_dst_store(newsk, dst, false, false);
->
-> So every passively opened IPv6 TCP socket has the same window.
->
-> An xfrm policy insertion goes through
-> rt_genid_bump_ipv6()->__fib6_flush_trees(), which invalidates every
-> cached socket dst. Established sockets therefore re-route through
-> inet6_csk_route_socket() right after a policy change.
->
-> Suppose another policy is inserted during that re-lookup, which can
-> happen when an IKE daemon installs several policies back to back. Can
-> the plain route then be cached with the post-insertion serial? If so,
-> inet6_csk_xmit() would keep accepting it and send plaintext.
->
-> The commit message says ip6_dst_store is kept "for callers that have no
-> lookup cookie". Each of these callers does its own ip6_dst_lookup_flow(),
-> though, so each could use ip6_dst_lookup_flow_cookie() with
-> ip6_dst_store_cookie(). For the passive-open path, inet6_csk_route_req()
-> would need to return the cookie.
->
-> The kernel-doc of ip6_dst_lookup_flow_cookie() also says "A caller caching
-> the dst should use this cookie when validating it with dst_check."
->
-> [Severity: Medium]
-> Does the same window remain in the SCTP per-transport dst cache?
-> sctp_v6_get_dst() in net/sctp/ipv6.c does its route and policy lookup
-> through ip6_dst_lookup_flow() and stores the result in t->dst. Only after
-> that does it read the cookie:
->
-> 	rt = dst_rt6_info(dst);
-> 	t->dst_cookie = rt6_get_cookie(rt);
->
-> sctp_transport_dst_check() later validates t->dst against that cookie.
-> If an xfrm policy insertion restamps fn_sernum between the lookup and
-> this read, could an SCTP association over IPv6 keep using the route that
-> was found without the policy?
->
-> dst_cache_set_ip6() in net/core/dst_cache.c has the same pattern. IPv6
-> UDP tunnels and ip6_tunnel use it:
->
-> 	dst_cache_per_cpu_dst_set(idst, dst,
-> 				  rt6_get_cookie(dst_rt6_info(dst)));
->
-> The previous patch in the series describes the problem as affecting all
-> "callers that keep a dst in a persistent cache". Should these sites also
-> be converted to ip6_dst_lookup_flow_cookie(), or at least mentioned in
-> the commit message?
->
-
-Both points concern conversions explicitly deferred in the cover letter.
-The same scope discussion in my reply to patch 2/3 applies here: these
-paths are follow-up work, pending feedback on the lookup-cookie API and
-its incremental introduction.
-
--- 
-Ralf Lici
-Mandelbit Srl
+Reviewed-by: Nicolas Dichtel <nicolas.dichtel@6wind.com>
