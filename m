@@ -1,47 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794830287;
-	b=HSq1TBYYcFAoqq3qFpdEIT6fJlc+G/HZ64LI/Yy2X8R4Ogy4U8jcDdzgPjs5tXiGgEwZ
-	 rzEqRP8sxauoCikieUmWK6ohPTi0cxHXze0mJkt0NliDovB6arKXn7mA4Nx5uisQ1G3rU
-	 evPjve4smMwqJoHQDvhYCVgYpKe2tKzqFmxGPMhuGmMmexAEQvfhkm9Y0lxdGUKVbMcEe
-	 1dTmbPQ9S4mRYU/GkhwfWSRLONkhG/RIOTBAlJituT8VEqyyMAZnXUGbvC6QhzUSHuRQf
-	 /S6DSpTkFU0J6O4afKouFduyU3lM1q/QAT8yHvP79y4nl/WiHshzAJDfdUbI6A/IjZw==
+	t=1794830416;
+	b=3pOXtaiohbWFqqfdolMaua0GHTdqpjYiER/x4GRoQ0Ml+ilwTmhfjgJpORKPiHRvWdr1
+	 5CGEDJfKsGxzRLKNkv2Tmy8AMNN7sIJGw/+3fynD5cnoQBNTBEld002sEU7UDiKEnONXc
+	 WoOiZZknZ7HtGce9lNYv2ipGlc4hBzzm+7g3MmrRDMapSWvzkKddElBKC1EDUArZ24yry
+	 q/SDED+Cmbj2kmuIJ9tG99FQmBjzg9KVva2FRKcnAhfpUHP9Pm1pYI6dmExBXO9HpQQoL
+	 mqnw17nZElMyKZxgaZVOkEOgPPdI5DRbZLr3VvQZiOoYuJvyP9YjpuHW9pLt/aQ3eRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794830287;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=CT0k0qaGom0emmcyhnGmC3Zz4iYrJsSIXC3R0FJ/rw0=;
-	b=CjVkusx7a0GVtlqR1F8aiOLjPzpYevB8qSnqnRF9r5IMh8WwfVDIX/EkzlyqlzPD+8W7
-	 6zDEjhvS70YT9EYoa8qzSBQaFBfN0/oUBHJ12FmRq/LqUxjdHR/ZhvtRw3MNOwWN8iJbC
-	 5L+1gFoVU5RVETK2SylnLqN75rwyBWlA7GRqqNAfDy1fuzNWkDMvsaeezEFIf3JP9z5rb
-	 s//TodnwOJgMEyIpJPA2wIJeudD36HTNBE84s1gQCO6252S5mBmwyaNyhcwcWWw6jnelw
-	 wcz22Rv3OvqJGiO9Zg/71JojAPsbtSbX/SLZTZ9QuOCJd+K9Ep1WgH+U5Nz7Z4iI2jQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794830416;
+	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
+	 In-Reply-To:References:Subject:From:To:Cc:Date;
+	bh=gm216H5g8yPIS0hPFinwHy6mVVrhGulY+53WmPc6rN0=;
+	b=j4HKID0c1b6DHjI+QzTUoWCC53iSNtlphJERwcOxRR79gncah6YO7UDXctyD5LmnONtW
+	 NeP8gadthTSouZ0thJFcxa+Oloj4qV5oZxxBzP+oJIZEk9DiLIUtDMn+uvaBNrRTftygY
+	 V8Y1lgzBSgrHenqYjOpeeh/pQEwTrqq2DmqsBtSk6PrfaxZ3GXcguvcvJjZS/IG289wMd
+	 iAuWJ/7jHgaXAlWDM1AZiG8JU/rpsAbb84MthfwH/sDyrOrtX89ovqqV9xQ9wbHfGRne8
+	 /1NRXTi9nsrfI7ftQ3QtW9hxYt5JmgJQotz7ClizyoAzCOUcM1jTs+TnKOh0FTfOT6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=emQO84hB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hnZy2toz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F6A4606A335;
-	Mon, 16 Nov 2026 11:58:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA70F606A329;
+	Mon, 16 Nov 2026 12:00:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=emQO84hB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C8381F000C4;
-	Mon, 16 Nov 2026 11:58:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hnZy2toz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A04FD1F000C4;
+	Mon, 16 Nov 2026 12:00:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794830286;
-	bh=CT0k0qaGom0emmcyhnGmC3Zz4iYrJsSIXC3R0FJ/rw0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=emQO84hB0whhXw99h+HdACi9fEU/JaLprbnTNo96M21MSP86/z4OZAZtl1pJMrlST
-	 ES4gzvL+MKmjEUmoBloO+aouLZoQJrSVYOdoUcTr8EPC2Pih8Cwcsmnv2W7kOjAD6j
-	 qnClb+5djsuPVGOlxp8q21o/0hPtiK2aCvIsvYqGsbSMoI1nbIqPpKJhAR5At6J1eu
-	 aKX/GN+n0TfvmmaCoIn0aptz+vOSLLHYl5KznwlYw4omOypIa7wCrHsrj0Ndgi4xwH
-	 zf7psDDcoXjIhXlKNHT3WBtVDy3+UiGosmbLucRg6m9y7eQRzwzXn9XU50/CHuKdiE
-	 w/Z8ARFsXM5WA==
-Message-ID: <998d522f-e61d-420f-9834-6bdcbaab1361@kernel.org>
-Date: Mon, 16 Nov 2026 12:58:01 +0100
+	s=k20260515; t=1794830416;
+	bh=gm216H5g8yPIS0hPFinwHy6mVVrhGulY+53WmPc6rN0=;
+	h=In-Reply-To:References:Subject:From:To:Cc:Date;
+	b=hnZy2tozWrqXpWLl+o5+qP9GJB7maIdtKambAdlwVeTUYSiv1MRn2/JyDHmnbWh9z
+	 9WDgZMPWzEFJyZJLu9/wsHqC4IslySPV7y2m6l1l6Pr8NgVibCFxmyKogUiorVMDDs
+	 oSUXCyKp79VfkW+5dB+6SUIEC6UIXRKMD5lFDe0TpDOweWXRS/8hWTozfLGQIQW1P3
+	 PpqAtsruCxsT/ZGQgn4L2ujm+ycdGpwnf6KZ9ATazwCNfMJ3LvW1RLCzk2tHDAf+iS
+	 l45B1JKOto718M05wX+oTkpRye0x56eTuMcf1pJlfnKjWSS9tECKCjPVeZoo9oaT6o
+	 l+RQ5GFUaEe7w==
+Content-Type: multipart/mixed; boundary="===============5220694122544816000=="
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,106 +49,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net v4 0/2] net: openvswitch: fix a feature leak on a
- failed change
-Content-Language: fr
-To: Minxi Hou <houminxi@gmail.com>
-Cc: netdev@vger.kernel.org, Aaron Conole <aconole@redhat.com>,
- Eelco Chaudron <echaudro@redhat.com>, Ilya Maximets <i.maximets@ovn.org>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org
-References: <20261115163134.3202677-1-houminxi@gmail.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261115163134.3202677-1-houminxi@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Message-Id: <cb28f09c85a473a23f14c9bd6ef135950197c9fbf966c1f7055d791977d29286@mail.kernel.org>
+In-Reply-To: <20261116-work-loop-pseudo-v3-38-8cbbea1cf34f@kernel.org>
+References: <20261116-work-loop-pseudo-v3-38-8cbbea1cf34f@kernel.org>
+Subject: Re: [PATCH RFC v3 38/44] nvmet: refuse files on pseudo filesystems as namespace backing files
+From: bot+bpf-ci@kernel.org
+To: brauner@kernel.org,linux-fsdevel@vger.kernel.org
+Cc: jannh@google.com,mason@kernel.org,josef@toxicpanda.com,hch@lst.de,linux-block@vger.kernel.org,linux-kernel@vger.kernel.org,linux-nvme@lists.infradead.org,viro@zeniv.linux.org.uk,jack@suse.cz,linux-scsi@vger.kernel.org,target-devel@vger.kernel.org,driver-core@lists.linux.dev,linux-mm@kvack.org,bpf@vger.kernel.org,linux-security-module@vger.kernel.org,selinux@vger.kernel.org,apparmor@lists.ubuntu.com,linux-nfs@vger.kernel.org,netdev@vger.kernel.org,fuse-devel@lists.linux.dev,linux-efi@vger.kernel.org,xen-devel@lists.xenproject.org,ocfs2-devel@lists.linux.dev,linux-s390@vger.kernel.org,linuxppc-dev@lists.ozlabs.org,linux-usb@vger.kernel.org,amir73il@gmail.com,linux-erofs@lists.ozlabs.org,linux-kselftest@vger.kernel.org,brauner@kernel.org,chris@chrisdown.name,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
+Date: Mon, 16 Nov 2026 12:00:14 +0000 (UTC)
+
+--===============5220694122544816000==
+Content-Type: text/plain; charset="us-ascii"
+MIME-Version: 1.0
 Content-Transfer-Encoding: 7bit
 
-Hi Minxi,
+> nvmet: refuse files on pseudo filesystems as namespace backing files
 
-On 15/11/2026 17:31, Minxi Hou wrote:
-> The datapath records the user features before it applies the change, so
-> a request that fails leaves it claiming a bit whose reference count was
-> never taken. The first patch records the features last. The second adds a
-> selftest that drives the failing request and reads back what the datapath
-> reports.
-> 
-> v4:
->  - Rebased onto current main.
->  - The skip message is one printf again. Splitting it made shellcheck
->    report SC2182 and dropped a word and the newline from the output.
->  - The new tests say why they failed on stdout. info() writes debug.log
->    and a failing run deletes that file, so CI showed a FAIL with no reason.
->  - A datapath that cannot be read is reported as that instead of as a
->    feature mismatch.
->  - The outdated add-dp request is checked instead of discarded.
->  - The errno numbers come from python rather than from a literal, and a
->    lookup that cannot answer says so rather than comparing against an
->    empty string.
+TL;DR: The series may not build: file_check_backing() in fs/read_write.c calls
+d_real_data_inode(), which seems undefined anywhere in the tree, so a
+prerequisite patch may be missing.
 
-Thank you for the new version, but I suspect this series caused troubles
-on the CI side: it looks like openvswitch.sh hangs/times out after all
-subtests pass.
+> diff --git a/drivers/nvme/target/io-cmd-file.c b/drivers/nvme/target/io-cmd-file.c
+> --- a/drivers/nvme/target/io-cmd-file.c
+> +++ b/drivers/nvme/target/io-cmd-file.c
+> @@ -47,10 +47,9 @@ int nvmet_file_ns_enable(struct nvmet_ns *ns)
+>  		return ret;
+>  	}
+>  
+> -	if (!ns->file->f_op->read_iter || !ns->file->f_op->write_iter) {
+> -		ret = -EINVAL;
+> +	ret = file_check_backing(ns->file, FMODE_READ | FMODE_WRITE, S_IFBLK);
+> +	if (ret)
+>  		goto err;
+> -	}
 
-  # TEST: psample                                                [START]
-  # TEST: psample: Sampling packets with psample                 [ OK ]
+Can this be built?  nvmet_file_ns_enable() now depends on
+file_check_backing() from f66083ed0be9, which does:
 
-=> then nothing for 10 minutes, instead of:
+fs/read_write.c:file_check_backing() {
+    ...
+	/* Look through stacking filesystems at the inode with the data. */
+	real_inode = d_real_data_inode(file->f_path.dentry);
+	if (IS_ERR(real_inode))
+    ...
+}
 
-  ok 1 selftests: net/openvswitch: openvswitch.sh
+d_real_data_inode() is not defined or declared anywhere in the tree, and
+no commit up to the end of the series adds it.  Only d_real_inode() exists
+in include/linux/dcache.h, so fs/read_write.c looks like it fails with an
+implicit function declaration.
 
-How did you validate this series? Note that the Netdev CI, for this
-specific case, combines 'config' files from net, net/af_unix
-net/openvswitch:
+If d_real_inode() was intended, it does d_inode(d_real(...)) without any
+ERR_PTR handling, so the IS_ERR() check would never trigger the error path
+the f66083ed0be9 commit message describes.
 
-  tools/testing/selftests/net/config
-  tools/testing/selftests/net/af_unix/config
-  tools/testing/selftests/net/openvswitch/config
+Is a prerequisite patch adding d_real_data_inode() missing from the series?
 
-Cheers,
-Matt
+
+---
+AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
+See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+
+CI run summary: https://github.com/kernel-patches/bpf/actions/runs/43858134663
+--===============5220694122544816000==--
