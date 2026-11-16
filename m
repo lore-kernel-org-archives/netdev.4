@@ -1,93 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794858108;
-	b=aQ0j0mbjwGKiJ3D76SBVUwxwW07ZHx2DanWOt8jcGsGSxoWk3k4WdDtdoGufaF8fiDmP
-	 o0Yd77wSyQdAtRRftKt4DM1cNiZ62QiAxh6fOozIKTvlUEzYyCLH0tFqJUesiKzjBLRCL
-	 GsRqkR5U7cLi19nwCEYzIJJ/U0D3fe6r0Y+HkY6FrZ/4P8krZIEEnEMwYmmRU4GbPZfaN
-	 EzZ3QMwZdIi0H241CinheONa6QNzMRe0kDgdfe8+joAVBUt4itRCtizR/a4+FGbxfBkYL
-	 pVJAyYYkib8GaOfWX6sUlBGjjK5UJ/h5r7P5FH/0BOzuTlJ3xOnYwvRD2s45aVe9Pxw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794858108;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=8Qpg7Lun+rjFdnth3IEW1w73RGChqMu8em9m1BLidsM=;
-	b=qJylDtvFZsnwyR/gZ4aFAS3vwm+Op/d/Eg2BUZmZbBIf1zP/bCjcMxFp8bQb8mid7AY6
-	 vv5cYkKr9RUZu+WJZxTOx12oP7pjWGaeY3WuJEXqijXlv9B2x2Z6OrYzqFMLG5SA5tgV4
-	 DyfjB2UaZNLES2Ju+8c4atrI26OwrT35nXaHZhENWtLkf6ZLPrFezVnWrYTB6rIYZ1JKL
-	 TmwUo/ybg8p6iGlVMhfcde1JIncg2Lkx7iezlpl+s4yEGvEw+XbRzC7Glec5pz3UMI/8e
-	 Ez+1oI5yEiAszsDM9OvWI/kCjlQh0xOvviyheAjutfhVld3l5WvNNI3DOsEGM2UDzsQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=networkplumber.org;
-	spf=pass smtp.mailfrom=networkplumber.org;
-	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=mzfzFhIU;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.23
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794858792;
+	b=Fv19kK8Y0MG2oFBQvcqiZZlCp2cIqBxh/TzSGpM01hOAVNAsdLPO7I637o/Av4xf9SyZ
+	 fwLfWhdzn3y/RF0a6Ia9pBlJniK87yyW8Ek4PMkfRh7H8+8BnsXArYhzygmokmYYEmqoB
+	 utXl6zyLSS5qRlgiAxxSIxdlwkq9a+BDZiSVoectiZr/aSwOUPjk0tx0V7RvzJAEvEuDo
+	 KarSWemHYWVbNklqZSG+YdQmBVTM+QSoKC8WBM16JpoSzhpays4lm75y4EMgyKceyEdr/
+	 S7ZEdityIbDD/kR4fQgBzSW9PcUZ/BIu+4h4hQkR5w5+FwEQzb9qM0tzbdVNtcV8ggQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794858792;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=mQ/09x4uq9jU1vzfAj5TzUhFLr0s3VBByYeEdcOjjRo=;
+	b=CLDbPUlvJaRiIk8JtOcS79L0B5eVjMo2g8e10aNlaj2X9S45keIENKM+abYGH1asDa0H
+	 /6lF8rLEg3d1UkIDDmtmJV/jCIOhJeFymQNIVHEF5BbCttJXWFVZHtz1emAgLdtcuOoD0
+	 R8pKOe10KlEvt40oGr9Ouf1ZbRuEKJlL12U1bpQs807coZsiK+3mz4d/tf7h/K1/kq8Ht
+	 u7vTNLbRL1nnQgBjFN1ssPe2bsD1cj2kx6i/dTcFaYEHxmfvGuz6sY7O1OswxTqqb41jE
+	 6p8FGMUc0HEA8EBCX2DIba9f9mz9Ok8Hb0H34P2GbypsNtc6sG0wzgPKu/oVwTePcyg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CHasZVEI;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.23
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010023.outbound.protection.outlook.com [52.101.85.23])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37E08606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:41:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37E08606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE951606A31C;
+	Mon, 16 Nov 2026 19:53:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE951606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=mzfzFhIU
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so4765609a91.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:41:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794858107; x=1795462907; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=8Qpg7Lun+rjFdnth3IEW1w73RGChqMu8em9m1BLidsM=;
-        b=mzfzFhIUgJ3D0WOPqxyezYM8JZ/K/Pl0BrLHzyeMNcvyMVII6OA//jCm4TMd0TwQTK
-         s6oDFbTRQ8nb3wAF7IjVqSQdMDs+/9NOjRtfMbxLv2Y83t12bi1seyLxyMoF1qF26Gzs
-         7CPKRXW6wQIEzHFD2IgdV12wy2w2WOekUlY0E7T1l8lvNSL78kavkCkYGamvD2FfqTLr
-         7bYHnMaW8MNYQEJ2fh/04zAscTLNAfz7hDxStZcDuCv53yRJ+rYoa5UUhgkcmUtR+BIm
-         +RsPgupzA3koqw7pNcxRc7Jv10xjLdnU8aHwftzBjXCM+KCQ5o2AtHRZIogZQN4k6Mdq
-         u5Yw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794858107; x=1795462907;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8Qpg7Lun+rjFdnth3IEW1w73RGChqMu8em9m1BLidsM=;
-        b=PgcBy5xPBgsEsHVChgJBQRZXMKc7fOFAx89kLGyE0t+hbU49GgnMR/XvMo7eDJIw9U
-         V7ftHdLibHYgBf2mle8T7/JdM5lbDbTVVwORTPODx1A/xfZ8+NDwUtHr+bODdRrlOCdk
-         I/nuWfECLxg4wThDAu1TkUx1Isf7OGb5lrk30TndRNKVxSrAwPO/3I8noTHLHuxuZ8+T
-         koggejkbaUm7B5NUOnI+K/tTkp4V86lEB7kf6MOOuooCKF2zYezPT6cqQ09YEZKg0Xrd
-         qtldNBq8jHjxqlr2r5o+isDuZv7gJbWZl4F0JYWaPTNn1laqTn2inH98A34/kwnNgc/x
-         Z8vg==
-X-Gm-Message-State: APuU4Z+r2/swa2P5ufyTYMPAoH7Je5AgzFae+NnJqwap8qvUoKYfCifU
-	oPvWg4LiZrQEtl8x15Y+K3JCPjStuHai202f4J5vxAeHO4txh9wgyzuB9hcgPpVjZgChecmw/mS
-	rXqDz9dE=
-X-Gm-Gg: AZFdTZciUZtoJVhbmxBBAN0TF5yNfFduQI8BtlaNWsz58YOZsYMBvGZ6DILLHdqjwqT
-	t713QcbDL3anRI4l/+jGz1+0XGmt2vl9d1u0pNqOi06tBzcYkcuvWEL7WVZ46vAcA+Q+BngFO/b
-	sKwPvRxeG440OmeOx5ttSEvL0C51ZCofd1aJS2dpHX+xh/8BMdS6SWJk5IwrRvbX3MZAdQyqWUg
-	EaDdih9GxRCKO9JOZUTaJIxbUYSIrQjr06uORmPTorWliROeBSvJtd+7Xhu/q//slFQriIMZ//V
-	JAGlJLysiWZdk1Sr/UszIzDRroQYOjeIKdtgk1lr7MrZZR0dzhvGl9EoNQvIU9d9SaToyN5uF5d
-	Fz1erkS/13P8fGlEi8583OiaZxkOB9MhDuEVexnsuFb4+i/dDo4JgG4HO4FfHoNEnF+pt5RD0rw
-	tEC/uVxlgM4FRWHX8xcVfj3OoWYNHxOLq9/Uvv5jtaIIB0VKcDdNyH1J/RlvdynQUVLF81wYCV9
-	mOgO8vHjdfSs7ln0o77nHsUfgRCTA+EGnkJ8XmkI7IxrOtnDHuG/ycUJ7HmpSpglg/KEySy+WlL
-	JVgsiaNsXB0eW9KwNhYuR8HzeFuujtv2YIoFPEIlIrqS5Q2Gk64i+Gzt1XgUp+gHPkFzM/+ydmt
-	ZBKGsZCaUxB08P3fCdGGv
-X-Received: by 2002:a17:90b:4cca:b0:3b1:96fe:f5d2 with SMTP id 98e67ed59e1d1-3b1b0da20c4mr11326055a91.65.1794858107296;
-        Mon, 16 Nov 2026 11:41:47 -0800 (PST)
-Received: from phoenix.local (204-195-112-43.wavecable.com. [204.195.112.43])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3abeb2517sm573244a91.15.2026.11.16.11.41.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 11:41:47 -0800 (PST)
-Date: Mon, 16 Nov 2026 11:41:44 -0800
-From: Stephen Hemminger <stephen@networkplumber.org>
-To: ojab <ojab@ojab.ru>
-Cc: netdev@vger.kernel.org
-Subject: Re: [PATCH] tc: fix build with flex>=2.6.5
-Message-ID: <20261116114144.45ccac93@phoenix.local>
-In-Reply-To: <20261112084107.517-1-ojab@ojab.ru>
-References: <20261112084107.517-1-ojab@ojab.ru>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CHasZVEI
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BUEF2ZYxlJ/475yJY9rfchZowFH+dUyqA+XwPomFOk8QK3jLpYHqoGPL2Z1pvp1/wWPg4kWV4gST1uU5WRw+APUMFYHL5ZaLyWttKRHJ7rP1rEAD2Fvb1qW+aW//9k7W5QPsWPfu7RhG7Blx3TZgPy6PP2Z4+8xBocIYet9vUn68W/CMp25xhGtgVyzg+8AZ9I2iRT7Lyd67toeuJ031dFwP5rIFirPMovlJj83vbcRTFAZ+DfL09Ykvv8J1t4vCvrqaPtuCPGX5xFiqGwlTiGYxW3jGUarqHkUSscavoe7+ZNMJMv897f45gMEybxDu/NH2l9y6hoMnqbZvSFbOvA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mQ/09x4uq9jU1vzfAj5TzUhFLr0s3VBByYeEdcOjjRo=;
+ b=PNitRy54CuEymbQYqyx5Xo9W5bNJ73VB5ZbRyFLkXIplGXuD7k9er16I5lINM7E/qpX+EtE4vFxWV33DQkblCZPt0Z/cmWNSWe84DLrvNaU88h8hLA3Scr4Iq90HShJxXoTcUP6o8/SeNkvVWtm35t7OolX04DjslggJyQw3oYJAza0JPhAOEGTqEqhmLQUM0weJ8TqgdUxx5qE0v98gz7TRF1Ew2MTEVquBkYQQSti6L1WIQZ5TKJDywiQadG0vGOGg8zlOIYBzXcEmgOz+v4cIfvroboPKWWIXsDo+cYL/XuNUzRuuRmcC8n8UeeS7PcUu5GkdKKIbn3fk5yrhpw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mQ/09x4uq9jU1vzfAj5TzUhFLr0s3VBByYeEdcOjjRo=;
+ b=CHasZVEILKVZOsH8hvTL7TOHYOwQ5lO3fuK/Mxemt8B3liZth9slgkqxJM9gvaR5gS+YVDlEVx0p3+qdhyLaRCjzIpq4t5VQNPu6tQyl0xJnjIdbippNYHsXLutNX5dvYDCzA34HEpPYfSZcVx+1H/y4SeuQoCBJz691+xNCkop8GF5FEnxPUlUT2jz+RxwCbPIkPqrwlCFu6WLSStrG200PexLvAJSQ/Ll/K8WNaMEO+SRDk34VxYF2a1g/g7NhStJVJ85iyrymNoDqJZEp2v72bXBxZuF6i5+Athz7/X08ucgxw6SIjZrmrf5DbkZmZkdFsRnc6UVPTu0NBmpTNw==
+Received: from DS7PR05CA0101.namprd05.prod.outlook.com (2603:10b6:8:56::21) by
+ IA1PR12MB8261.namprd12.prod.outlook.com (2603:10b6:208:3f7::7) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.10; Mon, 16 Nov 2026 19:53:02 +0000
+Received: from BN3PEPF00022BC2.namprd05.prod.outlook.com
+ (2603:10b6:8:56:cafe::4d) by DS7PR05CA0101.outlook.office365.com
+ (2603:10b6:8:56::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.4 via Frontend Transport; Mon, 16
+ Nov 2026 19:53:02 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN3PEPF00022BC2.mail.protection.outlook.com (10.167.248.213) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Mon, 16 Nov 2026 19:53:01 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 16 Nov
+ 2026 11:52:31 -0800
+Received: from nps-server-23.mtl.nbulabs.nvidia.com (10.126.231.37) by
+ rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 16 Nov 2026 11:52:26 -0800
+From: Shay Drory <shayd@nvidia.com>
+To: <netdev-bot+sashiko@kernel.org>
+CC: Shay Drory <shayd@nvidia.com>, <tariqt@nvidia.com>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, <pabeni@redhat.com>,
+	<gal@nvidia.com>, <leon@kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-rdma@vger.kernel.org>, <mbloch@nvidia.com>, <markzhang@nvidia.com>,
+	<moshe@nvidia.com>, <saeedm@nvidia.com>
+Subject: Re: [PATCH net V2] net/mlx5e: rep, Fix races between devcom PAIR event and uplink close
+Date: Mon, 16 Nov 2026 21:52:18 +0200
+Message-ID: <20261116195218.1120811-1-shayd@nvidia.com>
+X-Mailer: git-send-email 2.38.1
+In-Reply-To: <179485349648.3136.17669005426251956349@kernel.org>
+References: <20261112182403.3646298-1-tariqt@nvidia.com> <179485349648.3136.17669005426251956349@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -97,60 +114,172 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BC2:EE_|IA1PR12MB8261:EE_
+X-MS-Office365-Filtering-Correlation-Id: 25b27f35-12b7-4c5e-df93-08df441b38f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|36860700016|23010399003|376014|7416014|1800799024|22082099003|18002099003|261009223027099003|5023799004|11063799006|56012099006|10067099003|4143699003|261021123027099003|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	4R3mGvZrsTqyoSSCZrHwEmfADOJW2AEe6Lnvl0Z9i2maBoO1GWb5CFPvCnlW8iN99ZbmBxxzUC8aW1GEudqd4O1YywCG5C9st0ZCn2J6ccFoLH5F0TxVObqtwLmHs/JJvX7p8MD9etdfGP45vuVSvw19wYApJKUG3LFeQRwRZ3gDuATApScJKy2X4MMz7px3lZDn4opjwTaqUDAGQOuTmDyklwqFzVDAgWdu9WWlEHTOHFJBzo3k1oImUUfBMSf1uUmIEIENys5796YxuftN3DKD35CCIFZiiIPc4UPjMRcmHJ6XIW7Fi7EgE6Lbj/yZwPsN5yY/Xk0C7KZ0GYiPemJ3I4nvnnzqOL4N6wDc+qhjW5L6mft5MhUviOZgRUhLSwmw/flyxK1Ft81gKVkRXLGQHff4bUv7ltQNVrxgsmXIM0sDlyTD46+WQ2OVW8h+IUTUVLXTOF9NiwLj7rjZDemzMYFRjf5uxe5L6rjbkh+0dSx7KojtlhJEJUKzjhCF/YA4yKKlX6kzZ4wIeTC3Of8cnbeu1+HvPfjdagbZvZLKnowuytJQLWBoktvIXBWA9Ez3Wm39qKXv7zemBlwIOrZTxHbpxQiv22SjznpK+0SwzYOU50N87G7P45mcnqcPpFky1fNJIYpbLnwW7yYEy0+ens+E7osXMBXji7lLMrWvsKYgIhldWiYEVNB6LhYYG8ySWJ1ESw05YQuYaVAndA==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(376014)(7416014)(1800799024)(22082099003)(18002099003)(261009223027099003)(5023799004)(11063799006)(56012099006)(10067099003)(4143699003)(261021123027099003)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	AVkbOWeqa8GySnNwa49vCntAQfmCQVWCbBL6qDLgLw1LxdIdF1S5pzLWpjg8lOIICuPGdmUimSGXgvLIee5wD3ikQZ6d/pS9Yh/cRwXsYwHXXMxuyiaokglWJql50NctYwwEJ97Z/rGwfzZ05gWBxY+6BzJobJJLpEqoCjqjlw+sRkICvgV1OZT8B/P8b9YpPkU0VJ3RMeos/voziDu1fIYQJFWvQ0c6pv37TG3AyC6BBArqqofobTcxNox5syrLLcdBEo7FHSd9LZDwUrK+8EcdODWQQM9iWYc3zPiqQQdidrwf11S3f6uHdICx2fTd9xeGbcIFCChOE1wXHaf0J/J6PcwRxeVnkJL7dRG1KW4qx7cxjwXIGQ3qdT1jd1e/jAsKHx8f/TrOpFHWadqN+JnP8+fvzYuUrhwKha0CdNB/sfqahbMtyYeBf7tyLJyP
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 19:53:01.8547
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 25b27f35-12b7-4c5e-df93-08df441b38f3
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN3PEPF00022BC2.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8261
 
-On Thu, 12 Nov 2026 08:41:07 +0000
-ojab <ojab@ojab.ru> wrote:
+On 16/11/2026 20:24, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 · High: 1 · Medium: 0 · Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>
+> - [High] The new locking only works if the unsynchronized read of
+>   `esw->devcom` returns a valid pointer.
+>
+> --
+>
+> net/mlx5e: rep, Fix races between devcom PAIR event and uplink close
+>
+> This commit adds mlx5_devcom_comp_read_lock/unlock(), which take the
+> devcom component semaphore for read whether or not comp->ready is set.
+> It holds that lock across mlx5e_sqs2vport_start() and
+> mlx5e_sqs2vport_stop() so that both are serialized against the
+> ESW_OFFLOADS PAIR/UNPAIR handler.
+>
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c b/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
+>> index a50a42581528a..962c70b9b5661 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
+>
+> [ ... ]
+>
+>> @@ -630,8 +627,12 @@ mlx5e_remove_sqs_fwd_rules(struct mlx5e_priv *priv)
+>>  	struct mlx5_eswitch *esw = priv->mdev->priv.eswitch;
+>>  	struct mlx5e_rep_priv *rpriv = priv->ppriv;
+>>  	struct mlx5_eswitch_rep *rep = rpriv->rep;
+>> +	struct mlx5_devcom_comp_dev *devcom;
+>>
+>> +	devcom = esw->devcom;
+>> +	mlx5_devcom_comp_read_lock(devcom);
+>> +	mlx5e_sqs2vport_stop(esw, rep);
+>> +	mlx5_devcom_comp_read_unlock(devcom);
+>>  }
+>
+> [Severity: High]
+>
+> Are the races still reachable if esw->devcom is NULL or stale when it is
+> read here and in mlx5e_sqs2vport_start()?
+>
+> The load of esw->devcom is a plain unsynchronized read. The store side
+> has no WRITE_ONCE() and the load side has no READ_ONCE().
+> mlx5_devcom_comp_read_lock() also does nothing when passed NULL.
+>
+> In esw_offloads_enable(), the uplink and VF reps are loaded and their
+> netdevs registered before mlx5_esw_offloads_devcom_init() runs. That
+> function publishes the pointer and sends the PAIR event right away:
+>
+> drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c:mlx5_esw_offloads_devcom_init() {
+>     ...
+> 	esw->devcom = mlx5_devcom_register_component(esw->dev->priv.devc,
+> 						     MLX5_DEVCOM_ESW_OFFLOADS,
+> 						     attr,
+> 						     mlx5_esw_offloads_devcom_event,
+> 						     esw);
+> 	if (!esw->devcom)
+> 		return;
+>
+> 	err = mlx5_devcom_send_event(esw->devcom,
+> 				     ESW_OFFLOADS_DEVCOM_PAIR,
+>     ...
+> }
+>
+> The PAIR handler runs with comp->sem held for write. It goes through
+> mlx5_esw_offloads_devcom_event()->mlx5_esw_offloads_pair()->
+> mlx5e_vport_rep_event_pair(), which walks rpriv->vport_sqs_list for
+> every loaded rep and calls xa_insert() on rep_sq->sq_peer.
+>
+> A rep ndo_open or ndo_stop holds rtnl and priv->state_lock. The
+> devlink-locked enable path holds neither across this window. If the rep
+> reads esw->devcom before the store above, two things can happen:
+>
+>   - mlx5e_sqs2vport_start() snapshots devcom == NULL, so it takes no lock
+>     and sees peers_ready == false. It then does list_add() into
+>     rpriv->vport_sqs_list while the PAIR handler is walking that list.
+>     SQs added after the walk also never get their peer send-to-vport
+>     rules.
+>
+>   - mlx5e_remove_sqs_fwd_rules() calls mlx5e_sqs2vport_stop() without
+>     the lock. That can list_del() and kfree() a rep_sq and its sq_peer
+>     entries while mlx5e_vport_rep_event_pair() is still using them.
+>
+> These are the two races the commit message describes as fixed.
+>
+> On teardown, esw_offloads_disable() calls the devcom cleanup while the
+> VF rep netdevs are still registered:
+>
+> 	mlx5_esw_offloads_devcom_cleanup(esw);
+> 	mlx5_eswitch_disable_pf_vf_vports(esw);
+> 	mlx5_esw_offloads_rep_unload(esw, MLX5_VPORT_UPLINK);
+>
+> mlx5_esw_offloads_devcom_cleanup() frees the comp_dev before it clears
+> the pointer:
+>
+> 	mlx5_devcom_unregister_component(esw->devcom);
+> 	xa_destroy(&esw->paired);
+> 	xa_destroy(&esw->fdb_table.offloads.peer_miss_rules);
+> 	esw->devcom = NULL;
+>
+> Inside mlx5_devcom_unregister_component(), devcom_free_comp_dev() does:
+>
+> 	down_write(&comp->sem);
+> 	list_del(&devcom->list);
+> 	WRITE_ONCE(comp->nr_devs, comp->nr_devs - 1);
+> 	up_write(&comp->sem);
+>
+> 	kref_put(&devcom->devc->ref, mlx5_devcom_dev_release);
+> 	kfree(devcom);
+> 	kref_put(&comp->ref, mlx5_devcom_comp_release);
+>
+> The write lock only excludes readers that already hold comp->sem.
+>
+> Could a concurrent VF rep ndo_stop load the old esw->devcom in
+> mlx5e_remove_sqs_fwd_rules() and then call down_read(&devcom->comp->sem)
+> after the kfree()? The stop path did not touch esw->devcom before this
+> patch, so this use-after-free would be new on the close path.
+>
+> Would it work better to serialize publishing and clearing esw->devcom
+> against rep start/stop, instead of locking whatever pointer happens to be
+> read at that moment?
 
-> Since flex-2.6.5 [1] `yyunput` takes a single argument and build fails
-> with:
-> ```
-> emp_ematch.l:35:69: error: macro =E2=80=98yyunput=E2=80=99 passed 2 argum=
-ents, but takes just 1
->    35 |  static void __attribute__ ((unused)) yyunput (int c,char *buf_pt=
-r  );
->       |                                                                  =
-   ^
-> emp_ematch.lex.c:466:9: note: macro =E2=80=98yyunput=E2=80=99 defined here
->   466 | #define yyunput(c) yyunput_r( c, (yytext_ptr)  )
->       |         ^~~~~~~
-> emp_ematch.l:35:39: error: variable or field =E2=80=98yyunput=E2=80=99 de=
-clared void
->    35 |  static void __attribute__ ((unused)) yyunput (int c,char *buf_pt=
-r  );
->       |                                       ^~~~~~~
-> emp_ematch.lex.c:1836:13: warning: =E2=80=98yyunput_r=E2=80=99 defined bu=
-t not used [-Wunused-function]
->  1836 | static void yyunput_r (int c, char * yy_bp )
->       |             ^~~~~~~~~
-> make[1]: *** [../config.mk:34: emp_ematch.lex.o] Error 1
-> ```
->=20
-> Use new `YY_NO_YYUNPUT` to silence redefinition warning in this case
-> and skip `__attribute__ ((unused))`.
->=20
-> [1] https://github.com/westes/flex/commit/721622ea6e6aaf3aa7e55d939679f21=
-e98b76d86
->=20
-> Signed-off-by: ojab <ojab@ojab.ru>
-> ---
+The esw->devcom NULL/stale reads are a devcom lifecycle issue, not
+specific to this patch, and will be addressed in a separate patch.
+This patch fixes the PAIR/UNPAIR vs. rep start/stop race on an
+established devcom.
 
-There are couple of concerns with this patch.
-
-First, Signed-off-by should be a "Known identity" not short alias because i=
-t is interpreted
-as Developers Certificate of Origin. If you resend, please use something mo=
-re than just "ojab".
-
-Also, it looks like flex version 2.6.5 change was later reverted.
-AI discovered:
-  flex 2.6.5 renamed yyunput() to yyunput_r(), but 2.6.12 reverted that
-  and restored the 2.6.4 behaviour (flex commit 160a160). Every version
-  in that window, 2.6.5 through 2.6.15, was tagged within the last week;
-  flex had been on 2.6.4 since 2017. So this works around a rename that
-  upstream has already backed out, in releases no distro ships.
-
-Bottom line: don't use development versions of flex
-
-NAK
+>
+> --
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112182403.3646298-1-tariqt%40nvidia.com
