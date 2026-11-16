@@ -1,64 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794846449;
-	b=KelDVbuzHshosJLzFO9JkgyBL9lrJ9zH2Yn9xk2E6tsho3d/IL3IOoebfL1rKHjnJgoE
-	 lr9h+fnxMaZMrn2FSr+UAx9Tub9EAu/0y0b5DnwK1d1EiZBJEg2Q9ACCXHOTMZMY5YQ1I
-	 9F6sb9wk4RR85evZ1NZQWuZtgWWQbqQD6DbYVABHbPUB5HEpcRQyalv1tJfoT77M292o0
-	 hcQ2phlCcPYBAdhMTC5WBef9+kmocoBQReo8fxTI5ldDT8SDFVQ7xebzcZIyURR7UbiLh
-	 RKY03TiwTr+gbfrRBwL2y6WS3/5RAZ/h6aLr1kfABOCxww8bh0J3r96bauD6iG70ScA==
+	t=1794846526;
+	b=wpD9se0somu16Udw47Uc5CztI0ENGSD78lZa2FDCmMbro3AA7mIK6en2GzRY8fn1hCVG
+	 sYN/BjAYPuTzP34sYx3vsren4Jqv+AaAitd+c+zqt4UadKhuh0IgSLZszgybsY3ovIfX5
+	 nMOhwoXUXExvmYH96HzZ2mZ7sgJaRwmzoJ0wUk3c8IoOFusIxoLvppzg8nHNbs1rzYKQ9
+	 kA8PoieOz3SrEBeCYWEO2fXCBEfxIOWO5iX6ovBoCkOfzm4za4qHdBzo/a2djXJt6YiSN
+	 K0LALWUbwbBay4GC0XFWk+VhMBU80L8glZjoRjZ1NjeKA1bMsqRfwIY9rt1RQlg6c+Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794846449;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=nV9c2MLNlihsCA7BTpRORTeWE46Uw4LSE6nUB+YU+40=;
-	b=JgVedYGJiiPiKI5qzZeDeCtOieLg+If04nh92ReQpGCtPEH1JBe3OaH4bdfzQUbquw6l
-	 ilMBRluNHoVxJkpOhRGVUrMUjS8z7Imf3Feakj0E3I8Go2O3ROXPHUrnv7R54ClrS/2YG
-	 VcEHUPa4af3MnHv5OAGRUwyKxKKCUbIh6k/HTOoXqTicwgOVkokNa53HS66MhMTGN6B92
-	 v6XMI06nLRkehC94MNd3bVq0BEx973KspYYESIrVmOwm8yYxrZ1mNHevg8NRjcBG5QngC
-	 cA4xpHXujvF6cVKPCtXZ10E7EmqOZ06h1Yj9mLcu1MVA5HdU3IQDU8aQEt9itGMtn/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794846526;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=m2qUVYEU4erka3R+8Mzo5flrWhCob2ySKiSLvFVhZag=;
+	b=bS549iPTcHXGAWKKf506hbCdhP9UT6mP4rIHxhgz8AvtIFVdHGmlY3YVuyJlTJtUm6+u
+	 JOFAxm5ogayOXIX+57XYBll6GGzAP0AUB0ivBcz9YtYVG39r90bMN+/QP5BfOWvinod+t
+	 wR4h9mLAHKQE/+cQc5DHmuLgzI2qzPZWSUNuDWQa3N+9I/bOFhRZIi/oAGh6sQIAlawS2
+	 vCXGcOj7EvYRv023W/kw24Y6c3GgWbNRMG9sEEkLFFcIcnhKTUnWHdyiD3omsmgIXGdK9
+	 FtDw9pZmq7UuDHAF4QUxODSqIQR+rMc4pU0qWp070KPjOonFhz7MJ3nXTdMOSTT97eA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EvdLpzCv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=cloudflare.com;
+	spf=pass smtp.mailfrom=cloudflare.com;
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=Tk8oxXj9;
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26EB4606A32C;
-	Mon, 16 Nov 2026 16:27:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E283606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 16:28:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E283606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EvdLpzCv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 530861F000D0;
-	Mon, 16 Nov 2026 16:27:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794846448;
-	bh=nV9c2MLNlihsCA7BTpRORTeWE46Uw4LSE6nUB+YU+40=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EvdLpzCvDmBIPhUdLLEYg/bg/X09XK9EzfDBSHVn6+fs1+9GupPKWuockBAB/U11/
-	 rXZ7Xw2eVeUa/QZ8lcKySQShRZgO5zA7Gopx3Y9Ws9KukNTgUklisww4m3STxOg57f
-	 F/ouZZg6ycw8Sw7KvtJrJgnWRZEAPjrgpmxQSI9sdeYpr+aytHp+C+dCVOTBEicR4Q
-	 ej0laSiZVDd8thLnM4G4AdXsHlzzqRKDjRre32y8xVEemlvsiXxVyuF5iXWB6i5ddJ
-	 dwdlIONRiJvpVQsdgWXi1G9MJxHSMVy/35MQMSnRHqUtIcQbiBFlYpm0lwgkHVe1d2
-	 kK6YvMYwy6WQg==
-Subject: Re: [PATCH net v9 4/4] selftests: net: hsr: verify GRO policy and
- ordered forwarding
-From: netdev-bot+sashiko@kernel.org
-To: xiexinet@gmail.com
-Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, andrew+netdev@lunn.ch,
- shuah@kernel.org, kees@kernel.org, petr.wozniak@gmail.com,
- qingfang.deng@linux.dev, fmaurer@redhat.com, luka.gejak@linux.dev,
- bigeasy@linutronix.de, xiaoliang.yang_1@nxp.com, skhawaja@google.com,
- liuhangbin@gmail.com, stable@vger.kernel.org, sdf.kernel@gmail.com,
- lukma@denx.de, fmancera@suse.de, danishanwar@ti.com
-Date: Mon, 16 Nov 2026 16:27:26 +0000
-Message-ID: <179484644688.3136.15525954898173827248@kernel.org>
-In-Reply-To: <20261112153333.20-5-xiexinet@gmail.com>
-References: <20261112153333.20-5-xiexinet@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=Tk8oxXj9
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c45551fa84eso702308266b.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 08:28:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudflare.com; s=google09082023; t=1794846523; x=1795451323; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=m2qUVYEU4erka3R+8Mzo5flrWhCob2ySKiSLvFVhZag=;
+        b=Tk8oxXj9BHFLTph+V0GNfvgoPR3BlwfYIK1obg18W2MCzFUc3JxDaqjWB7jk5oUstL
+         dDl5+3g3s+RxPQtpL0pPw0DQqqzKoUDAs3rpjYeKIC0ABSlts4k59XTTVVFxGlzzFZwV
+         6ZU0T3LluGqKZxAoDf+rmF2DSK3R8SoDSF6p/y17YV7s+OijCfTHeI/6iCZl+Wq2HhWz
+         N3Z0j/qfkvZxE7F+q5UzsaLeQep8aG+9294pYvSqSUWAUU3/nOijUuNpGT00mvk7PsXq
+         rel+YUirI8TD4rYPdNmgZDGkpSbxvfzzT4qdpVMyRRYhp/iy0rfNX8AsSCkIhuQfKHQ7
+         LMJw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794846523; x=1795451323;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=m2qUVYEU4erka3R+8Mzo5flrWhCob2ySKiSLvFVhZag=;
+        b=2yxDj0Fkx3SbHIH26HR5Oc3S2c+kxx8KxlWQx9zQuRTSdYsK8D+QyVlkcvlqEANe3O
+         komIt+3hipHpHn8XK2MYCaWJ5CrcqL6hNYlYm8yhL1QqOcUFdOvY/0TjNVw74fgWln0c
+         0hkBjm0NWc41X04HvuMiMRLNJ6UP3De0qsxehXP6k+LfUHlvO41HxRfbK0L8HmhaYNbX
+         c2/O65yu8mr9QpB2pLW5o/7i0X/WVe9uczqCl42+xmcXTIQbxEU9HJAvOpX8n/NCphQ0
+         JUDs36VsyJW3P8Plt9JYZzZrk9E1lwGesYlfHsltiqEkCzXWJ7T+8pjz9KQTcPowodJU
+         jbWQ==
+X-Gm-Message-State: APuU4Z+I0TkmtYcOBWVbr+eBh1nwVewjL+JwGR6144a3oQr5LFNO8zhb
+	Nw6cHCj82tgug+Yo/ytuoO+3sGd8Aaf2YKp3I6mO/1HAg+7NYMTiGEitHuNjETxGNID5aFrGJXt
+	jv5e51i7/yQ==
+X-Gm-Gg: AYBFou1Y/xc3AThN6c80IezUu6qZU1SRTNHhO3sl0bNX+DEgEBcQ0mKu7sKFlUfpAEI
+	yHdWW74GbdWG8MumWHp24vNOoSEIzzYTqqTnih6rWERwRM/+KPY2fdeIj7fGRby8ourAMIuqume
+	f0b2meg3RF420ygj84Oe21CTu20N9IDrJfuzhwKOtzgbqANz+rIVoNl9ZoI3HtVni4Vet4G+ek1
+	/kK9vcgN6enqIgmn5k+TGF9MKWe/swQSum6n+uuvl1tQ9IEN7J1fU/sSmEGuNMSykWXYERsJAmq
+	alh/XD8D8HK2yitOC3234FIAbRk5s8ojjK1faZClHEHtKmeviHkPQfMcswxp7+3YsAQKqSOJDtA
+	ZxBzi2a0tlt2woiQr36L74soYwPE4b7T3ZOys6aneCCkf/Q3RNDt68xRMT5NqUrtO6007tSL7zH
+	eX2wYGySKTTOBdfJUnt8fodPcJnFbgqVpBH19jzDgbL7N6fAHIk4gwCCtjq573BVgBFeKkstUHH
+	qFWERIqcAVW+jO1L5K+YaGHcyIvOLXn+Mtumd0ANWaZ4BrGA7X18j3v++OFYMHVqOnioeByyZYl
+	v7CJP/1CNrX76bMaUi0RbzTK8lq4sVmU0JiYV6MDU+lkydTq
+X-Received: by 2002:a17:906:d542:b0:c29:d31f:7d6a with SMTP id a640c23a62f3a-c509642ad87mr785783066b.35.1794846523503;
+        Mon, 16 Nov 2026 08:28:43 -0800 (PST)
+Received: from L9JK9NPFH9 ([2a09:bac6:37ad:1e5a::306:a])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c50b13a2ae7sm299639966b.62.2026.11.16.08.28.42
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 16 Nov 2026 08:28:42 -0800 (PST)
+From: Tianyi Gao <tianyi@cloudflare.com>
+To: netdev@vger.kernel.org
+Cc: magnus.karlsson@intel.com,
+	maciej.fijalkowski@intel.com,
+	sdf@fomichev.me,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	yoong.siang.song@intel.com,
+	kerneljasonxing@gmail.com,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kernel-team@cloudflare.com,
+	tianyi.gao@linux.dev,
+	Tianyi Gao <tianyi@cloudflare.com>,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH net] xsk: reject TX checksum requests that overflow skb->csum_start
+Date: Mon, 16 Nov 2026 16:28:34 +0000
+Message-ID: <20261116162834.30087-1-tianyi@cloudflare.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,198 +111,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+xsk_skb_metadata() sets the u16 skb->csum_start to hr + csum_start. With
+64K pages, csum_start can be close to U16_MAX, so the sum can overflow.
+The checksum offset then becomes negative. With XDP_UMEM_TX_SW_CSUM,
+skb_checksum_help() triggers a warning. Without it, the device gets a
+CHECKSUM_PARTIAL skb with a negative offset.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+Reject this with -EINVAL. Use the limit of skb_partial_csum_set(), which
+also rejects U16_MAX, the "not set" value of transport_header. That
+helper cannot be used here, as the skb built for an IFF_TX_SKB_NO_LINEAR
+device has no linear data.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Fixes: 48eb03dd2630 ("xsk: Add TX timestamp and TX checksum offload support")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/all/sashiko-outbox-203545@kernel.org/
+Signed-off-by: Tianyi Gao <tianyi@cloudflare.com>
+---
+Sashiko reported this in [1], and earlier in [2][3].
 
-- [Medium] In tcp_prp(), the check for 'no tag/RCT on local delivery' can
-  never fail.
-- [Low] The commit message overstates what the second refusal group in
-  port_types() checks…
-- [Low] In tcp_prp(), a Skip raised by verify_stream() bypasses the PRP
-  reply checks.
-- [Low] Lab.close() closes every owned socket (lines 367-368) before it
-  joins the producer threads (lines 369-373).
+Returning -EINVAL leaves the descriptor in the TX ring, as the current
+check does [2]. That is a separate issue and out of scope here.
 
---
+There is no selftest. The umem chunk size is at most PAGE_SIZE, so only
+a 64K-page kernel can hit this.
 
-selftests: net: hsr: verify GRO policy and ordered forwarding
+[1] https://lore.kernel.org/all/sashiko-outbox-203545@kernel.org/
+[2] https://lore.kernel.org/all/20260518063407.C3B99C2BCB7@smtp.kernel.org/
+[3] https://lore.kernel.org/all/20260531042721.DBD4B1F00893@smtp.kernel.org/
 
-This adds two HSR/PRP selftests, hsr_gro_superpacket.sh and
-hsr_ordered_forwarding.sh. Both exec one shared Python helper. The gro
-mode checks the member GRO policy, the refusal of unsupported port
-types, and byte-exact TCP forwarding over an HSR interlink and over PRP
-LANs. The ordered mode checks sequence ordering of local, interlink,
-supervision and concurrent traffic, including a sequence wrap.
+ net/xdp/xsk.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-> diff --git a/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py b/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py
-> new file mode 100755
-> index 0000000000000..3548ee0adfae3
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/hsr/hsr_gro_superpacket.py
-> @@ -0,0 +1,1456 @@
+diff --git a/net/xdp/xsk.c b/net/xdp/xsk.c
+index f22f9a2cdbbe..ab2e4fa87a4f 100644
+--- a/net/xdp/xsk.c
++++ b/net/xdp/xsk.c
+@@ -1006,7 +1006,8 @@ static int xsk_skb_metadata(struct sk_buff *skb, void *buffer,
+ 		csum_offset = READ_ONCE(meta->request.csum_offset);
+ 
+ 		if (unlikely(csum_start + csum_offset +
+-			     sizeof(__sum16) > desc->len))
++			     sizeof(__sum16) > desc->len ||
++			     hr + csum_start >= U16_MAX))
+ 			return -EINVAL;
+ 
+ 		skb->csum_start = hr + csum_start;
 
-[ ... ]
-
-> +    def close(self):
-> +        """Stop threads, close sockets and delete owned namespaces."""
-> +        self.stop.set()
-> +        end, errors = time.monotonic() + 20, []
-> +        for sock in self.sockets:
-> +            sock.close()
-> +        for thread in self.threads:
-> +            if thread.ident is not None:
-> +                thread.join(max(0, end - time.monotonic()))
-> +            if thread.is_alive():
-> +                errors.append("sender thread did not stop")
-
-[Severity: Low]
-This isn't a bug, but the docstring says "Stop threads, close sockets".
-Lab.close() closes the sockets before it joins the producer threads
-started by ordered_concurrent().
-
-If a producer is still running here, its sendto() on the closed socket
-gets EBADF. Its except (OSError, ValueError, RuntimeError) clause
-catches that. The 1 second timeout from ordered_socket() and the
-lab.stop check limit how long it can run. The main thread opens no new
-fds until the join returns, so fd reuse does not look possible.
-
-Would joining the threads before closing the sockets match the docstring
-order?
-
-[ ... ]
-
-> +    # A refused second port leaves the first port as it was.
-> +    for dev in ("w", "g"):
-> +        local_pair(lab, ns, dev)
-> +    set_gro(lab, ns, "p", "on")
-> +    set_gro(lab, ns, "g", "on")
-> +    first, second = link_state(lab, ns, "p"), []
-
-[ ... ]
-
-> +    for kind, dev, error in second:
-> +        label = f"{kind} as slave2"
-> +        result = lab.ip(ns, "link", "add", "name", "hsr0", "type", "hsr",
-> +                        "slave1", "p", "slave2", dev, "version", "1", check=False)
-> +        require(result.returncode != 0 and error in result.stderr,
-> +                f"{label}: missing refusal message: {result.stderr.strip()}")
-> +        require(lab.ip(ns, "link", "show", "dev", "hsr0", check=False).returncode,
-> +                label + ": HSR device left behind")
-> +        after = link_state(lab, ns, "p")
-> +        require("master" not in after and after["promiscuity"] == first["promiscuity"],
-> +                f"{label}: first port p changed by the refused attach")
-> +        gro_state(lab, ns, "p", "on", label + ": first port p")
-> +        refused.append(label)
-
-[Severity: Low]
-Does this second refusal group in port_types() check what the commit
-message describes? The message says:
-
-    ... and of a VRF port without leaving an upper link or a promiscuity
-    reference on any port ...
-
-and:
-
-    ... a device refused at attach keeps its request.
-
-Only p is snapshotted here (first = link_state(lab, ns, "p")), and only
-p is compared after each refused attach. The refused VRF port w and the
-macvlan mvg have no baseline. Their promiscuity is never compared, and
-the GRO state of mvg is never read back.
-
-The first refusal group snapshots every candidate device in before and
-checks each one again, so the two groups do not match. A leaked
-promiscuity reference on w or mvg would still pass this case.
-
-Should w and mvg also go into the before/after comparison?
-
-[ ... ]
-
-> +def tcp_prp(lab, row):
-> +    """TCP GSO from a SAN on one PRP LAN is delivered locally, segmented."""
-
-[ ... ]
-
-> +    lab.cmd(tx, "ethtool", "-K", lower, "tso", "on", "gso", "on")
-> +    caps = [lab.capture(tx, lower, pkttype=4), lab.capture(dut, "pm", pkttype=0)]
-
-[Severity: Medium]
-Can the check for no tag/RCT on local delivery ever fail for this
-capture?
-
-The pm capture is opened with the default prp=False. decode() only
-recognises a PRP RCT when prp is set:
-
-    elif prp and end >= off + 6 and raw[-2:] == b"\x88\xfb":
-
-So every frame captured on pm decodes with tag=False and
-encoding="plain". The TCP payload ends at the IPv4 total length, so 6
-trailing RCT bytes are silently ignored.
-
-verify_stream(..., local=True) then calls:
-
-    wire_rows(captures[1].rows, port, stack, tagged=False)
-
-and this check in wire_rows() is always true here:
-
-    require(row["tag"] == tagged, "flow tag/RCT missing or unexpected")
-
-The size limit does not catch it either. A 1514 byte segment plus a 6
-byte RCT is exactly 1520, which passes
-row["size"] <= 1520 + 4 * len(stack).
-
-Suppose the PRP master delivered frames locally with the RCT still
-attached. The IP stack would trim the trailer and TCP would still
-complete, so this case would pass. The commit message says "Tags/RCT,
-sequence numbers and VLAN stacks are checked".
-
-Would opening the pm capture with prp=True make this check effective?
-
-> +    ingress = lab.capture(dut, "d" + side.lower(), prp=True)
-> +    lanes = [lab.capture(dut, dev, pkttype=4, prp=True) for dev in ("da", "db")]
-> +    payload, reply = tcp_transfer(lab, tx, dut, sender, "10.68.0.2", "10.68.0.1", 5201)
-> +    lab.finish(fin_seen(caps + lanes + [ingress], 5201))
-> +    verify_stream(caps, 5201, payload, stack, local=True, inband=inband, ingress=ingress)
-
-[Severity: Low]
-What happens to the PRP reply checks below when verify_stream() raises
-Skip? verify_stream() ends with:
-
-    if not aggregate:
-        raise Skip("no sender GSO aggregate observed")
-
-The comment above it says this gap is reported only "after transfer and
-all other checks". In tcp_prp(), though, the reply checks run only after
-verify_stream() returns: exactly once per LAN, RCT present, LAN id
-10 + index, encoding "prp", identical copies. Nothing here catches
-Skip, so main() prints "ok N - ... # SKIP".
-
-When the sender capture shows no payload larger than 1500 bytes, a
-missing, duplicated or wrongly tagged PRP reply would be reported as
-SKIP, not FAIL. This seems to contradict "its reply must appear once on
-each LAN" in the commit message.
-
-Could the Skip be held back until the reply checks in tcp_prp() have
-run?
-
-> +    copies = []
-> +    for index, cap in enumerate(lanes):
-> +        cap.validate()
-> +        rows = [frame for frame in cap.rows if frame["ports"] and
-> +                frame["ports"][0] == 5201 and frame["payload"]]
-> +        require(len(rows) == 1 and rows[0]["payload"] == reply,
-> +                "PRP reply not exactly once per LAN")
-
-[ ... ]
-
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112153333.20-1-xiexinet%40gmail.com
+2.56.0
+
