@@ -1,55 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794865431;
-	b=GW3SZmKyIMnp8VIXabHU7vkAh0GRNG5JerF1WAqM5w4NzNi6gL2G9e3EiJyvX46QW73g
-	 t7Sh+ceWwMCfMKnFVV96LXRuazsgPcDLm2rp0j4s9GNalnzb/oG80TD1a1y+WY2wOLPzD
-	 0XCfzOmFARNg/dyrnqhvxCfOHVhvmB4GqvA00po+pIkXrXRU4Tzw/ruw9zd6wukCCuKrO
-	 CuDtPfnFang9s1zZGPynC5NzZ1gwSvMXmZwSsQXdcxwscRHr8y/7+5QGpPvm0YZ75bQbz
-	 ePCF3R3siu9uqW2BEl7IXG1noV7vEMBVnGOmXyyvBJJt5Dl2S/lWTayX4i0jb+sdj4g==
+	t=1794865803;
+	b=ginaVK4Z59tvW7RP7+AlcFadLZ9OnMwfCSkw71LfJdfKrkP/nj3VbKXqfxEZGpZyH2rK
+	 yWC/R9FOJGSRp56kOD3hJGuRR+X6uk6h1q+7NBahFSGjTTwHKMBEr9wVWxAlrRnFGqjmH
+	 z0jkQYZ65WauJIObhy9DNcRpifo1FnelO1i7Dj2cOa8+1puYfC7J5eqep+SfN2SP1sDsD
+	 Vx82ZGWZ2qBTyAAddlrGeL1Q1yHmMjYIzg5tbamsi/bQZmOYGwgZ0eLqt2uis500ykYot
+	 rubXA4Qjj2He3rfkkrYsrFE7DMhfZsQNagSdrstZvWbc4bXwAqm7EX+7FYBMF5ht/tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794865431;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794865803;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ov/6IZZ7XEfFuf0xpzSPcbQE6OpbtU5d3AbTS9+wKu4=;
-	b=B3Zfvdruq155a0nm3jMliwgt6oAnTcB5YtUkcXVfFnG16UndgbWbTiQ3s2XKROiAUnVx
-	 awTJ2JN967I80xNnxWEsHJbsmCSeXp5zqHxPqbXqAncNDsyIYB7DSqTlKEok7J/Jh+RV4
-	 IMPDjzLPpZH5C/hbDE60f483xjVp80Egeo5VECFFO1YM5WPT3g0ayL5HrHBSi5bC6CxXb
-	 0Tss58qBaDgDnOSxCQS8/pRcTmluc10nFSuVNApdOduI0po19MI/1TxjCLpdNQWY96Abv
-	 RacwcTfZhs9HLXfiZPD8O9yx3CbSM5/2XQMBReouZyUO7kzmICSsA9X1ZXk1C9xMN/A==
+	bh=+jsFqFzKZSD9MdsyE3tmoUMLAK/UTPTcstylH2JUgu4=;
+	b=xlCVtH9p2PHmtG/Z92wZSENW+93MWdobb3BRblIUvbRCQeyK7CIs11O7SbwJCKWjRcwo
+	 cGit9/hXHPdxYpogQkLp7QQ/FzFdIT66u57m5eOpBLJzXiVEoZPThPTy65xK0os1LgOw4
+	 hN/hY9AoJ9ClrFIBv5OBsnZBSlapjSo53m2mLZBB7Hbi+Y5yTn8MMCJKeM5H9bocdJIKF
+	 mldrEj2tZ36gCb7eEVCl0cclmOMfFnUOnEmw2G1gD/y7HotwlCpDtTDw9wyqXwZ2KmLAl
+	 cUUIhVeqvvbCir+9mQn4vcMLcBKUGN+wsgKKOnu5lEg9ZwP37d/FqGMgZAnSU2x9R5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P21+LzkM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k37Bv7TF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4161E606A31C;
-	Mon, 16 Nov 2026 21:43:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24A04606A31C;
+	Mon, 16 Nov 2026 21:50:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P21+LzkM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 529FB1F000C4;
-	Mon, 16 Nov 2026 21:43:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k37Bv7TF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1A821F000C4;
+	Mon, 16 Nov 2026 21:50:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794865430;
-	bh=Ov/6IZZ7XEfFuf0xpzSPcbQE6OpbtU5d3AbTS9+wKu4=;
+	s=k20260515; t=1794865803;
+	bh=+jsFqFzKZSD9MdsyE3tmoUMLAK/UTPTcstylH2JUgu4=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=P21+LzkMrBCQNVvG4YGW5FId3BH0twyb3DifSatU6Hs0gg49292bIV9yPZjFffBjb
-	 av0ZgTewreqAz5TIw9NeAUQap7pAdMbOrCCQ9NLHI75gtXsEMaa2mPF0QT+mzfPFVg
-	 A5Dz/hC1VTTcFXuuLOoqQTHBr1NPoQjOGeGKCeGDymC98QrfzQazUqObB8fiR0i1Mn
-	 2nC9WPdJJPXj1WuJBFQDSHLaxV64VmuOamuUGiIvuohhrpwDSOGxvoTZgIf+aAoqdJ
-	 kE+NKaLg7Usf/mdL3yCjwNvco12/n5Vg4wKVcFpYOrYCe5hK0Xea0eTAuRRAwuBKoU
-	 9feXjCAwbS8Og==
-Subject: Re: [PATCH] net: phy: realtek: fix listing of sysfs directory tree
+	b=k37Bv7TFoT4Ul1KmSwB7KupyTlwJNzDlOaHHOeihdzkaaSpkbBcZ3J9+etgSXHsCW
+	 LQPigaHIBGR7hoYVXT2xaoqFHPdWDdujpYFYva0wTUU3lr4AGFhLB3IMZhZwtzrKop
+	 gcQRKcVKGVWTqi/LPmeXnMSGUGg4UHhuhjOEtT1QTXOhXupyWUDGWf/YfAtSk3sMNV
+	 A2XH1dMEIqloIxM/jZ6tUTM9+Mt6Ts8tiOvU9LF1MvRDzcA0HGe21JXIxRuI6FMHi+
+	 i+t1Gp6HE5HHQKZa8U26AHQwcpsMuUQZolpeeWyClydnidWS5tHg0W9efrQ32wgE4x
+	 I8A8gHaXPZ2NA==
+Subject: Re: [PATCH net v2] selftests: net: veth: propagate channel-check
+ failures to exit status
 From: netdev-bot+sashiko@kernel.org
-To: mat.jonczyk@o2.pl
-Cc: andrew@lunn.ch, javen_xu@realsil.com.cn, hkallweit1@gmail.com,
- linux@armlinux.org.uk, kuba@kernel.org, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Date: Mon, 16 Nov 2026 21:43:49 +0000
-Message-ID: <179486542983.3136.9636959145442798025@kernel.org>
-In-Reply-To: <20261115214045.3704-1-mat.jonczyk@o2.pl>
-References: <20261115214045.3704-1-mat.jonczyk@o2.pl>
+To: emmaonana18@gmail.com
+Cc: kuba@kernel.org, tianyi@cloudflare.com, netdev@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, shuah@kernel.org, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, skhan@linuxfoundation.org
+Date: Mon, 16 Nov 2026 21:50:01 +0000
+Message-ID: <179486580141.3136.15559598598860423821@kernel.org>
+In-Reply-To: <20261115214702.50817-1-emmaonana18@gmail.com>
+References: <20261115214702.50817-1-emmaonana18@gmail.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -63,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -74,80 +78,118 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The patch renames one Realtek PHY driver ("Realtek RTL8261C/D
-  10Gbps PHY" -> "Realtek RTL8261C_RTL8261D 10Gbps PHY" in realtek_drvs,…
+- [High] The fix is incomplete.
+- [Medium] Because chk_channels() now sets ret=1, the "setting invalid
+  channels nr" check at tools/testing/selftests/net/veth.sh:467-468…
 
 --
 
-net: phy: realtek: fix listing of sysfs directory tree
+selftests: net: veth: propagate channel-check failures to exit status
 
-This commit renames the RTL8261C/D PHY driver from "Realtek RTL8261C/D
-10Gbps PHY" to "Realtek RTL8261C_RTL8261D 10Gbps PHY". The '/' in the old
-name makes reading /sys/module/realtek/drivers fail with EIO. It is tagged
-for stable.
+This patch changes chk_channels() in tools/testing/selftests/net/veth.sh
+so that it sets ret=1 when the channel counts reported by ethtool do not
+match the expected values. A channel mismatch now gives the script a
+non-zero exit status.
 
-> diff --git a/drivers/net/phy/realtek/realtek_main.c b/drivers/net/phy/realtek/realtek_main.c
-> index ca2d515b77b36..a39ad18382f25 100644
-> --- a/drivers/net/phy/realtek/realtek_main.c
-> +++ b/drivers/net/phy/realtek/realtek_main.c
-> @@ -3483,7 +3483,7 @@ static struct phy_driver realtek_drvs[] = {
->  		.write_mmd	= genphy_write_mmd_unsupported,
->  	}, {
->  		PHY_ID_MATCH_EXACT(RTL_8261C_CG),
-> -		.name			= "Realtek RTL8261C/D 10Gbps PHY",
-> +		.name			= "Realtek RTL8261C_RTL8261D 10Gbps PHY",
+> diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
+> index 64c2a5a59821d..5c1dbe1516bb4 100755
+> --- a/tools/testing/selftests/net/veth.sh
+> +++ b/tools/testing/selftests/net/veth.sh
+> @@ -130,6 +130,7 @@ chk_channels() {
+>  		echo " ok "
+>  	else
+>  		echo " fail rx:$rx:$cur_rx tx:$tx:$cur_tx combined:n/a:$cur_combined"
+> +		ret=1
+>  	fi
+>  }
 
 [Severity: High]
+Is this fix complete?
 
-This fixes one driver, but does it leave the root cause in place?
+The commit in the Fixes: tag, 1ec2230fc721 ("selftests: net: veth: add
+tests for set_channel"), also added three inline channel/XDP checks to
+veth.sh. Each of them prints a fail line but never sets ret:
 
-The symlink name under /sys/module/<mod>/drivers is built from the raw
-driver name in make_driver_name():
+	printf "%-60s" "bad setting: XDP with RX nr less than TX"
+	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
+		section xdp 2>/dev/null &&\
+		echo "fail - set operation successful ?!?" || echo " ok "
 
-drivers/base/module.c:make_driver_name() {
-	driver_name = kasprintf(GFP_KERNEL, "%s:%s", drv->bus->name, drv->name);
+	printf "%-60s" "bad setting: reducing RX nr below peer TX with XDP set"
+	ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null &&\
+		echo "fail - set operation successful ?!?" || echo " ok "
+
+	printf "%-60s" "bad setting: increasing peer TX nr above RX with XDP set"
+	ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null &&\
+		echo "fail - set operation successful ?!?" || echo " ok "
+
+These checks test the queue count limits in drivers/net/veth.c:
+
+veth_xdp_set():
+	if (dev->real_num_rx_queues < peer->real_num_tx_queues) {
+		...
+		err = -ENOSPC;
+
+veth_set_channels():
+	if (priv->_xdp_prog && peer && ch->rx_count < peer->real_num_tx_queues)
+		return -EINVAL;
+
+	if (peer && peer_priv && peer_priv->_xdp_prog && ch->tx_count > peer->real_num_rx_queues)
+		return -EINVAL;
+
+Suppose a kernel change lets one of these invalid configurations
+through. The script prints "fail - set operation successful ?!?", but it
+still reaches exit $ret with ret=0.
+
+The subject says channel-check failures now reach the exit status.
+Should these three sites set ret=1 too?
+
+[Severity: Medium]
+Now that this sets ret=1, can the "setting invalid channels nr" check
+fail the whole script on hosts where nproc is lower than
+num_possible_cpus()?
+
+The test gets its CPU count from nproc and treats CPUS + 1 as an invalid
+tx count:
+
+readonly CPUS=`nproc`
+[ ... ]
+ip netns exec $NS_DST ethtool -L veth$DST tx $((CPUS + 1)) 2>/dev/null
+chk_channels "setting invalid channels nr" $DST $CUR_RX $CUR_TX
+
+The kernel limit comes from num_possible_cpus() instead:
+
+drivers/net/veth.c:veth_get_num_queues() {
+	int queues = num_possible_cpus();
 	...
 }
 
-module_add_driver() then creates the link under that name:
+drivers/net/veth.c:veth_get_channels() {
+	...
+	channels->max_tx = dev->num_tx_queues;
+	channels->max_rx = dev->num_rx_queues;
+}
 
-	ret = sysfs_create_link(mk->drivers_dir, &drv->p->kobj, driver_name);
+ethnl_set_channels() in net/ethtool/channels.c rejects only
+tx_count > max_tx, and the ioctl path does the same.
+veth_set_channels() has no upper bound check of its own.
 
-kernfs accepts the '/'. When the directory is read, verify_dirent_name()
-in fs/readdir.c rejects the name and getdents fails for the whole
-directory:
+On some hosts nproc is lower than num_possible_cpus(). Examples are QEMU
+with -smp N,maxcpus=M, firmware that lists hotpluggable CPU slots, or a
+process limited by taskset or cpuset. There the ethtool -L call
+succeeds, ethtool -l reports tx = CPUS + 1, and chk_channels() takes the
+else branch.
 
-	if (memchr(name, '/', len))
-		return -EIO;
+Before this patch, that only printed a fail line. With ret=1, the
+selftest now fails even though the kernel behaved correctly.
 
-The driver kobject itself is not affected, because
-kobject_set_name_vargs() already does strreplace(t, '/', '!'). Only the
-module drivers symlink name skips that replacement.
+The commit message says:
 
-At this commit, several other tristate PHY drivers still have '/' in
-their names:
+    all chk_channels() call sites expect the check to pass
 
-  drivers/net/phy/smsc.c: "SMSC LAN8710/LAN8720"
-  drivers/net/phy/qcom/at803x.c: "Qualcomm Atheros AR8031/AR8033"
-  drivers/net/phy/marvell.c: "Marvell 88E308X/88E609X Family"
-  drivers/net/phy/davicom.c: "Davicom DM9161B/C"
-  drivers/net/phy/intel-xway.c: "Intel XWAY PHY11G (PEF 7071/PEF 7072) v1.3"
-    (plus three more entries in the same file)
-  drivers/net/phy/microchip_t1s.c: "LAN865X Rev.B0/B1 Internal Phy"
-  drivers/net/phy/xpowers/acx00.c: "X-Powers AC200/AC300 EPHY"
-
-If any of these is built as a module and loaded, find /sys and
-ls /sys/module/<mod>/drivers should still fail with EIO. That is the same
-symptom quoted in the commit message.
-
-Could the '/' be replaced in make_driver_name() instead, the same way
-kobject_set_name_vargs() does it? That would fix every bus and any future
-driver name. It would also avoid renaming the user-visible
-/sys/bus/mdio_bus/drivers/ entry for this PHY in a stable backport.
-
->  		.probe			= rtl8261x_probe,
->  		.config_init		= rtl8261x_config_init,
->  		.get_features		= rtl8261x_get_features,
+That doesn't hold for this call site on such hosts. Should the test pick
+its out-of-range tx value from the kernel's reported maximum instead of
+from nproc?
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115214045.3704-1-mat.jonczyk%40o2.pl
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115214702.50817-1-emmaonana18%40gmail.com
