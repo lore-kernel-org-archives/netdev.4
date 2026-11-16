@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794866927;
-	b=Hxb9Xrv/vjwWAGfwRAQ3M+e0jXAPo74ftUIXn8XXnCthKSEa1rBUMjn0neCP7AJzZPu3
-	 t1icjBoon5rjRZUXGB4T2Jr9uZEt//u47IKZkyyyL0y0dNWjdYmjNMqfDvwBRKT21rDGu
-	 SW8mNd9Uj3C+Vpw2I67Q5Rl+fT270UHnqgCn4C7MIWPLSjsHz3jgUYlyDT2JrLfEvDWmS
-	 +g5eO9u8Qc7n5czauNSQoaWHTL4hwee6KB4Co0SXEMUIlMhbT02mwrvLXhlF7JO9sUHzT
-	 XuLfkvw8FyssleA4PDHHtA0C+oz1ue/AFRnKe3T6A0ROmNVWLzl8DPMQRQKRatej58w==
+	t=1794866936;
+	b=gAQjedInxhY7zLrzObvboUxavZ3ZB+TH9m2242KPX06aHe7kXAs2OH6YPpMsn8w5BaOt
+	 WglmY1kzTHcYReoYC843hYHBcegPWjGOJBbjEhptDr9ZsjOxIl08F5TxVf4JZeHP7QS2q
+	 cTBK9ngWShdR7PgzVjp/90ZpEUxXJ2vX+exrpvucGNMIgD/GhrK3VzeVRVsRGFyLJ7C4b
+	 mQAbYYbIgLI2mYAmKYKb904VTB5+w3U+9gnjWu5/umN0Kn9t70r8XBXPreFXg9I/jj8zH
+	 vcwTMl6/ltcJKcEXO9fnM2tM3OQ45btLIYm8G1BbxOa/mPsc2Dc0CaPiYFqcNdBfbrg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794866927;
-	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=YgGC5dcF1FjK0AqtrI3Ka3r7FM43DVqvPfh/GmOBMCU=;
-	b=cX7c0KQ5aUhoYBC3d2HSalV+n9ptTPERsjNQcjGZtR6mh+tgQus0r2TX5PPd09ncpWiP
-	 AjJMHL8ww/OcUHqzyZkzUjy9J9vj6vDuixcJI0fIXnPiBdPGfh7PKt9XbL2u07dZY1OPf
-	 onLJVMzM9gXiPI9eaf91Nnb87KziVAB7pNM0dmc5Zh325WIjTs6Ap5zY52FyNOIiN2nT4
-	 QxTbrbLguAbJu1C4d2UMpGb3kg1L+ETBHzcaftjOjYY4CeTxvmOVONdFftE9WwXgMMnP7
-	 hBdzInB/UcWQSXDKvDwkWTwbq3ACNhoGel8nEsmi3edsYfYcqJY2D2o3Xos+xwSCNbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794866936;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=Tj2/cFIwMQiU0oTdy1lbkijRfjf34Z7e24OcuJwQONY=;
+	b=xyaKL7uNFZ0Otwj0zdXSPQXmjkRtSlW03hDDcL2hpzvfoOLzHmn+8Bdcb+O1VsadjyiU
+	 cEpw4+hRypdy+vuAeSAVi4smLqW8+xCpapAFHGTVEAaKzNgZAngUfNpi7aBY1/krunRdM
+	 N1o3PMQydmiS3Zvyyx1PNFrgNhaRot2pLgHPef/UMrzQcq0Y3gggadNyX9SsG6SUOF6F9
+	 apAxYf+UFJ6dl55xqIJHTMRI3NY+7dvyoBOJf7xIw6GopQ6Jf38qGRRYEmkJgvdTFTHNx
+	 YclyQ1YfKG1FjJsLWF+dJOba8Qzas4hYO1Evq3beqa44896yx3OjwCWqo+Mnxu2cxBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EkDD5C73;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S2QqxXbK;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C71A5606A32C;
-	Mon, 16 Nov 2026 22:08:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 127D160A262C;
+	Mon, 16 Nov 2026 22:08:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EkDD5C73
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82ECA1F000CC;
-	Mon, 16 Nov 2026 22:08:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S2QqxXbK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 528D01F000C6;
+	Mon, 16 Nov 2026 22:08:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794866927;
-	bh=YgGC5dcF1FjK0AqtrI3Ka3r7FM43DVqvPfh/GmOBMCU=;
-	h=From:Subject:Date:To:Cc;
-	b=EkDD5C73fky8RbN+l0YO8J5+aiybO3Ajk0rL9ztJ3PXeqhT18PlrmWCAcg1/Sv3d6
-	 wus6kmgsrtezN14K5dv2Y8lVCaItUF1h+l5ctXTNsXoNoFlFRP4L/b8jAesQIO4ZmR
-	 YCfVt0hI7DpTh6a7b/YKRN5OTXBSMx1qAdKYVFfkK0DizYdVRVhyJBV45VuDvlXR2g
-	 Q261gHsZT7Ulf4mTLWNvgWLvIBYkbyJUKSS5sjPpjRkwXXB8o4DVNSWn8pgmM4b+Yo
-	 tApPZoFDVHYYn0Rlx/l50AzSzSXS7I2KnKOc8iPLxmYjuHJA4upaa2+nTFCXQSo3r/
-	 gkAxseyoD1eQA==
+	s=k20260515; t=1794866935;
+	bh=Tj2/cFIwMQiU0oTdy1lbkijRfjf34Z7e24OcuJwQONY=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=S2QqxXbKe3sufn9poQhFXU+WJWVCh02pWq02vwmIQE05eLt1F4Vwr598L+IcJjXCU
+	 S3G9NdVNUhFT5+hRNd4wuZ3/J59ExXMHRrgssn10qAvpSjCPocX+vg+ouvrMb+eE/p
+	 WpqF8gMQF53r0CpFMdwAOZHGv3twWC116J+A+UBhDdV5EUr/7wnnCtXOW5XD3b4vgH
+	 XhMmm+cRDu+LpEHUVM6ksGHxX3a+yA3vucCOKOQtySyrYDPSp6jItAuX56Cn8y31U7
+	 nFzHxWsJYU1co4DTSmg+WrAoTxKZlgq/jmRqJEKBPDxMjzVsYWHC+DoVH684az4tUu
+	 Y5UUa6gqQULsQ==
 From: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
-Subject: [PATCH net 0/7] mptcp: misc fixes for v7.4-rc4
-Date: Mon, 16 Nov 2026 23:06:07 +0100
-Message-Id: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e@kernel.org>
+Date: Mon, 16 Nov 2026 23:06:10 +0100
+Subject: [PATCH net 3/7] mptcp: use sk instead of casting msk in
+ check_fully_established()
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -55,10 +55,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM0QrCMAxFf2Xk2YDtSqX+ivjg0kwjrJamijD27
- 0Z9PJd7zgrKTVjhOKzQ+CUqj2LgdgPQ7VKujJKNwe99dM5FLNxxqZ0qLqKEs7xZ8YABGwVMmVK
- I8+hy8mCJ2vh3sMIJzITzf9TndGfq3zBs2wc/dBrnhQAAAA==
-X-Change-ID: 20261116-net-mptcp-misc-fixes-7-4-rc4-9dc946f31d92
+Message-Id: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-3-bf7656de653e@kernel.org>
+References: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e@kernel.org>
+In-Reply-To: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e@kernel.org>
 To: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -66,60 +65,61 @@ To: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
  Dmytro Shytyi <dmytro@shytyi.net>
 Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, 
  linux-kernel@vger.kernel.org, "Matthieu Baerts (NGI0)" <matttbe@kernel.org>, 
- stable@vger.kernel.org, Quanye Yang <quanyeyang@proton.me>, 
- Petar Sakic <petar.sakic@ink.fish>, 
- T S Rameshkumar <rameshkumar.t@phytecembedded.in>, 
- Chris Mason <mason@kernel.org>, Geliang Tang <geliang@kernel.org>
+ stable@vger.kernel.org
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1591; i=matttbe@kernel.org;
- h=from:subject:message-id; bh=/DeWziEbbXwiOuisDmNrM56NFM/zlaQSji3xryXLt4Y=;
- b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLJ+1z2d/KrwL2vpqT0H/smuOr7hd/OUV2uPL3+7dPtX6
- 0rF745XTDpKWRjEuBhkxRRZpNsi82c+r+It8fKzgJnDygQyhIGLUwAmcqebkeF1jF6avY55U4zR
- 1H8C2f03NrTlenY2vaysMy+bmcxy3ZCR4W/kEh6T9IdusTedT2hU3jXcNClsf2Ew2/qcp8o28yf
- JcQAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1620; i=matttbe@kernel.org;
+ h=from:subject:message-id; bh=QwxgCSzbTvt4gHjKMplH154tKIyEr+lvY7q4aegDmF0=;
+ b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLJ+1z23fnLld3ls6skXL7+sFC46P///4rz3G2oOPHviz
+ bKWd2bNkY5SFgYxLgZZMUUW6bbI/JnPq3hLvPwsYOawMoEMYeDiFICJLF7AyPDPRH6F46Y01aYF
+ RzRnm5VtPMz1dtvUDfU+F/Xam6Rn39Nl+MU89d+MzgdM/0z7jn5e+3zB2buXnU7Nf1NetICF40V
+ GQiMrAA==
 X-Developer-Key: i=matttbe@kernel.org; a=openpgp;
  fpr=E8CB85F76877057A6E27F77AF6B7824F4269A073
 
-Here are some unrelated fixes:
+The MPTCP socket is cast to a struct sock in check_fully_established(),
+to take its data lock. The next commits need it more, to push the
+pending data.
 
-- Patch 1: do not send data beyond the window announced by the peer. A
-  fix for v5.11.
+Add a local 'sk' variable instead of casting msk each time: no
+functional change.
 
-- Patch 2: push pending data after a sendmsg copy fault. A fix for v6.1.
+The 'Fixes' tag here below is the same as the one from the next
+commits: this patch is needed to fix the issues introduced by this
+commit ID.
 
-- Patches 3-6: with TFO, send the data written by a server before the
-  third ACK as soon as this ACK arrives, also in case of fallback to
-  TCP, even if the connection was shut down. Fixes for v6.2 and v5.19.
-
-- Patch 7: after a fallback, fix the dummy mapping of overlapping
-  segments. A fix for v6.19.
-
+Fixes: 36b122baf6a8 ("mptcp: add subflow_v(4,6)_send_synack()")
+Cc: stable@vger.kernel.org
 Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 ---
-Geliang Tang (1):
-      mptcp: fix dummy mapping of overlapping segments
+ net/mptcp/options.c | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-Matthieu Baerts (NGI0) (5):
-      mptcp: do not use a raised snd_wnd for the send window
-      mptcp: use sk instead of casting msk in check_fully_established()
-      mptcp: push queued data on passive TFO subflows becoming established
-      mptcp: push queued data on subflows falling back at the handshake
-      mptcp: don't send a FIN before the pending data on fallback
+diff --git a/net/mptcp/options.c b/net/mptcp/options.c
+index a1e65309171e..1c58468b985b 100644
+--- a/net/mptcp/options.c
++++ b/net/mptcp/options.c
+@@ -982,6 +982,8 @@ static bool check_fully_established(struct mptcp_sock *msk, struct sock *ssk,
+ 				    struct sk_buff *skb,
+ 				    struct mptcp_options_received *mp_opt)
+ {
++	struct sock *sk = (struct sock *)msk;
++
+ 	/* here we can process OoO, in-window pkts, only in-sequence 4th ack
+ 	 * will make the subflow fully established
+ 	 */
+@@ -1043,9 +1045,9 @@ static bool check_fully_established(struct mptcp_sock *msk, struct sock *ssk,
+ 	if (mp_opt->deny_join_id0)
+ 		WRITE_ONCE(msk->pm.remote_deny_join_id0, true);
+ 
+-	mptcp_data_lock((struct sock *)msk);
++	mptcp_data_lock(sk);
+ 	__mptcp_subflow_fully_established(msk, subflow, mp_opt);
+-	mptcp_data_unlock((struct sock *)msk);
++	mptcp_data_unlock(sk);
+ 
+ check_notify:
+ 	/* if the subflow is not already linked into the conn_list, we can't
 
-Quanye Yang (1):
-      mptcp: push pending data after a sendmsg copy fault
-
- net/mptcp/options.c  | 23 +++++++++++++++++++----
- net/mptcp/protocol.c |  4 +++-
- net/mptcp/protocol.h |  6 +++++-
- net/mptcp/subflow.c  |  2 +-
- 4 files changed, 28 insertions(+), 7 deletions(-)
----
-base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
-base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git main
-change-id: 20261116-net-mptcp-misc-fixes-7-4-rc4-9dc946f31d92
-
-Best regards,
---  
-Matthieu Baerts (NGI0) <matttbe@kernel.org>
+-- 
+2.55.0
 
