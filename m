@@ -1,109 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794855679;
-	b=PiHyjHL0cXiSYfhbUgsf6Lg9u2jyBeDsU5Bcn50gbBySwnAlt3KThCH77/b1x+Agx5O1
-	 W7gQCw36WArMDCK43XXvdWw3FAehp6NFpwbto4s5tu91sb+7uWv1dyk59cuQfYUg4I5gw
-	 8ozw2N4Z1VoaihvDB2uCOB33EJoNXA3plSovFfKalpB99o0LETYysqtiCyEsyKIl7Zz7b
-	 c7mOCFhBOJcB42RHRlMQ0qlF7WDvEsD0smkIUzqsNO3Of5bDUzR0HnA/GoD/OTPQpbzA+
-	 bK30rtxcaRds7bxaxEHw/m1OzMHx6//mQtlDk7rqz/QY286zFMh3bfJmFVteRohBh3A==
+	t=1794855708;
+	b=nKWU89p04lqrnL7ppgTmmeExDyMUHoqFAe4kx7VLfZsFGS0LVcm9OYmhbDyOPICwYCo9
+	 h4MbJVFBGfIaD7tpxMvxwWYBc8gEeGs369ytr0DeGHbny8YyRL6t0R3iLQw+M5lsFLnmM
+	 fft8S96LDedJ0W/BDqAR4LcPj1iu52Kui/jo8msYL2xa77A2QzH8uKnjYVv33UWQS+sTN
+	 kJSWsnSpRmeaUOA98EeQO1nEkgjUWNlpYV/vVWI8OAKW0wU75NIerH6iCohs2qzoMMlCo
+	 RB7c7q0mcnB4fe8XjnYrz9SfRy8hWOVxfjVXCoGIdk3SoEU6SkWjo/DWBYgA1NES9Fg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794855679;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794855708;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 Received:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=mElhP/ecybx1CHryPEfZ2rqVqQNJPxmya9RqbFWTsKg=;
-	b=iPZJUY1rzZLkmPWIucdymYsun1md0YpaPYIo4jRTsFVkPGfzXSZ3AckHiUkDdU0n8bT7
-	 WZEMdZGzaY46/vonqxjCFBNEPV/+gNwYAQJtSCbO5V15Sp2kvLOj8bBDcReImBVMiiRsG
-	 /d1MJSlUSyMO/jxHUC8+SWyjkRuhR7WmQjsVaTFLxEAr0+Gjl7VbpUH0oHr7oZNdiX2mK
-	 HsicHojgB05oYEqlPNpwgiz8kpzz2A6CgXRyINR6ZnwOuQ8TvabgTpWknOkoKZlDP5Atc
-	 voI0qQs9fEiojNyW0BHLNQVdCCn69fcdbzqQWvUCENkf9cF+xJ7+c0NdSXr7AFJVBBg==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Cw/BVa7eJbiscvjL5aeyO7U6YquYlPCCRzpuqZhRipc=;
+	b=PwHwmNmRhxxUJkwx4E1tcpOEfcE2XVtQiQVFYFmFmyDiXLuTYAT5kD9Zu2Msz6K6jGYx
+	 yhxxI8uE6GNsRMSom/jsKt72e5oMLYfqTQMGLc4PB4Hwzr45TvK+X0CpxEOhz0PJsdwP6
+	 fsTe1n61a4PxaBEipNb/crJQmmPO10lpmlXLz4fPCrvMcI9hZ7w3xJQnE5WWgOKbgokrp
+	 n5aYhbvjIkZdGpuHnxT6P/jlh5/GS1TkKlFTbQS5dPCOYVAnlVdPpJrHX1/UP2prrzIzX
+	 DZpu1753XGQ4nPA1TPgQkpkuZMTFGNz2Vaox6qjyvb8t99yvLzrl5LhnQMN0ZtbRYpg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=purestorage.com;
-	spf=pass smtp.mailfrom=purestorage.com;
-	dkim=pass header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=MIGThasu;
-	arc=none smtp.remote-ip=209.85.216.97
-Received: from mail-pj1-f97.google.com (mail-pj1-f97.google.com [209.85.216.97])
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=QbCiUXtZ;
+	arc=none smtp.remote-ip=209.85.217.45
+Received: from mail-vs1-f45.google.com (mail-vs1-f45.google.com [209.85.217.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77E83606A323
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:01:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77E83606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=purestorage.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=purestorage.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29089606A333
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:01:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29089606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=purestorage.com header.i=@purestorage.com header.a=rsa-sha256 header.s=google2022 header.b=MIGThasu
-Received: by mail-pj1-f97.google.com with SMTP id 98e67ed59e1d1-3b18717a193so2116794a91.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:01:18 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=QbCiUXtZ
+Received: by mail-vs1-f45.google.com with SMTP id ada2fe7eead31-7d2d18f1bf5so3376724137.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:01:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=purestorage.com; s=google2022; t=1794855678; x=1795460478; darn=vger.kernel.org;
+        d=mojatatu.com; s=google; t=1794855707; x=1795460507; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=mElhP/ecybx1CHryPEfZ2rqVqQNJPxmya9RqbFWTsKg=;
-        b=MIGThasu67UTC+QQ89EKRNcs0Hu3rQJi1FQP2JeEHovAQ/8sluTZBgMC5zcpkSt2Oy
-         WEc9VNlLZwFWyuh9tURYWWRTaQwpLYN2EaYrmw6XZ8SKuq7limgeDx4hZYABIliYxZKb
-         cQosdCN8wW8EfzSWdz4HtIgkfvWp4PEjqcnCZvrwsyQrNVZnPxv/LLHxdcLPsu1XiAhM
-         Y4QwpzbN/gLRTgKH7rPF5B3Wyv56+Ghgq2YSFMb3MQHuaXY2uzQwVaepIOgpt060CH8x
-         IGDyery1M2x4IPwSkUd+3CwIdpUNeoU3Ldml3ovEIlgpFrnN+C9aki2nL8OjJcGIS1v7
-         RrMg==
+        bh=Cw/BVa7eJbiscvjL5aeyO7U6YquYlPCCRzpuqZhRipc=;
+        b=QbCiUXtZRVTJMzuv6PPfz7FP+kPrzpr1DUAFHg0qC5gbMW7INX8qE/0WMc3jqiNgu9
+         DFbIw1TVw/2/Uob51/UUg7m467jgrfcEXwJz7UVImI/hpGrt2KTAS3PeuyVb+9Gh7DgR
+         NJnazUsU9fqboHYIFEH3jOaRVZ91UIBTnguU8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794855678; x=1795460478;
+        d=1e100.net; s=20260707; t=1794855707; x=1795460507;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=mElhP/ecybx1CHryPEfZ2rqVqQNJPxmya9RqbFWTsKg=;
-        b=GDg53AKxUo/kXd48UdhawOpBmhHeZ7GnG6ID+UsSnn9RqtTLridm+uSluvOcUnO9w7
-         5DQE++5c6a3EH6Rb79YT3RDzwTi0YucbbL5ANP7Z69GNgfZoK0fEYa/VmFD0v0mHWgye
-         fvUzA+oAAyqUoDTcUT3VBKJyPLBZznVsw+AUC082+I2Jtj61c5CauDaPM4YvTSAF0ch3
-         njaf8KFQ72lw8EuWFAJwok1RMa23CwszMUDnoZkGmtWX6tFpOw1Pw+5OiWuR8gwLmJLc
-         GayARJqWO9lOySUITojVi52CEmuObZSzt2MTVVRyO21J+ZPNDeP4ojIALanjVs0FerR7
-         Fr/w==
-X-Gm-Message-State: APuU4Z8T9JoYFp+vuiTWVkXbaRkWuSTzfdJhkKqWy4NDiDEm+sQg2Gqs
-	T4qoA2/kiK2asicP3jjAbdmItjqK5iMYOch38390Yc9w2H1yHICJM5s0gvECZqtOnfdF7lmhOz9
-	beC8QysyJC8/K2PCY9zMDZT+3sbFkb8wD+tHh7UvuO1ThUqDXQn5Y
-X-Gm-Gg: AZFdTZfbW2gO9j31hFwtzYFWerY/9ok7qI/VTXR2IUwJMN8Q++rw83WbuRdiD5jfmfM
-	mhpKLx2+JLPY+IY2YQsYqcOQv3pqCbzTPTnHFf9Ds4TDB4OiFvPsCjDh6xhL0nMtwuJQlY3B6yq
-	0INIhQaoJXL0P8Q6vIHOW0zL92jLIvmF5TDbbAI29tHa2q5wWLQue1Mb8Ph0hg8rlg9W777mxor
-	abfMdBrW5lZ2rX4NoZNY6GQEPfva8AMJ+QgpUsACpIRQt3dZuykcoVJe8fs8yiKvQYsBYpu301p
-	tPoQ/RewaG3ncbdPcySGfKr48DKUhQARrxmTPsdamHNJ3pIFhsrjO0sRgg8XUV4pldI/TnU48sV
-	ex7b3UWmeogo8rqMnKWZ6
-X-Received: by 2002:a17:90a:c88b:b0:3ac:7449:40b4 with SMTP id 98e67ed59e1d1-3b1b0b5316cmr11493330a91.45.1794855677419;
-        Mon, 16 Nov 2026 11:01:17 -0800 (PST)
-Received: from c7-smtp-2026.dev.purestorage.com ([2620:125:9017:12:36:3:6:0])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3af69e8d4sm8366a91.2.2026.11.16.11.01.17
+        bh=Cw/BVa7eJbiscvjL5aeyO7U6YquYlPCCRzpuqZhRipc=;
+        b=oE1cnypLGBfUCfvyrlKBWPdtPGzeYe3TSNOHNxlm9xnv5UoN1NCjX/ryZdJxaBcKyt
+         NQrT+ux9zPi/I73jkVqJW9x9k9wKjdZVWVWpOXmxWhe10HtYHoPxUICyqLPqIjbSvc5d
+         dVCTRNJSmnSbid3iu1/iNtA7Puc4XIqb7F5als+4OLxoIjsXR6M/jePWP5nQ7STzIMVZ
+         xrCtdyamEoXGAL7v7OrZc9aGTjkQ4sl37GsV8AVtsGJElsFq2jSXziQMnAaOkP8po4mS
+         l4FPiAtqLQoWfp698HHhMMk3KMYBSA3dIJMkcBIThCyHGCwDiVJ/T4wdpgXNLkwfIwvs
+         hyiQ==
+X-Gm-Message-State: APuU4Z8dHW1lsVg23y2nKsibkc4o/oFhYhb39YlyuYQAwRmY5YN8bwT3
+	Z/N0M4svteZGXfTtxDERzCb7w6DoXtXptSfXexTtpa0uq/Qt6glZSiKsRi90SBY+i6gmpeTT0oP
+	tXoY=
+X-Gm-Gg: AYBFou2wfNsSi4jLtAWGp4ldrnrJS3znShvj7fXMBO0Y0lw90YGiwTt1w1KgoSCkf7z
+	D6a6CgzAXZ96gBOKTB66JuDN4V99YvY57YfAgn8TvIvWVXDi1HqWAYKOdVcgz62WhBmPbVPXRIk
+	95xKNH906Gm1A+MQ6Gax7CksVTsR15jVO3wKEnaKRmPOxzn3SBXOSMKzWpZ4+ZYHwQ5Aj++QM8a
+	fc94uvMLJb1yxYNGP8tPTt+RpG1nlGUgYpxxmOOcbmMpeLuqNIU/iowwiHm96DJeGNk226XSo3Q
+	8VhxQ/Mj2fkFgFgsRC+d018Ue7oOJ9aI2HPT/3H1W5nRy0sBnKJbp93nFcSZs4rEML71ZNK1zto
+	cT4gVWkYOJ3ba3i3mXtGS1CXI0AdzvmDt5p6J8HfLA0H6xvBBtEQio17GXoWKZE+mpgP3keogjX
+	JBH5wZHnSkIZypbIm9F0iDp5HouGC1SoYNoecPsjW9NYSpzlvLf9EaFweeJNAjBsU01C4p+9hGn
+	PaNY+PEkTTGxG+X6S5rFLv4fTtl9K3jcQ+t1AYzJBgyM29qnrm13k87EN4Lrfd/gS0npKeCjbyl
+	qKWvw6xDGfts7cGngPJn9qwEVAj2YTcqOd1jgdnFNSimtNr1T4IozCizncRz0MczR5myVqxILgk
+	=
+X-Received: by 2002:a67:e7c1:0:b0:7b2:f3ff:6b34 with SMTP id ada2fe7eead31-7d64d468432mr4302490137.1.1794855706870;
+        Mon, 16 Nov 2026 11:01:46 -0800 (PST)
+Received: from mbili.waya ([64.203.83.2])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d453casm91997386d6.10.2026.11.16.11.01.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 11:01:17 -0800 (PST)
-X-Relaying-Domain: purestorage.com
-Received: from dev-rjethwani.dev.purestorage.com (dev-rjethwani.dev.purestorage.com [IPv6:2620:125:9025:23::2ea])
-	by c7-smtp-2026.dev.purestorage.com (Postfix) with ESMTP id 88344401CE;
-	Mon, 16 Nov 2026 12:01:16 -0700 (MST)
-Received: by dev-rjethwani.dev.purestorage.com (Postfix, from userid 1557719937)
-	id 8205DDC0D05; Mon, 16 Nov 2026 12:01:16 -0700 (MST)
-From: Rishikesh Jethwani <rjethwani@purestorage.com>
+        Mon, 16 Nov 2026 11:01:45 -0800 (PST)
+From: Jamal Hadi Salim <jhs@mojatatu.com>
 To: netdev@vger.kernel.org
-Cc: jiayuan.chen@linux.dev,
-	Rishikesh Jethwani <rjethwani@purestorage.com>,
-	stable@vger.kernel.org,
+Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
+	ipsec@lists.linux.dev,
+	bpf@vger.kernel.org,
+	Jiri Pirko <jiri@resnulli.us>,
+	Victor Nogueira <victor@mojatatu.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	Sashiko <sashiko-bot@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
 	John Fastabend <john.fastabend@gmail.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Dave Watson <davejwatson@fb.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v8] kcm: reject TLS on attached TCP sockets
-Date: Mon, 16 Nov 2026 12:01:08 -0700
-Message-ID: <20261116190111.3317976-1-rjethwani@purestorage.com>
-X-Mailer: git-send-email 2.50.1
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: [PATCH net-next v4 0/4] net: drop the stale dst when steering to another device
+Date: Mon, 16 Nov 2026 14:01:37 -0500
+Message-Id: <CORE-9NOG.v4.r0.20261116135311@mojatatu.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,164 +122,162 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Neither kcm_attach() nor tls_init() rejects the other, so KCM and kTLS RX
-can be stacked on the same TCP socket in either order. This breaks in
-several ways:
+This patchset is created to address constant whining by both sashikos
+about this being an issue when fixing a UAF on a teql issue, see:
+https://lore.kernel.org/netdev/QDISC-6HS9.v4.r0.20261111094338@mojatatu.com/
 
-- KCM calls read_sock() from its receive callback in atomic context.
-  With kTLS RX this reaches tls_sw_read_sock(), which can sleep.
-- Before tls_sw_read_sock() existed, read_sock was tcp_read_sock(), so
-  KCM consumed raw ciphertext from the receive queue that TLS parses.
-- Both install socket callbacks. kcm_unattach() restores the pre-KCM
-  sk_data_ready over tls_data_ready, so TLS RX stops getting notified.
+Two producers steer a packet to a network device of their choosing and
+then hand it to the neighbour layer for link-layer resolution:
 
-The sleep in atomic context was reproduced on an unmodified kernel with
-CONFIG_DEBUG_ATOMIC_SLEEP.
+  3/4 netfilter: the neighbour variant of nft `fwd`, on the netdev egress
+      hook
+  4/4 bpf: `bpf_redirect_neigh()` when the program supplies the nexthop
 
-Reject sockets with a ULP in kcm_attach(), and make tls_init() fail while
-KCM is attached. A tcp_sock boolean, present when CONFIG_AF_KCM is
-enabled, tracks attachment. It is set and cleared under the transport
-socket lock.
+Both rewrite `skb->dev` to the target device and leave the skb's dst
+pointing at the route the packet arrived through. When the target
+device's neighbour for the nexthop is incomplete the packet is parked on
+that neighbour's arp_queue, and draining the queue re-looks the neighbour
+up from the stale dst. The frame is therefore built with the original
+device's link-layer header and then transmitted on the target device: the
+packet leaves with another device's addresses, and the sender never
+learns that its nexthop was unreachable.
 
-Also switch the transport check to sk_is_tcp(). The family and protocol
-checks alone also accept raw IPPROTO_TCP sockets, which have no tcp_sock.
+This is explicit: the steer-to-another-device path never worked in this
+respect, so there is nothing here to regress. Both producers shipped with
+`skb->dev` swapped to the target device and the route's dst still
+attached, and the arp_queue drain has re-derived the neighbour from that
+dst for as long as either producer has existed; the invariant "the skb's
+dst describes where the skb is going", which the routing path keeps when
+it steers, was never established for these two entry points. With no
+commit to anchor with a `Fixes:` tag and no crash, UAF or lockup
+involved, the series targets net-next and does not nominate `Cc: stable`:
+a backport would change long-standing redirect behaviour for no
+crash-class benefit.
 
-Validated with KASAN and lockdep: connected IPv4/IPv6 raw sockets, both
-attach orders, detach, and concurrent installation.
+More context: this came out of the review of the fix for a parked skb
+being resolved against the wrong device in sch_teql, posted separately and
+not part of this series. The neighbour code's queue drain is doing the
+right thing there, it re-derives the neighbour from the skb, so the repair
+belongs with the producers rather than with the drain path. Both
+producers are fixed in the same series so neither is left behind; each
+patch that changes a producer carries its own reproduction recipe.
 
-Backports without commit 8cc3aef0cb198 ("tcp: Do not allow buggy
-transitions between ehash and lhash2.") must also prevent attached
-sockets from becoming listeners after disconnect.
+The reproduction for both arms is a pair of veth devices, one of them
+with an unresolved neighbour, plus a capture on the target's peer: the
+captured frame's source and destination addresses name the device whose
+neighbour was used to build it.
 
-Fixes: c46234ebb4d1 ("tls: RX path for ktls")
-Cc: <stable@vger.kernel.org> # needs 8cc3aef0cb198 or equivalent, see above
-Link: https://lore.kernel.org/netdev/3108e934-ec00-458b-8720-450554b35b55@linux.dev/
-Signed-off-by: Rishikesh Jethwani <rjethwani@purestorage.com>
+v2 drops the dst only when it describes a route, and keeps what the route
+carries (thanks to Pablo for catching this). A `DST_METADATA` dst is the
+tunnel template a tunnel helper attached to the packet, not a route, and
+dropping it would discard the encapsulation parameters, so it is left in
+place. A route carries encapsulation parameters too when it was installed
+with an ip, ip6 or xfrm encapsulation; 2/4 adds a helper that moves them
+onto a metadata dst before the route is released, so a producer that
+steers into an external tunnel device still finds them in
+`skb_tunnel_info()`, and one that steers into a `collect_md` xfrm interface
+still finds its `if_id` and underlying device. Neither case weakens the fix:
+a metadata dst resolves neighbours through `dst_blackhole_ops`, whose lookup
+returns NULL, so the queue drain keeps the parking (target-device) neighbour
+exactly as it does with no dst at all.
+
+1/4 is a prerequisite on the xfrm path turned up after Pablo's comment.
+The interface that consumes that metadata puts the original route back on the
+skb before the xfrm lookup, which needs its family, and installing a
+reference counted route over a dst slot that is still occupied trips the
+slot assertion; the slot is cleared first. The same overwrite is in the
+tc-bpf helper that attaches the metadata, so both sites are fixed in that patch.
+
+The Sashiko reviews of v3 raised two questions about the release, one on
+3/4 and one on 4/4: what the target device's transmit path sees once the
+route is gone, and whether the older fallback to skb_rtable() in the tunnel
+transmit paths is reachable from it. Neither needs the release narrowed,
+and both are answered here.
+
+A target device's transmit path still sees the route of the device the
+packet arrived on, for the few consumers that read it on the way out. A
+tunnel with no configured remote takes its outer endpoint from that route,
+so a packet whose route carried no encapsulation parameters is left with no
+dst, counted as a transmit error and dropped, rather than encapsulated
+towards an endpoint that belongs to another device's path. The route realm
+goes with it: a realm is a property of the route the packet took, so nft
+meta rtclassid and nft rt classid stop matching on that packet, and
+bpf_get_route_realm() returns 0. Encapsulation parameters are not among
+what is lost: they moved onto the metadata dst, so a tunnel or an xfrm
+interface downstream still builds its outer header. Taking the outer
+endpoint or the realm from another device's route is the same cross-device
+reuse the release removes at the neighbour lookup, so these are the
+intended consequences, not gaps.
+
+The skb_rtable() fallback is older than this series. When a tunnel cannot
+take an endpoint from the skb, ip_tunnel_xmit() and ip6_tnl_xmit() cast
+whatever dst the skb carries to an rtable, and a metadata dst is not one.
+A tc-bpf program that calls bpf_skb_set_tunnel_key() with no remote
+already hands an NBMA tunnel such a dst, so the cast is reachable without
+this series; the release can also leave one behind when a route's
+encapsulation parameters are not usable for the payload. Repairing the cast
+is a separate change, and 3/4 and 4/4 say so.
+
+Closes: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v3.r0.20261103062649-2@mojatatu.com
+Link: https://lore.kernel.org/netdev/20261026160747.283702-1-horms@kernel.org/
+Link: https://lore.kernel.org/netdev/QDISC-6HS9.v4.r0.20261111094338@mojatatu.com/
+Link: https://lore.kernel.org/netdev/avTfQjFQYR2NNdRg@chamomile/
+Link: https://sashiko.dev/#/patchset/CORE-9NOG.v3.r0.20261115050625%40mojatatu.com
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/CORE-9NOG.v3.r0.20261115050625%40mojatatu.com
+
 ---
- Documentation/networking/kcm.rst |  3 +++
- include/linux/tcp.h              |  3 +++
- include/net/tcp.h                |  9 +++++++++
- net/kcm/kcmsock.c                | 16 +++++++++++++---
- net/tls/tls_main.c               |  3 +++
- 5 files changed, 31 insertions(+), 3 deletions(-)
 
-diff --git a/Documentation/networking/kcm.rst b/Documentation/networking/kcm.rst
-index 71f44d0beaa3..07778f29211c 100644
---- a/Documentation/networking/kcm.rst
-+++ b/Documentation/networking/kcm.rst
-@@ -167,6 +167,9 @@ The kcm_attach structure contains:
-   - fd: file descriptor for TCP socket being attached
-   - bpf_prog_fd: file descriptor for compiled BPF program downloaded
- 
-+The transport socket must be a TCP stream socket with no TCP ULP installed.
-+TLS cannot be enabled on a transport socket while it is attached to KCM.
-+
- Unattach transport sockets
- --------------------------
- 
-diff --git a/include/linux/tcp.h b/include/linux/tcp.h
-index e6b79cf4798f..d4b07fbae2d5 100644
---- a/include/linux/tcp.h
-+++ b/include/linux/tcp.h
-@@ -516,6 +516,9 @@ struct tcp_sock {
- #if IS_ENABLED(CONFIG_MPTCP)
- 	bool	is_mptcp;
- #endif
-+#if IS_ENABLED(CONFIG_AF_KCM)
-+	bool	kcm_attached;
-+#endif
- #if IS_ENABLED(CONFIG_SMC)
- 	bool	syn_smc;	/* SYN includes SMC */
- 	bool	(*smc_hs_congested)(const struct sock *sk);
-diff --git a/include/net/tcp.h b/include/net/tcp.h
-index 5c9203aae834..5e99d3142f5e 100644
---- a/include/net/tcp.h
-+++ b/include/net/tcp.h
-@@ -2882,6 +2882,15 @@ void tcp_cleanup_ulp(struct sock *sk);
- void tcp_update_ulp(struct sock *sk, struct proto *p,
- 		    void (*write_space)(struct sock *sk));
- 
-+static inline bool tcp_kcm_attached(const struct sock *sk)
-+{
-+#if IS_ENABLED(CONFIG_AF_KCM)
-+	return tcp_sk(sk)->kcm_attached;
-+#else
-+	return false;
-+#endif
-+}
-+
- #define MODULE_ALIAS_TCP_ULP(name)				\
- 	MODULE_INFO(alias, name);		\
- 	MODULE_INFO(alias, "tcp-ulp-" name)
-diff --git a/net/kcm/kcmsock.c b/net/kcm/kcmsock.c
-index a7f94d42036f..ca789812124e 100644
---- a/net/kcm/kcmsock.c
-+++ b/net/kcm/kcmsock.c
-@@ -30,6 +30,7 @@
- #include <net/kcm.h>
- #include <net/netns/generic.h>
- #include <net/sock.h>
-+#include <net/tcp.h>
- #include <uapi/linux/kcm.h>
- #include <trace/events/sock.h>
- 
-@@ -1259,9 +1260,10 @@ static int kcm_attach(struct socket *sock, struct socket *csock,
- 
- 	lock_sock(csk);
- 
--	/* Only allow TCP sockets to be attached for now */
--	if ((csk->sk_family != AF_INET && csk->sk_family != AF_INET6) ||
--	    csk->sk_protocol != IPPROTO_TCP) {
-+	/* Only allow TCP sockets to be attached for now. A raw socket
-+	 * created with IPPROTO_TCP has that sk_protocol but no icsk.
-+	 */
-+	if (!sk_is_tcp(csk)) {
- 		err = -EOPNOTSUPP;
- 		goto out;
- 	}
-@@ -1272,6 +1274,12 @@ static int kcm_attach(struct socket *sock, struct socket *csock,
- 		goto out;
- 	}
- 
-+	/* KCM and ULPs cannot share the receive path and socket callbacks. */
-+	if (inet_csk_has_ulp(csk)) {
-+		err = -EOPNOTSUPP;
-+		goto out;
-+	}
-+
- 	psock = kmem_cache_zalloc(kcm_psockp, GFP_KERNEL);
- 	if (!psock) {
- 		err = -ENOMEM;
-@@ -1305,6 +1313,7 @@ static int kcm_attach(struct socket *sock, struct socket *csock,
- 	psock->save_write_space = csk->sk_write_space;
- 	psock->save_state_change = csk->sk_state_change;
- 	csk->sk_user_data = psock;
-+	tcp_sk(csk)->kcm_attached = true;
- 	WRITE_ONCE(csk->sk_data_ready, psock_data_ready);
- 	WRITE_ONCE(csk->sk_write_space, psock_write_space);
- 	csk->sk_state_change = psock_state_change;
-@@ -1386,6 +1395,7 @@ static void kcm_unattach(struct kcm_psock *psock)
- 	WRITE_ONCE(csk->sk_write_space, psock->save_write_space);
- 	csk->sk_state_change = psock->save_state_change;
- 	strp_stop(&psock->strp);
-+	tcp_sk(csk)->kcm_attached = false;
- 
- 	if (WARN_ON(psock->rx_kcm)) {
- 		write_unlock_bh(&csk->sk_callback_lock);
-diff --git a/net/tls/tls_main.c b/net/tls/tls_main.c
-index b8d5a843f761..fa71c75c2861 100644
---- a/net/tls/tls_main.c
-+++ b/net/tls/tls_main.c
-@@ -1067,6 +1067,9 @@ static int tls_init(struct sock *sk)
- 	if (sk->sk_state != TCP_ESTABLISHED)
- 		return -ENOTCONN;
- 
-+	if (tcp_kcm_attached(sk))
-+		return -EBUSY;
-+
- 	/* allocate tls context */
- 	write_lock_bh(&sk->sk_callback_lock);
- 	ctx = tls_ctx_create(sk);
+v3 -> v4 (no patch changes code in this revision):
+- Answer the two Sashiko review questions about the release: what the
+  target device's transmit path still sees, and whether the older
+  skb_rtable() fallback in the tunnel transmit paths is reachable from it.
+- Patch 1/4: comment and commit-log change, no code change. The conditions
+  to recreate the bug are rewritten around the two arms, and the comment on
+  the dst slot swap says what owns the reference it clears.
+- Patch 2/4: kernel-doc comment and commit-log change, no code change. The
+  docstring's Return: section is corrected, and the log says the helper has
+  no caller of its own at this commit.
+- Patch 3/4: commit-log change only, the diff is unchanged from v3. The log
+  gains the section on what the target device's transmit path still sees and
+  the note on the older skb_rtable() fallback.
+- Patch 4/4: commit-log change only, the diff is unchanged from v3. Same two
+  sections in the log.
+
+v2 -> v3:
+- Patch 2/4: Document the return value of skb_dst_drop_keep_metadata() in
+  its kernel-doc comment. The missing `Return:` section was caught by
+  NIPA CI.
+
+v1 -> v2:
+- Do not drop a dst that is not a route: a DST_METADATA dst is the tunnel
+  template a tunnel helper attached to the packet, and dropping it discards
+  the encapsulation parameters (Pablo Neira Ayuso).
+- Keep a route's encapsulation parameters as well: a route installed with an
+  ip, ip6 or xfrm encapsulation carries them in dst->lwtstate, which a drop
+  would discard before a downstream tunnel or xfrm device could use them.
+  The dst release now goes through a helper that moves them onto a metadata
+  dst first (new 2/4).
+- Fix the dst slot the xfrm consumer restores: a collect_md xfrm interface
+  puts the original route back before the xfrm lookup, and installing it
+  over a dst that is still there trips the slot assertion.  New 1/4 clears
+  the slot first at both that site and in the tc-bpf helper that attaches
+  the metadata.
+
+Jamal Hadi Salim (4):
+  net: xfrm: interface: restore dst_orig on every xfrm interface
+  net: dst: keep the LWT metadata of a dropped route
+  netfilter: nft_fwd_netdev: drop the stale dst when steering to a
+    device
+  bpf: drop the stale dst when redirecting to an explicit nexthop
+
+ include/net/dst_metadata.h     |  1 +
+ include/net/xfrm.h             |  2 -
+ net/core/dst.c                 | 79 ++++++++++++++++++++++++++++++++++
+ net/core/filter.c              | 12 ++----
+ net/netfilter/nft_fwd_netdev.c |  6 +++
+ net/xfrm/xfrm_interface_bpf.c  | 19 ++++----
+ net/xfrm/xfrm_interface_core.c | 22 +++++-----
+ 7 files changed, 110 insertions(+), 31 deletions(-)
+
 -- 
-2.50.1
-
+2.43.0
