@@ -1,86 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794832061;
-	b=oBoUlboc2QAKK2OXt71E8nlMMaffvHT1bg9XA6MsfylNi7KgF3w6VeXD0+1DtcV2D37k
-	 X4IBGoBpE0bU2U0CGULTOX8vUlfFXo9/QJWqNx6/GmzD83kL36IZQKok+zqrAIC69SP2d
-	 16ZU9FML2fq2hP4qE6T9fhuV6pzYhzZhB6Y/ldZtLrLAbuaYQoMz1HEZq4aMz+/EKRYRG
-	 OgR1S6H3iIy3aEA3F5sJPtLXI3Bl92dSmwslyjW0h2iFlBPSxg48eZkjuISlg4sxiP486
-	 +mxvKawIY6saKBQ/V7NY0rGc4gfMyJ4+agoWFsusOKeH0c0JSM9sn+w8Qm69AQDobxg==
+	t=1794832109;
+	b=eOO8CTtuMbeB4dEb/CCSrCkQQhBHLTXFVRfFdnFkpE+pZfEeGr74w+L6nsWuIcvFCBDL
+	 KfaZc7w9QpWgaOGFh3dXcxg4Jx3PVGax72XHjeKv4ziM/dZHgs8vbvEoRz8pzDlsbVlQu
+	 lLRG/V1SkfHUC2Nn6VAK0BmoYosYenIVulJ1SN95mDOajVj7hFfFiClm96IuGktz11fC5
+	 aJQsUWggb+ftypV+oOwUOwofXhS6klaITerioTN1z7fkQvzVqETN2pGiKP35uWKMj2dmk
+	 PFZiTpeyfR1GpNWWs6UeS6VbyUFCeHG4IgXsnp36Wn9hoYB0ChjxQfKZVfd8C6+fLRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794832061;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=wuf/Vb21lAKIWx5bIMQ7gAQDptG7l3Y/m/xV4mQ2rWs=;
-	b=e4oaMBotb5n/8h+rcirX3H74E9CVxNx9ZBkP1O1BFS22wBKKp2hr0SU9u96k6ahayhK8
-	 Esd2ETWrLOkT7fhpXwGySd8y/A8MEjm9J3UQaICnPl/4cneNqLffSAad5HW9n4SWPVugH
-	 Fed1UI9mDVb933lfe/yjNXfykDKhAyeWKVhiad91876UUk/xh9T65osDU9vI3fIwBr6Vs
-	 lvZIb4zGHKgXzeKfJKUi9KE9QTmfAhjsCUf1rP4oGpF3O/CGUjdzcFqyA30vSswx9WD3s
-	 kQ6RtyoT6dYBsQj2wIDzL5jcSpGVJPuNN/NOjbG5hATzgAhj+oWgqkujLSDm75f1zDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794832109;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=koB5cD8jkiHwg/gaCDPGLOgCwu+vMsptg2p8K3IP/zk=;
+	b=DVRtE1V9Wf6kR38C7QOKsLUrmSUCe7/QNZsj9fSvSSo/n7uIESpM48RLGTT+gy4HrnZn
+	 XygzRbsrKqu4gbjOQUC4LKZt8ZEAXmhMqneWDm+/urMwDXQUpIDidxDNbu08J/1begv6x
+	 9FXN49Ki7dTrb5ibD3prYZP3CbXa1hZ9Y4fi3HtgOHfnmwsmCJzYaE4wKhLUPQdQavyyg
+	 NKNRdE29O7thswPUCtqITcOIeDbafKVdtIkhxU3F4j5MFwtTsw9jUW2M1T1xMc0td7FYj
+	 2mCM31PQBKgjjSm0gCbAqEYmNliclXCow6EN0W79NW5Th6nRv3hbiUyFPaqt7VGrqIw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WUogbiZ9;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DB9E606A31C;
-	Mon, 16 Nov 2026 12:27:40 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WUogbiZ9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE9EA1F000C4;
-	Mon, 16 Nov 2026 12:27:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794832060;
-	bh=wuf/Vb21lAKIWx5bIMQ7gAQDptG7l3Y/m/xV4mQ2rWs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=WUogbiZ9t9BJObRmhrxViyzM4DGbGCmdWU+/J509gYJyRcdNJqmvKcp/LNe2UB2Rz
-	 0DQXi+ux8crszv2ki8laXp/UrNNxVXcFFr4Q3hIGMcvsEezkaLulNItc8mPYn6GXfe
-	 Y9wkoN9KmMwSPc3TN3NhdHrOKfTZwDqEv6xsqeL1QTjvZpgIVECXvvOpSwzLXLu2C4
-	 UOnZ1gU/GEz06RPdx3Cv+dW1/R7Te7qGMzGucBd4Yl5lDnQt1Ytn2jqIqj48xRjqGw
-	 kUidydPVFHybinuOJj7J4/beXvQjyP4vFINKWCnzqOlbVXIIwXzobkoHreU29LfZ8h
-	 vmWM2c8JsAHYw==
-Date: Mon, 16 Nov 2026 14:27:36 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Alexey Kardashevskiy <aik@ozlabs.ru>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-input@vger.kernel.org, netdev@vger.kernel.org,
-	linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
-	iommu@lists.linux.dev, Jason Gunthorpe <jgg@ziepe.ca>,
-	Alexey Kardashevskiy <aik@amd.com>
-Subject: Re: [PATCH v2 11/19] driver core: Introduce a generic device trust
- level
-Message-ID: <20261116122736.GL11319@unreal>
-References: <20261109-device-trust-core-v2-0-3b12d9a9f861@nvidia.com>
- <20261109-device-trust-core-v2-11-3b12d9a9f861@nvidia.com>
- <de5772b3-c340-4822-a49a-1434ece1b144@ozlabs.ru>
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 06FB3606A31C;
+	Mon, 16 Nov 2026 12:28:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06FB3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=koB5cD8jkiHwg/gaCDPGLOgCwu+vMsptg2p8K3IP/zk=; b=sDchc54b5/Hhu
+	jQgJQso7kRC8U4MZdOTa3543GtiHmcpfFVON9+K/gwmqSdPvwz3kWWlEt0DCn0Y6
+	XPzoDYg1s9JGperNFt6v2GxgLUe2lxJZpqxL7NnNiuofnFNWunmFYjvaiW/UWDf/
+	BaTTXGOaaqoiYzJFI4Tt0H0gZKtQc4=
+Received: from LAPTOP-FRMFRHCN.localdomain (unknown [240e:454:8411:e49:29:34e0:92e:39c2])
+	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkC2vP_J9vpqLoS3AQ--.35856S2;
+	Mon, 16 Nov 2026 20:27:54 +0800 (CST)
+From: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+To: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: linux-ppp@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com,
+	qingfang.deng@linux.dev,
+	25031212117@stu.xidian.edu.cn,
+	byu@xidian.edu.cn,
+	Haoli Zhang <26031212468@stu.xidian.edu.cn>
+Subject: [PATCH net] ppp: serialize channel connect with unregister
+Date: Mon, 16 Nov 2026 20:27:50 +0800
+Message-Id: <20261116122750.23294-1-26031212468@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,82 +65,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <de5772b3-c340-4822-a49a-1434ece1b144@ozlabs.ru>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BbQMCkC2vP_J9vpqLoS3AQ--.35856S2
+X-Coremail-Antispam: 1UD129KBjvJXoWxXF47Gw15XFWktr48Cry5CFg_yoW5XF1UpF
+	Z0k392vryDtFsYga1kGa1UWr17Z3ZxJayjvryqqwn5Zr95GFs3CrsYqayY9F15urs7CFWj
+	yF4FqrZxWa4UX3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUPF14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVAC
+	Y4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJV
+	W8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI2
+	0VAGYxC7M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwV
+	CI4VW5JwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E
+	14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIx
+	kGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAF
+	wI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r
+	4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJbIYCTnIWIevJa73UjIFyTuYvjfU19NV
+	UUUUU
+X-CM-SenderInfo: yswqjiasrskluy6v33wo0lvxldqovvfxof0/1tbiAgUTEWr5zUjRewABs4
 
-On Fri, Nov 13, 2026 at 10:30:23PM +1100, Alexey Kardashevskiy wrote:
-> On 9/11/26 18:33, Leon Romanovsky wrote:
-> > From: Leon Romanovsky <leonro@nvidia.com>
-> > 
-> > Device setup needs a common operating policy before driver probing or DMA
-> > configuration. Userspace must be able to hold devices disabled until it
-> > authorizes them.
-> > 
-> > Add generic trust admission with an immutable global boot policy. Restrict
-> > the compatibility attachment API to explicit global full policy and full
-> > operation, checking admission before probe. Keep the operating level
-> > stable until teardown and retain normal locked admission for other callers.
-> > 
-> > Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
+ppp_unregister_channel() disconnects a channel before clearing pch->chan.
+During that interval, a concurrent PPPIOCCONNECT can observe pch->ppp as
+NULL while pch->chan is still valid. It can reconnect the channel and add
+its clist to a PPP unit, after which unregistering releases the channel
+without removing the new list entry.
 
-<...>
+Serialize PPPIOCCONNECT with channel unregistering using chan_sem. Take
+the mutex before disconnecting the channel and hold it until pch->chan
+is cleared. A connect already in progress completes before unregistering
+disconnects the channel; a later connect waits until pch->chan is NULL and
+is rejected by the existing check in ppp_connect_channel().
 
-> >   #define to_driver(obj) container_of(obj, struct driver_private, kobj)
-> > +enum device_trust_state {
-> > +	DEVICE_TRUST_SELECTABLE,
-> > +	DEVICE_TRUST_WAITING,
-> 
-> What is the exact difference between these? "Waiting" is waiting for what?
+This preserves the disconnect-before-null ordering needed by the transmit
+path. The change adds no locking to the packet fast path.
 
-This is internal device trust state which is not visible to the users.
-In this state driver is not yet allowed to be bound, but once will be
-approved, the driver will be able to continue.
+Fixes: 6a196e83a1a7 ("ppp: disconnect channel before nullifying pch->chan")
+Reported-by: syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com
+Closes: https://syzbot.org/bug?extid=6b18da3ef22e33061add
+Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
 
-The difference between DEVICE_TRUST_WAITING and DEVICE_TRUST_SELECTABLE
-is what happens when you choose a policy: SELECTABLE allows further changes
-before admission, while choosing adversary or full from WAITING immediately
-locks that choice.
+---
 
-> 
-> > +	DEVICE_TRUST_AUTHORIZED,
-> > +	DEVICE_TRUST_COMMITTED,
-> 
-> And exact difference between these two? Some documentation would be great.
-> 
-> dev->trust_policy is how we want the device to operate.
+diff --git a/drivers/net/ppp/ppp_generic.c b/drivers/net/ppp/ppp_generic.c
+--- a/drivers/net/ppp/ppp_generic.c
++++ b/drivers/net/ppp/ppp_generic.c
+@@ -175,7 +175,7 @@
+ 	struct ppp_file	file;		/* stuff for read/write/poll */
+ 	struct list_head list;		/* link in all/new_channels list */
+ 	struct ppp_channel *chan;	/* public channel data structure */
+-	struct mutex chan_sem;		/* protects `chan' during chan ioctl */
++	struct mutex chan_sem;		/* protects chan ioctl; serializes connect/unregister */
+ 	spinlock_t	downl;		/* protects `chan', file.xq dequeue */
+ 	struct ppp __rcu *ppp;		/* ppp unit we're connected to */
+ 	struct net	*chan_net;	/* the net channel belongs to */
+@@ -755,7 +755,9 @@
+ 		case PPPIOCCONNECT:
+ 			if (get_user(unit, p))
+ 				break;
++			mutex_lock(&pch->chan_sem);
+ 			err = ppp_connect_channel(pch, unit);
++			mutex_unlock(&pch->chan_sem);
+ 			break;
+ 
+ 		case PPPIOCDISCONN:
+@@ -3093,11 +3095,14 @@
+ 	chan->ppp = NULL;
+ 
+ 	/*
++	 * Prevent PPPIOCCONNECT from reattaching the channel during removal.
++	 */
++	mutex_lock(&pch->chan_sem);
++	/*
+ 	 * This ensures that we have returned from any calls into
+ 	 * the channel's start_xmit or ioctl routine before we proceed.
+ 	 */
+ 	ppp_disconnect_channel(pch);
+-	mutex_lock(&pch->chan_sem);
+ 	spin_lock_bh(&pch->downl);
+ 	pch->chan = NULL;
+ 	spin_unlock_bh(&pch->downl);
 
-Yes
-
-> dev->p->trust_state is where the device is on its way to that final policy.
-
-Partially, it is not only takes into account authorization (where the
-device on its way), but also commitment (what is possible to do).
-
-<...>
-
-> > +static int __device_trust_prepare(struct device *dev,
-> > +				  const struct device_driver *drv, bool full_only)
-> > +{
-> > +	enum device_trust_policy policy;
-> > +	enum device_trust_level level;
-> > +	int ret;
-> > +
-> > +	policy = dev->trust_policy;
-> > +
-> > +	if (policy == DEVICE_TRUST_POLICY_DISABLED)
-> > +		return -EPERM;
-> > +	if (dev->bus && dev->bus->trust_resolve) {
-> > +		ret = dev->bus->trust_resolve(dev, drv, policy, &level);
-> > +		if (ret)
-> > +			return ret;
-> > +	} else {
-> > +		level = policy == DEVICE_TRUST_POLICY_ADVERSARY ?
-> > +			DEVICE_TRUST_ADVERSARY : DEVICE_TRUST_FULL;
-> > +	}
-> > +	if (level == DEVICE_TRUST_DISABLED)
-> > +		return -EPERM;
-> 
-> This check can go right after trust_resolve() above. Thanks,
-
-Right, thanks
