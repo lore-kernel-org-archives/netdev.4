@@ -1,82 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.65.228
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794799393;
-	b=M/lf3giDbvj7obuCFYZ3wjZHfiwa3qB+t3Y+zn2/t8Xpo2te/4nqviJ55AxynvpelTEc
-	 GMY+Z+c7MxFxXBDxfiqtQcF0+yG0Degf4IKyvKr+3MPCnjACQb6wVOLpY49ii1iKtNpLT
-	 WTSQYemxbSW0rZzzhS2yu2j/EelBWKC6DVK0UHUekfull7zc1gXefx1bJk7YxWQu6sBMz
-	 85YoB9Gos55Nwszssl/Nkh8c/Yul90RmIIqfrzm77mZQh7m5ZE/PlgzS1P9iSPQoN+n29
-	 QJv1JWaqiV09CX0xuS3o1laEnR3jGZfFOc9JwyI9MMKeH1TBaeATpE6u1WrOL1xPI0Q==
+	t=1794800380;
+	b=lK8DbFDVENDW+nDvMrcfm7lFx4DZWbkW4PewDAlGVouPDovTNnB2qGD3aAOB+Rhv8gnx
+	 F0F2WFkfzDazWi0LylIXWRAEsc/LDsKpRUaWDRrVQP2OYUpwRXQ9P1WiCK7qQutXq4TeA
+	 L/fodHn3iDwyntXJCxtJEbZWsntTUus+Wsq8Jbu58eeRrJ3ddlU5XFKn9wjzx9mcxXDAe
+	 EWpHaKY4JNVa7fPVlhXNj5+eQ3uoAqQbSGnjBnF8o9RJGdf5EYLexIpFF4//JOtiswrH/
+	 LJVlEAUHZA9XhRHynDxMrl1JZ731viugxpbPkLR4aHMuQIcDTWBcDFDGxMecU8yudJg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794799393;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Flowmailer-Platform:Feedback-ID;
-	bh=vuaY7FImZE75sRdiBasv0Tsa2qzXujkTJsfP+X+hpsE=;
-	b=lwL81QgLturFPFX+nBP8bLWki4xXouUDY3MBBYB7RZ4Xlo/T5tZDjSdVSsrCCeUP2loj
-	 NYcJRpkWLqU9RQimRMhs775UNNehTcMXj7NUoVn93S8ZfXlVr/UbuLwDMzwGBdzGXMKIF
-	 0HevaASCRNdVBgal64MpZHzABKVReut+AZU7VuJ8da+Axa/+JL76xQQrAyqvce588CSNZ
-	 U/aCbD5TVArvjAlJuwBVwXd6Nwnv8Vp8raHNv4teaI/LxISuUFaXYQpne+SdSp//cKFWB
-	 Db46xIHJfHblYYyClvkt/rLo5YzQEpufqK65gn3V7PNJFPW3fIM2XYGJ518wF04yDEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794800380;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=HRGDjehKKUWoG0r3LnUHhSCDs695Ox9bsthRPW3AfKs=;
+	b=SCts5vH2KRhLB1xm8Oy0KA/tV/FSCjVsQgZ3Me139xE1hO7epZrs0IUEXH1JeOUqjMEK
+	 nJKxPTjc4oX2r72DIJaRGwJ5K38QPIy6Jr6OzFsThaN8bZM6jlkfGYCrgQwNQ43C+bH90
+	 ap4jX+MgE27peF+ZHouiBekuoX/ujexvBVjvvvjfjPGp+12U1vbNS+8hSEehTNaReSbU/
+	 hbpwIBu93oJHl6MWg+BOQF8D3KeV0v89AKNTKAvtjVasCqjgEaDKTkzqEpk/uZu77gphV
+	 9O0AsiW5OEQIul5sFValo6dTsZfp3V3yTQ6Dx7CzhjUBbkbgksd8xZVA/PMr/MA++Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=siemens.com;
-	spf=pass smtp.mailfrom=rts-flowmailer.siemens.com;
-	dkim=pass header.d=siemens.com header.i=meng.ding@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=HQQZot2Z;
-	arc=none smtp.remote-ip=185.136.65.228
-Received: from mta-65-228.siemens.flowmailer.net (mta-65-228.siemens.flowmailer.net [185.136.65.228])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE9F4606A31F
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 03:23:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE9F4606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rts-flowmailer.siemens.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Yf4zt7AW;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A341E606A321;
+	Mon, 16 Nov 2026 03:39:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A341E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=meng.ding@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=HQQZot2Z
-Received: by mta-65-228.siemens.flowmailer.net with ESMTPSA id 2026111603230295d03ed43900020763
-        for <netdev@vger.kernel.org>;
-        Mon, 16 Nov 2026 04:23:02 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
- d=siemens.com; i=meng.ding@siemens.com;
- h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Cc:References:In-Reply-To;
- bh=vuaY7FImZE75sRdiBasv0Tsa2qzXujkTJsfP+X+hpsE=;
- b=HQQZot2Z8h36ijQln+msDhv9gcSYj5SfMiT/N6XRhq1xugtUNdMn/fUxA9qBarw0//j8Na
- Qp5FuiVGhxMPO9cC993IMWDRG3jL5qroVt1jz0dpBcib5J1XqAsug55FaOn/UyJlwDW3+4/Z
- SnqUPMfUPAFyJz26D8x3C+E+NxXIWN8DlZk93cowvaGSNioXssPo/2gJc+UIv9QXzmXIx35U
- NMhKnIdWTs+/JSI01xzO9af0qK0O6sX7kqp73KReA2Smg8mZnL2c/2jAK8tKE3YieXUoBvbc
- ix9Kc3VFdeZvjHKk09TilgE806fp1YWk96vwKdP6iRMZZyoFc6l9hW+w==;
-Date: Mon, 16 Nov 2026 11:22:46 +0800
-From: Ding Meng <meng.ding@siemens.com>
-To: Gerhard Engleder <gerhard@engleder-embedded.com>
-Cc: Paul Moses <p@1g4.org>, Jakub Kicinski <kuba@kernel.org>,
- netdev@vger.kernel.org, Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jonathan Corbet
- <corbet@lwn.net>, Andrew Lunn <andrew+netdev@lunn.ch>, Tony Nguyen
- <anthony.l.nguyen@intel.com>, Przemek Kitszel
- <przemyslaw.kitszel@intel.com>, Steven Rostedt <rostedt@goodmis.org>,
- Masami Hiramatsu <mhiramat@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>, Andrii
- Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar
- Kartikeya Dwivedi <memxor@gmail.com>, Richard Cochran
- <richardcochran@gmail.com>, florian.bezdeka@siemens.com,
- jan.kiszka@siemens.com, wq.wang@siemens.com, Jason Xing
- <kerneljasonxing@gmail.com>, Simon Horman <horms@kernel.org>, Shuah Khan
- <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Mathieu
- Desnoyers <mathieu.desnoyers@efficios.com>, Martin KaFai Lau
- <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
- <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, John
- Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, linux-trace-kernel@vger.kernel.org,
- bpf@vger.kernel.org
-Subject: Re: [PATCH] net: mark skb NAPI IDs independently of busy polling
-Message-ID: <tuwyyxeexvnd4ckncfhdg3grlh2xd6d2rym7vhx2uzdspjopmk@quzaz3gdurlz>
-References: <20261105071706.7043-1-meng.ding@siemens.com>
- <20261110134539.12d860ef@kernel.org>
- <4pqljild2fp6eotiicvwbwu2wfw66fzd4qamwt6utirdjxlaok@iiu2f3k7azrp>
- <Fhn2gT70aJ-2_eak73NBZYuXuKtVb64PoD8VQ9jwm-S-K0RhZilAg9iwSBJ0RlaiSrRvM1vPw1aHvGPjcktu9GmdBuvFk9244-q2IVOrFu0=@1g4.org>
- <1ab53072-b9ee-464b-b5b3-cbb578059b49@engleder-embedded.com>
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Yf4zt7AW
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=Yf4zt7AWXnplUEExzTTbKl/Z5j3+TTwFwUVJo5Sc5Al0bMHpAiv0j4ZgUOub/ODfCcD92z4AXhq3t
+	 SE1wgPeXcb30hHiJPD53i7bGL0/zFtCc06fYYJGIwhchowXwzrr2M41fX04LLxLMQPKPAmnah06QTB
+	 roxuH4m1CDS0fZH4=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16afa7af7a13-d721f;
+	Mon, 16 Nov 2026 11:39:36 +0800 (CST)
+X-RM-TRANSID:2ee16afa7af7a13-d721f
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from [25.255.2.225] (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee56afa7af7057-7b58c;
+	Mon, 16 Nov 2026 11:39:36 +0800 (CST)
+X-RM-TRANSID:2ee56afa7af7057-7b58c
+From: Jiahao Xu <xujiahao@cmss.chinamobile.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, Jiahao Xu <xujiahao@cmss.chinamobile.com>
+Subject: Re: [PATCH net v2] net: usb: cdc_ncm: don't underflow the NDP room check
+Date: Mon, 16 Nov 2026 11:39:33 +0800
+Message-ID: <20261116113933.562622-1-xujiahao@cmss.chinamobile.com>
+In-Reply-To: <179466534452.2199510.12286844115122956221@kernel.org>
+References: <20261110151624.696101-1-xujiahao@cmss.chinamobile.com> <179466534452.2199510.12286844115122956221@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,45 +67,8 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <1ab53072-b9ee-464b-b5b3-cbb578059b49@engleder-embedded.com>
-X-Flowmailer-Platform: Siemens
-Feedback-ID: 519:519-1335312:519-21489:flowmailer
+Content-Transfer-Encoding: 8bit
 
-On Fri, Nov 13, 2026 at 09:59:17PM +0100, Gerhard Engleder wrote:
-> On 13.11.26 09:29, Paul Moses wrote:
-> > 
-> > > 
-> > > Then, drivers that use deferred timestamp conversion (e.g. igc, engleder) must
-> > > specify a busy poll dependency if they want to obtain the original net
-> > > device upon consuming the skb. However, this dependency is far from
-> > > obvious, and annotating it for future features of this kind will be very
-> > > hard to discover.
-> > 
-> > The "deferred timestamp conversion" was incomplete is what I'm saying.
-> > 
-> > This started with 97dc7cd92ac6, 0abb62b68252 and 069b142f5819 were built upon
-> > it, so maybe Gerhard should decide the path forward?
-> 
-> The deferred timestamp conversion is a niche feature for TSN to solve
-> the working clock / global time problem in TSN networks. IMO there is
-> no need to make it working as soon as igc or tsnep drivers are enabled.
-> It would be ok to fall back to normal vclock behavior like all other
-> drivers if CONFIG_NET_RX_BUSY_POLL=n. For me it is ok that NETCONSOLE
-> is not possible for PREEMPT_RT in combination with this feature.
-> 
-> There are already so many things to consider to get TSN working. To
-> not enable NETCONSOLE on PREEMPT_RT for deferred timestamp conversion
-> would be just one of many.
-> 
-> @Ding Meng: Do you actually need the NETCONSOLE in this combination?
-> On productive systems likely not these days due to CRA.
-> 
-> Gerhard
-OK, understand. Thanks for your comments, Gerhard. Actuallly, we solved
-this issue by disabling netconsole and enabling busy poll. This is
-indeed a quite rare scenario, but when it happens, it is a bit difficult
-to figure out that this was the root cause.
+These points were all already addressed in v3 (<20261111124156.637661-1-xujiahao@cmss.chinamobile.com>), which is merged as b507828c7b61, so there is nothing to respin and no pw-bot: cr to add.
 
-Ding Meng
+
