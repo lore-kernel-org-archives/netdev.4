@@ -1,65 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.14
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794790739;
-	b=dta1vBlMNqpi134yY8/79WlTlBjuYbyH7GufY4aG8GNL1PBRSSwkpcXdX+ijrAX/bxY0
-	 RCDWjWpOwq8y/RG+tr3wZqAkz2zm1Qesm8mXaVX6yB6SkkDVSO1mUDKGtM9KHBNGuRtMY
-	 Gvskbbo+xFls3sPOvyGjqUMrl+xwc4aIiv2k6zcYhkN1XQVex0TEFES87bcrmK+XJTzGq
-	 O1M2iqrzaa0vNadh1j/gOiLnJKMhzav2XMxMITghqbRMRwCthwKOL5WYegUGg+R4n0GSf
-	 BaIRywBP1sy3N7eSmajp5o+dCJBfICFwdrafIFlpAhnmfVP44zZfKLPxNP29dMaTAwQ==
+	t=1794791004;
+	b=X8RYuQoXUk24tcSHhtiTEFUQ6xUuYYqdppTOA4GhHa/gRfd5Rg1jg9tHbbirzG3QvXA/
+	 lNLi4XpzU6MdD6yCL6sqxLLrxAE/6riFqwAJCxRBTt+ijaS7Xi+DXTqB5T5TxHv7PsQk2
+	 RPJ7Ncjr79LhHixlNqFNkF06hl3ZeCzN5BgA8MXch4759rru3TKPGctIQ6X+js3NbkVnm
+	 akvlrpUcrVzirFGBXMtaLq7Z038nWB0zJMadz3hsNs41ohQfI0aOoirzVJn6ep6pstzYt
+	 p+x1UDCkvXtUeJ+KbucVA1Scq15gqOLITy1kNWhbsJ8aaq86PyU51LcDDwSfiMS7VXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794790739;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=spbrg8AyLCNQ5x9swmn2JrPWZsDBrk0FLssfjAjiFfU=;
-	b=WdlBu0YYDPpiuYvVngRaRwJZERYBQyqH8Y0D3OmSnaa9akBgXmK7VoabyBVqd0/osQlt
-	 AFuYsqyC18s+5R7790UN0TtC8k5E0EIks6ZVKTMjfYOUI/PL0Ww63d3wowCTdf3jRK+kl
-	 McFWM+cguWBgeleeyyNNHzVhg5l32Gu414vdLMiDqioMztMlPcDLCjU2De/k3vGPPq1Pm
-	 MB4gmadjfwe8nzmC7PrteM4mpG/p4Azt1pwvSW+fJVBlsL7/xU7jtAMHoko6VhrtYiWwU
-	 GFV+pbI+wy5Y5K0A9zcdsaYo8ECUPCwTun064n2etoJHMtLWXrRL6kjAT23P4ViWUgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794791004;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	b=1P+YO1H+H9NnRJ3bfuliz9qc7ur2x4q8HblmIYnByKvD+1O67kNwdcmG/n52mKQCqcwM
+	 +gNSRRucYMhtGvotWMUm7f0lrylK5WZXlqbJVA0L3LI3Ej8uZugWoUWDBvVLw9LpMTzPQ
+	 PiQU02xB+h8AbqMMLLPo/HuBbzyfakDN9+aynvUxO9NJUEdzXF2g92bWYPCa4iBJ2x2bD
+	 n8jJ1UZnStrjcYKoX+vMuL8KCRCdqczOo1sU5vRk+9F2CnFnD4yLH/I3iVat3gl1EvME4
+	 Beezv9iXatJ6/8/POG20TE4H1jAsujl6jd5+Z6lAYlUehWSmcl3/4r08T6TgBoUwKGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AQb3aimH;
-	arc=none smtp.remote-ip=95.215.58.14
-Received: from mta1.migadu.com (out-14.mta1.migadu.com [95.215.58.14])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X7+sLhBw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DDBB606A31F
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 00:58:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DDBB606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 958C4606A329;
+	Mon, 16 Nov 2026 01:03:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AQb3aimH
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=EjkEr/neE2/QekiTzAaqP4pmiVVI+Ergqo6XektbsmA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794790736; v=1; x=1795395536;
- b=AQb3aimHG058HVBd1JP4IipeD2YBzPVHOFSjf8VSbwH7KEdhiVuKuxwLkzN5GE7Nr0mmZ61S
- 1JXMIbQYjjvLYguICazKVpmw5H6ets9eASrBJPLMl3rYCUn5DqeOZBMWn1ISVwGEycsVCI+nh5b
- qw13D9FdzYpGLJjzHNaBsKjA=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id f86aeccc5230d798;
-	Mon, 16 Nov 2026 00:58:56 +0000
-X-Mizu-Trace-ID: f86aeccc5230d798
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 16 Nov 2026 08:58:49 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-Cc: netdev@vger.kernel.org, po-hsu.lin@canonical.com,
-	linux-kselftest@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kernel@vger.kernel.org, skhan@linuxfoundation.org
-Subject: Re: [PATCH net] selftests: net: arp_ndisc_evict_nocarrier: propagate
- the last test failure
-Message-ID: <avpVSd7XV1lIOeZf@fedora>
-References: <20261115222351.52930-1-emmaonana18@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X7+sLhBw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E52E1F000C4;
+	Mon, 16 Nov 2026 01:03:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794791004;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=X7+sLhBwXSrhQq8NDotV6TqvWfI8jiWt1azu594DUT+onWbSG5bOov0/9Wkz7K9Ld
+	 BAkjhPU0r8fTe9UWSTHOz7BfdnGyS8pUNFKsDKYE4NZ03+Jk1EiN1QyjSXsrdEd6+N
+	 rMKWuaUdpQg8rydPVRO/7lcSncRdSRUXPn7QgCopMBjTpzqfR/k9beOdnZG2G5OI5S
+	 mO8V2HUQheSdB1W7i7HNBEXRoCBJMgexDTWOAK9rs0kNzWO9IyPZNjULfvJLxtPiNT
+	 35l4SVfaNkhDu1omfUK05oRJu0Fxa1GtTqJ2PyNZsGgYEsYmEuq8vxcPufNILsmkXm
+	 /CyRcxdJom8uw==
+From: netdev-bot+sinfo@kernel.org
+To: James Hilliard <james.hilliard1@gmail.com>
+Cc: netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ LABBE Corentin <clabbe.montjoie@gmail.com>,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Honor the RX checksum
+ offload setting
+Date: Mon, 16 Nov 2026 01:03:22 +0000
+Message-ID: <179479100276.3291.7162632058743254408@kernel.org>
+In-Reply-To:
+ <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
+References:
+ <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,38 +72,30 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261115222351.52930-1-emmaonana18@gmail.com>
 
-On Sun, Nov 15, 2026 at 11:23:51PM +0100, Omokefe Emmanuel Onanaroghene wrote:
-> run_arp_evict_nocarrier_disabled_all() reports mismatches with a
-> "failed" line but never sets ret, so the script exits 0 even when the
-> all.arp_evict_nocarrier=0 test fails. The 2023 bulk fix wired the
-> other five test functions and missed this one; the v6 twin
-> (run_ndisc_evict_nocarrier_disabled_all) already sets ret=1. Set
-> ret=1 on mismatch.
-> 
-> Fixes: 1856628baa170 ("selftests: net: return non-zero for failures reported in arp_ndisc_evict_nocarrier")
-> Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
-> ---
->  tools/testing/selftests/net/arp_ndisc_evict_nocarrier.sh | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/tools/testing/selftests/net/arp_ndisc_evict_nocarrier.sh b/tools/testing/selftests/net/arp_ndisc_evict_nocarrier.sh
-> index 00758f00efbfa..4afb953a3e479 100755
-> --- a/tools/testing/selftests/net/arp_ndisc_evict_nocarrier.sh
-> +++ b/tools/testing/selftests/net/arp_ndisc_evict_nocarrier.sh
-> @@ -139,6 +139,7 @@ run_arp_evict_nocarrier_disabled_all() {
->          echo "ok"
->      else
->          echo "failed"
-> +        ret=1
->      fi
->  
->      cleanup_v4
-> -- 
-> 2.43.0
-> 
+Hi!
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
+
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
