@@ -1,58 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.92.39.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794804510;
-	b=dJQ/hOE2UWodw2vZocFBqI6Zveiq/gFLPz3P7ho76sBKFGTU4htdwsuWkZTHkcvmC7cv
-	 oY8od+i234FfY5I2D+xkRhYHknqtCH5Eeyn3EhCjvWeWJdyDMBuP8N6U2Mzg70mkZYg0K
-	 FDozTua4CskZFUlZs7JqXEwrkLBWu7jlfz0R5tKugelp3yCSSHwB6xi0i2RbX/kDeZtUJ
-	 /5igrtEEr6fUEEWAduvJyeh71sPR1VywrZuKwZ2O28lhDliKrNbEuROHtrxass6hGms89
-	 hyxEGC3SuvK+sbJwNiiuiTyrXqm19kc7/i7YBL94qFZ20v3Y8z7x4b0O5W1kk8dTSPg==
+	t=1794804712;
+	b=d1YMBKNfIISITTorK3NogSsDmsCW/aLdgAhGzHRvNNREAbvEDquzIoIQBt6qQ/uwgcOh
+	 qBU/KcBky+SSUYnTWE4rlwv/erBupfzFXHnOrDyYiQ67QcMXVdb0LHfS0DEI9pBrSFIyC
+	 Wkm+ZDyWIofZPLGz+DjSeTr2N2JKSdV6kQC0GJkhLW9FioinydcdaPu4ZwdZ3LSo+Be5n
+	 6Hl8tZ1Rr0620Yn03OoxJPy93Lm/4hk8+a3/OlyufDUxAAeRczKuZHrT0fjUVToOSCPng
+	 /+8HyQEKUsK8xEhMgqDkxlFXxbVlWsmGO6gxFxergZa1Hb8ZHznQeVNq7xJyguaCE2g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794804510;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
-	 X-QQ-RECHKSPAM;
-	bh=PGVxYtVa34yvZ+9qqL8SMqtJg1pDmzI4evt177Od7oY=;
-	b=PkhP5EV4YmHJQb8Tdo24s4LnDuugxRiBd51eKdQbceKeLUl+4ukDVhrT1XsDraoIk9t9
-	 Gt4bd8iKojvhF5wryrTv7Ev44n5fA9LtybN8oESs1NqJbjapD5sjzdUm1+kBiGFFB1rWM
-	 zMbZeUTrzaXcXsAVFpFeaAgODhaQcolEeXRTk/8cAKKD4+yD+ubgebudAtpsniocFJmtH
-	 RRbwAt2vSZGlNrQVcamuVgkpVLsunnzGo7hHMIzM65VUs72/xUv+1ggzYvc/Ui/CF+NYw
-	 qdUvDTYwWZg+Bc9LSd/BkhkI9oWUtRX1rX6gl1LYQ/grAOxeudjqwYgqLGID7k5f3zA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794804712;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Subject:From:To:Cc:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=I4t5XE20i/gJJgLpBrJ+KezC2CeSfioWQ5iCK7ep1kI=;
+	b=TMiNRij+kRO0prAWCSfz3qwSQJqTWvxr+veidK/Veu56gU4mbDRLf5C7ksG7arO4sCjP
+	 o9PSMocojmMGK/FLZLWMoALAiu8jr3Lz0klQTP+iiPoXMBmp9syGrl4rfiPsHXqJrlg0D
+	 vZ/6bYvwwIsVrVBxB7188R2B6WCGrTX1SMMbEIgCfwXu6YH+yyEK/A/6e0sHt8UZd9x1D
+	 361eqxVfQZt9Vay3lofeh08UmtR5iAaeRq2JOzJCnDRYlc/8MeOAdHtWPpDmcpXjDTtL6
+	 ajm138TDz6Q0dNnwmpzq8uFlpWcfPYeULREL5Gtk/lFg78g0CLMB0NHYdHipH381QNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mucse.com;
-	spf=pass smtp.mailfrom=mucse.com;
-	arc=none smtp.remote-ip=54.92.39.34
-Received: from smtpbgjp3.qq.com (smtpbgjp3.qq.com [54.92.39.34])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q9uMG0sh;
+	arc=none smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48E7E606A31C;
-	Mon, 16 Nov 2026 04:48:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48E7E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
-X-QQ-mid: esmtpsz11t1794804459tffb983d8
-X-QQ-Originating-IP: QwzR3JU7LTo6oRYc83IIO48GpCQyHsxxkFandPLZ2v4=
-Received: from localhost ( [203.174.112.180])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Mon, 16 Nov 2026 12:47:37 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11810620712706261052
-EX-QQ-RecipientCnt: 10
-Date: Mon, 16 Nov 2026 12:47:37 +0800
-From: Yibo Dong <dong100@mucse.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	yaojun@mucse.com
-Subject: Re: [PATCH net-next v2 2/5] net: rnpgbe: Report link settings
- through ethtool
-Message-ID: <2207C8DCDD49F5EE+20261116044737.GA1342898@nic-Precision-5820-Tower>
-References: <BD205A7832D36E7D+20261116030917.1329989-1-dong100@mucse.com>
- <66AFF2810AB647C8+20261116031020.1330219-1-dong100@mucse.com>
- <d7351f56-d4fa-4ba0-a0c6-c7bdf7aac460@lunn.ch>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C22606A321
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:51:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35C22606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q9uMG0sh
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2ed3d8877e6so26130565ad.3
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 20:51:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794804711; x=1795409511; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=I4t5XE20i/gJJgLpBrJ+KezC2CeSfioWQ5iCK7ep1kI=;
+        b=Q9uMG0shsjQL+u25gEioGMriGdkjPwXQL+5xFLs3BpJN9/lu5iNK6xJCTRdqzaVo5n
+         d9qIjaheY8Sw4SNzemMBpyXWzwDpGL+2DUGvdthUsK5bqlxbmvwhXPby7xVBSckSGUx2
+         A5P6dOPRHR449xae40tDEHvQSxWdGTApunX4iuvlVkVkbcPFv2ympFYjpBuLBdHbwFPX
+         hHsSi0ExiGK17YBMPV+Tk6EimN8j7iNHmFYj4JUle+Z++KdZRzpbA0dPu4Aphd4h4wWm
+         3ULZboBKGMvR28nAEPHHojGsL06gRTFhRBEOrNIKjXaFHRhi/Pc4ukzFpYurIpprgR65
+         N9DA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794804711; x=1795409511;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=I4t5XE20i/gJJgLpBrJ+KezC2CeSfioWQ5iCK7ep1kI=;
+        b=biUvHjzCAs4f7k3A2hRlPCRf4/8NyS3yLW9RxgL8+ylDkYgMJnjUubkpC7I1hJfZnN
+         qgiwHbjtfOpVbkuTwYJ08CBCljGjuA2sstMQLXkO8ZwFsk7ooqUq6pFnMVh0FURWCPzN
+         K7y9aio/z95sW6B/x2PftViwsnTSbApjipC2jXtBtEBhUPQB78EHvRWIsCHurdFhyzKf
+         hNyrCCmxSd7B1jOLWnXMwaqelSmCVm/qP+XOlzWwtL1rQdKRk+oNembN0GFgyETvzbUv
+         nGHax4zxAn14wl7ujuv1NcUdbxlvU7h7ZzYSu0xtEwydPLBWPKGVopL9QXHbTh2CmOle
+         v+aw==
+X-Forwarded-Encrypted: i=1; AL+hErFaVsUiu9jKRCR5qQZu1gfgIJkOJkcGrdtvRE1PxDpYqaCfJCDBdO6b7TNRl+r1XgEhtUsf2ls=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9pT7WxjFW8NakmLqcekg62Kbp2oeWxxpwoGcR/d3Knw/OxPnWr
+	pZJ3JQp9mZMnHA5yPp+3DwoCtaJ25gzq03vee8rQJQUp8qnpoE/X2pNhw/hitA==
+X-Gm-Gg: AYBFou212EUoARTqb0XwpMsQyYA74bX+jtS4fsJUve4YJt8DYZbcUtYA9TjqfJ6y1SM
+	dKFODFtzxQ7yqHuvwUii5WsLajgi91SlfGWmS7SW4iXsOeVmFMORzqWPU0hgDytjBywMDaLJPG1
+	uYfClBTPtQ1u/9egqLMlqOW8lVERqoGcE6EHgItQkNRScWqhSrNMUeCLZbp9tNKcqWbaljOGCcf
+	om52y98ArhzKjg9OO1iWotUCrOPeygt44mVdBw+szu3uuzt3iZPwCdLz/jhtXZXQSHYmbDJbT0S
+	5s7Gg9fs5AwaEBkT4Zpw/xPoGVxX/Pbx4afOQPP1iLmaXf2iVsluPshXZf6TP9BnKM23yCCiAwE
+	AbvM7WsOCNRoBhjSFEIEYFdq4CSk45ysJVyiL0yX/3D4j5eRp9zKKW+e1TVltFJrVb9/3N35HKq
+	aFBmx0pa/G721nBHBmXA0CnO2a0yGaUAExTfZvj3/i48p9Wu4pqUC/2wuw/yCjluXdlcf4i71fU
+	oXRHi/kPvoMug1qubUr1UUPLQyNRHsYK+s4aMirgsjbFY+dJIMZYX9wnZvOf2sxJkvkJF/w7K2k
+	UFPQ9mzSzClBzswl40bvWXZ+dxpwkgu79tSyszIciTQDgK5ywTkoyXTh0truIJyhr1gh6o2/YgA
+	Hfc1B9KY64xya160s8kixHaPH97PhAn6UcQ==
+X-Received: by 2002:a17:90b:2247:b0:3ae:2969:9031 with SMTP id 98e67ed59e1d1-3b1b0d08f2cmr9948935a91.54.1794804711394;
+        Sun, 15 Nov 2026 20:51:51 -0800 (PST)
+Received: from localhost ([153.61.198.243])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b197ce460csm19648688a91.5.2026.11.15.20.51.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 15 Nov 2026 20:51:50 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 16 Nov 2026 04:51:50 +0000
+Message-Id: <DMWD65CI6NZ6.2V1UCWL1FUM8K@gmail.com>
+Subject: Re: [PATCH net 1/2] udp: fix reuseport rescore fallback
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Zihan Xi" <zihanx@nebusec.ai>, <netdev@vger.kernel.org>,
+ <linux-kselftest@vger.kernel.org>, <bpf@vger.kernel.org>
+Cc: <willemdebruijn.kernel@gmail.com>, <davem@davemloft.net>,
+ <edumazet@kernel.org>, <pabeni@redhat.com>, <horms@kernel.org>,
+ <benh@amazon.com>, <kuniyu@google.com>, <shuah@kernel.org>,
+ <vega@nebusec.ai>
+In-Reply-To: <8c46325c4a433f02fdc7241c0c3884126cb502af.1794759652.git.zihanx@nebusec.ai>
+References: <cover.1794759652.git.zihanx@nebusec.ai> <8c46325c4a433f02fdc7241c0c3884126cb502af.1794759652.git.zihanx@nebusec.ai>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,86 +103,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <d7351f56-d4fa-4ba0-a0c6-c7bdf7aac460@lunn.ch>
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: McJfg7Aee/FZHZaIV3oLykZwMD59+ZK58lwnWmKMJDyQcThleV+PW4wa
-	7YomE/70RwVRzrrw/618siYLUo0+VlUnW2eV/rWf7O0re2EgNDUIUuCAnkyERCaOuaJQMe1
-	EBjqm+Xh0hYa/j6P6NnnWhs/smDTQ/xXgiPNl4ILkumyRQedPnKFCQcgpxfEFr42UqD58JM
-	3TDNXXfivcyQLnb21X3vJNbqi9dSKED4E97RbABv3tk5prwzHT71AnJaq0q65L+Mn0T7r7D
-	iPgG6vC64hU9VgOFX8G34GBsrv0i5pdb3WL1RKRnyRylEaJrYjs3TKGdfIUxGAB+a2cYk82
-	fLQD8P+K392ZBYuzhKKW7xR2zAtFdWit/x9RnO8x2EVWRjClpWHESNm4jfDHSt0fz+64k+B
-	x/6stjGGjVgb3Ra+VwmRP8uUo7yzCVIvvmc9BmgcVxPRWdSUqe+wjP6kyb4rPb95kMQdUhy
-	KxRNRkAehBHEEpSWapDSAHtD5yE6HqUpBUBPJmj8AVRKEgruznuMGuaWeYSEBseaNV7QyBv
-	U5wYO5GBlOz7NiTnW8xz4EH1qfaGAvZAdtK2bLE5uTccYfCANw+biCQMIosoReGpEUtObH6
-	12OEat7Y2Gv0ytQ7zLD1Pc07sZYNEm4xtG6V2gmlczlq3fo/evdm2Yz1JK0zjh3sv+bppkc
-	eiN5k4IyEgL/Bj9Rh910aRdgpwl6n9Bcz6CwcMg0vcObAfLrlMnHPTaMtWspdo4+m71frA8
-	G64Z2LAGCntgX1Zq+jo3Tc4HAzrJm3CCvpKVfke2yVGiSWMy70qfOkVppCjdyKAcmkN8IAL
-	GlgPf4CRnNa5PEMUuQ1AwPwWHazJMx7asXdFTmjvol1aqNOhLGElT+UWcbn6fMkyHgGa7Jg
-	MKz4TG0dEhrrWa3zH5WgQMhR/sT4GfnQ1W049WtJxBZMuvbwK94cGpUPc6tYzYhQDkqDlzz
-	B/7B7plqn1O8eWPMz5+CMcGgXglgIbZHe2Ahl7NAUY+VLjxAg2s0FxXeMvBJAV8TysQcJ12
-	VGZf5UGjlPehkh9lVftet3dfBVO9sWbEmiu0dJLpSskt56nZ2Q
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-RECHKSPAM: 0
 
-On Mon, Nov 16, 2026 at 05:19:35AM +0100, Andrew Lunn wrote:
-> > +static int rnpgbe_get_link_ksettings(struct net_device *netdev,
-> > +				     struct ethtool_link_ksettings *cmd)
-> > +{
-> > +	struct mucse *mucse = netdev_priv(netdev);
-> > +	struct mucse_hw *hw = &mucse->hw;
-> > +	u32 supported, advertising;
-> > +	unsigned long flags;
-> > +	u16 status;
-> > +	int mode;
-> > +
-> > +	status = hw->link_config.status;
-> > +	supported = hw->link_config.supported;
-> > +	advertising = hw->link_config.advertising;
-> 
-> These are accessed without a lock,
-> 
-The fields in link_config contain cached capabilities and configuration.
-They are initialized before netdevice registration, and subsequent
-configuration updates are serialized with ethtool queries by RTNL.
-Firmware link events do not modify this cache.
-> > +	ethtool_link_ksettings_zero_link_mode(cmd, supported);
-> > +	ethtool_link_ksettings_zero_link_mode(cmd, advertising);
-> > +	ethtool_link_ksettings_zero_link_mode(cmd, lp_advertising);
-> > +	cmd->base.autoneg = AUTONEG_DISABLE;
-> > +	cmd->base.speed = SPEED_UNKNOWN;
-> > +	cmd->base.duplex = DUPLEX_UNKNOWN;
-> > +	cmd->base.eth_tp_mdix = ETH_TP_MDI_INVALID;
-> > +	spin_lock_irqsave(&mucse->link_lock, flags);
-> > +	if (netif_carrier_ok(netdev) && hw->link) {
-> > +		cmd->base.speed = hw->speed;
-> > +		cmd->base.duplex = hw->duplex ?
-> > +				   DUPLEX_FULL : DUPLEX_HALF;
-> > +		if (status & MUCSE_LINK_TP)
-> > +			cmd->base.eth_tp_mdix = hw->mdix;
-> 
-> Yet these need a lock?
-> 
-link, speed, duplex and mdix are updated asynchronously by
-the mailbox event handler, outside RTNL. link_lock protects these updates
-and provides a consistent snapshot in the getter.
-> > +	}
-> > +	spin_unlock_irqrestore(&mucse->link_lock, flags);
-> > +
-> > +	if (status & MUCSE_LINK_TP) {
-> > +		rnpgbe_link_modes(cmd->link_modes.supported, supported);
-> > +		rnpgbe_link_modes(cmd->link_modes.advertising, advertising);
-> > +		ethtool_link_ksettings_add_link_mode(cmd, supported, TP);
-> > +		ethtool_link_ksettings_add_link_mode(cmd, advertising, TP);
-> 
-> Advertising TP? Can you point to some part of 802.3 to support
-> advertising TP to the link partner.
-> 
-You're right. Adding TP to the advertising bitmap here was a mistake.
-I will remove it from advertising in next version.
-> 	Andrew
-> 
-Thanks for your feedback.
+On Sun, Nov 15, 2026 at 07:55 PM Zihan Xi <zihanx@nebusec.ai> wrote:
+> When a reuseport group contains connected sockets, UDP lookup rescored the
+> socket selected by the reuseport program. If that socket did not match the
+> packet, lookup retained the stale selection while continuing the scan. This
+> could deliver a packet to a socket connected to a different peer.
+
+Not since 6.13, unless CONFIG_BASE_SMALL=y.
+
+> Link: https://bugtracker.nebusec.ai/f/net/ipv6/udp.c||udp6_lib_lookup2||socket-hijack||m7q
+
+That's not a hijack.
+udp_reuseport_add_sock() lets only sockets of one uid into a group.
+A member of the group attaches the prog.
+The prog picks a wrong socket of its own user.
+
+> +		if (need_rescore) {
+> +			if (score > badness)
+> +				badness = score;
+> +			else
+> +				result = sk;
+> +			continue;
+> +		}
+
+This makes it worse.
+The unconnected sockets of a group have the same score.
+So the score of the picked socket is equal to badness, and the patch
+replaces the picked socket with sk.
+
+Sockets A, B, C are not connected. A is the first one in hslot2.
+has_conns is set:
+
+  reuseport picks   today   with the patch
+  ---------------   -----   --------------
+  A                 A       A
+  B                 B       A
+  C                 C       A
+
+Nack.
 
