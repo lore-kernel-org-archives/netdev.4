@@ -1,61 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794806506;
-	b=q97fLDVIKyvcMofK44QSdjl8DibpsFSzj6fS2DXToX62GagCYqmwAjiB1A0FltaWcSpR
-	 Zas6kjP0+/UEYoJ+ptaxKQvpbhd0PLcy2LPfE8OJ6XiFwET3xftaPT1YZPa79vFIRHHp3
-	 Mkr5awwml7OsWpaMeOaP4gdTlPxT/SZRj6l5Nm6RYbp+oGlIJatPGgy93dB3f9lzAsd8G
-	 gqPqz/H72io1YX73q+vAvidtqscmaSoCf71fp8DE+FJa3q/7Di/5UNOncfBKeIizngTZW
-	 gCbR5adAkX4yUjkSp9YTJRcv6XZcdbG7Yi9sYdtt3cV/TLXkqdbSIRzhSIWUiVcyf5A==
+	t=1794807173;
+	b=CZ1y9GeOQd+WvlO6LyMPuo9d92SjHFcWq4MDyYJsjIQ74mjgS34DpGfpFZm/PQS2F+am
+	 OhVgTuzd9a5ByI1RtxfMvulnC17Vd+2wR40GatxvbM4clWtVo0jj8JgoZX54zEk+bGUYy
+	 d4NDCofzWcmzGkmfGWShdJpftC8ip43sjfyOAxPaP5KwRbsC9JvAvNmg/IVXOclhjjq1K
+	 cBMTzjw8lANa9oTA7WSUg5/ZyHC/H2N6q0BmZ5Elo+pXU5HwRQ78TjQqQ8IqS1eM8kVgd
+	 sIoH/FwA+faiUPBMglYFgAlyLGUDOiEGLxcjRSBGGPnrVAdFZYT1JWuWFy4ZmvP/WEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794806506;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794807173;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=jEfV+JQF7FD38ojElSzO1mtu8Ghpnr4QfBw1VO2XPSQ=;
-	b=q2FSFaQcKAH7o/aGzNmQDG7Y9PrzUVqBseWKS7xhs+AgrHrNX9KgknePMQoRtObuZdRL
-	 DpiwxmxWQwnTZ7DB6bnP024oVMByWSrJWHvrwkpr7Z1Vu4OzlzuggUGvOWK5SHBnM1wik
-	 FBzGOipQ/1IAA2kc1qfkh8u5n0e3hFhqBADeFjGi0mJ+ts6swwdZeaRqCHM2ksIbyrDgc
-	 x7aFdkNiTSKOAPniKAg0o8Z5D0eWIMI8scSgn0EZ6Ly7+4udQcOcwjFUfY1fgnUcDAByT
-	 HEcFyyd5iNEqI7jiXHQdSNzs9kOC+25AzL5hGnFHQpA7ClfgWroD1R9vRFvaSM1Gbgg==
+	bh=douqLaofwr9UvuTKqzhW38JwSiM5sayiSfiJVWEbrBY=;
+	b=bmcgtFKWnu3bKpeusgNZhB4PN/3rk+ZZAuQbft8Qh9k4Rgn5HqqgEygz8WhJlzwNm25P
+	 uKR5HgP82BmGeoVYr4hH5yjtpTODGbQsDL0kXt/MDiZIOym982CU2fUBeMD4H/lX5gz73
+	 ap7SgGcW3uai5i+Vf184izWkUhl2sJxbGLoEraC0NixtPeKymxZsFUGWALInbqOeBJske
+	 6Ugpi/pXt8ymoSxynJYdZU5rbJRS8YfZmqokF9/iBFICe7DyjFdGyDq25BNSYRGR04p6l
+	 fSLS8wUywapLgYkAw9WI/yhCAkzJnvhaTvcY73c6aHU+xCKOtHe7p5MRK2VBVpbZyfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M9xEqbK8;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bGvOsCif;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A5A5606A334;
-	Mon, 16 Nov 2026 05:21:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33E5F606A33A;
+	Mon, 16 Nov 2026 05:32:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M9xEqbK8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6C991F000C4;
-	Mon, 16 Nov 2026 05:21:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bGvOsCif
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DA5DC1F000C4;
+	Mon, 16 Nov 2026 05:32:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794806506;
-	bh=jEfV+JQF7FD38ojElSzO1mtu8Ghpnr4QfBw1VO2XPSQ=;
+	s=k20260515; t=1794807172;
+	bh=douqLaofwr9UvuTKqzhW38JwSiM5sayiSfiJVWEbrBY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=M9xEqbK8ku6TWTxTq5yvkeE98zgiMdOubhckbSmZq2fehatceTUvvOt6B/Xg+69Mq
-	 TtsweDShv4do/NIiGebsAFq4Gj+Fgd14ptYRa7T3a3nF8pQ/Ym5lR9apF4tMSFsDAX
-	 SttAb/pY9sDt06vkKNvxUlKJJHxwAApReIfRY3niXP58rZ4ZLCoNpAwR5fzHCtKS4v
-	 yHbVDJaQ65eOb9t9Qytur1d5G5fwN0JMZ+ziI55498x3vyY0wS6SdbPncYXzajmgkF
-	 TkE3heWXrvUJ8lmc4zQ8DgVRSwcMpYA0iFsCSTTDfYJpo/UACiYi4HF4SpXUTekeBN
-	 eDRGq+q1xgg6A==
-Subject: Re: [PATCH net v2 2/2] mptcp: avoid wrapping blackhole timeout
+	b=bGvOsCifrc5y5Ypj5DriWtJWjDaVh/uS6DScPAEpIM0zVVeRqcvPFV4JQzqU4+kfH
+	 Pq0REHu1/h8PwGh5+Zng1KSEX6XnCmMj9daUofYWbiHAqtftw4FbKZDNvK5muuPm72
+	 CC3QRCImYoEyOnKUjV7Eh010yPLs4YNPHy+lT0PXKDS7nIoMlOJsVssT5Xlngwdi3j
+	 8QPbaikk+FkCEisiy6BXJstUEfp6/IOc/nwsO8dqm7uI4xKNrj/lmr/giSDTFNHe0n
+	 vIo9zu1Q1HXrHQpvAEUwakBJmunxvRpc9NlqYAghMRyx4/7iylVgOz7kZ534N/CWBy
+	 J2JMwcvyQxKYA==
+Subject: Re: [PATCH net-next v5 5/8] vxlan: leave FDB state and flags
+ unchanged when an update fails
 From: netdev-bot+sashiko@kernel.org
-To: x-professor@outlook.com
-Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev,
- linux-kernel@vger.kernel.org, corbet@lwn.net, skhan@linuxfoundation.org,
- rdunlap@infradead.org, linux-doc@vger.kernel.org, edumazet@kernel.org,
- ncardwell@google.com, gang.yan@linux.dev, kuniyu@google.com,
- davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- matttbe@kernel.org, martineau@kernel.org, geliang@kernel.org,
- ycheng@google.com, weiwan@google.com, stable@vger.kernel.org,
- yangang@kylinos.cn
-Date: Mon, 16 Nov 2026 05:21:44 +0000
-Message-ID: <179480650425.3133.15313880518132043396@kernel.org>
-In-Reply-To: <070c69fa36f83fe47a5eb6d1434f543dabe930e7.1794672619.git.x-professor@outlook.com>
-References: <070c69fa36f83fe47a5eb6d1434f543dabe930e7.1794672619.git.x-professor@outlook.com>
-X-sashiko-severity: Low
+To: alishmery18@gmail.com
+Cc: netdev@vger.kernel.org, idosch@nvidia.com, kuba@kernel.org,
+ pabeni@redhat.com, davem@davemloft.net, edumazet@kernel.org,
+ andrew+netdev@lunn.ch, horms@kernel.org, razor@blackwall.org,
+ roopa@nvidia.com, kuniyu@google.com, petrm@nvidia.com, aroulin@nvidia.com,
+ shuah@kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 16 Nov 2026 05:32:51 +0000
+Message-ID: <179480717141.3136.11745110042567184221@kernel.org>
+In-Reply-To: <20261114221412.255825-6-alishmery18@gmail.com>
+References: <20261114221412.255825-6-alishmery18@gmail.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -68,126 +67,223 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 1 · Medium: 0 · Low: 1 (2)
 
-- [Low] The commit message body refers to earlier revisions of this
-  patch: "In the v1 arithmetic-only test, the unpatched kernel retried…
-- [Low] mptcp_active_should_disable() (net/mptcp/ctrl.c:514-515) now
-  silently clamps the disable interval to MAX_JIFFY_OFFSET.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] On the switchdev-veto exit, vxlan_fdb_update_existing()
+  (drivers/net/vxlan/vxlan_core.c) still publishes the requested state…
+- [Low] The patch fixes a bug userspace can trigger, carries four Fixes:
+  tags (6681712d67ee, 906dc186e020, 61f46fe8c646, 1274e1cc4226), and is…
+
+Pre-existing issues:
+- [Low] When a switchdev driver vetoes the update,
+  vxlan_fdb_update_existing() restores f->state and f->flags at…
+- [Low] The comment the patch adds in vxlan_fdb_update_existing() (lines
+  1038-1042) says the ageing timer reads f->state and f->flags without…
 
 --
 
-mptcp: avoid wrapping blackhole timeout
+vxlan: leave FDB state and flags unchanged when an update fails
 
-This commit computes the active-disable interval in
-mptcp_active_should_disable() in u64, so multiplier * blackhole_timeout *
-HZ no longer wraps in 32-bit arithmetic. The result is capped at
-MAX_JIFFY_OFFSET before it is added to active_disable_stamp.
+This commit moves the state and flags write in vxlan_fdb_update_existing()
+so that it comes after the nexthop update, the non-unicast replace check
+and the NLM_F_APPEND allocation. A request refused at any of those steps
+no longer changes the entry. When a switchdev driver vetoes the
+notification, the saved state and flags are written back.
 
-> This issue was found using a static analysis tool. A loopback reproducer
-> induced 12 MPTCP blackholes and waited 1.2 seconds before opening another
-> connection. In the v1 arithmetic-only test, the unpatched kernel retried
-> MP_CAPABLE, while the fixed kernel used TCP fallback directly. The
-> reproducer required neither kernel modifications nor fault injection.
-
-[ ... ]
-
-> On the v2 kernel, the loopback blackhole reproducer completed all 12
-> clients and the probe used TCP fallback directly instead of retrying
-> MP_CAPABLE.
+> The patch "vxlan: vnifilter: account the default FDB entry to memcg"
+> later in this series makes the NLM_F_APPEND allocation fail routinely
+> at a memory cgroup limit, on the path that changes a vnifilter VNI's
+> default entry; this is ordered before it so that failure leaves the
+> entry as it was. Like the rest of the series it targets net-next.
 
 [Severity: Low]
-This isn't a bug, but the changelog refers to earlier revisions of the
-patch ("In the v1 arithmetic-only test" and "On the v2 kernel"). After the
-patch is merged, v1 and v2 mean nothing in git log. This is also tagged
-for stable, so backporters will read it without the mailing list thread.
+This isn't a bug, but could this patch go to net instead of net-next?
 
-Could the reproducer results be described once, against the final code,
-with the per-version history moved below the --- line?
+It carries four Fixes: tags. The bug it fixes is in released kernels and
+userspace can trigger it: a refused RTM_NEWNEIGH, such as an NLM_F_REPLACE
+of the all-zeros entry with NUD_REACHABLE that gets -EOPNOTSUPP, leaves the
+entry dynamic, and vxlan_cleanup() then ages it out.
 
-The numbers themselves check out. 64 * 6912213 * 1000 = 442,381,632,000,
-which is 512 mod 2^32. With 12 blackholes the multiplier is
-1 << min(11, 6) = 64, and a 1.2 second wait is longer than 512 jiffies at
-HZ=1000.
+The dependency on the memcg patch only goes one way. The earlier patches in
+the series don't touch drivers/net/vxlan/vxlan_core.c, so this one looks
+like it applies on its own. The rest of the series could still follow in
+net-next.
 
-> diff --git a/net/mptcp/ctrl.c b/net/mptcp/ctrl.c
-> index 63c5747f0f63c..0b10e94e7f43c 100644
-> --- a/net/mptcp/ctrl.c
-> +++ b/net/mptcp/ctrl.c
+The series notes that net-next was suggested for the related "vxlan:
+vnifilter: roll back a VNI add that fails" fix, so this may be the
+maintainers' call.
+
+> diff --git a/drivers/net/vxlan/vxlan_core.c b/drivers/net/vxlan/vxlan_core.c
+> index d11028b374721..2303d652d3968 100644
+> --- a/drivers/net/vxlan/vxlan_core.c
+> +++ b/drivers/net/vxlan/vxlan_core.c
 
 [ ... ]
 
-> @@ -501,12 +502,17 @@ bool mptcp_active_should_disable(struct sock *ssk)
->  	/* Paired with smp_mb__before_atomic() in mptcp_active_disable() */
->  	smp_rmb();
+> @@ -1048,6 +1035,23 @@ static int vxlan_fdb_update_existing(struct vxlan_dev *vxlan,
+>  		notify |= rc;
+>  	}
 >  
-> -	/* Limit timeout to max: 2^6 * initial timeout */
-> +	/* Limit the backoff multiplier to 64. */
->  	multiplier = 1 << min(disable_times - 1, 6);
-> +	delay = (u64)multiplier * blackhole_timeout * HZ;
->  
-> -	/* Paired with the WRITE_ONCE() in mptcp_active_disable(). */
-> +	/*
-> +	 * Cap the delay for safe jiffies comparisons on 32-bit systems.
-> +	 * The timestamp read is paired with WRITE_ONCE() in
-> +	 * mptcp_active_disable().
+> +	/* Do not allow an externally learned entry to take over an entry added
+> +	 * by the user. The state and flags are written only after the steps
+> +	 * above that can fail, so that a request they refuse never changes
+> +	 * them, not even briefly: the ageing timer reads them without the lock.
 > +	 */
->  	timeout = READ_ONCE(pernet->active_disable_stamp) +
-> -		  multiplier * blackhole_timeout * HZ;
-> +		  min(delay, MAX_JIFFY_OFFSET);
+> +	if (!(fdb_flags & NTF_EXT_LEARNED) ||
+> +	    !(f->flags & NTF_VXLAN_ADDED_BY_USER)) {
+> +		if (f->state != state) {
+> +			f->state = state;
+> +			notify = 1;
+> +		}
+> +		if (f->flags != fdb_flags) {
+> +			f->flags = fdb_flags;
+> +			notify = 1;
+> +		}
+> +	}
 
-[Severity: Low]
-On 32-bit kernels MAX_JIFFY_OFFSET is ((LONG_MAX >> 1) - 1), which is
-0x3ffffffe jiffies, or about 12.4 days at HZ=1000. Does this clamp
-silently shorten blackhole_timeout values that the sysctl still accepts?
+[Severity: High]
+Can a request that a switchdev driver vetoes still get a permanent entry
+aged out? On the veto path, the new state and flags are still written into
+the live entry before vxlan_fdb_notify(). They only get their old values
+back at err_restore.
 
-The sysctl entry only sets a lower bound:
+vxlan_cleanup() reads them without hash_lock. Once it decides the entry has
+expired, the only thing it rechecks under the lock is hlist_unhashed():
 
-net/mptcp/ctrl.c:mptcp_sysctl_table[] {
-	...
-	{
-		.procname = "blackhole_timeout",
-		.maxlen = sizeof(unsigned int),
-		.mode = 0644,
-		.proc_handler = proc_blackhole_detect_timeout,
-		.extra1 = SYSCTL_ZERO,
-	},
-	...
+drivers/net/vxlan/vxlan_core.c:vxlan_cleanup() {
+    ...
+		if (f->state & (NUD_PERMANENT | NUD_NOARP))
+			continue;
+
+		if (f->flags & NTF_EXT_LEARNED)
+			continue;
+    ...
+		timeout = READ_ONCE(f->updated) + cfg->age_interval * HZ;
+		if (time_before_eq(timeout, jiffies)) {
+			spin_lock(&vxlan->hash_lock);
+			if (!hlist_unhashed(&f->fdb_node)) {
+				...
+				f->state = NUD_STALE;
+				vxlan_fdb_destroy(vxlan, f, true, true);
+			}
+    ...
 }
 
-So values up to INT_MAX are accepted. Anything above about 1,073,741
-seconds is cut short even on the first blackhole (multiplier 1). Smaller
-values stop doubling before they reach the 64x factor.
+Take a NUD_PERMANENT entry whose f->updated is older than age_interval, and
+a request that makes it dynamic and then gets vetoed:
 
-time_before() handles deltas up to LONG_MAX, so the cap is half of what
-the comparison can take. The old code compared intervals between 2^30 and
-2^31-1 jiffies correctly, and those are now shortened.
+CPU1 (hash_lock held)
+vxlan_fdb_update_existing()
+  f->state = state;
+                                  CPU2
+                                  vxlan_cleanup()
+                                    sees f->state without NUD_PERMANENT
+                                    sees the old, expired f->updated
+                                    spin_lock(&vxlan->hash_lock) waits
+  WRITE_ONCE(f->updated, jiffies);
+  vxlan_fdb_notify() is vetoed
+  f->state = old_state;
+  hash_lock released
+                                    hlist_unhashed() is false
+                                    vxlan_fdb_destroy()
 
-For example, take HZ=1000, blackhole_timeout = 2000000 and a first
-blackhole. The old code disabled active MPTCP for 2e9 jiffies (about 23
-days). The new code disables it for 1,073,741,822 jiffies (about 12.4
-days).
+On x86 the window is the gap between the f->state store and
+WRITE_ONCE(f->updated). On arm64 or powerpc nothing orders the plain
+f->state load against READ_ONCE(f->updated), so the window could span the
+whole notifier call.
+
+Flags have the same window. A vetoed user request on an NTF_EXT_LEARNED
+entry clears NTF_EXT_LEARNED for a moment.
+
+An in-tree driver can veto. mlxsw_sp_switchdev_event() returns NOTIFY_BAD
+in two cases:
+
+- mlxsw_sp_switchdev_vxlan_work_prepare() rejects the remote, for example
+  an NLM_F_REPLACE that changes the remote port and the state together.
+- Its GFP_ATOMIC allocation fails.
 
 The commit message says:
 
-    Preserve the existing sysctl input range and backoff
-    for representable intervals.
+    The switchdev notification reports the new state, so it still
+    follows the write
 
-But this interval is representable and still gets shortened.
+Is that accurate for the state? vxlan_fdb_switchdev_notifier_info() takes
+only this field from the entry:
 
-Documentation/networking/mptcp-sysctl.rst, and the zh_CN translation,
-still describe blackhole_timeout as an initial period that will "grow
-exponentially", with no upper bound mentioned.
+	fdb_info->added_by_user = fdb->flags & NTF_VXLAN_ADDED_BY_USER;
 
-Should the clamp be documented, or should the sysctl get an upper bound
-that matches it?
+It never reads fdb->state. Only the rtnl part, __vxlan_fdb_notify(), needs
+the new state, and it runs after the switchdev call.
 
-64-bit kernels are not affected, because MAX_JIFFY_OFFSET there is far
-above 64 * INT_MAX * HZ.
+Would either of these work instead?
+
+- Make the switchdev call before the new state is written.
+- Recheck state, flags, nh and updated under hash_lock in vxlan_cleanup().
+
+The second would also close the race with a successful update that the
+commit message leaves open. Nothing later in the series touches this code
+or vxlan_cleanup().
+
+> +
+>  	if (ndm_flags & NTF_USE)
+>  		WRITE_ONCE(f->updated, jiffies);
+
+[Severity: Low]
+This isn't a bug introduced by this patch, but the new comment says the
+ageing timer reads f->state and f->flags without the lock, and the stores
+above are plain.
+
+f->updated is written with WRITE_ONCE() here, and vxlan_cleanup() reads it
+with READ_ONCE(). f->state and f->flags are read there with plain loads.
+
+Should f->state and f->flags also use WRITE_ONCE() and READ_ONCE()? As
+written, KCSAN would report these accesses as data races, and the patch
+adds two more plain stores at err_restore.
+
+> @@ -1066,13 +1070,17 @@ static int vxlan_fdb_update_existing(struct vxlan_dev *vxlan,
+>  
+>  err_notify:
+>  	if (nhid)
+> -		return err;
+> +		goto err_restore;
+>  	if ((flags & NLM_F_REPLACE) && rc)
+>  		*rd = oldrd;
+>  	else if ((flags & NLM_F_APPEND) && rc) {
+>  		list_del_rcu(&rd->list);
+>  		call_rcu(&rd->rcu, vxlan_dst_free);
+>  	}
+> +err_restore:
+> +	/* The notification was vetoed: put back the state and flags. */
+> +	f->state = old_state;
+> +	f->flags = old_flags;
+
+[Severity: Low]
+This is a pre-existing issue, but f->updated isn't restored here. It is set
+to jiffies before vxlan_fdb_notify(), both in the notify block and when
+NTF_USE is set.
+
+So a vetoed request still refreshes the ageing timestamp. Userspace can see
+that through NDA_CACHEINFO, and a dynamic entry gets up to one more
+age_interval.
+
+Should f->updated also be put back on a veto? The old code did the same
+thing, and the commit title only covers state and flags.
+
+Separately, the nhid branch of err_notify looks unreachable.
+first_remote_rtnl() returns NULL when f->nh is set, so vxlan_fdb_notify()
+never makes the switchdev call for nexthop entries.
+
+>  	return err;
+>  }
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794672619.git.x-professor%40outlook.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261114221412.255825-1-alishmery18%40gmail.com
