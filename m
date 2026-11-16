@@ -1,80 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.252
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.208.142.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794841118;
-	b=jdDVW7QyXHL0P7OFyRomdXhFhCgGcoGryejw+9OOBsHJwRIrxQyxXBCKm9NBZsaGQUUN
-	 OMJD7bx1G6dSwqM1YHoxYUBIWpiS5UjWrRk6zxw8DXYsgZquRs9EgF/x8bhhnRHuzmMMu
-	 5vJxyIrapNH06lU/WHuutdN1lafqfh+d4euV7ULCUJ17VAE7yIElQbJsTTcFpsox3SUbC
-	 0lYS8qQnY0h6LnPpwpo+gGh5eU1jymJ3EgQyBJNH7c0ThA+WPNLpdWxWcbMTBgU4BHm04
-	 JNhzrOsj+N/Y7OTCg5F+lkWYi3AhcpY6dAr2+DJbAs3urcbhLyGsbg9zO5/Jx/qYhCQ==
+	t=1794841122;
+	b=3vmdDgv11PVK/U306/S3UGRzofiixqAm+JvQPBRDB1TC8kISub/1wca33KJ+fV9snlat
+	 sXc8XGwO8luvhIdvz2fNvx5txBUARNyREH4tDqj8iGpCwlOZqOHkYZyVj4icco7APLnbz
+	 ooSHFVkw8QEQ950fDBui3y7g20LoJzPtsu440Wqkjj6i4jaNQOfYt75DPx4euAuui0+c2
+	 VGKE7Y1yX36NIirP8c3cb563wEvj0l1VUZ7FVcatE+uUyysxQy5J/Ob3nZH/tbUiIZVcq
+	 e2PEvXmm/78FXw5TfpPa4rtoARF6v94TU5AbIXLg1kynURNa3mKrO8cdrt0DLV1XOUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794841118;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 MIME-Version;
-	bh=Uy9Jdn7rHshegnnAyKS/HqBRnthchAJC4iehP0NQYws=;
-	b=GB0Vx0PWA7exm2dpIxz9gve2HNf6xNgcOTojye2GvbNzubPIMotzHUy63dXbuEUxDjyE
-	 QqZkgZmHSm8et6HPEZXdnLlI93XqjmwUORmjiyi0xs6qvkScoJBUhwJAnTsZ9jjihuYDN
-	 mWH3M9yNNa2/QOCPtFC3Fd2k0FrsRZ5VwUdpiGfMGa6VA3xGWhcjBQW5HNz5uq0ywfxM5
-	 b+PpS835gHU7olaNZovcvlDT2JsEpvaeERLmp9ezLhOrQIAGF4tFSuxWqCwj6dSnFW0Px
-	 oRoGsXc4p2I0T6ycudG5xXd99olScnc0TdnI6ewDh3aoAh+jr60t7+mW7sKkNq04vvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794841122;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=fNYP6nVvRxqwPGp7tM8Nr2Iha6DD2mGej6Jc0Znc4jA=;
+	b=m71/W97TEQ5K5cj/ksFJERFRumHZnLhA7qLkm9R1juXHbhL9RGQ6hFbHUbwwRIkvTCqG
+	 HxPDCIQC8TPmL9ZGk2GoC7PuWAaeTZBtFiysg0amgpICv6ZZWINhfwIX6t0slcHpIAAsG
+	 EQwd0skB6iiiVt7xAi/5sDGZ7yQgjMIfpaeWjM765z6DXPHCe13JDf8EwjBODcLLXdznB
+	 XlONVQfXja+lHYofNTKnXfNp6rjDIba/N9GPcvxJKq1cT3VE8VPmGbarS1K5kIg+OYPqz
+	 U5GwpJCk140MqFifHTo1Dil2TZG1Rys9DMcq7Zm0OFBf/39en56iJbfK/QpE+7uFEMg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="xPyiu6U/";
-	arc=none smtp.remote-ip=162.62.57.252
-Received: from out162-62-57-252.mail.qq.com (out162-62-57-252.mail.qq.com [162.62.57.252])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=kernelriot.com;
+	spf=pass smtp.mailfrom=kernelriot.com;
+	dkim=pass header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=Aw0Q0zSp;
+	arc=none smtp.remote-ip=74.208.142.49
+Received: from mail.kernelriot.com (mail.kernelriot.com [74.208.142.49])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0E84606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:58:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0E84606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D4D3606A8A9;
+	Mon, 16 Nov 2026 14:58:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D4D3606A8A9
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kernelriot.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernelriot.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=xPyiu6U/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794841107; bh=Uy9Jdn7rHshegnnAyKS/HqBRnthchAJC4iehP0NQYws=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=xPyiu6U/ezAhtobXj5TzROOPTG3diexHqVgKVOUmvV4TmHaMCOyD5ozVHO6FMGfTp
-	 vRdmpV58utbbWQTJ9Y9mIJVRTCAwEADArp6SiOGybEAwfn5LZpQZPArFRTJWmV4TdO
-	 ctgkT1sQuQXlUdZaqAhU56giOmCOsgq7sxO3sRjQ=
-Received: from [127.0.0.1] ([2409:8d5c:8f0:65e5:2979:aa1c:9ec4:8698])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id E96286B1; Mon, 16 Nov 2026 22:58:22 +0800
-X-QQ-mid: xmsmtpt1794841102t6r8bc3kf
-Message-ID: <tencent_5497455DD4DAF310EB3F8121517EE9A69B0A@qq.com>
-X-QQ-XMAILINFO: M5g+bqkaOkZD92jABezB/5b/8BgAI0UxkFinwmlwcm1KMAW0IqCQlcBXdRq9bw
-	 62pW9W2/M48jfxvJXuO14RlFm1CWNIC9tokp/rZekYPIaC4Rs/YcUgNmxszg7NbS7ZvBGTefF2yC
-	 xzlpcnn0bb6JjV5SCLxYEQpemGg9BEQ8N+JX9DBVV2Yx0Yi8RoKzJa9L6C+1a/1eDv7cIvC4fDQe
-	 OFIhBIi+eoshao5gVX0o+cJ2vz2DRrQl80ep5oPkERphmLzk+GLoJkTjwOuNe7dQULDWNbeGei4o
-	 txU9TMtTzJ2nsGlX74o0UhrAh7mQUBOAv4v2ZNBC0SVF5QVnH2tkU0VbRjB/921NwnQxyPvZw0Fh
-	 KWnqKT9vFihyhTzhrOcyR8hWOo9Yg/npInzw74Yxlolh8F9PCZc8gcU5We/6L1BkEVwnR4KQYg76
-	 QVqm99V88lQdube3fTOLdTWeF4dIhyfd4LG0VaElgjhQgW0KcxbFnvKAEDKR4KJXiUb3G7eaBahX
-	 /ThmYvNidNGg1heoG8lLkhoEm8aNe8dm4YWfigK8JJ/owofAuN5mDMde1xqtcckiXp25A658liRL
-	 IxN0yf4CHFT/irS7JgHZ2EhgC0FcMwUonCEC6msxy4P00RWUTqPJXLhaFSzUahv99c4cA9obh53l
-	 ph14Fi3xBvCkx1DMSldexVvuIsjTa7mHaZBP7eW1rEjk6qMDTjUhRvCQnoKvgnkoduKTXH0TDZ9V
-	 dEVU1DkN2KdbOsD8/tgFhaMzyKQ/anF6kkYKfK2+AWShdpIQi0uEYi4HngismnTyZrJnO82Jj+xQ
-	 OLODqeFp2Jyr0XL7SSJNguQYmFa08V/wiKsvUQn94GU6j8jS+TVa05xg0yJnYGBwQxdX/e3IMMWL
-	 i+UlCKePhvXa1iMkDagJYVjeULPKol00DBGX8vmEqeN1XzSIxhp1q7J6TyFY+0HxTV2ZKW+PDqP3
-	 ZxQlD0xL8TER2DEW1pptOqqp7ZvrJJND93AxX++CjSpSFtgNNdkOhFKVy8aUikP/MjRnR4HuU0ri
-	 O76g71RCtsAqkJJygE2gCnuXIcX77zOLKPBvHj7fpW4KZBpGi/HJ+qOK+idPE4+MIObN6kf8HcpU
-	 oCHoj7QI6WuKoNFAfm+hueghwc65I/310Snvm4vsr+nXdiLFo=
-X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
-From: Hang Nan <2122295973@qq.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, matttbe@kernel.org,
- martineau@kernel.org, geliang@kernel.org, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- kuniyu@google.com, willemb@google.com, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, 2122295973@qq.com
-Subject: Re: [PATCH net v4 0/3] mptcp token hash ordering and token 0 lookups
-Date: Mon, 16 Nov 2026 22:58:20 +0800
-X-OQ-MSGID: <179484110033.96825.12925688433349630389@qq.com>
-In-Reply-To: <20261115155747.178858-1-2122295973@qq.com>
-References: <20261115155747.178858-1-2122295973@qq.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key, unprotected) header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=Aw0Q0zSp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernelriot.com;
+	s=kr2026; t=1794841121;
+	bh=2TMsT4OVc4sp3OPhBOTrfBghYpamHYgE3s1CFvg1zYw=;
+	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:From;
+	b=Aw0Q0zSptqmYNbyqP8019WOG1/8FqilaE/5ARuKDNqEylY1EIHBd4bpRxabQWGzEt
+	 uCEFdq/w/le8oD99HYu2qN2vx2nfnuJRROPWpp76U/PzUotBZciZYcdNOYTy44tCWp
+	 x7puOSjOr2Kjf7mUvoonE06lWHBi3A2TTHtyIVCr7i4BsQSb7Dla1ewnW5F8S2DGuw
+	 FKUFW3vp1wdf/OIXrHNOW2YAB21cH6C5Ug8j6yPg3QwnDRNmVzHNzbXsoro8JXx68S
+	 9vPpPiEaNTSoqBj1hsvBns+6QJSiJ/aEbSmzA0VIz/WA4pZBbYNyAHCVMYVs/JUawO
+	 osiKN+5m+DBVw==
+Received: by mail.kernelriot.com (Postfix, from userid 995)
+	id 6A410814D2; Mon, 16 Nov 2026 14:58:41 +0000 (UTC)
+From: Magnus Leatti <magnusleatti@kernelriot.com>
+To: me@ziyao.cc,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Nespolino <g.nespolino@gmail.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/2] net: stmmac: dwmac-motorcomm: quiesce the device at shutdown
+Date: Mon, 16 Nov 2026 11:58:20 -0300
+Message-ID: <20261116145820.3005689-1-magnusleatti@kernelriot.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <avsTEglKKD_wl_Fi@pie>
+References: <20261116091757.1656602-1-magnusleatti@kernelriot.com> <20261116091757.1656602-2-magnusleatti@kernelriot.com> <avsTEglKKD_wl_Fi@pie>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,47 +76,50 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thanks.  The missing information is now in the cover letter of v5, which I
-am posting for a different reason as well (a new KUnit case, see below),
-so this is not a repost just to answer this mail.
+Hi Yao,
 
-Short version, per patch:
+On Mon, Nov 16, 2026 at 02:33:17PM +0000, Yao Zi wrote:
+> I think this is abusing the API, and all the other changes in this patch
+> are working around its side effects. So here's my NAK.
 
-1/3 acquire ordering: theoretical.  No syzbot report, no KCSAN splat, no
-    reproducer.  KCSAN cannot observe it (it does not model reordering of
-    marked accesses), and on x86-64 both variants compile to the same
-    lock cmpxchg, so there is nothing to observe on that hardware.  The
-    evidence is instruction level: on arm64 the CAS becomes CASA.
+Hmmm... Fair. stmmac_suspend() is the PM callback, and the other two
+hunks are only there because I call it outside of PM. I will kill that
+approach.
 
-2/3 token 0: theoretical, found by static analysis.  It now carries a
-    KUnit case, which is the closest thing to a trigger that exists
-    without winning the race: the test builds the state a dying or
-    freshly allocated socket presents to a reader (hashed in bucket 0,
-    carrying token 0) and asserts that the lookup does not return it.
+> We do want to fix the problem though to ensure the device is stopped
+> upon shutdown, especially iirc, many YT6801 NICs in addon card form are
+> totally supplied by 3v3aux, thus S5 alone won't reset the NIC reliably.
 
-      # Subtest: mptcp-token
-      ok 1 mptcp_token_test_req_basic
-      ok 2 mptcp_token_test_msk_basic
-      ok 3 mptcp_token_test_accept
-      ok 4 mptcp_token_test_destroyed
-      ok 5 mptcp_token_test_zero
-      # mptcp-token: pass:5 fail:0 skip:0 total:5
+I didn't know about the 3v3aux cards. Both of my boards have the chip
+soldered down, and on the N3350 one it keeps its register state across
+S5 as well.
 
-    With the guard reverted, the same kernel reports
+> But this should be done in a cleaner way.
 
-      # mptcp_token_test_zero: EXPECTATION FAILED at net/mptcp/token_test.c:1=
-80
-      not ok 5 mptcp_token_test_zero
-      # mptcp-token: pass:4 fail:1 skip:0 total:5
+I can only see two ways to do it, which one should we go for in v2?
 
-    so the case does fail without the fix; it is not a test that passes
-    either way.
+ 1) In the glue only. Take RTNL, netif_device_detach(), and dev_close()
+    if the interface is running. No PM callback, so no PME to undo and
+    no guard for a failed resume.
 
-3/3 iterator slot check: theoretical as well, and the consumers are
-    netlink paths that need privileges in the target network namespace.
+ 2) A helper in the stmmac core that stops the device for shutdown,
+    which the PCI glues can call.
 
-Both runs are a defconfig x86-64 kernel with CONFIG_MPTCP=3Dy and
-CONFIG_MPTCP_KUNIT_TEST=3Dy, booted under qemu with
-kunit.filter_glob=3Dmptcp-token.
+Patch 2 adds one constraint though. For the chip to wake from S5 the PMT
+register has to be armed and the PHY has to stay up at power-off. That
+is what stmmac_suspend() did for me. With 1) the glue has to arm PMT by
+hand after closing the device, and I have not tested that yet. With 2)
+the helper can do it the way the suspend path does.
 
+Maxime, would you take a helper like 2) in the core, or should this
+stay in the glue?
+
+I'll hold v2 until I know which way to go :)
+
+Again, thanks for answering so quickly!
+
+Magnus
+
+pw-bot: cr
