@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794844931;
-	b=t0n5EHfyazVi6AXPEv50xWr5X6KHeCpGwBZ1RUesWxPp15OgmXet4ZDf+2m1WJfyg8jG
-	 5I3xfEJvgbecEmuc5U/oSDPLgxUTwfIJvqY8Qhrmd8oJxExmCWuYoyDEnB1ODkP0WsVtJ
-	 hLzkcbbM6VcHjYDceUnUFASKXFKd4yEo58TR98PAioaM+CWeaKV2Jr7D1+pHTTIJZr2do
-	 Uo8HsVu0h0nWajl8Ofsd3kOZyIcTIPn5+9Pz+9GEc36hjk410dtSDz2s1DOzn97xTxzbW
-	 JhUZNhYq03jHfzPySBOCpQVa0onLlXfyiCxdX7vGbVCoLezI1JTkzQ+rhsB5eWmVi7Q==
+	t=1794844935;
+	b=F39Uq9J8Co3tnAv0iNzrpkiPBq4/RtJ/8IQ48rY+UOfSlfOKqiuHzegzypVjcqYnTYGu
+	 fg6hgZIaCPo0w6LlN2fYjBTWa0IGMNl1XfUE4UfRseEJ/jHcz424kTngzj+hYxJahXh4y
+	 OO6y4MN0N5It+b9DWnQxX4E6vsANkbf0cC8g5IjOVueL45QU/K8bPvMVEWZK1i0bTWVhx
+	 3aQBY0Ga29sC0OtJgucv8Q83hHG2NzzvLlfRvunxnGLDnT7j85Y+lUGFIQrBY/WiVLS9m
+	 rT9JiFtruxJ4WRId0VT0j5Q9JqZQLFaD4zQqUHJHPoNyle2/GDfEr0V46IxFkFeSvXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794844931;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794844935;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=sm0vVvLHd0OpDRWJIs5fCX46BAD95WHNvukOvzkZYMY=;
-	b=C/cwHmUOswM0ZKMJ4y+1BZO1s4XYRTs/8dEC4TCFq+BU2Q1YvFWKZJriBzwncFVodjpP
-	 l0wICsyq8MVkPfhelc1xqij+VqrmCRzQBu3KB8InL1qfi8z7q3IiO2ggIAek511kblNqm
-	 Be7K5UVPyRqsNbMv1/Mv9g7pcsibs4zFLkCNpxhAmhmzic9xL9OtBP39arEto1QFoGj2b
-	 qpLPkGzjH5fW58ZveED83LgzSBD6xYFzqSS41PAcIuzLq2q/rrATByALgE8ynh9ygjwX0
-	 R4/1NpLhj8ry0jA31zV0aD64xzHJDNoKLMQH5QJDKX0q98l3jou+SOY9HZepgrNPbfg==
+	bh=pAz0bLJkbkGyi8jrsmRIgtv7CQJzhkJpuiznWq3FIm4=;
+	b=ddaGd8GmUf64iJ6dBS/98Yb6wswzab3HJFV3AMcSeR4H3HkzyyojH5ou9m1IGUFMVSjt
+	 KdHDSoWoboZWBlkMdUT8BnN3CBXw1lwVNprvdcldq587nh45SX6i9m+EhNujmx6Z1b3Ax
+	 NQCGgDOT77t/m0UeNzXWUfvB0m04S7Tfw33tsh+RW+7nXukex5kGQ5oWGv38EakvM2VGr
+	 ZWOWYJQVvJk8x9cbETY5VPeuPPUHPlNVexP+Bq7H7OZ9z7HhBzvdgoggHgZV8IQuIbbW+
+	 So0Ir358oyznrj7HLqZnFpUnudKS+7qxMuuc7xXHg8RipFJlVEh8ZtU6ZXUSxbbLzrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aF8dNVbZ;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jiR3u392;
+	arc=none smtp.remote-ip=209.85.215.179
+Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 325AE606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 16:02:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 325AE606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4E68606A32F
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 16:02:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4E68606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aF8dNVbZ
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b1535be329so2703540a91.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 08:02:11 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jiR3u392
+Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cdb2dfcca94so1615839a12.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 08:02:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794844930; x=1795449730; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794844934; x=1795449734; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=sm0vVvLHd0OpDRWJIs5fCX46BAD95WHNvukOvzkZYMY=;
-        b=aF8dNVbZBaOOjoaPvSPobG4b4BOs9Dd1fJM2ZTKYdz7CW8HS7QDwfIRaitMH02T8jW
-         30QP//r+jYZns7vWQ3VI5vENchh0bWgbfpqNSloJntgcW8N8ffHIHbnKw6SWS10oU4Dq
-         VVuAPvF2SC7LnKKnaI5lP1gPxwhTTD8xsZsVt3UaLQzixvPq0Rv4sZbXRrKYP8YdM6kK
-         7TdCppbMoQgVT8LER6UU55svB6g0hJt6JDf3c7WdCmA0i6b8NzdxPiaWb8U/hOoTHqBS
-         IXmWXxPpWB39RFeZSro3rKCLIz8aj9yMoZZhmoh3oL+Ct6jOAE7XQOhqg4voKTGz2QVT
-         oU2A==
+        bh=pAz0bLJkbkGyi8jrsmRIgtv7CQJzhkJpuiznWq3FIm4=;
+        b=jiR3u392bMbw0RoiMCnm7KG9uE35Hr1IM3HtBgOElXWwMsPJ26QjGfBjm48o1SYO93
+         KoVHDTEvaGaDKeocvtrZkJA2bGFzGxrsxIoB47GFvR5vPAamGOWvUMjJHMqSk/eOzSvP
+         C21II2c/x0PIlEprS6Vsnw8odj2Qovh8n9x2yp+WD0cLsniuXoI+PS4yXHwv37I41VrN
+         R0zcpq+XTQR52/b4UQXMgB2EeHWKwl2AV7kSkNiV03+b+BcPYymjbq1DxeLYywije9PA
+         KCS7Ps36l8sODZfeSR65bkUF3hVRitB5kWQWim/ujjaQW03lCYOljVd3+O4RuXcwiM7H
+         tDPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794844930; x=1795449730;
+        d=1e100.net; s=20260707; t=1794844934; x=1795449734;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sm0vVvLHd0OpDRWJIs5fCX46BAD95WHNvukOvzkZYMY=;
-        b=u5AE9SukeyBJxB7jT+7tH3ZXz6Kt+uy4lsLVdOFjDfYAxhOfkVVJKkIQx4UGZNihD6
-         2bIqoBuI0hdpM2nXvVm6u9DmZqgj0IrHggk7SCQAVO98jYyL8sXWFrosu1oJc7rPAWuY
-         JG0wR5GAHF4Kz5mX9m0mpw00Rz7LJX6l7CHno0GqStrT3Qm/LK0XXwx72HFuDKDz79UD
-         l2mCF83CTSFFBckZklLpgl6KvzUnIn7SDZGbNUlBeRiW6fwvgVNEgWJ0bcN3Cj2loU+S
-         yf/dvrzI9EDRlObMR80Z+KLfrBer1BGdKkNhGQ4On7wcu2tqW3Z2rTuuPR7utxWCiE7w
-         hw5Q==
-X-Gm-Message-State: APuU4Z9e/q/e46DcLZljSorc/yFcRcF7KDdIRktD45w77KhE16UxDt6F
-	KslG9QjRglDqr0J+J0IM6Had5esYstORgMhTTRdJ3SqortlN4wjD9MKNJX84qw==
-X-Gm-Gg: AZFdTZeztI+yxA/9wUtP7S8Ekk+/kfLypTOAVaWPTqib3NKWQDIMfPMPxkAyByqY6hY
-	5ALiPhfOmNvjuAUPlk3eHITr018cXdFzgQZes9UEWz0ly/R3+6qWry+sele6Xe0i3XBPVNd5+W7
-	K69ZW2cDSHynC27trbDcbQDGQZDjTXHDjvqiQrGun4lNiO7Rjpk3g93saUA7tHgvsa1NjIGPPE6
-	FczJZ0A1ZMYwA/5oSF473asAoJNmWjjdLxZNwIWBYyuc4QaRzZkocO9sWUbIpBmFzwJfS56syU1
-	LBZlAQA6NXftH9v0TSD4b723fXVhq3QZQTTauYkQwl6oyE8rfYWA5XinMVPEGc3zeleWjDBz6gq
-	b5bkbypC0yka8uQcd7MtxRGy68ZRjttImA/AIpRwdiwSm0ATOdgtNaqlM6vlZzXYmK/Cfmy87iV
-	7uIAUjfm9TtvcCZ0Qtrbs7dAVk88be6QLO7XyNeXb7A9fdQLTXGpxD95u/hsgw9jB7a+IM9yr7I
-	8vanP/TFeQU4pAm2kPsXNqh9cpzeh1BphIywD6u0BOTpa52ycPNB3a6cJ/CKwddrgu+upWqSQ2o
-	Nz1Uss7gB0z0IEMOuvJHbE06Rqx9h8n1+aixup+N5jTuHzp1Q5bRK6o=
-X-Received: by 2002:a17:90b:1dc4:b0:3ab:b39f:41cd with SMTP id 98e67ed59e1d1-3b1b0b5e500mr10824943a91.60.1794844930225;
-        Mon, 16 Nov 2026 08:02:10 -0800 (PST)
+        bh=pAz0bLJkbkGyi8jrsmRIgtv7CQJzhkJpuiznWq3FIm4=;
+        b=QPE5AVjiSyQ2maDfD+mXP4yyN88KZs+zBvUhBaRy3xd60AqhL4imM99VScfdmK19a/
+         Z9ZkJgamkfkyzmOBoNt/OH11IUNA0CImGkvHxBb7gTMvkg6epQu+NFuPbvyFp5FowzeJ
+         fhf41YdPtFkgk0PZXpTBaSWJbRo9eT85J+DookuW2ls7YquOOQITGdcALdJl/o+VOz7R
+         1Hi1PK80cV/YrOfOm1GLpIyXIjqFOAigEywdPbnPu1TMF0chlapb3TuzaFswZmv/eFHk
+         r0cOIz8cocprAVoy8XvEPUiNBgvHTvS9je4sWQiPXkDP1RT24/bYn+m2jqjc9YWMZhaZ
+         aCVg==
+X-Gm-Message-State: APuU4Z912IskTWLz7hdpNQtzH6z73c1sNK1+WrM2E3fG3Ynej8Nykjxl
+	iEycOlVxKoFnkDDmSEOZ9WoLQooUwEUx+rNRS3SXXQpeJardRclUCGtHqEjjTA==
+X-Gm-Gg: AZFdTZd1NvZ8mzG+ma2MI+ctT5tAvgBzytPu81UXPiUv0KO6Le9iNwd0snHHS9j6fOk
+	y2NdI8HiRL6KUqdCoar+d03Jo10epO70bi9oRumfQraL5KN05xT21DIQ3DRMuetynjG1tnHs2ff
+	sgn/+OVM9RhgZRu9dw2rastZPS+EAW2zzypdakfYLL7E1+ifNlQE3sE1YmKcVDmQWLAwhnWeH3h
+	b0gZP2HYe5AEeDDPCggwgbqqp9XsqQlRW7hQkl6xjwBjFFDV1XbVHW4xoKTpAHLmIcSjh7DuGax
+	R8VBT9FUdxfQhODsSokSJBs1CZqbnDX9qrBvwdNQyWvxcKGkb16rP70FHgOsRSLSK6n1x2cTY0H
+	Q177dx6gIhZ5WkZaJoOpxAHRzjVfebz0L91H1dt6abKG/jdx/3Xg4pe3c4vSiR8cGod84WpCD1i
+	pjZp8mNOgEI51JDw5M8u0+sDhVH9acz0uOXURz0nCb2LPE2Yb1b2qFjhjD8cZxBA7GybYmLJg+U
+	7IppHazviCD1RasuedX/m4EFRz+4uKIY3pP2xnYjuk71qt3nBwhVK01wcSHcBN+Efpr9OuYE46A
+	76ZFnSbZecnc1ywg+mTa2fAo3Q1mr4AcKvfnym6Jwn0wQV/f3qtVYnE=
+X-Received: by 2002:a17:90b:2e0b:b0:3a0:e1f7:9b04 with SMTP id 98e67ed59e1d1-3b1b09f3b6amr11067625a91.12.1794844933552;
+        Mon, 16 Nov 2026 08:02:13 -0800 (PST)
 Received: from d.home.yangfl.dn42 ([2a09:bac1:76a0:28::1d2:6e])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1ae98151dsm17432051a91.2.2026.11.16.08.02.05
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1ae98151dsm17432051a91.2.2026.11.16.08.02.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 08:02:08 -0800 (PST)
+        Mon, 16 Nov 2026 08:02:12 -0800 (PST)
 From: David Yang <mmyangfl@gmail.com>
 To: netdev@vger.kernel.org
 Cc: David Yang <mmyangfl@gmail.com>,
@@ -87,9 +87,9 @@ Cc: David Yang <mmyangfl@gmail.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 2/4] net: dsa: motorcomm: Rewrite FDB entry on port migration
-Date: Tue, 17 Nov 2026 00:01:02 +0800
-Message-ID: <20261116160107.1351198-3-mmyangfl@gmail.com>
+Subject: [PATCH net v2 3/4] net: dsa: motorcomm: Read the port PVID instead of bridge's
+Date: Tue, 17 Nov 2026 00:01:03 +0800
+Message-ID: <20261116160107.1351198-4-mmyangfl@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261116160107.1351198-1-mmyangfl@gmail.com>
 References: <20261116160107.1351198-1-mmyangfl@gmail.com>
@@ -104,172 +104,89 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When unicast addresses move between ports, DSA calls .port_fdb_add()
-without a prior .port_fdb_del() call, making the new port directly OR
-into the existing entries. The old port mask then loses track in DSA and
-can never be deleted.
-
-Fuse FDB join/leave into one change function, and rewrite the whole
-entry on add with the bridge port mask as the leave mask, so that ports
-left behind by the migration are dropped from the entry.
-
-Note the commit only correctly covers single bridge usage. Multiple
-bridge scenario was broken before, but now breaks in a different way;
-that should be addressed in a following commit.
+The driver passed the bridge master to br_vlan_get_pvid(), returning the
+bridge's own PVID (VID 1 by default) instead of the configured port's.
+Query the PVID from dsa_port_to_bridge_port() instead.
 
 Fixes: 186623f4aa72 ("net: dsa: yt921x: Add support for Motorcomm YT921x")
 Signed-off-by: David Yang <mmyangfl@gmail.com>
 ---
- drivers/net/dsa/motorcomm/chip.c | 95 ++++++++++++++++----------------
- 1 file changed, 48 insertions(+), 47 deletions(-)
+ drivers/net/dsa/motorcomm/chip.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
 
 diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-index c6d0f000a163..863ebb6c3198 100644
+index 863ebb6c3198..d84d863080ce 100644
 --- a/drivers/net/dsa/motorcomm/chip.c
 +++ b/drivers/net/dsa/motorcomm/chip.c
-@@ -729,13 +729,14 @@ yt921x_fdb_add(struct yt921x_priv *priv, const unsigned char *addr, u16 vid,
- }
- 
- static int
--yt921x_fdb_leave(struct yt921x_priv *priv, const unsigned char *addr,
--		 u16 vid, u16 ports_mask)
-+yt921x_fdb_update(struct yt921x_priv *priv, const unsigned char *addr,
-+		  u16 vid, u16 leave_ports_mask, u16 join_ports_mask)
+@@ -952,18 +952,18 @@ static int
+ yt921x_vlan_filtering(struct yt921x_priv *priv, int port, bool vlan_filtering)
  {
- 	u16 index;
- 	u32 ctrl1;
- 	u32 ctrl2;
+ 	struct dsa_port *dp = dsa_to_port(&priv->ds, port);
+-	struct net_device *bdev;
++	struct net_device *brport;
+ 	u16 pvid;
+ 	u32 mask;
  	u32 ctrl;
-+	u32 val1;
- 	u32 val2;
- 	u32 val;
- 	int res;
-@@ -744,69 +745,63 @@ yt921x_fdb_leave(struct yt921x_priv *priv, const unsigned char *addr,
- 	res = yt921x_fdb_has(priv, addr, vid, &index);
- 	if (res)
- 		return res;
--	if (index >= YT921X_FDB_NUM)
--		return 0;
-+	if (index >= YT921X_FDB_NUM) {
-+		if (!join_ports_mask)
-+			return 0;
-+
-+		return yt921x_fdb_add(priv, addr, vid, join_ports_mask);
-+	}
- 
- 	/* Check if action required */
- 	res = yt921x_reg_read(priv, YT921X_FDB_OUT2, &val2);
- 	if (res)
- 		return res;
- 
--	ctrl2 = val2 & ~YT921X_FDB_IO2_EGR_PORTS(ports_mask);
--	if (ctrl2 == val2)
--		return 0;
--	if (!(ctrl2 & YT921X_FDB_IO2_EGR_PORTS_M)) {
--		ctrl = YT921X_FDB_OP_OP_DEL | YT921X_FDB_OP_START;
--		res = yt921x_reg_write(priv, YT921X_FDB_OP, ctrl);
--		if (res)
--			return res;
-+	ctrl2 = val2 & ~YT921X_FDB_IO2_EGR_PORTS(leave_ports_mask);
-+	if (!join_ports_mask) {
-+		if (ctrl2 == val2)
-+			return 0;
-+
-+		if (!(ctrl2 & YT921X_FDB_IO2_EGR_PORTS_M)) {
-+			ctrl = YT921X_FDB_OP_OP_DEL | YT921X_FDB_OP_START;
-+			res = yt921x_reg_write(priv, YT921X_FDB_OP, ctrl);
-+			if (res)
-+				return res;
- 
--		return yt921x_fdb_wait(priv, &val);
-+			return yt921x_fdb_wait(priv, &val);
-+		}
- 	}
- 
--	res = yt921x_reg_read(priv, YT921X_FDB_OUT1, &ctrl1);
-+	res = yt921x_reg_read(priv, YT921X_FDB_OUT1, &val1);
- 	if (res)
- 		return res;
- 
-+	ctrl1 = val1;
-+	if (join_ports_mask) {
-+		ctrl1 &= ~YT921X_FDB_IO1_STATUS_M;
-+		ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
-+		if (ctrl1 != val1)
-+			ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
-+	}
-+	ctrl2 |= YT921X_FDB_IO2_EGR_PORTS(join_ports_mask);
-+	if (ctrl1 == val1 && ctrl2 == val2)
-+		return 0;
-+
- 	return yt921x_fdb_add_index_in12(priv, index, ctrl1, ctrl2);
- }
- 
-+static int
-+yt921x_fdb_leave(struct yt921x_priv *priv, const unsigned char *addr,
-+		 u16 vid, u16 ports_mask)
-+{
-+	return yt921x_fdb_update(priv, addr, vid, ports_mask, 0);
-+}
-+
- static int
- yt921x_fdb_join(struct yt921x_priv *priv, const unsigned char *addr, u16 vid,
- 		u16 ports_mask)
- {
--	u16 index;
--	u32 ctrl1;
--	u32 ctrl2;
--	u32 val1;
--	u32 val2;
--	int res;
--
--	/* Check for presence */
--	res = yt921x_fdb_has(priv, addr, vid, &index);
--	if (res)
--		return res;
--	if (index >= YT921X_FDB_NUM)
--		return yt921x_fdb_add(priv, addr, vid, ports_mask);
--
--	/* Check if action required */
--	res = yt921x_reg_read(priv, YT921X_FDB_OUT1, &val1);
--	if (res)
--		return res;
--	res = yt921x_reg_read(priv, YT921X_FDB_OUT2, &val2);
--	if (res)
--		return res;
--
--	ctrl1 = val1 & ~YT921X_FDB_IO1_STATUS_M;
--	ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
--	ctrl2 = val2;
--	if (ctrl1 != val1)
--		ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
--	ctrl2 |= YT921X_FDB_IO2_EGR_PORTS(ports_mask);
--	if (ctrl1 == val1 && ctrl2 == val2)
--		return 0;
--
--	return yt921x_fdb_add_index_in12(priv, index, ctrl1, ctrl2);
-+	return yt921x_fdb_update(priv, addr, vid, 0, ports_mask);
- }
- 
- static int
-@@ -877,10 +872,16 @@ yt921x_dsa_port_fdb_add(struct dsa_switch *ds, int port,
- 			const unsigned char *addr, u16 vid, struct dsa_db db)
- {
- 	struct yt921x_priv *priv = dsa_to_yt921x_priv(ds);
-+	u32 bridge_ports_mask = 0;
  	int res;
  
-+	if (db.type == DSA_DB_BRIDGE) {
-+		bridge_ports_mask = dsa_bridge_ports(ds, db.bridge.dev);
-+		bridge_ports_mask |= priv->cpu_ports_mask;
-+	}
-+
+-	bdev = dsa_port_bridge_dev_get(dp);
++	brport = dsa_port_to_bridge_port(dp);
+ 
+-	if (!bdev || !vlan_filtering)
++	if (!brport || !vlan_filtering)
+ 		pvid = YT921X_VID_UNWARE;
+ 	else
+-		br_vlan_get_pvid(bdev, &pvid);
++		br_vlan_get_pvid(brport, &pvid);
+ 	res = yt921x_port_set_pvid(priv, port, pvid);
+ 	if (res)
+ 		return res;
+@@ -1102,16 +1102,16 @@ yt921x_dsa_port_vlan_del(struct dsa_switch *ds, int port,
  	mutex_lock(&priv->reg_lock);
--	res = yt921x_fdb_join(priv, addr, vid, BIT(port));
-+	res = yt921x_fdb_update(priv, addr, vid, bridge_ports_mask, BIT(port));
- 	mutex_unlock(&priv->reg_lock);
+ 	do {
+ 		struct dsa_port *dp = dsa_to_port(ds, port);
+-		struct net_device *bdev;
++		struct net_device *brport;
  
- 	return res;
+ 		res = yt921x_vlan_del(priv, port, vid);
+ 		if (res)
+ 			break;
+ 
+-		bdev = dsa_port_bridge_dev_get(dp);
+-		if (bdev) {
+-			br_vlan_get_pvid(bdev, &pvid);
+-			if (pvid == vid)
++		brport = dsa_port_to_bridge_port(dp);
++		if (brport) {
++			br_vlan_get_pvid(brport, &pvid);
++			if (!pvid)
+ 				res = yt921x_pvid_clear(priv, port);
+ 		}
+ 	} while (0);
+@@ -1139,19 +1139,19 @@ yt921x_dsa_port_vlan_add(struct dsa_switch *ds, int port,
+ 	mutex_lock(&priv->reg_lock);
+ 	do {
+ 		struct dsa_port *dp = dsa_to_port(ds, port);
+-		struct net_device *bdev;
++		struct net_device *brport;
+ 
+ 		res = yt921x_vlan_add(priv, port, vid,
+ 				      vlan->flags & BRIDGE_VLAN_INFO_UNTAGGED);
+ 		if (res)
+ 			break;
+ 
+-		bdev = dsa_port_bridge_dev_get(dp);
+-		if (bdev) {
++		brport = dsa_port_to_bridge_port(dp);
++		if (brport) {
+ 			if (vlan->flags & BRIDGE_VLAN_INFO_PVID) {
+ 				res = yt921x_pvid_set(priv, port, vid);
+ 			} else {
+-				br_vlan_get_pvid(bdev, &pvid);
++				br_vlan_get_pvid(brport, &pvid);
+ 				if (pvid == vid)
+ 					res = yt921x_pvid_clear(priv, port);
+ 			}
 -- 
 2.53.0
 
