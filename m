@@ -1,60 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794804213;
-	b=KxEMvgeAt+GuylStM9+NcvB73jiM1zcpqOHLu6O7W9ldjGKoL9I1GCfCW8bAPac/2XM8
-	 cDzMHoLe3ZPe4Ny1Q24kH4I5iwRr+sbUtHOq0eH4PJYqHbGQPe7TH3fNy0pPI6oLpIgLD
-	 gCA0NZSibgtOzZUP8Xz8B2jOqd4jvd9wSFIlvjgkYIzJyowsHbQ9a0OI0XQQYS4a5yPjh
-	 fSEtWzwqqM4Ihp8yTpxASmNpu4NsNIaDoMRtfbvH4O3dcGO1MMU9WU9mMu0m+BRj6FR4k
-	 /5irTXSfPMc7rRTNqmxU5Dk+aD4EJIbJdnAx3NqOxMracpZeUJsUiu9soJ21fna8miA==
+	t=1794804333;
+	b=W2SmZ5dHzk6Neelr7cVoWfRTLzkDOUweqGr6GUkm+Ikj27ostkxiBAHexTJLPMfVR+gg
+	 TLXSAJtYXuFwusHzmV23TerGoIGGRn1NMjj8O7b1aHGBwTcx1O2Kwc3TMHa7WHf/OTaUI
+	 V/drsfiolUDXZw2icH5TlfTbyzu5qcMzpbhgp+Xaeu4arRGgGHAJZOFsQ2RrCj7JfPoaw
+	 rtWR+gfQFq9IqPLM86O40oRuwoiqsKSQIbnO7BBvIgIRrL9qCeBhnDR14KnOf1r7PeTxE
+	 9bpWpkeCDjOWCg7+uRQ2jjOJHZnWPsMdFMqVkB1d4xGSHrp8PO5WzPmmfashhNCe73g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794804213;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=0GGSnSDNRCIbI3O6bCi+KGfcF/rbTcqhD4BZuP/VmsE=;
-	b=z1UmqCwHqYafewRdKRMic2i6xOCRoIPTfx4o8QZeTpuPPVDrgEYI2CrmUsH9DWs9TN82
-	 A+reh5GiXDiNQPyY8ck2oAeDedADNqjh0b8YZyGEH1iieUyHzNvFJXrN0ymBSQT704rM8
-	 A+//U0IxZ57ASJ6eHd3kbTiR5VJzXrVUaSJa1X2LGEgppJylmhocaQZvjSag8cz4Omv9r
-	 bLPy/4xQBWvi4B+lJsNSLHSc4jkpnmdMHF1vnwWjqyk7GGtqaUHQ0+jlxUtkHczvHHe+v
-	 SKSXuB2FoF7zCSMRxTIkx2jRLbgZCAciBEeoWXmqp+Azjvee1DFahK84GucHQjx11tg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794804333;
+	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=C1nXCu3xpUAPoWbsrSdR5ivMdPwVi+OL8YN1z8S9pu8=;
+	b=Xtuy5u9BgjEmJywl7gC5zcHn1jwHlhfpmFujji0DK8NTcc+2PilEGaRpjuP8OpoWxXfk
+	 +iumEZ43OK32YQa9rmE6SoQFB2R7E0UoJdn0luueZZojuBoCl9HBQDPEWgeT0XZ+td0TA
+	 3ub54wXlDvpnka3b85RYrqTlXta/8xiBO2cZv637tgqcKknJerVz9SezLtkYYcRc2YloN
+	 4DZ5UGPzjCmcqDICcVfEZSoqiLzCKWf6Wcjv/xwKJVeu2lXuPZg85TkqH1PiOO0OBW8g9
+	 mRKN7LqCgeE4NRe+JAu/2SUugdHHWzwwCnTrG6yYaIUzFdFkznKSA1pnRa9qa2J/HMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bCAn06U8;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G1mzUkq7;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66632606A890;
-	Mon, 16 Nov 2026 04:43:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22EC7606A321;
+	Mon, 16 Nov 2026 04:45:33 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bCAn06U8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6045B1F000CB;
-	Mon, 16 Nov 2026 04:43:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G1mzUkq7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BACD11F000C6;
+	Mon, 16 Nov 2026 04:45:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794804213;
-	bh=0GGSnSDNRCIbI3O6bCi+KGfcF/rbTcqhD4BZuP/VmsE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bCAn06U8J4Zu4qRhV8YueidKJTk+IOyBvIKwYRXflzGvcbB35geChiRODPrJlpFTh
-	 +TuHitFV3u5yhXAhtlvGylppx5cIvffe+CqXHO6bup5oVjEkxuJfKlYWi+5DGMj0kS
-	 J9UZnrvGsb0VwnpSfDkj6TfDiUQj1HNURW7Z8m67oLuj0jhbwN0+QHj91FdfvRXbkK
-	 zcjwNXF4WMzu90pEYu5AdCau2BqrAoZa2WzD9kJGhE5FJ+S4v31pn7t0nb7ijrQt0i
-	 yyIV33ZVB0q/2B9wtqxAugn3qVGZlLmDxNtI5lCBa1ZIn5RatUvOMhn22b6UzxgWUM
-	 pKoMFBHU4J0Ew==
-Subject: Re: [PATCH net-next v2 1/2] net: bridge: switchdev: add
- br_switchdev_fdb_find_port()
-From: netdev-bot+sashiko@kernel.org
-To: julius@bairaktaris.de
-Cc: razor@blackwall.org, idosch@nvidia.com, andrew+netdev@lunn.ch,
- olteanv@gmail.com, netdev@vger.kernel.org, bridge@lists.linux.dev,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 16 Nov 2026 04:43:31 +0000
-Message-ID: <179480421183.3136.1759261843920553958@kernel.org>
-In-Reply-To: <ce6ea6a96b66c70b882832a07c36caf12193c6c2.1794696609.git.julius@bairaktaris.de>
-References: <ce6ea6a96b66c70b882832a07c36caf12193c6c2.1794696609.git.julius@bairaktaris.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1794804333;
+	bh=C1nXCu3xpUAPoWbsrSdR5ivMdPwVi+OL8YN1z8S9pu8=;
+	h=From:Date:Subject:To:Cc;
+	b=G1mzUkq7FFJ5EOZDTloszthKxKlWQ0lUybewTZqXEXxg4IQnpev8qo4P4+fKJu2g6
+	 ARqO4Lb9tj4zuN9Blv1H5Oj4YWPP1vwQjhoWOE76RLCCfiLxh8J10VHXn/JOgZJINi
+	 VLl8MikDAU8nLa4meS/aXUxpOWdu1OcOFJpuQzGarWcd7tJnvDnH3UuW3Wamzb/ySB
+	 /gXy5eH4jmwjgnjDRR1ZIXcDT5Ry8YjwVtkzFmTSzLCB4hwXpzlj5Fngu1kxWZJ3A9
+	 e/VpiK2nxbroVa7yh6KWeO7jPAoxbJGwukl4ZG0ws3R7nX3M7/A8scKnI93guL+PKh
+	 vp/PWy8cFh/wg==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Sun, 15 Nov 2026 21:45:22 -0700
+Subject: [PATCH net v2] qca_spi: Avoid unsequenced accesses to jiffies in
+ qcaspi_netdev_tx_timeout()
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,173 +53,84 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261115-qca_spi-wunsequenced-v2-1-8cf32f12d546@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/32NwQ6CMBBEf4Xs2Rq2qRU8+R+GGFpWqJoWuoAaw
+ r8LePc4kzdvJmCKjhhOyQSRRscu+CXIXQK2KX1NwlVLBplKjYhKdLa8cuvEa/BM3UDeUiXKDOm
+ gNOpMKVimbaSbe2/aC3jqofiVPJg72X4VrljjuA/xs52PuMH/f0YUKLSRmJs81ZU5nh8UPT33I
+ dZQzPP8BYwtMtzQAAAA
+X-Change-ID: 20261114-qca_spi-wunsequenced-a81e54616844
+To: Stefan Wahren <wahrenst@gmx.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ llvm@lists.linux.dev, stable@vger.kernel.org, 
+ Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2417; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=IgZPl7ILzzabDjruOxBCjVz4U4I25Kp8yanQCQxS3vg=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDFm/utLLtfhXHGiyED4pP3V/+9FDgTN49TevFV7M6PbE8
+ p2xOOe6jlIWBjEuBlkxRZbqx6rHDQ3nnGW8cWoSzBxWJpAhDFycAjCRCycYGa57nb/kuZEr7d7j
+ E68W7NxftODL92fynxaGsixSeSDxiaOM4b9z9pNj79cVpHTLGub7bG2Te7hXj99r9k9O9yAe35J
+ pVzkB
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+After a recent improvement in clang to warn on unsequenced accesses to
+volatile variables [1], an instance appears in
+qcaspi_netdev_tx_timeout(), which can break the build with
+CONFIG_WERROR=y / W=e:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+  drivers/net/ethernet/qualcomm/qca_spi.c:805:16: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
+    805 |                     jiffies, jiffies - dev_trans_start(dev));
+        |                     ~~~~~~~  ^
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Per C11 5.1.2.3.2, accessing a volatile object is a side effect. Per C11
+6.5.2, unsequenced side effects on the same scalar object are undefined
+behavior. Per C11 6.5.2.2.10/12, the evaluation of arguments in a
+function call is indeterminately sequenced, meaning any side effects in
+the arguments are unsequenced.
 
-- [Medium] br_switchdev_fdb_find_port() (net/bridge/br_switchdev.c)
-  decides that an entry "was learned by a switchdev driver, whose…
-- [Low] br_switchdev_fdb_find_port() reads f->flags several times with
-  separate test_bit() calls, under RCU only.
+Printing jiffies on its own is not that useful for debugging transmit
+timeouts, so get rid of it to clear up the warning.
 
---
+Cc: stable@vger.kernel.org
+Fixes: 291ab06ecf67 ("net: qualcomm: new Ethernet over SPI driver for QCA7000")
+Closes: https://github.com/ClangBuiltLinux/linux/issues/2197
+Link: https://github.com/llvm/llvm-project/commit/955715460eaf9188c241c74750637fc82dfcc423 [1]
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+Changes in v2:
+- Eliminate printing jiffies entirely rather than using a local variable
+  (Stefan)
+- Link to v1: https://patch.msgid.link/20261114-qca_spi-wunsequenced-v1-1-6b219b906db7@kernel.org
+---
+ drivers/net/ethernet/qualcomm/qca_spi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-net: bridge: switchdev: add br_switchdev_fdb_find_port()
+diff --git a/drivers/net/ethernet/qualcomm/qca_spi.c b/drivers/net/ethernet/qualcomm/qca_spi.c
+index 38a779f4b866..249b4b549a12 100644
+--- a/drivers/net/ethernet/qualcomm/qca_spi.c
++++ b/drivers/net/ethernet/qualcomm/qca_spi.c
+@@ -801,8 +801,8 @@ qcaspi_netdev_tx_timeout(struct net_device *dev, unsigned int txqueue)
+ {
+ 	struct qcaspi *qca = netdev_priv(dev);
+ 
+-	netdev_info(qca->net_dev, "Transmit timeout at %ld, latency %ld\n",
+-		    jiffies, jiffies - dev_trans_start(dev));
++	netdev_info(qca->net_dev, "Transmit timeout, latency %ld\n",
++		    jiffies - dev_trans_start(dev));
+ 	qca->net_dev->stats.tx_errors++;
+ 	/* Trigger tx queue flush and QCA7000 reset */
+ 	set_bit(SPI_RESET, &qca->flags);
 
-This adds an exported RCU lookup, br_switchdev_fdb_find_port(). It
-returns the device that br_switchdev_fdb_notify() reports an FDB entry
-on, or NULL for entries whose addition is not reported to switchdev. The
-existing notify filter moves into a shared helper,
-br_switchdev_fdb_notifies(), and the next patch uses the lookup from DSA.
+---
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+change-id: 20261114-qca_spi-wunsequenced-a81e54616844
 
-> diff --git a/net/bridge/br_switchdev.c b/net/bridge/br_switchdev.c
-> index 10f3aea6a1f82..f832657c0c22e 100644
-> --- a/net/bridge/br_switchdev.c
-> +++ b/net/bridge/br_switchdev.c
+Best regards,
+--  
+Cheers,
+Nathan
 
-[ ... ]
-
-> @@ -156,9 +152,67 @@ br_switchdev_fdb_notify(struct net_bridge *br,
->  	 * Drivers don't know how to deal with these, so don't notify them to
->  	 * avoid confusing them.
->  	 */
-> -	if (test_bit(BR_FDB_ADDED_BY_USER, &fdb->flags) &&
-> -	    !test_bit(BR_FDB_STATIC, &fdb->flags) &&
-> -	    !test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags))
-> +	return !test_bit(BR_FDB_ADDED_BY_USER, &fdb->flags) ||
-> +	       test_bit(BR_FDB_STATIC, &fdb->flags) ||
-> +	       test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags);
-> +}
-> +
-> +/**
-> + * br_switchdev_fdb_find_port - find the device a switchdev entry is reported on
-
-[ ... ]
-
-> + * Return: the device that br_switchdev_fdb_notify() reports the entry for
-> + * @addr and @vid on: its port, or @br_dev for a local entry. NULL if there is
-> + * no such entry, or if it is locked, was added with "master dynamic", or was
-> + * learned by a switchdev driver, whose addition br_switchdev_fdb_notify()
-> + * does not report.
-> + */
-> +struct net_device *br_switchdev_fdb_find_port(struct net_device *br_dev,
-> +					      const unsigned char *addr,
-> +					      u16 vid, bool *added_by_user)
-> +{
-
-[ ... ]
-
-> +	f = br_fdb_find_rcu(netdev_priv(br_dev), addr, vid);
-> +	if (!f || !br_switchdev_fdb_notifies(f))
-> +		return NULL;
-> +
-> +	by_user = test_bit(BR_FDB_ADDED_BY_USER, &f->flags);
-> +	if (!by_user && test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &f->flags))
-> +		return NULL;
-
-[Severity: Medium]
-Can this check hide entries whose ADD was already reported to switchdev?
-The flags don't record whether an ADD was actually sent.
-
-Take an entry that the software bridge learns first on port P:
-
-br_fdb_update()
-  fdb_create()                      /* USER and EXT_LEARN clear */
-  fdb_notify(br, fdb, RTM_NEWNEIGH, true)
-    br_switchdev_fdb_notify()       /* FDB_ADD_TO_DEVICE sent on P */
-
-Then the switchdev driver of P learns the same MAC in hardware and sends
-SWITCHDEV_FDB_ADD_TO_BRIDGE:
-
-br_switchdev_event()
-  br_fdb_external_learn_add(br, p, addr, vid, locked, false)
-
-br_fdb_external_learn_add() takes the existing-entry branch:
-
-		if (test_and_set_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags)) {
-		...
-		if (swdev_notify)
-			set_bit(BR_FDB_ADDED_BY_USER, &fdb->flags);
-
-After this the entry has EXT_LEARN set and USER clear, and no switchdev
-event goes out.
-
->From then on, br_switchdev_fdb_find_port() returns NULL for this entry.
-br_switchdev_fdb_notifies() still accepts it, though, because USER is
-clear. So the DEL is still reported on P, either from fdb_delete(br, f,
-true) in the user delete and port flush paths, or from the roaming
-branch of __fdb_update():
-
-		if (source != old_port) {
-			br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH);
-
-Doesn't this contradict the kernel-doc ("the device that
-br_switchdev_fdb_notify() reports the entry ... on") and the commit
-message ("does not find the entries whose addition the bridge does not
-notify to switchdev")?
-
-The next patch in the series uses this helper from
-dsa_user_bridge_host_fdb_wanted(). Consider an assisted-learning DSA
-switch bridged with a foreign port that learns in hardware.
-
-If the queued host_addr ADD work runs after the hardware learn, the
-helper returns NULL and the host address is never installed. If the work
-ran before it, the address is installed. Before the series the address
-was always installed.
-
-Is this timing-dependent result intended? When the address is missing,
-traffic from DSA user ports to that MAC is flooded instead of being
-forwarded to the CPU.
-
-> +
-> +	if (added_by_user)
-> +		*added_by_user = by_user;
-
-[Severity: Low]
-Can by_user disagree with the decision br_switchdev_fdb_notifies() just
-made?
-
-The flags are read several times with separate test_bit() calls, under
-RCU only. Some writers change these bits without hash_lock. One is the
-NTF_USE path of __fdb_update(), reached from br_fdb_update() under
-rcu_read_lock():
-
-	if (unlikely(test_bit(BR_FDB_ADDED_BY_USER, &flags))) {
-		set_bit(BR_FDB_ADDED_BY_USER, &fdb->flags);
-
-The roaming branch of __fdb_update() also clears
-BR_FDB_ADDED_BY_EXT_LEARN and BR_FDB_LOCKED.
-
-For a dynamically learned entry:
-
-CPU0                                 CPU1
-br_switchdev_fdb_notifies()
-  sees USER == 0, passes
-                                     __fdb_update() with NTF_USE
-                                       set_bit(BR_FDB_ADDED_BY_USER)
-by_user = test_bit(...) == 1
-returns port, *added_by_user = true
-
-With USER clear the answer would be (port, false). With USER set the
-entry is "master dynamic" and the answer would be NULL. The pair (port,
-true) matches neither state.
-
-Would reading f->flags once with READ_ONCE() and testing the local copy
-avoid this?
-
-> +
-> +	if (test_bit(BR_FDB_LOCAL, &f->flags))
-> +		return br_dev;
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794696608.git.julius%40bairaktaris.de
