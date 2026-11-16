@@ -1,51 +1,51 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794788184;
-	b=jXOyVdbzftfLD5n53fQEPR3qp3n+vqWqH0iOXb6f3K8i3cyhVVc9/ERY2JAaVWew4+L1
-	 dQZNBKd6yf8ZbnN3iGSB+lJBQxiw7pYoVlmUuJ7F873kRlOoxo6GI4PGiy6VUqmKZCP59
-	 8KWVANwQ4k0dSROCawck5W+S94Uoae4+8ZixPW/MNN878RauXuJkH/edIXY74Xhztd/DE
-	 Uy8e7F2EuQN35MDE+YPEqsEWK7WkOPqN1HtsMsLt+0VSsg7v4pEuXxDNMlKSnXszjUYAu
-	 3/2UVzSLCo60gaynNCUlLiGtmt5UgcBAjoSUTfN4Y16wLpGloWqTRJQ8/x/jp8H7+Sw==
+	t=1794788190;
+	b=wwDIwfY/aH1hC+i34e2fDv2DB9R4CT4ADz6++Bx2lkS4rEnD0+DZ/tfHr1VKJwoQMLhi
+	 91a5F85xtyRegUg8j9boxWqg9rrPok7sXnhIJKySx1y8Jwm1EdlFd3JqsbRicZ/dzK9M2
+	 p4e/bmyY9TjXaW/aUq7EB/3klzLcAW45Bly78uRz0AyZTlHz9I2wm7ARdWJZuf+XI4FdZ
+	 kYchnQd37eQJXaQm19Wd/LuZLDvb/7Qm4jRwqXE9Wboyr58/n4076bni/9D8SqDcVnp2g
+	 fCPFvsgYwbRA7ZwovJTCtY/oYGDjsTiq66LyCCGgu7KBWtO1rnjDe9woZuiahNX0r3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794788184;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794788190;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=oxNarDAU8ntLZYvcfh/EL/sVu2+NoiUKJvzwzwsSo4w=;
-	b=xJAJGcIy+kowGBR/hosIuTVF/GtfhEMny4786+PbMlBvcbHQaRq3DhL1SCxLOAzXAxXh
-	 p4xTfM0mTb+5fUAWw33nB0KgNHRRza/F5R72GKoEHdUy65zxu7GnekFRdYmBPePCNEmtF
-	 xUfs++9eYeXD1z7iuG3qSAZuiy3mXRHjZO9nH5meQ+4ucTg1z9Y0mb83mXg0M0LR7RntA
-	 o/jDxSELPZ3BYj5GvvkGANrxFUvp9dsVJUSEJmnF7g+17pG6IDAJ/yjPdkzf2LDVLuMLm
-	 PIv1NGsS8KQ2PqEHi78DkOaBju9z9e7AtseOTiB53VLJZw/XPMPkkYydGlKl1yvWkvw==
+	bh=TG/14QAYLr9AECWOTVuoUws/MaH0SzB3BMceRMURL3c=;
+	b=zaOBRQUUaSbcCQmtbdeBewKgVmQGE2GukjT5yDPgUeLX9GvLxEEWclHAW1UU4jF/ktP7
+	 Wpgar0ydoAph9UBiJeR+bSQmsgVOksKKtJvmkBj1pQcU/wnwOQeuONXRQTX3B0wYd1lSj
+	 /qxf+nRNp3iMmHNCY1dZOjkFtaJ7C3z2e8oiGtCgZyldeItuqfiBc3Ii+EW5J77KGTIHR
+	 1TKs5FvCcJw5O9c5ZL8m9t+WiZmlwdJuFzq+BmuEocJAnAnQKEQ5Bl28ksVO3oPltlkQe
+	 qPqWE7KCTN9gW9nnhm1X0gwoze2rFa0Q4oR9iOJZZuRnrApUsY5TKZFC8kE7bfVyG1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=netfilter.org;
 	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Rhbtz07a;
+	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b="a8fl18/1";
 	arc=none smtp.remote-ip=217.70.190.124
 Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60B0C606A333;
-	Mon, 16 Nov 2026 00:16:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60B0C606A333
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 072DB606A339;
+	Mon, 16 Nov 2026 00:16:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 072DB606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Rhbtz07a
+	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=a8fl18/1
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1794788182;
-	bh=oxNarDAU8ntLZYvcfh/EL/sVu2+NoiUKJvzwzwsSo4w=;
+	s=2025; t=1794788186;
+	bh=TG/14QAYLr9AECWOTVuoUws/MaH0SzB3BMceRMURL3c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Rhbtz07aHduioKuaMO/91NczrtPLwi6yv+VxUM9Yf/jkx6N8fBGBkRQ7hgDsjyysJ
-	 8nK1Q8zY+2cJ5xNgcD2oNmiI/qiFvbaglnl5jesdBRjqE5OEY+nxSjC19vx7PgdQW6
-	 KnEZhZpD0BCAPp8LTyoe1zKFa5UvDqc6StsE4P0hX1PGgXK5kBpJcCSztJngGY7TvR
-	 9G8vmWPnGki9GV66L5FPymLOepAcA06GKRnxv7Jw/RkzKCMeo/kmiPrf4qs54nJpdi
-	 jxbbTv2v1DMDgTDU3QpyqqPvcYUoHwKDxlt6ur2so4dJ7c49mKj8RHe7O4JAMXT6yH
-	 2IfBm8DKRbY8Q==
+	b=a8fl18/1id9f/Ao6aFXKB+TjjCWn9buCJt4eq9P7n7Hqg11q/QK0djujI71ouRnzE
+	 pN7eBkQgVgSb5qT01Y5MAQebRZBmeIg5Nk0YDAbou5XsDCecUGToCwj0c962ws3j6H
+	 2Dl95ny8gCt3+umjWILwBNYkIZDoxQgyouYYE3jYIJh06HDJl3mIc6jlNJxjUcNuYX
+	 Xmy0RgAcwr+7+2hV0i+COBmUdnngFCno/5A6hjnm5NFIcQqTGPCguccICMbJQolGzN
+	 2QSfqBzNpSIDKbDHh/tb9CG7NHPb3D0cj1tNeYJGD7Lce/dtCC793ehKxJOS2OGZwD
+	 6O3TaVp25dU7Q==
 Received: from localhost.localdomain (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with ESMTPSA id D6E1C6005B;
-	Mon, 16 Nov 2026 01:16:21 +0100 (CET)
+	by mail.netfilter.org (Postfix) with ESMTPSA id E1A7E60058;
+	Mon, 16 Nov 2026 01:16:25 +0100 (CET)
 From: Pablo Neira Ayuso <pablo@netfilter.org>
 To: netfilter-devel@vger.kernel.org
 Cc: davem@davemloft.net,
@@ -56,9 +56,9 @@ Cc: davem@davemloft.net,
 	horms@kernel.org,
 	fw@strlen.de,
 	ja@ssi.bg
-Subject: [PATCH net-next 02/13] netfilter: flowtable: retrieve stats on flow deletion
-Date: Mon, 16 Nov 2026 01:16:01 +0100
-Message-ID: <20261116001612.2806263-3-pablo@netfilter.org>
+Subject: [PATCH net-next 04/13] net: airoha: update stats on flow deletion
+Date: Mon, 16 Nov 2026 01:16:03 +0100
+Message-ID: <20261116001612.2806263-5-pablo@netfilter.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261116001612.2806263-1-pablo@netfilter.org>
 References: <20261116001612.2806263-1-pablo@netfilter.org>
@@ -73,120 +73,80 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Retrieve stats too when deleting a flow from hardware. Apparently, the
-existing approach is missing last stats sync with the conntrack entry.
-Pass the stats object to the driver so it has a chance to populate it
-at deletion time. Drivers need to be updated to use this new approach.
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-Reported-by: Valentin Berezhnoy <dreyksmail@gmail.com>
-Closes: https://patch.msgid.link/netfilter-devel/20261021175030.4800-1-dreyksmail@gmail.com/
-Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Update this driver to use the new approach to fetch stats on flow
+deletion, introduced by ("netfilter: flowtable: retrieve stats on flow
+deletion").
+
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>
 ---
- net/netfilter/nf_flow_table_offload.c | 54 ++++++++++++++++-----------
- 1 file changed, 33 insertions(+), 21 deletions(-)
+ drivers/net/ethernet/airoha/airoha_ppe.c | 31 +++++++++++++++---------
+ 1 file changed, 19 insertions(+), 12 deletions(-)
 
-diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
-index 3a18fa48cadb..c302051489f2 100644
---- a/net/netfilter/nf_flow_table_offload.c
-+++ b/net/netfilter/nf_flow_table_offload.c
-@@ -928,12 +928,33 @@ static int nf_flow_offload_tuple(struct nf_flowtable *flowtable,
- 	}
- 	up_read(&flowtable->flow_block_lock);
- 
--	if (cmd == FLOW_CLS_STATS)
-+	if (stats)
- 		memcpy(stats, &cls_flow.stats, sizeof(*stats));
- 
- 	return i;
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index f5369c45766d..af8c7fe9b7f0 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -1285,6 +1285,23 @@ static int airoha_ppe_flow_offload_replace(struct airoha_eth *eth,
+ 	return err;
  }
  
-+static void flow_offload_update_stats(struct flow_offload_work *offload,
-+				      struct flow_stats *stats)
++static void airoha_ppe_flow_update_stats(struct airoha_eth *eth,
++					 struct flow_cls_offload *f,
++					 struct airoha_flow_table_entry *e)
 +{
-+	u64 lastused;
++	u32 idle = airoha_ppe_entry_idle_time(eth->ppe, e);
 +
-+	lastused = max_t(u64, stats[0].lastused, stats[1].lastused);
-+	offload->flow->timeout = max_t(u64, offload->flow->timeout,
-+				       lastused + flow_offload_get_timeout(offload->flow));
++	f->stats.lastused = jiffies - idle * HZ;
++	if (e->hash != 0xffff) {
++		struct airoha_foe_stats64 stats = {};
 +
-+	if (offload->flowtable->flags & NF_FLOWTABLE_COUNTER) {
-+		if (stats[0].pkts)
-+			nf_ct_acct_add(offload->flow->ct,
-+				       FLOW_OFFLOAD_DIR_ORIGINAL,
-+				       stats[0].pkts, stats[0].bytes);
-+		if (stats[1].pkts)
-+			nf_ct_acct_add(offload->flow->ct,
-+				       FLOW_OFFLOAD_DIR_REPLY,
-+				       stats[1].pkts, stats[1].bytes);
++		airoha_ppe_foe_entry_get_stats(eth->ppe, e->hash, &stats);
++		f->stats.pkts += (stats.packets - e->stats.packets);
++		f->stats.bytes += (stats.bytes - e->stats.bytes);
++		e->stats = stats;
 +	}
 +}
 +
- static int flow_offload_tuple_add(struct flow_offload_work *offload,
- 				  struct nf_flow_rule *flow_rule,
- 				  enum flow_offload_tuple_dir dir)
-@@ -946,11 +967,12 @@ static int flow_offload_tuple_add(struct flow_offload_work *offload,
- }
- 
- static void flow_offload_tuple_del(struct flow_offload_work *offload,
--				   enum flow_offload_tuple_dir dir)
-+				   enum flow_offload_tuple_dir dir,
-+				   struct flow_stats *stats)
+ static int airoha_ppe_flow_offload_destroy(struct airoha_eth *eth,
+ 					   struct flow_cls_offload *f)
  {
- 	nf_flow_offload_tuple(offload->flowtable, offload->flow, NULL, dir,
- 			      offload->flowtable->priority,
--			      FLOW_CLS_DESTROY, NULL,
-+			      FLOW_CLS_DESTROY, stats,
- 			      &offload->flowtable->flow_block.cb_list);
- }
+@@ -1295,6 +1312,7 @@ static int airoha_ppe_flow_offload_destroy(struct airoha_eth *eth,
+ 	if (!e)
+ 		return -ENOENT;
  
-@@ -991,10 +1013,15 @@ static void flow_offload_work_add(struct flow_offload_work *offload)
- 
- static void flow_offload_work_del(struct flow_offload_work *offload)
++	airoha_ppe_flow_update_stats(eth, f, e);
+ 	airoha_ppe_foe_flow_remove_entry(eth->ppe, e);
+ 	rhashtable_remove_fast(&eth->flow_table, &e->node,
+ 			       airoha_flow_table_params);
+@@ -1342,24 +1360,13 @@ static int airoha_ppe_flow_offload_stats(struct airoha_eth *eth,
+ 					 struct flow_cls_offload *f)
  {
-+	struct flow_stats stats[FLOW_OFFLOAD_DIR_MAX] = {};
-+
- 	clear_bit(IPS_HW_OFFLOAD_BIT, &offload->flow->ct->status);
--	flow_offload_tuple_del(offload, FLOW_OFFLOAD_DIR_ORIGINAL);
-+	flow_offload_tuple_del(offload, FLOW_OFFLOAD_DIR_ORIGINAL, &stats[0]);
- 	if (test_bit(NF_FLOW_HW_BIDIRECTIONAL, &offload->flow->flags))
--		flow_offload_tuple_del(offload, FLOW_OFFLOAD_DIR_REPLY);
-+		flow_offload_tuple_del(offload, FLOW_OFFLOAD_DIR_REPLY, &stats[1]);
-+
-+	flow_offload_update_stats(offload, stats);
-+
- 	set_bit(NF_FLOW_HW_DEAD, &offload->flow->flags);
- }
+ 	struct airoha_flow_table_entry *e;
+-	u32 idle;
  
-@@ -1011,27 +1038,12 @@ static void flow_offload_tuple_stats(struct flow_offload_work *offload,
- static void flow_offload_work_stats(struct flow_offload_work *offload)
- {
- 	struct flow_stats stats[FLOW_OFFLOAD_DIR_MAX] = {};
--	u64 lastused;
+ 	e = rhashtable_lookup(&eth->flow_table, &f->cookie,
+ 			      airoha_flow_table_params);
+ 	if (!e)
+ 		return -ENOENT;
  
- 	flow_offload_tuple_stats(offload, FLOW_OFFLOAD_DIR_ORIGINAL, &stats[0]);
- 	if (test_bit(NF_FLOW_HW_BIDIRECTIONAL, &offload->flow->flags))
- 		flow_offload_tuple_stats(offload, FLOW_OFFLOAD_DIR_REPLY,
- 					 &stats[1]);
+-	idle = airoha_ppe_entry_idle_time(eth->ppe, e);
+-	f->stats.lastused = jiffies - idle * HZ;
 -
--	lastused = max_t(u64, stats[0].lastused, stats[1].lastused);
--	offload->flow->timeout = max_t(u64, offload->flow->timeout,
--				       lastused + flow_offload_get_timeout(offload->flow));
+-	if (e->hash != 0xffff) {
+-		struct airoha_foe_stats64 stats = {};
 -
--	if (offload->flowtable->flags & NF_FLOWTABLE_COUNTER) {
--		if (stats[0].pkts)
--			nf_ct_acct_add(offload->flow->ct,
--				       FLOW_OFFLOAD_DIR_ORIGINAL,
--				       stats[0].pkts, stats[0].bytes);
--		if (stats[1].pkts)
--			nf_ct_acct_add(offload->flow->ct,
--				       FLOW_OFFLOAD_DIR_REPLY,
--				       stats[1].pkts, stats[1].bytes);
+-		airoha_ppe_foe_entry_get_stats(eth->ppe, e->hash, &stats);
+-		f->stats.pkts += (stats.packets - e->stats.packets);
+-		f->stats.bytes += (stats.bytes - e->stats.bytes);
+-		e->stats = stats;
 -	}
-+	flow_offload_update_stats(offload, stats);
- }
++	airoha_ppe_flow_update_stats(eth, f, e);
  
- static void flow_offload_work_handler(struct work_struct *work)
+ 	return 0;
+ }
 -- 
 2.47.3
 
