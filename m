@@ -1,45 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.126.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794830419;
-	b=1PtcXJGFiup97ZeLwMLQ5c20u9r3eyG4/8CmJqGZWtvuJd5xnN9ShaLPY1saDZ4ca41l
-	 JrJjaKK9zbgliXnyx3KmSxg0jq9ZY8791g98Q5HwLa8ySL1A6DEXhdSDeVVxK2leWU+hP
-	 bk8DKSVbdQ1tfTt+b/UMV5XUdKFIAO3iysm1EijG5qUIWC7Ip+FzeSJQCk5lL+HVdtCBD
-	 xvaucbrPl6PD/wSPOpzaiugZwPYZcZFOF+V+b56MxOpHe73M2ObGONV6nYsBge/cvD1jP
-	 RZT8t08JbnwETdx47Aqwkb/JgTpipLpby61IvAS5FV+fZm/qcUOMFovBx3Qy0qmQVAw==
+	t=1794830426;
+	b=eZAgcarfa0DOm8VNJz5Joe2/h/iWuma35jSUdD8y9r3hGT2dU8kNqOh024VWF2OsL6Kz
+	 mYmMan8gcD2I1vJtFBwVgMr3CXrHPKuARR/SOufZbqDRLhgyoXmkzK/MvfwGayyRqOzs5
+	 yZe2p4h5YvIfSHgu+eT9HUe8IdzcZG++exVe2Sb4DcZpomNd/+l5ki7G/KvSorB04olJw
+	 hwdNukfTRkLdnqDchMeNwq4CumjrAGfp2kg7Izdqsmo2CRQ230Caw2EwLJ7u04Lz6qHbM
+	 ht3fDZoc38lTdG05yedOLQ/6/YGPlxWiqBDGp3KTxkEWkLnENaO220h7r/TdbOz28gQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794830419;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=ewJeUaksgXnSPjHwujvoiDsCY2620AwnIo92RczcOPg=;
-	b=BAgKG+PmbAf1Nhz1nqOv96pU7TJlA9cGHWmALI3lqAuFU8EbJiTnl+wJo5x7kMj9nYD/
-	 WHw7X6+Dc9EQodpjlCsnRoLT2d9uRBWBwhtKNKvp9VbWSxNA3nNqk0LYPH4C4kB6dv15T
-	 ipAWr7w5VImy9cLfISP19wzUWuQ8fy5q0iqEYOEsnEKLdNQhTtjn6nAGYC5ySNrg9XDp2
-	 DES0HYVZy79Iz0OC5GN0rt9X6/KIFe+5iy24p9Jy5l0hALnINJUZm7ZxzxM5mnw3lusei
-	 kLxB3NzAOPnuRGK1BoGuyVknO8Ei6UnKK6MBnDrtATW0aHvkLj9qagajvebsDqDgX4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794830426;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=5SjiDv7hAU9KASHccmkL8xIzSotpO3zTrmrUOcQQcQ8=;
+	b=m3P1AL727id4IjWJ3Y+g0ny26r9ehciJTh/w9EDm3vm2HegC8lqXG/YxJ5omP/OeEzpv
+	 LBC3lwFGXILTfEb/K2vyC4Z0+KQEwqWyuPT7x8dFR1mpx1MfzdTUlFxYMOIAB7niS0rKc
+	 yUc0obDD2l5CF2xJGjhbn9QCe54fay/Q8WLOjs92sBfz2o0BHBJv0kVb4eB8c/F8L1nq1
+	 3IsV8653I7ZX+m5gr2noQVhCbbdRgJ2u0x2qa2SV4icSAsKd9LnpMxCEUNa73jbwSjYUa
+	 QG+Y8vREZ9Eekx7Lh7CvCO9/AswbL9zgDDaFHTyzjQ3Lpmtis+Fu4YLptrOuEJuvaVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NGs9hgRo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=jonasjelonek.de;
+	spf=pass smtp.mailfrom=jonasjelonek.de;
+	dkim=pass header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=knhHn6rh;
+	arc=none smtp.remote-ip=212.227.126.131
+Received: from mout.kundenserver.de (mout.kundenserver.de [212.227.126.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC5FB606A31C;
-	Mon, 16 Nov 2026 12:00:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCCBD60A262B
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:00:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCCBD60A262B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jonasjelonek.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jonasjelonek.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NGs9hgRo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B1241F000C4;
-	Mon, 16 Nov 2026 12:00:17 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794830419;
-	bh=ewJeUaksgXnSPjHwujvoiDsCY2620AwnIo92RczcOPg=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=NGs9hgRo8Pm53dwqOowj804JfWGt9pNSxyXsA5ZbufV3wNEO1pXrEV/P2nYSJ6s0h
-	 RkTVtrJGGRLTAc/i5stGgdH7MoEG/RRlQzCp8xsSKAlYN1LFViwB+sXdk4YoAbt7yZ
-	 PR7EK3GRWabIulVC1l0sYiPb/s/WJh1GIS+NuEi9fxzz0zXVvfrqLfrCezMd74ZtjC
-	 IEP94sDVVDwuNz+mWo090jAlScdWhDl8h+8NtgR+BEvWRcqbaBD+sHm90zfAZDrFLE
-	 Ium0YC6BRRHbiChOy1fGM3bxcnzkJeY8LsKxgOeIXXUZU9bjQC0KNhILzz6Uz/yD+e
-	 WluvUktyVhSBw==
-Content-Type: multipart/mixed; boundary="===============1962703051549190966=="
+	dkim=pass (2048-bit key, unprotected) header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=knhHn6rh
+DKIM2-Signature:  i=1; m=1; t=1794830423;
+ mf=PGpvbmFzQGpvbmFzamVsb25lay5kZT4=;
+ rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+ d=jonasjelonek.de;
+ s=s1-ionos:rsa-sha256:IYclY2fD5oKuTfoZ0tJWk7tDOqPv
+   364M5LKN1VjlzQuVYYOn8lccAw7WZ2SvSrwQ0BZ+fN+3s6b02Q1LaMS/TZzOmbGv1CabBGed/Pe
+   EsvDiYtWWT8M7NzyaY4sbGAWd8EphN/PXr+hkRIFfJRvcakcbwGtklyrXOOv3c0YGlGw0B09Ix3
+   gwPqC4hvHWeoB7AcM8SrSV1RHDVWms+GkmDcLc40noJ6mbbV+YgUt23gvSwtU9FWopy3P5mwLpt
+   PZmcfC+qIXLWQ+1KsmY2FmkzatPz1EOpL9pi0YxMjv+vgq5qVMwKLg0sBPXoMi6hKVjq3xftPb7
+   lcVQlZob7V4cbA==;
+Message-Instance:  m=1;
+ h=sha256:
+   5oSJwHQXmUuHon+NKbhbjXCd72u+GUSP7/RbRnh7JxM=:
+   5SjiDv7hAU9KASHccmkL8xIzSotpO3zTrmrUOcQQcQ8=,
+  sha512:
+   cUoPwLXxLIIKn7rl5mZfpzS+bXLBjzFsHlq2C5tp5jCClSz7MjHzOToPGL61SZDcpoGs+iijzsPoCY5me2RzZg==:
+   pSb8sFmeCbYAS6dYKHSXS/noKb7sN44wDHrT6vmhOwHql2qDtqlfh+YYky06tfl9UXLW+OrA3yiRQ9RZe9apMw==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jonasjelonek.de;
+	s=s1-ionos; t=1794830412; x=1795435212; i=jonas@jonasjelonek.de;
+	bh=5SjiDv7hAU9KASHccmkL8xIzSotpO3zTrmrUOcQQcQ8=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=knhHn6rhm1vGo+C8oIuuTjzTN1bVc8JLgpJL0taCgDmvquzPcdd345mYMscfB6W4
+	 Zy69JlsC5Hl2no2K4ifoFmc//XpzlU2Uz8qvsx0YwJXdGi0f+z2cuE4G1lzlt2dsm
+	 RqV8uX/5sLiPNPKPM5Jnnr6Fq5qSGLHSvLk/OuWFDmaNwU7+6Zr/QQosG4jPPr/rB
+	 GQe6XDAQmw76Y7kuQlb2KEtCZUCW4R0DSwHvA0VO5XoDnP4NMXR1gojBHHeDNO806
+	 Xay1nqWyxCLOFV1TvzuVGCUgDXg1UjNcuw03VtROLnUiXdip4RQUQyETxQ7a6dlom
+	 0zlvDoztnPKO8hxV+w==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue011
+ [213.165.67.97]) with ESMTPSA (Nemesis) id 1MJEIl-1x8nGJ0I03-00QO57; Mon, 16
+ Nov 2026 13:00:12 +0100
+Message-ID: <8dae3bb0-dce9-4efa-8ff8-0a7d59083bed@jonasjelonek.de>
+Date: Mon, 16 Nov 2026 13:00:10 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -49,159 +81,100 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <56b5bed0bd75b5b0c7368009493734cda89f1ca37c0fc29c81ed65048cbfeca4@mail.kernel.org>
-In-Reply-To: <20261116-work-loop-pseudo-v3-44-8cbbea1cf34f@kernel.org>
-References: <20261116-work-loop-pseudo-v3-44-8cbbea1cf34f@kernel.org>
-Subject: Re: [PATCH RFC v3 44/44] selftests/filesystems: add backing file tests for pseudo files
-From: bot+bpf-ci@kernel.org
-To: brauner@kernel.org,linux-fsdevel@vger.kernel.org
-Cc: jannh@google.com,mason@kernel.org,josef@toxicpanda.com,hch@lst.de,linux-block@vger.kernel.org,linux-kernel@vger.kernel.org,linux-nvme@lists.infradead.org,viro@zeniv.linux.org.uk,jack@suse.cz,linux-scsi@vger.kernel.org,target-devel@vger.kernel.org,driver-core@lists.linux.dev,linux-mm@kvack.org,bpf@vger.kernel.org,linux-security-module@vger.kernel.org,selinux@vger.kernel.org,apparmor@lists.ubuntu.com,linux-nfs@vger.kernel.org,netdev@vger.kernel.org,fuse-devel@lists.linux.dev,linux-efi@vger.kernel.org,xen-devel@lists.xenproject.org,ocfs2-devel@lists.linux.dev,linux-s390@vger.kernel.org,linuxppc-dev@lists.ozlabs.org,linux-usb@vger.kernel.org,amir73il@gmail.com,linux-erofs@lists.ozlabs.org,linux-kselftest@vger.kernel.org,brauner@kernel.org,alex@amutable.com,chris@chrisdown.name,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Mon, 16 Nov 2026 12:00:17 +0000 (UTC)
-
---===============1962703051549190966==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: pse-pd: realtek-pse-mcu: add RTL8238C
+ device ID
+Content-Language: en-US
+To: John <therealgraysky@proton.me>
+Cc: leksij Rempel <o.rempel@pengutronix.de>,
+ Kory Maincent <kory.maincent@bootlin.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+References: <EEsDzyK4pKqMZ9P6eCtfk5Qp2SXyprlFB4e4uQ7_O1iw3BuvnNm95DKBxuHy-mp3vdmUWhob9UWOzN9VWXoYyQIADqKPNvJt_gfaLaWpSkU=@proton.me>
+From: Jonas Jelonek <jonas@jonasjelonek.de>
+In-Reply-To: <EEsDzyK4pKqMZ9P6eCtfk5Qp2SXyprlFB4e4uQ7_O1iw3BuvnNm95DKBxuHy-mp3vdmUWhob9UWOzN9VWXoYyQIADqKPNvJt_gfaLaWpSkU=@proton.me>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-
-> selftests/filesystems: add backing file tests for pseudo files
-
-TL;DR:
-- Selftest: fuse tests may fail instead of skip without
-  CONFIG_FUSE_PASSTHROUGH (-EOPNOTSUPP, not -EPERM)
-- Metacopy test may fail without CONFIG_TMPFS_XATTR
-- Minor duplicated setup code
-
-> diff --git a/tools/testing/selftests/filesystems/config b/tools/testing/selftests/filesystems/config
-> --- a/tools/testing/selftests/filesystems/config
-> +++ b/tools/testing/selftests/filesystems/config
-> @@ -6,3 +6,19 @@ CONFIG_NET=y
->  CONFIG_NET_NS=y
->  CONFIG_INET=y
->  CONFIG_SYSFS=y
-> +CONFIG_BLK_DEV_LOOP=y
-> +CONFIG_OVERLAY_FS=y
-> +CONFIG_TMPFS=y
-> +CONFIG_CONFIGFS_FS=y
-[ ... ]
-
-Should CONFIG_TMPFS_XATTR=y be added here as well?
-
-TEST(fuse_passthrough_overlayfs_metacopy_file) mounts a private tmpfs
-through setup_tmp() and then does:
-
-    ASSERT_EQ(setxattr("/tmp/lower/file", "trusted.overlay.metacopy",
-                       "", 0, 0), 0);
-
-shmem_fill_super() only sets sb->s_xattr under CONFIG_TMPFS_XATTR, which
-defaults to n, and CONFIG_TMPFS does not select it.  Without it
-setxattr() fails with EOPNOTSUPP, the ASSERT_EQ() aborts, and the run
-reports a failure rather than a skip.  tools/testing/selftests/landlock/config
-lists CONFIG_TMPFS_XATTR=y next to CONFIG_TMPFS=y.
-
-Alternatively the test could SKIP when setxattr() returns EOPNOTSUPP.
-
-> diff --git a/tools/testing/selftests/filesystems/pseudo_backing_test.c b/tools/testing/selftests/filesystems/pseudo_backing_test.c
-> new file mode 100644
-> --- /dev/null
-> +++ b/tools/testing/selftests/filesystems/pseudo_backing_test.c
-
-[ ... ]
-
-> +TEST(overlayfs_on_sysfs_backing_file)
-> +{
-> +	if (!can_use_loop())
-> +		SKIP(return, "loop devices unavailable");
-> +
-> +	ASSERT_EQ(unshare(CLONE_NEWNS), 0);
-> +	ASSERT_EQ(mount(NULL, "/", NULL, MS_REC | MS_PRIVATE, NULL), 0);
-> +	ASSERT_EQ(mount("tmpfs", "/tmp", "tmpfs", 0, NULL), 0);
-
-this isn't a bug, but could overlayfs_on_sysfs_backing_file() call
-ASSERT_EQ(setup_tmp(), 0) like the other tests, instead of repeating its
-three steps?  Similarly, usb_mass_storage_backing_file() repeats the
-statfs()/CONFIGFS_MAGIC/mount() logic of setup_configfs(), and the comment
-"Mounting configfs on top of itself fails with EBUSY." appears twice.
-
-[ ... ]
-
-> +TEST(fuse_passthrough_backing_file)
-> +{
-> +	int fuse_fd, ret;
-> +
-[ ... ]
-> +	ASSERT_EQ(create_file("/tmp/file"), 0);
-> +	ret = fuse_backing_path(fuse_fd, "/tmp/file", O_PATH);
-> +	if (ret == -EPERM)
-> +		SKIP(return, "no fuse passthrough");
-> +	EXPECT_EQ(ret, 0);
-
-Is -EPERM the right errno to key the skip on?  On a kernel with
-CONFIG_FUSE_FS=y and CONFIG_FUSE_PASSTHROUGH=n the test filesystem mounts
-fine, and then fuse_dev_ioctl_backing_open() returns before any
-permission check:
-
-    if (!IS_ENABLED(CONFIG_FUSE_PASSTHROUGH))
-        return -EOPNOTSUPP;
-
--EPERM only comes from fuse_backing_open_file() when fc->passthrough is
-clear or CAP_SYS_ADMIN is missing.  So here EXPECT_EQ(ret, 0) and the
-later -EINVAL checks see -EOPNOTSUPP and fail, and the harness records
-"not ok" for a feature that is not configured.  Kernels that predate
-FUSE_DEV_IOC_BACKING_OPEN return -ENOTTY and fail the same way.
-
-Should -EOPNOTSUPP (and possibly -ENOTTY) also lead to the SKIP?
-
-[ ... ]
-
-> +TEST(fuse_passthrough_overlayfs_metacopy_file)
-[ ... ]
-> +	ASSERT_EQ(create_file("/tmp/lower/file"), 0);
-> +	ASSERT_EQ(setxattr("/tmp/lower/file", "trusted.overlay.metacopy",
-> +			   "", 0, 0), 0);
-> +	ASSERT_EQ(setxattr("/tmp/lower/file", "trusted.overlay.redirect",
-> +			   "/missing", strlen("/missing"), 0), 0);
-
-Can these setxattr() calls fail on a kernel without CONFIG_TMPFS_XATTR?
-
-The private tmpfs from setup_tmp() has no xattr handlers in that case, so
-setxattr() returns EOPNOTSUPP, the ASSERT_EQ() aborts, and the program
-exits with a failure instead of KSFT_SKIP.  The mount of overlayfs just
-below already has a SKIP for missing support.  Would a SKIP on
-EOPNOTSUPP here, or CONFIG_TMPFS_XATTR=y in the config fragment, avoid
-this?
-
-> +	ret = fuse_backing_path(fuse_fd, "/tmp/file", O_PATH);
-> +	if (ret == -EPERM)
-> +		SKIP(return, "no fuse passthrough");
-> +	ASSERT_EQ(ret, 0);
-
-The same -EPERM check as in fuse_passthrough_backing_file() is used here,
-so ASSERT_EQ(ret, 0) fails with -EOPNOTSUPP when CONFIG_FUSE_PASSTHROUGH
-is off.
-
-[ ... ]
-
-> +TEST(fuse_passthrough_io)
-[ ... ]
-> +		srv.backing_ids[i] = fuse_backing_open(srv.fd, fd);
-> +		EXPECT_EQ(close(fd), 0);
-> +		if (srv.backing_ids[i] == -EPERM)
-> +			SKIP(return, "no fuse passthrough");
-> +		ASSERT_GT(srv.backing_ids[i], 0);
-
-Does this skip also miss the unconfigured case?  With
-CONFIG_FUSE_PASSTHROUGH=n, fuse_backing_open() gets -EOPNOTSUPP from the
-ioctl, which is not -EPERM, so ASSERT_GT(srv.backing_ids[i], 0) fails and
-run_one() records "not ok" for the whole pseudo_backing_test.  No fuse
-server has been started at this point, so nothing hangs.  The config
-fragment does list CONFIG_FUSE_PASSTHROUGH=y, but should -EOPNOTSUPP and
--ENOTTY also lead to SKIP(return, "no fuse passthrough") in all three fuse
-tests?
+X-Provags-ID: V03:K1:U7eZX4/8osm9ttKOrR370XiBqQRNx59LU9dIL+DxDoWj0cFo1eI
+ Z2ePoAlcbJYjcDDqXgkkwBsdVHwg9T+yB4W7frC6UVt5CUOJ5kS+pvUOmpR9+6TNpEOguuI
+ EkF46XGt1mjJk/XD6pBCeqo+vBV8O05EDopMBcfpYWvhHwrcc9UOkHhLyOlfpYCFNE9BLqj
+ zBYSxVDrCa95t+e2eoS4g==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:sY307BdCvUM=;+9CE/fiaECSebreRr5S8uHgNhsg
+ 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
 
 
----
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+On 15.11.26 10:40, John wrote:
+> From: John Audia <therealgraysky@proton.me>
+>
+> Some Ubiquiti USW Pro Max 16 PoE units (boardrevision 3) carry a PSE
+> MCU that reports device id 0x0238, so probe fails with "unknown PSE id
+> 0x238". poemgr names this id RTL8238C.
+>
+> The high byte of the id follows the chip revision, as with RTL8239
+> (0x0039) and RTL8239C (0x0139), so add RTL8238C with the same power
+> limits and power limit command as the RTL8238B (0x0138). Tested on such
+> a unit, PoE works on all ports used.
+>
+> Link: https://github.com/blocktrron/poemgr/blob/17771dd7b3a74a64c14351d1cbf8e61676934cbe/rtl8239.h#L13
+> Signed-off-by: John Audia <therealgraysky@proton.me>
+>
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/43858134663
---===============1962703051549190966==--
+Reviewed-by: Jonas Jelonek <jonas@jonasjelonek.de>
+
+Best,
+Jonas
