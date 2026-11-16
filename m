@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794837048;
-	b=rJuFj0HBOPrZf8Nfz5ovWV0cNk5YKDtZRrMgVep00oG4QNj+x7sbqeqRi1mPSSl+6Cgz
-	 Oew5anpySJMqJg/Ca7+oi062z/1KTbrq8i/TUKwpZpp9gjPh0wkVjTHCJuwIAvnr1epyg
-	 3sOF8afScPpagsiCZPJD6qZDOpGpGaGaQWx7wSD/Ji2u6XYqCR+ZzsHgCMGGTM8gROUBl
-	 YVMcM1l9w0+BIhGW00zCyt8EK+Xb/LGA99DlZg3NZc8nGpeQXC96f9GmFF+aarAgq61VB
-	 SC/n5SzQL0ocJCcgUBme6yO9bMxbtEsAJTzrR0fEIeFLmA05lB5G5FNnuOS6R4osUkQ==
+	t=1794837044;
+	b=b2ZxqJBHihb+RYDrjak73sEHE9uJPwqWhXSHVozp/AxdJ81si818KT/wkXj/w8nZZaFk
+	 dxCWOqPLegYPcy1q+aifJddCPrRiA7Ssc0yt7VXh0GcJ3MwAjpENG5P9uSSeK7lx9GT0G
+	 ALOWb/aEokvez4A0BRLU9dSX9GHOuFFvNBobN6I5kmco1oE1e37MEWdQfnu7tHH6OdKrf
+	 wMDP9xbz6Qu/SJxPTOAbOtwaNdixUiDA+peRUlf+/Mj2AC8c/nZL1P/41Bp0MDLMz2maZ
+	 uXCq4IFckHcnarGhZh4FMjyl2hvRF6FVedvxi4zv41JUY3Y4sX9ISq0V4GCydeEA4GA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794837048;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794837044;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=ShEPZTXRu5lnPu0jihWcq6zhrQ4h/M1aHTPZu8H9wS8=;
-	b=yezCXSfXsZIz1sIT+hvld25bp4lRAKvfukNSut019AhKlBFPhMCvBbKPmu+MgDnDuXIX
-	 1nLqpEFPFAefI9pxdcDTCICYTnKdDzG11iTSDmbb9YqpP7w2Ujz3dWYt3lcTObGCUZfRs
-	 FfkYznb1YnNzLbQHbzK4ljMg0CkLjue/X8d4W/2HHRQG9u0cF51eV4WLqvZ1hX0pD+ji/
-	 tuGF2XeWTtTEjiEOk7Y1+mxTr6S4iGMSZ4jnzNmOffuFqn4TdfDu3clcKFq7VsqRROpAw
-	 Qz8GebYpX+NJBF3wXipKlEolJRZ+B1hJm8r2OGkpYXMcb1aFVgygDUx10gn67nJ4hSQ==
+	bh=uRFviz/P/Rq31yiMk9CbEywo6qCv0MBbNeVhyjXUEeM=;
+	b=tCzMNwwpbB2F88yDSdhFPKV9ldJXHUfd7kRHpknwbukGZHMsvxrOQKdRhecmO0b5m37c
+	 y+O8FmMMsl7VFC3qK7o37p+jWJ8JQXOwy+fYcdUL6/pa4sEP1NZtT1dp1X1ABmoGOlLeT
+	 ++vQ5YaEqyyiSwXbP61HiMg9OQVTlG3GPrXeU+t3fw0jKCY4JjgTJcUBNKFmirWCHKiM+
+	 JqXlnenjf/PET6lY0S58623fAelfoBNqRZbZVO40HKG24ezgRfdPh46WE2PJK5o6PHkB1
+	 u4Gy/i0Ap9x9ujT0BPlHjtDTW4UVe4vEWALnBzZcBSRmL5Q2v1jA4otgnjriplOfejw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTiKHiXx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XklXBhHB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 293DC60A3838;
-	Mon, 16 Nov 2026 13:50:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 982A8606A89E;
+	Mon, 16 Nov 2026 13:50:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bTiKHiXx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFED71F000C6;
-	Mon, 16 Nov 2026 13:50:46 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XklXBhHB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FD401F000C4;
+	Mon, 16 Nov 2026 13:50:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794837047;
-	bh=ShEPZTXRu5lnPu0jihWcq6zhrQ4h/M1aHTPZu8H9wS8=;
+	s=k20260515; t=1794837044;
+	bh=uRFviz/P/Rq31yiMk9CbEywo6qCv0MBbNeVhyjXUEeM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bTiKHiXxTNVRTHjtMmTR1aSUiXntHFDP60UO+8okDh5hFYSFKL/vZIaShcUonJDhx
-	 MSd5SqH2qRftAMrqKrOdSkQ2CximcnxIMrdrzjmTARBu0q5/g0WEzzKmnFkxf9suuY
-	 69wK7ReC9Absp1xlVX54E3we1vKS412/IU3VtHW302K7E6k7OlD2mU6Zk18IuwzP6J
-	 d7MhSpH3nADe1NnKhyg0i4gs2XedIJr9C2UV/wvW3f7N8HAjDJYGKWefWow073OawC
-	 r1tRdjT9yNiGFmLyYqG8RGKs+MtRbKcar17cbbdZ+KEdu88XxUDiq1E83LiaOGLiLJ
-	 2L3/gOtRqY/fw==
-Subject: Re: [PATCH net v2 07/12] net: au1000: fix buffer descriptor free list
- insertion
+	b=XklXBhHB2Zhcr/rhwELX6ANHrSIQiAUjM3hsXTcuXS78BX0GsX5Nc3GQKg6ouJg4h
+	 5Xe5AxYy7B2iZ8XEnDVM5FLtF5QAl1vuZVR5Z6Z7Ut7EQ+bkobwhkTEsIl1eWGTLfO
+	 /0sKmKTGNG1f782mkYs6oSFr6KvdLDTxUx0Mf4oFkztwrOAcMdtF60wlYR4WfevxZN
+	 nT4AhuK0Ftq7sRMIRSDnDoLECtUMgEauq9M/K6vysmZ6tI7Z1CEY6MTNExoMrEaave
+	 EWiGE1smQF5x+Z94JNw7Zytvqg+UY7Nm5j6qudNb382jwJEvMFr9SKSjKTzm6d4uNi
+	 q/aDBFxugDwow==
+Subject:
+ Re: [PATCH net v2 04/12] net: au1000: report MDIO transaction timeouts
 From: netdev-bot+sashiko@kernel.org
 To: f.fainelli@gmail.com
 Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -50,10 +50,10 @@ Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
  runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org, jeff@garzik.org,
  danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
  linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
-Date: Mon, 16 Nov 2026 13:50:46 +0000
-Message-ID: <179483704622.3136.16694282680991633445@kernel.org>
-In-Reply-To: <20261112045301.3669532-8-f.fainelli@gmail.com>
-References: <20261112045301.3669532-8-f.fainelli@gmail.com>
+Date: Mon, 16 Nov 2026 13:50:42 +0000
+Message-ID: <179483704272.3136.4869685253432664524@kernel.org>
+In-Reply-To: <20261112045301.3669532-5-f.fainelli@gmail.com>
+References: <20261112045301.3669532-5-f.fainelli@gmail.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,64 +73,68 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The commit message for "net: au1000: fix buffer descriptor free
-  list insertion" says the old au1000_ReleaseDB() "loses free…
+- [Low] The patch adds a second timeout exit to au1000_mdio_write()
+  (drivers/net/ethernet/amd/au1000_eth.c), and both exits log the same…
 
 --
 
-net: au1000: fix buffer descriptor free list insertion
+net: au1000: report MDIO transaction timeouts
 
-This patch changes au1000_ReleaseDB() so the returned descriptor's pnext
-points to the old free list head before it becomes the new head. Before
-this, the old head's pnext was set to the returned descriptor. The new
-code matches au1000_GetFreeDB() and how the list is set up in probe.
+This commit makes au1000_mdio_write() return -ETIMEDOUT instead of
+reporting success when the MII controller stays busy. It also adds a
+readl_poll_timeout() check after the write so that a failed final
+transaction is reported to phylib. The read path now returns -ETIMEDOUT
+instead of -1.
 
-> ReleaseDB links the old head to the returned descriptor and makes the
-> returned descriptor the new head without updating its stale next
-> pointer. This loses free descriptors and can create cycles. Link the
-> returned descriptor to the old head instead, matching GetFreeDB and the
-> list initialization.
->
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+> index 7063f9e5bc7c0..6b2e216a83618 100644
+> --- a/drivers/net/ethernet/amd/au1000_eth.c
+> +++ b/drivers/net/ethernet/amd/au1000_eth.c
+
+[ ... ]
+
+> @@ -292,26 +293,27 @@ static int au1000_mdio_read(struct net_device *dev, int phy_addr, int reg)
+
+[ ... ]
+
+>  	while (readl(mii_control_reg) & MAC_MII_BUSY) {
+>  		mdelay(1);
+>  		if (--timedout == 0) {
+>  			netdev_err(dev, "mdio_write busy timeout!!\n");
+> -			return;
+> +			return -ETIMEDOUT;
+>  		}
+>  	}
+>  
+> @@ -320,6 +322,13 @@ static void au1000_mdio_write(struct net_device *dev, int phy_addr,
+>  
+>  	writel(value, mii_data_reg);
+>  	writel(mii_control, mii_control_reg);
+> +
+> +	ret = readl_poll_timeout(mii_control_reg, mii_control,
+> +				 !(mii_control & MAC_MII_BUSY), 20, 20000);
+> +	if (ret)
+> +		netdev_err(dev, "mdio_write busy timeout!!\n");
 
 [Severity: Low]
-The code change looks correct. Should the commit message say that the old
-behaviour had no runtime effect, though?
+This isn't a bug, but could this message use different wording from the
+one in the busy wait loop above?
 
-au1000_ReleaseDB() is only called on teardown paths: the err_out unwind
-in au1000_probe() and au1000_remove(). In both cases the descriptor
-buffers and aup are freed right afterwards:
+Both timeout paths in au1000_mdio_write() now print "mdio_write busy
+timeout!!". The first one fires before anything is written to the
+registers. The new one fires after writel() has already started the
+transaction, so the PHY register may or may not have been changed. From
+dmesg there is no way to tell which of the two happened.
 
-drivers/net/ethernet/amd/au1000_eth.c:au1000_remove() {
-    ...
-	for (i = 0; i < NUM_RX_DMA; i++)
-		if (aup->rx_db_inuse[i])
-			au1000_ReleaseDB(aup, aup->rx_db_inuse[i]);
+au1000_mdio_read() already uses two separate messages ("read_MII busy
+timeout!!" and "mdio_read busy timeout!!"). Something like "mdio_write
+completion timeout" here would separate the two write cases the same way.
 
-	for (i = 0; i < NUM_TX_DMA; i++)
-		if (aup->tx_db_inuse[i])
-			au1000_ReleaseDB(aup, aup->tx_db_inuse[i]);
+> +
+> +	return ret;
+>  }
 
-	dma_free_coherent(&pdev->dev, MAX_BUF_SIZE * (NUM_TX_BUFFS + NUM_RX_BUFFS),
-			  aup->vaddr, aup->dma_addr);
-    ...
-	free_netdev(dev);
-}
-
-The err_out path in au1000_probe() also falls through to
-dma_free_coherent() and free_netdev().
-
-au1000_GetFreeDB() is only called from au1000_probe(), before any
-au1000_ReleaseDB() call, and no RX or TX path walks aup->pDBfree. Also,
-NUM_RX_BUFFS equals NUM_RX_DMA and NUM_TX_BUFFS equals NUM_TX_DMA, so
-the free list is already empty after a successful probe.
-
-So the lost entries or cycles only ever exist in a list that is about to
-be freed and is never read again. With the Fixes: tag, stable tooling
-could pick this up as a user-visible fix.
-
-Could the message say the bug is latent with no functional impact, and
-either drop the Fixes: tag or explain why it is needed?
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112045301.3669532-1-f.fainelli%40gmail.com
