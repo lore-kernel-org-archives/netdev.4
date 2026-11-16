@@ -1,63 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.25
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794814513;
-	b=vuEQzCV2ZqmfAynFatshATDxqhQoNNGEJTi+wHoO5cys7iqTg/0jRxgss9eHW2Bv25kW
-	 E2Sq56l616iyeJlePu/ppM5SrfR5WTepEROnyL1K8H9BND7r3IakCan0DFzZzg7aU7Q9l
-	 ejcyPNpz+qz0rVmQaqLuSBy2PDqd9JLOSfKepkCNalhQ+zR3cTve82MLxthctm6ccPX1V
-	 1Y+QZ2oD996awEtkb7yAZc04c2bXWjSr/CBE/EK/SrIputYh11ddnJkb9o71fr0RDbVPm
-	 TapvcyQtrA1yiw6Qzg9ENJNIbJtzM3c6JasBzdHCtTr0q7Lgu9mSlV1DdeO5Hp+ur5Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794814513;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=fIDdNcF/l0x9lZp8RfumuNlHiHkBHNTTSBewvQAJ4vY=;
-	b=ScYxV0+zCrLrlyorCCMA8t93ziITGe47AmPBMe7RTaS3AiSNF5Vq/1Qr307z4RA0I0/O
-	 OsIkAx60pYMlBIPvrcqtzAvyGN/nQx7DXyVJGh+pBk/BE3mMDa1N55Z7ABO0wZdp/HkMt
-	 5rxlxuMaAmie2Kt83Wvi2QwV2VD9OZdhF8gVKKq6n3mrMDSlPpCAk53OaAAcvtcgCNcWQ
-	 jhAIsWWo23CqhUUz5M3PaxwhyI2cTzjtHHp9KzjA+tAhDGdQtqbKl75B1DM5j7Vt5/JXB
-	 VTdcxNCV68UoaLBo395GAnYtoVC4x2zXSyCSWZRy/72kPx+vqKw+eUGL5lEPm+qUvFw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=e5wR6+lB;
-	arc=none smtp.remote-ip=95.215.58.25
-Received: from mta1.migadu.com (out-25.mta1.migadu.com [95.215.58.25])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794814762;
+	b=Wye6nI6Mc+T6d+Nh2F1fShQz4muNzzCgzj/ivoKXmdrSa1GYSJqFSotIddImz9h3tdE+
+	 fxGQIg+tBY632AvR5jKR+EwEglEh7QrYgQzC9ICHe7xfgUR0K2n3Uurmv481w7TdwTtNn
+	 TB/7dGM8dJM4iFJWBSQpa49/CpfsIrlxjRpPb2bdsaxYCWP1Ut7oKCw54/DDTrCvGzMct
+	 CaGVIKBDPZe02U9J5zngBSFMiDsEXoslbu/xizpuEpXh7Ed/PXYDwAiIExcYBhy9lYSI4
+	 Lwvfbo0RiyQVPtA921brcVv37a4i9n+UlB6bFwqUU/CPNkyUiiT+2yyOvi4nRLgmnBw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794814762;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=0inTc72tNtgjCZaCWeW8u0+OSffO1GI14ZtqPEL3d8g=;
+	b=mFkM0hVXf3cmRH3IJFkvO1oaFlxwbsWblS2LB6r2dPHGoRrUYvxni8qCUgPhrtugNImq
+	 2CN9wldbxgt/Td+MypK0rNv51S2DR/SQ6U/MZ+mv00AvWg1SsgqlZeL+YnIbb6MipdTml
+	 qvwB20KSzYpPgS7Y08CkONzJBaJSDc1Ip9MpdmCHieoZ0IfbHkVEH+ZKa8oPbV1bBNqKT
+	 tX+6ZYTqgRzZEPSCqWKzZpZMEC1hiM1NyH222QO2tsrds1xysvxvzUNF+dni4ByTaJbKr
+	 VaEB5NP/eJmdak+ZuLze12r2XRUtA30Q6aHa92hPY2UYufC09XjRDDzvLaM20uOL/nQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jz85i1Za;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83BEF606A32C;
+	Mon, 16 Nov 2026 07:39:22 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jz85i1Za
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794814762;
+	b=zwJNo/crojmmMPXSrZtxnZvdEeZXczLuz2bPpEKWO7W+SemucnZiCkdwqHVjv2bMWVSp
+	 w8PHHSJY3VYmtKqNpfPAMPVpV89COuQuslBA5xELu8VueNRJ3SjA7qIoEE0jNRPWs5VYo
+	 HZ/x2T0IS9QMXIUL7K0OO7Ft/TH+TBtjq1Nsx4/n1vKnAD/2wVN2yKY47fzr72fBNqeLN
+	 ejsRL3Gu5oKKwtzsrSbFyBpievNuQ+GBLlGjuH8fbLfHHDp6LUXT/TDl515eu8OEIPPJk
+	 TMdxdu1tztoOlha75Vfc/+6ySJ8dxagiJOzJHL30EKX7U1kLngpW5tCnSlCPkuJpXgg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794814762;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=0inTc72tNtgjCZaCWeW8u0+OSffO1GI14ZtqPEL3d8g=;
+	b=BuAL3PLuol8g8ZcJ4jA319HbruWFqF8nL+HRZYsM7qvA2Jqi/FOAnNqNTrLSExG3VN1V
+	 Os+LowEOh3uSshtwR17+7ToPtgQIm2t5PQH7tsG/pjPQCp89Ubc2eyJPY9pfc9qtA/e/L
+	 L7iYLVGzJiAdJPmO2iqXxdfHvceFdcBlnW+mug64HmgjIZPXglpuPfkdQgQ+WiiengdSf
+	 wUJncJHLlgvbkLMdFdV2UhnMjYt66vROZPvXqjSduiBUlzVSX9wNvCyk/hRTM1fDVmY8x
+	 djgMPaqQjzVY9boAKYD+ksNma0NoFbn1Dfc806x9lgnGsukr6N6SXoP8yMJUlEe2oKQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4DFD606A32A
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 07:35:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4DFD606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=e5wR6+lB
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=x4W9yp3gYy0iqIhiaZihhZVq/EH24yiSsMyRtu3ztFY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794814510; v=1; x=1795419310;
- b=e5wR6+lBOsAwBtaBKgbi5r01C59pveEpoxWK4HNiqUeaWkqAQWOU89MNWjqrz/quCBAMKdOA
- DRNkRWrPLPx3DoKCw0ERMs7I8ufHdahhqCyOQYzkg4Y3F19R+nqyIsOYyJMsxfg87205XMK1rWq
- PmkZDdr7h/1xZ4FvH2JHJT80=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 1092aa451d9b8fb9;
-	Mon, 16 Nov 2026 07:35:09 +0000
-X-Mizu-Trace-ID: 1092aa451d9b8fb9
-X-Migadu-Flow: FLOW_OUT
-Date: Mon, 16 Nov 2026 15:34:49 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Lin Jiapeng <ljp1205831794@gmail.com>
-Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	sfeldma@cumulusnetworks.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Lin Jiapeng <jiapenglin@tencent.com>,
-	TencentOS Corvus AI <corvus@tencent.com>
-Subject: Re: [PATCH] bonding: unbind 802.3ad slaves on enslave failure
-Message-ID: <avqyGXhRkA0gfoEr@fedora>
-References: <20261113130454.63032-1-ljp1205831794@gmail.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 636D81F000C6;
+	Mon, 16 Nov 2026 07:39:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794814762;
+	bh=0inTc72tNtgjCZaCWeW8u0+OSffO1GI14ZtqPEL3d8g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=jz85i1ZaLPl0AvbORyPD++PuuQ3meDo/WLKNS8znESi0oqL4Gl8a71K3FpSr7wRC1
+	 /OV4e0PHqYUBtMKPSeaxXV7Qe4gpZ4ecZzrJMs6JtTIecbo7yrldTPyPbaKULvgaM6
+	 1cUhI6d7zZ4u/RXOt4dl2XfJbXJ5vWECREakmGkOxJqQ60vdYKQjMOoT1gS+TaDe9J
+	 iaEgLOBp/cPVGVGln0Pl/Uw2+nL/m+oBM8iH+eQQEUtq8Lr4ESTme4TUCmc0vD1Btt
+	 Cg2FbAV3sT8fvyNmQS+LqTY5F7cGc65rzHXLptVS7r4f1yIkj96kPaw5K+uV0soFbR
+	 +TygldjIOJ24Q==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id DCD654A383;
+	Mon, 16 Nov 2026 07:39:20 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Date: Mon, 16 Nov 2026 15:39:15 +0800
+Subject: [PATCH net-next v3 2/2] net: stmmac: dwmac-rk: Add RK3572 support
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,74 +82,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261113130454.63032-1-ljp1205831794@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261116-add-board-ok3572-c-net-v3-2-a957fdcd9c7a@qq.com>
+References: <20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a@qq.com>
+In-Reply-To: <20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a@qq.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ David Wu <david.wu@rock-chips.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Cunhao Lu <1579567540@qq.com>, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794814757; l=3142;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=bJZr2jTjg4023AjgAd/Zj2CWJraJeUFEaOgI88A3Cbk=;
+ b=VvzUkw46av484OhGEDZykqHAl2X4+zVTPUXUav8AP9Bgwx90r5ZL0plEwVBEG6fPaiZ/7k5NO
+ 5QWb+CV7w6qCX7NWqgQxafOpkbPrhcyhs1Uw++0b4ew3Q0/qGwPUf3e
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
+Reply-To: 1579567540@qq.com
+Content-Transfer-Encoding: 7bit
 
-Hi Jiapeng,
-On Fri, Nov 13, 2026 at 09:04:40PM +0800, Lin Jiapeng wrote:
-> From: Lin Jiapeng <jiapenglin@tencent.com>
-> 
-> The 802.3ad enslave path binds a slave to an aggregator before publishing
-> it in the bond's slave list. This lets the periodic state machine select
-> the port and attach it to a LAG while enslavement is in progress.
-> 
-> If a later step fails, the rollback removes the slave and frees its
-> ad_slave_info without unbinding its port. A port selected in the meantime
-> can remain linked from another live slave's aggregator, so later LAG
-> processing accesses freed memory. A test-only kretprobe forces
-> bond_sysfs_slave_add() to return -ENOMEM, after which KASAN reports:
->      BUG: KASAN: slab-use-after-free in ad_agg_selection_logic+0x1a0d/0x1fa0
->      Read of size 1 at addr ff11000109be946e by task kworker/u16:0/13
->      Freed by task 110:
->        kasan_save_stack+0x30/0x50
->        kasan_save_track+0x14/0x30
->        kasan_save_free_info+0x3b/0x70
->        __kasan_slab_free+0x47/0x70
->        kfree+0x1b3/0x550
->        slave_kobj_release+0xb6/0xd0
->        kobject_put+0x17e/0x300
->        bond_enslave+0x1acc/0x5090
-> 
-> Call bond_3ad_unbind_slave() in the common rollback for published slaves
-> before unlinking the slave from the bond. This detaches the port under
-> mode_lock and preserves the invalidate-drain-free ordering used by normal
-> release. Successful enslavement and earlier unpublished failures are
-> unchanged.
-> 
-> Fixes: 07699f9a7c8d ("bonding: add sysfs /slave dir for bond slave devices.")
-> Reported-by: TencentOS Corvus AI <corvus@tencent.com>
-> Signed-off-by: Lin Jiapeng <jiapenglin@tencent.com>
-> ---
->  drivers/net/bonding/bond_main.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-> index e9f5e753f677..60cc9a6a4fc7 100644
-> --- a/drivers/net/bonding/bond_main.c
-> +++ b/drivers/net/bonding/bond_main.c
-> @@ -2355,6 +2355,8 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
->  	bond_sysfs_slave_del(new_slave);
->  
->  err_upper_unlink:
-> +	if (BOND_MODE(bond) == BOND_MODE_8023AD)
-> +		bond_3ad_unbind_slave(new_slave);
->  	bond_upper_dev_unlink(bond, new_slave);
->  
->  err_unregister:
-> -- 
-> 2.55.0
-> 
+From: Cunhao Lu <1579567540@qq.com>
 
-Thanks for your fix. I’m also working on correcting some error rollback issues
-in `bond_enslave`, including the 3ad unbind problem. My patch still needs
-further adjustments[1].
+The RK3572 has two GMAC controllers with separate mode and clock control
+registers in the PHP and NVM0 GRFs. RGMII delay lines are configured
+through the IOC.
 
-Just FYI, I’ll leave it up to the maintainer to decide whether to apply
-your fix first.
+Add the register layout and delay callback for both controllers so the
+Rockchip glue driver can configure their RGMII and RMII interfaces and
+select the appropriate clocks for each link speed.
 
-[1] https://lore.kernel.org/all/20261113-bond_enslave_restruct-v1-0-364c549e78db@kylinos.cn/
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 53 ++++++++++++++++++++++++++
+ 1 file changed, 53 insertions(+)
 
-Thanks
-Hangbin
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index a37df5767d84..c9d8d8bf51f7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -900,6 +900,58 @@ static const struct rk_gmac_ops rk3568_ops = {
+ 	},
+ };
+ 
++#define RK3572_VCCIO0_3_VO_IOC_CON1		0x10608
++#define RK3572_VCCIO1_2_4_VI_IOC_CON1		0x12604
++#define RK3572_VCCIO5_6_IOC_MISC0		0x14630
++#define RK3572_PHP_GRF_GMAC0_CON		0x0070
++#define RK3572_NVM0_GRF_GMAC1_CON		0x0020
++
++static int rk3572_init(struct rk_priv_data *bsp_priv)
++{
++	switch (bsp_priv->id) {
++	case 0:
++		bsp_priv->gmac_grf_reg = RK3572_PHP_GRF_GMAC0_CON;
++		break;
++	case 1:
++		bsp_priv->gmac_grf_reg = RK3572_NVM0_GRF_GMAC1_CON;
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	bsp_priv->clock_grf_reg = bsp_priv->gmac_grf_reg;
++	return 0;
++}
++
++static void rk3572_set_to_rgmii(struct rk_priv_data *bsp_priv,
++				int tx_delay, int rx_delay)
++{
++	u32 val = GRF_FIELD(14, 8, rx_delay) | GRF_FIELD(6, 0, tx_delay) |
++		  GRF_FIELD(15, 15, !!rx_delay) | GRF_FIELD(7, 7, !!tx_delay);
++
++	if (bsp_priv->id == 1) {
++		regmap_write(bsp_priv->php_grf, RK3572_VCCIO0_3_VO_IOC_CON1, val);
++		regmap_write(bsp_priv->php_grf, RK3572_VCCIO5_6_IOC_MISC0, val);
++	} else {
++		regmap_write(bsp_priv->php_grf, RK3572_VCCIO1_2_4_VI_IOC_CON1, val);
++	}
++}
++
++static const struct rk_gmac_ops rk3572_ops = {
++	.init = rk3572_init,
++	.set_to_rgmii = rk3572_set_to_rgmii,
++	.gmac_phy_intf_sel_mask = GENMASK_U16(11, 9),
++	.gmac_rmii_mode_mask = BIT_U16(3),
++	.clock.io_clksel_io_mask = BIT_U16(7),
++	.clock.gmii_clk_sel_mask = GENMASK_U16(6, 5),
++	.clock.rmii_clk_sel_mask = BIT_U16(5),
++	.clock.rmii_gate_en_mask = BIT_U16(4),
++	.supports_rmii = true,
++	.php_grf_required = true,
++	.regs_valid = true,
++	.regs = { 0x29d20000, 0x2a040000, 0 },
++};
++
+ /* VCCIO0_1_3_IOC */
+ #define RK3576_VCCIO0_1_3_IOC_CON2		0X6408
+ #define RK3576_VCCIO0_1_3_IOC_CON3		0X640c
+@@ -1720,6 +1772,7 @@ static const struct of_device_id rk_gmac_dwmac_match[] = {
+ 	{ .compatible = "rockchip,rk3506-gmac", .data = &rk3506_ops },
+ 	{ .compatible = "rockchip,rk3528-gmac", .data = &rk3528_ops },
+ 	{ .compatible = "rockchip,rk3568-gmac", .data = &rk3568_ops },
++	{ .compatible = "rockchip,rk3572-gmac", .data = &rk3572_ops },
+ 	{ .compatible = "rockchip,rk3576-gmac", .data = &rk3576_ops },
+ 	{ .compatible = "rockchip,rk3588-gmac", .data = &rk3588_ops },
+ 	{ .compatible = "rockchip,rv1108-gmac", .data = &rv1108_ops },
+
+-- 
+2.34.1
+
+
