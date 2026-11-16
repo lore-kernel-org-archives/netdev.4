@@ -1,70 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.106
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794841727;
-	b=vVLrZYgpgfN7Pdrzjqm0hgeIK4UG5rNzeQvBgA3frfa8qMgcJFUeZcT16ONKzEB1unEk
-	 1utgcVkDIDj+SoHhaZCXK88/Ltq9qz10EJjCt+HjBYIABNujr06rvUs5zWU+YUW3kEZjP
-	 Jfu7j6MA7N/b0csvtb1WVA6bIFQXyg/EQoOfX8X0FPi9GHtYmHpSRa22OuoV0DOLHLuMJ
-	 Kv8Od513OU81YMKeJDyRk8Ez/U5isGsINommF2dh0PL5bG8mba3QO0djpu9inbuMb8AP4
-	 1NJKF/uPmfazcFhEKo/wc1Su/qXx5rXdLNXk3YsKr6cD3778un/dt+9C4FT6n5m7Tuw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794841727;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:X-ZohoMailClient;
-	bh=JXxer9312lUes1uPEthIt/zA7zOoYQciak50LQ/EmJU=;
-	b=nsqZX8qFQg/D0XsWmltqHXlkIKfw6jt4hSwXf5rtfzU4qr0lj8wM9fOMZKf3Y0Tno3CS
-	 zPoV9axS4tnIrkGbQkt+EfCEuLHJnZw294zJz/4OLEhbnRkYyWqKit08Q2VvJl2WRlamO
-	 8p3FQTlbyaePuuvJOzVx37O9FJ23bTy4yughNJZ2H99H5j//IhXdARvIUGS0dhhoACpvK
-	 GL8rjc5g87q2dGu1q0aTBf9WwSxMgeRDXTi7ct8YyCY3yKSadeQRbhVa5mnksDNgJnzk1
-	 vl/+ZJ/cS0kv7QHbNW+o4IYzVuza1tEtw4QVLjvqcprdOvcNIj9opTfA9fa1ksXGQ/w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ziyao.cc;
-	spf=pass smtp.mailfrom=ziyao.cc;
-	dkim=pass header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=Tk5pXY4F;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.106
-Received: from sender6-pp-e106.zoho.com (sender6-pp-e106.zoho.com [165.173.180.106])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.58.211
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794841910;
+	b=4o8YmAzT3PboFoWr1+1sXOkacQGgBTKvPqrHgNbpdAW8m8+zsf+mGFEezxsMoclV1o/u
+	 kH22FLEubo118j9PQCAdN/Kfsks7xVHuUZM31aPouONGxigkLJIV7vjqLCArBUm8ZmwPe
+	 /amtZfvQqtUjnsXW5vjwIXRCaKLR4MbOHErAwvzuCMAhN3PnZMdwSFB4I+mjjHsNCiMJx
+	 fNbXzioY1RVSOPFpU6JvH/4jdObCcODcJnTUNJ3cridTfpx+DHw60aR4hhhTvXMQlU5F6
+	 9rRxJXp9BzJuuhlZF+nDmZjvKacjEyFZ4fh9y8mO5qMDC9OdydnU9AxG2mLvk1JfmHQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794841910;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-XMRINFO:X-QQ-XMAILINFO:From:To:Cc:
+	 Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 X-Priority:Message-ID:X-QQ-MIME:X-Mailer:X-QQ-Mailer:References:
+	 In-Reply-To:X-QQ-mid;
+	bh=k3wjoXPfdYoH26BVWO3+cw76m8FT5NmjFkdWFdobGv4=;
+	b=0PhHwRF3jcSShETCMGDEMYb/WD2SAhM2OJkrAqg75HpzRUHsWS4OfOScVn5JqnvglgLh
+	 0wjMQYc4w54uJkO7xxeBedkW8bz5lvHOsN/ck+VKJI6YFVw+MENeTx7PJbgIcfGbQhBxJ
+	 GQn24FFhA5KcDIFKF0SzW73wOzD/UUomz4eO0ZmEXzZSIrh08nN7waG9JtwHMKEuiEiSA
+	 XzhZ+aJ6F09fxk1yoWfWFrNcsk3MT2TySRH2w5/lcOu844n+GeCXcLZ51kqo0cNg6BJ6e
+	 qe68s1MesvFwE3QKYWqH2VF1rMqjxylDC47Iq6z8fJ2u4HqroPllI/O6IrdBat1SrZQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=P6es5K0B;
+	arc=none smtp.remote-ip=162.62.58.211
+Received: from out162-62-58-211.mail.qq.com (out162-62-58-211.mail.qq.com [162.62.58.211])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DA3D606A323;
-	Mon, 16 Nov 2026 15:08:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DA3D606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ziyao.cc
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziyao.cc
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6ACB606A31C;
+	Mon, 16 Nov 2026 15:11:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6ACB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=Tk5pXY4F
-ARC-Seal: i=1; a=rsa-sha256; t=1794841694; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=BzpH94cLLOjGwhwfgTTHv7LjnpmLKSqu2YTtvc0fQSCUNt7dz/ZXgK7toX660HVWehuE3EexqCCUE7uoMF/fjBjddwPRLeUp7dxAdqpfPX1yEBnHiN22rTpUQfIcE1Z/bFsVL148eIWVE6M+hHg/6PnGw4xI15T1CrWyrAdXAS4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1794841694; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=JXxer9312lUes1uPEthIt/zA7zOoYQciak50LQ/EmJU=; 
-	b=eaFfid7HVB7PYL6Cik23pwC7kNp33JsrxkBPiLVyP1vXO2tBVyOB3jbnlgwkdyVY/aeUj1kt4SaOar3j+LfmX70lTekhexl+SFqdFWzT3Kr8QkJz2KYllr5QZKO/CWXBimmFvyLL3SeSTP62MJ/nn5V7SUnRYQ2dbZvnI9+doJg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: a=rsa-sha256; b=Tk5pXY4Fv3AeuEZKVPXepAzf3V2n9Dox6joh8JbYhe4g6AH0zGO1A8olxmI5tRbwAzUrbnvAJmgKCMgu3J/Gro488PXyb4XBGA2DfXno0Ok9ijf85BLNjcMsbcpzotyVyGQgPgXG7tlV9BPxmO6pYY+zTsvoPB1vzPZcQVApUEU=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=JXxer9312lUes1uPEthIt/zA7zOoYQciak50LQ/EmJU=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1794841692688863.2907198387729;
-	Mon, 16 Nov 2026 07:08:12 -0800 (PST)
-Date: Mon, 16 Nov 2026 15:08:06 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Magnus Leatti <magnusleatti@kernelriot.com>, me@ziyao.cc,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Nespolino <g.nespolino@gmail.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 2/2] net: stmmac: dwmac-motorcomm: support
- Wake-on-LAN from S5
-Message-ID: <avscVrGbi7mFicuz@pie>
-References: <20261116091757.1656602-1-magnusleatti@kernelriot.com>
- <20261116091757.1656602-3-magnusleatti@kernelriot.com>
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=P6es5K0B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794841905; bh=k3wjoXPfdYoH26BVWO3+cw76m8FT5NmjFkdWFdobGv4=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=P6es5K0BZwtv8hMmKItvJ6Bm0mQIhFLeCzPZyRREgDgLMdOH0P+i/M03fp8zfsnS+
+	 eNGr3Z/nFkjoIGTSJKXfHAw4U/YdBFNDhGKtW6UojbRp4x+P4RnOJ91EkbOnDkcDZR
+	 Wu9+0g5WeXubLQNVsUeM2KBpLofZCn8wvAQq2dwM=
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+X-QQ-XMAILINFO: N55iztL8edgQvN0v5JGUgkPqXum1H/JEX8chapWGgvcpkKr/b21ELtNOyEdmlM
+	 t2Ss/HHlHdNl09w2GkccrfHlVek5Hr327J2k5O2pfKE0e3jieSFBKD9ATUn4wF3IH/yb2Rntu7TFp
+	 WXm5k0hlGYKwxl1uL9czFZFsGSjq/0nI5xfRoqexTLgEzt5+vRcbMBJCAv0jwWeRskC/qHUaFD2om
+	 giLcX0UafcBok9fRKpWypOekoGvYlbISbOu0Y1rEtSf6GQ88i2qx1DycCNNAU9fRch3pP7jVWT1lI
+	 AXczut/A/6blFfthX49WeF0Eku9mA2NKjvG+fVc+u3v325NZb635H60VBFXAwRmuzD1X4Ewtn89T7
+	 eSRinH6r+1lnCc/s3HTjxSGosXICIGZsdA/c2NsLbdFRaq13z1J8jOSfX3XIxt9gaHOvPHE7MrowT
+	 R/7vQV+R1TJCj68QHoopG6fwdQIO7DaLceTq9QM3CxqCN0PIdSDxbD3lfiXaNlIcjcwlPtBHhmTaK
+	 0bUxCd+1OwXG9BACryzD3tt7jVRenVmqVAz9pGfEIln9qoBZZyKhTh0zNFmELXf34LKDl5+wWP1EA
+	 jg6VTKx1Qof9JczdcZ3ceoWV/kZ5yefg8UriRIoweWbOxdzIViLK96hpSWyCDCxCSAPJg+ahpZnhV
+	 aFZvGr+wjPNK2unDlIsAGnp+hf+X1VIe1Yn9AasJ5zIhwNnFSxt1Vdbea+gHFVK2RRm8zIVlnP4tx
+	 aJXIeCUWwlVmS5hoba83KO5O/0UQcjEK5f6D08xhQUpM8W3ACZGbgMOasj5v9i5/BDh5u26DBFWVQ
+	 Zq/MryA/TfMrEMkV+Q8Eu6SO7nPAXa00pOVy/QMrybrCGwV86vV3Aatf69lW1rX31yZOiNkqRDdOW
+	 aUgMzU6Sv8AWEHYxPbXpgSa4srkwhoS8FKMojcBvCFYVh1o5OzFLBroxc920eFp/cXn6meUo+MCKE
+	 EMkyKcI++AVByQxb+h3oR4+dtvJLHI82V5EkozsjeyMLRb6EUnZ6ysgJxbMX9jol4LrAujVYffWoM
+	 RnUWUfu+qhoZXC+/qPy1u5iXmJJPd+1GfAKz71UTZRFgrykU=
+From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
+To: "=?utf-8?B?QW5kcmV3IEx1bm4=?=" <andrew@lunn.ch>
+Cc: "=?utf-8?B?QW5kcmV3IEx1bm4=?=" <andrew+netdev@lunn.ch>, "=?utf-8?B?RGF2aWQgUy4gTWlsbGVy?=" <davem@davemloft.net>, "=?utf-8?B?RXJpYyBEdW1hemV0?=" <edumazet@kernel.org>, "=?utf-8?B?SmFrdWIgS2ljaW5za2k=?=" <kuba@kernel.org>, "=?utf-8?B?UGFvbG8gQWJlbmk=?=" <pabeni@redhat.com>, "=?utf-8?B?Um9iIEhlcnJpbmc=?=" <robh@kernel.org>, "=?utf-8?B?S3J6eXN6dG9mIEtvemxvd3NraQ==?=" <krzk+dt@kernel.org>, "=?utf-8?B?Q29ub3IgRG9vbGV5?=" <conor+dt@kernel.org>, "=?utf-8?B?SGVpa28gU3R1ZWJuZXI=?=" <heiko@sntech.de>, "=?utf-8?B?RGF2aWQgV3U=?=" <david.wu@rock-chips.com>, "=?utf-8?B?QWxleGFuZHJlIFRvcmd1ZQ==?=" <alexandre.torgue@foss.st.com>, "=?utf-8?B?R2l1c2VwcGUgQ2F2YWxsYXJv?=" <peppe.cavallaro@st.com>, "=?utf-8?B?Sm9zZSBBYnJldQ==?=" <joabreu@synopsys.com>, 
+	"=?utf-8?B?TWF4aW1lIENoZXZhbGxpZXI=?=" <maxime.chevallier@bootlin.com>, "=?utf-8?B?TWF4aW1lIENvcXVlbGlu?=" <mcoquelin.stm32@gmail.com>, "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?ZGV2aWNldHJlZQ==?=" <devicetree@vger.kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?bGludXgtc3RtMzI=?=" <linux-stm32@st-md-mailman.stormreply.com>
+Subject: Re: [PATCH net-next v3 2/2] net: stmmac: dwmac-rk: Add RK3572 support
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,135 +68,40 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116091757.1656602-3-magnusleatti@kernelriot.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/294.637.76
-X-ZohoMailClient: External
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Mon, 16 Nov 2026 23:11:42 +0800
+X-Priority: 3
+Message-ID: <tencent_273206094323A701D688217E3A4D72341C08@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a@qq.com>
+ <20261116-add-board-ok3572-c-net-v3-2-a957fdcd9c7a@qq.com>
+	<f8d4b637-1818-419c-ac51-fb2ded1f9b3e@lunn.ch>
+In-Reply-To: <f8d4b637-1818-419c-ac51-fb2ded1f9b3e@lunn.ch>
+X-QQ-mid: xmsezb41-0t1794841902tc50bzb2f
 
-On Mon, Nov 16, 2026 at 06:17:57AM -0300, Magnus Leatti wrote:
-> The driver reports "Supports Wake-on: ug" and accepts "wol g", but a
-> YT6801 in S5 ignores magic packets. At power-off stmmac_suspend() arms
-> the PMT register, but the chip's out-of-band WoL block stays disabled
-> as motorcomm_init() leaves it, the packet wake bit in WOL_CTRL is clear
-> and PME is turned off.
-> 
-> When powering off with Wake-on-LAN set, the interface up and wakeup
-> enabled for the device, keep PME enabled and arm the chip after
-> stmmac_suspend():
-> 
->  - Enable OOB WoL. Without it the chip does not wake.
->  - Write the MAC address in use to the first address filter again.
->    Enabling OOB WoL reloads the factory address there. Without the
->    rewrite the chip wakes on the factory address and ignores the one
->    in use. The rewrite follows a 2 ms wait, as in the vendor driver:
->    without the wait the reload lands after the rewrite.
->  - Set the packet wake enable bit in WOL_CTRL. Without it the chip
->    does not wake.
-> 
-> The sequence follows the vendor driver, with two differences. The
-> vendor also sets bit 9 of LPW_CTRL. The chip wakes without it, so it is
-> left alone. The vendor puts the function in D3hot. Here it stays in D0.
-> With MAC Wake-on-LAN phylink keeps the PHY running and phylib keeps
-> polling it until power is removed. In D3hot the MDIO registers read as
-> all-ones, the poll fails with -EBUSY and phylib warns from
-> phy_error_precise(). That warning was seen 111 ms after entering D3hot
-> on a normal power-off.
-> 
-> The PHY is left at the negotiated speed. Reboot and kexec are not
-> armed: OOB WoL can only be disabled again by a chip reset, so it is
-> enabled only when powering off, and the next probe resets the chip. If
-> the interface is down at power-off, the system does not wake.
-> 
-> Suspend is not changed. Hibernation that powers off through the
-> shutdown path arms the chip the same way. Neither was tested.
-> 
-> Tested on a Celeron N3350 mini PC, magic packets sent from another host
-> 75 s after power-off:
-> 
->   net-next  wol g                         no wake, 3 of 3
->   patched   wol g                         wake, 8 of 8 (28-31 s to ping)
->   patched   wol u                         wake on unicast, 1 of 1
->   patched   wol d                         no wake, 3 of 3
->   patched   wol g, interface down         no wake, 1 of 1
->   patched   wol g, power/wakeup disabled  no wake, 1 of 1
->   patched   wol g, reboot                 reboots, link back, 3 of 3
-> 
-> The kernel log of each of these shutdowns, read back after the next
-> boot, shows no warning from the shutdown path.
-> 
-> A second board, a PSJ8500-N97 mini PC (Intel N97), behaves the same.
-> 
-> Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 68 ++++++++++++++++++-
->  1 file changed, 65 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> index 1e142ad39e33..034547ad1e98 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+SGksCgo+IFsuLi5dCj4gPiArIC5yZWdzX3ZhbGlkID0gdHJ1ZSwKPiA+ICsgLnJlZ3MgPSB7
+IDB4MjlkMjAwMDAsIDB4MmEwNDAwMDAsIDAgfSwKPiA+ICt9Owo+Cj4gSnVzdCBsb29raW5n
+IGF0IHRoaXMsIGl0IGlzIG5vdCBvYnZpb3VzIHRoYXQgcnhfZGVsYXkgYW5kIHR4X2RlbGF5
+IGFyZQo+IGFjdHVhbGx5IG5vdCB1c2VkLgoKTXkgYm9hcmQgY3VycmVudGx5IHVzZXMgcmdt
+aWktaWQsIHdoZXJlIGJvdGggTUFDIFRYIGFuZCBSWCBkZWxheXMKYXJlIGRpc2FibGVkLiBJ
+IGtlcHQgdGhlIGRlbGF5IGhhbmRsaW5nIHRvIHN1cHBvcnQgcmdtaWktcnhpZCwKcmdtaWkt
+dHhpZCBhbmQgcmdtaWksIHVzaW5nIHRoZSBkZWZhdWx0IHZhbHVlcyBmb3IgdGhlIE1BQyBk
+ZWxheXMKZW5hYmxlZCBpbiB0aG9zZSBtb2Rlcy4gVGhlIGxlZ2FjeSB0eF9kZWxheSBhbmQg
+cnhfZGVsYXkgcHJvcGVydGllcwphcmUgbm93IGRpc2FsbG93ZWQgZm9yIFJLMzU3MiBpbiB0
+aGUgYmluZGluZy4KCkkgY3VycmVudGx5IGhhdmUgb25seSBvbmUgb3NjaWxsb3Njb3BlLCB3
+aXRoIGEgbWF4aW11bSBiYW5kd2lkdGggb2YKMjAwIE1Iei4gV2l0aCB0aGlzIGVxdWlwbWVu
+dCwgSSBjYW5ub3QgYWNjdXJhdGVseSBkZXRlcm1pbmUgaG93IHRoZQpUWCBhbmQgUlggZGVs
+YXkgcmVnaXN0ZXIgdmFsdWVzIHRyYW5zbGF0ZSB0byBwaWNvc2Vjb25kcywgc28gSSBhbQpu
+b3QgcGxhbm5pbmcgdG8gYWRkIHN1cHBvcnQgZm9yIHR4LWludGVybmFsLWRlbGF5LXBzIGFu
+ZApyeC1pbnRlcm5hbC1kZWxheS1wcyBpbiB0aGlzIHNlcmllcyBmb3Igbm93LgoKV291bGQg
+aXQgYmUgYWNjZXB0YWJsZSB0byBzdXBwb3J0IG9ubHkgcmdtaWktaWQgZm9yIFJHTUlJIGlu
+IHRoZSBuZXh0CnZlcnNpb24sIGFuZCByZWplY3QgcmdtaWksIHJnbWlpLXJ4aWQgYW5kIHJn
+bWlpLXR4aWQ/IFRoaXMgd291bGQgbGV0IG1lCnN0b3AgdXNpbmcgdHhfZGVsYXkgYW5kIHJ4
+X2RlbGF5IGluIHRoZSBSSzM1NzIgZHJpdmVyIHBhdGggYXMgd2VsbC4KCkJlc3QgcmVnYXJk
+cywKQ3VuaGFvIEx1
 
-[...]
-
-> @@ -204,9 +207,51 @@ static int motorcomm_resume(struct device *dev, void *bsp_priv)
->  	return 0;
->  }
->  
-> +/*
-> + * Arm the chip to wake the system from S5. stmmac_suspend() has already
-> + * programmed the PMT register of the GMAC. The rest lives in the wrapper.
-> + */
-> +static void motorcomm_arm_s5_wake(struct net_device *ndev)
-> +{
-> +	struct stmmac_priv *spriv = netdev_priv(ndev);
-> +	struct dwmac_motorcomm_priv *priv = spriv->plat->bsp_priv;
-> +	u32 reg;
-> +
-> +	/*
-> +	 * motorcomm_init() disables OOB WoL right after the chip reset, as
-> +	 * normal operation requires. With it disabled the chip ignores wake
-> +	 * packets once the system is off. Once it has been enabled, only a
-> +	 * chip reset disables it again, so enable it only when powering off.
-> +	 */
-> +	reg = readl(priv->base + OOB_WOL_CTRL);
-> +	reg &= ~OOB_WOL_CTRL_DIS;
-> +	writel(reg, priv->base + OOB_WOL_CTRL);
-> +
-> +	/*
-> +	 * Enabling OOB WoL reloads the address from eFuse into the first
-> +	 * MAC address filter. Write the address in use again, or the chip
-> +	 * wakes on the factory address only. The reload is not immediate:
-> +	 * without the wait, taken from the vendor driver, it overwrites
-> +	 * the address written here.
-> +	 */
-> +	usleep_range(2000, 3000);
-> +
-> +	rtnl_lock();
-> +	phylink_rx_clk_stop_block(spriv->phylink);
-> +	stmmac_set_umac_addr(spriv, spriv->hw, ndev->dev_addr, 0);
-
-Does the chip automatically enables WoL and loads MAC from eFuse on
-power-on? If so, the driver's WoL behavior would vary if the software
-alternates the NIC's MAC address, depending whether it's a cold boot or
-a warm one.
-
-Please confirm the chip's behavior on reset.
-
-> +	phylink_rx_clk_stop_unblock(spriv->phylink);
-> +	rtnl_unlock();
-> +
-> +	reg = readl(priv->base + WOL_CTRL);
-> +	reg |= WOL_CTRL_PKT_EN;
-> +	writel(reg, priv->base + WOL_CTRL);
-> +}
-
-[...]
-
--- 
-Thanks,
-Yao Zi
-
-Meow-mrrp-mrow, I'm a cat.
