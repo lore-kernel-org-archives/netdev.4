@@ -1,98 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.68
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794819598;
-	b=jwi09Jfp2hve3MvhgxyPr/RVnij1VHXn1Su4iDKC+evzVZkQkQaDjoQxMCPI0z5L+/QN
-	 33vUR2aNRP/KijHSXEBLbwAvUJfMeQs6KDHinuWkWM8ZEQE7Rgl36d8lXiYaNysTCLUch
-	 B07uNkH2K1jaVroPdDCsQ6N5py8se0zwz7os1GSLwQrfWjQvoxwtPieX63pnGsn/X49eM
-	 aD7YePPvlN71HxZVCQ4JKn3qpDsJV4Yn3Ks4GULBWOqNnJPs+2c9Vxj/f1cPAMQE1jDdK
-	 rQ3XmJkUnt9d5DKuCowA7tTAJ0aLefgy1AOL/yiccrhJaSoUJIGA41auLrs6yzbEgeQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794819598;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=YmwZOv8tYzGsAmsGNJuOPJ5WvV9x6K7qfjrfIb6CDZE=;
-	b=ARoraC4dumFXqNSu20ecfANpZnjZ1NvNGmIhvTtEAlkWTcQaZlA/NdVmPQJPp3NwO6L3
-	 +BPBvMOjz69kXYrnej5tX6mHtO58kVAtelMcNxNJDIE+23oFv3staLvDXKEbWT5vrU5qh
-	 uR9V8N+ELmy3qZGQDs+HmgydbU5lLzyt/UMLZVTZWFqOIMRLMKjUPKdVds/5bWzRaAvze
-	 Sg50kbXoWhYRAJ0X1TkFvMYgVD+UyVk358slvPdXkG3bfzhmI4FGE5EK1Dn6/gXNa30wC
-	 Fw0GRsh79R6WcT294ARVn+ToVrTIJXwPT53V97QcoJbMRbG5K/GY2wkcW0ycTxCV9MA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="sbwpf/j2";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.68
-Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012068.outbound.protection.outlook.com [52.101.53.68])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.45
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794819605;
+	b=5nqRy7yf2LrZ3aCHtSXLhoaf4JxO6biz/767eclW/3hpQw85wsfgWCiqVqWBNEr28s+k
+	 D81FqAVfKGtLU5p4PpMNpz8r/FRiKG7LJM1I6AalEXtVFNfOKJfX5nz7MXEJCC9RqTOoo
+	 mUBCKHQCjEYQb5TdlTpfZ/JtXRRrj+zlBWh+2ro4kA6KlElvaWUpmmjZ939FKTJQAmQvN
+	 CAMkKU/3qIYuzv1UPM92xbNJlLzDMmt+6Mc3s6V9Wznb4xliDN1vKNKaj51N/iyIjDzMd
+	 WW89+8R0YlDXyOQivS9nZNhoswPgZzHOh3G7XbpiukJewxtoznwVLKaIStU1h8+8VUQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794819605;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=a9zCEEgHyfXsOU4IbfkUeeAj9HdWSAkpM97GgxzjpQs=;
+	b=cVZKph+YyHL8rQKv40g6qUqcX5gE4EodHcbCAI8vf1g0kCn95EzJPP5tsYdfD4R3cR4Z
+	 oBWlGtumg6Xtxxgu42ZT2Qh6NdQXaDn0IExH+HhzMQixMzpVBybupN9jUcHNuyRpURRwC
+	 +qRmiJdLpIXIGi/5N0HezMhrvrujjCMXWFCcj78ikRimjMmGS/zxJADMA4tOvvYzxXbkx
+	 VgUOsT9LdeeOp7rriccuH20z6BX92DGrpVBGpjNjJ8a+886NMGx8TzLns4AW/TDKahZHV
+	 3hQg7cajW4YT81euLbNz7YmGfO6h63qCMJmmGSl2yc2jAtz49dZMUwJ3LzJ1de5ic6g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o+4V74VY;
+	arc=none smtp.remote-ip=209.85.160.45
+Received: from mail-oa1-f45.google.com (mail-oa1-f45.google.com [209.85.160.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2060F606A339;
-	Mon, 16 Nov 2026 08:59:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2060F606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75A43606A33E
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:00:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75A43606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=sbwpf/j2
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=f3BiB5k1vL8Pb/apCHohkA81K3so8SFkshxiz9uC7SbISbcZO4A1PmvCPs/jU5TTddEdnQYQZUw0RG6yEvZfE6orLL3UCUhbbS2y0ttYs5NYuqONR8TM0FO87e/P5RT4RrMgZyJPl4Lpuhlch78mluOSD0JNFXe3lT31e++py4r0kRJXbhFVxmRG8lKw2YC5R6HKnmS/cjs54nG/8L0c1IlNn5HlxR+6k2D2EW3UVpKWv9nIF8NmMpnBB0vhWCJCA4y/SuCJF/KpAxw1KCWX89LjQme4YwK/2OWHCbdzI7oS7zJH1dQqaldLfovtZH+u8su5Wq5Qf0E9RTUVrQYNvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YmwZOv8tYzGsAmsGNJuOPJ5WvV9x6K7qfjrfIb6CDZE=;
- b=mgiox0ZYNbq3La389/YlybanbQQ5BSbb8OVcvHcJmvqBGlv4VLXIYjSh+A9787WO0fSHqhcMx4okififEv+ib7KdEEO/ireA6zyTf4oDtPFBjhIOr+Rw4/dBmZjMLMe3j0CWTFgoloy8YrxLRx5CUOAWV8rF1SR8dwKnnWbnyG6WQSc+pfB3nWMsqJ3wSrGt7EdylkmHcsZoDBq7nuvH7vAME/MyVcXXz1PJlUh0lUH30y6Ljtb8875EMCkHG1CO8KjQ6SeLMdRnOHt3JkTQN3cKsBXH+XCP8E/0Eh7+jGAL5l/M2chZP+5ToSn4o5K4kh6imBv8N6Ui6VzeI4RlzQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YmwZOv8tYzGsAmsGNJuOPJ5WvV9x6K7qfjrfIb6CDZE=;
- b=sbwpf/j29PuZwW8jKdGl93DjKUEZTiATZtFlIAJzeLqYJ4i5uXUArx4/qpnbG7Wo20fq7ehhcMf9wwdPUJ/AnwWyXc+MQNh7Refbe5jBfnzHQ2LUfsibIh+rPiGB0cY68355afr96Eso6NydRLeJHzi1xj5YcUa5YGyOlaWcpq8qwIEu8iDK18CQ0UBYhFYqfVmvIvZlbtYC7PLg0S1G/1iOMBfkbFE5Z89oQzuvt/Wfhfsdy4FgDXn5MjV8wjhZZ1JOR1RdVo0OAkI2OpZ4yHi5sYxEvOHJdmwSbZrLqu7Ba5X9vQwqm13cIDZBx+ZDctqwxY1DlQwJbMXRDScBSA==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
- by DS0PR12MB6653.namprd12.prod.outlook.com (2603:10b6:8:cf::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Mon, 16 Nov
- 2026 08:59:53 +0000
-Received: from LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
- ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0615.009; Mon, 16 Nov 2026
- 08:59:53 +0000
-Date: Mon, 16 Nov 2026 10:59:45 +0200
-From: Ido Schimmel <idosch@nvidia.com>
-To: liamsmith827 <liamsmith827@grapheneos.org>
-Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
-	Liam Smith <liamsmith827@proton.me>
-Subject: Re: [PATCH net-next v4 3/4] selftests: net: test restricted on-link
- fallback
-Message-ID: <20261116085945.GA105971@shredder>
-References: <20261115215640.18728-1-liamsmith827@grapheneos.org>
- <20261115215640.18728-4-liamsmith827@grapheneos.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261115215640.18728-4-liamsmith827@grapheneos.org>
-X-ClientProxiedBy: MR1P264CA0207.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:501:56::7) To LV8PR12MB9407.namprd12.prod.outlook.com
- (2603:10b6:408:1f9::13)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o+4V74VY
+Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-4a76f63b243so3789737fac.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:00:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794819604; x=1795424404; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=a9zCEEgHyfXsOU4IbfkUeeAj9HdWSAkpM97GgxzjpQs=;
+        b=o+4V74VYHHGEwhhJlNUfTApJrT15j5GcawAo+tYJ5Cwh4eCSxw2DFkjvh3s1Rpjaqc
+         CYutTqg5MNgSF+d/0tsK4el7Oyq/M+4zKiyqTREVC8wa6sd2i+t00qsqz96u2a7Do/T0
+         S61bloURCFvfTqbXq0Ivde3n8DJRjFyxYeWwkz66nnloFZwncVFMCBsyiBbwObOuJkz5
+         IskLk/0fnKHf8yEKHIselPnjHkt7keVKHGti9IJMT8vSs/NaEStLdb6Peu9/noldepLy
+         UEO2OvL264NrgOsxdAkcu/rXYYC9kHJI2VxxE/B0xq3H4jvCfG5U2eQZmRLR3I14tg3/
+         agVA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794819604; x=1795424404;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=a9zCEEgHyfXsOU4IbfkUeeAj9HdWSAkpM97GgxzjpQs=;
+        b=JOeky7Q8PySqbJ9pW1RZh+NMwiTVrG0+byIwG8bRHr8Aw1aB29cIsmo450/+YxGQDC
+         kPndPBfmf/V1KiRCYEgrfEuaVWZmFgWctwvcmTexHJVnzu7BBaUkPm03bycSoxyECleW
+         NeQSGGO+dwnEp8Ab5mG9At+t6bbnPioSFcMasJoZGBuqapuPh+Sj5xwKAf4+C4RYth3W
+         NxJ99wRMhTesduMB+i5Dtr8iKAUN5vfvyuoEWcdY/qEc+XXCoBePM9PiT3F4KA20j0l/
+         AwLINn2EIcf/jmnCyhguFZdo9vULMRnP9RNSW/GvZPEnrXiTca6cp1erAGv7xDkXYWO1
+         hNXg==
+X-Forwarded-Encrypted: i=1; AL+hErGuHBNwLsntz/6X0zEVoio/IYpDK5AVImN8XuakC0tnFDL8QDcelWIGRkyohAE/rnEKRBH3tGk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+K5LoRbTNaZIDI4rS1hAXbJxU/gq/L63oOcY1hQmUJPRKF8eB4
+	CYaUkPpXY7oS2cMqtfdW7zCRpwzGVE4LJczK7xPaoJbeVoHBXrMw+roK
+X-Gm-Gg: AYBFou214qf2u2gluHGGM7zC8bvpUqGpAo0zjdtOGs3lwcihQh6ZVQdeWAvVNlbQ1/3
+	a7q4Ke7NgYMT6mA4xkP6zh8nx19qcuUx2x75PlEO0Kdj945BcL43EF+IFDH7+zDVFWjV8xWC37Q
+	Zol8oOF1+uwQLL/gyOXM3EREVly/9pWuQTVyKuAIpoxzhtlPjtY6gGCj+vvWQEIoD61gxbiXhot
+	VgzP6VSDBc7OSFsD3rWBi5xIxcW/sEKMn0YSHpEt0+yaMJK6dgcvfJ301fcjymK4mCXUq7Vbxyz
+	kP6PYzAikrWQ2oxsXaNcuQJAUULEoatkGYM9KgzlgyZiaoVtkxEsyWz+U09fMvCnYBLSxp4S7S6
+	R6ojOxQoEAecqbzPLETMI5+ODn2+pRg3s+g4wq6to+xolCVWw/FInNh7uCp5uYJnUGSz78bUVEW
+	jaqKUnofiI5yZs5YLda/+PuGvCl2tCyNTwlPPAQxKCP9H2k577pqEDDvXeNSnhA9eKKRIVgcxXl
+	KaD0UhYB+S9sFxN/LvwDr5nbq+hAsILlm52K0zatJMwVyl2ccIlVKWR58/EbdK0zAb9mM5wKTgc
+	Y+y+6uwW89IUXv0QvkBKyFS2CSwTo4m4TrwqogLX37OvrDedNtaKoFuCKuNjibgXo3jXFKedM5Q
+	hzB8XA4SxFMDqiAV08/iWFNvQJz1VOJDGqHBI8rDGr4kcGd1+apt/GwYYkPC5ra93v7ArebIxaj
+	a1wRieQq+MDbiYsrl/FE0qFde/CJppf+SqbGz4cGWGX/n0xOF15w==
+X-Received: by 2002:a05:6808:3383:b0:564:3e9e:b498 with SMTP id 5614622812f47-56e65624042mr5371665b6e.22.1794819603048;
+        Mon, 16 Nov 2026 01:00:03 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-5750329397bsm719177b6e.6.2026.11.16.01.00.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 01:00:02 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Subject: [PATCH net-next v6 0/3] net: phy: report ACx00 receive statistics
+Date: Mon, 16 Nov 2026 01:59:56 -0700
+Message-Id: <20261116-submit-acx00-phy-stats-v1-v6-0-8feef8e76cd5@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,114 +93,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|DS0PR12MB6653:EE_
-X-MS-Office365-Filtering-Correlation-Id: 3cfb6fb5-7f00-4fe9-87f5-08df43bffabd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|366016|376014|23010399003|1800799024|22082099003|18002099003|6133799003|4143699003|11063799006|56012099006|10067099003|261022105027099003|261028144727099003|261026121527099003|261021123027099003|261021121427099003|261009223027099003|261102123227099003|261026140227099003;
-X-Microsoft-Antispam-Message-Info:
-	dlzxvgX8tx3ij3T8Q2MRDtf0uWqdk/+aV/ECjrQVwPH9+hg5YjuwUHuRwSgDoW2QMv67+BaQMjIfLaJDhbwb6eoPp4Ep1SxNfkNqxvKco2UkIoHqaokvXRZmOVXcs7LdvSVhltEtUQifpqmv95iU5VzvOF1iElKa8oYp2qMJvGqmZK/46UV7fpgZFNUQxeQlnPvgKMG0UXFmzgdsHXPAwT7ImYDjjR6OBUONyCwASDf0EROUD3EPWy/emlIdK6U5Ze8ikzixFSy4c2C91eS5Z5j0oyJ0xWrzW1L6DetvfT6smJj+QflMARI3PhZAsB/bJzRXscrDSx71n1t6K8OCaQFJ2gO7YJjDkbKBrqN93hI0t2ac8DX6THyW1j3ThuRseQ1mjAuZKIkck7N57wCvhNUq7iKoSZP0V3x7gl3GhXTnfr4soMBmRqbEdlzTwM+LryERcvCOLg+s0oAgEes85JuTT9fgmZ+1f42oaFE+BDjmpcO966bPGrr11PKDLzk1krYjGWv+qg2JsfWhXcCCjUiyF/rhyCFEZalBQGf3nJ5oekbILaYff2CijAxLhEUUWIYanFnbJMhgL+tsPUaMNL5wgPBTHwugmaP5nUqn78dZt0YZeEkF7fFWmXvTu+XBTunWNAYfUydFGDCWsA2EvpEYsgGtRkqKMV5qVUy+VmU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(366016)(376014)(23010399003)(1800799024)(22082099003)(18002099003)(6133799003)(4143699003)(11063799006)(56012099006)(10067099003)(261022105027099003)(261028144727099003)(261026121527099003)(261021123027099003)(261021121427099003)(261009223027099003)(261102123227099003)(261026140227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?QCMmJvJ758oqh1PzXJIyq0Ar8/YgxenpMYozjNEhcIjvAmoqT43U5TKcgPU/?=
- =?us-ascii?Q?6N7IZe6xkvZpyvoQHT4mqMshts+h4aQvVsT3WCAQnPLykvNvWxHcM3auAXsA?=
- =?us-ascii?Q?O3SMmRjvSno7KDDrm2KSqBuJn5SljpaJ2t55IoZltJ3hG5LcMz4RXJ3gFvyT?=
- =?us-ascii?Q?eHYW6G+C42szHGCqNTS9u9SLDUjvPQwXB9fUZSR8kcTqSbsxj5nV2NZqUjwp?=
- =?us-ascii?Q?872PRU84eAqn4eN0DCZJS1u0AqRnCbUVQ+2CgwwwqXUqwJ1tLEroZg15EO42?=
- =?us-ascii?Q?Hr4eak5bQJKG6IDmkEusMVnvYGC5KeGCqEMoEx3C017WvSysmU5VdCL28h9I?=
- =?us-ascii?Q?Nji1Hqm7P9K1ITbHDI8fzQhknI4cqBczULFCxCedVj2fD+V6S/o+YKFugZ5n?=
- =?us-ascii?Q?4A7nyRCkaGgBRC1v0vmcDewucWsbcSUMfYERmYYbqX5I5Nnk8Nv2aI82k0Jq?=
- =?us-ascii?Q?D3EhL4UW2MFcycYXRs8NTc2JHd/L9JYi1CnqzZjfPC8Y6K0h3zb93BzauIgJ?=
- =?us-ascii?Q?ZaNVGP09a9Orjwpo2sdqeOxddxVrYwJ7OhRr3TVsPddtFmOIgSaaLl6xJCw9?=
- =?us-ascii?Q?iXRICsI+gAnmPOA4CAEcB1osJJZ9MX9Z0StKDBQOaMXZGahD07IxGSV5rm4k?=
- =?us-ascii?Q?ThSxAvkmJbclNwyL7Z92WpplvWr8zJ5vsW+NjM++nUPRG1YyhgDZkqgdanb+?=
- =?us-ascii?Q?tc8JVrw+cyBUYTCUni/7yLUO9adLbNzEp+ffgDzRE1RS9hy5qRK1RWZFrbA6?=
- =?us-ascii?Q?GwKzSDt4yCa3ap8r6B2Iyg3b8dwYRFySuuP1uxLN2rJe+i2wwTJZmcst7/w+?=
- =?us-ascii?Q?lmeKuHOzGMW0q6V+3l9OuKDs/2piurgHkdNDpYjAFb9bZoXrCkQh9ugKmAgm?=
- =?us-ascii?Q?i3ZM9Yb4V+Z/1SbTt+U4kPqeOjY8Uukh190DZ5EEL6poTECWSIIBurrpMzUf?=
- =?us-ascii?Q?F4c8T467O/TFsfsEiUZ5R6RLEIE1iQuE5zmP/2tRx7iHsKOVube/WtYesFZd?=
- =?us-ascii?Q?302HQn6ELcvgckraBGTO3ZpovPmLktZAYgwDod6/hOH/ks7qN2+WQd46OZtZ?=
- =?us-ascii?Q?cYceAfmJhKQE1R/xJG53RaanZLIxqXumN+9C6+NyHjwqUc0Buc/egiS5LPA1?=
- =?us-ascii?Q?AK8w5fYBW+NtuAMKSkkQL1BN4v3/XjT+hNSoD+E7XTdktdmdvEkdzmpGqb2Q?=
- =?us-ascii?Q?6+F651OcPRZUkZW5QrZCl5sgZ5y+48AmBFbwNBNilHDuoYSDDO3HEXR+2SeH?=
- =?us-ascii?Q?v1ydTKc2lRgwkBaNzDXJ146KAYDcV+1QNGbls5ZkkLCoEYx7VN58LiX/yghn?=
- =?us-ascii?Q?d/88hV9Lnv02ZwtssEKGfkCXydDIFmA+7AZ+ECeeSECgB+GF+OaEo3jMDBp4?=
- =?us-ascii?Q?9xXsyzTuzxn33mL+kH+FsKH8mVg8Tx4tHX4wbmcdsCq30XeDR5CcXIrQcr1+?=
- =?us-ascii?Q?AyD5apSRLPbRyNMdmRCGICGqUSQmLDbUwM2RHu+LB3RNNDA1E+quKa7eGZKo?=
- =?us-ascii?Q?RaCZk/ZYtjuwVYxJ5TwOtUDGmmU33kx0zs6sWK68/ITBFABGzCfDp4HisBmG?=
- =?us-ascii?Q?2xHTNxDYi2ObP/H/tsQOBIpdLZ+/s9Spe65eJ9L5YNbd96Fr6PLpfszTtdBe?=
- =?us-ascii?Q?tjdYnGCX8LxsneLFxj8uUnjItBbg4G+aAWj9gHEPxnXSaL7YGjQTRBFKLDHz?=
- =?us-ascii?Q?Ih2LW547Jz7/wIX2fCVX0Cl50TspHXapnjU2FFze4OGIMA90?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 3cfb6fb5-7f00-4fe9-87f5-08df43bffabd
-X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 08:59:53.7227
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: bWUQ0sw/NoGJafdWIeQZBPPGNQgt1XG6UCYZd1LIXjBHHnymd2B7TxuFCD/UWHJsx7vXqHXK6ecrmyEX8wKGYA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6653
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33QzW7DIAwH8FepOI+NDwfoTnuPagcgTsO0kCrQK
+ FWVdx/JNi3qpEhcjO2f/vKdJBwCJvJ6uJMBx5BCH0uhng7EtzaekYa61EQwoTgTQNPVdSFT6yf
+ G6KW90ZRtTnTktDbSNFoDABpS9i8DNmFa7ROJmGnEKZP3705hPtDnhV5mnU1I3WCjb5ev3+mXz
+ oa49NuQcj/c1pgjX8WfRNVOovJKLFmD4giqduztXMDPZ993a45R/EmF2pNEkaQ3VikApj1/lOR
+ WOu5JkjLaOK+k0L5yCI8SbCQu9yQo0tEoZyxYbvS/TNVW2r1TVSSsDbe6qUBquZXmef4CKiQME
+ SYCAAA=
+X-Change-ID: 20261024-submit-acx00-phy-stats-v1-d838f77444e8
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+ Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.17-dev
 
-On Sun, Nov 15, 2026 at 09:56:39PM +0000, liamsmith827 wrote:
-> From: Liam Smith <liamsmith827@proton.me>
-> 
-> Following the previous patch, the on-link fallback is no longer taken
-> when the FIB lookup hits an unreachable, blackhole or prohibit route/
-> rule. Adjust the IPv4 tests accordingly:
-> 
-> 1. ipv4_ping_novrf(): Pinging a loopback address while bound to a
-> device now fails with an error instead of timing out, since the lookup
-> hits the unreachable default route. Adjust the expected return code.
-> 
-> 2. ipv4_ping_novrf(): Add a variant of the above without the
-> unreachable default route, to make sure that the fallback is still
-> taken upon a route miss.
-> 
-> 3. ipv4_ping_novrf(): Add a test that demonstrates ping fails as
-> expected with an unreachable rule. This ensures FIB_LOOKUP_REPORT_MISS
-> does not break this behavior.
-> 
-> 4. ipv4_ping_novrf(): Enable the device bind test cases that were
-> commented out because of the fallback (prohibit rule, unreachable route
-> and unreachable default route).
-> 
-> 5. ipv4_udp_novrf(): Connecting to a loopback address while bound to a
-> device now fails with an error instead of timing out. Adjust the
-> expected return code.
-> 
-> With the exception of the route miss and unreachable ping test cases,
-> which are specific to IPv4, the IPv4 test cases are now aligned with
-> their IPv6 counterparts.
-> 
-> Signed-off-by: Liam Smith <liamsmith827@proton.me>
+AC200 and AC300 count bytes in received frames including those with CRC
+errors. Define the existing PHY rx_bytes statistic to include bytes in
+frames with errors and use it to report this hardware total. The hardware
+does not separately count damaged-frame lengths, so a successful-byte
+count cannot be derived.
 
-# ./fcnal-test.sh -t ipv4_ping
-[...]
-Tests passed: 122
-Tests failed:   3
+Report successful packets and CRC errors through the existing rx_packets
+and rx_errors fields. Bracket the raw packet count with matching CRC
+counts before subtracting; bytes and CRC errors can still advance when
+sustained errors prevent a coherent packet sample.
 
-Don't submit tests without running them.
+Assisted-by: Codex:gpt-6-astra
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
 
-Needs:
+---
+Changes in v6:
+- Define the existing rx_bytes field to include bytes in frames with
+  errors, and use it instead of adding rx_bytes_total.
+- Collect Andrew's Reviewed-by for the PHY group-name correction.
+- Rebase onto current net-next.
+- Link to v5: https://patch.msgid.link/20261115-submit-acx00-phy-stats-v1-v5-0-ed81a7f54373@gmail.com
 
-diff --git a/tools/testing/selftests/net/fcnal-test.sh b/tools/testing/selftests/net/fcnal-test.sh
-index 9722d7dcad08..7d51fdcc8fda 100755
---- a/tools/testing/selftests/net/fcnal-test.sh
-+++ b/tools/testing/selftests/net/fcnal-test.sh
-@@ -658,7 +658,8 @@ ipv4_ping_novrf()
- 
- 	log_start
- 	setup_cmd ip rule add pref 49 to ${NSB_LO_IP} unreachable
--	log_test_addr ${a} $? 2 "ping out, blocked by unreachable rule"
-+	run_cmd ping -c1 -w1 -I ${NSA_DEV} ${a}
-+	log_test_addr ${a} $? 2 "ping out, device bind, blocked by unreachable rule"
- 	setup_cmd ip rule del pref 49 to ${NSB_LO_IP} unreachable
- 
- 	log_start
+Changes in v5:
+- Split the existing PHY statistics group-name documentation correction
+  into a separate patch, following Andrew's review.
+- Narrow the generic statistics addition to the inclusive receive-byte
+  counter.
+- Derive successful packets from a coherent packet/CRC pair and report
+  them through the existing rx_packets field.
+- Keep collecting CRC errors and inclusive bytes when sustained errors
+  prevent a coherent pair, with separate baselines and sampling times.
+- Skip invalid or unstable byte samples without discarding usable frame
+  samples, retaining the measured byte modulus and sampling-gap limit.
+- Rebase onto current net-next.
+- Link to v4: https://patch.msgid.link/20261113-submit-acx00-phy-stats-v1-v4-0-986b8a4a1871@gmail.com
+
+Changes in v4:
+- Invalidate the ACx00 baseline before accessing counters in soft_reset,
+  since phylib may already have reset the hardware before the callback.
+- Start a new collection interval on resume and after gaps of at least
+  320 seconds, including system sleep, preserving collected totals without
+  interpreting unobserved traffic modulo the hardware counter width.
+- Clarify that the byte modulus and frame-byte boundaries were measured
+  on both AC200 and AC300.
+- Specify matching frame-byte boundaries for both PHY byte counters and
+  explain that phydev corrects the documented name of the existing group.
+- Mark the DP83TG720 conversion as unsuitable for automatic stable
+  selection without the new receive-total API.
+- Rebase onto current net-next.
+- Link to v3: https://patch.msgid.link/20261109-submit-acx00-phy-stats-v1-v3-0-fbc6327c5be4@gmail.com
+
+Changes in v3:
+- Add generic PHY receive-total packet and byte counters in a preparatory
+  patch, retaining the existing successful-traffic counters and their IDs.
+- Report ACx00 packet and byte totals through the new fields, leaving
+  successful-only counters unset.
+- Convert DP83TG720's inclusive RX packet count to the new total field.
+- Bound coherent-counter sampling to three attempts and skip unstable
+  snapshots without making phylib take the link down.
+- Reject out-of-range byte samples before updating the hardware baseline
+  or accumulated totals, retaining MDIO and page-restoration errors.
+- Rebase onto current net-next.
+- Link to v2: https://patch.msgid.link/20261102-submit-acx00-phy-stats-v1-v2-1-3c8a664407c1@gmail.com
+
+Changes in v2:
+- Rebase onto current net-next and repost after the merge window.
+- No functional changes.
+- Link to v1: https://patch.msgid.link/20261025-submit-acx00-phy-stats-v1-v1-1-d3d461e46db0@gmail.com
+
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+To: "David S. Miller" <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Simon Horman <horms@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+
+---
+James Hilliard (3):
+      docs: networking: correct the PHY statistics group name
+      ethtool: include errored frames in PHY receive byte counts
+      net: phy: acx00: report receive statistics
+
+ Documentation/networking/ethtool-netlink.rst |   2 +-
+ drivers/net/phy/xpowers/acx00.c              | 223 ++++++++++++++++++++++++++-
+ include/linux/ethtool.h                      |   2 +-
+ 3 files changed, 222 insertions(+), 5 deletions(-)
+---
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git main
+change-id: 20261024-submit-acx00-phy-stats-v1-d838f77444e8
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
