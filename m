@@ -1,47 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794845727;
-	b=f/KdWsGyPE4X2u7Ps7cY76m5NkJ2Bpc/3Fdci8xGpTIgWpSO0ZoFo6rWSOpsbaaMXyjG
-	 ayoFUmLnkVBltfHQPMCOFpnLOeOv6h5OD+g8LLOmGHARiylt+APupfghV7xFu00LNTfzh
-	 JSlS0gGLwxtpE8VVf8aGfMOIvdRJ3IYPclqHpt4WbPqREFD9bkGDISWLeIrSV/eriFoPJ
-	 6ZSqgypNiUbbHIVtt9d3/uCTyruK7IT/6hiEktuyZvPHhJTTGvzclttPrv9n3R6yWwBzy
-	 C5Mc1kAi+in3x3aoPVNmnE/0/rSo0jNoYX+KwNQT9j+7vbrmd37tzJdhNqQUYQ154gA==
+	t=1794846074;
+	b=V45t+f7f7OPN+ctb8mttxLeEMWms03DQxWmMfcqPRFiP0qMAFkSE1YvOG8s/HBHAFde7
+	 7KE6GKvyp1MTvZFGfxuivOf6Brf+AMKNxR6alD4DwzHd6IyziBrcqDQELtDjBCSk7fVBc
+	 tnihUH9kCGfc5ydLXw5xMvIm/a3NT4Iv5H5qEAFSHI3LzXtLtU77uVnMLspYX7bsZTsnJ
+	 HirTwwbb3ACoDrbFFWspfTSygXr4MaEz6DEHLKQNVnTu0aMu4wlogpLhEjVCctgkhlGg6
+	 OBMxCUd+sywjSy+SiAHHWFm1RPFaxAv6d3GnvSBGPxBxS9n/8lPdcq1x1+Puk1Xh1qA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794845727;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=XpO41rF7fuuT/Jt6BqEu29smVLYOtXz6DZtH/axydLM=;
-	b=vaM0bSEbP8ztpPp5qmVvOZ+IHROxEqFcI/Z0C5EqcY5lYxUqXfjNWLMjfPceYtXNOLMu
-	 aMdjKIZTy9j8vlH7ub5VbyakdOYKbuiuYgF5qeu12WEuj1OsOpq0vvmlhqIqSypBlUK0d
-	 8LG409NY95cGFX9t1ygIRL8JSXkomdH8wIfD/wpWIILgogL+0u+sKYR/NhsDFsV73jVer
-	 3yGxZRN1xq3b5g95c8Q2Y4QF4cu0MCa53rJKyZLTcRU9piPoYAhbMgW3MKiH4LbYqSsZt
-	 yde0YTmuC7ag2Nc45s+x5cvJ9McufLEB7connWfxZWiXu0f+AE0SuPmLE5aAfGGwpsQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794846074;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=KfrMIznTPxa2yE9FrkggciGBvOzUaeqzqHBaXFUlP00=;
+	b=pAbS8TYNkaRlcZVVZegUOp9AOTF5geePaRVsX4ga4ScsIAADfNlHkoaSAtjxlDkMgYQg
+	 y9c56Mfx11K1PqkEvjVFtEHeIPTQGZUiR1c6+oGiAMABZU1hbiF03Y0kMWwMFO469KRg4
+	 fr98AQJgm/wjeUoTsdTMfGQOWWOG1GTyKU9kTOsABJtCQw/sK6Hrj2g+KFQ8emcHS3AOM
+	 x81qNSkLS7RKJ9Z3ruPQEcSFuGohv8g8WXvuAHjFazXa/b0n3BBipzAR8acDVrcdmC9zP
+	 WYkuAloSdzfbkOP24g7Iqdcz+evRKYq53t6A9n8IGZjuahEsyAt10bWbNPi0W2/TxTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cyAxau5Z;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jlNCtANk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D4F2606A329;
-	Mon, 16 Nov 2026 16:15:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3576F606A31C;
+	Mon, 16 Nov 2026 16:21:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cyAxau5Z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4D5B1F000C4;
-	Mon, 16 Nov 2026 16:15:24 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jlNCtANk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30B6D1F000C4;
+	Mon, 16 Nov 2026 16:21:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794845726;
-	bh=XpO41rF7fuuT/Jt6BqEu29smVLYOtXz6DZtH/axydLM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=cyAxau5ZGhX1pqO6cIopx7yAcSPhWtCKG04Sl5ADX50BH0Nwf9XGLSrQC6Hj0bpms
-	 0NKgqTwwlvd7E7YgcdS0az4jDmVLnbVDxVkrXrghL+2nedCu760ECL8Khc61JW47dw
-	 CkchGjL9i16FQiFzjzwsW8fyxybVrWqAa1wo2vU3C8cx1MVNwClrhMhgd7T0WJH8vb
-	 1wGGzMX9iDDdg98+z8yA49q6cUjEHLI73PqoowBYICrBA9HN6+hDNIznFWqTHa8IqH
-	 RFXNTKcFOMkOZD3rijg4265V2kCpB3p+PmW/7fWEvrSzp6cuyvSwzN25EdgNbFMjO1
-	 wzMHx9YOxy+fA==
-Message-ID: <3d9efe33-f11d-4541-8000-01906197d2d1@kernel.org>
-Date: Mon, 16 Nov 2026 17:15:21 +0100
+	s=k20260515; t=1794846073;
+	bh=KfrMIznTPxa2yE9FrkggciGBvOzUaeqzqHBaXFUlP00=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jlNCtANktlATNh7bwB7zOXxHXMW8lACqeqU4vjMj9/REAp0CtRTDxZ2DU2lMkW2v7
+	 YlpBslE4i8vmj8E2sQ4gevyd4BDW/bvYco2ysHENbgUpl8kGuWhbDJuTt3QRa95pvs
+	 9/INmLz9lyfW3NU32GaT9sBZtoEEfm5GlaAN+ncqBmp4N+WR1fYUdnMxywwcA6jFyX
+	 KLA7FDJwIqeUNkWKrmTnzCebzVfejieBCA7NyDQy6dKh8J+TdPopQbtGxCGLXXIj6n
+	 oA/dtX9jxM8GfZvPEl6PiNgg6MGWQqhVkdCrDc5JLJWQyXz2g86D2L2mxiJq3Ri4VI
+	 oYMyszXWzrcXQ==
+Subject: Re: [PATCH net] net: qed: fix dead NULL check on the MPA buffer list
+From: netdev-bot+sashiko@kernel.org
+To: zihengw03@163.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Date: Mon, 16 Nov 2026 16:21:12 +0000
+Message-ID: <179484607270.3136.35330548202236483@kernel.org>
+In-Reply-To: <20261115161815.941090-1-zihengw03@163.com>
+References: <20261115161815.941090-1-zihengw03@163.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,279 +62,116 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH v1 net-next 3/8] tcp: Stop collapsing if not bloated.
-Content-Language: fr
-To: Eric Dumazet <edumazet@kernel.org>, Kuniyuki Iwashima
- <kuniyu@google.com>, Paolo Abeni <pabeni@redhat.com>
-Cc: Mat Martineau <martineau@kernel.org>, Neal Cardwell
- <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>,
- Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
- Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org,
- MPTCP Linux <mptcp@lists.linux.dev>
-References: <20261114040101.1043546-1-kuniyu@google.com>
- <20261114040101.1043546-4-kuniyu@google.com>
- <CAL4Wiipd9jDp+rVAo44-JDVtXrGR_0cubE3yaZ5Qb6w8-s+6Zw@mail.gmail.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <CAL4Wiipd9jDp+rVAo44-JDVtXrGR_0cubE3yaZ5Qb6w8-s+6Zw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-Hi Eric, Kuniyuki, Paolo,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-(+cc MPTCP ML)
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-On 14/11/2026 16:35, Eric Dumazet wrote:
-> Le sam. 14 nov. 2026 à 05:01, Kuniyuki Iwashima <kuniyu@google.com> a écrit :
->>
->> Even when a skb is not bloated, tcp_collapse() starts collapsing
->> if the next skb has overlapping data.
->>
->> Also, tcp_collapse() does not stop until it reaches the tail or
->> unmergable skb (SYN/FIN, unreadable frags).
->>
->> Assume we detect a low-density skb followed by fully-packed 4K-MSS
->> GRO skbs:
->>
->>              skb->len  truesize  scaling_ratio
->>   skb    #1      1448      2944      125 (49%)
->>   skb    #2     65536     66432      252 (98%)
->>   skb    #3     65536     66432      252 (98%)
->>   ...
->>   skb    #9     65536     66432      252 (98%)
->>   --------------------------------------------
->>   total                  534400
->>
->> Then, even the high-density skbs are repacked into lower-density
->> skbs, and we end up consuming much more memory.
->>
->>              skb->len  truesize  scaling_ratio
->>   nskb   #1      3776      4352      222 (86%)
->>   nskb   #2      3776      4352      222 (86%)
->>   ...
->>   nskb #139      3776      4352      222 (86%)
->>   nskb #140       872      2304       96 (37%)
->>   --------------------------------------------
->>   total                  607232 (+72832!)
->>
->> Even if we find a collapsible skb, we should not collapse
->> subsequent skbs with scaling_ratio >= TCP_COLLAPSE_SCALING_RATIO.
->>
->> Conversely, even if tp->scaling_ratio is smaller than
->> TCP_COLLAPSE_SCALING_RATIO, we should repack skbs once we
->> start collapsing, which results in higher-density skb.
->>
->> Let's remove the next skb condition in the first loop,
->> search for collapsible bloated skb range, and repeat
->> collapsing for each range.
->>
->> Note that even when the next skb is not bloated, we must
->> collapse it for OOO rbtree if it has overlapping data.
->>
->>         if ((list || !before(TCP_SKB_CB(n)->seq, sub_end)) &&
->>             !tcp_collapse_skb_bloated(n, sub_end,
->>                                       TCP_COLLAPSE_SCALING_RATIO))
->>
->> For example, bloated skb_1 and non-bloated skb_2 have overlapping
->> data and only skb_1 is collapsed to nskb_1 and nskb_2.
->>
->>    skb_1 = [1000, 5000]
->>    skb_2 = [2000, 66000]
->>
->> Then, nskb_2 will be inserted after skb_2 in rbtree, wrongly
->> setting tp->ooo_last_skb to 5000.
->>
->>   nskb_1 = [1000, 4776]
->>    skb_2 = [2000, 66000]
->>   nskb_2 = [4776, 5000]
->>
->> This case is still inefficient, but a later patch handles this.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thank you for working on that!
+- [Medium] The commit message says nothing guarantees that mpa_buf_list
+  is non-empty, and that whether it can run empty "depends on traffic…
+- [Low] The commit message says commit fbb8bc408027 ("net: qed: Remove
+  redundant NULL checks after list_first_entry()") "removed the other…
 
->> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
->> ---
->>  net/ipv4/tcp_input.c | 66 +++++++++++++++++++++++++-------------------
->>  1 file changed, 37 insertions(+), 29 deletions(-)
->>
->> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
->> index e07f43347409..5bd42a74c6f5 100644
->> --- a/net/ipv4/tcp_input.c
->> +++ b/net/ipv4/tcp_input.c
->> @@ -5839,7 +5839,7 @@ static struct sk_buff *tcp_collapse_one(struct sock *sk, struct sk_buff *skb,
->>  }
->>
->>  /* Collapse contiguous sequence of skbs head..tail with
->> - * sequence numbers start..end.
->> + * sequence numbers start..sub_end.
->>   *
->>   * If tail is NULL, this means until the end of the queue.
->>   *
->> @@ -5848,15 +5848,18 @@ static struct sk_buff *tcp_collapse_one(struct sock *sk, struct sk_buff *skb,
->>   */
->>  static void
->>  tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->> -            struct sk_buff *head, struct sk_buff *tail, u32 start, u32 end)
->> +            struct sk_buff *head, struct sk_buff *tail, u32 start)
->>  {
->>         struct sk_buff *skb = head, *n;
->>         struct sk_buff_head tmp;
->>         u8 scaling_ratio;
->> +       u32 sub_end;
->>
->>         scaling_ratio = min(tcp_sk(sk)->scaling_ratio,
->>                             TCP_COLLAPSE_SCALING_RATIO);
->>
->> +       __skb_queue_head_init(&tmp);
->> +
->>         /* First, check that queue is collapsible and find
->>          * the point where collapsing can be useful.
->>          */
->> @@ -5872,38 +5875,48 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->>
->>                 /* The first skb to collapse is:
->>                  * - not SYN/FIN and
->> -                * - the unread portion starting from "start" is bloated, or
->> -                *   overlaps to the next one and mptcp allow collapsing.
->> +                * - the unread portion starting from "start" is bloated.
->>                  */
->> -               if (!skb_frags_readable(skb) ||
->> -                   TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN))
->> -                       goto skip_this;
->> -
->> -               if (tcp_collapse_skb_bloated(skb, start, scaling_ratio))
->> -                       break;
->> -
->> -               if (n && n != tail && skb_frags_readable(n) &&
->> -                   tcp_skb_can_collapse_rx(skb, n) &&
->> -                   TCP_SKB_CB(skb)->end_seq != TCP_SKB_CB(n)->seq)
->> +               if (skb_frags_readable(skb) &&
->> +                   !(TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN)) &&
->> +                   tcp_collapse_skb_bloated(skb, start, scaling_ratio))
->>                         break;
->>
->> -skip_this:
->>                 /* Decided to skip this, advance start seq. */
->>                 start = TCP_SKB_CB(skb)->end_seq;
->>         }
->>
->>         if (!skb || skb == tail)
->> -               return;
->> +               goto end;
->>
->> -       __skb_queue_head_init(&tmp);
->> +       /* Second, find consecutive collapsible skb. */
->> +       sub_end = TCP_SKB_CB(skb)->end_seq;
->> +
->> +       for (n = tcp_skb_next(skb, list); n && n != tail; n = tcp_skb_next(n, list)) {
->> +               if (!skb_frags_readable(n) ||
->> +                   TCP_SKB_CB(n)->tcp_flags & (TCPHDR_SYN | TCPHDR_FIN) ||
->> +                   !tcp_skb_can_collapse_rx(skb, n))
->> +                       break;
-> 
-> 
-> Adding MPTCP maintainers.
+--
 
-Thank you!
+net: qed: fix dead NULL check on the MPA buffer list
 
-> Before this patch, each candidate was tested against the current new
-> skb:
-> 
->         !tcp_skb_can_collapse_rx(nskb, skb)
-> 
-> and nskb is the result of mptcp_skb_ext_move(nskb, skb), done with
-> the skb that was being copied when nskb was allocated.
-> 
-> Now all candidates are tested against the first skb of the range,
-> before any extension has been moved.
-> 
-> mptcp_ext_matches() is not symmetric (a 'from' skb without extension
-> matches anything), so the two are not equivalent when the range needs
-> more than one new skb. For instance:
-> 
->   skb1 (ext A, 6000 bytes), skb2 (ext A)
-> 
-> nskb1 gets ext A, nskb2 is allocated while skb1 is still being
-> copied and gets no extension. Before the patch, skb2 was not merged
-> into nskb2 (to_ext == NULL, from_ext != NULL). Now it is, and its
-> extension is dropped.
-> 
-> This might be fine since skb2 has the same mapping as nskb1, but
-> I would like MPTCP folks to confirm, and the changelog should
-> mention it.
+This commit changes qed_iwarp_ll2_comp_mpa_pkt() to use
+list_first_entry_or_null() instead of list_first_entry(). With that, the
+existing "No free mpa buf" check on mpa_buf_list can actually fire. The
+patch has a Fixes: tag for fcb39f6c10b2 and is Cc'd to stable.
 
-This looks fine to me for MPTCP, and this series should make collapsing
-work better for MPTCP. If, by chance, Paolo has the opportunity to
-confirm this, that would be nice as he worked on this part for MPTCP.
-(But feel free to move on.)
+> Buffers taken here go back to mpa_buf_list only through
+> qed_iwarp_process_pending_pkts(), which keeps a buffer on the pending
+> list while an FPDU is split across packets (-EBUSY). Whether the list
+> can run empty in practice depends on traffic and rx_num_desc; the driver
+> already has an error path for it, which just never runs.
 
-> The rest of the patch looks good to me.
+[Severity: Medium]
+Can mpa_buf_list actually run empty here?
 
-That's maybe more for a follow-up, but *if* I understood this correctly,
-I'm wondering if we couldn't skip an out-of-order range when an SKB that
-cannot be merged partially overlaps it. That would address SKBs with
-different MPTCP mapping (or a FIN overlapped by bloated segments, for
-example). We could skip overlapped SKBs here above and "goto restart"?
+qed_iwarp_ll2_start() posts rx_num_desc RX buffers on the MPA LL2
+connection. It then puts exactly rx_num_desc mpa_bufs on mpa_buf_list,
+and the comment says this lookup is not supposed to fail:
 
-But with the MPTCP Linux stack, retransmissions should keep the same
-mapping (except for the DATA_FIN). So maybe not worth supporting that
-case, except if the goal is to deal with misbehaving peers?
+drivers/net/ethernet/qlogic/qed/qed_iwarp.c:qed_iwarp_ll2_start() {
+    ...
+	rc = qed_iwarp_ll2_alloc_buffers(p_hwfn,
+					 data.input.rx_num_desc,
+					 buff_size,
+					 iwarp_info->ll2_mpa_handle);
+    ...
+	/* The mpa_bufs array serves for pending RX packets received on the
+	 * mpa ll2 that don't have place on the tx ring and require later
+	 * processing. We can't fail on allocation of such a struct therefore
+	 * we allocate enough to take care of all rx packets
+	 */
+	iwarp_info->mpa_bufs = kzalloc_objs(*iwarp_info->mpa_bufs,
+					    data.input.rx_num_desc);
+    ...
+}
 
->> +               if (!after(TCP_SKB_CB(n)->end_seq, sub_end))
->> +                       continue;
->> +
->> +               /* seq and end_seq must increase monotonically for rbtree. */
->> +               if ((list || !before(TCP_SKB_CB(n)->seq, sub_end)) &&
->> +                   !tcp_collapse_skb_bloated(n, sub_end,
->> +                                             TCP_COLLAPSE_SCALING_RATIO))
->> +                       break;
+An mpa_buf only leaves the free list in qed_iwarp_ll2_comp_mpa_pkt(), and
+only for an RX buffer that has just completed. It stays on the pending
+list only while qed_iwarp_process_mpa_pkt() returns -EBUSY for it.
 
-Cheers,
-Matt
+The -EBUSY paths are win_right_edge, cp_pkt/recycle_pkt and a send_fpdu
+prepare failure. In each of them, that mpa_buf's own RX buffer has not
+been reposted yet. cp_pkt recycles the previous buffer (fpdu->mpa_buf),
+not the current one.
+
+So every pending mpa_buf holds an RX buffer that has not been reposted.
+When a new completion arrives, at most rx_num_desc - 1 mpa_bufs are in
+use.
+
+rx_num_desc sizes both pools. Doesn't that make the "No free mpa buf"
+path unreachable, whatever the traffic or the value of rx_num_desc?
+
+The only crash evidence in the changelog is a test module that empties
+mpa_buf_list by hand. The list_first_entry_or_null() change looks like
+harmless hardening. If no real path empties the list, do the Fixes: and
+Cc: stable@vger.kernel.org tags still fit?
+
+The changelog also treats the existing error path as a valid way to
+handle an empty list. If that path ever ran, it would repost the RX
+buffer and drop a TCP segment that firmware already sent to the
+unaligned MPA path. Wouldn't that leave the connection's FPDU reassembly
+state (incomplete_bytes and fpdu->mpa_buf) out of sync?
+
+> Commit fbb8bc408027 ("net: qed: Remove redundant NULL checks after
+> list_first_entry()") removed the other checks of this kind in qed where
+> the list was known to be non-empty. Nothing guarantees that here, so
+> keep the check and make it effective with list_first_entry_or_null().
+
+[Severity: Low]
+Is this an accurate description of fbb8bc408027? That commit only
+changed three functions in qed_ooo.c: qed_ooo_release_connection_isles(),
+qed_ooo_release_all_isles() and qed_ooo_free().
+
+The same redundant pattern is still in other parts of qed: a NULL check
+after list_first_entry() inside a !list_empty() guard. For example,
+qed_ll2_txq_flush():
+
+	while (!list_empty(&p_tx->active_descq)) {
+		p_pkt = list_first_entry(&p_tx->active_descq,
+					 struct qed_ll2_tx_packet, list_entry);
+		if (!p_pkt)
+			break;
+
+There are similar checks in qed_ll2_txq_completion(), qed_ll2_rxq_flush(),
+qed_ll2_tx_packet_notify() and qed_iwarp_free_prealloc_ep(). There are
+more in qed_spq.c, qed_fcoe.c, qed_iscsi.c and qed_nvmetcp.c.
+
+All of these are guarded, so none of them is a bug. Could the changelog
+avoid saying that fbb8bc408027 removed all the other checks of this kind
+in qed?
+
 -- 
-Sponsored by the NGI0 Core fund.
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115161815.941090-1-zihengw03%40163.com
