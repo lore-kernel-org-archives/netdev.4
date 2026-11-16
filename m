@@ -1,102 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794868708;
-	b=MAYXIrsQf6LeAoPoAeCWi88CSY08IWwGKz4hfoZ1gXIjSetUPByLm558xXHq733zDRJn
-	 xxhPH4SowBprTUvvIoc6AGISkwm1VyhSJMwUKcoMxNCvO3TH742xiMvgHAbdhliZvdEgq
-	 gaqKy/FJzOazv4922RJhKpjdQiaK8hLxCJ7smr08+x6bL0opNYmoygcAtPQes53LJcZFU
-	 mHTpK7Urt3kcLF2jKPkK08fCuv5v9z8yX3FnrEcjyWTGeolv/tpgJFFgJVWkpVd85r+a8
-	 hDlkWd+g792wb7whuD3HI59dVmGksFiWakJhxOzosdMPtJbau2RXYY1dmMll3FAuSOw==
+	t=1794868721;
+	b=B5IQsAOJE95Tzi7EyMDRdPcAFrHhFpJInB+arei231imHEKXJ50p7q7nmsdwL1gEL7OI
+	 LGGduXvl8AaXSh6XpAm69DvaSLVuD8blgVoQWiO609epeK1lY2szId1g/vNJSqKwb+ZXV
+	 MtxrNnG1i/8ssxxDgEQUP9E4/FnJzNMS3ajp8lzJXhRKgfmmeIqs96k+0hCkUUznj8Obx
+	 e2RR9GCS9mHZh43KBxJ3JgJU8oGIMaIZX523Mq5HRmC81hDQeQPWW73xZQsXQb5bPHQ1I
+	 PkpwQGQ2hqvKoUAnQ01ATZCF/JgxBYlE3LzIms/y7wNc4mljOgMVddQiTq88u/WVlaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794868708;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=y3Irv8gnA50dP3BHRAY1GWOYLzyQzy8xzre6UHoXv+0=;
-	b=Y/EmMjVHPgJJXqEWQDsxUCwx4/8Ms8SmDj8kEKe/AEhW7XtQGPlk9cezasICMKE/QtRV
-	 GG8F7QTZqxUzahtDLmx0aE/Peq4MGl0j2Ay0Iht/FdM+gGAqnspQA3sKFHaPNwNtN/T4I
-	 /3IMYch9MXtNoSbN/OGpAHfXW5O4lNiUjmgFp0KR/PA9KNV/xOl8vBDrpNXeTivsXSTK2
-	 /ymOICQgkcny/5SuiafQadltiOMMSLVVZ9uYcXgd/sr5mn/OewtUXz/J82hDrm+qAc+zG
-	 cxLtTUhSSSRFdkepr9Ms6syhFVV67hvzUHYBG1+PgP4ujgOTDhBDN77RRe/F0LzXAHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794868721;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=I4ZopmN8SuoHsV+/NqxZqcA01Y2gAlwDCrX6ifSHGp1HecwClvDVFJYIZ8KtWbT9VhTU
+	 V41gXsjlGnUp1oZPz+8ypKg83fFK+oRBAAwSg8f8ROn8J8txTRlJUL7yEfwzIbbhvbf9a
+	 0o/eqHC4Y1Z4Kt6j7rQtnuwpkMxqZQMIG5qBdaayKAk5YQcyDtqoVC2ODWMQFIGedOOyJ
+	 JdPU1glA9JLM46ziDEe/6T3/GDau82IWoDNC7g805BCm4JCkoitUS0QrJy++GdogHCBYG
+	 ARGv54zStJCjlwjUfzxIkf7SST6AKYUDcPFPYahuIVEqMeCs0y/qLj/dC+3SPMn6qwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qjjWXvcq;
-	arc=none smtp.remote-ip=209.85.218.53
-Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GNWnV1PG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49F68606A88F
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:38:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49F68606A88F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98CAC606A33F;
+	Mon, 16 Nov 2026 22:38:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qjjWXvcq
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c45551fa84eso759726066b.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:38:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794868696; x=1795473496; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=y3Irv8gnA50dP3BHRAY1GWOYLzyQzy8xzre6UHoXv+0=;
-        b=qjjWXvcqKWNa7pAFOTMeSE6B2E+p+77wVXq2bS4Pi1PE++2wSGnEoBRlgM+3A9D0Wc
-         tyoIyQeOOvVrA8Dno7mwLd0Z8XMk7nbR/jDTF85e84bRPnvTPiEUFWKMXnJ8UaxR1HET
-         EsqDajdKiZx3jQuyeSiQKtxi/+Oyrb5y+HbvAzucQnqTmipJQhPtV+H8e76cIVTehMz3
-         kzCAEGluYQyccyGiuuNznVXh4ZE/KkENATQLypnvtX7UzLYRBjM+FkAJr/lAE0OS4oof
-         GKFYzi/IWidS3d0ozzjmHXWkpk+d5zLd1rAN7kAmW6hVCZevXoI5oxuRnJC1tskIpU5Z
-         /JvQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794868696; x=1795473496;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=y3Irv8gnA50dP3BHRAY1GWOYLzyQzy8xzre6UHoXv+0=;
-        b=W+QrXSPIckWnVurvx52jHq2zCWqV8UGjrTfFTDAMj/g6/GXLHurDJrTTp9yUl4S5Jn
-         64SWH1weXoi+dlBS0TrMm0ZK9qt/Hh2ndC5FIfMdL9DjhW94fJZXUqhLISykZLCb96kb
-         c6t6xh7Lpo4p2KON9JgM4XrJeaa42Y2rkpm7AlQm1LgmTLetIb83mJVSpeON7DDkPN2t
-         03UM/Yuk/oihSnfjvnKNvXJRuMs1X3xpnWO7NMBVTceL75v2mKPUN7FhWXqDo093gOG3
-         lugsma352fqVxQwt8rCRWwj4QGW/zSzA5Q2QEn/sD/QKa059S+Hij0DgNpHu5JnkUD3j
-         S7bw==
-X-Gm-Message-State: APuU4Z9E7Q8KXwu3sZFSg1nFxVpSPabuTBcedXq1Hnuybxb1E7pMANZl
-	xtAZ33YJJZDfj/xc02G98Is05PIbQ8shvEAfF5xFXhTuTAva0TyZJibQ
-X-Gm-Gg: AYBFou1RkRex+hbyDeSeGP2KSLxfH2VnTny9AB0v/67JAYvbWDgOukFpbz+ugIRO7qF
-	3zI+qgDBvZNa5lPDKaFkgx8oddifZuB6vr9UwMjM+eKZkmSo3g9OxR0vA/4JfhH58bvRahAmZ8w
-	dLXbYGLoT/O9Hr+1ST2k8KIA2eql9j/LneeiOGtDVvdTluVSUXM0jm8cw5mhL7l6vc+hnyGJ38C
-	U1ppS6W6x/+iUsu0xEM0x3MgR+1U77ygNC5mWJt/z+9zjvRuMeVa3Wfzr4CH8Uhrr5RWFcLfeNE
-	EH49sNH76M2s/YwvwCd7Nu0Q7S19UyLeoBn+O42oImYu3/BYs6boW4oObraIgosTUWGKlzChGj9
-	9WZb6MLpaELX1XSF3lCXtA2E1viJD5sx0687iXsVW9fkaMOPZ3HzwUyf4t7fPOj5nW1hnPIujdh
-	SJFyff3vAoUzEiWYvW1k/2s1nHneqy9Phyq4SjTXRpgGcxK6e6R/2Y+78Cj0SpI6iWVXnCKoi+J
-	xhzVhFES5M8XcW3dALHzt29NtImLvAtxf1gPvjd1oUOzuNs4Q1mZs7ivDpT1IKt5LWrgrjxBmvf
-	OQQtmRnAO5jmRjNX97iujMQL598Ll8heS5j+dhHH
-X-Received: by 2002:a17:906:dc8c:b0:c46:ba0d:3728 with SMTP id a640c23a62f3a-c50963cb4aamr942275966b.18.1794868695442;
-        Mon, 16 Nov 2026 14:38:15 -0800 (PST)
-Received: from kordpc.lan ([2a13:e746:396c:c600::8f9])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095b7eb14sm477805666b.75.2026.11.16.14.38.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 14:38:15 -0800 (PST)
-From: Kordian Chmielewski <kudzo51@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GNWnV1PG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1220E1F000C4;
+	Mon, 16 Nov 2026 22:38:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794868721;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=GNWnV1PGjcdzbOacpLmztFsnh+FnLqTXz3XeEyYVY1H+flnCxBj4CEvNW9dghQFab
+	 o+9W7kECCLqEEwDJOZ7TTsGOQBQPzbC9TzW/VQrNBsyX/gcLqGXJ7EUAiaY1ZfJKvv
+	 F1509QwEhs8jZgijHYgU8b9iDBlIMpbR2ZHClbueQBferEVBBT44f/XwF9ZhMQS36c
+	 faJEZErVCSTsIns6KwYi33I6e/w8ait8RtR5dNDfEC/WMZSCL1B4V3q1p5Lr2V9azY
+	 vCfQ/zglr3D+qR35fHwFdBqWtxux1NgU5RO5Ft1iZwM3MjbLc19Uq94P87PQPet6No
+	 Sw7ieVwtX65QA==
+From: netdev-bot+sinfo@kernel.org
 To: Florian Fainelli <florian.fainelli@broadcom.com>
 Cc: netdev@vger.kernel.org,
-	Doug Berger <opendmb@gmail.com>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next v2 0/4] net: mdio: Clause 45 support for mdio-bcm-unimac
-Date: Mon, 16 Nov 2026 23:38:13 +0100
-Message-ID: <20261116223813.980043-1-kudzo51@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261116213449.1682731-1-florian.fainelli@broadcom.com>
-References: <20261116213449.1682731-1-florian.fainelli@broadcom.com>
+ =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Jonas Gorski <jonas.gorski@gmail.com>, Vladimir Oltean <olteanv@gmail.com>,
+ Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
+ Phil Sutter <phil@nwl.cc>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org
+Subject: Re: [PATCH net-next 0/9] net: bgmac: add Northstar IPv4 TCP/UDP NAT
+ flowtable offload
+Date: Mon, 16 Nov 2026 22:38:39 +0000
+Message-ID: <179486871961.3291.17535527526102286596@kernel.org>
+In-Reply-To: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
+References: <20261116222519.1416501-1-florian.fainelli@broadcom.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,34 +73,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-On Mon, 16 Nov 2026 13:34:45 -0800, Florian Fainelli wrote:
-> This patch series adds support for Clause 45 MDIO operations within the
-> mdio-bcm-unimac driver.
+Hi!
 
-Tested v2 on the same TP-Link Archer AX6000 (BCM4908) with OpenWrt and
-Linux 6.18.55, again in place of our own C45 support. Patch 1 needed the
-context of one hunk adjusted to apply there, because OpenWrt carries a
-hack patch that adds a function right after get_phy_c45_devs_in_pkg();
-the added and removed lines are unchanged.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-The BCM54991E at address 0x1d, which our out-of-tree PHY driver switches
-to C45 in probe, still takes its firmware over C45 and links at 1000
-Mbit/s, the link comes back after ethtool -r, and 8400 C45 reads through
-SIOCGMIIREG gave no errors.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-This bus is registered from DT, so the C45 scan does not run on it. For
-patch 1, a test module registered a bus without DT whose reads go to the
-UniMAC bus and whose writes fail, with read_c45 set and phy_mask leaving
-only three empty addresses. On this UniMAC, a C22 or C45 read from an
-empty address fails with -EIO. With v1, get_phy_device() for C45
-returned -EIO there and mdiobus_register() failed with -EIO. With v2 it
-returns -ENODEV, and the bus registers with no PHY found, as it does
-with C22 alone.
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-The new check in unimac_mdio_reset() still never matches here, as no
-node on this bus has the ethernet-phy-ieee802.3-c45 compatible; the
-PHY's node has only its ID compatible.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Tested-by: Kordian Chmielewski <kudzo51@gmail.com>
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
