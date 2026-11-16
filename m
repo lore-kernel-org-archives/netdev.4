@@ -1,117 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.227
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.207.19.206
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794838130;
-	b=UEc6S0d7CUfODH9rXfq7AyGZp5b1TXs8Xuwmyc3I0FAHWV/YWDY3lT+pAYcAe8/nfAzt
-	 os0QVRVLi+YLwisz61hAK30SXAxPf8KV9/dhRpIQZRVO+TSrW+Uno0nvTWVfNeuXQ4YRC
-	 SOvfbEGfrcH2+a2uE9Wt0vyGMTkoxqAU+rDH6ZUGfWk+ATmnX4JkyrPcDzGZs00/0wshc
-	 R7kEAMCJ+X5C4yYwSSmilYC0EkpMhsQGH1XB/ofxamH6FtBesBqZ6vaN07To0HChrN1Al
-	 kKWdQamWYSp74ndm/RmfXzcjSnpLXzbKhDGeHxfW33tCWAV2Zi31q1h1aG26xUubHNA==
+	t=1794838144;
+	b=CXv+UDwZRa7v+1YkVQ5CrkoGDY+NJrc4upBZIPaX/8KCwqWKSYsjVI+qaU9pG2603vXh
+	 TkRCftGVBYgxZyaUYDHyxQo8VkC3ES1vcDe0cs9kg0v7j55EefzLtRdcgkapa+I96hOzJ
+	 SGNnYsNKfemINt0zwDskRflbJRzUVphaLD7odoKwKfxxGHY3G7zBgKHx7OetW1PxeDCD1
+	 AzHkeIWkmnlvUld1HXeClSky1I/jHkLXFvu4KRTyVHCjbTYoIaZTFg01/bW+Z8WODHxpj
+	 /ecEILjS3LdLSD2URRTrv8Hy0WZhIbMD7t/mI5uKsJEstJIWoNUfpixQ76gZOi6kD6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794838130;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=IBvofe4gZazrFcgEOxLB6Zwja0qMQ7bpaIF+aewBTY0=;
-	b=q3nbWdDtvRm5So6cMoCE6jlc4Y578iZMQ84T01fJ8EQ1HQyeiuz3MND29oWxQY8smtUg
-	 SpPNCRfqhbSoTXyJSh3m/OC+LEpXYkbO+BvA9jfPIjcmTU+g6Ekot5TaVbLsGCc5PcCcw
-	 v74u0DJEcJ3ZrIl4fP/JFyGCh+2xpVV/gtUW5YbPLZdq9H8tcZf9bqa/+NMihj0T1Zf+h
-	 GLw5N6CrJdIRevvCnlVlET0SZwBV5ZVp3sJibRVs3/UcqKvSrQr8hogCUqdF5l/ylmSKY
-	 MYzLRriIu6J7PittAMDttzPx28D7zJHdhhiBOSBLNheLssm5DMeJFnbvBlR7S8b6dqw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794838144;
+	h=DMARC-Filter:EX-QQ-RecipientCnt:X-QQ-GoodBg:X-BAN-DOWNLOAD:
+	 X-BAN-SHARE:X-QQ-SSF:X-QQ-FEAT:X-QQ-BUSINESS-ORIGIN:
+	 X-QQ-Originating-IP:X-Originating-IP:X-QQ-STYLE:X-QQ-mid:From:To:
+	 Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 X-Priority:Message-ID:X-QQ-MIME:X-Mailer:X-QQ-Mailer:X-BIZMAIL-ID:
+	 X-Address-Ticket:X-QQ-SENDSIZE:Received:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=ff+YQwFQu2cglKeMT/Wacu//1hj0avlGTgfQzHh8Scc=;
+	b=BhVT7TNUUgczN8AlwXI9pfyuuw/ZDEC4OTXrqJmaTw4hm+QF0/5aLW5aCpIkBkN6VFw+
+	 k++VU6cstINsLOjN7SVbtMksxrte+4iS2ZHcGg2M/x9QNhywLiSdZiD6CE6hpJNbtKkvu
+	 hSYc69Jwkwe8DkT14jKxllrMACVV9AFXWUfJ6rkbGY1qmRL3I3kYCX4FpI00ZmjQrfxoD
+	 2himQS27s7PBTr9kWvWyNF/pv5yn830QNhQSGcbwdMW6dTJfh4/Z90R2us/59KFIS0dEj
+	 C+5lAsdu2Oklvsv5kHroWc8+YoSHXXWuiGZkdHiSs4BURe9ufBbGTh21q73w53H2y/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=OvqdaZz+;
-	arc=none smtp.remote-ip=209.85.215.227
-Received: from mail-pg1-f227.google.com (mail-pg1-f227.google.com [209.85.215.227])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=njupt.edu.cn;
+	spf=pass smtp.mailfrom=njupt.edu.cn;
+	arc=none smtp.remote-ip=54.207.19.206
+Received: from smtpbgbr1.qq.com (smtpbgbr1.qq.com [54.207.19.206])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC0E3606A32A
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:08:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC0E3606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=OvqdaZz+
-Received: by mail-pg1-f227.google.com with SMTP id 41be03b00d2f7-cddac941ed1so1593440a12.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:08:49 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794838129; x=1795442929;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=IBvofe4gZazrFcgEOxLB6Zwja0qMQ7bpaIF+aewBTY0=;
-        b=TX+mCyTC9CjqQ69WDnxoqscane+BzSEpVSVo8dbjvGr3R/N3vWGeMu4D7x/Wp39tIu
-         jOPp/4q2wjHCzKDwFG+2x0hx6oUSwWVUGbJN07TBLMr+aiGBe9AaL7PULXJvdcVxEDOJ
-         SVoGWX7WP8UQH9I0qdNIvV2iSefr17XaoeonICOwIytGD/k96JEnNYu0AXu1djn49m4Z
-         R72iCvZAwfIsn0M5QifWoie2W4/ZS1Iyy9GVXCUpAJ0WXippma+auhDOvyNLj/NijdIz
-         jU4Na4hpOI8w8XPE/07cNfABSzoVKk23Ceqki30Sgtxj63hWmBlHG1Lbd/1r+nQIPRTy
-         efWQ==
-X-Gm-Message-State: APuU4Z94ZgIawvcT4+leRmUR2lW2X2TS0eCEaDhEWgBl1tERWEKoRMCs
-	Chy/WZGBGvRHDhklm21fe6nAhXaGOTIU2Qp6UeJnSN54dSiMdriulSKLrdIViwPHk47I5aiYvhM
-	IM3ogLZbwSPQClfSgHM9PpQLcSK/A8QncDzI85d2NT00eXgUiEIXMWUpXz6WyXqx1ZMx0nm1MQs
-	+ihrLNhBretF5HjTYP/HyV7rBabMb77SLVWvpNlD/wxHAok+3BSCTlzLu7uVEtqXvUPC33RNxoE
-	bZft3PvLw==
-X-Gm-Gg: AZFdTZdsVdGgC2biZVdSMdbyfXk8QWfZymEflGwbL2BWMt73cmb5Svk/MGKUNT3kMxi
-	783YqJu5uL+fevxGQ1mfjYN+VFxOcShPN0wrEPHsF5jBu+vcwd4S6QIgSr1lyl4ufUwbkvca5n0
-	fM1D8vNj7yB7w2NKQwZqISuMn9HfpHIhRYq7POuEzJ3I1PptSJjx0R1mYnAfW/Fbhan1xAC5jak
-	VxpEwuk/WYKT9KPW8xMDlj7E+tbVphYzSEf2ikPJTqCqs7HpZs/tVRim4+0Sb9LU3VjrhlL6KIE
-	cMfl61ktoXFOalFG3Ak6rIzZMNe/tz5dFv35cO0ianbRSDkvb/V1WOAqLg2WayvwMCiCEuBcHkc
-	vAhBN7VOMcE/UpnmAU/llDH6X9jqAS7jEEFSv9/JsPzhDhDmpYpVFijfyWvXWh11GSJX9Qpfg+f
-	8eay15N/eiW0cR51pVnl2F0l13pnG1M03dIg==
-X-Received: by 2002:a17:90b:3d87:b0:3ac:a139:1b13 with SMTP id 98e67ed59e1d1-3b1b0a3cd6fmr10170689a91.29.1794838128755;
-        Mon, 16 Nov 2026 06:08:48 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b1ae8da103sm11855255a91.1.2026.11.16.06.08.48
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Nov 2026 06:08:48 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1a71dd190b0so4789365c88.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:08:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794838127; x=1795442927; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=IBvofe4gZazrFcgEOxLB6Zwja0qMQ7bpaIF+aewBTY0=;
-        b=OvqdaZz+BHNWLfsJmnKUSsnXihWBnT2OlrcCFx/nF4WFsGxCo09w+9cj1poZ1FHGfd
-         vwzN8xa2HXHpFe5kDkmLixl/kzWWD11f+rJaGA0i8Kwek2cjvJR9HLzWpoKwFK3EToKh
-         2L5dOMzk4VvxoiNp7rnPXuVyfueCrnb2ttSEU=
-X-Received: by 2002:a05:701b:4512:20b0:1b4:fecf:4ec5 with SMTP id a92af1059eb24-1b5031737a5mr10336656c88.18.1794838126222;
-        Mon, 16 Nov 2026 06:08:46 -0800 (PST)
-X-Received: by 2002:a05:701b:4512:20b0:1b4:fecf:4ec5 with SMTP id a92af1059eb24-1b5031737a5mr10336624c88.18.1794838125495;
-        Mon, 16 Nov 2026 06:08:45 -0800 (PST)
-Received: from H5-S1 ([192.19.203.250])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5031b98e5sm35251269c88.14.2026.11.16.06.08.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 06:08:44 -0800 (PST)
-From: Vikas Gupta <vikas.gupta@broadcom.com>
-To: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	bhargava.marreddy@broadcom.com,
-	rahul-rg.gupta@broadcom.com,
-	vsrama-krishna.nemani@broadcom.com,
-	rajashekar.hudumula@broadcom.com,
-	dharmender.garg@broadcom.com,
-	ajit.khaparde@broadcom.com,
-	Vikas Gupta <vikas.gupta@broadcom.com>
-Subject: [PATCH net-next v8 10/10] bnge: add cpu_rmap support for IRQ affinity
-Date: Mon, 16 Nov 2026 19:36:53 +0530
-Message-ID: <20261116140653.1685797-11-vikas.gupta@broadcom.com>
-X-Mailer: git-send-email 2.52.0
-In-Reply-To: <20261116140653.1685797-1-vikas.gupta@broadcom.com>
-References: <20261116140653.1685797-1-vikas.gupta@broadcom.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20BE9606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:09:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20BE9606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=njupt.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=njupt.edu.cn
+EX-QQ-RecipientCnt: 1
+X-QQ-GoodBg: 2
+X-BAN-DOWNLOAD: 1
+X-BAN-SHARE: 1
+X-QQ-SSF: 00400000000000F0
+X-QQ-FEAT: D4aqtcRDiqSZ+wywHNaAz69ewu3H9YUIm9UH61NklH8=
+X-QQ-BUSINESS-ORIGIN: 2
+X-QQ-Originating-IP: a4x2PhlpE/oK8tXL7gE6JTnaZl872K8c+Nu8YYAL8ys=
+X-QQ-STYLE: 
+X-QQ-mid: lv3sz3b-5t1794838133t5f68cc92
+From: "=?utf-8?B?5YiY6Ie06L+c?=" <1025040921@njupt.edu.cn>
+To: "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>
+Subject: Question about the right-edge check for zero-length segments in tcp_in_window()
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -120,140 +54,58 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Mon, 16 Nov 2026 22:08:53 +0800
+X-Priority: 3
+Message-ID: <tencent_57C872CA27EC27D22DD8E01E@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+X-BIZMAIL-ID: 7347081221287135650
+X-Address-Ticket:version=;type=;ticket_id=;id_list=;display_name=;session_id=;
+X-QQ-SENDSIZE: 520
+Received: from qq.com (unknown [127.0.0.1])
+	by smtp.qq.com (ESMTP) with SMTP
+	id ; Mon, 16 Nov 2026 22:08:54 +0800 (CST)
+Feedback-ID: lv:njupt.edu.cn:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: NJyF3+D7p4uct0eCQqfmwbI3CpfxOYmP44ZOVu2/nnRBFn5wcsOOHDSp
+	6KlvKjlx3YgLKxArVI5LqCc1BsPZU0i8lnyk0NTV9Q0Oam7x+U/Wh23x1+iO5B+wznWV2Bu
+	q7+GyrGE5hcE6WpTSAJ3V2KPpPEuzPjsKf0J7yufhaPPNGu+vOJzP4V2ksuaxGnUJFa4RiU
+	L21PkWDnFX8l9hqoFgdgiLoHIlKP6yn8tTDb/dioFxtOLQ18vgjLdxHMgDIfsRyA65Y8axf
+	CI9s4kkBitgpuELoMhzmFhhFfnqeUs9u+Ieu5W79cOdt9mJnsfrYyaa7KSz5eNaU80N2eqO
+	BwZPsbzHqv3++GjOADWTor3jWtavqCHVdPQ7ol4kEBtl+Y5XGnbzr3l1u0HuBcTnbuDM+G+
+	DxIGIw6V92z5arvaKxp3fBVYSJ/pg+UsfiCqYFVGh1edselO9/P1RcG5Whh6IbsiXn9HnVJ
+	tvVjJqcCQ5CBDFZYU7gmbGD46APQBnBqu0cbFl84tuOOuwV2CujesQeBLp/M+bUVUzygVc6
+	4UCoePCvVYlw1nLF0w8SBhZotlwvq+tdbDqNaHn21GH0Mjhljw/98hoLMNdPOdFRtpLeNgW
+	tpxlmxAdgYI4cZdd0ocLFXsYyMM5htdrbg08GIV0hPjdmcYuChuksfd1E4r12Q2ZGYNAi/g
+	nR9REt+jH0SVXoOrfZrzbiifoT6wEQFaPi5nI6foa+qvjM0TCIf5x8xb3docX5jf5bL8V3A
+	xODTkOfSAF1J4sdz11gJCrxB6WF97wy2qV2Xdpti8qDslJ/jV+HzZ0jM1rnXZj8IVqfk2vi
+	xryNRETp2mKfTiPIFyfNgbsimxwKcnyQkdcsj0hYP/abZWqbXJY+EjdnycTSindZ5FSuIdh
+	U1u+1FugC9rWsv3x907Ig47X8CLxUruOoP9k/RNLoWh06WeTV4gElxWAOXJAk+LGiBwnEjG
+	sMGfK3ktzpGxY4G2nsCFT/CB+CVsklupTlTTG4wK+VUUGcmjPZNdvNRbgMg6F9UrL4umoU2
+	f6fo5lONHixBhWQUV+H0QeykB3R/q6U4ynyLH9O+DaX3Rfx4QD
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+X-QQ-RECHKSPAM: 0
 
-When CONFIG_RFS_ACCEL is enabled, allocate and populate a cpu_rmap
-for the RX IRQ vectors so that the kernel's aRFS infrastructure can
-correctly map flows to the RX queues serviced by the nearest CPU.
-
-This ensures that NTUPLE rules created by the kernel steer packets
-to the optimal queue based on CPU/IRQ affinity.
-
-Also, This is the patch that turns aRFS on. Before it dev->rx_cpu_rmap
-was never set, so set_rps_cpu() took its early exit and
-bnge_rx_flow_steer() from the previous patch was never called.
-A failed rmap allocation does not fail the open; aRFS stays off.
-If adding an IRQ to the rmap fails for one ring, aRFS is turned off
-for all rings, because a later ring would otherwise take the free slot
-and map to the wrong RX queue.
-
-Signed-off-by: Vikas Gupta <vikas.gupta@broadcom.com>
-Reviewed-by: Dharmender Garg <dharmender.garg@broadcom.com>
----
- .../net/ethernet/broadcom/bnge/bnge_netdev.c  | 57 ++++++++++++++++++-
- 1 file changed, 56 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-index 0e7c506af402..507f920ea1d3 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-@@ -18,6 +18,7 @@
- #include <net/ip.h>
- #include <linux/skbuff.h>
- #include <net/page_pool/helpers.h>
-+#include <linux/cpu_rmap.h>
- 
- #include "bnge.h"
- #include "bnge_hwrm.h"
-@@ -2483,10 +2484,23 @@ static int bnge_setup_interrupts(struct bnge_net *bn)
- {
- 	struct net_device *dev = bn->netdev;
- 	struct bnge_dev *bd = bn->bd;
-+	int rc;
- 
- 	bnge_setup_msix(bn);
- 
--	return netif_set_real_num_queues(dev, bd->tx_nr_rings, bd->rx_nr_rings);
-+	rc = netif_set_real_num_queues(dev, bd->tx_nr_rings, bd->rx_nr_rings);
-+	if (rc)
-+		return rc;
-+
-+#ifdef CONFIG_RFS_ACCEL
-+	if (bn->priv_flags & BNGE_NET_EN_NTUPLE) {
-+		dev->rx_cpu_rmap = alloc_irq_cpu_rmap(bd->rx_nr_rings);
-+		if (!dev->rx_cpu_rmap)
-+			netdev_warn(dev, "Unable to allocate the CPU rmap, aRFS disabled\n");
-+	}
-+#endif
-+
-+	return rc;
- }
- 
- static void bnge_hwrm_resource_free(struct bnge_net *bn, bool close_path)
-@@ -2496,12 +2510,35 @@ static void bnge_hwrm_resource_free(struct bnge_net *bn, bool close_path)
- 	bnge_hwrm_stat_ctx_free(bn);
- }
- 
-+#ifdef CONFIG_RFS_ACCEL
-+/* set_rps_cpu() reads rx_cpu_rmap under rcu_read_lock(). Hide the pointer and
-+ * wait for readers that already loaded it before the rmap is freed.
-+ */
-+static void bnge_free_cpu_rmap(struct bnge_net *bn)
-+{
-+	struct cpu_rmap *rmap = bn->netdev->rx_cpu_rmap;
-+
-+	if (!rmap)
-+		return;
-+
-+	WRITE_ONCE(bn->netdev->rx_cpu_rmap, NULL);
-+	synchronize_net();
-+	free_irq_cpu_rmap(rmap);
-+}
-+#else
-+static void bnge_free_cpu_rmap(struct bnge_net *bn)
-+{
-+}
-+#endif
-+
- static void bnge_free_irq(struct bnge_net *bn)
- {
- 	struct bnge_dev *bd = bn->bd;
- 	struct bnge_irq *irq;
- 	int i;
- 
-+	bnge_free_cpu_rmap(bn);
-+
- 	for (i = 0; i < bd->nq_nr_rings; i++) {
- 		int map_idx = bnge_cp_num_to_irq_num(bn, i);
- 
-@@ -2521,6 +2558,7 @@ static void bnge_free_irq(struct bnge_net *bn)
- 
- static int bnge_request_irq(struct bnge_net *bn)
- {
-+	struct cpu_rmap *rmap = NULL;
- 	struct bnge_dev *bd = bn->bd;
- 	int i, rc;
- 
-@@ -2529,10 +2567,27 @@ static int bnge_request_irq(struct bnge_net *bn)
- 		netdev_err(bn->netdev, "bnge_setup_interrupts err: %d\n", rc);
- 		return rc;
- 	}
-+
-+#ifdef CONFIG_RFS_ACCEL
-+	rmap = bn->netdev->rx_cpu_rmap;
-+#endif
-+
- 	for (i = 0; i < bd->nq_nr_rings; i++) {
- 		int map_idx = bnge_cp_num_to_irq_num(bn, i);
- 		struct bnge_irq *irq = &bd->irq_tbl[map_idx];
- 
-+		if (IS_ENABLED(CONFIG_RFS_ACCEL) &&
-+		    rmap && bn->bnapi[i]->rx_ring) {
-+			rc = irq_cpu_rmap_add(rmap, irq->vector);
-+			if (rc) {
-+				netdev_warn(bn->netdev,
-+					    "failed adding irq rmap for ring %d, disabling aRFS\n",
-+					    i);
-+				bnge_free_cpu_rmap(bn);
-+				rmap = NULL;
-+			}
-+		}
-+
- 		rc = request_irq(irq->vector, irq->handler, 0, irq->name,
- 				 bn->bnapi[i]);
- 		if (rc)
--- 
-2.52.0
+SGksDQoNCldoaWxlIHJlYWRpbmcgdGNwX2luX3dpbmRvdygpIGluIG5ldC9pcHY0L3RjcF9t
+aW5pc29ja3MuYywgSSBub3RpY2VkIHRoZSBmaW5hbCBjb25kaXRpb246DQoNCnJldHVybiBz
+ZXEgPT0gZV93aW4gJiYgc2VxID09IGVuZF9zZXE7DQoNCk15IHVuZGVyc3RhbmRpbmcgaXMg
+dGhhdCB0aGlzIGNvdmVycyB0aGUgemVyby13aW5kb3csIHplcm8tbGVuZ3RoIGNhc2UgaW4g
+UkZDIDkyOTMgVGFibGUgNiwgd2hlcmUgU0VRIGVxdWFscyBSQ1YuTlhULiBIb3dldmVyLCBp
+dCBhbHNvIHNlZW1zIHRvIGFsbG93IGEgemVyby1sZW5ndGggc2VnbWVudCBhdCBTRVE9UkNW
+Lk5YVCtSQ1YuV05EIHdoZW4gdGhlIHdpbmRvdyBpcyBub24temVybywgd2hlcmVhcyBUYWJs
+ZSA2IHNwZWNpZmllcyBhIHN0cmljdCB1cHBlciBib3VuZCBmb3IgdGhhdCBjYXNlLg0KDQpP
+biBVYnVudHUgNi44LjAtMTM4LWdlbmVyaWMsIEkgYWxzbyBvYnNlcnZlZCB0aGF0IGEgcHVy
+ZSBBQ0sgYXQgdGhpcyByaWdodCBlZGdlLCBjb3JyZWN0bHkgYWNrbm93bGVkZ2luZyB0aGUg
+U1lOLCBjb21wbGV0ZXMgdGhlIGhhbmRzaGFrZSB3aXRoIGEgbm9uLXplcm8gYWR2ZXJ0aXNl
+ZCB3aW5kb3cuIFRoZSBVYnVudHUga2VybmVsIGFuZCBMaW51eCBtYWlubGluZSBzb3VyY2Vz
+IEkgcmVjZW50bHkgaW5zcGVjdGVkIHJldGFpbiB0aGlzIGNvbmRpdGlvbi4NCg0KQ291bGQg
+eW91IGNsYXJpZnkgd2hldGhlciB0aGUgbm9uLXplcm8td2luZG93IGNhc2UgaXMgaW50ZW50
+aW9uYWxseSBpbmNsdWRlZCBpbiB0aGlzIGNoZWNrIGFzIHdlbGw/IEkgbm90aWNlZCB0aGUg
+ZGlzY3Vzc2lvbiBvZiByZWxheGVkIHNlcXVlbmNlIHZhbGlkYXRpb24gaW4gUkZDIDkyOTMg
+QXBwZW5kaXggQS4yLCBidXQgYW0gdW5zdXJlIHdoZXRoZXIgaXQgaXMgcmVsYXRlZCB0byB0
+aGlzIHBhcnRpY3VsYXIgY2FzZS4NCg0KVGhhbmtzIQ==
 
