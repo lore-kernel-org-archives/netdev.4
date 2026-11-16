@@ -1,106 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794870031;
-	b=B0FloSLmICWSyBCq8oElSz6mPl2LQ3YF5a+pkdSCZ+hZLzVaBvfyiaLmjOUqqUb1eWml
-	 vReGfkDdY5NhRs3dkpg57ECVrUWQuWjLoGKy+kFW8KdIRVX9VLhi0aDA+r+cueBVeP2wm
-	 XQqCjx5viEhb8sr+t5UI24FGcE4708o52pHSTa/RjQWL6yhgDVXXO5ww0hCdYfagrXUm9
-	 SI4dM/LMkI1PKflZVve7RjNNuaqTkpkrWHPKVy6i1tax7LL4smvFvD6Uf3vaa9hn1V9M3
-	 S/GBFkrgANL9aekbQ3DUsRBIXVAGfyrqiO/sD2MJ14Iqu/LCGCwlN1gg+6XouJ3uIpQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794870031;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version;
-	bh=BCHVgfl79qsgOh8V2QC+/phw3otd9S0rQogMC77mTS4=;
-	b=mpuXs3TwTLoxLkd7NqPPwoK9IGSjTx0mWG1expy50XKNydg7if98QjYyei7JVFyE1zbb
-	 tU33HDTgOmGPzjMn3FbGi2goDvxerUam/U5/Fd/jY3knQCq2KKY5aQIVZIIgl2jSHFq7f
-	 Wy1n0FwsKXedp+hYFEttsHizZGZ3SoCXsXqTGq2L+in8+OIP0mEIs+ywe37zcr60dkFnH
-	 3Iz4cJAxf1Lh2mmn/SpAnIoMzbwHoJY33D5Xvw92p74EjZNjAqEUiPS3Hrc7UdWgblzsG
-	 ZFn3ZyKu5Dvgk0cq9TWFhDanmW0+xWEAMZx+iFxbe6ndpfyMuxanNd6eAYUi9ITpX4Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=bqSqU6yF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794870064;
+	b=uP6wY628ZjpF09ptWxg3hv8ewNz5fhqB8nHR6PlfxIznneuik6DPzm4PlCOgTNuTBCAx
+	 2PBgBtqEcd7BmAF79fFMm5VnoW5QCjgy5QY5t67ytU4x6/hJDmOnWm7Yx7aIpvkcm2RGq
+	 yngn5m7CY/fwhhwS5EZQ4QJPo7VcYx6euQv5+h38fLk1QDH5mGZgOdzA15A+F9s8xl7BO
+	 /sey2ftTyEOpno9KbN3p4hV5Kx1LfTXFdumi5jRgJ3L7yRehdJf3zKv41UQIK4VlWpGZf
+	 G/tEkqujbyPqEF2eDolpNJORcSwxggo6kjfQbCn5T4tL7tYLTodm0GS9HqKIZpJ0XEg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794870064;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=CBtuzXAEjW6vvHYbW+dbLkTxqvqdc8L81bE7KOwQSac=;
+	b=lcKt9L6EAtAkJe86j5au3kVYS5/S/rSr31MnretEPL3Fb+kEYMM9+n9MOY/KKBHHCYRg
+	 E9Sh1dAmq2YlWih/XaQaekW48iaktABcbi6LV+6i2wt842UCFAhb0pgfkiYLBoIbF3IK7
+	 /4T9oH+fDwWYN4M4oYBtYzQP12yOeCAmvGhHz68Tq/b+b75lK4cHaHtJo2jQmOnqoLMej
+	 CdDjnVxZNo5n045NgH9TM4DVJ3sBwJETp3Ftj/VK5dOB7TTAxUr0TVkhiJiBMp3JIBMkg
+	 eEBK62MnE49XIsaRCcY2ypwDQKut8gMRAuNZDs1/mHT+FR597KeldO5311deWAnzybA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=VMFGzylH;
+	arc=none smtp.remote-ip=209.85.216.99
+Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 550CC606A323
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:00:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 550CC606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE924606A33A
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:01:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AE924606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=bqSqU6yF
-Received: from pps.filterd (m0109332.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AGM2Adb3121189
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:00:29 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=BCHVgfl79qs
-	gOh8V2QC+/phw3otd9S0rQogMC77mTS4=; b=bqSqU6yF6qU3K0lBCnujplBnoj6
-	Qk04NCwjHPY89A0kUMgZtt+BMSnHZZMbjJQjUfXSzYh5Rl2q6WmEZGiohyprZ/uK
-	0Kqe7TUQiVFp6yOTrdaSP049p3IvIPaw7y+dJL7qKbHtdYYUSqQmeTFpAB8X+3f+
-	ET32GeE3PKZduCdi6ipMtFApojz8LlJYmXdq4PzaYQuCXxVbRdGTC88PNbebbR9S
-	b9GjBWYtvzkNTkjsDZ+lSj12/5ZbOh0dwt9I0ENG3loyFGBqOnytPf5rM0td7IZu
-	iME6ei8GOC9CAZDOvKPUffcdZVdcE2zIxNWapMTB+2v4zIUjWcdL9vCjSOA==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4hxp8hp10v-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:00:29 -0800 (PST)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-8b647bbf87aso3017106b3a.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:00:29 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794870028; cv=none;
-        d=google.com; s=arc-20260327;
-        b=szSF6Z1EeW6J7BrmEDgGgnASo1QEthpfA2ijFQ/j0UdP7d79eHUKb/wwzM36Ku/6Jo
-         5fvGslAq54UKf+SFa5xuNInUdeyZuw2a28YXcbAAvSuzDsK2pp8DIhwSlUbrUlw37fWY
-         i9lr5hdm9+A7uE70OcQut88BUScSXINY0y34cufCy+scgqrYmezLz2QqQfige28dtaPf
-         DwOLuXNScpLv0evDLlkFyigEzNd1PJjix87nnDKch+ZD0GaMhVv8htSYXmyjt9DPV6sx
-         iGzuN90eWkRs3FceT9CEgVy4R7ttHa4Ss/Rrxdep/7gBTsQouYt03T9JN964xUveQZUR
-         5gXg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=BCHVgfl79qsgOh8V2QC+/phw3otd9S0rQogMC77mTS4=;
-        fh=bNo8+ygk5Y33PD0xp5ImIfRd6vdj7mkRSfKEwkgc63Y=;
-        b=a5iKXRrx7Pp0Opob78WacyCO4TUfm3vBBq4Ky+9HEUJuu5oKbq5KqvZPfJGHsaMIn1
-         uK9QdqeUNQbaxgEdA192S2sBfwaOal2gCWPN+L+HXFArbIhfxmPCA6tLGOnnmgqcAApV
-         I+rYtEdCYvRHtPk0VzAWYyfaz6AQRhL60KW9KU5bYBPX/qd4ChbBajRx6PJfqNEjJi4c
-         rlv/Xq30uGSJc2Dh67ImuQRx2PT3+onvNYYZ0casKDUf6vt+rxdx3LWzrXEfh20HwKUZ
-         4GsfOOjTQq8O5YMOhDU26qzB82TyQ4VeXVwQs4ohjK0OD8o8iPn0KbFW8Jd0z47pmj2F
-         6M2w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=VMFGzylH
+Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3acb11973c3so3905623a91.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:01:03 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794870028; x=1795474828;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=BCHVgfl79qsgOh8V2QC+/phw3otd9S0rQogMC77mTS4=;
-        b=S6qpKxtA3o8X6KDS20dDePAEijHnrTGentlgrJclWfYVhCcqOndZhfYvBxPuXmbhYx
-         fV+TjrSfgwVk2JHGa7amYqQUgaeTmr+/2MSFRrmdPUdq5AWTqVc/zOHIwy7Fakto8Gyd
-         yXAS1tL1Ue7RBAy6niKsk9tJHaU6PoXRdzA5X+3JOpkAH/uLSwKAD2u+hDn/2VQEzvdr
-         zb8PkhWI8c/XjYtZ/hBKVw+v39u5gbJ0RFLdWlHd235trOKec9FXybGi6XUYeVbZxi5k
-         3B3WhpKbX0zAcvNtvrB8glVjgNQ2YiHYCWfwqQMugt2HcHrDVMCOHU422C1+3bK7mTXJ
-         YnyA==
-X-Gm-Message-State: APuU4Z+cBGQbDJjMBSouJdO6xxMaecu9AkxHsPauMovvf03B0ukaDIlZ
-	Rh6KJXxLwsZcgfNsbC+XjgJr6effqfjxla9sE6L6FoHgH7L4loXwvVUSRaoL6tvgzAnrA4/Gl6H
-	6NpTfKmev1cz4VSlo1VwXdutT59nEiRBDXzLcqpNriGIYZCrnZ8HOJC4PIvifYFW77DKsBIDYF7
-	RZooBWDs6LTpgc0eGF2PVwYTzuosJMzME=
-X-Gm-Gg: AYBFou32wD6laHYsnuvVVgv4UuaND3pO1+K4+P+Oh6kYPnPHXrXrdMwODztsVOUCbgt
-	iHV17RQL9wWmyeCr3Yb3OyxGUzLCvG2JJ7BR4SB6C4BdMtIsbt6c2dlqNpc+qNnfj12RFX2SqlJ
-	+CJx6rkfKQNPSYyhHVh7UBb46glnUSwh/T4d4842UKH4nsZZhEFtM9n24suf71wgZr0L5euFbrJ
-	TztUcUHu32GzntJ2Gzc/zw8MTdwCLcj+cG5XNqP9t9hmTSdjdw=
-X-Received: by 2002:a05:6a00:2d1e:b0:881:be70:4490 with SMTP id d2e1a72fcca58-8beb6193d24mr11011932b3a.28.1794870028044;
-        Mon, 16 Nov 2026 15:00:28 -0800 (PST)
-X-Received: by 2002:a05:6a00:2d1e:b0:881:be70:4490 with SMTP id
- d2e1a72fcca58-8beb6193d24mr11011901b3a.28.1794870027525; Mon, 16 Nov 2026
- 15:00:27 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794870063; x=1795474863;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=CBtuzXAEjW6vvHYbW+dbLkTxqvqdc8L81bE7KOwQSac=;
+        b=WI1BkP1FXQe8bBFVlh7jnuoI9xU82N1u6t+mzC1BUdjq1HuXVPegwwQXwzA0ENqmm2
+         q9OgAMEaqSAmRPcP4cCMV3JEK1ZUQ4N3iDBHxFNt7pIKb4JxmajNWH1U+dxPhAFfxdMu
+         c+739XpRJgEUkd7/IgHZ/wBa9NdKZLWHyohQyv5ZZWN2OMBnBhGORB52p5M5yg2Nwbzi
+         UJpCoJ6K131o4k6csdJNakWeMaClMUrJd9N20DP0zN8DXThueZT3km4kOa22sgkMrCFD
+         8PRiI0x1ZDSH9TWfWVyppNB4aQqr8glez//X5P+QawpXgMq1L2Q6DNvahAdDmCGXLjpw
+         wibw==
+X-Forwarded-Encrypted: i=1; AL+hErFN5nLuMptXZhVeCnNByiXDhniejYuLytFV8bE6QOK3PYAJlg31XcsQRv7LDJt0+sHq4nm/OMs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+roKsdbCxccyVaoYoE+YPUHwRwh02azK6+PwioZ38xEiQUAZ85
+	c+LCpix7eyqJ+HpGhak9Ifd1aN3L2ftxJhh403wR9GXLw+94O/j+x1hnvd9J1Drfh6i3ynTARRt
+	eYiMrYI2Sdxu2P9oPFDIHceQyUxj7KglI9DvemHMQGuJG9YxNVcTxQRSb7DLX19e4H4R1nEl7OM
+	4FsQDfKEBkEqyGLeJ5mB5BnkzvgstFO9qeUKipFAFRhxY1HlTs6nMdD+EpRDDFuuNRkO0iSsLiQ
+	Js/swgH0DTY7wu6
+X-Gm-Gg: AZFdTZeeVdF6Ek4ny9rYN68bh5h86mvImxcovcUHTjuVoQDKGg8BlkW/XX+lIdvm5+t
+	09kUVRKzi1OaWg7mvkvfVHvNcLOfgu0dW3t4LlVWQxPLuNm4qvc1ldeKtwpC2sCI0f7EsozFnKH
+	y4+SWGIuVDru0veuUBDB86JnakQInKyrZyTJKFoGv685hpsBXCik8K2bZxAa8Jz9nuGQNaMbbZw
+	wB3HmOWBVJTYf8ni386LuwfjOZgi0GeD4mAeE+LTWPapUMW3P1bIUXfmTm2zVrNEo6w3Z6k81mX
+	xAdB9QcrKXKRZcajLw5+VQNTQ6JBv7YACs2S4yHvCUR/Cfm5rFtopxIPFMAKXBJgUUIz09dp9G+
+	E7gVCOyK2mqsRvNZmMHJSCwQLR+mZyHTsr3vuF9SY10FnBwIC2FYWueAsF6dHceLyZYf1+nKCXA
+	1zq38LnqY9ywspkUdW9HZqqLnUuzDAfAPetM5hOAs9
+X-Received: by 2002:a17:90b:3ec4:b0:3ab:c80:9370 with SMTP id 98e67ed59e1d1-3b1b09e5ed0mr11321110a91.20.1794870062725;
+        Mon, 16 Nov 2026 15:01:02 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3ab9f98bdsm583418a91.0.2026.11.16.15.01.02
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Nov 2026 15:01:02 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3b18165dc53so5706347a91.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:01:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1794870061; x=1795474861; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CBtuzXAEjW6vvHYbW+dbLkTxqvqdc8L81bE7KOwQSac=;
+        b=VMFGzylH3ZtWokwNrEfwF7sqpJCZo9YMu0baqmxZDGGuCxhIay7dGBWbL/0/RP1+2a
+         m8RYmxR+hCsrPcWC2BpF9jAiyUizVxatq241oyDJhC4HLFfCJHCdS/bfVAsyroHyTfN7
+         7cQaIHu5sXYGTYEzwsL8lcGUF1QNz58rz38MY=
+X-Forwarded-Encrypted: i=1; AL+hErESlrAcAQjZEfzdBera0o1sktahvgDV7cuokm78CrQN2NctKdJZ17aYwB2ZD1p65/I+LR0s8fk=@vger.kernel.org
+X-Received: by 2002:a17:90b:4a48:b0:3b0:c7ab:4644 with SMTP id 98e67ed59e1d1-3b1b09e6653mr11853199a91.14.1794870060911;
+        Mon, 16 Nov 2026 15:01:00 -0800 (PST)
+X-Received: by 2002:a17:90b:4a48:b0:3b0:c7ab:4644 with SMTP id 98e67ed59e1d1-3b1b09e6653mr11853156a91.14.1794870060381;
+        Mon, 16 Nov 2026 15:01:00 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ab9f3c5dsm1096089a91.0.2026.11.16.15.00.57
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Nov 2026 15:00:58 -0800 (PST)
+Message-ID: <d2942f59-d421-4aec-80cf-4c6ac52bac0a@broadcom.com>
+Date: Mon, 16 Nov 2026 15:00:55 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,70 +106,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111001831.3710881-5-toddfreed@meta.com> <179472727079.2199510.11728930190494845454@kernel.org>
-In-Reply-To: <179472727079.2199510.11728930190494845454@kernel.org>
-From: Todd Bert Freed <toddfreed@meta.com>
-Date: Mon, 16 Nov 2026 15:00:15 -0800
-X-Gm-Features: AclHuK8U0c5vpo9LrE-LUBEl9Mos_YCScdKBQ9e4Pj3NM_Kna-AkoWmo3RzMn5g
-Message-ID: <CADh2yMz==oX8OMx+dqNXort+h4vUFF6LHLWmaZJMTzoW0f+Jvw@mail.gmail.com>
-Subject: Re: [PATCH net v5 4/8] ipv4: icmp: don't quote decrypted payload in
- icmp errors
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
-        bjorn@kernel.org, borisp@nvidia.com, cratiu@nvidia.com,
-        daniel.zahka@gmail.com, dsahern@kernel.org, dtatulea@nvidia.com,
-        edumazet@kernel.org, idosch@nvidia.com, kuba@kernel.org,
-        john.fastabend@gmail.com, leon@kernel.org,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        linux-rdma@vger.kernel.org, mbloch@nvidia.com, pabeni@redhat.com,
-        raeds@nvidia.com, rrameshbabu@nvidia.com, sd@queasysnail.net,
-        saeedm@nvidia.com, shuah@kernel.org, horms@kernel.org,
-        tariqt@nvidia.com, weiwan@google.com, willemdebruijn.kernel@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-X-Proofpoint-ORIG-GUID: hrTVtbKMErwayVk1ARbD-ux632DIUyBB
-X-Proofpoint-GUID: hrTVtbKMErwayVk1ARbD-ux632DIUyBB
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE2MDA5MSBTYWx0ZWRfXxz6PWUc1eMSF
- sH+/MQaXFhR6JyEfTRVbCq08czopuI0f8DfXyAlU5WiSU8wCyYE2FaL552o4HP4+oTYs6msxTFh
- k37OTRrrjOx9mi7yyZ7PsCyoMVsmZIKZ21Ctu6lKVWtifi7FxSZ+CxxHfgv9akinrFF/OjPgDBu
- DErVEvUvaPsiDd8qOtBkFmGCtTfddZ8zw7WBKDjCia97h2UysdHSH4UeXX9Uyrki7Tecki68P9J
- RUngOWaygd7mZ3BK97gzIovWkgY6hJNhnnzisafCPSXzH1BYdDGFoeSiLkPlqm73PoRsy1Hh9AK
- yGAUjoxPA+JgGjV1tMwtSE323kjmEDJHIpV72/pkUd/0EoPasbiExcxY4xU5AWV3uGOI4lfWVzp
- X3xJmWVcwDLuZ2lgFGTaJi6LL5Un4KRq3KOX0JJNW401rGvFtQpk3A//K0lE3VkkzIr/Gji8F8w
- KoXAzZKrP4rHExd6MkQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE2MDA5MSBTYWx0ZWRfX0vqepUUI1Lov
- zj4Wd5gVGicogYK4SMIfjRvBUeq2/ZBAX27lrRXnuYO+7lyuRstOroQ+B2izfI/E9VV4MyAGfHM
- P6lxZbgNTni06z+YD8d4xs2YLfJBMs4=
-X-Authority-Analysis: v=2.4 cv=J+4/fwnS c=1 sm=1 tr=0 ts=6afb8b0d cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=xtH7KyWI9dI7BmFOsl-x:22
- a=voM4FWlXAAAA:8 a=-ThzyT3jwNi3vWZZJl0A:9 a=QEXdDO2ut3YA:10
- a=OpyuDcXvxspvyRM73sMx:22 a=IC2XNlieTeVoXbcui8wp:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-16_06,2026-11-16_01,2025-10-01_01
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] ARM: dts: bcm2711: give the GENET MDIO controller its
+ clock
+To: Nicolai Buchwitz <nb@tipi-net.de>, Stephen Boyd <sboyd@kernel.org>,
+ Brian Masney <bmasney+clk@redhat.com>,
+ Jerome Brunet <jbrunet+clk@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>,
+ Stefan Wahren <wahrenst@gmx.net>, Phil Elwell <phil@raspberrypi.com>,
+ netdev@vger.kernel.org, James Clark <jjc@jclark.com>
+References: <20261020-devel-bcm2711-gisb-clk-v1-0-a1728724d0f8@tipi-net.de>
+ <20261020-devel-bcm2711-gisb-clk-v1-3-a1728724d0f8@tipi-net.de>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20261020-devel-bcm2711-gisb-clk-v1-3-a1728724d0f8@tipi-net.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-> [Severity: High]
-> Does this check cover every reject path the commit message names? The
-> commit message says:
->
->     a reject rule (iptables REJECT, nft reject) sends its icmp error with
->     icmp_send(), through nf_send_unreach(). so now, a received packet which
->     the device decrypted, and which hits a reject rule in the INPUT or
->     FORWARD chain, is now dropped without a reply, like a drop rule.
->
-> That is true for iptables REJECT and for the nft ip and inet families.
-> The nft netdev and bridge families are different. They build their own
-> ICMP error and never reach __icmp_send():
+On 10/20/26 07:58, Nicolai Buchwitz wrote:
+> The MDC of the GENET MDIO controller comes from the GISB clock.
+> Describe it, so mdio-bcm-unimac can get the real 200 MHz from
+> clk_get_rate() instead of assuming the 250 MHz of the STB chips, and
+> can put bounds on when an MDIO write completes for PTP.
+> 
+> Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 
-This is true and I will improve the commit message in v6 to explain
-this more clearly.
-
-> Should the check also go into nf_reject_skb_v4_unreach() and
-> nf_reject_skb_v6_unreach(), or into their callers?
-
-These paths are covered by the netfilter-next series "netfilter: don't
-send decrypted skbs in clear text"
-
-https://patchwork.ozlabs.org/project/netfilter-devel/list/?series=533037
-
--Todd
+Acked-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
