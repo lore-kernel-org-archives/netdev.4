@@ -1,60 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794843226;
-	b=jN/85NJMQREGmeb1cyNdyh6mPumHJRCcP5z0xYNdMGGshp+XVm0Q1ZrtA8JD2d7rvmCm
-	 PQoJRABsxLPm7wp0htRU9Lu2qJJZlZRPVo4gPUo57hXo8dvcsQiMCppCQ4wYBhvFiPuL5
-	 BJ/n9g2A2v7RyL7GzxomG9+rri4MyrHBXcikp3YgoE5T2Ge2u6qy5Y352zvRAKlxWDElf
-	 QYN/xrWSbLiqjFb9un8MvNHIJopWlgBs9DD33bN0CYFR1zz11rE26U8yHlmgtyfZGko3q
-	 P2IctdfkpQC/2eRfCUK6fQtbpP+Pn83QJ6lrsL0bIuogZZKahJ5RJjYJJwzN3yExxMQ==
+	t=1794843687;
+	b=OS6RhQm4RGQp43V58sZhel3Uib4jGbTu9NdWruBHn0lHQCvep7zM5rms2THzD/0ycyz8
+	 Xdkxz4hnHl8iN0tBdHQbLPzJAvH/oY/FpcZ70LJhCD+gBGgRIISgciJWxTvSlZF4PpQDB
+	 em2+me89DH3yIIM5NG118QLnzok9iGmbP5DG+pzG40jc9qPgKIiVPwOQD4E/XYLWXEy93
+	 C+MfGmAuqBLutP3ioHe5RQ46tS1thpnxYSDhjzPUcpcIX6J0nef/NjuJs5AXwXB5GBLzN
+	 mUICMDZzMujBBntTQ0WKE7QU/F35CNKyQqmcQ2ruHJNsdoLDAlsrWUxb7S2WmSnQCpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794843226;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=u280Ub6DUw9TiRnuNaGZuwwxw4tgqFoh9XlrjuzkyYE=;
-	b=KmiRBHcMDXro/Fz+2kKj3gNiL/w61wjCKO2M+40mTaQO/H1u81DkdM+Y/4sSPicPHp2a
-	 OdvSFU0h1fqwABLEKGrqZrTIdp64vhnWBWJbuZMp5SdmSDG5V9l4aAJH+8mTuGcQkjMaF
-	 aRwSIueUXsbHYrNs5wurW/BmmyJjyTiabE70VEE2v/d4pIihlr/d3yWCxpXo6Ar6fcRBj
-	 8A3/QLXeuuBvpS9tytg9wGxV3n80rXRGgSmhDC4HZ0iF6kbzdeVwtya/jBJXv76DTyhUO
-	 nrK4YbtpwCarozvJ7ptLcgEEDfnbdGV1WKlfBe7yhS92Sn5Uk8vAo9/0b/Tr0sT7N8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794843687;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
+	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
+	 Content-Type;
+	bh=W/Ym3u4usM4ArSt2EhaBMBkXZ0AvTiTm9s1YVFwTSto=;
+	b=HZV50LSDSLAJC5hXZHws+xjUSCTsGlazDzOQky7dMsAorROCBy8bb+8UHMT2kMIVNGeO
+	 Ein6vurYnkHDRw5YTwwd6FmrTBoZ//qgx0Nxn1vDWlMoRIRV7jpnNzoHMgiAdywoNMrSU
+	 /mLDV36UKCaP/SwGxJLVORb3ZDJbaCO/52DIOxjAEvIige2fbiS69N014R9vbYA5r3y8k
+	 KdrtrobsM1Mc47rXnShmIA4GBRy/+0SZ3F3liBlHPsDg3A5pzZX3GfJRmMerYmQAuER+D
+	 n/HRK/pLoo5JLqGZcQFt57TVimJ2p/1IxDYZ1JoX0nLl15Hk0SQZbmB+Yu7e5x0YXhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pm.me;
-	spf=pass smtp.mailfrom=pm.me;
-	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=QJ1ZXOBm;
-	arc=none smtp.remote-ip=185.70.43.101
-Received: from mail-43101.protonmail.ch (mail-43101.protonmail.ch [185.70.43.101])
+	dmarc=pass header.from=ssi.bg;
+	spf=pass smtp.mailfrom=ssi.bg;
+	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=YYrhCjGJ;
+	arc=none smtp.remote-ip=193.238.174.39
+Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 694A4606A323
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:33:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 694A4606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26EEE606A31C;
+	Mon, 16 Nov 2026 15:41:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26EEE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=QJ1ZXOBm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1794843222; x=1795102422;
-	bh=u280Ub6DUw9TiRnuNaGZuwwxw4tgqFoh9XlrjuzkyYE=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=QJ1ZXOBm+3owl1fP0mDaXklFiGtvvUqUjnrMCymu6zCyv/I0BqU1vBykzpnXOFgHU
-	 m5Rh+J/NpOeCqY+DQdaNBp/wYlli4aIn4TBnLWInn30bE86/NzdYVNAcAZc2KfRGFZ
-	 HUNUqHv3pE71nhxn2X7PeMNrskIOpRuDyQ6upeQez/+5WqARtZiWnY+p+6/v8E67p2
-	 WoOgrZyldWNEOCit0h1abnR30sMR2eDgOlMrgiBa8s1uyEtswGEakJEb+0bvA/TFIR
-	 NN+Xr0Jg0mAajary44IKXcoUrRjI4Wp5Yv8x2MxX+l5fcCdExS0zjZ64pq3ai7SYGs
-	 blA9SXrIoyMBQ==
-Date: Mon, 16 Nov 2026 15:33:34 +0000
-To: Birger Koblitz <mail@birger-koblitz.de>
-From: oraveeps@pm.me
-Cc: Hayes Wang <hayeswang@realtek.com>, "javen_xu@realsil.com.cn" <javen_xu@realsil.com.cn>, "linux-firmware@kernel.org" <linux-firmware@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Subject: Re: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
-Message-ID: <_UaKZWNBXKesn3Fs-K3CGlNkAlK9xo9fr2afljGGYly9TeCwoGm6clrPRrdqQJdY8UTKP3keDnuuZldjild3ss5cAosvUq6lVJR24BD3GrQ=@pm.me>
-In-Reply-To: <02b33fd3-867a-431f-b1f5-2fd15eb9ae1d@birger-koblitz.de>
-References: <PfNGg6VjMdDzTCX2LETCm65NKSR0af1EG7ZX5CI-7Fef0x8NE2MnZ8fNtgr1Hm86sNjqHXcNyyqIbbeZL5jDu7URTqMygnyj4ulG00NxR7U=@pm.me> <7b6ef8fb2c14485380c90f1f7521ea9b@realtek.com> <tPt9UQiUVXfE9K4MHjmkc9no1QcTNZAOhmdtvdx_yaIkVdWoxkTdDFxCdBK5RU5nKHrKGy99QZq_rUsF0mWO9bfPZmS_8tjbbrNl2B5mNwg=@pm.me> <02b33fd3-867a-431f-b1f5-2fd15eb9ae1d@birger-koblitz.de>
-Feedback-ID: 208684824:user:proton
-X-Pm-Message-ID: 991ec33202610757365560ac6ca95f513b49b28e
+	dkim=pass (4096-bit key, unprotected) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=YYrhCjGJ
+Received: from mx.ssi.bg (localhost [127.0.0.1])
+	by mx.ssi.bg (Potsfix) with ESMTP id C3DAB21B52;
+	Mon, 16 Nov 2026 17:41:17 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
+	:content-type:content-type:date:from:from:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
+	 bh=W/Ym3u4usM4ArSt2EhaBMBkXZ0AvTiTm9s1YVFwTSto=; b=YYrhCjGJ1ikC
+	4u5g9qFaxvjjIgwvHb2kLdkFC4YIJJtt+K09RY9FM/9eW2qpRDguxL79bc99DhmA
+	/gCMhIvoRVD1Sh8fEDFsFRBNqQaDdBRbXC1OxGVOR4NQYSnzhsvpshz9d/ARpcOD
+	8s+LXScD9eUcDgvY7fbdQensJjCdpcHTUc9lQjilVqT98EafBi6oEUOUVkaVqQhd
+	XKkKKCQzSvZ91OqdC/Pafx1cy4Gg23MGFbJIGcsSBtDSHvoVuYgE1Wbm5DKPPees
+	RIzLEwiHQRdvmheqBZB8wqGyZGOmTKnVI4ywy0gooyDJv+zpM/ahamAMZYkyG6e+
+	MFCjh2CJL+FFpwZO3y0qJVSjdIIIOuqDWM59Rs2fEuzUpP9490iKb89MOVD3kQlD
+	V/GKs5uQ+5qk8aJNSKiLiKqzgSW8Zd0tdYlQ3MG4vmLOGYySLIIFcUyMUCcjGPXi
+	p9dYgVgkjPx7f+eoTP3lVcyd1hIbQlWyy9dhHiAsCahuDEcPVy1XJW5NB6+702+3
+	bkYfDlWMIzgZl4JhP/hO1O0TBJt+JpDaZebtiNDHezfUW1eE827uj9QxWUoNOCNT
+	zHppA0ycefDfoREwgOA2pwQ+6oIscrlGc4PZi5c9TSW8br8O84EILVqM8Eh6yHNs
+	2116gZmx75r7ZYYeHizAq8DQLNyw1pM=
+Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
+	by mx.ssi.bg (Potsfix) with ESMTPS;
+	Mon, 16 Nov 2026 17:41:17 +0200 (EET)
+Received: from ja.ssi.bg (unknown [213.16.62.126])
+	by box.ssi.bg (Potsfix) with ESMTPSA id 5F05B60B48;
+	Mon, 16 Nov 2026 17:41:17 +0200 (EET)
+Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
+	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AGFf59c081465;
+	Mon, 16 Nov 2026 17:41:06 +0200
+Date: Mon, 16 Nov 2026 17:41:05 +0200 (EET)
+From: Julian Anastasov <ja@ssi.bg>
+To: Theodor Arsenij Larionov-Trichkine <theodorlarionov@gmail.com>
+cc: Pablo Neira Ayuso <pablo@netfilter.org>, Simon Horman <horms@verge.net.au>,
+        Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+        lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+        netdev@vger.kernel.org, coreteam@netfilter.org
+Subject: Re: [PATCH nf v3] ipvs: ftp: do not link expectations to unconfirmed
+ conntracks
+In-Reply-To: <CAEZyMPB+oNBrnxV09Ji-Ao7Bcs93Qg=qx0B_b=3ULFx3nEFo+Q@mail.gmail.com>
+Message-ID: <2bd179df-abde-19d7-0bd4-996b7adcc5d7@ssi.bg>
+References: <20261116101506.98853-1-theodorlarionov@gmail.com> <avrgKSO8nfTnv4iL@chamomile> <CAEZyMPB+oNBrnxV09Ji-Ao7Bcs93Qg=qx0B_b=3ULFx3nEFo+Q@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,148 +81,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/mixed; boundary="-1463811672-845209124-1794843669=:8917"
 
-Hi Birger,
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-thanks, that works. I built rtl8159-1.fw the way rtl_fw.c does, but from th=
-e ram17 array of the out-of-tree driver 2.22.1 (code version 0x0022) instea=
-d of the 2.21.4 one in your repo. With it the in-tree r8152 on 7.2.4 loads =
-the PHY code after a full power cycle without errors, and the RTL8159 links=
- at 10 Gbit/s.
+---1463811672-845209124-1794843669=:8917
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8BIT
 
-The PHY_SPEED_UP block in Realtek's candidate file
-(pwr_on_patch_v22_pr_test_ramcode_usb_20260428) matches the 2.22.1 ram17 fo=
-r its first 16536 bytes, then ends. It lacks the write of the PHY firmware =
-version (SRAM 0x801e), which rtl_ram_code_speed_up() checks after loading, =
-and the parameter table writes that follow it.
 
-Best regards
-Jonas
+	Hi Theodor,
 
-On Monday, 16 November 2026 at 13:07, Birger Koblitz <mail@birger-koblitz.d=
-e> wrote:
+On Mon, 16 Nov 2026, Theodor Arsenij Larionov-Trichkine wrote:
 
-> Could you try:
-> https://gitlab.com/koblitz-rtlnic/rtlnic_fw
-> I used that testing the drivers. It is based on the source of the
-> out-of-tree driver and creates firmware files compatible to the Linux
-> driver. The firmware needs to be generated from the source.
->=20
-> Birger
->=20
-> On 16/11/2026 11:37 am, oraveeps@pm.me wrote:
-> > [Resent as plain text, the lists rejected the first copy as HTML.Sorry =
-for the duplicate.]
+> On Mon, Nov 16, 2026 at 1:51 PM Pablo Neira Ayuso <pablo@netfilter.org> wrote:
+> > I think this is coming a bit late?
 > >
-> > On Mon, 16 Nov 2026 at 09:30, Hayes Wang <hayeswang@realtek.com> wrote:
-> >> Hi,
-> >>
-> >> Could you please try out the attached files?
-> >>
-> >> Best Regards,
-> >> Hayes
-> >>
-> >> From: oraveeps@pm.me
-> >> Sent: Sunday, November 8, 2026 5:42 PM
-> >> Subject: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
-> >>
-> >> Hi Hayes,
-> >>
-> >> Since commit a51e171e176c ("r8152: Add firmware upload capability for
-> >> RTL8157/RTL8159"), mainline r8152 requests rtl_nic/rtl8159-1.fw for th=
-e
-> >> RTL8159 PHY. Without it the link stays at 5 Gbit/s, and linux-firmware
-> >> has no rtl8159-1.fw yet (nor rtl8157-1.fw).
-> >>
-> >> I run three RTL8159 adapters (USB ID 0bda:815a) on kernel 7.2.4. They
-> >> reach 10 Gbit/s only with Realtek's out-of-tree r8152 v2.22.1, which
-> >> carries the PHY patch inside the driver. With rtl8159-1.fw in
-> >> linux-firmware, the in-tree driver could do the same and users could
-> >> drop the out-of-tree module.
-> >>
-> >> Could Realtek submit rtl8159-1.fw, and rtl8157-1.fw if there is one, t=
-o
-> >> linux-firmware? I am happy to test a candidate file on these adapters.
-> >>
-> >> Thanks,
-> >> Jonas Autzen
-> >
-> > Hi Hayes,
-> >
-> > Thanks for the files (rtl8157-1 and rtl8159-1, v1 11/13/26). Mainline
-> > r8152 (v7.2.4 here, same code in v7.4-rc1) rejects them at the first
-> > block: rtl8152_is_fw_mac_ok() has no RTL_VER_16/RTL_VER_17 case for
-> > RTL_FW_PLA or RTL_FW_USB, so rtl8152_check_firmware() fails with
-> > "check USB firmware failed".
-> >
-> > An rtl8159-1.fw with only your PHY_SPEED_UP block (checksum
-> > recomputed) loads with the in-tree driver on 7.2.4 and links my RTL8159
-> > adapter (0bda:815a) at 10G.
-> >
-> > The series "r8152: split RTL_VER_17 into QFN68 and QFN100 package
-> > variants" (v8) does not change rtl8152_is_fw_mac_ok() either, so the
-> > full files are rejected with it applied too. Is a driver change for the
-> > PLA/USB blocks planned? If not, could rtl8159-1.fw carry only the PHY
-> > block?
-> >
-> > Thanks,
-> > Jonas Autzen
-> >
-> >
-> > On Monday, 16 November 2026 at 09:30, Hayes Wang <hayeswang@realtek.com=
-> wrote:
-> >
-> >> Hi,
-> >>
-> >> Could you please try out the attached files?
-> >>
-> >> Best Regards,
-> >>
-> >> Hayes
-> >>
-> >>> From: oraveeps@pm.me <oraveeps@pm.me>
-> >>> Sent: Sunday, November 8, 2026 5:42 PM
-> >>> To: Hayes Wang <hayeswang@realtek.com>
-> >>> Cc: javen_xu@realsil.com.cn; mail@birger-koblitz.de; linux-firmware@k=
-ernel.org; netdev@vger.kernel.org
-> >>> Subject: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
-> >>>
-> >>> External mail : This email originated from outside the organization. =
-Do not reply, click links, or open attachments unless you recognize the sen=
-der and know the content is safe.
-> >>>
-> >>> Hi Hayes,
-> >>>
-> >>> Since commit a51e171e176c ("r8152: Add firmware upload capability for
-> >>>
-> >>> RTL8157/RTL8159"), mainline r8152 requests rtl_nic/rtl8159-1.fw for t=
-he
-> >>>
-> >>> RTL8159 PHY. Without it the link stays at 5 Gbit/s, and linux-firmwar=
-e
-> >>>
-> >>> has no rtl8159-1.fw yet (nor rtl8157-1.fw).
-> >>>
-> >>> I run three RTL8159 adapters (USB ID 0bda:815a) on kernel 7.2.4. They
-> >>>
-> >>> reach 10 Gbit/s only with Realtek's out-of-tree r8152 v2.22.1, which
-> >>>
-> >>> carries the PHY patch inside the driver. With rtl8159-1.fw in
-> >>>
-> >>> linux-firmware, the in-tree driver could do the same and users could
-> >>>
-> >>> drop the out-of-tree module.
-> >>>
-> >>> Could Realtek submit rtl8159-1.fw, and rtl8157-1.fw if there is one, =
-to
-> >>>
-> >>> linux-firmware? I am happy to test a candidate file on these adapters=
-.
-> >>>
-> >>> Thanks,
-> >>>
-> >>> Jonas Autzen
->=20
+> > Maybe it is possible to check this earlier in this path?
 > 
+> You mean returning at the top of ip_vs_ftp_out() if the ct is not
+> confirmed, and letting the packet through untouched? Or even before
+> ip_vs_ftp_out() gets called?
+
+	Early in ip_vs_ftp_out but you have to base this patch on
+top of the template fix:
+
+ipvs: ftp: skip conntrack templates in ip_vs_ftp_out
+
+	Or to wait it to be included in the nf tree.
+
+	Then after the:
+
+	if (cp->state != IP_VS_TCP_S_ESTABLISHED)
+		return 1;
+
++	ct = nf_ct_get(skb, &ctinfo);
++	if (!ct || !nf_ct_is_confirmed(ct) || nf_ct_is_template(ct))
++		return 0;
++	/* seqadj extension not created by original packet? We usually
++	 * add the extension for the first packet in ip_vs_update_conntrack().
++	 */
++	if (!nfct_seqadj(ct))
++		return 0;
+
+	I.e. we want:
+
+- ct to be present
+- this should not be the first packet (nf_ct_is_confirmed)
+- should not be template
+- the first packet should create seqadj ext before confirmation,
+in ip_vs_update_conntrack()
+
+	By moving it early we drop the PASV response without
+creating IPVS expectation (NO_CPORT connection).
+
+	I hope the above is correct :)
+
+Regards
+
+--
+Julian Anastasov <ja@ssi.bg>
+---1463811672-845209124-1794843669=:8917--
+
