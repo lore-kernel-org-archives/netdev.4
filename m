@@ -1,62 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794824465;
-	b=gmkudDRgCVAAGyhRSHHbQiZUSrfBvfLYXQF2pYSj/9n+ZYeOoZelqGox+pztcmF+lfRn
-	 CYlwCcQca2R23wfL3jaoFB4B4bn6HJjxIgmgKASAAVzCBYGYz0cOToX5ExxjlMTQIv3RL
-	 aiRfw9Pu+MjlU4NP7/HE1lhQ4uBrEm0Q/AAUiZRKRhCoavv7XwyvTTXxiQEzc6OUGslBB
-	 REbH1QEhGKlgzBA3+jp3dfkuiFPCTpCNVceAj/PxRhdOvis34IlH1u4Qzm1/JkcPLju0P
-	 W7dFkOyfPf1EjBpI9Mgxa54lIHd4WPMTjs3e+Zee0zfa1jgy9dJdtLe/CBh+XB7cvKA==
+	t=1794824520;
+	b=b13oCF8oMU4la9keQCgP8KoA3Obai3hiV9DdGPG7OhOSHSpahOo9T6mvn9CVJkYbkS1Z
+	 Ms85oQm0Dv5e3X851q0uRUiD9pVFEOjUkWH8ioQV6kSmxOxBiA9CdHXWI+ut0b9reR1+S
+	 4SgOjBJeiIFNxH4bEs/+ApNH1m84jrmuL835+BTcnPoWll5XBxxhhADVfdmeGzBgcmCNy
+	 EIgWbU4AhiRfDfn/MELWV+Fuldm5KwbGP6gbVKDIcrAbIFhXvICbHwry59nDb/jZWn+BN
+	 +3aQJ3H4Gw9RHEI3sIr+r8n0CtcPHv2bse5IFsh7/Lejf0+4wdV/X2kJtIXrgScwpyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794824465;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=PODueEbuV8yQIK2sk6E9OJLlqXL1eOnZsVPrULsCgVw=;
-	b=ZH7Q6ZPMMbnUVhhodlPu5zvLbJVcoYMJrDW2/NJrlF+OkLhw/EAeYVcjqstK4TMyWuph
-	 uA5LNVnDJjNxXp6fv+Wd4bNCxqNIh2co2lIMvK08dh7XUJp+uc4pEbV4tSyw73Gi3s0YL
-	 YTN7EEKbybBdL+mHStIMMNjkR4LPjWXIhJ2HuFNUzfmaZYmqa5eEk66xI7B5lzrr19AdV
-	 B9DxxI1qpJh67M1bBQUNtm8JfEKY+nG4e2CgtfW2R4E/8LbVSSJV9I+sy5l9pTsECjhO0
-	 T8WsUblijHn90gRlptClriglaBFAZ7qFrYzPzdBNstuAse/n6/VUr7Tkk3uOA2ESXkg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794824520;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=95k2Iy13yoDS+kywNlvIjNWyQBsXVtjAHDEMSkqvDoU=;
+	b=zIMQxsXVVB7vSFBfe6uipOtLtGDZ0C8txMb4mXm3IN/0wQ+os8xhvlA/X38rabjk34bN
+	 pydOpO2Ffw5zKGw4D3i8mptlUza/TnunhbHW/qkg8BKhGgnf1/Fql5eOE6h1E1JbmxQz8
+	 BsziZuhSGIMCji+jc+71DfLmKg1fEa+vY6B4872yiVYLt3vj1+7nqCa3JrZmVNHh9MWGZ
+	 nFJR526n7PUN0NPzT67XNiP3i6TQvE75jAQ+FYj9e+K0Cd5ZqMCkuHcKST4RmbWKU450o
+	 HoxqQkTVe7cZANZh7WXvGCy6hceBHAb4geYcSGNONgoZIfO9drvBI2w6ve9+ORQnNww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mi5+MsfS;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZnPTgi+f;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DF56606A338;
-	Mon, 16 Nov 2026 10:21:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53E39606A333
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:22:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mi5+MsfS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A111C1F000C4;
-	Mon, 16 Nov 2026 10:21:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZnPTgi+f
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640081F000CF;
+	Mon, 16 Nov 2026 10:21:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794824465;
-	bh=PODueEbuV8yQIK2sk6E9OJLlqXL1eOnZsVPrULsCgVw=;
+	s=k20260515; t=1794824519;
+	bh=95k2Iy13yoDS+kywNlvIjNWyQBsXVtjAHDEMSkqvDoU=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Mi5+MsfSg1uL7Fjfs9BWNfnhXaeY2PLIrvq+cKL9rs13lUOZ9SWIn2/qpJnBETq3V
-	 g/XZI4xSwhN7dQ2hQ2lVXbCj7k2hrWyvma5PpUVkhfjlG+LryS7EpbQ8NmtGeWAvTa
-	 Wb71OxoQTWRgRiHNpTCNHzOLsiPdSEk8U62FPU+GEOVBjhueiAsVznsAPVzQTdP7QS
-	 O0tfWbyXQL6nRy92H3umyimes7joHJDHt7w5a8JFr0C+aIh/gAAnf//IQzLBPoxX3j
-	 8YlLsgX/8eUdR0RUwVXcwq51z2SjTLCrX54R4cTbXPZmYNlJcN0wmvD1HvRDusgeMd
-	 nG5r4w/8u6OxA==
-From: Imre Kaloz <kaloz@kernel.org>
-To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	netdev@vger.kernel.org
+	b=ZnPTgi+fUpzmIzG1FCvbl2Kebue7HI8m4vGobSK9o0uWgGIldu6Y4vEDaJtspQkCu
+	 oOXOPMDxSCblhcqIIKyqFmpGvem9iZ+HDlcnHMUfWxxJ9HQGvfIq6r8DoN5nIaoOSe
+	 LKl7FefbFjz4qp9ZZjJW4mKYX6l4+jgm9b3JdURZsEsbBrcKODA7OUCza8fEP/nHRm
+	 auX+h49U4n8/SEl9rsr3+mRxKd90yZxZpFF/bgon1zM2nVTOoZvcIGc91Kih4r/hy/
+	 BFoHLcqSo/o/g4gmdBNG0duIWfbGhL6+V9Vu9ij4zbpz1hoS/x06asyeadH8cxPM4U
+	 MAsx5TNr5BYBQ==
+From: netdev-bot+sinfo@kernel.org
+To: Petr Machata <petrm@nvidia.com>
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH net 2/2] net: sgi: ioc3-eth: fix IRQ lifetime against netdev teardown
-Date: Mon, 16 Nov 2026 11:19:34 +0100
-Message-ID: <20261116101934.25910-3-kaloz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261116101934.25910-1-kaloz@kernel.org>
-References: <20261116101934.25910-1-kaloz@kernel.org>
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, Ido Schimmel <idosch@nvidia.com>, mlxsw@nvidia.com
+Subject: 
+ Re: [PATCH net-next 0/2] mlxsw: Fix teardown order of CQ NAPI instances
+Date: Mon, 16 Nov 2026 10:21:58 +0000
+Message-ID: <179482451886.3291.15742045980159368371@kernel.org>
+In-Reply-To: <cover.1794823524.git.petrm@nvidia.com>
+References: <cover.1794823524.git.petrm@nvidia.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,67 +64,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The shared IRQ is requested before the lock and timer its handler
-uses are initialized, and stays registered past free_netdev() on the
-probe error paths and in remove, so the handler can run on freed
-memory.
+Hi!
 
-Reproduced with CONFIG_DEBUG_SHIRQ=y and slub_debug=P and tested on
-an SGI Fuel.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-Fixes: 0ce5ebd24d25 ("mfd: ioc3: Add driver for SGI IOC3 chip")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/179473760071.2199510.16065103101920438822@kernel.org/
-Cc: stable@vger.kernel.org
-Signed-off-by: Imre Kaloz <kaloz@kernel.org>
----
- drivers/net/ethernet/sgi/ioc3-eth.c | 12 +++++++-----
- 1 file changed, 7 insertions(+), 5 deletions(-)
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-diff --git a/drivers/net/ethernet/sgi/ioc3-eth.c b/drivers/net/ethernet/sgi/ioc3-eth.c
-index ee284a4f75ff..e322a588d5c4 100644
---- a/drivers/net/ethernet/sgi/ioc3-eth.c
-+++ b/drivers/net/ethernet/sgi/ioc3-eth.c
-@@ -870,16 +870,16 @@ static int ioc3eth_probe(struct platform_device *pdev)
- 		goto out_free;
- 	}
- 
--	if (devm_request_irq(&pdev->dev, dev->irq, ioc3_interrupt,
--			     IRQF_SHARED, "ioc3-eth", dev)) {
-+	spin_lock_init(&ip->ioc3_lock);
-+	timer_setup(&ip->ioc3_timer, ioc3_timer, 0);
-+
-+	if (request_irq(dev->irq, ioc3_interrupt, IRQF_SHARED, "ioc3-eth",
-+			dev)) {
- 		dev_err(&pdev->dev, "Can't get irq %d\n", dev->irq);
- 		err = -ENODEV;
- 		goto out_free;
- 	}
- 
--	spin_lock_init(&ip->ioc3_lock);
--	timer_setup(&ip->ioc3_timer, ioc3_timer, 0);
--
- 	ioc3_stop(ip);
- 
- 	/* Allocate rx ring.  4kb = 512 entries, must be 4kb aligned */
-@@ -951,6 +951,7 @@ static int ioc3eth_probe(struct platform_device *pdev)
- 	return 0;
- 
- out_stop:
-+	free_irq(dev->irq, dev);
- 	timer_delete_sync(&ip->ioc3_timer);
- 	if (ip->rxr)
- 		dma_free_coherent(ip->dma_dev, RX_RING_SIZE, ip->rxr,
-@@ -969,6 +970,7 @@ static void ioc3eth_remove(struct platform_device *pdev)
- 	struct ioc3_private *ip = netdev_priv(dev);
- 
- 	unregister_netdev(dev);
-+	free_irq(dev->irq, dev);
- 	timer_delete_sync(&ip->ioc3_timer);
- 
- 	dma_free_coherent(ip->dma_dev, RX_RING_SIZE, ip->rxr, ip->rxr_dma);
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.47.3
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
