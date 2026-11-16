@@ -1,72 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794797894;
-	b=sibFP0nBZPrdIOXtU8VuTIGI42CMXB+E/w7BewOiGptxzCUIpsYFPzOwgtR/QkuN+EPv
-	 zgw/H4JnBRmEA93KhHT/DOW3JKIwJKksABrGlOrAzXw0URhlzqDXWYzRg1AjALAgxCjKQ
-	 AqDHm4repp5frJQpL+08ykpP2lw8KvWgIDMyqIgAFMBh66pnPhxrt2n7u39fDVkCG/Q9o
-	 FeGvLbhUxEH8+sONyjwKUlKTypFrKAm905TxTdlYvYf0XBs+7aMPd8psg9AyuagZMZR8O
-	 gjfnBGnL198ovA7Hfk0RlEdpgFlUmZG+XHBDQs6MNefeuqsipwt7NyAUNi7l1gK5Zow==
+	t=1794798643;
+	b=LG3sULXc8c0P96XsM2h2Gk7WsODS7vf8mSd/9a9AUX4430ZHodH13e+OEpPUuLyd92JB
+	 QhpTKMCOStWshso4Ks/SYYc03jOHjJG5ZQwdN7zbgzkV4MBFwrpmxzIl4CuYm6uOnUcS0
+	 eN/OA80xb+of5Ah4fdiMDkSgCbyKAnGbg7QVva5uVnGJ3qz52GGukhavwmLiOpIfuvp6h
+	 ymvQaht+5Os2SifSoZ1xwCDHCFkWG4OPkJ04MApXF7wT+MPpnU6Cz2w0KJK4RQyXYE5b0
+	 ACAlGcBGjEqRA5b2tUU8C93k1oVFtuwD6WqEwYYsCgrrImlwjLPuCYFsakFPY3TeVjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794797894;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Pz245/qiYdhAlbrbZ9JGtp5YOswGm+RxhscLH6qfgIM=;
-	b=YKiEAS0e8zat9ZYvCAAN6OwQgR2wfesgpJOGIfE9tRwKtzNYvMpH98o1SypPAWXCXF8z
-	 7wqv8GGpgBfn4OoyD3rOcwvK3dN8n8+z/X8FLdY0CdgT4lfhzojdLTkd5DUimqU3bp3PQ
-	 902+MyitTPffYQkySu8WpTvfJelYETaCOh1SyMhqsbbozjyB3OV4iT86kcVxB6UKRL+6G
-	 76D3UgjAy1wjq4GLBdUDkdJO/hwJMDy6Ybr73BBF7NIlAr6gWxXGyHD5txMFZcqrIVHK5
-	 QkC1+yADdUI1D2IjKSXKOlpWhWnT425MDsSQScLSapC/gL+8xyITH0oCvcWs1/lcKew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794798643;
+	h=DMARC-Filter:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=90ahyTqYBvlXIySaOxks0/UBauBPZtUXCET2ljcJ8X8=;
+	b=o8ddn7MUAZenpHGq1FFU2w8zLDr0V/1akxS8L8PEqB9426rPrUcA8vGOXsr9ujA3Aeu/
+	 0lCYSfUa6C+eKkY0+dB3c1vplkDQmxHvqMk/ZCLetOTPLdleFIPVHisr0MygG/iqSiqKw
+	 8tr8pkDKDRQXlfRoaLLvA4rVzQH3a3alS0r1GTvxcqGoi8wtTva/INa3hZL0rJ4ZOGD/f
+	 VIBf2JVi4L1tUwfkegQnqeYbiqp5pn0wp/oACSK0gu0gBPIXrH8DYHFyZ9LDmXWzjYBhZ
+	 oUSG5uNcudb9L3mi4AwfAluEGF9/GRyFDHeCpcGZnGit+JPjFtiteS9CXbzVzMUAp6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=sBpx3Ibm;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 463A6606A323;
-	Mon, 16 Nov 2026 02:58:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 463A6606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=ipisBCaD;
+	arc=none smtp.remote-ip=220.197.31.9
+Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.9])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07DB1606A31C;
+	Mon, 16 Nov 2026 03:10:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07DB1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=sBpx3Ibm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=sBpx3Ibmg/ey4nt9IsmrNa9gaEQTukyE5dcsTHQrmUhG35IBjUHuIRujbOhyWo8+ueHLRrZ6gS14+
-	 DFldiIZ/s701n1Iu3nzNV5CMKJ/UyzHxSgets3uriQZcIk1rSFC5OZEwUSGDL7bQGWJjVjm3TNSSxE
-	 TQlP6A47Efq10Q0s=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96afa7140acc-0018b;
-	Mon, 16 Nov 2026 10:58:09 +0800 (CST)
-X-RM-TRANSID:2ee96afa7140acc-0018b
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from FHD-W7400297 (unknown[10.55.1.70])
-	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76afa713e7df-79766;
-	Mon, 16 Nov 2026 10:58:09 +0800 (CST)
-X-RM-TRANSID:2ee76afa713e7df-79766
-From: Aibing Chen <chenaibing@cmss.chinamobile.com>
-To: netdev@vger.kernel.org
-Cc: Aibing Chen <chenaibing@cmss.chinamobile.com>,
-	netdev-bot+sinfo@kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux-usb@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] net: hso: cap the MTU to the mux tx buffer size
-Date: Mon, 16 Nov 2026 10:58:06 +0800
-Message-ID: <20261116025806.244-1-chenaibing@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <179479401486.3291.17345716560777690357@kernel.org>
-References: <20261116014904.556-1-chenaibing@cmss.chinamobile.com> <179479401486.3291.17345716560777690357@kernel.org>
+	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=ipisBCaD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=90ahyTqYBvlXIySaOxks0/UBauBPZtUXCET2ljcJ8X8=;
+	b=ipisBCaDrPsxLOFyBWnjT9jYmHFX3Tx3YyAzk1tYejGcHM3I6z93iOnMwdO9jE
+	k6VgCxPc74Rzb1Yc7n6Al192mF5seC2OiIop6ETOBC3Ecw1pHxK2tdhiXZsof+zS
+	5q7lEJvqssj8OkgTfI0y9MAx8dVko9LGAOxkVA11caMj8=
+Message-ID: <6aaecc63-8d85-4fef-8a1e-65d5f29205b9@126.com>
+Date: Mon, 16 Nov 2026 11:09:23 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,34 +51,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: ethtool: request rtnl_lock for
+ ETHTOOL_MSG_PORT_GET
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew@lunn.ch, kuba@kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, sdf@fomichev.me,
+ jacob.e.keller@intel.com, bjorn@kernel.org, alexanderduyck@fb.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
+References: <20261111072724.3295527-1-xiaolinkui@126.com>
+ <179472857971.2199510.5265696099741665969@kernel.org>
+Content-Language: en-US
+From: Linkui Xiao <xiaolinkui@126.com>
+In-Reply-To: <179472857971.2199510.5265696099741665969@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CM-TRANSID:PSkvCgDnL_rjc_pqGXvHCw--.34471S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ZrykKw17tF4UtFWfWFyrXrb_yoW8Cw18p3
+	yqk3WfAF4kGws7XFnrWw1UuFW8ZanrCrZ8tFZrKr13uw45Wr18KFyxtrW0q3W5ur97XF4F
+	qFW8JFs7Ar47ZFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UxDGOUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqQRvRmr6c+R5DQAA33
 
-On Mon, 16 Nov 2026 01:53:34 +0000, netdev-bot+sinfo wrote:
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
+- [High] The fix covers only one of several commands with the same bug.
 
-Code inspection, prompted by the automated review of the companion
-skb_tx_buf fix in the same driver:
+Thanks for the review.  The patch has been withdrawn following Stanislav's
+review (patchwork already shows it rejected), so there is no respin and no
+"pw-bot: cr" to send.  On the substance, the observation about the call
+sites is accurate - STRSET, LINKSTATE, STATS, PHY, PLCA, PSE, MSE and the
+cable test handlers all resolve their PHY through ethnl_req_get_phydev() -
+but the conclusion does not follow, because the device this issue asks us
+to consider - ops-locked, with a non-NULL dev->link_topo - cannot exist.
 
-https://lore.kernel.org/all/179477764293.3136.7267245337781305691@kernel.org/
+dev->link_topo is only ever allocated by phy_link_topo_get_or_alloc(),
+whose only callers are phy_link_topo_add_port() and
+phy_link_topo_add_phy().  Both refuse an ops-locked device before they
+allocate anything:
 
-That review noted that hso_net_start_xmit() copies skb->len bytes into
-the fixed MUX_BULK_TX_BUF_SIZE (2048) buffer with no bound check, and
-that hso_net_init() never sets max_mtu. Both statements check out in
-the source, which is what this patch addresses. The syzbot memory leak
-that started the series did not touch this path.
+	if (WARN_ON_ONCE(dev->netdev_ops && netdev_need_ops_lock(dev)))
+		return -EOPNOTSUPP;	/* add_port() */
 
->  - Whether the issue was actually triggered, or is only theoretical
->    (e.g. found by LLM and not proven at runtime). If it was triggered
->    please include the symptoms, like the stack trace or kernel messages.
+	if (WARN_ON_ONCE(netdev_need_ops_lock(dev)))
+		return -EOPNOTSUPP;	/* add_phy() */
 
-Theoretical: the overflow was not triggered at runtime and the patch
-carries no runtime repro. The overflow is statically decidable from the
-code (unbounded memcpy into a fixed 2048-byte allocation, plus the
-missing max_mtu), so the fix stands on inspection alone. I chose the
-max_mtu cap over a runtime length check because the default MTU already
-fits the buffer with the same 14-byte allowance, so there is no reason
-to allow a larger one.
+So on an ops-locked device dev->link_topo is always NULL, and every
+topology reader bails out before its assert:
 
+   - phy_link_topo_get_port() returns at its !topo check, before
+     ASSERT_RTNL();
+   - phy_link_topo_empty() is simply "return !dev->link_topo", so
+     ethnl_req_get_phydev() skips its assert and never touches topo->phys;
+   - the cable test handlers resolve their PHY through
+     ethnl_req_get_phydev() too, so they hit the same skip.
+
+The drivers that opt into the instance lock (request_ops_lock,
+queue_mgmt_ops, net_shaper_ops) all do so before registration, so there
+is no path that grows a topology first and becomes ops-locked later
+either.  If an ops-locked device ever grows phy_ports, the right fix is
+to move the topology readers under the instance lock, as the comments at
+the producers already anticipate - not to add a rtnl case per command.
+
+Regards,
+Linkui
 
