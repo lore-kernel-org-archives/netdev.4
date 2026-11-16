@@ -1,104 +1,131 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794859567;
-	b=BA0M1qgYMrMCAqG5ns1ElUmICoJDbdxyJQBj5lyhHC5LoFxxxTkeRs0jr48sNsIg3AOZ
-	 WYaThiyRAf2ExFs4KpHHr2UaWXEIW9CnuYmI0znxDdEcNziL8qSVqHqE+wv635HfoAOtF
-	 DOnFJfhByoYu4AqmGDitio3Nz6CDhe0jplS2kRnJYXpHUZJ7wPZtW88aihnSZM0WlB9dO
-	 8UkjSuuCiFHrGoXZB97AtQqwT33Gfz4f7Sy/BMJw1mkLry/cZxjxYwJbOe1dHLQou8BCb
-	 nPY3RhfbyH5kl8frxgyBYevigAwtqOlQC0A/Nuq4JuFLcrJlRkaTbUud7Pvy8K8+4iQ==
+	t=1794859754;
+	b=asf//3aC0HaEGRyNnUK6fLFTUK/H37HfTiG0BhQfXgDdaBKZmjjIK4DeU2RVffndESDF
+	 5z2e936FkOBoZ3r3c8hrQYMWaaOtv+mlzweGUrOsFRehvoOgJyYwO6aGVNnJU5wslMqTY
+	 9/2vurXreA5e70ALaDfgV3ZCNlVGzfKL0wLY0dz3K3nNsqji7riwmiumfCIbTOU8mFSLV
+	 iLqC0WqZur1m6JJkC2PRQw2K2fJAX1XeZ61KSk8pAD8EG87MgRjw8PEH/2tsMil5m0eQ4
+	 7kC5AmPaMdRNVFXxuj4YBzz2tEfUO9Ckx32Ue95osZ105UVFirNJKjS5EcKdjBX6LMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794859567;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794859754;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=bybUl0rfe7Wj6HMITHON5Jl+bxg4y9SJSLroQplYnvw=;
-	b=d+6RQp8IbmEt9B0Y0eMuIezZ7aGWfnof4B9kP9q33gm8RLAdHQyg+z/Z0pVfOOxa5SB4
-	 gvB2BZ4ibkqxIosVhFkPm5DHqVoMadqC/yHneD1yHowSLT7g+gJkMMuPeBCqPbJAbKDAX
-	 VZhD2o8SuqdfiQwEOYcRpIUfPj5hU6x9HXroiHCpDbvll7Im1kcBgIaSJ2XIYKyJB/i2Y
-	 K65NwgZw8jaqUT2165cFBic3nadK5rZFlTABX3scfXGHdIeCJZzpc2RhWDg+DhVTeOJWJ
-	 7W+Muw3ZbbMm7IYCXHUM7nbKCwhPpdBYxP8u5799CLK3CkXE+SWUa0zHlsr44/qVYig==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=rIDjnnpHadC4roO6Pjzwfgg43uG+Y6jCh2hpR36q9WA=;
+	b=JdAAb772aPPK8C1mA3J2DhNSTYU82+gzxY4zb7gu9d9G6CHCOCInzRQ8mWm3DvHS5Wv9
+	 /BtQzgMdCCxbVOc8w88GY/RsBioP+3iRawAcM654w0Qejgli5QfktvcyWdIamOFQMa7AZ
+	 kLCTNUMDuYJ6F9j/SxOOpEajbPn6N90qnsafUUh9zNiaakXf62iQX8Nv0WEYmymsKqYmw
+	 uFuU4dM1Fe63QDTIN6iOXfrhAYoq5rmGlXbkG342IqYR8dlHWu79D6u5RBZOAIZ1QBpAz
+	 X9TriejK6Y9eSFa5Jjfnkko+k75ztCzDXoJjLKgRZ0rz/joc0GdiEFvC/pcPT3YrJ+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=h596HsH2;
-	arc=none smtp.remote-ip=209.85.222.177
-Received: from mail-qk1-f177.google.com (mail-qk1-f177.google.com [209.85.222.177])
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=nbZUyxTk;
+	arc=none smtp.remote-ip=209.85.160.173
+Received: from mail-qt1-f173.google.com (mail-qt1-f173.google.com [209.85.160.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9006D606A8AC
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 20:06:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9006D606A8AC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DC35606A32F
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 20:09:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DC35606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=h596HsH2
-Received: by mail-qk1-f177.google.com with SMTP id af79cd13be357-94962d80d34so163901985a.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:06:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=nbZUyxTk
+Received: by mail-qt1-f173.google.com with SMTP id d75a77b69052e-536717a4d83so40754511cf.2
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:09:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1794859565; x=1795464365; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+        d=ziepe.ca; s=google; t=1794859753; x=1795464553; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=bybUl0rfe7Wj6HMITHON5Jl+bxg4y9SJSLroQplYnvw=;
-        b=h596HsH2SETDIuEy5gyMZVqoXQtZtaVkSNaXsfDqMbD1tic1Jwb1SrYLpUZbJ98c7o
-         CvljX1H9uhv9qvjttDLphrFrWZnBjS/RY4/9qWUUaziHdNwmKKn7Op2Vl2nd0QD4EmQ3
-         nzWSf+bI8MvhCTQJ0frNNTermPzRuf63Amb6A=
+        bh=rIDjnnpHadC4roO6Pjzwfgg43uG+Y6jCh2hpR36q9WA=;
+        b=nbZUyxTk1xDDi9/JiN9In9kNH24m3xvR3W8MPaMB063K/nb6P74sDih4ebpP83k2np
+         SjqTAYuPLCHW+FRVrjLKSTbDX5aM/IVbZZxu+ASYJ/ssH0gDFbMJvSJmLcdHAAsDSEL+
+         FG47SOuU8PRulqvpOebFRdp+iKyncNtYeoKxWrzhMSjcb9i+1jD4cThvDUO+7PnMd3zc
+         ImV7NXhI8pI4k1LW/eM2oLltJhXP6hUveoFekGEVH6+oWgooyZkYdcVCIAs0jW9hoXxW
+         5IGbSHDAmwoeFMTug5VO+bv+VKknP1f2hoIrUsvWYeNqALAO8eTePO8ZOjSwRNnR3p0b
+         L2qQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794859565; x=1795464365;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+        d=1e100.net; s=20260707; t=1794859753; x=1795464553;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=bybUl0rfe7Wj6HMITHON5Jl+bxg4y9SJSLroQplYnvw=;
-        b=PHIAQLHyCb2c+DHo2WbsGrd3scNf2NrY4XtyVEpGgtrLG9PZCMmF0ati5kJ+Ye73vN
-         f58eU8HPEI8JFMywWV9lSslHTffL5qZQ5hD5aC3cdt6hxTzjz4m+i1/+AFNKEjYef/58
-         1Q3nI0PWPOTNmdATO4q8U/V23RmwVx+/hcke/wQ0kEVI/sM+Kzi1HnU/6Zq1voHCzjj1
-         0LCWdFmVXkRhliGazW55u24/HDbEwo2dinflJlVJ74XvNhR1JzPjaF9HUJisMI+uBEWS
-         lA+BJ57DoZm8VCU/a2lLlQHllaXZw4Mb1Pbzs94G/fzLlv1/yrKFcJoNbQnTatAa6w/h
-         QWUQ==
-X-Gm-Message-State: APuU4Z+GzK4sk8qHQSCMAs4M96ip66PaLdLQsTZehwfYKE2qPPW7pAOf
-	UDKrVzEt/nhi74DiHMlooldoF+9W9hzVImHimwaS52rPJgAsCS9WMxmCk/Oik2yJ9MGzLJZAKjm
-	LFvs=
-X-Gm-Gg: AYBFou3SK7vTLagTzGHpF8Y3m+VfABLFnX3o+kx+EP+po5pRwYOgNRkXz14+0SCTCCw
-	9/JrkezyDVfImt4EZuGq6bphReRIHnXhoVtprhLKeqdI/aDIsk6AhP/w0/TA9Mrp1NYc58u0ZyH
-	AjW6JbKPN+n4caM285qgvvUvsTy1zRLsV4ZwYbZwq2qH6jtJxEO5eIZ54h4N8GprT8NccZ3gB3i
-	IDpL03UGDEHSOrVYnRrqF08sTBZHtW/BcNr3ugS+qNyXd7UIBME9jwLCzJEMKspbUivFtwrOmxr
-	Ry9FIPKpWk3OZE2EMkfCqpNbCtqmnUIKap5DnmI7S7vHIyQptHnoEtHMfaKL4s+OPb3zVqi+aDc
-	3nfAp2FiKw2MXNY5EnTRxDMFqjNx3jd7VyA95r8FDnS9hzAjRB7a34QRqpaLdxnFyht7j01bteA
-	zk/3dgIUrGwFn5gxxXR9GmWw9X0yOevcaqEP+QpAz/NOXvqETQ34e3FzIxLbIDBeXqorTdnp/I+
-	WkiGzsPjqaocH7YpVRivZvGf6O/ncdJMGBc8Z+36P1KxPB9TuZYN0ZEJ4+KQiWsLOETxRd4GcOx
-	7x9wO3rxgcuel+jpFCxoM80NkGb15lCH92+DVHZNRhPsMkfOnt4XToCCy78apJ7hT+Sci42SrYA
-	=
-X-Received: by 2002:a05:620a:1786:b0:949:78dc:f90c with SMTP id af79cd13be357-94978dcfafbmr769876985a.60.1794859565094;
-        Mon, 16 Nov 2026 12:06:05 -0800 (PST)
-Received: from mbili.waya ([64.203.83.2])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d7b607sm94333936d6.26.2026.11.16.12.06.03
+        bh=rIDjnnpHadC4roO6Pjzwfgg43uG+Y6jCh2hpR36q9WA=;
+        b=z7xBSQ0Se3QJ5TVTdmZaO9k7K9N/mQvi1ls2IP8s5/xP8Q02JNIGFrMcNBPOmoesnq
+         Bt2bmSTIpOPL7gmJnnzOFWL1aY+I/ReFmHpg77M8u3piuJeclslwMt6zo0F3za9X8qca
+         U7WUXrJlYji6dEC1lHygmKbnwh2VPH2JKQD/bNYISg/RdjayqnHpjxtN85BHaVPnoAG0
+         2P5ESojKgpqgmlktSBFohFKMobSN0JsAOHSQ0Mt4eejZH2mcrMPk7eU2Utq2uBeCvbkB
+         3XOiNJj86+KI9efL1exwlcSeNTkAM3q22Xr0ijxFUhiKzmDUwm9u3Z59qc1rtUfWIGIP
+         z5qQ==
+X-Forwarded-Encrypted: i=1; AL+hErEQQ1DnCuJuGXP3zzkiH27NlUJMU119wyZtN3zO0H8eyABUXzamgvEPOCoUzqKU2paO1LH/bnI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z84Eez/yJwJmhlLyMv1z++OYkAXTrQ/6o6ypGO+9chot6yUc7FP
+	Jope0hlAQ+NjNnuQLzvRKvdwbTyDf4jlSBHZxrhQJk9VCN6gw3S8XuROIlV8+26RsWU=
+X-Gm-Gg: AYBFou16CGN5eKc7zwTopsEzO/O0QZ2iITBMOBIUmrK36RBk/iHu0VyoUjXUWUQIqYD
+	UwURyMRAKJj1pq56DLMivt0zhSUihA1PrzBgfiJ0Xa25ytuzoMz8R1aTmOARInXRXaNH5KwF1Vb
+	2QI/WWyXUtvtoXHAjlRT94pTCeeYR0pyIfjVqPKVi1va4lhC0OoX4CnOJLYiFjQVPzH2jh9PRSK
+	QDrjdYWd8DnmPZvdvlPkDCcMqb376fGUV3gSRpiZXqhcnmBQ4GC/VMLKZVxQEVoLMfx/sK/Jbag
+	4T9+KjFxKW5ELUlCJQSVYVFsqBNTzW4ArxCr85BxEK3upWFpADrWVF9mY4R/Nb7M7nVj4SZfV4+
+	savnFkU0RF58jD+U6KMnikEtez/w3p7iyXainULTZ0RROe64VfdtFNadrr0qzrJ/sUERm/mmqcz
+	UJVSsRroUG4cZxyftxN2KLpBdpFGbBg4YTCZkgNWjnRgucpebAqtJVUwnmSV6QL/nwzujx0b3U5
+	p0LmNy6T2j/cKxanZELlokvoe/LmS42riKLz4usoV6T6y2H/ajvlgHxN2IyRekYE0E/N/Kjk1f+
+	1BPu+A==
+X-Received: by 2002:a05:622a:5144:b0:536:98da:f790 with SMTP id d75a77b69052e-55ac43909femr187873791cf.6.1794859753196;
+        Mon, 16 Nov 2026 12:09:13 -0800 (PST)
+Received: from ziepe.ca ([142.166.156.71])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d445d1sm92856046d6.8.2026.11.16.12.09.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 12:06:04 -0800 (PST)
-From: Jamal Hadi Salim <jhs@mojatatu.com>
-To: netdev@vger.kernel.org
-Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	Victor Nogueira <victor@mojatatu.com>,
-	=?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	cake@lists.bufferbloat.net,
-	Sashiko <sashiko-bot@kernel.org>
-Subject: [PATCH net-next v11 4/4] net/sched: cake: hash before segmenting and reject an overlong split
-Date: Mon, 16 Nov 2026 15:05:54 -0500
-Message-Id: <QDISC-BA27.v11.r0.20261116134053-4@mojatatu.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <QDISC-BA27.v11.r0.20261116134053@mojatatu.com>
-References: <QDISC-BA27.v11.r0.20261116134053@mojatatu.com>
+        Mon, 16 Nov 2026 12:09:12 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xT30p-0000000ANtb-30lh;
+	Mon, 16 Nov 2026 16:09:11 -0400
+Date: Mon, 16 Nov 2026 16:09:11 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Kameron Carr <kameroncarr@linux.microsoft.com>
+Cc: Leon Romanovsky <leon@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+	linux-input@vger.kernel.org, netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
+	iommu@lists.linux.dev
+Subject: Re: [PATCH v2 18/19] PCI: Replace untrusted state with device trust
+Message-ID: <20261116200911.GA2473219@ziepe.ca>
+References: <20261109-device-trust-core-v2-0-3b12d9a9f861@nvidia.com>
+ <20261109-device-trust-core-v2-18-3b12d9a9f861@nvidia.com>
+ <193e4130-9c2f-4a0f-b218-f5fcf0b3d508@linux.microsoft.com>
+ <20261116190417.GD2299285@ziepe.ca>
+ <2965c691-82fc-49f3-abdb-383860f6e82f@linux.microsoft.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,311 +135,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2965c691-82fc-49f3-abdb-383860f6e82f@linux.microsoft.com>
 
-The Fix:
-with CAKE_FLAG_SPLIT_GSO, cake computes the flow/host hash keys, then
-splits a GSO skb into segments it accounts individually. Key extraction
-must run on the unsegmented skb -- skb_gso_segment() can rewrite an
-encapsulated packet's headers to the inner ones -- and the resolution
-must wait until the packet is admitted, since it commits the
-set-associative tags, host indices and way counters that a later
-rejection would leave mutated (a GSO skb whose segmentation fails was
-dropped with that state already committed).
+On Mon, Nov 16, 2026 at 11:24:17AM -0800, Kameron Carr wrote:
+> >> My scenario is pci-hyperv in a confidential VM with a paravisor. The
+> >> paravisor is inside the guest's trust boundary and owns TDISP. It locks,
+> >> attests and accepts the device, then answers a VMBus query describing
+> >> which BAR ranges are private and whether the device's DMA may target
+> >> private memory. Before a driver can bind pci-hyperv has to:
+> > 
+> > Sounds like a user in such an environment just wouldn't use the trust
+> > level mechanism at all.
+> > 
+> > What use do you see for enabling trust level but having all the
+> > devices unattestable and accepted already?
+> 
+> Previous iterations of device trust used the trust level to make
+> decisions around DMA bounce buffering, etc. Is that no longer the
+> case?
 
-Split cake_hash() into a side-effect-free cake_hash_keys(), run on the
-unsegmented skb, and cake_hash_resolve(), run only once the packet is
-admitted. Move the split-GSO path ahead of the resolution: sum the
-segment list, test the total against the ceiling before linking any
-segment, and drop the whole list on rejection so no persistent state is
-committed. The list is deferred to to_free so the tail segment's
-sock_wfree() never runs under the qdisc lock.
+It is not, this is now just about userspace attestation really.
 
-Tag every deferred segment with QDISC_DROP_OVERLIMIT: __skb_gso_segment()
-keeps SKB_GSO_CB at cb offset 32, aliasing tc_skb_cb.drop_reason, and
-__copy_skb_header() copies it into every segment, so tagging only the
-head left the rest with GSO scratch (a headroom-sized value) as their
-drop reason, which __tcf_kfree_skb_list() would report as an unrelated
-core reason. The segmentation-failure return has the same aliasing and
-uses qdisc_drop_reason(..., QDISC_DROP_GENERIC) so its drop is still
-reported as a qdisc drop.
+> I am looking for good hook candidates. I was hoping that trust levels
+> would end up directing DMA behavior, etc. but maybe I am
+> misunderstanding the design direction for these trust levels.
 
-Read q->config->flow_mode once with READ_ONCE() in cake_enqueue() and
-pass that value to both cake_hash_keys() and cake_hash_resolve(), and to
-the later flowchain calls (cake_get_flow_quantum(),
-cake_inc_srchost_bulk_flow_count(), cake_inc_dsthost_bulk_flow_count()).
-cake_mq_change() updates the shared cake_config outside the qdisc lock, so
-a reconfiguration could extract and resolve keys in different modes.
+I don't know, I broadly expect some flag in the struct device to
+indicate that it can access private memory, but how and when hyper-v
+could get involved to set that flag I don't know.
 
-Conditions to recreate the bug:
-  ip tuntap add tun0 mode tun
-  ip link set tun0 txqueuelen 32 up
-  ip addr add 10.99.0.1/24 dev tun0
-  # hold the tun fd open without reading so the backlog persists; a stab
-  # overhead of 1048468 accounts each 92-byte packet at 1048560 bytes, so
-  # 4095 queued packets leave 65519 bytes below QDISC_MAX_BACKLOG.  A
-  # 65000-byte UDP_SEGMENT payload with a 1400-byte segment size then has
-  # a segment sum past the remaining headroom, and cake rejects the whole
-  # split.  Setup needs CAP_NET_ADMIN; the payload itself does not.
-  tc qdisc add dev tun0 root handle 1: stab overhead 1048468 \
-      cake split-gso memlimit 512Mb
-
-Link: https://lore.kernel.org/netdev/179231933068.3135.80340792633077986@kernel.org/
-Link: https://lore.kernel.org/netdev/179269577270.3135.16072065138845192450@kernel.org/
-Reviewed-by: Victor Nogueira <victor@mojatatu.com>
-Acked-by: Toke Høiland-Jørgensen <toke@toke.dk>
-Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
----
- net/sched/sch_cake.c | 130 +++++++++++++++++++++++++++++++------------
- 1 file changed, 94 insertions(+), 36 deletions(-)
-
-diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
-index 803ead499ae9..4851097f0ae5 100644
---- a/net/sched/sch_cake.c
-+++ b/net/sched/sch_cake.c
-@@ -709,19 +709,28 @@ static u16 cake_get_flow_quantum(struct cake_tin_data *q,
- 		get_random_u16()) >> 16;
- }
- 
--static u32 cake_hash(struct cake_tin_data *q, const struct sk_buff *skb,
--		     int flow_mode, u16 flow_override, u16 host_override)
-+struct cake_hash_keys {
-+	u32 srchost_hash;
-+	u32 dsthost_hash;
-+	u32 flow_hash;
-+};
-+
-+static void cake_hash_keys(const struct sk_buff *skb, int flow_mode,
-+			   u16 flow_override, u16 host_override,
-+			   struct cake_hash_keys *out)
- {
- 	bool hash_flows = (!flow_override && !!(flow_mode & CAKE_FLOW_FLOWS));
- 	bool hash_hosts = (!host_override && !!(flow_mode & CAKE_FLOW_HOSTS));
- 	bool nat_enabled = !!(flow_mode & CAKE_FLOW_NAT_FLAG);
--	u32 flow_hash = 0, srchost_hash = 0, dsthost_hash = 0;
--	u16 reduced_hash, srchost_idx, dsthost_idx;
- 	struct flow_keys keys, host_keys;
- 	bool use_skbhash = skb->l4_hash;
- 
-+	out->flow_hash = 0;
-+	out->srchost_hash = 0;
-+	out->dsthost_hash = 0;
-+
- 	if (unlikely(flow_mode == CAKE_FLOW_NONE))
--		return 0;
-+		return;
- 
- 	/* If both overrides are set, or we can use the SKB hash and nat mode is
- 	 * disabled, we can skip packet dissection entirely. If nat mode is
-@@ -756,50 +765,64 @@ static u32 cake_hash(struct cake_tin_data *q, const struct sk_buff *skb,
- 	switch (host_keys.control.addr_type) {
- 	case FLOW_DISSECTOR_KEY_IPV4_ADDRS:
- 		host_keys.addrs.v4addrs.src = 0;
--		dsthost_hash = flow_hash_from_keys(&host_keys);
-+		out->dsthost_hash = flow_hash_from_keys(&host_keys);
- 		host_keys.addrs.v4addrs.src = keys.addrs.v4addrs.src;
- 		host_keys.addrs.v4addrs.dst = 0;
--		srchost_hash = flow_hash_from_keys(&host_keys);
-+		out->srchost_hash = flow_hash_from_keys(&host_keys);
- 		break;
- 
- 	case FLOW_DISSECTOR_KEY_IPV6_ADDRS:
- 		memset(&host_keys.addrs.v6addrs.src, 0,
- 		       sizeof(host_keys.addrs.v6addrs.src));
--		dsthost_hash = flow_hash_from_keys(&host_keys);
-+		out->dsthost_hash = flow_hash_from_keys(&host_keys);
- 		host_keys.addrs.v6addrs.src = keys.addrs.v6addrs.src;
- 		memset(&host_keys.addrs.v6addrs.dst, 0,
- 		       sizeof(host_keys.addrs.v6addrs.dst));
--		srchost_hash = flow_hash_from_keys(&host_keys);
-+		out->srchost_hash = flow_hash_from_keys(&host_keys);
- 		break;
- 
- 	default:
--		dsthost_hash = 0;
--		srchost_hash = 0;
-+		out->dsthost_hash = 0;
-+		out->srchost_hash = 0;
- 	}
- 
- 	/* This *must* be after the above switch, since as a
- 	 * side-effect it sorts the src and dst addresses.
- 	 */
- 	if (hash_flows && !use_skbhash)
--		flow_hash = flow_hash_from_keys(&keys);
-+		out->flow_hash = flow_hash_from_keys(&keys);
- 
- skip_hash:
- 	if (flow_override)
--		flow_hash = flow_override - 1;
-+		out->flow_hash = flow_override - 1;
- 	else if (use_skbhash && (flow_mode & CAKE_FLOW_FLOWS))
--		flow_hash = skb->hash;
-+		out->flow_hash = skb->hash;
- 	if (host_override) {
--		dsthost_hash = host_override - 1;
--		srchost_hash = host_override - 1;
-+		out->dsthost_hash = host_override - 1;
-+		out->srchost_hash = host_override - 1;
- 	}
- 
- 	if (!(flow_mode & CAKE_FLOW_FLOWS)) {
- 		if (flow_mode & CAKE_FLOW_SRC_IP)
--			flow_hash ^= srchost_hash;
-+			out->flow_hash ^= out->srchost_hash;
- 
- 		if (flow_mode & CAKE_FLOW_DST_IP)
--			flow_hash ^= dsthost_hash;
-+			out->flow_hash ^= out->dsthost_hash;
- 	}
-+}
-+
-+/* Commit the flow into the set-associative table (q->tags[], host
-+ * indices, bulk counters). Only after the packet is admitted.
-+ */
-+static u32 cake_hash_resolve(struct cake_tin_data *q,
-+			     const struct cake_hash_keys *keys, int flow_mode)
-+{
-+	u32 flow_hash = keys->flow_hash, srchost_hash = keys->srchost_hash,
-+	    dsthost_hash = keys->dsthost_hash;
-+	u16 reduced_hash, srchost_idx, dsthost_idx;
-+
-+	if (unlikely(flow_mode == CAKE_FLOW_NONE))
-+		return 0;
- 
- 	reduced_hash = flow_hash % CAKE_QUEUES;
- 
-@@ -1765,13 +1788,17 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- {
- 	u32 idx, tin, prev_qlen, prev_backlog, drop_id;
- 	struct cake_sched_data *q = qdisc_priv(sch);
-+	int flow_mode = READ_ONCE(q->config->flow_mode);
- 	int len = qdisc_pkt_len(skb), ret;
- 	u16 flow_override, host_override;
-+	struct sk_buff *segs = NULL;
-+	struct cake_hash_keys keys;
- 	struct sk_buff *ack = NULL;
- 	ktime_t now = ktime_get();
- 	struct cake_tin_data *b;
- 	struct cake_flow *flow;
- 	bool same_flow = false;
-+	u64 slen = 0;
- 
- 	/* Classify first: a terminal verdict means do not enqueue. */
- 	if (cake_tcf_classify(sch, skb, &flow_override, &host_override, &ret)) {
-@@ -1788,12 +1815,50 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 					 QDISC_DROP_OVERLIMIT);
- 	}
- 
--	/* choose flow to insert into */
-+	/* Select the tin and extract the keys before segmenting:
-+	 * skb_gso_segment() rewrites encapsulated headers, which
-+	 * changes the keys.
-+	 */
- 	b = cake_select_tin(sch, skb);
--	idx = cake_hash(b, skb, q->config->flow_mode, flow_override,
--			host_override) + 1;
-+	cake_hash_keys(skb, flow_mode, flow_override, host_override, &keys);
-+
-+	if (qdisc_pkt_segs(skb) > 1 && q->config->rate_flags & CAKE_FLAG_SPLIT_GSO) {
-+		netdev_features_t features = netif_skb_features(skb);
-+		struct sk_buff *nskb, *seg;
-+
-+		segs = skb_gso_segment(skb, features & ~NETIF_F_GSO_MASK);
-+		if (IS_ERR_OR_NULL(segs))
-+			return qdisc_drop_reason(skb, sch, to_free,
-+						 QDISC_DROP_GENERIC);
-+
-+		/* we never use the original skb after splitting */
-+		consume_skb(skb);
-+		skb = NULL;
-+
-+		/* The split path accounts the segment sum, not the
-+		 * stab-adjusted qdisc_pkt_len(), so check it here.
-+		 */
-+		skb_list_walk_safe(segs, seg, nskb)
-+			slen += seg->len;
-+
-+		if (unlikely((u64)sch->qstats.backlog + slen > QDISC_MAX_BACKLOG)) {
-+			qdisc_qstats_overlimit(sch);
-+			/* __skb_gso_segment() puts SKB_GSO_CB at cb
-+			 * offset 32, over tc_skb_cb.drop_reason; every
-+			 * segment inherits it. Tag each one with the
-+			 * qdisc drop reason.
-+			 */
-+			skb_list_walk_safe(segs, seg, nskb)
-+				tcf_set_qdisc_drop_reason(seg,
-+							  QDISC_DROP_OVERLIMIT);
-+
-+			return qdisc_drop_all(segs, sch, to_free);
-+		}
-+	}
-+
-+	/* Admitted: resolve the flow. */
-+	idx = cake_hash_resolve(b, &keys, flow_mode);
- 	tin = (u32)(b - q->tins);
--	idx--;
- 	flow = &b->flows[idx];
- 
- 	/* ensure shaper state isn't stale */
-@@ -1820,14 +1885,9 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 	if (unlikely(len > b->max_skblen))
- 		WRITE_ONCE(b->max_skblen, len);
- 
--	if (qdisc_pkt_segs(skb) > 1 && q->config->rate_flags & CAKE_FLAG_SPLIT_GSO) {
--		struct sk_buff *segs, *nskb, *seg;
--		netdev_features_t features = netif_skb_features(skb);
--		unsigned int slen = 0, numsegs = 0;
--
--		segs = skb_gso_segment(skb, features & ~NETIF_F_GSO_MASK);
--		if (IS_ERR_OR_NULL(segs))
--			return qdisc_drop(skb, sch, to_free);
-+	if (segs) {
-+		struct sk_buff *nskb, *seg;
-+		unsigned int numsegs = 0;
- 
- 		skb_list_walk_safe(segs, seg, nskb) {
- 			skb_mark_not_on_list(seg);
-@@ -1841,7 +1901,6 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 			qdisc_qlen_inc(sch);
- 			numsegs++;
- 			q->buffer_used += seg->truesize;
--			slen += seg->len;
- 			WRITE_ONCE(b->packets, b->packets + 1);
- 		}
- 
-@@ -1853,9 +1912,8 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 		WRITE_ONCE(b->backlogs[idx], b->backlogs[idx] + slen);
- 
- 		qdisc_tree_reduce_backlog(sch, 1-numsegs, len-slen);
--		consume_skb(skb);
- 	} else {
--		/* not splitting */
-+		/* not splitting - skb pointer still valid */
- 		int ack_pkt_len = 0;
- 
- 		cobalt_set_enqueue_time(skb, now);
-@@ -1949,7 +2007,7 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 		flow->set = CAKE_SET_SPARSE;
- 		WRITE_ONCE(b->sparse_flow_count, b->sparse_flow_count + 1);
- 
--		WRITE_ONCE(flow->deficit, cake_get_flow_quantum(b, flow, q->config->flow_mode));
-+		WRITE_ONCE(flow->deficit, cake_get_flow_quantum(b, flow, flow_mode));
- 	} else if (flow->set == CAKE_SET_SPARSE_WAIT) {
- 		/* this flow was empty, accounted as a sparse flow, but actually
- 		 * in the bulk rotation.
-@@ -1958,8 +2016,8 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 		WRITE_ONCE(b->sparse_flow_count, b->sparse_flow_count - 1);
- 		WRITE_ONCE(b->bulk_flow_count, b->bulk_flow_count + 1);
- 
--		cake_inc_srchost_bulk_flow_count(b, flow, q->config->flow_mode);
--		cake_inc_dsthost_bulk_flow_count(b, flow, q->config->flow_mode);
-+		cake_inc_srchost_bulk_flow_count(b, flow, flow_mode);
-+		cake_inc_dsthost_bulk_flow_count(b, flow, flow_mode);
- 	}
- 
- 	if (q->buffer_used > u64_stats_read(&q->buffer_max_used)) {
--- 
-2.34.1
-
+Jason
