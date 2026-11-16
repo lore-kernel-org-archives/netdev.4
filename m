@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.70
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794838452;
-	b=qyAfuPJuH2JuEdqZAstf0Rbna8SSO1DzV9Zjk5Knlpk8yt43Knk6JA+PnPFsxbgtt3ZR
-	 RIFTEPVOWyDK/w9BQvrf72w7gepTISoaQMxvN4ePTCNa4iaDuwhsbReYrqRKcDpMjs6tg
-	 WU/c1ePvHMqV+p2nM3B6s960mzoRdlZh3R80U3NSl6d9LCztubslV8FDzDxRavUit6lt/
-	 qcsqpj6Y5sSOyWEt5MfXChLWJ+A2rgqrBy07YBw8n+ONTaKZ7UIj7CPgCf2mHkZxXMBBD
-	 IpTqcGWmBEcG2NVmso69yaO2J4SUjcHEeLO6tXUJqbg9n/bf7adIvic8ki2cMcqeFiw==
+	t=1794838477;
+	b=3nI2ES6IEuGkd/qGRDQtqNyMuyviec4wLmbVzaRVJcLiiRBQkGUa4aV1b1WYr8AN+d2y
+	 CIIebne6iFN7DYY0HQDlZ6DmAbTv5aS/1T8ZGMi8D4XI3krMdqDlSGZhelG3RztZE11ct
+	 r/3DrCAVLZOPEsL3YHHZO6gf0kt00nv/4f83WUwkJP5d6Hlmfd0KUqMndrKbTGoz2cCiS
+	 cRoB3GgYFvVu4eV1c1rJ50ebhhNtLFa5U118cnwX4I2UPakfU+73VdaLYxGnE0meTNVM1
+	 6qLCUPOL7NMcSbFvomOmQiwbyoqZLLKJkMDAlLHYwsrQaFyS3KWyfF3xv0NsD9DiO3A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794838452;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=vb4ZJkfWv6+aUtGCDcEszVkftPli53KYaMyMrkK/QeY=;
-	b=hQavH0PHn5W+6wXojBF+cWynbBjZTfGDfT4c5sP8VWHagaDCK+F0uTvRIl5heZP+BhaV
-	 uvj8rfSolCoVb4Tdxjs1m6M91QVl96yKKa17qlx/iUZhJVAKmPED8onSjKCF84hNGUUGF
-	 6SkB/8l28LADkMdU2yrUOZ5asGV4bk12UiYpV7rrXrLQ2jO6lRImqISaCsvgCwVZ0PxuE
-	 9H9f38QiKuJjQyggapzdvQFYUM1S6m3Mzk7xHEWyvkiz/4r4jOx8u2AJC5vPsqNCW0ZLN
-	 jOFYojTGBtQ6P9opYKl21dNUgJbVDrC3lncgm0JhzNB8f41N8QmZPoR4MpBEhCaq1kA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794838477;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=5AaHEkxuOI4o8yf7EemD7QQqchrC4omjU6j/7lOvsNk=;
+	b=HfDIMFPBv2R192G8nNC9Op69CPCOmAo2Sgmy3Dj+j8iOVjgPt3elC9EehPknaKw+MOJ8
+	 55VRR0nQ/I8W1Q00Mv+jYGN3ca8eUqEAGLKyKyS9uxIYDA9gEgC/ik7T97UfAcPh2E90k
+	 oY2vEdttpQ1sWa3Kb5vxFc/UhpPVXhQKhtK9Ju7DoZn7V9piLBPC7a7DCSMEWNSkBzEmQ
+	 G28TRWTjBqhUyqk67xN26atOVQgPoMrVXcPIYUtx+Pee3kzs+rAnQAKZgvFpyC2HtUpJq
+	 3k9+T+wh/1ZE4ARK4iSmC/eIrRCucLM5sNPoE3nYFQco+t3TMDp8BP9533grnCOCw+Q==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vG+CvywM;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=uQNZJkqc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.70
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010070.outbound.protection.outlook.com [40.93.198.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3531A606A323
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:14:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3531A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EE9B606A329;
+	Mon, 16 Nov 2026 14:14:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9EE9B606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vG+CvywM
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cddac941ed1so1596210a12.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:14:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794838451; cv=none;
-        d=google.com; s=arc-20260327;
-        b=CnL5Bhi8/an1TVFiXOfMjMIjl3n68CZadqy1ws+iFWBnIe82p82rcfwFRV+o8Q/F0V
-         84cJXU2p5U/u+cKubAf1rd1z/G/rEwbBMZ2uSRrPw1ssVUkMrDMYe8HbvMV74O1LvQ3t
-         v2T5ELQr/dAHzBPYn2oV0TLXYIYq6XNxuqYrc5fw3HEmsQgKWPcslV36Az4jei2B3OSr
-         AichrH8r/mtHpoaDHWHmUeql13yVDLYUzqkUviL32eSH8eZLDbpOOzJgGXRracIoelqg
-         8d0AtmW5qTlDBRzKMU0Ky/yqNPbqOrSBTBK5JF9tnHwA8XZn8LemQe6IJM9QWMvn3jdY
-         sHEg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=vb4ZJkfWv6+aUtGCDcEszVkftPli53KYaMyMrkK/QeY=;
-        fh=WseyNi1SsRTtY3yDvyHmYb+OyfmfCTiLquZZwF327VQ=;
-        b=sFmosMY0R59b3B4JcVwqDuKuwx1JEm16o0ESbdbqsHNfKWNxw8Ra/XUfpZZwFw3pFq
-         tmyBJMZ7xWNjDBuiq4rHUxQWC/LPJW2CAjKFszjo61EjnihnvTVbMwTKtjiz8RisXr1f
-         PyXr8+Zh2jB7VgXr/FztdEz8roKPOkDWk0kmu+YmTBNfZMF74Ik2slCoeq4AMYX1P2sA
-         3yAtB1D6ZVk41Q89qzGhHehynoWPBBuhAtpqo8iP8OqZYluWwArABQ7PgvhXAuwIn4QC
-         d8CIVfkEBRCKkOIRdZ4kAkuaW7rfbDJwh07oR7gbgFaQ7s4Q6y/3JDvpYwvnl5Z3irgR
-         OA6g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794838451; x=1795443251; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vb4ZJkfWv6+aUtGCDcEszVkftPli53KYaMyMrkK/QeY=;
-        b=vG+CvywMm1ldTXvGLhdGrQ39Y1Mc0sORNZCeR4GJ1dLmKEiARwnhn6ElkivHNtn20u
-         MIxt5M8bR7Qq0pXOfhvZgdnaVIzPJxi26+/t5orEtQJWPon9vzvfQwmZHPVT6HsHgswG
-         +kFK5YQE6ZXGfOos/BBLIpBAEQ1G6pydqP4r4yb4imRlq6Xw6pmghrK9qQpJTaHLU8Si
-         5LBETHLbSgtbfKTFp33L/Fi6Q/43vh2ETPbSiQ96Mu2rmjYlqPWhEUvkJfi/fmMGrN94
-         fDfIoVK63qyENq4WmDq3kNG/MuAU50ixMb0BmbvC0NdIKa143YZt+16zHk6b3fcjOGYu
-         9N7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794838451; x=1795443251;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vb4ZJkfWv6+aUtGCDcEszVkftPli53KYaMyMrkK/QeY=;
-        b=Ae5xv72GqP+7MYUMuUEowqurhO3I2wqkTjXq10HtiQ+0Y5Zt/0d+OBoggg/jf5+jHY
-         AOVTdRHTsoW9SlkhCwnGr6qpS9+mCILJ+sT6FMZFQNBuQgyijlZOdoINJg1ygQaXTS+l
-         h6Fj9WrB1pFpRSGGW3sDzHeWZD1kkxe8vdJH2JbxszUOj9AlGFUCWujTRIcGP1Damgcr
-         Rh6njVgy35YUZiAuw4S3SW+XyPTNlKNS4l5wMPY5aHb//ciIM23F8SZUI+s6nVOgxby/
-         iGFWH6FwLV0h1s9W+3lkJUA4O40vXop1srazjoY51XyExQyxHKdcIXvHbMt9TjsIZto4
-         gpjA==
-X-Forwarded-Encrypted: i=1; AL+hErEiiFQcHfvhFe0eZpRF6PxQP9cZxDdhv2ZhrJljra4oDo9S9kgqrcI+PkHxiNJrrwZjcpojAY4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9GfOILtjEqwyVMeQY1wZxrmWQ2RkXnWdeez4IrJNJ1HnTvvvzD
-	pLb2U/GygCClFFS1Vj4TWV9Iq4/2Absc8x65FJqL+DfjwF/yOMQRUFoOQSzHp1E2DCUtyZlPdOY
-	1vW10lxboa18Dd0JpKi433685HrTacOs=
-X-Gm-Gg: AYBFou2XdXmch4T79EC6MynGXrMhKxUnUaujNJWs44Kjdi/vpv+yJxRbybXoor8yaMK
-	xHhEzIOAVI46Gq9TUaQOLKnkrh7DVQrmQ+lGU5ZmMKj332GgLrcfY8XZYR1XvZeuUDdAmWDTTCF
-	hjyFrMkpputm6Y74BCj7bb8aVV0LkjU9mdnudMwiIslbP9G4VUqBAzyZQ7XfVOG41oFe/KgnSez
-	UdL/As+Bst+huSco8P7DGHP4R8Y8BRKT2TKtXr/6bUAqwG6sH+RKNWihypFd1sPifBlrGCplxEj
-	KWciEqzYzgBSVa4Xcyl3gFRc/AT7b9M23KcjGSkcncBIGZWC0Uh3z5s1E0GvacKzZzmRkn3y8Or
-	ZjFdnUESq0GvgGh8GKnmLKHugh80ivtbQ7PgNVPHynwfki70X5Mp7GSXNSdj5souAnfCOMFCku7
-	P1EPUFMmmWUC4+uvSN+NnvGs8XWbYTIWMjTUrP
-X-Received: by 2002:a05:6a20:9191:b0:3e0:dc12:8908 with SMTP id
- adf61e73a8af0-3f7a8dd95damr9049521637.81.1794838451265; Mon, 16 Nov 2026
- 06:14:11 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=uQNZJkqc
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Cwi1KJnzjALmnufRRh82qgdgHKcbJbuENN/+IL7TLY1Iq9odzxxB1eJ83u63GjCAvVvw+deIxLSACOLEVjnR4Rim6cUzJqWC3i9ZBe3m9GYn8z48+fj11kufpFa/gVeKp/X6NtDcyioBQs8MKIeKtIve3mA5PJYrmyla4EQSPX71N/flfGIaC2BcxVcz2M2hdiWqMAG2599WPaBfOT038Xz0lox8815+wCnYaYqw6B5fZhimkGPprHfALWKAj6Zo8K+XTQXcf2glDRNUCSL3M0339yuGRn1gLaPAveaooPxJSTUJ6QLvb8HH/IBMqHIJt3imSktGaHXn3RPnXfLQVw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5AaHEkxuOI4o8yf7EemD7QQqchrC4omjU6j/7lOvsNk=;
+ b=rSC9SDB5hcYo99qcKPhijewUl9G96+jeKogrPgCMy3MmHAMQKDvdheLDIQFh3HbkNFds+aG02fs0guE34JG23cKIt/pjjq+6QEPak2AMGtMcrORoaZHN1JPShp5ICABoNFDL9bQmQ8T/VeTNv2n9KVfCBXmZanwNMZQmnqQcKhKwJzmWVgkYjYCnsE2qNaqGX0BLiWHnYc1QLWDPOkyyuyqm/DVUcY3TSuQ4dTiy8MULYrSKTkrG2rse/iCzmwfOgmkPvoTNlZXCiBFMHTg5vAqGxQLB1+PpB3o3pSX0xqgoHgbTQ4xm3Iq8KVONG6ZLPWRbcENEfP/wb80OTw3FKA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5AaHEkxuOI4o8yf7EemD7QQqchrC4omjU6j/7lOvsNk=;
+ b=uQNZJkqcwShsOoKiESFrHTKISXXS9PHm4XsVAJRmlYMHGGIyy80PRCRbpTisO1Dt0FAyY528TlzmFiQ7f5IFCE9tpBGlnkb+ZYW4VDpzq8ClIyRrLpHWne4ZOgvM0OcqB2ybX0SjFFmqI1nTlYwJ38VF/BATunItfdttqqoWGQ45yuWBuhBrZWqJMj/PZ/HR0bF/d9SWnzrY6HSc9+o/YPPeDcJnSkFm1aziBOxcs8pl34E1joyUE3o9LOG3uYw4XQiKqzIj1ZiOIX3cuJaXibEP51NVnKLrVuhRVeHWpz29RJAQhhRG55b8dKRuX3/KCmltZXkq/wggO6qbbkUn8g==
+Received: from SJ0PR03CA0294.namprd03.prod.outlook.com (2603:10b6:a03:39e::29)
+ by SA3PR12MB095375.namprd12.prod.outlook.com (2603:10b6:806:514::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
+ 2026 14:13:32 +0000
+Received: from CO1PEPF00018860.namprd02.prod.outlook.com
+ (2603:10b6:a03:39e:cafe::6) by SJ0PR03CA0294.outlook.office365.com
+ (2603:10b6:a03:39e::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Mon,
+ 16 Nov 2026 14:13:31 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CO1PEPF00018860.mail.protection.outlook.com (10.167.249.249) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Mon, 16 Nov 2026 14:13:31 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 16 Nov
+ 2026 06:13:03 -0800
+Received: from [10.125.206.246] (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 16 Nov
+ 2026 06:12:58 -0800
+Message-ID: <759c8f05-a018-4040-a791-fef794eb6933@nvidia.com>
+Date: Mon, 16 Nov 2026 16:12:55 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,124 +104,91 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CADvbK_daN6zZNPckkGh=r70ooNwTz59VViJy5jPp1w18SDPrzw@mail.gmail.com>
- <20261111082313.1606366-1-bsdhenrymartin@gmail.com>
-In-Reply-To: <20261111082313.1606366-1-bsdhenrymartin@gmail.com>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Mon, 16 Nov 2026 09:14:00 -0500
-X-Gm-Features: AclHuK_PBS5DfVRnFcTFsg2uR9KLfQjm6-Pkb_EVvsTPuHEoQpl0gvLNWQC5tqI
-Message-ID: <CADvbK_dKWmcM411yC6ZKrYtduukEL_aTp3Bw0XdkqOd5Tn=sXg@mail.gmail.com>
-Subject: Re: [PATCH v2] sctp: fix skb_over_panic when adding addresses with a
- pending delete of another family
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: marcelo.leitner@gmail.com, davem@davemloft.net, kuba@kernel.org, 
-	pabeni@redhat.com, horms@kernel.org, edumazet@kernel.org, 
-	linux-sctp@vger.kernel.org, netdev@vger.kernel.org, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V1 rdma-next 08/24] RDMA/mlx5: Derive
+ mlx5_ib_adversarial_mode global from mlx5_core adversarial API
+To: Leon Romanovsky <leon@kernel.org>
+CC: <jgg@ziepe.ca>, <linux-rdma@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<saeedm@nvidia.com>, <tariqt@nvidia.com>, <mbloch@nvidia.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <edumazet@kernel.org>,
+	<davem@davemloft.net>, <andrew+netdev@lunn.ch>, <dtatulea@nvidia.com>,
+	<moshe@nvidia.com>, <maorg@nvidia.com>
+References: <20261110134320.34408-1-yishaih@nvidia.com>
+ <20261110134320.34408-9-yishaih@nvidia.com> <20261116085701.GA11319@unreal>
+Content-Language: en-US
+From: Yishai Hadas <yishaih@nvidia.com>
+In-Reply-To: <20261116085701.GA11319@unreal>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: rnnvmail202.nvidia.com (10.129.68.7) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PEPF00018860:EE_|SA3PR12MB095375:EE_
+X-MS-Office365-Filtering-Correlation-Id: 621ea53c-c155-4826-4dcd-08df43ebcb63
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|1800799024|23010399003|82310400026|36860700016|10067099003|4143699003|11063799006|56012099006|261026121527099003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	3jwDvTZKoumajzLgYD4byG44Ak0B+kyMOuiT/pUuJksTPRNN+UOgfDdiMuO14V0KWfKYqMrtVe8T1F7NPmoNqStWgI1EBCx4oI1XaQjrqG4BgBcDtX2ZPvFkF+Z5/XL5PM4rKB5lFXG3XYiWh9y4x2OhQuPzNxT/jrr8PmmldJHGpS0BVSknAVA3SxL6UXbWMbvSqOekamLNVebjM0AMLIwFRuv0w/cgVpT/1XIvTLiUynOW0Mmv7nQ2U2jrSOURYpRk5a4bJk1kjdRNYezf5HmlfJqM2D2Bo6epoGtMmzHwNBGL7ZxZSsYSDEwEWpFBeicvN9EAIFDRxQ1masTeqxWAFo+lXdMNXPViwdnkgEoimUIJ4HAM+ocjx4j1PDNuWR7U1/wE77qI+L6Y/RFjUnoLx6BKzr+iarfNbvzvXWdJf9GCMgYdfCnY6egaDrHVQ+SMCgdXKNZAm5OwAJiC1+6SfCb/A2rGtYYZH8498Si2KUmgPGE8ad2w/bV7VGd7QpS8w+pzncoZdf5ryMKVzJqHM+U5Qmcdr5QHcUmZ1DMCbStoeBIPY7kcDhj7ShX1hhGUnMcp3yLGR6ftbCKo0olUI40mR64wQiwk8JqiOdVqtEgdwbZBpKuDQuBxbk7Fs+SHxrcJqp8E+1WyL8jtIlUAeKV+FRSRajXD0YYDS2UYx8rFbTUgJbA1eQrCaJ7RKLFcp5ZRaQpxGe9I38aBIw==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(1800799024)(23010399003)(82310400026)(36860700016)(10067099003)(4143699003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	cKwi+dBkX5LR4sqGwUJCaVziaKlVfDAJXHYZaCLw3ELfD3VQydgMEiUI+5G+697ry4idvh1Rod2YY4DPPMxQlpD1OR1QkjS1013CxUaa6AFmqudDn+dZdSbl+dAfPtmNjjuuK7m3ZwAgbDx9gSQkC1KWQ0uZ7ipL4dxEYMzqa2OKaHPpvyswqDaRo2CLSnuAGIE3zLKAG11Zd8lvTDaVegeOiv+B9QlD14oIdmKUboSDlbkJRLeZ40SsIoFfF4PweS+ogipfpN5MFkL3wlNPOoqni7g3kqJKTrOFKOriSjBpxHpl2KKsMXDAnrpnuxCAAfgCpDXQrZZyRXdK5N9EczTb8RiWWmU4TX7o2VXHneUo6wX5kn5HVttkDOa2MNxBEKcwCsKbrNuq5OpyI219PWPWe8ZUSYiczHGqkSgVfN8tTheM3pZQqIXTt1z4TpbL
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 14:13:31.7593
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 621ea53c-c155-4826-4dcd-08df43ebcb63
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	CO1PEPF00018860.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB095375
 
-On Wed, Nov 11, 2026 at 3:23=E2=80=AFAM Henry Martin <bsdhenrymartin@gmail.=
-com> wrote:
->
-> sctp_make_asconf_update_ip() accounts for a pending DEL_IP
-> parameter by reusing the length of the address being added. The
-> write-back side instead serializes the pending address itself,
-> with its own address family. If the pending delete is IPv6
-> (20-byte parameter) while the added addresses are IPv4 (8-byte),
-> the chunk is allocated 12 bytes short and sctp_addto_chunk()
-> writes past the end of the skb. E.g. on mainline (05441d697f7f):
->
->     skbuff: skb_over_panic: text:ffffffff84859c77 len:392 put:20
->         tail:0x188 end:0x180 dev:<NULL>
->     kernel BUG at net/core/skbuff.c:215!
->     CPU: 0 UID: 1000 PID: 379 Comm: poc_sctp
->     Call Trace:
->      skb_panic
->      skb_put
->      sctp_addto_chunk
->      sctp_make_asconf_update_ip
->      sctp_send_asconf_add_ip
->      sctp_setsockopt_bindx
->      __x64_sys_setsockopt
->
-> Requires addip enabled on the endpoint (net.sctp.addip_enable=3D1).
->
-> Account for the pending delete with its own address family, as the
-> write-back side already does.
->
-> This issue was discovered by Tencent CodeBuddy Security.
->
-> Cc: stable@vger.kernel.org
-> Fixes: 8a07eb0a50ae ("sctp: Add ASCONF operation on the single-homed host=
-")
-> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> ---
-> v2: move the pending-delete accounting out of the length loop and
->     drop the del_pickup flag, which no longer guards anything.
->
->  net/sctp/sm_make_chunk.c | 16 ++++++++++------
->  1 file changed, 12 insertions(+), 4 deletions(-)
->
-> diff --git a/net/sctp/sm_make_chunk.c b/net/sctp/sm_make_chunk.c
-> index 90de272842512..b8e4db81636e2 100644
-> --- a/net/sctp/sm_make_chunk.c
-> +++ b/net/sctp/sm_make_chunk.c
-> @@ -2870,7 +2870,6 @@ struct sctp_chunk *sctp_make_asconf_update_ip(struc=
-t sctp_association *asoc,
->         int addr_param_len =3D 0;
->         union sctp_addr *addr;
->         int totallen =3D 0, i;
-> -       int del_pickup =3D 0;
->         struct sctp_af *af;
->         void *addr_buf;
->
-> @@ -2885,16 +2884,21 @@ struct sctp_chunk *sctp_make_asconf_update_ip(str=
-uct sctp_association *asoc,
->                 totallen +=3D addr_param_len;
->
->                 addr_buf +=3D af->sockaddr_len;
-> -               if (asoc->asconf_addr_del_pending && !del_pickup) {
-> -                       /* reuse the parameter length from the same scope=
- one */
-> -                       totallen +=3D paramlen;
-> -                       totallen +=3D addr_param_len;
-> -                       del_pickup =3D 1;
-> -
-> -                       pr_debug("%s: picked same-scope del_pending addr,=
- "
-> -                                "totallen for all addresses is %d\n",
-> -                                __func__, totallen);
-> -               }
-> +       }
-> +
-> +       if (asoc->asconf_addr_del_pending) {
-> +               /* The DEL_IP parameter is serialized from the pending ad=
-dress
-> +                * itself below; account for its own address family, whic=
-h may
-> +                * differ from the added ones.
-> +                */
-> +               addr =3D asoc->asconf_addr_del_pending;
-> +               af =3D sctp_get_af_specific(addr->v4.sin_family);
-> +               totallen +=3D paramlen;
-> +               totallen +=3D af->to_addr_param(addr, &addr_param);
-> +
-> +               pr_debug("%s: picked del_pending addr, "
-> +                        "totallen for all addresses is %d\n",
-> +                        __func__, totallen);
->         }
->
->         /* Create an asconf chunk with the required length. */
-> @@ -2917,7 +2921,7 @@ struct sctp_chunk *sctp_make_asconf_update_ip(struc=
-t sctp_association *asoc,
->
->                 addr_buf +=3D af->sockaddr_len;
->         }
-> -       if (flags =3D=3D SCTP_PARAM_ADD_IP && del_pickup) {
-> +       if (flags =3D=3D SCTP_PARAM_ADD_IP && asoc->asconf_addr_del_pendi=
-ng) {
->                 addr =3D asoc->asconf_addr_del_pending;
->                 af =3D sctp_get_af_specific(addr->v4.sin_family);
->                 addr_param_len =3D af->to_addr_param(addr, &addr_param);
+On 16/11/2026 10:57, Leon Romanovsky wrote:
+> On Tue, Nov 10, 2026 at 03:43:04PM +0200, Yishai Hadas wrote:
+>> Cache mlx5_is_adversarial() in a driver-wide mlx5_ib_adversarial_mode
+>> in mlx5_ib_init(), shared through mlx5_ib.h. The mode is the same for
+>> all devices, so a global avoids reading it through every mlx5_ib_dev
+>> and keeps the checks at the call sites simple.
+> 
+> This patch and description makes no sense. The mlx5_is_adversarial() is
+> simple static pre-compiled branch "cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)".
+> 
 
-Acked-by: Xin Long <lucien.xin@gmail.com>
+cc_platform_has() is a function call, not a static branch. The wrapper 
+keeps the policy of when mlx5 runs in adversarial mode in one place,
+used by both mlx5_core and mlx5_ib. Anyway, in V2 mlx5_ib calls it once
+per device at init, see below.
+
+>>
+>> Signed-off-by: Yishai Hadas <yishaih@nvidia.com>
+>> ---
+>>   drivers/infiniband/hw/mlx5/main.c    | 3 +++
+>>   drivers/infiniband/hw/mlx5/mlx5_ib.h | 1 +
+>>   2 files changed, 4 insertions(+)
+>>
+>> diff --git a/drivers/infiniband/hw/mlx5/main.c b/drivers/infiniband/hw/mlx5/main.c
+>> index 65455aedd559..f4f2ad80e76c 100644
+>> --- a/drivers/infiniband/hw/mlx5/main.c
+>> +++ b/drivers/infiniband/hw/mlx5/main.c
+>> @@ -76,6 +76,7 @@ enum {
+>>   	MLX5_ATOMIC_SIZE_QP_8BYTES = 1 << 3,
+>>   };
+>>   
+>> +bool mlx5_ib_adversarial_mode;
+> 
+> It is not kernel style to throw random global values to cache existing
+> in-kernel API functions.
+> 
+
+OK. In V2 there is no global flag in mlx5_ib anymore. This patch is
+replaced by one that sets ib_device::adversarial_mode once per device,
+and the checks read that field. Patch #24, which set it at the end of
+the series, is folded into it.
+
+Yishai
