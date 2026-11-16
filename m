@@ -1,47 +1,86 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794840008;
-	b=ZazUgzXDj72zXREDMTuRcTl3CeHfmVyuRyDdVWpO12wCqLKXBeO8Vgj8g85uzr/JTXto
-	 d79zSuOy9mlIg72X1v8pW3R6Kcs+t4f2a4A7vor46T46RnUQLPrfmrlwzS9b0f3P7Tf/g
-	 jpkYzcLe9KBABe4BzfyWZbMqc4Op1laarM5dYFWTei6idszf0uDYksAQrB+7ONf9s7AEq
-	 ii4XlbaBC0DR0BPH3UfQ724icUOsehNtL11waUdduKqQt5+I9hoBgbjz4A8EmWAiI44dB
-	 m8Z2T2OuWqbFzFfEyYgs03oie4rZ8bmbXFuWWTSMWXOannyg8Yod2KuT/PdZBhByYGA==
+	t=1794840066;
+	b=15YnUcdo6n7stjxezg4je0yIEtEcRp6PqHcFQI3mSPYWAPmF8ykCKn0YioDdux32SwBO
+	 rxXpSob16mz2SoVasThlGi6N1d6U2UkUQ4NvseAk82ygypWbptUo79904T8NmBMaTIf1i
+	 St3+tqcjoGemOn1V4wwrFrQpwFuAIu/gi16Xz6tHEEIR79dfLJFkQRP8v8OsbbmgHGEc8
+	 rkMvNYXa9nWAPzd9YD1exisb0eRVKwBY+rugwf861yUKy4+P5WN5tAzhnU4SjtzajD5f/
+	 YpVy4X6bu133y3Riepy6aEbCuCyRGAr6BPt+Y6OrC132dlMIAGky5XgMilAUb2NtjtQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794840008;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=l2EBpH08xKGjJnPxYpGviTvnZuT+6vV8X+V/VrgfnoA=;
-	b=BlkCvQxIz9tpI/q13meTlPvQj+9Bukmqn0UAux0BwYz7HwUwDWw9oXPPBPcsw9fZk5G1
-	 Wxv9TnKXX/SsDJurH10XNaIrOWFalpV5FkkWrfEyoPCFeji4uPtjYBrdx5J2UvrreI/cA
-	 bMvr39+o4MsaCSxklxe/1RRCMvG5CxEjhY1QecFcUvO6Vq9rxkd2wAtCwEhJIlf2p0jry
-	 fJTob/Ox+uR230XQ2mKp+6yZlb40rHixo2BC8MGVu8gjdZedg/wdE8F4jZa+VgSR0QMdv
-	 EwjSq1YZoA7PPxYzBiUFcCPHUF7HlB5+9UUO/SGKI5339ploMxbvIu6/nGc+RbGdLRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794840066;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=rck2Y3eqNJgd+mBW5P64Rjy+9DMOjDHBgfT6pXds1IU=;
+	b=wZ3o6u96dM0yK6ap2YbvJaC+zUpnRE7gNJOJ1o8y3kRj9UpKLeiAro7i2QjW6g5PQkKo
+	 jx2uf9DVwZy2keQeHDZ+QaURBRSm82O4XDMxSRRCqDgPk0cBTv0YcD1lFfV75b21GRKxs
+	 W3LPLUwrBCoi+NIy6I/jnN0zSXzLNWHbyjWs+rM3rgxkjpe/0PYEoJpZRoCQwZ9sSOsCE
+	 6JON9QhJs4RKOQTO2w6dvHwup3R/bR0Ihu1cKE/Qjtw46nYcgjQCUu70E7+l4tqLVqBmI
+	 kJFI/TgNL+E2euGyYpvz2tGzblMK8N/orDq8PNUgspHucw+J3ndTe6a/t5vO1TvhR4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="EzD/GQvN";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hOouaY1x;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14FD3606A32C;
-	Mon, 16 Nov 2026 14:40:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACA2B606A33E;
+	Mon, 16 Nov 2026 14:41:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EzD/GQvN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2921F000C4;
-	Mon, 16 Nov 2026 14:40:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hOouaY1x
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C6861F000C5;
+	Mon, 16 Nov 2026 14:41:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794840007;
-	bh=l2EBpH08xKGjJnPxYpGviTvnZuT+6vV8X+V/VrgfnoA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=EzD/GQvNR1otlSd8m8+eabMhI+h/azuepFBT9Ub3NmseDVOzAH7kWm0cTfaBVrwZN
-	 PYJa3KDrymDi8ElGdVUSB8ndLE1YlG64gmRyaFpm3SBlFmbXXYB3W//ePI8DFTSdpc
-	 vUN/AJ9yR4oSGMoTq4wmKbFkJBeP+LiFP+naYrQrTQdSU1wFI+wEPYyn6Wc+ACYm4q
-	 96X5AjYy+bOd81oyk8a61CxLWXFLnPWlu4Dtkx9fSZkGIM8pbH7cmR5O0O3QhMlVGW
-	 AGWdA9F9RAKNPbig7CQgrlVocvp9yPH0k3kMd3cQulE9G0WxQIEZ/bTDw2eDbg6VsY
-	 l5fteDhN/fhhQ==
-Message-ID: <1d43222e-b864-44a3-a159-575fc1a9b388@kernel.org>
-Date: Mon, 16 Nov 2026 15:40:01 +0100
+	s=k20260515; t=1794840066;
+	bh=rck2Y3eqNJgd+mBW5P64Rjy+9DMOjDHBgfT6pXds1IU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=hOouaY1xsoh6wz7OkDEV9jecC1eeHdUzuBJ4iKZos36b0fe+StWs/XSmsTjHsGMfp
+	 e0tnBNKEzYBk5ocKoScl5rfojtpjaAq04YxAl9To16QUfCpYwnFZC1O4/NOMYIyx/J
+	 6krsbqGk+aiylgCRzdnezjfMkr6lvaqVy59IDh4S8336RQTcF1BHCaLRWdCsPSIOp+
+	 VVzuE3RLFUwu6bn36UH7ayClXyqoBHEqh0EEwT5lbksAWLyI95yck3v703WGi3w5hJ
+	 rBBp+t1wYkX1vn71MylXuHgsWdIYHoEXqOW4MLAWG3JYv7ky1boG/BvH4HGhBbkddM
+	 lkYNAFSJRMfOQ==
+Date: Mon, 16 Nov 2026 16:41:03 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+	linux-input@vger.kernel.org, netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
+	iommu@lists.linux.dev
+Subject: Re: [PATCH 17/17] PCI: Replace untrusted state with device trust
+Message-ID: <20261116144103.GU11319@unreal>
+References: <20261105-device-trust-core-v1-0-1e536825b4eb@nvidia.com>
+ <20261105-device-trust-core-v1-17-1e536825b4eb@nvidia.com>
+ <yq5amrr8yldi.fsf@kernel.org>
+ <20261116132046.GI2532299@ziepe.ca>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,95 +90,76 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net] mptcp: Avoid unsequenced accesses to jiffies in
- mptcp_reset_tout_timer()
-Content-Language: fr
-To: Nathan Chancellor <nathan@kernel.org>
-Cc: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
- mptcp@lists.linux.dev, linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
- stable@vger.kernel.org
-References: <20261114-mptcp-wunsequenced-v1-1-707a73a6c172@kernel.org>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261114-mptcp-wunsequenced-v1-1-707a73a6c172@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116132046.GI2532299@ziepe.ca>
 
-Hi Nathan,
-
-On 15/11/2026 05:30, Nathan Chancellor wrote:
-> After a recent improvement in clang to warn on unsequenced accesses to
-> volatile variables [1], an instance appears in mptcp_reset_tout_timer(),
-> which can break the build with CONFIG_WERROR=y / W=e:
+On Mon, Nov 16, 2026 at 09:20:46AM -0400, Jason Gunthorpe wrote:
+> On Mon, Nov 16, 2026 at 06:38:25PM +0530, Aneesh Kumar K.V wrote:
+> > > +static inline bool
+> > > +pci_dev_default_is_restricted(const struct pci_dev *pdev)
+> > > +{
+> > > +	enum device_trust_policy policy = READ_ONCE(pdev->dev.trust_policy);
+> > > +
+> > > +	return policy == DEVICE_TRUST_POLICY_DISABLED ||
+> > > +	       policy == DEVICE_TRUST_POLICY_ADVERSARY;
+> > > +}
+> > > +
+> > 
+> > Could you clarify how this series will work alongside device acceptance
+> > and private-memory access?
+> > 
+> > In particular, what should callers of device_cc_accepted() use under
+> > this model?
 > 
->   net/mptcp/protocol.c:3044:20: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
->    3044 |                         tcp_jiffies32 + jiffies + mptcp_close_timeout(sk);
->         |                         ~~~~~~~~~~~~~   ^
+> Who is calling device_cc_accepted? I thought we were keeping that
+> internal to the DMA PI?
 > 
-> Per C11 5.1.2.3.2, accessing a volatile object is a side effect. Per C11
-> 6.5.2, unsequenced side effects on the same scalar object are undefined
-> behavior. Per C11 6.5.3, unless otherwise specified, side effects and
-> value computations of subexpressions are unsequenced within expressions.
+> > My understanding is that trust describes the operating
+> > policy, not TDISP acceptance or DMA access to private memory.
 > 
-> Add an explicit sequence point by splitting the addition expression in
-> half, eliminating the undefined behavior and clearing up the warning.
+> Right.
+> 
+> > Therefore,
+> > neither FULL nor ADVERSARY alone indicates whether a device can access
+> > private memory?
+> 
+> Right.
+> 
+> Once you turn on TDISP you effectively activate DMA, just like turning
+> on the IOMMU.
+> 
+> Userspace then gets to choose how the rest of the system behavess. You
+> can still run a strict viommu with an adversarial driver even if you
+> enabled TDISP and can DMA to all memory.
+> 
+> I don't know if many people would choose that combination, but it is
+> there.
+> 
+> > You also mention that once a trust level other than DISABLED is set, it
+> > cannot be changed during the device's lifetime. If a device initially
+> > operates in ADVERSARY mode and later attestation justifies FULL
+> > operation, is that transition intentionally unsupported for the existing
+> > device object? As documented, unbind/rebind and reset preserve the
+> > committed level.
+> 
+> I think it should only be for the duration of a bound driver?
 
-Thank you for the fix, it looks good to me:
+For now, I decided to disallow state changes because the IOMMU may outlive the
+bound device. Unbinding does not fully reset the device, so we must quiesce it
+to ensure complete security.
 
-Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
+Thanks
 
-@Net maintainers: this can be applied in net directly (simple, safe, and
-avoid build break with -Werror on newer version of clang).
-
-Cheers,
-Matt
--- 
-Sponsored by the NGI0 Core fund.
-
+> 
+> > It would help to describe how the trust framework fits together with
+> > those separate mechanisms, including which pieces are left for follow-up
+> > series.
+> 
+> The main thing it brings is the pause to allow userspace to measure
+> the device and put it into RUN if it so chooses before any driver is
+> bound.
+> 
+> It doesn't change how any of the DMA or TDSIP flows work.
+> 
+> Jason
