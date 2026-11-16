@@ -1,90 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794819606;
-	b=GWDOGDmCVb+KOl8fw5ZL8ll39lanNPFaZPB1kYi2uU+lRZi1X4imwyGQqEzYMeKuCrhP
-	 2vjrCEjoIYYQT9F+UGHzxaCZ4DpPet008/n3mwYPpkWiKWT22Ku0RHvxV3VHrTa7ZKhXA
-	 FTdAPFYyMaCM9sFv9wn3fn74QrNeefSpOJVMZJYDAPVYKKZxY5DBRQjFlBRwvZL268vJK
-	 HCJK05XeLVur003Yq2R5fM/Cz4xblCG6aFBFJ34RSYjD4qjGGXnKovcE2nfDbspYKGJ/A
-	 NXNi3LHT8IQXuZd+RBztiOq+zenXScP14R2la3fMI78riNRtlKRv+c1WEhw+qZTkrzA==
+	t=1794819607;
+	b=wCCjKOI351+6+1RN82iKVKH9CqJ4QJqBAkiH3Xrf9T7YzplrIggTvnHpm3v/6jL4lvHi
+	 0hgX5JxkHm3K4K3ESCICerSqtihk1JFKm2CIRCnM9kGav60/ZASveSz+IsG7SgAymbi72
+	 eYTsl9muqhyQvKPZVFQt+V9K4r18TfSUQfa3Ill2KH63lUPn5Viioa9G+icpcNYOI6+nK
+	 Ql7JsvZoNtadkVDPxwpIOyHWRGBZv34klosnp2KyZiM1YchhwwvpOKnJ85lztdAEyLDtr
+	 3UtDTr2TE4nTgkJSEC/XH/u34UPrp7xZiWXNULrw5/4N/4YZn6yQvRA1Q7eAFGnhM/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794819606;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794819607;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=Z1T9rHVfS5D3FC+BJOtynV5uEujPCuJ4oTq6T5KpuEM=;
-	b=Cn8C3pEXs7IbytJ+Iux3vwATO1vc4PQFm+115GpMRO/cj8pJSShOaH02lygV14twwwcw
-	 u7nzNqUqnv/xA0cbyvEwKD+OCYVko5B8TgriOU0Welc+E/OCH9wB9+ak0t8spcNNTwGzK
-	 nn6Xean45wO+/rH4TCT+bD9mwxRGaadTKo4YVE0My11/1bDnLY/YGRgTde+vO3FfECDGq
-	 Eqjs4D/MA6lzigq+iuqKS92srIMtIWsfBwmUWX5/EG5QcaePq5WUvZOlRiFRDW/2Gr9ku
-	 hecGYMPzzvVchNX+6U/PMoH7C3Du1Oh7q83MlznUu6tvqcDXp5ZiOAMNs9IjVuveSXA==
+	bh=muvZdkuFtn0hfXPNvFEMPR8KK69nJzaQNXj8cS0B7Og=;
+	b=R5ZCnE+pI5TdDBpzPqVFIeNBsb9kJpwV0YmxUnfroV3a5ECsmr0EBGt8EhT2oKtRTG5y
+	 KqbXuygaWIbLJTfPW7+C+UIG/MOZ8yaOY+jzrq/szDWhLJQA56QkBu7BznekTHnyWejs2
+	 4hW5H3vHb8nNDt9nZOO/x4sfWP9VRpb8CxPTyaYTgezj6+QEiSWPHDSmzxQByDof7ahg1
+	 1XSsAtJpKAGYYt0nXG5y68yDTQyQGJD7GiOAaI4fvGU2OMw/F/Jyv//cqbp7TSbzZo5Bz
+	 QzmiJm1PXqYIuLDtRNtEj3J8+3Wlz5iczX5keP9V8Rxqlej8H+dJY6zp+yVOUsz9bDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tNfvVtRt;
-	arc=none smtp.remote-ip=209.85.160.51
-Received: from mail-oa1-f51.google.com (mail-oa1-f51.google.com [209.85.160.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ntpUZCCb;
+	arc=none smtp.remote-ip=209.85.167.175
+Received: from mail-oi1-f175.google.com (mail-oi1-f175.google.com [209.85.167.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E685B606A330
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:00:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E685B606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38020606A31C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:00:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38020606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tNfvVtRt
-Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-48eee44b908so2511838fac.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:00:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ntpUZCCb
+Received: by mail-oi1-f175.google.com with SMTP id 5614622812f47-53dda625f63so2931966b6e.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:00:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794819605; x=1795424405; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794819606; x=1795424406; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Z1T9rHVfS5D3FC+BJOtynV5uEujPCuJ4oTq6T5KpuEM=;
-        b=tNfvVtRtVFeRRn6F4Yx1d12ky5HuQRQs2iLfreCcdSy23EJ0j8AB+6MDzN7qAtW3TG
-         Xkg9tkpLQ9Ycslf07hEjqdo5C6YG9Ze/3eLBP8KZJycBbohlgm2+zOdATtDnCyugMaz3
-         eY9dWP3Q9pWhM5PFi1w7+b11LbCoeW2fVYvq5KM92aSPTm+TGN/d7NYkX7hnWdj+eNV3
-         0p8sCnp1eb/TccoVzAvnXjHD1dRS+shv4nQlHZ89ZOl4EJ1rZuqqfgco4b6XBW2mfNDB
-         R/5X8q5ShHuD2k5iHoNuqywYlRPASkWjGakYGodZ6eVAJWosO/EcCPpM8w33jGvlQNyy
-         O1YA==
+        bh=muvZdkuFtn0hfXPNvFEMPR8KK69nJzaQNXj8cS0B7Og=;
+        b=ntpUZCCbXm2wFhbFbXhsgDTYNZw2HUGWwUUSI1oSVaNaS9so3zTtXeSudQXXoe+UBf
+         Gfiusd+Co2+kmkuAsIQnUcjr1kF7T6FsXcXTbOWDCfK2fy6p59B2mnYdGl8b1f6W2aGu
+         nH+Dd4hUUABrz9JMx9W8SVvgirD5x5KLgWo8ACb/I5IgI6ClVp2y09eIODbmF6qwqS7R
+         1HNijtv7tuMN32q6NnPYe68MyuYAagEaTQD0UD9cpEeSiuA9vLSA+4h5i9rYaqbOImsQ
+         z94qxCJb3F4FZzrEhETMsravLSPaxpVXOV7eiIHRVSx6TsJPtaco9zPon1VrBL7ROL5c
+         FSJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794819605; x=1795424405;
+        d=1e100.net; s=20260707; t=1794819606; x=1795424406;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Z1T9rHVfS5D3FC+BJOtynV5uEujPCuJ4oTq6T5KpuEM=;
-        b=c9A3zgXZMSwLB+WWRypNTljNgJdWG7djnlJPDnRURfOP7Agbs5p/wylmOCQyCeaXtq
-         8fZMQguVRN1SNavqeA/2GDyxYWVGlmi0yNwKyvgUXYtHfipf9Zwrd917lkZx8LEUM093
-         2nid5eXk23zLFj83RuM/ZdUscD/1hV7b+azE7gtdCJhrK05/A7EAj7FbHH+uXpNJj0IB
-         CNoqINatffm7oimJmWfY6gJekSMgUHTjaEeVO3e/BIqH5EekTMbaQpmo7MMrjEj6Mhfv
-         W4D/pwn/POTXT/cY4QHiGlwHHTlZvoNRBBVnk7LNhwOelHBM7Z5bpFNxf17k7gdAhfyE
-         3S8Q==
-X-Forwarded-Encrypted: i=1; AL+hErHjsfQsW8Nih2D71rI4ZXOzZU/kbmZZmRuJ61p/+GUNjMiF7/Pv9mmsy4rKzOP9pA376E0DVUk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8MhqREjogA1ORvRDn1MX2AzKI7+fDhndj2Aqdyzm0+rfci7zaK
-	nyUy2SYPkbk2RgD9jVCThAqSeQzxuVCKNDLRCEiD0k59+VYRIwV/yfbR
-X-Gm-Gg: AYBFou12iCmNqUEuT8z9ntpTNM+K9EwGelYCYNPiQpbwn2CvKox7DIcA05v/hcn/iPr
-	njPhKgLl4Aya8kJ8RHxyfV+7iW7iu1v80VEFnPQ/Xk1pK0e+zFDUxz/DZwaDp3jre/bbRIWmf2w
-	H8hZLKR9w2+NMlU6pLwYKxb4/c3r4DS0eoOf3VulXGpbEghDD9ZQx/inqkkRrE+IjyeO9cCRnR8
-	O75e3IsZuA3bxIKskk9N7ID6vLTjGan+8gR/i/lAPhUCYJ4hnihGbQlMvWKjpuJbO2Y9I+Hm1kL
-	xVkZ/OEqe3EIdoM2rpmH86eOLh5ixRow9ZJGt1dkEUiJnnjESy8VXoNzH4Ggok4n45u1QvfjRxf
-	VdJ5d6eMZBLItsf86G8Q+F5M5ukyw3c1r1qDIGDyP1sB1D2m3uuiuJCggQwYNvqMEu7+tUVwvNC
-	GXF9E3RhqZtnwWiu/+ioPiWjQNmniHiFdKdMgu0TaIBdzdAN0F0mheLrMRahafYdA88qrMSXi4o
-	Ejcn/msoM5quA55LzhvfFct6OvO6++4AGPle4BvMHXB/RJl3HxjlyHlHlltFdeV+IrgFcc1TcZc
-	y3IGN40Lc2qK9ZFmBYpB86+woUz6FL2UHJNg9ImoXbxdS+AhGkL/P28vnHKq5+V4gGN2DtMzN8D
-	N0UsWgrHQCMieSZU3FmZVMoC+B4AJ0poz65tX2vOAb+wkw0gTsGBwSShuXY2aj12V/cd7MMa/CD
-	LPtjGcpkUDYrrL8JJ8zTrbFYLcHhTpO04aYIIsn6BR1HTp9Nu7xMw=
-X-Received: by 2002:a05:6808:4d06:b0:572:86c8:6b4c with SMTP id 5614622812f47-57286c86d22mr4614870b6e.6.1794819604482;
-        Mon, 16 Nov 2026 01:00:04 -0800 (PST)
+        bh=muvZdkuFtn0hfXPNvFEMPR8KK69nJzaQNXj8cS0B7Og=;
+        b=bxoH/X2Oh3D+WwGxrlOn1nAEuzEXgfKvU2TgT7ygpTsNDgvUveXghTh6gPHJwd1oaP
+         Ulm3gDjMcs28M/IK+zmQWx2JEUTqsGBDVbW8pBDt/gQaBktyDIb6X8fK3DJc2hoTvrF2
+         9Nuo7ZL7C0kehU4RkhC25qcjLQAAK/Mg4tTaQZfgnO3XPaxwNc/yIiBVHKtI8XjGB1tq
+         6NGnUaBq4UGXWpjevHkWiu0KAC9HQAdEknO8TaCkqk4O7DOUexKpzlmggVtbIy23N+Bf
+         xS9BH1TAJWx9He3Q6U3smo7R/Ag1EMVlwLs6Zlf9BOJc+JL0oPQ4EDxiw6GoGzvBSveN
+         TlXA==
+X-Forwarded-Encrypted: i=1; AL+hErG4ujc47OhgdngDSxgfVxpgDssYCLuAAR9UvVNgEev1+1KigrVzAIJ3v6yku6t1O00MXbU+PH8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+O8UgBQUy9hf2/TtyyFCUf4ZLxfTp53/Q5uiB65KLRyNFVLCsH
+	AvMvcOzsvRBgHOA7S/TxD07DsJG0JmtO8MS6ZgOjfqWdUe3qUTzDsm64
+X-Gm-Gg: AYBFou1KPWHChYkoxiRAE8uA0y9ds1B2X05BZhAt2dQPTTyS1LbaYHFPFHpb0OxgJgC
+	WQSIKVSyKFEjcH+XBwRtWTDMHmrCQnw5I1SpdD6ErcLvYNg7kBSMcBN6wBtLxs9SXJ99CuuWraK
+	ffSRo2hda9OXVgqE8Kfz654Eu3t044ThEgV7qgH5zwC7K+zYqH5eexcjMt2FYCf8X0QT5Fiefe/
+	oW/j2Km692gdoOlPPm8CInDGwQ+dc4U6rGPYg+oN83FO+49uQ/idco7YUXU1fyXz5eU211nlooQ
+	StNiM9gdqrU8iNv4yRkYZ1IAlppwzo3Gg9stT7KJ3ORo9ZMPexHhELYY3EpSgx+atC+AGLrHE+t
+	ArTqrTGvOQYCRsIrm77irwxHcMSvzO+z/N5YmMU5DbeaDa/6AUPfiG9NXJ1tBL9gIiv7YE4ZOT2
+	jEcagkXdBNPFvwSknt3QBIziOhJnzr1cDgehZBSSJeG5Dw00Ru13i+SjmnUTPvhRbjZATLqXtB3
+	6FqdZvoD9M1YeYjtoQ+OMZ0PxQ93p0hw8ZHWvBzUyy9nrJi2P3MVoH4H6zDO6lZqWUDbo29r5xJ
+	76ZDR9IXyD2GN35A9MLGp+NJlID8wnMMFutJbzOtt/JSZHEr3Iith+aM7KEj5scPuLU7UoAEY8n
+	cwkewT1+SMkEG7rpPEwIYeIIgJbkeRDnIRUMF7BUx1jYg/v4G6GwqcirJIaTtrpB96A6EpS7xB3
+	9Lwh5u+42HegqPtN+nvcTPngbmF7jM+no+1kNdAVr2KngcPooNIcVenOtBcsxAZkoqnO+lU6VI
+X-Received: by 2002:a05:6808:4f60:b0:572:d0fb:ae61 with SMTP id 5614622812f47-572d10afddemr4314071b6e.49.1794819605661;
+        Mon, 16 Nov 2026 01:00:05 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-5750329397bsm719177b6e.6.2026.11.16.01.00.03
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-5750329397bsm719177b6e.6.2026.11.16.01.00.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 01:00:03 -0800 (PST)
+        Mon, 16 Nov 2026 01:00:05 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 16 Nov 2026 01:59:57 -0700
-Subject: [PATCH net-next v6 1/3] docs: networking: correct the PHY
- statistics group name
+Date: Mon, 16 Nov 2026 01:59:58 -0700
+Subject: [PATCH net-next v6 2/3] ethtool: include errored frames in PHY
+ receive byte counts
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,7 +96,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261116-submit-acx00-phy-stats-v1-v6-1-8feef8e76cd5@gmail.com>
+Message-Id: <20261116-submit-acx00-phy-stats-v1-v6-2-8feef8e76cd5@gmail.com>
 References: <20261116-submit-acx00-phy-stats-v1-v6-0-8feef8e76cd5@gmail.com>
 In-Reply-To: <20261116-submit-acx00-phy-stats-v1-v6-0-8feef8e76cd5@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
@@ -111,30 +111,34 @@ Cc: Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-The ETHTOOL_STATS_PHY group is exported as phydev by stats_std_names[],
-but the ethtool netlink documentation lists it as phy. Use the exported
-name so the documented group matches the statistics string set returned
-to userspace.
+Some PHYs count bytes in all received frames, including frames with
+errors. A successful-byte count cannot be derived by subtracting a frame
+error count because the lengths of damaged frames are not available
+separately.
+
+No in-tree PHY driver currently reports rx_bytes. Define this existing
+counter to include bytes in frames with errors so drivers can report
+their hardware byte count through it. The counter describes reception at
+the PHY, independently of MAC or host filtering.
 
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- Documentation/networking/ethtool-netlink.rst | 2 +-
+ include/linux/ethtool.h | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/Documentation/networking/ethtool-netlink.rst b/Documentation/networking/ethtool-netlink.rst
-index eba226c79ec3..8659761ebc69 100644
---- a/Documentation/networking/ethtool-netlink.rst
-+++ b/Documentation/networking/ethtool-netlink.rst
-@@ -1665,7 +1665,7 @@ the ``ETHTOOL_A_STATS_GROUPS`` bitset. Currently defined values are:
-  ETHTOOL_STATS_ETH_PHY  eth-phy  Basic IEEE 802.3 PHY statistics (30.3.2.1.*)
-  ETHTOOL_STATS_ETH_CTRL eth-ctrl Basic IEEE 802.3 MAC Ctrl statistics (30.3.3.*)
-  ETHTOOL_STATS_RMON     rmon     RMON (RFC 2819) statistics
-- ETHTOOL_STATS_PHY      phy      Additional PHY statistics, not defined by IEEE
-+ ETHTOOL_STATS_PHY      phydev   Additional PHY statistics, not defined by IEEE
-  ====================== ======== ===============================================
- 
- Each group should have a corresponding ``ETHTOOL_A_STATS_GRP`` in the reply.
+diff --git a/include/linux/ethtool.h b/include/linux/ethtool.h
+index c3a41fbd5426..9c3f079d9573 100644
+--- a/include/linux/ethtool.h
++++ b/include/linux/ethtool.h
+@@ -481,7 +481,7 @@ struct ethtool_eth_phy_stats {
+ /**
+  * struct ethtool_phy_stats - PHY-level statistics counters
+  * @rx_packets: Total successfully received frames
+- * @rx_bytes: Total successfully received bytes
++ * @rx_bytes: Total received bytes
+  * @rx_errors: Total received frames with errors (e.g., CRC errors)
+  * @tx_packets: Total successfully transmitted frames
+  * @tx_bytes: Total successfully transmitted bytes
 
 -- 
 2.53.0
