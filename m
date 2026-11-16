@@ -1,59 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=5.135.140.105
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794853684;
-	b=YuKUneAU/5w/ys6IND5sdjSSjW7uq39Fkx16nrOMwYtTsfNzVzdl9nu1Cz3CUcG75EMI
-	 7SKlSEDU2CyUkVqwvRYeXZwb3TevsTcrvjF8QiynwdVM7IyS0ssYH0lkLSnVnlc6YSKis
-	 E3cSMDNXky8FW448342h/r6DbTsng2b8w2B40nx1PugnmfX7EsOnM4FlH6gZCs8c5biOP
-	 RkuOXoFSYv/c894j47IOpChEzIG71mbAmWwAYlIppCvNw+JiV0effemEOfJeUKUdsU0+U
-	 NA8wl4QUYz3SJRiY4/Xfbiqhg23Ax4KGvmhIcT+U1f5o6Bp6R+Gw4M/FC7/ArzcFvpw==
+	t=1794854048;
+	b=YMtRKEIa1c6NQIwzfOu0u79mn42uyWd4Ql5q/VtgUfbO7tsK6+CPagBlcSsHkYRyT0Ln
+	 RE+21evhJDXTUg/jAluyDCU7wmkouW83RmzmGZ9Cb7tFg6DTQ2IcZcYBazibnHNxM+I2R
+	 QbL3JaHUm3hvUwyk0Jn+bZQ49rOje1Rx30LSsV/0gpqcK4RJrsnSjaMTODmrYa8BN2cxZ
+	 CN16r68sqygdPWZUfoA39y+e8IrrqvpEymbgqBI9bpWfBneoHglrPBdYiuPyArM2zol/7
+	 7PizhVFau8lbyxhsnDPAikrNaCo0225FkBm2WiDeevF2UrLYsxp6i10duZ/h6LGLPNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794853684;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=fxJgyiv8oOoTp+D10o3vZr2gQ5VGkKt/9+lDC8DjeV8=;
-	b=faxlFgdBPXKKzREws85QaiGZTeGkvAP5ZY0796HJu5agQuQx4s5AccZ2gJfwMTXm30eo
-	 FBcV+PRykYkyJMZoe9idLCxE/VXhOZEFVuEZzvuuZ92Y4x8MWWfjH+Dyvv1Miii3nQhU+
-	 XFhytzMkX0tcdYgYYKSaM7+R7ZFcZ3zlu4UcLLFQ6jzeW12uOp4RiD/oEUMzoQ6t54+Od
-	 bMFZextfeN6DzJiTQmu8u25s+lm4Lg4ejVhj92/Riur2zc6FHlOa7unBeDn8foLldWb1G
-	 jMW9ARWnn57rLut+RJVqq62Ip8hfAdlHOxbgBEN78b/K0VFOADdZjUbbGpf57Av8i3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794854048;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-Id:MIME-Version:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=B/3a5RONDuuZMGMV6Q0tQ9hy4n2J6HprX0jDPD3gb+8=;
+	b=AiFoEk2qVVSS7twUis+IDOiwQQ5Gi/F0VhN/LwSzRkeufpWIAeLb3nMjdvVn/ia4XVRd
+	 Dp0/1AmB3ty42jJufXipNQaFObjKtYeOWgXirHmaPJXKb6z8QWDMtw565xPo1vTg74l2p
+	 K7Zx7AF/yxRBGO38ZQryl/DHRTZCW8KoPxLpiDCI+cMfVM+bSosIs3XCViprINbNViJ8D
+	 juLdw2oj9XbAJBYgha0SBTu6ZA2PnY9ychBKhW8ZZqmJf0/QpttlPcrgqlda0npvc5Hto
+	 NJa7qU5WgBZaIPU/2qz/dYiXBYscNM69Q3xRHu7JTgtl8bs9jhs4YpMCIHd8L+/U7yA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LDuzLia+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=cjdns.fr;
+	spf=pass smtp.mailfrom=cjdns.fr;
+	dkim=pass header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=PR5EgkKa;
+	arc=none smtp.remote-ip=5.135.140.105
+Received: from mail.cjdns.fr (mail.cjdns.fr [5.135.140.105])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C5EB606A31C;
-	Mon, 16 Nov 2026 18:28:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D2D8606A322;
+	Mon, 16 Nov 2026 18:34:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D2D8606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cjdns.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cjdns.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LDuzLia+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 807661F000C4;
-	Mon, 16 Nov 2026 18:28:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794853684;
-	bh=fxJgyiv8oOoTp+D10o3vZr2gQ5VGkKt/9+lDC8DjeV8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LDuzLia+wSrpqSKniNnq7YdBi008lPmTmB6a5Mw7m/LdU+dcPV1j0VQ9nifZZQFnT
-	 yb9MZImV/S1D7lbk/kcjkXFpISHnmCTjcAsn+VgSd9rm2gWMy8LyMxIT0qMOrLfKu1
-	 j6Mxi7WDHsvhEsABKYCRi+IE7+gLVoZOQP2feZKsd5xQwyOMTHJQ/8oRurun7b+/dO
-	 SwIoMHCyUlMRbI1VBnTDX46KBIkklYH6ElSRTh0YetC3g+C+SONPLR1bRsERQgNXPP
-	 Qo8VELssED7aMNd4fOrsA3ILxVagE1dWk3Lskq6VTxbzCwJC+SeKXcmD99AdtCIGfT
-	 l/CiNmzaCjMcg==
-Subject:
- Re: [PATCH net-next] net: dsa: mv88e6xxx: Enable LED control on 88E6171
-From: netdev-bot+sashiko@kernel.org
-To: olek2@wp.pl
-Cc: andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 16 Nov 2026 18:28:03 +0000
-Message-ID: <179485368308.3136.7792285463770201069@kernel.org>
-In-Reply-To: <20261115181305.2860498-1-olek2@wp.pl>
-References: <20261115181305.2860498-1-olek2@wp.pl>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=cjdns.fr header.i=@cjdns.fr header.a=rsa-sha256 header.s=dkim header.b=PR5EgkKa
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7914A4F9DBE;
+	Mon, 16 Nov 2026 19:33:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cjdns.fr; s=dkim;
+	t=1794854036; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=B/3a5RONDuuZMGMV6Q0tQ9hy4n2J6HprX0jDPD3gb+8=;
+	b=PR5EgkKasWTpXvXzLEw/tljvxn4hUXlrZY2tvwDWMz7HvOwdOToUVYvarbPlcjneFaluxL
+	ufNGmQX2AdUJE9HqJHDwv8UrAIRnWUy7WLmWttp2EvmBrL+KJMCw7xkYaWjSR+JL/1bc9K
+	UAAiGtFrRYXVL+xVtXMVS7LxCbFfHkaJePyocUXCFSu72WxLU9+WhoZv7jTDyqJY2uZvA6
+	vnoxOlyK0proIOGKDBVkT5rw4y5Ig5Peo0soG93xwBAIdMUlK34osuaVLutJ3l4ICs/EMy
+	O24EQxH1jPSJVKnOQOyKRJfiC8UVszW+Hq/lHxUG/D13xY5qc2Frcw7PxN+yVA==
+From: Caleb James DeLisle <cjd@cjdns.fr>
+To: netdev@vger.kernel.org
+Cc: andrew@lunn.ch,
+	olteanv@gmail.com,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	linux@armlinux.org.uk,
+	arinc.unal@arinc9.com,
+	Landen.Chao@mediatek.com,
+	dqfext@gmail.com,
+	sean.wang@mediatek.com,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	naseefkm@gmail.com,
+	b.larsson@gmx.com,
+	Caleb James DeLisle <cjd@cjdns.fr>
+Subject: [net-next v5 0/7] net: dsa: mt7530: support EcoNet EN751221
+Date: Mon, 16 Nov 2026 18:33:25 +0000
+Message-Id: <20261116183332.168858-1-cjd@cjdns.fr>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,232 +82,140 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+The EcoNet EN751221 has a unique switch configuration. Every chip made
+with an EN751221 die has at least one on-die MT7530 that is MMIO based.
+This switch has 3x 10/100 ports and 1x gigabit port.
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1 (1)
+Some popular chip packages such as the EN7513G and EN7526G have another
+MT7530 implemented as a multi-chip-module that connects to port 5 of
+the on-die switch and is controlled via the MDIO controller integrated
+in the on-die MT7530.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+In this configurations, the upstream switch is put into a "passthrough"
+mode in which all traffic is forwarded between port 5 and port 6
+without altering its DSA tags.
 
-- [Medium] mv88e6xxx_port_setup_leds() (drivers/net/dsa/mv88e6xxx/leds.c)
-  now installs the four hw_control_* callbacks only when the chip has…
-- [Low] The commit message only talks about enabling LEDs on the 88E6171.
+Furthermore, since the DSA core does not call mt753x_setup until all
+switches are present, and the downstream switch only becomes available
+when the upstream switch has configured its MDIO controller, the MDIO
+controller setup on MMIO implementations must be done before
+mt753x_setup, or else it will never complete.
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the patch
-  extends it to the 88E6171 and adds new callbacks that hit it.
-- [Low] mv88e6xxx_led_set_blinking_period() ignores its `led` argument
-  and rewrites the per-port Stretch/Blink register (pointer 0x6, "for…
+Finally, the on-die switch and the MCM switch connect via a TRGMII link
+which requires calibration. In order to calibrate this, PLL adjustment
+must be possible on the on-die switch, necessitating changes to the
+core_(set|clear|write|rmw) functions to support MMIO implementations.
 
---
+Solve all of these issues, add the TRGMII calibration, and add support
+for both switches.
 
-net: dsa: mv88e6xxx: Enable LED control on 88E6171
+Since this patchset will probably be subject to some discussion, please
+consider accepting any patches that are non-controversial since it will
+make future re-submissions easier.
 
-This patch enables LED control on the 88E6171. That switch has four LEDs
-per port and a register layout similar to the 6352 family. The patch also
-adds per-chip num_leds and led_hw_triggers fields, LED2/LED3 register
-definitions and callbacks, and installs the hw_control callbacks only
-when led_hw_triggers is set.
+Thanks!
 
-> diff --git a/drivers/net/dsa/mv88e6xxx/leds.c b/drivers/net/dsa/mv88e6xxx/leds.c
-> index ab3bc645da566..925c120afba33 100644
-> --- a/drivers/net/dsa/mv88e6xxx/leds.c
-> +++ b/drivers/net/dsa/mv88e6xxx/leds.c
+Changes since v4:
 
-[ ... ]
+Updated to net-next 2026-11-11 and applied multiple changes per Sashiko
+notes:
 
-> @@ -526,24 +573,40 @@ static int mv88e6xxx_led_blink_set(struct mv88e6xxx_port *p, int led,
->  	if (err)
->  		return err;
->  
-> -	err = mv88e6xxx_port_led_read(p->chip, p->port,
-> -				      MV88E6XXX_PORT_LED_CONTROL_POINTER_LED01_CTRL,
-> -				      &reg);
-> +	if (led == 2 || led == 3)
-> +		err = mv88e6xxx_port_led_read(p->chip, p->port,
-> +					      MV88E6XXX_PORT_LED_CONTROL_POINTER_LED23_CTRL,
-> +					      &reg);
+Patch 2:
+* Added note that in passthrough configurations, the fully-featured
+(downstream) switch must use DSA index 0.
+Following Sashiko note: http://lore.kernel.org/netdev/2928da24-a379-4d1e-baae-a5ae68acdf46@cjdns.fr
 
-[Severity: Low]
-This isn't a bug introduced by this patch, but it now affects up to four
-LEDs per port instead of two.
+Patch 3:
+* add mt753x_upstream_port_index() which is consistent with change of
+conduit.
+* skip mt753x_trap_frames() if passthrough
+* mt753x_check_passthrough() now returns true when there is 1 CPU port,
+1 DSA port and no other ports, and does not return error in any
+configuration.
+Following Sashiko notes: http://lore.kernel.org/sashiko-reviews/3624a201-be82-423f-ac96-7ab530e7918e@cjdns.fr
 
-The mv88e6xxx_led_set_blinking_period() call just above this ignores its
-led argument. It rebuilds the per-port Stretch/Blink register from
-scratch:
+Patch 5:
+* Early call to mt7530_setup_mdio() now conditioned on "mdio" child DT
+node.
+* mt7530_setup_irq() now called from within mt7530_setup_mdio() so that
+PHYs requiring interrupts from switch can start.
+* MT7530_TOP_SIG_CTRL set for IRQ moved to mt7530_setup() so it runs
+post-reset.
+* Lockdep keys added to mutex to distinguish MDIO and MMIO switch.
+* Early call to mt7530_setup_mdio() returns ret in case of error.
+Following Sashiko notes: http://lore.kernel.org/sashiko-reviews/6b8a44ad-2795-45f4-9248-bdd5ead0e66f@cjdns.fr
+NOTE: Move the content of mt7988_setup to mt7988_probe per above email
+was NOT implemented.
 
-drivers/net/dsa/mv88e6xxx/leds.c:mv88e6xxx_led_set_blinking_period() {
-    ...
-	reg = 0;
-    ...
-	/* Set up blink rate */
-	reg |= MV88E6XXX_PORT_LED_CONTROL_POINTER_STRETCH_BLINK;
+Patch 7:
+* Two calls to en751221_trgmii_calibrate_direction() had inverted
+defaults.
+* Set MT7530_CHG_TRAP | MT7530_PHY_INDIRECT_ACCESS on MMIO EN751221
+switch.
 
-	return mv88e6xxx_port_led_write(p->chip, p->port, reg);
-}
+v4: http://lore.kernel.org/netdev/20261029184202.1859843-1-cjd@cjdns.fr
 
-On the 6171, a blink_set on LED2 can change the blink rate and pulse
-stretch of LED0, LED1 or LED3 on the same port. That happens when the
-other LED is in forced blink or a hardware activity mode, and the LED
-core still holds that LED's old blink_delay_on/off values.
+Changes since v3:
+* Fix "econet,en751221-gswitch" not correctly used in driver
+* "support MDIO switch downstream of MMIO switch" - clearer comments
+* mt7530_port_change_mtu prefer moved function to forward declaration
+* dt binding "passthrough mode" documentation, clarify it is a
+restricted case of switch hierarchy
+* Use different dsa_switch_ops for passthrough rather than short
+circuiting in each function.
+v3: https://lore.kernel.org/netdev/20261028011317.1557238-1-cjd@cjdns.fr/
 
-Is it intended that one LED's blink period changes the other LEDs on the
-port? The result is only a wrong blink rate. Nothing crashes.
+Changes since v2:
+* The MCM switch previously identified as econet,en751221, similarly to
+mediatek,mt7621, however since econet,en751221 is already used for the
+SoC compatible, is it changed to econet,en751221-gswitch. The name
+"gswitch" is chosen as there's apparently no standard and for EN751221
+this is intuitive because it is the gigabit switch used in
+implementations with a "G" in the chip name.
 
-[ ... ]
+* Do not use a special mt7530_switch_ops for passthrough mode, instead
+detect passthrough mode in each function and exit early so as to avoid
+errors when trying to make a configuration switch-tree wide.
 
-> @@ -576,6 +639,34 @@ static int mv88e6xxx_led1_blink_set(struct led_classdev *ldev,
->  	return err;
->  }
->  
-> +static int mv88e6xxx_led2_blink_set(struct led_classdev *ldev,
-> +				    unsigned long *delay_on,
-> +				    unsigned long *delay_off)
-> +{
-> +	struct mv88e6xxx_port *p = container_of(ldev, struct mv88e6xxx_port, led2);
-> +	int err;
-> +
-> +	mv88e6xxx_reg_lock(p->chip);
-> +	err = mv88e6xxx_led_blink_set(p, 2, delay_on, delay_off);
-> +	mv88e6xxx_reg_unlock(p->chip);
-> +
-> +	return err;
-> +}
+Changes since v1:
+* Move mt7530_setup_mdio_irq out of mt7530_setup_mdio because
+mt7530_setup_mdio may be called before mt753x_setup
 
-[Severity: High]
-This is a pre-existing issue, but this patch extends it to the 88E6171
-by adding .port_setup_leds to mv88e6171_ops. The new LED2/LED3
-callbacks also hit it.
+* Do not return error in mt7988_probe if mt7530_setup_mdio fails because
+doing so leaks the DSA switch registration, and in any case
+mt7530_setup_mdio will be called again.
 
-mv88e6xxx_setup() takes chip->reg_lock and keeps it held during port
-setup, LED classdev registration included. If a DT LED node has
-linux,default-trigger = "timer", the trigger is activated synchronously
-inside registration:
+* default_taps_ondie not being used en751221_trgmii_cal_ok unused args
 
-mv88e6xxx_setup()
-  mv88e6xxx_reg_lock(chip)
-  mv88e6xxx_setup_port()
-    mv88e6xxx_port_setup_leds()
-      devm_led_classdev_register_ext()
-        led_classdev_register_ext()
-          led_trigger_set_default()
-            timer_trig_activate()
-              led_blink_set()
-                led_blink_setup()
-                  mv88e6xxx_led2_blink_set()
-                    mv88e6xxx_reg_lock(p->chip)
+* Use clk_drvp / clk_drvp instead of drvp / drvn (typo)
 
-Can this deadlock probe on the non-recursive reg_lock that the same task
-already holds? The LED core's trigger locks would stay held too.
+* en751221_set_tx_drive ext values too large for fields - values taken
+from reference implementation, reduced from 16 to 15.
 
-With linux,default-trigger = "netdev", netdev_trig_activate() calls
-register_netdevice_notifier(). That takes rtnl while reg_lock is held,
-which is the reverse of the rtnl -> reg_lock order used elsewhere in
-the driver.
+v1: https://lore.kernel.org/netdev/20260909140346.2861572-1-cjd@cjdns.fr/
 
-Could the LED classdevs be registered outside the reg_lock section, or
-could the lock be dropped around registration?
+Caleb James DeLisle (7):
+  net: dsa: mt7530: get ctrl phy addr using a function
+  dt-bindings: net: dsa: mediatek,mt7530: describe 'passthrough'
+    hierarchy
+  net: dsa: mediatek: add support for passthrough mode
+  net: dsa: mediatek: support PLL setup on MMIO MT7530
+  net: dsa: mediatek: support MDIO switch downstream of MMIO switch
+  dt-bindings: net: dsa: mediatek,mt7530: add EcoNet EN751221 switches
+  net: dsa: mediatek: support EN751221 switch
 
-[ ... ]
+ .../bindings/net/dsa/mediatek,mt7530.yaml     |  49 +-
+ drivers/net/dsa/mt7530-mdio.c                 |   1 +
+ drivers/net/dsa/mt7530-mmio.c                 |  24 +-
+ drivers/net/dsa/mt7530.c                      | 868 ++++++++++++++++--
+ drivers/net/dsa/mt7530.h                      |  46 +-
+ 5 files changed, 887 insertions(+), 101 deletions(-)
 
-> @@ -771,13 +862,13 @@ int mv88e6xxx_port_setup_leds(struct mv88e6xxx_chip *chip, int port)
->  	}
->  
->  	fwnode_for_each_child_node(leds, led) {
-> -		/* Reg represent the led number of the port, max 2
-> +		/* Reg represent the led number of the port, max 4
->  		 * LEDs can be connected to each port, in some designs
->  		 * only one LED is connected.
->  		 */
->  		if (fwnode_property_read_u32(led, "reg", &led_num))
->  			continue;
-> -		if (led_num > 1) {
-> +		if (led_num >= mv88e6xxx_num_leds(chip)) {
 
-[Severity: Low]
-This isn't a bug, but the commit message only says "Enable LED control
-on the Marvell 88E6171". The patch also adds the num_leds and
-led_hw_triggers fields, edits the 6172/6176/6240/6352 table entries, and
-replaces the fixed led_num > 1 check with this table-driven bound.
-Should the commit message mention these changes?
-
-Also, a future chip could set .port_setup_leds and leave .num_leds at its
-default of 0. Every DT LED would then be rejected with -EINVAL, and
-mv88e6xxx_setup_port() would pass that up:
-
-	err = chip->info->ops->port_setup_leds(chip, port);
-	if (err && err != -EOPNOTSUPP)
-		return err;
-
-All current users of mv88e6xxx_port_setup_leds() set num_leds, so
-nothing changes today.
-
-[ ... ]
-
-> @@ -805,17 +900,27 @@ int mv88e6xxx_port_setup_leds(struct mv88e6xxx_chip *chip, int port)
->  		if (led_num == 0) {
->  			l->brightness_set_blocking = mv88e6xxx_led0_brightness_set_blocking;
->  			l->blink_set = mv88e6xxx_led0_blink_set;
-> -			l->hw_control_is_supported = mv88e6xxx_led0_hw_control_is_supported;
-> -			l->hw_control_set = mv88e6xxx_led0_hw_control_set;
-> -			l->hw_control_get = mv88e6xxx_led0_hw_control_get;
-> -			l->hw_control_get_device = mv88e6xxx_led0_hw_control_get_device;
-> -		} else {
-> +			if (mv88e6xxx_has_led_hw_triggers(chip)) {
-> +				l->hw_control_is_supported = mv88e6xxx_led0_hw_control_is_supported;
-> +				l->hw_control_set = mv88e6xxx_led0_hw_control_set;
-> +				l->hw_control_get = mv88e6xxx_led0_hw_control_get;
-> +				l->hw_control_get_device = mv88e6xxx_led0_hw_control_get_device;
-> +			}
-> +		} else if (led_num == 1) {
-
-[ ... ]
-
-> +		} else if (led_num == 2) {
-> +			l->brightness_set_blocking = mv88e6xxx_led2_brightness_set_blocking;
-> +			l->blink_set = mv88e6xxx_led2_blink_set;
-> +		} else {
-> +			l->brightness_set_blocking = mv88e6xxx_led3_brightness_set_blocking;
-> +			l->blink_set = mv88e6xxx_led3_blink_set;
->  		}
->  		l->hw_control_trigger = "netdev";
-
-[Severity: Medium]
-The hw_control_* callbacks are now only installed for LED 0 and LED 1 on
-chips with led_hw_triggers. hw_control_trigger is still set to "netdev"
-for every LED, though.
-
-Two groups of LEDs end up with hw_control_trigger set and all four
-hw_control_* callbacks NULL:
-
-- every LED on the 88E6171, which has no .led_hw_triggers in its
-  mv88e6xxx_table entry
-- LED 2 and LED 3 on any chip
-
-The LED core decides whether to expose the offload attribute only from
-hw_control_trigger:
-
-drivers/leds/led-triggers.c:led_trigger_is_visible() {
-    ...
-	if (attr == &dev_attr_trigger_may_offload_to_hw.attr)
-		return led_cdev->hw_control_trigger ? attr->mode : 0;
-    ...
-}
-
-Won't these LEDs show /sys/class/leds/<led>/trigger_may_offload_to_hw and
-report "netdev"? The netdev trigger can never offload to them, because
-supports_hw_control() fails when the callbacks are NULL.
-
-Documentation/ABI/testing/sysfs-class-led says this file "Only exists
-when the LED supports trigger offload".
-
-Could the hw_control_trigger assignment move inside the
-mv88e6xxx_has_led_hw_triggers() blocks for LED 0 and LED 1?
-
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115181305.2860498-1-olek2%40wp.pl
+2.39.5
+
