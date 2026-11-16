@@ -1,105 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794853249;
-	b=vVXsiEORSuQ1W8oyv5g4A6YXQd2sXHExAaUStd1ewU8TLx/0gBiR/bjoFZGwMB+5w6He
-	 J6DPkIJtVlR7+mGJS7JOizEByn2+Eh3yftT7+JflWqeppkfs4RHMYdiMX5HZvF89rJMNU
-	 BnFIzMM8Us0rX8/n35YIxmgdL5SpXd0dMBMI1XYWxFtuKEH/p6/R6MuaOTaE1lnojFmj9
-	 ARoqqp0HNwaOp0IHXXty0+7dwqvcIQ8Y6mif5tZCa6uwi4DNvdNobBFKSvYssKM29NsCM
-	 UOQtTHgN3FRNvSwMPVnAixwzmI00DrMXedfWX9IO3Y162/bg7/qwJmA4q/v7a4P5iQw==
+	t=1794853253;
+	b=AIBYvsQGoSOzvjx42qxHFvTsGv9YdJGYX0234bOIApQO4erg2jkzQg5+a+LKIIXVtd6a
+	 GPDHjVTxOAZM5wTuMTWs0luekYU2aJflZi+JDVDKJSHZqDVKY4MC77Y0f9mNSxDhr5/RE
+	 NA065/AIDdaVbDVKPt6Z0EPvdFXojxQDFH45PAyKbI8zrgzLWMYWtjyb4VmWDaD2a0Ygw
+	 2BhhsMPUcxoxUSuAsKcXepcWPBQJokJJ2j0GnjNzP29oT9pxJ//Dx5r956NbQBX8CxqxC
+	 Y1Su0qs9/J8lHn5Cnh318J4LjCtxVjg4wiaQbhnDCdIF/dFbwyhyYqYAVg0MbMuzbwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794853249;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794853253;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=gmcXc8PpLN8Y0P2f1bs8epH6lji2dvrS3zcd2mdMtMA=;
-	b=1O7WuMNYclUFC0Kjm0/hxIdcwrfgDbG/3KMxnpNPR0qhDRFWnQLzscitthn5RKPT2AVq
-	 2EnML4Y/88a6V70QvQOwMx/QAPDKPfCOX4MnWrl5fBePMENSVmXi4edtbhWAQGk55EHro
-	 cMWeZqfwO0KbkGlzH6ZPvwbOiywOBFt+YnQNJSTgEeKC5oYsTFn/6daGgCv2QmEvnRqKG
-	 WIeqNfYAJ25WQLQplNCMl/yZkxnPmrZ/wFYepkyuN5VX7vElonR09q4FXoipGY/Por73P
-	 EL1spaHi8EEIKOYyvDoUMfJPGtai7lQU26PuIVjLu8q1rXs2hZbd5LPeHjFiG4gAStQ==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=3MZjUptPvV0NGm+NQGrttciOr9poGpV6qt5fO1NBMdQ=;
+	b=fqzw0o1C8/e7/oNVJO4rXfzWEStvdL0nE1Viu3yQ3RnXnahk2ojl2Q2MijA4gw8+Cxe3
+	 NMZUopa957/e2lMXNR0GRBq1c+VyZL+EkAnA/tusv538OrGijNfAtyl6plAY2neS90u8Y
+	 XiRWmN86P09aTd+FjW1NVnis2WPnTjHUYi61jznvkZvNeIWgaKEt5FyLsbJ7jrg/Bybms
+	 +Nc+B3MssCst9LbCJyyzmBK9pTu03NpRhzAvfyqlTqS2oBvAp4Ex5Jzrqe0lOpPe0tV9+
+	 ZJAxC2MK10KIUD2uormTwBRJsChOMTGVoCW++0P2xYa5etJsmG2DZ4faFk+6tAr5f6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="eqpuz/BN";
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="VmbakR/S";
+	arc=none smtp.remote-ip=209.85.214.173
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F075606A323
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:20:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F075606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49D46606A32C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:20:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49D46606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eqpuz/BN
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8a9f9473029so3575537b3a.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:20:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VmbakR/S
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2ed1414df17so18297395ad.2
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:20:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794853248; x=1795458048; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gmcXc8PpLN8Y0P2f1bs8epH6lji2dvrS3zcd2mdMtMA=;
-        b=eqpuz/BNRewwnqPR7Lwmmdgpfh+V3P3GN1xkaOj9TGIfVxlvvUaeb+b61A4lFcZakD
-         HKNV7dYJ5vMNhJg2Jtbs+B/yB+qpMSvukXDC7F3N2y0KoPs7/Y2DMUDHjToOQFC0fBAL
-         1F3WSIjqXrRakyePJsE5t1QMuZKR/a/3H2nsMYW3k+MBDY+ry39LkA5DOakoRD0blMH+
-         UWilVCKHWpXJjoyXUTyAaA94q1v22loBGudWyAzccXQGLvpgst0Jk3lXv2X7lCgf5XTq
-         fQG8FEsdOvc+d50IF/heXA51aqJrZ3ReT2LM4/3aaH00qUJSwsxvMTXEuVGJP6gKVyvS
-         e8rA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794853248; x=1795458048;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1794853251; x=1795458051; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=gmcXc8PpLN8Y0P2f1bs8epH6lji2dvrS3zcd2mdMtMA=;
-        b=TjFg935FvQfp1jaJzrJoqJbF0KYNvZpDzHsghJQoUs3d4cPGaMKCpZLz8aZIq78mDF
-         XutctBiPg11jS44TTAEqYlnA/OJXzPRK2rhLzxiN+FR/BfMtrfIGwUsU/U/pH4xfXs7m
-         Ix8s2/pT67Y25HLrmTMeOHLhY7B7bfknNvxM1bVfTUHqKtjelhv3Ir2mWSKWmK6kb2gF
-         u9QeH91u2v/mrlQGO8tlBzICPkhhpvp9z2MG7v5YHgvUlX0VUwhTKnDL3GTWlcIOfaNF
-         afadEburndjM1MOYSivYCe2miOxLtlaQ1bBFFvPkmXQtGCF7qhANLVmVXR81lw80wMmk
-         2sVQ==
-X-Gm-Message-State: APuU4Z/rmBOUwnSvOj4vsbRgOPfango0od+28O3ZswovAmvNQPYMQqiL
-	gnLuM8XnA5/OiK+1K/Ou+qv3AE1K19hUO8R5tkXy0C34yqxwoFmBj4biXWBdWmOU
-X-Gm-Gg: AYBFou0q0TRVE2Qd2IEwiOj8f0XjyW6OWBkwiNp64kqDt5YNaA4W/HHuCIgKhgKXPcR
-	7YwIpvAr+xRe/6xMnIoK3TGaazuwU0cr4ReJYwDke/zScjVJOL3/nECQe7nTFXN3Cbcl+gbhT8L
-	AgWFbQk1vkjiOjT7t+9M22JdpVtVBW6Gn7h8/xYplqa2aJ+Ry0qUYFgRHLukNPQDKP14UQY9ZuG
-	Jbo/dndE31/50dZOKzPdkwmWNmy06QeyhBaYDi6fN4a6W29AqnGsmSf7swcyg/SWH0hfollABtK
-	mUoi8Y+xgchLUVyjaxjjC5VcGTq0U+Qyp5TvtIirrZsHunUXkrXotV75t/ACU45wtxN1vasgKQZ
-	Syl3m36c9AaLqe5hVZsMWpugmkCfV1RC5692Viy34+iePLaQf9cLX8mrDcEaZL8yxNUs78oLr5O
-	8cRZZPMgXe7dVOWxgoHPLQIjeM8iIOu2N6n7tUhl74cbCLXBkPx9a76uDIS7XTPFhwOGUo/cw+O
-	lVMf2MqWpTWLRo5SdsHOOomcWOdB+wUUtE8H2nk68exXErWJhBxzc2i68HUh2L6Al7RIHXkVb9u
-	8p4bG7N8N55gSzm5y9Cse32ifABJfHRMY/zpgABMtLONLACavSOkfDz6jK/wfas8QGcrX/GhBvc
-	yavA98uqbNiv7vLpZoAjK0nfKW7gTAvj3158uqf33ymOei9iC1xOFjeakzw==
-X-Received: by 2002:a05:6a20:9e4e:b0:3e2:827b:2b7e with SMTP id adf61e73a8af0-3f7a6ea143cmr11038256637.28.1794853247994;
-        Mon, 16 Nov 2026 10:20:47 -0800 (PST)
+        bh=3MZjUptPvV0NGm+NQGrttciOr9poGpV6qt5fO1NBMdQ=;
+        b=VmbakR/SHyzoPhLhcM9UuvsRvLhgSwYKV9nnxC3HMUbGYMsGe3lwu49KkFJPI6m4OI
+         Q2f5mszG4YBbwit0zb6a8n22fJG0a3oSHoSC00vmfjC7AxpwwxPwP8IhJ6aa/OCtdWrt
+         54TmUzbO5YhwR61nAuV7IdKUSk5oaVSWES47giGWZRibmOXd0CXI+7zugGzHFEQbSIBL
+         ZUJtMQrFraNl341kA0m1y1FWR2u2qM9asVfcKuYZxYwqhuL4Kpy6vnHD5HqwpFXtsdZN
+         WMbNRLndJxzn3jk4yBWk9eyetaTnYJ8aSSogVkunriZCSTnAr7J308+r8z06Rc008hP5
+         fiEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794853251; x=1795458051;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3MZjUptPvV0NGm+NQGrttciOr9poGpV6qt5fO1NBMdQ=;
+        b=nId6luN0c8afxlJLeUulAL8gcrF9B5oKYbe1aEy9eb0jrV5ZPVOSvyeNl+wVb2r1us
+         5MrLZyP+gIgH0PNHgzWdTfU/uZZAKRinG3KGm2B9xyj6U7nEshl1AlyZV+s3dzHmteuQ
+         DDNPSRFXNsqHNdrOxXbncl3u5aNDD5bsW5MDUVq8eol62c31Me5or6M6LAQ9egp1Cqio
+         F1Z4CNWTHKuz/MHjf5j2OuzC4AHMAtdov8/Ia9aycZRA9HDHmdNVnHkF0LkqU09qgnq3
+         tuGUnfeSIfHiz1bmdP94AeHPG4gkwy+iGp/ZwQonT+ZVFD46wFTWTHrClEX4XUtDawt0
+         FJfw==
+X-Gm-Message-State: APuU4Z8ImRtyKVA2e0uCRqZziV+iIFsw6R8Mb5SciN01eVMGkVMqW6Xy
+	pi76KB6OEfK5taGZvX1S/wpISFyx9B8GZZQhfkgmixZxMn0vwBCWlRX7BVl52jYa
+X-Gm-Gg: AZFdTZewOiJVc2vo9IDv7P717emBjB96ZdIsPHwSWawbxFcA7wgSFLKGEvUK7DYo+p3
+	mKlu1bfLgOWDQfIHSbIRzh6uCDEkzELqEkTThTpm+b9NAGknT/LX7P5F3VZcLx0bY6/33Zixr9m
+	Pz/8V0PGHH2sRUhjrz3Ns33n5S1lvTPodsRNCuTBcX2hd1K4uSxjE9kUoxnePj9GkHTMV92Rf3S
+	BTHh0fJxkSpHo+BpgMguvDAR4xceDiqF+qoTFlHO85WpnarXW76Axg4/C7xuaj/twlt6VtfUrmk
+	9IW4OyuFgC6jCcBppurjcsiZhUptln4cgcL580QL5g/pNqZRLmkLqTKtfIfBdQ7XL1UEx4dzGAp
+	t7hLWkLF0PiHGtIMZCuba6xOKpXpPKl7M0xL1kIN66lOkw9aFlsKtdTy2uYe3EHO+h9jZZnbySN
+	OCAV5craSw0c5Y7oJnQDUrou7tFkp1MwoDib3xUlZWDFjGB2p+sfGkkxUTnsOdvLrRVYxYz09xC
+	zJzePkkZxfC7Z7tTv9cVuptRs8hJwcWD91lutclGR+nRwM9MUP8bw9wrJPO+JgH3T9+qaLCYf0T
+	c2pwLGlJfidU3RLEC+P2aFg5XTyfdrOjId3m/qFHblU8dvasLF1hcCIL+FEjrCPFDvH0PBFzE/9
+	S8O418R7D50eH+HcTEPasY8Y6a76m3GqostWuMo3GMXDsRAKjCUiki8FoMA==
+X-Received: by 2002:a17:903:3886:b0:2e9:9263:a6b with SMTP id d9443c01a7336-2ee0dfb0832mr95471945ad.40.1794853251181;
+        Mon, 16 Nov 2026 10:20:51 -0800 (PST)
 Received: from localhost.localdomain ([12.162.234.74])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8bececce013sm4235466b3a.6.2026.11.16.10.20.45
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd7a5877bsm2871775ad.48.2026.11.16.10.20.49
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 16 Nov 2026 10:20:47 -0800 (PST)
+        Mon, 16 Nov 2026 10:20:50 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org,
 	vadim.fedorenko@linux.dev,
 	andi.shyti@kernel.org
-Cc: andrew+netdev@lunn.ch,
-	corbet@lwn.net,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	jiri@resnulli.us,
-	kuba@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org,
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	michal.simek@amd.com,
-	pabeni@redhat.com,
-	rdunlap@infradead.org,
-	richardcochran@gmail.com,
-	skhan@linuxfoundation.org
-Subject: [PATCH net-next v3 0/3] ptp: ocp: support the WiWi production Time Card
-Date: Mon, 16 Nov 2026 10:20:44 -0800
-Message-ID: <20261116-wiwi-v3-87afa10a8-0-ahmadexp@gmail.com>
+	richardcochran@gmail.com
+Subject: [PATCH net-next v3 1/3] i2c: xiic: allow platforms to require 32-bit register accesses
+Date: Mon, 16 Nov 2026 10:20:48 -0800
+Message-ID: <20261116-wiwi-v3-87afa10a8-1-ahmadexp@gmail.com>
 X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261116-wiwi-v3-87afa10a8-0-ahmadexp@gmail.com>
+References: <20261116-wiwi-v3-87afa10a8-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,51 +104,168 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The WiWi Time Card (2163:1008, subsystem 10ee:0007) presents its timing
-peripherals behind a LitePCIe interface that requires aligned word MMIO.
-Add an opt-in access mode for XIIC, test both access modes, and support
-the revision 02 PCI interface in ptp_ocp. Patch 3 consumes patch 1.
-Could the I2C maintainers review patches 1 and 2 for an Ack to take
-them through net-next?
+The LitePCIe bridge in the WiWi Time Card production image cannot safely
+service subword MMIO accesses. Bringing up its AXI IIC controller with the
+existing byte accessors caused a fatal machine check. Two crash dumps
+placed the faulting access in ioread8(), called by xiic_clear_rx_fifo()
+during xiic_reinit(). The affected register was the IIC status register.
 
-Changes since v2:
- - 1/3: Identify patch 3's WiWi XIIC child as the first user.
- - 2/3: Restrict the RAM-backed test to direct x86-64 MMIO. Exclude
-   UML and indirect I/O; do not restrict the driver.
- - 3/3: Match the board by its PCI IDs, validate revision and geometry
-   separately, and select typed XIIC data from the static board match.
-   Do not expose the SPI flash through MTD or devlink. Omit unsupported
-   GNSS2 interfaces, preserve external PPS2, and clarify firmware build
-   reporting. Refuse timing enables until the interrupt gate is open.
-   Distinguish WiWi's PCI interface from legacy Celestica.
+Add a platform-data flag to use aligned 32-bit accesses for registers
+carrying byte or halfword values. Keep the detected register endianness
+and use a single transaction, not read-modify-write, for FIFO accesses.
+Platforms that do not request this mode retain their existing accessors.
+The WiWi ptp_ocp change later in this series is the first user: it sets
+the flag in the platform data for the card's XIIC child.
 
-The driver objects build for x86-64 allmodconfig with W=1. All four
-XIIC KUnit cases passed on x86-64 QEMU with the same two I2C patches.
-An earlier revision of the driver on a revision 02 card confirmed
-64 MSI-X vectors and an advancing PHC. The new board policy and timing
-guard have not been run on that card. No claim of PPS lock, UTC accuracy
-or masked-event replay is made.
+With these accessors on a WiWi card, the controller probed and at24
+registered the board and MAC EEPROMs. Repeated EEPROM reads and I2C
+interrupt delivery were tested separately on an earlier Ubuntu port.
 
-Codex assisted with implementation, tests and changelogs using the
-board evidence, vendor revision rule and mailing-list feedback.
+Tool-origin disclosure, as required by generated-content.rst: Codex was
+used to analyze the supplied crash evidence, implement the accessors,
+prepare tests and draft this changelog. The request was to support the
+WiWi card while retaining the existing behavior on other platforms.
 
-v2: https://lore.kernel.org/netdev/20261112163333.12523-1-ahmadexp@gmail.com/
-v1: https://lore.kernel.org/netdev/20261111041904.48916-1-ahmadexp@gmail.com/
+Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
+---
+ drivers/i2c/busses/i2c-xiic.c          | 56 +++++++++++++++++---------
+ include/linux/platform_data/i2c-xiic.h |  3 ++
+ 2 files changed, 41 insertions(+), 18 deletions(-)
 
-Ahmad Byagowi (3):
-  i2c: xiic: allow platforms to require 32-bit register accesses
-  i2c: xiic: add KUnit coverage for register access modes
-  ptp: ocp: support the WiWi revision 02 Time Card
-
- Documentation/networking/devlink/ptp_ocp.rst |  47 +++-
- MAINTAINERS                                  |   1 +
- drivers/i2c/busses/Kconfig                   |  15 ++
- drivers/i2c/busses/i2c-xiic.c                |  60 +++--
- drivers/i2c/busses/tests/i2c_xiic_kunit.c    |  91 +++++++
- drivers/ptp/ptp_ocp.c                        | 242 +++++++++++++++++--
- include/linux/platform_data/i2c-xiic.h       |   3 +
- 7 files changed, 422 insertions(+), 37 deletions(-)
- create mode 100644 drivers/i2c/busses/tests/i2c_xiic_kunit.c
-
-
-base-commit: 6964ff21c5d8b75649211a52dbfd92753e605649
+diff --git a/drivers/i2c/busses/i2c-xiic.c b/drivers/i2c/busses/i2c-xiic.c
+index ab7916745..edb5e271c 100644
+--- a/drivers/i2c/busses/i2c-xiic.c
++++ b/drivers/i2c/busses/i2c-xiic.c
+@@ -66,6 +66,7 @@ enum i2c_scl_freq {
+  * @rx_msg: Current RX message
+  * @rx_pos: Position within current RX message
+  * @endianness: big/little-endian byte order
++ * @force_32bit_access: Bridge requires aligned 32-bit register accesses
+  * @clk: Pointer to AXI4-lite input clock
+  * @irq: Interrupt number
+  * @state: See STATE_
+@@ -95,6 +96,7 @@ struct xiic_i2c {
+ 	struct i2c_msg *rx_msg;
+ 	int rx_pos;
+ 	enum xiic_endian endianness;
++	bool force_32bit_access;
+ 	struct clk *clk;
+ 	int irq;
+ 	enum xilinx_i2c_state state;
+@@ -282,52 +284,68 @@ static int xiic_i2c_runtime_resume(struct device *dev)
+  * Only the least significant byte [doublet] of the register are ever
+  * accessed. This requires an offset of 3 [2] from the base address for
+  * big-endian systems.
++ * Some bridges only support aligned 32-bit accesses. For these, access the
++ * entire register in its detected byte order, without a read-modify-write:
++ * reading or writing a FIFO register must perform exactly one transaction.
+  */
+ 
+-static inline void xiic_setreg8(struct xiic_i2c *i2c, int reg, u8 value)
++static void xiic_setreg32(struct xiic_i2c *i2c, int reg, int value)
+ {
+ 	if (i2c->endianness == LITTLE)
+-		iowrite8(value, i2c->base + reg);
++		iowrite32(value, i2c->base + reg);
+ 	else
+-		iowrite8(value, i2c->base + reg + 3);
++		iowrite32be(value, i2c->base + reg);
+ }
+ 
+-static inline u8 xiic_getreg8(struct xiic_i2c *i2c, int reg)
++static int xiic_getreg32(struct xiic_i2c *i2c, int reg)
+ {
+-	u8 ret;
++	u32 ret;
+ 
+ 	if (i2c->endianness == LITTLE)
+-		ret = ioread8(i2c->base + reg);
++		ret = ioread32(i2c->base + reg);
+ 	else
+-		ret = ioread8(i2c->base + reg + 3);
++		ret = ioread32be(i2c->base + reg);
+ 	return ret;
+ }
+ 
+-static inline void xiic_setreg16(struct xiic_i2c *i2c, int reg, u16 value)
++static void xiic_setreg8(struct xiic_i2c *i2c, int reg, u8 value)
+ {
++	if (i2c->force_32bit_access) {
++		xiic_setreg32(i2c, reg, value);
++		return;
++	}
++
+ 	if (i2c->endianness == LITTLE)
+-		iowrite16(value, i2c->base + reg);
++		iowrite8(value, i2c->base + reg);
+ 	else
+-		iowrite16be(value, i2c->base + reg + 2);
++		iowrite8(value, i2c->base + reg + 3);
+ }
+ 
+-static inline void xiic_setreg32(struct xiic_i2c *i2c, int reg, int value)
++static u8 xiic_getreg8(struct xiic_i2c *i2c, int reg)
+ {
++	u8 ret;
++
++	if (i2c->force_32bit_access)
++		return xiic_getreg32(i2c, reg);
++
+ 	if (i2c->endianness == LITTLE)
+-		iowrite32(value, i2c->base + reg);
++		ret = ioread8(i2c->base + reg);
+ 	else
+-		iowrite32be(value, i2c->base + reg);
++		ret = ioread8(i2c->base + reg + 3);
++	return ret;
+ }
+ 
+-static inline int xiic_getreg32(struct xiic_i2c *i2c, int reg)
++static void xiic_setreg16(struct xiic_i2c *i2c, int reg, u16 value)
+ {
+-	u32 ret;
++	if (i2c->force_32bit_access) {
++		xiic_setreg32(i2c, reg, value);
++		return;
++	}
+ 
+ 	if (i2c->endianness == LITTLE)
+-		ret = ioread32(i2c->base + reg);
++		iowrite16(value, i2c->base + reg);
+ 	else
+-		ret = ioread32be(i2c->base + reg);
+-	return ret;
++		iowrite16be(value, i2c->base + reg + 2);
+ }
+ 
+ static inline void xiic_irq_dis(struct xiic_i2c *i2c, u32 mask)
+@@ -1480,6 +1498,8 @@ static int xiic_i2c_probe(struct platform_device *pdev)
+ 		return irq;
+ 
+ 	pdata = dev_get_platdata(dev);
++	if (pdata)
++		i2c->force_32bit_access = pdata->force_32bit_access;
+ 
+ 	/* hook up driver to tree */
+ 	platform_set_drvdata(pdev, i2c);
+diff --git a/include/linux/platform_data/i2c-xiic.h b/include/linux/platform_data/i2c-xiic.h
+index 2e3683c23..afad9a49c 100644
+--- a/include/linux/platform_data/i2c-xiic.h
++++ b/include/linux/platform_data/i2c-xiic.h
+@@ -16,6 +16,8 @@
+  * @num_devices:	Number of devices that shall be added when the driver
+  *			is probed.
+  * @devices:		The actuall devices to add.
++ * @force_32bit_access:	Use aligned 32-bit accesses even for byte and
++ *			halfword payloads on bridges without subword I/O.
+  *
+  * This purpose of this platform data struct is to be able to provide a number
+  * of devices that should be added to the I2C bus. The reason is that sometimes
+@@ -26,6 +28,7 @@
+ struct xiic_i2c_platform_data {
+ 	u8				num_devices;
+ 	struct i2c_board_info const	*devices;
++	bool				force_32bit_access;
+ };
+ 
+ #endif /* _LINUX_I2C_XIIC_H */
