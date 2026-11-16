@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794840347;
-	b=oPOZTytkgkW6Wa4dIEEAjRNefVP5OtQJBKf+CgrZTE/ZdQZH6m1Lr6QDLSkfBqmA7oQc
-	 En5VY2OOuoW/zAw+YssyWB8cTahl0drKIL85VKqWU3Sg//WC510nTGOgdnNnJ5PRW9jZw
-	 eRxU0wm/DPtSXAEM2685MpQBWBB6n4/DkIn+jQgNvBB/ymasa7yHpSwlQ8rp/z+jBoF2e
-	 ySgF+Sw51kHNROC+m+IsrtUt51oYtfZbMWgBguTKtxqkp+8TeSPLuuENBxxfDijXw3kcM
-	 RAfay2kHwXkNv96Gjqq6Y0O7r/rI1wpNhIN9JnBFQjUEOtkovmfeuRvteEtYZHrz81Q==
+	t=1794840348;
+	b=l7nh2KEhVTPtQyWYW7chuUpxAgB3S9AJyXhx9jSreNMSv10duVhHLsHsWcJSo2n3mGJL
+	 NNhvG3Rcwhta0BKzxTwIKpaXW7AmmivAO+2VdP1Lespawc8BSP5EXauijo+uoLD27xsBd
+	 nCYBEIpyIirgV/T4ETXkMgIk9vEjcF9pAcWQUsEVxsWWPDi1cp37p8CQAwbEpzYLuJA6B
+	 JVZeQIbu91bBbEXFH0whKoTkOQfqPN9AzDmFsprWEqgjXd6snbS1dFNCPpAYjFzD5U6pf
+	 zWNIsDz3j0+13yLxtiNhR0pOJYnNGm1mkkpmXtyC90OMzOWt79vICeMA2T9CMwzJLTA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794840347;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794840348;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=wlQrgMDchbW+yo7SUHlvYilxgMFSkK/xZHB6l4m4/sY=;
-	b=O/2nX0uRsB1bTeheVw+dRrT7Mwdn6YgsUrarSP0JHtjaxUTbXV21B7Ca8l40PsIgWEqT
-	 dmDnqeth+LwkTiU8mFNpFBvhHMCb+rx6u86/33GMPrsLkUIcGVFocTREB9cRZrKcAdMP5
-	 8xFlAIUUu3iQFgEr7BFKTFtp+fTpEpCSD5MzGUXZ6ClFB/DoegiSNPyxUGPumF4Dv8wEj
-	 ntUiH1Q54EnEbMVAXCgoh4e1PmbbyRAwOj2YwwMQuggCMyKPgwBWL74miOHwfPqCoQYdG
-	 ymYfyF/joydJ5zz5OtOOQRbvtcw/EDr7fDsHgjw0TgGEk3KxWXoBC6dLVshYj3cPjkw==
+	bh=AnbpXCmtxf3xCpEWG3l0yg+vKtFTZzAHA2DBPYL2KZ8=;
+	b=nfgQHB3AoTO7IIxH5LdTOh9dtsl1tvpyHOl1dzo+HkKtCryTIwvEzKgFzG14VX7T9k3H
+	 3cOxL1C1IRWV3wDQGnGSpeXBq7U9grsn4KboHWPbba61emT+4ONuay4s9grWFXcJxglUK
+	 nMVs4MxFmD/kYoOjxzq3SGkabPPGPztg2E2EhNCtuYYb4ysS7goNZq7pjBh1GoGHUrCAo
+	 K0PA3ULY4PsiXjAWzcqCkVEKmIAiqGPSTDlNnEFNsP01EFAbQCtxp71zq4W52C7yU25WX
+	 5oGKN4V6gil9CE8hC5SZDlhC5WMY+ostT5dYSFYnCSFQbe1NK3NCvzhQvr4g1yjdoHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=orUNkdPv;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbwKfZqU;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB397606A335
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:45:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEAAD606A33A
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:45:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=orUNkdPv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3FE81F000C4;
-	Mon, 16 Nov 2026 14:45:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bbwKfZqU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A8A71F000C5;
+	Mon, 16 Nov 2026 14:45:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794840346;
-	bh=wlQrgMDchbW+yo7SUHlvYilxgMFSkK/xZHB6l4m4/sY=;
+	s=k20260515; t=1794840347;
+	bh=AnbpXCmtxf3xCpEWG3l0yg+vKtFTZzAHA2DBPYL2KZ8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=orUNkdPvBoWZMBx4ha7w1OTGJa4SpwwrNHcqXxOwaTbsgo//G44LaQq2rxpXDL5K9
-	 RX7NrMa68TM64RDbQ4AXd1gPfycjRLwPXqPfBgPTJQnwDYSH4AZPknYKwRZz0Mg4Pk
-	 4OZw1LTUqOvzMeK43BFY6ewutLTfS+1fad87NjQYc1lYtnJZ1etUgVdeRrBqgCrZOz
-	 NOp8Mg6ss3z7DoOJZcYScFo6KlcQGoyHmiHrYnQgDCBjKizOyo0Eydu7nxAg3tVI2h
-	 o0fFRg6Qh15McaIjYXUOV93666TWE3CRvVjuFc0rcbBaHPOWE7q9Ulj0wQ3aMxE/S3
-	 JQkZAcD7K7uPQ==
-Subject: Re: [PATCH net-next v8 06/19] net: ethernet: cortina: Index free
- queue fragments with XArray
+	b=bbwKfZqU/23GeXKlFYfFHtjUkr8spfNdYzG84E8o9OzIJPgaYYvL/W4TYJHpk79K4
+	 o0OX4EDK1hIAi4Z1vyILj3eVEu/5VcfqwJj/5igr1VFKFAsFRSFhXEyCjMCPPIwQyR
+	 zNRcMrg7Ti1cxNMy9QKr5PoBb3OepGmoEK9leoHQWjFKu5NWFMWiVMhFN4DbUCczQz
+	 8opMiQTZUMspta1MJYlnrChop3CQxQbNgs8/9WtSogcV6kvPlGTkDsSS6RO+30T4xr
+	 +8hpyMIxn55BNg3tLu/vmY9mYH7OxuOMN0tM0058Q07md4x3vSxuc02ITIYQv/mDKl
+	 UPbYy7+abQVNg==
+Subject: Re: [PATCH net-next v8 07/19] net: ethernet: cortina: Preserve
+ in-flight free queue pages
 From: netdev-bot+sashiko@kernel.org
 To: linusw@kernel.org
 Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl,
  mhun512@gmail.com, edumazet@kernel.org, netdev@vger.kernel.org
-Date: Mon, 16 Nov 2026 14:45:45 +0000
-Message-ID: <179484034552.3136.9115305674551947540@kernel.org>
-In-Reply-To: <20261112-gemini-ethernet-fixes-3-v8-6-f55bd43e02d3@kernel.org>
-References: <20261112-gemini-ethernet-fixes-3-v8-6-f55bd43e02d3@kernel.org>
-X-sashiko-severity: Low
+Date: Mon, 16 Nov 2026 14:45:46 +0000
+Message-ID: <179484034674.3136.17017391064607605132@kernel.org>
+In-Reply-To: <20261112-gemini-ethernet-fixes-3-v8-7-f55bd43e02d3@kernel.org>
+References: <20261112-gemini-ethernet-fixes-3-v8-7-f55bd43e02d3@kernel.org>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,131 +64,119 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] In geth_freeq_alloc_map_page()
-  (drivers/net/ethernet/cortina/gemini.c), the patch adds one…
-- [Low] geth_setup_freeq() (drivers/net/ethernet/cortina/gemini.c) now
-  wraps every geth_freeq_alloc_map_page() call in…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] This patch replaces position-indexed free queue metadata with
+  a fixed pool of page slots.
 
 --
 
-net: ethernet: cortina: Index free queue fragments with XArray
+net: ethernet: cortina: Preserve in-flight free queue pages
 
-This commit replaces the linear scan in geth_freeq_lookup() with an XArray
-that indexes each free queue fragment by its DMA address in fragment units.
-Index entries are inserted and erased in geth_freeq_alloc_map_page() under
-freeq_lock, and geth_setup_freeq() now takes freeq_lock around each page
-allocation.
+Free queue page metadata is no longer indexed by free queue ring position.
+Metadata slots now come from a pool tracked by a bitmap, sized for the
+free queue plus both RX rings. Each posted fragment keeps its own page
+reference and XArray entry until it is claimed. The page is unmapped and
+its slot released once all of its fragments have been claimed. The shared
+queue is only rebuilt while the peer port is down.
 
 > diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-> index b96325f652bba..4ee630a9f5897 100644
+> index 4ee630a9f5897..4b0c10d732ab5 100644
 > --- a/drivers/net/ethernet/cortina/gemini.c
 > +++ b/drivers/net/ethernet/cortina/gemini.c
 
 [ ... ]
 
-> @@ -888,9 +898,26 @@ static struct page *geth_freeq_alloc_map_page(struct gemini_ethernet *geth,
->  	 */
->  	frag_len = 1 << geth->freeq_frag_order; /* Usually 2048 */
->  	fpp_order = PAGE_SHIFT - geth->freeq_frag_order;
-> +	fragments = 1 << fpp_order;
-> +
->  	gpage = &geth->freeq_pages[pn];
-> -	if (gpage->page)
-> +	for (i = 0; i < fragments; i++) {
-> +		mapping = page_mapping + i * frag_len;
-> +		ret = xa_insert(&geth->freeq_mappings,
-> +				geth_freeq_mapping_index(geth, mapping),
-> +				gpage, GFP_ATOMIC);
-> +		if (ret)
-> +			goto err_mappings;
+> @@ -795,6 +817,21 @@ static struct page *geth_freeq_lookup(struct gemini_ethernet *geth,
+>  	if (!valid)
+>  		goto err_unlock;
+>  
+> +	dma_sync_single_range_for_cpu(geth->dev, page_mapping,
+> +				      mapping - page_mapping, frag_len,
+> +				      DMA_FROM_DEVICE);
+> +	xa_erase(&geth->freeq_mappings, index);
+> +	if (!--gpage->fragments) {
+> +		slot = gpage - geth->freeq_pages;
+> +		dma_unmap_single_attrs(geth->dev, page_mapping, PAGE_SIZE,
+> +				       DMA_FROM_DEVICE,
+> +				       DMA_ATTR_SKIP_CPU_SYNC);
+> +		gpage->page = NULL;
+> +		gpage->mapping = 0;
+> +		__clear_bit(slot, geth->freeq_page_bitmap);
+> +		put_page(page);
 > +	}
 
-[Severity: Low]
-Should the commit message mention what this xa_insert() costs?
+[Severity: Medium]
+With the new slot pool, this block in geth_freeq_claim() is the only
+runtime path that releases a slot, its page and its DMA mapping. It only
+runs once every fragment of the page has been claimed.
 
-The commit message describes the change only as removing an inefficient
-linear scan. However, geth_freeq_alloc_map_page() now does GFP_ATOMIC
-xa_node allocations on both the NAPI refill path and the setup path:
+What happens to a fragment that the hardware takes from the free queue
+but never returns as a usable RX descriptor?
 
-gmac_napi_poll()
-  geth_fill_freeq(geth, true)
-    geth_freeq_alloc_map_page()
-      xa_insert(..., GFP_ATOMIC)
+gmac_rx() has two paths that drop the descriptor without claiming
+anything:
 
-That works out to roughly one leaf node per 128 KiB of physical address
-range touched (64 slots of 2 KiB each).
+	if (!mapping) {
+		if (net_ratelimit())
+			netdev_err(netdev,
+				   "rxq[%u]: HW BUG: zero DMA desc\n",
+				   r);
+		goto err_drop;
+	}
 
-There is also a new way for this function to fail. If only the index
-allocation fails, err_mappings unmaps and frees a page that was allocated
-and DMA mapped successfully. geth_fill_freeq() then stops refilling, and
-geth_setup_freeq() fails open or resize with -ENOMEM.
+	page = geth_freeq_claim(geth, mapping, &page_offs);
+	if (!page) {
+		dev_err_ratelimited(geth->dev,
+				    "could not find mapping\n");
+		goto err_drop;
+	}
 
-The unwind looks correct, and the failure is handled the same way as an
-alloc_page(GFP_ATOMIC) failure. So the concern is the commit message, not
-the runtime behaviour.
+gmac_cleanup_rxq() also skips zero mappings. In these cases
+gpage->fragments never reaches zero. The page, its streaming mapping and
+its bit in freeq_page_bitmap then stay held until geth_cleanup_freeq().
 
-Could the commit message describe the extra atomic allocations and the new
-failure mode? The same GFP_ATOMIC xa_insert() is still in
-geth_freeq_post_page() at the end of the series.
+The commit message acknowledges such fragments exist: "This does not
+reclaim unclaimed fragments while the peer runs." Also,
+geth_resize_freeq() only rebuilds when the peer is down:
+
+	if (other_running)
+		return -EBUSY;
+
+The pool from geth_freeq_page_slots() has very little headroom. With the
+defaults it is 1024 + 512 + 512 = 2048 slots. The legitimate in-flight
+worst case is roughly len/2 - 1 free queue pages plus
+(1 << rxq_order) - 1 per RX ring, which leaves about 3 spare slots.
+
+As lost fragments build up, geth_freeq_alloc_slot() will start
+returning -ENOSPC. geth_fill_freeq() then stops at the first failed
+geth_freeq_add_page() call. Could this first limit refill during RX
+bursts and eventually starve RX altogether?
+
+On a dual-port setup with both interfaces kept up, it looks like the
+only recovery is to take both interfaces down. The old design
+overwrote metadata by queue position, so a lost fragment could not
+reduce refill capacity.
+
+The later patches in the series don't seem to change this. "Recycle
+claimed free queue pages" only recycles slots whose fragments have all
+been claimed. "Separate RX buffer capacity from free queue size" keeps
+the same sizing scheme. At the end of the series, gmac_rx() still drops
+zero and unknown mappings without claiming them.
+
+Would it make sense to reclaim these fragments some other way, or to
+size the pool with more headroom?
 
 [ ... ]
-
-> @@ -995,16 +1035,20 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
->  		goto err_freeq;
->  	}
->  
-> -	/* Allocate a mapping to page look-up index */
-> +	/* Allocate page metadata referenced by the mapping index */
->  	geth->freeq_pages = kzalloc_objs(*geth->freeq_pages, pages);
->  	if (!geth->freeq_pages)
->  		goto err_freeq;
->  	geth->num_freeq_pages = pages;
->  
->  	dev_info(geth->dev, "allocate %d pages for queue\n", pages);
-> -	for (pn = 0; pn < pages; pn++)
-> -		if (!geth_freeq_alloc_map_page(geth, pn))
-> +	for (pn = 0; pn < pages; pn++) {
-> +		spin_lock_irqsave(&geth->freeq_lock, flags);
-> +		page = geth_freeq_alloc_map_page(geth, pn);
-> +		spin_unlock_irqrestore(&geth->freeq_lock, flags);
-> +		if (!page)
->  			goto err_freeq_alloc;
-> +	}
-
-[Severity: Low]
-Does holding freeq_lock here mean the setup path builds the whole index
-from atomic reserves?
-
-geth_setup_freeq() is reached from geth_resize_freeq() in sleepable process
-context under RTNL (ndo_open or ethtool -G). With freeq_lock held and IRQs
-off, every xa_insert() in geth_freeq_alloc_map_page() has to use GFP_ATOMIC
-and cannot do direct reclaim:
-
-geth_resize_freeq()
-  geth_setup_freeq()
-    spin_lock_irqsave(&geth->freeq_lock, flags)
-    geth_freeq_alloc_map_page()
-      xa_insert(..., GFP_ATOMIC)
-
-A large ring (up to 2^15 entries, about 16K pages) needs a burst of these
-node allocations. Under memory pressure, that makes open or ring resize
-more likely to fail with -ENOMEM.
-
-The effect is small, because the RX pages were already allocated with
-alloc_page(GFP_ATOMIC) before this patch. The same pattern is still there
-at the end of the series via
-geth_setup_freeq()->geth_fill_freeq()->geth_freeq_post_page().
-
-On the setup path, could the index entries be reserved with GFP_KERNEL
-before taking the lock (for example with xa_reserve())? Alternatively,
-could a gfp argument be passed down so that setup can use sleeping
-allocations?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-gemini-ethernet-fixes-3-v8-0-f55bd43e02d3%40kernel.org
