@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794855359;
-	b=2cQcdf1sAIU+FR96u5KAsJTr8jNGsk1vSpR6blHuRRZ/vm1DvUasck3W3JcppnBZ7bHQ
-	 wSOo4zZTUjsQI3yLth2ARtPmJr5h/mZTPzDftj2rSPhOjLt4qGOriPNKZ9srK5siQnyRz
-	 MtQlW32yqaOg58D4tFNE0BisYUBCVuserj5a5zvCdULI8ChZrhLR0USAmGNELb48ByAkq
-	 PnNO4fJb5mTo9b0x2XJY9zxh4ZJJgS96pWOgi9nFqwYc3SngIhsX/4d+DRKj3iN+zXCvq
-	 6K5Luh4j1pJDlbATlDqPzOxaJolMSRZXak0pQjbpjjpoD5ZANXhPoHxbXF9CR7CuSnw==
+	t=1794855363;
+	b=4NgX6h/JN5buqJPCALolGrbkIKEKZc59kF7T1iHejPIxm0tl+bIXcLWjJdBWyMMEHQ/X
+	 B6fLU5l41L2cEVMEd5hZ/X9wcpkYwgGmxss7P4WA0BeV0rBe4ep8n0NFYbqS0PqUW2N4r
+	 6JnmWPeg0qM39RFGYSS/JdMo93vLVOawOr8sdX1ZJJ56kcgPxHmtZn2rhTbMdYitWgou3
+	 1bd60XXVf5/a0F58JyvUmLG1EgVJTVyQPh6kq0UF7iyaQRtpW3IAMEYBWrJEYGZRsiecB
+	 NoZcoEGNHE6EqGhUwo7i3/aFqM9CUf3baeFiHoxiMMKvECSlgdp2LSpC+hMUp5C6ccg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794855359;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794855363;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=WUJem+e3eK2NpuDYxzL5O4Iyg/vJeSPMVoOYesW4bbA=;
-	b=33+cOyUzd0b50CD4AHIZA23cUdQx6fAHhCmAnfawdbCdUg7jK35+7EJHBC71mcpBsPY/
-	 oCFp+SWn7M4vbYz/3qJ8Bv2Ju5WR2gQzoONVBAQtk4GB2Y1lo5FwtG3Hnw1mJHgUAnvar
-	 3BxNK1kEIRGWnDE3vYzA8FUWgE/3+4tOxRTMJ8Os/2gK+iqHhxobRpuXmwnL0YjlpnPSg
-	 dx3Fhx9xCXQyhcovO2NH1YKqBbGj6J1vDCcRgU+kwx033dLPzNIbFS02q4kcqzvS2TIQA
-	 P8arSx+Wi9FVvqN8ZefJgfcXIABUwXHBH2ZqCEAe71HQNaZzheAtaslHKqqHgHqOBWg==
+	bh=dskaboM+PKWObDQPl8rS3WRd5zgfKKK9f364EmuqknE=;
+	b=zcupGIwQEL02dhRZsvnvLyjOglEuiW568gJXuKNo0/+uz/fb1wPqiqbl5nVCg5T3Wh4B
+	 o0xkr5qDJ9LERAAR1bHK0a8HXWhRjGiyTrgb6LlLBOXAhh/yhGxVrW6A42ePT64fEcK2E
+	 gtXAALY1Hvca5uaoCBqTTikSfOUEXa6Pt6vl1OzmfHjVMWiYlzbW27eNOYQtk7HbHUQYS
+	 AfB2mL74sJy8deM+ypmtE0E1ZNsuyC28xoU9IJ9pCGILp4tiGDmV3HF4JmYCfoXYo7/e1
+	 A35VtA5KSgC7ns5JQQkIS44Kq1s7JAq3MKAyRXsQvXAwCLx2HU6W2gccVrD1QnGJMbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xku6ZbDx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mEcdhUn0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7D28606A323;
-	Mon, 16 Nov 2026 18:55:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B413606A884;
+	Mon, 16 Nov 2026 18:56:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Xku6ZbDx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7CD71F000CD;
-	Mon, 16 Nov 2026 18:55:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mEcdhUn0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03FEF1F00929;
+	Mon, 16 Nov 2026 18:56:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794855359;
-	bh=WUJem+e3eK2NpuDYxzL5O4Iyg/vJeSPMVoOYesW4bbA=;
+	s=k20260515; t=1794855363;
+	bh=dskaboM+PKWObDQPl8rS3WRd5zgfKKK9f364EmuqknE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Xku6ZbDxFBdsCzjSe4Vh1GI5UosudVFWxl+/jK3xMVr0Un7HWsdno3mcf6Rgb8Zdy
-	 y13uFwadTUjey9LwC7QUIgnhiPwzo22xd+iyYGLuFCA5YuHJ+CwewvhhdxUG95qIUA
-	 BWXIW787kEkASPwlO0MWJK6sT8S+pPZfjrxMCxBNKAfOef90bqSFShj97pQllMmiiC
-	 R3yNmJXcMY4fIAFXBqwJAbsQYjXWPTEPNaOFot6uxg5e/ZhQa/xUHrtvyjGj85SD1t
-	 CKd2cv0ONLH45i57ujZZ7ntEB4yT3g2zWnVCyG9itQE6rktZ6okzI/Md3QcwXsm6CR
-	 CDh6XLRq6i6mA==
-Subject: Re: [PATCH net-next v10 09/12] net: dsa: realtek: rtl8365mb: add
- family D SDS13 PCS support
+	b=mEcdhUn0cR6yQly89al7B4uoyd5DXvUB0gOK2JxLbkzs0mdfoYeyFNGF/UZaVAhGq
+	 QJwjZnamNrOiwEQsT0aAwkG9DT6L+qI9SIN8UxWeSrEOhLQ8GCt6N0OU2UaVgiDPNc
+	 hPRjJ8+kWXwRQhKr2XpuxdH+J56EIzaBhhRF5Z/zZzK1jVewX3hpfXbQdEzj4IjBRW
+	 5fgq+Ol6bXPPnQLh463CtvtfzfhmH+wusHC8EgIFd8MvtQI54ut/NCCQTNURRcAmKt
+	 0Kef9b48dylBbP1dq5tz98zvMTH0m4WPMlTH1c3vHo+MAfIIRa18KOudiRcsUt6vNW
+	 3evUqOQFvP7ag==
+Subject: Re: [PATCH net-next v10 12/12] net: dsa: realtek: rtl8365mb: add
+ support for RTL8367S-VB
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -50,10 +50,10 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-Date: Mon, 16 Nov 2026 18:55:58 +0000
-Message-ID: <179485535833.3136.12442631026953386374@kernel.org>
-In-Reply-To: <1545f0c7-b413-4fc7-9563-baeb808720c9@yahoo.com>
-References: <1545f0c7-b413-4fc7-9563-baeb808720c9@yahoo.com>
+Date: Mon, 16 Nov 2026 18:56:01 +0000
+Message-ID: <179485536152.3136.4120441501421213878@kernel.org>
+In-Reply-To: <767d6461-abb8-4411-a8b6-a7bfaada6d10@yahoo.com>
+References: <767d6461-abb8-4411-a8b6-a7bfaada6d10@yahoo.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,71 +73,76 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] rtl8365mb_pcs_config() now runs on family D too, but it still
-  starts with the family C DW8051 hold sequence, applied on both…
+- [Low] This last patch in the series does not finish a cleanup that an
+  earlier patch said was temporary.
 
 --
 
-net: dsa: realtek: rtl8365mb: add family D SDS13 PCS support
+net: dsa: realtek: rtl8365mb: add support for RTL8367S-VB
 
-This commit extends the RTL8367S SGMII/HSGMII PCS code in rtl8365mb so
-it also works on family D switches. On family D the CPU SerDes sits
-behind the indexed SDS13 window, and the SDS_MISC layout is different.
-The family D paths only become reachable once the RTL8367S-VB chip entry
-is added later in the series.
+This patch adds the RTL8367S-VB (chip ID 0x6642, version 0x0010) to the
+rtl8365mb chip table as the first chip of family D. It also adds the
+rtl8365mb_family_d info structure, which hooks up the family D callbacks
+added earlier in the series.
 
 > diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-> index 1c2a998695d6d..909319974120a 100644
+> index ebc7d19fedd0a..1ea11b4016c0a 100644
 > --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
 > +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
 
 [ ... ]
 
-> @@ -1475,25 +1524,44 @@ static int rtl8365mb_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
-
-[ ... ]
-
-> +	sds_index = is_d ? RTL8365MB_D_SDS_EXT0_INDEX : 0;
-> +
->  	/* Hold the embedded DW8051 microcontroller in reset and keep it
->  	 * disabled. The vendor driver loads firmware into it to manage the
->  	 * SerDes link, but the firmware only duplicates work that phylink
+> @@ -812,6 +821,21 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+>  	.l2_mc_to_data = rtl8365mb_c_l2_mc_to_data,
+>  };
+>  
+> +static const struct rtl8365mb_family_info rtl8365mb_family_d = {
+> +	.family = RTL8365MB_FAMILY_D,
+> +	.num_ports = RTL8365MB_D_MAX_NUM_PORTS,
+> +	.jam_table = rtl8365mb_init_jam_8365mb_vc,
+> +	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
+> +	.ext_config_forcemode = rtl8365mb_d_ext_config_forcemode,
 
 [Severity: Low]
-Are the DW8051 bits known to have the same meaning on family D?
+This isn't a bug, but now that this initializer exists, should
+rtl8365mb_d_ext_config_forcemode() become static?
 
-With this patch, rtl8365mb_pcs_config() also runs on family D. It still
-starts with the family C DW8051 hold sequence, and that sequence has no
-is_d check:
+The earlier patch "net: dsa: realtek: rtl8365mb: set speed for family D"
+says the non-static definition was meant to be temporary:
 
-    ret = regmap_update_bits(priv->map, RTL8365MB_CHIP_RESET_REG,
-                             RTL8365MB_CHIP_RESET_DW8051_MASK,
-                             RTL8365MB_CHIP_RESET_DW8051_MASK);
-    ...
-    ret = regmap_update_bits(priv->map, RTL8365MB_MISC_CFG0_REG,
-                             RTL8365MB_MISC_CFG0_DW8051_EN_MASK, 0);
+  Nothing points to it until the family D info is added together with
+  the chip table entry in the last patch. Until then it is not static and
+  is declared in rtl8365mb.h, so that the build does not warn about an
+  unused function.
 
-This sets BIT(4) in CHIP_RESET (0x1322) and clears BIT(5) in MISC_CFG0
-(0x130C). Both masks are defined only once, as family C registers, and
-neither has a family D note.
+After this patch the only user is this initializer, and it is in the same
+file as the definition:
 
-Most of the rest of rtl8365mb_pcs_config() is now split by family: the
-tuning table, the SDS index, the SDS_MISC layout, FIBER_CFG2 and
-DIGITAL_INTERFACE_SELECT. The comment on RTL8365MB_BYPASS_LINE_RATE_REG
-was also changed to say family D matches the vendor RTL8367D API. The
-DW8051 bits get no such note.
+drivers/net/dsa/realtek/rtl8365mb_main.c:
+int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
+				     bool link, int speed, int duplex,
+				     bool tx_pause, bool rx_pause)
 
-If either bit means something else on family D, every pcs_config() call
-for SerDes port 6 on the RTL8367S-VB would set an unknown bit in a reset
-register and clear an unknown config bit.
+The prototype is still in drivers/net/dsa/realtek/rtl8365mb.h:
 
-There is some evidence that the layouts match. rtl8365mb_reset_chip()
-already uses BIT(0) of 0x1322 on family D, and the series reports SGMII
-and 2500base-x tested on two family D boards.
+int rtl8365mb_d_ext_config_forcemode(struct realtek_priv *priv, int port,
+				     bool link, int speed, int duplex,
+				     bool tx_pause, bool rx_pause);
 
-Could the vendor RTL8367D API be checked for these two bits? Then either
-a comment like the one on the bypass register could be added, or the
-sequence could be limited to family C.
+Could the function be made static, with a forward declaration next to the
+existing one for family C:
+
+static int rtl8365mb_c_ext_config_forcemode(struct realtek_priv *priv, int port,
+					    bool link, int speed, int duplex,
+					    ...
+
+and the prototype dropped from rtl8365mb.h?
+
+The family D VLAN 4k and L2 helpers should stay non-static, because they
+are defined in rtl8365mb_vlan.c and rtl8365mb_l2.c.
+
+> +	.vlan_4k_read = rtl8365mb_d_vlan_4k_read,
+> +	.vlan_4k_write = rtl8365mb_d_vlan_4k_write,
 
 [ ... ]
 
