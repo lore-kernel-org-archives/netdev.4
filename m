@@ -1,72 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.208.142.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794820715;
-	b=pPMXT2TwTHjbrh8BiEogZjcB63gVCRVA1kX2U8DVmQx3bAmH0XDx/eWCKeqOpjLZgO2J
-	 EVioT3ZudmVBD+CQhOsuSBXrwaDWhsU7jKjecoLfYyeuZSfs/q9dW+QNY7aKsbG1NZ+Ds
-	 w8BVq8uvOEK5FN9zUeAuHrTcXPg1UpKwWyYuByn2MfjXjjnpf9lTCLxxhUkhpLN/VXt5D
-	 UnNtvhFmiOhmrV+33oJhY0u+rTW29nXKNF+Y0LnmCeP2A9wym69Ps6xKBapeNRNIOpo3y
-	 HicYtPSfiSrjWltIXpSQlsj43wcUZ+9hITXjJWzpiT74qM2k0uQcFpZ5zl44lQu6ZUQ==
+	t=1794820957;
+	b=CwEQcJE0dTKdVOnn1hCON58JfaeQSUEM12/RneH+Od/GC7f06Xi5Qo3eM8o9CYl6qAFC
+	 EPDyUcwdv6NM8VS4wTO2fdP3ibBhkmrp6C0LCghlcQRA008a5X3X0IPkW52b4ww3pO+Sz
+	 4NCIxScQb0j13ub3MLxYW4yHuhZUSKtVyyLxs2vxwBqn/Wd3f0wRr1UemJgOGDe8EKhoe
+	 SdMFwmjYPEQMQIJkTCibW/az+9D/BAIWY1tzrto2JPNuzzcY2RSh5mpaHMiMXJ/bAxG/3
+	 mZj95tza0rsaQO8EXV8zBdMWOO1tEXOoZCKYVB0Pie4ati7dTcLXDo1meBeSXvJXSqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794820715;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=SgJ7BK9z38GBLKp8mxDyHBEYHCSkmLsXlDmIbALFGSI=;
-	b=qBoGKuS33ZmzbH8XsXxZk2USWlVtGtaWWew7GK6RcT0ERZopA6PwXuj5+Myn0BwVPla9
-	 xsCJ/k6X9KZvDbCP1U7FpqdqkmcA2h/JQNd6vYeoMdKs9PWGwdP6+eEixemG3GOs8Sldx
-	 er4M/a26Zln3BvX2o+5fs8cE9J/D4U7Zt7VOXUqxJhKZ/M300XopcPkR9BGGiaRFLgiIL
-	 OV5uYzZAdKJjRh+TLl4WUCt/shjiUugK7eATsRCmMOASPAfBzy69dJt4cHanOSmxX1VrT
-	 He1DWy2hTQj++YokuycTzPqgOQf20p0gn6QbKrCPsslLs1idGN9xNAgkQNGwywNnUQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794820957;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=3RlmIg6JxxXg267jtA+puhGrh38QA4kd/Mzvm3x/l3E=;
+	b=3DtOE34yh6T/+Gp9QvUGPH2jXrKGetfVHG7CnCg5YG9/3RriT7wh0s+KizC0yWjpGfZ3
+	 ms8tgX2+MAyKEJ7ThRvox6RVAgZckFkz8DyaT0HwbVV78tw1bJB3p2EpIC7HHfGw1DR4r
+	 nXqGpDfR/sEDorEfw/VTkioboIZpImwI+oLZV0Duf2yr3hdJfiHB9YIJF6Q6F+jEdlwtr
+	 gGQcujHLIQJ5dHGSmSG3FK75Eb0nQA493tObM5DC7zuDm0G6hvprYUS8SOe68ghx7ZQlj
+	 wmEMZFYndmyHmsez5rFUHWs6s8P+liOmwvNL8EO+84shPRjLYXyIiuz0aGrQQHn/l3A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kernelriot.com;
-	spf=pass smtp.mailfrom=kernelriot.com;
-	dkim=pass header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=oh+sID6m;
-	arc=none smtp.remote-ip=74.208.142.49
-Received: from mail.kernelriot.com (mail.kernelriot.com [74.208.142.49])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bsvYZF5o;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93276606A331;
-	Mon, 16 Nov 2026 09:18:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93276606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kernelriot.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernelriot.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 921C0606A31C;
+	Mon, 16 Nov 2026 09:22:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=oh+sID6m
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernelriot.com;
-	s=kr2026; t=1794820713;
-	bh=BPD043+SMPaCp0olzTzGi087fGrg3ldseuRGBtPKZkI=;
-	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:From;
-	b=oh+sID6m3rbTSEXklfmHVTwMLDYbmiOyVThP2nXus5VFX8uJdqUK9+6yCFHArut6f
-	 Rl8UZPMKiSYztLrh9x+Xki2BWf8f0/XMj2VZMmb24rTus1jVSjXza0mmiGOOXxYK5/
-	 YMp+p4Yg3dSXPWKk3nYrvjrPiUI5m3DC/QZS3szoQOavH2ioau7f3hG1JbxkfiD1l1
-	 tzt1esxmFHOO2ZWZu8fyaHZPOUSn7dz5Ag+e14vYoH6/clIdGNcK8mXgnBu52CXpHj
-	 32PvhPS4PLRbXtyXY49BYi+uj00ooc3fT3wQ5FAdFqiyWXdXztLGYh5/sILxU9xw9/
-	 lp42JVuM4N4nQ==
-Received: by mail.kernelriot.com (Postfix, from userid 995)
-	id E27AF8D754; Mon, 16 Nov 2026 09:18:33 +0000 (UTC)
-From: Magnus Leatti <magnusleatti@kernelriot.com>
-To: me@ziyao.cc,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Nespolino <g.nespolino@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 2/2] net: stmmac: dwmac-motorcomm: support Wake-on-LAN from S5
-Date: Mon, 16 Nov 2026 06:17:57 -0300
-Message-ID: <20261116091757.1656602-3-magnusleatti@kernelriot.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261116091757.1656602-1-magnusleatti@kernelriot.com>
-References: <20261116091757.1656602-1-magnusleatti@kernelriot.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bsvYZF5o
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63E0F1F000C6;
+	Mon, 16 Nov 2026 09:22:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794820957;
+	bh=3RlmIg6JxxXg267jtA+puhGrh38QA4kd/Mzvm3x/l3E=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bsvYZF5oigMQJXCb187HaL08EYdWhy7xgqr3UmpALb3znyBT4WPKXgfoiHu+EegA3
+	 rwcKablmjfqWuAZ2DIBdZnSs3Lk6EDx484TjL6v6CzNnIB75Ufp2MNZ+rK0N8Sf7Rb
+	 Yn//JWXnI+PK8DmWiJMTI/QMPvdBHnjTS1oshOO7pQqBYqLamu7z/7ohmBuXHmjzYZ
+	 Eq2xfOa7mlpJdfMbEKkHnymjiQ77hTbJ7EEKw8tLdiLUMJ4gVkwmXclA0l/rFaDy8R
+	 OVSlaG/vmoFjhm2FpTDH/Oz6NN1ZlAibK5ZhXGYYl6FRBhkMFLQfozHCjg+oypDgpr
+	 ystvA5nCHFrRg==
+Subject:
+ Re: [PATCH net] sctp: preserve the last transport during INIT error cleanup
+From: netdev-bot+sashiko@kernel.org
+To: ljp1205831794@gmail.com
+Cc: netdev@vger.kernel.org, jiapenglin@tencent.com, marcelo.leitner@gmail.com,
+ lucien.xin@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ vladislav.yasevich@hp.com, linux-sctp@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 16 Nov 2026 09:22:35 +0000
+Message-ID: <179482095589.3136.2362257339716532422@kernel.org>
+In-Reply-To: <20261112092114.12458-1-ljp1205831794@gmail.com>
+References: <20261112092114.12458-1-ljp1205831794@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,166 +65,156 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The driver reports "Supports Wake-on: ug" and accepts "wol g", but a
-YT6801 in S5 ignores magic packets. At power-off stmmac_suspend() arms
-the PMT register, but the chip's out-of-band WoL block stays disabled
-as motorcomm_init() leaves it, the packet wake bit in WOL_CTRL is clear
-and PME is turned off.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-When powering off with Wake-on-LAN set, the interface up and wakeup
-enabled for the device, keep PME enabled and arm the chip after
-stmmac_suspend():
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
- - Enable OOB WoL. Without it the chip does not wake.
- - Write the MAC address in use to the first address filter again.
-   Enabling OOB WoL reloads the factory address there. Without the
-   rewrite the chip wakes on the factory address and ignores the one
-   in use. The rewrite follows a 2 ms wait, as in the vendor driver:
-   without the wait the reload lands after the rewrite.
- - Set the packet wake enable bit in WOL_CTRL. Without it the chip
-   does not wake.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The sequence follows the vendor driver, with two differences. The
-vendor also sets bit 9 of LPW_CTRL. The chip wakes without it, so it is
-left alone. The vendor puts the function in D3hot. Here it stays in D0.
-With MAC Wake-on-LAN phylink keeps the PHY running and phylib keeps
-polling it until power is removed. In D3hot the MDIO registers read as
-all-ones, the poll fails with -EBUSY and phylib warns from
-phy_error_precise(). That warning was seen 111 ms after entering D3hot
-on a normal power-off.
+- [Medium] When cleanup fails, the new `!list_is_singular()` guard in
+  sctp_process_init() (net/sctp/sm_make_chunk.c) keeps whichever non-…
+- [Low] The commit message says "The retained transport is freed when the
+  association is destroyed", which suggests the kept non-ACTIVE…
+- [Low] The comment at the clean_up label of sctp_process_init()
+  (net/sctp/sm_make_chunk.c) still reads "/* Release the transport…
 
-The PHY is left at the negotiated speed. Reboot and kexec are not
-armed: OOB WoL can only be disabled again by a chip reset, so it is
-enabled only when powering off, and the next probe resets the chip. If
-the interface is down at power-off, the system does not wake.
+--
 
-Suspend is not changed. Hibernation that powers off through the
-shutdown path arms the chip the same way. Neither was tested.
+sctp: preserve the last transport during INIT error cleanup
 
-Tested on a Celeron N3350 mini PC, magic packets sent from another host
-75 s after power-off:
+This patch changes the clean_up path of sctp_process_init() so that the
+loop removing non-ACTIVE peer transports always keeps the last one. That
+stops sctp_assoc_rm_peer() from using the empty list head as the
+replacement transport and crashing in sctp_assoc_set_primary().
 
-  net-next  wol g                         no wake, 3 of 3
-  patched   wol g                         wake, 8 of 8 (28-31 s to ping)
-  patched   wol u                         wake on unicast, 1 of 1
-  patched   wol d                         no wake, 3 of 3
-  patched   wol g, interface down         no wake, 1 of 1
-  patched   wol g, power/wakeup disabled  no wake, 1 of 1
-  patched   wol g, reboot                 reboots, link back, 3 of 3
+> Keep the last transport during cleanup so sctp_assoc_rm_peer() has a
+> valid replacement. The retained transport is freed when the association
+> is destroyed.
 
-The kernel log of each of these shutdowns, read back after the next
-boot, shows no warning from the shutdown path.
+[Severity: Low]
+Is this description accurate for the path in the oops trace above?
 
-A second board, a PSJ8500-N97 mini PC (Intel N97), behaves the same.
+The trace shows sctp_do_sm()->sctp_process_init() with no sctp_sf_*
+frame. That is the SCTP_CMD_PEER_INIT path through sctp_cmd_process_init().
+The sm_statefuns.c callers pass a new or temporary association and free it
+on failure. This caller instead runs on the live COOKIE_WAIT association:
 
-Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
----
- .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 68 ++++++++++++++++++-
- 1 file changed, 65 insertions(+), 3 deletions(-)
+net/sctp/sm_sideeffect.c:sctp_cmd_process_init() {
+    ...
+	if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init, gfp))
+		error = -ENOMEM;
+    ...
+}
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-index 1e142ad39e33..034547ad1e98 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-@@ -27,6 +27,9 @@
- #define EPHY_CTRL				0x1004
- /* Clearing this bit asserts resets for internal MDIO bus and PHY */
- #define  EPHY_MDIO_PHY_RESET			BIT(0)
-+#define WOL_CTRL				0x100c
-+/* Magic and remote wake-up packet enable */
-+#define  WOL_CTRL_PKT_EN			BIT(1)
- #define OOB_WOL_CTRL				0x1010
- #define  OOB_WOL_CTRL_DIS			BIT(0)
- #define MGMT_INT_CTRL0				0x1100
-@@ -204,9 +207,51 @@ static int motorcomm_resume(struct device *dev, void *bsp_priv)
- 	return 0;
- }
- 
-+/*
-+ * Arm the chip to wake the system from S5. stmmac_suspend() has already
-+ * programmed the PMT register of the GMAC. The rest lives in the wrapper.
-+ */
-+static void motorcomm_arm_s5_wake(struct net_device *ndev)
-+{
-+	struct stmmac_priv *spriv = netdev_priv(ndev);
-+	struct dwmac_motorcomm_priv *priv = spriv->plat->bsp_priv;
-+	u32 reg;
-+
-+	/*
-+	 * motorcomm_init() disables OOB WoL right after the chip reset, as
-+	 * normal operation requires. With it disabled the chip ignores wake
-+	 * packets once the system is off. Once it has been enabled, only a
-+	 * chip reset disables it again, so enable it only when powering off.
-+	 */
-+	reg = readl(priv->base + OOB_WOL_CTRL);
-+	reg &= ~OOB_WOL_CTRL_DIS;
-+	writel(reg, priv->base + OOB_WOL_CTRL);
-+
-+	/*
-+	 * Enabling OOB WoL reloads the address from eFuse into the first
-+	 * MAC address filter. Write the address in use again, or the chip
-+	 * wakes on the factory address only. The reload is not immediate:
-+	 * without the wait, taken from the vendor driver, it overwrites
-+	 * the address written here.
-+	 */
-+	usleep_range(2000, 3000);
-+
-+	rtnl_lock();
-+	phylink_rx_clk_stop_block(spriv->phylink);
-+	stmmac_set_umac_addr(spriv, spriv->hw, ndev->dev_addr, 0);
-+	phylink_rx_clk_stop_unblock(spriv->phylink);
-+	rtnl_unlock();
-+
-+	reg = readl(priv->base + WOL_CTRL);
-+	reg |= WOL_CTRL_PKT_EN;
-+	writel(reg, priv->base + WOL_CTRL);
-+}
-+
- static void motorcomm_shutdown(struct pci_dev *pdev)
- {
- 	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
-+	struct stmmac_priv *spriv = netdev_priv(ndev);
-+	bool wake;
- 
- 	/*
- 	 * A failed resume leaves the netdev detached with NAPI disabled, and
-@@ -215,14 +260,31 @@ static void motorcomm_shutdown(struct pci_dev *pdev)
- 	if (!netif_device_present(ndev))
- 		return;
- 
--	/* Stop the device before reboot, kexec or power-off */
-+	wake = system_state == SYSTEM_POWER_OFF && netif_running(ndev) &&
-+	       spriv->wolopts && device_may_wakeup(&pdev->dev);
-+
-+	/*
-+	 * Stop the device before reboot, kexec or power-off. With
-+	 * Wake-on-LAN set, this arms the PMT register and keeps the PHY up.
-+	 */
- 	stmmac_suspend(&pdev->dev);
- 
- 	/*
- 	 * stmmac_pci_plat_suspend() enables PME if wakeup is enabled for the
--	 * device. Nothing arms the chip to wake the system, so undo that.
-+	 * device. Keep it only when the chip is armed.
-+	 */
-+	if (!wake) {
-+		pci_wake_from_d3(pdev, false);
-+		return;
-+	}
-+
-+	/*
-+	 * The device is left in D0. The platform removes main power anyway,
-+	 * and with MAC Wake-on-LAN phylib keeps polling the PHY until then:
-+	 * in D3hot the MDIO registers read as all-ones and the poll fails
-+	 * with a warning.
- 	 */
--	pci_wake_from_d3(pdev, false);
-+	motorcomm_arm_s5_wake(ndev);
- }
- 
- static struct plat_stmmacenet_data *
+In sctp_sf_do_5_1C_ack(), SCTP_CMD_PEER_INIT is queued before the
+TIMER_STOP(T1_INIT) and NEW_STATE(COOKIE_ECHOED) commands. Those commands
+are dropped when the interpreter bails out. The association stays in
+COOKIE_WAIT with T1-init armed, and primary_path, active_path and
+retran_path all point at the retained non-ACTIVE transport. Later T1-init
+retransmissions use that transport.
+
+Before this patch, every transport left after a failed sctp_process_init()
+was ACTIVE.
+
+Could the commit message describe this new state, where a live association
+keeps running on a single non-ACTIVE transport?
+
+> diff --git a/net/sctp/sm_make_chunk.c b/net/sctp/sm_make_chunk.c
+> index 15c2d87575a8a..e4b7dacf174e6 100644
+> --- a/net/sctp/sm_make_chunk.c
+> +++ b/net/sctp/sm_make_chunk.c
+> @@ -2528,7 +2528,8 @@ int sctp_process_init(struct sctp_association *asoc, struct sctp_chunk *chunk,
+>  	/* Release the transport structures. */
+
+[Severity: Low]
+This isn't a bug, but the comment no longer matches the loop, which now
+keeps the last transport on purpose, whatever its state.
+
+Could the comment say that one transport has to remain because
+sctp_assoc_rm_peer() takes the first list entry as the replacement path?
+Without that, the list_is_singular() check could later look redundant.
+
+>  	list_for_each_safe(pos, temp, &asoc->peer.transport_addr_list) {
+>  		transport = list_entry(pos, struct sctp_transport, transports);
+> -		if (transport->state != SCTP_ACTIVE)
+> +		if (transport->state != SCTP_ACTIVE &&
+> +		    !list_is_singular(&asoc->peer.transport_addr_list))
+>  			sctp_assoc_rm_peer(asoc, transport);
+
+[Severity: Medium]
+Does this keep the right transport? The guard keeps whichever non-ACTIVE
+transport the walk reaches last, which is the tail of
+asoc->peer.transport_addr_list. That is not necessarily the transport for
+peer_addr, the address the INIT-ACK came from.
+
+For an existing peer, sctp_assoc_add_peer() only promotes SCTP_UNKNOWN:
+
+net/sctp/associola.c:sctp_assoc_add_peer() {
+    ...
+		if (peer->state == SCTP_UNKNOWN) {
+			peer->state = SCTP_ACTIVE;
+		}
+		return peer;
+    ...
+}
+
+New transports are appended with list_add_tail_rcu(), and
+sctp_process_param() adds the INIT-ACK address parameters as
+SCTP_UNCONFIRMED.
+
+Consider this sequence:
+
+1. The peer_addr transport X is UNCONFIRMED and is primary. This can
+   happen through sctp_setsockopt_primary_addr() or through an INIT-ACK
+   SET_PRIMARY parameter. A Stale Cookie error then runs
+   sctp_cmd_del_non_primary(), which leaves only X and returns the
+   association to COOKIE_WAIT.
+
+2. A new INIT-ACK from X carries address parameters Y1 and Y2, which are
+   appended as UNCONFIRMED. The list is now [X, Y1, Y2].
+
+3. The packet reaches clean_up. One way is an address that collides with
+   a transport of another association on the endpoint, so
+   sctp_hash_transport() returns -EEXIST. Another is the ADD-IP without
+   AUTH check.
+
+The loop then removes X (primary moves to Y1), then Y1 (paths move to Y2),
+and keeps Y2. Y2 is an unverified address from the INIT-ACK that was just
+rejected.
+
+sctp_assoc_rm_peer() has set init_last_sent_to to NULL, so when T1-init
+fires:
+
+net/sctp/sm_sideeffect.c:sctp_cmd_interpreter() {
+    ...
+		case SCTP_CMD_INIT_CHOOSE_TRANSPORT:
+			chunk = cmd->obj.chunk;
+			t = sctp_assoc_choose_alter_transport(asoc,
+						asoc->init_last_sent_to);
+			asoc->init_last_sent_to = t;
+			chunk->transport = t;
+			t->init_sent_count++;
+			/* Set the new transport as primary */
+			sctp_assoc_set_primary(asoc, t);
+    ...
+}
+
+INITs go to Y2 and Y2 becomes primary. Y2 also stays hashed in
+sctp_transport_hashtable, so packets from it still match this association.
+If X had been ACTIVE, X would have been kept and Y1 and Y2 removed instead.
+
+Would it be more deterministic to keep the transport returned by the first
+sctp_assoc_add_peer(asoc, peer_addr, ...) call, or the current
+primary_path?
+
+>  	}
+>
+
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112092114.12458-1-ljp1205831794%40gmail.com
