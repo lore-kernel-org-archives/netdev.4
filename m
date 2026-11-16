@@ -1,79 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794843060;
-	b=PqrwYdPNtGNbV8RtjWRf6hoa5mzysbX88Ni3O67P08+2XWf7XwnsEVc9WnQjCdY/+9rL
-	 /uP2iTxC0bYjvSuhuqjnrSd4xwnOMKnnvzY9HiOggIn/dtdFKkCyciO49nZjjdoPwW2jN
-	 6ef7iqC7gXtO7huaE2j7lEmu3n1PF1ilIKJc7PAVMPBv7PYa7wYe6WlBCcQUMXss9gziR
-	 qMd7UEPB15OPeu8uDi6Vl/segD1EFpbRcJX/FsjyZQaD8FzkfXot+9NofRT6n3gtkJws6
-	 uxyWJG3Rji1+AY7HgM4MO/bhvGn4rGC1csziOs0//M23cQiqxjxenyX89X99YB59QAw==
+	t=1794843226;
+	b=jN/85NJMQREGmeb1cyNdyh6mPumHJRCcP5z0xYNdMGGshp+XVm0Q1ZrtA8JD2d7rvmCm
+	 PQoJRABsxLPm7wp0htRU9Lu2qJJZlZRPVo4gPUo57hXo8dvcsQiMCppCQ4wYBhvFiPuL5
+	 BJ/n9g2A2v7RyL7GzxomG9+rri4MyrHBXcikp3YgoE5T2Ge2u6qy5Y352zvRAKlxWDElf
+	 QYN/xrWSbLiqjFb9un8MvNHIJopWlgBs9DD33bN0CYFR1zz11rE26U8yHlmgtyfZGko3q
+	 P2IctdfkpQC/2eRfCUK6fQtbpP+Pn83QJ6lrsL0bIuogZZKahJ5RJjYJJwzN3yExxMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794843060;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=/KvAfHc/QLMwdWXcJBMsR4GboKbodePkCw59oer/jOY=;
-	b=wUpEFDDuD8+fnAk0RX3gG7CLD3IF6sugT7neVuGqAGhp94DKxywwhbLM1I5WVjN1RC1q
-	 b8oZyN2dQIv+32VQpJo1Ca3qou2yeQuIwEhOEuIYwLkut/b/8RL5RE/d28nNAWqOoJTMP
-	 VY0/Wu0vNjtDMMwoCBxiQm17mubYLLoflRgp0U3dvs9QFbayRCHzYLzyyJfaMluC8AixJ
-	 yKz8UefoUViWZIvT/lyLMYiBFsr72/XPHHBQab2a5tKzL0B1DB0kIrshqNULnu2LE+d0+
-	 NknWx9qY7i3u6rFBFCUg3HnWwa7lE1im52BzClGOENw5PhJ6D93X2/DYYLn7ZEILing==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794843226;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=u280Ub6DUw9TiRnuNaGZuwwxw4tgqFoh9XlrjuzkyYE=;
+	b=KmiRBHcMDXro/Fz+2kKj3gNiL/w61wjCKO2M+40mTaQO/H1u81DkdM+Y/4sSPicPHp2a
+	 OdvSFU0h1fqwABLEKGrqZrTIdp64vhnWBWJbuZMp5SdmSDG5V9l4aAJH+8mTuGcQkjMaF
+	 aRwSIueUXsbHYrNs5wurW/BmmyJjyTiabE70VEE2v/d4pIihlr/d3yWCxpXo6Ar6fcRBj
+	 8A3/QLXeuuBvpS9tytg9wGxV3n80rXRGgSmhDC4HZ0iF6kbzdeVwtya/jBJXv76DTyhUO
+	 nrK4YbtpwCarozvJ7ptLcgEEDfnbdGV1WKlfBe7yhS92Sn5Uk8vAo9/0b/Tr0sT7N8g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b="X8DIOU/s";
-	arc=none smtp.remote-ip=195.10.208.55
-Received: from mout-b-110.mailbox.org (mout-b-110.mailbox.org [195.10.208.55])
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=QJ1ZXOBm;
+	arc=none smtp.remote-ip=185.70.43.101
+Received: from mail-43101.protonmail.ch (mail-43101.protonmail.ch [185.70.43.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E3BD606A33F;
-	Mon, 16 Nov 2026 15:30:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E3BD606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 694A4606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:33:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 694A4606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=X8DIOU/s
-Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-110.mailbox.org (Postfix) with ESMTPS id 4jSsJT6Wm7zNlbp;
-	Mon, 16 Nov 2026 16:30:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1794843049;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/KvAfHc/QLMwdWXcJBMsR4GboKbodePkCw59oer/jOY=;
-	b=X8DIOU/sKPJhcdO2Bxc1cYL7LCCupLRpR8BlauYVB/oPs+8MllRzMcVaxUVRD4I+nf0Aqw
-	YmL5Hn/jEWEtHcAws8uCwJz0hYtLV3z/yRRDgRclmrxzE3FY/Rtp35Ka+r2pmt1XbWLxZF
-	eeVo4Vx0X8QvtU9vOKguDtqyaOQD7/o8RKO9jAHhWINfo14OMf8QjBWYsLJFrf5PKik/El
-	mxTTrjq3NbfP6wLv8Ji4Nd0q6BNJ2A1+OCt5KOUFlSl+pphf7n95YH4nsITDk7y3z62O0w
-	OS121uyroT4qHPF5gza/ivPOUfRLAvWxfXD2qq7w4so7ghcMiefOObjGsyBLkA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
-From: Antonio Quartulli <antonio@mandelbit.com>
-To: intel-wired-lan@lists.osuosl.org
-Cc: Antonio Quartulli <antonio@mandelbit.com>,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net v2 1/3] igb: fix RTNL assertion when resuming from runtime suspend
-Date: Mon, 16 Nov 2026 16:30:37 +0100
-Message-ID: <20261116153041.3002666-2-antonio@mandelbit.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261116153041.3002666-1-antonio@mandelbit.com>
-References: <20261116153041.3002666-1-antonio@mandelbit.com>
+	dkim=pass (2048-bit key, unprotected) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=QJ1ZXOBm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1794843222; x=1795102422;
+	bh=u280Ub6DUw9TiRnuNaGZuwwxw4tgqFoh9XlrjuzkyYE=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=QJ1ZXOBm+3owl1fP0mDaXklFiGtvvUqUjnrMCymu6zCyv/I0BqU1vBykzpnXOFgHU
+	 m5Rh+J/NpOeCqY+DQdaNBp/wYlli4aIn4TBnLWInn30bE86/NzdYVNAcAZc2KfRGFZ
+	 HUNUqHv3pE71nhxn2X7PeMNrskIOpRuDyQ6upeQez/+5WqARtZiWnY+p+6/v8E67p2
+	 WoOgrZyldWNEOCit0h1abnR30sMR2eDgOlMrgiBa8s1uyEtswGEakJEb+0bvA/TFIR
+	 NN+Xr0Jg0mAajary44IKXcoUrRjI4Wp5Yv8x2MxX+l5fcCdExS0zjZ64pq3ai7SYGs
+	 blA9SXrIoyMBQ==
+Date: Mon, 16 Nov 2026 15:33:34 +0000
+To: Birger Koblitz <mail@birger-koblitz.de>
+From: oraveeps@pm.me
+Cc: Hayes Wang <hayeswang@realtek.com>, "javen_xu@realsil.com.cn" <javen_xu@realsil.com.cn>, "linux-firmware@kernel.org" <linux-firmware@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>
+Subject: Re: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
+Message-ID: <_UaKZWNBXKesn3Fs-K3CGlNkAlK9xo9fr2afljGGYly9TeCwoGm6clrPRrdqQJdY8UTKP3keDnuuZldjild3ss5cAosvUq6lVJR24BD3GrQ=@pm.me>
+In-Reply-To: <02b33fd3-867a-431f-b1f5-2fd15eb9ae1d@birger-koblitz.de>
+References: <PfNGg6VjMdDzTCX2LETCm65NKSR0af1EG7ZX5CI-7Fef0x8NE2MnZ8fNtgr1Hm86sNjqHXcNyyqIbbeZL5jDu7URTqMygnyj4ulG00NxR7U=@pm.me> <7b6ef8fb2c14485380c90f1f7521ea9b@realtek.com> <tPt9UQiUVXfE9K4MHjmkc9no1QcTNZAOhmdtvdx_yaIkVdWoxkTdDFxCdBK5RU5nKHrKGy99QZq_rUsF0mWO9bfPZmS_8tjbbrNl2B5mNwg=@pm.me> <02b33fd3-867a-431f-b1f5-2fd15eb9ae1d@birger-koblitz.de>
+Feedback-ID: 208684824:user:proton
+X-Pm-Message-ID: 991ec33202610757365560ac6ca95f513b49b28e
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,76 +64,148 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jSsJT6Wm7zNlbp
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Since commit ac8c58f5b535 ("igb: fix deadlock caused by taking RTNL in
-RPM resume path") __igb_resume() doesn't take RTNL for runtime resume,
-but __igb_open() still calls netif_set_real_num_{tx,rx}_queues(), which
-require it. An asynchronous runtime resume (e.g. after the link comes
-back) then triggers "RTNL: assertion failed".
+Hi Birger,
 
-Skip them when resuming. The counts are set again on every regular open,
-which happens under RTNL; the only case left out is a fallback from
-MSI-X to MSI during a resume, which leaves the stack with more queues
-than the device uses until the next open.
+thanks, that works. I built rtl8159-1.fw the way rtl_fw.c does, but from th=
+e ram17 array of the out-of-tree driver 2.22.1 (code version 0x0022) instea=
+d of the 2.21.4 one in your repo. With it the in-tree r8152 on 7.2.4 loads =
+the PHY code after a full power cycle without errors, and the RTL8159 links=
+ at 10 Gbit/s.
 
-Tested with the 82576 emulated by QEMU.
+The PHY_SPEED_UP block in Realtek's candidate file
+(pwr_on_patch_v22_pr_test_ramcode_usb_20260428) matches the 2.22.1 ram17 fo=
+r its first 16536 bytes, then ends. It lacks the write of the PHY firmware =
+version (SRAM 0x801e), which rtl_ram_code_speed_up() checks after loading, =
+and the parameter table writes that follow it.
 
-Fixes: ac8c58f5b535 ("igb: fix deadlock caused by taking RTNL in RPM resume path")
-Cc: stable@vger.kernel.org
-Closes: https://bugzilla.ipfire.org/show_bug.cgi?id=13562
-Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
----
-v2:
-- keep setting the queue counts in __igb_open() after igb_request_irq(),
-  only skipping them on runtime resume: setting them in igb_open()
-  before the device was resumed broke the MSI-X to MSI fallback and XDP
-  setup on a runtime suspended device (Sashiko)
-- drop the reference to igc, which has the same ordering problem
+Best regards
+Jonas
 
-Note: igc sets the queue counts in igc_open() before igc_request_irq(),
-which can fall back to MSI, since 6f31d6b643a3 ("igc: Refactor runtime
-power management flow"). We didn't have igc hardware to test a fix with,
-so no igc patch is sent for now.
+On Monday, 16 November 2026 at 13:07, Birger Koblitz <mail@birger-koblitz.d=
+e> wrote:
 
- drivers/net/ethernet/intel/igb/igb_main.c | 22 +++++++++++++---------
- 1 file changed, 13 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
-index 78f0786..4447546 100644
---- a/drivers/net/ethernet/intel/igb/igb_main.c
-+++ b/drivers/net/ethernet/intel/igb/igb_main.c
-@@ -4178,16 +4178,20 @@ static int __igb_open(struct net_device *netdev, bool resuming)
- 	if (err)
- 		goto err_req_irq;
- 
--	/* Notify the stack of the actual queue counts. */
--	err = netif_set_real_num_tx_queues(adapter->netdev,
--					   adapter->num_tx_queues);
--	if (err)
--		goto err_set_queues;
-+	/* Notify the stack of the actual queue counts. This needs RTNL,
-+	 * which isn't held when resuming from runtime suspend.
-+	 */
-+	if (!resuming) {
-+		err = netif_set_real_num_tx_queues(adapter->netdev,
-+						   adapter->num_tx_queues);
-+		if (err)
-+			goto err_set_queues;
- 
--	err = netif_set_real_num_rx_queues(adapter->netdev,
--					   adapter->num_rx_queues);
--	if (err)
--		goto err_set_queues;
-+		err = netif_set_real_num_rx_queues(adapter->netdev,
-+						   adapter->num_rx_queues);
-+		if (err)
-+			goto err_set_queues;
-+	}
- 
- 	/* From here on the code is the same as igb_up() */
- 	clear_bit(__IGB_DOWN, &adapter->state);
--- 
-2.56.0
-
+> Could you try:
+> https://gitlab.com/koblitz-rtlnic/rtlnic_fw
+> I used that testing the drivers. It is based on the source of the
+> out-of-tree driver and creates firmware files compatible to the Linux
+> driver. The firmware needs to be generated from the source.
+>=20
+> Birger
+>=20
+> On 16/11/2026 11:37 am, oraveeps@pm.me wrote:
+> > [Resent as plain text, the lists rejected the first copy as HTML.Sorry =
+for the duplicate.]
+> >
+> > On Mon, 16 Nov 2026 at 09:30, Hayes Wang <hayeswang@realtek.com> wrote:
+> >> Hi,
+> >>
+> >> Could you please try out the attached files?
+> >>
+> >> Best Regards,
+> >> Hayes
+> >>
+> >> From: oraveeps@pm.me
+> >> Sent: Sunday, November 8, 2026 5:42 PM
+> >> Subject: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
+> >>
+> >> Hi Hayes,
+> >>
+> >> Since commit a51e171e176c ("r8152: Add firmware upload capability for
+> >> RTL8157/RTL8159"), mainline r8152 requests rtl_nic/rtl8159-1.fw for th=
+e
+> >> RTL8159 PHY. Without it the link stays at 5 Gbit/s, and linux-firmware
+> >> has no rtl8159-1.fw yet (nor rtl8157-1.fw).
+> >>
+> >> I run three RTL8159 adapters (USB ID 0bda:815a) on kernel 7.2.4. They
+> >> reach 10 Gbit/s only with Realtek's out-of-tree r8152 v2.22.1, which
+> >> carries the PHY patch inside the driver. With rtl8159-1.fw in
+> >> linux-firmware, the in-tree driver could do the same and users could
+> >> drop the out-of-tree module.
+> >>
+> >> Could Realtek submit rtl8159-1.fw, and rtl8157-1.fw if there is one, t=
+o
+> >> linux-firmware? I am happy to test a candidate file on these adapters.
+> >>
+> >> Thanks,
+> >> Jonas Autzen
+> >
+> > Hi Hayes,
+> >
+> > Thanks for the files (rtl8157-1 and rtl8159-1, v1 11/13/26). Mainline
+> > r8152 (v7.2.4 here, same code in v7.4-rc1) rejects them at the first
+> > block: rtl8152_is_fw_mac_ok() has no RTL_VER_16/RTL_VER_17 case for
+> > RTL_FW_PLA or RTL_FW_USB, so rtl8152_check_firmware() fails with
+> > "check USB firmware failed".
+> >
+> > An rtl8159-1.fw with only your PHY_SPEED_UP block (checksum
+> > recomputed) loads with the in-tree driver on 7.2.4 and links my RTL8159
+> > adapter (0bda:815a) at 10G.
+> >
+> > The series "r8152: split RTL_VER_17 into QFN68 and QFN100 package
+> > variants" (v8) does not change rtl8152_is_fw_mac_ok() either, so the
+> > full files are rejected with it applied too. Is a driver change for the
+> > PLA/USB blocks planned? If not, could rtl8159-1.fw carry only the PHY
+> > block?
+> >
+> > Thanks,
+> > Jonas Autzen
+> >
+> >
+> > On Monday, 16 November 2026 at 09:30, Hayes Wang <hayeswang@realtek.com=
+> wrote:
+> >
+> >> Hi,
+> >>
+> >> Could you please try out the attached files?
+> >>
+> >> Best Regards,
+> >>
+> >> Hayes
+> >>
+> >>> From: oraveeps@pm.me <oraveeps@pm.me>
+> >>> Sent: Sunday, November 8, 2026 5:42 PM
+> >>> To: Hayes Wang <hayeswang@realtek.com>
+> >>> Cc: javen_xu@realsil.com.cn; mail@birger-koblitz.de; linux-firmware@k=
+ernel.org; netdev@vger.kernel.org
+> >>> Subject: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
+> >>>
+> >>> External mail : This email originated from outside the organization. =
+Do not reply, click links, or open attachments unless you recognize the sen=
+der and know the content is safe.
+> >>>
+> >>> Hi Hayes,
+> >>>
+> >>> Since commit a51e171e176c ("r8152: Add firmware upload capability for
+> >>>
+> >>> RTL8157/RTL8159"), mainline r8152 requests rtl_nic/rtl8159-1.fw for t=
+he
+> >>>
+> >>> RTL8159 PHY. Without it the link stays at 5 Gbit/s, and linux-firmwar=
+e
+> >>>
+> >>> has no rtl8159-1.fw yet (nor rtl8157-1.fw).
+> >>>
+> >>> I run three RTL8159 adapters (USB ID 0bda:815a) on kernel 7.2.4. They
+> >>>
+> >>> reach 10 Gbit/s only with Realtek's out-of-tree r8152 v2.22.1, which
+> >>>
+> >>> carries the PHY patch inside the driver. With rtl8159-1.fw in
+> >>>
+> >>> linux-firmware, the in-tree driver could do the same and users could
+> >>>
+> >>> drop the out-of-tree module.
+> >>>
+> >>> Could Realtek submit rtl8159-1.fw, and rtl8157-1.fw if there is one, =
+to
+> >>>
+> >>> linux-firmware? I am happy to test a candidate file on these adapters=
+.
+> >>>
+> >>> Thanks,
+> >>>
+> >>> Jonas Autzen
+>=20
+> 
