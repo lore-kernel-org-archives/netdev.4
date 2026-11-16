@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794840345;
-	b=q3EivdKPyhhWkQ/vyyvzPxKs+txFAF12VVvkcfE5wh8eI6ocXR9jwPpjFCJZpWu7cwuA
-	 aH9FEcvuxYHHzrPHqJJvSsXrs8b7dh1+qTBpkH+MCnEhSEwzfdeYsEyTjHpNRc1xW/BFq
-	 lVI3nXhYHD33Zp+segGvvhUyHgSmkySHK6ywP/WvTZCUslhl/hvZfhvieUdFbI3mUpFB/
-	 vkefkDwOR0RG21snG17dI6Xbv9B7RT86dP+q4gi1EhQspxYnwz9P5mZrGxp7WHrw/yAzT
-	 xI023vjMlstayIZt3EZWLtjQDCAwvduHXOvizCZGLWIkZ0y5PJ1MCLy/rvU2NYdDQfQ==
+	t=1794840347;
+	b=oPOZTytkgkW6Wa4dIEEAjRNefVP5OtQJBKf+CgrZTE/ZdQZH6m1Lr6QDLSkfBqmA7oQc
+	 En5VY2OOuoW/zAw+YssyWB8cTahl0drKIL85VKqWU3Sg//WC510nTGOgdnNnJ5PRW9jZw
+	 eRxU0wm/DPtSXAEM2685MpQBWBB6n4/DkIn+jQgNvBB/ymasa7yHpSwlQ8rp/z+jBoF2e
+	 ySgF+Sw51kHNROC+m+IsrtUt51oYtfZbMWgBguTKtxqkp+8TeSPLuuENBxxfDijXw3kcM
+	 RAfay2kHwXkNv96Gjqq6Y0O7r/rI1wpNhIN9JnBFQjUEOtkovmfeuRvteEtYZHrz81Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794840345;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794840347;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=NA7m5p2BS5MtFPnOu6/7Z8tb02d7k3X28CUzaYvRLPA=;
-	b=sVSGC/gkWmqSHe4DHmtr/7q66cXpH1KTlyShpVtk0xLGQdiI2IyMloH2hRW7En1NEnp/
-	 Gpzocdo33RxRaG1QT0gm0BQJ9PQe7Zlo4s4gkWPTYJLlhiG1GWG0Q5onj3Tf317x/SiTr
-	 q/fdIpVR0F6Nn4YvS8zCQksu0yadSFs5+hyIkLGw+TQsKF/V50FcSctNPROEeNF6dF5gB
-	 1gdjapPJmcoDMa1B45E7UjmNox0Ijn6uJXbPSNrTEuq0i0m40bL/9QIteP+dPoTDYNEw+
-	 ACf+uhlUQaC0skOOKR3SJWV5BxQRCGJCbxBpPir5h4hddtBOYrCNTKaxKTpisDj31nQ==
+	bh=wlQrgMDchbW+yo7SUHlvYilxgMFSkK/xZHB6l4m4/sY=;
+	b=O/2nX0uRsB1bTeheVw+dRrT7Mwdn6YgsUrarSP0JHtjaxUTbXV21B7Ca8l40PsIgWEqT
+	 dmDnqeth+LwkTiU8mFNpFBvhHMCb+rx6u86/33GMPrsLkUIcGVFocTREB9cRZrKcAdMP5
+	 8xFlAIUUu3iQFgEr7BFKTFtp+fTpEpCSD5MzGUXZ6ClFB/DoegiSNPyxUGPumF4Dv8wEj
+	 ntUiH1Q54EnEbMVAXCgoh4e1PmbbyRAwOj2YwwMQuggCMyKPgwBWL74miOHwfPqCoQYdG
+	 ymYfyF/joydJ5zz5OtOOQRbvtcw/EDr7fDsHgjw0TgGEk3KxWXoBC6dLVshYj3cPjkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VQoNhv2Y;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=orUNkdPv;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83FC2606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:45:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB397606A335
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:45:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VQoNhv2Y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C31A61F000C4;
-	Mon, 16 Nov 2026 14:45:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=orUNkdPv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3FE81F000C4;
+	Mon, 16 Nov 2026 14:45:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794840345;
-	bh=NA7m5p2BS5MtFPnOu6/7Z8tb02d7k3X28CUzaYvRLPA=;
+	s=k20260515; t=1794840346;
+	bh=wlQrgMDchbW+yo7SUHlvYilxgMFSkK/xZHB6l4m4/sY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VQoNhv2YReWBiyIV3ljdT7i/0QBsvkJwtE8FupP6WoF3OoEJ/gQWE/gKh/AAuPng3
-	 Yqkp5NDrso7l/cYVkhm1jLRGtcdixthOjhHkZT27//Ja4zT3QwXrADeoYxdLH/AJYf
-	 DGFQ6BgQ0zF88RG8ZFPh8BvyE/gCjCAFaJwrA7Z0G2Ac3ZfmCMypBnEbXYeOHDet2e
-	 C7xXGEk+TswgNv868seOglzf1gbeo+DjGDp2zwfgTlftpSNk7bp0Qz+atm7gjd3u6v
-	 tFczkZ383ENZMPuNBq8GSoedGoQ0c2TGTritqDeidFSPZSab/FOjgwyMTP6K7pET1J
-	 poDu/FCE4tILQ==
-Subject: Re: [PATCH net-next v8 02/19] net: ethernet: cortina: Keep ports
- bound for shared IRQ
+	b=orUNkdPvBoWZMBx4ha7w1OTGJa4SpwwrNHcqXxOwaTbsgo//G44LaQq2rxpXDL5K9
+	 RX7NrMa68TM64RDbQ4AXd1gPfycjRLwPXqPfBgPTJQnwDYSH4AZPknYKwRZz0Mg4Pk
+	 4OZw1LTUqOvzMeK43BFY6ewutLTfS+1fad87NjQYc1lYtnJZ1etUgVdeRrBqgCrZOz
+	 NOp8Mg6ss3z7DoOJZcYScFo6KlcQGoyHmiHrYnQgDCBjKizOyo0Eydu7nxAg3tVI2h
+	 o0fFRg6Qh15McaIjYXUOV93666TWE3CRvVjuFc0rcbBaHPOWE7q9Ulj0wQ3aMxE/S3
+	 JQkZAcD7K7uPQ==
+Subject: Re: [PATCH net-next v8 06/19] net: ethernet: cortina: Index free
+ queue fragments with XArray
 From: netdev-bot+sashiko@kernel.org
 To: linusw@kernel.org
 Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl,
  mhun512@gmail.com, edumazet@kernel.org, netdev@vger.kernel.org
-Date: Mon, 16 Nov 2026 14:45:44 +0000
-Message-ID: <179484034429.3136.3425183655553071974@kernel.org>
-In-Reply-To: <20261112-gemini-ethernet-fixes-3-v8-2-f55bd43e02d3@kernel.org>
-References: <20261112-gemini-ethernet-fixes-3-v8-2-f55bd43e02d3@kernel.org>
-X-sashiko-severity: High
+Date: Mon, 16 Nov 2026 14:45:45 +0000
+Message-ID: <179484034552.3136.9115305674551947540@kernel.org>
+In-Reply-To: <20261112-gemini-ethernet-fixes-3-v8-6-f55bd43e02d3@kernel.org>
+References: <20261112-gemini-ethernet-fixes-3-v8-6-f55bd43e02d3@kernel.org>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,201 +64,131 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 1 (2) · Medium: 0 · Low: 0 (1)
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] In gmac_setup_phy() (drivers/net/ethernet/cortina/gemini.c),
-  every NULL return from of_phy_find_device() becomes -EPROBE_DEFER.
-
-Pre-existing issues:
-- [High] At this commit, geth_resize_freeq() re-enables
-  SWFQ_EMPTY_INT_BIT even when geth_setup_freeq() fails.
-- [High] At this commit, geth_resize_freeq() frees and rebuilds the
-  shared free queue under RTNL only.
-- [Low] The geth_resize_freeq() kernel-doc says it 'gets called at least
-  once during probe()', but its only callers are gmac_open() and…
+- [Low] In geth_freeq_alloc_map_page()
+  (drivers/net/ethernet/cortina/gemini.c), the patch adds one…
+- [Low] geth_setup_freeq() (drivers/net/ethernet/cortina/gemini.c) now
+  wraps every geth_freeq_alloc_map_page() call in…
 
 --
 
-net: ethernet: cortina: Keep ports bound for shared IRQ
+net: ethernet: cortina: Index free queue fragments with XArray
 
-The patch keeps gemini child ports bound in an IRQ-only mode when no PHY
-is described, or when PHY setup or netdev registration fails, so the
-shared free queue IRQ on port 1 stays available. It looks up referenced
-PHYs explicitly and defers probe until they register. It publishes a
-port to the parent only once the port is ready, and the port pointers
-are protected by RTNL.
+This commit replaces the linear scan in geth_freeq_lookup() with an XArray
+that indexes each free queue fragment by its DMA address in fragment units.
+Index entries are inserted and erased in geth_freeq_alloc_map_page() under
+freeq_lock, and geth_setup_freeq() now takes freeq_lock around each page
+allocation.
 
 > diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-> index 0b05a15529832..1b959ca853c64 100644
+> index b96325f652bba..4ee630a9f5897 100644
 > --- a/drivers/net/ethernet/cortina/gemini.c
 > +++ b/drivers/net/ethernet/cortina/gemini.c
 
 [ ... ]
 
-> @@ -359,18 +361,51 @@ static void gmac_adjust_link(struct net_device *netdev)
-
-[ ... ]
-
->  static int gmac_setup_phy(struct net_device *netdev)
->  {
-
-[ ... ]
-
-> +	} else {
-> +		phy_np = of_parse_phandle(dev->of_node, "phy-handle", 0);
-> +		if (!phy_np)
-> +			return -ENODEV;
+> @@ -888,9 +898,26 @@ static struct page *geth_freeq_alloc_map_page(struct gemini_ethernet *geth,
+>  	 */
+>  	frag_len = 1 << geth->freeq_frag_order; /* Usually 2048 */
+>  	fpp_order = PAGE_SHIFT - geth->freeq_frag_order;
+> +	fragments = 1 << fpp_order;
+> +
+>  	gpage = &geth->freeq_pages[pn];
+> -	if (gpage->page)
+> +	for (i = 0; i < fragments; i++) {
+> +		mapping = page_mapping + i * frag_len;
+> +		ret = xa_insert(&geth->freeq_mappings,
+> +				geth_freeq_mapping_index(geth, mapping),
+> +				gpage, GFP_ATOMIC);
+> +		if (ret)
+> +			goto err_mappings;
 > +	}
-> +
-> +	phy = of_phy_find_device(phy_np);
-> +	of_node_put(phy_np);
->  	if (!phy)
-> -		return -ENODEV;
-> +		return -EPROBE_DEFER;
-
-[Severity: High]
-Can a NULL return from of_phy_find_device() here be permanent instead
-of transient?
-
-Say the MDIO bus has registered, but the PHY at that address never
-answered. __of_mdiobus_parse_phys() logs the error, skips the PHY and
-still registers the bus:
-
-drivers/net/mdio/of_mdio.c:__of_mdiobus_parse_phys() {
-    ...
-		if (rc == -ENODEV)
-			dev_err(&mdio->dev,
-				"MDIO device at address %d is missing.\n",
-				addr);
-    ...
-}
-
-The same thing happens if the phy-handle target is not a PHY, or if its
-bus driver is not built. In all of these cases no phy_device will ever
-show up, but gemini_ethernet_port_probe() treats the result as a
-deferral:
-
-	ret = gmac_setup_phy(netdev);
-	if (ret) {
-		dev_err_probe(dev, ret, "PHY init failed\n");
-		if (ret == -EPROBE_DEFER)
-			goto unprepare;
-		goto irq_only;
-	}
-
-The port then never reaches gemini_port_publish(). That leaves
-geth->port0 or geth->port1 NULL and geth->initialized false, and the
-sibling's gmac_open()->geth_resize_freeq() returns -ENODEV on every
-open:
-
-	if (!geth->initialized || !geth->port0 || !geth->port1)
-		return -ENODEV;
-
-Doesn't this mean a PHY that is described but absent on one port still
-disables the working sibling? The commit message says this should no
-longer happen ("so an unusable interface does not disable its
-sibling").
-
-gemini-ssi1328.dts and gemini-wbd222.dts both use phy-handle on
-ethernet-port@1. On those boards, an unpopulated or unresponsive PHY1
-would leave no working Ethernet, and the port would stay on the deferred
-probe list for good. fw_devlink does not parse phy-handle, so nothing
-puts a limit on the deferral.
-
-Could the code tell a not-yet-probed MDIO bus apart from a missing PHY,
-for example by checking whether the PHY node's parent bus has
-registered?
-
-[ ... ]
-
-> @@ -1051,10 +1086,17 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
->  	u32 en;
->  	int ret;
->  
-> +	ASSERT_RTNL();
-> +
-> +	/* The software free queue interrupt is routed through port 1. */
-> +	if (!geth->initialized || !geth->port0 || !geth->port1)
-> +		return -ENODEV;
-> +
 
 [Severity: Low]
-This isn't a bug introduced by this patch, but the kernel-doc above
-geth_resize_freeq() still says:
+Should the commit message mention what this xa_insert() costs?
 
- * This gets called at least once during probe() so the device queue gets
- * "resized" from the hardware defaults.
+The commit message describes the change only as removing an inefficient
+linear scan. However, geth_freeq_alloc_map_page() now does GFP_ATOMIC
+xa_node allocations on both the NAPI refill path and the setup path:
 
-The only callers are gmac_open() and gmac_set_ringparam(). The doc also
-doesn't mention the new ASSERT_RTNL() requirement or the -ENODEV return.
+gmac_napi_poll()
+  geth_fill_freeq(geth, true)
+    geth_freeq_alloc_map_page()
+      xa_insert(..., GFP_ATOMIC)
 
-A later patch in the series rewrites it to "This is called when a port
-is opened or its RX ring size changes."
+That works out to roughly one leaf node per 128 KiB of physical address
+range touched (64 slots of 2 KiB each).
+
+There is also a new way for this function to fail. If only the index
+allocation fails, err_mappings unmaps and frees a page that was allocated
+and DMA mapped successfully. geth_fill_freeq() then stops refilling, and
+geth_setup_freeq() fails open or resize with -ENOMEM.
+
+The unwind looks correct, and the failure is handled the same way as an
+alloc_page(GFP_ATOMIC) failure. So the concern is the commit message, not
+the runtime behaviour.
+
+Could the commit message describe the extra atomic allocations and the new
+failure mode? The same GFP_ATOMIC xa_insert() is still in
+geth_freeq_post_page() at the end of the series.
 
 [ ... ]
 
-> @@ -1076,7 +1117,7 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
->  	new_order = min(15, ilog2(new_size - 1) + 1);
->  	dev_dbg(geth->dev, "set shared queue to size %d order %d\n",
->  		new_size, new_order);
-> -	if (geth->freeq_order == new_order)
-> +	if (geth->freeq_ring && geth->freeq_order == new_order)
->  		return 0;
+> @@ -995,16 +1035,20 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
+>  		goto err_freeq;
+>  	}
 >  
->  	spin_lock_irqsave(&geth->irq_lock, flags);
+> -	/* Allocate a mapping to page look-up index */
+> +	/* Allocate page metadata referenced by the mapping index */
+>  	geth->freeq_pages = kzalloc_objs(*geth->freeq_pages, pages);
+>  	if (!geth->freeq_pages)
+>  		goto err_freeq;
+>  	geth->num_freeq_pages = pages;
+>  
+>  	dev_info(geth->dev, "allocate %d pages for queue\n", pages);
+> -	for (pn = 0; pn < pages; pn++)
+> -		if (!geth_freeq_alloc_map_page(geth, pn))
+> +	for (pn = 0; pn < pages; pn++) {
+> +		spin_lock_irqsave(&geth->freeq_lock, flags);
+> +		page = geth_freeq_alloc_map_page(geth, pn);
+> +		spin_unlock_irqrestore(&geth->freeq_lock, flags);
+> +		if (!page)
+>  			goto err_freeq_alloc;
+> +	}
 
-[Severity: High]
-This is a pre-existing issue and was not introduced by this patch.
-Further down in geth_resize_freeq(), SWFQ_EMPTY_INT_BIT is turned back
-on even when geth_setup_freeq() fails:
+[Severity: Low]
+Does holding freeq_lock here mean the setup path builds the whole index
+from atomic reserves?
 
-	geth->freeq_order = new_order;
-	ret = geth_setup_freeq(geth);
-	...
-	spin_lock_irqsave(&geth->irq_lock, flags);
-	en |= SWFQ_EMPTY_INT_BIT;
-	writel(en, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-	spin_unlock_irqrestore(&geth->irq_lock, flags);
+geth_setup_freeq() is reached from geth_resize_freeq() in sleepable process
+context under RTNL (ndo_open or ethtool -G). With freeq_lock held and IRQs
+off, every xa_insert() in geth_freeq_alloc_map_page() has to use GFP_ATOMIC
+and cannot do direct reclaim:
 
-	return ret;
+geth_resize_freeq()
+  geth_setup_freeq()
+    spin_lock_irqsave(&geth->freeq_lock, flags)
+    geth_freeq_alloc_map_page()
+      xa_insert(..., GFP_ATOMIC)
 
-If setup fails, freeq_ring is left NULL while freeq_pages still points
-at freed memory. Can gemini_port_irq_thread()->geth_fill_freeq() then
-dereference the freed array and call page_ref_add() on stale pages?
+A large ring (up to 2^15 entries, about 16K pages) needs a burst of these
+node allocations. Under memory pressure, that makes open or ring resize
+more likely to fail with -ENOMEM.
 
-This looks like it is addressed later in the series by "net: ethernet:
-cortina: Drain free queue IRQ before resize". That commit enables the
-source only when setup succeeds, and geth_setup_freeq() and
-geth_cleanup_freeq() set freeq_pages and freeq_ring to NULL.
+The effect is small, because the RX pages were already allocated with
+alloc_page(GFP_ATOMIC) before this patch. The same pattern is still there
+at the end of the series via
+geth_setup_freeq()->geth_fill_freeq()->geth_freeq_post_page().
 
-[Severity: High]
-This is also a pre-existing issue and not something added by this patch.
-In geth_resize_freeq(), only RTNL serializes the queue teardown:
-
-	/* Drop the old queue */
-	if (geth->freeq_ring)
-		geth_cleanup_freeq(geth);
-
-There is no synchronize_irq() here, and freeq_lock is not held. If
-gemini_port_irq_thread() was already woken, could it run
-geth_fill_freeq() on the freed freeq_pages and freeq_ring? Could it
-then re-arm the source while the queue is being torn down?
-
-	irqmask |= readl(geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-	writel(irqmask, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-
-The same later commit, "net: ethernet: cortina: Drain free queue IRQ
-before resize", wraps the rebuild in disable_irq(geth->port1->irq) and
-enable_irq(). That drains both the hard and the threaded handler.
+On the setup path, could the index entries be reserved with GFP_KERNEL
+before taking the lock (for example with xa_reserve())? Alternatively,
+could a gfp argument be passed down so that setup can use sleeping
+allocations?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-gemini-ethernet-fixes-3-v8-0-f55bd43e02d3%40kernel.org
