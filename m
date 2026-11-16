@@ -1,107 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794853262;
-	b=2lLYTwtS4Wx7chIUsc649cngAc+iiW6VsCvC4AAoqPPpXYz0Acquyzs7axnJyFLg6IIm
-	 MY1q2LodY00PQNTOenfe1b+zKtQj+XX+MbjnNRnWIgKJau9td66+uEOkUU6YYta9rHrQn
-	 vHeBNzgak9wTvyxYnmbzs24t8UTnBS0jeeQaHzhaWO+HOm/tRj4jJJUVxlw/u/FhkMOQw
-	 UMWJgxML3nHcPqQSYdDx0AtCzcikAXf1tIWjCnvVAbc/JSjbkVpWigGZGN358ktFSA1nl
-	 AJcbFY/ldHkxg3m4dnMJ6RZ/IMVSBM/WX2NF7oZ4pu8c34cIXmKdLuMcRYTR4Mxkf9g==
+	t=1794853263;
+	b=rydT0Uo/4FcO9LRkaDOD7yCfrl5RczPbWS5Y/xlhnJkYHVHwAU/w+xDw8eKa4Q97fAdt
+	 V1/52X2rESMnf/MgJJWK9wz8CgTMsSt1KCnd19IbNx4J4PuoDPnJlpiMtgA78Bs8/XtQ5
+	 xjW/r/WldRkv66zv03hVhy5h4XqT6c8HkaCk1OBed7hNVnjvGUOolzPono0FmNggTSI3g
+	 Ee6vi7sbn9LKW4/SugiEOKw4R9sBT4xFniCMNKmUQD7/n6kfp2kh/nbbtWIXGm+OJYqKX
+	 6wczjmbl3X3B7uUcb5ZPyAO60DaFtwhdGVd9QIH+vwtkaIFI9nx2tKgYx3/X5dIFIbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794853262;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794853263;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=Y8vKeC4ApgPKvtb5f83QUWlYjNGKfo0MCQ1lCHmqkXo=;
-	b=ZVuGLsBlfuhEr5uf7howy4VuFYdqIX06OsvcjfUapc5mF+I1HZN49caBuO1AhDzRD7sq
-	 cSQnOa2LTwsAAT7FzjsK4pBCecLjRU4Gmvg/Ph1WG2U1Z6TrsYMJ37VZfiRDYmBQWSCB3
-	 qmVYCBIhFZPPCI1QGWq87IYh0oy1Ob1UZvDbIMrxAB8MclPD/DHevIAOYUtw0au6u/oBW
-	 H9iig3MepUA3fo0Isfm/7QdizxPA2DGQ9CMNSCxLDD8SJdOvjDniByj8QSPQH+kCxz2Sr
-	 zwRuqLbPT+Pa9i/SgrlfW9Itl5EfvLuEXGqirhLB+WQ7Vfzf8FWpSAxUpF1VpItbbqg==
+	bh=bR99B9mosWiwLJ8gNkoYazMB9kmCIq1AGpM3BzWhODw=;
+	b=FlTwJwdnDrbxDKzp6O1TfZm5lCDwYTkdqHQTbuDVbKrpg2pngXC2Kn1gzGy/TYyeImCX
+	 dCo7WQKRcylcBKpM/OIfZ7EZdvRAAY45XtX+c0wtRHK3F++1J6EJ9s/6xaxIn+K++XubR
+	 E7Zk3ACdW17pMOQbMpd/+GjFrlmfaPTij4RR+2lxaIhItvxaJr2lt8L9M+XVr56j0NVGP
+	 oOVXIQajx2nGRDmbAYdu5HLzV1J4aSARx+J6eBEQWfblY60IrwV3uLo0b7tnJ1FyF8CXB
+	 /BvZ9YKemZ50Mrwcw5WWIOBqHxc6Qm6Q7JJXrOUgLjaM4yybkL1buR9QVnNDGREl6Cg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V8fzeRKe;
-	arc=none smtp.remote-ip=209.85.216.48
-Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EEMl72dS;
+	arc=none smtp.remote-ip=209.85.216.70
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CE3A606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:21:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CE3A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 04E2F606A336
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:21:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 04E2F606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V8fzeRKe
-Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso2003633a91.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:21:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EEMl72dS
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3b191f8a9b3so4935540a91.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:21:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794853261; x=1795458061; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Y8vKeC4ApgPKvtb5f83QUWlYjNGKfo0MCQ1lCHmqkXo=;
-        b=V8fzeRKe0oGo4rCimiTi77vYt3tRjLJfLRD0yqtNjjKqHb46isoCWjVaN3hPDdRBdK
-         uX+tem2ioLtwU3pS59aB9cBxZMFG9p6O0HTDNvRVUBVKVOq4SvyyS/UnFO5cETI1PBg5
-         WrB1DUYRCTuDzXUPW9NtfKoMcxFZcTwzjcyonec4i1lV9mQ7mUoLkqku3UBkhBzQEBtu
-         km1VkK6tN+UnVPsNwGsb4xpREqD8hXCk8+qMs32/4Xmu/30CzcSwOd1e7kN3WN7r0kbs
-         xwgxR7P090HtmF5hr1Pw1b+zCu+I8sbmVzld0EPIM4Wz5VbFghXxGaHDHMi6eUFgW2Zi
-         IWHQ==
+        d=google.com; s=20260707; t=1794853262; x=1795458062; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=bR99B9mosWiwLJ8gNkoYazMB9kmCIq1AGpM3BzWhODw=;
+        b=EEMl72dSfK3SMOYNybCksn2Bwv7apml+VqNUhJL7zDIVt7lfw15r3Srov1+UMZTFNR
+         DY+ilI0Rps2vqZ24vtejkHuY6pQRTKJd1VMwpBxpzkQFdHKLQbf6oCOPOxBQFCAevC8x
+         ZQsOqL/uTQcKhwXeyTWNd//bW2nM3umFlG66AVIaeR6KeZ7mX0EP3JeRGfh4AM1XIsF4
+         xZi2QxdGjfbm0G3BBEAL34U2Gkq9icFYohE90fkraOv383FSI+mqq/Y6eBikDIGabhIM
+         vrGNELJE1Rhbk3rmxvR1Y8WUzsXzvxZ9KGLTkOaj96RzavRS50ZgsHCqcBpYC8xe5pjO
+         duWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794853261; x=1795458061;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Y8vKeC4ApgPKvtb5f83QUWlYjNGKfo0MCQ1lCHmqkXo=;
-        b=BjUyZqwrWKJSWf6cNnW0JrU3wPZ8eRHDyhasMA5kAB7NB9z2U0Set5j7LcKjpHTGX4
-         FXc6gqQ1CaiYi93CdEM0r5IWREuSHCQti+YUkG06ltwLPdz2SI7J5ixHR0VAD/tyFzn/
-         b4Gj8ChxvSiygkQfekbuMWB2rNHkr9Bi3U/M/iK/IrAYNYnybNmoTyYX1WHoNs1yyXL2
-         LIlYmq4tnWcy/As/R3aB0QpLNlRKsW5B7kI3cfGvdw6FdvBZuy78edZCIdOQW72+n9xZ
-         i/pEw339W5lZ+p3SJ5iVql5ITmeHouTtWOL8CT0Fn0ZE7o8qP8mVwnU6LZsL+hnKPTJ1
-         QdmA==
-X-Gm-Message-State: APuU4Z9PUqyqdCmZmmNF5VIfENJHl7mmVK/S3phsRkHoH20brV9gbCGN
-	NissodQfNMiXykGJDIirL4j9JKZpuso213Bqyr3iGcFi0pPUovscl62p98RvPWDB
-X-Gm-Gg: AZFdTZfPicA5bavH+yLwE/2xADTLFhkPN47KJtZ7Az7txO65k7AWXzq/roeMFuqywbP
-	S/dupPk2GWrWcb6XB7hZ18q8/4TRf/gmTYxoTxmIihCBHXP/MVN3jpwPNGjmvAgSAYMVLLYI9UF
-	Z3c/ysiaXd7wHS5sUhDnkBsbRz8VtGd/A6+Q6LuAJ4ADKfcpPYI6VDePeQ2XLt17YH0qhgOOtrE
-	ZBMZLuyefdZquMMqmxt3PMf/EHT2w/PmkjVzK159eQkOc7aOwRHc63rybphoQYp+i5sUbccl11W
-	9GfBtGfhKTXB2EWtl6KJQ3dPUBsZdtBnIiG3WhfmWco92gMqHOpLLU1k+XhKwx3y01qOpdipnU6
-	JrsmE8YH7p15VJVrGzHTbGfezaH6cM/DMixzXZapI7v0H7wNwYMj2LXxNRn5ezoRxlYaKqA4QIl
-	sJtk5OJSCezODIaJyFr4ZeaPQnjjUkJkvmT/2eF/DBKEiCk9hqPdm05VKU4R/397PLG7Nj/Ea6P
-	9eCDI5wE5GXfQx6Th6O7s0qgmsv6+sW4OunMFX7q71w6klnwZ+bOBLeRHCLFknXKx+P1DYjNPLh
-	v2tqfmDawqBEaNULA+ktaWFYw9dPOSGk0tU1DwkqcZNmeZhnDshjoZpDhheHRIZ80PhKVWM/sMX
-	gvWCtmeWjVtXRiOBqZyfK91TgebFuNL3DXnwdpD+sTbr9cVFnw4lKWCeR13E=
-X-Received: by 2002:a17:90b:548d:b0:3ac:7c52:faeb with SMTP id 98e67ed59e1d1-3b1b0b836femr11432251a91.41.1794853261056;
-        Mon, 16 Nov 2026 10:21:01 -0800 (PST)
-Received: from localhost.localdomain ([12.162.234.74])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b1b1e9ef15sm10002360a91.0.2026.11.16.10.20.57
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 16 Nov 2026 10:20:58 -0800 (PST)
-From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	andi.shyti@kernel.org
-Cc: andrew+netdev@lunn.ch,
-	corbet@lwn.net,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	jiri@resnulli.us,
-	kuba@kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	pabeni@redhat.com,
-	rdunlap@infradead.org,
-	richardcochran@gmail.com,
-	skhan@linuxfoundation.org
-Subject: [PATCH net-next v3 3/3] ptp: ocp: support the WiWi revision 02 Time Card
-Date: Mon, 16 Nov 2026 10:20:55 -0800
-Message-ID: <20261116-wiwi-v3-87afa10a8-3-ahmadexp@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261116-wiwi-v3-87afa10a8-0-ahmadexp@gmail.com>
-References: <20261116-wiwi-v3-87afa10a8-0-ahmadexp@gmail.com>
+        d=1e100.net; s=20260707; t=1794853262; x=1795458062;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bR99B9mosWiwLJ8gNkoYazMB9kmCIq1AGpM3BzWhODw=;
+        b=jAMsZVIyBbH3huw5axxHjZP1c7gXgDqtdVKlREnLehd4RBcS0YkWJ/Y0BWrfK2P3GE
+         tFXQuL+VABoIvrhXLKBnpyKv06hDBbGCLoBBPQG1Spucw5kLkbRIvys+7sInMJbxo71D
+         DDdQ85bZpEGTXHycZs6reDfTdVuH9LAo2R9k8nECQcI1dZ0MM4bJCwtL00qF/cshcFYm
+         NyZkL6hZ/CUPy/Nde1dGJECtRmIwGETxtIMTAJYh2TNxWsd8vScDDv2vlLmpGwnyhSGu
+         aL+OI2NomQIelCkSbcmCmgsiSrCmW6a1h6PQ0trfuVy/o7pcTmOE58KI1NsSrSWd8ut8
+         OxSw==
+X-Forwarded-Encrypted: i=1; AL+hErHup10h3GoNoDZSanLtjqlXSKTSIUUsgb6sONVh/pQNebc/yjgZCGGT68HSjhUuFFSVMZat/Qk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9NZtzGjSZFmSi1x9cXqWGLNQFP4Jz29i9HHYW874VHatcQVa3r
+	izSQqLujBoLxUXuzeydCOUZ80cRexLm+rnWxQAFSObFcnHIAOTouAlwLJzf2+gfV/suwqqOr6uu
+	8VplXPQ==
+X-Received: from pjsc1.prod.google.com ([2002:a17:90a:bf01:b0:3b3:a425:613a])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90a:fa0c:b0:3b3:8b61:c44f
+ with SMTP id 98e67ed59e1d1-3b38b61cc33mr3102284a91.40.1794853261895; Mon, 16
+ Nov 2026 10:21:01 -0800 (PST)
+Date: Mon, 16 Nov 2026 18:21:01 +0000
+In-Reply-To: <01c4e295-14b8-414e-9bf1-2be350466fe0@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,567 +79,262 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+References: <20261114040101.1043546-1-kuniyu@google.com> <20261114040101.1043546-4-kuniyu@google.com>
+ <CAL4Wiipd9jDp+rVAo44-JDVtXrGR_0cubE3yaZ5Qb6w8-s+6Zw@mail.gmail.com>
+ <3d9efe33-f11d-4541-8000-01906197d2d1@kernel.org> <01c4e295-14b8-414e-9bf1-2be350466fe0@redhat.com>
+Message-ID: <avtHGZHebosRBuav@google.com>
+Subject: Re: [PATCH v1 net-next 3/8] tcp: Stop collapsing if not bloated.
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: Matthieu Baerts <matttbe@kernel.org>, Eric Dumazet <edumazet@kernel.org>, 
+	Mat Martineau <martineau@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
+	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>, 
+	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
+	MPTCP Linux <mptcp@lists.linux.dev>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-Match WiWi 2163:1008, subsystem 10ee:0007, without a class filter.
-Resolve WiWi devices against the static PCI table so a dynamic ID
-cannot substitute an unrelated resource layout. NetTimeLogic uses the PCI
-Revision ID for incompatible interface changes. Revision 02 identifies
-the LitePCIe/MSI-X interface; the Xilinx subsystem ID and FPGA build
-number do not identify the register interface. Reject unknown revisions
-and check BAR0 and the MSI-X layout before accessing FPGA registers.
-Do not probe a CoreList or require exact versions of individual cores.
+On Mon, 16 Nov 2026 19:07:35 +0100, Paolo Abeni wrote:
+> On 11/16/26 17:15, Matthieu Baerts wrote:
+> > Hi Eric, Kuniyuki, Paolo,
+> >=20
+> > (+cc MPTCP ML)
+> >=20
+> > On 14/11/2026 16:35, Eric Dumazet wrote:
+> > > Le sam. 14 nov. 2026 =C3=A0 05:01, Kuniyuki Iwashima <kuniyu@google.c=
+om> a =C3=A9crit :
+> > > >=20
+> > > > Even when a skb is not bloated, tcp_collapse() starts collapsing
+> > > > if the next skb has overlapping data.
+> > > >=20
+> > > > Also, tcp_collapse() does not stop until it reaches the tail or
+> > > > unmergable skb (SYN/FIN, unreadable frags).
+> > > >=20
+> > > > Assume we detect a low-density skb followed by fully-packed 4K-MSS
+> > > > GRO skbs:
+> > > >=20
+> > > >               skb->len  truesize  scaling_ratio
+> > > >    skb    #1      1448      2944      125 (49%)
+> > > >    skb    #2     65536     66432      252 (98%)
+> > > >    skb    #3     65536     66432      252 (98%)
+> > > >    ...
+> > > >    skb    #9     65536     66432      252 (98%)
+> > > >    --------------------------------------------
+> > > >    total                  534400
+> > > >=20
+> > > > Then, even the high-density skbs are repacked into lower-density
+> > > > skbs, and we end up consuming much more memory.
+> > > >=20
+> > > >               skb->len  truesize  scaling_ratio
+> > > >    nskb   #1      3776      4352      222 (86%)
+> > > >    nskb   #2      3776      4352      222 (86%)
+> > > >    ...
+> > > >    nskb #139      3776      4352      222 (86%)
+> > > >    nskb #140       872      2304       96 (37%)
+> > > >    --------------------------------------------
+> > > >    total                  607232 (+72832!)
+> > > >=20
+> > > > Even if we find a collapsible skb, we should not collapse
+> > > > subsequent skbs with scaling_ratio >=3D TCP_COLLAPSE_SCALING_RATIO.
+> > > >=20
+> > > > Conversely, even if tp->scaling_ratio is smaller than
+> > > > TCP_COLLAPSE_SCALING_RATIO, we should repack skbs once we
+> > > > start collapsing, which results in higher-density skb.
+> > > >=20
+> > > > Let's remove the next skb condition in the first loop,
+> > > > search for collapsible bloated skb range, and repeat
+> > > > collapsing for each range.
+> > > >=20
+> > > > Note that even when the next skb is not bloated, we must
+> > > > collapse it for OOO rbtree if it has overlapping data.
+> > > >=20
+> > > >          if ((list || !before(TCP_SKB_CB(n)->seq, sub_end)) &&
+> > > >              !tcp_collapse_skb_bloated(n, sub_end,
+> > > >                                        TCP_COLLAPSE_SCALING_RATIO))
+> > > >=20
+> > > > For example, bloated skb_1 and non-bloated skb_2 have overlapping
+> > > > data and only skb_1 is collapsed to nskb_1 and nskb_2.
+> > > >=20
+> > > >     skb_1 =3D [1000, 5000]
+> > > >     skb_2 =3D [2000, 66000]
+> > > >=20
+> > > > Then, nskb_2 will be inserted after skb_2 in rbtree, wrongly
+> > > > setting tp->ooo_last_skb to 5000.
+> > > >=20
+> > > >    nskb_1 =3D [1000, 4776]
+> > > >     skb_2 =3D [2000, 66000]
+> > > >    nskb_2 =3D [4776, 5000]
+> > > >=20
+> > > > This case is still inefficient, but a later patch handles this.
+> >=20
+> > Thank you for working on that!
+> >=20
+> > > > Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+> > > > ---
+> > > >   net/ipv4/tcp_input.c | 66 +++++++++++++++++++++++++--------------=
+-----
+> > > >   1 file changed, 37 insertions(+), 29 deletions(-)
+> > > >=20
+> > > > diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+> > > > index e07f43347409..5bd42a74c6f5 100644
+> > > > --- a/net/ipv4/tcp_input.c
+> > > > +++ b/net/ipv4/tcp_input.c
+> > > > @@ -5839,7 +5839,7 @@ static struct sk_buff *tcp_collapse_one(struc=
+t sock *sk, struct sk_buff *skb,
+> > > >   }
+> > > >=20
+> > > >   /* Collapse contiguous sequence of skbs head..tail with
+> > > > - * sequence numbers start..end.
+> > > > + * sequence numbers start..sub_end.
+> > > >    *
+> > > >    * If tail is NULL, this means until the end of the queue.
+> > > >    *
+> > > > @@ -5848,15 +5848,18 @@ static struct sk_buff *tcp_collapse_one(str=
+uct sock *sk, struct sk_buff *skb,
+> > > >    */
+> > > >   static void
+> > > >   tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct r=
+b_root *root,
+> > > > -            struct sk_buff *head, struct sk_buff *tail, u32 start,=
+ u32 end)
+> > > > +            struct sk_buff *head, struct sk_buff *tail, u32 start)
+> > > >   {
+> > > >          struct sk_buff *skb =3D head, *n;
+> > > >          struct sk_buff_head tmp;
+> > > >          u8 scaling_ratio;
+> > > > +       u32 sub_end;
+> > > >=20
+> > > >          scaling_ratio =3D min(tcp_sk(sk)->scaling_ratio,
+> > > >                              TCP_COLLAPSE_SCALING_RATIO);
+> > > >=20
+> > > > +       __skb_queue_head_init(&tmp);
+> > > > +
+> > > >          /* First, check that queue is collapsible and find
+> > > >           * the point where collapsing can be useful.
+> > > >           */
+> > > > @@ -5872,38 +5875,48 @@ tcp_collapse(struct sock *sk, struct sk_buf=
+f_head *list, struct rb_root *root,
+> > > >=20
+> > > >                  /* The first skb to collapse is:
+> > > >                   * - not SYN/FIN and
+> > > > -                * - the unread portion starting from "start" is bl=
+oated, or
+> > > > -                *   overlaps to the next one and mptcp allow colla=
+psing.
+> > > > +                * - the unread portion starting from "start" is bl=
+oated.
+> > > >                   */
+> > > > -               if (!skb_frags_readable(skb) ||
+> > > > -                   TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TCPH=
+DR_FIN))
+> > > > -                       goto skip_this;
+> > > > -
+> > > > -               if (tcp_collapse_skb_bloated(skb, start, scaling_ra=
+tio))
+> > > > -                       break;
+> > > > -
+> > > > -               if (n && n !=3D tail && skb_frags_readable(n) &&
+> > > > -                   tcp_skb_can_collapse_rx(skb, n) &&
+> > > > -                   TCP_SKB_CB(skb)->end_seq !=3D TCP_SKB_CB(n)->se=
+q)
+> > > > +               if (skb_frags_readable(skb) &&
+> > > > +                   !(TCP_SKB_CB(skb)->tcp_flags & (TCPHDR_SYN | TC=
+PHDR_FIN)) &&
+> > > > +                   tcp_collapse_skb_bloated(skb, start, scaling_ra=
+tio))
+> > > >                          break;
+> > > >=20
+> > > > -skip_this:
+> > > >                  /* Decided to skip this, advance start seq. */
+> > > >                  start =3D TCP_SKB_CB(skb)->end_seq;
+> > > >          }
+> > > >=20
+> > > >          if (!skb || skb =3D=3D tail)
+> > > > -               return;
+> > > > +               goto end;
+> > > >=20
+> > > > -       __skb_queue_head_init(&tmp);
+> > > > +       /* Second, find consecutive collapsible skb. */
+> > > > +       sub_end =3D TCP_SKB_CB(skb)->end_seq;
+> > > > +
+> > > > +       for (n =3D tcp_skb_next(skb, list); n && n !=3D tail; n =3D=
+ tcp_skb_next(n, list)) {
+> > > > +               if (!skb_frags_readable(n) ||
+> > > > +                   TCP_SKB_CB(n)->tcp_flags & (TCPHDR_SYN | TCPHDR=
+_FIN) ||
+> > > > +                   !tcp_skb_can_collapse_rx(skb, n))
+> > > > +                       break;
+> > >=20
+> > >=20
+> > > Adding MPTCP maintainers.
+> >=20
+> > Thank you!
+> >=20
+> > > Before this patch, each candidate was tested against the current new
+> > > skb:
+> > >=20
+> > >          !tcp_skb_can_collapse_rx(nskb, skb)
+> > >=20
+> > > and nskb is the result of mptcp_skb_ext_move(nskb, skb), done with
+> > > the skb that was being copied when nskb was allocated.
+> > >=20
+> > > Now all candidates are tested against the first skb of the range,
+> > > before any extension has been moved.
+> > >=20
+> > > mptcp_ext_matches() is not symmetric (a 'from' skb without extension
+> > > matches anything), so the two are not equivalent when the range needs
+> > > more than one new skb. For instance:
+> > >=20
+> > >    skb1 (ext A, 6000 bytes), skb2 (ext A)
+> > >=20
+> > > nskb1 gets ext A, nskb2 is allocated while skb1 is still being
+> > > copied and gets no extension. Before the patch, skb2 was not merged
+> > > into nskb2 (to_ext =3D=3D NULL, from_ext !=3D NULL). Now it is, and i=
+ts
+> > > extension is dropped.
+> > >=20
+> > > This might be fine since skb2 has the same mapping as nskb1, but
+> > > I would like MPTCP folks to confirm, and the changelog should
+> > > mention it.
+> >=20
+> > This looks fine to me for MPTCP, and this series should make collapsing
+> > work better for MPTCP. If, by chance, Paolo has the opportunity to
+> > confirm this, that would be nice as he worked on this part for MPTCP.
+> > (But feel free to move on.)
+>=20
+> The above scenario looks fine to me, too. Also the in-tree implementation
+> sends DSS (which get ext on the RX side) for each packet, so it should be
+> the most common scenario.
+>=20
+> I spent some time trying to generate evil sequences of ext/noext that cou=
+ld
+> lead to bad results but I could not find any.
+>=20
+> In any case, definitely +1 for me to mention the functional change in the
+> changelog.
 
-Report the full 32-bit image ID as the running firmware build. Derive
-signal and frequency capabilities from the supported revision, not the
-legacy FB build-number thresholds. This ID does not identify the boot
-slot. Retain legacy version reporting on other cards.
+Thank you Matt and Paolo !
 
-WiWi shares the peripheral resource table used by the existing Celestica
-entry (18d4:1008), not its PCI addressing and interrupt scheme.
-For WiWi only, translate peripheral offsets by 0x02000000 and interrupt
-inputs by 32. Use aligned 32-bit UART I/O and typed XIIC platform
-data, sharing the EEPROM list but not casting another controller's data.
-Do not expose an unvalidated second GNSS UART or PPS output source.
-Keep the external SMA PPS2 input. The PCI revision identifies the host
-interface, not optional board wiring. Use hardware selector values for
-WiWi DPLL routing; preserve the existing behavior on other boards.
+I'll add this to changelog.
 
-Enable the three UART and XIIC inputs during probe. Reject attempts to
-arm a timestamper or generator with -EAGAIN until the timing gate write
-has been flushed. This avoids relying on FPGA replay of a pulse caused
-by a userspace request made while the gate was closed.
-
-Do not register the WiWi SPI flash controller or enable its interrupt.
-This prevents the driver from exposing raw MTD access to the golden
-image. Reject devlink flash as well. The update format and controller
-support are not validated; read access via MTD is intentionally lost.
-
-Thomas Schaub of NetTimeLogic described the production register layout
-and interrupt gate on 10 November 2026 and the PCI revision convention
-on 11 November.
-
-An earlier driver on revision 02, build 0x0000800f, registered 64 MSI-X
-vectors, the PHC and three UARTs; both at24 devices bound and the PHC
-advanced. That run did not test this revision's flash policy, GNSS2
-routing policy or interrupt-readiness guard. No PPS lock, UTC accuracy
-or replay of masked events is claimed.
-
-Tool-origin disclosure: Codex assisted with the driver changes, tests
-and changelog using the hardware evidence, revision rule and netdev review.
-
-Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
----
- Documentation/networking/devlink/ptp_ocp.rst |  47 +++-
- drivers/ptp/ptp_ocp.c                        | 242 +++++++++++++++++--
- 2 files changed, 270 insertions(+), 19 deletions(-)
-
-diff --git a/Documentation/networking/devlink/ptp_ocp.rst b/Documentation/networking/devlink/ptp_ocp.rst
-index f94b759d9..f7e228570 100644
---- a/Documentation/networking/devlink/ptp_ocp.rst
-+++ b/Documentation/networking/devlink/ptp_ocp.rst
-@@ -20,8 +20,10 @@ The ``ptp_ocp`` driver reports the following versions
-      - Description
-    * - ``fw``
-      - running
--     - Version of the firmware running on the card.  Reported as ``loader``
--       instead when the card is running the firmware loader.
-+     - Version of the firmware running on the card. Where the driver can
-+       distinguish a firmware loader, it reports ``loader`` instead.
-+       WiWi reports the raw build ID as ``fw``; it does not identify the
-+       boot slot or distinguish a fallback boot.
-    * - ``board.id``
-      - fixed
-      - Board identifier, read from the on-card EEPROM.
-@@ -54,7 +56,8 @@ selected with the component name.
-      - Description
-    * - (none)
-      - The card's own flash, written through the SPI controller the driver
--       exposes.  The card runs the new image after its next reset.
-+       exposes. Not supported on WiWi. The card runs the new image after
-+       its next reset.
-    * - ``fw.cpld``
-      - The configuration flash of the TAP CPLD on ADVA TimeCard X1 boards,
-        programmed over I2C with the MachXO3 in-system programming commands
-@@ -73,3 +76,41 @@ with the standard devlink status notifications.
- Example::
- 
-     $ devlink dev flash pci/0000:02:00.0 file adva-cpld.bin component fw.cpld
-+
-+WiWi production firmware
-+========================
-+
-+WiWi Time Cards with PCI ID ``2163:1008`` and subsystem ID ``10ee:0007``
-+use the PCI Revision ID to identify the register interface. The driver
-+supports revision ``02`` (LitePCIe/MSI-X) and rejects unknown revisions
-+before accessing FPGA registers. Incompatible interface changes require
-+a new revision. The driver also checks the BAR and MSI-X layout before
-+initializing the card.
-+
-+The image ID at BAR0 offset ``0x02020000`` identifies a firmware build,
-+not the register interface. The running ``fw`` version in devlink reports
-+the full image ID, for example ``0x0000800f``. Compatible builds need not
-+have the same image ID or individual core versions. PCIe access to the
-+CoreList is not required.
-+
-+WiWi reuses the peripheral layout described by the driver's shared
-+resource table. Its PCI interface is distinct from that of the existing
-+Celestica entry (``18d4:1008``). Only the WiWi match adds ``0x02000000``
-+to peripheral offsets and requires aligned 32-bit MMIO. Interrupt input
-+``n`` uses MSI-X vector ``n + 32``. The per-input enable mask is at BAR0
-+offset ``0x1800``. Until the timing gate is open, attempts to arm a
-+timestamp, PPS or signal generator return ``-EAGAIN`` and can be retried.
-+The driver exposes neither a second GNSS serial port nor a GNSS2 SMA
-+output source on this board. Neither is a supported capability inferred
-+from revision 02. This does not disable the external SMA PPS2 input.
-+The separate EEPROM and RGB I2C inputs (17 and 18) have no handlers in
-+this driver and stay masked; these are distinct from its I2C input 7.
-+
-+The driver does not register the WiWi SPI flash controller, so there is
-+no raw MTD device for this flash, even for reads. Its IRQ remains masked.
-+WiWi firmware updates through ``devlink dev flash`` are also rejected.
-+The WiWi image has a different flash header from the Celestica image.
-+The golden image at flash offset zero boots the update image via MultiBoot
-+with watchdog fallback. The vendor's programming path requires a modified
-+``spi-xilinx`` driver. Successful clock registration does not establish
-+GNSS synchronization or valid UTC.
-diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index decc56892..df40dac98 100644
---- a/drivers/ptp/ptp_ocp.c
-+++ b/drivers/ptp/ptp_ocp.c
-@@ -35,6 +35,22 @@
- #define PCI_VENDOR_ID_CELESTICA			0x18d4
- #define PCI_DEVICE_ID_CELESTICA_TIMECARD	0x1008
- 
-+#define PCI_VENDOR_ID_WIWI			0x2163
-+#define PCI_DEVICE_ID_WIWI_TIMECARD		0x1008
-+
-+/* WiWi rev 02 translates shared peripheral offsets and interrupt inputs. */
-+#define OCP_WIWI_MMIO_OFFSET			0x02000000
-+#define OCP_WIWI_IRQ_OFFSET			32
-+#define OCP_WIWI_MSI_ENABLE			0x1800
-+/* Upper 32 bits: the three UARTs and XIIC can interrupt during probe. */
-+#define OCP_WIWI_PERIPHERAL_IRQS	(BIT(3) | BIT(5) | BIT(7) | BIT(10))
-+/* PPS/TS0/TS1, TS2, GEN1-4 and TS3/TS4. */
-+#define OCP_WIWI_TIMING_IRQS			(GENMASK(2, 0) | BIT(6) | \
-+						 GENMASK(16, 11))
-+/* Do not unmask unused inputs, including the flash controller (9). */
-+#define OCP_WIWI_IRQS				(OCP_WIWI_PERIPHERAL_IRQS | \
-+						 OCP_WIWI_TIMING_IRQS)
-+
- #define PCI_VENDOR_ID_OROLIA			0x1ad7
- #define PCI_DEVICE_ID_OROLIA_ARTCARD		0xa000
- 
-@@ -405,6 +421,10 @@ struct ptp_ocp {
- 	struct delayed_work	sync_work;
- 	int			id;
- 	int			n_irqs;
-+	bool			wiwi;
-+	bool			wiwi_timing_ready;
-+	u32			wiwi_image_id;
-+	void __iomem		*wiwi_msi;
- 	struct ptp_ocp_serial_port	port[__PORT_COUNT];
- 	bool			fw_loader;
- 	u8			fw_tag;
-@@ -578,6 +598,22 @@ static struct ptp_ocp_eeprom_map art_eeprom_map[] = {
-  * 15: Orolia TS4
-  */
- 
-+static struct i2c_board_info ocp_fb_i2c_devices[] = {
-+	{ I2C_BOARD_INFO("24c02", 0x50) },
-+	{ I2C_BOARD_INFO("24mac402", 0x58), .platform_data = "mac" },
-+};
-+
-+static struct ptp_ocp_i2c_info ocp_wiwi_i2c = {
-+	.name = "xiic-i2c",
-+	.fixed_rate = 50000000,
-+	.data_size = sizeof(struct xiic_i2c_platform_data),
-+	.data = &(struct xiic_i2c_platform_data) {
-+		.num_devices = ARRAY_SIZE(ocp_fb_i2c_devices),
-+		.devices = ocp_fb_i2c_devices,
-+		.force_32bit_access = true,
-+	},
-+};
-+
- static struct ocp_resource ocp_fb_resource[] = {
- 	{
- 		OCP_MEM_RESOURCE(reg),
-@@ -730,12 +766,8 @@ static struct ocp_resource ocp_fb_resource[] = {
- 			.fixed_rate = 50000000,
- 			.data_size = sizeof(struct xiic_i2c_platform_data),
- 			.data = &(struct xiic_i2c_platform_data) {
--				.num_devices = 2,
--				.devices = (struct i2c_board_info[]) {
--					{ I2C_BOARD_INFO("24c02", 0x50) },
--					{ I2C_BOARD_INFO("24mac402", 0x58),
--					  .platform_data = "mac" },
--				},
-+				.num_devices = ARRAY_SIZE(ocp_fb_i2c_devices),
-+				.devices = ocp_fb_i2c_devices,
- 			},
- 		},
- 	},
-@@ -1322,6 +1354,11 @@ static struct ocp_resource ocp_adva_x1_resource[] = {
- static const struct pci_device_id ptp_ocp_pcidev_id[] = {
- 	{ PCI_DEVICE_DATA(META, TIMECARD, &ocp_fb_resource) },
- 	{ PCI_DEVICE_DATA(CELESTICA, TIMECARD, &ocp_fb_resource) },
-+	{
-+		PCI_DEVICE_SUB(PCI_VENDOR_ID_WIWI, PCI_DEVICE_ID_WIWI_TIMECARD,
-+			       PCI_VENDOR_ID_XILINX, 0x0007),
-+		.driver_data = (kernel_ulong_t)ocp_fb_resource,
-+	},
- 	{ PCI_DEVICE_DATA(OROLIA, ARTCARD, &ocp_art_resource) },
- 	{ PCI_DEVICE_DATA(ADVA, TIMECARD, &ocp_adva_resource) },
- 	{ PCI_DEVICE_DATA(ADVA, TIMECARD_X1, &ocp_adva_x1_resource) },
-@@ -1384,6 +1421,23 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
- 	{ }
- };
- 
-+/* No validated second receiver on the supported WiWi board. */
-+static const struct ocp_selector ptp_ocp_wiwi_sma_out[] = {
-+	{ .name = "10Mhz", .value = 0x0000, .frequency = 10000000 },
-+	{ .name = "PHC",   .value = 0x0001, .frequency = 1 },
-+	{ .name = "MAC",   .value = 0x0002, .frequency = 1 },
-+	{ .name = "GNSS1", .value = 0x0004, .frequency = 1 },
-+	{ .name = "IRIG",  .value = 0x0010, .frequency = 10000 },
-+	{ .name = "DCF",   .value = 0x0020, .frequency = 77000 },
-+	{ .name = "GEN1",  .value = 0x0040 },
-+	{ .name = "GEN2",  .value = 0x0080 },
-+	{ .name = "GEN3",  .value = 0x0100 },
-+	{ .name = "GEN4",  .value = 0x0200 },
-+	{ .name = "GND",   .value = 0x2000 },
-+	{ .name = "VCC",   .value = 0x4000 },
-+	{ }
-+};
-+
- static const struct ocp_selector ptp_ocp_art_sma_in[] = {
- 	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
- 	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
-@@ -2174,6 +2228,12 @@ ptp_ocp_devlink_flash_update(struct devlink *devlink,
- 	const char *msg;
- 	int err;
- 
-+	if (bp->wiwi) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "WiWi flash updates are not supported");
-+		return -EOPNOTSUPP;
-+	}
-+
- 	if (params->component) {
- 		if (!bp->has_cpld ||
- 		    strcmp(params->component, ADVA_CPLD_COMPONENT)) {
-@@ -2220,7 +2280,10 @@ ptp_ocp_devlink_info_get(struct devlink *devlink, struct devlink_info_req *req,
- 	u32 id;
- 
- 	fw_image = bp->fw_loader ? "loader" : "fw";
--	sprintf(buf, "%d.%d", bp->fw_tag, bp->fw_version);
-+	if (bp->wiwi)
-+		snprintf(buf, sizeof(buf), "0x%08x", bp->wiwi_image_id);
-+	else
-+		sprintf(buf, "%d.%d", bp->fw_tag, bp->fw_version);
- 	err = devlink_info_version_running_put(req, fw_image, buf);
- 	if (err)
- 		return err;
-@@ -2470,6 +2533,12 @@ ptp_ocp_signal_from_perout(struct ptp_ocp *bp, int gen,
- 	return ptp_ocp_signal_set(bp, gen, &s);
- }
- 
-+static bool ptp_ocp_timing_ready(struct ptp_ocp *bp)
-+{
-+	/* Pair with probe's publication after the gate readback. */
-+	return !bp->wiwi || smp_load_acquire(&bp->wiwi_timing_ready);
-+}
-+
- static int
- ptp_ocp_signal_enable(void *priv, u32 req, bool enable)
- {
-@@ -2479,6 +2548,9 @@ ptp_ocp_signal_enable(void *priv, u32 req, bool enable)
- 	struct timespec64 ts;
- 	int gen;
- 
-+	if (enable && !ptp_ocp_timing_ready(bp))
-+		return -EAGAIN;
-+
- 	gen = ext->info->index - 1;
- 
- 	iowrite32(0, &reg->intr_mask);
-@@ -2552,6 +2624,9 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
- 	struct ts_reg __iomem *reg = ext->mem;
- 	struct ptp_ocp *bp = ext->bp;
- 
-+	if (enable && !ptp_ocp_timing_ready(bp))
-+		return -EAGAIN;
-+
- 	if (ext == bp->pps) {
- 		u32 old_map = bp->pps_req_map;
- 
-@@ -2641,7 +2716,7 @@ ptp_ocp_serial_line(struct ptp_ocp *bp, struct ocp_resource *r)
- 	 */
- 	memset(&uart, 0, sizeof(uart));
- 	uart.port.dev = &pdev->dev;
--	uart.port.iotype = UPIO_MEM;
-+	uart.port.iotype = bp->wiwi ? UPIO_MEM32 : UPIO_MEM;
- 	uart.port.regshift = 2;
- 	uart.port.mapbase = pci_resource_start(pdev, 0) + r->offset;
- 	uart.port.irq = pci_irq_vector(pdev, r->irq_vec);
-@@ -2944,6 +3019,14 @@ static const struct ocp_sma_op ocp_fb_sma_op = {
- 	.set_output	= ptp_ocp_sma_fb_set_output,
- };
- 
-+static const struct ocp_sma_op ocp_wiwi_sma_op = {
-+	.tbl		= { ptp_ocp_sma_in, ptp_ocp_wiwi_sma_out },
-+	.init		= ptp_ocp_sma_fb_init,
-+	.get		= ptp_ocp_sma_fb_get,
-+	.set_inputs	= ptp_ocp_sma_fb_set_inputs,
-+	.set_output	= ptp_ocp_sma_fb_set_output,
-+};
-+
- static int
- ptp_ocp_sma_adva_set_output(struct ptp_ocp *bp, int sma_nr, u32 val)
- {
-@@ -3037,6 +3120,13 @@ ptp_ocp_fb_set_version(struct ptp_ocp *bp)
- 
- 	version = ioread32(&bp->image->version);
- 
-+	if (bp->wiwi) {
-+		/* Revision 02 defines capabilities; report the build ID. */
-+		bp->wiwi_image_id = version;
-+		bp->fw_cap = OCP_CAP_BASIC | OCP_CAP_SIGNAL | OCP_CAP_FREQ;
-+		return;
-+	}
-+
- 	/* if lower 16 bits are empty, this is the fw loader. */
- 	if ((version & 0xffff) == 0) {
- 		version = version >> 16;
-@@ -3069,8 +3159,7 @@ ptp_ocp_fb_board_init(struct ptp_ocp *bp, struct ocp_resource *r)
- 
- 	bp->flash_start = 1024 * 4096;
- 	bp->eeprom_map = fb_eeprom_map;
--	bp->fw_version = ioread32(&bp->image->version);
--	bp->sma_op = &ocp_fb_sma_op;
-+	bp->sma_op = bp->wiwi ? &ocp_wiwi_sma_op : &ocp_fb_sma_op;
- 	bp->signals_nr = 4;
- 	bp->freq_in_nr = 4;
- 
-@@ -3110,7 +3199,30 @@ ptp_ocp_register_resources(struct ptp_ocp *bp, kernel_ulong_t driver_data)
- 	int err = 0;
- 
- 	table = (struct ocp_resource *)driver_data;
--	for (r = table; r->setup; r++) {
-+	for (; table->setup; table++) {
-+		struct ocp_resource translated = *table;
-+
-+		r = table;
-+		if (bp->wiwi) {
-+			/* Do not expose the flash through raw MTD, either. */
-+			if (r->setup == ptp_ocp_register_spi)
-+				continue;
-+			/* The supported board has no validated GNSS2 port. */
-+			if (r->setup == ptp_ocp_register_serial &&
-+			    r->bp_offset == offsetof(struct ptp_ocp,
-+						    port[PORT_GNSS2]))
-+				continue;
-+			/* Leave the shared resource table unchanged. */
-+			if (translated.offset)
-+				translated.offset += OCP_WIWI_MMIO_OFFSET;
-+			if (r->setup == ptp_ocp_register_i2c)
-+				translated.extra = &ocp_wiwi_i2c;
-+			if (r->setup == ptp_ocp_register_ext ||
-+			    r->setup == ptp_ocp_register_serial ||
-+			    r->setup == ptp_ocp_register_i2c)
-+				translated.irq_vec += OCP_WIWI_IRQ_OFFSET;
-+			r = &translated;
-+		}
- 		if (!ptp_ocp_allow_irq(bp, r))
- 			continue;
- 		err = r->setup(bp, r);
-@@ -3394,6 +3506,8 @@ ptp_ocp_sma_show(struct ptp_ocp *bp, int sma_nr, char *buf,
- 		return ptp_ocp_show_inputs(tbl[0], val, buf, default_in_val);
- 	}
- 
-+	if (bp->wiwi && !ptp_ocp_select_name_from_val(tbl[1], val))
-+		return sysfs_emit(buf, "OUT: unavailable\n");
- 	return ptp_ocp_show_output(tbl[1], val, buf, default_out_val);
- }
- 
-@@ -5455,7 +5569,7 @@ ptp_ocp_summary_show(struct seq_file *s, void *data)
- 	}
- 	seq_printf(s, "MAC PPS1 src: %s\n", mac_src);
- 
--	gpio_input_map(buf, bp, sma_val, 1, "GNSS2");
-+	gpio_input_map(buf, bp, sma_val, 1, bp->wiwi ? NULL : "GNSS2");
- 	seq_printf(s, "MAC PPS2 src: %s\n", buf);
- 
- 	/* assumes automatic switchover/selection */
-@@ -5787,6 +5901,12 @@ ptp_ocp_detach(struct ptp_ocp *bp)
- 	platform_device_unregister(bp->i2c_ctrl);
- 	if (bp->i2c_clk)
- 		clk_hw_unregister_fixed_rate(bp->i2c_clk);
-+	/* Keep child interrupts available until the children are gone. */
-+	if (bp->wiwi_msi) {
-+		iowrite32(0, bp->wiwi_msi);
-+		iowrite32(0, bp->wiwi_msi + 4);
-+		ioread32(bp->wiwi_msi);
-+	}
- 	if (bp->n_irqs)
- 		pci_free_irq_vectors(bp->pdev);
- 	mutex_destroy(&bp->cpld_lock);
-@@ -5881,9 +6001,14 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
- 		return -EOPNOTSUPP;
- 
- 	tbl = bp->sma_op->tbl[sma->mode];
--	for (i = 0; tbl[i].name; i++)
--		if (tbl[i].frequency == frequency)
--			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
-+	for (i = 0; tbl[i].name; i++) {
-+		if (tbl[i].frequency == frequency) {
-+			int val = bp->wiwi ? tbl[i].value : i;
-+
-+			return ptp_ocp_sma_store_val(bp, val, sma->mode,
-+						     sma_nr + 1);
-+		}
-+	}
- 	return -EINVAL;
- }
- 
-@@ -5901,6 +6026,8 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
- 	int i;
- 
- 	val = bp->sma_op->get(bp, sma_nr + 1);
-+	if (bp->wiwi)
-+		val &= SMA_SELECT_MASK;
- 	tbl = bp->sma_op->tbl[sma->mode];
- 	for (i = 0; tbl[i].name; i++)
- 		if (val == tbl[i].value) {
-@@ -5952,6 +6079,49 @@ ptp_ocp_sync_work(struct work_struct *work)
- 	queue_delayed_work(system_power_efficient_wq, &bp->sync_work, HZ);
- }
- 
-+/* The PCI revision identifies the register interface, not the FPGA build. */
-+static int ptp_ocp_wiwi_validate(struct pci_dev *pdev)
-+{
-+	u32 table, pba;
-+	int cap;
-+
-+	if (pdev->revision != 0x02)
-+		return dev_err_probe(&pdev->dev, -ENODEV,
-+				     "Unsupported WiWi PCI revision 0x%02x\n",
-+				     pdev->revision);
-+
-+	cap = pci_find_capability(pdev, PCI_CAP_ID_MSIX);
-+	if (!(pci_resource_flags(pdev, 0) & IORESOURCE_MEM) ||
-+	    pci_resource_len(pdev, 0) != 0x04000000 || !cap ||
-+	    pci_msix_vec_count(pdev) != 64 ||
-+	    pci_read_config_dword(pdev, cap + PCI_MSIX_TABLE, &table) ||
-+	    pci_read_config_dword(pdev, cap + PCI_MSIX_PBA, &pba) ||
-+	    table != 0x2000 || pba != 0x1808)
-+		return dev_err_probe(&pdev->dev, -ENODEV,
-+				     "Unsupported WiWi PCI layout\n");
-+
-+	return 0;
-+}
-+
-+static int ptp_ocp_wiwi_irq_init(struct ptp_ocp *bp)
-+{
-+	void __iomem *msi;
-+
-+	msi = __ptp_ocp_get_mem(bp, pci_resource_start(bp->pdev, 0) +
-+			      OCP_WIWI_MSI_ENABLE, 8);
-+	if (IS_ERR(msi))
-+		return PTR_ERR(msi);
-+	bp->wiwi_msi = msi;
-+
-+	/* LiteX stores bits 63:32 before bits 31:0, as little-endian words. */
-+	iowrite32(0, msi);
-+	iowrite32(0, msi + 4);
-+	if (ioread32(msi) || ioread32(msi + 4))
-+		return -EIO;
-+
-+	return 0;
-+}
-+
- static int
- ptp_ocp_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- {
-@@ -5960,6 +6130,13 @@ ptp_ocp_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 	int err, i;
- 	u64 clkid;
- 
-+	/* Dynamic IDs must not override the WiWi board's resource table. */
-+	if (pdev->vendor == PCI_VENDOR_ID_WIWI) {
-+		id = pci_match_id(ptp_ocp_pcidev_id, pdev);
-+		if (!id)
-+			return -ENODEV;
-+	}
-+
- 	devlink = devlink_alloc(&ptp_ocp_devlink_ops, sizeof(*bp), &pdev->dev);
- 	if (!devlink) {
- 		dev_err(&pdev->dev, "devlink_alloc failed\n");
-@@ -5973,6 +6150,13 @@ ptp_ocp_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 	}
- 
- 	bp = devlink_priv(devlink);
-+	bp->wiwi = id->vendor == PCI_VENDOR_ID_WIWI;
-+	if (bp->wiwi) {
-+		/* Validate before IRQ setup, bus mastering or FPGA writes. */
-+		err = ptp_ocp_wiwi_validate(pdev);
-+		if (err)
-+			goto out_disable;
-+	}
- 	err = ptp_ocp_device_init(bp, pdev);
- 	if (err)
- 		goto out_disable;
-@@ -5988,18 +6172,33 @@ ptp_ocp_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 
- 	INIT_DELAYED_WORK(&bp->sync_work, ptp_ocp_sync_work);
- 
-+	if (bp->wiwi) {
-+		err = ptp_ocp_wiwi_irq_init(bp);
-+		if (err)
-+			goto out;
-+	}
-+
- 	/* compat mode.
- 	 * Older FPGA firmware only returns 2 irq's.
- 	 * allow this - if not all of the IRQ's are returned, skip the
- 	 * extra devices and just register the clock.
- 	 */
--	err = pci_alloc_irq_vectors(pdev, 1, 17, PCI_IRQ_MSI | PCI_IRQ_MSIX);
-+	if (bp->wiwi)
-+		err = pci_alloc_irq_vectors(pdev, 49, 64, PCI_IRQ_MSIX);
-+	else
-+		err = pci_alloc_irq_vectors(pdev, 1, 17,
-+					    PCI_IRQ_MSI | PCI_IRQ_MSIX);
- 	if (err < 0) {
- 		dev_err(&pdev->dev, "alloc_irq_vectors err: %d\n", err);
- 		goto out;
- 	}
- 	bp->n_irqs = err;
- 	pci_set_master(pdev);
-+	/* Only the UART and XIIC inputs may interrupt during probe. */
-+	if (bp->wiwi_msi) {
-+		iowrite32(OCP_WIWI_PERIPHERAL_IRQS, bp->wiwi_msi);
-+		ioread32(bp->wiwi_msi);
-+	}
- 
- 	err = ptp_ocp_register_resources(bp, id->driver_data);
- 	if (err)
-@@ -6048,6 +6247,17 @@ ptp_ocp_probe(struct pci_dev *pdev, const struct pci_device_id *id)
- 			goto out_dpll;
- 		}
- 	}
-+	/* All handlers and the PHC are ready for timestamp interrupts. */
-+	if (bp->wiwi_msi) {
-+		iowrite32(OCP_WIWI_IRQS, bp->wiwi_msi);
-+		if (ioread32(bp->wiwi_msi) != OCP_WIWI_IRQS) {
-+			err = dev_err_probe(&pdev->dev, -EIO,
-+					    "WiWi interrupt gate did not open\n");
-+			goto out_dpll;
-+		}
-+		/* Publish readiness to the timestamp and generator enablers. */
-+		smp_store_release(&bp->wiwi_timing_ready, true);
-+	}
- 	queue_delayed_work(system_power_efficient_wq, &bp->sync_work, HZ);
- 
- 	return 0;
+---8<---
+    Another notable thing is that tcp_skb_can_collapse_rx() now checks
+    candidates against the first skb before mptcp_skb_ext_move(),
+    not against each nskb.
+   =20
+    When a skb with an MPTCP ext spans multiple nskbs, collapsing
+    previously stopped at the next skb with the same ext because later
+    nskbs lacked the ext.
+   =20
+       skb1 (ext A),                  skb2 (ext A)
+      nskb1 (ext A), nskb2 (no ext)             ^
+                            ^- not collapsible -'
+   =20
+    Now such skbs are also collapsed with the redundant ext dropped,
+    while the first nskb still carries the same mapping in sequence
+    order.
+   =20
+       skb1 (ext A),                  skb2 (ext A)
+      nskb1 (ext A), nskb2 (no ext) <-' collapsed into nskb2
+---8<---
