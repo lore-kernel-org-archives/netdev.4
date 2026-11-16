@@ -1,101 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794849420;
-	b=TXJZ46eRdhtXi7IHpQJO+tQjkMUECfIK7GShIR+jjeab79mR9X/xeWqW2uKTBDskPeOT
-	 tN/wgixW4YQfjiEJ0L5beW7t+w3F+2keENi34PtrFrsp2j6qIIsFb/LaUGbkWqlvN/bSd
-	 3FT5mwfR/y3PxFo/RFMHsKqtAGfg/zkA8hu1CJrVpNJmZz+6zXfg7o8idva+5fZA/MAMt
-	 ebM8Agolzp1MNt8iihtd5zUpjLT2KH2nr9K9AmukRbQ8RDwG/pzxT6oMnmvmrDXnOT46c
-	 Jxv67M5JL/V0/gVqD/yPF7gDIdanR7XTjixxk+DsyBYHzeJhWFQfXpCi/tuJOxVLJ/Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794849420;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=cvhlwTnVB5qObUR1donDWKQFcI5lhmN3ZPbArGLp5LQ=;
-	b=rMkR58sCpNy3jphQj79reT45TOfHXCGc3nuO8pqkK62OmV8n9u6UDTdiNUyKWqixv2bw
-	 1e8j16KQowraQ6Krdeh4uPRtEt7mandY0W3oYHC2pcxgEXn0rWZR1UiLWOc94mCncQY8m
-	 5QiS7MYYvkz2SNiIq8jQ3bnUwPl2UcBdkmZ4azUelJZCMuRUUW0n3WMwO1CC+yeS6xKRY
-	 f4rz8fDYqxZnjmijtbZMeRHn6DEk/Mh5zcrV3vJXFjV6J9EEe5soBx3AGwQ8lPyDCWNrv
-	 S0Nov47Qc6tQRJD6Qmf6XKrLTm6TG0ER6X24OqUFm23/wFku2YfNyYVbtrvfGWPUM1A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=muR038w6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
-Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794849619;
+	b=qhsihwCMy3E332FiCQAITR+kz6du3n4+ohqU+J0Zub07BU4xGny7iUcozexx//ZHsCfp
+	 oS/gCF9PX1VDmQp9ky3siFo24Cyv2FwQ7JET+7u+XtLNyFgxpWJL3uJE1FaxgeoZ5jtHO
+	 Tsqe3VRQPLSGKrvjxxl/qN534Ez0y8s407kHUF2gx+gEc5iF0qhNru+uPe/CM3buOqysv
+	 gCi4Vh/NQfaJSxjqijHg/mIcIGhWNK+Tfat6LG+Rc8Su9I6Qonj0kUj6s3bd6+t8/6fro
+	 QueaDQ+d4uK761Jpi5VhyW1g444xIUoffUihlfe+nqEUaWDomP87abal6JoXL3arNSw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794849619;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=qo+XNJi3+qAMT97TnlZtT0eegnezla+dXLwHmpOKv2w=;
+	b=K7gKXvjdyyFIO0PxRjBh7KQQDgImJZSpdieCoykuZ8EQ5+/kjiE3e3WEtUVuCFkr/ajj
+	 x7HW1AV3MvfIFFw74+EDfT1S0k9B+oVwR5bMyPO+NynZRiD2Q4W18krHxNITVTuvKeudV
+	 D/8qzKBwfLsqIXfkn1pV1JedPtu5Kfn1jiNjxu0Cl01X1dmPTF/u0WDX+2KDowB2SUp3L
+	 PF/ULrbDl0jwjR7Bo3ZHmBwnPmv2dr1kw/mXF7IyExlxQ6AdYRva7gkvvQfbvss8zbuMh
+	 ej3oSfR0q+Sz+Gx5VRYBcA1HR+6TPDLwppzPT1sKLpAOUfp7WWpHstBJnpv4TSW5MiA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QDRAy9Sj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1F44606A89D
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 17:16:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1F44606A89D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AEB4606A322;
+	Mon, 16 Nov 2026 17:20:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=muR038w6
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b577addee9so5914744a12.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:16:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794849418; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SKvjQqxdFnb6+oATdWMb0ddeRFejhNPqFJ5eiAXI6kgp7bcxgt5Q9GUHRMuoyuBJ5Q
-         NMJ40P0UMZvS8xS7uZc5fAk2iBsX2lrCJQXMEmawYcPdoyvymmPOSqld7QgZzN7rdSFi
-         bfziW4jaVn8Wn9stJKWsMIuzHPH6r3AZG1TxZX4Vfpoya4cbqA91/npgT9ht34cAprQv
-         DWEoL67OuYRarsrLvOPOC1Fb5wQLzeToTOj4ga93LXh6rBuUPFTxtfaEeQUT2jxL2T+g
-         CPHq3iGp8vYuCPNuoeNKkEckmc9md2RXbQLgUn0AqFLzpMO7phn5a5DQ4mGArPgNGNlp
-         mRFg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=cvhlwTnVB5qObUR1donDWKQFcI5lhmN3ZPbArGLp5LQ=;
-        fh=mass4YQhCyLQ47uSo247PRQxmQ1jANDW9LO9sWqPrYg=;
-        b=CbVG1Ghdm+NANhOHp+txfkx0RxI87Rb8VNfTbXWMGjXPpttapwanXloZ27sRgeV3/t
-         fmRdhbkI4Jma9SHVJtLXqeSiFs/gvQsO2fccMVdlVQUXnEjJ7yvaoMLdTGBD2r2PuU5+
-         hrgLP7qEHfWgeocg6+EkEsUuQj9AMpd+huln8NSrQcJvSRoZvDYo3QFCEF93AnTMkLd3
-         9JVHToav8bhSMFsPu/AiuTgC1uqMWwpBInjmnPaYRkAJsdC54z1ciGh4O1+QtiZWPGkK
-         PuYP+fK+tdOiu+Kde4qcR9CdKu6SFloDt0vMpl8uSsOMu1bPpirTPPYmSUTfRby8lM4w
-         XWuA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794849418; x=1795454218; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=cvhlwTnVB5qObUR1donDWKQFcI5lhmN3ZPbArGLp5LQ=;
-        b=muR038w65/upa4T3A8TQUgAZPPu00HSp8IEYxLeziP5g7EOqEdvXR4kRn7l7HqC4oM
-         V/H7jmVddckf4li4Y0IfO1NYwf6mTpnVcEibSiDpSUGa4rmH8J48GG/AdleQHZhCXsRY
-         RKMQZVymvxJl7k97IWLEoqvjx7NjiZbQg2uAM4mR3pJQKz5WqOab8nzYhREPb/6gAZ9i
-         pBA6UOQY1B36uqzP1y0SScadwu/L0Druqoe1fQdOxwb3sdGBUZ1ThrB2CqjVL4+PzHGX
-         wt9TbJGmNBshQby+yMN9+pQ2Lz5tWQc68vsAD3w5jK3lYbmvcjKJb74HqwwAi+/L+rlV
-         RvOg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794849418; x=1795454218;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=cvhlwTnVB5qObUR1donDWKQFcI5lhmN3ZPbArGLp5LQ=;
-        b=JMiIUCnRnuPuJpsivMMi0GAzmCI1mjmwEQbUFNpvdjvJCHPNNND9ybxJ5H16L65jlD
-         Eq9YWoDG+gP6/CwPSq5+JOcwd0R3MzbpCrh8Kuca8oqom5Q478lwDHavFIvIBhb0QBin
-         K9X9t8CdhNneasjTTWm7+Si2vz+MgDQ+Nw+QPxvt37VYIXKuZ92t3vEe2wL2wwTi4/aL
-         3F8I31eyXkAey8c6gliLyn64ceApGf3phgT++4jH5a8LatdPgCbwqezUAjTY4h7dTTej
-         Zq936GBUHGV4Et01zUqIV0vYbvMtRH43uAqxYAlYEQFoAz2Jq6/LBID1G+8KJ4MYtKyA
-         2CGw==
-X-Forwarded-Encrypted: i=1; AL+hErGcYIIW/8h0Ko3tolZEwnPeL8R+qassRvIMfb3Og2mnYN5IBaNH0tqaA1vtO56Zf/cgmwbI748=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84YbYO6TwvLfSYYTF7NDtKofZCgvSj/ZwDVKD1cvnuFZoYZfk6
-	+e0mivDZwUctS1WnPb6FQ6Cr1YhjtgDvto2YPDha6jQyLsOjyhr01qZB9hXc3nn64C/3fFKP5JW
-	dXnINyO5Tv4o963Hb5Sp49eABDRdjrWA=
-X-Gm-Gg: AYBFou3lL1vtaqM6wW+fYHFs7Ee66c06ZZmdV++kEmkWjo0DNo7dfzPNJdU20Ap5OFL
-	Dp7zGEeNd0XvfgFuQ7UfvDvikl1zw4OUfs0gon6vGgraI/WzxVHB6yeGJ2ZeNx/wUmYnXna9Roj
-	4eErLIHHMZxh0Pucm5uWWgYbDHe0soFVwWzuitVyESjiwiOn0cFqknm/MgHiy7x5M5FgUVbVJup
-	v6fkXkbiX73ma86WRI9xFdV8jKJpbEHkBI2rTFi+C1+DjgH5QrnaJg2Vms4Gdq8xFB6HrMwrB2r
-	Yyr9GDQbLKJI9IAUn8y4FjbI7UM1h42Khd/PLCwdCcUJMfoFhAlBADV/IDbspLR5aoSriVwBAGa
-	ShzZEFkJ2s2FQSwZZJhKdlEMJ41kwBE57Tg0nbsMUs6cWSmj11S32pG+zPfr25QuWIcfeh02IJ2
-	r5YTUfn5Eo6Ywz0yM=
-X-Received: by 2002:aa7:c258:0:b0:6b7:d69a:a3d3 with SMTP id
- 4fb4d7f45d1cf-6b7d69aa8fbmr5089335a12.39.1794849418257; Mon, 16 Nov 2026
- 09:16:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QDRAy9Sj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5E2451F000C9;
+	Mon, 16 Nov 2026 17:20:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794849619;
+	bh=qo+XNJi3+qAMT97TnlZtT0eegnezla+dXLwHmpOKv2w=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=QDRAy9SjFh2jGKg+EHev99/5hoZVQikPXRgMoyNqsTyGo2dMmUyUdqzqvn/82ia2d
+	 lGiup191uGYqRKv60FZobuw2GEvamHnW0aIJou9Gi3YYtlnAA8ykCXj5BH9HDnvmca
+	 FZ7WUBYkpt2mNIU7kwloD86l72adJtDk9lCVTnPwAoY3RlWbKCFE6Ft0MsI4gHqJfn
+	 Nw0dmfZ1eHn6IJQGZjV/p3ECgGZWUF4jYADpd7Y06Wm1q4ULD8yxQNRB5DJFRcIeYz
+	 nqYCAzG6W4n8lS5MEwoOtzjLuZRnc2ozVgMS2xztuwFx+yoyHO4ATBGJTqvsYDfKgP
+	 MSMEpQRNqx6Yw==
+Subject:
+ Re: [PATCH net-next v10 2/4] net: xdp: add xdp_buff_shrink_tail() helper
+From: netdev-bot+sashiko@kernel.org
+To: lorenzo.bianconi@oss.qualcomm.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, Jose.Abreu@synopsys.com, boon.leong.ong@intel.com,
+ horms@kernel.org, andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ bpf@vger.kernel.org, nb@tipi-net.de
+Date: Mon, 16 Nov 2026 17:20:16 +0000
+Message-ID: <179484961693.3136.10654880889378798099@kernel.org>
+In-Reply-To: <20261112-stmmac-rx-mb-v10-2-d3d04b65c6bc@oss.qualcomm.com>
+References: <20261112-stmmac-rx-mb-v10-2-d3d04b65c6bc@oss.qualcomm.com>
+X-sashiko-severity: Critical
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,224 +70,152 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org> <20261116-work-loop-pseudo-v3-34-8cbbea1cf34f@kernel.org>
-In-Reply-To: <20261116-work-loop-pseudo-v3-34-8cbbea1cf34f@kernel.org>
-From: Amir Goldstein <amir73il@gmail.com>
-Date: Mon, 16 Nov 2026 18:16:46 +0100
-X-Gm-Features: AclHuK_s2Kpb4OdbgPngYJl9gLHjfhlAmiJMqLtxRnpTDibz-Ni4SZJspSV9laM
-Message-ID: <CAOQ4uxjJVgy-skUbbScfz=eAEATf=iMpqRHNshX=eKu3oiwnrA@mail.gmail.com>
-Subject: Re: [PATCH RFC v3 34/44] selftests/ovl: test data-only layers on
- pseudo filesystems
-To: Christian Brauner <brauner@kernel.org>
-Cc: linux-fsdevel@vger.kernel.org, Jann Horn <jannh@google.com>, 
-	Chris Mason <mason@kernel.org>, Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, target-devel@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-mm@kvack.org, bpf@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
-	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, netdev@vger.kernel.org, 
-	fuse-devel@lists.linux.dev, linux-efi@vger.kernel.org, 
-	xen-devel@lists.xenproject.org, ocfs2-devel@lists.linux.dev, 
-	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
-	linux-usb@vger.kernel.org, linux-erofs@lists.ozlabs.org, 
-	linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 16, 2026 at 12:10=E2=80=AFPM Christian Brauner <brauner@kernel.=
-org> wrote:
->
-> Add tests that overlayfs refuses data-only layers on pseudo filesystems:
->
-> - sysfs and procfs via the "::" separator in "lowerdir=3D"
-> - sysfs and procfs via "datadir+" by path
-> - sysfs and procfs via "datadir+" by file descriptor
-> - tmpfs as data-only layer
-> - sysfs as regular lower layer
->
-> The last two must keep mounting.
->
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Reviewed-by: Amir Goldstein <amir73il@gmail.com>
+Critical: 2 · High: 0 · Medium: 0 · Low: 0
 
-> ---
->  .../selftests/filesystems/overlayfs/.gitignore     |   1 +
->  .../selftests/filesystems/overlayfs/Makefile       |   1 +
->  .../filesystems/overlayfs/pseudo_datadir.c         | 131 +++++++++++++++=
-++++++
->  3 files changed, 133 insertions(+)
->
-> diff --git a/tools/testing/selftests/filesystems/overlayfs/.gitignore b/t=
-ools/testing/selftests/filesystems/overlayfs/.gitignore
-> index b343cc430051d..e1410fee2269d 100644
-> --- a/tools/testing/selftests/filesystems/overlayfs/.gitignore
-> +++ b/tools/testing/selftests/filesystems/overlayfs/.gitignore
-> @@ -3,3 +3,4 @@ dev_in_maps
->  set_layers_via_fds
->  idmapped_mounts
->  automount_in_layer
-> +pseudo_datadir
-> diff --git a/tools/testing/selftests/filesystems/overlayfs/Makefile b/too=
-ls/testing/selftests/filesystems/overlayfs/Makefile
-> index 382a59bda5e70..ace75f5627e0f 100644
-> --- a/tools/testing/selftests/filesystems/overlayfs/Makefile
-> +++ b/tools/testing/selftests/filesystems/overlayfs/Makefile
-> @@ -10,6 +10,7 @@ TEST_GEN_PROGS :=3D dev_in_maps
->  TEST_GEN_PROGS +=3D set_layers_via_fds
->  TEST_GEN_PROGS +=3D idmapped_mounts
->  TEST_GEN_PROGS +=3D automount_in_layer
-> +TEST_GEN_PROGS +=3D pseudo_datadir
->
->  include ../../lib.mk
->
-> diff --git a/tools/testing/selftests/filesystems/overlayfs/pseudo_datadir=
-.c b/tools/testing/selftests/filesystems/overlayfs/pseudo_datadir.c
-> new file mode 100644
-> index 0000000000000..3b59fd3e9f5c2
-> --- /dev/null
-> +++ b/tools/testing/selftests/filesystems/overlayfs/pseudo_datadir.c
-> @@ -0,0 +1,131 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +#define _GNU_SOURCE
-> +
-> +#include <errno.h>
-> +#include <fcntl.h>
-> +#include <sched.h>
-> +#include <stdbool.h>
-> +#include <stdio.h>
-> +#include <sys/mount.h>
-> +#include <sys/stat.h>
-> +#include <unistd.h>
-> +
-> +#include "kselftest_harness.h"
-> +#include "../wrappers.h"
-> +
-> +static int setup_tmp(void)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Critical] The patch removes the lower-bound check `data_end <
+  xdp->data + ETH_HLEN` from the linear path of bpf_xdp_adjust_tail()…
+- [Critical] The new exported xdp_buff_shrink_tail() (net/core/xdp.c)
+  checks a linear shrink only against the lower bound: `data_end =…
+
+--
+
+net: xdp: add xdp_buff_shrink_tail() helper
+
+This moves the XDP tail-shrink logic out of bpf_xdp_adjust_tail() and into
+net/core/xdp.c. The frag shrink helpers move with it, and a new exported
+xdp_buff_shrink_tail() handles both the linear and frags cases.
+bpf_xdp_adjust_tail() now sends every negative offset to the new helper
+so stmmac can share it for FCS stripping.
+
+> diff --git a/net/core/filter.c b/net/core/filter.c
+> index 9b8d5191c4ba2..5ea45dfce7a22 100644
+> --- a/net/core/filter.c
+> +++ b/net/core/filter.c
+> @@ -4438,96 +4438,21 @@ static int bpf_xdp_frags_increase_tail(struct xdp_buff *xdp, int offset)
+
+[ ... ]
+
+>  BPF_CALL_2(bpf_xdp_adjust_tail, struct xdp_buff *, xdp, int, offset)
+>  {
+>  	void *data_hard_end = xdp_data_hard_end(xdp); /* use xdp->frame_sz */
+>  	void *data_end = xdp->data_end + offset;
+>  
+> -	if (unlikely(xdp_buff_has_frags(xdp))) { /* non-linear xdp buff */
+> -		if (offset < 0)
+> -			return bpf_xdp_frags_shrink_tail(xdp, -offset);
+> +	if (offset < 0)
+> +		return xdp_buff_shrink_tail(xdp, -offset);
+>  
+> +	if (unlikely(xdp_buff_has_frags(xdp))) /* non-linear xdp buff */
+>  		return bpf_xdp_frags_increase_tail(xdp, offset);
+> -	}
+>  
+>  	/* Notice that xdp_data_hard_end have reserved some tailroom */
+>  	if (unlikely(data_end > data_hard_end))
+>  		return -EINVAL;
+>  
+> -	if (unlikely(data_end < xdp->data + ETH_HLEN))
+> -		return -EINVAL;
+> -
+>  	/* Clear memory area on grow, can contain uninit kernel memory */
+>  	if (offset > 0)
+>  		memset(xdp->data_end, 0, offset);
+
+[Severity: Critical]
+With the ETH_HLEN check gone from this path, what stops a grow on a
+linear xdp_buff from wrapping the pointer?
+
+The offset argument is ARG_ANYTHING, so a program can pass any positive
+int. data_end is computed as xdp->data_end + offset. For the linear grow
+case, the only check left is data_end > data_hard_end.
+
+On a 32-bit kernel with the default 3G/1G split, packet buffers sit at
+or above 0xC0000000. Take xdp->data_end = 0xC5000100 and
+offset = 0x3B000000: data_end wraps to 0x100. That passes the
+data_hard_end check, and then this runs:
+
+    memset(xdp->data_end, 0, offset);
+
+It would zero about 1 GiB of kernel memory past the packet buffer. After
+that, xdp->data_end is set below xdp->data.
+
+Before this patch, a wrapped value was always below xdp->data + ETH_HLEN,
+so the removed check returned -EINVAL for it. That check now exists only
+in xdp_buff_shrink_tail(), which runs only when offset < 0.
+
+The return value also changes for short frames. A linear frame already
+shorter than ETH_HLEN used to get -EINVAL from
+bpf_xdp_adjust_tail(ctx, 0), or from a small grow that left it under 14
+bytes. It now gets 0. That seems to contradict this sentence in the
+commit message:
+
+    Behavior for valid offsets is unchanged.
+
+Should the lower-bound check stay in bpf_xdp_adjust_tail() for the
+offset >= 0 linear path? The later patch "net: stmmac: rework stmmac_rx
+to support XDP rx multi-buff" doesn't touch bpf_xdp_adjust_tail(), so
+this still looks present at the end of the series.
+
+[ ... ]
+
+> diff --git a/net/core/xdp.c b/net/core/xdp.c
+> index 470bf90d93ef2..7c98dbc2a770c 100644
+> --- a/net/core/xdp.c
+> +++ b/net/core/xdp.c
+> @@ -672,6 +672,97 @@ struct sk_buff *__xdp_build_skb_from_buff(const struct xdp_buff *xdp)
+
+[ ... ]
+
+> +int xdp_buff_shrink_tail(struct xdp_buff *xdp, int offset)
 > +{
-> +       if (unshare(CLONE_NEWNS))
-> +               return -errno;
-> +       if (sys_mount(NULL, "/", NULL, MS_REC | MS_PRIVATE, NULL))
-> +               return -errno;
-> +       if (sys_mount("tmpfs", "/tmp", "tmpfs", 0, NULL))
-> +               return -errno;
-> +       if (mkdir("/tmp/lower", 0755) || mkdir("/tmp/data", 0755) ||
-> +           mkdir("/tmp/merged", 0755))
-> +               return -errno;
-> +       return 0;
-> +}
+> +	void *data_end = xdp->data_end - offset;
 > +
-> +/* Mount an overlayfs with the legacy "lowerdir=3D" option. */
-> +static int mount_lowerdir(const char *lowerdir)
-> +{
-> +       char opts[256];
+> +	if (unlikely(offset < 0))
+> +		return -EINVAL;
 > +
-> +       snprintf(opts, sizeof(opts), "lowerdir=3D%s", lowerdir);
-> +       if (sys_mount("overlay", "/tmp/merged", "overlay", MS_RDONLY, opt=
-s))
-> +               return -errno;
-> +       if (umount2("/tmp/merged", 0))
-> +               return -errno;
-> +       return 0;
-> +}
+> +	if (unlikely(xdp_buff_has_frags(xdp))) /* non-linear xdp buff */
+> +		return xdp_frags_shrink_tail(xdp, offset);
 > +
-> +static int set_layer(int fd_context, const char *key, const char *path,
-> +                    bool by_fd)
-> +{
-> +       int fd, ret =3D 0;
+> +	if (unlikely(data_end < xdp->data + ETH_HLEN))
+> +		return -EINVAL;
 > +
-> +       if (!by_fd) {
-> +               if (sys_fsconfig(fd_context, FSCONFIG_SET_STRING, key, pa=
-th, 0))
-> +                       return -errno;
-> +               return 0;
-> +       }
-> +
-> +       fd =3D open(path, O_DIRECTORY | O_CLOEXEC);
-> +       if (fd < 0)
-> +               return -errno;
-> +       if (sys_fsconfig(fd_context, FSCONFIG_SET_FD, key, NULL, fd))
-> +               ret =3D -errno;
-> +       close(fd);
-> +       return ret;
-> +}
-> +
-> +/* Create an overlayfs with "lowerdir+" and "datadir+" through fsconfig.=
- */
-> +static int fsmount_layers(const char *lower, const char *data, bool by_f=
-d)
-> +{
-> +       int fd_context, fd_mnt, ret;
-> +
-> +       fd_context =3D sys_fsopen("overlay", FSOPEN_CLOEXEC);
-> +       if (fd_context < 0)
-> +               return -errno;
-> +
-> +       ret =3D set_layer(fd_context, "lowerdir+", lower, by_fd);
-> +       if (ret)
-> +               goto out;
-> +       ret =3D set_layer(fd_context, "datadir+", data, by_fd);
-> +       if (ret)
-> +               goto out;
-> +
-> +       if (sys_fsconfig(fd_context, FSCONFIG_CMD_CREATE, NULL, NULL, 0))=
- {
-> +               ret =3D -errno;
-> +               goto out;
-> +       }
-> +
-> +       fd_mnt =3D sys_fsmount(fd_context, FSMOUNT_CLOEXEC, 0);
-> +       if (fd_mnt < 0)
-> +               ret =3D -errno;
-> +       else
-> +               close(fd_mnt);
-> +out:
-> +       close(fd_context);
-> +       return ret;
-> +}
-> +
-> +TEST(datadir_sysfs)
-> +{
-> +       ASSERT_EQ(setup_tmp(), 0);
-> +
-> +       EXPECT_EQ(mount_lowerdir("/tmp/lower::/sys/kernel"), -EINVAL);
-> +       EXPECT_EQ(fsmount_layers("/tmp/lower", "/sys/kernel", false), -EI=
-NVAL);
-> +       EXPECT_EQ(fsmount_layers("/tmp/lower", "/sys/kernel", true), -EIN=
-VAL);
-> +}
-> +
-> +TEST(datadir_procfs)
-> +{
-> +       ASSERT_EQ(setup_tmp(), 0);
-> +
-> +       EXPECT_EQ(mount_lowerdir("/tmp/lower::/proc"), -EINVAL);
-> +       EXPECT_EQ(fsmount_layers("/tmp/lower", "/proc", false), -EINVAL);
-> +       EXPECT_EQ(fsmount_layers("/tmp/lower", "/proc", true), -EINVAL);
-> +}
-> +
-> +TEST(datadir_tmpfs)
-> +{
-> +       ASSERT_EQ(setup_tmp(), 0);
-> +
-> +       EXPECT_EQ(mount_lowerdir("/tmp/lower::/tmp/data"), 0);
-> +       EXPECT_EQ(fsmount_layers("/tmp/lower", "/tmp/data", false), 0);
-> +       EXPECT_EQ(fsmount_layers("/tmp/lower", "/tmp/data", true), 0);
-> +}
-> +
-> +TEST(lowerdir_sysfs)
-> +{
-> +       ASSERT_EQ(setup_tmp(), 0);
-> +
-> +       EXPECT_EQ(mount_lowerdir("/sys/kernel:/tmp/lower"), 0);
-> +       EXPECT_EQ(mount_lowerdir("/sys/kernel::/tmp/data"), 0);
-> +       EXPECT_EQ(fsmount_layers("/sys/kernel", "/tmp/data", false), 0);
-> +       EXPECT_EQ(fsmount_layers("/sys/kernel", "/tmp/data", true), 0);
-> +}
-> +
-> +TEST_HARNESS_MAIN
->
-> --
-> 2.53.0
->
+> +	xdp->data_end = data_end;
+
+[Severity: Critical]
+Can xdp->data_end - offset wrap here and still pass the lower-bound
+check?
+
+bpf_xdp_adjust_tail() passes -offset, so a program can ask for a shrink
+of up to INT_MAX bytes. The old inline code also checked
+data_end > data_hard_end for shrink requests, and that rejected a
+wrapped result. This path no longer has that upper-bound check.
+
+Some 32-bit configurations put lowmem below 0x80000000. Examples are
+ARM with VMSPLIT_1G (PAGE_OFFSET is 0x40000000), nommu ARM (PAGE_OFFSET
+is PHYS_OFFSET), x86-32 with VMSPLIT_1G or VMSPLIT_2G_OPT, and m68k.
+
+On those, a shrink larger than (u32)xdp->data_end wraps to an address
+between data_end + 2^31 and 2^32. That is always above
+xdp->data + ETH_HLEN, so the check passes and the wrapped pointer is
+written to xdp->data_end.
+
+The packet then appears to span gigabytes of kernel memory. Direct
+packet access, bpf_xdp_load_bytes() and bpf_xdp_store_bytes(), XDP_TX,
+redirect, and skb construction on XDP_PASS all trust data_end after
+that.
+
+Should offset be checked against the linear length before the pointer
+subtraction? This code is also unchanged at the end of the series.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-stmmac-rx-mb-v10-0-d3d04b65c6bc%40oss.qualcomm.com
