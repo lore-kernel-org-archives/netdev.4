@@ -1,73 +1,73 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.126.187
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794829980;
-	b=f6/8whyejjl4Yv8WWVKnjS/5Q7u/qPOO5n6j2tAL/Py+6fFhIeeJxjs2rUP/gCJfZ3ox
-	 w3kVk0UNpSAURSTrj4Xiacfmxms1N62Re4UUpEeL6Qjmd8AtsEOtrvbR4ZLMxIuyAz8Sv
-	 myO7vyNRJUDgBK8L1onIhEu2hZ5HMHUfvKIu66PfG6aygyAXiveSP8t+rwOT9YHRDW4wr
-	 GpSuidzf/TYs04wflMtP1JZaYiSC3nYcFOtjEBr1ek25x6xKwwZv2w38uio15NIuJN0g2
-	 ZEf5pI0YnWNXGrCIOIaydDCLktrnvFnd4ynZ5UVgmwpC5xpkJ6RxybI+K3Z1/Is5mgw==
+	t=1794830014;
+	b=XH+HG2vlk5Vk4a2+iDQjRulq0nZrjmsYoHwivFfkbeQ3NjZSRPRJ2YxtNVbqYwtCcnd8
+	 oLItNwsZx3yMikHaDAkDi2spYj03PV4D3OBICJeXahDoPcm6zp3JaF4owO7O0dJMu73MF
+	 wTlHJft4tciFyhTQ7y/cicIG9bdtzyw2+v8JzEOH28KRIYdzbqUXwUfbZqgFkV7SlvGmJ
+	 BJNKqD1nNkbWPQk4LZIok7t0K8eO4KI1Jj3TUFGqzEcCKPeJGFkFUBo4IBBNhZoIPXaWx
+	 0XU3mPvxPhmGR5biP2hhGEZ/FJYljJSoHTVcrOq9EFeV0RvMryyCFb0OFVXw3CqywhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794829980;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794830014;
 	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
 	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=woc8WyNuB2DSpf/3uCi1yunt8fwAv6vvXNQ/82loZ0A=;
-	b=tiwpfRiPEh8zkALKy+Zp35RX9qsTzBFWdZNSdA+wdIsRefsLII8Z98+22L/l51oAl8Ge
-	 bzbfUkiUPlWGiD1W+1RYGuD6sZzMK3zkKkNz4KYQFWauVde5EkEcYYVpZqbOKE/JiYn8C
-	 whI0dVLhPIGJxVUHDkcTYlofxZuEUc81/i20xro7mnVjxVImIhbOEvFf8g/SR7nvpQgjB
-	 7L5vatNtdGdMuDIuUnpkh2IbZt799J6QWbF2nSjWIddSgCRRS2IBSxHotgf3j+SvA10Yd
-	 gcQEWnDjDjnX4++6x96644bshFUSc4q6FSXqjER9huDPVA1/me7RCVYRXAt2ywzptrg==
+	bh=T3Qrj+hVuo9zPrMJG9fnhqZjVRnarWgzHczUyKIN/PA=;
+	b=tPaf6fMDVJzX4NTF39DVrdHNWIAH3mkWXX43j14emck7wst1saTnvMgs8ACRw9UvCzZ5
+	 sgxO2oshPJ+1VMb3Br93OTt5xCPfb21pTinZmW+kZMxjbUaq0Y+ElCqcuLlSJ/WHwFLHN
+	 BxEadHVN1qvW+wnqwe9YtTomKHdXqla+7VK/lbNFLMqPspL9ewk24wM/BGHr44kUWajaG
+	 QLt1naFO6QLr8aVAs1kzXqLRZ2t03HAuLsNn7geszb8JCKZ/wdcp3vYH/VaMcPMbEsDwj
+	 0mAGZaTAB99mVc0gvNRuVQjscS9/G2u29aAcFCrycnrPvlAWLQUeD/w3Cqdz0X3RahQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=jonasjelonek.de;
 	spf=pass smtp.mailfrom=jonasjelonek.de;
-	dkim=pass header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=S5JBoftp;
+	dkim=pass header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=DYgaHIIw;
 	arc=none smtp.remote-ip=212.227.126.187
 Received: from mout.kundenserver.de (mout.kundenserver.de [212.227.126.187])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CA89606A33D
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:52:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CA89606A33D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F191606A338
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:53:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F191606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jonasjelonek.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jonasjelonek.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=S5JBoftp
-DKIM2-Signature:  i=1; m=1; t=1794829977;
+	dkim=pass (2048-bit key, unprotected) header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=DYgaHIIw
+DKIM2-Signature:  i=1; m=1; t=1794830011;
  mf=PGpvbmFzQGpvbmFzamVsb25lay5kZT4=;
  rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
  d=jonasjelonek.de;
- s=s1-ionos:rsa-sha256:OucR1UevhEcXEYgGO2xbebZHFJMD
-   GqwBvBC3Jrfg5N8bnOXfkAPrz3hwHJmWleQeTZIt5kSrMzNVq8t/n2bU1Jq8NUQD5EVyjiFGZ21
-   yKWuFR6DqDE+MrV680L3zZo1O+HPg0c8jPoD+Bxfr+vbZcocwRl0Wo9SYOzpC3c48bTk2FWcVOi
-   765Snc8Rt+tc/Jbd1vVPP/hNIArLZyBxI5MAxPCHz7PIwnu/5zYiI8O43eigrOhPQC9IOBSxmQA
-   pe/uLbS14wQfrC3Ek7u2T+ayJq/mEvaYLdtE97mf3ztr3uZYR0x5yRI0hF0ri87bbpRJxlHkvYe
-   +GHpt6N/i0upWw==;
+ s=s1-ionos:rsa-sha256:rZdVUj7eoO4F1exLYJHAx8s+0yTQ
+   X1RGAQD9IYOsgeAuSip6c6AFxz4NHxKcb9m7YWyUT7XWMCsQWaoirILUbcUksdgC/roEVdFSxe9
+   UG8s2OEORG9lQPuIzOL6zobiXiv4nrwbR+54WmTs8AwUf204g6TXre3iZGsPyeSjyoboepcrvV7
+   jg01BEjXa/kfnOLBX46jVrGvGX5aN9s5Mvz+we4k4nW7hUos0n86h6wFUWUV65xyJDMOF+H8Aya
+   ovhbhGrjZj7n1uhaAGFycw0Mj8Vja/r6KYlwYWfENRunnMVLXI1wk80goFmGMbvbqb+WEzfVKYY
+   bRkfgDiHgeS2uA==;
 Message-Instance:  m=1;
  h=sha256:
-   6OMYgfqBVvaLPd0rxFHT+ycusW5WaGfc8m8UTpzBUZw=:
-   qXa7ssE060thvVRwkz8XsKplRVq2ECjo1RsSCBFEDuo=,
+   9BhjsL/XmiQXawCOmGNJkpc7qTfmWnKkl5zM2mKk5mI=:
+   3zqF0kHiU4u6cNZtqNxl5rjKsT4Geq3v6+4ygmNQkMM=,
   sha512:
-   ft786jAJo08hWD8kpugQn0AabpNEcO6usOncOSS6S2l9qksZAbD4bUL/cqWeE4zHBTmRcJ9Z4CnMxH+rpiSsmw==:
-   8gZuO+Idi/5WBo3vWDIJC9pJw9unP89LE6YGWy2lRrEVPk9LaGySSUx3ZHd8Brg8JM2yLtZxZtI8L2d6lamaag==;
+   sSByRi8DnmPyXlNScXX8HpM+VBar1/VI/NBkP+sEnaqTgFw9BEBJhLmBvCvySVs0rfwrpIluJRMIs3Xwtpvhsw==:
+   U7v0DJDumDAfO+ol3Q6S3Nhm9nYEXSgoGJX6TmrNsx5VzgQ/kHrKqElkcJ6a9JhY7JIGxE8GNLzIqPQMwAZneg==;
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jonasjelonek.de;
 	s=s1-ionos; t=1794829964; x=1795434764; i=jonas@jonasjelonek.de;
-	bh=woc8WyNuB2DSpf/3uCi1yunt8fwAv6vvXNQ/82loZ0A=;
+	bh=T3Qrj+hVuo9zPrMJG9fnhqZjVRnarWgzHczUyKIN/PA=;
 	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=S5JBoftpO7ItI8WBGKGyzryBfEGwUaXJjOrAAROWuzHdLiSqUOB6W24T4kNjVdpk
-	 wwfmZ4i072r392eyvXxO2yDlJCheVF1KykFi+XOgRyGMrWMJixDFL/IDJAPVL1iV/
-	 CIzq1kGAwsdgjjlHZvj8FPet0fMDcVSYaoIMoKDTHgt5zu0RlEnO6K3eb9XhseiDi
-	 mQZhK8ybJm3FKUFRfIi5T+GQCaiuRSk0HbQGuw2QCLZ07MtAiUQgifaAHO0nLctx/
-	 NXgDFoZYQ+j/EDN0ClSl4ZrU8OJs0D8OC4PTzxlUecsM90LJnf7nZcoqePvtJCy2w
-	 EOPR2MuI1sdb7ULMvA==
+	b=DYgaHIIwP/VmbMcT0bP0ZVlYZvZ661kZmWiEcchSA+g8LGgOqRsQH1cDMOcEG7xx
+	 abfyRjrchtHUTZ5hMi0LuTxsg0BWn+X012aW203WjTJPqEPqkrCeWPF/nDYaZQ4Hg
+	 T+5m47HTarvnxyPExEn1tasN6EFu7A9CvaPkPo9n3pHuSUn4lfdMNP+zkNDYnvcZ1
+	 +cMsmhm63+4lDJmwrCMjUK9H14XTw4DiPPdFzs8I+TOmtxt7RmkH1mahwnpu/5bXi
+	 d5YY0kQ9PDbdSE5jnmAc0T2SwSYhiiuqhiIQDppy14Ce0ry56FHyDrrT+a+OxBef7
+	 cuB30X7LGJ2c2TWEXA==
 X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
 Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue011
- [213.165.67.97]) with ESMTPSA (Nemesis) id 1MwQCb-1wdI772RxV-00vbcE; Mon, 16
- Nov 2026 12:52:44 +0100
+ [213.165.67.97]) with ESMTPSA (Nemesis) id 1MHXSD-1xFyyg2vcf-00AK42; Mon, 16
+ Nov 2026 12:52:43 +0100
 From: Jonas Jelonek <jonas@jonasjelonek.de>
 To: Oleksij Rempel <o.rempel@pengutronix.de>,
 	Kory Maincent <kory.maincent@bootlin.com>,
@@ -85,9 +85,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Sander Vanheule <sander@svanheule.net>,
 	Russell Senior <russell@personaltelco.net>,
 	Jonas Jelonek <jonas@jonasjelonek.de>
-Subject: [PATCH net-next v2 3/3] net: pse-pd: realtek-pse-mcu: configure global power budget
-Date: Mon, 16 Nov 2026 11:52:24 +0000
-Message-ID: <20261116115224.1454885-4-jonas@jonasjelonek.de>
+Subject: [PATCH net-next v2 2/3] net: pse-pd: realtek-pse-mcu: ensure MCU does dynamic power management
+Date: Mon, 16 Nov 2026 11:52:23 +0000
+Message-ID: <20261116115224.1454885-3-jonas@jonasjelonek.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261116115224.1454885-1-jonas@jonasjelonek.de>
 References: <20261116115224.1454885-1-jonas@jonasjelonek.de>
@@ -101,341 +101,171 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:gCnnGRVPP6x+XQIpDSHlLvoGioICgkMlePaJDUWgs6JqRAhiMjs
- C9IPxXi2tIXJICwVp5Si2vOYyxBnBfZEbl/T0bPHFheWt4w4O/Z2K7oB3Mhuw/TstybivxF
- G0IUlfyvyVcy96NkabPcLkSw8qCrThW5Fqz9RtIfKH9G1nymBe30b1tY7j/nNFRrTYQ1FT9
- L66DFae9Kz6qX2B3r2tow==
+X-Provags-ID: V03:K1:833vx1Z8oeyDrMlpyE4BA3i8mPs+Hx8xFiGM/5BrM5jzovWddsr
+ u4z6SWhPGJ1rDQLTo4lCo6ngvIhvVLoLe8rAe9MqytS9ZgkqNBKpmkhU81cHcjJMM74uXfF
+ gX1iI5qJAh+MBFD2gryvFSyBcf+C5HJYebhfByYTxQ8OCpq541f7/iKqeu18pIBWIkABNiP
+ G3H0c0C9X8pEO0BOScgbQ==
 X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:tlDWHc+bVDM=;Lrz8GyrQdyftk3m/4B5V/8XYZNv
- 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
+UI-OutboundReport: notjunk:1;M01:P0:OO2RfzqiXvY=;Y3BaZ3JGUHJFpz0W5kM92Ci7iAh
+ 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
+ J+1wOPYHS5+A==
 
-Use the optional VMAIN supply's power budget to set the MCU's aggregate
-PoE limit. Require a finite budget of at least 100 mW and round it down to
-the protocol's 100 mW units. Reserve that amount through the regulator cor=
-e
-and program the limit at the MCU's current budget index before selecting
-dynamic management and ungating the ports.
+From: Russell Senior <russell@personaltelco.net>
 
-VMAIN must already be available: the MCU and downstream PSE managers
-assume an active rail and provide no dedicated control for it. Use the
-regulator only for budget accounting, leaving the rail externally
-controlled or marked with regulator-always-on.
+The MCU may have any power management mode configuration by default
+but the driver should ensure that the MCU performs dynamic power
+management with priorities as advertised. On certain devices, the
+default MCU configuration ships with another default, possibly
+preventing any power delivery.
 
-The regulator budget represents the usable PoE allowance. Vendor firmware
-adds a device-specific guard on top: the UniFi USW Pro Max 24 PoE advertis=
-es
-400 W but programs 404 W with a 4 W guard. The guard's effect on power
-management is not sufficiently documented to apply a fixed percentage
-across devices. Set it to zero rather than add an arbitrary margin to the
-regulator-derived budget.
+Select the mode before deasserting the hardware port gate, so a failure
+to establish the management policy does not ungate the ports.
 
-Register managed cleanup before hardware initialization so probe failures
-and driver removal release the regulator reservation. Retain the programme=
-d
-MCU limit in either case. Boards without vmain-supply keep their existing
-firmware-configured budget.
-
+Signed-off-by: Russell Senior <russell@personaltelco.net>
+[jonas@jonasjelonek.de: adjust commit message, macro naming and comment;
+ shorten command and helper names to "mgmt"; change error handling; select
+ the mode before ungating ports; set dynamic mode with priorities directly
+ in the helper]
 Signed-off-by: Jonas Jelonek <jonas@jonasjelonek.de>
 =2D--
- drivers/net/pse-pd/realtek-pse-mcu-core.c | 123 +++++++++++++++++++++-
- drivers/net/pse-pd/realtek-pse-mcu.h      |   3 +
- 2 files changed, 123 insertions(+), 3 deletions(-)
+ drivers/net/pse-pd/realtek-pse-mcu-core.c | 32 +++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
 
 diff --git a/drivers/net/pse-pd/realtek-pse-mcu-core.c b/drivers/net/pse-p=
 d/realtek-pse-mcu-core.c
-index d8b6e0503939..ae58581a0dad 100644
+index c70b09ca2012..d8b6e0503939 100644
 =2D-- a/drivers/net/pse-pd/realtek-pse-mcu-core.c
 +++ b/drivers/net/pse-pd/realtek-pse-mcu-core.c
-@@ -34,10 +34,12 @@
- #include <linux/delay.h>
- #include <linux/gpio/consumer.h>
- #include <linux/jiffies.h>
-+#include <linux/math.h>
- #include <linux/minmax.h>
- #include <linux/module.h>
- #include <linux/property.h>
- #include <linux/pse-pd/pse.h>
-+#include <linux/regulator/consumer.h>
- #include <linux/unaligned.h>
+@@ -68,10 +68,14 @@
+ /* Nominal PSE rail; 802.3at/bt operating range. */
+ #define RTPSE_MCU_PSE_VOLTAGE_UV		54000000
 =20
- #include "realtek-pse-mcu.h"
-@@ -62,6 +64,8 @@
- #define RTPSE_MCU_MAX_PORTS			48
- #define RTPSE_MCU_PORT_MAX_PRIORITY		3
-=20
-+#define RTPSE_MCU_GLOBAL_BUDGET_LSB_MW		100
++/* RTPSE_MCU_CMD_SET_POWER_MGMT_MODE values */
++#define RTPSE_MCU_POWER_MGMT_DYNAMIC_PRIO	0x02	/* dynamic, with port prio=
+rity */
 +
- /* Bounded resends when the MCU replies NOT_READY (busy). */
- #define RTPSE_MCU_NOT_READY_RETRIES		3
-=20
-@@ -76,6 +80,8 @@ enum rtpse_mcu_cmd {
+ enum rtpse_mcu_cmd {
+ 	RTPSE_MCU_CMD_SET_GLOBAL_STATE,
  	RTPSE_MCU_CMD_GET_SYSTEM_INFO,
  	RTPSE_MCU_CMD_GET_EXT_CONFIG,
- 	RTPSE_MCU_CMD_SET_POWER_MGMT_MODE,
-+	RTPSE_MCU_CMD_GET_POWER_STATUS,
-+	RTPSE_MCU_CMD_SET_GLOBAL_BUDGET,
++	RTPSE_MCU_CMD_SET_POWER_MGMT_MODE,
 =20
  	RTPSE_MCU_CMD_PORT_ENABLE,
  	RTPSE_MCU_CMD_PORT_SET_POWER_LIMIT_TYPE,
-@@ -393,6 +399,84 @@ static int rtpse_mcu_set_power_mgmt_mode(struct rtpse=
-_mcu_ctrl *pse)
+@@ -369,6 +373,26 @@ static int rtpse_mcu_set_global_state(struct rtpse_mc=
+u_ctrl *pse, bool enable)
  	return (resp.payload[0] =3D=3D 0x0) ? 0 : -EIO;
  }
 =20
-+static int rtpse_mcu_get_global_budget_idx(struct rtpse_mcu_ctrl *pse, u8=
- *budget_idx)
++static int rtpse_mcu_set_power_mgmt_mode(struct rtpse_mcu_ctrl *pse)
 +{
 +	struct rtpse_mcu_msg req, resp;
 +	const struct rtpse_mcu_opcode *opc;
 +	int ret;
 +
-+	opc =3D &pse->dialect->opcode[RTPSE_MCU_CMD_GET_POWER_STATUS];
++	opc =3D &pse->dialect->opcode[RTPSE_MCU_CMD_SET_POWER_MGMT_MODE];
 +	if (!opc->valid)
 +		return -EOPNOTSUPP;
 +
 +	rtpse_mcu_msg_init(&req, opc->op);
-+	ret =3D rtpse_mcu_do_xfer(pse, &req, &resp);
-+	if (ret)
-+		return ret;
-+
-+	if (resp.payload[4] > 0x7)
-+		return -ERANGE;
-+
-+	*budget_idx =3D resp.payload[4];
-+	return 0;
-+}
-+
-+static int rtpse_mcu_set_global_budget(struct rtpse_mcu_ctrl *pse, u8 bud=
-get_idx,
-+				       u16 budget_raw)
-+{
-+	const struct rtpse_mcu_opcode *opc;
-+	struct rtpse_mcu_msg req, resp;
-+	int ret;
-+
-+	opc =3D &pse->dialect->opcode[RTPSE_MCU_CMD_SET_GLOBAL_BUDGET];
-+	if (!opc->valid)
-+		return -EOPNOTSUPP;
-+
-+	rtpse_mcu_msg_init(&req, opc->op);
-+	req.payload[0] =3D budget_idx;
-+	put_unaligned_be16(budget_raw, &req.payload[1]);
-+	put_unaligned_be16(0, &req.payload[3]);
++	req.payload[0] =3D RTPSE_MCU_POWER_MGMT_DYNAMIC_PRIO;
 +
 +	ret =3D rtpse_mcu_do_xfer(pse, &req, &resp);
 +	if (ret)
 +		return ret;
-+	if (resp.payload[0] !=3D budget_idx || resp.payload[1] !=3D 0)
-+		return -EIO;
 +
-+	return 0;
-+}
-+
-+static int rtpse_mcu_apply_global_budget(struct rtpse_mcu_ctrl *pse,
-+					 struct regulator *vmain)
-+{
-+	int budget, ret;
-+	u16 budget_raw;
-+	u8 budget_idx;
-+
-+	budget =3D regulator_get_unclaimed_power_budget(vmain);
-+	if (budget =3D=3D INT_MAX)
-+		return -ENODATA;
-+	if (budget < 0 || budget > U16_MAX * RTPSE_MCU_GLOBAL_BUDGET_LSB_MW)
-+		return -ERANGE;
-+
-+	budget =3D rounddown(budget, RTPSE_MCU_GLOBAL_BUDGET_LSB_MW);
-+	if (!budget)
-+		return -ERANGE;
-+	budget_raw =3D budget / RTPSE_MCU_GLOBAL_BUDGET_LSB_MW;
-+
-+	ret =3D regulator_request_power_budget(vmain, budget);
-+	if (ret)
-+		return ret;
-+	pse->requested_budget_mW =3D budget;
-+
-+	ret =3D rtpse_mcu_get_global_budget_idx(pse, &budget_idx);
-+	if (ret)
-+		return ret;
-+
-+	/* Retain the programmed MCU limit even if later probe steps fail. */
-+	return rtpse_mcu_set_global_budget(pse, budget_idx, budget_raw);
++	return (resp.payload[0] =3D=3D 0x0) ? 0 : -EIO;
 +}
 +
  /* Port operations */
 =20
  static int rtpse_mcu_port_get_status(struct rtpse_mcu_ctrl *pse, unsigned=
  int port,
-@@ -801,6 +885,14 @@ static int rtpse_mcu_discover(struct rtpse_mcu_ctrl *=
-pse, struct rtpse_mcu_info
- 	return 0;
- }
-=20
-+static void rtpse_mcu_free_global_budget(void *data)
-+{
-+	struct rtpse_mcu_ctrl *pse =3D data;
-+
-+	if (pse->requested_budget_mW)
-+		regulator_free_power_budget(pse->vmain, pse->requested_budget_mW);
-+}
-+
- static void rtpse_mcu_global_disable(void *data)
- {
- 	struct rtpse_mcu_ctrl *pse =3D data;
-@@ -813,6 +905,7 @@ int rtpse_mcu_register(struct rtpse_mcu_ctrl *pse)
- 	const struct rtpse_mcu_match_data *match;
- 	struct rtpse_mcu_info info;
- 	struct gpio_desc *gpiod;
-+	struct regulator *vmain;
- 	int ret;
-=20
- 	BUILD_BUG_ON(sizeof(struct rtpse_mcu_msg) !=3D RTPSE_MCU_MSG_SIZE);
-@@ -837,6 +930,20 @@ int rtpse_mcu_register(struct rtpse_mcu_ctrl *pse)
- 		return dev_err_probe(pse->dev, -EINVAL,
- 				     "dialect for chip is incomplete\n");
-=20
-+	vmain =3D devm_regulator_get_optional(pse->dev, "vmain");
-+	if (PTR_ERR(vmain) =3D=3D -ENODEV)
-+		vmain =3D NULL;
-+	else if (IS_ERR(vmain))
-+		return dev_err_probe(pse->dev, PTR_ERR(vmain),
-+				     "failed to get vmain supply\n");
-+
-+	if (vmain) {
-+		pse->vmain =3D vmain;
-+		ret =3D devm_add_action_or_reset(pse->dev, rtpse_mcu_free_global_budget=
-, pse);
-+		if (ret)
-+			return ret;
-+	}
-+
- 	/*
- 	 * Release the MCU from reset before the first transaction; the
- 	 * boot-retry loop in discover() waits for it to answer.
-@@ -850,6 +957,13 @@ int rtpse_mcu_register(struct rtpse_mcu_ctrl *pse)
+@@ -826,6 +850,12 @@ int rtpse_mcu_register(struct rtpse_mcu_ctrl *pse)
  	if (ret)
  		return ret;
 =20
-+	if (vmain) {
-+		ret =3D rtpse_mcu_apply_global_budget(pse, vmain);
-+		if (ret)
-+			return dev_err_probe(pse->dev, ret,
-+					     "failed to apply global power budget\n");
-+	}
++	/* ensure the MCU does dynamic power management with priorities */
++	ret =3D rtpse_mcu_set_power_mgmt_mode(pse);
++	if (ret)
++		return dev_err_probe(pse->dev, ret,
++				     "failed to set power management mode\n");
 +
- 	/* ensure the MCU does dynamic power management with priorities */
- 	ret =3D rtpse_mcu_set_power_mgmt_mode(pse);
- 	if (ret)
-@@ -858,9 +972,8 @@ int rtpse_mcu_register(struct rtpse_mcu_ctrl *pse)
-=20
  	/*
  	 * Some boards gate all ports through a hardware line; deassert it only
--	 * after the MCU is confirmed, so a discover failure never ungates the
--	 * ports. It is then left to the MCU - not re-gated on unbind or a later
--	 * probe error - so a driver reload doesn't black out PoE.
-+	 * after discovery, budget setup and management-mode selection succeed.
-+	 * Do not reassert it on unbind or a later probe error.
- 	 */
- 	gpiod =3D devm_gpiod_get_optional(pse->dev, "disable-ports", GPIOD_OUT_L=
-OW);
- 	if (IS_ERR(gpiod))
-@@ -975,6 +1088,8 @@ static const struct rtpse_mcu_dialect rtpse_mcu_diale=
-ct_gen2 =3D {
+ 	 * after the MCU is confirmed, so a discover failure never ungates the
+@@ -944,6 +974,7 @@ static const struct rtpse_mcu_dialect rtpse_mcu_dialec=
+t_gen2 =3D {
+ 		[RTPSE_MCU_CMD_SET_GLOBAL_STATE]	=3D RTPSE_MCU_OP(0x00),
  		[RTPSE_MCU_CMD_GET_SYSTEM_INFO]		=3D RTPSE_MCU_OP(0x40),
  		[RTPSE_MCU_CMD_GET_EXT_CONFIG]		=3D RTPSE_MCU_OP(0x4a),
- 		[RTPSE_MCU_CMD_SET_POWER_MGMT_MODE]	=3D RTPSE_MCU_OP(0x10),
-+		[RTPSE_MCU_CMD_GET_POWER_STATUS]	=3D RTPSE_MCU_OP(0x41),
-+		[RTPSE_MCU_CMD_SET_GLOBAL_BUDGET]	=3D RTPSE_MCU_OP(0x04),
++		[RTPSE_MCU_CMD_SET_POWER_MGMT_MODE]	=3D RTPSE_MCU_OP(0x10),
 =20
  		[RTPSE_MCU_CMD_PORT_ENABLE]		=3D RTPSE_MCU_OP(0x01),
  		[RTPSE_MCU_CMD_PORT_SET_POWER_LIMIT_TYPE] =3D RTPSE_MCU_OP(0x12),
-@@ -996,6 +1111,8 @@ static const struct rtpse_mcu_dialect rtpse_mcu_diale=
-ct_gen1 =3D {
+@@ -964,6 +995,7 @@ static const struct rtpse_mcu_dialect rtpse_mcu_dialec=
+t_gen1 =3D {
+ 	.opcode =3D {
  		[RTPSE_MCU_CMD_GET_SYSTEM_INFO]		=3D RTPSE_MCU_OP(0x20),
  		[RTPSE_MCU_CMD_GET_EXT_CONFIG]		=3D RTPSE_MCU_OP(0x2b),
- 		[RTPSE_MCU_CMD_SET_POWER_MGMT_MODE]	=3D RTPSE_MCU_OP(0x17),
-+		[RTPSE_MCU_CMD_GET_POWER_STATUS]	=3D RTPSE_MCU_OP(0x23),
-+		[RTPSE_MCU_CMD_SET_GLOBAL_BUDGET]	=3D RTPSE_MCU_OP(0x18),
++		[RTPSE_MCU_CMD_SET_POWER_MGMT_MODE]	=3D RTPSE_MCU_OP(0x17),
 =20
  		[RTPSE_MCU_CMD_PORT_ENABLE]		=3D RTPSE_MCU_OP(0x00),
  		[RTPSE_MCU_CMD_PORT_SET_POWER_LIMIT_TYPE] =3D RTPSE_MCU_OP(0x15),
-diff --git a/drivers/net/pse-pd/realtek-pse-mcu.h b/drivers/net/pse-pd/rea=
-ltek-pse-mcu.h
-index 5e31dd0993dd..56899ec4d76f 100644
-=2D-- a/drivers/net/pse-pd/realtek-pse-mcu.h
-+++ b/drivers/net/pse-pd/realtek-pse-mcu.h
-@@ -62,6 +62,7 @@ static inline bool rtpse_mcu_resp_is_final(const struct =
-rtpse_mcu_msg *req,
- struct rtpse_mcu_dialect;
- struct rtpse_mcu_chip_info;
- struct rtpse_mcu_ctrl;
-+struct regulator;
-=20
- /* Per-compatible match data (the of_match .data). */
- struct rtpse_mcu_match_data {
-@@ -82,6 +83,8 @@ struct rtpse_mcu_ctrl {
- 	const struct rtpse_mcu_dialect *dialect;
- 	const struct rtpse_mcu_chip_info *chip;
- 	const struct rtpse_mcu_transport_ops *transport;
-+	struct regulator *vmain;
-+	unsigned int requested_budget_mW;
- 	u8 seq;			/* rolling request seq_num, echoed by the MCU */
- };
-=20
 =2D-=20
 2.53.0
 
