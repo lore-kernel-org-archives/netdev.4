@@ -1,55 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.77.101.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794862202;
-	b=IZTWCwcPBxPsaeN45EwuGSMZCQE8ebRLVj+jwlO+Bx4JPLNZ5N7i10oJhpbhTbcGJK7P
-	 fqXMmXNP/VQe7NYMWXBVq+6rC43s1QRo0MzwLThOnuiSUSG8z69jpDnYi0EyCQhlu8wOY
-	 7ZqZpJN9XLrKpB5KSTNmZ++/6qT1wiiUCRrmnA092DjwLB4/zWx804lLnohw4tKn/0cmn
-	 x4B00uDpF1Emes+snfShW77qNNjphcAJQhZnXhzSVhIdkE2djZU81nxkFMHzYE47b+3Xq
-	 uLKtysTC0Pq19xd2rhuZCjwNyediFsyRg6757FNuRH//XHRWje2i0+VLBOT2bkD2u/w==
+	t=1794862262;
+	b=y/hZkMY2m0gnvD46U9dSM5Mol0/psUZe9yUbRSS/BiYFfRsuBdAkVEnGAq4Uao03H8zi
+	 r5ZfQd4u1lD2b9ElHBGya/oLu14M1YCTtVoMcXgJJd+ssRbjOqKgfx8Paosc7L8JFaSfF
+	 b02tHHnePdmdGz5HeaHqXtgYHLPWcgEsciL1wb5EL6oMqTInCAdEskfZJWXqbdYS6XQCm
+	 PXFrMo++ySJOufHlqO/1h7c2ksfCeRhhGYH6chOiUMSwSY4lnHF7+jYDEwKCNpExpMs+v
+	 mtF3YcLPy3Pef2AmqRnvwV9r4DvVKGbMlPajrFgDdLXo3sfxxak2TY/em7lzZkJMR3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794862202;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-WP-MailID:
-	 X-WP-AV:X-WP-SPAM;
-	bh=vZ3UrWRrMzQPlpyjoGn0hYrTC6o8N4yYNOCu+Rlhosg=;
-	b=pWxEsrdEhsV7pSOL7/ika5tqOA+8vT0B2fOjKHANJ6zSI5LwwE6/bXJBktA+yJTrFnfj
-	 C2KTeS0riy0ec1596h5F49GIHy7jrD8gO9Is6WUcKUHqSFU/9H9X2ogHWcLinDLfNpfvp
-	 fAHtKM4AXbaX0n2sKDkXq0iVvcZKdfv/HHg4EJmKcRp/FX9VYy9ME9uhifW8quT0qZPwL
-	 fvJL25ceCObrM9mK+LFn4uL5qKsZYUbEiZ2ccaLZdpIVpsu5BHfRyl/41I1r6EMbRQ/lO
-	 5PH4q3v7YH/bCkLgoK0iIitqJ4MkdnOHqOLHszb7hrzWdnUP1GTajKpXXT02FsyM7vA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794862262;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=LbYY8S+YO6IOf9cej8HAyGPboaJz0Yq/WVfxOOkRios=;
+	b=0xz4DM75bN/OBuDaHgrR1+9+u1y3HjEDhKut/zp9J2h7pnCcbKOsK8eLu1OQI2I3yB2m
+	 uJggMkXNuZh41e/e2i+qQHOwwPoeCZuqUIW/nAfIGZmuWYSoiJJfY1VvVSeYScvcjJ+uf
+	 4piZaWilOiBNhkaJGhQ5QJRkKYpYIC4iWVqYhW0X+tJ9whaVgGCSepiD42M8ZtKcEWAd9
+	 tVWs8FvONYt66ZYjWp2jwHI5325E5DTlF7Ix7bwSrSszHfpchC+NiUHK3GcWnRfBcFYSm
+	 fmb99Rq3Se71Asxxe2vJWVV2TV5+RnZae189KVRWlL6uhkpzHP02Eh2NibQOxyQmCMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wp.pl;
-	spf=pass smtp.mailfrom=wp.pl;
-	dkim=pass header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=VRgvj7Gp;
-	arc=none smtp.remote-ip=212.77.101.11
-Received: from mx4.wp.pl (mx4.wp.pl [212.77.101.11])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Kc3N08k+;
+	arc=none smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2700606A329
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 20:50:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2700606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=wp.pl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wp.pl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F05F8606A32C;
+	Mon, 16 Nov 2026 20:51:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F05F8606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=VRgvj7Gp
-Received: (wp-smtpd smtp.wp.pl 3636 invoked from network); 16 Nov 2026 21:49:52 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=s20261001;
-          t=1794862192; bh=vZ3UrWRrMzQPlpyjoGn0hYrTC6o8N4yYNOCu+Rlhosg=;
-          h=Subject:To:Cc:From;
-          b=VRgvj7GpTKpIRaFlbtF1Z44vkVtTPxuXnvDGsSBDOAW8zISxWldRFOZazQU9wsDB2
-           kLT6MpeG31rC5Xhfh5nA51vMvod1rcKpk7bMd6SoWFflVLNSX/YgrJlTghVv4QLBwD
-           Gb61ui/l3oK6en/irkHyCb7YmtQ6qUznGrT2Yhq+waBUiEvxVukQ3AuR/Y6SAWgCt+
-           shGK+g3ImCAo38Vw/uAQa6+XB+PJ85zkf5/k908u+BhVElzy6ymX8hv8K9g9TLAT7H
-           bWpC/S6peQQ4P+m6O7urZ4FGrlBhBRn2jutgUlbJJGnzZTSJZKdn2Ik/Z0dFog/ksP
-           mUg8DkHs/7fpQ==
-Received: from [192.168.3.224] (83.24.146.222.ipv4.supernova.orange.pl [83.24.146.222])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <andrew@lunn.ch>; 16 Nov 2026 21:49:52 +0100
-Message-ID: <8ce3fdd2-2312-4a5b-8f36-7d1414ab3f83@wp.pl>
-Date: Mon, 16 Nov 2026 21:49:53 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Kc3N08k+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794862262; x=1826398262;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=o+hAdGEu/G2i+6qXpIrE3hZjue1EEFXSISQEDRzQof4=;
+  b=Kc3N08k+1Xc9Kzbt58HPLEFIBolee9HsoPL7rVf4ffHuv/xRCwb30pjF
+   MF0XFgotEDFsSiq0S49rnT/WlewulcqmjJLYQALqIfMSVOOcWyzxQV+At
+   e0Yp/ClUU6Z8S99YyJQTigteIlAKqW3hgYyKKl9n4QVnqYXM3XFqmxybV
+   eR5/pSNCfLRSu8yvrYaaUx8Mn81Th0XtTkbwutLDp8BGAfeaUbSB0FjBV
+   93tPm+LBfA1oyMwdcWjUhqUah9qFfjgOPxdv1pFz86BFBTagnt6l4S3NF
+   sU9O1iyg/hf7BPO8dBIoxZh/dWecVNsRsOAfen5gtBrtiWmICMZXC4L3J
+   A==;
+X-CSE-ConnectionGUID: LhDtlwNkRf+3/VqQDC0GTA==
+X-CSE-MsgGUID: cc461PsgQ8qCY/hgoyoC9g==
+X-IronPort-AV: E=McAfee;i="6800,10657,11968"; a="3627643"
+X-IronPort-AV: E=Sophos;i="6.27,217,1787036400"; 
+   d="scan'208";a="3627643"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 12:51:02 -0800
+X-CSE-ConnectionGUID: XQbmmi1NSs+nwwq2ukQKFg==
+X-CSE-MsgGUID: Z839PmLoT2aZ0zvCWNu+dQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,217,1787036400"; 
+   d="scan'208";a="9660347"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by orviesa002.jf.intel.com with ESMTP; 16 Nov 2026 12:50:56 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xT3fB-000000019PL-1eCy;
+	Mon, 16 Nov 2026 20:50:53 +0000
+Date: Tue, 17 Nov 2026 04:50:35 +0800
+From: kernel test robot <lkp@intel.com>
+To: Steffen Trumtrar <s.trumtrar@pengutronix.de>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Eric Dumazet <edumazet@kernel.org>, Simon Horman <horms@kernel.org>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Liang Chen <liangchen.linux@gmail.com>,
+	Heng Qi <hengqi@linux.alibaba.com>
+Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
+	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org, kvm@vger.kernel.org, kernel@pengutronix.de,
+	Steffen Trumtrar <s.trumtrar@pengutronix.de>
+Subject: Re: [PATCH net-next v5 6/9] virtio-net: assert header sizes
+Message-ID: <202611170421.klVDQaAD-lkp@intel.com>
+References: <20261112-v6-7-topic-virtio-net-ptp-v5-6-7ab67b572f4f@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,58 +102,81 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: dsa: mv88e6xxx: Enable LED control on
- 88E6171
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261115181305.2860498-1-olek2@wp.pl>
- <501adfa2-70dd-4fc0-b972-eb29785116e2@lunn.ch>
-Content-Language: pl
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-In-Reply-To: <501adfa2-70dd-4fc0-b972-eb29785116e2@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-WP-MailID: c8b52fd108579c5118e9dfeba272e791
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 000000A [wRNU]                               
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112-v6-7-topic-virtio-net-ptp-v5-6-7ab67b572f4f@pengutronix.de>
 
-Hi Andrew,
+Hi Steffen,
 
-On 15/11/2026 19:54, Andrew Lunn wrote:
-> On Sun, Nov 15, 2026 at 07:12:36PM +0100, Aleksander Jan Bajkowski wrote:
->> Enable LED control on the Marvell 88E6171. This switch uses a register
->> layout similar to the 6352 family, but has 4 LEDs instead of 2. Hardware
->> triggers are not supported at this moment.
-> Please break this patch up.
->
-> .num_leds makes a lot of sense, but please introduce it as a patch.
->
-> .led_hw_triggers i'm not sure about. But please add it as a patch of
-> its own.
->
->> @@ -4609,6 +4609,7 @@ static const struct mv88e6xxx_ops mv88e6171_ops = {
->>   	.port_pause_limit = mv88e6097_port_pause_limit,
->>   	.port_disable_learn_limit = mv88e6xxx_port_disable_learn_limit,
->>   	.port_disable_pri_override = mv88e6xxx_port_disable_pri_override,
->> +	.port_setup_leds = mv88e6xxx_port_setup_leds,
->>   	.port_get_cmode = mv88e6352_port_get_cmode,
->>   	.port_setup_message_port = mv88e6xxx_setup_message_port,
->>   	.stats_snapshot = mv88e6xxx_g1_stats_snapshot,
-> static const struct mv88e6xxx_ops mv88e6171_ops = {
-> 	/* MV88E6XXX_FAMILY_6351
->
-> I assume these changes work for all members of the family?
+kernel test robot noticed the following build errors:
 
-Most likely. The ON/OFF and BLINK controls should work the
-same across variious Marvell switch families. I think only
-the hardware triggers differ between switch families. I can
-also confirm that the 88E6341 shares the same register layout.
-However, this switch has 3 LEDs. I don't have access to other
-Marvell switches.
+[auto build test ERROR on c88fd6989aea9237a60a4859139a265bfb7ddc0b]
 
-Best regards,
-Aleksander
+url:    https://github.com/intel-lab-lkp/linux/commits/Steffen-Trumtrar/net-ethtool-tsconfig-allow-hardware-timestamping-without-a-PHC/20261112-121933
+base:   c88fd6989aea9237a60a4859139a265bfb7ddc0b
+patch link:    https://lore.kernel.org/r/20261112-v6-7-topic-virtio-net-ptp-v5-6-7ab67b572f4f%40pengutronix.de
+patch subject: [PATCH net-next v5 6/9] virtio-net: assert header sizes
+config: arm-neponset_defconfig (https://download.01.org/0day-ci/archive/20261117/202611170421.klVDQaAD-lkp@intel.com/config)
+compiler: arm-linux-gnueabi-gcc (GCC) 16.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261117/202611170421.klVDQaAD-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611170421.klVDQaAD-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from include/linux/bits.h:30,
+                    from include/linux/bitops.h:6,
+                    from include/linux/bitmap.h:8,
+                    from include/linux/ethtool.h:16,
+                    from net/packet/af_packet.c:51:
+>> include/linux/build_bug.h:80:41: error: static assertion failed: "offsetof(struct virtio_net_common_hdr, tstamp) == 32"
+      80 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
+         |                                         ^~~~~~~~~~~~~~
+   include/linux/build_bug.h:79:34: note: in expansion of macro '__static_assert'
+      79 | #define static_assert(expr, ...) __static_assert(expr, ##__VA_ARGS__, #expr)
+         |                                  ^~~~~~~~~~~~~~~
+   include/linux/virtio_net.h:36:1: note: in expansion of macro 'static_assert'
+      36 | static_assert(offsetof(struct virtio_net_common_hdr, tstamp) == 32);
+         | ^~~~~~~~~~~~~
+>> include/linux/build_bug.h:80:41: error: static assertion failed: "__alignof__(struct virtio_net_common_hdr) == 2"
+      80 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
+         |                                         ^~~~~~~~~~~~~~
+   include/linux/build_bug.h:79:34: note: in expansion of macro '__static_assert'
+      79 | #define static_assert(expr, ...) __static_assert(expr, ##__VA_ARGS__, #expr)
+         |                                  ^~~~~~~~~~~~~~~
+   include/linux/virtio_net.h:39:1: note: in expansion of macro 'static_assert'
+      39 | static_assert(__alignof__(struct virtio_net_common_hdr) == 2);
+         | ^~~~~~~~~~~~~
+
+
+vim +80 include/linux/build_bug.h
+
+bc6245e5efd70c4 Ian Abbott       2017-07-10  61  
+6bab69c65013bed Rasmus Villemoes 2019-03-07  62  /**
+6bab69c65013bed Rasmus Villemoes 2019-03-07  63   * static_assert - check integer constant expression at build time
+6ffd853b0b10e1e Randy Dunlap     2026-03-01  64   * @expr: expression to be checked
+6bab69c65013bed Rasmus Villemoes 2019-03-07  65   *
+6bab69c65013bed Rasmus Villemoes 2019-03-07  66   * static_assert() is a wrapper for the C11 _Static_assert, with a
+6bab69c65013bed Rasmus Villemoes 2019-03-07  67   * little macro magic to make the message optional (defaulting to the
+6bab69c65013bed Rasmus Villemoes 2019-03-07  68   * stringification of the tested expression).
+6bab69c65013bed Rasmus Villemoes 2019-03-07  69   *
+6bab69c65013bed Rasmus Villemoes 2019-03-07  70   * Contrary to BUILD_BUG_ON(), static_assert() can be used at global
+6bab69c65013bed Rasmus Villemoes 2019-03-07  71   * scope, but requires the expression to be an integer constant
+6bab69c65013bed Rasmus Villemoes 2019-03-07  72   * expression (i.e., it is not enough that __builtin_constant_p() is
+6bab69c65013bed Rasmus Villemoes 2019-03-07  73   * true for expr).
+6bab69c65013bed Rasmus Villemoes 2019-03-07  74   *
+6bab69c65013bed Rasmus Villemoes 2019-03-07  75   * Also note that BUILD_BUG_ON() fails the build if the condition is
+6bab69c65013bed Rasmus Villemoes 2019-03-07  76   * true, while static_assert() fails the build if the expression is
+6bab69c65013bed Rasmus Villemoes 2019-03-07  77   * false.
+6bab69c65013bed Rasmus Villemoes 2019-03-07  78   */
+6bab69c65013bed Rasmus Villemoes 2019-03-07  79  #define static_assert(expr, ...) __static_assert(expr, ##__VA_ARGS__, #expr)
+6bab69c65013bed Rasmus Villemoes 2019-03-07 @80  #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
+6bab69c65013bed Rasmus Villemoes 2019-03-07  81  
+07a368b3f55a79d Maxim Levitsky   2022-10-25  82  
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
