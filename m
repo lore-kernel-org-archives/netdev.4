@@ -1,45 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794839319;
-	b=UtEh7VGoJwSTv1ifb7Trt/y/eEzUNYXLDbqgPumeyvajQrU0hARbiGLK7G/XWMES3INa
-	 orYUfjtTy1Lr/ZsJZlxl0PgDrdXqB6vHSrpDddY4XQR/3eN99h93q4zmZK4N2SaBVrkZf
-	 I/rhbKNvkr9SM1mUFY6p80ztfbIcvYhCA7SkB0nD3Ojx/h8CCSXKWxMHezMrer2Stk+L7
-	 LpnfO72Ecc6uMzCPyoKtpIxwgvdufhdUcxvcWYvMGi9OCwMb6MzXBIEumTKmhvX68Gd0a
-	 WSaFbxkRG3nMamm7Lb+Sue/U9tzP3qPIYzggOUkiXFY2KD7A0ZgjAwr47LMTibasREQ==
+	t=1794839376;
+	b=D8GwPKKe5RdLfj4FlgRa2+Y/GggcIL1JuvYVivgAMTQy9L3RdNpUV6SoNVtlGzdljqfr
+	 KTFqtwZkecOMDnoC5bHjTaXbwY/ef69YJ+i5cIOEU6hKNC8H4fuCAhg1W+937+/197soS
+	 R9gL+XH07GUI4eClBrccSx9hdbN8TxR1WzOr/NgWmE0weCMzYTZy7CJZCI+qj1C1VSYHe
+	 y+MKwt9o7KFni+zSF1+iT1d2lCM6JblvhgLAKvFLlPDuK/B+6hiVvR8y8xKcHX8CvbfFT
+	 zaIGEO1hzjfD78E5QRFTOmiEJ8wqvIcCYtSzKrvyrajp4mhFUzJohH4B9NLtjGt7ACA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794839319;
-	h=Received:DKIM-Signature:Content-Type:MIME-Version:Message-Id:
-	 In-Reply-To:References:Subject:From:To:Cc:Date;
-	bh=ZaQnGbid6q4zyYj9jfXt0T9/5f5P2B/asKQNYP1h4Jw=;
-	b=GeYteXrSlSCo9BCkEAdddlyg4q2IiCfUpyxYbaRjSgDH6hN+mc0n1ni4NCxdAEwM11wM
-	 9/FBbhZXRXVakCe7FKcmoOV3frQXJLczFIRWJhVF5PiVaDM9mKd8iByWtQPDyBDtx6nx1
-	 GP9FY7NAwkpFd7O8Sj0/4QRhF+HezRf5TWtAyiLwqxoNetgcFVc42imM4/V4LZMedlG6T
-	 8YgDwPpikVyKAR3bmGKK8Ki2HxgCmtStVBDQFZlq0LVAAq+s8p4vN69tgRTin6TiUOFBt
-	 zav8eS9R0M+JypchFV0kygyD20rg5DBSTelHY6BVUdf2elOWnpUBXGsba4vD8wgjSxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794839376;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=gTrzMTvbmQluxU9mU1/iZxueEuMdLRYzOrLjXjrvL0E=;
+	b=b9nnBP/7InesRZ5HbQss9zsBiX+VpEsDoMYg5fH42sOQRm/AyTC1k1NjllV5bW018eCa
+	 nurfvyDhwDrMEocMKKXKrpJOCGMB5LNItYDCzkMzb4QFx3WZop9wvA68Grykicg7kq1El
+	 VSIVZmwyjWxLxW2/Tg3DBlc6j8DVibcCQs1G38WlhhERD9YRAteYGiGlacrWLTyWP4g7V
+	 3jCEB4NsrK7fuAGiRoprNcVFBJoCAUQTZfoxmQo2Q/Esv3OBrB6KmVzJGiLp4fPgA06yG
+	 O6R+8EZZnbdk5DjoWpc9ZyjEE9T1pFnRkQgiEZHK6I24bkgP5hppSGhOSrVjymN2tRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hGfUgus4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NBux35cs;
+	arc=none smtp.remote-ip=192.198.163.7
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.7])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A230606A334;
-	Mon, 16 Nov 2026 14:28:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5E7B8606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:29:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5E7B8606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hGfUgus4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 788E41F000C5;
-	Mon, 16 Nov 2026 14:28:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794839319;
-	bh=ZaQnGbid6q4zyYj9jfXt0T9/5f5P2B/asKQNYP1h4Jw=;
-	h=In-Reply-To:References:Subject:From:To:Cc:Date;
-	b=hGfUgus4Fy2nTqbefIVxGiyuLcnvQrUp29djC4CLV/DKYtqsJtHiD68QBKPkbnTku
-	 ai4bR6iEyzM61fQxBw1gDVVO610uOkxHZYg3UXT3NQY7aaEquNodGfm9NQsvk3+gCH
-	 z07EEPUNMQL2V6oZPl8ZJNzZPzMXen4xjUdToOh/xxR8a9PWm+Ck184zApeVSx4IMP
-	 fgFShJyqvwKnJL7gNrOHPk9KBZQ43R88lZRJlCabpgQlbQx8DPmhq4NoP8/YWKSa8U
-	 UZdK/chA1AO2PtGek+oB8Zeb6jf3aTWRgwTPA874MzCgQFblVH4bIod6vvKHQ4upeK
-	 OjTmW7K8UkUQw==
-Content-Type: multipart/mixed; boundary="===============5633468459010448984=="
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=NBux35cs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794839376; x=1826375376;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=5eML+5DJ+yGHuDW8p7l6YYoBQkMxDrr2gzvTwUcuA7k=;
+  b=NBux35csvyYvLaCca2H5vpURUtm+NPoUZAI21/JKMe/+PnQ24G3XgrK7
+   6bYbpAqW4QNC0igN30nTH0fcgsARrLrPAi9VW2c5rRXMD42scunlYlhBm
+   UnUZfNuxDIVv43sa8TfKfopExLYAPF21oxnEU21qwps+Mmv1blhGIdCED
+   SPTJj0LfqgMN89LIttDK/DDjmGVee7AKUT0vW4s2FdzSH2kJCzr798+LU
+   JSENfjAC4PbicNF/ycyNzpb78CR7aXGHstayWmmRhOsU9Kas1ttuiGBI1
+   rg81BcXgsiCdWUx1xJBNx/oVvuGRvsqo2h2Efq8CVg+0yUJJ7gEtkw3fY
+   Q==;
+X-CSE-ConnectionGUID: uidWnqO/TmikR+pnNvJgxw==
+X-CSE-MsgGUID: TpAyRUujS2+0Xqj80Ksp2w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11968"; a="3441425"
+X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
+   d="scan'208";a="3441425"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 06:26:16 -0800
+X-CSE-ConnectionGUID: a8KeQ3YEQkOLJ0T+EB0aPg==
+X-CSE-MsgGUID: NwsoTGpZRlu218r92qDsqg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
+   d="scan'208";a="9615291"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa005.fm.intel.com with ESMTP; 16 Nov 2026 06:26:15 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id BF9EF9E; Mon, 16 Nov 2026 15:26:13 +0100 (CET)
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: netdev@vger.kernel.org
+Cc: Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Mika Westerberg <mika.westerberg@linux.intel.com>
+Subject: [PATCH v2 3/3] net: thunderbolt: Free partially completed skb when the link is torn down
+Date: Mon, 16 Nov 2026 15:26:13 +0100
+Message-ID: <20261116142613.876208-4-mika.westerberg@linux.intel.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20261116142613.876208-1-mika.westerberg@linux.intel.com>
+References: <20261116142613.876208-1-mika.westerberg@linux.intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -49,61 +87,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-Id: <81ad1174b88bd26130f0500e705feb4e2dc0a9f962c2ba950729846e5dc82f72@mail.kernel.org>
-In-Reply-To: <20261116134652.322156-1-irlanki.s@samsung.com>
-References: <20261116134652.322156-1-irlanki.s@samsung.com>
-Subject: Re: [PATCH bpf-next v8] bpf: tcp: add ecn_init callback to bpf_tcp_ops for per-connection ECN
-From: bot+bpf-ci@kernel.org
-To: irlanki.s@samsung.com,netdev@vger.kernel.org,bpf@vger.kernel.org,kuba@kernel.org
-Cc: cpgs@samsung.com,edumazet@google.com,davem@davemloft.net,pabeni@redhat.com,ncardwell@google.com,ast@kernel.org,alexei.starovoitov@gmail.com,ameryhung@gmail.com,kuniyu@google.com,daniel@iogearbox.net,andrii@kernel.org,corbet@lwn.net,linux-kernel@vger.kernel.org,lorenzo@google.com,maze@google.com,sporeba@google.com,motomuman@google.com,madhan.raj@samsung.com,srihari.k@samsung.com,g.pokhra@samsung.com,r.kumawat@samsung.com,raj.kumars@samsung.com,ts413.lee@samsung.com,ramyashree.s@samsung.com,daeil2.hwang@samsung.com,irlanki.s@samsung.com,ast@kernel.org,andrii@kernel.org,daniel@iogearbox.net,martin.lau@kernel.org,eddyz87@gmail.com,yonghong.song@linux.dev,mason@kernel.org,ihor.solodrai@linux.dev
-Date: Mon, 16 Nov 2026 14:28:37 +0000 (UTC)
+Content-Transfer-Encoding: 8bit
 
---===============5633468459010448984==
-Content-Type: text/plain; charset="us-ascii"
-MIME-Version: 1.0
-Content-Transfer-Encoding: 7bit
+If tbnet_tear_down() is called while there is a packet consisting of
+multiple frames the net->skb may not be released in tbnet_poll() and it
+will be leaked. Fix this by freeing it in tbnet_tear_down() after NAPI
+has been disabled.
 
-> bpf: tcp: add ecn_init callback to bpf_tcp_ops for per-connection ECN
-
-TL;DR: Nit only: a comment in bpf_tcp_ops_get_retval() still lists
-timeout_init/rwnd_init as the only bpf_get_retval() users, but ecn_init now
-uses it too; the code is fine.
-
-> diff --git a/net/ipv4/bpf_tcp_ops.c b/net/ipv4/bpf_tcp_ops.c
-> --- a/net/ipv4/bpf_tcp_ops.c
-> +++ b/net/ipv4/bpf_tcp_ops.c
-
-[ ... ]
-
-> @@ -258,7 +267,8 @@ get_func_proto(enum bpf_func_id func_id, const struct bpf_prog *prog)
->  		return NULL;
->  	case BPF_FUNC_get_retval:
->  		if (moff == offsetof(struct bpf_tcp_ops, timeout_init) ||
-> -		    moff == offsetof(struct bpf_tcp_ops, rwnd_init))
-> +		    moff == offsetof(struct bpf_tcp_ops, rwnd_init) ||
-> +		    moff == offsetof(struct bpf_tcp_ops, ecn_init))
->  			return &bpf_tcp_ops_get_retval_proto;
->  		return NULL;
-
-This isn't a bug, but bpf_get_retval() is now also exposed to ecn_init,
-while the comment in bpf_tcp_ops_get_retval() still reads:
-
-	/* bpf_get_retval() is only exposed to timeout_init/rwnd_init, which
-	 * always run via bpf_tcp_ops_call_int(). ...
-	 */
-	if (WARN_ON_ONCE(!ctx->saved_run_ctx))
-
-The invariant still holds, since ecn_init is only invoked through
-tcp_ecn_init_bpf() -> bpf_tcp_ops_call_int(), but the comment now lists
-an incomplete set of members.
-
-Could it name ecn_init as well, or say "the int-returning *_init
-members"?
-
-
+Fixes: e69b6c02b4c3 ("net: Add support for networking over Thunderbolt cable")
+Cc: stable@vger.kernel.org
+Signed-off-by: Mika Westerberg <mika.westerberg@linux.intel.com>
 ---
-AI reviewed your patch. Please fix the bug or email reply why it's not a bug.
-See: https://github.com/kernel-patches/vmtest/blob/master/ci/claude/README.md
+ drivers/net/thunderbolt/main.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-CI run summary: https://github.com/kernel-patches/bpf/actions/runs/43881864185
---===============5633468459010448984==--
+diff --git a/drivers/net/thunderbolt/main.c b/drivers/net/thunderbolt/main.c
+index f76b4d134b33..2b95df73c6e5 100644
+--- a/drivers/net/thunderbolt/main.c
++++ b/drivers/net/thunderbolt/main.c
+@@ -428,6 +428,9 @@ static void tbnet_tear_down(struct tbnet *net, bool send_logout)
+ 		tbnet_free_buffers(&net->rx_ring);
+ 		tbnet_free_buffers(&net->tx_ring);
+ 
++		dev_kfree_skb_any(net->skb);
++		net->skb = NULL;
++
+ 		tb_xdomain_release_in_hopid(net->xd, net->remote_transmit_path);
+ 		net->remote_transmit_path = 0;
+ 	}
+-- 
+2.50.1
+
