@@ -1,56 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794838784;
-	b=mCT0YyXTyF5edHq0NZvunIoNJ74jeEzOj8r1vE7hUpbNHO2TxAOubPz1B4Go90E/6Ek4
-	 EHl/vMliTExc8WH/Bk/zkyONP69ymwYBWbGEvM4kIf3ssw6HjCUfQ2KXpdo0JPYoeGkaa
-	 yxAeNOYSWxLFUFYBkfPzVrAVOVi0fLLGJiiYmSlwdIyikHK61CSdtU+zR7oqcrHF4g9Ci
-	 ZGauz/XGGmJz09Yylsjp63AZeEMrAoPe5rsR+MbxhUE7MqOeGdVJFgIqA/nXqfrT1Zi02
-	 nAsVVkzA6HmplEZlZYUILIKrK9SljXVTb/tB+byir+DpDQCP6foC6EnjLRu/ui/Ztpg==
+	t=1794838863;
+	b=IbCNaqdJOU07zbAZb8Opk3vFkA5dVe5zC8MFLIaGQFMmyJO3XVO4Q8NvB+jKKZNUiaVr
+	 ET2GUnnbfgaAFGHcCmLZXjO/JKXcJRCigWpYmZIWtMEFBC2Q/ki/J3hLvGz9uDtObGLB0
+	 GIWnhLOCAaFyDxhiGxwwz/ZQIVRtCxmIaVObG1AAM+5eI58snhy0xeaVpZ+uCToBJPPa8
+	 a9tQjUl93kQSHsNyxsx7+vGtAp0s6Oku6p4z8D2Nu+khQjVYz6O/eBhg/uzrB04BambFl
+	 TlBuY4UEkit4lvK8rtMMrk6GWTb/1tLa/DSY3p9+02mvgV/0+KRsaBXOebwEDXKFNrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794838784;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
-	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=otl4c7sw8cCEVIAVDR1SXI7wOGAsQDrAt72bD+YeYx4=;
-	b=KnOaBos1bOnTnc2QjnOzadcy30gritnH1lasVYbSkDKrN4QOWftvlDJfW1i9l2zW9aCh
-	 QWKFEEnIy+/mVeOtTAVijXEXSynQtsm9WOySREMuG0rLi/7BLhurTArWlVi72FbgLxXTN
-	 U0xJy80F6oG+luZctVc0s4OE3O5AOnEiY0weT5aBqPCTAcZ1G+lwZYWY1utnTs3ywPsAt
-	 0uawZ5meP1cDAZZwqID2dLpWkJQCNpVVhyvFRL66nQF2E3aHG07baP2HpyvHf94dbGMTE
-	 fGq729F1pUVHzs4j8FuZU4SjyC38peAi+YK/b2zDaxGWF8GjFx7NdR49GAblu5Py+Ow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794838863;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=p0MCEiScXA3/AegZMZrPbSW4djcYCJen36hSgSOSxr8=;
+	b=X7+eyVHJ7Qzo7PbJm3hhjsd5LcQf6N7iF1wN27Am2zkPoU+mXJMgaS8GXnxVOoZPVu1j
+	 NpGtI2idzwwFX0X4zqkfq3RyUiy4Zi+obksfaofHS49EVkoKj1g90aic73QYnar2CFqXm
+	 pFgQ/YmqW7xiF2wgME6Ves3JRd0oMPB5GNUOq/pEax6hXVa9nJLP8/NjbwLPGisKvXcIN
+	 97bYhK12AeKGWqHcyirSNbQ+th3B+njMCSYvfzPwXea0tWSXdwtzqN5rJ5dTIHp0d2zFO
+	 w9SQ4/WbkdBH5AtpbGMckTLG1/nMX8GaqEIKeAHK/ziGfKDGfXRZGV4AuWmKyEWMPBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b="Axxtjs/u";
-	arc=none smtp.remote-ip=101.71.155.101
-Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lrMNwZMp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26670606A337;
-	Mon, 16 Nov 2026 14:19:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26670606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CBDE606A329;
+	Mon, 16 Nov 2026 14:21:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=Axxtjs/u
-Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 54db447b9;
-	Mon, 16 Nov 2026 22:19:35 +0800 (GMT+08:00)
-From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] igb: Fix potential I2C adapter leak on probe failure
-Date: Mon, 16 Nov 2026 22:19:35 +0800
-Message-ID: <20261116-c29ba55625-net-igb@mail.sdu.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lrMNwZMp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E1A1F000C4;
+	Mon, 16 Nov 2026 14:21:02 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794838863;
+	bh=p0MCEiScXA3/AegZMZrPbSW4djcYCJen36hSgSOSxr8=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=lrMNwZMpVLaC2BtfAP4b7LZ6QFc4IZAk8smXnST30fiArFsHMpDO8pHkIB6Cr8ys+
+	 ee+JRnmqA68sVX265zPLaNHnOzcJcKLeRl4boeqkIBPd85eN10aGzC0MJ8/2iRTaPX
+	 C4js2OW0HI4bnxI5yEVoRrrSVD0MczuQ7+8+Ai3AUOVruZhi0h6yiLoBUlpAnHrgPX
+	 XjK/UDNqOIoRJDvbfzRZ9VG2IFMtNBWl0HmfcnKl7yIiBlpo873jNkEGXJhENBI0CR
+	 gS+aiwQEoBnOez7Qp2dCZTZnUqIJu9WGirp6rXpJ171+S+xd5+BuR5lK65ivivJEec
+	 IBwEluMMFSqZA==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
+ <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+ <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
+ Alexander Duyck <alexanderduyck@fb.com>, kernel-team@meta.com, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Jesper Dangaard Brouer <hawk@kernel.org>, Ilias
+ Apalodimas <ilias.apalodimas@linaro.org>, Alexei Starovoitov
+ <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend
+ <john.fastabend@gmail.com>, Pavel Begunkov <asml.silence@gmail.com>, Jens
+ Axboe <axboe@kernel.dk>, Andrii Nakryiko <andrii@kernel.org>, Eduard
+ Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil
+ Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
+ netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org,
+ Mina
+ Almasry <almasrymina@google.com>, "Mike Marciniszyn (Meta)"
+ <mike.marciniszyn@gmail.com>, Weiming Shi <bestswngs@gmail.com>, Nikolay
+ Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, Alexander
+ Lobakin <aleksander.lobakin@intel.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Stuart Clark <stuclar@meta.com>
+Subject: Re: [PATCH net-next v1 02/11] net: Add memory provider capabilities
+In-Reply-To: <20261115131840.55b03578@kernel.org>
+References: <20261110102039.1002605-1-bjorn@kernel.org>
+ <20261110102039.1002605-3-bjorn@kernel.org>
+ <20261115131840.55b03578@kernel.org>
+Date: Mon, 16 Nov 2026 15:20:59 +0100
+Message-ID: <871p8khn78.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -60,46 +81,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1e4ba485903a1kunm4914b35410e1c6
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkaS0NPVkJLH0oZTkIaHkpKS1YeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
-	NMVUpLS1VLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=Axxtjs/u0WODD7BOmpbpeuEyjUePZDcu6qVabOD+aEna2ZiRkjECGFMWsvqmv6IkJUcFzVnARpDJWAnJhr/2VSG14tQ/4j1HZkHFx9A402wtcr/thhtQBOUcApaF68YEF5ZAdHJdeL8WnZjS0TDNO5jDn9SBjt//63YBRBRTN/U=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=otl4c7sw8cCEVIAVDR1SXI7wOGAsQDrAt72bD+YeYx4=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-If netdev registration fails after I2C setup, err_register clears the
-embedded adapter without unregistering it. I2C clients and the adapter
-registration outlive the freed netdev.
+Jakub Kicinski <kuba@kernel.org> writes:
 
-Delete the registered adapter instead of clearing its storage.
+> On Tue, 10 Nov 2026 11:20:23 +0100 Bj=C3=B6rn T=C3=B6pel wrote:
+>> diff --git a/include/net/page_pool/memory_provider.h b/include/net/page_=
+pool/memory_provider.h
+>> index bceb5f7740e2..4417e54a0f81 100644
+>> --- a/include/net/page_pool/memory_provider.h
+>> +++ b/include/net/page_pool/memory_provider.h
+>> @@ -19,6 +19,18 @@ struct sk_buff;
+>>   * Per-provider custom logic must be delegated to memory_provider_ops r=
+ather
+>>   * than handled directly in page_pool core code.
+>>   */
+>> +
+>> +/**
+>> + * enum mp_caps - memory provider capabilities
+>> + * @MP_CAP_READABLE: The CPU can access provider memory. It may back he=
+ader
+>> + *	page pools, and XDP programs may run on it.
+>
+> Being readable is the normal state for memory.
+> We should be marking mps as unreadable, not as readable?
 
-This issue was found by our static analysis tool under development.
+Fair, I'll flip it. devmem and io_uring zcrx mark themselves unreadable.
+The same goes for the other two caps; page memory can be split and kept,
+so AF_XDP marks that its buffers can't be.
 
-Fixes: 441fc6fdb47a ("igb: Add i2c interface to igb.")
-Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
----
- drivers/net/ethernet/intel/igb/igb_main.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+>> @@ -1070,6 +1095,9 @@ netmem_ref page_pool_alloc_frag_netmem(struct page=
+_pool *pool,
+>>  	unsigned int max_size =3D PAGE_SIZE << pool->p.order;
+>>  	netmem_ref netmem =3D pool->frag_page;
+>>=20=20
+>> +	if (static_branch_unlikely(&page_pool_mem_providers) &&
+>> +	    WARN_ON_ONCE(!page_pool_supports_frag(pool)))
+>> +		return 0;
+>
+> Shouldn't we return a full page if we can't frag?
+> Fragmentation breaks up a page into smaller units,
+> it should be legal to simply return a full page if
+> fragmentation is not supported for the provider.
 
-diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
-index d4a897a8c82c..ffb696500d9c 100644
---- a/drivers/net/ethernet/intel/igb/igb_main.c
-+++ b/drivers/net/ethernet/intel/igb/igb_main.c
-@@ -3657,7 +3657,8 @@ static int igb_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
- 
- err_register:
- 	igb_release_hw_control(adapter);
--	memset(&adapter->i2c_adap, 0, sizeof(adapter->i2c_adap));
-+	if (adapter->i2c_adap.dev.parent)
-+		i2c_del_adapter(&adapter->i2c_adap);
- err_eeprom:
- 	if (!igb_check_reset_block(hw))
- 		igb_reset_phy(hw);
+Yeah, make sense. I'll return the whole buffer at offset 0, instead of
+the WARN Stan and I settled on, and page_pool_alloc_netmem() reports the
+chunk size for callers that need it for truesize.
 
-base-commit: 2e54b3e187300893688c2c7517894f5d96732e05
+
+Bj=C3=B6rn
