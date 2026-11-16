@@ -1,110 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.23
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794824390;
-	b=LUY+nrpcsBuyM5up0sl9Qa3z52XXsMd94i/cfr6ByhgpxOMrd8MrCu5HWE5Iwh89Fgg+
-	 EpCxdZm2qctpGoxmmog9xQqvp5e4879keBrIa3tLNT9XpFuBlVhRDu9BrBvSZdXLbuxSN
-	 pXS6d2YcYEP6+HnWCtPxO31N1gw3/etzSoAxel2YyEZGwFkivmN90v63O40iNgYT6BU4i
-	 M0ziXSp5CmrfcUhvt+2WI7azOhnp8D5L1KsmHQQvYpGJxm61H2OOVvANTJReegCCyy/ZB
-	 AfJD2b5FPoaTsdhMr730IIcCu69wTC6IPWW7zTJvAM3GcM6ZNDWK3GJjrHtwl6CtBHw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794824390;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=8NGfHLX2iJUfkYudYzg8NfsnYfWRgwYmGCT5GLEO60I=;
-	b=Jb5KQgQ82tpdF34WL4T7CKUjyLSyeJB4Ug7K7YnsS0fIrpAsd6Up6Bf/oVoxuhB40Rx2
-	 IKkmEdyBE1CZ7XIY9jiGVHg2tPGtfuUOaPkGHc57QrHDC6CQevU2QS6npYZT/dVj7U2xR
-	 UkNxdXl46nDtbidL1AWr5NUXhDPG+Ek70mFY8JSK3GLDpc1jHZ3VmL52XRFBIbz0yiAUI
-	 U+65E7zdtMimqKFpDGqM6wBflw4Nhx/V3Q0JalMaUvkHm/9FfymS+Z/S+ZlmpznciSPQg
-	 YoMbB8PgVPOQGmzD/WMApwe/ap08anBTZD8AVWkIpy3Tq1OuiCqxo028NAgKvYE2phQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ZsJuvnql;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.23
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013023.outbound.protection.outlook.com [40.93.201.23])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794824397;
+	b=se9qy6mv1Dd08CaYVnMbVLWvRh3Iyf9lk4fIUgNWwbDmdVM8yuhIO9SHQk1iI+OyNKgJ
+	 HfZbltZBF/wsPPYPcR/5JHBJkdSEg+JNrLm73I+j04wJP8CzVrdEWPIqp3dRHT7z1JOjl
+	 QsRYhbPFKy+7GvTNQoDWBH0TyNKFKgCU5+vb2+I1hLg1cE3Tf1A7DvUBH1zCKApS4H31S
+	 0Ra6WZPm/hgAOr9Qoo+Aa4peCn92DNM71Fx7iwRJHFtZULf+4CBFgwEQo/qDlNruK1IPa
+	 k58R517Qb8VmbwyylgEB5+QDjD5ljVQRorX2HeqqCo+KsIu3NBYB4Bm5nHjdzXgsUJw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794824397;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:
+	 Subject:Date:Message-Id:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=wsTtCStfZOEa8ZGHTWImCLz++db4z8y5qc0EyI6LI2Q=;
+	b=4p9DeXDmYQ1Cid980vJgay1nHRVPAqMiZnVN8VbiOHJWyrgNwhY/iQIoP0SWBkY0VDsv
+	 n9IxdCW+iB4xVcZMIrLmsatupYI7uSpKD8kkCGgyrPOiwzYlxFPeu+suxCQWMiEC2xjx0
+	 6vIBtMgofXxTDniK4d5SgmkdUFXu4zq26HK97+xLpFIEh8fVZlqu8kqGzjCSsTEC6xIc/
+	 kzl72Ai1rMBcNeh1+Oke6nJUyYEL4wpPDs2ObvupJz2GRlD62XNyClWgkOc7GvqMg+HkN
+	 7F1rPhqWCgc3kGMibaVaDF/hlI7m/jv2qZdvyc3JW15lrfS/GO2evTVk4XwICz184HQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=a2oxxKUs;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=fRlt6cpA;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 097BE606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:19:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 097BE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7FBB606A31C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:19:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7FBB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ZsJuvnql
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Kj55COCoQ9Yj/c1qxkt4OmX1EDvt9bTIoaK5DBa9rmWItV+SInTBqVJoMp8wI8iTVEQFI4Jp7tGOcKCMCbWpmrROj3MiL9Q35OgsGMpuy8OeVGAiL46xHcmQAfopPQ8fJcsmuE6GE06Aoir05jMc4BVYnS3kMe25RSHIKgnPj5Riq8R9mhi77xMdl5aXH946xxoPYHdRFeKPn22AZdY/b6M5xE0QDqJOdSQBA75E0gaXLFjTLh/H4ObStFIFUYyXEmXKgD9Kjlq2IZpccQ/CjrXqNithrmdGJw64yQTMEYhdzfDCf+EAgBiT6XRQOj/Td+3vLMkvjRgS0xJvTVnYBQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8NGfHLX2iJUfkYudYzg8NfsnYfWRgwYmGCT5GLEO60I=;
- b=EBHkf0tbFzHA6JErAkI8UAeljl3v/2tVGpaLzfQs1ONvtFO1XHrcNe/ECpPARV909jOjMuKuEF50lD4Q4kITeOJuBQzo/jnZJjo8d3PeRdtGNIwdIIdujHM4MjvKn5/NodBCZk8iAugqLImtDgLLotr/cCv1Be6iRQyIERQou/+Bc8ptmNs1sytH2Gl7K4V2Guwc0TVSHgkF4HwkUKU69xfoN5m6wdq2as6bIAF4dFkKr47ivqwlRmN24mi3Ti8DKgBXkHYObPVNBq1i2rUMaM9PHBnqahxLXD2oUXYKzxdxsj4tJ5wFKfdmjnJuG2eAcRbxmAbq0YQ2otUwEhiwQA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8NGfHLX2iJUfkYudYzg8NfsnYfWRgwYmGCT5GLEO60I=;
- b=ZsJuvnqltstwCfNULmmK5PvV2oEIu/LqhXqWLFpcARODOi4jrTqka4rcCHKjJHPFW5LzkC+cbbgtWsMV2YBDGA8RNfzfBaSIFwaP3/h2MbXCOVRIA42a5PhuTiKfp7dfGxRQ3G1cs0ve67z5X9e8Y9lBcEEbmbNJFjGPrdIpYjPh/PTS3tKroliaM2FjwJo1MZV3J+ialGLkg9wu5IlhmprDxOd4QkX3qW9auwDhnrgExMA+2jqb96gf1qMol3xyTKDmu1U0V95GxIUoGrLdY6rgkZQKXp0VPXIp+28isgHncFm9ZH/myKqWFpscgS4hsy1ASrdEg4zWoq0Kq/wDKw==
-Received: from DS7PR03CA0322.namprd03.prod.outlook.com (2603:10b6:8:2b::29) by
- LVUPR12MB999159.namprd12.prod.outlook.com (2603:10b6:408:3a4::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
- 2026 10:17:43 +0000
-Received: from CY5PEPF00000E74.namprd02.prod.outlook.com
- (2603:10b6:8:2b:cafe::8d) by DS7PR03CA0322.outlook.office365.com
- (2603:10b6:8:2b::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Mon,
- 16 Nov 2026 10:17:43 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CY5PEPF00000E74.mail.protection.outlook.com (10.167.247.36) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 16 Nov 2026 10:17:43 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 16 Nov
- 2026 02:17:29 -0800
-Received: from tuxedo.docsis.vodafone.cz (10.126.231.37) by
- rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 16 Nov 2026 02:17:24 -0800
-From: Petr Machata <petrm@nvidia.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, <netdev@vger.kernel.org>
-CC: Ido Schimmel <idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>,
-	<mlxsw@nvidia.com>, Myeonghun Pak <mhun512@gmail.com>, Ijae Kim
-	<ae878000@gmail.com>, Jiale Yao <yaojiale02@163.com>
-Subject: [PATCH net-next 2/2] mlxsw: pci: Fix teardown order of CQ NAPI instances
-Date: Mon, 16 Nov 2026 11:16:47 +0100
-Message-ID: <3a1a078f21028851b04ba4987fae490362b59cd4.1794823524.git.petrm@nvidia.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <cover.1794823524.git.petrm@nvidia.com>
-References: <cover.1794823524.git.petrm@nvidia.com>
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=a2oxxKUs;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=fRlt6cpA
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AGA4IMN1227984
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:19:56 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=wsTtCStfZOEa8ZGHTWImCL
+	z++db4z8y5qc0EyI6LI2Q=; b=a2oxxKUsSlkV5lSLbkFaayR1AEBYjRbmxTL93P
+	8yygEooa4QQkGmWzsklBE8YUgcTmH5vKOu1s7//vpsM/Ji1Y2szQ2Yuz0XttLAbC
+	zEYVp0y/geHtnJiZhNZYtYLM/b6oilJOLrZ1EP/Jx3nQSh4A5glco3mg6Io79rMj
+	EjJIGfpVATBKCaajF3UJExxm/B9NoTPMTxzwbyfiie/UYpaqM+rCz6blZ4PUHZ/H
+	vasjVW4Fr3u0mUzPxDjZFAp5y71Mm9Dj076yEkz51O0g+ky7z/EXsDsJ5bHuMlqP
+	rPlIqer3FgQRbtm1zfOEEokAxAHldg8jqcbkShlOv03xR0iQ==
+Received: from mail-dy1-f197.google.com (mail-dy1-f197.google.com [74.125.82.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4hyyrqg1un-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:19:55 +0000 (GMT)
+Received: by mail-dy1-f197.google.com with SMTP id 5a478bee46e88-30c0d568830so4282945eec.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:19:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794824395; x=1795429195; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=wsTtCStfZOEa8ZGHTWImCLz++db4z8y5qc0EyI6LI2Q=;
+        b=fRlt6cpAgE738SYlurG98Ppez407MDWPebNBOFBD/fQ3+Do7ZerUXAgzR8/ccB06Hy
+         DENAB94tcViY6rdUxatVnldzKbJKehYmfjGc26HUde8RWMLwfUNnPHOpQ0SVbgqNBLFh
+         jSILYM3vIEK9V3F6GLm953qEm8ej7L9Ez+1g2EQ1KbwgnmXkA7sFNA2QosPBCDIgJZEa
+         Fi4sa3iwBXIoc9jHd++f4LFJEdB2QEOqx5bfZzfIovHOpSjIbSgNikWPheD44lH1xA/5
+         qiXNVsAptau7TWfKhX5DRNBSZPeJUilt9pd9vqE2fIiFNUvnoIRgRTtcA0TUPIqiXXT8
+         dY8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794824395; x=1795429195;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=wsTtCStfZOEa8ZGHTWImCLz++db4z8y5qc0EyI6LI2Q=;
+        b=QjhJEWZmBq38WJ7cFhRecS7jjQoGVeGEyfH9SFQNqdmNMaJsxtYZpmDfd/kki0n98m
+         eWpjNm+/gd50GQxyY2b7D3YdfLa6ve0+KJeJTs8FQd3K0d/c9mKt8xnwoBgZORRzLtK1
+         vBUeEpZsVLq5Z6Dd2emK8ZJATvgjyYGuGAxxeK6W/vbYLsD1PNhmT2O04wHWzssHO+EA
+         Ly46aoXfp0/PsyoMZC4mXgDVWP5VqhxJo46gOQHPJPY3XAI+UFHzi7iLUqgxY28dosub
+         3WBOoMkBr4Ai+hjhmgauwejGad/V1MJU9oksLs0EIqIxwhG6GD4t/8JrO1R+gZDD9lBB
+         3P5g==
+X-Forwarded-Encrypted: i=1; AL+hErEd1emnMf6Ff4AriD53Gb8oPLCpwMdEb6L18sT8wHLyjlbHMkORg9ZH3ZMT9H+77L+HseAnBKM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ufiSRra1ylA21I9PBBJLkTwLw1p2NeRueHUNc84WQjwsPvK58
+	AGBPphcXkSNXcFg73Rf3ltW7yyWb7QqaeYSKtr/mqsj7uhnaxaZa8NaykU1xhgsA4jAFR291VrK
+	31ElCwyn25UwQb9XVrlQUq5syFtrkNs277Ucl4yKA9M8oOCYV2BubVpFO81U=
+X-Gm-Gg: AZFdTZfmjwmsmL0z0eTCj5Vd1exRDog2+Z/o8sPUZALHyiAHXvHWfPSE3m/V4q/or+J
+	J5O+oRd2Dn08OaVNwWbcoiQhoovg6f7iUK56ewDo25RjW0s2FU7qPIqIiM3KI2e6FJfYiLMvHSJ
+	Q0UexKMc/g32IGpKdeWctutn4LQGSzkEcahnxVhZeShEJFqBTtnwsD+tOTXi6dj0EkCkWNvaqy1
+	MLLMhOKco7AHeW+nCmB/Qam7FlDqS65fy/vDAghXNN1Iboh0dKqL7SoR+99KLjJSex17XD0Q6be
+	fsDAvTnLuZaoNTNj8d5YteXrHntQ7ozKBDMOQRqrgyNJdXqrs0nrMb38gT2BjtA5RT/r56WHXaj
+	9b1gi5ntafY26qfJVppu1edY770gBFkYvbrqGiT//TtLbI7RnbCXk2uPOuep3ov5WtN7EKY6nqu
+	M7UVTqyuF2c5dWeShD
+X-Received: by 2002:a05:7300:f694:b0:376:203e:7d7b with SMTP id 5a478bee46e88-3796337436amr15671283eec.2.1794824395281;
+        Mon, 16 Nov 2026 02:19:55 -0800 (PST)
+X-Received: by 2002:a05:7300:f694:b0:376:203e:7d7b with SMTP id 5a478bee46e88-3796337436amr15671238eec.2.1794824394601;
+        Mon, 16 Nov 2026 02:19:54 -0800 (PST)
+Received: from hu-luoj-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bad6casm32599557eec.26.2026.11.16.02.19.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 02:19:54 -0800 (PST)
+From: Luo Jie <jie.luo@oss.qualcomm.com>
+Subject: [PATCH v3 0/4] clk: qcom: Add NSS clock controller support for
+ IPQ5210 SoC
+Date: Mon, 16 Nov 2026 02:19:47 -0800
+Message-Id: <20261116-qcom_ipq5210_nsscc-v3-0-1eaf92698379@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,188 +116,118 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CY5PEPF00000E74:EE_|LVUPR12MB999159:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6c8438d6-e071-4710-e4c9-08df43cada27
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|376014|23010399003|1800799024|36860700016|82310400026|10067099003|11063799006|5023799004|56012099006|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261022075727099003|261021123027099003|261022105027099003|261102123227099003|261009223027099003|22082099003|18002099003|6133799003|13003099007;
-X-Microsoft-Antispam-Message-Info:
-	9SYZWoJIvyKNqOFEO6K23vg7+fpughREzhXAsDeAYQ+UUEXf5z7o7D/HaxJjnOESjgQch8vS3YLbPmi1r7vSL2URcguhGzl2FvONKGnroJzNhJq6Q6LiKVHg2cpOd3cB0KSbp4r0XeEBJrW6OZYij91bGEc/DgQkP9JS6LyTG0kMjAR+zx/DrKyA0smMQJLQNWHhgeVUWQLa4wIL1Ev5Iami+bj35w9YcDRY9Bf6LrMJsQk5OtGeachZbyvp+CwhvDF5YqX79ebf8Ee7ed+X55KaRrUGN8sAeRbKu3RELfilzSdWTMqtOV3U6Fj6DU0V0BnEG0kymXjnijQ+jHt/Apvh7cWsSFY5MObazui0Y6B7U6rxPaPe/uEFgQMCcdUTLLAruKlemYS9MlajUPAIrtRjEXO7RH1Mhdl4QlMt2MHwk2UG9dcQHWtc9NL//htYuwEhxcTvCzJ3C2YB+/2R8LPFKmHsMmrIzgIHD+iVHKw80s+7S4V8WHybWDvaJSTM2GzTKqRDxmX4Vl1T1h2Z0dXnkMHPX6DyXBmoq2SwYA7Q+X+FHDpiYXNaqvbSbDxfi3GZx5Mnrn+j+Dia/zyrlChnird/2IO6nCVTT40gtWWq3W6kxMxWjZLC0DQxzs1rH9F5NxkLW4G9KuZOtBj8eWFzDcWw9utozTtOmCtvUjg/D2fsU9tyLdvFET8v9yCjeu9OX6CNA9ErfVgYyGxFbw==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(10067099003)(11063799006)(5023799004)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261022075727099003)(261021123027099003)(261022105027099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	snzu2bzJsIcwyw9KSedUV8YyWvu9dk5YrGB73mVQzfjNFgIWfsVrbtJ4JPzLJdxvWoKxnAvJTS+0y1yC2KP+nsSzMYjZvVC1wEDjY2u+RgOjAfjDnUBJM/Czk+bZsWMRDqylr52eGVjPCPdyifIfDYKJAmUB9ERMOJONNO8QV+zkNvrG/LHfR+PhC6K+vxWNaazoZtjwG162O6ga3qasn2Kpub6XkUdcevbNtAUU31G9Rt/ksq03EJi0f4yNmbgvmIVVKfWmuO1eiI0o7FO4T+y41AaOoacCypUF4EEi5CqES64zlpGfczYQB/7G32NPVUpwg0rMDUHyEZqybzfcCDs4gFIWn++zrH+n1A7dHC61A3QW5NEX/SJbRbNBh010hgoRh0dNj2odyxAp9JVjd5k1ZDpo+knTxDuxI3+yMl3z7tn4/UrOIsS4uLNTkxDr
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 10:17:43.1446
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6c8438d6-e071-4710-e4c9-08df43cada27
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CY5PEPF00000E74.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LVUPR12MB999159
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMPY+moC/22N3QqCQBBGX0X2uhVn1JKueo8I0dkxN/J3VArx3
+ VuNoAtvBg58c86shHvLos7erHqerNimdhAePEVlVt9ZW+NYYYBHgCDSHTVVatsuRgjSWoRIFxz
+ lSImJDCTKPbY9F/a1Sa+3L8uYP5iG1bQuSitD07+36gTr7heI9wIT6ECbqKA8phDzGC6NiN+N2
+ dNtK98dtXYm/DMB7JrQmU6MBMZkIRvcMS3L8gEj0kE7FwEAAA==
+X-Change-ID: 20261104-qcom_ipq5210_nsscc-fe4b2c8d4d18
+To: Bjorn Andersson <andersson@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+        Stephen Boyd <sboyd@kernel.org>, Brian Masney <bmasney+clk@redhat.com>,
+        Jerome Brunet <jbrunet+clk@baylibre.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Georgi Djakov <djakov@kernel.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Luo Jie <jie.luo@oss.qualcomm.com>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-pm@vger.kernel.org, netdev@vger.kernel.org,
+        quic_kkumarcs@quicinc.com, quic_linchen@quicinc.com,
+        quic_leiwei@quicinc.com,
+        Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>,
+        Abel Vesa <abel.vesa@oss.qualcomm.com>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794824393; l=2532;
+ i=jie.luo@oss.qualcomm.com; s=20251128; h=from:subject:message-id;
+ bh=3WMMLf5nFNS4ZIF56t2dXflK4rsLx1axqH/8+3GQJi8=;
+ b=C01jZMPRHCEeDXYE6TOqGcOQLUxRLAyRKMkL6pQPPT4JJlAKNA4L2j3J9MoMPvlerQPS0/yGD
+ FYdTdEzggZUALPnzRM+F3Q8qyUSZIRE6CvpLbcpw09ihK5L9/IXh63W
+X-Developer-Key: i=jie.luo@oss.qualcomm.com; a=ed25519;
+ pk=gSsYMDakxtd6UDFYDdA9y9yjIs5Etp5GK/3DoXWPyS0=
+X-Authority-Analysis: v=2.4 cv=VcJir1p9 c=1 sm=1 tr=0 ts=6afad8cc cx=c_pps
+ a=Uww141gWH0fZj/3QKPojxA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=yOCtJkima9RkubShWh1s:22
+ a=bC-a23v3AAAA:8 a=EUspDBNiAAAA:8 a=8DxjrM3GApEK5qXUAGkA:9 a=QEXdDO2ut3YA:10
+ a=PxkB5W3o20Ba91AHUih5:22 a=FO4_E8m0qiDe52t0p3_H:22
+X-Proofpoint-ORIG-GUID: EeIAhdgnc-bR1LK4ZNMyQfkIxvKAHhml
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE2MDAzOSBTYWx0ZWRfX5Ew47o3pUVzQ
+ j857tbrXBI6L1q9EHg/OimYR2y8sBiqI6uxp6eeOv0yVDesTucH0UyipW0gXNt2Hr6W+cJ3Gxel
+ qaeeqgQHmJMxgE4rPSmRMzpgqw02h3FzTHd57SZ3xNzdZ7Ykk0/vuEh9q/b+LmcjZKzNVbpUEkm
+ vSy0ZZ5kiQJf1o9jiPuhaQqtPCctKYuaCsjm/uF9qXSCnPtyeiGrZH9hYtGg/2xYqiG/t8xaOpF
+ SEZQbfntF5HccjZVaUjvGVx8k/ygxZuHLE2/M2F+qtubPQ1Euhku/kGti72iUoklSY8HWRvNMMH
+ Z78H7FBxnjCZJCs8NdAwGOaozkaMtYyJkLXL4vVe+jOrbm7sHmqkKc5JD/fTGvWj3Rmnpn7CuRF
+ cI4WjnhsPkmUpbJxWMoTKoUjqw60km/7LtDHNaCOnTRCENtw0oFImHYAQsY1XfxmiRnb4xbZk1K
+ 8cutjtab6hkX1SK0K4g==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE2MDAzOSBTYWx0ZWRfX6mJH53ANNvU6
+ dUqG5ZYkCp04TMrjE32F/zUpZjUQGKZ1et06kYd/L5NCDgidTBismhjyI4k+n9tHHNSAG0W36PW
+ Ah9QL9sKHS2lN9hTu5PQ7abVgU80LZg=
+X-Proofpoint-GUID: EeIAhdgnc-bR1LK4ZNMyQfkIxvKAHhml
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-16_03,2026-11-11_03,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 adultscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
+ bulkscore=0 phishscore=0 malwarescore=0 priorityscore=1501 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611160039
 
-In his report (see the link below), Myeonghun Pak <mhun512@gmail.com>
-writes:
+The NSS (Network Subsystem) clock controller on the IPQ5210 SoC provides
+clocks and resets to the networking related hardware blocks such as the
+Packet Process Engine (PPE), the six ports, XGMAC PTP reference clocks,
+PON, EIP crypto engine, and the SoC-integrated EPHY (2.5G Ethernet PHY).
+Its parent clocks are sourced from the GCC and CMN PLL blocks.
 
-> mlxsw_pci_eq_irq_handler() schedules the EQ tasklet. The tasklet reads
-> the EQ ring and schedules CQ NAPI instances. The CQ poll callbacks, in
-> turn, dereference the RDQ or SDQ associated with the CQ.
->
-> mlxsw_pci_fini() unregisters the IRQ and immediately tears down the
-> asynchronous queues in RDQ, SDQ, CQ, EQ order. free_irq() waits for IRQ
-> handlers, but not for a tasklet already scheduled by one. In addition,
-> mlxsw_pci_cq_fini() disables each CQ NAPI only after all RDQs and SDQs
-> have been freed. A pending tasklet or NAPI poll can therefore access
-> freed queue storage.
+The NSS NoC clocks are also enabled to use the icc-clk framework, enabling
+the creation of interconnect paths for the network subsystem's connections
+with these NoCs.
 
-The previous patch folded the tasklet into the IRQ handler, which takes
-care of the first half of the problem: free_irq() in mlxsw_pci_fini() now
-guarantees that nothing schedules CQ NAPI instances anymore. The second
-half remains. A NAPI poll that was scheduled right before free_irq(), or
-is currently running, can still dereference the RDQ or SDQ of its CQ, which
-mlxsw_pci_aqs_fini() frees before the CQ, and where napi_disable() is
-currently called.
+The patch series is organised as follows:
 
-In this patch, introduce a process-related duals to init / fini per-queue
-callbacks: start and stop. Only CQ needs them for now, to manage the NAPI
-instances. Invoke them at the end of mlxsw_pci_aqs_init() and at the
-beginning of mlxsw_pci_aqs_fini(), respectively, so that NAPI is enabled
-only once all queues are set up, and disabled before any of them is
-destroyed. This also keeps napi_enable() and napi_disable() paired on error
-paths of mlxsw_pci_aqs_init().
+1/4  DTS: fix xo_board parent clock to ref_48mhz_clk
+2/4  dt-bindings + clock/reset/interconnect ID headers for IPQ5210 NSSCC
+3/4  NSS clock controller driver for IPQ5210
+4/4  DTS: add NSS clock controller node in ipq5210.dtsi
 
-In his report, Myeonghun Pak notes that the issue was originally discovered
-by static analysis.
+Changes in v3:
+- Add patch 1 to parent xo_board to ref_48mhz_clk instead of xo_clk.
+- dt-bindings: Move minItems before items for clocks and clock-names.
+- Drop CLK_SET_RATE_PARENT from the XGMAC PTP reference dividers, so
+  setting the PTP reference rate cannot reparent the shared PPE clock.
+- Collect the Reviewed-by tags.
+- Link to v2: https://patch.msgid.link/20261111-qcom_ipq5210_nsscc-v2-0-7e2c1dda3ed2@oss.qualcomm.com
 
-Cc: Myeonghun Pak <mhun512@gmail.com>
-Cc: Ijae Kim <ae878000@gmail.com>
-Cc: Jiale Yao <yaojiale02@163.com>
+Changes in v2:
+- Use RUNTIME_PM_OPS() and pm_ptr() for dev_pm_ops.
+- Rebase on next-20261110; drop the CMN PLL DTS patches, which are now
+  merged.
+- Link to v1: https://patch.msgid.link/20261105-qcom_ipq5210_nsscc-v1-0-d4fcb5c32b51@oss.qualcomm.com
 
-Reported-by: Myeonghun Pak <mhun512@gmail.com>
-Link: https://lore.kernel.org/netdev/20260721125753.35944-1-mhun512@gmail.com/
-Reported-by: Jiale Yao <yaojiale02@163.com>
-Link: https://lore.kernel.org/netdev/20261018040653.534066-1-yaojiale02@163.com/
-Reviewed-by: Ido Schimmel <idosch@nvidia.com>
-Signed-off-by: Petr Machata <petrm@nvidia.com>
 ---
- drivers/net/ethernet/mellanox/mlxsw/pci.c | 46 ++++++++++++++++++++++-
- 1 file changed, 44 insertions(+), 2 deletions(-)
+Luo Jie (4):
+      arm64: dts: qcom: ipq5210: Fix xo_board parent clock
+      dt-bindings: clock: qcom: Add NSS clock controller for IPQ5210 SoC
+      clk: qcom: Add NSS clock controller driver for IPQ5210 SoC
+      arm64: dts: qcom: ipq5210: Add NSS clock controller node
 
-diff --git a/drivers/net/ethernet/mellanox/mlxsw/pci.c b/drivers/net/ethernet/mellanox/mlxsw/pci.c
-index b2a7f568c74a..dc6cad5637d6 100644
---- a/drivers/net/ethernet/mellanox/mlxsw/pci.c
-+++ b/drivers/net/ethernet/mellanox/mlxsw/pci.c
-@@ -1059,7 +1059,6 @@ static int mlxsw_pci_cq_init(struct mlxsw_pci *mlxsw_pci, char *mbox,
- 	if (err)
- 		goto err_page_pool_init;
- 
--	napi_enable(&q->u.cq.napi);
- 	mlxsw_pci_queue_doorbell_consumer_ring(mlxsw_pci, q);
- 	mlxsw_pci_queue_doorbell_arm_consumer_ring(mlxsw_pci, q);
- 	return 0;
-@@ -1074,12 +1073,23 @@ static void mlxsw_pci_cq_fini(struct mlxsw_pci *mlxsw_pci,
- {
- 	enum mlxsw_pci_cq_type cq_type = mlxsw_pci_cq_type(mlxsw_pci, q);
- 
--	napi_disable(&q->u.cq.napi);
- 	mlxsw_pci_cq_page_pool_fini(q, cq_type);
- 	mlxsw_pci_cq_napi_teardown(q);
- 	mlxsw_cmd_hw2sw_cq(mlxsw_pci->core, q->num);
- }
- 
-+static void mlxsw_pci_cq_start(struct mlxsw_pci *mlxsw_pci,
-+			       struct mlxsw_pci_queue *q)
-+{
-+	napi_enable(&q->u.cq.napi);
-+}
-+
-+static void mlxsw_pci_cq_stop(struct mlxsw_pci *mlxsw_pci,
-+			      struct mlxsw_pci_queue *q)
-+{
-+	napi_disable(&q->u.cq.napi);
-+}
-+
- static u16 mlxsw_pci_cq_elem_count(const struct mlxsw_pci_queue *q)
- {
- 	return q->u.cq.v == MLXSW_PCI_CQE_V2 ? MLXSW_PCI_CQE2_COUNT :
-@@ -1198,6 +1208,10 @@ struct mlxsw_pci_queue_ops {
- 		    struct mlxsw_pci_queue *q);
- 	void (*fini)(struct mlxsw_pci *mlxsw_pci,
- 		     struct mlxsw_pci_queue *q);
-+	void (*start)(struct mlxsw_pci *mlxsw_pci,
-+		      struct mlxsw_pci_queue *q);
-+	void (*stop)(struct mlxsw_pci *mlxsw_pci,
-+		     struct mlxsw_pci_queue *q);
- 	u16 (*elem_count_f)(const struct mlxsw_pci_queue *q);
- 	u8 (*elem_size_f)(const struct mlxsw_pci_queue *q);
- 	u16 elem_count;
-@@ -1225,6 +1239,8 @@ static const struct mlxsw_pci_queue_ops mlxsw_pci_cq_ops = {
- 	.pre_init	= mlxsw_pci_cq_pre_init,
- 	.init		= mlxsw_pci_cq_init,
- 	.fini		= mlxsw_pci_cq_fini,
-+	.start		= mlxsw_pci_cq_start,
-+	.stop		= mlxsw_pci_cq_stop,
- 	.elem_count_f	= mlxsw_pci_cq_elem_count,
- 	.elem_size_f	= mlxsw_pci_cq_elem_size
- };
-@@ -1349,6 +1365,28 @@ static void mlxsw_pci_queue_group_fini(struct mlxsw_pci *mlxsw_pci,
- 	kfree(queue_group->q);
- }
- 
-+static void mlxsw_pci_queue_group_start(struct mlxsw_pci *mlxsw_pci,
-+					const struct mlxsw_pci_queue_ops *q_ops)
-+{
-+	struct mlxsw_pci_queue_type_group *queue_group;
-+	int i;
-+
-+	queue_group = mlxsw_pci_queue_type_group_get(mlxsw_pci, q_ops->type);
-+	for (i = 0; i < queue_group->count; i++)
-+		q_ops->start(mlxsw_pci, &queue_group->q[i]);
-+}
-+
-+static void mlxsw_pci_queue_group_stop(struct mlxsw_pci *mlxsw_pci,
-+				       const struct mlxsw_pci_queue_ops *q_ops)
-+{
-+	struct mlxsw_pci_queue_type_group *queue_group;
-+	int i;
-+
-+	queue_group = mlxsw_pci_queue_type_group_get(mlxsw_pci, q_ops->type);
-+	for (i = 0; i < queue_group->count; i++)
-+		q_ops->stop(mlxsw_pci, &queue_group->q[i]);
-+}
-+
- static int mlxsw_pci_aqs_init(struct mlxsw_pci *mlxsw_pci, char *mbox)
- {
- 	struct pci_dev *pdev = mlxsw_pci->pdev;
-@@ -1426,6 +1464,8 @@ static int mlxsw_pci_aqs_init(struct mlxsw_pci *mlxsw_pci, char *mbox)
- 		goto err_rdqs_init;
- 	}
- 
-+	mlxsw_pci_queue_group_start(mlxsw_pci, &mlxsw_pci_cq_ops);
-+
- 	return 0;
- 
- err_rdqs_init:
-@@ -1439,6 +1479,8 @@ static int mlxsw_pci_aqs_init(struct mlxsw_pci *mlxsw_pci, char *mbox)
- 
- static void mlxsw_pci_aqs_fini(struct mlxsw_pci *mlxsw_pci)
- {
-+	mlxsw_pci_queue_group_stop(mlxsw_pci, &mlxsw_pci_cq_ops);
-+
- 	mlxsw_pci_queue_group_fini(mlxsw_pci, &mlxsw_pci_rdq_ops);
- 	mlxsw_pci_queue_group_fini(mlxsw_pci, &mlxsw_pci_sdq_ops);
- 	mlxsw_pci_queue_group_fini(mlxsw_pci, &mlxsw_pci_cq_ops);
--- 
-2.56.1
+ .../bindings/clock/qcom,ipq9574-nsscc.yaml         |   47 +-
+ arch/arm64/boot/dts/qcom/ipq5210.dtsi              |   42 +-
+ drivers/clk/qcom/Kconfig                           |   12 +
+ drivers/clk/qcom/Makefile                          |    1 +
+ drivers/clk/qcom/nsscc-ipq5210.c                   | 2201 ++++++++++++++++++++
+ include/dt-bindings/clock/qcom,ipq5210-nsscc.h     |  106 +
+ include/dt-bindings/interconnect/qcom,ipq5210.h    |   18 +
+ include/dt-bindings/reset/qcom,ipq5210-nsscc.h     |   60 +
+ 8 files changed, 2483 insertions(+), 4 deletions(-)
+---
+base-commit: 84abb955b1015477aa11a96e2f3ac1b938b77f48
+change-id: 20261104-qcom_ipq5210_nsscc-fe4b2c8d4d18
+
+Best regards,
+--  
+Luo Jie <jie.luo@oss.qualcomm.com>
 
