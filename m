@@ -1,75 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794796336;
-	b=BqcgzyVQcSYe07uTkWPzFLWFeOxf7MTwdx8C+YhVMUnQMAb8sS9nC9Tl6WehdYpC+8wy
-	 eEPxW6Qd7AKn12zNrC4bt4eXkcarUZLypb1NeHs1EiMqUVfen32MRctf8EJ2skA+2uDJd
-	 uTSGdWfGPQxY/7KsmvfUI7o7QXpJUoXFKquGlFcTpaJJRhC8LIcfgt2XT5/GfqhU5R1Lv
-	 uRQzxE5BYncSZ330ADuysey+enEeVIFk+k9nSJSZgnjTTrvSvKrqZNuSZi/5GBPe2vfbi
-	 CxnTh/b7opU681ZtV95Nt6ZeAGZyymYobN5HsifNq1mEJBUvkiVgL9HzLmK1q2MbwIw==
+	t=1794796637;
+	b=EwfgGwCgnpWTuXm/83OQABliteWNzlyshsMggQOIf5hs5h11TT6nlzyFIoIsB1TLEP5e
+	 Gb4ZndQEmQSdWihpD8zFtbMb9tbz5H7E9mOgpSx/2p3v3jKwmjexd0bNcmootfq38EBJx
+	 PkC5879NFfd5yZfeaTmE86D6l4WO73jjoKd/Bv9jI14A+LzNMCRD7oJCAhWx32q8gyHBM
+	 1Nrc13gH3PEp2b+ilv6BROyz8Nbzn5t51Y6Be2jCCaHibry6A0/eV3qHK13cF/E70unxN
+	 rHMWCfpJzXaV6gapTm+wqWjY3tVfi1VtT3MXXJDei2uuXH9Dk2Uqph0s+B+fh2gNeNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794796336;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794796637;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=HL9KJ6zJx0cYgN2NafMIfK7yVZJpUohcZPTXV+OQ/Ow=;
-	b=cXCfV0fdJyImPwok8YoTHfsvtz781AtxxPWMYwYiDli+q9mVJXEnPj3ZUSrM6UA+Ln1f
-	 WchNOTNGIp4ZObNvflmltyhQmf+lw5BSHqsf3iroROdF0HrcGJEqKF9AQEd3ULWNe3ixW
-	 2SB5pnr3fTAYNRoCZJ5HPbN2BpSOVxbyztJp0HqHfsqR2mxaWk86t73Bhssb71nCt4/hZ
-	 6VC9yN9OYNe1IT69vmmyIzIXYfGGF0+a6j2WT9uMQKeyLlFqxEz0w0nlcs6UFW0CMPuU4
-	 km1eqvFwH9nubZg8G8AF+NRx7PsFT/nQ3j4WZ1MmyotsQS/H2vk60sSlKDZl4pJozdg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=C5mb6nf+FAaI0BVTJRL0UIr+aUTcLOUOBCeg1JSMkZ8=;
+	b=NEIGi4cO7oxkmNHpl60EBcmO+QJLOgDq/VBL9PKSiksHLOAX5pGdBWr1H75peiGrcUXh
+	 1AnmfDQQAx2ES/fYflhAFltI7b+/P7WOsuXG9R7kv7p0qdWcgMI9/8lfTckE9l9IyzEFx
+	 T9vW7J5D6V+tioo3z6voLVnRSwgN6Vs4xSfapU+2NA0avUxauCD7hwpaWNkBTPvumgIgi
+	 bSH4gbHRR1SZx0asNc4n9tkw6COJ5fLlXwB70QsLgLxDCAvbwi29nko4vLo6ydA/EgGLf
+	 hjiX5Oqz9ArDpynUMmcwNxnLFFIQhkE8NVHStvop5cAnTc6YIcq6sNHjJM5tVyJSWpA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=p5qduGPN;
-	arc=none smtp.remote-ip=209.85.222.69
-Received: from mail-ua1-f69.google.com (mail-ua1-f69.google.com [209.85.222.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cbHPXLsU;
+	arc=none smtp.remote-ip=209.85.217.71
+Received: from mail-vs1-f71.google.com (mail-vs1-f71.google.com [209.85.217.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5FD52606A329
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:32:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5FD52606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84406606A31C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:37:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84406606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=p5qduGPN
-Received: by mail-ua1-f69.google.com with SMTP id a1e0cc1a2514c-99c47fe8cacso2700559241.1
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:32:16 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cbHPXLsU
+Received: by mail-vs1-f71.google.com with SMTP id ada2fe7eead31-7d2ef6a9f18so2256278137.2
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:37:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794796335; x=1795401135; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HL9KJ6zJx0cYgN2NafMIfK7yVZJpUohcZPTXV+OQ/Ow=;
-        b=p5qduGPNWYEdMm58fmgaqV+WWGO2kO1BdwPyIACIzLv+7zdvvT129FbE/bFatUg8IE
-         rjLFwG17fbP3emtXYQWIvrDJb0hqMwGIX0/DqhRD7ycbV3ROoBpYtMXibjB1rUpFA5DO
-         tDG1OqWUzm/3jHdAFCGuHrGmp/nMdPeWuApD8+29AWjZH4lBoXeaCdU3f3cc234gaLbO
-         cBvt/m2c77eyyMKM22rxO4YukmySjv1LXhF3e2KFUX8j3Jb5K0s5csW8K6IZDk+UUIwh
-         CVwcjGmRStMNa5DoQF22nmtDqRTF86YWOEbo36vUKEHD3AWiUb8xp+hBjbkksZd1QIyw
-         F0Hw==
+        d=google.com; s=20260707; t=1794796636; x=1795401436; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=C5mb6nf+FAaI0BVTJRL0UIr+aUTcLOUOBCeg1JSMkZ8=;
+        b=cbHPXLsU+2/tNpUoRit7PJk2fMqdPTuKKFL4bxq5lGS4eK+xNtP0paVoKNWF4/8zaw
+         P93b1vOzhgRdEadX597kwprlBFEKbmxK+6e3hzEFDpW9VtLtVLme/aqHZkNkgT7XT8bA
+         4YHf9bolBarrHhiBD6NpDeGHtOPXb0LxpDZcziTafAy4MBIVwaPtrEU75lGjaObE21oX
+         /lDuJ9SBy7eoAHFn9SoDQLURMPX3iBOMF6e2L2p02KK/q7i+fSAMunzWR5c/3tZv32Gd
+         7OMlGMv7WpYbP6EnvLRnsCKfCV4umm9CJEvxtpYZ9rkwtboKK85aHRucQX1vG1dNGzqc
+         i5Wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794796335; x=1795401135;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=HL9KJ6zJx0cYgN2NafMIfK7yVZJpUohcZPTXV+OQ/Ow=;
-        b=Ar43QPKaGZBXuQJhr7oJO7Ub55U3LXBRACbCYxJb6siRm7C372J0oYg3en/8zGaCju
-         IZFnumwKOC31jPAjUC2Qdjr5TXsr0E9slMEDT+DoS8bZmlrgAOa5HboU383+SbJ1P+h+
-         BjdnnCuSdMB8WUcUQXKoXwLUOpR0en6cxAiL7opagbiVrJhFNY6VnOPMCm2N/mm/4TLn
-         i2pnKh2VpnKGCezw7hCv4gvIxtYfsJzLfv8rRkIv7GK0Zt7JngKgkUOO5E84FiNTGkOo
-         LV2tZo+rtZqZXuuXrb+4QHtLp28S1LzhLuTtjf99S/6tXdmtYuwPYJjtF9i7lzJInNfV
-         Z5Gw==
-X-Forwarded-Encrypted: i=1; AL+hErHtHPmC4jf7d45dfFlbfLW8ssscnQcBOWoqgOoHn9lLvNkLkYagNX01Fn0eKVKBc0qMXHaARQg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9DSZwE3D6R1QPkf5zEuELVXDdyw2ghkAUiYwy5oI8IHtFdbWjR
-	+Nc2dulVWiJO2kcRhIgirmqNQLpnJEWSHb1tOSXrpSqby14Z//EFVCFQ7uAApu6xK/L9B8y0iBj
-	5yeYPc8z5LKdw8+Rxncu4ctVuGw==
-X-Received: from uabig12.prod.google.com ([2002:a05:6130:1ecc:b0:99e:b1a:30])
+        d=1e100.net; s=20260707; t=1794796636; x=1795401436;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=C5mb6nf+FAaI0BVTJRL0UIr+aUTcLOUOBCeg1JSMkZ8=;
+        b=bHSu1HL4yB5gfVFK9SshLJTpTmg3Q9pACQLA484xRW7Vn4A2EVo/UUh1fw7EORfhXA
+         J0OBCmY+pSTBs7XJdBulrm9M76z52La7WvjDTUR/TXjCZFha3hBqGp/GAi4NR6b1nsSK
+         pqBxkClTEzn0ten3nwOC54AsWDvv0C0Vr1c/r4piJScFRMbCjyP027vXN7z5lhZm4CRf
+         XUtwpuXqSwO5lNKLxtRwYzdvY1dhgXNv6gSXrs//331TzPpooYkJAN1P9tDlfve8TzJG
+         KHXr87GrmUw9x6U8eaxsChKqsy142kcreu1qUmPxREiG1ma3ovih960FlgdCuHU3SlQ2
+         FXMQ==
+X-Forwarded-Encrypted: i=1; AL+hErHYsKYKBv24E/Oo4owCoXgJifB/Qg/w3djuDvnvmpw89ZxYzC2AcO8Gykk0yqXf4fLOJ9yq8pg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8D3IvsvPAFfYlGiJSuTVzC2OdHOqby9Z+tl1Tc9ZYFwQNXjBi1
+	KOG3FEWNCBnq7Sr8sv4QwBePw2mjHie+GxlZbekyZFysbbSK7u783YCM/MMjJEeM5lD6pev9WYf
+	rajZ1SNl6eapiWLzcLadwzOJZ6Q==
+X-Received: from ualq22.prod.google.com ([2002:ab0:70b6:0:b0:999:5998:2860])
  (user=thaisonphan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6102:510f:b0:7ad:3ad3:997a with SMTP id ada2fe7eead31-7d64d45ce68mr3464173137.5.1794796335056;
- Sun, 15 Nov 2026 18:32:15 -0800 (PST)
-Date: Mon, 16 Nov 2026 02:32:11 +0000
-In-Reply-To: <CAL4Wiipd8pVX8Rxkof+29iSmfoAC5tytsOh0afnovEwaZ4NEjQ@mail.gmail.com>
+ 2002:a05:6102:6892:b0:7c0:4d52:8cc9 with SMTP id ada2fe7eead31-7d64d73ad39mr3509745137.14.1794796636284;
+ Sun, 15 Nov 2026 18:37:16 -0800 (PST)
+Date: Mon, 16 Nov 2026 02:37:07 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,46 +76,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261114161248.3428695-1-thaisonphan@google.com>
- <20261114161248.3428695-3-thaisonphan@google.com> <CAL4Wiipd8pVX8Rxkof+29iSmfoAC5tytsOh0afnovEwaZ4NEjQ@mail.gmail.com>
 X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
-Message-ID: <20261116023211.129862-1-thaisonphan@google.com>
-Subject: Re: [PATCH net 2/2] tcp: accecn: initialize AccECN fields in
+Message-ID: <20261116023709.132684-1-thaisonphan@google.com>
+Subject: [PATCH net v2 0/2] tcp: initialize missing request_sock fields in
  syncookie path
 From: Thaison Phan <thaisonphan@google.com>
-To: edumazet@kernel.org
-Cc: chia-yu.chang@nokia-bell-labs.com, davem@davemloft.net, horms@kernel.org, 
-	ij@kernel.org, kuba@kernel.org, kuniyu@google.com, 
-	linux-kernel@vger.kernel.org, ncardwell@google.com, netdev@vger.kernel.org, 
-	olivier.tilmans@nokia.com, pabeni@redhat.com, stani@google.com, 
-	thaisonphan@google.com
+To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	David Ahern <dsahern@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, "=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ij@kernel.org>, 
+	Olivier Tilmans <olivier.tilmans@nokia.com>, 
+	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Thaison Phan <thaisonphan@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-On Sun, Nov 15, 2026 at 09:13:02AM +0100, Eric Dumazet wrote:
-> This is a different bug than the uninitialized fields above, with
-> a different impact. I would prefer two patches, one per bug, but
-> since both Fixes: commits landed in the same release I will not
-> insist.
+Initialize missing request_sock fields for TCP connections accepted via
+SYN cookies, where cookie_tcp_reqsk_alloc() and
+bpf_sk_assign_tcp_reqsk() allocate without __GFP_ZERO:
 
-Makes sense. I'll make sure to split independent fixes into separate patches
-in the future.
+- Patch 1 initializes ireq->ir_rmt_addr and ireq->ir_loc_addr to
+  LOOPBACK4_IPV6 in cookie_v6_check(), matching tcp_v6_init_req().
+- Patch 2 initializes saw_accecn_opt, accecn_fail_mode, and syn_ect_rcv
+  in cookie_tcp_reqsk_init() and sets syn_ect_snt in
+  cookie_{v4,v6}_check(), matching tcp_openreq_init() and
+  tcp_{v4,v6}_send_synack().
 
-> Same remark as for the LOOPBACK4_IPV6 patch: KASAN does not catch
-> uninitialized bitfields. Please say how the failure was observed
-> (KMSAN, tcpi_accecn_fail_mode in TCP_INFO on the child, ...).
+An AI coding assistant helped audit the request_sock initialization
+paths, write the QEMU reproducer, and draft the changelogs.
 
-This was spotted by code inspection (with AI assistance) comparing
-tcp_openreq_init() and cookie_tcp_reqsk_init() while investigating the
-LOOPBACK4_IPV6 bug. We then verified it on a kernel with SLUB_RCU_DEBUG=y and
-slub_debug=P (preventing reuse of the warm request_sock from the initial SYN),
-observing bogus tcpi_accecn_fail_mode and tcpi_accecn_opt_seen values in
-TCP_INFO on the accepted child socket (as well as tcpi_accecn_fail_mode=0x2
-when the listener sends ECT(0) on the SYN-ACK).
+v2:
+  - Patch 1: clarify how KASAN (via SLUB_RCU_DEBUG) exposed the bug,
+    explain how it was observed, and include the inet_sock_set_state
+    trace line (Eric Dumazet)
+  - Patch 2: drop redundant treq->syn_ect_snt = 0 in
+    cookie_tcp_reqsk_init() and clarify how the bug was found and
+    observed via TCP_INFO (Eric Dumazet)
+  - Add Eric Dumazet's Reviewed-by tags
+v1: https://lore.kernel.org/netdev/20261114161248.3428695-1-thaisonphan@google.com/
 
-I'll update the v2 changelog with these details.
+Thaison Phan (2):
+  tcp: initialize ir_rmt_addr and ir_loc_addr in cookie_v6_check()
+  tcp: accecn: initialize AccECN fields in syncookie path
 
-> I think syn_ect_snt is always overwritten in cookie_{v4,v6}_check()
-> before being read, this line is not needed?
+ net/ipv4/syncookies.c | 4 ++++
+ net/ipv6/syncookies.c | 4 ++++
+ 2 files changed, 8 insertions(+)
 
-Agreed, cookie_{v4,v6}_check() always overwrite syn_ect_snt before
-tcp_get_cookie_sock() reads it. I'll drop that line in v2.
+
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+-- 
+2.56.0.611.g1030f0b940-goog
+
