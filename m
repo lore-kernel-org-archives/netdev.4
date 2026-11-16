@@ -1,89 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794853035;
-	b=WEXAxRWSyyj+GiUaI1zZkebE0abbLSYty+V+vJ91H39yp7+DJKQXulAeAHSEqqLUHKTe
-	 4sgMDWmXiDNZz4mKDpnqL5otNEq5+cANuJHJiyEyiXXNIGARTYjH3JHedl3vUAB6ZiPwe
-	 sM9FHFxivb/hikCOexjwA6bQDaWVzTKwsJANzGA3Ek/D497ylthBkNYCRzcAVwFQRy/m3
-	 dJDxBtZ0a5ZstMs59GBXcNt99SYtZNTGLwbVI3n7ExogIKDUUxqNHfgJYT5Id7zDtNtJK
-	 F8/V6z3mIgkTxi2b9GEHy6pf4BnZyBHkzV4rNJUp0kOXEsvcXJ5oyEOInRDpGADGv2w==
+	t=1794853036;
+	b=hIWA36uTrW+IGkWSWS5CPzQo+2TuRDvgkdZMgSurWpz35Qknj8u583/OY1KCDUVsUYSF
+	 C1b7xc/5TBAiMbUTHS5AN0qDWSSluEZv/veK1ibcOymXvG7qH5u4QmbpUschAgYmVP8es
+	 fj9OMlE/i8JgC1Twzyhdazng8IbHNJMQDzp6JUkoCe3kkpR1j5tkeVFLNVH/7m8YbWxib
+	 kpZ7FxscMc5bWK7f5zY1aEw14ZWsRsyZ8FCgi+0jw3eEqcHx7Bv6xJbZ6OGUVy40Jjbvf
+	 mTDhdDMyU385GcF68zl0nEC3+VrfZAjzA2aN6SieDEk3EW7Zm7ymIUgqZwAZ4gbaMcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794853035;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794853036;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=Rxhs5GXRYeCPMpfYYEZmQBMWMmS9gihsW3GpbZ4BDkU=;
-	b=4Didsnv6vheXpJr+GUJoqOd5uK0RNhEHcJjrHlFl8xApLrGgL4pvtlH1KBqhl260nx8P
-	 UFQXUnj/qxxXhJluNs73B6T8hY4E2NjOop+kPVYxdEDM1qoRRiUEshOp862qi2bqXedie
-	 A1iQuikfz4L0Hj3V8zZJ/touSRqDcaXZ0RuMmTQNW7mC3UGYaewwEh6QBiWa5sdXXEUCR
-	 LQaeCgtV8LdvTvut2rXtEB67nMOngQYZJSe2m25lHQTQ0OnzpnuGpxlDOw9eAKYRWQyB6
-	 /Ydh6j3nxRPLrVuN0uxPdc/h+EMkW5R39YfaA2+gZm7aflBauzLSvxFOFRAABQcWHSQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=gdtJsINmNYNnzAIaY46IB+pxpQ6KX2atpqMRoNK0SJo=;
+	b=HvbcVumnrFBmybh055xQmB2+YokGFBi9ZYy0IeAsRv5KpL6pAgBCnNqCPVA3TcwBJDsT
+	 zScwXEFXiGRSTH4S5EyyTh0wGPYanXQCs1gTJqKxKDTFB7hQpxlmwIFbP+w1glYC/lF2D
+	 0LjkxBOxiinFTBD7CFUHL2hMfSwtF1OhvMgYVbczGUpRXZYYiaGg2KE452zXEejZRY1F0
+	 oNub133f6LX+FCSvbMKp2MPvXTcOJd3Ht0vXh/iC0AfgrDZ5Bj2XDTD7LyTW4a2oLF7f5
+	 rn0hpX9Hbkoln1FzDiMr0rgMe5Cdl6fR8rAsATt/LuEJACrYwPcYUyPC5mJnwVGgyMw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=networkplumber.org;
-	spf=pass smtp.mailfrom=networkplumber.org;
-	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=RR7a9+Gg;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QPwa4qTd;
+	arc=none smtp.remote-ip=209.85.215.175
+Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9CC8606A331
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:17:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9CC8606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3B51606A334
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:17:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3B51606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=RR7a9+Gg
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2efd824d492so1238745ad.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:17:14 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QPwa4qTd
+Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cde0daf3a2aso240579a12.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:17:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794853034; x=1795457834; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Rxhs5GXRYeCPMpfYYEZmQBMWMmS9gihsW3GpbZ4BDkU=;
-        b=RR7a9+Gg7Ff0rDNiM7j3tsu8NkVl4xYquqH2EETbv1oreTAHQn4HC0nTPFHemLiwa8
-         dLaVS9oyK0UGlmQJThxszHdjIpBIfICg3z3WGB8gJIYiRs2NhPDy+7MH3asVZBg1OMnC
-         7itudUXmKPNdVK+0Dg6K3dQckwbXc6EozMSPIXCzkocNNYFkj87M25RdEDVdG0Juv49q
-         /Ly/j8tlzNDBZFxIlOqtiYbKrWgHHR4qSpYJju62ekSwjNrbrwsCdQyPhm3pGR38GZMg
-         l1D17A5M5L4K8yLQO5CKTurcyA3dIVx8QVb2aoc5FolfwU/ypF5YwTpuBH7vxSb/lw2I
-         cGPQ==
+        d=google.com; s=20260707; t=1794853035; x=1795457835; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=gdtJsINmNYNnzAIaY46IB+pxpQ6KX2atpqMRoNK0SJo=;
+        b=QPwa4qTdBndNoy/kjQcLNLm2Tb2ZEHmWraYHzX5ptvkL3AR2doTSDC+bf6oxQxJuWe
+         oPGCuTjz3UUBxYytQuSu3dXROL3dQ6hS56GF2BJJ9arvRdG3/d0shpVlzcsWJRe/xstA
+         C+oWJ+LydTHrxLpHS/dJNSH38vr29x+4o34q9Y/zbxPr3f/93pS+KJqp9U8VvCGKQsDo
+         IwfYo/3l6Hg9c1oBlBp2t6OvdNsU8AkbEHgJiBgRc/9eNInfiLw0Aj6rughSxTxNmifg
+         0Feq77hUK6aA9AQo2F2uYbQKungLiSsJL3c76iaHzxk47Owv5BoXPqtZ6OZYUjI91V+G
+         lA5A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794853034; x=1795457834;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Rxhs5GXRYeCPMpfYYEZmQBMWMmS9gihsW3GpbZ4BDkU=;
-        b=jhZmCXVGY0kGQgfW/yCD4ffnsUQ/3FbYhvsiXpO1G8Z4mdY6ViRR8SNQYY0k19v95j
-         iDOZmsZJ3kzPOGKKzRQLtgS/MxEHTNyCjmSl61WT0xRo6WfgESPodvlzUkYE7bDhfvyy
-         RXgpSY5B4Z/p+K4yalQpt9Os2T9FaIvbgdsumZnqK/YKlpC8wcqVm1KcgI5jsYjxKwwQ
-         mRgki8evKNazGDS5DVO8I80kz7KZAalCCCRd7jwSNQLiweyI9GXflZ9jXRbIwb2nJRF+
-         hYn3bCtweGte9khGdLrMf0+a0AFlJsFIiShZW3Qn2kc9S/tqpyPFcdyr5Wo/MUv0873m
-         ULzA==
-X-Gm-Message-State: APuU4Z/fwSZ4BlY1MNtVjBQt67i08RLUTfqzUi3t+3dSWYiqNtn747/M
-	LKNlMhuQLj0YyM37OYBRZ+NQfcfJhzNlNk6ohNxl/4gJ8O9S7fDEWANP4elgqYMkiiFZRe+QU2i
-	eapfCXaY=
-X-Gm-Gg: AZFdTZd1yiEc83qgGkvY3NGx/xZNqyEbfcnQxU0dQtdsiW6WjDqqfMYz42+dPVCcphh
-	x4z3VthQDkIAKO77uhFaWG8CInMv97RJYEu/55ZSdlO91gvAber9XF7zrMtlHsxZ16xi5rZdEd8
-	qVgxqW3YcVJtjJCxON11hz7JNDcc34DeTaPO+A+xUmvg8Z1DUXdwHgj82XKlBw64SvUnKNOIB7J
-	0j4dyswC+mA7VNXC6co6pc6rqGQ6vhzXCeqKdUXP+lOf70xKiRqfDU/G4Dllix8Ys9s+QgGMpdz
-	da/OmVVb2msAJN76v3pC1xd44sveNoWBCKwHczNQElBBlACql1v3I/+G4UXgRnkEqSnboBIMJtg
-	/tLUKQRLz9j3sP0KITHp3z3thAw38uhN2WWXev561zut1Gc+x1MGRlQyVOVwKoDqICBdJJqsMCp
-	8Cx/iGBEhskiJEHkdaEaMBReSC9GsCnlUm+e3SZElDXEyFvD+LSPR/c56mKr+52LJi+1g740Bth
-	nflA1FVI1AcCbDBOi0Qyz455aHI6VHtFAjSgXzC2X1Jb2xylzH4AY8l9Yxs2pKjheMFEjb88356
-	MO90xZ3REKJaGylOHxuJfR6PqEUC0KI6PLCu/Wi7QXNUQ6cGv/vnQULdiCMFhpew7BqE6AQ=
-X-Received: by 2002:a17:902:e54b:b0:2e9:3395:cca8 with SMTP id d9443c01a7336-2ee0dc779b4mr104497045ad.46.1794853033719;
-        Mon, 16 Nov 2026 10:17:13 -0800 (PST)
-Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd7a85e0fsm2775525ad.56.2026.11.16.10.17.12
+        d=1e100.net; s=20260707; t=1794853035; x=1795457835;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=gdtJsINmNYNnzAIaY46IB+pxpQ6KX2atpqMRoNK0SJo=;
+        b=qciulZK5/+T4AnLewyOTURpLp1nXgt04ZtDpqmph4LaJKRdbMrVOCTyihmsi+LOYXL
+         WYF3xbxphxAkJ2ttLOG6pj8XJIwDdRBjlgOMqmAYqG5PEOk2fpfWNywUilF1crT43aoa
+         r//ysX0ctHm70sUIlgRuJneAfKg9fX0MNOOa1eBkm0bz6MxvwfxgAMY19AC1p24PTGRu
+         hj64Hn0ZwkhmYM1Bm4MDQ3rj/rP1H0/mfoP4tEDZfZMdlqnxr1q82DxZtdu1b4CehmTn
+         eoYPdn+KA1nOPtDERpBt6RK/Q2F4W31zHHZTrfyS9nplrxm2VJMSxqeCLw6Sq76aZffI
+         UPvQ==
+X-Forwarded-Encrypted: i=1; AL+hErF/yBlj3/oLScQ6mE0Oyjyg61sJBCun3Zy39VT3NT+XohDpeJe+bHJRTjQNm6gtEklffzufVXk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+brW73Qluy4L+g25rU01sjlKh3EnkNQ8oboR6LX8NVyGuAD58Q
+	KAtdtMTKKDIGurAihsX/PtUljVj426c4J2TomgRaMKG0YG63sVaESH6dK+IjIjSVKw==
+X-Gm-Gg: AZFdTZeja+LG5XqAnKlajLTUbACIsjH3KZzNKFXC/3pE4EmGjdhh0XssU7+43AXK/vE
+	Ga5l9qfY62HqASQ2phEhDrpKIhjNp9XOddFGe/5SSrQZI7yvtWHZN8TTQ6Op0hF3nYPAgFhraSW
+	jl6ZKAXVTG5roeYr0ARWSUQCJFn99NmsX8Ko3Q/sapvvszSAT0Jvm/5MBnt3uwJYL5Pcv73KMoU
+	ODGa7WnlbPLYb4NYOCCOJigD1CJBMC1o2LafJ6/TGd2cesh2SlJj8s1/r42F8P4D7WNiLE7mkrt
+	lslUsH04UDu/yCYcjVonp9tfN/jt+UYfAe7pty3i9BrdgzHD3OxGbTG6LJFoISqeJQOfKYvJMfG
+	SMbJJLOncdwohPwIFyN/jXHT1T/zVe4xZmuowl3U8VP4Mke+H8UPY/7551cBFTnnF4ZqNjUqPYD
+	vKXyHrQwqDRESdKVxHt2gE9oSYVyKROq4BEaD6XGJggFFZ2TtNrfKkk5ojrzoaCraZgFSBto3nf
+	waVpGz2cbr24742VfezG+xPVU8rf4bohGrl0roAJpq7mgwoeqfCiEnR0kIk2+bZliutuTa/Ws4i
+	XZXdYb3KmLK4mwu/HDTLE7n3Sm+fvHiNptZL2xmMntsasLyA0B10txz3i83zzQVZw07EEKIse7y
+	kY+f0dX7ZUU6GR0zlN8e6i+MPQHKXQ/ay17gIL08Ywp26NuvlgGdQt5w6+MgJaSzjCREVdn/m1f
+	H4Fmc4cSsG8AV0o3k/RY+OBOXo+rc9wHCRz+58yapqpZvfiSr1W3ModrQ=
+X-Received: by 2002:a17:90b:28cf:b0:3ac:8dfe:8ec9 with SMTP id 98e67ed59e1d1-3b1b0b47416mr9375279a91.47.1794853034181;
+        Mon, 16 Nov 2026 10:17:14 -0800 (PST)
+Received: from google.com ([2a00:79e0:2e87:6:9050:473d:cdf:7c63])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac70ea45sm272890a91.17.2026.11.16.10.17.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 10:17:13 -0800 (PST)
-From: Stephen Hemminger <stephen@networkplumber.org>
-To: netdev@vger.kernel.org
-Cc: dsahern@kernel.org,
-	Stephen Hemminger <stephen@networkplumber.org>
-Subject: [PATCH iproute2] ip address: don't emit empty JSON objects for filtered addresses
-Date: Mon, 16 Nov 2026 10:17:11 -0800
-Message-ID: <20261116181711.292634-1-stephen@networkplumber.org>
-X-Mailer: git-send-email 2.53.0
+        Mon, 16 Nov 2026 10:17:12 -0800 (PST)
+Date: Mon, 16 Nov 2026 10:17:07 -0800
+From: Nick Desaulniers <ndesaulniers@google.com>
+To: Nathan Chancellor <nathan@kernel.org>
+Cc: Stefan Wahren <wahrenst@gmx.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org
+Subject: Re: [PATCH net v2] qca_spi: Avoid unsequenced accesses to jiffies in
+ qcaspi_netdev_tx_timeout()
+Message-ID: <avtIOfLOG3x0TRey@google.com>
+References: <20261115-qca_spi-wunsequenced-v2-1-8cf32f12d546@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,127 +101,74 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261115-qca_spi-wunsequenced-v2-1-8cf32f12d546@kernel.org>
 
-print_selected_addrinfo() opens a JSON object before print_addrinfo()
-decides whether the address passes the filter, so every rejected
-address leaves an empty object in the addr_info array:
+On Sun, Nov 15, 2026 at 09:45:22PM -0700, Nathan Chancellor wrote:
+> After a recent improvement in clang to warn on unsequenced accesses to
+> volatile variables [1], an instance appears in
+> qcaspi_netdev_tx_timeout(), which can break the build with
+> CONFIG_WERROR=y / W=e:
+> 
+>   drivers/net/ethernet/qualcomm/qca_spi.c:805:16: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
+>     805 |                     jiffies, jiffies - dev_trans_start(dev));
+>         |                     ~~~~~~~  ^
+> 
+> Per C11 5.1.2.3.2, accessing a volatile object is a side effect. Per C11
+> 6.5.2, unsequenced side effects on the same scalar object are undefined
+> behavior. Per C11 6.5.2.2.10/12, the evaluation of arguments in a
+> function call is indeterminately sequenced, meaning any side effects in
+> the arguments are unsequenced.
+> 
+> Printing jiffies on its own is not that useful for debugging transmit
+> timeouts, so get rid of it to clear up the warning.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 291ab06ecf67 ("net: qualcomm: new Ethernet over SPI driver for QCA7000")
+> Closes: https://github.com/ClangBuiltLinux/linux/issues/2197
 
-    # ip -j address show proto kernel_lo
-    [{...,"addr_info":[{},{"family":"inet6","local":"::1",...}]}]
+Just hit a handful of these last week; thanks for getting issues filed
+per (I thought it was just one instance; having one issue per makes its
+clearer this is flagging a few more cases. Thanks for sending fixes for
+these, too).
 
-print_addrinfo() cannot report the rejection to its caller; it is also
-the rtnl_dump_filter() callback, where a non-zero return aborts the
-dump.
+> Link: https://github.com/llvm/llvm-project/commit/955715460eaf9188c241c74750637fc82dfcc423 [1]
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
 
-Move the per-address filter predicates into ipaddr_filtered() and
-check them before opening the object.
+Reviewed-by: Nick Desaulniers <ndesaulniers@google.com>
 
-Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
----
- ip/ipaddress.c | 68 +++++++++++++++++++++++++++++++-------------------
- 1 file changed, 42 insertions(+), 26 deletions(-)
-
-diff --git a/ip/ipaddress.c b/ip/ipaddress.c
-index 4a4a87d9..fb9c05ee 100644
---- a/ip/ipaddress.c
-+++ b/ip/ipaddress.c
-@@ -1497,6 +1497,41 @@ static int ifa_label_match_rta(int ifindex, const struct rtattr *rta)
- 	return fnmatch(filter.label, label, 0);
- }
- 
-+/* Aliases IFA_LOCAL and IFA_ADDRESS in the caller's table. */
-+static bool ipaddr_filtered(const struct ifaddrmsg *ifa, struct rtattr **rta_tb,
-+			    unsigned int ifa_flags)
-+{
-+	if (!rta_tb[IFA_LOCAL])
-+		rta_tb[IFA_LOCAL] = rta_tb[IFA_ADDRESS];
-+	if (!rta_tb[IFA_ADDRESS])
-+		rta_tb[IFA_ADDRESS] = rta_tb[IFA_LOCAL];
-+
-+	if (filter.ifindex && filter.ifindex != ifa->ifa_index)
-+		return true;
-+	if ((filter.scope^ifa->ifa_scope)&filter.scopemask)
-+		return true;
-+	if ((filter.flags ^ ifa_flags) & filter.flagmask)
-+		return true;
-+
-+	if (filter.family && filter.family != ifa->ifa_family)
-+		return true;
-+	if (filter.have_proto) {
-+		__u8 proto = rta_tb[IFA_PROTO] ?
-+			rta_getattr_u8(rta_tb[IFA_PROTO]) : IFAPROT_UNSPEC;
-+
-+		if (filter.proto != proto)
-+			return true;
-+	}
-+
-+	if (ifa_label_match_rta(ifa->ifa_index, rta_tb[IFA_LABEL]))
-+		return true;
-+
-+	if (inet_addr_match_rta(&filter.pfx, rta_tb[IFA_LOCAL]))
-+		return true;
-+
-+	return false;
-+}
-+
- int print_addrinfo(struct nlmsghdr *n, void *arg)
- {
- 	FILE *fp = arg;
-@@ -1528,32 +1563,7 @@ int print_addrinfo(struct nlmsghdr *n, void *arg)
- 
- 	ifa_flags = get_ifa_flags(ifa, rta_tb[IFA_FLAGS]);
- 
--	if (!rta_tb[IFA_LOCAL])
--		rta_tb[IFA_LOCAL] = rta_tb[IFA_ADDRESS];
--	if (!rta_tb[IFA_ADDRESS])
--		rta_tb[IFA_ADDRESS] = rta_tb[IFA_LOCAL];
--
--	if (filter.ifindex && filter.ifindex != ifa->ifa_index)
--		return 0;
--	if ((filter.scope^ifa->ifa_scope)&filter.scopemask)
--		return 0;
--	if ((filter.flags ^ ifa_flags) & filter.flagmask)
--		return 0;
--
--	if (filter.family && filter.family != ifa->ifa_family)
--		return 0;
--	if (filter.have_proto) {
--		__u8 proto = rta_tb[IFA_PROTO] ?
--			rta_getattr_u8(rta_tb[IFA_PROTO]) : IFAPROT_UNSPEC;
--
--		if (filter.proto != proto)
--			return 0;
--	}
--
--	if (ifa_label_match_rta(ifa->ifa_index, rta_tb[IFA_LABEL]))
--		return 0;
--
--	if (inet_addr_match_rta(&filter.pfx, rta_tb[IFA_LOCAL]))
-+	if (ipaddr_filtered(ifa, rta_tb, ifa_flags))
- 		return 0;
- 
- 	if (filter.flushb) {
-@@ -1731,6 +1741,7 @@ static int print_selected_addrinfo(struct ifinfomsg *ifi,
- 	for ( ; ainfo ;  ainfo = ainfo->next) {
- 		struct nlmsghdr *n = &ainfo->h;
- 		struct ifaddrmsg *ifa = NLMSG_DATA(n);
-+		struct rtattr *rta_tb[IFA_MAX+1];
- 
- 		if (n->nlmsg_type != RTM_NEWADDR)
- 			continue;
-@@ -1748,6 +1759,11 @@ static int print_selected_addrinfo(struct ifinfomsg *ifi,
- 		if (filter.down && ifi->ifi_flags&IFF_UP)
- 			continue;
- 
-+		parse_rtattr(rta_tb, IFA_MAX, IFA_RTA(ifa), IFA_PAYLOAD(n));
-+		if (ipaddr_filtered(ifa, rta_tb,
-+				    get_ifa_flags(ifa, rta_tb[IFA_FLAGS])))
-+			continue;
-+
- 		open_json_object(NULL);
- 		print_addrinfo(n, fp);
- 		close_json_object();
--- 
-2.53.0
-
+> ---
+> Changes in v2:
+> - Eliminate printing jiffies entirely rather than using a local variable
+>   (Stefan)
+> - Link to v1: https://patch.msgid.link/20261114-qca_spi-wunsequenced-v1-1-6b219b906db7@kernel.org
+> ---
+>  drivers/net/ethernet/qualcomm/qca_spi.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/qualcomm/qca_spi.c b/drivers/net/ethernet/qualcomm/qca_spi.c
+> index 38a779f4b866..249b4b549a12 100644
+> --- a/drivers/net/ethernet/qualcomm/qca_spi.c
+> +++ b/drivers/net/ethernet/qualcomm/qca_spi.c
+> @@ -801,8 +801,8 @@ qcaspi_netdev_tx_timeout(struct net_device *dev, unsigned int txqueue)
+>  {
+>  	struct qcaspi *qca = netdev_priv(dev);
+>  
+> -	netdev_info(qca->net_dev, "Transmit timeout at %ld, latency %ld\n",
+> -		    jiffies, jiffies - dev_trans_start(dev));
+> +	netdev_info(qca->net_dev, "Transmit timeout, latency %ld\n",
+> +		    jiffies - dev_trans_start(dev));
+>  	qca->net_dev->stats.tx_errors++;
+>  	/* Trigger tx queue flush and QCA7000 reset */
+>  	set_bit(SPI_RESET, &qca->flags);
+> 
+> ---
+> base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+> change-id: 20261114-qca_spi-wunsequenced-a81e54616844
+> 
+> Best regards,
+> --  
+> Cheers,
+> Nathan
+> 
