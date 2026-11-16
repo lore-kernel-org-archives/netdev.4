@@ -1,99 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794855270;
-	b=mtdu1NzlgrR7ZeWMBR+/u3za02ddo7JPEFoDz/QWQtB3Q1BJwMzVxyltcC/kTW8gFUtW
-	 XgWHsUR01o/OxPyQNRDndDSqmYWPyJEFNHS118uweybnHhcVWr3slqd/7DqgapndxevKj
-	 WBpxegeoGXvIp8r45WMkPWSvRT+kCXLAb7EDwdVjVUXOTWGreUv1WbYQJSg11OwQ95E2j
-	 gZ/Y2j3KxdeiCBlz357/5Hr6yRISKpVilU+rMGApCgRH0cD0QgLHqwqCXZIvVHliH5yjX
-	 fea9KrPKZ10+ONHv0votGiWGDKIQFZzBYqdn65+60rOONSuQH/1SOmaUbBFklnFdkUA==
+	t=1794855356;
+	b=aHy0nQLpceulJ0hzKN8k9vBy5LxXVq+2vZ5Uiw9kqHCbPjw7fEbalRNj30LWm/fxHbcH
+	 nZ7yWSea6LwMxgcGj8qiPDqC+Gzshxo7t1lllnMJFFPIWJAJKvwWEKMPKzSty+5K6VQuC
+	 l9CTTfD8i1g65w0PDUjmihSyCIrW3nG9HxjBuN5UMcsCko35pcWTqlFrgXFJKEypRa2OK
+	 t7dDdgA4NarOpOipcm7lCZTlbxjrA2tz5n6hl/MdW13BQIwA6xj//s1Qm5WjyPR79qR30
+	 iBJ9VT/7x+hLyIQq4OkJlwNIVOAK585Qsz2JlJxWiZrZJPR4irfz22EL6zFsNmCPdoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794855270;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=1GcEiI63ck6yvUndLiYdZXSeO/zZHcJWfPdvD4HbxEE=;
-	b=mWnsqxDR6xgk2zcGpO7I3vd+sgLS0RLK6Op0Uvlmm824/CK3qi7++rWP9t6m2MgMPt+K
-	 omUdNbFSMzH8KusU8z3fqk7/E3gw/rqy1tXvhH/Qo5vOyGBpwkjj0XYUw/4v735J/HTfI
-	 +P/vcab22D2sdvDjl9H6jAltjLrPt/JNqZSFuxbJrAu9N5usK7FdIyDFniDPbGzjMmb9e
-	 A5pjHE1EQIWmrbdXKYPzAIavHddGK2qk5qPMdCfSXMu2tfiHL/ux9rWRZDy7KjTf3X3xa
-	 4H/eBWQexaU8nwfAnXqOWrd+6MKqadnPr+R29t5xvN8ggqcd8f8hj04pMEY+XuVVPsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794855356;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=3MwGTia29hoI59AYQaU2Ez4dH29GW4k/UQmwogH8ApU=;
+	b=gK7IjyXl7UhdxMlBSqo0LoXYlv3kbV9PSuV8LYtITauKkVdy55DZb6XborOH668S8TI8
+	 bEsBRxes0yCkT6XdpSnYBwXy34RMFAP/B01gpjgUBoboefmdvLcgyahWL86eb3n2nLuGp
+	 JDxfQzVn46nS3LR2pAlGEm1Nk1A7mlMu87+Hlsw9uay5f4ocSpGo2y9zHFLQKCckEa8Y9
+	 N6HgXe6HtGz5oVmIQ4/qqPU7U9+Acq1c9lFnnV40wBremMmwImUGvwSeqe1CITKjGhWeF
+	 4ZAm8Ope5EIXilb42kfT1IkT110Nmhgl+PeMU8YPKorqCbtYN8O4xxondI4HrbhXoiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=CaQUDsaU;
-	arc=none smtp.remote-ip=209.85.222.98
-Received: from mail-ua1-f98.google.com (mail-ua1-f98.google.com [209.85.222.98])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RI5Ywpeq;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E796C606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:54:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E796C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA0A4606A322;
+	Mon, 16 Nov 2026 18:55:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=CaQUDsaU
-Received: by mail-ua1-f98.google.com with SMTP id a1e0cc1a2514c-99e145569c6so370513241.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:54:29 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794855269; x=1795460069;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=1GcEiI63ck6yvUndLiYdZXSeO/zZHcJWfPdvD4HbxEE=;
-        b=M7y3K2RZE8KXV+CDS5ylNonQtRcssWivvtcUDRfFcILZfbLAQlxigUFgTnwT41yiaH
-         6wC6Dqfdxq9g8ocvAjsTx9c1OLFuBLUm4MM/b/VZOv6+DDcgD2LJrgxIu39cMgd47W2m
-         to30UbqDVfg3auq7DZptfREmRyTsVsv7fRACQeByEMUCfIG/7SBgHgWiY/MINug2eO5N
-         tUmlYR1hUVeavI8QSFJi8wRYNxjhBbK3CcJW7EUwjb6VSeoXpGa4gFLMU0waZGJdm7Ku
-         ZJNvZL58Nb5kSbvb5maCTc6JiDbkV5FAHsSb22UvMZIgZ6N+nRHQb83mpsLcPGkmyH4N
-         H46g==
-X-Gm-Message-State: APuU4Z/u6c2fE/Ey/g7pxOh8D8leOmrgamSRkM0Wsr2L0r+ZH+7byQUo
-	wl9UumwoSeb+kF/oLg4PeW6bVpqbz6tSagVHx4HIt6aTVuyEIQfWsier0SBFD3msQtodk81Ax/0
-	m8EW5jFzyn+341JXhpdSSeK6FLAW5hFNvH7+YlTmq/G99KGZLlBTxb72yG2B/Ei5Gx0nvS4uKSh
-	g6mATzruLWmByTRZvqifqndCxwA1JUPQZgUxQZj5PRaikfTtx+U4O7f7QAd3MWAvDdcbs1F7Llc
-	z5/zigIPmyDR4Yy
-X-Gm-Gg: AYBFou2CftWvJY6VGsimOlVBvMDfO6zy34hk3B/KpDWVa1QcOs7IjeCOEg71CQahdNm
-	95PC9mnpiQECdjfnVmZcj/4W926gUityTOP0xBDOcdeCFz5n6x/LGO+x6t+KBVicMiks56psI6E
-	uQsgq8WzHuBbpwlJTLrhVdbVFhyek7r+NUGKWnD25wp3lW3jtFiXlQWM1AHlLGpVkowPp21L+ni
-	qbrA0hizeF6Kg8Q/A1e4I19GAApJmxeU6bnJMaMndMnXp0Xer0oHAvZ7UpaFcJAlVpmNb4JnSTu
-	4cBto4eTaBCVbiIqPNjiZmEy+XhjBeqNti5njtrPVIJ3IVV1flTl7YXfaEyKFZGFfrhp83n+5VI
-	+22S7jY9BgOMKiPZ8pbSBnXz1TbDIaKeeVsmxKjx/e3KWW9SL3PpOER1Se5uOj83ouBrRnVGbP5
-	+/pXF2mXNC26LJCnOZNlO/rQJn34xmLVOpvTDFjD2Q
-X-Received: by 2002:a05:6102:3fa3:b0:7a8:2a34:432e with SMTP id ada2fe7eead31-7d64d6d6b49mr3155093137.9.1794855268685;
-        Mon, 16 Nov 2026 10:54:28 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-99e3387e34asm60199241.11.2026.11.16.10.54.28
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Nov 2026 10:54:28 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-94607500fb0so253170785a.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:54:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794855268; x=1795460068; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=1GcEiI63ck6yvUndLiYdZXSeO/zZHcJWfPdvD4HbxEE=;
-        b=CaQUDsaULcAggFKXJnWQnC3x6jJwSPsZxbSlkPpL7HXjsYccdXYQyU5EVpw3IYYusr
-         7WoKggTbDotkNY4wAKAkEBw9tKHdMPMYS+ofmh7ZhNHR8OSCAXGtx+uLCmgZD1Mit7Ox
-         dmEO+nYcLry/Ac5k9W+VQagnXaP95DDkt62Rk=
-X-Received: by 2002:a05:620a:454a:b0:949:74d8:46fb with SMTP id af79cd13be357-94974d84ca8mr851101785a.41.1794855267915;
-        Mon, 16 Nov 2026 10:54:27 -0800 (PST)
-X-Received: by 2002:a05:620a:454a:b0:949:74d8:46fb with SMTP id af79cd13be357-94974d84ca8mr851096385a.41.1794855267248;
-        Mon, 16 Nov 2026 10:54:27 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9494c803fb4sm899033785a.9.2026.11.16.10.54.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Nov 2026 10:54:26 -0800 (PST)
-Message-ID: <3996fa8c-3346-40ff-8fa0-afa70262028b@broadcom.com>
-Date: Mon, 16 Nov 2026 10:54:24 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RI5Ywpeq
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DA571F000C4;
+	Mon, 16 Nov 2026 18:55:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794855356;
+	bh=3MwGTia29hoI59AYQaU2Ez4dH29GW4k/UQmwogH8ApU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=RI5YwpeqRU57kQQWAFDUJRI5bEo4fI8+rmCJLhGn9A3llbMJsF4YoKFvGsBkr0yBL
+	 cqrd2c0RNIirTEO6PINH2Lo4/35mrVpFmhWBLxVXikHrWvlaS7bLaV1U/GOwQdtigv
+	 s750fDUw1UdKNtLAQ3CIyFUB+2Fs6GrsRDG2EgehBvuANEdrQVgEJ+wByoa5Y+cHfm
+	 AbePJMoj4FrMX3Vfybceg/YA5m+iitTxs8t5Y5kmscYEXzMivISIhqepF1/20FhRQB
+	 Vu5KGLxdA7G++XQeEghBbwopbceLVJjE2SPzu3KI43PH7SDBhmdkM6Pa+mt+N0nUNM
+	 NkU/wGwqOyZ1Q==
+Subject: Re: [PATCH net-next v10 07/12] net: dsa: realtek: rtl8365mb: set and
+ get vlan 4k for family D
+From: netdev-bot+sashiko@kernel.org
+To: namiltd@yahoo.com
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+Date: Mon, 16 Nov 2026 18:55:54 +0000
+Message-ID: <179485535493.3136.1068069637622995619@kernel.org>
+In-Reply-To: <915a9103-82e6-4504-8d6e-3d12c4e7af1a@yahoo.com>
+References: <915a9103-82e6-4504-8d6e-3d12c4e7af1a@yahoo.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,117 +66,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/3] net: mdio: mdio-bcm-unimac: Add Clause 45
- support
-To: Nicolai Buchwitz <nb@tipi-net.de>
-Cc: netdev@vger.kernel.org, Carlos Soto <carlos.soto@broadcom.com>,
- Justin Chen <justin.chen@broadcom.com>, Doug Berger <opendmb@gmail.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, linux-kernel@vger.kernel.org,
- Mlody12 mlody12 <kudzo51@gmail.com>
-References: <20261113211554.2058181-1-florian.fainelli@broadcom.com>
- <20261113211554.2058181-4-florian.fainelli@broadcom.com>
- <7cb0d621e794378956b737530ebade24@tipi-net.de>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <7cb0d621e794378956b737530ebade24@tipi-net.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On 11/15/26 10:59, Nicolai Buchwitz wrote:
-> Hi Florian
-> 
-> On 13.11.2026 22:15, Florian Fainelli wrote:
->> Add Clause 45 read/write support to the UniMAC MDIO bus controller driver
->> by implementing the read_c45/write_c45 bus callbacks. Each access 
->> performs
->> the two-step C45 sequence (ADDR cycle followed by a READ/WRITE cycle) 
->> under
->> the bus lock and switches MDIO_CFG between C22 and C45 mode as needed;
->> MDIO_CFG is only written when the mode actually changes.
->>
->> Also skip the BMSR workaround read in unimac_mdio_reset() for children
->> compatible with "ethernet-phy-ieee802.3-c45", since such PHYs are not
->> expected to respond to C22 accesses.
->>
->> Note that providing read_c45/write_c45 also makes the MDIO core scan for
->> C45 PHYs at registration time, on addresses that are not masked and do 
->> not
->> already have a C22 device.
->>
->> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
->> Co-developed-by: Carlos Soto <carlos.soto@broadcom.com>
->> Signed-off-by: Carlos Soto <carlos.soto@broadcom.com>
->> Co-developed-by: Justin Chen <justin.chen@broadcom.com>
->> Signed-off-by: Justin Chen <justin.chen@broadcom.com>
->> ---
->>  drivers/net/mdio/mdio-bcm-unimac.c | 105 +++++++++++++++++++++++++++--
->>  1 file changed, 98 insertions(+), 7 deletions(-)
->>
->> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/ 
->> mdio-bcm-unimac.c
-> 
->> [...]
-> 
->> @@ -301,6 +390,8 @@ static int unimac_mdio_probe(struct 
->> platform_device *pdev)
->>      bus->parent = &pdev->dev;
->>      bus->read = unimac_mdio_read;
->>      bus->write = unimac_mdio_write;
->> +    bus->read_c45 = unimac_mdio_read_c45;
->> +    bus->write_c45 = unimac_mdio_write_c45;
-> 
-> AFAIU this breaks GENET without DT (e.g. Pi 4 with ACPI). Arguably an 
-> edge case,
-> but last time I tried it worked at least. With your changes all 
-> addresses get
-> a C45 scan there for which the empty ones return -EIO. get_phy_c45_ids() 
-> passes
-> that up instead of mapping it to -ENODEV like the C22 path.
-> 
-> A cheap fix would be to do the same mapping in get_phy_c45_ids() as we 
-> have for C22.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-OK, are we the only platform where that is happening? Alignment would 
-make sense, and I don't assume we will be breaking someone's use case 
-AFAICT.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] On family D, the per-VID IVL_EN bit (CVLAN word 1, bit 3) is
+  set only inside rtl8365mb_vlan_4k_port_set()…
+
+--
+
+net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
+
+This adds two-word pack/unpack helpers for the family D CVLAN (4K VLAN)
+table entry, rtl8365mb_d_vlan_4k_read() and rtl8365mb_d_vlan_4k_write().
+It also changes rtl8365mb_vlan_4k_port_set() so that on family D, IVL_EN
+is set only while some user port has VLAN filtering enabled. Family C
+keeps IVL always on.
+
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+> index 566c6bc1449af..bf1a6a9916114 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
+
+[ ... ]
+
+> @@ -314,7 +391,21 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
+>  		vlan4k.untag |= BIT(port);
+>  	else
+>  		vlan4k.untag &= ~BIT(port);
+> -	vlan4k.ivl_en = true; /* always use Independent VLAN Learning */
+> +
+> +	/* Family C always uses IVL. On family D, IVL is on while any user
+> +	 * port has VLAN filtering enabled, so that static entries match
+> +	 * learned ones in a VLAN-unaware bridge (SVL).
+> +	 */
+> +	if (!rtl8365mb_is_d(priv)) {
+> +		vlan4k.ivl_en = true;
+> +	} else {
+> +		struct dsa_port *dp;
+> +
+> +		vlan4k.ivl_en = false;
+> +		dsa_switch_for_each_user_port(dp, ds)
+> +			if (dsa_port_is_vlan_filtering(dp))
+> +				vlan4k.ivl_en = true;
+> +	}
+
+[Severity: Medium]
+Can the per-VID IVL_EN bit go stale here when vlan_filtering changes?
+
+The bit is only computed when a VLAN is added or deleted.
+rtl8365mb_port_vlan_filtering() in rtl8365mb_main.c changes ingress
+filtering, the transparent masks, the frame filter and the egress mode.
+It never rewrites the 4K table entries:
+
+rtl8365mb_port_vlan_filtering() {
+    ...
+	ret = rtl8365mb_port_set_ingress_filtering(priv, port, vlan_filtering);
+    ...
+		ret = rtl8365mb_port_set_transparent(priv, port, dp->index,
+						     !vlan_filtering);
+    ...
+}
+
+rtl8365mb_setup() sets ds->configure_vlan_while_not_filtering = true, so
+VLANs are programmed while the bridge is still VLAN-unaware. Take a
+common sequence:
+
+  ip link add br0 type bridge
+  ip link set lanX master br0
+  ip link set br0 type bridge vlan_filtering 1
+
+VID 1 is written with IVL_EN=0 and keeps it after filtering is turned
+on. VIDs added after that get IVL_EN=1, so the table ends up with a mix
+of IVL and SVL VLANs inside one VLAN-aware bridge.
+
+The reverse also happens. If filtering is turned off, the VLANs stay in
+IVL mode. Later in the series, rtl8365mb_d_l2_uc_to_data() and
+rtl8365mb_d_l2_mc_to_data() key vid 0 static entries with SVL (FID 0):
+
+	bool ivl = uc->key.ivl && uc->key.vid;
+	u16 id = ivl ? uc->key.vid : uc->key.fid;
+
+In both cases, would static FDB/MDB entries and learned entries end up
+with different keys? The commit message says this logic exists to
+prevent that.
+
+The bridge join ordering seems to add a further case. In
+dsa_port_bridge_join(), switchdev_bridge_port_offload() replays the
+bridge VLANs through br_switchdev_vlan_replay() before
+dsa_port_switchdev_sync_attrs() sets dp->vlan_filtering. When the first
+port joins a bridge that already filters, are the replayed VLANs written
+with IVL_EN=0?
+
+The policy is also switch-wide. With one VLAN-aware bridge and one
+VLAN-unaware bridge on the same switch, the unaware bridge's VIDs would
+be forced to IVL.
+
+The commit message says:
+
+  The stored IVL_EN is refreshed on the next port_vlan_add/del for the
+  VID, not on a vlan_filtering change.
+
+Nothing in the driver triggers that refresh, so the final hardware state
+depends on the order of configuration steps. Should
+rtl8365mb_port_vlan_filtering(), or the family D join path, walk the
+existing 4K entries and rewrite IVL_EN?
+
+This is still present at the end of the series, where the family D info
+is wired up in "net: dsa: realtek: rtl8365mb: add support for
+RTL8367S-VB".
+
+>  
+>  	ret = fi->vlan_4k_write(priv, &vlan4k);
+>  	if (ret) {
+
 -- 
-Florian
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/d9da17af-f49e-4878-a8dd-59a8919e6930%40yahoo.com
