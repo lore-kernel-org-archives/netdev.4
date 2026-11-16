@@ -1,60 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794837267;
-	b=18fpASd2BSWELj/TsaXZ380Lm3svXd1+uusDbrqLnyCXjR4n/7+orE4awMGKoz1ET2HL
-	 vGC7B1nX37UL9jPTcHE+kiURUx7uN6834PdtIWBex8kqgvW/+gVYNteyZEwboXkylQY3H
-	 x1WkljSqgnIyZ9IXnqu60x5WSNcEm0uX+8kYv2KSzvtVIs/u7SBOZAwSbrcf3M720KlFh
-	 tyZ9r4L1Sb7OX6fEod5Xk9mso9VfndVZ3kMAcLp3zKMx0Wf2i25SvLLj1dbwlwNihwXL1
-	 ulROhtnhYoZmB25BfcXJ8QYylkdQlxyokbooauygOs3AgSZGzATzCkdBXi40kukNTxw==
+	t=1794837263;
+	b=3xf996+0EVq+3qVytD6SdmRIIPrQz9YO22noi+J7lMOBMvuQeo+WUd0dwxe7ckpuPxDl
+	 c/yRx8qfjQGJCUM9okpmr/JJ1MbfskHZ4d1JlbMcCGkOiTMKWxLZ5snwWPYT1IBPmgJ+v
+	 J3AyWxMwLn+CJYJaSym5ZU3hONEk0rPg2G7SVqqBV+4HDG7SLLcL/PwnB0h+mH8/JKs5f
+	 ddo7fYgt1oPdt7XDK19sX5dV4S0kul/A5JeuIkgqAV3vw5Gfue0hC13Y+H2w7RZ6AESh+
+	 vmuOOrgL/jt/JN2+m+5wfgcivPeZeHpVzUsDtAe1+IACs3NAayCb0JR6jgEnMqDl4sQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794837267;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794837263;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=r132SAdA06PRgqTYVS2JcCR63njeCiFKuORU3KC+nDs=;
-	b=msWyjGhuPXeD/UYkIRHjhk6MYY1XcAE4PknwEV7P0Jl6ahl0bhp+smGklgTGpKfxmAA1
-	 ZriyZmaxnshpn4bKUpvOlLPj8HjhzzRekSMC1RO8bygoUMPVGN3MCWb62H4u1BqyOAxmk
-	 JX7mWi+CwULBq/FG5KVIbvBj26suHiHCsGKQEKZRi1UsXPQQ/lLbyxb+vFkKUlPM4PcO7
-	 2O/BLM1Lwq+X4EcKkK+iI61V6hwnLUfU0+4Vbtgx5R9XxbP/lGppg59Ck9hWcSOvD4ELP
-	 y/k1Wzdr7Qzw189+7Q2VEZ90wXLAc4bZpqo+o43mvBQ2bIQsliFsW/1w14O5xuJmuKw==
+	bh=8Qmd3zTWqxKS9EXQprMTTNgzTyEpTck3iz7Im4ijSnc=;
+	b=uSbTy2GnObbgKBZGRAQ1F8CnKBMYDu+gmk5dvD5fCyr2MSTj+9Fw+R0F7XdzBUpFkHQC
+	 crEebxlsNvgHVULWZbOvqSSi0E8Xm+glO1Ijmx2mx31vz3EW6REE9qGP2R4fiA7thMnnf
+	 gthFYF/q9/IKUVypIyVSgpoBbN9Gz0r4B7/HiqQo6S51wn/xGdDmo9P8UZsPBJCbiD/nd
+	 eWOVujTWik7a0rtp7hv2w9VFIoF9HnBixKxM1/biH0d8hJbrBi1Zz7/KwgR8iq9QvjARI
+	 67KTktaLmvaRJ0VXKWhgcmToaNy7SBcPQpvAYFyO0F+MXbqQTu8Q8VO6kvrXaqq1Xog==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jsG1lsIw;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aXXZ3Wb2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 831FD606A8AD;
-	Mon, 16 Nov 2026 13:54:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 590DB606A88A;
+	Mon, 16 Nov 2026 13:54:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jsG1lsIw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0C8A31F00939;
-	Mon, 16 Nov 2026 13:54:25 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aXXZ3Wb2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4943E1F00926;
+	Mon, 16 Nov 2026 13:54:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794837267;
-	bh=r132SAdA06PRgqTYVS2JcCR63njeCiFKuORU3KC+nDs=;
+	s=k20260515; t=1794837263;
+	bh=8Qmd3zTWqxKS9EXQprMTTNgzTyEpTck3iz7Im4ijSnc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=jsG1lsIwomGEJPRulw+J9IOMIPhSEI/1L3q7SbqlvCsL+Jh/xsOVnDRT60s8cJdnU
-	 ET+U8E1zh5FKiqrW/6V80mUSz0od/cb3Ah7dG1xmNxrF288O9fWj4YnRgkUeRd/OVk
-	 RGI+g0ho4SEDBzVI0SUoUDHkiSsRvqz45K5wBNbJOV0tqYo52QSU9mCwZjQ2viv+3y
-	 fXws0v9H6L4+kaMBX/gzGEiJVIrp2uWQrQAKJ7UwTB5ieTpQk2SVmThCOz5qqKuV/i
-	 nEfTNJnbUEawV1krTs/YV+veN7EKw+ED/k1eKzAygGv+RgYxMKqY5drqKe42kD7cn2
-	 98nipByPKcaoQ==
-Subject: Re: [PATCH net-next v2 2/2] net: stmmac: dwmac-sun8i: Enable jumbo
- frames up to MTU 2018
+	b=aXXZ3Wb2PNRSc9/G8cAutp7a+2N0wKqh39UAGy2QW/aSh5iOIonPvxTASxV7ZoEzv
+	 XXt8CNX7o9ay65yjAitxSzvaD3hAaG5rIix7KLI1vI+GPYgo9BFppZLfuGO1Z1jOve
+	 mVB5P0OfN6QyNbEE8YjVMQTt7VMUnVnqQFxlDIESS1qkGuSb7nhctPrzSDLFXteNE8
+	 R1z0WG9EbM6BgH1QN1ckH2XZNfUrnfAr2H/7Eyy3Mh1j4PR76Ef7Thr3Ul8mgrywF5
+	 CgSM4s9AW4Ppg6ab8eAj1WZMiseLUFMfV/laQYz26njL7zCLS8vhN2mCaAgPV6kFlq
+	 FID81WU+efegg==
+Subject: Re: [PATCH net-next v6 6/7] net: ftgmac100: Add AST2700 upper DMA
+ address support
 From: netdev-bot+sashiko@kernel.org
-To: aiyengar1990@gmail.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, wens@kernel.org,
- jernej.skrabec@gmail.com, samuel@sholland.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org,
- clabbe.montjoie@gmail.com
-Date: Mon, 16 Nov 2026 13:54:25 +0000
-Message-ID: <179483726554.3136.14444857396156719322@kernel.org>
-In-Reply-To: <20261112-sun8i-emac-jumbo-v2-2-aca0cf23cf17@gmail.com>
-References: <20261112-sun8i-emac-jumbo-v2-2-aca0cf23cf17@gmail.com>
+To: jacky_chou@aspeedtech.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ ratbert@faraday-tech.com, edumazet@kernel.org, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, andrew@lunn.ch
+Date: Mon, 16 Nov 2026 13:54:21 +0000
+Message-ID: <179483726184.3136.10135612629435756137@kernel.org>
+In-Reply-To: <20261112-support_ast2700-v6-6-238020bf46cf@aspeedtech.com>
+References: <20261112-support_ast2700-v6-6-238020bf46cf@aspeedtech.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -79,129 +77,114 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message says "A device tree max-frame-size can
-  still lower it", but for this driver that is false.
-- [Low] The max_mtu clamp fixes a real, user-visible bug, but the commit
-  is framed as a feature ("Enable jumbo frames") and has no Fixes: tag.
+- [Medium] On AST2700 (FTGMAC100_QUIRK_DMA_35BIT), the driver stores DMA
+  address bits 34:32 only in RXDES2[18:16]/TXDES2[18:16].
+- [Low] The new register-map comment in ftgmac100.h says '/* reserved
+  0xcc - 0x178 */', and the patch defines only…
 
 --
 
-net: stmmac: dwmac-sun8i: Enable jumbo frames up to MTU 2018
+net: ftgmac100: Add AST2700 upper DMA address support
 
-This patch sets the JUMBO_FRM_EN bit in EMAC_RX_CTL0 from
-sun8i_dwmac_core_init(), so the sun8i EMAC accepts frames longer than 1518
-bytes. It also clamps plat_dat->maxmtu to 2018 in sun8i_dwmac_probe(). With
-that limit, a frame with two VLAN tags and the FCS fits in a single 2044
-byte descriptor buffer.
+On AST2700, this patch programs the high halves of the RX and TX
+descriptor ring bases. It also stores DMA address bits 34:32 in bits
+18:16 of rxdes2/txdes2, and rebuilds the full address from the
+descriptors before unmapping. A 35-bit DMA mask is set, and all of this
+is gated behind a new FTGMAC100_QUIRK_DMA_35BIT match-data quirk.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 0c82662fbe6ea..a18d3daf6a3ff 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> diff --git a/drivers/net/ethernet/faraday/ftgmac100.c b/drivers/net/ethernet/faraday/ftgmac100.c
+> index 5a578a62df673..263594de0e072 100644
+> --- a/drivers/net/ethernet/faraday/ftgmac100.c
+> +++ b/drivers/net/ethernet/faraday/ftgmac100.c
 
 [ ... ]
 
-> @@ -645,6 +659,15 @@ static void sun8i_dwmac_core_init(struct mac_device_info *hw,
+> @@ -601,6 +612,9 @@ static bool ftgmac100_rx_packet(struct ftgmac100 *priv, int *processed)
 >  
->  	v = (8 << EMAC_BURSTLEN_SHIFT); /* burst len */
->  	writel(v, ioaddr + EMAC_BASIC_CTL1);
-> +
-> +	/* Without JUMBO_FRM_EN the receiver flags every frame longer than
-> +	 * 1518 bytes (1522 with a VLAN tag) as a length error, so any MTU
-> +	 * above 1500 is unusable. Frames are still bounded by the RX
-> +	 * descriptor buffer size, see EMAC_MAX_MTU.
-> +	 */
-> +	v = readl(ioaddr + EMAC_RX_CTL0);
-> +	v |= EMAC_RX_JUMBO_FRM_EN;
-> +	writel(v, ioaddr + EMAC_RX_CTL0);
->  }
-
-[Severity: Low]
-
-JUMBO_FRM_EN is now set unconditionally. A peer can therefore send oversized
-frames that reach the RX DMA even at the default MTU of 1500, and those
-frames span several descriptors.
-
-Dropping them correctly depends on commit 834ec9530832 ("net: stmmac: drop
-split frames on AF_XDP zero-copy RX"). That commit made
-ndesc_get_rx_status() return discard_frame | rx_not_ls for non-last
-descriptors, and made stmmac_rx() test status & discard_frame and drain the
-split frame.
-
-On a tree without that commit, wouldn't stmmac_rx() treat the last fragment
-of such a frame as a new packet? The commit message cites 834ec9530832 only
-as background. Could it be listed as a prerequisite for backporters?
-
-Related to this, the max_mtu clamp in sun8i_dwmac_probe() also fixes an
-existing problem, but the patch has no Fixes: tag. Before this patch, the
-driver advertised a max_mtu of 3712 and was in this state:
-
-- stmmac_hw_init() forces chain mode for STMMAC_FLAG_HAS_SUN8I.
-- stmmac_xmit() calls stmmac_is_jumbo_frm() only for enh_desc.
-- norm_set_tx_desc_len_on_chain() masks the length to 11 bits:
-
-    p->des1 |= cpu_to_le32(len & TDES1_BUFFER1_SIZE_MASK);
-
-So with an MTU between 2048 and 3712, a linear TX frame longer than 2047
-bytes was silently truncated. Would a Fixes: tag make sense for that part?
-
-[ ... ]
-
-> @@ -1209,6 +1232,7 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  	plat_dat->mac_setup = sun8i_dwmac_setup;
->  	plat_dat->tx_fifo_size = 4096;
->  	plat_dat->rx_fifo_size = 16384;
-> +	plat_dat->maxmtu = min(plat_dat->maxmtu, EMAC_MAX_MTU);
+>  	/* Tear down DMA mapping, do necessary cache management */
+>  	map = le32_to_cpu(rxdes->rxdes3);
+> +	if (priv->quirks & FTGMAC100_QUIRK_DMA_35BIT)
+> +		map |= (u64)FIELD_GET(FTGMAC100_RXDES2_RXBUF_BADR_HI,
+> +				     le32_to_cpu(rxdes->rxdes2)) << 32;
 
 [Severity: Medium]
+Is it safe to rebuild the unmap address from rxdes2 after the MAC has
+completed the descriptor?
 
-The commit message says:
+The driver keeps no CPU-side copy of the mapped dma_addr_t. Bits 34:32
+are stored only in RXDES2[18:16], and in TXDES2[18:16] on the TX side.
 
-    A device tree max-frame-size can still lower it.
+In ftgmac100.h, struct ftgmac100_rxdes still describes rxdes2 as a field
+the hardware writes:
 
-Is that true for this driver? stmmac_probe_config_dt() reads the property
-only for a few compatibles:
+	__le32	rxdes2; /* length/type on AST2500 */
 
-stmmac_platform.c:stmmac_probe_config_dt() {
-    ...
-	if (of_device_is_compatible(np, "st,spear600-gmac") ||
-		of_device_is_compatible(np, "snps,dwmac-3.50a") ||
-		of_device_is_compatible(np, "snps,dwmac-3.70a") ||
-		of_device_is_compatible(np, "snps,dwmac-3.72a") ||
-		of_device_is_compatible(np, "snps,dwmac")) {
-		...
-		of_property_read_u32(np, "max-frame-size", &plat->maxmtu);
-    ...
-}
+and struct ftgmac100_txdes still calls txdes2 reserved:
 
-None of the compatibles in sun8i_dwmac_match[] can carry an snps,dwmac
-fallback under allwinner,sun8i-a83t-emac.yaml. So plat_dat->maxmtu always
-holds the JUMBO_LEN default (9000) when this min() runs, and the line always
-sets it to 2018.
+	__le32	txdes2; /* Reserved */
 
-The binding does accept max-frame-size on these nodes, because it includes
-snps,dwmac.yaml through allOf, and that pulls in ethernet-controller.yaml.
-If a board sets max-frame-size to cap the MTU for a PHY or switch limit, the
-driver ignores it without a warning.
+Neither comment is updated. Nothing in the patch or the commit message
+says whether AST2700 leaves bits 18:16 alone when it writes the
+descriptor back.
 
-Should the commit message be corrected, or should the driver parse
-max-frame-size itself?
+If the MAC writes any of those bits on completion, dma_unmap_single()
+gets the wrong 35-bit handle, both here and in ftgmac100_free_buffers().
+The real mapping or swiotlb slot would leak, and the call could sync or
+unmap a different mapping. ftgmac100_free_tx_packet() relies on txdes2 in
+the same way.
 
-If the property is ever parsed for these nodes, the min() has a second
-problem. plat->maxmtu is an int filled by of_property_read_u32(). A value
-below min_mtu, or one that is negative as an int, passes straight through
-min(). stmmac_dvr_probe() then only warns:
+The drop label in ftgmac100_rx_packet() also rewrites only rxdes0 before
+it gives the descriptor back to the MAC:
 
-	if (priv->plat->maxmtu < ndev->min_mtu)
-		dev_warn(priv->device,
-			 "%s: warning: maxmtu having invalid value (%d)\n",
-			 __func__, priv->plat->maxmtu);
-	else if (priv->plat->maxmtu < ndev->max_mtu)
-		ndev->max_mtu = priv->plat->maxmtu;
+drop:
+	/* Clean rxdes0 (which resets own bit) */
+	rxdes->rxdes0 = cpu_to_le32(status & priv->rxdes0_edorr_mask);
 
-In that case ndev->max_mtu stays at SKB_MAX_HEAD(NET_SKB_PAD + NET_IP_ALIGN).
-Wouldn't that bring back the TX truncation and the RX split-frame drops that
-this patch is meant to prevent?
+In that case, would the next frame be DMA'd to the same low 32 bits but
+in a different 4 GiB window? A remote sender can reach this path with
+runt, CRC error, oversize or fragmented frames.
+
+Can the AST2700 writeback behaviour for RXDES2/TXDES2 bits 18:16 be
+confirmed? Alternatively, would it be safer to keep the full dma_addr_t
+on the CPU side and update the descriptor comments to match? Any later
+controller that opts into FTGMAC100_QUIRK_DMA_35BIT would inherit the
+same assumption.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/faraday/ftgmac100.h b/drivers/net/ethernet/faraday/ftgmac100.h
+> index 8c35c895b1465..0c244b1c0a351 100644
+> --- a/drivers/net/ethernet/faraday/ftgmac100.h
+> +++ b/drivers/net/ethernet/faraday/ftgmac100.h
+> @@ -57,6 +57,9 @@
+>  #define FTGMAC100_OFFSET_RX_RUNT	0xc0
+>  #define FTGMAC100_OFFSET_RX_CRCER_FTL	0xc4
+>  #define FTGMAC100_OFFSET_RX_COL_LOST	0xc8
+> +/* reserved 0xcc - 0x178 */
+> +#define FTGMAC100_OFFSET_TXR_BADDR_HIGH	0x17c
+> +#define FTGMAC100_OFFSET_RXR_BADDR_HIGH	0x18c
+
+[Severity: Low]
+Is 0x178 really reserved?
+
+Both HIGH registers sit at +4 within a 16-byte aligned block. That looks
+like per-ring {LOW, HIGH} pairs: TX at 0x178/0x17c, possibly high
+priority TX at 0x180/0x184, and RX at 0x188/0x18c. The comment also
+doesn't cover the 0x180 - 0x188 range.
+
+Related to this, ftgmac100_init_hw() writes the low half to the legacy
+register and the high half to the new one:
+
+	iowrite32(lower_32_bits(priv->rxdes_dma), priv->base + FTGMAC100_OFFSET_RXR_BADR);
+	if (priv->quirks & FTGMAC100_QUIRK_DMA_35BIT)
+		iowrite32(upper_32_bits(priv->rxdes_dma),
+			  priv->base + FTGMAC100_OFFSET_RXR_BADDR_HIGH);
+
+The TX ring is set up the same way, using FTGMAC100_OFFSET_NPTXR_BADR
+and FTGMAC100_OFFSET_TXR_BADDR_HIGH.
+
+Does AST2700 combine the legacy 0x24/0x20 registers with 0x18c/0x17c,
+rather than using separate LOW registers at 0x188/0x178?
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-sun8i-emac-jumbo-v2-0-aca0cf23cf17%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-support_ast2700-v6-0-238020bf46cf%40aspeedtech.com
