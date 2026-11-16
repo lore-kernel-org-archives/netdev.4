@@ -1,102 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.173
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794863382;
-	b=WubwColqofsUGusJxjKW8GqkZMHD9nmfx96Jv/0Rcv/wHkta4nz/7Iz1QcmiFhl2GD/G
-	 m0GB2rSWtFTH1cg0OX9fUo/9/o9UjD5MtE9Vck47Vuc3xRA2VtS3hJ/kEKYFp1cakmG1Q
-	 T+fk+/tNAI/1jlzxI8ssr9Y0fujhhynKk6jooZNRnp/cLTszxOdw/b1lnv19WOJ59pYoK
-	 RVbwByNE3G/kc/gE1z19EFJN4i1FJvxOxIbbmE9Tjdwmy5ldGzRA+AVSGds9oDGCD41kL
-	 jOE9s8TRaF2cDzQlr8UqdpXejgaKcRbBi1SKA47zhUYoTlLcGuuJ9FwlOwDk7FXxmyQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794863382;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=xbC0YXJeV6+UIPjOKzwg108UL1tvIUSPybpQIgpSgE0=;
-	b=Yab9r9skM4nZ6wBVuKBVznCIauzbhC3XUSOBwUTx4MaEM6I8aXOiRVv/lY1P8ZZJpX9x
-	 Qf4/1dOdhVGCfIgDT7mRqNmWk9YRk4egD7Px/roZKxS191Ii8rZycNwoUR0Jp44bhifMZ
-	 otZD87Y7L/ceWJ4lZr0zfNdJKMh/pDlv0Xv5a0yDgss0pHN+LI1hyxIDenwrftzs/mt6C
-	 QafmUHEKm/2B/sh5CNbeb9iBU60j7ssSiDooyDOs8VY26mmO4ppVCrlltdeMaAzZR0VCD
-	 W8PPXlr6blsdNpMp08daFzFw8yeoSw2Lvf6H68Otz0G1Uh9tnf9dAKwZZWgs941kRZA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="rL4/+C5/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.173
-Received: from mail-vk1-f173.google.com (mail-vk1-f173.google.com [209.85.221.173])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.228
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794863391;
+	b=AYza76xnh6nnA3WDaWfJxgbrsvlW0yhk1MPI3e3mkMi4o3Pq6og3l5Q5ygX4SjTouK62
+	 vyfUampVD/loVv4MsDqGG6YXRaTytXUA+ZP8ZbEP+GpsV9wSNLABNGncL5CH2qYXqoqX7
+	 IEgm3rMIU3Wr8tYP+IsLm7WGG/3O5zD8MTrnPKIDiSLhffgApvLb3VyefOBmP5Cu4dVbW
+	 K4E7E+lE3iyoll48y/q0EbTKgBhPPFNfpk1mCKB0Tre1KFbHCUJnnnW1N43KhMOYjrDqw
+	 CfqGX4JIUzktdAS2DfFS80zbiynUmg2EEBaIdqIW2SAywgNpkVbf3LdQO3kbmRITAoA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794863391;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=tDKOjLIrGRWdnFpabDolKAXG+Pxw+0h1CyxXZ/xbAjc=;
+	b=4DK2XRoxl7+boYLCkiR1aqBtr4n9fyeBljvp+Rv+JdWx0sB95XyCR7sY+rFHADJFzdfg
+	 c7ti3tymL6eWZhDlJWpY1LLcCqvGzge6vEa/83SMkGaroufFtdf9q+O2Lm3ONm1unaum8
+	 9x3SiXcTvMf8xmmZzk9h7rHbaXg8pAUkwG+dv935p6fec0lq5wft+3m5oX89cFIIwjOYN
+	 eWZkiOXbxC/BpfqELVA6V2OUYkqGIxaHCOfy8/bK44KzgGiiR2Rmba1JMQDzP62ka7XVV
+	 SRMFUoWXb+liBCuN9R5Xg0hs8lXEAMtVhv6B8cO4xfcdmb+UMWeByUeIsSBEN7++ggQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Mcq6eI+Q;
+	arc=none smtp.remote-ip=209.85.214.228
+Received: from mail-pl1-f228.google.com (mail-pl1-f228.google.com [209.85.214.228])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54CEE606A332
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:09:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54CEE606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06650606A322
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:09:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06650606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rL4/+C5/
-Received: by mail-vk1-f173.google.com with SMTP id 71dfb90a1353d-5ec20398b05so3983713e0c.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:09:42 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794863381; cv=none;
-        d=google.com; s=arc-20260327;
-        b=mTmEUKMEGG9jekGpLhyp7zPGEe3tD5GELmZ9jeXXaeykSzyn5485DVYmPeMbjdWmz2
-         qMlf30Lrz4I/+2tLUs8ByvWX0a7x8zXpOO6gZbkMeLglRWksJrXk+4yIWq2KsnjBBHGG
-         l98+WYsJeM2J26WT89G7IiOvPSSYQrRfmyopwZ2uVFECy9JrPzlj+2UDxDlZqUg7Sqyx
-         Btr8uaQQP6vSD2Bavb9vx4b3/stdcBoClG2w7qtdhA8/ZTJ6NLUMmdBP1iXxpQOveC8G
-         Ef4wUz8Ig/3uFkxv4Xzcu7rj6Xe6laJ/4CU1ie9Yd47s/7Kz5HxtVcyKZ5fN32v2KLGH
-         RhJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=xbC0YXJeV6+UIPjOKzwg108UL1tvIUSPybpQIgpSgE0=;
-        fh=9YxqiE1SPezn8co/zNzWVGysModBfKa29UCsoeWOoyk=;
-        b=bOkc6rFV6+fKOSl3gdKa+KxmXpmXShy4HsTzw4pi4kjp3Q+fBeGOEh4Jfgwe3ZHSNU
-         mlfXYoFzComosp9bkWEp599W3ZJdAhjxj21QXH1/iHv2daWPKLoPMDERJkiW7EIIlOAd
-         CvVnDI0PEUNcVSQ9L1dcP5zTGw4BDpKhJ+jqT03Uj9DlhSrZuuALmVeKpLYIPjJVDwsx
-         rNbIlnwy6S6U2wxnVKHOgZ5li9L9o5/ceXzKTf6TD9ErNnR5d644qPXzN9QuaR0VSgHn
-         rfYQPqvJaHrGfduI6CbJqYF9Dq5TI+l5F8r7jLJ5RWhc599AEV/wru//SjMFGYjIjVJd
-         3YFg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794863381; x=1795468181; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=xbC0YXJeV6+UIPjOKzwg108UL1tvIUSPybpQIgpSgE0=;
-        b=rL4/+C5/mHNlyuAP/2smxQPn5aM4Is8Ha2rYS7F5QWHpJrhZo/a43OYQ2pd5l/Y0Jx
-         pLLG/1X8tcjuUiHOhA4i9kWJ0IwR1gWVcMSxXNRVlNJGCzXuiIqi6YwhCYSzg1qTwK8B
-         TI3QljCV/yU32/F8TjMIhOVXdg4NPKCoF7q9wj8+QVqqbNiWfcUDCd8eBxoVT+vIpQtI
-         aCrA5gRi76p4VSPLTB5VndE3cdHc/8ef5zJeAYgsf9Kb3b4BKdG+e+EDS+VgKipaBrus
-         qp2cQ6m2kJ7R1Mhsn0wfOrXVi11e68EZQpWQQO5iXZQLyhW78n2Oypu5ms++WsY4m0ei
-         kPaA==
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Mcq6eI+Q
+Received: by mail-pl1-f228.google.com with SMTP id d9443c01a7336-2ed06b725fdso2390505ad.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:09:49 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794863381; x=1795468181;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xbC0YXJeV6+UIPjOKzwg108UL1tvIUSPybpQIgpSgE0=;
-        b=vsfwaA+qmBbCCErDBd/gVdE28Ff2z5sKr5zuc7zUmGp2d/CLhgX2R5AONtCawXFK36
-         opDm8wC3pGZPkr0qakaewH5XTfrYGooPrx2Cz/MRgkGVpihw4Y2a1UmAWTqZlVrZI+It
-         BMDIIsa1Caq4ztXBEP1fN5fsQ2ew/vD6ygLsKHOeRuxVuO1Qhwb+WktCKBrBxg7ew74P
-         2y34YIZfq98L8b/yZEqWj5vTRBQRWwfQZCOlzptgyarRLhxG5+DlNE05dU3XcYlhZW3S
-         HggXJYAo7dVPL4w38Rw8+CReV3GjEX4J/wp6X0R8NR+hV0Kwl3B5aQO+foIblTJBoxX+
-         YsCw==
-X-Forwarded-Encrypted: i=1; AL+hErELVR1MY3ZlHNMy/KU15FUHzPbS921dV8DmO6w3r1QExkEVVCTzlrY/Gqgajlb7M3LIeBdXJHs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/sc9X11Dhc++960GbAd/MbzBHd7INcfBzD9vKJ07N2F0RT5EW1
-	VPyWQkl3jbmVb6JEXjE/FBq1xJDEsrDwQHQ4/wbvru+Y7FgfJnYpJM/shvv9IR1s5jk5bC8MWym
-	N+CO/ABAU3V6YdWTyGD/7/r7Wra1aW4A=
-X-Gm-Gg: AYBFou2l3yqKLxAV9i42v536WynPQAVukijpvADgiUCCWGaF9d6O3GJxc2AIWbl53Ng
-	8a8cu8QNoAj9VcF8QyUg0poep1++EJ1VmGHhTAcHYb004GhHhnF7rzYUX5pKFuNmNd1hH8igYCP
-	kNK/vOUQjnvViKwq+G2x0LoabqwmwDKflWSMIpyxDwZULNcM4GiHzVKv7hXgl3Ac/o2mtgS0Bjc
-	XrWKqAKhbAzP0zQ3aWDfChGVERqM0+amE6xSloBHzrPAVagQhCqb3CfC1DLLjO3hYYg4wjS8sFI
-	jP8rqe+6apgRIyAEAZM+WoTuSnkFt7+oPj+2qdMzF2G0ehVPVMvtlThfZPxYCjfqMYoQeM+MQQ+
-	3tcLsa3D+3j+pKq6AlNR6zd3bwnv2+Lw/xWaJrPrWjE6SuSVt2STux+UDynBBVM4mSmX+VBuXeq
-	mpAWU7r/IBDZqdJR4xRpMh3uaXLGmch9MKEfA0dBvtlaRVyz+uA+kiM8NOLCovd1QCMgoeUCgQY
-	niU4eHfNklwr4gXxvhDLo0IiboyvQ==
-X-Received: by 2002:a05:6122:793:b0:5ea:b972:1403 with SMTP id
- 71dfb90a1353d-5ee346766a6mr4625862e0c.3.1794863381379; Mon, 16 Nov 2026
- 13:09:41 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794863389; x=1795468189;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=tDKOjLIrGRWdnFpabDolKAXG+Pxw+0h1CyxXZ/xbAjc=;
+        b=ZmMq90gExKW4OFCwaQTLxoa8l395WL0y74t5GG4Oy2CzfTAnn4/ifkpr/Lb3+c/tls
+         g8UBZHLvP2rEvW4C98FsQa+WI2BKJ/Imm9tYX6dv+jxO474EZO8kP8z3evmCCbMGB/4I
+         8RKkbrixRl9YBJ+5ullV5nToE+3kzyllT1nfC1hP4L3axJ8m33kUxk8Xyb1MHeD6XgIq
+         VJuI76Fs5w42+44g2FaIw1CNkousHFnJccFg6ZO9yS7C1vmKP+xoH5Xxlp82Gg3u6xrL
+         m5PHC9yED+OFwrwUPiieaJ7usp5JUyTF73OGqJE8VTN8o9XsOD5zoTX8unjfa+IrVFW2
+         QmrQ==
+X-Gm-Message-State: APuU4Z/LAgePKs2NuO2+rlmH2aTWW97NG7Mes+5cMiAreIloQzos8Jc1
+	0jR2yHfeGXNEVMWY/uHYzIi0X8i+FtxskRhSVTRRt0tbP2IztWKxjxbz6D5tsgK9oyR9Heo1/4/
+	4vB8fPMWA7CZ3yte25EiNL5VMjbLkdDaBILbF1G0UQoL2VK6XXk84Dt4nMaPwXaNLsm2FrFiXMl
+	EXkuPqJ8bZ0xAGOIe9NTArNIw1oQzWutGL/mlqu6YwnA9VsdH8L1KfX5tVwPVc9k/z0LJYHPCND
+	apjZDHdM106ELm/
+X-Gm-Gg: AZFdTZeYrVXvU/JA3YYKcLIwncLvhMaM6sNwMHLjMYPVHWIZ+cnQcc4yTNWSV4TmthL
+	ositQ+f2ssKcvx4F56cTN/1aTWEeIItPzA3K+YYYxhtI2whfsKLX1onwMvsp7TUeWNkNdben1PY
+	XPZU97EE4m/6paTinBPDCwf9cJHdTnQHqLhVJT3IrS/7nq6QYCvju6PdwjYTuMrcASaC2TrPEVW
+	P0ureFMuZ8pdUQed9j9fGR44DCyrx4l7N98G77D1ODK4dLgLNNxRvTS1vLg6G93D7JNp67Rqw83
+	lTURJuDoWOiBuGHqIM3WfXPec5b5HpGpVYiZoyH6xTs/LnrNwIwCx10I+hZac2lEcswSRQHugqZ
+	qpca3znjNHpQ30Nc5T+FNwhNK7l71qzLaPBcif7dWuEr86UWqaSjSzP61zpVrkv/0Sr+Xk0QG8M
+	A1HNMJi89RuFujhUWiSdKZ/YVXh4rdX0tAUrqb5Rwq
+X-Received: by 2002:a17:90b:4fc2:b0:39e:6c68:fd91 with SMTP id 98e67ed59e1d1-3b3abe61f72mr355228a91.38.1794863389142;
+        Mon, 16 Nov 2026 13:09:49 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b1b3abbe1asm6500149a91.5.2026.11.16.13.09.48
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Nov 2026 13:09:49 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-91c6c1e082bso4091706d6.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:09:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1794863387; x=1795468187; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tDKOjLIrGRWdnFpabDolKAXG+Pxw+0h1CyxXZ/xbAjc=;
+        b=Mcq6eI+QU0M5fXNu3qml4t6mVM2z72NHTaVgQQBkClIc+To7L3+0GJerY+ihSJGsRQ
+         l8UogqyJYWiH9hqmR42Mj+/oTee8IU2CXQlT8B9g3i2t6DlSs8GfJUxKzhmdtytpi9Lc
+         Owuzk0IjrOIpOv88N4J2kzE52GO5nNvMfijRg=
+X-Received: by 2002:a05:6214:dac:b0:91f:ffc:69cf with SMTP id 6a1803df08f44-920fd451275mr11930356d6.35.1794863387374;
+        Mon, 16 Nov 2026 13:09:47 -0800 (PST)
+X-Received: by 2002:a05:6214:dac:b0:91f:ffc:69cf with SMTP id 6a1803df08f44-920fd451275mr11929756d6.35.1794863386673;
+        Mon, 16 Nov 2026 13:09:46 -0800 (PST)
+Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-920fe17eaaesm3601396d6.33.2026.11.16.13.09.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 13:09:46 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Jonas Gorski <jonas.gorski@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vivien Didelot <vivien.didelot@gmail.com>,
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH net v6 0/8] net: dsa: b53: Preliminary fixes
+Date: Mon, 16 Nov 2026 13:09:34 -0800
+Message-ID: <20261116210943.1352656-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,116 +113,91 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115-submit-acx00-phy-stats-v1-v5-0-ed81a7f54373@gmail.com>
- <20261115-submit-acx00-phy-stats-v1-v5-2-ed81a7f54373@gmail.com>
- <37e4b9b8-d381-448f-a2b3-b92d7bd9033d@lunn.ch> <CADvTj4qh8Pvss+xEwcjshodwv-yN6haP-9aaeRXg1ydSu5ibVg@mail.gmail.com>
- <d3f2dc1c-9daf-4b5f-903b-657ae3f32647@lunn.ch> <CADvTj4opiu_vhat12BRzk61b7ymG+g12c2aoK+rcZHjpWZjL4Q@mail.gmail.com>
- <b84021aa-f843-4668-8172-0afcbb97c27f@lunn.ch>
-In-Reply-To: <b84021aa-f843-4668-8172-0afcbb97c27f@lunn.ch>
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Mon, 16 Nov 2026 14:09:30 -0700
-X-Gm-Features: Aa3M54q_Tii21W65owc4nMI0TRPC095pgsqSNf31IEYTxCFkefhvfgxKPUvxAKA
-Message-ID: <CADvTj4oGZ1hwBqrcXp9-M4zhoG=QbVWuyqNV=1xogqL-pJ4Kbg@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 2/3] ethtool: add a PHY receive byte total
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-On Mon, Nov 16, 2026 at 6:14=E2=80=AFAM Andrew Lunn <andrew@lunn.ch> wrote:
->
-> > > Think about it.
-> > >
-> > > If you don't have a MAC, you don't have FCS.
-> >
-> > There are existing mainline PHY drivers exposing this functionality.
-> > The QCA807x/QCA808x drivers use qcom_phy_counter_config() to enable
-> > CRC checking, and qcom_phy_get_stats() reports the RX CRC-error count
-> > through ethtool_phy_stats.rx_errors [0]. The IP101G driver also exposes
-> > a phy_crc_errors counter separately from phy_symbol_errors [1].
-> >
-> > This demonstrates frame-aware diagnostic functionality within these
-> > PHYs, rather than something every PHY necessarily implements.
-> >
-> > The generic byte counter need not require that functionality. My
-> > question was whether rx_bytes should count received bytes without
-> > conditioning the count on FCS validity. ACx00 could then report its
-> > hardware byte total through that field, including bytes from frames
-> > which its separate CRC checker identifies as bad.
->
-> Read 802.3. What does an 802.3 defined PHY actually allow. That is
-> ideally what the kernel should support with these counters. Lowest
-> common denominator.
+This patch series contains fixes to issues reported by Sashiko on the
+b53 PCS bug fixes being submitted, and then some more that came from
+code review and testing.
 
-FCS validation is part of the MAC functionality defined by 802.3.
-Counting received bytes at the PHY need not depend on that validation.
-The PHY CRC counters I mentioned are additional hardware diagnostics,
-not functionality that every PHY must implement.
+Except for issue #2, all of the other issues did trigger in testing and
+needed to be corrected.
 
-The original statistics interface also distinguishes the IEEE-defined
-eth-phy statistics from the additional phydev counters [0]. For
-rx_bytes, the common meaning can be received-byte activity without
-requiring the PHY to determine whether the MAC will accept the frame.
+Changes in v6:
 
-> So i would say RX bytes does not differentiate between the frames the
-> MAC will later throw away because the FCS is wrong. I would say it is
-> also O.K. to include the preamble, and the FCS, any padding up to 64
-> byte frames, etc.
+- patch 3: drop the commit message paragraph claiming that deleting an
+  absent entry now returns -ENOENT, the return value is unchanged (0)
+- patch 4: describe the b53_mirror_del() capture port clear as a
+  cleanup rather than a separate fix
+- patch 5: add a Fixes: tag for 41af38324341, which covers the 2 Gbps
+  set path on GMII override registers
+- patch 6: do not propagate the ds->ops->setup() error from
+  bcm_sf2_sw_resume(), setup re-registers the devlink VLAN resource on
+  resume and would return -EEXIST, leaving the user ports down
+- patch 7: document that active mirror rules are restored on resume and
+  that the patch depends on patches 4 and 6; verified the mirror
+  register offsets against the BCM6368, BCM6362 and BCM63268 datasheets
 
-That matches the ACx00 byte counter: it includes the Ethernet header,
-padding and FCS, including bytes from frames with an invalid FCS. It
-excludes the preamble and SFD.
+Changes in v5:
 
-The separate counter was prompted by the existing kernel-doc wording,
-"Total successfully received bytes", rather than an IEEE requirement
-or a need for successful-only byte accounting.
+- resolved build warning in patch #7 by moving b53_mirror_init()'s
+  declaration into patch #6
 
-> Since this counter is not actually defined by 802.3, i would also
-> allow some flexibility in its meaning. Different PHYs might have
-> slightly different meanings.
+Changes in v4:
 
-For this use case, documenting those differences is sufficient. I
-don't need identical byte boundaries across vendors, and whether a
-counter includes the preamble does not change its diagnostic value.
+- Return success when deleting an ARL entry that does not exist per
+  Sashiko's review
+- Restrict the 2 Gbps override bit to BCM5301x and BCM58xx
+- Restore mirror configuration on resume, moving mirror initialization into the reference-counting patch
+- Propagate SF2 setup errors on resume and disable the clock on failure when WoL is inactive
+- Add a patch fixing BCM5325/BCM5365 mirror port encoding, including CPU port bitmap translation
 
-> Look at it from the other direction. What is your use case? Does the
-> exact definition actually matter? Does it matter if a different
-> vendors PHY counts it differently? Does your use case require cross
-> device compatibility?
+Changes in v3:
 
-The use case is the board bring-up and networking diagnosis you
-describe: exposing the counters already available in the PHY to help
-locate where traffic is being lost. It is the same PHY/MAC comparison
-described in the diagnostics work accompanying this interface [1].
+- patch 2: added Daniel's R-b tag
+- patch 3: mention in the commit message that deleting an absent entry
+  now returns -ENOENT, including when the lookup runs out of space
+- patch 4: document that the patch also fixes the clear of the capture
+  port field in b53_mirror_del()
+- patch 6: reference count the mirror source bits per port and
+  direction, ignoring deletions without a matching reference
+- patch 7: new, harden mirror register programming:
+  - reset the mirror capture and source control registers at setup for
+    b53 and bcm_sf2, since not all switches are reset
+  - check and propagate all mirror register read/write errors, only
+    taking a source reference once hardware programming succeeded
+  - use the source masks rather than MIRROR_EN to decide whether the
+    destination is occupied, and write the destination before the source
+- log failures in b53_mirror_del() since it cannot return an error
+- patch 8: new, fix the mirror capture port encoding on BCM5325 and
+  BCM5365, which use an 11-bit bitmap (CPU port at bit 8) instead of a
+  port ID, and translate the CPU port in the ingress/egress source
+  masks as well (verified against the BCM5325E, BCM5325M and BCM5365P
+  datasheets)
 
-For example, in our tests the PHY byte and CRC-error counters advanced
-for traffic that the MAC discarded before DMA. That distinguishes
-traffic reaching the PHY but being rejected downstream from traffic
-not reaching the PHY at all.
+Changes in v2:
 
-A common interface is useful for inspecting that activity across
-devices, but exact cross-device byte totals are not required. The
-important point here is that received traffic remains visible even
-when the MAC subsequently rejects it.
+- collected Jonas' R-b tags
+- corrected logic in patch #3 to propagate -ENOENT, memset after the
+  debug print, translate -ENOSPC to -ENOENT when deleting
 
-[0] https://lore.kernel.org/r/20240829174342.3255168-3-kuba@kernel.org/
-[1] https://lore.kernel.org/r/20241221081530.3003900-5-o.rempel@pengutronix=
-.de/
+Florian Fainelli (8):
+  net: dsa: b53: initialize the jumbo frame size register offset
+  net: dsa: b53: fix the SRAB grant timeout check
+  net: dsa: b53: clear stale state when creating an ARL entry
+  net: dsa: b53: reject conflicting mirror destinations
+  net: dsa: b53: use the correct override register 2 Gbps bit
+  net: dsa: b53: reference count shared mirror source bits
+  net: dsa: b53: harden mirror register programming
+  net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365
 
-> You have not actually said what your use case is. For new board
-> bringup, debugging broken networking, the exact definition generally
-> does not matter. The PHY RX counter is going up, the MAC is not,
-> something between the MAC and the PHY. Neither the MAC nor the PHY
-> counters are going up, something between the RJ45 and the PHY. The
-> absolute values don't matter, its that they change which matters. But
-> maybe your use case is different?
->
->                Andrew
->
->
->
+ drivers/net/dsa/b53/b53_common.c | 209 +++++++++++++++++++++++++------
+ drivers/net/dsa/b53/b53_priv.h   |   4 +
+ drivers/net/dsa/b53/b53_regs.h   |   1 +
+ drivers/net/dsa/b53/b53_srab.c   |   2 +-
+ drivers/net/dsa/bcm_sf2.c        |   4 +
+ 5 files changed, 179 insertions(+), 41 deletions(-)
+
+-- 
+2.53.0
+
