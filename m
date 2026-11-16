@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794840350;
-	b=Z6cXI1kfeOdeFHrSZIGKwkQ6+iWRTRQTp70e8CBmgz/6rR41acpiVX0pNOPbV4wHHS0S
-	 JLweq6W/69k6Ou/39TGI7TkdY9+uuMn+E8NKV8yXpmgFNOo/8LmnQcW/IZjLlAv8X/7qj
-	 j5DGr0H3sHRHNgQa0E3WOUoLQc645Vl3UZYLVzU9qYTnKSkNTbrAB3BNq/Rz6wGD6THN5
-	 +XSOO9zLWqZZ6HD7Xmq6BqS1F2ksnIspUfRsSrxp9cQBlboksEWS8yOV8OKO/abQkJ1eK
-	 6vCuireduT9Le0MBymCpS0fJdOEZUJADPElzWUh4Y/u7p6Qf0Hl5vOUkflWf0j57YpQ==
+	t=1794840351;
+	b=3PwgAbU+tf8oB70HYx4FXsTTfSixDSpQsa3+cGuAh7YhKkalHn1ET5L15Kw5xa6T21vn
+	 wftsNbo4+Yohrc+TImp5kjNNaXAeCIW/xppn1RVW9qkeCfQ6h4wdimWA8pRXcIFRC5MAH
+	 Wzi3G45xGOBziPH3RIglz9CgRe1jsdNDfSU12Jistn+7FNRbdVKFocuc+8CIu8ZK/vmFK
+	 gbTPzKavbRKUCr9BwajBeqpnxKkTPrC7N/k1JkLrIqDEkqAhFL5JCwCEMgCGARws63Ip+
+	 hJGLItLVbxq3fxvkS7VIMeasED9MSTP9Oin0a7DWkDRK5+W/4ySGrL9lcTaV6RreO7w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794840350;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794840351;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=wlt8ntB/g5a2qjkl+7ERXzbcCc95yBGeOSybskcpiCY=;
-	b=HF3OOxFMBdwHxYA0Y6erUFDN525367XpGnjQOBbjTkEV320hhZuyVopTp4vRnjTnNTHr
-	 8tvtl+lzQ8l5iCpaz5N59mcM1G0IygA4Bu7yVERjS19UxAMx6tarrR8dsLLm09TvkXd1H
-	 vG8VQDHKqMIYt6E9YASM9pGgg2B8Ji6+fnbDDPBMSwa6aDjgg3Oswk3p+MhnMBx+pBSDI
-	 MBRZXZZB43o4p6CXPZqtJlltEvc23Y/TKMxiC+7qBYG7DPknkj0jDlALp859NiExRFmve
-	 e6EA8iUrnKkMh8sExqUVw8a5SJv0Ns8No9mu+iQ0Ux3jZo9qbrU3bEPoNjGp3/kWuUw==
+	bh=Bi/4dPeSwghWgR8QDDa3TC7/z8x4W3Cuv/2vNXQIGzk=;
+	b=Onesc3tJvivW0yfIoJMmwT8lXGj5bw0kJm7okWQ2zwdNfJjOEx7ThczFIfC6BdX1KlCA
+	 gQuO8zLP8xUZwcjCaHMkNN8UQileMocxODwnwGwe3VSqf0cEjmprsh9TfW7jNGFCME3rO
+	 HunUPKh7VrGbrBgO5S1DcV07zfOmerRJXKCC4bRVYL+5SnPDdQBv05Eu4xBPWx6KNmrPo
+	 Q5u3doNYt99nG9ibQo+C0Ndmr5ej0FhhKKp418PiMGbCjTDpwfImgk/A1Oj64h6zkNwuu
+	 KUW1k63YyJdxq6vQ9QLJXUcPBO/P0EWactzeQ/4c6/7fjB+5G1VNhTDJJN+HtHK7Akw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nf5ey+fQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AfZlphR/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57B1B606A33A
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:45:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5583606A331
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:45:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Nf5ey+fQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F5C31F000C4;
-	Mon, 16 Nov 2026 14:45:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AfZlphR/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFAED1F000C9;
+	Mon, 16 Nov 2026 14:45:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794840350;
-	bh=wlt8ntB/g5a2qjkl+7ERXzbcCc95yBGeOSybskcpiCY=;
+	s=k20260515; t=1794840351;
+	bh=Bi/4dPeSwghWgR8QDDa3TC7/z8x4W3Cuv/2vNXQIGzk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Nf5ey+fQvsWHrSrgjpAgACeP8oNcLqcW/UJ8DGQk0qyN6IaWrFOWRgT3lRUXS2NJo
-	 Qliaw7HhgbHGNEvERJyDfzrTwGWnLqTwIQHxtJ8+nYhlGOYxcgywazgwfZG6Yakw6e
-	 9O+ur+oTofGbOSrh2JdKZMU5URb8n33T3kP7go4bCXRDVyLSl3pVkbO3FavCeVwcE3
-	 jSof68eO/RgOi+6LCBkdHXhbnp0+gQ58EXkf9/TR51OeNZYP+72IFWXAZagAfON/eG
-	 JNRng1P6SXW5Lc8QP5tKOPP6sa6yu0u5Q9z5ic3N33XqTjmJeZ1FHb8+vyuL9BbpyK
-	 EWxX23JAzJeAw==
-Subject: Re: [PATCH net-next v8 11/19] net: ethernet: cortina: Validate RX
- fragment lengths
+	b=AfZlphR/MnZwo6uF6WkoRjn8DIghoJYtcYdrklLDYrLzBTbz7OPVYsK7C4p+XRHyI
+	 6sztVxMaoTujZuXVdIVmCF4+F4XA28Tpi4XVuKXBCNK73loMzc0Cvvuz0rTnMFVMXO
+	 OzAIDwZWSoRYdVPuyJ/nyjcatII/7MRU+ks7aJSAwM0fuOA5DRri5pvEtKs4LcxXMq
+	 DrKpwZlwJOx0uQalb4mii6438hFtmUrZ0SAZZdAR/H9BLpv2qDRE/Zd67KaVtK/3Iv
+	 VbpLo5eYGW8i7qmMPnGu46VykTJ9MZNsLlbIXPf2qMcGBcZ/05QJmzKgB/2PvLhex+
+	 87XlSETB8Xy6w==
+Subject: Re: [PATCH net-next v8 15/19] net: ethernet: cortina: Serialize TX
+ completion statistics
 From: netdev-bot+sashiko@kernel.org
 To: linusw@kernel.org
 Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl,
  mhun512@gmail.com, edumazet@kernel.org, netdev@vger.kernel.org
-Date: Mon, 16 Nov 2026 14:45:49 +0000
-Message-ID: <179484034918.3136.1025801687896166519@kernel.org>
-In-Reply-To: <20261112-gemini-ethernet-fixes-3-v8-11-f55bd43e02d3@kernel.org>
-References: <20261112-gemini-ethernet-fixes-3-v8-11-f55bd43e02d3@kernel.org>
+Date: Mon, 16 Nov 2026 14:45:50 +0000
+Message-ID: <179484035038.3136.14929259935888158241@kernel.org>
+In-Reply-To: <20261112-gemini-ethernet-fixes-3-v8-15-f55bd43e02d3@kernel.org>
+References: <20261112-gemini-ethernet-fixes-3-v8-15-f55bd43e02d3@kernel.org>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -70,89 +70,62 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] In drivers/net/ethernet/cortina/gemini.c, gmac_rx() calls
-  gmac_skb_if_good_frame() on the SOF descriptor.
+- [Low] The comment on geth->irq_lock still describes it as a lock for
+  IRQ-related registers.
 
 --
 
-net: ethernet: cortina: Validate RX fragment lengths
+net: ethernet: cortina: Serialize TX completion statistics
 
-This patch adds checks in gmac_rx() so that an RX fragment cannot run
-past its posted free queue fragment or past the page. Zero-length
-non-final descriptors are now dropped, and an empty EOF descriptor
-completes the frame that is already assembled.
+This commit takes geth->irq_lock around the ir_stats_syncp writer section
+in gmac_clean_txq(), so the TX completion counters are serialized against
+the MIB and RX overrun writers. It also switches the tx_frag_stats update
+to the irqsave variants of the u64_stats writer helpers.
 
 > diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-> index 72d2c002f8fc2..364504c9d441a 100644
+> index 5a87d88607cdb..cc26ff16a0a36 100644
 > --- a/drivers/net/ethernet/cortina/gemini.c
 > +++ b/drivers/net/ethernet/cortina/gemini.c
 
 [ ... ]
 
-> @@ -1864,6 +1865,9 @@ static unsigned int gmac_rx(struct net_device *netdev, unsigned int budget,
->  			if (!skb)
->  				goto err_drop;
->  
-> +			if (frag_len < NET_IP_ALIGN)
-> +				goto err_drop;
-> +
->  			page_offs += NET_IP_ALIGN;
->  			frag_len -= NET_IP_ALIGN;
->  			frag_nr = 0;
+> @@ -716,18 +717,21 @@ static void gmac_clean_txq(struct net_device *netdev, struct gmac_txq *txq,
+
+[ ... ]
+
+> +	spin_lock_irqsave(&geth->irq_lock, flags);
+>  	u64_stats_update_begin(&port->ir_stats_syncp);
+>  	port->stats.tx_errors += errs;
+>  	port->stats.tx_packets += pkts;
+>  	port->stats.tx_bytes += bytes;
+>  	port->tx_hw_csummed += hwchksum;
+>  	u64_stats_update_end(&port->ir_stats_syncp);
+> +	spin_unlock_irqrestore(&geth->irq_lock, flags);
 
 [Severity: Low]
-Is this frame now counted as both received and dropped?
+This isn't a bug, but should the comment on irq_lock in struct
+gemini_ethernet be updated as well? It still says:
 
-By the time this check runs, gmac_skb_if_good_frame() has already counted
-the frame as received:
+    spinlock_t	irq_lock; /* Locks IRQ-related registers */
 
-drivers/net/ethernet/cortina/gemini.c:gmac_skb_if_good_frame() {
-    ...
-update_exit:
-	port->stats.rx_bytes += frame_len;
-	port->stats.rx_packets++;
-	return skb;
-}
+This new critical section in gmac_clean_txq() does not touch any registers.
+It only serializes the software counters under ir_stats_syncp against the
+writers in gmac_update_hw_stats() and gmac_irq(). After this patch, irq_lock
+is also the lock every ir_stats_syncp writer has to hold, and the struct
+comment does not mention that.
 
-err_drop then frees the skb and increments rx_dropped. The dropping flag
-was reset to false on SOF, so that increment always happens:
+A related issue predates this patch and was not introduced by it. The
+reader in gmac_get_stats64() says:
 
-err_drop:
-	if (skb) {
-		napi_free_frags(&port->napi);
-	...
-	if (!dropping) {
-		port->stats.rx_dropped++;
-		dropping = true;
-	}
+    /* Racing with MIB and TX completion interrupts */
 
-Nothing takes back the earlier rx_packets and rx_bytes increments. The
-rx_bytes value also comes from the hardware byte_count, which this patch
-otherwise treats as untrusted.
+gmac_clean_txq() is only called from gmac_start_xmit() and
+gmac_cleanup_txqs(), never from an interrupt handler. Could that comment be
+corrected at the same time?
 
-The other new paths into err_drop that this patch adds later in gmac_rx()
-do the same thing:
-
-- the frame_len < ETH_ZLEN || frame_len < skb->len check on EOF
-- the zero-length non-final descriptor
-- the freeq_frag_len / PAGE_SIZE bounds check
-
-The commit message says:
-
-    Account descriptor inconsistencies as drops rather than wire length
-    errors.
-
-Is that accurate, given that these frames also show up in rx_packets and
-rx_bytes?
-
-The napi_get_frags() failure path and failures on later descriptors
-already double count like this. This patch adds more ways to reach it. The
-problem is also still there at the end of the series: "net: ethernet:
-cortina: Scope RX statistics updates" only wraps the same update_exit
-increments in u64_stats_update_begin()/u64_stats_update_end().
-
-Could the rx_packets/rx_bytes update move to the napi_gro_frags()
-completion point instead?
+>  
+>  	txq->cptr = c;
+>  }
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-gemini-ethernet-fixes-3-v8-0-f55bd43e02d3%40kernel.org
