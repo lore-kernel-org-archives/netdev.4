@@ -1,78 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794839491;
-	b=gQpL6SdeIhD/k+xs/r1L4FKmnluUmoDUSTTYwgp4vG2m7+iPDL7RgRPwYt+TdNiAiXDX
-	 hS3otz4bMqH/DYrg0gYEizPi1CTURGyS0kS6AHFeTvgO+xWaoPdxEu0oBQ7UMmrfrcB1A
-	 /aiibfAqBBGJfun/Wc5YwmNo/O4Q5J0x/PArDnYnpUfWFzO4aPnDI4losQ8skgWoxJMEH
-	 h+BWSNDFl27rw1wvjPhUJTF1HeY8iQMRLdFapvMe2NGUQ1MPzjxxggIE+nTLtegkjJjTv
-	 zYNh3RglGBnXmivCi/0q3udNWsTdeZwABDadFxeZWy3/3DYBtXv++pR9AEoQrfv6Qdw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794839491;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=cwUM8snIbc4i6t6DwNBE5IxQmUu92baJJlXJSsLd7ds=;
-	b=NPUKMbY7KofykhEAw5am+1+WuulxFZ4xqiSS+rAx8GsFXs1+EXlDcIM1F5Vc6kJAUAk5
-	 OOF0jn0muC2ES1sB86MoE+JYySLb9MVYHCdJfm3UmK32OWtx7snjuNibtt9YWyHuE0dvD
-	 GLagjaSOnDRBXbY/GuK6GlsUtkeIIN+I+jaCnP38D/AGQOYUftVDgK8Y7DVpOOH+/jMK8
-	 MBL57K6Z1+ybIVdN+EUeQHw9pDvPOqomHQCYadYsBG2IW0tYWr/306uwmv3tb6pd9ruqQ
-	 Tky2GDKxKRG/+szcx2KG3ngQwk79OLpffUvIAp9UA03hcJOej7bGwfAJanJBwuk+nVw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZFbUoDJm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794839668;
+	b=jrIjJn6OBVtm1TKm7oQdYgtfzSNGh+GtS92zriGOPh6F9Kz3YPzjN6x5K3K/ZTDF4nZh
+	 aubdIgS5KamrbBfSgob7+JWaHFihbzfaFSMqyYmteD/89C9Pz9rHOYjHR18jhpJ42xVQJ
+	 astXR4UykjOaZuE8BRUXzT7Kegkt8ImImUT3Zx98PIMG+5fud6y9gFweSjV7Jz9gVU9Lo
+	 mjvKkKT9VKerKawTGEWAg90cLePw7KpUA84kAy/dI9+vAsH/Y32YAlZEup1gUw5UHcGE3
+	 K0gGlaq1HxRnQfRabGcSAGnFwQF/iMQDuQXK5Rji5yK+1wgS9AB4YNTNBMmT/pmUoiQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794839668;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:X-ZohoMailClient;
+	bh=uZW8BBGAXcVOrAuBE0st9EwPXj9eDOm+blhYJCGmFjE=;
+	b=NRfiswPuvk/RQKE70uZcIY6FNk5gNwa/OxKvhad+2hGut6JRI6u2xsVjPRSDuu5FkN+b
+	 jrENKOgQZlvc78EgaM1uPEZUgRIEvDkAdxQUeE0nFAhZpK51IkMZMziOr31Gm5kEOf+de
+	 34/mtTQ8P5zKh0tpLsEv5D+N7VCV1h+E9JluulplHRUG2C48Tfgo19K8XHPTTbN45/RbH
+	 c6vhsLAxp4QKRwLNJf16mSYPEPzH2ZvEufXb143BNxKDUObsgmTwyUlDWl0n0+oyYQcRc
+	 Kxkr9m8ALO/+Jww4AjHeW/cITfHhdEja+W/1w9YMcJEHPxuSXKrFK+THwL8f26LTe5A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ziyao.cc;
+	spf=pass smtp.mailfrom=ziyao.cc;
+	dkim=pass header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=bTXJ3TUS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
+Received: from sender6-op-o12.zoho.com (sender6-op-o12.zoho.com [165.173.180.12])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C879606A32C;
-	Mon, 16 Nov 2026 14:31:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE00C606A330;
+	Mon, 16 Nov 2026 14:34:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE00C606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ziyao.cc
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziyao.cc
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZFbUoDJm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 684ED1F000C4;
-	Mon, 16 Nov 2026 14:31:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794839491;
-	bh=cwUM8snIbc4i6t6DwNBE5IxQmUu92baJJlXJSsLd7ds=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=ZFbUoDJmVlKZ00rc5ZREhr+AOpmTQmGE2pcAgFWQIPgILTRIEPTUh34AtXNC4JCVr
-	 oVpooj11+t3b0nyFgqthEaCfn5zbBE3ltl+R10tO4KWSOpwdZ1Jy2o9cGfFlFd1xXo
-	 whmTeIRppL/op8Ovo0kSiI1Zgv+1HEl5DTSvF5osugJLLMS7T1TSvFkzk2rD6QEFwQ
-	 CCf/D06xce9KLqD+GJIHJ3F4qu68WTQNZLJNcae3P+UWDT1To/IwRPZp7bLBQNY+ha
-	 8i9xauMLmAhxz4uffiomh4S4oH+lc5eq1S1hVKey1PPFggSXHQKDKYa9Yu8rP2eo8a
-	 m2Nq4MKu/4YRw==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
- <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
- <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- Alexander Duyck <alexanderduyck@fb.com>, kernel-team@meta.com, Andrew Lunn
- <andrew+netdev@lunn.ch>, Jesper Dangaard Brouer <hawk@kernel.org>, Ilias
- Apalodimas <ilias.apalodimas@linaro.org>, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend
- <john.fastabend@gmail.com>, Pavel Begunkov <asml.silence@gmail.com>, Jens
- Axboe <axboe@kernel.dk>, Andrii Nakryiko <andrii@kernel.org>, Eduard
- Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil
- Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
- netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org,
- Mina
- Almasry <almasrymina@google.com>, "Mike Marciniszyn (Meta)"
- <mike.marciniszyn@gmail.com>, Weiming Shi <bestswngs@gmail.com>, Nikolay
- Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, Alexander
- Lobakin <aleksander.lobakin@intel.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Stuart Clark <stuclar@meta.com>
-Subject: Re: [PATCH net-next v1 01/11] net: Get skb fragment addresses
- through netmem
-In-Reply-To: <20261115131314.2d3ab96f@kernel.org>
-References: <20261110102039.1002605-1-bjorn@kernel.org>
- <20261110102039.1002605-2-bjorn@kernel.org>
- <20261115131314.2d3ab96f@kernel.org>
-Date: Mon, 16 Nov 2026 15:31:27 +0100
-Message-ID: <87wlqcg85c.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=bTXJ3TUS
+ARC-Seal: i=1; a=rsa-sha256; t=1794839616; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=B+H+Ctp40C+rGuq63OYRnQuk1U+dUkC21ttAptj5zuaQ/MU70ZPguO2RelJHt2E8DCA1OAIKTUtuaNU7tvjgSdKZC8COMUSIrIZ0+Yet036sGW4GS61Ihkf1gF1ccjFn7DhstXWACI6Oxw4YUQi098kR8LmnH+8+fmW0VfLWPJ0=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1794839616; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=uZW8BBGAXcVOrAuBE0st9EwPXj9eDOm+blhYJCGmFjE=; 
+	b=AhnL1NkiY0hws2DRdbQj17UzgXeHjQXDssp+QuoyGuooDG+Rcnt1lOrWUCx9euHTj/ubE/Ua8PHOmfEbB6MJjWTCA7dRui5g+JurIKzoyp8MYiROYSKIyUqREIaV9dCEgN4Fkr88enY7hK36uHNyYVYwH76UwntoqEpi4yJoYyM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: a=rsa-sha256; b=bTXJ3TUScD8QGr11vGi+e7CXhAL1R8lfOXxDllh1ZrsYERpjB2JiAiiA30UiJZQ67g8w0B1MzobRzVOI1iWNPC5qOu/7S5A/KjV0Uh0RHoI+C+alPLx56RT1yvgmkbHgc0JcrB4xT4tCVrKeG7cJhGn05rg8DCBASfqoWu8rEn4=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=uZW8BBGAXcVOrAuBE0st9EwPXj9eDOm+blhYJCGmFjE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1794839614784710.0250758152407;
+	Mon, 16 Nov 2026 06:33:34 -0800 (PST)
+Date: Mon, 16 Nov 2026 14:33:17 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Magnus Leatti <magnusleatti@kernelriot.com>, me@ziyao.cc,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Nespolino <g.nespolino@gmail.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/2] net: stmmac: dwmac-motorcomm: quiesce the
+ device at shutdown
+Message-ID: <avsTEglKKD_wl_Fi@pie>
+References: <20261116091757.1656602-1-magnusleatti@kernelriot.com>
+ <20261116091757.1656602-2-magnusleatti@kernelriot.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,30 +74,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116091757.1656602-2-magnusleatti@kernelriot.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/294.637.76
+X-ZohoMailClient: External
 
-Jakub Kicinski <kuba@kernel.org> writes:
+On Mon, Nov 16, 2026 at 06:17:56AM -0300, Magnus Leatti wrote:
+> The driver has no .shutdown hook. At reboot, kexec and power-off the
+> MAC and the DMA engine are left running.
+> 
+> Add a shutdown hook that calls stmmac_suspend(). With Wake-on-LAN off
+> it detaches the netdev and stops the DMA, the MAC and the PHY. With
+> Wake-on-LAN set it stops the DMA, arms the PMT register and keeps the
+> receiver and the PHY up, as it does for suspend. That is not enough to
+> wake this chip from S5, so the system still does not wake.
+> 
+> stmmac_suspend() ends in stmmac_pci_plat_suspend(), which enables PME
+> if wakeup is enabled for the device. Disable it again, since nothing
+> arms the chip.
+> 
+> A failed resume leaves the netdev detached with NAPI disabled. Skip the
+> hook in that state: stmmac_suspend() must not run a second time.
+> 
+> Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
+> ---
+>  .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 22 +++++++++++++++++++
+>  1 file changed, 22 insertions(+)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> index 42f0b11a7b60..1e142ad39e33 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
+> @@ -204,6 +204,27 @@ static int motorcomm_resume(struct device *dev, void *bsp_priv)
+>  	return 0;
+>  }
+>  
+> +static void motorcomm_shutdown(struct pci_dev *pdev)
+> +{
+> +	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
+> +
+> +	/*
+> +	 * A failed resume leaves the netdev detached with NAPI disabled, and
+> +	 * stmmac_suspend() must not run on it a second time.
+> +	 */
+> +	if (!netif_device_present(ndev))
+> +		return;
+> +
+> +	/* Stop the device before reboot, kexec or power-off */
+> +	stmmac_suspend(&pdev->dev);
 
-> On Tue, 10 Nov 2026 11:20:22 +0100 Bj=C3=B6rn T=C3=B6pel wrote:
->> skb_frag_address() goes through struct page, so a net_iov never has an
->> address. Only unreadable memory should lack one: XDP and BPF read
->> fragments through this helper, and AF_XDP UMEM will back readable
->> net_iovs. netmem_address() also returns NULL, not a bogus pointer, for
->> an unmapped highmem page.
->>=20
->> Generic code needs the size of a net_iov to find its address, so keep
->> it in struct net_iov_area instead of the devmem binding.
->
-> IIRC netmem is supposed to be used for frags and memory CPU never needs
-> to access.
+I think this is abusing the API, and all the other changes in this patch
+are working around its side effects. So here's my NAK.
 
-netmem covers pages too, and netmem.rst already allows readable net_iovs
-("Decouple net_iov from unreadability"); the in-tree ones just happen to
-be unreadable.
+We do want to fix the problem though to ensure the device is stopped
+upon shutdown, especially iirc, many YT6801 NICs in addon card form are
+totally supplied by 3v3aux, thus S5 alone won't reset the NIC reliably.
+But this should be done in a cleaner way.
 
-> This patch looks odd. I haven't read the rest of the series yet but at
-> the very least commit message should explain why this aberration is
-> needed / correct.
+> +	/*
+> +	 * stmmac_pci_plat_suspend() enables PME if wakeup is enabled for the
+> +	 * device. Nothing arms the chip to wake the system, so undo that.
+> +	 */
+> +	pci_wake_from_d3(pdev, false);
+> +}
+> +
+>  static struct plat_stmmacenet_data *
+>  motorcomm_default_plat_data(struct pci_dev *pdev)
+>  {
+> @@ -374,6 +395,7 @@ static struct pci_driver dwmac_motorcomm_pci_driver = {
+>  	.id_table = dwmac_motorcomm_pci_id_table,
+>  	.probe = motorcomm_probe,
+>  	.remove = motorcomm_remove,
+> +	.shutdown = motorcomm_shutdown,
+>  	.driver = {
+>  		.pm = &stmmac_simple_pm_ops,
+>  	},
+> -- 
+> 2.56.1
+> 
 
-I'll expand the wording in the commit message.
+-- 
+Thanks,
+Yao Zi
+
+Meow-mrrp-mrow, I'm a cat.
