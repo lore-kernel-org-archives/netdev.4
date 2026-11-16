@@ -1,99 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794829775;
-	b=MclhAY5KjHk5giJo+AV7NakPXR5ds6VO2/38sUPNpSrt3YL4c6IDl51mtmZ5fr83lc/6
-	 ++5B2EJ7V0mR/6QuXmb/HOjOHJoGhQkhrF1iqutgTqZ56wBLQeqKbKCBgjpXpxuMzIHIU
-	 zv1HfZjaIR/n7K9qnz0qInwpI9ZPwjLJFg4s4GpGQuEuwawvDV1vC/CXWB1Sg5qzggmGo
-	 CMI4lWXgXnNxSf5MEpMIP4vWQzTBPhL62FUPb3a5Uj1PvP7HiGodFOeFC7ueig8+mdWPp
-	 A+j22W3G5S+H90/kGMpsNyu13m5uNmyUH930T7oCD7r2hRu6R1Us6sgEnp2CfTswDQQ==
+	t=1794829783;
+	b=sbrYquCVFdK5aVvg61HL445xYeoYG9zaZOLKsqhFPxqKlmRylaHAfzu31qz8cMbHc7L0
+	 WAi+2CRBhLSzVkSxuxBKQyFlZ6+d7o1i1tQC1PZU9fsh+dDJcwUKENBw2s0Sztv4CRxg7
+	 2tvs7GVxvudN/RNSUpVMH5ORfQz2uMV9+S7i5Y+Nm+daJUPTsDoshRqv6t0+0G3KLTlw6
+	 Ut6R6s93U1G04vucj9EJz4SKKGnhU+fOqHPxLWLCRk9yQRgijqPwUCwRfelkYLxzR01lZ
+	 PM7DhnbS6YawJXQmGYXhoHw/8nINsLnXghsCFmItzSUSr3LuYbL3pmebkfFtCL6Jf8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794829775;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=LMBdytlpAex994Fm8KdBVuGQ2AKXOakRMcjyEKnnq4U=;
-	b=vmVUUNrAY3p2sMmfdDZm1D4jivD6cv36C6sTZucXY8kCnOy/qrtsUPCNP9ScJhbbIy4l
-	 /GGZ+0jFYic/uY9xWnYSpLcAGKPFWjliLhot0wjZmTi27uEkTB6YMNGc0NBkaNxP9MqWC
-	 Jb1YHajhKb97t/omwJwz3ZgnV1wry7zxOCsxCp8gkXXTqYjfsGJPGSqSdNIssiIAhXnKq
-	 1LkSaLoXo3sUvN0gZ5xA+W0Tk3C7hUdc67s4UlQki+5OyFncxcBxtS+IKNZ+cyjMHm5Gj
-	 ii7skQODqLwg8GgbzWT+XRE8/FlV/VQNpqd2juoH9vESY4fG6Xi9QU9l3BlWQjv20hg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794829783;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=c8Uk0HRRR9fJ1b23voau7UQA2yTmva6WPz14a7yZLkc=;
+	b=JFYqnNr/xzGblacDqoMs2N+Szxw6AVO8+chgNO2JsPznlDRiYEWu9m3FlNHBDGRqIRt4
+	 DXSuJj/fIlWWhienSKj3uWJJqrdyiuqUHEkEodCk2GabJYNZonah1KRZCvegTZYdvAfd+
+	 qB9amE/d0igha7QzY2fAYmILEuAZU71SgA7A401oNvUDJEQMTTbcHCVmH2C95ilvlG2t4
+	 wunwpDSYblL3jth7Lobe24u7jzdkj7/SvuGh+WA6ZZpHZe7ZupnvrTx1Qw8lXykmzeC7U
+	 +YzJWqvF1djFm86paKoXbuhnKQn1pKN9n1bD5HGKcaL4lAxDEoOtS+y+myPtG0yS5Sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Zbktmsw2;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TJSAN9SE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A43DA606A32A
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:49:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A43DA606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F23FE606A336;
+	Mon, 16 Nov 2026 11:49:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Zbktmsw2
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2e946155442so36504615ad.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 03:49:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794829774; x=1795434574; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LMBdytlpAex994Fm8KdBVuGQ2AKXOakRMcjyEKnnq4U=;
-        b=Zbktmsw2OB7udSvkfGfIAKsIJPIBzUqNBNZVZNrRISIv7UWpb2rcrdITvcRcghO9pa
-         MnTtY2IM3b4mKDcJz8yGqNjrMm6aNHMk2oQD1NLH00SPp60VmjY7q2IpsQzvqXKUc1rH
-         ire+QK0J+zUSVAm+W2/M472/fbj5GMG5r6s9UOoVMU805UkI4dI+IrXgTlpp1oqQqan9
-         X/XuKnrL5iE6T4LUalxrLQUjqgXLjLFc+XHMooLjJtlVEF/Wu53xJ/NdDvwb9i4K6IdA
-         LwfmQ+PXycFkDEjofRm12CprmMGCGLMhebJjfS+E2qvqko29oXNW3oPivDJzq/6AxNaB
-         fvyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794829774; x=1795434574;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LMBdytlpAex994Fm8KdBVuGQ2AKXOakRMcjyEKnnq4U=;
-        b=kj0aEK9Ntm4QnZeeidxl39/KNXb6DJGREC2CchsTQZFRP78+zyftSGZPVb8L8G9n8q
-         W5C7pizz4IKWoqQW5Z3BLUi7txhvw0nhGfTS8w7rIfTS3Hna/5w9D9L0/8kKMtODvrt7
-         qldL0ThJUCQ/144I+gqaRYYU5ze/v+9REwl5Cc5p5eaPdtxXa0Vr73dIDhQMUqpiJnfh
-         Dw71wb+SpZgiTEkB65Av76MaZJmuKni1vDiabVRB/2ZfFC9hptUs385wrpUc9FwThgRt
-         VoI1BGFuGfLH4/LERLb4A1yQAN1+8NZxTczTbSWqxhPbe9/B6f8fcUMlVOemIT/bcUNS
-         XgvA==
-X-Gm-Message-State: APuU4Z97ZPNIqUBAwm5VFZbK6xZhyFIBA0j2Wx77uCvQgK8FxY+oTH6S
-	AM9Bjlrsrla2ilk0xfSlZpt7TsCpc4uzKbu9gLZ7vgSjAZuP1nEyymE2
-X-Gm-Gg: AZFdTZfGMqihliGQyqe2nLtXJI3s2HOkWdPwMIixNeinSH+XX/7PglUBhKGFkTynSDO
-	A2xRojF4ayCi2PWLlx10KYMLyfoKFXUnvEDvr/a3qJ1YrFTYPH7g7SR74dM5l4snWXjQk3HHids
-	0a6amR4XTVfR5gdA+6fw2x1jOzbSeCn020zzmnMYOx8gaqtVWfWwagWkwWJ2VY2j0JUdDKeRceT
-	6pkF0VCaYgwoPv0uklJoPIw+pMSdxKH9a6TVAVCvuIEADNaRpdXQMMRd285AQkrl0bwrqwYcwAQ
-	iu5IYC44qVCgIrYLvsQ2D9d7iDIXaI5vlgNOTNoxfrDpD4Ie6BbStsI2uKZaIRh+UULonB4ZVwu
-	k/S6HnFq81G57e8KapETzWTanpJ3IcOWKXgtIwtCfsKIAPIuUUdt4tI4X6ArLd86/hUUAxvXrcB
-	pcZEWb2fkCCWTOFTusXGxtoNYdpN+pfLwOwhkvFzFPIDMRT/U5MRLG1WRT75zRY5pZiqdnE31Zd
-	eE614o81YA8bSDm9pNLBrsjZKQI4UHeT2vGjdTv8fRxzRv7lomeHU9SshaH9n7NHPpiujq7klTE
-	PXgyXhnIveaGyLuLsSRCVGlvjGMVTg==
-X-Received: by 2002:a17:902:f683:b0:2e9:776c:d52e with SMTP id d9443c01a7336-2ee0dcc305bmr105282175ad.52.1794829773367;
-        Mon, 16 Nov 2026 03:49:33 -0800 (PST)
-Received: from server227.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ee0f80b7f6sm36896515ad.40.2026.11.16.03.49.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 03:49:33 -0800 (PST)
-From: Zxyan Zhu <zxyan0222@gmail.com>
-To: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: netdev@vger.kernel.org,
-	mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	rmk+kernel@armlinux.org.uk,
-	Zxyan Zhu <zxyan0222@gmail.com>
-Subject: [PATCH net-next v3] net: stmmac: program the FSM timeout timer
-Date: Mon, 16 Nov 2026 19:49:23 +0800
-Message-Id: <20261116114923.1157920-1-zxyan0222@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TJSAN9SE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8453A1F000C8;
+	Mon, 16 Nov 2026 11:49:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794829782;
+	bh=c8Uk0HRRR9fJ1b23voau7UQA2yTmva6WPz14a7yZLkc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=TJSAN9SEe14Nf2L6/4KBP/SuzCHh/m5w1tShzL8caS2Kdq/xB7U+6Jda1fcaKZ1Xf
+	 8Y1q76EOF9bBhVbsDDIG8v9B7bJSxH7go3wB4vX6e7laPjY95HSdRGP0IKYNekPP3P
+	 zJVRs3leHHRSq1fmt8/7Lh21D8rjDDvPD4w7gbseo7Om6kl0xFmcdyuEpD/nvFo7qV
+	 H1Wv3d9Ia+Z6Mca5dX0u5jo/rAhQXhDuI3Z13v4evdIJmTvt+adkNqmKuhiE4LCEV3
+	 mD+d4pE4loAWDzJYcKB7BX5HAz+khWqVnA+WHyOpzhCer3HIIYpAcWdNSG4fUlqJK6
+	 eJ5erjiX5HWrA==
+Subject: Re: [PATCH net v2 1/2] ipv6: honor prefix-length suppression in raw
+ FIB lookups
+From: netdev-bot+sashiko@kernel.org
+To: leonard@lausen.nl
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
+ shuah@kernel.org, daniel@iogearbox.net, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 16 Nov 2026 11:49:41 +0000
+Message-ID: <179482978100.3136.17418106822071501090@kernel.org>
+In-Reply-To: <20261115114434.10343-4-leonard@lausen.nl>
+References: <20261115114434.10343-4-leonard@lausen.nl>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,253 +66,123 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-stmmac enables the FSM timeout checker (TMOUTEN) but never programs the
-MAC_FSM_ACT_Timer register.  Per the databook the checker only fires once
-NTMRMD is programmed with a non-zero duration; NTMRMD == 0 disables the
-timer, so with TMOUTEN set but the timer left at reset a stuck FSM is
-never reported and the advertised timeout protection is ineffective.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Program MAC_FSM_ACT_Timer right after TMOUTEN is enabled, deriving the
-TMR field (CSR clocks per 1us tic) from the CSR clock rate and defaulting
-to a 1s timeout.  A platform can override the default through the new
-ntmrmd field in stmmac_safety_feature_cfg.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-The NTMRMD field holds a power-of-two microsecond timeout per the
-databook: 0x0 disables it, and 0x1..0xa encode 1us, 1.024ms (~1ms),
-16.384ms (~16ms), 65.536ms (~64ms), 262.144ms (~256ms), 1.048s (~1s),
-4.194s (~4s), 16.777s (~16s), 33.554s (~32s), 67.108s (~64s).
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM was
-not reported through the safety interrupt despite TMOUTEN being set.
+- [Medium] After this patch, the two halves of fib6_rule_suppress()
+  (net/ipv6/fib6_rules.c) take the prefix length from different places,…
 
-Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
----
-v3:
-- Make the MAC_FSM_ACT_Timer write a read-modify-write so the other
-  fields (e.g. LTMRMD) are preserved.
-- Warn when a valid CSR clock rate cannot be obtained.
-- Document the NTMRMD encodings and fix 0x2 to 1ms (was 4ms).
+--
 
-v2: https://lore.kernel.org/netdev/20261112053321.1103678-1-zxyan0222@gmail.com/
-v1: https://lore.kernel.org/netdev/20261111143322.2234321-1-zxyan0222@gmail.com/
+ipv6: honor prefix-length suppression in raw FIB lookups
 
- drivers/net/ethernet/stmicro/stmmac/dwmac5.c  | 22 +++++++++++++++++-
- drivers/net/ethernet/stmicro/stmmac/dwmac5.h  |  6 ++++-
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  3 +++
- .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 23 ++++++++++++++++++-
- drivers/net/ethernet/stmicro/stmmac/hwif.h    |  3 ++-
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 11 ++++++++-
- include/linux/stmmac.h                        | 17 ++++++++++++++
- 7 files changed, 80 insertions(+), 5 deletions(-)
+Raw IPv6 FIB lookups through fib6_lookup() fill in f6i and nh in
+fib6_result but not rt6. Because of that, fib6_rule_suppress() never
+applied suppress_prefixlength to them. This patch adds a raw-lookup branch
+that compares the FIB entry's destination prefix length against the rule
+and skips RTF_REJECT results. The dst-based path is left as it was.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-index f1bb981cab7c..c1e3d634f153 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
-@@ -2,6 +2,7 @@
- // Copyright (c) 2017 Synopsys, Inc. and/or its affiliates.
- // stmmac Support for 5.xx Ethernet QoS cores
- 
-+#include <linux/bitfield.h>
- #include <linux/bitops.h>
- #include <linux/iopoll.h>
- #include "common.h"
-@@ -184,7 +185,8 @@ static void dwmac5_handle_dma_err(struct net_device *ndev,
- }
- 
- int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
--			      struct stmmac_safety_feature_cfg *safety_feat_cfg)
-+			      struct stmmac_safety_feature_cfg *safety_feat_cfg,
-+			      unsigned int csr_clk_mhz)
- {
- 	struct stmmac_safety_feature_cfg all_safety_feats = {
- 		.tsoee = 1,
-@@ -245,6 +247,24 @@ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
- 		value |= TMOUTEN; /* FSM Timeout Feature */
- 	writel(value, ioaddr + MAC_FSM_CONTROL);
- 
-+	/* Program the FSM active timer so the timeout checker actually fires.
-+	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
-+	 * Default to a 1s timeout when the platform did not select one.
-+	 */
-+	if (safety_feat_cfg->tmouten && csr_clk_mhz) {
-+		u32 ntmrmd = safety_feat_cfg->ntmrmd;
-+
-+		ntmrmd = (ntmrmd >= STMMAC_NTMRMD_1US &&
-+			  ntmrmd <= STMMAC_NTMRMD_64SEC) ?
-+			 ntmrmd : STMMAC_NTMRMD_1SEC;
-+
-+		value = readl(ioaddr + MAC_FSM_ACT_TIMER);
-+		value &= ~(MAC_FSM_ACT_TIMER_NTMRMD | MAC_FSM_ACT_TIMER_TMR);
-+		value |= FIELD_PREP(MAC_FSM_ACT_TIMER_NTMRMD, ntmrmd) |
-+			 FIELD_PREP(MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
-+		writel(value, ioaddr + MAC_FSM_ACT_TIMER);
-+	}
-+
- 	/* 4. Enable Data Parity Protection */
- 	value = readl(ioaddr + MTL_DPP_CONTROL);
- 	if (safety_feat_cfg->edpp)
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.h b/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
-index 00b151b3b688..734e7630f28d 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
-@@ -8,8 +8,11 @@
- #define MAC_DPP_FSM_INT_STATUS		0x00000140
- #define MAC_AXI_SLV_DPE_ADDR_STATUS	0x00000144
- #define MAC_FSM_CONTROL			0x00000148
-+#define MAC_FSM_ACT_TIMER		0x0000014C
- #define PRTYEN				BIT(1)
- #define TMOUTEN				BIT(0)
-+#define MAC_FSM_ACT_TIMER_TMR		GENMASK(9, 0)
-+#define MAC_FSM_ACT_TIMER_NTMRMD	GENMASK(19, 16)
- 
- #define MAC_PPS_CONTROL			0x00000b70
- #define PPS_MAXIDX(x)			((((x) + 1) * 8) - 1)
-@@ -82,7 +85,8 @@
- #define GMAC_INT_FPE_EN			BIT(17)
- 
- int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
--			      struct stmmac_safety_feature_cfg *safety_cfg);
-+			      struct stmmac_safety_feature_cfg *safety_cfg,
-+			      unsigned int csr_clk_mhz);
- int dwmac5_safety_feat_irq_status(struct net_device *ndev,
- 		void __iomem *ioaddr, unsigned int asp,
- 		struct stmmac_safety_stats *stats);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-index f8ab347f7b5b..1fd501728b18 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
-@@ -169,8 +169,11 @@
- #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
- #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
- #define XGMAC_MAC_FSM_CONTROL		0x00000158
-+#define XGMAC_MAC_FSM_ACT_TIMER		0x0000015C
- #define XGMAC_PRTYEN			BIT(1)
- #define XGMAC_TMOUTEN			BIT(0)
-+#define XGMAC_MAC_FSM_ACT_TIMER_TMR		GENMASK(9, 0)
-+#define XGMAC_MAC_FSM_ACT_TIMER_NTMRMD		GENMASK(19, 16)
- #define XGMAC_MDIO_ADDR			0x00000200
- #define XGMAC_MDIO_DATA			0x00000204
- #define XGMAC_MDIO_C22P			0x00000220
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-index 7ad08651675e..b3f99a6dfcd7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
-@@ -4,6 +4,7 @@
-  * stmmac XGMAC support.
-  */
- 
-+#include <linux/bitfield.h>
- #include <linux/bitrev.h>
- #include <linux/crc32.h>
- #include <linux/iopoll.h>
-@@ -837,7 +838,8 @@ static void dwxgmac3_handle_dma_err(struct net_device *ndev,
- 
- static int
- dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
--			    struct stmmac_safety_feature_cfg *safety_cfg)
-+			    struct stmmac_safety_feature_cfg *safety_cfg,
-+			    unsigned int csr_clk_mhz)
- {
- 	u32 value;
- 
-@@ -873,6 +875,25 @@ dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
- 	value |= XGMAC_TMOUTEN; /* FSM Timeout Feature */
- 	writel(value, ioaddr + XGMAC_MAC_FSM_CONTROL);
- 
-+	/* Program the FSM active timer so the timeout checker actually fires.
-+	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
-+	 * Default to a 1s timeout when the platform did not select one.
-+	 */
-+	if (safety_cfg && safety_cfg->tmouten && csr_clk_mhz) {
-+		u32 ntmrmd = safety_cfg->ntmrmd;
-+
-+		ntmrmd = (ntmrmd >= STMMAC_NTMRMD_1US &&
-+			  ntmrmd <= STMMAC_NTMRMD_64SEC) ?
-+			 ntmrmd : STMMAC_NTMRMD_1SEC;
-+
-+		value = readl(ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
-+		value &= ~(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD |
-+			   XGMAC_MAC_FSM_ACT_TIMER_TMR);
-+		value |= FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD, ntmrmd) |
-+			 FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
-+		writel(value, ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
-+	}
-+
- 	/* 5. Enable Data Path Parity Protection */
- 	value = readl(ioaddr + XGMAC_MTL_DPP_CONTROL);
- 	/* already enabled by default, explicit enable it again */
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 8ae95e91a36a..395655b01ea8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -378,7 +378,8 @@ struct stmmac_ops {
- 			     bool srgmi_ral);
- 	/* Safety Features */
- 	int (*safety_feat_config)(void __iomem *ioaddr, unsigned int asp,
--				  struct stmmac_safety_feature_cfg *safety_cfg);
-+				  struct stmmac_safety_feature_cfg *safety_cfg,
-+				  unsigned int csr_clk_mhz);
- 	int (*safety_feat_irq_status)(struct net_device *ndev,
- 			void __iomem *ioaddr, unsigned int asp,
- 			struct stmmac_safety_stats *stats);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 552840d29668..949ed3e5bb05 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3691,10 +3691,19 @@ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
- 
- static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
- {
-+	unsigned int csr_clk_mhz = 0;
-+
- 	if (priv->dma_cap.asp) {
- 		netdev_info(priv->dev, "Enabling Safety Features\n");
-+		if (priv->plat->stmmac_clk)
-+			csr_clk_mhz = clk_get_rate(priv->plat->stmmac_clk) /
-+				      1000000;
-+		if (!csr_clk_mhz)
-+			netdev_warn(priv->dev,
-+				    "unable to get a valid CSR clock rate\n");
- 		stmmac_safety_feat_config(priv, priv->ioaddr, priv->dma_cap.asp,
--					  priv->plat->safety_feat_cfg);
-+					  priv->plat->safety_feat_cfg,
-+					  csr_clk_mhz);
- 	} else {
- 		netdev_info(priv->dev, "No Safety Features support found\n");
- 	}
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index 00be2df63d22..35c39cd6b630 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -168,8 +168,25 @@ struct stmmac_safety_feature_cfg {
- 	u32 edpp;
- 	u32 prtyen;
- 	u32 tmouten;
-+	/* FSM normal-mode timeout value (MAC_FSM_ACT_Timer.NTMRMD). The TMR
-+	 * field (CSR clocks per 1us) is derived from the CSR clock by stmmac.
-+	 * 0 selects the default 1s timeout.
-+	 */
-+	u32 ntmrmd;
- };
- 
-+/* MAC_FSM_ACT_Timer.NTMRMD timeout durations */
-+#define STMMAC_NTMRMD_1US		0x1
-+#define STMMAC_NTMRMD_1MS		0x2
-+#define STMMAC_NTMRMD_16MS		0x3
-+#define STMMAC_NTMRMD_64MS		0x4
-+#define STMMAC_NTMRMD_256MS		0x5
-+#define STMMAC_NTMRMD_1SEC		0x6
-+#define STMMAC_NTMRMD_4SEC		0x7
-+#define STMMAC_NTMRMD_16SEC		0x8
-+#define STMMAC_NTMRMD_32SEC		0x9
-+#define STMMAC_NTMRMD_64SEC		0xa
-+
- /* Addresses that may be customized by a platform */
- struct dwmac4_addrs {
- 	u32 dma_chan;
+Link: https://github.com/firewalld/firewalld/issues/1600
+
+> diff --git a/net/ipv6/fib6_rules.c b/net/ipv6/fib6_rules.c
+> index 0ffd7b47a0460..ceb4180bcf2f8 100644
+> --- a/net/ipv6/fib6_rules.c
+> +++ b/net/ipv6/fib6_rules.c
+> @@ -283,9 +283,16 @@ INDIRECT_CALLABLE_SCOPE bool fib6_rule_suppress(struct fib_rule *rule,
+>  						struct fib_lookup_arg *arg)
+>  {
+>  	struct fib6_result *res = arg->result;
+> -	struct rt6_info *rt = res->rt6;
+> +	struct rt6_info *rt;
+>  	struct net_device *dev = NULL;
+>
+> +	if (arg->lookup_ptr == fib6_table_lookup) {
+> +		/* Raw lookups report reject routes without an error. */
+> +		return !(res->fib6_flags & RTF_REJECT) &&
+> +		       res->f6i->fib6_dst.plen <= rule->suppress_prefixlen;
+> +	}
+
+[Severity: Medium]
+
+Can the raw and dst paths now disagree for a destination that has a
+cached exception route?
+
+The new raw branch checks res->f6i->fib6_dst.plen, which is the FIB
+entry's prefix length. The unchanged dst branch further down in
+fib6_rule_suppress() checks the clone's prefix length instead:
+
+    if (rt->rt6i_dst.plen <= rule->suppress_prefixlen)
+        goto suppress_route;
+
+For RTF_CACHE exception clones, ip6_rt_cache_alloc() always sets a /128
+prefix:
+
+net/ipv6/route.c:ip6_rt_cache_alloc() {
+    ...
+	rt->rt6i_flags |= RTF_CACHE;
+	rt->rt6i_dst.addr = *daddr;
+	rt->rt6i_dst.plen = 128;
+    ...
+}
+
+When a clone exists, ip6_pol_route() returns it directly, and
+ip6_pol_route_lookup() does the same:
+
+net/ipv6/route.c:ip6_pol_route() {
+    ...
+	rt = rt6_find_cached_rt(&res, &fl6->daddr, &fl6->saddr);
+	if (rt) {
+		goto out;
+    ...
+}
+
+Take a rule like "table main suppress_prefixlength 0", and a destination D
+with a PMTU or redirect exception on the main-table default route.
+
+An ordinary dst lookup for D does not suppress (128 > 0), so it keeps the
+main default. With this patch, fib6_lookup() for D does suppress (0 <= 0)
+and moves on to the next rule, for example the VPN table. Before the
+patch, both paths returned the main default for D.
+
+In a wg-quick style setup this could look like:
+
+  1. Unmarked traffic to D is routed out eth0.
+  2. Replies from D arrive on eth0.
+  3. nft_fib6_eval() runs "fib saddr . iif oif". The raw lookup now
+     resolves to the VPN table's wg0 route.
+  4. nft_fib6_info_nh_uses_dev() fails, and strict rpfilter drops the
+     replies, which passed before this patch.
+
+bpf_fib_lookup and ip6_route_check_nh also go through fib6_lookup(), so
+they could return a different egress than the stack in the same case.
+
+A remote ICMPv6 Packet Too Big can create such an exception via
+__ip6_rt_update_pmtu()->ip6_rt_cache_alloc()->rt6_insert_exception(). A
+redirect can do the same. The mismatch then lasts until the exception
+expires.
+
+The commit message says "Keep the dst-based path unchanged" and treats the
+ordinary lookup as the reference. However, that path already ignores
+suppression for exception routes.
+
+Should the dst branch use the parent FIB entry's prefix length for
+RTF_CACHE routes (via rt->from), so that both paths agree? That would also
+be closer to what fib4_rule_suppress() does for IPv4. If not, could the
+commit message document this divergence?
+
+> +
+> +	rt = res->rt6;
+>  	if (!rt)
+>  		return false;
+
 -- 
-2.34.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115114434.10343-2-leonard%40lausen.nl
