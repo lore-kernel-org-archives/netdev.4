@@ -1,110 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794832853;
-	b=viIULDRC9z231V3GGrQwgbQMxgvDiDzn3KHkf4reLHrvSPF+yDTvXLRiJwBOslGxOBfZ
-	 syBm25eDaxL3lQ1fnHc9u7NneqjJT76SidGP9LaTw0GBQHHtXNIQI2f1qyV+rXqhnaXP3
-	 3jfAf/cyJ6d8ePaVBjXPxL8xl8QMeEI2bUiP3lcyyWylbJt7yk0KrQnfxGLj51qUC9YpN
-	 CeoLvypkz7zAMbT/nkXkImQdEThs6HDCaFjLfJGGelRZ3KYfG/3RwOt8dv40YkJ5AKkKv
-	 GTZFAs/SahJVfa62W1pCYJG1LKjnWAdmb2E6PSRuiw7eyD1u8YjJNkRg06LoY7JPigg==
+	t=1794832899;
+	b=xC13gjxcPKw8JN3zB8v3kLiXFAYdhTsdzrJkQOjfnyFsZIztRyjtTfYjThyH4xeU5HOx
+	 13p/ajUQVX+AprCIfj6+PyhZnCINo8FqTRJNDKGNVn2TnzUqmKJuShA6QoXllQqiYkIaT
+	 j+e5iJWF22tuU30b9DggGneNbHlXqPyhqPo8INfhaPvwUFMJw3Ms7nOl2iS9UNZj7CIKZ
+	 BvpHuj/DMvcoq0AzhgZ2wrWmbJyyi2qJuTWq6NgYalZhVjSIgLeEhdB5m0BEexTEmq7LG
+	 T3uiuab1s8PbckF6XM8Hh+HzY+ZwXDOQq1BZwfHhiRkNolgNO3RlBH6ZZcrf3fKc8zA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794832853;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794832899;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8Y+w5BW6OIJpaIiG+ViK5HqW8ZESkaD2jY5QKwGClmw=;
-	b=WpvUGng/TPJAA1cQ4/4D5kouBr0Uf51oqWAr8yigAXcbAfa9WcoMGdu0rSjwvr0ULNO/
-	 Q+4yaHm/T4wR4dYO6pLUJsxBIFYVcd+JWELlbuxKX0ONorjlHR0zzy8pWAC9CWSlPfeJn
-	 NPX46H9b5sHu00de0DO2nZSnz9RFic9+4YE0KFqqlQ/AidgpMzCh+ucNwv4CDNrwDAwZD
-	 YlmbDTmuMJSQZ99vBb5qCX2RyHs8tM3j4meY0kmUEd+OSoHVKjZ76y+149KefvagtwgYa
-	 brxvh1BmUkx3MP6tgR4ZVT3bro7PL2A8JmowhbIFs5XBnvTJbekRyMC8HQgb0PBg8Ww==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 To:Cc:Subject:From:X-Mailer:References:In-Reply-To;
+	bh=Zv1d6vvRKz0euN6zrXybl1bD0UkhPFP+MSK0/brc4zE=;
+	b=f6uj+WfxQ2l68ZQuQlYHmaLnmxk3H0P+HMXX4RQM5332Iknen1wmOBg/GiyWS+I1Gvpi
+	 7y9YuYAt+TEmXTHuMPG/G6N4kdDy2XcJi6ADM33FQBQT64eBPEpiru2Rbu567T8KieLTN
+	 0KvxSUiX9PDe6/EffJrgvf6NOuE/SVkvHSn002a6rE7fOh2Bt2Cm5Zx7CkV3s8w/VAIfD
+	 ki37dkLmHywZXCvdY27Vkwk5qC9Y1IC3bAjFpUhaPg/L4RG/g4sHkv3LqsUF7bnRwLcUW
+	 f7iK2crXgvEfbEPvz/aKT6RqxN3XdFOpVY/VJ7Ya6xe1hhmuZ0Gx9sNitWrH4XMIxUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z0Fzeo07;
-	arc=none smtp.remote-ip=209.85.210.47
-Received: from mail-ot1-f47.google.com (mail-ot1-f47.google.com [209.85.210.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xN3B7Lud;
+	arc=none smtp.remote-ip=209.85.222.179
+Received: from mail-qk1-f179.google.com (mail-qk1-f179.google.com [209.85.222.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F6D4606A334
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:40:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F6D4606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D58E9606A32A
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:41:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D58E9606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z0Fzeo07
-Received: by mail-ot1-f47.google.com with SMTP id 46e09a7af769-86103aaac12so2877907a34.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:40:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xN3B7Lud
+Received: by mail-qk1-f179.google.com with SMTP id af79cd13be357-94961ed97bcso277662985a.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:41:38 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794832852; x=1795437652; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8Y+w5BW6OIJpaIiG+ViK5HqW8ZESkaD2jY5QKwGClmw=;
-        b=Z0Fzeo075bZN77RomANlawJdtpvPJWRw30R8A0yMlWSmrV9xS+lSHUwrbYQ3Y8Nh9s
-         epLkqEZExPULIb8JunxwmFDFdpcoDgLVlu9UfgYWxdxuhGWXZ9osi711VhOQWq++81Iv
-         9C7lm2t2pZq0bUpE28wJ6MfXX1tL6mmqzpTFWQrdi5PTOuDfqe4DDkn6N1IHhVbl2pvA
-         3v8kJ1/qVsNJSuYnFlgawAshz9oftKjTzs9rsOAXkBc9wI3dIroiJZjipoJTK5DFedFG
-         va5gnGcxlv8EHbJSLQnxhmkH9zD0hrFrZiIS5iBzdkmQsG6SY9Wtzo3N0+EBvGjDil51
-         f2vg==
+        d=gmail.com; s=20260707; t=1794832898; x=1795437698; darn=vger.kernel.org;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Zv1d6vvRKz0euN6zrXybl1bD0UkhPFP+MSK0/brc4zE=;
+        b=xN3B7LudVvKrw3MwnajaarcX91x2+u1HXG/hvHMEH3ZnHJFdDpZBBcRtAqROyBktko
+         X46g4lw7rRY4EZfOp3U9VNr6Ww9uTMObjYHuKm64PuVS6VZiijyYuVGHs7X5V0C9S2sH
+         x1mxiPCTUha5+oNdEVrKnYfP19epAeCiRmmWntH6obG78ytEzkwYSmqTjW3Hw4HoLh3X
+         A5SxyRIs01z3DowJd6F9SfiCmRrBIb9SignCreduEbMv4AiCUejw40piWsIP9NWhlFMc
+         JSmxkHyWstT7aLbb2I7brvegGr9bpfFwWSZB9k+n5CKscylv6nxsyvHA5E8qXKFV3wL4
+         fvYw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794832852; x=1795437652;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8Y+w5BW6OIJpaIiG+ViK5HqW8ZESkaD2jY5QKwGClmw=;
-        b=EqEPewDaQ64Df36HJO4OPsd1aBc+L8xIfAisLlgKYhFeTcDwKwDUrt7eEwBgCo4zs8
-         +8tcf51GU33BJYRQiyfVCtM1qmFCHezesH6N+feEDM78S8VIi545daQpOLyrnxiOiu2/
-         Qu3my401qT7p9YJfapInTAPHKJvwq8r7NkGDb/JCpSfJceb+eW+Ilc9BJDhL+C2YTNOY
-         Vu/WCcEjUPRpSVeCsKa0Wl8UVsP3ROekcDRm5KlFfRNzmL2m6WQdqJDQzOwPRg/BrHD3
-         4Vf7IL1KDCwtH+d7/8+JSosIJDJYUVlxB5mYl4ycHGWF4ub4yIqN1DvEo3L35B1EMs1O
-         qWsw==
-X-Gm-Message-State: APuU4Z+hzJBunYzzmwcAtUmLU8szY7hzHBVU9dr8gFOFiGuzky7UpjR5
-	GRYB9/LGLNiUjJQalFZ5TlLcJtGHWVtA7TIV5Rx2FnydXFpS8JBzIfY/NQjQWw==
-X-Gm-Gg: AYBFou3L8wGhZhivAUSx9Wo8h8eggh9l/3L5SsCXHtrJJ2WqIO2jdfqQTjx7z+zGXzB
-	n0zPboyDgULs8ePPakuN4MfdF0T1zS2y2E/W9hKopPYXjRT6fOW07GFy233Mf1bO1WZZl+aGc9w
-	mIa/S45AtA5quFhQCTy/N/xztMmP1ftpho6sHT3gAFPaax4PegTCOFFalSP3PE2HHJUi6dJXzdF
-	e/ZORhAbivCDFuSZhHKNxT8SKSZfryukckEWKGU0Z0vYwd7fJXm9deUfEPs6m3om6Iuh4v8oJFd
-	4Ci58AaaHmIL+nWlbjb6bpGZMQ586z2dWNVS2PITSM/TtkFCY7/qyzUoIqqht26ZiWwxkvQVRkP
-	k9FEQDK2i8CUJ8+eEufOFbsEl5DCijjSLRO+jiaUQqqe9xnm4PZe4mJ3pe11f4zwFSSIe3Rx2Jy
-	KXmXQxwHwQF6xwtCQWGeHU/S4/0a2q5cBmLiCthhO06IGmFmee6SHS9squzTrYkome266gkIVVo
-	Wm5SPy6/g7MYbrw9jIi0v4uMWVHeE2DZjfBCSkaMatr4tVagR8Z2SoU00wN3v7NYwoURxgFr1Uf
-	2zDPnkXL+vObh/zRlIXf3l9noznHrsKmYYNyKDOtYg1cQbvmsazqbUAVTd3Vl1SIJRHyOsiMjdx
-	4zf0hoNSTeu/asPMl8I1y2hbN8Y4Fsocro60kqEKiXzclYL4Qz1jlqSaCjnVHGLnMW8gJ/Xv48g
-	==
-X-Received: by 2002:a05:6830:917:b0:816:f1c2:d6b8 with SMTP id 46e09a7af769-86152678b21mr11542797a34.9.1794832851876;
-        Mon, 16 Nov 2026 04:40:51 -0800 (PST)
-Received: from ramen-dev-security-2.asia-south1-c.c.ramen-dev-345017.internal (90.156.200.35.bc.googleusercontent.com. [35.200.156.90])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862c4dd9abesm2830937a34.20.2026.11.16.04.40.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 04:40:51 -0800 (PST)
-From: Anil Kaushik <anilkaushikwireless@gmail.com>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	idosch@nvidia.com,
-	nicolas.dichtel@6wind.com,
-	jacob.e.keller@intel.com,
-	jiri@resnulli.us,
-	fw@strlen.de,
-	martineau@kernel.org,
-	v3rdant.xiang@gmail.com,
-	aliceryhl@google.com,
-	linux-kernel@vger.kernel.org,
-	nhorman@tuxdriver.com,
-	shuah@kernel.org,
-	linux-kselftest@vger.kernel.org,
-	anilkaushikwireless@gmail.com
-Subject: [PATCH net v7 2/2] selftests: net: test joining genetlink groups no family owns
-Date: Mon, 16 Nov 2026 12:40:30 +0000
-Message-Id: <20261116124030.1595567-3-anilkaushikwireless@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20261116124030.1595567-1-anilkaushikwireless@gmail.com>
-References: <20261116124030.1595567-1-anilkaushikwireless@gmail.com>
+        d=1e100.net; s=20260707; t=1794832898; x=1795437698;
+        h=in-reply-to:references:from:subject:cc:to:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Zv1d6vvRKz0euN6zrXybl1bD0UkhPFP+MSK0/brc4zE=;
+        b=EczOVSHMTxfralShFSbjgz9WG4PguKAYMxf7QdEWZsydOrz/NUcpZHVmEm03Fxtmm0
+         I/OGHWxTUiODzaU8eNPSVp3mqDejOZTFYb2h3btEfjTwgUH5K6Foy0wtbcLRUGLXR9dh
+         lXFEMFQEyLZmyRkpEtGa5i+27p6KXMeB76VjVw2G3LvnMezV5vz1H1fb1/fy2FRtiqt4
+         RQptDBaLduCIwIcpSh3qOZAriH2FwhMEtSaM1hVk+McTG9UTtT6Q5ndYipz+s+PQsqhg
+         0gkDe86BkggJ/KnPJ9WRCGEScFGIbOtFTkQDqAGZDp8+IIcbPfrlV/zbqnkEcnLfPbaM
+         Rppg==
+X-Forwarded-Encrypted: i=1; AL+hErHMrhRRSVH0bg9xXVjlDIv3zdZAIHBdRYS6ib9iRFh2APzrruK/Q+Xf9XCXp48fcphh9H+phzE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+NodGaKQfL8wFsEXMi1ZQS/lSmtQ2xOGVurDRGH6XVXSE/713J
+	S4Q/pBCCq88o/GGXxYeaz4HXt4VF556+148xpip/yFGy1p4YYKqSzlNY
+X-Gm-Gg: AYBFou0plem3QUvryHUJ5anqIEAJJ5X56uoIV8kbf3+Xljbcmo75NAuwYRoWxkpkt3A
+	0KCNdaoSNLNY3W+miYp+QJF2cT358KUfJZQZHM4eKy81824wyYln0noaUmbAAPDYwhwiHXWlwqc
+	gpwzYT/ZWYLm2fIRWjVyNroEfYGkGdbw4/NVatDndPdlNZ2X4FUCP8M512x59Jf/Gj9Gfkm+7pB
+	EU0zRWcoWztiDFDMRZ/BLq7EkSpeYgfmo7vrtetSIkc+T7O0F33UVlS66Dki4UXj2eXYAJ0AjCz
+	T58qjTWxJ5nuaCSq+XCxJzslVHQUcVRHx8Mcxz744dqqBX6tRJstgD5ANSnURj+svX/ItsUa4uu
+	2svVaAvbWF4P+wzF+woErYR6O7Dl8VXTrXhM9Dc7/645RutTCIzZU3oZbWOcJJCP7R74Fckywm4
+	XfivztmyRDJCzuFbKAxmvGgemfSAV2Z0ZO18r3Yg+xugPgqSNi73L3rGPjUTZeTzBNZmz7oSpyS
+	msoXquYlnSq4cx64PVTiYg5cXQjyJgEf8dHHRGpClDKmCrbeVkNPymcdJ1RYoGjaSTEbroHO5DI
+	o2zg1OywxeyaH96XFyNwvPzoVT1zU6em1w==
+X-Received: by 2002:a05:620a:2903:b0:93c:a40d:e3cf with SMTP id af79cd13be357-9494b9c78a6mr1739169585a.1.1794832897831;
+        Mon, 16 Nov 2026 04:41:37 -0800 (PST)
+Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9494c870ad4sm830567185a.26.2026.11.16.04.41.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Nov 2026 04:41:33 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -113,154 +87,77 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 16 Nov 2026 07:41:30 -0500
+Message-Id: <DMWN5R6QVUPN.1KP7SYYHHU71U@gmail.com>
+To: "Todd Freed" <toddfreed@meta.com>, <netdev@vger.kernel.org>
+Cc: "David S. Miller" <davem@davemloft.net>, "Eric Dumazet"
+ <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo Abeni"
+ <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Daniel Zahka"
+ <daniel.zahka@gmail.com>, "Willem de Bruijn"
+ <willemdebruijn.kernel@gmail.com>, "Wei Wang" <weiwan@google.com>, "Jamal
+ Hadi Salim" <jhs@mojatatu.com>, "Jiri Pirko" <jiri@resnulli.us>, "Alexei
+ Starovoitov" <ast@kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "John Fastabend" <john.fastabend@gmail.com>,
+ "Stanislav Fomichev" <sdf@fomichev.me>, "Sabrina Dubroca"
+ <sd@queasysnail.net>, "Boris Pismenny" <borisp@nvidia.com>,
+ <bpf@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net 3/3] psp: only give time-wait sockets of PSP
+ connections a validator
+From: "Daniel Zahka" <daniel.zahka@gmail.com>
+X-Mailer: aerc 0.21.0-threadmapfix
+References: <20261113185553.171059-1-toddfreed@meta.com>
+ <20261113185553.171059-4-toddfreed@meta.com>
+In-Reply-To: <20261113185553.171059-4-toddfreed@meta.com>
 
-Check that a Generic Netlink group ID no family owns cannot be joined:
+On Fri Nov 13, 2026 at 1:55 PM EST, Todd Freed wrote:
+> psp_twsk_init() sets tw_validate_xmit_skb on TCP time-wait sockets.
+> Today, that becomes set whether or not the socket has PSP offload, which
+> is not needed but is harmless. psp_validate_xmit() passes such packets.
+>
+> But a validator makes a socket look like it has an encryption offload of
+> its own. The tc psp action in the net-next series "psp: introduce
+> socket-less associations" relies on the presence of the validator to
+> determine whether the socket has an encryption offload.
 
-- setsockopt(NETLINK_ADD_MEMBERSHIP) on a free ID fails with ENOENT,
-  and still works on an owned group.
-- bind() with a mask of free IDs succeeds and joins nothing. With an
-  owned group in the mask, it joins only that group.
-- A socket bound to the free IDs is not a member of the NET_DM groups
-  after drop_monitor is loaded. Skipped when NET_DM is already
-  registered or drop_monitor is not available.
+I don't think this is relevant.
 
-Suggested-by: Nicolas Dichtel <nicolas.dichtel@6wind.com>
-Signed-off-by: Anil Kaushik <anilkaushikwireless@gmail.com>
----
- tools/testing/selftests/net/Makefile         |   1 +
- tools/testing/selftests/net/nl_genl_mcast.py | 109 +++++++++++++++++++
- 2 files changed, 110 insertions(+)
- create mode 100755 tools/testing/selftests/net/nl_genl_mcast.py
+>
+> Set the validator only when the socket has a PSP association with a Tx
+> key, as psp_sock_set_tx_key() does for full sockets.
+>
+> Fixes: 6b46ca260e22 ("net: psp: add socket security association code")
+> Signed-off-by: Todd Freed <toddfreed@meta.com>
+> ---
+>  net/psp/psp_sock.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+>
+> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
+> index a6b1c42dd626..1df65505f1c6 100644
+> --- a/net/psp/psp_sock.c
+> +++ b/net/psp/psp_sock.c
+> @@ -314,10 +314,13 @@ void psp_twsk_init(struct inet_timewait_sock *tw, c=
+onst struct sock *sk)
+>  {
+>  	struct psp_assoc *pas =3D psp_sk_assoc(sk);
+> =20
+> -	if (pas)
+> +	if (pas) {
+>  		refcount_inc(&pas->refcnt);
+> +		/* like the full socket case in psp_sock_set_tx_key() */
 
-diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
-index 85f51a30c6a1..a765bc77e14c 100644
---- a/tools/testing/selftests/net/Makefile
-+++ b/tools/testing/selftests/net/Makefile
-@@ -74,6 +74,7 @@ TEST_PROGS := \
- 	netns-name.sh \
- 	netns-sysctl.sh \
- 	nk_qlease.py \
-+	nl_genl_mcast.py \
- 	nl_netdev.py \
- 	nl_nlctrl.py \
- 	pmtu.sh \
-diff --git a/tools/testing/selftests/net/nl_genl_mcast.py b/tools/testing/selftests/net/nl_genl_mcast.py
-new file mode 100755
-index 000000000000..71fba0280440
---- /dev/null
-+++ b/tools/testing/selftests/net/nl_genl_mcast.py
-@@ -0,0 +1,109 @@
-+#!/usr/bin/env python3
-+# SPDX-License-Identifier: GPL-2.0
-+
-+"""
-+Tests for joining Generic Netlink multicast groups that no family owns.
-+"""
-+
-+import socket
-+
-+from lib.py import ksft_run, ksft_exit, ksft_eq, ksft_raises
-+from lib.py import KsftSkipEx, NlctrlFamily, NlError
-+
-+NETLINK_GENERIC = 16
-+SOL_NETLINK = 270
-+NETLINK_ADD_MEMBERSHIP = 1
-+NETLINK_LIST_MEMBERSHIPS = 9
-+
-+
-+def _groups(fam):
-+    """Return the multicast groups of a family as {name: id}."""
-+    return {g['name']: g['id']
-+            for grp in fam.get('mcast-groups', []) for g in grp.values()}
-+
-+
-+def _free_ids(ctrl):
-+    """Return the IDs in 1..32 that no family owns."""
-+    owned = set()
-+    for fam in ctrl.getfamily({}, dump=True):
-+        owned.update(_groups(fam).values())
-+    free = [gid for gid in range(1, 33) if gid not in owned]
-+    if not free:
-+        raise KsftSkipEx("no free group ID in 1..32")
-+    return free
-+
-+
-+def _sock():
-+    return socket.socket(socket.AF_NETLINK, socket.SOCK_RAW, NETLINK_GENERIC)
-+
-+
-+def _members(sk):
-+    buf = sk.getsockopt(SOL_NETLINK, NETLINK_LIST_MEMBERSHIPS, 64)
-+    return int.from_bytes(buf, 'little')
-+
-+
-+def _bit(gid):
-+    return 1 << (gid - 1)
-+
-+
-+def _notify_id(ctrl):
-+    return _groups(ctrl.getfamily({'family-name': 'nlctrl'}))['notify']
-+
-+
-+def join_free(ctrl) -> None:
-+    """setsockopt() on an ID no family owns fails with ENOENT."""
-+    sk = _sock()
-+    sk.bind((0, 0))
-+    for gid in _free_ids(ctrl):
-+        # ENOENT
-+        with ksft_raises(FileNotFoundError):
-+            sk.setsockopt(SOL_NETLINK, NETLINK_ADD_MEMBERSHIP, gid)
-+
-+    notify = _notify_id(ctrl)
-+    sk.setsockopt(SOL_NETLINK, NETLINK_ADD_MEMBERSHIP, notify)
-+    ksft_eq(_members(sk), _bit(notify))
-+
-+
-+def bind_mask(ctrl) -> None:
-+    """bind() skips the IDs no family owns and joins the others."""
-+    free = sum(_bit(gid) for gid in _free_ids(ctrl))
-+    notify = _notify_id(ctrl)
-+
-+    sk = _sock()
-+    sk.bind((0, free))
-+    ksft_eq(_members(sk), 0)
-+
-+    sk = _sock()
-+    sk.bind((0, free | _bit(notify)))
-+    ksft_eq(_members(sk), _bit(notify))
-+
-+
-+def bind_before_family(ctrl) -> None:
-+    """A free ID joined with bind() stays unjoined when a family takes it."""
-+    names = [fam['family-name'] for fam in ctrl.getfamily({}, dump=True)]
-+    if 'NET_DM' in names:
-+        raise KsftSkipEx("NET_DM is already registered")
-+
-+    sk = _sock()
-+    sk.bind((0, sum(_bit(gid) for gid in _free_ids(ctrl))))
-+
-+    # Looking up the family loads drop_monitor.
-+    try:
-+        ids = _groups(ctrl.getfamily({'family-name': 'NET_DM'}))
-+    except NlError as e:
-+        raise KsftSkipEx("drop_monitor is not available") from e
-+
-+    for name, gid in ids.items():
-+        ksft_eq(_members(sk) & _bit(gid), 0,
-+                comment=f"member of NET_DM {name}")
-+
-+
-+def main() -> None:
-+    """ Ksft boiler plate main """
-+    ctrl = NlctrlFamily()
-+    ksft_run([join_free, bind_mask, bind_before_family], args=(ctrl, ))
-+    ksft_exit()
-+
-+
-+if __name__ == "__main__":
-+    main()
--- 
-2.25.1
+I'm not a fan of this kind of comment, but that's my own preference.
 
+> +		if (pas->tx.spi)
+> +			tw->tw_validate_xmit_skb =3D psp_validate_xmit;
+> +	}
+>  	rcu_assign_pointer(tw->psp_assoc, pas);
+> -	tw->tw_validate_xmit_skb =3D psp_validate_xmit;
+>  }
+> =20
+>  void psp_twsk_assoc_free(struct inet_timewait_sock *tw)
+
+Reviewed-by: Daniel Zahka <daniel.zahka@gmail.com>
