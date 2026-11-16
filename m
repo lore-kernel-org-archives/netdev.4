@@ -1,59 +1,129 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794855742;
-	b=sgJTbPZZ/r+I2xGMnsselwEHIGl/5fTAslr8iiSycbKCYWLXyR7hrrvu4wuheEEPfvt/
-	 juHyEvH7tUyFxkBCXdz1U+iL48SO4E0n8fGGxHc6y+CWjr+fGfZWn7p2FActmPt/7Watb
-	 TC+6H3hdcOEEpzUtOOxofjNfLp2M+hU/z5uY2m+GOV0qWkdmuTTiWohuUiQAigYSiSk8Z
-	 pENiluMOQ/WjXKuuLuDu71A6wRbmMU1NFcB7o/YesiWBC+zn+AC0A7ABZmwG1FF5amYUW
-	 QZ5XhfLtT2f8D98XKtwvP8dz7Myzbv4ZpxZcz/qVoHQ6JAgJRVQDJZ4r8SXPTSFg/KA==
+	t=1794855860;
+	b=WzAbRMhWNBgYC/rCFpqBPeMSa4twABr6N875CH/jJqKfecvMqouVw/F64MPwgyexNTIR
+	 lZKwV4YDwrg9IrUGS93Y92XRagOrnFKC9q4flPItUje9J0In7F8iKhf57lQHvOF+V/QKz
+	 MegyFb78jLRCwOwC30fOp+4JM7SxEhZYAAgdgNX/ty8zHUpc2PoCNjw7y+nfEwMek/Yy0
+	 Wu8sBvuFagFGVmfXeE+ginAgONaiy6d705FDcJ3CpasAKI6iqOX7L5V8PNmArQTaT1pjK
+	 HHFYcx9Vu8ipHrtt7L8vKhZ4P/fboAPQo7s0teAWnA6/berL5IR8+cTw0OsdV0Zu25A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794855742;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=N2xKCSrPY1rJ1XkR4LIjxTn9dqMbXrnTZ+YOM+EyOfM=;
-	b=Greg5tRnp2nx1ooufw9aoJr9IO1bILp4qcKCtIeAS6Eln7XYUqDQly1xsoUDsJdAnS6k
-	 N50yZ9eh4qNnOaot17msKe6v0/BauQ7JUt/p8mccsx/VVydntoBpEp3fPKvaPP7Svw8+Y
-	 NvH6hzMfU7w4jj2Jz43zji80W77S3o72maRt4aRdxbI3Eld6D9vLfzvSuqtlclsmgu2bC
-	 e0C8jp3OWxmehZ/SFMWsKN19sonvrS68xCODLSjyMcdK/SiLieURt3G4ZRpBCwPJQdOef
-	 58Hq0MutsUNIx+JnfEVR56YMj93gqgTB8JvEpp4k24eqtddBLXKlwdAmRIUxoUbbhIQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794855860;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=WvOfbKHC1YhEa2QpW290x7cG/RSkj9nU3s9Pf1uScWc=;
+	b=t1rWLf06gyDoFzCGtCVJs2blyi3kxF3nmQ7oTItG8oJE+lNxsx/Hgu045+ZLdqNH+uzL
+	 QknueyVAROirxYhik/h+mtA74T8B9fM5xl3L8BsJK/KKWBZXQOgeVC2Hdl61ZhMl3bZaL
+	 QjmP6WHb0eezsyMPm0Xuw0hpUSj3d/sXuvfFVSEJAwI0OlqCyA24CdagBIhuMBGYhU+FF
+	 pA+Jl1HtGKtJrDaPD6NvzBfIoCnmXQ/H40J99gFz4S3VNBK8q0VZdUApnJ3vlkeP+r6Rt
+	 +aQQ4XXaQcRnVUNk+2gScancI45/w09/5nVfxxhAP/ANDSs/q+1RaNrq0PnSimXpB3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VprP7W2C;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=cV6xCUYW;
+	arc=none smtp.remote-ip=209.85.160.172
+Received: from mail-qt1-f172.google.com (mail-qt1-f172.google.com [209.85.160.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 643C3606A332;
-	Mon, 16 Nov 2026 19:02:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E386F606A330
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:04:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E386F606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VprP7W2C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 992CF1F000CE;
-	Mon, 16 Nov 2026 19:02:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794855742;
-	bh=N2xKCSrPY1rJ1XkR4LIjxTn9dqMbXrnTZ+YOM+EyOfM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VprP7W2CiFZmaAi96m1oPMFzTZJmXLyzsL0fDPruE+CMRr2nqOdKIzRWGKeCz7Rlk
-	 18d8WIrH32+fB/G9V/UAoZogshvev2UEfW6fCc4iwW4WnJigBcNcJ++2EIYcJ4Slim
-	 fifGbJZCCRLnM1oP0w39fixdN1Lh9j21bFMeVjslvLyr9nq4fawN23iapFhQHU+bCu
-	 utsiK7PXZzHp6zf8urlYrG2C120A4sRmV2yfgjSBxnnZcXXfnoBitwAbNkS5r7qB73
-	 YtJkGP7pIz3jpXRLkd+1EX5zpeBGO5NVfccIBt619OuVkr6HcqO+VL92q0v1LOKBXK
-	 s2D4sCayLq6FA==
-Subject: Re: [PATCH net v5 6/8] net: dsa: b53: reference count shared mirror
- source bits
-From: netdev-bot+sashiko@kernel.org
-To: florian.fainelli@broadcom.com
-Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, vivien.didelot@gmail.com, linux-kernel@vger.kernel.org
-Date: Mon, 16 Nov 2026 19:02:21 +0000
-Message-ID: <179485574117.3136.2818958695058742581@kernel.org>
-In-Reply-To: <20261112180202.324504-7-florian.fainelli@broadcom.com>
-References: <20261112180202.324504-7-florian.fainelli@broadcom.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=cV6xCUYW
+Received: by mail-qt1-f172.google.com with SMTP id d75a77b69052e-53669f7b518so50537551cf.2
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:04:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1794855859; x=1795460659; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WvOfbKHC1YhEa2QpW290x7cG/RSkj9nU3s9Pf1uScWc=;
+        b=cV6xCUYW6Nj32ATgj9pR3hPHUcXMAswfWFmbofUn9Kj8O2h0vBxKz+gKkblkAcoZs4
+         3Sksf2uZJcrqFHnWfbGA31BNzwsf2S1dv95GJqgZVMfFGYLSB6zg6g2Fr+yuwov/in3t
+         kzMGwphN2MWZmbFV+wYJtbSpA7Il47XDSpoenMocuugAiDnZMkgQe82N6D/LNCvFdxrw
+         g4Vs+tRlvNQP2aXotTXnhkPG5j8fWm0uVGtEmoX6U112LRHDjo2Qmq5iAcSLMow6gR3a
+         CP6w8W/FgL6u2p7O81zc788TpdcCz8lIWVKQDNRHCpvZKfTuZAAb/gE598LmoW33C074
+         z1Cw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794855859; x=1795460659;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WvOfbKHC1YhEa2QpW290x7cG/RSkj9nU3s9Pf1uScWc=;
+        b=d2IpGlhjCbYISCc9KwjdBvrWy242FHZdT8xhTUAUry+kBmyAMb+MzPNS4uaeQN8PaQ
+         xjzuTHNCIp7CEvm18K7IjCZmSFeqUyX120Vb4pP0XzDPrt0XD6QFQ5tfHYVTGVhv8grS
+         ZsEhbCNkacjx7MY1coEBuj9gNldydMCGTG4Fz9pSSe3HhdC9AeaIb35byipRkYNjXnxS
+         0Zr9JnoJ8b2y2AhuYDeAW7fo73yBwBGeSnU4zkMYFQqPAGt5cDCDTWkoEk4s7b0pCZGL
+         aZ87/8Am2Bl2Hd4Bfaqva97l44BcnhrzzpU1R32yQ/ygypENHdyZp9l443pVc0Z91YcW
+         sS2g==
+X-Forwarded-Encrypted: i=1; AL+hErFd/bhCrkDVZyssownYipvE2m8+Rf2C1a4zPKflpNaKga+t82nxD5lhdmyMCEksqdqABCkrz3A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/uueZfogyQWhyLvM2nruRA+LxSHSkyCm7xQdp1qeMPQQrBMJB6
+	yN7anyqvIe6CQoEoAd9oHqNPHPxIGlbk9fWt9FptZJm5+uahH7BTHgFoJg/sYKvk0Hs=
+X-Gm-Gg: AYBFou3pLyxUEtnJVXHM/mIqF57JLvtjQa05PkMZ4Fc/Y1+WKjLgbO714Z8qA57NzQH
+	a5y62FRw2iX9tCSxa7Rb9a2uMEalPLv154YIJBWuv/m2LkiC7fpTUtzQ/huj8SI/7NHJake34VG
+	BmadqQQwM32ldKm+LmlCpPjhSKQo9nFHzFpfBh3v4mTr+0fAM7AH0225fQCIFtT7czAxMCrT4eM
+	3YD1n0oawtgXKThl2bLGa7K9EfHcohW1/oky433i5hmfusvuV4pt6VQKwQYZcKyvl6U3OuE13NR
+	ZoTOTElqKDLKMvc7gXuJeMArBlTbLZAO3TBrA4xZbljTtulhwSdAmsSGgz8erEtOGQq7hTONcRL
+	jDLgX4kJWpEh0g8MRhVvZnDhYWZu63ezEOWWeirARVboUg0pJkkXU+jOXphr4pR+GMSKqxOHmS8
+	Cj9Ky9L23li2sTlJbiywgELP25r9o6b9loOxtvhYrTx7p/zOfsxt++zWwSWdHmIMQUMuT8fTbsd
+	Bu7MQ8gJ4wTwNcTwUJ6lOkON6cmL54jwghVJtgqZc6EGnF0iM42JbnLQvvNJm/LdCBOkKyRrQSz
+	nke3ng==
+X-Received: by 2002:a05:622a:124b:b0:536:9140:e2be with SMTP id d75a77b69052e-55ac948cc41mr174359441cf.74.1794855858824;
+        Mon, 16 Nov 2026 11:04:18 -0800 (PST)
+Received: from ziepe.ca ([142.166.156.71])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55ad1b13917sm87667361cf.29.2026.11.16.11.04.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 11:04:17 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xT201-0000000AFsj-03Yl;
+	Mon, 16 Nov 2026 15:04:17 -0400
+Date: Mon, 16 Nov 2026 15:04:17 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Kameron Carr <kameroncarr@linux.microsoft.com>
+Cc: Leon Romanovsky <leon@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+	linux-input@vger.kernel.org, netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
+	iommu@lists.linux.dev
+Subject: Re: [PATCH v2 18/19] PCI: Replace untrusted state with device trust
+Message-ID: <20261116190417.GD2299285@ziepe.ca>
+References: <20261109-device-trust-core-v2-0-3b12d9a9f861@nvidia.com>
+ <20261109-device-trust-core-v2-18-3b12d9a9f861@nvidia.com>
+ <193e4130-9c2f-4a0f-b218-f5fcf0b3d508@linux.microsoft.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,134 +133,73 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <193e4130-9c2f-4a0f-b218-f5fcf0b3d508@linux.microsoft.com>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Mon, Nov 16, 2026 at 10:46:25AM -0800, Kameron Carr wrote:
+> > @@ -1738,24 +1738,24 @@ static void set_pcie_cxl(struct pci_dev *dev)
+> >  
+> >  }
+> >  
+> > -static void set_pcie_untrusted(struct pci_dev *dev)
+> > +static void pci_set_default_trust_policy(struct pci_dev *dev)
+> >  {
+> > -	struct pci_dev *parent = pci_upstream_bridge(dev);
+> > +	struct pci_dev *parent = pci_physfn(dev);
+> > +
+> > +	if (parent == dev)
+> > +		parent = pci_upstream_bridge(dev);
+> >  
+> >  	if (!parent)
+> >  		return;
+> 
+> Hi Leon,
+> 
+> The default policy here works for physical hierarchies, but there's no
+> opportunity for a paravirtual host bridge to participate in the trust
+> resolution when the host bridge driver itself knows the appropriate
+> trust level for a device.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+HW doesn't really "know" the trust level, it can suggest a default but
+the kernel command line and userspace should always be able to
+override it.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> My scenario is pci-hyperv in a confidential VM with a paravisor. The
+> paravisor is inside the guest's trust boundary and owns TDISP. It locks,
+> attests and accepts the device, then answers a VMBus query describing
+> which BAR ranges are private and whether the device's DMA may target
+> private memory. Before a driver can bind pci-hyperv has to:
 
-- [High] This patch changes bcm_sf2_sw_resume()
-  (drivers/net/dsa/bcm_sf2.c).
-- [Medium] The new error path in bcm_sf2_sw_resume() gates the switch
-  clock (`if (ret && !priv->wol_ports_mask)…
+Sounds like a user in such an environment just wouldn't use the trust
+level mechanism at all.
 
---
+What use do you see for enabling trust level but having all the
+devices unattestable and accepted already?
 
-net: dsa: b53: reference count shared mirror source bits
+Your bigger issue is the below:
 
-This commit adds reference counts for each port's ingress and egress
-mirror source bits in b53. A bit is only cleared when its last tc
-matchall filter is removed. It also adds a b53_mirror_init() helper and
-changes bcm_sf2_sw_resume() to return the result of ds->ops->setup().
+>   - query the paravisor,
+>   - refuse to operate the device if the query failed or if the response
+>     is invalid,
+>   - decide whether the device may operate.
+> 
+> The modular host bridge driver in this scenario needs a hook to be able
+> to participate in trust resolution.
+> 
+> I'm also looking for the right place to setup MMIO and configure DMA
+> in my scenario. Let me know if you have guidance.
 
-[ ... ]
+Well, you are very far outside what Linux expects for a CC flow, and
+these special requests conflict with the arch code flows we need to
+have.
 
-> diff --git a/drivers/net/dsa/bcm_sf2.c b/drivers/net/dsa/bcm_sf2.c
-> index 1747a1f20c78e..98a4a62ca73a2 100644
-> --- a/drivers/net/dsa/bcm_sf2.c
-> +++ b/drivers/net/dsa/bcm_sf2.c
-> @@ -996,9 +996,11 @@ static int bcm_sf2_sw_resume(struct dsa_switch *ds)
->  	if (priv->hw_params.num_gphy == 1)
->  		bcm_sf2_gphy_enable_set(ds, true);
->  
-> -	ds->ops->setup(ds);
-> +	ret = ds->ops->setup(ds);
-> +	if (ret && !priv->wol_ports_mask)
-> +		clk_disable_unprepare(priv->clk);
->  
-> -	return 0;
-> +	return ret;
->  }
+So, I don't know. Maybe somewhere in the arch code hyperv can hook and
+say the device is special? You'll have to see when we get more of the
+CC stuff layed out.
 
-[Severity: High]
-Does this make every other system resume fail, starting with the first?
+Though, FWIW, I don't like it at all as a model. Denying the tenant
+the ability to directly attest the HW is far away from what I'd
+consider as necessary for CC.
 
-bcm_sf2_sw_setup() is not safe to run twice. It ends with:
-
-    return b53_setup_devlink_resources(ds);
-
-Probe already registers the "VLAN" devlink resource through
-dsa_switch_setup() -> ops->setup. Only bcm_sf2_sw_teardown() removes it.
-On resume the call chain is:
-
-bcm_sf2_sw_resume()
-  bcm_sf2_sw_setup()
-    b53_setup_devlink_resources()
-      dsa_devlink_resource_register()
-        __devl_resource_register()
-            if (resource)
-                return -EEXIST;
-
-b53_setup_devlink_resources() then jumps to out:, calls
-dsa_devlink_resources_unregister(ds) and returns -EEXIST. Before this
-patch that error was ignored. Now bcm_sf2_sw_resume() returns it and
-also gates the switch clock.
-
-dsa_switch_resume() then returns early:
-
-    if (ds->ops->resume)
-        ret = ds->ops->resume(ds);
-
-    if (ret)
-        return ret;
-
-As a result, dsa_user_resume() never runs for any user port. Without
-netif_device_attach() or phylink_start(), all user ports stay down
-after an ordinary suspend/resume.
-
-The failure path unregistered the resources, so the next resume
-succeeds and the one after that fails again.
-
-The clock is already off after a failed resume. The next
-bcm_sf2_sw_suspend() (when wol_ports_mask is 0) and bcm_sf2_sw_remove()
-will each call clk_disable_unprepare() again. Can that underflow the
-enable/prepare counts?
-
-The commit message only covers mirror refcounting and does not mention
-this resume change. With the Fixes: tag, a stable backport would bring
-this change along. Could this change be split into its own patch, after
-making the setup path safe to run again on resume?
-
-[Severity: Medium]
-On this new error path, gating the clock is the only rollback. By this
-point the switch is out of reset, the crossbar is configured and the
-GPHY is powered on through bcm_sf2_gphy_enable_set(ds, true).
-bcm_sf2_sw_setup() may also have enabled ports already. Nothing marks
-the device as clock-gated, and the switch stays bound.
-
-On the next system suspend, dsa_switch_suspend() still calls
-bcm_sf2_sw_suspend():
-
-    bcm_sf2_intr_disable(priv);
-    ...
-            bcm_sf2_port_disable(ds, port);
-    }
-
-    if (!priv->wol_ports_mask)
-        clk_disable_unprepare(priv->clk);
-
-Won't this access switch registers while the clock is gated? It then
-calls clk_disable_unprepare() a second time, which would trigger the
-clk core already disabled/unprepared warnings.
-
-Callbacks that run under RTNL, such as b53_mirror_del() when a tc
-filter is deleted, can still run and would also access registers with
-the clock off.
-
-Before this patch, a setup failure on resume left the clock enabled.
-The rst and cfp failure paths already roll back only partially in the
-same way, but this path runs after the GPHY has been powered up. Given
-the devlink -EEXIST issue above, it would be hit on every other resume.
-
-It would also be hit on any register I/O failure inside setup, for
-example in b53_enable_mcast_snooping(), or later in the series in
-b53_mirror_init().
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112180202.324504-1-florian.fainelli%40broadcom.com
+Jason
