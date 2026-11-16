@@ -1,73 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794837334;
-	b=W8dAI9Mh6fRURbnF7piGU6h9sG9FtV53Qo1FMBIgVVLh1koum1ElPyPQiT/Y5k1A6L/r
-	 OUjh6RNQLo1q7SPnqkN+9nviwNbLu05RxUNNpgry6U+Myo4wsovMKkwb00E1h4QY6C7mn
-	 OaUbtaEzSPBnnCMeCWJu2++qmIHP824Fhc3XiwQ606SQLY1YgEn4Rp3UwZENKPSdqEtqx
-	 WPomVmsnLahiCuT5Q3pOhYm8o72QDD8j8KOIjDs5VU4jjOal3gFPStCvS5vxpdWVThHPi
-	 pzxWDgW94DMh1B4HxtvhvrGwaAzUk0Ff7R4jN/fMl7neUxgjX3xAaI49f+SoYuS6EDA==
+	t=1794837689;
+	b=jQOgtA4u7Rk8Ci07SL+HFvhX2sNXvN3kPIlBLLo/1Urq5G7WUsTxeJCWcdcTvxWFAKoS
+	 6eNGyfyrxL5V8vkes1rtMQrO1uvaofwEjKKqDb5egbqo2NBXj341Snnguws6GbgntV0wn
+	 mLyngxN+XsxT9ZDxceoFw4kDBXJ8uJZ+/aCzvNTfOnDxThLhtG41IE0LcLl9iU5KEhHMH
+	 JtH/IdEFKduOi8pISzZ30rN0EZQmBKN9+CxMaRKsLgPTO5YCuNtiPp6KVNAsKJ/aL/1jQ
+	 2xPuJ+/E9hc5HZ80pI5U9tIvBa5jkF/0tv+KcpwbYSk3jRqrCuX6VKhb73E1khTjusg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794837334;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=FCGOa3XrFIfDpttYvQ7K/eFdh+Q44Gu+ztj0XVelAZ0=;
-	b=U78UGE4ARsCYQk76JZNPSauKAOgWp86TkmA3fOVfM+KiKIVUgGGOpj4RbAE89u0xzWyn
-	 UW/fOOkREtfMi9YgKGQAiPmmYDMclMpRaCqjd6gqT86vCxApSsTD8bsi8BXgdZrAAy0cI
-	 9cwwctJCF741yaoH8AEuFX5W0mHh3logMuFjSUykBLf4h2LlI/RQ5ctwCvIvc17jlnvaY
-	 wzY/1n1XMWQ5GgUeOcw3Dx1yQxLqCdCNiUGIjdEWAc2Ypy3gFh9ofrRpIPxrhQT9fapI2
-	 K1nQbJQqIIFtmKyyPII22M5fWGQF9RyiRlPjql0sgHAuxKdVEwM3kgSphR7RBbv8emQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794837689;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=AcI5O5MVmz/sMdzZjpcXmsQSI2YiMfU3J4R/RHPWjLk=;
+	b=icYvnxPr+AHOnrYUh7GOBr66lUwU8P3kGDg2nC0EcDbB7ABgvZDYCOYhAm7DZ+mZU4B5
+	 ppb0w4dybBS+JGsHbp2TaCW7LNLMZFpFUBo6Pot0gKbwJBaiCVnRycNrVuU9FoZ1p7kpy
+	 UqT9Kx9wqQuniTP4Xl7tszGRBV1uTtebL69ggHkhifev3EcaFS+0bz81dcnY4tnu1MEJO
+	 tKJTwfQ6zMxfvX4Oueqb0H295vyK+9hq8bKAMjST77T/bPPaUPmiP9MDSja9GQcNL4VG9
+	 ODz/ZhsY14Jf4r9taZKnNyj4/L5GTJ5j0FIhYUHSWnQUB5S4HD906DLd6rDBTWLC0Zw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=T04CbP61;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SRowMdmR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF9A6606AE44;
-	Mon, 16 Nov 2026 13:55:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF9A6606AE44
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 542AF606A8AE;
+	Mon, 16 Nov 2026 14:01:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=T04CbP61
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=FCGOa3XrFIfDpttYvQ7K/eFdh+Q44Gu+ztj0XVelAZ0=; b=T04CbP61TFnnA7S4qsYADasFM9
-	gEmppjaUC5umGuiwAsjETT43An/mWPSNQGyuJHmwBONwj5hGPHtiHI+Bd/cBelT2bYRZeSC5SK7di
-	61uhuxeFxUiWWX0nxwVaN6ELnqkLUoAfK2a8k9pPTZNLx410AYtPgsHJ62T0VVKRO6yA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xSxAx-00Gvgu-M1; Mon, 16 Nov 2026 14:55:15 +0100
-Date: Mon, 16 Nov 2026 14:55:15 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: 1579567540@qq.com
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	David Wu <david.wu@rock-chips.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH net-next v3 2/2] net: stmmac: dwmac-rk: Add RK3572 support
-Message-ID: <f8d4b637-1818-419c-ac51-fb2ded1f9b3e@lunn.ch>
-References: <20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a@qq.com>
- <20261116-add-board-ok3572-c-net-v3-2-a957fdcd9c7a@qq.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SRowMdmR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A30E1F000C7;
+	Mon, 16 Nov 2026 14:01:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794837689;
+	bh=AcI5O5MVmz/sMdzZjpcXmsQSI2YiMfU3J4R/RHPWjLk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=SRowMdmRKr8bt0UEpVVKpzPHsooZjMsXJe387NrjH4YfbU1S9NOyc3XS2d9qhPsVe
+	 LVSh2mlGuM+enJFFeW/z9tYYc1xnmEgDEvcISNSUWFz2cLhToPG+8igZE73r948J8/
+	 jMOzB1NVzW135Cy5yMoAXrboWiWuI80TtQZwA8sRjevSTb5U6jIHxa1/n5aXMm9wCm
+	 kCpAIfuAT6h3+CK83Xjjr/b9AeySe0PYeHivvn1IYe8E4ycSQxK+1Y/Dhh/bWKX65S
+	 8E+QHrK2n8XFgqCCvH7Vz0Q9s/62NITzlaH9GnB0yOYTVLjfIzFhrlugwH1lqbu8mN
+	 btC/04tSUV3MA==
+Subject:
+ Re: [PATCH net] net: ethernet: mtk_eth_soc: Fix potential PPE hash table leak
+From: netdev-bot+sashiko@kernel.org
+To: liguangshuo@mail.sdu.edu.cn
+Cc: nbd@nbd.name, lorenzo@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+Date: Mon, 16 Nov 2026 14:01:27 +0000
+Message-ID: <179483768794.3136.13845952044990808928@kernel.org>
+In-Reply-To: <20261112-88a3a7ff32-net-mtk@mail.sdu.edu.cn>
+References: <20261112-88a3a7ff32-net-mtk@mail.sdu.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,40 +65,177 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116-add-board-ok3572-c-net-v3-2-a957fdcd9c7a@qq.com>
 
-> +static void rk3572_set_to_rgmii(struct rk_priv_data *bsp_priv,
-> +				int tx_delay, int rx_delay)
-> +{
-> +	u32 val = GRF_FIELD(14, 8, rx_delay) | GRF_FIELD(6, 0, tx_delay) |
-> +		  GRF_FIELD(15, 15, !!rx_delay) | GRF_FIELD(7, 7, !!tx_delay);
-> +
-> +	if (bsp_priv->id == 1) {
-> +		regmap_write(bsp_priv->php_grf, RK3572_VCCIO0_3_VO_IOC_CON1, val);
-> +		regmap_write(bsp_priv->php_grf, RK3572_VCCIO5_6_IOC_MISC0, val);
-> +	} else {
-> +		regmap_write(bsp_priv->php_grf, RK3572_VCCIO1_2_4_VI_IOC_CON1, val);
-> +	}
-> +}
-> +
-> +static const struct rk_gmac_ops rk3572_ops = {
-> +	.init = rk3572_init,
-> +	.set_to_rgmii = rk3572_set_to_rgmii,
-> +	.gmac_phy_intf_sel_mask = GENMASK_U16(11, 9),
-> +	.gmac_rmii_mode_mask = BIT_U16(3),
-> +	.clock.io_clksel_io_mask = BIT_U16(7),
-> +	.clock.gmii_clk_sel_mask = GENMASK_U16(6, 5),
-> +	.clock.rmii_clk_sel_mask = BIT_U16(5),
-> +	.clock.rmii_gate_en_mask = BIT_U16(4),
-> +	.supports_rmii = true,
-> +	.php_grf_required = true,
-> +	.regs_valid = true,
-> +	.regs = { 0x29d20000, 0x2a040000, 0 },
-> +};
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Just looking at this, it is not obvious that rx_delay and tx_delay are
-actually not used.
+Critical: 0 · High: 1 (2) · Medium: 0 · Low: 0
 
-	 Andrew
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The fix is incomplete.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it is a high-
+  severity use-after-free in the same PPE teardown.
+- [High] This problem wasn't introduced by this patch, but it is a high-
+  severity work-cancellation ordering race in the remove path the patch…
+
+--
+
+net: ethernet: mtk_eth_soc: Fix potential PPE hash table leak
+
+This patch adds a call to mtk_ppe_deinit() in mtk_remove(). The goal is
+to destroy the PPE L2 flow rhashtables, whose bucket tables are not
+device-managed. This matches what the probe error path already does.
+
+> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> index ad0fdc4133fb6..08973b6f0711d 100644
+> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+> @@ -5426,6 +5426,7 @@ static void mtk_remove(struct platform_device *pdev)
+>  	netif_napi_del(&eth->rx_napi);
+>  	mtk_cleanup(eth);
+
+[Severity: High]
+This is a pre-existing issue, but the commit message says
+mtk_ppe_deinit() runs "after unregistering the netdevs and cancelling
+the driver work". Is the driver work actually guaranteed to be stopped
+at this point?
+
+mtk_cleanup() frees the netdevs before it cancels either work item. It
+also cancels pending_work before monitor_work:
+
+drivers/net/ethernet/mediatek/mtk_eth_soc.c:mtk_cleanup() {
+	mtk_sgmii_destroy(eth);
+	mtk_unreg_dev(eth);
+	mtk_free_dev(eth);
+	cancel_work_sync(&eth->pending_work);
+	cancel_delayed_work_sync(&eth->reset.monitor_work);
+	...
+}
+
+monitor_work stays armed during all of mtk_remove(), and it can queue
+pending_work again:
+
+mtk_hw_reset_monitor_work() {
+	...
+	if (mtk_hw_check_dma_hang(eth))
+		schedule_work(&eth->pending_work);
+out:
+	schedule_delayed_work(&eth->reset.monitor_work,
+			      MTK_DMA_MONITOR_TIMEOUT);
+}
+
+Say a monitor_work instance is running when
+cancel_work_sync(&eth->pending_work) returns. It can queue pending_work
+again. cancel_delayed_work_sync() waits for monitor_work but does not
+cancel that newly queued pending_work.
+
+mtk_pending_work() would then run after mtk_remove() returns:
+
+	if (!eth->netdev[i] || !netif_running(eth->netdev[i]))
+		continue;
+	mtk_stop(eth->netdev[i]);
+
+Would that dereference the netdevs freed by mtk_free_dev()? The
+eth->netdev[] pointers are never cleared, and eth itself is
+devm-allocated, so it may already be freed too.
+
+pending_work queued during remove can hit the same problem. It waits
+for rtnl while unregister_netdev() holds it, and runs once rtnl is
+released.
+
+Would it be safer to disable monitor_work first and then pending_work,
+for example with disable_delayed_work_sync() and disable_work_sync(),
+before the netdevs are unregistered and freed?
+
+>  	free_netdev(eth->dummy_dev);
+> +	mtk_ppe_deinit(eth);
+
+[Severity: High]
+Does this cover all of the PPE offload hash tables? mtk_ppe_deinit()
+only destroys ppe->l2_flows. A second rhashtable that is not
+device-managed, eth->flow_table, is never destroyed anywhere in the
+driver:
+
+drivers/net/ethernet/mediatek/mtk_ppe_offload.c:mtk_eth_offload_init() {
+	if (!eth->ppe[id] || !eth->ppe[id]->foe_table)
+		return 0;
+	return rhashtable_init(&eth->flow_table, &mtk_flow_ht_params);
+}
+
+mtk_probe() calls this inside the per-PPE loop:
+
+	for (i = 0; i < ppe_num; i++) {
+		...
+		eth->ppe[i] = mtk_ppe_init(eth, eth->base + ppe_addr, i);
+		...
+		err = mtk_eth_offload_init(eth, i);
+
+Some SoCs set .ppe_num to 2 (MT7981/MT7986) or 3 (MT7988). On those,
+does each loop iteration re-initialize the shared eth->flow_table and
+lose the bucket table allocated in the previous iteration? That would
+also repeat on every EPROBE_DEFER retry.
+
+The bucket table that remains also stays allocated after mtk_remove(),
+even with this patch. The same is true for the err_deinit_ppe unwind
+in mtk_probe().
+
+There is also the deferred shrink work to consider. mtk_flow_ht_params
+sets .automatic_shrinking = true. That means rhashtable_remove_fast()
+called from mtk_flow_offload_destroy() can queue ht->run_irq_work, and
+then ht->run_work, when the table is lightly loaded.
+
+Without a rhashtable_destroy(&eth->flow_table), nothing syncs or
+cancels that work. Can rht_deferred_worker() then run on eth after
+devres has freed it?
+
+Would it make sense to initialize eth->flow_table only once, and pair
+it with rhashtable_destroy() in both mtk_remove() and the probe unwind?
+
+[Severity: High]
+This isn't a bug introduced by this patch, but mtk_ppe_deinit() also
+leaves the per-PPE debugfs entries in place. mtk_ppe_init() calls
+mtk_ppe_debugfs_init(), which does this:
+
+drivers/net/ethernet/mediatek/mtk_ppe_debugfs.c:mtk_ppe_debugfs_init() {
+	...
+	root = debugfs_create_dir(ppe->dirname, NULL);
+	debugfs_create_file("entries", S_IRUGO, root, ppe, &mtk_ppe_debugfs_foe_all_fops);
+	debugfs_create_file("bind", S_IRUGO, root, ppe, &mtk_ppe_debugfs_foe_bind_fops);
+	...
+}
+
+The root dentry is thrown away, and debugfs_remove() is never called.
+That is true for mtk_remove(), mtk_ppe_deinit() and the probe error
+path.
+
+Unbinding, or a probe failure after mtk_ppe_init(), releases ppe,
+ppe->foe_table, ppe->acct_table and the MMIO mapping through devres.
+But /sys/kernel/debug/ppeN/entries and /sys/kernel/debug/ppeN/bind
+stay in place.
+
+Can reading those files after unbind use freed memory?
+mtk_ppe_debugfs_foe_show() dereferences the freed ppe and foe_table.
+It then calls mtk_foe_entry_get_mib(), which reads registers through
+the stale ppe->base and writes into the freed acct_table:
+
+	acct->bytes += bytes;
+	acct->packets += packets;
+
+On re-probe, debugfs_create_dir() fails because the directory already
+exists. The stale files would then keep pointing at the old ppe.
+
+Could the dentry be stored in struct mtk_ppe and removed in
+mtk_ppe_deinit() and the probe error path?
+
+>  	mtk_mdio_cleanup(eth);
+>  }
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-88a3a7ff32-net-mtk%40mail.sdu.edu.cn
