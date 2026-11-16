@@ -1,59 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794824616;
-	b=fdnKqD1G53Tg+BqTQHmNPpX99bFhWQdJe1YWAhL7650fm7DqCGa3TKA8NgvUgLwA8w0U
-	 IyOaAV/DwGGGMLEV7TmVSZhKanImuB5yAt5FGFeYjeWS7TiDzpmBqv4B8O0NhVZhXFj11
-	 aoLZ3G0cv+JCZSz7YcCky+4KAbUxdTJk4dZPHBhsh/zqQYJJeJKXgMfyzazAQ/6nafblL
-	 z3Ps+4Qr9bl5OJleVjaMwJjs+1OhDn5HEMdMEbzkTQV6gh93tzgwtLaHP7x2m6+dQQrsx
-	 Ad+I9aILcIlSNbAZpFy1kOhGtEp65UE2mfcEV2hBLq25ZxwQoy6C2XJu0gWTk+1BRZg==
+	t=1794825002;
+	b=Bcet4nKM5dGUYGVwPPD8kO4RwHBPYtTh0jBTF0MaArNhJ4W9zI7CmhI4souQ3mzZZCYw
+	 F61QAqS6O3lMmPcuJhMx7mumCGasO4LCnpNzetRVUsSoah+moifEctvgVRlxf+fZaRhrR
+	 CwHtH0kS1ytetsVwgVSzramsM+u+HEang1bGFS6XnXdBjUWpRPl+zfE3BAeS502UbsxNd
+	 QqzjKyw2pJ1deOmEeC3R3ESRgtXGT3VJP5QeJ3lPJTvGq1KjKVe31aff54cK3Z29ASVm1
+	 r61TruV2nf4c6sCEAyP6Mh2qRL2ZY5dcDFtMlsBozskU9lQf7HSpGdgbzBOZCXcL9Ew==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794824616;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=aBwn/FZxnh0n0zhteaBKF/cx+9D+nKGywQr5rRvRjQw=;
-	b=PnabviMbsGoyHikLGXey4nVPi/0WydgJMBCkw/hAQwFsA/e7rvmBk8wuRgjFE7C+wCQN
-	 u/lm4vTt0hkzeVqR2sHVkjnDTeoDQmg9sMXu63sXSxsqH8DtMx3DtlXd9OoPd+dUHz0em
-	 75ojH3Q+mF4SG8njcx5ribibPRemftVMEpp/G8NAP4ji3WjdXyAP5jOvslpB1saySQqQg
-	 QVmvcmNKAqWWXvjcvUtxp5O4D79yIkN6Be9v94z4DIuyWpdHRSaPbt1fLISoDV/eTpmoI
-	 zIRDeImfLcnnwrLpP5cnEblu3hFDQcZv5gAXITijLyfSGOktV628Hw4znFyGei8WF7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794825002;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=/1cdmyABstoM351Jd9SchcWWY1DQ8/OQeZxf5NBIclE=;
+	b=zl2z7pSO1cEDHZLbL3SEJOR7pR/tn/6iNmIIEHRVw/LSkM5fU/iNNo2JmtgdYpSfhU9s
+	 gtX/LxPxTs0S57h+ezZn2leRK8cSM4xPydLpXMvPBkXXhKmUFvzIYZ7HXD+5IcxmzXRU9
+	 Y7ljtx889zPFOJFHJ8rurdTh0BogNLIWyfnJVqL76DEQhtWT/Q+R36lgmBsiGjhiOZkjZ
+	 aO28FjXnkN2KxYc6JZ03BgX8ZsJHues/djd7LPjoSpvnp/okVvghelGDLj1eyMn86Wyl/
+	 omFhjMetXAfz8aSuAjXoJrPG7EJddAna7Mo8upWNhAUM/eaAnUewXRhDUYkf3U2N12g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X8TQkxh8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.161.72
+Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CD95606A33A;
-	Mon, 16 Nov 2026 10:23:35 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X8TQkxh8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 30CC41F000C4;
-	Mon, 16 Nov 2026 10:23:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794824615;
-	bh=aBwn/FZxnh0n0zhteaBKF/cx+9D+nKGywQr5rRvRjQw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=X8TQkxh89SfKOCAA8cO6hnyISMYFq93b5suocjtWdmfjAKdxF6JqUIcpUjdvP75U0
-	 3w9htdmr7pmO8NbAiufIdXfl/Vpx4DovAswlXDtiK5JYIz6gesblbNjlu0zmRjYfir
-	 Ow8DZWDgryXZgLOcOkPR9MRFsKt9aKvfzacHS3t8LkS5/XxiOKj6GCgByeRdwvO4gi
-	 aebYOUB6iwFQdkCaKkHAKIgaILWmZxfZ2VGHjlTfq3h+Zi00RL/r/wSgj1Bqm0645N
-	 uQ235i46N92iHwjePpdxWRfZdfNNoLoCTbVkorDPwdl2GysNmZ5YLrInE5dMEanJKy
-	 PC7hBEuBIGBXA==
-Subject:
- Re: [PATCH v2] net: hso: fix tx skb leak and a race on the stashed skb
-From: netdev-bot+sashiko@kernel.org
-To: chenaibing@cmss.chinamobile.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-usb@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Mon, 16 Nov 2026 10:23:34 +0000
-Message-ID: <179482461473.3136.10520991197009365626@kernel.org>
-In-Reply-To: <20261115101646.244-1-chenaibing@cmss.chinamobile.com>
-References: <20261115101646.244-1-chenaibing@cmss.chinamobile.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99B10606A32F
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:30:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99B10606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-71ad7f06ab4so1679830eaf.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:30:01 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794825000; x=1795429800;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/1cdmyABstoM351Jd9SchcWWY1DQ8/OQeZxf5NBIclE=;
+        b=VHB/m0kW3YEqo48IkaoJi2bfsVc9sRU6QgjIx7qroPKJcAdCzQIJZMlj5JQU0xv8xM
+         cO0579yrHjtB/FkB7EflQwL6JYaVdLUvetxcEsq1438z8d1ZBkwxm2CstBDU5E7mwvFw
+         RJuTjt88hMAdO2QJ8dWBruz6K9T7G+ljerGp/kcvh3vaQei58DsnsyPOc2aF88+ypc3P
+         SRriXQyf45a1tlzubj6BBe/CxF4r8GHfL1uN/jEvjuUriN3zGKsDzLNHnPMpmvKzTmNK
+         Cq0h7KeeQnNWN6eMcDgp14thzWtwfjOhRh+wzP9I7/TTDOt2Wz3SveGFpURDwNWwraE1
+         KoFw==
+X-Forwarded-Encrypted: i=1; AL+hErEbeES3lFcknRm/fUu4YCgJ7UcmK1dQz+zHhF5gqK3jseWbGzYKoxiwLlF9IjfyZXMlHISKUWs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+aRXZ6uTwNTuO922uvMR8I5+CB5S3JBljNKNNRSp6YljPP3s/+
+	QF0BhsE5rEj2Y71xim39totjYtSFMNtl0YfvDc+X/0pxMX0vlpVKA8JHshq2Xg+0LCoGMmmSy7x
+	haAKweC5gR+iAsS96pJyzhJNXZzqTMprSL8XDOgWyK0FKcjNo2uoyB//OsWM=
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,194 +58,198 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-Received: by 2002:a05:6808:4fce:b0:572:f1d1:d6b3 with SMTP id
+ 5614622812f47-572f1d1e88amr4083111b6e.21.1794825000699; Mon, 16 Nov 2026
+ 02:30:00 -0800 (PST)
+Date: Mon, 16 Nov 2026 02:30:00 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6afadb28.371d364b.254eb1.0017.GAE@google.com>
+Subject: [syzbot] [bluetooth?] possible deadlock in add_ext_adv_params_complete
+From: syzbot <syzbot+fc55a609cd9deea4ea37@syzkaller.appspotmail.com>
+To: linux-bluetooth@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	luiz.dentz@gmail.com, marcel@holtmann.org, netdev@vger.kernel.org, 
+	syzkaller-bugs@googlegroups.com
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hello,
 
-Critical: 0 · High: 1 (1) · Medium: 0 · Low: 1
+syzbot found the following issue on:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+HEAD commit:    6964ff21c5d8 net: mana: Allocate queue MSI-X vectors on de..
+git tree:       net-next
+console output: https://syzkaller.appspot.com/x/log.txt?x=142d103d580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=8fbc480f13a2deb8
+dashboard link: https://syzkaller.appspot.com/bug?extid=fc55a609cd9deea4ea37
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
 
-- [High] The v2 ownership protocol (xchg() in hso_net_close() and
-  hso_resume(), plus an unlocked test_bit(HSO_NET_RUNNING) in…
-- [Low] In hso_resume() (drivers/net/usb/hso.c), the new inner
-  `test_bit(HSO_NET_RUNNING, &hso_net->flags)` re-reads a bit that the…
+Unfortunately, I don't have any reproducer for this issue yet.
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but
-  hso_net_start_xmit() copies the whole frame into the fixed-size TX…
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/10448f4c9816/disk-6964ff21.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/bd950eb7eaec/vmlinux-6964ff21.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/90c2418ba3c7/bzImage-6964ff21.xz
 
---
+AI-generated root cause summary:
+An ABBA circular locking dependency exists between hdev->lock and
+hdev->cmd_sync_work_lock in the Bluetooth subsystem. Callers holding
+hci_dev_lock(hdev) (such as MGMT command handlers and HCI event handlers)
+acquire hdev->cmd_sync_work_lock when enqueuing or looking up cmd_sync work via
+hci_cmd_sync_queue()/hci_cmd_sync_queue_once(). Conversely, hci_cmd_sync_clear()
+(and related cancellation paths in net/bluetooth/hci_sync.c) acquires
+hdev->cmd_sync_work_lock and calls _hci_cmd_sync_cancel_entry(), which invokes
+entry->destroy (e.g. add_ext_adv_params_complete) while still holding
+hdev->cmd_sync_work_lock. Because entry->destroy attempts to acquire
+hci_dev_lock(hdev), this inverts the lock hierarchy and causes a deadlock.
 
-net: hso: fix tx skb leak and a race on the stashed skb
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=fc55a609cd9deea4ea37
 
-This patch frees the skb that hso_net_start_xmit() stashes in skb_tx_buf
-when the interface is closed. It also uses xchg() in both hso_net_close()
-and hso_resume() so that only one of them takes ownership of that skb.
-On top of that, hso_resume() now drops the stashed frame instead of
-transmitting it when HSO_NET_RUNNING is clear.
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+fc55a609cd9deea4ea37@syzkaller.appspotmail.com
 
-Link: https://lore.kernel.org/all/6af74e31.fe96acdb.12252b.0009.GAE@google.com/
+======================================================
+WARNING: possible circular locking dependency detected
+syzkaller #0 Not tainted
+------------------------------------------------------
+syz-executor/5634 is trying to acquire lock:
+ffff8880298c40b8 (&hdev->lock){+.+.}-{4:4}, at: add_ext_adv_params_complete+0xd5/0x890 net/bluetooth/mgmt.c:9253
 
-> diff --git a/drivers/net/usb/hso.c b/drivers/net/usb/hso.c
-> index 71caa3764b239..ba59bdefd203d 100644
-> --- a/drivers/net/usb/hso.c
-> +++ b/drivers/net/usb/hso.c
+but task is already holding lock:
+ffff8880298c47c0 (&hdev->cmd_sync_work_lock){+.+.}-{4:4}, at: hci_cmd_sync_clear+0xfb/0x3f0 net/bluetooth/hci_sync.c:682
 
-[ ... ]
+which lock already depends on the new lock.
 
-> @@ -728,6 +729,14 @@ static int hso_net_close(struct net_device *net)
->  
->  	hso_stop_net_device(odev->parent);
->  
-> +	/*
-> +	 * Take ownership of a frame stashed by hso_net_start_xmit() and drop it.
-> +	 * hso_resume() takes it the same way, so only one of the two paths frees
-> +	 * it.
-> +	 */
-> +	skb = xchg(&odev->skb_tx_buf, NULL);
-> +	dev_kfree_skb(skb);
 
-[Severity: High]
+the existing dependency chain (in reverse order) is:
 
-Does only one of the two paths really end up owning the frame?
+-> #1 (&hdev->cmd_sync_work_lock){+.+.}-{4:4}:
+       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
+       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
+       hci_cmd_sync_lookup_entry net/bluetooth/hci_sync.c:869 [inline]
+       hci_cmd_sync_queue_once+0x42/0x250 net/bluetooth/hci_sync.c:806
+       hci_update_passive_scan+0x1bf/0x210 net/bluetooth/hci_sync.c:3518
+       le_conn_complete_evt+0xee9/0x18d0 net/bluetooth/hci_event.c:6106
+       hci_le_conn_complete_evt+0x187/0x470 net/bluetooth/hci_event.c:6117
+       hci_event_func net/bluetooth/hci_event.c:8084 [inline]
+       hci_event_packet+0x67a/0xf10 net/bluetooth/hci_event.c:8138
+       hci_rx_work+0x2b4/0x1110 net/bluetooth/hci_core.c:4150
+       process_one_work kernel/workqueue.c:3495 [inline]
+       process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
+       worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
+       kthread+0x38b/0x480 kernel/kthread.c:436
+       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
 
-hso_net_close() runs under RTNL. hso_resume() runs from USB PM context,
-for example the usb_autopm_get_interface() work that hso_get_activity()
-schedules. The two paths don't share any lock.
+-> #0 (&hdev->lock){+.+.}-{4:4}:
+       check_prev_add kernel/locking/lockdep.c:3209 [inline]
+       check_prevs_add kernel/locking/lockdep.c:3328 [inline]
+       validate_chain kernel/locking/lockdep.c:3952 [inline]
+       __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
+       lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
+       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
+       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
+       add_ext_adv_params_complete+0xd5/0x890 net/bluetooth/mgmt.c:9253
+       _hci_cmd_sync_cancel_entry net/bluetooth/hci_sync.c:667 [inline]
+       hci_cmd_sync_clear+0x1b4/0x3f0 net/bluetooth/hci_sync.c:684
+       hci_unregister_dev+0x1b4/0x5c0 net/bluetooth/hci_core.c:2697
+       vhci_release+0x16d/0x1c0 drivers/bluetooth/hci_vhci.c:704
+       __fput+0x408/0xa40 fs/file_table.c:512
+       fput_close_sync+0x11f/0x240 fs/file_table.c:618
+       filp_close_sync+0x6e/0xa0 fs/open.c:1574
+       close_files fs/file.c:572 [inline]
+       put_files_struct+0x230/0x3c0 fs/file.c:584
+       do_exit+0x6f0/0x2360 kernel/exit.c:977
+       do_group_exit+0x22d/0x2f0 kernel/exit.c:1123
+       get_signal+0x136a/0x1430 kernel/signal.c:3113
+       arch_do_signal_or_restart+0xbb/0x860 arch/x86/kernel/signal.c:337
+       __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
+       exit_to_user_mode_loop+0x10e/0x770 kernel/entry/common.c:101
+       __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
+       syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
+       syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
+       do_syscall_64+0x32c/0x530 arch/x86/entry/syscall_64.c:107
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
 
-Consider this interleaving:
+other info that might help us debug this:
 
-CPU0: hso_resume()
-    skb = xchg(&hso_net->skb_tx_buf, NULL);
-    test_bit(HSO_NET_RUNNING, &hso_net->flags) returns true
+ Possible unsafe locking scenario:
 
-CPU1: hso_net_close()
-    clear_bit(HSO_NET_RUNNING, &odev->flags);
-    hso_stop_net_device(odev->parent);
-    skb = xchg(&odev->skb_tx_buf, NULL);    /* returns NULL */
+       CPU0                    CPU1
+       ----                    ----
+  lock(&hdev->cmd_sync_work_lock);
+                               lock(&hdev->lock);
+                               lock(&hdev->cmd_sync_work_lock);
+  lock(&hdev->lock);
 
-CPU0: hso_resume()
-    hso_net_start_xmit(skb, hso_net->net);
+ *** DEADLOCK ***
 
-Suppose hso_get_activity() returns -EAGAIN at this point. That is the
-"device is still not ready" case from the commit message.
-hso_net_start_xmit() then puts the skb back with a plain store:
+locks held by syz-executor/5634: 1, on CPU#1:
+ #0: ffff8880298c47c0 (&hdev->cmd_sync_work_lock){+.+.}-{4:4}, at: hci_cmd_sync_clear+0xfb/0x3f0 net/bluetooth/hci_sync.c:682
 
-	if (hso_get_activity(odev->parent) == -EAGAIN) {
-		odev->skb_tx_buf = skb;
-		return NETDEV_TX_OK;
-	}
+stack backtrace:
+CPU: 1 UID: 0 PID: 5634 Comm: syz-executor Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
+ print_circular_bug+0x2e2/0x300 kernel/locking/lockdep.c:2087
+ check_noncircular+0x12f/0x150 kernel/locking/lockdep.c:2219
+ check_prev_add kernel/locking/lockdep.c:3209 [inline]
+ check_prevs_add kernel/locking/lockdep.c:3328 [inline]
+ validate_chain kernel/locking/lockdep.c:3952 [inline]
+ __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
+ lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
+ __mutex_lock_common kernel/locking/mutex.c:646 [inline]
+ __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
+ add_ext_adv_params_complete+0xd5/0x890 net/bluetooth/mgmt.c:9253
+ _hci_cmd_sync_cancel_entry net/bluetooth/hci_sync.c:667 [inline]
+ hci_cmd_sync_clear+0x1b4/0x3f0 net/bluetooth/hci_sync.c:684
+ hci_unregister_dev+0x1b4/0x5c0 net/bluetooth/hci_core.c:2697
+ vhci_release+0x16d/0x1c0 drivers/bluetooth/hci_vhci.c:704
+ __fput+0x408/0xa40 fs/file_table.c:512
+ fput_close_sync+0x11f/0x240 fs/file_table.c:618
+ filp_close_sync+0x6e/0xa0 fs/open.c:1574
+ close_files fs/file.c:572 [inline]
+ put_files_struct+0x230/0x3c0 fs/file.c:584
+ do_exit+0x6f0/0x2360 kernel/exit.c:977
+ do_group_exit+0x22d/0x2f0 kernel/exit.c:1123
+ get_signal+0x136a/0x1430 kernel/signal.c:3113
+ arch_do_signal_or_restart+0xbb/0x860 arch/x86/kernel/signal.c:337
+ __exit_to_user_mode_loop kernel/entry/common.c:66 [inline]
+ exit_to_user_mode_loop+0x10e/0x770 kernel/entry/common.c:101
+ __exit_to_user_mode_prepare include/linux/irq-entry-common.h:207 [inline]
+ syscall_exit_to_user_mode_prepare include/linux/irq-entry-common.h:230 [inline]
+ syscall_exit_to_user_mode include/linux/entry-common.h:343 [inline]
+ do_syscall_64+0x32c/0x530 arch/x86/entry/syscall_64.c:107
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f35a9f69d0e
+Code: Unable to access opcode bytes at 0x7f35a9f69ce4.
+RSP: 002b:00007ffe3a7895f8 EFLAGS: 00000246 ORIG_RAX: 0000000000000000
+RAX: fffffffffffffe00 RBX: 00005555922b8500 RCX: 00007f35a9f69d0e
+RDX: 0000000000000030 RSI: 00007ffe3a7896f0 RDI: 00000000000000f9
+RBP: 00007ffe3a78969c R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000258
+R13: 000000000000002b R14: 000000000006526d R15: 00007ffe3a7896f0
+ </TASK>
 
-Does this leak the skb? Nothing frees it after close has done its xchg().
-A later hso_net_open() overwrites the pointer with
-odev->skb_tx_buf = NULL, and on disconnect the pointer is lost when the
-netdev is freed.
 
-If hso_get_activity() returns 0 instead, usb_submit_urb() on
-mux_bulk_tx_urb runs after close has killed that URB. hso_resume() then
-calls hso_start_net_device(), which resubmits the RX URBs on a closed
-interface.
+---
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-When that TX URB completes, write_bulk_callback() returns early:
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
 
-	if (!odev || !test_bit(HSO_NET_RUNNING, &odev->flags)) {
-		dev_err(&urb->dev->dev, "%s: device not running\n", __func__);
-		return;
-	}
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
 
-That skips hso_put_activity() and netif_wake_queue(). Can this leave the
-activity state and the autopm reference raised?
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
 
-The new test_bit() narrows the window, but it is still an unlocked flag
-check used as a gate. Would this need real serialization between three
-places: the stash in hso_net_start_xmit(), the check-and-transmit in
-hso_resume(), and the teardown in hso_net_close()? That could be a lock,
-or having close wait for a resume that is already in progress.
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
 
-[ ... ]
-
-> @@ -3054,13 +3064,17 @@ static int hso_resume(struct usb_interface *iface)
->  			if (hso_net->flags & IFF_UP) {
->  				/* First transmit any lingering data,
->  				   then restart the device. */
-> -				if (hso_net->skb_tx_buf) {
-> +				skb = xchg(&hso_net->skb_tx_buf, NULL);
-> +				if (skb) {
->  					dev_dbg(&iface->dev,
->  						"Transmitting"
->  						" lingering data\n");
-> -					hso_net_start_xmit(hso_net->skb_tx_buf,
-> -							   hso_net->net);
-> -					hso_net->skb_tx_buf = NULL;
-> +					if (test_bit(HSO_NET_RUNNING,
-> +						     &hso_net->flags))
-
-[Severity: Low]
-
-Isn't this test_bit() checking the same bit as the enclosing
-"if (hso_net->flags & IFF_UP)"? hso_net->flags is the driver's private
-bitmap, and HSO_NET_RUNNING is bit index 0:
-
-/* These definitions are used with the struct hso_net flags element */
-/* - use *_bit operations on it. (bit indices not values.) */
-#define HSO_NET_RUNNING			0
-
-IFF_UP is 0x1, so the outer check already tests HSO_NET_RUNNING. The new
-else branch with dev_kfree_skb() can only run if hso_net_close() clears
-the bit between the two reads.
-
-The commit message says:
-
-  hso_resume() also drops the frame instead of transmitting it when the
-  interface has already been stopped.
-
-If the interface was stopped before resume, the outer check skips the
-whole block. In that case hso_net_close() has already freed the frame
-through its xchg().
-
-Could the outer check be changed to
-test_bit(HSO_NET_RUNNING, &hso_net->flags)? Could the commit message also
-be reworded to describe what the new branch actually handles?
-
-> +						hso_net_start_xmit(skb,
-> +								   hso_net->net);
-
-[Severity: High]
-
-This is a pre-existing issue, not one introduced by this patch.
-hso_net_start_xmit() copies the frame into the TX bounce buffer without
-checking its length:
-
-	memcpy(odev->mux_bulk_tx_buf, skb->data, skb->len);
-
-hso_create_net_device() allocates mux_bulk_tx_buf with
-kzalloc(MUX_BULK_TX_BUF_SIZE), which is 2048 bytes (HSO__MAX_MTU).
-
-hso_net_init() only sets net->mtu = DEFAULT_MTU - 14 and never sets
-net->max_mtu, and hso has no ndo_change_mtu. dev_validate_mtu() in
-net/core/dev.c only enforces the upper bound when dev->max_mtu > 0.
-
-This means something like "ip link set hsoX mtu 4000" is accepted. Can a
-frame larger than 2048 bytes then overflow mux_bulk_tx_buf in
-hso_net_start_xmit()? usb_fill_bulk_urb() would also send skb->len bytes
-from that buffer to the device, reading past the end of the buffer.
-
-The patched hso_resume() still passes the stashed frame to this function.
-
-Would it make sense to set net->max_mtu = MUX_BULK_TX_BUF_SIZE in
-hso_net_init()? Another option is to drop frames with
-skb->len > MUX_BULK_TX_BUF_SIZE in hso_net_start_xmit().
-
-> +					else
-> +						dev_kfree_skb(skb);
->  				}
->  				result = hso_start_net_device(network_table[i]);
->  				if (result)
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115101646.244-1-chenaibing%40cmss.chinamobile.com
+If you want to undo deduplication, reply with:
+#syz undup
