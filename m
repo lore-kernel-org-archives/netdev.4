@@ -1,95 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794853279;
-	b=OD/5n0YmrAq46Uovap/b3+eXAdJvMwL4JHMWbde33tnY9oeFVmJXs204GWMIDECVj0F4
-	 qr+F1RxkdToUN7ZbkV8g3w3GTYBWsbCYTjS78SOHgleYPTYp18iqJRoq9CWGCryKG6pIo
-	 4SinjYnq0HaDylEqyTmgrpHYDiUzmBdRva+ngcsr516v2LpJXhfN9QvulkByEb4nvOrTK
-	 efCjYy4qFFItxHGQwDpRy3ZsCy12+hQXfSTifOLh9RSrX5DNXcyYxG1aA6iUtyxRlbBUK
-	 +Z/nDB/S9VGU777ttpWf6GzWXg0ory6QQKPXBFQUPi+wZ88cnqP4Zj8JTHTrk6G0gxg==
+	t=1794853498;
+	b=hjEKs0n3hK4PINqnftO9U0E6QyOa/FLe1G9ZL86vPCcmr/Kvvl9pHRdcPdGdk4PBMoDb
+	 39KlEN9UzxdlOPa5NTjKFJagUpv6o2n7Gp+tZQXLm1s9s+A6Wquk9cW7V6+MFAYmnyY2c
+	 fhRZEqn6hGLRrK3NOt+JjPdPmrggsZKbqUt7YyjHlMskMIcfefDKv2cCS4BWtvpQhjdyb
+	 3FqzUoiaU1ZIbz/CAvGAwABxH5kDxbWYqYPSWV74GurpGFS5NzD2QxZ8i7TXH7wXpzCt6
+	 kP1asWh564g/UVKFIDm64eiA2DyzhNG9SNlipivSb3ZYZSuOgxiRnux98R5B0jViiTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794853279;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=WLbvZZUrSw5V3WK97DepXaH190SbFLxLhAaVVJSONIc=;
-	b=hlcimxZGMwGu2uBLJqsTRlK6fyC1GkPMI6skVm3IlUKU0d/vZTvtt1c3mJmTOMiT8IF6
-	 sJG9f9JnxtjCr+jsOcLcUcEF7EKUWkuQbdVN2KGbD2Ho6AbkMqT+Cf1Crux7NelX0LHWu
-	 QLpBr+/IZmZg8RGyaDMTdAbtsmdMxRsOWkTbxXCcRx2KSfyk2SLh295ziarRNGqGq/pNq
-	 GxFVr0zGFGF72EMwkHvK3t63MuBqgEh44Tt3DiwOCFLUaqwPmsvv8ULqFPLpwtaLYLedT
-	 OCtQVAxPeiVzlYqE3pQbPcXe1fQ7WiE8f6n+SIjXEu/FTlYUMPdIu2e2qonza5spGQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794853498;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=XA+MlmsTnaQekZvsezoaPcmpVRDOL1KtXr3naLhDekg=;
+	b=NCWFHE8gJ+VkA8m0Jnc5mDTKiGz0Ngoyzt3uTNW054qMsjkl5IrywN8LDiRaLebL+Bno
+	 USCql+tDH2vnthyKwdnvaHU/kMFA5TbgTGeMwbmQJvRxWbbWtB7ArUO8/hj+KODIaf+x8
+	 Om1alg1J7bWaQrKKZIfuAAk6r4TkVaAQrYBC0b+YsvFj1ugXOOd03UYRvayJ863BK+vZP
+	 1fnpYkkEfcD8MIk1Gtq/guDgLJDUyTHhCAdN21lnNGmCcr1j9kTqwxGlKno4BAChUnIXB
+	 Goi+/ftdiG5ye2v0XejoVKjzeEBX2DTO8hVtwh6vByvGyh/dviAOHhFbMDIZtSDLKYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=cOyjGNXD;
-	arc=none smtp.remote-ip=209.85.215.174
-Received: from mail-pg1-f174.google.com (mail-pg1-f174.google.com [209.85.215.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SgIeVhBi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BA07606A322
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:21:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BA07606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2219A606A31C;
+	Mon, 16 Nov 2026 18:24:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=cOyjGNXD
-Received: by mail-pg1-f174.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so1557090a12.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:21:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1794853278; x=1795458078; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WLbvZZUrSw5V3WK97DepXaH190SbFLxLhAaVVJSONIc=;
-        b=cOyjGNXDLvqhDwt91E88cBd0axkpasya+Ob+OHfe5h39cjLZJ4zGpsY7vx1ZUURo1r
-         Ii4etqcM2pfsQzYCgWGhfa1BalVu2jk4Qy7XMre8BYtwhjIYPx7CpvfsLUgJTFJU4rgF
-         7x7ROfBVWpaALa2PG31G3YKQohwmdZZFz+tWs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794853278; x=1795458078;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WLbvZZUrSw5V3WK97DepXaH190SbFLxLhAaVVJSONIc=;
-        b=gBRMlv8uz/NPudVKjIPIvyOUGL48JetQGMOV8fqsBvzJYEpMoz2O5JQcDQQESXBaSt
-         HU2NnnUdxrkn4UqwFtGW83BcA+O0S29tbJfW3rJ01tLM08isIXN/XInZwQlu9CiR3KVj
-         aJoleeEOSDb00EtTZCjWKDq9SxlbbTHv6rjyLbi/xMfcFuJtHxP3YpKhHZCmNEgCI/Zl
-         TuwDkTbaNznwMV0v8+koXPgB4whOelbG2xtPD8HUlekbNQiJKl0GmJbLKbLwHFTU722+
-         xh075rQmBV5Lw3lmaPYCnkpMBmylijyWPmwrOuWBhBMmUY6V/H7EijrjFZV5nBiobG6w
-         ecmQ==
-X-Forwarded-Encrypted: i=1; AL+hErEuu5qpJZChvcwSNFGZkxp1RIOPHHMjRSdGo5iWyp9qYycfeuO/ENkNyxHPml3TlbgsCvFgoVE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8asSrnG1w2gBrAcBECeCjOmRAf1iMJNbD0AVBVnfBsqZl0L3j2
-	+qHgzbY3lAabeorZ/MG5E9QeSpX/pf0NWuSHd2J6lk/fR980YuXkFtIccclM65qrijE=
-X-Gm-Gg: AZFdTZcFyfLSg0130RpbkIKR4g7SYB+WsU0e4JEQtS7FYU1okHRllmS+hM262UINteN
-	sa6MohIjEMT6MX3IgUc3ypE0zTYPfgjimSQwEJLYmaxIncAtP1vcrSVbD5bAWptLbq3qIFHI6hj
-	4ViVkoXAKwi3lYofh21sc6B9fyOgPBS94MM8titvP8dJfy+iJ+3NPVOhuTq8ZWzN6GQIot/B29g
-	NP4LLxRGgiFjc8ixS16LLIRNtBK8K+KQ4zNNubwFjkQ+WWLIEJb4QKMpzzhWr5FHy6fhAob7NqQ
-	NxyT71LrEW6MUCzd2d39HliiQvvlKNY93xxO+9qV4oZZGT56n2axT0Tp3wJbQUv+OQZ6XL+tzNe
-	nBF0g05gmj8gu4CRZ/P4G2nha5B6hWQ1Q/aNPGfIfymXJgXCgwIx/80Hvu9N98HY0chyz0LtLnR
-	Jj4IwWCKSDpLOJdnwV0oNoqVVfo8Dgah2cM1U4KROncv0DHvA14zoFgYMcURL3PaAqchVOUUXtT
-	S155vSLp3WclrEq2ZLdjH7w4oKRAxike/mgzVeXlYDt4YMoWm/W5xzqSMp2CD5H3VY/IxjlXZcp
-	JM927VM/UeUivoMPvYTYW4Chc9ueUitu+XJrXy8qwzmgLpMJD4jnE0JZPyiw67tXyY0xoq4669G
-	v24tAsITDE2ZFG5gMcCl27eRxfIQ94/DUlyOCZEkfGCBL3+xHQp0OkKqZ6z8H4skJ
-X-Received: by 2002:a17:90a:e710:b0:3a8:92a3:8baa with SMTP id 98e67ed59e1d1-3b1b0a428b8mr9583988a91.27.1794853277539;
-        Mon, 16 Nov 2026 10:21:17 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac2b5ec6sm312798a91.10.2026.11.16.10.21.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 10:21:15 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: Jamal Hadi Salim <jhs@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>
-Subject: Re: [PATCH net] net/sched: act_csum: bound the IPv6 jumbo payload length
-Date: Mon, 16 Nov 2026 23:51:07 +0530
-Message-Id: <20261116182108.2581258-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SgIeVhBi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7A971F000C4;
+	Mon, 16 Nov 2026 18:24:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794853497;
+	bh=XA+MlmsTnaQekZvsezoaPcmpVRDOL1KtXr3naLhDekg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=SgIeVhBihQyYgnwdbZecmKRhj9gHH01x4DcmhMxd+OPSgkJveEgkb0jOKvTnfWah0
+	 sc++6AfcPGymw1ak10ITL01DC3xAKtjPHOx5ISg3f2ZyZBCcf5i0ovD//yE6ptE1+3
+	 Dh6IqdARURhe1pg3IcN7AgEHICFjhhrEz0058nEcw42pY0p2fMezCEne6kDUlaPzIV
+	 3w8cB7NTE1gcT5u9F9gs0eWCDJFJUzkDmIy4/jT6gzk0Mvj1QSD8YTxHflPZqRTkJx
+	 r8TYFfpZ4OWcfYZ2w9soug5cjdHevEcd/6odQpLESwAd3pyhP4Ioi+32iNPLdpkriQ
+	 sb5rwzZYSU4nQ==
+Subject: Re: [PATCH net V2] net/mlx5e: rep, Fix races between devcom PAIR
+ event and uplink close
+From: netdev-bot+sashiko@kernel.org
+To: tariqt@nvidia.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, gal@nvidia.com,
+ leon@kernel.org, linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
+ mbloch@nvidia.com, markzhang@nvidia.com, moshe@nvidia.com, saeedm@nvidia.com,
+ shayd@nvidia.com
+Date: Mon, 16 Nov 2026 18:24:56 +0000
+Message-ID: <179485349648.3136.17669005426251956349@kernel.org>
+In-Reply-To: <20261112182403.3646298-1-tariqt@nvidia.com>
+References: <20261112182403.3646298-1-tariqt@nvidia.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,89 +65,135 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-> Could the changelog say that TCP and ICMP csum configurations (for
-> example "action csum tcp") were also exposed to a bounded over-read? As
-> written, it reads as if only TCA_CSUM_UPDATE_FLAG_UDPLITE setups were
-> affected.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-You are right.  v2 follows this mail with the changelog corrected.  v1
-claimed those handlers were "protected by accident" because csum_partial()
-takes an int; that is true only of the kernel it was tested on, and I
-should have checked why.
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-The reason is worth putting in the changelog, because it is also why a
-KASAN fuzzer cannot find those three paths.  On x86 there are two
-implementations of csum_partial() and the configuration chooses between
-them:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-  arch/x86/Kconfig
-	config GENERIC_CSUM
-		bool
-		default y if KMSAN || KASAN
+- [High] The new locking only works if the unsynchronized read of
+  `esw->devcom` returns a valid pointer.
 
-  arch/x86/lib/Makefile
-	ifneq ($(CONFIG_GENERIC_CSUM),y)
-	        lib-y += csum-partial_64.o csum-copy_64.o csum-wrappers_64.o
-	endif
+--
 
-  lib/Makefile
-	obj-$(CONFIG_GENERIC_CSUM) += checksum.o
+net/mlx5e: rep, Fix races between devcom PAIR event and uplink close
 
-So a kernel with KASAN gets lib/checksum.c, whose do_csum() opens with
+This commit adds mlx5_devcom_comp_read_lock/unlock(), which take the
+devcom component semaphore for read whether or not comp->ready is set.
+It holds that lock across mlx5e_sqs2vport_start() and
+mlx5e_sqs2vport_stop() so that both are serialized against the
+ESW_OFFLOADS PAIR/UNPAIR handler.
 
-	if (len <= 0)
-		goto out;
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c b/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
+> index a50a42581528a..962c70b9b5661 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
 
-and a negative length reads nothing.  A kernel without KASAN - which is
-to say a production kernel - gets arch/x86/lib/csum-partial_64.c, which
-has no such test and dispatches like this:
+[ ... ]
 
-	if (likely(len >= 80)) { ... }   /* signed, false when negative */
-	if (len >= 40) { ... }           /* signed, false */
-	if (len & 32) { ... }            /* bitwise, runs */
-	if (len & 16) { ... }
-	if (len & 8)  { ... }
-	if (len & 7)  { ... }
+> @@ -630,8 +627,12 @@ mlx5e_remove_sqs_fwd_rules(struct mlx5e_priv *priv)
+>  	struct mlx5_eswitch *esw = priv->mdev->priv.eswitch;
+>  	struct mlx5e_rep_priv *rpriv = priv->ppriv;
+>  	struct mlx5_eswitch_rep *rep = rpriv->rep;
+> +	struct mlx5_devcom_comp_dev *devcom;
+>  
+> +	devcom = esw->devcom;
+> +	mlx5_devcom_comp_read_lock(devcom);
+> +	mlx5e_sqs2vport_stop(esw, rep);
+> +	mlx5_devcom_comp_read_unlock(devcom);
+>  }
 
-The first two tests are signed comparisons and the last four are bitwise,
-so a negative length reads whatever its low six bits say, up to
-32+16+8+7 = 63 bytes.  Your example confirms it exactly: len = -70 is
-0xFFFFFFBA, low byte 1011 1010, so the 32, 16, 8 and 2 blocks run and 58
-bytes are summed from the transport header.
+[Severity: High]
 
-That is why the KASAN report in the changelog names lib/checksum.c:119
-rather than the x86_64 file, and why only the UDP-Lite arm showed up: on
-the kernel that found this, the other three paths genuinely did read
-nothing, because enabling the sanitiser had replaced the implementation
-that would have over-read.  The over-read on tcf_csum_ipv6_tcp(),
-tcf_csum_ipv6_icmp() and the ul == 0 arm of tcf_csum_ipv6_udp() is real,
-it is bounded at 63 bytes rather than 65535, and it is invisible to the
-tool that would normally catch it.
+Are the races still reachable if esw->devcom is NULL or stale when it is
+read here and in mlx5e_sqs2vport_start()?
 
-This is a new posting rather than a reply in the old thread, so here is
-the context.  v1 and the review being answered:
+The load of esw->devcom is a plain unsynchronized read. The store side
+has no WRITE_ONCE() and the load side has no READ_ONCE().
+mlx5_devcom_comp_read_lock() also does nothing when passed NULL.
 
-  https://lore.kernel.org/r/20261112075445.3555341-1-piyus@iiitd.ac.in
+In esw_offloads_enable(), the uplink and VF reps are loaded and their
+netdevs registered before mlx5_esw_offloads_devcom_init() runs. That
+function publishes the pointer and sends the PAIR event right away:
 
-and the [BUG] report, with the original KASAN trace and the reproduction
-conditions, which went out as its own thread - not threaded with v1, which
-is my fault:
+drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c:mlx5_esw_offloads_devcom_init() {
+    ...
+	esw->devcom = mlx5_devcom_register_component(esw->dev->priv.devc,
+						     MLX5_DEVCOM_ESW_OFFLOADS,
+						     attr,
+						     mlx5_esw_offloads_devcom_event,
+						     esw);
+	if (!esw->devcom)
+		return;
 
-  https://lore.kernel.org/r/20261112075159.3552470-1-piyus@iiitd.ac.in
+	err = mlx5_devcom_send_event(esw->devcom,
+				     ESW_OFFLOADS_DEVCOM_PAIR,
+    ...
+}
 
-I checked your arithmetic and the three call sites before writing this,
-on net-next: act_csum.c:245, :196 and :343 respectively, each reached
-with the negative value behind only the wrapping pskb_may_pull() in
-tcf_csum_skb_nextlayer().
+The PAIR handler runs with comp->sem held for write. It goes through
+mlx5_esw_offloads_devcom_event()->mlx5_esw_offloads_pair()->
+mlx5e_vport_rep_event_pair(), which walks rpriv->vport_sqs_list for
+every loaded rep and calls xa_insert() on rep_sq->sq_peer.
 
-The code change is unchanged in v2 - as you say, bounding *pl in
-tcf_csum_ipv6_hopopts() closes all four paths, so the diff is byte-for-byte
-the same.  Only the changelog grows: it now says that TCP, ICMP and the
-ul == 0 UDP-Lite arm were exposed to a bounded over-read of up to 63 bytes
-on kernels without KASAN, and that the 65535-byte read is the UDP-Lite case
-specifically.
+A rep ndo_open or ndo_stop holds rtnl and priv->state_lock. The
+devlink-locked enable path holds neither across this window. If the rep
+reads esw->devcom before the store above, two things can happen:
 
-Thank you for the review - the KASAN-swaps-the-implementation part is
-something I would not have gone looking for.
+  - mlx5e_sqs2vport_start() snapshots devcom == NULL, so it takes no lock
+    and sees peers_ready == false. It then does list_add() into
+    rpriv->vport_sqs_list while the PAIR handler is walking that list.
+    SQs added after the walk also never get their peer send-to-vport
+    rules.
+
+  - mlx5e_remove_sqs_fwd_rules() calls mlx5e_sqs2vport_stop() without
+    the lock. That can list_del() and kfree() a rep_sq and its sq_peer
+    entries while mlx5e_vport_rep_event_pair() is still using them.
+
+These are the two races the commit message describes as fixed.
+
+On teardown, esw_offloads_disable() calls the devcom cleanup while the
+VF rep netdevs are still registered:
+
+	mlx5_esw_offloads_devcom_cleanup(esw);
+	mlx5_eswitch_disable_pf_vf_vports(esw);
+	mlx5_esw_offloads_rep_unload(esw, MLX5_VPORT_UPLINK);
+
+mlx5_esw_offloads_devcom_cleanup() frees the comp_dev before it clears
+the pointer:
+
+	mlx5_devcom_unregister_component(esw->devcom);
+	xa_destroy(&esw->paired);
+	xa_destroy(&esw->fdb_table.offloads.peer_miss_rules);
+	esw->devcom = NULL;
+
+Inside mlx5_devcom_unregister_component(), devcom_free_comp_dev() does:
+
+	down_write(&comp->sem);
+	list_del(&devcom->list);
+	WRITE_ONCE(comp->nr_devs, comp->nr_devs - 1);
+	up_write(&comp->sem);
+
+	kref_put(&devcom->devc->ref, mlx5_devcom_dev_release);
+	kfree(devcom);
+	kref_put(&comp->ref, mlx5_devcom_comp_release);
+
+The write lock only excludes readers that already hold comp->sem.
+
+Could a concurrent VF rep ndo_stop load the old esw->devcom in
+mlx5e_remove_sqs_fwd_rules() and then call down_read(&devcom->comp->sem)
+after the kfree()? The stop path did not touch esw->devcom before this
+patch, so this use-after-free would be new on the close path.
+
+Would it work better to serialize publishing and clearing esw->devcom
+against rep start/stop, instead of locking whatever pointer happens to be
+read at that moment?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112182403.3646298-1-tariqt%40nvidia.com
