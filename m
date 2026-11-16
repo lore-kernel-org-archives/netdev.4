@@ -1,49 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=218.76.62.146
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794822152;
-	b=xaC4sJY+O1sVr1kC/URzo32WomWe10VvZ5XJtlEDjuZnleUDJilw11PC3CyX9D4edXZ0
-	 KEpRfeopD2RwooF51me7Vl4CLNb9YfAsWJ2VV95cfhEbxv0hIR+fhcJvg+yChxM6uQOgS
-	 HpsBiIKnnnFVrY23VgmnJ6ci5HK5XrLXD+tp7NjpECnrZiSYPxPlu1GyM+/DsVW1vqxg5
-	 36DjppC4UIXIvhoAI8jOHdRp+53cK7kucJbAqiv0q5YPNs/LDLBNCnaUn4R+iUGuunfl6
-	 JnSQlyEpLVDJDU19jcI+OT+fY+kdj+TFyS0I3S30tf0WDw/NJMSC0BhTGiLgIPvANXA==
+	t=1794822240;
+	b=hAEUJPaVfXSLOoCPoBleAGAv+mLylbyYgUbGvJG5txQNXC06KMqp7zjVmmRBm6pKaCQ8
+	 b8ktv+Q8SrU3vJ11+PSqIIRxsYbFwFR7vNQnwvxvF0CVr6hwxSCtGzpQ5rYZSZE4esDqq
+	 lH2oMVOFczyaGpitburXcuZQW0BIIXFYLNeOCGqQ6WYV37mDlo+HGllG5ATeS1pMsul9V
+	 QK71/wqQsPuiGy95gyBucwIHQXi9kZXwNwxZkKy9myGIKlnSWP/59fyt5PbV2nc7fbnAH
+	 qWcd0evy8aM3JonMfLDaagSkzryW0s0QIumQzT6QuUuS6Uq42qV4cPMCIVLbV/N1TBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794822152;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=An7UuIxp03IASJQVhCkrJ11j5LJvQXg6N+oWMG7q8QQ=;
-	b=F60g6BydugNe5jL8lJk7h/JZwt56ZE+Oaj8HQNkkn6WfeMEeLVF6H0275x1URgomGWJu
-	 aozA6lxtytiAA5qJQDSx8gBOWnzw1WUo49Y1sIXJS99/UplwwETi/7jKI4Oq5RkBSGnsR
-	 hPE+ytxEXTxLnie3ckvQJ2ho5XHcckQkgTX7oPObAx2XTEeKjfkXvU70BNv7Uj4uRjLk/
-	 abZCYEEXiQ8m9pOI8JiLfdWsL7IiPAl78CZiovpDMAvGdNFjl/SpF60ss4CuOavVrSAjg
-	 LLfJRfrkGk2nxv0lLunNTHIgsbhRKEKOzVk19iBfZcZt6j67lHfwFO0jAwsInMu96GQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794822240;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=biJL2nCMkobNEt0JjETiPXr9Fx1inAXv607twINZeC8=;
+	b=BRq/9GyVwlkVFsFIqSoUpZ2EHvJlgM4bzh9HX+Q3KwBqFCT/mncVNYR9FplzLx4E+p1o
+	 4wotbQhHKA0PVoel2e2aARJ2+lhOy6KQt4BSf70pFoMrVbsbApB6Jrcn6HFqCdkCIKPW3
+	 epmP+9xuMSR8rHjNbw5Fkzdb3Y685e9+Z3M1TfE2n/+jNCr3YguPRjCRwo4oWtX1sEVHV
+	 0hr8HTklkbGqqgkuNnb/gcTtbpldrU+RqjptJjifZLMlu5KMmxGECGE0Y1MGpQjJSuStC
+	 UluQjW0W8FE9+l+HimXhF5gRLsa4pUSfJVSI3BeRlI1TqnvzxYZh5HuwS54dzMtw+sg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ultrarisc.com;
-	spf=pass smtp.mailfrom=ultrarisc.com;
-	dkim=pass header.d=ultrarisc.com header.i=@ultrarisc.com header.a=rsa-sha256 header.s=dkim header.b=f9ipurVX;
-	arc=none smtp.remote-ip=218.76.62.146
-Received: from ultrarisc.com (unknown [218.76.62.146])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id C40C5606A31C;
-	Mon, 16 Nov 2026 09:42:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C40C5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ultrarisc.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ultrarisc.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ObQHnZ8n;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 719D0606A329;
+	Mon, 16 Nov 2026 09:44:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ultrarisc.com header.i=@ultrarisc.com header.a=rsa-sha256 header.s=dkim header.b=f9ipurVX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=ultrarisc.com; s=dkim; h=Received:From:Date:Subject:
-	MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	To:Cc; bh=An7UuIxp03IASJQVhCkrJ11j5LJvQXg6N+oWMG7q8QQ=; b=f9ipur
-	VX/UghcfN/mb558IYBHJS+c63qswbFranYLmCjgbj/iokuRDa0D2fMmMXEZueWi8
-	4eBZKfLOqSYxXm8kMIeCMGHRmkhN+xGSgrLDdOQiMs/VbJBY5KpGBlRni+TMjA33
-	K+NLZ9kXCoIvYrziIQsGg88KXVcP/SPVFS4sg=
-Received: from [127.0.0.1] (unknown [192.168.100.1])
-	by localhost.localdomain (Coremail) with SMTP id AQAAfwDnrwbGz_pqSvUDAA--.1734S2;
-	Mon, 16 Nov 2026 17:41:26 +0800 (CST)
-From: Xincheng Ji <jixincheng@ultrarisc.com>
-Date: Mon, 16 Nov 2026 17:41:31 +0800
-Subject: [PATCH] MAINTAINERS: Update UltraRISC driver maintainers
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ObQHnZ8n
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 298381F000C4;
+	Mon, 16 Nov 2026 09:43:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794822240;
+	bh=biJL2nCMkobNEt0JjETiPXr9Fx1inAXv607twINZeC8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ObQHnZ8nygy66dswO+XYCUMXCIHDeXrjlchUSE7kwqoxyV9Ez5uGUKzAp3N8FDNyE
+	 cJ0vgUgew6xWHp6y7sZz+5oSmmUiqCdM0wxUm1pNaD/NuQgiUGXTbEieUa1FAOXioO
+	 UpmKhsxkVknCux2l1R1jY7JkreG4pyo/5rw9AEAYlWPmswhFBx1FljvDXkSuAlUkeV
+	 cIG9fuv5gm6hKUW/XiEexQT/rIwS0aSE3ciXZfbA+LwnyfP15pyNgNtVLqGARJxKa+
+	 bY1ApgjqpqUoJRxbYiAh1q9FU9X5bbLLAzWmC0ECWWfNuDF0fJO78f0THgA99pVxYC
+	 P6F+HM49JAV3A==
+Subject:
+ Re: [PATCH net v6] genetlink: Reject joining multicast groups no family owns
+From: netdev-bot+sashiko@kernel.org
+To: anilkaushikwireless@gmail.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, idosch@nvidia.com,
+ nicolas.dichtel@6wind.com, jacob.e.keller@intel.com, jiri@resnulli.us,
+ fw@strlen.de, martineau@kernel.org, v3rdant.xiang@gmail.com,
+ aliceryhl@google.com, linux-kernel@vger.kernel.org
+Date: Mon, 16 Nov 2026 09:43:58 +0000
+Message-ID: <179482223865.3136.3369549991780791717@kernel.org>
+In-Reply-To: <20261112094205.1120090-1-anilkaushikwireless@gmail.com>
+References: <20261112094205.1120090-1-anilkaushikwireless@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,140 +65,162 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
-X-B4-Tracking: v=1; b=H4sIAMrP+moC/yXMQQqDMBCF4avIrBtwIkr1KqWLGEc7oqnMRCmId
- 2/UxVt8i/fvoCRMCk22g9DGyt+QgI8M/MeFgQx3yWBzWyFibtYpihNWb2bHIaaRmLoqu2dZo3V
- FC+m6CPX8u7Kv921d25F8PFtwHH+phzXFeAAAAA==
-X-Change-ID: 20261110-ultrarisc-maintainer-965d85912a3b
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Linus Walleij <linusw@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>
-Cc: Rob Herring <robh@kernel.org>, linux-pci@vger.kernel.org, 
- linux-clk@vger.kernel.org, netdev@vger.kernel.org, 
- linux-gpio@vger.kernel.org, Fei Chen <chenfei@ultrarisc.com>, 
- Conor Dooley <conor@kernel.org>, linux-riscv@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Xincheng Ji <jixincheng@ultrarisc.com>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794822092; l=3017;
- i=jixincheng@ultrarisc.com; s=20260922; h=from:subject:message-id;
- bh=ISg1g4ONyICVsyMrVHbkY7NCHgvfTE297DDq/TSYiOU=;
- b=nczyInXsPH5sXfo1MLZNPno9PuLSKd3gFkJQMiE/xCgmrwPeQuSEY8uiC49TYcn3m9dHbb7IP
- QWW6JkKynTlAaOBT2GxoeMmkYPYBFn/kkvxpTc/A8PIQFWZtE/f5n+S
-X-Developer-Key: i=jixincheng@ultrarisc.com; a=ed25519;
- pk=n848dcS5D6g0vLad/rjp4Gf/1eedTe1a3pYUrkt2260=
-X-CM-TRANSID:AQAAfwDnrwbGz_pqSvUDAA--.1734S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxAFy8ZFWDKrW5JFWxuw1rZwb_yoW5Cw1fpr
-	45CF15Cr97Jr13Wan7Ka4fZas5X3W0krWUCasrKw1jyF1Fkw18Jrs5Kw15u3Wq9F48AFZI
-	yw13urnrta109a7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUU9l14x267AKxVWrJVCq3wAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1j6r1xM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Jr0_Gr1l84ACjcxK6I8E87Iv6xkF7I0E14v26r4j6r
-	4UJwAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r
-	4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwACI402YVCY1x02628v
-	n2kIc2xKxwCY1x0262kKe7AKxVW8ZVWrXwCY02Avz4vE-syl42xK82IYc2Ij64vIr41l4I
-	8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AK
-	xVWUGVWUWwC2zVAF1VAY17CE14v26r4a6rW5MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcV
-	AFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8I
-	cIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r
-	4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjTRM6wCDUUUU
-X-CM-SenderInfo: pml0x0xfkh0wg6xo325dul2uoofrz/1tbiAQAKDmr2s7AAAQALsQ
 
-Jia Wang and Xincheng Zhang have left UltraRISC and are no longer
-maintaining its drivers. Jia's listed company email address is
-no longer available.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Replace Jia Wang with Xincheng Ji and add Fei Chen as a co-maintainer
-for the DP1000 PCIe, clock, DWMAC and pinctrl drivers. Remove
-Xincheng Zhang from the PCIe maintainer entry.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Having two maintainers provides continuity for maintenance and
-patch review when either maintainer is unavailable, as suggested
-by Conor Dooley during the UltraRISC maintenance handover.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Link: https://lore.kernel.org/all/20261112-legend-outcast-c2226b5e02a1@spud/
+- [Medium] The fix still lets a socket become a member of a multicast
+  group ID that no family owns.
+- [Low] The patch changes how the reserved, uAPI-exported static
+  multicast group IDs behave, and nothing a uAPI consumer would read…
 
-Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
----
-Hi all,
+--
 
-Jia Wang and Xincheng Zhang have left UltraRISC and no longer
-maintain these drivers. Jia's listed company email address is
-no longer available.
+genetlink: Reject joining multicast groups no family owns
 
-Fei Chen and I will share maintenance and patch review for the
-UltraRISC DP1000 PCIe, clock, DWMAC and pinctrl drivers. Having two
-maintainers provides continuity when either of us is unavailable,
-as suggested by Conor Dooley during the maintenance handover.
+With this patch, genl_bind() returns -ENOENT for a multicast group ID
+that no registered family owns. This stops unprivileged sockets from
+joining IDs ahead of time and later getting the messages of a
+capability-gated family. netlink_bind() skips IDs whose bind callback
+returns -ENOENT and joins the others, and
+setsockopt(NETLINK_ADD_MEMBERSHIP) returns the error.
 
-Thanks,
-Xincheng
----
- MAINTAINERS | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
+Link: https://lore.kernel.org/netdev/179324692107.3134.14443689892607921337@kernel.org/
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index ccbcdc0799b9..994c3555c423 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21869,8 +21869,8 @@ F:	Documentation/devicetree/bindings/pci/starfive,jh7110-pcie.yaml
- F:	drivers/pci/controller/plda/pcie-starfive.c
- 
- PCIE DRIVER FOR ULTRARISC DP1000
--M:	Xincheng Zhang <zhangxincheng@ultrarisc.com>
--M:	Jia Wang <wangjia@ultrarisc.com>
-+M:	Xincheng Ji <jixincheng@ultrarisc.com>
-+M:	Fei Chen <chenfei@ultrarisc.com>
- L:	linux-pci@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/pci/ultrarisc,dp1000-pcie.yaml
-@@ -28749,7 +28749,8 @@ F:	drivers/usb/common/ulpi.c
- F:	include/linux/ulpi/
- 
- ULTRARISC DP1000 CLOCK DRIVER
--M:	Jia Wang <wangjia@ultrarisc.com>
-+M:	Xincheng Ji <jixincheng@ultrarisc.com>
-+M:	Fei Chen <chenfei@ultrarisc.com>
- L:	linux-clk@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/clock/ultrarisc,dp1000-clk.yaml
-@@ -28757,13 +28758,15 @@ F:	drivers/clk/ultrarisc/*
- F:	include/dt-bindings/clock/ultrarisc,dp1000-clk.h
- 
- ULTRARISC DP1000 DWMAC GLUE LAYER
--M:	Jia Wang <wangjia@ultrarisc.com>
-+M:	Xincheng Ji <jixincheng@ultrarisc.com>
-+M:	Fei Chen <chenfei@ultrarisc.com>
- S:	Maintained
- F:	Documentation/devicetree/bindings/net/ultrarisc,dp1000-gmac.yaml
- F:	drivers/net/ethernet/stmicro/stmmac/dwmac-ultrarisc.c
- 
- ULTRARISC DP1000 PINCTRL DRIVER
--M:	Jia Wang <wangjia@ultrarisc.com>
-+M:	Xincheng Ji <jixincheng@ultrarisc.com>
-+M:	Fei Chen <chenfei@ultrarisc.com>
- L:	linux-gpio@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/pinctrl/ultrarisc,dp1000-pinctrl.yaml
+> diff --git a/net/netlink/af_netlink.c b/net/netlink/af_netlink.c
+> index 69bb951b5fb8a..ee573ba6396dc 100644
+> --- a/net/netlink/af_netlink.c
+> +++ b/net/netlink/af_netlink.c
+> @@ -1033,6 +1033,12 @@ static int netlink_bind(struct socket *sock, struct sockaddr_unsized *addr,
+>  			err = nlk->netlink_bind(net, group + 1);
+>  			if (!err)
+>  				continue;
+> +			/* no one owns this group, still join the others */
+> +			if (err == -ENOENT) {
+> +				__clear_bit(group, &groups);
+> +				err = 0;
+> +				continue;
+> +			}
 
----
-base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
-change-id: 20261110-ultrarisc-maintainer-965d85912a3b
+[Severity: Low]
+Should the uAPI side document this change for the reserved static IDs?
 
-Best regards,
---  
-Xincheng Ji <jixincheng@ultrarisc.com>
+include/uapi/linux/net_dropmon.h still exports:
 
+/*
+ * Our group identifiers
+ */
+#define NET_DM_GRP_ALERT 1
+
+genetlink.c also still reserves that ID for static use in mc_group_start
+("the drop-monitor code abuses the API and thinks it can statically use
+group 1"). It reserves GENL_ID_VFS_DQUOT and GENL_ID_PMCRAID the same
+way, and genl_validate_assign_mc_groups() always uses first_id = 1 for
+NET_DM.
+
+After this patch, genl_bind() returns -ENOENT for these IDs until the
+owning family registers. If setsockopt(NETLINK_ADD_MEMBERSHIP,
+NET_DM_GRP_ALERT) runs before drop_monitor (or pmcraid) is loaded, it now
+fails with ENOENT.
+
+A bind() with nl_groups bit 0 set returns 0. Because of the __clear_bit()
+above, the socket does not get that membership, so the program sees no
+events and no error.
+
+The commit message accepts this trade-off ("a program that joins a fixed
+ID such as NET_DM_GRP_ALERT before the family is loaded no longer gets
+its messages"). Could the uAPI header and the comment above mc_group_start
+be updated to say that the family has to be registered before the join?
+
+>  			netlink_undo_bind(group, groups, sk);
+>  			return err;
+>  		}
+> diff --git a/net/netlink/genetlink.c b/net/netlink/genetlink.c
+> index 5cc1037d4917e..f038f04ef4ead 100644
+> --- a/net/netlink/genetlink.c
+> +++ b/net/netlink/genetlink.c
+> @@ -1825,7 +1825,7 @@ static int genl_bind(struct net *net, int group)
+>  {
+>  	const struct genl_family *family;
+>  	unsigned int id;
+> -	int ret = 0;
+> +	int ret = -ENOENT;
+>  
+>  	down_read(&cb_lock);
+>  
+> @@ -1841,6 +1841,7 @@ static int genl_bind(struct net *net, int group)
+>  			continue;
+>  
+>  		grp = &family->mcgrps[i];
+> +		ret = 0;
+>  		if ((grp->flags & GENL_MCAST_CAP_NET_ADMIN) &&
+>  		    !ns_capable(net->user_ns, CAP_NET_ADMIN))
+>  			ret = -EPERM;
+
+[Severity: Medium]
+Can a socket still become a member of an ID that no family owns?
+
+genl_bind() checks ownership under down_read(&cb_lock) and releases the
+lock before it returns. The membership is set later, and ownership is
+not checked again:
+
+netlink_bind()
+    err = nlk->netlink_bind(net, group + 1);   /* genl_bind(), cb_lock dropped */
+    ...
+    netlink_table_grab();
+    ...
+    nlk->groups[0] = (nlk->groups[0] & ~0xffffffffUL) | groups;
+
+netlink_setsockopt() has the same gap for NETLINK_ADD_MEMBERSHIP:
+
+    err = nlk->netlink_bind(sock_net(sk), val);
+    ...
+    netlink_table_grab();
+    netlink_update_socket_mc(nlk, val,
+                             optname == NETLINK_ADD_MEMBERSHIP);
+
+If genl_unregister_family() runs in that window, it takes cb_lock for
+write and calls genl_unregister_mc_groups():
+
+    __netlink_clear_multicast_users(
+            net->genl_sock, family->mcgrp_offset + i);
+    ...
+    if (grp_id != 1)
+            clear_bit(grp_id, mc_groups);
+
+The binding socket is not a member yet, so this does not clear it. The
+ID is then freed and the family is removed from genl_fam_idr. After
+that, netlink_bind() or netlink_update_socket_mc() sets the bit on the
+free ID.
+
+A family registered later through genl_allocate_reserve_groups() could
+get that ID and inherit the member. One example is a family loaded on
+demand through CTRL_CMD_GETFAMILY -> request_module(). NET_DM could also
+come back on ID 1. Either way, the GENL_MCAST_CAP_NET_ADMIN or
+GENL_MCAST_CAP_SYS_ADMIN check never runs for that socket.
+
+When the socket closes, netlink_release() -> genl_unbind() then calls the
+new family's unbind(i) with no matching bind(i). Could that unbalance the
+listener counting in families that implement bind/unbind, such as
+thermal_genl_unbind()?
+
+The commit message says this window is not covered ("This does not
+cover a family that is unregistered between the check and the point
+where the membership bit is set"). Hitting it needs a family to be
+unregistered at the same time, usually a privileged module unload or a
+module init failure. But the result is the state this patch is meant to
+prevent.
+
+Is a recheck at the point where the membership is set planned as a
+follow-up?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112094205.1120090-1-anilkaushikwireless%40gmail.com
