@@ -1,61 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794837062;
-	b=We6f56KHEiOJQAmlwpK+HhpdGzBlGDZ3T1k8DopYrn4FYXMmPqvgBjv6X7il5aFoe8Vu
-	 Mpj8E9B3p/ZFfUN0F+fsuSClvIffsz0kykSjHgI2Aazmp6HwGlFRtFJJb8g9NccowuCT7
-	 maycapiuM0zMzx7Be/VyBjGDw969O5yG7gNai1EmBCe0aZSipC3oaaedcxBxxblwPIRV0
-	 8KOEhv8imKaAz+UKHr40lXW1H3+XRkmiNv3fuwUyN0r8v6w0yM67/vahDh1+AB9bWMEkK
-	 Lgwt8uH3uKOjV8zx3Zj+7Oz9YZUzGGRb6pcneSBbPLI2Vm925gnH/fDmbqVV1HHw0aw==
+	t=1794837068;
+	b=3WY1dhbCfbROofHzKlODwbxLVHCe2dxPQ08rK++W9D9QDronjlKP1Pazxrxj3KGoyXBg
+	 +iqoFCe/30lmmlYXiPTgvfTzmIL7ClTFgNi08aApzOiUj0NiW7m4v7OhA9DoLzat/UhNC
+	 DNnBxPtk11VsRmnOPghj/wjSOYWjH326J2FLVBxq/OocjlR1WFxEBBkPjuX2QC6jI7jj8
+	 iif+6BsrmS6sQQFXHfX7+cy9hQwNpKNsZ4rMNTpMtbhIY+XLoLosdZ/ZtXCVMfmYFcGKP
+	 4/kNUK0pPlB0rq6/nfSZovG4nhZ6K91TxqNzBxzEOIkSDLHg7KEcK1IHnYkXy/g362A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794837062;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794837068;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=lgF1/gF7h+RVc8g5jPb5SPiZYQniC3NQfKWjaikhx3k=;
-	b=R2XWG3m/jqA88VZT9MB3m22veqZLviqih7F+UGEgG/atJqMU/n4QwdURevFcJZHb9U20
-	 1dhH3/W/M1uuJQUIK7d3hNMMfEeZUCIhF1YCvx3LrV1pFtinYcVBD2IuvSHpr5i6R4D2c
-	 S/cAMbx6+M+ImHcuh572jX6rFUNqygshUVO5/ic+bhXCvN0oOaL/n+1N7CxBxk0VudhJv
-	 KATCaMUNu+J7X9iV2nqtcDjGapoLHXLMB6gt9F2Gx7Uqord8oczbaElpcO98utmRWfxm6
-	 XYa5NObCSI60hSbF9LNRvIk7I4zB4s8kOo9Hso531UVoApeuxlHu2J8RInYBzr9csPg==
+	bh=4ZuD8B6hoNm8RHjKxcqJEK2enGEm+a0togdRV6PHQdQ=;
+	b=oWTZJ4lXorsjZ/IJHVIGoqOzm2wsIUg0Mzg15lV6xlswEMAszAIfA4ijwLsOwRVXOVk/
+	 iC4PMjGHTQGeKfPwXHKPbJt/0X1Nn23EJy6fqatMQz1/GuloPYg7W5WwI7+UM2SJJtpOU
+	 3ykxlKDSoOaY/JmknqkgeRwQdzlXJDv1r7b3AqmH4UtRMDZXDIVyir18xuVTxsmXxPgoj
+	 dKhA6jk+fuqjmW2pvX4c2J+0NrtWJEb3H8USLaHb+Pefq8ODHsZhoYvdczeN0/DkeZbc0
+	 LCK9IyimQYMM5RI0sClLyMo4+G5t1+avAvXhZ3EmqL6VxsJAERBEK12YhFADbmOGpAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TSn6v31x;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M2u72R0l;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD92D606B22D;
-	Mon, 16 Nov 2026 13:51:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 579D1606A896;
+	Mon, 16 Nov 2026 13:51:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TSn6v31x
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15D801F000CF;
-	Mon, 16 Nov 2026 13:51:01 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M2u72R0l
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1A0A01F000C4;
+	Mon, 16 Nov 2026 13:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794837062;
-	bh=lgF1/gF7h+RVc8g5jPb5SPiZYQniC3NQfKWjaikhx3k=;
+	s=k20260515; t=1794837067;
+	bh=4ZuD8B6hoNm8RHjKxcqJEK2enGEm+a0togdRV6PHQdQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=TSn6v31x8W+l0sD8mYCVIj3CbMNq5CArt/9Z8c6/f/lr4CsbV5vLIxiU2sjwzdYp5
-	 wpOl1WIp1Q8hCn8KAbUjKLc8BUu9mQe2V6qqgU7qIF6Z3CALEtC6DZQVClzR4+/hkA
-	 KtUhPH8vdK7AmhnN4IDC25XHu6wtcvL6XSriXuk7sM9RDzTx2ivWDtNX+6pSWWAHf5
-	 T37c48dPkI+L5VNFCjyiaTCWmb4aKzdB0SD+DgU5c15XLgBNRAFn62voyJZUab9+5m
-	 UsWj51gmzYr0sglufkHGvtKy3UBUr0N2jGup4AbD6dVYeheZ2wPOSiwS3R5p4As8A4
-	 Q22LX6ihtY7BA==
-Subject:
- Re: [PATCH net-next v03 1/4] hinic3: Solve an stall issue in hinic3_rx_poll()
+	b=M2u72R0lKsdFXpPt2rj1f0V6NREVyNtpflspHFPxqWpwLgSIg99ycLNte0cDSixiu
+	 xGgBVLgbYANmznimAEGQ/gQ4dX7Naw8gNit823UXp6kYow2oO2nic6Qr/fxuqJD/oQ
+	 OYYnRvZKAf5igr7CFJx5QBkMNeFNUQpig8DLf/WVsQ76JvPjjhoggy9coRb+0Y8hPc
+	 ynj2WI7y7UwitpR9XS9i0Jq4FDOP+rj4Haj38dMbu7VKNTVbBJ/0L8LYQ+aTTPqNV6
+	 zQ+6JhJrhQqcQ92Ayh0LLtkRln4dbrqGWkSouDe+n+v0D+AuEezxR24eDKIC5QOfs1
+	 PbliYSXwliKDg==
+Subject: Re: [PATCH net] net: ibm: emac: attach the fixed-link PHY with
+ of_phy_connect()
 From: netdev-bot+sashiko@kernel.org
-To: gongfan1@huawei.com
-Cc: wudi234@huawei.com, tengpeisen@huawei.com, netdev@vger.kernel.org,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, andrew+netdev@lunn.ch, ioana.ciornei@nxp.com,
- maxime.chevallier@bootlin.com, mohsin.bashr@gmail.com,
- dimitri.daskalakis1@gmail.com, hramamurthy@google.com,
- larysa.zaremba@intel.com, vadim.fedorenko@linux.dev,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- zhoushuai28@huawei.com, wulike1@huawei.com
-Date: Mon, 16 Nov 2026 13:51:00 +0000
-Message-ID: <179483706058.3136.10285830784203129885@kernel.org>
-In-Reply-To: <8d5247fdc88d6a2db6340da79eb9b64f3cdd20e0.1794467919.git.gongfan1@huawei.com>
-References: <8d5247fdc88d6a2db6340da79eb9b64f3cdd20e0.1794467919.git.gongfan1@huawei.com>
+To: xiaolinkui@126.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, rosenp@gmail.com,
+ jacob.e.keller@intel.com, daniel.machon@microchip.com, chunkeey@gmail.com,
+ kees+treewide@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
+Date: Mon, 16 Nov 2026 13:51:06 +0000
+Message-ID: <179483706662.3136.12689489417547730312@kernel.org>
+In-Reply-To: <20261112075321.3903875-1-xiaolinkui@126.com>
+References: <20261112075321.3903875-1-xiaolinkui@126.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -69,10 +66,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Critical: 0 · High: 1 · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -80,104 +77,204 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The fix does not cover the case where the RX refill fails, so
-  the RQ can still stall.
+- [High] The patch attaches the fixed-link PHY with of_phy_connect() in
+  emac_init_phy() (drivers/net/ethernet/ibm/emac/core.c:2680) but never…
+- [Medium] In emac_init_phy()
+  (drivers/net/ethernet/ibm/emac/core.c:2684), the fixed-link path calls…
+- [Medium] net: ibm: emac: fixed-link PHY leak in emac_init_phy() on
+  connect error
 
 --
 
-hinic3: Solve an stall issue in hinic3_rx_poll()
+net: ibm: emac: attach the fixed-link PHY with of_phy_connect()
 
-This patch makes hinic3_rx_poll() return the full budget in two cases:
-recv_one_pkt() fails, or the LRO replenish threshold is reached. In both
-cases NAPI keeps polling instead of completing and re-enabling the
-interrupt while unprocessed CQEs or depleted WQEs remain.
+This commit changes the fixed-link branch of emac_init_phy(). Instead of
+setting ndev->phydev by hand, it now calls of_phy_connect(), so the fixed
+PHY is properly attached and enters the netdev's phy_link_topology. This
+avoids a NULL link_topo dereference in phy_prepare_data() for
+ETHTOOL_MSG_PHY_GET.
 
-> diff --git a/drivers/net/ethernet/huawei/hinic3/hinic3_rx.c b/drivers/net/ethernet/huawei/hinic3/hinic3_rx.c
-> index 309ab59013797..f2262cdd66287 100644
-> --- a/drivers/net/ethernet/huawei/hinic3/hinic3_rx.c
-> +++ b/drivers/net/ethernet/huawei/hinic3/hinic3_rx.c
+> diff --git a/drivers/net/ethernet/ibm/emac/core.c b/drivers/net/ethernet/ibm/emac/core.c
+> index 640618c0a09e9..6e8b71138bb9a 100644
+> --- a/drivers/net/ethernet/ibm/emac/core.c
+> +++ b/drivers/net/ethernet/ibm/emac/core.c
+> @@ -2674,11 +2674,14 @@ static int emac_init_phy(struct emac_instance *dev)
+>  				return res;
+>  
+>  			res = of_phy_register_fixed_link(np);
+> -			ndev->phydev = of_phy_find_device(np);
+> -			if (res || !ndev->phydev)
+> -				return res ? res : -EINVAL;
+> -			emac_adjust_link(dev->ndev);
+> -			put_device(&ndev->phydev->mdio.dev);
+> +			if (res)
+> +				return res;
+> +
+> +			if (!of_phy_connect(ndev, np, &emac_adjust_link, 0,
+> +					    dev->phy_mode))
+> +				return -EINVAL;
+
+[Severity: Medium]
+When of_phy_connect() fails here, the fixed PHY that
+of_phy_register_fixed_link(np) registered a few lines above is never
+cleaned up. emac_init_phy() returns -EINVAL immediately. Neither this
+function nor the emac_probe() error path calls
+of_phy_deregister_fixed_link(np).
+
+of_phy_register_fixed_link() goes through fixed_phy_register(), which
+does three things:
+
+- takes one of the NUM_FP slots in the fixed PHY table;
+- takes a reference on np with of_node_get();
+- registers a phy_device on the global fixed MDIO bus.
+
+All of this survives the failed probe.
+
+of_phy_connect() can return NULL here in several ways:
+
+- of_phy_find_device() does not find the device;
+- phy_attach_direct() fails in try_module_get(),
+  phy_link_topo_add_phy() or phy_init_hw();
+- phy_attach_direct() hits the -EBUSY "PHY already attached" case.
+
+The last case ties in with the missing phy_disconnect() in
+emac_remove(). On a rebind the first fixed PHY is still attached. Every
+later probe attempt then registers another fixed PHY for the same
+of_node, fails to connect, and leaks it. The fixed PHY table has only
+NUM_FP slots and is shared by the whole system. Wouldn't a few
+unbind/bind cycles exhaust it, so that fixed-link users of other
+drivers fail too?
+
+The old code had a similar leak when of_phy_find_device() returned
+NULL. This patch rewrites this error handling anyway. Could the failure
+branch call of_phy_deregister_fixed_link(np) before returning? The
+drivers named in the commit message deregister the fixed link on their
+probe error paths. The same unwinding would also be needed when probe
+fails after emac_init_phy() has succeeded.
+
+[Severity: High]
+
+This path now really attaches the PHY. Does anything ever detach it? I
+couldn't find phy_disconnect(), phy_detach() or
+of_phy_deregister_fixed_link() anywhere under
+drivers/net/ethernet/ibm/emac/.
+
+Two paths leave the attach in place. In emac_probe(), a register_netdev()
+failure jumps straight to err_detach_tah:
+
+    err = register_netdev(ndev);
+    if (err) {
+        ...
+        goto err_detach_tah;
+    }
+
+and emac_remove() only does:
+
+    unregister_netdev(dev->ndev);
+    ...
+    mal_unregister_commac(dev->mal, &dev->commac);
+    emac_put_deps(dev);
+
+The ndev comes from devm_alloc_etherdev(), so devres frees it on unbind or
+on a failed probe. The fixed PHY stays registered on the global fixed MDIO
+bus. Its attached_dev, adjust_link and phy_link_change fields still point
+at the freed netdev. Before this patch, attached_dev stayed NULL on this
+path.
+
+Can this lead to a use-after-free on system suspend? The path would be:
+
+mdio_bus_phy_suspend()
+  mdio_bus_phy_may_suspend()
+    if (netdev->ethtool->wol_enabled)
+        return false;
+
+where netdev is the stale attached_dev. phy_suspend() also reads
+netdev->ethtool->wol_enabled.
+
+Does rebinding break too? On unbind/bind, a module reload, or a retry
+after a failed register_netdev(), of_phy_register_fixed_link(np) registers
+a second fixed PHY with the same of_node. But of_phy_find_device(np)
+inside of_phy_connect() returns the first one, which is still attached.
+phy_attach_direct() then fails here:
+
+    if (phydev->phy_link_change) {
+        phydev_err(phydev, "PHY already attached\n");
+        err = -EBUSY;
+
+so emac_init_phy() returns -EINVAL on every later probe. The old code
+rebound without an error, which doesn't seem to match this part of the
+commit message:
+
+    so nothing else changes.
+
+Each bind also seems to leak a few things:
+
+- the device reference;
+- the try_module_get() on the fixed_phy module, which then can't be
+  unloaded;
+- the module reference on the genphy driver;
+- the phy_device_node allocated by phy_link_topo_add_phy(), because
+  netdev_free_phy_link_topology() only calls xa_destroy() on topo->phys.
+
+The of_phy_connect() kernel-doc says:
+
+    The refcount must be dropped by calling phy_disconnect() or phy_detach().
+
+The drivers named in the commit message (gianfar, fec, davinci_emac,
+nixge) pair of_phy_connect() with phy_disconnect() and
+of_phy_deregister_fixed_link(), both on teardown and on the error paths.
+
+The commit message leaves phy_disconnect() to a separate change. But this
+patch is what creates the attach state on the fixed-link path. Should
+phy_disconnect() and of_phy_deregister_fixed_link() be added here, both to
+the emac_probe() error path after emac_init_phy() and to emac_remove()?
+
+> +
+> +			emac_adjust_link(ndev);
+
+[Severity: Medium]
+
+Does phydev hold valid speed, duplex and pause values at this point?
+
+fixed_phy_register() only stores the status in fmb_fixed_phys[] for
+register emulation:
+
+    fmb_fixed_phys[phy_addr].status = *status;
+    fmb_fixed_phys[phy_addr].status.link = true;
+
+and phy_device_create() starts with:
+
+    dev->speed = SPEED_UNKNOWN;
+    dev->duplex = DUPLEX_UNKNOWN;
+    dev->pause = false;
+
+None of phy_attach_direct(), phy_probe(), phy_init_hw() or phy_resume()
+reads link status, and the state machine is not started.
+
+So emac_adjust_link() copies SPEED_UNKNOWN, DUPLEX_UNKNOWN and pause = 0
+into dev->phy. That overwrites the dev->phy.pause = 1 set earlier in this
+branch, and the SPEED_100/DUPLEX_FULL defaults from emac_probe().
+
+emac_open() then calls emac_configure(). Because duplex is not
+DUPLEX_FULL, it leaves out EMAC_MR1_FDE / EMAC_MR1_MWSW_001 and the flow
+control bits. It takes the default case in the dev->phy.speed switch, and
+it passes SPEED_UNKNOWN to rgmii_set_speed() / zmii_set_speed().
+
+Wouldn't that leave the MAC at 10 Mb/s half duplex whatever the
+fixed-link node says, for example 1000/full to an RTL8363SB switch?
+
+The old hand-assignment code behaved the same way, but the commit message
+relies on this call to configure the link:
+
+    emac_adjust_link() is still called once by hand
+    afterwards and the PHY state machine is still not started, because a
+    fixed link does not change.
+
+Now that the PHY is attached, could phy_read_status(ndev->phydev) be
+called under phydev->lock before emac_adjust_link()? Or could phylib drive
+the handler instead?
 
 [ ... ]
 
-> @@ -581,12 +584,14 @@ int hinic3_rx_poll(struct hinic3_rxq *rxq, int budget)
->  
->  		rx_cqe->status = 0;
->  
-> -		if (num_wqe >= nic_dev->lro_replenish_thld)
-> +		if (num_wqe >= nic_dev->lro_replenish_thld) {
-> +			poll_again = true;
->  			break;
-> +		}
->  	}
->  
->  	if (rxq->delta >= HINIC3_RX_BUFFER_WRITE)
->  		hinic3_rx_fill_buffers(rxq);
->  
-> -	return nr_pkts;
-> +	return poll_again ? budget : nr_pkts;
-
-[Severity: High]
-Can the RQ still stall when the refill itself fails? The return value of
-hinic3_rx_fill_buffers() is ignored here, and poll_again is not set when
-fewer WQEs than needed get posted.
-
-hinic3_rx_fill_buffers() stops at the first page_pool allocation failure.
-If that happens on the very first WQE, it rings no doorbell at all:
-
-drivers/net/ethernet/huawei/hinic3/hinic3_rx.c:hinic3_rx_fill_buffers() {
-    ...
-	for (i = 0; i < free_wqebbs; i++) {
-		...
-		err = rx_alloc_mapped_page(rxq->page_pool, rx_info,
-					   rxq->buf_len);
-		if (unlikely(err))
-			break;
-		...
-	}
-
-	if (likely(i)) {
-		hinic3_write_db(rxq->rq, rxq->q_id & 3, DB_CFLAG_DP_RQ,
-				rxq->next_to_update << HINIC3_NORMAL_RQ_WQE);
-    ...
-}
-
-Under memory pressure, refills can fail across several polls while
-hinic3_fetch_rx_buffer() keeps adding sge_num to rxq->delta for each
-consumed packet. Large LRO frames, which use up to 16 WQEs each, drain the
-posted WQEs quickly.
-
-On the last such poll the loop drains all CQEs and exits on !RXDONE. The
-refill fails again, and hinic3_rx_poll() returns nr_pkts < budget. Then
-hinic3_poll() does this:
-
-drivers/net/ethernet/huawei/hinic3/hinic3_irq.c:hinic3_poll() {
-    ...
-	if (likely(napi_complete_done(napi, work_done))) {
-		hinic3_net_dim(nic_dev, irq_cfg);
-		hinic3_set_msix_state(nic_dev->hwdev, irq_cfg->msix_entry_idx,
-				      HINIC3_MSIX_ENABLE);
-    ...
-}
-
-As the commit message says, the chip drops packets when it has no WQEs, so
-no CQE is written and no RX interrupt is raised. qp_irq() is the only
-napi_schedule() caller in the driver. hinic3_rx_fill_buffers() is called
-only from hinic3_configure_rxqs() and hinic3_rx_poll(), and the periodic
-work does not refill RX buffers.
-
-Wouldn't the queue then stay dead even after memory frees up, until the
-interface is reconfigured? That looks like the same "WQEs cannot be
-replenished in time ... the NAPI instance will not be polled again"
-failure, reached through the refill allocation failure path.
-
-Would it make sense to also set poll_again when hinic3_rx_fill_buffers()
-posts fewer WQEs than requested? Several other drivers do this; i40e, for
-example, does "return failure ? budget : total_rx_packets". A deferred
-refill would be another option. The later patches in this series don't
-seem to touch hinic3_rx.c, so this case still looks open at the end of
-the series.
-
->  }
-
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1794467919.git.gongfan1%40huawei.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112075321.3903875-1-xiaolinkui%40126.com
