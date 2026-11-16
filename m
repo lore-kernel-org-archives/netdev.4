@@ -1,103 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.60.161
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794792910;
-	b=yHqu7QmFqRjhUKy5EPy0W1VftHoqSLEzKgTlJWmNKopsus9+mnjDeAk4acFsZ7eLAABi
-	 2wMEOrwTYVUrIreiKi74KMudI3gmtxr131ghMhIhk1q8QpGLEaPsqraxjRRM1dD/4x0Il
-	 TswQPhjxP9KH/JonlrqrWqhvKXbaNWAu5vfBI3KJcEDF7m9jgXGHYtQSeH9ZBKKC6Xn23
-	 bWSzfbVzFr2zHC9wpOHZKK0sa3/UINCv5DSaEcOR2jVqVBsjwnXDM/94KgQC8l5N9D5Av
-	 A2AYDrdfu3ig9CJQPQxU5h/FFHt2V4i4epVnTOFdLPKl3/KaZlZxDO94w8/BtMWqtLw==
+	t=1794793242;
+	b=kwpMBPwIoHGLjn/WHW5IKbvePTDbyFFFdP5Fd8cKdQIuakI8eL/Dw5+InkkYG2OoBSux
+	 DxpeKlEyJHIzEym4UgvPEN/CKPaQdx2NsgUkezG7Pd0dzO93QdvhQRAzPB6fc1tOMlK78
+	 4nuzsiKNrPIpeUCstN/z6zcnsYNTBxzGvNkArAOpAUxjA28+YQn2lFAIRbXkyNSwF+lH+
+	 TzDUIR5//ZHN7yvRlt7R9hzgLS0IPArJ0yx6xjS6w+JWsbTFL/yaqPiRBS8vkkAlRp1OC
+	 O1fKnH7PIsiXHu10CQ0V+mAxA48NKCX0pxol5GX+LX5Sn9VFT2o7n7go8Uh52XuXQbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794792910;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=L2qV2xY4LfpSszQHqfRtrep5k0fN11OSh8rH7M8QE5g=;
-	b=xyFMLLUkqJIQUq8qFd9hbOGpEfmAdHEDN10LaPJDBPvZFFBnyvXu+yQag4ghMd5AiJt5
-	 YkYe5N+U+dDHY8H/g8ZlHjg041nITjrL4lgCdh5BkuqieSdYz/rQu1NDd9Be7C5x6VQPH
-	 5UNM4ksdx5xLXhExJ+J4TLbmvcO4OXt5dZ6aBnfVVccPUpDWVY+TxDyV751BPjLg6EKrY
-	 uGTkFhOHDPjuRR2RRBUK7qVaOcsKHLcf/x8Ilu5Sx+ksiEd8JypZ4w9Uv59n55yygW28d
-	 I0e0BJS3G3g1+5P48kVgXXZXmHB7Yho39pHyu/e+chDTYrXtVVOKY/nghQnz/Q0mClQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794793242;
+	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:Received:
+	 From:To:Cc:Subject:MIME-Version:X-Mailer:Date:Message-Id:
+	 Content-Transfer-Encoding:Content-Type;
+	bh=2jbiTHxABRnF0p0UohwE6J8FYpheO9Ckmg68bOdoYz8=;
+	b=pV/7cT0o39pByleUlBfvk71KDC9JIjUL7mCQPXCF9V6Dj4Zbm5FbxkjNmSNWU2vT81sF
+	 qCDs2lO/4FGYldkWNk/niim9YFS8zPBHOb8U+xYXrHptBcbbgr74CuLjLmYrTWB0hD9PZ
+	 1uML7EFmTycOG7AW+DsbgDaJEFjA0CgrneoxborLTpvY0bAJ0GeqmowQykewZZqbB82AV
+	 LMTOb62A02HqhGG3UBBj/wJSsYAkUhggkzBHJ0IdD/7In0G1sN5mEzqoMLA87D9oxGJ7H
+	 Vk/CzDkwzOS0uS5RjpJwn/a5jvbSEGxOkm0Sbl8wcn57IMvsIw0avYNwNeJ+5AKik9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BabyPJfq;
-	arc=none smtp.remote-ip=209.85.214.172
-Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=telsoft.org;
+	spf=pass smtp.mailfrom=telsoft.org;
+	dkim=pass header.d=telsoft.org header.i=@telsoft.org header.a=rsa-sha256 header.s=mail header.b=QJ8di9ZQ;
+	arc=none smtp.remote-ip=51.250.60.161
+Received: from forward101d.mail.yandex.net (forward101d.mail.yandex.net [51.250.60.161])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93502606A31F
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:35:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93502606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21546606A31C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:40:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21546606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=telsoft.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=telsoft.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BabyPJfq
-Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2e9ae391a05so16191335ad.1
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 17:35:10 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794792910; x=1795397710; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=L2qV2xY4LfpSszQHqfRtrep5k0fN11OSh8rH7M8QE5g=;
-        b=BabyPJfqAmK+vdJmVWU5tHzWp7XdFLw3qxYGCv5gi5HdgxyeyjlcgHNrGRaDgqzLhp
-         yJRyymXeweQdDFyMLwy7FrKWqtCarunrDAx+HsqgQM5+dbMT2vVnOHWsNJzPpvqzhxWS
-         fXyfzvPeYXE7gn1VJRHswCw9Fl7mgo70OkZlwbsEWDh0pG+g4GFFpxOYEJtJ0As5jjED
-         Jlf3Y2ytQsVSXkKC/JdNxDofhPs7LjHlwxTuJ2vnlI7AtIveUh66bc/7waDY7nrS9jAu
-         J8+BAlzacxLF6hP9F4B2R8fGp2sTwhO8IouEaNl5ca9IgPA8saD6Z83U47ob92t5esrN
-         oeJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794792910; x=1795397710;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=L2qV2xY4LfpSszQHqfRtrep5k0fN11OSh8rH7M8QE5g=;
-        b=bIoq5YTX4u64EM4f4pnb4oe7TwYTLs/G+uaycocrr+yGfsuVFLW3vfET+ckZ7fsAMS
-         PNMImk2132i/ScCVoCaEYJ7I9CkYkA42Co8NuTttJGAnaL9WvBO5LltYl1qSxpniB5lU
-         nbrhz5k5h5Y7pXrt3nM8QWXI1UaLGWiBvpeIUy1Kpzevw+rm+tTbuZc6uEb9W7KElXtt
-         BhWHbN71yofTCwacxcOK90zT97xUuMVrrP+sW3n13xuCNfS1ykJ3GbyToqe+DNy2SnzY
-         fj5Uhr2d1755L1x7aoBATdN8YibGq8QFOU5IZqENok6jQlUySMdvCMMeWWI226kZFeuY
-         yGVA==
-X-Forwarded-Encrypted: i=1; AL+hErEEmqyYrLAh01Oop279yx4sGIuqC6LV3ZeyYOSjwCs9ax8DF24J5KcSXYcFh7P4G2KB6F6Qvlk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YH+7dGi1RIWtLvezzMu1NcrGW8PEKVjwnw6IBysqypu7O6RV4
-	xB6YPDvAl63hjNH3Nvdmh/oOTgFSdOGeuRuKeGS0ou9w8CLPyTH5BJ5a
-X-Gm-Gg: AYBFou2Dd7Z3DXPMOk5WxdYeqgC30YKMCoZhmcpnCFeK+UrNvUQ4Tonanjv1Rt7UpAl
-	D5H3YZ9SlHfs+lrPt8ytLxcieJ1En05V6DPQfbxKO1S9grVw0e17ZCFsOkLN14Ae2/ZvLuDuhCa
-	2ROaOWbtohVyDniEQiTCunDcPObZE3vbfIBXnogftBiykNo2BmncJI4n6Idd/VflXAUJW1WmWk1
-	tqbaEHZOWw98twkl+XcTyrEzF+wVM4XHu+Gb9kmyvWUGhZO+aRYMXgHdqdqnI36zXgl6KOzb7Ik
-	0J+sXL8WQFLPWBdGkNPbPIY4fdXj4My3rPzHezqhTv9na1nm4iOi1nPg9FkRbOTSZnn2+6BlyQ9
-	WxThTOr5q1KssqnxYd7aFAEKkboJuDvB635Y3q4Q0p2E9ydWUGIFOa7Th2DF2t7QSPzhy1ZL/+c
-	Hesyri+Ol5GqbMgxeXM1Wdcp2CfSLobNsCi8ERZ4gAUzDKOX3yNduBVf2up8MAVf74V/sEH2iNa
-	w5f70xn+vy69pazh/p5a6HI+mHp81dW1ZuLXt/sckmGBHJmKUDlTV3JkjOhiulXoRhYWarMH1Zp
-	U14nxBQYC3sk25jbd3HbncCTGUAVPVMq+BrzcApeFsfillr4z/azoaUIUDACsMvTEon2moUnu+M
-	z6Ey5vPpnGXHL4LyHeJ0HbWFbFQG3jMfL6uerxBhDrFmIrfc1oqAxFGyHY4T3hmqFWJQUeCKlcX
-	Oc1MTFDctwmLxMwDwGx4u57BE11IblAi7g3AmCFoXAZJRUocNMcjqYUJqeq5a6gXx46oAgEv5eR
-	1KnN6pDkfVQ6hlDxVruKzLZeYzcQeaa3SSkbFPzGneBoxFgEbTQRK7jXoxYEBH1fl4uM4T463lV
-	hdktYgdrOQ==
-X-Received: by 2002:a17:902:fd8c:b0:2e9:46a9:9b56 with SMTP id d9443c01a7336-2edf206817amr86764315ad.21.1794792909812;
-        Sun, 15 Nov 2026 17:35:09 -0800 (PST)
-Received: from localhost.localdomain (123-243-92-89.static.tpgi.com.au. [123.243.92.89])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ee0f9f13desm29358595ad.67.2026.11.15.17.35.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 17:35:08 -0800 (PST)
-From: Daniel Wade <danjwade95@gmail.com>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: af_key: fix use-after-free in dump_sp() on policy migrate
-Date: Mon, 16 Nov 2026 12:04:48 +1030
-Message-Id: <20261116013448.15443-1-danjwade95@gmail.com>
-X-Mailer: git-send-email 2.39.0.windows.2
-In-Reply-To: <179477319143.3291.12335649021318391220@kernel.org>
-References: <20261114223529.1791-1-danjwade95@gmail.com> <179477319143.3291.12335649021318391220@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=telsoft.org header.i=@telsoft.org header.a=rsa-sha256 header.s=mail header.b=QJ8di9ZQ
+Received: from mail-nwsmtp-mxback-production-main-70 (mail-nwsmtp-mxback-production-main-70.yp-c.yandex.net)
+	by forward101d.mail.yandex.net (postfix) with ESMTPS id E15DFC0043;
+	Mon, 16 Nov 2026 04:40:28 +0300 (MSK)
+Received: from mail.360.yandex.ru
+	by mail-nwsmtp-mxback-production-main-70 with HTTPS id AeMs8bFcuuQ0-tjCieGOv;
+	Mon, 16 Nov 2026 04:40:28 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=telsoft.org; s=mail;
+	t=1794793228; bh=2jbiTHxABRnF0p0UohwE6J8FYpheO9Ckmg68bOdoYz8=;
+	h=Message-Id:Date:Subject:To:From:Cc;
+	b=QJ8di9ZQTAT6EZVaN7FQSKJmbGFjlm9HtQU6UZf535Yipk1jlsk15Q/AfMZ4TAb87
+	 gjUvd68IKcfxszIMHTHqISfNJFUA4923dnM8mVa8LeMVkPgI6L9wWEdlAkV5/4YKcS
+	 LCKPWqu0lF9Hgj2MzZkVlQY2uftXhM4kiszheJUs=
+Authentication-Results: mail-nwsmtp-mxback-production-main-70; dkim=pass header.i=@telsoft.org
+Received: by mail-sendbernar-production-main-55 with HTTPS id 25009eeb71366bcba824ccf37a9c73a3;
+	Mon, 16 Nov 2026 04:40:26 +0300
+From: Dmitry Vasilkov <dvasilkov@telsoft.org>
+To: devel@linux-ipsec.org
+Cc: steffen.klassert@secunet.com,
+	herbert@gondor.apana.org.au,
+	netdev@vger.kernel.org
+Subject: xfrm: inbound per-CPU state cache makes ESP input O(number of SAs) with 10^5+ SAs (6.12.13+)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,12 +64,175 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-Mailer: Yamail [ http://yandex.ru ] 5.0
+Date: Mon, 16 Nov 2026 10:40:26 +0900
+Message-Id: <1409971794793226@526cea60-1695-45d2-82c7-21555f54496c>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
 
-Discovered by a clanker reading the PF_KEY policy export path. Reproduced on
-an unmodified kernel before the patch was written, with no kernel
-modification, no injected delay and no error injection, and the fix was
-tested against the same reproducer.
+Hello,
 
-Thanks,
-Daniel
+We would like to report a performance regression in the xfrm input path, which we hit on 6.12.73+deb13-amd64 (Debian 13). 
+We also share the 
+livepatch we use as a temporary workaround, in case it helps others or the discussion of a proper fix.
+
+Setup
+
+Host: an IMS P-CSCF (Kamailio with ims_ipsec_pcscf), a VM with about 33 CPUs and 128 GB RAM.
+Every VoLTE UE gets its own transport-mode ESP SAs (hmac-sha1-96, null encryption in the lab), 
+4 SAs and the matching policies per UE.
+Lab load: a UE emulator on the same host registers UEs over IPsec through lo, 
+from 2500 to 3000 registrations per second. This builds up to 1.2 million SAs.
+The SAD and SPD hash tables grow as expected (524288 buckets), so the hash itself is not the problem.
+
+Symptom
+
+During the test the user time of the receiving processes stays flat, but their 
+system time grows linearly with the number of SAs:
+
+SAs	SIP worker (sys)	UE emulator (sys)
+28k  57%                45%
+425k 325%               418%
+
+Host CPU rose to 54%, the p99 of the REGISTER transaction grew to 465 ms, and the 
+test failed with replies later than SIP T1. The CPU was not exhausted: 65–70% of the host stayed idle. 
+Only the cost of one ESP input operation kept growing.
+
+
+Cause
+
+Since 6.12.13 (6.12.12 does not have it), the inbound SA 
+is looked up via xfrm_input_state_lookup(). 
+That function first walks net->xfrm.state_cache_input, a per-CPU list, 
+and falls back to the SPI hash only on a miss. On a successful hash 
+lookup the state is added to the per-CPU list under the global xfrm_state_lock:
+
+
+hlist_for_each_entry_rcu(x, state_cache_input, state_cache_input) {
+	if (x->props.family != family || x->id.spi != spi || ...)
+		continue;
+	...
+}
+x = __xfrm_state_lookup(...);                 /* hash */
+if (x && x->km.state == XFRM_STATE_VALID) {
+	spin_lock_bh(&net->xfrm.xfrm_state_lock);
+	hlist_add_head_rcu(&x->state_cache_input, state_cache_input);
+	...
+	
+As far as we can see:
+
+The list is unbounded. Every inbound SA that has ever received a packet on that CPU stays on 
+the list until the SA is deleted. There is no size limit and no aging.
+A cold SA walks the whole list. The first packet of a cold SA (and on a busy server almost 
+every SA is cold) walks about SAs/CPUs entries before the O(1) hash lookup, and each entry is a cache miss.
+Every miss takes the global xfrm_state_lock. With many receiving threads this adds contention on top.
+This matters even more in production than in our lab. On a P-CSCF with several hundred 
+thousand registered UEs, each UE sends packets rarely (re-REGISTER, INVITE, keepalive). 
+By the time its next packet arrives its SA is deep in the list, so practically every inbound ESP 
+packet pays the linear walk. The cache helps a small number of hot SAs and hurts hosts with many 
+mostly idle SAs.
+
+We checked the current mainline code of xfrm_input_state_lookup() and it looks the same, so newer 
+kernels are probably affected as well.
+
+
+Micro-benchmark
+
+Same kernel, transport-mode ESP SAs (null encryption) on lo, one packet per SA, sender pinned to one CPU:
+
+SAs	stock 6.12.73	with the workaround
+10 000 150 us/packet 17 us/packet
+20 000 730 us/packet 18 us/packet
+The cost grows faster than linearly once the list no longer fits in the CPU caches. 
+With plain hash lookup it does not depend on the number of SAs. 
+The per-SA counters (ip -s xfrm state) confirmed that the packets really went through ESP.
+
+Workaround: livepatch
+
+We replaced xfrm_input_state_lookup() with the plain xfrm_state_lookup(), i.e. the hash 
+lookup the input path used up to 6.12.12. SAs that are already on the per-CPU lists stay 
+there until deleted; nothing adds them any more. The module can be unloaded at any time.
+
+// SPDX-License-Identifier: GPL-2.0
+/*
+ * Livepatch for 6.12.13+ kernels (checked against 6.12.73+deb13).
+ *
+ * xfrm_input_state_lookup() first walks net->xfrm.state_cache_input, a per-CPU
+ * list that keeps every inbound SA ever looked up on that CPU and has no size
+ * limit; the hash lookup comes only after a miss, and a hit or a miss also
+ * takes the global xfrm_state_lock. With 10^5 SAs the first packet of every
+ * cold SA walks SAs/CPUs entries. Replace it with the plain hash lookup the
+ * input path used up to 6.12.12. SAs already on the lists stay there until
+ * deleted, as before; nothing adds or moves them any more.
+ *
+ *   insmod klp_xfrm_input.ko
+ *   cat /sys/kernel/livepatch/klp_xfrm_input/enabled   # 1
+ *   echo 0 > /sys/kernel/livepatch/klp_xfrm_input/enabled; rmmod klp_xfrm_input
+ */
+#include <linux/module.h>
+#include <linux/livepatch.h>
+#include <net/xfrm.h>
+
+static struct xfrm_state *klp_xfrm_input_state_lookup(struct net *net, u32 mark,
+						      const xfrm_address_t *daddr,
+						      __be32 spi, u8 proto,
+						      unsigned short family)
+{
+	return xfrm_state_lookup(net, mark, daddr, spi, proto, family);
+}
+
+static struct klp_func funcs[] = {
+	{
+		.old_name = "xfrm_input_state_lookup",
+		.new_func = klp_xfrm_input_state_lookup,
+	},
+	{ }
+};
+
+static struct klp_object objs[] = {
+	{
+		/* vmlinux */
+		.funcs = funcs,
+	},
+	{ }
+};
+
+static struct klp_patch patch = {
+	.mod = THIS_MODULE,
+	.objs = objs,
+};
+
+static int __init klp_xfrm_input_init(void)
+{
+	return klp_enable_patch(&patch);
+}
+
+static void __exit klp_xfrm_input_exit(void)
+{
+}
+
+module_init(klp_xfrm_input_init);
+module_exit(klp_xfrm_input_exit);
+MODULE_LICENSE("GPL");
+MODULE_DESCRIPTION("xfrm: input SA lookup by hash only, without the per-CPU state cache");
+MODULE_INFO(livepatch, "Y");
+
+The system time of the receivers no longer grows with the number of SAs.
+
+Possible proper fixes
+
+This is only a workaround: it disables the cache completely. 
+Possible directions for a real fix, in no particular order:
+
+bound the per-CPU list (a small fixed size, LRU-like replacement), so the walk is O(1) 
+and a hit still benefits;
+do the hash lookup first and use the cache only where it is cheaper, or skip 
+the cache when the number of inbound SAs is large;
+avoid the global xfrm_state_lock on the input path when adding to the per-CPU cache;
+a sysctl or per-netns knob to turn the input cache off for hosts with very many SAs.
+We can test patches on the same setup (up to 1.2 million SAs at 3000 new UEs per second) 
+and report the numbers.
+
+Thank you for your work on the xfrm subsystem.
+
+Best regards, Dmitry
