@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794866933;
-	b=VUsKr1+p6/Dmy/PPXUowfJRd4/deR4qgpVPUYnnrwUCKoTowaY7yFlAMoYiOA2iH7i0n
-	 /X3l0oPs7ejOgsyUMI61+eRRIpI0kAKeEVGIdrY4Sn4lBBKbO8cmgVgauO2+1ZB0+pTBq
-	 vmgurGoe53nfBLyihDnPmixTYKNky2Xq42Pm9BDkdD9lIcksJhH4k1kPHm1vI62SqN2zo
-	 1l2L7QT0RakRHdRfaqy6lYDya1jXWgwhUWPay9r8vkvQDwe3K07HRSMmCbmbeKs9s1Yqg
-	 h8kIsPXvYqbeC3RELFpTeg43I9luRiP8gInD8OB4ozA6fywTIKMY0tp7CDuMqCartiw==
+	t=1794866944;
+	b=4zOvreMmBvfFUuH/YWIlJkDbkixZH4LoMjB3IMTr2Wv4FzVh9JEr0T3OtwX0Ae+649/A
+	 M6HCBo7hmDAGEb5dVgPk/N8U6z4zSW50SgBh5Er97XwaUNaO39KtILIJZA7A+k2jIeF98
+	 63dF1KbYR8BW1pRzMGO5M819SXW5/qDT6r9pVTryDCALqD7ltp3xFYHAWRU8UtHZJM8Y/
+	 7JURQS6rG+68Rq4bmiMyC6acBL+pLE4d38AjqLz+IxnA13+OuB6PlT9eUdMys9XXPRkkF
+	 3KpaiglcDO9lj9ZIqqw4H79cB3hWT+V1ir61e8C1KASjEUOpCQDuL8ywYW0F9MF2uYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794866933;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794866944;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=fASJVZS6eae9LxRGOU8UXTUuLY6ysPWMoGJyRiEOZic=;
-	b=NX1VddIGftNBF4CoDYo5Eusiq2XPmgHkeGjQPjHJZL/2RBYgbbtD18HPOBGdfZduUoRx
-	 w55zOrZiJFU0Tb70w67i4s1nKMrbMxfo1aqrqTnUxMvMlOAKKRJe4YodGT5BlMQj+zaSy
-	 wBICqG1FSjxyjIq+XjLHfbY33r6WFkGAfed5FUWlBhu4lyaouQ5+K8yyUsR3RsrRTageb
-	 Kvy9CO5zIHXYrmdCvhCeMK7tYtovzAKitdtP7qu5GE7IVfaBXzW9c3gcQaQ4MR2H00QMH
-	 nox8L5TOnzvH8DQR4QkZ5PShOjWswzxdNo1tzbq/prPGZ7FBV1JFE5wdUB+g9EaiVew==
+	bh=7mgC9jL8NBJ5pYS7EFVo2spVfEdDqKdaGi7rc+pAARY=;
+	b=VZzdT1ToLGI25HhxhNQ5pkR7na1oPdT6iC/30dfWJFHDS5uMtuQslU40qpuSlQRLW6vd
+	 7TyqEgQWxKNfFWoY01aCqQFTTk64WxI5Y9ZtNgH9AZczf+RKuhJ4rC47QTEFc8tfit97n
+	 GpBYhcppM3yrBvSfLaeCX55u9DmGLd2RrBliNGt1LqJU0gJe0uahCLZjKgJiedId3gxch
+	 02VeU7ZfSHpuh20NTZrDyzclQOEHDmPEpEDaUGkCnXr+fJsGL5alhQJz0jQOhLFJBJ5wJ
+	 BLcUpc1wbPMt7b1o+6uKefzz8NJbxVmjOHGfhA/YIPx986/l0kCl+vbIZ+Xpgac60Lw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CdHzTetm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hetkCGdD;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ACB660A2611;
-	Mon, 16 Nov 2026 22:08:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DF6A606A8B9;
+	Mon, 16 Nov 2026 22:09:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CdHzTetm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BCD61F000C5;
-	Mon, 16 Nov 2026 22:08:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hetkCGdD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A74BB1F000C4;
+	Mon, 16 Nov 2026 22:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794866932;
-	bh=fASJVZS6eae9LxRGOU8UXTUuLY6ysPWMoGJyRiEOZic=;
+	s=k20260515; t=1794866944;
+	bh=7mgC9jL8NBJ5pYS7EFVo2spVfEdDqKdaGi7rc+pAARY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=CdHzTetmXjvIW8qs4EVDVmVG1L1/YPkaKGG0pMK9+A71bd7ABaBGMD/70Kh1ZgcjF
-	 0oyAFVHZoftAdWEZ4Y0SXyc732qSDx8TGxst2IYoK6yg5iGMth5G/E914nod2dL6U9
-	 zM1HrXHnJ6dZktsvX68n9sTNlcLv9Q5ttOYVMTpiVkhjqXPc/zzbX092JSCl5BtlIS
-	 CNOMeWAJBvRPNzpN5q5q5CU3Bd7QBTcMvHZnEGwzFnIhu9ve2zfwVhmM190kcU7NGL
-	 /kuV78xrpGJOGvExGOFAPkCriPumEaQX2VSL7Ev9zeAYvxj4bGMWdYO9qV8o9lPkjg
-	 riHAfybjO8HdA==
+	b=hetkCGdDXEkm2883ua7V0ixFQK5QSPIpIaWy78Hd4Iwo4hmZDI2Yoloe5w/YmIqVf
+	 XudrZ0hzES6OovQtMHnR9psf+FQ4VmEcUuTT4kIC50ZOw9xyzhGD3OP8xFxYsKClGC
+	 Qz9blZXLb3/YEk0lCBL6Hgln6WNh2Ht/j0zU9QsqXHaJ0Pi2t+muHZXwidOqJhEwUP
+	 +Y5WANWD9vvclNWiNdgabAGpmYozJYPT+AXeryQ7528KsP2um0jSFpKuf9oXG4mY6D
+	 VCAzzm7+c9qlVcHN0AVBuqCGPYRB8/HYWqLbF3eAevaV9j1EkiaHLl5/hf7CEsaPnp
+	 Ns37YVyfZ7XYA==
 From: "Matthieu Baerts (NGI0)" <matttbe@kernel.org>
-Date: Mon, 16 Nov 2026 23:06:09 +0100
-Subject: [PATCH net 2/7] mptcp: push pending data after a sendmsg copy
- fault
+Date: Mon, 16 Nov 2026 23:06:13 +0100
+Subject: [PATCH net 6/7] mptcp: don't send a FIN before the pending data on
+ fallback
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-2-bf7656de653e@kernel.org>
+Message-Id: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-6-bf7656de653e@kernel.org>
 References: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e@kernel.org>
 In-Reply-To: <20261116-net-mptcp-misc-fixes-7-4-rc4-v1-0-bf7656de653e@kernel.org>
 To: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>, 
@@ -65,64 +65,75 @@ To: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
  Dmytro Shytyi <dmytro@shytyi.net>
 Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, 
  linux-kernel@vger.kernel.org, "Matthieu Baerts (NGI0)" <matttbe@kernel.org>, 
- Quanye Yang <quanyeyang@proton.me>, stable@vger.kernel.org
+ stable@vger.kernel.org
 X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1670; i=matttbe@kernel.org;
- h=from:subject:message-id; bh=306+4uW4TpE7s0K8Pmzi6N99z+xxvTfHEkxIyFliHBs=;
- b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLJ+1z3TEZUzmZ025YbSqe9leQcnZbQ0iB5U2rnzSae44
- czvagHRHaUsDGJcDLJiiizSbZH5M59X8ZZ4+VnAzGFlAhnCwMUpABO5V8LIsKuF/adz9akHs4sl
- 8y6lhj+Zrlp/Z4rF+ys1H/J37phq4MfI0Nx09Lk+d/b094a36usF9rmlsftN2Nz3Z2fE7e3XdD0
- 3sQAA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2987; i=matttbe@kernel.org;
+ h=from:subject:message-id; bh=yQZm9eVkTr9yeWS98qWO8sSUzC9QPTMsOrDIzUhNZrk=;
+ b=owGbwMvMwCVWo/Th0Gd3rumMp9WSGLJ+171corI61OYN99UWA846j3qGcw+zHISrOBZO+BTaw
+ PDA/7hnRykLgxgXg6yYIot0W2T+zOdVvCVefhYwc1iZQIYwcHEKwERmVjEy3FuZdWlJ6b6dOWfO
+ zFxw9N+CE0X2Kq90ojoqpu7Mio92MmH4n81eNunyehVJy7fCVYcfxLoyicbxb5YvDvPfkpoU8iO
+ VCQA=
 X-Developer-Key: i=matttbe@kernel.org; a=openpgp;
  fpr=E8CB85F76877057A6E27F77AF6B7824F4269A073
 
-From: Quanye Yang <quanyeyang@proton.me>
+When an MPTCP connection falls back to TCP after having been shut down,
+the data that is still in the write queue of the MPTCP socket is lost:
+a FIN is sent at fallback time, and this data cannot be sent after it.
+This can happen with TCP Fast Open (TFO), when a server writes data and
+shuts the connection down before the third ACK, and this ACK has no
+MPTCP options.
 
-mptcp_sendmsg() copies into the msk write queue first, then
-__mptcp_push_pending() on the success path. tcp_sendmsg_locked()
-does the opposite: its do_error path jumps to out, and out
-calls tcp_push() when copied > 0.
+When the MPTCP socket has been shut down, mptcp_try_fallback() also
+shuts the subflow down: if the DATA_FIN had already been sent, nothing
+would send a FIN on this subflow otherwise. The commit introducing this
+only considered the case where all the data had already been pushed to
+the subflow.
 
-A later iovec fault (copy_from_iter / -EFAULT) after a successful
-iteration therefore returns the partial byte count but leaves the
-already-queued dfrag on rtx_queue. No subflow packet is sent, no
-retransmission timer is armed, and DATA_FIN stays blocked on
-first_pending.
+The fix used here is to only shut the subflow down at fallback time if
+no new data is pending, i.e. if all the data before the DATA_FIN has
+already been sent. Otherwise, mptcp_check_send_data_fin() will do it
+once this data has been pushed, e.g. by the previous commit. Pending
+data that has been reinjected, e.g. after the failure of another
+subflow, is not new: it is already in this subflow.
 
-Push in do_error when copied is already non-zero. Do not move
-the push to out: copied is a size_t, and sk_stream_error()
-stores a negative errno there.
+This issue has been found by an AI code review agent, while reviewing
+the code of the previous commit, and confirmed with a new Packetdrill
+test, where the server writes data and shuts the connection down before
+the third ACK, from which the MPTCP options are removed. Without this
+patch, a FIN was sent right after this ACK, and the data was never
+sent:
 
-The issue was spot by Sashiko, but easy to reproduce with Packetdrill:
+  inbound injected packet:  0.240127 . 501:501(0) ack 4103187975 win 450
+  outbound sniffed packet:  0.240207 F. 4103187975:4103187975(0) ack 501 win 1050
+  outbound sniffed packet:  1.347800 F. 4103187975:4103187975(0) ack 501 win 1050
+  outbound sniffed packet:  2.499829 F. 4103187975:4103187975(0) ack 501 win 1050
+  outbound sniffed packet:  4.739843 F. 4103187975:4103187975(0) ack 501 win 1050
+  server-tfo-fallback-shutdown-before-3rd-ack.pkt:27: error handling packet: Timed out waiting for packet
 
-  writev(4, [{..., 32728}, {NULL, 4096}], 2) = 32728
-
-Fixes: 69800e516e96 ("mptcp: propagate fastclose error")
+Fixes: d51991e2e314 ("mptcp: fix shutdown vs fallback race")
 Cc: stable@vger.kernel.org
-Closes: https://github.com/multipath-tcp/mptcp_net-next/issues/640
-Signed-off-by: Quanye Yang <quanyeyang@proton.me>
-Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 Signed-off-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 ---
- net/mptcp/protocol.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ net/mptcp/protocol.h | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/net/mptcp/protocol.c b/net/mptcp/protocol.c
-index 8968db58083e..b67096ee131b 100644
---- a/net/mptcp/protocol.c
-+++ b/net/mptcp/protocol.c
-@@ -2130,8 +2130,10 @@ static int mptcp_sendmsg(struct sock *sk, struct msghdr *msg, size_t len)
- 	return copied;
+diff --git a/net/mptcp/protocol.h b/net/mptcp/protocol.h
+index 011e73d04ee6..7d226ee38315 100644
+--- a/net/mptcp/protocol.h
++++ b/net/mptcp/protocol.h
+@@ -1333,7 +1333,11 @@ static inline bool mptcp_try_fallback(struct sock *ssk, int fb_mib)
+ 	msk = mptcp_sk(sk);
+ 	if (!__mptcp_try_fallback(msk, fb_mib))
+ 		return false;
+-	if (READ_ONCE(msk->snd_data_fin_enable) && !(ssk->sk_shutdown & SEND_SHUTDOWN)) {
++
++	/* no FIN before new data: see mptcp_check_send_data_fin() */
++	if (READ_ONCE(msk->snd_data_fin_enable) &&
++	    !before64(READ_ONCE(msk->snd_nxt) + 1, READ_ONCE(msk->write_seq)) &&
++	    !(ssk->sk_shutdown & SEND_SHUTDOWN)) {
+ 		gfp_t saved_allocation = ssk->sk_allocation;
  
- do_error:
--	if (copied)
-+	if (copied) {
-+		__mptcp_push_pending(sk, msg->msg_flags);
- 		goto out;
-+	}
- 
- 	copied = sk_stream_error(sk, msg->msg_flags, ret);
- 	goto out;
+ 		/* we are in a atomic (BH) scope, override ssk default for data
 
 -- 
 2.55.0
