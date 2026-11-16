@@ -1,65 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794851363;
-	b=jEv83v+esef4xRHECBvjhqzOi6BM4E2ZbqPJa5ATDJAPtisxO/f0k1xZwwRTk5QgNO2j
-	 XueuQtNeBe5/AK4SFVaTjbzllCsufffryEa/GAjTEhwsR7V+6IgVyOQLVe2cuBt6EuD7A
-	 N5Z2LoZfUAXb0/zdKzfJxcqkB4UX/Piy8KtUOc/1cvEGrEpJN7V8S5FEp6Chq69zNLYyV
-	 pzFJzjj2O7LnT5aUCRUDW/KtZjIvV4/eMyGKjs7UpShCa3tVh2D890rkatBP5BXvYjrdz
-	 s/ibKLwb3Hl/AtwkAjb2+X4cOfT7ihRwaqcmKVdZNZBBVzws+ohcei+6U916qeyPbSg==
+	t=1794851717;
+	b=LLH7MwXadPCW326jWUXKA1N+OXT5NXPOiCFdPMDn2z6dp2C2R1SCk+gQV+eveW59QLgL
+	 4qQ9FqULxsf5s2u09mgs7yvmR83SM4R7vzQnIsSr/Ks6FW5uP5OzOrKNGlAyTZokC5qUW
+	 6/ED83zVnWi4YJegBpyvlKKxcmjU5BUyIoftygzyC5djIgJgarf9I//Gkn6jZhtc+O6Ax
+	 dk1UtxL9z0EJ/2wqFWgc9rbWqc0Cg3/krzGC8oN8/Ohk6iR1OLGkNTi36gCVMK3Rt6s+5
+	 zk14Qy0VLzcFgKVlLnRb4yTCd4+wUvnRo1M1tSRnUT3NNGSyli01mItxgda9pp6jS6A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794851363;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=ED8m1EUNyZbVy60KlCH1nfmXFCVOvYy5WXRoQrkl9dY=;
-	b=Pxsm24yvp3ZM3Dhn/NkZuYB3x8IkX6EE44h//EKUvXXYOz/mhraya2Na1NfwBLT0yOvb
-	 CkxqBew1/nBrRGzimV8O+JjKEJgJY9CxCuKXwhjwKB5AX5JpLJB1C4OPoTPRFFLX4s45M
-	 8WvC9GihuT0uhKchkHTFVDAEENqEH8k9DVZF31PmiQACZivX1JaVgleiDocJemK5XID9x
-	 b4lvUauuK1G1YFZdp7SXapEe7Y+7FUOy9XA0eAfv2b3L8x12ft9PVPSUqMFDxSxZDHfxP
-	 savIqIulMuur9cuqN0yW6YUr725mCXCZPEmdLC3CyfR8Hq8c9tpjrvmHVr6ujj6+W8g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794851717;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=RWur7cBDOElebXPJIkWba01iRlyUJjkUdU+D026M7/U=;
+	b=Q2rvf3BeZmI1qpz1o80Ws3l+N25OU0TFc1LEjonySdx/akg2wTW+AAdjCaplsNnHFiz9
+	 QI10YtiMVWysr0b4k2lV2gBbBliukh+UNF08S3YUbpjZoExPcO1DJ8K/nA2vdK2E9Tts1
+	 AD5E7k4y1INnn/e7K0B5KO10xz2cV/tZhRU8CgqKcw5KqLU96WQTOtipkk0Q7SbGGm1vM
+	 vgpXKbG4WQR8vP9D/ZzcijATuzvSCFFJSOvntm0HzM1lBfAHK4c/LdC6BRVa+Ix8Z2HFe
+	 WIvMVtavAe4RhntNwkUVOp9w9BWY8w2gyZKMURG+14342tXTx5E70tdtfMuYMqTIuvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LWj9kUC8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GgcE75qo;
+	arc=none smtp.remote-ip=209.85.222.176
+Received: from mail-qk1-f176.google.com (mail-qk1-f176.google.com [209.85.222.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CACC6606A32F;
-	Mon, 16 Nov 2026 17:49:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A1A9606A88E
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 17:55:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A1A9606A88E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LWj9kUC8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6A261F02813;
-	Mon, 16 Nov 2026 17:49:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794851363;
-	bh=ED8m1EUNyZbVy60KlCH1nfmXFCVOvYy5WXRoQrkl9dY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=LWj9kUC8kQFC5SfD1vjbud2HBFDNnZqFBwsM7D7EkixcrkbHslvvXUPplnT67OEDa
-	 Ojxvc/9bBfh+7M7IgMwLe0/MW3vEZ7MNK475jdjW9gzIKFiwKQYtp2o3epkEHr1OUY
-	 ut8wZMtQ6WwDI4R/4NjZmngdKNKdP+t6PoX5HnYwVJTKEbOQrvDnGzw7NTHVCoa2iV
-	 Az2pSjHFx32LhMnzCRrFLDjD1DXtR7qLBdQXkQEuVAl0z7iuGlB/eKvhfmNtzTqNut
-	 eiuM63/QtPtS1+8sCvNSNotSJGDSOZKb/xcO1WCvyJtafHJlrptV+MYpMU1CW9c9N/
-	 f6aB01Y3d7oMw==
-Date: Mon, 16 Nov 2026 18:49:14 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: Amir Goldstein <amir73il@gmail.com>
-Cc: linux-fsdevel@vger.kernel.org, Jann Horn <jannh@google.com>, 
-	Chris Mason <mason@kernel.org>, Josef Bacik <josef@toxicpanda.com>, 
-	Christoph Hellwig <hch@lst.de>, linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, target-devel@vger.kernel.org, 
-	driver-core@lists.linux.dev, linux-mm@kvack.org, bpf@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, apparmor@lists.ubuntu.com, 
-	linux-nfs@vger.kernel.org, netdev@vger.kernel.org, fuse-devel@lists.linux.dev, 
-	linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, ocfs2-devel@lists.linux.dev, 
-	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, linux-usb@vger.kernel.org, 
-	linux-erofs@lists.ozlabs.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH RFC v3 33/44] ovl: refuse data-only layers on pseudo
- filesystems
-Message-ID: <20261116-kriterien-getoppt-kauern-5a0c1fba70cf@brauner>
-References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
- <20261116-work-loop-pseudo-v3-33-8cbbea1cf34f@kernel.org>
- <CAOQ4uxgPerkkG4ie0SyHVXaBD9VZN2wYfQpEAEi4hytn=ara3A@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GgcE75qo
+Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-94961bfe1a0so168387485a.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:55:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794851716; x=1795456516; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RWur7cBDOElebXPJIkWba01iRlyUJjkUdU+D026M7/U=;
+        b=GgcE75qoZKVQJQFnhQGIRH2hvnsY333YcZp05pyOL54t4PvAmRebNm7M7D4DwU/qur
+         90weKQMC8AHcQVhxD9s04wQgawJSO6ZlAomSfCvq2Sm1glmq4RZCmR2xLZTCBmnhIHKT
+         uASoYXHBmzDwESsK8rdHERLyk6iPOqBCeA8y64vQm+JW4gwsWMBfUThXLTwd2NwYZhy5
+         X0hiq3GOl+3VKnYw/6TsQdGIJckdq29pDTWFJuH0LgBlgDKr+ya/2+8wvucPPUdv/ZHa
+         hN6RoNqBUZTSsFL+APeE3ojHZ5wawx9FnXpUX5QCh9oUsW6dmsyKPa2Dzt0xZ/jZaSKO
+         qeAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794851716; x=1795456516;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RWur7cBDOElebXPJIkWba01iRlyUJjkUdU+D026M7/U=;
+        b=WU9fI1VN6GTEnvZaDoJkU8MtO/wvyRm+ge+xbIJL2qGeW3R0qsfDpoKRthW3gmkTiZ
+         1RxQRUGpmGeiQuM2ZqNnYdrpKUWWmMwSylTnNXx12uRdevjPR97BqM9xbe6RL+LB3vYR
+         OJIZlNL8eMnO/hoCXrzQhASuBThEFSPUXfBrwChQtHaqNFa4Fd/avlDvTuJy/sS9c6um
+         yPvyCisZAZZspCGVREwGN/WqZWpt0HcGHN0KyHL46/RLLxmoHuTRsAiy0XTYRLNO7Qzf
+         PRxMPrescRDDteBbIuk0i6tFrQ34NyJFEQ2X1FjAZ9QDBPD6k2RiRiLtlEcOZN/oN/bM
+         I2XQ==
+X-Forwarded-Encrypted: i=1; AL+hErGUQHJj1s7MHSqHnPgPLLfku9n5AqC6oygRrLv6+uP4CkyUHr2ajICiZrYnBUlDGn/ZtYpLixo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/I+7+Uu216BUF7Yf2/Mjh8CqK2Hwgah0Ggn1ZgyxeRwDub7Vi
+	8r+MXsBMWd8j8Neme5+6uG/6Y5xB2TQpSwtcF7Kwz5EurNqdnRAZXoFz
+X-Gm-Gg: AYBFou0Jt7xP/UUCb4Ni9MTyeEMyuwru3Mv/+m/3McBKDGh2PeWoEUnonlMrv8N4Fml
+	g50IlxwgqmMfe+xo2UzeyJUaduMlAMO+BqJRmepT5/z4J6hrC102bCmR5NlIkcuTcmbXZjf4tmo
+	lbtUoJBonRZKVCTBZ3Ch7ntv5+OuF+dqLxS2AZBAGt9uDz2+ZX4+XBij8KELxBysEcVNMnwDi2f
+	qCg+r9nSZcAART/Pq5bK6jiHreVrI4EYmhf40BwtD77EDiibGIZCYy4U6ZbeLX/N0pfxgwtFELf
+	S+wrLFwty5XWN1sMd5ITYdajE9h1jpEQGQL/48SRNJtFWl4ivGTyAQhm0efaArsfn1mM5Syisyy
+	mZMhHjDUF50AZQNBM4bHXcnt/66dWtuk4KJR1s2L7PlwDS/79LXVOQknW3p3fVl5yx1yZYml8iX
+	MLF1Vwphm7X9BsV1mMUyTRRRv4e8KUWk9H8KYLg26ZpkNP8xmIeq+6/rVq363pA9r+iItuXCijS
+	iFdH4MjZ1T2I+D4ZfoownGJPYl9nCEuet79895ZBoHUQHRUMi4n3dAjKz/we3KpFnYx8bpl3Aue
+	VKvYFioiKEOhUU+cdfMT6efiNZrx0ptGWyg6vtmwB1cVNeFNQrZhMba/s97ujV+Zgh4jIOalE/h
+	wwq+BBTxeNB535rh1P84NepJKV4sja6I6MGWgKGiP1iUblkLj+akcQGgq
+X-Received: by 2002:a05:620a:710c:b0:93c:62c4:e2e2 with SMTP id af79cd13be357-9494b9e114fmr1735275085a.12.1794851716146;
+        Mon, 16 Nov 2026 09:55:16 -0800 (PST)
+Received: from str-mac-5701 ([2600:383:10c5:608f:b04c:c18a:ec2:dbf9])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-9497dc91f48sm283670985a.42.2026.11.16.09.55.13
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 16 Nov 2026 09:55:15 -0800 (PST)
+From: Ethan Ferguson <ethanf108@gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>
+Cc: Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Ethan Ferguson <ethanf108@gmail.com>
+Subject: [PATCH net-next v2] net: remove CONFIG_NETDEVICES requirement for SO_BINDTODEVICE and SO_BINDTOIFINDEX
+Date: Mon, 16 Nov 2026 12:55:04 -0500
+Message-ID: <20261116175504.15295-1-ethanf108@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,74 +102,171 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAOQ4uxgPerkkG4ie0SyHVXaBD9VZN2wYfQpEAEi4hytn=ara3A@mail.gmail.com>
 
-On Mon, Nov 16, 2026 at 06:37:16PM +0100, Amir Goldstein wrote:
-> On Mon, Nov 16, 2026 at 12:10 PM Christian Brauner <brauner@kernel.org> wrote:
-> >
-> > The data of a metacopy file can live in a data-only layer. overlayfs
-> > doesn't look that data up when it looks up the file. It only remembers
-> > the absolute redirect and looks up the data lazily the first time
-> > someone needs it. So until then nothing can tell which filesystem holds
-> > the data of such a file.
-> >
-> > But a data-only layer has no business being a pseudo filesystem in the
-> > first place. All it does is hold the data of metacopy files and the
-> > regular files of a pseudo filesystem are kernel interfaces, not storage.
-> > So let's refuse data-only layers on superblocks with SB_I_PSEUDO at
-> > mount time.
-> >
-> > Data-only layers can be added via the "::" separator in "lowerdir=" and
-> > via "datadir+" by path or by file descriptor. All of them end up at the
-> > end of ctx->lower. So a single check in ovl_get_lowerstack() covers all
-> > of them.
-> >
-> > Note that regular lower layers on pseudo filesystems are left alone.
-> > Stacking overlayfs on top of sysfs keeps working.
-> >
-> > Suggested-by: Amir Goldstein <amir73il@gmail.com>
-> > Link: https://lore.kernel.org/all/CAOQ4uxhGxpBtMZ5kfuzR1tQAewiecoX7UjXQRo91QjJHH9T_Yw@mail.gmail.com
-> > Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
-> > ---
-> >  fs/overlayfs/super.c | 8 ++++++++
-> >  1 file changed, 8 insertions(+)
-> >
-> > diff --git a/fs/overlayfs/super.c b/fs/overlayfs/super.c
-> > index 39d4d57dec230..719c2569dfeaf 100644
-> > --- a/fs/overlayfs/super.c
-> > +++ b/fs/overlayfs/super.c
-> > @@ -1237,6 +1237,14 @@ static struct ovl_entry *ovl_get_lowerstack(struct super_block *sb,
-> >         for (i = 0; i < ctx->nr; i++) {
-> >                 l = &ctx->lower[i];
-> >
-> > +               /* Pseudo filesystems don't hold data for metacopy files. */
-> > +               if (i >= ctx->nr - ctx->nr_data &&
-> > +                   (l->path.dentry->d_sb->s_iflags & SB_I_PSEUDO)) {
-> > +                       pr_err("filesystem on %s not supported as data-only layer\n",
-> > +                              l->name);
-> > +                       return ERR_PTR(-EINVAL);
-> > +               }
-> > +
-> 
-> How about we make this just a tad more restrictive:
-> 
->                 /* Pseudo filesystems don't belong in composefs setup */
->                 if (ctx->nr_data &&
->                     (l->path.dentry->d_sb->s_iflags & SB_I_PSEUDO)) {
->                         pr_err("filesystem on %s not supported along
-> with data-only layers\n",
->                                l->name);
->                         return ERR_PTR(-EINVAL);
->                 }
-> 
-> I could send this as followup patch, but since this version is simpler
-> there is no real reason to have the intermediate "only ban datadir" step.
-> 
-> Only the commit message needs a little more flexing to justify this.
+The SO_BINDTODEVICE and SO_BINDTOIFINDEX sockopts return -ENOPROTOOPT
+if CONFIG_NETDEVICES is disabled, but the lo interface still exists.
+I believe that these sockopts should not fail on the lo device just
+because there are no other net devices.
 
-Just sent me the diff on top of the series and I can fold it with the
-commit message you want and slap your Co-developed-by and SoB on it,
-please?
+Signed-off-by: Ethan Ferguson <ethanf108@gmail.com>
+
+---
+v2:
+- Reverse xmas tree
+- Use net-next tree
+v1: https://lore.kernel.org/netdev/20261110204524.82341-1-ethanf108@gmail.com/
+
+ net/core/sock.c | 61 ++++++++++++++-----------------------------------
+ 1 file changed, 17 insertions(+), 44 deletions(-)
+
+diff --git a/net/core/sock.c b/net/core/sock.c
+index e529ffeaedb9..4225e0569125 100644
+--- a/net/core/sock.c
++++ b/net/core/sock.c
+@@ -635,18 +635,14 @@ EXPORT_SYMBOL(sk_dst_check);
+ 
+ static int sock_bindtoindex_locked(struct sock *sk, int ifindex)
+ {
+-	int ret = -ENOPROTOOPT;
+-#ifdef CONFIG_NETDEVICES
+ 	struct net *net = sock_net(sk);
+ 
+ 	/* Sorry... */
+-	ret = -EPERM;
+ 	if (sk->sk_bound_dev_if && !ns_capable(net->user_ns, CAP_NET_RAW))
+-		goto out;
++		return -EPERM;
+ 
+-	ret = -EINVAL;
+ 	if (ifindex < 0)
+-		goto out;
++		return -EINVAL;
+ 
+ 	/* Paired with all READ_ONCE() done locklessly. */
+ 	WRITE_ONCE(sk->sk_bound_dev_if, ifindex);
+@@ -655,12 +651,7 @@ static int sock_bindtoindex_locked(struct sock *sk, int ifindex)
+ 		sk->sk_prot->rehash(sk);
+ 	sk_dst_reset(sk);
+ 
+-	ret = 0;
+-
+-out:
+-#endif
+-
+-	return ret;
++	return 0;
+ }
+ 
+ int sock_bindtoindex(struct sock *sk, int ifindex, bool lock_sk)
+@@ -679,48 +670,40 @@ EXPORT_SYMBOL(sock_bindtoindex);
+ 
+ static int sock_setbindtodevice(struct sock *sk, sockptr_t optval, int optlen)
+ {
+-	int ret = -ENOPROTOOPT;
+-#ifdef CONFIG_NETDEVICES
+ 	struct net *net = sock_net(sk);
++	struct net_device *dev;
+ 	char devname[IFNAMSIZ];
+-	int index;
++	int ret, index;
+ 
+-	ret = -EINVAL;
+ 	if (optlen < 0)
+-		goto out;
++		return -EINVAL;
+ 
+ 	/* Bind this socket to a particular device like "eth0",
+ 	 * as specified in the passed interface name. If the
+ 	 * name is "" or the option length is zero the socket
+-	 * is not bound.
++	 * is unbound.
+ 	 */
+ 	if (optlen > IFNAMSIZ - 1)
+ 		optlen = IFNAMSIZ - 1;
+ 	memset(devname, 0, sizeof(devname));
+ 
+-	ret = -EFAULT;
+ 	if (copy_from_sockptr(devname, optval, optlen))
+-		goto out;
++		return -EFAULT;
+ 
+ 	index = 0;
+ 	if (devname[0] != '\0') {
+-		struct net_device *dev;
+-
+ 		rcu_read_lock();
+ 		dev = dev_get_by_name_rcu(net, devname);
+ 		if (dev)
+ 			index = dev->ifindex;
+ 		rcu_read_unlock();
+-		ret = -ENODEV;
+ 		if (!dev)
+-			goto out;
++			return -ENODEV;
+ 	}
+ 
+ 	sockopt_lock_sock(sk);
+ 	ret = sock_bindtoindex_locked(sk, index);
+ 	sockopt_release_sock(sk);
+-out:
+-#endif
+ 
+ 	return ret;
+ }
+@@ -728,42 +711,32 @@ static int sock_setbindtodevice(struct sock *sk, sockptr_t optval, int optlen)
+ static int sock_getbindtodevice(struct sock *sk, sockptr_t optval,
+ 				sockptr_t optlen, int len)
+ {
+-	int ret = -ENOPROTOOPT;
+-#ifdef CONFIG_NETDEVICES
+-	int bound_dev_if = READ_ONCE(sk->sk_bound_dev_if);
++	int ret, bound_dev_if = READ_ONCE(sk->sk_bound_dev_if);
+ 	struct net *net = sock_net(sk);
+ 	char devname[IFNAMSIZ];
+ 
+ 	if (bound_dev_if == 0) {
+ 		len = 0;
+-		goto zero;
++		goto copy_len;
+ 	}
+ 
+-	ret = -EINVAL;
+ 	if (len < IFNAMSIZ)
+-		goto out;
++		return -EINVAL;
+ 
+ 	ret = netdev_get_name(net, devname, bound_dev_if);
+ 	if (ret)
+-		goto out;
++		return ret;
+ 
+ 	len = strlen(devname) + 1;
+ 
+-	ret = -EFAULT;
+ 	if (copy_to_sockptr(optval, devname, len))
+-		goto out;
++		return -EFAULT;
+ 
+-zero:
+-	ret = -EFAULT;
++copy_len:
+ 	if (copy_to_sockptr(optlen, &len, sizeof(int)))
+-		goto out;
+-
+-	ret = 0;
+-
+-out:
+-#endif
++		return -EFAULT;
+ 
+-	return ret;
++	return 0;
+ }
+ 
+ bool sk_mc_loop(const struct sock *sk)
+
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
+-- 
+2.56.1
+
