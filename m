@@ -1,111 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.136
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794830596;
-	b=E4vM2pN7cwHAF1g0O4yXtbYiBYUXst7wJdBK9F1OaawCfmpeEso+iiQdLQ7r6gUfSsA0
-	 3H854V5z6ZhHd9Qc6gRAditT0nfVY0e7fX99PPezR8AE463Av9W9RegAoEfGP5jtbtmD3
-	 1mYAeJc5i3Wt1trVDSh1H37dsH7dZkM633C6z7snIOviCzuEFTazOdMuygYFXT5bt47qg
-	 FlXSJN8L2f7PbnUCFlxeQ4v7Rvd3Fo6mHY3iS/abgd3/KzKM1bKkDdIFkTiqbG3z5YnOP
-	 Eolv5kSIg0q+zUDfrZnEfldbrqdGV+HWigrwNO3BUe+uyziGKS5/NHBtZWbBDNli5dA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794830596;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=9I/MA66wUnM290t51PK71z+fPKKVCFqjtrdqznh+pas=;
-	b=Q2TnCDbsAvkcOVopBuRckn7l6S+Hi1d7B+t72vQjXOfXlgtedY4S8ulK0Sf5jBVGqdQB
-	 02laml0fBFQ3FGG2TnsxMTszCgG137clDo/pt/v+/+0mRJM9YfNlj6NblQbuTi/UvyLlz
-	 rMiZddtd8m9XcysS0NWvvd/IiTWLurF8UZrbevEoTNU8Baq9YPjh2i+/kQ5tMJtx80t46
-	 03qH8sQU1NWmulHvl3/lsU+NvUT2MKAOVfpLOKhmecHyFaQxPQBGDgnQSIbPm+OVD6Z6G
-	 Rfl07PzfeLpTKuoiZAcHagY/6RT6FPOSFIQg0Y6WW9AHO7VzKCegPli/uCmICHoS2Jg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amlogic.com;
-	spf=pass smtp.mailfrom=amlogic.com;
-	dkim=pass header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=O2eEebz4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.44.136
-Received: from SEYPR02CU001.outbound.protection.outlook.com (mail-koreacentralazon11023136.outbound.protection.outlook.com [40.107.44.136])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.179
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794830687;
+	b=aAlPr8Bt6aS6xF7NcAFLtU+AA6DawDTWGqs1wfq1aPDtK+UtAQeZmh0CT4Oi41LdixOi
+	 PsVxdTrAmkd+++zuDtuG51XpdTVsoqqk+VUHmyyvsAjBPwG04ne3qvfAvGgxTvuhvxX0W
+	 8PtBBfQlGoAdGkOV3294e/E6LIx7H6Yb3s1mYIzaCpCHosIRDQJsClRnP5kxLMiRkqNa8
+	 QBNibFK4tjCBXbYVQHKIdFrJn3Az0xa1HYFj6s+QtLFRtlJYNKAwL0blneQQpN17kXESA
+	 Ox+/gwx4W2Dwl6l8pXeZPjZDBS6O7ZxoCz5QqCWWNE0QHZ2fQxOtgp39d18dH3D4g5A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794830687;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:To:Cc:X-Mailer;
+	bh=w+hLSSBEQLeaadJ4ehRvrNvghPc5ZJYcY8eWYUFvqOA=;
+	b=dGvIyF4Ryn6QkI2DK5N0EWenleoqxLtYMZee6+IbkGKP2f9x8Mtp0edXelhnigNoCC7h
+	 kLORTvAyzQ1G3uhttT0kpNttFWJihTjwzi1ez7i0gyZaQ+FZOqeGvc9J0zsHCxjC0piiC
+	 fZFDjPFsGydpip0Udbl/2BTjoWmzt8gXb3Fc4vQn0FBhPyCjG+/2jqm74n9Ry9ktiiMdT
+	 YZkCeJzqjWxK4iv0cr6Tf9lPpiiC/Txs3FGSq0FyBLuK1OzWkm+XN/JAI/dc3IaFXio1X
+	 QjicTuRHCt4JyCQyYI1BOywpRMmT7BG/ELmu1EZLStuGUmG870MiJC6AbVN3gnRyCCA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R6ZQDB61;
+	arc=none smtp.remote-ip=209.85.128.179
+Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com [209.85.128.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF7D8606A337;
-	Mon, 16 Nov 2026 12:03:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF7D8606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amlogic.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amlogic.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99729606A329
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:04:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99729606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amlogic.com header.i=@amlogic.com header.a=rsa-sha256 header.s=selector1 header.b=O2eEebz4
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pK2AgFG0PNKfb8zG1shfUOGNsq/tb2W4mRhUlzZl4UVtei3+1hVs1hid/NgyX307dPJwY/k5LUAU8kv2/2WeJYi0xkbNaM7prPQ4BVuOWzk95zgd0VvAuHPjy/RMxJDYAEZ03ksd99d2wrqFdkKOcJiZsgHOQ3fpN1mR28Wp1ryhT0TTbWJS9B6S4v6MJmoU673ewI1omqrCrNLKZeckKISsrbG4E5Bfi0vwDAFrXvQ6b0UHVwbpgMmkIklg/OVYDdolmqcv8hT4BVP52V9CjyFVATEb/WvZxB7Skyq2LjkV6KbeoOV0odr/RmBOa3ohaYAXmV32nk9zoS8Y76Wp+Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=9I/MA66wUnM290t51PK71z+fPKKVCFqjtrdqznh+pas=;
- b=b6Mo0fV0sWcVSPU8rMcApZWuNxSY0kGHEX6gbrz991warA878+vJrYSQuriyoDmSATncm7lkWXfSRv+iR7b6+heGzpzC1Ibt0gKDofN9y61JQFfVmiPL4JjEbRDvXpTbze4WY1hGvxiVg49wFDucxeDGRF1P+VFt0AZZ3FkG1wFFw0021gznUOGqv9gZGG/NNVtEedsAQZKEKX1cOZL7niFxbJRNgJGeo8x3GH2wmXgOK2gu186Ma7Uvm6//Qtq6hKKUWwAC+nil1tOTew1SUio9S9iyNRNGjo47/VpMFIxT8vxKWb1BssHoEKAkmenxI81h3CZocEoKtV2JVkPazA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=9I/MA66wUnM290t51PK71z+fPKKVCFqjtrdqznh+pas=;
- b=O2eEebz4sxezInvNk0cdzLW3eQdxHf0MDcZf4+Yx04sr1u+rL740J+cYxXmEqhhhpnEVkV6B39WFk07rlsIV6wEa5NPqiYuQKRbiebhnhv8fB0DitKLQF11XM6ot7HBNeGG/gIUI7J8TK++tUSTa57PF+JWg2pRrnTJiz3WlNYadqgyA+3EFddk49bvtmSGy2GExh+XtX3SY7bHn9dE6TO9JgiUVyADWFwDOjQdHaXDxAC0qzbUYW5zIMntxcXPXeB0IbAAvRJHbnntHjew43NqzWljRddy5i5XbvB2Re5oR+qefrjpAfdHgbTLJYba9aURqOYp7RRozsg+v7YQuJQ==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by SG2PR03MB6610.apcprd03.prod.outlook.com (2603:1096:4:1d9::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
- 2026 12:03:12 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e%4]) with mapi id 15.21.0615.013; Mon, 16 Nov 2026
- 12:03:11 +0000
-Message-ID: <bd4c8a15-ab13-459f-8fb5-fe3f3b04af43@amlogic.com>
-Date: Mon, 16 Nov 2026 20:03:07 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/7] dt-bindings: net: amlogic,meson-dwmac: add
- amlogic,t7-dwmac
-To: tanure@linux.com
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, xianwei.zhao@amlogic.com,
- Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
- Qingpeng.Yang@amlogic.com
-References: <20261103163715.385394-1-tanure@linux.com>
- <20261103163715.385394-3-tanure@linux.com>
- <20261105-stoic-cricket-of-tolerance-cb3014@quoll>
- <35dc1ebf-5194-4ec8-adfb-dcc8ea717750@amlogic.com>
- <CAJX_Q+0QqBHGv-4nfmY8N_xr=KQgUFtwPQTVZBxTK1LHV0jGOQ@mail.gmail.com>
- <bbe0dedf-4b02-4cc6-97be-accfc06baa10@amlogic.com>
- <CAJX_Q+0seFwDvd6zksLnJjWYJJY1QcLc1gAjr=FN1p+aTdumpw@mail.gmail.com>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <CAJX_Q+0seFwDvd6zksLnJjWYJJY1QcLc1gAjr=FN1p+aTdumpw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI3PR01CA0006.apcprd01.prod.exchangelabs.com
- (2603:1096:4:296::19) To KL1PR03MB5778.apcprd03.prod.outlook.com
- (2603:1096:820:6d::13)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R6ZQDB61
+Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b4cc793704so9889827b3.2
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:04:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794830685; x=1795435485; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=w+hLSSBEQLeaadJ4ehRvrNvghPc5ZJYcY8eWYUFvqOA=;
+        b=R6ZQDB61rzhvhYgQPcmWrTeolhLyLN32JqAJH7MI/omFjgFHMvVIpXo+zR84zcrSgw
+         qYz3BPAqeMsqfoyxQbCnXsC9BAzK35cZZLYTm75I8urB4qwsg10LYufBTuarq9IALGu8
+         pqj+ENF59L8XQJisukjrq2nksGwx+54ksp3C3KqTGKUASXuw9Nv5ihCKJC9Q4qD0qpS1
+         s1aam+e4pLVvCr6i93Nwg3Hc16/cbtIRGxNAu0/GronzX458ySXXfT05ncBDXiLR1/vk
+         U4sU6Xc7mJQPOfK/GxZqNYDLPHWdTEcs75sjI3WtpZJ2C24jEvsuSxgoC3YkrQLICpxI
+         zE9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794830685; x=1795435485;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=w+hLSSBEQLeaadJ4ehRvrNvghPc5ZJYcY8eWYUFvqOA=;
+        b=AXki2Qgg5X6k2Xeyon5+6Maf8FaS4K/z2mySivzGFPHNzYimrxJAWzq+lJgwctWUMz
+         xdCp06gMNY2al4daOj2YE7W+4DeX87XN82UZLPNmWUs7J+JnVURkfmhdZBieyzqA5Fn2
+         my9l5QXHbW/7sNmskRVlKTau9HvsrBhrqWxHz9YSjdlpLAm/BAQOMCntwxAjKifHcBxO
+         de50FB1/qp0UaUJM5dJiYNZWzcTQl1ARgEt2Fa73/V7+lG4gTbRtcbUErFnE0beYLnqg
+         ej8I8xZh9yCQeA1mpZ8tTavk4gkqKWrC3RvRMujtBCAeyYvtw+x6LHq4ROxGtJ+y1eb9
+         RUrw==
+X-Gm-Message-State: APuU4Z9bcwQi/6xo1QMTqnKkgpYlEwj6nkFOwoHhqwW6HOwX1SbKEw+H
+	O6zcoGZ/IxtQyqXhrUlkdcCdHT65+5cbvESVYh7bMW0DHrJ3tF3O0DnT
+X-Gm-Gg: AZFdTZfmYV6EzoaZ6n31Tq/EjsvdswZA7vUazlkxB1eo/gMQqnldF3w1cgv4bJRqI9b
+	t6qf+JYCK3Hd/8fHjO35cLXuD4GOihAgUV4n+vjwCJZtCfzt6KQC1k5uZFgYI9rJoPo74vc1Rjb
+	5hEXMD7uiA2zL+TWgX1+sUt2lDMv/zaU5OuzDpEWPTcDpCSInzACF2jIYAiP/Hg4efgcmxh6EYj
+	PhKIEF1/EkDGNghsKjoTTShXZUUou9hg2JYbKyyo2iWSkl2dfUu5/oQoJ46jzFx0bHjYiA/+yzr
+	yIb2yVi2wpRtSmkpewqvzuV+bfXNl8CISLoQmvymwbdns4soktArXqB5YKEqpuKBEpGKECqL9Zy
+	3IoBQtHa7DNpTPLu71mLuMDJJ2kUa+jbFMhvW+Vtv+Y8iRN0W8QWbQWcMma//hx/OhnEi3YHtpH
+	vuUAUZWWPaC1gmZh+hMCMf9NHHS8h2dfeh7TdKz861/AHk7pv4jD8j+PfMoFuHf/5YrlNumHvoG
+	eT7L1RqpJJHr+Rn+Fl2Hx3SyBv4GofBXuXIhLFQQjty0XhLGwgkTXzsoseUanncB4VMHCRy9Z9m
+	fQ4gJs6dp3jJrau6uglx5ZgtI3qcpgeWqUUl6LpN04eqpSTe
+X-Received: by 2002:a05:690c:3181:b0:8ae:1acc:ad33 with SMTP id 00721157ae682-8b4aa305fd1mr44071397b3.58.1794830685512;
+        Mon, 16 Nov 2026 04:04:45 -0800 (PST)
+Received: from localhost ([2a03:2880:30ff:71::])
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4aa9fae24sm83783927b3.41.2026.11.16.04.04.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 04:04:44 -0800 (PST)
+From: Daniel Zahka <daniel.zahka@gmail.com>
+Subject: [PATCH net-next v4 0/5] psp: support rekeying psp protected tcp
+ connections
+Date: Mon, 16 Nov 2026 04:04:35 -0800
+Message-Id: <20261116-psp-v4-0-1a599df2aefa@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,284 +91,223 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SG2PR03MB6610:EE_
-X-MS-Office365-Filtering-Correlation-Id: f76c1b1a-3e14-4c57-c280-08df43d99625
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|4143699003|10067099003|11063799006|56012099006|261026121527099003|261026140227099003|261028144727099003|261021123027099003|261021121427099003|261022105027099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	i72eIpqRrN96wKPS42WPbK1/NggB9t+xvSQ5vsELp1LE4apqhZtr/rlggTFbr/zsZGlzRLoUEJo+n+Denpq/zoVdj16iIEO0dUDPVEyX0eH3zOkjpU4okU2mF3sN1Gjoh/oZcYcEbcELrtuLV2lGDS9G5itZUhUxM9QvZgcMCH4o0R46uiUcWC/HsCX4Fmu4mkXezOomMSf9NfzbYyd7AsGr6Prf7qBth2QnFu1FFLR0vbJsB1XfouZPsl0GTGNeaR4YgHq3lFnXJ9/EwX5fyyM6+uW3nH4Oo8bOQz8IsXOZBoHALi+afc75zsTUKpDgEXMntP2bdDTBHZW1bGdy75ab8LQlWGNpOr8DM99wBgQwrK/4IsNrBYqidF5+M2fssnd7nRr5pgG3ecZ6VaUqtR8UGjOdVQ5w7lEZAJWyYcIxRiT/w6tLwkLGu44vLBBFUX0ptoYbzFqzL7fK6ivu31sljgCaKKViJhrRDgJhpN7FTeddVz9FnZlkSbhSZADvlGM9WiTbfh3Ehn1mVq33T2BOFqQNh16qbM5QbdfyGJeg2ILxwMlU/maeWZQSsbuz2z07BO4viY0N/ZlO9uIcnGJmStw+8qAqokPf5u6kLLQVyDqIon8fz5Gml7ajTnZw
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(4143699003)(10067099003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(261021123027099003)(261021121427099003)(261022105027099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?eGFQWVpwaktuTGtpdUNyMzB5SUJXVS9mdld1RENKdmtjME9PWXJtckg3THdq?=
- =?utf-8?B?a2dmUHJqOWlPRWVwUFg4a2ppeVNyL0N1dmZEeStkTW10Nm1xcDVsZlRVV3VB?=
- =?utf-8?B?TVQwekI4bHhnVnp0RHoyZWJGQmhIWWZQWG91V3FjZ2hFbVpLR2hsV3pOSGkv?=
- =?utf-8?B?bnN5amo1Tkc4VFUxYTR6T3dhWGxDSjQ4c0FUOUJMZFZyQWhvSFpubWdubWx3?=
- =?utf-8?B?WURYbGI5MG1qVUNFNFJTT2hqb2RtK3d2R1VZSTF3dXdzMDl1UGNlZGxCQ1dO?=
- =?utf-8?B?cndrQkxQZkU1aytuS2xTUkRQOEY0K05rUGE0RHc3ZW9zcm5GbFVGcU5OMTE2?=
- =?utf-8?B?WGN5aTVURHhPWHZjV0VjTlpxZkxXNEpHanBuMi9sa3hQSnVzbk5raU5qNk15?=
- =?utf-8?B?dFBMVjBCQ3dza0NPMlhZN01MWUdPei9iWVpvcEgzQlgvZ01SeWxCcVNQSnd4?=
- =?utf-8?B?Q1RJRVo3aUE1Qnk1U2JiSi9EaHNyVitHSTkzSWJnV0QvWmRzS2RmM0prOE9Q?=
- =?utf-8?B?Nk1hVnAyN1pacmlqZ2dIOWYrU3RiTzFxdmQ3YzZObmZQR2tPWmZoZjFFOTV5?=
- =?utf-8?B?UjlhYk92TURhZmY5ZVkxNmhIOFpod1ZWV0hqWnhkZTJGMzRuSWR4dU9rakJ6?=
- =?utf-8?B?Mk12czExU0lDbjVHaVoyc1lSRm5lRXBJaXE1VFVqbktXdVlVZ3UxcnU1b2U1?=
- =?utf-8?B?UDdKdkhzVWlsekFPL1pGdjI2VW9KbEF1cm5raU16aDdGUTkwSXpZcGNrY0t5?=
- =?utf-8?B?b3BaU0VCWEwvOXZWblVad3FRcmdWV1h2NFczRHJSbm1TS0gwb3J2WTZxUStF?=
- =?utf-8?B?ejhkVFhuMzRoRno1aDhpSVh6M1VEaTlQZEV3eGpvMzNQV0Rmb09hU2tYalhI?=
- =?utf-8?B?OHdzYWlIWmQ4ZnM3YjF4RUpoSm5uZnNaOWlrcFRGaFkzQlphY0JJay9Qa2cz?=
- =?utf-8?B?Q3ZQZ25LRmFVcXhrWWxFSFhEKzUrWjZFUWdsUk1xbTVkUXVSVllkdm9KYVlm?=
- =?utf-8?B?NWIwOURtQTRTaEFMMWFlbDMvT3Q2T0RMQ08vdFZTOVFIU2poOStmMURBV28z?=
- =?utf-8?B?R25IVmhLSVI4V0o3Q2pwYWo4M0xaM0lyc21mRTNFaGFENFRSYUhwYjRVRWxF?=
- =?utf-8?B?TEozTnhoZ09JKzFvQTlqbFdtQzJlTWFWQW5vRm52Smx2S0NLdHY3TjdJRXox?=
- =?utf-8?B?UlhQQmo4VWtsdTJGK1ZVZ0FuWWFaZXNQOHNzbDkxOVJwS2hLRThaaW5VbjZv?=
- =?utf-8?B?alBtNytuQ2M4YUs2UlNvYUJhZVhSaEVvRTlxdzIxcFUyclAyZHZ3U0lQTTZj?=
- =?utf-8?B?NmVucjRsSDhyUjlGdENydVprVTRJT29NdVZQdTJuMmROeXZzcVpENHNUWjhT?=
- =?utf-8?B?MkhmM1hFZlJNOTdQU3luSXBSZ0xlYnpKbEtiOXRyRE1vM1k4Z0UxQlN5OFRt?=
- =?utf-8?B?ZU9NRndkNGdaL0E0TkM5RGN0N1hZQUpMMm5QcGlNeTJaSjZqVENRZHo3WDEw?=
- =?utf-8?B?Z0Y4WVF4TXE0NVhnUDZxR29IdVczNHVwR1JIQlg0WUtTVFRvaXArbkl0TjI3?=
- =?utf-8?B?NUdoWTdFZnZhTVNKVlRYNFExWlNnYU1PYXhYL2tRNTdFTkQ0MEplMW9MMTJr?=
- =?utf-8?B?bmRkbHRHMmtSTUsrWTRPODNLRW56dUJzeDlSS2RIQzd6K3BZQzNhV2RhaVhx?=
- =?utf-8?B?djFhaFRWQ3pzT0JoWVJhSjB0YXlEeXROT1hXb3RJRTJLVWo1SHhrcFRYZHIz?=
- =?utf-8?B?ZTRINU1Sc2duQmZYSkNGRCtaK2czOUJqM2xzU3g2T3U0K2FITGVFcjdFV00y?=
- =?utf-8?B?bkFWNkt3ZXFLWXZTMHdCa1JtbEtPcFNSbGVYdkhRSWtlcTJzODRQVUw4OGhK?=
- =?utf-8?B?WGhvYVhKVDRXVWN6dFUxT1dxYTQzZ2lBMmloZ3hVaGdVajhjUzNXS25nRkR1?=
- =?utf-8?B?UTl6bVUxN0FWbkNsekNkWmJWamM5NVJlMDgvbTRrWkFla3VvL09NaGRPcFov?=
- =?utf-8?B?dnhaZnVYSDRxMjF5T21WcnhyUGJPc0txMVNMVno5SEhMM05jUHJGWld4aXBQ?=
- =?utf-8?B?Y3UrM1F2MXVIK1FYa01DTjhhdGx4TCtwSjV5aGhPTmJLUVE5R3YwNy9wbXhi?=
- =?utf-8?B?NFpCbTh1enZJazF0anFwSEVwWEM4VFpLMkU4VllscmowWW9wcml2S2twR1F1?=
- =?utf-8?B?YmFiZWZUMWRiTGFObW1TQk5INlNNTkJIZXoxYzU0VlgxaEpOTVRkeUl0dkNU?=
- =?utf-8?B?Y245Zy9XTzlwbHF0T2dOVG9IdThlWW5BVWoreFpRNGxQYzQ3Ym11N0NpTTNR?=
- =?utf-8?B?VGlaRUwzZUhzck9RZEtuK1ZpRnhLMklCa0xvekxKbm5jbWhZTDNUUT09?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f76c1b1a-3e14-4c57-c280-08df43d99625
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 12:03:11.7643
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: v1bT6460YowAX8n5FRzJCVit5Rhj5TiVUImA42PH42bGI5RZVI/7p2r4W35rte84rWii70XoduibZa0WbASNFg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SG2PR03MB6610
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFPx+moC/13MywrCMBAF0F8pWRtJ82rryv8QFzGZtAH7ICmhU
+ vrvxlQU3Qxc7py7ogDeQUCnYkUeogtuHFLghwLpTg0tYGdSRpRQSdLBU5gw0zVQK4UWmqP0OXm
+ wbskrFzTAjAdYZnRNTefCPPpHno9l7t9LPC/FEhMsLGEcqLGKyXPbK3c/6rHPPtKPKQlpdkNfR
+ jRS3QSxsqr+DfuaksjdsGRUbQyrrVAV/THbtj0BnDagwQgBAAA=
+To: Jakub Kicinski <kuba@kernel.org>, 
+ Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, 
+ Donald Hunter <donald.hunter@gmail.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, Shuah Khan <shuah@kernel.org>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Willem de Bruijn <willemb@google.com>
+X-Mailer: b4 0.13.0
 
-Hi Lucas,
+A note on v3 and later:
+To keep this series short, I have split off some of the content that
+appeared in v2, and also have planned future work that will make this
+feature more robust, but not necessary to start. Here is the current
+queue of follow up series:
+ 1. core tracked tx-key-count stat and SADB drain test case (from v2). I
+    see this as able to stand alone as a series, and I also would like
+    to report key deletion errors, but will have to touch mlx5 for that.
+ 2. core to end grace period if BQL is stalled. I think this deserves
+    its own series for human discussion.
+ 3. Rate limiting rekey uAPIs. This has been suggusted by the bot, but
+    whether or not it is needed depends on a bit on the deployment
+    model.
 
-On 11/13/2026 7:40 PM, Lucas Tanure wrote:
-> [ EXTERNAL EMAIL ]
-> 
-> On Tue, Nov 10, 2026 at 11:43 AM Chuan Liu <chuan.liu@amlogic.com> wrote:
->>
->> Hi Lucas,
->>
->> On 11/9/2026 11:43 PM, Lucas Tanure wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> On Fri, Nov 6, 2026 at 3:16 AM Chuan Liu <chuan.liu@amlogic.com> wrote:
->>>>
->>>> Hi Krzysztof, Lucas,
->>>>
->>>> On 11/5/2026 7:57 PM, Krzysztof Kozlowski wrote:
->>>>> [ EXTERNAL EMAIL ]
->>>>>
->>>>> On Tue, Nov 03, 2026 at 04:37:10PM +0000, Lucas Tanure wrote:
->>>>>>
->>>>>> Assisted-by: LLM
->>>>>
->>>>> Drop this one.
->>>>>
->>>>>> Signed-off-by: Lucas Tanure <tanure@linux.com>
->>>>>> ---
->>>>>>     .../bindings/net/amlogic,meson-dwmac.yaml     | 59 +++++++++++++++++++
->>>>>>     1 file changed, 59 insertions(+)
->>>>>>
->>>>>> diff --git a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
->>>>>> index e769c9bb70d8..6de013e3e8f6 100644
->>>>>> --- a/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
->>>>>> +++ b/Documentation/devicetree/bindings/net/amlogic,meson-dwmac.yaml
->>>>>> @@ -23,6 +23,7 @@ select:
->>>>>>               - amlogic,meson-gxbb-dwmac
->>>>>>               - amlogic,meson-axg-dwmac
->>>>>>               - amlogic,meson-g12a-dwmac
->>>>>> +          - amlogic,t7-dwmac
->>>>>>       required:
->>>>>>         - compatible
->>>>>>
->>>>>> @@ -57,6 +58,59 @@ allOf:
->>>>>>                 - const: clkin1
->>>>>>                 - const: timing-adjustment
->>>>>>
->>>>>> +  - if:
->>>>>> +      properties:
->>>>>> +        compatible:
->>>>>> +          contains:
->>>>>> +            const: amlogic,t7-dwmac
->>>>>> +    then:
->>>>>> +      properties:
->>>>>> +        clocks:
->>>>>> +          items:
->>>>>> +            - description: GMAC main clock
->>>>>> +            - description: First parent clock of the internal mux
->>>>>> +            - description: Second parent clock of the internal mux
->>>>>> +            - description:
->>>>>> +                clock of the pipeline stage inserted in the bus path between
->>>>>> +                the controller and the DRAM. Without it, the controller cannot
->>>>>> +                complete DMA transfers.
->>>>>> +            - description:
->>>>>> +                clock of the register block holding PRG_ETH0 and PRG_ETH1.
->>>>>> +                Without it, the block reads as zero and ignores writes.
->>>>>
->>>>> This sounds like you take clock from other block. That's wrong, that
->>>>> device should take its own clock.
->>>>
->>>> I see that the clock in the dts patch corresponds to <&clkc_periphs
->>>> CLKID_SYS_ETHPHY>. This clock provides the working clock for the APB Bus
->>>> of the ETH PHY controller, and this clock will affect the register
->>>> reading and writing of the ETH PHY (including the ETH_PLL). See section
->>>> 15.3.4.2 RegisterDescription in A311D2 Datasheet for details.
->>>
->>> Thanks. That section is the PHY block at 0xfe028000, the region of the
->>> mdio multiplexer node. The registers in this description are PRG_ETH0
->>> and PRG_ETH1 in eth_top at 0xfe024000. On the VIM4 the same gate feeds
->>> them too: with it off they read as zero and ignore writes. My datasheet
->>> revisions do not say which clock feeds eth_top. Can you confirm it is
->>> this one?
->>
->> The information I can confirm is:
->>     - The base address of eth_phy is 0xfe028000, and its corresponding
->> APB clock is <&clkc_periphs CLKID_SYS_ETHPHY>.
->>     - The base address of eth_top is 0xfe024000, and the base address of
->> eth_mac is 0xfdc00000; their corresponding APB clock is <&clkc_periphs
->> CLKID_SYS_ETH>.
-> 
-> That is not what the VIM4 does. The stmmac core enables
-> CLKID_SYS_ETH before any glue code runs. With that clock on and
-> CLKID_SYS_ETHPHY off, PRG_ETH0 and PRG_ETH1 read as zero and the
-> driver's writes are lost: U-Boot's 0xa0000 was still in PRG_ETH1
-> after the driver had written 0. Enabling CLKID_SYS_ETHPHY right
-> before the write makes it land. That was the v3 bug, every frame a
-> CRC error. I repeated it today on the running kernel, toggling only
-> bit 4 of CLKCTRL_SYS_CLK_EN0_REG0 from user space, every other gate
-> left on:
-> 
->    both gates on        EN0=ffffffff EN1=ffffffff PRG_ETH0=00001601
->    ethphy off, eth on   EN0=ffffffef EN1=ffffffff PRG_ETH0=00000000
->    ethphy restored      EN0=ffffffff EN1=ffffffff PRG_ETH0=00001601
-> 
+Original cover letter:
 
-Sorry that the information I gave before is not completely accurate. The 
-conclusion you drew from the test is correct. The relationship between 
-them should be:
-     - eth_mac:  works with CLKID_SYS_ETH only
-     - eth_phy:  works with CLKID_SYS_ETHPHY only
-     - eth_top:  needs both CLKID_SYS_ETH and CLKID_SYS_ETHPHY
+The PSP architecture spec states the need for rekeying connections in
+the event of a device key rotation. After a device key rotation has
+occurred, a new rx derived key needs to be generated and sent out to the
+other end of the connection sometime before the next device key rotation
+occurs.
 
-> So on this chip CLKID_SYS_ETH alone does not give access to eth_top.
-> Could the register interface of eth_top sit behind the eth_phy APB
-> slave?
+Because PSP connections involve two different keys at each endpoint,
+one for decrypting ingress traffic, and one for encrypting egress
+traffic, there are two types of rekeying events that need to be
+supported. From the perspective of one endpoint of the connection:
 
-eth_top is the glue between the eth_mac and eth_phy domains, its 
-registers are consumed on both sides of that boundary, so a register 
-access has to complete in both clock domains - with either gate off, 
-reads return zero and writes are lost.
+1. rx rekey: we need to allocate a new spi + decryption key pair to
+   provide to our peer.
 
-> Either way the MAC node has to enable CLKID_SYS_ETHPHY, and
-> the binding will describe it as the clock of the glue registers.
-> 
->>
->> The CPU reads and writes the registers of these peripheral controllers
->> (or Processing Units) via the APB. Consequently, the registers of these
->> controllers cannot be read and written properly if the corresponding APB
->> clock (sys_clk/clk81) is not enabled.
->>
->>>
->>> Thanks,
->>> Lucas
->>>
->>>>
->>>>>
->>>>>
->>>>>> +
->>>>>> +        clock-names:
->>>>>> +          items:
->>>>>> +            - const: stmmaceth
->>>>>> +            - const: clkin0
->>>>>> +            - const: clkin1
->>>>>> +            - const: pipeline
->>>>>> +            - const: pclk
->>>>>> +
->>>>>> +        # The PHY adds the 2ns RGMII delays, see ethernet-controller.yaml.
->>>>>> +        # The RX delay line of this glue is fine tuning in 200ps steps,
->>>>>> +        # added on top of what phy-mode describes. The TX side has no fine
->>>>>> +        # tuning: its only step is a quarter of the clock period, the full
->>>>>> +        # 2ns at 1Gbit/s, so the TX property is not accepted.
->>>>>> +        tx-internal-delay-ps: false
->>>>>> +
->>>>>> +        # Deprecated: new SoCs use the standard *-internal-delay-ps
->>>>>> +        # properties instead.
->>>>>> +        amlogic,tx-delay-ns: false
->>>>>> +        amlogic,rx-delay-ns: false
->>>>>> +
->>>>>> +  # Delay definitions for Meson8b and newer
->>>>>> +  - if:
->>>>>> +      properties:
->>>>>> +        compatible:
->>>>>> +          contains:
->>>>>> +            enum:
->>>>>> +              - amlogic,meson8b-dwmac
->>>>>> +              - amlogic,meson8m2-dwmac
->>>>>> +              - amlogic,meson-gxbb-dwmac
->>>>>> +              - amlogic,meson-axg-dwmac
->>>>>> +              - amlogic,meson-g12a-dwmac
->>>>>> +    then:
->>>>>> +      properties:
->>>>>>             amlogic,tx-delay-ns:
->>>>>>               enum: [0, 2, 4, 6]
->>>>>>               default: 2
->>>>>> @@ -106,6 +160,7 @@ allOf:
->>>>>>               contains:
->>>>>>                 enum:
->>>>>>                   - amlogic,meson-g12a-dwmac
->>>>>> +              - amlogic,t7-dwmac
->>>>>>         then:
->>>>>>           properties:
->>>>>>             rx-internal-delay-ps:
->>>>>> @@ -142,6 +197,10 @@ properties:
->>>>>>           - items:
->>>>>>               - const: amlogic,meson6-dwmac
->>>>>>               - const: snps,dwmac
->>>>>> +      - items:
->>>>>> +          - const: amlogic,t7-dwmac
->>>>>> +          - const: snps,dwmac-5.10a
->>>>>> +          - const: snps,dwmac
->>>>>
->>>>> I see no such hunk in the code, so not sure how to review this.
->>>>>
->>>>> Best regards,
->>>>> Krzysztof
->>>>>
->>>>>
->>>>> _______________________________________________
->>>>> linux-amlogic mailing list
->>>>> linux-amlogic@lists.infradead.org
->>>>> http://lists.infradead.org/mailman/listinfo/linux-amlogic
->>>>
->>>> --
->>>> Best regards,
->>>> Chuan
->>>>
->>
->> --
->> Best regards,
->> Chuan
->>
-> Thanks,
-> Lucas
+2. tx rekey: our peer has provided us with a new spi + encryption key
+   pair which we should use for encrypting traffic immediately.
 
--- 
+In the case of rx rekeying, there is a period where it makes sense to
+accept packets authenticated from either the previous or current spi. To
+deal with that, we allow a psp_assoc to remember the last spi that was
+valid on a socket due to a rekey. If authentication state does not match
+the most recent assoc, the stored state from the previous assoc will be
+tried.
+
+In the case of tx rekeying, as soon as we install the new tx key, we
+have no use for the previous one, and it can be disposed of immediately.
+The only catch is in the case where hw uses a key handle in tx
+descriptor state, as opposed to inlining the key directly. In this
+case, psp core needs to be sure that any of these unaccounted for
+references to key state are gone by the time it tries to sync a deleted
+key to hw.
+
+To deal with this race condition, we introduce a different path to key
+deletion for psp_assocs removed from the socket during a tx rekey. psp
+core will use bql byte counters filled out by the driver to determine a
+conservative grace period where key handles can be disposed of.
+
+Lastly, some test cases for rekeying are included that go through key
+rotations and rekeying.
+
+There are some packetdrill tests that are queued for upstreaming [1].
+
+Future work can include a time based rate limit on the rx-assoc/tx-assoc
+uAPIs to prevent an untrusted user from creating lots of wasted PSP
+assocs and consuming SPIs, SADB space, etc. For now, users should use
+network namespaces, or otherwise not present PSP devices to users that
+could abuse this.
+
+[1]: https://github.com/danieldzahka/packetdrill/commits/psp-rekey/
+
+Signed-off-by: Daniel Zahka <daniel.zahka@gmail.com>
+---
+Changes in v4:
+- selftests: drv-net: psp: factor out psp connection setup
+  - drop closing the data socket on conn_setup_psp() failure;
+    preexisting and not needed by the series
+- selftests: drv-net: psp: add rekey tests
+  - reuse _recv_careful() and _req_echo() now in net-next instead of
+    redefining them
+- Link to v3: https://lore.kernel.org/r/20261106-psp-v3-0-a8dd38f5a727@gmail.com
+
+Changes in v3:
+- psp: support rx rekey operation
+  - move the replaced assoc to psd->stale_assocs, so a rotation
+    racing with its free doesn't count it in stale-events
+  - drop the requirement that the new rx spi has the opposite phase
+    bit from the previous one
+  - keep prev_generation valid across a rotation when the prev SPI is
+    from the same generation
+  - document rx rekey in the rx-assoc op doc in psp.yaml
+- psp: support tx rekey operation
+  - move the replaced assoc to psd->stale_assocs, so a rotation
+    racing with its free doesn't count the socket twice in stale-events
+  - document that the previous rx SPI also stops being accepted once
+    its device key is rotated out
+  - drop the claim that the peer accepts both the old and new SPI
+    after a tx rekey
+  - document tx rekey in the tx-assoc op doc in psp.yaml
+- psp: defer tx key deletions for SADB drivers
+  - document that Tx descriptors must be completed or discarded
+    before psp_dev_unregister()
+- selftests: drv-net: psp: factor out psp connection setup
+  - take key lengths from the kernel's rx-assoc reply instead of a
+    per-version table
+  - close the data socket in psp_responder if conn_setup_psp() fails
+- selftests: drv-net: psp: add rekey tests
+  - drop test for rx rekey rejected without a device key rotation
+  - fail fast in _recv_careful() if the peer closes the connection
+  - in the basic rekey tests, run traffic across a rotation before the
+    rekey, and rotate again after it to verify the new key is in use
+  - drop unneeded key rotation from rekey_rx_version_mismatch()
+  - carry the key length in the responder's assoc message instead of
+    deriving it from the version
+- psp: add core tracked stat for outstanding tx keys
+  - moved to a follow-up series
+- selftests: drv-net: psp: add a tx rekey drain test for SADB drivers
+  - moved to a follow-up series
+- Link to v2: https://lore.kernel.org/r/20261009-psp-v2-0-5596ab50f677@gmail.com
+
+Changes in v2:
+- psp: support rx rekey operation
+  - copy old rx state by value instead of pointer to prev
+  - place non-datapath fields at end of struct psp_assoc
+  - disallow rx rekey when socket is not in full psp state, or
+    dev/version doesn't match
+  - require the new rx spi to have the opposite phase bit from the
+    previous one
+- psp: support tx rekey operation
+  - place new assoc on pas->assocs list instead of psd->active_assocs
+  - disallow tx rekey when socket is not in full psp state
+  - document rekeying in psp.rst
+  - reject tx rekey on SADB devices until deferred tx key deletion
+    lands
+- psp: defer tx key deletions for SADB drivers
+  - replaces "psp: add driver api for deferred tx key deletion"
+  - use bql byte counters instead of driver callback for grace periods
+  - only defer tx key deletion when socket outlives psp_assoc
+  - document driver requirements in psp.rst
+  - allow tx rekey on SADB devices
+- psp: add core tracked stat for outstanding tx keys
+  - replaces "psp: add core tracked stats for deferred key deletion"
+  - drop grace-periods stat
+  - rename tx-key-cnt to tx-key-count, only report it for SADB drivers
+  - warn about outstanding tx keys in psp_dev_unregister()
+- selftests: drv-net: psp: factor out psp connection setup
+  - split psp_responder conn_setup_psp() into rx_assoc() and tx_assoc()
+  - drop Reviewed-by from Willem due to psp_responder changes
+- selftests: drv-net: psp: add rekey tests
+  - add tests for rekeys rejected due to psp state and version
+    mismatch
+  - add test for rx rekey rejected without a device key rotation
+  - add rx-assoc, tx-assoc, and key-rotate rpcs to psp_responder
+- selftests: drv-net: psp: add a tx rekey drain test for SADB drivers
+  - new patch
+- mlx5: psp: implement deferred tx key deletion
+  - dropped, bql based grace periods need no driver callback
+- Link to v1: https://lore.kernel.org/r/20260204-psp-v1-0-5f034e2dfa36@gmail.com
+
+To: Daniel Zahka <daniel.zahka@gmail.com>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Simon Horman <horms@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+To: Donald Hunter <donald.hunter@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: Shuah Khan <shuah@kernel.org>
+Cc: netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org
+
+---
+Daniel Zahka (5):
+      psp: support rx rekey operation
+      psp: support tx rekey operation
+      psp: defer tx key deletions for SADB drivers
+      selftests: drv-net: psp: factor out psp connection setup
+      selftests: drv-net: psp: add rekey tests
+
+ Documentation/netlink/specs/psp.yaml               |   8 +-
+ Documentation/networking/psp.rst                   |  68 +++++-
+ include/net/psp/functions.h                        |  10 +-
+ include/net/psp/types.h                            |  35 ++-
+ net/psp/Kconfig                                    |   1 +
+ net/psp/Makefile                                   |   2 +-
+ net/psp/psp.h                                      |   8 +-
+ net/psp/psp_deferred_del.c                         | 231 +++++++++++++++++++
+ net/psp/psp_main.c                                 |  22 +-
+ net/psp/psp_sock.c                                 | 114 +++++++++-
+ tools/testing/selftests/drivers/net/psp.py         | 251 ++++++++++++++++++++-
+ .../testing/selftests/drivers/net/psp_responder.c  | 192 ++++++++++++++--
+ 12 files changed, 886 insertions(+), 56 deletions(-)
+---
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
+change-id: 20260202-psp-3c8e2f65c5c4
+
 Best regards,
-Chuan
+-- 
+Daniel Zahka <daniel.zahka@gmail.com>
 
