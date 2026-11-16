@@ -1,48 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.209
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794827330;
-	b=tlKxa/4U5ZGe8BfioPo6OJLeKEw96l8J8jNj/0f+bWNj2zpiOoPRF523FLdTKK3lSNzB
-	 BKDOm0RQlcm7WXKNYXzxQ6D5/YoDIxcbe5Kr5ZKi5V9RJNV7DrSlmm4bq1PeX8eNEge1S
-	 fP1hwVWMMKMEZaxGUlvbNzyW/jKG6m5YNFk0kJj0p2LoEXhPbedar2IM+Jp1y2cz5rBZr
-	 aiIj5nFnjJXtZznoOjJKUIwRCnEU/fS9+Fhb0uLOUukkWRJzJ25IrFGu2G8BIQ81TNp3S
-	 IN0BAGxIG6L4qek5QaN4D49h5QITwHGjxCIoikYeu+pu3+YSUQlfWqtSvZA6KsEuPDw==
+	t=1794827341;
+	b=GC6jRR0+OmmdPkn+jOYJf6io/iOgNZbVRIOx1xKz/luBJUKVYDUWZthUzbcdtdA4PdzE
+	 p4rR5U4nd9JJkItvhm6f5Eso2NuAn6PydfEZxYSM1SoKpFRTunN/u+6d4WYu4VVhQCPgD
+	 VXwu/9fRXprHZhPIVCp5DXzYsDOLHtRPwtE3sr9E00xaIl+awUeU2ickihyhnT9zNjbQb
+	 M3BQIN8jEp2iZmz7vNBVcC3slwUzP/Qwp1xkxxtHIRibDGBsOJ90tbhrzj3NptLHjS2y1
+	 l9w1fjyj3yye8UE2Q6U+7+KaTBHxEb8CqeQHwjQ2IepzatkK4nyQomppqx1t97LKATQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794827330;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=KgbqG9Caw/hRTAbhKcrEqjiiAiXfjhN0P7+uUEzG5mo=;
-	b=3gEVfLfh6MgaNeSJYrEiTeJMEtJuBFpkccv2FN1b9vgIrdUgFbFf4XiLr12ccdvrwJq9
-	 UY0r/yoj4dTONyYmsX4Ksvmg+H2gv0hNSYnIebLUXGuaXkvDCtgmYsEIxAS5OBIOq3vjw
-	 7bcEZNyupSQ/WgGBSmo85Bskvuff1xJska71X0oDCAj3jmt0HD/ZjHbJEwDsHRSyF1pTD
-	 PRzdcZgiJichhIRMflfxqlbeVSxDWeevVO/YSGxh2qJuiPxRKWlbzMCmAuIFyDFihZiGt
-	 7xPbBRn1ay3Pd++o2XUrhVPYHKhN3M7mcVA1K58llddkb4n9Fdo5BGdKfFg/vWDnntQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794827341;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=KqerhnwBI1JBT+I/Q+CK9wueSEu/yOxUM4/aR1pL9/4=;
+	b=1MGKKcRRdmIci9JWUMWafW0Bv99fa+gMJymlOxP42d0IBEdSu4JtIkXRB5X16kwDgVdb
+	 at8SkmHjTZfzV9yUjRGXmTj0IFevL6CNeZcmSS7SjxraDbE5p9MiYh15mm/cyVxc2xt7Z
+	 ASm0/6kgC3i0lCf9ZLFD/RMDcjIK0QS/Qce/kd+zsdzHwG+/M8Iw2IjaGWI39i4rBUL77
+	 Z69+xC9V9ns36fy48yLaW16AvvIWSRCz6gKH4tPM3ZA5AIWe3pFoC3iowW4fDI0DKME5f
+	 UMMXx4SPX42oTW3lGZJs3qSQVpSxRYA44NBuI8zzO837C7QWYLAIlUB/NZv9oV4SjIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a0UaCeV2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Nnavr7Bu;
+	arc=none smtp.remote-ip=91.218.175.209
+Received: from mta0.migadu.com (out-209.mta0.migadu.com [91.218.175.209])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EE3060A6F7B;
-	Mon, 16 Nov 2026 11:08:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E57D3606C120
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:09:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E57D3606C120
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a0UaCeV2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 768641F000C5;
-	Mon, 16 Nov 2026 11:08:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794827330;
-	bh=KgbqG9Caw/hRTAbhKcrEqjiiAiXfjhN0P7+uUEzG5mo=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=a0UaCeV2WV+QFgrwTGF9+hKqhdNQa9dgGmQSp/rRjo/bQXyy72SriaLw6dWnEcymV
-	 8DP21DNooZ/yHbfrIGqsgMkSLRPQyEkzc0OzcnwWFeuA4kk3ur891oAbusm+Y5TqgI
-	 A9UKuEQLGl22KaXB9J3QM0jgvZ6QZyEhJ1LX5mgmJK+zWSZanNlhUpMAk94F0KldS3
-	 ZAEOkyjJa37fqTHwFK10oUMUYuBTYBoT8ldVJlKKulVTVEcQ6KH6VUczbJeY4+jyMO
-	 SGxWgT7t/Kx8U0Zx7i/0tMnR4OehS/kQiPQrAND2KNfoR/OUuKG2pj8/dQzNF6kliw
-	 coFLuVxRgzfuA==
-From: Christian Brauner <brauner@kernel.org>
-Date: Mon, 16 Nov 2026 12:04:55 +0100
-Subject: [PATCH RFC v3 22/44] sunrpc: use fc_init_pseudo() for rpc_pipefs
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Nnavr7Bu
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=0wNJRlzmtN6gE1mGMKSGKWSrbcdB/Xjxt9Wa0wbIgoc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794827339; v=1; x=1795432139;
+ b=Nnavr7Buog7p0eniQTvhGrTRzvvMGJeuTD/wddna9hCuKLbqnPDZFqj+EaE35AYzKjnMkiwX
+ NJ4RsaYUaKlp514vZW33bb01KMnqLbyy05mmodZLPRsMJBojcoyd7JwVOmEYqk3iLJRMmHimlvi
+ K7YvMHscBnnatpiMqZFRPosI=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id d994638ce96c12ee;
+	Mon, 16 Nov 2026 11:08:58 +0000
+X-Mizu-Trace-ID: d994638ce96c12ee
+X-Migadu-Flow: FLOW_OUT
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+To: netdev@vger.kernel.org
+Cc: horms@kernel.org,
+	saeedm@nvidia.com,
+	leon@kernel.org,
+	tariqt@nvidia.com,
+	mbloch@nvidia.com,
+	borisp@nvidia.com,
+	witu@nvidia.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Subject: [PATCH net-next] net/mlx5e: kTLS, Simplify error unwind in mlx5e_ktls_set_feature_rx()
+Date: Mon, 16 Nov 2026 20:08:30 +0900
+Message-ID: <20261116110830.2850785-1-xuanqiang.luo@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,72 +76,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261116-work-loop-pseudo-v3-22-8cbbea1cf34f@kernel.org>
-References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
-In-Reply-To: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
-To: linux-fsdevel@vger.kernel.org
-Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, 
- Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
- linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
- Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, 
- target-devel@vger.kernel.org, driver-core@lists.linux.dev, 
- linux-mm@kvack.org, bpf@vger.kernel.org, 
- linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
- apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, 
- netdev@vger.kernel.org, fuse-devel@lists.linux.dev, 
- linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, 
- ocfs2-devel@lists.linux.dev, linux-s390@vger.kernel.org, 
- linuxppc-dev@lists.ozlabs.org, linux-usb@vger.kernel.org, 
- Amir Goldstein <amir73il@gmail.com>, linux-erofs@lists.ozlabs.org, 
- linux-kselftest@vger.kernel.org, 
- "Christian Brauner (Amutable)" <brauner@kernel.org>, 
- Alexander Mikhalitsyn <alex@amutable.com>, 
- Chris Down <chris@chrisdown.name>
-X-Mailer: b4 0.17-dev-ce4c1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1040; i=brauner@kernel.org;
- h=from:subject:message-id; bh=MpmJ+CmuhOGqFr/rEz4RCZnO8Dm+lCmdYI7UNn+2hFA=;
- b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWT9elwRn1592q8/9Ebu9EUG4e+0Z+x4JNaS4GRWxbRWa
- I/o/GkXO0pZGMS4GGTFFFkc2k3C5ZbzVGw2ytSAmcPKBDKEgYtTACZy8hfDbzaJKycFfq3aMa+A
- /w/npnojOb4g9kWmP5bcj73ysOj+316GPxwVXDnXi12WCXs1r75bJrnrxYX8JK+ld+pbrvadl9F
- W5wMA
-X-Developer-Key: i=brauner@kernel.org; a=openpgp;
- fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
+Content-Transfer-Encoding: 8bit
 
-Initialize rpc_pipefs as a pseudo filesystem. This raises SB_I_PSEUDO and
-also SB_I_NOEXEC and SB_I_NODEV. rpc_pipefs never holds executables or
-device nodes.
+From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
-Reviewed-by: Chris Down <chris@chrisdown.name>
-Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+mlx5e_ktls_set_feature_rx() has become harder to follow: the error
+handling is nested in the conditions and the main flow is conditional.
+
+Handle the error cases in conditionals, keep the main flow
+unconditional, and destroy the accel TCP flow tables in a single
+place. Use goto to unlock on the early return.
+
+No functional change intended.
+
+Suggested-by: Simon Horman <horms@kernel.org>
+Link: https://lore.kernel.org/all/20261029134019.GG257209@horms.kernel.org/
+Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 ---
- net/sunrpc/rpc_pipe.c | 2 ++
- 1 file changed, 2 insertions(+)
+Only compile-tested on top of net-next 7ccc5e05043b (arm64, W=1). I do
+not have a crypto-enabled ConnectX NIC to run it on.
 
-diff --git a/net/sunrpc/rpc_pipe.c b/net/sunrpc/rpc_pipe.c
-index 9d349cfbc4831..37277a6d24156 100644
---- a/net/sunrpc/rpc_pipe.c
-+++ b/net/sunrpc/rpc_pipe.c
-@@ -15,6 +15,7 @@
- #include <linux/pagemap.h>
- #include <linux/mount.h>
- #include <linux/fs_context.h>
-+#include <linux/pseudo_fs.h>
- #include <linux/namei.h>
- #include <linux/fsnotify.h>
- #include <linux/kernel.h>
-@@ -1181,6 +1182,7 @@ static int rpc_init_fs_context(struct fs_context *fc)
- {
- 	put_user_ns(fc->user_ns);
- 	fc->user_ns = get_user_ns(fc->net_ns->user_ns);
-+	fc_init_pseudo(fc);
- 	fc->ops = &rpc_fs_context_ops;
- 	return 0;
+ .../mellanox/mlx5/core/en_accel/ktls.c        | 23 +++++++++++--------
+ 1 file changed, 13 insertions(+), 10 deletions(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
+index 3cc1213c2f68..0f5dcd1b822e 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
+@@ -137,19 +137,22 @@ int mlx5e_ktls_set_feature_rx(struct net_device *netdev, bool enable)
+ 	mutex_lock(&priv->state_lock);
+ 	if (enable) {
+ 		err = mlx5e_accel_fs_tcp_create(priv->fs);
+-		if (!err && !priv->ktls_rx_was_enabled) {
+-			priv->ktls_rx_was_enabled = true;
+-			err = mlx5e_safe_reopen_channels(priv);
+-			if (err) {
+-				priv->ktls_rx_was_enabled = false;
+-				mlx5e_accel_fs_tcp_destroy(priv->fs);
+-			}
++		if (err || priv->ktls_rx_was_enabled)
++			goto out_unlock;
++
++		priv->ktls_rx_was_enabled = true;
++		err = mlx5e_safe_reopen_channels(priv);
++		if (err) {
++			priv->ktls_rx_was_enabled = false;
++			enable = false;
+ 		}
+-	} else {
+-		mlx5e_accel_fs_tcp_destroy(priv->fs);
+ 	}
+-	mutex_unlock(&priv->state_lock);
+ 
++	if (!enable)
++		mlx5e_accel_fs_tcp_destroy(priv->fs);
++
++out_unlock:
++	mutex_unlock(&priv->state_lock);
+ 	return err;
  }
-
+ 
 -- 
-2.53.0
+2.43.0
 
