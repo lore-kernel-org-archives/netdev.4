@@ -1,75 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.208.142.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794820599;
-	b=QEsjQD4ddz6pIE1dcoaq6IMrAwaPwR0dxOfs+LVIt5Y10wIKDe5OQkQxPQyTWo6nENp8
-	 DMbbgAMB57wviKQHTu1BoQBnqqj7snz2o8np4lV+XE30Uv+FNuOSAiD1YfaaykhavV9Zd
-	 D0P2cSP3P+cyIgu+n1oi05rQYITiGF+ck1fLnF1+XJE19QG8LDGXid2sKM87MoIknBY/0
-	 O/w0CJmyR5ufYKZIAtwfz5xR0XsUjQjDmhdJy8dp8lMK073EAv4u1jAoDw8ORWu+od+k4
-	 UOJJ5sHVfcezucnCTmdwBDxiZ+1G76coIyjq3Sa0Jo9jFokkrNzw3XniW8SeE7Hm4hA==
+	t=1794820702;
+	b=l1G8BnMrJt3SHXqr+StLuGnBebbAIHorBmFZWSEnCsLE3XETU453MiRZi+8l9ENz08kd
+	 AD1PJvSQEaVQPMjXFOcp/AuXg7L8E7xaFKcKVYxS/3ochPmDSi/St+20TbgIj0jEM+HRA
+	 wX4dsFw1jDs1/vFAhl+8mz71FICrqs7jsBkJ3fmFg/yoscy+r0HXfZSQnioIQXQHpOJrS
+	 Ct4hZYsU5t3NUVxMuIEimYkL/jAMx97HmTcW3zoFoCUDSkFPjmc8g3HXbGjW8w0WfH24M
+	 YP+nIGW0tCGyzNtYIFKR/IzuKvWXd+qcOb9+dNnzKV4tE2izAj3G9KRnshsOK0W5Q9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794820599;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=VkwEOeYMTR6KM26KxQ35AtYGZ+Jygm8INKUJOfX5Xls=;
-	b=G2lTbq+axJeMvQoZ6TC5H9CmDv8PUfTj5NXHZsaOSno/zqjLcUj09la4G0R3W2GPQ3hR
-	 xvhcmksaqtdcrC5pHZlwrJ1iRDqElP+noA+Hm6OgPsXqG/lp8pCzP7NHR0a8K1xj4SoMD
-	 SVLV6a2Pf7AxPyA2UbnDn2D3uoiti0PQ2NnYL7JroAmYm89hFsDVQpFb7DtjTGhkxumoD
-	 /N/G5EFNgwQMReDqBcKic5Et6w5QjdHDkii/TyNqRmspfeLTtcdCgxvOO3IsFEDxyphG4
-	 usX4gKzA/3KqYc9do+vyk6yPCVpNM7cNKvohlRX8ETDes12ZG/WFVik2CMNlhCQlfIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794820702;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=826ov78qP2Q842fxa0PM5ff12xaor6OwKbs+ThG4sQU=;
+	b=A8zjT4OH7VG2Osvakg4lfqmRn75qnwzlgvIPjldv1bIjz4B2LndZfIaAelkjyomuMICI
+	 /4udoUsZnKyv8StKl+5ZZ903n0Gzd7QpeINJ7tDOLqnbbmfmip+x9xi4VvD09LVpIoeo8
+	 sojvHX5UzrpMY5chpCC6nGjBmmi4gOQ40YxzexjfpGuypLpmRnyCnQ4qIkOCX3rriAvPx
+	 1RRFCm+bSUiOpFua7BX9wowWf2yIG7N1bR3inoT9DfcIc4Hp/V3oZwcA7QtyXAN5Ut/yZ
+	 ALG+Mw+P8jJB2OmzYPD92LWMrmmTqmcExukYU7xq2MDxlRK+5hbdj4VpXlcW1iNLYCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=SSep7omU;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dmarc=pass header.from=kernelriot.com;
+	spf=pass smtp.mailfrom=kernelriot.com;
+	dkim=pass header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=5yV8kMQv;
+	arc=none smtp.remote-ip=74.208.142.49
+Received: from mail.kernelriot.com (mail.kernelriot.com [74.208.142.49])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FF11606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:16:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FF11606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A234E606A32A;
+	Mon, 16 Nov 2026 09:18:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A234E606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kernelriot.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernelriot.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=SSep7omU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1794820599; x=1826356599;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=uT1Mrn1WlOWl2grNgxzDPbNF840bvJwhGr4XNXWBLBE=;
-  b=SSep7omUUXXCywY2TFO5SC44ow2aIqvImJhmyy6NrOyWuIcZ2sqaFhcV
-   kYD/PNBRWYSSg8QM49kVVQh6p6nS+g/bNSVFQ9ADeUtEj27G4A6RHf+p3
-   xh0IwIyMo7UrJvcAMpQIjQHUF7d+baQVaGdMREBRnC+3/1GpSCIJ7ot1l
-   U5b/Kf/bwLHlHcYsSzoFVt+1QP/rT0syMmm0OqWtOY4bGkJfaP2+tbcJP
-   zBfxwhZCTRXbRYO1CmyyTk5K9jFkEBsGu+2oXgllz8n1R1mQaS+ij/jEB
-   cP9apk0zcz5hS2PvBRsrqcO7b0K8/AFgb/N9zesgMmYDq9WGtSvn/MbFC
-   g==;
-X-CSE-ConnectionGUID: 3ow4PYTwRPSBoSGzcJvBGA==
-X-CSE-MsgGUID: SMwhknxDRoiRwBs5D80R6g==
-X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
-   d="scan'208";a="233611726"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 02:16:38 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Mon, 16 Nov 2026 02:16:38 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 16 Nov 2026 02:16:36 -0700
-Date: Mon, 16 Nov 2026 10:16:36 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <memoriaru@foxmail.com>
-CC: <netdev@vger.kernel.org>, <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <kuba@kernel.org>
-Subject: Re: [PATCH net v5 0/2] net: sparx5/lan969x: fix RX ring stall on
- frames from inactive ports
-Message-ID: <20261116091636.mq3ewdccqupa7anw@DEN-DL-M70577>
-References: <tencent_D2451CD0D7B4B812CEBADB56DC722BC33406@qq.com>
+	dkim=pass (2048-bit key, unprotected) header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=5yV8kMQv
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernelriot.com;
+	s=kr2026; t=1794820695;
+	bh=hb1SHra0c6oIUSjdOL0+vPjC+s/ft/oax5PM5+83JJs=;
+	h=From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding:From;
+	b=5yV8kMQv/8FxyufwLKZ77hp0BU0b1fkPO9lw71ihg8vRK/3gcLrJtYf9e9Yg343di
+	 /LXbwuJYo5FQKZm7Tbueio+q6svMS9Pwuee8Q2QpxDQieo/nF0Wat8f5sHQnHmwaAi
+	 8yW1T8t2Jc01eg25WF4AhS5Azb4SmRjBuS4nMhOPd1jhFBOJUg1JK5sX34fk+qmtV2
+	 uX5o1n+NJL6PGIOBh40am7WmBGv3KRy8/PSTvZoLtSiW8rZLyviIaye42GJYJIcTGp
+	 5aLc9qKIu/7D/SoV6pHwOHy2GQ5+8RecuaPPSWyU0FZomsK3xucol/O19XB8bcroxG
+	 GWWTf4veYllBQ==
+Received: by mail.kernelriot.com (Postfix, from userid 995)
+	id 19C268D74E; Mon, 16 Nov 2026 09:18:15 +0000 (UTC)
+From: Magnus Leatti <magnusleatti@kernelriot.com>
+To: me@ziyao.cc,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Nespolino <g.nespolino@gmail.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next 0/2] net: stmmac: dwmac-motorcomm: shutdown hook and Wake-on-LAN from S5
+Date: Mon, 16 Nov 2026 06:17:55 -0300
+Message-ID: <20261116091757.1656602-1-magnusleatti@kernelriot.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,64 +73,62 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <tencent_D2451CD0D7B4B812CEBADB56DC722BC33406@qq.com>
+Content-Transfer-Encoding: 8bit
 
-Hi Zhang,
+The YT6801 accepts "ethtool -s eth0 wol g" today and then ignores magic
+packets once the system is powered off. This series makes S5
+Wake-on-LAN work. Both patches touch only the glue.
 
-> From: Zhang Hewei <memoriaru@foxmail.com>
-> 
-> The FDMA RX path on both sparx5 and its lan969x sibling stalls the RX
-> ring forever when the hardware delivers a frame whose source port does
-> not map to an active netdev: the inactive-port error branch in both
-> drivers leaves the FDMA software cursor untouched, while the DCB keeps
-> its hardware DONE bit - so every following NAPI poll picks the same
-> DCB again and RX traffic stalls on all ports until the module is
-> reloaded.
-> 
-> Patch 1 treats a bogus frame on sparx5 as consumed (free the skb, clear
-> the array slot, return true). Patch 2 unifies the NULL semantics on
-> lan969x: NULL always means "frame dropped, page recycled" (inactive
-> port or failed build_skb()), and the poll loop advances past such a DB
-> like it does for any other frame.
+Patch 1 adds a shutdown hook that stops the device. The glue has none,
+so the MAC and DMA keep running into reboot and kexec.
 
-Thanks for the series. These fixes conflict with my MTU series for
-sparx5/lan969x [1], which is now blocked on them [2], and the remaining comments
-on 1/2 and 2/2 would need yet another respin.  To move things along, I am going
-to post my own version of the fixes, crediting you with Reported-by. I will Cc
-you.
+Patch 2 arms the chip when powering off with Wake-on-LAN set. The
+sequence follows the vendor driver, with two differences that come
+from measurements on the test board:
 
-[1] https://lore.kernel.org/netdev/20261111-sparx5-mtu-change-v2-0-59c91357e8f6@microchip.com/
-[2] https://lore.kernel.org/netdev/20261113191400.2451b854@kernel.org/
+ - The function stays in D0 instead of D3hot. With MAC Wake-on-LAN
+   phylib keeps polling the PHY until power is removed, and in D3hot
+   that poll fails with -EBUSY and warns from phy_error_precise(). It
+   happened 111 ms after D3hot on a normal power-off.
+ - Bit 9 of LPW_CTRL is not set. The chip wakes without it.
 
-/Daniel
+Every write that is left was removed once to see what it does: without
+OOB WoL or the packet wake bit there is no wake. Without the MAC
+address rewrite, or without the 2 ms wait before it, the chip wakes on
+the factory address only.
 
-pw-bot: reject
+Tested on a Celeron N3350 mini PC, net-next at 6964ff21c5d8:
 
-> 
-> v5: add the testing status to the commit messages as requested for fix
-> series (patch 1 not tested - no hardware available; patch 2's
-> drop-and-advance form was verified on lan969x hardware by Daniel Machon
-> during review). No functional change since v4.
-> 
-> v4 lore link:
-> https://lore.kernel.org/netdev/20261113122429.26163-1-memoriaru@foxmail.com/
-> 
-> Found by code inspection; the stall needs the hardware to emit a frame
-> with an invalid source port, which cannot be triggered without hardware.
-> Review from someone with access to sparx5/lan969x systems would be
-> appreciated.
-> 
-> 
-> Zhang Hewei (2):
->   net: sparx5: fix RX ring stall on frames from inactive ports
->   net: lan969x: fix RX ring stall on frames from inactive ports
-> 
->  .../microchip/sparx5/lan969x/lan969x_fdma.c        | 14 ++++++++------
->  .../net/ethernet/microchip/sparx5/sparx5_fdma.c    |  8 +++++---
->  2 files changed, 13 insertions(+), 9 deletions(-)
-> 
-> -- 
-> 2.39.5 (Apple Git-154)
-> 
+  net-next  wol g                         no wake, 3 of 3
+  patched   wol g                         wake, 8 of 8
+  patched   wol u                         wake on unicast, 1 of 1
+  patched   wol d                         no wake, 3 of 3
+  patched   wol g, interface down         no wake, 1 of 1
+  patched   wol g, power/wakeup disabled  no wake, 1 of 1
+  patched   wol g, reboot                 reboots, link back, 3 of 3
+
+A second board, a PSJ8500-N97 mini PC (Intel N97), behaves the same.
+
+This series does S5 only, on purpose. S5 wake is the important case
+and it is not implemented. The change for it is small and stays in the
+glue. Wake from suspend and hibernation has a larger blast radius.
+
+Giuseppe, this is the OOB WoL enable you and Yao discussed in the
+s2idle thread [1]: it is only enabled when powering off, because only
+a chip reset disables it again. If you can try "wol g" and a power-off
+on the Slimbook, a laptop would be a good third board.
+
+[1] https://lore.kernel.org/netdev/apSDPwF49Z1Zd0kJ@pie/
+
+Magnus Leatti (2):
+  net: stmmac: dwmac-motorcomm: quiesce the device at shutdown
+  net: stmmac: dwmac-motorcomm: support Wake-on-LAN from S5
+
+ .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 84 +++++++++++++++++++
+ 1 file changed, 84 insertions(+)
+
+
+base-commit: 6964ff21c5d8b75649211a52dbfd92753e605649
+-- 
+2.56.1
+
