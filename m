@@ -1,80 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.19
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794826328;
-	b=PN2Xu/o0w4PtAdqKRFvk/cktwZHogv/XYjHUULmv/flMgqQRAfaCsaf6YT4gHdIUWjFy
-	 AaLT0Ff/TAlqhkzuXB+vLq86c4AGJSPGPscAR8+mf3YeAkCtuCYzDDChAUxSVW1Z2oIq4
-	 crL01zJttXLp97xaZgTTeTd/EzDnFt+7EQfZLhiWuGdbZDOHI5ibKUr5ltKOi4jPMAU5W
-	 xnuKh+LAosDBd2Xv4mqGfr81XNkO8mE0ZrdSiNuvFGa7hp2qMMs3AWdQFSK5sya4WEhOY
-	 GrsMIDCRbvvYJj1Zo2iMjRBe0H+jSntL3LViJKYN4he2iKzreRY1akEOl2kq6Jo3Y6w==
+	t=1794826837;
+	b=a/LxJLLSIUtlQL2gwRB1o0ZOnzmdi8Qvn+SRV6g+07E2NiLQud2dglI6Enhc+Vgsi1Uk
+	 2piHk/wiultvKg1bymuiFi7int8iAwhoFqxs6m48Zt1Htjewc8FEfuXB8Vn4v7RZZWpz2
+	 XogrC3i2s9T6FP7M13HewrWdrEIRa82XmA9amy1OhFqF1bFR4KJFt7sKQ+bbPVGwX+7uN
+	 1vWoJZmvU9QgbbDirzh1vOsFbFoA4Q8PClXFQRWf9wjsM7PHdRROTx4g5RrkQpg5oPcHK
+	 lYmpaPrxBVtkP23bpUV9p6Ndf3O24EPzA9bEFOrpzE1J+fhwmcmEg8sxOX2SBQ5hhiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794826328;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=7F02L0hvgzcxM4C3QCsSXwiTmsEvJHnK4oRNhT3Dk9g=;
-	b=gtzC6jjdL9Sh5eRBO6NtgDhiBqEvStB5BM8LbksMPekCLRRlVfw1d69aUbrw3Vy61MY0
-	 mzoTJIPeA96A7XwQnbx7LlkhbjG+mvybLKWX0QmtcxTTTzc32sCbqqm3e9x/HcraUH2j4
-	 mhvJbxG1uUVSh5RPP9sA0/iZAco3WJn5emFV/7gCp5E5ZdD24wrQ1ByazPewuqIun4rlB
-	 CdVZ5kYZmVOvFzRm0oWY4z5zcNjvgRnQ9OCVLY1+OJwrBI4P5Nz8mjcRvqhOHP40ve4d3
-	 Bw5q/BBeiyFOTD6BmtGcQ2Py5/jzjwzG446w7r3wayrzZv70GxahIQ64xvKE+xbjmww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794826837;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=jRQaov11bNgWz0yrd9PclPsPFo/vCJZ5F4x0YK2Zcjo=;
+	b=y3bfyXhvQ5sUo1AdE74tZonuCKr71V4/CyAO7Z6zTmoWC2nmzRuQjpIEmKa5yPjbwS9K
+	 DjpaEtEVaXPDRHYpxrP5Kj6kRuk67Sx4C02J4CSU4BbY2/beQTrYRhqMxtXbkAMJwqH/W
+	 cH49YtZCSDvdlv3LH7uK8uFJvGBDMD9OtnmnFSBYAgL6GQsWm2tosUNjEsRYgG8W9SKp9
+	 BcmZBHOu9gjo+I01ewYyG9ozvWNwMMZl/kok7uZEy7iI/mibWJfPMBf2XXx5r7BrOXhft
+	 l4CBAKsmmvMVl1HqpH5GvCjMOAXu1L75jxx97f7itXQm0pArbOdV2zLVfTEwrP8iKGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="cAKB/mr7";
-	arc=none smtp.remote-ip=192.198.163.19
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ke50lvbv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D501E606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:52:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D501E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CA3A606A336;
+	Mon, 16 Nov 2026 11:00:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=cAKB/mr7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794826328; x=1826362328;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=j+5zcE4FF3OQzJIJrq10LYL+AE6wy3zLGSyLhJMaayw=;
-  b=cAKB/mr7n6CInRN4smjjIHF0a9MV3ctQ/oYTB8FKGabDYmTa6ry3c73P
-   hWbfEx1GqflHq+KZ3nqxvYGfF9UQwMd35D4xecko1fLk5XLDZ09HMCbtm
-   P1ZSfEFdKjC88djdVukp02m1fehPJJ2Ds1XET9ZLE5n3hpjvfjYk1Ce4r
-   M2s5/7sUyGJnIbomyMJrdbDw49e3RzKRNVxk/9M4Qjzah/q5dN+LdjP1G
-   6p71zoiydN5UXq7tj7JdMWt+Bze8KJpDHxwayKeP5DQA6BOuplgIU30FY
-   GY9U2CoZmuDEvx6FCkqGHWd1I7V3sW9/2gqXPksKu89vC3zdMjtZvA8fR
-   Q==;
-X-CSE-ConnectionGUID: RaN6OcNNQmSUsK6JAWs26Q==
-X-CSE-MsgGUID: IwvidUkKTBCUNr/gfPGtOw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11967"; a="3661137"
-X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
-   d="scan'208";a="3661137"
-Received: from fmviesa009.fm.intel.com ([10.60.135.149])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 02:52:07 -0800
-X-CSE-ConnectionGUID: COIcBLOyTdCVWAlW3jYnaA==
-X-CSE-MsgGUID: 1jkC888OSxesPZUZbxi9Kg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
-   d="scan'208";a="9866979"
-Received: from boxer.igk.intel.com ([10.102.20.173])
-  by fmviesa009.fm.intel.com with ESMTP; 16 Nov 2026 02:52:05 -0800
-From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-To: netdev@vger.kernel.org
-Cc: magnus.karlsson@intel.com,
-	stfomichev@gmail.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	tushar.vyavahare@intel.com,
-	kerneljasonxing@gmail.com,
-	bjorn@kernel.org,
-	maxime.chevallier@bootlin.com,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Subject: [PATCH net-next] selftests: xsk: drop asm/barrier.h to fix the riscv build
-Date: Mon, 16 Nov 2026 11:51:59 +0100
-Message-Id: <20261116105159.1050557-1-maciej.fijalkowski@intel.com>
-X-Mailer: git-send-email 2.38.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ke50lvbv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AE331F000C4;
+	Mon, 16 Nov 2026 11:00:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794826836;
+	bh=jRQaov11bNgWz0yrd9PclPsPFo/vCJZ5F4x0YK2Zcjo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Ke50lvbvWzEtbJQQFsFv7GCmAsYQlc6D7rR9u1AF81EcLg1KizIoA6gS24yZcOfeH
+	 HTYsHJ8g8uT2nrc4ODl8Foz6i1QK6F0Ao3x6fmORMG9hBn5FhTbQQ55hR+ogS1oFkM
+	 g91FN+1WCf1Jkc8spoIoIDn7W6ib/KhnsN6K7bYBLmaDD/Whe7LT+nQwBom2GW/KA5
+	 eCMrhGsA80DWc+jwG6FpGMYMx6Vyn2jQcRJjCt2mp6TD6+vK1rYOA3hOacAGwWPzds
+	 AyGrFdCFbmicQHa/H3cSckIOVzqE6+kcMb1eXEwAkzNb0CNYjyNLBvD5BsMFnKASnh
+	 oQS2c2q0Ydngw==
+Subject: Re: [PATCH net-next v2 1/3] net: dsa: microchip: ksz9477: apply a
+ shorter ageing time at once
+From: netdev-bot+sashiko@kernel.org
+To: o.rempel@pengutronix.de
+Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, arun.ramadoss@microchip.com,
+ jiri@resnulli.us, linusw@kernel.org, f.fainelli@gmail.com,
+ vivien.didelot@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, kernel@pengutronix.de,
+ jensemil.schulzostergaard@microchip.com
+Date: Mon, 16 Nov 2026 11:00:35 +0000
+Message-ID: <179482683512.3136.850497985215218789@kernel.org>
+In-Reply-To: <20261115-ksz-stp-ageing-v2-1-7af27320033e@pengutronix.de>
+References: <20261115-ksz-stp-ageing-v2-1-7af27320033e@pengutronix.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,40 +67,141 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-xsk.c includes <asm/barrier.h>, a leftover from libbpf's AF_XDP code;
-nothing in it uses a barrier, the ring helpers in xsk.h use C11
-atomics. On riscv, the tools asm/barrier.h includes <asm/fence.h> from
-tools/arch/riscv/include. selftests/bpf had that directory on the
-include path but selftests/net does not, so since the move both
-xskxceiver and xdp_hw_metadata fail to build on riscv:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-  asm/barrier.h:13:10: fatal error: asm/fence.h: No such file or directory
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Drop the redundant include.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Fixes: e8f9d8237988 ("selftests: xsk: move the AF_XDP test suite to selftests/net")
-Fixes: d01fb5c81130 ("selftests: net: move xdp_hw_metadata from selftests/bpf")
-Signed-off-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
----
- tools/testing/selftests/net/lib/xsk/xsk.c | 1 -
- 1 file changed, 1 deletion(-)
+- [Medium] In ksz9477_set_ageing_time()
+  (drivers/net/dsa/microchip/ksz9477.c:1361-1371), the new Fast Aging…
+- [Low] The Fast Aging pulse in ksz9477_set_ageing_time() is a fixed
+  blind sleep: KSZ9477_FAST_AGE_PULSE_US = 2 ms (ksz9477.c:1293),…
 
-diff --git a/tools/testing/selftests/net/lib/xsk/xsk.c b/tools/testing/selftests/net/lib/xsk/xsk.c
-index 6bd32caf5d08..4e9d14f883ac 100644
---- a/tools/testing/selftests/net/lib/xsk/xsk.c
-+++ b/tools/testing/selftests/net/lib/xsk/xsk.c
-@@ -13,7 +13,6 @@
- #include <string.h>
- #include <unistd.h>
- #include <arpa/inet.h>
--#include <asm/barrier.h>
- #include <linux/compiler.h>
- #include <linux/ethtool.h>
- #include <linux/filter.h>
+--
 
-base-commit: 6964ff21c5d8b75649211a52dbfd92753e605649
+net: dsa: microchip: ksz9477: apply a shorter ageing time at once
+
+This patch makes ksz9477_set_ageing_time() pulse the Fast Aging bit in
+REG_SW_LUE_CTRL_1 for a fixed 2 ms. It does this whenever the programmed
+ageing time gets shorter or the Age Count gets smaller. The goal is that
+stale entries no longer outlive an STP topology change on a KSZ9893.
+
+> diff --git a/drivers/net/dsa/microchip/ksz9477.c b/drivers/net/dsa/microchip/ksz9477.c
+> index 8d4647e23cda1..a9d701f0404a7 100644
+> --- a/drivers/net/dsa/microchip/ksz9477.c
+> +++ b/drivers/net/dsa/microchip/ksz9477.c
+
+[ ... ]
+
+> @@ -1336,8 +1343,32 @@ static int ksz9477_set_ageing_time(struct dsa_switch *ds, unsigned int msecs)
+>  			return ret;
+>  	}
+>  
+> -	value = DIV_ROUND_UP(secs, data);
+> -	return ksz_write8(dev, REG_SW_LUE_CTRL_3, value);
+> +	new_period = DIV_ROUND_UP(secs, data);
+> +	ret = ksz_write8(dev, REG_SW_LUE_CTRL_3, new_period);
+> +	if (ret < 0)
+> +		return ret;
+> +
+> +	/* data is the new Age Count and mult is the old one. An entry
+> +	 * stores the Age Count when it is updated. The datasheet does not
+> +	 * say when a new Age Period applies. On a KSZ9893, entries outlived
+> +	 * the new ageing time after it got shorter, and after the Age Count
+> +	 * got smaller. Pulse Fast Aging in both cases. On a KSZ9893 the
+> +	 * pulse removes the dynamic entries (checked on one user port) and
+> +	 * starts the new period.
+> +	 */
+> +	old_secs = mult * old_period;
+> +	new_secs = data * new_period;
+> +	if (new_secs >= old_secs && data >= mult)
+> +		return 0;
+> +
+> +	ret = ksz_rmw8(dev, REG_SW_LUE_CTRL_1, SW_FAST_AGING, SW_FAST_AGING);
+
+[Severity: Medium]
+Does this flush the dynamic FDB entries of every port on the switch?
+
+SW_FAST_AGING is BIT(1) of REG_SW_LUE_CTRL_1 in ksz9477_reg.h. That
+register holds only switch-wide lookup engine controls, next to
+SW_AGING_ENABLE and SW_LINK_AUTO_AGING. Fast Aging has no port or FID
+selector, so each pulse removes dynamic entries on all ports. That
+includes ports in other bridges that had no topology change.
+
+When the software bridge shortens its ageing time, it only expires
+entries that were not refreshed within the new time. This pulse also
+drops entries that are still in use. Unicast traffic to those addresses
+then floods until the hosts transmit again, and a host that only
+receives can be flooded to for a long time.
+
+The pulse can also fire when the ageing time grows. From the reset value
+of 4 x 75 s, a request for 301 s gives:
+
+    max_val = 255   (76 * 4 != 301)
+    data = DIV_ROUND_UP(301, 255) = 2
+    new_period = DIV_ROUND_UP(301, 2) = 151
+
+data (2) < mult (4), so the switch-wide flush runs although the ageing
+time went up from 300 s to 302 s.
+
+Neither the subject nor the body says the flush covers the whole switch.
+The commit message only says:
+
+    On a KSZ9893 the pulse removed the dynamic entries on the one user port
+    I tested.
+
+The driver already has a per-port flush, ksz9477_flush_dyn_mac_table(),
+which is wired up as .port_fast_age. Could that be used here, or could
+the commit message at least say that all ports are flushed?
+
+> +	if (!ret)
+> +		fsleep(KSZ9477_FAST_AGE_PULSE_US);
+> +
+> +	/* Clear the bit even after an error. */
+> +	err = ksz_rmw8(dev, REG_SW_LUE_CTRL_1, SW_FAST_AGING, 0);
+
+[Severity: Low]
+Is a fixed 2 ms sleep long enough on all chips that use this function?
+
+The new define comes with this comment:
+
+    /* The datasheet gives no pulse length. A 2 ms pulse worked on a KSZ9893. */
+
+Nothing checks that the dynamic entries are gone before SW_FAST_AGING is
+cleared. ksz9477_set_ageing_time() is installed through ksz9477_switch_ops.
+That covers many chip_data entries in ksz_common.c, including the 7-port
+KSZ9477/KSZ9897/KSZ9567 parts, but it was only tested on a KSZ9893 with
+one user port.
+
+The other Fast Aging user in this driver suggests the timing depends on
+the chip:
+
+drivers/net/dsa/microchip/ksz8.c:ksz8_flush_dyn_mac_table() {
+    ...
+	if (ksz_is_ksz8995xa(dev)) {
+		/* Allow the 800 us fast-age cycle to finish before restoring
+		 * normal ageing and port learning.
+		 */
+    ...
+}
+
+Some untested chips may count each entry's stored Age Count down at a
+fast tick, or may need more time to sweep the ALU. If so, could the pulse
+end before every entry has expired, so that stale entries still outlive
+the topology change?
+
+> +
+> +	return ret ?: err;
+>  }
+
+[ ... ]
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115-ksz-stp-ageing-v2-0-7af27320033e%40pengutronix.de
