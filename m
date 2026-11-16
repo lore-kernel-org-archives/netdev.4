@@ -1,67 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1794789855;
-	b=fmY3c3M8Ije8CCKbPV65c/mRoTk77Uvl8cdB45g4b++CILyWUQpGKJ5i1fFaUH3lq6LQ
-	 mPIR7nK4HASX3+FOguSe+vTxZkY1m4BCk7FyiqfIWhR0Y6gMnoPULtQI6j8ZLxlmkEsl6
-	 MGNaBUrpqvWF95gkz/PaUOGyujnUQ8TLQKpEUZ32ODLLc+CBvciBz/bmc20cgrPoxJzaO
-	 cIiDi8HTs/NwQQKqFz/NPn6bJSdezKYenKVAt/Bxqpu9CYOFvjOGNWilReURVpLpD6qVV
-	 U6bvAb32cYyafMaIqRcnwK/wkzlZyHRJPkUdfe8iJqLIf/vnrGhoLDZbOpBqe763aFA==
+	b=2G7R8cXLILRb3lqFxJpbfaGJ2psCldAdP2Bk9o5/uLLVVEYSQBLtNdITlN/7W2JazsGv
+	 Yb/AwctSyGGAbfQn1cp+xSXOfmbLY2/KWk8rR32VeIVA1M2NH3PeNHIc9gu5OxpDWJ8TY
+	 M0FjGyLEdC6ZbO9G6+hTg/OUHsl9NTEADA3h/WLfaHSU9Z8FcBlE3ddudlUw1YaoHinAJ
+	 qj3tZv4+46sW8DwpXtSQDfZlmvVkISkTvKY+cVOxFYAdoPoa/xQilJ8ZxwQJ9G4QusUTm
+	 sRQov0EuSzrOuxKVYP/A6Zg9DET46HK95NqAihWhahtpXuc7nrc1Hukxk2uKanuyI/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1794789855;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=4/KOw/2uWwcMJbJo69GfU7Vp+Y/AB1enY/VGepzJ088=;
-	b=TgsVSXLPzRgdfqZU5hkX4an6ugiyanMeZa5A4eHFvPzspkQsYDYZJYmVG3nUQkfCprXn
-	 oMrqdjfV/vncYrcemxTOPtduneEbJnC24ejbS49+JGOGF2mDrP1cLxhSHqNhwaUsITUKe
-	 P2d5Q9ITgivdjwZZJ7VcIY4v11+zIhsAoPiowgrG1sQQtq1Jxa1z9kx0xUVavNPHcekbw
-	 sKwM9UH4YrXoI5SB7D7jkJnsJW1AcEhimCtzOTUcdFlVGdJoX5VTuLN8bnoxHn+DQPKPo
-	 AOCE4aXn53GZAIMpXTTn4aa0tZ71+tggfUon7FWybW8iUURWI+OCXehnTWo0cO+ODuw==
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=ISEuVjYQM8NCj0mZGFd4fsXBhv05BIQupK8d1+cRaYE=;
+	b=UzsuWr6djodHRtJVSfJTJLjlcF32IDfvKBA22p3l5l0TxtIp9/lAbUDl2k+DOKBKcKX3
+	 XoLluieB5RJckTCip2h9T8F/z8Sa/9cv2rGUNuHjTgw6R94WZtDY7WTow8Ovn/x9NcK+O
+	 1gJ1kbPzNuam84KNd6py4jRFz3WtXq/CTG/nbUUars5Dk3aLq6VxTIBW6RHZS68rpNqEk
+	 UZFFx+0Gk3Wcf/jz2MbQ0YE4TZL+jUmJmCSveZ9XdYa+I6h1gHdXAkgQZyom1q7iN4KjF
+	 Q63s4EeagncW91vs97iLvNkAExt3a74vgLnuflqt+Aa2YiqlhvdhQ+fQPT5ibv5eV3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b="a/Fs8Z8T";
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JhKuUoN2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4C11606A897;
-	Mon, 16 Nov 2026 00:44:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4C11606A897
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C78B9606A337;
+	Mon, 16 Nov 2026 00:44:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=a/Fs8Z8T
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1794789852;
-	bh=4/KOw/2uWwcMJbJo69GfU7Vp+Y/AB1enY/VGepzJ088=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=a/Fs8Z8Ta2dHxTorJjhMGhdeHOYeg/Zy32QVt6e8Xtrau1CgCit9tY2fGrLFkd+dZ
-	 GxVzyeWr89uNNxfX+rVI33rDofO9w2ujnlVFyNNlmwG/h1JDPJ2h5T7LhEB56hSKiX
-	 r2jqzDo3UQKeke4RcAr+v+4QXMsiR+Aqb4gO0tSpW8wr1i9abjTRYf5IRiLZbn3BA/
-	 MWS+4lEUQi88HJVw/h+W8ZBu/eivOR2YbAysNUA33dWHdwenb9RF5JgYGLgOnjipCj
-	 xIstz0cN3FHdEA3UUykyiTCtbCqw5HlG5A443I/oJxbMK64dNLAvsd0r8wmg3PMuOw
-	 QxdrGqQrsfjdw==
-Received: from localhost.localdomain (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with ESMTPSA id 2CF496005C;
-	Mon, 16 Nov 2026 01:44:12 +0100 (CET)
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: netfilter-devel@vger.kernel.org
-Cc: davem@davemloft.net,
-	netdev@vger.kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	fw@strlen.de,
-	ja@ssi.bg
-Subject: [PATCH net 01/11] ipvs: fix problems during connection deletion
-Date: Mon, 16 Nov 2026 01:43:54 +0100
-Message-ID: <20261116004404.2821183-2-pablo@netfilter.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261116004404.2821183-1-pablo@netfilter.org>
-References: <20261116004404.2821183-1-pablo@netfilter.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JhKuUoN2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32DE31F000C9;
+	Mon, 16 Nov 2026 00:44:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794789855;
+	bh=ISEuVjYQM8NCj0mZGFd4fsXBhv05BIQupK8d1+cRaYE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=JhKuUoN2sfEI9yRCyu1pG3d3cKdyt4ERpoS8Y53YUTXlWV2wA4MXSnKolapdX6jyK
+	 mfjBWb6JMNeJY7Iyh3zBogRLSlmAjVZaXAMDrUxML6yNpjKO4764Rmj65MoE9D5Cxs
+	 fKzR+OZguQGjsa1Y3NIFHR8jmwE7qi7P5klN/IJpjBdd2QrIKzTyIao2RDZsdW22zh
+	 +WTEO5z9zDChgcMo55NcKv/aJTXL8VQT13+h6+Uj2L432f9x0/v+HZBmuAO/Ff7i8x
+	 0WQnk1TTqK1RhhgSMe72cuA5E7qtnAYLLazNoGCcoQOzb13Pi3JTUwMW0AuX1QZ4tu
+	 WPbz0nQdOYGmg==
+Subject: Re: [PATCH net-next v6 2/4] net: qrtr: Assign unique node id for MHI
+ endpoints
+From: netdev-bot+sashiko@kernel.org
+To: manivannan.sadhasivam@oss.qualcomm.com
+Cc: mani@kernel.org, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, jjohnson@kernel.org, edumazet@kernel.org,
+ linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
+ ath11k@lists.infradead.org, ath12k@lists.infradead.org, andersson@kernel.org,
+ christopher.lew@oss.qualcomm.com, deepak.singh@oss.qualcomm.com,
+ raj.bhagat@oss.qualcomm.com, juha-matti.tilli@iki.fi,
+ jeff.hugo@oss.qualcomm.com, daizhuang.bai@oss.qualcomm.com,
+ jeff.johnson@oss.qualcomm.com
+Date: Mon, 16 Nov 2026 00:44:13 +0000
+Message-ID: <179478985375.3136.1235406838106549470@kernel.org>
+In-Reply-To: <20261114-qrtr-multi-ep-v6-2-2eb9885659e2@oss.qualcomm.com>
+References: <20261114-qrtr-multi-ep-v6-2-2eb9885659e2@oss.qualcomm.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,317 +69,246 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Julian Anastasov <ja@ssi.bg>
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Sashiko reports for problem when deleting connections.
+Critical: 0 · High: 0 · Medium: 3 · Low: 2
 
-If connection timer expires, its callback can not be
-concurrently running but if connection is deleted
-the callback can be running on another CPU even
-after all references are released. Before now we
-continued with the connection freeing, risking the
-callback to access the deleted connection after it
-is freed. As ip_vs_conn_del() runs under RCU lock
-there is no risk for accessing a connection freed
-by concurrent timer callback. As Sashiko warns, the
-risk is present if normal connection expires and
-tries to delete its cp->control chain with
-ip_vs_conn_del_put() without holding a RCU read lock.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-It is evident that as the pending timer and the
-running timer callback do not hold reference for
-the connection, there are races which is difficult
-to avoid.
+- [Medium] Both the commit message and the new comment in
+  include/net/qrtr.h say that 'an endpoint using v2 can never claim an…
+- [Medium] MHI QRTR now registers a fixed nid, 0x10000 +
+  mhi_cntrl->index, and this id is reused.
+- [Medium] net: qrtr: missing sysfs ABI for host node ID in
+  qcom_mhi_qrtr_probe()
+- [Low] The comment in include/net/qrtr.h says 'A collision is caught
+  when the id is added to the node lookup table.' One case is not…
+- [Low] The host nid is now in qrtr_nodes from the moment
+  qrtr_endpoint_register() runs.
 
-Change the connection refcounting as follows:
+--
 
-* the connection hashing does not take reference anymore
+net: qrtr: Assign unique node id for MHI endpoints
 
-* new connection handoffs its reference to the timer
-if started in __ip_vs_conn_put_timer(), to hold it
-while it is pending.
+This adds include/net/qrtr.h. The header defines QRTR_NODE_HOST_BASE
+(0x10000) and a qrtr_host_node_id() helper that returns the base plus a
+per-device index. The MHI QRTR driver now registers its endpoint with
+qrtr_host_node_id(mhi_cntrl->index) instead of QRTR_EP_NID_AUTO.
 
-* if user finds connection in hash table it gets reference
-and can handoff this reference to the pending timer if
-this timer is started in __ip_vs_conn_put_timer(),
-otherwise puts its reference if the timer was already
-pending which is the common case.
+> diff --git a/include/net/qrtr.h b/include/net/qrtr.h
+> new file mode 100644
+> index 0000000000000..e2a8d93564b58
+> --- /dev/null
+> +++ b/include/net/qrtr.h
+> @@ -0,0 +1,27 @@
 
-* the pending timer handoffs its reference to the
-running timer callback implicitly. By this way, the
-timer callback in the common case has the last reference.
-In rare cases, while the timer callback is running and
-before it changes refcnt from 1 to 0, other users can get
-reference and to handoff it again to the pending timer
-they arm. In this case, the expiration is deferred
-for later time.
+[ ... ]
 
-As result, cp->refcnt accounts all current connection
-users and the pending and running timer.
+> +/*
+> + * Base for the node ids the host assigns to endpoints. It sits just above the
+> + * 16-bit range a v2 header can express, so a v2 endpoint can never claim an id
+> + * in it. A v1 endpoint can claim any 32-bit id, so a collision is possible,
+> + * but unlikely as the firmware assigned node ids are either smaller than this
+> + * base or in the range of 0x08e5ff85. A collision is caught when the id is
+> + * added to the node lookup table.
+> + */
+> +#define QRTR_NODE_HOST_BASE 0x10000u
 
-Two paths can try to delete the connection: the
-normal expiration path and ip_vs_conn_del() if it
-successfully steals the connection reference from the
-pending timer. refcount_dec_if_one() will tell us if
-we were the last active user with no packets accessing
-the connection and no pending/running timers.
+[Severity: Medium]
+Is it accurate that a v2 endpoint can never claim an id in this range?
+The commit message makes the same claims:
 
-Change ip_vs_conn_unlink() to directly unhash the
-connection because when we are the last user the
-connection's forwarding method can not change.
-Use smp_acquire__after_ctrl_dep() after refcount_dec_if_one()
-and before reading the connection fields.
+  "The base is chosen just above the 16-bit range a v2 header can
+  express, so an endpoint using v2 can never claim an id in the host
+  range."
 
-ip_vs_conn_expire() does not need to call timer_delete()
-anymore because the pending timer is already accounted
-in refcnt.
+  "Such a collision is caught when the id is added to the node lookup
+  table."
 
-Add explicit rcu_read_lock() while deleting the cp->control
-chain to protect from concurrent timer callback for ct to
-expire it before us and to cause use-after-free.
+In qrtr_endpoint_post(), the NEW_SERVER handler reads a 32-bit node id
+from the payload, whatever the header version:
 
-During such races, try to keep 0 in cp->timeout as it is
-a request for deleting our cp->control chain immediately.
-Make sure we do not send timeout 0 (seconds) in the
-v1 sync message because the backup server will select some
-large default value which is not desired for small timeouts.
+net/qrtr/af_qrtr.c:qrtr_endpoint_post() {
+    ...
+	if (cb->type == QRTR_TYPE_NEW_SERVER) {
+		...
+		nid = le32_to_cpu(pkt->server.node);
 
-Remove the smp_mb__before_atomic() call from __ip_vs_conn_put(),
-it is from the atomic_dec() era, now refcount_dec() has
-RELEASE semantics.
+		if (nid != READ_ONCE(node->ep_nid)) {
+			rc = qrtr_node_assign(node, nid);
+    ...
+}
 
-Link: https://sashiko.dev/#/patchset/cover.1789435989.git.zihanx%40nebusec.ai
-Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1790266803.git.zihanx%40nebusec.ai
-Fixes: f9200a52eedf ("ipvs: avoid expiring many connections from timer")
-Signed-off-by: Julian Anastasov <ja@ssi.bg>
-Signed-off-by: Pablo Neira Ayuso <pablo@netfilter.org>
----
- include/net/ip_vs.h             |  1 -
- net/netfilter/ipvs/ip_vs_conn.c | 99 ++++++++++++++++++---------------
- net/netfilter/ipvs/ip_vs_sync.c |  2 +-
- 3 files changed, 55 insertions(+), 47 deletions(-)
+That means a v2 endpoint can insert an id such as 0x10001 into
+qrtr_nodes as a bridged key. A v1 endpoint can do the same through
+src_node_id. __qrtr_node_assign() does not check the id against
+QRTR_NODE_HOST_BASE.
 
-diff --git a/include/net/ip_vs.h b/include/net/ip_vs.h
-index 9a83bff32569..97097d60d1c4 100644
---- a/include/net/ip_vs.h
-+++ b/include/net/ip_vs.h
-@@ -1685,7 +1685,6 @@ static inline bool __ip_vs_conn_get(struct ip_vs_conn *cp)
- /* put back the conn without restarting its timer */
- static inline void __ip_vs_conn_put(struct ip_vs_conn *cp)
- {
--	smp_mb__before_atomic();
- 	refcount_dec(&cp->refcnt);
- }
- void ip_vs_conn_put(struct ip_vs_conn *cp);
-diff --git a/net/netfilter/ipvs/ip_vs_conn.c b/net/netfilter/ipvs/ip_vs_conn.c
-index 94f25fb7d87e..86c5e6c7b5af 100644
---- a/net/netfilter/ipvs/ip_vs_conn.c
-+++ b/net/netfilter/ipvs/ip_vs_conn.c
-@@ -293,7 +293,6 @@ static inline int ip_vs_conn_hash(struct ip_vs_conn *cp)
- 	cp->flags |= IP_VS_CONN_F_HASHED;
- 	WRITE_ONCE(cp->hn0.hash_key, hash_key);
- 	WRITE_ONCE(cp->hn1.hash_key, hash_key2);
--	refcount_inc(&cp->refcnt);
- 	hlist_bl_add_head_rcu(&cp->hn0.node, head);
- 	if (use2)
- 		hlist_bl_add_head_rcu(&cp->hn1.node, head2);
-@@ -319,11 +318,27 @@ static inline bool ip_vs_conn_unlink(struct ip_vs_conn *cp)
- 	struct hlist_bl_head *head, *head2;
- 	u32 hash_key, hash_key2;
- 	struct ip_vs_rht *t;
--	bool ret = false;
- 	bool use2;
- 
-+	/* No more users and no running/pending timer except us? */
-+	if (!refcount_dec_if_one(&cp->refcnt))
-+		return false;
-+
-+	/* The ONE_PACKET connection is special:
-+	 * - the flag is present only for normal connections, not for templates
-+	 * - its timer is never started
-+	 * - it is never hashed, so you can not find it and delete it
-+	 * - it is not synced
-+	 * - it has only one user
-+	 * - it is freed after use immediately
-+	 */
- 	if (cp->flags & IP_VS_CONN_F_ONE_PACKET)
--		return refcount_dec_if_one(&cp->refcnt);
-+		return true;
-+
-+	/* Add the needed ACQUIRE barrier between the above
-+	 * refcount_dec_if_one() call and the read of cp fields
-+	 */
-+	smp_acquire__after_ctrl_dep();
- 
- 	rcu_read_lock();
- 	local_bh_disable();
-@@ -337,15 +352,11 @@ static inline bool ip_vs_conn_unlink(struct ip_vs_conn *cp)
- 		      false /* new_hash2 */, &head, &head2);
- 
- 	if (cp->flags & IP_VS_CONN_F_HASHED) {
--		/* Decrease refcnt and unlink conn only if we are last user */
--		if (use2 == ip_vs_conn_use_hash2(cp) &&
--		    refcount_dec_if_one(&cp->refcnt)) {
--			hlist_bl_del_rcu(&cp->hn0.node);
--			if (use2)
--				hlist_bl_del_rcu(&cp->hn1.node);
--			cp->flags &= ~IP_VS_CONN_F_HASHED;
--			ret = true;
--		}
-+		/* Unlink conn as we are the last user */
-+		hlist_bl_del_rcu(&cp->hn0.node);
-+		if (use2)
-+			hlist_bl_del_rcu(&cp->hn1.node);
-+		cp->flags &= ~IP_VS_CONN_F_HASHED;
- 	}
- 
- 	conn_tab_unlock(head, head2);
-@@ -353,7 +364,7 @@ static inline bool ip_vs_conn_unlink(struct ip_vs_conn *cp)
- 	local_bh_enable();
- 	rcu_read_unlock();
- 
--	return ret;
-+	return true;
- }
- 
- 
-@@ -621,9 +632,12 @@ static void __ip_vs_conn_put_timer(struct ip_vs_conn *cp)
- {
- 	unsigned long t = (cp->flags & IP_VS_CONN_F_ONE_PACKET) ?
- 		0 : cp->timeout;
--	mod_timer(&cp->timer, jiffies+t);
- 
--	__ip_vs_conn_put(cp);
-+	/* Handoff our reference to the timer if it was just armed,
-+	 * put the reference if timer was already pending.
-+	 */
-+	if (mod_timer(&cp->timer, jiffies + t))
-+		__ip_vs_conn_put(cp);
- }
- 
- void ip_vs_conn_put(struct ip_vs_conn *cp)
-@@ -1322,9 +1336,18 @@ static void ip_vs_conn_rcu_free(struct rcu_head *head)
- 	kmem_cache_free(ip_vs_conn_cachep, cp);
- }
- 
--/* Try to delete connection while not holding reference */
-+/* Try to delete connection while not holding reference.
-+ * It can be called concurrently and always under RCU lock
-+ * to protect from connection deletion from others.
-+ * Used when we need to remove the connection immediately
-+ * and without overloading the timer processing.
-+ * OTOH, we use ip_vs_conn_expire_now() when we prefer to
-+ * leave the current context (packet processing) and to
-+ * remove the connection from timer.
-+ */
- static void ip_vs_conn_del(struct ip_vs_conn *cp)
- {
-+	/* Steal reference from the pending timer */
- 	if (timer_delete(&cp->timer)) {
- 		/* Drop cp->control chain too */
- 		if (cp->control)
-@@ -1333,20 +1356,11 @@ static void ip_vs_conn_del(struct ip_vs_conn *cp)
- 	}
- }
- 
--/* Try to delete connection while holding reference */
--static void ip_vs_conn_del_put(struct ip_vs_conn *cp)
--{
--	if (timer_delete(&cp->timer)) {
--		/* Drop cp->control chain too */
--		if (cp->control)
--			cp->timeout = 0;
--		__ip_vs_conn_put(cp);
--		ip_vs_conn_expire(&cp->timer);
--	} else {
--		__ip_vs_conn_put(cp);
--	}
--}
--
-+/* Connection is removed in the following steps:
-+ * - timer expires (with ref) or connection is deleted (with stolen ref)
-+ * - there should be no more users except us (pending/running timer,
-+ * n_control>0 or refcnt>1)
-+ */
- static void ip_vs_conn_expire(struct timer_list *t)
- {
- 	struct ip_vs_conn *cp = timer_container_of(cp, t, timer);
-@@ -1362,23 +1376,18 @@ static void ip_vs_conn_expire(struct timer_list *t)
- 	if (likely(ip_vs_conn_unlink(cp))) {
- 		struct ip_vs_conn *ct = cp->control;
- 
--		/* delete the timer if it is activated by other users */
--		timer_delete(&cp->timer);
--
- 		/* does anybody control me? */
- 		if (ct) {
--			bool has_ref = !cp->timeout && __ip_vs_conn_get(ct);
--
-+			rcu_read_lock();
- 			ip_vs_control_del(cp);
- 			/* Drop CTL or non-assured TPL if not used anymore */
--			if (has_ref && !atomic_read(&ct->n_control) &&
-+			if (!cp->timeout && !atomic_read(&ct->n_control) &&
- 			    (!(ct->flags & IP_VS_CONN_F_TEMPLATE) ||
- 			     !(ct->state & IP_VS_CTPL_S_ASSURED))) {
- 				IP_VS_DBG(4, "drop controlling connection\n");
--				ip_vs_conn_del_put(ct);
--			} else if (has_ref) {
--				__ip_vs_conn_put(ct);
-+				ip_vs_conn_del(ct);
- 			}
-+			rcu_read_unlock();
- 		}
- 
- 		if ((cp->flags & IP_VS_CONN_F_NFCT) &&
-@@ -1413,8 +1422,8 @@ static void ip_vs_conn_expire(struct timer_list *t)
- 		  refcount_read(&cp->refcnt),
- 		  atomic_read(&cp->n_control));
- 
--	refcount_inc(&cp->refcnt);
--	cp->timeout = 60*HZ;
-+	if (cp->timeout || atomic_read(&cp->n_control))
-+		cp->timeout = 60 * HZ;
- 
- 	if (ipvs->sync_state & IP_VS_STATE_MASTER)
- 		ip_vs_sync_conn(ipvs, cp, sysctl_sync_threshold(ipvs));
-@@ -1432,7 +1441,7 @@ static void ip_vs_conn_expire(struct timer_list *t)
- void ip_vs_conn_expire_now(struct ip_vs_conn *cp)
- {
- 	/* Using mod_timer_pending will ensure the timer is not
--	 * modified after the final timer_delete in ip_vs_conn_expire.
-+	 * started without giving it new reference.
- 	 */
- 	if (timer_pending(&cp->timer) &&
- 	    time_after(cp->timer.expires, jiffies))
-@@ -1500,9 +1509,9 @@ ip_vs_conn_new(const struct ip_vs_conn_param *p, int dest_af,
- 	spin_lock_init(&cp->lock);
- 
- 	/*
--	 * Set the entry is referenced by the current thread before hashing
--	 * it in the table, so that other thread run ip_vs_random_dropentry
--	 * but cannot drop this entry.
-+	 * Set the entry as referenced by the current thread before starting
-+	 * the timer and giving it our reference to allow other threads to
-+	 * run ip_vs_random_dropentry() or any deletion method safely.
- 	 */
- 	refcount_set(&cp->refcnt, 1);
- 
-diff --git a/net/netfilter/ipvs/ip_vs_sync.c b/net/netfilter/ipvs/ip_vs_sync.c
-index 157f5c8361ab..1caacf419af9 100644
---- a/net/netfilter/ipvs/ip_vs_sync.c
-+++ b/net/netfilter/ipvs/ip_vs_sync.c
-@@ -732,7 +732,7 @@ void ip_vs_sync_conn(struct netns_ipvs *ipvs, struct ip_vs_conn *cp, int pkts)
- 	s->v4.vport = cp->vport;
- 	s->v4.dport = cp->dport;
- 	s->v4.fwmark = htonl(cp->fwmark);
--	s->v4.timeout = htonl(cp->timeout / HZ);
-+	s->v4.timeout = htonl(max(1UL, cp->timeout / HZ));
- 	m->nr_conns++;
- 
- #ifdef CONFIG_IP_VS_IPV6
+The only collision handling is radix_tree_insert() returning -EEXIST,
+so whoever claims the id first keeps it:
+
+	rc = radix_tree_insert(&qrtr_nodes, nid, node);
+	if (rc)
+		return rc;
+
+The host ids are easy to predict. They are 0x10000 plus the lowest free
+IDA index, and they stay the same across MHI recovery. Another remote
+endpoint could claim 0x10000 + N before MHI controller N registers, or
+while it is between remove and re-probe. That endpoint could be another
+MHI card's firmware, an SMD/rpmsg remoteproc, or a /dev/qrtr-tun user.
+
+In that case, wouldn't
+qcom_mhi_qrtr_probe()->qrtr_endpoint_register()->qrtr_node_assign()
+get -EEXIST and abort the probe, so the device's QRTR link never comes
+up? With QRTR_EP_NID_AUTO, registration could not fail on an id
+conflict.
+
+[Severity: Low]
+One collision is not caught the way this comment describes: a
+remote-claimed id that equals the endpoint's own host nid.
+__qrtr_node_assign() returns success without an error in that case:
+
+	if (radix_tree_lookup(&qrtr_nodes, nid) == node)
+		return 0;
+
+Suppose the remote behind MHI endpoint N sends a v1 src_node_id of
+0x10000 + N (which differs from ep_nid), or a NEW_SERVER with
+server.node = 0x10000 + N. The assign succeeds silently. The source id
+is not rewritten either, because qrtr_endpoint_post() only rewrites
+ep_nid:
+
+	if (cb->src_node == READ_ONCE(node->ep_nid))
+		cb->src_node = READ_ONCE(node->nid);
+
+A local reply to 0x10000 + N is then rewritten in qrtr_node_enqueue():
+
+		dst_node = to->sq_node;
+		if (dst_node == READ_ONCE(node->nid))
+			dst_node = READ_ONCE(node->ep_nid);
+
+Wouldn't that send the reply to the endpoint's own node rather than the
+bridged node that sent the packet? It would also merge the bridged
+node's services with the endpoint's own.
+
+[ ... ]
+
+> diff --git a/net/qrtr/mhi.c b/net/qrtr/mhi.c
+> index 1040c3c8cfd68..e9377f818b4dd 100644
+> --- a/net/qrtr/mhi.c
+> +++ b/net/qrtr/mhi.c
+
+[ ... ]
+
+> @@ -127,7 +128,8 @@ static int qcom_mhi_qrtr_probe(struct mhi_device *mhi_dev,
+>  	if (rc)
+>  		return rc;
+>  
+> -	rc = qrtr_endpoint_register(&qdev->ep, QRTR_EP_NID_AUTO);
+> +	rc = qrtr_endpoint_register(&qdev->ep,
+> +				    qrtr_host_node_id(mhi_dev->mhi_cntrl->index));
+
+[Severity: Medium]
+This changes the node id that userspace sees for every MHI QRTR
+endpoint. Before, the remote's own id was what ended up in qrtr_nodes
+and in the NEW_SERVER notifications delivered to AF_QIPCRTR sockets.
+Now a host nid is passed to qrtr_endpoint_register(), and
+qrtr_endpoint_post() and qrtr_node_rewrite_ctrl() rewrite the
+firmware-advertised id (node->ep_nid) to node->nid. Lookups therefore
+report 0x10000 + mhi_cntrl->index.
+
+How is a userspace client supposed to map an MHI device to its QRTR
+node after this? As I understand it, on QAIC the firmware nid matches
+the serial number exposed through sysfs and the QAIC control channel,
+so a client could correlate the two. The lookup notifications only
+carry service, instance, node and port. They have no device
+identifier.
+
+In-kernel users such as ath11k and ath12k can call
+qrtr_host_node_id() on their own mhi_cntrl->index. However,
+include/net/qrtr.h is not UAPI. The only option left for userspace
+seems to be parsing the mhiN controller name and hardcoding
+QRTR_NODE_HOST_BASE. That would turn an internal constant into ABI
+without documenting it.
+
+My understanding from earlier review of this series was that the
+assigned node id would be exposed through a sysfs attribute. I can't
+find that anywhere in v6. Was it dropped on purpose, or is it planned
+for a follow-up? Since this is the patch that changes the ids
+userspace sees, shouldn't the attribute land together with it?
+
+[Severity: Medium]
+Can a re-probe fail here while the previous qrtr_node is still
+referenced?
+
+This nid is now fixed and gets reused. mhi_unregister_controller()
+frees the IDA index, and mhi_register_controller() gets the same value
+back from ida_alloc(). MHI SYS_ERR recovery or a power cycle also
+recreates the devices on the same controller.
+
+qrtr_endpoint_register() now inserts the nid into qrtr_nodes at
+registration time and returns -EEXIST if the slot is taken. However,
+qrtr_endpoint_unregister() only drops its own reference:
+
+	qrtr_node_release(node);
+	ep->node = NULL;
+
+The radix tree slots are removed only in __qrtr_node_release(), on the
+final kref put:
+
+	radix_tree_for_each_slot(slot, &qrtr_nodes, &iter, 0) {
+		if (*slot == node)
+			radix_tree_iter_delete(&qrtr_nodes, &iter, slot);
+	}
+
+qrtr_sendmsg() takes a node reference with qrtr_node_lookup() and holds
+it until qrtr_node_release(). In between it calls
+sock_alloc_send_skb(), which can block, and memcpy_from_msg(), which
+can fault on user memory. qrtr_send_resume_tx() holds a reference in a
+similar way.
+
+qrtr_create() has no capability check, so an unprivileged user can
+sendmsg() to the predictable host nid with a slow-faulting buffer, for
+example a FUSE-backed mapping. That keeps the old node referenced.
+
+If the device is re-probed during that window, wouldn't
+radix_tree_insert() return -EEXIST and make qcom_mhi_qrtr_probe() fail?
+The QRTR link would then stay down until the next probe. With
+QRTR_EP_NID_AUTO, registration always succeeded and later packets
+retried the assignment.
+
+[Severity: Low]
+Does passing a concrete nid here open a window where DATA packets go
+out with a broadcast destination node id?
+
+The node can be looked up by 0x10000 + index as soon as
+qrtr_endpoint_register() runs. node->ep_nid stays QRTR_EP_NID_AUTO
+(0xFFFFFFFF) until qrtr_endpoint_post() receives the first packet.
+qrtr_hello_work() sends HELLO right away, and hello_sent is set once
+xmit succeeds, whether or not the remote has replied.
+
+Consider a qrtr_sendmsg() of a DATA packet to (0x10000 + index, port)
+in that window. It passes the lookup and the hello_sent check, and then
+qrtr_node_enqueue() does:
+
+		dst_node = to->sq_node;
+		if (dst_node == READ_ONCE(node->nid))
+			dst_node = READ_ONCE(node->ep_nid);
+		hdr->dst_node_id = cpu_to_le32(dst_node);
+
+Wouldn't that put dst_node_id = 0xFFFFFFFF (QRTR_NODE_BCAST) in a
+unicast DATA header sent to the firmware? With QRTR_EP_NID_AUTO, a node
+only became findable in the same critical section that set ep_nid, so
+this state could not occur.
+
+>  	if (rc)
+>  		goto err_unprepare;
+>
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261114-qrtr-multi-ep-v6-0-2eb9885659e2%40oss.qualcomm.com
