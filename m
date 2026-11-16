@@ -1,100 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.174
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794844991;
-	b=Xdiw9KWBDKlmzzpXDhl3lLl+O9SeyGeNC7eY72YguG4PmaGov6ZmENBssL7EQT7r/vp2
-	 7LAdVA6+T/t0z4tFxyMSxuOaFgsOJoyEcI4PQfbVmXW0reFN8ieblfMFJOvZdN48aq0DJ
-	 7DjyuILHiop/y9BDKilzHcVVnoO4c44CLiJ+8z2zX+MHEfRXBdTwZP25Zg7DdIDAJqP9V
-	 WKaVUPbU4T57PmzB8vpBgoPYa697j0Eo0HugBlyZr/HjmWYB36cXrBfTjv1pUaNH6sLvc
-	 EUX17edP9JIPjoEbFZHYLx2cWCPlEJrYprDNCTF/dy8FUGZRkgjVRMpiVMJOTWRvI9w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794844991;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=75pkuYW/tk7J9Bw8nfex7DohVw3/gs/HE93Gq8puzEQ=;
-	b=JILbt+osEqd3WQkBjbeOSfgSnh4BTAJAVcfziAyg6dsJMyVQOLv/tke6lhjM+VQwmRbI
-	 fY2spgkL/N5r+1L8lxERqrD7Miax+Ttoc9BnPIGCOynHGqH4qRWalOGdWulDPNW5WhmbE
-	 +CjosItwT3L+1nwezMirpSa1OopVCLbJQpLxBmdDmzwFbZ6YFu6GAK79fi6sM8LakxoYp
-	 Sa2MTiD0Ksd4rpVzvHneDh3p2exl96TCnyS7IYUjqUXWIrxfcrZfj81xdDXI1YRI7HUZW
-	 r3/VAtJF14Ig6rbDxrVZaeTE7LOrc1vzEfVo4As2In5OvSSUwbAGO6mh7v2ossExi+w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j5+qfPZW;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794845133;
+	b=4T5bebVsdytHejkqOMxSFY8QFbLK/aLRdNLhpeQ5kU+VOEn73OT++XTaJROwRqaOf36W
+	 lb1MhdIrWKQs8efKJgvch7MXD+vKXoWFcA/kkuvfwnfoF77RB882SvDtWJ2+7SP7ffnb5
+	 +ljRgO8ZSdyAsfsXrR7puohNTWV+TQ4cFPAXBSjW/brR6S/jJWSKe/AAQ8HwEJnW97Iyr
+	 315p3z7CHXayTz+Uw/+GiHV4YDmVlKJRacaGvXb4M2LRDFulxxDz3g35iuOocQYifDHnF
+	 pbhtJdsLcKkAVuQoVFPMMke/5pJu+csk7Y4Jp9UDIKpivI8CSIfhMIvzc6rh1Fkbiww==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794845133;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-XMRINFO:X-QQ-XMAILINFO:From:To:Cc:
+	 Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 X-Priority:Message-ID:X-QQ-MIME:X-Mailer:X-QQ-Mailer:References:
+	 In-Reply-To:X-QQ-mid;
+	bh=xBu8GzeDrk7xvt8Bx0CRjK8uvrfVOw0/hRdHRPrcQig=;
+	b=BGle/wmrRpZjx+beY/FhFn/7+U9kAmY2Wu1z4pQCGxr1azuTpD/A6lBiTlxttcMf51gN
+	 sVdAn4Q+vx4RnBvO2Li5SI7yG2yVXP9+9Iwbh8tSJX4+3FG/tS8PhE+OmJ8M3i9e55nRK
+	 gij/tAqpArF3X3xMAKPPzMD3ieEU8Gap3QBXtJgk1IxHkq32In0g5HskeK4X0kAHdZgHp
+	 R0J+IVxV+6QTAQB2TprZ+GU164pHFcj2SSsKQiImnQHfqvmDidloIs95JDO5zFDJeVQeT
+	 6NiQhNNDqmJv5I8DbV4FjEx7KWgZPh/BCtq3awV4WqUOm7WwXr/2f/KdlvQyNN5wsKg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=iM++q2JP;
+	arc=none smtp.remote-ip=162.62.57.49
+Received: from out162-62-57-49.mail.qq.com (out162-62-57-49.mail.qq.com [162.62.57.49])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A27B4606A322
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 16:03:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A27B4606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22875606A331
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 16:05:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22875606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=j5+qfPZW
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2e9eb579c0eso19975905ad.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 08:03:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794844990; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b3srLxgtt7qcxA6Q4r8LI3I1iHTq9C/pVZnFEbL9bSOhP/ryhs4tWYE7vSaKKWvOaI
-         qoy2A61Q3i82hS7YwFdCQ+TBn7nVDOCNOQJk94b+iJwmx81TbVVgHA0Y491ONbJEe2hq
-         wouhXyGVdKwKo4jLAvvcv3RjGLUsQDFcRY1xqaZN8E3Qv48rGGeIlpkVJy6lMj4yChh2
-         PCoW9XCvDcQRBAXBqpbRyLmsHl7Y8z6QVNk9dHFcznq1HLouRtTh1fVk/QP+mG/JrQg0
-         FwKvAZwOk/QYsyKuD+ivqmurRqrGTtiF25wD/AisKPJzFJCrpuX80851Pe2f0WQTAIEo
-         JIGw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=75pkuYW/tk7J9Bw8nfex7DohVw3/gs/HE93Gq8puzEQ=;
-        fh=Sz2RsLPYtU29ufdk6S1KTrV0X/A3Mekblnx98h8eJy4=;
-        b=AZDYnAihZgF/aUiHQXMSv+BiBfBPR40EOxq7mNLiwPX5LJytCqmIby6N5v+FKKaKtH
-         iFzBNUQhFQLZ7/Io10YJQcnQKCHhpy8XN0jHlaLo6Rs0c3lRCPbtNQYj37DZonYbQ0wl
-         1do30VY0NXPsJskt1FOzNao3P5DxalyHeVkRs5a4Iw75ZruTRyRNll8uLg7oAh3wQ4Jc
-         ZW6VvCeoXCssEIA75oKnWgmf/s9pw2a1l9UlzU84K6WEIPAiOCpsl0dmmoNM1ukJeRjS
-         B353cCom09WOFDbOiagxtCbQA80YGlFbISjBCQR3sqNxyEw2BN0ulJot10VszJjoggeg
-         Bkmw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794844990; x=1795449790; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=75pkuYW/tk7J9Bw8nfex7DohVw3/gs/HE93Gq8puzEQ=;
-        b=j5+qfPZWt2MiR9AwyGnuSWff4kqLNf2XZOiwJnxZ+Fv0u1xxF4OIzba8auw2DFGria
-         RUb2lc0JvJCxRj6Sp5wd8n8GN+fVHAzINHu4GRUl3yu2yHMI501c4wW2crgydaFx3jsE
-         lSM2odqPpPWNXbrGAKXoPpmlZw5EaXH1hh87buKYcgSywRmFBtM4pSnPlvXkBQe4++xh
-         0bQTuOm9SoWLQT8EZjRSo/DtXDY558fBXgN3Z+o+1TrHGsvMJ7HiAuWun66rYU1dHnWs
-         VXb+7U5JpdSFegGhqgYMC5nLUFcvstgH/6u4ood/1y0JA3IoK1AR6cJ1RlH2vVzkS7hV
-         zBeA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794844990; x=1795449790;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=75pkuYW/tk7J9Bw8nfex7DohVw3/gs/HE93Gq8puzEQ=;
-        b=A+ao52H6/egrVu/X6fs4sn9sUu/n6AbZzb7KvkWPyumIsFJphBLXcqRXRXIRLEndyk
-         M/kM2mEkU2rujRnNmmteburM2iV3xRSO+dVJ0Iy/WVZ1sk19mlAwKW3SMXWjB79+shao
-         RKTK+wvgMfXHgxBwF/CsMs8QI8sa1SZxXrMgFEmhXszEKv4h6kWTp41rjMBnHYdn1JER
-         CR62/2iheShPGuaz1ayh2q2cEqFm8SLFXAnMYhHorKFbtqRGQfYafIHMBEiP16CPy4uJ
-         f7nQfmdfZUO+UK7uts3wBY2c5pCX5aN5ewpoHbRSX4AR1/gyNwE3Iyhe+7DKfE7hYCmz
-         1WPA==
-X-Forwarded-Encrypted: i=1; AL+hErEQxoWGmnWQHBTWmQOXT73//xpSO9dMC47tjnzfz5AhP9TNkX9fXLwP51WNSrA3sRJ2cH+WVEM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9EhGpMFBjw1/qMLcKJLUFbAdfgcNY6+P8PyrFr+GpbJ0EMgniH
-	h74yT/o5ipfLy6Srkjw0Ul33X9F9AUS1GmfWG6D922Sl50uTA6McL3kA7cP0HglzGgBQzcJdcia
-	snTk1b2J45kpmurO8Q+61V0KnlUGquAc=
-X-Gm-Gg: AZFdTZfNemiHNIIomxtnn9YMPnTifj6JLhVliLgcOvblxNM5eLRyeHIObBAk0GxJsc8
-	fsLOejOU0biioGNLPwWZojkh4/YAJZ1tHia4SydoHSYN710++Set26DFTiYmVQziAR1qG3G3dTf
-	thBBFj/u2jfDrY51c9neaMgxXpBBnGOFtwx6KskVOa75NB4WpZNMCzLhUTCGxh/RZdNd9nhljw/
-	e6Dqt5QKLPkc81OTsuF441uWUEh6ndwZeiNAly8d7KzieXJGnezLuTY6sJb3NN/qJKhmatDDsqs
-	H5L2f9+tRfXU30CjQYiRfAHGTDMsUf9xz+TQsdLfddJ3d5lCN/6ntW9HYG3oVwmuMks21YLAAZ4
-	hIkSE7Wrj8lSGNZA1A06lbL/gJ1qGqB/XOokCXedLYKl7JvOsd1B/szNcRA66yYT+vUyy0Yqknp
-	EFb3nVozjCoyubUG4iGWe3763Nk4IOE4nj8ATAZ5ilmW75l1uxwsbpm9pj
-X-Received: by 2002:a17:903:3c0c:b0:2ef:d952:4a70 with SMTP id
- d9443c01a7336-2efd9524f10mr160655ad.15.1794844989621; Mon, 16 Nov 2026
- 08:03:09 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=iM++q2JP
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794845126; bh=xBu8GzeDrk7xvt8Bx0CRjK8uvrfVOw0/hRdHRPrcQig=;
+	h=From:To:Cc:Subject:Date:References:In-Reply-To;
+	b=iM++q2JPHV9nYNTsHPvMfOPZaNaQnxA+K7vcHVN9KBpSdtBSq2bcxMiUYXMScaBn2
+	 XUWR9F2Lfmq8YI8oZ7lbYwlznLDMLvQGh5E5ABMs5rU/NxUqIB/Bq1DGO6WnjcOOoO
+	 GCo73jetIdWRY9iOSi8x5peT6GKJdv7EOSgmShuY=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-XMAILINFO: MMvVzQSdFuTp9sTjQOGIRK8xE+zYC9uRyfQxc8yQGv9al2Q86T3U8Tzb/wwbfi
+	 aEYwdjK9wwqzxGmtd/dRL/uYlGaaJrEvZLD68OamQgJpzd1jysozGF3l0R2K49mU1Wh32y6QHN1OK
+	 CP+q5v5O3WNbfZcQ0D1oVVVpOOx9qBYBemSJQtIQDCAOmIS0by1p75q0wquKAyKkizoivj+bjZoXu
+	 Nx5xA4W/hf6md+c2QeI20aw3nROdPRtL21B/26o6ql+gdyu9mIPRrcJ0daKcUBMsxxLjlyoS0ps7E
+	 mqWVPewoJoRy35xa4zicXEhYTBsqdGv0IVP0ufEJ8a8SFj7X9JK+5gaVOUcMoSWd+54X6lAruy8HR
+	 mbWVWrBCmNBz2gi7N+Ne7E4RAVg1xwdU+R8/QzreX0m+YGTbP9Up/ai4xzH82JvrqyAcNGF/YwM9A
+	 WjvZtCROQjQB2fNhhHPD+++tsLmf7a+s6ox2rK3l29J4ecXjEcmUPWchXFJYYOKW40XCJDcx6DKCU
+	 8TNuPzp2y65pGQhAMpwxDyibahFSLAMFaY371/pTejPwUwqu3RfulRRtZwAJRxZwlJe794V815O18
+	 UtxDooDoDRoyd7tyaUkt+zioxTmVTgjYZScNBIVDY1fsOtl/hopv3U6yvhXfGFK5WEeoBoy/vkZet
+	 tcl0OjlPgMQgNZqszcW8Pi1d3up5tdpZKot9D6KOarOJUJhC63ygNplMYdLMQrVzyCw30tvzaGA2s
+	 IE+RZWRjTuG9MdBlaHr9tqUwhbiSiAsefsz96aXmWo5gQ40flFNZOh7nmGyjLfoWVOmQAeUet9Aas
+	 lC7UJU+RiURBJMuEMDpMLm27z3RCXvXjRaLNDXDrpTz0StR50aRIiNAa/LTw8c3czPjE4sEyAqFGm
+	 BXmmF9eILYukDytP4YLrkkr75SiU8xLnLmXCWZJUbYeoNZEYl4Q+Y2/ioYiQp2Mi9qaQrbRK7ynUr
+	 6EjwQY7QN9KyXbb9QQ59puWj4sAWsjx9zMrVhT3Tmj2y0hZI8s36amx5OuhTU/rnCWzaS5JAdP327
+	 t4icK/h/GDz3kybqmAobWzolPd4IRsXD4q6r6emLF7fvNrYJaloeRdP5BfV3xdczXjxq9y256arXU
+	 JzkM7LPPIk8H81YKvQ1oH79T
+From: "=?utf-8?B?Q29uZ2ppZSBaaG91?=" <zcjie0802@qq.com>
+To: "=?utf-8?B?TWljaGFlbCBTLiBUc2lya2lu?=" <mst@redhat.com>
+Cc: "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>, "=?utf-8?B?amFzb3dhbmdpbw==?=" <jasowangio@gmail.com>, "=?utf-8?B?ZXBlcmV6bWE=?=" <eperezma@redhat.com>, "=?utf-8?B?eHVhbnpodW8=?=" <xuanzhuo@linux.alibaba.com>, "=?utf-8?B?YW5kcmV3K25ldGRldg==?=" <andrew+netdev@lunn.ch>, "=?utf-8?B?ZGF2ZW0=?=" <davem@davemloft.net>, "=?utf-8?B?ZWR1bWF6ZXQ=?=" <edumazet@kernel.org>, "=?utf-8?B?a3ViYQ==?=" <kuba@kernel.org>, "=?utf-8?B?cGFiZW5p?=" <pabeni@redhat.com>, "=?utf-8?B?aG9ybXM=?=" <horms@kernel.org>, "=?utf-8?B?dmlydHVhbGl6YXRpb24=?=" <virtualization@lists.linux.dev>, "=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>
+Subject: Re: [BUG] virtio_net: RX stall caused by masking callbacks after NAPI ownership release
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,61 +68,64 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <avsfpHqbu_rdmOrf@sirena.org.uk>
-In-Reply-To: <avsfpHqbu_rdmOrf@sirena.org.uk>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Mon, 16 Nov 2026 08:02:56 -0800
-X-Gm-Features: AclHuK8Zde0ypoKNoy9FjTToivHq-RePvO_-KQS7SMLakIHz2MwjMtcG0NQBgHE
-Message-ID: <CAADnVQKjK2ezTcTUfQLACJDBLzhy=aBvoiK7L1cqKmb5RE40CA@mail.gmail.com>
-Subject: Re: linux-next: manual merge of the bpf tree with the origin tree
-To: Mark Brown <broonie@kernel.org>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, 
-	Eduard Zingerman <eddyz87@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, bpf <bpf@vger.kernel.org>, 
-	Networking <netdev@vger.kernel.org>
-Cc: Christian Brauner <brauner@kernel.org>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux Next Mailing List <linux-next@vger.kernel.org>, Sergei Nizovtsev <snizovtsev@cloudlinux.com>
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="utf-8"
+Content-Transfer-Encoding: base64
+Date: Tue, 17 Nov 2026 00:05:24 +0800
+X-Priority: 3
+Message-ID: <tencent_D0650F8CA2AAE4C258BFE5BCE805CDB4CA0A@qq.com>
+X-QQ-MIME: TCMime 1.0 by Tencent
+X-Mailer: QQMail 2.x
+X-QQ-Mailer: QQMail 2.x
+References: <tencent_AA4F39DA7ADE330C721C03AAA832B92DD608@qq.com>
+ <20261115175445-mutt-send-email-mst@kernel.org>
+ <tencent_94953697D2BA27275BEF7A26404E69800605@qq.com>
+	<20261116044750-mutt-send-email-mst@kernel.org>
+In-Reply-To: <20261116044750-mutt-send-email-mst@kernel.org>
+X-QQ-mid: xmsezc52-0t1794845124tuizgangp
 
-On Mon, Nov 16, 2026 at 07:22 AM Mark Brown <broonie@kernel.org> wrote:
-> Hi all,
->
-> Today's linux-next merge of the bpf tree got a conflict in:
->
->   kernel/bpf/bpf_lsm.c
->
-> between commit:
->
->   ea8c4b37b8809 ("bpf: don't mark namespace_init and namespace_free arguments as trusted")
->
-> from the origin tree and commit:
->
->   ab86b62012b9e ("bpf, lsm: Mark backing_file_alloc/free LSM hooks as untrusted")
->
-> from the bpf tree.
->
-> I fixed it up (see below) and can carry the fix as necessary. This
-> is now fixed as far as linux-next is concerned, but any non trivial
-> conflicts should be mentioned to your upstream maintainer when your tree
-> is submitted for merging.  You may also want to consider cooperating
-> with the maintainer of the conflicting tree to minimise any particularly
-> complex conflicts.
->
-> diff --cc kernel/bpf/bpf_lsm.c
-> index 468e63dbd922d,f39a3766f2245..0000000000000
-> --- a/kernel/bpf/bpf_lsm.c
-> +++ b/kernel/bpf/bpf_lsm.c
-> @@@ -411,8 -411,8 +411,10 @@@ BTF_ID(func, bpf_lsm_bpf_map_free
->   BTF_ID(func, bpf_lsm_bpf_prog_free)
->   BTF_ID(func, bpf_lsm_file_alloc_security)
->   BTF_ID(func, bpf_lsm_file_free_security)
->  +BTF_ID(func, bpf_lsm_namespace_init)
->  +BTF_ID(func, bpf_lsm_namespace_free)
-> + BTF_ID(func, bpf_lsm_backing_file_alloc)
-> + BTF_ID(func, bpf_lsm_backing_file_free)
->   #ifdef CONFIG_SECURITY_NETWORK
->   BTF_ID(func, bpf_lsm_sk_alloc_security)
->   BTF_ID(func, bpf_lsm_sk_free_security)
+PiBNYXliZSBsZXQncyBqdXN0IGNoZWNrIHRoZSBwb2xsIGxpc3QuCgpDaGVja2luZyB0aGUg
+cG9sbCBsaXN0IGZpeGVzIHRoZSBlYXJsaWVyIHJhY2Ugd2hlcmUgdGhlIHdhdGNoZG9nIGhh
+cwphbHJlYWR5IGZpbmlzaGVkLiBIb3dldmVyLCB0aGUgdGltZXIgY2FuIHN0aWxsIGJlIGNv
+bnN1bWVkIHdpdGhvdXQKdHJpZ2dlcmluZyBhbm90aGVyIHBvbGwgaWYgaXQgZmlyZXMgYWZ0
+ZXIgdGhlIG9sZCBjYWxsZXIncyBjaGVjazoKCiAgb2xkIHBvbGwgLyB3YXRjaGRvZyAgICAg
+ICAgICAgICAgICBzdWNjZXNzb3IgYnVzeS1wb2xsCiAgLS0tLS0tLS0tLS0tLS0tLS0tLSAg
+ICAgICAgICAgICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tCiAgbmFwaV9jb21wbGV0ZV9kb25l
+KCk6CiAgICBjbGVhciBTQ0hFRCwgYXJtIHRpbWVyLAogICAgcmV0dXJuIGZhbHNlCiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBhY3F1aXJlIE5BUEkKICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVuYWJsZSBjYWxsYmFja3MsCiAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0aGVuIHBhdXNlIGJlZm9yZSBjb21wbGV0
+aW9uCiAgZGlzYWJsZSBjYWxsYmFja3MKICBuYXBpX2hhc19wZW5kaW5nX3BvbGwoKToKICAg
+IHRpbWVyIGlzIHN0aWxsIHF1ZXVlZCwKICAgIHNvIHNraXAgbmFwaV9zY2hlZHVsZSgpCiAg
+b2xkIHBvbGwgZXhpdHMKICB3YXRjaGRvZyBleHBpcmVzLCBzZWVzIFNDSEVEPTE6CiAgICBu
+byBzY2hlZHVsaW5nLCBubyBNSVNTRUQKICB3YXRjaGRvZyByZXR1cm5zCiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICBuYXBpX2NvbXBsZXRlX2RvbmUoLi4uLCAwKToK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY2xlYXIgU0NIRUQsIHJl
+dHVybiB0cnVlCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBxdWV1ZSBp
+cyBlbXB0eSwgZXhpdAoKQXQgdGhhdCBwb2ludCwgdGhlIG5leHQgdXNlZCBlbnRyeSBlbmRz
+IHVwIHdpdGggbmVpdGhlciBub3RpZmljYXRpb25zCmVuYWJsZWQgbm9yIGEgcGVuZGluZyB0
+aW1lciBvciBzY2hlZHVsZWQgcG9sbCB0byBwcm9jZXNzIGl0LgoKU3RlcHBpbmcgYmFjaywg
+dGhlIGZ1bmRhbWVudGFsIG9yZGVyaW5nIGlzc3VlIGhlcmUgaXM6CgogIG9sZCByZWxlYXNl
+cyBTQ0hFRAogICAgLT4gc3VjY2Vzc29yIHJlYXJtcyBjYWxsYmFja3MKICAgIC0+IG9sZCBt
+YXNrcyBjYWxsYmFja3MKClJpZ2h0IG5vdywgbm90aGluZyBndWFyYW50ZWVzIHRoYXQgdGhl
+IG9sZCBtYXNrIGhhcHBlbnMgYmVmb3JlIHRoZQpzdWNjZXNzb3IncyByZWFybS4gRXZlbiBp
+ZiB0aGUgc3VjY2Vzc29yIHN0aWxsIGhvbGRzIFNDSEVELCBpdCBtaWdodApoYXZlIGFscmVh
+ZHkgZG9uZSBpdHMgZmluYWwgcmVhcm0uIFNpbWlsYXJseSwgaGF2aW5nIGEgcXVldWVkIHRp
+bWVyCmRvZXNuJ3QgZ3VhcmFudGVlIGFub3RoZXIgcG9sbOKAlHRoZSB3YXRjaGRvZyB3aWxs
+IHNpbXBseSBiYWlsIG91dCB3aXRob3V0CnNjaGVkdWxpbmcgYmVjYXVzZSBTQ0hFRCBpcyBh
+bHJlYWR5IHNldC4gU28gYWxsIHRoZXNlIHN0YXRlIGNoZWNrcyBjYW4KbG9vayBjb21wbGV0
+ZWx5IHZhbGlkIGF0IHRoZSB0aW1lLCB5ZXQgc3RpbGwgZmFpbCB0byBndWFyYW50ZWUgcmVj
+b3ZlcnkuCgpUaGUgcm9vdCBjYXVzZSBpcyB0aGF0IHdpdGggdGhlIHRpbWVyIGludHJvZHVj
+ZWQgYnkgTkFQSSBkZWZlciwKbmFwaV9jb21wbGV0ZV9kb25lKCkgY2FuIHJldHVybiBmYWxz
+ZSB3aGlsZSBzdGlsbCBnaXZpbmcgdXAgU0NIRUQKb3duZXJzaGlwLCBsZWF2aW5nIHVzIHdp
+dGggbm90aGluZyBlbHNlIHRvIHN5bmNocm9uaXplIHRoZSBjYWxsYmFjawpzdGF0ZS4gQmVm
+b3JlIE5BUEkgZGVmZXIsIHJldHVybmluZyBmYWxzZSBtZWFudCB3ZSBzdGlsbCBoZWxkIG9u
+dG8KU0NIRUQsIHNvIGV2ZXJ5dGhpbmcgd29ya2VkIGFzIGV4cGVjdGVkLgoKVG8gZml4IHRo
+aXMgcHJvcGVybHksIEkgdGhpbmsgd2UgZWl0aGVyIG5lZWQgdG8gY2FsbAp2aXJ0cXVldWVf
+ZGlzYWJsZV9jYigpIGJlZm9yZSBnaXZpbmcgdXAgU0NIRUQgb3duZXJzaGlwLCBvciBpbnRy
+b2R1Y2UgYQpzZXBhcmF0ZSBzeW5jaHJvbml6YXRpb24gbWVjaGFuaXNtIChsaWtlIGEgbG9j
+aykgdG8gZW5zdXJlIHdlIGNhbiBhbHdheXMKcmVjb3ZlciBOQVBJIGV4ZWN1dGlvbi4gU2lt
+cGxlIGZsYWcgY2hlY2tzIGFsb25lIGRvbid0IHNlZW0gZW5vdWdoIHRvCmNsb3NlIHRoaXMg
+cmFjZSBjb21wbGV0ZWx5Lg==
 
-Thanks. The resolution is correct.
