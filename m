@@ -1,63 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794867075;
-	b=w/tskF0VgosrUmEeB61h3zOG7rKxhLnSK53aU8NOvhzZKbQjfITosJ0YH6KhXKBv7Pg8
-	 51d1msTMq1GMkh/Eop3w2Pw5DSXn/B/nfkMSbLxFrUJTxvt2/E2DIMHQkZQpOCov8DdjC
-	 ZVKR5+xUiU17lSOeYqrpl/eaRh5q9MF2DBPaiaaTJG7gsbQoEVwUH8zHfw5uYnmIE6k4x
-	 Unpv/g+aQc6GBBPNR3bqEZjWMY3aJjULoIiw73vsd0yaRJ3JFZ/sci5iTZYlino8g/VZ7
-	 R6dh0TgKddsDfcsxgrcLlQuttxUaWytAXkt0SZkN/fzGT6w0hGXRrQIG3jcnRPo4JmA==
+	t=1794867595;
+	b=iTCdjY33qc7n5sB9nqUNfN0Lo84H9gj4O/qSgwCA9mLhb5cb/rDIvuPSwGIpiNI++mYw
+	 21e58I8lCVeUy8agie7pXgfzxTGjIXZyp4hfcxJxk1sgIsVJ759GnmjMPD0FI8va/CuJ1
+	 ljNorseshxBge4pitHPCTkYiRbK6OfSbhS54+dcyb0ItK3xxqSlZF+e4CALnj7FuwUgnn
+	 5vZTCyTvMORHpalnakODpi1fmARn9541HbaZbKVY2w55mnFpstG6QG1PrGL02hLsChSJi
+	 Md6UKu5dUONfvXZCJP8aRFtMmsFYvCiF8c88Qg4eIj4cCFWyffPNNpcdtNn2LMBJoQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794867075;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=KKsyFJuqb+jISh2VkJXDkgzTB/VIC5Qsn4SZG7ZDQkY=;
-	b=DAI4T25fKh73IsNjW/w9BI9K5obatiBHR6atuUTgjd/dgXSshLnEhbjFBjp7ETnL6Kx0
-	 puJgW5G0huATUos3QA0pht24qGCSBG89BgGTTPQkFGbbTxwUweO01Ae+5YbAlbwojNCsd
-	 FQ/W6efhR8GLkh2xb+RtikQenLYzbXwD1OybOyFno/ZBFktzSXBo0CprO/jWQbnVeviAR
-	 aG7Jb31cB8vfKpJIc56BP2/eROEqxT7aoHHFJHy0tdfuunJPxg9z404LY109BfnkB5bMZ
-	 aRwU3C7ioUm3BWCd2tG6caOFlz7fc8hdcD+4jDhfTB+4Py/ph6LECj4oEqfgELYybkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794867595;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=YpKVSlQQZT9OTr5yWvZdFnKLFgbCBAUyd3j3C5Dn4kE=;
+	b=I59uXqsxSXExWjlROsVlrQ9RJB2XwOM0V40xmjuT5zidmKH1v0uVZGlq6mcOYl+BYAWh
+	 0lQqOHOpSYSnbnJNJJbh4H4CiIEXGiq69NZwarLdWqmW4kN2sx92TzPX6h9jtBagQ/c5f
+	 6F+X1NopBnpRhuJ8BzCk90GBWzJxbBNNZNWK7cudx6CKKNSFZ4qHyhUMl4njX7b+rO+3T
+	 xTdcSjEagyX7mGiAktBabIf9zL9M++CJEEfHMCYmxP6PNCNszyio3V5v0E9YxjP2Xbs/E
+	 cK9XmjN2zYGBtwd6TC/q7vLHTdNNhRd2oc/tJw0wT1x1CkQtt9FzaNK1dwlQ1OP894A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="k089xL/f";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Ib0bx5ro;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2DCC606A329;
-	Mon, 16 Nov 2026 22:11:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 643F7606A31C;
+	Mon, 16 Nov 2026 22:19:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 643F7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k089xL/f
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CB731F000C4;
-	Mon, 16 Nov 2026 22:11:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794867075;
-	bh=KKsyFJuqb+jISh2VkJXDkgzTB/VIC5Qsn4SZG7ZDQkY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=k089xL/f9iDB1bzo+tkp70lRXNwq+ZquZv6//dnWh9RkRIqBx6mndNSMGVW1zsqnk
-	 +JAah8xj60i7EX/twVc8XFTBGlfxzsiJTNrJqQI0MBYRP8/3cnI+/UcTrGLz6IVH4t
-	 VrQWKxz5o73nY+rHVpFJjY+HQMSb903BUs94mHewRlsXGpv0eCyqKEafQ4+jGjfQpR
-	 K2VI+m+ydN9/+RwHCuqS4xBvaZjkyqMfM33rqxDz3hT07LmtvsvUY0+L2lxytX13xG
-	 5aUEDe0ejku8GtH95C2kvr91WWO7P+4gzkZ2l5MNCSE4ID1R79B3rQJ+ioLZ+wtbNi
-	 jI4un55/yhoWw==
-Date: Mon, 16 Nov 2026 14:11:14 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Aryan Arora <aryanarora.w1@gmail.com>, Alexander Aring
- <alex.aring@gmail.com>, Stefan Schmidt <stefan@datenfreihafen.org>, "David
- S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, David
- Girault <david.girault@qorvo.com>, linux-wpan@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- syzbot+19cbce4cc656ecd4febc@syzkaller.appspotmail.com
-Subject: Re: [PATCH] mac802154: Cancel scan work synchronously during
- hardware teardown
-Message-ID: <20261116141114.30ead071@kernel.org>
-In-Reply-To: <87a4n8rczw.fsf@bootlin.com>
-References: <20261012120934.64632-1-aryanarora.w1@gmail.com>
-	<87v77626rq.fsf@bootlin.com>
-	<20261019190736.33bc37e6@kernel.org>
-	<87a4n8rczw.fsf@bootlin.com>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Ib0bx5ro
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=YpKVSlQQZT9OTr5yWvZdFnKLFgbCBAUyd3j3C5Dn4kE=; b=Ib0bx5roxVWu37EBTh4mZ39Zih
+	hcaTMisFoWCi6nlGVjuJrYIRgUq+X+po/AHvVS7t3owEZYXxYeImofL2c7dUq/cAsm0T8Ty4yBBPz
+	72uShcJ1S6yqgiXn23Rw2hjQKYrTc7KXJgJb0ptV6VLq9lToSbOxbZVxG9lvB8E/cLeo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xT53B-00H1KI-Ha; Mon, 16 Nov 2026 23:19:45 +0100
+Date: Mon, 16 Nov 2026 23:19:45 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Janis Edvarts Lacis <janislacis06@gmail.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	wellslutw@gmail.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: ethernet: sunplus: check budget before calling
+ napi_complete_done()
+Message-ID: <461f7e59-6c1d-4ad5-9eb9-5e5d9b4a9e90@lunn.ch>
+References: <20261114222744.535158-1-janislacis06@gmail.com>
+ <26c5c08f-d6f5-49b2-9fa8-de6f8c244a78@lunn.ch>
+ <7zevuoiao6ildvkxt5baqnalb3nrx736krdxkbrbxouelukveq@2wo6m6cfl6rn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,22 +65,13 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <7zevuoiao6ildvkxt5baqnalb3nrx736krdxkbrbxouelukveq@2wo6m6cfl6rn>
 
-On Mon, 16 Nov 2026 16:51:15 +0100 Miquel Raynal wrote:
-> I believe the flow that works best is if you (net maintainers)
-> "continue" applying the patches directly, especially since these days
-> there are only AI bug fixes. We can definitely re-instate a formal
-> pull-request relationship between us as soon as there are new "features"
-> being discussed. We (wpan folks) will do our best to respond with timely
-> feedback/reviews.
+> I am fairly confident the change is correct, as the documentation
+> supports it.
 
-Alright, we have a lot of patches to handle so having more help
-(IOW having someone else handle the patches fully) would be preferable.
-But if you review in a timely fashion we can handle the manual labor
-parts.
+So the LLM review is wrong?
 
-FWIW you can use the "Maintainer" filter on this page to quickly
-https://netdev-ctrl.bots.linux.dev/suie.html?delegate=netdev
-find outstanding patches to your subsystem.
+   Andrew
