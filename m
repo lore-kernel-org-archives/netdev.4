@@ -1,79 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794814762;
-	b=tuxcEOSj7h4jnqO2egkXxTvVq2XL84q/V0hj3Q3p0LSCILwoYlY+k/am1J86s2xy2Hc6
-	 AftFPb0Rm0FdR8ZAFOvmydquBHoTnp+prWWfvlIXB+Y6HjNi/gewISHQFvdYvDX9cEJQb
-	 OHQeyXhWn/VToUOKd0QFL50VU3ZlmE/sJWLMSWs34YR1Hwi80Ucx4Uajyrk1fWW6ho70w
-	 XGahh+bQu9DB6pePhgBbmS+KgB7dcYpkDgzFsCHwhYK8iImEXonxmlDa8Zvca9KmydvTD
-	 AcsrC5cBsdSTXTtdg2EwNd/fJiB4YFAhjydL6VYm5fJcft8ksDsE7HmLNWyzMNrCFWw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794814762;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=hVoFltioV/Os7uCTNOdUtsATLlsQ2VJPx1x+e8Pga0k=;
-	b=EjbJR6cjY1HjhiKjc6bParmghary6BzAxidwlIRx8xtwLUjkpPYpAvjZO58VMa2duSQQ
-	 VrMKTYvaftarivgZLWKkzUWA85atMmqM429eJOot/v0FdvLxQy4YQHDDu1AskL4OINwnF
-	 X2NiQqTKK+hJb41uKjUeWkYg5WDx5rj3ZXwAuxsTWKt1TxeF7QZl4mMOZhNubbPaXWLNc
-	 Pzitf7ZBb/W9uwlVg8zqjkwRJJvwTdS78GCBWHa/iQaKYHYJdVJj7MdYSfpW29HZOFEW4
-	 lD+1j8Jwy66GmCnlGRRSvBVr6GQgmVrU5ihlcig1IjuMTSR1ycoh3WKMuq8M6v9l1Pg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FmieTsc5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 565BA606A31C;
-	Mon, 16 Nov 2026 07:39:22 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794815674;
+	b=DreGxcKrqXzW+krDJe84oHSxx9VXuwIBTL1fO2Vqv+7oABbBYMwfky4z9apYrGUJ07rz
+	 Yu9Ac2Dpi4AeN3Cp0Q+eRoJqfz4yT4kGp7fnyrKEhUwl+xUHbvYEc6tID4KJsJDyPPvvS
+	 t1cQiH2Ypiz28riD2742kV6lUJyzMp2K52AoZ2tPxraFn1fUH9KURmZ4D6V2zz5ggIKVr
+	 IGWhJDBk5va16AVVsObEI0sb5CBTA2iQazEMmJP38KaLkBMn5m5G0zJlzz1fzXQqeNXW9
+	 ZU48xzavMAayxgycASnHMhzAkjug/KoTX/9QttzjD+QJwDQmyW8/I+2IANnZXEUzhqQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794815674;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=oMNfobqpRSVZ/RPyQdQw1yQT2pAF5tFb5iwD71xAuiI=;
+	b=vms9Vk6pPcNB0FvfWGrfNNz57Gr5+2nrXC5NfJYOaN/I2NwLfA48dgQoK/iObEUcYMKs
+	 +H+94jWQEjtQwHSszhP0hUewBlNcV0P/sGlhZeweJBzuZWId7OpStGJdRNj734DkSypZ8
+	 aHt+mfdc4V+MYYwRcsqiM5OSGRocQ8kNaI5suwRL7unhzLO0PEa6SkWbl1hc8cMA2RPqT
+	 l/Z1oibHwIrb5lgt1+2Q/qt5P0gXxPCgmtH4zbp42hqIxC5CXVx5X0gymCgliq2HkQemU
+	 XcUUnCZrmNBGnoDgR0BoopsG6FHUVwO9J1GA6FJgnb0rmc3HMInKZnkdJZus3Yt+z9Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ygIuYZdH;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C95BA606A31C;
+	Mon, 16 Nov 2026 07:54:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C95BA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FmieTsc5
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794814761;
-	b=LazHn8VXC39dkRzj9xqZTP20d04KjrRvprABsh5B5kySm/wUrpYBQNgHH6PSgGKt1bSn
-	 Gzek/g8jx9UgZTF1hwNz/x1qk4ng3uEjWxuvUTKwJhQTlOsPIwYMeyKlw+GyOu8h2xRR0
-	 t8YnoqrxX9BiEO6/3vXRdtXx4EpENqBMK8deyBAnOYSjCfXi78zs5W4fmh6k/nTuR9lPq
-	 H8PETrUm/V+u9lPchaPaHyEd/ySCDj9eXkbPGUjOwrSZe2vdXX0Ac2woByRvvwRsBCOFm
-	 rh1JmcFnuPb93ZGr3glXgZVRjrg41A0Yx+wZFFD4vb5ANFqFyll2GPewOAGnjxbTzsg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794814761;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=hVoFltioV/Os7uCTNOdUtsATLlsQ2VJPx1x+e8Pga0k=;
-	b=ZYvsIm21+ljd0+XDC6VBDucvMv8blTLR4NwKMUxfa1sFo/ZaP9BIgK0YY7LQib3U+NQJ
-	 XcuEbV19wmFs0ccdPRFKVVffLw8qGVjx407gWprQ3kV2h9aLoPy9ylVXvyRFAB53uKU8H
-	 HYnQPnKNi8CVi6a5aHvCc6ocZJDomyS/7gUUCej7yYfGwDc22dYPJr36VPsvkvV37heZ1
-	 lK6FANYq4j79trGEvNK2TFyo3EbcfXK6c29kKzlJqp7AcKkkJ+iGtO3KmNFbwh5RWJ2Ez
-	 Z9PUA3+XJvxfVEmUsMwfOQ3pLBqtGXJqCyQ3mNfSIAZ3/yPASLyefy5RJJd4qSrYBzQ==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4BA8C1F000C5;
-	Mon, 16 Nov 2026 07:39:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794814761;
-	bh=hVoFltioV/Os7uCTNOdUtsATLlsQ2VJPx1x+e8Pga0k=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=FmieTsc5pYgqzStptuxvxIcMb+6tg8ZK7ZR2vHAyx98ipkfnYKZdOzARBQH5xrnwb
-	 zjoQ+PyHMRB7E5QA2I08pyyYvaWXO31pXwaqTuywsoJBd15ZMg0g13affj1jSJOVai
-	 yY73YIhTBj2L5Pk1WZ7X759rlT2QgXER1H160xJcpSKM5iBJtKHsU4tjYrnsaJoKAc
-	 kmvtd5pfzUN2fRf1vV0H3e9lQmU57aisoIbTmoa4trv1PFbBczIjoCNMM0CDrI7OGe
-	 4Y6dDjUzdUbPTPoGnCYvs2bXXcjLro3pDIpc4yCdpcAYY9D8UTzgv83Qj3jf1ohjwf
-	 RnVH37adQsCgg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 982104A37F;
-	Mon, 16 Nov 2026 07:39:20 +0000 (UTC)
-From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Subject: [PATCH net-next v3 0/2] net: stmmac: Add RK3572 support
-Date: Mon, 16 Nov 2026 15:39:13 +0800
-Message-Id: <20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a@qq.com>
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=ygIuYZdH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=ygIuYZdHre9g7Kx26GzdcSbX8KuksBbQqPckqqz+sTy3Bv60SCTj7WKcgIgqmirbFWnYiPqzSrSMg
+	 11vXUSr3XDnOhzozaGq0EPQWZWCROd3j+HvA5TCw8MMf7R7g+ghhq4mJT6br4MSCjKrP4gdXUcWULS
+	 BuwXqC6MZSTt9kcc=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66afab6b03fc-ca3c8;
+	Mon, 16 Nov 2026 15:54:26 +0800 (CST)
+X-RM-TRANSID:2ee66afab6b03fc-ca3c8
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from FHD-W7400297 (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26afab6b0a9e-83d33;
+	Mon, 16 Nov 2026 15:54:26 +0800 (CST)
+X-RM-TRANSID:2ee26afab6b0a9e-83d33
+From: Aibing Chen <chenaibing@cmss.chinamobile.com>
+To: Allison Henderson <achender@kernel.org>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	rds-devel@oss.oracle.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2] net/rds: defer CM id destruction to a workqueue
+Date: Mon, 16 Nov 2026 15:54:23 +0800
+Message-ID: <20261116075423.782-1-chenaibing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <20261114150541.1908-1-chenaibing@cmss.chinamobile.com>
+References: <20261114150541.1908-1-chenaibing@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,155 +76,116 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIACGz+moC/32OzQ6CMBCEX8X07JrSH348+R7GA7SLVCOVFhsM4
- d0tNdGLcW+TnflmZuLRGfRkv5mJw2C8sX0UfLshqqv7M4LRURNGWZ7Fg1praGztNNgrlwUDBT2
- OILSQZVkoWciWxPDdYWumBD6S1dDjNJLT++MfzQXVuHJXb2f8aN0zbQhZSqQ6ytivupABBdrQV
- pey5hniYRh2yt4SPbBv/s/cwCKDUyHynFeiKuiHsSzLC7dkfdQVAQAA
-X-Change-ID: 20261111-add-board-ok3572-c-net-4d45887c575f
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- David Wu <david.wu@rock-chips.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Cunhao Lu <1579567540@qq.com>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794814757; l=4122;
- i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=LxqYt0+Iq/eihPSSDe3HWKJJWGmfN3WZKQQ1CIPyjfo=;
- b=Uv0jByIhY6SMGv/IOvRZ0MFtcNERUxMqvPm8PXX2lYwiWrEEb0oJqbPCqEAKh39fMcKW+79ME
- dpBa6uGGrACA499afQ4s4iS0QQfxq+qIcRCxSkK6JoHWon8aZqhynRh
-X-Developer-Key: i=1579567540@qq.com; a=ed25519;
- pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
-X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
- auth_id=1177
-X-Original-From: Cunhao Lu <1579567540@qq.com>
-Reply-To: 1579567540@qq.com
+Content-Transfer-Encoding: 8bit
 
-This is one of the subsystem submissions for RK3572 support.
+rds_ib_laddr_check_cm() destroys the RDMA CM id it created while
+rds_trans_get_preferred() holds rds_trans_sem for reading.  The bind
+path then takes rds_trans_sem and afterwards handler_mutex in
+rdma_destroy_id(), while the CM callback path takes handler_mutex in
+cma_ib_req_handler() and afterwards rds_trans_sem through
+rds_conn_create().  lockdep reports the resulting cycle.
 
-This series adds the RK3572 GMAC bindings and support for both Ethernet
-controllers in the Rockchip stmmac glue driver. It provides RGMII and
-RMII mode and clock control, together with RGMII delay configuration.
+Queue the destruction on rds_wq instead, so that rds_trans_sem is
+released before handler_mutex is taken.  The work item allocated here
+owns the cm_id until rdma_destroy_id() has run; if the allocation fails,
+the id is destroyed synchronously as before.
 
-The RK3572 SoC has eight CPU cores: two Cortex-A73 cores and six
-Cortex-A53 cores. It also integrates an Arm Mali-G310V2 MC1 GPU.
-The OK3572-C board provides two Gigabit Ethernet ports, three USB3 Type-A
-ports, a Type-C dual-role port, eMMC, microSD, and UART.
+rds_ib_exit() flushes rds_wq after rds_trans_unregister() so that no
+queued destroy runs after the module text is gone.
 
-Testing was performed with Debian 13 minimal and Linux 7.3 on the
-OK3572-C with the FET3572-C module.
-
-Passed functionality:
-
-- SD and eMMC complete the firmware, kernel, and root filesystem
-  boot chain.
-- UART console works at 1500000 baud.
-- SD read/write and data persistence checks pass.
-- All eight CPUs start; CPU frequency scaling and hotplug checks pass.
-- Both Ethernet ports obtain IPv4 addresses and pass bidirectional file
-  transfers.
-- All three Type-A ports pass USB2 and USB3 enumeration, data transfers,
-  and reconnect persistence checks.
-- Type-C host and device modes pass in both plug orientations. Physical
-  reconnects correctly select the expected device, host, and device roles
-  in sequence.
-
-Stability:
-
-- Repeated cold and software reboots complete on SD and eMMC without data
-  integrity failures.
-- A combined CPU, memory, network, SD, and USB3 stress test completes
-  without a crash, lockup, CPU offline event, or thermal shutdown.
-- Ethernet error and drop counters do not increase during bidirectional
-  network tests.
-
-Build and checks:
-
-- The kernel, modules, and board DTB build successfully.
-- The series passes checkpatch with --strict.
-
-Untested hardware and paths:
-
-- NPU
-- PCIe
-- GPU, video output, and audio
-- Other low-speed external interfaces
-
-Some files in this series are derived from the Forlinx OK3572-C BSP
-Alpha1. Thanks to Forlinx for their support.
-
-AI assistance:
-
-- Codex / DeepSeek V4.1 Flash were used for:
-  - Reviewing and adjusting code style to follow community conventions
-  - Automating tests
-  - Collecting data
-
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
+Reported-by: syzbot+ccdb5058c3df2d94811c@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=ccdb5058c3df2d94811c
+Suggested-by: Hillf Danton <hdanton@sina.com>
+Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+Suggested-by: Allison Henderson <achender@kernel.org>
+Fixes: ec16227e1414 ("RDS/IB: Infiniband transport")
+Cc: stable@vger.kernel.org
+Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
 ---
-Changes in v3:
-- Deprecate tx_delay and rx_delay and disallow them for RK3572.
-- Link to v2:
-  https://patch.msgid.link/20261111-add-board-ok3572-c-net-v2-0-304466394970@qq.com
+v2:
+- move the workqueue from RDMA core into RDS, as suggested in review.
+- flush rds_wq in rds_ib_exit() so a queued destroy cannot run after
+  the module text is freed.
+- add the Fixes tag, drop the Tested-by tags.
 
-Changes in v2:
-- Split the original RK3572 support series by subsystem.
-- Add rockchip,rk3572-gmac to the shared Synopsys compatible list in
-  snps,dwmac.yaml.
-- Link to v1:
-  https://patch.msgid.link/20261022-add-board-ok3572-c-v1-0-0b0fd85a31ee@qq.com
+ net/rds/ib.c | 37 ++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 36 insertions(+), 1 deletion(-)
 
----
-Raw dmesg: see the v1 cover letter.
-
-To: Andrew Lunn <andrew+netdev@lunn.ch>
-To: "David S. Miller" <davem@davemloft.net>
-To: Eric Dumazet <edumazet@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-To: David Wu <david.wu@rock-chips.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-To: Giuseppe Cavallaro <peppe.cavallaro@st.com>
-To: Jose Abreu <joabreu@synopsys.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: netdev@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-
----
-Cunhao Lu (2):
-      dt-bindings: net: rockchip-dwmac: Add RK3572
-      net: stmmac: dwmac-rk: Add RK3572 support
-
- .../devicetree/bindings/net/rockchip-dwmac.yaml    | 15 ++++++
- .../devicetree/bindings/net/snps,dwmac.yaml        |  1 +
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c     | 53 ++++++++++++++++++++++
- 3 files changed, 69 insertions(+)
----
-base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
-change-id: 20261111-add-board-ok3572-c-net-4d45887c575f
-
-Best regards,
---  
-Cunhao Lu <1579567540@qq.com>
+diff --git a/net/rds/ib.c b/net/rds/ib.c
+index 4ea9838d0..66af4a72a 100644
+--- a/net/rds/ib.c
++++ b/net/rds/ib.c
+@@ -391,6 +391,20 @@ static void rds6_ib_ic_info(struct socket *sock, unsigned int len,
+ }
+ #endif
+ 
++struct rds_ib_destroy_work {
++	struct work_struct work;
++	struct rdma_cm_id *cm_id;
++};
++
++static void rds_ib_destroy_id_work(struct work_struct *work)
++{
++	struct rds_ib_destroy_work *w =
++		container_of(work, struct rds_ib_destroy_work, work);
++
++	rdma_destroy_id(w->cm_id);
++	kfree(w);
++}
++
+ /*
+  * Early RDS/IB was built to only bind to an address if there is an IPoIB
+  * device with that address set.
+@@ -411,6 +425,7 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+ #endif
+ 	struct sockaddr_in sin;
+ 	struct sockaddr *sa;
++	struct rds_ib_destroy_work *w;
+ 	bool isv4;
+ 
+ 	isv4 = ipv6_addr_v4mapped(addr);
+@@ -419,6 +434,15 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+ 			       NULL, RDMA_PS_TCP, IB_QPT_RC);
+ 	if (IS_ERR(cm_id))
+ 		return PTR_ERR(cm_id);
++
++	/*
++	 * The id is destroyed from rds_wq: rds_trans_get_preferred() calls this
++	 * function with rds_trans_sem held for reading, and rdma_destroy_id()
++	 * takes handler_mutex, which the CM callback path acquires before
++	 * taking rds_trans_sem.  If the allocation fails, fall back to the
++	 * synchronous destroy.
++	 */
++	w = kzalloc_obj(*w, GFP_KERNEL);
+ 	ret = rdma_restrict_node_type(cm_id, RDMA_NODE_IB_CA);
+ 	if (ret)
+ 		goto out;
+@@ -484,7 +508,13 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+ 		 cm_id->device ? cm_id->device->node_type : -1);
+ 
+ out:
+-	rdma_destroy_id(cm_id);
++	if (w) {
++		INIT_WORK(&w->work, rds_ib_destroy_id_work);
++		w->cm_id = cm_id;
++		queue_work(rds_wq, &w->work);
++	} else {
++		rdma_destroy_id(cm_id);
++	}
+ 
+ 	return ret;
+ }
+@@ -542,6 +572,11 @@ void rds_ib_exit(void)
+ 	rds_ib_sysctl_exit();
+ 	rds_ib_recv_exit();
+ 	rds_trans_unregister(&rds_ib_transport);
++	/*
++	 * rds_ib_laddr_check_cm() may have queued rdma_destroy_id() on rds_wq;
++	 * wait for it before the module text goes away.
++	 */
++	flush_workqueue(rds_wq);
+ 	rds_ib_mr_exit();
+ }
+ 
 
 
