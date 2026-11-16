@@ -1,89 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794819605;
-	b=5nqRy7yf2LrZ3aCHtSXLhoaf4JxO6biz/767eclW/3hpQw85wsfgWCiqVqWBNEr28s+k
-	 D81FqAVfKGtLU5p4PpMNpz8r/FRiKG7LJM1I6AalEXtVFNfOKJfX5nz7MXEJCC9RqTOoo
-	 mUBCKHQCjEYQb5TdlTpfZ/JtXRRrj+zlBWh+2ro4kA6KlElvaWUpmmjZ939FKTJQAmQvN
-	 CAMkKU/3qIYuzv1UPM92xbNJlLzDMmt+6Mc3s6V9Wznb4xliDN1vKNKaj51N/iyIjDzMd
-	 WW89+8R0YlDXyOQivS9nZNhoswPgZzHOh3G7XbpiukJewxtoznwVLKaIStU1h8+8VUQ==
+	t=1794819606;
+	b=GWDOGDmCVb+KOl8fw5ZL8ll39lanNPFaZPB1kYi2uU+lRZi1X4imwyGQqEzYMeKuCrhP
+	 2vjrCEjoIYYQT9F+UGHzxaCZ4DpPet008/n3mwYPpkWiKWT22Ku0RHvxV3VHrTa7ZKhXA
+	 FTdAPFYyMaCM9sFv9wn3fn74QrNeefSpOJVMZJYDAPVYKKZxY5DBRQjFlBRwvZL268vJK
+	 HCJK05XeLVur003Yq2R5fM/Cz4xblCG6aFBFJ34RSYjD4qjGGXnKovcE2nfDbspYKGJ/A
+	 NXNi3LHT8IQXuZd+RBztiOq+zenXScP14R2la3fMI78riNRtlKRv+c1WEhw+qZTkrzA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794819605;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794819606;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Subject:Date:Message-Id:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=a9zCEEgHyfXsOU4IbfkUeeAj9HdWSAkpM97GgxzjpQs=;
-	b=cVZKph+YyHL8rQKv40g6qUqcX5gE4EodHcbCAI8vf1g0kCn95EzJPP5tsYdfD4R3cR4Z
-	 oBWlGtumg6Xtxxgu42ZT2Qh6NdQXaDn0IExH+HhzMQixMzpVBybupN9jUcHNuyRpURRwC
-	 +qRmiJdLpIXIGi/5N0HezMhrvrujjCMXWFCcj78ikRimjMmGS/zxJADMA4tOvvYzxXbkx
-	 VgUOsT9LdeeOp7rriccuH20z6BX92DGrpVBGpjNjJ8a+886NMGx8TzLns4AW/TDKahZHV
-	 3hQg7cajW4YT81euLbNz7YmGfO6h63qCMJmmGSl2yc2jAtz49dZMUwJ3LzJ1de5ic6g==
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
+	bh=Z1T9rHVfS5D3FC+BJOtynV5uEujPCuJ4oTq6T5KpuEM=;
+	b=Cn8C3pEXs7IbytJ+Iux3vwATO1vc4PQFm+115GpMRO/cj8pJSShOaH02lygV14twwwcw
+	 u7nzNqUqnv/xA0cbyvEwKD+OCYVko5B8TgriOU0Welc+E/OCH9wB9+ak0t8spcNNTwGzK
+	 nn6Xean45wO+/rH4TCT+bD9mwxRGaadTKo4YVE0My11/1bDnLY/YGRgTde+vO3FfECDGq
+	 Eqjs4D/MA6lzigq+iuqKS92srIMtIWsfBwmUWX5/EG5QcaePq5WUvZOlRiFRDW/2Gr9ku
+	 hecGYMPzzvVchNX+6U/PMoH7C3Du1Oh7q83MlznUu6tvqcDXp5ZiOAMNs9IjVuveSXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o+4V74VY;
-	arc=none smtp.remote-ip=209.85.160.45
-Received: from mail-oa1-f45.google.com (mail-oa1-f45.google.com [209.85.160.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tNfvVtRt;
+	arc=none smtp.remote-ip=209.85.160.51
+Received: from mail-oa1-f51.google.com (mail-oa1-f51.google.com [209.85.160.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75A43606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E685B606A330
 	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:00:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75A43606A33E
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E685B606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o+4V74VY
-Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-4a76f63b243so3789737fac.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tNfvVtRt
+Received: by mail-oa1-f51.google.com with SMTP id 586e51a60fabf-48eee44b908so2511838fac.1
         for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:00:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794819604; x=1795424404; darn=vger.kernel.org;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=a9zCEEgHyfXsOU4IbfkUeeAj9HdWSAkpM97GgxzjpQs=;
-        b=o+4V74VYHHGEwhhJlNUfTApJrT15j5GcawAo+tYJ5Cwh4eCSxw2DFkjvh3s1Rpjaqc
-         CYutTqg5MNgSF+d/0tsK4el7Oyq/M+4zKiyqTREVC8wa6sd2i+t00qsqz96u2a7Do/T0
-         S61bloURCFvfTqbXq0Ivde3n8DJRjFyxYeWwkz66nnloFZwncVFMCBsyiBbwObOuJkz5
-         IskLk/0fnKHf8yEKHIselPnjHkt7keVKHGti9IJMT8vSs/NaEStLdb6Peu9/noldepLy
-         UEO2OvL264NrgOsxdAkcu/rXYYC9kHJI2VxxE/B0xq3H4jvCfG5U2eQZmRLR3I14tg3/
-         agVA==
+        d=gmail.com; s=20260707; t=1794819605; x=1795424405; darn=vger.kernel.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Z1T9rHVfS5D3FC+BJOtynV5uEujPCuJ4oTq6T5KpuEM=;
+        b=tNfvVtRtVFeRRn6F4Yx1d12ky5HuQRQs2iLfreCcdSy23EJ0j8AB+6MDzN7qAtW3TG
+         Xkg9tkpLQ9Ycslf07hEjqdo5C6YG9Ze/3eLBP8KZJycBbohlgm2+zOdATtDnCyugMaz3
+         eY9dWP3Q9pWhM5PFi1w7+b11LbCoeW2fVYvq5KM92aSPTm+TGN/d7NYkX7hnWdj+eNV3
+         0p8sCnp1eb/TccoVzAvnXjHD1dRS+shv4nQlHZ89ZOl4EJ1rZuqqfgco4b6XBW2mfNDB
+         R/5X8q5ShHuD2k5iHoNuqywYlRPASkWjGakYGodZ6eVAJWosO/EcCPpM8w33jGvlQNyy
+         O1YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794819604; x=1795424404;
-        h=cc:to:content-transfer-encoding:content-type:mime-version
-         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=a9zCEEgHyfXsOU4IbfkUeeAj9HdWSAkpM97GgxzjpQs=;
-        b=JOeky7Q8PySqbJ9pW1RZh+NMwiTVrG0+byIwG8bRHr8Aw1aB29cIsmo450/+YxGQDC
-         kPndPBfmf/V1KiRCYEgrfEuaVWZmFgWctwvcmTexHJVnzu7BBaUkPm03bycSoxyECleW
-         NeQSGGO+dwnEp8Ab5mG9At+t6bbnPioSFcMasJoZGBuqapuPh+Sj5xwKAf4+C4RYth3W
-         NxJ99wRMhTesduMB+i5Dtr8iKAUN5vfvyuoEWcdY/qEc+XXCoBePM9PiT3F4KA20j0l/
-         AwLINn2EIcf/jmnCyhguFZdo9vULMRnP9RNSW/GvZPEnrXiTca6cp1erAGv7xDkXYWO1
-         hNXg==
-X-Forwarded-Encrypted: i=1; AL+hErGuHBNwLsntz/6X0zEVoio/IYpDK5AVImN8XuakC0tnFDL8QDcelWIGRkyohAE/rnEKRBH3tGk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+K5LoRbTNaZIDI4rS1hAXbJxU/gq/L63oOcY1hQmUJPRKF8eB4
-	CYaUkPpXY7oS2cMqtfdW7zCRpwzGVE4LJczK7xPaoJbeVoHBXrMw+roK
-X-Gm-Gg: AYBFou214qf2u2gluHGGM7zC8bvpUqGpAo0zjdtOGs3lwcihQh6ZVQdeWAvVNlbQ1/3
-	a7q4Ke7NgYMT6mA4xkP6zh8nx19qcuUx2x75PlEO0Kdj945BcL43EF+IFDH7+zDVFWjV8xWC37Q
-	Zol8oOF1+uwQLL/gyOXM3EREVly/9pWuQTVyKuAIpoxzhtlPjtY6gGCj+vvWQEIoD61gxbiXhot
-	VgzP6VSDBc7OSFsD3rWBi5xIxcW/sEKMn0YSHpEt0+yaMJK6dgcvfJ301fcjymK4mCXUq7Vbxyz
-	kP6PYzAikrWQ2oxsXaNcuQJAUULEoatkGYM9KgzlgyZiaoVtkxEsyWz+U09fMvCnYBLSxp4S7S6
-	R6ojOxQoEAecqbzPLETMI5+ODn2+pRg3s+g4wq6to+xolCVWw/FInNh7uCp5uYJnUGSz78bUVEW
-	jaqKUnofiI5yZs5YLda/+PuGvCl2tCyNTwlPPAQxKCP9H2k577pqEDDvXeNSnhA9eKKRIVgcxXl
-	KaD0UhYB+S9sFxN/LvwDr5nbq+hAsILlm52K0zatJMwVyl2ccIlVKWR58/EbdK0zAb9mM5wKTgc
-	Y+y+6uwW89IUXv0QvkBKyFS2CSwTo4m4TrwqogLX37OvrDedNtaKoFuCKuNjibgXo3jXFKedM5Q
-	hzB8XA4SxFMDqiAV08/iWFNvQJz1VOJDGqHBI8rDGr4kcGd1+apt/GwYYkPC5ra93v7ArebIxaj
-	a1wRieQq+MDbiYsrl/FE0qFde/CJppf+SqbGz4cGWGX/n0xOF15w==
-X-Received: by 2002:a05:6808:3383:b0:564:3e9e:b498 with SMTP id 5614622812f47-56e65624042mr5371665b6e.22.1794819603048;
-        Mon, 16 Nov 2026 01:00:03 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794819605; x=1795424405;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :content-type:mime-version:subject:date:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Z1T9rHVfS5D3FC+BJOtynV5uEujPCuJ4oTq6T5KpuEM=;
+        b=c9A3zgXZMSwLB+WWRypNTljNgJdWG7djnlJPDnRURfOP7Agbs5p/wylmOCQyCeaXtq
+         8fZMQguVRN1SNavqeA/2GDyxYWVGlmi0yNwKyvgUXYtHfipf9Zwrd917lkZx8LEUM093
+         2nid5eXk23zLFj83RuM/ZdUscD/1hV7b+azE7gtdCJhrK05/A7EAj7FbHH+uXpNJj0IB
+         CNoqINatffm7oimJmWfY6gJekSMgUHTjaEeVO3e/BIqH5EekTMbaQpmo7MMrjEj6Mhfv
+         W4D/pwn/POTXT/cY4QHiGlwHHTlZvoNRBBVnk7LNhwOelHBM7Z5bpFNxf17k7gdAhfyE
+         3S8Q==
+X-Forwarded-Encrypted: i=1; AL+hErHjsfQsW8Nih2D71rI4ZXOzZU/kbmZZmRuJ61p/+GUNjMiF7/Pv9mmsy4rKzOP9pA376E0DVUk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8MhqREjogA1ORvRDn1MX2AzKI7+fDhndj2Aqdyzm0+rfci7zaK
+	nyUy2SYPkbk2RgD9jVCThAqSeQzxuVCKNDLRCEiD0k59+VYRIwV/yfbR
+X-Gm-Gg: AYBFou12iCmNqUEuT8z9ntpTNM+K9EwGelYCYNPiQpbwn2CvKox7DIcA05v/hcn/iPr
+	njPhKgLl4Aya8kJ8RHxyfV+7iW7iu1v80VEFnPQ/Xk1pK0e+zFDUxz/DZwaDp3jre/bbRIWmf2w
+	H8hZLKR9w2+NMlU6pLwYKxb4/c3r4DS0eoOf3VulXGpbEghDD9ZQx/inqkkRrE+IjyeO9cCRnR8
+	O75e3IsZuA3bxIKskk9N7ID6vLTjGan+8gR/i/lAPhUCYJ4hnihGbQlMvWKjpuJbO2Y9I+Hm1kL
+	xVkZ/OEqe3EIdoM2rpmH86eOLh5ixRow9ZJGt1dkEUiJnnjESy8VXoNzH4Ggok4n45u1QvfjRxf
+	VdJ5d6eMZBLItsf86G8Q+F5M5ukyw3c1r1qDIGDyP1sB1D2m3uuiuJCggQwYNvqMEu7+tUVwvNC
+	GXF9E3RhqZtnwWiu/+ioPiWjQNmniHiFdKdMgu0TaIBdzdAN0F0mheLrMRahafYdA88qrMSXi4o
+	Ejcn/msoM5quA55LzhvfFct6OvO6++4AGPle4BvMHXB/RJl3HxjlyHlHlltFdeV+IrgFcc1TcZc
+	y3IGN40Lc2qK9ZFmBYpB86+woUz6FL2UHJNg9ImoXbxdS+AhGkL/P28vnHKq5+V4gGN2DtMzN8D
+	N0UsWgrHQCMieSZU3FmZVMoC+B4AJ0poz65tX2vOAb+wkw0gTsGBwSShuXY2aj12V/cd7MMa/CD
+	LPtjGcpkUDYrrL8JJ8zTrbFYLcHhTpO04aYIIsn6BR1HTp9Nu7xMw=
+X-Received: by 2002:a05:6808:4d06:b0:572:86c8:6b4c with SMTP id 5614622812f47-57286c86d22mr4614870b6e.6.1794819604482;
+        Mon, 16 Nov 2026 01:00:04 -0800 (PST)
 Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 5614622812f47-5750329397bsm719177b6e.6.2026.11.16.01.00.02
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-5750329397bsm719177b6e.6.2026.11.16.01.00.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 01:00:02 -0800 (PST)
+        Mon, 16 Nov 2026 01:00:03 -0800 (PST)
 From: James Hilliard <james.hilliard1@gmail.com>
-Subject: [PATCH net-next v6 0/3] net: phy: report ACx00 receive statistics
-Date: Mon, 16 Nov 2026 01:59:56 -0700
-Message-Id: <20261116-submit-acx00-phy-stats-v1-v6-0-8feef8e76cd5@gmail.com>
+Date: Mon, 16 Nov 2026 01:59:57 -0700
+Subject: [PATCH net-next v6 1/3] docs: networking: correct the PHY
+ statistics group name
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -95,13 +96,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/33QzW7DIAwH8FepOI+NDwfoTnuPagcgTsO0kCrQK
- FWVdx/JNi3qpEhcjO2f/vKdJBwCJvJ6uJMBx5BCH0uhng7EtzaekYa61EQwoTgTQNPVdSFT6yf
- G6KW90ZRtTnTktDbSNFoDABpS9i8DNmFa7ROJmGnEKZP3705hPtDnhV5mnU1I3WCjb5ev3+mXz
- oa49NuQcj/c1pgjX8WfRNVOovJKLFmD4giqduztXMDPZ993a45R/EmF2pNEkaQ3VikApj1/lOR
- WOu5JkjLaOK+k0L5yCI8SbCQu9yQo0tEoZyxYbvS/TNVW2r1TVSSsDbe6qUBquZXmef4CKiQME
- SYCAAA=
-X-Change-ID: 20261024-submit-acx00-phy-stats-v1-d838f77444e8
+Message-Id: <20261116-submit-acx00-phy-stats-v1-v6-1-8feef8e76cd5@gmail.com>
+References: <20261116-submit-acx00-phy-stats-v1-v6-0-8feef8e76cd5@gmail.com>
+In-Reply-To: <20261116-submit-acx00-phy-stats-v1-v6-0-8feef8e76cd5@gmail.com>
 To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
  Russell King <linux@armlinux.org.uk>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
@@ -114,106 +111,31 @@ Cc: Oleksij Rempel <o.rempel@pengutronix.de>, netdev@vger.kernel.org,
  James Hilliard <james.hilliard1@gmail.com>
 X-Mailer: b4 0.17-dev
 
-AC200 and AC300 count bytes in received frames including those with CRC
-errors. Define the existing PHY rx_bytes statistic to include bytes in
-frames with errors and use it to report this hardware total. The hardware
-does not separately count damaged-frame lengths, so a successful-byte
-count cannot be derived.
+The ETHTOOL_STATS_PHY group is exported as phydev by stats_std_names[],
+but the ethtool netlink documentation lists it as phy. Use the exported
+name so the documented group matches the statistics string set returned
+to userspace.
 
-Report successful packets and CRC errors through the existing rx_packets
-and rx_errors fields. Bracket the raw packet count with matching CRC
-counts before subtracting; bytes and CRC errors can still advance when
-sustained errors prevent a coherent packet sample.
-
-Assisted-by: Codex:gpt-6-astra
 Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
-
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
-Changes in v6:
-- Define the existing rx_bytes field to include bytes in frames with
-  errors, and use it instead of adding rx_bytes_total.
-- Collect Andrew's Reviewed-by for the PHY group-name correction.
-- Rebase onto current net-next.
-- Link to v5: https://patch.msgid.link/20261115-submit-acx00-phy-stats-v1-v5-0-ed81a7f54373@gmail.com
+ Documentation/networking/ethtool-netlink.rst | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v5:
-- Split the existing PHY statistics group-name documentation correction
-  into a separate patch, following Andrew's review.
-- Narrow the generic statistics addition to the inclusive receive-byte
-  counter.
-- Derive successful packets from a coherent packet/CRC pair and report
-  them through the existing rx_packets field.
-- Keep collecting CRC errors and inclusive bytes when sustained errors
-  prevent a coherent pair, with separate baselines and sampling times.
-- Skip invalid or unstable byte samples without discarding usable frame
-  samples, retaining the measured byte modulus and sampling-gap limit.
-- Rebase onto current net-next.
-- Link to v4: https://patch.msgid.link/20261113-submit-acx00-phy-stats-v1-v4-0-986b8a4a1871@gmail.com
+diff --git a/Documentation/networking/ethtool-netlink.rst b/Documentation/networking/ethtool-netlink.rst
+index eba226c79ec3..8659761ebc69 100644
+--- a/Documentation/networking/ethtool-netlink.rst
++++ b/Documentation/networking/ethtool-netlink.rst
+@@ -1665,7 +1665,7 @@ the ``ETHTOOL_A_STATS_GROUPS`` bitset. Currently defined values are:
+  ETHTOOL_STATS_ETH_PHY  eth-phy  Basic IEEE 802.3 PHY statistics (30.3.2.1.*)
+  ETHTOOL_STATS_ETH_CTRL eth-ctrl Basic IEEE 802.3 MAC Ctrl statistics (30.3.3.*)
+  ETHTOOL_STATS_RMON     rmon     RMON (RFC 2819) statistics
+- ETHTOOL_STATS_PHY      phy      Additional PHY statistics, not defined by IEEE
++ ETHTOOL_STATS_PHY      phydev   Additional PHY statistics, not defined by IEEE
+  ====================== ======== ===============================================
+ 
+ Each group should have a corresponding ``ETHTOOL_A_STATS_GRP`` in the reply.
 
-Changes in v4:
-- Invalidate the ACx00 baseline before accessing counters in soft_reset,
-  since phylib may already have reset the hardware before the callback.
-- Start a new collection interval on resume and after gaps of at least
-  320 seconds, including system sleep, preserving collected totals without
-  interpreting unobserved traffic modulo the hardware counter width.
-- Clarify that the byte modulus and frame-byte boundaries were measured
-  on both AC200 and AC300.
-- Specify matching frame-byte boundaries for both PHY byte counters and
-  explain that phydev corrects the documented name of the existing group.
-- Mark the DP83TG720 conversion as unsuitable for automatic stable
-  selection without the new receive-total API.
-- Rebase onto current net-next.
-- Link to v3: https://patch.msgid.link/20261109-submit-acx00-phy-stats-v1-v3-0-fbc6327c5be4@gmail.com
-
-Changes in v3:
-- Add generic PHY receive-total packet and byte counters in a preparatory
-  patch, retaining the existing successful-traffic counters and their IDs.
-- Report ACx00 packet and byte totals through the new fields, leaving
-  successful-only counters unset.
-- Convert DP83TG720's inclusive RX packet count to the new total field.
-- Bound coherent-counter sampling to three attempts and skip unstable
-  snapshots without making phylib take the link down.
-- Reject out-of-range byte samples before updating the hardware baseline
-  or accumulated totals, retaining MDIO and page-restoration errors.
-- Rebase onto current net-next.
-- Link to v2: https://patch.msgid.link/20261102-submit-acx00-phy-stats-v1-v2-1-3c8a664407c1@gmail.com
-
-Changes in v2:
-- Rebase onto current net-next and repost after the merge window.
-- No functional changes.
-- Link to v1: https://patch.msgid.link/20261025-submit-acx00-phy-stats-v1-v1-1-d3d461e46db0@gmail.com
-
-To: Andrew Lunn <andrew@lunn.ch>
-To: Heiner Kallweit <hkallweit1@gmail.com>
-To: Russell King <linux@armlinux.org.uk>
-To: "David S. Miller" <davem@davemloft.net>
-To: Eric Dumazet <edumazet@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Simon Horman <horms@kernel.org>
-To: Jonathan Corbet <corbet@lwn.net>
-To: Shuah Khan <skhan@linuxfoundation.org>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: netdev@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-doc@vger.kernel.org
-
----
-James Hilliard (3):
-      docs: networking: correct the PHY statistics group name
-      ethtool: include errored frames in PHY receive byte counts
-      net: phy: acx00: report receive statistics
-
- Documentation/networking/ethtool-netlink.rst |   2 +-
- drivers/net/phy/xpowers/acx00.c              | 223 ++++++++++++++++++++++++++-
- include/linux/ethtool.h                      |   2 +-
- 3 files changed, 222 insertions(+), 5 deletions(-)
----
-base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
-base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git main
-change-id: 20261024-submit-acx00-phy-stats-v1-d838f77444e8
-
-Best regards,
---  
-James Hilliard <james.hilliard1@gmail.com>
+-- 
+2.53.0
 
