@@ -1,49 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794871813;
-	b=REtnsAAkqe/xQ72CA3POQxoWkdflsLEDafDQoKuUf/ecphibnW7yblObaXnGcH1ANSag
-	 C0gfmpkVyaM7XyeH0zEvRW/xnX77NxYuOqjmeMBMR8edDFELeTPErJr8mUk6wIDkYV9Ai
-	 DqmlHJMRstWObCCqv2ij64kBKVDPF+QQLcqNckfYIl00vjZOQBIlIVRWcJJZ+ek0YJAJ1
-	 yQXWnxbfMoF1LQUSO/6zkqNU3NZX/2wErExcwiQuTUxOAdK7ru8/q4CZXaIovBntqi/Jk
-	 2qAIChuiHeQYtPzd1aeBehkWZqnfiiLlkfO8f3VjiQuZuJGzdI3LRpmlXoWVVKEozVQ==
+	t=1794871880;
+	b=fXotdqsbwm8GXOQsvRJWHO7Y6VJP8UW7agQ8xHEXN+C64X0xORGWG1Hr6/sPG6vtzUmb
+	 EOMZrF9ggPy9B3z2mWOOifNjpe7MbmIwzrp6dGz1AWB1LOi3hgGAktb4ZxhdXTNqPCBin
+	 Rk8S8/tzxqHwRY6LyPmXaRRDhz7664Wa2QHhSWsjeO4GJgj2RtHN2L3+w+Ttq5mabPMLf
+	 9hk2WTya5z7iZcy9OfzrzDEVDsscpbJk1pbW6ZXo/emmsX5qjLth9QAewspOzP2q0b0Lq
+	 yN7TTUnyixVyKuaB8SDdhcqR7EywfFFRayRgnotNY3iSVj56iiPm1nLVGXtaHUnZF7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794871813;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=iw4kciL6uZi8vCQoxpw1qYLyfcPUtc+yptZ3Ejy0mj4=;
-	b=igZfJFPrFP3qNT0CaBYcDSLYZLIF+PMFYM0rFzregLDUmA+My6Hb0x3MkvgP/T6rHwlQ
-	 VDE0Glm1HbobOpCEiSm170zb7qW4lAzUtff/Jm+qRUckZ/xLUgVT3RbjBq4h3thyYPfhZ
-	 d7WRkFiBOYX90dcVnheE1oaogW66Ni78UZUdRl+Z6UsQrCR24xhGtEVl9e6c5E/fm8VBS
-	 B/m0bea30+Zh4ktmz8WCT5cyd8+GmXbiQhQOWobEh0xR2Dz9sWJv1tYUDHDKPngMDUxAC
-	 gaeTVSARlRHXNWVabiR0LnVeINKoKCJ6uzIKCTiChzmrF3/i2R4bdGftR8Y5DFMn1tQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794871880;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=xfMs+Qf9XdOxHXeSqXFaYB/VT0nJ0LMrNDOzxuv8Ri8=;
+	b=MyOIuqMeitvY5VS+ejCP3Sit/6CwSzBQkYu287gu5CKucobu1dW9yi3EbBWOWb5LsaBq
+	 hzjk0JWmCWoOq6va9ZioCwzkJKir9N6mhoLKphETB1f0Jzom8Qs4Ghs398XE7nq8XdA6W
+	 soUoHemaR71CqTktDzINT0E0uFRDNbgyvwgYaGhHgLHO/tv3N5aTIc+niJGSb1aw7OZwE
+	 FNKEYhURQiuYWnfuiu+8OBSDFs/Hq+eLT9fPdDokYl0psNxX+y4JUm991A+adXzCdI0EY
+	 VDMN5BwE0AdtUqWx+QXqerHtmBCEn7u1Njx4vXmxgnm8InVty8lqCMaQeRg6IuOv/5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fiafTEl9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iAOeq0Xp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E39D3606A333;
-	Mon, 16 Nov 2026 23:30:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F8BA606A31C;
+	Mon, 16 Nov 2026 23:31:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fiafTEl9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDC041F000C4;
-	Mon, 16 Nov 2026 23:30:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iAOeq0Xp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D48D21F000C4;
+	Mon, 16 Nov 2026 23:31:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794871812;
-	bh=iw4kciL6uZi8vCQoxpw1qYLyfcPUtc+yptZ3Ejy0mj4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=fiafTEl9cMY6DrG+a3Rb0L6sltWoVTlz19ygAl0LWArWLCLIrwgVwbMHSgWu2ZIv0
-	 6XKZLbJz49uFhQH/esac/j+wIGumFajoZI+nSAHgac1rShYYLhpDTPeYjBY46A4ws7
-	 hyA5aMff/EF0xNhGk/qdOH4Ma3ggTPgx2sbTXV5S6pb+oCMaWNDoDa7OuNiDT41KI/
-	 jQtrcIm8m3TnHukefnYfCcStVjZUFRuf+RiBcjnxS0v6gB2BGBOSyzhy7/kmvINZI0
-	 M7DJ+G4saecS6RlMFFl9hreBU/HfN8XqJjMDQwx0RNREXFmGBupNgcnBle7w6L0T3c
-	 0pYz9X7fl0MNg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4448391B059;
-	Mon, 16 Nov 2026 23:30:12 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1794871880;
+	bh=xfMs+Qf9XdOxHXeSqXFaYB/VT0nJ0LMrNDOzxuv8Ri8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=iAOeq0Xpbmml1zZXbNmyAOrGrOTKX4aUya82sPHsuuue5nbJSkFwMNwXX1CQImAI6
+	 2lgNwwL/t1ImlVbJc+8tYNlmYuQIDzS2Dkay1y50CYxMbyNemoq+WGtF8TPvfg4eTJ
+	 IXc8Z+dN6Sz/e4HsjM6ZWv4ZDADpNMMVUjqdJlqMbBekCq++28qMUdCSKY6YSh3651
+	 6ONvakqti4xCeuqTV9SPjN3YgffAMsUUThrrDc1n1OqUehwjJyM6hQVDOcqmntn1OF
+	 sPYAdkruhJBhp+l8Opu27l0CWfRo0B4B/82Ojo1ulnTmAmN8KAxwv0XeSQl1Yr4Xb0
+	 zOqxR1qagqzRg==
+Date: Mon, 16 Nov 2026 15:31:19 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Gustavo Luiz Duarte <gustavold@gmail.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kernel-team@meta.com
+Subject: Re: [PATCH net] netconsole: harden the enablement through configfs.
+Message-ID: <20261116153119.617c24f0@kernel.org>
+In-Reply-To: <avXe0feXzRL33bzs@gmail.com>
+References: <20261112-netcons_double_cleanup-v1-1-d5ff8167e05a@debian.org>
+	<avXe0feXzRL33bzs@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,43 +61,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 1/2] net: phy: use const char * const for
- phylink_an_mode_str
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179487181127.238365.9845225429843133556.git-patchwork-notify@kernel.org>
-Date: Mon, 16 Nov 2026 23:30:11 +0000
-References: <20261112131358.106442-1-ansuelsmth@gmail.com>
-In-Reply-To: <20261112131358.106442-1-ansuelsmth@gmail.com>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Thu, 12 Nov 2026 14:13:56 +0100 you wrote:
-> The local string array should use const char * const as reported by
-> checkpatch.pl. Use the correct type as to mute checkpatch warning.
+On Thu, 12 Nov 2026 07:45:13 -0800 Breno Leitao wrote:
+> On Thu, Nov 12, 2026 at 06:04:58AM -0800, Breno Leitao wrote:
+> > ---
+> > Given this is not super critical or hardly faced in production, I am
+> > sending this to net-next, even with a 'Fixes:' tag.  
 > 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  drivers/net/phy/phylink.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
+> My tag ended up being 'net' instead of 'net-next', sorry. This patch was
+> made on net-next, and that is where we should have apply, ignoring the
+> `net` tag.
 
-Here is the summary with links:
-  - [net-next,1/2] net: phy: use const char * const for phylink_an_mode_str
-    https://git.kernel.org/netdev/net-next/c/5a71c5cfb6ea
-  - [net-next,2/2] net: phy: fix trivial whitespace/format issue
-    https://git.kernel.org/netdev/net-next/c/0b2309c0e6ac
-
-You are awesome, thank you!
+Since it doesn't apply to net the CI won't handle it at all.
+You'll need to repost with the right tree tag.
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+pw-bot: cr
