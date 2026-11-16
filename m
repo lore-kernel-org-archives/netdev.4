@@ -1,117 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.59
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794833884;
-	b=VUE73ktSY/SqQwYUjopjzjjDC4hzy2cckBn2/DJ1auDG/mlisLuMSBi3iCvJi45pvCZx
-	 kHsq9JR4r1z42119/aMvfOWKa6w5/gl4StS21LH0nIkPO+s8En/YUuE0dkCRZCYUHYmZQ
-	 VLg56C3w8mfw9W584BHRPD+axv4nGQ+uSO/NqT4mepS+Mf0Oxjkva/3KaGr/S9D7AwBPR
-	 G3HvEGItFHJYwVslsSmCfsIzbcwafbl+sE6cGtzMlvGrwwL3W2olOPKtuxpBCD4C79bn6
-	 iV0SfUkrqWGIIXCbgQxeg5OukNvb+FLe5xxAfBFYMM8VjPZCk9d+vznU4pQjbzk/V9Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794833884;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=hYciQj3SKQaeterWqoO2WWlbcMQ4WfWLOXZDSmdLoMU=;
-	b=g6dWiRtkVa3lIN+cxtBn9oiglns7JTlG3Z86hX7BYXBAcJd9XQa5fTx8zCrjlDCoVROP
-	 v+BdjU4wWBkjnj62iH8+SBwX6KNkvJE9QYveylWtK6rQeNzqo/OicXKmyk92UHxxvjici
-	 Ao3KRB/njHbn+CU9KaG/ALY2YJFdjdHB5WgqZJLPgO/iLznIO0U9ykv7V18ZLQpzc0H9I
-	 DVZLsEAj0MAgHrvN24k2Wgt5bg3GbM5JPuXJ+2zvbkPDU0BJUnFqxJZL29KIKKHVfooLD
-	 p5kPZ2lQpGFA1YtiZBZXstXbXYMNqM38+Cl5uetEuJvzJn+I7RnGk0rILSYx1rXEj+Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=LTB7ktJB;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.59
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012059.outbound.protection.outlook.com [52.101.43.59])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794834037;
+	b=cI0ZJcHYfxt2d9sOkU34Gs5e+z8gyzgEPCuEf0R3D5hubBbnnJLQT0+Wd8j0PLUMG2IQ
+	 0gLRB2U8/MeQBSUNi/TD9cJcuuuLXoQs1JjUrCkhci3PJt74HlnJSQjdTbrYprtj0qhid
+	 vsWqyuGmJnZhIX9uzY+dVg0m1MGjWz3xfpb6helymVpgOTvv8ACkazuwLRJCfa09KMx6z
+	 a9g11fhygmRJbzefsLXngCZjS3iCfr62QiO8YS3Hj6N1ugEeAKg35huIHzN1rP+EPPDyQ
+	 jRoWraqjoeF2BUuS23gZwRkyloCvY735GMWVxpXe/59KBHk654jHSJ3EjTgElLtkGKg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794834037;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=pj2mr3tObuF7fHr7V/ABzBeBxD+jnnNn+z7xWtgN8+Q=;
+	b=Arcyhd+6DH8vi51I/WSJZz06uZRPKOHHTeBhwB9ThZh+ivgg987A1LgP/vSSBDd/VQg3
+	 p1mKvTzOI+a/+u72VardzxmiUJ6+woqUKGxKs3ewyEt8qycx9ROAC692xlciIEAtER1yt
+	 Tlb4WmRSiS5VxTofbaICIqQ8X1+Sd2INboCmwoHYUtNAaKXrDob/SLttnjdbJdPcGyuZj
+	 cepQNb6MlmsOB3v2ByD3yAFFSRjxBPcr4NnquxJivcgiJpsUGT3Ae68EBbyTG9uJ4aXDR
+	 b+xzeofW1CjABqR2DA1Z1qldSO4s3Qwq8voN42s8eH2CPTeTiFIfnvqePMMnj7p9RfQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fCc4M58t;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F20BE606A335;
-	Mon, 16 Nov 2026 12:58:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F20BE606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 727DC606A31C;
+	Mon, 16 Nov 2026 13:00:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=LTB7ktJB
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UM3/DMFJ2RQXohHDT6VLfgkwG7ONDcUg2nM6lOH4Madcj5TaHqs6Lo1TWrngKCMDVDISSF3lbu/ER7NK3M2xkF8XoALznWnFtXP7nBrdL2oFwsJi4THDLQKr2xXlhqGUfCtgqb3ULpUQynSxnlsCOnVaPqf35HT/HCKysjpvVThZJqYifJsz4FsDhmKlRSxlPbFUK9Spp497x2PevQ+QPGxhHDlYNP50EhpIIYQqt43KTRoJs/V/HXwQVOaRqvQBkb8P1zxD5tn/cS2bkBguzWfjKHTo/HK6PI2pnd7sqBM9mycTESNofr3fbzQfXuAECG5RAtdvbkcdHSXpi12Tgw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=hYciQj3SKQaeterWqoO2WWlbcMQ4WfWLOXZDSmdLoMU=;
- b=ORO0edwr1w5WJblaP1SB8KvO5w+3o0w2ae6cRK+6Fegk78ElL6qDZ1g3ZaKF+Aci79ZfcfQfVATx7k4O9mqsdm0qhGjA8LWUOWQyK2kj1AGOc3cN4uFD2Q9+AJ4CwldxHuEkGyXcf+DTfJagxWPvqW86sczTMniPlleHlh7ACFDXD6KPPNw6Hl8xdut7UK6J/qUPXsznQAShgdLNbBweulPRyWWYJciIcpLjTgnYkzAUQZolY/N/J0OUeA8fy4gNawpZri6FZtvD/U7Hdpx+Rldtg4+UEdE9NemPi8XI3nAfln/RYcLUdV7yCKES8Zrs/SEPR9dF+bAd9Zxfk9M/oA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=hYciQj3SKQaeterWqoO2WWlbcMQ4WfWLOXZDSmdLoMU=;
- b=LTB7ktJBRH3xPIPnGuhmu8fwcys9kRSflGfBdrbI86SRU1rbhEoRmuXCP4ICCXiODMWXPX8TbQjSidKnKPxkxjF8lVc4HRy2tFEiIjpU19kZlR+jhwyBAmIIK8Uojh8q+S7D203niKBkPZpFi0ibRFQONl0TtKlOgbxApCtcWZ0=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
- by IA1PR12MB6068.namprd12.prod.outlook.com (2603:10b6:208:3ec::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
- 2026 12:57:59 +0000
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0615.013; Mon, 16 Nov 2026
- 12:57:58 +0000
-Message-ID: <8768b2e1-e944-46a0-8508-84a9ff491412@amd.com>
-Date: Mon, 16 Nov 2026 13:57:39 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 06/23] dma-buf: Let the exporter select mapping type at
- pin/map
-To: Alistair Popple <apopple@nvidia.com>
-Cc: Karl Mehltretter <kmehltretter@gmail.com>,
- Sumit Semwal <sumit.semwal@linaro.org>,
- =?UTF-8?Q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
- Simona Vetter <simona.vetter@ffwll.ch>,
- Matthew Brost <matthew.brost@intel.com>,
- Vivek Kasireddy <vivek.kasireddy@intel.com>,
- Dongwon Kim <dongwon.kim@intel.com>, Kevin Tian <kevin.tian@intel.com>,
- Xu Yilun <yilun.xu@linux.intel.com>, Baolu Lu <baolu.lu@linux.intel.com>,
- Felix Kuehling <felix.kuehling@amd.com>,
- Alex Deucher <alexander.deucher@amd.com>, dri-devel@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
- linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
- Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
- Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
- linux-nvme@lists.infradead.org, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
- Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com, treding@nvidia.com,
- jhubbard@nvidia.com, Jason Gunthorpe <jgg@ziepe.ca>,
- Leon Romanovsky <leon@kernel.org>
-References: <20261105-dma_mapping_type_v4-v2-0-78b8dc9ae80a@nvidia.com>
- <20261105-dma_mapping_type_v4-v2-6-78b8dc9ae80a@nvidia.com>
- <au7mBMbRC8q6NILj@gmail.com> <avE0QsqV5RZoaWc3@nvdebian.thelocal>
- <de268b0f-19fd-4e05-a8d2-e0f436aaedfc@amd.com>
- <avqgQ1k8zx0_N4rM@nvdebian.thelocal>
-Content-Language: en-US
-From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-In-Reply-To: <avqgQ1k8zx0_N4rM@nvdebian.thelocal>
-Content-Type: text/plain; charset=UTF-8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fCc4M58t
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDCA61F000C4;
+	Mon, 16 Nov 2026 13:00:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794834037;
+	bh=pj2mr3tObuF7fHr7V/ABzBeBxD+jnnNn+z7xWtgN8+Q=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=fCc4M58tHcD4Oe8zgYl8DTAW5sHRLlHGKiyx4iVbzYdISWqBTo50MkggBry0nvLOn
+	 IK12XTEjJcpIur1ggcvmwm9xJBHHVtqgCI6g+YIpx7Nyx5HSkAqesC8zi88Apio3uK
+	 BFXOJNwmrH3mTlS6LsHQKTVtaR/FS9Q8+JJasgvxuGjY6Bs7gU38ycEoqiOkkPmQlP
+	 LNH0rt7cbTMJCtTs9+/tOfFAH7x5mJpMVUiDjiOk1UQhLWniQKRDW/leaByM1eNWA2
+	 0yF4ppyJ0GM0fjs5rb4j11YhNcK4vsPDv8fOiHwUDGhL6tpomd3CxlAKZniERdlyld
+	 ZiIIme8z1lWsw==
+Subject: Re: [PATCH net v9 2/6] net/smc: bound the receive length to the RMB
+From: netdev-bot+sashiko@kernel.org
+To: hexlabsecurity@proton.me
+Cc: mjambigi@linux.ibm.com, dust.li@linux.alibaba.com, edumazet@kernel.org,
+ pabeni@redhat.com, davem@davemloft.net, kuba@kernel.org,
+ alibuda@linux.alibaba.com, sidraya@linux.ibm.com, ubraun@linux.ibm.com,
+ wenjia@linux.ibm.com, raspl@linux.ibm.com, linux-s390@vger.kernel.org,
+ linux-kernel@vger.kernel.org, guwen@linux.alibaba.com,
+ tonylu@linux.alibaba.com, horms@kernel.org, guangguan.wang@linux.alibaba.com,
+ linux-rdma@vger.kernel.org, netdev@vger.kernel.org, hidayath@linux.ibm.com
+Date: Mon, 16 Nov 2026 13:00:35 +0000
+Message-ID: <179483403531.3136.8089060655556532664@kernel.org>
+In-Reply-To: <20261112-b4-disp-0287c16e-v9-2-e5e8fa688177@proton.me>
+References: <20261112-b4-disp-0287c16e-v9-2-e5e8fa688177@proton.me>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BN9PR03CA0601.namprd03.prod.outlook.com
- (2603:10b6:408:106::6) To PH7PR12MB5685.namprd12.prod.outlook.com
- (2603:10b6:510:13c::22)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -121,187 +66,190 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|IA1PR12MB6068:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0f7a7d3c-22b2-41c0-c9c3-08df43e13d2f
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|261102123227099003|261028144727099003|261102130727099003|261022075727099003|261022105027099003|261021135927099003|261021121427099003|261026121527099003|261026140227099003|11063799006|4143699003|56012099006|10067099003|18002099003|22082099003|261009223027099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	bUTXmXzBj5NAF6d8lYILsVTGtOpLbAzFmBibZuErWbvGHLguWWBeENOpI8rI3KbLe7AiT+NhD4Qf4q2SzRNrLoy6psqhAaly1rm3Cr/GNRXSNJb1cE9p1lM99vkXwQuazlVegKr852pc1m/vaS4V0V/DX8deEGXX7vH/2thFMrlmVdWn5bc8P0VQSOMzGXkZvDG+ffkRGR56fmygr8itz4O3Dg0AQiue7tkI8nctqgQMk9/vFd1qvRoGiPuZds4VPNVgNrY36h2QYizxegEpDZbhmXtBmP/oJpcVKY58rUHulQgm38jV3nHftrGEnmsapNbS/81vaM9RfjT9qG9uyiFwhpn6C34I5dABhPRqu481u1P48ezqj+uEN8N86lNw4BwFCWfie71jlEwH+wvohdKe4lv1B7oHPusPQuZTmOzAeNp66utau0sNrmHMgncllMAemnYSGQn0tBnosDPV8pqLPZuePIMO5bXyF4pLHZD9u/ifB0uWxNUXHIM7PNJJTZGtnzO+waXAIaTwQlUSMRcozA1wCgKxDqUe5seddBXjOMP413nJZVne+CdCxIOwepDuwwmmeJ2pgXhUMipHDOz3BKrBi/nNgQm4dJKq1vqjyusxMiGQGZCrtK1Jn3xBsDNVPO+aN28YYZcYctEq3hwZWJvce7CRiFZpDMdiqCE=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(261102123227099003)(261028144727099003)(261102130727099003)(261022075727099003)(261022105027099003)(261021135927099003)(261021121427099003)(261026121527099003)(261026140227099003)(11063799006)(4143699003)(56012099006)(10067099003)(18002099003)(22082099003)(261009223027099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?VVp5cGJtYW5vblhHdFlacDd1anZnYk9ta2JoRkRBWTlCV29zTGVxL2VHcS9j?=
- =?utf-8?B?QjVsaGJOM2JZUzJ4cWR4Z2V5YlA1ZDZucy9EWjhHUWFEcU1JR1RWWFJ3bmpH?=
- =?utf-8?B?VmZDZHJBMDBsWmQwOEhOVHM4eHVuYmFPeHdGZFZLcS9qWDFPdUh4QmZmZmxa?=
- =?utf-8?B?S0ZsMkdSZGpuR0dCc0w5dXVOTk1yRHZVaytJQW9RUHFXUkZiMWdQdzFDamxR?=
- =?utf-8?B?RTBYYUxobENpQW15ODRtWk9KSXRhaEZzZHp1ZEgwa0Q5V2h0d1FGaHF0bStS?=
- =?utf-8?B?dGhNOEtDNU0vK0NUdmNneGhmazh0cTdmMjFZZUJIR0RnRWJlQlN3ckFlODEv?=
- =?utf-8?B?NFllTUIvak41dEN3SGxvc3VOTFFmVjBqa2lJcjZiUTlqeVdIUHBrYWVsTUtx?=
- =?utf-8?B?bTBpNkN2Nm1WY0wxZm92SitHbXRibzJvRjI1TGw0NGJzQmo2VE92ZXpDU1kw?=
- =?utf-8?B?OFo0ZjBnUDhJNVhhNjhYUTA1VDExZStJRUZleFhsNmN1QUdKYVlpMFYxWGEz?=
- =?utf-8?B?TlZQbjB5SmZkVWZlMC9TZUk3Uml3d0lnc2Foa0d3TjRFNEE0QmVjVWM1MVJZ?=
- =?utf-8?B?cU9EWHhLUXpvVDA3RWl3TjV1RWkzbC9tSXNzcU5qNzZCNlE5SjJzcmZ4dUlS?=
- =?utf-8?B?Szd0SFNRWTFhc1FYOTZiVlFURW93SGgza1hyMllTa1VGb3NhVEhYYy85SC9w?=
- =?utf-8?B?MUJCTDNYNENWMkZieXFLTVZ1cE1kdk9Eem9ZKzNveU5MbjBLOVBoYklBVVYr?=
- =?utf-8?B?bTUraGExTGE2SHhKSG1YSFp6U2ViUTBpcUd0dkR6NHRzT29YVk5iWGhTV1Js?=
- =?utf-8?B?WEFMVFZ2bFI2WTZRdFdtUE1FVDYxV29RNTZDUTNEclRLQ1cwUTVtb0RBQ3Fx?=
- =?utf-8?B?T1llNld2M3Q2RWthQ1cvTXlpamhGZWIrTkdzeXBVTTh6MitHcWlsdjNVT1lu?=
- =?utf-8?B?VTVEa1pSZzEvZWR2WllKNmVGdllURC9mTloydm1zY3pCZ3JaZEl2VjRydlRP?=
- =?utf-8?B?b1BGb1dyTEFlNGtDWWpITnEyMTVpQ21GZko0b2xhK2M5NWhBV2ZjcjdlTXlh?=
- =?utf-8?B?U2ZVREFhN0lsOGoxWHpJcEx2R0lxMnJyNGZybjM2dXdnQUtLRWllYlhvdGl2?=
- =?utf-8?B?Q2U2N1VZKytLN3FPZ2pTeW1aMTg0R2NKcm1DdEtpZUlGVjl6RnFwYVZLdXVM?=
- =?utf-8?B?dnRpL0NTUjkxbVRzOFZ0SkE1dmtFeHp5SFJZQkVwaXZHaE5Rbk1kNW9VWnFM?=
- =?utf-8?B?QkZvNG9NQU9ITkg4MVFSb3NsYXRNNHZUYUJGZ0pQQzVzMktmT0dVdlVLQUI0?=
- =?utf-8?B?bzdvMEFDRWk3VHpFandRbG5kKzIvUlBLRU5hOXc4R0VuRFNMWk5UOU9WTXVm?=
- =?utf-8?B?OG1aWk95Um00VktwVGU3QXN6Mjg2MDdPUFlMRUpBeHdNZkNvY0JoRW9tdmI4?=
- =?utf-8?B?TTc0SUMzZ09ERVJyS2F2b1JjdjdGR3NSbGpjS0dNSU9WczdMd3RZajZFTWF0?=
- =?utf-8?B?OHFHeG43TmxpbnpqZGJ2S1M4U253MnJqRU5lekNlSW9DSGgwUHFTMjFXdER3?=
- =?utf-8?B?YjFlcnc0MTJ6Ly9OSklpYWVETThaT3luT1BQcU1xa1Q2ZGRDc3gyV2tHWXFS?=
- =?utf-8?B?L3hkWWV1NkJsNGhtcnhUR2xQU3FzcVJZZ0pJdXM0TEhhaGY3L3dPdTI2aGYx?=
- =?utf-8?B?SVhuMnZrV3BUY0g0MGRIZFZVd2kzUnM1ZldIcFFobm9QdGFsTVJjUmxiU2NF?=
- =?utf-8?B?Yzk5WUIrd3M1UkowcEtpOHRxeWwyRm1lVVBTM1l0bDhmUUpLV0NGdHcrTEVM?=
- =?utf-8?B?M2ZaZzJ2dW5ybDhRYUo1c2g4b3FXeXNrNmd3N1c5dFlQWnRDcC9QeGdsZjhq?=
- =?utf-8?B?YkxUc09LTGNmcFdSVis5cnNTR1YxeVdaSGhLc0lIVGdzclFjVVNJbG5XR2E2?=
- =?utf-8?B?aUJobHJUU01DQTJrVVA2d0J2TmZ5TXJ1ZXFvRnhvanp0OGoxUDZrYm9PMFIx?=
- =?utf-8?B?Y3c5SXQrdVN0TzRsYkczeVhxT1U2RXJ4Si9mbFhLOHdaVHJpR3FPSFVScmhj?=
- =?utf-8?B?cXp1QWZFYTVUZTdRcHlPLzlRVXJsZE5EY1hXaGVyNDNTS2xFU2xDa09uTnFT?=
- =?utf-8?B?Tk93YTBZRWorbENqVFFrWGo4Qm94L0hicG1Tb1B1RWNGaThRWkpWWXlsRjVH?=
- =?utf-8?B?SUhRS0JJT0R0MmVQV05KRy9JSndRWU8rVVpuWjdOOGpraGFCam8ya2FHa01a?=
- =?utf-8?B?WjRpRW1yRW5ySCs2TmFzblRoVjlkSlRHdjJ0RlJheXdsVzE0UmtNN29nYzFq?=
- =?utf-8?Q?47fBIFgJbCbjZaw8sE?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0f7a7d3c-22b2-41c0-c9c3-08df43e13d2f
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 12:57:58.5489
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: NfsjKpikeXvk0eFUXeC36vVisqiFEDJ62gQvE1j6B7OvZ7a0iG3co00NSvADw4lX
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6068
 
-On 11/16/26 07:27, Alistair Popple wrote:
-> On 2026-11-09 at 21:59 +1100, Christian König <christian.koenig@amd.com> wrote...
->> On 11/9/26 03:58, Alistair Popple wrote:
->>> On 2026-11-07 at 19:57 +1100, Karl Mehltretter <kmehltretter@gmail.com> wrote...
->>>> On Thu, Nov 05, 2026 at 05:40:41PM +0100, Alistair Popple wrote:
->>>>> + * A pin or map that fails after dma_buf_mapping_select() may reopen the
->>>>> + * choice only if it was the one that made it. A selection that predates the
->>>>> + * call belongs to a live pin or mapping and must survive, otherwise the next
->>>>> + * pin or map would reselect under it without an invalidate.
->>>>> + */
->>>>> +void dma_buf_mapping_unselect(struct dma_buf_attachment *attach,
->>>>> +			      bool was_selected)
->>>>> +{
->>>>> +	dma_resv_assert_held(attach->dmabuf->resv);
->>>>> +
->>>>> +	if (was_selected)
->>>>> +		return;
->>>>> +
->>>>> +	attach->selected = false;
->>>>> +	attach->selected_idx = 0;
->>>>> +}
->>>>> +
->>>>
->>>> After dma_buf_invalidate_mappings(), attach->selected is false while
->>>> attach->selected_idx still holds that mapping's entry for a pending
->>>> unmap. 
->>>>
->>>> If a pin/map fails before that unmap runs, was_selected is false and
->>>> dma_buf_mapping_unselect() resets attach->selected_idx to 0.
->>>>
->>>> A subsequent dma_buf_unmap_sgt() then uses matches[0].
->>>
->>> Actually there's a bigger issue here. The contract at the moment states that
->>> mapping type may change after invalidation. However that doesn't account for the
->>> fact mappings can outlive the invalidation.
->>>
->>> This could be dealt with by switching everything over to the generic
->>> dma_buf_mapping_map/unmap() path, but that requires an allocation per mapping
->>> just to track the mapping type.
->>
->> You need an allocation per mapping anyway to identify the mapping anyway.
->>
->> We currently abuse the sg_table for that, but essentially the idea of having a structure/object to represent the mapping needs to stay around as far as I can see.
-> 
-> Oh right, I see that now.
-> 
-> Do you think it makes sense to convert all exporters to return a mapping type
-> specific struct (eg. dma_buf_sgt_mapping) rather than the sgt directly?
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-No, we essentially want to get away from the whole sgt approach.
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
 
-The whole purpose of DMA-buf was to exchange DMA addresses between drivers and sgt is problematic for that job because it mixed both the input as well as the output of the DMA mapping operation into one structure.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-What we need is the functionality to either say map the buffer at this specific address in that address space (IOMMU domain, internal address space whatever) or just to return DMA addresses plus the information in which address space those addresses are valid.
+- [High] The patch relies on spliced bytes being counted exactly once: in
+  bytes_to_rcv until they are handed to the pipe, then in splice_pending…
 
-Regards,
-Christian.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but spliced pipe
+  buffers keep pointing into an RMB that has already been handed back…
 
-> Ie. change map_dma_buf() callbacks to return *dma_buf_sgt_mapping instead of
-> *sg_table and convert exporters to allocate that instead of a *sg_table.
-> 
-> I've taken a look at doing that and whilst it touches all the exporters the
-> changes are fairly mechanical in nature, with only two or three annoying
-> exporters that have slightly different patterns (one of which is buggy).
-> 
->  - Alistair
-> 
->> Regards,
->> Christian.
->>
->>>
->>> The alternate is we update the contract to say mapping type cannot change until
->>> after all importers have unmapped. Enforcing this would require tracking the
->>> number of live mappings/pins per-attachment, but I think this is the better
->>> solution so will add that for the next version.
->>>
->>>>>  int dma_buf_pin(struct dma_buf_attachment *attach)
->>>>>  {
->>>>>  	struct dma_buf *dmabuf = attach->dmabuf;
->>>>> +	bool selected = attach->selected;
->>>>>  	int ret = 0;
->>>>>  
->>>>>  	WARN_ON(!attach->importer_ops);
->>>>>  
->>>>>  	dma_resv_assert_held(dmabuf->resv);
->>>>>  
->>>>> -	if (dmabuf->ops->pin)
->>>>> +	ret = dma_buf_mapping_select(attach);
->>>>> +	if (ret)
->>>>> +		return ret;
->>>>> +
->>>>> +	if (dmabuf->ops->pin) {
->>>>>  		ret = dmabuf->ops->pin(attach);
->>>>> +		if (ret)
->>>>> +			dma_buf_mapping_unselect(attach, selected);
->>>>> +	}
->>>>
->>>> dma_buf_mapping_select() sets attach->selected = true before ops->pin()
->>>> and the map callbacks run.
->>>>
->>>> In patches 14/15, xe/amdgpu migrate a VRAM buffer to system memory
->>>> during pin and map when the attachment does not accept P2P.
->>>>
->>>> That migration calls dma_buf_invalidate_mappings() and clears
->>>> attach->selected on every attachment, also the one being pinned/mapped. 
->>>>
->>>> When the callback succeeds, the attachment stays pinned or mapped with
->>>> attach->selected == false.
->>>>
->>>> A later map/pin on the same attachment can then reselect without an
->>>> invalidation.
->>>
->>> Argh. Thanks. Will fix.
->>>
->>>  - Alistair
->>>
->>>> Thanks,
->>>> Karl
->>
+--
 
+net/smc: bound the receive length to the RMB
+
+This patch makes smc_rx_data_available() cap the receive count at what
+fits in the RMB behind the peeked and spliced bytes, and never return a
+negative count. poll(), SIOCINQ and the deferred accept now use it too.
+It caches the RMB length in conn->rmb_len for the unlocked wait, and
+moves the splice_pending decrement in smc_rx_pipe_buf_release() under
+the socket lock, next to the consumer cursor update.
+
+Closes: https://sashiko.dev/#/patchset/20261008-b4-disp-f7cd3d96-v6-0-fba616c0920c@proton.me?part=2
+Closes: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261008-b4-disp-f7cd3d96-v6-0-fba616c0920c%40proton.me?part=2
+Closes: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261008-b4-disp-f7cd3d96-v6-0-fba616c0920c%40proton.me?part=1
+
+[ ... ]
+
+> diff --git a/net/smc/smc_rx.c b/net/smc/smc_rx.c
+> index 63c178c10bf1a..78ab3df1689c5 100644
+> --- a/net/smc/smc_rx.c
+> +++ b/net/smc/smc_rx.c
+> @@ -118,15 +118,20 @@ static void smc_rx_pipe_buf_release(struct pipe_inode_info *pipe,
+>  	struct smc_connection *conn = &priv->smc->conn;
+>  	struct smc_sock *smc = priv->smc;
+>  	struct sock *sk = &smc->sk;
+> +	bool drained;
+>  
+>  	lock_sock(sk);
+>  	if (conn->freed) {
+>  		release_sock(sk);
+>  		goto out;
+>  	}
+
+[Severity: High]
+
+This isn't a bug introduced by this patch, but the conn->freed check
+here means pipe buffers are expected to outlive the connection. Can
+they still point into an RMB that has already been handed back for
+reuse?
+
+smc_rx_splice() puts the RMB's own pages into the pipe, not a copy:
+
+		pages[0] = smc->conn.rmb_desc->pages;
+	...
+	for (i = 0; i < nr_pages; i++) {
+		get_page(pages[i]);
+		sock_hold(&smc->sk);
+	}
+
+That pins the pages and the smc_sock, but not the RMB slot.
+
+On close, smc_conn_free() calls smc_buf_unuse() without waiting for
+splice_pending to drain. For SMC-R, smcr_buf_unuse() then does:
+
+		memzero_explicit(buf_desc->cpu_addr, buf_desc->len);
+		WRITE_ONCE(buf_desc->used, 0);
+
+A new connection in the same link group, with the same RMB size class,
+can then claim the slot in smc_buf_get_slot():
+
+	if (cmpxchg(&buf_slot->used, 0, 1) == 0) {
+
+For example:
+
+process A: splice() from an SMC socket into a pipe -> smc_rx_splice()
+process A: close() the socket, keep the pipe
+  smc_release()->__smc_release()->smc_conn_free()->smc_buf_unuse()
+process B: new SMC connection to the same peer
+  __smc_buf_create()->smc_buf_get_slot() reuses the RMB
+peer writes B's data into the RMB
+process A: reads the pipe
+
+Reading the pipe copies from the pages at read time. Would process A
+then get the data process B received?
+
+smc_rx_pipe_buf_release() only uses conn->freed to skip the cursor
+update. Nothing here stops the read. This goes back to the splice()
+support listed in the Fixes: tags.
+
+[ ... ]
+
+> @@ -543,7 +548,7 @@ int smc_rx_recvmsg(struct smc_sock *smc, struct msghdr *msg,
+>  			/* increased in recv tasklet smc_cdc_msg_rcv() */
+>  			smp_mb__before_atomic();
+>  			atomic_sub(copylen, &conn->bytes_to_rcv);
+> -			/* guarantee 0 <= bytes_to_rcv <= rmb_desc->len */
+> +			/* can be out of range, see smc_rx_data_available() */
+>  			smp_mb__after_atomic();
+>  			if (msg && smc_rx_update_consumer(smc, cons, copylen))
+>  				goto out;
+
+[Severity: High]
+
+The commit message says a reader can no longer count released bytes
+twice. The new rmb_len - splice_pending bound in
+smc_rx_data_available() also assumes each spliced byte is counted in
+bytes_to_rcv or in splice_pending, never both.
+
+Can smc_rx_recvmsg() still break that when smc_rx_splice() delivers
+less than it was asked to?
+
+Case 1: a splice() whose copy wraps the RMB end, into a pipe with
+exactly one free slot. do_splice_read() limits len by free pages, not
+by slots:
+
+fs/splice.c:do_splice_read() {
+    ...
+	p_space = pipe->max_usage - pipe_buf_usage(pipe);
+	len = min_t(size_t, len, p_space << PAGE_SHIFT);
+    ...
+}
+
+On a physically contiguous RMB (SMC-D, or non-vm SMC-R), chunk 0 takes
+the last slot and smc_rx_splice() adds it to splice_pending:
+
+	bytes = splice_to_pipe(pipe, &spd);
+	if (bytes > 0)
+		atomic_add(bytes, &smc->conn.splice_pending);
+
+The second smc_rx_splice() call finds the pipe full, and
+splice_to_pipe() returns -EAGAIN. read_done is already non-zero, so
+smc_rx_recvmsg() takes this path:
+
+				if (rc < 0) {
+					if (!read_done)
+						read_done = -EFAULT;
+					goto out;
+				}
+
+This skips the atomic_sub(copylen, &conn->bytes_to_rcv) above. Isn't
+chunk 0 then counted in both bytes_to_rcv and splice_pending?
+
+The next splice() starts at cons + splbytes, and
+smc_rx_data_available() still reports chunk 0 as available. The same
+happens for a recv() after the pipe release has advanced cons. The
+reader would then get stale or zeroed RMB bytes from beyond the
+producer cursor, which is the symptom the patch notes describe.
+
+When those bytes are released, local_tx_ctrl.cons moves past the
+peer's producer cursor. Could the over-credited peer_rmbe_space on the
+peer then let its later writes overwrite unread data?
+
+Case 2: a vm RMB (rmb_desc->is_vm) with an offset that is not
+page-aligned:
+
+	nr_pages = !lgr->is_smcd && smc->conn.rmb_desc->is_vm ?
+		   PAGE_ALIGN(len + offset) / PAGE_SIZE : 1;
+
+nr_pages can come out at p_space + 1. splice_to_pipe() then inserts
+p_space pages and returns a short positive count.
+
+smc_rx_recvmsg() ignores that count. It adds the full chunk_len to
+read_done and subtracts the full copylen from bytes_to_rcv.
+splice_pending, and later the consumer cursor, only advance by the
+short count.
+
+Doesn't that make splice() report bytes the pipe never received? It
+would also take the difference out of the receive window the peer sees
+for good, each time it happens. After enough of these, the connection
+could stall with the end of the stream unreadable.
+
+The clamp still keeps reads inside the RMB, so this doesn't look like
+an out-of-bounds read. But the double count the commit message says is
+gone still seems reachable through these paths. No later patch in the
+series touches smc_rx.c or smc_rx.h.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-b4-disp-0287c16e-v9-0-e5e8fa688177%40proton.me
