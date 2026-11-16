@@ -1,103 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.51
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794789397;
-	b=1Fm8VylacU9BeaVakLZoOc13FncAy+MsxkcRNeCcOA3S2Jc1/GoK75jQLx0dTcceLpwr
-	 2rItFLy6V64w5yNkmSQQO6mpLihwU/uPaawT62+aleV2zpu7zA/F4sHMKfu1RmZrxkcmN
-	 gM7+Yl3OcyGwjDKxUGmkgy3Li3g/7sWmur2qH7B1h3Wzoj9+WiQInfloYMxDWxMAppFk7
-	 hzvSc3bPlMK1yEpJ1tB7dr73UIt0M1Rl0ZA8KyO0jt7uAyXdxp2FSpu3HAZNsCgBHOaqw
-	 q9IxWSpjFJzEAWxKUfy+6oPUCAH3udQBLN4DLDZYmNEOgEwiF1s6LESKqvsqxs5llDg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794789397;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:From:To:Cc:References:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=C/9tKTIr5TSDB/mcl2b0ZeUJJW5037bMslnwR1ufb0c=;
-	b=RgNbi4qMm3Uv10kfI9yL+KCt78Jo0+n8g9JtRni1CO20IeBgbmFnaNjqlF2Tln0nASPk
-	 eYxMoHi9e+ECjvp3oVJSyorfDpTNt8N6cHTaXBsUVD+RJ65yzoyE9y+10NEv4L3PoEc0L
-	 AqSfg4j2ZdhoY731EmiRxv5VWCC2NYtcwxydFEvcQW9mdT/nLpw7INV7CN+0CVB9Klpif
-	 K300M/U3M7ZcIZg0yEjfuSsf7Nr9Ao1E3xN6Bet9D3Ap+YAiKUv+gINTCVJj2AHsIqAdy
-	 9uvX4nHW3BAP+vzl/Xg6c8hRKsDfRL6P1XRU/CagO8/xLOJgcIS9nfpiQz2HR3ghrBA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=LGElOv+A;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.51
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010051.outbound.protection.outlook.com [52.101.201.51])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794789853;
+	b=l7QCk8cW3yoQgAfsPTHAjE87j4ndriIa5gLL+O5T/dmjYoeuIxrm6DVd+3hFivaXfOLh
+	 RhMCAIJ2TjSuhxM+l9MtZ02I08mx0VKO5wYooJSxDTkseU7TiiAyKK+WSR8SClWHcTVQa
+	 s6iXuQKJXxWad+TYJCAgmMrXsJubfQYNvPcOeTWvXH8oSJgMAREYQPgOWY6+Abgahn4Wo
+	 7B1izBW84uJfiYRppfGFDIcuujJqsb//Rc8XA8GErUI+5bnCH35idVbe4lyy+iSh+vdwu
+	 ZrtKjam1j/aaH4H6U7CPTC9rR3AloD7XQe5kpY1EBLgZSoVaIZuC3YEwKEpczIfhP6Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794789853;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=boP3TDoFz59Ih81IUQg+NDTi2BNfV6i2vvoA7UF1O/o=;
+	b=IALCaT6Tb7KOvtdncJz1sxsaMe+B7M5XfDCpQrWZYeSOIs5aLAkLpomr4fsf8dfvbBfM
+	 lX1DAo+t8ZFLgklOo3v//zIKW6WZyMUfPkPs1Xvc4s0rurAdJ/QPK38YkfXBHvWjF9r2t
+	 52ifDSqf1WN2WiOubpP8X1qrdMzLWESEsWKzq3X8qsc+9+cvAmWVZBR7zPuXfTQ6yNwBp
+	 M3AoZNXyEK2SstKmC/qtfoTJjVzSYKRGwPIwsgf30NuUFk8bwRGWV9SwqeH6I1Xjf9evv
+	 NIpeFyfHRQPBLM51WP4hK3+DGXMwGpYuE2cC+YdnsGvRofk0HHWr2d9sf7Bfxq/+Kvg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oOWrmDTo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEBC8606A323;
-	Mon, 16 Nov 2026 00:36:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEBC8606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5E0B606A32F;
+	Mon, 16 Nov 2026 00:44:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=LGElOv+A
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AtWl+16rX29spPFl285x27cD9KgbV1wtjyZASM63zliJvo/9DvGQjGKdcG9aSs5wma6ZvleJDPYMJosUd0UJ3l/xfRqZl9nI3JA11mgR68LszQww1QhjTJIlr3Vdo5eDQYBC/MoMejHYEtCwBSsEQXSH+q7/lvR9T6pmFuvHLRZIr0TOso0q86vYWTdS2EHudGDFV/scE9Otqdq0SoKRGi2nB52T/Oz8i9bxd/57MCY5Dfye3O2Q0P7y5bth4h3JOLCihZLcTJBG7NGCKUC/Neg7dN4mYP6GJQ0NMQRyeB+yDBrKjz4qxuUg0gRTIe2+s6KATxKKCZD/JPIcqqO4+w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C/9tKTIr5TSDB/mcl2b0ZeUJJW5037bMslnwR1ufb0c=;
- b=OOvAjC6yj+4fWpGdtDWTZGY2KqbCzsXIFzIdG6izFnuhv6N5BG5kxDO3IGDC+dhY0oTeIuzA+usTa84wsu72w+wI8rv6wP+cFC3Z1/utvGhnS06p+o9T8xonJI48bGCaS8+U2wq7GEJ6e/q1GGyC93Yr/fAOlZw8HOX36rsfJjoqhviXV5GB6eb26VO/+p+WXuU/DSf4iN20qYSnzmc1+SckCd4hC3goq0KwoW/kH0WDKLi1IYmagbs2Apn8eb3J9pa13C0BmToCHmRrP/9gzWnQRfULwT5R1gHGseU7jGQiYejFar/oOjv34P6SyLvlUuILuzZbP2FdZAUkqIZjFw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=C/9tKTIr5TSDB/mcl2b0ZeUJJW5037bMslnwR1ufb0c=;
- b=LGElOv+AfEwFbWLgnHqCPasjAS8JJfOWXr4VnfrOAVk989yHT9Q9eCT0RNxIsCTzEIM0X4B5UYVdxC0hF7MRkmKY9uU51/7A2Kv9V7DsopDX4YleSok9++n+NAcFx7mvq9+VVecjDCBV2/4KEfMj/iap/KMRs4vRcc/nMtl2A9xyqfI0N/KBOIoGWQUPJkjAOUqqpm2F1AJx0wIdsdblW1yde5MArburlTZarcfjxhqy0qdIjLehD5wrYd3F7TqB+7YZeFn6Z4cllUaNrump2UwoHNRxrP9q6pIgYHWoroAURuFrgVj7SqjZxtIUkTYlubSulbMGajH/YW0EUMCFfw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BL1PR12MB5873.namprd12.prod.outlook.com (2603:10b6:208:395::20)
- by PH0PR12MB999090.namprd12.prod.outlook.com (2603:10b6:510:38c::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
- 2026 00:36:34 +0000
-Received: from BL1PR12MB5873.namprd12.prod.outlook.com
- ([fe80::e8aa:dc7d:992f:93df]) by BL1PR12MB5873.namprd12.prod.outlook.com
- ([fe80::e8aa:dc7d:992f:93df%4]) with mapi id 15.21.0615.009; Mon, 16 Nov 2026
- 00:36:34 +0000
-Message-ID: <76da7f8a-7735-436c-9ee1-1198d7e98255@nvidia.com>
-Date: Mon, 16 Nov 2026 02:36:26 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 3/3] net/mlx5: DR, Fix out-of-bounds write when sync
- to HW fails
-From: Yevgeny Kliteynik <kliteyn@nvidia.com>
-To: Paolo Abeni <pabeni@redhat.com>, netdev-bot+sashiko@kernel.org,
- tariqt@nvidia.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, acassen@corp.free.fr,
- valex@nvidia.com, erezsh@nvidia.com, gal@nvidia.com, igozlan@nvidia.com,
- kees@kernel.org, kees+treewide@kernel.org, leon@kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
- moshe@nvidia.com, prathameshdeshpande7@gmail.com, saeedm@nvidia.com,
- william@theesfeld.net
-References: <20261021074949.3471704-4-tariqt@nvidia.com>
- <179275275762.3134.7548579754182364985@kernel.org>
- <a3c08b59-7eae-4a1b-aa0f-042abe024525@redhat.com>
- <9775ba1b-6bc0-4e2d-abaa-42d732f274ab@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <9775ba1b-6bc0-4e2d-abaa-42d732f274ab@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oOWrmDTo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CB3B1F000C4;
+	Mon, 16 Nov 2026 00:44:12 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794789853;
+	bh=boP3TDoFz59Ih81IUQg+NDTi2BNfV6i2vvoA7UF1O/o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=oOWrmDTogG20YLkFe/iPh+utOr2EnTfiQRd9sOHgZ7uM5Fgf+PYrx32vKk1pdFFAo
+	 ve3l2wVYahMq6xlHCGjG5pJbIqVFnckIO3ReiPA6N36hBPwHqY7RulYtNupMbps3z5
+	 myDQJ0wcfU9GnR1TvyTKfCokAzJFS2c8+po+JFtO9E1+pcvLjZCU4yoGPTELhJnUK1
+	 FyHWbePJMIzwBWjh7L+UgLfkZ9ZeiFg9MSfDoyT9DsWIIWvcUxikvjZqPoQ3fY00xi
+	 /qayuR7NSOjxw26QCxTRzi7gbGYOGJUf8aZgYZAFxNC7BSYUiUKyiyTbM8duxor4Jp
+	 VIH4ypphiUD9A==
+Subject: Re: [PATCH net-next v6 1/4] net: qrtr: Allow the host QRTR to assign
+ a unique node id
+From: netdev-bot+sashiko@kernel.org
+To: manivannan.sadhasivam@oss.qualcomm.com
+Cc: mani@kernel.org, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, jjohnson@kernel.org, edumazet@kernel.org,
+ linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-wireless@vger.kernel.org,
+ ath11k@lists.infradead.org, ath12k@lists.infradead.org, andersson@kernel.org,
+ christopher.lew@oss.qualcomm.com, deepak.singh@oss.qualcomm.com,
+ raj.bhagat@oss.qualcomm.com, juha-matti.tilli@iki.fi,
+ jeff.hugo@oss.qualcomm.com, daizhuang.bai@oss.qualcomm.com,
+ jeff.johnson@oss.qualcomm.com
+Date: Mon, 16 Nov 2026 00:44:11 +0000
+Message-ID: <179478985187.3136.15328141866524028119@kernel.org>
+In-Reply-To: <20261114-qrtr-multi-ep-v6-1-2eb9885659e2@oss.qualcomm.com>
+References: <20261114-qrtr-multi-ep-v6-1-2eb9885659e2@oss.qualcomm.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TLZP290CA0009.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::18) To BL1PR12MB5873.namprd12.prod.outlook.com
- (2603:10b6:208:395::20)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,97 +69,292 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL1PR12MB5873:EE_|PH0PR12MB999090:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1d71257a-68c0-4e65-8a09-08df4379aa80
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|10067099003|11063799006|4143699003|56012099006|261022105027099003|261021121427099003|261026121527099003|261026140227099003|261028144727099003|261102123227099003|22082099003|18002099003|41080700001;
-X-Microsoft-Antispam-Message-Info:
-	FucIul8xbBEErPuYh6Z3PaHBoUtEGaa43bpP4DYYGosGFJVC79Awfaai1PPuFJZBU45cXx4IfL3eoz5utE4gZdJzaQY5qV2GvV6CBuKAMyOb4o5WbOGigDS7EDjD8yBGOk4+yP97rAMEtMuM0LTgTaYnfh9JggulEkjcZsbXNSWvX6SWdnt3BeSCURkj2tEw6KwTwJ+/mssBX8zU6eZwTVMlCoKR5O7rhab7t19Zjb3ALHuUixHUGDavmP58hP9WalBy8puPhxsqInXUVEEKnazrz0BoodH8qMtUaHgf9vOEi9aoQupeSE2kPlJBICX9p+JiuJWIt0iacypUVFCVLmxiODS3/8QoN8Ra7HljIfiV3o5twbj4gpPu8nyGGoWAiXhpoV81rkZ1dU5ekrrmRx3u+tQN9KDlW8AH3wEwX+33dC3J3nnLJjiFwxIqWikWoaGYqlKA4zc+PovN8jcU1TlJ9KTYFsJ8hEbzqW2qinIE9TidlKEBfUwd5elE05hjFUKYuB2ElMkf80Y5Y96jhfleZ6cPSjDx6Rr9PNxbpfoBsQeFxEWODgCXJhjY0mcfhPaW04MOoyvYvKqEkzcN9iIrCr/gci3XtGZfmxk9Vx5zndGP6AHFgXiNtUPhA+0YJiKkQ7RMU5ohoM1UcxSQ7fqgNKJl1YLohAYnryOFMZ+wFOpL0Z8EekKd7DP82TCC+UQmjZ5wzgGDbCeUCxdD/6TvT0NQbSHiv/iH9VQJQMA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL1PR12MB5873.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(10067099003)(11063799006)(4143699003)(56012099006)(261022105027099003)(261021121427099003)(261026121527099003)(261026140227099003)(261028144727099003)(261102123227099003)(22082099003)(18002099003)(41080700001);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?OFA2MnQxRFE1NmFPeUVJNzUrZ1FGdThpVkN1em1aN3d6TDUxU2w0WHFwc04x?=
- =?utf-8?B?cHJ6S3ZNR3lzdVo3endMYmpnVmN4cEM1dytpdDQ3WENpK0xicURJS0VYMWdP?=
- =?utf-8?B?YU1JUUYwNlBVWndMSjQ0aDdCL3VGb3dLU1U1cWNlS3VYMHhEc01CYjkvNE1k?=
- =?utf-8?B?WmxlS2xlbUlYT3Racjd3TGFoOXFYMTZrdGxGSG5hQnJHYnJYYlFaQkhhMVRs?=
- =?utf-8?B?NjluZzdwZ05WZXhvR1Ura0NxQzVuMUVmTWYzUGVkdWRWeExEbTNGQ2JNTUxG?=
- =?utf-8?B?WHluQW9BUHU3Y293TFpad3N6QWk0cG1RaFpFNmdnTGRHZzRnMGFHUkJBMFJh?=
- =?utf-8?B?cnErZnQ4bWtqSkM3bTNKelJ6OVFxK09pN2c2WjVNL1VuR2JTSXhxamdDZjIr?=
- =?utf-8?B?a21pOHAwSHlwNHJWYS9aM0pnV0h1djRUOWlIZkszZnBzSHR1bEpqWUVkWUZS?=
- =?utf-8?B?ZDNBb3V0Y2FKdFA4UHlXMmFXYmRoZm5mcXR3Z0FvNzc3RjI0RlhxSmxJVXcr?=
- =?utf-8?B?cXNFa1RiUWJpbjF3NFR2NGZlTkJEUk9ZdTdsZEo2dS9uS2JGQ0xQS3NEb050?=
- =?utf-8?B?b2tMUURRQlVjU25RTWVEck5jSXBLY0VrREYySWpMVWlSdVlTWlIwNFdaZlJo?=
- =?utf-8?B?T2VveHBRN0RzWUJ0N043U3JRTUF2cjFXQTJOWUlzY3BEWWtjMmNsQjdydE9W?=
- =?utf-8?B?YnhTd2JVYjhjVEhXUTlKNWF0Q3djU0V3eTJxN0gzaHRpekhUTWwwaHhBTm5J?=
- =?utf-8?B?WEJDdUUxNEhoektqQVB0OVZaTnhVVTg3clFrb0RMMVBEcWVqR2xtT0t2TWY4?=
- =?utf-8?B?MXEwUXZhN2J0N2lhME93U2ZEUGhOdVZGUXRBRXFZU000ays2bnFYd0o1aFJP?=
- =?utf-8?B?QlErbHl5d3hpR2JLTUZiOVZ0SEFKWHdlY29NcU9scnkxbU1rbk9hU2JFMGgy?=
- =?utf-8?B?TXpWYTRnMjhOamExOHlJaXcyTklRZHpzS1hFRGlDYjNsdTVYUlFLNllTUWNX?=
- =?utf-8?B?b2JNemkrNHlQTHYzdWREODBDYXhkWmJlVDAwcE1YYjhPemR5U2pyRlVLL1Rw?=
- =?utf-8?B?REh4ZlhxMnJKYWhWSi9Wa24xT2tHTzcvdkFrRVppbWlVSVduV0FMbzVQUEVG?=
- =?utf-8?B?dmpFcVhHVXlBOHg5NDhTK0JtWFYrYVVxc1I3NjhVK2JCeGEzbXRhV3lhV2lE?=
- =?utf-8?B?VlJraXZJWTBWN1ZnaUxhYkF0OG1aUkM1MWdPdGR4Rjk0TlhYZmhvMVRFRUlI?=
- =?utf-8?B?Ui9wdEg1ZTZWaVRiZFk5eldJTi9BRkRBV1lCelpDRWJsQkRJM0FpbUFqbEFh?=
- =?utf-8?B?QUdGelpTbFExMHpFeEdEVWgyQmNudlZwVkxqR0U3ZnY1TTR0Qk51TlkzaW04?=
- =?utf-8?B?cjR3QU51cWFnZnd6RVFQSkdzOFZrMzZTSGlzMVJnaE54Y1BCM0xnOFhXRXRl?=
- =?utf-8?B?Z2ZURmxpWFJRSTM5ZWljYmpNaFdHRzhBalVmNDZJYkZmMTgxUUJLUStoS0Vv?=
- =?utf-8?B?cnpoMHZXRUJ0Sko0UHkwNlUwdFYxUHpVeWlkVjFyN2VPTFIzUHBhZ0NHQm45?=
- =?utf-8?B?ZHhpalEvWDJWbk9Ub3ZJU1NrOEtXY0NHSkVOdDZKeE9zYzdyc1lRTjFHbi9I?=
- =?utf-8?B?RHJ6dFdCZEFacjFZakMrVFl5ZTVBMXJIRy9tWWhIQklYemdnWnhmMnJGRC9V?=
- =?utf-8?B?eHZFTzBFbGR1WUdudldNZUdVd3NuVVF0T3ZtNkZxTEl5YW9FODArdVVaYUNS?=
- =?utf-8?B?U09ObGxQbXUrWXBDQ0xyWUVzYjI0NkhHckVCSjN0WFRvcXczZUh2VWF1Vll1?=
- =?utf-8?B?a3laTy9wN29EKzZ0WHFUWERLdTkvQTB6VTh3cUw0cXRBOGs5RXhPYUlyMHlY?=
- =?utf-8?B?ZEVQTHV2YWMxNU5URW04RzdDSk1GcFB6THNEcm4xMHZvS0NQZGIrSUhYano0?=
- =?utf-8?B?ZkdteGlmeGQ5TENSWmtxWktJWmFIY2JRWThuLzlsaUoyWXYralZGbG13b01N?=
- =?utf-8?B?eTcyQmFIbGdkZjZRb2t5TitLL0R2eGIvYjZLNm9sM1NEd2dwd25nWkVjK0lV?=
- =?utf-8?B?L053cVZnTDVRaElSOHc2NytqeE13N05UdnVmTlpxUlEvdjZKY2xnSno4TGRh?=
- =?utf-8?B?aSt4VXN1dE11UWtBOEpEV3VpNk5VVVhwUXlwaUc4eDlDbjhTSFdGOHVoQ3VE?=
- =?utf-8?B?WDJzaDhhcndKUVJwSlZQYXVkR1V3dDBjam9YSU9VTUJta0JvY0FGUDljblBa?=
- =?utf-8?B?WkJ0WWtaWlkwSU1pcUJNbHlFb243bWVFOVFWVXY2M0JNN3RrSGloRmRteXUv?=
- =?utf-8?B?b3ZLYWYycTRXRGJtb0owbjVQSFRkbmRpM0FEc0tnL0FiWnF3cXhIdz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1d71257a-68c0-4e65-8a09-08df4379aa80
-X-MS-Exchange-CrossTenant-AuthSource: BL1PR12MB5873.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 00:36:34.2701
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6MMFzZ9HJR1qKeSTadlEWEZ0fhL/XgkjwvLn+4bPyz7/T8wSuSnKh0xs7bJJqgDE3sBjdFGeWdzJQGO4AaIo2g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB999090
 
-On 05-Nov-26 17:02, Yevgeny Kliteynik wrote:
-> On 27-Oct-26 10:56, Paolo Abeni wrote:
->> On 10/23/26 12:52, netdev-bot+sashiko@kernel.org wrote:
->>> - [Medium] After a single SYNC_STEERING failure the pool latches into a
->>>    permanent error state while allocation stays open, so device SW ICM…
->>
->> This one looks legit.
->>
->> /P
->>
-> 
-> Agree.
-> 
-> Actually, there should be two aspects to this fix.
-> First part is as you commented - stop serving new chunks once the pool
-> is in error state. Second part is allow for some transient sync failures.
-> 
-> I'll issue v2 that handles both: a failed sync no longer disables the pool
-> right away. hot_chunks_arr has spare room, the hot chunks stay queued, and the
-> following frees keep retrying the sync. Only if the sync keeps failing until
-> the spare room is used up does the pool go into an error state.
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-After some more digging, there is no point in complicating this fix.
-I don't expect to see "transient" sync failures, so increasing memory
-footprint just to prepare for sync failures is not a good tradeoff.
-The v2 will contain just the suggested fix - once the poll is in error
-state, the chunks will not be allocated/freed.
+Critical: 0 · High: 0 · Medium: 2 · Low: 3
 
-> -- YK
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
+- [Medium] A failed node-id insert now drops the packet, where the old
+  code still delivered it, and a dropped HELLO is never recovered.
+- [Medium] In AUTO mode, nid and ep_nid can end up different, which the
+  commit message says cannot happen, and the rewrite logic then…
+- [Low] The TX path now uses node->ep_nid as the destination, but the
+  readiness guard still checks node->nid, so packets can go out…
+- [Low] The new control-packet handling is keyed on the QRTR header type
+  (cb->type), but the consumer acts on the payload cmd field.
+- [Low] The struct qrtr_node kernel-doc describes @ep_nid as the
+  "endpoint's own node id as received", but qrtr_endpoint_post() latches…
+
+--
+
+net: qrtr: Allow the host QRTR to assign a unique node id
+
+This commit lets the host QRTR use the nid passed to
+qrtr_endpoint_register() as the key in the qrtr_nodes radix tree. The
+endpoint's own source id is stored in a new qrtr_node->ep_nid field.
+Node ids in incoming packets are rewritten from ep_nid to nid, and
+outgoing destinations are rewritten from nid back to ep_nid. Errors from
+radix_tree_insert() are now passed back to the caller.
+
+> diff --git a/net/qrtr/af_qrtr.c b/net/qrtr/af_qrtr.c
+> index 45cb8e8c36ca2..fff1d70fd8bfc 100644
+> --- a/net/qrtr/af_qrtr.c
+> +++ b/net/qrtr/af_qrtr.c
+> @@ -118,7 +118,8 @@ static DEFINE_XARRAY_ALLOC(qrtr_ports);
+>   * @ep_lock: lock for endpoint management and callbacks
+>   * @ep: endpoint
+>   * @ref: reference count for node
+> - * @nid: node id
+> + * @nid: node id assigned by the host QRTR
+> + * @ep_nid: endpoint's own node id as received
+
+[Severity: Low]
+Is this description accurate? qrtr_endpoint_post() sets ep_nid from the
+src_node of the first packet that arrives, whatever its type:
+
+	if (node->ep_nid == QRTR_EP_NID_AUTO)
+		WRITE_ONCE(node->ep_nid, nid);
+
+Nothing checks that this packet is a HELLO, or that it came from the
+endpoint itself and not from a node it bridges. The commit message itself
+says incoming source ids can belong to bridged nodes.
+
+Suppose the first packet is forwarded from a bridged node Y. Then ep_nid
+becomes Y, and the endpoint's real id X is treated as a bridged key. Y's
+traffic is rewritten to the host nid in qrtr_endpoint_post() and
+qrtr_node_rewrite_ctrl(). TX addressed to the host nid in
+qrtr_node_enqueue() goes to Y.
+
+With the later explicit-nid MHI change, would the ath11k/ath12k host nid
+filter in their qmi_ops_new_server() callbacks then accept Y's services
+and reject X's?
+
+[ ... ]
+
+> @@ -371,10 +374,14 @@ static int qrtr_node_enqueue(struct qrtr_node *node, struct sk_buff *skb,
+>  	hdr->src_node_id = cpu_to_le32(from->sq_node);
+>  	hdr->src_port_id = cpu_to_le32(from->sq_port);
+>  	if (to->sq_port == QRTR_PORT_CTRL) {
+> -		hdr->dst_node_id = cpu_to_le32(READ_ONCE(node->nid));
+> +		hdr->dst_node_id = cpu_to_le32(READ_ONCE(node->ep_nid));
+>  		hdr->dst_port_id = cpu_to_le32(QRTR_PORT_CTRL);
+>  	} else {
+> -		hdr->dst_node_id = cpu_to_le32(to->sq_node);
+> +		/* Put back the endpoint's own node id */
+> +		dst_node = to->sq_node;
+> +		if (dst_node == READ_ONCE(node->nid))
+> +			dst_node = READ_ONCE(node->ep_nid);
+> +		hdr->dst_node_id = cpu_to_le32(dst_node);
+>  		hdr->dst_port_id = cpu_to_le32(to->sq_port);
+>  	}
+
+[Severity: Low]
+Can ep_nid still be QRTR_EP_NID_AUTO at this point?
+
+The readiness guard in qrtr_bcast_enqueue() still checks node->nid, not
+ep_nid:
+
+	/* Skip nodes with no assigned node ID yet. */
+	if (READ_ONCE(node->nid) == QRTR_EP_NID_AUTO)
+		continue;
+
+When qrtr_endpoint_register() is given an explicit nid, node->nid is set
+at registration time. ep_nid stays QRTR_EP_NID_AUTO until the first RX
+packet. The later commit "net: qrtr: Assign unique node id for MHI
+endpoints" makes this the normal MHI case.
+
+Consider the window after hello_sent is set but before the remote's first
+packet arrives. Would ns broadcasts (NEW_SERVER, DEL_SERVER, DEL_CLIENT)
+and data packets sent to the host nid go out with dst_node_id 0xffffffff
+during that window?
+
+In QRTR_EP_NID_AUTO mode, ep_nid and node->nid are written by separate
+WRITE_ONCE() stores in qrtr_endpoint_post() and __qrtr_node_assign(), with
+no ordering between them. qrtr_bcast_enqueue() and qrtr_node_enqueue()
+read both without taking qrtr_nodes_lock. Could a weakly ordered CPU see
+the new nid together with the old ep_nid?
+
+[ ... ]
+
+> @@ -533,14 +597,36 @@ int qrtr_endpoint_post(struct qrtr_endpoint *ep, const void *data, size_t len)
+>  
+>  	skb_put_data(skb, data + hdrlen, size);
+>  
+> -	qrtr_node_assign(node, cb->src_node);
+> +	nid = cb->src_node;
+> +
+> +	spin_lock_irqsave(&qrtr_nodes_lock, flags);
+> +
+> +	if (node->ep_nid == QRTR_EP_NID_AUTO)
+> +		WRITE_ONCE(node->ep_nid, nid);
+> +
+> +	/*
+> +	 * Add the source id to the lookup table only if 'node->nid' is auto
+> +	 * assigned or the packet came from a bridged node.
+> +	 */
+> +	if (node->nid == QRTR_EP_NID_AUTO || nid != node->ep_nid)
+> +		rc = __qrtr_node_assign(node, nid);
+> +
+
+[Severity: Medium]
+Can node->nid and ep_nid end up different for an endpoint registered with
+QRTR_EP_NID_AUTO? The commit message says they stay the same for these
+callers.
+
+ep_nid is set before __qrtr_node_assign() runs, whether or not it
+succeeds. Consider an AUTO endpoint where:
+
+1. The first packet's src X is already owned by another node (-EEXIST),
+   or the GFP_ATOMIC insert fails (-ENOMEM). ep_nid = X is set,
+   node->nid stays QRTR_EP_NID_AUTO, and the packet is dropped.
+
+2. The next packet is forwarded from a bridged node Y. node->nid is still
+   QRTR_EP_NID_AUTO, so __qrtr_node_assign(Y) succeeds and adopts Y:
+
+	if (node->nid == QRTR_EP_NID_AUTO)
+		WRITE_ONCE(node->nid, nid);
+
+Now nid == Y and ep_nid == X. From then on, packets from X have
+cb->src_node rewritten to Y. qrtr_node_rewrite_ctrl() also rewrites
+NEW_SERVER, DEL_SERVER, DEL_CLIENT and RESUME_TX payloads that name X so
+they name Y.
+
+In qrtr_node_enqueue(), packets addressed to the real bridged node Y are
+rewritten to dst_node_id X, so Y can no longer be reached. X is never
+inserted later either, because the condition above skips the insert once
+node->nid is set and nid == ep_nid.
+
+Before this patch, node->nid would simply have become X, and Y was routed
+through its own key. Is this change in behavior intended?
+
+> +	spin_unlock_irqrestore(&qrtr_nodes_lock, flags);
+> +
+> +	if (rc)
+> +		goto err_nid;
+>  
+>  	if (cb->type == QRTR_TYPE_NEW_SERVER) {
+>  		/* Remote node endpoint can bridge other distant nodes */
+> -		const struct qrtr_ctrl_pkt *pkt;
+> +		const struct qrtr_ctrl_pkt *pkt = data + hdrlen;
+> +
+> +		nid = le32_to_cpu(pkt->server.node);
+>  
+> -		pkt = data + hdrlen;
+> -		qrtr_node_assign(node, le32_to_cpu(pkt->server.node));
+> +		if (nid != READ_ONCE(node->ep_nid)) {
+> +			rc = qrtr_node_assign(node, nid);
+> +			if (rc)
+> +				goto err_nid;
+> +		}
+>  	}
+
+[Severity: Medium]
+Is it intended that a failed node id insert now drops the whole packet?
+
+Before this patch, qrtr_node_assign() ignored the result of
+radix_tree_insert(). The packet was still delivered, and node->nid was set
+anyway. Now __qrtr_node_assign() can return -EEXIST, or -ENOMEM because
+qrtr_nodes is a GFP_ATOMIC radix tree. Both goto err_nid sites above then
+free the skb.
+
+For QRTR_EP_NID_AUTO endpoints (smd and tun, and MHI as of this commit),
+these cases seem to follow.
+
+If the source id X is already a key owned by another qrtr_node, every
+packet from this node is dropped. node->nid stays QRTR_EP_NID_AUTO, the
+insert is retried and fails on every packet, and qrtr_bcast_enqueue()
+skips the node.
+
+If the first packet hits a transient -ENOMEM or a stale key, the remote's
+HELLO is dropped before hello_rcvd is set and before it reaches the ns
+control port. Stale keys are possible because keys are only removed in
+__qrtr_node_release() at the final kref put, not in
+qrtr_endpoint_unregister(). qrtr_sendmsg() and qrtr_send_resume_tx() can
+hold that reference.
+
+In that case qrtr_hello_work() does not reschedule:
+
+	/* Pairs with smp_store_release() in qrtr_endpoint_post() */
+	if (!smp_load_acquire(&node->hello_rcvd))
+		goto out;
+
+Would the ns then never see this node's HELLO, even after the conflict
+goes away?
+
+Even with an explicit nid, a whole NEW_SERVER is now dropped when its
+bridged server.node is owned by another node. Before, only the extra key
+was skipped.
+
+The commit message says:
+
+    Currently, all QRTR endpoint drivers pass 'QRTR_EP_NID_AUTO' as the 'nid'
+    during qrtr_endpoint_register(). So 'ep_nid' and 'nid' are same and the
+    routing behavior is not changed.
+
+Given these new drops, is that statement still accurate?
+
+> @@ -548,6 +634,15 @@ int qrtr_endpoint_post(struct qrtr_endpoint *ep, const void *data, size_t len)
+>  		smp_store_release(&node->hello_rcvd, true);
+>  	}
+>  
+> +	if (cb->src_node == READ_ONCE(node->ep_nid))
+> +		cb->src_node = READ_ONCE(node->nid);
+> +
+> +	if (cb->type == QRTR_TYPE_NEW_SERVER ||
+> +	    cb->type == QRTR_TYPE_DEL_SERVER ||
+> +	    cb->type == QRTR_TYPE_DEL_CLIENT ||
+> +	    cb->type == QRTR_TYPE_RESUME_TX)
+> +		qrtr_node_rewrite_ctrl(node, cb->type, skb);
+> +
+
+[Severity: Low]
+Should these checks and the rewrite be keyed on the payload cmd instead of
+cb->type?
+
+qrtr_ns_worker() in net/qrtr/ns.c dispatches on the payload and never sees
+the header type:
+
+	cmd = le32_to_cpu(pkt->cmd);
+
+qrtr_endpoint_post() accepts any header type sent to QRTR_PORT_CTRL. So a
+remote can send a QRTR_TYPE_DATA packet to the CTRL port carrying a
+NEW_SERVER, DEL_SERVER or DEL_CLIENT payload. For such a packet, the new
+NEW_SERVER server.node ownership check and qrtr_node_rewrite_ctrl() are
+both skipped. The cb->src_node rewrite above still runs.
+
+This seems to lead to the following.
+
+A NEW_SERVER payload that names another device's host nid gets past the
+new -EEXIST rejection and is registered in the ns.
+
+For a DEL_CLIENT payload under a different header type, from is rewritten
+to the host nid but client.node stays at ep_nid. The anti-spoof check in
+ctrl_cmd_del_client() then rejects it:
+
+	/* Don't accept spoofed messages */
+	if (from->sq_node != node_id)
+		return -EINVAL;
+
+NEW_SERVER payloads are recorded under ep_nid instead of the unique host
+nid.
+
+Also, qrtr_node_rewrite_ctrl() chooses the union member from the header
+type:
+
+	if (type == QRTR_TYPE_DEL_CLIENT || type == QRTR_TYPE_RESUME_TX)
+		nid = &pkt->client.node;
+	else
+		nid = &pkt->server.node;
+
+With a DEL_CLIENT header and a NEW_SERVER payload, would this rewrite
+client.node? That field is at the same offset as server.service.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261114-qrtr-multi-ep-v6-0-2eb9885659e2%40oss.qualcomm.com
