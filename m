@@ -1,101 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.179
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794855972;
-	b=Rb19BWsBVN5t2i1wyUIKy4pQeJ4XFmcXY1JDo18CvFmbcGk0t3CfQ9w2yU38mc+ZmdjU
-	 laTRZbS46kFVxfLK/JBuDetH1twO2K56Cj2L7zq8AlwBpw2ix5dH+Q4+OZeZBkI6N0vDU
-	 EseWyMYVQgt4zRZkLHmvCPCcFoA4LzQZYxp5zF4NdiQiejIbcAvQpcPhj2zEiYqrbvmTw
-	 FRxkO9GwwmW5n2FN+mSsSH3SikCBXN386PtHLUvNDRUyeMLZNteg0GnRfs2vCZaHGvUDB
-	 QizVI4sZ82j/ny98muBlAB84x+TKxjLSxmw0mVp7qzhDDi0U3r+9qSTdg9peFmirzgg==
+	t=1794856222;
+	b=kgW5SU8XMTDyEo8k65Kh3owcrqyc8wnJVAu1l1K+ofoCc60NzDpCtKmDtgAyJod2rnFI
+	 hqeQ4jQ0HApBINihlewQmk0HFgDyg5hdMpItg8JAQAOBbdeV9KXAjbzBo6lh9xzvfZJRR
+	 2Mxku+RocWukW1zQ2FpW1MilpKRwO81MdsQ9kuSEm50oe13ntU1TS33Von9bpI6Gqmd6i
+	 ktZDT2yUl03/ZnKsNaNuun+mPYdZnZHEqh6KxaZ3lVlBUkjWDCHuLQmn3zUIfv/ist6/r
+	 XZqcs1WXSZnwvQZYCTlNyvAwilAhvPEbP4nTyo0R+ydfBvqx3zddQ0f0JodjYO6DNdQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794855972;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=G7I1SlfQuGFwSPm/Qi4+nTEZRsPgA0OBSH2M8WIp0JA=;
-	b=r6Qz3WnjelCPmEj+MnFydiMhuVj44fyjZuo2w2tlA3EMmpiVRc4GGwilktJCQdp0S8NE
-	 2c5k7oyh3v0pCl89GGlujakFgNPFI/KYsJkpm9FpSM5fIAnCQJru/Daq1DrFSxxcIx3wB
-	 pafVQVUDxW/vCWtM1cmCJ/YLgZ7R4rvzcbAPCuHNLfAkUDMDizqQWwic7+NzT1GHBPy29
-	 GIkEtpbn5W+QBhq5+ArDLPvc7cHIxhUgSlzvqkaIO9NBJl5QnURGP2d1YbtO5Egjpc2oG
-	 PL92wMZz245Asji4rms4RrWE7mvgTWw9bVapiGf19eQ8jBD0MC//B3LA8+6F4/JJKdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794856222;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer;
+	bh=MWn0K85N+ZeqSnbsLKHm706qLEbyvRyCHmz09C8OYvg=;
+	b=X4Bb1gEorbRDtYuc+MiPFdHb0GNx5IUCcJgfJQXXCOLviaZgsM5B48lB4hJuxmfOWZk0
+	 Vd6MQUjiQKXqU0sIz+GK4kCyVUhciqXfWTgH2EevIkG5u13eMHWqo9nrH/Wi4ESnjum9S
+	 hA6nm8dTF1ZYv9rooKGpyCX3bJJB6TZFu4fiD2nE2zoDk3L4hHS+6OsZHaacT4sx9+BG1
+	 tirvjtxh3q/vgekefeRxIpi+s6D3V+N/bZzzpPj73Rm3C8iJbPkxAdBBUkLbWR1okqV4s
+	 IptKXLt6x6Th6DPupn4hRTp24QA+cKqC7fPlnChcyjr9rmOKlzVV6x0gPqsAzkvPwtg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=everpuredata.com;
-	spf=pass smtp.mailfrom=purestorage.com;
-	dkim=pass header.d=everpuredata.com header.i=@everpuredata.com header.a=rsa-sha256 header.s=google header.b=Jm2Gk8kj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.179
-Received: from mail-vk1-f179.google.com (mail-vk1-f179.google.com [209.85.221.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=MLXqvDMp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7E67606BA35
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:06:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7E67606BA35
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=everpuredata.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=purestorage.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D331E606A323;
+	Mon, 16 Nov 2026 19:10:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D331E606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=everpuredata.com header.i=@everpuredata.com header.a=rsa-sha256 header.s=google header.b=Jm2Gk8kj
-Received: by mail-vk1-f179.google.com with SMTP id 71dfb90a1353d-5ee27c9eec0so1006357e0c.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 11:06:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794855970; cv=none;
-        d=google.com; s=arc-20260327;
-        b=VN4i415+yCd5LaeZCi4y8JlEldQNPZt2cxGsTSmMrywG6I4DRqd8RDplUaKl924afU
-         vRHu9HAUk7Bri1jBrgD4Q8DRSyJ4zvpMA7Iw6Gj/DsKl2s7gFE9eubbMQQxSPhutbPj2
-         X2ciXwZNefrmT9wXZkT1+XiOvljKaAVTYvGQX2n7kdnsLMjwCjpQo4O4nflawufxfRid
-         eBjmPrpGTCZbxh9W1e+BTTEfJFC0ZVuL2HPzrd5WzGt5I94VAMA6LVYNsrisa65K1qiG
-         1PbS30+EQ514mbL7stHvlKXVbYb/7v6mP0HWBqf0Fv7xGBl1+u+igsGfhWIcjjsF6+q1
-         4LIg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=G7I1SlfQuGFwSPm/Qi4+nTEZRsPgA0OBSH2M8WIp0JA=;
-        fh=S54Yjw9VaE4tgt2n0MgSYRI9pVNAvD5Mt7YEx/ML3t0=;
-        b=q47Mka8a9yyABb6yh/jufLesZDmK/bvLQJrTmTePOPhFoGm7UDU6vW1FBwIO13GySZ
-         YaeGBrp4ZEfyne520sc1YMoNp3sp1D2BzJIjhB7AOhvjCSdg7m6YHwmz+RdIZBFCad4P
-         6UqP/aQZF/rvhS072G0m+j0x7+MfIrdsqeiNxeDj8fw0ws9w2qWB2HO6qeZX7IferUN7
-         Vbum+nNRBbmVDLmp87rQaMtW4084cxb1QCLCMQO5T5HsDYKga5ZHRYzQa3eBCcDRYTY8
-         7i7O0qBRLmrWr7zJpUndCPdIfUctrgBCBowF8a5aXUsW4r+wup8+kfNTLDDFyuujp0dt
-         S0jA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=everpuredata.com; s=google; t=1794855970; x=1795460770; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=G7I1SlfQuGFwSPm/Qi4+nTEZRsPgA0OBSH2M8WIp0JA=;
-        b=Jm2Gk8kjWWwRV2Oi1KDcMVKvvo2dKssVrRlht1w65ARIvAvJHtaRkh5gALMeNGFexR
-         j2tS4wtXZv6yXg83D423lAlXUdUogfBCNoql26Ht2pY9lBro3u2idDSeOaZkduUKxiwt
-         g8cTxqxbDTTTOvMQZYgK5qFPiJ0jZJY9+JwRFURRFaoYKECLPDoGE9lTtLEC5ClMw6zQ
-         W41sm8KufFyLvIFlC7ApPY7fL4TIZGIgN6ckkuKJV1IWh9KX4VRJ9wg60OI2QVITa/7B
-         h6XBilkVxUviYZ0x1faQAS+D45VQIabR3Pm3OxpAR6OX1tFpiMiSDb/O757nTsQGAq9T
-         DLrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794855970; x=1795460770;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=G7I1SlfQuGFwSPm/Qi4+nTEZRsPgA0OBSH2M8WIp0JA=;
-        b=QogQrHceIZ/49V4F8wD5B9hDE8x4hgyjCsPBiWtlXFBIiexBWRLLJR+eG9t9tRAopu
-         4fY4vFv+UVsUfO8myatCXgbFlkIgD708RxGbEOOq4YTOsCblYdoGQQsP8GrhjKTnROWu
-         XMFty6Z+gPDKjyiEUDD2n/bNwGvvwOIWO6hOk3Zoqn+xLX0Lyd1gFVKkAjsO+4+vJ8WX
-         D5YtWkgD2LJPG221eL85KJgQZA8OUjIHBDmp1ibya2vKbDfey53NqjCntFW2tI59Hx9p
-         JgkJmOOGowFAMUjcdkacjLg7cJz4TuyzXSRovlZ9rgudbNLcXlCyXcczU0AnAWbeZxvs
-         kFfw==
-X-Gm-Message-State: APuU4Z9AdhH4Yl89ymiZiQWp7KkV5QubpjsArAdtBaAZYxZ7gn2RVzX1
-	u/ZpgAcbnCSsp49tmveBrw62XebeSeyY2ASYu+iO50csL8NAwdDl/TyeIps/F324haZJjIy8r1n
-	jnltmADvYV2tKeI2zctWVc/RKb9dnA6sAujmWfydgRw==
-X-Gm-Gg: AYBFou0S0xFGe1s3fvob53TrbVGS7Ouz7zXq2JRRjmpiqXgSdR1uUItC2bM6SGc27Tm
-	ICZgyApAeGYMX8+T2G6yfmXR+fwaOqOAtxbu5EK4SyBNIyIjcbdOt7qyIW6u5FJbW29aEdyDnK6
-	grxGNerKh3rygNsfgUAwg6wMwGsu3ci3JcH3/d88Fw8D7XWDFq/z7CL3pQSBWW4l7NwxsNNqdhR
-	hktwZ/BMqEta3eLk6girSmlQ7igE4iUNKOIkCyqRGAx2awGpH0qgDu2FuodLhuhxbDHAKflDuVa
-	hegIKi184HtuK9jKzUuLb09NuiWjCxl6C9KrQAkimJZYAKUbTf6kpdV9A3L7/I1mFnS+C+t3BNl
-	XTKV2dIR8Zo8JXdsOXmipGFBmXaae4T++uqvixVizr42Ntxwq+fbB5efwT8KzcvnDnOqQQYJAKX
-	gQ5VVqe9dNhfpNPjrFXr9dzmu92/P9n1UA3h9ZpxnCtu69jKQDC8uGIdCCI+5fa8itpoMzSBoXU
-	7P69N2Pdw1WAz31WpI9PIxj71pPffdw/cuVmnxYQ0Mp5Do=
-X-Received: by 2002:a05:6122:1b10:b0:5ec:4a13:8aae with SMTP id
- 71dfb90a1353d-5ee34a9298dmr3969191e0c.17.1794855970467; Mon, 16 Nov 2026
- 11:06:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=MLXqvDMp
+Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.4.pengutronix.de [10.17.1.12])
+	(Authenticated sender: relay-from-dude04.red.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id C2D36202963;
+	Mon, 16 Nov 2026 20:10:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1794856215;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MWn0K85N+ZeqSnbsLKHm706qLEbyvRyCHmz09C8OYvg=;
+	b=MLXqvDMp4Gz7ObZa6lIGo7YjqWn63OHKVBQs1DWpnV7q7eiE5n+2iSnI6uUzq7X/3Sfii9
+	f6B02gf/1fNNZEBH1XTu2S6+eeApcfkLEUHnVxk9g1wS7L9okOv5tWIwfxsX84pIPLqsgf
+	V5krfx0wghKsMHJ8y8tpjNZPVoZWRBhydrMxz7AMZ2E1gegyl9P064UOcXdp1I1BrgOcZH
+	xxrg7E2cLxPZ98MEi3iRVnUt13Ss5g1dgXFq20rXJr9QfAQHRTsSZxNYs4TCadJZKVG9SG
+	tQx8CLJfXsS3D4Aoo/nyzzqd/jvCy4bQCxePSyftZcKhqECHThaMDkUFhH00jA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1794856215;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MWn0K85N+ZeqSnbsLKHm706qLEbyvRyCHmz09C8OYvg=;
+	b=PG5PB6gKkqEHOe5QDlizWEi7/3fvdUrc8dIZ89+11HnwOVQk4vLx9701i/7GIv8AvWQxUK
+	8CyAyVT0i7jiki7R+yw43oFV8mn/Oz99Yra+UdorP4frj7CmqzlqkJzZueqE+zrrZ0RjNt
+	6hxzvDRWcunuXKNtCR9QwoJYcUbLzusiJCm9YXUb8I1gXD/DttCf2WCgH2lkgiB5dl6KcO
+	FQh0tLp/uMaOXqBZWUk3D/pfamWYPT77/HDM6imneDezhK0jHamYGK9Q7IE9GuflgJmPnH
+	Fx3VHIqTkNTEdUo4hFvBbukunfHLRpm6+ySOXhLaaOYazTIOJUMVSXUi7K1WlQ==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794856215; a=rsa-sha256;
+	cv=none;
+	b=Q1mwoX4BeUWmo4QfTUnoFzW3Ko3pu4M8L5hwANuzmNCObNplVhOivPaJ/cnJrKGDjzx86D
+	NLT3fR8f1zX48A8aPTVRk9IPiXzVLP8vhrXEGcoqbf2lTIq6QD/7CGDDiEAObJpiBPWw7A
+	Htef65R/gsx8yEwwr/fIiaX1gmYdtLuXXdWVIslThgsDDvpyUoAGz8+6NmUBhfWJgBwTyh
+	2Iq1i+r5gIldFS5YGumr7BV54dyd91Q6jN7YAc3JXISED4OKlhCkFYDQ4/lqBIas25hUD6
+	W2p9jvqncfqEDnGnWyC0hczJfLzvPS0185ZoPT9PJZolxk4fj+AVxM5bjq4Y3Q==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-dude04.red.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
+Received: by dude04.red.stw.pengutronix.de (Postfix, from userid 1058)
+	id AEE1E381265; Mon, 16 Nov 2026 20:10:15 +0100 (CET)
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+Date: Mon, 16 Nov 2026 20:10:14 +0100
+Subject: [PATCH net-next v3 03/10] net: ieee8021q: clarify the tt_to_tc()
+ traffic-class mapping
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,46 +86,109 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116190111.3317976-1-rjethwani@purestorage.com> <179485574283.3291.7349043137994808253@kernel.org>
-In-Reply-To: <179485574283.3291.7349043137994808253@kernel.org>
-From: Rishikesh Jethwani <rjethwani@everpuredata.com>
-Date: Mon, 16 Nov 2026 11:05:59 -0800
-X-Gm-Features: Aa3M54o7vX-XpVUCQ5-uuaPc-Fmkae2NyST6GEXFL4X2HiaIMluNfTh_m5Er0I0
-Message-ID: <CAKaoeS29P8SukOACusGaO=7z13_eFR5pFWDjbYqurgYd2bVz9w@mail.gmail.com>
-Subject: Re: [PATCH net v8] kcm: reject TLS on attached TCP sockets
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, jiayuan.chen@linux.dev, stable@vger.kernel.org, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Neal Cardwell <ncardwell@google.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, John Fastabend <john.fastabend@gmail.com>, 
-	Sabrina Dubroca <sd@queasysnail.net>, Dave Watson <davejwatson@fb.com>, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261116-rtl8365mb-dcb-ingress-v3-3-657f5fdb4db7@pengutronix.de>
+References: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
+In-Reply-To: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Linus Walleij <linusw@kernel.org>, 
+ Luiz Angelo Daros de Luca <luizluca@gmail.com>, 
+ =?utf-8?q?Alvin_=C5=A0ipraga?= <alvin.sipraga@analog.com>, 
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ kernel@pengutronix.de, Oleksij Rempel <o.rempel@pengutronix.de>
+X-Mailer: b4 0.14.2
 
-On Mon, Nov 16, 2026 at 11:02=E2=80=AFAM <netdev-bot+sinfo@kernel.org> wrot=
-e:
->
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> --
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
+Document that the tt_to_tc() traffic-class numbers are the pre-computed
+composition of Table I-2 (traffic type -> priority) with Table 8-5
+(priority -> traffic class). Note that Table 8-5 is the mapping for
+implementations without the credit-based shaper, so the helper's scope
+is clear; credit-based-shaper implementations use Table 34-1/34-2
+instead.
 
-Found by code review. The sleep in atomic context was reproduced on an
-unmodified kernel with CONFIG_DEBUG_ATOMIC_SLEEP.
+The existing kdoc cited Annex I Table I-1 as the mapping basis, but
+Table I-1 only partitions traffic types into classes; it does not assign
+the class numbers.
+
+Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Luiz Angelo Daros de Luca <luizluca@gmail.com>
+Reviewed-by: Alvin Šipraga <alvin.sipraga@analog.com>
+---
+Q: Luiz: does make htmldocs build cleanly and render the diagram?
+A: No .rst under Documentation/ includes net/core/ieee8021q_helpers.c
+today, so make htmldocs does not render it. scripts/kernel-doc -rst
+-Wall on the file is clean, and an htmldocs build with the file added
+to Documentation/networking/kapi.rst produced no new warning. Adding it
+to kapi.rst will follow as a separate patch.
+
+Changes in v3:
+- No changes.
+
+Changes in v2:
+- make the mapping diagram an RST literal block (Luiz)
+- call Tables 8-5 and 34-1/34-2 the recommended mappings, as 802.1Q does
+- keep the Reviewed-by tags: only the kdoc wording and the diagram
+  format changed
+---
+ net/core/ieee8021q_helpers.c | 31 ++++++++++++++++++-------------
+ 1 file changed, 18 insertions(+), 13 deletions(-)
+
+diff --git a/net/core/ieee8021q_helpers.c b/net/core/ieee8021q_helpers.c
+index b052120e67c525ac5a45b26de4cb879a0d758d17..8fd3ea87c7bcb6d7f34a4cf5969530633edd6abb 100644
+--- a/net/core/ieee8021q_helpers.c
++++ b/net/core/ieee8021q_helpers.c
+@@ -13,10 +13,10 @@
+ 	compiletime_assert(ARRAY_SIZE(tbl) == IEEE8021Q_TT_MAX, \
+ 			   #tbl " size mismatch")
+ 
+-/* The following arrays map Traffic Types (TT) to traffic classes (TC) for
+- * different number of queues as shown in the example provided by
+- * IEEE 802.1Q-2022 in Annex I "I.3 Traffic type to traffic class mapping" and
+- * Table I-1 "Traffic type to traffic class mapping".
++/* The following arrays map a traffic type (TT) to a traffic class (TC) for
++ * each supported number of queues. The mapping is the traffic-type -> priority
++ * -> traffic-class composition documented in the ieee8021q_tt_to_tc() kdoc
++ * below, reduced for the given number of queues.
+  */
+ static const u8 ieee8021q_8queue_tt_tc_map[] = {
+ 	[IEEE8021Q_TT_BK] = 0,
+@@ -85,17 +85,22 @@ static const u8 ieee8021q_1queue_tt_tc_map[] = {
+ };
+ 
+ /**
+- * ieee8021q_tt_to_tc - Map IEEE 802.1Q Traffic Type to Traffic Class
+- * @tt: IEEE 802.1Q Traffic Type
+- * @num_queues: Number of queues
++ * ieee8021q_tt_to_tc - Map an IEEE 802.1Q traffic type to a traffic class
++ * @tt: IEEE 802.1Q traffic type
++ * @num_queues: number of traffic classes (queues) available, 1..8
+  *
+- * This function maps an IEEE 802.1Q Traffic Type to a Traffic Class (TC) based
+- * on the number of queues configured on the NIC. The mapping is based on the
+- * example provided by IEEE 802.1Q-2022 in Annex I "I.3 Traffic type to traffic
+- * class mapping" and Table I-1 "Traffic type to traffic class mapping".
++ * Return the traffic-class number for @tt. It is the pre-computed composition
++ * of two IEEE 802.1Q-2022 mappings::
+  *
+- * Return: Traffic Class corresponding to the given Traffic Type or negative
+- * value in case of error.
++ *   traffic type --[Table I-2]--> priority --[Table 8-5]--> traffic class
++ *
++ * Table 8-5 is the recommended priority-to-traffic-class mapping for
++ * implementations that do NOT support the credit-based shaper (8.6.8.2).
++ * Credit-based-shaper implementations have a different recommended mapping
++ * (Table 34-1 for SR classes A and B, or Table 34-2 for SR class B only),
++ * which this helper does not implement.
++ *
++ * Return: the traffic class, or a negative value on error.
+  */
+ int ieee8021q_tt_to_tc(enum ieee8021q_traffic_type tt, unsigned int num_queues)
+ {
+
+-- 
+2.47.3
+
