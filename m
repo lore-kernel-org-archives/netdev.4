@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794837044;
-	b=b2ZxqJBHihb+RYDrjak73sEHE9uJPwqWhXSHVozp/AxdJ81si818KT/wkXj/w8nZZaFk
-	 dxCWOqPLegYPcy1q+aifJddCPrRiA7Ssc0yt7VXh0GcJ3MwAjpENG5P9uSSeK7lx9GT0G
-	 ALOWb/aEokvez4A0BRLU9dSX9GHOuFFvNBobN6I5kmco1oE1e37MEWdQfnu7tHH6OdKrf
-	 wMDP9xbz6Qu/SJxPTOAbOtwaNdixUiDA+peRUlf+/Mj2AC8c/nZL1P/41Bp0MDLMz2maZ
-	 uXCq4IFckHcnarGhZh4FMjyl2hvRF6FVedvxi4zv41JUY3Y4sX9ISq0V4GCydeEA4GA==
+	t=1794837051;
+	b=fjzjoIKVge56ltIU4aJsPdNS9VHU1hd0BkNs+UAAtD1br0J/5NYCWPMELJ2TjpaAJfl2
+	 C4/t8ukdRILYv58y+b9pkEa/Uqgrtb5Shi+nAKpjCOeoTDKi56dagYoudrq1oxekUIQ5V
+	 itdLddGQHyXbUQPElNAe+HEE8KVIREZ4V1KBmwkJsLyJgwwEarG6Sk3DjVYsFaOwPr5lo
+	 y8jAsMUqiEvYBOVrMzOcT0l5TOgk7DXOq19QfD1RdwmOTkZfnLlXV00PLkTNQsPrSch0s
+	 VRFNOOtR9mavqvFJI95IddRBd80KegxNCnn7Z37nri6eOmnNQQ9YNOnsPn69tL4hRlg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794837044;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794837051;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=uRFviz/P/Rq31yiMk9CbEywo6qCv0MBbNeVhyjXUEeM=;
-	b=tCzMNwwpbB2F88yDSdhFPKV9ldJXHUfd7kRHpknwbukGZHMsvxrOQKdRhecmO0b5m37c
-	 y+O8FmMMsl7VFC3qK7o37p+jWJ8JQXOwy+fYcdUL6/pa4sEP1NZtT1dp1X1ABmoGOlLeT
-	 ++vQ5YaEqyyiSwXbP61HiMg9OQVTlG3GPrXeU+t3fw0jKCY4JjgTJcUBNKFmirWCHKiM+
-	 JqXlnenjf/PET6lY0S58623fAelfoBNqRZbZVO40HKG24ezgRfdPh46WE2PJK5o6PHkB1
-	 u4Gy/i0Ap9x9ujT0BPlHjtDTW4UVe4vEWALnBzZcBSRmL5Q2v1jA4otgnjriplOfejw==
+	bh=EeDl7bbI7LCiKb5h7E9ZI6fEwc5/yvL/KpqTYXXHOMw=;
+	b=uiCCWV/2uNVJB2S/qgsugFndMCYBZbWsMyMprrd0KERQThkXavQTaPQMhwDpCAsXq9ob
+	 2ifPrCWyHlKzAj8FeYdBi/uGb+mfDR5mH8fk1/xt91jjP8EHMKOv7q2DZvZD5j7HStgc8
+	 pblwVrbi92WBlhb2yTwhkMFZE0VkVm4aBWckaXsL4OEbsqxXKG1/7hBv6Xd6lE8+dNkUj
+	 8H3vr5CoYnWufdQpJnWbS4tPErvybXLboVrrOg9vYx7W8tWnpSNOjTgk/gk9dvMVQKJoh
+	 pwQZqyiDxushwLEiLLIoKVAXfFIYILs/8ouJAQ3Rd0msBGcfeFn9BhY11RsA4L7JnKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XklXBhHB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oj4HjDXH;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 982A8606A89E;
-	Mon, 16 Nov 2026 13:50:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D41D060A262A;
+	Mon, 16 Nov 2026 13:50:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XklXBhHB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FD401F000C4;
-	Mon, 16 Nov 2026 13:50:43 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Oj4HjDXH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DDD31F0182D;
+	Mon, 16 Nov 2026 13:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794837044;
-	bh=uRFviz/P/Rq31yiMk9CbEywo6qCv0MBbNeVhyjXUEeM=;
+	s=k20260515; t=1794837051;
+	bh=EeDl7bbI7LCiKb5h7E9ZI6fEwc5/yvL/KpqTYXXHOMw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XklXBhHB2Zhcr/rhwELX6ANHrSIQiAUjM3hsXTcuXS78BX0GsX5Nc3GQKg6ouJg4h
-	 5Xe5AxYy7B2iZ8XEnDVM5FLtF5QAl1vuZVR5Z6Z7Ut7EQ+bkobwhkTEsIl1eWGTLfO
-	 /0sKmKTGNG1f782mkYs6oSFr6KvdLDTxUx0Mf4oFkztwrOAcMdtF60wlYR4WfevxZN
-	 nT4AhuK0Ftq7sRMIRSDnDoLECtUMgEauq9M/K6vysmZ6tI7Z1CEY6MTNExoMrEaave
-	 EWiGE1smQF5x+Z94JNw7Zytvqg+UY7Nm5j6qudNb382jwJEvMFr9SKSjKTzm6d4uNi
-	 q/aDBFxugDwow==
-Subject:
- Re: [PATCH net v2 04/12] net: au1000: report MDIO transaction timeouts
+	b=Oj4HjDXHhFsZ5UxPZYFtazBHZTpjYPeQRgPrAt3SO/FK0/ZD+/oHcw2KdHoKs8NUe
+	 Uyl11iJBxfwXcYT4uVhg1r9XqE2Ht2cMTSxHbXkoi72Sj7dpquUyBPL/swBFYiH+Ys
+	 evNFkf35AZ1vXhtF9WFfUS0JevDdAt9dB9843g2MT7ed7SS54fyLDYNrOYNkH6h87C
+	 xIReujsr6tv3O2+WHx9VZCJiubBd1WAbqFW0Efosx4fXqYkeNntLaqBijkg5qCRfl4
+	 e/P4Ax6xqR5HBYnRfmK4/lSrYV5nhDji5WaolbbPwGyG4EswO4d4BRinfHzLsxDFjA
+	 yDK+7AzR3xxpQ==
+Subject: Re: [PATCH net v2 11/12] net: au1000: keep the MAC stopped until the
+ PHY link is ready
 From: netdev-bot+sashiko@kernel.org
 To: f.fainelli@gmail.com
 Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -50,10 +50,10 @@ Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
  runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org, jeff@garzik.org,
  danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
  linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
-Date: Mon, 16 Nov 2026 13:50:42 +0000
-Message-ID: <179483704272.3136.4869685253432664524@kernel.org>
-In-Reply-To: <20261112045301.3669532-5-f.fainelli@gmail.com>
-References: <20261112045301.3669532-5-f.fainelli@gmail.com>
+Date: Mon, 16 Nov 2026 13:50:49 +0000
+Message-ID: <179483704995.3136.5707920157509018990@kernel.org>
+In-Reply-To: <20261112045301.3669532-12-f.fainelli@gmail.com>
+References: <20261112045301.3669532-12-f.fainelli@gmail.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,66 +73,108 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The patch adds a second timeout exit to au1000_mdio_write()
-  (drivers/net/ethernet/amd/au1000_eth.c), and both exits log the same…
+- [Low] The commit message and comments in this patch don't match the
+  code.
 
 --
 
-net: au1000: report MDIO transaction timeouts
+net: au1000: keep the MAC stopped until the PHY link is ready
 
-This commit makes au1000_mdio_write() return -ETIMEDOUT instead of
-reporting success when the MII controller stays busy. It also adds a
-readl_poll_timeout() check after the write so that a failed final
-transaction is reported to phylib. The read path now returns -ETIMEDOUT
-instead of -1.
+This patch stops the MAC when the PHY reports link-down. On open, it now
+calls phy_resume() before au1000_init(). It also keeps MAC RX/TX disabled
+in au1000_init() until au1000_adjust_link() has seen a link-up.
 
 > diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
-> index 7063f9e5bc7c0..6b2e216a83618 100644
+> index 8b7a88ceb3c5e..d60430a3795ed 100644
 > --- a/drivers/net/ethernet/amd/au1000_eth.c
 > +++ b/drivers/net/ethernet/amd/au1000_eth.c
 
 [ ... ]
 
-> @@ -292,26 +293,27 @@ static int au1000_mdio_read(struct net_device *dev, int phy_addr, int reg)
+> @@ -691,8 +692,8 @@ static u32 au1000_rx_mode(struct net_device *dev, u32 reg);
+>   * When the device powers up, the clocks are disabled and the
+>   * mac is in reset state.  When the interface is closed, we
+>   * do the same -- reset the device and disable the clocks to
+> - * conserve power. Thus, whenever au1000_init() is called,
+> - * the device should already be in reset state.
+> + * conserve power. The device must be stopped before au1000_init() is
+> + * called, but may be out of reset for MDIO accesses while resuming the PHY.
+>   */
+>  static int au1000_init(struct net_device *dev)
+>  {
 
 [ ... ]
 
->  	while (readl(mii_control_reg) & MAC_MII_BUSY) {
->  		mdelay(1);
->  		if (--timedout == 0) {
->  			netdev_err(dev, "mdio_write busy timeout!!\n");
-> -			return;
-> +			return -ETIMEDOUT;
->  		}
+> @@ -928,11 +934,25 @@ static int au1000_open(struct net_device *dev)
+>  		return retval;
 >  	}
 >  
-> @@ -320,6 +322,13 @@ static void au1000_mdio_write(struct net_device *dev, int phy_addr,
->  
->  	writel(value, mii_data_reg);
->  	writel(mii_control, mii_control_reg);
+
+[ ... ]
+
+> +	/* Restore the MII clocks without starting the PHY state machine. */
+> +	if (dev->phydev) {
+> +		retval = phy_resume(dev->phydev);
+> +		if (retval)
+> +			goto err_reset;
+> +	}
 > +
-> +	ret = readl_poll_timeout(mii_control_reg, mii_control,
-> +				 !(mii_control & MAC_MII_BUSY), 20, 20000);
-> +	if (ret)
-> +		netdev_err(dev, "mdio_write busy timeout!!\n");
+>  	retval = au1000_init(dev);
+>  	if (retval) {
+>  		netdev_err(dev, "error in au1000_init\n");
+> -		free_irq(dev->irq, dev);
+> -		return retval;
+> +		if (dev->phydev)
+> +			phy_suspend(dev->phydev);
+> +		goto err_reset;
+>  	}
 
 [Severity: Low]
-This isn't a bug, but could this message use different wording from the
-one in the busy wait loop above?
 
-Both timeout paths in au1000_mdio_write() now print "mdio_write busy
-timeout!!". The first one fires before anything is written to the
-registers. The new one fires after writel() has already started the
-transaction, so the PHY register may or may not have been changed. From
-dmesg there is no way to tell which of the two happened.
+Can this error branch in au1000_open() ever run? au1000_init() has only
+one return statement:
 
-au1000_mdio_read() already uses two separate messages ("read_MII busy
-timeout!!" and "mdio_read busy timeout!!"). Something like "mdio_write
-completion timeout" here would separate the two write cases the same way.
+drivers/net/ethernet/amd/au1000_eth.c:au1000_init() {
+	...
+	spin_unlock_irqrestore(&aup->lock, flags);
+	netif_addr_unlock_bh(dev);
+	return 0;
+}
 
-> +
-> +	return ret;
->  }
+au1000_enable_mac() returns void, so nothing in au1000_init() can fail.
+That makes the new phy_suspend() rollback look like dead code, even
+though the commit message describes it as:
+
+    if initialization fails, suspend the PHY again before cleanup.
+
+The commit message also says:
+
+    Initialize the MAC before phy_start() so the PHY worker cannot access
+    MDIO or enable traffic during setup.
+
+Didn't au1000_open() already call au1000_init() before phy_start() before
+this patch? The diff shows that order as unchanged context.
+
+The actual changes seem to be the new phy_resume() call before
+au1000_init(), and making RX/TX depend on aup->old_link. Could the commit
+message describe those changes instead?
+
+Separately, the au1000_init() header comment now says the device "may be
+out of reset for MDIO accesses while resuming the PHY". The comment in
+au1000_probe() was not changed and still says:
+
+	/*
+	 * The boot code uses the ethernet controller, so reset it to start
+	 * fresh.  au1000_init() expects that the device is in reset state.
+	 */
+
+Should these two comments be reconciled? They now give conflicting
+preconditions for au1000_init(). Neither is strictly accurate, because
+au1000_init() always forces a reset itself through
+au1000_enable_mac(dev, 1).
+
+>  
+>  	if (dev->phydev)
 
 [ ... ]
 
