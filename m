@@ -1,46 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.245.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794836361;
-	b=xPELSRzWmaaleShNLK/qvnxvbrpq8gQoFtu+OddfenabKpWfNQaOT7lJL66CuewhScCF
-	 VDw/yGJmZvQPZ3HYoW+PW+69Cfk2N9KeklUys1eQEx7g00lfsEJeKTDxh2cUq2T9U6eIw
-	 YRpfi5TKnl7JXOwNPdSY4AelknTw6I2C09y/1apHQt/TjVWxTdTZTrwrAOyf70k6VwLQa
-	 VON1In7z6+xHr3ArTO+NWjJoDtbv04jic9eHHx8nfxzuiDeWXKZF0zOt1MT2Yv/K2yO43
-	 OzcVsANC18fGBOx0IR4L0dme3V2OuN3v90Z2xs2gwFrpTXlv+mDwZB040mC9acg9umw==
+	t=1794836631;
+	b=T6pZICWG+MYnlMT1230UZrWMKgKGc/ygFnPPYZ2WX0Ai5nG37CyCqbIKeUZVcWOBoQ9J
+	 RTDRuD3k12l7IRbiqje18PpiQaLIz+PM2N/PLR031xLMR/KyIpUtznBVpw4x5roVUYJ8Q
+	 YqWrNGytXmsxAMbCshfRdxUgEOgsk/3eDIJdFKrXPinBUtJ9xWb7h3pQP22o+7VaTZ3gB
+	 5b3uR8C677oMpdP8TBlA5UUz4hnKqrpppsKFMmecajrVi7JPqMgJrdxQOocE8Ofbu6n+i
+	 fy31fbbVW2FdFFdXCvXCLTPHgAmaGhlB9TBncOBwEnkdNnlzDDFkDxs/uw+8OZ7+arQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794836361;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=n59qOTV8SxlKRlydmx7eBhuK9SYOiSwbIO+6MI483OY=;
-	b=APO5OSd52XvY/Ke4frDDMc73mZc/W+sKYU0VkTuggaZCZW1ugO9M1xibaz+eZ5ztmBcs
-	 pt+vQb7lXV8FyRrVHkmd6zHHQqm9hO9L2rL+m9XL+nCGjtxnosNxEbtYeosvDnnF8S4VS
-	 Euiqt/diI+1UhGk2QnF95MjsdbTeDlyWQt/L4G+dFhxgLxlfb4xr09HYig5a7n6eIUyXj
-	 1PWItRZzQzFPEuktgP3Bx68S6nE1NLAFAUN7nkC5Civdec/NjmjFKK8IYzK8vuLXNCxA8
-	 FtDdp3OVfYhl95A2a67hB+v/bKFIxg1pmEWBGQClcmQBOxj/eaOB5GJdAXpSCtB1jYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794836631;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=OgpKVi56iYyrqQb1XrLNVi7ftcITPhmk6C7+krOK81I=;
+	b=jFuGva6JDy65TLXRveLMl53da45xRuVJMyBEIxr4RYATe2wxIfZRpp3/sBKhk2vVpT6p
+	 CBDA6GwHC8Rs783Blqs0wF0zI/81IZZYWVKb3q4AInKzx2vVYFQf5r/S9JlLRv/ven/8N
+	 GFCyc3Pn7r8eP/ll0GhcaJMWcDkZroLXUsgVQvYh04Z9whgaHO5ZFtIk59xTByZDx6dPI
+	 AZkxN6cyujkzXSP/5Ci3NvN/ybhdlG3ZA5LP5hUYc4jkUgeXv9H8C3J+8/VTHQARVESJT
+	 EjA7DNRQ5KJhGaijyVelNwwJlT0AGghM8DV0e9oAgXnHPIEbWAhmi/ffzTmsD96AFdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=strlen.de;
-	spf=pass smtp.mailfrom=strlen.de;
-	arc=none smtp.remote-ip=91.216.245.30
-Received: from Chamillionaire.breakpoint.cc (Chamillionaire.breakpoint.cc [91.216.245.30])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=NzhE4WrA;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1FBA606A323;
-	Mon, 16 Nov 2026 13:39:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1FBA606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=strlen.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=strlen.de
-Received: by Chamillionaire.breakpoint.cc (Postfix, from userid 1003)
-	id 98E0460342; Mon, 16 Nov 2026 14:39:18 +0100 (CET)
-Date: Mon, 16 Nov 2026 14:39:16 +0100
-From: Florian Westphal <fw@strlen.de>
-To: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
-Cc: Pablo Neira Ayuso <pablo@netfilter.org>, Phil Sutter <phil@nwl.cc>,
-	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH nf] netfilter: nf_dup: unset mac_header on the duplicated
- packet
-Message-ID: <avsHhMbvwwfcI6_b@strlen.de>
-References: <20261116105113.128791-1-theodorlarionov@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B234606A323;
+	Mon, 16 Nov 2026 13:43:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B234606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=NzhE4WrA
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=OgpKVi56iYyrqQb1XrLNVi7ftcITPhmk6C7+krOK81I=; b=NzhE4WrAx6sZNQUV4/SVRdwpX1
+	6Xt5b3BQMx6CM6lrifP4tOmcFTEPbB2/61J9kecr/gJvgzWS+IGsuRTW1yM+/spsRSki3b5pvmzxW
+	p69T2L2cWesX2gauOjZ1EA7x0kP/6vGP0qVHV94jhbUh3KqJz8Y8vvwfZ2YI8MYLEGgc=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xSwzV-00GvKE-JM; Mon, 16 Nov 2026 14:43:25 +0100
+Date: Mon, 16 Nov 2026 14:43:25 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: 1579567540@qq.com
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	David Wu <david.wu@rock-chips.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH net-next v3 0/2] net: stmmac: Add RK3572 support
+Message-ID: <d9114295-47ac-4fa7-ab4a-db631a46b363@lunn.ch>
+References: <20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a@qq.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,22 +78,62 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261116105113.128791-1-theodorlarionov@gmail.com>
+In-Reply-To: <20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a@qq.com>
 
-Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com> wrote:
-> nf_dup_ipv4() and nf_dup_ipv6() duplicate the packet with pskb_copy(),
-> which leaves the headroom uninitialised but keeps the mac_header offset.
-> On LOCAL_OUT and POST_ROUTING, an nft payload read of the link-layer
-> header of the copy loads those bytes, and a set element can return them
-> to userspace:
+On Mon, Nov 16, 2026 at 03:39:13PM +0800, Cunhao Lu via B4 Relay wrote:
+> This is one of the subsystem submissions for RK3572 support.
 > 
->   BUG: KMSAN: kernel-infoleak in _copy_to_iter
+> This series adds the RK3572 GMAC bindings and support for both Ethernet
+> controllers in the Rockchip stmmac glue driver. It provides RGMII and
+> RMII mode and clock control, together with RGMII delay configuration.
+
+
 > 
-> Unset the mac header of the copy, as for a locally generated packet.
+> The RK3572 SoC has eight CPU cores: two Cortex-A73 cores and six
+> Cortex-A53 cores. It also integrates an Arm Mali-G310V2 MC1 GPU.
+> The OK3572-C board provides two Gigabit Ethernet ports, three USB3 Type-A
+> ports, a Type-C dual-role port, eMMC, microSD, and UART.
+> 
+> Testing was performed with Debian 13 minimal and Linux 7.3 on the
+> OK3572-C with the FET3572-C module.
+> 
+> Passed functionality:
+> 
+> - SD and eMMC complete the firmware, kernel, and root filesystem
+>   boot chain.
+> - UART console works at 1500000 baud.
+> - SD read/write and data persistence checks pass.
+> - All eight CPUs start; CPU frequency scaling and hotplug checks pass.
+> - Both Ethernet ports obtain IPv4 addresses and pass bidirectional file
+>   transfers.
+> - All three Type-A ports pass USB2 and USB3 enumeration, data transfers,
+>   and reconnect persistence checks.
+> - Type-C host and device modes pass in both plug orientations. Physical
+>   reconnects correctly select the expected device, host, and device roles
+>   in sequence.
+> 
+> Stability:
+> 
+> - Repeated cold and software reboots complete on SD and eMMC without data
+>   integrity failures.
+> - A combined CPU, memory, network, SD, and USB3 stress test completes
+>   without a crash, lockup, CPU offline event, or thermal shutdown.
+> - Ethernet error and drop counters do not increase during bidirectional
+>   network tests.
+> 
+> Build and checks:
+> 
+> - The kernel, modules, and board DTB build successfully.
+> - The series passes checkpatch with --strict.
+> 
+> Untested hardware and paths:
+> 
+> - NPU
+> - PCIe
+> - GPU, video output, and audio
+> - Other low-speed external interfaces
 
-Why force users to work around this?  I think it would make more sense
-to __pskb_copy_fclone() to check if the copied mac_header offset is
-now in uninitialised headroom and then resets it.
+Most of this is irrelevant for netdev. Please write your merge commit
+message for the subsystem doing to merge.
 
-Otherwise we might have more places that need fixing, resp. will
-re-introduce this issue in the future.
+Andrew
