@@ -1,59 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794837263;
-	b=3xf996+0EVq+3qVytD6SdmRIIPrQz9YO22noi+J7lMOBMvuQeo+WUd0dwxe7ckpuPxDl
-	 c/yRx8qfjQGJCUM9okpmr/JJ1MbfskHZ4d1JlbMcCGkOiTMKWxLZ5snwWPYT1IBPmgJ+v
-	 J3AyWxMwLn+CJYJaSym5ZU3hONEk0rPg2G7SVqqBV+4HDG7SLLcL/PwnB0h+mH8/JKs5f
-	 ddo7fYgt1oPdt7XDK19sX5dV4S0kul/A5JeuIkgqAV3vw5Gfue0hC13Y+H2w7RZ6AESh+
-	 vmuOOrgL/jt/JN2+m+5wfgcivPeZeHpVzUsDtAe1+IACs3NAayCb0JR6jgEnMqDl4sQ==
+	t=1794837272;
+	b=AdUNGqLYDuuUvmCCy8cFLJJN6dPJ2mU6u7gJv2sxbGMOc/OQAuHgwZSdunnFRLRR0J06
+	 2TX6SFQM/XYtvrEjkpR0q1rxVMhXU2oymR5ZYQ+i62jFxhMJJFPjLjVjIT+IlBpIkcF2l
+	 /ULyPo/vKkwcv/13pA4dtRGYaXNoAzzUTFKaLH0MAqMagw1WcTV1R7jf+SjyX4pl8xTlh
+	 LkiSRVF19rEiGTedx/tJz6bFqPt5f3I28bEvr8iFcYHtk9LA18d0QgcITFBsOwidvL+G6
+	 GAMGCwABO1MZt1wt3c3Anl7BEdd4OL2A6oFoXSP0KWaw8++v9+CUeGAnvWwi0xnZ5MQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794837263;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794837272;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=8Qmd3zTWqxKS9EXQprMTTNgzTyEpTck3iz7Im4ijSnc=;
-	b=uSbTy2GnObbgKBZGRAQ1F8CnKBMYDu+gmk5dvD5fCyr2MSTj+9Fw+R0F7XdzBUpFkHQC
-	 crEebxlsNvgHVULWZbOvqSSi0E8Xm+glO1Ijmx2mx31vz3EW6REE9qGP2R4fiA7thMnnf
-	 gthFYF/q9/IKUVypIyVSgpoBbN9Gz0r4B7/HiqQo6S51wn/xGdDmo9P8UZsPBJCbiD/nd
-	 eWOVujTWik7a0rtp7hv2w9VFIoF9HnBixKxM1/biH0d8hJbrBi1Zz7/KwgR8iq9QvjARI
-	 67KTktaLmvaRJ0VXKWhgcmToaNy7SBcPQpvAYFyO0F+MXbqQTu8Q8VO6kvrXaqq1Xog==
+	bh=f2Q5INHps8CgWYe8Z/tRA0v/mRlLliNxSIPqAqP1nD4=;
+	b=14yWhX0ZUc9CrZ9wwR8Lti9bCogj702fVzi3d8ZECsfFgrN2TiEXqqTYeAVD6VZboZMZ
+	 PTrL6VbhPgufaNHoNa+pHouc3ezFn2XcV61s8tWiy5FiZ5LHohsvGyA1bbY1UCiHxIuij
+	 yiMz6LqZaYbXMwaBhqGfQx8zx6IOZwsJLE710HvxtOLlvO/iHHaqqXOgSocyeZE10dcOv
+	 lvem1tF5yc9rPQcH84DJFJF8Yo1SQdsGWEa5B2pJRlrxAL23y/bMQqCHbhx8kAYC4cEe/
+	 uzwkv6Da8gCu3Kas0g364pFbS5r1vi6k1ul3m8JWRbzFRyCr5j+9VGRPlhZiaxE0qRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aXXZ3Wb2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YsmekRUP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 590DB606A88A;
-	Mon, 16 Nov 2026 13:54:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C9EA60A2636;
+	Mon, 16 Nov 2026 13:54:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aXXZ3Wb2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4943E1F00926;
-	Mon, 16 Nov 2026 13:54:22 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YsmekRUP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2D921F000CB;
+	Mon, 16 Nov 2026 13:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794837263;
-	bh=8Qmd3zTWqxKS9EXQprMTTNgzTyEpTck3iz7Im4ijSnc=;
+	s=k20260515; t=1794837272;
+	bh=f2Q5INHps8CgWYe8Z/tRA0v/mRlLliNxSIPqAqP1nD4=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aXXZ3Wb2PNRSc9/G8cAutp7a+2N0wKqh39UAGy2QW/aSh5iOIonPvxTASxV7ZoEzv
-	 XXt8CNX7o9ay65yjAitxSzvaD3hAaG5rIix7KLI1vI+GPYgo9BFppZLfuGO1Z1jOve
-	 mVB5P0OfN6QyNbEE8YjVMQTt7VMUnVnqQFxlDIESS1qkGuSb7nhctPrzSDLFXteNE8
-	 R1z0WG9EbM6BgH1QN1ckH2XZNfUrnfAr2H/7Eyy3Mh1j4PR76Ef7Thr3Ul8mgrywF5
-	 CgSM4s9AW4Ppg6ab8eAj1WZMiseLUFMfV/laQYz26njL7zCLS8vhN2mCaAgPV6kFlq
-	 FID81WU+efegg==
-Subject: Re: [PATCH net-next v6 6/7] net: ftgmac100: Add AST2700 upper DMA
- address support
+	b=YsmekRUPgihP5LeFNecvW6m74jLjk5PIhw5udNGkh2Oaf2qildpkCuaSODBjLpFLC
+	 oHAz1Mq/nbbTIRtqC13OkJxpOrFca93eq45v7wx+nZtqYciNxBt529deGV5aQQyEN6
+	 0+XiV2gKb5cdcwxmWL30xRgPJB4qVF+6QoSOHHwW2RostqSquJQrEIqoXqS+kCjoVS
+	 j5dm//w5UWgrlMcMty7pBlUNXjklhV0+EPl6xsGQ6jluEPhp38VCjRdG4uCnQbjZnk
+	 J9E6SmAHjvXK+btwqO6wtFMAMv6I+qkFLw8toSE/FQ+sbnf2949H00L7ljCzyAQOSG
+	 TGVLRiQfStibQ==
+Subject: Re: [PATCH net-next v6 1/2] dt-bindings: net: qcom,bam-dmux: Add
+ memory-region and qcom,vmid properties
 From: netdev-bot+sashiko@kernel.org
-To: jacky_chou@aspeedtech.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- ratbert@faraday-tech.com, edumazet@kernel.org, hkallweit1@gmail.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, andrew@lunn.ch
-Date: Mon, 16 Nov 2026 13:54:21 +0000
-Message-ID: <179483726184.3136.10135612629435756137@kernel.org>
-In-Reply-To: <20261112-support_ast2700-v6-6-238020bf46cf@aspeedtech.com>
-References: <20261112-support_ast2700-v6-6-238020bf46cf@aspeedtech.com>
-X-sashiko-severity: Medium
+To: vishnu.santhosh@oss.qualcomm.com
+Cc: stephan@gerhold.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
+ johannes@sipsolutions.net, edumazet@kernel.org, linux-arm-msm@vger.kernel.org,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, deepak.singh@oss.qualcomm.com
+Date: Mon, 16 Nov 2026 13:54:30 +0000
+Message-ID: <179483727050.3136.1539014411037771065@kernel.org>
+In-Reply-To: <20261112-qcom-bam-dmux-vmid-ext-v6-1-7a16bd3dff18@oss.qualcomm.com>
+References: <20261112-qcom-bam-dmux-vmid-ext-v6-1-7a16bd3dff18@oss.qualcomm.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -69,7 +70,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -77,114 +78,128 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] On AST2700 (FTGMAC100_QUIRK_DMA_35BIT), the driver stores DMA
-  address bits 34:32 only in RXDES2[18:16]/TXDES2[18:16].
-- [Low] The new register-map comment in ftgmac100.h says '/* reserved
-  0xcc - 0x178 */', and the patch defines only…
+- [High] The series confines only the BAM-DMUX client's own DMA mappings
+  to the restricted-dma-pool.
+- [Low] The patch adds the Shikra-specific compatible `qcom,shikra-bam-
+  dmux`, but the only placement the driver supports cannot pass schema…
 
 --
 
-net: ftgmac100: Add AST2700 upper DMA address support
+dt-bindings: net: qcom,bam-dmux: Add memory-region and qcom,vmid properties
 
-On AST2700, this patch programs the high halves of the RX and TX
-descriptor ring bases. It also stores DMA address bits 34:32 in bits
-18:16 of rxdes2/txdes2, and rebuilds the full address from the
-descriptors before unmapping. A 35-bit DMA mask is set, and all of this
-is gated behind a new FTGMAC100_QUIRK_DMA_35BIT match-data quirk.
+This patch adds optional memory-region and qcom,vmid properties to the
+BAM-DMUX binding. With them, DMA mappings can be confined to a restricted
+DMA pool that is shared with the modem through SCM. It also adds the
+qcom,shikra-bam-dmux compatible, with qcom,bam-dmux as fallback, and
+requires both new properties for it.
 
-> diff --git a/drivers/net/ethernet/faraday/ftgmac100.c b/drivers/net/ethernet/faraday/ftgmac100.c
-> index 5a578a62df673..263594de0e072 100644
-> --- a/drivers/net/ethernet/faraday/ftgmac100.c
-> +++ b/drivers/net/ethernet/faraday/ftgmac100.c
-
-[ ... ]
-
-> @@ -601,6 +612,9 @@ static bool ftgmac100_rx_packet(struct ftgmac100 *priv, int *processed)
+> diff --git a/Documentation/devicetree/bindings/net/qcom,bam-dmux.yaml b/Documentation/devicetree/bindings/net/qcom,bam-dmux.yaml
+> index 33746c238513d..f7388d24c8612 100644
+> --- a/Documentation/devicetree/bindings/net/qcom,bam-dmux.yaml
+> +++ b/Documentation/devicetree/bindings/net/qcom,bam-dmux.yaml
+> @@ -22,7 +22,11 @@ description: |
 >  
->  	/* Tear down DMA mapping, do necessary cache management */
->  	map = le32_to_cpu(rxdes->rxdes3);
-> +	if (priv->quirks & FTGMAC100_QUIRK_DMA_35BIT)
-> +		map |= (u64)FIELD_GET(FTGMAC100_RXDES2_RXBUF_BADR_HI,
-> +				     le32_to_cpu(rxdes->rxdes2)) << 32;
-
-[Severity: Medium]
-Is it safe to rebuild the unmap address from rxdes2 after the MAC has
-completed the descriptor?
-
-The driver keeps no CPU-side copy of the mapped dma_addr_t. Bits 34:32
-are stored only in RXDES2[18:16], and in TXDES2[18:16] on the TX side.
-
-In ftgmac100.h, struct ftgmac100_rxdes still describes rxdes2 as a field
-the hardware writes:
-
-	__le32	rxdes2; /* length/type on AST2500 */
-
-and struct ftgmac100_txdes still calls txdes2 reserved:
-
-	__le32	txdes2; /* Reserved */
-
-Neither comment is updated. Nothing in the patch or the commit message
-says whether AST2700 leaves bits 18:16 alone when it writes the
-descriptor back.
-
-If the MAC writes any of those bits on completion, dma_unmap_single()
-gets the wrong 35-bit handle, both here and in ftgmac100_free_buffers().
-The real mapping or swiotlb slot would leak, and the call could sync or
-unmap a different mapping. ftgmac100_free_tx_packet() relies on txdes2 in
-the same way.
-
-The drop label in ftgmac100_rx_packet() also rewrites only rxdes0 before
-it gives the descriptor back to the MAC:
-
-drop:
-	/* Clean rxdes0 (which resets own bit) */
-	rxdes->rxdes0 = cpu_to_le32(status & priv->rxdes0_edorr_mask);
-
-In that case, would the next frame be DMA'd to the same low 32 bits but
-in a different 4 GiB window? A remote sender can reach this path with
-runt, CRC error, oversize or fragmented frames.
-
-Can the AST2700 writeback behaviour for RXDES2/TXDES2 bits 18:16 be
-confirmed? Alternatively, would it be safer to keep the full dma_addr_t
-on the CPU side and update the descriptor comments to match? Any later
-controller that opts into FTGMAC100_QUIRK_DMA_35BIT would inherit the
-same assumption.
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/faraday/ftgmac100.h b/drivers/net/ethernet/faraday/ftgmac100.h
-> index 8c35c895b1465..0c244b1c0a351 100644
-> --- a/drivers/net/ethernet/faraday/ftgmac100.h
-> +++ b/drivers/net/ethernet/faraday/ftgmac100.h
-> @@ -57,6 +57,9 @@
->  #define FTGMAC100_OFFSET_RX_RUNT	0xc0
->  #define FTGMAC100_OFFSET_RX_CRCER_FTL	0xc4
->  #define FTGMAC100_OFFSET_RX_COL_LOST	0xc8
-> +/* reserved 0xcc - 0x178 */
-> +#define FTGMAC100_OFFSET_TXR_BADDR_HIGH	0x17c
-> +#define FTGMAC100_OFFSET_RXR_BADDR_HIGH	0x18c
+>  properties:
+>    compatible:
+> -    const: qcom,bam-dmux
+> +    oneOf:
+> +      - const: qcom,bam-dmux
+> +      - items:
+> +          - const: qcom,shikra-bam-dmux
+> +          - const: qcom,bam-dmux
 
 [Severity: Low]
-Is 0x178 really reserved?
+Will a Shikra DT that uses this compatible pass dtbs_check?
 
-Both HIGH registers sit at +4 within a 16-byte aligned block. That looks
-like per-ring {LOW, HIGH} pairs: TX at 0x178/0x17c, possibly high
-priority TX at 0x180/0x184, and RX at 0x188/0x18c. The comment also
-doesn't cover the 0x180 - 0x188 range.
+The bam-dmux device is only created from a child of the PAS remoteproc
+node:
 
-Related to this, ftgmac100_init_hw() writes the low half to the legacy
-register and the high half to the new one:
+drivers/remoteproc/qcom_q6v5_pas.c:qcom_pas_probe() {
+    ...
+	node = of_get_compatible_child(pdev->dev.of_node, "qcom,bam-dmux");
+	pas->bam_dmux = of_platform_device_create(node, NULL, &pdev->dev);
+    ...
+}
 
-	iowrite32(lower_32_bits(priv->rxdes_dma), priv->base + FTGMAC100_OFFSET_RXR_BADR);
-	if (priv->quirks & FTGMAC100_QUIRK_DMA_35BIT)
-		iowrite32(upper_32_bits(priv->rxdes_dma),
-			  priv->base + FTGMAC100_OFFSET_RXR_BADDR_HIGH);
+So on Shikra the node has to sit under the qcom,shikra-mpss-pas node.
 
-The TX ring is set up the same way, using FTGMAC100_OFFSET_NPTXR_BADR
-and FTGMAC100_OFFSET_TXR_BADDR_HIGH.
+Documentation/devicetree/bindings/remoteproc/qcom,shikra-pas.yaml does not
+define a bam-dmux child and ends with unevaluatedProperties: false. The
+qcom,pas-common.yaml schema it references does not define one either.
 
-Does AST2700 combine the legacy 0x24/0x20 registers with 0x18c/0x17c,
-rather than using separate LOW registers at 0x188/0x178?
+Should the series also update the Shikra PAS binding to allow the
+bam-dmux child node?
+
+[ ... ]
+
+> @@ -72,6 +76,22 @@ properties:
+>        - const: tx
+>        - const: rx
+>  
+> +  memory-region:
+> +    maxItems: 1
+> +    description:
+> +      Phandle to a reserved-memory node compatible with restricted-dma-pool.
+> +      The BAM-DMUX device uses the pool for DMA mappings.
+> +
+> +  qcom,vmid:
+> +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> +    maxItems: 1
+> +    items:
+> +      minimum: 1
+> +      maximum: 63
+> +    description:
+> +      VMID of the remote execution environment that is granted access to the
+> +      restricted DMA pool through SCM.
+> +
+
+[Severity: High]
+Does this also cover the BAM descriptor FIFOs, or only the bam-dmux
+buffers?
+
+Only the bam-dmux node gets the restricted pool. qcom_bam_dmux.c maps the
+skb buffers with dmux->dev, so only the payload buffers go through the
+pool. The descriptor FIFO is allocated on the BAM DMA controller device
+instead:
+
+drivers/dma/qcom/bam_dma.c:bam_alloc_chan() {
+    ...
+	bchan->fifo_virt = dma_alloc_wc(bdev->dev, BAM_DESC_FIFO_SIZE,
+					&bchan->fifo_phys, GFP_KERNEL);
+    ...
+}
+
+That address is then programmed into the hardware:
+
+drivers/dma/qcom/bam_dma.c:bam_chan_init_hw() {
+    ...
+	writel_relaxed(ALIGN(bchan->fifo_phys, sizeof(struct bam_desc_hw)),
+			bam_addr(bdev, bchan->id, BAM_P_DESC_FIFO_ADDR));
+    ...
+}
+
+The follow-up commit "net: wwan: qcom_bam_dmux: Assign restricted DMA pool
+to remote processor" says "BAM-DMUX DMA mappings and BAM descriptor FIFOs
+must therefore be constrained to a designated memory region", and that
+accesses outside the region can trigger an XPU violation. It relies on
+"When the BAM DMA controller references the same pool, its descriptor
+FIFOs are covered by the assignment as well."
+
+However, Documentation/devicetree/bindings/dma/qcom,bam-dma.yaml does not
+define memory-region and has additionalProperties: false. The
+dma-controller.yaml and dma-common.yaml schemas it references do not
+define it either.
+
+With a schema-valid Shikra DT, wouldn't bam_alloc_chan() allocate the
+FIFO from ordinary memory outside the SCM-assigned region? The BAM
+descriptor fetches would then land outside the shared region.
+
+Should the series also extend qcom,bam-dma.yaml to accept memory-region?
+It may also need to check how iommus interacts with
+of_dma_set_restricted_buffer(). Failing that, could one of the bindings
+document where the descriptor FIFO has to live?
+
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-support_ast2700-v6-0-238020bf46cf%40aspeedtech.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-qcom-bam-dmux-vmid-ext-v6-0-7a16bd3dff18%40oss.qualcomm.com
