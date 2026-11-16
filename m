@@ -1,49 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.92.39.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794804333;
-	b=W2SmZ5dHzk6Neelr7cVoWfRTLzkDOUweqGr6GUkm+Ikj27ostkxiBAHexTJLPMfVR+gg
-	 TLXSAJtYXuFwusHzmV23TerGoIGGRn1NMjj8O7b1aHGBwTcx1O2Kwc3TMHa7WHf/OTaUI
-	 V/drsfiolUDXZw2icH5TlfTbyzu5qcMzpbhgp+Xaeu4arRGgGHAJZOFsQ2RrCj7JfPoaw
-	 rtWR+gfQFq9IqPLM86O40oRuwoiqsKSQIbnO7BBvIgIRrL9qCeBhnDR14KnOf1r7PeTxE
-	 9bpWpkeCDjOWCg7+uRQ2jjOJHZnWPsMdFMqVkB1d4xGSHrp8PO5WzPmmfashhNCe73g==
+	t=1794804510;
+	b=dJQ/hOE2UWodw2vZocFBqI6Zveiq/gFLPz3P7ho76sBKFGTU4htdwsuWkZTHkcvmC7cv
+	 oY8od+i234FfY5I2D+xkRhYHknqtCH5Eeyn3EhCjvWeWJdyDMBuP8N6U2Mzg70mkZYg0K
+	 FDozTua4CskZFUlZs7JqXEwrkLBWu7jlfz0R5tKugelp3yCSSHwB6xi0i2RbX/kDeZtUJ
+	 /5igrtEEr6fUEEWAduvJyeh71sPR1VywrZuKwZ2O28lhDliKrNbEuROHtrxass6hGms89
+	 hyxEGC3SuvK+sbJwNiiuiTyrXqm19kc7/i7YBL94qFZ20v3Y8z7x4b0O5W1kk8dTSPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794804333;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=C1nXCu3xpUAPoWbsrSdR5ivMdPwVi+OL8YN1z8S9pu8=;
-	b=Xtuy5u9BgjEmJywl7gC5zcHn1jwHlhfpmFujji0DK8NTcc+2PilEGaRpjuP8OpoWxXfk
-	 +iumEZ43OK32YQa9rmE6SoQFB2R7E0UoJdn0luueZZojuBoCl9HBQDPEWgeT0XZ+td0TA
-	 3ub54wXlDvpnka3b85RYrqTlXta/8xiBO2cZv637tgqcKknJerVz9SezLtkYYcRc2YloN
-	 4DZ5UGPzjCmcqDICcVfEZSoqiLzCKWf6Wcjv/xwKJVeu2lXuPZg85TkqH1PiOO0OBW8g9
-	 mRKN7LqCgeE4NRe+JAu/2SUugdHHWzwwCnTrG6yYaIUzFdFkznKSA1pnRa9qa2J/HMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794804510;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
+	 X-QQ-RECHKSPAM;
+	bh=PGVxYtVa34yvZ+9qqL8SMqtJg1pDmzI4evt177Od7oY=;
+	b=PkhP5EV4YmHJQb8Tdo24s4LnDuugxRiBd51eKdQbceKeLUl+4ukDVhrT1XsDraoIk9t9
+	 Gt4bd8iKojvhF5wryrTv7Ev44n5fA9LtybN8oESs1NqJbjapD5sjzdUm1+kBiGFFB1rWM
+	 zMbZeUTrzaXcXsAVFpFeaAgODhaQcolEeXRTk/8cAKKD4+yD+ubgebudAtpsniocFJmtH
+	 RRbwAt2vSZGlNrQVcamuVgkpVLsunnzGo7hHMIzM65VUs72/xUv+1ggzYvc/Ui/CF+NYw
+	 qdUvDTYwWZg+Bc9LSd/BkhkI9oWUtRX1rX6gl1LYQ/grAOxeudjqwYgqLGID7k5f3zA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G1mzUkq7;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=mucse.com;
+	spf=pass smtp.mailfrom=mucse.com;
+	arc=none smtp.remote-ip=54.92.39.34
+Received: from smtpbgjp3.qq.com (smtpbgjp3.qq.com [54.92.39.34])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22EC7606A321;
-	Mon, 16 Nov 2026 04:45:33 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G1mzUkq7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BACD11F000C6;
-	Mon, 16 Nov 2026 04:45:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794804333;
-	bh=C1nXCu3xpUAPoWbsrSdR5ivMdPwVi+OL8YN1z8S9pu8=;
-	h=From:Date:Subject:To:Cc;
-	b=G1mzUkq7FFJ5EOZDTloszthKxKlWQ0lUybewTZqXEXxg4IQnpev8qo4P4+fKJu2g6
-	 ARqO4Lb9tj4zuN9Blv1H5Oj4YWPP1vwQjhoWOE76RLCCfiLxh8J10VHXn/JOgZJINi
-	 VLl8MikDAU8nLa4meS/aXUxpOWdu1OcOFJpuQzGarWcd7tJnvDnH3UuW3Wamzb/ySB
-	 /gXy5eH4jmwjgnjDRR1ZIXcDT5Ry8YjwVtkzFmTSzLCB4hwXpzlj5Fngu1kxWZJ3A9
-	 e/VpiK2nxbroVa7yh6KWeO7jPAoxbJGwukl4ZG0ws3R7nX3M7/A8scKnI93guL+PKh
-	 vp/PWy8cFh/wg==
-From: Nathan Chancellor <nathan@kernel.org>
-Date: Sun, 15 Nov 2026 21:45:22 -0700
-Subject: [PATCH net v2] qca_spi: Avoid unsequenced accesses to jiffies in
- qcaspi_netdev_tx_timeout()
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 48E7E606A31C;
+	Mon, 16 Nov 2026 04:48:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 48E7E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
+X-QQ-mid: esmtpsz11t1794804459tffb983d8
+X-QQ-Originating-IP: QwzR3JU7LTo6oRYc83IIO48GpCQyHsxxkFandPLZ2v4=
+Received: from localhost ( [203.174.112.180])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Mon, 16 Nov 2026 12:47:37 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 11810620712706261052
+EX-QQ-RecipientCnt: 10
+Date: Mon, 16 Nov 2026 12:47:37 +0800
+From: Yibo Dong <dong100@mucse.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	yaojun@mucse.com
+Subject: Re: [PATCH net-next v2 2/5] net: rnpgbe: Report link settings
+ through ethtool
+Message-ID: <2207C8DCDD49F5EE+20261116044737.GA1342898@nic-Precision-5820-Tower>
+References: <BD205A7832D36E7D+20261116030917.1329989-1-dong100@mucse.com>
+ <66AFF2810AB647C8+20261116031020.1330219-1-dong100@mucse.com>
+ <d7351f56-d4fa-4ba0-a0c6-c7bdf7aac460@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,84 +62,86 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261115-qca_spi-wunsequenced-v2-1-8cf32f12d546@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/32NwQ6CMBBEf4Xs2Rq2qRU8+R+GGFpWqJoWuoAaw
- r8LePc4kzdvJmCKjhhOyQSRRscu+CXIXQK2KX1NwlVLBplKjYhKdLa8cuvEa/BM3UDeUiXKDOm
- gNOpMKVimbaSbe2/aC3jqofiVPJg72X4VrljjuA/xs52PuMH/f0YUKLSRmJs81ZU5nh8UPT33I
- dZQzPP8BYwtMtzQAAAA
-X-Change-ID: 20261114-qca_spi-wunsequenced-a81e54616844
-To: Stefan Wahren <wahrenst@gmx.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- llvm@lists.linux.dev, stable@vger.kernel.org, 
- Nathan Chancellor <nathan@kernel.org>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2417; i=nathan@kernel.org;
- h=from:subject:message-id; bh=IgZPl7ILzzabDjruOxBCjVz4U4I25Kp8yanQCQxS3vg=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDFm/utLLtfhXHGiyED4pP3V/+9FDgTN49TevFV7M6PbE8
- p2xOOe6jlIWBjEuBlkxRZbqx6rHDQ3nnGW8cWoSzBxWJpAhDFycAjCRCycYGa57nb/kuZEr7d7j
- E68W7NxftODL92fynxaGsixSeSDxiaOM4b9z9pNj79cVpHTLGub7bG2Te7hXj99r9k9O9yAe35J
- pVzkB
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <d7351f56-d4fa-4ba0-a0c6-c7bdf7aac460@lunn.ch>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: McJfg7Aee/FZHZaIV3oLykZwMD59+ZK58lwnWmKMJDyQcThleV+PW4wa
+	7YomE/70RwVRzrrw/618siYLUo0+VlUnW2eV/rWf7O0re2EgNDUIUuCAnkyERCaOuaJQMe1
+	EBjqm+Xh0hYa/j6P6NnnWhs/smDTQ/xXgiPNl4ILkumyRQedPnKFCQcgpxfEFr42UqD58JM
+	3TDNXXfivcyQLnb21X3vJNbqi9dSKED4E97RbABv3tk5prwzHT71AnJaq0q65L+Mn0T7r7D
+	iPgG6vC64hU9VgOFX8G34GBsrv0i5pdb3WL1RKRnyRylEaJrYjs3TKGdfIUxGAB+a2cYk82
+	fLQD8P+K392ZBYuzhKKW7xR2zAtFdWit/x9RnO8x2EVWRjClpWHESNm4jfDHSt0fz+64k+B
+	x/6stjGGjVgb3Ra+VwmRP8uUo7yzCVIvvmc9BmgcVxPRWdSUqe+wjP6kyb4rPb95kMQdUhy
+	KxRNRkAehBHEEpSWapDSAHtD5yE6HqUpBUBPJmj8AVRKEgruznuMGuaWeYSEBseaNV7QyBv
+	U5wYO5GBlOz7NiTnW8xz4EH1qfaGAvZAdtK2bLE5uTccYfCANw+biCQMIosoReGpEUtObH6
+	12OEat7Y2Gv0ytQ7zLD1Pc07sZYNEm4xtG6V2gmlczlq3fo/evdm2Yz1JK0zjh3sv+bppkc
+	eiN5k4IyEgL/Bj9Rh910aRdgpwl6n9Bcz6CwcMg0vcObAfLrlMnHPTaMtWspdo4+m71frA8
+	G64Z2LAGCntgX1Zq+jo3Tc4HAzrJm3CCvpKVfke2yVGiSWMy70qfOkVppCjdyKAcmkN8IAL
+	GlgPf4CRnNa5PEMUuQ1AwPwWHazJMx7asXdFTmjvol1aqNOhLGElT+UWcbn6fMkyHgGa7Jg
+	MKz4TG0dEhrrWa3zH5WgQMhR/sT4GfnQ1W049WtJxBZMuvbwK94cGpUPc6tYzYhQDkqDlzz
+	B/7B7plqn1O8eWPMz5+CMcGgXglgIbZHe2Ahl7NAUY+VLjxAg2s0FxXeMvBJAV8TysQcJ12
+	VGZf5UGjlPehkh9lVftet3dfBVO9sWbEmiu0dJLpSskt56nZ2Q
+X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
+X-QQ-RECHKSPAM: 0
 
-After a recent improvement in clang to warn on unsequenced accesses to
-volatile variables [1], an instance appears in
-qcaspi_netdev_tx_timeout(), which can break the build with
-CONFIG_WERROR=y / W=e:
-
-  drivers/net/ethernet/qualcomm/qca_spi.c:805:16: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
-    805 |                     jiffies, jiffies - dev_trans_start(dev));
-        |                     ~~~~~~~  ^
-
-Per C11 5.1.2.3.2, accessing a volatile object is a side effect. Per C11
-6.5.2, unsequenced side effects on the same scalar object are undefined
-behavior. Per C11 6.5.2.2.10/12, the evaluation of arguments in a
-function call is indeterminately sequenced, meaning any side effects in
-the arguments are unsequenced.
-
-Printing jiffies on its own is not that useful for debugging transmit
-timeouts, so get rid of it to clear up the warning.
-
-Cc: stable@vger.kernel.org
-Fixes: 291ab06ecf67 ("net: qualcomm: new Ethernet over SPI driver for QCA7000")
-Closes: https://github.com/ClangBuiltLinux/linux/issues/2197
-Link: https://github.com/llvm/llvm-project/commit/955715460eaf9188c241c74750637fc82dfcc423 [1]
-Signed-off-by: Nathan Chancellor <nathan@kernel.org>
----
-Changes in v2:
-- Eliminate printing jiffies entirely rather than using a local variable
-  (Stefan)
-- Link to v1: https://patch.msgid.link/20261114-qca_spi-wunsequenced-v1-1-6b219b906db7@kernel.org
----
- drivers/net/ethernet/qualcomm/qca_spi.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/qualcomm/qca_spi.c b/drivers/net/ethernet/qualcomm/qca_spi.c
-index 38a779f4b866..249b4b549a12 100644
---- a/drivers/net/ethernet/qualcomm/qca_spi.c
-+++ b/drivers/net/ethernet/qualcomm/qca_spi.c
-@@ -801,8 +801,8 @@ qcaspi_netdev_tx_timeout(struct net_device *dev, unsigned int txqueue)
- {
- 	struct qcaspi *qca = netdev_priv(dev);
- 
--	netdev_info(qca->net_dev, "Transmit timeout at %ld, latency %ld\n",
--		    jiffies, jiffies - dev_trans_start(dev));
-+	netdev_info(qca->net_dev, "Transmit timeout, latency %ld\n",
-+		    jiffies - dev_trans_start(dev));
- 	qca->net_dev->stats.tx_errors++;
- 	/* Trigger tx queue flush and QCA7000 reset */
- 	set_bit(SPI_RESET, &qca->flags);
-
----
-base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
-change-id: 20261114-qca_spi-wunsequenced-a81e54616844
-
-Best regards,
---  
-Cheers,
-Nathan
+On Mon, Nov 16, 2026 at 05:19:35AM +0100, Andrew Lunn wrote:
+> > +static int rnpgbe_get_link_ksettings(struct net_device *netdev,
+> > +				     struct ethtool_link_ksettings *cmd)
+> > +{
+> > +	struct mucse *mucse = netdev_priv(netdev);
+> > +	struct mucse_hw *hw = &mucse->hw;
+> > +	u32 supported, advertising;
+> > +	unsigned long flags;
+> > +	u16 status;
+> > +	int mode;
+> > +
+> > +	status = hw->link_config.status;
+> > +	supported = hw->link_config.supported;
+> > +	advertising = hw->link_config.advertising;
+> 
+> These are accessed without a lock,
+> 
+The fields in link_config contain cached capabilities and configuration.
+They are initialized before netdevice registration, and subsequent
+configuration updates are serialized with ethtool queries by RTNL.
+Firmware link events do not modify this cache.
+> > +	ethtool_link_ksettings_zero_link_mode(cmd, supported);
+> > +	ethtool_link_ksettings_zero_link_mode(cmd, advertising);
+> > +	ethtool_link_ksettings_zero_link_mode(cmd, lp_advertising);
+> > +	cmd->base.autoneg = AUTONEG_DISABLE;
+> > +	cmd->base.speed = SPEED_UNKNOWN;
+> > +	cmd->base.duplex = DUPLEX_UNKNOWN;
+> > +	cmd->base.eth_tp_mdix = ETH_TP_MDI_INVALID;
+> > +	spin_lock_irqsave(&mucse->link_lock, flags);
+> > +	if (netif_carrier_ok(netdev) && hw->link) {
+> > +		cmd->base.speed = hw->speed;
+> > +		cmd->base.duplex = hw->duplex ?
+> > +				   DUPLEX_FULL : DUPLEX_HALF;
+> > +		if (status & MUCSE_LINK_TP)
+> > +			cmd->base.eth_tp_mdix = hw->mdix;
+> 
+> Yet these need a lock?
+> 
+link, speed, duplex and mdix are updated asynchronously by
+the mailbox event handler, outside RTNL. link_lock protects these updates
+and provides a consistent snapshot in the getter.
+> > +	}
+> > +	spin_unlock_irqrestore(&mucse->link_lock, flags);
+> > +
+> > +	if (status & MUCSE_LINK_TP) {
+> > +		rnpgbe_link_modes(cmd->link_modes.supported, supported);
+> > +		rnpgbe_link_modes(cmd->link_modes.advertising, advertising);
+> > +		ethtool_link_ksettings_add_link_mode(cmd, supported, TP);
+> > +		ethtool_link_ksettings_add_link_mode(cmd, advertising, TP);
+> 
+> Advertising TP? Can you point to some part of 802.3 to support
+> advertising TP to the link partner.
+> 
+You're right. Adding TP to the advertising bitmap here was a mistake.
+I will remove it from advertising in next version.
+> 	Andrew
+> 
+Thanks for your feedback.
 
