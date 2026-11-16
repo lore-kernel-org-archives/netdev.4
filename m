@@ -1,105 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.102
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794810168;
-	b=RhPfTzXtbHS6ynJcAthg+CpLjnqbBA55JwLX+Boim65RWbw9b6X9BjQBNNWB1POGbqMr
-	 jrFo/wgpBTqeoMnFj4vZMWKtpVLPaX9qmq21FylIzfKZ5Fu5RLiHO/Bpp5wNFO2C74w2G
-	 FJIOZ1mO/SyJ4pvwEPferfKr6evbnxhOa2iI1nd3rA2fiMz0T14SHOlJI+8U44PRsY71p
-	 +5Fk8IVyOotVQbjheYCrlOs0/zqHGvJabzOr4BjglBv7GCq9umrYxNCnMHJ8UZ615FwC6
-	 bYODv2IK5vcG+MTMs0tgJYue+Pu4OHLWpPFIGqA/0IJ99zCayAX5nHJXmFdnJIPaDYg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794810168;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=I66VCwB8U6KqMZqm/jOYZ89MwWUFsrGxIloB6REqzFg=;
-	b=IS3PKDruTk6LObfGQxzvV5h7ev73wh7HLiqd8a8rU+LV2aWngjLvx+EojtLSiPKanM3F
-	 WJG8aoHMEFZ5XU1S2QpjMqN+9dRoUJKDbU3OPNgBfFlWAGC1tbgDHXY0bJg4Ki/7RvOMA
-	 0gklH0BfPbzooNulsOI72DkiALmpyIlmlsZTZYhLG019mHEaxegDGQyJJOyMckxxYorQ4
-	 ABwKC4yHBTFJumpJRffaWHzHWPHcJzYd1AQXUlIzbeLb2RBcDkNOlk1Dy4eum82GCu8KP
-	 9CsapFb32ZZFHznl7CZGd4oz0LolrVArzekhjWIAr/LrsaWZwJkzn0dJGXqUQLodZrg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=axiado.com;
-	spf=pass smtp.mailfrom=axiado.com;
-	dkim=pass header.d=axiado.com header.i=@axiado.com header.a=rsa-sha256 header.s=selector1 header.b=gDfCVlne;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.61.102
-Received: from DM1PR04CU001.outbound.protection.outlook.com (mail-centralusazon11020102.outbound.protection.outlook.com [52.101.61.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794810346;
+	b=uddKqRTWEA1mbtWjxGCNPSwNegvQkJKi0ty3oF/ats9t2eRE1D+s5qQyAY4iRiblOSaS
+	 dNWa+Gi80UzGq+vQUsJN5Qzi1bW19tuVDzaFAUkrqQaOormf/e0sjGixNCEcFSSYfPjDY
+	 MYcI0PketYrRh7ssjZZ8TdGJgRaOj4YEbcS064F8GWuPeIPjYTDL6AqYyFIPa5YJyddiE
+	 eK++tNDbjTGWtJ1gTDuOPS/7qBhhUacvhDP9XYp8r2GE3H7Eb11Ny8QvBZjRJ78z4ceXi
+	 nJ4/UrbinMnNuwGQ005J7SlPcwsxaURsQ5puuBT1sdjitDCWnt3mL+TGWp1lIqAjWyw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794810346;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=hh+R9vrulIDsL2yY8DhJUoEG2kjxAgVjOVJwnKc/m0g=;
+	b=3EBOgc5lMMMqGpJxzgQ0Q5y3Tefg41ftlOdyqIVtHqqUaJ5mkvdzNQ18NrGN9+TD4PQO
+	 s6Bhd+BdBHrgTwog42yLBBbLTG2sBP/gKap7/+aFEstNDMqEGFHs+YuJ9G/MS99XGW3ps
+	 1hZBOu45+mmPDvto+zyOlNVDnxlFNF5PGBH94jYL9D5FftZId93TuX+Mp7wuJXskv6/Tt
+	 E+RA338sWDGLIeszq2NXe+XTWSfUpmND1qyZ7MpjMv8vVnBiTYsfwJ+gavpsScvNlx5pc
+	 G+N11xY+6eR8a6i/Ck9tPe4eo1jTHspNHoi+xG6Ub0rz50hKgmepsXpNkoF0XdjrLqg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oufns9FU;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01D9E606A323;
-	Mon, 16 Nov 2026 06:22:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01D9E606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=axiado.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=axiado.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93F57606A329
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:25:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93F57606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=axiado.com header.i=@axiado.com header.a=rsa-sha256 header.s=selector1 header.b=gDfCVlne
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ciw3xGxwS9VWwBwyjQEYyHEEY1qvYOXlHfstUk1hy5m8ks96oyk0JTwqg/7aiTcCWPdYTV77HucmMicM328ofs87TPqkMfsyXb1R3obcEsFf5Dj5cIqBMrn4xq486sAsT1EnfNmByApC0ksrlQt0iAFt3xF/aLiNcH9gzjpAIMLM4ST1NM63dCWeZDgfx57ZkhI1vQWSRW8h3EqfziuPpSW83PsvCMSmo74eqtvQhYXm+21o4Bvt0DBuSxbHlsfGEIxRiPupujbLXMNFY/k3BOwDczhpDsWmvgX8Pcp0aYaH1egB1eww63Hk4QRZE/t4nvay9KtvkRZl6G6hky6dOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=I66VCwB8U6KqMZqm/jOYZ89MwWUFsrGxIloB6REqzFg=;
- b=w/V4hRQdsQ1i4Zsd5zbJWMtawoME2wMS98btopkF5haaomsTIxegRDOxcfx9nb0shlUtLFXdY4PPm4tOKa1GL3tpamqc8mgQo6ElFeGmYrdqyCotP4Dpe0kl7xkeQSd4+KI46b+yWN/fm9/xnqjF51vUClDM5+kwFBomzaC4SUNmfR7XRGvbosL/oIBbj64TSLkLA6qXG1IWM8pfvBrVSFTQ0seBioOmoqL3ugrSbnLVM2hGbp4eHKVEghlPGOTDYEGW39y9NrXkNOjTPJopddxeOxDyMUWqY82WJdde1gYWsM/Ej8yiAb4/KhEpatBveyjYQ2WKgH/VQe2qgSvQJw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=axiado.com; dmarc=pass action=none header.from=axiado.com;
- dkim=pass header.d=axiado.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=I66VCwB8U6KqMZqm/jOYZ89MwWUFsrGxIloB6REqzFg=;
- b=gDfCVlneglpkenvumjIUvBtLqH/sXS/r1iVipglRNqmmMCQQFz/c+NHpFDRTpMuJ11Pq+3XZnI8x0ngDT/nU259hxhfSqZDFy4nSUt6bEonsO7ndwpIuWe2e1eJaEkPDx3UzjP8AWupSWjQAfC4k+C9nVH9fZU0vHQMxz1nd/WRfudPZmdvVVtMYUljbRQu6pUVuST1OXkhzlgSBK4DGOP3vRSjHbiYewzm4Nh58GJ/zxpEYMj7SEqvPDDkwyjLqPg8GjBlFqlfMBxbnVmDjnHzIx2Xsy9KyZSeg15Jp2gGAeVDlbNJj0XXmYdvC0kn4gA09VHyX0W0S0rBxLRcJGw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received: from CH3PR18MB5671.namprd18.prod.outlook.com (2603:10b6:610:1a3::11)
- by LV3PR18MB6132.namprd18.prod.outlook.com (2603:10b6:408:275::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
- 2026 06:22:09 +0000
-Received: from CH3PR18MB5671.namprd18.prod.outlook.com
- ([fe80::d361:9d9c:4a15:4b84]) by CH3PR18MB5671.namprd18.prod.outlook.com
- ([fe80::d361:9d9c:4a15:4b84%3]) with mapi id 15.21.0615.013; Mon, 16 Nov 2026
- 06:22:08 +0000
-Message-ID: <f752d203-8239-4203-aa04-884b4d7e5d80@axiado.com>
-Date: Mon, 16 Nov 2026 11:52:12 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/2] net: mctp: Add MCTP transport for the Axiado
- AX3005 IRoT
-To: Jeremy Kerr <jk@codeconstruct.com.au>,
- Sammai Chakravarthy <schakravarthy@axiado.com>,
- Prasad Bolisetty <pbolisetty@axiado.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Tzu-Hao Wei <twei@axiado.com>,
- Karthikeyan Mitran <kmitran@axiado.com>,
- Matt Johnston <matt@codeconstruct.com.au>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- openbmc@lists.ozlabs.org, Adam Young <admiyo@amperemail.onmicrosoft.com>
-References: <20261101-mctp-transport-irot-ax3005-v1-0-36ceb822f01e@axiado.com>
- <4102c20ece135c4d94e94af4441a01425ad159fc.camel@codeconstruct.com.au>
-Content-Language: en-US
-From: Akhila Kavi <akavi@axiado.com>
-In-Reply-To: <4102c20ece135c4d94e94af4441a01425ad159fc.camel@codeconstruct.com.au>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA5P287CA0359.INDP287.PROD.OUTLOOK.COM
- (2603:1096:a01:219::10) To CH3PR18MB5671.namprd18.prod.outlook.com
- (2603:10b6:610:1a3::11)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Oufns9FU
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-4922dbcee23so1366026f8f.0
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 22:25:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794810345; x=1795415145; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=hh+R9vrulIDsL2yY8DhJUoEG2kjxAgVjOVJwnKc/m0g=;
+        b=Oufns9FU7gTCAnvw/5Ne3qibyioMzC2ROoGKC9dhHe/MbsoqGf36w9lbEYv9qtD9tR
+         lAkeIVMfLH1U41xdEO68gPhFFCWY7J+XL5Ngmlh3iFnCRCUWTvrEbD297nBp9900r6wU
+         KFPo0XxG1PGnywRc7ddO4j76ubXFlC95ajAeCrCkTI7l+nPEzVMgZo5sq6+oOIcE5pRu
+         96mEBfc2/n6xibkVjEO7O+2aKvgqeY1HeLE3ndbjQX1dxG4sNh9m1Llr/HWvmS3Y+EAd
+         nmuWoW5+9gAUqbXBiEgAg7eVtHCgjp7zbVSNMxFouwsHxi0hu7FWElkBa5c5IPdyXkLZ
+         Q+2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794810345; x=1795415145;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=hh+R9vrulIDsL2yY8DhJUoEG2kjxAgVjOVJwnKc/m0g=;
+        b=h+NliysMKZyfoQ+ueEQSjadhZIUITzWDYHm+A2HkydRgWnrJT73W1WusfLOF+3mM+R
+         /EmtHZCcGl9xNeQWNz/HxjXPyplPP01idPwQYL0Cw3KTQtfOaafCH0gfgD8JANRHHEYv
+         46JfEBUdnMOX8Kk5YAfVIAdIdjKPbmkUlyt218xQhB9JFZbnjDzgRySZ9n6VgY/B2KfY
+         +Ev4TfDIGz/dEj9uH+9hC4W77hvw60MGpCrcMrfloB9UYwX8s69dCrtwwZ+7YFzgRkO7
+         N3twN8MdH7OtjBFKAU9q8x5cieomYkAhk76dkGWMK58THgxX5WKWWLh7sCUVTmTnOpDm
+         41Zg==
+X-Forwarded-Encrypted: i=1; AL+hErEsBTDi1PYqyi7xkqAlZrYKsHioE7Ado5hdwlfn6R0HTdjhntNULY+TMY2hkhxT6x5q9qXdFSY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8CfbMHKYX9IVODWIhRAS5yX5hBMcbKorcWDEDYYCnngdVKGmQY
+	lvP2DuoIgSSUw8fTr3Ueoxs2yc55Ftk1k7rEL9uAZR9vbSk0rX19ddmXHB4kAXKVpxTmJiKw
+X-Gm-Gg: AYBFou2xRuOgT50alnJqm0FfUmUYwknYXKfC/F4QKis45vaRtWv45r+3GPSPU9XNYPD
+	Ywd/5eiiXTWN7AqI/yi5SpoFwjE/0ovhf6qKGCQTRg0sedknuI0/foaL+trMQQYwwauPEIipjlc
+	0T4W9Zpcbw3xIK+uY+Z9W//cb6AKPhbczXX32UfkMAQKQYP3/tSAUpE9S8M/5CPSWVTOjgI2cde
+	2qy262LLTHmqsh9ldqszkNnHJwNtxpx1hgR0aFTB3buNVP/81shGSPOVyY67IWNoikPZhI1DW1b
+	Y42Y5X05tLeBFWW5RpvESxHZjPH26mylJig7qzCYM49GXCWJiI6shJltQQnH4QqjpT340C+jm9S
+	r71V3NJ+4z/H5I66jARiYjN8pA99d1UTj5aLhWQr99qq0hZgqH69c+xfr7ussFnx/6dBhf9WYuc
+	MEXcZCrcNCypW1UfS3LCcWk6sbDfOXFElLqC1YsOqhOy0fwSf1wGIH1OLTnl3Ua7r5GSvzGRXuu
+	V1oYZQXobdSDHc03wdeP9D8GMAvNOfSqRDUdCaWdsfJ1T94IzytCWwIMJ5cae4uH00bkf7hSHpo
+	AxaPU4vyTVnsAi6a
+X-Received: by 2002:a5d:5d04:0:b0:492:7f3b:8cc3 with SMTP id ffacd0b85a97d-49c725e555bmr17386069f8f.29.1794810344684;
+        Sun, 15 Nov 2026 22:25:44 -0800 (PST)
+Received: from dl360p ([130.61.107.245])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c609c6451sm21676892f8f.45.2026.11.15.22.25.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 15 Nov 2026 22:25:44 -0800 (PST)
+From: Adil Tepe <tadilhusrev@gmail.com>
+X-Google-Original-From: Adil Tepe <adil.tepe@basarsoft.com.tr>
+To: Jorijn van der Graaf <jorijnvdgraaf@catcrafts.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	David Heidelberg <david@ixit.cz>
+Cc: =?UTF-8?q?Adil=20H=C3=BCsrev=20Tepe?= <tadilhusrev@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	netdev@vger.kernel.org,
+	oe-linux-nfc@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 5/6] nfc: s3fwrn5: support the S3NRN4V variant
+Date: Mon, 16 Nov 2026 09:25:40 +0300
+Message-ID: <20261116062542.275485-1-adil.tepe@basarsoft.com.tr>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260811220135.472380-6-jorijnvdgraaf@catcrafts.net>
+References: <20260811220135.472380-1-jorijnvdgraaf@catcrafts.net> <20260811220135.472380-6-jorijnvdgraaf@catcrafts.net>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,146 +112,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR18MB5671:EE_|LV3PR18MB6132:EE_
-X-MS-Office365-Filtering-Correlation-Id: 75e66229-d74d-4727-60e5-08df43a9f124
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|921020|10067099003|5023799004|4143699003|56012099006|261021135927099003|261022105027099003|261021123027099003|261021121427099003|261026121527099003|261026140227099003|261028144727099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	VVXsywo5e2hbNcWp8+5eUXjDTVAkWvDOr1CB3uJ2ogoMmmrVWMSYAIYES0IAzTaVxJ5Fd5ngapOcnwVwDMv3IvkNToWDcmJkNZwJl2oM7czVoNt5F+bxuLuwZbAVLhf/Uw+ICFUQ2EUF5sRH4DRtFrkpAkgKLZ1zDvFTIndQO/9/u29JHPbxpza+WYxfSV4+hM53xNjErLGBde1y0ZcxkrwZYrsojoIOpjvLqbMpB+NzrjB4bNC3M9KOvBwHvVTnn9aZ6juDPOSDJevnSP+QbRCPH6RY6QpcHy4rWSefJWWK4FWDDYw7dUy7f2+v07fBz117ykuwbalsPDtRNVViquQ/CuFalncyEI70fJ5rRUYslI8x4Pc3Pm9A4w0dDlUmFj73M1H9G23+Ha1EWJ8FXMiHr7sX32rgdDuruHIzJidHiB90pAN3R5FoyYDv8UrYDGvZE/CNDBW/vGlC1K8UU23dLMhi92jwRtY+081qraYZXiK2Qjqt1NVOIs2TazzdJwEqlmT7qGBDlO0uFkKluKh965iG50hbyCSxz8hycac5u/0OmwxdO7Gv0auuZ4xvXZoG7L0iHVLLFPB29FaeKdAi7aQP7iKBLIDIO9f88NHBNJYjJAHzFmcHY4y5AVNhjvsF90vS1zeWJK3dvgyZYhS2SVtcwGBMDPXur4WvHozZPdfN6a0QdYYbvqyxwDlXKvgKr73pxS3MtVMl89ah3Q==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR18MB5671.namprd18.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(921020)(10067099003)(5023799004)(4143699003)(56012099006)(261021135927099003)(261022105027099003)(261021123027099003)(261021121427099003)(261026121527099003)(261026140227099003)(261028144727099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?L1k1Tkc4TzQ3K0hvRjJ5M3d2a3dQM0VRSkFwWXVuc204NFN6VUViaEMwWXRQ?=
- =?utf-8?B?RURVaXdMRVo3ZlBGTDlDRGlHOHh2N0tFQXdxeWNUTlo5a3JOUjR6dC9pUDhP?=
- =?utf-8?B?VVdzNEdQWDZ0V3VobWNLS1cvSDBEbXBwT1h4aXVRYlA1aFdNSzJqSVR1NnVX?=
- =?utf-8?B?cDFqb1ZrMjFLNy9FdlUvVkwyMjJIWWFaY2tmM2tTSFlnQll0TWd1WHp3d1Vw?=
- =?utf-8?B?dzlsRlBpSWt0V0FZY0h5Z0RnQ1R1WWRYUXdKZ2QrZWkrdFdMaFgzTVp0TzFL?=
- =?utf-8?B?Nml1L3V0Qnh0ZURNamF6OGtucUlFbllIbXBZRkZkWUdjOVhiOXpFNjZNZmJI?=
- =?utf-8?B?UmFqT2RvM3VzOHhFTVNidVYyeEhBVXJGVXJQaHBibXQ0ZW92eGphRjlDY1Rx?=
- =?utf-8?B?UitNZ3Q0Nks5ZFZLdzZ4WEsvdUkwTDRwWW1Kei9oNlJRWDQzUHptM1BINUpD?=
- =?utf-8?B?M1ZRSXFoWk5XaVozM0JMODJwNXM0ZStOVTJCZ3V1dlhScHBBSHhYUytLY1VT?=
- =?utf-8?B?SGYrM0cyVExGRUF4OFpKWFJnR3RkSFluTXhic3NjemJtNlhTLzdPaHltSUp1?=
- =?utf-8?B?QllJOUVUS0tZRld2Um9WN0YzMitBb2NTQTlMY01QMVFnVkhjN2k4S0V0dW8w?=
- =?utf-8?B?dVFQLzlCMjQwMmlsNGNHUVZhWWZYZjBpYzZzY090Z0hvMDBSL2xiZ2EyaEl4?=
- =?utf-8?B?Z2o5NEtMMlZleVFkdHVOdjUvSlhKcitCZlZTcTFUSjh2bFFHQVRQUHUxMmUr?=
- =?utf-8?B?eG1sbG9oMEV0dWZNVlJxcmpjcXU3NVo3Q2FNZHJBV2t6MDJnMUFXa1VCT3FB?=
- =?utf-8?B?NFA0ZHZkajcwVVFJM2hITXJVbW5RZ1J0NklLWXFIWjJ3MjFVMHlqN2VjNlRw?=
- =?utf-8?B?Qk13UDB3TEE0S1cvVHVYVDdaMGEwMFhMb2tJNURJS0hidURpSXpCaWJJVGZI?=
- =?utf-8?B?NkVtYlVhOStuY1E0aEZmekpCZkdDd0hITHRUcXB3YjJMV0NhU1djTWtmN2Fw?=
- =?utf-8?B?NzRDYURsM1JCV2ZHYTc2ZmxFUUEwMmhPeTRyWXJnMjg0THFzWVFyR3VZZ2w1?=
- =?utf-8?B?MldscW9pNVZDWHRuSU1HRzBPcjZCbVptdHdEUlg5eFVYTzVjdjQ1d1hJK05h?=
- =?utf-8?B?UGpFT1cveFFMV0k1Z1EyZElUb3RZVzJpbkNJWWc1ZkU4VkxQUWN3R1pCVXFC?=
- =?utf-8?B?aFdPc2ZLclY2Q2VmNHhIY3VFbVJ1TmwvVlI4amlhamNVVzA0em4yclc3MFUy?=
- =?utf-8?B?SzBKbS9IVnZkdVNhV05VbHRxVC8zUWIwbWZ1TjgvYUd2cmo3aDJncU5tSFJo?=
- =?utf-8?B?UWN6a1lESnJVbFQ5UDN0UkFyZlJLZThkMDJ2emF1eWIrR1pXN3hNNGVkNjh0?=
- =?utf-8?B?L1d0b0gxNVJkUjgvZnN4TFBkWWtvSklEOE4rQnNQRkZnNUh4N280Tlhsano2?=
- =?utf-8?B?UjBhSllWME8zcTVuV1dWb0J6cUo5dWZpZ2xFZytud1Z3N3NKbkZicGg5SW8z?=
- =?utf-8?B?NDk0b2I1aXcyMVBUVjJ2SGhSVTV6Qmc5VHROVGpPMVgzajA1Q1p3N0pwaXJX?=
- =?utf-8?B?RHlSblRCVFNkZm1KRVZHb1VrNDNGeEp4RkhaeVRWdXlhSlNuSFNlWHd5TVFi?=
- =?utf-8?B?U0hIOHpUb2FPVzJDRGsyZmNwQmtUR0t1VVV1eUJObVErZ3IwTWZ6Wk1pTHpH?=
- =?utf-8?B?M3lwLzhpMnAxYk54bm1qWE11U2FFemZCVnlXbjRla3ZFMnlnS29BcUFDTWV2?=
- =?utf-8?B?Vk5UTGZUemV4YjlyK1M5QmwzTDh4OTJjb0E1WlR6VXNJQWQ4elNrSHR2RkhM?=
- =?utf-8?B?SkJrZkIzVnZXQ2w5a3dVYis3UFB3dGI3NklJbEQza0Y0VHJFMEhpOVBuVVhT?=
- =?utf-8?B?elovTFNCOVdSem1pVEFkY1NMOXJaMlpPNWxrUFdzd1orc1Q5R2MrYmFOMHJl?=
- =?utf-8?B?alpaZmJzWjhsN0svQzZFSjBKRTBYL1NVQjJ6aEJDbVVFWlM5blRtM0xROHhI?=
- =?utf-8?B?bHIya3JONGNUeXhoOWMzTE9obVhlRzl6U3pNRk9tT25sRnN3WVFOb1lQNGhP?=
- =?utf-8?B?Q3F2a3VoOTFtWWc2eTdJZ0RuTlVLNzY4ZGFHM3lSZWhZd3dpVjBqTzllWU9B?=
- =?utf-8?B?TnpOWldlc0FwS09SL1Q3bVlLS1VITEN1QzJnV3BzM0VycXlKWDlHdFZ1aXpO?=
- =?utf-8?B?aEUvclUyZ0YzOFpYMWYyYmk3elFMaVB0aFA0b2hYYUhNb1R0U3cyWFF0VlBP?=
- =?utf-8?B?RnY0aEdEcFVVbzBidERoK3FWOURKd1NjeTJtNG5SWWczM25hRE5lRG1wT2R2?=
- =?utf-8?B?Vmd1dWRibktyNTVscC95b0tZd3RTSDJTanVHVTRxWDcvd3ZmdmhUQT09?=
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 75e66229-d74d-4727-60e5-08df43a9f124
-X-MS-Exchange-CrossTenant-AuthSource: CH3PR18MB5671.namprd18.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 06:22:08.6940
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iVJ0tSVh+satdHZwB/NrShB+LJ7edRfE2Df8GBZWDcpzDbDog2cjecX6qUNLMVPreSqW+spoB5N8jcQ2p8ZA3g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR18MB6132
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
+From: Adil Hüsrev Tepe <tadilhusrev@gmail.com>
 
-On 02-11-2026 08:25, Jeremy Kerr wrote:
-> CAUTION: This email originated from outside of the organization. Do not click links or open attachments unless you recognize the sender and know the content is safe.
->
->
-> Hi Akhila,
->
->> The Axiado AX3005 SoC has an integrated root-of-trust (IRoT)
->> co-processor next to the application processor. Security protocols such
->> as SPDM and PLDM run between the two over MCTP. This series adds a
->> transport for that link, so the host side uses ordinary AF_MCTP
->> sockets.
-> One overall thing: why not use the MCTP MMBI (DSP0284) transport spec
-> for this? Sounds like this would be an exact match for the MMBI
-> use-case.
+Hi Jorijn,
 
-Thanks for the review. To give some context first:
-this link is entirely internal to the AX3005, and not for host communication.
-The IRoT's MCTP endpoint is only reachable from the application subsystem on
-the same die, through the mailbox and the shared-memory carve-out.
-There is no hardware path to it from outside the chip:
-no PCIe, SMBus/I2C, I3C or USB connection reaches the IRoT.
-So this is strictly one point-to-point link between two fixed endpoints
-on the same SoC.
+I tested this series on a Samsung Galaxy XCover5 (Exynos850), which has
+an S3NRN4V wired to the same lines, so I could exercise the new variant
+path with real hardware and a tag. Patches 1-4 are fine here (separate
+mail). On this patch I hit a hardware-dependent problem with the fixed
+clock-speed byte.
 
-You're right that the mechanism is close to MMBI: shared memory plus a doorbell.
-We looked at DSP0282/DSP0284 and decided to keep the existing protocol,
-for the reason: Interoperability, which is the main benefit of a standard binding,
-doesn't apply here. Both ends are fixed on the same die, and no third-party MCTP
-device can ever be on the other end of this link, so carrying it as MMBI would
-add nothing.For that reason the driver stays a narrow vendor binding:
-It uses MCTP_PHYS_BINDING_VENDOR and matches only the axiado,ax3005-mctp-irot compatible.
-It isn't meant as a general shared-memory transport, and it doesn't claim to be one.
+> +/* S3NRN4V single-byte FW_CFG payload; 0x11 selects the 19.2 MHz reference. */
+> +#define NCI_PROP_FW_CFG_CLK_SPEED	0x11
+[...]
+> +int s3fwrn5_nci_clk_cfg(struct s3fwrn5_info *info)
+> +{
+> +	u8 clk_speed = NCI_PROP_FW_CFG_CLK_SPEED;
+> +
+> +	return nci_prop_cmd(info->ndev, NCI_PROP_FW_CFG, 1, &clk_speed);
+> +}
 
->
-> [Also: CCing Adam who is working on PCC, which may have some overlap
-> with the mailbox protocol used here]
+The XCover5 feeds the S3NRN4V a 26 MHz reference (PMU CLKOUT0 -> TCXO),
+not 19.2 MHz. With the byte hardcoded to 0x11 the chip ACKs FW_CFG with
+status 0 -- there is no "failed to configure the reference clock" error --
+but the RF front end is then off-frequency and the reader never sees a
+tag. The failure is completely invisible to host-side polling; only a
+physical tag exposes it.
 
-Thanks. The two look alike: one shared-memory window per direction, a doorbell,
-and a completion before the window is reused. The differences:
+A/B on the XCover5, same tag held on the antenna, 12 s initiator poll per
+run (NFC_EVENT_TARGETS_FOUND over the netlink 'events' group):
 
-AX3005 is a DT platform with no ACPI, so PCC itself isn't an option here.
-Discovery is in-band. At probe the IRoT replies to a mailbox message with its window
-addresses and MTU limit.
-Each packet carries a counter, so a resent doorbell is ACKed again without the packet
-being delivered twice.
+  FW_CFG 0x11 (19.2 MHz, this patch as posted) : no target in 12 s
+  FW_CFG 0x12 (26 MHz, only that byte changed)  : TARGETS_FOUND in ~0.1 s,
+                                                  ISO14443-A, proto 0x10
 
-Adam, if you see something both drivers could share, I'm happy to look at it.
+So the single byte is purely board-dependent: 0x11 is correct for a
+19.2 MHz part like the FP6, 0x12 for a 26 MHz board like this one, and a
+hardcoded value breaks whichever board it does not match.
 
->
-> And finally: how confident are you that the peer will never be able to
-> reassemble? Even if the peer's own MCTP stack may not reassemble,
-> there's no chance of it bridging to other endpoints in future?
->
-> I have a few (minor) comments on the implementation, but would like to
-> sort out the overall protocol usage first.
+The driver already holds the reference clock (phy->clk, "failed to get
+clock" in this same patch), so the byte can be derived instead of fixed.
+Something like:
 
-The IRoT can't bridge anything to this link. As above, nothing outside the chip has a
-hardware path to the IRoT's MCTP endpoint, so the application processor is its only MCTP peer.
+	unsigned long rate = info->phy ? clk_get_rate(phy->clk) : 0;
+	u8 clk_speed;
 
-Defaulting the netdev MTU to the negotiated limit only makes sure that today's peer gets
-each message in a single packet. It isn't meant to stop anyone from using a smaller MTU.
-min_mtu stays at 68, so if the peer later reassembles or bridges,userspace can lower the link
-MTU, or set a per-route MTU for any EID behind it, without changing the driver.
+	switch (rate) {
+	case 19200000: clk_speed = 0x11; break;
+	case 26000000: clk_speed = 0x12; break;
+	default:
+		/* keep the posted default when the rate is unknown */
+		clk_speed = 0x11;
+		break;
+	}
 
-If you would prefer, v2 can default mtu to the 68-byte baseline and leave max_mtu at the
-negotiated limit, so the platform config raises it explicitly. I'm fine with either option.
+(exact plumbing of the clk handle into s3fwrn5_nci_clk_cfg() is yours to
+decide; the point is the value must follow clk_get_rate(), not a #define).
 
-Please send the implementation comments when you're ready; I'll fold them into v2.
+With that change the XCover5 reads tags reliably, so I'm happy to give a
+Tested-by on a v6 that derives the byte from the clock rate. I did not
+Tested-by this patch as posted because it does not bring up NFC on a
+26 MHz board.
 
->
-> Cheers,
->
->
-> Jeremy
+Two smaller observations on this board, neither a blocker:
+ - A prop notification 6F-3F arrives during polling and logs
+   "nci_ntf_packet: unsupported ntf opcode 0xf3f" on every poll. A no-op
+   handler would silence it.
+ - RF calibration blobs: the driver looks for samsung/s3nrn4v/{hwreg,
+   swreg}.bin; the stock XCover5 firmware ships them as
+   sec_s3nrn4v_{hwreg,swreg}.bin. Just a note for linux-firmware naming;
+   NFC works without them here ("RF calibration data update failed: -2"
+   is non-fatal).
 
-Regards,
-Akhila Kavi
+This was tested on 7.4-rc1 (s3fwrn5 sources at
+7.4.0-rc1-00023-gdcb8b91fb779) with patches 1-5 applied, built as
+out-of-tree modules and bound to the S3NRN4V via a runtime DT overlay
+(compatible = "samsung,s3nrn4v", en/wake GPIOs, pvdd 1.8 V, 26 MHz clk).
 
+The clock-rate finding was located with the help of an AI coding
+assistant (Claude Code, Anthropic) during XCover5 mainline bring-up; I
+reviewed, reproduced and verified it on hardware myself.
+
+Thanks for doing this series -- it is most of the way to working on a
+second board.
+
+Assisted-by: LLM
+-- Adil Hüsrev Tepe
