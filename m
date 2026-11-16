@@ -1,65 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.64
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.136.65.228
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794799061;
-	b=eWkCWW1FKjPelOnu2fvX/ZpJw3/G1cW0ujHb53ZgtkDf/Nk5eQjuEhcFkvuRGGab5NSs
-	 At+SRX4A+0XOWSq7XTc/YC2NObcC6mKPYeQMVuEV++fGDr3qLnOxlufbPk/q7cjYhIB14
-	 i3u4Kr60bMOb54V0RRX9nuBP7VoiBamoNDH0Z36O9n3zBQuZMfesnhx2Mdia/kLSeVqFw
-	 lcB6rHnTkAgjQWdtFTEq/0zQFSr+vZrrFWdKv6LQcGwmayLeSh9vOvaXtBZf3y5vvHlk7
-	 rkE+eAVBI+VVZkdLJASmWhmG6Y/zfEzn8KbXxg9cFpcYlRI7XB7/SDsQSGYke+NaVJQ==
+	t=1794799393;
+	b=M/lf3giDbvj7obuCFYZ3wjZHfiwa3qB+t3Y+zn2/t8Xpo2te/4nqviJ55AxynvpelTEc
+	 GMY+Z+c7MxFxXBDxfiqtQcF0+yG0Degf4IKyvKr+3MPCnjACQb6wVOLpY49ii1iKtNpLT
+	 WTSQYemxbSW0rZzzhS2yu2j/EelBWKC6DVK0UHUekfull7zc1gXefx1bJk7YxWQu6sBMz
+	 85YoB9Gos55Nwszssl/Nkh8c/Yul90RmIIqfrzm77mZQh7m5ZE/PlgzS1P9iSPQoN+n29
+	 QJv1JWaqiV09CX0xuS3o1laEnR3jGZfFOc9JwyI9MMKeH1TBaeATpE6u1WrOL1xPI0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794799061;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-XMRINFO:X-QQ-XMAILINFO:From:To:Cc:
-	 Subject:Mime-Version:Content-Type:Content-Transfer-Encoding:Date:
-	 X-Priority:Message-ID:X-QQ-MIME:X-Mailer:X-QQ-Mailer:References:
-	 In-Reply-To:X-QQ-mid;
-	bh=1Ydo/JFA5qxzni2gYLker+DXlrCuegpZ91spzV6zZE8=;
-	b=wPHUPcyI/zyqWpxsv1G0aL9cFhv+I3lC7YoivrsthAF/yMkhkvZoO9p5kKqVy/lEtgH+
-	 LCi/DqFdeX3V3mFI84eACAYzlESX0Pq/DUoYi/KQm6cXm7Zyz1iaH44hfkZek03GlQPt8
-	 qrEHIRtLPi83GmgZIB019lfJZO5S6xxH+5Rlc0ImvCwBnjU4E1Y1rBQRkqDnMisAvrmP4
-	 DE00WX8Bg/JaG85ksInX0xOUNogSFXvI8EdVH++XC8joRtiK5UIjoI4M2Oj5V6wQ3F2r4
-	 dWWkGk3HGJvAtAswGwkoTPjaDGLl+gShFVDoN6Qq0b1A+WaI4uD4opMlyxmUZbOlH+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794799393;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Flowmailer-Platform:Feedback-ID;
+	bh=vuaY7FImZE75sRdiBasv0Tsa2qzXujkTJsfP+X+hpsE=;
+	b=lwL81QgLturFPFX+nBP8bLWki4xXouUDY3MBBYB7RZ4Xlo/T5tZDjSdVSsrCCeUP2loj
+	 NYcJRpkWLqU9RQimRMhs775UNNehTcMXj7NUoVn93S8ZfXlVr/UbuLwDMzwGBdzGXMKIF
+	 0HevaASCRNdVBgal64MpZHzABKVReut+AZU7VuJ8da+Axa/+JL76xQQrAyqvce588CSNZ
+	 U/aCbD5TVArvjAlJuwBVwXd6Nwnv8Vp8raHNv4teaI/LxISuUFaXYQpne+SdSp//cKFWB
+	 Db46xIHJfHblYYyClvkt/rLo5YzQEpufqK65gn3V7PNJFPW3fIM2XYGJ518wF04yDEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=uyjm94tI;
-	arc=none smtp.remote-ip=162.62.57.64
-Received: from out162-62-57-64.mail.qq.com (out162-62-57-64.mail.qq.com [162.62.57.64])
+	dmarc=pass header.from=siemens.com;
+	spf=pass smtp.mailfrom=rts-flowmailer.siemens.com;
+	dkim=pass header.d=siemens.com header.i=meng.ding@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=HQQZot2Z;
+	arc=none smtp.remote-ip=185.136.65.228
+Received: from mta-65-228.siemens.flowmailer.net (mta-65-228.siemens.flowmailer.net [185.136.65.228])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AA32606A31C;
-	Mon, 16 Nov 2026 03:17:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AA32606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE9F4606A31F
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 03:23:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE9F4606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=siemens.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rts-flowmailer.siemens.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=uyjm94tI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794799055; bh=1Ydo/JFA5qxzni2gYLker+DXlrCuegpZ91spzV6zZE8=;
-	h=From:To:Cc:Subject:Date:References:In-Reply-To;
-	b=uyjm94tIVJhun8tf0cxQrwn3SAmdL9BJOgxG0SJruOCtLwTUvp0K6j/diLZyBSYif
-	 14iFGOGdAOifYpm9yOb38h0c+n8OrC/TacPrib6ccHq+JOlniVfHtBRfSikerK+YXy
-	 SJVXPJQ8pgXuNhr6SrizNxEnb7Pjgrug4c1S2BNE=
-X-QQ-XMRINFO: NyFYKkN4Ny6FuXrnB5Ye7Aabb3ujjtK+gg==
-X-QQ-XMAILINFO: OTkXlZHit/HD2ECOkNMUpes8JgqTDIrnl70ocTF10oUnzcXJddXHB8IPNghF2M
-	 JHs400WfCpZeUssfdsYQd/c7h3L3LYYfnCRPV+X3YuVS/8S8eFX4wH/7S6tN2GZnKkaGo1tMKcA3e
-	 NyGFphqRO+5RnMyHR29RtGVG8ST4RQgBvG4i8puzNz3i8tYEapvB24rIQhDyDUTMCs3GV4R4LD7cw
-	 yTuq9t9T2CuV/VlV8vW/Vme/E4o7hDt6J+6HnmAPthlrC40NMLgV3Epr/IGGtiegRziuQmsNEsspl
-	 Ze1CVKptd66VdpVLqDsMG6qotZNllafFC0EHsqaOKrlJl9cRbWUNgShd0oMSqu5p0SpBkuQyA1+P1
-	 vuVY/OFE+p66Yv0px9wRlTy35WuuF/zAovV5TqyBlieIO63c36U/Q35TLmajQfcX/SkfT+8m9zfaC
-	 vMOyC8DZnMvHNwAoOCWpwCUL5V5VKq2+KYLdZsSZCKkOhgrNVqQCbSEDE4WeNPGcCnp1RsAQkJb8J
-	 vHHEGcNyAoVUc3w3y/i8iqFCwdhaeaPCQ9P9jyZztKpyR5MJTmKhagE60xs9Y+VlpwMMLicVefZmH
-	 L/nXwsWP1JLFpblgK+HXuY9C/b4AsSuitvZXzNd5COYv6XCmEpNrdDPUYq8iAxLC2KA+is7TUJ5ck
-	 cjLKdbl6YAjwGbYUBt1yAkGoH6owstvDJZm5I4dKDSBy9sAMenvlnSoXN0ukIl4cUTnK85iBV1O5z
-	 bOxAkjBJvBoW2xVRsheWR9CbcyEjBJreUQOiRSn23BeypNvKC1cdJskR4IP5fcqFuDT6A0ZGS3o8s
-	 EZaG+Clu38feonPN0W+0RQvFD+DkJ9drTX40ba0Bg+GWlO67W+1M61OlL/ej/Q1cnvRK2MAv9ejQB
-	 vFrtr0K+wOyf2EnqPZ6EqAVz6OO+isn2wcEiL8Advqkq87CfkAIYYF8IqrQegaLsVMAOcos0CwsNY
-	 60UC+MDUER7PAV1HHHxhJia4HxOHywop8LuEGyvEvhqm/M4xtQLvmq9pkopQsZe5wK8bPcXvWYtBo
-	 MYgHtPwsT9u3NKQNFX8sqzsj9RFsanT56AQAzQBbXCJinzWE=
-From: "=?utf-8?B?Q3VuaGFvIEx1?=" <1579567540@qq.com>
-To: "=?utf-8?B?SGVpa28gU3R1ZWJuZXI=?=" <heiko@sntech.de>
-Cc: "=?utf-8?B?bGludXgtY2xr?=" <linux-clk@vger.kernel.org>, "=?utf-8?B?ZGV2aWNldHJlZQ==?=" <devicetree@vger.kernel.org>, "=?utf-8?B?UmljaGFyZCBDb2NocmFu?=" <richardcochran@gmail.com>, "=?utf-8?B?RWxhaW5lIFpoYW5n?=" <zhangqing@rock-chips.com>, "=?utf-8?B?UGhpbGlwcCBaYWJlbA==?=" <p.zabel@pengutronix.de>, "=?utf-8?B?Q29ub3IgRG9vbGV5?=" <conor+dt@kernel.org>, "=?utf-8?B?S3J6eXN6dG9mIEtvemxvd3NraQ==?=" <krzk+dt@kernel.org>, "=?utf-8?B?Um9iIEhlcnJpbmc=?=" <robh@kernel.org>, "=?utf-8?B?SmVyb21lIEJydW5ldA==?=" <jbrunet+clk@baylibre.com>, "=?utf-8?B?QnJpYW4gTWFzbmV5?=" <bmasney+clk@redhat.com>, "=?utf-8?B?U3RlcGhlbiBCb3lk?=" <sboyd@kernel.org>, "=?utf-8?B?bGludXgtYXJtLWtlcm5lbA==?=" <linux-arm-kernel@lists.infradead.org>, "=?utf-8?B?bGludXgtcm9ja2NoaXA=?=" <linux-rockchip@lists.infradead.org>, 
-	"=?utf-8?B?bGludXgta2VybmVs?=" <linux-kernel@vger.kernel.org>, "=?utf-8?B?bmV0ZGV2?=" <netdev@vger.kernel.org>
-Subject: Re: [PATCH v5 2/4] clk: rockchip: Add internal support for 24-bit fractional dividers
+	dkim=pass (2048-bit key, unprotected) header.d=siemens.com header.i=meng.ding@siemens.com header.a=rsa-sha256 header.s=fm1 header.b=HQQZot2Z
+Received: by mta-65-228.siemens.flowmailer.net with ESMTPSA id 2026111603230295d03ed43900020763
+        for <netdev@vger.kernel.org>;
+        Mon, 16 Nov 2026 04:23:02 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; s=fm1;
+ d=siemens.com; i=meng.ding@siemens.com;
+ h=Date:From:Subject:To:Message-ID:MIME-Version:Content-Type:Cc:References:In-Reply-To;
+ bh=vuaY7FImZE75sRdiBasv0Tsa2qzXujkTJsfP+X+hpsE=;
+ b=HQQZot2Z8h36ijQln+msDhv9gcSYj5SfMiT/N6XRhq1xugtUNdMn/fUxA9qBarw0//j8Na
+ Qp5FuiVGhxMPO9cC993IMWDRG3jL5qroVt1jz0dpBcib5J1XqAsug55FaOn/UyJlwDW3+4/Z
+ SnqUPMfUPAFyJz26D8x3C+E+NxXIWN8DlZk93cowvaGSNioXssPo/2gJc+UIv9QXzmXIx35U
+ NMhKnIdWTs+/JSI01xzO9af0qK0O6sX7kqp73KReA2Smg8mZnL2c/2jAK8tKE3YieXUoBvbc
+ ix9Kc3VFdeZvjHKk09TilgE806fp1YWk96vwKdP6iRMZZyoFc6l9hW+w==;
+Date: Mon, 16 Nov 2026 11:22:46 +0800
+From: Ding Meng <meng.ding@siemens.com>
+To: Gerhard Engleder <gerhard@engleder-embedded.com>
+Cc: Paul Moses <p@1g4.org>, Jakub Kicinski <kuba@kernel.org>,
+ netdev@vger.kernel.org, Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jonathan Corbet
+ <corbet@lwn.net>, Andrew Lunn <andrew+netdev@lunn.ch>, Tony Nguyen
+ <anthony.l.nguyen@intel.com>, Przemek Kitszel
+ <przemyslaw.kitszel@intel.com>, Steven Rostedt <rostedt@goodmis.org>,
+ Masami Hiramatsu <mhiramat@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>, Andrii
+ Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar
+ Kartikeya Dwivedi <memxor@gmail.com>, Richard Cochran
+ <richardcochran@gmail.com>, florian.bezdeka@siemens.com,
+ jan.kiszka@siemens.com, wq.wang@siemens.com, Jason Xing
+ <kerneljasonxing@gmail.com>, Simon Horman <horms@kernel.org>, Shuah Khan
+ <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Mathieu
+ Desnoyers <mathieu.desnoyers@efficios.com>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
+ <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, John
+ Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ intel-wired-lan@lists.osuosl.org, linux-trace-kernel@vger.kernel.org,
+ bpf@vger.kernel.org
+Subject: Re: [PATCH] net: mark skb NAPI IDs independently of busy polling
+Message-ID: <tuwyyxeexvnd4ckncfhdg3grlh2xd6d2rym7vhx2uzdspjopmk@quzaz3gdurlz>
+References: <20261105071706.7043-1-meng.ding@siemens.com>
+ <20261110134539.12d860ef@kernel.org>
+ <4pqljild2fp6eotiicvwbwu2wfw66fzd4qamwt6utirdjxlaok@iiu2f3k7azrp>
+ <Fhn2gT70aJ-2_eak73NBZYuXuKtVb64PoD8VQ9jwm-S-K0RhZilAg9iwSBJ0RlaiSrRvM1vPw1aHvGPjcktu9GmdBuvFk9244-q2IVOrFu0=@1g4.org>
+ <1ab53072-b9ee-464b-b5b3-cbb578059b49@engleder-embedded.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,52 +85,46 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain;
-	charset="utf-8"
-Content-Transfer-Encoding: base64
-Date: Mon, 16 Nov 2026 11:17:32 +0800
-X-Priority: 3
-Message-ID: <tencent_A76502128C463402C8115BFD549A4E69CE09@qq.com>
-X-QQ-MIME: TCMime 1.0 by Tencent
-X-Mailer: QQMail 2.x
-X-QQ-Mailer: QQMail 2.x
-References: <20261030-add-board-ok3572-c-clk-v5-0-9a43403cb149@qq.com>
- <20261030-add-board-ok3572-c-clk-v5-2-9a43403cb149@qq.com>
-	<Yf6NfRPFTxKjDagKAm6hpw@sntech.de>
-In-Reply-To: <Yf6NfRPFTxKjDagKAm6hpw@sntech.de>
-X-QQ-mid: xmsezb41-0t1794799052treparxye
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <1ab53072-b9ee-464b-b5b3-cbb578059b49@engleder-embedded.com>
+X-Flowmailer-Platform: Siemens
+Feedback-ID: 519:519-1335312:519-21489:flowmailer
 
-SGksCgpUaGFuayB5b3UgdmVyeSBtdWNoIGZvciB5b3VyIHJldmlldy4KCj4gPiBBZGQgYW4g
-aW50ZXJuYWwgUm9ja2NoaXAgZnJhY3Rpb25hbC1kaXZpZGVyIGhlbHBlciBhbmQgY2xvY2sg
-YnJhbmNoIHR5cGUKPiA+IGZvciB0aGlzIHJlZ2lzdGVyIGxheW91dC4gVGhpcyBwcm92aWRl
-cyB0aGUgc3VwcG9ydCBuZWVkZWQgYnkgdGhlIFJLMzU3Mgo+ID4gYXVkaW8gZnJhY3Rpb25h
-bCBjbG9ja3MuCj4KPiBQbGVhc2UgYWRkIGEgcGFyYWdyYXBoIGFib3V0IHRoZSAidjIiIG5h
-bWluZy4KPiBJIGFzc3VtZSB0aGUgdjIgaXMgYSBSb2NrY2hpcCBuYW1pbmcsIGJlY2F1c2Ug
-djEgd2FzIHRoZSBvdGhlciBvbmUgdGhhdAo+IGNvdWxkIHN0aWxsIGZpdCB0aGUgcmVndWxh
-ciBmcmFuY3Rpb25hbCBkaXZpZGVyLgo+Cj4gPiArc3RhdGljIGlubGluZSB1MzIgY2xrX2Zk
-X3YyX3JlYWRsKHN0cnVjdCBjbGtfZnJhY3Rpb25hbF9kaXZpZGVyX3YyICpmZCwKPiA+ICsg
-ICB2b2lkIF9faW9tZW0gKnJlZykKPiA+ICt7Cj4gPiArIHJldHVybiByZWFkbChyZWcpOwo+
-ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgaW5saW5lIHZvaWQgY2xrX2ZkX3YyX3dyaXRlbChz
-dHJ1Y3QgY2xrX2ZyYWN0aW9uYWxfZGl2aWRlcl92MiAqZmQsCj4gPiArICAgICB2b2lkIF9f
-aW9tZW0gKnJlZywgdTMyIHZhbCkKPiA+ICt7Cj4gPiArIHdyaXRlbCh2YWwsIHJlZyk7Cj4g
-PiArfQo+Cj4gd2h5IGRvIHdlIGhhdmUgdGhvc2U/IFRoZXkgZG8gbm90IHNlcnZlIGFueSBw
-dXJwb3NlIEkgY2FuIHNlZS4KPiBTbyBwbGVhc2UganVzdCB1c2UgcmVhZGwgYW5kIHdyaXRl
-bCBkaXJlY3RseSBhdCB0aGUgYXBwcm9wcmlhdGUgcGxhY2VzLgo+Cj4gWy4uLl0KPgo+ID4g
-KyBpZiAoZmQtPmZsYWdzICYgQ0xLX0ZSQUNfRElWSURFUl9aRVJPX0JBU0VEKSB7Cj4gPiAr
-ICgqbSktLTsKPiA+ICsgKCpuKS0tOwo+ID4gKyB9Cj4KPiAuLi4gYmxhbmsgbGluZSBwbGVh
-c2UgLi4uCj4KPiA+ICsgaWYgKCEqbSAmJiAhKGZkLT5mbGFncyAmIENMS19GUkFDX0RJVklE
-RVJfWkVST19CQVNFRCkpCj4gPiArIHJldHVybiBjbGtfZmRfdjJfZ2V0X2xvd19yYXRlX2Rp
-dmlkZXIoZmQsIHJhdGUsIHBhcmVudF9yYXRlLCBtLCBuKTsKPgo+IC4uLiBibGFuayBsaW5l
-IHBsZWFzZSAuLi4KPgo+IFsuLi5dCj4KPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IGNsa19v
-cHMgY2xrX2ZyYWN0aW9uYWxfZGl2aWRlcl9vcHNfdjIgPSB7Cj4gPiArIC5yZWNhbGNfcmF0
-ZSA9IGNsa19mZF92Ml9yZWNhbGNfcmF0ZSwKPiA+ICsgLmRldGVybWluZV9yYXRlID0gY2xr
-X2ZkX3YyX2RldGVybWluZV9yYXRlLAo+ID4gKyAuc2V0X3JhdGUgPSBjbGtfZmRfdjJfc2V0
-X3JhdGUsCj4gPiArfTsKPiA+ICsKPiA+ICtzdGF0aWMgc3RydWN0IGNsa19odyAqY2xrX2h3
-X3JlZ2lzdGVyX2ZyYWN0aW9uYWxfZGl2aWRlcl92MihzdHJ1Y3QgZGV2aWNlICpkZXYsCj4K
-PiBtYXliZSBhZGFwdCB0aGUgZnVuY3Rpb24gbmFtZS4KPiBGdW5jdGlvbiBhYm92ZSBhYmJy
-ZXZpYXRlZCB0aGluZ3MgdG8KPgo+IGNsa19mZF92Ml9zb21ldGhpbmcsIHNvIG5hbWluZyB0
-aGlzIGNsa19od19yZWdpc3Rlcl9mZF92MigpCj4gbWlnaHQgbWFrZSB0aGF0IGxpbmUgbGVz
-cyB1bndpZWxkeT8KCkkgd2lsbCBmaXggdGhlc2UgaXNzdWVzIGluIHY2LgoKQmVzdCByZWdh
-cmRzLApDdW5oYW8gTHUKCnB3LWJvdDogY3IK
+On Fri, Nov 13, 2026 at 09:59:17PM +0100, Gerhard Engleder wrote:
+> On 13.11.26 09:29, Paul Moses wrote:
+> > 
+> > > 
+> > > Then, drivers that use deferred timestamp conversion (e.g. igc, engleder) must
+> > > specify a busy poll dependency if they want to obtain the original net
+> > > device upon consuming the skb. However, this dependency is far from
+> > > obvious, and annotating it for future features of this kind will be very
+> > > hard to discover.
+> > 
+> > The "deferred timestamp conversion" was incomplete is what I'm saying.
+> > 
+> > This started with 97dc7cd92ac6, 0abb62b68252 and 069b142f5819 were built upon
+> > it, so maybe Gerhard should decide the path forward?
+> 
+> The deferred timestamp conversion is a niche feature for TSN to solve
+> the working clock / global time problem in TSN networks. IMO there is
+> no need to make it working as soon as igc or tsnep drivers are enabled.
+> It would be ok to fall back to normal vclock behavior like all other
+> drivers if CONFIG_NET_RX_BUSY_POLL=n. For me it is ok that NETCONSOLE
+> is not possible for PREEMPT_RT in combination with this feature.
+> 
+> There are already so many things to consider to get TSN working. To
+> not enable NETCONSOLE on PREEMPT_RT for deferred timestamp conversion
+> would be just one of many.
+> 
+> @Ding Meng: Do you actually need the NETCONSOLE in this combination?
+> On productive systems likely not these days due to CRA.
+> 
+> Gerhard
+OK, understand. Thanks for your comments, Gerhard. Actuallly, we solved
+this issue by disabling netconsole and enabling busy poll. This is
+indeed a quite rare scenario, but when it happens, it is a bit difficult
+to figure out that this was the root cause.
 
+Ding Meng
