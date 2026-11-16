@@ -1,60 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794872855;
-	b=c4OsrYa/9U3EWahAXkGQ8ULs7q/RMBV5L3JXOv2Q0BCqSfJojFMHCu/5phGiMPu3Pf3B
-	 +Q59kffgf2LkvqfOiBXbXeaq+eLZLogy0eptsvl/2MqReGbb0KYDRXA9FYJ+ukJOZao7Y
-	 BViUSrUQXrY/qvF24ezjnWTv1a6rKEAQTlYxHVjQZ/FhBz0UrDDi+ve3ZAumyynhH+pKk
-	 m2bS8lYpSo1dZHGhpTDoYJB7rj9LCRL9hZs9S4joOYTXWINBXNjHRfkYtz2vCSjhN9vJj
-	 zZfe6JP+26AiFp9qTSg9awEWR1Sez3k7uuppJ3ZqsijPseNkMNvnIEU87kFfocLXEqw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794872855;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Ooe8aVYLhVyQjDTdzZYaM/OancGDo6HyHA7XUTxSDaQ=;
-	b=euZmHizntuGIeU/Uq714z7qWUFZTBFfVM+uv/QA+bYiGZwbvx8g257ZOMMJwyu8ajBqQ
-	 uLfKK+n3F+qS2P9nlmGw1SZrXvT7zpXxBiX0AK5desX+/6/coQmEBFrRgmbiD5y5ATbF9
-	 YF7koBciRN/0JHedRsA/Q7z53CS4nHiUK6aO1rlbz/vbcpO5qYyQD08tWaq9IjrAZ2PYg
-	 LQyw4vgxao/6jCYa//N/eaQroqd30fliJSMGxZGA+hCWjtXx1A6MIRT1x2u33UBauHFJJ
-	 COxgKZTs4j0j7W5iyVA1XGaBgBiLIoV03QRGaeiZmrllcrdnMscZx+NEx+hONHG33ew==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iav.lv;
-	spf=pass smtp.mailfrom=iav.lv;
-	dkim=pass header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=GRq6dFG5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.15
-Received: from sender-op-o15.zoho.eu (sender-op-o15.zoho.eu [136.143.169.15])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794873006;
+	b=5dpXCgwgRFpvt84JDkkzsKZTor4Vh45yebIQN1Q1Y0mj56eTY1Sk+HOtUadyRpZOFugs
+	 fulcjWUlnbkpH0g4Q+mvxIt5nVtG7WuRVQVY46aaPVyhEOnRHak4hVEcmjJ5tEnvqA8SX
+	 GyEOds872/lVmmlrIGm4V7e8QQ8PnrWffa1EUIBrC+i2lqrJiz0rWrOW7eKVhtNthj9+i
+	 dsioVxU/3KuQPPYCIHnLNPd5BwpUDI3cLMhWQX7PDdHvaJrtOHOzohYs2gNO4jUM1sHpx
+	 g0BC/q5vfbXK3gI97oXNZMf/2yEZCUcKy30iksoJOqNArHsKtN6GQuOrz/Jy1/E8BHA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794873006;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=H5PEbT44AMh96DEOsaYSsxRntcOvO9oCNPKiBsM1txc=;
+	b=XiAIVcQIrXS3dqDT5iU+xt6uHbbgzZm86xMluxcA5bmKOaKPP1lMSyuj6L2xzrRX3EwW
+	 La+wH6UbIjqF/UMO1e1VAEaNTnqZubHbmJtYy9KO6a5PLHKjOJcZPu48V7x40cQ3sGNxg
+	 gVumscmOhLSBI8n/oijlxJuP60d3BLFPdLekFxbuPl9pVQXFUjEPZCJNU6j7XW443z5Io
+	 aNgMb6BVcsnM+CbZZewrxPhad37Jn2lg+xSWmArt9WXHfuuDCZT/HZilOrz84++3pZtTz
+	 R6EuTPrp0FxNa9bhYlABLne2pCfNLS1sGLYGT/WxeJoKRvihYX/u5NC1hMlJr/lT1oQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="UtEK3E/Q";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E88C7606A330;
-	Mon, 16 Nov 2026 23:47:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E88C7606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iav.lv
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iav.lv
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EAD0606A31C;
+	Mon, 16 Nov 2026 23:50:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=GRq6dFG5
-ARC-Seal: i=1; a=rsa-sha256; t=1794872819; cv=none; 
-	d=zohomail.eu; s=zohoarc; 
-	b=inej4tXdDNrbwI2iLCdbbKghn7L/mpBlzz30MhNPRZ812lEI9uMjBvRjAa9/YbL10wNQS5T//czPLmXuRb4eTxAZd6knCzW/u6eZ6ZZepfi+LC05dooeVn84EiFE0kqSzNEAGioW+vBEB50cUdGlL9XfygKPRqDUwAzExMn2iEI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
-	t=1794872819; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Ooe8aVYLhVyQjDTdzZYaM/OancGDo6HyHA7XUTxSDaQ=; 
-	b=JvhAMGsKmhDokRhKissokzoD2UuEbmCLuOweMxg+UqTmANFbSGwDnLv0v44Q/eHTrngXGPUfX1U83BhjiBupOPT+aI5e/O/HD6u3ajaouNQ1wQP1a1Kq40JA/ypv+ES3nRQTCOUHZYUO02EBTzfLztbUW9yzY9n84cuZoEC0FXE=
-ARC-Authentication-Results: i=1; mx.zohomail.eu;
-	dkim=pass  header.i=iav.lv;
-	spf=pass  smtp.mailfrom=iav@iav.lv;
-	dmarc=pass header.from=<iav@iav.lv>
-DKIM-Signature: a=rsa-sha256; b=GRq6dFG5MWvsX9lB2vV85LdCvyLwCnVGbM5hs2ybm7+Go8RGSTbckgzGtSuxw9oCgmw0VByn6VpplVRgfHxmV34jacX2mlFI6m6bg4eeoBAbgPCpmUWu1paoGL7TQI2f6+NLFzMRKdjZT7wg4KbBV9Moi+T1WmP6+HIo1+UFikw=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=Ooe8aVYLhVyQjDTdzZYaM/OancGDo6HyHA7XUTxSDaQ=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zoho.eu with SMTPS id 1794872817568586.021810184602;
-	Tue, 17 Nov 2026 00:46:57 +0100 (CET)
-Date: Tue, 17 Nov 2026 01:46:56 +0200
-From: Igor Velkov <iav@iav.lv>
-To: netdev-bot+sashiko@kernel.org
-Cc: iav@iav.lv, andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, neil.armstrong@linaro.org, khilman@baylibre.com, jbrunet@baylibre.com, martin.blumenstingl@googlemail.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: mdio: mux-meson-g12a: keep the MAC data path when switching MDIO
-Message-ID: <20261117-re-sashiko-g12a-mux-v1@iav.lv>
-In-Reply-To: <179485704584.3136.17355463997361048256@kernel.org>
-References: <20261115-g12a-mux-data-path-v1-1-011dad738698@iav.lv> <179485704584.3136.17355463997361048256@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UtEK3E/Q
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0785A1F000C7;
+	Mon, 16 Nov 2026 23:50:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794873006;
+	bh=H5PEbT44AMh96DEOsaYSsxRntcOvO9oCNPKiBsM1txc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=UtEK3E/QqODJRgPB03hTllJdzvpes5EKtBvDhwlLI6ersXEi78YkMDv1XRCoeDuux
+	 mpaGITGIu51A2tgw0+eivEtHDy9V8e3E6s2dG7LbE5rhwGaHVbro6p3OoueGMfR4/T
+	 nTi0QDue1559zuim+Yp39URaDPn9Thmh+InHjQw8LaH92IthTgcW8FtLAuuZv1CGXu
+	 nVvNsPU52j9DuBPocSgUn4mnuef6ysjbbMCYv5PYWIpAFyK755UnXNyDru2u+S59X0
+	 FRPJNma/C0561hh/StnIKn17SIrPveuVM+LFECQwP3dRNIUIdmnNlEhFKLd4h4ovxD
+	 h2zSRDK5RpB5g==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F1490391B059;
+	Mon, 16 Nov 2026 23:50:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,10 +53,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] sctp: do not free a new asoc peeled off while
+ sendmsg
+ slept
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179487300478.245276.9003831986413993562.git-patchwork-notify@kernel.org>
+Date: Mon, 16 Nov 2026 23:50:04 +0000
+References: <20261112172149.27355-1-yves.bieri@theori.io>
+In-Reply-To: <20261112172149.27355-1-yves.bieri@theori.io>
+To: Yves Bieri <yves.bieri@theori.io>
+Cc: marcelo.leitner@gmail.com, lucien.xin@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-sctp@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
-Right, the check missed the deprecated phy and phy-device references.
-v2 looks the PHY up with fwnode_get_phy_node(), as stmmac does.
+Hello:
 
-pw-bot: cr
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Thu, 12 Nov 2026 18:21:49 +0100 you wrote:
+> When sctp_sendmsg() creates a new association and sending on it fails
+> with anything but -ESRCH, it frees the association. The send can
+> sleep in sctp_wait_for_sndbuf(), which releases the socket lock, and
+> meanwhile another thread can peel the new association off to a new
+> socket. The wait then returns -EPIPE, and sctp_sendmsg() frees an
+> association that now belongs to the peeled-off socket, without holding
+> that socket's lock.
+> 
+> [...]
+
+Here is the summary with links:
+  - [net,v2] sctp: do not free a new asoc peeled off while sendmsg slept
+    https://git.kernel.org/netdev/net/c/f2540da93a11
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
