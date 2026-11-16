@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794855741;
-	b=x8DVP04WrCRfK6aPoOPsWgjk92Q+gaMWaAbUsnBfQc+A3SbOoMW2HGfiQipijbjaJhz8
-	 TNQwTZZ7Ua4+/aM5nTsmqDRoMnwYqJmm9A8yepPeN49gRIUaZJEzi7Ah/0RxVw5lkfP1L
-	 XGQoeJh1thI3CBbjfarwQp3waI6MrhDHV3ToouytPpxBoE6X8Wf+QH+7n2ToiCPALQGbI
-	 k0PlmztW8I0J+TkjfSD3JZpuHjngd0fW5UJ9ef4Jw5kTxbWk2QWVN60Npe3V1uJoFZPdh
-	 4GnjLJpHPWGhLepU6JKDFCN183vhAsS96HRRKFNIiIU7/KHfSqV99GAUNh0Iz9Ov/TQ==
+	t=1794855743;
+	b=FSXMU2iuZSj/ayoymZt0T9decZjIlFmWLN093zHkh76byux5XMAr8wBZ91Ehn6Rdougb
+	 yHZlBWiuraw8hB0jZ+5zJqURZIiwxldK8pjUF1MvZCJz5Qwmqxj4VgFcrxcpcSavY0vqi
+	 KdNew0p8i21haVeEFHU7hChJw3PbfXWCT6QeivZ64/6tH3PWSpXXZF6uvYXtlqNp+DZ2k
+	 3gAEV1t9UxUpxzKEOUys0/JZZYadIS35sPNRgCZYvfLCcpSu6aLNH+ni+idkLU2f+9mPg
+	 lkG8zlfGpwT0oPOwvnHSBVE8Z0NDDjJt1h+EMusl3rnKgBksfXm0Y405hSo7jk0FByw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794855741;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794855743;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=50Zgq4Wlhu78oRiVo20JXj//1X5zV34RGR2wWKijbl8=;
-	b=1QscjcsJS0nLCOd3dqUxb14VsFy5dRB2RetpbLC0q5CzJrkK8z+Z2+lA0gC5iuCUslT8
-	 6ud+3sb/ApGO7uy8pEegaLfhuNisWT03UeNcXRKKwj7sH9m7hzq0Uo3DxpqFGNSiYnzqi
-	 3tmYuiBq9yMRo/oHly74xDGyoDLgLKiixfFkBGZIlskmzZ7VRc2p8regPekeQ2vRVGuSw
-	 hIk93/6H80DmIrz15RkrjkyjwmlmM6P1oe6iUuvt2QH2WWIu402hWpSie5tn6JKOlCBRC
-	 lK7mT3CjXT9ofURKxGZwvsdYr1/vKjjLw6nJXdTua0wudlECqJC7/KB1F0OmnULeqYA==
+	bh=OAdG2VXPRF5Xn/vZR1PiPlejI6VYWCGC/es6sAOg6Bw=;
+	b=nOUI0BcTRdRqqIratTm1155HvaVDc8fl++crL/dZEpFED/JrsZYr2kLSS+DqClYq7N3w
+	 MjIjlOuIkOoxAjEdAccGk0vP4F+o/BoAs+ud38HzYskpn2/ObLsfQTD5vzq1MOKvK6xzy
+	 xhk7TuECtmKhQ8+vSo8q0sqejkrePVmmLSw3B99m/H4HhkummL6RY0xTMVQXnBmoZU3RZ
+	 qMZXXdK47isI4Zdp12rjQDopRzY2PdgBzVDlHZcjWFzN2oQr33S59829GUqryL7B47v5g
+	 FH7NgQJY58LlF1d+3Kq7Qlq+pGu78EAYGbmT9zHr81N+WTx/tMBSj/vvvjZSGNx+LHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bmbN1Fuf;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YIV9Lpv8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 24A68606A334;
-	Mon, 16 Nov 2026 19:02:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A224C606A896;
+	Mon, 16 Nov 2026 19:02:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bmbN1Fuf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7320C1F000CE;
-	Mon, 16 Nov 2026 19:02:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YIV9Lpv8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3D871F000C9;
+	Mon, 16 Nov 2026 19:02:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794855741;
-	bh=50Zgq4Wlhu78oRiVo20JXj//1X5zV34RGR2wWKijbl8=;
+	s=k20260515; t=1794855743;
+	bh=OAdG2VXPRF5Xn/vZR1PiPlejI6VYWCGC/es6sAOg6Bw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bmbN1FufeVvvGut5VTpcc8oWRDaThItdzZvMC7cB5IQF2Bhh8sMJ50EQcnp+351tg
-	 55cPAH2eHqmt6vF6h9Kv1AbCUe1wjoXTwff9TgE6hyAODuzEzcVmJk2vX8sxdf7KEQ
-	 2JphhhH1R8TzaloEMWFr6Hs8lsiVgNDFZFfB2fAkF7R8FVn9SUev4PtbWdDwVnBr5O
-	 eUm1HUWQQkCIqRzOxoTz5yPYmT16dgj8yaPDEvXzPDRamXhygBf/9NEMrhBCSc7FBa
-	 B7IiJiYbKvS+gooq2ZtjLntYAULwSP3gH5Zjcr5+cEFNGrGSFfttmZWVUcH41IwRaA
-	 lxnEopr71LezQ==
-Subject: Re: [PATCH net v5 5/8] net: dsa: b53: use the correct override
- register 2 Gbps bit
+	b=YIV9Lpv8iu2shcZmWroFNGsKuwtCT4LVC1j+QlnyryQpmeQbEohfTYp1bTLRkNWtE
+	 lU7TbrLqZv5QSxhUPDSYlB1181qb+xdgImB6VAVSaZVXB0Y8CgpPT7jSN+qetHmXvJ
+	 a96z2B5UVLDHjvXnktECP3ZOJlEECApP9+SLewpOOPHhqI8b069PSOfw5fX1D7Ad/P
+	 OxJt6we7zq9HjWi2p7oA8zXjQ5Sh2AaTZJcn7tXqElD4a0JdTSjQJrBncoAiDg35Om
+	 +/GYBQajX4/ntswGyEWYyvQuRVmbXpcQd31e87QiSaU4yRlAPUOJln7f2+bxGC8P1N
+	 nmSi5ZhWlqYmQ==
+Subject:
+ Re: [PATCH net v5 7/8] net: dsa: b53: harden mirror register programming
 From: netdev-bot+sashiko@kernel.org
 To: florian.fainelli@broadcom.com
 Cc: netdev@vger.kernel.org, jonas.gorski@gmail.com, andrew@lunn.ch,
  olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
  pabeni@redhat.com, vivien.didelot@gmail.com, linux-kernel@vger.kernel.org
-Date: Mon, 16 Nov 2026 19:02:20 +0000
-Message-ID: <179485574004.3136.10514561050304983493@kernel.org>
-In-Reply-To: <20261112180202.324504-6-florian.fainelli@broadcom.com>
-References: <20261112180202.324504-6-florian.fainelli@broadcom.com>
-X-sashiko-severity: Low
+Date: Mon, 16 Nov 2026 19:02:22 +0000
+Message-ID: <179485574238.3136.7987059479392278091@kernel.org>
+In-Reply-To: <20261112180202.324504-8-florian.fainelli@broadcom.com>
+References: <20261112180202.324504-8-florian.fainelli@broadcom.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,81 +64,162 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-- [Low] The Fixes: tag covers only one of the two bugs this patch fixes.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] Speculative; needs datasheet confirmation.
+- [Low] This patch fixes a regression that an earlier patch in the same
+  series introduced, but its message says nothing about that or about…
+- [Low] The commit message says the patch will "Clear capture control and
+  both source-control registers during b53 and bcm_sf2 setup".
 
 --
 
-net: dsa: b53: use the correct override register 2 Gbps bit
+net: dsa: b53: harden mirror register programming
 
-This patch picks the 2 Gbps speed bit per register in
-b53_force_port_config(). The IMP override register uses
-PORT_OVERRIDE_SPEED_2000M and the per-port GMII override registers use
-GMII_PO_SPEED_2000M. As a result, lower speeds clear the correct bit and
-2 Gbps sets the correct bit on GMII ports.
+This commit calls b53_mirror_init() from b53_setup() and
+bcm_sf2_sw_setup() to reset the mirror registers at setup. It checks
+every mirror register read and write in b53_mirror_add() and
+b53_mirror_del(), and only increments the source reference count after
+programming succeeds. It also uses the ingress/egress source masks,
+instead of MIRROR_EN, to decide whether the capture destination is in use.
 
-> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-> index 64e04c5731a69..d8dafa9e0c44d 100644
-> --- a/drivers/net/dsa/b53/b53_common.c
-> +++ b/drivers/net/dsa/b53/b53_common.c
+> The mirror destination check can reject a first rule when a bootloader or
+> previous kernel left mirroring enabled. Not all supported switches receive
+> a hardware reset during setup. Unchecked register accesses can also
+> corrupt mirror state or report an unsuccessful rule installation as
+> successful. Reference counting must not record a first source reference
+> until hardware programming has succeeded.
 
 [ ... ]
 
-> @@ -1449,11 +1451,12 @@ static void b53_force_port_config(struct b53_device *dev, int port,
->  
->  	reg &= ~(0x3 << GMII_PO_SPEED_S);
->  	if (is5301x(dev) || is58xx(dev))
-> -		reg &= ~PORT_OVERRIDE_SPEED_2000M;
-> +		reg &= ~speed2000;
->  
->  	switch (speed) {
->  	case 2000:
-> -		reg |= PORT_OVERRIDE_SPEED_2000M;
-> +		if (is5301x(dev) || is58xx(dev))
-> +			reg |= speed2000;
->  		fallthrough;
+> Fixes: ed3af5fd08eb ("net: dsa: b53: Add support for port mirroring")
 
 [Severity: Low]
-This isn't a bug, but should the Fixes: tag also cover the 2 Gbps set
-path? The commit message has:
+Is ed3af5fd08eb the right commit for the first problem described here?
 
-    Fixes: b6a8a5477fe9 ("net: dsa: b53: fix resetting speed and pause on forced link")
+Before this series, b53_mirror_add() overwrote B53_MIR_CAP_CTL and never
+rejected a rule. The check that can reject a first rule because of stale
+firmware state was added earlier in this series, by "net: dsa: b53: reject
+conflicting mirror destinations":
 
-b6a8a5477fe9 added the clear of PORT_OVERRIDE_SPEED_2000M at lower speeds.
-On the GMII register that clear removes GMII_PO_EN (BIT(6)) and leaves a
-stale GMII_PO_SPEED_2000M behind. That part of the patch matches the tag.
-
-The change in case 2000 fixes an older problem. On a GMII port, ORing in
-PORT_OVERRIDE_SPEED_2000M has always set GMII_PO_EN and never
-GMII_PO_SPEED_2000M (BIT(7)), so 2 Gbps was never selected on that
-register.
-
-The case 2000 line goes back to 967dd82ffc52. Later, 63f8428b4077 switched
-the code from cpu_port to imp_port, which moved BCM5301x CPU port 5 back
-onto the GMII register path, and that path still set BIT(6).
-
-In the current tree, the only caller that passes speed = 2000 is
-b53_phylink_mac_link_up():
-
-	if ((is5301x(dev) || dev->chip_id == BCM58XX_DEVICE_ID) &&
-	    dsa_is_cpu_port(ds, port)) {
-		tx_pause = true;
-		rx_pause = true;
-		speed = 2000;
+	if ((cap_ctl & MIRROR_EN) &&
+	    (cap_ctl & CAP_PORT_MASK) != mirror->to_local_port) {
+		...
+		return -EOPNOTSUPP;
 	}
 
-That code came from 41af38324341 ("net: dsa: b53: restore the NSP IMP port
-2 Gbps mode"). It also covers BCM5301x CPU ports 5 and 7, which go through
-B53_GMII_PORT_OVERRIDE_CTRL(port).
+That patch does not clear the capture state at setup.
 
-The commit message says the patch makes it so "2 Gbps sets it". Would an
-extra Fixes: tag for 41af38324341 describe what the patch fixes more
-accurately?
+The same is true of the reference count increment that runs after
+unchecked register accesses. It comes from "net: dsa: b53: reference count
+shared mirror source bits". That patch also defined and exported
+b53_mirror_init() but never called it, so this patch cannot build without
+it.
+
+All three patches carry the same Fixes: ed3af5fd08eb tag, and none of them
+says what order they need to go in.
+
+Suppose "reject conflicting mirror destinations" is picked up for stable
+on its own. On a switch where the bootloader or a previous kernel left
+MIRROR_EN set with a different capture port, would the first tc matchall
+mirred rule then fail with -EOPNOTSUPP?
+
+Could these fixes be folded into the patches that introduced the problems?
+If not, could the commit message name those patches and the required
+ordering?
+
+> diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
+> index 98696bce368fe..deb331b3629a7 100644
+> --- a/drivers/net/dsa/b53/b53_common.c
+> +++ b/drivers/net/dsa/b53/b53_common.c
+> @@ -1360,6 +1360,10 @@ static int b53_setup(struct dsa_switch *ds)
+>  		return ret;
+>  	}
+>  
+> +	ret = b53_mirror_init(ds);
+> +	if (ret)
+> +		return ret;
+> +
+
+[Severity: Medium]
+Are the mirror register offsets the same on every chip family that goes
+through b53_setup()?
+
+With this call, b53_mirror_init() writes zero to Management page offsets
+0x10 (B53_MIR_CAP_CTL), 0x12 (B53_IG_MIR_CTL) and 0x1C (B53_EG_MIR_CTL) at
+every setup, on every chip_id:
+
+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, 0);
+	...
+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_IG_MIR_CTL, 0);
+	...
+	ret = b53_write16(dev, B53_MGMT_PAGE, B53_EG_MIR_CTL, 0);
+
+Before this patch, these offsets were only written when a user installed a
+matchall mirror rule.
+
+The driver already treats the BCM63xx Management page layout as different
+in at least one place:
+
+	#define B53_AGING_TIME_CONTROL		0x06
+	#define B53_AGING_TIME_CONTROL_63XX	0x08
+
+The mirror registers have no 63xx variant, though. Nothing in the tree
+confirms these offsets for BCM63xx either way, so this may be fine.
+
+If BCM63xx, or another supported family, has a different register at 0x10,
+0x12 or 0x1C, would that register now be silently zeroed on every boot?
+A write to the wrong register would still return success here.
+
+[ ... ]
+
+> diff --git a/drivers/net/dsa/bcm_sf2.c b/drivers/net/dsa/bcm_sf2.c
+> index 98a4a62ca73a2..85ea32fb501db 100644
+> --- a/drivers/net/dsa/bcm_sf2.c
+> +++ b/drivers/net/dsa/bcm_sf2.c
+> @@ -1063,6 +1063,10 @@ static int bcm_sf2_sw_setup(struct dsa_switch *ds)
+>  	unsigned int port;
+>  	int ret;
+>  
+> +	ret = b53_mirror_init(ds);
+> +	if (ret)
+> +		return ret;
+> +
+
+[Severity: Low]
+The commit message says:
+
+  Clear capture control and both source-control registers during b53 and
+  bcm_sf2 setup, propagating initialization failures.
+
+b53_mirror_init() does more than clear these registers. After writing zero
+to them, it rebuilds the source masks from dev->ports[].mirror_count[] and
+writes the capture port back:
+
+	cap_ctl = MIRROR_EN | dev->mirror_port;
+
+On bcm_sf2 this also runs on every resume:
+
+bcm_sf2_sw_resume()
+  ds->ops->setup()
+    bcm_sf2_sw_setup()
+      b53_mirror_init()
+
+So with this patch, active tc mirror rules are restored from software state
+after each resume. A failed mirror register access also makes resume fail.
+
+No patch in the series describes this restore behaviour. Could the commit
+message mention it, so that readers don't expect resume to wipe active
+mirror rules?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112180202.324504-1-florian.fainelli%40broadcom.com
