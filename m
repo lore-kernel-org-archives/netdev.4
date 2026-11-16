@@ -1,63 +1,50 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794826838;
-	b=SplFXr/w0Al7QqJYRfwIJR7tiwR/e+5hJ69q3dyJm6NE5HQSSKkA/R5Kua3ShUvi5FvF
-	 AL9522AiKwWuINEjqvaA3fw077vUi0FEuNtJdqL3MdQYFwFvuemSJgdpu14LNYvuRkHXi
-	 dO7KNGr1ZwefMTfNA9FGbDUAS7AS+HK5ErKj3owp//7iwvkHh4pUXB4ul1NfQOT/G6MHH
-	 0wiJ6xHvTKhhGY67iBb77E/YPwa1Fal+WOft51JmiY5E09j7BLPXFrwgkvG36TuVcaY/G
-	 Rszh2ApMrCkWGzlbEI9HZgkyYIqN7li9lGwLCSwDpcJaObNu9BusTUM1JfzF1ed9uOA==
+	t=1794827165;
+	b=u4csHGKVmWi73ds7R5RYru9nKJ52WTvHiBnH7cq3IxAHbzrYW9BfkGmwHK58Qdpe5y2i
+	 45wBvoUeSsXKAPqpFVtJDH8k6L1tbNPEOuPiI2bRoWgHaH8rNTK2h9vig6Rk+u0R5D8Il
+	 jSuAoXt2Meil7IITVkrqkQfk+YyG7hVIJdn9Pr2JhJjVvvIr6GhoKzDs5uzoknZ48MP9+
+	 /MLwXqZ90pqu2HJNFr3hruz7iVRf7/69QbVy1Cz0sTEQ84bJSZqa3AgO9ydN+ZVaUXDIv
+	 mUIeh1ZpUMdADCO90vFbk8n8g/UVr3DBXGhL5DzabZpREEvCWgrUp3sHFiL9W24oiyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794826838;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ka3guBqxxM4Qr+XP1T4WnJINYyUxWKYswjO+habAv3w=;
-	b=CN9CuYgg8o0Td9XIusZpSXcaa/Lm5I6q1UmUu1CZWNA2j869xGmzYrkMbihSFyvrXph+
-	 +g6/RWXkd9oSXDYA83REqKn44k8M0AVvtm14xX6By3qcwEy54AfkB8Z6LUFNFe81UUwpy
-	 l4VuaHkxPVvel1N9ifdb3J+tSB3Ek8PsjVvdGLUTpvs9pFs/yc5pPUGIRC3QXxZ9opfkV
-	 M2uuaFv57fbK9zoh4cIQrCGZBRg2Jusr3QHHueSlE+0GxBzJfmhMeBoXy6Ia+C0NvZgbX
-	 OFQXYBuhxNxtPqMcUVlHL+oshnchjl8yrhLKTCvBaD2FN64WTS2rMPB+0pEb1eKcHgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794827165;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=e0NdapISO7PccEe+J1PNsovhyllFhzOUrTJOSP5Geu0=;
+	b=Sc8GHS8HMMJM/mYTyrySA0/SFHDtCjKuGeut6BrpSxtjwIglnvZn25BloOoskhuzCoZE
+	 7sNe88wW695fNjKKSVHu+Ebg78m9sewzaziOXHd1k7TTtuzsuB0oGMeBcCqAEBrqodGPk
+	 51u/LzNG+XXl2KAL2cNpGPHTHsuB9Rchy3OtKurLmRHEAonWm6nVI9mgWLwdrNE35TI/y
+	 /i47KguwtWFfnyt9eMxAwjrHVhRzz58O5ygKYFfAjjyhMGkRWLgd5pGBeQIxrvCFv6rKo
+	 1U0e8szTupzpxjE1qA8i0KOn53xbDGy7AB6So0N15V9AHU4dxTo5rCdPJSzGa/Sl00A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SISEzRGg;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ftb5hbDR;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F2CB606A894;
-	Mon, 16 Nov 2026 11:00:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD478606A899;
+	Mon, 16 Nov 2026 11:06:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SISEzRGg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5671A1F000CA;
-	Mon, 16 Nov 2026 11:00:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ftb5hbDR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1506A1F000C4;
+	Mon, 16 Nov 2026 11:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794826838;
-	bh=ka3guBqxxM4Qr+XP1T4WnJINYyUxWKYswjO+habAv3w=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=SISEzRGg4WR+yVM5byzl4U4yWgWrHsvA8w5TXTKJdxpk8cd8IwlIqOl+8GPxXijcW
-	 NajaQUMdARyrXgVRiavGv1aL/8F4pG9k0Fix7NtXgkv5wqNs0xDKsmquHaDgl7wAdP
-	 Oy3kPXpDoKJNqrZ5FMWLLtmhrFjINpk6WKxvf0NDdvQugIbzPWSR9s+rIyneQhEmng
-	 XB1OfjKpnuuu4pBr/MJGntqyqLQSYOyvGeT/7Q/ZgnXF923UngAenTsfeXpH5C9m9N
-	 70SpgWdAo4nVDH3SJ8x3MZogoQESPJRHw7vCThCgBBXvyISSmiIPwu4pOCxs42ga1u
-	 DR0tSdNW9br4w==
-Subject: Re: [PATCH net-next v2 3/3] net: dsa: forget the port ageing time
- when the port leaves the bridge
-From: netdev-bot+sashiko@kernel.org
-To: o.rempel@pengutronix.de
-Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, arun.ramadoss@microchip.com,
- jiri@resnulli.us, linusw@kernel.org, f.fainelli@gmail.com,
- vivien.didelot@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, kernel@pengutronix.de,
- jensemil.schulzostergaard@microchip.com
-Date: Mon, 16 Nov 2026 11:00:36 +0000
-Message-ID: <179482683686.3136.4297608809022872177@kernel.org>
-In-Reply-To: <20261115-ksz-stp-ageing-v2-3-7af27320033e@pengutronix.de>
-References: <20261115-ksz-stp-ageing-v2-3-7af27320033e@pengutronix.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1794827165;
+	bh=e0NdapISO7PccEe+J1PNsovhyllFhzOUrTJOSP5Geu0=;
+	h=From:Subject:Date:To:Cc;
+	b=Ftb5hbDRPHfk4mqY+as6cITFuaLQGaWxutA89/20IINyG8AWvhacek97p5schkdpC
+	 AyYCKPKL3dzJKwIZjvpzwCDvwctfPx6EDdUfErpK2yneg2+klODDipbjTse0NZAQMF
+	 KDfFh7yWIdi4wOGp4Gne0XRg41oYQhFJGYdhf8OxI7T9/jZ4mlgBePeiQFCrMoaNms
+	 2lxrbE0M2koxPrbSXipDSd8QPoEpcTLzX03l3nBGYs3qh6mdF/e7kYBCkbShJStWdN
+	 f7wfXyOSdMJZFERdfnsQJIkWQxHMv4idAUXl3qYD1xhtNrNtVTGk743z+jh6oSNcXR
+	 Zr17+PGdeh04A==
+From: Christian Brauner <brauner@kernel.org>
+Subject: [PATCH RFC v3 00/44] fs: don't use pseudo filesystem files as
+ storage
+Date: Mon, 16 Nov 2026 12:04:33 +0100
+Message-Id: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,115 +54,302 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/23OQQ6CMBAF0KuYri1pCymtKxMTD+DWuChlgAqhp
+ AXUEO4uhY1GlzPz5+VPyIMz4NFhNyEHo/HGtssQ73dIV6otAZt8mREjjFNKJH5YV+PG2g53Hob
+ cYiGJSBLKBRQULW+dg8I8V/KKLucTum1LP2R30H3AQixTHnDmVKursApsFNhoY6NwD7nK+N661
+ 1pwpCu6daHkt8tIMcGJllLIlGuu02MNroUmsq5ce4zsU0j+CGwRpOCxVIwJXmRfwjzPb0rOqWw
+ yAQAA
+X-Change-ID: 20261109-work-loop-pseudo-890844168ef1
+To: linux-fsdevel@vger.kernel.org
+Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, 
+ Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
+ linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
+ Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, 
+ target-devel@vger.kernel.org, driver-core@lists.linux.dev, 
+ linux-mm@kvack.org, bpf@vger.kernel.org, 
+ linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+ apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, 
+ netdev@vger.kernel.org, fuse-devel@lists.linux.dev, 
+ linux-efi@vger.kernel.org, xen-devel@lists.xenproject.org, 
+ ocfs2-devel@lists.linux.dev, linux-s390@vger.kernel.org, 
+ linuxppc-dev@lists.ozlabs.org, linux-usb@vger.kernel.org, 
+ Amir Goldstein <amir73il@gmail.com>, linux-erofs@lists.ozlabs.org, 
+ linux-kselftest@vger.kernel.org, 
+ "Christian Brauner (Amutable)" <brauner@kernel.org>, stable@vger.kernel.org, 
+ Alexander Mikhalitsyn <alex@amutable.com>, 
+ Chris Down <chris@chrisdown.name>, Breno Leitao <leitao@debian.org>, 
+ Casey Schaufler <casey@schaufler-ca.com>, Chuck Lever <cel@kernel.org>, 
+ Sashiko <sashiko-bot@kernel.org>, Gao Xiang <xiang@kernel.org>
+X-Mailer: b4 0.17-dev-ce4c1
+X-Developer-Signature: v=1; a=openpgp-sha256; l=12804; i=brauner@kernel.org;
+ h=from:subject:message-id; bh=GZSpSgaz8UmPZAvkrresyb8T5SRXAMQwIkGeKnPuIsY=;
+ b=owGbwMvMwCU28Zj0gdSKO4sYT6slMWT9ehzH4Hyo+U/eC2+RpLWuBhl3ZV67Rsptc52x/+TZj
+ d6/L33Y01HKwiDGxSArpsji0G4SLrecp2KzUaYGzBxWJrAhXJwCMJGp1xkZvv3acip/dtPH9U2a
+ 2dPYXzy2dAiZMfHZt4DlhYkdAQukcxj+lzJqzgt7/jnyxBv3QqHff/6e9VG69ef7iY76S//+eHy
+ S4wQA
+X-Developer-Key: i=brauner@kernel.org; a=openpgp;
+ fpr=4880B8C9BD0E5106FC070F4F7B3C391EFEA93624
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Loop happily takes any regular file with ->read_iter() as a backing
+file and any file that also has ->write_iter() as a writable one. A few
+examples:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+* /proc/kcore attaches read-only as a loop device the size of the
+  kernel's virtual address space (64 PiB with 5-level paging)
+* sysfs attributes attach read-write as 4096 byte loop devices
+* using /sys/kernel/mm/transparent_hugepage/enabled for the loop device
+  and writing a block to the loop device changes the THP setting
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+It's not just silly. It's abusable (is that a word?). Loop calls
+->read_iter() and ->write_iter() of the backing file directly from its
+kworker which runs with kernel credentials.
 
-- [Medium] In net/dsa/port.c, dsa_port_switchdev_unsync_attrs() now
-  clears the cached dp->ageing_time, but nothing on the bridge-leave…
+But pseudo files enforce part of their access rules at read and write
+against the caller. So dozens of sysfs ->show() and ->store() methods
+call capable().
 
---
+But setting up a loop device requires no capabilities. It only requires
+access to the device nodes. So whoever has a loop device skips all of
+the capable() checks.
 
-net: dsa: forget the port ageing time when the port leaves the bridge
+A couple of fun examples:
 
-This patch clears the cached dp->ageing_time in
-dsa_port_switchdev_unsync_attrs() when a port leaves a bridge. After that,
-dsa_switch_fastest_ageing_time() no longer counts the departed port's
-value. The switch can then return to the bridge's long ageing time when
-another port of the same bridge gets a restore.
+On v7.4-rc1 uid 0 without any capabilities can't kill a process of uid
+1000 and can't poison its memory either:
 
-> diff --git a/net/dsa/port.c b/net/dsa/port.c
-> index 15e7da20b0e2f..54c9709840952 100644
-> --- a/net/dsa/port.c
-> +++ b/net/dsa/port.c
-> @@ -415,6 +415,12 @@ static void dsa_port_switchdev_unsync_attrs(struct dsa_port *dp,
->  	/* Ageing time may be global to the switch chip, so don't change it
->  	 * here because we have no good reason (or value) to change it to.
->  	 */
-> +
-> +	/* Forget the ageing time cached for this port.
-> +	 * dsa_switch_fastest_ageing_time() skips 0, so this port no longer
-> +	 * counts towards the minimum.
-> +	 */
-> +	dp->ageing_time = 0;
+    $ grep CapEff /proc/self/status
+    CapEff: 0000000000000000
+    $ kill -9 327
+    bash: kill: (327) - Operation not permitted
+    $ echo 0x220689000 > /sys/devices/system/memory/hard_offline_page
+    bash: echo: write error: Operation not permitted
 
-[Severity: Medium]
-This clears the cache, but the leave path never writes the switch's ageing
-register again. Can the chip still stay at the departed port's short
-ageing time?
+But put hard_offline_page behind a loop device, write a block
+containing 0x220689000 to the loop device and the loop worker happily
+does it:
 
-The hardware is only programmed in dsa_switch_ageing_time(), which runs
-on DSA_NOTIFIER_AGEING_TIME:
+    Memory failure: 0x220689: recovery action for dirty LRU page: Recovered
+    MCE: Killing victim:327 due to hardware memory corruption fault at 7f468e972000
 
-net/dsa/switch.c:dsa_switch_ageing_time() {
-    ...
-	ageing_time = dsa_switch_fastest_ageing_time(ds, info);
+That hard_offline_page is a write-only file doesn't stop loop from
+using it as a writable backing file either.
 
-	if (ds->ops->set_ageing_time)
-		return ds->ops->set_ageing_time(ds, ageing_time);
-    ...
-}
+Other fun examples:
 
-That notifier is only sent by dsa_port_ageing_time(). It is reached from
-dsa_port_switchdev_sync_attrs() when a port joins, and from
-dsa_user_port_attr_set(), which is gated on the port still offloading the
-bridge:
+(1) soft-block radios via /sys/class/rfkill/rfkill*/soft
+    (CAP_NET_ADMIN)
 
-net/dsa/user.c:dsa_user_port_attr_set() {
-    ...
-	case SWITCHDEV_ATTR_ID_BRIDGE_AGEING_TIME:
-		if (!dsa_port_offloads_bridge_dev(dp, attr->orig_dev))
-			return -EOPNOTSUPP;
+(2) change the reboot mode via /sys/kernel/reboot/mode (CAP_SYS_BOOT)
 
-		ret = dsa_port_ageing_time(dp, attr->u.ageing_time);
-    ...
-}
+(3) reconfigure md arrays via /sys/block/md*/md/. md_attr_store()
+    requires CAP_SYS_ADMIN for every md attribute.
 
-Take one switch with br0 holding lan1 and lan2 at 300 s, and br1 holding
-only lan3 at 10 s (or 2 x forward_delay during an STP topology change on
-br1). The chip runs at 10 s.
+(4) reconfigure scsi disks via /sys/class/scsi_disk/*/allow_restart and
+    friends (CAP_SYS_ADMIN)
 
-When lan3 leaves br1, the call chain is:
+(5) read dmi-sysfs attributes (CAP_SYS_ADMIN)
 
-dsa_port_bridge_leave()
-  dsa_port_switchdev_unsync_attrs()
-    dp->ageing_time = 0;
+And an unprivileged container that was handed a loop device can change
+gro_flush_timeout of its own network devices. That usually requires
+CAP_NET_ADMIN in the initial user namespace (via sysfs and via netlink).
 
-br1 has no ports left in this tree to send a restore, and br0 has no
-reason to send one. The chip stays at 10 s. br0's FDB entries then age
-out early, which causes extra unknown-unicast flooding. This lasts until
-br0's ageing time changes, a port joins a bridge, or br0 has its own
-topology change.
+I've reproduced that all on v7.4-rc1.
 
-At that point dsa_switch_fastest_ageing_time() would return the minimum
-of the remaining cached values (300 s), but the hardware is never set to
-it.
+Aaaand zloop, the nvme target's file backend, the scsi target's fileio
+backend, fuse passthrough and the usb mass storage gadget have the same
+problem. erofs takes pseudo files as images for file-backed mounts as
+well. It reads them with the mounter's credentials though so that's just
+silly and not abusable. Same for acct(2) which happily writes its
+records to cgroup2 or binfmt_misc files.
 
-The comment kept just above the new code says there is "no good reason
-(or value)" to change the ageing time here. In this case there is a
-usable value: the minimum over the remaining bridged ports.
+Fwiw, device mapper doesn't need anything. It only takes block devices.
+md's deprecated bitmap file is fine as well. It maps the file with
+bmap() which no pseudo filesystem implements.
 
-Could the leave path recompute the fastest ageing time over the switch's
-remaining bridged ports after clearing the cache, and program it? The
-register could be left alone when no bridged ports remain.
+So this series adds SB_I_PSEUDO to state that the regular files of a
+filesystem are kernel interfaces and not storage and makes all eight
+refuse such files.
 
-The commit message notes that "The switch gets the restored value only
-if another port of the same bridge is still in this DSA tree", and the
-v2 changelog moves the last-port case to the cover letter. The
-multi-bridge case above would still leave the switch at the short value
-this patch is meant to fix.
+I didn't want to sprinkle SB_I_PSEUDO over all pseudo filesystems one by
+one. Instead there's now a common initialization point for all of them
+via fc_init_pseudo().
 
->  }
->  
->  static int dsa_port_bridge_create(struct dsa_port *dp,
+init_pseudo() uses it for the internal pseudo filesystems and all
+mountable pseudo filesystems call it from their ->init_fs_context().
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115-ksz-stp-ageing-v2-0-7af27320033e%40pengutronix.de
+kernfs does it once in kernfs_get_tree(). It raises SB_I_PSEUDO,
+SB_I_NOEXEC and SB_I_NODEV. Pseudo filesystems never hold executables
+and generally never hold device nodes. Some of them raised SB_I_NOEXEC
+and SB_I_NODEV already, most didn't.
+
+I went through every single one of them. None of them needs to execute
+anything. The files that can be mmap()ed map data and the tracing ring
+buffer refuses VM_EXEC anyway.
+
+SB_I_NODEV is cleared again by devpts, binderfs, selinuxfs and
+securityfs. The first two did that already. selinuxfs needs it because
+Android init opens /sys/fs/selinux/null by path as /dev/null doesn't
+exist yet at that point. securityfs needs it for AppArmor's .null device
+node. On exec AppArmor puts it in place of file descriptors the new
+profile isn't allowed to use and those can be reopened via
+/proc/<pid>/fd/<nr>. Note that systemd mounts most of these filesystems
+with noexec and nodev already.
+
+file_check_backing() looks at d_real_data_inode(). overlayfs happily
+stacks on top of sysfs, cgroup2, debugfs, tracefs, configfs and
+securityfs and reads of such overlayfs files are served by the pseudo
+file. Only procfs and binfmt_misc are refused as they set s_stack_depth
+to FILESYSTEM_MAX_STACK_DEPTH and efivarfs as it has its own ->d_hash()
+and ->d_compare().
+
+Whether all pseudo filesystems should refuse stacking is a separate
+discussion. overlayfs reads the lower file with the mounter's
+credentials so a root-mounted overlayfs on top of a sysfs directory
+hands capability gated reads to every reader. With SB_I_PSEUDO overlayfs
+could easily refuse them.
+
+The first three patches are independent fixes. Loop never checked
+whether its backing file is open for reading. It relied on
+vfs_iter_read() refusing such files. Direct I/O never went through
+vfs_iter_read() and since v6.15 buffered I/O doesn't either. So whoever
+has a loop device can read files they could only open for writing. And
+the nvme target's file backend and the scsi target's fileio backend call
+->read_iter() and ->write_iter() without checking that they exist.
+
+Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+---
+Changes in v3:
+- Rebase onto vfs-7.5.lookup which has "fs: let d_real() fail" v2:
+  https://patch.msgid.link/20261116-work-ovl-d_real-v2-0-90564c4ae347@kernel.org
+- file_check_backing(): use d_real_data_inode() and fail with its error.
+  For an O_PATH file on overlayfs the data might not have been looked up
+  yet and when that lookup failed ovl_d_real() warned and the check
+  passed. (Chris, sashiko, bpf-ci)
+- ovl: refuse data-only layers on pseudo filesystems. (Amir)
+- fuse: also check the backing file that fuse_passthrough_open() opens
+  for io. (Amir)
+- securityfs: clear SB_I_NODEV again. AppArmor's .null device node can
+  be opened by path and via /proc/<pid>/fd/<nr>. (Chris)
+- selftests: add fuse passthrough tests and tests for overlayfs
+  data-only layers on pseudo filesystems.
+- Collect tags.
+- Link to v2: https://patch.msgid.link/20261114-work-loop-pseudo-v2-0-98639a2286fb@kernel.org
+
+Changes in v2:
+- Add file_check_backing() and use it in all consumers. It replaces
+  file_is_pseudo() and most of the open-coded file type, open mode and
+  method checks.
+- nvmet, fileio and zloop refuse everything that isn't a regular file
+  or, for nvmet and fileio, a block device.
+- fileio: check the protection file as well. (sashiko)
+- acct: refuse files on all pseudo filesystems. (Alexander)
+- selftests: add nvmet (Bui), fileio, zloop, link, FIFO and character
+  device tests.
+- Collect tags. They are dropped on the patches that changed.
+- Link to v1: https://patch.msgid.link/20261110-work-loop-pseudo-v1-0-4c998976c6c7@kernel.org
+
+---
+Christian Brauner (44):
+      loop: refuse backing files that aren't open for reading
+      nvmet: check that the file backend supports ->{read,write}_iter
+      target: fileio: check that the backing file supports ->{read,write}_iter
+      fs: add SB_I_PSEUDO
+      kernfs: use fc_init_pseudo()
+      proc: use fc_init_pseudo()
+      binfmt_misc: use fc_init_pseudo()
+      mqueue: use fc_init_pseudo()
+      bpf: use fc_init_pseudo() for bpffs
+      nullfs: use fc_init_pseudo()
+      failfs: use fc_init_pseudo()
+      rust_binderfs: use fc_init_pseudo()
+      devpts: use fc_init_pseudo()
+      debugfs: use fc_init_pseudo()
+      tracefs: use fc_init_pseudo()
+      configfs: use fc_init_pseudo()
+      securityfs: use fc_init_pseudo()
+      selinux: use fc_init_pseudo() for selinuxfs
+      smack: use fc_init_pseudo() for smackfs
+      apparmor: use fc_init_pseudo() for apparmorfs
+      nfsd: use fc_init_pseudo()
+      sunrpc: use fc_init_pseudo() for rpc_pipefs
+      fuse: use fc_init_pseudo() for fusectl
+      efivarfs: use fc_init_pseudo()
+      pstore: use fc_init_pseudo()
+      xenfs: use fc_init_pseudo()
+      openpromfs: use fc_init_pseudo()
+      ocfs2: use fc_init_pseudo() for dlmfs
+      s390/hypfs: use fc_init_pseudo()
+      powerpc/spufs: use fc_init_pseudo()
+      usb: gadget: f_fs: use fc_init_pseudo()
+      usb: gadget: gadgetfs: use fc_init_pseudo()
+      ovl: refuse data-only layers on pseudo filesystems
+      selftests/ovl: test data-only layers on pseudo filesystems
+      fs: add file_check_backing()
+      loop: refuse files on pseudo filesystems as backing files
+      zloop: refuse zone files on pseudo filesystems
+      nvmet: refuse files on pseudo filesystems as namespace backing files
+      target: fileio: refuse files on pseudo filesystems as backing files
+      fuse: refuse files on pseudo filesystems as passthrough backing files
+      usb: gadget: f_mass_storage: refuse files on pseudo filesystems
+      erofs: refuse files on pseudo filesystems as backing files
+      acct: refuse files on pseudo filesystems
+      selftests/filesystems: add backing file tests for pseudo files
+
+ arch/powerpc/platforms/cell/spufs/inode.c          |   2 +
+ arch/s390/hypfs/inode.c                            |   2 +
+ drivers/android/binder/rust_binderfs.c             |   3 +-
+ drivers/block/loop.c                               |  14 +-
+ drivers/block/zloop.c                              |   5 +-
+ drivers/nvme/target/io-cmd-file.c                  |   4 +
+ drivers/target/target_core_file.c                  |  14 +
+ drivers/usb/gadget/function/f_fs.c                 |   2 +
+ drivers/usb/gadget/function/storage_common.c       |  11 +-
+ drivers/usb/gadget/legacy/inode.c                  |   2 +
+ drivers/xen/xenfs/super.c                          |   2 +
+ fs/binfmt_misc.c                                   |   5 +-
+ fs/configfs/mount.c                                |   2 +
+ fs/debugfs/inode.c                                 |   2 +
+ fs/devpts/inode.c                                  |   2 +
+ fs/efivarfs/super.c                                |   2 +
+ fs/erofs/super.c                                   |   5 +-
+ fs/failfs.c                                        |   3 +-
+ fs/fuse/backing.c                                  |   4 +
+ fs/fuse/control.c                                  |   2 +
+ fs/fuse/passthrough.c                              |   7 +
+ fs/kernfs/mount.c                                  |   4 +-
+ fs/libfs.c                                         |   2 +-
+ fs/nfsd/nfsctl.c                                   |   2 +
+ fs/nullfs.c                                        |   3 +-
+ fs/ocfs2/dlmfs/dlmfs.c                             |   2 +
+ fs/openpromfs/inode.c                              |   2 +
+ fs/overlayfs/super.c                               |   8 +
+ fs/proc/root.c                                     |   4 +-
+ fs/pstore/inode.c                                  |   2 +
+ fs/read_write.c                                    |  53 ++
+ fs/tracefs/inode.c                                 |   2 +
+ include/linux/fs.h                                 |   2 +
+ include/linux/fs/super_types.h                     |   1 +
+ include/linux/pseudo_fs.h                          |  12 +
+ ipc/mqueue.c                                       |   3 +-
+ kernel/acct.c                                      |   6 +-
+ kernel/bpf/inode.c                                 |   4 +-
+ net/sunrpc/rpc_pipe.c                              |   2 +
+ security/apparmor/apparmorfs.c                     |   2 +
+ security/inode.c                                   |   4 +
+ security/selinux/selinuxfs.c                       |   5 +
+ security/smack/smackfs.c                           |   2 +
+ tools/testing/selftests/filesystems/.gitignore     |   1 +
+ tools/testing/selftests/filesystems/Makefile       |   2 +-
+ tools/testing/selftests/filesystems/config         |  16 +
+ .../selftests/filesystems/overlayfs/.gitignore     |   1 +
+ .../selftests/filesystems/overlayfs/Makefile       |   1 +
+ .../filesystems/overlayfs/pseudo_datadir.c         | 131 +++
+ .../selftests/filesystems/pseudo_backing_test.c    | 936 +++++++++++++++++++++
+ 50 files changed, 1271 insertions(+), 39 deletions(-)
+---
+base-commit: 68cb948e620cf297cee090d6effd04dfef6429de
+change-id: 20261109-work-loop-pseudo-890844168ef1
+
