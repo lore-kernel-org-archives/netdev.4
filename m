@@ -1,70 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.12
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794822979;
-	b=pgVLgubxYx0Wk2FToKtnduRhOAapKLXLLbI4denhQ8YbemVVH1RPA0DvjOsTlpnVK/Mu
-	 TauU/QDNnh7SHN3VrI7eqYxf5Rjc6hUK7g0iFHfb++pCxkzlHhzbRsGThRlP+T+ZLAFy2
-	 DecDY9JEs0UbLAS6v59meAvBQ/bXBjBS6eLqjDKYJ0kzrLD3kF0jv16dxBjmhkm79ttk4
-	 CjMaC6aosyIfLXzLNc0eUr0DqquAzKD+uJlUHMTT2NAjhmY672DyUdk6dxv1MVTYrutnU
-	 bbtsy1892XCJcD4REZW1JQ9MQIXjGz8wU4iQlsngP5h+aRYSjA4aT7nDxa2lLxjoypA==
+	t=1794823031;
+	b=czPqHf/dM5KjY5mHZXAj6PTSLjl7pz9OdSeMpbC2UT5JlFgtESBdsELLgNFjih3l/7SN
+	 EugZsU36gE9MFBA3TjQuSDEtCSlOo++tXv7bBFMBKc/vMitygq6eT3F1FKYKd0uKAt1qH
+	 1qbcJsCoAS1COF+UD+Dqwrh/MLNSPdlh0oUUPtpc7R+8VTuAyxcL64oCPUMGwENZxeGJK
+	 dL4eckhQv10e+tSF7/Ts+2OUxA77BJ6LjFWfuemBKPphX/sxFWF28ea3lqYTj8J+Pryqh
+	 V4yFrTsSUid1NGllg2WkFBQcoX2I0oD+qiLNvqhEeTdvpFrP8CBG1YNtc/k+Ebl+lxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794822979;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
-	bh=UH0bWnACNzDflP3qTpTK60pPAUWOTD6CtY3JFDChnAI=;
-	b=DjHTiwDNW8KZvVKAkl1gmFTofLcrGc7tbEXMwkPInyYSUbpOL4DeGvv5tV6n+a6jusfP
-	 zjZoaHDqj1Z8Rkjqm7cxKUSY0VKGV9NrrCAbWEGBHvR6J/pSTO/htyaBq96ibUGh0MnE/
-	 LDc3PenooKBN+DNpa48FiOOUsFkSOhEu2sYTnlxYigKup+UqMcxRSXbtYB+Rru7bFfBog
-	 Pmm4hBlVtKbJMYLmK0HQ2mqqPu67DBq5Ch408G5jjQ/yfgMMIFQjFT4UWP3vWQwO6Vy0G
-	 tL6MG+PFm7E1yXZf67GhwTw/skKVuzPSZ662x2iAYSUZi/H9KYT+eHC6paO4IkddhnQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794823031;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
+	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
+	 X-CMS-RootMailID:References;
+	bh=gADPMhQ5JfaTMl41/g28OHbc9nkUDs7yH12IBxCuguI=;
+	b=i9NzNX2aODLBDlv73ZX4/qLfF/S3G+syadXMfsa8W5vRStKvg1l5i0n61JZvjq4sWTvL
+	 M2XoZ2NgbMV9wW+wtT2ffagJ9uJITXl9CFeurVUVvbgBvXBskfc3W1Y5W01ICUMHuY2Er
+	 E7zt+r0h632g1nhMXaU23EUIqFsvOBGeiyAhb/FjKjgEMzr9a5zJhQHA/yZ1Rm8D/d5/K
+	 NDnL8uyezBuhStG+Rv0kGORZWFWosbLZBKNwblpPjC9tgqPd4gg8vhYzDUxlm2EOmNmPh
+	 Wr1OLUbNY0XL8qwe9/EwF9ZWenGMEpiizOfy4IOrOB8Bk96ShHsIh6uQK/ZJBfe9pKg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=JtfDGeuc;
-	arc=none smtp.remote-ip=68.232.153.233
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=samsung.com;
+	spf=pass smtp.mailfrom=samsung.com;
+	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=EtaJyRwt;
+	arc=none smtp.remote-ip=210.118.77.12
+Received: from mailout2.w1.samsung.com (mailout2.w1.samsung.com [210.118.77.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C228A606A337;
-	Mon, 16 Nov 2026 09:56:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C228A606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1500A606A31C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:57:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1500A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=JtfDGeuc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1794822986; x=1826358986;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=e5zGi3wEIQJPvBLV+DurPYuglqNx2l0a2BJwxi89I1c=;
-  b=JtfDGeucClq7Wi0OhG686QVYO9vVA4lrgsfrbasHp9MnaMW/xpwIoCmG
-   CxUCZTaG2foM5/z6n5YSd5VE0fkdZ+OYQyyIX1dW1Zi47HjqYubSM2Jdt
-   dTs/2W69ezcf0yRKEocwJL5GQUdQ+OgnqdsidSiEddz9uBT+NtItOi81P
-   UqzWTYp5HPS++0+6YZBwq55DalBBfrHyYbCBSj+jCK2m9ucjjD6K1zQ2w
-   bKLO9wfJ6coF1qZs7Y9gqkbb+uHzMzMfcS2ohj7tugbYlSoREPc8QkY/R
-   oMcpfwqT+wPSbe20K0TrFEV3rid93bwcTqU2X2VCkgn2Gt07R6WOZo2Qk
-   w==;
-X-CSE-ConnectionGUID: hITfFtwUT4GP9a0u1ydGHA==
-X-CSE-MsgGUID: M39AjVtWSfeJYe9QfLiirg==
-X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
-   d="scan'208";a="297975481"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 02:56:26 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Mon, 16 Nov 2026 02:56:17 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 16 Nov 2026 02:56:15 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Mon, 16 Nov 2026 10:56:05 +0100
-Subject: [PATCH net 2/2] net: lan969x: fix RX ring stall on frames from
- inactive ports
+	dkim=pass (1024-bit key) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=EtaJyRwt
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20261116095707euoutp0284c8ecbd2fb30bb12eca2d51644a0a4b~ofgjBGg5d1990119901euoutp02G
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:57:07 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20261116095707euoutp0284c8ecbd2fb30bb12eca2d51644a0a4b~ofgjBGg5d1990119901euoutp02G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1794823027;
+	bh=gADPMhQ5JfaTMl41/g28OHbc9nkUDs7yH12IBxCuguI=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=EtaJyRwt1cHVcpo3NLfoLE+sfMLPr/ZzLiCnae2eQ67sn0qdgO8JjXGLmH1rJiz++
+	 bBZzW6iCGlJivFePmHX1XbU2h7zQPfEUjg4ZtiXzNbJyE9aRCiPNrCBVHmjKwdHPyI
+	 V+Umilwr3I5YDd2KQcgZar7zUhGbODdF9sryxmTY=
+Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20261116095707eucas1p1495e3747e3b0f65092c48f8cf2ca97f8~ofgixM5At0211102111eucas1p14;
+	Mon, 16 Nov 2026 09:57:07 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20261116095706eusmtip2b44cf9248b53db37577d1944e33a6a02~ofgiRd4_z0273602736eusmtip2-;
+	Mon, 16 Nov 2026 09:57:06 +0000 (GMT)
+Message-ID: <17fd14e7-41e3-4658-a62c-1206fd2b5e0d@samsung.com>
+Date: Mon, 16 Nov 2026 10:57:06 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,73 +64,40 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH 00/11] dma-mapping: add dma_alloc_attrs_node() and
+ dma_alloc_coherent_node()
+To: Jakub Kicinski <kuba@kernel.org>, robin.murphy@arm.com
+Cc: netdev@vger.kernel.org, iommu@lists.linux.dev, joro@8bytes.org,
+	will@kernel.org
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <20261112081616.13b81fab@kernel.org>
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261116-sparx5-rx-inactive-port-v1-2-343d8bab58bb@microchip.com>
-References: <20261116-sparx5-rx-inactive-port-v1-0-343d8bab58bb@microchip.com>
-In-Reply-To: <20261116-sparx5-rx-inactive-port-v1-0-343d8bab58bb@microchip.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
-	<Steen.Hegelund@microchip.com>, <UNGLinuxDriver@microchip.com>
-CC: Zhang Hewei <memoriaru@foxmail.com>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-X-Mailer: b4 0.14.3
+X-CMS-MailID: 20261116095707eucas1p1495e3747e3b0f65092c48f8cf2ca97f8
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20261112161622eucas1p131619576b0d4e6d201197007f3d7c951
+X-EPHeader: CA
+X-CMS-RootMailID: 20261112161622eucas1p131619576b0d4e6d201197007f3d7c951
+References: <20261106184433.761422-1-kuba@kernel.org>
+	<CGME20261112161622eucas1p131619576b0d4e6d201197007f3d7c951@eucas1p1.samsung.com>
+	<20261112081616.13b81fab@kernel.org>
 
-If the source port of a received frame does not map to an active port,
-or build_skb() fails, lan969x_fdma_rx_get_frame() returns the page to
-the page_pool and returns NULL, and the NAPI poll loop breaks without
-advancing past the DB. The DB keeps its DONE bit, so every following
-poll returns the same page to the page_pool again, and RX stops on all
-ports.
+On 12.11.2026 17:16, Jakub Kicinski wrote:
+> On Fri,  6 Nov 2026 10:44:22 -0800 Jakub Kicinski wrote:
+>> Stable tag on top of v7.4-rc1, so that we can also pull this into
+>> the networking tree:
+>>
+>>   git://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux.git tags/dma_alloc_coherent_node
+> Marek, Robin, would you be willing to pull?
+> Or should I respin the tag to include the latest Ack/Review tags from
+> the list?
+If possible, respin the tag with latest acks/reviews, then I will pull it to
+my dma-mapping-for-next branch.
 
-Drop the frame and advance past the DB like for any other frame, and
-replace the WARN_ON() with a ratelimited error, as the source port comes
-from the hardware.
-
-Confirmed on lan969x (EV23X71A) with a kernel modified to give received
-frames an out-of-range source port, which stopped RX on all ports. The
-fix was tested the same way: only the bad frames are dropped.
-
-Fixes: d84ad2c0d80c ("net: lan969x: add FDMA implementation")
-Reported-by: Zhang Hewei <memoriaru@foxmail.com>
-Closes: https://lore.kernel.org/netdev/tencent_ACC296C1F221C304053BD0F1F4B0D2C2BA06@qq.com/
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
- drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c | 11 ++++++-----
- 1 file changed, 6 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-index 053d125eda658..fd532c89f9110 100644
---- a/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-+++ b/drivers/net/ethernet/microchip/sparx5/lan969x/lan969x_fdma.c
-@@ -113,8 +113,11 @@ static struct sk_buff *lan969x_fdma_rx_get_frame(struct sparx5 *sparx5,
- 	sparx5_ifh_parse(sparx5, page_address(page), &fi);
- 	port = fi.src_port < consts->n_ports ? sparx5->ports[fi.src_port] :
- 					       NULL;
--	if (WARN_ON(!port))
-+	if (!port) {
-+		dev_err_ratelimited(sparx5->dev, "Data on inactive port %d\n",
-+				    fi.src_port);
- 		goto free_page;
-+	}
- 
- 	skb = build_skb(page_address(page), fdma->db_size);
- 	if (unlikely(!skb))
-@@ -258,10 +261,8 @@ int lan969x_fdma_napi_poll(struct napi_struct *napi, int weight)
- 			break;
- 
- 		skb = lan969x_fdma_rx_get_frame(sparx5, rx);
--		if (!skb)
--			break;
--
--		napi_gro_receive(&rx->napi, skb);
-+		if (skb)
-+			napi_gro_receive(&rx->napi, skb);
- 
- 		fdma_db_advance(fdma);
- 		counter++;
-
+Best regards
 -- 
-2.34.1
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
