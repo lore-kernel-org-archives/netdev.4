@@ -1,62 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794844047;
-	b=P2PR6wk6Jun4O7O5j2Zy0Gjgc+DyK1m1PdiU8BDws+cTX1vSEHTqflYipqdO7xIpzY78
-	 VBKU37wtYGFlai51V7eEl5UQeR2r+YMYMBVkocsZm0KTS3Pn2yIallusrHI5sZQbIH5EF
-	 xOLYtUliqJq5Hwu10CgL1CtA8MVGxOFsPt42kScFVrgcVWwNaYSbsVWccW5tE1bSZ/07+
-	 PrDgcdzHV8/DTmWvyBdfPlRcCBDm6d7lAjAVBY8V0Mj8E2GvUc+aEF3Z/kBJ1WaQZqFMG
-	 y1NGdRxJlrttsn5kZ72Y+Oc2m2JvxpvdfNeiUKnUOGow0Y4mCQbdQYlGT0ah0V9FIvw==
+	t=1794844289;
+	b=L/RmMiyppGgBoXy7muy5TOZkx8g71Ga2uAL3StBL4msP5a9OHKjsqNtXqOH9MiaVm6qH
+	 3Ac9lx+8IN8DlInaIF2v0CbpjK8v5nH9zgdzuIemaSAf0Sorp3cDasNM9B/vX7wtnw3V7
+	 5Kkv+9EhtrPvAtarYQlV1/90aoFRtpVVonWRVcCpZ/tthi3hTn35jFvPvsdnr0leHn4dY
+	 JrcXJD47Gt/UKeOIZ1c5ncDd3DgKHMFkbNca1R2xrOSURFnxqHvysstcYOdTBk8GwaOat
+	 jXa+tBLSqGvaBc4/5+4kN2MjNPHfutmSkblHvSQ+7l4DoKPDTUuz/LbVq+OXtPJPZbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794844047;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=apEKwoPRE6JoJwbqa4rnx2OGO6+8FaVn4MLdk1yzOiU=;
-	b=0x8VzTkv+zvN6aEe67R+DD63XGJPuwWwYD3waeIpnUpz/SanyN2kyD6V/5TavgW/l5mr
-	 BwChPV2zD29ZLmob3SqFlWjwR6tg+Rj/XGnNWvXQe2rB439damLaMcBFrTldvyfwwgr5e
-	 AaL/T0jI3RyGCLDOvslRrFfBhrq4oJPtKUVvYTLkiIel4AQ87ooxlTXVHGD7aTrpEHO/0
-	 opqEt+CIfAAOmbGRhZkY8ao9vX2n9InP6SqS6cd87CfmwtliJ69RsiIEJ8oK/xSjDiXyT
-	 PPGaFigs33AB4260Tb7EIA0eEXg5aapa2+kyHEK2B1fgFNdBsmXCfiHDEQCQbcDmW/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794844289;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=mfCjSvCuwLkjK4efdjwY+e1pbUHdgjIa23tD5eKc4ts=;
+	b=N2Qu1nBHTYPjt8/5Og780G4JMPavnCHhG20Dz037uDCuIUzY2GO+abyiWZEx7CmSlt2x
+	 hq3o4ol5nPjQHiYzU+qLeYVok66VPAbk9MZLDhBuFFl7GNx27FR+hew7rKJr1fWt/Sni6
+	 17zj7L4IRg+4DfVTliZpW0unOcjKQ37Rsux8Los9HXmOlXtebt2tEJ3s2nAMPKsKxT1Vm
+	 /ckN6l8W85JfevXj+cLg77Z86jbshMjgeDAuVJwQS8CEn8CWd2oNqSKYn94+Ta4rL67ua
+	 xMhLqvgXXJWyRIC3LrVyWiCLai37CVYRfSHD0xfRk/y6U6/lcHJgQx0hxCJuzhhXBRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hq2x06CJ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aCXp3fgK;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43A49606A31C;
-	Mon, 16 Nov 2026 15:47:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59049606A31C;
+	Mon, 16 Nov 2026 15:51:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59049606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hq2x06CJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BAC71F000C4;
-	Mon, 16 Nov 2026 15:47:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794844046;
-	bh=apEKwoPRE6JoJwbqa4rnx2OGO6+8FaVn4MLdk1yzOiU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hq2x06CJKAegzbvnCEsYO5yM6U5/xBbYS7BlOem95b4IEXtO4Hm5IJftisawKkdEY
-	 1TmevO1soXSrbCg0L7xweCT1eRjUIytY/1Dub4kg2JP3NSZAA2ZbL9O/SQnAIIM7ll
-	 B3D8/ZKHtpcXLmGNdNtTUvu5e59g7Zfpn0Nt4lrNxttmuVCOHLyysVR0YscKRIEel6
-	 UUektaLS1NoNIS8CjXZv26HvWeGxjOBpbsBmaOtthSdk/Z/4uxX5+xLBmo2Hka3fcA
-	 E2vGtHXo6Ik4QxITnilCK7xDiodx+OEmt7I3mpbY8sZHWF8GqU50sWYTg9pCpzlTHd
-	 Z2Qko/soXONnA==
-Subject: Re: [PATCH net 1/5] ipv6: gro: limit the number of extension headers
-From: netdev-bot+sashiko@kernel.org
-To: edumazet@kernel.org
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- dsahern@kernel.org, idosch@nvidia.com, willemdebruijn.kernel@gmail.com,
- marcelo.leitner@gmail.com, lucien.xin@gmail.com, aconole@redhat.com,
- echaudro@redhat.com, i.maximets@ovn.org, daniel@iogearbox.net,
- justin.iurman@gmail.com, linus.luessing@c0d3.blue, sd@queasysnail.net,
- sbrivio@redhat.com, imv4bel@gmail.com, netdev@vger.kernel.org,
- linux-sctp@vger.kernel.org, dev@openvswitch.org, stable@vger.kernel.org
-Date: Mon, 16 Nov 2026 15:47:25 +0000
-Message-ID: <179484404508.3136.1665023994705750300@kernel.org>
-In-Reply-To: <20261113124625.4010206-2-edumazet@kernel.org>
-References: <20261113124625.4010206-2-edumazet@kernel.org>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aCXp3fgK
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id BC36C1A1698;
+	Mon, 16 Nov 2026 15:51:25 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 869266023F;
+	Mon, 16 Nov 2026 15:51:25 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4FF911BC118D;
+	Mon, 16 Nov 2026 16:51:15 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794844280; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=mfCjSvCuwLkjK4efdjwY+e1pbUHdgjIa23tD5eKc4ts=;
+	b=aCXp3fgKMC41JzORug4XNR2OydC9p9Lo8NRkWNucj6Q2DQ+HBMeC38m3geD0jgzW+xdY4f
+	1pQ6S6V5vr5PhqLUaz7sqdcrdZUZmG+D77HJY7HDd2yqAZGYPmzDcFIZQ426IFWS9WJyaA
+	3F8fU3vFsjCcQW3qYcnIssoPB2Qua684bsPWYY5SKVzmcS6ek9fSQn2hBTfidqaXMHqVjR
+	MVFIQTk8dFFpgcEfLI4GgW/IboPekS9BiiWF28gtxXw5ByIq+zHHvtaUR3+HWGPhfkKwFm
+	QaGt/QLcsIHcDyMe0lC8aqJVX5ESf8j0rwH5zehG0RSb38P4TIYd85QJoS+dzQ==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Aryan Arora <aryanarora.w1@gmail.com>,  Alexander Aring
+ <alex.aring@gmail.com>,  Stefan Schmidt <stefan@datenfreihafen.org>,
+  "David S . Miller" <davem@davemloft.net>,  Eric Dumazet
+ <edumazet@google.com>,  Paolo Abeni <pabeni@redhat.com>,  Simon Horman
+ <horms@kernel.org>,  David Girault <david.girault@qorvo.com>,
+  linux-wpan@vger.kernel.org,  netdev@vger.kernel.org,
+  linux-kernel@vger.kernel.org,
+  syzbot+19cbce4cc656ecd4febc@syzkaller.appspotmail.com
+Subject: Re: [PATCH] mac802154: Cancel scan work synchronously during
+ hardware teardown
+In-Reply-To: <20261019190736.33bc37e6@kernel.org> (Jakub Kicinski's message of
+	"Mon, 19 Oct 2026 19:07:36 -0700")
+References: <20261012120934.64632-1-aryanarora.w1@gmail.com>
+	<87v77626rq.fsf@bootlin.com> <20261019190736.33bc37e6@kernel.org>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 16 Nov 2026 16:51:15 +0100
+Message-ID: <87a4n8rczw.fsf@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,122 +79,33 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On 19/10/2026 at 19:07:36 -07, Jakub Kicinski <kuba@kernel.org> wrote:
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] This patch caps extension headers per IPv6 GRO layer.
-
---
-
-ipv6: gro: limit the number of extension headers
-
-The patch caps the number of extension headers that
-ipv6_gro_pull_exthdrs() walks at IP6_MAX_EXT_HDRS_CNT, matching
-ip6_protocol_deliver_rcu(). The goal is to keep the GRO transport header
-offset from overflowing the 16-bit skb->transport_header and causing an
-out-of-bounds read in gro_receive_network_flush().
-
-Link: https://lore.kernel.org/netdev/avTTQNyvwPP6LtGx@v4bel/
-
-> diff --git a/net/ipv6/ip6_offload.c b/net/ipv6/ip6_offload.c
-> index 700f1861d8eb7..01642900c0fa3 100644
-> --- a/net/ipv6/ip6_offload.c
-> +++ b/net/ipv6/ip6_offload.c
-> @@ -26,6 +26,7 @@ static int ipv6_gro_pull_exthdrs(struct sk_buff *skb, int off, int proto)
->  {
->  	const struct net_offload *ops = NULL;
->  	struct ipv6_opt_hdr *opth;
-> +	int exthdr_cnt = 0;
+> On Mon, 12 Oct 2026 19:00:41 +0200 Miquel Raynal wrote:
+>> I thought this had already been fixed but apparently not.
 >
->  	for (;;) {
->  		int len;
-> @@ -38,6 +39,13 @@ static int ipv6_gro_pull_exthdrs(struct sk_buff *skb, int off, int proto)
->  		if (!(ops->flags & INET6_PROTO_GSO_EXTHDR))
->  			break;
->
-> +		/* Same limit as ip6_protocol_deliver_rcu().
-> +		 * @proto is left pointing to an extension header,
-> +		 * so that the caller does not aggregate this packet.
-> +		 */
-> +		if (unlikely(exthdr_cnt++ >= IP6_MAX_EXT_HDRS_CNT))
-> +			break;
+> FWIW / in case it's falling thru the cracks - we're expecting Stefan
+> to pick up mac802154 patches. Please shout if that's incorrect.
 
-[Severity: High]
-Does this fully close the out-of-bounds read in
-gro_receive_network_flush()?
+Stefan will probably explain it better than me, but he has been our main
+"sink point" :-) and has been handling the pull requests for many
+years. Unfortunately he reached out to us recently stating that he was
+lacking time for the maintainance.
 
-exthdr_cnt is local and starts at 0 on every call. That bounds each
-ipv6_gro_receive() pass to roughly 40 + 12 * 2048 bytes, but it does not
-bound the transport offset of the whole packet.
+Right now there is a bit of backlog since I was off the past weeks, I am
+catching up on the ieee/mac802154 reviews (except llsec and 6lowpan,
+where Alexander has a lot more knowledge).
 
-Within a single GRO pass, sit_ip6ip6_gro_receive() sets encap_mark and
-calls back into ipv6_gro_receive() for an inner IPv6 header. Each
-layer's ipv6_gro_pull_exthdrs() call is allowed another 12 extension
-headers:
+I believe the flow that works best is if you (net maintainers)
+"continue" applying the patches directly, especially since these days
+there are only AI bug fixes. We can definitely re-instate a formal
+pull-request relationship between us as soon as there are new "features"
+being discussed. We (wpan folks) will do our best to respond with timely
+feedback/reviews.
 
-ipv6_gro_receive()
-  ipv6_gro_pull_exthdrs()        /* up to 12 exthdrs */
-  sit_ip6ip6_gro_receive()
-    ipv6_gro_receive()
-      ipv6_gro_pull_exthdrs()    /* another 12 exthdrs */
-
-skb->transport_header is also measured from skb->head, so headroom
-counts toward it. __ip6_tnl_rcv() in net/ipv6/ip6_tunnel.c hands the
-decapsulated skb back to GRO:
-
-    gro_cells_receive(&tunnel->gro_cells, skb);
-
-The outer headers stay in the buffer as headroom. That outer layer was
-only checked by ip6_protocol_deliver_rcu(), which also allows 12
-extension headers.
-
-Put together, headroom + outer + inner + inner-inner headers can add up
-to more than 65535 bytes inside one IPv6 datagram. At that point, this
-store in ipv6_gro_receive() silently wraps the __u16:
-
-    skb_set_transport_header(skb, skb_gro_offset(skb));
-
-inet_gro_receive() in net/ipv4/af_inet.c has the same pattern for an
-inner IPv4 header.
-
-Suppose a second packet of the same flow then arrives. tcp_gro_receive()
-takes th2 = tcp_hdr(p) at the wrapped offset. That offset lands in outer
-header bytes the sender controls, so the port check in tcp_gro_lookup()
-can be made to match. gro_receive_network_flush() then runs:
-
-    int off = skb_transport_offset(p);
-    ...
-    flush = __gro_receive_network_flush(th, th2, p, off - NAPI_GRO_CB(p)->network_offset, false);
-
-off is negative here, so the u16 diff ends up large. In
-__gro_receive_network_flush(), nh2 = th2 - diff then points tens of KB
-before p->head. Isn't that the same out-of-bounds read this patch is
-meant to fix?
-
-The commit message notes that "offsets can still accumulate over nested
-encapsulations, so the places storing them should be hardened
-separately". The rest of the series adds
-skb_set_transport_header_careful() in ipv6_mc_check_exthdrs(),
-parse_ipv6hdr(), sctp_v6_err() and __udp6_lib_err_encap(). It does not
-touch the two GRO store sites in ipv6_gro_receive() and
-inet_gro_receive() that feed gro_receive_network_flush().
-
-The patch carries Fixes: and Cc: stable. Should those two GRO sites also
-use skb_set_transport_header_careful(), and flush when it fails, so that
-backports close the reported read as well?
-
->  		opth = skb_gro_header(skb, off + sizeof(*opth), off);
->  		if (unlikely(!opth))
->  			break;
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113124625.4010206-1-edumazet%40kernel.org
+Thanks,
+Miqu=C3=A8l
