@@ -1,77 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794838863;
-	b=IbCNaqdJOU07zbAZb8Opk3vFkA5dVe5zC8MFLIaGQFMmyJO3XVO4Q8NvB+jKKZNUiaVr
-	 ET2GUnnbfgaAFGHcCmLZXjO/JKXcJRCigWpYmZIWtMEFBC2Q/ki/J3hLvGz9uDtObGLB0
-	 GIWnhLOCAaFyDxhiGxwwz/ZQIVRtCxmIaVObG1AAM+5eI58snhy0xeaVpZ+uCToBJPPa8
-	 a9tQjUl93kQSHsNyxsx7+vGtAp0s6Oku6p4z8D2Nu+khQjVYz6O/eBhg/uzrB04BambFl
-	 TlBuY4UEkit4lvK8rtMMrk6GWTb/1tLa/DSY3p9+02mvgV/0+KRsaBXOebwEDXKFNrA==
+	t=1794838901;
+	b=WMXcJkfx72K4u+Q4Txfu/MCx1XdG/LGH+ZjUpWOvX42UAz0q5SR/NE46+ofQtNjzwhyy
+	 M9rG4nfbaztAdN4ZmOb051rETIawWD+O8uZqi3BdJFt0uoEueD0iYMbal5hO1CyDRehBX
+	 JuEkwLCh3MwUbRPoWBZ9Cv0QWA4vTBSl5XtEweBhQSDATOsc7epCQQMyLLW8abjs2zD13
+	 cFlresQ5dAQ5zOEyh9Q7hAqfZltdIobT+iWdIzrmvy+Enb8wwGB77aG6kpc04Kc9tCuHU
+	 gX4ElJg634UbdT9UdBQNdg8okGYG82r3Q0lL3PtYl8TAO5Vf80sHX+baGQOrZvB3Mow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794838863;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=p0MCEiScXA3/AegZMZrPbSW4djcYCJen36hSgSOSxr8=;
-	b=X7+eyVHJ7Qzo7PbJm3hhjsd5LcQf6N7iF1wN27Am2zkPoU+mXJMgaS8GXnxVOoZPVu1j
-	 NpGtI2idzwwFX0X4zqkfq3RyUiy4Zi+obksfaofHS49EVkoKj1g90aic73QYnar2CFqXm
-	 pFgQ/YmqW7xiF2wgME6Ves3JRd0oMPB5GNUOq/pEax6hXVa9nJLP8/NjbwLPGisKvXcIN
-	 97bYhK12AeKGWqHcyirSNbQ+th3B+njMCSYvfzPwXea0tWSXdwtzqN5rJ5dTIHp0d2zFO
-	 w9SQ4/WbkdBH5AtpbGMckTLG1/nMX8GaqEIKeAHK/ziGfKDGfXRZGV4AuWmKyEWMPBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794838901;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Y0rdAK14A9QxWLhf2/bZaFf5ckFBWBa/4SrRIbcp79k=;
+	b=Rf/Z8UtsFhVbIPGSXwZ5JEqT0FQc9852uJjxmSUlfCVbqPTg4w5qZQmow9htEeSWKlgE
+	 yAXUQy4a0/3oNRcxYhazZ0cB1f7seuh7+C5NSD71+M9cmOPjUI0qqwinEvnJtDfqDjY87
+	 KQocQ2faodemu88suG4b+xrHAMZxJdcom4SoKSM67bc2FM/TXgmT2uiHpzTrYOM1ppWF/
+	 chd4JT2BEdtbyw/Rgf0839LpFpFOO9WECUyuBDA2ALVCIkhUeKhMpzSevjmHv72N7zUg0
+	 C7FrC18P15fxFygugCXuhpNygDo8A8TOVxTQLQi29qBGPpaWduPYba0TmPQNjkzeGnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lrMNwZMp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PWgpGfo0;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CBDE606A329;
-	Mon, 16 Nov 2026 14:21:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB63C606A32C;
+	Mon, 16 Nov 2026 14:21:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lrMNwZMp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64E1A1F000C4;
-	Mon, 16 Nov 2026 14:21:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PWgpGfo0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C702A1F000CD;
+	Mon, 16 Nov 2026 14:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794838863;
-	bh=p0MCEiScXA3/AegZMZrPbSW4djcYCJen36hSgSOSxr8=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=lrMNwZMpVLaC2BtfAP4b7LZ6QFc4IZAk8smXnST30fiArFsHMpDO8pHkIB6Cr8ys+
-	 ee+JRnmqA68sVX265zPLaNHnOzcJcKLeRl4boeqkIBPd85eN10aGzC0MJ8/2iRTaPX
-	 C4js2OW0HI4bnxI5yEVoRrrSVD0MczuQ7+8+Ai3AUOVruZhi0h6yiLoBUlpAnHrgPX
-	 XjK/UDNqOIoRJDvbfzRZ9VG2IFMtNBWl0HmfcnKl7yIiBlpo873jNkEGXJhENBI0CR
-	 gS+aiwQEoBnOez7Qp2dCZTZnUqIJu9WGirp6rXpJ171+S+xd5+BuR5lK65ivivJEec
-	 IBwEluMMFSqZA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
- <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
- <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- Alexander Duyck <alexanderduyck@fb.com>, kernel-team@meta.com, Andrew Lunn
- <andrew+netdev@lunn.ch>, Jesper Dangaard Brouer <hawk@kernel.org>, Ilias
- Apalodimas <ilias.apalodimas@linaro.org>, Alexei Starovoitov
- <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John Fastabend
- <john.fastabend@gmail.com>, Pavel Begunkov <asml.silence@gmail.com>, Jens
- Axboe <axboe@kernel.dk>, Andrii Nakryiko <andrii@kernel.org>, Eduard
- Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil
- Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
- netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org,
- Mina
- Almasry <almasrymina@google.com>, "Mike Marciniszyn (Meta)"
- <mike.marciniszyn@gmail.com>, Weiming Shi <bestswngs@gmail.com>, Nikolay
- Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, Alexander
- Lobakin <aleksander.lobakin@intel.com>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, Stuart Clark <stuclar@meta.com>
-Subject: Re: [PATCH net-next v1 02/11] net: Add memory provider capabilities
-In-Reply-To: <20261115131840.55b03578@kernel.org>
-References: <20261110102039.1002605-1-bjorn@kernel.org>
- <20261110102039.1002605-3-bjorn@kernel.org>
- <20261115131840.55b03578@kernel.org>
-Date: Mon, 16 Nov 2026 15:20:59 +0100
-Message-ID: <871p8khn78.fsf@all.your.base.are.belong.to.us>
+	s=k20260515; t=1794838901;
+	bh=Y0rdAK14A9QxWLhf2/bZaFf5ckFBWBa/4SrRIbcp79k=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PWgpGfo0zBhHUU+7HzLzeXkBUP/sWrAXkdzEkVPZhb6PaFREO9wBL735/Ow0sXXpD
+	 1KNKsFD+EMzAKyB3QJ77pdeENjS4vytW+MovH5g1/PmGus8JoK0TtHc+3bYOGFhlcU
+	 6Sjaw06KNgKJAiApdOBDYm+esipkdmSdrQuQllcif0xhwCG3Euvsly8wy9IbJ4BJXA
+	 kzSKnmNGejStbcmpq/IdCDydID2QZEuVyVRckYNR/PXqdUlQAXaa3fX70CeC/LYOWw
+	 AreCkPbfqvZeuAYziZlYEXqy9yvd7ZsWKfpSNkfmOR70pWLH+6rdAT74qTwPaEF0Sy
+	 9QiiPkTaKSseA==
+Date: Mon, 16 Nov 2026 16:21:38 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Yishai Hadas <yishaih@nvidia.com>
+Cc: jgg@ziepe.ca, linux-rdma@vger.kernel.org, netdev@vger.kernel.org,
+	saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com,
+	kuba@kernel.org, pabeni@redhat.com, edumazet@kernel.org,
+	davem@davemloft.net, andrew+netdev@lunn.ch, dtatulea@nvidia.com,
+	moshe@nvidia.com, maorg@nvidia.com
+Subject: Re: [PATCH V1 rdma-next 08/24] RDMA/mlx5: Derive
+ mlx5_ib_adversarial_mode global from mlx5_core adversarial API
+Message-ID: <20261116142138.GT11319@unreal>
+References: <20261110134320.34408-1-yishaih@nvidia.com>
+ <20261110134320.34408-9-yishaih@nvidia.com>
+ <20261116085701.GA11319@unreal>
+ <759c8f05-a018-4040-a791-fef794eb6933@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,53 +63,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <759c8f05-a018-4040-a791-fef794eb6933@nvidia.com>
 
-Jakub Kicinski <kuba@kernel.org> writes:
+On Mon, Nov 16, 2026 at 04:12:55PM +0200, Yishai Hadas wrote:
+> On 16/11/2026 10:57, Leon Romanovsky wrote:
+> > On Tue, Nov 10, 2026 at 03:43:04PM +0200, Yishai Hadas wrote:
+> > > Cache mlx5_is_adversarial() in a driver-wide mlx5_ib_adversarial_mode
+> > > in mlx5_ib_init(), shared through mlx5_ib.h. The mode is the same for
+> > > all devices, so a global avoids reading it through every mlx5_ib_dev
+> > > and keeps the checks at the call sites simple.
+> > 
+> > This patch and description makes no sense. The mlx5_is_adversarial() is
+> > simple static pre-compiled branch "cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)".
+> > 
+> 
+> cc_platform_has() is a function call, not a static branch.
 
-> On Tue, 10 Nov 2026 11:20:23 +0100 Bj=C3=B6rn T=C3=B6pel wrote:
->> diff --git a/include/net/page_pool/memory_provider.h b/include/net/page_=
-pool/memory_provider.h
->> index bceb5f7740e2..4417e54a0f81 100644
->> --- a/include/net/page_pool/memory_provider.h
->> +++ b/include/net/page_pool/memory_provider.h
->> @@ -19,6 +19,18 @@ struct sk_buff;
->>   * Per-provider custom logic must be delegated to memory_provider_ops r=
-ather
->>   * than handled directly in page_pool core code.
->>   */
->> +
->> +/**
->> + * enum mp_caps - memory provider capabilities
->> + * @MP_CAP_READABLE: The CPU can access provider memory. It may back he=
-ader
->> + *	page pools, and XDP programs may run on it.
->
-> Being readable is the normal state for memory.
-> We should be marking mps as unreadable, not as readable?
+Please check how it is implemented.
 
-Fair, I'll flip it. devmem and io_uring zcrx mark themselves unreadable.
-The same goes for the other two caps; page memory can be split and kept,
-so AF_XDP marks that its buffers can't be.
+> The wrapper keeps the policy of when mlx5 runs in adversarial mode in one place,
+> used by both mlx5_core and mlx5_ib. Anyway, in V2 mlx5_ib calls it once
+> per device at init, see below.
+> 
+> > > 
+> > > Signed-off-by: Yishai Hadas <yishaih@nvidia.com>
+> > > ---
+> > >   drivers/infiniband/hw/mlx5/main.c    | 3 +++
+> > >   drivers/infiniband/hw/mlx5/mlx5_ib.h | 1 +
+> > >   2 files changed, 4 insertions(+)
+> > > 
+> > > diff --git a/drivers/infiniband/hw/mlx5/main.c b/drivers/infiniband/hw/mlx5/main.c
+> > > index 65455aedd559..f4f2ad80e76c 100644
+> > > --- a/drivers/infiniband/hw/mlx5/main.c
+> > > +++ b/drivers/infiniband/hw/mlx5/main.c
+> > > @@ -76,6 +76,7 @@ enum {
+> > >   	MLX5_ATOMIC_SIZE_QP_8BYTES = 1 << 3,
+> > >   };
+> > > +bool mlx5_ib_adversarial_mode;
+> > 
+> > It is not kernel style to throw random global values to cache existing
+> > in-kernel API functions.
+> > 
+> 
+> OK. In V2 there is no global flag in mlx5_ib anymore. This patch is
+> replaced by one that sets ib_device::adversarial_mode once per device,
+> and the checks read that field. Patch #24, which set it at the end of
+> the series, is folded into it.
 
->> @@ -1070,6 +1095,9 @@ netmem_ref page_pool_alloc_frag_netmem(struct page=
-_pool *pool,
->>  	unsigned int max_size =3D PAGE_SIZE << pool->p.order;
->>  	netmem_ref netmem =3D pool->frag_page;
->>=20=20
->> +	if (static_branch_unlikely(&page_pool_mem_providers) &&
->> +	    WARN_ON_ONCE(!page_pool_supports_frag(pool)))
->> +		return 0;
->
-> Shouldn't we return a full page if we can't frag?
-> Fragmentation breaks up a page into smaller units,
-> it should be legal to simply return a full page if
-> fragmentation is not supported for the provider.
+You shouldn't cache simple function call to an existing API.
 
-Yeah, make sense. I'll return the whole buffer at offset 0, instead of
-the WARN Stan and I settled on, and page_pool_alloc_netmem() reports the
-chunk size for callers that need it for truesize.
-
-
-Bj=C3=B6rn
+> 
+> Yishai
