@@ -1,54 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794814254;
-	b=r1ulPTokIFAhxl1PGD8UR4KzSRJLfJuAJmAXpXaVnVIciZWZqrau/VG5MgRf1UWKdt0k
-	 Kq26XKhAV90JUR1J6c2LLCD+fQgNKKt5UfJJ8nJDvjtsTfPCi9A2M4SDxSgKPAWCJzDVN
-	 JU3NDqccMcWdlayiLdiKZx23qaf54Na4QcajWpsXrM0kIKxopfSmQLebezboWaIrr7ez5
-	 MA2i4ssxsIdU6B4Vkk66V+HbFFM40FAgMT/CdJPJ5+sSiBngJRS9fg5JYZrveoiSYKCZT
-	 I7CH8nZ0Jx24q65CHagFokgyFvZNEHUMJ8SWMAPFim8yJkGW7J0Jkhj5YXr//Z+oBpg==
+	t=1794814417;
+	b=QbsomK9sLp9cYV9O/Vdgu4a51fBxSBCYDepHaYYrWtDdCKYq3jcXRXsqY7HLGnQj6yc3
+	 ld4tRpinsATs+YhYeU0+kn3S9LpSQOEqydsH+MQtoDAduC2d3vg3+xve739jJDIqbLrwH
+	 ZNn7LX9wXrzetsbWtuCpAnaDO/pImzT9YGEBTi+pdJ56O4/YumLTDlEi+6CXK0sSx67Fk
+	 xXkFN7Rg5sfwDuy0hrOAz5b1pnTpQif3bR0yA6N4wCL3gQ09zs5lj5B6+NCtdRTtII5W+
+	 9WwfFXL5kXEncCdUHhsxBQNgAhNpRVLpuZ+yGfwI0VdoCiZ46GKltqh4vzTlWtO3Iww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794814254;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=RsZWTmj3iECRzeLYzMxjiBI7jRR7JOFGd0yktvO+2WE=;
-	b=fX+dZGN+ruQi+KpAoVTsmmZVC8N0epa+966TpUgyZ5Bz55yE1sj7/nlvmuz1Kbk9PD8k
-	 qX3BBLlTgnBbfS42jgWD1Bcgx17vpSndUrX7gdDmFVF1YpdZVDFBhJTK4zystJcqZFz4r
-	 tzCGtgf2s+ag/mHGrDOEpVHENRwLNNd6VjyjlVyRsn2V4LcTMkDCldTtoiGKNnsHd7D7h
-	 Gse3Nz2pamtgAPrSX+eXcWpj1EjN1qmlkqK29BzSKsB69G0R+0x7eFhkz7aDp55W0u0AB
-	 RBf/EbNzZriJH9rgpeoxOHnS5H5rkhyMs/QtYsuILNyF3X1L6DQfhaHVhtUFrN9QWow==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794814417;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=/XC/Q1Mv6Gwi8+0irBqNo8aBwyEMA9qX9K4d8AdjCV8=;
+	b=LhdjBZwfr5i/HScce08uNn2u6ExdCg+xm9zADZ5GtWlb7o3CsEALfth+CCCpsbzGBWlJ
+	 l/zJmd0mpcpXjwVz4ZmDXFwP98KtIs0EW0NVKpmrGR1gIp/D2Qr86gVlojSFq3DNWt8Bf
+	 /uzNJA0MPtHStUVMA16Zw1luG3EUl8FLNvrL0b1roIVzWKnbI2K4edZBLJZuVZ6GXG93f
+	 O0teVoFUEy3HrQLtokYTlqe0Pjiu3etkCr1XBETLF4WyngTVP9LHbEVFtdP6pWQkkZ9Mm
+	 ++b03JyuSyB5wxClt/5es9lUrbd+1l/MbSNKCiu6/k/Av9oJ4U+Ia6Pf2KUVuzkNZiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MOPFCDsf;
-	arc=none smtp.remote-ip=95.215.58.1
-Received: from mta1.migadu.com (out-1.mta1.migadu.com [95.215.58.1])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hf+eFbnz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06AC4606A32A
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 07:30:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06AC4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFBA6606A33F;
+	Mon, 16 Nov 2026 07:33:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=MOPFCDsf
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Ry9yBMCBwp3nSnzP3KHOZ1Uq3e0bH9SyWtuodwQExwE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794814252; v=1; x=1795419052;
- b=MOPFCDsfS4DjoRebt4WMbecTiAUgRSoknL/MLxxULJR+x97yFJYLB9CEFsdjmljd51OlTQhY
- 98gzlW4mQtyUMJQLJm3QUQJqlFkD5+Iu2UwLJocojp8bGh5DXgbRWgT0GVUEtnk7uy0PJL8GAeA
- m/P9UkZAsGZLJJkayvNIayB8=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id da558d5e7fa220f7;
-	Mon, 16 Nov 2026 07:30:51 +0000
-X-Mizu-Trace-ID: da558d5e7fa220f7
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <f2c69ae2-4da6-4203-8201-04fd4a1c2742@linux.dev>
-Date: Mon, 16 Nov 2026 15:30:43 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hf+eFbnz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B741F000C4;
+	Mon, 16 Nov 2026 07:33:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794814416;
+	bh=/XC/Q1Mv6Gwi8+0irBqNo8aBwyEMA9qX9K4d8AdjCV8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Hf+eFbnzWzP7jSJkU9fhUICakc7Oae3Zg0gj00F8L9z4UdA6VQISyy6zPZtD1kPGZ
+	 0GyYaktnIPN98Z9WMvfF0ZdCVWVoVcCfLMieTglqQZIYVa8FTy+NbVmynY0IkMGOHQ
+	 PWHJJ1za5APXeyaolV/7CGP0nbLEBn+lt2QHCfTA0CDMxPtMnNfuTZ5og7iy9rFCQf
+	 ayWjn0DDIOrUdvIiyfvciI0JzeND0FvQV3Yu5BokTKEymFZvedJaVXYl2VUSx15sZd
+	 E9mhN7nhDISULSoVWKXmpycvbtuzg7mAmSFlcs5AtyknQJlb80fBfVjTaYxz29EGBv
+	 Fpepz2nQTzaww==
+Subject: Re: [PATCH RESEND net-next v2 3/3] rust: net: phy: pass a MaybeLocked
+ device to soft_reset
+From: netdev-bot+sashiko@kernel.org
+To: engineer.jjhama@gmail.com
+Cc: fujita.tomonori@gmail.com, tmgross@umich.edu, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
+ aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com,
+ tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, andrew@lunn.ch,
+ hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 16 Nov 2026 07:33:34 +0000
+Message-ID: <179481441455.3136.11985756118593625944@kernel.org>
+In-Reply-To: <20261115-exp-phy-rs-maybelocked-v2-3-8fa7897a0352@gmail.com>
+References: <20261115-exp-phy-rs-maybelocked-v2-3-8fa7897a0352@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,75 +68,164 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 8/9] selftests/bpf: Verify iter link_create
- logs
-To: bpf@vger.kernel.org
-Cc: Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- KP Singh <kpsingh@kernel.org>, Matt Bobrowski <matt@bobrowski.net>,
- Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20261114150610.84507-1-leon.hwang@linux.dev>
- <20261114150610.84507-9-leon.hwang@linux.dev>
-Content-Language: en-US
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <20261114150610.84507-9-leon.hwang@linux.dev>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 14/11/26 23:06, Leon Hwang wrote:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-[...]
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-> +
-> +static void test_log_invalid_iter_info(void)
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-As sashiko pointed out, the function name should be
-test_log_invalid_iter_info_len.
+- [Medium] The new SAFETY reasoning for the MaybeLocked soft_reset path
+  misses the phy_mii_ioctl() path, where soft_reset runs at the same…
+- [Low] Two sibling callbacks in rust/kernel/net/phy.rs still carry the
+  false lock-held SAFETY comment that this patch removes from…
 
-Please update the function name when applying.
+--
 
-> +{
-> +	unsigned char info[sizeof(union bpf_iter_link_info) + 1] = {};
-> +	const char *msg = "Invalid iter_info_len.\n";
+rust: net: phy: pass a MaybeLocked device to soft_reset
 
-[...]
+This changes the Rust PHY abstraction so that Driver::soft_reset gets a
+Device<MaybeLocked> rather than a Locked device. The reason is that
+phy_init_hw() calls soft_reset both with and without phydev->lock. The
+SAFETY comment in soft_reset_callback is updated to match, and
+ax88796b_rust is converted to the new signature.
 
-> +out:
-> +	bpf_iter_bpf_map__destroy(skel);
-> +}
-> +
-> +static void test_log_invalid_iter_info_len(void)
+> diff --git a/drivers/net/phy/ax88796b_rust.rs b/drivers/net/phy/ax88796b_rust.rs
+> index 2d24628a4e581..88e6e3c88b448 100644
+> --- a/drivers/net/phy/ax88796b_rust.rs
+> +++ b/drivers/net/phy/ax88796b_rust.rs
+> @@ -30,7 +30,7 @@
+>  // BMCR_RESET bit and poll for the reset bit to be cleared.
+>  // Toggle BMCR_RESET bit off to accommodate broken AX8796B PHY implementation
+>  // such as used on the Individual Computers' X-Surf 100 Zorro card.
+> -fn asix_soft_reset(dev: &mut phy::Device) -> Result {
+> +fn asix_soft_reset(dev: &mut phy::Device<phy::MaybeLocked>) -> Result {
+>      dev.write(C22::BMCR, 0)?;
+>      dev.genphy_soft_reset()
+>  }
 
+[Severity: Medium]
+Is it sound to call genphy_soft_reset() on a Device<MaybeLocked> when the
+caller is phy_mii_ioctl()?
 
-As sashiko pointed out, the function name should be
-test_log_invalid_iter_info.
+When SIOCSMIIREG writes BMCR_RESET to MII_BMCR, phy_mii_ioctl() calls
+phy_init_hw() with only RTNL held. phydev->lock is not taken:
 
-Please update the function name when applying.
+phy_mii_ioctl()
+  phy_init_hw()
+    phydev->drv->soft_reset()
+      Adapter::soft_reset_callback()
+        asix_soft_reset()
+          genphy_soft_reset()
 
-Thanks,
-Leon
+The C genphy_soft_reset() reads phydev->autoneg and writes
+phydev->suspended. If autoneg is disabled it also calls
+genphy_setup_forced(), which writes pause and asym_pause. After that,
+phy_init_hw() writes phydev->suspended = 0 itself.
 
-> +{
-> +	const char *msg = "Invalid iter_info.\n";
-> +	LIBBPF_OPTS(bpf_link_create_opts, opts,
-> +		    .iter.info = (union bpf_iter_link_info *)1,
-> +		    .iter.len = sizeof(union bpf_iter_link_info),
-> +	);
-> +
-> +	test_iter_link_create_log(0, &opts, 0, -EFAULT, msg);
-> +}
-> +
-[...]
+In struct phy_device, suspended, autoneg, link, autoneg_complete, pause
+and asym_pause are bitfields in the same block. A write to suspended is
+therefore a read-modify-write of the storage that also holds link and
+autoneg_complete.
 
+phy_state_machine() takes only phydev->lock, not RTNL:
+
+    mutex_lock(&phydev->lock);
+    state_work = _phy_state_machine(phydev);
+    mutex_unlock(&phydev->lock);
+
+Under that lock it runs Locked callbacks such as read_status and
+config_aneg, and it updates link. __phy_resume() also writes suspended
+under lockdep_assert_held(&phydev->lock).
+
+Nothing keeps the ioctl path and the state machine from running at the
+same time. Could a link or pause update be lost here?
+
+This seems to contradict a few statements in the series:
+
+- The Locked invariant says that while a &mut Device<Locked> is alive, no
+  other thread touches the state that phy_device->lock protects.
+
+- The SAFETY comment in Device::genphy_soft_reset says the C function
+  does not need phy_device->lock because PHYLIB itself calls it without
+  the lock. The unlocked PHYLIB callers, phy_attach_direct() and
+  mdio_bus_phy_resume(), rely on the state machine not running. The ioctl
+  caller has no such exclusion.
+
+- The MaybeLocked documentation gives no invariants beyond those of
+  Device, yet genphy_soft_reset() is available in every context.
+
+The race itself is older than this series. C drivers that use
+genphy_soft_reset() have it too, and phy_mii_ioctl() is documented as
+incompatible with the PHYCONTROL layer. However, this patch is the first
+to call genphy_soft_reset() on a MaybeLocked device based on the new
+soundness claims.
+
+Would it make sense to take genphy_soft_reset() out of the generic impl?
+Alternatively, the MaybeLocked/Locked docs could describe the exclusion
+that the unlocked callers rely on, and note that the phy_mii_ioctl() path
+breaks it.
+
+[ ... ]
+
+> diff --git a/rust/kernel/net/phy.rs b/rust/kernel/net/phy.rs
+> index 105a1b727a088..46602798e8aca 100644
+> --- a/rust/kernel/net/phy.rs
+> +++ b/rust/kernel/net/phy.rs
+> @@ -358,9 +358,8 @@ impl<T: Driver> Adapter<T> {
+>      /// `phydev` must be passed by the corresponding callback in `phy_driver`.
+>      unsafe extern "C" fn soft_reset_callback(phydev: *mut bindings::phy_device) -> c_int {
+>          from_result(|| {
+> -            // SAFETY: This callback is called only in contexts
+> -            // where we hold `phy_device->lock`, so the accessors on
+> -            // `Device` are okay to call.
+> +            // SAFETY: `phydev` is valid for the callback. `phy_init_hw()` calls `soft_reset` both
+> +            // with and without `phy_device->lock`, which is the `MaybeLocked` context.
+>              let dev = unsafe { Device::from_raw(phydev) };
+>              T::soft_reset(dev)?;
+>              Ok(0)
+
+[Severity: Low]
+This fixes the lock-held SAFETY comment in soft_reset_callback(). Two
+other callbacks in the same file, get_features_callback() and
+match_phy_device_callback(), still have the same text:
+
+    // SAFETY: This callback is called only in contexts
+    // where we hold `phy_device->lock`, so the accessors on
+    // `Device` are okay to call.
+    let dev = unsafe { Device::from_raw(phydev) };
+
+Is that still accurate for either of them? phy_probe() calls
+get_features without taking phydev->lock:
+
+    else if (phydrv->get_features)
+        err = phydrv->get_features(phydev);
+
+phy_bus_match() calls match_phy_device during driver-core matching. It
+also runs without the lock, and the device may be unbound or bound to
+another driver:
+
+    if (phydrv->match_phy_device)
+        return phydrv->match_phy_device(phydev, phydrv);
+
+The Locked documentation added earlier in this series already says that
+both callbacks run without the lock, so the file now contradicts itself.
+The earlier commit "rust: net: phy: make Device generic over a lock
+context" also says it will "Update the documentation and SAFETY comments
+to match".
+
+match_phy_device_callback() also still creates a &mut Device<Locked>,
+which is only coerced to &Device when it is passed to
+T::match_phy_device(). The Locked invariant cannot hold for a device that
+is bound to another driver.
+
+Could that SAFETY comment explain why the short-lived exclusive reference
+is acceptable, rather than saying the lock is held?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115-exp-phy-rs-maybelocked-v2-0-8fa7897a0352%40gmail.com
