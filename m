@@ -1,99 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794825415;
-	b=TICWB+pziD/5TBwEB38f+nSmITZHb7q04pJUAl3Jn0/EnZH/p1lvDvttOahHXCbllNqf
-	 wlPlcwOWNCMq9u1i6UMXQGNJ64muO2e6Uf7tDR5V+h6Upx/kwVns0HfjYjLMhAzhHTQ9a
-	 lZDxt6swnhGvJpLbx/g/XIw4WQ1D4AbHNM5I6y5h8hOnO+AtQYGvOS6ZvX1Zr5UorKBzF
-	 9gAcK6UYgBrSGJUAYir79fWwzsotBBubQcuXfF+BGxkCPhmvJAwFQysOEV6u0YnOvJXWt
-	 HzlZ6uPgOeRcmK+Dzfo5DGtFXe9rJhC38a7XmaqjdQIN4wVZoq4HkVZUTxjGH2/CIOQ==
+	t=1794825458;
+	b=3xoZAb3R5eCUmqJNb++GDoMfNGBWVn+c02u+wJ4fXNf2yq3fhCgdkzt8yMj5T27Vk8e+
+	 WvUIq8tSZLeuz91FY0DMwTttO9Dc+XY5Jm5FAi5l/jXlGfCrzieY4ycZMCuoVQOvNjMNz
+	 V2IiwFDEf7ilU4xGl94hbFTpImujWsykYH2plSgQ6C6ZVJzQml0KxzZ4c2GcK/LQnbnae
+	 i0LiWHCzcrUfyymMa2D0NZz8ZzItGB9djvhyciafPH97hA77nAd9vK3mwD2ibVVs4Mw51
+	 Nyv+N1Ev+M+0uD79cqZQenDc/BBvFln01ReCucPdFMuNDfaOnT3to1M1Hx+iYaSXPXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794825415;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=LX0+DV+LDSGdBcKNRc1D1pjJHJmtAjduSSHWyN3x/kE=;
-	b=ImXnyaJvqe3EKCrxS7/TttEgeD1HO2ySw0n7u0scSui9z7mLouY1i1xqEMbId9Xosu7P
-	 fvtCsdKnL+yP+LY4WmascjgDLycBJik8Ua8c/9jqhp6fvukZ5ya1/BGHwZzB9Rg9XPwyk
-	 1+qTOXezq4P6+zxB+a2SB+wbCxpP36kqhQ+eVKBEYD4Zk/fe9xKmfKEhU8LbhQ501Zy4N
-	 +t5bceoFa2P2Yy1DZeFMsAqEOf1+CnjbSZ03l3IJ7Ht6lfLLxvWL/XeALS/BIEyrLfI26
-	 XYHpEnQK8aEvhF7HJkGkzAqFanrE4GP/0sKvouUFmFVYtjEDCb787LxPlLeeRsIoEgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794825458;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=/GCPAd6kHKEiM8IfAgF80ZnqxP8C3ez55s7HWJvwjdU=;
+	b=JJceUoPmoCY1gZ0Knx7Mum4cC36jIEjVJGBdQLPs5Rhvgxr6IpR+l/gwptneDadYglDx
+	 ktORPbiM3ZyWdBq8z7nT/LY9pGTtXnozHAnvEqXKF7vI3P3wXh0oC07v2NijEcg8jfmG/
+	 hRLfobznKldNAK4dh2QFFVqJlcaOHE6GPyXthMQJ5epyV0IQpOGtKohbxn9OOPROarn4L
+	 eqlF/dOkQ1mMGCskYfkgtjDRJl6St+jm8VWtWJ+1OVxAjgQGEs8dffag7SkFfpO0P+ox0
+	 k5JWcYWQIfneiTsmD0rqh6Q92rZ4wR534+aRQOUFKxqdoQ0FpfZt2Xq/VrJ8uNyRfAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=BPsMS9D4;
-	arc=none smtp.remote-ip=209.85.160.177
-Received: from mail-qt1-f177.google.com (mail-qt1-f177.google.com [209.85.160.177])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmx.net;
+	spf=pass smtp.mailfrom=gmx.net;
+	dkim=pass header.d=gmx.net header.i=wahrenst@gmx.net header.a=rsa-sha256 header.s=s31663417 header.b=D6e5zpBh;
+	arc=none smtp.remote-ip=212.227.17.20
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B83F2606A8A5
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:36:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B83F2606A8A5
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B858F606A33E
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:37:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B858F606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=gmx.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmx.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=BPsMS9D4
-Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-55ade1de0b4so45451211cf.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:36:54 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1794825414; x=1795430214; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=LX0+DV+LDSGdBcKNRc1D1pjJHJmtAjduSSHWyN3x/kE=;
-        b=BPsMS9D495KNtTcUwPLACacoKGxzzcVgbGDBwMzc0rfXnIecz4GUgdjT+nxdKBTr+u
-         1+egacBy5IbNmDhSBkl87nDI2uikwsMRELO+HoqCgxx0/40/Q9WM2xxYYvOvMMxogpHJ
-         m2LRw6bTfw1dvZJ12Z2tMNqzVK9GDcEdFHXqM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794825414; x=1795430214;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=LX0+DV+LDSGdBcKNRc1D1pjJHJmtAjduSSHWyN3x/kE=;
-        b=NpFoWZSnjxFDeQs5y8kaXtQsmPvgZ97Zz1Ih60W4qzbNFaCv9C7ZqdUSc4yudIvSTm
-         U1wsnZyZFkkTF3nKnfo2LrtFRpCcYIMozW3ogI4PMK4vDTk8cLaiN6R723iiqoaxaqmc
-         RCCHc51XlO4kWv0AjG9VU6NzR0Zhi2Rxw+JaAok9QQ9EdE/EeGmIB+GSsusInazBHriy
-         rywjb0LG+s8xPnDp1j8UOfs7jwite2YAE2kb4gIOEPAHsswALiHsFEUVzkr4aCFqR3YU
-         89lpQgZqLA5TW/1eZwScxuACel4K/7PZVADq5enIqWxcvovuyjZ0EygFFTM/dr1l4r+L
-         Ckxw==
-X-Gm-Message-State: APuU4Z82Wjpv7wOCP7dOgI0LuEeESwxfMP3AFXhcKx2YZMXWf0mmcKQC
-	QMcRG0TcLjbFkkw6hGiUWKbnsuEgojodFsCSkClQ2WBpIAEmqfwpFF2R7Zt2msz1vht4K8MygpQ
-	e88k=
-X-Gm-Gg: AYBFou2fFG36lpeFKlXbdFcb5pWuBbJt91Z/3YzzQyylCgMAGU1YRuzdQSIT17Keiiy
-	VPRGI/+hBkePzm56V5enxCYZABY+WlAW8Ht8DFkTQgQ+cPeRC5R8x8OMH8+bDayx7IVo3KQK3VU
-	XIg92Zp4r205GoO0tpXMip3xvcxD4Fhec4jtXA9GQYqCOA7ydZ1JKQYCyghr5l/f6HtGfNe4ut5
-	nKWl7EPjeigARUNdBdH5jLNHpvotYtD9cx24qv5TQkKGBOVxftHU+cRLoXFxWfCUBTWdgQQULyD
-	gIowsM1KWOdK28R0Y+C0TPLaZFOh2bVE9FKEMvxRHwGO0BAYSiet3ukCEUWx68/veW4jmdoB2mo
-	zvY0/riIgV44uCP8p0YNYSoh62dwK/7TN3AOGQTRyXhV4QVTRtt5Wco8zhGsVCBozIE1naok8pW
-	XuWHPqEr8+m/0AYuGjKLDnj8rb3lk5KtjcgrPFlxLz6e35pPMwQVo0Y8GYx5Uq9iDuGrlGJsMMt
-	9EwmY5TNEPukSvZBl8RpUS6WS/S7Rpe5+iyjDKcWTWNlpJWsGrVJYuWFqjBXyXZtYVYXv567f6W
-	JyE149n+9GrB5+a67o4u1MRwa3iP/qCptYyvaRbI2XrhpODP8UuZLdpDVqCUNSXdCKQteWYJGos
-	=
-X-Received: by 2002:ac8:5995:0:b0:55d:2caf:ae7c with SMTP id d75a77b69052e-55d2cafb009mr79499971cf.19.1794825413577;
-        Mon, 16 Nov 2026 02:36:53 -0800 (PST)
-Received: from mbili.waya ([64.203.83.2])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55ad14f1ecasm77778651cf.24.2026.11.16.02.36.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 02:36:53 -0800 (PST)
-From: Jamal Hadi Salim <jhs@mojatatu.com>
-To: netdev@vger.kernel.org
-Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
-	Victor Nogueira <victor@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	stable@vger.kernel.org,
-	sashiko-bot@kernel.org
-Subject: [PATCH net v5 3/3] net/sched: sch_teql: keep skb->dev consistent on the arp-queue path
-Date: Mon, 16 Nov 2026 05:36:43 -0500
-Message-Id: <QDISC-6HS9.v5.r0.20261116052927-3@mojatatu.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <QDISC-6HS9.v5.r0.20261116052927@mojatatu.com>
-References: <QDISC-6HS9.v5.r0.20261116052927@mojatatu.com>
+	dkim=pass (2048-bit key) header.d=gmx.net header.i=wahrenst@gmx.net header.a=rsa-sha256 header.s=s31663417 header.b=D6e5zpBh
+DKIM2-Signature:  i=1; m=1; t=1794825455;
+ mf=PHdhaHJlbnN0QGdteC5uZXQ+;
+ rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+ d=gmx.net;
+ s=s31663417:rsa-sha256:IS5XbNzmgVH5DVOoWM4vCHfg/qNB
+   LMQ8iiDYeXCltbvP8cOzdEq9c5BkPGukXgDcFUgsDbWD19bCGJ9jN/tSWu2Lrm+UpT9GqBI+k2z
+   drqaljKIY7ZcmjA382iDnTLBpidHHVKx8ykNR+XEDXHeicBVepsL3G0wbKWTTkbktV4nEqHcVmt
+   Q80ih38XHRkujqgZ/LNoZc5FerDNb9MpWijjwoTb1zjdflvbXc2+4tuulBadjCLObWBqzLNlPXL
+   NcGB7z+PcB4iIkJyO6rqhasxomg1uOVE//NnCBEqd3umpEMmJEOrRKUq2SW3UDWctV59viaprB/
+   hnYXd/k3ly6p6w==;
+Message-Instance:  m=1;
+ h=sha256:
+   mTgSnPIgQAo7sCQ2Qi/skYZh5e01zeios2QeuqOq56k=:
+   bBTZ/rtzF4z2DLFAzLPSXaLy0E0T8GUsx1TXINyUjNs=,
+  sha512:
+   IKVqGH1uxnS4bnp5Hu4HWX5atnCldgFzqJObuRoxIhdXwgLZpCUFDk5RvTUMgE9YCuO4DbvguB0Haexn6tOV5A==:
+   nBwE4r7v0oFa5gOxnw9BEIMxjQKFBpZqLvyNlJLRFdh5ZpCPZzgmAdkfNkylettxZKsGtNhgyZMA3QNmgDkOZg==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1794825445; x=1795430245; i=wahrenst@gmx.net;
+	bh=/GCPAd6kHKEiM8IfAgF80ZnqxP8C3ez55s7HWJvwjdU=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=D6e5zpBhMEqBXHETMziRvfZJAyJZEE+QVhGuUuSIfBwluWzpyymE2LevSrXYctah
+	 vZ/D+XK/5R/31AC4iVPNLbDWKU5NswzlvWJXSxXWZcpr4ozk5MymeSlKsbAg1Fof5
+	 9WWuOBLVNRFLpEzt5uRJlpLOQXepyMjN5incX/TIwfndVqtsHbBWHm+/0alW8s+1v
+	 at/XS/aMCtvcwtkfFXCI6iArLIZBaublUdHTWu3DBvosJATzKfWO88ZuoHRlKyep+
+	 lDTU5fi8NmBqwr93ZswlTYbM9N98FdB5QDZ0/+q9FDlMPLQtpRNWfOVOp3DrDz/BY
+	 Kp6PYRcOTkEFmL/TKA==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from client.hidden.invalid by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MeCpb-1wuOLi0Ok3-00Zm7I; Mon, 16
+ Nov 2026 11:37:25 +0100
+Message-ID: <a1c08551-8f1e-444a-9597-219fb3228e0e@gmx.net>
+Date: Mon, 16 Nov 2026 11:37:22 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,140 +81,149 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] qca_spi: Avoid unsequenced accesses to jiffies in
+ qcaspi_netdev_tx_timeout()
+To: Nathan Chancellor <nathan@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, stable@vger.kernel.org
+References: <20261115-qca_spi-wunsequenced-v2-1-8cf32f12d546@kernel.org>
+Content-Language: en-US
+From: Stefan Wahren <wahrenst@gmx.net>
+In-Reply-To: <20261115-qca_spi-wunsequenced-v2-1-8cf32f12d546@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Provags-ID: V03:K1:tu5VFCKA4q+bKIlTAsu3cZvJjOG2PUjTetMQV6XRKLLsS9hx0aE
+ flE9HxGhnBHhrt9aXwrG7pMc/d0b17eBX2GRs1EZVAVgSxXkKP60i/LYGEqyKZf0faqn7Mc
+ biAOXebRAX5UpXIwlzQUOVrY1cyWVAOJLJQdgVniY6d/AfCDNFLhkwlSNyMjrJE3wUv3S6A
+ 1KTY31uH3xb2/14uA9JkA==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:TUx73lpeZog=;Bjw+QQ6lsicew3kZlxc0zqkr6lY
+ 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
+ WIGi5DAIA==
 
-This is a follow-up to commit dc4b95b8fee9 ("net/sched: sch_teql: restore
-skb->dev on the slave failure path") by Victor Nogueira, which covered the
-slave side of the same mismatch.
-
-The issue:
-teql_master_xmit() sets skb->dev = slave only right before the slave's
-ndo_start_xmit(). If the slave's neighbour is unresolved, teql_resolve()
-parks the skb on the slave's arp_queue with skb->dev still naming the teql
-master. teql_exit() frees the masters on module unload and a slave can
-outlive them, so a queued skb can be reinjected through freed memory.
-
-The Fix:
-Set skb->dev = slave before teql_resolve() so the parked skb names the
-device whose neighbour owns it.
-
-The parked skb has a second consumer: when the neighbour fails instead of
-resolving, neigh_invalidate() hands it to error_report() and
-dst_link_failure(), which read skb->dev to report the failure, so it names
-the slave on that path too.
-
-A parked skb is reinjected by neigh_update_process_arp_queue(), and a
-device that transmits straight on skb->dev has to be handed its skb back
-there. That is a change to net/core/neighbour.c, posted as its own fix,
-and it has to be applied before this one: without it the parked packet
-leaves the slave directly, with no link header, because teql_master_xmit()
-has already pulled it.
-
-Some context:
-Only a module unload frees a master. teql_master_setup() installs no
-rtnl_link_ops and default_device_exit_net() moves the device to init_net
-when its namespace exits, so the window is a parked skb plus CAP_SYS_MODULE
-on an unloaded sch_teql.
-
-Conditions to recreate the bug:
-CONFIG_NET_SCH_TEQL=m and CONFIG_VETH=y, run as root. Create a veth pair,
-make one end a teql slave, give the master an address and a route, flush
-the slave's neighbour entry and send one packet:
-
-  ip link add v0 type veth peer name v0p
-  ip link set v0 up;  ip link set v0p up
-  tc qdisc add dev v0 root teql0
-  ip link set teql0 up
-  ip addr add 10.0.0.1/24 dev teql0
-  ip route add 10.0.0.99/32 dev teql0
-  ip neigh flush dev v0
-  ping -I teql0 -c 1 10.0.0.99 &
-  sleep 1
-
-The skb waits on v0's arp_queue while the solicitation is in flight.
-Remove the qdisc, which drops the module reference it holds, and unload
-the module while the skb still waits:
-
-  tc qdisc del dev v0 root
-  rmmod sch_teql
-
-teql_exit() frees teql0 there. When the solicitation then fails,
-neigh_invalidate() drains the queue through arp_error_report() and
-ipv4_link_failure(), whose __icmp_send() reads skb_in->dev; that is the
-freed master before this patch and v0 after it. A resolved neighbour
-drains the same queue through neigh_update_process_arp_queue().
-
-On the unfixed tree the skb is parked on v0's arp_queue while skb->dev
-still names teql0, so the reinjection can reach a master that teql_exit()
-has freed.
-
-The park and the headerless delivery reproduce without the unload.
-Freeing the master while the skb waits needs sch_teql built as a module,
-as above.
-
-An unfixed kernel reports this when the timer drains that queue:
-
-  ==================================================================
-  BUG: KASAN: slab-use-after-free in __icmp_send+0x3f9/0x1680
-  Read of size 4 at addr ffff8880039bc0b0 by task swapper/3/0
-
-  CPU: 3 UID: 0 PID: 0 Comm: swapper/3
-  Call Trace:
-   <IRQ>
-   ...
-   __icmp_send+0x3f9/0x1680
-   ipv4_link_failure+0x3a0/0x5b0
-   arp_error_report+0x5b/0xc0
-   neigh_invalidate+0x125/0x240
-   neigh_timer_handler+0x47d/0x750
-   call_timer_fn+0x138/0x410
-   ...
-  Allocated by task 307:
-   alloc_netdev_mqs+0x81/0x930
-   ...
-  Freed by task 335:
-   netdev_release+0x45/0x60
-   device_release+0x7d/0x120
-   kobject_put+0xf3/0x2e0
-   put_device+0x13/0x30
-   free_netdev+0x3b3/0x4a0
-   ...
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Reported-by: Sashiko (nipa) <sashiko-bot@kernel.org>
-Closes: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260824115928.4099988-1-victor@mojatatu.com
-Link: https://lore.kernel.org/netdev/20260824115928.4099988-1-victor@mojatatu.com/
-Link: https://lore.kernel.org/netdev/20261026160747.283702-1-horms@kernel.org/
-Link: https://lore.kernel.org/netdev/20261031165925.780930-1-horms@kernel.org/
-Link: https://lore.kernel.org/netdev/179363700308.3131.11778179538290251434@kernel.org/
-Link: https://lore.kernel.org/netdev/20261110101908.2e64e8e9@kernel.org/
-Cc: stable@vger.kernel.org
-Reviewed-by: Victor Nogueira <victor@mojatatu.com>
-Reviewed-by: Simon Horman <horms@kernel.org>
-Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
----
- net/sched/sch_teql.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/net/sched/sch_teql.c b/net/sched/sch_teql.c
-index 626dc001ec23..e60d8f3b127d 100644
---- a/net/sched/sch_teql.c
-+++ b/net/sched/sch_teql.c
-@@ -374,13 +374,13 @@ static netdev_tx_t teql_master_xmit(struct sk_buff *skb, struct net_device *dev)
- 			continue;
- 		}
- 
-+		skb->dev = slave;
- 		switch (teql_resolve(skb, skb_res, slave, slave_txq, &hlen)) {
- 		case 0:
- 			if (__netif_tx_trylock(slave_txq)) {
- 				unsigned int length = qdisc_pkt_len(skb);
- 				int rc = NETDEV_TX_BUSY;
- 
--				skb->dev = slave;
- 				if (!netif_xmit_frozen_or_stopped(slave_txq))
- 					rc = netdev_start_xmit(skb, slave, slave_txq, false);
- 				__netif_tx_unlock(slave_txq);
--- 
-2.34.1
-
+Am 16.11.26 um 05:45 schrieb Nathan Chancellor:
+> After a recent improvement in clang to warn on unsequenced accesses to
+> volatile variables [1], an instance appears in
+> qcaspi_netdev_tx_timeout(), which can break the build with
+> CONFIG_WERROR=y / W=e:
+>
+>    drivers/net/ethernet/qualcomm/qca_spi.c:805:16: error: unsequenced accesses to volatile qualified 'jiffies' [-Werror,-Wunsequenced]
+>      805 |                     jiffies, jiffies - dev_trans_start(dev));
+>          |                     ~~~~~~~  ^
+>
+> Per C11 5.1.2.3.2, accessing a volatile object is a side effect. Per C11
+> 6.5.2, unsequenced side effects on the same scalar object are undefined
+> behavior. Per C11 6.5.2.2.10/12, the evaluation of arguments in a
+> function call is indeterminately sequenced, meaning any side effects in
+> the arguments are unsequenced.
+>
+> Printing jiffies on its own is not that useful for debugging transmit
+> timeouts, so get rid of it to clear up the warning.
+>
+> Cc: stable@vger.kernel.org
+> Fixes: 291ab06ecf67 ("net: qualcomm: new Ethernet over SPI driver for QCA7000")
+> Closes: https://github.com/ClangBuiltLinux/linux/issues/2197
+> Link: https://github.com/llvm/llvm-project/commit/955715460eaf9188c241c74750637fc82dfcc423 [1]
+> Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+Acked-by: Stefan Wahren <wahrenst@gmx.net>
