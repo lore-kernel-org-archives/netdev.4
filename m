@@ -1,60 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.60.161
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794793242;
-	b=kwpMBPwIoHGLjn/WHW5IKbvePTDbyFFFdP5Fd8cKdQIuakI8eL/Dw5+InkkYG2OoBSux
-	 DxpeKlEyJHIzEym4UgvPEN/CKPaQdx2NsgUkezG7Pd0dzO93QdvhQRAzPB6fc1tOMlK78
-	 4nuzsiKNrPIpeUCstN/z6zcnsYNTBxzGvNkArAOpAUxjA28+YQn2lFAIRbXkyNSwF+lH+
-	 TzDUIR5//ZHN7yvRlt7R9hzgLS0IPArJ0yx6xjS6w+JWsbTFL/yaqPiRBS8vkkAlRp1OC
-	 O1fKnH7PIsiXHu10CQ0V+mAxA48NKCX0pxol5GX+LX5Sn9VFT2o7n7go8Uh52XuXQbA==
+	t=1794793560;
+	b=OWQSQ2XhCeM8hN6GRa8dTgU9P6YPdKTVE10/Ek9lGFOSgQ4qABOqP1hfYetAy+R+9Euu
+	 GQaG5ui9IQA3uYfb69MQsCbXZuxw7P02hXDXfcn6Mc4p6LuDWhgk8mBeD+cv56CDcq25Y
+	 oifkULidxk1tAWjqpVLLm61p4dFyBo8rUUrvLjsgoaSVCYYc+atji3M5Oq3XRDfQwNehG
+	 hNKrjG0W7rzOZfHtiwA0tn+9DrXFFhdEFHgIeeQnEDU3yo/nnC4oofM2y0xLusl47Guo4
+	 S/xe48vjChs2RJTkaFlZoznXA0mOGoWrfuAsif3Dr40vte/WFEkKjQsZD/U4bYXH5ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794793242;
-	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:Received:
-	 From:To:Cc:Subject:MIME-Version:X-Mailer:Date:Message-Id:
-	 Content-Transfer-Encoding:Content-Type;
-	bh=2jbiTHxABRnF0p0UohwE6J8FYpheO9Ckmg68bOdoYz8=;
-	b=pV/7cT0o39pByleUlBfvk71KDC9JIjUL7mCQPXCF9V6Dj4Zbm5FbxkjNmSNWU2vT81sF
-	 qCDs2lO/4FGYldkWNk/niim9YFS8zPBHOb8U+xYXrHptBcbbgr74CuLjLmYrTWB0hD9PZ
-	 1uML7EFmTycOG7AW+DsbgDaJEFjA0CgrneoxborLTpvY0bAJ0GeqmowQykewZZqbB82AV
-	 LMTOb62A02HqhGG3UBBj/wJSsYAkUhggkzBHJ0IdD/7In0G1sN5mEzqoMLA87D9oxGJ7H
-	 Vk/CzDkwzOS0uS5RjpJwn/a5jvbSEGxOkm0Sbl8wcn57IMvsIw0avYNwNeJ+5AKik9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794793560;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=b7Wi/6ZDmxYKqHTLqZCINBNqiHTmjIEfH93pIzChtsk=;
+	b=k0DcVyKT9JgcsGw4Zpnz+1ZF7EXkv0c/TgmwRR3wZfeMHjvFjFiXz3f0h7X5deU9Ditb
+	 cdTLMTyO9BeNYQuLe5vQi7hlyaR0EdBXRWKQtRK2zrFvyua+hjTQZU1KxGl8V70AVWMKN
+	 fFyd/g1EKEAasqacDTvKbMJHVoNyrXuV18uXn0K1MlousPzkS7bG8dDtSIv75bLs6KOK6
+	 R4N2NtsXAr6iYnO7G9iHjkPRiCA717G1ZPJyatW0jof18/PeG2aV3uB4aiMPdtBMsqDOJ
+	 71vuj5Gu7A0NymjVqMKx3dpBkdHZ+LJ6b3kgoonfENAB2727Ww7faXvID6ob5kTL22w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=telsoft.org;
-	spf=pass smtp.mailfrom=telsoft.org;
-	dkim=pass header.d=telsoft.org header.i=@telsoft.org header.a=rsa-sha256 header.s=mail header.b=QJ8di9ZQ;
-	arc=none smtp.remote-ip=51.250.60.161
-Received: from forward101d.mail.yandex.net (forward101d.mail.yandex.net [51.250.60.161])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21546606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:40:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21546606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=telsoft.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=telsoft.org
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=KKOt1RaS;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 818C6606A31C;
+	Mon, 16 Nov 2026 01:45:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 818C6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=telsoft.org header.i=@telsoft.org header.a=rsa-sha256 header.s=mail header.b=QJ8di9ZQ
-Received: from mail-nwsmtp-mxback-production-main-70 (mail-nwsmtp-mxback-production-main-70.yp-c.yandex.net)
-	by forward101d.mail.yandex.net (postfix) with ESMTPS id E15DFC0043;
-	Mon, 16 Nov 2026 04:40:28 +0300 (MSK)
-Received: from mail.360.yandex.ru
-	by mail-nwsmtp-mxback-production-main-70 with HTTPS id AeMs8bFcuuQ0-tjCieGOv;
-	Mon, 16 Nov 2026 04:40:28 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=telsoft.org; s=mail;
-	t=1794793228; bh=2jbiTHxABRnF0p0UohwE6J8FYpheO9Ckmg68bOdoYz8=;
-	h=Message-Id:Date:Subject:To:From:Cc;
-	b=QJ8di9ZQTAT6EZVaN7FQSKJmbGFjlm9HtQU6UZf535Yipk1jlsk15Q/AfMZ4TAb87
-	 gjUvd68IKcfxszIMHTHqISfNJFUA4923dnM8mVa8LeMVkPgI6L9wWEdlAkV5/4YKcS
-	 LCKPWqu0lF9Hgj2MzZkVlQY2uftXhM4kiszheJUs=
-Authentication-Results: mail-nwsmtp-mxback-production-main-70; dkim=pass header.i=@telsoft.org
-Received: by mail-sendbernar-production-main-55 with HTTPS id 25009eeb71366bcba824ccf37a9c73a3;
-	Mon, 16 Nov 2026 04:40:26 +0300
-From: Dmitry Vasilkov <dvasilkov@telsoft.org>
-To: devel@linux-ipsec.org
-Cc: steffen.klassert@secunet.com,
-	herbert@gondor.apana.org.au,
-	netdev@vger.kernel.org
-Subject: xfrm: inbound per-CPU state cache makes ESP input O(number of SAs) with 10^5+ SAs (6.12.13+)
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=KKOt1RaS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=KKOt1RaSByzIJZcanf9SxY+TRbUvefLBdbtve03YLZ3X/iftl4PDK8YpdBSWbfAvLOCDhPvcipFUF
+	 2ixNdS5Tr21dmNanaH7sAIZEeWRMsnUt5P1jPeyfQ/EB/Y5rbvQvEjxAnTe2Oa72PHn2AJMeg+J356
+	 GSjUQnNjecNa0Yfw=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86afa604b60b-99a7a;
+	Mon, 16 Nov 2026 09:45:49 +0800 (CST)
+X-RM-TRANSID:2ee86afa604b60b-99a7a
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from localhost.net (unknown[112.23.105.204])
+	by rmsmtp-syy-appsvr05-12005 (RichMail) with SMTP id 2ee56afa604b0d0-7759e;
+	Mon, 16 Nov 2026 09:45:49 +0800 (CST)
+X-RM-TRANSID:2ee56afa604b0d0-7759e
+From: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Hangbin Liu <hangbin.liu@linux.dev>,
+	Hangbin Liu <liuhangbin@kylinos.cn>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	sunwenbo@cmss.chinamobile.com,
+	1342116488@qq.com
+Subject: Re: [PATCH net-next] ipv6: check mc_forwarding before calling ip6mr_get_route()
+Date: Mon, 16 Nov 2026 09:45:28 +0800
+Message-Id: <20261116014528.17713-1-sunwenbo@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.33.0
+In-Reply-To: <179473722928.2199510.16768078668045707324@kernel.org>
+References: <20261111094528.425826-1-sunwenbo@cmss.chinamobile.com> <179473722928.2199510.16768078668045707324@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,175 +80,146 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Mailer: Yamail [ http://yandex.ru ] 5.0
-Date: Mon, 16 Nov 2026 10:40:26 +0900
-Message-Id: <1409971794793226@526cea60-1695-45d2-82c7-21555f54496c>
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset=utf-8
 
-Hello,
+Thank you for the detailed review comments. Please note that a 2-patch v2
+series was already posted prior to this message [1]; below is a detailed
+root-cause analysis, our modification plan, and the UML reproduction and
+verification results for the upcoming v3 series:
 
-We would like to report a performance regression in the xfrm input path, which we hit on 6.12.73+deb13-amd64 (Debian 13). 
-We also share the 
-livepatch we use as a temporary workaround, in case it helps others or the discussion of a proper fix.
+1. Root-Cause Analysis:
 
-Setup
+   (a) [Medium 1] Returning -EMSGSIZE when mc_forwarding != 0 (skb->dev == NULL):
 
-Host: an IMS P-CSCF (Kamailio with ims_ipsec_pcscf), a VM with about 33 CPUs and 128 GB RAM.
-Every VoLTE UE gets its own transport-mode ESP SAs (hmac-sha1-96, null encryption in the lab), 
-4 SAs and the matching policies per UE.
-Lab load: a UE emulator on the same host registers UEs over IPsec through lo, 
-from 2500 to 3000 registrations per second. This builds up to 1.2 million SAs.
-The SAD and SPD hash tables grow as expected (524288 buckets), so the hash itself is not the problem.
+       In inet6_rtm_getroute(), `dev = dev_get_by_index_rcu(net, iif)` is only
+       used for ip6_route_input_lookup(), and `skb->dev` is never assigned on
+       the newly allocated reply skb (`skb = alloc_skb(NLMSG_GOODSIZE, ...)`).
+       In addition, `rt = dst_rt6_info(skb_dst(skb))` is the per-CPU route
+       initialized by ip6_rt_copy_init() from `f6i->fib6_dst` (the `ff00::/8`
+       prefix installed by addrconf_add_mroute()) rather than the queried
+       (S,G). Consequently, on a cache miss in ip6mr_get_route(), `skb->dev` is
+       NULL regardless of `mc_forwarding` and ip6mr_get_route() returns
+       -ENODEV, which v1 mapped to -EMSGSIZE at `nla_put_failure`.
 
-Symptom
+       In the v2 series [1], patch 2/2 ("ipv6: preserve ip6mr_get_route() error
+       in rt6_fill_node()") already implements the error-preservation approach
+       mentioned in the review: instead of overwriting negative errors from
+       ip6mr_get_route() with -EMSGSIZE, rt6_fill_node() preserves and returns
+       the negative error (such as -ENODEV). Note that simply assigning
+       `skb->dev = dev` in inet6_rtm_getroute() without reworking
+       ip6mr_get_route() would not be safe on its own: on an unresolved cache
+       miss, ip6mr_get_route() allocates a 40-byte `skb2` (`sizeof(struct
+       ipv6hdr)`) without a netlink header and queues it onto `nl_queries`,
+       where ip6mr_destroy_unres() / ip6mr_cache_resolve() later pull
+       `sizeof(struct ipv6hdr)` and write `struct nlmsghdr` into an empty skb
+       (while inet6_rtm_getroute() also lacks `err == 0` handling and would
+       send an unfinalized reply skb without nlmsg_end()).
 
-During the test the user time of the receiving processes stays flat, but their 
-system time grows linearly with the number of SAs:
+       In v3, we also refine the commit message of patch 1/2 so it does not
+       imply `skb->dev == NULL` is caused by `mc_forwarding == 0`.
 
-SAs	SIP worker (sys)	UE emulator (sys)
-28k  57%                45%
-425k 325%               418%
+   (b) [Medium 2] Excluding interface-local / link-local multicast and checking
+       `dest` instead of `rt6_dst->addr`:
 
-Host CPU rose to 54%, the p99 of the REGISTER transaction grew to 465 ms, and the 
-test failed with replies later than SIP T1. The CPU was not exhausted: 65–70% of the host stayed idle. 
-Only the cost of one ESP input operation kept growing.
+       This is a valid gap still present in v2. IPv4 rt_fill_info() guards
+       ipmr_get_route() with `!ipv4_is_local_multicast(dst)` alongside
+       `IPV4_DEVCONF_ALL_RO(net, MC_FORWARDING)`. Likewise, IPv6 ip6_mc_input()
+       never forwards groups matching `(IPV6_ADDR_LOOPBACK |
+       IPV6_ADDR_LINKLOCAL)` (i.e. interface-local / node-local `ff01::/16` and
+       link-local `ff02::/16`), so no MFC state can ever exist for them.
+
+       Furthermore, in normal route-get queries (`!fibmatch`), `rt6_dst->addr`
+       is the matched FIB6 prefix `ff00::` (from `ff00::/8`), whose scope is 0,
+       while the queried group address is passed in `dest` (`&fl6.daddr`). In
+       `fibmatch` queries (`dest == NULL`), `&rt6_dst->addr` holds the route
+       prefix. Therefore, checking `mc_dst = dest ? : &rt6_dst->addr` against
+       `(IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)` is required so that
+       interface-local and link-local multicast queries bypass
+       ip6mr_get_route() and emit RTA_IIF even when `mc_forwarding != 0`.
+
+   (c) [Low] Fixes tag / net vs net-next:
+
+       Because this series aligns long-standing non-crash route-get reporting
+       semantics with IPv4 (and full `mc_forwarding != 0` MFC lookup in
+       inet6_rtm_getroute() + ip6mr_get_route() remains a separate topic), we
+       target net-next without Fixes tags. If maintainers prefer targeting net
+       with Fixes tags, we will be happy to adjust.
+
+2. Concrete Modification Plan (v3 Series):
+
+   Update patch 1/2 in `rt6_fill_node()` (`net/ipv6/route.c`) to inspect
+   `mc_dst = dest ? : &rt6_dst->addr` and exclude `IPV6_ADDR_LOOPBACK |
+   IPV6_ADDR_LINKLOCAL` before calling `ip6mr_get_route()` (and drop Hangbin's
+   Reviewed-by tag on patch 1/2 since its code changes, while keeping it on
+   unchanged patch 2/2):
+
+   ```c
+	if (iif) {
+#ifdef CONFIG_IPV6_MROUTE
+		const struct in6_addr *mc_dst = dest ? : &rt6_dst->addr;
+
+		if (ipv6_addr_is_multicast(mc_dst) &&
+		    !(ipv6_addr_type(mc_dst) &
+		      (IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)) &&
+		    atomic_read(&net->ipv6.devconf_all->mc_forwarding)) {
+			int ret = ip6mr_get_route(net, skb, rtm, portid);
+
+			if (ret == 0)
+				return 0;
+			if (ret < 0) {
+				err = ret;
+				goto nla_put_failure;
+			}
+		} else
+#endif
+			if (nla_put_u32(skb, RTA_IIF, iif))
+				goto nla_put_failure;
+	}
+   ```
+
+3. Reproduction & Verification Steps and Results (UML):
+
+   Setup in UML (`CONFIG_IPV6_MROUTE=y`):
+     ip link add d0 type veth peer name d1
+     ip link set d0 up && ip link set d1 up
+     ip -6 addr add 2001:db8::2/64 dev d0
+     ip -6 addr add ff0e::1 dev d0 autojoin
+
+   To test `mc_forwarding=1`, a helper (`test_mc_err`) opens an `AF_INET6`
+   `SOCK_RAW` (`IPPROTO_ICMPV6`) socket, enables `setsockopt(..., MRT6_INIT,
+   &one, sizeof(one))`, verifies `/proc/sys/net/ipv6/conf/all/mc_forwarding` is
+   `1`, and runs `ip -6 route get ... iif d0`:
+
+   - Before v3 (with v2 applied, `mc_forwarding=1` via `MRT6_INIT`):
+     * `ip -6 route get ff0e::1 from 2001:db8::3 iif d0`
+       -> `RTNETLINK answers: No such device` (`-ENODEV`, preserved by 2/2)
+     * `ip -6 route get ff02::1 from 2001:db8::3 iif d0`
+       -> `RTNETLINK answers: No such device` (`ip_exit=512`, FAIL: entered
+          `ip6mr_get_route()` for link-local multicast)
+     * `ip -6 route get ff01::1 from 2001:db8::3 iif d0`
+       -> `RTNETLINK answers: No such device` (`ip_exit=512`, FAIL: entered
+          `ip6mr_get_route()` for interface-local multicast)
+
+   - With v3 applied:
+     * Test 1 (`mc_forwarding=0`, routable `ff0e::1` with `iif d0`):
+       `ff0e::1 dev d0 proto kernel metric 256 iif d0 pref medium` (PASS)
+     * Test 2 (`mc_forwarding=1`, routable `ff0e::1` without VIF/cache):
+       `RTNETLINK answers: No such device` (`-ENODEV`, PASS)
+     * Test 3 (`mc_forwarding=1`, link-local `ff02::1` with `iif d0`):
+       `multicast ff02::1 dev d0 proto kernel metric 256 iif d0 pref medium`
+       (`ip_exit=0`, PASS)
+     * Test 4 (`mc_forwarding=1`, interface-local `ff01::1` with `iif d0`):
+       `multicast ff01::1 dev d0 proto kernel metric 256 iif d0 pref medium`
+       (`ip_exit=0`, PASS)
+     * Tests 5-7 (IPv6 unicast with `iif`, IPv6 multicast without `iif`, and
+       IPv4 `224.0.0.1` / `239.1.1.1` with `iif` regressions): all PASS
+       (`FAILURES=0, TEST_EXIT_CODE=0`).
+
+[1] https://lore.kernel.org/netdev/20261112094630.197244-1-sunwenbo@cmss.chinamobile.com/
+
+Thanks,
+Wenbo
+
+pw-bot: cr
 
 
-Cause
-
-Since 6.12.13 (6.12.12 does not have it), the inbound SA 
-is looked up via xfrm_input_state_lookup(). 
-That function first walks net->xfrm.state_cache_input, a per-CPU list, 
-and falls back to the SPI hash only on a miss. On a successful hash 
-lookup the state is added to the per-CPU list under the global xfrm_state_lock:
-
-
-hlist_for_each_entry_rcu(x, state_cache_input, state_cache_input) {
-	if (x->props.family != family || x->id.spi != spi || ...)
-		continue;
-	...
-}
-x = __xfrm_state_lookup(...);                 /* hash */
-if (x && x->km.state == XFRM_STATE_VALID) {
-	spin_lock_bh(&net->xfrm.xfrm_state_lock);
-	hlist_add_head_rcu(&x->state_cache_input, state_cache_input);
-	...
-	
-As far as we can see:
-
-The list is unbounded. Every inbound SA that has ever received a packet on that CPU stays on 
-the list until the SA is deleted. There is no size limit and no aging.
-A cold SA walks the whole list. The first packet of a cold SA (and on a busy server almost 
-every SA is cold) walks about SAs/CPUs entries before the O(1) hash lookup, and each entry is a cache miss.
-Every miss takes the global xfrm_state_lock. With many receiving threads this adds contention on top.
-This matters even more in production than in our lab. On a P-CSCF with several hundred 
-thousand registered UEs, each UE sends packets rarely (re-REGISTER, INVITE, keepalive). 
-By the time its next packet arrives its SA is deep in the list, so practically every inbound ESP 
-packet pays the linear walk. The cache helps a small number of hot SAs and hurts hosts with many 
-mostly idle SAs.
-
-We checked the current mainline code of xfrm_input_state_lookup() and it looks the same, so newer 
-kernels are probably affected as well.
-
-
-Micro-benchmark
-
-Same kernel, transport-mode ESP SAs (null encryption) on lo, one packet per SA, sender pinned to one CPU:
-
-SAs	stock 6.12.73	with the workaround
-10 000 150 us/packet 17 us/packet
-20 000 730 us/packet 18 us/packet
-The cost grows faster than linearly once the list no longer fits in the CPU caches. 
-With plain hash lookup it does not depend on the number of SAs. 
-The per-SA counters (ip -s xfrm state) confirmed that the packets really went through ESP.
-
-Workaround: livepatch
-
-We replaced xfrm_input_state_lookup() with the plain xfrm_state_lookup(), i.e. the hash 
-lookup the input path used up to 6.12.12. SAs that are already on the per-CPU lists stay 
-there until deleted; nothing adds them any more. The module can be unloaded at any time.
-
-// SPDX-License-Identifier: GPL-2.0
-/*
- * Livepatch for 6.12.13+ kernels (checked against 6.12.73+deb13).
- *
- * xfrm_input_state_lookup() first walks net->xfrm.state_cache_input, a per-CPU
- * list that keeps every inbound SA ever looked up on that CPU and has no size
- * limit; the hash lookup comes only after a miss, and a hit or a miss also
- * takes the global xfrm_state_lock. With 10^5 SAs the first packet of every
- * cold SA walks SAs/CPUs entries. Replace it with the plain hash lookup the
- * input path used up to 6.12.12. SAs already on the lists stay there until
- * deleted, as before; nothing adds or moves them any more.
- *
- *   insmod klp_xfrm_input.ko
- *   cat /sys/kernel/livepatch/klp_xfrm_input/enabled   # 1
- *   echo 0 > /sys/kernel/livepatch/klp_xfrm_input/enabled; rmmod klp_xfrm_input
- */
-#include <linux/module.h>
-#include <linux/livepatch.h>
-#include <net/xfrm.h>
-
-static struct xfrm_state *klp_xfrm_input_state_lookup(struct net *net, u32 mark,
-						      const xfrm_address_t *daddr,
-						      __be32 spi, u8 proto,
-						      unsigned short family)
-{
-	return xfrm_state_lookup(net, mark, daddr, spi, proto, family);
-}
-
-static struct klp_func funcs[] = {
-	{
-		.old_name = "xfrm_input_state_lookup",
-		.new_func = klp_xfrm_input_state_lookup,
-	},
-	{ }
-};
-
-static struct klp_object objs[] = {
-	{
-		/* vmlinux */
-		.funcs = funcs,
-	},
-	{ }
-};
-
-static struct klp_patch patch = {
-	.mod = THIS_MODULE,
-	.objs = objs,
-};
-
-static int __init klp_xfrm_input_init(void)
-{
-	return klp_enable_patch(&patch);
-}
-
-static void __exit klp_xfrm_input_exit(void)
-{
-}
-
-module_init(klp_xfrm_input_init);
-module_exit(klp_xfrm_input_exit);
-MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("xfrm: input SA lookup by hash only, without the per-CPU state cache");
-MODULE_INFO(livepatch, "Y");
-
-The system time of the receivers no longer grows with the number of SAs.
-
-Possible proper fixes
-
-This is only a workaround: it disables the cache completely. 
-Possible directions for a real fix, in no particular order:
-
-bound the per-CPU list (a small fixed size, LRU-like replacement), so the walk is O(1) 
-and a hit still benefits;
-do the hash lookup first and use the cache only where it is cheaper, or skip 
-the cache when the number of inbound SAs is large;
-avoid the global xfrm_state_lock on the input path when adding to the per-CPU cache;
-a sysctl or per-netns knob to turn the input cache off for hosts with very many SAs.
-We can test patches on the same setup (up to 1.2 million SAs at 3000 new UEs per second) 
-and report the numbers.
-
-Thank you for your work on the xfrm subsystem.
-
-Best regards, Dmitry
