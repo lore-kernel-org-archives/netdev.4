@@ -1,79 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794837781;
-	b=fuefPXTBVGvtjk18Ekq600Hwxrdu4YolnVDhOP477M0yFM0qB6Mt1C7iFARzGVXcDlVU
-	 U4VgZeIdwRbgFYqDDUvcl2auFW+A3z9aznfY7YyarGmzh1vfqOTHbqjt/eOrFTi/54WGK
-	 9sLqHSTvGs8iItEG2/6zpEnmyPUo2vL2aPcIJ+BkTLffnFKKUc7r5Wt/2IYtILIPGYbRd
-	 jNaq0Hz3MZdZgZinjNT52vvH40dgsm5hnsDUCw9opLct7wwEl3W0wpeYqVECHj0uAD0M1
-	 eAX1C+iDWPNoVWx+ffMdJBBIGhzg2T4PPa+M/hZsJZIl+soc4tUPxN5yMLchcAI4r7A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794837781;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=cq6C85nzMOCVD9RUFqpVZVZ4ydyduqUTyhszrHHjH8w=;
-	b=t7DzXhXmFvYhubuGaaAgr3dM+n0c3PurWJDaiu2BLyubmexX3OtCqTTEWwNaYF0jXtxy
-	 u8dFH23swW+Ln3V0ALFk1vA8GhrDwJoLKuljZJ+0UXENM63FJ5bbCciKBxba8S7hlMCt+
-	 udq2YG1JpgP52jth953aWy7nAR2rGPe7i7L2M20qu3m2Ix77NMkNkPc0M/2j39oFW1Wea
-	 dsH3PWM128Vx3kHLBLw8qISRuQfgKTDaP6kqdQ2S7rOQhbnbTxgC7j3A360Glp9BBFefl
-	 rP13PLcdngO0ihPVayLAAR2JxCw3Vy5r6Xw5HS8JKRpp5tX0rUs/0ZuzriGmTUAys2g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=H2Gy2DDZ;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794837903;
+	b=qZuUmiaOxR9tECvH20w4bhl4iedN4HBG3Y/eCr3uMiN9HN0p+p+AkF9a80eXZRsAmkCQ
+	 65ng67xg0tz96x4RCYi3umvt8Z0BXLHvUGAGfDrYEtz7kA2QEKrDokzQiYcZaT66f3A1P
+	 coSeUBCXWQ5J/lhTKuKpL1OTAgAlYGPSeCYG+NgXjFKSuDVUI5Cmjzo+uFTv86KI4yv8R
+	 Is97hMICY6tihR7zWJWb9ZxbU0H3YSzyV+kNbiCWLzGe+bbO1s0Zt7CvoyHOZarxilivx
+	 pIlGw8xryzsgRhMhPy4S5lp67ap5NiBzd1wREu17U9ckEn3eXif+XO8QDHcOBwoR9Wg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794837903;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=IiIU9t/pme/D3WoLNwnnikBF+jtcauKxTw3ofmYpCiU=;
+	b=xgwxztS8X6L44rtUaRw8mj2FOYGSCgpWMLRE9wsffxtE42BPhOAd7p78h2vbTnDR4Ld/
+	 7hW9dNpusJf0MJQsYq/A2225WGDnuveW1N0acFbEuqeJtXvtsg+cVksfOlY0jlDAj0RJV
+	 A6TBAXF90N03TxbVIyhxhfFO69WeoexDGSyTB5XUw59YGCmMhLNGXIvqBWRo7irCliPmg
+	 tPGhl5InO0JFObnlF8XgWa61nZvHjKCkBb9tAViFZCQR7TLcPGtuIMZkJPPa7Ox3Zp0IA
+	 GOQ3fb/w+Atzs0UFuvkzaaa9aPcF2MOxBO1W8uvA3na+/GOvAp/vB2ReF6hKtpCcjjA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=cloudflare.com;
+	spf=pass smtp.mailfrom=cloudflare.com;
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b="RDRD/OcL";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.53
+Received: from mail-oo1-f53.google.com (mail-oo1-f53.google.com [209.85.161.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9B19606A32A;
-	Mon, 16 Nov 2026 14:03:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9B19606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F5E3606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:05:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F5E3606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=H2Gy2DDZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1794837780; x=1826373780;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=r89a9phg2PmIZeV6rJGpD0UdhhNupMsuPVFwWdMmR4g=;
-  b=H2Gy2DDZWr5KVYlswGLt4u7y6/Klp/UgM8q/hrlhA7UcQusMkiuqAhUT
-   JvPsi86VgeVIDMMR2L4OeI8tNveReCossrrdKERuSXSgVa6wMaoAhZFim
-   /cSvt9komGeoSyo1Tw8G1gcDDNOdvLtM+p3Nqoc+bJuAcxm9VqcY/yHzY
-   r07fEwffiifESXCEgLKS4wWiugX3c7ZLAa3UnFdAYXHN/K8ZEJuMT/Mdo
-   4uMIJSQEIKkWsj4uFEYqDmWUwKF59GkwAOLPe2FORzA0hyxrfQSduvVsJ
-   xSVoW9Ot3c+B/585db1tW60MOzAZ73YP7T8V3UujdXIdo+JyaUe983g3N
-   A==;
-X-CSE-ConnectionGUID: dmad7ia3SHimmztP85R43w==
-X-CSE-MsgGUID: fc0Le7fGTmqaQHz5F14IQA==
-X-IronPort-AV: E=Sophos;i="6.27,216,1787036400"; 
-   d="scan'208";a="233622650"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 16 Nov 2026 07:02:59 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 16 Nov 2026 07:02:58 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Mon, 16 Nov 2026 07:02:56 -0700
-Date: Mon, 16 Nov 2026 15:02:55 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <UNGLinuxDriver@microchip.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
-	<p.zabel@pengutronix.de>, <richardcochran@gmail.com>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next 3/4] net: lan969x: configure the core PLL
-Message-ID: <20261116140255.aap65thluxeaia6v@DEN-DL-M70577>
-References: <20261113-lan969x-core-skew-v1-3-b9b02b863d38@microchip.com>
- <179483535329.3136.8847960801289420948@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=RDRD/OcL
+Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-71adbbf09d8so1341829eaf.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:05:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794837902; cv=none;
+        d=google.com; s=arc-20260327;
+        b=Xbms10TQbJRJ7G5Le+GEkqdwqq/dvNxZjEx5SgCKVHKtkp+FVcZ3iKpCU5KqvPPNq/
+         JtAZGVKhPGXHg1B7+OYDde1rQP9xy857bs4tVhbEN8z4KaDBI+O2vOJt78GeSq7CGE1S
+         UR1GqGG1yqjXZ2bCPC3AnVdNDR1wPnbDcFUdJKr9Mn8aCfT/kCajL+JaYNv3VYPT2JZw
+         iPOjDLw/haTof0O1ZYyoX3+9nnKu8LCNtt70L0vgSHOeYOTug9zczgODITjwJC/bvLrC
+         BQzKJQi++72p0IIf6K9ilrP0RF08rtsjP/jCqDlMe3qa2L5CXdtpEHMAK+3qdTnZLdCr
+         AKYg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=IiIU9t/pme/D3WoLNwnnikBF+jtcauKxTw3ofmYpCiU=;
+        fh=MJLjA3W/MczfCyBaz2PidY+rwanq1e9/CdyiYyR/5oA=;
+        b=WkQgC0xLaiNAj4m974RmxhbIHwDhNeEF5u+HVv6am2oOf3Ew0DvJo7AA4/uWZ+M/JD
+         g9Puv+4tQSGCh/2T0Ym8GCltTK35D5s93Ca/aGwjaHc00nbnQbFixRtpNXLqgLYcv7ge
+         GSB0XEVhDJCIvA+CGTJHI0Q8/W4UBl4zJ/K+2qnBQErjS8wLfidiqzJuHrE/HfdcwJdS
+         fmodAn5OTDqux41nikg1S88M20ovThWXHp+/NufxQ1Qr45mWBnA81LsHOlC18MW6adv9
+         M+mHGFRaEdYxR+739XUDV6rZxBXsTSJnIiizZOHhml8rCk5JQf0EmALfHyODogBRW+pR
+         inCg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudflare.com; s=google09082023; t=1794837902; x=1795442702; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=IiIU9t/pme/D3WoLNwnnikBF+jtcauKxTw3ofmYpCiU=;
+        b=RDRD/OcLdIq6BBPMomGGzPawAcj++fY9/uI9T/1dA72dsAu8agY8Cu6695ALuLwM0n
+         8y09N3w3OnPRYtLA+0e+4U9RcOnky1LhgUOxXzhjjfWtcgZu2/11KvN+/ArJuO0D3/uL
+         AyPFayZijP6GzDPeUrJPAizS+wLTSC4SmUVsvfBY1Ile6aaQ9CPg/kv99IdzqKSiLgcp
+         KkL/sqlkUbnuggAYKTgRgmfPG3aEwE4AOQ8e2We0/RHTjfPWdEnjmhtf16f6MefhQPs8
+         wjXI5xul/QtA/M+DzPqpAjwMvOpyB7m+LDtVfZ6yuRFcXnnU7LE7HpmL5egmcfFarZcf
+         uaBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794837902; x=1795442702;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=IiIU9t/pme/D3WoLNwnnikBF+jtcauKxTw3ofmYpCiU=;
+        b=ZgZJgK/wl+lg+kTDt1pu5yl3eZVbhuwY/IRFbGZ20YfiR54VgFKyqx1qJJQA8J4/op
+         ihiNXQMt+k+ToDdL2pLuk+mnugd/nK8rzaBhaezZxVFgACPpwtHGGXoh/+SHT8XkCYI9
+         T1kz/UtPYjF8XAl+UcG5RuL3WssA20TG33/lrErksUi/socvfn879UD4uqpkIMdGJEK5
+         STJbw4Yh3JktBqiFsGGjbh594RzhCbBgcdFhIdGVX3iwQCmADRrsKJcKIxVJuxLJWpGg
+         El+y5hS19fp6y9QVylrJBlVvXt+69eIqm4SCVFFyvRUBjOVLRw5nCU9R6M7YVRS/mm75
+         LMxQ==
+X-Forwarded-Encrypted: i=1; AL+hErHT+7pgy2/a36TOomT2a+aEcsRA3iOu9IwmrJp9uGvgMbS67mNwFc8VWcXtl4X0d0H8rpbPzH0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8cFjKWinP1ppOig8wcPB8r7V14lPWhN5KsAxxQG1OUdjuhyvwS
+	7yPkm0iJ/fwxJWTkjw9JawfRib4/P+938lgXSmWvFkkePSF4vnvLG9HhVemZeH9c7ZYmnl/w24x
+	1UzN8LXd5gneGXXjMB5wPF9oFMMdlr02HHv0MjVZMsg==
+X-Gm-Gg: AYBFou3bmdFXktxSXW+8U495i4IwUf3tVaYtvmlK+yfMjm59w/OkRlOwi/KmUjxGLX/
+	aQ7Qod86bDuPOfWG6/wHO9JW+MFGfvhQ6DIF4Y6CvnDVVuVSmVvwYrQEXZSw1xqO5LGtiCymt6y
+	H3qQar30sxKNA31kA96iZQz1kfHddynHWIvhYTHarW8amGgTOmbs/HSUPF1qbrMYv3klCVwXl1l
+	2NiwlSxjVo34oDw5Xctt7g17cw/wAxGDa2Z/P5fPLKtP/Lqru+JoB4gH4qR0c7yvRp+6C9y4S8P
+	wZyE4A5nNLzZ3EAWTWcX0kqrC2ieio3jW8FU1Kk0wvDMSE8zCO6QuBu30Fv+XKvbqNgv+ecmGBk
+	+noNo+PrBzp3OwsiB5LRiPIznY1362+848O2l2VN/g1rCBETynPhnjS0IKyPVuVSAz70tXygRa+
+	1yG/9RjNpvLAEnUkKN67hFDlNlyQe0teo=
+X-Received: by 2002:a05:6820:7093:10b0:71a:ea6a:4f51 with SMTP id
+ 006d021491bc7-71aea6a5809mr1437630eaf.14.1794837902102; Mon, 16 Nov 2026
+ 06:05:02 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,313 +104,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179483535329.3136.8847960801289420948@kernel.org>
+References: <CAG4wq-cd01i7YrcFPmma=BXUcwn_PK=wneKW=vyEBYzQ3Bn7QA@mail.gmail.com>
+ <20261116084107.6675-1-emmaonana18@gmail.com> <20261116084107.6675-3-emmaonana18@gmail.com>
+In-Reply-To: <20261116084107.6675-3-emmaonana18@gmail.com>
+From: Tianyi Gao <tianyi@cloudflare.com>
+Date: Mon, 16 Nov 2026 14:04:50 +0000
+X-Gm-Features: Aa3M54qRdeOnU1gJ7x3s56OW-hJCPdbvkrK8BlxFfQsIh19-OFAy7vmiVdSA8Lw
+Message-ID: <CAG4wq-d_30-B4wQZu48ZQXAORM4QxRqPfmYsmoHS0hiYp1EtTA@mail.gmail.com>
+Subject: Re: [PATCH net v3 2/2] selftests: net: veth: propagate bad-settings
+ check failures to exit status
+To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Shuah Khan <skhan@linuxfoundation.org>
+Content-Type: text/plain; charset="UTF-8"
 
-> Thank you for your contribution! Sashiko AI review found 6 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 5
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] In lan969x_init_core_pll() the new DIVFI/DIVFF (FREQ_CFG, line
->   514) and DIVQ/DIVR/REF_CLK_SEL/FILTER_RANGE (line 523) values are…
-> - [Low] The commit fixes a bug that users can see on every lan969x board,
->   but it has no Fixes: tag.
-> - [Low] In lan969x_init_core_pll()
->   (drivers/net/ethernet/microchip/sparx5/sparx5_main.c, lines 506-512),…
-> - [Low] The patch makes a core PLL failure abort the whole switch probe
->   on lan969x, and the commit message does not say so.
-> - [Low] In lan969x_init_core_pll() (lines 520-531), the comment says the
->   CORE_PLL_CFG write will "select the reference clock from the strapping…
-> - [Low] The LOCK_STAT check in lan969x_init_core_pll() (lines 561-569)
->   may pass without proving anything.
-> 
-> --
-> 
-> net: lan969x: configure the core PLL
-> 
-> This commit programs the lan969x core PLL to a rate about 200 ppm above
-> 328.125 MHz. That is the rate the PTP TOD increment in
-> sparx5_ptp_get_nominal_value() already assumes. The dividers and the TOD
-> increment are chosen from the reference clock strapping (25 MHz or 39 MHz),
-> and the divider change uses the NEWDIV/DIVACK handshake in CORE_PLL_CFG.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-> > index 93a7cb89493c4..244974ffe496b 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-> > @@ -474,10 +474,120 @@ static int sparx5_init_switchcore(struct sparx5 *sparx5)
-> 
-> [ ... ]
-> 
-> > +static int lan969x_init_core_pll(struct sparx5 *sparx5)
-> > +{
-> > +	const struct lan969x_core_pll_dividers *div;
-> > +	u32 hw_stat, pll_cfg, freq_cfg;
-> > +	enum sparx5_core_clockref ref;
-> > +	int err;
-> > +
-> > +	hw_stat = spx5_rd(sparx5, CHIP_TOP_HW_STAT);
-> > +	ref = CHIP_TOP_HW_STAT_REFCLK_SEL_GET(hw_stat) ?
-> > +		SPX5_CORE_CLOCK_REF_39MHZ : SPX5_CORE_CLOCK_REF_25MHZ;
-> > +	div = &lan969x_core_pll_328mhz[ref];
-> > +	sparx5->coreclockref = ref;
-> > +
-> > +	/* Already configured by an earlier probe? */
-> > +	pll_cfg = spx5_rd(sparx5, CHIP_TOP_CORE_PLL_CFG);
-> > +	freq_cfg = spx5_rd(sparx5, CHIP_TOP_CORE_PLL_FREQ_CFG);
-> > +	if (CHIP_TOP_CORE_PLL_CFG_ENA_CFG_GET(pll_cfg) &&
-> > +	    CHIP_TOP_CORE_PLL_FREQ_CFG_DIVFI_GET(freq_cfg) == div->divfi &&
-> > +	    CHIP_TOP_CORE_PLL_FREQ_CFG_DIVFF_GET(freq_cfg) == div->divff)
-> > +		return 0;
-> 
-> [Severity: Low]
-> Is this check strict enough to conclude that the PLL already runs at the
-> skewed rate?
-> 
-> It checks only ENA_CFG, DIVFI and DIVFF. The function also programs DIVR,
-> DIVQ, REF_CLK_SEL and FILTER_RANGE, and it depends on the NEWDIV/DIVACK
-> handshake and on LOCK_STAT. None of those are checked before the early
-> return.
-> 
-> sparx5->coreclockref is set just above. That means
-> sparx5_ptp_get_nominal_value() always picks the skewed TOD increment for
-> the detected reference, whether or not the PLL produces that rate.
-> 
-> The err_disable path clears ENA_CFG, so a completed run of this driver
-> should not leave such a state behind. There are two other ways it could
-> happen. A bootloader or firmware could set ENA_CFG with these DIVFI/DIVFF
-> values but different DIVR/DIVQ/REF_CLK_SEL. Or a probe could be interrupted
-> between the ENA_CFG=1 write and the end of the lock poll, since CHIP_TOP
-> state persists across unbind/bind.
-> 
-> In either case the reprogramming and the checks are skipped without a
-> message. Would it make sense to also compare DIVR, DIVQ and REF_CLK_SEL,
-> and to check LOCK_STAT and that NEWDIV is clear?
-> 
-> > +
-> > +	spx5_rmw(CHIP_TOP_CORE_PLL_FREQ_CFG_DIVFI_SET(div->divfi) |
-> > +		 CHIP_TOP_CORE_PLL_FREQ_CFG_DIVFF_SET(div->divff),
-> > +		 CHIP_TOP_CORE_PLL_FREQ_CFG_DIVFI |
-> > +		 CHIP_TOP_CORE_PLL_FREQ_CFG_DIVFF,
-> > +		 sparx5, CHIP_TOP_CORE_PLL_FREQ_CFG);
-> > +
-> > +	/* Set the reference and output dividers, select the reference clock
-> > +	 * from the strapping pin and use fractional mode.
-> > +	 */
-> > +	spx5_rmw(CHIP_TOP_CORE_PLL_CFG_DIVQ_SET(div->divq) |
-> > +		 CHIP_TOP_CORE_PLL_CFG_DIVR_SET(div->divr) |
-> > +		 CHIP_TOP_CORE_PLL_CFG_REF_CLK_SEL_SET(0) |
-> > +		 CHIP_TOP_CORE_PLL_CFG_FILTER_RANGE_SET(0),
-> > +		 CHIP_TOP_CORE_PLL_CFG_DIVQ |
-> > +		 CHIP_TOP_CORE_PLL_CFG_DIVR |
-> > +		 CHIP_TOP_CORE_PLL_CFG_REF_CLK_SEL |
-> > +		 CHIP_TOP_CORE_PLL_CFG_FILTER_RANGE,
-> > +		 sparx5, CHIP_TOP_CORE_PLL_CFG);
-> 
-> [Severity: Low]
-> Which write here selects fractional mode?
-> 
-> This rmw touches only DIVQ, DIVR, REF_CLK_SEL (written as 0) and
-> FILTER_RANGE (written as 0). In sparx5_main_regs.h, neither
-> CHIP_TOP_CORE_PLL_CFG nor CHIP_TOP_CORE_PLL_FREQ_CFG defines a fractional
-> mode or DSM enable field. The only extra setting is FILTER_RANGE, and the
-> comment does not mention it.
-> 
-> Is the comment just inaccurate, or is a fractional enable missing? Both TOD
-> increments in sparx5_ptp_get_nominal_value() depend on DIVFF taking
-> effect. With only the integer part, the core clock would be about 325 MHz
-> instead of about 328.19 MHz.
-> 
-> > +
-> > +	/* Switch the PLL from its reset defaults to the register settings */
-> > +	spx5_rmw(CHIP_TOP_CORE_PLL_CFG_ENA_CFG_SET(1),
-> > +		 CHIP_TOP_CORE_PLL_CFG_ENA_CFG,
-> > +		 sparx5, CHIP_TOP_CORE_PLL_CFG);
-> > +
-> > +	spx5_rmw(CHIP_TOP_CORE_PLL_CFG_NEWDIV_SET(1),
-> > +		 CHIP_TOP_CORE_PLL_CFG_NEWDIV,
-> > +		 sparx5, CHIP_TOP_CORE_PLL_CFG);
-> 
-> [Severity: Medium]
-> Does the switch from reset defaults to the register settings happen at the
-> ENA_CFG write, before the NEWDIV/DIVACK handshake starts?
-> 
-> If the comment above is accurate, the PLL takes the new DIVFI/DIVFF, DIVR,
-> DIVQ and REF_CLK_SEL values at the ENA_CFG=1 write. The commit message
-> describes the handshake as "the glitch free divider change documented for
-> CORE_PLL_CFG", but this switch happens outside it. The handshake would then
-> cover only what NEWDIV latches afterwards.
-> 
-> The core clock also changes after sparx5_init_switchcore() has already done
-> the EACL force init, RAM init and counter reset:
-> 
-> mchp_sparx5_probe()
->     sparx5_init_switchcore()
->     sparx5_init_coreclock()
->         lan969x_init_core_pll()
-> 
-> The reset controller is optional. A core left enabled by a bootloader could
-> still be running while its clock source changes.
-> 
-> The err_disable path raises the same question in reverse. Clearing ENA_CFG
-> there goes back to the reset defaults without a handshake, and the function
-> returns without waiting for relock.
-> 
-> Could the ENA_CFG versus NEWDIV ordering be checked against the CORE_PLL_CFG
-> datasheet?
+On Mon, 16 Nov 2026 09:41:07 +0100 Omokefe Emmanuel Onanaroghene wrote:
+> -             echo "fail - set operation successful ?!?" || echo " ok "
+> +             { echo "fail - set operation successful ?!?"; ret=1; } || echo " ok "
 
-This is the frequency change procedure described in the datasheet for
-CORE_PLL_CFG, and the patch follows it step by step.
+Two small suggestions:
 
-On the first probe the switch comes out of reset with the queue system
-disabled, and patch 2/4 keeps it that way until the core clock is set
-up. On a rebind the PLL is already configured and is left alone.
+1. These lines are 85 columns wide, over the 80-column limit.
+2. The style is inconsistent with the rest of the file. Other checks
+   use if/else instead of a "cmd && { ...; } || ..." chain.
 
-The err_disable path only runs if the PLL never acknowledges the change
-or never locks. Probe then fails, and the next probe redoes the change
-and waits for lock. Waiting for relock on the error path would not buy
-anything.
-
-> 
-> > +
-> > +	err = read_poll_timeout(spx5_rd,
-> 
-> [ ... ]
-> 
-> > +	/* LOCK_STAT resets to 1, so sleep before the first read */
-> > +	err = read_poll_timeout(spx5_rd,
-> > +				pll_cfg,
-> > +				CHIP_TOP_CORE_PLL_CFG_LOCK_STAT_GET(pll_cfg),
-> > +				100,
-> > +				10000,
-> > +				true,
-> > +				sparx5,
-> > +				CHIP_TOP_CORE_PLL_CFG);
-> 
-> [Severity: Low]
-> Can this poll confirm that the PLL relocked?
-> 
-> According to the comment, LOCK_STAT already reads 1 before the change. With
-> sleep_us = 100 and sleep_before_read = true, poll_timeout_us() in
-> include/linux/iopoll.h does:
-> 
-> 	if ((sleep_before_op) && __sleep_us) \
-> 		usleep_range((__sleep_us >> 2) + 1, __sleep_us); \
-> 
-> So the first read can happen only about 26 us after NEWDIV is cleared. If
-> the DIVACK poll succeeded on its first read, which has no sleep, that is
-> also very soon after the ENA_CFG/NEWDIV writes.
-> 
-> If the lock detector has not deasserted by then, the first read returns 1.
-> The function then reports success whether or not the PLL has settled.
-> 
-> Is this delay based on a documented minimum lock detector response time?
-> Could the poll instead wait for LOCK_STAT to drop and then come back?
-> 
-> > +	if (err) {
-> > +		dev_err(sparx5->dev, "Failed to lock the core PLL\n");
-> > +		goto err_disable;
-> > +	}
-> > +
-> > +	return 0;
-> > +
-> > +err_disable:
-> > +	/* Make the next probe redo the change */
-> > +	spx5_rmw(CHIP_TOP_CORE_PLL_CFG_ENA_CFG_SET(0),
-> > +		 CHIP_TOP_CORE_PLL_CFG_ENA_CFG,
-> > +		 sparx5, CHIP_TOP_CORE_PLL_CFG);
-> > +
-> > +	return err;
-> > +}
-> 
-> [ ... ]
-> 
-> > @@ -573,6 +683,15 @@ static int sparx5_init_coreclock(struct sparx5 *sparx5)
-> >  			 CLKGEN_LCPLL1_CORE_CLK_CFG_CORE_CLK_ENA,
-> >  			 sparx5, CLKGEN_LCPLL1_CORE_CLK_CFG);
-> >  	} else {
-> > +		if (freq != SPX5_CORE_CLOCK_328MHZ) {
-> > +			dev_err(sparx5->dev,
-> > +				"%d coreclock not supported\n",
-> > +				freq);
-> > +			return -EINVAL;
-> > +		}
-> > +		err = lan969x_init_core_pll(sparx5);
-> > +		if (err)
-> > +			return err;
-> 
-> [Severity: Low]
-> Before this patch, the lan969x branch of sparx5_init_coreclock() could not
-> fail for a supported target. Now a DIVACK or LOCK_STAT timeout makes the
-> whole switch probe fail:
-> 
-> mchp_sparx5_probe()
->     sparx5_init_coreclock()
->         lan969x_init_core_pll()
->             read_poll_timeout() returns -ETIMEDOUT
->             goto err_disable
->     dev_err(sparx5->dev, "LC-PLL initialization error\n");
->     goto cleanup_config;
-> 
-> The commit message says:
-> 
->     Leave the PLL alone if it is already
->     configured, and disable the register configuration again if the change
->     fails.
-> 
-> That reads like a fallback to the default clock. In fact the PLL is
-> reverted and the device no longer probes. A board that used to probe and
-> forward traffic, with the 200 ppm skew, would end up with no networking.
-> 
-> Is the probe failure intended? If so, could the commit message say so?
-> 
-> >  		pol_upd_int = 820; // SPX5_CORE_CLOCK_328MHZ
-> >  	}
-> 
-> [ ... ]
-> 
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
-> > index 9f61692b243b7..544e9513a9a53 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_ptp.c
-> > @@ -62,7 +62,10 @@ static u64 sparx5_ptp_get_nominal_value(struct sparx5 *sparx5)
-> >  		res = 0x1FF0000000000000;
-> >  		break;
-> >  	case SPX5_CORE_CLOCK_328MHZ:
-> > -		res = 0x18604697DD0F9B5B;
-> > +		if (sparx5->coreclockref == SPX5_CORE_CLOCK_REF_25MHZ)
-> > +			res = 0x186044FEF1EA9C10;
-> > +		else
-> > +			res = 0x18604697DD0F9B5B;
-> >  		break;
-> 
-> [Severity: Low]
-> Should this commit have a Fixes: tag?
-> 
-> Commit 1ebaa5e18915 ("net: sparx5: add support for lan969x targets and
-> core clock") added the 0x18604697DD0F9B5B increment, a period of about
-> 3.04701 ns against the nominal 3.047619 ns. It did not program the PLL to
-> the matching rate. As the commit message describes, TOD and the scheduler
-> clock have run 200 ppm apart on lan969x since then.
-> 
-> Something like:
-> 
-> Fixes: 1ebaa5e18915 ("net: sparx5: add support for lan969x targets and core clock")
-> 
-> would give stable and backport tooling a pointer. This fix also depends on
-> two earlier patches in the series: "net: lan969x: add the core PLL
-> registers" and "net: sparx5/lan969x: enable the switch core after clock
-> setup". Could the commit message note that dependency, or say whether the
-> series is meant for net-next only?
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-lan969x-core-skew-v1-0-b9b02b863d38%40microchip.com
+Cheers,
+Tianyi
