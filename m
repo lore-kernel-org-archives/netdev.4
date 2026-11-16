@@ -1,100 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.242
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794831448;
-	b=hyAeCDEfc5k/sBApoZ5WgjWAp5fdZAqRb5eyNa+d/b88VVccwtmfjRxXpDPFqr8503tw
-	 KopALYzzcdx8XjW2gJrrX8YTmO1798mwnPH/X/SqFJ8WTg/SDtxnxDZNkeU6xK2RxFjOJ
-	 DOhXrLEWMXkJgmhga2D7LhnRxWmXRjWW3XvK3+5z2bJ+GW4ahzAlvGtGPLoq6GRq2NEUc
-	 JruJcqDn56COtF7KlJOzuJ1tvD8QlVxqSQh5l8x46atm2aft+Dx29GcmoAl+CN/XFrm3u
-	 QWI6tWCuPMXdgabBRLvhr7V9Tc1up7Yl2ydAzs1DPq6rJu02b7wE7Lf5qgnAx/KfjWA==
+	t=1794831644;
+	b=YBbsViHNHMrMGATu5E29MNREepNYaN9Y60g1kSMUhfqGZVE2dKl6naSRb9iAZMy1t1zV
+	 alhN+miWIboDCuFZN03EgbyEU1zXRAV3QOCw53p8KJfAiGeQpmegGEqPhw4qbjAHJgePW
+	 vcPxJ3G88NwzH5ZZ2di4BipoFJZ+gRJdYVtwvQq5FNan+NNOs4it89DLSZZ8UsxVscHFx
+	 d8giZIdi6NHXfRlFyz1ffTrc4YnyrdgKTR4MBYck2rF/FRxLyD8609ekuVRUuMfvewNsV
+	 Ic8VbY8rILBDJFPuJpRluPMNEaJ8QMScd//CsCEG6TTIMWdqnCq/tirJxnkfsYFx4GA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794831448;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=2DvzYjKrOUzMqNS33zIkMu1E1h8ZRESapVtIQDWP32I=;
-	b=dPHKgLNBmCtmbYcNSbnkMWSixBcUZXMHRYvMNhNdyfKi1qHkG0Wk2Onuie8YiSSzl/bP
-	 hfDoTOWpC109tk6QTvo1/JpSk6SOL7i7g0mEfyaTdk1Xm/Xhv6Jb6sLAu87/U7Jxtrjjj
-	 Cz9QqP1mezvosZ2h5JGpXqqxQ9r9Zp0xQ6q9Z0LEhusCyCULjxnRjsYHYlfQ9pEjHNCs7
-	 3TTqhN/oj6/H4V9zwQWdtxZUHvZLQXkt/CGLVcX6eeUNuYh+xLY8XbN3Jpsnu4yoUIGhR
-	 6pujq3yL59R1esB3Jf5zfR/Xl1m85IwIt2tRcXE9o8701yzK6JNVFLzKusCkOIIt1HQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794831644;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 MIME-Version;
+	bh=4MCroR/sjsq4mO+nQ3f/SHJLqA9hA+O6cA4sBYcKkZg=;
+	b=OULYhrT+p4ouZKE0Eonvnb1o5xaTOx24GhIys+4hOZtPjGHn55nr6BskSe+l2lDglev3
+	 DUxB+yqg8XnWbNj7NAIOnGvOHLwzJhWNx/M9EegdihKRRSc1iyEx02WASyuFuyY0y85dK
+	 j2sjZNYrHcQkcNsottd0Fzwozy47nCQ9PoTeiFI/KTpAapRNBajNi5iVivdjEYv8eDsrp
+	 nbhRP0l98biI+w+l3n+Om2ixRKYBnPM0kDoD1gA9j/45fiS1OzTzVb2zhq2dsyfAJgN2o
+	 TKp6oJBbYvf7tgO3Rs+9H8vh+qCkFV/TDafQosnrZa4Jy+nC8W1XU2xwAczm9FLYQiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gZ07fxG0;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="nF/UyUSR";
+	arc=none smtp.remote-ip=203.205.221.242
+Received: from out203-205-221-242.mail.qq.com (out203-205-221-242.mail.qq.com [203.205.221.242])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5583F606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:17:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5583F606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 253F5606A329
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:20:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 253F5606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gZ07fxG0
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b094e649d3so2919989a91.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:17:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794831447; x=1795436247; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2DvzYjKrOUzMqNS33zIkMu1E1h8ZRESapVtIQDWP32I=;
-        b=gZ07fxG0GDEsvNe+/QJVmTRxfgb2FWsXZ/lBK6luvLHmnXXJsoClsVy6w6cibCo/BZ
-         W6JW7C0AxGumMIZd02DNEil/vj16J07rdtxwwSjrTwKB/GrZcIm/Tntka4IaN6tT/aGh
-         aIaBvHPQy95jiSO4GnAZThpF8PiOOuEB0WjhTrFwFFLkju0t+UcLwBrL6K0wpvAN+ZRn
-         Mn0xPUprvk8WahWgRYdJi1YfEezaUBJ8JGdu3CI3sEgJEkKM0XwKTBw/aZF1uR8jW5qT
-         U68GFHJCLL7wAS0Knrie+BXLYzRukpXZtlvKbJ273YihjETl9ikeoUiGO0Q3ZL9VLFDX
-         LxDA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794831447; x=1795436247;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2DvzYjKrOUzMqNS33zIkMu1E1h8ZRESapVtIQDWP32I=;
-        b=M3j+B2zW5pp/2zh+nDtjWj7CO1rI71wmwYa+Zr52TyoarnbN9xzOpL8kHOrsUCL5Jv
-         HzyT3MfMIoTUoTD/w4Fe2IWXrhrak8rK8KnY0UzYL1sgSYmeLR488ggeTwhIJLhyfAaE
-         3YnX3aMoCIZrU+ZRkb2CEGyqmKY6SgSJBhecLrQVda7s1OlXdFlIUKQxJ/fkn3wM4B/B
-         0b98y5obaGovBYJsh7h9XlRd3p3G1nMYNtC/NzI3QiEGyAkmLeJpPhyHUsoVa/b4ISaX
-         8L+Za5xsADX9v/2GUKiptufv7fUC/agmsJpB+/pVGNRkfheRj02WWUPCF0+k9v4SWlKQ
-         9nRQ==
-X-Forwarded-Encrypted: i=1; AL+hErEvJagkKLZXert0gZWGCgc8OkLfsbr5JB3MH8A3+pP++e+eXKQr8WgASfCsOye3bpeGjIUIjm4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9hZ+Lywsfs77Oarj2YzuS68o7P6TtLnBAdYlXwCr9MOkliXW8B
-	qPZObXhALIZvNfa0d3rRLYKP1ePhXMbiaVvfA2cZHovZVCmcuEoeFs1A
-X-Gm-Gg: AZFdTZcDnYQt3LlFrrpOGTenVu9cUAR60ckb3MRtqboajeeOyyCJqTDeUpzujXS0H/9
-	mQ61uPV7M6b7elvR9QPOzCJq5jFicOyHBSubgQMgBL9tSrrOsR/34fGws32/XmJm9NmQwze2s2w
-	WqZ8abCpGqEvQAqmL53fhunc03uVRJrXegKd/Ck5GYQ1niybZpxy4HJm0V/0ty87rbcy+LQNEsx
-	rCsgQINqNruKsacEbWsXvtjsmGjePucKEcWAG2NNAyYAfvhGIURlqocIE9qHJg/9xnL1atZchKg
-	XyYe+utgO35DK1PuG+PMetMb8mgsWrbhMXbwGtFrmiygZXTMmMyNERCwuFo0CXx8m7qXyX0dzrz
-	gcprC8+N9VB6EEaF/uJNwPxx+Pe3w+E6EktmZOohWNS6bDpOqvB+mR1V3ef8zv4uLWYyXOyh9WM
-	UQKt49L1YT081K73I9BLV33ey+2PG5N+XYEvXc03VC/4fFC5OTaTXpIyQaMFf5lini6/29R5VD2
-	AJhCzZvSTEtfrLyGgHmCdszXWfMZ+ls3VXRV/2uOMrGGZL2tQLFefLobRHJllO33rCYsuxBb8LX
-	hzvTHUI4XnZ9kXaU6AGd2xW/Ruc36PUpWFLKm3Dpg1fwTU0JAjXPclwU1OFduXccOYZmM57EJw=
-	=
-X-Received: by 2002:a17:90b:134b:b0:3ad:50a2:9abf with SMTP id 98e67ed59e1d1-3b1b0cae71dmr10511167a91.38.1794831447522;
-        Mon, 16 Nov 2026 04:17:27 -0800 (PST)
-Received: from JIAPENGLIN-MC0.tencent.com ([43.132.141.20])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cddc18b4352sm4384178a12.24.2026.11.16.04.17.24
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 16 Nov 2026 04:17:26 -0800 (PST)
-From: Lin Jiapeng <ljp1205831794@gmail.com>
-To: jhs@mojatatu.com,
-	jiri@resnulli.us,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	paolo.valente@unimore.it,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Lin Jiapeng <jiapenglin@tencent.com>,
-	TencentOS Corvus AI <corvus@tencent.com>
-Subject: [PATCH net] net/sched: sch_qfq: bound backward slot rotation
-Date: Mon, 16 Nov 2026 20:17:07 +0800
-Message-ID: <20261116121710.77403-1-ljp1205831794@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=nF/UyUSR
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794831630; bh=4MCroR/sjsq4mO+nQ3f/SHJLqA9hA+O6cA4sBYcKkZg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=nF/UyUSR0bYZHL1EW8l3asisTFTPGviv8Eu5gqVRoo59ZrHeswUdya8UcQB1+pJO6
+	 lyAxJNB+Op2iDiXD3HFZ4lnBRenC7FvgLLtNFxaTPRTfP1W+GXrG9e4w4MXzRDcGir
+	 98O/MkCu6nKj8Qu7abPHlxZ50l5E14RedIKR4bIo=
+Received: from [127.0.0.1] ([2409:8d5c:8f0:65e5:2979:aa1c:9ec4:8698])
+	by newxmesmtplogicsvrszb51-1.qq.com (NewEsmtp) with SMTP
+	id 5199FA81; Mon, 16 Nov 2026 20:20:25 +0800
+X-QQ-mid: xmsmtpt1794831625txwxrqa5i
+Message-ID: <tencent_5B7B9ECE9036BE72D331CB2A2E4AEC5F8909@qq.com>
+X-QQ-XMAILINFO: NC4p7XQIBeahMxe7Nis9QgS3xrmsPlhKDX17WXMQD2D8PIOyxhm1Gb53FHXytD
+	 4YzNWcq2zfLEL3ipFJGuhhitYhPI+x449ysiTJGcDUJuZaxDIUDAJArVe3MX5CLxEqc03cv6OlHI
+	 h2OywKU/9gLYeVck2/zsWvqglFzU8HRH6YtHmafnQQkvaQdFfL0qeEgBK2GCgU+RBMi6wY7S8Pmc
+	 iejgiTM7doW4zq4NVdbnSe707CfGZ8u44KMRhci5VXIPDFrpAFtqHUhhAaQlB59HlkBixCoaBeZI
+	 6EsSxbZwlZ/E8ebdJjGNSpA0nZCZ/yIOI7ZIv3jGOXh2n3J25ewX0uJNPxdExMN5Nobnk0nqSvR9
+	 rGGQ5+utxN+WifW+ZGQyXGeuY3H+78jgTtmhqYeiHB8EFLLIix0jccSKPYbeAjSz1LM70iJtTr/c
+	 f86bXmxjKq3K/g/j1Uee6sCMVJYfaKEeagxB3bg7sk37SzlcatPKQvKD8Ac5ZbIRqB+5IwsuAmG9
+	 F3smTEFUZOhQ93Bo9Ggrztx+C3YEYKrxEaY93Ootkc3sL91qYHMFwkQJxxp3MetEPm3TYOKEPUZO
+	 9lqI/70VxBYW9Y6T3DPY6wynJjV0N473wyveWP44fXnTJopKHKUjwN5ABNtjjju1jDm30kZCy8Xx
+	 lpGHle5g5QmIhiWnEdYkbAomPggm2BQJRNjF16krS3W6/u/ClgCKcdRSgSexjoiiekjFuh3owqsO
+	 5lWQc5bDj/jaZ6bqPf6mFg+DZqAwJdblrtBuvO/mTygc8M1O9aKZacg7aomeuyAcpHb9uBs+RKyk
+	 LV7lOoN9saLS6wdWuml54knc5SghDkQra0etDu81vMA/Hes/KiI6jtE8np7P2Um71SPRAvSkfuwn
+	 x+FV9jaQUF89ybMxaxV9UFPC1bL1rLdg/5oQHbAdE28otxHx6sVJ6kfjAFu6Qb0+u/R03kRjgxgq
+	 poTep0wR1rXt8uMeMOGdkt53nKZr8ZSm9lpm28SZ6VgekJC15d0j/Ukvj2ioeiutJMsW+RGY+Ke0
+	 s+DOceTR8MaxSMsg7lZmAW/TQH2cg06j92Y9ZLWAj66jrMQMz0dyKPLbtah+1re2iqQPbf7LrrKH
+	 Xj0wjW
+X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
+From: Hang Nan <2122295973@qq.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, matttbe@kernel.org,
+ martineau@kernel.org, geliang@kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ kuniyu@google.com, willemb@google.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org, 2122295973@qq.com
+Subject: Re: [PATCH net v4 0/3] mptcp token hash ordering and token 0 lookups
+Date: Mon, 16 Nov 2026 20:20:25 +0800
+X-OQ-MSGID: <179483162524.42663.16445873285874492835@qq.com>
+In-Reply-To: <20261115155747.178858-1-2122295973@qq.com>
+References: <20261115155747.178858-1-2122295973@qq.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,87 +84,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Lin Jiapeng <jiapenglin@tencent.com>
+Thanks for the prompt.  Honest answer up front: none of the three patches
+has a runtime trigger.  All three are theoretical, and this is what I
+should have put in the commit messages.
 
-QFQ+ keeps aggregates in timestamp-ordered slots and rotates the
-occupied-slot bitmap when a group's start time decreases, avoiding the need
-to move the aggregates themselves. Insertions are capped so that occupied
-slots leave room for a later backward adjustment.
+1/3 net: mptcp: take token lookup references with acquire ordering
+   Theoretical.  There is no syzbot report, no KCSAN splat and no
+   reproducer.  KCSAN cannot observe this class of defect at all:
+   Documentation/dev-tools/kcsan.rst is explicit that watchpoints are
+   only set up for plain accesses ("KCSAN never sets up a watchpoint on
+   marked accesses") and that "reordering of marked accesses is not
+   modeled", and the reordering in question involves a marked refcount
+   operation.  On x86-64 there is nothing to observe anyway: both
+   variants compile to the same lock cmpxchg.  The evidence is
+   instruction-level: on arm64 the CAS becomes CASA
+   (88a37c02 cas -> 88e17c43 casa), which I can attach if wanted.  What
+   I did confirm is only reachability of the lookup path from the wire
+   (mptcp_parse_option() -> subflow_token_join_request() ->
+   mptcp_token_get_sock()), which is a static reading, not a runtime
+   demonstration of the reordering.
 
-A stale aggregate can make the start-time decrease larger than the bitmap
-can represent. Rotating then pushes existing members beyond full_slots,
-and a later qfq_slot_remove() clears a bit in the following slot-list
-pointers. KASAN reports the resulting corruption when the group is
-selected:
-  BUG: KASAN: slab-use-after-free in qfq_choose_next_agg+0xd04/0xd90
-  Read of size 8 at addr ff11000102f73010 by task repro/92
-  CPU: 0 UID: 1000 PID: 92 Comm: repro
-  Call Trace:
-   kasan_report+0xe4/0x1a0
-   qfq_choose_next_agg+0xd04/0xd90
-   qfq_dequeue+0x365/0x14b0
-   qdisc_peek_dequeued+0x91/0x280
-   tbf_dequeue+0x91/0xcd0
-  Allocated by task 91:
-   qfq_change_class+0xca5/0x1c50
-   tc_ctl_tclass+0x4ee/0x1400
-  Freed by task 37:
-   kfree+0x1b3/0x550
-   qfq_rm_from_agg+0x228/0x300
-   qfq_destroy_qdisc+0x118/0x1e0
-  The buggy address belongs to the object at ff11000102f73000,
-  which belongs to the cache kmalloc-128 of size 128.
-  The buggy address is located 16 bytes inside of
-  freed 128-byte region [ff11000102f73000, ff11000102f73080)
-The report is followed by a kernel panic.
+2/3 net: mptcp: reject token 0 in mptcp_token_get_sock()
+   Theoretical, and found by static analysis while addressing a review
+   comment on 1/3, not by fuzzing.  The crash path I describe
+   (subflow_check_req() -> mptcp_pm_announced_has_ssk() walking
+   msk->pm.anno_list before mptcp_pm_data_init() has run) is argued from
+   code; I have not triggered it and have no stack trace or KASAN
+   report for it.  What is verified is the input side: the token is
+   copied from the MP_JOIN option without validation, and 0 is never
+   assigned to a live connection, so a lookup for 0 relies entirely on
+   the two comparisons that cannot distinguish it.
 
-Limit the backward adjustment according to BITS_PER_LONG and the
-largest insertion slot. If it exceeds that limit, move the activating
-aggregate's S/F and rounded start time forward by the same slot-aligned
-delta before rotating. This preserves the timestamp and physical-slot
-mapping, keeps every removal offset inside full_slots, and leaves
-representable rotations unchanged.
+3/3 net: mptcp: verify the token slot in mptcp_token_iter_next()
+   Theoretical as well.  Both consumers (mptcp_diag and the userspace
+   path manager) are netlink paths that need privileges in the target
+   network namespace, so this is not a remote attack surface in the
+   first place.
 
-Fixes: 462dbc9101ac ("pkt_sched: QFQ Plus: fair-queueing service at DRR cost")
-Reported-by: TencentOS Corvus AI <corvus@tencent.com>
-Signed-off-by: Lin Jiapeng <jiapenglin@tencent.com>
----
- net/sched/sch_qfq.c | 13 +++++++++++++-
- 1 file changed, 12 insertions(+), 1 deletion(-)
-
-diff --git a/net/sched/sch_qfq.c b/net/sched/sch_qfq.c
-index e900890e9c54..e83105ce9015 100644
---- a/net/sched/sch_qfq.c
-+++ b/net/sched/sch_qfq.c
-@@ -1300,7 +1300,7 @@ static int qfq_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- static void qfq_schedule_agg(struct qfq_sched *q, struct qfq_aggregate *agg)
- {
- 	struct qfq_group *grp = agg->grp;
--	u64 roundedS;
-+	u64 roundedS, slot;
- 	int s;
- 
- 	roundedS = qfq_round_down(agg->S, grp->slot_shift);
-@@ -1318,6 +1318,17 @@ static int qfq_enqueue(struct sk_buff *skb, struct Qdisc *sch,
- 		if (!qfq_gt(grp->S, agg->S))
- 			goto skip_update;
- 
-+		slot = (grp->S - roundedS) >> grp->slot_shift;
-+		if (unlikely(slot > BITS_PER_LONG - QFQ_MAX_SLOTS + 1)) {
-+			u64 deltaS = grp->S - roundedS -
-+				((u64)(BITS_PER_LONG - QFQ_MAX_SLOTS + 1) <<
-+				 grp->slot_shift);
-+
-+			agg->S += deltaS;
-+			agg->F += deltaS;
-+			roundedS += deltaS;
-+		}
-+
- 		/* create a slot for this agg->S */
- 		qfq_slot_rotate(grp, roundedS);
- 		/* group was surely ineligible, remove */
--- 
-2.55.0
+For 2/3 I will add a KUnit case to net/mptcp/token_test.c
+(mptcp_token_get_sock(&init_net, 0) must return NULL) in the next
+revision, so at least the guard has a regression test.  I am not
+reposting only for this message; if reviewers want the above folded into
+the cover letter, I will include it with the next respin.
 
