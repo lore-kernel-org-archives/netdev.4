@@ -1,100 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794832357;
-	b=Wagwbg1+SJdV7F9KkosbrWoTIyROrPMHX2BaVccCkcRWvTtoFvJC1scKIpC4H0whPQJz
-	 P+5tqUCTq7AjXkIEXuTkSPUI9j85iK9sp8Y/KV6Q7niZaWQHAMkCnfVN32sSmVUQfjtOS
-	 9JsLhFAuNgBRLDVooY//II2Xuwrzb1ye1FP7QR80VqIff5JgQm0hGHXOoy5SMynBD30Bk
-	 xxHzq50mOo5YcYTRCecxWAi6LFq2Emyko+5GTM3n7HdkghvCfpEBncN1c6Kqvjo6bDzml
-	 kNaOkaOECAES2N3MZYHEwv2CY+IVf5rcu2XLTvy3QmbIdu+L2QaxWg9lu2nPJBRkEOQ==
+	t=1794832841;
+	b=Xz8m6L7bsT/X3NNhAKrrHSzfGITULF0xK2e5ZtuWmTUeVVVufcWOTib95jNa0VS2NIoQ
+	 5ikgocurCR5KPXPUus2+1rd/J21USSOqC/szUdmQaU4pBsuExuYWt/uMGgcq3Qqhd4HvO
+	 Dy0JHcip3/fLMpbGN7d8iZuqu/71s0eK4eGEIFZbvJUPqvsrPMJGkYBp4P4y0Nb7fXHdo
+	 ONhgkBtWnrF+bt3KspUkvUTTuxcKiYIVa7rrY5XBfyJ2jc6aARmkFUy46Izf1CfAqVC6v
+	 ew+uJ6UHQhoc20B81kq1pumpkIESE8R6SNczmBI9EhPRzzXch/dpcoF1TlG1L0V39bw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794832357;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794832841;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=8hW3Icu32YpX4MMMfBKofUdXAhk8zTVLp5A3VYY9984=;
-	b=eni3/e3ZD1+6IsbENcSnK9N3q4MxIzZmQ5vyPkJz5LKfVSZRN4ifik+rnmnbjWigqueP
-	 BlO5CfAwtmn3UKP8Y9SvNjew8LLWxVBXNxsR6Y09y2ISIGIXVOQukwIM23CwYbuWmj+aL
-	 zpbR2W6flB0TvuDSmSbxChUXs0orK49KuM8IOS1SRW+VcFK8yaZP1uTjBsyUgu6+mEQlx
-	 gOf2ouWmGdBdCNNOE+o5SW453cLenM2/zc7/a855T3uG8yaEfN0QPAZkxCplGSs11pE7N
-	 dAbYrAncxDkCJDICRAK74x/+Gs3CNdf5b3PCevaBg6I3CW77qZ7q0DckQHr78L1j6pA==
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=ofU1FQthecJu2OVRI80kc6txKndxQX32EBE9heySnKk=;
+	b=hBUAIXC2vQh5TJ2l+sockCQ2AmkW7HXpzjVtq9NC+EvLbAnUstk+ZCgIMQIJ0wg411c6
+	 vzfMHcKDCVH22GqsCey6eZaCc2yj+eqyDPZMkyx8vNPHX69ZZerdGtSqMAgAJlqqnUBeN
+	 ifMLNVRZUsNrl9Cs4hZ4Nt/vpKpIXZ5/SUNcwb1IvBK5vTSH1ZQXq6LJiwR8pFPHhiMeK
+	 ce4cmYZ0IR0aLnJEqy6SccDModcSN7cBmSdKeUhdAdiT2Oj1NAvUvmqi3hfAIXfSiJoZu
+	 hcrTQ4u6DTilmRAj+v8oeNU/Tq4v1u5/YIHrVB5lOx/tRk6XRjWb1xOYOwMHst9TIzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M2COT8Q8;
-	arc=none smtp.remote-ip=74.125.82.47
-Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tZlH4qsy;
+	arc=none smtp.remote-ip=209.85.210.45
+Received: from mail-ot1-f45.google.com (mail-ot1-f45.google.com [209.85.210.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89EE6606A323
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:32:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89EE6606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4731606A31C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:40:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4731606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M2COT8Q8
-Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-1a3c08d6928so4551562c88.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:32:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tZlH4qsy
+Received: by mail-ot1-f45.google.com with SMTP id 46e09a7af769-862b3938d98so721114a34.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:40:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794832355; x=1795437155; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=8hW3Icu32YpX4MMMfBKofUdXAhk8zTVLp5A3VYY9984=;
-        b=M2COT8Q8crFqanvp/JZI70a4Y0PeYmbOCf2PpQwD/jYf0MPLVIVno9HZb2H7gfdJm0
-         bGF0ixrSfXRY0bT+PEqwqE1+t9jXTrA6vKoes0p4f6gaR+W7z+BVWqMrWJDeDS/IHLhF
-         BUsI50LLTYS3BCoaQN16acZxvVPAYuUkZPj6OWNEJa11ktTm1eqMdcmMxkn4qZFN7VRt
-         +9Um+97M9NC0JP73zh33QGVLaqDfRnvCaviNlAU1xip/a6nV3ru5C+2+irKkvMaGOo3w
-         Hq1sbH88jWHXnfX8gwMNQ6EtKzEndhC9iQbfqgcJCcc0szKOvlEM1wUw+XZ9PrG/owwn
-         gryQ==
+        d=gmail.com; s=20260707; t=1794832840; x=1795437640; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ofU1FQthecJu2OVRI80kc6txKndxQX32EBE9heySnKk=;
+        b=tZlH4qsyeVyp85D/7jfuml2Bo9iSsV9/vvMVPvLbOjuqa9ZzlFCuWOOMPLFa4lcyhz
+         +XgH3VuEcWu/sJbcLqS1Aebt7m3+vqAToTw8VySUA/AnsTzsqb7Uh27tE9K4RImxd4ri
+         uHf2EdZKQlA70FqigwldTyC+ox1IImIoUe83gInR24PllyxytHuJ0D1zETZDRBvAH/Pe
+         xTs6BNuHqVyh/utWQjtSdoZ3jVFi2KXCQFuu6SQiAE+jEwfSdjAZH5SZrHIUwPuDAqsW
+         zne0aXtsjD1G7Eq0/thFuqndNXzCIOkCav79MIoClzJnr2b2a5MzAvMb51XiApQTxdj2
+         u8AQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794832355; x=1795437155;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=8hW3Icu32YpX4MMMfBKofUdXAhk8zTVLp5A3VYY9984=;
-        b=xnjB7Dh5JY1admqujMKTMVncp9znyfL5Co4VrRc/zs6meVwVNMJsHwHNsA6+Q5VPv4
-         yPizhSJoNwghXAKZ/fAY87dXMKxnRsr3NZ6BvP4VBbtNBFKLdi9m4NT0CIsffXkbW2mC
-         FeI35R5glh/pTkBBPOvnbXfa/Ofd+toOxmTMEnTY8Cw6nXBMariLAxG/lSb+0mA/4YDf
-         6ZVkIyVy0c9xtd4olL2RJHwwLjTGRBuXPG5fkr+vQYUKmS03mDCIDXbQ1TVl7aV9MrYU
-         7DoIpOg1MUZwxeWE47/imCDT+5wThdE0Gj4CwMj/BX3mTV8AEHn5a31YkeLXnAe2e76y
-         FgpA==
-X-Gm-Message-State: APuU4Z9jKDQKqI7HYJcloqmB/9x2fKuGEIwP9B2KXInzlArLtTCX9mJR
-	BCCza2JmN3DrR/8QtTSlUXQsaOJfLM+Nf825WSAGt68psYHFKrK60dbi
-X-Gm-Gg: AYBFou3e2HNAOpY7Bvcueg93n/ZUM0PuPSlMSSIXxVeB/5E0u0oui3TFOlezHPEqj1/
-	tzVEQe52OGKWwAF6DhGpn6p5SWmgWZSoS0OZqmEA9MzOkGAjzBV1qz9sSDbetawbKAXdW3wIqt5
-	GRg0rJUzuvXpp2so97nPL4+EuZ9V/Y4zqcadhHfttQyE2Y7bQdN1ezbnH6mBZ+e2aajlpVs9bOe
-	nZom4BXTg9nMVp4aWobRCH+ABdN+QuDAGZ5r0WKOCkyvUxxLvAU8WGbyWZU8hHHIWZiG3Qk4Aao
-	rIqcfL1ap7OllnLAupAq/L+0cKD68/XI/zUWB4+XVL2hoG1vNuPzCgwB7zztnNzG6SYmiFM1YFI
-	L92kbufMC6yAFHienXyWtHLqacXWQVSs85vUhdHAkB7kLn38AGcTpHA2MkswmdW8K/jjIMCKOJf
-	YaipDQVr+bF6T5hIhLrnbdX550U4GOFTNAHUeB9zDOX7ifHzPF+0h8l3yCgZnoWNUNFzHMLvBjC
-	3QZaTfw1R2uFnIkovNMj1pcWFMryVObZHdn0RMtxiGLSOwt2OVL8zDP+5ZhUJwxARMjDJjIHiwX
-	NYLFZVbI1pAylqdQHiDmPf9vAnW3DBpS2ZudhNMO4e1f8g==
-X-Received: by 2002:a05:7022:5f11:b0:159:2c6d:fcc3 with SMTP id a92af1059eb24-1b5030e7803mr8770798c88.33.1794832355331;
-        Mon, 16 Nov 2026 04:32:35 -0800 (PST)
-Received: from houminxi ([61.170.225.237])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5031bc518sm30276611c88.15.2026.11.16.04.32.31
+        d=1e100.net; s=20260707; t=1794832840; x=1795437640;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ofU1FQthecJu2OVRI80kc6txKndxQX32EBE9heySnKk=;
+        b=iv9oY3bEG0a1PE1KzhgZqlD9Zgz8Z3fKj2qHaz982Q+CEM+70/ZTx2t0vmreY05FIu
+         6fccTaPI2M9ol/tbUPd7M8yYVQXCBnz4RNSUp+mekbTB8VbdE4V2O6Rp998GlrPtEv40
+         hV08b/8Xt1VD10VxqNMQ3aCzJu/WKyFQfyAeB0bkVHRE45qp8XCaVt375XKk41T8arVO
+         eknwpxYcjJt2EVqxFwM+Y3Yj4hoeg5hlqO+EwNwxbEibu40TSBWdayYErSiUxI+zTnLo
+         krLlrW5H1r7Qah9ltBecqF58E8Rh6F+gljkpqNtO5pizI0CE1kcHcSzDP3WafIdJqB1o
+         DB8Q==
+X-Gm-Message-State: APuU4Z8PQGMTSYSS0qXSE2hXxcGSwPHg5zmE4RzpDbNRQXuwj5P/qJdj
+	MTjriwWfSyoLCVW+BYh6PhR+cvpmob1sPllv6EAR0ZCnwjQ63fpzNEEO+nPyAQ==
+X-Gm-Gg: AYBFou321DhZ1hvWGAUW5ghKla00ythKA41Rweip0qfFWvMH7sBlX7AWR8JZUlkggp5
+	PiVRZR8Jxa3TWriaGBf1eN9TfUPPEIAI0y+QWoYriDnKKFm5wbQ2r0ZN+6qqMr2N8egxxYiUKTz
+	ZO3c1zJZbDWtA6lCCqcbQdH0SontRtFudfxDdiKZozcSpsa6gugc9DZIp4P+Ic7aKykGcsK6adh
+	3m1Wuso0zRnm64oo9ECJF2uHZQUnpeq20BHR2M1/L3e66doAYo/ilQUg1mXaZKcPl8L2GV1Skzt
+	2JMpCCLlQvCONrSjvkIgwyO/i322VCWU+O6oidxa+IvxDZ0Wz9CQTgyQLUKEjt9r0ZblryG4Qvz
+	2y/fkd+hfpJAJOSqPj2Q1FdfLMZREk6XgDv9/gx4E3oE4svOsTrJyvJ73VSB9AZQn38pe4ViAt2
+	NKMYuWVeuqLz+xDuyAMrUyKve3tvHZwNhoNy/aF1RXdqKQQgOHL5+8WRkRIkDuSwJ2LdlCn9ORC
+	8o5ALZ2LkdPogvSevnp3IEkkpL4pD/QWy7UmY6Dlcuvka9k6eS13wKJB1lgXncGcbd3oc5SxxCx
+	7MlilSUYnX69f5J+JmCJdjB/IcwSXP6inXK2vrgSmwYtnw7vCLx1g/EsNmZ9R/FqZBxeKkfC/WX
+	27wt1FNX6OLxLBYWxPL7cKADNRDo7GYde2bzAGN2mOsIMa8vdOebcMlYcoofNpgRyitQv5RuObA
+	==
+X-Received: by 2002:a05:6830:4113:b0:862:cae6:db3d with SMTP id 46e09a7af769-862cae6e439mr1975678a34.11.1794832839406;
+        Mon, 16 Nov 2026 04:40:39 -0800 (PST)
+Received: from ramen-dev-security-2.asia-south1-c.c.ramen-dev-345017.internal (90.156.200.35.bc.googleusercontent.com. [35.200.156.90])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862c4dd9abesm2830937a34.20.2026.11.16.04.40.33
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 04:32:34 -0800 (PST)
-From: Minxi Hou <houminxi@gmail.com>
-To: Matthieu Baerts <matttbe@kernel.org>
-Cc: netdev@vger.kernel.org,
-	Aaron Conole <aconole@redhat.com>,
-	Eelco Chaudron <echaudro@redhat.com>,
-	Ilya Maximets <i.maximets@ovn.org>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net v4 0/2] net: openvswitch: fix a feature leak on a failed change
-Date: Mon, 16 Nov 2026 07:32:19 -0500
-Message-ID: <20261116123219.1781480-1-houminxi@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <998d522f-e61d-420f-9834-6bdcbaab1361@kernel.org>
-References: <998d522f-e61d-420f-9834-6bdcbaab1361@kernel.org>
+        Mon, 16 Nov 2026 04:40:38 -0800 (PST)
+From: Anil Kaushik <anilkaushikwireless@gmail.com>
+To: netdev@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	idosch@nvidia.com,
+	nicolas.dichtel@6wind.com,
+	jacob.e.keller@intel.com,
+	jiri@resnulli.us,
+	fw@strlen.de,
+	martineau@kernel.org,
+	v3rdant.xiang@gmail.com,
+	aliceryhl@google.com,
+	linux-kernel@vger.kernel.org,
+	nhorman@tuxdriver.com,
+	shuah@kernel.org,
+	linux-kselftest@vger.kernel.org,
+	anilkaushikwireless@gmail.com
+Subject: [PATCH net v7 0/2] genetlink: Reject joining multicast groups no family owns
+Date: Mon, 16 Nov 2026 12:40:28 +0000
+Message-Id: <20261116124030.1595567-1-anilkaushikwireless@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,36 +112,39 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Matt,
+genl_bind() lets any user join a multicast group ID that no family owns.
+A family registered later can get that ID, and the socket stays a member
+without a capability check. Patch 1 makes genl_bind() return -ENOENT for
+such an ID. Patch 2 adds a selftest for it.
 
-You are right about the hang, and it is mine. I reproduced it here.
+v7:
+- Add a selftest as patch 2, as Nicolas asked.
+- Say in the comments on the static IDs, and on NET_DM_GRP_ALERT, that
+  they can be joined only after the family is registered (Sashiko).
+- Say in the commit message that the unregister window was already
+  there for the capability check.
 
-To get a failure reason into the CI log I duplicated stdout onto fd 9 in
-openvswitch.sh, because info() writes debug.log and a failing run
-deletes that file. The suite starts daemons that outlive the script: the
-per-vport upcall handlers from add-if -u, and the psample listener. They
-inherit the second handle. runner.sh reads the test output from a pipe,
-so as long as any process holds the write end, the pipe never reaches
-EOF and the run sits there after the last subtest has already passed.
+v6: https://lore.kernel.org/netdev/20261112094205.1120090-1-anilkaushikwireless@gmail.com/
 
-Redirecting the output to a file hides this completely, which is how I
-ran it, and why I did not see it.
+I used an LLM to help write and review the code, the tests and the
+commit messages of this series. I checked and tested every change
+myself.
 
-Writing those messages to stderr fixes it. stderr still reaches the
-runner from inside ovs_sbx, and the daemons send both stdout and stderr
-to files, so nothing is left holding the pipe.
+Anil Kaushik (2):
+  genetlink: Reject joining multicast groups no family owns
+  selftests: net: test joining genetlink groups no family owns
 
-Checked with the output piped the way runner.sh does it:
+ include/linux/netlink.h                      |   3 +
+ include/uapi/linux/net_dropmon.h             |   2 +
+ net/netlink/af_netlink.c                     |   6 +
+ net/netlink/genetlink.c                      |   5 +-
+ tools/testing/selftests/net/Makefile         |   1 +
+ tools/testing/selftests/net/nl_genl_mcast.py | 109 +++++++++++++++++++
+ 6 files changed, 125 insertions(+), 1 deletion(-)
+ create mode 100755 tools/testing/selftests/net/nl_genl_mcast.py
 
-  before: "TEST: psample ... [ OK ]", then nothing until the timeout
-  after:  21 tests [ OK ], and the run ends by itself
-  with a wrong expectation injected: the reason still reaches the log and
-  the test fails, so the diagnostics still work
 
-The configs merge here as well. The only message is the CONFIG_IP_SCTP
-m->y redefine, which is already in the fragment before this series.
+base-commit: 070411c1590c8172eb4d86f045d99c372f22fe23
+-- 
+2.25.1
 
-I will send a v5 with this change.
-
-Thanks,
-Minxi
