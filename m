@@ -1,61 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794820957;
-	b=CwEQcJE0dTKdVOnn1hCON58JfaeQSUEM12/RneH+Od/GC7f06Xi5Qo3eM8o9CYl6qAFC
-	 EPDyUcwdv6NM8VS4wTO2fdP3ibBhkmrp6C0LCghlcQRA008a5X3X0IPkW52b4ww3pO+Sz
-	 4NCIxScQb0j13ub3MLxYW4yHuhZUSKtVyyLxs2vxwBqn/Wd3f0wRr1UemJgOGDe8EKhoe
-	 SdMFwmjYPEQMQIJkTCibW/az+9D/BAIWY1tzrto2JPNuzzcY2RSh5mpaHMiMXJ/bAxG/3
-	 mZj95tza0rsaQO8EXV8zBdMWOO1tEXOoZCKYVB0Pie4ati7dTcLXDo1meBeSXvJXSqg==
+	t=1794821091;
+	b=OkEP6GN6AWHqOSNbW8gKkyEnkzJ3AC1EqYaQWTT28YC2Qz/YxT22XTDDcaVKHX8lWwnI
+	 ji3oBTmEti2AphAzGKth8DgARwWSWdmZLKHCsXo+EmWkGYPgcTXm0zlZ8qUKSW7zROFlB
+	 2qRBB5+GV1gBU8X0ylEZmrpXJWiHpBxN7wDZQEOH2WU+VdlYzWbQp3YZ53U6m7RpOqX3H
+	 8ZD7Mm9OQA9YJcE+vFa94qmDiNa+LhBp0boCsAeT6zOQGj661Q0ZoxI3tMWwTZLn9qYV+
+	 T2TElOriR3G36k8ctm0EE2jYVUIrmKmgf/H/Ujg/7Bx9DIZxgk35b0uXvrwwts+sHOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794820957;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=3RlmIg6JxxXg267jtA+puhGrh38QA4kd/Mzvm3x/l3E=;
-	b=3DtOE34yh6T/+Gp9QvUGPH2jXrKGetfVHG7CnCg5YG9/3RriT7wh0s+KizC0yWjpGfZ3
-	 ms8tgX2+MAyKEJ7ThRvox6RVAgZckFkz8DyaT0HwbVV78tw1bJB3p2EpIC7HHfGw1DR4r
-	 nXqGpDfR/sEDorEfw/VTkioboIZpImwI+oLZV0Duf2yr3hdJfiHB9YIJF6Q6F+jEdlwtr
-	 gGQcujHLIQJ5dHGSmSG3FK75Eb0nQA493tObM5DC7zuDm0G6hvprYUS8SOe68ghx7ZQlj
-	 wmEMZFYndmyHmsez5rFUHWs6s8P+liOmwvNL8EO+84shPRjLYXyIiuz0aGrQQHn/l3A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794821091;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=2e8OfKa72MuG5l//Gx+5Pa5JLpMbf0mtMmXDlvYAirg=;
+	b=pPcpPdEM4pDWq1bJOtcntTKMrWvrSKefyB1r1ReQbBGIlhm4dpXkrsLqaK/BmyCfdpLW
+	 XNL12Ov4TSRiarKUDtD9R4nWBZ6TNnXk86wNXy6k5e5rAZjG0lW/T3P4EFOkxJdtZZUjL
+	 ybBqxHt6q21uBvGnSu24US/rkPL1RGu/CKxOA+USXZbSTlhVDqcqY6ik31Ogt4wzY/Z9/
+	 hHoDSPStjScEZm2rKXKMcMDBA7lz4uC3Pq3iFukqahhU9mBLbKApofYp3giXVUuJJroNx
+	 XApE0yaODq2YrvvT2XSBb/dmetAjziTXaAZFrcrtMH8+dDHG2cyCMPRSbbdL5pnWRVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bsvYZF5o;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=is.s.u-tokyo.ac.jp;
+	spf=pass smtp.mailfrom=g.ecc.u-tokyo.ac.jp;
+	dkim=pass header.d=is.s.u-tokyo.ac.jp header.i=@is.s.u-tokyo.ac.jp header.a=rsa-sha256 header.s=google header.b=0xt7YivH;
+	arc=none smtp.remote-ip=74.125.82.179
+Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 921C0606A31C;
-	Mon, 16 Nov 2026 09:22:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A7D1606A332
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:24:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A7D1606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=is.s.u-tokyo.ac.jp
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=g.ecc.u-tokyo.ac.jp
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bsvYZF5o
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63E0F1F000C6;
-	Mon, 16 Nov 2026 09:22:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794820957;
-	bh=3RlmIg6JxxXg267jtA+puhGrh38QA4kd/Mzvm3x/l3E=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bsvYZF5oigMQJXCb187HaL08EYdWhy7xgqr3UmpALb3znyBT4WPKXgfoiHu+EegA3
-	 rwcKablmjfqWuAZ2DIBdZnSs3Lk6EDx484TjL6v6CzNnIB75Ufp2MNZ+rK0N8Sf7Rb
-	 Yn//JWXnI+PK8DmWiJMTI/QMPvdBHnjTS1oshOO7pQqBYqLamu7z/7ohmBuXHmjzYZ
-	 Eq2xfOa7mlpJdfMbEKkHnymjiQ77hTbJ7EEKw8tLdiLUMJ4gVkwmXclA0l/rFaDy8R
-	 OVSlaG/vmoFjhm2FpTDH/Oz6NN1ZlAibK5ZhXGYYl6FRBhkMFLQfozHCjg+oypDgpr
-	 ystvA5nCHFrRg==
-Subject:
- Re: [PATCH net] sctp: preserve the last transport during INIT error cleanup
-From: netdev-bot+sashiko@kernel.org
-To: ljp1205831794@gmail.com
-Cc: netdev@vger.kernel.org, jiapenglin@tencent.com, marcelo.leitner@gmail.com,
- lucien.xin@gmail.com, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- vladislav.yasevich@hp.com, linux-sctp@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 16 Nov 2026 09:22:35 +0000
-Message-ID: <179482095589.3136.2362257339716532422@kernel.org>
-In-Reply-To: <20261112092114.12458-1-ljp1205831794@gmail.com>
-References: <20261112092114.12458-1-ljp1205831794@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=is.s.u-tokyo.ac.jp header.i=@is.s.u-tokyo.ac.jp header.a=rsa-sha256 header.s=google header.b=0xt7YivH
+Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-37986eb6fa2so3878231eec.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:24:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=is.s.u-tokyo.ac.jp; s=google; t=1794821089; x=1795425889; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2e8OfKa72MuG5l//Gx+5Pa5JLpMbf0mtMmXDlvYAirg=;
+        b=0xt7YivHXf5ENmQKLYKekr7VO54fUwZYzdQVUIwvYBNoHUIVdu/lhKbe1puoUnTfxB
+         eGJBIBt3bUyBBfHzPXxv3hdVwkfggnawZQ8YNTFVWs6coD/4gqTGqTtuLOJHSlDWzKpo
+         nAd8d5ctNbqcAkDmVVc1udbjU4SSDhjtjX9eNGgiPm7I/L7ucfX84DsGncVg90E8km5T
+         67qeSdwZL547ixEDZNmCX2NsLL0KmoHiC1KNECeOaIE39d4vhHAsttsjKqQOAjFH91Ko
+         XtxfmA2D7wik3ql+hRAilriV3zg44ChJpd/XjR7NixPg+7ct2sUzBQAlRcqO6FmgsNB4
+         pw+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794821089; x=1795425889;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2e8OfKa72MuG5l//Gx+5Pa5JLpMbf0mtMmXDlvYAirg=;
+        b=OPBRwlKlnGcI0iPjO7gNdPNg9CKnxlt89HOZsf55oyMXoELoW4loaUgnWq3pfMGat2
+         SM5qpftIo77Tc7AqYl5DWtAidrI5YRn7pSMiQs0YWKDRpRxcnaESSQYVw1m7XxAfPmUK
+         quRckndPQgodTOUdHYD0HNJQiszQwoVzjeLi0OGL2IP3gGFadfevRFCsDGq/ZY3MyY3E
+         FzM9HcX8YSn60VsyQ5kRtsUdzpMklm7n0QIjGWUgP53XrVhZtGvTdCMUL8X2/DF6KFQP
+         6aiUy/bVH3WwOsn2HHhB2Z6cUM1QvpLY34tmJkldhLSThvU0r8lZbTDuaqYWRmhS6ZI2
+         LfqQ==
+X-Forwarded-Encrypted: i=1; AL+hErEOMqR5GzSJQzMfOtms471GD1eWoKV9PLiJ1nYrzoe47uGXq6ICNNg1k4JrqsD8o4mSXLz9Cg4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+NtUZ9Y/HSWwd2lxKnGAA98Q6udLXlX6itWGDEz4xoycInhFSD
+	JJ9GVhtlH2/x6ZxcPs1uPSkHm06+jcbwp9C3G/mrX4wv1U50Rk3z5+8qzVwmLR8Itg==
+X-Gm-Gg: AYBFou3zhHQXUQGl483gKPNAo9IVDKwS/cejUAkxD2iRH19hjJ3WvivEIcMqWdkXaCY
+	Pv4y0RyeLLd0FPqIZxIqNNoPm8A1IGUjpulVjNX2qBClJqjL6s+cYsVKnkeCFM816P+PoxClzad
+	3oq5HYFX6T0iWPOvBZstjduAP4tYGp3WBR2eB7KTw0QT4tzHRdHOJ47nu4YziAoYHMx9o/bgONO
+	Tgjvt1JK3f3TbyqIaD1+GRcxv3woUvLEOOb+NVJJX8W6jBZFuWjQE2+LyLNyynxPjSE72WhcDCw
+	WeUZINVJXZGJU+X0ei79vOPUyuMyyopRzM+UV461+gBvDtXZM2S6+ubvf/ROMwgOjhhisLPJf1N
+	BJkP0cC4FyLntUmtmAwwmMthR/ayurVW8N/YjzXJ/K7wtbpRtiZZ3J6SF1LS1TqVSFO18TBwBvP
+	eAyLiAfuTDY4MUzCJORCSGMFsbWE/DHLufm4UotAikJzqRcbgEPuDToJ7D7/0j/BnddNAalShpj
+	lNHFZlE7f2GOUmKrRJbXD8tdstNIKdyJlSbdn1PSfnO5qahVVL4lpEwAs26vGWgltrOgQe+IX15
+	pvYJDmplH39m2Ah5kYBhH7Bd3rXbPKhuMKuRTg==
+X-Received: by 2002:a05:7300:dd03:b0:351:2958:1740 with SMTP id 5a478bee46e88-379681c67bfmr9514769eec.37.1794821089011;
+        Mon, 16 Nov 2026 01:24:49 -0800 (PST)
+Received: from wang0.localdomain ([133.11.33.33])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bad6casm32056314eec.26.2026.11.16.01.24.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 01:24:48 -0800 (PST)
+From: Lianjie Wang <lian@is.s.u-tokyo.ac.jp>
+To: "Michael S. Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Lianjie Wang <lian@is.s.u-tokyo.ac.jp>,
+	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+	netdev@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Michael Bommarito <michael.bommarito@gmail.com>,
+	Takahiro Shinagawa <shina@is.s.u-tokyo.ac.jp>
+Subject: [PATCH net v3 0/4] virtio_net: fix out-of-bounds accesses and a heap info leak via the device stats reply
+Date: Mon, 16 Nov 2026 18:24:41 +0900
+Message-ID: <20261116092445.3391334-1-lian@is.s.u-tokyo.ac.jp>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,156 +106,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+With the statistics reply, a device can make the driver write past the
+ethtool -S output array (patch 1), leak stale heap or loop forever
+(patch 2), and read past the reply buffer (patch 3). Patch 4 returns an
+error when the statistics command fails.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Claude Opus 5.5 was used to audit the driver and draft the patches.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+v3:
+- Rebase onto v7.4-rc3.
+- Add patches 2 to 4 for the issues raised in the review [1].
 
-- [Medium] When cleanup fails, the new `!list_is_singular()` guard in
-  sctp_process_init() (net/sctp/sm_make_chunk.c) keeps whichever non-…
-- [Low] The commit message says "The retained transport is freed when the
-  association is destroyed", which suggests the kept non-ACTIVE…
-- [Low] The comment at the clean_up label of sctp_process_init()
-  (net/sctp/sm_make_chunk.c) still reads "/* Release the transport…
+[1] https://lore.kernel.org/all/20261110001659.1654289-2-kuba@kernel.org/
+v2: https://lore.kernel.org/all/20261102205550.4148064-1-lian@is.s.u-tokyo.ac.jp/
+v1: https://lore.kernel.org/all/20261022182710.2055771-1-karin0.zst@gmail.com/
 
---
+Lianjie Wang (4):
+  virtio_net: reject stats replies for queues outside the request
+  virtio_net: zero the stats reply buffer
+  virtio_net: keep reads of stats records within the reply buffer
+  virtio_net: report a failed stats command as an error
 
-sctp: preserve the last transport during INIT error cleanup
+ drivers/net/virtio_net.c | 33 ++++++++++++++++++++++++---------
+ 1 file changed, 24 insertions(+), 9 deletions(-)
 
-This patch changes the clean_up path of sctp_process_init() so that the
-loop removing non-ACTIVE peer transports always keeps the last one. That
-stops sctp_assoc_rm_peer() from using the empty list head as the
-replacement transport and crashing in sctp_assoc_set_primary().
 
-> Keep the last transport during cleanup so sctp_assoc_rm_peer() has a
-> valid replacement. The retained transport is freed when the association
-> is destroyed.
-
-[Severity: Low]
-Is this description accurate for the path in the oops trace above?
-
-The trace shows sctp_do_sm()->sctp_process_init() with no sctp_sf_*
-frame. That is the SCTP_CMD_PEER_INIT path through sctp_cmd_process_init().
-The sm_statefuns.c callers pass a new or temporary association and free it
-on failure. This caller instead runs on the live COOKIE_WAIT association:
-
-net/sctp/sm_sideeffect.c:sctp_cmd_process_init() {
-    ...
-	if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init, gfp))
-		error = -ENOMEM;
-    ...
-}
-
-In sctp_sf_do_5_1C_ack(), SCTP_CMD_PEER_INIT is queued before the
-TIMER_STOP(T1_INIT) and NEW_STATE(COOKIE_ECHOED) commands. Those commands
-are dropped when the interpreter bails out. The association stays in
-COOKIE_WAIT with T1-init armed, and primary_path, active_path and
-retran_path all point at the retained non-ACTIVE transport. Later T1-init
-retransmissions use that transport.
-
-Before this patch, every transport left after a failed sctp_process_init()
-was ACTIVE.
-
-Could the commit message describe this new state, where a live association
-keeps running on a single non-ACTIVE transport?
-
-> diff --git a/net/sctp/sm_make_chunk.c b/net/sctp/sm_make_chunk.c
-> index 15c2d87575a8a..e4b7dacf174e6 100644
-> --- a/net/sctp/sm_make_chunk.c
-> +++ b/net/sctp/sm_make_chunk.c
-> @@ -2528,7 +2528,8 @@ int sctp_process_init(struct sctp_association *asoc, struct sctp_chunk *chunk,
->  	/* Release the transport structures. */
-
-[Severity: Low]
-This isn't a bug, but the comment no longer matches the loop, which now
-keeps the last transport on purpose, whatever its state.
-
-Could the comment say that one transport has to remain because
-sctp_assoc_rm_peer() takes the first list entry as the replacement path?
-Without that, the list_is_singular() check could later look redundant.
-
->  	list_for_each_safe(pos, temp, &asoc->peer.transport_addr_list) {
->  		transport = list_entry(pos, struct sctp_transport, transports);
-> -		if (transport->state != SCTP_ACTIVE)
-> +		if (transport->state != SCTP_ACTIVE &&
-> +		    !list_is_singular(&asoc->peer.transport_addr_list))
->  			sctp_assoc_rm_peer(asoc, transport);
-
-[Severity: Medium]
-Does this keep the right transport? The guard keeps whichever non-ACTIVE
-transport the walk reaches last, which is the tail of
-asoc->peer.transport_addr_list. That is not necessarily the transport for
-peer_addr, the address the INIT-ACK came from.
-
-For an existing peer, sctp_assoc_add_peer() only promotes SCTP_UNKNOWN:
-
-net/sctp/associola.c:sctp_assoc_add_peer() {
-    ...
-		if (peer->state == SCTP_UNKNOWN) {
-			peer->state = SCTP_ACTIVE;
-		}
-		return peer;
-    ...
-}
-
-New transports are appended with list_add_tail_rcu(), and
-sctp_process_param() adds the INIT-ACK address parameters as
-SCTP_UNCONFIRMED.
-
-Consider this sequence:
-
-1. The peer_addr transport X is UNCONFIRMED and is primary. This can
-   happen through sctp_setsockopt_primary_addr() or through an INIT-ACK
-   SET_PRIMARY parameter. A Stale Cookie error then runs
-   sctp_cmd_del_non_primary(), which leaves only X and returns the
-   association to COOKIE_WAIT.
-
-2. A new INIT-ACK from X carries address parameters Y1 and Y2, which are
-   appended as UNCONFIRMED. The list is now [X, Y1, Y2].
-
-3. The packet reaches clean_up. One way is an address that collides with
-   a transport of another association on the endpoint, so
-   sctp_hash_transport() returns -EEXIST. Another is the ADD-IP without
-   AUTH check.
-
-The loop then removes X (primary moves to Y1), then Y1 (paths move to Y2),
-and keeps Y2. Y2 is an unverified address from the INIT-ACK that was just
-rejected.
-
-sctp_assoc_rm_peer() has set init_last_sent_to to NULL, so when T1-init
-fires:
-
-net/sctp/sm_sideeffect.c:sctp_cmd_interpreter() {
-    ...
-		case SCTP_CMD_INIT_CHOOSE_TRANSPORT:
-			chunk = cmd->obj.chunk;
-			t = sctp_assoc_choose_alter_transport(asoc,
-						asoc->init_last_sent_to);
-			asoc->init_last_sent_to = t;
-			chunk->transport = t;
-			t->init_sent_count++;
-			/* Set the new transport as primary */
-			sctp_assoc_set_primary(asoc, t);
-    ...
-}
-
-INITs go to Y2 and Y2 becomes primary. Y2 also stays hashed in
-sctp_transport_hashtable, so packets from it still match this association.
-If X had been ACTIVE, X would have been kept and Y1 and Y2 removed instead.
-
-Would it be more deterministic to keep the transport returned by the first
-sctp_assoc_add_peer(asoc, peer_addr, ...) call, or the current
-primary_path?
-
->  	}
->
-
+base-commit: aebb7274476403040d582c61478df8f4a7bf9cd3
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112092114.12458-1-ljp1205831794%40gmail.com
+2.56.1
+
