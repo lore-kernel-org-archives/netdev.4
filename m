@@ -1,60 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=109.224.244.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794825479;
-	b=2+mjwJuUCdAaFzpolL5o9I9WsqYCVehERMuVNWXngOCZHvcmvbykXWJeQ0Ksu3568tVb
-	 WgGWSrgnN5QSodvX/yGjjzH0aak8FXZKmVgEsBO5m0sRyrPjhEdcABY2C4+5Sb1SbsmfP
-	 m1i6jgV0ZdZKsmFmM+OGMfniwiF/bNr7qIA5pSR7+OIDQA1m6uGyb0SJclgOznWvVoQ61
-	 KyNqrA2wOSAsU20n8zx3vkD05B03Tl/zIc2cG8IrXXf2UuhstvBpL2uY0CoFvWEH5phmR
-	 HK1a9gH0R11kEEQvR4o0oGzDuMTQxtiKDFTzvbYWXBiW/+gQQVgdgYMqBD3iywQN5Gw==
+	t=1794825757;
+	b=dM+IICKunmr2WZiSvV2CIIDyuP2y6PzVsN9xKVMNziXkgg7HgsqX13xKhv4L2TESLgej
+	 INfXAHRnDTXUcgicUw38xOyo/ixnh94TXAUKKCAT9Y1ejrW8KLjy44Kr707NKAcOCyXIY
+	 9xlIMRgH+jg7jbqKxopgGbjJVlOaajmotf8/7onXKXAnLhP64TxmQz+Is0MvCSh6cyQFu
+	 6bFmYFZyCxMslUdVbtYqW6RYeg8O4z+1yB/vU13kJ3gJ59rj5gHhYwrP9ZZNmTuNwV6gm
+	 ifrWvXAEa7JYaU4RkZmip06AFz3k4/FfmBLDkwbLR+UzBDR3PmzI51yRVLvBicdD0Jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794825479;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=JRz7ykR2WXJ0qnWsRkj7ad/vNCJXo8foNP4k0FNdN3Y=;
-	b=Fu5cxVPaEGf9Kjk3ZPEbWCBvvhiG9HoMYWOvU3HtB4HHqezDvuGXdmrqwQ9/SIxbi0AF
-	 bNwpKwaHtsQf+z8iRWF9J4EyembWlmyDe4/OpPK41pJO+mcHmxM1gGROQ5mVlMxBLnPXx
-	 VVtAO5A6dSAd6OIcXIXCh0fVbkh4vOdBVgTr4yvV07P18t4L62zc0nPHyxQwjvRErKog6
-	 Afi/q79QEcJDdwM4RnSiT6DRohnBOVRug5dw8JuYxNzI5QyZFS6Lfasp4RppJ5laSNh75
-	 spny7SrnjrHwerSNVsN/tFKcolSj+CyRJ0vWkrVFepY2bUNaS8toHKQTVBXcwHgZ9Gw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794825757;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=Vvrt3ksep/uByZ7+Whx51+tzPNsOAV7Zt47AvUyFumo=;
+	b=1Ceaw+AJ0k7NI3QuyJobr4pH1mxHjwneYdERwKJxSBxUAKfX92YAbQui3lBAwuBXPqoX
+	 +OJRl15C9DsHzDlsx7KyrIdJ3zg3j277O1+OwFMzZ99Lm15+PVw/4n8fnsi40TOX2ckVe
+	 buvXEdXfxtO+3zv2zGh6b/LKaQov17bYlEPfqeiDAVtVXCl3UTZGDLH6h8Yu2ES0iXePK
+	 hGz0ruyEuHNRs927KP1NZVWafMV78GeNRsBLQQ7hvds9Yoe2XdoTPQZ04wdIJ+yKZwif+
+	 30w5GVhpUeZJvY0Xsd+I0OUUKtHX+7BOTnTy/1akr5ai8A4Mkm/8UTG5MXMz4DU0+Gw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=pm.me;
-	spf=pass smtp.mailfrom=pm.me;
-	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=K92Eksdx;
-	arc=none smtp.remote-ip=109.224.244.18
-Received: from mail-24418.protonmail.ch (mail-24418.protonmail.ch [109.224.244.18])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KH4TvZ1y;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F573606A323
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:37:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F573606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EE5D606A323;
+	Mon, 16 Nov 2026 10:42:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=K92Eksdx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
-	s=protonmail3; t=1794825476; x=1795084676;
-	bh=JRz7ykR2WXJ0qnWsRkj7ad/vNCJXo8foNP4k0FNdN3Y=;
-	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
-	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
-	 Message-ID:BIMI-Selector;
-	b=K92EksdxhvsBj4FQRPNYURCe8MG1PXtvtVZqsSO7ZR7Wkxppl+VJhT3hYApaJfCpM
-	 taVR2kDJzhw+IGN1elkZ4LYRs/JPbVCUyqo4GMqnMKP599FbbvHoruokVKM63wriHF
-	 ltdWD+KfHkhHSGQwha8TFSwFMmi0z0NGn4rNuCtDWID+DeUQ3JP6J2AqI1OzLydwty
-	 Ku8DufH4CEDNg1fan+uh6XoE1XcDNkBgxOFYk41Xp+5PxpDhR0R3AB3T1J7TtRpHpf
-	 srrZ1ZYW9Vh/AJ6s8qNMaNJO0/DvcgFsV+AfexfQuP+d+r52XYt1qQR7PUTB7dHSzc
-	 aIwe6Rie1I+6Q==
-Date: Mon, 16 Nov 2026 10:37:51 +0000
-To: Hayes Wang <hayeswang@realtek.com>
-From: oraveeps@pm.me
-Cc: "javen_xu@realsil.com.cn" <javen_xu@realsil.com.cn>, "mail@birger-koblitz.de" <mail@birger-koblitz.de>, "linux-firmware@kernel.org" <linux-firmware@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Subject: RE: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
-Message-ID: <tPt9UQiUVXfE9K4MHjmkc9no1QcTNZAOhmdtvdx_yaIkVdWoxkTdDFxCdBK5RU5nKHrKGy99QZq_rUsF0mWO9bfPZmS_8tjbbrNl2B5mNwg=@pm.me>
-In-Reply-To: <7b6ef8fb2c14485380c90f1f7521ea9b@realtek.com>
-References: <PfNGg6VjMdDzTCX2LETCm65NKSR0af1EG7ZX5CI-7Fef0x8NE2MnZ8fNtgr1Hm86sNjqHXcNyyqIbbeZL5jDu7URTqMygnyj4ulG00NxR7U=@pm.me> <7b6ef8fb2c14485380c90f1f7521ea9b@realtek.com>
-Feedback-ID: 208684824:user:proton
-X-Pm-Message-ID: 40914b1d11dbfb9b30d26f7b45f0d9765fad47d0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KH4TvZ1y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1779E1F000C4;
+	Mon, 16 Nov 2026 10:42:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794825757;
+	bh=Vvrt3ksep/uByZ7+Whx51+tzPNsOAV7Zt47AvUyFumo=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=KH4TvZ1y7FqJS9NZhglXOeRoWbic1VZhv9sft0QtxWHoN9oqww9kMSLfO8wRbdgEe
+	 eOvyfoZ3tgELJ4YAXT6sdieD52RFUS0BUFVvTBNdlztndeiHAFNz0BEpCZ/thog9xJ
+	 eWwuNy0PFzyaAFuKNhuuOwdJWeIUwfX+2MlnVCCZUr4d6c7eZECN3EB6fgditnh+EO
+	 9VDGPfWvHG0JG9QLSozn95r9XnToTGr62Uw1+EzaWAGtVwsoNAaewEyV57WM7FXauT
+	 fTuadLl4MDjRwJo9lRzCe7we/Y4JkpMn4HR6vWetdCiNKZQXmFjctx21CtmjkEugpD
+	 snjWzHNzLkOlw==
+From: Imre Kaloz <kaloz@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 1/2] net: sgi: ioc3-eth: apply the DMA attributes only to 64-bit addresses
+Date: Mon, 16 Nov 2026 11:41:12 +0100
+Message-ID: <20261116104113.5946-1-kaloz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <179473759964.2199510.1259617691806814840@kernel.org>
+References: <20261111095138.1757-2-kaloz@kernel.org> <179473759964.2199510.1259617691806814840@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,111 +65,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-[Resent as plain text, the lists rejected the first copy as HTML.Sorry for =
-the duplicate.]
+> Can the code currently in the tree ever reach this branch?
 
-On Mon, 16 Nov 2026 at 09:30, Hayes Wang <hayeswang@realtek.com> wrote:
-> Hi,
->
-> Could you please try out the attached files?
->
-> Best Regards,
-> Hayes
->
-> From: oraveeps@pm.me
-> Sent: Sunday, November 8, 2026 5:42 PM
-> Subject: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
->
-> Hi Hayes,
->
-> Since commit a51e171e176c ("r8152: Add firmware upload capability for
-> RTL8157/RTL8159"), mainline r8152 requests rtl_nic/rtl8159-1.fw for the
-> RTL8159 PHY. Without it the link stays at 5 Gbit/s, and linux-firmware
-> has no rtl8159-1.fw yet (nor rtl8157-1.fw).
->
-> I run three RTL8159 adapters (USB ID 0bda:815a) on kernel 7.2.4. They
-> reach 10 Gbit/s only with Realtek's out-of-tree r8152 v2.22.1, which
-> carries the PHY patch inside the driver. With rtl8159-1.fw in
-> linux-firmware, the in-tree driver could do the same and users could
-> drop the out-of-tree module.
->
-> Could Realtek submit rtl8159-1.fw, and rtl8157-1.fw if there is one, to
-> linux-firmware? I am happy to test a candidate file on these adapters.
->
-> Thanks,
-> Jonas Autzen
+No. On IP27 and IP30 every IOC3 DMA address has a nonzero target
+widget in bits 63:60. The branch is for the IP35 series, where an
+IOC3 behind an XBridge or PIC uses the 32-bit window. v2 says so in
+the commit message:
 
-Hi Hayes,
+  https://lore.kernel.org/all/20261116102115.27574-1-kaloz@kernel.org/
 
-Thanks for the files (rtl8157-1 and rtl8159-1, v1 11/13/26). Mainline
-r8152 (v7.2.4 here, same code in v7.4-rc1) rejects them at the first
-block: rtl8152_is_fw_mac_ok() has no RTL_VER_16/RTL_VER_17 case for
-RTL_FW_PLA or RTL_FW_USB, so rtl8152_check_firmware() fails with
-"check USB firmware failed".
+> Does the window path rely on platform code setting the D32 bits in
+> b_device for the IOC3 slot?
 
-An rtl8159-1.fw with only your PHY_SPEED_UP block (checksum
-recomputed) loads with the in-tree driver on 7.2.4 and links my RTL8159
-adapter (0bda:815a) at 10G.
+It does, and nothing sets them today. On a Fuel both XBridges leave
+PREF, PRECISE, COH and BARRIER clear in every b_device register,
+including the IOC3 slot (0x180010f8). That belongs to the bridge code
+in the IP35 series, which will set the attributes for slots that use
+the window. ioc3-eth itself needs no change for it.
 
-The series "r8152: split RTL_VER_17 into QFN68 and QFN100 package
-variants" (v8) does not change rtl8152_is_fw_mac_ok() either, so the
-full files are rejected with it applied too. Is a driver change for the
-PLA/USB blocks planned? If not, could rtl8159-1.fw carry only the PHY
-block?
+> Should the ERBAR value be decided from the RX descriptor ring
+> address?
+
+The IP35 series picks the window per device, not per address: an IOC3
+behind an XBridge or PIC gets a 32-bit bus_dma_limit and SWIOTLB
+bounces anything above it. The ring and every buffer of one IOC3
+therefore use the same form.
+
 
 Thanks,
-Jonas Autzen
-
-
-On Monday, 16 November 2026 at 09:30, Hayes Wang <hayeswang@realtek.com> wr=
-ote:
-
-> Hi,
->=20
-> Could you please try out the attached files?
->=20
-> Best Regards,
->=20
-> Hayes
->=20
-> > From: oraveeps@pm.me <oraveeps@pm.me>
-> > Sent: Sunday, November 8, 2026 5:42 PM
-> > To: Hayes Wang <hayeswang@realtek.com>
-> > Cc: javen_xu@realsil.com.cn; mail@birger-koblitz.de; linux-firmware@ker=
-nel.org; netdev@vger.kernel.org
-> > Subject: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
-> >=20
-> > External mail : This email originated from outside the organization. Do=
- not reply, click links, or open attachments unless you recognize the sende=
-r and know the content is safe.
-> >=20
-> > Hi Hayes,
-> >=20
-> > Since commit a51e171e176c ("r8152: Add firmware upload capability for
-> >=20
-> > RTL8157/RTL8159"), mainline r8152 requests rtl_nic/rtl8159-1.fw for the
-> >=20
-> > RTL8159 PHY. Without it the link stays at 5 Gbit/s, and linux-firmware
-> >=20
-> > has no rtl8159-1.fw yet (nor rtl8157-1.fw).
-> >=20
-> > I run three RTL8159 adapters (USB ID 0bda:815a) on kernel 7.2.4. They
-> >=20
-> > reach 10 Gbit/s only with Realtek's out-of-tree r8152 v2.22.1, which
-> >=20
-> > carries the PHY patch inside the driver. With rtl8159-1.fw in
-> >=20
-> > linux-firmware, the in-tree driver could do the same and users could
-> >=20
-> > drop the out-of-tree module.
-> >=20
-> > Could Realtek submit rtl8159-1.fw, and rtl8157-1.fw if there is one, to
-> >=20
-> > linux-firmware? I am happy to test a candidate file on these adapters.
-> >=20
-> > Thanks,
-> >=20
-> > Jonas Autzen
+Imre
