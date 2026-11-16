@@ -1,75 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794844289;
-	b=L/RmMiyppGgBoXy7muy5TOZkx8g71Ga2uAL3StBL4msP5a9OHKjsqNtXqOH9MiaVm6qH
-	 3Ac9lx+8IN8DlInaIF2v0CbpjK8v5nH9zgdzuIemaSAf0Sorp3cDasNM9B/vX7wtnw3V7
-	 5Kkv+9EhtrPvAtarYQlV1/90aoFRtpVVonWRVcCpZ/tthi3hTn35jFvPvsdnr0leHn4dY
-	 JrcXJD47Gt/UKeOIZ1c5ncDd3DgKHMFkbNca1R2xrOSURFnxqHvysstcYOdTBk8GwaOat
-	 jXa+tBLSqGvaBc4/5+4kN2MjNPHfutmSkblHvSQ+7l4DoKPDTUuz/LbVq+OXtPJPZbg==
+	t=1794844349;
+	b=IrUC/Vpf2OEeIyospG46adQ4vAsdV1611fVDI2WnHBtT4DZwAKR36qg9PMtRHyAIpzIw
+	 GLm8Tg21qFBlDsRI7rAXRTLVFaiZmW4CXV7ps79Ss7UyFoIHZLe66olOovR9bitSw5PFq
+	 xj5yoQt1d6ogVQ3dmW3h8JWQsVojkYsJWDCknkFpgoVDDsHUzywz7FUBkTbi4q7uYrLz1
+	 LnDX+JH2KZejVSadsrke8H8Q2OcG2JvaAiEdtdwuBReQO8BSl9HbkAkluc5etyEBfTkEk
+	 t4XIIMOHvm2ywWKtMYd5FlskOgKhMF5+mUivIGAV3DOtGtJFEUheOmvrobNGjUZDDSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794844289;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=mfCjSvCuwLkjK4efdjwY+e1pbUHdgjIa23tD5eKc4ts=;
-	b=N2Qu1nBHTYPjt8/5Og780G4JMPavnCHhG20Dz037uDCuIUzY2GO+abyiWZEx7CmSlt2x
-	 hq3o4ol5nPjQHiYzU+qLeYVok66VPAbk9MZLDhBuFFl7GNx27FR+hew7rKJr1fWt/Sni6
-	 17zj7L4IRg+4DfVTliZpW0unOcjKQ37Rsux8Los9HXmOlXtebt2tEJ3s2nAMPKsKxT1Vm
-	 /ckN6l8W85JfevXj+cLg77Z86jbshMjgeDAuVJwQS8CEn8CWd2oNqSKYn94+Ta4rL67ua
-	 xMhLqvgXXJWyRIC3LrVyWiCLai37CVYRfSHD0xfRk/y6U6/lcHJgQx0hxCJuzhhXBRg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794844349;
+	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:
+	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
+	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
+	b=ND1cdTkpqm3uwq/glFgLFs6SsoapjFhaMVNsuZtUKAT84gjm9qdIQ8gcLndh+nbOqdQK
+	 2hk2ISWPo+LrtTQcGYcsq2nnm3jGRjpdHtCpWxxt8bYGZ9OZuuwxZPgihjlryomKENaqP
+	 Qhx+kihiwLQ+a/C18E5eVaUVkcXpETtrWc2KfedhYQ1leNNYK0jgddjSK2AZHBKMXji/3
+	 55Dh0ZH73A2gHxLhAruNs4tFluq22N4Img03i3BfExaaXbEKPYz35CV3IMMK6NNHoq39s
+	 le0UsAP+NmEqR8PWtskkBsH8GFdXXelDotG8fSlfYbcZ271k3HfGYwoRrCLy4FM2A9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aCXp3fgK;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=xxGaSkpO;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=bqJxEwMP;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59049606A31C;
-	Mon, 16 Nov 2026 15:51:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59049606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CAB3606A323;
+	Mon, 16 Nov 2026 15:52:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CAB3606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=aCXp3fgK
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id BC36C1A1698;
-	Mon, 16 Nov 2026 15:51:25 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 869266023F;
-	Mon, 16 Nov 2026 15:51:25 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C4FF911BC118D;
-	Mon, 16 Nov 2026 16:51:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794844280; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=mfCjSvCuwLkjK4efdjwY+e1pbUHdgjIa23tD5eKc4ts=;
-	b=aCXp3fgKMC41JzORug4XNR2OydC9p9Lo8NRkWNucj6Q2DQ+HBMeC38m3geD0jgzW+xdY4f
-	1pQ6S6V5vr5PhqLUaz7sqdcrdZUZmG+D77HJY7HDd2yqAZGYPmzDcFIZQ426IFWS9WJyaA
-	3F8fU3vFsjCcQW3qYcnIssoPB2Qua684bsPWYY5SKVzmcS6ek9fSQn2hBTfidqaXMHqVjR
-	MVFIQTk8dFFpgcEfLI4GgW/IboPekS9BiiWF28gtxXw5ByIq+zHHvtaUR3+HWGPhfkKwFm
-	QaGt/QLcsIHcDyMe0lC8aqJVX5ESf8j0rwH5zehG0RSb38P4TIYd85QJoS+dzQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Aryan Arora <aryanarora.w1@gmail.com>,  Alexander Aring
- <alex.aring@gmail.com>,  Stefan Schmidt <stefan@datenfreihafen.org>,
-  "David S . Miller" <davem@davemloft.net>,  Eric Dumazet
- <edumazet@google.com>,  Paolo Abeni <pabeni@redhat.com>,  Simon Horman
- <horms@kernel.org>,  David Girault <david.girault@qorvo.com>,
-  linux-wpan@vger.kernel.org,  netdev@vger.kernel.org,
-  linux-kernel@vger.kernel.org,
-  syzbot+19cbce4cc656ecd4febc@syzkaller.appspotmail.com
-Subject: Re: [PATCH] mac802154: Cancel scan work synchronously during
- hardware teardown
-In-Reply-To: <20261019190736.33bc37e6@kernel.org> (Jakub Kicinski's message of
-	"Mon, 19 Oct 2026 19:07:36 -0700")
-References: <20261012120934.64632-1-aryanarora.w1@gmail.com>
-	<87v77626rq.fsf@bootlin.com> <20261019190736.33bc37e6@kernel.org>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Mon, 16 Nov 2026 16:51:15 +0100
-Message-ID: <87a4n8rczw.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=xxGaSkpO;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=bqJxEwMP
+From: John Ogness <john.ogness@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1794844347;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
+	b=xxGaSkpOIXcLNPTFf6AkudcAhEr78jeua8vlh/m7m1mxCzy5+2QevqqUFGNwx2hkLUG8D7
+	TEM5gRnnLL7STjx78ypyEgHSv1/ax2kOR1fCtMZO1dMQbgjAuAYkavj6Sy7Rhb1ouJYLe2
+	tW3NR94LXsr3jmRZRUWXsWTLaDKOO5vOr/u+52EODWHl0q0ZGxxrHDPESeh7B3DDRc6Se0
+	t8b5M4Ki8QbLlikW8ZmnA/oI7qUHDxc9ujiks0qXnuX+buv9kX0RKnRJn7oAK5zd2Sf3Cl
+	UMPAoLtJMYY0zjt11Oea0ORMysOzGTKfGOMDZXLcgtKW0domVcJ++vWDfaC0dw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1794844347;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=WPIgPkplQXYcdgIP2HZXNUASrSQ30h2/EQrrK2TSh2g=;
+	b=bqJxEwMPxKYdmx2Eo+k88h/knBfiFt4y1s/FS+gZ/VQINVWcad+mfRbyLysUGRy5CiPr1A
+	l3QNcb1iXzwkpIBw==
+To: Breno Leitao <leitao@debian.org>, pmladek@suse.com, kuba@kernel.org,
+ gustavold@gmail.com
+Cc: linux-kernel@vger.kernel.org, printk@lists.linux.dev,
+ netdev@vger.kernel.org
+Subject: Re: [RFC] netconsole: plan for a safe atomic write
+In-Reply-To: <avcI9gVR7brRHQSQ@gmail.com>
+References: <avcI9gVR7brRHQSQ@gmail.com>
+Date: Mon, 16 Nov 2026 16:58:26 +0106
+Message-ID: <87h5hgyds5.fsf@jogness.linutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,33 +72,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain
 
-On 19/10/2026 at 19:07:36 -07, Jakub Kicinski <kuba@kernel.org> wrote:
+Hi Breno,
 
-> On Mon, 12 Oct 2026 19:00:41 +0200 Miquel Raynal wrote:
->> I thought this had already been fixed but apparently not.
+On 2026-11-13, Breno Leitao <leitao@debian.org> wrote:
+> netconsole is CON_NBCON_ATOMIC_UNSAFE, so write_atomic() only runs at
+> the very end of panic. There is a desired to have called safe atomic
+> printing[1].
 >
-> FWIW / in case it's falling thru the cracks - we're expecting Stefan
-> to pick up mac802154 patches. Please shout if that's incorrect.
+> This is the plan I would like to agree on before posting patches:
+>
+> 1. Now that we have one console per target, use one lock per
+>    console/target.
+>    - printk holds the target's device_lock around write_thread(),
+>      write_atomic() runs under the console ownership, and stopping
+>      a target takes both. target_list_lock and the cleanup list go away:
+>      the list changes under dynamic_netconsole_mutex and RTNL, and is
+>      walked under either.
 
-Stefan will probably explain it better than me, but he has been our main
-"sink point" :-) and has been handling the pull requests for many
-years. Unfortunately he reached out to us recently stating that he was
-lacking time for the maintainance.
+This synchronizes the console against itself and the user interface
+(netconsole configuration). IIUC it does not provide any synchronization
+against non-netconsole usage of the port.
 
-Right now there is a bit of backlog since I was off the past weeks, I am
-catching up on the ieee/mac802154 reviews (except llsec and 6lowpan,
-where Alexander has a lot more knowledge).
+> 2. A per-target field to track atomic writes.
+>    - In that mode, skbs come only from a pool popped without a lock and
+>      refilled through irq_work.
 
-I believe the flow that works best is if you (net maintainers)
-"continue" applying the patches directly, especially since these days
-there are only AI bug fixes. We can definitely re-instate a formal
-pull-request relationship between us as soon as there are new "features"
-being discussed. We (wpan folks) will do our best to respond with timely
-feedback/reviews.
+IIUC the risk here is that the garbage collector is deferred and there
+may not be skbs available. In that case, what do you expect to happen?
+The printk record is dropped? Or the console disables itself from printk
+flushing until some (hopefully) later time when skbs are ready and it
+can enable itself, thus resuming the flush?
 
-Thanks,
-Miqu=C3=A8l
+> 3. A try-once netpoll transmit, as Jakub outlined [2]:
+>    - One HARD_TX_TRYLOCK, then busy, with no polling, freeing or
+>      wakeups, which can deadlock under rq->lock[3].
+>    - It refuses when this CPU owns the queue (netif_tx_owned()), is in
+>      the device's NAPI poll (netpoll_owner_active()), or is in NMI on
+>      PREEMPT_RT.
+
+Same question. What happens when the trylock fails or it refuses?
+
+As I have mentioned before [4], UART atomic printing uses the console
+ownership to synchronize against _all_ port activity. What if the
+_xmit_lock had console ownership underneath it (only for txq's shared
+with a netconsole)? Then it would be enough to acquire console
+ownership.
+
+See, for example, include/linux/serial_core.h:uart_port_trylock().
+
+> This does not make ndo_start_xmit() safe, so the flag stays until
+> drivers can opt in to atomic transmit.
+
+IIUC it makes it safe, but not reliable. It is more reliable than
+kthreads, which can still be considered a win.
+
+> It is still unclear to me whether write_atomic() should depend on the
+> context (regular NMI/panic): 
+>  * For regular NMI use the try lock as best effort
+
+HARD_TX_TRYLOCK() is not NMI-safe.
+
+>  * Ignore the locks only in the final panic flush. (unclear if this is
+>    an option)
+
+As a final unsafe flush before an infinite loop, this is always an
+option.
+
+John
+
+> [1] https://lore.kernel.org/all/874ie4y5mw.fsf@jogness.linutronix.de/
+> [2] https://lore.kernel.org/all/20260617132127.645534d1@kernel.org/
+> [3] https://lore.kernel.org/all/20260610183621.3915271-1-vlad.wing@gmail.com/
+
+[4] https://lore.kernel.org/all/87tsr1m6y5.fsf@jogness.linutronix.de/
