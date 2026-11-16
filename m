@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794824520;
-	b=b13oCF8oMU4la9keQCgP8KoA3Obai3hiV9DdGPG7OhOSHSpahOo9T6mvn9CVJkYbkS1Z
-	 Ms85oQm0Dv5e3X851q0uRUiD9pVFEOjUkWH8ioQV6kSmxOxBiA9CdHXWI+ut0b9reR1+S
-	 4SgOjBJeiIFNxH4bEs/+ApNH1m84jrmuL835+BTcnPoWll5XBxxhhADVfdmeGzBgcmCNy
-	 EIgWbU4AhiRfDfn/MELWV+Fuldm5KwbGP6gbVKDIcrAbIFhXvICbHwry59nDb/jZWn+BN
-	 +3aQJ3H4Gw9RHEI3sIr+r8n0CtcPHv2bse5IFsh7/Lejf0+4wdV/X2kJtIXrgScwpyw==
+	t=1794824561;
+	b=3GzN/r7Yv+apMOfTOsn9o0VJ/YZ6pfeJk3nRQNy5ecvpOHZYPXgbAxfyUz9F5qyutZNK
+	 4DVelO9pOJgkaE0X1u4V+avyXvvwZ0oNFRIIhSggIPM8Q09OpsHQZcC5trlsuXztObzIn
+	 qK7Vm3ChPOurOk7mMU8LfWVP94BIcp/sXcpUaQt/MvJ1X1m2v/VtfESwMIDh0uJjHLd1S
+	 uQzS0XTF31M+1TPOZk+aJpQo0Evlx/iVwJTJ/ipYdpTMakYWlCsVcNeyYNNSCblnV2ff5
+	 KsJvD1PXqKHLJa+bgPLyYLF6vSaX9nAsRWnnaZNMLsYPBacIwEscvPTJ+povUHiU3Ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794824520;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=95k2Iy13yoDS+kywNlvIjNWyQBsXVtjAHDEMSkqvDoU=;
-	b=zIMQxsXVVB7vSFBfe6uipOtLtGDZ0C8txMb4mXm3IN/0wQ+os8xhvlA/X38rabjk34bN
-	 pydOpO2Ffw5zKGw4D3i8mptlUza/TnunhbHW/qkg8BKhGgnf1/Fql5eOE6h1E1JbmxQz8
-	 BsziZuhSGIMCji+jc+71DfLmKg1fEa+vY6B4872yiVYLt3vj1+7nqCa3JrZmVNHh9MWGZ
-	 nFJR526n7PUN0NPzT67XNiP3i6TQvE75jAQ+FYj9e+K0Cd5ZqMCkuHcKST4RmbWKU450o
-	 HoxqQkTVe7cZANZh7WXvGCy6hceBHAb4geYcSGNONgoZIfO9drvBI2w6ve9+ORQnNww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794824561;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=YGoSG8pwY3+EuSZlWjBvKFqdQt3SGCVXshvFk4MF3ns=;
+	b=pGLHprvQS2RpEsPcTIoL6J50w8p56ZvJZT4c0+FM8ckxMHM43xbxUxfc3T99OIDUpsIL
+	 8BobwYWAlGtf2FLeZSDSPN3YzqKmze9+xH2l4Ryt32S++VdYlC0Zc2t135Q/ONrGo7nqA
+	 jKx+0hZ79zx8l0F1ifUfD/s4Q5DiS9xbzoPwNvIAKpqzpXywGtXci2Zl7gpseqRYwRZOy
+	 wwUHTeJG5W9P/h3VQsw5HobQHIu2I5ivNQweK5qgX2fIfOOVJRHWEvraFC7PsTsoiLwWu
+	 6gZi9GjyWjuEaKtgoJTDREmfPtH3DL1UCNkYTF18pxM3704CpjG3pHnPGfD4Ug6Ljkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZnPTgi+f;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ECRmi4ey;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53E39606A333
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 10:22:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC6D6606A335;
+	Mon, 16 Nov 2026 10:22:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZnPTgi+f
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 640081F000CF;
-	Mon, 16 Nov 2026 10:21:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ECRmi4ey
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 318E11F000C5;
+	Mon, 16 Nov 2026 10:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794824519;
-	bh=95k2Iy13yoDS+kywNlvIjNWyQBsXVtjAHDEMSkqvDoU=;
+	s=k20260515; t=1794824561;
+	bh=YGoSG8pwY3+EuSZlWjBvKFqdQt3SGCVXshvFk4MF3ns=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZnPTgi+fUpzmIzG1FCvbl2Kebue7HI8m4vGobSK9o0uWgGIldu6Y4vEDaJtspQkCu
-	 oOXOPMDxSCblhcqIIKyqFmpGvem9iZ+HDlcnHMUfWxxJ9HQGvfIq6r8DoN5nIaoOSe
-	 LKl7FefbFjz4qp9ZZjJW4mKYX6l4+jgm9b3JdURZsEsbBrcKODA7OUCza8fEP/nHRm
-	 auX+h49U4n8/SEl9rsr3+mRxKd90yZxZpFF/bgon1zM2nVTOoZvcIGc91Kih4r/hy/
-	 BFoHLcqSo/o/g4gmdBNG0duIWfbGhL6+V9Vu9ij4zbpz1hoS/x06asyeadH8cxPM4U
-	 MAsx5TNr5BYBQ==
-From: netdev-bot+sinfo@kernel.org
-To: Petr Machata <petrm@nvidia.com>
+	b=ECRmi4eyO6lLaQigj8E0XyGNYvP7BMBZcdF6Ax6YJY+wR/0TNFkbZZC9Ctxxa0xI8
+	 0aKuJp7s+VIAHnD0pWY3TfHHb1M+z9aimLFI4OWDzcLk/ksQqxE3YmcSRBW3ivYjnI
+	 XcrR8K+foOzj4qkK62CQGFXEOgczYUJjuF1H4K0sJXmBKeL8wq3O0PHVhHkEtBaUuk
+	 0dj+PwfYDDiLHlfG7UCXQrHVegwSW7uzQWge7YhcQ44FIj2Yv1sDLF7Nu5aUsnAZ25
+	 tYnkhsLwi0GbFfV5FyRMOoFZ/idjSePVrKqRXTVDVqLThgH1SIRig62bUTqTln76Hg
+	 3WHy43Pc1S9/w==
+From: Imre Kaloz <kaloz@kernel.org>
+To: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+	netdev@vger.kernel.org
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, Ido Schimmel <idosch@nvidia.com>, mlxsw@nvidia.com
-Subject: 
- Re: [PATCH net-next 0/2] mlxsw: Fix teardown order of CQ NAPI instances
-Date: Mon, 16 Nov 2026 10:21:58 +0000
-Message-ID: <179482451886.3291.15742045980159368371@kernel.org>
-In-Reply-To: <cover.1794823524.git.petrm@nvidia.com>
-References: <cover.1794823524.git.petrm@nvidia.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-mips@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2 1/2] net: sgi: ioc3-eth: apply the DMA attributes only to 64-bit addresses
+Date: Mon, 16 Nov 2026 11:21:14 +0100
+Message-ID: <20261116102115.27574-2-kaloz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261116102115.27574-1-kaloz@kernel.org>
+References: <20261116102115.27574-1-kaloz@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,26 +64,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi!
+A Bridge 32-bit direct window address carries no target widget, so
+DMA attributes OR-ed onto it aim it at widget 0. IP27 and IP30 only
+hand the IOC3 64-bit direct addresses; IP35 support will hand it
+window addresses.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Signed-off-by: Imre Kaloz <kaloz@kernel.org>
+---
+ drivers/net/ethernet/sgi/ioc3-eth.c | 24 +++++++++++++++++++++---
+ 1 file changed, 21 insertions(+), 3 deletions(-)
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+diff --git a/drivers/net/ethernet/sgi/ioc3-eth.c b/drivers/net/ethernet/sgi/ioc3-eth.c
+index 009f37105eaf..25139cf5ff62 100644
+--- a/drivers/net/ethernet/sgi/ioc3-eth.c
++++ b/drivers/net/ethernet/sgi/ioc3-eth.c
+@@ -152,19 +152,37 @@ static inline int ioc3_alloc_skb(struct ioc3_private *ip, struct sk_buff **skb,
+ }
+ 
+ #ifdef CONFIG_PCI_XTALK_BRIDGE
++/* A Bridge 64-bit direct-mapped DMA address carries the target widget in
++ * bits 63:60 and the DMA attributes below it.  An address in the 32-bit
++ * direct window carries neither, so attributes OR-ed onto one form a
++ * 64-bit address aimed at widget 0.
++ */
+ static inline unsigned long ioc3_map(dma_addr_t addr, unsigned long attr)
+ {
++	if (!(addr & PCI64_ATTR_TARG_MASK))
++		return addr;
++
+ 	return (addr & ~PCI64_ATTR_BAR) | attr;
+ }
+ 
+-#define ERBAR_VAL	(ERBAR_BARRIER_BIT << ERBAR_RXBARR_SHIFT)
++/* The RX barrier's upper address bits follow the same form. */
++static inline u32 ioc3_erbar(dma_addr_t addr)
++{
++	if (!(addr & PCI64_ATTR_TARG_MASK))
++		return 0;
++
++	return ERBAR_BARRIER_BIT << ERBAR_RXBARR_SHIFT;
++}
+ #else
+ static inline unsigned long ioc3_map(dma_addr_t addr, unsigned long attr)
+ {
+ 	return addr;
+ }
+ 
+-#define ERBAR_VAL	0
++static inline u32 ioc3_erbar(dma_addr_t addr)
++{
++	return 0;
++}
+ #endif
+ 
+ static int ioc3eth_nvmem_match(struct device *dev, const void *data)
+@@ -727,7 +745,7 @@ static void ioc3_init(struct net_device *dev)
+ 	readl(&regs->emcr);
+ 
+ 	/* Misc registers  */
+-	writel(ERBAR_VAL, &regs->erbar);
++	writel(ioc3_erbar(ip->rxr_dma), &regs->erbar);
+ 	readl(&regs->etcdc);			/* Clear on read */
+ 	writel(15, &regs->ercsr);		/* RX low watermark  */
+ 	writel(0, &regs->ertr);			/* Interrupt immediately */
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.47.3
+
