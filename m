@@ -1,82 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794850427;
-	b=K7WI3ydmm7IeRKHLgkzmBX9gSeZBUHePO/CD9jlxV6FFHPK4s+deG+cjCt5Ndkx9+0aS
-	 Lhs7/nIKoqhAit+8ghJRj0bfYGJbH1PCGof1+nAmg1k8AYx2tipAQZCw3dA4YTu4HlOgR
-	 m7n2Bee+joZJT2NEyMTcCKh28VUGxAIYQb/FyMMfpNkQaB/9MIZw2UWLeL9XUAZEB7nEM
-	 3IVWdjPZkQbJ3Gjf3LG+tFkFmZ4KkqI7LR8k8xDKl6EsFVx/CH7tPkmiykgFpE608P7Ci
-	 ZkMEd6+wTCIc5DDlAlStzgiqkSeRpfeBtsyDVTG9A3lWZn5TXm7j9qVV7JH0VT1YmXw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794850427;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=wD/xDzn2jI7CsEgGWOahq5nyJwZ09hv/n/XJlVnPNHk=;
-	b=t65W4Wlrl2Ewt3vdDHhC1vzO2ASbLv3oW+NvVIoG3Gqd2771WArkQAsQcxvLDjVaC1MB
-	 PsmmTzftGoqvxCve7+fIsm5qYnD6GpN7qfpAOGq2UskQwrFOBlCRqJwDMZkWOhtK+Mr+y
-	 8sZTPA4d+jBlLzfvC2KXOgBqsSh605MAGUzfC2fU1G0rRj+gMtB9nYO1lFjsthPhUJTcT
-	 4Aq03TcEs1b+1c8UNR9qYDh0yvE7LejbYqqgsyvTFwU2l/cuVtfQQfh7V6BNCGdQpD9Ya
-	 kwBCN7AEuPGmo7/SZfLFA0Q5+iCOQZCkB8/HhzLexI6vARxAcnCJMOXH4EQ5VeeTlEw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=NXS4DyYl;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794850653;
+	b=CUO0ka8j4Hyil69c0NLWDID4vCEnT/HzoJf0168LvGQJu94UZURG0ylUSzukMlP/s5vi
+	 TKSJ6LfrYPQDyvKqoiU6jmEWZeoSHSzXCW6QzEgGcyPiRbNPE7mNPkjbZg43qYc3qSMbQ
+	 6sXt+U1940TI+0qqCR7XVyAmdWu3bTlXfp+gOlwvC74unTlCQZwnZNSd/qppJN5ER9nhJ
+	 TBIweRCCrtUyTsZcx1eEmyf2CNF2RL2AJbHRvsgPHF0iH0x54jgQuteLMMBxGv60iOm/K
+	 1EzsWAh6brGpzvAqMWoGmw4OHTOAGI914PEAvwrEPNnzu390th1nX4j+95ejgFZNhpg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794850653;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=ASqD7yYrxwRTXpvky24aSldHzEJHTNv4OUWKJ01NHN8=;
+	b=RQ79RPZ0ilDtWvSZUTpq8q1+Zr08jUx/dFLjXCjEMDc3vCuppZeR7wGbg9o1VQDAQJtz
+	 +PaD8Umc0ujrdOivnmeSN5Y0tXcAic51n23Fr3slS1vaYxQKTejtW5ry5Aak6OoJnCAM4
+	 FfxgFf038GzPeSFDkoDoWq5KOZfgoSsM00CbeyWMCvseDr8fkyREKJFfoORld6B13u7Km
+	 GbRCZOfTM8HMpr9saYte0Etqv33Fj1qUOWHCBB0Jfm1z5HRabnFfSoPHfTenNYyzLQ8Uo
+	 y1m/f7lBbJJzS0ZuZwIGTqDix4b1xhG5OHcOjdz2xy/8VGo03TSeN1cZDgD6hmBT46g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wda5m4T+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 476FD606A31C;
-	Mon, 16 Nov 2026 17:33:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 476FD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 408D1606A887
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 17:37:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 408D1606A887
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=NXS4DyYl
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AGGQ7pf2536576;
-	Mon, 16 Nov 2026 17:33:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=wD/xDz
-	n2jI7CsEgGWOahq5nyJwZ09hv/n/XJlVnPNHk=; b=NXS4DyYlxkXcHgeoVKyjau
-	xLRLHmDGV5bpKJECci3n9h0YFnIsBWwQrLTuK3nlG5gMonKyYZ8MZntDDX1MfZRJ
-	JgbSdIzVNJq5SeO+UEEfKWOUeH5ngkl+bVQ5eWFx+h9p4/wWwkqMzRmSNydqlON+
-	5Q6ec+pD7ZiQ/ueCYzZkUmlqoII+iWlnoAqjbiZC2zWZyPnYy4Ld9boO7EQgwOoK
-	+/FgKn73nop+AuhHDpiXZEmFDfbKMwrNkXUsCU7M4+QbOwGOf/A/SIVDNiJxGJPk
-	R3uvYu55vp5C0EDNu/RB69jkK6sNsSLOIsSr+lJ/WrxQxmUCr6QZBOa+WMH7QVZg
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4hxe2d68kk-980
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 16 Nov 2026 17:33:38 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AGC5AC2210607;
-	Mon, 16 Nov 2026 15:29:11 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4hyxwt0cyj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 16 Nov 2026 15:29:11 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (smtpav05.fra02v.mail.ibm.com [10.20.54.104])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AGFSp7B46203166
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 16 Nov 2026 15:28:51 GMT
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 31D7620043;
-	Mon, 16 Nov 2026 15:28:51 +0000 (GMT)
-Received: from smtpav05.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id DA1D120040;
-	Mon, 16 Nov 2026 15:28:50 +0000 (GMT)
-Received: from [9.68.31.53] (unknown [9.68.31.53])
-	by smtpav05.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 16 Nov 2026 15:28:50 +0000 (GMT)
-Message-ID: <0941abe1-9ecc-470b-a52d-e804fd125ac9@linux.ibm.com>
-Date: Mon, 16 Nov 2026 16:28:50 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wda5m4T+
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b70192ebceso151579a12.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 09:37:29 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794850648; cv=none;
+        d=google.com; s=arc-20260327;
+        b=rX66Kk2u38FfcQ+tH9X8APwHd1NJLM5WKLU49HmCuZlVJ3589Abut2NSCc80kI79mQ
+         HNOtm4XWhtZ6AYle41PdNQ/RMhLjH/ZV2rxOTY7fo/yzK0T+Gj2JYtY0y7lO+WufeXmY
+         343n4e+zQvdI5JpX07Y6i50smpTBJpAbRD+qJxK447zmPLw6QcoYrIayPz3pl/8iy0WX
+         Qvi0ikyG1iR4HvSdE04iSJ4IwNfvibaPC9j/w8lt4pBrXdU13pPiWcuJ0JtKe/KLMBsu
+         /kcu703EobAH4Sm2ygnHbC7hif9cb4lHq1TdkBRpUm6cWcC1hRLlERpUNs0VrzgxNNep
+         8XIA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=ASqD7yYrxwRTXpvky24aSldHzEJHTNv4OUWKJ01NHN8=;
+        fh=bSMiBKI44aEe2Ed8tpd6kaYH6huAsK3ppUPoY0cE6RU=;
+        b=jd5aEwpbsCaXF4iwIqYadm0sRXevgck/k6XPyHus99SuRL2KYApPWWO9EfINVtwIAM
+         FcDx4/Abdc9Hco5TBop3wukVJIjnMgPYhCyX562S2GjBz4xQ1PM4Xk6FJv6d9MdaoLg1
+         RUDfqCFvM/67jKlbI+rkzFauG8U0pKlXCHxntnhS7eNUbDXikQEqzHhIbZtBTjsN6qeY
+         niXj83Wtv8LWV4l1jmOAdaeDW1l75orqwpYwyB7/54YTJej8i+spIsqkvTuFa4rjStb9
+         qo63bBci4rQkAFX20G4OhHWTrBxuzczk9MwDgZUhzNsRf72R5XG7MqpFwpe47cLpw0IK
+         xi4w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794850648; x=1795455448; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=ASqD7yYrxwRTXpvky24aSldHzEJHTNv4OUWKJ01NHN8=;
+        b=Wda5m4T+Og74YNLartpajMnAcctT7hnb5haqi9hjLlBRa67TYcEPjf80gw45qsgIx7
+         FMobW/aC2ZXQsUmoaLilVLeaESS9ODytholTX6ZkGdI39Z50BqAMQuVm0upEGdU/eTIl
+         KzXBiwaEJY7eqa6p49n+ZePGE0YUDeVtz78JPQJb7w7ae3zRsyAfYOAEtJq8eS6befDe
+         ANfoXo4rOnrr9cTK5CEQbvEa19yD1CMimOfBL7pxwr0U+pGpN6RB970vgsC2xV+kB6BG
+         DqloDFELm5xz1LM2zdKvbUwHIwogDmvmrNVDo81Was00uh+K9TR8cjrFQWZvFUjBWrt9
+         3Csg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794850648; x=1795455448;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ASqD7yYrxwRTXpvky24aSldHzEJHTNv4OUWKJ01NHN8=;
+        b=hq7l++amT1WwJgc6DKt12fY33T+p4nMGo980TvHjvDLJKLKABOESQ7v1LBzce3hdyf
+         mG0qcnkpK9ZQnPjeYFXxUzVBnAV0XdWM5AOlWYUL3i3PQtteH5L8bJfMt/N9e5eJ5IDg
+         zj37QZ7mzNbfcnjCrY9Q6UyvDO3csCZd2p9Ob9XgIPxWDUYcNwNLpesKW5/uMPJXE+Y0
+         +P0jSHdBYacbdopb/MXvql0JjwofKA0xn906TvzqcTUh6OV7AwIN1NxoW3JdGhIT+pRS
+         EoijYFVoPDig1gakyT0tDapnqeXTCmD6CHnCJy/I74J6j19L50dUq9wghow1oUpst8Cm
+         5mog==
+X-Forwarded-Encrypted: i=1; AL+hErEDz8Pc9u0M40oq/h3tByQu/STdaRTCimQqu34zGx941YlZ8Uy8peBPlw0eiDwpju5aQPqZ9qg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9CFWs5NlA7S1siIdiR1LJmNwa60g1UBtcVKGNa2T2ECCk8mH0g
+	UbvqLZaGkl5FoNx4mlCb2QjCwnU/0kmophrolTWgKnCcsRqeR+xxuoJ1zkXg+SfLS6ZpztKZXJ0
+	l8LZW7CoACwGFLRrqNKf1Z3j+kVwxxO0=
+X-Gm-Gg: AYBFou0hEpGJt0FOulyrsQiWTBSZCaqdkxfwxadua+PzgVsceWI/IL800xW5ymW+ubr
+	T+uQxkZ4JAZRWoq5w6JNNRVQfBEnTxWBwu2PbgQs4SYyMfn0H+AkHbEmKpJ6D4pVXUrbpW4HFo+
+	KZg4q4KD0VFdU3uCsK5BymiMZUWisM870JeJ2fdXcGCbgGn3odd/mLzrKQ1rXmwc0uEwQBsK4Ex
+	ttIKe/rky1DVpT4iV6pDwCxmQ72JVD7JYYE0uLtcCGCNYgmfCocLRR+7XQ9odAAdbXP8sAG+vz1
+	Q0q5yTFgvWm/dH6RX5e3bOT6bk01/0WKgBaxXlW4JwheN3OVsDIjMLdNszxt1k6gD9huiOCmEso
+	4yjesDYH9qb7J8x17ACu90dWpk8Pm3c+3eS/62TzBmyTLAd77qIJVUWA09JrlqFCgJ5HKyg==
+X-Received: by 2002:a05:6402:1598:b0:6b5:7250:d621 with SMTP id
+ 4fb4d7f45d1cf-6b859ae1a00mr134291a12.15.1794850647426; Mon, 16 Nov 2026
+ 09:37:27 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,87 +104,96 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 1/2] dibs: loopback: reset the client id when the
- owner unregisters a DMB
-To: hexlabsecurity@proton.me, Mahanta Jambigi <mjambigi@linux.ibm.com>,
-        "D. Wythe" <alibuda@linux.alibaba.com>,
-        "David S. Miller"
- <davem@davemloft.net>,
-        Dust Li <dust.li@linux.alibaba.com>, Jakub Kicinski <kuba@kernel.org>,
-        Sidraya Jayagond <sidraya@linux.ibm.com>,
-        Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>
-Cc: linux-kernel@vger.kernel.org, Hidayath Khan <hidayath@linux.ibm.com>,
-        Julian Ruess <julianr@linux.ibm.com>,
-        Wenjia Zhang <wenjia@linux.ibm.com>, linux-rdma@vger.kernel.org,
-        Wen Gu <guwen@linux.alibaba.com>, Tony Lu <tonylu@linux.alibaba.com>,
-        netdev@vger.kernel.org, Simon Horman <horms@kernel.org>,
-        linux-s390@vger.kernel.org
-References: <20261113-b4-disp-19244662-v1-0-39b256b70ca7@proton.me>
- <20261113-b4-disp-19244662-v1-1-39b256b70ca7@proton.me>
-Content-Language: en-US
-From: Alexandra Winter <wintera@linux.ibm.com>
-In-Reply-To: <20261113-b4-disp-19244662-v1-1-39b256b70ca7@proton.me>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE2MDA2OSBTYWx0ZWRfX4xg3aCi4BR0s
- AOM5gZM2nmFw56eCpdGr3WK58ePm9oY6ihQOboxviqK4wgQGjjQz+oaaR6LRGFTimZs6UHPZXc9
- G6x8zjUtqtSguRuu131dW3weK13onXs=
-X-Proofpoint-GUID: rKqczh8Tr3VUsV0bVncyj8-yeyM-vQlc
-X-Proofpoint-ORIG-GUID: -3MSq1Ohx6ABc1M3AOA5NxIsT9w7SBwA
-X-Authority-Analysis: v=2.4 cv=IruL47/g c=1 sm=1 tr=0 ts=6afb3e72 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=V8glGbnc2Ofi9Qvn3v5h:22 a=VwQbUJbxAAAA:8
- a=VnNF1IyMAAAA:8 a=Ogwv88QQDbgmfivA3BsA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE2MDA2OSBTYWx0ZWRfX9eTGEnI1Ke9S
- +bt+1AT3KDeF4aWdFx1IEc3HSVUdXE0DfNVMHT8+3pH0veueQFsNUmCpi+8OcGH8uOq9mOS4haA
- 8AHnXzkbmwtyzZwjW/jkHLzSebITTGwEBbhdrpODXXAaJ+72fl35YYtsfSOgMkSEguSzPtk5d/z
- JgPjEtDnvm782+H3y4kYhjdw6uPY3UEKdPGDyao3rw/9EUBEivs/A1WLn8uPyiJrLlidN+gemmH
- 8z39tzlqB7gSf5PCYPvIE/hEM2WtzLOCcKVmXQxCOyqLK66RdNqQM9zhm46AxDYtC3grcLjwXmX
- u2l7KIuf3HLc8nYlnlhIrE7KZ4X4utcusx27oaabc02zj8gbPd7KKzJbvAHL/7kqa1IexT2XbAX
- TJWaEIhHslzkH/bn8fF5yT3ggCbTPAIJdwtFAGQNbDjWcLeBD1D3sFNfTR4ykqtGw5Cr4qLvQd3
- KB9QA2VaDPKVfvjQmNA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-16_05,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 impostorscore=0 adultscore=0 suspectscore=0 bulkscore=0
- malwarescore=0 phishscore=0 lowpriorityscore=0 clxscore=1015 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611160069
+References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org> <20261116-work-loop-pseudo-v3-33-8cbbea1cf34f@kernel.org>
+In-Reply-To: <20261116-work-loop-pseudo-v3-33-8cbbea1cf34f@kernel.org>
+From: Amir Goldstein <amir73il@gmail.com>
+Date: Mon, 16 Nov 2026 18:37:16 +0100
+X-Gm-Features: AclHuK_sKnxFPAK3k65pZhjyZC94SJD4eZ9z2j_P12s3kyb9TMw6hurQcjyq55Q
+Message-ID: <CAOQ4uxgPerkkG4ie0SyHVXaBD9VZN2wYfQpEAEi4hytn=ara3A@mail.gmail.com>
+Subject: Re: [PATCH RFC v3 33/44] ovl: refuse data-only layers on pseudo filesystems
+To: Christian Brauner <brauner@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org, Jann Horn <jannh@google.com>, 
+	Chris Mason <mason@kernel.org>, Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, target-devel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-mm@kvack.org, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, netdev@vger.kernel.org, 
+	fuse-devel@lists.linux.dev, linux-efi@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, ocfs2-devel@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-usb@vger.kernel.org, linux-erofs@lists.ozlabs.org, 
+	linux-kselftest@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-
-
-On 13.11.26 14:57, Bryam Vargas via B4 Relay wrote:
-> From: Bryam Vargas <hexlabsecurity@proton.me>
-> 
-> dibs_lo_unregister_dmb() resets the DMB's dmb_clientid_arr[] entry only
-> on the last put. If an attacher still holds the DMB, as when an SMC link
-> group is freed while a peer is still attached, the entry stays set after
-> the attacher's dibs_lo_detach_dmb() frees the DMB.
-> dibs_unregister_client() then warns at rmmod smc and returns -EBUSY,
-> which smc_ism_exit() ignores: smc stays in clients[] and dibs->subs[],
-> and a later dibs_dev_add() or dibs_dev_del() (rmmod dibs, ISM hotplug)
-> calls into the unloaded module.
-> 
-> Reset the entry when the owner unregisters, before its put, as
-> ism_unregister_dmb() does. The index stays allocated until the last put,
-> and the attacher's writes no longer raise an interrupt for a client that
-> gave the DMB up.
-> 
-> Fixes: cc21191b584c ("dibs: Move data path to dibs layer")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Bryam Vargas <hexlabsecurity@proton.me>
-> ---
+On Mon, Nov 16, 2026 at 12:10=E2=80=AFPM Christian Brauner <brauner@kernel.=
+org> wrote:
 >
-[...]
+> The data of a metacopy file can live in a data-only layer. overlayfs
+> doesn't look that data up when it looks up the file. It only remembers
+> the absolute redirect and looks up the data lazily the first time
+> someone needs it. So until then nothing can tell which filesystem holds
+> the data of such a file.
+>
+> But a data-only layer has no business being a pseudo filesystem in the
+> first place. All it does is hold the data of metacopy files and the
+> regular files of a pseudo filesystem are kernel interfaces, not storage.
+> So let's refuse data-only layers on superblocks with SB_I_PSEUDO at
+> mount time.
+>
+> Data-only layers can be added via the "::" separator in "lowerdir=3D" and
+> via "datadir+" by path or by file descriptor. All of them end up at the
+> end of ctx->lower. So a single check in ovl_get_lowerstack() covers all
+> of them.
+>
+> Note that regular lower layers on pseudo filesystems are left alone.
+> Stacking overlayfs on top of sysfs keeps working.
+>
+> Suggested-by: Amir Goldstein <amir73il@gmail.com>
+> Link: https://lore.kernel.org/all/CAOQ4uxhGxpBtMZ5kfuzR1tQAewiecoX7UjXQRo=
+91QjJHH9T_Yw@mail.gmail.com
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> ---
+>  fs/overlayfs/super.c | 8 ++++++++
+>  1 file changed, 8 insertions(+)
+>
+> diff --git a/fs/overlayfs/super.c b/fs/overlayfs/super.c
+> index 39d4d57dec230..719c2569dfeaf 100644
+> --- a/fs/overlayfs/super.c
+> +++ b/fs/overlayfs/super.c
+> @@ -1237,6 +1237,14 @@ static struct ovl_entry *ovl_get_lowerstack(struct=
+ super_block *sb,
+>         for (i =3D 0; i < ctx->nr; i++) {
+>                 l =3D &ctx->lower[i];
+>
+> +               /* Pseudo filesystems don't hold data for metacopy files.=
+ */
+> +               if (i >=3D ctx->nr - ctx->nr_data &&
+> +                   (l->path.dentry->d_sb->s_iflags & SB_I_PSEUDO)) {
+> +                       pr_err("filesystem on %s not supported as data-on=
+ly layer\n",
+> +                              l->name);
+> +                       return ERR_PTR(-EINVAL);
+> +               }
+> +
 
-Thank you Bryam.
-Reviewed-by: Alexandra Winter <wintera@linux.ibm.com>
+How about we make this just a tad more restrictive:
 
+                /* Pseudo filesystems don't belong in composefs setup */
+                if (ctx->nr_data &&
+                    (l->path.dentry->d_sb->s_iflags & SB_I_PSEUDO)) {
+                        pr_err("filesystem on %s not supported along
+with data-only layers\n",
+                               l->name);
+                        return ERR_PTR(-EINVAL);
+                }
 
+I could send this as followup patch, but since this version is simpler
+there is no real reason to have the intermediate "only ban datadir" step.
 
+Only the commit message needs a little more flexing to justify this.
 
+Thanks,
+Amir.
