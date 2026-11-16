@@ -1,99 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794859536;
-	b=xCekQIGYN4+cz14LHdgGFwkIubQQO2UyZWg9HrjskxSdp/LOZvATMkpAkAX91vSIqaMR
-	 8GVp4HZc4PXpkCEplHUgdx5rlHGM2/VUYTCiSjUe6ciR5LxTMxs3LT6cYEycVmrc5pGCu
-	 bOOGbQGDZbNzvEeF0U9XuKXcX0FvhNK5pmcmV8tvL6yBlDKMV9t2VwJJZYA2lbNimkgtZ
-	 znF3I3D7Z3myViJsIrDwQZHwJRwfNxSI976dgEdid5yqNu9GizY7gQuC0y+HOZTjWNjq/
-	 +IZfGPcB8mB41tv0bS6IkGkd6OUSu2LzKdQRGssdrY49N4znSDLDrYB36prYnTtXGrA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794859536;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794859559;
+	b=Q7q/vgNx7fOkDcZIV9wRX9pKwUFYiYiWkea0m/mfDQ4ReXr9BFHL3EUlonGAJqxjH+Tc
+	 jwzvvSs7dJIJ2wMHchZ3q5biYz7TJeHZaVSxbdR9vgkKCfCFOZ1zWKRUt8ZzLtlD1Pgwr
+	 HlS2olnouKwam/JhQ47FoY+AL1FAlWe8CNl95RjuFmheTdtVfBShwmLGp/uLvb8xn3U39
+	 wTYtolbpyEXaEzCa5nTJXNcfwJOka+EfcvZUtWpg0J8vMeL61d8/BKEFWRgAib+MGVAv3
+	 5+4fWlHLvv4l1QcDAmzc0EBGkmkiHpj9dXqxFJjyK04wwTjSdWUaV+US1n9MZMyqr0w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794859559;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=2FbHC+AouLeCTX4lljlFzinGOTMD7NXf67uVcoKnZkY=;
-	b=OH+y1jsBWgNBFvMeMPADGE2elbYKq6ERKKESSw/MZDd10UCZuQ0sBUpMhay5I0+oV/ts
-	 oCS58LeIKXD1Euh3Y4HUO7r9UI1H7NlEmyPR8uY7oiX4tnInScS+9qSwhuX5PGOr2AGNe
-	 QgKlk7QMWFsimeDtc1UDHb9to5tVfJ5Wip+W8XKmfFWys+zoRqGw8t6AduxpuqHcPpyaD
-	 UC5x5qBXKvfixZQS9rJRNv4sG7kj9F8RiEDmBzKl+7LRE1eDUXmWhFjt1ktkPHjmtl9de
-	 3K+va+T+u+sl38IsuW2RRYkaVSQs88A6N7Mx2H43xTISNL0WpQUWpUlurz+0qiIcbUg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IkksPml8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.46
-Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=daNCiLAHlIawpM/Vc7SGq8lz5Ze02UVcVBEqld5+lr4=;
+	b=NZOvQU2XaiEoiXFwSLi1mfhPTAmMfxWLS6oWoa/PmhcAq8055MUuuXl5Y8+yDN5oHDHn
+	 UFnajjOk9uI57A3oM81lbC+XZ2tDgFOOJ05fjr0IAfpBCbZ606DsiJocoX6f+FPE33QAk
+	 zrMZE4j/Y8iuRsgLqdqTOF7TppOd7cVVbiup18dpEE2mXOS+3CiDVYPV6UZK8G/7Jp7H8
+	 Fsj7XFXU57dkGnNywvo4M/GP0FmU3oKFqrCO5N5xO3PTXo7jraNggRlws9QbwV0bLm8ND
+	 ZsO5rQ+G8W89Qz/x/CPMlMoaaOANCPsaVdVScn3HOvQcRC/8uqJpX3567k6fYUoLeEw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=SRzsmm43;
+	arc=none smtp.remote-ip=209.85.222.172
+Received: from mail-qk1-f172.google.com (mail-qk1-f172.google.com [209.85.222.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 281D1606A338
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 20:05:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 281D1606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F2A7606A332
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 20:05:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F2A7606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IkksPml8
-Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b791a4b732so1851a12.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:05:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794859534; cv=none;
-        d=google.com; s=arc-20260327;
-        b=NxJ5/yzI84xgRva3j8JzN2AxDROr425zF/Z1UujXATuc5yWYx/NL8L78LJl6SaW7sw
-         6nvdGqk9jucbs01fXG0sBUGLtG6kGtmy6EJl9Mc3+n5ayh62dA3hc0lAgWpCadwakgcK
-         +L9lhrj8aeWB2aPq6JwPVCCg7vG2cqo1AIKOcwPZH7+BeHh+qYCnGlCVdsz9dLAdRB2/
-         XI6iFyD+ZgCN1jyXT0mbsvZNoGFlR5azD1pApJm+pONJj+tgB6UUFathUmpin2bXCxR8
-         BYDPIa35aR8DQM78LJWptqkwNu+WRsrI8L6Iub2CkPRhCawnWxC7vYV4OrpXFyU50S7G
-         ZRpg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=2FbHC+AouLeCTX4lljlFzinGOTMD7NXf67uVcoKnZkY=;
-        fh=e6ZrBnM+M64eKsEjvHBvJRmtBwPL6qtpDLVo9uQShKQ=;
-        b=lEfBH+dDew0UEQEUK7tQYU6d9YEk5TxPAtbxZydRH73wAc2EY/UH0DeApxhPZ1FmmI
-         bTEePDDwwqDTLzMpKtQ244qLrYn+nsAiSkoULrwfpG3CBRxCPAo2w3eNuH471+gqf+a7
-         7NLIPl3CNbEW2ECwza1j0ddRwv9ZAf56Y1EejHb7VIZpsSgdL74uRph5yoeHmt8rkZkH
-         VRU3gs/f3gQUWuAQ/+lRnJh54jcrrAtaqfxvNOAq4BoIjYzJK4lKkTjFufh2yY0kQxAl
-         c83BNKotK3KtbyIMJHuLAbwKuXBLkRwKGGXhl1rf0mrX8RifEswiGnKd3BE+4nDyKPHU
-         gPHg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (1024-bit key, unprotected) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=SRzsmm43
+Received: by mail-qk1-f172.google.com with SMTP id af79cd13be357-94960131b30so244622485a.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:05:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794859534; x=1795464334; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=2FbHC+AouLeCTX4lljlFzinGOTMD7NXf67uVcoKnZkY=;
-        b=IkksPml8E3hyTIxztKkLwWNm1VbUqDLEUUeOgZbiZlOAbOPlMK+i6fRCs/pkslK+S0
-         AoQijbjLAoJdk6OzJ9w/HqLoOeJvtTmRW9cKaWBp2F2nidc/BrJsK8iVc2LaYj4dLWQr
-         89u/N2AMvOoMfqct8NqjQv8AixlzjhSVovdYKDH6Yx5391GZwCD2FAADrLFSuE+rZObO
-         c01IWug4iCdjZHswB2JK0S4kB9UXsoXVs/0c8hscDbY1L0C4xByQI0VthmXPN7kIcO1t
-         4vRLVwCTnjp8BvaXwdPftIuUI3Qkrds0yKBicQ77EbgVdpbew7w9NmgeVp04fwmQTkVy
-         Pybg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794859534; x=1795464334;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=mojatatu.com; s=google; t=1794859558; x=1795464358; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=2FbHC+AouLeCTX4lljlFzinGOTMD7NXf67uVcoKnZkY=;
-        b=DF4GACcfZvGRq1Peds98v8eQmbo4B92WQuNIWJuyTobhG8SJEvS7Hgy4zPRIrCKDQ3
-         zEsOJ6FL4su8CpxmfMuSIGk/yFeTwiOjPA7Rqo4qMIdnJuTE0EcPILurCLJtx4dHHhXY
-         zd+fRwdDWsWKfL/x0kQ6jvfILC1HqXZZ61vEhR++EPq1ikHn0PA9L27w/vJsOxkKq3Sw
-         zM3NL7A+zS2ZsalIieCRk8t54czOSC5xHBXIp4O2wkx+1GCGzq0cNMDAfxkOP/dCKa2Z
-         UGdO8MfVId+idRoxCvK1/xAOJTGihyVua0KCivJ5CUXcSxbbVHF9XLFhtXMhymSRjYO7
-         4EAQ==
-X-Gm-Message-State: APuU4Z/C7TdamKbfacwS8F+wNSyLtULS4ZKCR/YZ/BD1DPk78rsfstk/
-	XfQNp63xv9ZNlej6kQfCKr7qBv5fj6ivglWmD2jlIk79GlatdaN9xPngh1XYAN/j3SQsTSYObmw
-	LRmbatJaI4JqIAZbhy32RCmGu0OI13IswRf56tlOb
-X-Gm-Gg: AYBFou0Yp0prBZ/EYKCRVUAuO0Lmfy7bxzRkRnO0XeoyIQFqjoxTqX0+K4Y8fAeHGch
-	uu7IJnprVZvIUoM9NJOfyxsipCjz6iFuoOKR0NxFlPHK/smfDYoAy9MphGQ9zOVdwxVLljUmReR
-	Y0io47wlOdKEyljVQAq4Be6BjxtBYbMAKk1dWvmG3PjByf+A58lI1gfH4l/Y8+mUwcC5KxxWldx
-	CenLRoDk3cv4x4LdVsuVSzwJL3dpSY48hWYn7dugrZA4aH0VtSbOpVs9Ed1wxLknBn3nrS43+Xl
-	HBnIg8KtcxXSmrYcVESTFczZjE7un7XjLnkvW7neYxKmQKhjgRHz019EP+ulLqZJ5uzZneG+eK1
-	HN6qdDvADDA79q3RBMix9P63oAprFskfDIYs=
-X-Received: by 2002:a05:6402:c51b:10b0:6b7:91a7:a637 with SMTP id
- 4fb4d7f45d1cf-6b85b54dacbmr11086a12.6.1794859533949; Mon, 16 Nov 2026
- 12:05:33 -0800 (PST)
+        bh=daNCiLAHlIawpM/Vc7SGq8lz5Ze02UVcVBEqld5+lr4=;
+        b=SRzsmm43r/u/xj2idm5w0H8nzXqorpkWph/xkjQWOBivhBnicczXe28TcR6dsue8p7
+         0z7Z5VCZOib8rxf3llx2weuAiT2q3pJLvBR1C/0SWKwyqPbEhd0D7s7GZ+njlCeW1poX
+         xgq+fVlB/IxSZMWXdswRQEnQ6Ol028rv2btOc=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794859558; x=1795464358;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=daNCiLAHlIawpM/Vc7SGq8lz5Ze02UVcVBEqld5+lr4=;
+        b=OfTyyi4s98UBUaA9k1g9oqfRzqFNGgKvKwp/OAIEw56k+a1GIvra/WG65jwanR9tie
+         lixKcQ9A4iwSjI+pxDsTWiOoCALxFj4ATu7JW2temgvstMMpFEf9oviUjxJDVBW4cgdU
+         ddkCCS2HG+jn9RAcZ+yOsXkTki22vZcrjLCmF3WOWnR/RcNr8hbQ9esoD31y8wdhx8rh
+         4gIFvGqGgeSL5hzZL4DpuObfvcEYPLzw7P+n4nEsBVneVDfGOpNuSBIJQrHj2QTQq6W1
+         a5/LxDfOMcHIiTyGI33xgif4H6bCu/W7CfEz6qJdf5Z7VwFiPUR3fqOYHODp2PNFfmEi
+         REKQ==
+X-Gm-Message-State: APuU4Z+N+TmLZUvWROk+uXg5SC8ez7Zm38v2faB1l/5h5nmGYfUoLrG7
+	Uq0OZ7xSm2fBnMwpxfuRi4UjmumoZUv8DPqRylePCiRQBsl25tj4kKkH3ubC8U5RuLj64t71tLx
+	hECk=
+X-Gm-Gg: AYBFou1IXn2aDbiyDh3MPME4UeIiE1xRJDthphB8Pi1mlKsBy14Tiw661AU7kFo5+oe
+	yUqzU8WjY3X2ARza60Hg3rVzuJaDBTvz48mN8ltZaanS3//hFzLesd+BUqYzVkdAYRoAkqi8FAr
+	KfzazdIsuc7nVLu59nxPxaaF+Af/h+zIceXTBla9e2tssPVuT9YUdBZ6GS0F7RjgV1hgXFZj4Hz
+	porq8yWQ9NOYbYeHzTk8yMHmAfJ1hFEJQpDAM7RrHY/ju7ZunlS1LK2zjoycM+6k5yESRW0/q8h
+	068e21HqdQQhhCdlKdn3VTnLy7Xv6h7xL8yByMSJm3uXoF22WYNburiwOtXYgIMmR7v/hpwuJgS
+	sNtgQ4M2UQjwM+2FyAAaCNvQOTpHcqvbv4+sdeX1aQcI2ocQEFnjvbUHiEBnnHSQVb9OQGFrN10
+	R+f2uy7pZFFSv+vSrIaU/E40ZtPI6McAWlm4y1OYlVgWTXQgqUm7wFJ4K6CQVcxybrZFpC8pjVx
+	AsJk0vamH2hc6tDOnfWB7zZqKz4tV78/MhLrzDDM/utEF7Slfd+JP3/z68oXkWV2kqN16FFhDMf
+	mRogN+LASXwsw0wHx6AS05vnQz6kVcX074eXfqkh1dSBOUSBhIXQEbGc5g2r54y5GcU4r3OE3Z0
+	=
+X-Received: by 2002:a05:620a:880a:b0:93f:3120:6c7c with SMTP id af79cd13be357-9494bb26155mr1791485585a.50.1794859557792;
+        Mon, 16 Nov 2026 12:05:57 -0800 (PST)
+Received: from mbili.waya ([64.203.83.2])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d7b607sm94333936d6.26.2026.11.16.12.05.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 12:05:57 -0800 (PST)
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+To: netdev@vger.kernel.org
+Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Stephen Hemminger <stephen@networkplumber.org>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	Victor Nogueira <victor@mojatatu.com>,
+	=?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
+	cake@lists.bufferbloat.net,
+	Sashiko <sashiko-bot@kernel.org>
+Subject: [PATCH net-next v11 0/4] net/sched: cap the accounted backlog before it can wrap
+Date: Mon, 16 Nov 2026 15:05:50 -0500
+Message-Id: <QDISC-BA27.v11.r0.20261116134053@mojatatu.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,268 +105,226 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115004003.3695475-1-almasrymina@google.com>
- <20261115004003.3695475-3-almasrymina@google.com> <avtRYLif2GvfuAmu@devvm16445.scu0.facebook.com>
-In-Reply-To: <avtRYLif2GvfuAmu@devvm16445.scu0.facebook.com>
-From: Mina Almasry <almasrymina@google.com>
-Date: Mon, 16 Nov 2026 12:05:22 -0800
-X-Gm-Features: AclHuK9UKGjj2K-M9UCbTvhamuiZBM47PX_Z2xi10nURBXzwNATp7PsG82osGLU
-Message-ID: <CAHS8izN4eCMub+douN8P29KstidvsxVmpvDKhjZ4JDH9yXAJ9w@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 2/3] net: prevent mixing frags from different
- memory providers or bindings
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>, 
-	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, 
-	Josef Bacik <josef@toxicpanda.com>, Kaiyuan Zhang <kaiyuanz@google.com>, 
-	Willem de Bruijn <willemb@google.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Pavel Begunkov <asml.silence@gmail.com>, 
-	Daniel Borkmann <daniel@iogearbox.net>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 11:05=E2=80=AFAM Stanislav Fomichev
-<sdf.kernel@gmail.com> wrote:
->
-> On 11/15, Mina Almasry wrote:
-> > Prevent coalescing, shifting, or appending skb fragments from
-> > incompatible memory providers or different devmem bindings.
-> >
-> > Add skb_net_iov_provider(), skb_mem_provider_compat(), and
-> > skb_frags_can_coalesce() to check readability and fragment provider
-> > compatibility (net_iov_owner(niov) for devmem, niov->desc.pp for other
-> > net_iov providers such as io_uring zcrx, and NULL for page-backed skbs)
-> > across skb_try_coalesce(), skb_shift(), skb_gro_receive(),
-> > skb_gro_receive_list(), tcp_skb_can_collapse(), and
-> > tcp_skb_can_collapse_rx().
-> >
-> > Also add net_devmem_skb_binding() and use it in tcp_sendmsg_locked(),
-> > zerocopy_fill_skb_from_devmem(), and validate_xmit_unreadable_skb() so
-> > TX skbs cannot mix different devmem bindings or transmit non-devmem
-> > unreadable frags on DMA TX devices. Reject converting linear head_frag
-> > payloads into page frags on unreadable skbs in skb_try_coalesce() and
-> > skb_gro_receive(), and propagate skb->unreadable and compare
-> > skb_frag_netmem() in tcp_clone_payload().
-> >
-> > Update netmem_ref_test_net_iov and netmem_ref_test_try_coalesce so thei=
-r
-> > target skbs carry a compatible unreadable net_iov frag before shifting
-> > or coalescing.
-> >
-> > This issue was found by manual code inspection and LLM review; it was
-> > not triggered in production. Verified with the net_core KUnit test
-> > suite; not tested on real hardware.
-> >
-> > Fixes: 65249feb6b3d ("net: add support for skbs with unreadable frags")
-> > Fixes: bd61848900bf ("net: devmem: Implement TX path")
-> > Signed-off-by: Mina Almasry <almasrymina@google.com>
-> > ---
-> >  include/linux/skbuff.h | 55 ++++++++++++++++++++++++++++++++++++++++++
-> >  include/net/tcp.h      |  5 ++--
-> >  net/core/datagram.c    |  4 +--
-> >  net/core/dev.c         | 14 ++++-------
-> >  net/core/devmem.h      | 22 +++++++++++++++++
-> >  net/core/gro.c         | 16 ++++--------
-> >  net/core/net_test.c    | 42 +++++++++++++++++++++++++++-----
-> >  net/core/skbuff.c      | 24 +++++++-----------
-> >  net/ipv4/tcp.c         |  3 ++-
-> >  net/ipv4/tcp_output.c  |  4 ++-
-> >  10 files changed, 142 insertions(+), 47 deletions(-)
-> >
-> > diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
-> > index 1d6832878930..867e3ab17c17 100644
-> > --- a/include/linux/skbuff.h
-> > +++ b/include/linux/skbuff.h
-> > @@ -3770,6 +3770,61 @@ static inline void *skb_frag_address(const skb_f=
-rag_t *frag)
-> >       return page_address(skb_frag_page(frag)) + skb_frag_off(frag);
-> >  }
-> >
-> > +/* Return an opaque pointer identifying the memory provider instance o=
-f @skb's
-> > + * net_iov fragments:
-> > + * - For devmem (NET_IOV_DMABUF), net_iov_owner(niov) (&binding->area,=
- 1:1 with
-> > + *   the binding across RX queues and TX).
-> > + * - For other net_iov providers (e.g., io_uring zcrx), niov->desc.pp =
-(shared
-> > + *   across all areas of an io_zcrx_ifq).
-> > + */
-> > +static inline void *skb_net_iov_provider(const struct sk_buff *skb)
-> > +{
-> > +     struct net_iov *niov;
-> > +
-> > +     if (skb_frags_readable(skb) || !skb_shinfo(skb)->nr_frags)
-> > +             return NULL;
-> > +
-> > +     niov =3D skb_frag_net_iov(&skb_shinfo(skb)->frags[0]);
-> > +     if (!niov)
-> > +             return NULL;
-> > +
-> > +     if (net_is_devmem_iov(niov))
-> > +             return net_iov_owner(niov);
-> > +
-> > +     return niov->desc.pp;
-> > +}
-> > +
-> > +/* Return true if the memory providers of @skb1 and @skb2 are compatib=
-le
-> > + * for coalescing. For any struct page-backed provider (the buddy allo=
-cator
-> > + * or a future provider handing out struct pages), coalescing is assum=
-ed
-> > + * feasible. For net_iov-backed providers, the provider instance point=
-er
-> > + * must match.
-> > + */
-> > +static inline bool skb_mem_provider_compat(const struct sk_buff *skb1,
-> > +                                        const struct sk_buff *skb2)
-> > +{
-> > +     /* Check skb_frags_readable() first to reject readable/unreadable
-> > +      * mismatches and avoid chasing frags[0] and struct net_iov when
-> > +      * only one skb has unreadable frags.
-> > +      */
-> > +     if (skb_frags_readable(skb1) !=3D skb_frags_readable(skb2))
-> > +             return false;
-> > +
-> > +     return skb_net_iov_provider(skb1) =3D=3D skb_net_iov_provider(skb=
-2);
-> > +}
-> > +
-> > +static inline bool skb_frags_can_coalesce(struct sk_buff *to,
-> > +                                       struct sk_buff *from)
-> > +{
-> > +     if (to->pp_recycle !=3D from->pp_recycle)
-> > +             return false;
-> > +
-> > +     if (skb_zcopy(to) || skb_zcopy(from))
-> > +             return false;
-> > +
-> > +     return skb_mem_provider_compat(to, from);
-> > +}
-> > +
-> >  /**
-> >   * skb_frag_address_safe - gets the address of the data contained in a=
- paged fragment
-> >   * @frag: the paged fragment buffer
-> > diff --git a/include/net/tcp.h b/include/net/tcp.h
-> > index 25d11fab1b03..bf5f28e52fca 100644
-> > --- a/include/net/tcp.h
-> > +++ b/include/net/tcp.h
-> > @@ -1275,14 +1275,15 @@ static inline bool tcp_skb_can_collapse(const s=
-truct sk_buff *to,
-> >                     mptcp_skb_can_collapse(to, from) &&
-> >                     !skb_cmp_decrypted(to, from) &&
-> >                     skb_pure_zcopy_same(to, from) &&
-> > -                   skb_frags_readable(to) =3D=3D skb_frags_readable(fr=
-om));
-> > +                   skb_mem_provider_compat(to, from));
-> >  }
-> >
-> >  static inline bool tcp_skb_can_collapse_rx(const struct sk_buff *to,
-> >                                          const struct sk_buff *from)
-> >  {
-> >       return likely(mptcp_skb_can_collapse(to, from) &&
-> > -                   !skb_cmp_decrypted(to, from));
-> > +                   !skb_cmp_decrypted(to, from) &&
-> > +                   skb_mem_provider_compat(to, from));
-> >  }
-> >
-> >  /* Events passed to congestion control interface */
-> > diff --git a/net/core/datagram.c b/net/core/datagram.c
-> > index ecc30a6f8302..88cc0a6c62f6 100644
-> > --- a/net/core/datagram.c
-> > +++ b/net/core/datagram.c
-> > @@ -712,8 +712,8 @@ zerocopy_fill_skb_from_devmem(struct sk_buff *skb, =
-struct iov_iter *from,
-> >       size_t virt_addr, size, off;
-> >       struct net_iov *niov;
-> >
-> > -     if (i && skb_frags_readable(skb))
-> > -             return -EFAULT;
-> > +     if (i && net_devmem_skb_binding(skb) !=3D binding)
-> > +             return -EMSGSIZE;
-> >
-> >       /* Devmem filling works by taking an IOVEC from the user where th=
-e
-> >        * iov_addrs are interpreted as an offset in bytes into the dma-b=
-uf to
-> > diff --git a/net/core/dev.c b/net/core/dev.c
-> > index a230ecce9327..51f5e4800eee 100644
-> > --- a/net/core/dev.c
-> > +++ b/net/core/dev.c
->
-> [..]
->
-> > @@ -4175,8 +4175,7 @@ static struct sk_buff *sk_validate_xmit_skb(struc=
-t sk_buff *skb,
-> >  static struct sk_buff *validate_xmit_unreadable_skb(struct sk_buff *sk=
-b,
-> >                                                   struct net_device *de=
-v)
-> >  {
-> > -     struct skb_shared_info *shinfo;
-> > -     struct net_iov *niov;
-> > +     struct net_devmem_dmabuf_binding *binding;
-> >
-> >       if (likely(skb_frags_readable(skb) ||
-> >                  dev->netmem_tx =3D=3D NETMEM_TX_NO_DMA))
-> > @@ -4185,14 +4184,11 @@ static struct sk_buff *validate_xmit_unreadable=
-_skb(struct sk_buff *skb,
-> >       if (dev->netmem_tx =3D=3D NETMEM_TX_NONE)
-> >               goto out_free;
-> >
-> > -     shinfo =3D skb_shinfo(skb);
-> > -
-> >       /* All net_iovs in an unreadable skb share the same binding. */
-> > -     if (shinfo->nr_frags > 0) {
-> > -             niov =3D netmem_to_net_iov(skb_frag_netmem(&shinfo->frags=
-[0]));
-> > -             if (net_is_devmem_iov(niov) &&
-> > -                 (net_devmem_iov_binding(niov)->direction !=3D DMA_TO_=
-DEVICE ||
-> > -                  READ_ONCE(net_devmem_iov_binding(niov)->dev) !=3D de=
-v))
-> > +     if (skb_shinfo(skb)->nr_frags > 0) {
-> > +             binding =3D net_devmem_skb_binding(skb);
-> > +             if (!binding || binding->direction !=3D DMA_TO_DEVICE ||
-> > +                 READ_ONCE(binding->dev) !=3D dev)
-> >                       goto out_free;
-> >       }
-> >
->
-> Should we limit this patch to the real fixes only? This part does
-> not look essential. validate_xmit_unreadable_skb already does skb_frags_r=
-eadable
-> check above, it already does nr_frags > 0 check here...
-> so why go through the same stuff again via net_devmem_skb_binding?
->
+This series bounds the accounted backlog of the AQM qdiscs so that it
+cannot wrap mod 2^32.
 
-So this is a real fix actually, although I agree it's kinda clobbered
-into a patch with an unrelated fix. The existing checks do not catch
-io_uring zcrx RX packets that have been received and the stack is
-trying to forward them over a netdev where the memory is not mapped,
-and this patch fixes that.
+v1 widened the counters to u64 and was rejected; from v2 on the fix drops
+at enqueue instead. The v5 posting was a single patch; at the reviewer's
+request it is split into four:
 
-> If you want, maybe move this to a separate patch at least? And do
-> something like:
->
-> binding =3D net_devmem_skb_binding(skb);
-> /* I hope likely() below properly unwraps net_devmem_skb_binding similar
->  * to existing likely(skb_frags_readable) case... */
-> if (likely(!binding)) goto out;
-> if (dev->netmem_tx =3D=3D NETMEM_TX_NO_DMA) goto out;
-> if (dev->netmem_tx =3D=3D NETMEM_TX_NONE) goto out_free;
-> if (READ_ONCE(binding->dev) !=3D dev) goto out_free;
-> return skb;
->
-> And call it cleanup with no fixes tags.
+  1/4  cake: classifier refactor: cake_tcf_classify() returns its result
+       to the caller.
+  2/4  cake: use a dedicated split-GSO list iterator.
+  3/4  the fix: drop at enqueue once the stored backlog cannot
+       represent the packet's accounted length -- the standing
+       QDISC_MAX_BACKLOG ceiling for ordinary packets, a per-packet
+       representability check for the larger wire estimates. Covers
+       every qdisc in net/sched that adds the incoming packet's
+       qdisc_pkt_len() to its own 32-bit backlog: fq_codel, cake,
+       codel, pie, fq_pie, dualpi2, RED, pfifo, gred, the leaves fq,
+       sfq, hhf, skbprio, netem, choke, etf and taprio, the classful
+       parents prio, htb, drr, ets, qfq, hfsc, cbs and sfb, and tbf's
+       direct enqueue path.
+  4/4  cake: split cake_hash() into side-effect-free key extraction (on
+       the unsegmented skb) and set-associative resolution (after
+       admission), move the split-GSO path ahead of the resolution, and
+       tag every deferred split segment.
 
-I could break it into a separate patch and reduce some of the
-duplicated checks, but it's still a fix. It may be good as-is once you
-realize it's a necessary change?
+For the sashikos: This series targets net-next with no Fixes: (the
+aggregate wrap predates every touched qdisc).
+Unfortunately something broke in the sashiko reviews. Review for v7
+showed up a while later after v8.  So you will see that this series
+has fixes (majority in comments and commit logs) from both.
 
---
-Thanks,
-Mina
+Changes in v11 (Sashiko gemini and nipa reviews of v10, delivered on lore):
+  - 3/4: taprio books the packet only once the child accepted it, and the
+    segmented path adds a segment to the tree adjustment only when it was
+    accepted, so the two counters move by the bytes that were really
+    accounted. A child that dropped used to leave its length in taprio's
+    backlog, and after 4 GiB of those drops the new guard turned the leak
+    into a permanent egress stop.
+  - 3/4: netem accounts the duplicate before it re-enters the root and
+    undoes it afterwards. The re-entry used to reach every guard with a
+    backlog that did not hold the clone yet, so a guard with room for one
+    packet admitted two.
+  - 3/4: hhf and skbprio pass the net change of an eviction on to the
+    ancestors when they return NET_XMIT_CN. The parent does not book the
+    incoming packet on CN, so a leaf that evicted a differently sized
+    packet left the two counters drifting, and a drain-time undercount of
+    a few hundred bytes put the parent's backlog just below zero -- above
+    QDISC_MAX_BACKLOG -- where the new guard stops every class.
+  - 3/4: htb classifies after the guard, so a terminal action verdict is
+    reported as that verdict instead of an overlimit drop.
+  - 3/4: RED applies its correction as a delta instead of restoring the
+    snapshot taken before the child enqueue, so a concurrent update from
+    an offload driver is not lost.
+  - 1/4, 2/4 and 4/4 are unchanged from the v10 posting; 2/4 carries the
+    Acked-by it received on the v9 posting.
+
+Changes in v10 (late Sashiko nipa review of v9, delivered on lore):
+  - Fixed all the commit log complaints
+  - 3/4: cover the rest of net/sched. The leaves fq, sfq, hhf, skbprio,
+    netem, choke, etf and taprio, the classful parents prio, htb, drr,
+    ets, qfq, hfsc, cbs and sfb, and tbf's direct enqueue path all add
+    the incoming packet's qdisc_pkt_len() to their own 32-bit backlog,
+    so an unguarded leaf can wrap its own counter and an unguarded
+    parent can wrap the aggregate it keeps over its children.
+  - 3/4: drop plug's redundant qdisc_backlog_overflow() test. plug is
+    classless and q->limit is a u32, so its byte test alone already
+    bounds the stored backlog below U32_MAX.
+  - 3/4: refresh the RED comment that still described the pre-rework
+    behaviour.
+  - 3/4: drop the Acked-by from the v9 posting, since the patch now
+    covers 29 files and the earlier ack no longer applies to it.
+  - 2/4: carry the Acked-by from the v9 posting; the patch is unchanged.
+
+Changes in v9 (late Sashiko nipa reviews of v7 and v8, delivered on lore):
+  - 1/4: reword the "The Fix:" heading; this patch is preparation, not a
+    fix.
+  - 1/4: the classifier helper's comments now say the caller must drop
+    the skb, since a terminal action does not take ownership of it.
+  - 3/4: bound the child backlog as well as RED's aggregate, and re-derive
+    the aggregate from snapshots taken before the reservation when the
+    enqueue does not succeed. A child that returns NET_XMIT_CN may or may
+    not have reduced its ancestors already: pfifo_head_drop, sfq and
+    fq_codel do, while hhf and skbprio evict a packet and return without
+    qdisc_tree_reduce_backlog(). Keep what the child actually accounted
+    for and pass any difference on to the ancestors above RED, so neither
+    counter can diverge. Verified with two A/B witnesses: RED over a
+    grafted hhf child (control ends with red_backlog 2042016 !=
+    child_backlog 6177600) and RED under an HTB class over a grafted
+    pfifo_head_drop limit 1, where an unequal shrinking replacement
+    otherwise wraps the aggregate and wedges the new admission guard --
+    control 4294966052, fixed 92 with RED == child == HTB.
+  - 3/4: note that CAKE's own split-GSO branch is the second exception;
+    the segments it accounts are summed and checked against
+    QDISC_MAX_BACKLOG by 4/4 before any of them is linked.
+  - 4/4: add the split-GSO "Conditions to recreate the bug" recipe for the
+    segment-sum rejection at the split ceiling.
+  - 4/4: the IS_ERR_OR_NULL(segs) segmentation-failure return uses
+    qdisc_drop_reason(..., QDISC_DROP_GENERIC); __skb_gso_segment() has
+    already clobbered tc_skb_cb.drop_reason through SKB_GSO_CB, so the old
+    qdisc_drop() reported an unrelated core reason and skipped
+    trace_qdisc_drop.
+  - 4/4: pass the flow_mode snapshot to the later flowchain calls
+    (cake_get_flow_quantum(), cake_inc_srchost_bulk_flow_count(),
+    cake_inc_dsthost_bulk_flow_count()) as well, so one enqueue sees one
+    mode (KCSAN-visible race and stale host index).
+
+Changes in v8:
+  - 1/4 is cake-only. fq_codel_classify() is line-for-line the same as
+    fq_pie_classify(), and fq_pie is not changed by this series, so the
+    two stay in lockstep: fq_codel keeps its original classify shape and
+    the fq_codel backlog guard is placed inline in its enqueue path
+    (3/4) instead. (Toke Høiland-Jørgensen)
+  - 3/4: the fq_codel guard sits between idx-- and
+    codel_set_enqueue_time(), so a dropped packet cannot touch flow
+    state. The commit message is reworded as suggested. (Toke
+    Høiland-Jørgensen)
+  - 4/4: the original skb is consumed unconditionally right after a
+    successful split -- that is the caller's reference, since a fraglist
+    GSO takes the list's own reference on the same skb in
+    skb_segment_list() -- so the reject branch tags every deferred
+    segment and drops the whole list with qdisc_drop_all(), and the
+    admitted path no longer consumes the skb after the walk. (Toke
+    Høiland-Jørgensen)
+
+Changes in v7:
+  - 1/4: complete the fq_codel_classify() comment (Sashiko nipa v6
+    main-2-1, Low). The comment listed only the terminal-action and
+    no-class-ID cases; the function also returns true when no filter
+    matched or when the selected class minor is above q->flows_cnt,
+    and those packets are BYPASS drops, not a fallback to hashing as
+    in cake. Comment-only, no code change; folded into this resend
+    since the series is revised anyway.
+  - 3/4: do not clamp the shared qdisc_pkt_len() (Sashiko nipa v6
+    main-2-6, Medium). The clamp silently undercharged BPF
+    __sk_buff.wire_len, act_police and the HTB/TBF shapers for a valid
+    large GSO estimate. The initializer now stays truthful for every
+    input and the overflow protection is enqueue admission: each
+    affected qdisc drops a packet once the stored backlog cannot
+    represent its accounted length -- the standing QDISC_MAX_BACKLOG
+    ceiling covers ordinary packets, and a per-packet representability
+    check covers the larger wire estimates, which a supported
+    small-MSS BIG TCP aggregate can legitimately carry above 1 MiB
+    while its raw length stays within GSO_MAX_SIZE. The consumers read
+    the real length, and sch_handle_ingress() keeps complete pkt_segs
+    metadata.
+  - 4/4: tag every deferred split-GSO segment with QDISC_DROP_OVERLIMIT
+    (Sashiko nipa v6 gpt-6-astra-2-5, Medium). __skb_gso_segment() stores
+    SKB_GSO_CB at cb offset 32, aliasing tc_skb_cb.drop_reason, and the cb
+    is copied into every segment, so tagging only the head left the rest
+    with GSO scratch as their drop reason.
+  - 4/4: snapshot q->config->flow_mode once with READ_ONCE() and pass it
+    to both hash helpers (Sashiko nipa v6 gpt-6-astra-5-9, Low). The split
+    introduced two loads with the segmentation work between them.
+  - Not folded: the 3/4 intermediate-commit split-GSO limitation (4/4
+    closes it; the pre-series path was already unbounded) and the
+    Fixes:/stable suggestions (intentional net-next target). The gemini
+    v6 TC_ACT_CONSUMED High is the v5 finding already rebutted as
+    unreachable from a qdisc classify switch.
+
+v6  rewrite as a four-patch series per Toke Høiland-Jørgensen's review of
+    v5 (split the classifier refactor, the split-GSO iterator, the
+    overflow guard and the cake hash split; drop the machine-written
+    prose). Considered the Sashiko gemini v5 TC_ACT_CONSUMED report and
+    did not fold it (unreachable; see below). Reworded the cake block
+    comment that had an embedded "/*" (Simon Horman's W=1 warning) and
+    reworded a comment that overstated the classifier's return cases. The
+    TC_ACT_CONSUMED switch case was dropped from the final 0001 because it
+    still reached __qdisc_drop(); no in-tree producer can deliver
+    TC_ACT_CONSUMED to a qdisc classify switch (act_ct returns it only on
+    a clsact/ingress qdisc, act_mirred only for a non-cloning ingress
+    redirect, and cls_bpf/act_bpf remap an unknown verdict to UNSPEC).
+
+v5/v4/v3/v2 history: see the v6 posting. In short, v3 adopted the stored
+    backlog compare qdisc_backlog_at_max() (no double-count of the 1 MiB
+    headroom, no per-enqueue 64-bit add), moved the classifier and the
+    ceiling check ahead of the hash/shaper state, and added pfifo; v4
+    split the hash keys from the set-associative resolution and handled
+    the fraglist-GSO self-link; v2 replaced the rejected u64 widening with
+    the enqueue drop; v1 widened the counters.
+
+Jamal Hadi Salim (4):
+  net/sched: cake: return the classifier result to the caller
+  net/sched: cake: use a dedicated split-GSO list iterator
+  net/sched: cap the accounted backlog before it can wrap
+  net/sched: cake: hash before segmenting and reject an overlong split
+
+ include/net/pkt_sched.h   |   1 -
+ include/net/sch_generic.h |  20 +++++
+ net/sched/sch_cake.c      | 185 ++++++++++++++++++++++++++------------
+ net/sched/sch_cbs.c       |   6 ++
+ net/sched/sch_choke.c     |   6 ++
+ net/sched/sch_codel.c     |  16 ++--
+ net/sched/sch_drr.c       |   6 ++
+ net/sched/sch_dualpi2.c   |   1 +
+ net/sched/sch_etf.c       |   6 ++
+ net/sched/sch_ets.c       |   6 ++
+ net/sched/sch_fifo.c      |   6 ++
+ net/sched/sch_fq.c        |   6 ++
+ net/sched/sch_fq_codel.c  |   9 ++
+ net/sched/sch_fq_pie.c    |   3 +-
+ net/sched/sch_gred.c      |   9 ++
+ net/sched/sch_hfsc.c      |   6 ++
+ net/sched/sch_hhf.c       |  18 +++-
+ net/sched/sch_htb.c       |  14 ++-
+ net/sched/sch_netem.c     |  18 ++++
+ net/sched/sch_pie.c       |   3 +-
+ net/sched/sch_plug.c      |   3 +-
+ net/sched/sch_prio.c      |   6 ++
+ net/sched/sch_qfq.c       |   6 ++
+ net/sched/sch_red.c       |  50 +++++++++--
+ net/sched/sch_sfb.c       |   6 ++
+ net/sched/sch_sfq.c       |   6 ++
+ net/sched/sch_skbprio.c   |  17 +++-
+ net/sched/sch_taprio.c    |  18 +++-
+ net/sched/sch_tbf.c       |   6 ++
+ 29 files changed, 381 insertions(+), 82 deletions(-)
+
+-- 
+2.43.0
+
