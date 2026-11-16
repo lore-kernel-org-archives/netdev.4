@@ -1,113 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794863407;
-	b=X8B8a07PnkaUXkogwh1m28hPToKdGncnQt7rghHLvkR5KJcpsgUiRFKW9jKzdl4ahzED
-	 NQu9qnshcjUUdA1ZbZBgLa8e+EWaRu8k4/7mOH3mmt783fZnRipIIUqZRxpAPmB8yvznU
-	 u3GifjEtP7HId4cD+1YbGQIJaPlHI9ulHwuXPTq8S8GXW0uUi0Kl2I+JwaJd+iWSu7rZk
-	 OhrY1SoR5wlG1n5O+jjjz0EmD7JvbiB1F+phWcgYdVcrxcac+CaTkLHjVc2Jxxbav8t6q
-	 GcHsm6WFG0RaUfZZrr9OCbJPE7YQB2+07MRrwERdzltUDE3nUmvc1ijNGKFQWF3tVtQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794863407;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=JKAZYXMdZqe4nxfssXO4EK9O/cr+JRVGzs2YOMELCDw=;
-	b=CwaoT+Qv8ca+D1UIUgDITAkRcTqBPWPLuUzd4PEqOf9/yAejq4OL0A8ByAsNE/dVDsiN
-	 kDeGt0Cb2uG4UKBkNvoqfFtkv9rFeKgxKnP80o7R634Ihmmat9X6XcDzEcr0cmE+6y5Tx
-	 DAenhdOyRSKFHUvzOe+vLP1iKDql9tmbCsW/OqpsyBwr28mCQvO3fPQzD+jmy4W+IydkC
-	 RlHGRcIIQwL8KsOd1sCiMxE0n3Lj9G1XFMtzdExdWJdmzi7RqSAOlr20HY5o1tBj9vzXl
-	 BlkwT/6IG0BTwC6RQD+X4GJd8Vl3LrMgPwfXWv3aN40WywezPeN+Uhhm3ju4VvAovdQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="NWJp/cfq";
-	arc=none smtp.remote-ip=209.85.216.98
-Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.63
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794863414;
+	b=GwL6mKX3UTA+9hskX590Ydf6pIfP0+kxvdGvM9Xhgj5GYq/stNbAQMxXzEAApmRsP1CT
+	 UaCvqav5GR5ri2fjwbRo10biBjoY5B4F4/IjconB5Cn8ugoz1EezDqUWn892MwAG2SzMC
+	 R5Gw8IzD9khuKtkiJw14+rYRZg9wdrcLpotB7XZAOjxDuFn4LZZEpFfal5vEVSNhy+HeN
+	 AyBbv40vLoTPgcG5kuURwxMtQxWAxnorLR1tzskK0zPFTj0ijoJ3ihIfi73EHYIyNTHdL
+	 5natXKi14/VJd/PuPivHosHiM5cyUSm+FblS5jvm0D6yaaNCdA6ggS/BSJ4i6M1ktlw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794863414;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=hMjspzuh/V/gJxPg7aqbZdVttjTuJX1U4nFnd10UFzA=;
+	b=Y0iXyjdeIasz37SLfEepv9mE5hnyYa/u/QvuiZZwv7zJ5Rebhhgua87JkFEhl/FocIzi
+	 hLMIyyeVm/RUZr0lij4swAusd3is/GB6/yWsw4xMFzel9klyEphv6znRsW5qz/2PwMXcn
+	 k1EsjddYhSOXDs8JHdjNGLYo9KFCrUOYjDeLLq0bEl30wUnsrx2eTF18r+o+LdnFuPIWU
+	 56E2bQrGiNkQbFj8THHx0UUjBoptZ08kEzlSH66nXSvIGznddtldWFbQPjGOzvY/zyKpq
+	 bAx5ceBc3oY9f1BKn0e8MUeAtrZl1pHOVsl413QqmIBU8Y/9qK4EjN5+pKgD4P6xh5w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=BNd5flzY;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.63
+Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013063.outbound.protection.outlook.com [40.107.201.63])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE62F60A262D
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:10:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE62F60A262D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6F7A60A260C;
+	Mon, 16 Nov 2026 21:10:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B6F7A60A260C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=NWJp/cfq
-Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3b09c07b3d2so2487681a91.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:10:06 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794863406; x=1795468206;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JKAZYXMdZqe4nxfssXO4EK9O/cr+JRVGzs2YOMELCDw=;
-        b=FJHJsU4V4coMjJjtaFzD2BFnxnePZj2pQYrX48OFvAGf6mNO1HnX5bUI+j9YjoDv9e
-         welkyE+U4dXfrFZ0FG1aiyHgezSqOYGlquoaLONQqPLVdjL7CBnlRLPYO1gUYmdecQy5
-         6RwDLIw7TASwTuph1fhSMwry+0v7C+brzTOADa56w/ozgYyJT35W6I0IHlnFeIPn0y7u
-         jEJUEk0eKsdxi5NgNBS1WYiqdLNwjHQPZPdDzLoIf2IV/tKKtYoEQrgf4K3GvdYHlDI3
-         ZP8tKUOxOBilizCjQ5c0RD3zCrNASCYEjW+mEwiAGOIdmHI8EfRv3rz1klB8YWvKImZj
-         r3OA==
-X-Gm-Message-State: APuU4Z/YKxOLYZnKpDvhWXdh+KCjIhF9+BqYzLQ0HcGseKTcM5BeqkA5
-	hsb3EVPe6IvOQQ4J7WskgpxOJDouPwmTHG3YVRbGeJyU5d2PVfoSuh5jSnFe9DWzizuu0YGORhh
-	TdpT1Y7olNwZLoXYbejIZdEYpsiwSfn2L0GhO+cfPEwhL+bikZSwuHunEGy2hquOa6QicmeR7z5
-	J0RmM0wsdCOxS12yXyXYk97Nn+AMhEK+UfLd7sYBpP4006tzKAtvqTYVrthUahaONhbCla1U1BJ
-	dcvjMLtuEL3Jamm
-X-Gm-Gg: AZFdTZeTl04AkaO0UpkX4LXBEssmw/rZ0fVYD3iJjtPZLmKGurjPpkkrR2Aj2wmATSi
-	tREfoBgp7jOIM+Ltf872+nbiKehapVzbHiF/8TUTtl92zBa78lkLJQR0TL4tEZV4PxSTV4QTB7y
-	9LQxqZsYlnqGILWn4Qe6x9oiUttvdpVxlNAFM1oUfpb2KkTd819WLsAB441ybmqXzVrADV4Y4qv
-	MJHEeXDOnYQJkM8pPsu8SumPNWNhIUlLQIKYcuFpyl6WEyKNqw5cJsavhbT7JKKZ5Ea24ARwDWi
-	eR/wpVvJU9iZ2o5Kfh2mRYjTwSDxbhzUQGPoexUPLEZ9bRuCh4GlvYHwPXKDiV3tM+lT/LHz/Jd
-	7SPKEiw9E55EgUdt6/6i0r8KUbBo8husQqaScrrsANuEPpkHfLDiQ5Bmi9KC7orKUijI6nbH2pa
-	wFUa+qK7/Kv5CHZ3PXZwJDwSy8iGiRb4wNmgJxMHyx46Q=
-X-Received: by 2002:a17:90b:3d81:b0:3b3:a6b0:8991 with SMTP id 98e67ed59e1d1-3b3a6b08a53mr1380685a91.60.1794863406190;
-        Mon, 16 Nov 2026 13:10:06 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3abb84cacsm408968a91.1.2026.11.16.13.10.05
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Nov 2026 13:10:06 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-920fb8b9859so8867246d6.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:10:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794863405; x=1795468205; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=JKAZYXMdZqe4nxfssXO4EK9O/cr+JRVGzs2YOMELCDw=;
-        b=NWJp/cfqhbhA2oH01EqFEVibXqacDgK7lmVt07WNL75ee0XBd79w2TrGCH1CtD/A9R
-         oJe/VEkuFm7+t+Yns6nLqz+IsbCr1bA6/P9U64klL6d7NgQd3wr9/JYCD+8A2KQw4ZG3
-         B3qPZrcyCKp5HJ1RHZ/wkLSeF+5Lknmcx7pw8=
-X-Received: by 2002:ad4:5e8e:0:b0:912:517b:20df with SMTP id 6a1803df08f44-91f242627a8mr174689156d6.39.1794863404995;
-        Mon, 16 Nov 2026 13:10:04 -0800 (PST)
-X-Received: by 2002:ad4:5e8e:0:b0:912:517b:20df with SMTP id 6a1803df08f44-91f242627a8mr174688376d6.39.1794863404364;
-        Mon, 16 Nov 2026 13:10:04 -0800 (PST)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-920fe17eaaesm3601396d6.33.2026.11.16.13.10.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 13:10:03 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Vivien Didelot <vivien.didelot@gmail.com>,
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH net v6 8/8] net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365
-Date: Mon, 16 Nov 2026 13:09:42 -0800
-Message-ID: <20261116210943.1352656-9-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261116210943.1352656-1-florian.fainelli@broadcom.com>
-References: <20261116210943.1352656-1-florian.fainelli@broadcom.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=BNd5flzY
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eKHfHQE+shBEnOHOhLxzyvXcLQ7gSg+7Mb5ef15Y1VFVuwJa1PnQi1HcGLfKi2FwtEBgX5frUWI07mXGebEK4o4WTmXPZR9ZKiWjN+WRS7UrhzL86PIxI9JqgWQm5KEPhpr+UH25OmnEaYH1wpPL4mmV73tciNEy9TQ6tV2xo1NbTuUcTzF288LEDLvmbzA1VyxLx3daieJhsqHY7W9PqbvblXD+6foN/6yvYJLMq+6pe/L527iidh5x2BtXI35SgMgFQkJubJbAn0Ca15J4KYKdnpHMebu5Yj3m46/LGYBVcxqgKh9XNYl8m/CuLWrSuKMVsr4FYP9ra6dLScWwTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hMjspzuh/V/gJxPg7aqbZdVttjTuJX1U4nFnd10UFzA=;
+ b=fbTQWaIkqYYC0BWb2fwHs+EyJHZ3eXWzEmjLUOXSEWL3pQrtrFeKn0m0Ekyg0mJTsfkFAP6NI7VmxhuU9ULOEX8CnO2uTLFZEe3/8pXLfgbII+47/mE35zvIM/goGga9gIHkmgxDkwND7UZcqZQgxsTjP/3/q/vg8kBLPj66RcCP6M9FaFxWOs23qRjTf6E2mNdqRvVtSvcUhlHiuJsyZUcUxiHEB8zyfltSdNchDv7t+O9UUu4i5Lfd1EhnswmTgZLdANVXKL2HTzxjyE0RhD21plN6nRoC/UU1iC7mLo6hNmonePMAxkg0ou5N5Hx2oafLTbAPif5rrLskzOxcFw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hMjspzuh/V/gJxPg7aqbZdVttjTuJX1U4nFnd10UFzA=;
+ b=BNd5flzYD6U8TO8xdtrrW2gRQuEe9qpJPc1lYy7KRFu96qE2MI3lchWICkR/ENDCqQ2PO7vbCHAKdjA1Hwa25kWRkX0lNKS0ttYjdxWDI9DgSo0M/VGkjtMxizA2Jv5Ltuw0/u24vDQb1MXJTZ8HxvnL9tFZt87q+91M0CRu2t65L8WYPQmOPQ/HClAYVbqCUjQaXPuD8561nTcHqljlS+a0Ka/9E+5QirSo9sKLrtkqe4ExMv33ZynRRrYQ/4whW8VAVJ0igexqRl2H2HKmoUYXPWEnm2SkjXFulZpcFQGcKh/NhQ+nMqZ1akzqSjkTVh/4RpKOPjvkiZNV1MQ5Ww==
+Received: from BLAPR03CA0147.namprd03.prod.outlook.com (2603:10b6:208:32e::32)
+ by PH8PR12MB6770.namprd12.prod.outlook.com (2603:10b6:510:1c5::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
+ 2026 21:10:05 +0000
+Received: from BL2PEPF000352D0.namprd02.prod.outlook.com
+ (2603:10b6:208:32e:cafe::6a) by BLAPR03CA0147.outlook.office365.com
+ (2603:10b6:208:32e::32) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Mon,
+ 16 Nov 2026 21:10:05 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL2PEPF000352D0.mail.protection.outlook.com (10.167.249.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Mon, 16 Nov 2026 21:10:04 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 16 Nov
+ 2026 13:09:33 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 16 Nov
+ 2026 13:09:33 -0800
+Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server id 15.2.2562.56 via Frontend Transport; Mon, 16
+ Nov 2026 13:09:28 -0800
+From: Tariq Toukan <tariqt@nvidia.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+CC: Gal Pressman <gal@nvidia.com>, Leon Romanovsky <leon@kernel.org>, "open
+ list" <linux-kernel@vger.kernel.org>, <linux-rdma@vger.kernel.org>, Mark
+ Bloch <mbloch@nvidia.com>, Moshe Shemesh <moshe@nvidia.com>, Saeed Mahameed
+	<saeedm@nvidia.com>, Shay Drori <shayd@nvidia.com>, Tariq Toukan
+	<tariqt@nvidia.com>, Uri Dar <udar@nvidia.com>
+Subject: [PATCH net-next] net/mlx5: E-Switch, Size FDB peer groups for asymmetric peers
+Date: Mon, 16 Nov 2026 23:09:17 +0200
+Message-ID: <20261116210917.1297111-1-tariqt@nvidia.com>
+X-Mailer: git-send-email 2.44.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -118,153 +118,115 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL2PEPF000352D0:EE_|PH8PR12MB6770:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a0544fa-4f1a-4e13-d87f-08df4425fc66
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|376014|1800799024|82310400026|36860700016|10067099003|56012099006|11063799006|261026140227099003|261028144727099003|261022105027099003|261022075727099003|261021121427099003|261021123027099003|261102123227099003|261009223027099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	xodmWK5ybYj6vWgvfb8xCrKA078vuAnIR4xoRfpbR5IHYTyg04KgDPWt0yVsSdBPVXxjllsTtsdo6jWmYSD2ZX5KpPGalT2CZt8yJ/utmEGxJlj228MpgETLgCqq897BFKXTmfesct8JQdU3d93YXyUExdMtG5gneyy2XJKHKkDaAhXj6Xdqjb6AyXaVonzG9lJtV03fZp1ha9WWeU/eR7SYcLoCnQmu0fE3UzmSFME8yEHXbyN1EpQdNlh1N92lUQd2sG0BhEJT70jebIxATrx6+xrwLVrCjEIyu6TQvNmum8QoZ9BsLXYXb2X8UXrY/BnG5o/0hqOyLYmt37nrNk8rovEgrVbBrPBLi0hPGzwWrDVc4x2lFdRTQBHAlo9FEiZmYsYV8W7Cz/MJ+MO6CcJbTOqF90H4fUSXreW8SK2q3iJN80a4QE0jjU+rP6ZAN3mpYS7sAiw3SU2iIqDJBjH1RprarixVccUZAe53nGVaGDdNRsWT0czYx8kiZDAkdRBpYt+sCBilAaKFP9IYYFich/xupHdPB4N4rzaUB8G8xHsV3WYVtvkzaer1G1LkNvIAcfCOMUeDs69X2SDOazKxzgQYQSwm1s9XiFJ8PNOWeGhZQXGgE0/k9gr8/XiJU8nUVzIjmpaFSckM4kdKoGcMDoa/vyk4MI0eapbkyuCYqcDtsiHLIantpkdzQST6YhXLTJ2jQLWYmLLGDpMszg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(376014)(1800799024)(82310400026)(36860700016)(10067099003)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261022105027099003)(261022075727099003)(261021121427099003)(261021123027099003)(261102123227099003)(261009223027099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	mGOjG+P3JZZxee1Ga2cImVs8/lyD/DRJ3dkb8YZIHh7jp9Z7Bp/j0ChfMAtvfIeshyDFOazzw6rUZzcZWejcXkJgjFuiN2gfAob6eBgHA7LHD0S8BXlu9J5vVbw12RgfNJxpVC3JijqxvwkKDYQl5f73F4oejlNZM2fH+wP+sGTT8A2Z8oE2Fam8oUaKhb9Jn5LWtWCukNkhQ5BJMd7JTNx+PwRFUzpZYOaO1kxWVVnLVtpuHsCnd++O8BIFxqlmZRoQYMgGVZtPgdk/cgxaZe0EkIiAuYwfTn5QQWr03I7SfeIPBZ7mRShNADGnBVnRLC/YfleCPQnG4fKokIWIGIAsUoaKvLisnzi+PQg4FtTOYvYekJpjMT4tQrKuFAJC8XlZS+8sSdCsf/iEfz2gMt5ta4gv1E0ZpRv3/8y0nTGsiJMak1tXpozzp47axRoO
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 21:10:04.7741
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a0544fa-4f1a-4e13-d87f-08df4425fc66
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BL2PEPF000352D0.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR12MB6770
 
-BCM5325 and BCM5365 use an 11-bit bitmap for the mirror capture port,
-whereas newer switches use a four-bit port ID. Programming the port
-number directly can select no destination or the wrong destination, and
-can select multiple destinations. For example, port 2 requires BIT(2),
-but writing 2 selects port 1 instead.
+From: Uri Dar <udar@nvidia.com>
 
-Use the bitmap encoding on BCM5325 and BCM5365, including translating
-logical CPU port 5 to hardware bit 8. Apply the corresponding field mask
-when checking for a conflicting destination, replacing the destination,
-and clearing it after the last mirror source is removed. Keep the port ID
-encoding for newer switches.
+The slow path FDB send-to-vport and peer-miss groups are sized from the
+local eswitch total_vports, assuming every eswitch that may pair has the
+same number of vports. Per-PF VF configuration (e.g. PF_NUM_OF_VF set
+differently per port) breaks that assumption: the larger peer installs
+rules sized by its own total_vports into the smaller peer's groups,
+which cannot hold them, so pairing fails.
 
-The ingress and egress mirror source masks use the same layout on these
-switches, with the CPU port at bit 8 and bits 5-7 reserved, so apply the
-same translation when setting and clearing a source port bit.
+In SW and HW steering the flow table is unbounded (max_fte is INT_MAX)
+and flow groups are backed by dynamically grown matchers, so size the
+peer dependent groups to the architectural vport maximum. FW steering,
+whose table is bounded by log_max_ft_size, keeps the current sizing.
 
-Fixes: ed3af5fd08eb ("net: dsa: b53: Add support for port mirroring")
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+Signed-off-by: Uri Dar <udar@nvidia.com>
+Reviewed-by: Moshe Shemesh <moshe@nvidia.com>
+Reviewed-by: Shay Drori <shayd@nvidia.com>
+Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
 ---
- drivers/net/dsa/b53/b53_common.c | 46 +++++++++++++++++++++++++-------
- drivers/net/dsa/b53/b53_regs.h   |  1 +
- 2 files changed, 38 insertions(+), 9 deletions(-)
+ .../mellanox/mlx5/core/eswitch_offloads.c       | 17 +++++++++++++++--
+ include/linux/mlx5/eswitch.h                    |  2 ++
+ 2 files changed, 17 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-index deb331b3629a..ee2d27732c0c 100644
---- a/drivers/net/dsa/b53/b53_common.c
-+++ b/drivers/net/dsa/b53/b53_common.c
-@@ -2608,6 +2608,31 @@ enum dsa_tag_protocol b53_get_tag_protocol(struct dsa_switch *ds, int port,
- }
- EXPORT_SYMBOL(b53_get_tag_protocol);
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c b/drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c
+index 474784131091..20eca8b89b8f 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c
+@@ -1744,6 +1744,17 @@ esw_chains_destroy(struct mlx5_eswitch *esw, struct mlx5_fs_chains *chains)
  
-+static u16 b53_mirror_capture_port_mask(struct b53_device *dev)
+ #endif
+ 
++/* SW and HW steering tables are unbounded, so they can be sized for any peer.
++ * FW steering is bounded by log_max_ft_size, so it uses local total_vports.
++ */
++static int esw_max_vports(const struct mlx5_eswitch *esw)
 +{
-+	if (is5325(dev) || is5365(dev))
-+		return CAP_PORT_MASK_25;
++	if (esw->dev->priv.steering->mode == MLX5_FLOW_STEERING_MODE_DMFS)
++		return esw->total_vports;
 +
-+	return CAP_PORT_MASK;
++	return MLX5_ESW_MAX_VPORT_ID;
 +}
 +
-+static u16 b53_mirror_port_mask(struct b53_device *dev, int port)
-+{
-+	/* These switches use a bitmap with the CPU port at bit 8. */
-+	if ((is5325(dev) || is5365(dev)) && port == B53_CPU_PORT_25)
-+		port = B53_CPU_PORT;
+ static int
+ esw_create_send_to_vport_group(struct mlx5_eswitch *esw,
+ 			       struct mlx5_flow_table *fdb,
+@@ -1771,7 +1782,9 @@ esw_create_send_to_vport_group(struct mlx5_eswitch *esw,
+ 	}
+ 
+ 	/* See comment at table_size calculation */
+-	count = MLX5_MAX_PORTS * (esw->total_vports * MAX_SQ_NVPORTS + MAX_PF_SQ);
++	count = MLX5_MAX_PORTS *
++		(esw_max_vports(esw) * MAX_SQ_NVPORTS + MAX_PF_SQ);
 +
-+	return BIT(port);
-+}
-+
-+static u16 b53_mirror_capture_port(struct b53_device *dev, int port)
-+{
-+	if (is5325(dev) || is5365(dev))
-+		return b53_mirror_port_mask(dev, port);
-+
-+	return port;
-+}
-+
- int b53_mirror_init(struct dsa_switch *ds)
+ 	MLX5_SET(create_flow_group_in, flow_group_in, start_flow_index, 0);
+ 	MLX5_SET(create_flow_group_in, flow_group_in, end_flow_index, *ix + count - 1);
+ 	*ix += count;
+@@ -1841,7 +1854,7 @@ esw_create_peer_esw_miss_group(struct mlx5_eswitch *esw,
+ 			       u32 *flow_group_in,
+ 			       int *ix)
  {
- 	struct b53_device *dev = ds->priv;
-@@ -2631,15 +2656,15 @@ int b53_mirror_init(struct dsa_switch *ds)
- 	/* DSA retains matchall filters across suspend and resume. */
- 	for (port = 0; port < dev->num_ports; port++) {
- 		if (dev->ports[port].mirror_count[true])
--			ingress |= BIT(port);
-+			ingress |= b53_mirror_port_mask(dev, port);
- 		if (dev->ports[port].mirror_count[false])
--			egress |= BIT(port);
-+			egress |= b53_mirror_port_mask(dev, port);
- 	}
+-	int max_peer_ports = (esw->total_vports - 1) * (MLX5_MAX_PORTS - 1);
++	int max_peer_ports = (esw_max_vports(esw) - 1) * (MLX5_MAX_PORTS - 1);
+ 	int inlen = MLX5_ST_SZ_BYTES(create_flow_group_in);
+ 	struct mlx5_flow_group *g;
+ 	void *match_criteria;
+diff --git a/include/linux/mlx5/eswitch.h b/include/linux/mlx5/eswitch.h
+index 03d3620141c8..cfc52d0697e4 100644
+--- a/include/linux/mlx5/eswitch.h
++++ b/include/linux/mlx5/eswitch.h
+@@ -103,6 +103,8 @@ bool mlx5_eswitch_vport_match_metadata_enabled(const struct mlx5_eswitch *esw);
+ #define ESW_REG_C0_USER_DATA_METADATA_BITS (32 - ESW_SOURCE_PORT_METADATA_BITS)
+ #define ESW_REG_C0_USER_DATA_METADATA_MASK GENMASK(ESW_REG_C0_USER_DATA_METADATA_BITS - 1, 0)
  
- 	if (!(ingress | egress))
- 		return 0;
- 
--	cap_ctl = MIRROR_EN | dev->mirror_port;
-+	cap_ctl = MIRROR_EN | b53_mirror_capture_port(dev, dev->mirror_port);
- 	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
- 	if (ret)
- 		return ret;
-@@ -2659,6 +2684,8 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
- 	struct b53_device *dev = ds->priv;
- 	unsigned int *mirror_count = &dev->ports[port].mirror_count[ingress];
- 	u16 reg, other_reg, loc, other_loc, cap_ctl;
-+	u16 cap_mask = b53_mirror_capture_port_mask(dev);
-+	u16 cap_port = b53_mirror_capture_port(dev, mirror->to_local_port);
- 	int ret;
- 
- 	loc = ingress ? B53_IG_MIR_CTL : B53_EG_MIR_CTL;
-@@ -2677,7 +2704,7 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
- 		return ret;
- 
- 	if (((reg | other_reg) & MIRROR_MASK) &&
--	    (cap_ctl & CAP_PORT_MASK) != mirror->to_local_port) {
-+	    (cap_ctl & cap_mask) != cap_port) {
- 		NL_SET_ERR_MSG_MOD(extack,
- 				   "Only one mirroring destination is supported");
- 		return -EOPNOTSUPP;
-@@ -2689,14 +2716,15 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
- 	}
- 
- 	/* Select the destination before enabling the new source. */
--	cap_ctl &= ~CAP_PORT_MASK;
--	cap_ctl |= mirror->to_local_port;
-+	cap_ctl &= ~cap_mask;
-+	cap_ctl |= cap_port;
- 	cap_ctl |= MIRROR_EN;
- 	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, cap_ctl);
- 	if (ret)
- 		return ret;
- 
--	ret = b53_write16(dev, B53_MGMT_PAGE, loc, reg | BIT(port));
-+	ret = b53_write16(dev, B53_MGMT_PAGE, loc,
-+			  reg | b53_mirror_port_mask(dev, port));
- 	if (ret)
- 		return ret;
- 
-@@ -2730,7 +2758,7 @@ void b53_mirror_del(struct dsa_switch *ds, int port,
- 	if (ret)
- 		goto err;
- 
--	reg &= ~BIT(port);
-+	reg &= ~b53_mirror_port_mask(dev, port);
- 	ret = b53_write16(dev, B53_MGMT_PAGE, loc, reg);
- 	if (ret)
- 		goto err;
-@@ -2749,7 +2777,7 @@ void b53_mirror_del(struct dsa_switch *ds, int port,
- 	if (ret)
- 		goto err;
- 
--	reg &= ~(MIRROR_EN | CAP_PORT_MASK);
-+	reg &= ~(MIRROR_EN | b53_mirror_capture_port_mask(dev));
- 	ret = b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, reg);
- 	if (ret)
- 		goto err;
-diff --git a/drivers/net/dsa/b53/b53_regs.h b/drivers/net/dsa/b53/b53_regs.h
-index cfdb5ed38326..ee049927a63a 100644
---- a/drivers/net/dsa/b53/b53_regs.h
-+++ b/drivers/net/dsa/b53/b53_regs.h
-@@ -239,6 +239,7 @@
- /* Mirror capture control register (16 bit) */
- #define B53_MIR_CAP_CTL			0x10
- #define  CAP_PORT_MASK			0xf
-+#define  CAP_PORT_MASK_25		0x7ff
- #define  BLK_NOT_MIR			BIT(14)
- #define  MIRROR_EN			BIT(15)
- 
++#define MLX5_ESW_MAX_VPORT_ID ((1 << ESW_VPORT_BITS) - 1)
++
+ static inline u32 mlx5_eswitch_get_vport_metadata_mask(void)
+ {
+ 	return GENMASK(31, 32 - ESW_SOURCE_PORT_METADATA_BITS);
+
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
 -- 
-2.53.0
+2.44.0
 
