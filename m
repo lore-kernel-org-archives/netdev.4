@@ -1,59 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.245.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794869195;
-	b=jQja6/sFmfijt/H+0TDEl01Uij0NdaDdVhMpLYc0/gYFy6QjQfSUBmLfo/A8wpoXk+1d
-	 0IxfYKdcyVf1NLAMplGtxe1bp4c3cOaJmuu01gApN8kiH7Xn8V0lMlq8GuJvhoBi5CtJr
-	 Qcb++tFmN+eIo/mdHZD45xtlTxb+BF9VkFM/1JI/aIQs9OM00pSCzKPJiG+ZS5mqPNfLK
-	 RCgEpK6jWuZ0q+5zZpcdF5aoWgkxPOYy7PKcAQZE0GkhuLm9H1/lkGbo0a5MN4VJJ2pZ6
-	 +OMkHvf1PX5Zhjru/lFX0n1lEYrWFrC4rUo7zfmU4CUJ3Jy0oSA+oQZRu3VbSNyUGsw==
+	t=1794869470;
+	b=XoL0tdVTfJiRLvS+H4uMMiz58YASE2+UsM5UQsny4mDoAucCWFAMNPa67ggNABczsClF
+	 IcpLf1d9a/s7bWBPiD2yNVi/WPwXGON5c1zKpgZlUOthvWMcZPFIvpT5U2yAQwUBt2gaR
+	 CNUXKImTN2oEhne9+lEZBYBZgihsBCvnMK5mVqqJxt3gPRxM4KLa3ptdkQ2Za/j1I93fW
+	 4R8+WC4z9qC1l//GmwcFaAEnO7u0bjde68QLYvMjkXCNKPw8t6cBEskJYOzVVsSDzRSOb
+	 9d7AEcz+wKNrOf8uXB9fqqkQjcsRrfdS9au60KEqJdfy+PrOM7tRnBoTHVN7XYI53wA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794869195;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=jqSwoAjsDQRdlLqv7HFSYNZ2dAycXMwZNoLGHbmfdsw=;
-	b=J+q6xif0AUu8Hdp8v/aeeVOUlX0gpa/Uf4R+bYKkrToZsWVPZ42kDogxcq3Al1AbkmQd
-	 ot1xfd1uErOOpEEKNxOijFATw016MKYogTTAaFReGXM4yhntgEn80Ijo42pmIUDxnQ7D2
-	 vjUoaFZGn9QPyGCOeLdK/guvaJ+T0q75peY6nY+8hmMTeVTQ0f02UdSiWM8v2rp0Ocf4n
-	 qT+vplNQitk5saVuRMIzriqBnSkbzL9CBOmWqoH49G0REdn2sHnwFQRtR3s1aGXVEp0RW
-	 ZITjNsFGMp/jxnct4bNojQsYi1O0wddRh9+gXuQbr1LT2Ca1dOBaSbxdRtRnnAHZ8rg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794869470;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=gtrw+EgZcRSbN30WJyks6j6TXVq1qXwqTVCSudZgUTE=;
+	b=5R3+EORFyTkBYXTjCEhp/GdFmJm2XChCqFWd3lfsQOAH/yUpahkoX/ZIHdDOJr2IKX8z
+	 E+69ccF+7CXVuOM8WwA+80AKlgzZ3fn2Gp3BNqRCds3+7b8p4Zy0xUp12TCXggO5XVsaP
+	 JQQXcCLHl+QeiIiDLgz7rppKjna1WcGsNKdoCA9v5MIqjE5vBFUOCm9mLTxZnnDiKGDzB
+	 mdPVffosbB2MqPBH2ddaW1cpihV/so3nfWg5i14uVN0DfkK+rKsUmrRwww3Xv8SA+g3nl
+	 0O5CNDDzKdxkUPQn0Rtne13hdNdf67eLUeUZ9NXsZ8PmazYwK8KUq5SM4LyB+uU0SJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=strlen.de;
-	spf=pass smtp.mailfrom=strlen.de;
-	arc=none smtp.remote-ip=91.216.245.30
-Received: from Chamillionaire.breakpoint.cc (Chamillionaire.breakpoint.cc [91.216.245.30])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="njFmb/sl";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82B8A606A323;
-	Mon, 16 Nov 2026 22:46:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82B8A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=strlen.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=strlen.de
-Received: by Chamillionaire.breakpoint.cc (Postfix, from userid 1003)
-	id 6663260D56; Mon, 16 Nov 2026 23:46:32 +0100 (CET)
-Date: Mon, 16 Nov 2026 23:46:29 +0100
-From: Florian Westphal <fw@strlen.de>
-To: alireza@asgari.net
-Cc: netfilter-devel@vger.kernel.org, linux-mm@kvack.org,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Michal Hocko <mhocko@kernel.org>,
-	Roman Gushchin <roman.gushchin@linux.dev>,
-	Shakeel Butt <shakeel.butt@linux.dev>,
-	Muchun Song <muchun.song@linux.dev>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Pablo Neira Ayuso <pablo@netfilter.org>, Phil Sutter <phil@nwl.cc>,
-	Shuah Khan <shuah@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Vladimir Davydov <vdavydov.dev@gmail.com>,
-	Chris Down <chris@chrisdown.name>,
-	Zhang Jiao <zhangjiao2@cmss.chinamobile.com>,
-	Song Hu <husong@kylinos.cn>, cgroups@vger.kernel.org,
-	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH RFC nf-next 6/9] netfilter: nfqueue: account saved skb
- bytes per queue
-Message-ID: <avuHxb9In-dIYj_G@strlen.de>
-References: <20261115-b4-nfqueue-memory-accounting-v1-0-b9cc30819997@asgari.net>
- <20261115-b4-nfqueue-memory-accounting-v1-6-b9cc30819997@asgari.net>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78DE0606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:51:10 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=njFmb/sl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80EB11F000C4;
+	Mon, 16 Nov 2026 22:51:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794869470;
+	bh=gtrw+EgZcRSbN30WJyks6j6TXVq1qXwqTVCSudZgUTE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=njFmb/sl/aXGVNNGYlbVNAZ/YOBJCXX8kYOpwvgbZzWNahSVyMZfMQhyfQcZH/+jP
+	 0mpKg1/X0GyXCBXVl/q93VgKOESsN/YB/079F0qIfVWsoqz7N7OitR5yb+CztKOeOa
+	 mVWDnwhLDc4i9Zy3Rrke3gb8TmwcfSxU77utG45A6aAzD0FP7qpRrg07ob3V6t6G1J
+	 Zls59RiQ56k2mRNAQ9OAlXF5PcbfNHCRM07JjNmBgQRSyh6S+M44l1RtqB/gvc6J5m
+	 2aWuP4fq1bS153psjj/nBy6gDQz2wfumi0KCym+9FN8UkQcJowMfu32iLDmPRBNhv3
+	 GwLxrHHQUoFTw==
+Date: Mon, 16 Nov 2026 14:51:08 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>, Alexander Duyck
+ <alexanderduyck@fb.com>, kernel-team@meta.com, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Shuah Khan <shuah@kernel.org>, Mohsin Bashir
+ <hmohsin@meta.com>, "Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, Bobby Eshleman
+ <bobbyeshleman@meta.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Breno Leitao <leitao@debian.org>, Simon Horman
+ <horms@kernel.org>, Mina Almasry <almasrymina@google.com>, Vadim Fedorenko
+ <vadim.fedorenko@linux.dev>, Dimitri Daskalakis <daskald@meta.com>,
+ netdev@vger.kernel.org
+Subject: Re: [PATCH net 4/4] selftests: drv-net: stats: query timestamping
+ stats while down
+Message-ID: <20261116145108.23f991c8@kernel.org>
+In-Reply-To: <20261116202957.3601684-5-dimitri.daskalakis1@gmail.com>
+References: <20261116202957.3601684-1-dimitri.daskalakis1@gmail.com>
+	<20261116202957.3601684-5-dimitri.daskalakis1@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,48 +69,13 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261115-b4-nfqueue-memory-accounting-v1-6-b9cc30819997@asgari.net>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Alireza Asgari via B4 Relay <devnull+alireza.asgari.net@kernel.org> wrote:
-> --- a/net/netfilter/nfnetlink_queue.c
-> +++ b/net/netfilter/nfnetlink_queue.c
-> @@ -92,6 +92,8 @@ struct nfqnl_instance {
->  	unsigned int	queue_total;
->  	unsigned int	id_sequence;		/* 'sequence' of pkt ids */
->  	struct list_head queue_list;		/* packets in queue */
-> +	u64 mem_limit;
-> +	u64 mem_used;
+On Mon, 16 Nov 2026 12:29:57 -0800 Dimitri Daskalakis wrote:
+> +def check_down_ts_stats(cfg) -> None:
 
-I think u32 is fine for those.  Or do you see a use case for 2**32 mbyte
-worth of queued packets?
-
-> +/* All release paths use the saved admission cost, including notification undo. */
-> +static void nfqnl_mem_uncharge(struct nfqnl_instance *queue,
-> +			       struct nf_queue_entry *entry)
-> +{
-> +	lockdep_assert_held(&queue->lock);
-> +	queue->mem_used -= entry->truesize;
-> +	entry->truesize = 0;
-> +}
-> +
->  static struct nfqnl_instance *
->  instance_create(struct nfnl_queue_net *q, u_int16_t queue_num, u32 portid)
->  {
-> @@ -152,6 +176,7 @@ instance_create(struct nfnl_queue_net *q, u_int16_t queue_num, u32 portid)
->  	inst->queue_num = queue_num;
->  	inst->peer_portid = portid;
->  	inst->queue_maxlen = NFQNL_QMAX_DEFAULT;
-> +	inst->mem_limit = nfqnl_mem_limit(NFQNL_QMAX_DEFAULT);
->  	inst->copy_range = NFQNL_MAX_COPY_RANGE;
->  	inst->copy_mode = NFQNL_COPY_NONE;
->  	spin_lock_init(&inst->lock);
-> @@ -199,6 +224,7 @@ static void instance_destroy_work(struct work_struct *work)
->  	rcu_read_lock();
->  	nfqnl_flush(inst, NULL, 0);
->  	rcu_read_unlock();
-> +	WARN_ON_ONCE(inst->mem_used);
-
-I'd suggest DEBUG_NET_WARN_ONCE() here, unless you have a strong
-preference/reason for a full splat here.
+This is skipping on netdevsim, you need to add a fake callback 
+to netdevsim as well. drivers/net tests can't skip on netdevsim
+-- 
+pw-bot: cr
