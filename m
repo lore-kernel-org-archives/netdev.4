@@ -1,110 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.23
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.41
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794858792;
-	b=Fv19kK8Y0MG2oFBQvcqiZZlCp2cIqBxh/TzSGpM01hOAVNAsdLPO7I637o/Av4xf9SyZ
-	 fwLfWhdzn3y/RF0a6Ia9pBlJniK87yyW8Ek4PMkfRh7H8+8BnsXArYhzygmokmYYEmqoB
-	 utXl6zyLSS5qRlgiAxxSIxdlwkq9a+BDZiSVoectiZr/aSwOUPjk0tx0V7RvzJAEvEuDo
-	 KarSWemHYWVbNklqZSG+YdQmBVTM+QSoKC8WBM16JpoSzhpays4lm75y4EMgyKceyEdr/
-	 S7ZEdityIbDD/kR4fQgBzSW9PcUZ/BIu+4h4hQkR5w5+FwEQzb9qM0tzbdVNtcV8ggQ==
+	t=1794859450;
+	b=QnGbu49FODB1Itk17WGrg6rXAYi7KpcNK7rUIaU/l6olhOxOnhBLfzWQ0J9KBZh0s1G8
+	 INzDNNCubCUM1T0ITOk8kJf2NVO9WXF44xnTU2tAn2DSIXEM8tGVIZA7k1Tt+BNXxe+SB
+	 NGfShNVVcbpaVfSQvMzxakBN2w/l8I2gQVeYmXfKwfxhGJmmYry1mdkHB3PpqDgYI5U9S
+	 Cyrq1ExzqJNYT8QMRBrtc0/guQF2hDTqCR+ZDZfUcatY3LDRxSwZR/iCl8bfh+ZqVpG3v
+	 zAELM8qDvXqfxfDeopeJ63nXkZj9qXpF9/h/WiTvxX1k4a17rdMwcpY3cr9i66L2oEw==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794858792;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=mQ/09x4uq9jU1vzfAj5TzUhFLr0s3VBByYeEdcOjjRo=;
-	b=CLDbPUlvJaRiIk8JtOcS79L0B5eVjMo2g8e10aNlaj2X9S45keIENKM+abYGH1asDa0H
-	 /6lF8rLEg3d1UkIDDmtmJV/jCIOhJeFymQNIVHEF5BbCttJXWFVZHtz1emAgLdtcuOoD0
-	 R8pKOe10KlEvt40oGr9Ouf1ZbRuEKJlL12U1bpQs807coZsiK+3mz4d/tf7h/K1/kq8Ht
-	 u7vTNLbRL1nnQgBjFN1ssPe2bsD1cj2kx6i/dTcFaYEHxmfvGuz6sY7O1OswxTqqb41jE
-	 6p8FGMUc0HEA8EBCX2DIba9f9mz9Ok8Hb0H34P2GbypsNtc6sG0wzgPKu/oVwTePcyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794859450;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=FEtpE65JhLGyAYaL/FOW2ebUIws2WwBZ/4Zy8VNXUuw=;
+	b=XYb/choDsQyvm9eMCoz0MPHSoXaIpP9QPg00IYgs0NZ5Am9U0/s8TWsN/xtpKTSf/lut
+	 DnnlLFc1iJyMxiFoYFr6QZv53cX0GhVtiDDi9045ARbIACDW1acxXPEwe3hPTnHoA1doY
+	 4IVq5ZcMhwPXxAT4fji/6O1JX744Hyl7E/fKngo86oef9yqHTW36sZ25EQXTTzS9Ag5rq
+	 bdZey8WQOjKi/27kEpodhBtZUuUOby5z03Xap/JBizOzJgYr54Oq0LUfE+IaIghBlb5gC
+	 n/ViXQtWv6l3lWV+HhXKZ16f6UiDHXTmsx8IPnFMsJDqOiu2tzK6U6y0oAuB9ICApoA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CHasZVEI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.23
-Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010023.outbound.protection.outlook.com [52.101.85.23])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hnqDx80H;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE951606A31C;
-	Mon, 16 Nov 2026 19:53:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE951606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 32F1E606A332
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 20:04:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32F1E606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=CHasZVEI
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BUEF2ZYxlJ/475yJY9rfchZowFH+dUyqA+XwPomFOk8QK3jLpYHqoGPL2Z1pvp1/wWPg4kWV4gST1uU5WRw+APUMFYHL5ZaLyWttKRHJ7rP1rEAD2Fvb1qW+aW//9k7W5QPsWPfu7RhG7Blx3TZgPy6PP2Z4+8xBocIYet9vUn68W/CMp25xhGtgVyzg+8AZ9I2iRT7Lyd67toeuJ031dFwP5rIFirPMovlJj83vbcRTFAZ+DfL09Ykvv8J1t4vCvrqaPtuCPGX5xFiqGwlTiGYxW3jGUarqHkUSscavoe7+ZNMJMv897f45gMEybxDu/NH2l9y6hoMnqbZvSFbOvA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mQ/09x4uq9jU1vzfAj5TzUhFLr0s3VBByYeEdcOjjRo=;
- b=PNitRy54CuEymbQYqyx5Xo9W5bNJ73VB5ZbRyFLkXIplGXuD7k9er16I5lINM7E/qpX+EtE4vFxWV33DQkblCZPt0Z/cmWNSWe84DLrvNaU88h8hLA3Scr4Iq90HShJxXoTcUP6o8/SeNkvVWtm35t7OolX04DjslggJyQw3oYJAza0JPhAOEGTqEqhmLQUM0weJ8TqgdUxx5qE0v98gz7TRF1Ew2MTEVquBkYQQSti6L1WIQZ5TKJDywiQadG0vGOGg8zlOIYBzXcEmgOz+v4cIfvroboPKWWIXsDo+cYL/XuNUzRuuRmcC8n8UeeS7PcUu5GkdKKIbn3fk5yrhpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mQ/09x4uq9jU1vzfAj5TzUhFLr0s3VBByYeEdcOjjRo=;
- b=CHasZVEILKVZOsH8hvTL7TOHYOwQ5lO3fuK/Mxemt8B3liZth9slgkqxJM9gvaR5gS+YVDlEVx0p3+qdhyLaRCjzIpq4t5VQNPu6tQyl0xJnjIdbippNYHsXLutNX5dvYDCzA34HEpPYfSZcVx+1H/y4SeuQoCBJz691+xNCkop8GF5FEnxPUlUT2jz+RxwCbPIkPqrwlCFu6WLSStrG200PexLvAJSQ/Ll/K8WNaMEO+SRDk34VxYF2a1g/g7NhStJVJ85iyrymNoDqJZEp2v72bXBxZuF6i5+Athz7/X08ucgxw6SIjZrmrf5DbkZmZkdFsRnc6UVPTu0NBmpTNw==
-Received: from DS7PR05CA0101.namprd05.prod.outlook.com (2603:10b6:8:56::21) by
- IA1PR12MB8261.namprd12.prod.outlook.com (2603:10b6:208:3f7::7) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.10; Mon, 16 Nov 2026 19:53:02 +0000
-Received: from BN3PEPF00022BC2.namprd05.prod.outlook.com
- (2603:10b6:8:56:cafe::4d) by DS7PR05CA0101.outlook.office365.com
- (2603:10b6:8:56::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.4 via Frontend Transport; Mon, 16
- Nov 2026 19:53:02 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BN3PEPF00022BC2.mail.protection.outlook.com (10.167.248.213) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Mon, 16 Nov 2026 19:53:01 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Mon, 16 Nov
- 2026 11:52:31 -0800
-Received: from nps-server-23.mtl.nbulabs.nvidia.com (10.126.231.37) by
- rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 16 Nov 2026 11:52:26 -0800
-From: Shay Drory <shayd@nvidia.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: Shay Drory <shayd@nvidia.com>, <tariqt@nvidia.com>,
-	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <netdev@vger.kernel.org>, <pabeni@redhat.com>,
-	<gal@nvidia.com>, <leon@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-rdma@vger.kernel.org>, <mbloch@nvidia.com>, <markzhang@nvidia.com>,
-	<moshe@nvidia.com>, <saeedm@nvidia.com>
-Subject: Re: [PATCH net V2] net/mlx5e: rep, Fix races between devcom PAIR event and uplink close
-Date: Mon, 16 Nov 2026 21:52:18 +0200
-Message-ID: <20261116195218.1120811-1-shayd@nvidia.com>
-X-Mailer: git-send-email 2.38.1
-In-Reply-To: <179485349648.3136.17669005426251956349@kernel.org>
-References: <20261112182403.3646298-1-tariqt@nvidia.com> <179485349648.3136.17669005426251956349@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hnqDx80H
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-48e47347279so1838155f8f.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:04:09 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794859448; cv=none;
+        d=google.com; s=arc-20260327;
+        b=G7UgZaAQAvlhXADBToMHDPD67HHyl83QbU4nwBoBv3GZN9qZQ15H2pK88EyRWLHYMs
+         RN1vLz+JrWgW3gcyvatY5DhDSjOcADGBII7zOWjt1Pvutx4qaUhXg8SJesK+nu0i8DkV
+         3Bs+3jAqvMz+w5lX9CvudsFzqqiIFw14UtNZuse8yOetaZR5vTnoF511MnH3kJLAsu8n
+         VQkbazEDS+kbPDJgqhBmPz5QLEvKdsrxHwmEGgZSlMvcSCw6ixxnRVWojGXaqBQ4Xxdc
+         s2CzDtpTUrrEvikprb+JOpq91KuFVffUkw1KI6/1Tx6FoklNIRB1E6xVaRJ9CJmYrDCv
+         S9jg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=FEtpE65JhLGyAYaL/FOW2ebUIws2WwBZ/4Zy8VNXUuw=;
+        fh=PqMm0nFvfMTPZGVz3PJpRVpNFzbkRsBDn5RFukkW1YI=;
+        b=GQlZdSTnSUNFNNrMfjnC/y6KZ2X74ibE19NDNtymimpa+qnZT+f50YPp3kBzLbpV0J
+         qNoIxyd+I62fr0/3OnbtTprJYeQAGxw1GA3CbtzCxL4+HuBq3n7AeUj2cERlfhdLqBqu
+         lYw5L44WWk0D0jTcirf1FXs2xBeumMEN/TKyXblNnMIFuhq33i/2QxQAH99mbf7a/CQS
+         rCwr2kfOwH5xEjVfDUHuQYZl3ZTBZeQ7A76i+9e0+LHKQ3Lz8XeyVkPxkw2bf81JqBfV
+         tBWJiIZNNRV9BWcZ6Tgpv8CR9y/rEVKoA4mk4cWgT6WfXv4806Z3aqlmNeoI8r308YXz
+         dr/A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794859448; x=1795464248; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=FEtpE65JhLGyAYaL/FOW2ebUIws2WwBZ/4Zy8VNXUuw=;
+        b=hnqDx80H1BHGMZ+jCw863LQE2wm4hG6wTw//ziQNWkZpZIjdyNNCtFJNcbykSvuJWZ
+         RrqgQGru9l+9Rlw9NCoAO7RXSeH6CHzRwb+h6TsbT77V+vTLtC7o5AslWzWJ8+7yhciq
+         sbJxN7Yoz6y6VYO91QUyEDVlXVHt5e/uzOZriYhKEljZIduQH6pNfhdOY5sHlJFueOxf
+         bN/uTLfuNBjnHaTZ+WukZQS/Wa30tWyiKsfqEPmOKtkcPCgN1gGIeLsa9pfco/3ZvP3P
+         koo3Bb9/+esUnHdHS2hTd5qtXE/k/xctadMJUuU/zchcL0VDKvTRNofZgdIQ6mLOou9W
+         X5rA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794859448; x=1795464248;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=FEtpE65JhLGyAYaL/FOW2ebUIws2WwBZ/4Zy8VNXUuw=;
+        b=oOsQe6FcrP2T9MU/gO2rggwzede8SPUg5ODW1JpmbNAAOiDaUMyh1FU7ebwFGrRA7W
+         QLV4WXuUcYXwic2k/HDLhay0lwbvnmx/BKh9NAQwGcw9/7m/7fpeVjAJliF1YU0mC4Bk
+         EDxRBDLbi2vf6JLisLbTIYV+T1vRTgrA4Qnmbb+X7OLRN5ypV2a7+T6MhvBKgI1RG6Yn
+         uwUmTOLLZ1jnDpEpbXXKfU+lwKT5Dq2mfJRhQdBfeNEyxwoVfiyCtNwgdxkFuRr1USdj
+         DOp9Nflvux5rZbUiQ5yfInWtpS+wDvH+OIRfuiGa9VRlcK4+A9aDQf3nuQzyC6u4pJBP
+         914w==
+X-Forwarded-Encrypted: i=1; AL+hErFCtAghtfM0pNvporU/9go2zWpXdZ6iZHmP9N8b+X3y/9luaGkqEU3GDReHYmdsukC1M5BCa80=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/vFmUc2RKXket4HX3WBrWO+/k0705diiSamgmBmsEwoIwu1LSd
+	JtK/i1TKxaqz7yfAS30DBv+WZmwMH2EGD8EKi/FjyIKzGkLC62A3421vrliNVk/BiRql+XnN+0x
+	le2PFSdTwSSivGdcxsFKvZ8bqWoThn34=
+X-Gm-Gg: AZFdTZft6PiDroA9pgmzA0fH796Msh2Q3XQydE+kPef/u0F0TSc0vyRvwLNKGyZh82L
+	qtBJ2doeqKaeyg+yDRGL/8s+HQUNeCZ4fPBj0hy0GWXl16MiFiVNGVI441exIQ3orXtQdFFx4HI
+	DUDL6BAvAr0XmSJptF6IVjGzoYZSAQHFeXqepwX+HeyJM3M92+OPMHox2WJbsPWID+eNKgAtGnF
+	ZaS3umNYh9AQyQSsKKkZ5X3btMKMqrbgyLpEmczZKW0rqQaK+XiEIVMzWK+Wb49gzAJ5iPBmrWW
+	HMFZN4qGLQnqMGE67sHRBV1gTWbJFUhfzD5E76sZWNVPxCXOOLiuZLcfvqPb/SX7aGXmfbkoG7Q
+	u43qaW9/pNBTLE6HSZgR/J8+NE9CAkE/kwkn8ytu13ejjn+hGpNnhy9kHl27TgdgKQ+ZMgxc6Ow
+	EXCX3Lu4wG7xhCyYOkl54=
+X-Received: by 2002:a05:6000:4692:b0:491:3fdd:af34 with SMTP id
+ ffacd0b85a97d-49d61c80db3mr13343868f8f.36.1794859448335; Mon, 16 Nov 2026
+ 12:04:08 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,172 +105,81 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org> <20261116-work-loop-pseudo-v3-9-8cbbea1cf34f@kernel.org>
+In-Reply-To: <20261116-work-loop-pseudo-v3-9-8cbbea1cf34f@kernel.org>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Mon, 16 Nov 2026 12:03:57 -0800
+X-Gm-Features: Aa3M54q6P4M0RFDCKQ8HHGNCWJafItTSPdWR1qNwVGtToDAv2VOv8vDfWHzYR6A
+Message-ID: <CAEf4BzbLFVawibuX0wk=8uzy0WZSYHbkgK55d7rqLab2qAM1Fg@mail.gmail.com>
+Subject: Re: [PATCH RFC v3 09/44] bpf: use fc_init_pseudo() for bpffs
+To: Christian Brauner <brauner@kernel.org>
+Cc: linux-fsdevel@vger.kernel.org, Jann Horn <jannh@google.com>, 
+	Chris Mason <mason@kernel.org>, Josef Bacik <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org, target-devel@vger.kernel.org, 
+	driver-core@lists.linux.dev, linux-mm@kvack.org, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org, netdev@vger.kernel.org, 
+	fuse-devel@lists.linux.dev, linux-efi@vger.kernel.org, 
+	xen-devel@lists.xenproject.org, ocfs2-devel@lists.linux.dev, 
+	linux-s390@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	linux-usb@vger.kernel.org, Amir Goldstein <amir73il@gmail.com>, 
+	linux-erofs@lists.ozlabs.org, linux-kselftest@vger.kernel.org, 
+	Alexander Mikhalitsyn <alex@amutable.com>, Chris Down <chris@chrisdown.name>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN3PEPF00022BC2:EE_|IA1PR12MB8261:EE_
-X-MS-Office365-Filtering-Correlation-Id: 25b27f35-12b7-4c5e-df93-08df441b38f3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|82310400026|36860700016|23010399003|376014|7416014|1800799024|22082099003|18002099003|261009223027099003|5023799004|11063799006|56012099006|10067099003|4143699003|261021123027099003|261026121527099003|261026140227099003|261028144727099003|261021121427099003|261022105027099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	4R3mGvZrsTqyoSSCZrHwEmfADOJW2AEe6Lnvl0Z9i2maBoO1GWb5CFPvCnlW8iN99ZbmBxxzUC8aW1GEudqd4O1YywCG5C9st0ZCn2J6ccFoLH5F0TxVObqtwLmHs/JJvX7p8MD9etdfGP45vuVSvw19wYApJKUG3LFeQRwRZ3gDuATApScJKy2X4MMz7px3lZDn4opjwTaqUDAGQOuTmDyklwqFzVDAgWdu9WWlEHTOHFJBzo3k1oImUUfBMSf1uUmIEIENys5796YxuftN3DKD35CCIFZiiIPc4UPjMRcmHJ6XIW7Fi7EgE6Lbj/yZwPsN5yY/Xk0C7KZ0GYiPemJ3I4nvnnzqOL4N6wDc+qhjW5L6mft5MhUviOZgRUhLSwmw/flyxK1Ft81gKVkRXLGQHff4bUv7ltQNVrxgsmXIM0sDlyTD46+WQ2OVW8h+IUTUVLXTOF9NiwLj7rjZDemzMYFRjf5uxe5L6rjbkh+0dSx7KojtlhJEJUKzjhCF/YA4yKKlX6kzZ4wIeTC3Of8cnbeu1+HvPfjdagbZvZLKnowuytJQLWBoktvIXBWA9Ez3Wm39qKXv7zemBlwIOrZTxHbpxQiv22SjznpK+0SwzYOU50N87G7P45mcnqcPpFky1fNJIYpbLnwW7yYEy0+ens+E7osXMBXji7lLMrWvsKYgIhldWiYEVNB6LhYYG8ySWJ1ESw05YQuYaVAndA==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(36860700016)(23010399003)(376014)(7416014)(1800799024)(22082099003)(18002099003)(261009223027099003)(5023799004)(11063799006)(56012099006)(10067099003)(4143699003)(261021123027099003)(261026121527099003)(261026140227099003)(261028144727099003)(261021121427099003)(261022105027099003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	AVkbOWeqa8GySnNwa49vCntAQfmCQVWCbBL6qDLgLw1LxdIdF1S5pzLWpjg8lOIICuPGdmUimSGXgvLIee5wD3ikQZ6d/pS9Yh/cRwXsYwHXXMxuyiaokglWJql50NctYwwEJ97Z/rGwfzZ05gWBxY+6BzJobJJLpEqoCjqjlw+sRkICvgV1OZT8B/P8b9YpPkU0VJ3RMeos/voziDu1fIYQJFWvQ0c6pv37TG3AyC6BBArqqofobTcxNox5syrLLcdBEo7FHSd9LZDwUrK+8EcdODWQQM9iWYc3zPiqQQdidrwf11S3f6uHdICx2fTd9xeGbcIFCChOE1wXHaf0J/J6PcwRxeVnkJL7dRG1KW4qx7cxjwXIGQ3qdT1jd1e/jAsKHx8f/TrOpFHWadqN+JnP8+fvzYuUrhwKha0CdNB/sfqahbMtyYeBf7tyLJyP
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 19:53:01.8547
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 25b27f35-12b7-4c5e-df93-08df441b38f3
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BN3PEPF00022BC2.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB8261
+Content-Transfer-Encoding: quoted-printable
 
-On 16/11/2026 20:24, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
+On Mon, Nov 16, 2026 at 3:21=E2=80=AFAM Christian Brauner <brauner@kernel.o=
+rg> wrote:
 >
-> Critical: 0 · High: 1 · Medium: 0 · Low: 0
+> Initialize bpffs as a pseudo filesystem instead of raising
+> SB_I_NOEXEC and SB_I_NODEV by hand. This adds SB_I_PSEUDO.
 >
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+> Reviewed-by: Christoph Hellwig <hch@lst.de>
+> Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
+> Reviewed-by: Chris Down <chris@chrisdown.name>
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> ---
+>  kernel/bpf/inode.c | 4 ++--
+>  1 file changed, 2 insertions(+), 2 deletions(-)
 >
-> - [High] The new locking only works if the unsynchronized read of
->   `esw->devcom` returns a valid pointer.
+
+Acked-by: Andrii Nakryiko <andrii@kernel.org>
+
+> diff --git a/kernel/bpf/inode.c b/kernel/bpf/inode.c
+> index c6f328e4752e1..57cf3775c0766 100644
+> --- a/kernel/bpf/inode.c
+> +++ b/kernel/bpf/inode.c
+> @@ -15,6 +15,7 @@
+>  #include <linux/namei.h>
+>  #include <linux/fs.h>
+>  #include <linux/fs_context.h>
+> +#include <linux/pseudo_fs.h>
+>  #include <linux/fs_parser.h>
+>  #include <linux/kdev_t.h>
+>  #include <linux/filter.h>
+> @@ -1197,8 +1198,6 @@ static int bpf_fill_super(struct super_block *sb, s=
+truct fs_context *fc)
+>         sb->s_magic =3D BPF_FS_MAGIC;
+>         sb->s_op =3D &bpf_super_ops;
+>         sb->s_xattr =3D bpf_fs_xattr_handlers;
+> -       sb->s_iflags |=3D SB_I_NOEXEC;
+> -       sb->s_iflags |=3D SB_I_NODEV;
+>         sb->s_time_gran =3D 1;
+>
+>         inode =3D bpf_get_inode(sb, NULL, S_IFDIR | 0777);
+> @@ -1261,6 +1260,7 @@ static int bpf_init_fs_context(struct fs_context *f=
+c)
+>         opts->delegate_attachs =3D 0;
+>
+>         fc->s_fs_info =3D opts;
+> +       fc_init_pseudo(fc);
+>         fc->ops =3D &bpf_context_ops;
+>         return 0;
+>  }
 >
 > --
+> 2.53.0
 >
-> net/mlx5e: rep, Fix races between devcom PAIR event and uplink close
 >
-> This commit adds mlx5_devcom_comp_read_lock/unlock(), which take the
-> devcom component semaphore for read whether or not comp->ready is set.
-> It holds that lock across mlx5e_sqs2vport_start() and
-> mlx5e_sqs2vport_stop() so that both are serialized against the
-> ESW_OFFLOADS PAIR/UNPAIR handler.
->
->> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c b/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
->> index a50a42581528a..962c70b9b5661 100644
->> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
->> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_rep.c
->
-> [ ... ]
->
->> @@ -630,8 +627,12 @@ mlx5e_remove_sqs_fwd_rules(struct mlx5e_priv *priv)
->>  	struct mlx5_eswitch *esw = priv->mdev->priv.eswitch;
->>  	struct mlx5e_rep_priv *rpriv = priv->ppriv;
->>  	struct mlx5_eswitch_rep *rep = rpriv->rep;
->> +	struct mlx5_devcom_comp_dev *devcom;
->>
->> +	devcom = esw->devcom;
->> +	mlx5_devcom_comp_read_lock(devcom);
->> +	mlx5e_sqs2vport_stop(esw, rep);
->> +	mlx5_devcom_comp_read_unlock(devcom);
->>  }
->
-> [Severity: High]
->
-> Are the races still reachable if esw->devcom is NULL or stale when it is
-> read here and in mlx5e_sqs2vport_start()?
->
-> The load of esw->devcom is a plain unsynchronized read. The store side
-> has no WRITE_ONCE() and the load side has no READ_ONCE().
-> mlx5_devcom_comp_read_lock() also does nothing when passed NULL.
->
-> In esw_offloads_enable(), the uplink and VF reps are loaded and their
-> netdevs registered before mlx5_esw_offloads_devcom_init() runs. That
-> function publishes the pointer and sends the PAIR event right away:
->
-> drivers/net/ethernet/mellanox/mlx5/core/eswitch_offloads.c:mlx5_esw_offloads_devcom_init() {
->     ...
-> 	esw->devcom = mlx5_devcom_register_component(esw->dev->priv.devc,
-> 						     MLX5_DEVCOM_ESW_OFFLOADS,
-> 						     attr,
-> 						     mlx5_esw_offloads_devcom_event,
-> 						     esw);
-> 	if (!esw->devcom)
-> 		return;
->
-> 	err = mlx5_devcom_send_event(esw->devcom,
-> 				     ESW_OFFLOADS_DEVCOM_PAIR,
->     ...
-> }
->
-> The PAIR handler runs with comp->sem held for write. It goes through
-> mlx5_esw_offloads_devcom_event()->mlx5_esw_offloads_pair()->
-> mlx5e_vport_rep_event_pair(), which walks rpriv->vport_sqs_list for
-> every loaded rep and calls xa_insert() on rep_sq->sq_peer.
->
-> A rep ndo_open or ndo_stop holds rtnl and priv->state_lock. The
-> devlink-locked enable path holds neither across this window. If the rep
-> reads esw->devcom before the store above, two things can happen:
->
->   - mlx5e_sqs2vport_start() snapshots devcom == NULL, so it takes no lock
->     and sees peers_ready == false. It then does list_add() into
->     rpriv->vport_sqs_list while the PAIR handler is walking that list.
->     SQs added after the walk also never get their peer send-to-vport
->     rules.
->
->   - mlx5e_remove_sqs_fwd_rules() calls mlx5e_sqs2vport_stop() without
->     the lock. That can list_del() and kfree() a rep_sq and its sq_peer
->     entries while mlx5e_vport_rep_event_pair() is still using them.
->
-> These are the two races the commit message describes as fixed.
->
-> On teardown, esw_offloads_disable() calls the devcom cleanup while the
-> VF rep netdevs are still registered:
->
-> 	mlx5_esw_offloads_devcom_cleanup(esw);
-> 	mlx5_eswitch_disable_pf_vf_vports(esw);
-> 	mlx5_esw_offloads_rep_unload(esw, MLX5_VPORT_UPLINK);
->
-> mlx5_esw_offloads_devcom_cleanup() frees the comp_dev before it clears
-> the pointer:
->
-> 	mlx5_devcom_unregister_component(esw->devcom);
-> 	xa_destroy(&esw->paired);
-> 	xa_destroy(&esw->fdb_table.offloads.peer_miss_rules);
-> 	esw->devcom = NULL;
->
-> Inside mlx5_devcom_unregister_component(), devcom_free_comp_dev() does:
->
-> 	down_write(&comp->sem);
-> 	list_del(&devcom->list);
-> 	WRITE_ONCE(comp->nr_devs, comp->nr_devs - 1);
-> 	up_write(&comp->sem);
->
-> 	kref_put(&devcom->devc->ref, mlx5_devcom_dev_release);
-> 	kfree(devcom);
-> 	kref_put(&comp->ref, mlx5_devcom_comp_release);
->
-> The write lock only excludes readers that already hold comp->sem.
->
-> Could a concurrent VF rep ndo_stop load the old esw->devcom in
-> mlx5e_remove_sqs_fwd_rules() and then call down_read(&devcom->comp->sem)
-> after the kfree()? The stop path did not touch esw->devcom before this
-> patch, so this use-after-free would be new on the close path.
->
-> Would it work better to serialize publishing and clearing esw->devcom
-> against rep start/stop, instead of locking whatever pointer happens to be
-> read at that moment?
-
-The esw->devcom NULL/stale reads are a devcom lifecycle issue, not
-specific to this patch, and will be addressed in a separate patch.
-This patch fixes the PAIR/UNPAIR vs. rep start/stop race on an
-established devcom.
-
->
-> --
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112182403.3646298-1-tariqt%40nvidia.com
