@@ -1,49 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794873008;
-	b=b0UkOXBYwh1iVy+EIQbJ8hU+1dIdqkvALdDODeviH2L9Q4gCanpnMImzQ2i4cKlCs06p
-	 JgvhRk8p64Swj0gKUlUFGZykvGhFP5zdwpH4NJf7hFlHemDbkcaQxnohxJoo/GOE8QIu3
-	 zzTaxptKUi33qq+3T5eyd7FxJ+XoXN19EO2AMuzrz7ztGCFbVQOL5mGMw8GaY8c4yykg3
-	 kwgM9ohUlDW1r3YZFKHu2jc0vWHoxfFIzJMPbdtsxwCOvSBj0QZU5/meU3iUEp0Cz+8a1
-	 1vgWAMOhYEFM4BqPzFmKfVBSnoco4LBMCBNn3T670VsT6juaNMSWUALS6gwkkZoS+Kg==
+	t=1794873160;
+	b=b00h6qqn/GI08rp2qDj9YStcvFjhe8GB2KxHneA31gDoPnH7+h0e0rHS92oag/kYuoSD
+	 7fZPCy54ze0GjK4AAShwzD7LUgywsWvOGIQzJSAHAThjOotWX8URdW2UqSNcQDeip6tKs
+	 R53rGkddSxcubTLl6IoX6l4DThcCV7daePhgw23Vob7VEpe/b+B8gORHcIfmeAOfCymHu
+	 +QpaKGCiPgVOsqFaP1H0ORulMuVWJGttMaPGF//9cVQCe1iei4d+JDdpacmq7a2v191HO
+	 y8R0YguFME7x13hac8lBnL9qFSEgKygrRG8TO3M6jq22aQUk0WK/J4ZZShc/1ZyrLmQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794873008;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=j9YGFS1vfURmuJvSQa+yC+JqaVeCUndQjeuah01yDdo=;
-	b=BlSgrkN1DNsggZwpJ8fvw4LNh5vBaOeyRhrccvY3O1RlQ5P3tgeTdR0vxA8eA4Ta/VxL
-	 nevwXGNs2U8Xelfvi0uGp7YNcW893SvWet4/JKq04uFgiUaJBTIbiT8YiUT5Z7oMGZnKE
-	 JAx41aXTeyhfZwbeSjtLNGMIsvwuqL8T+RhvFus4ZYAGTigoYEpUDmc2udd//TgLEBaln
-	 Pm0zofQT08vWE0YEt4qQUzo9LbBoXlunbkJUIasKdtVrmcoJnrvaVBKrdubiNAMzlMpOs
-	 xcVJCHnX2jk/nzKVKbikZFkGYT7UjmtM5s1Zqapk+XIW4Hu58HA+QECrjCVhs9X/XFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794873160;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=eOH7g5/0hgt8+48CXosE/GDQbrziwEaRn+3ytCzl98Eslu+aQxgnzyyaDhYposh/3y4/
+	 CmVs8wLA2kvFTY3LUhtQwsaa7TZGE/qucP6sZKWfMJpa/GSlR2qSqUjgb1BWwNLjpWCWU
+	 S9ZcIIblvjzzJhUUxO7eLCBjDfx2mEyS6O9fNdpOCWhYcaJb+RGgDvW515HzHPQj1KM6B
+	 uoAAm9xgybyGtNkd48xceax4bV19F0pemtHh+reuV2KeZutgIrvHe93NQh1E7bnQXtvxR
+	 Rkwo1M7nqbLj1U4dOCk02iRqM6SiIdxafVRuLd7/w7laYAekcw0SaC5SVU//wMz3Svg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c5fEV6cF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I2cdKXwp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3551606A33E;
-	Mon, 16 Nov 2026 23:50:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9E49606A32F;
+	Mon, 16 Nov 2026 23:52:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c5fEV6cF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83BFD1F000C4;
-	Mon, 16 Nov 2026 23:50:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I2cdKXwp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BF161F000C4;
+	Mon, 16 Nov 2026 23:52:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794873007;
-	bh=j9YGFS1vfURmuJvSQa+yC+JqaVeCUndQjeuah01yDdo=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=c5fEV6cFmui2rM7Uy7v4HfHFdBwlkTln/YvwNf1nH5COblzdU3NvZMzn7zXPO0VEC
-	 AZUaBSKOj6kabkZq9i66OPTARtSKydFKzNehchTq38HHAg/KChewMNI0Fjo+nrMd26
-	 tbAGGKrhEl6iDNsQ2M9tx1clgxlbQweq6fcI7h8AuBD3vU23eQ8iQT91Y/jZEG7oiJ
-	 ag84m2EFOVJr22RMP8WKRqBfzbhtSWyn3roHWxdPN/Az4iAQOjYQYK5e4dNh+ztbrO
-	 XVuxZ4xoQDIo0zovt1x7AURyc0jwoEZnkpswlXPg+DwZ71z2Wm5s6rCNh9MUsra9LO
-	 PBw6heN8a3yJw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77413391B059;
-	Mon, 16 Nov 2026 23:50:07 +0000 (UTC)
+	s=k20260515; t=1794873159;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=I2cdKXwpKnMpTII5LkX/pgrtz+M5xpCpMEOm0Td/SBKSRmO3f9LdjYz1BUKk0nziN
+	 skg8TQ1JXNcGcAg6xBIrdYeUkD7m0vNwmzqHIhq8HqNRadEU417+OYN9O4MP8fVAvB
+	 fMZqtYV/1I6/89pSm0o7DGSEEXHdiAuJPa5qlnC96mUi0k6g9QxhA66cHFc2BL8l2V
+	 0dVisxBhG/N/ESNxa0+IPMXbZqsUSPqcXVw69232qaToqZn+uTeyjDR4A1ATmS7T4s
+	 jmlkqYF8GvQCPYyagYaC8xKpkCp69NoZjCuz3VFa/a06pKJfNt9RjHWisiW25AAaKm
+	 DIeMQKFd6sNOw==
+From: netdev-bot+sinfo@kernel.org
+To: Bobby Eshleman <bobbyeshleman@meta.com>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>,
+ Stefano Garzarella <sgarzare@redhat.com>,
+ "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>,
+ Eugenio =?utf-8?q?P=C3=A9rez?= <eperezma@redhat.com>,
+ Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, kvm@vger.kernel.org,
+ virtualization@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] vsock: only deliver taps to namespaces that can reach
+ the device
+Date: Mon, 16 Nov 2026 23:52:38 +0000
+Message-ID: <179487315810.3291.12142099363352099423@kernel.org>
+In-Reply-To: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
+References: <20261116-vsock-tap-net-v1-1-7e24f45adad3@meta.com>
+Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,46 +70,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] ip6mr: prevent info-leak in ip6mr_cache_report()
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179487300602.245276.10787515440158212496.git-patchwork-notify@kernel.org>
-Date: Mon, 16 Nov 2026 23:50:06 +0000
-References: <20261112042415.617221-1-bsdhenrymartin@gmail.com>
-In-Reply-To: <20261112042415.617221-1-bsdhenrymartin@gmail.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
-Hello:
+Hi!
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-On Thu, 12 Nov 2026 12:24:15 +0800 you wrote:
-> The non-WHOLEPKT branch copies the IPv6 header at offset 0 and then
-> appends 40 bytes with skb_put(), but the mrt6msg is written at offset 0
-> after skb_reset_transport_header(), so the appended 40 bytes are never
-> initialized.  They hold stale heap contents.
-> 
-> The report is queued to the mroute6 socket and copied into the
-> IP6MRA_CREPORT_PKT netlink attribute, disclosing the stale bytes to
-> user space.  The stale bytes can contain kernel heap and image
-> pointers, and the report is reachable from an unprivileged user
-> namespace (MRT6_INIT in a new netns, plus the non-root
-> RTNLGRP_IPV6_MROUTE_R group).
-> 
-> [...]
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Here is the summary with links:
-  - [net] ip6mr: prevent info-leak in ip6mr_cache_report()
-    https://git.kernel.org/netdev/net/c/ea538b5790ee
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-You are awesome, thank you!
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
