@@ -1,93 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.228
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794863391;
-	b=AYza76xnh6nnA3WDaWfJxgbrsvlW0yhk1MPI3e3mkMi4o3Pq6og3l5Q5ygX4SjTouK62
-	 vyfUampVD/loVv4MsDqGG6YXRaTytXUA+ZP8ZbEP+GpsV9wSNLABNGncL5CH2qYXqoqX7
-	 IEgm3rMIU3Wr8tYP+IsLm7WGG/3O5zD8MTrnPKIDiSLhffgApvLb3VyefOBmP5Cu4dVbW
-	 K4E7E+lE3iyoll48y/q0EbTKgBhPPFNfpk1mCKB0Tre1KFbHCUJnnnW1N43KhMOYjrDqw
-	 CfqGX4JIUzktdAS2DfFS80zbiynUmg2EEBaIdqIW2SAywgNpkVbf3LdQO3kbmRITAoA==
+	t=1794863392;
+	b=NP8TO3/0SW/CSm0oqfGEt/TCo7XPM8T+C/CpCVYADiwbyTJeiSG2A6dDGtkSAbXV62vI
+	 mRcJZASh/tnPCIux06SO1LaJ/gwLF/HR2H9X2Ed0gYET/A+TcvaSK4fBhbZgRPdsM5m13
+	 MilPRb9tJEHGsociMd1kBLAoYa5mh+xeNcD+fJQGVPDADoeOUBoTmAtFIEMLj1mgJNXNn
+	 GP/dC32ZUcFhhUfp10iqfPrF/kSsMzory8NgpbeurMa36ETyN6DSiWno1iPhpzIEvh+lQ
+	 Zh+I2/rCAchBtIv8Pi9O0aWUi/hUe/gBh2MSMMAI7DPQ4wSB+SfHzebSI/fuzWFkEZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794863391;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794863392;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
 	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
 	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=tDKOjLIrGRWdnFpabDolKAXG+Pxw+0h1CyxXZ/xbAjc=;
-	b=4DK2XRoxl7+boYLCkiR1aqBtr4n9fyeBljvp+Rv+JdWx0sB95XyCR7sY+rFHADJFzdfg
-	 c7ti3tymL6eWZhDlJWpY1LLcCqvGzge6vEa/83SMkGaroufFtdf9q+O2Lm3ONm1unaum8
-	 9x3SiXcTvMf8xmmZzk9h7rHbaXg8pAUkwG+dv935p6fec0lq5wft+3m5oX89cFIIwjOYN
-	 eWZkiOXbxC/BpfqELVA6V2OUYkqGIxaHCOfy8/bK44KzgGiiR2Rmba1JMQDzP62ka7XVV
-	 SRMFUoWXb+liBCuN9R5Xg0hs8lXEAMtVhv6B8cO4xfcdmb+UMWeByUeIsSBEN7++ggQ==
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=NL/KdxJnhSzYFms2v6FpM127CH3qOIylfilD1IF7rXY=;
+	b=DVE3qumkKnEV/naFOhX/BSe43i9YatFbhP5K+eV88HqG9iHqYhowZlMknfoSm5BOEFZf
+	 I6d9Bo/JzK2qu7JUdpcDGr8xoSPyerhmV+rMFF99aJYmoM4Z5IgUd+u11WJAx8dp/Bkvp
+	 KBJpOFEGKExArP0hzIh+rGwS2yoHD/KoXyXA2DaEHAhF/alm9LsYd3Os40kXpfJSoSACK
+	 xdbadqW9NgL45Wv0OHo4URQl7PTaMHRSkL+g071caLVCM8nzRz4ofFBBdozW/ao5MKLYv
+	 qUl35owotGRKEZGaXumdX8Tf0mA44FMbx0Da0uDWF/T5sFFiACTqVCCu89xfDLPiFNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=broadcom.com;
 	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Mcq6eI+Q;
-	arc=none smtp.remote-ip=209.85.214.228
-Received: from mail-pl1-f228.google.com (mail-pl1-f228.google.com [209.85.214.228])
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=WcJNw6Mm;
+	arc=none smtp.remote-ip=209.85.216.98
+Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06650606A322
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:09:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06650606A322
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A64B3606A338
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:09:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A64B3606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Mcq6eI+Q
-Received: by mail-pl1-f228.google.com with SMTP id d9443c01a7336-2ed06b725fdso2390505ad.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:09:49 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=WcJNw6Mm
+Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so4828595a91.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:09:51 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794863389; x=1795468189;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=tDKOjLIrGRWdnFpabDolKAXG+Pxw+0h1CyxXZ/xbAjc=;
-        b=ZmMq90gExKW4OFCwaQTLxoa8l395WL0y74t5GG4Oy2CzfTAnn4/ifkpr/Lb3+c/tls
-         g8UBZHLvP2rEvW4C98FsQa+WI2BKJ/Imm9tYX6dv+jxO474EZO8kP8z3evmCCbMGB/4I
-         8RKkbrixRl9YBJ+5ullV5nToE+3kzyllT1nfC1hP4L3axJ8m33kUxk8Xyb1MHeD6XgIq
-         VJuI76Fs5w42+44g2FaIw1CNkousHFnJccFg6ZO9yS7C1vmKP+xoH5Xxlp82Gg3u6xrL
-         m5PHC9yED+OFwrwUPiieaJ7usp5JUyTF73OGqJE8VTN8o9XsOD5zoTX8unjfa+IrVFW2
-         QmrQ==
-X-Gm-Message-State: APuU4Z/LAgePKs2NuO2+rlmH2aTWW97NG7Mes+5cMiAreIloQzos8Jc1
-	0jR2yHfeGXNEVMWY/uHYzIi0X8i+FtxskRhSVTRRt0tbP2IztWKxjxbz6D5tsgK9oyR9Heo1/4/
-	4vB8fPMWA7CZ3yte25EiNL5VMjbLkdDaBILbF1G0UQoL2VK6XXk84Dt4nMaPwXaNLsm2FrFiXMl
-	EXkuPqJ8bZ0xAGOIe9NTArNIw1oQzWutGL/mlqu6YwnA9VsdH8L1KfX5tVwPVc9k/z0LJYHPCND
-	apjZDHdM106ELm/
-X-Gm-Gg: AZFdTZeYrVXvU/JA3YYKcLIwncLvhMaM6sNwMHLjMYPVHWIZ+cnQcc4yTNWSV4TmthL
-	ositQ+f2ssKcvx4F56cTN/1aTWEeIItPzA3K+YYYxhtI2whfsKLX1onwMvsp7TUeWNkNdben1PY
-	XPZU97EE4m/6paTinBPDCwf9cJHdTnQHqLhVJT3IrS/7nq6QYCvju6PdwjYTuMrcASaC2TrPEVW
-	P0ureFMuZ8pdUQed9j9fGR44DCyrx4l7N98G77D1ODK4dLgLNNxRvTS1vLg6G93D7JNp67Rqw83
-	lTURJuDoWOiBuGHqIM3WfXPec5b5HpGpVYiZoyH6xTs/LnrNwIwCx10I+hZac2lEcswSRQHugqZ
-	qpca3znjNHpQ30Nc5T+FNwhNK7l71qzLaPBcif7dWuEr86UWqaSjSzP61zpVrkv/0Sr+Xk0QG8M
-	A1HNMJi89RuFujhUWiSdKZ/YVXh4rdX0tAUrqb5Rwq
-X-Received: by 2002:a17:90b:4fc2:b0:39e:6c68:fd91 with SMTP id 98e67ed59e1d1-3b3abe61f72mr355228a91.38.1794863389142;
-        Mon, 16 Nov 2026 13:09:49 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-26.dlp.protect.broadcom.com. [144.49.247.26])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b1b3abbe1asm6500149a91.5.2026.11.16.13.09.48
+        d=1e100.net; s=20260707; t=1794863391; x=1795468191;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=NL/KdxJnhSzYFms2v6FpM127CH3qOIylfilD1IF7rXY=;
+        b=PNnxupjmzeUxLoGVenhEtc64ZvzEmU2YR8QtS3w2kAZnwC184VrhKD3O7yX0mt66h4
+         D15XSu9SGQNuWvgzZnPoMcFjpEHLDTtKx+2iuLVbXwX+zWmP9V7G8KtQ3kPB8oTNsTyZ
+         N6gHADGImtOLk4bpr6CcrHMzf4C7loSL2737k7qin9J2grt6T+k7AJ3NSSrTG7i3u3CA
+         VFHzCbAL93glSfQUf2zf5QG40N4204DU2M6iSmSfNKVKvgVAe5rq6qtTdrqOAzbNjTBR
+         fgSC/uOaIqMCmyAcIWBbnWRFlh/OT2BTWq0fCgkcA1of5nBVFENj58tJgAEp9CiMC6Bn
+         lcvw==
+X-Gm-Message-State: APuU4Z9m2/MhNQX9uVwBTVkvCBQFVMcwpeIYgQW8mEWtVuKA4eu+HmKc
+	IoTvqWk37uzm50R7+VqnwBmCtSEF2M8uPaCVKOH5bC0mhduUPjBLoa982tOsE9Zdhk2Y+6/UOEq
+	qkuilon5SMElIRaVW73Z0RmdyXXGDTaIyAvwPyZilEmRVZSzmA/QcMKKwCS/W2VvREofGmdscnb
+	euabMmgvc7eaJZYoBO38Vav60AMHiQhziSi3DSySqjea97RrG8omCpO2GXCIohu6faSrnHdV8i9
+	dTv1zPbgqtKtMBw
+X-Gm-Gg: AZFdTZf3gfseeK5srh3qt45s76L+3SaoQDPfvyGjgyC2ElHfdJ7iUvMO0nDYbBO6wlb
+	o5OmxYJvqUYvMJGCX8GzQRwnbTu2Mb2bkmzCQQfQ6kpPjOR0g+l3yKdxtAcpZA/fxJ8yF1ytDj5
+	JLuFQdn1u2AhrCCQY28HerBwrQEZdSSxOQ/aw6W4boHE3aDDUgw0RjvixJLivt16DpM8aa4EBVv
+	UGsgN5MqmYsYssGFQpA9pbLGgNygFYKYaYAuZCHiUyCNfBkTW8UqC2CvC/TV88Bw19USS2IGC7I
+	e+wGG5t4GTt/DCRGJz7lTrbXUOfU2clY7dWenwbCBzRAUZJXR+3lpm6DJBKdsNJVhDQmDRxHHOd
+	0hQEH2yXrSoWH9JlLmSAiwWA0p4bn5T5z6HhMgNP38nw/wkwQ6P9K8udDJ5FIlqEuSkmAdYfaYd
+	Az2M3goqIVMKmq/Qm4qIfeCSOuoTZRCtz5Jv813bo+
+X-Received: by 2002:a17:90b:1650:b0:3a4:77b8:1770 with SMTP id 98e67ed59e1d1-3b1b0b5b8a8mr12123846a91.15.1794863390789;
+        Mon, 16 Nov 2026 13:09:50 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3af69e8d4sm82591a91.2.2026.11.16.13.09.50
         for <netdev@vger.kernel.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Nov 2026 13:09:49 -0800 (PST)
+        Mon, 16 Nov 2026 13:09:50 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-91c6c1e082bso4091706d6.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:09:48 -0800 (PST)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-920ff6971a1so1221876d6.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:09:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794863387; x=1795468187; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tDKOjLIrGRWdnFpabDolKAXG+Pxw+0h1CyxXZ/xbAjc=;
-        b=Mcq6eI+QU0M5fXNu3qml4t6mVM2z72NHTaVgQQBkClIc+To7L3+0GJerY+ihSJGsRQ
-         l8UogqyJYWiH9hqmR42Mj+/oTee8IU2CXQlT8B9g3i2t6DlSs8GfJUxKzhmdtytpi9Lc
-         Owuzk0IjrOIpOv88N4J2kzE52GO5nNvMfijRg=
-X-Received: by 2002:a05:6214:dac:b0:91f:ffc:69cf with SMTP id 6a1803df08f44-920fd451275mr11930356d6.35.1794863387374;
-        Mon, 16 Nov 2026 13:09:47 -0800 (PST)
-X-Received: by 2002:a05:6214:dac:b0:91f:ffc:69cf with SMTP id 6a1803df08f44-920fd451275mr11929756d6.35.1794863386673;
-        Mon, 16 Nov 2026 13:09:46 -0800 (PST)
+        d=broadcom.com; s=google; t=1794863389; x=1795468189; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NL/KdxJnhSzYFms2v6FpM127CH3qOIylfilD1IF7rXY=;
+        b=WcJNw6Mm/GJcM6B+pBFfIlovBJdiSIzhdyLxYi6hmViPem5d+kmL7mRElBba+b1oyW
+         e0prV0JA00ACra1K6iB36rayRysB/07XppYMQB2e0K8EHPGxeleWkAVV/NkC1JTG8jXd
+         rO0+VDz76yupQHLH1LRsGgShOgTFjd/0BkOfk=
+X-Received: by 2002:a05:6214:2461:b0:91c:6258:ec97 with SMTP id 6a1803df08f44-91f2418f879mr190160236d6.11.1794863389321;
+        Mon, 16 Nov 2026 13:09:49 -0800 (PST)
+X-Received: by 2002:a05:6214:2461:b0:91c:6258:ec97 with SMTP id 6a1803df08f44-91f2418f879mr190159506d6.11.1794863388557;
+        Mon, 16 Nov 2026 13:09:48 -0800 (PST)
 Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-920fe17eaaesm3601396d6.33.2026.11.16.13.09.44
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-920fe17eaaesm3601396d6.33.2026.11.16.13.09.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 13:09:46 -0800 (PST)
+        Mon, 16 Nov 2026 13:09:48 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: netdev@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -100,10 +102,12 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Vivien Didelot <vivien.didelot@gmail.com>,
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH net v6 0/8] net: dsa: b53: Preliminary fixes
-Date: Mon, 16 Nov 2026 13:09:34 -0800
-Message-ID: <20261116210943.1352656-1-florian.fainelli@broadcom.com>
+Subject: [PATCH net v6 1/8] net: dsa: b53: initialize the jumbo frame size register offset
+Date: Mon, 16 Nov 2026 13:09:35 -0800
+Message-ID: <20261116210943.1352656-2-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261116210943.1352656-1-florian.fainelli@broadcom.com>
+References: <20261116210943.1352656-1-florian.fainelli@broadcom.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,88 +120,34 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-This patch series contains fixes to issues reported by Sashiko on the
-b53 PCS bug fixes being submitted, and then some more that came from
-code review and testing.
+The chip data specifies both the jumbo port mask and frame size register
+offsets, but b53_switch_init() only copies the former into the device.
+Since the device is zero-initialized, b53_set_jumbo() writes the frame
+size to offset zero instead of the chip-specific size register at 0x05
+or 0x08.
 
-Except for issue #2, all of the other issues did trigger in testing and
-needed to be corrected.
+Copy jumbo_size_reg from the chip data along with jumbo_pm_reg so frame
+size updates reach the intended register.
 
-Changes in v6:
+Fixes: 967dd82ffc52 ("net: dsa: b53: Add support for Broadcom RoboSwitch")
+Reviewed-by: Jonas Gorski <jonas.gorski@gmail.com>
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ drivers/net/dsa/b53/b53_common.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-- patch 3: drop the commit message paragraph claiming that deleting an
-  absent entry now returns -ENOENT, the return value is unchanged (0)
-- patch 4: describe the b53_mirror_del() capture port clear as a
-  cleanup rather than a separate fix
-- patch 5: add a Fixes: tag for 41af38324341, which covers the 2 Gbps
-  set path on GMII override registers
-- patch 6: do not propagate the ds->ops->setup() error from
-  bcm_sf2_sw_resume(), setup re-registers the devlink VLAN resource on
-  resume and would return -EEXIST, leaving the user ports down
-- patch 7: document that active mirror rules are restored on resume and
-  that the patch depends on patches 4 and 6; verified the mirror
-  register offsets against the BCM6368, BCM6362 and BCM63268 datasheets
-
-Changes in v5:
-
-- resolved build warning in patch #7 by moving b53_mirror_init()'s
-  declaration into patch #6
-
-Changes in v4:
-
-- Return success when deleting an ARL entry that does not exist per
-  Sashiko's review
-- Restrict the 2 Gbps override bit to BCM5301x and BCM58xx
-- Restore mirror configuration on resume, moving mirror initialization into the reference-counting patch
-- Propagate SF2 setup errors on resume and disable the clock on failure when WoL is inactive
-- Add a patch fixing BCM5325/BCM5365 mirror port encoding, including CPU port bitmap translation
-
-Changes in v3:
-
-- patch 2: added Daniel's R-b tag
-- patch 3: mention in the commit message that deleting an absent entry
-  now returns -ENOENT, including when the lookup runs out of space
-- patch 4: document that the patch also fixes the clear of the capture
-  port field in b53_mirror_del()
-- patch 6: reference count the mirror source bits per port and
-  direction, ignoring deletions without a matching reference
-- patch 7: new, harden mirror register programming:
-  - reset the mirror capture and source control registers at setup for
-    b53 and bcm_sf2, since not all switches are reset
-  - check and propagate all mirror register read/write errors, only
-    taking a source reference once hardware programming succeeded
-  - use the source masks rather than MIRROR_EN to decide whether the
-    destination is occupied, and write the destination before the source
-- log failures in b53_mirror_del() since it cannot return an error
-- patch 8: new, fix the mirror capture port encoding on BCM5325 and
-  BCM5365, which use an 11-bit bitmap (CPU port at bit 8) instead of a
-  port ID, and translate the CPU port in the ingress/egress source
-  masks as well (verified against the BCM5325E, BCM5325M and BCM5365P
-  datasheets)
-
-Changes in v2:
-
-- collected Jonas' R-b tags
-- corrected logic in patch #3 to propagate -ENOENT, memset after the
-  debug print, translate -ENOSPC to -ENOENT when deleting
-
-Florian Fainelli (8):
-  net: dsa: b53: initialize the jumbo frame size register offset
-  net: dsa: b53: fix the SRAB grant timeout check
-  net: dsa: b53: clear stale state when creating an ARL entry
-  net: dsa: b53: reject conflicting mirror destinations
-  net: dsa: b53: use the correct override register 2 Gbps bit
-  net: dsa: b53: reference count shared mirror source bits
-  net: dsa: b53: harden mirror register programming
-  net: dsa: b53: fix mirror port encoding on BCM5325 and BCM5365
-
- drivers/net/dsa/b53/b53_common.c | 209 +++++++++++++++++++++++++------
- drivers/net/dsa/b53/b53_priv.h   |   4 +
- drivers/net/dsa/b53/b53_regs.h   |   1 +
- drivers/net/dsa/b53/b53_srab.c   |   2 +-
- drivers/net/dsa/bcm_sf2.c        |   4 +
- 5 files changed, 179 insertions(+), 41 deletions(-)
-
+diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
+index b7aff5e238e8..1f5776dfaae2 100644
+--- a/drivers/net/dsa/b53/b53_common.c
++++ b/drivers/net/dsa/b53/b53_common.c
+@@ -3172,6 +3172,7 @@ static int b53_switch_init(struct b53_device *dev)
+ 			dev->vta_regs[1] = chip->vta_regs[1];
+ 			dev->vta_regs[2] = chip->vta_regs[2];
+ 			dev->jumbo_pm_reg = chip->jumbo_pm_reg;
++			dev->jumbo_size_reg = chip->jumbo_size_reg;
+ 			dev->imp_port = chip->imp_port;
+ 			dev->num_vlans = chip->vlans;
+ 			dev->num_arl_bins = chip->arl_bins;
 -- 
 2.53.0
 
