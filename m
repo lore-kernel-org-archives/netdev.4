@@ -1,89 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.58.211
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794841133;
-	b=RWfL1i8M75/6W4UJiCOZOb4Ft/KOKZ/7EPt3urBZhy8LGOY5gXSXr181LZFTkk3BvuY3
-	 BZoeX7AytTx/DnfPd/r/Z43a4fv6OsaK2hvu8blFiXuJnPGbZjwgZ2xuyXX/y1kGSC7Ur
-	 v2AXF6jm4ZJlARB376rHji/bV+7Iw9V1sxQPLbVPn8fPcsk8i66WYbkkyHPc/HbC6WPtG
-	 UrxGq9ZPZv1abMs+SH8Kr8edUaRWIaLhsPEt1EuN8JEhlJ9tTIyK2//dFvCgmkrWmD+ez
-	 dNJcmOc7dQDXjznycbag1HKj1nqSczuRQjPtgT/TzNf5IiN/vhQLvLIUvSuV9w+ctQA==
+	t=1794841166;
+	b=apcGEZ4bYsEt1dv+ZNLTxsSvnhFWuofXCoRsj1XG49CVYiNrUKMS4WeNG4aIeugJ8IIY
+	 Dui+XWXTZthVGndo6FYgMoY3eG/j6NP0CktldIBgc/615Mn7A66m0uA+sh6Sb57gxjo3M
+	 P6aRczP1lRe0cmgCHC+d6gSizWKRDqdAvS/8SYztMJRC8HgayIp8FCE7MQ5CzyoTUONeV
+	 001rfvsGb4zasQg7vHsIkNlRDtAsQd+nZqAItJacxHF+Rnm39qWEHVrrFU3XvIZqgVVee
+	 w073EPTrwTWCwae6oJ6tM9rNdHe8MJdTtBQnk9iyPCSkCZa7McDnHp7VA1LiaYqawcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794841133;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=P6Yuh683q5aNH3HN18bjb0/+LSo0udXf08N/NrFxA9s=;
-	b=leAWuyuhhzIWMcvBO53OyC8NAQt+RTjpe8Oav4RiNCWVmhJN2Gk22tpKra9jYeG6yL0b
-	 VRMhewhMJJEC+Mk8+ONw/gFw9awIdsuLXHtkUsT+Pk+eAOPQCP0/O5L/mIT5H60kqmM7n
-	 wuzuUyqeEtxR0pAf1/5fVILXHLElcH4isUHeTlmB05jgnqWj/jlwxJJhFYYZrBMhKrQIs
-	 Nu2XhW0Q2YuIQo+/haC2bXUULmpvD9bEOEwphkIL8VaPPpWG2K728kzK5+Xe5tdhTSU+L
-	 V0mkHvuIsCVrDhPt9n5gLZilFhJQmtPAtRHQcByz7rt/tdb3rUluFJ41FCsTU7Bi+xA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794841166;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
+	bh=k+z1e8ZYHmpUCjSLI93JX1rRkKOX03qgDSkkP9m7sJM=;
+	b=vMKBAfRxPZVU98remSUycBUrB100W2Q0MYrFrF1trNb83QImWqlALhe64ux5Muq2ECV/
+	 l4w9jC8fHX8T7ZDsZO/zYCfsyY0AV/w14WxLeXAoXseHJvFTtCaGhUXedwx3jTZKW8es4
+	 1lGuD6giSjWS3msLg5eH6xijmzE+IS9e8rFwJP8LD1BTwdsH5ayfoHnv6CzVRu4HsFGdL
+	 ktBuR/jtuBhJi7Xm4LQpjd+NP5jC4HsFNpl9D1jRnv9UYxcabyKH3KgF3G1v5UZf7wCsZ
+	 goP16rgiuqbgUVArQd9AficddkbkjWS0SLMcn71WR0s4Iex0vBR8QZrb/xHDxRI3X+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=oKD99tRm;
-	arc=none smtp.remote-ip=162.62.58.211
-Received: from out162-62-58-211.mail.qq.com (out162-62-58-211.mail.qq.com [162.62.58.211])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=b7dwUYkY;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DAD8606A8AC
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:58:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DAD8606A8AC
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B305B606A32A
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:59:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B305B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=oKD99tRm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794841122; bh=P6Yuh683q5aNH3HN18bjb0/+LSo0udXf08N/NrFxA9s=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oKD99tRmaocPRgms3zuSGwdUQ7QrIgVnpefNP/WXZxTXcODHFR6qjdqRXEAxF2eD4
-	 PfreKNa6bX2LyeoG6K0hRbmbOoTS/3at00MjgWGqus2hnqnxmVF54kN3O88h2UGMhT
-	 LT37JCQ0J36tzI05LeMdb4DNiJRxvYimUIUD/erM=
-Received: from localhost.localdomain ([2409:8d5c:8f0:65e5:2979:aa1c:9ec4:8698])
-	by newxmesmtplogicsvrszc50-0.qq.com (NewEsmtp) with SMTP
-	id E9E14C42; Mon, 16 Nov 2026 22:58:30 +0800
-X-QQ-mid: xmsmtpt1794841118tximf9ax6
-Message-ID: <tencent_4D4F1D48EA5FFFE96265141754F656C42608@qq.com>
-X-QQ-XMAILINFO: NcCJkzr9kEID32ZflU5nxvDc+Cv6Nt6JIR5Ao6sFZJw1KBS0E+mKs+4zcL8jZE
-	 Xe2dy4odEQFTWg2yAi3eBD979ar/0wBksUlzVJToXySn8zNlXMeCEpw0SFzZiTKPBcqv9HzumMcc
-	 pXbhgv1er+WQYyTON5B+qCIZH93Nt1eIzllvYtav1XPa1oLilbD/jLUu0a1W+irNuMi6H9wKLU/c
-	 5dmXspnWOgW2tWNsTr4TOLFJ1l7dTap/c3WBfa2S+hDIfMsHimWJnqm5TFGufmNQHhm9dVOgs1+9
-	 WWn4yI6NLPr5m4qG1pG9WUZUtMYarUeLrm+CKCbi4wxDFBJs+vqESRHZ7hvpu/FJggUyzOQzIHHQ
-	 WPNrrRlo6cmOWHRYiKWbfoFHu9VDEHNN4D4ybxz7zXdIMTZloXgowhu0BIYhtNy0+UqTpyZwpoK/
-	 8Lny1ZZ0oj5ny5zpoJVoNMMRYNA6HjfFOwrWgiiWsBDv/W6H9Ppyxg7Q8QBPAfNo2ZsT1szi19aD
-	 RJhx0bhfFyqw11MoC+iCOhONGcJxT/V4EandbFC/dqyi8YGHJQrie7SdqFjunMnaHore7hgvo8vn
-	 HRbvYYNIlC0vrt7OWD2crtYqVCsmP5svnMkF9PlU3SOzH0sio1QJGWzC8U0I/6K7SWAIChfwuAjo
-	 Gf4DT0Qob8wuhE69IKKEOYKyMSlUCeFBbs4VjpDfVZg91HLqskozMdHFi75yXZ9T/rQU6EwPCiHf
-	 HCNLQoompOn6nNFf8FsWKM8LPstr1svXzG4F0KosCybIoVWtSb3294CM5S2wzq0FTwTeTQQw87kf
-	 9JPLhipjDJsfE1GVNMRkeCShocPDP0xyXI6HvP0x7OtFiK+f7USyBfCor/zjiqOd6oTwIzlnFxTz
-	 Dh5KbTBuyxtse3hyizV1cdI5EmcZq6MMvgBhww92R8CLt6nnSExgU2/DAC0PyrMCzyrJ5vwHHm0j
-	 2hmJfLuZRdmnFaU26ljCCJecQ1YEzwctCeXEMh6FFjShmzq8S8h9DCRs23V/lCyC9LfNU3qsOevp
-	 Jq2gcfq/dDjtjJC+sNGkpt8S1WUeqdhS7g3eBaEkLeRt4HUru3TanPdcI9nIszJ5OHJa/TJpNoCW
-	 U4jSV+Id6BP/CMu42ISjw81JK/u/s7DPZkFe516q2eYNlVTYEeYfSsOnd4CV/6jzCfBRVmlQDTxF
-	 JkTk2gTAmbni1+v4MbH7bPiXOx6nNIVmaYNr4=
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-From: Hang Nan <2122295973@qq.com>
-To: netdev@vger.kernel.org
-Cc: mptcp@lists.linux.dev,
-	matttbe@kernel.org,
-	martineau@kernel.org,
-	geliang@kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kuniyu@google.com,
-	willemb@google.com,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	2122295973@qq.com
-Subject: [PATCH net v5 3/3] net: mptcp: verify the token slot in mptcp_token_iter_next()
-Date: Mon, 16 Nov 2026 22:58:29 +0800
-X-OQ-MSGID: <20261116145829.96849-4-2122295973@qq.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261116145829.96849-1-2122295973@qq.com>
-References: <20261116145829.96849-1-2122295973@qq.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=b7dwUYkY
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id D4EADC4EFE1;
+	Mon, 16 Nov 2026 14:59:27 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id CE9F86023F;
+	Mon, 16 Nov 2026 14:59:23 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7B7E611BC146D;
+	Mon, 16 Nov 2026 15:59:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794841162; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 in-reply-to:references; bh=k+z1e8ZYHmpUCjSLI93JX1rRkKOX03qgDSkkP9m7sJM=;
+	b=b7dwUYkYBncloh3qf///PWv/FCi82wnJRMnDsiFy6tRyanBxT+0HFmm/Vlr0JJpHuBBvz4
+	X3Gyqd5Or/le63nZuammyJqDBqmZuxdufszUfHFHGDjEPDI4Xjy0NslQiDmfKr0XWcdZmN
+	x8SEbMWNRls/gJnQTF1zpN8hmYzsE+htWV+/FCVpZC7io56+cOrr75yNLKWfwOFU3r0Un8
+	My8OC73w5GOHgHYcfVuKgPn1uWwGS+gD77+WiVrd1NbCUW8nJ7HauPvXFc2Z1QQ+Ifwb+6
+	wIBOgS+FDEcTCssTR+BsRsV364Mwu0sIf9ebrzkLtOkXfKVxE5WHxktrznAEAg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: Alexander Aring <alex.aring@gmail.com>,  Stefan Schmidt
+ <stefan@datenfreihafen.org>,  Andrew Lunn <andrew+netdev@lunn.ch>,  "David
+ S. Miller" <davem@davemloft.net>,  Eric Dumazet <edumazet@kernel.org>,
+  Jakub Kicinski <kuba@kernel.org>,  Paolo Abeni <pabeni@redhat.com>,
+  linux-wpan@vger.kernel.org,  netdev@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
+Subject: Re: [PATCH] ieee802154: fakelb: release platform device if driver
+ registration fails
+In-Reply-To: <20261103102854.1340581-1-vulab@iscas.ac.cn> (Wentao Liang's
+	message of "Tue, 3 Nov 2026 10:28:54 +0000")
+References: <20261103102854.1340581-1-vulab@iscas.ac.cn>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Mon, 16 Nov 2026 15:59:17 +0100
+Message-ID: <87qzgkrfei.fsf@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,49 +74,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Last-TLS-Session-Version: TLSv1.3
 
-mptcp_token_iter_next() takes a reference on a socket found on the chain
-of the slot it is walking and then re-checks only net_eq().  A socket
-that was freed and whose memory has been reused by a new msk in the same
-network namespace passes that check while it is still zeroed, and the
-callers - mptcp_diag and the userspace path manager - then use mptcp_pm
-state that has not been initialised yet.
+On 03/11/2026 at 10:28:54 GMT, Wentao Liang <vulab@iscas.ac.cn> wrote:
 
-The token of a socket on a chain always hashes to the slot being walked,
-and token 0 is never assigned, so re-read the token after the acquisition
-and drop the socket unless it is non-zero and still maps to this slot.
+> fakelb_init_module() registers a platform device and then registers the
+> platform driver, returning the result of the latter directly. If driver
+> registration fails, module initialization fails and the module exit
+> function is never run, so the platform device is never unregistered and
+> leaks.
+>
+> Check the result of platform_driver_register() and unregister the device
+> on failure. Also check the device registration result, which can be an
+> ERR_PTR, before using the stored pointer.
+>
+> Fixes: e1e49b641387 ("drivers/ieee802154: IEEE 802.15.4 loopback driver")
+> Cc: stable@vger.kernel.org
+> Assisted-by: DeepSeek-V4.1-Flash and OpenAI Codex
+> Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
 
-Fixes: 96d890daad05 ("mptcp: add msk interations helper")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hang Nan <2122295973@qq.com>
----
- net/mptcp/token.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+I don't think it is super useful, but it's not wrong either.
 
-diff --git a/net/mptcp/token.c b/net/mptcp/token.c
-index 8a603fc8dc05..48470d6e751d 100644
---- a/net/mptcp/token.c
-+++ b/net/mptcp/token.c
-@@ -355,6 +355,7 @@ struct mptcp_sock *mptcp_token_iter_next(const struct net *net, long *s_slot,
- 	struct mptcp_sock *ret = NULL;
- 	struct hlist_nulls_node *pos;
- 	int slot, num = 0;
-+	u32 token;
- 
- 	for (slot = *s_slot; slot <= token_mask; *s_num = 0, slot++) {
- 		struct token_bucket *bucket = &token_hash[slot];
-@@ -377,7 +378,9 @@ struct mptcp_sock *mptcp_token_iter_next(const struct net *net, long *s_slot,
- 			if (!refcount_inc_not_zero_acquire(&sk->sk_refcnt))
- 				continue;
- 
--			if (!net_eq(sock_net(sk), net)) {
-+			token = READ_ONCE(mptcp_sk(sk)->token);
-+			if (!token || (token & token_mask) != slot ||
-+			    !net_eq(sock_net(sk), net)) {
- 				sock_put(sk);
- 				continue;
- 			}
--- 
-2.47.3
-
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
