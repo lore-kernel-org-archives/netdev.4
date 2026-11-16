@@ -1,65 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794790403;
-	b=KzD/NHJl8uezfDvOiwxPJF1Dure5DWgInhuKv1Py564iGnFE+OTQGnn9WqfWxIRZs/Az
-	 VEBgt6jRg6t+wY0vlyVPtsUWEESXQgUENIzBSA4DRTxYtFHNKSxQh+0gZ8w4qCuJ35+Hq
-	 YM8IhSMqMNlgoZE+wHVsHbhdwwhjkchv3Iztbf0Vi0FAJZf2TjQrSJx/W+VBVTEstMU7y
-	 28g5ulGSLHO3tkzKM+bcE1/+BZqgb28oHiJQyoSTXrCP++1eqjhrZtG5exB4UkL90QYZE
-	 dN3yc+sbG4dUUcKNbmGJ03r/jWER+JAoAzFcJpdALkFl43bTbcgpRFrojMy0CTGIBlA==
+	t=1794790631;
+	b=ot+AQ0Km/y5SQ5DbUrW1QDPJ9NPvmZGMR8AfTgFD5/gm0vk0/y6RI3qfSVzYA87WbQWc
+	 GwYnBNDWfYN6v/hlffYSvabC5Xo14MwChGKPvuoLC5eZsBMDfHJFJaj8RwPD9EZj8m2GE
+	 3bDkjryR+cYhA/hCKKl0Gnd9kccejKiVXXgS2sFHfIpI8uuFWwjEOwqPsbbdf0NBqkmlh
+	 6ZcVJiJwNQQqZAPpfPL6oUYHaSOVJMe42QHl1hstvSD+egPVQkjAso/XbbQRGTkqaYAXK
+	 L/BDwLUYsS1mSWKpP2hAGrAS9r+FN61XWvA4Xp0xsiOhoChL6XJQrqea5c4nUhGuzaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794790403;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	b=FwRnRqpq3nq96Jhxm0SmvGfw3D5PN4HcFAMTo6aLqCWXiWQomd6b3GPUGY9PfuXA7S8R
-	 55HiMDOVZNDJGB/NDmXogN8lknkRga6A5qnh9BzGlSGCAKlvBhkuf8VjXbxw2NSpjxCXO
-	 CqFIKZKw8cUTjvw0K/JvBGdLWA5r0McZA9SENoWRv1AftW//r26LECBRU3+ndDxXeXbeA
-	 pdq0QW54kl8cFjXClEU/ZHt8+JG5Lf2XA/qSnscUNl5fo1VYp4CVkrpMBp76SNAMH0B4T
-	 /4WlJ2swinTFd5cZofhyDOWQZ8LE/4wcIxL2ccDj7xbczXcBwz8xW6zv867J/vfzobQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794790631;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qDjAiGN9DxClUsHbKhzC+df0z9DdE+tvvWVL7zTbqjQ=;
+	b=p4HUeffckQufgj4vO4bPlymAY4Jlm8geFr1uCYE6N8ZksQMIw1Fc5snwYH7KyRrL2fKq
+	 G01CJSYrd/MzEl5KxXc7MP1mu/4S8gK+PaPuUYJad5FVIlAWa9Azqr0p9ksijNc9EBUoR
+	 TiyWeY8/c7Ry4SLk1EUXcELB9AhMfQ7l+0BtjitUUR8w3oVwd3GbLa4wD7L3M2Dj+HNs1
+	 ES29qoQ3iQXSYOrWyq0WwN9rCvwdezcTDFDQkLZLDKcOjHj8B/JIt54O3A5WcmlcwNIu/
+	 AHUG9DKiiSsb2vXpsnP7sppLLUL8M+wJGbj/zo5Od4U2ROr0R2k9vqC7PGcmxD6ra0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m6BaEmd6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ve3qM6cb;
+	arc=none smtp.remote-ip=91.218.175.123
+Received: from mta0.migadu.com (out-123.mta0.migadu.com [91.218.175.123])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC7C9606A329;
-	Mon, 16 Nov 2026 00:53:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19C46606A32C
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 00:57:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19C46606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m6BaEmd6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15EA11F000C5;
-	Mon, 16 Nov 2026 00:53:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794790402;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=m6BaEmd6/6JVCZV3/nQyBbu3lsT24dNLmn6+nc7NS4ubLXA+uzYCP5oXtFurSwoOx
-	 Pi/Nh651Dp6dbgc+q/ez4Fiaa4RwxdHNuQWkSbjkc2G8DSbZSmER4rx4sPZ+R2j9D8
-	 RkThNnuip/lW1JXPgCFKhplRBsHNnMp8h7OcAtxVyuVgj60a1c3IqYvy+3ZMzxDKVI
-	 0nPH6CeOpLKvMeQ+NYYVA2Xns0b/fpKUxNx0GxAbTbOHj82+kX9+u7rtUJ6xZP6EHB
-	 if9ceRzE01sRr+J+SevQD48PfwAzSkccJrGWk8QmJ9ourWP+g6iL8P6wN+i1natAGy
-	 m0EimnnPdPLCg==
-From: netdev-bot+sinfo@kernel.org
-To: James Hilliard <james.hilliard1@gmail.com>
-Cc: netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe CAVALLARO <peppe.cavallaro@st.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: preserve RX checksum capability when
- offload is disabled
-Date: Mon, 16 Nov 2026 00:53:21 +0000
-Message-ID: <179479040161.3291.5723238689308327095@kernel.org>
-In-Reply-To: =?utf-8?q?=3C20261115-submit-stmmac-rx-checksum-capability-v1-v?=
- =?utf-8?q?1-1-ea26fa3689be=40gmail=2Ecom=3E?=
-References: =?utf-8?q?=3C20261115-submit-stmmac-rx-checksum-capability-v1-v1?=
- =?utf-8?q?-1-ea26fa3689be=40gmail=2Ecom=3E?=
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Ve3qM6cb
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=WWXsi2sKIGoGgyhIoSZ+4BEAUs75uz9JX/TPU+B3b4w=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794790628; v=1; x=1795395428;
+ b=Ve3qM6cbkvgW8CvXaKOowoLephw1dkp9Kp4IuBmN3ctKxIg+iVnVnjOX/4zSgB0bBFl22FFP
+ c0CjHQkGAGqWPQg11JmTOkhAL0GIsC1v7g+VUK1tP2RXBPmcxcwKJghSRSbiFOgQW54CedtIWCl
+ 1QBsJ/ZE0wQ9qoHVZkmc4p8M=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id 77561f772e9bc9b0;
+	Mon, 16 Nov 2026 00:57:07 +0000
+X-Mizu-Trace-ID: 77561f772e9bc9b0
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 16 Nov 2026 08:56:56 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Tianyi Gao <tianyi@cloudflare.com>
+Cc: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>, kuba@kernel.org,
+	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, shuah@kernel.org, ast@kernel.org,
+	daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+	sdf@fomichev.me, skhan@linuxfoundation.org
+Subject: Re: [PATCH net v2] selftests: net: veth: propagate channel-check
+ failures to exit status
+Message-ID: <avpU2DbRUp0KaSYD@fedora>
+References: <20261115214702.50817-1-emmaonana18@gmail.com>
+ <CAG4wq-cd01i7YrcFPmma=BXUcwn_PK=wneKW=vyEBYzQ3Bn7QA@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,30 +70,27 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAG4wq-cd01i7YrcFPmma=BXUcwn_PK=wneKW=vyEBYzQ3Bn7QA@mail.gmail.com>
 
-Hi!
+On Mon, Nov 16, 2026 at 12:45:48AM +0000, Tianyi Gao wrote:
+> On Sun, 15 Nov 2026 22:47:02 +0100 Omokefe Emmanuel Onanaroghene wrote:
+> > chk_channels() reports mismatches with a "fail" line but never sets
+> > ret, so the script exits 0 even when channel counts are wrong.
+> 
+> I found three more checks in the same file with the same problem:
+> 
+>   bad setting: XDP with RX nr less than TX
+>   bad setting: reducing RX nr below peer TX with XDP set
+>   bad setting: increasing peer TX nr above RX with XDP set
+> 
+> Maybe it is worth fixing them all at once?
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
++1
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+> 
+> Tested-by: Tianyi Gao <tianyi@cloudflare.com>
+> 
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Hangbin
