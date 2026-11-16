@@ -1,90 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794844349;
-	b=rhcY1zE8CSWH1jaNMcNwEPN1I8vk2VrMHXHBYcJg5p/wzoAvfQwWjZSHmWTmj9NM3R9v
-	 tYkh39G5vLCTfs/q/s8RaZSkLAPdU74t1hbd5ZmKaogVq/gOGtYu1Ua2OyP+ZAwDbE8rN
-	 HBdorplwXh8crIRaEW51GtgZkg4csim81PIURQwF9OO4RbeT41o65OG3HVAJI9UWg6Dtv
-	 wiJIc24PqaFonJdq8U4+z5Fqze1O+bnk2qgs4yewrd5V1IGsvotPtyHxY6R9z9AGufk1p
-	 ua6/7pcEWt1TSCwkBHRTF2+FbIrCCo36U0oiFydq/SNw0IkcUJrUPF7jaQZO11VGfHQ==
+	t=1794844364;
+	b=TIiBTp9ffMyhe8U4Uskzm8G7FuU56O5guW/90sHSMDPrEIzTpGiJ+ErDQF8o5tJtJnOP
+	 8AtayAGnfl9jMmSNNn4BqoYg7bY6JH3x1y6ypJyG9Rldy6NPVp+BJ1Ly5/Llm1xi/eqxK
+	 F+5oY9CRxlC5+M2B2eaLRejSfBicDoH5GPy1RAgTZoASHgDvqIQSqX2BB06K6kdleVELD
+	 lhBj0r3KhLwKz3lBctAPii3/Y2i++7qgwhvxppuC05DZMN91xErEGxtPURCZCsbpkv3KE
+	 aYwBvs994aWeunjvCBCH4Wlyojf1/2+7JX75r/HkzW2ExkjqvelkcI+X/uqIW22a6qA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794844349;
-	h=Received:DKIM-Signature:X-Mailer:From:To:Cc:Subject:In-Reply-To:
-	 References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=nMJerJcoZ1Adnfr1+PAoZtyg0oa83iJzpuYf4Q3jisk=;
-	b=fABsnlHXQk8e4METhwNMhBff3k4luca2UiAXEj+2UN/MqTrhaV+2W9WXEzSsS2GzZ4qW
-	 XXafhpTacetKjdGLuQQWGKhVZnr3t6/ivX9F6CR4pUKin94amNQsoLQWTt1b+lZ9UyGS+
-	 w83x1RrDwoVD1PLCifJFMq8XnIJhuKy7BJw0RTiTGsNwJVt8HNuO961PQNIUX6AGacrzR
-	 nRr55dfeSc2D0lt/vma0RREIIfqtVx30Mrj6V3R27FZqfc+N2ptiftYTI9FrF2KCYKq4T
-	 7N3Ohw93cdc/gwNgFDA0nQGo+YA/rggpI2O+TJG1IfMwbezWtvHqvP7spDHQxKESeJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794844364;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=g+kb+ZzrGTUhbJttxW0qtASDjHC3TIeprrt72BSFN94=;
+	b=uw3UwXpyLyOPoL6aAEluaMSRUwjBsTN556932oG3RxHGIEEzrZvS/Uq58Gjw6e/M+/sL
+	 6I3ohW3z2wtMntSPBgj57V5KBgculBdrWu7Keto/wK8Dyr/p02xucuR70Q3Tp3Ohy5jbK
+	 bsSO6N3VxbJ1Jh3erRBoO95MSnPfr/u4rEIvYn3+Rg3o3o49AuY1c8rk0axZ1bvP8TeBy
+	 poN6W/lrl73B1mQ95DRfJxlbi5dzMfMBfFK0+1jbWwAGzUVtp7Wme/ioPG3ZHczPhZ0ct
+	 GikcoWMAd45I3a9f39oItlWc/Ab0km5aKQ72ZDz1QBXTSrRI2pOqiKAqe3UuRvxhGUw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Cqf/PBWs";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=nebusec.ai;
+	spf=pass smtp.mailfrom=nebusec.ai;
+	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=qkCSfGmo;
+	arc=none smtp.remote-ip=209.85.214.169
+Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1C198606A31C;
-	Mon, 16 Nov 2026 15:52:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E21C6606A332
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:52:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E21C6606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cqf/PBWs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CD2F1F000CA;
-	Mon, 16 Nov 2026 15:52:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794844348;
-	bh=nMJerJcoZ1Adnfr1+PAoZtyg0oa83iJzpuYf4Q3jisk=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=Cqf/PBWsD5IxBgQxvgBiY9kTywVx12SlTwTmXTT8ukWkQsTUR+izYk5U8YFXU36Ny
-	 VuKt687MkawSeh2PId4bqFbRWi9sMgwfnI/JSJjTIU/6KxVcy/AK8qf7rn+hv6trfk
-	 Ee1pyTLlidS19SxOPSpjOIH4gugO1s5gd0mmAVUM5KUUf9dnwJ+bAvl3mUcDP9cXGz
-	 X00xd/pchyAyodSkPV0qGH695K9NxXc1WkmuaQ+sFB/uhm3L44RMtQbd4LJlTnKyog
-	 9tmHrt1kljrQB9N0o1IIRZoyH9U1+vjGQIjU/c8DxKA/xTbNd2EoCf0s7ezT62PTkl
-	 Ppm6trUfqKBRQ==
-X-Mailer: emacs 31.1 (via feedmail 11-beta-1 I)
-From: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
-To: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Leon Romanovsky <leon@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	"Joerg Roedel (AMD)" <joro@8bytes.org>,
-	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
-	Vasant Hegde <vasant.hegde@amd.com>,
-	Will Deacon <will@kernel.org>,
-	Robin Murphy <robin.murphy@arm.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Lu Baolu <baolu.lu@linux.intel.com>,
-	Johan Hovold <johan@kernel.org>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	Nipun Gupta <nipun.gupta@amd.com>,
-	Nikhil Agarwal <nikhil.agarwal@amd.com>,
-	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
-	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
-	linux-input@vger.kernel.org, netdev@vger.kernel.org,
-	linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
-	linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
-	iommu@lists.linux.dev
-Subject: Re: [PATCH 17/17] PCI: Replace untrusted state with device trust
-In-Reply-To: <20261116132046.GI2532299@ziepe.ca>
-References: <20261105-device-trust-core-v1-0-1e536825b4eb@nvidia.com>
- <20261105-device-trust-core-v1-17-1e536825b4eb@nvidia.com>
- <yq5amrr8yldi.fsf@kernel.org> <20261116132046.GI2532299@ziepe.ca>
-Date: Mon, 16 Nov 2026 21:22:11 +0530
-Message-ID: <yq5aa4n8ydsk.fsf@kernel.org>
+	dkim=pass (2048-bit key) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=qkCSfGmo
+Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2ede7cb02daso32766925ad.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 07:52:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=nebusec.ai; s=google; t=1794844363; x=1795449163; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=g+kb+ZzrGTUhbJttxW0qtASDjHC3TIeprrt72BSFN94=;
+        b=qkCSfGmopHpHUcNocZwRbaALDar9yZzNW2wbOhHFMj/hFXNwMe2jBxbSZ5/dDFppYb
+         lXu7eMEYGP7bJdfC8dbILiusCGbXv/QkBIaZs7/9iH20cg0WD+u5rV5Lltt+T1zN++O6
+         3p8KOBeAFhW19Z1AIolILCYh1kz8DNwU3En7dW072KN4KjYE90OiWNdWOpqhPvMif8YY
+         Z2Tn7hs9b/2af81NNUV5dbGwFOAm8lm79WotkCmKnCWowwdVWBXKxvc4ScuiAuQ25tSy
+         2wePdAeicHVA1AD4CJ0/N8AGJe0M7SmT30M2a2B/cMqG3aux5GTrJfcwIhrx8gPjtzKp
+         s8Yw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794844363; x=1795449163;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=g+kb+ZzrGTUhbJttxW0qtASDjHC3TIeprrt72BSFN94=;
+        b=XhiGvfwOdo3IDtDNca62I2Mc5E7jMPxcjgPmSwgdAl4y8MnKXWv0SEwuJtuvFBZIte
+         Z5Z4MD+sB/BnIQaqeZlvnZygTV2zKT+fwaU5czpSoQ1yNKc88VcQ2NkxrPU1FNQpgjke
+         RsS39ftLnEgaANjgFREdfnY310LeSxrisIg/cFAPG76ete688uemlATw2kpzsdf9rD79
+         6oXc90JFsHIOdUfwDAsoINBy5zKjUNntmK2ovGmCOgiyvfTV92FdfrYLVcSwi6LMXnk7
+         3xlFrMy+0lXKvULev3pW/UeBitWdd97BgNslLJZzjQRhqiBEqMWdYwUWzfaM2miw3FpD
+         +HPw==
+X-Gm-Message-State: APuU4Z/TEZwq0OTZYxpHXXGfjiYu/ixjbyr1uv7ZLiP3Vpl2uAUwYCuF
+	emmRzZ2Q+OphBUrdBRoRe8yVVO5CiFpB5QNMWrEA+PxhOjsp2b+14xn0b+XY2SXRvBQqwQRbnRJ
+	0gRGvqX8g
+X-Gm-Gg: AZFdTZeMrUxergDQ7bQVFAdNytlBaONjXwjCBtfbq/2PpYZb6+HrB1rhRT/Qo6uRW05
+	1CveGJqrDeq8ojylUtJAzkioVWKDzAwPYPWHIE7COANrEelszwEfu/prk6tuLSfX1xYe6cCd7Hq
+	XMi+WMK1Sv+z5CfDMQob7hsdGlbQHw0XqOgfuTFeeSR7qcEBCWFiVG+E0gHwzbpWGipAEMTDBXS
+	JQhh3KFgjFLXrAo6FWEuS+3typtiFUUFbiIRn6+H7WbAlHCZoyxqPJFMoRp2CoAdLFHReDwa3LE
+	o/1sLkM7NN8pRMb8P52H32Hep7l+F4B7FNFe0Kq+/4mGrbMc/YuqxGexhKKQ8XlFAnkSdLA6ZZg
+	kdxkcJB5hdf/QasHQB1tEsrTkoUoXpxfQVado2BhyBo+zVkPrf4MmN/pwLJsXb1k+KrcFc9tVSh
+	EApLcEAqOEqmvLiX6JktY6sDVE4YZLs/hRYxSORRZ4m4I4cWn3Zafbn0pO/Bz4OBjnxpLnmYTQK
+	oAPQZsZbrARKuzk1ORZIQe8o3Z36w61mav8xvYAu6N0U3rlQhA436LcZXswqQmX9JcNazQ+4Z5E
+	HH4c2F+wH+zUFqoTuR5TPIPWh1YJCbBFMHDmhMcGP4jTn5QE6hPUeeuFY8Jad451QfMpW7wSZbe
+	rzO3UzevDLoQySGHYjrYH
+X-Received: by 2002:a17:903:3b87:b0:2e6:1c24:d5f2 with SMTP id d9443c01a7336-2edf21c1da4mr95518365ad.36.1794844363031;
+        Mon, 16 Nov 2026 07:52:43 -0800 (PST)
+Received: from 24c857d0c3be.. ([122.51.212.64])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd7a36504sm1330985ad.30.2026.11.16.07.52.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 07:52:42 -0800 (PST)
+From: Zihan Xi <zihanx@nebusec.ai>
+To: netdev@vger.kernel.org,
+	ipsec@lists.linux.dev
+Cc: steffen.klassert@secunet.com,
+	herbert@gondor.apana.org.au,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	sd@queasysnail.net,
+	vega@nebusec.ai,
+	zihanx@nebusec.ai
+Subject: [PATCH net 1/1] xfrm: espintcp: select receive path by skb protocol
+Date: Mon, 16 Nov 2026 15:52:29 +0000
+Message-ID: <20261116155229.318582-2-zihanx@nebusec.ai>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20261116155229.318582-1-zihanx@nebusec.ai>
+References: <20261116155229.318582-1-zihanx@nebusec.ai>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,52 +106,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 
-Jason Gunthorpe <jgg@ziepe.ca> writes:
+An IPv6 socket can accept an IPv4 connection through a v4-mapped
+address. Such a socket still receives IPv4 skbs, but espintcp selected
+the XFRM receive path from the socket family.
 
-> On Mon, Nov 16, 2026 at 06:38:25PM +0530, Aneesh Kumar K.V wrote:
->> > +static inline bool
->> > +pci_dev_default_is_restricted(const struct pci_dev *pdev)
->> > +{
->> > +	enum device_trust_policy policy = READ_ONCE(pdev->dev.trust_policy);
->> > +
->> > +	return policy == DEVICE_TRUST_POLICY_DISABLED ||
->> > +	       policy == DEVICE_TRUST_POLICY_ADVERSARY;
->> > +}
->> > +
->> 
->> Could you clarify how this series will work alongside device acceptance
->> and private-memory access?
->> 
->> In particular, what should callers of device_cc_accepted() use under
->> this model?
->
-> Who is calling device_cc_accepted? I thought we were keeping that
-> internal to the DMA PI?
->
->> My understanding is that trust describes the operating
->> policy, not TDISP acceptance or DMA access to private memory.
->
-> Right.
->
->> Therefore,
->> neither FULL nor ADVERSARY alone indicates whether a device can access
->> private memory?
->
-> Right.
->
-> Once you turn on TDISP you effectively activate DMA, just like turning
-> on the IOMMU.
->
+Use the skb protocol when selecting the receive path so IPv4 packets are
+not passed to the IPv6 XFRM parser.
 
+Fixes: 26333c37fc28 ("xfrm: add IPv6 support for espintcp")
+Cc: stable@vger.kernel.org
+Reported-by: Vega <vega@nebusec.ai>
+Signed-off-by: Zihan Xi <zihanx@nebusec.ai>
+---
+ net/xfrm/espintcp.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-We considered two options for doing this:
+diff --git a/net/xfrm/espintcp.c b/net/xfrm/espintcp.c
+index 4052ae5bbb2e..ec37a32ecb00 100644
+--- a/net/xfrm/espintcp.c
++++ b/net/xfrm/espintcp.c
+@@ -48,7 +48,7 @@ static void handle_esp(struct sk_buff *skb, struct sock *sk)
+ 	}
+ 	local_bh_disable();
+ #if IS_ENABLED(CONFIG_IPV6)
+-	if (sk->sk_family == AF_INET6)
++	if (skb->protocol == htons(ETH_P_IPV6))
+ 		xfrm6_rcv_encap(skb, IPPROTO_ESP, 0, TCP_ENCAP_ESPINTCP);
+ 	else
+ #endif
+-- 
+2.43.0
 
-1. Via the ->accept() callback in pci_tsm_ops.
-2. Via pci_dma_configure(), based on a combination of device trust and device acceptance.
-
-If I understand correctly, you are suggesting that we stick with the
-former?
-
--aneesh
