@@ -1,60 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794832194;
-	b=uoWIVSPfxpe9bN+Fv2gDemdfWV+LcVbR02nZHXou21idzqJBeZRRMzRPgCg3T4Pf6DGw
-	 15rXyzsoUx8bGBhZJptM3UdIAuDngym5m0hBv5Hyw3sE4kAinr0B5gKnHVdShkv0YJDa5
-	 8avGeHs1mp76gzNUaiJK8prnsP+8lLhoHHgHgZ8Atr26BjeN3pFFmEtWthezy0bwwXLXg
-	 ApL8YR8x9XtrMmN5rXV7CAwqecpvGwGWNMRHqsgEozVkxEglnILVl0tSJtw4AsAo86wEM
-	 xX35gab1n390BXb71wL3+q14t5RZDqFKHUmSIVTejj3ZmRNwy5eGuZoUGa2PzSxlS9A==
+	t=1794832357;
+	b=Wagwbg1+SJdV7F9KkosbrWoTIyROrPMHX2BaVccCkcRWvTtoFvJC1scKIpC4H0whPQJz
+	 P+5tqUCTq7AjXkIEXuTkSPUI9j85iK9sp8Y/KV6Q7niZaWQHAMkCnfVN32sSmVUQfjtOS
+	 9JsLhFAuNgBRLDVooY//II2Xuwrzb1ye1FP7QR80VqIff5JgQm0hGHXOoy5SMynBD30Bk
+	 xxHzq50mOo5YcYTRCecxWAi6LFq2Emyko+5GTM3n7HdkghvCfpEBncN1c6Kqvjo6bDzml
+	 kNaOkaOECAES2N3MZYHEwv2CY+IVf5rcu2XLTvy3QmbIdu+L2QaxWg9lu2nPJBRkEOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794832194;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=UfZAhLZFTkL4ISw0mXsMZIe8+v3xd6kfRlMCcVN6hWk=;
-	b=eeblb+Xrabcboe90u5p1SRbbVch7TgXxqLl44WfzU55YZ8q8eBw0Q0025bjRyZ4AMlKQ
-	 rnYCdmrYATfmIjQX9Qrq0ziyzEe1iISPm1seXcpzTkTryjL7IaeobMJCp5xMydu9KxMD9
-	 esTTfSJxFzf57iKGY0xl4OUKStMhvPxOVju8Qy4zZYlTKm2gxr3joQ2940qoIlvrus/SX
-	 Piv5m5TfUfKnC+2v4+7AFoKAUuuG1tCz3MR+NbGdivZxuUrhbROEdr8pAPpISTRGGYU72
-	 lTJ2IRKvLcT+DqJ4DvFu3AcBaVwPdIzatBuEeEJ8CN6b02k6HdKmnwMFTLD4dy0or0g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794832357;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=8hW3Icu32YpX4MMMfBKofUdXAhk8zTVLp5A3VYY9984=;
+	b=eni3/e3ZD1+6IsbENcSnK9N3q4MxIzZmQ5vyPkJz5LKfVSZRN4ifik+rnmnbjWigqueP
+	 BlO5CfAwtmn3UKP8Y9SvNjew8LLWxVBXNxsR6Y09y2ISIGIXVOQukwIM23CwYbuWmj+aL
+	 zpbR2W6flB0TvuDSmSbxChUXs0orK49KuM8IOS1SRW+VcFK8yaZP1uTjBsyUgu6+mEQlx
+	 gOf2ouWmGdBdCNNOE+o5SW453cLenM2/zc7/a855T3uG8yaEfN0QPAZkxCplGSs11pE7N
+	 dAbYrAncxDkCJDICRAK74x/+Gs3CNdf5b3PCevaBg6I3CW77qZ7q0DckQHr78L1j6pA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jwo0hIG8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M2COT8Q8;
+	arc=none smtp.remote-ip=74.125.82.47
+Received: from mail-dl1-f47.google.com (mail-dl1-f47.google.com [74.125.82.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6047B606A33A;
-	Mon, 16 Nov 2026 12:29:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89EE6606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 12:32:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89EE6606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jwo0hIG8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 74F8C1F000C4;
-	Mon, 16 Nov 2026 12:29:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794832194;
-	bh=UfZAhLZFTkL4ISw0mXsMZIe8+v3xd6kfRlMCcVN6hWk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=jwo0hIG87SVTFunMGFuD+ZhstkFrQak4xOVC2zH3oD4QZz4DJofdViPJLs6fh4RGV
-	 P1aZ9S/VdDNBOfwnyPxnEZo0DUSqSJTDtmr6gmdSrlSV29ZevboCpPmV2YfnVV+Uc6
-	 YnjOJLLseBse3yw2N9u0XYsJz+yoo3q6nCCqebF0BxFIhJCZ4rZNV0qN4ZdvoqP7YE
-	 NGsUpwMHcTMfUlbvYf7OhcLiCMbbL4Q5w9PbIdPCvYCAvDFtFuM5o1ndlJm26snYrB
-	 k32VaSaFQQF9D4YjPlp8OXyWV5kHnMKMdIha21P+GxYhCNwWSmH1ddnnS37l6QaMUB
-	 vi4GXDTdYUoPw==
-Subject: Re: [PATCH net-next v3 5/5] selftests: seg6: add PSP flavor testing
- for SRv6 End.X
-From: netdev-bot+sashiko@kernel.org
-To: hangbin.liu@linux.dev
-Cc: andrea.mayer@uniroma2.it, andrea@common-net.org, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- shuah@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, liuhangbin@kylinos.cn
-Date: Mon, 16 Nov 2026 12:29:53 +0000
-Message-ID: <179483219301.3136.3063075269604426765@kernel.org>
-In-Reply-To: <20261112-srv6_flavors_endx-v3-5-c9177bbbd965@kylinos.cn>
-References: <20261112-srv6_flavors_endx-v3-5-c9177bbbd965@kylinos.cn>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M2COT8Q8
+Received: by mail-dl1-f47.google.com with SMTP id a92af1059eb24-1a3c08d6928so4551562c88.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 04:32:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794832355; x=1795437155; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=8hW3Icu32YpX4MMMfBKofUdXAhk8zTVLp5A3VYY9984=;
+        b=M2COT8Q8crFqanvp/JZI70a4Y0PeYmbOCf2PpQwD/jYf0MPLVIVno9HZb2H7gfdJm0
+         bGF0ixrSfXRY0bT+PEqwqE1+t9jXTrA6vKoes0p4f6gaR+W7z+BVWqMrWJDeDS/IHLhF
+         BUsI50LLTYS3BCoaQN16acZxvVPAYuUkZPj6OWNEJa11ktTm1eqMdcmMxkn4qZFN7VRt
+         +9Um+97M9NC0JP73zh33QGVLaqDfRnvCaviNlAU1xip/a6nV3ru5C+2+irKkvMaGOo3w
+         Hq1sbH88jWHXnfX8gwMNQ6EtKzEndhC9iQbfqgcJCcc0szKOvlEM1wUw+XZ9PrG/owwn
+         gryQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794832355; x=1795437155;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=8hW3Icu32YpX4MMMfBKofUdXAhk8zTVLp5A3VYY9984=;
+        b=xnjB7Dh5JY1admqujMKTMVncp9znyfL5Co4VrRc/zs6meVwVNMJsHwHNsA6+Q5VPv4
+         yPizhSJoNwghXAKZ/fAY87dXMKxnRsr3NZ6BvP4VBbtNBFKLdi9m4NT0CIsffXkbW2mC
+         FeI35R5glh/pTkBBPOvnbXfa/Ofd+toOxmTMEnTY8Cw6nXBMariLAxG/lSb+0mA/4YDf
+         6ZVkIyVy0c9xtd4olL2RJHwwLjTGRBuXPG5fkr+vQYUKmS03mDCIDXbQ1TVl7aV9MrYU
+         7DoIpOg1MUZwxeWE47/imCDT+5wThdE0Gj4CwMj/BX3mTV8AEHn5a31YkeLXnAe2e76y
+         FgpA==
+X-Gm-Message-State: APuU4Z9jKDQKqI7HYJcloqmB/9x2fKuGEIwP9B2KXInzlArLtTCX9mJR
+	BCCza2JmN3DrR/8QtTSlUXQsaOJfLM+Nf825WSAGt68psYHFKrK60dbi
+X-Gm-Gg: AYBFou3e2HNAOpY7Bvcueg93n/ZUM0PuPSlMSSIXxVeB/5E0u0oui3TFOlezHPEqj1/
+	tzVEQe52OGKWwAF6DhGpn6p5SWmgWZSoS0OZqmEA9MzOkGAjzBV1qz9sSDbetawbKAXdW3wIqt5
+	GRg0rJUzuvXpp2so97nPL4+EuZ9V/Y4zqcadhHfttQyE2Y7bQdN1ezbnH6mBZ+e2aajlpVs9bOe
+	nZom4BXTg9nMVp4aWobRCH+ABdN+QuDAGZ5r0WKOCkyvUxxLvAU8WGbyWZU8hHHIWZiG3Qk4Aao
+	rIqcfL1ap7OllnLAupAq/L+0cKD68/XI/zUWB4+XVL2hoG1vNuPzCgwB7zztnNzG6SYmiFM1YFI
+	L92kbufMC6yAFHienXyWtHLqacXWQVSs85vUhdHAkB7kLn38AGcTpHA2MkswmdW8K/jjIMCKOJf
+	YaipDQVr+bF6T5hIhLrnbdX550U4GOFTNAHUeB9zDOX7ifHzPF+0h8l3yCgZnoWNUNFzHMLvBjC
+	3QZaTfw1R2uFnIkovNMj1pcWFMryVObZHdn0RMtxiGLSOwt2OVL8zDP+5ZhUJwxARMjDJjIHiwX
+	NYLFZVbI1pAylqdQHiDmPf9vAnW3DBpS2ZudhNMO4e1f8g==
+X-Received: by 2002:a05:7022:5f11:b0:159:2c6d:fcc3 with SMTP id a92af1059eb24-1b5030e7803mr8770798c88.33.1794832355331;
+        Mon, 16 Nov 2026 04:32:35 -0800 (PST)
+Received: from houminxi ([61.170.225.237])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5031bc518sm30276611c88.15.2026.11.16.04.32.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 04:32:34 -0800 (PST)
+From: Minxi Hou <houminxi@gmail.com>
+To: Matthieu Baerts <matttbe@kernel.org>
+Cc: netdev@vger.kernel.org,
+	Aaron Conole <aconole@redhat.com>,
+	Eelco Chaudron <echaudro@redhat.com>,
+	Ilya Maximets <i.maximets@ovn.org>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net v4 0/2] net: openvswitch: fix a feature leak on a failed change
+Date: Mon, 16 Nov 2026 07:32:19 -0500
+Message-ID: <20261116123219.1781480-1-houminxi@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <998d522f-e61d-420f-9834-6bdcbaab1361@kernel.org>
+References: <998d522f-e61d-420f-9834-6bdcbaab1361@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,218 +104,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Hi Matt,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+You are right about the hang, and it is mine. I reproduced it here.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+To get a failure reason into the CI log I duplicated stdout onto fd 9 in
+openvswitch.sh, because info() writes debug.log and a failing run
+deletes that file. The suite starts daemons that outlive the script: the
+per-vport upcall handlers from add-if -u, and the psample listener. They
+inherit the second handle. runner.sh reads the test output from a pipe,
+so as long as any process holds the write end, the pipe never reaches
+EOF and the run sits there after the last subtest has already passed.
 
-- [Medium] The script never checks whether the kernel supports End.X with
-  PSP, so on kernels without that support the whole test reports SKIP…
-- [Low] For non-C-SID End.X SIDs, get_rt_sid() drops the adjacency:
-  `rt=$(echo "${rt}" | sed 's/>.*//')` at line 834.
-- [Low] The new End.X scenario cannot tell End.X apart from End: every
-  adjacency it configures is the same next hop the regular FIB/localsid…
-- [Low] setup_hs_lo_addr() (line 1056) adds a /128 address on the host
-  loopback (`ip -netns $hsname addr add $addr/128 dev lo nodad`, line…
+Redirecting the output to a file hides this completely, which is how I
+ran it, and why I did not see it.
 
---
+Writing those messages to stderr fixes it. stderr still reaches the
+runner from inside ovs_sbx, and the daemons send both stdout and stderr
+to files, so nothing is left holding the pipe.
 
-selftests: seg6: add PSP flavor testing for SRv6 End.X
+Checked with the output piped the way runner.sh does it:
 
-This adds an End.X scenario to srv6_end_flavors_test.sh. It applies the
-same PSP and NEXT-C-SID+PSP policies as the End scenario, with each node
-bound through an adjacency. The policy and endpoint helpers now parse
-<nodeid:op:act> elements and encode the adjacency into the C-SIDs.
+  before: "TEST: psample ... [ OK ]", then nothing until the timeout
+  after:  21 tests [ OK ], and the run ends by itself
+  with a wrong expectation injected: the reason still reaches the log and
+  the test fails, so the diagnostics still work
 
-> diff --git a/tools/testing/selftests/net/srv6_end_flavors_test.sh b/tools/testing/selftests/net/srv6_end_flavors_test.sh
-> index 374b43661c285..5b1b13586df03 100755
-> --- a/tools/testing/selftests/net/srv6_end_flavors_test.sh
-> +++ b/tools/testing/selftests/net/srv6_end_flavors_test.sh
+The configs merge here as well. The only message is the CONFIG_IP_SCTP
+m->y redefine, which is already in the fragment before this series.
 
-[ ... ]
+I will send a v5 with this change.
 
-> @@ -730,6 +831,7 @@ get_rt_sid()
->  		return
->  	fi
->  
-> +	rt=$(echo "${rt}" | sed 's/>.*//')
->  	echo "${LOCATOR_SERVICE}:${rt}::${func}"
->  }
-
-[Severity: Low]
-In the non-C-SID case this drops the adjacency. That means "4>2:psp:End.X"
-and, say, "4>3:psp:End.X" would both map to fcff:4::0af1, even though
-setup_rt_endpoints() gets a different End.X nh6 for each one from
-__get_act_cfg().
-
-setup_rt_endpoint() returns early when the SID is already in table 90:
-
-	if [ -n "$(ip -netns "${nsname}" -6 route show \
-		table "${LOCALSID_TABLE_ID}" exact "${sid}")" ]; then
-		return
-	fi
-
-Would a second End.X element on the same router, pointing at a different
-neighbour, silently keep the first element's nh6?
-
-The C-SID path keeps the adjacency (build_csid() turns 4>2 into 42a9), so
-the two encodings are not consistent. The current policies do not collide
-(rt-3 to rt-4, rt-4 to rt-2, rt-2 and rt-1 to the host), so this does not
-show up today.
-
-Some comments were also not updated for the new encoding. The header still
-says:
-
-  - p is a parameter of the behavior (4 bits), 0 for End, which has none;
-
-The comment above build_csid() still says "followed by the parameter of
-the behavior (4 bits, 0)", but the code now puts the neighbour ID in that
-nibble. The Local SID table lists fcff:x::a and fcff:x::af1 with no
-adjacency, and the policy walk-through sections do not describe the End.X
-policies.
-
-[ ... ]
-
-> @@ -1049,6 +1164,29 @@ setup_end_flv_psp()
->  	SETUP_ERR=0
->  }
->  
-> +setup_endx_flv_psp()
-> +{
-> +	SETUP_ERR=1
-> +
-> +	setup_hs_lo_addr 1 1 "${ENDX_CSID_PSP_FUNC}"
-> +	setup_hs_lo_addr 2 2 "${ENDX_CSID_PSP_FUNC}"
-
-[Severity: Low]
-setup_hs_lo_addr() adds an address on the host loopback and a route on the
-router, but it does not defer the removal of either:
-
-	ip -netns "${hsname}" addr add "${addr}/128" dev lo nodad
-
-	ip -netns "${rtname}" -6 route \
-		add "${addr}" \
-		via "${IPv6_HS_NETWORK}::${hs}" dev "${RT2HS_DEVNAME}"
-
-The other per-scenario helpers (setup_rt_host_proxy(),
-setup_rt_endpoint(), __setup_rt_policy()) all register a defer.
-
-This is the first patch that adds a second scenario. So the cafe::1:e9 and
-cafe::2:e9 addresses and routes from the End scope are still installed
-while the End.X scope runs. The defer_scope_pop of the End.X scope also
-leaves the a9 ones behind. Only the namespace teardown in cleanup()
-removes them.
-
-Should setup_hs_lo_addr() defer its own cleanup? The earlier "selftest:
-seg6: explicit cleanup for SRv6 End PSP test" change set up the scoped
-teardown so that state would not be left behind once more tests share this
-script. A later scenario that reuses a suffix would hit "File exists"
-under set -e.
-
-> +
-> +	setup_rt_host_proxy 1 2 "${ENDX_CSID_PSP_FUNC}"
-> +	setup_rt_host_proxy 2 1 "${ENDX_CSID_PSP_FUNC}"
-> +
-> +
-> +	# The same SRv6 policies with setup_end_flv_psp except using End.X
-> +	setup_rt_policy_ipv6 2 1 "3>4:noflv:End.X 4>2:psp:End.X 2>h:psp:End.X"
-> +	setup_rt_policy_ipv6 1 2 "1>h:psp:End.X"
-> +
-> +	setup_rt_policy_ipv6 "2:${ENDX_CSID_PSP_FUNC}" 1 \
-> +		"3>4:next-csid,psp:End.X 4>2,2>h:next-csid,psp:End.X"
-> +	setup_rt_policy_ipv6 "1:${ENDX_CSID_PSP_FUNC}" 2 \
-> +		"4>3,3>1,1>h:next-csid,psp:End.X"
-
-[Severity: Low]
-Can these tests tell End.X forwarding apart from End? Every adjacency here
-is the same next hop that the normal lookup would pick for the next SID.
-
-setup_rt_local_sids() installs fcff:<neigh>::/32 and fcbb:0:<neigh>000::/36
-in table 90 via the direct link to each neighbour. __get_act_cfg() builds
-nh6 <net_prefix>::<neigh> for that same neighbour, or nh6 cafe::<rt> for
-the host, which is where the connected route goes anyway.
-
-For example, the next SID after rt-3>4 is fcff:4::0af1 or fcbb:0:42a9::,
-and table 90 already resolves both via fcf0:0:3:4::4.
-
-Suppose input_action_end_x() with flavors did a DA lookup via
-input_action_end_finish() instead of calling input_action_end_x_finish(),
-or ignored nh6. Would every ping in host_srv6_end_flv_psp_tests "End.X"
-and host_srv6_end_flv_next_csid_psp_tests "End.X" still pass?
-
-The note below the commit message says End.X resolves the destination via
-the next hop directly instead of re-looking it up in table 90, but no test
-currently depends on that difference.
-
-An adjacency whose nh6 differs from the FIB path, or a blackhole route for
-the next SID in table 90, would make it observable.
-
-[ ... ]
-
-> @@ -1479,4 +1623,12 @@ host_srv6_end_flv_next_csid_psp_tests
->  host_srv6_end_flv_consumed_srh_tests
->  defer_scope_pop
->  
-> +defer_scope_push
-> +set -e
-> +setup_endx_flv_psp
-> +set +e
-> +host_srv6_end_flv_psp_tests "End.X"
-> +host_srv6_end_flv_next_csid_psp_tests "End.X"
-> +defer_scope_pop
-> +
->  print_log_test_results
-
-[Severity: Medium]
-What happens here on a kernel that supports PSP for End but not for End.X?
-
-test_kernel_supp_or_ksft_skip() only probes End:
-
-	if ! ip -netns "${test_netns}" -6 route \
-		add "${IPv6_TESTS_ADDR}" encap seg6local \
-		action End flavors "${flavor}" dev "${DUMMY_DEVNAME}"; then
-
-End.X only accepts PSP once the companion change "seg6: add RFC8986 flavor
-support for End.X" extends SEG6_LOCAL_END_X_FLV_SUPP_OPS beyond NEXT-C-SID.
-Without that change, parse_nla_flavors() returns -EOPNOTSUPP.
-
-On such a kernel the End scenario runs and passes, and then:
-
-setup_endx_flv_psp()
-  setup_rt_policy_ipv6()
-    __setup_rt_policy()
-      setup_rt_endpoints()
-        setup_rt_endpoint()
-          ip route add ... action End.X nh6 fcf0:0:2:4::2 flavors psp
-            -> EOPNOTSUPP
-
-Because of set -e the script exits. cleanup() then sees SETUP_ERR=1 while
-ret is still ksft_skip:
-
-	if [ "${SETUP_ERR}" -ne 0 ] && [ "$ret" -ne "$ksft_fail" ]; then
-		echo "SKIP: Setting up the testing environment failed"
-		exit "${ksft_skip}"
-	fi
-
-Doesn't that report the whole run as SKIP with a setup-failure message?
-print_log_test_results() is never reached, so the End results that
-already passed are lost.
-
-The commit message says:
-
-  There is no need to re-check the ip command capability as it already
-  supports setting PSP flavor with End.X.
-
-That covers iproute2 but not the kernel. Could a separate kernel probe for
-End.X nh6 <addr> flavors psp be added? It could skip only the End.X
-section (for example with log_test_skipped) and keep the End results.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-srv6_flavors_endx-v3-0-c9177bbbd965%40kylinos.cn
+Thanks,
+Minxi
