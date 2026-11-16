@@ -1,61 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794825760;
-	b=b575FwAMiSKqDNK9p/Jmkk+xLIE0cGo99NqAt7FKYErTbq0iGNDBGFLiPM5sF7YJorH3
-	 aAa6VRMOLs5/OYoRw6qj7Qmh205Ny9AHIgONRbS3FN4OZSpFFcbizvdBU9o0shunt2Sas
-	 CcuKoKsfV54jg8nxAHp3oKn3axTgAX9PmvvASxCwrEC6QqlpxZTGGv5SvtihxlrXfLLah
-	 vWHJ8/wZDYJC2lz2Msc6T1CHaC+GxfgFYaVvskCZS4+0b6muDCGYGC1/BcOcw9yv3hWVx
-	 S9AMmob9h8H9OKJjLWDA/um+YjnEdKs4LFdABsylwjqmwT8jS4EONKvJGul0LlqzoBA==
+	t=1794826096;
+	b=Bk29V73yVNpI2QZNv8hjJPJTVEkY/K69Adf7k1V6YC5kgicntWbif9NsfTF8P3gKKYMS
+	 ks9gjAfnhVtCp9yVZypQoshEsV23CRBG8ozO9eh74DxJaGRGjtvhciYqIkVNhiqhZBL2s
+	 JU24vmMerZEC1wdAS2MoNNtZJe9/OB6K544cSD8406e3WkhrMF5mXyExkxYyJ3r7MZVyW
+	 Rb/pTGtR6L/l954UjGOEtj28Efvq834RXurOY5pf5/H3vGNe1bLwd8cAl+CYdAy2jwSmb
+	 kDkVIX8XgOtgVMLbyuOVhhePeosL2pxEoNiKFAil/ittYAgciGf9HNP84wGD9Q8vH5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794825760;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=zbw/YPofXlYrFNQtpS7s6hJ0JlMtWRUgM1BHpMOJS1g=;
-	b=MGz+iUrCxYzJo2nhJGQzgcdHGXcvcBeWBRLVFknN61FKNTIHh7BB9Q+vU7bkoZhXwsJI
-	 RWhCq4IfP3QQzqnOM1C1VLbWkaVUN1QuPCA427cDfzLQMSmKE6tmWF4FRi6juPyw8s4it
-	 VBcuALto1+0bh0OeH4NmvoXNwjSAax/36+9et59iSzolLWTVUvmaO7Hpgss6SEbeUAAaN
-	 cfJRIkaXpZ2GXXjVcbfYk31UtOnNBPNfC4u748QlZYxcknosIU6NOkO5qYchpwwTAxQIj
-	 BgjsRqDpanA40MJ9H3hi9K3q97WChmAe62jA1eV03QUjLIbOPmzeOAPKhLK1UFI+GHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794826096;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ie9yyPZ8NoCIdw93B1/vSPVtdv42jR0l99PvlwpZ28g=;
+	b=pNkI6ehcKMxr3lvoJgo9JM61SVvcbnU1Fl8mYu9GeIs3Z4BpSQLnFpuodRZ+SMngX50e
+	 Xusttb0ZYf3OEMyfamv7yNdvuB8qH3UqG5nsJqw2anQOyu3CKxIfZ8nNhBym9mtaMDiM5
+	 QQ6gGFBaAygZf/gzGgzBuOUioBttDbYbHvgdPbpzD08GKkVaMqA/mIlPsMIIwtSDk9/KH
+	 1G+lzCkDq+dTU/4Nno2r90JQg14xTm3U8bfahi2sd6J/WRSaWdPv0t8aLOs/TQTBK6YL/
+	 jtv1wdtA/uUhaktUfRP86pd4BtR/45GRb/rVNJVIphilWvfWWMrbQHum2zBLbu+4yhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ae4XdprP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TuAWGlFG;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6002606A323;
-	Mon, 16 Nov 2026 10:42:40 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C456606A31C;
+	Mon, 16 Nov 2026 10:48:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ae4XdprP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3B191F000C7;
-	Mon, 16 Nov 2026 10:42:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TuAWGlFG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 055211F000C4;
+	Mon, 16 Nov 2026 10:48:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794825760;
-	bh=zbw/YPofXlYrFNQtpS7s6hJ0JlMtWRUgM1BHpMOJS1g=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ae4XdprPv+VbYI3WhqULRck8BJYZhawf43U87ZzM3zO8QcEoVrALrNscNTFKOJJ3X
-	 c7l/5x+EMiHKlnZ/BUVcatxjd/jhNfaoLj/939PLKusRpZRUbGN9w1bC4ARucXxSeR
-	 HWqz8mbJK/rcqU7Wztq70/kW6mv/vzRq9Dfh/RtPxBPertjKa6jbvJ6lwdDZFR0u7c
-	 z8ieINOoy2XKC7Vmgbml/C/vWeU73IxS71wNaUg9RzMsNSqqpBpsapi48551383ct6
-	 xJSYN08OF/JITbeay9Nh9k1YoPKJ047o0BHj7NI9nH3NVDBHQCjAJdl/Ty0iil/maf
-	 AgMu8Gm3Mtx6g==
-From: Imre Kaloz <kaloz@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
-	netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-mips@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 2/2] net: sgi: ioc3-eth: fall back to the platform MAC address
-Date: Mon, 16 Nov 2026 11:41:13 +0100
-Message-ID: <20261116104113.5946-2-kaloz@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <179473760071.2199510.16065103101920438822@kernel.org>
-References: <20261111095138.1757-3-kaloz@kernel.org> <179473760071.2199510.16065103101920438822@kernel.org>
+	s=k20260515; t=1794826095;
+	bh=Ie9yyPZ8NoCIdw93B1/vSPVtdv42jR0l99PvlwpZ28g=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=TuAWGlFGIw6/bGm1/Fd52X5bl2kr4RXwGzwADDT/m02LBZtAP4aD8YhjeGZ11KgCi
+	 0eW0rtNH7ABiEvMkrsIrYWBbrTySAU6HFhlpd4KvlIOXp//I9lxSsOolAd9FXUnxNt
+	 9uY/VystpZY2Jn7KtA2fd3JXzAQzlwciThFKzdx1VaLsReZodYSmGCPXKI03jd8vLd
+	 67ir2zc0KvJqIyWysTzJZ286A3GCc1mKnXn67bO8oHFaYmr1ea0PA63OnceAhjDdgR
+	 l4pq2S6fFLcw6+J/bZ3aCunrBZENg9/vg21l+/o8c20wbYGRMteEc68NUMjqoWdgLB
+	 B3+oBsu9hpYUQ==
+Subject: Re: [PATCH net-next v3 2/4] net: dst: keep the LWT metadata of a
+ dropped route
+From: netdev-bot+sashiko@kernel.org
+To: jhs@mojatatu.com
+Cc: netdev@vger.kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ jiri@resnulli.us, victor@mojatatu.com, sashiko-bot@kernel.org
+Date: Mon, 16 Nov 2026 10:48:14 +0000
+Message-ID: <179482609455.3136.1654206746484449957@kernel.org>
+In-Reply-To: <CORE-9NOG.v3.r0.20261115050625-2@mojatatu.com>
+References: <CORE-9NOG.v3.r0.20261115050625-2@mojatatu.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,47 +64,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-> Can eth_platform_get_mac_address() ever succeed for this device?
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-With the IP35 series it does: that series provides
-arch_get_platform_mac_address(), which reads the address from the L1
-system controller. Without it, as you say, it never does.
+Low priority / nit picks for your consideration:
 
-> Does this ordering let the platform address win before the 1-wire
-> PROM has had a chance to appear?
+- [Low] The commit message presents this patch as a bug fix, with a "The
+  Fix:" section, a "Conditions to recreate the bug" section and the…
+- [Low] The Return: section of the kernel-doc for
+  skb_dst_drop_keep_metadata() (net/core/dst.c:370-373) does not match…
 
-Yes, and it matters for an IOC3 PCI card such as the CAD Duo, which
-carries its own MAC PROM. The system-board IOC3 on these machines has
-no PROM; a card in a PCI slot does.
+--
 
-> Could IP27/IP30 boards that do have a DS250x MAC PROM end up with a
-> random MAC here?
+net: dst: keep the LWT metadata of a dropped route
 
-Yes, with the w1 drivers as modules loaded after the deferred probe
-timeout.
+This adds skb_dst_drop_keep_metadata(). It releases an skb's route dst
+and moves any LWT encapsulation metadata onto a newly allocated metadata
+dst: ip_tunnel_info for ip/ip6 encaps, xfrm_md_info for xfrm. The helper
+is meant for the nft fwd and bpf_redirect_neigh() producers changed later
+in the series.
 
-v2 takes the address from a device property instead. The IOC3 MFD
-driver will attach it only to the Ethernet cell of the system-board
-IOC3 that has no PROM, so every other IOC3 keeps waiting for its
-PROM as before. The random fallback is gone:
+> Found while working on the two producers that steer a packet to another
+> device's neighbour, fixed later in this series. Both release the route
+> dst on the way, and a route installed with an encapsulation carries the
 
-  https://lore.kernel.org/all/20261116102115.27574-1-kaloz@kernel.org/
+[Severity: Low]
+Is this description accurate for the tree at this commit?
 
-> ioc3eth_probe() never calls platform_set_drvdata(pdev, dev)
-> [...]
-> Is the shared IRQ handler safe with the current ordering in
-> ioc3eth_probe()?
+nft_fwd_neigh_eval() in net/netfilter/nft_fwd_netdev.c goes straight to
+neigh_xmit() and never calls skb_dst_drop():
 
-Both are real. I reproduced them on a Fuel by unbinding the device
-through sysfs, the second one with CONFIG_DEBUG_SHIRQ, and the fixes
-are posted separately to net:
+	skb->dev = dev;
+	skb_clear_tstamp(skb);
 
-  https://lore.kernel.org/all/20261116101934.25910-1-kaloz@kernel.org/
+	nf_dev_xmit_recursion_inc();
+	neigh_xmit(neigh_table, dev, addr, skb);
 
-pw-bot: cr
+The nh != NULL path of __bpf_redirect_neigh_v4() and
+__bpf_redirect_neigh_v6() in net/core/filter.c also leaves the original
+route attached to the skb.
 
+This commit adds no callers of skb_dst_drop_keep_metadata(). The route
+release only appears in the later patches "netfilter: nft_fwd_netdev:
+drop the stale dst when steering to a device" and "bpf: drop the stale
+dst when redirecting to an explicit nexthop". The commit messages of
+those patches say the producers currently leave the dst untouched.
 
-Thanks,
-Imre
+> The Fix:
+> Add skb_dst_drop_keep_metadata(), which moves those parameters onto a
+> metadata dst of its own before the route is released.
+
+[ ... ]
+
+> Conditions to recreate the bug:
+> Install a route with an encapsulation (ip route add ... encap ip id <id>
+> dst <remote>, or encap xfrm if_id <id>), steer a packet to another
+> device's neighbour with a netdev egress fwd rule or
+> bpf_redirect_neigh(), and release the route dst before neigh_xmit() hands
+> the packet on.
+
+To reproduce, the reader has to release the route dst before
+neigh_xmit(). Current code does not do that.
+
+Could the message present this patch as a prerequisite helper for the
+later producer changes, rather than as a fix with "The Fix:" and
+"Conditions to recreate the bug:" sections?
+
+> diff --git a/net/core/dst.c b/net/core/dst.c
+> index 092861133023c..9c80c225cbfdd 100644
+> --- a/net/core/dst.c
+> +++ b/net/core/dst.c
+> @@ -353,3 +353,79 @@ void metadata_dst_free_percpu(struct metadata_dst __percpu *md_dst)
+
+[ ... ]
+
+> + * A dst that is metadata is left in place.
+> + *
+> + * Return: true if the skb is left free to be sent, either because its dst is
+> + * metadata already or because the LWT metadata was moved onto a new dst;
+> + * false if no copy could be allocated, in which case the caller must drop the
+> + * skb.
+> + */
+
+[Severity: Low]
+Does this Return: section match what skb_dst_drop_keep_metadata() does?
+
+The doc says false only means no copy could be allocated. The XFRM
+branch also returns false when skb_dst_force() fails:
+
+		if (!skb_dst_force(skb)) {
+			metadata_dst_free(md_dst);
+			return false;
+		}
+
+This happens when a noref route's refcount has already reached zero, for
+example during a concurrent route removal. By that point skb_dst_force()
+has set skb->_skb_refdst to 0, so the skb comes back with no dst. The
+commit message's "the skb is left untouched for its owner to drop" does
+not hold here either.
+
+The doc says true only means the dst was already metadata or the metadata
+was moved. True is also returned when the skb has no dst at all, because
+skb_valid_dst() is false for a NULL dst:
+
+	if (!skb_valid_dst(skb))
+		return true;
+
+True is also returned when the route has no lwtstate, or an lwtstate type
+other than IP, IP6 or XFRM (MPLS, SEG6, BPF and so on). In that case the
+route is dropped and the skb is left without a dst:
+
+	skb_dst_drop(skb);
+	if (md_dst)
+		skb_dst_set(skb, &md_dst->dst);
+	return true;
+
+The callers added later in the series drop the skb on false. Since this
+helper is exported, could the kernel-doc spell out these cases?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/CORE-9NOG.v3.r0.20261115050625%40mojatatu.com
