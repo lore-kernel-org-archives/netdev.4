@@ -1,75 +1,68 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794793686;
-	b=B+jOQsLorPVsTiZ/DInjDna/ytnenrsH1R3yDG1ipyo61/xVp6joF8u1xMQbKKc7+hGL
-	 /GGhvOdBkTNXmjEva6/85k4tQNDIWN9R+uTg2cepaHFy7lPIZA/0N3OMDWgz4HTlJC2h4
-	 saQYy4CTxNYQiFN6l56gD704mydSsO9EYQnj0M6FkqLu91dP32CWLMbttBT6nVKV8JEJv
-	 5tIHi7DvfUpyIfh3775Nfha2B8loDHuOMDZK6fU6bkeqp5ZUXBKooE6lirrPkJts+4BfH
-	 l/q2cuDCrVyFdnopzM2CnqnW9yHerF6KK1JWbkQc2Bbem7qYz2V2E8elHluU/BI7Cxg==
+	t=1794793749;
+	b=PCzRsIPC/a4Wk4v9KUD8dhgfEJ77+drWtAhLfIvV5TFZ+EwDf6yZemDBoLIOuc11Ibpx
+	 LjkTg0zyUR5g4dLVUXW182rBlx797p7HSTSFI/lwBOJON4ks9XUo0+Mg/bDQemoRCI65S
+	 2kcYycG+5onejMe6P+Uy6eS3NXDnFj0Ydr7l4f4/tN1Y2PmgZ4iR9fwu5fF6VNsA00OsA
+	 xuYz1hHAYkGfr4xZp/ko5sy07ucKeGYkz2oj1phRMVAYNcVlLyZm9/HEFTP/I90Wh5oKV
+	 sCQgy3fTwihX86O5IUCpDIBtB30qQKDGftI1Bbvd0EOe2qw8KjrSVfYkSC509i4ReOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794793686;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794793749;
 	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
 	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=U16UHM6ExIa0np8Ym9kKv5Vd+LKnAL8EesghEHkEZLY=;
-	b=c8hKsDtIJ9rd/mD7dQfSs+c6spDuzT0N+3SogARc96hjCj72DTS2UXZt6atEtvqBisEI
-	 SDSzPLMZyMOzEO2KKVCFiY1Zq3XizCqdeA2xIyBYfYSiAq0yMVs/Lk1ieVuF5yabRDTGV
-	 3D3Y6Ezgm4YPGohvxYaZOErgvMaXLAZKgA+mD9pb7wEvv21GfLJeQS3/VISf9AMZLyMQP
-	 +ihBDEP52wLMmRcnYbUzUITI2OOvwHfPaXNSVMteuTwpqHiVoQJtZoqqz9FJLRs7V70/z
-	 1MQ8KrtcqN6EJFdkxkMNcdQ3NfAhxVCA6rVdiONMCikzAFuU43hzh+gvpEDRIx2nXsQ==
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=Rekfepe5axDxfYyni0ajF7ujUuhN9THJ7yTWEHuS3YY=;
+	b=Acj4Ui1mgxnk6ARSu+Q7ZAiY8MJkNlaxRlhIfQ5yTIQZa1hpTC2I1+uj4DgImKaAe9EZ
+	 dQOk1JnlCde089lcY8F4jw+z3WX6AbM4pYhIFyVhtN3zD6sVTCo5hB8xrsSNnbuv9d0S6
+	 t7tXsGOMGUXzLtjgOleQxNMMQqseVs7GD1BQnhZkb+OVXC/7wm/PWY8AZNXBsvUTwxWTj
+	 LHWlK8VtkzISUNX2/50eOqCuoA7ViJygqQdMM8TOg6dOR438tCxj+XYzXWCveSW8GyOAz
+	 jgvzRRTlDrUmFsjf41+12pA0Ml89GMr8eA03i7VakGxWFmmMwqqoJAwsaLsswsysg3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cmss.chinamobile.com;
 	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=sYZgBawm;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=IB8iYmWT;
 	arc=none smtp.remote-ip=111.22.67.139
 Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7B6BD606A332;
-	Mon, 16 Nov 2026 01:48:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B6BD606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 40E0E606A336;
+	Mon, 16 Nov 2026 01:49:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40E0E606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=sYZgBawm
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=IB8iYmWT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=cmss.chinamobile.com; s=default; l=0;
 	h=from:subject:message-id:to:cc:mime-version;
 	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=sYZgBawmzsxhoBZgFtn9MuS70kq5u3aa1Ai0gsxqaGKAvQn1+XRy2PnxLsnKLDvG01DhJF4qgzn+H
-	 IHxTp+Jm390g4687nVmIdYh60tcR358aEoPXcqzRDGbZMmwbGq0VUAULnGtPq2s0w31x4JE0fZPTax
-	 l9Z1SmLu+ozFQpDE=
+	b=IB8iYmWTpHDQG+taqhqaKNRIp339AzhOyFN6jHbDhlgyBNqHbbW7BXbI4uIH4YDXYkdHKrzIzRDnZ
+	 4qHKDw8gEJdzM318m/3hgO3RdAhKoj4nxQObUGt/4KQzuyi2LIJGtg7cdqMMIdoe7C9SNd6zuJyohG
+	 hHnzvsgs5VWOA5fo=
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
 Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afa60d38ca-f7211;
-	Mon, 16 Nov 2026 09:48:03 +0800 (CST)
-X-RM-TRANSID:2ee56afa60d38ca-f7211
+	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96afa6112a69-ff127;
+	Mon, 16 Nov 2026 09:49:07 +0800 (CST)
+X-RM-TRANSID:2ee96afa6112a69-ff127
 X-RM-TagInfo: emlType=0                                       
 X-RM-SPAM-FLAG:00000000
-Received:from  (unknown[223.64.115.200])
-	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66afa60d087e-77830;
-	Mon, 16 Nov 2026 09:48:03 +0800 (CST)
-X-RM-TRANSID:2ee66afa60d087e-77830
-From: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
-To: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
+Received:from FHD-W7400297 (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86afa6110083-77031;
+	Mon, 16 Nov 2026 09:49:07 +0800 (CST)
+X-RM-TRANSID:2ee86afa6110083-77031
+From: Aibing Chen <chenaibing@cmss.chinamobile.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Hangbin Liu <hangbin.liu@linux.dev>,
-	Hangbin Liu <liuhangbin@kylinos.cn>,
+Cc: linux-usb@vger.kernel.org,
 	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	sunwenbo@cmss.chinamobile.com,
-	1342116488@qq.com
-Subject: [PATCH net-next v3 1/2] ipv6: check mc_forwarding before calling ip6mr_get_route()
-Date: Mon, 16 Nov 2026 09:47:43 +0800
-Message-Id: <20261116014744.18223-2-sunwenbo@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.33.0
-In-Reply-To: <20261116014744.18223-1-sunwenbo@cmss.chinamobile.com>
-References: <20261116014744.18223-1-sunwenbo@cmss.chinamobile.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] net: hso: cap the MTU to the mux tx buffer size
+Date: Mon, 16 Nov 2026 09:49:04 +0800
+Message-ID: <20261116014904.556-1-chenaibing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,69 +74,33 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When CONFIG_IPV6_MROUTE is enabled, rt6_fill_node() currently calls
-ip6mr_get_route() whenever an input interface (RTA_IIF) is specified and
-the route destination is multicast.
+hso_net_start_xmit() copies skb->len bytes into odev->mux_bulk_tx_buf,
+which is a fixed MUX_BULK_TX_BUF_SIZE (2048) allocation made by
+hso_create_net_device().  The net device does not set max_mtu, so
+userspace can raise the MTU up to IP_MAX_MTU and make that copy overflow
+the buffer; the same length is passed to usb_fill_bulk_urb().
 
-However, inet6_rtm_getroute() does not set skb->dev on the newly
-allocated reply skb, and the looked-up rt6_info carries the matched FIB6
-prefix (such as ff00::/8 from addrconf_add_mroute()) rather than the
-queried (S,G) addresses. As a result, when multicast forwarding is
-disabled (mc_forwarding is 0), ip6mr_get_route() falls into the
-cache-miss check and returns -ENODEV, causing rt6_fill_node() to jump to
-nla_put_failure and report -EMSGSIZE ("RTNETLINK answers: Message too
-long") to userspace. Similarly, interface-local and link-local multicast
-groups are never forwarded by ip6_mc_input(), so querying them with
-mc_forwarding enabled also enters ip6mr_get_route() and fails instead of
-reporting the local route.
+Cap the MTU at the buffer size, keeping the 14 byte allowance that the
+default MTU already uses.
 
-In contrast, the IPv4 counterpart rt_fill_info() guards ipmr_get_route()
-with !ipv4_is_local_multicast(dst) and IPV4_DEVCONF_ALL_RO(net,
-MC_FORWARDING), falling back to emitting RTA_IIF and normal route
-attributes.
-
-To align IPv6 behavior with IPv4 and ip6_mc_input(), check that
-mc_forwarding is non-zero and that the destination (dest when available,
-otherwise rt6_dst->addr) is neither interface-local (IPV6_ADDR_LOOPBACK)
-nor link-local (IPV6_ADDR_LINKLOCAL) multicast before calling
-ip6mr_get_route().
-
-This discrepancy was identified with the assistance of an LLM-based code
-review comparing IPv4 and IPv6 multicast route get handling, confirmed
-on a UML kernel where multicast route queries with an input interface
-failed on an unpatched kernel, and verified in UML that routable
-multicast queries with mc_forwarding disabled as well as link-local
-(ff02::1) and interface-local (ff01::1) queries with mc_forwarding
-enabled now succeed and report RTA_IIF.
-
-Built with W=1 on UML, x86_64 allmodconfig, and x86_64 allyesconfig with
-zero new warnings or errors.
-
-Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+Fixes: 72dc1c096c70 ("HSO: add option hso driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
 ---
- net/ipv6/route.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+ drivers/net/usb/hso.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 1b2dcc066e19..27597d149672 100644
---- a/net/ipv6/route.c
-+++ b/net/ipv6/route.c
-@@ -5868,7 +5868,12 @@ static int rt6_fill_node(struct net *net, struct sk_buff *skb,
- #endif
- 	if (iif) {
- #ifdef CONFIG_IPV6_MROUTE
--		if (ipv6_addr_is_multicast(&rt6_dst->addr)) {
-+		const struct in6_addr *mc_dst = dest ? : &rt6_dst->addr;
-+
-+		if (ipv6_addr_is_multicast(mc_dst) &&
-+		    !(ipv6_addr_type(mc_dst) &
-+		      (IPV6_ADDR_LOOPBACK | IPV6_ADDR_LINKLOCAL)) &&
-+		    atomic_read(&net->ipv6.devconf_all->mc_forwarding)) {
- 			int err = ip6mr_get_route(net, skb, rtm, portid);
+diff --git a/drivers/net/usb/hso.c b/drivers/net/usb/hso.c
+index 71caa3764..45713c994 100644
+--- a/drivers/net/usb/hso.c
++++ b/drivers/net/usb/hso.c
+@@ -2393,6 +2393,7 @@ static void hso_net_init(struct net_device *net)
+ 	net->flags = IFF_POINTOPOINT | IFF_NOARP | IFF_MULTICAST;
+ 	net->type = ARPHRD_NONE;
+ 	net->mtu = DEFAULT_MTU - 14;
++	net->max_mtu = MUX_BULK_TX_BUF_SIZE - 14;
+ 	net->tx_queue_len = 10;
+ 	net->ethtool_ops = &ops;
  
- 			if (err == 0)
--- 
-2.33.0
-
 
 
