@@ -1,90 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794825299;
-	b=CwxEOsXCtbSi6LVyEfDywEobkLJOUpbkxljaJFD+t9NbPhJmHRqnZ/kne+heOPIukLRt
-	 lZN++w+c7jQuzssbOrrfAro0eNGfYf7QVs4pt1CB5ue44qY1Vd1XEG65Wd6AcEFPllgdN
-	 9Vb1P4I9MC1aaHA6MPQNCxjhFqvC2V5CqUgDLcEjVzHppC8Ys6joyBeBPQ/SjHp67y/z9
-	 X8uoyvMHFclP+iaNddOFS37Nb+0nQ535MvDycpoc82tj8EdePowph/bXw7vvB4UZNNs0B
-	 /YoOgghyd+c5K0dpw9mxPyIKmmudpCYnaf+FnQE+5rvcu5novBWXIXhoANy2cANxm1A==
+	t=1794825356;
+	b=5NKj+8kCT0vVfxxp+jXRnHYNtMrC/2XwvRuqeu+nccOjmGevAxSExuCbIfSuhKMTIr21
+	 9fj7Jksfwuo2gApXjuwm4toa4apB0gokciHEWR0WWPaqVDgWS/evK/6qbg25IOK6hw4ai
+	 E08mdew5nwNPsdRuLFJXJOV9Bf1tApzbxCih3jTp10GEzmFHaUjix5QA7ugCnzS7xWOu7
+	 lwHuhOFv4DRCRYRlbglYXsNt0fltCwlfm/Scp9G9ZSfxcwfunOXgyeny/9OxSGXKOKLKQ
+	 VPrQO9JfH6kUhXin26Am7N8KfxPQf8al4eu8qoNa+YplnjhF5Tfu01nMkiwt+Y1l2Pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794825299;
-	h=DMARC-Filter:Message-ID:DKIM-Signature:DKIM-Signature:Subject:From:
-	 To:Cc:Date:In-Reply-To:References:Organization:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794825356;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=GOPTJCv3XLVXfPEVUY2szn6O3hXCLFE1beoEE0C7n3c=;
-	b=qy3EmqmGfZzYU+0aOp72V48DEmkcY++UswRFJEy3NkmCSz8CrYxI3VVW9YGtdx3fGENW
-	 lWHHSteKg87C7HVHlBujW1QlTMZaey3qu2tko0LjIS7Uzxy46AyaTHQXYhqBsIO/OHtXE
-	 HE0yV/LHIQWQPddFsDU5H+pO5lhSIA4pxCatf5fZweXrSyhLidcxpAnr/dR6IZJl2nFUP
-	 mQJvEQ4Zl4gJldEIsWIyAHOTwRKuw1bt0Hy7Qeo7JwfQsuoAne1wy0WA+1xcoK8qYhbwM
-	 dLqU/l7ilYlX3ZrF6G48qkqagewFTPAMk3BVY0AnmDshpLntBWrToV0VURQPIBR3Uew==
+	bh=yJIFDAZTBBUc/zWvcjI+JoSUsDm2VmZ4BHMBL+zYoOg=;
+	b=JlzsWN0aYZb+Uu/J4Bb3pkxxvS5/oE4kXRb6wGNZHi4ctl8sTAZOlbp6nCTxes5pKnll
+	 523k8g4Upd3qWJBvvJhP2r9A8+sEJcdIkd2G8fda0NMXnh01M9wzv5GEQuiMd6TPvIg0T
+	 xbFjGNqJyuIe40/eRSO0WAIB5tliwOPhHxFbyz0cs74/imrJlUu51PHaF800bLdYJqPF8
+	 AOFA+8qpxycPuzd2eKTuDmQIzanfsY+ks/Ov8WD4NtRFtYHIydL4qs/xDfNcDKuNdMRcT
+	 7G8vMD66m+5Vx2ucaHbU5z3yEUvpC3gLtgnm5FbPWh/aIG23uiKfCmLxvA4dmltdG1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linutronix.de;
-	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b="F9/+sMXI";
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=VyJ9h3CI;
-	arc=none smtp.remote-ip=193.142.43.55
-Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zi9FfVIk;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9238A606A329;
-	Mon, 16 Nov 2026 10:34:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9238A606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD9E2606A330;
+	Mon, 16 Nov 2026 10:35:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=F9/+sMXI;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=VyJ9h3CI
-Message-ID: <cfe4e81c5146628463ace9f170c7265c98f17c27.camel@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1794825296;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GOPTJCv3XLVXfPEVUY2szn6O3hXCLFE1beoEE0C7n3c=;
-	b=F9/+sMXIiVNvIlgrdZB1FU8a0g1qhn/cx/k+eeh5SBSDpQXlZXYWPYlE/L6Y2i7hP7RhIK
-	XX4rC4U1cOJG8RboEQTLsPic46SDQCJQ+kXa8gNf6cRVkQopXHN6X4B3NYUTCi0SC1pSMI
-	eycP9FSIQ0fY0du8V5o3s1utmUimuV/42ZnSOLFvquiPasjLyiV4DijoS7tUlMIXqeRuZ9
-	EEXFKGugL/QOameZNi/EDRM0Tb7FCim5Tpy0SvUGPUuWwMm4Stkuuv24Gm6mNttgB+hYHE
-	0YF4RNVevIAUoniFG7XgPJmDUcgWzS82DCBBsWOQSNcEiyYe7wKL6Frp6GLfvQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1794825296;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GOPTJCv3XLVXfPEVUY2szn6O3hXCLFE1beoEE0C7n3c=;
-	b=VyJ9h3CIUVZngr18q68/wjgTQXAd7MOfui0b+PaqvP8JS4/CslSDW4fZdR5Bxv95EOlgxm
-	uz3FqMqB3cnvVHBw==
-Subject: Re: [PATCH net-next v4 4/8] dt-bindings: mfd: Add SoC-e SWIP parent
-From: Vasilij Strassheim <v.strassheim@linutronix.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Vladimir Oltean <olteanv@gmail.com>, "David S.
- Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Russell King
- <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>, Heiner
- Kallweit <hkallweit1@gmail.com>, Eric Dumazet <edumazet@kernel.org>, Lee
- Jones <lee@kernel.org>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, mfd@lists.linux.dev, 
- Martin Kaistra <martin.kaistra@linutronix.de>, Benedikt Spranger
- <b.spranger@linutronix.de>
-Date: Mon, 16 Nov 2026 11:34:55 +0100
-In-Reply-To: <e4417d39-390d-4ece-bb2d-5f1745185d37@lunn.ch>
-References: 
-	<20261105-devel-vstrassheim-soce-dsa-ml-v4-0-02f3cde2afa1@linutronix.de>
-	 <20261105-devel-vstrassheim-soce-dsa-ml-v4-4-02f3cde2afa1@linutronix.de>
-	 <20261106-judicious-penguin-of-enhancement-b28c8b@quoll>
-	 <f5c7c9901aca84f0b814e5b6c153db84af826dd7.camel@linutronix.de>
-	 <cc35b2127b04772f05948ac51c8faa5ef07da0b0.camel@linutronix.de>
-	 <20261110192118.GA1412882-robh@kernel.org>
-	 <5a6183e3480a0d910e275acf591e2db8700da827.camel@linutronix.de>
-	 <e4417d39-390d-4ece-bb2d-5f1745185d37@lunn.ch>
-Organization: Linutronix GmbH
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Zi9FfVIk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E732E1F000C4;
+	Mon, 16 Nov 2026 10:35:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794825356;
+	bh=yJIFDAZTBBUc/zWvcjI+JoSUsDm2VmZ4BHMBL+zYoOg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Zi9FfVIkSFfbDd7ubsUktRGMsIHDCNUtu3OnboGf8dkzTfs49fP0b0t5egcZr7qsl
+	 FgA4oO2ko3m9qeqW79ZZQsdSpH+mKFLNJXxWXCgGvOFUVIRUN40XwJyyUW6zpoa7Fl
+	 6S34lMcF5leGhdSQXICkEZ+lQOkiltt65hmsc5eRiBg/SlBDA0grcBIgrD7nl5JEfe
+	 7J559ahYAea0l7MzcGcOVYrynXKwS3nFU08qGujnDW7or4fJpYwf9CgDdIHdGP8ljV
+	 WJj6n/ndblsiL6B+v70t1tWG1KZsyump1VDDjlpWZCTrv6SGVrKYkhz91SmFLwfPB0
+	 yENSLcOVbymag==
+Subject: Re: [PATCH net] vhost/vsock: Fix socket state constant
+From: netdev-bot+sashiko@kernel.org
+To: mhal@rbox.co
+Cc: stefanha@redhat.com, sgarzare@redhat.com, bobbyeshleman@meta.com,
+ mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com,
+ davem@davemloft.net, kvm@vger.kernel.org, virtualization@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kuba@kernel.org
+Date: Mon, 16 Nov 2026 10:35:55 +0000
+Message-ID: <179482535544.3136.14958523425614003338@kernel.org>
+In-Reply-To: <20261112-transport-reset-state-fix-v1-1-5698375f52a9@rbox.co>
+References: <20261112-transport-reset-state-fix-v1-1-5698375f52a9@rbox.co>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -95,61 +64,168 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-On Fri, 2026-11-13 at 21:48 +0100, Andrew Lunn wrote:
-> > > Given the MDIO bus and mux registers are adjacent, I don't know that=
-=20
-> > > putting the mux into its own node and driver really buys you anything=
-.=20
-> > > Can't your MDIO driver handle the muxing directly? mdio-mux-mmioreg w=
-as=20
-> > > created for when you have mux registers in some completely unrelated=
-=20
-> > > block.
-> > >=20
-> >=20
-> > What it buys me is less custom code to maintain for bus selection and
-> > selector-value validation.
-> >=20
-> > The MDIO controller and mux were combined in a previous version.
-> > Following Andrew's suggestion [1], I moved the controller into its own
-> > driver and stacked mdio-mux-mmioreg on top of it.
-> > Sure, the selector is part of the same MDIO control register. But the
-> > generic driver already provides the masked register update and
-> > selector-value checks. My preference is to keep the current approach
-> > to reuse existing code, even if it requires some integration and
-> > documentation efforts.
->=20
-> Since you have both implementations. Did the lines of code go down
-> when you reused the existing mux?
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Yes, the number was halved from around 400 lines when I didn't use
-mdio-mux at all in c-files. I have no numbers to compare only those for
-mdio-mux-mmioreg.
-Without mdio-mux-mmioreg, I would need to reimplement the selector
-handling and bus number checks, as well as some de-/initialization
-routines. I think the bcm6368 and iproc use mdio-mux in this way.
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
 
->=20
-> > The IP core can also include an I2C master for accessing external
-> > devices as a synthesis option.
->=20
-> SFP cage being the obvious thing.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-SFP is a good hint. Their website shows FPGA-based devices, such as PCIe
-cards, that support SFP ports.
+- [High] Writing TCP_CLOSE plus sk_err = ECONNRESET in
+  vhost_vsock_reset_orphans() (drivers/vhost/vsock.c:792-793) brings…
+- [Medium] vhost_vsock_reset_orphans() now moves every orphaned connected
+  socket to TCP_CLOSE unconditionally, after setting SOCK_DONE, even…
 
->=20
-> It will need to be a Linux I2C master in order that phylink can use
-> it. And i would not be too surprised if the existing I2C drivers can
-> drive it, it will be licensed IP. So an MFD will make it easier to
-> instantiate.
+--
 
-Looks like a standard I2C interface. I don't have one yet to test, but
-it would be good to consider this early with MFD.
+vhost/vsock: Fix socket state constant
 
->=20
-> 	Andrew
+This patch replaces SS_UNCONNECTED with TCP_CLOSE in
+vhost_vsock_reset_orphans(). SS_UNCONNECTED has the value 1, which is the
+same as TCP_ESTABLISHED. So far, orphaned sockets have been left in the
+established state after the vhost device was released.
 
-Thanks,
-Vasilij
+> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+> index 88a310390eb0a..fd224f7681d92 100644
+> --- a/drivers/vhost/vsock.c
+> +++ b/drivers/vhost/vsock.c
+> @@ -789,7 +789,7 @@ static void vhost_vsock_reset_orphans(struct sock *sk)
+>  
+>  	sock_set_flag(sk, SOCK_DONE);
+>  	vsk->peer_shutdown = SHUTDOWN_MASK;
+> -	sk->sk_state = SS_UNCONNECTED;
+> +	sk->sk_state = TCP_CLOSE;
 
+[Severity: High]
+Can this let connect() reset a socket that is still linked in
+vsock_connected_table? Commit 4f6ac74fa594 ("vsock: treat TCP_CLOSING as
+once-established") fixed that problem for the other close paths.
+
+vhost_vsock_reset_orphans() runs without lock_sock(). Suppose it runs
+after virtio_transport_recv_connecting() has handled a RESPONSE, but
+before the waiter in vsock_connect() gets the socket lock back:
+
+vhost TX worker
+virtio_transport_recv_connecting()
+    sk->sk_state = TCP_ESTABLISHED;
+    sk->sk_socket->state = SS_CONNECTED;
+    vsock_insert_connected(vsk);
+
+vhost_vsock_dev_release()
+  vhost_vsock_reset_orphans()
+    sk->sk_state = TCP_CLOSE;
+    sk->sk_err = ECONNRESET;
+
+The waiter then fails the TCP_ESTABLISHED/TCP_CLOSING check and ends up
+here:
+
+net/vmw_vsock/af_vsock.c:vsock_connect() {
+    ...
+	err = sock_error(sk);
+	if (err) {
+		sk->sk_state = TCP_CLOSE;
+		sock->state = SS_UNCONNECTED;
+	}
+    ...
+}
+
+connect() returns -ECONNRESET, but the socket is still in the connected
+table. With the old value (1 == TCP_ESTABLISHED), connect() returned 0 and
+the socket stayed SS_CONNECTED.
+
+After that, ordinary API calls seem to be enough to insert the socket a
+second time:
+
+1. A second connect(): sock->state is SS_UNCONNECTED, so it does not get
+   -EISCONN. vsock_assign_transport() returns early because the transport
+   is the same. That skips both vsock_remove_sock() and
+   sock_reset_flag(sk, SOCK_DONE).
+
+2. shutdown() while the socket is SS_CONNECTING: vsock_shutdown() calls
+   sock_reset_flag(sk, SOCK_DONE). Without that flag,
+   virtio_transport_recv_pkt() no longer drops the incoming RESPONSE.
+
+3. A RESPONSE from a guest with that CID reaches
+   virtio_transport_recv_connecting() in TCP_SYN_SENT. It calls
+   vsock_insert_connected() a second time.
+
+__vsock_insert_connected() then does an unconditional sock_hold() and
+list_add() on a node that is already linked, which corrupts the bucket.
+
+Any later walk of that bucket under vsock_table_lock can then loop forever,
+for example in vsock_find_connected_socket() or
+vsock_for_each_connected_socket(). With CONFIG_DEBUG_LIST it hits the
+list_add double add BUG instead. One socket reference is also leaked.
+
+Only the first step depends on timing, a race with VM teardown. The rest
+is normal use of the socket API.
+
+> +	sk->sk_state = TCP_CLOSE;
+
+[Severity: Medium]
+Does this drop data that is still queued in the socket's rx_queue?
+
+vhost_vsock_reset_orphans() now sets SOCK_DONE and then moves the socket
+to TCP_CLOSE unconditionally. __vsock_connectible_recvmsg() then returns
+early without dequeuing anything:
+
+net/vmw_vsock/af_vsock.c:__vsock_connectible_recvmsg() {
+    ...
+	if (!transport || sk->sk_state != TCP_ESTABLISHED) {
+		...
+		if (sock_flag(sk, SOCK_DONE))
+			err = 0;
+		else
+			err = -ENOTCONN;
+
+		goto out;
+	}
+    ...
+}
+
+So recv() returns 0 (EOF), and sk_err is not reported there.
+
+The other close paths only leave the readable state when no data is
+pending:
+
+net/vmw_vsock/virtio_transport_common.c:virtio_transport_do_close() {
+    ...
+	if (vsock_stream_has_data(vsk) <= 0)
+		sk->sk_state = TCP_CLOSING;
+    ...
+}
+
+hvs_do_close_lock_held() in hyperv_transport.c has the same check.
+vmci_transport_handle_detach() skips the check only on the host side,
+where queue-pair data can't be read once the VM detaches. With vhost, the
+data is still in host-kernel skbs and can be read.
+
+One way to hit this:
+
+1. The guest writes data and sends SHUTDOWN.
+   virtio_transport_recv_connected() keeps the socket TCP_ESTABLISHED
+   because data is pending.
+
+2. The VM exits, or the VMM closes the vhost fd.
+   vhost_vsock_dev_release() calls vhost_vsock_reset_orphans().
+
+3. The host application's next recv() returns 0, and the end of the
+   stream is lost.
+
+With the old value the socket stayed TCP_ESTABLISHED, so the application
+could read the remaining data before seeing EOF.
+
+On the guest side, virtio_vsock_reset_sock() also sets TCP_CLOSE
+unconditionally on a transport reset, so this may be the intended reset
+behaviour. It is still different from the RST path, which keeps queued
+data readable.
+
+Should vhost_vsock_reset_orphans() check vsock_stream_has_data() the way
+the other transports do?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112-transport-reset-state-fix-v1-1-5698375f52a9%40rbox.co
