@@ -1,95 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.227
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794838104;
-	b=YP1w7m7Qz0mCzqD5p6Sdlnjckum5YUH+/qVY3P/OAtCEXP4a7JSf0je08C3dYc4vuFJl
-	 92mzH26V1m/FlQ1+k/jECZkVY+kAPa5/n6Rd47Y1JzqIvoL41XnJbynCOZQRk6Sh0b6Iq
-	 9Kvq/C5BPzrVBIW4Pu8AI0u3IjLXyQtHAsOZmEN8Wkmd4dzxYAnF1j9Y9Syc01yVQc2pn
-	 aaq1p32QYyTAQdGV2Hv6rxUd0kbbSQkklVn94Dxt9/pSdlbxq18G+LUGb2OZCeplBmDWw
-	 a4wd8uGHl29qpo9lw4zDFFffUY3/BH/K7bqlCswovBOcfb7nr3syAp++rNsesdCJmRw==
+	t=1794838112;
+	b=AoR6UUGLRLCIMLeO3jP8P1WLuwBaViJi/aY5mGypytqCCqDA/i4gUN9w4aNwH/RNMz1M
+	 KDfwcw1Fcl3UGwg2Ch+yoOnfpw+vIm2pjqJ9V0SomCEXJKNZvh9cR5sBsHXp8zzULPji6
+	 TkTW5izIdtZHiM6exUAxBlq0V+zoYt01xYidwyDJZodLpfBrzywjX4mOiSF7BniIVbnyw
+	 USGDYgDCfWvbw5gA45GUJrZGp4aFOiJfoTdATSlIyPseCskpYYHKUJIk8mvcaDd+gmyiW
+	 EITNSazO44LtcYX/DVqYnckvxOk3hx11HT7BV8RBdXfPKKPVG2KNCbV6kON7YnNya0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794838104;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794838112;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
 	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
 	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=XJyJ08sR86/xKJbZYcdm5hXrclIzfYMcFJVS99ypPws=;
-	b=zmD3Ghpanp4fQf1aC9s4opTZ9cNIOb+i+mMk8I0B9MG5m/iDhhyF3BDNkGmoXeAT5QSE
-	 i5Y0I+zJt39VV97oaONwIzXUUq4qbm4TkpyXmyg6ZC/ylgqwvvL2XeLZacQXVRsfE/ONs
-	 uJOocTyX1Fxt2jQDeIvrCJ+fUxMbuGIh+7+Pwb6ZGUKcv/DnV+W6qaPlE5MpDpHLQRh4y
-	 45y+ds0Fr7viAnYaj4iLi9bJqo86CIvXolS9yKE7SeM4HnuOn2A8muQ1Hz078po6dFqAA
-	 cEMzRzEL1QIcuT6IJhWqJRwX5q3Lqw/BFLZzuswI17CA/TlrT1uLszyNhntXF2WCEsA==
+	bh=o57Aqk16kmXaJ2/55BfY+NRplMADlo0G6FQaoFFQ7so=;
+	b=yMZ6YcooLc9ji92tx1w120YfIgRNW8FVltg/og9RbVDr7MvNEi8BUGagfTw5Vs9avFiR
+	 cG+R6VdjZUhWChQfTeZXdstgCBJPCafwpujESy7tIWU+zh5cA9utNivWvH7zfoXGTREjz
+	 PdburITDGgpOPHhMJfuS8Y0fj7ld9IdIFitoWQYYjhXBxa+Iuk7cO9Xpl1RbK+Iivtm4e
+	 8zHBoddjAzTODrS7yPDWIEBJeAbAg+OQV+O2glL5WalTkkFt9PV60p7Q0RVIsQkvEnR/o
+	 PXhEZLur0GXJZgOxgQsbO/BAtG24OQ1QvadA9+SQVvNo5uifjZYVcImMVglLyjaTPNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=broadcom.com;
 	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="Ri/Td3sa";
-	arc=none smtp.remote-ip=74.125.224.99
-Received: from mail-yx1-f99.google.com (mail-yx1-f99.google.com [74.125.224.99])
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ODAhc06k;
+	arc=none smtp.remote-ip=209.85.214.227
+Received: from mail-pl1-f227.google.com (mail-pl1-f227.google.com [209.85.214.227])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAFF8606A883
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:08:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CAFF8606A883
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E732E606A32F
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 14:08:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E732E606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Ri/Td3sa
-Received: by mail-yx1-f99.google.com with SMTP id 956f58d0204a3-67be9601f31so3393857d50.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:08:23 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=ODAhc06k
+Received: by mail-pl1-f227.google.com with SMTP id d9443c01a7336-2efc5a60bd6so3113045ad.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:08:31 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794838103; x=1795442903;
+        d=1e100.net; s=20260707; t=1794838111; x=1795442911;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=XJyJ08sR86/xKJbZYcdm5hXrclIzfYMcFJVS99ypPws=;
-        b=OZXTqfJ/Yks91aOGnK3sI7TVQxYtX/hQDlsHX2aK0q+3fxk6TIXm7HuiTs4VcUcIXm
-         lGh4NJ5dBu1u4JePaj6QKAzp/wkRAjmqGwizHBfz/6INfMAprsk9KL8gPKHmYMx1zE01
-         KQqRHTbXZFIHXa0n/sQwS5+Ljnvu08g2BNzMtCW8iK8TtgKqEroAhDWEoJXZSV5Tq0G2
-         qDyxqwYz2feVUPNAX+65MbPx8pfROzDePxV1EWCFjqlct97JwgOLg+UgVfPWXJD/xnvi
-         URxraBfU8Q4JRkSjxl+Gr8JS+s1XCXsajeUCfOfRhsULj8/8VAh4CuflKr01uVsD8az3
-         TEXg==
-X-Gm-Message-State: APuU4Z8Z+8rmAhpeWai1dXDxYfUN5QWJDK7o19fwhHq8eaChHF6oh98j
-	zplKMA39YPHfQv1E2yrFbXrGBC6/XccVVHFH4XmAdzG+ERbglBgdat828GsZg9wQMaeK/xeB80G
-	YOO/u1EfpycsFp9KRFljqIHOf7UBIO5OUdHTKcv53cIAort31gkqixVP+HgsytY4eFQMqXzQQK4
-	RTiLOepqAmMSghtWcv6jJCBpubdk24YsZTYvXr2U4EpyB5ZQ3mGDlMoFOh/1Av4v1cmGd2SZ1+k
-	PNBcyNmJQ==
-X-Gm-Gg: AZFdTZcbB5QE6iJW+yR0KOV1Xf4HBUcc1YmF+6netkXLHSoznSVLD746wzs2MCoMciS
-	w2k9GaEghSxFkXWKGIWR1dPk6sApqmxKelkrtOnpdZYCr+QWnjMnJgad5vLe0qk/vPZQk6l/8bC
-	Ctutt96E1quvXt8zHI1XBScqdLYbL2Aw+gKHVYpiZinnvu+qRdHXEwY7X7BCQk+/k7iQlzlV6tq
-	o7tpEyOo6c43KjNUknMF3jbOlbCuKaAUaj7n1JWQz6/+ct3qUgGFhrJr8IscwnqcE9Sk5am77Wg
-	zXXMErNH68NmlA8E8chHkskWx3+k0GA8pjos4Ze/ZmZ9Nedgs2Vfbgb2HTY/ljvuHDXu7e8GBbL
-	au4o+Rb0pCMmIPU3dlRbWHTTOSt1mf3SUmeHaxtb6FPzPaPdUJfb6LUy7GoUq7OL0DeGbv9eis9
-	XAQzvRuFj3PqT9EHxIYkGm+O+sKukGeokGqg==
-X-Received: by 2002:a53:de4e:0:b0:679:a2c3:b2dc with SMTP id 956f58d0204a3-67d89774544mr4015403d50.92.1794838102708;
-        Mon, 16 Nov 2026 06:08:22 -0800 (PST)
+        bh=o57Aqk16kmXaJ2/55BfY+NRplMADlo0G6FQaoFFQ7so=;
+        b=cO/KBewZvi//ytQFqkH2ARjljfjTWu0Ko/1vSfUu3QlSsU7eqRwV69FWMZF5KtwHCY
+         DhAJCBpLdZnab4hwTBRFPy4DvOu6fyYH4wcutAkDqO5QipYYGLC23CMR8hjXh/5Xf3b7
+         tXf1bCcrGo7PLQl809YiM2s2AJVfEqtq4dFXcp6ycH95+m6QDFXyzZMYL3c/Hh0Zquv/
+         0ZQ0U+7g9EwzQ8zqHqO+X3/8VE1+DIlNDRi5wq3NP+szmJjLnJZN8MtPOLdUFJFTln2L
+         8F0GYvKm5CKHhRZa08stp44NfSBBHcUvEExQZf+dX1fWp4U/9mwr3Au5YJjv2i+6zeQ2
+         WNyw==
+X-Gm-Message-State: APuU4Z+lcRJAxy1YaA/O2WXBKM8n+ERZ1LfNyGRM1p6d62kiIFGoXq+L
+	0JijgDdXNSqkaWTXs9F1uWqSqlV7YcovtxiTSFYqPcltU+LGFyVtO40yvRr7zfpitxYkTah1GV0
+	JTu6Ly3C7qUfbVjd3W5dObkJez2qL0xkjDaSp5d9qwtPfqkaBtsHrE+J0dtBNuoKD2Qa07G4gFR
+	FkcOo4W6ESbGPGqqtTdBBeZhpC/APvOCFIN37PrH7Qmq87Re9wGYUobAu/MqETQt9wm+DGqNDT9
+	tAUOFvmdA==
+X-Gm-Gg: AZFdTZcHxlyGrzEJ76Tb0Py5eP3XtnkSz3wxNcdSZUs7qgQpOHdF0GC8M3PfyIyJUF6
+	yrQvG44SSrRBgrFeSTa+rcnxiYyBg9JZ2v2Wn6Sg1LawtTRqxV5x7vx8ooG1SqlO8zB9c4cZeWT
+	KPSqNg9E/XQocU+35k1AA2qV4fJmANsYXCsjrnZYQuhzSU9lBKiR9xcje4gqMvs69zSZ2UboclW
+	B9o72trgY9gJkd5xGS9TBwIx+/C2P9rwtYdoqsM5ILUs/u7lZVF155Oekxm60gGmFdSKXlCuWfD
+	sQbCF7XTzbDi+59Bb4tvIQc+8aKiD+4yP0+0A4cewb4DdSSdqLeyyChW6Th3Ain5KC+qwNUGaRt
+	dp9eyu5tctkmEE6QoLrSPieO8Db0KY0wNsE+wFDAucvxtaM+tGJk7qBK9LfIOBxcJXzeh5d6Zqp
+	e7xIYneCfMGYeX96wvTUBoAl6+cMu7kwMXRw==
+X-Received: by 2002:a17:903:2443:b0:2ea:1b9b:b938 with SMTP id d9443c01a7336-2ee0dcadc39mr103323425ad.55.1794838110884;
+        Mon, 16 Nov 2026 06:08:30 -0800 (PST)
 Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 956f58d0204a3-67d8a696943sm126986d50.34.2026.11.16.06.08.22
+        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-2efd7a8720esm1815ad.16.2026.11.16.06.08.30
         for <netdev@vger.kernel.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Nov 2026 06:08:22 -0800 (PST)
+        Mon, 16 Nov 2026 06:08:30 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1383723dfddso3496305c88.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:08:22 -0800 (PST)
+Received: by mail-dl1-f69.google.com with SMTP id a92af1059eb24-1b3b63b9665so1260511c88.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 06:08:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794838101; x=1795442901; darn=vger.kernel.org;
+        d=broadcom.com; s=google; t=1794838109; x=1795442909; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=XJyJ08sR86/xKJbZYcdm5hXrclIzfYMcFJVS99ypPws=;
-        b=Ri/Td3sasYfpiEQK15iA2TU3pgLv1OF7Sq4E+VGPUcCiuuOkX1aMNgXG/oCK/6G8LB
-         TIcaEBkgUflGcxsW5MQRwfP1Ar9estREpau5mNSRzv0kWBkmpRqKL0yzmVPvSw2aCw4x
-         sgJwhhOb+H5gSQPWk4PNvehWnq8LzGT1FxKeE=
-X-Received: by 2002:a05:701b:4507:20b0:1b5:3490:d715 with SMTP id a92af1059eb24-1b53490db69mr1561648c88.34.1794838101185;
-        Mon, 16 Nov 2026 06:08:21 -0800 (PST)
-X-Received: by 2002:a05:701b:4507:20b0:1b5:3490:d715 with SMTP id a92af1059eb24-1b53490db69mr1561599c88.34.1794838100486;
-        Mon, 16 Nov 2026 06:08:20 -0800 (PST)
+        bh=o57Aqk16kmXaJ2/55BfY+NRplMADlo0G6FQaoFFQ7so=;
+        b=ODAhc06kJ4qd1FoTkuF+qhcLGqBNSwF4kiIZlsKp8TbS6v4V9LQkVY/AyDi+Xzdp6c
+         pqKkowkQF26/ot/kfcFeQ97c2zijLxnk2ioWfXvc3t/uIuwCoFfa4Z0vHPQS9i6kskQw
+         EbMgD6+JSJgtVPCWTgevbLpXv1t3dRvBFhy5A=
+X-Received: by 2002:a05:7023:c006:b0:1b3:a87d:a6b6 with SMTP id a92af1059eb24-1b503163eaemr9276680c88.42.1794838108125;
+        Mon, 16 Nov 2026 06:08:28 -0800 (PST)
+X-Received: by 2002:a05:7023:c006:b0:1b3:a87d:a6b6 with SMTP id a92af1059eb24-1b503163eaemr9276620c88.42.1794838106858;
+        Mon, 16 Nov 2026 06:08:26 -0800 (PST)
 Received: from H5-S1 ([192.19.203.250])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5031b98e5sm35251269c88.14.2026.11.16.06.08.14
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5031b98e5sm35251269c88.14.2026.11.16.06.08.20
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 06:08:19 -0800 (PST)
+        Mon, 16 Nov 2026 06:08:25 -0800 (PST)
 From: Vikas Gupta <vikas.gupta@broadcom.com>
 To: davem@davemloft.net,
 	edumazet@google.com,
@@ -106,9 +106,9 @@ Cc: netdev@vger.kernel.org,
 	dharmender.garg@broadcom.com,
 	ajit.khaparde@broadcom.com,
 	Vikas Gupta <vikas.gupta@broadcom.com>
-Subject: [PATCH net-next v8 06/10] bnge: remove refcount from L2 filter
-Date: Mon, 16 Nov 2026 19:36:49 +0530
-Message-ID: <20261116140653.1685797-7-vikas.gupta@broadcom.com>
+Subject: [PATCH net-next v8 07/10] bnge: add NTUPLE filter infrastructure
+Date: Mon, 16 Nov 2026 19:36:50 +0530
+Message-ID: <20261116140653.1685797-8-vikas.gupta@broadcom.com>
 X-Mailer: git-send-email 2.52.0
 In-Reply-To: <20261116140653.1685797-1-vikas.gupta@broadcom.com>
 References: <20261116140653.1685797-1-vikas.gupta@broadcom.com>
@@ -124,120 +124,1108 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-A reference count was previously used under the assumption that any
-context holding the last reference could delete the L2 filter.
+Add the core NTUPLE filter data structures and firmware command
+wrappers needed for flow rule management.
 
-However, going forward, the filter will only be removed by the same
-context that created it, making refcount unnecessary.
+This helps further patches implement user-created NTUPLE rules
+as well as rules via kernel flow steering.
 
-Signed-off-by: Vikas Gupta <vikas.gupta@broadcom.com>
+bd->max_fltr is the fixed BNGE_MAX_NTUPLE_FLTRS (8192). It is no
+longer the sum of the firmware EM and WM flow counts and the L2 filter
+count. It sizes ntp_fltr_bmap, limits bnge_insert_ntp_filter() and,
+with the 128 L2 rules, is the rule count that ethtool reports.
+
 Reviewed-by: Dharmender Garg <dharmender.garg@broadcom.com>
+Signed-off-by: Vikas Gupta <vikas.gupta@broadcom.com>
 ---
- .../net/ethernet/broadcom/bnge/bnge_filter.c  | 33 +++++++------------
- .../net/ethernet/broadcom/bnge/bnge_filter.h  |  2 --
- 2 files changed, 11 insertions(+), 24 deletions(-)
+ drivers/net/ethernet/broadcom/bnge/bnge.h     |   1 -
+ .../net/ethernet/broadcom/bnge/bnge_filter.c  | 498 +++++++++++++++++-
+ .../net/ethernet/broadcom/bnge/bnge_filter.h  |  69 ++-
+ .../ethernet/broadcom/bnge/bnge_hwrm_lib.c    | 157 +++++-
+ .../ethernet/broadcom/bnge/bnge_hwrm_lib.h    |   6 +
+ .../net/ethernet/broadcom/bnge/bnge_netdev.c  |  33 +-
+ .../net/ethernet/broadcom/bnge/bnge_netdev.h  |  17 +
+ .../net/ethernet/broadcom/bnge/bnge_resc.c    |   6 +-
+ .../net/ethernet/broadcom/bnge/bnge_vnic.c    |  20 +
+ 9 files changed, 791 insertions(+), 16 deletions(-)
 
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge.h b/drivers/net/ethernet/broadcom/bnge/bnge.h
+index f8ee95d21d8c..8d514ba1dbcc 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge.h
++++ b/drivers/net/ethernet/broadcom/bnge/bnge.h
+@@ -158,7 +158,6 @@ struct bnge_dev {
+ 	u16			tso_max_segs;
+ 
+ 	int			max_fltr;
+-#define BNGE_L2_FLTR_MAX_FLTR	1024
+ 
+ 	u32			*rss_indir_tbl;
+ 	u16			rss_indir_tbl_entries;
 diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
-index a8bb441ebef9..6316f75ca36e 100644
+index 6316f75ca36e..3ebb3cae4829 100644
 --- a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
 +++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
-@@ -4,6 +4,7 @@
- #include <linux/kernel.h>
+@@ -5,6 +5,7 @@
  #include <linux/dma-mapping.h>
  #include <linux/jhash.h>
-+#include <net/netdev_lock.h>
+ #include <net/netdev_lock.h>
++#include <net/ipv6.h>
  
  #include "bnge.h"
  #include "bnge_netdev.h"
-@@ -13,8 +14,8 @@
+@@ -12,26 +13,150 @@
+ #include "bnge_hwrm_lib.h"
+ #include "bnge_filter.h"
  
- void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *fltr)
- {
--	if (!refcount_dec_and_test(&fltr->refcnt))
--		return;
-+	netdev_assert_locked_or_invisible(bn->netdev);
+-void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *fltr)
++#define BNGE_IPV6_MASK_ALL {{{ 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, \
++			       0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff }}}
++#define BNGE_IPV6_MASK_NONE {{{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }}}
 +
++const struct bnge_flow_masks BNGE_FLOW_MASK_NONE = {
++	.ports = {
++		.src = 0,
++		.dst = 0,
++	},
++	.addrs = {
++		.v6addrs = {
++			.src = BNGE_IPV6_MASK_NONE,
++			.dst = BNGE_IPV6_MASK_NONE,
++		},
++	},
++};
++
++const struct bnge_flow_masks BNGE_FLOW_IPV6_MASK_ALL = {
++	.ports = {
++		.src = cpu_to_be16(0xffff),
++		.dst = cpu_to_be16(0xffff),
++	},
++	.addrs = {
++		.v6addrs = {
++			.src = BNGE_IPV6_MASK_ALL,
++			.dst = BNGE_IPV6_MASK_ALL,
++		},
++	},
++};
++
++const struct bnge_flow_masks BNGE_FLOW_IPV4_MASK_ALL = {
++	.ports = {
++		.src = cpu_to_be16(0xffff),
++		.dst = cpu_to_be16(0xffff),
++	},
++	.addrs = {
++		.v4addrs = {
++			.src = cpu_to_be32(0xffffffff),
++			.dst = cpu_to_be32(0xffffffff),
++		},
++	},
++};
++
++static bool bnge_is_usr_fltr(struct bnge_filter_base *fltr)
+ {
+-	netdev_assert_locked_or_invisible(bn->netdev);
++	return (fltr->type == BNGE_FLTR_TYPE_L2 &&
++		fltr->flags & BNGE_ACT_RING_DST) ||
++	       (fltr->type == BNGE_FLTR_TYPE_NTUPLE &&
++		fltr->flags & BNGE_ACT_NO_AGING);
++}
++
++static void bnge_insert_usr_fltr(struct bnge_net *bn,
++				 struct bnge_filter_base *fltr)
++{
++	if (!bnge_is_usr_fltr(fltr))
++		return;
++
++	INIT_LIST_HEAD(&fltr->list_node);
++	list_add_tail(&fltr->list_node, &bn->usr_fltr_list);
++	bn->user_fltr_count++;
++}
++
++static void bnge_del_usr_fltr_node(struct bnge_net *bn,
++				   struct bnge_filter_base *fltr)
++{
++	if (!bnge_is_usr_fltr(fltr))
++		return;
++
++	if (!list_empty(&fltr->list_node)) {
++		list_del_init(&fltr->list_node);
++		bn->user_fltr_count--;
++	}
++}
++
++void bnge_del_l2_filter_rcu(struct bnge_net *bn, struct bnge_l2_filter *lfltr)
++{
++	struct bnge_filter_base *fltr = &lfltr->base;
++
++	hlist_del_rcu(&fltr->hlist);
++	bnge_del_usr_fltr_node(bn, fltr);
++	clear_bit(fltr->sw_id, bn->l2_fltr_bmap);
++	bn->l2_fltr_count--;
++	kfree_rcu(lfltr, base.rcu);
++}
++
++void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *lfltr)
++{
++	struct bnge_filter_base *fltr = &lfltr->base;
+ 
++	hlist_del(&fltr->hlist);
++	bnge_del_usr_fltr_node(bn, fltr);
++	clear_bit(fltr->sw_id, bn->l2_fltr_bmap);
++	bn->l2_fltr_count--;
++	kfree(fltr);
++}
++
++void bnge_del_ntp_filter(struct bnge_net *bn, struct bnge_ntuple_filter *nfltr)
++{
++	struct bnge_filter_base *fltr = &nfltr->base;
++
++	hlist_del(&fltr->hlist);
++	bnge_del_usr_fltr_node(bn, fltr);
++	clear_bit(fltr->sw_id, bn->ntp_fltr_bmap);
++	bn->ntp_fltr_count--;
++	kfree(fltr);
++}
++
++void bnge_del_ntp_filter_rcu(struct bnge_net *bn,
++			     struct bnge_ntuple_filter *fltr)
++{
++	spin_lock_bh(&bn->ntp_fltr_lock);
  	hlist_del_rcu(&fltr->base.hlist);
++	bnge_del_usr_fltr_node(bn, &fltr->base);
++	clear_bit(fltr->base.sw_id, bn->ntp_fltr_bmap);
++	bn->ntp_fltr_count--;
++	spin_unlock_bh(&bn->ntp_fltr_lock);
++
  	kfree_rcu(fltr, base.rcu);
  }
-@@ -31,18 +32,19 @@ static void bnge_init_l2_filter(struct bnge_net *bn,
+ 
+-static void bnge_init_l2_filter(struct bnge_net *bn,
+-				struct bnge_l2_filter *fltr,
+-				struct bnge_l2_key *key, u32 idx)
++static int bnge_init_l2_filter(struct bnge_net *bn,
++			       struct bnge_l2_filter *fltr,
++			       struct bnge_l2_key *key, u32 idx)
+ {
+ 	struct hlist_head *head;
++	int bit_id;
+ 
+ 	ether_addr_copy(fltr->l2_key.dst_mac_addr, key->dst_mac_addr);
+ 	fltr->l2_key.vlan = key->vlan;
+ 	fltr->base.type = BNGE_FLTR_TYPE_L2;
++	fltr->base.filter_id = BNGE_FLTR_ID_INVALID;
++
++	bit_id = bitmap_find_free_region(bn->l2_fltr_bmap,
++					 BNGE_MAX_L2_FLTRS, 0);
++	if (bit_id < 0)
++		return -ENOMEM;
++	fltr->base.sw_id = (u16)bit_id;
++
++	bn->l2_fltr_count++;
  
  	head = &bn->l2_fltr_hash_tbl[idx];
  	hlist_add_head_rcu(&fltr->base.hlist, head);
--	refcount_set(&fltr->refcnt, 1);
++	bnge_insert_usr_fltr(bn, &fltr->base);
++	return 0;
  }
  
--static struct bnge_l2_filter *__bnge_lookup_l2_filter(struct bnge_net *bn,
--						      struct bnge_l2_key *key,
--						      u32 idx)
-+static struct bnge_l2_filter *bnge_lookup_l2_filter(struct bnge_net *bn,
-+						    struct bnge_l2_key *key,
-+						    u32 idx)
- {
- 	struct bnge_l2_filter *fltr;
- 	struct hlist_head *head;
- 
-+	netdev_assert_locked_or_invisible(bn->netdev);
-+
- 	head = &bn->l2_fltr_hash_tbl[idx];
--	hlist_for_each_entry_rcu(fltr, head, base.hlist) {
-+	hlist_for_each_entry(fltr, head, base.hlist) {
- 		struct bnge_l2_key *l2_key = &fltr->l2_key;
- 
- 		if (ether_addr_equal(l2_key->dst_mac_addr, key->dst_mac_addr) &&
-@@ -52,20 +54,6 @@ static struct bnge_l2_filter *__bnge_lookup_l2_filter(struct bnge_net *bn,
+ static struct bnge_l2_filter *bnge_lookup_l2_filter(struct bnge_net *bn,
+@@ -54,12 +179,42 @@ static struct bnge_l2_filter *bnge_lookup_l2_filter(struct bnge_net *bn,
  	return NULL;
  }
  
--static struct bnge_l2_filter *bnge_lookup_l2_filter(struct bnge_net *bn,
--						    struct bnge_l2_key *key,
--						    u32 idx)
--{
--	struct bnge_l2_filter *fltr;
--
--	rcu_read_lock();
--	fltr = __bnge_lookup_l2_filter(bn, key, idx);
--	if (fltr)
--		refcount_inc(&fltr->refcnt);
--	rcu_read_unlock();
--	return fltr;
--}
--
++__le64 bnge_lookup_l2_filter_rcu(struct bnge_net *bn,
++				 struct bnge_l2_key *key,
++				 u32 idx)
++{
++	__le64 id = BNGE_FLTR_ID_INVALID;
++	struct bnge_l2_filter *fltr;
++	struct hlist_head *head;
++
++	rcu_read_lock();
++
++	head = &bn->l2_fltr_hash_tbl[idx];
++	hlist_for_each_entry_rcu(fltr, head, base.hlist) {
++		struct bnge_l2_key *l2_key = &fltr->l2_key;
++
++		if (ether_addr_equal(l2_key->dst_mac_addr, key->dst_mac_addr) &&
++		    l2_key->vlan == key->vlan) {
++			if (test_bit(BNGE_FLTR_VALID, &fltr->base.state)) {
++				/* Pairs with smp_wmb() in bnge_hwrm_l2_filter_alloc() */
++				smp_rmb();
++				id = fltr->base.filter_id;
++			}
++			break;
++		}
++	}
++
++	rcu_read_unlock();
++	return id;
++}
++
  static struct bnge_l2_filter *bnge_alloc_l2_filter(struct bnge_net *bn,
  						   struct bnge_l2_key *key,
  						   gfp_t gfp)
-@@ -75,9 +63,10 @@ static struct bnge_l2_filter *bnge_alloc_l2_filter(struct bnge_net *bn,
+ {
+ 	struct bnge_l2_filter *fltr;
+ 	u32 idx;
++	int rc;
  
  	idx = jhash2(&key->filter_key, BNGE_L2_KEY_SIZE, bn->hash_seed) &
  	      BNGE_L2_FLTR_HASH_MASK;
-+
- 	fltr = bnge_lookup_l2_filter(bn, key, idx);
- 	if (fltr)
--		return fltr;
-+		return ERR_PTR(-EEXIST);
- 
- 	fltr = kzalloc_obj(*fltr, gfp);
+@@ -72,10 +227,339 @@ static struct bnge_l2_filter *bnge_alloc_l2_filter(struct bnge_net *bn,
  	if (!fltr)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	bnge_init_l2_filter(bn, fltr, key, idx);
++	rc = bnge_init_l2_filter(bn, fltr, key, idx);
++	if (rc) {
++		kfree(fltr);
++		fltr = ERR_PTR(rc);
++	}
++
+ 	return fltr;
+ }
+ 
++struct bnge_l2_filter *bnge_alloc_user_l2_filter(struct bnge_net *bn,
++						 struct bnge_l2_key *key,
++						 u8 flags)
++{
++	struct bnge_l2_filter *fltr;
++	u32 idx;
++	int rc;
++
++	idx = jhash2(&key->filter_key, BNGE_L2_KEY_SIZE, bn->hash_seed) &
++	      BNGE_L2_FLTR_HASH_MASK;
++	fltr = bnge_lookup_l2_filter(bn, key, idx);
++	if (fltr) {
++		fltr = ERR_PTR(-EEXIST);
++		goto l2_filter_exit;
++	}
++	fltr = kzalloc_obj(*fltr, GFP_KERNEL);
++	if (!fltr) {
++		fltr = ERR_PTR(-ENOMEM);
++		goto l2_filter_exit;
++	}
++	fltr->base.flags = flags;
++	rc = bnge_init_l2_filter(bn, fltr, key, idx);
++	if (rc) {
++		kfree(fltr);
++		return ERR_PTR(rc);
++	}
++
++l2_filter_exit:
++	return fltr;
++}
++
++void bnge_free_l2_filters(struct bnge_net *bn)
++{
++	int i;
++
++	netdev_assert_locked_or_invisible(bn->netdev);
++
++	for (i = 0; i < BNGE_L2_FLTR_HASH_SIZE; i++) {
++		struct bnge_l2_filter *fltr;
++		struct hlist_head *head;
++		struct hlist_node *tmp;
++
++		head = &bn->l2_fltr_hash_tbl[i];
++		hlist_for_each_entry_safe(fltr, tmp, head, base.hlist)
++			bnge_del_l2_filter(bn, fltr);
++	}
++
++	bitmap_free(bn->l2_fltr_bmap);
++	bn->l2_fltr_bmap = NULL;
++	bn->l2_fltr_count = 0;
++}
++
++void bnge_free_ntp_fltrs(struct bnge_net *bn, bool skip_user)
++{
++	int i;
++
++	netdev_assert_locked_or_invisible(bn->netdev);
++
++	/* Under netdev instance lock and all our NAPIs have been disabled.
++	 * It's safe to delete the hash table.
++	 */
++	for (i = 0; i < BNGE_NTP_FLTR_HASH_SIZE; i++) {
++		struct bnge_ntuple_filter *fltr;
++		struct hlist_head *head;
++		struct hlist_node *tmp;
++
++		head = &bn->ntp_fltr_hash_tbl[i];
++		hlist_for_each_entry_safe(fltr, tmp, head, base.hlist) {
++			if (skip_user && bnge_is_usr_fltr(&fltr->base))
++				continue;
++			bnge_del_ntp_filter(bn, fltr);
++		}
++	}
++
++	if (skip_user)
++		return;
++
++	bitmap_free(bn->ntp_fltr_bmap);
++	bn->ntp_fltr_bmap = NULL;
++	bn->ntp_fltr_count = 0;
++}
++
++static int bnge_alloc_l2_fltrs_mem(struct bnge_net *bn)
++{
++	int i, rc = 0;
++
++	if (bn->l2_fltr_bmap)
++		return 0;
++
++	for (i = 0; i < BNGE_L2_FLTR_HASH_SIZE; i++)
++		INIT_HLIST_HEAD(&bn->l2_fltr_hash_tbl[i]);
++
++	bn->l2_fltr_count = 0;
++	bn->l2_fltr_bmap = bitmap_zalloc(BNGE_MAX_L2_FLTRS, GFP_KERNEL);
++
++	if (!bn->l2_fltr_bmap)
++		rc = -ENOMEM;
++
++	return rc;
++}
++
++static int bnge_alloc_ntp_fltrs_mem(struct bnge_net *bn)
++{
++	struct bnge_dev *bd = bn->bd;
++	int i, rc = 0;
++
++	if (!(bn->priv_flags & BNGE_NET_EN_NTUPLE) || bn->ntp_fltr_bmap)
++		return 0;
++
++	for (i = 0; i < BNGE_NTP_FLTR_HASH_SIZE; i++)
++		INIT_HLIST_HEAD(&bn->ntp_fltr_hash_tbl[i]);
++
++	bn->ntp_fltr_count = 0;
++	bn->ntp_fltr_bmap = bitmap_zalloc(bd->max_fltr, GFP_KERNEL);
++
++	if (!bn->ntp_fltr_bmap)
++		rc = -ENOMEM;
++
++	return rc;
++}
++
++int bnge_fltrs_mem(struct bnge_net *bn)
++{
++	bool ntp_alloced = !bn->ntp_fltr_bmap;
++	int rc;
++
++	rc = bnge_alloc_ntp_fltrs_mem(bn);
++	if (rc)
++		return rc;
++
++	rc = bnge_alloc_l2_fltrs_mem(bn);
++	if (rc)
++		goto err_free_ntp_mem;
++
++	return 0;
++
++err_free_ntp_mem:
++	if (ntp_alloced) {
++		bitmap_free(bn->ntp_fltr_bmap);
++		bn->ntp_fltr_bmap = NULL;
++	}
++	return rc;
++}
++
++#define BNGE_IPV4_4TUPLE(bd, fkeys)					\
++	(((fkeys)->basic.ip_proto == IPPROTO_TCP &&			\
++	  (bd)->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_TCP_IPV4) ||	\
++	 ((fkeys)->basic.ip_proto == IPPROTO_UDP &&			\
++	  (bd)->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_UDP_IPV4))
++
++#define BNGE_IPV6_4TUPLE(bd, fkeys)					\
++	(((fkeys)->basic.ip_proto == IPPROTO_TCP &&			\
++	  (bd)->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_TCP_IPV6) ||	\
++	 ((fkeys)->basic.ip_proto == IPPROTO_UDP &&			\
++	  (bd)->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_UDP_IPV6))
++
++static u32 bnge_get_rss_flow_tuple_len(struct bnge_dev *bd,
++				       struct flow_keys *fkeys)
++{
++	if (fkeys->basic.n_proto == htons(ETH_P_IP)) {
++		if (BNGE_IPV4_4TUPLE(bd, fkeys))
++			return sizeof(fkeys->addrs.v4addrs) +
++			       sizeof(fkeys->ports);
++
++		if (bd->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_IPV4)
++			return sizeof(fkeys->addrs.v4addrs);
++	}
++
++	if (fkeys->basic.n_proto == htons(ETH_P_IPV6)) {
++		if (BNGE_IPV6_4TUPLE(bd, fkeys))
++			return sizeof(fkeys->addrs.v6addrs) +
++			       sizeof(fkeys->ports);
++
++		if (bd->rss_hash_cfg & VNIC_RSS_CFG_REQ_HASH_TYPE_IPV6)
++			return sizeof(fkeys->addrs.v6addrs);
++	}
++
++	return 0;
++}
++
++static u32 bnge_toeplitz(struct bnge_net *bn, struct flow_keys *fkeys,
++			 const unsigned char *key)
++{
++	u64 prefix = bn->toeplitz_prefix, hash = 0;
++	struct bnge_ipv4_tuple tuple4;
++	struct bnge_ipv6_tuple tuple6;
++	struct bnge_dev *bd = bn->bd;
++	u8 *four_tuple;
++	int i, j, len;
++
++	len = bnge_get_rss_flow_tuple_len(bd, fkeys);
++	if (!len)
++		return 0;
++
++	if (fkeys->basic.n_proto == htons(ETH_P_IP)) {
++		tuple4.v4addrs = fkeys->addrs.v4addrs;
++		tuple4.ports = fkeys->ports;
++		four_tuple = (u8 *)&tuple4;
++	} else {
++		tuple6.v6addrs = fkeys->addrs.v6addrs;
++		tuple6.ports = fkeys->ports;
++		four_tuple = (u8 *)&tuple6;
++	}
++
++	for (i = 0, j = 8; i < len; i++, j++) {
++		u8 byte = four_tuple[i];
++		int bit;
++
++		for (bit = 0; bit < 8; bit++, prefix <<= 1, byte <<= 1) {
++			if (byte & 0x80)
++				hash ^= prefix;
++		}
++		prefix |= (j < HW_HASH_KEY_SIZE) ? key[j] : 0;
++	}
++
++	/* The valid part of the hash is in the upper 32 bits. */
++	return (hash >> 32) & BNGE_NTP_FLTR_HASH_MASK;
++}
++
++u32 bnge_get_ntp_filter_idx(struct bnge_net *bn, struct flow_keys *fkeys,
++			    const struct sk_buff *skb)
++{
++	struct bnge_vnic_info *vnic;
++
++	if (skb)
++		return skb_get_hash_raw(skb) & BNGE_NTP_FLTR_HASH_MASK;
++
++	vnic = &bn->vnic_info[BNGE_VNIC_DEFAULT];
++	return bnge_toeplitz(bn, fkeys, (void *)vnic->rss_hash_key);
++}
++
++static bool bnge_fltr_match(struct bnge_ntuple_filter *f1,
++			    struct bnge_ntuple_filter *f2)
++{
++	struct bnge_flow_masks *masks1 = &f1->fmasks;
++	struct bnge_flow_masks *masks2 = &f2->fmasks;
++	struct flow_keys *keys1 = &f1->fkeys;
++	struct flow_keys *keys2 = &f2->fkeys;
++
++	if (keys1->basic.n_proto != keys2->basic.n_proto ||
++	    keys1->basic.ip_proto != keys2->basic.ip_proto)
++		return false;
++
++	if (keys1->basic.n_proto == htons(ETH_P_IP)) {
++		if (keys1->addrs.v4addrs.src != keys2->addrs.v4addrs.src ||
++		    masks1->addrs.v4addrs.src != masks2->addrs.v4addrs.src ||
++		    keys1->addrs.v4addrs.dst != keys2->addrs.v4addrs.dst ||
++		    masks1->addrs.v4addrs.dst != masks2->addrs.v4addrs.dst)
++			return false;
++	} else {
++		if (!ipv6_addr_equal(&keys1->addrs.v6addrs.src,
++				     &keys2->addrs.v6addrs.src) ||
++		    !ipv6_addr_equal(&masks1->addrs.v6addrs.src,
++				     &masks2->addrs.v6addrs.src) ||
++		    !ipv6_addr_equal(&keys1->addrs.v6addrs.dst,
++				     &keys2->addrs.v6addrs.dst) ||
++		    !ipv6_addr_equal(&masks1->addrs.v6addrs.dst,
++				     &masks2->addrs.v6addrs.dst))
++			return false;
++	}
++
++	return keys1->ports.src == keys2->ports.src &&
++	       masks1->ports.src == masks2->ports.src &&
++	       keys1->ports.dst == keys2->ports.dst &&
++	       masks1->ports.dst == masks2->ports.dst &&
++	       keys1->control.flags == keys2->control.flags &&
++	       f1->l2_filter_id == f2->l2_filter_id;
++}
++
++int bnge_insert_ntp_filter(struct bnge_net *bn, struct bnge_ntuple_filter *fltr,
++			   u32 idx)
++{
++	struct bnge_ntuple_filter *f;
++	struct hlist_head *head;
++	int bit_id;
++
++	spin_lock_bh(&bn->ntp_fltr_lock);
++
++	head = &bn->ntp_fltr_hash_tbl[idx];
++	hlist_for_each_entry(f, head, base.hlist) {
++		if (bnge_fltr_match(f, fltr)) {
++			spin_unlock_bh(&bn->ntp_fltr_lock);
++			return -EEXIST;
++		}
++	}
++
++	bit_id = bitmap_find_free_region(bn->ntp_fltr_bmap,
++					 bn->bd->max_fltr, 0);
++	if (bit_id < 0) {
++		spin_unlock_bh(&bn->ntp_fltr_lock);
++		return -ENOMEM;
++	}
++
++	fltr->base.sw_id = (u16)bit_id;
++	fltr->base.filter_id = BNGE_FLTR_ID_INVALID;
++	fltr->base.type = BNGE_FLTR_TYPE_NTUPLE;
++	fltr->base.flags |= BNGE_ACT_RING_DST;
++
++	head = &bn->ntp_fltr_hash_tbl[idx];
++	hlist_add_head_rcu(&fltr->base.hlist, head);
++
++	bnge_insert_usr_fltr(bn, &fltr->base);
++	bn->ntp_fltr_count++;
++
++	spin_unlock_bh(&bn->ntp_fltr_lock);
++
++	return 0;
++}
++
++struct bnge_ntuple_filter *
++bnge_lookup_ntp_filter_from_idx(struct bnge_net *bn,
++				struct bnge_ntuple_filter *fltr, u32 idx)
++{
++	struct bnge_ntuple_filter *f;
++	struct hlist_head *head;
++
++	head = &bn->ntp_fltr_hash_tbl[idx];
++	hlist_for_each_entry_rcu(f, head, base.hlist) {
++		if (bnge_fltr_match(f, fltr))
++			return f;
++	}
++	return NULL;
++}
++
+ int bnge_hwrm_set_vnic_filter(struct bnge_net *bn, u16 vnic_id, u16 idx,
+ 			      const u8 *mac_addr)
+ {
+@@ -97,6 +581,6 @@ int bnge_hwrm_set_vnic_filter(struct bnge_net *bn, u16 vnic_id, u16 idx,
+ 	return rc;
+ 
+ err_del_l2_filter:
+-	bnge_del_l2_filter(bn, fltr);
++	bnge_del_l2_filter_rcu(bn, fltr);
+ 	return rc;
+ }
 diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.h b/drivers/net/ethernet/broadcom/bnge/bnge_filter.h
-index ea1acefd70b4..372657cba43c 100644
+index 372657cba43c..87d66266a9f5 100644
 --- a/drivers/net/ethernet/broadcom/bnge/bnge_filter.h
 +++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.h
-@@ -6,7 +6,6 @@
- 
+@@ -7,11 +7,14 @@
  #include <linux/types.h>
  #include <linux/if_ether.h>
--#include <linux/refcount.h>
  #include <linux/jhash.h>
++#include <net/flow_dissector.h>
  
  struct bnge_net;
-@@ -49,7 +48,6 @@ struct bnge_l2_filter {
- 	/* base filter must be the first member */
- 	struct bnge_filter_base	base;
- 	struct bnge_l2_key	l2_key;
--	refcount_t		refcnt;
++struct sk_buff;
+ 
+ enum {
+-	BNGE_FLTR_TYPE_L2	= 1
++	BNGE_FLTR_TYPE_L2	= 1,
++	BNGE_FLTR_TYPE_NTUPLE	= 2
  };
  
+ enum {
+@@ -19,12 +22,23 @@ enum {
+ 	BNGE_FLTR_FW_DELETED
+ };
+ 
++enum {
++	BNGE_ACT_DROP		= 0x1,
++	BNGE_ACT_RING_DST	= 0x2,
++	BNGE_ACT_NO_AGING	= 0x4,
++	BNGE_ACT_RSS_CTX	= 0x8
++};
++
++#define BNGE_MAX_L2_FLTRS	128
++#define BNGE_MAX_NTUPLE_FLTRS	(8 << 10)
++
+ struct bnge_filter_base {
+ 	struct hlist_node	hlist;
+ 	struct list_head	list_node;
+ 	__le64			filter_id;
+ 	u8			type;
+ 	u8			flags;
++	u16			sw_id;
+ 	u16			rxq;
+ 	u16			fw_vnic_id;
+ 	u16			vf_idx;
+@@ -50,7 +64,60 @@ struct bnge_l2_filter {
+ 	struct bnge_l2_key	l2_key;
+ };
+ 
++struct bnge_ipv4_tuple {
++	struct flow_dissector_key_ipv4_addrs v4addrs;
++	struct flow_dissector_key_ports ports;
++};
++
++struct bnge_ipv6_tuple {
++	struct flow_dissector_key_ipv6_addrs v6addrs;
++	struct flow_dissector_key_ports ports;
++};
++
++struct bnge_flow_masks {
++	struct flow_dissector_key_ports ports;
++	struct flow_dissector_key_addrs addrs;
++};
++
++extern const struct bnge_flow_masks BNGE_FLOW_MASK_NONE;
++extern const struct bnge_flow_masks BNGE_FLOW_IPV6_MASK_ALL;
++extern const struct bnge_flow_masks BNGE_FLOW_IPV4_MASK_ALL;
++
++struct bnge_ntuple_filter {
++	/* base filter must be the first member */
++	struct bnge_filter_base	base;
++	struct flow_keys	fkeys;
++	struct bnge_flow_masks	fmasks;
++	__le64			l2_filter_id;
++	u32			flow_id;
++};
++
++#define BNGE_L2_FLTR_IS_NTP_MAC(fltr)   ((fltr)->base.flags & BNGE_ACT_RING_DST)
++
++#define BNGE_FLTR_ID_INVALID	cpu_to_le64(0xffffffffffffffffULL)
++
++void bnge_free_ntp_fltrs(struct bnge_net *bn, bool skip_user_filters);
++u32 bnge_get_ntp_filter_idx(struct bnge_net *bn, struct flow_keys *fkeys,
++			    const struct sk_buff *skb);
++int bnge_insert_ntp_filter(struct bnge_net *bn, struct bnge_ntuple_filter *fltr,
++			   u32 idx);
++struct bnge_ntuple_filter *
++bnge_lookup_ntp_filter_from_idx(struct bnge_net *bn,
++				struct bnge_ntuple_filter *fltr, u32 idx);
  void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *fltr);
++void bnge_del_l2_filter_rcu(struct bnge_net *bn, struct bnge_l2_filter *fltr);
++__le64 bnge_lookup_l2_filter_rcu(struct bnge_net *bn,
++				 struct bnge_l2_key *key,
++				 u32 idx);
++void bnge_free_l2_filters(struct bnge_net *bn);
+ int bnge_hwrm_set_vnic_filter(struct bnge_net *bn, u16 vnic_id, u16 idx,
+ 			      const u8 *mac_addr);
++struct bnge_l2_filter *bnge_alloc_user_l2_filter(struct bnge_net *bn,
++						 struct bnge_l2_key *key,
++						 u8 flags);
++int bnge_fltrs_mem(struct bnge_net *bn);
++void bnge_del_ntp_filter(struct bnge_net *bn,
++			 struct bnge_ntuple_filter *nfltr);
++void bnge_del_ntp_filter_rcu(struct bnge_net *bn,
++			     struct bnge_ntuple_filter *fltr);
+ #endif /* _BNGE_FILTER_H_ */
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
+index 783e56b798fb..76f8bb73056d 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
+@@ -8,6 +8,7 @@
+ #include <linux/bnge/hsi.h>
+ #include <linux/if_vlan.h>
+ #include <net/netdev_queues.h>
++#include <linux/ethtool.h>
+ 
+ #include "bnge.h"
+ #include "bnge_hwrm.h"
+@@ -911,11 +912,165 @@ int bnge_hwrm_l2_filter_alloc(struct bnge_dev *bd, struct bnge_l2_filter *fltr)
+ 		req->l2_ivlan_mask = cpu_to_le16(0xfff);
+ 	}
+ 
++	if (BNGE_L2_FLTR_IS_NTP_MAC(fltr)) {
++		req->enables |= cpu_to_le32(CFA_L2_FILTER_ALLOC_REQ_ENABLES_RFS_RING_TBL_IDX);
++		req->rfs_ring_tbl_idx = cpu_to_le16(fltr->base.rxq);
++	}
++
+ 	resp = bnge_hwrm_req_hold(bd, req);
+ 	rc = bnge_hwrm_req_send(bd, req);
+-	if (!rc)
++	if (!rc) {
+ 		fltr->base.filter_id = resp->l2_filter_id;
++		/* Pairs with smp_rmb() in bnge_lookup_l2_filter_rcu() */
++		smp_wmb();
++		set_bit(BNGE_FLTR_VALID, &fltr->base.state);
++	}
++
++	bnge_hwrm_req_drop(bd, req);
++	return rc;
++}
++
++int bnge_hwrm_cfa_ntuple_filter_free(struct bnge_dev *bd,
++				     struct bnge_ntuple_filter *fltr)
++{
++	struct hwrm_cfa_ntuple_filter_free_input *req;
++	int rc;
++
++	set_bit(BNGE_FLTR_FW_DELETED, &fltr->base.state);
++	if (!test_bit(BNGE_STATE_OPEN, &bd->state))
++		return 0;
++
++	/* Not programmed in firmware in this session, nothing to free */
++	if (fltr->base.filter_id == BNGE_FLTR_ID_INVALID)
++		return 0;
++
++	rc = bnge_hwrm_req_init(bd, req, HWRM_CFA_NTUPLE_FILTER_FREE);
++	if (rc)
++		return rc;
++
++	req->ntuple_filter_id = fltr->base.filter_id;
++	rc = bnge_hwrm_req_send(bd, req);
++	if (!rc)
++		fltr->base.filter_id = BNGE_FLTR_ID_INVALID;
++	return rc;
++}
++
++/* L4 port matching flags are unconditionally enabled here. For non-TCP/UDP
++ * flows (e.g. ICMP or wildcards), the port masks in fmasks are zeroed, which
++ * instructs firmware CFA to treat L4 ports as wildcards.
++ */
++#define BNGE_NTP_FLTR_FLAGS					\
++	(CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_L2_FILTER_ID |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_ETHERTYPE |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_IPADDR_TYPE |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_SRC_IPADDR |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_SRC_IPADDR_MASK |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_DST_IPADDR |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_DST_IPADDR_MASK |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_IP_PROTOCOL |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_SRC_PORT |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_SRC_PORT_MASK |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_DST_PORT |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_DST_PORT_MASK |	\
++	 CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_DST_ID)
++
++#define BNGE_NTP_TUNNEL_FLTR_FLAG				\
++		CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_TUNNEL_TYPE
+ 
++static void
++bnge_cfg_rfs_ring_tbl_idx(struct bnge_dev *bd,
++			  struct hwrm_cfa_ntuple_filter_alloc_input *req,
++			  struct bnge_ntuple_filter *fltr)
++{
++	struct bnge_net *bn = netdev_priv(bd->netdev);
++	struct bnge_vnic_info *def_vnic;
++	u32 rxq = fltr->base.rxq;
++	u32 enables;
++
++	if (fltr->base.flags & BNGE_ACT_RSS_CTX) {
++		struct ethtool_rxfh_context *ctx;
++		struct bnge_rss_ctx *rss_ctx;
++		struct bnge_vnic_info *vnic;
++
++		/* The RSS context was already validated via xa_load() when the
++		 * filter was added (bnge_ethtool.c) under netdev instance lock,
++		 * so it is always present here.
++		 */
++		ctx = xa_load(&bd->netdev->ethtool->rss_ctx,
++			      fltr->base.fw_vnic_id);
++		rss_ctx = ethtool_rxfh_context_priv(ctx);
++		vnic = &rss_ctx->vnic;
++		req->dst_id = cpu_to_le16(vnic->fw_vnic_id);
++		return;
++	}
++
++	def_vnic = &bn->vnic_info[BNGE_VNIC_NTUPLE];
++	req->dst_id = cpu_to_le16(def_vnic->fw_vnic_id);
++	enables = CFA_NTUPLE_FILTER_ALLOC_REQ_ENABLES_RFS_RING_TBL_IDX;
++	req->enables |= cpu_to_le32(enables);
++	req->rfs_ring_tbl_idx = cpu_to_le16(rxq);
++}
++
++int bnge_hwrm_cfa_ntuple_filter_alloc(struct bnge_dev *bd,
++				      struct bnge_ntuple_filter *fltr)
++{
++	struct hwrm_cfa_ntuple_filter_alloc_output *resp;
++	struct hwrm_cfa_ntuple_filter_alloc_input *req;
++	struct bnge_flow_masks *masks = &fltr->fmasks;
++	struct flow_keys *keys = &fltr->fkeys;
++	int rc;
++
++	rc = bnge_hwrm_req_init(bd, req, HWRM_CFA_NTUPLE_FILTER_ALLOC);
++	if (rc)
++		return rc;
++
++	req->l2_filter_id = fltr->l2_filter_id;
++
++	if (fltr->base.flags & BNGE_ACT_DROP)
++		req->flags =
++			cpu_to_le32(CFA_NTUPLE_FILTER_ALLOC_REQ_FLAGS_DROP);
++	else
++		bnge_cfg_rfs_ring_tbl_idx(bd, req, fltr);
++
++	req->enables |= cpu_to_le32(BNGE_NTP_FLTR_FLAGS);
++
++	req->ethertype = htons(ETH_P_IP);
++	req->ip_addr_type = CFA_NTUPLE_FILTER_ALLOC_REQ_IP_ADDR_TYPE_IPV4;
++	req->ip_protocol = keys->basic.ip_proto;
++
++	if (keys->basic.n_proto == htons(ETH_P_IPV6)) {
++		req->ethertype = htons(ETH_P_IPV6);
++		req->ip_addr_type =
++			CFA_NTUPLE_FILTER_ALLOC_REQ_IP_ADDR_TYPE_IPV6;
++		memcpy(&req->src_ipaddr, &keys->addrs.v6addrs.src,
++		       sizeof(struct in6_addr));
++		memcpy(&req->src_ipaddr_mask, &masks->addrs.v6addrs.src,
++		       sizeof(struct in6_addr));
++		memcpy(&req->dst_ipaddr, &keys->addrs.v6addrs.dst,
++		       sizeof(struct in6_addr));
++		memcpy(&req->dst_ipaddr_mask, &masks->addrs.v6addrs.dst,
++		       sizeof(struct in6_addr));
++	} else {
++		req->src_ipaddr[0] = keys->addrs.v4addrs.src;
++		req->src_ipaddr_mask[0] = masks->addrs.v4addrs.src;
++		req->dst_ipaddr[0] = keys->addrs.v4addrs.dst;
++		req->dst_ipaddr_mask[0] = masks->addrs.v4addrs.dst;
++	}
++	if (keys->control.flags & FLOW_DIS_ENCAPSULATION) {
++		req->enables |= cpu_to_le32(BNGE_NTP_TUNNEL_FLTR_FLAG);
++		req->tunnel_type =
++			CFA_NTUPLE_FILTER_ALLOC_REQ_TUNNEL_TYPE_ANYTUNNEL;
++	}
++
++	req->src_port = keys->ports.src;
++	req->src_port_mask = masks->ports.src;
++	req->dst_port = keys->ports.dst;
++	req->dst_port_mask = masks->ports.dst;
++
++	resp = bnge_hwrm_req_hold(bd, req);
++	rc = bnge_hwrm_req_send(bd, req);
++	if (!rc)
++		fltr->base.filter_id = resp->ntuple_filter_id;
+ 	bnge_hwrm_req_drop(bd, req);
+ 	return rc;
+ }
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.h b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.h
+index 578575b0896a..596064d3bb05 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.h
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.h
+@@ -13,6 +13,8 @@ struct bnge_l2_filter;
+ #define BNGE_VNIC_CFG_ROCE_DUAL_MODE		\
+ 	VNIC_CFG_REQ_FLAGS_ROCE_DUAL_VNIC_MODE
+ 
++struct bnge_ntuple_filter;
++
+ int bnge_hwrm_ver_get(struct bnge_dev *bd);
+ int bnge_hwrm_func_reset(struct bnge_dev *bd);
+ int bnge_hwrm_fw_set_time(struct bnge_dev *bd);
+@@ -66,4 +68,8 @@ int bnge_hwrm_shutdown_link(struct bnge_dev *bd);
+ int bnge_hwrm_port_qstats(struct bnge_dev *bd, u8 flags);
+ int bnge_hwrm_port_qstats_ext(struct bnge_dev *bd, u8 flags);
+ int bnge_hwrm_func_qstat_ext(struct bnge_dev *bd, struct bnge_stats_mem *stats);
++int bnge_hwrm_cfa_ntuple_filter_alloc(struct bnge_dev *bd,
++				      struct bnge_ntuple_filter *fltr);
++int bnge_hwrm_cfa_ntuple_filter_free(struct bnge_dev *bd,
++				     struct bnge_ntuple_filter *fltr);
+ #endif /* _BNGE_HWRM_LIB_H_ */
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+index 4b22152025d8..2b26576f0e99 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
+@@ -1192,6 +1192,10 @@ static void bnge_free_core(struct bnge_net *bn)
+ 	bnge_free_ring_stats(bn);
+ 	bnge_free_ring_grps(bn);
+ 	bnge_free_vnics(bn);
++
++	/* Free non-user filters only */
++	bnge_free_ntp_fltrs(bn, true);
++
+ 	kfree(bn->tx_ring_map);
+ 	bn->tx_ring_map = NULL;
+ 	kfree(bn->tx_ring);
+@@ -1280,6 +1284,10 @@ static int bnge_alloc_core(struct bnge_net *bn)
+ 
+ 	bnge_init_stats(bn);
+ 
++	rc = bnge_fltrs_mem(bn);
++	if (rc)
++		goto err_free_ring_stats;
++
+ 	rc = bnge_alloc_vnics(bn);
+ 	if (rc)
+ 		goto err_free_ring_stats;
+@@ -2056,7 +2064,7 @@ static int bnge_cfg_rx_mode(struct bnge_net *bn, struct netdev_hw_addr_list *uc,
+ 		struct bnge_l2_filter *fltr = vnic->l2_filters[i];
+ 
+ 		bnge_hwrm_l2_filter_free(bd, fltr);
+-		bnge_del_l2_filter(bn, fltr);
++		bnge_del_l2_filter_rcu(bn, fltr);
+ 	}
+ 
+ 	vnic->uc_filter_count = 1;
+@@ -2274,7 +2282,7 @@ static void bnge_hwrm_clear_vnic_filter(struct bnge_net *bn)
+ 		struct bnge_l2_filter *fltr = vnic->l2_filters[i];
+ 
+ 		bnge_hwrm_l2_filter_free(bn->bd, fltr);
+-		bnge_del_l2_filter(bn, fltr);
++		bnge_del_l2_filter_rcu(bn, fltr);
+ 	}
+ 
+ 	vnic->uc_filter_count = 0;
+@@ -3005,6 +3013,7 @@ static void bnge_save_ring_stats(struct bnge_net *bn)
+ 
+ static void bnge_close_core(struct bnge_net *bn)
+ {
++	struct bnge_filter_base *fltr;
+ 	struct bnge_dev *bd = bn->bd;
+ 
+ 	bnge_tx_disable(bn);
+@@ -3018,6 +3027,20 @@ static void bnge_close_core(struct bnge_net *bn)
+ 
+ 	bnge_disable_napi(bn);
+ 
++	/* Invalidate user L2 filters now that NAPI is disabled so that
++	 * subsequent re-enabling during open cannot read a stale or torn
++	 * filter_id before bnge_cfg_usr_fltrs() completes reallocation.
++	 */
++	/* Only the driver's tracking is reset here. The user filters are
++	 * programmed again by bnge_cfg_usr_fltrs() on the next open.
++	 */
++	list_for_each_entry(fltr, &bn->usr_fltr_list, list_node) {
++		if (fltr->type == BNGE_FLTR_TYPE_L2)
++			clear_bit(BNGE_FLTR_VALID, &fltr->state);
++		else
++			fltr->filter_id = BNGE_FLTR_ID_INVALID;
++	}
++
+ 	/* Save ring stats before shutdown */
+ 	spin_lock_bh(&bn->stats_lock);
+ 	bnge_save_ring_stats(bn);
+@@ -3424,6 +3447,9 @@ int bnge_netdev_alloc(struct bnge_dev *bd, int max_irqs)
+ 		goto err_free_workq;
+ 	spin_lock_init(&bn->stats_lock);
+ 
++	spin_lock_init(&bn->ntp_fltr_lock);
++	INIT_LIST_HEAD(&bn->usr_fltr_list);
++
+ 	netdev->request_ops_lock = true;
+ 	rc = register_netdev(netdev);
+ 	if (rc) {
+@@ -3452,6 +3478,9 @@ void bnge_netdev_free(struct bnge_dev *bd)
+ 
+ 	unregister_netdev(netdev);
+ 
++	bnge_free_ntp_fltrs(bn, false);
++	bnge_free_l2_filters(bn);
++
+ 	timer_shutdown_sync(&bn->timer);
+ 	cancel_work_sync(&bn->sp_task);
+ 	bn->sp_event = 0;
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
+index 0512d983519e..2a1ec811de01 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
+@@ -284,6 +284,9 @@ enum bnge_sp_event {
+ 	BNGE_PERIODIC_STATS_SP_EVENT,
+ };
+ 
++#define BNGE_NTP_FLTR_HASH_SIZE	512
++#define BNGE_NTP_FLTR_HASH_MASK	(BNGE_NTP_FLTR_HASH_SIZE - 1)
++
+ struct bnge_net {
+ 	struct bnge_dev		*bd;
+ 	struct net_device	*netdev;
+@@ -372,6 +375,20 @@ struct bnge_net {
+ 	bool			pri2cos_valid;
+ 
+ 	u16			num_rss_ctx;
++
++	struct list_head	usr_fltr_list;
++	unsigned long		*ntp_fltr_bmap;
++	unsigned long		*l2_fltr_bmap;
++	int			ntp_fltr_count;
++	int			l2_fltr_count;
++	int			user_fltr_count;
++
++	struct hlist_head	ntp_fltr_hash_tbl[BNGE_NTP_FLTR_HASH_SIZE];
++	/* Protects the aRFS/ntuple hash table add and delete. usr_fltr_list,
++	 * l2_fltr_hash_tbl and l2_fltr_bmap are covered by the netdev instance
++	 * lock instead.
++	 */
++	spinlock_t		ntp_fltr_lock;
+ };
+ 
+ #define BNGE_DEFAULT_RX_RING_SIZE	511
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
+index d74ffd4f4117..d41b729dc0ea 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_resc.c
+@@ -12,6 +12,7 @@
+ #include "bnge_hwrm_lib.h"
+ #include "bnge_resc.h"
+ #include "bnge_vnic.h"
++#include "bnge_filter.h"
+ 
+ static u16 bnge_num_tx_to_cp(struct bnge_dev *bd, u16 tx)
+ {
+@@ -714,7 +715,6 @@ bool bnge_rss_ctx_capable(struct bnge_dev *bd)
+ 
+ int bnge_net_init_dflt_config(struct bnge_dev *bd)
+ {
+-	struct bnge_hw_resc *hw_resc;
+ 	int rc;
+ 
+ 	rc = bnge_alloc_rss_indir_tbl(bd);
+@@ -726,9 +726,7 @@ int bnge_net_init_dflt_config(struct bnge_dev *bd)
+ 		goto err_free_tbl;
+ 
+ 	bnge_set_dflt_rss_indir_tbl(bd, NULL);
+-	hw_resc = &bd->hw_resc;
+-	bd->max_fltr = hw_resc->max_rx_em_flows + hw_resc->max_rx_wm_flows +
+-		       BNGE_L2_FLTR_MAX_FLTR;
++	bd->max_fltr = BNGE_MAX_NTUPLE_FLTRS;
+ 
+ 	return 0;
+ 
+diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
+index 7d587290c33a..a18a2be118cd 100644
+--- a/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
++++ b/drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
+@@ -178,8 +178,15 @@ void bnge_del_one_rss_ctx(struct bnge_net *bn, struct bnge_rss_ctx *rss_ctx,
+ 			  bool all)
+ {
+ 	struct bnge_vnic_info *vnic = &rss_ctx->vnic;
++	struct bnge_filter_base *usr_fltr, *tmp;
++	struct bnge_ntuple_filter *ntp_fltr;
+ 	int i;
+ 
++	/* The kernel ethtool core prevents deleting a busy RSS context via
++	 * ethtool_check_rss_ctx_busy().
++	 * When all == false (interface down), software filters are deliberately
++	 * preserved so they can be restored when the interface is brought up.
++	 */
+ 	bnge_hwrm_vnic_free_one(bn->bd, &rss_ctx->vnic);
+ 	for (i = 0; i < BNGE_MAX_CTX_PER_VNIC; i++) {
+ 		if (vnic->fw_rss_cos_lb_ctx[i] != INVALID_HW_RING_ID) {
+@@ -192,6 +199,19 @@ void bnge_del_one_rss_ctx(struct bnge_net *bn, struct bnge_rss_ctx *rss_ctx,
+ 	if (!all)
+ 		return;
+ 
++	/* Delete all filters associated with this user RSS context */
++	list_for_each_entry_safe(usr_fltr, tmp, &bn->usr_fltr_list, list_node) {
++		if (usr_fltr->type == BNGE_FLTR_TYPE_NTUPLE &&
++		    (usr_fltr->flags & BNGE_ACT_RSS_CTX) &&
++		    usr_fltr->fw_vnic_id == rss_ctx->index) {
++			ntp_fltr = container_of(usr_fltr,
++						struct bnge_ntuple_filter,
++						base);
++			bnge_hwrm_cfa_ntuple_filter_free(bn->bd, ntp_fltr);
++			bnge_del_ntp_filter_rcu(bn, ntp_fltr);
++		}
++	}
++
+ 	if (vnic->rss_table)
+ 		dma_free_coherent(bn->bd->dev, vnic->rss_table_size,
+ 				  vnic->rss_table,
 -- 
 2.52.0
 
