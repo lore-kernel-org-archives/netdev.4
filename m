@@ -1,97 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.57
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794864472;
-	b=agpWhGjlWSi7y0HDjarXTYCv5FLdC/5GXHcC8YNUNwknlZFcKEwukcHUWNfN4zE7706H
-	 /BIbUAvnPgI0n+gk/MS+wrYsA8jgWAXyXKxsjFqZ1lQoRULgadONcE2gs40IPJeShtME9
-	 jhoDvg7E77tha5a4qZ6wVHX5zpw9TfDMp2zWGz9LDjM6da0B3wvuybcgXOS1weaeIT7c0
-	 tMYX3WV6QbXEhb3v2OAHvYo0dnngC8cQmAjRTiozBplF6s3Wku97bVHvUaxzsxL7lm3s3
-	 gMYpv4EIcBp2TNq7Fo6rgtyBY/dJOLJxmR6AQmypcXJf22/NH4wCoc7DJ2QySm8R+DQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794864472;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=OFX5LcTMvChLZsAT4zOQzAlVYckRDM2Z5EHbvxhK4VE=;
-	b=jSTG1ns0nvQQgo5aQpVAOP+h7q66FjsL5qcNSOW9cni5XvwLVeET0AkWTBKEpjbT0i0I
-	 ss+4p6if7uhOa7i5YlB0L0tVIgUWv4ExXeS/9jFaKA+9V1cl0BO9d9Iv7Nd4qZniltCMO
-	 FbWWUMgEg6W2QhzoQcE2JIg6FwdqCFf7x8pJGIWwISf2rJhT3jn30rpMD/Hy2mdSbMB3v
-	 Uw0+fofEPmEQWjRCNaWl4WuKFNTDx54pabgdPJxopXdF6colXW8xfzcxyBSqTrPfNEZR0
-	 Llj9b572qZH57e19xys5Tl1WnZ831OrNBFbqCnIX/kyD/pAfkvImkTdpwmXuSPPeLTA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YFftysGl;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.57
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010057.outbound.protection.outlook.com [52.101.201.57])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794864901;
+	b=LmZLr5xPk7AQ+bIZz9asQQyl1A05QuvgJU/ruLP5TCDfh4x08JR461XBuXBgyNlb7fb3
+	 V1Aypoo0J69nLkfBksNVWw8xilpe/cbGHYrD+wxe9bluqy52i0VdLoN122bh8pZqwpFlM
+	 i83/BQvkQPGTiqF5mbtI+bariXZrkmkQpkiq8LkanPGq0xW+2sxuZ29pgaGUwv/P+THs5
+	 v4NtnvHRbd/RIP3NBeIwzgN8KVXwRfb2GK1jTKa34N5x1AUm8iGF4bfihPJEpIS6ZSHCg
+	 Pj2UW8rDmmHw7uNjg+Yk7OggWa1xPfYVVKQtC28jb/hjxrumRYKlRoSREU1mOgKI5gQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794864901;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=Sd1rFukqOAe6TPv7bNF1pQ9Arkz+EF+wh5ErxvPTBXo=;
+	b=ngMfn3ch6pAddh0SvXKvB35IA3hUOV3MWZGvPhPrgsYDAP4otux+n7ppXIHPohfPQPir
+	 G4F40TgPwnc9t+EZu/ogY/m8A+LSsXq5QBVEMxCIZeHpB+xf+5KhmKgetRFJcfgkWt40a
+	 GZQotd/mcEltmvxfgDTD0ozFf1lTvtOxw9QNPsDPpPpwiGmGS6hu1vTP0kaD8ZJKfRb7E
+	 YdQdXCwpiAQM5R05IHcuHz0X1IOGp3Nx51+R1caMwYZ3XTSHvP+pkkcXuee0PRP6VL6kV
+	 DpIt2CC3rIHznWo/mOkEiTpsNsiY7kDPBSyNTcNwK6NOMQD7yoQP2MZAk0KNnbEMLsw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=heV8i5ar;
+	arc=none smtp.remote-ip=209.85.215.226
+Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 974EC606A33B;
-	Mon, 16 Nov 2026 21:27:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 974EC606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CE666606A322
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:35:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CE666606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YFftysGl
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=txyzEDhVh3A4EwG/uE5eam3Mu+tPV6kHiyRn9/h7qAr8Y8aDvl2Eusr0tXugHOtBEBrv9wjdXuFWPIf0iQrMbJWmxP3P2+vHa+JzH9WL57yJoUSzpN7Lnn6AVKaktBFBOFl4JIGJY21KZXVt1gp4oC0N9xMaBVnaqSwVW/eTNaboBMD1uEvgcfvHw3ft1sSTOCrUU+yMuPWO9CoFC2OiIKYcqrjY46RVFQeqIkt51KvFaxS4Wx9ZjInIm7hh7JKVZj8Wmzuqh7WfMe+zHiExNDTbGpSpDEYv53j0L9IL78L6Lf28Pg2ZMgfKzc4VyB5yKBboASYCN/KaEtcAty6oRw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OFX5LcTMvChLZsAT4zOQzAlVYckRDM2Z5EHbvxhK4VE=;
- b=bswnQJQ6mnp/cU6i9oFT/1vwJxkzoDiFLDilgQ6Ehcpi8c2HHwIeZoP/t/7MYU5/WQQqYkplSp1J4q2sqV50k4+TX9i7GmB2mVv13k68RomTBSycPTtX0lbs89G4sOA7YWP2VSyXHjIP0fOU67h783WeGUWnMZPRYTerN/3tofhkgJH61ayXEGHKQ1sT5lpgt6WYzQdsF5tL8yVwGYXgEZFpcQumUBGtzRi1oVOHObgWIoY0YfFppODmT2xtatZvV2UCT9cOHYR0fEM09MBweAXfjKXU7BvgOGSnxj4wePGBon3CA4AGZWfv2CUmZ+5tzFwYJzTUpdL19xN7p8lYtA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OFX5LcTMvChLZsAT4zOQzAlVYckRDM2Z5EHbvxhK4VE=;
- b=YFftysGlwYo1FACw9YcSqMhy7FKP/O27CL7eJN63BPyPLAGWdY1GQSCY/phwbZ6XQCLRE12McMG8EaD2dzuImS/SfaBEzDrctMXe/nOuKdyhLXLw206XmzU/O7WaQoZdVgxrrPc56tHxJNA83M3CciraM+yMyEcCDqJL0Ac1t0MJrBDUWfFMYftA8UfP4Jy6O8r9PDA1ykVmTmV4zd/dbc8UEMGNl76pnCgObRQwZXnNKM2YMb4e+cQVzX+Oi47qMtLgtr0KjVDi49MehBV9HtyZpbG5JBPCcRdL95aKqsYtnfk7bE6IJnhK5deeSAu12+OmnbdVMspWfLOtIBt2fg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15) by SA1PR12MB8698.namprd12.prod.outlook.com
- (2603:10b6:806:38b::10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.13; Mon, 16 Nov
- 2026 21:27:47 +0000
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f]) by IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f%5]) with mapi id 15.21.0615.013; Mon, 16 Nov 2026
- 21:27:46 +0000
-Message-ID: <b0f73ee2-fdff-4b5f-b8d0-43cd293d3058@nvidia.com>
-Date: Mon, 16 Nov 2026 23:27:41 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net/mlx5e: kTLS, Simplify error unwind in
- mlx5e_ktls_set_feature_rx()
-To: Xuanqiang Luo <xuanqiang.luo@linux.dev>, netdev@vger.kernel.org
-Cc: horms@kernel.org, saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
- mbloch@nvidia.com, borisp@nvidia.com, witu@nvidia.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org, Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-References: <20261116110830.2850785-1-xuanqiang.luo@linux.dev>
-Content-Language: en-US
-From: Tariq Toukan <tariqt@nvidia.com>
-In-Reply-To: <20261116110830.2850785-1-xuanqiang.luo@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TLZP290CA0015.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::11) To IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15)
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=heV8i5ar
+Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cd69954c755so3318945a12.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:35:00 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794864900; x=1795469700;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=Sd1rFukqOAe6TPv7bNF1pQ9Arkz+EF+wh5ErxvPTBXo=;
+        b=dN9aw34cqMBpt7Bcpm0S5n+HDWfouA65pAFzpiYLltADFczLzhptHuo+kXM1qSkU2D
+         VumyXqywnPuxWAze/A81mP2Iw1s3BKSLEdtRfz2swrxo2Gw/Ug05NLbK3NMJaIztQOyP
+         rcTMDZeWmwexUoRF0+n2dUA68NtAsWQMkBQl+cstdQHIHv9sqG+ZmEYegiXEHlz2UwrP
+         alnEFFH08Xf7lsVfDC0mixaBDg6f9N+G18bXtCZ/WcpvQKMiWtdCE0zPKhR3WRFovkFn
+         GNCgb7lw2tcmTJzubRTifMjrn0AOqrkTv96gTyqsUWkor1JnJPEGvI9Iosm/qMXW6Tdf
+         H1GQ==
+X-Gm-Message-State: APuU4Z97qs2DyFyNlZgkoSY1RmW6nlPbh9VCMyHJpaBQEDz9f2/ICEeY
+	XYokrAqWxiRZbsP3ZcuG3zlXIQV81kRG2BM9+vUDoRz+nE5DHyDkaE7xToK7rOIUwXHEIcGU11N
+	2ogJs3FXF2q+anSNKjzPWf2U/KrFQIfA31W/s2BpAUwg8YpOlFb2kGlCCO8a0rjHaZOpGdKM6pw
+	XA4tUtFSL8mh3WoKa2I1GqNUX6W6+sn5j87fBgSpeqSy1HEBN9lF3zDpp6iKgAoCPonbmlfpjXo
+	mVoVJ6SAIV6/dnd
+X-Gm-Gg: AZFdTZfGKSBErXbyM4TZJK19DqilCyjqMTNxDnj9UD0Z30pdH/6vqsLbcZAQ/PosDjE
+	A70B6SPw2g8arDKwqp9eRb0P3de1ug0m2WCggKTJn1mqGW2nUsk1r7zwSjMHkexOBnze2vF2E5W
+	xDNo5WduyC++BbQG1NLa4NNR0VJMfL/Gw7dbqNOl4Ef9YPxNgTmVAenHp7A1LexZ1dJwjWHYgwy
+	DkycqpiJgzcha40jRd+qYxF+DNLFeylZPtz5S1IUISQUc3sMh/L/KVT1ZzeiuUc8ZamMVvPt2UF
+	3REFCTkGRZmTBZsfZuaWl6g4ULngI9+qLhh0JYJwnLaoGtkXMxbVPAHHNcLz1HsHwXFcdEb87Wb
+	PGQag82PbE1WRSMK3Io6a+o3+bL7ONiZOI6haj6D8pbh2e+OVJWO1NtB2d8iNT+Hytpx0E50ktu
+	+CaShZjhz9ms23HouKzXu4zYDlIfmsDp+93KAOXBIfrIA=
+X-Received: by 2002:a17:90b:5548:b0:3a4:adea:50ad with SMTP id 98e67ed59e1d1-3b1b09fcbd0mr11335517a91.27.1794864899915;
+        Mon, 16 Nov 2026 13:34:59 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3ac02cce6sm383968a91.7.2026.11.16.13.34.58
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 16 Nov 2026 13:34:59 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-55c5cbc838aso71109521cf.3
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 13:34:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1794864898; x=1795469698; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Sd1rFukqOAe6TPv7bNF1pQ9Arkz+EF+wh5ErxvPTBXo=;
+        b=heV8i5arYbt1Rp9l+apnCzyyxgTnN4dzI4tQR7q8Egvw7FFeSYmUgKXCLuaCrAF2IF
+         Zu/eDCEF7nEK9ZSpsr1JxzQ6oIaAONgBWt4p+sCA19RiTnlZI8C8oTE6qQjK8ZaPP/I4
+         4Yc/IT/PvU6qUW3lSNcu4YFbX9pTQKQ0sdk6g=
+X-Received: by 2002:a05:622a:5b90:b0:536:5663:5558 with SMTP id d75a77b69052e-55ac47982bamr181486151cf.7.1794864897813;
+        Mon, 16 Nov 2026 13:34:57 -0800 (PST)
+X-Received: by 2002:a05:622a:5b90:b0:536:5663:5558 with SMTP id d75a77b69052e-55ac47982bamr181485641cf.7.1794864897168;
+        Mon, 16 Nov 2026 13:34:57 -0800 (PST)
+Received: from stbirv-lnx-1.igp.broadcom.net ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d34a139f6sm40744171cf.22.2026.11.16.13.34.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 13:34:56 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: netdev@vger.kernel.org
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Doug Berger <opendmb@gmail.com>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org (open list),
+	Mlody12 mlody12 <kudzo51@gmail.com>
+Subject: [PATCH net-next v2 0/4] net: mdio: Clause 45 support for mdio-bcm-unimac
+Date: Mon, 16 Nov 2026 13:34:45 -0800
+Message-Id: <20261116213449.1682731-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,159 +116,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA4PR12MB932075:EE_|SA1PR12MB8698:EE_
-X-MS-Office365-Filtering-Correlation-Id: 69905a38-a9ca-4747-f3da-08df44287544
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|376014|7416014|1800799024|18002099003|22082099003|11063799006|56012099006|10067099003|261026121527099003|261028144727099003|261021123027099003|261021121427099003|261026140227099003|261009223027099003|261102123227099003|261021135927099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info:
-	zSubF1PT8PEFt4EPCcQKtUZLwYpVqRl+sPNLktYHnevhjfSblWHcDUnXFFeLYB01HwKmav3HWBlSai9trKksFscJfGVnhaZcEZrdxdlTD9iwORAXjFtAQwx/AmNuah4Wv+O+G4BZZxFum5Ftqpmbo6UPT0c6nR5J6HawZOAm82sog5TJzF24kQdxP/fxLyKqYfVDcA3pWbeMrpRRnZS2Sn+XhCDrzCzBLDyqdSJokrMnMemX/r3LiBUkyNkQQjXhYwhAh/01MTbNAQ20RIWAEVcuMDbvECNGnL+tldUx+YxTmYCP6qNIKxAoIZABt+9+AoDP8cH8yBWIY0dKdxw97rSlY85X496tLSr/9R8vNxyphqIgbCs4Go25ozTA1LNf29540f423tj9cMDcK6zA/YxXuB58dIfyNA4YqqJdTCMnqwAwWDSCI+fN2WXCZRr+n/Pte4J96i0Wz2AT4iuCdvHp14LwsL3v/R/Rq+kY46a/DX1JmGhV1YwW807zVRBTfbZwZn+Tn2mAp/D9Fs6vyn9a2jTRiUtXFWPIkbOtrxpw0VCXkCD3nJLcAfFXv6c/yFtWyETLdETyas7LMzDef7arS2i4G7Fs+g/K9zxG+MHO1EY6myrg8TS8dAjhGRjzY30l41BXSl/hpvzQQOBw3BkyYnLoazTPjjQ2LrDk4yw=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB932075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(376014)(7416014)(1800799024)(18002099003)(22082099003)(11063799006)(56012099006)(10067099003)(261026121527099003)(261028144727099003)(261021123027099003)(261021121427099003)(261026140227099003)(261009223027099003)(261102123227099003)(261021135927099003)(261022105027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?NE5tZXU5ZXRYZHRTUE9BQUVMVStac1FwK1QvanJQWWNrQXQ3bUV4dVpQVmhX?=
- =?utf-8?B?MHBWNWplZ0RtQzJ2YnB1bHNHUnoxZHo2NTJHMzZ1VnV1blJkR1N0cHBuT01C?=
- =?utf-8?B?Yk16cjhsRzhWWHg4VTBFeDNKaG1tazFybm8wRm5MSDlEN3pXZlZib0hCTkVi?=
- =?utf-8?B?L1JPMllqa0V5VGpsNytBeDFUZ0Uxa1BCa2RYSVlBemF5bGI5YXZpbTc5ZVlG?=
- =?utf-8?B?VzMweUlLcEVMRmNsSWhVa2RQYU9NR0o3ZnpxNGtxaDAyTlB1UUI3bFZNUFBI?=
- =?utf-8?B?QXpIK0VvMTBJWndwc3lSTnhGM1pDazd3dGI3aCs2R1ZMN1FsNS9RaDVaMUpO?=
- =?utf-8?B?RHE4YUlCMXc5TmZGUjVuTE1PeWtMVGZxM2hKMEc4ZmhPbzd3WCtwR0p3aGFZ?=
- =?utf-8?B?aURCY1BiSVpUTTR4TWhPNEEyRHJLQ2dhaUN3UWdvSlNPWjBSSkZwWUJyNlRP?=
- =?utf-8?B?VmZrTG5kODJXb3FiUWlaaW9NbklwVUF6MkVFazF4TzBHeXVZbSsyVHprQ1di?=
- =?utf-8?B?NmhnNVZVMFZMYzB4elVVSXE0MmRBSjFQQVgvZEZ3UDhmTHBHWlQ4RW9jdnFt?=
- =?utf-8?B?bzBzeURFVlh1aGUva25GR3lJUHZWNE1GVDBJUVJER0pmREE3UTJOTVhFVU1i?=
- =?utf-8?B?OXdldk5qVlFMMnk2aE1pM05WY3B4bWkyZDQ4dkVzNzJpRkNoRFFjMEY0S3RH?=
- =?utf-8?B?TTExNXZiaHBYc3puZlcvK2h0VFNWZk9xYkNIemlCbEwwODJTL2ZkeEswVGxy?=
- =?utf-8?B?dElJMnFIMlQ2V29YRVlmTXJJd1RzbFl6WmZFa3V6b1VQdHpaWVZ0a0FsMy9N?=
- =?utf-8?B?YWtKcjkyQzd1YlFHZytPWDJDYXdOSHplVnhjMHRrSHNyNzlIbEp5SEtTUHRX?=
- =?utf-8?B?T1ROV282alVROVNsLys3TXI1YnlyNllrakdCSG8ySjMxQ3Iybm0remlGWFYx?=
- =?utf-8?B?djkvWVBFN01kVEs3YXFJUlNMZlcyMFBEZUZPQXFWYUZraWJUYVR6WWp5WjVU?=
- =?utf-8?B?QWgrQ2dsaW1ScUE5TENmSHZxcnNXemp4RjRhVmJhVXQ5bjUwTlYyWmVwbUxS?=
- =?utf-8?B?VXp4dEdOY1dDdFArM3RQamJ4U1BKYVF4MTlFT01iamtwQ21YWmUxc3M3R0Er?=
- =?utf-8?B?TGJ0c29hZldwZmZ2dTNzdXVGM3VJdEVaRkwvQnpUV1ErbnhPdEh5YWRTQWJz?=
- =?utf-8?B?ZHlRQ0xRLzdXM3VLRGVaTlFrVnVtb0hyejQ4eUo2dGpQZkg2RU9UQjZ1bEJL?=
- =?utf-8?B?VXpVY1NxTk1PNG52K3ZGc00vRmd5cmZnTWYza01DUlZpZ0VGMlptVG4yN01V?=
- =?utf-8?B?UkJnUnZHaXNaWDhjS2w0UHdHeTQ1MTBDbGJTSmQzV1Q5bStDVmxERHR5WlFH?=
- =?utf-8?B?WkRXanJVV2wraGZTTVpkUXF4Snp0bE1kMGlveExSazBldTV4Q0VSWm5wSXZL?=
- =?utf-8?B?VXhvQVdoWGUrdDQxWFFGdU9Yd1U3MGZXUHhTNFBLMi83SStFeUh2UHYrWVQ5?=
- =?utf-8?B?Y1FNaDkvVU9yMlNCeXJiR2dCRCt1c2VzS29xTVlpQ1o3M2N5UmJhK3NQeUF2?=
- =?utf-8?B?M1Rod21MeEUxQWFLSTYvK1ByOW9nRm9HTWxYVm9hMVo1eWxvVGt1bkd0Zkti?=
- =?utf-8?B?QjBHUWdFMW1mK2dOY05WUFdIM3VoTWl6NHMraWFvY3EwaTJ6SXlwODRROWRp?=
- =?utf-8?B?NStWQ1VhdDA3M216Z05KZ2VjcFM0UjVRUzBvdW80bmk0K0JBbTUyVkJxRmQ3?=
- =?utf-8?B?M0tIdEYvUU1yR0d1cWk5Ny95eDlnQ096a2wrVi93dWlYTExxSmhQSE5wQ3NH?=
- =?utf-8?B?b1BGNkdSK1VGNk9VbUFWUXd2SFByYWlieGtjVlBIRWU4Vmg4SkFDbTZURHpZ?=
- =?utf-8?B?QUorSld1cGp6L2l3YXdPRWo4RHBEbStESkpOU1BHbDZtM3loUVNveHJVd2Fs?=
- =?utf-8?B?NGdvRDdlYzVwTEhPYzF0QXcwa25MZ2NZWU9qVU01eFB1UlRDMFBEbTVWOXdP?=
- =?utf-8?B?aWVBWitTUmU2SSsydUFkWHJTMDk4NS93bWszNjYwV0VuNUpkUlJwemYxMUY2?=
- =?utf-8?B?QlpSUXhoMWlMei9SRG9MTytRUEZQMmV2NXJEaGFpU1o2Snk5MkJwN3dpcDY0?=
- =?utf-8?B?TExzdzN2R1VWOVRKemZrWHBkWHRLdVhwcWZvNjZMTmNQNERscUo4RjBicGs4?=
- =?utf-8?B?VzlGZHVDVWZFQ3ZWZ0JvRnhJaTZCT25hL2M4cjFiWEswRlpjMHhtK3VseEMw?=
- =?utf-8?B?OVM5ZTh3eFZxT0Z5ME5SSk9NanVIaGJqWGYrZm5SQUppKzNtdGo5M3E4d0o5?=
- =?utf-8?B?am5rQnBFVkFUd1VXNzdjdU02UGJ2blV5eWdWSlY2NE1nSkhMdE1mQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 69905a38-a9ca-4747-f3da-08df44287544
-X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB932075.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 21:27:46.8492
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: l1QFSqWgKsIQZu+cG5CRX8LBCApeCHcp1G+7qvgdy25F1KJLElHBIktk2EXvnR5ykRYT4dZ5Gqx8VJLTLh5PJw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8698
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
+This patch series adds support for Clause 45 MDIO operations within the
+mdio-bcm-unimac driver. The series breaks things up in this way:
 
+- make the C45 bus scan done by the MDIO core carry on when nothing
+  answers at an address, as the C22 scan already does
+- scope the existing defines to make it clear what is C22 vs. C45
+  specific
+- rework the polling completion loop to be a tighter loop
+- add support for clause 45 operations
 
-On 16/11/2026 13:08, Xuanqiang Luo wrote:
-> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-> 
-> mlx5e_ktls_set_feature_rx() has become harder to follow: the error
-> handling is nested in the conditions and the main flow is conditional.
-> 
-> Handle the error cases in conditionals, keep the main flow
-> unconditional, and destroy the accel TCP flow tables in a single
-> place. Use goto to unlock on the early return.
-> 
-> No functional change intended.
-> 
+Changes in v2:
 
-Thanks for following up on this.
-The change is correct, I see no functional change.
+- add patch 1, since providing read_c45/write_c45 makes the MDIO core scan
+  for C45 PHYs on all addresses that are not masked. On a bus registered
+  without a device tree node (e.g.: GENET with ACPI) a read from an empty
+  address fails with -EIO, which get_phy_c45_ids() passed up instead of
+  mapping it to -ENODEV, and made the whole bus registration fail. Reported
+  by Nicolai Buchwitz.
+- patches 2 and 3: collect Reviewed-by tags from Andrew Lunn and Nicolai
+  Buchwitz, no code changes
+- patch 4: no code changes
 
-However, we can simplify the code further.
-See below suggestion where code is flat, the same size, and leaves the 
-enable argument alone.
+Florian Fainelli (4):
+  net: phy: Map C45 probe read errors to -ENODEV during bus scan
+  net: mdio: mdio-bcm-unimac: Define MDIO_OP_SHIFT
+  net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
+  net: mdio: mdio-bcm-unimac: Add Clause 45 support
 
-> Suggested-by: Simon Horman <horms@kernel.org>
-> Link: https://lore.kernel.org/all/20261029134019.GG257209@horms.kernel.org/
-> Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-> ---
-> Only compile-tested on top of net-next 7ccc5e05043b (arm64, W=1). I do
-> not have a crypto-enabled ConnectX NIC to run it on.
-> 
->   .../mellanox/mlx5/core/en_accel/ktls.c        | 23 +++++++++++--------
->   1 file changed, 13 insertions(+), 10 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
-> index 3cc1213c2f68..0f5dcd1b822e 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
-> @@ -137,19 +137,22 @@ int mlx5e_ktls_set_feature_rx(struct net_device *netdev, bool enable)
->   	mutex_lock(&priv->state_lock);
->   	if (enable) {
->   		err = mlx5e_accel_fs_tcp_create(priv->fs);
-> -		if (!err && !priv->ktls_rx_was_enabled) {
-> -			priv->ktls_rx_was_enabled = true;
-> -			err = mlx5e_safe_reopen_channels(priv);
-> -			if (err) {
-> -				priv->ktls_rx_was_enabled = false;
-> -				mlx5e_accel_fs_tcp_destroy(priv->fs);
-> -			}
-> +		if (err || priv->ktls_rx_was_enabled)
-> +			goto out_unlock;
-> +
-> +		priv->ktls_rx_was_enabled = true;
-> +		err = mlx5e_safe_reopen_channels(priv);
-> +		if (err) {
-> +			priv->ktls_rx_was_enabled = false;
-> +			enable = false;
->   		}
-> -	} else {
-> -		mlx5e_accel_fs_tcp_destroy(priv->fs);
->   	}
-> -	mutex_unlock(&priv->state_lock);
->   
-> +	if (!enable)
-> +		mlx5e_accel_fs_tcp_destroy(priv->fs);
-> +
-> +out_unlock:
-> +	mutex_unlock(&priv->state_lock);
->   	return err;
->   }
->   
+ drivers/net/mdio/mdio-bcm-unimac.c | 130 +++++++++++++++++++++++++----
+ drivers/net/phy/phy_device.c       |  24 ++++--
+ 2 files changed, 134 insertions(+), 20 deletions(-)
 
-Suggestion:
+-- 
+2.34.1
 
-	mutex_lock(&priv->state_lock);
-	if (!enable) {
-		mlx5e_accel_fs_tcp_destroy(priv->fs);
-		goto out_unlock;
-	}
-
-	err = mlx5e_accel_fs_tcp_create(priv->fs);
-	if (err || priv->ktls_rx_was_enabled)
-		goto out_unlock;
-
-	priv->ktls_rx_was_enabled = true;
-	err = mlx5e_safe_reopen_channels(priv);
-	if (err) {
-		priv->ktls_rx_was_enabled = false;
-		mlx5e_accel_fs_tcp_destroy(priv->fs);
-	}
-
-out_unlock:
-	mutex_unlock(&priv->state_lock);
-	return err;
