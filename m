@@ -1,89 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794870757;
-	b=n8EaFTSHRXMoaud4lKIFGm0aTiCw6JTijr+ZE1I6Wpi6Ryc7d2uDiIPONfIGVESQU2q9
-	 cL2x6WDBUTvxUyD47q3qPfPdn3lVnw2YiyAGavWPjGx6Z17BhUJsD3An1G+sTDjmIheM7
-	 i53Gc01GIls+VlAf9Ui60DpI75sgprTeebHm1BnqyVO/anOwOCrWZPXVv+50OuKBQyVl/
-	 j1FC+41He8NdaJcOrX+RKjZupsCDO7MSU42Bb6g4Ew8exnXMJ3QIlbea2Hft+eRfcV5N8
-	 GY9UqPUy8whn8eA1i4XuM7JkgwlctONYf2HUZInRuSwpcim/CWurbBWufSlu875BJkg==
+	t=1794870769;
+	b=RpBWQO1gLV/pCOVoLgk1vANBvZGvhWh/VaFAUKNn9XhIxvZYXEZJII8WqGbQEygsBQFV
+	 CsHoLZlieMCn3ze4j6KT5RKG0hxtCeCG0A0vwfc5FFd1nRRdiko94LoTPlGa20YqPBt12
+	 thW2Qm0YdYDg80RRNrOMqC7cESAeLYoPjEDTP29UMNKWcww0yuvDeQyJ4BhBuE7G6E4ls
+	 AyTn0oJq5bpAv5Xu8tD6z49Uo3XS/cwZURVluleZfuc2T1WUA6cH7rKQHbACgDND7bj48
+	 sVPLvt/a6RVm9u6G8qo8VmSsdcePnU3gocnMvObANTpKXE28ZEdT7zSCRZz0HWMhzDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794870757;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794870769;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=9jytzoHxbIqHB9V0lsXyUYMNkWAposbSwvwOoQ9uAKw=;
-	b=WAjdYK7FhlapBEisITUNPfDS5sdSMu5v4s+fAdEvg6U09/CucmquHFzHgkkIa/GTSzX6
-	 GhJoBPlq+xNYwogXi5Jvk8kgTwnR+fH3m+mgJRryKQgZz//FOXj8EabSiwI31cY/8vhmp
-	 duk/GT5seA/KazWSToBPUj5S3Y+OaO80fyUnEZNsNY4xEYe4cm/1kkgj5+q1rZx9OPKnW
-	 sEdRp2tT6lf2LyQiVx3PnEs9yhC8/Xj6JPJaRVgKJr7nzFJnXuIiYVMB5QeOQ/IITt99R
-	 miR/jRNt5xJy+HJU0tcavmcZVjtxZBz3pbJwUpJUnQyWVcjoYy3i4DQldYMIrqnOlkg==
+	bh=I0dEorKxIuOBQU8LzcLrRYEGW9tcxCw8ISIbslP54Ss=;
+	b=YoxMYMhJ1cn4VL9eiMkoNpVdWXx0dsV2aUPH1gmHkXG1AlI6QTqt0yCD+YZKpVEHF4/f
+	 VGqBzJsLAsc6lvNbfxrelwhUklmN6qGExkQkFCCiw9bZtoVg5YBRRdJLTY8RDbkTvivUn
+	 tXNSSBHAYIhW/Le/+v9zIudz++YjtaSfamkZR2yuhdOjxHTP02yoSeqR1KXuGNc0d69Lo
+	 lZHCUn6v5bEjzOfwRqUwLF8wSlmUBKw4HbOsVpWmVXQnJocY12CyDHRD89N2TMXmz+RK3
+	 4F6IurzLZspY+lKSpkFkN+XXS/DcEtWZNezFu/DnRJw53/JodTTXsiilzzF31gPQbtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o15JjNRL;
-	arc=none smtp.remote-ip=74.125.82.174
-Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YTteEw6m;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67357606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:12:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67357606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A60D606A33A;
+	Mon, 16 Nov 2026 23:12:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o15JjNRL
-Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-380b40319bdso1322149eec.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:12:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794870757; x=1795475557; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=9jytzoHxbIqHB9V0lsXyUYMNkWAposbSwvwOoQ9uAKw=;
-        b=o15JjNRLdSVYdnJfPhx7UWb8pObOU7262KmPYrgSrTQaGcgdOQltccR0WF/KZo+WIg
-         Dx/GksFBNLSHVLiCvK80pV2awxZjdHgDh93dzMiZm6JaOcwy+QnYtZBP71IqOkdG2hH1
-         qSAC8uGlRINDI4V3y1UDJPAi/1/s444xYEl/8oYN5HeSyITOXDJLWHhqnngVyi8MDGfj
-         Ri5BsNKX6s2YH1bu5vrhGI//ozeQhK59lQut7RCqRYUicFnHBshpTUbfSMfbiWkdbFw1
-         lU6d0DlSEtnQ5BHT3KZTB6fQDJpr8cr5cFpv/5KMpfKN83O1w97WACrlKRyjcslJ+Ys4
-         WIXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794870757; x=1795475557;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9jytzoHxbIqHB9V0lsXyUYMNkWAposbSwvwOoQ9uAKw=;
-        b=Cj9Bfu+0pxa1zIYlCJDCiFTj9sW+3bsKZ89kIrErHRtdogwLZnIIFbZvtLRjEzY6Xq
-         Bi5TWPhsjvYscVh1rlYA0SZmumJSkTiyQCtIRd+JaEwH6MqkDYOwhPc9WEpVJm02oyj3
-         nlAhrO3LqtS3oBARPZZr8ViPWZ078MrtiS7SXjhRKD4/0/PwTb0oRhvTb4P19QD5boNZ
-         HjLUVVYO+zgZ8y6nTrQiwoevAwyWknG+s9iAktivDkTrl2tLCQ9U0vuhFLDyrThUr8GQ
-         DC6UwEjNdpcMq3C0MANgj2LQQgToWQzuk++S3rNKoDyBopXzvlq2GR1mOo7CHxuIJUbH
-         r62Q==
-X-Forwarded-Encrypted: i=1; AL+hErHWVX3N+QNRl588ceiQ+cNL1lKgePPesZDj96ksxYo+v8VXN4m5k03H5DXocqvTqq8rnWpzVrg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z98jIgrR3LAUxSdYsb2lb5DMMPJEF6wZBi6/OPcB/jHy9c0L04M
-	iZWqKUhp+QhjzLok4IKhKB21elCO/R5TyS5hZI3AftA5MVkrc/1NAGD/
-X-Gm-Gg: AYBFou3ebV6fd/TOCz47Hz10E+69HT4KEaLWbLCfBGoCZ8gQSC3ZlUnz5AdmpGu+L9a
-	UsPkUsCD/mCbM0DhCOfBhMbpMlSiUgsdKqC2v1RHyBiid2HjQItUczsPh8NBUuYetO8LeKzgVet
-	kBlA8I+aZ0As95I5avvAG1zNOytl+3uIbIDdq/O4Qr39p/Vn9bVbZCJg85UZjDjVmuHcMwV0DNW
-	CsDbsPt2fm16qozjNpXQheR/LGUmRsZt4ZrU0UivBRlaJA1nQAF0Wwu9/YxxXXkrqZBykNXnI8k
-	H/Q5BGSJCJG5rBNVNtZZt5p/Mw+LEWJ0LYX9ZQCLN3Cia1Xafct3OkwPr0cUJI9vrxs+J327Icg
-	lhA8sf0cq5TINE9IKxVQZgQz9vw8BY/zDVWXYI5xp2Vk5VNTN0Rqvrpy9dgSTJ+C8h5tqD0NXxO
-	qUcGgMgFL+3nT+he69Iy1giyukGASBNN6hUMlQLs/EXKDFSpTp9IsJmzUOkW2njcfZiLyjBuCEA
-	reibw5UC1NcnVWAj68L/GETPi5lOuPj2T4jvsAmkDf08sbhTFT83scT/XYjjWdnz0RN4Z05FWJU
-	hzcVcxb5KGYF3gb3TM7qgiu86q107XZCdNArA3W2t4dV3wGf0jRxQscuzkCH7GNOyuLBE1noojP
-	xPhmQ/gEofo0=
-X-Received: by 2002:a05:693c:4153:10b0:37b:e40:397e with SMTP id 5a478bee46e88-37b0e403d73mr9727389eec.14.1794870756440;
-        Mon, 16 Nov 2026 15:12:36 -0800 (PST)
-Received: from ?IPV6:2a03:83e0:1151:15:c24:4ad9:f660:1904? ([2620:10d:c090:500::7:3f76])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3795533170csm38038163eec.7.2026.11.16.15.12.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Nov 2026 15:12:36 -0800 (PST)
-Message-ID: <64cc4724-8477-4ca2-ba51-1e561be1e417@gmail.com>
-Date: Mon, 16 Nov 2026 15:12:34 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YTteEw6m
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FE9A1F000C4;
+	Mon, 16 Nov 2026 23:12:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794870769;
+	bh=I0dEorKxIuOBQU8LzcLrRYEGW9tcxCw8ISIbslP54Ss=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=YTteEw6m2wXFQM5AGnL3dZXk1ReIngVab/EblhSnDRUu8z5wnscQAnQFRM9d/RHP9
+	 NdBiWPjjovjrdrrL70BbLXhK5e87sXbOOoj8L7yq5Gb/61e/tIzG+wLQmIuyMWW03l
+	 045o73Sn4zBGQveSgkI53sBM5HqoQL5XR+7vae/p1aDvgsBJacXtVV2a8zz0DoA7PG
+	 iF/B9TP16GaTaEtLmPb+rILhNEOGlYI3OoWOmlYG0N8MTXYP71nmOqP5U+GoiBWFhE
+	 iz0lSQE/Sf5kIVDqKLOGqa33jfo9vLnX+l4PvikLNoQFYu3Ot9TVpQMKwqbggLhvnc
+	 vjon0ykDBZ0ZA==
+Date: Mon, 16 Nov 2026 15:12:48 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Qiliang Yuan <qiliang.yuan@linux.dev>
+Cc: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+ <horms@kernel.org>, David Ahern <dsahern@kernel.org>, Ido Schimmel
+ <idosch@nvidia.com>, Nikolay Aleksandrov <razor@blackwall.org>, Kuniyuki
+ Iwashima <kuniyu@google.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v3 0/4] net: make moving a device to another
+ netns cheaper
+Message-ID: <20261116151248.6dbfe7ba@kernel.org>
+In-Reply-To: <20261109-bug-net-netns-move-rcu-barrier-v3-0-6084b02610b3@linux.dev>
+References: <20261109-bug-net-netns-move-rcu-barrier-v3-0-6084b02610b3@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,37 +63,15 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 4/4] selftests: drv-net: stats: query timestamping
- stats while down
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: "David S. Miller" <davem@davemloft.net>,
- Alexander Duyck <alexanderduyck@fb.com>, kernel-team@meta.com,
- Andrew Lunn <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Shuah Khan <shuah@kernel.org>,
- Mohsin Bashir <hmohsin@meta.com>,
- "Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Bobby Eshleman
- <bobbyeshleman@meta.com>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
- <bjorn@kernel.org>, Breno Leitao <leitao@debian.org>,
- Simon Horman <horms@kernel.org>, Mina Almasry <almasrymina@google.com>,
- Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Dimitri Daskalakis <daskald@meta.com>, netdev@vger.kernel.org
-References: <20261116202957.3601684-1-dimitri.daskalakis1@gmail.com>
- <20261116202957.3601684-5-dimitri.daskalakis1@gmail.com>
- <20261116145108.23f991c8@kernel.org>
-Content-Language: en-US
-From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-In-Reply-To: <20261116145108.23f991c8@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-On 11/16/26 2:51 PM, Jakub Kicinski wrote:
-> On Mon, 16 Nov 2026 12:29:57 -0800 Dimitri Daskalakis wrote:
->> +def check_down_ts_stats(cfg) -> None:
-> 
-> This is skipping on netdevsim, you need to add a fake callback 
-> to netdevsim as well. drivers/net tests can't skip on netdevsim
+On Mon, 09 Nov 2026 03:18:11 -0500 Qiliang Yuan wrote:
+> Moving a device to another netns waits in rcu_barrier() with RTNL held.
+> Container and sandbox managers move one end of a veth pair for every
+> new network namespace, so this barrier limits how fast such namespaces
+> can be created on the whole system, to under 80 per second in a 4
+> vCPU guest however many threads create them.
 
-Ack, will add netdevsim support in v2.
-
+Given AI feedback I expect a v4. Please drop the Fixes tags and review
+tags from the next revision.
