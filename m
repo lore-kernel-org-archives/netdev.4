@@ -1,145 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794870425;
-	b=Jm53/xnKqjXuSM5venHtMVNb8PN7yoOOx7lngOXewVOBnvFj3ifPgrkIKlwv9qYv0pra
-	 VEUDw9ghVjA+p+RMlYmBF0JIzFiPGCmuZC8xNMBSucBUoMZbBNtcoKlFl6CfVmtvJiRB8
-	 Rm3YuP08fqC134kDm8D/xd+COsuL0ElmPaNw+nGR9K0/xOrn0G7KfkyhcS0lhjwoMmEns
-	 HZkojKCq6KeEHYxtXQaLyszxEUgouNFeID5cpttWv/Gjb0Y2UQ4y0jkGfwcaYalIhDEUs
-	 5cknC6cLkllqPgVgavqKfK8sGIORjQFjmq36Umxv1jaMqXrRivOUmdO91Qkxyv00N/g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794870425;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Ov7f0jCh2x7/B/l+YrluktAKi2O0zfS/6BcSjEJkDWQ=;
-	b=IW057hDZfxu72Gt2h9drOrcTNGpSB17ymY+RLPYVLETpTcXvXvb23Bd3tUM2RanWnVAc
-	 F2vXA1r4RBBNBcA+DZ27nFCh6i0iTJhmIn+AcXPhU3sgNM+VYDCZWoaQ0K7os4687L8yh
-	 VK5mi+pCyTMr1pZUBytJM8FeUCqFKQkMAWtvgg4CLG+WnJeBt/SGD52jlftvnYsu0L+lA
-	 fIinGwT0wJjsMlB1YftgiZ5zEYpIha7csEWm9ZdebKc3Uh08xzKxH8OQQaLuKh+U6sZHx
-	 QXSNx5YFl4d7B73649rO0MVEJa/izlpO/Ycwq+KFJ3GchSWuY+gqEDw5fKZQctXPJhA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=MJR1HdCG;
-	arc=none smtp.remote-ip=209.85.216.52
-Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794870437;
+	b=rRWqbNZbyjXq65lOao0VxX7wk7HdHL4OlXfIrEZX1fpsMiFyVoz4HfIN2+VZ79o/aIUf
+	 LJeuBSs0oLDFtmcWUBqzfxidpvpOFiYQMjI+1MOFqKAbWf0iQ+5/qCvWE1oMTjDRniREk
+	 gJuooMqoJkX+NEwwWeup9Mvx8P9vAUrq1XHrmo1VN5zuFKwidh6+qKACVDOKGnUvjtUmG
+	 9nw9GHoUfc86y1WJnwhTP4E93oVREnhGnjrnl6E6YFiroFh0NBT/CWayhqIPR0keshCrU
+	 jogVekA6jBJL5Kw5eIrz7zsJLww+XFOBJCbd6H95y7h/JYYZ8FLlXzSG+L1ju6bRqZQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794870437;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:
+	 X-Originating-IP:X-ClientProxiedBy:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=xd45l5/ruYp6rbC3nTyvYWz4mTJ92S2msEVvggiCNfU=;
+	b=pV3G6IMwRJYKWdtWN8VOVo7xgSVhJnPAzcunUkP2Xx2BDnQplUSOPPwEgrJokcds4GFS
+	 aV6dYFaVDkYc648j8UE9zeVee0Kkgr2F5SSC/bJvDJMXDWFlSymdvFpe7Ai/R4uXbqTR4
+	 xH5A2jXfD5JPTiWAs1eCDz7Iy1iXuCAQHp4nUnfqR/0PzkD9oDh86FjxBqDGVnNGB84Wz
+	 g1pQkD9ahRqtj/68meI4zy/55ndU4ghDQVG6BgXq/BCb/AEG8ig4iJweYlhkTinOdW59n
+	 /inYW84ZXKamLRmKzI35E8JENnuT6zJRpVkM2Q9Gx9BQz28KOTaD5Xh/rcbu/xbhaOg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=rkLKhuu+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.17
+Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013017.outbound.protection.outlook.com [40.107.201.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB96A60A2608
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:07:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CB96A60A2608
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 604E0606A331
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:07:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 604E0606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=MJR1HdCG
-Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3b1bb072438so435283a91.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:07:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1794870424; x=1795475224; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ov7f0jCh2x7/B/l+YrluktAKi2O0zfS/6BcSjEJkDWQ=;
-        b=MJR1HdCG1wWH3hDIRoiEgv1K5UeU+oV3eu2gTuvSPb82VDk0dQt1fxMu575tdzDRGV
-         nUFCKCO0UTGdyHAaOGD1thvWdC5zgS6BIK0tGbz0ddiEBrRU3UF7z1PABYXgFTbzfP7t
-         p/Fggtbeu2kof0DUPF3WoBkPiM6QK+GVj83Cs=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794870424; x=1795475224;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ov7f0jCh2x7/B/l+YrluktAKi2O0zfS/6BcSjEJkDWQ=;
-        b=EIHK34Nu8JKhd/yhTYxgazJJ8vlZ/4N/oEmKsmx95X6DzoLiHSPlmYI6krBBxv+8l/
-         Gh3usdOP8ZodOKUerjHW9y2Uk+VgYfJywrVmynqCq23sPeBaM3ZPbVPLbW5Q6Jmvr2w4
-         10uEB5/Lj9KOk6bVcoNWIIWDNO7QmV2MPfkFMp7YBddwN5wFX1XC6YZGEj7nWsRpEKCL
-         NgT7hcXcoYJSDYbMTzXujUFYAYagTgzD+CLwe7AfbgZQwasqR/20VzJrTXrgrg+Oxp8q
-         IFUoZX34gkqEaSb/cF1kRBeiD4Aho2qNbB99jzKVnWFEiLyl0C3/bZSw3bcr6ADe6Xrg
-         YPbQ==
-X-Forwarded-Encrypted: i=1; AL+hErFGPkSpKAmhiqQKGilN/fUwU1rTm6OLca8WfzzEcQIodimSkA/9kljx5k82M+FsIMn4qR/f84A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z80X4/eeS0mZknJfDdf9IfWQ0+mZtMd1CAbvzpR4UPh7GEnhisq
-	b9Su42vJBphyk4O10QVr47r/aELutw1ryxJxay8yZN9Y1P5dZx/Q27BmPbZkO7qkWg==
-X-Gm-Gg: AZFdTZfg8K59F83CR0YyCf78nBLN9KQ361m4IWhW700xV3vTbRjp64hRydBZJB/Y851
-	Tmt84TnLyifHDO5EPGrXDnryVLXn7mol7s9p+M2ALSiDcuyGXOuaISf9EfGdIrhmpiHEMrrkLa7
-	BWHMWP5LMTuHM2XTS2bdpyOjo1QQXuyFekZoIwjPe3OghEIVR8ePgyKhwcxiaNL1JXCMKWROVty
-	XuPWoVdDq4vpXAAbhCaH/R5SHopxD7jJGzCUhoi2Aizx8KbfVDWLqQS2RDlu4FGScky3QwGlDag
-	hhE6qefW4g3Es1VuklkMCEn21pCX9wfw8UxzF17JYIJLtfhNarxsIsYliigRAHctGxkmJ4BQY+/
-	Le4J9eRenR3YGDMdr+jkEzjB2cMAdsd239335Ea+n5ToGbiE5ts/Ugv9iOM79TikPH6bsZYf6/L
-	UomiXZaRErZEiCGY+axnTZpaDHp9ZtJ8ssbO11q6uvf213GeuYWv+p3THML0lZ2DGxO4RKT3HH0
-	XMGMaeFUhJNqTyN8flzmYgrmys4OKo14RHEEhxKiAiK6AJFFWWawhFJrwYYqGD7mh1F+C+zSbm8
-	uAY6wb06j9Evb3cVFtYDWQewzYTtMv2xi/hKWM+KoDiX6pjO7DdWCV7tm68FspDF8OyoOZW3qzC
-	mCnJxFuMW5m0SxINp
-X-Received: by 2002:a17:90b:5906:b0:3b0:d0be:f02c with SMTP id 98e67ed59e1d1-3b1b0b4ffffmr17720470a91.6.1794870423621;
-        Mon, 16 Nov 2026 15:07:03 -0800 (PST)
-Received: from localhost (221.247.125.34.bc.googleusercontent.com. [34.125.247.221])
-        by smtp.gmail.com with UTF8SMTPSA id 41be03b00d2f7-cddc13275cfsm5035019a12.0.2026.11.16.15.07.01
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 16 Nov 2026 15:07:03 -0800 (PST)
-From: Jeff Xu <jeffxu@chromium.org>
-To: Andrew Morton <akpm@linux-foundation.org>,
-	David Hildenbrand <david@kernel.org>,
-	Vlastimil Babka <vbabka@kernel.org>,
-	Johannes Weiner <hannes@cmpxchg.org>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: Jeff Xu <jeffxu@chromium.org>,
-	Lorenzo Stoakes <ljs@kernel.org>,
-	"Liam R . Howlett" <liam@infradead.org>,
-	Mike Rapoport <rppt@kernel.org>,
-	Suren Baghdasaryan <surenb@google.com>,
-	Michal Hocko <mhocko@suse.com>,
-	Brendan Jackman <brendan.jackman@linux.dev>,
-	Zi Yan <ziy@nvidia.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Marco Elver <elver@google.com>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Chia-I Wu <olvaffe@gmail.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Evgenii Stepanov <eugenis@google.com>,
-	Ian Rickards <ian.rickards@arm.com>,
-	Jann Horn <jannh@google.com>,
-	Jeff Vander Stoep <jeffv@google.com>,
-	Jeff Xu <jeffxu@google.com>,
-	Kees Cook <kees@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Peter Collingbourne <peter@pcc.me.uk>,
-	=?UTF-8?q?Pierre-Cl=C3=A9ment=20Tosi?= <ptosi@google.com>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	Tomasz Figa <tfiga@chromium.org>,
-	Will Deacon <will@kernel.org>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>,
-	Jan Kara <jack@suse.cz>,
-	Miklos Szeredi <miklos@szeredi.hu>,
-	Baoquan He <baoquan.he@linux.dev>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Pratyush Yadav <pratyush@kernel.org>,
-	Allison Henderson <achender@kernel.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-mm@kvack.org,
-	kasan-dev@googlegroups.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-fsdevel@vger.kernel.org,
-	fuse-devel@lists.linux.dev,
-	kexec@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	rds-devel@oss.oracle.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v1 7/7] mm/kasan/kunit: add page_alloc_highuser_kasan test
-Date: Mon, 16 Nov 2026 15:06:27 -0800
-Message-ID: <20261116230627.3537051-8-jeffxu@chromium.org>
-X-Mailer: git-send-email 2.56.0.679.gc527c65306-goog
-In-Reply-To: <20261116230627.3537051-1-jeffxu@chromium.org>
-References: <20261116230627.3537051-1-jeffxu@chromium.org>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=rkLKhuu+
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=F/X0bnk6GeIHTx1WsJkA0Nlyg5LbqbNV6i4tj2SecMD2/wlTJkccIxTTgEchGtDSscPrhEYrE4oD7o66B7rcaVGd9CRJc5XUXEdW3IMYOgPy2ofn4En9dftvTclXSAeNb/nSVkDpfiOr9wWEKta/fMSHFiagluQTxC8Fm+VrItM4ZTnOc7Cn8Ed6u2skc/vohDlMBlpg+KDoBCxX5rbn99nfpeaj5xJjoHUelZhlewJVltNCkPOLUqwB0ywSCKapyUVW/FFYbZWgVSt8/a/65rMBKzd5tW/slPcUVb9mQKn48+eo2TQu6VWw1YW08Ijtz84IaKaauK4XFhixCaFvqA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=xd45l5/ruYp6rbC3nTyvYWz4mTJ92S2msEVvggiCNfU=;
+ b=akIilH3JnEA9pgdGsWgQjb2ejeh3Z72W6JmXqW3kTEa1s08KV+MJKZuP4viBVmYvCXuuYb9X52Ha58b2wM0CZayYUTC5KLQxOA1hZzoUk2VFFEUkS3kcC9r0zeUmAQ2lETQp/CMUW+h2MsTF1gNSkERBu5D4ih8PQ0eMZgGi6Pt9dywSwWCMb/OVYtMQ45IL3XCFkGlAFEen10xOO4NXANCjHsESLZ9GCFqw4kFP0FVxFJABRztYOSJFntyhcSHm8AoTkMqp8TvolqEvZsaZAZvrxgNNquRydf73FH2oJ/5ktJMsGkvL6ZVbWzVhf/J93FMpvpDiPp83q/91LUI5Fg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=xd45l5/ruYp6rbC3nTyvYWz4mTJ92S2msEVvggiCNfU=;
+ b=rkLKhuu+MgxQsi1bLYBoD0JJf8QiAuDIM5dtb4Ojh7niw3c5algYZS3VPyVhF2d1hfHZkJy+vgSv5xGxwIH6HO5UST0ldrEYQDADaLBf+xbydA7NmQ/pwoiGj+9VlMyD8z7wacrOgz7erz/DKujB8BYQZJ/1dTNj5tQNCg/98js=
+Received: from SJ0PR03CA0268.namprd03.prod.outlook.com (2603:10b6:a03:3a0::33)
+ by DS0PR12MB7874.namprd12.prod.outlook.com (2603:10b6:8:141::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Mon, 16 Nov
+ 2026 23:07:11 +0000
+Received: from MWH0EPF000A672F.namprd04.prod.outlook.com
+ (2603:10b6:a03:3a0:cafe::42) by SJ0PR03CA0268.outlook.office365.com
+ (2603:10b6:a03:3a0::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Mon,
+ 16 Nov 2026 23:07:10 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ MWH0EPF000A672F.mail.protection.outlook.com (10.167.249.21) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Mon, 16 Nov 2026 23:07:10 +0000
+Received: from SCSEJOYNER01.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 16 Nov
+ 2026 17:07:08 -0600
+From: Eric Joyner <eric.joyner@amd.com>
+Subject: [PATCH net-next v4 0/6] ionic: FEC reporting fixes and
+ .get_fec_stats handler
+Date: Mon, 16 Nov 2026 15:06:53 -0800
+Message-ID: <20261116-ionic-get-fec-stats-v4-0-d25cae9f1e87@amd.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -149,74 +101,143 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3XOQY7CMAwF0KugrMeVnZSGsOIeo1mUxIWMRIqSq
+ AKh3h0rCxALltb3f/ZDFc6Ri9pvHirzEkuckwz9z0b585hODDHIrDTqAXfUg+TRw4krTOyh1LE
+ WcA6tGdzQO9wpaV4zT/HW1F+VZDXxrao/Sc6x1Dnf27mFWt5ka0hTj5o62mrrgEDe8t3/fE+cD
+ +MldH6+NGHR79a3fxYtAJkJ2QbNFvWnYF4CEX4RDCAcZWEKWxNwtG9hXdcnwTU51TYBAAA=
+X-Change-ID: 20260814-ionic-get-fec-stats-990736964908
+To: <netdev@vger.kernel.org>
+CC: Brett Creeley <brett.creeley@amd.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, Vadim Fedorenko <vadim.fedorenko@linux.dev>, "Nikhil P.
+ Rao" <nikhil.rao@amd.com>, Eric Joyner <eric.joyner@amd.com>, Eric Dumazet
+	<edumazet@kernel.org>
+X-Mailer: b4 0.14.3
+X-ClientProxiedBy: satlexmb08.amd.com (10.181.42.217) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MWH0EPF000A672F:EE_|DS0PR12MB7874:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7bcad0e6-3f11-4197-1076-08df44365814
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|82310400026|36860700016|376014|1800799024|18002099003|6133799003|13003099007|11063799006|56012099006|10067099003|261026140227099003|261028144727099003|261021123027099003|261009223027099003|261021121427099003|261102123227099003|261021135927099003|261026121527099003|261022105027099003;
+X-Microsoft-Antispam-Message-Info:
+	0vxtnm1x1oEbqiefow4OPxdNIctM5VS8o8GIyGq1Dq48VSm54rcavCaIcBdxWNZ3N7g3ACmhmdb047trkbrm/ugjfiERQz4qgbdKrzEtKTjX8haSqVNWDxnPPqOdGDF1AaRqeDyPt8QTrSiuI7VOP2FupZqAlbNuMbckRd4Go6fUtjDqYRCcTIE3ZYrn82x64ga7a7PtddjtO8CRHXSmYt0aL8bYRWeXLBWeQ+SX4wCqLIoBEiSJ7BWAiSJSWZJdReg+Up+HfKHee8E0Q5AkjQTrf/VNp8dWGND2+I7IrMrK8W2XuBME0hLqCnZX+WxEtZyUZDRw3FvdUdJzg49ZNyrRC98yFdNFKYk6xemHJ0ULPx+J/CbK8riEThT9uZlGrhlO8xK0ZVbcMa92xxNsI41tYlLbYUBdu3eXYD59W1BCLgWs4DKUojGDPbR9C/2aDkJ5MXmKpd/U9dHec6mc+XJF2XHHNBPbvrTjAes/RJqcPIzyRwuDQMqt1j1Q1GwVSxx1cxZEQsnM3co1gqaUIqjKW2VL3kqivBzsA8PV23llDFbvB72XUk71+Kxj2dgtlBG8iCkwpWKBUNz39JOAtSYNPc9LGAYdv72H6QU6zGyHAJMSH1EM0MqdSdeAuCDt2ZOf14Qg3x+oACJWOvJ2Rg==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(36860700016)(376014)(1800799024)(18002099003)(6133799003)(13003099007)(11063799006)(56012099006)(10067099003)(261026140227099003)(261028144727099003)(261021123027099003)(261009223027099003)(261021121427099003)(261102123227099003)(261021135927099003)(261026121527099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	qtj5CljvdhgwciRMOJiAcvcCbvWysEgaadmQuVBCSHeuorHqMHXNIyJre5Vf2MqJ+yiulKKrK7Gfz6cUq8/Kw4tEgTJH9vtFIROyQ1diURLUF7zv4hDs17rmY4rDQkuERavMJscAcTp3kR0h3NWrJ8em1C8Zsle1XtXd6XKPg0owaEi+oGL/EusJqXHyMKWZsJaEJyv7ERBQKLYOQGeud7ucjUC3nF6DLi8jQZsD6OrGHfrkqtiYteQePyXy9gIsVjvZZICK4KXOOaHjcaVPwmsrCsrIUGO5/TdgYkw1mheaggBNGq12E2obQEDojnAcjW72wa1vAl4O4rRr6wectLW1GyGAjvyQvRapSDuHFn0yoPQ6SjZt4RTWQwl6+mXk7OiV/u6aAO/pwfXsBLHNTm5miP6ryRmxP25lvYhegPYZOg5hzpuVVnxKokX9aHX3
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 16 Nov 2026 23:07:10.5182
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7bcad0e6-3f11-4197-1076-08df44365814
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MWH0EPF000A672F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB7874
 
-Add a KUnit test (page_alloc_highuser_kasan) to verify that, unlike
-GFP_HIGHUSER, page allocations using GFP_HIGHUSER_KASAN under
-CONFIG_KASAN_HW_TAGS:
-1. Get a KASAN tag in page_kasan_tag() across all sub-pages of a
-   high-order allocation, and the same tag in the pointer returned by
-   page_address(), and
-2. Are poisoned on free, so that a use-after-free through the stale
-   pointer is reported.
+Add a .get_fec_stats ethtool handler, and fix the FEC reporting it
+depends on.
 
-The test fails if __GFP_SKIP_KASAN is added to GFP_HIGHUSER_KASAN.
+Patch 1 writes the IONIC_STAT_INVALID markers in extra_stats one
+counter at a time, so a reader that tests a single counter cannot see a
+torn value.
 
-Tested on arm64 with CONFIG_KASAN_HW_TAGS under QEMU (virt,mte=on) with
-kasan.mode=sync, async and asymm.
+Patch 2 adds FEC off to the supported and advertised link modes.
+Firmware does not report which FEC modes a port supports, so the
+supported list holds every mode an ionic device can use, and firmware
+rejects a request for a mode the port cannot run.
 
-Assisted-by: LLM
-Signed-off-by: Jeff Xu <jeffxu@chromium.org>
+Patches 3-5 fix ionic_get_fecparam(). fec->fec reported the constant
+set of supported modes instead of the configured mode, and
+fec->active_fec reported the requested mode instead of the operational
+one. Patches 2, 3 and 5 have Fixes: tags, but the later patches build on
+the lines they change, so they are sent to net-next with them rather
+than to net. The bugs only affect what ethtool reports.
+
+Patch 6 adds the handler. It reports statistics only while the active
+FEC mode is RS.
+
+The netdev AI review of v2, which Simon forwarded, asked whether the
+per-bin local really guarantees a single read of each counter. It does
+not, so v3 reads every counter with READ_ONCE() and drops the struct
+copy. The port_info lifetime problem that the AI review raised on v1
+and v2 is fixed in net-next by commit d90d1a768b3b ("ionic: fix
+port_info use-after-free on firmware recovery"). The netdev AI review
+of v3, which Jakub forwarded, found that FEC off was not listed as a
+supported link mode, which the new patch 2 fixes, and that patch 4 made
+old firmware report forced-FEC links as FEC off, which v4 also fixes.
+
+Claude was used while developing this series: to investigate the v2
+and v3 review questions, and to help write the code changes and commit
+messages. The authors reviewed every change. The series was tested on
+Pollara and Vulcano NICs.
+
+Signed-off-by: Eric Joyner <eric.joyner@amd.com>
 ---
- mm/kasan/kasan_test_c.c | 28 ++++++++++++++++++++++++++++
- 1 file changed, 28 insertions(+)
+Changes in v4:
+- Add patch 2, which reports FEC off as a supported link mode (netdev
+  AI review of v3).
+- Patch 5: with autoneg off, report the configured FEC mode as active,
+  so firmware that predates status.fec_type no longer reports forced-FEC
+  links as FEC off, and add a Fixes: tag (netdev AI review of v3).
+- Patch 6: gate the statistics on the same active FEC mode as patch 5.
+- Patch 6: explain why an RS check is enough for the histogram (netdev
+  AI review of v3).
+- Rebase onto current net-next.
+- Link to v3: https://lore.kernel.org/r/20261104-ionic-get-fec-stats-v3-0-b261fd53d0a7@amd.com
 
-diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-index 72342137bb18..285b82793bdd 100644
---- a/mm/kasan/kasan_test_c.c
-+++ b/mm/kasan/kasan_test_c.c
-@@ -423,6 +423,33 @@ static void page_alloc_skip_kasan(struct kunit *test)
- 	page_alloc_skip_kasan_helper(test, GFP_HIGHUSER_MOVABLE);
- }
- 
-+static void page_alloc_highuser_kasan(struct kunit *test)
-+{
-+	struct page *pages;
-+	size_t order = 2;
-+	char *ptr;
-+	size_t i;
-+
-+	KASAN_TEST_NEEDS_CONFIG_ON(test, CONFIG_KASAN_HW_TAGS);
-+
-+	pages = alloc_pages(GFP_HIGHUSER_KASAN, order);
-+	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, pages);
-+	ptr = page_address(pages);
-+
-+	/* Unlike GFP_HIGHUSER, these pages must get a KASAN tag. */
-+	for (i = 0; i < (1UL << order); i++) {
-+		KUNIT_EXPECT_GE(test, page_kasan_tag(pages + i),
-+				(u8)KASAN_TAG_MIN);
-+		KUNIT_EXPECT_LT(test, page_kasan_tag(pages + i),
-+				(u8)KASAN_TAG_KERNEL);
-+	}
-+	KUNIT_EXPECT_EQ(test, (u8)get_tag(ptr), page_kasan_tag(pages));
-+
-+	/* They are poisoned on free, so a use-after-free is reported. */
-+	__free_pages(pages, order);
-+	KUNIT_EXPECT_KASAN_FAIL_READ(test, READ_ONCE(*ptr));
-+}
-+
- static void krealloc_more_oob_helper(struct kunit *test,
- 					size_t size1, size_t size2)
- {
-@@ -2413,6 +2440,7 @@ static struct kunit_case kasan_kunit_test_cases[] = {
- 	KUNIT_CASE(page_alloc_oob_right),
- 	KUNIT_CASE(page_alloc_uaf),
- 	KUNIT_CASE(page_alloc_skip_kasan),
-+	KUNIT_CASE(page_alloc_highuser_kasan),
- 	KUNIT_CASE(krealloc_more_oob),
- 	KUNIT_CASE(krealloc_less_oob),
- 	KUNIT_CASE(krealloc_large_more_oob),
+Changes in v3:
+- Read each counter with READ_ONCE() and drop the struct copy of
+  extra_stats (netdev AI review of v2).
+- Report statistics based on status.fec_type, the operational FEC mode,
+  instead of config.fec_type, matching the active FEC mode that patch 4
+  reports.
+- Add patches 1-4, which fix the FEC reporting the handler depends on.
+  Patches 1-4 are by Nikhil, who is also a Co-developed-by on patch 5.
+- Drop Vadim's Reviewed-by from v1, since the code has changed.
+- Rebase onto current net-next.
+- Link to v2: https://lore.kernel.org/r/20260814-ionic-get-fec-stats-v2-1-13f0e7d2e702@amd.com
+
+Changes in v2:
+- Latch each histogram bin into a local before testing it against
+  IONIC_STAT_INVALID, so the sentinel check and the store cannot be
+  folded into two separate reads of the firmware-updated DMA buffer.
+- Explain in the commit message why the RS FEC check gates every
+  reported counter rather than just the histogram: they all come from
+  the RS decoder, including fec_corrected_bits_total despite its name.
+- Rebased onto current net-next.
+- Link to v1: https://lore.kernel.org/r/20260731214021.15279-1-eric.joyner@amd.com
+
+---
+Eric Joyner (2):
+      ionic: report FEC off as a supported link mode
+      ionic: Add .get_fec_stats ethtool handler
+
+Nikhil P. Rao (4):
+      ionic: write the extra_stats invalid markers one counter at a time
+      ionic: report the configured FEC mode in ethtool_fecparam.fec
+      ionic: map the FEC type through a helper in ionic_get_fecparam()
+      ionic: report the operational FEC mode from ethtool --show-fec
+
+ .../net/ethernet/pensando/ionic/ionic_ethtool.c    | 137 +++++++++++++++++++--
+ drivers/net/ethernet/pensando/ionic/ionic_main.c   |   8 +-
+ drivers/net/ethernet/pensando/ionic/ionic_stats.h  |   2 +
+ 3 files changed, 132 insertions(+), 15 deletions(-)
+---
+base-commit: 573af801552999954caa8347e4490b04cf4763f0
+change-id: 20260814-ionic-get-fec-stats-990736964908
+
+Best regards,
 -- 
-2.56.0.611.g1030f0b940-goog
+Eric Joyner <eric.joyner@amd.com>
 
