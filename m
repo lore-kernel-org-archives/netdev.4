@@ -1,81 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794856223;
-	b=1g2jFuIl9XUZN2TSlrixd8chgxoe8mWSipLGy+mG1ZRXcYh/q6+wz/TNQcK/DKWnDYm0
-	 GbTq4ZfocumxC/fQ2wlTqqz8U7OJkr+bFQIztfUauU68uLGfCgVrlVgjPTLkiHCb23j9F
-	 i0J1cMXtoJCB91fFkB7/YEtWZeSwP6TzhKzJ9O3cSdr+XqFeXex1robKIR7UntHKSFgi3
-	 j4Gk/BHHP6/fvHyFGVVTQDAwbiBqFwnqLgIPoLtI+vbEdzJKfs9bu9WGZiEMDRfRwJIDP
-	 OCh7J+pEMUuT71RYXVHzkyuLrlqmYBcy8jT4RRblklCa2z7UPBPUcaRS3HgmWepLPyA==
+	t=1794856226;
+	b=Wive8xIrkCV44qn8rhLJp2eqMOM/y/Xg3ReIlh+p9dhWvH7OnH0211pJL5viu0WWWxzJ
+	 RvibphdY4HtmOcfycck9z4hFYb5mW8EYfmUMb3GL+mUBwXiVfz4bWSxUfiyUiRsCwsYEQ
+	 YFBuqQSjSfJVDMguz2NDdDAR3ziWPGrr6kEW6tem6WklHOpKn1IBp/VHDeu+fRvxqXQLw
+	 RcmGg3maoHsIm2Ons2zeNt619C2kDUJr1Y14z4OHLke262SFgu0WChGxCxaq6fcHluK81
+	 6bIapNcTafu/aEpbXn6sG2FI5MG5OKEfsaezwCViu9bOigS3J/d1FQo2ZQ95RUpGqgg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794856223;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Subject:Date:
-	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=DQtxOkRhL1RVehvg9axGf3bpjjO1a8C4ieQHWmTRLjQ=;
-	b=ha6LDc0yKhM58qsWcbx4IPmRUKJvF6LTG0stjip6Fp2X7lmNSKa0QbQR2tccImvrx5JY
-	 YIrFvH6it/l58ZZGSE1DbL0KNl452kVj46zQN0V+y+nntn85LYbuXUK0NEtjkX2ybXVGg
-	 AortT/DfoDqqrMv/Iv3i9Gb3LiC4fE6tteDlpAud4L38am4cq28QedgRHo6yqgG0W3KJC
-	 DVnCzWU0DnpuzqxwIL3ahol2GwrVtpwUUf+szofZQCNsly1WYVW78Bn+T7hge64A5bpPT
-	 +CGsZ9m4mH9TwNnVbbpWGXJMzMMn2ZkYRFFhTCyM4pnYEoFCGCXS86kl5tMDDkRfVdg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794856226;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer;
+	bh=Y/GkL4r6ak/xaxe1sQB/4Z5Stga1ZmlArTHziFQUcSQ=;
+	b=vrbjlHvCgFPnrcf46BsCnCOZMUIm4yWwsCAk9XgKBhvx30kxgrSYmsQWG+DSvOPCT9qY
+	 8CPzdLK5tdLgcHhUcst/4vZFqLRLPvl81ntQXAyz6wLmMYsmEwljdsMQHpihhPiHE6e83
+	 /HBEc1cu4zaHvrU2KT3LM64kWbxkWMNpbVwpZx9paFn4fiHy2sL1d9R4vQbuxbhAVKnuC
+	 Q0ctxZ4LorLLfSHeBxeZJURk5r30qFxjyuCiu9dkC+VANDuj4x7Tf3Yu4BwE3KaK6eSXq
+	 CS4Fy/Wj7/ik7BnSWA4FzT8444gvs4Z31VUkt7Y7j6d5q6Xiktd6yRdYiTUKhTNMlzQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=pengutronix.de;
 	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Yx2ZXVk3;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=eQZjVCWq;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D313B606A31C;
-	Mon, 16 Nov 2026 19:10:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D313B606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3AA660A3816;
+	Mon, 16 Nov 2026 19:10:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3AA660A3816
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Yx2ZXVk3
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=eQZjVCWq
 Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.pengutronix.de [IPv6:2a0a:edc0:0:1101:1d::ac])
 	(Authenticated sender: relay-from-dude04.red.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id B5454202929;
-	Mon, 16 Nov 2026 20:10:15 +0100 (CET)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 09C4C205A35;
+	Mon, 16 Nov 2026 20:10:20 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794856215;
+	s=20260414; t=1794856220;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=DQtxOkRhL1RVehvg9axGf3bpjjO1a8C4ieQHWmTRLjQ=;
-	b=Yx2ZXVk3ijNnjMRg1eSwL8bpznTXbuWWLryvGxXFPwCHhksGSus6JCoQDZw6yfNQuqZwbr
-	9E+sdq6qjGf3S5NNgEHXUq/3qAVJVQg5OGc43VklpYcxActEqU9AQYfNI+3/zBhpvftGAD
-	JnhoGaCOSzFBsUTCdGFmZPncL7zlvs9t9Kxa/MZC+noRtymz5X2WGLxtLtkdB2evA22Uit
-	yfYfgGg61tqELvD51FFEEWJI6bnP+vnkET9ODCMD1Q6tayGLe8aAZ/KqwyU2/lQtuin6Ll
-	xaSQnupXNyOzBIiiKFtc0EBgn7HdynNT7P70P1IE4btgaW+qEHi9jtKD0TAmgg==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Y/GkL4r6ak/xaxe1sQB/4Z5Stga1ZmlArTHziFQUcSQ=;
+	b=eQZjVCWqPuBauiStQPxwDa7cJX0pvm3OS0YYh+AwDN7XV9l/j9tcBTe7O8WEm7OVg61mtD
+	86eusFiRe+/tdqhTRbQAJkcXIDkHLv0+P+ACFNA2sSi+ioErBOjPE8sMXfPa66+2RW9tSL
+	nKNrQUi/tA7gMtWzmPy8gLVX/AaZRmPwAw14VVuXbr9fbVZRZIJiU27TgUd5ETPxW98xUq
+	gHxnyQt9dA+11MTna/UoJ+23s3HwAY3P4rRWStLRPtzMnQLhOlIssn/qOLbVYVJqVCJSbb
+	nz9EGJAXBPWMlSRwrVUOjCwQoz23sapQ4L/I7VCdMOvqdz8wgLTaUikv/y6HFg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794856215;
+	s=20260414; t=1794856220;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=DQtxOkRhL1RVehvg9axGf3bpjjO1a8C4ieQHWmTRLjQ=;
-	b=PsoaB64ZWk0YQ4Ixh23y6ujtVOT4tef8pYNCWJFahX+I48pYWiilgYHmhU68QBQ//rTsvA
-	YJ267fQt+fq4pLFxbrY3UIvJXxKUveyentLYOAbx3reS8vXRkaKRQq4RX2r9JSwaufxOp8
-	ZRrFV226je6WrIGJIUVPNO5GpO7CQ4ebITOEqN00weeuO5IbWHyJtwx6Gq0XlmcSZxNi3P
-	z1jkl8swi8Tz6TOom0e6CSkbfl8D3O/Jg0HdOuyTarHArZyiRaHcsoSNRWJTjuclQS7M5w
-	ubj2s+ohSqa2EJFT5giuplGn+ZsnrqwvCnQ/NT64TJRhD1lufVRsWSLpp0tCSA==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794856215; a=rsa-sha256;
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Y/GkL4r6ak/xaxe1sQB/4Z5Stga1ZmlArTHziFQUcSQ=;
+	b=Ab7O90l5ZIe5+aCmxYPUuHpIT8OzLfuYsiZ+mUGbZ86Cy9hPurPN6Q5j1sRjoUe7vHeaLm
+	7NTRUWuxsKa0X9msQxsoDhPUWcO62X9Xe0up4twOk5CTF6t3F3IhwqnYTGdePLX0wFEd53
+	OXg/lo5ehgyWKPM5M1AtlRai3eqhm2soAEJGTgMYurXVl2slipV//UxyZUs0w/CoxNUXjx
+	Oj51lYACeBxuVL//HJTWCyvz7cjwRpiq4N8mg7Tq4xL+3pTduF83uvYiYjmtJ9RlAoE18a
+	9XGwTvkvPSI6SqYb2a05gvIO+vX4RbRwRgZxfrZY55Fhbx6GyiF/bHX3Ty7TbA==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794856220; a=rsa-sha256;
 	cv=none;
-	b=L9yAkcxgR7xY40Phlwt4+0GmJyoyQ1z2gXm7HtuYtA8vXlkqvfId4oMsoNwI5iG8Ea2NvT
-	HpPNI3kUoAGWEUi0h/rQ6xiZbFzZiMiNbi7wRqR3s/zjHkAeYLrDPJts+pJd56hfewGf4s
-	x71urLx35SK6xiw63CrKCoJiKNjcsOs4dFvsT+QZvaHaIZAWTUdfG/IlDma7avE8dbrpzU
-	o6Us9RoPddaJH0KIOzu8o3EmijkQ/rqSSbrClljOlgUlLXpx7Y4E657PW10F4Kxn3VQ/FP
-	5X0qLme/gdQDbQ3C2HfYZWsN9e+Mke3oeUhFeLlcM5z1sQ/GKUOTOK1scbB7Kg==
+	b=QL6kfZtHqrbcyV5X0RrKvUGSYqIO2fYD7oifjBtLVSeBD0YskeyUm5hshk1s0GYNPOQA74
+	sPWQ2YEDj8eVh+u+CdbEcWbQmJtltaZdAxPrUzVHKQ5e8gJhLhLxLR0wWW6DiVG4D/AEZx
+	/qwxrJJrA7HT7+U0+zlu8XQbraJfDKfkrdy2rnnvzqUi9ZDit9ZOOhRh1cyvq8O4MHTeJZ
+	ULoFfGsMTowFz+FkuTuavmWUCaLVTNU/VVTPSRoE2H35cT9wbO0XY66cw4ODuO2OKPP9iT
+	AI/lHaACRtHzwKerQ0vE97P18NW72oj0fLKjiHmiRjlwf6c2FDgzRS97WnNJgg==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=relay-from-dude04.red.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
 Received: by dude04.red.stw.pengutronix.de (Postfix, from userid 1058)
-	id AA048380329; Mon, 16 Nov 2026 20:10:15 +0100 (CET)
+	id B481C381D1F; Mon, 16 Nov 2026 20:10:15 +0100 (CET)
 From: Oleksij Rempel <o.rempel@pengutronix.de>
-Subject: [PATCH net-next v3 00/10] net: dsa: realtek: rtl8365mb: DCB
- ingress QoS offload
-Date: Mon, 16 Nov 2026 20:10:11 +0100
-Message-Id: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
+Date: Mon, 16 Nov 2026 20:10:17 +0100
+Subject: [PATCH net-next v3 06/10] net: dsa: realtek: rtl8365mb: store the
+ egress queue count per chip
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,11 +87,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIABRV+2oC/zWMQQrCMBBFr1Jm7WCaYFGvIl1Mkmk7YEZJQimU3
- t0ouHz8/94OhbNwgXu3Q+ZViry0gTt1EBbSmVFiY7DGDn1vbpjr8+qGS/IYg0fROXMpaCKx68n
- YYCZo7jvzJNuv+wDlispbhbEtngqjz6Rh+XYjrZzw/zgnEoXj+ACP7QcYlwAAAA==
-X-Change-ID: 20261109-rtl8365mb-dcb-ingress-0dae31a02c0f
+Content-Transfer-Encoding: 8bit
+Message-Id: <20261116-rtl8365mb-dcb-ingress-v3-6-657f5fdb4db7@pengutronix.de>
+References: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
+In-Reply-To: <20261116-rtl8365mb-dcb-ingress-v3-0-657f5fdb4db7@pengutronix.de>
 To: "David S. Miller" <davem@davemloft.net>, 
  Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
  Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
@@ -102,56 +102,100 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  kernel@pengutronix.de, Oleksij Rempel <o.rempel@pengutronix.de>
 X-Mailer: b4 0.14.2
 
-Add ingress QoS offload for the RTL8365MB switch through the dcbnl app
-interface: a per-port default priority, PCP trust and DSCP trust. The
-mapping helpers go to net/core/ieee8021q_helpers.c so other drivers
-can share them.
+Store the number of egress queues in the per-chip info structure and
+advertise it through ds->num_tx_queues, following the ksz driver
+(struct ksz_chip_data.num_tx_queues).
 
-Two changes are visible to users. The driver now rejects a devicetree
-port that the chip does not have. With a default priority set, an
-untagged frame that leaves a VLAN-tagged port carries that priority as
-its PCP.
-
-Tested on an RTL8365MB-VC with eight queues.
-
-ETS scheduling and CPU-tag pre-classification will follow in separate
-series.
-
-v2:
-https://lore.kernel.org/r/20261112-rtl8365mb-dcb-ingress-v2-0-f8e6fbdf8c99@pengutronix.de
-v1:
-https://lore.kernel.org/r/20261002115850.962676-1-o.rempel@pengutronix.de
+The queue count is a per-chip hardware property, and this driver supports
+several chips of the rtl8367c family. All currently supported chips expose
+eight queues, but keeping the count in chip_info lets the QoS code that
+follows program the priority-to-queue map via the ieee8021q helpers for
+whatever queue count a chip carries, so the 802.1Q collapse is correct
+rather than hard-coded to eight.
 
 Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+Reviewed-by: Luiz Angelo Daros de Luca <luizluca@gmail.com>
+Reviewed-by: Alvin Šipraga <alvin.sipraga@analog.com>
 ---
-Oleksij Rempel (10):
-      net: ieee8021q: print traffic type and queue count with %u
-      net: ieee8021q: add pcp_to_tt()
-      net: ieee8021q: clarify the tt_to_tc() traffic-class mapping
-      net: ieee8021q: add tt_to_pcp()
-      net: dsa: realtek: rtl8365mb: describe the ports of each chip
-      net: dsa: realtek: rtl8365mb: store the egress queue count per chip
-      net: dsa: realtek: rtl8365mb: add QoS baseline and DCB default prio
-      net: dsa: realtek: rtl8365mb: program the PCP of untagged frames
-      net: dsa: realtek: rtl8365mb: offload DCB apptrust
-      net: dsa: realtek: rtl8365mb: report the DCB DSCP-to-priority map
+Q: Linus: why is the queue count not in struct realtek_variant?
+A: The count is per chip, while realtek_variant is per subdriver, and
+rtl8365mb serves several chips. The QoS code added later in this series
+reads ds->num_tx_queues, as Linus suggested in his v1 review, so
+RTL8366RB can advertise its own count the same way.
 
- drivers/net/dsa/realtek/Kconfig          |   1 +
- drivers/net/dsa/realtek/Makefile         |   5 +-
- drivers/net/dsa/realtek/realtek.h        |  33 ++
- drivers/net/dsa/realtek/rtl8365mb_main.c |  69 ++++-
- drivers/net/dsa/realtek/rtl8365mb_qos.c  | 508 +++++++++++++++++++++++++++++++
- drivers/net/dsa/realtek/rtl8365mb_qos.h  |  33 ++
- drivers/net/dsa/realtek/rtl83xx-qos.c    | 210 +++++++++++++
- drivers/net/dsa/realtek/rtl83xx-qos.h    |  20 ++
- include/net/ieee8021q.h                  |  21 +-
- net/core/ieee8021q_helpers.c             | 103 ++++++-
- 10 files changed, 981 insertions(+), 22 deletions(-)
+Changes in v3:
+- No changes.
+
+Changes in v2:
+- drop the num_tx_queues comment, which restated the assignment
+- keep the Reviewed-by tags: v2 only drops a comment
 ---
-base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
-change-id: 20261109-rtl8365mb-dcb-ingress-0dae31a02c0f
+ drivers/net/dsa/realtek/rtl8365mb_main.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-Best regards,
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index b57b306cbf5e931a36f52ab6b57de881b5dd94d8..7010e51d63fae7fd416bcde44e506b68f250ae50 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -711,6 +711,7 @@ struct rtl8365mb_extint {
+  * @extints: available external interfaces
+  * @jam_table: chip-specific initialization jam table
+  * @jam_size: size of the chip's jam table
++ * @num_tx_queues: number of egress queues exposed by the chip
+  *
+  * These data are specific to a given chip in the family of switches supported
+  * by this driver. When adding support for another chip in the family, a new
+@@ -724,6 +725,7 @@ struct rtl8365mb_chip_info {
+ 	const struct rtl8365mb_extint extints[RTL8365MB_MAX_NUM_EXTINTS];
+ 	const struct rtl8365mb_jam_tbl_entry *jam_table;
+ 	size_t jam_size;
++	unsigned int num_tx_queues;
+ };
+ 
+ /* Chip info for each supported switch in the family */
+@@ -747,6 +749,7 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 		},
+ 		.jam_table = rtl8365mb_init_jam_8365mb_vc,
+ 		.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
++		.num_tx_queues = 8,
+ 	},
+ 	{
+ 		.name = "RTL8367S",
+@@ -760,6 +763,7 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 		},
+ 		.jam_table = rtl8365mb_init_jam_8365mb_vc,
+ 		.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
++		.num_tx_queues = 8,
+ 	},
+ 	{
+ 		.name = "RTL8367SB",
+@@ -775,6 +779,7 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 		},
+ 		.jam_table = rtl8365mb_init_jam_8365mb_vc,
+ 		.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
++		.num_tx_queues = 8,
+ 	},
+ 	{
+ 		.name = "RTL8367RB-VB",
+@@ -789,6 +794,7 @@ static const struct rtl8365mb_chip_info rtl8365mb_chip_infos[] = {
+ 		},
+ 		.jam_table = rtl8365mb_init_jam_8365mb_vc,
+ 		.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
++		.num_tx_queues = 8,
+ 	},
+ };
+ 
+@@ -3284,6 +3290,8 @@ static int rtl8365mb_setup(struct dsa_switch *ds)
+ 		goto out_teardown_irq;
+ 	}
+ 
++	ds->num_tx_queues = mb->chip_info->num_tx_queues;
++
+ 	/* Start statistics counter polling */
+ 	ret = rtl8365mb_stats_setup(priv);
+ 	if (ret) {
+
 -- 
-Oleksij Rempel <o.rempel@pengutronix.de>
+2.47.3
 
