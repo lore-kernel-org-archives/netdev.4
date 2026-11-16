@@ -1,77 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794801422;
-	b=bssQvk2J4iikyPK1rruZYoyYpybDklFjGpGKSLvTxNCrVlzkcq4+E5uSw8zqImCch6JH
-	 FALsQv3FAMna+UdzQK/67c+TYfTKhTzVq0LEA/nuB1OXGdhT/MecuNRed3rOaxuzQsTxo
-	 q2iJthXSp+cmIWF2xhz8pUraqNox7j4YRSYDFkLEAuKKD6uvS+BuSShdoo3IEUkxGgUnV
-	 8fQjuCD8Ll6+xpQmK7D0Y6Ncx33pLORFAGro7O/fY2u2PDRm2ql3N02OQqfn6bMbmAf7y
-	 MEJ3FGVsFHobMbdCvXNmoLzKVmBZGu1xKTcyk97IeXWOSi9XwfjZTdE4xX3K6AjI+Ag==
+	t=1794802349;
+	b=Vz0+BSxmIFQ5R291l6YT8yCUTQ3fS4dV22upB3OBCD0xYfwdWscbFj/IbQppZNoy9F55
+	 LVDjSnE4j6OnnmTYDqmvb2dJjt4obGkpRnmbeOtUgfZ0oEBL4af0uhFqUi/dgHfpeSjgy
+	 xaSi4GMYGI8tOihqT71rlJ/PykeahbRHqApZFMmVD2v7gU6WOUBJmDowbvq+CPJypcDoh
+	 UlsKMWwmH3oOCobXxQQxTdFXYODxo6v+F+C4U1O80Fj/aP2Z4U6Re83qy9ANle+9QW4tS
+	 c4FqwTNZeT6OUSEtcI90JtKgmSqskNAAgMx+JJl47+sETbkpoNg5KY6BIWGYYu07zaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794801422;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=ONRHn8KrnSDZjpgJxYbGmgk6UH+b2w2T6gpubSrL9lY=;
-	b=pumofxd+TZ5608RrnF9SUzCDTBL4gBUlz71Dop5Pix7WJ7wg5WrLN99GP9vdVsCGeYrn
-	 +SgijuoQSc3Nmae2HTE/RTQ9XddZ1aDGdnIFpZTF3WBCheBWFRalLkhn0etAyD41JbZMR
-	 pUMCn3YD80SmV17SuGH4MH/8QPJfQHrVA/fjQOIX9G6UgyVCqPcm2ACOTsLM72o7hJ2vq
-	 k1SBAvrBD+JMX+HzYB4OY+0UaEw6ZBfs7eLmEp9UpNTLuULVS3anVr+ot05ibRwaIhbCy
-	 Gf487z2ruK6Q4eQlIUBi1ebv5nHv7BCJml1+3Jg/r2IgDyBn3ixpCOMmWqBv2WkDmXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794802349;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=NHMGWMgewe8kC7ESdHx6pfUaRaII6jAZvHzMMG3ecVY=;
+	b=XUdi5YPoA1O4ZO/1XBCu5YuspDtdnktIM8oNQ7MEEZFR4BJ/scad2icG3nLX0Q/sh/TQ
+	 m1LH6WcPLsgFwEoUc6Hfs5U2yT16fGpeNNSYK0vBFzn2gIchX/UL8srcwFVaBsRs17UTc
+	 d1cMcxyDx+0BgFtDrydcB5qcw+lR32iAmeMUG1fxKj6uMYp/WgCxMwwua+jeOJNiO3d8A
+	 t9zXI9oVGoJuOKwlhOkf4HG/mP5/kqFsOLK0yqk4eFUNTZnnC1zNQuKSJdfOMiw7xBdOH
+	 /gclbFWMRPICcc2KjhzGzlNXxmzTpj6ABafUdFv7tf/ZS9C/m6LhG9s3XCMZWTAMieg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=q+nzBpJV;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 32890606A323;
-	Mon, 16 Nov 2026 03:57:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 32890606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QWcihlbp;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 74500606A33A;
+	Mon, 16 Nov 2026 04:12:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=q+nzBpJV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=q+nzBpJVvf+i4X+4CS658jFqNDVV2NxH8Rz/Tj5eT+Vx0MRiIpVqpaOdJ5Jkfo5G8kqg2HIZowoSD
-	 IThzpREiRCyDQk70J1UwO90b8ohs7g+I2zmPXMiYx3zzstVfbDdwhcULgfw0l0ogFT5otracktGSVL
-	 iqmioPcfW5riHYVI=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86afa7f0c2db-9b761;
-	Mon, 16 Nov 2026 11:57:00 +0800 (CST)
-X-RM-TRANSID:2ee86afa7f0c2db-9b761
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from  (unknown[74.82.203.40])
-	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66afa7ee7fb3-7c019;
-	Mon, 16 Nov 2026 11:56:59 +0800 (CST)
-X-RM-TRANSID:2ee66afa7ee7fb3-7c019
-From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-To: netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Mina Almasry <almasrymina@google.com>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Willem de Bruijn <willemb@google.com>,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	"Michael S. Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
-	Narcisa Vasile <narcisav.kernel@gmail.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 2/2] net: add a KUnit test for the alloc_skb_with_frags() tail split
-Date: Mon, 16 Nov 2026 20:56:20 +0900
-Message-ID: <20261116115620.18151-3-yanhaishuang@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261116115620.18151-1-yanhaishuang@cmss.chinamobile.com>
-References: <20261116115620.18151-1-yanhaishuang@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QWcihlbp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2AC301F000C4;
+	Mon, 16 Nov 2026 04:12:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794802349;
+	bh=NHMGWMgewe8kC7ESdHx6pfUaRaII6jAZvHzMMG3ecVY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=QWcihlbpgfpt2SpuJ80O42O4m98vSHiyI3tHOEK5h82H6L2fGaVPdwHb1EuhqbxCu
+	 K48PXFgTtPpZwIpp+VSYxR6iLzf0gN5mbcTKS18F0mnfDIFrg64xzrwEEsmmVOHlVh
+	 N333wOgkynOVOjFdwuHSaU+F/eQ0zyLfpc7L3SZdAt4AaJxTEVyhfmoEtFynZMcQJ2
+	 mbzAUxmqhhkPGPifgO9xo120qs0D6XqP8gYoJVG7HQljiRGbdKW/Y4VaSsrGZuLrVA
+	 tCxLmJpHPLHYBwgI/CXuEd5R40wirsBqDfav9zgYpvVp3PxNCdNTaNvk2EcgYhlFof
+	 zZjEvHSdIObYw==
+Subject: Re: [PATCH net-next v5 2/6] dt-bindings: net: xlnx,xxv-ethernet: Add
+ Xilinx XXV 10G/25G Ethernet
+From: netdev-bot+sashiko@kernel.org
+To: suraj.gupta2@amd.com
+Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
+ linux@armlinux.org.uk, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Mon, 16 Nov 2026 04:12:27 +0000
+Message-ID: <179480234767.3136.1383853926077576761@kernel.org>
+In-Reply-To: <20261114182947.2908628-3-suraj.gupta2@amd.com>
+References: <20261114182947.2908628-3-suraj.gupta2@amd.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,85 +65,94 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Allocate MAX_SKB_FRAGS - 2 full order-3 chunks plus a 7 page tail, which
-needs one frag too many if the tail is rounded down to 4 + 2 + 1 pages.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-If the allocation fails, skip the test unless MAX_SKB_FRAGS - 1 order-3
-pages can be held at once, so that fragmented memory is not reported as
-a failure.
+Low priority / nit picks for your consideration:
 
-Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
----
- net/core/net_test.c | 51 +++++++++++++++++++++++++++++++++++++++++++++
- 1 file changed, 51 insertions(+)
+- [Low] Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
+  blocks the inherited properties that conflict with its stated design:…
 
-diff --git a/net/core/net_test.c b/net/core/net_test.c
-index 2b5080c226636..118866f3e28c3 100644
---- a/net/core/net_test.c
-+++ b/net/core/net_test.c
-@@ -1721,7 +1721,58 @@ static void netmem_ref_test_tcp_devmem_recv(struct kunit *test)
- #endif
- #endif
- 
-+/* Can @nr pages of @order be allocated and held at the same time? */
-+static bool alloc_skb_with_frags_test_have_pages(unsigned int nr,
-+						 unsigned int order)
-+{
-+	struct page *pages[MAX_SKB_FRAGS];
-+	unsigned int i, n;
-+
-+	for (n = 0; n < nr; n++) {
-+		pages[n] = alloc_pages(GFP_KERNEL | __GFP_NOWARN |
-+				       __GFP_NORETRY, order);
-+		if (!pages[n])
-+			break;
-+	}
-+	for (i = 0; i < n; i++)
-+		__free_pages(pages[i], order);
-+
-+	return n == nr;
-+}
-+
-+static void alloc_skb_with_frags_test_tail(struct kunit *test)
-+{
-+	/* MAX_SKB_FRAGS - 2 full chunks plus a 7 page tail: rounding the
-+	 * tail down to 4 + 2 + 1 pages would need one frag too many.
-+	 */
-+	unsigned long len = (MAX_SKB_FRAGS - 2) *
-+			    (PAGE_SIZE << PAGE_ALLOC_COSTLY_ORDER) +
-+			    7 * PAGE_SIZE;
-+	unsigned long frags_len = 0;
-+	struct sk_buff *skb;
-+	int err, i;
-+
-+	skb = alloc_skb_with_frags(0, len, PAGE_ALLOC_COSTLY_ORDER, &err,
-+				   GFP_KERNEL);
-+	/* The full chunks can't fall back to smaller pages here, so the
-+	 * call needs up to MAX_SKB_FRAGS - 1 order-3 pages at once. Don't
-+	 * report a lack of them as a failure.
-+	 */
-+	if (!skb && !alloc_skb_with_frags_test_have_pages(MAX_SKB_FRAGS - 1,
-+							  PAGE_ALLOC_COSTLY_ORDER))
-+		kunit_skip(test, "not enough order-%d pages",
-+			   PAGE_ALLOC_COSTLY_ORDER);
-+	KUNIT_ASSERT_NOT_NULL_MSG(test, skb, "err %d", err);
-+
-+	for (i = 0; i < skb_shinfo(skb)->nr_frags; i++)
-+		frags_len += skb_frag_size(&skb_shinfo(skb)->frags[i]);
-+	KUNIT_EXPECT_EQ(test, frags_len, len);
-+
-+	kfree_skb(skb);
-+}
-+
- static struct kunit_case net_test_cases[] = {
-+	KUNIT_CASE(alloc_skb_with_frags_test_tail),
- 	KUNIT_CASE_PARAM(gso_test_func, gso_test_gen_params),
- 	KUNIT_CASE_PARAM(ip_tunnel_flags_test_run,
- 			 ip_tunnel_flags_test_gen_params),
+--
+
+dt-bindings: net: xlnx,xxv-ethernet: Add Xilinx XXV 10G/25G Ethernet
+
+This commit adds a dedicated schema for the Xilinx XXV 10G/25G Ethernet
+subsystem, which has an in-core PCS/PMA and uses an external AXI DMA or
+MCDMA controller. It requires xlnx,rxmem and adds the optional
+xlnx,has-statistics-counters property. It also disallows phy-handle, phy,
+phy-device and pcs-handle, and restricts managed to in-band-status.
+
+> diff --git a/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
+> new file mode 100644
+> index 0000000000000..caf582c72a8dc
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
+
+[ ... ]
+
+> +  phy-mode:
+> +    enum:
+> +      - 10gbase-r
+> +      - 25gbase-r
+> +
+> +  # The subsystem has no MDIO bus master and its PCS is in-core, so neither
+> +  # an external PHY nor an external PCS can be attached. phy and phy-device
+> +  # are the deprecated spellings of phy-handle.
+> +  phy-handle: false
+> +  phy: false
+> +  phy-device: false
+> +  pcs-handle: false
+> +
+> +  managed:
+> +    const: in-band-status
+
+[Severity: Low]
+Should fixed-link also be set to false here?
+
+fixed-link comes in through the ethernet-controller.yaml $ref in the same
+way as the other blocked properties, so unevaluatedProperties: false does
+not reject it. ethernet-controller.yaml also does not make fixed-link and
+managed mutually exclusive. Its only dependencies entry is pcs-handle-names
+requiring pcs-handle.
+
+The commit message and the binding description both say "the link is
+always managed in-band". Even so, this schema accepts two configurations
+that go against that.
+
+The first is a node with fixed-link alone. In drivers/net/phy/phylink.c,
+phylink_parse_mode() checks fixed-link after the in-band default:
+
+	if (pl->config->default_an_inband)
+		pl->cfg_link_an_mode = MLO_AN_INBAND;
+
+	dn = fwnode_get_named_child_node(fwnode, "fixed-link");
+	if (dn || fwnode_property_present(fwnode, "fixed-link"))
+		pl->cfg_link_an_mode = MLO_AN_FIXED;
+
+This overrides the default_an_inband = true that
+axienet_xxv_phylink_set_capabilities() sets in the XXV driver patch later
+in this series. Carrier would then come from the emulated fixed state, not
+from the PCS status that axienet_xxv_pcs_get_state() reads.
+
+The second is a node with fixed-link plus managed = "in-band-status". The
+binding allows both properties, but phylink_parse_mode() rejects the
+combination:
+
+		if (pl->cfg_link_an_mode == MLO_AN_FIXED) {
+			phylink_err(pl,
+				    "can't use both fixed-link and in-band-status\n");
+			return -EINVAL;
+		}
+
+So the device fails to probe from axienet_probe()->phylink_create(), even
+though dt_binding_check accepted the node.
+
+Later patches in the series don't change this binding file, so the gap is
+still there at the end of the series. Adding "fixed-link: false" next to
+the other blocked properties would close it.
+
 -- 
-2.43.0
-
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261114182947.2908628-1-suraj.gupta2%40amd.com
