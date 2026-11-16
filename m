@@ -1,59 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794838901;
-	b=WMXcJkfx72K4u+Q4Txfu/MCx1XdG/LGH+ZjUpWOvX42UAz0q5SR/NE46+ofQtNjzwhyy
-	 M9rG4nfbaztAdN4ZmOb051rETIawWD+O8uZqi3BdJFt0uoEueD0iYMbal5hO1CyDRehBX
-	 JuEkwLCh3MwUbRPoWBZ9Cv0QWA4vTBSl5XtEweBhQSDATOsc7epCQQMyLLW8abjs2zD13
-	 cFlresQ5dAQ5zOEyh9Q7hAqfZltdIobT+iWdIzrmvy+Enb8wwGB77aG6kpc04Kc9tCuHU
-	 gX4ElJg634UbdT9UdBQNdg8okGYG82r3Q0lL3PtYl8TAO5Vf80sHX+baGQOrZvB3Mow==
+	t=1794838928;
+	b=IkKv7++NQGQTGzOr+y20bG/q2xOdekgVxVG+oEdqaOawRzYsr+qSIl5s5SHsplbl4vAR
+	 +xOl49oUk32tLT/Q483FDxqhtlJC6yc4jgEXyCHeEnjH7w6oCNEm3Xo9ZIuIHEAHSZGQ2
+	 mQSflijMiAS9swF/4Yn40+OGuwBTUVdYGbSI50T3qzPNSjSPjlCt9R5WngdjS6f3wB5II
+	 lQPcbLchBy+55XY4L2Ngeu1OtMOrBI5O8IKY84JuLpOjIeK1LUqDoJZKzKjzUyc3BQ8q+
+	 1pDstCTehKjtDLHlj8PNaxJjEnDKQK/h4+9pCBTYjZbVU/iCn3CYq202vTiP4oh6ujQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794838901;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Y0rdAK14A9QxWLhf2/bZaFf5ckFBWBa/4SrRIbcp79k=;
-	b=Rf/Z8UtsFhVbIPGSXwZ5JEqT0FQc9852uJjxmSUlfCVbqPTg4w5qZQmow9htEeSWKlgE
-	 yAXUQy4a0/3oNRcxYhazZ0cB1f7seuh7+C5NSD71+M9cmOPjUI0qqwinEvnJtDfqDjY87
-	 KQocQ2faodemu88suG4b+xrHAMZxJdcom4SoKSM67bc2FM/TXgmT2uiHpzTrYOM1ppWF/
-	 chd4JT2BEdtbyw/Rgf0839LpFpFOO9WECUyuBDA2ALVCIkhUeKhMpzSevjmHv72N7zUg0
-	 C7FrC18P15fxFygugCXuhpNygDo8A8TOVxTQLQi29qBGPpaWduPYba0TmPQNjkzeGnQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794838928;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
+	b=SC80J3c4wnGHkLHHCRRtyq4DJreOwPHVNmq3LFI/0SwKd+PB0u+5pf1PDy8t+mtWpA6v
+	 4hIuM0yfEFTyXWZ3S5YMb3lFI4yg1WDt+Acl+9Wvo/uDrCFNnJfpdIJ7LlXuMyAqQ3hCT
+	 zfOrTDnBiArF/YzgyNZGNMV9AHHD3nNVNCuY/7IDQ7Fi1GJO+sTtwecBH6FcLlVcLshrh
+	 jiVqm+XsWl+61+f/N6BGzE/hMWQAX07Ekve8AkVyJwQrQXnlVuj7S5DOR9aPu3patA03V
+	 JqRGu1WEmsloDQwkQaMF1Cxwe8A5POGTPs/Udsg3dLKUWTQ0qLdRfBgutiT5nVeO29Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PWgpGfo0;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QLv5HJcf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB63C606A32C;
-	Mon, 16 Nov 2026 14:21:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DA11606A33F;
+	Mon, 16 Nov 2026 14:22:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PWgpGfo0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C702A1F000CD;
-	Mon, 16 Nov 2026 14:21:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QLv5HJcf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D8C1F000C5;
+	Mon, 16 Nov 2026 14:22:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794838901;
-	bh=Y0rdAK14A9QxWLhf2/bZaFf5ckFBWBa/4SrRIbcp79k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=PWgpGfo0zBhHUU+7HzLzeXkBUP/sWrAXkdzEkVPZhb6PaFREO9wBL735/Ow0sXXpD
-	 1KNKsFD+EMzAKyB3QJ77pdeENjS4vytW+MovH5g1/PmGus8JoK0TtHc+3bYOGFhlcU
-	 6Sjaw06KNgKJAiApdOBDYm+esipkdmSdrQuQllcif0xhwCG3Euvsly8wy9IbJ4BJXA
-	 kzSKnmNGejStbcmpq/IdCDydID2QZEuVyVRckYNR/PXqdUlQAXaa3fX70CeC/LYOWw
-	 AreCkPbfqvZeuAYziZlYEXqy9yvd7ZsWKfpSNkfmOR70pWLH+6rdAT74qTwPaEF0Sy
-	 9QiiPkTaKSseA==
-Date: Mon, 16 Nov 2026 16:21:38 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Yishai Hadas <yishaih@nvidia.com>
-Cc: jgg@ziepe.ca, linux-rdma@vger.kernel.org, netdev@vger.kernel.org,
-	saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com,
-	kuba@kernel.org, pabeni@redhat.com, edumazet@kernel.org,
-	davem@davemloft.net, andrew+netdev@lunn.ch, dtatulea@nvidia.com,
-	moshe@nvidia.com, maorg@nvidia.com
-Subject: Re: [PATCH V1 rdma-next 08/24] RDMA/mlx5: Derive
- mlx5_ib_adversarial_mode global from mlx5_core adversarial API
-Message-ID: <20261116142138.GT11319@unreal>
-References: <20261110134320.34408-1-yishaih@nvidia.com>
- <20261110134320.34408-9-yishaih@nvidia.com>
- <20261116085701.GA11319@unreal>
- <759c8f05-a018-4040-a791-fef794eb6933@nvidia.com>
+	s=k20260515; t=1794838928;
+	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=QLv5HJcf+2cLXkOHP0X1odcRBpzWX2N8sYeQ1d7lBsfQSC/qHIbBUyPQ6WS1Nchmb
+	 vNUlhnWzInmLZX7vcFKPMR9AYqs1ptyZSsRhDWDK5yYeeOmfVx8LkUyi9CJjuJMVaM
+	 q3WQjmC6/orYJaq9tBTsUvWnLp4Tk1iQZqjPSUelVVVMuUNKv6EwkbnlEGpUCtMjgy
+	 U6iXOCWdZcHHd6TAYVCvPqM4r3tY/mB+tvOrnAWkUmyGO+s6NV9mv/jlFb2PK0DePv
+	 3v8zPSZnEp4iqvK5hdAa1SqaBAEoCED+GVzYQc+j7u7ZX3hMULx5yNKCJlGjvBrp/E
+	 iYGGLJREa+waw==
+From: netdev-bot+sinfo@kernel.org
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, intel-wired-lan@lists.osuosl.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] igb: Fix potential I2C adapter leak on probe failure
+Date: Mon, 16 Nov 2026 14:22:06 +0000
+Message-ID: <179483892696.3291.3267390747514422182@kernel.org>
+In-Reply-To: <20261116-c29ba55625-net-igb@mail.sdu.edu.cn>
+References: <20261116-c29ba55625-net-igb@mail.sdu.edu.cn>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,56 +65,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <759c8f05-a018-4040-a791-fef794eb6933@nvidia.com>
 
-On Mon, Nov 16, 2026 at 04:12:55PM +0200, Yishai Hadas wrote:
-> On 16/11/2026 10:57, Leon Romanovsky wrote:
-> > On Tue, Nov 10, 2026 at 03:43:04PM +0200, Yishai Hadas wrote:
-> > > Cache mlx5_is_adversarial() in a driver-wide mlx5_ib_adversarial_mode
-> > > in mlx5_ib_init(), shared through mlx5_ib.h. The mode is the same for
-> > > all devices, so a global avoids reading it through every mlx5_ib_dev
-> > > and keeps the checks at the call sites simple.
-> > 
-> > This patch and description makes no sense. The mlx5_is_adversarial() is
-> > simple static pre-compiled branch "cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT)".
-> > 
-> 
-> cc_platform_has() is a function call, not a static branch.
+Hi!
 
-Please check how it is implemented.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-> The wrapper keeps the policy of when mlx5 runs in adversarial mode in one place,
-> used by both mlx5_core and mlx5_ib. Anyway, in V2 mlx5_ib calls it once
-> per device at init, see below.
-> 
-> > > 
-> > > Signed-off-by: Yishai Hadas <yishaih@nvidia.com>
-> > > ---
-> > >   drivers/infiniband/hw/mlx5/main.c    | 3 +++
-> > >   drivers/infiniband/hw/mlx5/mlx5_ib.h | 1 +
-> > >   2 files changed, 4 insertions(+)
-> > > 
-> > > diff --git a/drivers/infiniband/hw/mlx5/main.c b/drivers/infiniband/hw/mlx5/main.c
-> > > index 65455aedd559..f4f2ad80e76c 100644
-> > > --- a/drivers/infiniband/hw/mlx5/main.c
-> > > +++ b/drivers/infiniband/hw/mlx5/main.c
-> > > @@ -76,6 +76,7 @@ enum {
-> > >   	MLX5_ATOMIC_SIZE_QP_8BYTES = 1 << 3,
-> > >   };
-> > > +bool mlx5_ib_adversarial_mode;
-> > 
-> > It is not kernel style to throw random global values to cache existing
-> > in-kernel API functions.
-> > 
-> 
-> OK. In V2 there is no global flag in mlx5_ib anymore. This patch is
-> replaced by one that sets ib_device::adversarial_mode once per device,
-> and the checks read that field. Patch #24, which set it at the end of
-> the series, is folded into it.
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
 
-You shouldn't cache simple function call to an existing API.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-> 
-> Yishai
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
