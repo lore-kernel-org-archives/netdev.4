@@ -1,99 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794792794;
-	b=mQTSGYvbqAGyzZ6jN1cScG4dNlPmD5N5EVSkUsCfgTh7EvvGvzvE85+OjtlUw2iK6GsJ
-	 f4Ct1rzJCfM+fqLemVg+ISffbikEH50omcp5NUwxkrN7uHXfNb1hRTiXQPB6vnw1WRdJm
-	 f61fN8woT1htCZKHucLcu6RSD6oqQ3oETnTLCBdqMlcOqLZr1AsOMf35PPuDUW3HRNXzM
-	 TNhdHFwOVvltIw5fU8Yc4Qlcc5HUz1i92gSbMLJLOi1lvO5NHawhLRslk8UuTwSYgKto4
-	 18bDIiepIRBCGvisyU0SwwYy9bkARFJIUysm6yt4peOH2X3tagocLBKr0lQeLPl7mHA==
+	t=1794792910;
+	b=yHqu7QmFqRjhUKy5EPy0W1VftHoqSLEzKgTlJWmNKopsus9+mnjDeAk4acFsZ7eLAABi
+	 2wMEOrwTYVUrIreiKi74KMudI3gmtxr131ghMhIhk1q8QpGLEaPsqraxjRRM1dD/4x0Il
+	 TswQPhjxP9KH/JonlrqrWqhvKXbaNWAu5vfBI3KJcEDF7m9jgXGHYtQSeH9ZBKKC6Xn23
+	 bWSzfbVzFr2zHC9wpOHZKK0sa3/UINCv5DSaEcOR2jVqVBsjwnXDM/94KgQC8l5N9D5Av
+	 A2AYDrdfu3ig9CJQPQxU5h/FFHt2V4i4epVnTOFdLPKl3/KaZlZxDO94w8/BtMWqtLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794792794;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794792910;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=5vGs2lBzyp0j826O0Tb4RZa8XbuiPqa++er/2YoLBTM=;
-	b=uVC7TP7cJ7hLTrAUWMgzJtNL4kyVzK7vipr2RwB4OemPZoe6XNULiyV1ohPXMQo8C/TV
-	 /JZPkW9NctpXhiVSkiQZzcHcf5vEH/YfflTz814zQa+g6z28rYHQTWA7DYzjJB4fEaerX
-	 kqKzfGDwByj+2XF58x/OMDhqCOS5+XSjouh/Ee9WCXPrNLJ1iMT/IhJ9QIC1J1+3QkAJ8
-	 HAt/m9sfujpiCGltQqxtRlAv11xLPH3tTHnSLe+5eO7vHru/L/83JkSDlQYeZuiivWAl0
-	 loRK0Bb8s77aCy00gcWG5+g4Zd/tYuf9hLNmovSUXLuCHVjgqKDPaIJ7ynNd/HBMFAA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=L2qV2xY4LfpSszQHqfRtrep5k0fN11OSh8rH7M8QE5g=;
+	b=xyFMLLUkqJIQUq8qFd9hbOGpEfmAdHEDN10LaPJDBPvZFFBnyvXu+yQag4ghMd5AiJt5
+	 YkYe5N+U+dDHY8H/g8ZlHjg041nITjrL4lgCdh5BkuqieSdYz/rQu1NDd9Be7C5x6VQPH
+	 5UNM4ksdx5xLXhExJ+J4TLbmvcO4OXt5dZ6aBnfVVccPUpDWVY+TxDyV751BPjLg6EKrY
+	 uGTkFhOHDPjuRR2RRBUK7qVaOcsKHLcf/x8Ilu5Sx+ksiEd8JypZ4w9Uv59n55yygW28d
+	 I0e0BJS3G3g1+5P48kVgXXZXmHB7Yho39pHyu/e+chDTYrXtVVOKY/nghQnz/Q0mClQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cw0HoDUf;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BabyPJfq;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 236DC606A31F
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:33:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 236DC606A31F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93502606A31F
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 01:35:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93502606A31F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cw0HoDUf
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-36f8cdd30beso4234631eec.1
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 17:33:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BabyPJfq
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2e9ae391a05so16191335ad.1
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 17:35:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794792793; x=1795397593; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794792910; x=1795397710; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5vGs2lBzyp0j826O0Tb4RZa8XbuiPqa++er/2YoLBTM=;
-        b=cw0HoDUfoAqu2yoQ9RI82TKU+nd16dXnFK2QISB+XAAWbrvtn/fS9OJvxJ3dRLnvf9
-         uvv5dM5vbEaNIDEidyFoeP2ckF7EwgfHfNPlz7R9PDej8aL4kNq7iKxkCAkAno+cMKUA
-         pV+zjGnEwfvpXSATX6lVxnWGvXVuFVUitpJO5wCTLujHvKnfAasKo9JCa4hVuAYyg21I
-         7P1+fAP8t6Y1wPwfafIlpj6XBC4BJcqr3T1pfjbRcJjHS1qcewZQqBNCO+KNYhnrUni5
-         JE63uHdr+tBqRem8wrXS16P1bc+EvKBZYTF09JWzDAUtNVPvZNqjwv3AFre/7A6vX/Sa
-         Ntqg==
+        bh=L2qV2xY4LfpSszQHqfRtrep5k0fN11OSh8rH7M8QE5g=;
+        b=BabyPJfqAmK+vdJmVWU5tHzWp7XdFLw3qxYGCv5gi5HdgxyeyjlcgHNrGRaDgqzLhp
+         yJRyymXeweQdDFyMLwy7FrKWqtCarunrDAx+HsqgQM5+dbMT2vVnOHWsNJzPpvqzhxWS
+         fXyfzvPeYXE7gn1VJRHswCw9Fl7mgo70OkZlwbsEWDh0pG+g4GFFpxOYEJtJ0As5jjED
+         Jlf3Y2ytQsVSXkKC/JdNxDofhPs7LjHlwxTuJ2vnlI7AtIveUh66bc/7waDY7nrS9jAu
+         J8+BAlzacxLF6hP9F4B2R8fGp2sTwhO8IouEaNl5ca9IgPA8saD6Z83U47ob92t5esrN
+         oeJw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794792793; x=1795397593;
+        d=1e100.net; s=20260707; t=1794792910; x=1795397710;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5vGs2lBzyp0j826O0Tb4RZa8XbuiPqa++er/2YoLBTM=;
-        b=2bcaZAzbJG5LX0tz+6GA31DfxyA3G9ShWFcx+Tcw240fJQx9SLVX58PBvgIgib6KdF
-         jIM3YrNzMFIV+u9SE+4iPDrAbDl/qSEaC9ocfDc3RumkDd+uSp7ud2VDCKhO0GQki4VL
-         wIcGy24hql3MlkeoD3Lu0w/zZJB85U1uNqqV7Ngmj8FoOSJY23wycm1QfW2GTF+Sue+8
-         ArbOKh3QmKYLkxfxZOhN9kHGOz5ES60D1yd55b9oqq6hN1lgphSLSs2e6JWNmVFhsx8S
-         usBFQG3oefKBjIkC4MHIO4Pkb1Zh+kQXQMbJPvC5RKjUdomrh5kbGLIPvPgRQTP8nJdO
-         zXhw==
-X-Gm-Message-State: APuU4Z+ZkM+uFi3fiH9WqVD8xiBsQLGBcGoW/RvFi0hG3lu9PMYiX2QK
-	iWVpfjOHg/T644IuoCYVNya71ynlLb+4iapOvWNeKJpVSCKH1cg5Hf28gdVt5Y1U
-X-Gm-Gg: AYBFou2HGzHUxHZCkkEBtmc0ZmlrJvQmYFtezWK+Kh4CWA3alo062HPuUmBf0oYnqdb
-	ofcRTYXZA/FeB5oBp244EtRL/SEDtk8YtsiSy3MdopvnnA843X+gc/Qw6CwlOBZKP2ZbHcqP6ne
-	XvYR10JafZXhIltUCoV4CoNgryRUcOamHulOV/TP4WCHsfYpuiEpoilYijfN8tn03cSOQddCVcS
-	ZiNZG1V5+VYtcZaOGRlkJT4qJmK2zXuRdRs0TbbE2PSPRkDndORpPqbJI3pRDjvDOK42r5ql/Y/
-	75o4+OU+FFIyNf6GZdn4C0+Zj4SVctLtr5YcZxtw6jpMAUs0PzBbpA4irWQGuSXkeNI63YZ+hnT
-	WKA61wyJuP4UgYzv7lfQqZk2lUQLxnlhEZJam5mfawWHSlO5O8xRe66U0BrwbO/RYzPnTyAaA9w
-	kLNIm3N2dEYPVpwHBFfKm/K1UT99F0OWWNy/LY+Nz7fL1k1mfI2t7Yki0M/dc8Flm4aFr+i9qR5
-	GSx5oMm5KazImM6mq0SFMbDVmVY6rfLDqIfGpMZGEv4HQ8VjcygFdbjfO2FtVUBcMkQjNrhIxDQ
-	d0qG+r29mYLmbbKHERKnuDkehw==
-X-Received: by 2002:a05:7300:f694:b0:375:fb27:2c59 with SMTP id 5a478bee46e88-37966c4a50emr14872296eec.20.1794792793084;
-        Sun, 15 Nov 2026 17:33:13 -0800 (PST)
-Received: from houminxi ([61.170.225.237])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-37956bad134sm35309648eec.27.2026.11.15.17.33.10
+        bh=L2qV2xY4LfpSszQHqfRtrep5k0fN11OSh8rH7M8QE5g=;
+        b=bIoq5YTX4u64EM4f4pnb4oe7TwYTLs/G+uaycocrr+yGfsuVFLW3vfET+ckZ7fsAMS
+         PNMImk2132i/ScCVoCaEYJ7I9CkYkA42Co8NuTttJGAnaL9WvBO5LltYl1qSxpniB5lU
+         nbrhz5k5h5Y7pXrt3nM8QWXI1UaLGWiBvpeIUy1Kpzevw+rm+tTbuZc6uEb9W7KElXtt
+         BhWHbN71yofTCwacxcOK90zT97xUuMVrrP+sW3n13xuCNfS1ykJ3GbyToqe+DNy2SnzY
+         fj5Uhr2d1755L1x7aoBATdN8YibGq8QFOU5IZqENok6jQlUySMdvCMMeWWI226kZFeuY
+         yGVA==
+X-Forwarded-Encrypted: i=1; AL+hErEEmqyYrLAh01Oop279yx4sGIuqC6LV3ZeyYOSjwCs9ax8DF24J5KcSXYcFh7P4G2KB6F6Qvlk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9YH+7dGi1RIWtLvezzMu1NcrGW8PEKVjwnw6IBysqypu7O6RV4
+	xB6YPDvAl63hjNH3Nvdmh/oOTgFSdOGeuRuKeGS0ou9w8CLPyTH5BJ5a
+X-Gm-Gg: AYBFou2Dd7Z3DXPMOk5WxdYeqgC30YKMCoZhmcpnCFeK+UrNvUQ4Tonanjv1Rt7UpAl
+	D5H3YZ9SlHfs+lrPt8ytLxcieJ1En05V6DPQfbxKO1S9grVw0e17ZCFsOkLN14Ae2/ZvLuDuhCa
+	2ROaOWbtohVyDniEQiTCunDcPObZE3vbfIBXnogftBiykNo2BmncJI4n6Idd/VflXAUJW1WmWk1
+	tqbaEHZOWw98twkl+XcTyrEzF+wVM4XHu+Gb9kmyvWUGhZO+aRYMXgHdqdqnI36zXgl6KOzb7Ik
+	0J+sXL8WQFLPWBdGkNPbPIY4fdXj4My3rPzHezqhTv9na1nm4iOi1nPg9FkRbOTSZnn2+6BlyQ9
+	WxThTOr5q1KssqnxYd7aFAEKkboJuDvB635Y3q4Q0p2E9ydWUGIFOa7Th2DF2t7QSPzhy1ZL/+c
+	Hesyri+Ol5GqbMgxeXM1Wdcp2CfSLobNsCi8ERZ4gAUzDKOX3yNduBVf2up8MAVf74V/sEH2iNa
+	w5f70xn+vy69pazh/p5a6HI+mHp81dW1ZuLXt/sckmGBHJmKUDlTV3JkjOhiulXoRhYWarMH1Zp
+	U14nxBQYC3sk25jbd3HbncCTGUAVPVMq+BrzcApeFsfillr4z/azoaUIUDACsMvTEon2moUnu+M
+	z6Ey5vPpnGXHL4LyHeJ0HbWFbFQG3jMfL6uerxBhDrFmIrfc1oqAxFGyHY4T3hmqFWJQUeCKlcX
+	Oc1MTFDctwmLxMwDwGx4u57BE11IblAi7g3AmCFoXAZJRUocNMcjqYUJqeq5a6gXx46oAgEv5eR
+	1KnN6pDkfVQ6hlDxVruKzLZeYzcQeaa3SSkbFPzGneBoxFgEbTQRK7jXoxYEBH1fl4uM4T463lV
+	hdktYgdrOQ==
+X-Received: by 2002:a17:902:fd8c:b0:2e9:46a9:9b56 with SMTP id d9443c01a7336-2edf206817amr86764315ad.21.1794792909812;
+        Sun, 15 Nov 2026 17:35:09 -0800 (PST)
+Received: from localhost.localdomain (123-243-92-89.static.tpgi.com.au. [123.243.92.89])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2ee0f9f13desm29358595ad.67.2026.11.15.17.35.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 15 Nov 2026 17:33:12 -0800 (PST)
-From: Minxi Hou <houminxi@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Aaron Conole <aconole@redhat.com>,
-	Eelco Chaudron <echaudro@redhat.com>,
-	Ilya Maximets <i.maximets@ovn.org>,
-	Eric Dumazet <edumazet@kernel.org>,
+        Sun, 15 Nov 2026 17:35:08 -0800 (PST)
+From: Daniel Wade <danjwade95@gmail.com>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net v4 0/2] net: openvswitch: fix a feature leak on a failed change
-Date: Sun, 15 Nov 2026 20:32:59 -0500
-Message-ID: <20261116013259.205882-1-houminxi@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <179477355840.3291.10898450599671542519@kernel.org>
-References: <179477355840.3291.10898450599671542519@kernel.org>
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] net: af_key: fix use-after-free in dump_sp() on policy migrate
+Date: Mon, 16 Nov 2026 12:04:48 +1030
+Message-Id: <20261116013448.15443-1-danjwade95@gmail.com>
+X-Mailer: git-send-email 2.39.0.windows.2
+In-Reply-To: <179477319143.3291.12335649021318391220@kernel.org>
+References: <20261114223529.1791-1-danjwade95@gmail.com> <179477319143.3291.12335649021318391220@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,14 +109,10 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The bug turned up while I was writing the YNL spec for this family and
-had to say what ovs_dp_change() does. The function records the new
-features before the per-cpu-pids check can fail the request. A failed
-request then leaves the features claiming a bit whose reference count
-was never taken. Nothing triggered it in the field.
+Discovered by a clanker reading the PF_KEY policy export path. Reproduced on
+an unmodified kernel before the patch was written, with no kernel
+modification, no injected delay and no error injection, and the fix was
+tested against the same reproducer.
 
-The second patch shows it happening. A set with an empty per-cpu-pids
-fails with EINVAL, and on a kernel without the fix the datapath reports
-the features the rejected request asked for. I ran the openvswitch
-selftest suite both ways, failing on 7.2.13 and passing on 7.4.0-rc2
-with the fix, in a virtual machine rather than on hardware.
+Thanks,
+Daniel
