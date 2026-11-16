@@ -1,75 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.200
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794795532;
-	b=L6yRZesUL4SgCQ2a8pdKQBkyCkylYjEQrQDhRZ67LzcAxDc+xzTyA/BzwcOADXfKIyq+
-	 rJSOO69jnSPtVvy9LhSx8+aYsaAX+UDkS+fObag7X6hbuo62Gb/LInLZ8zm/ehqyL67Sv
-	 QPydP6tfQiNhlhgmeYfgsYMeEYj5HKf20PSbFno3lolb0cGPQDQpXyTMVIXUb80HyASqI
-	 LtsoQNIJuIhVK5e3cImrkbu05D349i2PdSiHh4ZZZ94kaDLhJspjkWTR4QhN8KYcxuxRY
-	 4LmbjSwtrDrPbpnHnxsVar3N/SlB/yfWgg/VZEJ5Zh5uMMLmDBgXvmsz9UCD/XcPbUA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794795532;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.171
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794795576;
+	b=o8HbdJ39vPdWAg62lXCjPTwIhUP46OPgIdjsF4EzZxLbgJOin+e2+CsshmRGAgW2CTLt
+	 8QU4jkP66iL1RsI+fzAlEaqPPdQZnDN9XP8sWvUFBn2XBTgRoGbLEEWAd8JDU9t2F+3az
+	 FhN26g5R3DnKB0+ewMPjaFQL+VdRrp10ZOxaVSWGh5oue3E3qAls30ALZz4pJkiCmEJvV
+	 vvmm8idpC/4sV8kzI8GS85KTBuEImRb6x66PNzKSJThiIMuFfNTKMy0xOXQUXj/SmS9xP
+	 K26sWYKViXJBdrbMNfk+BIaRoAYHPxI6J31BNI2Hj0xFvEGeUMzFaF7b/w3l1QAKzfA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794795576;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=G5BUglz/Q6cFu76NrR7NNakZrPeMrR2/wpFJLSs11xw=;
-	b=ZKLQorlIaT4QPUvkCXCI6z7aOnW75GK/rZAiVF7pZdUNxU+aDrJ6HhiFOFiH70HXmf5G
-	 cgs7MrHQh2x04QItr1wElSVKQRHMpnME9+k/DoEfpiMRWIXKNpfnfkiwtR5PnTY6e5UdZ
-	 MQz3RKJKy5/jjrSnIIKWCo47LdLdfm/AB+GYXd2RbuQ97OI+16wpoCfvhw0Dp8Ju6io1U
-	 kgDY4EyP7AvbfWwv81aj/6cwgD6bqeuaHfXS59/wuTRb3E0hfPEdhNqNpTDuSGufTWuQX
-	 ueOalD7btxmloy1eoIWd+mKhWXGF25lh7KccagIfkT0ej8/JLK9q3XliBHviEAJsPIg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bkv6Q1ax;
-	arc=none smtp.remote-ip=209.85.214.200
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=UiLHg/bPQc7nmGVUQ0fYMmT5qdFdLgHhxo+4OoJyT8w=;
+	b=izDdYIx4jq+YJSuUzgHNZWXdVLcbepGcJJ5TR0kBVmM+I5e6xRY3V14bYWOutcoDn6fF
+	 zZ+JP6+fInK0IqnaNgy1L/QLdLMfApmh2I1Fh2QgkreXsqUKajZwV5MPzxTYfjG1K3h9u
+	 RnLlIDI63mw7ltM9MXajIzz8FtwBa/PaOF0YWJ2yBTXjFZERTlX9f/cj3UgBhMGUQx4uE
+	 GSV3SfNQUQcxu02UBaGGCmtuJtgr6rkBB8mpDFfeNc+gdvU/y7U+3s2gfNaqZFXLqG8d8
+	 TdU3EmIzvQ/pUEgKkmD4j7LTBwqdFfzskhKwq2EAn43eeUVgANCiIDfczpWpHr0qKWg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e+aKieXX;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.171
+Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com [209.85.221.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A40A606A88A
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:18:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A40A606A88A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72E05606A323
+	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 02:19:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72E05606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bkv6Q1ax
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2ed47dc8f3dso46111055ad.2
-        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:18:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e+aKieXX
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-5ee029fd76aso3048619e0c.1
+        for <netdev@vger.kernel.org>; Sun, 15 Nov 2026 18:19:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794795575; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KcnaIGMOKtqA1nETQ2iDO2IOu2ZZW/6DXX+zzzeviVHbwFHcTxiG78+Cx6aw8Tu6gI
+         sEfUzqSKoUOOdYNzRuT0LoLymDcwBkf4cGRrFOQYvB4S3zAAfUHADBdSFO3SCrwDzxVw
+         PvnuoIvbe1/0qQAyNcBKUj98Pj8J8umb3OqKuKRMg5U/+Oxe9SSzq1MogjAH4WdP7x1b
+         MfVRAkibnfxiiUO6+6XCsjgiYP/FWAwRS9ASDHngR1L0ON+CCiFoE5zadvBdbG7g7ynZ
+         kMuoCh8AfrFdYEsOqAaRZQdBB2RLooRk4P+bN2CML8aWqLOV2NFwNwsAlFYzx8DAtQR8
+         7MFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UiLHg/bPQc7nmGVUQ0fYMmT5qdFdLgHhxo+4OoJyT8w=;
+        fh=WzQAcg+js5PRHBZczwSuQZLlhLGXMyZkQsus+tNc41g=;
+        b=e5hUKYVSHkO0MbpdWxUeZv3OXt8yJUAWciskPyLZJSQ8L6TkNIUJHs1zekrmNUWCB5
+         w0SoXx3/bwKT0cB7yjWQdnrwWwOdUZpebRPEqw7S8nSZAx/SIZ7HdDsuQq2AzDj8gZdS
+         LiuMyMdRMgw5OOC9ipE0mMDNHmdqQkXc5S7Z2tqSuEEHIHSu37DYKGmdK68rcFcNtpld
+         kYSp3faKjeRODyM1OeG0EW2/Jf/7/fYLoTlh6z0HZ/KaQY49E9aZ8DPxvOwUYgW5P7Ge
+         mAaODIeO97v53HjDpAXBbd9funKMpC3GGIXK26xoYiZNLxRLuGcXRhxh7vaSsEcP02Me
+         k/Ew==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794795531; x=1795400331; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=G5BUglz/Q6cFu76NrR7NNakZrPeMrR2/wpFJLSs11xw=;
-        b=bkv6Q1axjVl14amz2XWaaTa9ErIa/hqNrSrUwcPdezmI97FiEMzHOmUa+k2uDc4O9/
-         HiKqu7V7cK8swT/Ako0G6NBAWRnT30UOzA4QqEvFhWC4d7aHtoiz2eH77xAO6InZH+VA
-         PkkrznAlM6IWUOc5U6zvnWc6bi6qVVZDPKPPbGtwEINLBdY5Ad/Cek4tKmMmVBU2iInY
-         LmijRe31DFlTJOhfT0D/ebW2idEvGj7KPcwP22fZLwEL5MRoq5JVNi7Biw+PxtYqwOYu
-         K+n6rcp09n55YkM/BOJg9u2YhQcoPO0Xn4XXayylxU+7MMi0n6ziiZh4BsgXtMm7n7oX
-         POVA==
+        d=gmail.com; s=20260707; t=1794795575; x=1795400375; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UiLHg/bPQc7nmGVUQ0fYMmT5qdFdLgHhxo+4OoJyT8w=;
+        b=e+aKieXX28wy1z90SvvDUEfXG40bdUCilhlsbWWtTSVtxr5Y5PS9tcVYFQ1wFiAp+0
+         YzM8FEk1gj97v3jGqqDApXL8b/Iim6PxB0Yipbwvu04BHckRRlrzuGO13wodnsQ8sA4s
+         Lwcw1wQMlYWTUDYnLqDd3UWwuBlYjjl+cyTrUmGCO/ycrtG06sh3/3ZQFsmvXR4uGRuO
+         iFL2eykTbnoKHLNzlD0ByvodwSIGaQ3f9VoEKuP1Rt/Au1gX6LTQBgRdsM0PA4K14lXy
+         PwBifVLntfO5qVwJ0pi78vyqqmrxP7ZuOfs40bXQEdinRoDCVJN26M908SDujOm6edYy
+         Ayvw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794795531; x=1795400331;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=G5BUglz/Q6cFu76NrR7NNakZrPeMrR2/wpFJLSs11xw=;
-        b=L0CaIQjhUgTRYNY1Wxh6G037/AW4uOcZs2Dfl5oqCgbSO5uhCMACke5APeOzA3d+U1
-         Rjsa6X1k1txBQ9NYSu/EbD84ZYMA8GGewqNqnx7JgoGG7gRF7dEsKZbSWvxYIQkh5wxW
-         Yy3fjGJHzsU+XUFUywnoBbVfz/M+43xlWFBcWcL9kiRRSr/maXOsVEZ3KTI3S6wHd21L
-         Y1OPiOvOAajfYIWtImgoAloNCfNX1VnVs5ZYr5Ci6Gx+57JAImxGLOpjNlF/J5Vh4nXd
-         JsOpI26HEUTu0x2yntOLtiXajPhnHJRjVIflU3fXvrW5WQriYfo78usf6ztq3nM2c1iJ
-         Ke5Q==
-X-Forwarded-Encrypted: i=1; AL+hErHd2Xpa4tGt/nxbxFXaWhloNUvygyjSZakPwRHVfRmGBXpYOlJ1AD1/6KcMT3ZNBpy5TE3e3l4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+qwSL61puolQd50RHrTe37fpwWJ7eXmwsx1EPEjaQT66d59eR9
-	pZrWvg9dq0+4ltchzGWENMQwH2L1k6Y6mPV3WFNMsDwpXmpikUq/AshuHwrZbT9g60YM2zW4ko7
-	q68JsTA==
-X-Received: from plgc1.prod.google.com ([2002:a17:902:d481:b0:2e4:afb6:7889])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:902:ef49:b0:2ed:fbf1:7e29
- with SMTP id d9443c01a7336-2ee0de3c41amr88409035ad.41.1794795531229; Sun, 15
- Nov 2026 18:18:51 -0800 (PST)
-Date: Mon, 16 Nov 2026 02:18:21 +0000
-In-Reply-To: <20261116021845.2533130-1-kuniyu@google.com>
+        d=1e100.net; s=20260707; t=1794795575; x=1795400375;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UiLHg/bPQc7nmGVUQ0fYMmT5qdFdLgHhxo+4OoJyT8w=;
+        b=xtO+543kEEawy7th3VeazJh4Mn33tR9dRK1A+nIT5yK7EY+3NZq3T2M/Ck7yT3vdAr
+         INRpmWWLJuGLZ7N1NLNsLPo4KJhw/QaLx3MKuYT1/o84wpwyK4Xxj7BII0Xc4c66Ttgt
+         RFjhwLYap37YGzV2ggjOKQQuGFKMZvFZj485sIdNzwDYieKWo05T27Dh/Gyp8CZe3aoD
+         nTJWOtms9b/6p7z/Bt72FSvqp/u+FG0WbpLl75PFXvRlTuS+qZ68CbiZKJ7c6ST7nN1t
+         QWF+lsOZ6ub91/OQTTMRwxPHVJSc9+EP0Gk4N2gkT/B3eqVkXlAjdN7ki7sec5Lv8j9p
+         k8Yw==
+X-Gm-Message-State: APuU4Z875TrmYQFb36yWdQ+vrl9o2EoApe1aaXZrr6BmoFb6AhVaEkHS
+	1eXvEUMpzxt0iEPAGwQPmu/LjvRMXnyKglbppJVL2F/nmdTaPlyL2yCQwX2M/9RgbjKFVLUjWWr
+	MddghRYWLZppZ4n0lAeUjVS8QkVuj+Qk=
+X-Gm-Gg: AYBFou2ulCc28y9UI5B1ag5v4ihq1XwCZrzIJkQcaL3MdJ/6hc3yd5z8um5m2OCOskv
+	Y3d2veDZIFmBs9FcDx4joofOWfjLm4ALc6BdGzeWGzkNu+0hk6jcMRbIRmRqyhnmWTgMX/h8CGW
+	jfsGR0AFGu27J+ORgwCBHytU+jlri21XjvJcBvzMsFM72LE1F7Ywsgtyr5MKPNkvqFaGiYAL1Dm
+	1cZxgFZe6YWMKx4hNwFf9Kb8ncw4EPpUcfswoYMfvQelFPSTVmMPrgpVinbZbUAovbZKZj/trSh
+	ACDgKohn5vOGOH8nCpGB8iTzd5BgJc2QCH6cpgtp6/hXH6tj0EKtfSMAjm48tgr1O3cXk1DvtgS
+	iInpRPv95EMVOPIvo1xQZDmipU1I2BSftj/9PLi/bzkBTRPlfB9JN+TY11f0XoElLCRbbZqst7k
+	4Owq7i95hKWmDW8vcTJbUsZM+KV2LUcj9HR7s+vHtPTygq0KgDGuNUxc9X1LDinO2FzgL5y1YEk
+	X5RQQam9sA/fGFVPSnm4gXMJbqL7A==
+X-Received: by 2002:a05:6102:2c8d:b0:7cc:828b:421b with SMTP id
+ ada2fe7eead31-7d64d6ca4dbmr3337958137.6.1794795575374; Sun, 15 Nov 2026
+ 18:19:35 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,433 +104,72 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261116021845.2533130-1-kuniyu@google.com>
-X-Mailer: git-send-email 2.56.0.611.g1030f0b940-goog
-Message-ID: <20261116021845.2533130-5-kuniyu@google.com>
-Subject: [PATCH v1 net-next 4/4] af_unix: Remove MSG_OOB.
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
+MIME-Version: 1.0
+References: <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
+ <179479100276.3291.7162632058743254408@kernel.org>
+In-Reply-To: <179479100276.3291.7162632058743254408@kernel.org>
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Sun, 15 Nov 2026 19:19:24 -0700
+X-Gm-Features: Aa3M54oUIJGqhOxY6fZncLdECG4spZRJMb8V-mVzn2dq9iEZ8uyZ_G6ksg29zgg
+Message-ID: <CADvTj4rK0Ew7WDKoxmYhf1FMKx-xZwkhAKc-ABJ3EmOkaSHLPg@mail.gmail.com>
+Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Honor the RX checksum
+ offload setting
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Samuel Holland <samuel@sholland.org>, LABBE Corentin <clabbe.montjoie@gmail.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Security folks love MSG_OOB and it has had many bugs with
-CVEs assigned.
+On Sun, Nov 15, 2026 at 6:03=E2=80=AFPM <netdev-bot+sinfo@kernel.org> wrote=
+:
+>
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 
-The volume of bugs from MSG_OOB led to CONFIG_AF_UNIX_OOB,
-but the default was 'y' even though there is no clear use case,
-exposing innocent users to security risks.
+This was found while investigating RX checksum offload behavior on
+H616 and reviewing the shared setup and feature-filtering paths.
 
-Most of such bugs are trivial if CONFIG_AF_UNIX_OOB is not
-enabled, but typically MSG_OOB allowed serious consequences,
-such as LPE.
+>
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
 
-Considering RFC 6093 deprecated MSG_OOB for TCP in 2011, we
-should not have accepted it for AF_UNIX from day 1.
+The capability loss was reproduced in a source-extracted test using the
+actual GMAC, GMAC4 and XGMAC checksum callbacks with mocked MMIO and the
+relevant setup and feature-filtering logic.
 
-It is time to drop support.
+With the original code, disabling offload and following the reopen path
+clears plat->rx_coe. The feature filter then prevents offload from being
+enabled again. With the patch, the saved capability survives that
+sequence. A requested enable that fails hardware readback still clears
+the capability.
 
-Along with that, ioctl(SIOCATMARK), EPOLLPRI, etc become
-unavailable as if CONFIG_AF_UNIX_OOB=n.
+>
+>  - What hardware the change was tested on. For driver fixes please
+>    mention the device (and if relevant firmware version) used for
+>    testing, or say that the change was not tested on real hardware.
 
-Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
----
- include/net/af_unix.h         |   3 -
- include/net/dropreason-core.h |   6 -
- net/unix/Kconfig              |   7 -
- net/unix/af_unix.c            | 252 +---------------------------------
- 4 files changed, 1 insertion(+), 267 deletions(-)
+Tested on an Allwinner H616 board with an AC200 PHY.
 
-diff --git a/include/net/af_unix.h b/include/net/af_unix.h
-index bb1b3dee02e8..43fb892eee06 100644
---- a/include/net/af_unix.h
-+++ b/include/net/af_unix.h
-@@ -50,9 +50,6 @@ struct unix_sock {
- 	int			inq_len;
- 	bool			recvmsg_inq;
- 	bool			scm_rights_notrunc;
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--	struct sk_buff		*oob_skb;
--#endif
- };
- 
- #define unix_sk(ptr) container_of_const(ptr, struct unix_sock, sk)
-diff --git a/include/net/dropreason-core.h b/include/net/dropreason-core.h
-index fa2fe8990557..c010fdebf249 100644
---- a/include/net/dropreason-core.h
-+++ b/include/net/dropreason-core.h
-@@ -10,7 +10,6 @@
- 	FN(SOCKET_FILTER)		\
- 	FN(SOCKET_RCVBUFF)		\
- 	FN(UNIX_DISCONNECT)		\
--	FN(UNIX_SKIP_OOB)		\
- 	FN(PKT_TOO_SMALL)		\
- 	FN(TCP_CSUM)			\
- 	FN(UDP_CSUM)			\
-@@ -164,11 +163,6 @@ enum skb_drop_reason {
- 	 * during send() that the peer has been close()d.
- 	 */
- 	SKB_DROP_REASON_UNIX_DISCONNECT,
--	/**
--	 * @SKB_DROP_REASON_UNIX_SKIP_OOB: Out-Of-Band data is skipped by
--	 * recv() without MSG_OOB so dropped.
--	 */
--	SKB_DROP_REASON_UNIX_SKIP_OOB,
- 	/** @SKB_DROP_REASON_PKT_TOO_SMALL: packet size is too small */
- 	SKB_DROP_REASON_PKT_TOO_SMALL,
- 	/** @SKB_DROP_REASON_TCP_CSUM: TCP checksum error */
-diff --git a/net/unix/Kconfig b/net/unix/Kconfig
-index 6f1783c1659b..d378726d5eb9 100644
---- a/net/unix/Kconfig
-+++ b/net/unix/Kconfig
-@@ -16,13 +16,6 @@ config UNIX
- 
- 	  Say Y unless you know what you are doing.
- 
--config	AF_UNIX_OOB
--	bool "UNIX: out-of-bound messages"
--	depends on UNIX
--	default y
--	help
--	  Support for MSG_OOB in UNIX domain sockets. If unsure, say Y.
--
- config UNIX_DIAG
- 	tristate "UNIX: socket monitoring interface"
- 	depends on UNIX
-diff --git a/net/unix/af_unix.c b/net/unix/af_unix.c
-index 96c13682938e..cc5c7fa40b4d 100644
---- a/net/unix/af_unix.c
-+++ b/net/unix/af_unix.c
-@@ -688,20 +688,12 @@ static void unix_release_sock(struct sock *sk, int embrion)
- 
- 	unix_state_unlock(sk);
- 
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--	u->oob_skb = NULL;
--#endif
--
- 	wake_up_interruptible_all(&u->peer_wait);
- 
- 	if (skpair != NULL) {
- 		if (sk->sk_type == SOCK_STREAM || sk->sk_type == SOCK_SEQPACKET) {
- 			struct sk_buff *skb = skb_peek(&sk->sk_receive_queue);
- 
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--			if (skb && !unix_skb_len(skb))
--				skb = skb_peek_next(skb, &sk->sk_receive_queue);
--#endif
- 			unix_state_lock(skpair);
- 			/* No more writes */
- 			WRITE_ONCE(skpair->sk_shutdown, SHUTDOWN_MASK);
-@@ -2325,67 +2317,6 @@ static int unix_dgram_sendmsg(struct socket *sock, struct msghdr *msg,
-  */
- #define UNIX_SKB_FRAGS_SZ (PAGE_SIZE << get_order(32768))
- 
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--static int queue_oob(struct sock *sk, struct msghdr *msg, struct sock *other,
--		     struct scm_cookie *scm, bool fds_sent)
--{
--	struct unix_sock *ousk = unix_sk(other);
--	struct sk_buff *skb;
--	int err;
--
--	skb = sock_alloc_send_skb(sk, 1, msg->msg_flags & MSG_DONTWAIT, &err);
--
--	if (!skb)
--		return err;
--
--	err = unix_scm_to_skb(scm, skb, !fds_sent);
--	if (err < 0)
--		goto out;
--
--	err = unix_maybe_add_creds(skb, sk, other);
--	if (err)
--		goto out;
--
--	skb_put(skb, 1);
--	err = skb_copy_datagram_from_iter(skb, 0, &msg->msg_iter, 1);
--
--	if (err)
--		goto out;
--
--	unix_state_lock(other);
--
--	if (sock_flag(other, SOCK_DEAD) ||
--	    (other->sk_shutdown & RCV_SHUTDOWN)) {
--		err = -EPIPE;
--		goto out_unlock;
--	}
--
--	if (UNIXCB(skb).fp && !other->sk_scm_rights) {
--		err = -EPERM;
--		goto out_unlock;
--	}
--
--	scm_stat_add(other, skb);
--
--	spin_lock(&other->sk_receive_queue.lock);
--	WRITE_ONCE(ousk->oob_skb, skb);
--	WRITE_ONCE(ousk->inq_len, ousk->inq_len + 1);
--	__skb_queue_tail(&other->sk_receive_queue, skb);
--	spin_unlock(&other->sk_receive_queue.lock);
--
--	sk_send_sigurg(other);
--	unix_state_unlock(other);
--	READ_ONCE(other->sk_data_ready)(other);
--
--	return 0;
--out_unlock:
--	unix_state_unlock(other);
--out:
--	consume_skb(skb);
--	return err;
--}
--#endif
--
- static int unix_stream_sendmsg(struct socket *sock, struct msghdr *msg,
- 			       size_t len)
- {
-@@ -2403,12 +2334,7 @@ static int unix_stream_sendmsg(struct socket *sock, struct msghdr *msg,
- 
- 	if (msg->msg_flags & MSG_OOB) {
- 		err = -EOPNOTSUPP;
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--		if (len)
--			len--;
--		else
--#endif
--			goto out_err;
-+		goto out_err;
- 	}
- 
- 	if (msg->msg_namelen) {
-@@ -2505,15 +2431,6 @@ static int unix_stream_sendmsg(struct socket *sock, struct msghdr *msg,
- 		sent += size;
- 	}
- 
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--	if (msg->msg_flags & MSG_OOB) {
--		err = queue_oob(sk, msg, other, &scm, fds_sent);
--		if (err)
--			goto out_err;
--		sent++;
--	}
--#endif
--
- 	scm_destroy(&scm);
- 
- 	return sent;
-@@ -2765,115 +2682,6 @@ struct unix_stream_read_state {
- 	unsigned int splice_flags;
- };
- 
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--static int unix_stream_recv_urg(struct unix_stream_read_state *state)
--{
--	struct sk_buff *oob_skb, *read_skb = NULL;
--	struct socket *sock = state->socket;
--	struct sock *sk = sock->sk;
--	struct unix_sock *u = unix_sk(sk);
--	int chunk = 1;
--
--	mutex_lock(&u->iolock);
--	unix_state_lock(sk);
--	spin_lock(&sk->sk_receive_queue.lock);
--
--	if (sock_flag(sk, SOCK_URGINLINE) || !u->oob_skb) {
--		spin_unlock(&sk->sk_receive_queue.lock);
--		unix_state_unlock(sk);
--		mutex_unlock(&u->iolock);
--		return -EINVAL;
--	}
--
--	oob_skb = u->oob_skb;
--
--	if (!(state->flags & MSG_PEEK)) {
--		WRITE_ONCE(u->oob_skb, NULL);
--		WRITE_ONCE(u->inq_len, u->inq_len - 1);
--
--		if (oob_skb->prev != (struct sk_buff *)&sk->sk_receive_queue &&
--		    !unix_skb_len(oob_skb->prev)) {
--			read_skb = oob_skb->prev;
--			__skb_unlink(read_skb, &sk->sk_receive_queue);
--		}
--	}
--
--	spin_unlock(&sk->sk_receive_queue.lock);
--	unix_state_unlock(sk);
--
--	chunk = state->recv_actor(oob_skb, 0, chunk, state);
--
--	if (!(state->flags & MSG_PEEK))
--		UNIXCB(oob_skb).consumed += 1;
--
--	mutex_unlock(&u->iolock);
--
--	consume_skb(read_skb);
--
--	if (chunk < 0)
--		return -EFAULT;
--
--	state->msg->msg_flags |= MSG_OOB;
--	return 1;
--}
--
--static struct sk_buff *manage_oob(struct sk_buff *skb, struct sk_buff **last,
--				  struct sock *sk, int flags, int copied)
--{
--	struct sk_buff *read_skb = NULL, *unread_skb = NULL;
--	struct unix_sock *u = unix_sk(sk);
--
--	if (likely(unix_skb_len(skb) && skb != READ_ONCE(u->oob_skb)))
--		return skb;
--
--	spin_lock(&sk->sk_receive_queue.lock);
--
--	if (!unix_skb_len(skb)) {
--		if (copied && (!u->oob_skb || skb == u->oob_skb)) {
--			skb = NULL;
--		} else if (flags & MSG_PEEK) {
--			*last = skb;
--			skb = skb_peek_next(skb, &sk->sk_receive_queue);
--		} else {
--			read_skb = skb;
--			skb = skb_peek_next(skb, &sk->sk_receive_queue);
--			__skb_unlink(read_skb, &sk->sk_receive_queue);
--			*last = skb;
--		}
--
--		if (!skb)
--			goto unlock;
--	}
--
--	if (skb != u->oob_skb)
--		goto unlock;
--
--	if (copied) {
--		skb = NULL;
--	} else if (!(flags & MSG_PEEK)) {
--		WRITE_ONCE(u->oob_skb, NULL);
--
--		if (!sock_flag(sk, SOCK_URGINLINE)) {
--			__skb_unlink(skb, &sk->sk_receive_queue);
--			unread_skb = skb;
--			skb = skb_peek(&sk->sk_receive_queue);
--			*last = skb;
--		}
--	} else if (!sock_flag(sk, SOCK_URGINLINE)) {
--		*last = skb;
--		skb = skb_peek_next(skb, &sk->sk_receive_queue);
--	}
--
--unlock:
--	spin_unlock(&sk->sk_receive_queue.lock);
--
--	consume_skb(read_skb);
--	kfree_skb_reason(unread_skb, SKB_DROP_REASON_UNIX_SKIP_OOB);
--
--	return skb;
--}
--#endif
--
- static int unix_stream_read_skb(struct sock *sk, skb_read_actor_t recv_actor)
- {
- 	struct sk_buff_head *queue = &sk->sk_receive_queue;
-@@ -2900,17 +2708,6 @@ static int unix_stream_read_skb(struct sock *sk, skb_read_actor_t recv_actor)
- 
- 	WRITE_ONCE(u->inq_len, u->inq_len - unix_skb_len(skb));
- 
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--	if (skb == u->oob_skb) {
--		WRITE_ONCE(u->oob_skb, NULL);
--		spin_unlock(&queue->lock);
--		mutex_unlock(&u->iolock);
--
--		kfree_skb_reason(skb, SKB_DROP_REASON_UNIX_SKIP_OOB);
--		return -EAGAIN;
--	}
--#endif
--
- 	spin_unlock(&queue->lock);
- 
- 	unix_orphan_scm(sk, skb);
-@@ -2945,9 +2742,6 @@ static int unix_stream_read_generic(struct unix_stream_read_state *state,
- 
- 	if (unlikely(flags & MSG_OOB)) {
- 		err = -EOPNOTSUPP;
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--		err = unix_stream_recv_urg(state);
--#endif
- 		goto out;
- 	}
- 
-@@ -2978,15 +2772,6 @@ static int unix_stream_read_generic(struct unix_stream_read_state *state,
- 		last = skb = skb_peek(&sk->sk_receive_queue);
- 
- again:
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--		if (skb) {
--			skb = manage_oob(skb, &last, sk, flags, copied);
--			if (!skb && (copied || !state->size)) {
--				unix_state_unlock(sk);
--				break;
--			}
--		}
--#endif
- 		if (skb == NULL) {
- 			if (copied >= target)
- 				goto unlock;
-@@ -3322,37 +3107,6 @@ static int unix_ioctl(struct socket *sock, unsigned int cmd, unsigned long arg)
- 	case SIOCUNIXFILE:
- 		err = unix_open_file(sk);
- 		break;
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--	case SIOCATMARK:
--		{
--			struct unix_sock *u = unix_sk(sk);
--			struct sk_buff *skb;
--			int answ = 0;
--
--			if (sk->sk_type != SOCK_STREAM)
--				return -EOPNOTSUPP;
--
--			mutex_lock(&u->iolock);
--
--			skb = skb_peek(&sk->sk_receive_queue);
--			if (skb) {
--				struct sk_buff *oob_skb = READ_ONCE(u->oob_skb);
--				struct sk_buff *next_skb;
--
--				next_skb = skb_peek_next(skb, &sk->sk_receive_queue);
--
--				if (skb == oob_skb ||
--				    (!unix_skb_len(skb) &&
--				     (!oob_skb || next_skb == oob_skb)))
--					answ = 1;
--			}
--
--			mutex_unlock(&u->iolock);
--
--			err = put_user(answ, (int __user *)arg);
--		}
--		break;
--#endif
- 	default:
- 		err = -ENOIOCTLCMD;
- 		break;
-@@ -3392,10 +3146,6 @@ static __poll_t unix_poll(struct file *file, struct socket *sock, poll_table *wa
- 		mask |= EPOLLIN | EPOLLRDNORM;
- 	if (sk_is_readable(sk))
- 		mask |= EPOLLIN | EPOLLRDNORM;
--#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
--	if (READ_ONCE(unix_sk(sk)->oob_skb))
--		mask |= EPOLLPRI;
--#endif
- 
- 	/* Connection-based need to check for termination and startup */
- 	if ((sk->sk_type == SOCK_STREAM || sk->sk_type == SOCK_SEQPACKET) &&
--- 
-2.56.0.611.g1030f0b940-goog
-
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
