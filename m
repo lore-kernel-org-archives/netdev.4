@@ -1,61 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794914315;
-	b=v1V5MJvrrCXDg0Z39tSsj5Lr90m2dIub8GLgrBtby0h6ydvcfUaT6Pa0gSVyxCvanMZE
-	 Ct1APSsGNI/1LR6sMh4ST3jpCRGuRiiWz4zSKtMnMYlAEY4Av15WiCcA71cvu3qc28KTC
-	 5mSrSr6TWgexePgwmAlSlFltfDm296u9n7WpT4CDOnEid7GC1gli5NXGnK8OawlFD8CYk
-	 SHsSip7fviIdYjFQywscJNh/btc6Y8hiQw/qnF2ifrrXGStqzQVEbmdRdQRLLPk0bpHvb
-	 SW3rE4V2EBkYVm1RetJgZF4oJyD29xRPcWX8auszmVkJvKwQhfpxAW9lgZGgsczk+mw==
+	t=1794914409;
+	b=n5tRx/IURG74bMxj250Ho5kIeqJBN9zTskqFsVmIfcxgu7Pc2tDDG0XBNTOkaoDAZHBj
+	 /CLUn+0c7b1JEHtcO1v2XxDaTioTgliS00DnSg8r6oDdtUj49yKchPHIMT5fvva1nEhh1
+	 XFRspAum/Fg7jr1hCkUsnIGrQaT9Od+q8fQyb6X/UvueavBfXdEYyMd6HZA4g6S8D4wH+
+	 +jQFj80r+bacN3mlH7+KlywhpfkTHTkAJqodPj63Ze6TAY2TEBnW7noBUGW4c3JMH8w/O
+	 5zAgoUa42uWUXb/KZ7VBFSVoODZlhG2oNFj8ZhCCaRfQCiLH6RriFVOZNomIel6zL4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794914315;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=IqLBpYE7h7awA0TG7t8nA0duIGgbrcEUjs5NwXMZs9w=;
-	b=xud7HHSwwToHSw5i+9qhC/rkQOiwdy9qRaE8QASpRahF2DqRFYc/0W//y/uslZkXcaVr
-	 LVA2X9R7w2kQKyiUURRylJuViUZnlVh0hjUOpfTWdUieyJ3X2jMhNEwJwozw3NGFMGPhR
-	 Ck6SseP7l4ts/Btoed8UsrDHIUlraN0uWkd/94yGcN5f0Wuf02/Us74nohGozHLhWhjQN
-	 A0yEDlCIBH7L2BwIB6cIwFRVtKSKaQJNNknHePT47pEaazun106eaKs8tbKzK4pvUtR0x
-	 W6CrJ5NxZ4NtP9iIYc1ytE9zfBoPxCS8qqnSKCDYs1ktx+IKxc+DvkSbrsqty0pgO/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794914409;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=3QISyfluSWeK3oqNp9QI7n3lx/wBWLiQ5O5kI6oT/ys=;
+	b=hM0sichkX/xnrXpmw0zp54TlS14NuF3ICHCsDCaA45XkToftH86i/CU17FuwKYrwQjeP
+	 yK1TTnpyz+usGlqeTW0ssQT9v250U5y+ntQjVHIThA0nAUh8j3Xs7/Rs1IDAqVHF/ojPl
+	 8nky4USCRutnr4D7sJT2gFsqM0hJPqhZodIiX2lVHHpTGhDz7uswuJw8PSMSGamFITgc5
+	 XE0alQ5B82xEUF/knrYe7yLBlWl8+S3UT+U6jOkYfrgesg4kNSHhpvm+CqfCghToHOr22
+	 dgIDRT8Wtt8evvxX9sM/CXsQH+ckNrAEnUtc0yHlKOncCYH//S9uhMUMG8I1sHua2Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mCaFIUZH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Hg/F06sf";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80FFD606A883;
-	Tue, 17 Nov 2026 11:18:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E44FB606A33D;
+	Tue, 17 Nov 2026 11:20:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mCaFIUZH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB7801F000C8;
-	Tue, 17 Nov 2026 11:18:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hg/F06sf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF4801F000C4;
+	Tue, 17 Nov 2026 11:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794914315;
-	bh=IqLBpYE7h7awA0TG7t8nA0duIGgbrcEUjs5NwXMZs9w=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mCaFIUZHgw8kLUr6stTj4HbPc4TcRO5utbPuxEnmgAh2uyLh1xZi8xwK8jP3U2fmD
-	 smuWD0opczWQVBhCsXOtMOQyIebNiRDs+4AnLZMwvi4II0g2YITzYMsEpw7AoLNnNt
-	 V78ked96eUSWdEvNqFUAjqjOzse+If31UgybNkxZrn7MVJzDNCRHzo321wLlyzJgZY
-	 LSFaVSe4HyqMqI5d/YpqstPM5cx9PgX9n/P+rEzrOmZLvdl1SZkk1+OpBl/nT6X/6d
-	 DSTysjKCUqcJ9LGqiYJvmnaqVLAEWWhLnuJkDp14qoFFqRh3x1nc3BOKr5e1JevbB9
-	 6nKQLbxB1TvwQ==
-Subject:
- Re: [PATCH net 3/3] igb: only allow runtime PM if the device can wake up
-From: netdev-bot+sashiko@kernel.org
-To: antonio@mandelbit.com
-Cc: intel-wired-lan@lists.osuosl.org, anthony.l.nguyen@intel.com,
- przemyslaw.kitszel@intel.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- zheng.z.yan@intel.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Date: Tue, 17 Nov 2026 11:18:34 +0000
-Message-ID: <179491431428.3136.15501039766024079493@kernel.org>
-In-Reply-To: <20261113105835.3821433-3-antonio@mandelbit.com>
-References: <20261113105835.3821433-3-antonio@mandelbit.com>
-X-sashiko-severity: Medium
+	s=k20260515; t=1794914408;
+	bh=3QISyfluSWeK3oqNp9QI7n3lx/wBWLiQ5O5kI6oT/ys=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=Hg/F06sfTWfaJWN7o1Dn96e+3Uskfd67754EJkWCS871ZCwlbPJmTUCdZcdALfbms
+	 zHECvi/1ItNh2tyALO4EcTiHRODocYGo739yKwyVB4yy2H/CfsmH0aWUDX1mqOA8ni
+	 yHyA4fOtTk8LGWm1yA+eJZGCa4tGfNTfEOXaMjg7MRu0yQYFJh+usjDtnC2t1XVC9/
+	 H/kz8PKTeoJC1NYZ8kiwngsQKBbJXhRYvCnfDmnh0jtxBNG3yW2vN4+wFDiFLwC9Vp
+	 pHtLdb3cKon0+yNAhFBeXyfMnWO5lCxcQxAG8MjyGffez/ceK3Pk93rpVfYgcbdErL
+	 W7bA3lh++/EXg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B449E392665D;
+	Tue, 17 Nov 2026 11:20:08 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,167 +53,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next 01/13] netfilter: flowtable: do not hw offload
+ flows
+ in teardown state
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179491440753.514086.6452925778003138386.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 11:20:07 +0000
+References: <20261116001612.2806263-2-pablo@netfilter.org>
+In-Reply-To: <20261116001612.2806263-2-pablo@netfilter.org>
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
+ netdev@vger.kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ edumazet@kernel.org, horms@kernel.org, fw@strlen.de, ja@ssi.bg
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hello:
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+This series was applied to netdev/net-next.git (main)
+by Pablo Neira Ayuso <pablo@netfilter.org>:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On Mon, 16 Nov 2026 01:16:00 +0100 you wrote:
+> Sashiko reports that refreshing hw offload from packet path is racy
+> since the flow might be already torn down.
+> 
+> Since commit 7c549fb7eecd ("netfilter: flowtable: generalize pending
+> status bit"), GC skips flow entries that are still pending to be
+> offloaded. Let's just check for the teardown status bit after the
+> pending bit is set on to address this race.
+> 
+> [...]
 
-- [Medium] Probe and remove can disagree about the runtime PM usage
-  count.
-- [Medium] The patch decides whether igb may runtime-suspend from one
-  pci_dev_run_wake() check in igb_probe().
+Here is the summary with links:
+  - [net-next,01/13] netfilter: flowtable: do not hw offload flows in teardown state
+    https://git.kernel.org/netdev/net-next/c/0abb54363974
+  - [net-next,02/13] netfilter: flowtable: retrieve stats on flow deletion
+    https://git.kernel.org/netdev/net-next/c/2785eca574b0
+  - [net-next,03/13] net: ethernet: mtk_ppe: update stats on flow deletion
+    https://git.kernel.org/netdev/net-next/c/272435e43f1c
+  - [net-next,04/13] net: airoha: update stats on flow deletion
+    https://git.kernel.org/netdev/net-next/c/0602fe6ca35c
+  - [net-next,05/13] netfilter: xt_time: fix monthday computation for dates past 2039
+    https://git.kernel.org/netdev/net-next/c/71d4a4199524
+  - [net-next,06/13] netfilter: nft_flow_offload: do not offload multicast
+    https://git.kernel.org/netdev/net-next/c/b0ca1ef87626
+  - [net-next,07/13] netfilter: flowtable: purge entries immediately when destroying the flowtable
+    https://git.kernel.org/netdev/net-next/c/1ba460c8e20b
+  - [net-next,08/13] selftests: netfilter: nf_queue: drop the no-op loop initializer
+    https://git.kernel.org/netdev/net-next/c/f1eaa9155e69
+  - [net-next,09/13] netfilter: flowtable: do not scrub as crossing netns
+    https://git.kernel.org/netdev/net-next/c/4733af7f19e7
+  - [net-next,10/13] netfilter: flowtable: tunnel device poisons h_source of fast-path frames
+    https://git.kernel.org/netdev/net-next/c/ada5902116b4
+  - [net-next,11/13] netfilter: flowtable: do not clear the offload bit twice
+    https://git.kernel.org/netdev/net-next/c/8147f6e61e16
+  - [net-next,12/13] netfilter: nfnetlink_queue: make skb writable before writing NFQA_L2HDR
+    https://git.kernel.org/netdev/net-next/c/3abad1970ab4
+  - [net-next,13/13] selftests: netfilter: add UDP flowtable offload test
+    https://git.kernel.org/netdev/net-next/c/03b7948d634a
 
---
-
-igb: only allow runtime PM if the device can wake up
-
-This patch changes igb_probe() so it drops the probe-time runtime PM
-usage reference only when pci_dev_run_wake() is true. Devices that can't
-signal a wake-up from D3 therefore no longer runtime suspend.
-igb_remove() takes the reference back under the same condition.
-
-> diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
-> index f1ce9aa696ab7..145daee832640 100644
-> --- a/drivers/net/ethernet/intel/igb/igb_main.c
-> +++ b/drivers/net/ethernet/intel/igb/igb_main.c
-> @@ -3677,7 +3677,11 @@ static int igb_probe(struct pci_dev *pdev, const struct pci_device_id *ent)
->  
->  	dev_pm_set_driver_flags(&pdev->dev, DPM_FLAG_NO_DIRECT_COMPLETE);
->  
-> -	pm_runtime_put_noidle(&pdev->dev);
-> +	/* A device that can't wake up wouldn't notice the link coming back
-> +	 * while runtime suspended
-> +	 */
-> +	if (pci_dev_run_wake(pdev))
-> +		pm_runtime_put_noidle(&pdev->dev);
-
-[Severity: Medium]
-Is one check at probe time enough to close the bug described in the
-commit message?
-
-pci_dev_run_wake() depends on pci_target_state(), and that can change
-after probe. On ACPI platforms, acpi_pci_choose_state() limits the
-target to D3hot only when d3cold_allowed is clear:
-
-drivers/pci/pci-acpi.c:acpi_pci_choose_state() {
-    ...
-	if (pdev->no_d3cold || !pdev->d3cold_allowed)
-		d_max = ACPI_STATE_D3_HOT;
-	else
-		d_max = ACPI_STATE_D3_COLD;
-    ...
-}
-
-Root can change d3cold_allowed through sysfs while igb is bound.
-
-Here is one sequence:
-
-1. igb binds with d3cold_allowed=0. The target is D3hot and PME is
-   supported from D3hot, so the probe check passes and the reference is
-   dropped.
-2. Root writes d3cold_allowed=1, so the target becomes D3cold.
-3. The part doesn't support PME from D3cold.
-
-On the next link-down, igb_runtime_idle() or the watchdog schedules a
-suspend. igb_runtime_suspend()->__igb_shutdown() arms the WUFC
-link-change filter without any PCI-level check. Then
-pci_finish_runtime_suspend() runs:
-
-drivers/pci/pci.c:pci_finish_runtime_suspend() {
-    ...
-	__pci_enable_wake(dev, target_state, pci_dev_run_wake(dev));
-
-	error = pci_set_power_state(dev, target_state);
-    ...
-}
-
-pci_dev_run_wake() is now false. Wouldn't the device then go into D3cold
-with PME disarmed? The port would stay down after the cable is plugged
-back in, until user space resumes it.
-
-Could igb_runtime_idle() or igb_runtime_suspend() return -EBUSY when
-pci_dev_run_wake() is false? That would cover this case and also remove
-the need for the separate probe and remove accounting below.
-
->  	return 0;
->  
->  err_register:
-> @@ -3899,7 +3903,8 @@ static void igb_remove(struct pci_dev *pdev)
->  	struct igb_adapter *adapter = netdev_priv(netdev);
->  	struct e1000_hw *hw = &adapter->hw;
->  
-> -	pm_runtime_get_noresume(&pdev->dev);
-> +	if (pci_dev_run_wake(pdev))
-> +		pm_runtime_get_noresume(&pdev->dev);
-
-[Severity: Medium]
-Can igb_probe() and igb_remove() disagree about the runtime PM usage
-count here?
-
-igb_remove() calls pci_dev_run_wake() again instead of reusing the
-decision made in igb_probe(). The result comes from
-pci_pme_capable(dev, pci_target_state(dev, true)), and the target state
-can change while the driver is bound.
-
-One way it can change is a write to d3cold_allowed through
-d3cold_allowed_store(). That changes what acpi_pci_choose_state()
-returns, as described above.
-
-Another way is surprise removal of a runtime-suspended igb that the
-platform does not manage. pci_device_remove() calls
-pm_runtime_get_sync() before drv->remove(), and during that resume
-pci_power_up() does:
-
-drivers/pci/pci.c:pci_power_up() {
-    ...
-	if (pci_dev_is_disconnected(dev)) {
-		dev->current_state = PCI_D3cold;
-		return -EIO;
-	}
-    ...
-}
-
-pci_target_state() then returns PCI_D3cold when igb_remove() runs. On a
-part with PME from D3hot but not from D3cold, pci_dev_run_wake()
-changes from true to false.
-
-After that, pci_device_remove() runs the same sequence regardless:
-
-drivers/pci/pci-driver.c:pci_device_remove() {
-    ...
-		pm_runtime_get_sync(dev);
-		pm_runtime_barrier(dev);
-		drv->remove(pci_dev);
-		pm_runtime_put_noidle(dev);
-	}
-    ...
-	pm_runtime_put_sync(dev);
-    ...
-}
-
-If the check was false at probe and true at remove, doesn't the usage
-count stay one too high for good? The device could then never runtime
-suspend again, even after rebinding.
-
-If the check was true at probe and false at remove, doesn't this drop
-one reference too many?
-
-With power/control=auto, rpm_drop_usage_count() would warn "Runtime PM
-usage count underflow!". With power/control=on, the extra put would
-silently cancel the pm_runtime_forbid() reference.
-
-Would it help to save the probe-time decision in struct igb_adapter and
-test that flag in igb_remove()?
-
-e1000e and r8169 also re-check pci_dev_run_wake() in their remove paths.
-Following them doesn't by itself show that the pattern stays balanced.
-
+You are awesome, thank you!
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113105835.3821433-1-antonio%40mandelbit.com
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
