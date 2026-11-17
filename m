@@ -1,58 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794930644;
-	b=3T/YSxK6OlSFLIJCcNn6NjIjBxYpjBillzOEY/Uqk37Dot3xtfjQLK0D5AmDq7YKTGfH
-	 6jcMlLdWY/zOR36JsYJwgn/m6S7rQrhKNsI+PdSNwCJK5ttnLEFl7xFhgUVZksJ0jcH0t
-	 x8xAUVPpelJsxJ4uhgjxqNWmAXqcV49C7FG6G+jLrEKriu+whAuRBiqoRLAJCNGn49AMx
-	 ceVhor9E4GxTdSlu+r6lQ6+zP+56L20EoMobFMQVnnqntBZSUdPaIYMcwWcmYuP1KnAch
-	 21DZbfrwPrVH2iG5t8thjvQyfHzerl0xxOfh49/HPzKiYIGxswOK5QtzPls2ABeOCXA==
+	t=1794930726;
+	b=bsW1tzWE+iRfqepolXhOmaiN29OoKc4vF9CMekFCGRg8X66QzExpyQS5fRiwa/0j61IM
+	 ARtUpIIYyyyngO0ibf+xVf03JYAPuoqho16IMBOdDGMP7CC6iQNyB4LnWqdvYB47VROzF
+	 3IOIbCs6Vm5OgoUJsofzruSpqRhWTBmnuHVMdF3ggM5FINQPyaAzFeZk42ba5Xd9Swt4c
+	 bFTImoRLg6eUlUr6Wh0toLZjMFp4gGQT3e43zNHQ/l6eQ1Pe12a3Qrenb6VnCZG1GM/nN
+	 bvy3EdNqAOLR45Xvd6gWekVYjpVAFGyAs/Ni/U+ddGW7uzR9GKL46CRprrq3lEf5lfw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794930644;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=hlGbt2Dmye+Llm4siD44J7NJ+mTsgc38HpApKW6jFL0=;
-	b=LkTtDQwp5mXzUa0GkvPX0rUfU8i/mGk3tVQgMxcUC34HCYI5ctaznvO6+uObqdoFdwrU
-	 Eyaw1n4aZ4rl3RDwWFiObXp7POFR8ZPvW4YrxlII+Jy5hROrBUvnf6xWLuDjUfQz575Pf
-	 hWXFMk4aYRjFGE8Ii9qKCqIdJY7KNelL1Eu9NsCWMZFmpHc0nfc+rK9G0RGSwygIDWe7Y
-	 8wbGNk3zM9tFWhiK6Gy+r6cxyLMAFc/bOF0382gUrFwthtYskByUYvfYFtHHP8oO+h89S
-	 fSQVb1xi7+E+b5ZUjPtCyts9vfNNG6O0lVlom4X7Ds00Sg2wREaLUvC51BY7UMPPNpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794930726;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
+	 X-Received:X-Received:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=d7zSyNw6qz1m1x7CMIoGYOav8WM1/EyZq/PX2PCxZm8=;
+	b=oShwSkkVRo4x61hu5BVs2aCv/DbmXe7iDRvYY29BjOhHDNyjfNa9oIm3+oK4Jk/+1q4w
+	 E3/TnTtbhuG81vmPdcJCtIakOC/kHOL5hnQmsZBthijCuHZN+RlqRdFsTcyg8ylK65nyS
+	 LOc5CSxpvzb142FOM1vXb38sz1/Fchlk5Hy59eWbkkvPY5Z2zRVBXLM1G5k9ENcKsyo9Z
+	 qbnBMT/BR/AmDCrAkAHkvdaRAj4wc4Q02g704DzjOUnmIGMjaCx3tVy6swBDukDh3/kb5
+	 +3O9NRlc2c6om8vmsNkeyuGStcsdDK8eEyKHy5Un7QnzXZs/DE5Sm5m20yHV4y7qQ5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=evrMnYyE;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OF3R7XS2;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZupGZDs4;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 816E7606A889
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:50:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 816E7606A889
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BB54606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:52:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BB54606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=evrMnYyE
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 28050C4EDBD;
-	Tue, 17 Nov 2026 15:50:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8581E5FDAD;
-	Tue, 17 Nov 2026 15:50:41 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7D25211BC005D;
-	Tue, 17 Nov 2026 16:50:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794930640; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=hlGbt2Dmye+Llm4siD44J7NJ+mTsgc38HpApKW6jFL0=;
-	b=evrMnYyEV+oEuzKpRUip5GJppu9aNSpb1G4PROqRkV/S7qPgG45henCkNgcE2F0fXYJm9y
-	1g9aIlCKyfMX7QxiVvLw+pIjKcYyv5PkX5O+SEBMC1Y9Y1Z7GzZJTJax5C0oeiicC2M5Pr
-	O8Ek+Ys87/DyyAPBXRkCGRslc+ZCjYVXkm2m+R8u+88myoULrpTj0VMWMnzJ+pLoWXATdj
-	mrp/kRh0exmmfF+XCxTAb49xbT5gIeVdvXgeGs9cf4uibK1Ru14b/vfummPGLfvaDZWDRb
-	Pr/nBcgyPZ4opdDnGpENQhHaYT/IK4AHSJxInxRiFtOX6sixKZewdRGfJRJ6Kg==
-Message-ID: <630b9651-3963-4686-a51b-b670beaa45bb@bootlin.com>
-Date: Tue, 17 Nov 2026 16:50:35 +0100
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=OF3R7XS2;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZupGZDs4
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHFQpi21663360
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:52:05 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=d7zSyNw6qz1m1x7CMIoGYO
+	av8WM1/EyZq/PX2PCxZm8=; b=OF3R7XS2UREI0oox314bHvrnPsSIkDr3bYdZ9D
+	u78uE3IygWn9V+LjEhSZlC1ZQGDl2xt+QPF/b2jsO86p9IcZ7H+hPfHRBES/zvSm
+	1aD1nurnfPUBGOBM9cZLefjAzqntSskvFsLrcnY6rnjw/fB+/eofg2cr1lz8EH6t
+	GSJpMnlnQ9nIVQlOCQNbHHFPd3nInsN0a4OpV8KzGSjqWf5/sJdTFZZ/pY94WwM5
+	FUUxbnh/ZesueNsr0cppHw6phJ9UsXuLI9GF1Lgrq1NZYKQduW4hfCNp7TUIygrj
+	/gfROIOd4gCFcufw+SmZuVBVL2IyOg8za107u4prwew1Vg4w==
+Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0kcc9sf8-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:52:05 +0000 (GMT)
+Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-99859876e19so765553241.2
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:52:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794930724; x=1795535524; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=d7zSyNw6qz1m1x7CMIoGYOav8WM1/EyZq/PX2PCxZm8=;
+        b=ZupGZDs4+1po9ZR0MwGvLYz2NmNY4OJocydg892eSBGHBu8U/j7VqvVIH92iYq6cfD
+         NSGh6Nyi1jvDtltZoKLUfKKU1REi5nlCmAOzF4bXIRRgecOyB0jpM2VioXBrpd13U8Ox
+         r1mkBZxn6j/0bNiv0qefKEoefpQy/WjbbewDrlTFoqnImU0B6rJHc3dYVCfNbdYh3Zcw
+         i0D73Aqz78vfj+HFMUldCYX/pjwHNrkh9o+cINXoRC1hv0R0W7jsux4j4vvntTIM+T7/
+         O6DlSzHo3CuVpYYshL/VJCR4Yd2Ih6jDVT081ATNwjEwB7+H3lkJta51tQjMSO+Jr42B
+         NROw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794930724; x=1795535524;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=d7zSyNw6qz1m1x7CMIoGYOav8WM1/EyZq/PX2PCxZm8=;
+        b=DV76jZnBz1Nm/Jhq4rvpIn3Yx8w9B60rSiZCAjgrQZ71R9xHbdToqvgW6TpyIr7w69
+         e2L51YjgAob+/Z3Sru9614VLSmWC3rcYCdbhDJabXSjWeL2LgyFQVsDCaVsAw+s1tn/F
+         sIQc/CXELvF6XO9KOlwOEs+7XGG83u09Rivnzif0paplFdvZ94auuDxsk5i2z7/AMXiL
+         guYlQdxrc1AwnB/LX/WDdS+jPy4ho6ES9m3oZVg3T0ddv1Feev9A2KR/jq81igPddlxE
+         rF7ouwZfKdQcdlI4mG02st71ELGk+fa+oytChnitM+sHw/Ir+ibouGC7qxxRMC/oF8pt
+         8Ivg==
+X-Gm-Message-State: APuU4Z8BUHyEDvujBy1+pmvy36mt4J31DSYVRaJ0Jr5FXpN5jo4/uV1h
+	yF9HteJGj290TQoNF2/T/dnEaCOzA75vZvWEkgNGrE2bsSsynckDo8QCK6ClchG6lpY9ejbIibL
+	rmw5jJ6KB/tycpqo/lg8lI9boDy09yoPZ3vz8qXSvuxB/LXRbsl9fg+/7cQ0=
+X-Gm-Gg: AYBFou3nopdgYbiN57595tK3fKqBqdf/y6DQQb1OXV95rkPJmpdOCCYmOB+eAUg6sfX
+	4tc1wMQRaILSMIwWQJx0kaQmi06KELac9eqQTafkMtBzd9Ra8WIXgj0lHz1BDWblWSGtBiDhj0M
+	tt2cFCj9kirAUg0GYRSNYHOkakVuegGnq7f78itgKrecgmYwKoe73sib0yN6A0NlINtE3w42ocK
+	c9pLTiCuQU7cRREb5aVvEtIG2SaVxRpqI/LjFz+LwZ/MWpIhWDi3M73X3quXfKpzkG4o+8StBwu
+	jU3EQ2iTIYRoqQN32l1hmE45ARQmbrPiacjBTs3xJl9U29bkrvJnwc5PSgeLQo354kMrfnZXtaz
+	d2IokruWGnsmNQycdzF61sPPO98OALaiD8MdiMZtYTAZipk259WzGxQt9h2O+yW4=
+X-Received: by 2002:a05:6102:6f07:b0:7d2:7827:c01 with SMTP id ada2fe7eead31-7d64d82be4emr3297229137.28.1794930724387;
+        Tue, 17 Nov 2026 07:52:04 -0800 (PST)
+X-Received: by 2002:a05:6102:6f07:b0:7d2:7827:c01 with SMTP id ada2fe7eead31-7d64d82be4emr3297198137.28.1794930723711;
+        Tue, 17 Nov 2026 07:52:03 -0800 (PST)
+Received: from localhost ([188.152.73.83])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7840b05bsm111211405e9.7.2026.11.17.07.52.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 07:52:02 -0800 (PST)
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Date: Tue, 17 Nov 2026 16:51:53 +0100
+Subject: [PATCH net] net: stmmac: fix num tx queues in
+ stmmac_xdp_get_tx_queue()
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,68 +112,102 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: preserve RX checksum capability when
- offload is disabled
-To: James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe CAVALLARO <peppe.cavallaro@st.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261115-submit-stmmac-rx-checksum-capability-v1-v1-1-ea26fa3689be@gmail.com>
-Content-Language: en-US
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-In-Reply-To: <20261115-submit-stmmac-rx-checksum-capability-v1-v1-1-ea26fa3689be@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Message-Id: <20261117-stmmac-fix-xdp_get_tx_queue-v1-1-4cd74ee7a76c@oss.qualcomm.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/x3MQQqDMBBG4avIrB1wrFjwKkVCML92FkabRAmId
+ 29w+cHjXRQRFJGG6qKAU6NuvkDqiqav9QtYXTG1TduLyJtjWlc78ayZs9vNgmRSNr8DB7iBsy9
+ xtu9kpnLYA0r33D/kkWi87z+oQ4kHcgAAAA==
+X-Change-ID: 20261117-stmmac-fix-xdp_get_tx_queue-0eda31da641f
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>,
+        Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        bpf@vger.kernel.org,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA2MyBTYWx0ZWRfX6/EHZRMkDlib
+ 12cl7CZVb0wfM+cFXHblS5ZuYn5yj8itceQ36TP8M6F7fItPM7O9EG/80TNfncgu82wOCf8Q6dP
+ MupHCZYtPEId4NnGtFgL2pCT2U1xRI0=
+X-Proofpoint-ORIG-GUID: MRaPzP2hdJarYQ7DcUuW19OT3N2CmTUa
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA2MyBTYWx0ZWRfX+zZTcPvScsx7
+ KAQN4FCE4Sy9Al3dSjkIhl7d2pgm0QFLlrGEC2DyGbfzSOu1QJ35sJnAVercBZ8kY/pJqqXslRx
+ p/zuTY7f2c5Z8iWyOD1PtgzZFmhhdanpp+Vzsxn1MNnPtKuGsM/teRCkVRNMBaW3AVnVAc60gPR
+ ZP72a5ZBVvG5yK9JZsWpSdZrpbWzeS//i6BT9/K1iKT+w/c2CvscuJRoAF3ohdzn90byXpl1sSi
+ ZveF0grw4qM1OnURbgOWUArI/dUBi3tcYQjOXH67O7S7/sWujIDirEqB4i7HZCfDCvA9YjFeEI2
+ ehT+r+kR/PR/LSDKxSGTgqy5ARhR/g15Wq9wbswZXKgIMhhd7+otMN2Aa14FzVSNVN8FHx0/xot
+ z6WhHLfLDWOqCEd0pohogN77UqAbuWH1y0iMOHmRQzyX7/maoSzkwNUQ9U3EsKLkr9NCMwjPtQ0
+ R95oPFWIguAUYnKu7fQ==
+X-Proofpoint-GUID: MRaPzP2hdJarYQ7DcUuW19OT3N2CmTUa
+X-Authority-Analysis: v=2.4 cv=ZP1CCn7b c=1 sm=1 tr=0 ts=6afc7825 cx=c_pps
+ a=ULNsgckmlI/WJG3HAyAuOQ==:117 a=mlS0om9xteqVCAF/aDpb2g==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
+ a=EUspDBNiAAAA:8 a=EjEmtv2rKBG8bDbUgTQA:9 a=QEXdDO2ut3YA:10
+ a=1WsBpfsz9X-RYQiigVTh:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_03,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 impostorscore=0 spamscore=0 bulkscore=0
+ adultscore=0 malwarescore=0 clxscore=1015 phishscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611170063
 
-Hi James,
+The TX queue returned by stmmac_xdp_get_tx_queue() is passed to
+netdev_get_tx_queue(), so it must be lower than dev->real_num_tx_queues.
+Since mqprio offload can reduce real_num_tx_queues below
+plat->tx_queues_to_use, wrapping the CPU index by plat->tx_queues_to_use
+can select a TX queue that is not part of the real queue set when the
+offload is active.
 
-On 11/16/26 01:49, James Hilliard wrote:
-> The GMAC, GMAC4 and XGMAC rx_ipc callbacks return whether checksum offload
-> is enabled after programming the requested state. A zero return is
-> therefore expected when hw->rx_csum is zero.
-> 
-> stmmac_hw_setup() treats every zero return as a lack of hardware support
-> and clears plat->rx_coe. Disabling RX checksum offload with ethtool and
-> then reopening the interface loses the saved capability. Subsequent
-> attempts to enable offload are rejected by stmmac_fix_features(), which
-> uses plat->rx_coe to filter NETIF_F_RXCSUM.
-> 
-> Only clear the capability if offload was requested but could not be
-> enabled. Keep calling rx_ipc when offload is disabled so that the hardware
-> is still programmed with the requested state.
-> 
-> Fixes: 0f280e4d23c2 ("stmmac: fix the rx csum feature")
+Use priv->xmit_qdisc.num_tx_queues instead, which is the value
+stmmac_hw_setup() installs as real_num_tx_queues and is guaranteed to
+never exceed plat->tx_queues_to_use.
 
-This tag doesn't exist :
+Fixes: 195e4f409a40 ("net: stmmac: support fp parameter of tc-mqprio")
+Signed-off-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-https://netdev-ctrl.bots.linux.dev/logview.html?f=/logs/build/1212156/14986330/verify_fixes/stdout
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 25894771e9e9..cf87afd27343 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5408,13 +5408,14 @@ static int stmmac_xdp_xmit_xdpf(struct stmmac_priv *priv, int queue,
+ static int stmmac_xdp_get_tx_queue(struct stmmac_priv *priv,
+ 				   int cpu)
+ {
++	unsigned int num_tx_queues = priv->xmit_qdisc.num_tx_queues;
+ 	int index = cpu;
+ 
+ 	if (unlikely(index < 0))
+ 		index = 0;
+ 
+-	while (index >= priv->plat->tx_queues_to_use)
+-		index -= priv->plat->tx_queues_to_use;
++	while (index >= num_tx_queues)
++		index -= num_tx_queues;
+ 
+ 	return index;
+ }
 
-Besides that, this is legit. Tested on AgileX5, CycloneV and stm32mp1:
+---
+base-commit: 5e9b2ad9b8384cd3c417cd5e2c3bc7eee4a72791
+change-id: 20261117-stmmac-fix-xdp_get_tx_queue-0eda31da641f
 
-ip l s eth0 up
-ethtool -K eth0 rx off
-ip l s eth0 down;
-ip l s eth0 up
-ethtool -K eth0 rx on
-
-Without patch:
-ethtool -k eth0 => rx-checksumming off
-
-With:
-ethtool -k eth0 => rx-checksumming on
-
-Please respin with a correct Fixes, feel free to add :
-
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
-pw-bot: cr
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
