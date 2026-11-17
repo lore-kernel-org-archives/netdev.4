@@ -1,99 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794896462;
-	b=2zDFfx6GMSfN3q30kdTXZXWdOAa/MMt/+fMQ4kXPhW3b9ZFWk1S1eLESM8sXyCTWuvgm
-	 gYozBaOwmjui4o1sTf/0IRx8Hl3crSz4B3GZsSTTHMZwkJchUyaJzKbPfDjp+eUY7yF9w
-	 QNPZMRkldueZQqW8HssdqOmRIY0pZTEfOBNhK+jay3vNOt88DijONl2tr8d3MfBqh5JuS
-	 u+5vcq87XL9IdsSEsZTXpmXvweBCsNslGFR8Wo5Mci/27ZBXK3BS9gvCfk0TZmgByFUd5
-	 TUTGEctPcGdPO3Th/0DWSlM2j8c79kytwJTCT1yzkkNpilusD4YW8kFIF85JyvQFrfQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794896462;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.228.139
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794896651;
+	b=eLQuSE0oh+g0Fmjl/7eTny54ny19+lKF4+XXZYX25xdhtu3E8vwvC99CEmbOksSR4bYE
+	 EwsNpuk7+l0vQhyhCDkijGC26UiayM/n+Lk0OkboJNe6nRqt17DVSnTF3CoOPJKntDMSy
+	 DCOVPWgxd6+tq784jDuB6XEsgddJ1WQUVrTtEDJ2dDsuHHGhF0ctdezE3ntI7kD7/ZEDg
+	 6vu5cAvalcwyO21FzPhkzHxGH+lUEyYXb3ml5g1Wos0ydNfzl+ztVgQERHADtB6nP3W6G
+	 LuZf6/6dH1Ici0/3TkcsuyzAdMSsQR4dpQUns9yEG+g+HOVQ7lC4FzwZvhXxUXUn5Ew==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794896651;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=NMCfTKaQFPqIG16pX0W13wdOlIRyQ9c9PPUggitB6aQ=;
-	b=a8sS0zH/sD2oe/YOSTvo6JYr0z71izpYAUJUfhdzTGsrFZVQh/6Gk2HyuxUMC7rtBm3D
-	 dRCXzITdKfTtEA8f8uTWOb/cDWakBLrdVMsCPxkEaw18lBQ/1ZF/nK7Np7ON6shRFZimg
-	 NJjc1npXLb4t8XBxQaLqnuQly7NaMXE2R027bsAgZnTpWDsMhz8bw5sw0oKX0ZQhlQBdB
-	 NnJHxJ/yQpEcO0kpoV84LizpB/r9x+7rvBmjmq1se7pXEwddarz8srWBquP8loHmxgCeK
-	 7NTNKtM5h/R7ofrVYlEMYjVoKEGPwPqoM+jevyWY2hJzocRmE9iPKZMwl/EUVtptk+g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=TJd0wc9G;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=Bv8z5Io8RhbyyeuDISboM7YRSTMS03SBG0kjxtz0W9A=;
+	b=xRlRp5KweCVfhPPw2rmBGkbBloz76Ylp7TfRAMprNVp4biC5BVY9dvnMN+By0qd5tAL8
+	 jaq5vAT/2+h+ifdN0EFUWXaCtL/OZHM2Yl27RnOIbMdLqDmDnptRbpeGkqhU2vtj71fp5
+	 KkFJAjTstNPE8dbrTTMtQUpR9h0LF7aiv+a+lEXe2G8bkJIEdvJyDGYdcaRHLM1Fz1xI7
+	 91dWi1+I/ppDEgxB1T1ja2MQWSplJ8ddG58IqG1Lm0e0Ocj3arLx/5eEM3KWKFfP3WXlt
+	 zq4/uO/kXPYMKZ7NljkLFGPu2d9fXx70fBi8suPn++k60guYdetejE5nntJPdkEYVRw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="MGOoJYc/";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.228.139
+Received: from mail-ej2-f11.google.com (mail-ej2-f11.google.com [74.125.228.139])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 410BB606A329
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:21:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 410BB606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90573606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:24:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90573606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=TJd0wc9G
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2ed408b0d9dso16400515ad.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:21:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MGOoJYc/
+Received: by mail-ej2-f11.google.com with SMTP id a640c23a62f3a-c504b4f2b6dso167493066b.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:24:10 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794896649; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MeD0vOHq93g/fFVY5ESR4+uJ+nfWNwF4lYlSMRVsknE5DEqX5h/21HytfN9yfne3bG
+         NjpoILSR3Fr0TNxxhgte0/KqY0/wHEdtuZf4KBnNYc/+TmgnStyeUQUL/2ulUsG9AlmQ
+         ITzt5GVBsHU5xGJX0M8/NukQFfn2MIKx415yuLFpreHUwmImsei3htpt94yu4KqkTuV/
+         u4VcjpDco5rgfVTSHrZnma/PoFFRDDsm1IrBqYXgrA1F+kmHozXY4SKrmOCKqmv28BTS
+         OwL8GXeSPjj/zkViOMBIMGXVQVr5A3uY+8GOQgmwExJTxiRdjJyzjUm9saUQDPI72j3s
+         YGCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=Bv8z5Io8RhbyyeuDISboM7YRSTMS03SBG0kjxtz0W9A=;
+        fh=jOSN3Q+fNI2s7KDvaIhVr21B9wD29VbMUMtT0evHPmg=;
+        b=TLBHSkCAiUgEWpcD3ofwQu/F2t/+NjiGSnuk62w60UXE+IMPydmwYlUMvSh4YdKRcY
+         Celchh2jThRFUt+2IzspdkOI6vOTag90GWwXJomSacfLJIXCSaudf3WJYQ2hYx8ZUQIP
+         6qpXkrDYjQLYWzEp/dYrQ/KGx48dlR3fj2e8GE9yzY0HQXlObbpWVShY4zeK5GdOUHQP
+         +dPnDxVnO3jB7BcV0POc68WrZFsHzAK3wiEnw+40kWZzENe20v8byWBhCEk+YmrfehWY
+         45grB8L++dZc9Gs6RXV/1+IV5GwCuGkecGK1FgBoV/YKMPizuvdeJy7k51YDHztM5A4d
+         FS/A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1794896460; x=1795501260; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NMCfTKaQFPqIG16pX0W13wdOlIRyQ9c9PPUggitB6aQ=;
-        b=TJd0wc9Ga+6W0cZx0oRDki6Ui8R7jndpZyKiFsjPr7lCT2gmY/5yL8ZydIIGgHOQxF
-         r2YC0YqZNsZSZm1T/O7kooooFoeigqFzkjgpWkf15SZ/aiSn8u9gjv64o7GupjMP67HX
-         4OzYSCYTI1sMSTa+sws9V2SGuE3cw+l6ScSV0=
+        d=gmail.com; s=20260707; t=1794896649; x=1795501449; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Bv8z5Io8RhbyyeuDISboM7YRSTMS03SBG0kjxtz0W9A=;
+        b=MGOoJYc/vMPkJIk5+hgWI61vPC8mDN2EPmKg7a3+DdKw8J8CmAtLpBlLhYvXNoLYNQ
+         wcceMykdIvsbZ3xU8KwTyHb2jj2CPbE5tRRKMTvKPFSHUkjYE9sBvRf9Q/phY6yXdvMU
+         LwePJR15bLB+OUdBbZ/a4zXsQUO0A6R2ZKA47fJheUhzPw8tkqQRw6VC5CmkDGtywVvK
+         tx2byuS8jFwYvEu1YS6f7SojUXBTmI/MOlDp2hY78Yw9oqqLXvQpXP0AgAN0Q/eD5790
+         a2US/5FXUoW7jbW9wuZyAYaDpKecZOWv0Y6YXuluWv7VRB4QorkS/K2McQ/qVT6AzFss
+         fExQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794896460; x=1795501260;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NMCfTKaQFPqIG16pX0W13wdOlIRyQ9c9PPUggitB6aQ=;
-        b=B0AOVXBn0fkF5uERwi4S4ViPag/bnGss7knsvvDghCocgSCK+uePQqMRoAze3UZ1in
-         HeTs7zIvX/oAcX6K6Vxg8aqrpk55bNG1cPDbfNSyLpgo3ML7VCtTap/V/UtJiP8vWvJW
-         ICpa/wFHvU5Tl8pAYQvxnIUYeldOruj9G79ID8Mevk2nYbk2lRayBa6fnTqrjze8dOUr
-         Oe1bsqlOgnpRnsTkoTxcB6FIsjJtRTvOZULdZBHd93Yc8c948VhNNCJDje4t41AOKvO2
-         UfoXMocLffTT2GxACdegUeuKnyR5aDBwrjvhkeEC2dvGdn6KRds3LMuYm/JjAiNVhLu6
-         R8pg==
-X-Forwarded-Encrypted: i=1; AL+hErEvDbi7EhSmaCQMRGzB3V83o4PqBSSzPcoBR4ANUS155OoXDaF3HYOipU6I18hTK9hHUlvLUQk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+7SkN04dZiyO0WIIJ2gi5JEuwxCABYqBL3QzoI/O/3Z21bM183
-	cUn3M6mRbQ667+1wqiKYUHehwAFUNwTKRzBmegpJ9z/FNhU1V52xTvBgJrmolH5/wMQ=
-X-Gm-Gg: AZFdTZdtZzFQtJP6cp34NHDLsLqnsS1qM4bOemOB5iom1Fv1HlFbHrsbQmF4Vm4PKzn
-	A191zrc+rdwg4bDjsWG+IwwKG9JTBPeBDy4qBQ4LCzpxMVk98yLKOLWBeRO60iu1qMtTxrvpIBh
-	YrMSKYK3zH3bpO7p5hmGUbOnaF5s1WKFb9i/k6EFGf9r67CSOgya89Tj5kppV8NBqE3jTEaB757
-	DcNgqBNQRcjesGqBDlAFmpakmB2wD4soqiwB3xdDdrF7ABptze02iky5iLJRCx3Nvmb3RnBYTOi
-	WSGNeNaxnRFSrHq4wh20HupvshggbXojw7S+NLjTXZTYVCnFLK2tGhsbnSXdiKnRUDXymJ8LPrK
-	7OC/nRp7GSTsSb+U+ppX6NvQFNlf3G1HVrkpGnS80YW7osNn+WTdVN5RongUvGGd+BJW/5cTuHV
-	Ts9EdilP5EOqLkO/ZkKIs286/KcLGFu9PWVegHPVBiJl69zE0rcc9AsVp5cp+m+G5hA7gPnact2
-	26M1Kdrp2DZ6JDl+pG4e5mnf80J9QfXK7BOSKWh2rvM3+I4jYfafdE42W/Xj2DV3ydqmCMoh/L5
-	N7QMY6r7teFUPcW590zUUSxLSTeeBbmWHwMdtMnY8gpjxF65mZZn9z7bQjj4tuuMbLljkiK5K1i
-	+qKzWuqY1qjyqKS8ne+1pKmXErLL2sEJKaxb2mbOc+mhEfu/PXq7HZRx7f3sTqYJ2heMajFncHj
-	NmgXjdsqA5Xw==
-X-Received: by 2002:a17:902:ce0c:b0:2ef:e59b:f562 with SMTP id d9443c01a7336-2efe59bf9a2mr1743065ad.58.1794896460203;
-        Mon, 16 Nov 2026 22:21:00 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd7a3797esm8112765ad.31.2026.11.16.22.20.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 22:20:59 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S . Miller" <davem@davemloft.net>,
-	Andrea Mayer <andrea.mayer@uniroma2.it>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>,
-	Piyus Kedia <piyus@iiitd.ac.in>
-Subject: [PATCH net v2] xfrm: do not write the ethernet header when the mac header is unset
-Date: Tue, 17 Nov 2026 11:50:46 +0530
-Message-Id: <20261117062046.3286096-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
+        d=1e100.net; s=20260707; t=1794896649; x=1795501449;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Bv8z5Io8RhbyyeuDISboM7YRSTMS03SBG0kjxtz0W9A=;
+        b=ZWi2sE0m/cSUI8TmPSDLA8pcDJZl4SLA1a/1/8fAn2P7w0kpVP4aOofRRH5afkcfxQ
+         FcuA9kGEVHJHR6/RZyDU3JozNS6FzuQvD551XU0PobfIKsTc8AoJC3ucxB4JJ8Lof4Z8
+         kHKkeaE5zNpQkEnOHbjqrx7YGbLjbvb9BPvPSDc784OQVXlMlH/20z+BXxme3ieyymL9
+         lIWjL94zEdns1lQpiycwKJoastMH5IT/kB/6ChB5YE62x13l/Cgb36TM0+MmhhcDW9t3
+         XfGqnud0mZVX02TzQWtv86gZJQ1XG0vgme+6DlXl8taGUgCXpXC5rh51jSiZb5QV0qyL
+         yccg==
+X-Forwarded-Encrypted: i=1; AL+hErFd/B8YlqmYcv5t6Z6tJ7IxcW9CqYQgMz6HyeJt3v+7VhKjiBjiOYaHp7UPJuKdOTHYlAx/1e0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+BCybew/VRsTf5EGxMoD9WFthZP/V/eVD80xSyV0U+3RaLRsIK
+	g2UGst59nawZRUS34zcSctqTezD8WkvjPUK0odi0D5ZLTgFVfgyrG7dBZAXZOn8w1KRb5n3aS22
+	ELuUUSwmA72YHZAGrP8DAlcQzhEe+XPw=
+X-Gm-Gg: AYBFou3HecpboTBCYCMt/B6wojRJDDUQ3aCvw1nIf5xddtBEpQKcuyoV1II2BCdJtRF
+	GkC/5tRZJLFJTtP+Rl0rrKAIBsg9GEGf0BCczlEWqmf37DBaeuCAMMtWMaB2vjNvXItuDxAx8Aj
+	YBHMGQZzjgF0fAkWTbe7P1ziP7LQDVr9glJzUuh3ZcTngUdvYJAeFJHdMMZ+lbxl0+d8q8uEVX0
+	L6cq2Ai+OmnQjKx9KtGpwuBw00dLtAPiyihPL/CA3r0rYsVe8b08d1WVpqqi+/2ofePFM+Qaew0
+	nHY2jfQTYj5K+NJ9cQEU34LIqROWDUpjM0fzE0KN0LFfrqV/JTTz0Pn5D+p+vCJKBNI7r+i2tzb
+	dT9hGkhMKgwn2k1cPlwSBuRQo1HetURa9FHa1sd41NuDoIOZOzqjosYrEbr44k8S2iNDv5Kca10
+	6G8jCgpZTeFNU=
+X-Received: by 2002:a17:907:7ba3:b0:c25:91bc:ff55 with SMTP id
+ a640c23a62f3a-c509636a832mr966830466b.23.1794896648621; Mon, 16 Nov 2026
+ 22:24:08 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,174 +105,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261110160554.918652-1-coiaprant@gmail.com> <20261110160554.918652-2-coiaprant@gmail.com>
+ <20261116183012.11a7ba72@kernel.org>
+In-Reply-To: <20261116183012.11a7ba72@kernel.org>
+From: Coia Prant <coiaprant@gmail.com>
+Date: Tue, 17 Nov 2026 14:23:56 +0800
+X-Gm-Features: AclHuK_nLO104gw1yCZjvRwQLJzYX6sO8gDm56OtDyoqEcCmc11J_KEsaJmWM1U
+Message-ID: <CALj3r0gTuJEDd==WzAQ+cK3Og-2zMqvmBrhrd2ARbKJctG5ZAQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 1/2] net: phy: move DECLARE_PHY_INTERFACE_MASK_ZERO
+ to core
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Paolo Abeni <pabeni@redhat.com>, 
+	Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou <mengyuanlou@net-swift.com>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Heiko Stuebner <heiko@sntech.de>, Aleksandr Loktionov <aleksandr.loktionov@intel.com>, 
+	Fabio Baltieri <fabio.baltieri@gmail.com>, netdev@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-xfrm4_remove_tunnel_encap() and xfrm6_remove_tunnel_encap() restore the
-mac header after removing the tunnel header and then stamp the protocol
-into it:
+Jakub Kicinski <kuba@kernel.org> =E4=BA=8E2026=E5=B9=B411=E6=9C=8817=E6=97=
+=A5=E5=91=A8=E4=BA=8C 10:30=E5=86=99=E9=81=93=EF=BC=9A
+>
+> On Wed, 11 Nov 2026 00:05:53 +0800 Coia Prant wrote:
+> > --- a/include/linux/phy.h
+> > +++ b/include/linux/phy.h
+> > @@ -159,6 +159,9 @@ typedef enum {
+> >  #define DECLARE_PHY_INTERFACE_MASK(name) \
+> >       DECLARE_BITMAP(name, PHY_INTERFACE_MODE_MAX)
+> >
+> > +#define DECLARE_PHY_INTERFACE_MASK_ZERO(name) \
+> > +     DECLARE_PHY_INTERFACE_MASK(name) =3D { 0, }
+>
+> I wonder who suggested this, hiding the init inside the macro seems
+> a bit subjective. I see no such defines today. We'll need an Andrew
+> ack for sure.
+>
+> Please try to add lore links to previous versions of the patchset
+> in the cover letter.
 
-	skb_reset_network_header(skb);
-	skb_mac_header_rebuild(skb);
-	if (skb->mac_len)
-		eth_hdr(skb)->h_proto = skb->protocol;
+Hi Jakub,
 
-skb_mac_header_rebuild() does nothing at all when the mac header was
-never set:
+Thanks for the review.
 
-	static inline void skb_mac_header_rebuild(struct sk_buff *skb)
-	{
-		if (skb_mac_header_was_set(skb)) {
-			...
-		}
-	}
+The macro was originally introduced locally in the Wangxun (txgbe)
+driver (commit 47f848aac4e7) to handle the uninitialized stack variable.
+However, their local version incorrectly uses PHY_INTERFACE_MODE_MAX as
+the array length instead of BITS_TO_LONGS(), which allocates far more
+stack space than necessary.
 
-and it does not clear skb->mac_len either, so on an skb whose mac header
-has been unset while mac_len stayed behind, the guard is true and the
-store goes through an unset header.  skb_mac_header() is
-skb->head + skb->mac_header and the unset value of that u16 is 0xffff,
-so eth_hdr(skb)->h_proto is 65535 + offsetof(struct ethhdr, h_proto)
-bytes past skb->head: a two-byte out-of-bounds write landing far outside
-the skb, in whatever object happens to be there.
+I was just trying to fix that bug and move it to the core header so
+both txgbe and XPCS can use a properly sized, zero-initialized bitmap.
 
-skb_unset_mac_header() leaves skb->mac_len alone, and of its callers only
-skb_carve_reset_headers() clears mac_len by hand.  end_dt_vrf_rcv()
-(SRv6 End.DT4/End.DT6) unsets the mac header on the receive path so the
-VRF device can rebuild it, and leaves mac_len at the value the original
-ethernet frame had, which is how an skb in this state reaches xfrm input:
+I understand your concern that hiding the init inside the macro seems
+subjective. Since you mentioned an Andrew ack is needed, and he is the
+net PHY maintainer (who also looks after the WX driver), I'll keep it
+as-is for now so he can review it in context.
 
-  tun_get_user -> netif_receive_skb -> lwtunnel_input
-    -> seg6_local_input_core -> End.DT4 -> end_dt_vrf_rcv
-    -> skb_unset_mac_header (mac_len stays 14)
-    -> VRF l3_rcv -> ip_local_deliver_finish -> xfrm4_esp_rcv
-    -> xfrm_input -> xfrm4_remove_tunnel_encap
+If Andrew also feels this doesn't belong in the core, I will drop the
+macro entirely and switch to explicit manual initialization using
+phy_interface_zero() in both drivers.
 
-  BUG: KASAN: slab-out-of-bounds in xfrm4_remove_tunnel_encap+0x17d/0x220
-       net/xfrm/xfrm_input.c:258
-  Write of size 2 at addr ffff88805f85800b by task syz-executor/10831
-  ...
-  The buggy address belongs to the object at ffff88805f858000
-   which belongs to the cache zswap_entry of size 56
+I'll also make sure to add the lore links to the cover letter in the
+next version.
 
-The address does not depend on mac_len - it is always
-skb->head + 0xffff + offsetof(struct ethhdr, h_proto), since the unset
-sentinel is what mac_header holds - and mac_len only decides whether the
-write happens.  The value is skb->protocol.  It is two bytes at a fixed
-64KB offset, crossing into an unrelated slab cache.
 
-A THIRD SITE HAS THE SAME THREE LINES, in __input_process_payload()
-(net/xfrm/xfrm_iptfs.c), reached when an IPTFS payload is decapsulated:
-
-	skb->protocol = protocol;
-	skb_mac_header_rebuild(skb);
-	if (skb->mac_len)
-		eth_hdr(skb)->h_proto = skb->protocol;
-
-and it has its own KASAN report, a use-after-free rather than an
-out-of-bounds, for the reason given below.
-
-That function already knows the test is needed.  Its other mac-header path
-is guarded by old_mac, which it computes at the top as
-
-	old_mac = skb_mac_header_was_set(skb) ? skb_mac_header(skb) : NULL;
-
-and only rebuilds the header when that is non-NULL.  The site above omits
-the same check.
-
-WHY THE THREE REPORTS CARRY DIFFERENT TITLES, which is worth stating so
-they are not read as three defects.  The address written is a fixed
-skb->head + 0xffff + offsetof(struct ethhdr, h_proto), so what it lands in
-is whatever the allocator placed 16 pages past the skb: a live object gives
-slab-out-of-bounds, a freed one or a page back on the buddy free list gives
-use-after-free, and a different LIVE object gives nothing at all, since
-generic KASAN only tests whether the target address is poisoned.  Across
-six boots of one reproducer the write executed in five and KASAN reported
-it in one.  On a kernel without KASAN it is always silent.
-
-Only write the ethernet header when there is one.  This mirrors what
-xfrm4_transport_input() already does, where the header length is taken as
-skb_mac_header_was_set(skb) ? skb_mac_header_len(skb) : 0, and what
-__input_process_payload() already does for old_mac, and it leaves the
-behaviour of every well-formed skb unchanged.
-
-Link: https://lore.kernel.org/r/20261116174531.2540348-2-piyus@iiitd.ac.in
-Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
----
-
-v2:
-  - guard the third site, net/xfrm/xfrm_iptfs.c in __input_process_payload().
-    It has the same three lines and its own KASAN report, a use-after-free,
-    and v1 left it alone - which would have closed two write sites of the
-    three while leaving a confirmed one live.
-  - say why the three reports carry different titles (slab-out-of-bounds,
-    use-after-free, use-after-free): the address is fixed relative to
-    skb->head, so the verdict is decided by whatever the allocator put 16
-    pages later, and a live neighbour gives no report at all.
-  - cite __input_process_payload()'s own old_mac computation as the in-tree
-    precedent alongside xfrm4_transport_input()'s.
-
-  No change to the two hunks v1 carried.
-
-Tested at runtime on mainline before and after: both kernels built from
-aebb72744764 ("Linux 7.4-rc3") in one scripted run, x86_64 with
-CONFIG_KASAN_GENERIC, CONFIG_DEBUG_NET, CONFIG_IPV6_SEG6_LWTUNNEL and
-CONFIG_NET_VRF. Six boots each, injecting after the uptime passed 130s. The
-skb_reset_mac_len() warnings at include/linux/skbuff.h:2995 are the control:
-they fire when the unset-header skb reaches the receive path and this patch
-does not touch that site.
-
-                  skb came through   reached the write   KASAN
-  unpatched         5 of 6 boots       5 of 5             1
-  patched           2 of 6 boots       0 of 2             0
-
-Every unpatched boot in which the skb arrived reached the write; no patched
-boot did, including the two in which the control shows the same skb arriving.
-The one-in-five KASAN rate is the point made in the changelog about the
-verdict depending on the neighbour.
-
-checkpatch reports one thing, the missing Fixes: tag. Neither tree we
-reproduced on carries history for these files, so we could not determine the
-introducing commit; we will add it if you can name it.
-
- net/xfrm/xfrm_input.c | 4 ++--
- net/xfrm/xfrm_iptfs.c | 2 +-
- 2 files changed, 3 insertions(+), 3 deletions(-)
-
-diff --git a/net/xfrm/xfrm_input.c b/net/xfrm/xfrm_input.c
-index 5ed87d513..624ff8055 100644
---- a/net/xfrm/xfrm_input.c
-+++ b/net/xfrm/xfrm_input.c
-@@ -254,7 +254,7 @@ static int xfrm4_remove_tunnel_encap(struct xfrm_state *x, struct sk_buff *skb)
- 
- 	skb_reset_network_header(skb);
- 	skb_mac_header_rebuild(skb);
--	if (skb->mac_len)
-+	if (skb_mac_header_was_set(skb) && skb->mac_len)
- 		eth_hdr(skb)->h_proto = skb->protocol;
- 
- 	err = 0;
-@@ -291,7 +291,7 @@ static int xfrm6_remove_tunnel_encap(struct xfrm_state *x, struct sk_buff *skb)
- 
- 	skb_reset_network_header(skb);
- 	skb_mac_header_rebuild(skb);
--	if (skb->mac_len)
-+	if (skb_mac_header_was_set(skb) && skb->mac_len)
- 		eth_hdr(skb)->h_proto = skb->protocol;
- 
- 	err = 0;
-diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-index 0313a43aa..41af72a92 100644
---- a/net/xfrm/xfrm_iptfs.c
-+++ b/net/xfrm/xfrm_iptfs.c
-@@ -1099,7 +1099,7 @@ static bool __input_process_payload(struct xfrm_state *x, u32 data,
- 
- 				skb->protocol = protocol;
- 				skb_mac_header_rebuild(skb);
--				if (skb->mac_len)
-+				if (skb_mac_header_was_set(skb) && skb->mac_len)
- 					eth_hdr(skb)->h_proto = skb->protocol;
- 
- 				/* all pointers could be changed now reset walk */
--- 
-2.34.1
-
+Coia
