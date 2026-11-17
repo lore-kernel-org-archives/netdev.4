@@ -1,55 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794911035;
-	b=Ec1uIylehV8Gy2Xw/3IXZ2cceCm0WGKKieJ26cSy8S9V1W1LrVOCG1X1oWnvDsfi38j+
-	 jQr8INrqwTeN0TSOdIsKiPiWLLnJJcPtR45Qg2hdenGoFiHMNQ+c+UjpHfs8Q6cU5xfFL
-	 tUSfDqTshf+IDXEvft8Q2Xhh6V7Piw0bg5VGHcpcYmgVOzfHXM12LgVS13epf1odLRkwD
-	 Uuitm2Vo5VVc/fb5yTMrXEgng+COrI2VL6LXphOUKAkouTy+/SpV4mHYSl9ZEq65O4H2J
-	 UZGes1DEH2c+Z5CKJ5L74BqjPdVhhbx5qiQ4WM2g9jJ9WFe2JlkYebU3nJOLmGgJFWg==
+	t=1794911193;
+	b=Z8BBQwOEGP+iqCEy0bA3bzDk3n9S5o1SL0rdk/683LzeVnJhLcI66J00ZAM3ik4GNeY2
+	 Air0a2CwN90Ww42ygq97oOkYSN+bhcBddl1WYgYpfgXmjyd5gYkemG0KsbubZFRyLi9ER
+	 pkBx29T8qiZlWCNVyCnmQtvpYXzEh+LOSfQ8eXFmuXovK63UZ98T6riAwu5W1MqivapqJ
+	 HbznV8f1NJeZXOwobac0BMdfV+/LaiqmpjPtguP/TiihDSeyflQzc33P/UU7hsoa9dVL+
+	 bW4Dx5B+1+MRa11FnFEGM3LRLz6RklI3K5yTMr/RZcg8I6btP/PwyyY4BpYfO4UpOJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794911035;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=DjF+KTI6bUfAyzuUUdOxWs2s35Pc9lvGpTrqDOnYYw0=;
-	b=aV9MMsrUHTLWfKba7Vb5ptzNdAeBUbh+mLA0ZrzvMG8zoYhmP49wI1BH/k04964/qiCs
-	 rZ+643eAvvEdxCKAhzk0gc1812pWIR2RxuiqhbWu+5n0Qeft6S6i5aAiBr1ajdKP0XsMv
-	 KkShiK9c4qvtT8UMtqAbpuVP/bcWZORxBfyKoVcKLEhL5MTtUD3JkY1oBWp5A+99wL+4p
-	 ZZoq894l4Sz/CaZxNlob4UefmqccmaEFRS5GIOmtMyhlrgLR8XgEqAbD4bzYvNZcDOz0o
-	 n4H5PZcLzIp1V3Z0nrIyaFMVzVnAaY93Vx9cs+ezk98uMimzpwpDE25LBQLiSYE5OxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794911193;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=Vm8fCUb0PTrPZmrMT6GsSOC21f5tCtSd3vKAbkklXKs=;
+	b=vnwY6gKUI4xicfiAs1EKhd8IZYVCCpemgVzTXfbSrvyD1rg4mN2BbrSvjXft4A8DGfYc
+	 BFCFiKbkYW3O97z8ZwQkwUjvmUGKSkr5s/ZWf2qKEX6wFAUpSWfP294K1JOJZaXh0KpkK
+	 4w9ct3+/eE3k0lT8+KbrUR2/9HDelmnNKAr9JoGPqjuzsckgBdbQTP/8t44xi8nYOekXP
+	 Q344emwOC48q0EOfggPezJLF0n7JFFwTtSDZnpvl1SvwTr+xoTZvSDYyVL8KbjcfouSa5
+	 I6ZyIcV4QuvqZKZWJarwYyuj4ftFu7ZOc3gQs4rYHcGpc2tgt1zLohavhu5Tmc0wHCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Syrschel;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=none header.from=netfilter.org;
+	spf=pass smtp.mailfrom=netfilter.org;
+	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=pfmdCEUk;
+	arc=none smtp.remote-ip=217.70.190.124
+Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9196F606A884
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:23:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9196F606A884
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 652F6606A31C;
+	Tue, 17 Nov 2026 10:26:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 652F6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Syrschel
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 2A40E4E41471;
-	Tue, 17 Nov 2026 10:23:53 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id F37D45FC81;
-	Tue, 17 Nov 2026 10:23:52 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2C0711BC02EE;
-	Tue, 17 Nov 2026 11:23:49 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794911031; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=DjF+KTI6bUfAyzuUUdOxWs2s35Pc9lvGpTrqDOnYYw0=;
-	b=SyrschelNGJ5mq9nOl9En/KFFH1oE7qbhx7tr9EvnR0ZyqUpSiyk3gfQy2sVi7juWwphmH
-	4wbi/ipB3x0Hdn1OaZ1LyjN+1bXk1mNU7wHiz7IyMMEVULYPNI/sh0xQ3v512/CXvLaubP
-	SanA5BJ27BU7iYmYmzKrvFXzrufSYHVAFcKuvzqpIMEQGUzBhFyMTKsMXsJ+Hdxkrxt/sT
-	sjQdlxE05NCZw9u9bJHT+gr65ROfKHf5aK04PV1FI4hxIXvCCVFaKchwrC2NE7LnURG7H6
-	SXvtO4raKA/y9B5l+pvrtA5BRxMkWEJwiovQtxHwtbu3KpvBCbUmzseqDnvYFw==
+	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=pfmdCEUk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1794911189;
+	bh=Vm8fCUb0PTrPZmrMT6GsSOC21f5tCtSd3vKAbkklXKs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=pfmdCEUkrydiCr1SRy9k8UNTOm6curUNlAmaQWXlJcwx7+ORxZyokfAQjJkc+zyNt
+	 agTFDPrOfCqnQsXx3RcmxV8W0PgP5NksJjVQSAZ9J+hXCJJ98iaLtNNs+tTWgesThJ
+	 SyzRvzCELIAY2miE69lG9ZKfFuWeXDNxvGwkUUt7hsnnDzPeGbvyGSz2BM3gmsPoXK
+	 ec5X8G5W09CiEnqqnybHG3RPvPwiCBeWyHsKBCEBxQvviSUezqdIkg/Opf/zmfzOnH
+	 sNQqJcIJhsZeV606iuRhEFnMo79lQEiRAZKay5eayt79He0CC6n4xDot4BCZg7WFB5
+	 xqrqPqRufbJIw==
+Received: from netfilter.org (mail-agni [217.70.190.124])
+	by mail.netfilter.org (Postfix) with UTF8SMTPSA id B257060076;
+	Tue, 17 Nov 2026 11:26:29 +0100 (CET)
+Date: Tue, 17 Nov 2026 11:26:27 +0100
+From: Pablo Neira Ayuso <pablo@netfilter.org>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: netdev-bot+sashiko@kernel.org, netfilter-devel@vger.kernel.org,
+	davem@davemloft.net, netdev@vger.kernel.org, kuba@kernel.org,
+	edumazet@kernel.org, horms@kernel.org, fw@strlen.de, ja@ssi.bg
+Subject: Re: [PATCH net-next 01/13] netfilter: flowtable: do not hw offload
+ flows in teardown state
+Message-ID: <avwr00Q8q5PK1YNZ@chamomile>
+References: <20261116001612.2806263-2-pablo@netfilter.org>
+ <179487496421.3136.13242797618262399074@kernel.org>
+ <9ead5297-c706-49d7-8226-99955d81ccae@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,91 +67,42 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 17 Nov 2026 11:23:49 +0100
-Message-Id: <DMXEUVLLYME0.28DXLBJQS5GGF@bootlin.com>
-Cc: "Conor Dooley" <conor.dooley@microchip.com>, "Andrew Lunn"
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, "Russell King" <linux@armlinux.org.uk>,
- <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Paolo Valerio"
- <pvalerio@redhat.com>, "Vladimir Kondratiev"
- <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
- <gregory.clement@bootlin.com>, =?utf-8?q?Beno=C3=AEt_Monin?=
- <benoit.monin@bootlin.com>, "Tawfik Bayouk" <tawfik.bayouk@mobileye.com>,
- "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>
-To: "Nicolai Buchwitz" <nb@tipi-net.de>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH net-next v6 2/2] net: macb: distribute evenly Tx SRAM
- segments
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261113-macb-set-channels-v6-0-5de59d9e7f02@bootlin.com>
- <20261113-macb-set-channels-v6-2-5de59d9e7f02@bootlin.com>
- <00aea741bd079eb9168fb2ef9b656f25@tipi-net.de>
-In-Reply-To: <00aea741bd079eb9168fb2ef9b656f25@tipi-net.de>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <9ead5297-c706-49d7-8226-99955d81ccae@redhat.com>
 
-Hello Nicolai,
+On Tue, Nov 17, 2026 at 10:40:48AM +0100, Paolo Abeni wrote:
+> On 11/17/26 01:22, netdev-bot+sashiko@kernel.org wrote:
+> > Thank you for your contribution! Sashiko AI review found 2 potential
+> > issue(s) to consider.
+> > 
+> > Critical: 0 · High: 1 · Medium: 0 · Low: 1
+> > 
+> > If you believe none of the issues are legitimate, please reply to each
+> > issue of Medium severity or higher and explain why the AI is wrong.
+> > If any of them are legitimate and you plan to respin, please let patchwork
+> > know by including "pw-bot: cr" as a separate line at the end of your reply
+> > (one such reply per series is enough).
+> > 
+> > - [High] The fix is incomplete.
+> I understand from discussion on v1 that the above is understood and will be
+> addressed as follow-up. The same for the mid issues in patch 2/13 and 3/13.
+> @Pablo can you please confirm the above?
 
-On Sun Nov 15, 2026 at 8:40 PM CET, Nicolai Buchwitz wrote:
-> On 13.11.2026 18:32, Th=C3=A9o Lebrun wrote:
->> GEM has registers to configure the Tx SRAM segments distribution across
->> queues. The reset value is apprioriate (even spread) but we need to
->> care if/when number of active queues is modified (or if we inherited
->> unevenly initialised hardware from bootloader).
->>=20
->> To distribute segments, we take as input the number of queues
->> (ctx->num_queues) and the number of segments (found inside DCFG6).
->> Its output is a number of segments for each queue, formatted as
->> powers-of-two (eg 2 for queue 0 means it has 2^2=3D4 segments).
->>=20
->> Signed-off-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
->> ---
->>  drivers/net/ethernet/cadence/macb.h      | 14 ++++++
->>  drivers/net/ethernet/cadence/macb_main.c | 76=20
->> +++++++++++++++++++++++++++++++-
->
->> [...]
->
->>  static void macb_init_hw(struct macb *bp)
->>  {
->>  	u32 config;
->> @@ -3465,6 +3522,20 @@ static void macb_init_hw(struct macb *bp)
->>  	if (bp->caps & MACB_CAPS_JUMBO)
->>  		bp->rx_frm_len_mask =3D MACB_RX_JFRMLEN_MASK;
->>=20
->> +	/* Distribute Tx SRAM segments evenly based on active number of=20
->> queues.
->> +	 * TXQSEGALLOC is only documented for some GEM integrations.
->> +	 */
->> +	if (bp->caps & MACB_CAPS_TXQSEGALLOC) {
->> +		unsigned int num_segments;
->> +		u32 val;
->> +
->> +		num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE,
->> +					       gem_readl(bp, DCFG6));
->> +		val =3D gem_sram_distribute_segments(bp->ctx->num_queues,
->> +						   num_segments);
->> +		gem_writel(bp, TXQSEGALLOC_LOWER, val);
->
-> This only runs on open, not on a context swap. So ethtool -L on a
-> running interface keeps the old split until the next down/up?
+Confirmed. We'd prefer to address one thing at a time,
 
-Agreed! How I'll solve this:
+- The CLOSING state logic needs a review, 1/13 is focusing on the TEARDOWN
+  state specifically.
+- Regarding 2/13, more existing drivers need updates. Currently this
+  update to retrieve stats when the flow entry is deleted is a no-op
+  for nfp and mlx5 because these drivers are ignoring the stats object
+  in the delete path. No harm, just those need to be updated.
+  There is also a remark on different lastused type (u32 jiffies vs.
+  u64 in drivers).
+- The issue described in 3/13 in also a pre-existing issue, ie.
+  conntrack -D or -F is also missing pending (non-accumulated) stats
+  in hw.
 
- - Make gem_sram_distribute_segments() self contained: it does the
-   bp->caps check, figures out num_queues+num_segments on its own and
-   does the writel(val, TXQSEGALLOC_LOWER) at the end.
-
- - With that, we can call gem_sram_distribute_segments(bp) once at
-   macb_init_hw() and once at swap_end.
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+I consider these are a pre-existing issues.
