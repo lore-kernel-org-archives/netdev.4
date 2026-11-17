@@ -1,55 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794904553;
-	b=mrOuxfn2JHO6IwCCzx2PHaUnhHVopePaNgULrUw1NDC2Ok8bwzFXfIH13/L6L1xZqbIZ
-	 GdLWDPMtAXcHA6DoPLuvUxqqFcwXTKQNfZZp4DwN3PwmgJjy61PWXvLM7K3Qf+UWzwQwX
-	 d3mrIPkIo1trxFjgAf53MHSnb9IbrdgVgCYnrAF0IHwOziBg225Moqhl/H75e0GElchWO
-	 WuXfu6DTnOlW/SPS15u2fBv8J45UyHyW1RbnVAvTb2Y7b7B2s0a9nJ30UvmuO7Sdjp36I
-	 IuIZVXcbM/FoR3BceIQV/EPdeUz62+mqc2juzlWkvPFfU5yAq/n9znIVnRoa7uurTyQ==
+	t=1794904595;
+	b=EJfd4nwXwt2fC3YN+/E/hbLmwXzD/sV8at9HqFvn2lHrRSSDG0QGKVYXk69T10ok0y4P
+	 SGjl9RjaKr1Mo6vHgJu7IdzSj8PZUuhi37qOC63qds70Q7IHnO83e3lfdSoIFlUpP3uW/
+	 iE7H7M6djjRI7QyFwfgGdfLxJFnf/JWS87uTxjzDZsADYOVFaMUolLjOWJh6YGhrC3OKM
+	 y8GmFvZY3wt89L5IvmZEo3GP/wkDX3F5MulPXnF/Qjk46xM7Qh8M1/fXieHJOd63YPT/p
+	 +MSlYBUFBPVzIQ0GI9Eycv5eWehPw+igp3nJOdXzVNHNYrtTsaY4QcuqGWQaGqM19ZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794904553;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=LRv3zYGXHNmAePcX/d3rvOHEvwC7ucCmh+YJOWicdz8=;
-	b=0v95uwJoPMMuQgpbWk59zv8IB7eD45gqZ1OQO5etOgJSl7YbsKGA/dDMJhl7ZuEqtGEp
-	 +mzXMiqsvw27DgFtU0LH0H6YeB4uxtogo/1HYVZCaRO+2AM311MnO1Z8AE5c89eqKxOOZ
-	 tEgbCjgzuKnH99OLl5JqnnkQZ6t8mt297FTnTORk1anPCBXj97gs57J5cZD1YtFor0fDK
-	 8QQKWDX1etDOJktPW5X5DzNmWpQCxSFGJH8LrJS7hktQ1e5AAiSsvLtFZHBqmKHK0F2n9
-	 JPdvAF7/o1rd203tA0UqaLoCrkDP4QKgFEIWpTECKR52IhL4eWJ3qkstXV2tB61rFLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794904595;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=u/hxpfxH2Ygjpkkpn+gEQ4NFMpeA+YPAHTw9d0qdSc4=;
+	b=sOT1yCLoXQrlJgtdIpimvTODb5Bsuq/DryfFEZ+88pkcLhuHFvCQEcTPZH81N1sz0FA/
+	 JZ3cwXBvBGG01Ibi1C0JGzNcN2/jwTBTh0ReR87qREYzio5VVK82PXRQGnIC3ZKUwQFBT
+	 otIarbYNb+21BA/wGU3f4m8ERnolkwlvJHx92gTG8jFpgxpgMP44BX22+tBm9vK4RwVam
+	 kOQC2wFKv1tiHkGzDUOaPu01IhsKjX1MMuPtUTzoVG6u12l7MigwIVXQ3WnUwFH7X/U4y
+	 QO2Y5xGedUAQvxVLj47Hp+haGnG44dv+8Z5lhpgD4Xb/UR6ZYd8zTBhmXiXdMfbURwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RK4YuSFs;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=amutable.com;
+	spf=pass smtp.mailfrom=amutable.com;
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=VB84C1sh;
+	arc=none smtp.remote-ip=209.85.128.52
+Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEDA8606A891
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:35:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D070A606A8A0
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:36:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D070A606A8A0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RK4YuSFs
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B41FF1F000C5
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:35:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794904552;
-	bh=LRv3zYGXHNmAePcX/d3rvOHEvwC7ucCmh+YJOWicdz8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=RK4YuSFst31MAgOk5OktcchAACUUSnz6Xl5Oh7lvSxk1rPBJjp8+hGHNmBpyjB1sL
-	 roigEGjcododccS0bww8LLFt5k3wTlzDXh2V1RY11EJe/TWGv4aNmxFsS+dldkAA0Z
-	 xcY3POdTwRyPxSm4lSZkA1IJ1XLJuSIYulxHd6caSw7WBQiqGfucYNf1lhV1IZ5BWf
-	 9Xxk1Pghd6eQcQRRjsvPGmjOtV6NZmQIri+TdPr7Qh8U4lY4PNCVxL3pRM5gofL5k6
-	 sp7R+2+qWFb2gIRDRBadlaCj+DKeg5D7lWDFvtJ4E4blbBkuuxuydsIDDvkZSqcbZ5
-	 raAjlBb0Cz15g==
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-71b0d330acfso53529eaf.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:35:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHqk9VThW/Vk9jBDGtKhQj/iox/zgeO80rZYzkyqAx8giMPZkyPmhUt76NLYD9HDmB//lzCcMc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/rRNnSsEs+CmRiDUPdqA+JYNW36RboJy1pfigVJT+8MX3hJMaA
-	npB6N7boFS01VibkdaXz2MQ17kc7IqLMPCaKNMY+DEIm2pVnR0tsQOBHLJLOG1L8gpLDO6prmKN
-	x6cH8OMdPt7XZtOcEMl63Smgw6hTa4hs=
-X-Received: by 2002:a05:6820:16a0:b0:71a:fa6f:7465 with SMTP id
- 006d021491bc7-71b029c0bbdmr1379445eaf.47.1794904552032; Tue, 17 Nov 2026
- 00:35:52 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=VB84C1sh
+Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so21992425e9.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:36:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794904592; x=1795509392; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=u/hxpfxH2Ygjpkkpn+gEQ4NFMpeA+YPAHTw9d0qdSc4=;
+        b=VB84C1shjSG034pSk2oK3egXlQwWjuu3VjrdbAKPawk/Twv4Yif6yhPlbROFWtMgPQ
+         3tz2NQZOgPBk3fq0QRZC/paJXFCSb8aJt/mhh+A0iXMTZvR4a2C4xo37cxqDT+bS5wyK
+         cFfqQ64HX4H+WtOYlqmaNWk53bLD4rVzH3Dam/22N7EldMgTIeT60YiznWNjIzN+eEJD
+         Zc6kl9xoD3REW2KAU35dfm9/7zuNgWUL6hteTTxoqyJmYKiacM/NYuvwNSKHsMwzezat
+         1L4qftGlpMPZouPAaee8sA2dATEpRVvU+RzrgkUS2mvSj/+KFRi5Npjbd19v9tUdsF88
+         Zbrw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794904592; x=1795509392;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=u/hxpfxH2Ygjpkkpn+gEQ4NFMpeA+YPAHTw9d0qdSc4=;
+        b=VC3BHBopxrHPsX9AckbpVRfxWvzs+qM2Wy25ibWVzost2p8T1U/CnX/cCO2UuzrSUg
+         4Z/BfYJvOLsg/zRKAjR+jT6sd0by9WdXiS9wh1yWuOGpsN8i36jt45iRmxuNPzeRS4EG
+         JzQq8+ylIZBbjNbCXAtftkDoz7r6GPuVVFMLD/5Rqws3Vg721EGguCVmvLHYXRWO8zkJ
+         i9DtKCcxHvcWL1quIiSvjN9KvbKRajKmBgpuKr3ikKkAPQ0ONXyReCHDnnI4M7JQQEwt
+         vq3zCHRVVZm15+BsIz8r3CZqGQ2fwVg1Q7xMji4qDYgTIZZU6JymNrVzFocR2GEBrQcn
+         z9pw==
+X-Forwarded-Encrypted: i=1; AL+hErE9kAerSjiaugsxUpoS4/715cWB3K2e6NWZtEAuIS1cVNI1XkcwUkWJRocLKbOZZDkBe4TKltY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9mpx/PlYPWGEIHexFLn5Jpbmh4tjML9gLG97N0RCoSUGHz9gTO
+	ofbsVnQ8R8OI14Fwk/nWL5dvpdJ+z7YjJuSO/8RrY0iBi1DlCQIDu34tgBCa/oYEyuXD
+X-Gm-Gg: AYBFou2mlAc+LmfTZHVFXFc8oh1zdLliLtA8Hg9z2aVf7MkHO5WXM94c27e3bNyyXIZ
+	dp6CnvNpkIK9fu8E9SkyryU0htYNF0HQU1F4lq/cL2gIWFY5nkYHN9xs/Iv3h5yhvC/BY/3Lppp
+	oTXHbrUCIc0j4kv/pF8YU5+jZrWS9+vP8Y8ZdOB8Keho717K1KPqPD/gvLyrR7KRW3hIWg8JluD
+	y4cj4OtfUtGrfZmE2q4LWuxidzMw0MexkL6Sv+R4yiUVynHReSk7NM2Zk+X10W4+kBfDp0oe3pN
+	vusZdgwYrpPi1/QWjkGzjmg/1jx9062nWlzYj4t7pql9Df2vYjFDifv/LMMBO2oszolJnB4Yahf
+	BOv0v2TGQSWuQmZ7Mvda27DI0LzyIEAQyWInIG0+OZTlNfuFooX4nyUItzfIMGnFcJiIw6sOaHv
+	T6YGoV42prZZ5MowUYU/BvONaL0Fok20cNv12+MugnajMg085s4nxZV013tsjsDfJTHWKbahjbE
+	f9DzaMTz+xjju6XWr8p76DLwWTiZHlmO2pq/eOgI0+D/mC5vGxwOw/Vov3y9qxCxe27GplHK+Fu
+	LKLk396wPAv8kthUMAZY8OG5mdkPaDFt+CQLZeXkONM7EsVR9LaR0pgk5s/elSSuH5WXK54JG1Y
+	Jb1+1wvMlzHkuGacE3hMZpZ50BvDOHDJbQxGAFm7oVEpd76QOpk13RIUo
+X-Received: by 2002:a05:600c:1f90:b0:4a7:76fa:87e9 with SMTP id 5b1f17b1804b1-4bb55ab281bmr266345525e9.21.1794904592167;
+        Tue, 17 Nov 2026 00:36:32 -0800 (PST)
+Received: from ?IPv6:2003:cf:572c:2800:de4c:6789:33ce:97c2? (p200300cf572c2800de4c678933ce97c2.dip0.t-ipconnect.de. [2003:cf:572c:2800:de4c:6789:33ce:97c2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78430752sm52548565e9.12.2026.11.17.00.36.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 00:36:31 -0800 (PST)
+Message-ID: <411502f9a4f940c223b2b88d7e19fafdce63172e.camel@amutable.com>
+Subject: Re: [PATCH RFC v3 29/44] s390/hypfs: use fc_init_pseudo()
+From: Alexander Mikhalitsyn <alex@amutable.com>
+To: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org
+Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef
+ Bacik	 <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, 	driver-core@lists.linux.dev,
+ linux-mm@kvack.org, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org,
+ netdev@vger.kernel.org, 	fuse-devel@lists.linux.dev,
+ linux-efi@vger.kernel.org, 	xen-devel@lists.xenproject.org,
+ ocfs2-devel@lists.linux.dev, 	linux-s390@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, 	linux-usb@vger.kernel.org, Amir Goldstein
+ <amir73il@gmail.com>, 	linux-erofs@lists.ozlabs.org,
+ linux-kselftest@vger.kernel.org
+Date: Tue, 17 Nov 2026 09:36:30 +0100
+In-Reply-To: <20261116-work-loop-pseudo-v3-29-8cbbea1cf34f@kernel.org>
+References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
+	 <20261116-work-loop-pseudo-v3-29-8cbbea1cf34f@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,171 +115,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-2-kuniyu@google.com>
-In-Reply-To: <20261117053543.84032-2-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Tue, 17 Nov 2026 09:35:41 +0100
-X-Gmail-Original-Message-ID: <CAL4WiioDbGpSGexQGczb84dc2wLy=qjhF38xQ_S1YaRZsM30bA@mail.gmail.com>
-X-Gm-Features: AclHuK_JxO7vkCyw0PsO5E2OM4KdaY8favGnqxm448dBys9BKcMyhVxYg_PT_DI
-Message-ID: <CAL4WiioDbGpSGexQGczb84dc2wLy=qjhF38xQ_S1YaRZsM30bA@mail.gmail.com>
-Subject: Re: [PATCH v1 net 1/8] tcp: Don't accept ICMP for SND.NXT in TCP_SYN_SENT.
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
->
-> RFC 5927 states that the acceptable ICMP has seq in
-> SND.UNA =3D< SEG.SEQ < SND.NXT:
->
->   These implementations check that the TCP sequence number
->   contained in the payload of the ICMP error message is within
->   the range SND.UNA =3D< SEG.SEQ < SND.NXT.
->
-> tcp_v4_err() and tcp_v6_err() accept packets if seq meets
->
->   between(seq, snd_una, tp->snd_nxt)
->   -> tp->snd_nxt - snd_una >=3D seq - snd_una
->
-> , which includes both ends.
->
-> This is fine once connection is established because
-> tcp_acceptable_seq() uses SND_NXT for ACK and RST.
->
-> However, we should not accept ICMP to SND_NXT for SYN_SENT.
->
-> The minimal repro is:
->
->    --ip_version=3Dipv4
->     0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
->    +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) =3D 0
->    +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress)
->    +0 > S 0:0(0) <...>
->    +0 < icmp unreachable host_unreachable [1:1(0)]
->    +0 %{assert tcpi_state =3D=3D TCP_SYN_SENT}%
->
-> Let's fix off-by-one.
->
-> Note that we need to check seq !=3D snd_una because tp->snd_nxt
-> is only advanced to tp->write_seq after tcp_transmit_skb().
-> Otherwise, ICMP for SYN could be dropped before tcp_connect()
-> advances tp->snd_nxt.
+On Mon, 2026-11-16 at 12:05 +0100, Christian Brauner wrote:
+> Initialize hypfs as a pseudo filesystem. This raises SB_I_PSEUDO and
+> also SB_I_NOEXEC and SB_I_NODEV. hypfs never holds executables or
+> device nodes.
+>=20
 
-This hints at a separate issue.
+Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
 
-An ICMP can only be processed in this window if it was generated
-locally and looped back while tcp_transmit_skb() is running
-(netfilter REJECT in OUTPUT for instance).
-
-At this point connect() owns the socket, so we end up in :
-
-        if (!sock_owned_by_user(sk))
-                tcp_done_with_error(sk, err);
-        else
-                WRITE_ONCE(sk->sk_err_soft, err);
-
-The socket stays in TCP_SYN_SENT, SYN is retransmitted until
-tcp_write_err(), and a non blocking user gets no EPOLLERR.
-
-I think the repro in patch 8 only passes because SO_ERROR falls back
-to sk_err_soft. Could you check tcpi_state there ?
-
-Also, given an attacker has to guess the ISN anyway, I am not sure
-this one is net material.
-
->
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 > ---
->  net/ipv4/tcp_ipv4.c | 9 ++++++---
->  net/ipv6/tcp_ipv6.c | 9 ++++++---
->  2 files changed, 12 insertions(+), 6 deletions(-)
->
-> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-> index 2fc92a7884fc..7d58f522068d 100644
-> --- a/net/ipv4/tcp_ipv4.c
-> +++ b/net/ipv4/tcp_ipv4.c
-> @@ -499,8 +499,8 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
->         const int type =3D icmp_hdr(skb)->type;
->         const int code =3D icmp_hdr(skb)->code;
->         struct request_sock *fastopen;
-> +       u32 seq, snd_una, snd_nxt;
->         struct tcp_sock *tp;
-> -       u32 seq, snd_una;
->         struct sock *sk;
->         int err;
->
-> @@ -555,9 +555,12 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
->         tp =3D tcp_sk(sk);
->         /* XXX (TFO) - tp->snd_una should be ISN (tcp_create_openreq_chil=
-d() */
->         fastopen =3D rcu_dereference(tp->fastopen_rsk);
-> -       snd_una =3D fastopen ? tcp_rsk(fastopen)->snt_isn : tp->snd_una;
-> +       snd_una =3D fastopen ? tcp_rsk(fastopen)->snt_isn : READ_ONCE(tp-=
->snd_una);
-> +       snd_nxt =3D READ_ONCE(tp->snd_nxt);
->         if (sk->sk_state !=3D TCP_LISTEN &&
-> -           !between(seq, snd_una, tp->snd_nxt)) {
-> +           (!between(seq, snd_una, snd_nxt) ||
-> +            (sk->sk_state =3D=3D TCP_SYN_SENT &&
-> +             seq !=3D snd_una && seq =3D=3D snd_nxt))) {
-
-
-In TCP_SYN_SENT the only sequence we ever put on the wire is the ISN,
-including the Fast Open case (SYN+data is sent with seq =3D=3D ISN, and the
-RTO retransmits the bare SYN).
-
-So this could simply be :
-
-        if (sk->sk_state !=3D TCP_LISTEN &&
-            (!between(seq, snd_una, snd_nxt) ||
-             (sk->sk_state =3D=3D TCP_SYN_SENT && seq !=3D snd_una))) {
-
-This mirrors the (seq !=3D tcp_rsk(req)->snt_isn) test in tcp_req_err(),
-and does not need the special case for the window where snd_nxt has
-not been advanced yet.
-
->                 __NET_INC_STATS(net, LINUX_MIB_OUTOFWINDOWICMPS);
->                 goto out;
->         }
-> diff --git a/net/ipv6/tcp_ipv6.c b/net/ipv6/tcp_ipv6.c
-> index 5c7ed38f1f56..8691d220cf94 100644
-> --- a/net/ipv6/tcp_ipv6.c
-> +++ b/net/ipv6/tcp_ipv6.c
-> @@ -410,9 +410,9 @@ static int tcp_v6_err(struct sk_buff *skb, struct ine=
-t6_skb_parm *opt,
->         const struct tcphdr *th =3D (struct tcphdr *)(skb->data+offset);
->         struct net *net =3D dev_net_rcu(skb->dev);
->         struct request_sock *fastopen;
-> +       __u32 seq, snd_una, snd_nxt;
->         struct ipv6_pinfo *np;
->         struct tcp_sock *tp;
-> -       __u32 seq, snd_una;
->         struct sock *sk;
->         bool fatal;
->         int err;
-> @@ -463,9 +463,12 @@ static int tcp_v6_err(struct sk_buff *skb, struct in=
-et6_skb_parm *opt,
->         tp =3D tcp_sk(sk);
->         /* XXX (TFO) - tp->snd_una should be ISN (tcp_create_openreq_chil=
-d() */
->         fastopen =3D rcu_dereference(tp->fastopen_rsk);
-> -       snd_una =3D fastopen ? tcp_rsk(fastopen)->snt_isn : tp->snd_una;
-> +       snd_una =3D fastopen ? tcp_rsk(fastopen)->snt_isn : READ_ONCE(tp-=
->snd_una);
-> +       snd_nxt =3D READ_ONCE(tp->snd_nxt);
->         if (sk->sk_state !=3D TCP_LISTEN &&
-> -           !between(seq, snd_una, tp->snd_nxt)) {
-> +           (!between(seq, snd_una, snd_nxt) ||
-> +            (sk->sk_state =3D=3D TCP_SYN_SENT &&
-> +             seq !=3D snd_una && seq =3D=3D snd_nxt))) {
->                 __NET_INC_STATS(net, LINUX_MIB_OUTOFWINDOWICMPS);
->                 goto out;
->         }
-> --
-> 2.56.0.679.gc527c65306-goog
->
+> =C2=A0arch/s390/hypfs/inode.c | 2 ++
+> =C2=A01 file changed, 2 insertions(+)
+>=20
+> diff --git a/arch/s390/hypfs/inode.c b/arch/s390/hypfs/inode.c
+> index 559b011e68800..8662169de477a 100644
+> --- a/arch/s390/hypfs/inode.c
+> +++ b/arch/s390/hypfs/inode.c
+> @@ -12,6 +12,7 @@
+> =C2=A0#include <linux/errno.h>
+> =C2=A0#include <linux/fs.h>
+> =C2=A0#include <linux/fs_context.h>
+> +#include <linux/pseudo_fs.h>
+> =C2=A0#include <linux/fs_parser.h>
+> =C2=A0#include <linux/namei.h>
+> =C2=A0#include <linux/vfs.h>
+> @@ -301,6 +302,7 @@ static int hypfs_init_fs_context(struct
+> fs_context *fc)
+> =C2=A0	sbi->gid =3D current_gid();
+> =C2=A0
+> =C2=A0	fc->s_fs_info =3D sbi;
+> +	fc_init_pseudo(fc);
+> =C2=A0	fc->ops =3D &hypfs_context_ops;
+> =C2=A0	return 0;
+> =C2=A0}
