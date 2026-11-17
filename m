@@ -1,106 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=67.231.145.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1794956107;
-	b=eb7Y/FHqeoPj/RGtDQUi0NYPilum5fAYOFhQdRFb3ZbhOeF+a7xM8ERuOtch6WAy1+i2
-	 cb7HcHPS5sUcO5QFDGYhBY+zZ8yGaCvPBOYAtIA1FpTurEloaOCEJr1WpSY53uVXdpNyE
-	 htRQjeEOq8/5Cz//GAecwxWnQYWiiNVuJXLWTYrc1OyyBw1Js32kNM4sjQGYBn2rg2E/H
-	 ZqxVaiHL5CbOY5yliMFOLyCueeraM1z9yqxN8zajBsq5f0MxG5VnZXLMcYAw0smMPeZUA
-	 lz1Dj8CO+50JHtdQbho43Fj+mP1imhATTVp0s3LLtqVcy6atAwO3JCxUwCmDLQVqXJg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794956107;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version;
-	bh=XTWULvHY5M+9jFlLZATjLnhYmcapf/iX/XpM8N+MwzI=;
-	b=CCjPsfZ+C8rXyzNNRznlzuHfpbSsHRhPmYvEGKJ60oUXVrVJlOmTdYDI6b8g/pMaPUvb
-	 vG8Dr5ROIe+qvHnOAgtps5SEuLmxbpfKVh437YSVgA5wdhr4DTo8QbMVFjOEze3hbbKBF
-	 gaBxrEaue5RZkNYdcyv+0qVKHM/IAsdc+L74z7Z1omLcHhEE+5D3dvYZvLGIqCLfijuFl
-	 Kjwt7xurj5gvaGlTA1ZNYEG1qXyAf+qK46ZEJaRIpO8CeMsY+alZWPy3OqbwCbQPUJ7DY
-	 e8wuzlZWiAXZGkvLSD4YbpFlmEwkPbnUufvPdHyuEHVDuFkAo1rQw9r1oLoRbA/B8Dg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NPDWNUn6;
-	arc=fail smtp.remote-ip=67.231.145.42
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.14.198.178
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794956131;
+	b=l9CxfXc6iUk6PWawcHufChZePGFladh7nM8JUmStRjsgdiuPX1gjhr2VAofrtQH4Pqj0
+	 eCQe80Tkk15gA6uhxekOMtB6LXwFEV0/dBjuwKTJKxHW54Fpnpv6lnThdoTIwUE6AMnM+
+	 sSmdDZZ8lFcv1dAIyoVClSsVFe3aQwFBJIzOLBBFS5kwnDTeYVuOaWm9q1LsRTglLFHsh
+	 3HPf+8A+11RD9iL4j0OudJocTssCzIeTaMXnW17mM/p6aumSoimI23xOetQJgV+lxuN2T
+	 +ddvH/roB7Sl9sUjdzpDyh4kPKI297InCz/+Qv4cOPtTOIkovCM7S+IPMchwY9J7rmA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794956131;
+	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Received:
+	 DKIM-Signature;
+	bh=p1d3Y2CLMAz4CqU2eQsHo73W9hHZXrd7SctRraH/gy8=;
+	b=c4ldBcHnQEt5clOxO3bji76/nI5rrl+3M7SoyiwZsY5Becb2QcKzAUSYiyZD0ii5KRvL
+	 Q8ZqkgQiYxcm48XxiuJpB/6sWI1SalFILQ9niyYhZ8FMyyUyxsY3h5ey1py1wj1hTuYzO
+	 dtixB9HUnNOx61HbTgltbtD1y50/061UdU2ACdIfhfl/gLURROglH51lnfQpphJpkz2de
+	 NY+Hfvnqkb8ozaGq3BCHfeV5wtE9H64jI092mgMuc6UJiGB3oPF6h/P0WZNSxpB9jTdI+
+	 vyOURZd12pXVqU6E5QDzg442+sFUWShBXuKxAp1TvC99GeRKp1ORtiCSW8BbuXMmh1g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=rimpianto.com;
+	spf=pass smtp.mailfrom=rimpianto.com;
+	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=erqVDgpd;
+	arc=none smtp.remote-ip=46.14.198.178
+Received: from mail.rimpianto.com (mail.rimpianto.com [46.14.198.178])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2112606A32F
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:55:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2112606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 474E6606A31C;
+	Tue, 17 Nov 2026 22:55:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 474E6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=rimpianto.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NPDWNUn6
-Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHMfqur4155448
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:06 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=XTWULvHY5M+
-	9jFlLZATjLnhYmcapf/iX/XpM8N+MwzI=; b=NPDWNUn628COc0atYZ/CbMaWxG+
-	0TNGfxRCGsv1WrYANoIZaC+tKoYjD5X8kNmyXR8dpBZayuNDuuUCja+hWrjMqbQc
-	XxkpdvsWiVArTT9UJfikfZbnelRb/DRpVlYgtxXFa3XtPyVF0540TWjYmvrsqO+P
-	R+hi3LRmruY6Y/3r56HGQKoFy0CaepMpMmZG4klMBviT1U+1fEaeySnvKUF8n+Z1
-	Wfi1IZWcGzocGnaz/SNYLQqLT3qgJR8XlBsQ+qKgyEYQQVpJE2NW3vnlCVKHFSdC
-	M3nFonl+TButab+DN9Vmtl2UIUTzMNzzvKDIVO34G60V2AXaydz6Pdka2IA==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0yu785mw-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:05 -0800 (PST)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-cdb8931aeeaso184178a12.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794956105; cv=none;
-        d=google.com; s=arc-20260327;
-        b=do6vZeCJGoUDD5Kaso8mQNLv9SaeHBMzemoj4gtmWSBaZ4MuzamGLRMPKyHGEG0Yax
-         O5tdf86NgKWJhl/NHBQFjIYwebXS77yFfV2ZDyJwrehpRBYOX4HVZT6HAAmyi/p7Z26M
-         bTXiq3RXM9q4Ck+T2CCXYnlaWFUgUT4/+YUpIVdnuqeqE1ituJvs/0p/dHSViWMHQ7UV
-         XevrATvdBe+FUWXC2al+IQO8IWhpnsEVt6PcfRP8C6YpZaKGSIbPNaKWTT/4aMfA/har
-         kp9mP4d1CbLP5lNVhpeNHxLahzn7DcX7bx4QJQt0r++ISnOdqdYxABID+dzPCnIE3QCS
-         f7oQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=XTWULvHY5M+9jFlLZATjLnhYmcapf/iX/XpM8N+MwzI=;
-        fh=qod244yoB3Swx6BT8pwI4iCjWBm8w97P4EwtSYE3820=;
-        b=j0b2LPowcurby81Hiw/VJ7ybogqQJOksvr4uYYJ4mgBY+rRk/aXXKW7+MZRTl8jWnm
-         fxW0S1Zc7uJXqZ3qT5QpfVPwsSlvWvPiVEHnmocTqQ4IwT+Yx0/aCVHh7h0wIsY5NeBX
-         NaNq+TA8Z1uLk251Z4FNIWqBYj0SQrhFhKZzEV845+yPDRYq+xS6V81b7XK1SCjEJeSr
-         106bHn2WYNJTesmogptEd9mJpKN2Z46t5t56DyIwt920DXgs1yjGisA4O2VtIYGvy/gt
-         gHN1z06A3vVAgqxQpZ1sbGj6mguKsm2etXYxBeL0IkeiX96MHO8j9yzHTr1plBxJ91Hv
-         PPuA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794956105; x=1795560905;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=XTWULvHY5M+9jFlLZATjLnhYmcapf/iX/XpM8N+MwzI=;
-        b=PftBHzgKzQSp5++dEm8ixkRyEt2wCbGsA+wgWIyrje2gik/Gg6ncBcF4nmit03JzYI
-         efvJG2o65Fj1fSDGG06ALAb57Hef1+AlDhee4uOT7P+Vh+ooJK989ix1g5lXsgembDLd
-         rmzgNlGTE97BPD0qwtJErgiHi5WFM7sB7W/8ufVnysb2PNCy6lJEEQwTOm9phWZPmixH
-         mVdsKh/O38Empqs2yXQiqx++zU6Bg+luyO17/ez5LsEiBEVj3jjt0QwFblOlDngLgB5a
-         apDoJkFdaRvXp79hH9hNXf0Frtmr82RzYs6nb4kzkvbMb8n0IPM9Vw89VCka982xV4xo
-         h6rA==
-X-Gm-Message-State: APuU4Z+rFPyAi2Sz5VqXDSvAvSgOgVTPmXpd1xTPRJZORfldlxiYcsQi
-	O+2uM7ZHG7P3fyH1fcfpSCoJ0JhAnG0e1QNCWdf/hx9K0XxCp/C++anR5UL+kW8INqIG6sU5tG/
-	escPCOS5CW5hXTAKhSi38mZ+kECvvq7+KeAgSefeBUdkfa3AsREtwmVTCumbO5cUtNsv6TBDuxM
-	YbptCA2TtQSW+D5OyuSAcIi+WzCq7E/J4=
-X-Gm-Gg: AZFdTZcIuwwsn9mHvTqqiXfHRQIEaFbPHVqBdWZc5r/u/dDfMAK5VAZgmaJ7d2U546K
-	dVLLfmiOPr+/Bojj8p0UTSlYAU2l31Gu/EDqJTfpUUddYmVBskdvED+vH/ZHqZ4BqxVe9q3gtPG
-	XfUiTTIo61SM8oOC/X1SMjWeU/aGtGPcFTnFmIeZMR2b3GzRk23e1xDuAekSMbZZkMfsJFqSrzq
-	vraBie63kxUNLYZs3cKF03RaO7dIc53srcZ2xXAwbbAssHezkE=
-X-Received: by 2002:a17:90b:5390:b0:3ab:2d17:51c5 with SMTP id 98e67ed59e1d1-3b3d0640f3bmr891142a91.6.1794956105105;
-        Tue, 17 Nov 2026 14:55:05 -0800 (PST)
-X-Received: by 2002:a17:90b:5390:b0:3ab:2d17:51c5 with SMTP id
- 98e67ed59e1d1-3b3d0640f3bmr891106a91.6.1794956104611; Tue, 17 Nov 2026
- 14:55:04 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=erqVDgpd
+Authentication-Results: mail.rimpianto.com;
+	auth=pass (plain)
+From: Federico Musto <federico@rimpianto.com>
+To: Chris Snook <chris.snook@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Federico Musto <federico@rimpianto.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net v4 2/2] net: atl1c: free the RX buffer when the descriptor reports an error
+Date: Tue, 17 Nov 2026 23:55:21 +0100
+Message-ID: <20261117225521.19689-3-federico@rimpianto.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261117225521.19689-1-federico@rimpianto.com>
+References: <20261117225521.19689-1-federico@rimpianto.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,71 +61,232 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111005533.6436-11-toddfreed@meta.com> <179471270629.2199510.9480561958902023552@kernel.org>
-In-Reply-To: <179471270629.2199510.9480561958902023552@kernel.org>
-From: Todd Bert Freed <toddfreed@meta.com>
-Date: Tue, 17 Nov 2026 14:54:52 -0800
-X-Gm-Features: Aa3M54pEdqPp10DAjnIjgsYaaHWMRisY79HeZKYFQbRbnu5DENxcJuo9y0o8SvU
-Message-ID: <CADh2yMxPrJZNtVdCgQWkHsKBk0cnAZ-0RiVaCMquQNSH8K32Mw@mail.gmail.com>
-Subject: Re: [PATCH net-next v1 10/15] net/sched: flower: add psp_spi,
- psp_ver, and psp_dev matches
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
-        bjorn@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net,
-        daniel.zahka@gmail.com, donald.hunter@gmail.com, edumazet@kernel.org,
-        kuba@kernel.org, jhs@mojatatu.com, jiri@resnulli.us,
-        john.fastabend@gmail.com, linux-doc@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        linux-rdma@vger.kernel.org, martin.lau@linux.dev, pabeni@redhat.com,
-        saeedm@nvidia.com, horms@kernel.org, tariqt@nvidia.com,
-        weiwan@google.com, willemdebruijn.kernel@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA5MSBTYWx0ZWRfX01zlt0LUveBE
- aGkNYaGCEDm3VgLvfL7Jv5Y8tquKhAl9Iow1pNydTr/5gvPjh/7RNIKs5w/49cHXx/lom9Vi4o8
- Y2wW1/bR5831+h+ZOvitUYmgQfTRj05H+cCweca32HLBM577RdPuF7qbg3mp+Huj5UXjBUr3xh7
- 7sKk55jaTSyRPNjpBC140wRPmKUulnPJv4+sCfowqAdBHdAB7dtbclOsdU2F4QNDAc1+r8cknNv
- w0YtGPXPltQHWnpZHl0BpO/0mCjaJzqMggSh01uLQQb71V/hTpzBMJOXuI9H8p5kNHQo/2kEn7X
- zZHLsJ7qN7aW/rV1Rv5GrN4k8j05nvAUTC1XJzFrvsOdHZ853GLdgq6h+a7bR8uKlbGT72pCgkd
- J2tp946STHm+wGY2Lr8yygAie7C1MrTUUCt2kNgRyFxXrH0F0Kxhmyk7vnquv9/bvdEvwGxyugu
- TBut93/M9c9zULjc5rg==
-X-Proofpoint-GUID: cuoVff3PANTd0YVkjA5rspioMm7I3w7z
-X-Authority-Analysis: v=2.4 cv=Zph4uN7G c=1 sm=1 tr=0 ts=6afcdb49 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=PAz_-FQ8hEVmOPYdF0yf:22
- a=e8l9bKk9WhIOE85pT1MA:9 a=QEXdDO2ut3YA:10 a=3WC7DwWrALyhR5TkjVHa:22
-X-Proofpoint-ORIG-GUID: cuoVff3PANTd0YVkjA5rspioMm7I3w7z
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA5MSBTYWx0ZWRfX+MTunDrtPmVT
- 3TCJWYhq2kd+wPEDO8newEdXE/hB13hnEHfrycJMu3pOnrOdCEmtu/jFZ5qqSwtS5Mowgr6D1fM
- c+i2Y2Y1kTIiXcF0bYc1UqGMsTcpfoQ=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
+Content-Transfer-Encoding: 8bit
+Received: from localhost (Unknown [127.0.0.1])
+	by mail.rimpianto.com (Haraka) with ESMTPSA id 1A751935-FDFB-4345-9147-8CBB6C5D7B43.3
+	envelope-from <federico@rimpianto.com>
+	tls TLS_AES_256_GCM_SHA384 (authenticated bits=0);
+	Tue, 17 Nov 2026 23:55:22 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rimpianto.com;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=s20260314391;
+ t=1794956122; bh=p1d3Y2CLMAz4CqU2eQsHo73W9hHZXrd7SctRraH/gy8=;
+ b=erqVDgpd5tu44G6/WgRfklXGQhAzSCOJqQL0CMldSlIIfeFxiXfMm2VppPV90/Zp70j67RrpG
+ 3QMEn7BsNLDrLC2s9uyWI4YpSb3suC+lAJ/BSDNvSdprsDxgVtF3pVEt4AKWxYAAaxeue1uGusF
+ 0Lr3Rm/mN6kd+6PW0aAdIRgPI69rATssKzIg/4Q3ePc7ppEV4w8fQxZbMhawhSV+JapeVig22vP
+ BqxOPR9rTjvX4mMBXG605Dk2yTvTDl4/Ff0ntn078TQLXNIZRe3hnoHk59XV6PkMyjbIJDLKxjc
+ mZVSeXa2ZhYZ8MMqReH5PQnjDS43fjKZ783/WTPmvrEQ==
 
-> [Severity: Medium]
-> Does the commit message describe the right failure mode for rules that
-> are still installed after two key rotations?
->
-> The commit message says:
->
->   Together these matches tie a rule to one association, ...
->
-> and:
->
->   this means that a rule matching packets that correspond to an rx
->   association which is stale (two rotations have passed), can still match.
->
-> The "Socket-less associations" text that a later patch in this series
-> adds to Documentation/networking/psp.rst has the same gap. It only says
-> userspace should replace such rules before two rotations, and it repeats
-> that the matches tie a decap rule to one Rx association. No later patch
-> in the series adds a generation match or any enforcement.
->
-> Could the commit message and the documentation say that a stale rule can
-> end up matching a different association that reused the SPI, rather
-> than the stale association itself?
+atl1c_clean_rx() drops a frame whose return descriptor (RRD) carries
+RRS_RX_ERR_SUM or RRS_802_3_LEN_ERR by calling atl1c_clean_rfd(), which
+only marks the RFD free and clears the skb pointer. Nothing unmaps the DMA
+mapping and nothing frees the skb, so every errored frame - CRC, alignment,
+truncation, runt - leaks one skb and one DMA mapping. The driver uses a
+32-bit DMA mask, so on a host without an IOMMU each of those mappings also
+pins a swiotlb slot.
 
-In v2, there are no Rx associations. It will be more clear that matches tie a
-rule to a SPI not to an association. And the reliance on userspace to replace
-rules before that SPI could be re-used, will be further highlighted.
+Unmap the buffer and free the skb before the RFD is recycled.
 
--Todd
+Freeing makes the RFD index and count found in the RRD matter more than
+they did. Both are written by the device and neither is checked: the index
+field is 12 bits wide for a ring of 512 entries, and the count can be 0 to
+15 while one RFD per frame is all the driver handles. A wrong index used to
+leak a buffer; it would now unmap and free one the device still owns, or
+one outside the ring. So validate the RRD first, the way
+alx_clean_rx_irq() does for the same descriptor layout: the count must be
+1, the index must be the one the driver expects back next
+(rfd_ring->next_to_clean) and that slot must hold a buffer. Otherwise touch
+no buffer and schedule a reset through ATL1C_WORK_EVENT_RESET, as the
+interrupt handler does on ISR_ERROR. After the check the slot is addressed
+through the driver's own index, in the good receive path too, which took
+the unchecked index from the descriptor in the same way.
+
+The check also covers two cases the count was left to cause. An RRD with a
+count of 0 was never consumed and RX stalled on it, in an endless loop
+inside the poll when it also had an error bit set. A good RRD with a count
+above 1 was consumed without recycling its RFDs.
+
+Count an errored descriptor as work, so that the refill runs when a poll
+sees no good frame. Clear the RRD ring on reset: the RRD and RFD rings
+advance in step, so an RRD left over from before a reset would pass the
+check above and release a freshly posted buffer the device still owns.
+
+The hardware already counts these frames in its own error counters, which
+atl1c_get_stats() reports, so no software counter is added here.
+
+Found by code inspection; the error path has not been exercised on
+hardware.
+
+Fixes: 43250ddd75a3 ("atl1c: Atheros L1C Gigabit Ethernet driver")
+Cc: stable@vger.kernel.org
+Signed-off-by: Federico Musto <federico@rimpianto.com>
+---
+v3 -> v4, after the Sashiko AI review of v3:
+ - validate the RFD count and index of the RRD against
+   rfd_ring->next_to_clean, and that the slot holds a buffer, before any
+   buffer is touched; reset on a mismatch, as alx_clean_rx_irq() does;
+ - address the buffer through the driver's own index in the error path
+   and in the good path; atl1c_clean_rfd() takes nothing from the
+   descriptor any more;
+ - drop the multi-RFD loop added in v3: a count other than 1 resets;
+ - a count of 0 no longer leaves the RRD unconsumed;
+ - new patch 1/2 for the link-down reset race.
+
+Pre-existing and left to separate patches: there is no dma_rmb() between
+the test of the RRD valid bit (word3) and the read of word0, and word3 is
+__le32 but is read without conversion.
+
+v3: https://lore.kernel.org/netdev/20261103225218.19206-1-federico@rimpianto.com/
+v2: https://lore.kernel.org/netdev/20261102215253.68185-1-federico@rimpianto.com/
+v1: https://lore.kernel.org/netdev/20261027115156.17128-1-federico@rimpianto.com/
+---
+ .../net/ethernet/atheros/atl1c/atl1c_main.c   | 97 ++++++++++---------
+ 1 file changed, 52 insertions(+), 45 deletions(-)
+
+diff --git a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
+index e9baee8fa7e5..5d00f2489d15 100644
+--- a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
++++ b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
+@@ -933,8 +933,9 @@ static void atl1c_clean_rx_ring(struct atl1c_adapter *adapter, u32 queue)
+ 		buffer_info = &rfd_ring->buffer_info[j];
+ 		atl1c_clean_buffer(pdev, buffer_info, 0);
+ 	}
+-	/* zero out the descriptor ring */
++	/* zero out the descriptor rings */
+ 	memset(rfd_ring->desc, 0, rfd_ring->size);
++	memset(rrd_ring->desc, 0, rrd_ring->size);
+ 	rfd_ring->next_to_clean = 0;
+ 	rfd_ring->next_to_use = 0;
+ 	rrd_ring->next_to_use = 0;
+@@ -1866,23 +1867,16 @@ static void atl1c_clean_rrd(struct atl1c_rrd_ring *rrd_ring,
+ 	}
+ }
+ 
+-static void atl1c_clean_rfd(struct atl1c_rfd_ring *rfd_ring,
+-	struct atl1c_recv_ret_status *rrs, u16 num)
++/* Recycle the RFD the driver expects back next.  The caller owns the skb. */
++static void atl1c_clean_rfd(struct atl1c_rfd_ring *rfd_ring)
+ {
+-	u16 i;
+-	u16 rfd_index;
+-	struct atl1c_buffer *buffer_info = rfd_ring->buffer_info;
++	struct atl1c_buffer *buffer_info;
+ 
+-	rfd_index = (rrs->word0 >> RRS_RX_RFD_INDEX_SHIFT) &
+-			RRS_RX_RFD_INDEX_MASK;
+-	for (i = 0; i < num; i++) {
+-		buffer_info[rfd_index].skb = NULL;
+-		ATL1C_SET_BUFFER_STATE(&buffer_info[rfd_index],
+-					ATL1C_BUFFER_FREE);
+-		if (++rfd_index == rfd_ring->count)
+-			rfd_index = 0;
+-	}
+-	rfd_ring->next_to_clean = rfd_index;
++	buffer_info = &rfd_ring->buffer_info[rfd_ring->next_to_clean];
++	buffer_info->skb = NULL;
++	ATL1C_SET_BUFFER_STATE(buffer_info, ATL1C_BUFFER_FREE);
++	if (++rfd_ring->next_to_clean == rfd_ring->count)
++		rfd_ring->next_to_clean = 0;
+ }
+ 
+ /**
+@@ -1896,6 +1890,7 @@ static int atl1c_clean_rx(struct napi_struct *napi, int budget)
+ 		container_of(napi, struct atl1c_rrd_ring, napi);
+ 	struct atl1c_adapter *adapter = rrd_ring->adapter;
+ 	u16 rfd_num, rfd_index;
++	u32 rrs_word0;
+ 	u16 length;
+ 	struct pci_dev *pdev = adapter->pdev;
+ 	struct net_device *netdev  = adapter->netdev;
+@@ -1914,47 +1909,59 @@ static int atl1c_clean_rx(struct napi_struct *napi, int budget)
+ 		if (work_done >= budget)
+ 			break;
+ 		rrs = ATL1C_RRD_DESC(rrd_ring, rrd_ring->next_to_clean);
+-		if (likely(RRS_RXD_IS_VALID(rrs->word3))) {
+-			rfd_num = (rrs->word0 >> RRS_RX_RFD_CNT_SHIFT) &
+-				RRS_RX_RFD_CNT_MASK;
+-			if (unlikely(rfd_num != 1))
+-				/* TODO support mul rfd*/
+-				if (netif_msg_rx_err(adapter))
+-					dev_warn(&pdev->dev,
+-						"Multi rfd not support yet!\n");
+-			goto rrs_checked;
+-		} else {
++		if (!RRS_RXD_IS_VALID(rrs->word3))
++			break;
++
++		rrs_word0 = le32_to_cpu(rrs->word0);
++		rfd_num = (rrs_word0 >> RRS_RX_RFD_CNT_SHIFT) &
++			RRS_RX_RFD_CNT_MASK;
++		rfd_index = (rrs_word0 >> RRS_RX_RFD_INDEX_SHIFT) &
++			RRS_RX_RFD_INDEX_MASK;
++		buffer_info = &rfd_ring->buffer_info[rfd_ring->next_to_clean];
++
++		/* The RRD is written by the device.  Its RFD index field is
++		 * wider than the ring, and only one RFD per frame is
++		 * supported.  Check both against the driver's own ring state,
++		 * and that the slot holds a buffer, before anything is
++		 * unmapped or freed.  When they disagree there is no telling
++		 * which buffers the device still owns: leave them all alone
++		 * and reset.
++		 */
++		if (unlikely(rfd_num != 1 ||
++			     rfd_index != rfd_ring->next_to_clean ||
++			     !buffer_info->skb)) {
++			dev_err_ratelimited(&pdev->dev,
++					    "RRD out of sync: RFD count %u index %u, expected index %u%s; resetting\n",
++					    rfd_num, rfd_index,
++					    rfd_ring->next_to_clean,
++					    buffer_info->skb ? "" : " (no buffer)");
++			set_bit(ATL1C_WORK_EVENT_RESET, &adapter->work_event);
++			schedule_work(&adapter->common_task);
+ 			break;
+ 		}
+-rrs_checked:
+-		atl1c_clean_rrd(rrd_ring, rrs, rfd_num);
++
++		atl1c_clean_rrd(rrd_ring, rrs, 1);
++		dma_unmap_single(&pdev->dev, buffer_info->dma,
++				 buffer_info->length, DMA_FROM_DEVICE);
++		skb = buffer_info->skb;
++		atl1c_clean_rfd(rfd_ring);
++
+ 		if (rrs->word3 & (RRS_RX_ERR_SUM | RRS_802_3_LEN_ERR)) {
+-			atl1c_clean_rfd(rfd_ring, rrs, rfd_num);
+ 			if (netif_msg_rx_err(adapter))
+ 				dev_warn(&pdev->dev,
+ 					 "wrong packet! rrs word3 is %x\n",
+ 					 rrs->word3);
++			kfree_skb_reason(skb, SKB_DROP_REASON_NOT_SPECIFIED);
++			/* The RFD has been recycled, so count the drop as
++			 * work: the refill after the loop only runs when
++			 * some was done.
++			 */
++			work_done++;
+ 			continue;
+ 		}
+ 
+ 		length = le16_to_cpu((rrs->word3 >> RRS_PKT_SIZE_SHIFT) &
+ 				RRS_PKT_SIZE_MASK);
+-		/* Good Receive */
+-		if (likely(rfd_num == 1)) {
+-			rfd_index = (rrs->word0 >> RRS_RX_RFD_INDEX_SHIFT) &
+-					RRS_RX_RFD_INDEX_MASK;
+-			buffer_info = &rfd_ring->buffer_info[rfd_index];
+-			dma_unmap_single(&pdev->dev, buffer_info->dma,
+-					 buffer_info->length, DMA_FROM_DEVICE);
+-			skb = buffer_info->skb;
+-		} else {
+-			/* TODO */
+-			if (netif_msg_rx_err(adapter))
+-				dev_warn(&pdev->dev,
+-					"Multi rfd not support yet!\n");
+-			break;
+-		}
+-		atl1c_clean_rfd(rfd_ring, rrs, rfd_num);
+ 
+ 		/* A link partner whose l2mtu is larger than ours can hand us a
+ 		 * frame that does not fit the buffer the hardware was given:
+-- 
+2.47.3
+
