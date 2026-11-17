@@ -1,101 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.228.139
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794896651;
-	b=eLQuSE0oh+g0Fmjl/7eTny54ny19+lKF4+XXZYX25xdhtu3E8vwvC99CEmbOksSR4bYE
-	 EwsNpuk7+l0vQhyhCDkijGC26UiayM/n+Lk0OkboJNe6nRqt17DVSnTF3CoOPJKntDMSy
-	 DCOVPWgxd6+tq784jDuB6XEsgddJ1WQUVrTtEDJ2dDsuHHGhF0ctdezE3ntI7kD7/ZEDg
-	 6vu5cAvalcwyO21FzPhkzHxGH+lUEyYXb3ml5g1Wos0ydNfzl+ztVgQERHADtB6nP3W6G
-	 LuZf6/6dH1Ici0/3TkcsuyzAdMSsQR4dpQUns9yEG+g+HOVQ7lC4FzwZvhXxUXUn5Ew==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794896651;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Bv8z5Io8RhbyyeuDISboM7YRSTMS03SBG0kjxtz0W9A=;
-	b=xRlRp5KweCVfhPPw2rmBGkbBloz76Ylp7TfRAMprNVp4biC5BVY9dvnMN+By0qd5tAL8
-	 jaq5vAT/2+h+ifdN0EFUWXaCtL/OZHM2Yl27RnOIbMdLqDmDnptRbpeGkqhU2vtj71fp5
-	 KkFJAjTstNPE8dbrTTMtQUpR9h0LF7aiv+a+lEXe2G8bkJIEdvJyDGYdcaRHLM1Fz1xI7
-	 91dWi1+I/ppDEgxB1T1ja2MQWSplJ8ddG58IqG1Lm0e0Ocj3arLx/5eEM3KWKFfP3WXlt
-	 zq4/uO/kXPYMKZ7NljkLFGPu2d9fXx70fBi8suPn++k60guYdetejE5nntJPdkEYVRw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="MGOoJYc/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.228.139
-Received: from mail-ej2-f11.google.com (mail-ej2-f11.google.com [74.125.228.139])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.184.148
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794896937;
+	b=sZSl3Pnn8ZE6/WM8JSTLbjojG0PhiP0vxFhsf3fHwobuyUAVbtYW+EE2ef97nxUdZRWS
+	 I3eEjYTIVRy5RUA6ULSJRjlSNHE4ZY0kpgPdm7Pk0l0mTOzEA7ucK/rcEnUvAbEb+Z2Sj
+	 Ftl9VdDEf8K1edwXWiwoLpJlYgahB/dRQHGpb2S5xLs8Pa2eA/q03crpi40ihTEDFDwje
+	 iYYrNcyqfN6ovJYw5tjP9PJ7Sffm6mqr5E6xRGzm0CQRh2C/EXjPw7vURg7y6s8LQYJYg
+	 4FGAdNQ9bDa1zu2+oE3keTzEy+FSWvd7W8ST3leWYSJRJUGe3Z1ai0Pi4G5QmvAwj6g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794896937;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=A3uNL24XC49IZjTCE9OL45EuxvcLT1QTGdi24IXWRdI=;
+	b=cEIi/Sw19u5t4EtqEx92Fe7GWTr+Wz1EHCNMOj85Rz1wd7XvkQ1aC6zoyQiV4c4kc+Sl
+	 7MjiyS2AdNgapTrl4aWN9hi/3x3AccvZk+RtC6zQSw0zd9ju2+eOhFiMnh6a7cJZ2FtNp
+	 bTV3LpEh3KVJMMazJ0gKIp6k7KUeelI1JIoDUx+bJfsRYSENVp0GutlezcTvRXYELNDRN
+	 7Je3VUWQDWjw2R+puCiXgheT7hSY3U7k7zX8Jzk0+wyG2FcrTXAm0w4GnS3kKKQpi2J9o
+	 xtpumkrG5fCX1/lMl8DOgOuqMQZB9QdTE+M+dhUI1XKA/0W0qBVaTobCrkP2hyuvs3g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=jEtKxKkd;
+	arc=none smtp.remote-ip=66.163.184.148
+Received: from sonic309-22.consmr.mail.ne1.yahoo.com (sonic309-22.consmr.mail.ne1.yahoo.com [66.163.184.148])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90573606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:24:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90573606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF04D606A323
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:28:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF04D606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MGOoJYc/
-Received: by mail-ej2-f11.google.com with SMTP id a640c23a62f3a-c504b4f2b6dso167493066b.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:24:10 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794896649; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MeD0vOHq93g/fFVY5ESR4+uJ+nfWNwF4lYlSMRVsknE5DEqX5h/21HytfN9yfne3bG
-         NjpoILSR3Fr0TNxxhgte0/KqY0/wHEdtuZf4KBnNYc/+TmgnStyeUQUL/2ulUsG9AlmQ
-         ITzt5GVBsHU5xGJX0M8/NukQFfn2MIKx415yuLFpreHUwmImsei3htpt94yu4KqkTuV/
-         u4VcjpDco5rgfVTSHrZnma/PoFFRDDsm1IrBqYXgrA1F+kmHozXY4SKrmOCKqmv28BTS
-         OwL8GXeSPjj/zkViOMBIMGXVQVr5A3uY+8GOQgmwExJTxiRdjJyzjUm9saUQDPI72j3s
-         YGCg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Bv8z5Io8RhbyyeuDISboM7YRSTMS03SBG0kjxtz0W9A=;
-        fh=jOSN3Q+fNI2s7KDvaIhVr21B9wD29VbMUMtT0evHPmg=;
-        b=TLBHSkCAiUgEWpcD3ofwQu/F2t/+NjiGSnuk62w60UXE+IMPydmwYlUMvSh4YdKRcY
-         Celchh2jThRFUt+2IzspdkOI6vOTag90GWwXJomSacfLJIXCSaudf3WJYQ2hYx8ZUQIP
-         6qpXkrDYjQLYWzEp/dYrQ/KGx48dlR3fj2e8GE9yzY0HQXlObbpWVShY4zeK5GdOUHQP
-         +dPnDxVnO3jB7BcV0POc68WrZFsHzAK3wiEnw+40kWZzENe20v8byWBhCEk+YmrfehWY
-         45grB8L++dZc9Gs6RXV/1+IV5GwCuGkecGK1FgBoV/YKMPizuvdeJy7k51YDHztM5A4d
-         FS/A==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794896649; x=1795501449; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Bv8z5Io8RhbyyeuDISboM7YRSTMS03SBG0kjxtz0W9A=;
-        b=MGOoJYc/vMPkJIk5+hgWI61vPC8mDN2EPmKg7a3+DdKw8J8CmAtLpBlLhYvXNoLYNQ
-         wcceMykdIvsbZ3xU8KwTyHb2jj2CPbE5tRRKMTvKPFSHUkjYE9sBvRf9Q/phY6yXdvMU
-         LwePJR15bLB+OUdBbZ/a4zXsQUO0A6R2ZKA47fJheUhzPw8tkqQRw6VC5CmkDGtywVvK
-         tx2byuS8jFwYvEu1YS6f7SojUXBTmI/MOlDp2hY78Yw9oqqLXvQpXP0AgAN0Q/eD5790
-         a2US/5FXUoW7jbW9wuZyAYaDpKecZOWv0Y6YXuluWv7VRB4QorkS/K2McQ/qVT6AzFss
-         fExQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794896649; x=1795501449;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Bv8z5Io8RhbyyeuDISboM7YRSTMS03SBG0kjxtz0W9A=;
-        b=ZWi2sE0m/cSUI8TmPSDLA8pcDJZl4SLA1a/1/8fAn2P7w0kpVP4aOofRRH5afkcfxQ
-         FcuA9kGEVHJHR6/RZyDU3JozNS6FzuQvD551XU0PobfIKsTc8AoJC3ucxB4JJ8Lof4Z8
-         kHKkeaE5zNpQkEnOHbjqrx7YGbLjbvb9BPvPSDc784OQVXlMlH/20z+BXxme3ieyymL9
-         lIWjL94zEdns1lQpiycwKJoastMH5IT/kB/6ChB5YE62x13l/Cgb36TM0+MmhhcDW9t3
-         XfGqnud0mZVX02TzQWtv86gZJQ1XG0vgme+6DlXl8taGUgCXpXC5rh51jSiZb5QV0qyL
-         yccg==
-X-Forwarded-Encrypted: i=1; AL+hErFd/B8YlqmYcv5t6Z6tJ7IxcW9CqYQgMz6HyeJt3v+7VhKjiBjiOYaHp7UPJuKdOTHYlAx/1e0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+BCybew/VRsTf5EGxMoD9WFthZP/V/eVD80xSyV0U+3RaLRsIK
-	g2UGst59nawZRUS34zcSctqTezD8WkvjPUK0odi0D5ZLTgFVfgyrG7dBZAXZOn8w1KRb5n3aS22
-	ELuUUSwmA72YHZAGrP8DAlcQzhEe+XPw=
-X-Gm-Gg: AYBFou3HecpboTBCYCMt/B6wojRJDDUQ3aCvw1nIf5xddtBEpQKcuyoV1II2BCdJtRF
-	GkC/5tRZJLFJTtP+Rl0rrKAIBsg9GEGf0BCczlEWqmf37DBaeuCAMMtWMaB2vjNvXItuDxAx8Aj
-	YBHMGQZzjgF0fAkWTbe7P1ziP7LQDVr9glJzUuh3ZcTngUdvYJAeFJHdMMZ+lbxl0+d8q8uEVX0
-	L6cq2Ai+OmnQjKx9KtGpwuBw00dLtAPiyihPL/CA3r0rYsVe8b08d1WVpqqi+/2ofePFM+Qaew0
-	nHY2jfQTYj5K+NJ9cQEU34LIqROWDUpjM0fzE0KN0LFfrqV/JTTz0Pn5D+p+vCJKBNI7r+i2tzb
-	dT9hGkhMKgwn2k1cPlwSBuRQo1HetURa9FHa1sd41NuDoIOZOzqjosYrEbr44k8S2iNDv5Kca10
-	6G8jCgpZTeFNU=
-X-Received: by 2002:a17:907:7ba3:b0:c25:91bc:ff55 with SMTP id
- a640c23a62f3a-c509636a832mr966830466b.23.1794896648621; Mon, 16 Nov 2026
- 22:24:08 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=jEtKxKkd
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794896935; bh=A3uNL24XC49IZjTCE9OL45EuxvcLT1QTGdi24IXWRdI=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=jEtKxKkdLMnXDFzFMNrV/m9FLrtiz+rFMp5dTDWmojyorfX+Za/+7E4YeltRzVAWdoW3dRKI2X2hy4odH8rqUUl2ugBCGbIamLdcHOg+00R/Bk2NnrkB7OUuEgZEqAgUMhJxZYttYe022UBhGN1ISbZQg1jeNVZ5uxz6syjZkdaEfSSEiXAw7UetY0R4kwxq9yP/e8+LH9/jjO6dFSUlkYjsPPLIrv4xNLelU+bTJTnTbavB5xlZRy5uZtTFesUgXbsUh38rgLuKe0h3mHqCKV9/KuD+kGT3Ggp7epSYUKi7NGNlvEgxt5BTtahQ8/h/dDN/zwZ8VH9SmHPn95gCwQ==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794896935; bh=H6r0B9tGYT+o3D9MZqag80kI2gEqNQQhzzNKDpQ7fsV=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=JSmRaz0oRw/Q4gkw4iAnPnKojN/nJhLQK8Sv+BOyQnd7mi2whmSg9WOvl/Sz2g6a3u1+6fqKoSLFWRmd2wmmlVAAMvJj+YHouNYAG4upsc26L/73YxD2SJEyKxeo/xy1x0/Au4AlGGlJFVWZ3qNypoupZIoUd//c25J9bMmwJSxUP2wm5f1hUtSFak4bWA3gSw5WV3LyCIyCM+LH9Q1klzd6ssSDKqxCGzhLyh9TmBAvrjouG9ncibEox7C4CoWOAgy5YpVJ+xof5zuwG+Xb0mOR3HTr3brLx95bOVj0MbTrGyDR25FbrkL5ggbYLZyAsv3w6Zb4DhpZbAxW0qllIw==
+X-YMail-OSG: eX3LTEkVM1mydbC5j3h3WdqfunRC3aza5gF2eJz3WQ18mMwZPf5_GQ2mFYecb2r
+ DjKM.WjPzN6rObl.CBYCILUyDFmw.uy4u4SlP2MjN9XQPgUCyqqVHitEPL58t7l67JVqUbt9PmcZ
+ 6MvPuiPXoogDhzzHcOP0Fo2hJ95hWxVUoIU.dBiu2mrETEZFtKBBHvr..6esiJO1_UboeRVx_ned
+ yKp5A6CmsPS6URqPYWdWY5nEpxDAYo_BRXHVKSS0ftWSLCt9_HHDJSV6DW0wqfAqpzHGb3XiXIPU
+ BFbtq5ulFZf_564ke9g4PvFsyvisQe_UDkiIMG57yyYx.EcXE2OcdaWQfkpi40UPxg3vdhYBNYxN
+ c93tbBD2jljILIgGeJ3lfXpWtdb9W3BdVXb1_VMUYs2oyqvujuM6Bq77BhRbv5tWobrWYRrgoJdo
+ IUbu78T_3Q.43hK8pyaA3K0WKWTGCibkU1zwQlcKvE1Mmf9QyehWw3povjlKsUJwy.xdU34DyQbn
+ XkAMsPNICaVVa9Kv.hSpHhLIxkB3YT2AfSgrlxB8wl_D5jBjWiWa7.kqT6jC7fp46yVXI1L23XLf
+ e3zsdEaKF5h_PC4ReLH4pnfD.ypPdsjNkFIDSVzllL59fnr_TLiCvHwgKZj0GpT2JIEc8og6Jqlw
+ Cl9SObdgyaPU_p6OlVQayi9l0bK3Cgpb_oSmJSY.oIx3PcqytQYLJ5wD5ELRPLrOtztc34hgku20
+ V3LJWE7EVFLsGepEv6PN2BV84.g.WxdVYHNMZq9.GAR6WqisoUcqkOqQf_0T_kjMipFuksTC0xdj
+ cNW8ckeTEQaJTtgjVFJ5MsrSnawopOVuXmur1Lx6O.xkFZchCvI9pMB46dT.QJn2ieIqTQzyomzp
+ kOwgci27kfrrHzIK_FnNtYD0OVHpQBKZFxk0pxVG_ZnVSWn6y4zDRubqmSOhVoidSnSTCB_7y1RG
+ _OIGl1Z6UmJJVKP0N8h4sySntmBaBRj28YKWwwlPmmGy2331iWGIPjsCdnhj0La5.BkTl9FWfwjR
+ yDvwiA3tDDO.vsqORDhZ8c.TNICZpVmRa0B2QBmIctzKU1HQxWW8GszG4acLKm0Sk_LytlMZGG9t
+ 8zaC4g_l6CZXkm6yyK2Ml_DV1U0ZaibKGjdDiglnLafEzVv3.ueLYGpDrKZzAEd_JjMzXuThgczU
+ RT1AieZ6PJrPYnfqLvb_BPQBAd5j.LYVrDTM4xSKdA8RlNzNtfGVeDXzbHJfjT9GlYmJIYsqVt9v
+ dchjlhE6YNR8u7tT0Wv7CcInLQ7s.koup8fKH1kltzVJ5Y084uXDUehxBe8qB.jwgDCcHzBYlee3
+ bZ_eNi4e9VmDz0Qz55pmcL2gnFpk7PRtHhxeyVNt0XaGwV.QI.6xacuuvn1dbyXrMC4vkCI3Fxj2
+ o.eytELKyLgdlDt7Rh03UwEBWIqcbFiaZzSj1eaaFcelRJF_V1nI4hdpBBPi__L1tkXfRAfz0_r8
+ f4Q8Z8MSOoH.VJkVZpnIHW_ZRG3sPVolCqd7WW6wN5QqpCVW8k5hs8EaS13_dR342BGyYSTcoEc3
+ 6yOGYmggC5Wo79ybt5I1RiGZbLVpW0lSpXuMjZOYtBlysTE6XIYjHaTGfQv1.LR4rM0W12pvVonS
+ yhjV3rZ4ep_TC30IrzH7jJi4.rKPP2pons9I5eJOd4nJ8ny1Yg.l30GhqawiXAenF9d6enkCKsAB
+ uG50YLzkLrA_KIhtGk2riH2OyNhWXA2prWbyL0o.aT3IIqHgjDWbj77wRcd_bKA9F1a1.SbQvLxC
+ iGzu_fnDmvN7ozycdBQBhpP2eTKBt0Sv1KYlqgtxHaROljrWBDB0qZQBoK8PK6W_GpeS_hrhMrkP
+ Wf74IPtFFIeRxJmy0z7FF1Gqlt8LdOcLSA7ew.xw21NLT_JDC9SQLETyO26XaR7OhyBb_f.PE93g
+ lY2AMlqLEP2PsVBU0GajOQ8kofUT08YutbnF2wZOdaRiXoDUMaEmOza59eL5VfvzjPkzxFgIP2Kc
+ ejiWrjboFHGKH0hKrKnHaVk1IilWWd_GeT0oeEb20KKRhcWYwan8kjwYsSPvFoQlPz_9Q6qk.eCI
+ DddD4W27I0.u8JFD7PCq.6RwsSwRHWt7O3lN0l01hPPA0rmipgIQ_8iCEyoZ2f12VxKrZJomBbFo
+ k09lIsH51Tdxf7ApN9B_00949LqW4XXBXPqEdNLmss1JL7apYbIo4w9iYxYGoPCLmQOw0e2GFWz9
+ NCumrgAZyGUKh2a2po0bRbFQty8p01T645gY.GWG9ArVFYOYZUkgXnMeaWj_ji_apI7IUOg06Ppr
+ m0AP1fyiwtcHicDotdhWso702R_Iu.pD1m0f7MJxK3A--
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: 946cbd94-654a-4d27-9d98-68638605881c
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic309.consmr.mail.ne1.yahoo.com with HTTP; Tue, 17 Nov 2026 06:28:55 +0000
+Received: by hermes--production-ir2-5dd9bf4598-98szj (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 7eae569bcdafe6ef284270225dd69369;
+          Tue, 17 Nov 2026 06:28:49 +0000 (UTC)
+Message-ID: <06c0ca53-dc0c-497d-bd2b-06d2f678c0de@yahoo.com>
+Date: Tue, 17 Nov 2026 07:28:45 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,71 +84,40 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110160554.918652-1-coiaprant@gmail.com> <20261110160554.918652-2-coiaprant@gmail.com>
- <20261116183012.11a7ba72@kernel.org>
-In-Reply-To: <20261116183012.11a7ba72@kernel.org>
-From: Coia Prant <coiaprant@gmail.com>
-Date: Tue, 17 Nov 2026 14:23:56 +0800
-X-Gm-Features: AclHuK_nLO104gw1yCZjvRwQLJzYX6sO8gDm56OtDyoqEcCmc11J_KEsaJmWM1U
-Message-ID: <CALj3r0gTuJEDd==WzAQ+cK3Og-2zMqvmBrhrd2ARbKJctG5ZAQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 1/2] net: phy: move DECLARE_PHY_INTERFACE_MASK_ZERO
- to core
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Paolo Abeni <pabeni@redhat.com>, 
-	Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou <mengyuanlou@net-swift.com>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Heiko Stuebner <heiko@sntech.de>, Aleksandr Loktionov <aleksandr.loktionov@intel.com>, 
-	Fabio Baltieri <fabio.baltieri@gmail.com>, netdev@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v10 08/12] net: dsa: realtek: rtl8365mb: use raw
+ VID for PVID on family D
+To: netdev-bot+sashiko@kernel.org
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+References: <24c9870b-1991-4817-90a4-e41c5bcac09d@yahoo.com>
+ <179485535671.3136.12858129949728945036@kernel.org>
+Content-Language: pl
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+In-Reply-To: <179485535671.3136.12858129949728945036@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27017 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-Jakub Kicinski <kuba@kernel.org> =E4=BA=8E2026=E5=B9=B411=E6=9C=8817=E6=97=
-=A5=E5=91=A8=E4=BA=8C 10:30=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Wed, 11 Nov 2026 00:05:53 +0800 Coia Prant wrote:
-> > --- a/include/linux/phy.h
-> > +++ b/include/linux/phy.h
-> > @@ -159,6 +159,9 @@ typedef enum {
-> >  #define DECLARE_PHY_INTERFACE_MASK(name) \
-> >       DECLARE_BITMAP(name, PHY_INTERFACE_MODE_MAX)
-> >
-> > +#define DECLARE_PHY_INTERFACE_MASK_ZERO(name) \
-> > +     DECLARE_PHY_INTERFACE_MASK(name) =3D { 0, }
->
-> I wonder who suggested this, hiding the init inside the macro seems
-> a bit subjective. I see no such defines today. We'll need an Andrew
-> ack for sure.
->
-> Please try to add lore links to previous versions of the patchset
-> in the cover letter.
+Hi,
 
-Hi Jakub,
+Thanks for the review. Replying to the two PVID points.
 
-Thanks for the review.
+> Is there something that prevents the family C MCIDX fields and VLANMC entries from being loaded from EEPROM as well?
 
-The macro was originally introduced locally in the Wangxun (txgbe)
-driver (commit 47f848aac4e7) to handle the uninitialized stack variable.
-However, their local version incorrectly uses PHY_INTERFACE_MODE_MAX as
-the array length instead of BITS_TO_LONGS(), which allocates far more
-stack space than necessary.
+Nothing prevents it in principle, but I would like to keep it out of this series. The series is meant to leave family C behaviour untouched, and the family C regression runs (RTL8367S on Archer AX55 v1) were done with the existing setup path. Writing the PVID registers of every family C port at setup would be a behaviour change on chips this series does not otherwise touch, so it is better done as a separate patch with its own justification and testing.
 
-I was just trying to fix that bug and move it to the core header so
-both txgbe and XPCS can use a properly sized, zero-initialized bitmap.
+The family D case is different in kind: there the register holds a raw VID with no VLANMC indirection, so a non-zero hardware or EEPROM default is directly used as the PVID by rtl8365mb_vlan_port_get_pvid() and rtl8365mb_port_vlan_filtering(). I could not rule that out for a chip whose reset state I cannot verify against the vendor API, hence the explicit clear.
 
-I understand your concern that hiding the init inside the macro seems
-subjective. Since you mentioned an Andrew ack is needed, and he is the
-net PHY maintainer (who also looks after the WX driver), I'll keep it
-as-is for now so he can review it in context.
+I agree the kernel-doc of rtl8365mb_c_vlan_port_reset_pvid() should not claim more than is known. I will reword it in the next revision to say that family C relies on the reset value of the register and does not defend against an EEPROM-preloaded MC index. If you or Luiz would rather have family C cleared as well, I can send that as a separate follow-up.
 
-If Andrew also feels this doesn't belong in the core, I will drop the
-macro entirely and switch to explicit manual initialization using
-phy_interface_zero() in both drivers.
+> Luiz raised these points on v7 ... I don't see these points addressed or answered in this version.
 
-I'll also make sure to add the lore links to the cover letter in the
-next version.
+This is addressed in v11. The rtl8365mb_is_d() branches and the _direct helpers are gone, and PVID get/set/clear/reset now go through struct rtl8365mb_family_info, with separate family C (8/13) and family D (9/13) implementations. VLANMC index 0 is described as a driver convention, not as a hardware neutral PVID.
 
-
-Coia
+Best regards,
+Mieczyslaw Nalewaj
