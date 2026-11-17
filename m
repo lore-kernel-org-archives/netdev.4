@@ -1,89 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794903941;
-	b=bk60V27kLyczjWUUGyvLMjLE4qzsiWkcX6mGvfPEVWVmqNdea505RPaeZjVk+92wclN7
-	 SPJ6pewZZss4w6Xd0LgNs9zwMl/+m1MkUMtQjeW1c/v2WwIv1AHpAptI/seq9HxNkJQ9W
-	 OF/AxcK1yc3BhAx8trxuC6c/Mz2f8lBlen6jDqwozjkUx3Y3kM3YNg2m94uuQvl7TUlpQ
-	 vC/0OpCmQ3m+7r3HnGJd90szpSgHW54y8jTtERQhrR76YHopzsCujcPJ0hwvmVUUXXTN/
-	 vvwZ6a+fyzeRsoj6YdN2WKnIfdsc1bUhsbqgH7N136+6whj02lk6mP0RBDMO20bzASw==
+	t=1794903967;
+	b=rJMSDsR7/4wCHgLzdaeNVj6izqc4Ofn9Q9u78qBtdeZESIvgTjy9HzdK3PzbmuunfM9f
+	 t2N602TVGRh+PbUFRfWqDAIKy7DfeEfwr0SGSdENQN4KELbeCpIfNtkh4FqFK5L52VIPJ
+	 Fs0ni0Zjgtnt+rQXpni0w9jECfOAuI80RabXMea3lsYutzryUe8xnZ+ggOmxye7mEMFUp
+	 nktxA7DWlwrFmnE2oTYI6ur4SmOc0n+05cgwJjSe9Ip8YQ8bEurZDALb02v/bhW9jxQO7
+	 /n5RcgUTow05kYQx9nAG3WmUk/aVNSKsn6sZaOckt1ofHlRc5xoIvpoIqryB7pY4qAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794903941;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794903967;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
 	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=UGlayfD5Z/El6cdpm6ie0HDMH84kD107OWGXScU9uXE=;
-	b=B4lU0jgLWsHmZ0B9nG5ir0Alfwgu8dPuCCRfEN9UUIdeGXfIi6Hd4IkNiK/Wsj4bqT6K
-	 rbGlG+Di+Crpbg0e4Koc8I3hOL2c+lhkd/fp3DAeiJ+tt9f7+tSwfzdeUMYVqYhKsDalM
-	 EDgj4Fw70FscaSk9UGHwReqApA8Xzc5+IV7qikqYVaIHG3Ce15qJZ6L91nucojvmr9PMg
-	 ehsP9QOrIIpXr19X9JiF7oKAi0AhJZgR3GGn3OnIlYeutSydqcDUKF2iI7FKjkuMkrE0s
-	 b3GduxCXJ5vy2NrSLUS3kJhJfLxeHYytrWCFd9sg8tmUxfrUn3e8AsvqU9Kkkq5BsBA==
+	bh=z/NZRmC5bENRF/WsK1hUt6gARTy1xozW3x04wBCWbAk=;
+	b=b5s9VTQwH51yTr6AXqc+fToIBcG+S0EeLDAmQQA6d2pFky2bxYZk07EWQZ9N40YPQhK9
+	 /lK5TCJD4fby1mwlNKFANdEjbwf2Gl26Jtm0mglKLgXLDQuz9D8DLsxoEc5mFdDs5+TGh
+	 cTP8JwcTQqNkb6mQHZHnQDqdPOss6PDUeslfz1mZgOM9zUVwDvaE/PJ+z77wMXnZAtkb1
+	 6iGpw+4JP9fbu7KUAsc4gorr+038Hz9fapfsNY4SHiZCO9DnV5V7N9GeePbKrSgINhaXL
+	 emgyw6QTXIk5bE4MPY6IQRERryNfasFGxJSgWcGyQpQOkoZ7i3JjDJ3oa2CISwylVdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=amutable.com;
 	spf=pass smtp.mailfrom=amutable.com;
-	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="QoCmkI1/";
-	arc=none smtp.remote-ip=209.85.221.53
-Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=cds43TFp;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDA6C606A330
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:25:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BDA6C606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02198606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:26:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02198606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QoCmkI1/
-Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-48dee593f18so4521678f8f.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:25:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=cds43TFp
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so7875485e9.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:26:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794903939; x=1795508739; darn=vger.kernel.org;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794903965; x=1795508765; darn=vger.kernel.org;
         h=mime-version:user-agent:content-transfer-encoding:content-type
          :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=UGlayfD5Z/El6cdpm6ie0HDMH84kD107OWGXScU9uXE=;
-        b=QoCmkI1/XbLLMuB5pWQjj6w7lhYbbqiM96jQW+pj9RZ000aRRl9S7H2qSmbtORMNOo
-         ePt1TXAWzVIR/TrMeI58Zu3n81XgIdPHavzyhyljr/3uEJYZwsW6Sg14gd450d308jE0
-         RrvE2vSlthe4MhW9V05IsJzW8g0CM3u+nfQ1hkfntpYQW6a4z4zmXmxD0w/TiuzDbd7U
-         U8xZ2FexNWbZhSQ3d3pA0tlH/f0MOfn4O69UeuIyRM8vQ/YXTKpGPDyGoQczoxEfoynP
-         BDcwZppUf46pJGXZ+RH52kug0iZSl25eld2NGIqCa+XVs4XFwFr0CZI1pzljVyhbNHw0
-         NmQw==
+        bh=z/NZRmC5bENRF/WsK1hUt6gARTy1xozW3x04wBCWbAk=;
+        b=cds43TFp7I9j7WPcDQvYfHpQ9LovbzzVif9J1GAb84gdrUsjaaD/ks8/CxWEGRZF0/
+         68hyeBKuGnu6JbonI+DUrAk+S9ERoS7tOFFA4H5eAQDr7L4jclXV2ELfZ8mKm2Ufg0Vf
+         wmDFKHpSFXtb9q6HdOEKHOgWOeHJI7n45fohFUmuSejGQMSPwWlozLhppiRP7NP6/RTN
+         Xh3C0JkZ12tnXvLGCknth+xcOYp3m/oSfXqUlVI9cwzFe0Rue3P0S85bM03sQyFUoXwh
+         8JJkMFcg0oB6zhSAQwaixAlqp7dYBZf2pow5RK/cSK97CWugz7jqMDtCMqYWg5eRSPcE
+         y3pg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794903939; x=1795508739;
+        d=1e100.net; s=20260707; t=1794903965; x=1795508765;
         h=mime-version:user-agent:content-transfer-encoding:content-type
          :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=UGlayfD5Z/El6cdpm6ie0HDMH84kD107OWGXScU9uXE=;
-        b=O7oM1EzbLQTuiZIT8tveSbjhQQdABd5hiWuJTL5nC1Yl2yoaSZO+uc2kS81+mWxOm8
-         jPIPvb/pZv1OIVpGSHvykhnDmPr8y4RGlegENEmHsyNpuIA0o13uoWmLWBB8T6yyPtep
-         olSUSYo9StYKLPybOtamgsc58jPtwdOqWR2D8NAF7ZRO1WBbG4Tbx5rw99OWaqjbg48i
-         q+RA2Mh611ruYNOUGlgOlnTok+G8dZWxLGkU6snwBAnAVOISCwDd6jYAmlRaNBHFvVDO
-         R8Zqcd96s4vxxDryZjQfI9z0eE/ot58ET+tw3s4MeiQJChKF0L7/+kuYExsCJiklIFmM
-         QfJA==
-X-Forwarded-Encrypted: i=1; AL+hErEEMjmvZJ8quYb+RdQa0kZcPYEV8+o88OD9lOE8roSS15vi5aWJIA4PgEqYDqepwmRoJ6FbZYQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8/b29siWocRJ22+bHoIiozCs6zp1+j5am8KLAh/i3BlI3/CFPf
-	Cj+1qTMG6Mdv0a/c4zo+UZieP+Yg7b5uADR76X1DgttHeKupXPceRfIvrnUqONNMDIDg
-X-Gm-Gg: AZFdTZcTfl1fazYPcOjqeFPdi6bk+SN+C6BbQr9R3BzG3McrRYtw1vNKpj7taLiXVfx
-	Wawp/ul6lDa4XxtXzNd0yi6eXmQYG9KnTs3YXCC2BV9N/1XHuO96a1HSFhRZoU6qOSij84S5iI9
-	HuTO/+ysEZUKeTV4FgGMAdGLj6qhTKLS/ivEv+fl4C/ocJ5Szwl/4icbqcNYHf2yOxpXBssNTZu
-	8eKN0JXP7ksyfGXooiBYRkrFwQ1iyJl59+IJcksGHtaLBbF/e3MtodFoKaC6Nm9riSspeGvUDW1
-	4ICRNhSjhg23bj0NLseE3QONKzIWKDLxPeNKcEJhkkTeI+9qqwN8fANRQbsB76ery8dsCww5GfT
-	iGmOCTbEbB6uzBClOltKVybjf4O/7ovwO9VTSBB9StaLKq9W2mZ22tbKnjt/xqPvEqkmnBGqA+e
-	fKzUAEGoZ324QKvExXtszZEZuCMoXaxBHZXmp9e2Z9SFA1huVLlf8yL8yhoEqc3w+CcWTAEgttA
-	Wiqb6JlMnXSQYzrMtKoqKNGYu/CrzvPS/k4fRVJ6/AQ6xKiEeJ/zMHAvBjat+eVyfo1aZ/kwIcu
-	2D1Rjf64ZOx7I9+XYbJJwNWZ19D8JHoeSiNwyp/w31Q25zJokS1svCOqcQw6Y1rf+Sy2hOgid3r
-	HmcvldQDc1D9se4GPEy6PAW+51ggLLB9kQAc0F0KjUtbcggvsgdBdquzOiVvmiXemI/WAJSeTGe
-	KGOQ==
-X-Received: by 2002:a05:6000:2084:b0:492:46e:d4ce with SMTP id ffacd0b85a97d-49c6fd932c8mr25238543f8f.13.1794903938925;
-        Tue, 17 Nov 2026 00:25:38 -0800 (PST)
+        bh=z/NZRmC5bENRF/WsK1hUt6gARTy1xozW3x04wBCWbAk=;
+        b=DSy1Rn0BAdOH3s4y5r/B+/N+zIj89dEumfAv+GprTwDQAf5a316Sb9QTnBD29KvTuF
+         znCVuqSDWOzBLLKRuCKEv5cL9rYcvNNdwxarjZSrr/6PekbFVrM4WIC3I97ezM6i95eD
+         6MdHQQ061gSFDL4CbUcUAC/mep06RuqzDe9q06/O5uvNIbezenmI78sgFMmTc12trL+6
+         9mt2KQK5IzEk3/J0EmmP4x8kPuU2XQgIvjJ/gM0f8pzOWuv32BdhFoTdxf9c0PuzZFYP
+         Zgn8H5shdekD/Gp9Rtjjm6LIJt6yGwk3sGS34sWXWYqgKgEWScH8Vdvlq3enqaqiTTU+
+         UN+Q==
+X-Forwarded-Encrypted: i=1; AL+hErEzL9FYp8tc2nyZqudEdQ3X1nojpFRz35B1p61ifh4KDNW6f4w/4n3Du4zmDHSdJ15YoSF9eLU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9fr5dI6shDZbKEYgE5/pJjvjitQpC0E/ZPg/Mo4hObGCgQtw4i
+	OtfLh5P1Sg3q4r32TnkLKqwOk4Wm0DQFKjhWtGdPSeT9jNT9rwlTYVdSNUpbuyoVN+YR
+X-Gm-Gg: AYBFou3ybpLCbabPZCHqMN2LMmY9nIFxrLxCTUWlA1HvXGizMECw2g7rjAHospv2pBU
+	VG/g1uliNgO4lFyoJ1OUxunBV9gx54jRL5VPlDbGFGVPaknBxaA/7zUiiqIXB5bGosWaTOCemGM
+	9ahd4JAzOT+OdFSvCDjv10YkMUBgWUeVUu74oiAF/OF1DWBMSLd28EPmjIQgfem9y17vFas89yk
+	pB/Qk3kmIevi2PJbA6GRnSAPcDvhm56+ehIDiLgDA7joHw5kIVmDLsCYYL1+n3akLk6YPizxYkJ
+	UOVysV9SsdKa6OnPl46mKw0+Qs8mK5zFsnjDnN1PgWUUTbP/6GO9EE+brZPb0VYa7mXhTaIYuky
+	d2y6t074LIDjqRnFxrigy2rPaZAGDXt++Gd/Ecvx7ZGif4nFM5ttYnvSzDbvEb5xCd6mdwNCXpH
+	MEUU2za1cx/HOWVNWJi3Ciws0y9gzUJN0QnMTVql8aWvFmpdXXdfebj15Cj5GtlSkEEwnsbiR0L
+	MnQ3lfHxgMhJdE05v8qHUdAMTyNrLhgizCcHiCRBSabDMeLPMCfTVjSHy41g4REOFSw3JZ7d481
+	kr86pZ2faCHp/ObH396XNAKZ9ml2mTh+lUtodEczu3E0WSf54xWx0ta4e/z80mSDK+oS9tvkD0U
+	hwygl//1NIHPMTU603z1LaBK3LjTndRPKGyc7B6MUYC0jpKQRKKf0ptwp
+X-Received: by 2002:a05:600c:5493:b0:4a1:c27d:e1a8 with SMTP id 5b1f17b1804b1-4bb783813a7mr42606245e9.10.1794903965400;
+        Tue, 17 Nov 2026 00:26:05 -0800 (PST)
 Received: from ?IPv6:2003:cf:572c:2800:de4c:6789:33ce:97c2? (p200300cf572c2800de4c678933ce97c2.dip0.t-ipconnect.de. [2003:cf:572c:2800:de4c:6789:33ce:97c2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c5ff2be55sm26907832f8f.28.2026.11.17.00.25.37
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7ad9430asm12629125e9.15.2026.11.17.00.26.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 00:25:38 -0800 (PST)
-Message-ID: <a9124bf1c858cef3e8ac06b1b2396dcb0e19e2a5.camel@amutable.com>
-Subject: Re: [PATCH RFC v3 02/44] nvmet: check that the file backend
- supports ->{read,write}_iter
+        Tue, 17 Nov 2026 00:26:05 -0800 (PST)
+Message-ID: <88041240268f70b218de7dfd58c41977d03a60d3.camel@amutable.com>
+Subject: Re: [PATCH RFC v3 03/44] target: fileio: check that the backing
+ file supports ->{read,write}_iter
 From: Alexander Mikhalitsyn <alex@amutable.com>
 To: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org
 Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef
@@ -101,10 +100,10 @@ Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef
  linuxppc-dev@lists.ozlabs.org, 	linux-usb@vger.kernel.org, Amir Goldstein
  <amir73il@gmail.com>, 	linux-erofs@lists.ozlabs.org,
  linux-kselftest@vger.kernel.org, Chris Down	 <chris@chrisdown.name>
-Date: Tue, 17 Nov 2026 09:25:36 +0100
-In-Reply-To: <20261116-work-loop-pseudo-v3-2-8cbbea1cf34f@kernel.org>
+Date: Tue, 17 Nov 2026 09:26:03 +0100
+In-Reply-To: <20261116-work-loop-pseudo-v3-3-8cbbea1cf34f@kernel.org>
 References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
-	 <20261116-work-loop-pseudo-v3-2-8cbbea1cf34f@kernel.org>
+	 <20261116-work-loop-pseudo-v3-3-8cbbea1cf34f@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2-0+deb13u1 
@@ -119,22 +118,20 @@ Precedence: list
 MIME-Version: 1.0
 
 On Mon, 2026-11-16 at 12:04 +0100, Christian Brauner wrote:
-> The file backend calls ->read_iter() and ->write_iter() of the
-> backing
-> file directly but never checks that they exist. Everything that isn't
-> a
-> block device ends up in the file backend. So a namespace pointing to
-> a
-> file without them calls a NULL pointer on its first I/O. Only
-> buffered_io=3D1 gets that far as the O_DIRECT open fails for such
-> files.
+> With fd_async_io=3D1 the fileio backend calls ->read_iter() and
+> ->write_iter() of the backing file directly. The synchronous path
+> goes
+> through vfs_iter_read() and vfs_iter_write() which check for them but
+> the aio path doesn't. So a backing file without them calls a NULL
+> pointer on its first I/O.
 >=20
-> Refuse them when the namespace is enabled the same way zloop does
-> since
-> commit 0c10f8a1a7ae ("zloop: check that the zone backing file support
-> ->{read,write}_iter").
+> Refuse such files when configuring the device. On the synchronous
+> path
+> every read or write that needed the missing method failed with EINVAL
+> anyway.
 >=20
-> Fixes: d5eff33ee6f8 ("nvmet: add simple file backed ns support")
+> Fixes: 769031c92c8b ("scsi: target: target/file: Add support of
+> direct and async I/O")
 > Reviewed-by: Jan Kara <jack@suse.cz>
 > Reviewed-by: Christoph Hellwig <hch@lst.de>
 > Reviewed-by: Chris Down <chris@chrisdown.name>
@@ -143,24 +140,29 @@ Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
 
 > Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 > ---
-> =C2=A0drivers/nvme/target/io-cmd-file.c | 5 +++++
-> =C2=A01 file changed, 5 insertions(+)
+> =C2=A0drivers/target/target_core_file.c | 8 ++++++++
+> =C2=A01 file changed, 8 insertions(+)
 >=20
-> diff --git a/drivers/nvme/target/io-cmd-file.c
-> b/drivers/nvme/target/io-cmd-file.c
-> index 695963dd932ee..dfa8aa46188c8 100644
-> --- a/drivers/nvme/target/io-cmd-file.c
-> +++ b/drivers/nvme/target/io-cmd-file.c
-> @@ -47,6 +47,11 @@ int nvmet_file_ns_enable(struct nvmet_ns *ns)
-> =C2=A0		return ret;
+> diff --git a/drivers/target/target_core_file.c
+> b/drivers/target/target_core_file.c
+> index ab9824a4852f1..a5391e57e9aa5 100644
+> --- a/drivers/target/target_core_file.c
+> +++ b/drivers/target/target_core_file.c
+> @@ -144,6 +144,14 @@ static int fd_configure_device(struct se_device
+> *dev)
+> =C2=A0		goto fail;
 > =C2=A0	}
-> =C2=A0
-> +	if (!ns->file->f_op->read_iter || !ns->file->f_op-
-> >write_iter) {
+> =C2=A0	fd_dev->fd_file =3D file;
+> +
+> +	if (!file->f_op->read_iter || !file->f_op->write_iter) {
+> +		pr_err("FILEIO: %s lacks ->read_iter or -
+> >write_iter\n",
+> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 fd_dev->fd_dev_name);
 > +		ret =3D -EINVAL;
-> +		goto err;
+> +		goto fail;
 > +	}
 > +
-> =C2=A0	nvmet_file_ns_revalidate(ns);
-> =C2=A0
 > =C2=A0	/*
+> =C2=A0	 * If using a block backend with this struct file, we
+> extract
+> =C2=A0	 * fd_dev->fd_[block,dev]_size from struct block_device.
