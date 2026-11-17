@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794927344;
-	b=UPWyHR/9JdVjWZVpEeTRT1s/Qe2wlZQdd0l9sWF95ucV/ReeugiM7UNi9kA82hrtoahP
-	 Ws0tGCKmHmNBfa9GC1ahwMLUAtM93bLcC8W5LlFgKlxDLuTmJ7K9muYTMW1cB2uT85QKf
-	 z0unn57wjLRvgVgCUNJTmoc9v5dHVCNE38xoQkhwTioC5DzNaGd7CL9AjJyl6i/Pw6sFz
-	 HeSTWAwxFrwZbMxFk7KB3nzBvIV0UjtCcZaZbAUhi1CJw1HbFTi53hhUaMKAsLg4VDcSl
-	 uuX99OFqbSqcqnLqXb2ruywC8F41oepf8JOun59arf1VRUJ8UXiz693k8WclMZWL+GA==
+	t=1794927351;
+	b=N+PUReq4jEO9N5t1G56RSrzis4o4wpnWzg5evDSgALi1W5KmPs1gvV6LZIwrPVVk4Qar
+	 cM6S+HxAv7CK4SrEABwmpXBRsYK/LhT3k68POl0jZbQKXIysiRZa3h6gj0BWcild9VBYJ
+	 ztK2zFHbkQZuLYCzr+WHdM5TT3vTwoYXbTIaKxWXweyn53baJY4Fd+34JWW4HvQpsKG+s
+	 QJ6c7457EFzigCmVQqooa40GaDAEgxQ/HKApnd3A/YugUB3Wxr9aJiSxovwnQ8f/iI3Xc
+	 ETZnb46frEDAC5iOXc7fNlBeIMJHJOUorJlMX5nOSAsbs341UqFjHqgktV38unqlaYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794927344;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794927351;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
 	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=YXN/cmE2b18TH9R1wcOBPcApNcBvXcI1LLfj/l4dFc4=;
-	b=NURq32mquocnnUjYgWED9RUYq6ufFnBhOB0gCEeHtrkewkVhdIU96BQUmWNyNmBaK11m
-	 Ekl7bGomdR72c743kKbPOCLpVw2+MmOq2QhsHA5ccUC8iOMlTnpvWIsav9y7KeuZiRl4b
-	 oN/A4jzBUmlfxGyNR71vuN6QoFCMBZREnW2JTCLhV8gNy7Flwssyb9JhoMvIyjXJk0x62
-	 nW6ADxClLoIRHMszNia4ZmfmHhiyePozDRy8+1KrOBvYTWcMsTcAJ0mM9qcjZy/OB8DKH
-	 Ctsslsna7kvySH1pKjjo+DeYiiuOaZKR7j0pTVGkYex71m+zvoypxLdqtwUENurRwQg==
+	bh=Shs4PdnXjd2xYxGi51mBNeSm79d9G1JjpdOef49Oggg=;
+	b=ECw3AkCuyyK64bMuHaM95YRXEG1jM6GnHLaUAGoc+++7QI0KX55b+UJqJM4c/a5gYOSE
+	 Ljo7bJxZ2cSfaQxxx1fcikYWHVVrhcDMfVUz+ycsIOF7azXNRjvGAoGwk/rVO9RqDLUuM
+	 aTiFjasRZBqmDvMBK7ceevoTaIH3SYv4J0t/24VAavUoH0LlecMBFLiHYu6f4ro4iGaWa
+	 dlRPZZrpO0/b71HE6rYo5PEtumI6bt5Ir7OQjuvjqikJEkxEgeMUlZgbGfLwpJwxYsH40
+	 JZnNsdYFMNdK7T4pMH4WxN5xnT5NFXpy1S1S0xByap6LUx57qJ/d+6XNqLDYpB3ANjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--stani.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="BJ7lQU/4";
-	arc=none smtp.remote-ip=209.85.128.197
-Received: from mail-yw1-f197.google.com (mail-yw1-f197.google.com [209.85.128.197])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cj8zJBW5;
+	arc=none smtp.remote-ip=209.85.160.197
+Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7496660A260B
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7496660A260B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA0B2606B6C8
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA0B2606B6C8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--stani.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=BJ7lQU/4
-Received: by mail-yw1-f197.google.com with SMTP id 00721157ae682-8b4e8af48c8so21007197b3.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:55:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=cj8zJBW5
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-542fc61841eso88972781cf.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:55:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794927343; x=1795532143; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794927350; x=1795532150; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=YXN/cmE2b18TH9R1wcOBPcApNcBvXcI1LLfj/l4dFc4=;
-        b=BJ7lQU/42BGKYGKWz8cYMbrWFwQtlAfuyegZD9xW9Xlv5gj4SEaiB+aBaK/LNyfYcX
-         Rj7UlI/lupSs0oKgeT9a9PqqNrtEMp7lMLz2NPJnEJn1X2sTQ9cEnIt3Xl+aeYm1wo/v
-         F8nfm82xEClw9Mk+gKePRIxEL80mjwLUTai5P1+E1oQ89Dk4ynnmj5i7BVxwyuQ/K8Dr
-         Dtp4V2j8rN6Z/bFHXUvxJneu1uKG9AepxqS0zUg2mRIWQzJPJrp0gt81VyS8rrQfHyqW
-         1v7etg3stuBD658I8kA6wnHSspusASTrinoKyPLsz0pKyV9ENeZILD0eBSDYy6y2Nlj0
-         feSA==
+        bh=Shs4PdnXjd2xYxGi51mBNeSm79d9G1JjpdOef49Oggg=;
+        b=cj8zJBW5B3auxI3mqmJEFuzEHZyhOkbr4ILwHFpKBLLVv8R69fZwljR8q/xi7vJeI3
+         vtFZYRrNSXuYNpAqA1w3ZPerJzrWM1qYI/BMVEug4kKGZML9xDyYOME9Xz82ttP0oZhP
+         DwK22nklEKr+QNqIMtkvFWLQLUBO/E/iLDf3LmtoUwCCMt0oEN8CFQOWYKt0rdcRqKYl
+         hhCzC2vD3KG9D3RAnfCEW4s9eqSQOTwDWjPXkz+8tUjwVfJaxcaJg7AUo4LPL3fXykqD
+         a2q60Gtz6Qdbg/SDw59ScMtmpQIEBl/Et5oDMWl2sPUjZCNFXyjjcz1WHOViIUbkZH1U
+         yeNg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794927343; x=1795532143;
+        d=1e100.net; s=20260707; t=1794927350; x=1795532150;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=YXN/cmE2b18TH9R1wcOBPcApNcBvXcI1LLfj/l4dFc4=;
-        b=nQVuO6cW6UVJ8ladtDcEkE6w5CCucYHIHi7wWt4nCmhixuLVLMCzh7NC1gvyFgeKYD
-         0IlwMEg+DmlmmEYQe2MDP4mgIsTFhvLtFOlFoaetXSsiDWeyRVlznyETwwiKoiip3Zfg
-         o3DlwrHtt/FArydH/MwfSR3KUL/8goAsoUoEkmMH5dLkgm00HcL4pF0DhIA9T8PhqS80
-         orD75QMaFbntUZsn1gkFKT0PRBVagon61Vub5T0WcfERrqtlbYEGtWPVhrsYH2/G+Hnj
-         2bYyTzqRgSJZt0bVLYzewAo9tuyDQHfA1iOUMJ6I+bC7OdB59GgGfrGnBzbocJXdjQCm
-         fQhA==
-X-Gm-Message-State: APuU4Z/K1QFwjNtzZCKsV346cT2gTmejVxi4KrY8AGXgC6GsEH2MLRCs
-	qUtnFvm4EDResJDv8UHevSx6+fe9DRfEEfbcF4uImxLWZCDWmWdh+xLDKQPnLgfcFoe3zL7/RNV
-	zKA==
-X-Received: from yxpq15.prod.google.com ([2002:a53:e8cf:0:b0:67d:a676:2621])
- (user=stani job=prod-delivery.src-stubby-dispatcher) by 2002:a05:690e:168d:b0:679:c7d1:ffd6
- with SMTP id 956f58d0204a3-67d896a36cfmr9511324d50.36.1794927343014; Tue, 17
- Nov 2026 06:55:43 -0800 (PST)
-Date: Tue, 17 Nov 2026 14:55:11 +0000
+        bh=Shs4PdnXjd2xYxGi51mBNeSm79d9G1JjpdOef49Oggg=;
+        b=ZjQJRYe8+41B2WFCFXzBOlfVDLWu6DhjdAp1sLi4UVmWXKiVQQUJ4JOLrX01lHeKxi
+         nd8bS6JMfV22lVG9o1nQM9shhbzU9zvxu20SxvvaR3BK9pHHeyUdMNULu6b1AMx0oeJm
+         hhEJorCliD/cm6tni3grkIjKBSTcnkyAOBYIJiGnEhvMFXkufGnuiUj9AWujj+4NCTsh
+         wzsL2v7ZJtxCEuHA44gs7bJ7/U6FmdaiaTqd3EmC7DNMua77LPewJUqHSXzUcn7h/N94
+         hpD7GXVJhFl3RTDpB91PaRLhZkFQmoNaezy+NSrP8qDo9kRDOIHLkuf6r2uI6FQzJWpN
+         RSQQ==
+X-Gm-Message-State: APuU4Z/LkGQFfTV7KAruhvhZ/EzQSjsTt1hCmg0dgpAcu+WeXzCv/lrP
+	YkmvCXRSqlyrEc0uJyQzAHqHlESTplqgQIk9oMvNign/BOeqhJxEgL5PISfGjRW4Ai9i9R+G9mD
+	XCw==
+X-Received: from qvbk12-n1.prod.google.com ([2002:a05:6214:61cc:10b0:91f:33a5:e96a])
+ (user=stani job=prod-delivery.src-stubby-dispatcher) by 2002:a05:622a:8407:20b0:55b:b083:2b8f
+ with SMTP id d75a77b69052e-55bb09293dbmr146864971cf.28.1794927349607; Tue, 17
+ Nov 2026 06:55:49 -0800 (PST)
+Date: Tue, 17 Nov 2026 14:55:18 +0000
 In-Reply-To: <20261117145522.1910636-1-stani@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -79,8 +79,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261117145522.1910636-1-stani@google.com>
 X-Mailer: git-send-email 2.56.0.679.gc527c65306-goog
-Message-ID: <20261117145522.1910636-6-stani@google.com>
-Subject: [PATCH iwl-next 05/15] idpf: psp: add support for crypto capabilities
+Message-ID: <20261117145522.1910636-13-stani@google.com>
+Subject: [PATCH iwl-next 12/15] idpf: psp: add support for psp tx key deletion
 From: Stan Iliev <stani@google.com>
 To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
@@ -95,297 +95,474 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Add support for negotiating the crypto offload capabilities:
-- Introduce VIRTCHNL2_OP_CRYPTO_GET_CAPS (564),
-  enum virtchnl2_cap_crypto and struct virtchnl2_crypto_get_caps.
-- Implement idpf_send_get_crypto_caps() in the new
-  idpf_psp_virtchnl.c and call it from idpf_psp_negotiate_caps() in
-  idpf_psp_init(). PSP stays disabled, without failing probe, unless
-  PSP crypto offload and SADB entries are granted with a 21 or 26 bit
-  SA index width, and the SA indexes of all the SADB entries fit in
-  the width.
-- Store the SADB size and the SA index width of the adapter in
-  adapter->psp.sadb_entries and adapter->psp.saidx_width.
+Add support for deleting TX keys from the SADB:
+- Introduce VIRTCHNL2_OP_PSP_DELETE_KEYS (562) and
+  struct virtchnl2_psp_delete_keys_request/_response.
+- Add the delete queue, filled by idpf_psp_queue_delete(): a list of
+  the TX keys whose SA index (hw_idx) must be deleted, which holds a
+  reference on them. No deletion is queued during a reset or remove,
+  as the SADB is flushed then.
+- Implement idpf_send_delete_psp_keys(), which deletes up to
+  IDPF_PSP_DELETE_KEYS_MAX (1018) SA indexes per request:
+  - the SA indexes of a request the CP failed, e.g. because of an
+    invalid SA index, are retried once each on their own;
+  - only the num_sa_indexes_deleted SA indexes of the reply are
+    removed, the others are counted as lost;
+  - a request that timed out is not sent again, as the CP may have
+    processed it: its SA indexes are counted as lost. A late reply,
+    passed by libie to idpf_recv_event_msg(), moves the deleted ones
+    to removed, at most the SA indexes counted as lost since the last
+    core init;
+  - a request that couldn't be sent is queued again.
 
 Signed-off-by: Stan Iliev <stani@google.com>
 ---
- drivers/net/ethernet/intel/idpf/Makefile      |  2 +-
- drivers/net/ethernet/intel/idpf/idpf_psp.c    | 61 ++++++++++++++++
- .../net/ethernet/intel/idpf/idpf_psp_def.h    | 10 +++
- .../ethernet/intel/idpf/idpf_psp_virtchnl.c   | 71 +++++++++++++++++++
- .../ethernet/intel/idpf/idpf_psp_virtchnl.h   | 13 ++++
- include/linux/net/intel/virtchnl2.h           | 26 +++++++
- 6 files changed, 182 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.c
- create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.h
+ drivers/net/ethernet/intel/idpf/idpf_psp.c    |  38 ++++
+ drivers/net/ethernet/intel/idpf/idpf_psp.h    |   3 +
+ .../net/ethernet/intel/idpf/idpf_psp_def.h    |  23 +++
+ .../ethernet/intel/idpf/idpf_psp_virtchnl.c   | 175 +++++++++++++++++-
+ .../ethernet/intel/idpf/idpf_psp_virtchnl.h   |   1 +
+ .../intel/idpf/idpf_psp_virtchnl_def.h        |  17 ++
+ include/linux/net/intel/virtchnl2.h           |  30 +++
+ 7 files changed, 286 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl_def.h
 
-diff --git a/drivers/net/ethernet/intel/idpf/Makefile b/drivers/net/ethernet/intel/idpf/Makefile
-index 3162ea913417..8db28c228e04 100644
---- a/drivers/net/ethernet/intel/idpf/Makefile
-+++ b/drivers/net/ethernet/intel/idpf/Makefile
-@@ -21,7 +21,7 @@ idpf-$(CONFIG_IDPF_SINGLEQ)	+= idpf_singleq_txrx.o
- idpf-$(CONFIG_PTP_1588_CLOCK)	+= idpf_ptp.o
- idpf-$(CONFIG_PTP_1588_CLOCK)	+= idpf_virtchnl_ptp.o
- 
--idpf-$(CONFIG_INET_PSP)		+= idpf_psp.o
-+idpf-$(CONFIG_INET_PSP)		+= idpf_psp.o idpf_psp_virtchnl.o
- 
- idpf-y				+= xdp.o
- idpf-y				+= xsk.o
 diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp.c b/drivers/net/ethernet/intel/idpf/idpf_psp.c
-index c1297ec59163..c4f46f7337ef 100644
+index ef23b1699b09..d2a0ba79c7ab 100644
 --- a/drivers/net/ethernet/intel/idpf/idpf_psp.c
 +++ b/drivers/net/ethernet/intel/idpf/idpf_psp.c
-@@ -3,6 +3,59 @@
- #include <net/psp.h>
+@@ -106,6 +106,13 @@ void idpf_psp_init(struct idpf_adapter *adapter)
+ 		dev_warn(dev, "Failed to get PSP FIPS compliance status: %d\n",
+ 			 err);
  
- #include "idpf_psp.h"
-+#include "idpf_psp_virtchnl.h"
-+
-+/**
-+ * idpf_psp_negotiate_caps - Negotiate the crypto and PSP capabilities
-+ * @adapter: private data struct
-+ *
-+ * Query the crypto and PSP capabilities granted by the CP, check that they
-+ * cover what the driver implements and apply the negotiated values. Must only
-+ * be called if VIRTCHNL2_CAP_CRYPTO was negotiated.
-+ *
-+ * Return: 0 if PSP offload can be used, negative error code otherwise.
-+ */
-+static int idpf_psp_negotiate_caps(struct idpf_adapter *adapter)
-+{
-+	struct virtchnl2_crypto_get_caps crypto_caps = { };
-+	struct device *dev = &adapter->pdev->dev;
-+	u32 sadb_entries;
-+	int err;
-+
-+	err = idpf_send_get_crypto_caps(adapter, &crypto_caps);
-+	if (err)
-+		return err;
-+
-+	if (!(le32_to_cpu(crypto_caps.crypto_caps) & VIRTCHNL2_CAP_CRYPTO_PSP)) {
-+		dev_notice(dev, "PSP crypto offload not granted by CP\n");
-+		return -EOPNOTSUPP;
++	/* Initialized the first time PSP is negotiated */
++	if (!psp->initialized) {
++		spin_lock_init(&psp->del_lock);
++		INIT_LIST_HEAD(&psp->del_list);
++		psp->initialized = true;
 +	}
 +
-+	if (crypto_caps.saidx_width != IDPF_PSP_SAIDX_WIDTH_21 &&
-+	    crypto_caps.saidx_width != IDPF_PSP_SAIDX_WIDTH_26) {
-+		dev_err(dev, "Unsupported PSP SA index width %u\n",
-+			crypto_caps.saidx_width);
-+		return -EOPNOTSUPP;
-+	}
-+
-+	sadb_entries = le32_to_cpu(crypto_caps.num_sadb_entries);
-+	if (!sadb_entries) {
-+		dev_notice(dev, "No PSP SADB entries granted by CP\n");
-+		return -EOPNOTSUPP;
-+	}
-+
-+	/* The SA indexes of all the SADB entries must fit in the width */
-+	if (sadb_entries > BIT(crypto_caps.saidx_width)) {
-+		dev_err(dev, "%u PSP SADB entries don't fit in %u bit SA indexes\n",
-+			sadb_entries, crypto_caps.saidx_width);
-+		return -EOPNOTSUPP;
-+	}
-+
-+	adapter->psp.sadb_entries = sadb_entries;
-+	adapter->psp.saidx_width = crypto_caps.saidx_width;
-+
-+	return 0;
-+}
+ 	/* The master keys are tracked again for the new PSP device */
+ 	psp->generation = 0;
+ 	psp->rx_gen[0].gen = IDPF_PSP_GEN_UNKNOWN;
+@@ -113,6 +120,9 @@ void idpf_psp_init(struct idpf_adapter *adapter)
  
- /**
-  * idpf_psp_init - Initialize PSP offload
-@@ -18,6 +71,7 @@ void idpf_psp_init(struct idpf_adapter *adapter)
- {
- 	struct idpf_adapter_psp *psp = &adapter->psp;
- 	struct device *dev = &adapter->pdev->dev;
-+	int err;
+ 	/* The counters cover the time since the core init */
+ 	atomic_set(&psp->keys_allocated, 0);
++	atomic_set(&psp->keys_removed, 0);
++	atomic_set(&psp->keys_lost, 0);
++	atomic_set(&psp->del_retries, 0);
  
- 	WRITE_ONCE(psp->enabled, false);
- 
-@@ -26,6 +80,13 @@ void idpf_psp_init(struct idpf_adapter *adapter)
- 		return;
- 	}
- 
-+	err = idpf_psp_negotiate_caps(adapter);
-+	if (err) {
-+		dev_warn(dev, "PSP disabled, capability negotiation failed: %d\n",
-+			 err);
-+		return;
-+	}
-+
  	WRITE_ONCE(psp->enabled, true);
  }
+@@ -144,6 +154,8 @@ struct idpf_psp_tx_key *idpf_psp_tx_key_alloc(void)
+ 	kref_init(&key->ref);
+ 	spin_lock_init(&key->lock);
+ 	key->idx = IDPF_PSP_IDX_IN_PROG;
++	key->hw_idx = IDPF_PSP_IDX_NONE;
++	INIT_LIST_HEAD(&key->del_node);
  
-diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp_def.h b/drivers/net/ethernet/intel/idpf/idpf_psp_def.h
-index 2edb114784c1..3a9e40284106 100644
---- a/drivers/net/ethernet/intel/idpf/idpf_psp_def.h
-+++ b/drivers/net/ethernet/intel/idpf/idpf_psp_def.h
-@@ -5,15 +5,25 @@
+ 	return key;
+ }
+@@ -179,6 +191,32 @@ void idpf_psp_tx_key_put(struct idpf_psp_tx_key *key)
+ 	kref_put(&key->ref, idpf_psp_tx_key_free);
+ }
  
- #include <net/psp.h>
- 
-+/* SA index widths supported by the driver, negotiated per adapter with
-+ * VIRTCHNL2_OP_CRYPTO_GET_CAPS, see idpf_psp_negotiate_caps().
++/**
++ * idpf_psp_queue_delete - Queue the deletion of the SA index of a TX key
++ * @adapter: private data struct
++ * @key: the TX key, whose hw_idx is the SA index to delete
++ *
++ * The deletion requests are sent by the PSP work, which releases the
++ * reference taken on @key once the SA index was deleted, see
++ * idpf_send_delete_psp_keys(). No deletion is queued during a reset or
++ * remove: the SADB is flushed by the reset, and by the function reset on
++ * remove.
 + */
-+#define IDPF_PSP_SAIDX_WIDTH_21		21
-+#define IDPF_PSP_SAIDX_WIDTH_26		26
++void idpf_psp_queue_delete(struct idpf_adapter *adapter,
++			   struct idpf_psp_tx_key *key)
++{
++	struct idpf_adapter_psp *psp = &adapter->psp;
++
++	if (idpf_is_reset_in_prog(adapter) ||
++	    test_bit(IDPF_REMOVE_IN_PROG, adapter->flags))
++		return;
++
++	idpf_psp_tx_key_get(key);
++	spin_lock_bh(&psp->del_lock);
++	list_add_tail(&key->del_node, &psp->del_list);
++	spin_unlock_bh(&psp->del_lock);
++}
 +
  /**
-  * struct idpf_adapter_psp - PSP offload state of an adapter
-  * @enabled: PSP was negotiated with the CP in the last core init, see
-  *	     idpf_is_psp_ena()
-+ * @sadb_entries: SADB size granted by VIRTCHNL2_OP_CRYPTO_GET_CAPS
-+ * @saidx_width: SA index width granted by VIRTCHNL2_OP_CRYPTO_GET_CAPS
+  * idpf_psp_set_config - Set the PSP device configuration
+  * @psd: PSP device
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp.h b/drivers/net/ethernet/intel/idpf/idpf_psp.h
+index 44ac750e2c3b..b4f46e43cd83 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_psp.h
++++ b/drivers/net/ethernet/intel/idpf/idpf_psp.h
+@@ -47,6 +47,9 @@ static inline bool idpf_psp_idx_valid(u32 idx)
+ 	return idx <= IDPF_PSP_IDX_MAX;
+ }
+ 
++void idpf_psp_queue_delete(struct idpf_adapter *adapter,
++			   struct idpf_psp_tx_key *key);
++
+ #else /* !CONFIG_INET_PSP */
+ 
+ static inline void idpf_psp_init(struct idpf_adapter *adapter) { }
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp_def.h b/drivers/net/ethernet/intel/idpf/idpf_psp_def.h
+index 9ba99e08853a..3157b40006c1 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_psp_def.h
++++ b/drivers/net/ethernet/intel/idpf/idpf_psp_def.h
+@@ -4,10 +4,13 @@
+ #define _IDPF_PSP_DEF_H_
+ 
+ #include <linux/kref.h>
++#include <linux/list.h>
+ #include <linux/spinlock.h>
+ #include <linux/net/intel/virtchnl2.h>
+ #include <net/psp.h>
+ 
++#include "idpf_psp_virtchnl_def.h"
++
+ /* SA index widths supported by the driver, negotiated per adapter with
+  * VIRTCHNL2_OP_CRYPTO_GET_CAPS, see idpf_psp_negotiate_caps().
+  */
+@@ -33,12 +36,19 @@
+  * @lock: protects @idx and @hw_idx updates, and @tx_queue
+  * @idx: SA index the TX path uses, or IDPF_PSP_IDX_IN_PROG,
+  *	 IDPF_PSP_IDX_ERROR or IDPF_PSP_IDX_DELETED. Read without @lock.
++ * @hw_idx: SA index of the key in the SADB, IDPF_PSP_IDX_NONE if it has none
++ * @del_node: entry in the delete queue, see idpf_psp_queue_delete()
++ * @del_single: delete @hw_idx in a request of its own, after a request that
++ *		failed
+  * @rcu: for freeing the key after the RCU readers of the TX path
+  */
+ struct idpf_psp_tx_key {
+ 	struct kref ref;
+ 	spinlock_t lock;		/* protects the SA indexes and tx_queue */
+ 	u32 idx;
++	u32 hw_idx;
++	struct list_head del_node;
++	bool del_single;
+ 	struct rcu_head rcu;
+ };
+ 
+@@ -89,7 +99,14 @@ struct idpf_psp_rx_gen {
+  * @stats: last PSP device statistics read with
+  *	   VIRTCHNL2_OP_GET_PSP_GLOBAL_STATS, protected by the PSP device
+  *	   lock, see idpf_psp_get_stats()
++ * @initialized: the locks and lists below were initialized, the first time
++ *		 PSP was negotiated
++ * @del_lock: protects @del_list
++ * @del_list: TX keys whose SA index is queued for deletion
+  * @keys_allocated: RX keys allocated
++ * @keys_removed: SA indexes deleted
++ * @keys_lost: SA indexes that couldn't be deleted
++ * @del_retries: SA indexes retried after a failed deletion request
   * @psp_dev: the PSP device, see idpf_psp_register()
   * @caps: capabilities of @psp_dev
   */
- struct idpf_adapter_psp {
- 	bool enabled;
-+	u32 sadb_entries;
-+	u8 saidx_width;
+@@ -111,7 +128,13 @@ struct idpf_adapter_psp {
+ 		u64 tx_bytes;
+ 		u64 tx_error;
+ 	} stats;
++	bool initialized;
++	spinlock_t del_lock;		/* protects del_list */
++	struct list_head del_list;
+ 	atomic_t keys_allocated;
++	atomic_t keys_removed;
++	atomic_t keys_lost;
++	atomic_t del_retries;
  	struct psp_dev *psp_dev;
  	struct psp_dev_caps caps;
  };
 diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.c b/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.c
-new file mode 100644
-index 000000000000..65f7a9f63f90
---- /dev/null
+index d36f46a46cfd..42a7d74db232 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.c
 +++ b/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.c
-@@ -0,0 +1,71 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+
-+#include "idpf_psp_virtchnl.h"
-+#include "idpf_virtchnl.h"
-+
+@@ -402,24 +402,197 @@ int idpf_send_get_psp_global_stats(struct idpf_adapter *adapter,
+ 	return err;
+ }
+ 
 +/**
-+ * idpf_print_crypto_caps - Print values inside virtchnl2_crypto_get_caps
++ * idpf_psp_delete_done - Release the TX keys of a deletion request
 + * @adapter: Driver specific private structure
-+ * @caps: Pointer to virtchnl2_crypto_get_caps structure
++ * @batch: TX keys of the request
++ * @removed: number of SA indexes the CP deleted
++ * @lost: number of SA indexes that couldn't be deleted
 + */
-+static void idpf_print_crypto_caps(struct idpf_adapter *adapter,
-+				   const struct virtchnl2_crypto_get_caps *caps)
++static void idpf_psp_delete_done(struct idpf_adapter *adapter,
++				 struct list_head *batch, u32 removed,
++				 u32 lost)
 +{
-+	u32 num_sadb_entries = le32_to_cpu(caps->num_sadb_entries);
-+	u32 crypto_caps = le32_to_cpu(caps->crypto_caps);
++	struct idpf_psp_tx_key *key, *tmp;
 +
-+	dev_dbg(&adapter->pdev->dev,
-+		"virtchnl2_crypto_get_caps: crypto_caps=0x%08x (PSP=%u), num_sadb_entries=%u, saidx_width=%u\n",
-+		crypto_caps, !!(crypto_caps & VIRTCHNL2_CAP_CRYPTO_PSP),
-+		num_sadb_entries, caps->saidx_width);
++	atomic_add(removed, &adapter->psp.keys_removed);
++	if (lost) {
++		atomic_add(lost, &adapter->psp.keys_lost);
++		net_warn_ratelimited("%s: %u SA indexes couldn't be deleted\n",
++				     __func__, lost);
++	}
++
++	list_for_each_entry_safe(key, tmp, batch, del_node) {
++		list_del_init(&key->del_node);
++		idpf_psp_tx_key_put(key);
++	}
 +}
 +
 +/**
-+ * idpf_send_get_crypto_caps - Send VIRTCHNL2_OP_CRYPTO_GET_CAPS request to CP
++ * idpf_send_delete_psp_keys - Delete queued SA indexes from the SADB
 + * @adapter: Driver specific private structure
-+ * @caps: Output buffer for virtchnl2_crypto_get_caps
 + *
-+ * Request the PSP crypto offload. Must only be sent if VIRTCHNL2_CAP_CRYPTO
-+ * was granted.
++ * Send one synchronous VIRTCHNL2_OP_PSP_DELETE_KEYS request for the SA indexes
++ * queued by idpf_psp_queue_delete():
++ * - the CP fails the request if any SA index is invalid: the SA indexes of a
++ *   failed request are retried once each, in a request of their own;
++ * - the CP stops the deletion at the first hardware or config queue error:
++ *   the SA indexes it didn't delete stay in use and are counted as lost;
++ * - a request that timed out is not sent again, as the CP may have processed
++ *   it and its SA indexes may be in use by new keys: they are counted as lost,
++ *   a late reply moves the deleted ones to removed, see
++ *   idpf_psp_recv_late_reply();
++ * - a request that couldn't be sent is retried the next time the PSP work runs.
 + *
-+ * Return: 0 on success, negative on failure.
++ * Return: true if SA indexes are still queued for deletion, false otherwise.
 + */
-+int idpf_send_get_crypto_caps(struct idpf_adapter *adapter,
-+			      struct virtchnl2_crypto_get_caps *caps)
++bool idpf_send_delete_psp_keys(struct idpf_adapter *adapter)
 +{
 +	struct libie_ctlq_xn_send_params xn_params = {
-+		.chnl_opcode	= VIRTCHNL2_OP_CRYPTO_GET_CAPS,
++		.chnl_opcode	= VIRTCHNL2_OP_PSP_DELETE_KEYS,
 +		.timeout_ms	= IDPF_VC_XN_DEFAULT_TIMEOUT_MSEC,
 +	};
-+	struct virtchnl2_crypto_get_caps *send_caps;
++	const struct virtchnl2_psp_delete_keys_response *del_resp;
++	struct virtchnl2_psp_delete_keys_request *del_req;
++	struct idpf_adapter_psp *psp = &adapter->psp;
++	struct idpf_psp_tx_key *key, *tmp;
++	u32 i, removed, num_keys = 0;
++	bool single = false, more;
++	LIST_HEAD(batch);
++	size_t buf_size;
 +	int err;
 +
-+	/* Too large to be sent from the stack */
-+	send_caps = kzalloc_obj(*send_caps);
-+	if (!send_caps)
-+		return -ENOMEM;
++	BUILD_BUG_ON(struct_size_t(struct virtchnl2_psp_delete_keys_request,
++				   sa_indexes, IDPF_PSP_DELETE_KEYS_MAX) >
++		     LIBIE_CTLQ_MAX_BUF_LEN);
 +
-+	send_caps->crypto_caps = cpu_to_le32(VIRTCHNL2_CAP_CRYPTO_PSP);
++	spin_lock_bh(&psp->del_lock);
++	list_for_each_entry_safe(key, tmp, &psp->del_list, del_node) {
++		/* SA indexes of a failed request are deleted on their own */
++		if (num_keys == IDPF_PSP_DELETE_KEYS_MAX ||
++		    (num_keys && key->del_single))
++			break;
 +
-+	err = idpf_send_mb_msg_kfree(adapter, &xn_params, send_caps,
-+				     sizeof(*send_caps));
-+	if (err) {
-+		dev_err(&adapter->pdev->dev, "Failed to get crypto caps: %d\n",
-+			err);
-+		return err;
++		list_move_tail(&key->del_node, &batch);
++		num_keys++;
++		if (key->del_single) {
++			single = true;
++			break;
++		}
++	}
++	more = !list_empty(&psp->del_list);
++	spin_unlock_bh(&psp->del_lock);
++
++	if (!num_keys)
++		return false;
++
++	buf_size = struct_size(del_req, sa_indexes, num_keys);
++	del_req = kzalloc(buf_size, GFP_KERNEL);
++	if (!del_req) {
++		err = -ENOMEM;
++		goto requeue;
 +	}
 +
-+	if (xn_params.recv_mem.iov_len < sizeof(*caps)) {
-+		dev_err(&adapter->pdev->dev, "Invalid crypto caps reply size: %zu\n",
-+			xn_params.recv_mem.iov_len);
-+		err = -EIO;
-+		goto release_rx;
++	del_req->vport_id = cpu_to_le32(READ_ONCE(psp->vport_id));
++	del_req->num_sa_indexes = cpu_to_le32(num_keys);
++	/* del_req->domain stays zeroed: VIRTCHNL2_PSP_DOMAIN_NONE */
++	i = 0;
++	list_for_each_entry(key, &batch, del_node)
++		del_req->sa_indexes[i++] = cpu_to_le32(key->hw_idx);
++
++	err = idpf_send_mb_msg_kfree(adapter, &xn_params, del_req, buf_size);
++	switch (err) {
++	case 0:
++		/* The reply has the number of deleted SA indexes, a reply
++		 * without it counts all SA indexes as deleted
++		 */
++		del_resp = xn_params.recv_mem.iov_base;
++		removed = num_keys;
++		if (xn_params.recv_mem.iov_len >= sizeof(*del_resp))
++			removed = min(num_keys,
++				      le32_to_cpu(del_resp->num_sa_indexes_deleted));
++		else
++			net_warn_ratelimited("%s: short reply %zu\n", __func__,
++					     xn_params.recv_mem.iov_len);
++		libie_ctlq_release_rx_buf(&xn_params.recv_mem);
++
++		idpf_psp_delete_done(adapter, &batch, removed,
++				     num_keys - removed);
++		return more;
++	case -EBADMSG:
++		/* The CP failed the request, e.g. because of an invalid SA
++		 * index: retry each SA index on its own, once
++		 */
++		if (single)
++			break;
++
++		list_for_each_entry(key, &batch, del_node)
++			key->del_single = true;
++		atomic_add(num_keys, &psp->del_retries);
++		spin_lock_bh(&psp->del_lock);
++		list_splice(&batch, &psp->del_list);
++		spin_unlock_bh(&psp->del_lock);
++
++		return true;
++	case -ETIMEDOUT:
++		break;
++	default:
++		goto requeue;
 +	}
 +
-+	memcpy(caps, xn_params.recv_mem.iov_base, sizeof(*caps));
-+	idpf_print_crypto_caps(adapter, caps);
++	/* The request timed out, or failed again on its own */
++	idpf_psp_delete_done(adapter, &batch, 0, num_keys);
 +
-+release_rx:
-+	libie_ctlq_release_rx_buf(&xn_params.recv_mem);
-+	return err;
++	return more;
++
++requeue:
++	/* The request wasn't sent, e.g. no mailbox transaction was free. A
++	 * reset flushes the queue.
++	 */
++	spin_lock_bh(&psp->del_lock);
++	list_splice(&batch, &psp->del_list);
++	spin_unlock_bh(&psp->del_lock);
++	net_warn_ratelimited("%s: request not sent: %d\n", __func__, err);
++
++	return false;
 +}
++
+ /**
+  * idpf_psp_recv_late_reply - Handle a late reply to a PSP request
+  * @adapter: Driver specific private structure
+  * @ctlq_msg: reply, its receive buffer is released by the caller
+  *
+  * libie passes the replies to requests that timed out to idpf_recv_event_msg().
+- * The RX key of an allocation reply is wiped.
++ * The RX key of an allocation reply is wiped. The SA indexes deleted by a
++ * deletion reply were counted as lost, see idpf_send_delete_psp_keys(): they
++ * are counted as removed.
+  */
+ void idpf_psp_recv_late_reply(struct idpf_adapter *adapter,
+ 			      const struct libie_ctlq_msg *ctlq_msg)
+ {
+ 	const struct kvec *buff = &ctlq_msg->recv_mem;
++	const struct virtchnl2_psp_delete_keys_response *del_resp;
++	u32 deleted;
+ 
+ 	switch (ctlq_msg->chnl_opcode) {
+ 	case VIRTCHNL2_OP_PSP_ALLOCATE_KEYS:
+ 		if (buff->iov_base)
+ 			memzero_explicit(buff->iov_base, buff->iov_len);
+ 		break;
++	case VIRTCHNL2_OP_PSP_DELETE_KEYS:
++		del_resp = buff->iov_base;
++		if (!idpf_is_psp_ena(adapter) || ctlq_msg->chnl_retval ||
++		    !del_resp || buff->iov_len < sizeof(*del_resp))
++			break;
++
++		/* Only the SA indexes counted as lost since the last core
++		 * init, the counters were reset by a reset meanwhile
++		 */
++		deleted = min_t(u32, le32_to_cpu(del_resp->num_sa_indexes_deleted),
++				max(atomic_read(&adapter->psp.keys_lost), 0));
++		atomic_sub(deleted, &adapter->psp.keys_lost);
++		atomic_add(deleted, &adapter->psp.keys_removed);
++		break;
+ 	default:
+ 		break;
+ 	}
 diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.h b/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.h
-new file mode 100644
-index 000000000000..cf82ac9182ef
---- /dev/null
+index b7261385adf6..8d8ce4478842 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.h
 +++ b/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.h
-@@ -0,0 +1,13 @@
+@@ -17,5 +17,6 @@ int idpf_send_allocate_psp_key(struct idpf_adapter *adapter,
+ int idpf_psp_rotation_request(struct idpf_adapter *adapter);
+ int idpf_send_get_psp_global_stats(struct idpf_adapter *adapter,
+ 				   struct virtchnl2_psp_global_stats_response *stats);
++bool idpf_send_delete_psp_keys(struct idpf_adapter *adapter);
+ 
+ #endif /* !_IDPF_PSP_VIRTCHNL_H_ */
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl_def.h b/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl_def.h
+new file mode 100644
+index 000000000000..c2be65e541be
+--- /dev/null
++++ b/drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl_def.h
+@@ -0,0 +1,17 @@
 +/* SPDX-License-Identifier: GPL-2.0-only */
 +
-+#ifndef _IDPF_PSP_VIRTCHNL_H_
-+#define _IDPF_PSP_VIRTCHNL_H_
++#ifndef _IDPF_PSP_VIRTCHNL_DEF_H_
++#define _IDPF_PSP_VIRTCHNL_DEF_H_
 +
 +#include <linux/net/intel/libie/controlq.h>
++#include <linux/net/intel/virtchnl2.h>
 +
-+#include "idpf_psp.h"
++/* PSP key insertion and deletion requests must fit in one mailbox buffer,
++ * which limits the number of TX keys and SA indexes per request.
++ */
++#define IDPF_PSP_DELETE_KEYS_MAX					\
++	((LIBIE_CTLQ_MAX_BUF_LEN -					\
++	  sizeof(struct virtchnl2_psp_delete_keys_request)) /		\
++	 sizeof(__le32))
 +
-+int idpf_send_get_crypto_caps(struct idpf_adapter *adapter,
-+			      struct virtchnl2_crypto_get_caps *caps);
-+
-+#endif /* !_IDPF_PSP_VIRTCHNL_H_ */
++#endif /* !_IDPF_PSP_VIRTCHNL_DEF_H_ */
 diff --git a/include/linux/net/intel/virtchnl2.h b/include/linux/net/intel/virtchnl2.h
-index ec1a742b6557..59c379afcb71 100644
+index ca07c32b0f1a..903159235832 100644
 --- a/include/linux/net/intel/virtchnl2.h
 +++ b/include/linux/net/intel/virtchnl2.h
-@@ -84,6 +84,8 @@ enum virtchnl2_op {
- 	VIRTCHNL2_OP_ADD_FLOW_RULE			= 551,
- 	VIRTCHNL2_OP_GET_FLOW_RULE			= 552,
+@@ -86,6 +86,7 @@ enum virtchnl2_op {
  	VIRTCHNL2_OP_DEL_FLOW_RULE			= 553,
-+	/* Crypto/PSP opcodes */
-+	VIRTCHNL2_OP_CRYPTO_GET_CAPS			= 564,
+ 	/* Crypto/PSP opcodes */
+ 	VIRTCHNL2_OP_PSP_ALLOCATE_KEYS			= 560,
++	VIRTCHNL2_OP_PSP_DELETE_KEYS			= 562,
+ 	VIRTCHNL2_OP_PSP_ROTATE_KEYGEN_REQUEST		= 563,
+ 	VIRTCHNL2_OP_CRYPTO_GET_CAPS			= 564,
+ 	VIRTCHNL2_OP_PSP_GET_CAPS			= 565,
+@@ -1990,6 +1991,35 @@ struct virtchnl2_psp_allocate_keys_response {
  };
+ VIRTCHNL2_CHECK_STRUCT_LEN(16, virtchnl2_psp_allocate_keys_response);
  
- /**
-@@ -1817,4 +1819,28 @@ struct virtchnl2_flow_rule_add_del {
- };
- VIRTCHNL2_CHECK_STRUCT_LEN(8, virtchnl2_flow_rule_add_del);
- 
-+/* Generic crypto offload types */
-+enum virtchnl2_cap_crypto {
-+	VIRTCHNL2_CAP_CRYPTO_PSP			= BIT(0),
++/**
++ * struct virtchnl2_psp_delete_keys_request - Delete PSP TX keys request
++ * @vport_id: Virtual port ID
++ * @num_sa_indexes: Number of SA indexes to delete
++ * @domain: Key domain, must be zero-filled if VIRTCHNL2_CAP_PSP_DOMAIN was
++ *	    not granted
++ * @sa_indexes: Flexible array of SA indexes to delete
++ */
++struct virtchnl2_psp_delete_keys_request {
++	__le32 vport_id;
++	__le32 num_sa_indexes;
++	struct virtchnl2_psp_key_domain domain;
++	__le32 sa_indexes[] __counted_by_le(num_sa_indexes);
 +};
++VIRTCHNL2_CHECK_STRUCT_LEN(24, virtchnl2_psp_delete_keys_request);
 +
 +/**
-+ * struct virtchnl2_crypto_get_caps - Crypto global capabilities
-+ * @crypto_caps: See enum virtchnl2_cap_crypto
-+ * @num_sadb_entries: Number of SADB entries of the function, not shared with
-+ *		      the other functions of the device
-+ * @saidx_width: SA index width in bits
-+ * @padding: Padding to 256 bytes
-+ *
-+ * Request and response of VIRTCHNL2_OP_CRYPTO_GET_CAPS. On input @crypto_caps
-+ * holds the requested capabilities, on output the granted ones.
++ * struct virtchnl2_psp_delete_keys_response - Delete PSP TX keys response
++ * @vport_id: Virtual port ID
++ * @num_sa_indexes_deleted: Number of SA indexes deleted. The request fails if
++ *			    any SA index is invalid, and the deletion stops at
++ *			    the first hardware/config queue error.
 + */
-+struct virtchnl2_crypto_get_caps {
-+	__le32 crypto_caps;
-+	__le32 num_sadb_entries;
-+	u8 saidx_width;
-+	u8 padding[247];
++struct virtchnl2_psp_delete_keys_response {
++	__le32 vport_id;
++	__le32 num_sa_indexes_deleted;
 +};
-+VIRTCHNL2_CHECK_STRUCT_LEN(256, virtchnl2_crypto_get_caps);
++VIRTCHNL2_CHECK_STRUCT_LEN(8, virtchnl2_psp_delete_keys_response);
 +
- #endif /* _VIRTCHNL_2_H_ */
+ /**
+  * struct virtchnl2_psp_rotate_keygen_request - Request master key rotation
+  * @vport_id: Virtual port ID
 -- 
 2.56.0.679.gc527c65306-goog
 
