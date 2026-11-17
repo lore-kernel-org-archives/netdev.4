@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794902361;
-	b=4adMpdMvETSiJzTvSR7uPWErmwa1kX4nqDdcU8l780H6oFFt7rVSWSd0ItKy46fsJxDI
-	 eg9petbeeEGimZRMFzZYBzHc5SSjVyoySF4w3WUm6HWyv4//QZrS/RK7/bCzVVYIuEWxO
-	 lPkFeevKaVeUgEVZ/15UaknWcxAU24ZHmOB4lhtiFa8k7J2xg/h6oZS1eX16bRPa6Fu4u
-	 yCHUir+VoiO92VB5xWjFubzeJcRTnu50glBZKQYtF71yjK0/i9CBK1bhaaRn+aJUFV4LG
-	 1z2sHBZW+yjxjcjwmKoFI5Id+T4y9obR7JesS9DWOeeqgguU+yZkdbmpxi9Ft2UNRSw==
+	t=1794902505;
+	b=fcqcdrgvr6s09vU21NGOs6XjxVc30u5dYeKkHZHo9JAyI1MiCNZKBEY1dz92MGj3tzMM
+	 0ts246jFLq8lq2A8fpR8/lK16H+pF4ifbcIDiI4elYnNfhEkHo+C8BSMn/M+WugEhyiFV
+	 NU7mrE7XV3HzByZ0wIjGnileoN/32Ggm4ChpRG/NF/HvGhVr11+/un6mugIUELKgU001r
+	 SMnwQ9yO4xU6xeB9PYP9MwRTt8/nSBJQC2BNSkotKXKrDFUEYrEuAWSw1gBOCX043+D+G
+	 bcS2PQV2fUF2nSg5Cl7RzCZp5MVO1dlX8JyGB2b4cAbuIonfp/IDEVAa6TRfeO60beg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794902361;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794902505;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=ZD6ewcbkq8eFaWsVNEXN3cSwALav0rmJv9vmjm/ebc0=;
-	b=5LLxZC/x080ETyhfok0W9VmJQa09IOye1moCIIVo1M77sk9hmpqct+aVvT0lxTktyBlD
-	 eFaoXOZBNws4OcjZ2mcKKsseYRNXSOn8Aap06DX9srNvZ04/wMQ5wJjLAHn817hlEfWlH
-	 2v0T654E0lPYiAbi1tXQvRM9T41Qke0qe4PKTC2gl/Wf1ooTPW6w465GH8VoP5wT0NHr5
-	 BivtYGw9f1yydjvfonyvVjt7zBh80wb5FILVoS2gly1xHnDGV/GRwIDT6DVhuApj8c2BN
-	 Z5KWU1c/qZQwMTzuAHKzXdzSLRqmLesOB1yHZifDi5xT6Ubyu+bVDmPaAG7eHgnifjA==
+	bh=mu6llHdjmKdTG/gL1WWlY0QVvX4gLUhKjNXvAap1uEU=;
+	b=Br8t3yL/CmoNVkvUYYv2pHTIXwPgHYoyKvvSUyol/EG6TjuOtlPb2X9ihPRuZRrRzFXR
+	 0O7KnV4cQPxx7upaKEvT2LVyqDn02PH63XqvAPV4OeNNTJCIKsz2xbVXVa5qOx3XljT25
+	 D82jT03fhZa23BNrtN7eRpG8ytBkU//JfqmphLE1FYMZ4U8bV+MB/4Jwui9W/34zP+DB0
+	 3k+EwZlO+kOY8NeB0SFWWM838dIZD+bN1fK8D2TCCJNkJmlMuHBi/4G2c38qElg697lW1
+	 4jfzqhSBYfhSPPKOlgNU3elLlzlMAfljZwwu4jb11dGkXUnCSxSiP/9ff9aRJL37kWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="j6UlrS/J";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="m9/oHxpD";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C055B606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:59:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B04FF606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:01:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6UlrS/J
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 553371F000C8
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:59:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m9/oHxpD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FEFD1F000C4
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:01:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794902361;
-	bh=ZD6ewcbkq8eFaWsVNEXN3cSwALav0rmJv9vmjm/ebc0=;
+	s=k20260515; t=1794902505;
+	bh=mu6llHdjmKdTG/gL1WWlY0QVvX4gLUhKjNXvAap1uEU=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=j6UlrS/JmvKf//zILbgKCG8kPmHZZMvpxpRX/4CxoUvHgex3rWn2+ZJqj9B5G/cW4
-	 x8PWNehtwropPRX4eoyo7asI3OrME3+Z784hJ2rrabUzj22mI7SJH3LiR0dhVRWIWx
-	 OpgEqHqDuBiXjvXcBvkJpP0Ojp+CG5gTP1OqzRA7e5E6TzmGfTEKlEwSOH315ZOyJ/
-	 w85ISQf82WTFc3Ay4K0dbYAMwHj6IEOuSyyBIoX4f3z4g53ael5uNzzqUww2eYJxyw
-	 rzaMZs9M8jQAybzO1AvRs6QZ36aln9/KSF4FJVy+6lyH4Fh7BqKqm7mxd1uF9Rnbt9
-	 CtV7nxljqmvvw==
-Received: by mail-lf1-f51.google.com with SMTP id 2adb3069b0e04-5c14470729eso3631380e87.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:59:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHcYjLMwQMB8nVD/jb+OShTVL64nOnx+cp4a+6l3Kad7Vy6gkmF2ItvjxrF9Ea406E+BMaybHg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/1LtnPhTT/4dQ2/5FDGSJHYKjaettW0x8OlNZtt6PwdsISx0HM
-	AohLDTSA+D2DMrwsWbxbl/BgKoPM9YV+LTz1RNIQbuaTv9JwcxIeEPaCr1yOIpqZfWhgMWlquUy
-	VeFduG/9DpnUNrKRGntgftUpl1jHWwVw=
-X-Received: by 2002:a05:6512:15a8:b0:5c0:ca1:46c3 with SMTP id
- 2adb3069b0e04-5c170b1c76fmr4478075e87.22.1794902360091; Mon, 16 Nov 2026
- 23:59:20 -0800 (PST)
+	b=m9/oHxpD35XgtzjsbLfPeP4Eu82zml2HWmDwMdjBDCgSweovgO9Hxf5GOc4cXT6Bc
+	 2saQY305vSBgLLWAq4GSnsU00dnrky0X1JvJE6xWWb2b5gxGjRGp7+ind+gVzD7qQa
+	 34A/6HkA+KWDx7PA8znp5y0u9zqAtW9FJ30v1jUV2XCg4LwNZxCip8BHgxYXNNDU8m
+	 43JiHIjx4gEhEk93EyTewdOGiLBjiHEolBMm7fN6kIKNocfX5zoT6jn31ALm0BPKbJ
+	 4uBYv7LypY+JDfdzNLuUxdHBNHI+ue85flQ8VtMLcp1TROeyUUG4xivNONrnPwUn27
+	 SSKyqXDreKK3g==
+Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-5c14a204305so3822467e87.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:01:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEEt8ysO+i9FOfyXmQVeH8khJV/oBX5BKuHCNC3JHjXnrGQ6u0ZJQZuc0PmgdBs5WdPJY0BecM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+nJg9L8P1EFpUNAShsPn68tyxoNMZYkRv5ARpseDaua0bgd/Wi
+	sPqkfreZQJfPCX5E+60zX6aj3SeB4ww2uuiZRfSkpcuL1sIPKnECLlsZBUrQBNn58zrv1O9JVoP
+	Pi91X33+tMg3VqUlwYP4oHq+ZWTNnjeQ=
+X-Received: by 2002:ac2:4bd4:0:b0:5c1:5975:66da with SMTP id
+ 2adb3069b0e04-5c170746339mr5826150e87.2.1794902504106; Tue, 17 Nov 2026
+ 00:01:44 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,10 +62,10 @@ MIME-Version: 1.0
 References: <20261112-gemini-ethernet-fixes-3-v8-7-f55bd43e02d3@kernel.org> <179484034674.3136.17017391064607605132@kernel.org>
 In-Reply-To: <179484034674.3136.17017391064607605132@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 17 Nov 2026 08:59:06 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnLzEgBqhvgx3FmhG4AViH_ibxCUpdVLaiARKikTDX1Aw@mail.gmail.com>
-X-Gm-Features: Aa3M54ruUnvia2SsO74hEQ69TeC4F4l_Z0CSGNtIeboVgHu5freq7xlvXXXHJ8w
-Message-ID: <CAD++jLnLzEgBqhvgx3FmhG4AViH_ibxCUpdVLaiARKikTDX1Aw@mail.gmail.com>
+Date: Tue, 17 Nov 2026 09:01:31 +0100
+X-Gmail-Original-Message-ID: <CAD++jL=sFzuo-9bYgiXtdkQpufqeumj1KpsVp7gTjgs6RUj1Sg@mail.gmail.com>
+X-Gm-Features: Aa3M54qNSyDLZsH9h_l-ioDv4C1KwwW7SDr5bzwF5vkTayw6zNUUJwW5fxEi4oQ
+Message-ID: <CAD++jL=sFzuo-9bYgiXtdkQpufqeumj1KpsVp7gTjgs6RUj1Sg@mail.gmail.com>
 Subject: Re: [PATCH net-next v8 07/19] net: ethernet: cortina: Preserve
  in-flight free queue pages
 To: netdev-bot+sashiko@kernel.org
@@ -78,15 +78,15 @@ Content-Transfer-Encoding: quoted-printable
 On Mon, Nov 16, 2026 at 3:45=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
 te:
 
-> - [Medium] This patch replaces position-indexed free queue metadata with
->   a fixed pool of page slots.
+> What happens to a fragment that the hardware takes from the free queue
+> but never returns as a usable RX descriptor?
+(...)
+> Would it make sense to reclaim these fragments some other way, or to
+> size the pool with more headroom?
 
-Yes that is the whole idea.
-
-The current implementation is buggy.
-
-An earlier iteration of the patch series created a custom pool allocator
-and the networking maintainer thought it was overly complicated.
+So now we are down to unexpected hardware failure recovery
+on this patch which is where Sashiko tends to end up when it can't
+find anything else, I think this is fine to apply.
 
 Yours,
 Linus Walleij
