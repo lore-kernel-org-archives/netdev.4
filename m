@@ -1,62 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794926853;
-	b=IJWn04+o05eL6uw/r0SKp+k9gTojda6k+SKrup6iO1c6iOYzYUuhry9mxf/ua9tDbyea
-	 xqpe0d94pm07Beo2zj8y7C5QQHejBscqudz6nF/3+Q9F0JuaKOwKqqCBFKkr8D5dzQySL
-	 gRDNleGPWVDI9CJ2C+Zk7v3+WemVbTR+/EtXpCAwI4/FsEwbpufNK1JeOe8YyZjppnc++
-	 hJP0vjiFp+SdGMT4zKsLFezh4FZz0hbEIU9GBByMj/XMphnh7T0Iz2VVjurHdKYybS4HG
-	 BAvga+fslqfhM5hA1+t/Vgy4i7Kd1B8NH8esxsv/H1LH6fiXCSvx951lqxoNhuukAnA==
+	t=1794926934;
+	b=F0uGPnbPVSLwZageI+SoO5pCm1SCMs7yYBUcSr8Az+sZJ/flE52sC1ESMdhvfUhv4cx7
+	 0WveVIqiDS0kB0G5tP3M6RHcydDxIDCShoKjBcFKIv10XbhCs4y1/FY8HqGCbhul/lKfe
+	 dmxs3OGekbJHCrrkupb/NBeroBW9PMoLnNf+EZeYrF4jrJSz9OkSg544QT306wVDfH2Ce
+	 kdJn4+hnqMBR8MCtR3kS9s8yipSh5rVgHxY8obhds0//Ze/OFhHgRM79sRp3WrPUXd3Un
+	 84C2HbWCgzrmp2PG42TDMDGFLfxOuIzt4TpFZnKK52rQCNHmi779lQC0f4Tap7STBbg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794926853;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
-	b=LICZyPHu7X4IVck7tcyldft9UHXz3o7M22EaJqgHIktyXFrJS9DcaWEAnJodVAn8tJcp
-	 ABXAItKzV/R6BlU0WD6eo1J1opT+tEG6uyBif3JlnXvk4JRnHm24Mqb8SJV4wFVYdoXVw
-	 bEfH1gVIJ4k4Iyx73Que/3onFU815YeY0oW9hXeSm29Edd2JaHFcnpNCawe9l0RfIk3DW
-	 7gnWERz3YULru6quXJ3OQ47HMA9UerT1G5huyqwXbvHqugHiFy8dHnuajQpmpgjBOyzii
-	 V+Gv7fCVH7AKWN9bNvteOQIyslX+st7dcyJQQinRsB+c00MvtYh9WEQ51D0JwlxEkjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794926934;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
+	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
+	bh=wq3L7CVQUzhiYGcq5Umlktwmr+nGcj2X2cywevrWa94=;
+	b=fpkLYO9Ps+GOjNEr977jNbvjwkFhxf+EUbk8Q/belbIVMTDhhwi6a6cOHRtlWmtQ19UC
+	 xibzAPbeYo0GGz0sU1KNKq6ZeO8UD16Gb6BZIlTN+j2jZsmYk81vZ1G1fVHZ/vx72bzeg
+	 D2uPQ3D6kuOoRoNeQ+tDpzqSw6dNs5uHvFJ/c4cDFkTAcx/2YFEsItqo6v6/F/hkDphm8
+	 p6dauuBQmogWpkpdOWDWiDk9mGWM8it8Tp7AQ1xA+IHOCVIB2aYTlV4OkakJZmqtPh7PC
+	 3LzikdE/jILWFM9REsa+NKuJvXlxaZMs8Uc6c3gxJ75eknWKP0VJz5Q3Eeyngf5AFYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DgvzNZLY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=GG5dgskb;
+	arc=none smtp.remote-ip=45.254.49.197
+Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E951C606A31C;
-	Tue, 17 Nov 2026 14:47:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E71D4606A32A;
+	Tue, 17 Nov 2026 14:48:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E71D4606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DgvzNZLY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4084E1F000C5;
-	Tue, 17 Nov 2026 14:47:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794926852;
-	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=DgvzNZLY7h4qe0jzCmlKFp82hv2gl2xZnkfWtmBjyfTUI7yKbRehoNvKKXtembW9x
-	 PF9XEp63PJsrr8lJPHa7e7qGuTdGJhN/VEPKhZ4WEZu/v5jG1sFUkQUjKxmDsd8Vi8
-	 m3b9171y439IkaCrCElJhzE+Yo2BdC5lcM2FXH8yQgs8CFB5V/R/sJfT48rSs1Q6ob
-	 pZK4jkYHEX9PpK5G9D14oVcl03WKDpNsS3MxQZ9SpGW3iMKDSQ6ubYzxxA+ksI9kJS
-	 xEv6HvglaBhfIik0bO7I/d9esp+GDvdil3HdXCy1GK3Qk/UqyJSSoheDdejm3XYjUM
-	 egjJuk+MQ2yzQ==
-From: netdev-bot+sinfo@kernel.org
-To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-Cc: Boon Khai Ng <boon.khai.ng@altera.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-Subject: 
- Re: [PATCH net 0/2] net: Keep MDIO resources until netdev removal completes
-Date: Tue, 17 Nov 2026 14:47:31 +0000
-Message-ID: <179492685179.3291.7664135046736995469@kernel.org>
-In-Reply-To: <20261117-571e631490-net-0@mail.sdu.edu.cn>
-References: <20261117-571e631490-net-0@mail.sdu.edu.cn>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=GG5dgskb
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55020e7e8;
+	Tue, 17 Nov 2026 22:48:46 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: Jeremy Kerr <jk@codeconstruct.com.au>,
+	Matt Johnston <matt@codeconstruct.com.au>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] mctp: i3c: Fix potential thread leak on registration failure
+Date: Tue, 17 Nov 2026 22:48:45 +0800
+Message-ID: <20261117-571e631490-mctp-i3c-0@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,22 +59,64 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1e9fb5c1f03a1kunm36b1c76b156473
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTRlJVkNNGU1NSxoaQxhPHlYeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=GG5dgskbVJap7bA65teDSSUQKGRwJ4F63EmTuncrDDtjQoJ+6FrpX2iTHkSW6/JBC8Gka+yAdJD6q5wRhCmQsSW3MaS6d4HzwLYAjQuL3U/XIF/0OD2Kb9J05ONkFRyKwEk1oR7tNln6EEwVSOTdMASdPudziAuyxKWIlDg7cRo=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=wq3L7CVQUzhiYGcq5Umlktwmr+nGcj2X2cywevrWa94=;
+	h=date:mime-version:subject:message-id:from;
 
-Hi!
+mctp_register_netdev() can fail before netdev registration begins,
+leaving the TX thread and bus list entry allocated. The error path
+assumes ndo_uninit has already cleaned them up.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Always clean up on registration failure. Make bus cleanup idempotent
+because later registration failures can already have called ndo_uninit.
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
+This issue was found by our static analysis tool under development.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Fixes: c8755b29b58e ("mctp i3c: MCTP I3C driver")
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+---
+ drivers/net/mctp/mctp-i3c.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+diff --git a/drivers/net/mctp/mctp-i3c.c b/drivers/net/mctp/mctp-i3c.c
+index 5f225999d715..2d55ca88f0a8 100644
+--- a/drivers/net/mctp/mctp-i3c.c
++++ b/drivers/net/mctp/mctp-i3c.c
+@@ -492,7 +492,8 @@ __must_hold(&busdevs_lock)
+ 	}
+ 
+ 	kfree_skb(mbus->tx_skb);
+-	list_del(&mbus->list);
++	mbus->tx_skb = NULL;
++	list_del_init(&mbus->list);
+ }
+ 
+ static void mctp_i3c_ndo_uninit(struct net_device *ndev)
+@@ -624,7 +625,7 @@ __must_hold(&busdevs_lock)
+ 	rc = mctp_register_netdev(ndev, NULL, MCTP_PHYS_BINDING_I3C);
+ 	if (rc < 0) {
+ 		dev_warn(&ndev->dev, "netdev register failed: %d\n", rc);
+-		goto err_free_netdev;
++		goto err_free_uninit;
+ 	}
+ 	return mbus;
+ 
+@@ -634,7 +635,6 @@ __must_hold(&busdevs_lock)
+ 	 */
+ 	mctp_i3c_bus_free(mbus);
+ 
+-err_free_netdev:
+ 	free_netdev(ndev);
+ 
+ err:
+
+base-commit: 2e54b3e187300893688c2c7517894f5d96732e05
