@@ -1,106 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794947550;
-	b=ood+C/X7c32lcb0zC3pNJtfLilM71fA7lPg1JZav2br/d1qiaecFWS+ANDHsRAqLHRau
-	 g1vgYXmX8eHG8SnvGlvyMc6UBcb9MnI3/h6RaOpp+Ei4kqaVvVA/N165HzI3vWjrmF2U1
-	 wvIxvLGlPqed9qa+EFfndHIVngrRA+f6P7HcDiVujFnBvpavY2tRbIA2F2bxlQ9M7D8vk
-	 myNC70Jq46JfqCd5BcYIk3HNiKJLURPEs8E5W0cRBlcerPFRclyqCNpNUYW1A4STJD63m
-	 B4VJTxekgH313AR9d/MMiouSGm6RDTzG6HnN6OwInbiuPEd7tLDLbQ2X/tj2vyb1FyQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794947550;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794947575;
+	b=W9vZJxwfVll+RI9+OgY9KYZ++Ng1ERAk5qEtZCN30JXLN6u1IbFBCascnlMzYwJVRiqx
+	 WR3JQjuoJDSbxDUWRYqTr1DpFx6DJMbmrX6IqPt4NaUKJ0nQAjgLEw45v7NbhQ/2FqJPB
+	 CTvmmFh3rdvonAtjPgVBnrk4AfW8nGQG4LrJuTUFr8AdhZoaAO8OSXNsuJiyngzvVW7xt
+	 rH7piCJtkf/c7W0zYxwBr1L4TZiKpjlNADfzsb6SXvwthVU8/Tw/Wj59qO9j62sHbZ5cV
+	 fUGKDHKi0o0aaTfi0a9A3rqFP6FbhLWNb5s+XZ5fcOrxw4DV3+mkKKWp/5UtyeFHpAA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947575;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
 	 X-Proofpoint-Virus-Version;
-	bh=0kZrkgBlVJ6Br1d2+SootkU27cD8cvHld5OQI8t8s/o=;
-	b=FmTrsxjE1tvySfIcM5t2PDKTBHnF51OVvxNg7USDXHT1QTHSkUf2zFwLRPT089iC1AEL
-	 w7lIboAIMf58+0mPO3auRHLKRVOWomc90X4rsTEgimErZc9tZiJ/oouRha5KuPy5l7jfz
-	 JWiBqtKGGQySQSoagazYfBALi25FSweayZBY4W40Atj1rdsQWgl6K18JPbDJWLRt+KRaq
-	 vbzp//UsZc3RwZWCwWqSwpSOgO+m8KliMKxOueOtoMt0KBaAbggL6foyXEMaBfaywrwWR
-	 y8ip2INtwlINmwFdLLzHDZxZQLjboiqd+Vpr/cjw2w887TNBvkpt+AAFOksFLP6cm7A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	bh=UTEMOblH/VihvxNhVSH4vDNOlT/5rl5B3v1mDwWjQNc=;
+	b=0oaxqkHW7rVPMgxzXqEzDDJ8n60YUIOnDM5e8o37acRQxTL9JAMMTHU1pvLcX474hnow
+	 QUAQRhLjVYAN+6RIhlJPKSuMWjg4HO1y0Xldkibx715UkxQMv9LlPkaDF7cTWEbmd5rTk
+	 p7lrKL/iBl66POkttml2iKpxELFpZ4E311PDrjY1bvokllznlNR/wRYTtC2xVNcMQJ0V3
+	 wHFey2RkUkMNcW/1Dt1+1KdmOeHyWEYT/suczXfq37vRaEd0b96sw9eYAG4fvBRHhCKII
+	 XutAywn+ekpTZT9Zw1E6Nk5fAVjIR3WaUMQDC2OFAYjPxQrOZCv7D1VmiujmfxsY4sw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=meta.com;
 	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="S/cJHIGQ";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=jcnmHeeG;
+	arc=none smtp.remote-ip=67.231.153.30
 Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE1E9606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 20:32:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE1E9606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34A53606A31C;
+	Tue, 17 Nov 2026 20:32:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34A53606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=S/cJHIGQ
-Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJ9iOo1553911
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:32:28 -0800
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=jcnmHeeG
+Received: from pps.filterd (m0528004.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJKYQf1701724;
+	Tue, 17 Nov 2026 12:32:42 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=0kZrkgBlVJ6
-	Br1d2+SootkU27cD8cvHld5OQI8t8s/o=; b=S/cJHIGQUWCeVVmYPfyE/H3OXIr
-	C+FScFtToC7kEonJ53c6uQzVRAxI+YJlYPGEYds54+MNSr4IEMD0mKcHYDxXAdrE
-	SEPPGDvtNUrayxoC4QQ0HERmpoGw2nbQFj8i0wXIDSkLcC48lml+1DUk+GS04s17
-	aKXAK1VVdtpBWIznDhE39mOnzZWejBo7iGvPAusT2us4vlKH6wzzDmgv16k1WOBq
-	7BA6KrN4q5VJd3ggyZYAvNrpidhK0IacxKYfeeBTXagj9wn8nUmbKXCRAx8g5+bB
-	DxboWdy/0RNdniQY/cO3+s4SsWdcJ2VbpTOWc2QySNjCDjuPU8XHOnM93MQ==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0px5muh9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:32:25 -0800 (PST)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-8b6463f95a4so153548b3a.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:32:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794947470; cv=none;
-        d=google.com; s=arc-20260327;
-        b=hzjPYCzYFqrzLEqNphw5tJmf5fftaEgZ22y4jhi/0rmRlwQmyOHpt0VEpCW8wpSnRf
-         fHh8Fa/1TWPefhwxDvmrUyYBzF9yVJOWlLB1Px/32fpZsoIk+fUwV/Bv9xEWNBnjN9kC
-         lED/yI+iO4duu19eiVBpzWkEg21K60BB+DL/6CFIrFQKwLRHpCPaAmab2fdSUG9aAuWH
-         JqA90j5ia7V68NQG9WRBms+oiVYCIwFYK2wmqCbiKJE0L95LMVGKk++ac/A5tnmRES/3
-         Xjqi1lC21Q3wzZ7Q/0KVAQLHgnWylkd+qIm9G1eiX7Qd5GVM2KAwPz+z8/vsS7h7qSzi
-         ad1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=0kZrkgBlVJ6Br1d2+SootkU27cD8cvHld5OQI8t8s/o=;
-        fh=bNo8+ygk5Y33PD0xp5ImIfRd6vdj7mkRSfKEwkgc63Y=;
-        b=WRrxN6OzsE6WRDulg5XqvoSrgMzINhrGpDYVAEEyCPUu8jLSKlj4VRZfHBMjrEeXS8
-         8+Pgbquvi6PshU9yIi90GaWQ+p6NNRygpH/iTh2WwfH96OPLOTh9Abc8xKuNwBctTU7u
-         H05To5A+Rgu17z+BqMYV+uK+3FCcFKTFrFC3O6ar6buqPDiys+EQcK805+UOfrmDoVVN
-         QSIue4+szkjO1fgEZVCqycFtmXOEefn2v/O5uqQsooduqUKFbpOK0ZSS6tiydknu9wLw
-         HC8xn53G7DLGkhaD0/JOFrWxBPR0hTsJJxeodOWju3MTOWU5l6lc/TIJQMR2nCiTlhcG
-         DUlA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794947470; x=1795552270;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=0kZrkgBlVJ6Br1d2+SootkU27cD8cvHld5OQI8t8s/o=;
-        b=aWF9Vq9LuFm1y/zhIVZ7B2IrcT9DjrRDOJQg6BtQSfZIyAgj8hgQnDz/wAkxF52GQ9
-         4bUJcmiYV0XKZrtu7sYF98IUXAExIRL3QBqBRHdImbP8oQMGU9HrLa2Lej4wl0IBunKG
-         CLj89/oC8OlBYH+VJRV++NNFQkmHhHH3ZimJIxbu8BnusxaoyexM73dqBSM6v0di2Drz
-         jQNJsyCRUUldj6VU/VlQ784tOGSn3CaYLNnfoeqiHC7p9vIvM/DObT/MG8nS9cALdkxr
-         aQXpIXRXtOQGYT0EzcRIvJScqkqhyEWWgT5wiybiCw3japncCfoUwKDXN0XO4tBxODLk
-         q1Jw==
-X-Gm-Message-State: APuU4Z+BlqjKMrJx/k/B6OYD+HJUdMXNj6ykDxGiRRrgfEIrH1y+pFV7
-	iyVdIsqycZuvijIS9KMz3/HZe8MW0OACEJ69Bxe6O2C84UBFhzC2Nhz47G197Yos0C/KNbu00dF
-	NDuMSy7s2scrN7fGdRpKcqp9eTj6dzyk8mc/SqZvg6p9CiUlYcPuTbcvAbhbQjeAIYN/NOWKGv3
-	C/eW2z58SOzTFxTwNJ4yBh0l664aMOWh1mggaBzj8=
-X-Gm-Gg: AYBFou2WlkqHvWWg8HAHAq0se9B1SKXk33YWvrE70XOZ5iCr2dSKBhqlgWBF5r1ZUMI
-	31nKp+rMyiU+ySb8qq9oNJLz1o5fAUtbKih0ndJYpSq5tK1vhzX02SRiVZxGbxjeRAw0fbzJSOX
-	iSkZ3Ht2AZXwVb/hnktbNdDptMiIhYMRH/hVGvqQRWZcXX5+l7z6slmuvgRwaWXhnMDO1ZUjaxv
-	logfJLVJ2YlolwnXIP1z/pUtEoEbWTXHqNYZroCm+2gUgqXCk8=
-X-Received: by 2002:a05:6a20:5491:b0:3f9:bcb9:30dc with SMTP id adf61e73a8af0-3fe976e2e5amr393704637.38.1794947470153;
-        Tue, 17 Nov 2026 12:31:10 -0800 (PST)
-X-Received: by 2002:a05:6a20:5491:b0:3f9:bcb9:30dc with SMTP id
- adf61e73a8af0-3fe976e2e5amr393672637.38.1794947469714; Tue, 17 Nov 2026
- 12:31:09 -0800 (PST)
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=UTEMOblH/VihvxNhVSH4vDNOlT/5rl5B3v1mD
+	wWjQNc=; b=jcnmHeeGBVKHKhpHpxJ4RvZBbiwMnoYmavRCvIl+BllCT0CirvQRp
+	sizMtW8meF+KwBU7AAWNExkjIwuBWXW+ITQtgZwv8UggMyrPCZA1AhuxJVSVv5Wm
+	HOiCqHmqTqDZopF9LvEKabAnbAnA0CSzgCpW2ZpCqNdhu8A/lB35CMdpt999LiVY
+	QRfGPQA+/ZhFC6dMADtZeRptJ8OvsS9Gh0qXt876RZdRMaRUwm+7KqD3PR7V56Ni
+	ia1v6skPTprajLTqCnNdtEcvjTjsOQ+ongQRdSnB7FsihlmPl8qYMs2+YpQ62OHb
+	NpRhcgg3/XTpOyulKQtSX4rPEKYFqDe8Q==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0w0brvgh-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 17 Nov 2026 12:32:40 -0800 (PST)
+Received: from localhost (2620:10d:c0a8:1c::1b) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
+ 2026 20:31:51 +0000
+From: Todd Freed <toddfreed@meta.com>
+To: <netdev@vger.kernel.org>
+CC: "David S. Miller" <davem@davemloft.net>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=
+	<bjorn@kernel.org>,
+        Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
+	<cratiu@nvidia.com>,
+        Daniel Zahka <daniel.zahka@gmail.com>,
+        David Ahern
+	<dsahern@kernel.org>,
+        Dragos Tatulea <dtatulea@nvidia.com>,
+        Eric Dumazet
+	<edumazet@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
+        Jakub Kicinski
+	<kuba@kernel.org>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Leon Romanovsky
+	<leon@kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-kselftest@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
+        Mark Bloch
+	<mbloch@nvidia.com>, Paolo Abeni <pabeni@redhat.com>,
+        Raed Salem
+	<raeds@nvidia.com>,
+        Rahul Rameshbabu <rrameshbabu@nvidia.com>,
+        Sabrina
+ Dubroca <sd@queasysnail.net>,
+        Saeed Mahameed <saeedm@nvidia.com>, Shuah Khan
+	<shuah@kernel.org>,
+        Simon Horman <horms@kernel.org>, Tariq Toukan
+	<tariqt@nvidia.com>,
+        Wei Wang <weiwan@google.com>,
+        Willem de Bruijn
+	<willemdebruijn.kernel@gmail.com>,
+        <stable@vger.kernel.org>
+Subject: [PATCH net v6 8/8] net/mlx5e: psp: tso: replace only the length in checksum seed
+Date: Tue, 17 Nov 2026 12:31:37 -0800
+Message-ID: <20261117203137.804424-9-toddfreed@meta.com>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261117203137.804424-1-toddfreed@meta.com>
+References: <20261117203137.804424-1-toddfreed@meta.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,54 +108,97 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111001831.3710881-6-toddfreed@meta.com> <179472727319.2199510.15887061947101112689@kernel.org>
-In-Reply-To: <179472727319.2199510.15887061947101112689@kernel.org>
-From: Todd Bert Freed <toddfreed@meta.com>
-Date: Tue, 17 Nov 2026 12:30:58 -0800
-X-Gm-Features: AclHuK8h__y1ykH_oWn3mQ1fV3WrPBL6thnn5AjT_UEvICUWUOHi7PKgkI-L6EY
-Message-ID: <CADh2yMyYxVE70K1BnbqzDB5h+7vDBzpL7r-yxnhq=7Wgb4480g@mail.gmail.com>
-Subject: Re: [PATCH net v5 5/8] ipv6: icmpv6: don't quote decrypted payload in
- icmpv6 errors
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
-        bjorn@kernel.org, borisp@nvidia.com, cratiu@nvidia.com,
-        daniel.zahka@gmail.com, dsahern@kernel.org, dtatulea@nvidia.com,
-        edumazet@kernel.org, idosch@nvidia.com, kuba@kernel.org,
-        john.fastabend@gmail.com, leon@kernel.org,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        linux-rdma@vger.kernel.org, mbloch@nvidia.com, pabeni@redhat.com,
-        raeds@nvidia.com, rrameshbabu@nvidia.com, sd@queasysnail.net,
-        saeedm@nvidia.com, shuah@kernel.org, horms@kernel.org,
-        tariqt@nvidia.com, weiwan@google.com, willemdebruijn.kernel@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfX/BRKUWhwB4Tu
- V0B6Dg1vyfJ0iXIlK7nTzTtER2VV3QdJ7YvFRAOCRDLYjZoQ5BZMp+eJ+R2OTlEb+oQ/rRIih7D
- qHmy6TXMpfTlPBhEFUK7EYgcYFJTfGw=
-X-Proofpoint-GUID: aFDKt5lSJkBeZmEXxVNJtHTe5D1osb-n
-X-Proofpoint-ORIG-GUID: aFDKt5lSJkBeZmEXxVNJtHTe5D1osb-n
-X-Authority-Analysis: v=2.4 cv=adD0Dhot c=1 sm=1 tr=0 ts=6afcb9dc cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=wpfVPzegXHpEFt3DAXn9:22
- a=Ve4a7iEx9DEsMjZA-ZQA:9 a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfX6iWewsLNF0Zw
- Lxevi4Ei5Z6Nn3XRSNGMVzaMneO+3pwM866zOYCGW0DOkGIpnGOQYMarxcJe1qInnBnXXuK7P/A
- JBlt12sBqV7R7noqq7zZ2VfltM4c7B4ZLdWD1IfSbWO/ISFqU8DUSJJI8Kh4Vg2W7OuX2aCaxAs
- TRNI78SFNf2m/gcUbSH2FqWcx+A782Jeawkh43XamgxdFQ6U/+yxpMv5ntkbe3tGC14GBzciFg6
- iS4llKhfl0DvSU6qsCZmjNGCyMiWCDtu0U1isQGagaW/kY8tskQencwtHFRQdj770d6n373cqYd
- 9MSrzcDx9wxIQhKTs7ErGFd/QghR9GHdo1UJT9YY0ExO8HRWlU2CQQYG3hFmAYjAn4/vtrVlo1j
- ZCPSVoM1/rPKZ3tyvQjvg1jYqvsM8AjBhEw5fVyjiA+YVIc08fnQqoftrXAHvcNRf2P27rh05Al
- LrzaNm2tPkx//jyln1w==
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-GUID: aTw-mv_vEeF9n33yYOnNLmCaSJuB8HJK
+X-Proofpoint-ORIG-GUID: aTw-mv_vEeF9n33yYOnNLmCaSJuB8HJK
+X-Authority-Analysis: v=2.4 cv=NM1AaE6g c=1 sm=1 tr=0 ts=6afcb9e9 cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
+ a=GbPsI2Ihf5RTnMjR_gZv:22 a=pGLkceISAAAA:8 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
+ a=nThHfc4DiEoPSTtPicgA:9 a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfX24GpxoqCJlI4
+ /EY4M8A6hfunbHQDsj3xYURMwl/HyKt5yztK2CIoDytswzQhT8PHaiTZ//izey5JYAKxSsjtYd+
+ GvOeE7bP7QqE5lx07cGki4ZJw3NbC70=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfX8+61FN2XdG53
+ VPerl7sT2TJT8w1WppfTmtgiuVIw6EeNa/DlNf/tqFI8ihNNR/DYdRGCtIqMFuUpy86s5pmTyBL
+ 9nK/LjpYXhwa7fn2F8p9symlZ8NCKQYJ9vRhWxtGdE5ZrsEC0myhFZ1yUFe428Uz8atdlt2kpDa
+ 5/caL3Vbd+MmFa6u4NHyPUTaYX8aulY7oNRvU6fDCWCaxL5Nr9gAccUJ0p9dBa1z0nQAdIaSIRa
+ KCu7kGwdYxq5wJfdHh8lSqjcOnRKZrojjOk8MA83dlBxNvNMcxf8uMc97mdCX0N8+XaJ6orJVgx
+ TX72/VXcGbAzq+Xa8xj6FOaroD2wNQp0NTf81oWVJMqXUy7iAR3QmraCZ1ZSuCV8n0ayEzUaQnm
+ hc3FbGoYY+Hdmy88Ntnx4DiqQ13qB2ofLbuW9n8LqQ/j1D6Pahl4/5e2cLAaHnlVI/z6qNsZbEq
+ pBZW4Kytss/YeMRu2SQ==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
 
-> [Severity: High]
-> Does this cover every ICMPv6 error builder that quotes the invoking packet?
->
-> nf_reject_skb_v6_unreach() in net/ipv6/netfilter/nf_reject_ipv6.c builds
-> its own Destination Unreachable and never goes through icmp6_send():
+for psp tcp with tso,
 
-This path is covered by the nf-next series "netfilter: don't send decrypted skbs
-in clear text".
+ - __tcp_transmit_skb() -> tcp_v6_send_check() or tcp_v4_send_check()
+   computes the checksum seed using the addresses on the socket and the
+   total length, then
 
--Todd
+ - mlx5e_psp_handle_tx_skb() recomputes the checksum seed using
+   addresses from the packet's l3 header, and the length of one segment
+
+the length difference is expected by the device. however, the difference
+in addresses is incorrect in cases where the l3 header daddr is an
+intermediate hop, for example,
+
+ - ipv4 source route option (IP_OPTIONS with lsrr or ssrr)
+ - ipv6 IPV6_RTHDR header (conceptually ; ipv6 extension headers are not
+   properly supported on this path yet)
+
+in these cases every segment of the tso packet to go out with a bad tcp
+checksum
+
+the fix is to replace only the length in the seed which tcp had already
+computed. this is also what tcp_gso_segment() does.
+
+tested on connectx-7, with a psp tcp socket whose ipv4 loose source
+route's first hop isn't the final destination, and the peer checking
+tcp checksums in software.
+
+Fixes: e5a1861a298e ("net/mlx5e: Implement PSP Tx data path")
+Acked-by: Daniel Zahka <daniel.zahka@gmail.com>
+Cc: stable@vger.kernel.org
+Signed-off-by: Todd Freed <toddfreed@meta.com>
+---
+ .../mellanox/mlx5/core/en_accel/psp_rxtx.c    | 21 ++++++++-----------
+ 1 file changed, 9 insertions(+), 12 deletions(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/psp_rxtx.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/psp_rxtx.c
+index 348fd7a96261..d9c2742b3c24 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/psp_rxtx.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/psp_rxtx.c
+@@ -177,18 +177,15 @@ bool mlx5e_psp_handle_tx_skb(struct net_device *netdev,
+ 		return false;
+ 	}
+ 	if (skb_is_gso(skb)) {
+-		int len = skb_shinfo(skb)->gso_size + inner_tcp_hdrlen(skb);
+-		struct tcphdr *th = inner_tcp_hdr(skb);
+-
+-		if (skb->protocol == htons(ETH_P_IP)) {
+-			const struct iphdr *ip = ip_hdr(skb);
+-
+-			th->check = ~tcp_v4_check(len, ip->saddr, ip->daddr, 0);
+-		} else {
+-			const struct ipv6hdr *ip6 = ipv6_hdr(skb);
+-
+-			th->check = ~tcp_v6_check(len, &ip6->saddr, &ip6->daddr, 0);
+-		}
++		u32 seg_len = skb_shinfo(skb)->gso_size + inner_tcp_hdrlen(skb);
++		u32 len = skb->len - skb_inner_transport_offset(skb);
++
++		/* update just the length component of the checksum seed
++		 * tcp computed the seed with the total length, but mlx5
++		 * devices are expecting the segment length
++		 */
++		inet_proto_csum_replace4(&inner_tcp_hdr(skb)->check, skb,
++					 htonl(len), htonl(seg_len), true);
+ 	}
+ 
+ 	return true;
+-- 
+2.53.1-Meta
+
