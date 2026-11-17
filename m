@@ -1,55 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794903488;
-	b=2k2JqNVCyvVCRK1fYVnXzxHl/hKUwU9Yt5AHdXOrW7kKKEVWsmM/GrhTFkvp73C/+yql
-	 8F9uhk9S+okovppcmbCfenYKOQg/ebDHjOrn17qr+9ExsyrC2gA2wZbcSz/fGs4XaT/z2
-	 lLanOYc7XbuA8WWWDLlvz3yOLAEAb3P4iNT5PdFbcxaWqzb/ee8gw2ubeiadPaoeQAxY5
-	 2vNnIy9QB8g/J4JlpIgmFMEeD0VZqgFBZblsmhiexpnCVL2Z3r96gbPF3DDPO/sp8JQFK
-	 bpN8KsjMzGJ0b0WsjFFDdyymhJc8ehz08xqpKutBja+MN5XibIOavtXhUVdGWmlv0lg==
+	t=1794903713;
+	b=CpybjAO280aegMyNRRS6ighwzlNIcdD2r4PKzNKMmq1lZLIx5kHZT8KBQ1BMJqOr8vIK
+	 3j9EBwtPUoNRlAfa0/ruisqOiUL2fG5u+WjYfcOoSCmUa4Yu09zux4L5h9JPUkEFqvGI5
+	 qpkYUeq25BSDK/dXkewl/wE714PFKh4JbDcJokC/yV2B+bobZ3YPt1g3q0Vl/gdPuie5b
+	 CzOkvZk/LVPSy7Z/aNjLmXCmKMwS9Q63MG+1spqLbOYejZ0qq4XqoLYcyGEpaLX/gQOSk
+	 QuWz0OxQi5V2KO+/cUpwV0lTSO7M8XbobvX7yrubSYV3FRHQFhh0TWB7D+/bC14rCLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794903488;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=jY+9TWBtAeF2CFQwS+xjxt4ZJ04a32EQCLLfMF6sC9o=;
-	b=U2NU/AdwZOoSgni8aDec7SaoSuUCGoSy6SHecJxf5laXXPAD4WupCTCC6/131Fy5niKG
-	 0t3k81Apqk4XGNfKvkO4fWIkpgpfm73HPlK4VY7MSB/e45j5n5l1EWLHLwkK9cVJEpNUO
-	 GHhN2uM4zPDQBYzum9sBKUlKHWP2Cxf6PKqx4NNXDC47kt8LKcPIO3HCIFd7VNQiwHgUm
-	 ljkjWt7F9BEOV8KFIZGEssNKw2V3WF7Wv95xO4bar07Touyw3JGsAq8Pcq8uxVEhCg/aU
-	 pyzqVdf9Plljk5WcTqpONDThCLd/VrktJVoKTKCq2b2fBEuSr1CdAjynLucVghh69Jg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794903713;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=leXxKH6Wk0JtlVzmpwtXgwI4nGtAzqlh2G4jiTJuaWE=;
+	b=0TfL3uVmCqKIWm3tAUhJ+NAuWL6c4N5JCMkSCYo8/9H5s94bI2bdWNa2iuQGYCL7mZGv
+	 pzRJpfghJzBKnZxpeQJHPY6qre6Tza7N7a0P0zGRnLgXtcQRlmQUonCZLHXd9/NPrbwrw
+	 WYVrmffMu6xxyo1yT3vwxMHWjaq5qyl0V8haNczNbUIGcMHEn/T4+TwWFdS8hrgGT5QEf
+	 9wq5ZZxbB7W2C51oPFjAXSnLcdKS7LK1l+lcrFaPUG04xQS/6KoTc/4vq7KQjSZWMYE6T
+	 TaLZXL1kkp24qg1eVLKh6khepSGsCP+VUs7k3uOI7dwNP2tlaoE/pOfJJIb4hJurNuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F0F+SFTQ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7DB9C606A32C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:18:08 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=qjjrmJD7;
+	arc=none smtp.remote-ip=111.22.67.151
+Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id EC718606A31C;
+	Tue, 17 Nov 2026 08:21:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC718606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F0F+SFTQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 457D51F000C8
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:18:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794903488;
-	bh=jY+9TWBtAeF2CFQwS+xjxt4ZJ04a32EQCLLfMF6sC9o=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=F0F+SFTQzuYttdly0uM6MzzLasG95AmEGRDXvibMqR8tsUbmZ4DYCQxL2OQoq4PhC
-	 OMMTv/DjuQGYu8ez39GaP74iMDBDbWoxVXt7CbHstA0dxW6wr5qOa0HHKEdE9lFydt
-	 3l5Lpt2/Kq2OWgUE9HeiRupFevUZYS/AZo+ev4jexdL5m6SJtYdZz7UN4Z51pE67xt
-	 2Q6n2+FwzHXM/AzQQqbTrZcjlupf1D7/10cXmxOP2IMdNBiKlX8N6BehBj7AotyR76
-	 tF1w8qJqFi8KGVMr9ubHi8AG0qugG6vpLvdrJ9IzVLlbybNJfhvqq1ifeJZnK/oY06
-	 pNikoNHVC/kxQ==
-Received: by mail-oo1-f41.google.com with SMTP id 006d021491bc7-6d290b10a35so1695140eaf.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:18:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEuFbYQbDQxWXaKJtM/fbLCEc8SUYGDItfg648D58srBpRKgu8R0eBNuIRcs9Bzha5//AswR0M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VMXl0zQJ8dZq59qxG9SqHS0biKalv2HIjUQVj6Hw8XeoMO72K
-	OQNKXTyGQ6FIfeGI3+SXNsQn4Y/RbCXVrlGIawDw9UJl6+KJV/lL/vGyKutFVojMqEDWGfUFJhM
-	vMsCXSPvGYRxaCwtRuYhkpwdkBLuUZb0=
-X-Received: by 2002:a05:6820:2219:b0:71a:dd74:1ee5 with SMTP id
- 006d021491bc7-71add742771mr5182800eaf.43.1794903487596; Tue, 17 Nov 2026
- 00:18:07 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=qjjrmJD7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=qjjrmJD7hVp33AoQ7QIwYeSxagDqSMJ8aXgtzNDfgWR6t42Dbl4CBCqzi1Y4SuExi7qhrLwFRO5oF
+	 nb/2qjqxhG8FWQpsOLE7I7GjrMJySp447MUeE/3Zxxtiot1zkLgMjnAzH0MZ6ALBAOGVzlUA8OwyLl
+	 0rustSfzfDBlYVv4=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66afc0e9b846-d4902;
+	Tue, 17 Nov 2026 16:21:47 +0800 (CST)
+X-RM-TRANSID:2ee66afc0e9b846-d4902
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from FHD-W7400297 (unknown[10.55.1.70])
+	by rmsmtp-syy-appsvr06-12006 (RichMail) with SMTP id 2ee66afc0e98a20-a9e88;
+	Tue, 17 Nov 2026 16:21:47 +0800 (CST)
+X-RM-TRANSID:2ee66afc0e98a20-a9e88
+From: Aibing Chen <chenaibing@cmss.chinamobile.com>
+To: Allison Henderson <achender@kernel.org>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	rds-devel@oss.oracle.com,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v3] net/rds: defer CM id destruction to a workqueue
+Date: Tue, 17 Nov 2026 16:21:45 +0800
+Message-ID: <20261117082145.1737-1-chenaibing@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <20261116075423.782-1-chenaibing@cmss.chinamobile.com>
+References: <20261116075423.782-1-chenaibing@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,117 +76,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117-tcp-mtu-probing-doc-v1-v1-1-552ae04de4ef@gmail.com>
-In-Reply-To: <20261117-tcp-mtu-probing-doc-v1-v1-1-552ae04de4ef@gmail.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Tue, 17 Nov 2026 09:17:56 +0100
-X-Gmail-Original-Message-ID: <CAL4WiirGY0a-ybU9YQF=DUwvT=LwYQ3T-Xum69m1jvUJZgmAbw@mail.gmail.com>
-X-Gm-Features: AclHuK8Gl49qsnZUNoWiS5IYuX-GT6usEXRrdpt-iZywYA4rtgmzbRoXuglD4fw
-Message-ID: <CAL4WiirGY0a-ybU9YQF=DUwvT=LwYQ3T-Xum69m1jvUJZgmAbw@mail.gmail.com>
-Subject: Re: [PATCH net-next] tcp: document black hole detection for tcp_mtu_probing
-To: echoowall@gmail.com
-Cc: corbet@lwn.net, pabeni@redhat.com, davem@davemloft.net, kuba@kernel.org, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kuniyu@google.com, 
-	rdunlap@infradead.org, horms@kernel.org, ncardwell@google.com, 
-	linux-doc@vger.kernel.org, skhan@linuxfoundation.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Le mar. 17 nov. 2026 =C3=A0 09:09, Yongjian Wang via B4 Relay
-<devnull+echoowall.gmail.com@kernel.org> a =C3=A9crit :
->
-> From: Yongjian Wang <echoowall@gmail.com>
->
-> ip-sysctl.rst says that tcp_mtu_probing=3D1 enables MTU probing once an
-> ICMP black hole is detected, but not when that happens or what TCP
-> does then.
->
-> Describe both, as implemented in tcp_write_timeout() and
-> tcp_mtu_probing(). Also add the missing defaults of tcp_mtu_probing
-> and tcp_base_mss.
->
-> Signed-off-by: Yongjian Wang <echoowall@gmail.com>
-> ---
-> This describes the behavior checked by the black hole detection tests
-> added in commit 8a83f21ad75d ("selftests/net: packetdrill: add TCP black
-> hole detection tests").
-> ---
->  Documentation/networking/ip-sysctl.rst | 16 ++++++++++++++++
->  1 file changed, 16 insertions(+)
->
-> diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/netwo=
-rking/ip-sysctl.rst
-> index 0b7bfbd98a92..a11baf04758c 100644
-> --- a/Documentation/networking/ip-sysctl.rst
-> +++ b/Documentation/networking/ip-sysctl.rst
-> @@ -412,6 +412,8 @@ tcp_base_mss - INTEGER
->         Path MTU discovery (MTU probing).  If MTU probing is enabled,
->         this is the initial MSS used by the connection.
->
-> +       Default: 1024
-> +
->  tcp_mtu_probe_floor - INTEGER
->         If MTU probing is enabled this caps the minimum MSS used for sear=
-ch_low
->         for the connection.
-> @@ -711,6 +713,20 @@ tcp_mtu_probing - INTEGER
->         - 1 - Disabled by default, enabled when an ICMP black hole detect=
-ed
->         - 2 - Always enabled, use initial MSS of tcp_base_mss.
->
-> +       A black hole is detected when the retransmission timer fires afte=
-r
-> +       the handshake and retransmissions have stayed unacknowledged for =
-as
-> +       long as tcp_retries1 retransmissions would take with the minimum
-> +       RTO, which is 3 seconds with the default tcp_retries1.
+rds_ib_laddr_check_cm() destroys the RDMA CM id it created while
+rds_trans_get_preferred() holds rds_trans_sem for reading.  The bind
+path then takes rds_trans_sem and afterwards handler_mutex in
+rdma_destroy_id(), while the CM callback path takes handler_mutex in
+cma_ib_req_handler() and afterwards rds_trans_sem through
+rds_conn_create().  lockdep reports the resulting cycle.
 
-"minimum RTO" is ambiguous in this file: readers will think of
-tcp_rto_min_us or the per-route rto_min. retransmits_timed_out() uses
-the TCP_RTO_MIN constant here, so I would spell out 200 ms.
+Queue the destruction on rds_wq instead, so that rds_trans_sem is
+released before handler_mutex is taken.  The work item is allocated
+before the CM id is created and owns the id until rdma_destroy_id() has
+run; if the allocation fails, the address check fails with -ENOMEM
+rather than falling back to the synchronous destroy, which would bring
+the deadlock back under memory pressure.
 
-It might also be worth saying that this time is counted from the first
-retransmission, and only checked when the timer fires. For a flow with
-a 200 ms RTO, the detection happens at the fifth timeout, about
-6 seconds after the original transmission.
+rds_ib_exit() flushes rds_wq after rds_trans_unregister() so that no
+queued destroy runs after the module text is gone.
 
-(The 3 seconds also assume the default tcp_rto_max_ms, but I do not
-think this needs to be documented.)
+Reported-by: syzbot+ccdb5058c3df2d94811c@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=ccdb5058c3df2d94811c
+Suggested-by: Hillf Danton <hdanton@sina.com>
+Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+Suggested-by: Allison Henderson <achender@kernel.org>
+Fixes: ec16227e1414 ("RDS/IB: Infiniband transport")
+Cc: stable@vger.kernel.org
+Signed-off-by: Aibing Chen <chenaibing@cmss.chinamobile.com>
+---
+v3:
+- allocate the work item before rdma_create_id() and fail with -ENOMEM
+  instead of falling back to the synchronous destroy, which would bring
+  the deadlock back under memory pressure.
+- free the work item when rdma_create_id() fails and drop the now
+  redundant fallback in the out path.
 
-> +
-> +       With value 1, the first detection enables MTU probing and the MSS
-> +       falls back to tcp_base_mss. Each later detection, or any detectio=
-n
+v2:
+- move the workqueue from RDMA core into RDS, as suggested in review.
+- flush rds_wq in rds_ib_exit() so a queued destroy cannot run after
+  the module text is freed.
+- add the Fixes tag, drop the Tested-by tags.
 
-The MSS is only lowered: tcp_sync_mss() uses
-min(mss, search_low mss), so a connection already below tcp_base_mss
-keeps its MSS.
+ net/rds/ib.c | 39 +++++++++++++++++++++++++++++++++++++--
+ 1 file changed, 37 insertions(+), 2 deletions(-)
 
-"Each later detection" could be "Each further retransmission timeout",
-since tcp_mtu_probing() is called on every RTO once the threshold has
-been reached.
+diff --git a/net/rds/ib.c b/net/rds/ib.c
+index 4ea9838d0..44b46defa 100644
+--- a/net/rds/ib.c
++++ b/net/rds/ib.c
+@@ -391,6 +391,20 @@ static void rds6_ib_ic_info(struct socket *sock, unsigned int len,
+ }
+ #endif
+ 
++struct rds_ib_destroy_work {
++	struct work_struct work;
++	struct rdma_cm_id *cm_id;
++};
++
++static void rds_ib_destroy_id_work(struct work_struct *work)
++{
++	struct rds_ib_destroy_work *w =
++		container_of(work, struct rds_ib_destroy_work, work);
++
++	rdma_destroy_id(w->cm_id);
++	kfree(w);
++}
++
+ /*
+  * Early RDS/IB was built to only bind to an address if there is an IPoIB
+  * device with that address set.
+@@ -411,14 +425,28 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+ #endif
+ 	struct sockaddr_in sin;
+ 	struct sockaddr *sa;
++	struct rds_ib_destroy_work *w;
+ 	bool isv4;
+ 
+ 	isv4 = ipv6_addr_v4mapped(addr);
++
++	/*
++	 * The id is destroyed from rds_wq: rds_trans_get_preferred() calls this
++	 * function with rds_trans_sem held for reading, and rdma_destroy_id()
++	 * takes handler_mutex, which the CM callback path acquires before
++	 * taking rds_trans_sem.
++	 */
++	w = kzalloc_obj(*w, GFP_KERNEL);
++	if (!w)
++		return -ENOMEM;
++
+ 	/* Create a CMA ID restricted to IB devices and try to bind it. */
+ 	cm_id = rdma_create_id(&init_net, rds_rdma_cm_event_handler,
+ 			       NULL, RDMA_PS_TCP, IB_QPT_RC);
+-	if (IS_ERR(cm_id))
++	if (IS_ERR(cm_id)) {
++		kfree(w);
+ 		return PTR_ERR(cm_id);
++	}
+ 	ret = rdma_restrict_node_type(cm_id, RDMA_NODE_IB_CA);
+ 	if (ret)
+ 		goto out;
+@@ -484,7 +512,9 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
+ 		 cm_id->device ? cm_id->device->node_type : -1);
+ 
+ out:
+-	rdma_destroy_id(cm_id);
++	INIT_WORK(&w->work, rds_ib_destroy_id_work);
++	w->cm_id = cm_id;
++	queue_work(rds_wq, &w->work);
+ 
+ 	return ret;
+ }
+@@ -542,6 +572,11 @@ void rds_ib_exit(void)
+ 	rds_ib_sysctl_exit();
+ 	rds_ib_recv_exit();
+ 	rds_trans_unregister(&rds_ib_transport);
++	/*
++	 * rds_ib_laddr_check_cm() may have queued rdma_destroy_id() on rds_wq;
++	 * wait for it before the module text goes away.
++	 */
++	flush_workqueue(rds_wq);
+ 	rds_ib_mr_exit();
+ }
+ 
 
-> +       with value 2, lowers search_low to half its MSS, keeping it at mo=
-st
-> +       tcp_base_mss and at least tcp_mtu_probe_floor and tcp_min_snd_mss=
-.
-> +       Once MTU probing is enabled, the connection also probes for a lar=
-ger
-> +       MSS, as with value 2.
-> +
-> +       Default: 0
-> +
->  tcp_probe_interval - UNSIGNED INTEGER
->         Controls how often to start TCP Packetization-Layer Path MTU
->         Discovery reprobe. The default is reprobing every 10 minutes as
->
-> ---
-> base-commit: 6ff4c5942a301675eb12e5b49d53a81e604624a1
-> change-id: 20261117-tcp-mtu-probing-doc-v1-351cb754fa7b
->
-> Best regards,
-> --
-> Yongjian Wang <echoowall@gmail.com>
->
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
