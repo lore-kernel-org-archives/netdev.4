@@ -1,96 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.17
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.44
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794943118;
-	b=G0hUdu4cU2h8IOxdlBnLyaq0NrHb2EYMp0a8EW31Wb+rJ44FAGowTRODc/jYz9KEjgsj
-	 VftBRrNlGekBslggCvqf2fqyOnpVvXU+GzECo/6ubKbHPmeW+Su5INUjTiMMB2K5qT5oh
-	 T9GhUtzrSbakEzCJyddxqqEOwDbmwNpqEkJ18XsCOFn4ijbvDSytFSmDVkmVGXtlIyfOG
-	 WWhB9vkyNXTQY1INFEi97rITjSrbuTNNuENdAsgojk3BPFd6MMJ2ZEFNGGrcbGdIoSCS1
-	 7n4FLLzYNp04QEpPb+8LRQToT8Zro6srOISxiWuym/9Or2hBjbZV/9EApxsmxkw7HKA==
+	t=1794943158;
+	b=CvSjFVfXUZ2rZpy8xFYNvQ+sLJXA0Ji86rX3bgDPKyxABjXNMuoA6Dr2W9Gl4giBrsFA
+	 U1ahB0/6R/JkImx+G4QROMVamDLF4+cI9/iN2PZEO1wcZc8h3NB3fxUJV0a7Nu8nFTq8E
+	 PSKJMvNDIrF/EfgOw8OmpsP8M/W/pz3t8MhOxgEXnzE7K67ZbMZoarCIylMgHj+uzBz11
+	 e1oNO3OAgtliVmtcuwZp3JuVNP9+m7dC/1rBZ53zIDcOyTGXHE541nHXBKZOx585bn9ny
+	 mg3+R2sLfez+qEMRVOPUOXlPJNJEW0x44fpC3G8alTRzIR8Q8L5SanYznehIdNPFWSg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943118;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943158;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=RRV2dCZRN0J5FvXJlcW6c+6oOF3yGngYfzYJp6Lk1jE=;
-	b=grURhm1FExNu1IhhLDHuAjpRU8vyl+giHMr9Lm/IVhC6LjHoibjfefNDkSpl4J/to1Fq
-	 sBu7qnWlIsGzkLCHODJVfcbxBYc5m23dwD/e4JXlnfNDlRY6oe1OywNsh2p432OiMAJ19
-	 4+LAW4W7Am6SwJ3qtFZEl6PdyYYTLc9vIqVP1YJwM0R/CHrRH7TRSa2kayGW2YvzX2keB
-	 mhxN7hV4XAq7ZlB6zWnJaZXi6v9Pq3CzNS9MfijXE9svn+JBr6oQAhwv1VcZX8Zc8WXG6
-	 W7BTXcCji16GMFmNmK4Pbr/WLK23ShqIluRA52FcDe3xjZ7KBLNQyEbefcWqXSzPOfA==
+	bh=eXLFyzYcdrvZJ+1uNjpVRLWMVm/h5f/pMrqiO1k4+zg=;
+	b=dznRjoYeOn6GEIxSIEXo7aqnBT/w72FWwWz5Xh1Pdnxm9rGwwtCRvS44+lZd7nUGlRWC
+	 i46XgZcGNkdHd/FrlZYRr4zijsBkYlugX6GspiXascEQaxrMcQDn2R4I2XbdJntI7tPd/
+	 iRnRZq2VZ73H3o3370MA+rrc1YAk3cRXcsyTuJMp6glh1Yvb2ssj0KTMKju+6WMpoobUe
+	 /8myJNP1HgjcehBII4lT702Xc6g5aovo8qcmQbXmUbdEmTNfgNQ6H41/ZUG9ZQ0gNuxxG
+	 kqSp2hT/dAAI90nxnCVvzeN0/w9BAunsAfsjqfLQGkctIL65pP8y4j4Y5swus1fMxxA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ayvxKAar;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.17
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013017.outbound.protection.outlook.com [40.107.201.17])
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=dwgEm8Mp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.44
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011044.outbound.protection.outlook.com [52.101.57.44])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB231606A31C;
-	Tue, 17 Nov 2026 19:18:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB231606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10D26606A881;
+	Tue, 17 Nov 2026 19:19:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10D26606A881
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ayvxKAar
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=dwgEm8Mp
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=PXzQ0apeZoteTsrhdYlgUtEBjedupHc2STiGHRr+c4JdjLO3RMx0FW6s2uLisbTR8SiuvNH0SX8FqbUCH6KIUaKL9z3pp7y9YZErOxAgFF/uCX6jpg2sqhdqcyustf3c0Mm4x7TLSHu4YGI4sdn5tJbEQTFVGPkMvN+I29MIjXLQbdJA4FAGfnnFJsKOzeX1PNUgnrpiDHu3sKRJFSHN4yoclhYoYC2dsEOgzQmcsswDYRTcsd++MUG9OTM8vXRaWFLIku4//qbgsOxqAe9zmum8/iLToNhJ7a6HIU08SeYx/tEP+vGBYhujHTbo96uz6yimtgPWKL95C7cPn1O2vA==
+ b=ov6oxAh4Z81MrxnukpuDBiIpQQOMa+w+NLdlMWqVu5iYStsiXyxnRCnIT97DPu5jLle7AtHVrTJgDXMtPGgvgHj2ynr7RZgHqQcQLA/PYcMD1ypPNGyZ0epHhlEMeb7ls5QIdCdjc6lyp5sGM3tYvHOgTCq+Fbxm783Gm6ivSlFVWU4Nulxcc3EcXmkTha/kL5azUR5C5YlplQw3MmGWlsC5+ADNkLcQu2DwG+evuTD6cW8TtfeUh+LkEXzqJB/sT+w+7A91I4frLGaPs/NsKwhc5Qu4kOEPVRXARDXJuWIRdFHnPYwuQfBR43h6r4Zs2eaxc7LEq9KOttSXWPAbpw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RRV2dCZRN0J5FvXJlcW6c+6oOF3yGngYfzYJp6Lk1jE=;
- b=s9bUoRIfjt/N2cW42yUH303u+GSUlkWhdIp7q4LKAqqLleBbECo9JZqeBSC7Xrvwxn9fABpZ6GOeARBIVFqKPbjCAO873ct8mVAGu88YTyImF5nV5U5bMP4MUfzelQ9e0M/oH3u3WjX0GZTEnCiZiiGX16/RIqgf0YNy6qdVxsJDRTkqlAr5Iaw+sAnBGadL6f82Efozr2lFGvQOafIYoHriljiDL5uwg+rwVMzqOWJq/LSHamPVRrj02sxIv206TEovC5+b0fdA1X3T3sI3TaXITJ2YSpxbsWm56/NdKcYdgjraKoftcy26wKoHsqRZMW9DRIYhSoDdK8ldKzmlzg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=eXLFyzYcdrvZJ+1uNjpVRLWMVm/h5f/pMrqiO1k4+zg=;
+ b=qYFE8O8xPHX4FXKR8ff2TgF2nmSV2UL0wFthZfcUUKxqlQQTemeZ9eyM2PhA83rTCm7Bdb9xYri19F+aTKbsiwK+QGSn7TgsPc1f8zUCDAoXtuxNZGrGVwStB6Apkfx2/WwNgK6IrNtJN32d9JEemtSTDMcyaMGyaok8R2cGtpbWjbu2mXTOwr1eu1ql1UMer8QG7bbiglTuUJ883l8JBc9hFlXSOnr9HucEAW3CKa7rypFlwb8TjNvHGDzlajKFKzvl4RpXvDE4FbvYfgn+r0Gc0wFcton21h/RZjplHa4CIUlD+vjmWE99cbo5haiDKJBf70qD4lkTkksp4KtPmg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RRV2dCZRN0J5FvXJlcW6c+6oOF3yGngYfzYJp6Lk1jE=;
- b=ayvxKAardQle5GQRNFsSajLKRM2dJj40FzJIW39mbQmClZPncfjQyAbpSRkAqBBv5W61hsgfHHGv6XCFPF26PPX4KTOQzwWi/Ee1+j/w0Kcute/twYxf2llVIxmjmycDyNTeFORCK3e6+S/IgK4E4bnNQatOke7Rbc4eNATavP9aKrQEWuHL4JV5zghA/nOLLzb/qlj8GdU0nLZkMs8KJVVyUyoWZeIpXkU0IQEAmaX/hVFxNC2KIf7x6F+GihaM0kuyet0qIP/ajWX8a7VdxUKhtr+yrYZUt/gm1OejhdFo3WyL7CsHrFQX8IBXpSlrMN5mm7N/N6T9coQSCvsm1w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SA0PR12MB4367.namprd12.prod.outlook.com (2603:10b6:806:94::13)
- by DS2PR12MB911612.namprd12.prod.outlook.com (2603:10b6:8:405::23) with
+ bh=eXLFyzYcdrvZJ+1uNjpVRLWMVm/h5f/pMrqiO1k4+zg=;
+ b=dwgEm8MpibguRaHARI1DSIywj7xoOPtIhNc6+2Zmrpr67C5uS0hGV8gZK9JZACJpKc5Lkty4DtDISpgqM0WetyrdtQT9XJkHr8ZJwL4ilMa3+evQqAfL4VCUjQpFVWnT7zJ9Ms3nsei02GMZSAJcaOVrbOo11WAWU9RT+gKMjTY=
+Received: from BN0PR10CA0023.namprd10.prod.outlook.com (2603:10b6:408:143::20)
+ by DS3PR12MB442436.namprd12.prod.outlook.com (2603:10b6:8:547::13) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 19:18:34 +0000
-Received: from SA0PR12MB4367.namprd12.prod.outlook.com
- ([fe80::2815:8a95:1a44:be1c]) by SA0PR12MB4367.namprd12.prod.outlook.com
- ([fe80::2815:8a95:1a44:be1c%6]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
- 19:18:34 +0000
-Message-ID: <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
-Date: Tue, 17 Nov 2026 21:18:29 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: mlx5: Allow police as the last action of a
- TC rule
-To: Mohsin Bashir <mohsin.bashr@gmail.com>, netdev@vger.kernel.org
-Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
- cjubran@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, idosch@nvidia.com
-References: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
-Content-Language: en-US
-From: Mark Bloch <mbloch@nvidia.com>
-In-Reply-To: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TLZP290CA0004.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::15) To SA0PR12MB4367.namprd12.prod.outlook.com
- (2603:10b6:806:94::13)
+ 2026 19:19:12 +0000
+Received: from MN7PEPF0000014E.namprd04.prod.outlook.com
+ (2603:10b6:408:143:cafe::45) by BN0PR10CA0023.outlook.office365.com
+ (2603:10b6:408:143::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Tue,
+ 17 Nov 2026 19:19:12 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ MN7PEPF0000014E.mail.protection.outlook.com (10.167.254.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 19:19:12 +0000
+Received: from [10.11.96.223] (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
+ 2026 13:19:10 -0600
+From: "Nikhil P. Rao" <nikhil.rao@amd.com>
+Date: Tue, 17 Nov 2026 19:18:54 +0000
+Subject: [PATCH net v2 1/2] ionic: reject Tx ring sizes below the minimum
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,165 +99,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20261117-b4-ionic-tso-max-segs-v2-1-f9792566c5d5@amd.com>
+References: <20261117-b4-ionic-tso-max-segs-v2-0-f9792566c5d5@amd.com>
+In-Reply-To: <20261117-b4-ionic-tso-max-segs-v2-0-f9792566c5d5@amd.com>
+To: Brett Creeley <brett.creeley@amd.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Breno Leitao
+	<leitao@debian.org>, Eric Joyner <eric.joyner@amd.com>, Abhijit Gangurde
+	<abhijit.gangurde@amd.com>, <stable@vger.kernel.org>, "Nikhil P. Rao"
+	<nikhil.rao@amd.com>
+X-Mailer: b4 0.15.2
+X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA0PR12MB4367:EE_|DS2PR12MB911612:EE_
-X-MS-Office365-Filtering-Correlation-Id: afc020ab-0efb-4f0e-6fc1-08df44df929f
+X-MS-TrafficTypeDiagnostic: MN7PEPF0000014E:EE_|DS3PR12MB442436:EE_
+X-MS-Office365-Filtering-Correlation-Id: a79f9fd3-3430-4829-961f-08df44dfa984
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|18002099003|6133799003|22082099003|261009223027099003|3023799007|11063799006|56012099006|261102123227099003|261028144727099003|261026121527099003|261026140227099003|261021121427099003|261022105027099003|261021123027099003|10067099003;
+	BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|23010399003|18002099003|22082099003|261009223027099003|11063799006|56012099006|261102123227099003|10067099003|261026121527099003|261021121427099003|261022075727099003|5023799004|261021135927099003;
 X-Microsoft-Antispam-Message-Info:
-	ycQ204CFhzI9FWEA2t6rwdVIziEkQkmjfsjuiu47K84uA5/V6UotMsg0izDRktsx1b8aykPsjaxKYC66xEcv2CuO2WhrT/DB9FyUocSJH6HEzr1rf7otUB31rEw/lUr9rhTOP6ncFrnVd4ye9BpjqEdNFyV0L5NACwZWUqh8k/0NvkBmgzmSQRf6C8kEyne/OsAZ8pjJlHz1rm09xz48y8l8eAkwRcwKzisi4KBJbzb1Mbfbt5wCJqQZK57IgIHVobROtdWLLtT5pGFEqreoTqMZkXt4UEYdP2UZJdxRNxyf/kJauMkeeFOAJTro13SV1U1o31uwbCOD+gezheHCAtdedu2KsdG1LtsbPYhT8MzZ+7WP0H8NUS0qScSlM2m77OAs60/EDDNSE5bVMMwoO+Lm5Qc101tJsUB38Rhl2WpBrV4GrqYS2TYH7AM4DXptffoaSP9FUyZs1lSd1H9QHT0pQC6vLfOIq/39aJ0vY1yyIv4BxgEFRMkGsSfY5YpIb83/WCp9WdjEG4I6mRq3IRLGjwX3bfJGGNTLKcBYDPsXKLTHwAXss64FncMAa5SGKwmSj79bO5iNKUGgdKqCbihIGwzhLjBNG+ovRAysdDaVrC5wq4xYe2AAIfqWcuQ6hboag9oEzbotgVliN+9WPzMXzeMERkiOObkiJF9bVGQ=
+	472WmcOrRazY53cFdimSVzW7p2FhgpQNNTOpLGWUwSQ+cT6FPfWln3hxsfwhM5+CWyfgNDcqc6UsSTXwUPqTqzMUsd62chNUeaPbxpFkhO9ams2+sw/9yLGEI/l0vazlADyPCJpT+iP3HfPcNZ538sm5iQSK20EiTZPD7sh9tyG6Ny06lTDjlQTzK4LLB4uq9lxAGhpWyVQ9XcHRFZKQThzLM1UzbNe0m0WuzzBy1RNpUqV/NH8222ZnsUwxC97vCIuEyIoDFCg3lRijOj7lRm3jFSA+k5qSLzU/FlobHD7lxNO2SeNuQNXwwRHO2OMRrxpwMSHet17MjcCQ5UN1sIGph8y5ZLo6AhtdTXVplPiAdmk6oz/jVSER5eJdVDrkq0glFB5nhsJ69xJ0uL8WH0+8Qi44pq3kawxwdxPATxLO4TnmmonfkIvqEzFmngz6jSaIFEuS1/R8cqQDqyJT6YWfoRHQLQoSpQTRTERq0m4AxA/Gv5W37htJntpqZo8l8QGvZ1C5Pf2YEvhp7apr8nBTV/Owmn2AM1QSx1pGjUSQIT4gvsU5jA5FhsqinkXKUblSk0IuB29qtKa2bpN1W67QukDX0mAPPxEnw7xn7/rHTU6+Md1mRGACeHgaUXFI3eMZIC9oW4yEQgEODyWTnwvHpuZ9jKg01ZJxecGBCeta7B/gozhIwQLWa5uWrbvXxV4wjbOZJjQOj0Xjj8Me2A==
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA0PR12MB4367.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(18002099003)(6133799003)(22082099003)(261009223027099003)(3023799007)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261026121527099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(23010399003)(18002099003)(22082099003)(261009223027099003)(11063799006)(56012099006)(261102123227099003)(10067099003)(261026121527099003)(261021121427099003)(261022075727099003)(5023799004)(261021135927099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?dXJsbEZ5dzZFcXlGRU5EVHFpTHVCWm8yZlF0VVdmbElDbXFkU0NNamhRVlN2?=
- =?utf-8?B?cXdITlp1RUxnOHJKNU5oOU5zcVFKdUg3aDlmMmI2TzdKOGpSY0lBc2hSMEk2?=
- =?utf-8?B?dkk0VkluOW5mRXJlV0FLNFQvMi9TTlZ0UEl4cExIMWUyalk5ak1GWUtBVFhB?=
- =?utf-8?B?Wm9HQ3pRVGNDNzZWWHVLVW40ZUlWc1luNmcvbWFZcmhsd2JnOGtEVHdXNHZF?=
- =?utf-8?B?M3Mxc3I5WnRBVXhvaEpucjBwN2M4NU43ekFtSkdTN1QxZlltMGdlNTlSK1k0?=
- =?utf-8?B?aCtHckFQUXRJTERValI2ZHJNTUJKSUNEclpESk9ETG94aEhxbUkwVklaTU1O?=
- =?utf-8?B?bU9HTy9GU2x3UFNML3dVQ2FSK1JGbmJacHREQVhncXp2WEdMQ29UaWc4OFVt?=
- =?utf-8?B?R0ZpWTZ4aUxBaU1oTkJwSVJ2YXQxWEtVT056bmxuQ09CMEZwVDhkZnEybXNR?=
- =?utf-8?B?S0hNbVZidXIwOVVXNjA1U2tJNi9XVEI1eGZ2ZXQyekxoQ0pTaVlYU3dFZE9Q?=
- =?utf-8?B?RnNjZ1hqUFNrc1hKZFFyUmpOZFNtWWMrT3JGcHJDUXdFazBJbkRzR0pPajZV?=
- =?utf-8?B?MjFycE16TnBGKzN0YjBDMHVVeEowZGVlbWpwdnlFQ0V5YTlUTXQydVA4c0Zp?=
- =?utf-8?B?eTNDMkJUWGRnOWtsSVFwV0JlQXNZWGpEc3VzbXBPMWROaUpGSTdxS3lzUFJ5?=
- =?utf-8?B?RFp4UDd3Sm1DMDZHWTQ0SEVoV1pzMG94cmYzcVI4NlpiaHNuRGwxL1hnWW0r?=
- =?utf-8?B?NXVFZHZMY2dBNHRtamx4WE5NQkQvY2txM0QybWIrZFczSlByOWovYlJnN2M5?=
- =?utf-8?B?Skh2bVBhVElJYnFVOWJ6MU1LT0tnYVRZWEY3R3M4RlRkSUpkR0tZSWNnZTV6?=
- =?utf-8?B?d3oxL0FEZ1FSSlNQSis4a3RqWnl5eEdQN2FXZXJ4cml5dzhhNFhIeTBxckRJ?=
- =?utf-8?B?S3czTnRRR1l4RXpPQnl4c1B0TTU3SGRxZ2pMSWZQaTNCK2NTSlhJMyt1K3U4?=
- =?utf-8?B?VVFDanJnWEg4NVZqUVh0RGdpN2pPNHowVXFHajJYTG5LM3diNTE0NndoYTdS?=
- =?utf-8?B?bFVHb2FTbldHRlZHMmI5Y24xUkZFYUJ1bTBQRzBETUkvTkZRWXN3ZUZxTmpR?=
- =?utf-8?B?R3BSdkFJUkRuVC9CYlladCt2NWl3UkduWkQvYXZFSTRRRi9wQ2x1Y2tFb3hL?=
- =?utf-8?B?Nm9yY0xFQkZVdkxDWEFvWk8vYlpkLzY0YmI5cnExYkIzaUxCbTQvSmwxUnNq?=
- =?utf-8?B?S3BmTnR0cExQcURCK0hUU3B2MGxVdlo3M1Q4bUJlTmloS0RNY2tiRUsycmVB?=
- =?utf-8?B?RmhHUUx0OUhXN1pHQ3hoODZjQzFFTllJVkk0a21LNE1aNFVUeTM0VjNEWGZs?=
- =?utf-8?B?bnEyTGJhbjQzU1RkaitTOGNvSk9IUlF6QXcvNUE5TjBVbmFLcTZWTk5JS1dj?=
- =?utf-8?B?V1VIbGRBQmpuZm00RzVZT241dnNTM1RZSFNKS21La0dPMGw2Vit1VGQzbSsz?=
- =?utf-8?B?OHMzaCtVMlJ5Q01VWTIwdDZkNkF5bzJEYVcxM3oxWDZXd3VLZk1UZXdQa0J4?=
- =?utf-8?B?dmNITEZZU2lPZG43dCtmaUtDQnhvVFRaNjV1dkJvTzlJc2tFejNtd243U09k?=
- =?utf-8?B?WEhhaEFmcExhWGJiQ0trVk1aM1pGaGFXVTF0MzV1YWhlZHo0R3Fmdzlkc1BI?=
- =?utf-8?B?ZCtQZXlTRXNkLzgzS0REVU14R2dDSlpKalJleXJHOE1mZU5rODRlR0IrYS9y?=
- =?utf-8?B?R3BtUlRSOU1mQVJqdEZ1cGw5N252TDdmcGpmS25IcVYrWlFOcDNhVjVnWHpk?=
- =?utf-8?B?Vmx5Q0hRNVRCUmMwZVhpcGQyNGZUQTQ2c0F5dmtCZ3lHZnVHdGJPV3pjZ1JG?=
- =?utf-8?B?TUFJWVp0aHBmTG1DT005bExyVElkY0puTEN4cW9nNWVBWlN5MGZjakd0NEM2?=
- =?utf-8?B?QVVTWnZ3ZDdDNUx4cEpVcGpBR2dUNDk4b2J4bFQzNURFQm1VbXJkanBQS1JE?=
- =?utf-8?B?bUw3Q3dxT1M3ZFpqam93ZHkyZ1l4SHJVVmpneUdlQ2x6UXpsempuWDZXSCsy?=
- =?utf-8?B?cUpVZ2djWDhvZm9zd3Q1RnB5cHBHZENWOWIxdjBsZ1hlWVgzclJTSkRXL3Y0?=
- =?utf-8?B?ZlhydUlOU2k3QWlVQStsSXpnZnNkVmZrOGJ2eGZUWTFKUDFPMW9VU09Gam1D?=
- =?utf-8?B?ZEhKQlZJQng5ZzlwM2hLV0ZhaDRSdFlCQTA1eVlxMEFSZUdRbjIvNyt0ZHI3?=
- =?utf-8?B?NlpLeVkyOTd3cEM1QXlYd2p2WEtMM1cycUdJbkU0OUhGdzFtb0loczVQK29u?=
- =?utf-8?B?RVA1Smk5OUpDUWpBZmFlRDJZNDFFLzdMc0tHSWpZQ2R0VHd2ZElMdz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: afc020ab-0efb-4f0e-6fc1-08df44df929f
-X-MS-Exchange-CrossTenant-AuthSource: SA0PR12MB4367.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:18:33.9825
+	1B+igVNlY2mNSJrdQPFOAdXo8hohRwPl+MK8/tIDLFEaM4OJxGRViad9RtOXyJ77uUMHQiiAfOqYB6WR/s4r3bQou767CvlCWqxilrhtUhVbBJF5WUnKRzEbT7viVC4tSe7Z5jhzWxtodc9JDJHruLp+SRXzKL87IKD87eOPULhuQ/oYT70vzYeIKMy1oaothi94eV5aLGx9CPIg0ZIKzjCPcykI6oTq9F6KH673zhRn0hhTJfLcGi+mEHFLnC4ncLj03AEwsY+BLgOFcIZP03rRvvIDdikxhTA0jz5GLbh/YaRuO2/BagqfLB6surdPgTvYFqVxRLKXL4xL69sXuvJ6vMLU+wqyT1p7znJhuZQiJuiEvkpmJ+AN0p+F3jAOT2lZ2sc7/AxvmzWgnhGqgmYeIubIfGkmGB/jwVgr4u6JP+c9C7BLBI/b1rJmypJm
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:19:12.1890
  (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: eXhDMtJdDech9346yXQH+Iu2g+rQmj8bWhgYUNMJSds414iUcjmYMM9Tn0SYHjwwGtLGop4VYjEsbIWfKqxcxw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR12MB911612
+X-MS-Exchange-CrossTenant-Network-Message-Id: a79f9fd3-3430-4829-961f-08df44dfa984
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MN7PEPF0000014E.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB442436
 
-On 17/11/2026 5:13, Mohsin Bashir wrote:
-> From: Mohsin Bashir <hmohsin@meta.com>
-> 
-> In switchdev mode, mlx5 offloads police only when other actions follow
-> it. TC needs no extra action for a police-only rule to work. The mlx5
-> driver makes every police rule forward to the post meter table, but for
-> a rate police it adds that forward only after verify_attr_actions() has
-> checked the rule, so the check rejects it. The ok result of police is
-> also handled as pipe. In TC, ok accepts the packet and ends the action
-> list, whereas mlx5 goes on with the actions after police.
-> 
-> Support police as the only action of a rule. Set the forward while
-> parsing police, as is already done for police with mtu, and forward
-> an ok result to the end of the TC chains, as the driver does when it
-> offloads the gact ok action. The upcoming selftest series also relies on
-> such rules for TC offload validation.
-> 
-> The patch was tested on a ConnectX-7 in switchdev mode with the command
-> below, and it was verified that the rule is offloaded and limits the
-> matching traffic to the configured rate, using the hardware drop counter.
-> 
->   tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
->     ip_proto udp dst_port 5201 \
->     action police rate 100mbit burst 1m conform-exceed drop/ok
-> 
-> Cc: Carolina Jubran <cjubran@nvidia.com>
-> Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
-> ---
->  drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c | 3 ++-
->  drivers/net/ethernet/mellanox/mlx5/core/en_tc.c            | 3 +++
->  2 files changed, 5 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-> index 1bd1c94fb977..52295f5d644c 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
-> @@ -94,13 +94,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
->  		      MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
->  			return -EOPNOTSUPP;
->  
-> -		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
->  		attr->flags |= MLX5_ATTR_FLAG_MTU;
->  	} else {
->  		attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
->  		attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
->  	}
->  
-> +	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+ionic_tx_cq_service() wakes a stopped Tx queue only once
+IONIC_TSO_DESCS_NEEDED (44) descriptors are free. The threshold is
+sized for a 64 KB TSO skb at a 1500 byte MSS and assumes the ring can
+have that many free; a Tx ring of 32 or fewer descriptors cannot, so a
+stopped queue is never woken and the netdev watchdog fires.
+ionic_set_ringparam() only checks that the size is a power of 2, and
+the ethtool core only checks the maximum, so such sizes are accepted.
 
-This makes every police that is the lact action pass verify_attr_actions()
-not only ok case described.
+Reject Tx ring sizes below IONIC_MIN_TXRX_DESC.
 
-what happens with:
-"police ... conform-exceed drop/pipe"
-with this not writes to FTEID_TO_REG so what happens once a packet
-reaches the port action table?
+The stall was confirmed from the wake and stop thresholds, not
+reproduced. Tested on an AMD Pensando NIC: "ethtool -G <dev> tx 32" is
+rejected and leaves the ring unchanged, and "ethtool -G <dev> tx 64" is
+accepted.
 
-also what about:
-tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
-    ip_proto udp dst_port 5201 \
-    action police rate 100mbit burst 1m conform-exceed drop/pipe \
-    action police rate 100mbit burst 1m conform-exceed drop/pipe
+Fixes: 061b9bedbef1 ("ionic: Rework Tx start/stop flow")
+Cc: stable@vger.kernel.org
+Reported-by: sashiko-bot@kernel.org # Running on a local machine
+Signed-off-by: Nikhil P. Rao <nikhil.rao@amd.com>
+Reviewed-by: Brett Creeley <brett.creeley@amd.com>
+---
+ drivers/net/ethernet/pensando/ionic/ionic_ethtool.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-won't this create a loop?
+diff --git a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
+index 119ac720c078..3518fbf5882d 100644
+--- a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
++++ b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
+@@ -708,6 +708,13 @@ static int ionic_set_ringparam(struct net_device *netdev,
+ 		return -EINVAL;
+ 	}
+ 
++	if (ring->tx_pending < IONIC_MIN_TXRX_DESC) {
++		NL_SET_ERR_MSG_FMT_MOD(extack,
++				       "Tx descriptor count must be at least %d",
++				       IONIC_MIN_TXRX_DESC);
++		return -EINVAL;
++	}
++
+ 	/* if nothing to do return success */
+ 	if (ring->tx_pending == lif->ntxq_descs &&
+ 	    ring->rx_pending == lif->nrxq_descs &&
 
-> +
->  	return 0;
->  }
->  
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-> index 1d35c97aea0b..8685e41487f3 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-> @@ -3892,6 +3892,9 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
->  		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
->  		break;
->  	case FLOW_ACTION_ACCEPT:
-> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
-> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
-> +		break;
->  	case FLOW_ACTION_PIPE:
->  		err = set_branch_dest_ft(flow->priv, attr);
->  		if (err)
-
-This also changes rules where police is not the last action.
-The conform result defaults to ok when it is not given.
-
-action police rate 100mbit burst 1m conform-exceed drop \
-        action mirred egress redirect dev eth2
-
-
-won't with this change the conforming packets go to the tc end table
-and not to the redirect dev?
-The rule is still reported as offloaded and installs the redirect
-which can't reached now.
-
-Mark
+-- 
+2.43.0
 
