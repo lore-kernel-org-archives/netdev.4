@@ -1,111 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794931833;
-	b=uITpQr64qg2a/b7Nia2WtADfjPrZdoi5p8zc6zflSjJopXWq/CiEQsHaxkduwTL1iAnW
-	 WINLC4ar0vWadxAEk2iq2Hy0ScR5I2lbLWFFzJ+YRM+LIovvaGrDKPaIidpZUoyn4EA0e
-	 yjAyf7D3xzB2OjakUgt4Hac7Qj1R9nF2keD1vwOrCcEX7Ik+XZmGzZKclwIZr3CDI+Tny
-	 rbf2iZp4tCZDw22tcpoQ/MnxrXqInRhE3013Ha4IHjVIwIPYOrrwpz8ksPheudu12Clod
-	 +GtTv0vK2Pt4/C/dCxV6vFnRdQCsw39sEjLPeluXbIL2IbZDDX3Z8iXhfyEcKARejcQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794931833;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=KQsfspyv7FxKfVXvjs+RL244yChzQ2I63yZXKKFl0Wo=;
-	b=uIKf+4n25PvJ2t/ueu7uNia8/bOv9PJu3EMNZ602d7IbjjpTjrEADrCs7Kir7GYtHD1i
-	 ZpN4OnTm2tCaGHZjgO3zwzp/uCNLozATrLG/UCqh8YRHL9YngERKZo+q1KcGh3AE2gzmW
-	 rnNjuLwSEHFd5OvcyB3FFtDT+H+ojImXCnbzV//JhXpRmV12z5SCZyEPtKvUNIOm6CH4e
-	 Qk295rIHMQtokZo/Xb9dlItcgCXxI2FZTPUcMzXAiDwoIvLAtKW++BR/3yKc1odNZB691
-	 cg31WL2B9Wqwbjf7Q+DZjLEZ3jwwGaR2pbNrlFzHlBaaI9F4d+M0mDeoWsfJnCaX/aw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=sJy0fsKU;
-	arc=none smtp.remote-ip=209.85.210.182
-Received: from mail-pf1-f182.google.com (mail-pf1-f182.google.com [209.85.210.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.19
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794931990;
+	b=358J7B7jprR5F8fXeeeyfQcqH11LW7XbvHJ4aUtor9DXS/L979dsdOTejPIbNtx7W1Nw
+	 ksNt3WF1AdFCk5gHHuF7unmUw6xEnJhv7bcd4CbTFO/8qb/quUkNd0quCHf3UM/Qz+sWZ
+	 /MI4EfLB7wP8NxLA4mVL9cwydsQ/Y0Bme3NlRWSbkYuTSYD4ndKNMzANpQw3YNj9+LNFO
+	 2iAhK98r9Uuj3OHrMJo0QqsR42ZzO0T5oJTbwGS6ytQ516C8uNTYTBZ/iNcojy2IC4NPN
+	 W0u76QT481HoJe9Au9WVsfCwD/Lr5PFDgoWeOaQFhvHkTy86fHEjl0VM89X9odh7RNg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794931990;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Ip4kHiwEptNEn1s/Uh0GInETpDrMH/A2C/6rU3lAchk=;
+	b=MHLb/AgLRB/aIG4re5jTUX/3/AmtdzW5OMJCHbcGnfrxd5OOvapGVINLBQpWJCifCZ5E
+	 WP4dzjwC82XmFG3NjwgjD0BGFeeePSK6y5NZS+GKWHNAt/pifWioZhwum/vadzGrcfIeJ
+	 3jVFO/rtM3p3YUSdbikSlJKdsWdXlQ+wiawWgv9VeS4T9qOtlx83ontnCth2j490fwutu
+	 wK80nsWoQqLrsgdfVR+jvdMVPfKvPWKQd+8H+OCVwwGHoyTaFYN59XAkxc2Z3tisFhULG
+	 LB6Oftq+W7ckBdyr78FrweKkfq7hqPUbUPbp8elcTmQaE7YVevu0FOVlco2VmbFgp4A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=awSMrNoK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.19
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010019.outbound.protection.outlook.com [52.101.201.19])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8467606A32C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:10:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8467606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38F7D606A31C;
+	Tue, 17 Nov 2026 16:13:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38F7D606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=sJy0fsKU
-Received: by mail-pf1-f182.google.com with SMTP id d2e1a72fcca58-8a07078200fso2302524b3a.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:10:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1794931832; x=1795536632; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KQsfspyv7FxKfVXvjs+RL244yChzQ2I63yZXKKFl0Wo=;
-        b=sJy0fsKUNBzt2aSbTq6/VhkmVQBu5hbU6sAWIVgiqlIuIveBlICoK6kPpgDs2vVfoS
-         l+pt5dinyX3Pfa99dY63jFwkrs/Afzn3jMiUOzy/f5p1Tmy0M0Nmfas+ibIbr25bBuuM
-         KYQP40YA6A9ffvxShZHUneUcRrNmB6xO1GFwnIoaoU1vHyZMdDECWRxitrlrwn2gSYF3
-         jfNrASEM4kH50eAP5fx0pYqp+TPzJH5TJijAs9OzG4X2rF6IxNTC/3ZbRPDGvGvQZrJa
-         G/ZwAS9xovP5LtGS7O16QvfFRwibkZCSCPjVIEbY1zzpB1SIklhNnm63MvX5AVHujNGv
-         cZJQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794931832; x=1795536632;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=KQsfspyv7FxKfVXvjs+RL244yChzQ2I63yZXKKFl0Wo=;
-        b=ZvjWyiTz1apq3F/XKFFITB4vTNRtqAID4mpCXg2FqccdMoQsKv8sM3D8jnY1vxw7Ul
-         Z7l7P7sfmhfiSXybXnLWBysdBg2sjn2+3Fa4KvVDGywMLo+mZULT0onTPkmQQffLEosQ
-         OLkIsjL2B/YeWNcUP69RB+RneeMJrkjSSAwU5dC09mzUbPV8xBgnDsiX3N23PVzYvJAg
-         +5LC5f6mKDjR6fk2YajteeFkTnCDqPwKlXwctYbzylvlDAR8H9BQpDFPh7nl70tM0fk7
-         YXmCakjxf46aMnZUujzcHtpzBVk1CS2fmOF0wmhf1ba6JtHAUWMuH/2XXV5NmdYgPv3d
-         V6Qw==
-X-Forwarded-Encrypted: i=1; AL+hErG38YqH1sYPAyzOZpEptnP6bdgpM4yOp82cnKSX+xkX+Q8l1reX4m/BdJGS5v2Lc3XELldPNHI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/iU08LqvZ7LNrI1340I2k7RigwPhkFc2t6Zw40b9Xca2S7KWWk
-	7S/7NNiSzLKGhMuLWQdL0DZUh6/V7uVm8vU1c2d04zdVRYY9PxYYchkWHsIitgUZaOY=
-X-Gm-Gg: AYBFou21/Te7HdYyVjl0sat8eL/Asklb//996R8oEq9zbMcq4yq8zKAxVrIrCG4QMqe
-	rXKhc7vy/1cL5bP32zWX207NFoj//iuUO2v20g/z4FSzTlHNN9oepWVDd0FAZbpwaWMECETvhe9
-	aeedhREF5KN92DGQRZgPhKeOg/6K0HNLUJk5ZKaGYOGcerQEfp+Cbcjkyaiocpr3Zxv3W+WhGtx
-	PcrB8W15eLPbzwthoG/KBqfPpXNqOATABCJhNFhodr5ze+CWmaWSlt0slZUXlSRe+dKO+H37s7e
-	hPUfhSqQLFMPmsBzCTOy/dcjcZKWUYXPaW5Ymar/80QZmCsK83YZEgMGLA06WqY9h2bsJB6Iq13
-	4SAaBcokgpQ+rvCIUZLk7k02diFfwZT52tvPY+OIFT/6JATvQuUhiygbxN+xnjyzfV6FDXYyCsK
-	vUV5VDZqcDyADA+uBUbwTWaZgikcnkUbp4K2SxLbBQRs5eYDSoJkYOK0zefsgBaIF/zOoeyXelF
-	1UmNuHqPUB3v4giX4LQio+RMoaQkNmQBx1eg9hSqcnl9ojAYJT/e2GjYm8edHUfySSILcN5sIfe
-	SpbyUgyA8fKqK9UljgLPh3BNoy/+5aHvH3BlL5aC+jD/v0o66mQSSOTJ4qmovEqi
-X-Received: by 2002:a05:6a20:2446:b0:3fa:63d2:4aab with SMTP id adf61e73a8af0-3fe8a41140emr2627637.37.1794931831938;
-        Tue, 17 Nov 2026 08:10:31 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:56::])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cddc18c800esm6071458a12.29.2026.11.17.08.10.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 08:10:30 -0800 (PST)
-Date: Tue, 17 Nov 2026 08:10:29 -0800
-From: Joe Damato <joe@dama.to>
-To: Kalesh Anakkur Purayil <kalesh-anakkur.purayil@broadcom.com>
-Cc: Michael Chan <michael.chan@broadcom.com>, netdev@vger.kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	pavan.chebbi@broadcom.com, linux-kernel@vger.kernel.org,
-	Selvin Xavier <selvin.xavier@broadcom.com>
-Subject: Re: [PATCH net v5 0/4] bnxt_en: Make RING FREE more robust
-Message-ID: <avx8da+htUim/x9i@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>,
-	Kalesh Anakkur Purayil <kalesh-anakkur.purayil@broadcom.com>,
-	Michael Chan <michael.chan@broadcom.com>, netdev@vger.kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	pavan.chebbi@broadcom.com, linux-kernel@vger.kernel.org,
-	Selvin Xavier <selvin.xavier@broadcom.com>
-References: <20261106191423.4194081-1-joe@dama.to>
- <avIpEpoCYvLHYl3j@devvm20253.cco0.facebook.com>
- <CACKFLinPK+wR=TMA3zNJDKQR_=HfMFUHPxKS+yhvv9SegZw7Ow@mail.gmail.com>
- <avNWzavrxJSasfp5@devvm20253.cco0.facebook.com>
- <CACKFLikU8ax8-VN+EiAhrn_w+2=yex2TNHPxEYqni6g0BKHKKQ@mail.gmail.com>
- <avOXJf5yl8ajf8Qr@devvm20253.cco0.facebook.com>
- <CACKFLinsQdoZhEnhmZmMEMZVyGC10KZZRciBGLzA12W2iOK60Q@mail.gmail.com>
- <CAH-L+nOyNgAUMCF74OE+oU2gSCaV_tVcgm2QQFvjge10A+qAYg@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=awSMrNoK
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jdWCdmviTtlFvGwTheIZStGS6zeMLO8QU1lAlhvyGQgpIv+l/KqOWRXNPDI2pj1fZGmjLpFAlCSDKBd+MZ58WojUc4WaYdSjXtuPaz3UCwBZPfT8L71BIKtypl0M/dBz9VNOHl3N960vt37OjFZAB0NaI4/jYUf7mdkOGKSx0TkR/trd3L/OeCNRHJgV/FNEF0HRtz9Mk3wrjxg8sZ13UFzV7vq9JmKIop0vjcYuh90fDjEQxv6VqsrD335b8SiZdEK8q8VbR9nojS52poGBHtvJU/BsQYRKSN5PaxbSLqLovBH4NH7VW7Qpx/Lk+MgOclLsSjDL2e1Jq3gibY8IHg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ip4kHiwEptNEn1s/Uh0GInETpDrMH/A2C/6rU3lAchk=;
+ b=IvpaB4LkVlP+YGYUsaOWywJ8jtJk6bHMhYOjcduHyCvmGBeDtVsjEPI/JF6TiEoBopwzZ0Bt0v7Jz5Jp834WfARYNZ8g7h6JLzqc9O64Xx5DCZ4QDaRMCmnYi+W203g8m370PB2MtOnjBxTeROc8ieVSVxWe2xQThnkzWmBd5lyzxpCST9rwfR52zmYxLc+YDQL8EvJ/ini0UAO8L/VoHBTQCkxbLJpjK8a2Vqkz/tDcX5q7OVE9pF5OuAg6Gh+fks8xkpg0kkHDSVzQ4bdf3EXgdR+ELtxppPL9MKPhAIIvh9hybzVtVKO0rAKozKlUs7nBO4N2qoyEQ4j5PZilyw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ip4kHiwEptNEn1s/Uh0GInETpDrMH/A2C/6rU3lAchk=;
+ b=awSMrNoKzVKmF9mqlRqJJyPBnnQNeevqB93+MKHmq41k/B2RL2ybc20SzesH1tRYAO7N3G6yiAi0DmBgq04HDdIhnU0NYGskGJxS4qHBFTiC2z9yf8jGV+3tF2nzJ6G6nMMATmse+xJDvl5ejKu5k4Ameg1Kmr5oUVTd37HiaCyXqbzG0IstUiCcWvs409xVJhVr73AAdiv7G5/KFpcvouQ98SOgA+C3Hn36U3mJW0GceB7DMA8gwYw6yhQWzrrUXL/ft0pPZZ5TBa1mjoaPs+YxmoJ25oUBX4KFzDLz56WAQXg1bQnIFhzbHhxN6njzS59MzcXoYd330PVcTBG2pA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by MW6PR12MB8957.namprd12.prod.outlook.com (2603:10b6:303:23a::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 16:13:04 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0615.009; Tue, 17 Nov 2026
+ 16:13:04 +0000
+Date: Tue, 17 Nov 2026 18:12:55 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: Leonard Lausen <leonard@lausen.nl>
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+	Shuah Khan <shuah@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v4 1/2] ipv6: Honor suppress_prefixlength in
+ fib6_lookup()
+Message-ID: <20261117161255.GA878128@shredder>
+References: <20261117110813.9894-2-leonard@lausen.nl>
+ <20261117110813.9894-3-leonard@lausen.nl>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117110813.9894-3-leonard@lausen.nl>
+X-ClientProxiedBy: TL0P290CA0009.ISRP290.PROD.OUTLOOK.COM (2603:1096:950:5::6)
+ To LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,75 +105,107 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAH-L+nOyNgAUMCF74OE+oU2gSCaV_tVcgm2QQFvjge10A+qAYg@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|MW6PR12MB8957:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4dc311ab-be3b-4545-1b94-08df44c5a8c1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|22082099003|18002099003|6133799003|261009223027099003|3023799007|4143699003|5023799004|11063799006|56012099006|261028144727099003|261102123227099003|261022105027099003|261026140227099003|261022075727099003|261026121527099003|261021121427099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	7Gzu5/7lx+OXySkjd6yM74mgeggZ0wxIf5P+HcwVmfP2i/YOzX+ZU2OWrW+RFlzAWBUusuX1dXElYE8Gx78gW1TqLYDgQGjFchNQ3n5h/qCzfgeZH48LmtwUtLx5tj1ypFDtTsjWLsLSaKsOXoU0SPr+7RFzBVKoln8MWMPhvavzz0MHSusC5yEjyyH5EDLX5NUpjf1eluzln7CWZ7CEwhkyUhXwed5es3OlBeIdKjHgxONiUraqjZ5iYJ9fSjtwV10M7+s/A5OymnEvkB3CGF7up3sQ8WUvBYcL+MwBMLttd+K46aN6K88w3sV5cPcnyKW+owIufQh74cwbZ1kIvQ/Ir+vvbjSPkMrEfq8OotdpLaKIwMujRc6JrN/bCZ5PyYpLIMaBvv3QZcc6yqVHq6DunWt1ynLQiGtCrpviidS8x8ZTk7stp9R+weqie64WqRyb5yATgK1T0nlZF6F3Fi34Q8Dx+jfhw9+bkdPIlvfSrUTT+l4PhqECYXfhMdbFPAO1WZb6NZ2bb/sNhqKMOMPxcCrPXfB5oXv5VQMHNbahDDIxAxUH+2JD/23ThcpfVHq6rlGEvtBhZWKoKCn8n/nO4rNPv1T4+5Qt0EIXkMPKn4ypeKSHDMjkfCGCbVwBm7dtAFaBjNzidcwSGsRSxBG8Id9CrNHgDyCTs0mL7EA=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(22082099003)(18002099003)(6133799003)(261009223027099003)(3023799007)(4143699003)(5023799004)(11063799006)(56012099006)(261028144727099003)(261102123227099003)(261022105027099003)(261026140227099003)(261022075727099003)(261026121527099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?XL/HUDTgRJb6oWx22/nA3MWx+aSwqHAhaW9224IhsgNSWJHUYTOYm+j5k0JR?=
+ =?us-ascii?Q?w8RVxOUI4IFTKk+lDdpu6DTuAVXgE3CcJqjMkj3iWN81JvZ45FPeVS6tONDQ?=
+ =?us-ascii?Q?fGFiTtWYWH/XTq4CI12/kNV3Rf5LbibAwAghC2VZoH751HCAYOX068ppjRz3?=
+ =?us-ascii?Q?eSpsBWpROnpKFH0YHlZwvbhiGFrDyry4GsOdStS05WWKD4GOXMvwDjsSLoTF?=
+ =?us-ascii?Q?61GC1SXZUkNcNNmkeZth7inHgRKZo6KyeNFHSKcr8JdgUz+aWDQulTpQAdfe?=
+ =?us-ascii?Q?vwTyeAP7xeS3swbgcyKuhIyuZSU/tw4FfrivxgWa83/ahZwsIzJ+427KqEYQ?=
+ =?us-ascii?Q?nlS2/rp1jHpHZ1+zGJlkQms37BYJ847XhJ+aRAb/eDJw0xj0mEALKbP9Re3t?=
+ =?us-ascii?Q?YmBTkkxSuw+cCjBxrwyN2g3IJ1tlz19rZ1/Ag3mVejbuF7mkIv4VEyWmDf2c?=
+ =?us-ascii?Q?8hH68NK1JSEHNGvLj7nrFL9BHDeuZAWReuPzdO9X9Wkkcu4Qmxi0EtkPtoJa?=
+ =?us-ascii?Q?WRUc+FSkeb6ZmLNbL5d41sE/swPfE04q2qZfZB9JFb0tD81/zCZc4FGctIZC?=
+ =?us-ascii?Q?V6hSJt7foBgWNdGmjTFD/siQTcgykmrpoxreTH5CwETHWfiknMkfT7t3AP1z?=
+ =?us-ascii?Q?xGeOPZo+p/vIYMVNjxywT3Vdd11JeuHYpCmuCQKWmiCEA8DBWikoIj/k6YmU?=
+ =?us-ascii?Q?rdPUSAB6XzCtvv09hgWObF6+y7ClgXkFMJup/JdCEK3gNgacaFOmkrnull1i?=
+ =?us-ascii?Q?Zuk6OC8yjOLr/2g0sLXXFCvgo5OGVVZUK5MPHF7/rJgrXZ4mADZIQub4CB1N?=
+ =?us-ascii?Q?FfRgMz2BWYTjs+Kv2E3JNwWc2i3cJPegOszXzIOvXy1eXdcjrJF6aSVcWUqU?=
+ =?us-ascii?Q?gCsNXWLprqql7dQmWBaNm0E16ZDYYbCBUbis6dUqhkVlP8Z+F/Ax723Ap0ha?=
+ =?us-ascii?Q?H4KOGJdrIa2HSC1dOoRr0mt4bptJy/tSDeXFU7gVYFSOq3Rus8HRe1S7V0ZV?=
+ =?us-ascii?Q?0SaXxvSMPm9i2LUoor+a5LYlfLPHqxuQvRGrhekADzjO5DeM4lF0pfVX4gYq?=
+ =?us-ascii?Q?DDqWHuWv1Fz9/w/gyw8I+SRBjnlCtQOH+pE1d/Bbfxp0ijTAOwySRIWyfv1Q?=
+ =?us-ascii?Q?wi0kvzWFhnCfTpRJu6JWfwiq7I2TT40BFxktASWyH967fxU7QxOYVANCXkAy?=
+ =?us-ascii?Q?O1r61UlJ7cIFzMGk2YTy5dSI937S4VnzIqqibEG2rbkmnz8TgEOkjZvy11CP?=
+ =?us-ascii?Q?BGFAFRlBdMM6boAQA0T1YN+ISd3qUKebNfAyg/uapIv5mg6xi+miHJmlp53Y?=
+ =?us-ascii?Q?NtUsbQJM+ff/UgT4QyrDCoQ2lmdsuyAhYvox+Yel1uHJ+2UD+sacOO7ihqdC?=
+ =?us-ascii?Q?FkrFviYzX6JCBYgbxvPpEqPQn7iq/zrWzx0uZJD9FPquX4kiBZfH45tCBaDe?=
+ =?us-ascii?Q?WUjqZh6BGBJx9IVN6uiyP8ZSp9E3FM4ZrxKpK8EdMDsGdEztneq94IGIkCod?=
+ =?us-ascii?Q?1GZIEeTMAdV9xyHlqVV8C956fJ+El9APPxqSTmc9/o4yjrBHBNXEs7SmV8Xz?=
+ =?us-ascii?Q?EtoXFmNeu08Hbs/JppAS5T2N4g85lkT6n95tu3agOkqDXv/QsYleIAxl+HM4?=
+ =?us-ascii?Q?Tf9UElzZy9EEnqJ2wgroIHulaS+ylQe2/9jxkOW6hu+6HAsRNnR7P0hdl8V2?=
+ =?us-ascii?Q?i4mp5+c4IxQD8d6OFtdhCRZqGA0+UYKONM/XmlNpcWBg6RJC?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4dc311ab-be3b-4545-1b94-08df44c5a8c1
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 16:13:04.3478
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: oy2Od1tCWKexq1K/qLGULoVKuIO3uQTSjDseJmKbBKDexXAPovQFn4fZjwdBxDQ/AQB6F7V6fXhCm+ZydmPvkg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW6PR12MB8957
 
-On Thu, Nov 12, 2026 at 09:37:55PM +0530, Kalesh Anakkur Purayil wrote:
-> Hi Michael/ Joe,
+On Tue, Nov 17, 2026 at 11:08:11AM +0000, Leonard Lausen wrote:
+> When custom FIB rules are configured, fib6_lookup() performs the lookup
+> via fib6_rule_action_alt() which calls fib6_table_lookup() and only
+> populates the f6i, nh, fib6_flags and fib6_type fields of the FIB
+> result. However, fib6_rule_suppress() only examines the rt6 field, which
+> is only populated when the lookup is performed via one of the callers of
+> fib6_rule_lookup() such as ip6_route_output(). As a result,
+> fib6_lookup() ignores suppress_prefixlength.
 > 
-> On Wed, Nov 11, 2026 at 4:34 AM Michael Chan <michael.chan@broadcom.com>
-> wrote:
+> This was not a problem for nftables until commit 1c32b24c234b
+> ("netfilter: nft_fib_ipv6: switch to fib6_lookup") switched the FIB
+> expression from ip6_route_lookup() / nf_ip6_route() to fib6_lookup().
+> Since then, with a rule that suppresses the default route in the main
+> table before looking up a VPN table (as commonly configured for
+> WireGuard), the FIB expression returns the suppressed default route
+> instead of the VPN route. Strict reverse path filtering then drops
+> replies received over the VPN.
 > 
-> > On Tue, Nov 10, 2026 at 2:13 PM Joe Damato <joe@dama.to> wrote:
-> > >
-> > > On Tue, Nov 10, 2026 at 10:14:50AM -0800, Michael Chan wrote:
-> > > > I'm copying our RoCE developers Selvin and Kalesh.  I think that if
-> > > > you call bnxt_re_suspend() before you disable DMA, nothing special
-> > > > needs to be done because the chip is still functioning.  It will go
-> > > > through the normal removal process.
-> > >
-> > > I'm probably missing something but I think that the ring frees can only
-> > fail
-> > > in __bnxt_close_nic, where rtnl and the netdev instance lock are held.
-> > DMA has
-> > > to be stopped before bnxt_free_mem. bnxt_re_suspend() takes both locks,
-> > so it
-> > > can't be called.
-> > >
-> > > I think there's two options:
-> > >
-> > > 1. Stop DMA as now, but queue a work item to run bnxt_ulp_stop without
-> > the
-> > > locks. bnxt_re_suspend would need to treat BNXT_STATE_DMA_STOPPED like
-> > > FW_FATAL_COND and take the detach path.
-> > >
-> > > or
-> > >
-> > > 2. Call bnxt_ulp_stop() in bnxt_reset() before taking the locks, the way
-> > > bnxt_fw_reset() does, and bnxt_ulp_start() after a successful reopen.
-> > That
-> > > covers the TX timeout reset, which is where all the ring free failves
-> > I've
-> > > seen come from and it doesn't need any bnxt_re change, but it restarts
-> > RoCE on
-> > > every TX timeout and it wouldn't cover a case where the user triggers
-> > > close/open.
-> > >
-> >
-> > I have a slight preference for option 2 because TX timeout ->
-> > bnxt_reset() should be rare and stopping RoCE briefly even if all the
-> > HWRM_RING_FREE calls succeed should be ok.  We don't want to stop RoCE
-> > unnecessarily during a user-initiated close/open though (failure
-> > should be very rare).  So we may still need option 1 to cover the
-> > other rare failure cases.
-> >
-> > Let's wait for Selvin's and Kalesh's feedback.
-> >
+> Fix by evaluating suppress_prefixlength against the prefix length of
+> the FIB entry when the lookup is performed via fib6_lookup().
 > 
-> Yes, we are okay with option 2.
+> fib_rules_lookup() only invokes the suppress callback when the rule
+> action returns 0. Unlike __fib6_rule_action(), fib6_rule_action_alt()
+> returns 0 for reject routes and instead sets RTF_REJECT in the result.
+> Do not suppress such routes so that they continue to terminate the
+> lookup, as with ip6_route_output() and IPv4. Check the flags in the
+> result rather than in the FIB entry so that blackhole nexthop objects
+> are also covered.
+> 
+> suppress_ifgroup is not handled since fib6_table_lookup() does not
+> perform multipath selection and the nexthop it returns might not be the
+> one that is eventually used.
 
-One more question before I put together v6.
+Simply deriving the 'ifgroup' from the first nexthop device would be
+consistent with IPv4 and it only matters if someone is not putting all
+the nexthop devices of a route in the same 'ifgroup', which would be
+weird. I suspect 'suppress_ifgroup' is hardly used.
 
-bnxt_reset() is also called for the silent reset on a VF: the
-VF_CFG_CHANGE async event sets BNXT_RESET_TASK_SILENT_SP_EVENT, and
-bnxt_sp_task() calls bnxt_reset(bp, true). With the ULP patch as planned,
-RoCE on the VF would be stopped and restarted every time the PF changes
-that VF's config.
+Anyway, this can be deferred to net-next.
 
-Not sure how often config changes happen with RoCE in use on VFs? If not
-often, then treating silent and non-silent resets the same should be OK.
-The cost is a brief RoCE restart on the VF for every config change.
+> 
+> Observed during WireGuard use and reproduced on unmodified v7.4-rc2,
+> without instrumentation or error injection. Verified with namespace
+> probes and nft_fib.sh on the rebuilt v7.4-rc2-based kernel.
+> 
+> Fixes: 1c32b24c234b ("netfilter: nft_fib_ipv6: switch to fib6_lookup")
+> Link: https://github.com/firewalld/firewalld/issues/1600
+> Signed-off-by: Leonard Lausen <leonard@lausen.nl>
 
-Let me know what you think.
+Reviewed-by: Ido Schimmel <idosch@nvidia.com>
