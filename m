@@ -1,112 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794905083;
-	b=jUnf9hq1o+3JKoVWrCr9cdegZPwGqP4pLEDKbWpBtLvADwl8NKINw03qpC8yRbePKOt0
-	 uVsf4zGNEkRham2KgHJFR6+Auzak9/uHyeiwlU9FJ6wM/uRZXxEjLglqlcumIj8fgRhxi
-	 3dGS2KdKdkWl7pnDStuWPNLXNf5RtI6Ipp57VbZ23xvHM2Wt2D+gJFvhTzHDn9IEnAFyV
-	 Epx9IDVZ7BlK7kchEynT5dC4XNKhZsfdwe5JKRY2JGJ0KXWT0QnmwaglcuSMzv1XvGQOe
-	 MEosq5MF1BxY+rAAHDRLSkKfufhJVhw1unSPuDcKm8WSGntmFLUIC2XevyW05juUcAg==
+	t=1794905157;
+	b=HbHXcULqE5Ct/bxsAiM/FNr5G7lLBFFC4jdevqCx2H/N8zWkGkdEhw4vssEnkzhViKw0
+	 wytJqoTlSL8KWWkhB4H0ia6Xhu6h+QDe5gOW80GnMnnae6aapnSx2UsZ9Oos1JKI4N0uR
+	 YWGeZOm/yJTt8GOiy4lwNj4yBZqQ0mV+zJUDou7fJOV7nIE/5QRZ8kD19HOtTjIN1RBRl
+	 lCHO6YYlRDP6wseZpIvKj9BbCMtap+bS1E294T2AZpRjeC8rjDM5t6NRTuDkH5GaYY8Lq
+	 EC5HUK3OjrjPMxeQKgyfqVWyT3EnqrizB3p5j5gk5lSgJgNjYoq7y2RiCL5lv7o0jgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794905083;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=YtgOPMlBsDbDRTTami0iaeC2PfdAlPMUJ3BhZBWqnDY=;
-	b=YIzbhoU0yzRJ2vC0GQGfgKGuAc+25Y9sf+VHk4UHW63vLQDUVvbUwEVC/wo2VeqjfZMR
-	 ihnD4Ng1IWotLXAZnNBWMcLbUTZwO/VcUx8bQMYANiiOwgIVitC6W2koe9aXuv0Cl5x3E
-	 2NofkFK75kehSManESmR7Hh0MJ3hM0TJ5CFKIYwUaXT+sEtiq5yY1vhFSxTOng0wJOeoo
-	 MimnOfhMxNbSHkCoqueyEuF19LZs5QDXzpPe86GavNgXS3zTxxdC6OntEH2SGxvMsD8Bf
-	 NRhzgFRkMfKUrBvP3yXbI+5lpm2dT9YGhkqrP+tdE+Gnzv+JWuOWJo/Row3sEl3m3AA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794905157;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
+	 X-Received:X-Received:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=A6pdC35Th33dCRVfmfQIEPxZrmhsEjdcOjU50FNkALA=;
+	b=33D76GZqsYpzUgOiPExYQUoaLxE1uVMr93g6bb7zdfFV6tFcaOzO//HdUzCqs48eYTjY
+	 SFMqwUPf6QCMSD2IF0/gwZQIDkIRJNGvAL/KIW8p2zsxLO4stNgD3eVmG8eqWzLBhMbQ5
+	 tFauYRW5cC/qaEknEeVm36DBTY4J6KpzQKUcbHUXgWMGePGh/mUfG0ttbS1fLHyOhFF4T
+	 rgGY8+58gR/dvx4oaIO8c7u5BribVX3UsJ2wMdf3DEyO9jVp0bNn3z+mfNgMNjQUvO6Z8
+	 AAHHl/E6Cijil/jCA9EE+FBpR47w+PxNTbKtAQ9KLhClhKP+IZlFVJqDfdkPvFWNo/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amutable.com;
-	spf=pass smtp.mailfrom=amutable.com;
-	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qPWJSshs;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=eD67Bjpp;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="OhG/gJGg";
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE6F3606A885
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:44:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE6F3606A885
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E9A2606A8BD
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:45:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E9A2606A8BD
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qPWJSshs
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so25256365e9.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:44:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=eD67Bjpp;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=OhG/gJGg
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AH6f0lp2998611
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:45:55 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=qcppdkim1; bh=A6pdC35Th33dCRVfmfQIEP
+	xZrmhsEjdcOjU50FNkALA=; b=eD67BjppWIgyG1YJe5RiUzc7gZht597ihqsjb3
+	FlveHaXzG9kBtZS8LUjjb4kOSbw9nn4E0aQCOO16UfnwTAopmJl6oI+w6cF9jcPe
+	W1c1BeiNLtRApO3TlDyrFM5wWmnjsdblZUNacJI1QrL9HJqkWbuR5eCJLgJfyE0U
+	n0R9QFuZeZGPwKKDTCyfoETUzZmX+XpbWN4zRi10CBZRVi9yQXUXq2SR0lKdnIu7
+	0CR6m6AquQEavnpMmm0ZQSLKbFWmkG+CjlH5vTkCQiwDh0FkzJAZ42G43aWXWQeu
+	t+f8WMEkof2QOn9dzObkdinvHXZ+iKVdR9cKf6Z8oQ4Vh0xw==
+Received: from mail-pg1-f199.google.com (mail-pg1-f199.google.com [209.85.215.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0hve0fwc-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:45:54 +0000 (GMT)
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-cdb869327e7so3847595a12.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:45:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794905081; x=1795509881; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=YtgOPMlBsDbDRTTami0iaeC2PfdAlPMUJ3BhZBWqnDY=;
-        b=qPWJSshsn8vVlxONBkwnt0Rrdn9d5F3Qc4ul63isG/q9SzfN/YeX6Opt0gSo3Jew6G
-         TPoHc3exB3o1TVJHb31ucJURrMLm+X5ZLvKQdkLiUwsGhwj3/4jXaF9QxR3XbUAvZwOE
-         a/cd4y1UcgXoBr9kVgdvuhJuBveUAauSYuunqpBOO8ny5BuS4lSdHT4xtCJFDNjS8url
-         r/ZKVJBRzaToW1BBIq0cKvkP0/i/p+OipahpXpiSl0PGBR9WYmSpn39e8LKnYXYjrWjD
-         bzQp5gYJPTRPzgdIgnmtc42HrrCv5BgaqLA/tsUHs3tWdIoSQrhFLq1gvYrghbRPmmpF
-         EcZA==
+        d=oss.qualcomm.com; s=google; t=1794905154; x=1795509954; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=A6pdC35Th33dCRVfmfQIEPxZrmhsEjdcOjU50FNkALA=;
+        b=OhG/gJGgAtDPOL9OWKhfURY65H3xojezNiZLKP51QMSjgRmQgcmhL2z5hCZxKAWRGt
+         NsiiW0WbPHD3ctdJZdjIu/46MGTSxD0bEUePR3L2rZxRh8JAFMu+fU0A+g3tJYd1M5A+
+         1dTwJR2Yh/vYnaY35cOkRCZKdVuWZFOL7K2veB9wBHGqEJoMpBRJGLPF36SiRXxj+Bfb
+         /ipjbRRt2r9mdbmSQIppTp6xrNbJ/pr87tpuhC2VR9Fe5X8LdKHW6nAlj/4d8inLI/ih
+         tyJHX5Xpw4IVqIe38Fbpjj//UJIjdjrHpom1ZCyn1mEeCwiRQs2xbOkJs+kM7E2Y5T0K
+         eZOw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794905081; x=1795509881;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YtgOPMlBsDbDRTTami0iaeC2PfdAlPMUJ3BhZBWqnDY=;
-        b=rwZOQgUUKViYKoClpvvRzzekWUWy128Ddlop3uI/n1O//haDWBf8Fa52Jm0Wy/TTQN
-         fk6DdPhdh2iOQ1ZAnfqY8gGx+8f5ELwsv2yqdeeizJcVhgRFlw4LYKXISaW677pUDByv
-         IVV9GLB8Tke9bbPDbKVWbHnt3zR4+GmStl8sQxfieKMZR+GR5fELEphL8Awc4/Ds5Ps+
-         ACD7JehR5AMWa3Xr5WE5aK2Q5EFC8yEizAnbMhOjHYVVndaaku+bAb98FtW+6RHohYzu
-         TOoGq7CPlL4oAcmWxMYTmJzzGWGV1CcrN0zSy9dGU2vUYSxfFgG43tkKG+kGY7cMry7r
-         CDsQ==
-X-Forwarded-Encrypted: i=1; AL+hErEJDcGykPJpc8K2sv/aVtWNZovJs50r8N7Qe/nt9bCK2xKvUeGIjOtZUGw56vNYm8ickXzRCCY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/3QmCGaqEINupl6mwl/C4LoV5vmZm1HgeZzRd1vvmio3Za4W/m
-	lzwTAof+q2wW656Y3GRlCdKMtC0nQ5uRf81Tv0WwkQWobCv1hMslRRhINFWURgbX5aCv
-X-Gm-Gg: AZFdTZd/iczf7HAMRefPM4jeb5xA51rq35FTTJ4NEU4wWIltuqKTlJIYbZSB3zefKpk
-	x2OsB3d6Lrebh07qWMtbQ/AzR18YJ8qKYWyvVnpdu1I0qmNgtdQR2dJX10ejy6hXKPNi9YZX7j/
-	yf3q785dARByA6uuPb7FIExB2hCuNbuHL7Gu8hIxswMFRkmTtqTh+a1olF25WiCqzVATp5eykIN
-	21TN+/zOTV805nwZvpcXiquAGpx2egS4LtZvlLxzXHyPRHoOaQUqJ94mCSxPUwG51OoUDZaFjZE
-	VsLYNsDTIECI7T2ZWpl5i/YkbkiCPCVKGg+qMMcJZc/83QhKTl8dC6olO27E+JjrBRiOVNFgwzw
-	fg3G8iyDnMCB2CjrvFcQP2S9xbt22etUrbMrCkuM8ZOAuz5qUYG5BmWLBS9x6CF5a1bteD0x7/8
-	7ttxUriMAF3/JnxVxjzoFcCgCJ7pVZrPgJTojJHC9j8F10PZzx9/S2wOh0IgioAh8yowOGO889+
-	93E5Gj9L01DB4GKcUTFal199Z8WdogxxlRtZ1z/xaQ0VcSY9pp2PDMvLsUAug0f06qlrm3FBh7g
-	GSwNm73e8FlegIr/hz+0DJWBC//GigNp7jmmR03MZ5c/Ffgtu+SXJrrgwJJjhl94O6WbfeAzFi0
-	S5uUTxzdZGNHdfry+JaZFbT2ym5jS7SuZkTE95KUtdh9mwgZZ9LAQUiz+Emo1F0374SIuVT4MD9
-	5vDA==
-X-Received: by 2002:a05:6000:2411:b0:48f:f26d:c5c with SMTP id ffacd0b85a97d-49c70b051d1mr27471178f8f.9.1794905081269;
-        Tue, 17 Nov 2026 00:44:41 -0800 (PST)
-Received: from ?IPv6:2003:cf:572c:2800:de4c:6789:33ce:97c2? (p200300cf572c2800de4c678933ce97c2.dip0.t-ipconnect.de. [2003:cf:572c:2800:de4c:6789:33ce:97c2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49d673ce75fsm19982260f8f.55.2026.11.17.00.44.39
+        d=1e100.net; s=20260707; t=1794905154; x=1795509954;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=A6pdC35Th33dCRVfmfQIEPxZrmhsEjdcOjU50FNkALA=;
+        b=swqYZYKmlVrW/tK1i8LgTO+AWAhFC5g3U3dp8AMPgBf4ypFiUYRCoBXjVfbieT4zYF
+         Mpg745o3vudgMZuEEhXhRUr0VW5HFnQq6Vfj7sy/WmKJm3cV5b/80BUS+sRepRP6svJM
+         4nIQVm/FvXQ+8b3875ngtB1vovEpbJ6hU+Q3ofhk8/m2Z2y7ir61NL5iMwr8pGRr+G+c
+         KGffV5Jh7A5R/RTlryPY6KmNU9Ve+7nXxzjSk8sLJbCcosWhOg/jc9jJApYIFDYh08z9
+         F8zKMx8d9SThkY5ClSsv+Y6T4yZ0tdfrst1v9rdn3c9V0qLm2xTOzDxNY0vVvdp5ar53
+         oT5Q==
+X-Gm-Message-State: APuU4Z/1Irhm6ie47xZzVgUydlVS5byXX+0vtVg3TE6D7KFICi+a80Vy
+	j1K8Q3Ip7vVsePUsIcUhKHDv3UPKf/E/n5duZ1hTadHrTl67Kf+v7jlY8cxhik2MRfKj2SjaCgw
+	uA3+ecSYlvitFFaiQEx9TZYrjJcgLx6yRifQfsK1zeK5+EfXhOHgmx3ze91za09mCztk=
+X-Gm-Gg: AYBFou3SXHxnOIxGAYHHGjeBvz1zikAA61l3phR9KhHzgtHThpbHWJXMg3uRwZ3wjxR
+	nYVcWJREHxNSmXTrfmGOiKhdJ6bESAwUF2VWcLp4DWuAmKDLuB2MqEBhE5FWFiYXx0QtEk8GQC3
+	IhR8t02cpbD1joPueGygwkR1pa0iUFwYEipeFu/lLwwmsayqEmbLokVSiZ5YM2ZFBlYJtLie7uk
+	BWGtOf8uCNI8/+MIWBf2vkwgtx9IOteA5HLvd9xdxyiollvnPSOMqSTPNVgKy9PXyMX2l7/tV/9
+	kpm0/5zJzk3r+Jy8AFowiJrLiqhgDAxEk+eqEgVNExa10ojhAxT8Y/KAJYBr5ZZF/0jLr9ooEVA
+	QFA9JPIe88+osqV/VHU5pmvfJMaKLZd4ZGyiM2L5keAJh8nRwqooh7x1dKSzMM9CFE2cuRzBbOi
+	9vNg==
+X-Received: by 2002:a05:6a21:798f:b0:3e2:2b76:bf40 with SMTP id adf61e73a8af0-3f7a6e9f331mr10335165637.26.1794905153899;
+        Tue, 17 Nov 2026 00:45:53 -0800 (PST)
+X-Received: by 2002:a05:6a21:798f:b0:3e2:2b76:bf40 with SMTP id adf61e73a8af0-3f7a6e9f331mr10335143637.26.1794905153312;
+        Tue, 17 Nov 2026 00:45:53 -0800 (PST)
+Received: from hu-mohdayaa-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cddc18736b3sm5699585a12.7.2026.11.17.00.45.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 00:44:40 -0800 (PST)
-Message-ID: <d18a972cfc6a7d6da39ab9674903d7ae6e4c1826.camel@amutable.com>
-Subject: Re: [PATCH RFC v3 35/44] fs: add file_check_backing()
-From: Alexander Mikhalitsyn <alex@amutable.com>
-To: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org
-Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef
- Bacik	 <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
- Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org,
- target-devel@vger.kernel.org, 	driver-core@lists.linux.dev,
- linux-mm@kvack.org, bpf@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
-	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org,
- netdev@vger.kernel.org, 	fuse-devel@lists.linux.dev,
- linux-efi@vger.kernel.org, 	xen-devel@lists.xenproject.org,
- ocfs2-devel@lists.linux.dev, 	linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, 	linux-usb@vger.kernel.org, Amir Goldstein
- <amir73il@gmail.com>, 	linux-erofs@lists.ozlabs.org,
- linux-kselftest@vger.kernel.org
-Date: Tue, 17 Nov 2026 09:44:39 +0100
-In-Reply-To: <20261116-work-loop-pseudo-v3-35-8cbbea1cf34f@kernel.org>
-References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
-	 <20261116-work-loop-pseudo-v3-35-8cbbea1cf34f@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        Tue, 17 Nov 2026 00:45:52 -0800 (PST)
+From: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Subject: [PATCH net-next v4 00/10] net: stmmac: qcom-ethqos: add Shikra
+ EMAC support
+Date: Tue, 17 Nov 2026 14:15:20 +0530
+Message-Id: <20261117-shikra_ethernet-v4-0-c41902e5f2fa@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,172 +114,201 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACAU/GoC/23NQQ7CIBAF0KsY1tJQKLR15T2MMbQdhWhBAUlN0
+ 7uLxIVJ3Uzy82fezMiD0+DRbjMjB1F7bU0K1XaDeiXNBbAeUkaUUEFawrBX+urkCYICZyBgCXU
+ HwKEhFaB0dXdw1lMWD+izYGAK6JgapX2w7pVfxTL3X7VaqbHEBEtOasHbVhDG99b74vGUt96OY
+ 5FGJiP9ZZo1QxPTdcBY0w5EcPqHWZblDSbxwQIGAQAA
+X-Change-ID: 20260903-shikra_ethernet-ae7bee5e804e
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>,
+        Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org,
+        Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794905144; l=6868;
+ i=mohd.anwar@oss.qualcomm.com; s=20250907; h=from:subject:message-id;
+ bh=7TpJOavRGewnNemNBQ57hic/9O2QRq+vTMnnYYXy8eM=;
+ b=RfA2sASEs8xpYrFLwoQcuuPJhqXZDFQkC/PbaIje71xl1STw+4Axt40DjssPJxfugzILBwQ1M
+ S6rkIJ+BWKkBoNOcCSqsy4A8k88UtbqPGK7LE5SFiDva9PWoH5o0lXC
+X-Developer-Key: i=mohd.anwar@oss.qualcomm.com; a=ed25519;
+ pk=7JNY72mz7r6hQstsamPYlUbLhQ5+W64pY4LgfSh9DJU=
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDAzNCBTYWx0ZWRfX7icf36F3py4n
+ naEg1/vtvO7uGrnlmDgSRsc2PzGQrklvyfP03mP1vvfbg/EvNntnBgGHan1VQ+/5mIxDd8YNpjG
+ K495fSncdUNuMA6NMmUKj/RVpZCJsmA=
+X-Proofpoint-GUID: UQnMSBMakEzMoIqX_4Rw8fuTRObEqrim
+X-Proofpoint-ORIG-GUID: UQnMSBMakEzMoIqX_4Rw8fuTRObEqrim
+X-Authority-Analysis: v=2.4 cv=dqhOmFg4 c=1 sm=1 tr=0 ts=6afc1442 cx=c_pps
+ a=Oh5Dbbf/trHjhBongsHeRQ==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22
+ a=VwQbUJbxAAAA:8 a=ee_2aqc6AAAA:8 a=EUspDBNiAAAA:8 a=3FMM8ssWo7dxxMFcYGwA:9
+ a=QEXdDO2ut3YA:10 a=_Vgx9l1VpLgwpw_dHYaR:22 a=VOpmJXOdbJOWo2YY3GeN:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDAzNCBTYWx0ZWRfX8m79sqwNlfhk
+ HcY574tHj6kQidAN5ok7mYx2E6HsmiDjluf3L7IFBXX4NoNQJyqsjsLVenUwA0AsCdn14r3uhi5
+ LnsQ+X9vVZT4zHe0eripxjAlHJayNLRxxRvWRSxA3reBS808TFd2KWQkMVDf1XdlgK8P5X1rHJB
+ poDdQn0wT+758iSDbjdtXQyjThpK3f9xMJQdUcSTPoy20Gg5ofOwM4fLDhR8nnS+Nimb+lecQCn
+ MbJiWJKFPi7Y/zAWC7mF9A/YhIQFSgceFsyenz0rfZLVlCZlZgJPFge+mDWaYVs6U3IBJSqCp45
+ z6AtJTzr6RFht2XKnJxjsMTKukbyJqj5ZMV4mo4IQmWvF7iVKlzhXN4v5xguL3dDvvuYu2EnHb+
+ 0qxE8RhcXeli5ohPbNVezC6A1FdzbNrRWiexyvID11lNgdI6oMIruFpNBo6qE3iSUFrNT4oAmRc
+ CCjKnKFasLRO+XvPzcA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 priorityscore=1501 lowpriorityscore=0 clxscore=1015 phishscore=0
+ bulkscore=0 malwarescore=0 adultscore=0 impostorscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611170034
 
-On Mon, 2026-11-16 at 12:05 +0100, Christian Brauner wrote:
-> Loop, zloop, the nvme target, the scsi target, fuse passthrough, the
-> usb
-> mass storage gadget, erofs and acct all take a file from userspace
-> and
-> use it as storage. Currently, each of them has its own idea of what
-> to
-> check before using a file like that:
->=20
-> - loop and the gadget check for a regular file or a block device, the
-> =C2=A0 nvme target, the scsi target and zloop take any file type
-> - loop checks the open mode, the gadget checks FMODE_CAN_READ, the
-> nvme
-> =C2=A0 target, the scsi target and zloop only check for ->read_iter() and
-> =C2=A0 ->write_iter()
-> - apart from acct which refuses procfs and sysfs files none of them
-> =C2=A0 cares whether the file is a kernel interface
->=20
-> Add a helper that does all of it in one place. It only accepts
-> regular
-> files and, if the caller passes S_IFBLK, block devices. It refuses
-> files
-> on pseudo filesystems. And it checks that the file is open for what
-> the
-> caller is going to do with it and implements ->read_iter() for
-> reading
-> and ->write_iter() for writing.
->=20
-> O_PATH files are refused unless the caller passes FMODE_PATH. That is
-> for callers that only need the path of the file. fuse passthrough is
-> one of them and has accepted O_PATH file descriptors since commit
-> efad7153bf93 ("fuse: allow O_PATH fd for FUSE_DEV_IOC_BACKING_OPEN").
->=20
-> Block devices are fine even though bdevfs is a pseudo filesystem. A
-> block device that userspace hands in is a device node on devtmpfs or
-> some other filesystem. Files on bdevfs only come from
-> bdev_file_open_by_*() and never end up here.
->=20
-> The pseudo filesystem check looks at the inode that actually provides
-> the data via d_real_data_inode(). overlayfs accepts sysfs, cgroup2,
-> debugfs, tracefs, configfs and securityfs as lower layers and reads
-> of
-> such an overlayfs file are served by the file on the pseudo
-> filesystem.
-> Checking the overlayfs inode would miss that.
->=20
-> For an O_PATH file nothing might have looked up the data yet.
-> overlayfs
-> only looks up the data of a metacopy file in a data-only layer when
-> the
-> file is opened. d_real_data_inode() does the lookup then and if that
-> fails we return the error.
->=20
-> Note that the file type is taken from the inode of the file and not
-> from
-> the host of ->f_mapping like loop and the gadget do it. A driver can
-> point ->f_mapping somewhere else in ->open(). It makes no difference
-> for
-> block devices as both inodes are block devices.
->=20
-> No functional changes. Nothing calls the helper yet.
->=20
+This series incorporates feedback from the RFC and adds the dt-bindings
+and driver changes required to enable Gigabit Ethernet support on the
+Qualcomm Shikra SoC. DTS changes will be sent out separately.
 
-Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
+The series has grown from the RFC and can be broadly divided into three
+areas: PHY power supply management, proper support for RGMII ID mode in
+the Qualcomm ETHQOS driver, and Shikra specific clock dependencies
+required for NOC access.
 
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
-> ---
-> =C2=A0fs/read_write.c=C2=A0=C2=A0=C2=A0 | 53
-> +++++++++++++++++++++++++++++++++++++++++++++++++++++
-> =C2=A0include/linux/fs.h |=C2=A0 2 ++
-> =C2=A02 files changed, 55 insertions(+)
->=20
-> diff --git a/fs/read_write.c b/fs/read_write.c
-> index 6767283108991..9f1e7bfcbd4f1 100644
-> --- a/fs/read_write.c
-> +++ b/fs/read_write.c
-> @@ -866,6 +866,59 @@ static ssize_t do_loop_readv_writev(struct file
-> *filp, struct iov_iter *iter,
-> =C2=A0	return ret;
-> =C2=A0}
-> =C2=A0
-> +/**
-> + * file_check_backing - check that the kernel can use a file as
-> storage
-> + * @file: file that userspace handed in
-> + * @mode: FMODE_READ and/or FMODE_WRITE the kernel will do I/O with,
-> or
-> + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 FMODE_PATH if only the path=
- of @file is used
-> + * @type: S_IFBLK if a block device is fine as well, 0 otherwise
-> + *
-> + * Call this where a file from userspace is taken as a backing file.
-> Only
-> + * regular files and, if @type is S_IFBLK, block devices are
-> storage. Files
-> + * on pseudo filesystems are kernel interfaces and are refused. The
-> file
-> + * must be open for @mode and implement ->read_iter() for reading
-> and
-> + * ->write_iter() for writing. O_PATH files are only fine with
-> FMODE_PATH.
-> + *
-> + * Return: 0 on success, -EBADF if @file isn't open for @mode, -
-> EINVAL if it
-> + * can't be used as storage, or the error from looking up the data
-> of @file
-> + * on a stacking filesystem.
-> + */
-> +int file_check_backing(const struct file *file, fmode_t mode,
-> umode_t type)
-> +{
-> +	fmode_t io =3D mode & (FMODE_READ | FMODE_WRITE);
-> +	/* Drivers may point ->f_mapping at something else. */
-> +	umode_t fmt =3D file_inode(file)->i_mode & S_IFMT;
-> +	struct inode *real_inode;
-> +
-> +	/* O_PATH files are only fine for callers that just use the
-> path. */
-> +	if ((file->f_mode & FMODE_PATH) && !(mode & FMODE_PATH))
-> +		return -EBADF;
-> +
-> +	if ((file->f_mode & io) !=3D io)
-> +		return -EBADF;
-> +
-> +	if (fmt !=3D S_IFREG && !(type =3D=3D S_IFBLK && fmt =3D=3D S_IFBLK))
-> +		return -EINVAL;
-> +
-> +	/* Look through stacking filesystems at the inode with the
-> data. */
-> +	real_inode =3D d_real_data_inode(file->f_path.dentry);
-> +	if (IS_ERR(real_inode))
-> +		return PTR_ERR(real_inode);
-> +	if (real_inode->i_sb->s_iflags & SB_I_PSEUDO)
-> +		return -EINVAL;
-> +
-> +	if ((mode & FMODE_READ) &&
-> +	=C2=A0=C2=A0=C2=A0 (!(file->f_mode & FMODE_CAN_READ) || !file->f_op-
-> >read_iter))
-> +		return -EINVAL;
-> +
-> +	if ((mode & FMODE_WRITE) &&
-> +	=C2=A0=C2=A0=C2=A0 (!(file->f_mode & FMODE_CAN_WRITE) || !file->f_op-
-> >write_iter))
-> +		return -EINVAL;
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(file_check_backing);
-> +
-> =C2=A0ssize_t vfs_iocb_iter_read(struct file *file, struct kiocb *iocb,
-> =C2=A0			=C2=A0=C2=A0 struct iov_iter *iter)
-> =C2=A0{
-> diff --git a/include/linux/fs.h b/include/linux/fs.h
-> index 99caef43ff3c4..b1c7ebafbadbe 100644
-> --- a/include/linux/fs.h
-> +++ b/include/linux/fs.h
-> @@ -2553,6 +2553,8 @@ static inline const struct inode
-> *file_user_inode(const struct file *f)
-> =C2=A0	return file_inode(f);
-> =C2=A0}
-> =C2=A0
-> +int file_check_backing(const struct file *file, fmode_t mode,
-> umode_t type);
-> +
-> =C2=A0static inline struct file *file_clone_open(struct file *file)
-> =C2=A0{
-> =C2=A0	return dentry_open(&file->f_path, file->f_flags, file-
-> >f_cred);
+1. Shikra EVK boards use a GPIO-gated regulator for the DP83867 PHY
+power supply. Patches 1 and 2 add supply management to the DP83867
+driver so the PHY driver holds the regulator vote at probe. These
+changes are largely inspired by similar work done for the QCA8081 PHY:
+https://lore.kernel.org/netdev/20261015143849.483339-1-elder@riscstar.com/
+
+2. The generic RGMII fixes from the RFC remain. As suggested, the new
+flow to use phy managed delays is protected by a platform specific
+boolean to ensure that it affects only tested hardware. Legacy boards
+will remain unaffected. Some other optimizations are carried forward
+(initial link clock to SPEED_10, common structure for custom
+dwmac4_addrs).
+
+3. NOC clock voting (patch 8) now uses dev_pm_opp_set_opp() so the
+required VDD_CX performance state can be propagated through the clock
+controller. The Shikra binding (patch 3) is updated accordingly: an
+if/else block constrains Shikra to exactly six clocks and requires
+operating-points-v2 and power-domains.
+
+Testing:
+The following boards have been tested with this new (proper) handling
+for RGMII ID:
+  - Shikra CQ/IQ variants (with the TI DP83867 PHY)
+  - QCS615 Ride (with the Micrel KSZ9031 PHY)
+  - Talos EVK (again with the Micrel KSZ9031 PHY)
+  - Talos Lyra EVK (TI DP83867 PHY, this board also has a GPIO-gated
+    regulator for the PHY power supply)
+
+Changes in v4:
+ - Re-added the bindings patch for DP83867 PHY regulators which was
+   accidentally dropped in v3.
+ - Skip dp83867_power_on() if CONFIG_REGULATOR is disabled to avoid
+   unintentional delay due to its code stub: Sashiko.
+ - Moved operating-points description to the top-level of ethqos
+   bindings: Krzysztof.
+ - Added power-domains as a required property for Shikra due to its OPP
+   dependency: Sashiko.
+ - Protect the phy-managed delay sequence with a platform specific
+   boolean to avoid impact on legacy hardware: Andrew.
+ - Dropped "net: stmmac: qcom-ethqos: warn about legacy RGMII PHY modes"
+   since only Shikra and QCS615 are going to use the RGMII-ID mode.
+ - Added additional details to some commit messages to clarify Sashiko
+   queries.
+ - Since QCS615/Talos was also tested, a new patch adds its platform
+   descriptor with phy_managed_delays set to true.
+ - Link to v3: https://lore.kernel.org/netdev/20261017-shikra_ethernet-v3-0-26a8beb44b8f@oss.qualcomm.com/
+
+Changes in v3:
+ - Remove #ifdef CONFIG_OF from the dp83867_power_on() function. This is
+   a result of the recent discussion regarding similar handling in the
+   qca808x driver:
+   https://lore.kernel.org/netdev/atCSWZQAyqvz62_K@aspen.lan/
+ - Clean up the -ENODEV handling in dp83867_power_on() and use a boolean
+   to identify if supplies are provided -- Lorenzo.
+ - Patch 7's commit message now says set_clk_tx_rate instead of
+   fix_mac_speed -- Sashiko.
+ - Add a new patch to abstract away the common dwma4_addrs for different
+   versions of ethqos rather than duplicating them -- Lorenzo.
+ - Use OPP table to set both the required clock rates and power state,
+   update ethqos bindings accordingly to specify how the clock rates are
+   described in DTS -- Konrad, Lorenzo.
+ - Link to v2: https://lore.kernel.org/r/20260908-shikra_ethernet-v2-0-bbe3389d0652@oss.qualcomm.com
+
+Changes in v2:
+  - Collected Maxime's Reviewed-by tags.
+  - Updated Patch 9's commit message to explain the double enable vote
+    on the "stmmaceth" clock. Open to discussion on how best to handle
+    this.
+  - Wrapped regulator vote for dp83867 inside an #ifdef CONFIG_OF check
+    to avoid adding an unnecessary 200 ms delay on systems where
+    devm_regulator_get_enable_optional() would return 0. The change now
+    mirrors the QCA8081 patch -- Sashiko.
+  - Fixed ethqos_set_clk_tx_rate() to double the rate for all PHY modes
+    other than RGMII-ID -- Sashiko.
+  - Moved warning about the use of non RGMII-ID mode to probe instead
+    of fix_mac_speed to avoid spamming during each link up event --
+    Sashiko.
+  - Fixed error unwind drops OPP before stopping link_clk -- Sashiko.
+  - Fixed OPP vote set in probe not cleaned up on error -- Sashiko.
+  - Link to v1: https://lore.kernel.org/netdev/20260904-shikra_ethernet-v1-0-a50765996035@oss.qualcomm.com/#t
+
+Changes since RFC:
+  - Two new patches add supply management for the DP83867, replacing
+    the gpio-hog approach for PHY power -- Konrad, Andrew.
+  - Use dev_pm_opp_set_rate() for the NOC AXI clock and require
+    operating-points-v2 for Shikra -- Konrad.
+  - Warn on legacy "rgmii"/"rgmii-txid" to encourage DTB migration --
+    Andrew, Maxime.
+  - Updated binding document for qcom,ethqos and snps,dwmac.
+  - Drop the duplicate "axi" clock from Shikra's DT; use "axi-noc" and
+    "pcie-tile-axi-noc" as the only additional clock-names.
+  - Initialise RGMII link clock at SPEED_10 rather than SPEED_1000 on
+    probe.
+  - Link to RFC: https://lore.kernel.org/netdev/20260612-shikra_ethernet-v1-0-f0f4a1d19929@oss.qualcomm.com/
+
+Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+---
+Mohd Ayaan Anwar (10):
+      dt-bindings: net: ti,dp83867: add supply properties
+      net: phy: dp83867: add regulator supply management
+      dt-bindings: net: qcom,ethqos: add qcom,shikra-ethqos compatible
+      net: stmmac: qcom-ethqos: convert ethqos_rgmii_macro_init() to void
+      net: stmmac: qcom-ethqos: add DLL-bypass for PHY-managed RGMII delays
+      net: stmmac: qcom-ethqos: set initial RGMII link clock to lowest speed
+      net: stmmac: qcom-ethqos: share common GMAC4 address table
+      net: stmmac: qcom-ethqos: add per-platform NOC clock voting
+      net: stmmac: qcom-ethqos: add Shikra EMAC support
+      net: stmmac: qcom-ethqos: add QCS615 EMAC support
+
+ .../devicetree/bindings/net/qcom,ethqos.yaml       |  54 +++-
+ .../devicetree/bindings/net/snps,dwmac.yaml        |   2 +
+ .../devicetree/bindings/net/ti,dp83867.yaml        |  14 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig        |   1 +
+ .../ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c    | 286 ++++++++++++++++-----
+ drivers/net/phy/dp83867.c                          |  35 +++
+ 6 files changed, 327 insertions(+), 65 deletions(-)
+---
+base-commit: 6964ff21c5d8b75649211a52dbfd92753e605649
+change-id: 20260903-shikra_ethernet-ae7bee5e804e
+
+Best regards,
+--  
+Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+
