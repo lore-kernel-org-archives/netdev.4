@@ -1,98 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794883973;
-	b=P6sjOmPf3RKzlra2Fxm4PaDSHYFvaxbAQl+GB5N73urJQjdHiXwU2AkgPxnW16yjGRha
-	 eWVvfxJ0fwqXKJ1AGa6sdojKPQOpHoQio4aY4sy/UfN+cB/VyfbEeHHL/tPhEYPrdyGX6
-	 FAs2avVjA1PawO9szCsZd4hGU7TAFeXr2ffs8bp6t0mm3xJosyY0OkGoweqfGiHKxtKLO
-	 Xu0KmmUvuFlvVfci8k5T4hZVbziDMLQuhJXjqsqmZVW2rqlRU0rrEQhxmgMDmMdbd+fDp
-	 n2PioTgWpYfSKfABE3DpIc4FbbEpIRrDSl+2qZFAceyaHHhvbzv0UVp5S1k0UbB4UWQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794883973;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type;
-	bh=OlPS9Kfou8N6H/RDr1nqKaimcfFezjwaIA8OrMI9tXA=;
-	b=loIp0WClVt97vHNyysqRY87Eg2nM9zLM30q1CdheWj++Xp8RYv3Z8UbGD6tGHAceZmxy
-	 oT2L/+mOdpbDjC589SDz8v2vnje6xVsUg866/v8kV/GocTqEYAZyaxIkx3DfD3JflG6wP
-	 bs0Y6qP8svyz+jU/299yrUQiFzZACXd7+cz8RXsv3YZVgyQYaA+yiq35frZF1jj6dqJaT
-	 Sz8KDYaiUfJ5BzuYqTfgrmfLKghN1qG3jbFNi6yVLOn7EOr//ijvWPPDuQx4qMInZyWkd
-	 PJaGB7vIIiHglHVZ/sW+1Aq9jYSFHBr0hm703xFIEJGszHvOiMzewfyrau4pLZk2Lbw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=stobTJFC;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.176
-Received: from mail-qk1-f176.google.com (mail-qk1-f176.google.com [209.85.222.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.130
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794884198;
+	b=J86KXZj3NBtfx5GV2eW3c41BvdmpxQmkG2ftECq740Rq0TyrlWITOJpGYNxlapB1IYEh
+	 MOnMCLMmpXYcpRPXU4BANQE4cwAr+Uumd7Bq9lVWSTlg2nye9LKey6fvLkektWsYEp38R
+	 9rf7Cez4zyIkVSxhMz5neJaaiZuPaP03fGTnTg48bGcFz42AlLi69lh07tCkFhgMRrHA3
+	 u4AB+vkJLQaERgwNJtyidGApRkhahUxvHRWApUWUknQ9cRkv+pX7lBdHI+2BB2DjhiyPC
+	 YJe3gWKl/TECIam+fzusF6QaXz/bpfULQL4KpG+PQzedsomPSIeslElyNJBiU8msWVA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794884198;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
+	 X-QQ-RECHKSPAM;
+	bh=OJRWJeXrvQmODYAExg7m4mDpe5p58dqYM/Hnn4LmFfE=;
+	b=zci3q73G1mDUQ1A3uh6Xuy8nK0IFx8Rv9igKmF9/5ZL2DZLGiaARnRnnZtRpn2fjEIC0
+	 EKBtOgynhSJ45ADbuaCvEOgLzS3SGmeJPWywpq/4IVHM2yNQ2Cxqkl0TqvT3Sl+sQ5L/w
+	 kynhF39gqnE74J0TTQHxYK63MvBWWmE4ovIjkF3QyS5lYj/LxNbiQUzHCLU2xQGv4HkcB
+	 OBzKEGuN66jzHgT0SqxOayYTBiwxo5gXW0UFrBku+BjS4yR60Uj+qYBu9M+Vu+bxMcWx4
+	 JqAWw4YBXTm3HKxAbYO5GZkfcQ5K/V4YOLAGBsdVA4fUSqpM/jvbcLUM1ejvIl8S3qA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mucse.com;
+	spf=pass smtp.mailfrom=mucse.com;
+	arc=none smtp.remote-ip=54.204.34.130
+Received: from smtpbguseast2.qq.com (smtpbguseast2.qq.com [54.204.34.130])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF463606A32C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 02:52:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF463606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=stobTJFC
-Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-93f22a8515eso436292685a.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 18:52:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794883971; cv=none;
-        d=google.com; s=arc-20260327;
-        b=e3vOcZpF+0P1dYeB69auzeejpfh6k/Mc0lntlpGkwRJHhCHP/fT7LGjIZTDkHJa0h3
-         CVd0uWZyKv5gh3+JH0vCSQq3u7N3m67rVwrABL/eRjcS78ZoO+evrDxQTJxnD7+v/HBa
-         i14oGXwSeKPz3szPBx/LTvuO6X0wIl4YT4l/3SkqUO1RfesssU5bkImOVanj83oRtN/u
-         jK2y0cRrMAv5bdFzT3LBhczXgubvPVHFOFxvOMnV55CFmdA/KdbQqpiyro/SNwwDulGV
-         HPh2LqFtIVgY6iXXjEFMWeSL90jZVcuOWSjcUJQNSKx4XIzTJ/nXsUmH1DiMlUEndYxA
-         ccEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=OlPS9Kfou8N6H/RDr1nqKaimcfFezjwaIA8OrMI9tXA=;
-        fh=wIIIsM9cK7fGZAxgGMfjwZLrwu5r7FztGPrfRTOMOaU=;
-        b=jzJ62CdGZfPyMX6FlD4yl1/Nixo9SYSC1JM8MENT/eVh21uQX356l4uXXtZM8zcJ0u
-         WOIh90gk12THty/Qu14pxIcUeiU5vpKMjkbOZ5gAgSYIM/OCnJXIshsC+VUINNM/OXyK
-         XXjSxwv/JjPZIgvtWECL3VPAYNNf75NAJbcdt21yynFjvqEAih57NnceEA+jvLzZZ/GV
-         NeRgr38PDGmuMqT7mgHmBKCvfuyamYD0Ep1QA7MkpGIfK9M7VpKuMmDQXdWWS4gboYAL
-         KlF3H2w0h6FG0Y+c+tAGQdv/vIR0Y23Tsi14uL+/dJGKqyqPBLexnC/Vganf63lDxj47
-         OZ9Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794883971; x=1795488771; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=OlPS9Kfou8N6H/RDr1nqKaimcfFezjwaIA8OrMI9tXA=;
-        b=stobTJFCxwGHwKDpaM9nlEAWd5MuqRyk62SIEExSIfy188ai/FdJ1KkrKOCJ7ev0Op
-         6QUoD3qlsycpzmyEyu9jZYKuXxw9iAGJqle2FsZ9fpUucCqBsJKPOv9MWqkL9KMT9vzv
-         kRs6QHsKsh+BJW8HV6dlSh67Sd8y6RzlkvIxHr7/EEyb5kqcXlJGA7uqSTYri+Ea0KUk
-         lRrmf0r7pAlwVEYsi5awyZNFCHknKiSasaNEu9a70/U5UvkQNy7mNO/gCF/07tLmnCmI
-         hlbmA4EHcNDgCrc/0yGu8LWISf+1bUwOlRI2/Q83r8lpjsekqsdSnXaSQj9HoaF6IocU
-         R6Dg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794883971; x=1795488771;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=OlPS9Kfou8N6H/RDr1nqKaimcfFezjwaIA8OrMI9tXA=;
-        b=J3WX5ThUxk+0dZ8M7yIDxxt/zkRbV79Ms+UESCYc8L8OSG59WHEh5TQ0gLeAGdGf0f
-         GF9Mxnu8NgBwFX3P9RWhBGuKoRRRXd5fdCmPKeYEGbZg6NXAOmTSLAIPkUUKPp6iACGN
-         7S+Sit3X8kkyWQ+fsDMk83l4JSm3+5FN2F7su6Eze50gcizrfVC1fC2P5AFHfLaAqt8Y
-         JEYH0GY35M3VPrJA1qAha57ynUBoHAT2cYYRojHRweuLoVavM9/aQmA95Lj7OF/3uZ+D
-         nVSju9HY9WJ+I777IJl2od+RaYYgDHiFVR/6UtnapRuvZg+lB7ZcvNOrb+EWKOpSU+1j
-         jSUA==
-X-Gm-Message-State: APuU4Z+iPO6dR4yf//YWnahtSPquwdTgm9XkoEMa8HThZSYcp1HGYBJl
-	jlxbWqt3zlcgu7rwTUGAFO73sVHEpG763o0j8rlH3wyIw/P/fcG9oPy4whTFYJevy0KkQpfSz/k
-	arEPmcJvTBUur2Pg4DP2c+bReb7efe57EtjAO
-X-Gm-Gg: AYBFou1+PW3/QRhGx97tSIiM9doJeYr6X/spCyx805LnMP5qCuU8HYPHWP+HIwzQM/w
-	6rff+GubRnV3XYRdnoZ+Qq/gnA8rAAktkJ/G9EWowR8tJEARWroWnwzfdVdwL9z3w0x4Bfo6GPl
-	lx6VOaY7k1ClPVGYAnW+4CRFnr+xCiKOsrEePIitvtKI1p/PaWIJ1kyIxVTSCJHMT/Mo9QMH/w3
-	5bWhqL/LmvF2+KOeccxYE3Y2OSPInpOYcXkl8ffqM5eRv0jbjMKO/UClFyfVOJ7/Wh+Nf8dVZ2C
-	xhN+K4BtiU7DC/FgnJxfFA9KzQIVoHckYiDk0sv3CKeTyO2diL5IqwXKsh4TRZmUwElfSYwGlpt
-	Pd31rry9rHFrzahK9FrNQqIz62QCckMvIHFZ+U193mpMlj7vmN9RrI4bTKA9sELUiJAnS1a0=
-X-Received: by 2002:a05:620a:1b89:b0:949:7502:697 with SMTP id
- af79cd13be357-9497502087bmr1030338685a.63.1794883970561; Mon, 16 Nov 2026
- 18:52:50 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 971F8606A31C;
+	Tue, 17 Nov 2026 02:56:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 971F8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
+X-QQ-mid: zesmtpsz7t1794884128td16f0902
+X-QQ-Originating-IP: tKITFu9fk6+0Q5Dh8wVGUM32Tg2lPtWsb2gOC8zAMLo=
+Received: from localhost ( [203.174.112.180])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Tue, 17 Nov 2026 10:55:26 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 1497016459313032982
+EX-QQ-RecipientCnt: 10
+Date: Tue, 17 Nov 2026 10:55:26 +0800
+From: Yibo Dong <dong100@mucse.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	yaojun@mucse.com
+Subject: Re: [PATCH net-next v2 2/5] net: rnpgbe: Report link settings
+ through ethtool
+Message-ID: <72676011073A7040+20261117025526.GA214154@nic-Precision-5820-Tower>
+References: <BD205A7832D36E7D+20261116030917.1329989-1-dong100@mucse.com>
+ <66AFF2810AB647C8+20261116031020.1330219-1-dong100@mucse.com>
+ <d7351f56-d4fa-4ba0-a0c6-c7bdf7aac460@lunn.ch>
+ <2207C8DCDD49F5EE+20261116044737.GA1342898@nic-Precision-5820-Tower>
+ <cf674063-6c6f-43f6-a18a-d7ed5bef8a5c@lunn.ch>
+ <236B4E2337BC768E+20261117014902.GA205295@nic-Precision-5820-Tower>
+ <2ddca58c-608f-4a0f-a26d-df92c2c34c69@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,437 +66,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261103041134.33310-1-physicalmtea@gmail.com>
- <20261103041134.33310-6-physicalmtea@gmail.com> <avYF8fZqDhizgpN7@devvm29614.prn0.facebook.com>
-In-Reply-To: <avYF8fZqDhizgpN7@devvm29614.prn0.facebook.com>
-From: Jia Jia <physicalmtea@gmail.com>
-Date: Tue, 17 Nov 2026 10:52:13 +0800
-X-Gm-Features: AclHuK9nxC3MJujdBNPcQbeswYQRZoCydaZv79v1XYlRN3G5tbfjWjS8yWNku_A
-Message-ID: <CAJwVaMKe8ntHu0dWUO0EirdtzQAQu=wH60sYKThMOZrtPUysXQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v5 5/5] vsock/virtio: defer native RX readiness
- notifications until batch unlock
-To: Bobby Eshleman <bobbyeshleman@gmail.com>
-Cc: netdev@vger.kernel.org, stefanha@redhat.com, sgarzare@redhat.com, 
-	mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com, 
-	xuanzhuo@linux.alibaba.com, davem@davemloft.net, edumazet@google.com, 
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kvm@vger.kernel.org, 
-	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2ddca58c-608f-4a0f-a26d-df92c2c34c69@lunn.ch>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: NF3tN0JyXxqWu7NjtIcYXK8bcIOdmVHhxYIC0zpg+h8MhENMz3GA6d/e
+	ISSuw6hgkhILUTfdAeIosI6AOMwmwAjbLsyyJpaDJWt4LS5xhzg+aBUMSygj6ECVSVIoEtw
+	Ni2zIpGBMHZtftRe2poBPivrArlvSZ/LirzXMNIiLdzf+KRF9gfp4zSoOly3p/4ZW3aAgk4
+	j3U9UPketSdGy6FZbxj1oTtiSLEVci2sdgSsu66AsA47cfNzD5zNVnb55sT3yfKqo59KPPB
+	gqALQgPANDTWMWwp4Lj3DztnGvpVq9Irw5I7rE+l2PliEzVZHNjUEJNjWZwQ5l32BKNyzj8
+	JBUglHSODeUv7E1ygJDV4yXjL92xUMR2mRdnN8wOjTIg8zaarXw5nEXZqJukA9b3ulVtcLH
+	52zP2YRFaL5xd59OBeTrt6Z+5MnumVgD4UO3w6SHALBgfIzjaKZLyajgtog7OWksc7oTXSx
+	sDUA0DDV1LbpPeqkFsORAor1iMZuREGSelbw3iuPlMyXntlpMKMkHoyrIQDEW8rEY6ztMv+
+	9ld6ghfIlPXwFGGTcDS8WtZeX8jM6xd55dKF+pJGMTzsshmF/igdZQ6lZPl+fVp6VIsF6c5
+	ohsLfEcUPomfEZlfss3/pkdwZGh/87yAcpdI3AULlEq5dVGgvVq6bTHgw82MlwfoNpFT/pI
+	mesG0NMkN7jhqmfxgn/5NqsWP7GrkDuuUQCwz9nUUHCKtktNAgdPToJRiCmtO5UoL0XKQ0w
+	bSPS+XPOvyU097BqMMVvlW6Kqw/n9359PxwOj5ZFfGbinzakc3VHMTWul4e1RaNtBu44Tr9
+	oNWKo8rPoN2DiW1TmKIJb/suwbS/Cm53BP7atjrJfkfl9cRLYIPegfaaYwSZuuIYSpSpOYQ
+	/VvxIglYQlybbspkKVBrBvNFk8wgZaafOLMAp4yYaJZEL6xGIgSNFeL8Hlv+aSJYwEd1rCA
+	s+Tkzcp/h+5AC2bAmK1KCCB40yIHapufqr/S9J/9D5wtBNMw/bNf5hiKZaVKZXAz+/gnybh
+	/Kosc41Elp0ViYpW1iFa2dkEG44WuOX1XPjObQwNNyKKh7isATQ7Cn6QnpX+g=
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+X-QQ-RECHKSPAM: 0
 
->
-> On Tue, Nov 03, 2026 at 12:11:34PM +0800, Jia Jia wrote:
-> > An RX batch can make a socket readable while the RX worker retains its
-> > socket lock. Waking a blocked reader before release_sock() merely makes it
-> > wait for the same lock.
-> >
-> > P4 coalesces native sk_write_space notifications while retaining their
-> > under-lock callback context. This patch also coalesces native sk_data_ready
-> > notifications and moves both callbacks after release_sock(), so awakened
-> > tasks do not immediately block on the RX worker's socket lock.
-> >
-> > Save the native data-ready callback before the AF_VSOCK socket is
-> > published. Batch only while the native protocol and both native readiness
-> > callbacks are present and no psock is observed under sk_callback_lock. A
-> > socket with a replacement callback continues down the existing per-packet
-> > path.
-> >
-> > At batch finish, deliver write-space before data-ready and hold the
-> > connected lookup reference until both callbacks return. Packets admitted on
-> > the native path continue to use their saved native callbacks. Loading a
-> > current sockmap callback at finish would not serialize its invocation
-> > against sockmap teardown and could lose the native wakeup or invoke a stale
-> > data-ready wrapper.
-> >
-> > Extract the data-ready predicate from vsock_data_ready() so the deferred
-> > and regular paths share the low-watermark test.
-> >
-> > Performance:
-> >
-> > P4-P5 contribution (P1-P3 vs P1-P5):
-> >
-> > End-to-end RX throughput (64K Guest recv() size, SO_RCVLOWAT=1; Gbit/s):
-> >
-> >   payload  P1-P3 RX  P1-P5 RX  throughput change (95% CI)
-> >            (Gbit/s)      (Gbit/s)
-> >   64B        0.2449       0.2463    +0.55% [-3.86%, +5.17%]
-> >   256B       0.9649       0.9931    +2.93% [+0.83%, +5.07%]
-> >   512B       1.8205       1.8260    +0.30% [-4.27%, +5.10%]
-> >   1K         3.3431       3.3420    -0.03% [-2.15%, +2.12%]
-> >   4K         5.6541       5.8428    +3.34% [+1.10%, +5.63%]
-> >   8K         5.4280       5.3364    -1.69% [-15.55%, +14.46%]
-> >   16K        5.5935       5.6701    +1.37% [-1.41%, +4.23%]
-> >   64K        5.6917       5.8351    +2.52% [-0.20%, +5.31%]
-> >
-> > Fixed-syscall stress test (receiver recv() size = sender write size;
-> > Gbit/s):
-> >
-> >   payload P1-P3 RX P1-P5 RX throughput change (95% CI)
-> >   recv() calls are listed as P1-P3/P1-P5.
-> >   64B      0.2553   0.2575   +0.87% [-3.68%, +5.63%]
-> >            1048577/1048577
-> >   256B     0.9069   0.9183   +1.26% [-3.96%, +6.76%]
-> >            1048577/1048577
-> >   512B     1.6048   1.6459   +2.56% [+0.98%, +4.18%]
-> >            1048577/1048577
-> >   1K       2.6939   2.7357   +1.55% [-1.35%, +4.54%]
-> >            1048577/1048577
-> >   4K       4.9168   4.9678   +1.04% [-1.84%, +4.00%]
-> >            524965/525283
-> >   8K       5.1476   5.2005   +1.03% [-4.02%, +6.34%]
-> >            262926/263156
-> >   16K      5.5964   5.6609   +1.15% [-2.86%, +5.33%]
-> >            131311/131475
-> >   64K      5.9439   5.9073   -0.62% [-3.00%, +1.83%]
-> >            32875/32937
-> >
-> > Guest CPU1 aggregate cycles per received byte
-> > (fixed 64K receiver, with perf):
-> >
-> >   payload     P1-P3     P1-P5  change (95% CI)
-> >   64B        60.281    58.258  -3.36% [-8.74%, +2.35%]
-> >   256B       14.242    13.648  -4.17% [-9.81%, +1.82%]
-> >   512B        7.547     7.211  -4.45% [-9.73%, +1.13%]
-> >   1K          3.987     3.853  -3.35% [-8.52%, +2.12%]
-> >   4K          1.983     1.880  -5.17% [-7.97%, -2.27%]
-> >   8K          1.665     1.620  -2.75% [-9.03%, +3.96%]
-> >   16K         1.409     1.346  -4.52% [-10.94%, +2.37%]
-> >   64K         1.322     1.281  -3.11% [-6.49%, +0.38%]
-> >
-> > Full-series cycles/B (baseline vs P1-P5):
-> >
-> > Guest CPU1 aggregate cycles per received byte
-> > (fixed 64K receiver, with perf):
-> >
-> >   payload  baseline     P1-P5  change (95% CI)
-> >   64B        65.282    57.843  -11.40% [-13.77%, -8.95%]
-> >   256B       14.710    13.813   -6.10% [ -7.89%, -4.28%]
-> >   512B        7.709     7.188   -6.75% [ -8.79%, -4.66%]
-> >   1K          4.075     3.862   -5.23% [ -6.80%, -3.63%]
-> >   4K          2.034     1.887   -7.21% [ -8.67%, -5.72%]
-> >   8K          1.664     1.568   -5.78% [ -7.83%, -3.69%]
-> >   16K         1.450     1.385   -4.48% [ -6.08%, -2.86%]
-> >   64K         1.338     1.317   -1.51% [ -3.21%, +0.22%]
-> >
-> > Signed-off-by: Jia Jia <physicalmtea@gmail.com>
-> > ---
-> >  include/linux/virtio_vsock.h            |  5 ++-
-> >  include/net/af_vsock.h                  |  9 +++--
-> >  net/vmw_vsock/af_vsock.c                | 27 ++++++++++---
-> >  net/vmw_vsock/virtio_transport_common.c | 52 +++++++++++++++----------
-> >  4 files changed, 62 insertions(+), 31 deletions(-)
-> >
-> > Tested:
-> >   Concurrent map-entry attach/detach during sequenced RX and duplex traffic
-> >   passed on baseline, P1-P3, P1-P4, and P1-P5. The active SK_PASS case also
-> >   passed on each state, with 200,000 verdict invocations. The concurrent
-> >   SK_PASS attach/detach case completed 1,000 insert/remove pairs per state;
-> >   its 10,000-record suffix after the final detach was verified. No kernel
-> >   diagnostic markers were found in successful runs.
-> >
-> >   Sockmap may replace sk_data_ready and sk_write_space. With non-native
-> >   callbacks, native RX batching must be declined and the ordinary per-packet
-> >   receive path used. The active SK_PASS case covers the condition expected to
-> >   trigger this fallback. The test does not trace each packet's internal
-> >   branch, so it verifies the fallback scenario without asserting that every
-> >   packet took that branch.
-> >
-> >   The duplex cases exercised write-space backpressure: the guest's nonblocking
-> >   send reached EAGAIN while the host was not reading. After the host began
-> >   draining data, the guest observed POLLOUT and resumed sending. Counts below
-> >   are observed EAGAIN/POLLOUT recoveries.
-> >
-> >     Test / result                              baseline   P1-P3   P1-P4   P1-P5
-> >     No-verdict RX churn: attach/detach pairs     433493  455507  430985  380351
-> >     No-verdict duplex: attach/detach pairs       229793  212410  214198  148755
-> >     No-verdict duplex: EAGAIN/POLLOUT            365/365  266/266  264/264  443/443
-> >     Active SK_PASS: EAGAIN/POLLOUT              2548/2548 3013/3013 3093/3093 4208/4208
-> >     SK_PASS attach/detach: intervals with verdict progress 705 616 631 692
-> >     SK_PASS attach/detach: verdict invocations  99747   99894   97475   82409
-> >     Post-detach SK_PASS suffix                 10,000/10,000 records per run
->
-> I'd probably shorten the long description.
->
+On Tue, Nov 17, 2026 at 02:54:45AM +0100, Andrew Lunn wrote:
+> On Tue, Nov 17, 2026 at 09:49:02AM +0800, Yibo Dong wrote:
+> > On Mon, Nov 16, 2026 at 02:18:28PM +0100, Andrew Lunn wrote:
+> > > > link, speed, duplex and mdix are updated asynchronously by
+> > > > the mailbox event handler, outside RTNL. link_lock protects these updates
+> > > > and provides a consistent snapshot in the getter.
+> > > 
+> > > O.K, thanks for the explanation.
+> > > 
+> > > I removed too much context, so i cannot see here. What about
+> > > lp_advertising? That also comes from the firmware, reported on link up
+> > > when autoneg completes.
+> > > 
+> > The firmware manages autonegotiation and reports the negotiated speed
+> > and duplex through mailbox link events. However, the current mailbox
+> > interface does not expose the link partner's advertisement bitmap.
+> > 
+> > Therefore, lp_advertising is currently left zero to indicate that this
+> > information is unknown to the driver.
+> > 
+> > If reporting lp_advertising is must, we would need to add a new
+> > firmware mailbox command to retrieve the link partner's advertisement,
+> > or add lp_advertising to link-event mbx alongwith link, speed and
+> > duplex.
+> 
+> It is not a must, but it is useful.
+> 
+> Or you can just throw away your firmware, expose the MDIO bus, and let
+> phylink drive the hardware. Less code, less bugs, more functionality
+> for free.
+The GMAC provides MDIO register access, so exposing an MDIO bus is
+technically possible. However, the firmware currently manages the PHY,
+and its interface does not provide a PHY ownership handover mechanism.
+Introducing host-side PHY management would require coordinated firmware
+and driver changes to avoid independently configuring the same PHY.
 
-Sure, I'll shorten it.
+In addition, on this SoC, the firmware configures MDI/MDI-X through
+AXI-mapped control registers driving the PHY's pi_force_mdix_en and
+pi_force_mdix_mode inputs. This control path is outside the PHY's MDIO
+register interface.
 
-> I wonder if the sockmap tests in the bpf selftests cover some of these
-> scenarios and coulde be extended for vsock?
+The firmware also supports link management before the host driver is
+loaded and while the host is shut down, including wake-up handling.
+On OCP platforms, it supports preserving the PHY link across driver
+reloads and host shutdown. These capabilities are already implemented
+in firmware, although driver support for them is not included in this
+series. Any future ownership handover would need to preserve them.
+
+Would it be acceptable for this series to retain the firmware-managed
+PHY design without registering an MDIO bus, and leave lp_advertising
+zero for now? If a mailbox command is added to expose the link partner's
+advertisement, we can populate lp_advertising in a follow-up patch.
+> 
+> 	Andrew
 >
-
-I had a look, and they do not seem to cover this scenario. I have not
-worked on the bpf selftests before, but I can try to add these tests as
-a follow-up.
-
-> >
-> > diff --git a/include/linux/virtio_vsock.h b/include/linux/virtio_vsock.h
-> > index bf28e8e32e280..2aa0e81e655d5 100644
-> > --- a/include/linux/virtio_vsock.h
-> > +++ b/include/linux/virtio_vsock.h
-> > @@ -287,14 +287,15 @@ void virtio_transport_recv_pkt(struct virtio_transport *t,
-> >   * Initialize a batch to zero before use. A non-empty batch owns @sk's socket
-> >   * lock and the reference returned by vsock_find_connected_socket_net(). The
-> >   * caller retains both until it calls virtio_transport_rx_batch_finish(). An
-> > - * empty batch owns neither. A pending native write-space notification belongs
-> > - * to the lock holder and is delivered by virtio_transport_rx_batch_finish().
-> > + * empty batch owns neither. Pending native readiness notifications belong to
-> > + * the lock holder and are delivered by virtio_transport_rx_batch_finish().
-> >   */
-> >  struct virtio_transport_rx_batch {
-> >       struct sock *sk;
-> >       unsigned int pkts;
-> >       size_t bytes;
-> >       bool write_space_pending;
-> > +     bool data_ready_pending;
-> >  };
-> >
-> >  static inline bool
-> > diff --git a/include/net/af_vsock.h b/include/net/af_vsock.h
-> > index b76ab565ea58b..57ee545fdb496 100644
-> > --- a/include/net/af_vsock.h
-> > +++ b/include/net/af_vsock.h
-> > @@ -64,9 +64,10 @@ struct vsock_sock {
-> >       bool sent_request;
-> >       bool ignore_connecting_rst;
-> >       /*
-> > -      * Captured before the socket is published. This identifies AF_VSOCK's
-> > -      * native write-space callback after a consumer has replaced it.
-> > +      * Captured before the socket is published. These identify AF_VSOCK's
-> > +      * native readiness callbacks after a consumer has replaced them.
-> >        */
-> > +     void (*native_data_ready)(struct sock *sk);
-> >       void (*native_write_space)(struct sock *sk);
-> >
-> >       /* Protected by lock_sock(sk) */
-> > @@ -83,7 +84,9 @@ s64 vsock_stream_has_data(struct vsock_sock *vsk);
-> >  s64 vsock_stream_has_space(struct vsock_sock *vsk);
-> >  struct sock *vsock_create_connected(struct sock *parent);
-> >  void vsock_data_ready(struct sock *sk);
-> > -bool vsock_write_space_is_native(const struct sock *sk);
-> > +bool vsock_data_ready_pending(struct sock *sk);
-> > +bool vsock_callbacks_are_native(const struct sock *sk);
-> > +void vsock_call_native_data_ready(struct sock *sk);
-> >  void vsock_call_native_write_space(struct sock *sk);
-> >
-> >  /**** TRANSPORT ****/
-> > diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
-> > index e39567990539f..0617073e99ed8 100644
-> > --- a/net/vmw_vsock/af_vsock.c
-> > +++ b/net/vmw_vsock/af_vsock.c
-> > @@ -958,6 +958,7 @@ static struct sock *__vsock_create(struct net *net,
-> >               sk->sk_type = type;
-> >
-> >       vsk = vsock_sk(sk);
-> > +     vsk->native_data_ready = sk->sk_data_ready;
-> >       vsk->native_write_space = sk->sk_write_space;
-> >       vsock_addr_init(&vsk->local_addr, VMADDR_CID_ANY, VMADDR_PORT_ANY);
-> >       vsock_addr_init(&vsk->remote_addr, VMADDR_CID_ANY, VMADDR_PORT_ANY);
-> > @@ -1113,24 +1114,38 @@ s64 vsock_stream_has_space(struct vsock_sock *vsk)
-> >  }
-> >  EXPORT_SYMBOL_GPL(vsock_stream_has_space);
-> >
-> > -void vsock_data_ready(struct sock *sk)
-> > +bool vsock_data_ready_pending(struct sock *sk)
-> >  {
-> >       struct vsock_sock *vsk = vsock_sk(sk);
-> >
-> > -     if (vsock_stream_has_data(vsk) >= sk->sk_rcvlowat ||
-> > -         sock_flag(sk, SOCK_DONE))
-> > +     return vsock_stream_has_data(vsk) >= sk->sk_rcvlowat ||
-> > +            sock_flag(sk, SOCK_DONE);
-> > +}
-> > +EXPORT_SYMBOL_GPL(vsock_data_ready_pending);
-> > +
-> > +void vsock_data_ready(struct sock *sk)
-> > +{
-> > +     if (vsock_data_ready_pending(sk))
-> >               sk->sk_data_ready(sk);
-> >  }
-> >  EXPORT_SYMBOL_GPL(vsock_data_ready);
-> >
-> > -bool vsock_write_space_is_native(const struct sock *sk)
-> > +bool vsock_callbacks_are_native(const struct sock *sk)
-> >  {
-> >       const struct vsock_sock *vsk = vsock_sk(sk);
-> >
-> > -     return READ_ONCE(sk->sk_write_space) ==
-> > +     return READ_ONCE(sk->sk_data_ready) ==
-> > +            READ_ONCE(vsk->native_data_ready) &&
-> > +            READ_ONCE(sk->sk_write_space) ==
-> >              READ_ONCE(vsk->native_write_space);
-> >  }
-> > -EXPORT_SYMBOL_GPL(vsock_write_space_is_native);
-> > +EXPORT_SYMBOL_GPL(vsock_callbacks_are_native);
-> > +
-> > +void vsock_call_native_data_ready(struct sock *sk)
-> > +{
-> > +     vsock_sk(sk)->native_data_ready(sk);
-> > +}
-> > +EXPORT_SYMBOL_GPL(vsock_call_native_data_ready);
-> >
-> >  void vsock_call_native_write_space(struct sock *sk)
-> >  {
-> > diff --git a/net/vmw_vsock/virtio_transport_common.c b/net/vmw_vsock/virtio_transport_common.c
-> > index af26344678e41..9d02e81042c21 100644
-> > --- a/net/vmw_vsock/virtio_transport_common.c
-> > +++ b/net/vmw_vsock/virtio_transport_common.c
-> > @@ -1598,7 +1598,8 @@ virtio_transport_recv_enqueue(struct vsock_sock *vsk,
-> >
-> >  static int
-> >  virtio_transport_recv_connected(struct sock *sk,
-> > -                             struct sk_buff *skb)
-> > +                             struct sk_buff *skb,
-> > +                             bool *data_ready_pending)
-> >  {
-> >       struct virtio_vsock_hdr *hdr = virtio_vsock_hdr(skb);
-> >       struct vsock_sock *vsk = vsock_sk(sk);
-> > @@ -1617,7 +1618,12 @@ virtio_transport_recv_connected(struct sock *sk,
-> >                       vsock_remove_sock(vsk);
-> >                       break;
-> >               }
-> > -             vsock_data_ready(sk);
-> > +             if (data_ready_pending) {
-> > +                     if (!*data_ready_pending && vsock_data_ready_pending(sk))
-> > +                             *data_ready_pending = true;
-> > +             } else {
-> > +                     vsock_data_ready(sk);
-> > +             }
-> >               return err;
-> >       case VIRTIO_VSOCK_OP_CREDIT_REQUEST:
-> >               virtio_transport_send_credit_update(vsk);
-> > @@ -1874,20 +1880,19 @@ __virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
-> >               return false;
-> >
-> >       /*
-> > -      * Sockmap can replace sk_prot or sk_write_space, and publish a psock,
-> > -      * without the socket lock. Coalescing is safe only for the native
-> > -      * write-space callback, so a boundary that sees a replacement returns to
-> > -      * the existing per-packet path.
-> > +      * Sockmap can replace sk_prot or either readiness callback, and publish a
-> > +      * psock, without the socket lock. Coalescing is safe only for native
-> > +      * callbacks, so a boundary that sees a replacement returns to the existing
-> > +      * per-packet path.
-> >        */
-> >       return READ_ONCE(sk->sk_prot) == sk->sk_prot_creator &&
-> > -            vsock_write_space_is_native(sk) &&
-> > +            vsock_callbacks_are_native(sk) &&
->
-> It'd be nice to avoid inter-patch churn.
->
-
-Sure. My earlier understanding of this part across P4/P5 wasn't quite
-accurate; I'll fold the final callback check into the earlier patch.
-
-> >              !virtio_transport_sock_has_psock(sk);
-> >  }
-> >
-> >  /*
-> > - * Sockmap teardown restores the native protocol and write-space callback
-> > - * under sk_callback_lock. Serialize each packet admission check with those
-> > - * updates.
-> > + * Sockmap teardown restores the native protocol and callbacks under
-> > + * sk_callback_lock. Serialize each packet admission check with those updates.
-> >   */
-> >  static bool
-> >  virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
-> > @@ -1905,9 +1910,8 @@ virtio_transport_rx_batch_can_receive(struct virtio_transport *t,
-> >  /*
-> >   * The caller holds sk's socket lock. If @batchable is non-NULL, update it
-> >   * after processing @skb to say whether a native STREAM/RW batch can continue.
-> > - * When @batch is non-NULL, record a native write-space notification for batch
-> > - * finish. A writer cannot consume the updated credit until this lock is
-> > - * released.
-> > + * When @batch is non-NULL, record native readiness notifications for batch
-> > + * finish. A reader or writer cannot make progress until this lock is released.
-> >   */
-> >  static void
-> >  virtio_transport_recv_pkt_locked(struct virtio_transport *t,
-> > @@ -1917,6 +1921,7 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
-> >  {
-> >       struct virtio_vsock_hdr *hdr = virtio_vsock_hdr(skb);
-> >       struct vsock_sock *vsk = vsock_sk(sk);
-> > +     bool *data_ready_pending;
-> >       struct sockaddr_vm src;
-> >       bool space_available;
-> >
-> > @@ -1926,6 +1931,8 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
-> >       if (batchable)
-> >               *batchable = false;
-> >
-> > +     data_ready_pending = batch ? &batch->data_ready_pending : NULL;
-> > +
-> >       /*
-> >        * The socket may have been closed or reassigned after lookup but before
-> >        * its socket lock was acquired. Listener sockets have no assigned
-> > @@ -1962,7 +1969,7 @@ virtio_transport_recv_pkt_locked(struct virtio_transport *t,
-> >               kfree_skb(skb);
-> >               break;
-> >       case TCP_ESTABLISHED:
-> > -             virtio_transport_recv_connected(sk, skb);
-> > +             virtio_transport_recv_connected(sk, skb, data_ready_pending);
-> >               break;
-> >       case TCP_CLOSING:
-> >               virtio_transport_recv_disconnecting(sk, skb);
-> > @@ -2036,32 +2043,37 @@ EXPORT_SYMBOL_GPL(virtio_transport_recv_pkt);
-> >
-> >  /*
-> >   * Release an active RX batch. A non-empty batch holds the socket lock and the
-> > - * reference returned by vsock_find_connected_socket_net(). Deliver any
-> > - * deferred native write-space notification while holding the lock, preserving
-> > - * the callback context of the regular receive path. An empty batch holds
-> > - * neither.
-> > + * reference returned by vsock_find_connected_socket_net(). Release the lock,
-> > + * deliver deferred native write-space and data-ready notifications in that
-> > + * order, then drop the reference. An empty batch holds neither.
-> >   */
-> >  void virtio_transport_rx_batch_finish(struct virtio_transport_rx_batch *batch)
-> >  {
-> >       bool write_space_pending = batch->write_space_pending;
-> > +     bool data_ready_pending = batch->data_ready_pending;
-> >       struct sock *sk = batch->sk;
-> >
-> >       batch->sk = NULL;
-> >       batch->pkts = 0;
-> >       batch->bytes = 0;
-> >       batch->write_space_pending = false;
-> > +     batch->data_ready_pending = false;
-> >
-> >       if (!sk)
-> >               return;
-> >
-> > +     release_sock(sk);
-> > +
-> >       /*
-> > -      * The packet was admitted with the native callback. Do not reload a current
-> > +      * Packets were admitted with native callbacks. Do not reload a current
-> >        * callback here: sockmap can replace or remove its wrapper independently.
-> >        */
-> >       if (write_space_pending)
-> >               vsock_call_native_write_space(sk);
-> >
-> > -     release_sock(sk);
-> > +     if (data_ready_pending)
-> > +             vsock_call_native_data_ready(sk);
-> > +
-> >       sock_put(sk);
-> >  }
-> >  EXPORT_SYMBOL_GPL(virtio_transport_rx_batch_finish);
-> > --
-> > 2.53.0
->
-> I think all of this goes away if we support batching in the read_skb()
-> call? That is how TCP does it, and they coalesce the sk_data_ready()
-> call until after processing a batch I think. This way they don't have to
-> drop out if the callback changes.
->
-> I think this is probably okay for this series, but long term I wouldn't
-> mind seeing the data ready ptr stuff get reverted, and read_skb()
-> batching + coalesced sk_data_ready implemented instead.
->
-
-Thanks for pointing out this direction. If we can avoid saving the
-native callback pointers altogether, that would be much better. I'll
-focus on getting the current series right first, and then look into the
-TCP implementation as a follow-up.
-
-> Best,
-> Bobby
+Thanks for your feedback.
