@@ -1,52 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=12.32.117.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794926732;
-	b=a4ZfYI7CXhMKSHHefbA2SmFwUzLhqD3gR4N3JtRMp1uFRIzj/w1Llt9o/dlxAMVZY2a4
-	 CKg/g+FXkiHvgQZzPif60aREqae1afH3wH2+ZRcUtuSx+sxFBvblszEwjbo1G8nlolqeG
-	 0d10uaKjGM4DZeEXP7N+Zy83A1GbLBd0MZHEitFDewa4eUPJuNCeMcyaw+IhL9l103Ap/
-	 LLqn2uPDRH8keAYm1JJyb4FvJ1R8V3VDgTJULcBH1lUJi6zCXfZogTOM29Od7ueiBbXMs
-	 /0jIuzQNKAy4Ny0PHkPd4DxgD5OkNxqvhxmWhWwqTP6u80RBf+MAKit+yOJvdq+O9bA==
+	t=1794926737;
+	b=VDXhCGxtWhcKx8vcjgrg+jE6zN0zEoa5PGllj5BTCPATT+6c5z7DnhIXO9aLRtfB0oKN
+	 1mjP/Y/P7YB+eQ9uQPrVuBQe6gNbSI18XmZhoKSq8/dDamoMvnXDYixYaZCcOCdR53cu5
+	 L2yU7Ipe6YTo34ySmwsWfo67K2LshrYNTUqevGO793aGKjWkqjqLjBseW5PCQbv4LHYzO
+	 k8aGcSasCG6YfJyKsCA5vUPVteJCE58b5pBn8GGZU66SFbEIPDxYFkWvpWThy/Ro31Y9t
+	 2FCkWnhkLGkpAp2+wy+dclbzS1hPLZki2xufxUGSesGFuKHGwL9gcaVyvgzeyR22Fkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794926732;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=NQlvSZfMXJHll3vKapvCEus7v8S4RkfYXh8ZBJWOLow=;
-	b=QmzgGAXLEsidO+hr733MUv6GPWI25ty9rNa32C4lrxqKrSKkYJ71hvZKzzlYSaRD2Eoa
-	 MK5CE6DvWf4PkIGG0JD1GqYd5mNpHgZDzqgFFJOvFU9cI4LGNjFJLHVMpgeob9OuKxTpv
-	 UZk8sebQlJig/vMspQcivSpjeS698K+jELu31MLmth6ngMkryiUwgNuqhPK4Hp6mAOpH0
-	 HmGszh3lcpn5oEtMRJk1M1pMyaFOpzAYKida4PCKBZ+ac4Yh2d50daRgKPdM7HyY8TRDY
-	 tkdx6T21u9xSg1U+AgkqHgeSxwDymnFq4ataQgwRzhKqbwoUNW44WBJWxKkanGcPtvQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794926737;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:X-HM-Spam-Status:
+	 DKIM-Signature;
+	bh=AhzMQ2E3g/vRFX15pwJIjwTP95X1ccIWcj1om489vX4=;
+	b=dFs401V+1gjx6T86+xuvG6rXTwKTxejnRAWe4CluR/5hLk9Bn0E9Bf6Z8ojKJym14LOH
+	 RFNJJZ0BXUhWuPy7ybqqPLaHQqMtlgY/q9tEusN/+iqDnh8FJr3447DujbkhxOfh9kHiN
+	 esQ24DQkWRrBhVzJxxfhDG4/6g6Wrv2OY15zw18f+wPWRvyA74T3Nnj1wWe1Up1RvrD+j
+	 Fro+P+A6Pcrq/68yGJGSgQHAPFFFvulevaT5BsY59xa/ZdXhvlpAUKFxAOJ0efYh44jAG
+	 OAOSnA0JgWua5CnqIi/dyn9JgNEaG14niqiUZSqWRVDBZxZHMgg+YprWHbsaeeaLBzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chelsio.com;
-	spf=pass smtp.mailfrom=chelsio.com;
-	arc=none smtp.remote-ip=12.32.117.8
-Received: from stargate.chelsio.com (unknown [12.32.117.8])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=mail.sdu.edu.cn;
+	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
+	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eWWleW+P;
+	arc=none smtp.remote-ip=101.71.155.101
+Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AABB5606A331
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:45:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AABB5606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=chelsio.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chelsio.com
-Received: from localhost ([10.193.191.19])
-	by stargate.chelsio.com (8.14.7/8.14.7) with ESMTP id 6AHEjDRq013393;
-	Tue, 17 Nov 2026 06:45:13 -0800
-Date: Tue, 17 Nov 2026 20:15:07 +0530
-From: Potnuri Bharat Teja <bharat@chelsio.com>
-To: Simon Horman <horms@kernel.org>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "davem@davemloft.net" <davem@davemloft.net>,
-        "kuba@kernel.org" <kuba@kernel.org>,
-        "edumazet@google.com" <edumazet@google.com>,
-        "pabeni@redhat.com" <pabeni@redhat.com>,
-        "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-        "Harshita V. Rajput" <harshitha.vr@chelsio.com>
-Subject: Re: [PATCH net-next v5 REPOST 03/12] cxgb4: add T7 hardware
- management support
-Message-ID: <avxoc4fRV6sxEuh/@chelsio.com>
-References: <20261105131549.547554-1-bharat@chelsio.com>
- <20261105131549.547554-4-bharat@chelsio.com>
- <20261111155034.GF18859@horms.kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 232BC606A330;
+	Tue, 17 Nov 2026 14:45:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 232BC606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eWWleW+P
+Received: from lgs.. (unknown [101.76.249.61])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 55020e792;
+	Tue, 17 Nov 2026 22:45:20 +0800 (GMT+08:00)
+From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+To: Boon Khai Ng <boon.khai.ng@altera.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Michal Simek <michal.simek@amd.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	stable@vger.kernel.org
+Subject: [PATCH net 2/2] net: emaclite: Fix potential use-after-free during removal
+Date: Tue, 17 Nov 2026 22:45:18 +0800
+Message-ID: <20261117-571e631490-net-2@mail.sdu.edu.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117-571e631490-net-0@mail.sdu.edu.cn>
+References: <20261117-571e631490-net-0@mail.sdu.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,133 +64,58 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261111155034.GF18859@horms.kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0aa1e9f8329d03a1kunm6b1ed508156203
+X-HM-MType: 10
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZT05MVkoZT0tKSkIfHkweS1YeHw
+	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
+	NMVUpLS1VLWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=eWWleW+Prxyyl6CPBnxsU9TR71Ot0NZcypj/qxve1DKhKKW2H/JHeYZLe7vD/CyQkXjFnOn7YAoYMQIpTpQbD7k2QrQPX5lkhA4luIo5z1ogKSC+1sDVt+fJ3cCvlsHs6n/0W7c3eEKbO0vFLJYwItp+K0Jaf4JyCxPnF4nVwTw=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
+	bh=AhzMQ2E3g/vRFX15pwJIjwTP95X1ccIWcj1om489vX4=;
+	h=date:mime-version:subject:message-id:from;
 
-On Wednesday, November 11/11/26, 2026 at 21:20:34 +0530, Simon Horman wrote:
-> On Thu, Nov 05, 2026 at 08:15:40AM -0500, Potnuri Bharat Teja wrote:
-> > Extend the cxgb4 hardware management layer to support T7 adapters.
-> > 
-> > Add T7 handling to hardware resource and topology discovery.  The TP
-> > load balancer mode and the firmware supplied TP channel map are read
-> > into adapter_params, and t4_get_mps_bg_map() and t4_get_tp_ch_map()
-> > account for the T7 channel layout.  The load balancer mode distributes
-> > the four TP channels across the active ports as four ports of one
-> > channel, two ports of two channels, or one port of four channels.
-> > 
-> > t4_get_chip_type() moves from cxgb4_main.c into t4_hw.c so that chip
-> > identification lives with the rest of the hardware layer, and learns
-> > the T7 chip version.
-> > 
-> > Add T7 flash support.  The flash layout is described by a table
-> > indexed by flash location rather than by fixed FLASH_*_START_SEC and
-> > FLASH_*_NSECS constants, with t4_flash_location_start_sec(),
-> > t4_flash_location_nsecs(), t4_flash_location_start() and
-> > t4_flash_location_size() returning the bounds of a region.
-> > t4_flash_cfg_addr() now returns int so that it can report a region
-> > that does not exist on the running adapter.  t4_get_flash_params()
-> > learns the flash parts used on T7 and a four byte address serial
-> > flash interface, which is required for parts larger than 16MB.
-> > 
-> > Add the T7 register ranges to t4_get_regs(), the T7 PCIE memory window
-> > registers, and T7 support to the CIM ingress and egress queue, CIM LA,
-> > SGE context, MPS trace filter, PM statistics, scheduler and I2C
-> > accessors.
-> > 
-> > T7 implements multiple uP cores.  The number of enabled cores is read
-> > during device log initialisation and the per core device log
-> > parameters are kept in an array, so that the device log and the CIM
-> > queue accessors can address a specific core.
-> > 
-> > Signed-off-by: Potnuri Bharat Teja <bharat@chelsio.com>
-> > ---
-> >  .../net/ethernet/chelsio/cxgb4/cudbg_lib.c    |    4 +-
-> >  drivers/net/ethernet/chelsio/cxgb4/cxgb4.h    |   89 +-
-> >  .../ethernet/chelsio/cxgb4/cxgb4_debugfs.c    |    2 +-
-> >  .../net/ethernet/chelsio/cxgb4/cxgb4_main.c   |   17 -
-> >  drivers/net/ethernet/chelsio/cxgb4/t4_hw.c    | 2200 ++++++++++++++---
-> >  drivers/net/ethernet/chelsio/cxgb4/t4_hw.h    |  139 +-
-> 
-> Hi Potnuri,
-> 
-> I've looked over the first three patches of this series, with the help
-> of AI, and I'd like to provide some general feedback:
-> 
-> * These patches, and the overall patchset are very long.
->   I would really suggest splitting up these patches.
->   And I think that means also splitting up the patch-set,
->   into stages.
-> 
-Hi Simon,
-Thanks for your detailed response and time.
-I had to leave these first 2 patches huge as they are adding new HW register/structures. 
-and they may be remain reltively huge even after splitting them. I may need your suggestion here. 
+xemaclite_of_remove() frees the MDIO bus before unregistering the
+network device. If the interface is up, unregister_netdev() calls
+xemaclite_close(), whose phy_disconnect() still accesses that bus.
+This can cause a use-after-free during PHY detachment.
 
-The rest of the patches are relatively small and I am working on splitting the rest of the patches 
-to smaller ones where all possible.
->   I know that sounds like it's going to take longer.
->   But experience tells me that getting review of large
->   patchsets to the extent that a merge occurs tends
->   to be a very long road.
-> 
-> * Being long, these patches do many things.
->   But the preferred approach is one thing per patch.
->   This is much easier on my human brain.
->   And I don't believe I am alone here.
+Unregister the network device first so that PHY detachment finishes
+before the MDIO bus is unregistered and freed.
 
-agree with you, however these changes are interdependent so not sure if they can be split into series.
-> 
-> * It seems to be a bit of a stretch for patches 1/12 and 2/12 to
->   claim there are no functional changes. And to be honest,
->   they are two long for me to dive into the details.
-> 
-1 and 2 only contain device specific definitions
-> And, some specific feedback on this patch:
-> 
-> * It appears to introduce new kdoc warnings. Which I believe
->   are gating part of our CI. This is not desirable.
-> 
-Shall fix these and validate with kernel-doc prior to posing the next series.
-Thanks.
+This issue was found by our static analysis tool under development.
 
-> Warnings before: 262 after: 276 (add: 20 del: 6)
-> 
-> Warnings removed:
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:12909 No description found for return value of 't4_read_cim_ibq'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:12951 No description found for return value of 't4_read_cim_obq'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:13550 No description found for return value of 't4_i2c_rd'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:12909 No description found for return value of 't4_read_cim_ibq'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:12951 No description found for return value of 't4_read_cim_obq'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:13550 No description found for return value of 't4_i2c_rd'
-> Per-file breakdown:
->      6 drivers/net/ethernet/chelsio/cxgb4/t4_hw.c
-> 
-> New warnings added:
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:9269 No description found for return value of 't7_wait_sram_done'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:10396 No description found for return value of 't4_get_tp_port_chan'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:13332 No description found for return value of 't4_get_chip_type'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:13641 No description found for return value of 't4_sge_get_qpp'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14243 No description found for return value of 't4_read_cim_ibq_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14319 No description found for return value of 't4_read_cim_obq_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14373 No description found for return value of 't4_cim_read_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14429 No description found for return value of 't4_cim_write_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14484 No description found for return value of 't4_cim_read_la_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:15019 No description found for return value of 't4_i2c_io'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:9269 No description found for return value of 't7_wait_sram_done'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:10396 No description found for return value of 't4_get_tp_port_chan'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:13332 No description found for return value of 't4_get_chip_type'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:13641 No description found for return value of 't4_sge_get_qpp'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14243 No description found for return value of 't4_read_cim_ibq_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14319 No description found for return value of 't4_read_cim_obq_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14373 No description found for return value of 't4_cim_read_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14429 No description found for return value of 't4_cim_write_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:14484 No description found for return value of 't4_cim_read_la_core'
-> Warning: drivers/net/ethernet/chelsio/cxgb4/t4_hw.c:15019 No description found for return value of 't4_i2c_io'
-> Per-file breakdown:
->     20 drivers/net/ethernet/chelsio/cxgb4/t4_hw.c
-> 
-> -- 
-> pw-bot: changes-requested
-> 
-> 
+Fixes: 27cad0084066 ("net: emaclite: Fix MDIO bus unregister bug")
+Cc: stable@vger.kernel.org
+Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+---
+ drivers/net/ethernet/xilinx/xilinx_emaclite.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/xilinx/xilinx_emaclite.c b/drivers/net/ethernet/xilinx/xilinx_emaclite.c
+index 4719d40a63ba..008e3d1e2981 100644
+--- a/drivers/net/ethernet/xilinx/xilinx_emaclite.c
++++ b/drivers/net/ethernet/xilinx/xilinx_emaclite.c
+@@ -1189,6 +1189,8 @@ static void xemaclite_of_remove(struct platform_device *of_dev)
+ 
+ 	struct net_local *lp = netdev_priv(ndev);
+ 
++	unregister_netdev(ndev);
++
+ 	/* Un-register the mii_bus, if configured */
+ 	if (lp->mii_bus) {
+ 		mdiobus_unregister(lp->mii_bus);
+@@ -1196,8 +1198,6 @@ static void xemaclite_of_remove(struct platform_device *of_dev)
+ 		lp->mii_bus = NULL;
+ 	}
+ 
+-	unregister_netdev(ndev);
+-
+ 	of_node_put(lp->phy_node);
+ 	lp->phy_node = NULL;
+ }
+-- 
+2.43.0
+
