@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953744;
-	b=Yb75JEgMjl9B7W0onVpxW1ypayvWk7weqVgbxZhJQdcigKlnfkXL4g+YpONjbuIYj8bb
-	 cmvJIUqsjasF4SdVxaGuNAy4PNHAbJN/v6FddfZmv66ReMbRGKMJaBpmxB1hbqsFvaSG1
-	 caRXVUfC5FgEQLmqMFrMgECntW1amZaXfNmYiDNvEaH67MJXzPS7El6m1Xn+2sRFGPeMn
-	 u3pnvEA2iFJAb7oyrP4edizvvcpISpiSNN/+I9WrYoViIE1Dnod6KhzwmPxfjjjbX+lea
-	 c8Vwdx3kX0ahRwZorqcR7egOdKcxe5qPCSaSTEA6viB21o6Str1wYPjNpqfmQSp3pGg==
+	t=1794953746;
+	b=DbiNCKNCmH3O/mOCsGntoGN5Zu/rj4ayYdrEZASg0JHjnwwbdQ4sMXsBDFpdBWM5Mq9e
+	 FrM6D5NKacVUomrui/Za60yqzTeI+1vLkY12dcCjMKw0mxrOIC0AWIw+gE72qSeIO3+fu
+	 3qy9+mZOfiO82h19IgSrp4+x0q7qnVX7YbdD0zo0mrw/2nVBjQCr4tXVhNh/8ngfEJGS2
+	 p/dDsosi7A7F8bGvTkiIqdw1CN7Z2bPMWDphlPJms6qGdouXsZW8nB33QsauF5L6dJKLm
+	 RBZr8knm1z2MmTa0JQlAcfQa7GKJFavvy4c17BMrVTsZkvKo31msUAzjgz2GjAPQnBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953744;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953746;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=4aMMFkXBmhDNbkMddHOYmKs1ldPvaFgEp/CTY5zVmKE=;
-	b=ZAJwAKR4GyaPteDni35l6hiL3vyztvYOP1CoCGeFHSbRJ1YVhJWKkjmGER233AHRdxxa
-	 9gzKCVtRuB0ST6Nm1SrSxfiVj91K7UqdCw8zwlkjx+XD6gLwgYJc0SipG7/EmYgPhqQQj
-	 JrSeg1ha/8nDDxZS3pEFbf5TBtdgVsSaEaZK0oYA1wq/uoaDQbYqYHSJ3ltI3odPVxPQY
-	 1HgcHciVE7u5APyFef0x/OuQPXmXEVtI/txIcti7fc9Miy+znM9zesvNpsl7DQ/GVroh+
-	 QOLA7nhwffImIW3oSvQa19W5/vS0wLvfJxjDDXPKbi079ed+lHrDx2yyO/grv18DUNQ==
+	bh=Rcb9VySxJjHdGQ79AoyQc2byoEyKFLaM8e6F4Ddmmw8=;
+	b=NyIi3aQ8GGIXh5FoO88F+1N7qaI5Y9FcDOAx1V2cOhKLX+Pp8i7VK4PVvnOyaXAfy60Q
+	 /4PUOj4BLWl8UGRp3Lk8S5HNgaguxk4G9qJtRo9M+XPUkPZduKkErhU+OdRxuMOuEN2sO
+	 B2p8C4gOQJq1CrVF0AxUSuzk3VrWlx8tzLpSf0pZjgt1O1dwC7nX2++ieWXgpV0DIniGh
+	 nXVD3uT+6UbN31JtfUBGz2gZXIdDRVokFPYN6NKZ93W4WoxVscTjeNorNymPDYyOAKIxj
+	 JGPtKQ9qecQsQ953V0sQTknXxZQ5WY2oRg+bMS69/2OLwHQRxOCw7Cbbt59xjLNrzZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=networkplumber.org;
 	spf=pass smtp.mailfrom=networkplumber.org;
-	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=iLzZAJv4;
-	arc=none smtp.remote-ip=209.85.214.181
-Received: from mail-pl1-f181.google.com (mail-pl1-f181.google.com [209.85.214.181])
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="F67/IN87";
+	arc=none smtp.remote-ip=209.85.215.169
+Received: from mail-pg1-f169.google.com (mail-pg1-f169.google.com [209.85.215.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF685606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:15:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF685606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11B7B606A33D
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:15:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11B7B606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=iLzZAJv4
-Received: by mail-pl1-f181.google.com with SMTP id d9443c01a7336-2e987a2ba0cso2083995ad.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:15:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=F67/IN87
+Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-cddee4abc57so98189a12.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:15:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794953743; x=1795558543; darn=vger.kernel.org;
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794953744; x=1795558544; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=4aMMFkXBmhDNbkMddHOYmKs1ldPvaFgEp/CTY5zVmKE=;
-        b=iLzZAJv4uBcQGjiU0dI/Vsw4/dmlRf4at12apEjV4V6j0aVpQG0bh7yrpkDAr6Ui5/
-         i5GuYcg60UhpYMTsWZiSROyIKDeQleH9TJqFeGpbaZo5fRHm6xn8GrX7zdCtROmbUKCT
-         o/ZWHqCmNML6o30xb+6UgxPPZp+hgRH99Va5I6c+AoGj5fj93cYZaAImzj4LWxmF2Ebi
-         kZykwj8q8Baq9NfsbVDT5L59kFxDAlNd1ZKsWA+sbxTYMka3w0jPuiYqgZT0z1WnaqU5
-         ZO+f32Pn/YtPv6p+t7UmfBQ6HWdRY52DnvSLF2EiT0XSQq00Px6OEw7GOD7huiSIcwEM
-         LbTw==
+        bh=Rcb9VySxJjHdGQ79AoyQc2byoEyKFLaM8e6F4Ddmmw8=;
+        b=F67/IN877WOVwmfIez9VsF2w/xb1Uelpmte0J1tRiaRjODzEhj1dkiuHFPpcDARlt5
+         Jfai4qps8OsgdUVNpxn6gYSpnAI6e9hcyMsR10hOoteYvBPLFNj0dA3Hy+dy7hozPctb
+         dpaG38QGEV80QSzWp7eYvxgR1kE7z+hdhHYCWJhxgRKvOSIesczvLWMMcdoh2tE/21bI
+         1RUYCRSag/ypoOqmClAXqwMN1H/RybLCD84LYbsdJsE8O6+DwSw7R+F5fhQ3tt5CmR+T
+         kEXEck0wFQv/HgBrD43d+WB8dR8yw7Vc6IkHZuhqAVIaTqWiH2nE3CZwe3ilVqJRjmOh
+         vCKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953743; x=1795558543;
+        d=1e100.net; s=20260707; t=1794953744; x=1795558544;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4aMMFkXBmhDNbkMddHOYmKs1ldPvaFgEp/CTY5zVmKE=;
-        b=WhHxdXWAoiE0aCqzzYudChUa2GrPKBCoNm4vwgzbJZAU6Et3CJiGVmYgpc5mOPwaEZ
-         pCoJgDarx/I2QOrRBmAkTVeSnt9sTuEHZIjcgun+G929Y4Wtg9baEkCQJkP7xCJ3cxoD
-         GqY/x6vu2d1yCaaz0nMfvcbZEttpj4zf+AaKGLBc0c3Tq0VdvijTTRQggCnJb+mqMo37
-         qnjAD2PbGo92ih4fwFLP4RVXlNWRJpwP0DptSG6Y/pU3gcXMUom5PfLSL5RFPOXga2iH
-         /nkuP6AfLsJg/TtFZJe5Mr2HkiztL4ML39MF29H0gI3I61uh1gsN/esHWbOoYDWIsRfW
-         sKjw==
-X-Gm-Message-State: APuU4Z87Y2RUEVprNWCeC6ZGzsyO6mbkIMQF2RGLrkx4h8sX4fiid9b6
-	DP9OwE+wvn160XKszCpojwh0c8zJoP2LlSypqS9y1ZLofaWaHdOrpcFwez7yFtwRsh1TA7hEuLf
-	fV9wGt+Q=
-X-Gm-Gg: AZFdTZcfmobI8QGbP8z5opi8WKJY2C91qyquJkhvrvquTH4UvuafhGmWvOuJ8ubq0k3
-	Rw5XC6FDh3om+GOtw5jXqdeaM/xojUKlyl0Y9IJ1eIcWKo4n0cpbrwu2Q5S4an27juhCX01ekQS
-	QYAaQHF39nnRGbkMYHS+wCDF5GjNQgpNd3384mvCPpfoSHwu18scJQCaHlQkcOUwPfYL+lC5A4M
-	Yi0FF9lFC9Wp8VIBhcRcLH1Em4U/OzD2WzNC+Tcw8qotb48wN4d8R9Ar6evNGIhYNzZ/YZIYZYE
-	cwD9r0eCcrIefpbxxEGfw20NZYC9verJGUvE8KK3d/i4DsKsKKq1cimtLoF1WFFbZAEgoxDVGzW
-	il1PK9yfELGelqTjx4ttDyKqzn6+eLyeIV6gfYQXnjyzjFHhEDWijDoyQAkX8JWkCg4M/YX2s4t
-	sINhYzyGVrWbKBmBXg/ScV66mpGTFBU1DUtorZsd6F4o6l9jyq4qt+ZUBiNg+0OQB81oU9iHGxD
-	mOcuDXLOPFt8DnfoPnKygHrZV49HvkIizPKantSveRbQrNI7tbagcscCTtohoCfgsRLBmWDN0JB
-	BayJ/tb9GCmVZaJikx6G6NV/tGZ6P0/CZR8YGhPBp6V/wIvhSlkFUn4doYShgnJXW38L3QO4mvJ
-	xJCKkx3Stzp7MnA==
-X-Received: by 2002:a17:90b:4488:b0:3ac:b048:fa13 with SMTP id 98e67ed59e1d1-3b3d07d5320mr718689a91.67.1794953743438;
-        Tue, 17 Nov 2026 14:15:43 -0800 (PST)
+        bh=Rcb9VySxJjHdGQ79AoyQc2byoEyKFLaM8e6F4Ddmmw8=;
+        b=G7bboQSuMx99nS79B9ojlh2WrK74nIj39Xb7UGPyYb+lBQRgw6o4trcdCbMRvX01ie
+         XzE1RcHG+qUoDPU/62Z7bgoC16bM1hqLHETYW1eVn+Zlb9utxd8J30ndCmhcsp1DE9Zh
+         amYTfWBQJlQdf310QllKGw6uJONqEdttym64AnQ83iwbRsmvbzGMUp6YBhDMshrg4nSn
+         usNC5mCcbqTsj+MdQswwA2ruLQjTzRqIKuBtiJSvjGCLgVNkqPUX5FVbHW066itBYMIj
+         Aarggiuc1zaUpIueXbGx7Aa1rE2IlZEKCJDd28F96uH/bhH3+HOFaUZ0qea1dmR7KCZF
+         LoFQ==
+X-Gm-Message-State: APuU4Z8EpAKVqHDw8qZAI7CKFXKAfQRBvDgpGXI3yFrAx/WlUrYhT7/p
+	nkpK42b8nWN2Vy/H/vudIiGmZKXJ1Tf3DUX2Mm7L+XTJ8euTT24wIC80hKTrhiviSpQn5ATaurr
+	Z71TarW0=
+X-Gm-Gg: AZFdTZeJd/Je2BrtSsrPfWT8kNHvEjja2DTgwyR7PySQSRlSMslxyi8OeU/J5l+vCi7
+	hdujNw5oFA8PcLgZF7ITFhJ/rgB9JwnHR90qxSCq/fplgXW+6/5tZLy3XR+x5uNJ0okunblI+Bn
+	KmdQX79k8V6oMsJ7el2nGqU5++H7OZWlrj6bJArQ/VbSf3Z4kNuWbosg4yp3eakUDx0HO4yL1p/
+	U0SImpo2RBe4Jr57/DCMqhBa/VuZZ2AF6gFbwpRWupvr5aH3cTp1tbdMDNwQc2AjpECKYdtkvcS
+	CWwSHviqsEwCC9ndHIUT4o99k9dXvOHwh53aEPeGl5nRTu5TxupgD4Ep59GccRDIrlo3kgulV+x
+	UX1qEaB5cDYK+B1LLurLasTlSJhzpC5EvMTtIemrQRZrxWY8WLyXPAswKJ4EZ2XZf3YuH/Pic51
+	tBfGDf+t3GaUUagwp1F5gTf1dMYds4acjvLSb7mJHy/uyHr2fSgL8kjldjELD+vn0laMR7/tKRe
+	qPjcwlqZ6+ITXw8RfxBD4vwPZN2FZjs2mWEvbO7nRAz0ZKlxGUzNY/kRtKGAMo2YnzohaQgue7b
+	68lUAoxbzFyuu2/guT8YTku7/prXt15s4GWuH7JpQRJjATjl8DM7jAOctqFIEJ14TWuD
+X-Received: by 2002:a17:90b:4d84:b0:3ab:1481:69e5 with SMTP id 98e67ed59e1d1-3b3d074d047mr804488a91.11.1794953744455;
+        Tue, 17 Nov 2026 14:15:44 -0800 (PST)
 Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d5570208sm38067a91.0.2026.11.17.14.15.41
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d5570208sm38067a91.0.2026.11.17.14.15.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 14:15:42 -0800 (PST)
+        Tue, 17 Nov 2026 14:15:44 -0800 (PST)
 From: Stephen Hemminger <stephen@networkplumber.org>
 To: netdev@vger.kernel.org
 Cc: dsahern@kernel.org,
@@ -89,16 +88,10 @@ Cc: dsahern@kernel.org,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Stanislav Fomichev <sdf.kernel@gmail.com>,
-	Nikolaos Gkarlis <nickgarlis@gmail.com>,
-	Willem de Bruijn <willemb@google.com>,
 	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH net-next v3 1/3] rtnetlink: return EMSGSIZE when first dump entry does not fit
-Date: Tue, 17 Nov 2026 14:13:42 -0800
-Message-ID: <20261117221538.184948-2-stephen@networkplumber.org>
+Subject: [PATCH net-next v3 2/3] ipv6: return EMSGSIZE when first route in dump does not fit
+Date: Tue, 17 Nov 2026 14:13:43 -0800
+Message-ID: <20261117221538.184948-3-stephen@networkplumber.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261117221538.184948-1-stephen@networkplumber.org>
 References: <20261117221538.184948-1-stephen@networkplumber.org>
@@ -113,59 +106,40 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-If a route entry is too large for the dump skb, the dump is silently
-truncated and no error is returned.
+If a route does not fit in an empty dump skb, fib6_dump_node()
+suspends the walker and inet6_dump_fib() returns 1.
+rtnl_dumpit() then returns skb->len, which is 0, and the dump ends
+with NLMSG_DONE and status 0, silently dropping the route and those after it.
 
-For handlers with RTNL_FLAG_DUMP_SPLIT_NLM_DONE, rtnl_dumpit() drops
--EMSGSIZE and returns skb->len. With an empty skb this is 0, so the
-dump ends with NLMSG_DONE and status 0, and the remaining entries are
-lost.
+This became reachable when multipath routes started being dumped as a
+single message with an RTA_MULTIPATH attribute; a wide enough route no
+longer fits.
 
-The first dump skb is allocated from __netlink_dump_start() while
-max_recvmsg_len is still 0, so it is only NLMSG_GOODSIZE. On a 4K page
-kernel that is under 4000 bytes, and a 500 way multipath route does not
-fit:
+Return -EMSGSIZE in this case, as IPv4 does. This depends on the
+rtnl_dumpit() fix in the previous patch.
 
-  ip link add dummy0 type dummy
-  ip link set dummy0 up
-  ip route add 198.51.100.0/24 table 100 \
-        $(for i in $(seq 500); do echo -n "nexthop dev dummy0 "; done)
-  ip route show table 100
-
-The dump prints nothing and exits 0
-
-Only ignore -EMSGSIZE when the skb has data, so that an entry which
-does not fit in an empty skb reports the error to user space.
-
-This only covers handlers which report a too large entry with
--EMSGSIZE, such as the IPv4 FIB dump. inet6_dump_fib() instead returns
-a positive value when the first route does not fit, so the check added
-here never fires for it; that case is fixed by the next patch in this
-series.
-
-Fixes: 5b4b62a169e1 ("rtnetlink: make the "split" NLM_DONE handling generic")
+Fixes: beb1afac518d ("net: ipv6: Add support to dump multipath routes via RTA_MULTIPATH attribute")
 Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
 Reviewed-by: Ido Schimmel <idosch@nvidia.com>
 ---
- net/core/rtnetlink.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ net/ipv6/ip6_fib.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/net/core/rtnetlink.c b/net/core/rtnetlink.c
-index e141340172ce..2777796a4ed2 100644
---- a/net/core/rtnetlink.c
-+++ b/net/core/rtnetlink.c
-@@ -7043,7 +7043,10 @@ static int rtnl_dumpit(struct sk_buff *skb, struct netlink_callback *cb)
- 	 * Some applications which parse netlink manually depend on this.
- 	 */
- 	if (cb->flags & RTNL_FLAG_DUMP_SPLIT_NLM_DONE) {
--		if (err < 0 && err != -EMSGSIZE)
-+		/* -EMSGSIZE with nothing in the skb is an error, as returning
-+		 * a length of 0 would end the dump as if it was complete.
-+		 */
-+		if (err < 0 && (err != -EMSGSIZE || !skb->len))
- 			return err;
- 		if (!err)
- 			cb->data = NULL;
+diff --git a/net/ipv6/ip6_fib.c b/net/ipv6/ip6_fib.c
+index e1d49897d6ab..3b78ae72d367 100644
+--- a/net/ipv6/ip6_fib.c
++++ b/net/ipv6/ip6_fib.c
+@@ -755,6 +755,10 @@ static int inet6_dump_fib(struct sk_buff *skb, struct netlink_callback *cb)
+ 
+ unlock:
+ 	rcu_read_unlock();
++
++	/* If stopped before adding, it was because next route too large for skb */
++	if (err > 0 && !skb->len)
++		err = -EMSGSIZE;
+ 	if (err <= 0)
+ 		fib6_dump_end(cb);
+ 	return err;
 -- 
 2.53.0
 
