@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794879633;
-	b=4MrJ83ei8XsL6LzqA1c/BsRlGLXr9j9Qhxwz35sud9Ta3Eum+yuV4346Al2cYgMkR77n
-	 olgVkfF55uhNJyRxzoBp0L3P6M+Alc5su33dqXK2LqQ+QvHAdpw+cP2ZcdrFb9iEe7up6
-	 luBl/5ERvBkLwbpJ/NcYM7xAnHZxRUupGau2dJqB5aUToTgJDhcbp8sCdaOwOljQrZxb3
-	 dnbdYY1NaHTeTiCvozT3A05i5V+ILRLNwGpjGoWbiQJdEvOfPttgnAYCk46eAzQgeRlhn
-	 ZiRJoKYhJfEVS+0S9eVc1b4BASX39z0HI3fBVnrEDpRQp8HZoQn/4qtqCex7TL26LAA==
+	t=1794879634;
+	b=e1cVYug/TNHi/wn2BUEChfCTURCiREmJPxs1eDnCWd0YFK256nH0ChgoImzIu/ThKVla
+	 yJgaV729AKekpPPCKXIC/KRZBfG5wZ3xWLrgAXQJOv/ElFKxwvlUFdbJa0+jemfFe917S
+	 403uV/y32Yfc8Q5zLA/asRwATJt5ycyJbv81hiW9UIc6DEjGHJH0MKpfZjtDC1DfpnVLJ
+	 21Wb7FjNefc56ZOznfEWFvSzx+lLb5EFDPKCxogXd51zQpb2FP7HZHtL8hwWfgk6NtwON
+	 OWRq1jC6R1XVWgY4AHTPOiAr8YtltUwqhW7sJA0p91Yz941C8LkTIndX4zWw+iyqQiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794879633;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794879634;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=0b04//QWyt2VIwTKM8pdgdwuC0Lh4JvVkTwIuOgaP5M=;
-	b=ziPsmggze8xMfuEcz6VF1ZLsg0hd9tqUpjsvsfMYShSrgwoUjWCp+kauhpusP2/HBdQz
-	 6vREPE0mr34hr/yhSNKGUCCN1+kQsjfNoOmhA6DOi4DP3Pyp2UoSzVmGMMeDhEd1hb009
-	 z58BtQm6fbWWZPB7Y+SBHz8FtJnQkbbxBUpa5S2atCxgDO897CnAMOWzLESTOeKpEVCkb
-	 Z7oVXtCOKrskoK1giA24uaklIRfL8qTna8NKmusoELqpRz/qEp3yUocROBWklj/p6ptWb
-	 ftQATlmK4+YfGwCw6uhd3sc83DaJV4+2a0gH7ouH8Q+wVOkPArO1Bo3sODnmRnAWncw==
+	bh=TNaxjKn+yd84Ek5TurGXTCya3oTFzwHSZ2zRuEyQCKc=;
+	b=y1wKipyikqBXNFz7CUTraFbXSXe6oYb1UQcbczF4km4z3jOjKpd1Uhm5H+X7++a4quF3
+	 wRdy/5SMxyNRbPYtQk8eWCBQuMqMLkpmHbG+CTitEcvwMxk82o9LxsBp96p+9UmMhzk4W
+	 VoGaZ/bw/Csk9iZt+QaO7XSwoWl6dOxlCVJRWU/XFMjj1akdSmPolGglPvuCp5ezm9SA7
+	 qP64tj79B4moEP65jF0YoYMBS2DW+NSHX6eAey7sDzDu+ls1iqgB6fk+k07i395+Br/6Y
+	 x0RRc5v8LR3Gz6MwZJPO4ylz6Y5/zCyYqJh2mza3tIRI5LEwn5s/OYORShibMU9NUyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UloUm8N9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mLrVkwkn;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51120606A32C;
-	Tue, 17 Nov 2026 01:40:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D80B606A332;
+	Tue, 17 Nov 2026 01:40:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UloUm8N9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E7CD1F000C6;
-	Tue, 17 Nov 2026 01:40:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mLrVkwkn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB2381F000C4;
+	Tue, 17 Nov 2026 01:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794879633;
-	bh=0b04//QWyt2VIwTKM8pdgdwuC0Lh4JvVkTwIuOgaP5M=;
+	s=k20260515; t=1794879634;
+	bh=TNaxjKn+yd84Ek5TurGXTCya3oTFzwHSZ2zRuEyQCKc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=UloUm8N9ZkP5MZqCmdqX4Ob/nSjKmne8a9RijkI2WPYViWOJFC9yzfZj7H2ISXrgg
-	 jQCl3Qbatc2hgQ5HQ7Wwb2yAgqHJqJgtwTuoEuy6P3XGA9ictsT1N/hXg9j+PpOtdb
-	 xKvKHSpHrfpxRoU6trQQ99eMDu/VIA4cinZwWFBwjCpBmCHWwVdfWXOj3wUZnlO08E
-	 ld4VoHAieI/+mIYgiMdr+f13vhGDA2Mjqm1J5MPviMeJlRAPQrnHYt8w0CzYzigjlv
-	 uWyvYHG8cCU0Dp4gGv3ybQlDX1aajmVo0MlbgvfAjykImbILa9307bNqiZp6Jb3eeB
-	 uObngLJWqC4Ww==
+	b=mLrVkwknG2kICY4twtyNuTfc5dQ5wZkElgdUzmFhdxw3KyzPDixXg/0f5nwvhbhZO
+	 gTloR6JG5yO8k2c8kvKbgd/0OVz4iVGbjhhxZ5rJPelpnHGiZXCothgcdVahmU56Tp
+	 H8xA5kdSvQz6B6adtMpSlAc9hCl8fKUsvNDilfC0mttYRX+RycrxkxsauD3fqM2hDe
+	 SvWPHQXLewm3WFy328LVP3coVN8IONQaVVeQJv0XkGZ1j2FcavEH94/lRze0Wz3Gy9
+	 c78g8uEEuDeYGG2o7xKpK+1Tb7GVGP503DRf0BtMjG8xcwZCJRARmedklnFbs5Ergp
+	 tzPRTaZgpDs8w==
 Subject:
- Re: [PATCH net 09/11] ipvs: skip cport 0 connections in ip_vs_conn_out_get()
+ Re: [PATCH net 10/11] ipvs: do not create conns from packets with port 0
 From: netdev-bot+sashiko@kernel.org
 To: pablo@netfilter.org
 Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
  netdev@vger.kernel.org, kuba@kernel.org, pabeni@redhat.com,
  edumazet@kernel.org, horms@kernel.org, fw@strlen.de, ja@ssi.bg
-Date: Tue, 17 Nov 2026 01:40:32 +0000
-Message-ID: <179487963213.3136.15958589947509607287@kernel.org>
-In-Reply-To: <20261116004404.2821183-10-pablo@netfilter.org>
-References: <20261116004404.2821183-10-pablo@netfilter.org>
+Date: Tue, 17 Nov 2026 01:40:33 +0000
+Message-ID: <179487963329.3136.11227226787276094605@kernel.org>
+In-Reply-To: <20261116004404.2821183-11-pablo@netfilter.org>
+References: <20261116004404.2821183-11-pablo@netfilter.org>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -64,10 +64,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,105 +75,135 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The new term `(!p->vport ^ !(cp->flags &
-  IP_VS_CONN_F_NO_CPORT))` in ip_vs_conn_out_get()…
+- [Medium] udp_conn_schedule() (net/netfilter/ipvs/ip_vs_proto_udp.c) now
+  drops every UDP packet with source or destination port 0 that matches…
+- [Low] The commit message explains rejecting cport 0 (the NO_CPORT
+  lookup requirement makes such connections impossible to find again),…
 
 --
 
-ipvs: skip cport 0 connections in ip_vs_conn_out_get()
+ipvs: do not create conns from packets with port 0
 
-This commit adds a check to ip_vs_conn_out_get(). A lookup for client
-port 0 now matches only connections flagged IP_VS_CONN_F_NO_CPORT, and a
-lookup for a nonzero client port matches only connections without that
-flag. The aim is to stop packets sent to client port 0 from matching
-templates and ordinary cport 0 connections.
+This commit makes tcp_conn_schedule(), udp_conn_schedule() and
+sctp_conn_schedule() drop new packets that match a virtual service when
+either the source or the destination port is 0. It also makes
+ip_vs_new_conn_out() refuse to create connections for client port 0. The
+stated reason is that cport 0 connections cannot be found again because
+of the NO_CPORT lookup requirement, so a new connection gets created for
+every packet.
 
-> diff --git a/net/netfilter/ipvs/ip_vs_conn.c b/net/netfilter/ipvs/ip_vs_conn.c
-> index 66fcdc00ef375..83d8a9153a342 100644
-> --- a/net/netfilter/ipvs/ip_vs_conn.c
-> +++ b/net/netfilter/ipvs/ip_vs_conn.c
-> @@ -590,6 +590,8 @@ struct ip_vs_conn *ip_vs_conn_out_get(const struct ip_vs_conn_param *p)
->  				    ip_vs_addr_equal(p->af, p->vaddr,
->  						     &cp->caddr) &&
->  				    ip_vs_addr_equal(p->af, p->caddr, saddr) &&
-> +				    (!p->vport ^
-> +				     (!(cp->flags & IP_VS_CONN_F_NO_CPORT))) &&
->  				    p->protocol == cp->protocol) {
->  					if (__ip_vs_conn_get(cp))
->  						goto out;
+Link: https://sashiko.dev/#/patchset/20261104201530.147292-1-ja%40ssi.bg
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261103140308.591690-3-pablo%40netfilter.org
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260925141115.16126-1-axel.mierczuk%401password.com
+
+> diff --git a/net/netfilter/ipvs/ip_vs_proto_tcp.c b/net/netfilter/ipvs/ip_vs_proto_tcp.c
+> index fec0e8b47b716..25d4576d0e129 100644
+> --- a/net/netfilter/ipvs/ip_vs_proto_tcp.c
+> +++ b/net/netfilter/ipvs/ip_vs_proto_tcp.c
+
+[ ... ]
+
+> @@ -74,6 +75,12 @@ tcp_conn_schedule(struct netns_ipvs *ipvs, int af, struct sk_buff *skb,
+>  	if (svc) {
+>  		int ignored;
+>  
+> +		/* Do not create connection for port 0 */
+> +		if (!ports[0] || !ports[1]) {
+> +			*verdict = NF_DROP;
+> +			return 0;
+> +		}
+
+[Severity: Low]
+The commit message gives a reason for rejecting cport 0, then says "Do
+the same for vport 0." without giving one. Does the duplicate connection
+problem apply to the virtual port at all?
+
+__ip_vs_conn_in_get() compares vport with plain equality. Only p->cport
+takes part in the XOR:
+
+	if (p->cport == cp->cport &&
+	    p->vport == cp->vport && cp->af == p->af &&
+	    ...
+	    (!p->cport ^
+	     (!(cp->flags & IP_VS_CONN_F_NO_CPORT))) &&
+
+ip_vs_conn_out_get() also matches the server side port with plain
+equality. Its XOR uses p->vport, which in the out direction is the client
+port:
+
+	if (p->cport == sport && cp->af == p->af &&
+	    ...
+	    (!p->vport ^
+	     (!(cp->flags & IP_VS_CONN_F_NO_CPORT))) &&
+
+So a hashed connection with vport 0 and a non-zero cport looks like it
+can still be found, and would not be duplicated on every packet.
+
+Before this patch, packets to destination port 0 that hit fwmark services
+or persistent port-zero services were scheduled and forwarded. The
+!ports[1] check (or !ports[0] in the inverse case) now drops them. The
+same check is in udp_conn_schedule() and sctp_conn_schedule().
+
+If this is meant as a policy change, for example because port 0 is not
+valid on the wire, could the commit message say so? That would help
+reviewers and stable backporters judge it.
+
+[ ... ]
+
+> diff --git a/net/netfilter/ipvs/ip_vs_proto_udp.c b/net/netfilter/ipvs/ip_vs_proto_udp.c
+> index f32785682402d..ab3ab95241687 100644
+> --- a/net/netfilter/ipvs/ip_vs_proto_udp.c
+> +++ b/net/netfilter/ipvs/ip_vs_proto_udp.c
+> @@ -62,6 +62,12 @@ udp_conn_schedule(struct netns_ipvs *ipvs, int af, struct sk_buff *skb,
+>  	if (svc) {
+>  		int ignored;
+>  
+> +		/* Do not create connection for port 0 */
+> +		if (!ports[0] || !ports[1]) {
+> +			*verdict = NF_DROP;
+> +			return 0;
+> +		}
 
 [Severity: Medium]
-Can the nonzero port half of this check make reply lookups miss while
-ip_vs_conn_fill_cport() is still running?
+Should one-packet scheduling (OPS) UDP services be excluded from this
+check?
 
-Some NO_CPORT connections are MASQ and double-hashed. One example is the
-FTP passive data connection that ip_vs_ftp_out() creates with
-IP_VS_CONN_F_NO_CPORT | IP_VS_CONN_F_NFCT. For these,
-ip_vs_conn_fill_cport() works in two locked passes. The dir=1 pass sets
-cport and rehashes hn1, but only the dir=0 pass clears the flag:
+The check runs before ip_vs_schedule() sets IP_VS_CONN_F_ONE_PACKET, so
+it also drops port 0 traffic for services with IP_VS_SVC_F_ONEPACKET.
+OPS connections are never inserted into the connection table:
 
-net/netfilter/ipvs/ip_vs_conn.c:ip_vs_conn_fill_cport() {
+net/netfilter/ipvs/ip_vs_conn.c:ip_vs_conn_hash() {
     ...
-	if (cp->flags & IP_VS_CONN_F_NO_CPORT && (!cp->cport || by_me)) {
-		if (!cp->cport) {
-			cp->cport = cport;
-			by_me = true;
-		}
-		if (!dir) {
-			atomic_dec(&ipvs->no_cport_conns[af_id]);
-			cp->flags &= ~IP_VS_CONN_F_NO_CPORT;
-		}
-		...
-		WRITE_ONCE(hn->hash_key, hash_key_r);
-		...
-	}
+	if (cp->flags & IP_VS_CONN_F_ONE_PACKET)
+		return 0;
     ...
-	spin_unlock_bh(&cp->lock);
-	if (dir-- && by_me)
-		goto next_dir;
 }
 
-All locks, including cp->lock, are dropped between the two passes.
+They are also freed right after use. So the NO_CPORT mismatch in
+__ip_vs_conn_in_get() cannot cause duplicate connections for them:
 
-Take an RCU reader in ip_vs_conn_out_get() that looks up a real server
-reply to client:X inside that window. It finds hn1 with a matching
-hash_key and passes the p->vport != cp->cport check, because cp->cport is
-already X. NO_CPORT is still set, so the new term evaluates to 0 ^ 0 and
-the lookup misses. Before this patch the same lookup matched.
+	(!p->cport ^
+	 (!(cp->flags & IP_VS_CONN_F_NO_CPORT))) &&
 
-One way to reach the window:
+Before this patch, OPS UDP traffic from client port 0 was scheduled and
+forwarded. RFC 768 allows source port 0 for one-way UDP, and that is the
+traffic OPS is meant for. With this patch those packets are dropped.
 
-CPU A: ip_vs_nat_xmit()->ip_vs_conn_fill_cport() completes the dir=1
-       pass (cport = X, hn1 rehashed) and stalls before the dir=0 pass.
+The new !cport check in ip_vs_new_conn_out() has the same scope:
 
-CPU B: already holds cp from the cport 0 fallback lookup and sees
-       NO_CPORT in ip_vs_nat_xmit(). Its ip_vs_conn_fill_cport() call
-       does nothing because cp->cport != 0 and by_me is false. It then
-       forwards the packet to the real server.
+	if (!vport || !dport || !cport)
+		return NULL;
 
-Reply: reaches ip_vs_out_hook(). ip_vs_conn_out_get() misses because
-       NO_CPORT is still set.
+It returns before the IP_VS_CONN_F_ONE_PACKET flags are computed. As a
+result, OPS UDP initiated by a real server toward client port 0 gets no
+connection, and leaves the director without SNAT.
 
-On a miss, ip_vs_out_hook() takes the no-connection path. The reply then
-goes out without SNAT, which exposes the real server address. If
-nat_icmp_send is enabled, the reply is instead answered with ICMP port
-unreachable and dropped. TCP retransmissions recover once the dir=0 pass
-clears the flag.
+The commit message says it will "disallow normal connections ... to be
+created". It doesn't mention that matching packets are now dropped, or
+that OPS services are affected too.
 
-The cases in the commit message (templates and ordinary cport 0
-connections) seem to need only the zero port half of the rule. For a
-nonzero p->vport, the existing p->vport == cp->cport test already
-excludes those entries.
-
-The earlier patch "ipvs: validate cport in received sync records" also
-already rejects sync records that have a nonzero cport with NO_CPORT
-set. No later patch in the series changes ip_vs_conn_out_get() or
-ip_vs_conn_fill_cport().
-
-Would a narrower check like this close the template and cport 0 case
-without opening this window?
-
-	(p->vport || (cp->flags & IP_VS_CONN_F_NO_CPORT))
+Could OPS services be exempted here and in ip_vs_new_conn_out()? If not,
+could the commit message describe the dropping?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116004404.2821183-2-pablo%40netfilter.org
