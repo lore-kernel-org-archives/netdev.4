@@ -1,111 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.126.103.232
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794904347;
-	b=27knMDChFkMXgBvNTSCPLY7OrAnhWoqKgrKH8dtG+sMrPPeIPnSkjhfqqHDH1XCZxbf9
-	 8lYZaHyq2/H060NhV5PzGOBR0F8Y5sUEKYLDwgDNvwIexjtqvB2PV0nMBUhbaM/OIQAGd
-	 fi0yK3YLxkGpb3J/+WNE6LxCGRtRSs2LgrImUCewKpaYKWVZCWex0Rn2mT53S+EJtg4qP
-	 3wMu8xteq0ltJAOEQCTF44I8vpq6r5pa0tE2l2UM+sNtdVScTelyL4mZfVsLy8pxqHdnt
-	 0fc1loI+8/jEUJwk7F7PNLbfp70SqTjHBHHeA+hjZmHREz0wFvF8bz1ZMwP4t1NYXdA==
+	t=1794904429;
+	b=WisE1ueXlY51A1Cvv+yCjThk4+Nt9gSBmx18LnCSK75F+ttAvtYCp2af0U0OC9iHbM2j
+	 taqM4t4pFBawfBpOikHHFCh9FzLfBiVnUI73ntn84so2n2W3mpTmg3x8x0s2+6WzW5xjx
+	 MdRvBTd5wmkIyjtAtbltIJB4Is6ssKVhv9Kot0USE2ye6f9qnY5VlL06ifSjAz2pB4fXN
+	 W2pa75qJLyNtO6vwzVZ79nloIeuC+K6NOFUM576tzd4OzvKw+mEv2uVcFuMj3c4ZnctRS
+	 ruIgkZtiBO9QOlS5smxzI2Z2D/uyC2H4eX8vesgPAuJ9DLHe8HIO+u7cpqRRzQZbH0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794904347;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=iGZ2JImQ8AaSp09QdDpLN1PoylGc+Kk+7WphF44IQ4E=;
-	b=BxWDqh+WN4WSRt6P9MlZ9T9bkGCB/kCo/qXpbNZ+uTDTTr7ajNEXEK97CIXx2s1YdLS4
-	 wXBfBxUwQCCpRWX57Q5I4NZsw04YS6Ym3EdVbYwbsG2tBi2YoIYRscmkH5BLDdnGzQ5Nh
-	 TAJR/fedRTrZpzzkm/gJqRUQq3msQn92bpWQmc/m7EdG2tZ5SrYtj5K/J2fWeVZpx6zSm
-	 Sh5/LDxuCuCGh79/U3v1o6Rk7ws8jZ25XogSkkJjpnTnGObdN9opjVChPpvgY4cMGOsE8
-	 JyxoqgQ6+4M/JMe+KOluCKMcySIHVujI9UHdAjOyRZn6sKB5TNIIHLN8N0p4zbA/teQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794904429;
+	h=DMARC-Filter:X-UUID:X-CID-P-RULE:X-CID-O-INFO:X-CID-META:X-CID-BVR:
+	 X-CID-BAS:X-CID-FACTOR:X-CID-RHF:X-UUID:X-User:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=0ybH/Jy8OsAoPc4+xPNbpfBj5eNzpQlYRR4mvFXDLxs=;
+	b=jAddhN1STq6yMiHmtCZOaEXdm13XzaSfe5km8lIJucYzG6ijKW4FOTjQaRuunKsA+64B
+	 F1mgkMqiV8F41U0/pL6QUahU305N/Ngbm49pCXiJBJ3j4mCT4ZGsEW6LgZIA194q1xQOw
+	 4Wf2f+7mYqMl0Zo/ufTHVDG8hBUHFn1FgT2IU5F98iivNUt/1LnKXjs/TtwTjKiXuClpC
+	 xnq7b53fr5QE2+5vHs85uYgANAYLqwxJh+yCWtpZFT2bwYm3j/j4Nr7IVkodlFt+ebBgY
+	 1MuhYFnf4YHYgT0VNR8Fk00dKPRJoaIeFfxvNKJpyesAZMoS0bAHLRQpmiSBvGKabJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amutable.com;
-	spf=pass smtp.mailfrom=amutable.com;
-	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=EFPX8Vuf;
-	arc=none smtp.remote-ip=209.85.221.42
-Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=kylinos.cn;
+	spf=pass smtp.mailfrom=kylinos.cn;
+	arc=none smtp.remote-ip=124.126.103.232
+Received: from mailgw.kylinos.cn (mailgw.kylinos.cn [124.126.103.232])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA00F606A889
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:32:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA00F606A889
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=EFPX8Vuf
-Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-49412eb1474so2235568f8f.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:32:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794904343; x=1795509143; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=iGZ2JImQ8AaSp09QdDpLN1PoylGc+Kk+7WphF44IQ4E=;
-        b=EFPX8Vuf7iz+NzEUQG+pPgjK/MbrESqv3n9ATmra3Zopp4tpstszPHFfE2sR6EI1XH
-         /MuIqTxoWkMXSLrvcYnqUGQvNVGY6YndEf7Smwels/t/G0PiJAqa5YTB3/XSR2c5vF/4
-         5S685rADCuM7kD+KTHsn5xD0Bbvj+kfNJN7h3Eeu6Tgpz77cxc6E5ixV5T0A3r/KAOuP
-         +pclbSVYUTOzYQ2RRiRVVs4C5Z7y/NhXCRc6Of4Q0fL8jD/Em4FfidsaQN0h6TdkChBo
-         DufH5bn8tmF4fp27j4WWCE7M7sjar8yCORXmuz1wFPQxfWworU2xHCWyEC/YN83R4E+t
-         3i9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794904343; x=1795509143;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=iGZ2JImQ8AaSp09QdDpLN1PoylGc+Kk+7WphF44IQ4E=;
-        b=urBnkNb2UVvw3bmUiWK+5ALOJ4G8gfQZ84P3l13eHpHWnREMANDBEdSzr4obp1m00m
-         fbrH4dqyh4IkTupAej23UHtoO2AoGBXmpLlZZ0yDIKzF84jt1wmqSWwB7IzBYQcEQaZF
-         EEDsipG264MRwMb5X/CeRloLkhoBtd7EkFpffo5iqZpxVbZIydi7s3FKbtJLFYNDDr53
-         ddjTQ6Q1xVdrwtjqL0ilHN4dfdxtk256Kn68FaAhtFf93yeJFhZ2SfjdbyBxTvr3txLz
-         fFW0wxvjIlPNs9XALt/5KTAKfI9BFTMvYXnxK7xYh/HPOEIi6cFJJHR7Lw5qIxQO0/c4
-         GbRQ==
-X-Forwarded-Encrypted: i=1; AL+hErEP3xbzmcSw83jB84LoUoQXgGZoqI0g+8s+G+pZBt1pd2IKSdrot+BW+mSvJDnQBGfoJJheqlY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z85TdOP/7gdoayDhWj0AngmheXIqmG70fA0rWwHsxJLlZ+F2ERG
-	jv9rjxlUv+D5E8Op0FEcnAizSUSbpn1zcdLLEk4WEjnkTDMM8pZzX/0vATuhlrU04zzL
-X-Gm-Gg: AZFdTZfN61NSVgRMB1mYPj3m8F/CXo4rLlZLj6bXk2Gvor7pWs4r65ONmtKMg5GEC7k
-	8xdii8dEPjldRLi3kW3CuncWtYD7d93Y8Lid7MnRDMHxWDw2Q08QBvEar5zDMAy4Ht45z1bqFPG
-	Nvitb4+ZZvdM+nd6wJWMSCI7JewGn9IX/heRfsk1Idw989dFglxJ+vTynTHZ1HNR1Sf2kyK60Xt
-	NpsUZF5y/JaSJd4v1n4ym5DS8UxW68PTWnsyZDNXgOUhQM5WbseZCcnUWL0TwNYm9W84r/07WNF
-	1fztumxAh5nuUGR5vszktnmKnZf4iYsGmiGK2XAPZQrociNzDIMAzBthBr2JgrqGiuTsl48hoH2
-	TIW4BjCHoUAFuUVsNlDdoZ/Zz54Bnr+AovVDfiV5QL66vgYYBMiAG7Ci8iv02i+TEMw5SCwPxIH
-	EEC/8rNT+O2/I0mwxzNEuLEWOnUhWBdI9zORBJumXWPx85Ax8IySsiMZnPHfHGaknDa2mK4+aMP
-	4A6yesrDsmSo+sH1+Dx5n4rmuWNORDrgqmKLUHok7TmbSFGpA6ach6EoJh0F7vQiQmSUGu/UJG2
-	Hh5UvVBol5bifHn5qEAWmAgMBpql5Y9vUi+M8E+QAou6leVps85gnr+ln+UAI7lSPCmlNKGGKGk
-	AyngtlkCyyLcWg5O3poBc65f/zW+/qDO4FJEOuRdE3B4XbmTRNDW/zfLx
-X-Received: by 2002:a05:6000:3108:b0:48d:f9dd:e3de with SMTP id ffacd0b85a97d-49c7353c415mr27089117f8f.45.1794904343236;
-        Tue, 17 Nov 2026 00:32:23 -0800 (PST)
-Received: from ?IPv6:2003:cf:572c:2800:de4c:6789:33ce:97c2? (p200300cf572c2800de4c678933ce97c2.dip0.t-ipconnect.de. [2003:cf:572c:2800:de4c:6789:33ce:97c2])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c608d10b2sm43646659f8f.44.2026.11.17.00.32.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 00:32:22 -0800 (PST)
-Message-ID: <fd39200976086130cc82d59699a988fc3e0689cf.camel@amutable.com>
-Subject: Re: [PATCH RFC v3 27/44] openpromfs: use fc_init_pseudo()
-From: Alexander Mikhalitsyn <alex@amutable.com>
-To: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org
-Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef
- Bacik	 <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
- Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org,
- target-devel@vger.kernel.org, 	driver-core@lists.linux.dev,
- linux-mm@kvack.org, bpf@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
-	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org,
- netdev@vger.kernel.org, 	fuse-devel@lists.linux.dev,
- linux-efi@vger.kernel.org, 	xen-devel@lists.xenproject.org,
- ocfs2-devel@lists.linux.dev, 	linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, 	linux-usb@vger.kernel.org, Amir Goldstein
- <amir73il@gmail.com>, 	linux-erofs@lists.ozlabs.org,
- linux-kselftest@vger.kernel.org
-Date: Tue, 17 Nov 2026 09:32:20 +0100
-In-Reply-To: <20261116-work-loop-pseudo-v3-27-8cbbea1cf34f@kernel.org>
-References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
-	 <20261116-work-loop-pseudo-v3-27-8cbbea1cf34f@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4844606A8B1;
+	Tue, 17 Nov 2026 08:33:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4844606A8B1
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kylinos.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kylinos.cn
+X-UUID: 9821d1a6e26111f19a56ed5b684f684d-20261117
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.19,REQID:ecb2d8eb-a7a5-4ac4-a91e-7725d9e6362b,IP:0,U
+	RL:0,TC:0,Content:-25,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTIO
+	N:release,TS:-25
+X-CID-META: VersionHash:7db8b62,CLOUDID:5c3ec8fa327a7d1464f059665462b4f4,BulkI
+	D:nil,BulkQuantity:0,SF:81|82|102|123|865|898,TC:nil,Content:0|15|50|99,ED
+	M:-3,IP:nil,URL:99|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,O
+	SA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: 9821d1a6e26111f19a56ed5b684f684d-20261117
+X-User: zhaoguohan@kylinos.cn
+Received: from ubuntu.. [(10.44.16.150)] by mailgw.kylinos.cn
+	(envelope-from <zhaoguohan@kylinos.cn>)
+	(Generic MTA with TLSv1.3 TLS_AES_256_GCM_SHA384 256/256)
+	with ESMTP id 339652246; Tue, 17 Nov 2026 16:33:41 +0800
+From: zhaoguohan@kylinos.cn
+To: mst@redhat.com,
+	jasowang@redhat.com
+Cc: eperezma@redhat.com,
+	xuanzhuo@linux.alibaba.com,
+	tglx@kernel.org,
+	mingo@redhat.com,
+	bp@alien8.de,
+	dave.hansen@linux.intel.com,
+	x86@kernel.org,
+	hpa@zytor.com,
+	kvm@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Khan Zhao <zhaoguohan@kylinos.cn>
+Subject: [PATCH v2 1/2] vhost: set dirty log bits without pinning pages on x86
+Date: Tue, 17 Nov 2026 16:33:22 +0800
+Message-ID: <20261117083323.89502-2-zhaoguohan@kylinos.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117083323.89502-1-zhaoguohan@kylinos.cn>
+References: <20261117083323.89502-1-zhaoguohan@kylinos.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,40 +81,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Mon, 2026-11-16 at 12:05 +0100, Christian Brauner wrote:
-> Initialize openpromfs as a pseudo filesystem. This raises SB_I_PSEUDO
-> and
-> also SB_I_NOEXEC and SB_I_NODEV. openpromfs never holds executables
-> or
-> device nodes.
->=20
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+From: "Michael S. Tsirkin" <mst@redhat.com>
 
-Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
+vhost had a TODO to replace page pinning with a version
+of set_bit that works on userspace memory, since forever.
 
-> ---
-> =C2=A0fs/openpromfs/inode.c | 2 ++
-> =C2=A01 file changed, 2 insertions(+)
->=20
-> diff --git a/fs/openpromfs/inode.c b/fs/openpromfs/inode.c
-> index fb8d84bdedfb2..6cd02d456bac9 100644
-> --- a/fs/openpromfs/inode.c
-> +++ b/fs/openpromfs/inode.c
-> @@ -10,6 +10,7 @@
-> =C2=A0#include <linux/string.h>
-> =C2=A0#include <linux/fs.h>
-> =C2=A0#include <linux/fs_context.h>
-> +#include <linux/pseudo_fs.h>
-> =C2=A0#include <linux/init.h>
-> =C2=A0#include <linux/slab.h>
-> =C2=A0#include <linux/seq_file.h>
-> @@ -419,6 +420,7 @@ static const struct fs_context_operations
-> openpromfs_context_ops =3D {
-> =C2=A0
-> =C2=A0static int openpromfs_init_fs_context(struct fs_context *fc)
-> =C2=A0{
-> +	fc_init_pseudo(fc);
-> =C2=A0	fc->ops =3D &openpromfs_context_ops;
-> =C2=A0	return 0;
-> =C2=A0}
+It is really best to avoid GUP on fast path entirely.
+Implement set_bit_user and use it in vhost, to do just that.
+
+Should not be too hard for non-x86 too.
+
+Reported-by: Khan Zhao <zhaoguohan@kylinos.cn>
+Link: https://lore.kernel.org/all/20261112085631.128819-1-zhaoguohan@kylinos.cn/
+Signed-off-by: Michael S. Tsirkin <mst@redhat.com>
+[Khan: declare efault with __label__ so it is local to the macro]
+Signed-off-by: Khan Zhao <zhaoguohan@kylinos.cn>
+---
+v2: new in this series; replaces my v1 patch 1. Taken from
+    Michael's reply in the RFC thread, with __label__ added for efault.
+
+ arch/x86/include/asm/uaccess.h | 23 +++++++++++++++++++++++
+ drivers/vhost/vhost.c          |  7 +++++++
+ 2 files changed, 30 insertions(+)
+
+diff --git a/arch/x86/include/asm/uaccess.h b/arch/x86/include/asm/uaccess.h
+index f4700ad6b5ec..a727ef8084f4 100644
+--- a/arch/x86/include/asm/uaccess.h
++++ b/arch/x86/include/asm/uaccess.h
+@@ -540,6 +540,29 @@ _label:									\
+ 	__ret;								\
+ 							})
+ 
++/* set_bit() on a byte of user memory; returns -EFAULT on fault. */
++#define set_bit_user(nr, addr)					\
++({									\
++	__label__ efault;						\
++	int __err = -EFAULT;						\
++	u8 __user *__p = (addr);					\
++	scoped_user_rw_access(__p, efault) {				\
++		__err = 0;						\
++		asm volatile("\n"					\
++			     "1: " LOCK_PREFIX "orb %[mask], %[ptr]\n"	\
++			     "2:\n"					\
++			     _ASM_EXTABLE_TYPE_REG(1b, 2b,			\
++						   EX_TYPE_EFAULT_REG,	\
++						   %[errout])		\
++			     : [errout] "+r" (__err),			\
++			       [ptr] "+m" (*__p)			\
++			     : [mask] "q" ((unsigned char)BIT(nr))	\
++			     : "memory", "cc");				\
++	}								\
++efault:									\
++	__err;								\
++})
++
+ /*
+  * We want the unsafe accessors to always be inlined and use
+  * the error labels - thus the macro games.
+diff --git a/drivers/vhost/vhost.c b/drivers/vhost/vhost.c
+index e29f154706da..d426f303c107 100644
+--- a/drivers/vhost/vhost.c
++++ b/drivers/vhost/vhost.c
+@@ -2527,6 +2527,12 @@ long vhost_dev_ioctl(struct vhost_dev *d, unsigned int ioctl, void __user *argp)
+ }
+ EXPORT_SYMBOL_GPL(vhost_dev_ioctl);
+ 
++#ifdef CONFIG_X86
++static int set_bit_to_user(int nr, void __user *addr)
++{
++	return set_bit_user(nr, addr);
++}
++#else
+ /* TODO: This is really inefficient.  We need something like get_user()
+  * (instruction directly accesses the data, with an exception table entry
+  * returning -EFAULT). See Documentation/arch/x86/exception-tables.rst.
+@@ -2549,6 +2555,7 @@ static int set_bit_to_user(int nr, void __user *addr)
+ 	unpin_user_pages_dirty_lock(&page, 1, true);
+ 	return 0;
+ }
++#endif /* CONFIG_X86 */
+ 
+ static int log_write(void __user *log_base,
+ 		     u64 write_address, u64 write_length)
+-- 
+2.43.0
+
