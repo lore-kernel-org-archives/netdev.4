@@ -1,55 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794904941;
-	b=c0JnJnhRFa0bn1O9A0k9lqpmKnvRs3ieepkP1ExIlB5ptxrOPeot6G2WijMaOxLOznuI
-	 Yq5FXVTlUE33OnAjJCKtP/Dz1rNRSD8l4rGEn1cYBMWa78Xar0078yThkyf4BLwaDkwth
-	 dI/nG7TvFQzJgsr/Uoz7y10Mm64iZL8IRKYrmqWMVsQE7PGFyiXGcyDkvirB5h/TF7voo
-	 67vZgA8+mJFe6fnyUjaYgwDwQUUsM6tlPmr03MMQvvAlVhnZRMEJAYqjAYlR6lwhiclLk
-	 hVEomSyuVqbgad+fkydBsz9AM0WByh6C9tw6+YQccp1Ds6pQhwbnuLF8Wl2/3pq4pZA==
+	t=1794905083;
+	b=jUnf9hq1o+3JKoVWrCr9cdegZPwGqP4pLEDKbWpBtLvADwl8NKINw03qpC8yRbePKOt0
+	 uVsf4zGNEkRham2KgHJFR6+Auzak9/uHyeiwlU9FJ6wM/uRZXxEjLglqlcumIj8fgRhxi
+	 3dGS2KdKdkWl7pnDStuWPNLXNf5RtI6Ipp57VbZ23xvHM2Wt2D+gJFvhTzHDn9IEnAFyV
+	 Epx9IDVZ7BlK7kchEynT5dC4XNKhZsfdwe5JKRY2JGJ0KXWT0QnmwaglcuSMzv1XvGQOe
+	 MEosq5MF1BxY+rAAHDRLSkKfufhJVhw1unSPuDcKm8WSGntmFLUIC2XevyW05juUcAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794904941;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=gmdkkh8gDfEPErj63kJWoJNjdLpvycU+X9vGjZzQ0x4=;
-	b=zA0ggFdxZod15AoSTGf+6arFbF35Ycs0npI4qIrumITmIWh3VBECs3bI8G8Yt+0LQrlb
-	 lLbD9e6aZFIJaK74CKLgbxQ7oicwb75zocy7UCgigfiSeJ3u4kFGWnN8LmvYHnjbHsevn
-	 3dEgf91mfGnWdCL0KZZ7A1NUFgSnNBeDCxJTt0ktI9jO0aidG/1yaEcGO7kfWfdvD0sE7
-	 v3qXu8Ju1iE5bDsASkzKkIDNz1ra7+G6t+mhsbPCZeAJ2rRO+A4yfgvNPx7TdOVgcTeE4
-	 2ItK2nsD9UyasFCR3MuSuPcIzVKdUTP1Ap2KxvULQEBKuez5bLVdGP7KQtqLZM4apsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794905083;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=YtgOPMlBsDbDRTTami0iaeC2PfdAlPMUJ3BhZBWqnDY=;
+	b=YIzbhoU0yzRJ2vC0GQGfgKGuAc+25Y9sf+VHk4UHW63vLQDUVvbUwEVC/wo2VeqjfZMR
+	 ihnD4Ng1IWotLXAZnNBWMcLbUTZwO/VcUx8bQMYANiiOwgIVitC6W2koe9aXuv0Cl5x3E
+	 2NofkFK75kehSManESmR7Hh0MJ3hM0TJ5CFKIYwUaXT+sEtiq5yY1vhFSxTOng0wJOeoo
+	 MimnOfhMxNbSHkCoqueyEuF19LZs5QDXzpPe86GavNgXS3zTxxdC6OntEH2SGxvMsD8Bf
+	 NRhzgFRkMfKUrBvP3yXbI+5lpm2dT9YGhkqrP+tdE+Gnzv+JWuOWJo/Row3sEl3m3AA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gh2D1W3C;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=amutable.com;
+	spf=pass smtp.mailfrom=amutable.com;
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qPWJSshs;
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80B26606A33F
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:42:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE6F3606A885
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:44:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE6F3606A885
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gh2D1W3C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29B641F000C7
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:42:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794904941;
-	bh=gmdkkh8gDfEPErj63kJWoJNjdLpvycU+X9vGjZzQ0x4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=gh2D1W3Cz8HowJ2wbpQ3CQ+f5tVgkLMBFmNw+LoupgdmN7hT6JqbibQHy730KIYh0
-	 a07NoC8Keh3ef1vqDDcDZIPOYG3fg4i1h0DbpJOrBvBZYT68KDR4fCvPt7tkBmbx7K
-	 a3IHkyHpQ1o+EwS562bsO+jSfj6s9T9jQLoRU/aQ6dJLeDqzvVaXgsnPpCtgOMlivT
-	 W0DgwqCfI1timDiAbex1FqnMQMlWkP3zrS/QMqtPjOxXIJudWdd3huQz7d5e+APv/K
-	 UgVUwkdyGGOSZG2F9QUFn2hBHAqCFWMRwoqUdDUEmZMxJMGKjBqQiRV9i2ZdW1Wr4u
-	 iBE3IE44zXlZg==
-Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-48e94879f02so1309578fac.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:42:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFDp9T21X8/e/f/t1dkrV20y4Hqa71uFRqdLoOYfzHGRDc/uq0WsnodDKuINRHTttQV1WeDsqA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bESVDc0VbJYfwVV0n0YQjxK3pLKGakfV4aDHv7p8UTKgbn7VS
-	CqvJZjZkj3c/Ms0Hpv31VsEhicgeHqG6j1/ZuT86YXXtDfdiIrGCuYK20w5/gR1fAQRnf7SvmZ2
-	dByfv06sYT2IO+WaLQ9ZRxWseiQpL5jI=
-X-Received: by 2002:a05:6870:8a2b:b0:48f:e0f6:c45c with SMTP id
- 586e51a60fabf-4afdf460eb3mr10813874fac.42.1794904935511; Tue, 17 Nov 2026
- 00:42:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qPWJSshs
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so25256365e9.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:44:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794905081; x=1795509881; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=YtgOPMlBsDbDRTTami0iaeC2PfdAlPMUJ3BhZBWqnDY=;
+        b=qPWJSshsn8vVlxONBkwnt0Rrdn9d5F3Qc4ul63isG/q9SzfN/YeX6Opt0gSo3Jew6G
+         TPoHc3exB3o1TVJHb31ucJURrMLm+X5ZLvKQdkLiUwsGhwj3/4jXaF9QxR3XbUAvZwOE
+         a/cd4y1UcgXoBr9kVgdvuhJuBveUAauSYuunqpBOO8ny5BuS4lSdHT4xtCJFDNjS8url
+         r/ZKVJBRzaToW1BBIq0cKvkP0/i/p+OipahpXpiSl0PGBR9WYmSpn39e8LKnYXYjrWjD
+         bzQp5gYJPTRPzgdIgnmtc42HrrCv5BgaqLA/tsUHs3tWdIoSQrhFLq1gvYrghbRPmmpF
+         EcZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794905081; x=1795509881;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=YtgOPMlBsDbDRTTami0iaeC2PfdAlPMUJ3BhZBWqnDY=;
+        b=rwZOQgUUKViYKoClpvvRzzekWUWy128Ddlop3uI/n1O//haDWBf8Fa52Jm0Wy/TTQN
+         fk6DdPhdh2iOQ1ZAnfqY8gGx+8f5ELwsv2yqdeeizJcVhgRFlw4LYKXISaW677pUDByv
+         IVV9GLB8Tke9bbPDbKVWbHnt3zR4+GmStl8sQxfieKMZR+GR5fELEphL8Awc4/Ds5Ps+
+         ACD7JehR5AMWa3Xr5WE5aK2Q5EFC8yEizAnbMhOjHYVVndaaku+bAb98FtW+6RHohYzu
+         TOoGq7CPlL4oAcmWxMYTmJzzGWGV1CcrN0zSy9dGU2vUYSxfFgG43tkKG+kGY7cMry7r
+         CDsQ==
+X-Forwarded-Encrypted: i=1; AL+hErEJDcGykPJpc8K2sv/aVtWNZovJs50r8N7Qe/nt9bCK2xKvUeGIjOtZUGw56vNYm8ickXzRCCY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/3QmCGaqEINupl6mwl/C4LoV5vmZm1HgeZzRd1vvmio3Za4W/m
+	lzwTAof+q2wW656Y3GRlCdKMtC0nQ5uRf81Tv0WwkQWobCv1hMslRRhINFWURgbX5aCv
+X-Gm-Gg: AZFdTZd/iczf7HAMRefPM4jeb5xA51rq35FTTJ4NEU4wWIltuqKTlJIYbZSB3zefKpk
+	x2OsB3d6Lrebh07qWMtbQ/AzR18YJ8qKYWyvVnpdu1I0qmNgtdQR2dJX10ejy6hXKPNi9YZX7j/
+	yf3q785dARByA6uuPb7FIExB2hCuNbuHL7Gu8hIxswMFRkmTtqTh+a1olF25WiCqzVATp5eykIN
+	21TN+/zOTV805nwZvpcXiquAGpx2egS4LtZvlLxzXHyPRHoOaQUqJ94mCSxPUwG51OoUDZaFjZE
+	VsLYNsDTIECI7T2ZWpl5i/YkbkiCPCVKGg+qMMcJZc/83QhKTl8dC6olO27E+JjrBRiOVNFgwzw
+	fg3G8iyDnMCB2CjrvFcQP2S9xbt22etUrbMrCkuM8ZOAuz5qUYG5BmWLBS9x6CF5a1bteD0x7/8
+	7ttxUriMAF3/JnxVxjzoFcCgCJ7pVZrPgJTojJHC9j8F10PZzx9/S2wOh0IgioAh8yowOGO889+
+	93E5Gj9L01DB4GKcUTFal199Z8WdogxxlRtZ1z/xaQ0VcSY9pp2PDMvLsUAug0f06qlrm3FBh7g
+	GSwNm73e8FlegIr/hz+0DJWBC//GigNp7jmmR03MZ5c/Ffgtu+SXJrrgwJJjhl94O6WbfeAzFi0
+	S5uUTxzdZGNHdfry+JaZFbT2ym5jS7SuZkTE95KUtdh9mwgZZ9LAQUiz+Emo1F0374SIuVT4MD9
+	5vDA==
+X-Received: by 2002:a05:6000:2411:b0:48f:f26d:c5c with SMTP id ffacd0b85a97d-49c70b051d1mr27471178f8f.9.1794905081269;
+        Tue, 17 Nov 2026 00:44:41 -0800 (PST)
+Received: from ?IPv6:2003:cf:572c:2800:de4c:6789:33ce:97c2? (p200300cf572c2800de4c678933ce97c2.dip0.t-ipconnect.de. [2003:cf:572c:2800:de4c:6789:33ce:97c2])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49d673ce75fsm19982260f8f.55.2026.11.17.00.44.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 00:44:40 -0800 (PST)
+Message-ID: <d18a972cfc6a7d6da39ab9674903d7ae6e4c1826.camel@amutable.com>
+Subject: Re: [PATCH RFC v3 35/44] fs: add file_check_backing()
+From: Alexander Mikhalitsyn <alex@amutable.com>
+To: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org
+Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef
+ Bacik	 <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, 	driver-core@lists.linux.dev,
+ linux-mm@kvack.org, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org,
+ netdev@vger.kernel.org, 	fuse-devel@lists.linux.dev,
+ linux-efi@vger.kernel.org, 	xen-devel@lists.xenproject.org,
+ ocfs2-devel@lists.linux.dev, 	linux-s390@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, 	linux-usb@vger.kernel.org, Amir Goldstein
+ <amir73il@gmail.com>, 	linux-erofs@lists.ozlabs.org,
+ linux-kselftest@vger.kernel.org
+Date: Tue, 17 Nov 2026 09:44:39 +0100
+In-Reply-To: <20261116-work-loop-pseudo-v3-35-8cbbea1cf34f@kernel.org>
+References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
+	 <20261116-work-loop-pseudo-v3-35-8cbbea1cf34f@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,91 +116,172 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-3-kuniyu@google.com>
-In-Reply-To: <20261117053543.84032-3-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Tue, 17 Nov 2026 09:42:02 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqEnTF0RCv4+Vp_WXG8jrwhsAakbXTzU+vfLq+d4WTAqw@mail.gmail.com>
-X-Gm-Features: AclHuK-eXCKxOt8y1BtCP2agpNWIsk4gbc5ohJX4sB1awgl7GI0KsCP1Ck7CnkE
-Message-ID: <CAL4WiiqEnTF0RCv4+Vp_WXG8jrwhsAakbXTzU+vfLq+d4WTAqw@mail.gmail.com>
-Subject: Re: [PATCH v1 net 2/8] tcp: Don't use inner IP TTL for IP_MINTTL in tcp_v4_err().
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
-	Stephen Hemminger <stephen@networkplumber.org>, stephen hemminger <shemminger@vyatta.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
->
-> RFC 5082 introduced Generalized TTL Security Mechanism (GTSM),
-> and IP_MINTTL and IPV6_MINHOPCOUNT follow that.
->
-> If an incoming IPv4 packet has TTL less than inet_sk(sk)->min_ttl
-> configured via IP_MINTTL, the packet is dropped.
->
-> However, tcp_v4_err() checks the TTL extracted from the ICMP
-> payload, not the one in the outer IP header.
->
-> The minimal repro is:
->
->   --ip_version=3Dipv4
->    0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
->   +0 setsockopt(3, SOL_IP, 21, [250], 4) =3D 0
->   +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) =3D 0
->   +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress)
->   +0 > S 0:0(0) <...>
->   +0 < (ttl 10) icmp unreachable host_unreachable [0:0(0)]
->   +0 %{assert tcpi_state =3D=3D TCP_SYN_SENT}%
->
-> Let's check ip_hdr(skb)->ttl.
->
-> Now GTSM is applied to locally generated ICMP errors, but this
-> behaviour matches tcp_v6_err().
->
-> Note that tcp_v6_err() properly checks ipv6_hdr(skb)->hop_limit.
->
-> Fixes: 97e3ecd112ba ("TCP: check min TTL on received ICMP packets")
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+On Mon, 2026-11-16 at 12:05 +0100, Christian Brauner wrote:
+> Loop, zloop, the nvme target, the scsi target, fuse passthrough, the
+> usb
+> mass storage gadget, erofs and acct all take a file from userspace
+> and
+> use it as storage. Currently, each of them has its own idea of what
+> to
+> check before using a file like that:
+>=20
+> - loop and the gadget check for a regular file or a block device, the
+> =C2=A0 nvme target, the scsi target and zloop take any file type
+> - loop checks the open mode, the gadget checks FMODE_CAN_READ, the
+> nvme
+> =C2=A0 target, the scsi target and zloop only check for ->read_iter() and
+> =C2=A0 ->write_iter()
+> - apart from acct which refuses procfs and sysfs files none of them
+> =C2=A0 cares whether the file is a kernel interface
+>=20
+> Add a helper that does all of it in one place. It only accepts
+> regular
+> files and, if the caller passes S_IFBLK, block devices. It refuses
+> files
+> on pseudo filesystems. And it checks that the file is open for what
+> the
+> caller is going to do with it and implements ->read_iter() for
+> reading
+> and ->write_iter() for writing.
+>=20
+> O_PATH files are refused unless the caller passes FMODE_PATH. That is
+> for callers that only need the path of the file. fuse passthrough is
+> one of them and has accepted O_PATH file descriptors since commit
+> efad7153bf93 ("fuse: allow O_PATH fd for FUSE_DEV_IOC_BACKING_OPEN").
+>=20
+> Block devices are fine even though bdevfs is a pseudo filesystem. A
+> block device that userspace hands in is a device node on devtmpfs or
+> some other filesystem. Files on bdevfs only come from
+> bdev_file_open_by_*() and never end up here.
+>=20
+> The pseudo filesystem check looks at the inode that actually provides
+> the data via d_real_data_inode(). overlayfs accepts sysfs, cgroup2,
+> debugfs, tracefs, configfs and securityfs as lower layers and reads
+> of
+> such an overlayfs file are served by the file on the pseudo
+> filesystem.
+> Checking the overlayfs inode would miss that.
+>=20
+> For an O_PATH file nothing might have looked up the data yet.
+> overlayfs
+> only looks up the data of a metacopy file in a data-only layer when
+> the
+> file is opened. d_real_data_inode() does the lookup then and if that
+> fails we return the error.
+>=20
+> Note that the file type is taken from the inode of the file and not
+> from
+> the host of ->f_mapping like loop and the gadget do it. A driver can
+> point ->f_mapping somewhere else in ->open(). It makes no difference
+> for
+> block devices as both inodes are block devices.
+>=20
+> No functional changes. Nothing calls the helper yet.
+>=20
+
+Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
+
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 > ---
-> Cc: Stephen Hemminger <stephen@networkplumber.org>
-> Cc: stephen hemminger <shemminger@vyatta.com>
-> ---
->  net/ipv4/tcp_ipv4.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-> index 7d58f522068d..bf8542368032 100644
-> --- a/net/ipv4/tcp_ipv4.c
-> +++ b/net/ipv4/tcp_ipv4.c
-> @@ -546,7 +546,7 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
->
->         if (static_branch_unlikely(&ip4_min_ttl)) {
->                 /* min_ttl can be changed concurrently from do_ip_setsock=
-opt() */
-> -               if (unlikely(iph->ttl < READ_ONCE(inet_sk(sk)->min_ttl)))=
- {
-> +               if (unlikely(ip_hdr(skb)->ttl < READ_ONCE(inet_sk(sk)->mi=
-n_ttl))) {
->                         __NET_INC_STATS(net, LINUX_MIB_TCPMINTTLDROP);
->                         goto out;
->                 }
-
-Linux sends ICMP errors with the default TTL (64), so locally
-generated errors are now dropped for any min_ttl above 64.
-
-For the strict GTSM case (min_ttl =3D=3D 255) there is no router between
-the peers, so nothing else changes.
-
-But IP_MINTTL is also used with lower values for multi-hop sessions
-("ttl-security hops N"). There, an ICMP from an intermediate router
-using an initial TTL of 64 was accepted before this patch (the quoted
-TTL is the one we sent, minus the hops to that router), and is dropped
-after.
-
-I think this is the right thing to do, since the inner TTL is under
-the sender's control, but I would mention this in the changelog.
-
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+> =C2=A0fs/read_write.c=C2=A0=C2=A0=C2=A0 | 53
+> +++++++++++++++++++++++++++++++++++++++++++++++++++++
+> =C2=A0include/linux/fs.h |=C2=A0 2 ++
+> =C2=A02 files changed, 55 insertions(+)
+>=20
+> diff --git a/fs/read_write.c b/fs/read_write.c
+> index 6767283108991..9f1e7bfcbd4f1 100644
+> --- a/fs/read_write.c
+> +++ b/fs/read_write.c
+> @@ -866,6 +866,59 @@ static ssize_t do_loop_readv_writev(struct file
+> *filp, struct iov_iter *iter,
+> =C2=A0	return ret;
+> =C2=A0}
+> =C2=A0
+> +/**
+> + * file_check_backing - check that the kernel can use a file as
+> storage
+> + * @file: file that userspace handed in
+> + * @mode: FMODE_READ and/or FMODE_WRITE the kernel will do I/O with,
+> or
+> + *=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 FMODE_PATH if only the path=
+ of @file is used
+> + * @type: S_IFBLK if a block device is fine as well, 0 otherwise
+> + *
+> + * Call this where a file from userspace is taken as a backing file.
+> Only
+> + * regular files and, if @type is S_IFBLK, block devices are
+> storage. Files
+> + * on pseudo filesystems are kernel interfaces and are refused. The
+> file
+> + * must be open for @mode and implement ->read_iter() for reading
+> and
+> + * ->write_iter() for writing. O_PATH files are only fine with
+> FMODE_PATH.
+> + *
+> + * Return: 0 on success, -EBADF if @file isn't open for @mode, -
+> EINVAL if it
+> + * can't be used as storage, or the error from looking up the data
+> of @file
+> + * on a stacking filesystem.
+> + */
+> +int file_check_backing(const struct file *file, fmode_t mode,
+> umode_t type)
+> +{
+> +	fmode_t io =3D mode & (FMODE_READ | FMODE_WRITE);
+> +	/* Drivers may point ->f_mapping at something else. */
+> +	umode_t fmt =3D file_inode(file)->i_mode & S_IFMT;
+> +	struct inode *real_inode;
+> +
+> +	/* O_PATH files are only fine for callers that just use the
+> path. */
+> +	if ((file->f_mode & FMODE_PATH) && !(mode & FMODE_PATH))
+> +		return -EBADF;
+> +
+> +	if ((file->f_mode & io) !=3D io)
+> +		return -EBADF;
+> +
+> +	if (fmt !=3D S_IFREG && !(type =3D=3D S_IFBLK && fmt =3D=3D S_IFBLK))
+> +		return -EINVAL;
+> +
+> +	/* Look through stacking filesystems at the inode with the
+> data. */
+> +	real_inode =3D d_real_data_inode(file->f_path.dentry);
+> +	if (IS_ERR(real_inode))
+> +		return PTR_ERR(real_inode);
+> +	if (real_inode->i_sb->s_iflags & SB_I_PSEUDO)
+> +		return -EINVAL;
+> +
+> +	if ((mode & FMODE_READ) &&
+> +	=C2=A0=C2=A0=C2=A0 (!(file->f_mode & FMODE_CAN_READ) || !file->f_op-
+> >read_iter))
+> +		return -EINVAL;
+> +
+> +	if ((mode & FMODE_WRITE) &&
+> +	=C2=A0=C2=A0=C2=A0 (!(file->f_mode & FMODE_CAN_WRITE) || !file->f_op-
+> >write_iter))
+> +		return -EINVAL;
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(file_check_backing);
+> +
+> =C2=A0ssize_t vfs_iocb_iter_read(struct file *file, struct kiocb *iocb,
+> =C2=A0			=C2=A0=C2=A0 struct iov_iter *iter)
+> =C2=A0{
+> diff --git a/include/linux/fs.h b/include/linux/fs.h
+> index 99caef43ff3c4..b1c7ebafbadbe 100644
+> --- a/include/linux/fs.h
+> +++ b/include/linux/fs.h
+> @@ -2553,6 +2553,8 @@ static inline const struct inode
+> *file_user_inode(const struct file *f)
+> =C2=A0	return file_inode(f);
+> =C2=A0}
+> =C2=A0
+> +int file_check_backing(const struct file *file, fmode_t mode,
+> umode_t type);
+> +
+> =C2=A0static inline struct file *file_clone_open(struct file *file)
+> =C2=A0{
+> =C2=A0	return dentry_open(&file->f_path, file->f_flags, file-
+> >f_cred);
