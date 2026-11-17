@@ -1,127 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794929176;
-	b=clE/jfNQkihJjdyfS6o49egFCeu/pyPxz7zSv90gOjGH6DCuJ9QMxFBWM3x9wXtuYlJ6
-	 225PW8E0fTDcreYqctxzM5N7QtKMf1Mm70e4Zeg7wPfPv9qh8G0M2UaIv+LlJC/9m/tDk
-	 bxHVgH5Zhh4uEnWHpjwSMEiA2ZLbfBzE/Me5C/jB3g7u48kMRMTSLbYNi4QrjX8+xqLg7
-	 cqbvMngT+A2bBfKxDFxdoQnO0veNQZDgMgHjYo+ybW4h0bSWmdAqzuD9Sat2KhQfMeDhG
-	 +iUGRNx4u+m0U00P8R2mmnHba3MOIFcie16dosP4Qhwaa3Z2HDsSBlXxyGEpQHqBpWA==
+	t=1794929230;
+	b=yfeTc2b7I+b3IUhA2G8FGUADv8kIzT48DPt390297a4kAsHI9zFFh1lofPyoyxCu/TCg
+	 BkPbZBnhI4N9VR64teYe1jw8j7CFv77I0h30jYc3mqz3y/H7kv+Ua2JY/CiHd3Y0TCDzj
+	 +UGN1/cDSkJWbL1vSpmPCe46lpLuKv4Y11379BbxhhZz5MoNCi2e2Iq/mXzeyCrCvyYb9
+	 nEo08usyKpfELwKPUP8PaRgsmyVITi+YGOkFeYxTPEohltJTAj1+hP+8BC+bdFGZ89dxt
+	 Guus4eVwcO/Gub28Dl5WHU+VtNIPde0YxRw0wpgmetNy8X/iABtB2p709j9VUh+L5Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794929176;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=vBPOLGbjQHm2dEs2LFQcVrcZ3yp94sR2RDaK/4V+R0U=;
-	b=yRN+dsZ1NHtf3ZkzcpV5zQ3wT0n6M+iGTVAJ1Nc4M/ufCjTzOS+7AA1SMGv5KxzYESnV
-	 517FOzPNRXJzcK6gCn6yCwoDMVMCfI/N5690NSt49Xx3N/i0qB5nsZUnEIQIvhqbcp8JU
-	 tQ8rMjdv+WfihD1w70K3z1y9S1L1uDF2pl3UMr8VS5q1meCuHYpO6JZ3tb1nmX1hg/fwy
-	 Yqdd8kT42o+8uUhWOtdd5JQ1TtBJsX8JFQjBO5rof8S1llnqsp8+juZ+Dik7YLdvg9CVT
-	 Rys7Ylu0P/JE5Gqp1UujElqNKilkap5OasR5fCd0Df2yFN4620U369JPNVzxUSCo3Vw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794929230;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=J9lHZgigB7HZPUrEp8RihgD1dGtXtELcCnjY6ZtCrhs=;
+	b=EXRv9n1o4l1onN4th9Bkam5cJwafO8xok12jExbUv2A11PMI5gHQlaABvzvj/0OyDNqs
+	 XYKBJJWtAh27XVeW0SQ1TDo92CR+sYiMKgYm2VrY09Qc9uM0Js6wfsIF4N5vMe5M9zTMD
+	 WeVaTRp7lps1m1xcz8jjAj7K+C4EUeUdWsclTXtCqCh4cXlJ6ASgjA0nRxutyywVfhiu+
+	 Vz0w3C14TGZ6AxxXC0BtS8T5PBbazhps6JJFEpCMWnWQvk23kKqZ+PLghqLOEdyF6tcRY
+	 3wBQItdGuzlXDOZ9xKuSTjJ0FbV36p2KkMvxCIupIAz4D5h+zivL1QZU96T5yl3UzyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=WOK5naCi;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="ZgLg9/61";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k75pwJdo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6493C606A32A
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:26:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6493C606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DEE1C606A32C;
+	Tue, 17 Nov 2026 15:27:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=WOK5naCi;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=ZgLg9/61
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHC17tw3713836
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:26:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=vBPOLGbjQHm2dEs2LFQcVrcZ
-	3yp94sR2RDaK/4V+R0U=; b=WOK5naCiqB7oN+BcYiBV1TTMRGwYxJjX6kguGQBp
-	UVLtobmT0q49Xys5cMtJvKuWcFwTI2zEOw5DLGgBkJNN7ot4WJDTh7V2Ce5qlKSe
-	sFI5cBonrDt0QwwMZnAd+tsTvElLZ6+iJYVNN8liQ+Q+04r+Z9jj2HOv9WFunqYr
-	pPqKoNUhb8A69wNsj64wfP7G3UKgT87rr+dxzG8gs5XlG/P9+M5EWJli1b6q2bX8
-	9D1L+56I4dkkMX8kTXP6WDAi6D8YIbl+t++WOgdHLzARJwMsnxxW4iQ/BvvzjiI8
-	L9dEmvGaukugxvux0TfPw4SOgRv1AGtruP/PYzwHo6ffoQ==
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0hve25q9-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:26:15 +0000 (GMT)
-Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-990aa76e3daso541502241.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:26:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794929174; x=1795533974; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vBPOLGbjQHm2dEs2LFQcVrcZ3yp94sR2RDaK/4V+R0U=;
-        b=ZgLg9/61rZJT4JZ0PpPJvv+jfwsA8zsyppgTu1NWldDTNGHCIprYd4dv4UWG0afdyg
-         POSmJXe2GmrUVcOQI/vCDb3TD0sP5cGDU6Q1lGpS1o0wzLJuzx8GQL2CzZPLfgGxLV0X
-         2lt2kwooYbotxt6nptpfPbdnLamwfPixkZ63NkVBRLaA9d3cy5V5yCInVYTZbA5McIHb
-         2N8GUUbO/H2OChcbbKVvdHAJa+O+n2/HfeQF8QKKK6awJMnHMHp//FRQPyMNu2CyddL/
-         E+szhqkT1VJqRwROxJovR5D/6c0wGnPmQk3LwSPTUCtzUzjTfJoueAyhGaUWm0MfmyKk
-         k1Aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794929174; x=1795533974;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vBPOLGbjQHm2dEs2LFQcVrcZ3yp94sR2RDaK/4V+R0U=;
-        b=nBBxex9+z4wGtNKu+oHbJLdAFvHMkLCSSJ7AztAfor9+BXiyQazpag10BVhU+2Y/VK
-         DTUIzeIVcYPWSFiLUvRtqt1U86CZa7K+nLfDpTz8/s21moqWpx6Y7P596x5GdC2tkLuS
-         n4pWCi0ujK7GQj3bTrPsSzz69QvtBDVUE0RNEUXct3js61+3UmOT7PYCmgfkSWXBgt3P
-         HgfbaJcshldIhHxNnbr4HBN4CXukj9hpFzSoJ/jRG/XHyYJWJuyuAOMSbnkGDJHVFFxS
-         mauFXae8XY49ZTmvKI5Ty27NLrCerHpkuEes5uInFyJpA01T1GhW4TjEu4oOBON7BtGj
-         H9Mw==
-X-Forwarded-Encrypted: i=1; AL+hErHl4jOWWHzb4QDnO5wIM1HXMPhmG16ld/m/WS0rx8d+WYg+qVyHqUIcddgmoP/lYZEm7r4Wdcc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8viimZctcjmYezqi4x8McR5sXZSWHw/s0UZeGgR/Nu6i0o+qlz
-	enYWFO5gvAxutSHQ1/4sh0NvOSw/Rg0E0rzCPkduxTwiJ5hTNv5s6usOpHiN4EJUNSKSZmKfo0z
-	+0m4K5wz7GYyAs/FwInGn0Oa4CFVTx+iCOX2lkGTnAOyziLjpHFOdYVJcOq0=
-X-Gm-Gg: AYBFou2Q1mrT+jpqiiXYveVGUEZfFaYA6Damlfpr0q1VRfja40salxyNmO1nsLdvcyM
-	BllC+vLu84u9HMHJVEyDQrUFv+wGtR5cyai7sppXJPEi5c30SfH5MFa3u+2PkBTMHcDxu1yCQ52
-	7UAuJ1LjJPxYBgQoONQoWoAudT436XDMAXC2DPlJf1SGy7b1SmbXfJe7ChuSPYtvfzMZiKBIFlU
-	Zu4/BU9CVlN3v7o9VJ5YYEav67SAOYXiqymC4A0u0R7F4PFq9PYZObSQpOvw0+eS0vDDP2XELbC
-	0gmy5PAdgweBtLs6e+9FPbUlWy663ApFuEM9vlBkILBEcYz5PdcNOMrNw/13QPFveTI++eGZy5H
-	GepWhjpH7QEAureTXoHiOgv2NasgEmsCWaGSb4nBzOLQJNmZJen/lE2JeL8pq4Y0=
-X-Received: by 2002:a05:6102:a4b:b0:7cc:1192:563c with SMTP id ada2fe7eead31-7d64d770298mr3870750137.25.1794929174084;
-        Tue, 17 Nov 2026 07:26:14 -0800 (PST)
-X-Received: by 2002:a05:6102:a4b:b0:7cc:1192:563c with SMTP id ada2fe7eead31-7d64d770298mr3870721137.25.1794929173461;
-        Tue, 17 Nov 2026 07:26:13 -0800 (PST)
-Received: from localhost ([195.50.164.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78386902sm82176765e9.1.2026.11.17.07.26.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 07:26:11 -0800 (PST)
-Date: Tue, 17 Nov 2026 16:26:11 +0100
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: James Hilliard <james.hilliard1@gmail.com>, netdev@vger.kernel.org,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Chen-Yu Tsai <wens@kernel.org>,
-        Jernej Skrabec <jernej.skrabec@gmail.com>,
-        Samuel Holland <samuel@sholland.org>,
-        LABBE Corentin <clabbe.montjoie@gmail.com>,
-        linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-        linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Honor the RX checksum
- offload setting
-Message-ID: <avxyE59XdBkdK0Jc@lore-qca>
-References: <20261115-submit-sun8i-emac-rx-checksum-v1-v1-1-f186d127b39f@gmail.com>
- <a1efeff8-2963-4859-bacb-55fdc1f5370c@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k75pwJdo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C7411F000C6;
+	Tue, 17 Nov 2026 15:27:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794929230;
+	bh=J9lHZgigB7HZPUrEp8RihgD1dGtXtELcCnjY6ZtCrhs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=k75pwJdoFQa/+SvHhxy15foiEJtFPcUh0Et09CMALFEWwRR5NCRdP72n3NDlNeenk
+	 FTzEru+nyDliQWDehVV8btV5wogdFEKpy5z2F4IknVpiYl5N4BCJQ3ld/N4Q459Ovr
+	 KAG1hqBsTlVZFXTVNVUKWZpr7N23q18sEEerBBPbXMbRj9ISGp+wy3qL6yxAZo3E9N
+	 RVDqIoKuQ0XRGKHXhwM9VnStgI/2Ec5JgNyr/VcT2/AW1RUDNeXKW3wT5rbmdqoOUm
+	 X+83VcLiHdIpGdkSxSB4yNVT6FxlQiUUBLgrXQxTkj9z1TG88fPxiPvxjuqqBLP1+j
+	 5DDsUhg37EOkQ==
+Subject:
+ Re: [PATCH v1] net: sock_reuseport: check program type on the migration path
+From: netdev-bot+sashiko@kernel.org
+To: shlomojune6@gmail.com
+Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, edumazet@kernel.org,
+ kuniyu@google.com, pabeni@redhat.com, willemb@google.com, davem@davemloft.net,
+ kuba@kernel.org, horms@kernel.org, audit@example.invalid
+Date: Tue, 17 Nov 2026 15:27:09 +0000
+Message-ID: <179492922969.3136.7887984434455212903@kernel.org>
+In-Reply-To: <20261115152408.48205-1-shlomojune6@gmail.com>
+References: <20261115152408.48205-1-shlomojune6@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -131,82 +63,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="4RtWT8mPemudz8XJ"
-Content-Disposition: inline
-In-Reply-To: <a1efeff8-2963-4859-bacb-55fdc1f5370c@bootlin.com>
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA2MSBTYWx0ZWRfX6zsS/siD24MO
- N25EChJoD+Nc3P5MlyDRyzSKaEm2BOGV3DB7rJFwXdCSaEV87iGCpQ8YbDYGdTHpQYCbm1ArKu5
- fvDCNiPPzYyo8CTcObM53dAL2Ab6u0E=
-X-Proofpoint-GUID: hUEdGamzfV39FwpU762dpgk__lbf701T
-X-Proofpoint-ORIG-GUID: hUEdGamzfV39FwpU762dpgk__lbf701T
-X-Authority-Analysis: v=2.4 cv=dqhOmFg4 c=1 sm=1 tr=0 ts=6afc7217 cx=c_pps
- a=KB4UBwrhAZV1kjiGHFQexw==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=pGLkceISAAAA:8
- a=P-IC7800AAAA:8 a=EUspDBNiAAAA:8 a=fy4Z4mAkg3wtpZJeIqMA:9 a=CjuIK1q_8ugA:10
- a=AU2tUvvXhtKScF8-c3EA:9 a=o1xkdb1NAhiiM49bd1HK:22 a=d3PnA9EDa4IxuAV0gXij:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA2MSBTYWx0ZWRfX1TAV8SgVaVwF
- riB4MS4agtWviTc7eXTLKYvSUIeE8s0Qryeb0ZNUW5p9UxPt7T2SVswg35OYsq4lhqaqnKsFLwI
- 0vYbMK4a8nb2q/zkHtiPcuM5dB9A0Iqg7/s+UoRWFZW3o+f9D2gM/1LlbLIwdKdK0BakDCzarYJ
- CZpJAYfIDqmmm8aF6qM+7Hec567LCFA+rHHuV56NhmFmDLZmFkPefifaPCFWbmJ+jZdByQYMtYS
- FklCG69LEL4a7MfRq833bYb4gKAivWdmslRJ69VEV9ldFBiWinFnakOG09oMWdatqUj9UsAiaub
- TzPJIVA3Kw4FBDgoZF1kc3KHC8LzFprG9HunTLKyoAe+188tPZk/vnVaCBKATuZpau1o4aNE3FN
- C/RxgtgJS1f7jycsSeKsBLwGz5WnKzKqhZcAunZZZTduP/I6tjwGc9HPgjUqbP+UonNKpJkxU58
- Zsi8GPibcW1U9k8hROQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 lowpriorityscore=0 clxscore=1015 phishscore=0
- bulkscore=0 malwarescore=0 adultscore=0 impostorscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611170061
 
---4RtWT8mPemudz8XJ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-> Hi,
->=20
-> On 11/16/26 01:58, James Hilliard wrote:
-> > stmmac_set_features() clears hw->rx_csum when RX checksum offload is
-> > disabled, but sun8i_dwmac_rx_ipc_enable() unconditionally enables the
-> > hardware checksum engine. The MAC therefore keeps dropping packets with
-> > invalid IP or transport checksums before they reach the host, even after
-> > ethtool reports RX checksumming as disabled.
-> >=20
-> > Set or clear EMAC_RX_DO_CRC according to hw->rx_csum so that disabling
-> > offload leaves checksum validation to the network stack. Preserve the
-> > callback's existing success return value.
-> >=20
-> > Fixes: 9f93ac8d4085 ("net-next: stmmac: Add dwmac-sun8i")
-> > Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
->=20
-> Nice and simple, I tested that on an orangepi zero, with an allwinner
-> H2+, and I can indeed see the difference as bad chksum packets are
-> dropped on that core.
->=20
-> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-> Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-Reviewed-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
->=20
-> Maxime
->=20
->=20
+- [High] net: sock_reuseport: placeholder Signed-off-by trailer in commit
+  message
+- [Low] The commit message says loading a BPF_PROG_TYPE_SOCKET_FILTER
+  program with expected_attach_type=BPF_SK_REUSEPORT_SELECT_OR_MIGRATE…
 
---4RtWT8mPemudz8XJ
-Content-Type: application/pgp-signature; name=signature.asc
+--
 
------BEGIN PGP SIGNATURE-----
+net: sock_reuseport: check program type on the migration path
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCavxyEwAKCRA6cBh0uS2t
-rCitAQCwtjLO8o2NUJzAsuBjPyc3kLWkrELN5vyl2FxMXkSmiwD+NtH/Z63B68b9
-5KXnXA59zeSZCmCwsKk9CxtQXtPZ5QY=
-=oVi3
------END PGP SIGNATURE-----
+This commit makes reuseport_migrate_sock() and reuseport_stop_listen_sock()
+treat a reuseport program as migration capable only when its type is
+BPF_PROG_TYPE_SK_REUSEPORT. Checking expected_attach_type alone allowed a
+SOCKET_FILTER program to run with a struct sk_reuseport_kern context.
 
---4RtWT8mPemudz8XJ--
+> A BPF_PROG_TYPE_SOCKET_FILTER program can be loaded with
+> expected_attach_type set to BPF_SK_REUSEPORT_SELECT_OR_MIGRATE and
+> attached to a SO_REUSEPORT TCP group; both steps are allowed without
+> CAP_BPF.
+
+[Severity: Low]
+Is "both steps are allowed without CAP_BPF" accurate for a default
+configuration?
+
+In bpf_prog_load() in kernel/bpf/syscall.c, this check runs before the
+SOCKET_FILTER/CGROUP_SKB exemption for unprivileged loads:
+
+kernel/bpf/syscall.c:bpf_prog_load() {
+    ...
+	if (sysctl_unprivileged_bpf_disabled && !bpf_cap)
+		goto put_token;
+    ...
+}
+
+The sysctl starts at 2 when CONFIG_BPF_UNPRIV_DEFAULT_OFF is enabled:
+
+int sysctl_unprivileged_bpf_disabled __read_mostly =
+	IS_BUILTIN(CONFIG_BPF_UNPRIV_DEFAULT_OFF) ? 2 : 0;
+
+That Kconfig option is "default y" in kernel/bpf/Kconfig. So on a default
+kernel, a task without CAP_BPF (or a BPF token granting it) can't load the
+socket filter in the first place. Unprivileged users can only reach the
+out-of-bounds access when kernel.unprivileged_bpf_disabled has been set
+to 0.
+
+Could the commit message mention that the unprivileged case depends on
+this sysctl? That would help backporters and security triage judge the
+exposure. The code change itself is not affected by this.
+
+[Severity: High]
+The author and Signed-off-by trailer both use the identity
+Linux kernel audit <audit@example.invalid>. That isn't a person, and
+the .invalid TLD is reserved (RFC 2606), so the address can never
+receive mail.
+
+Signed-off-by is the Developer's Certificate of Origin described in
+Documentation/process/submitting-patches.rst. It certifies that a
+specific person wrote the change or has the right to pass it on under
+the kernel's license. A placeholder identity can't make that
+certification. Nobody can be reached at this address if questions
+about the patch come up later, so this can't be applied as is.
+
+Could you resend with the author and Signed-off-by set to your real
+name and a working email address? If you're forwarding a change
+written by someone else, it needs the original author's sign-off
+followed by your own. The code change itself is not affected by this.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115152408.48205-1-shlomojune6%40gmail.com
