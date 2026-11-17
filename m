@@ -1,63 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794938975;
-	b=v/XzRrQir54NO4g/UTfksiXmhjT6e8/mcX2uVny/s3FeBM38n2RmdZaf8cPRQDjoakmV
-	 aNrJfSBUWXXtBZYjYIhUJnGEMnyenkbQwJiLVRHR4cDqICJmbtFOa1hGs6K4HkOEsXvBa
-	 oYSqKNQ+6aQr6DAVif8HIJ7p+T9oIAoYE2aVLQJSVxVa6SONJp92jp+p/jfYd2QlPjQpV
-	 X2UgOQYVr+IkArlGBN6gEzBMLW9G/UDWxgUdxLUjRcc1EqYewYMwVCDzpto4+Jqqou3sD
-	 YofMYH+WQ94seS6i9K90uB+E4zIKSFg4lxygKhZzPPUmaXevoYYM5U7kqA3bq9Sjlhw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794938975;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=BsKxt9nBAEfHX3Rjct/RuZ6P/gqzP6gTfo1UjEyhmRg=;
-	b=yanHkJPqbFtaLynAMEAwdmhQmGDF+LyUDGvOmvSZWOCuNyS6l/RzGR7C9lLDN5BSFzQy
-	 sVsX28u1i2zhVsepeJ/PnjZp5HmN1246XiyVgLfnl4yqYd7App1hcmYPOCES7zCsRFwYj
-	 jMs7RjFLcUYg2ycJ2IK+iz+dlEsrZNAUmxOzKaAJSvKLaL+YpONinV+GcaMS+YvGj8oRf
-	 ABHlRgIIcKjdgVramAKDuyuuZlt3MYCsjK3Xu1mIGb4wIi4A4lG1BLMoG8ZqukIciacEk
-	 9Zgha22xUcPxOjuyEROFITUUWOLbjXVoG0swlDZrZwKFiHbkutBA76C3v+2cv84HQTQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X9bgNJXQ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794939154;
+	b=Mvu0viNeowpwv50FpjPS8wqk+HK8Dn1Efcf1kAD4T6WAarYN/XSJl2lCNLyn+Xqm5kTX
+	 B8w/Z40v1YaE6AMweHEBTEeX5O7Oqiq27ZEmM6iENYLqFgdik8jy/nVSdPK3tVkn1OY0v
+	 zdUoGgLArw00sJLWxMW46EPvQs4n3gQP+EOwHaNKq2UT8ie0n+BP8v9p9HJ16ase54vN0
+	 cY+HBBTq0C9VU23qyD57+Df8qvuAcXgd7JLNDjvkQvK77i2M+9gsGNOaYrICsuNl9pQct
+	 vGyLyOAKzilUHLtc+8OT4DIrSTvpPXeCfclv065gcCu6LLWOvqKaUe3n7YjPI+SQvsQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794939154;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=9ncxxBe7GKoTncLOaM2IGmBRr5NiBhBbaaIsvj0fMI0=;
+	b=Ncv1tNOMp7ec2UAQSrVYrJBhtWlWZqeTr5Juz+TyS4hiuOaV9gUQBBuvpEqE438afpZi
+	 AtrZ46e1oz9W+vGmMRrC+3kn3yZRDvFeyO/XdyO9XbrMxSJ31+QKvNN9AzDX6AOEp2S1l
+	 VE0vhACEH49+v64bM2ZSI+PG4gXsZs1Br57DBfiImx/pIGfWWXfL/VWlo4Dw5ZaE7JFET
+	 aR5UWQ1z3hTnK+COqazrPdBL9YNMNaKP6BX8GXio4ph3K/ASxLpNbjaBCa4NLAW4l7FOq
+	 g36bkDMTVZKpuoFTMVvUAjAk2qLSQ0vnGmxY7tuI31tsIWhGT0YzH9nCVR1P75jMdwA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ikuyo.dev;
+	spf=pass smtp.mailfrom=ikuyo.dev;
+	dkim=pass header.d=ikuyo.dev header.i=@ikuyo.dev header.a=rsa-sha256 header.s=s1 header.b=fNM88yJn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.15
+Received: from sender6-op-o15.zoho.com (sender6-op-o15.zoho.com [165.173.180.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B20B1606A31C;
-	Tue, 17 Nov 2026 18:09:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AC7E606A32C;
+	Tue, 17 Nov 2026 18:12:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AC7E606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ikuyo.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ikuyo.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X9bgNJXQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC5A71F000C4;
-	Tue, 17 Nov 2026 18:09:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794938975;
-	bh=BsKxt9nBAEfHX3Rjct/RuZ6P/gqzP6gTfo1UjEyhmRg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=X9bgNJXQaOXS1uA/Of7mTNbh5+XkG0/WlduzwZAR/P1OlrcTQsurTkjIMJc6MQMm9
-	 R+U6ZngdfMXMalhwFOUWVJn8VAw2lp7+MsOrm7bTNiczmVru8ilT0OSpWzrXsR2Dja
-	 03QA/maQ/odkiL6qE41DxRGCrpgzHTlY99y0aSpszjFWdADbshxHHR+egN26yOZenQ
-	 FdZLFb3VCJnUZyWFxwoi6V+NkS+TsiLUO6Up1iTT9zyiQOLB/68sLJUknqDLSV/XnB
-	 xS8j+UeusWkmCkw3PdTzGf9QIARNp08XUPnXlqHXmkP6CtulZj+H6MfORn1OUsGCUB
-	 SpK4IcmwfOqFQ==
-Date: Tue, 17 Nov 2026 20:09:31 +0200
-From: Leon Romanovsky <leon@kernel.org>
-To: Wei Hu <weh@linux.microsoft.com>
-Cc: longli@kernel.org, kotaranov@microsoft.com, kuba@kernel.org,
-	davem@davemloft.net, pabeni@redhat.com, edumazet@google.com,
-	andrew+netdev@lunn.ch, jgg@ziepe.ca, haiyangz@microsoft.com,
-	wei.liu@kernel.org, decui@microsoft.com,
-	shradhagupta@linux.microsoft.com, horms@kernel.org,
-	ernis@linux.microsoft.com, stephen@networkplumber.org,
-	netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
-	linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
-	gargaditya@linux.microsoft.com, kees+treewide@kernel.org,
-	kees@kernel.org, mawasthi@linux.microsoft.com, weh@microsoft.com,
-	edumazet@kernel.org, shacharr@microsoft.com
-Subject: Re: [PATCH net-next v11 4/4] net: mana: add dynamic HWC queue depth
- with reinit path
-Message-ID: <20261117180931.GE162713@unreal>
-References: <cover.1794751992.git.weh@linux.microsoft.com>
- <100c6b7a71e86c8d7afd0c55f6b231f01db184d5.1794751992.git.weh@linux.microsoft.com>
+	dkim=pass (2048-bit key, unprotected) header.d=ikuyo.dev header.i=@ikuyo.dev header.a=rsa-sha256 header.s=s1 header.b=fNM88yJn
+ARC-Seal: i=1; a=rsa-sha256; t=1794939122; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=hp8n2l4ek/mo5GAPuuSxk7LVgM8yT3mAftdKcYrOIGIbcEXtGLowgAWJLyGaNIob2gUtMxzjXQh8xhRcJYxCUG769kwzk6jvQNnJZK/EP1R6eOUXITliEfWLeJ620Edlw4ZOx+kaGPx1rQHzDfJo8vyOFEnkIrfzqIoEcWMp34E=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1794939122; h=Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=9ncxxBe7GKoTncLOaM2IGmBRr5NiBhBbaaIsvj0fMI0=; 
+	b=e4NM1yQ7WNy6HPaXw4SgU1tXQjwsPqwM0wjV6o8i1JBUmlgxTcxwtd3VFYXahZpgRrj35gCZKTmjwvhHjSXORdJnat8luILPHVhnEDniKfHWNRcBYSeGwi2kndj4kMrhLUTte5iE0dEkOrc0F1K4AR3P7ukDni+0HcgDlDa9MUE=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ikuyo.dev;
+	spf=pass  smtp.mailfrom=eritque-arcus@ikuyo.dev;
+	dmarc=pass header.from=<eritque-arcus@ikuyo.dev>
+DKIM-Signature: a=rsa-sha256; b=fNM88yJnVxYcPgtCaJwt4KjJBT2EjIvyyUfbe2xy2XoN4R2mZXTHWsw+bszjty6sGZmpgNsW7eTpFW4J7FvQkl7Nw9hUJnthEkQ7Kr7t34StOSiXkS+xOhF78GoKEDjhK0R+QR+f3+qQa3sohe4/Cz5CvhUbZaDBsx52hjAjrn7ATgYSmIIU7Z8Lv2jz2XaolYqITz6q0Lt/NHvljKaXuGQmu4W4p07v96M4Nc6dnt1LxH9dbVIPGWeEt0wJ4IwxFyS5P1tVi5iWWrc6wn+Dg8U68H18EtG37fmeaJX1xk1ewxdKntzWxncoUEhjrredP4ZGOT315rnzMSoJttgDKw==; c=relaxed/relaxed; s=s1; d=ikuyo.dev; v=1; bh=9ncxxBe7GKoTncLOaM2IGmBRr5NiBhBbaaIsvj0fMI0=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1794939120565329.8648114396691;
+	Tue, 17 Nov 2026 10:12:00 -0800 (PST)
+From: Yiran Qiu <eritque-arcus@ikuyo.dev>
+To: pablo@netfilter.org,
+	fw@strlen.de
+Cc: phil@nwl.cc,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Yiran Qiu <eritque-arcus@ikuyo.dev>,
+	stable@vger.kernel.org
+Subject: [PATCH nf] netfilter: conntrack: skip unconfirmed entries in /proc/net/nf_conntrack
+Date: Tue, 17 Nov 2026 13:11:40 -0500
+Message-ID: <20261117181140.133758-1-eritque-arcus@ikuyo.dev>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,103 +69,112 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <100c6b7a71e86c8d7afd0c55f6b231f01db184d5.1794751992.git.weh@linux.microsoft.com>
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 04:01:01PM +0000, Wei Hu wrote:
-> From: Long Li <longli@microsoft.com>
-> 
-> The HWC starts with depth-one bootstrap queues. Treat the PF-reported depth
-> as a maximum and rebuild the channel exactly for reports from 2 through
-> 128. Keep the untouched bootstrap queues for depth one and reports above
-> 128, and require a rebuilt channel to repeat the selected depth.
-> 
-> Treat the reported request and response sizes as directional maxima.
-> Rebuild only when both reports equal the 4096-byte bootstrap allocation.
-> Keep allocation strides separate from these limits, and share the effective
-> host-to-PF request budget with the GDMA and RDMA request builders. Bound
-> RDMA CREATE and ADD_PAGES batches by that budget, checking that the headers
-> and at least one page address fit before subtracting their sizes.
-> 
-> Require nonzero depth, request-size and response-size reports before
-> deciding whether to keep the bootstrap queues. Apply the same validation
-> to a restored bootstrap channel. A missing or zero required report fails
-> with -EPROTO, even at depth one; do not silently substitute guessed limits.
-> 
-> Reject oversized messages before acquiring a slot or publishing caller
-> storage. A retained, stopped channel still returns -ENODEV rather than
-> reporting a size error against uninitialized negotiated limits.
-> 
-> Keep each candidate private through queue creation, establishment and the
-> direct EQ test. Publish only the final tested channel. If a rebuild fails,
-> including its functional test, tear it down and restore fresh, tested
-> bootstrap queues. Stop if teardown is not acknowledged; never reuse
-> PF-owned mappings. Restore the previous live timeout budget before the
-> fallback so a failed test's fail-fast reduction does not poison the retry,
-> without reviving terminal cancellation.
-> 
-> Invalidate the previous HWC doorbell before every ESTABLISH_HWC. Validate
-> the BAR0 page geometry and reported index before accepting a new doorbell,
-> and suppress MMIO while it is invalid. The original driver accepted an
-> unchecked device-supplied index in its MMIO address calculation; this also
-> fixes that existing out-of-bounds MMIO path. Backports need the complete
-> ownership and validation dependencies, not the entire feature stack by
-> default. A malformed doorbell completes initialization with -EPROTO without
-> relying on later INIT_DONE events that might require re-arming through that
-> doorbell.
-> 
-> Use the initial PF report to select the queue geometry. The PF directs
-> this choice; the absence of VF size fields in ESTABLISH_HWC does not require
-> keeping the bootstrap geometry. Driver-version advertisement occurs after
-> HWC establishment and cannot negotiate behavior needed during creation.
-> 
-> Fixes: ca9c54d2d6a5 ("net: mana: Add a driver for Microsoft Azure Network Adapter (MANA)")
-> Link: https://lore.kernel.org/r/20260908035201.402424-5-longli@microsoft.com
-> Link: https://lore.kernel.org/r/179196575846.434549.7933818740976196422@kernel.org
-> Link: https://lore.kernel.org/r/179455240227.2199510.2666165032389090040@kernel.org
-> Signed-off-by: Long Li <longli@microsoft.com>
-> Signed-off-by: Wei Hu <weh@microsoft.com>
-> Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>
-> Copilot-Session: 8c2361e6-c0f4-4b0c-bf01-b5e4cdacec50
-> ---
->  drivers/infiniband/hw/mana/main.c             |  19 +-
->  .../net/ethernet/microsoft/mana/gdma_main.c   |  26 +-
->  .../net/ethernet/microsoft/mana/hw_channel.c  | 316 +++++++++++++++---
->  include/net/mana/gdma.h                       |   2 +
->  include/net/mana/hw_channel.h                 |  19 +-
->  5 files changed, 317 insertions(+), 65 deletions(-)
-> 
-> diff --git a/drivers/infiniband/hw/mana/main.c b/drivers/infiniband/hw/mana/main.c
-> index 7d5a8fc7380d..6e036a25a9f7 100644
-> --- a/drivers/infiniband/hw/mana/main.c
-> +++ b/drivers/infiniband/hw/mana/main.c
-> @@ -427,28 +427,38 @@ static int mana_ib_gd_create_dma_region(struct mana_ib_dev *dev, struct ib_umem
->  	unsigned int create_req_msg_size;
->  	struct hw_channel_context *hwc;
->  	struct ib_block_iter biter;
-> -	size_t max_pgs_add_cmd = 0;
-> +	size_t max_pgs_add_cmd;
->  	size_t max_pgs_create_cmd;
->  	struct gdma_context *gc;
->  	size_t num_pages_total;
->  	unsigned int tail = 0;
-> +	u32 req_limit;
->  	u64 *page_addr_list;
->  	void *request_buf;
->  	int err = 0;
->  
->  	gc = mdev_to_gc(dev);
->  	hwc = gc->hwc.driver_data;
-> +	req_limit = mana_hwc_get_max_req_size(hwc);
-> +	if (req_limit < struct_size(create_req, page_addr_list, 1) ||
-> +	    req_limit < struct_size(add_req, page_addr_list, 1)) {
-> +		ibdev_dbg(&dev->ib_dev,
-> +			  "HWC request budget %u is too small for DMA region commands\n",
-> +			  req_limit);
-> +		return -EMSGSIZE;
-> +	}
+ct_seq_show() takes a reference on a conntrack it found by a lockless
+walk of the hash table, but never checks that the conntrack is
+confirmed.  nf_conntrack is SLAB_TYPESAFE_BY_RCU, so between
+ct_get_next() and refcount_inc_not_zero() the entry can be freed and
+its slot reused by init_conntrack() for a new, unconfirmed conntrack.
+The increment then succeeds and the dump prints a conntrack that is not
+in any table.  nf_ct_key_equal(), gc_worker_skip_ct() and early_drop()
+reject unconfirmed entries for this reason.
 
-No. Make sure you also call mana_ib_gd_create_dma_region() with valid parameters.
+Since commit 2ad9d7747c10 ("netfilter: conntrack: free extension area
+immediately") this is also a use-after-free.  An unconfirmed conntrack
+can still grow its extension area, for example when an nft ct helper
+object attaches a helper, and nf_ct_ext_add() then frees the old
+ct->ext through krealloc().  seq_print_acct() and ct_show_delta_time()
+read ct->ext without a lock, so the dump can read the freed buffer and
+print what it finds there as counters or a time delta.
 
-Thanks
+Skip entries that are not confirmed.
+
+Found with afb-afl, an LLM-driven kernel audit/repro pipeline; the fix
+and this changelog were also drafted with LLM assistance.  Reproduced
+on a KASAN build of mainline (v7.4-rc3+) that carried timing counters
+in ct_seq_show() (two ktime_get() per entry) but no added delay: an
+unprivileged user in its own user and network namespace churns UDP
+flows through an nft ct helper object while reading
+/proc/net/nf_conntrack, and KASAN reported a slab-use-after-free in
+ct_seq_show() after 9 and 41 minutes in two runs.  The same build with
+this patch ran the reproducer for 60 minutes with no report.  With only
+this patch applied to a KASAN build, the conntrack_resize.sh selftest,
+which compares /proc/net/nf_conntrack with ctnetlink dumps, passed in
+three runs.
+
+Fixes: ea781f197d6a ("netfilter: nf_conntrack: use SLAB_DESTROY_BY_RCU and get rid of call_rcu()")
+Cc: stable@vger.kernel.org
+Signed-off-by: Yiran Qiu <eritque-arcus@ikuyo.dev>
+---
+Tested tree: mainline 141b164bbe18 (v7.4-rc3-133-g141b164bbe18).
+
+The reproducer fills the namespace's conntrack table so that
+early_drop() recycles slots, and puts 300 non-matching rules in front
+of the helper rule, which delays the helper's krealloc() by about 16us
+after the new conntrack's refcount_set(); four threads read
+/proc/net/nf_conntrack.  The guest had 8 vCPUs.  The build needs
+CONFIG_SLUB_RCU_DEBUG=n: with it, KASAN defers the reuse of the
+conntrack slot by a grace period and the race cannot happen.  The
+counters saw 136 and 88 recycled unconfirmed conntracks pinned by
+ct_seq_show() in the two 60-minute runs; with this patch 98 were
+pinned and none reached the printer.  From the first run:
+
+  BUG: KASAN: slab-use-after-free in ct_seq_show+0x5ea/0x830
+  Read of size 1 at addr ffff8880108f0a05 by task payload/218
+  CPU: 7 UID: 1000 PID: 218 Comm: payload Not tainted 7.4.0-rc3-kasan-hunt+ #16 PREEMPTLAZY
+  Call Trace:
+  [...]
+   ct_seq_show+0x5ea/0x830
+   seq_read_iter+0x600/0x7e0
+   seq_read+0x203/0x2e0
+   proc_reg_read+0xec/0x150
+   vfs_read+0x144/0x610
+  [...]
+  Allocated by task 213:
+  [...]
+   krealloc_node_align_noprof+0x131/0x3c0
+   nf_ct_ext_add+0x110/0x380
+   nf_ct_ecache_ext_add+0xa9/0x150
+   init_conntrack.isra.0+0x444/0xb90
+   nf_conntrack_in+0x652/0xac0
+  [...]
+  Freed by task 213:
+  [...]
+   kfree+0x113/0x480
+   krealloc_node_align_noprof+0x158/0x3c0
+   nf_ct_ext_add+0x110/0x380
+   nf_ct_helper_ext_add+0x17/0x50
+   nft_ct_helper_obj_eval+0x1e5/0x3a0
+  [...]
+  The buggy address is located 5 bytes inside of
+   freed 128-byte region [ffff8880108f0a00, ffff8880108f0a80)
+
+Offset 5 is ext->offset[NF_CT_EXT_TSTAMP], which ct_show_delta_time()
+reads even when the timestamp extension is not present.  An earlier
+build with a udelay() added in seq_print_acct() hit the same free
+there.
+
+6.12.y has the same code (read in v6.12.118, not run there); the hunk
+needs its context adjusted, as c5ba345b2d35 is not in that branch.
+Reproducer available on request.
+
+ net/netfilter/nf_conntrack_standalone.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/net/netfilter/nf_conntrack_standalone.c b/net/netfilter/nf_conntrack_standalone.c
+index d88a10230862..299691d7ac1e 100644
+--- a/net/netfilter/nf_conntrack_standalone.c
++++ b/net/netfilter/nf_conntrack_standalone.c
+@@ -314,6 +314,9 @@ static int ct_seq_show(struct seq_file *s, void *v)
+ 	/* load ->status after refcount increase */
+ 	smp_acquire__after_ctrl_dep();
+ 
++	if (!nf_ct_is_confirmed(ct))
++		goto release;
++
+ 	if (nf_ct_should_gc(ct)) {
+ 		struct ct_iter_state *st = s->private;
+ 
+-- 
+2.56.1
