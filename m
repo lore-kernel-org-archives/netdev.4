@@ -1,75 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794893753;
-	b=kMeWKnYu6nJ0pmAqktJvpSk7mkESfwuA1GO1CTYSIqi24RgqQloLnpQxhWydfwXjN33N
-	 Gbl8a9B3cN0syV2tkad02N2eLTWUg2JohUJ5dlX57bU+aNS7OzuuNlBS/XUOQ6leujNqP
-	 W2yp9Ul4CFMRa9pip4f320zV8w7SfReqEygmaAItTFj/4cxsxjNGzcPb6XTo2nmEyokkf
-	 NMBCqo5J14+yLb7UqmiSu14bWwaMzb1F4zGxODOSKbOLahc/7hfSZl8dy+U3+At7BWY7+
-	 HNcfI70ia/FwM8Hy5vp6QskLDtSjBpgXVJeJN99qBS2cpiho91dW1yrasQ75nbK4sSA==
+	t=1794895383;
+	b=jpQZz1vHpXk/RQ8iTczi6OeX9/QSeMBhNpp3noDXc5jnyXgWbPy2bppAh+LhTD6ZvwZB
+	 lcA1lSKOZIGRZrwM2gmMgv4uWTo4aF/NJf2UsIkV5xHoQ2UHvpVTB6M5c4nRb925i5URz
+	 LGNkqUg5SOm1iBWypRyZNMBIPqWO4Seji07yWEORlHY5oqDaWXB0/gQpbsa7h0c+LlfYt
+	 wKwYisuPjjAAqFORZvdY/cOOB5Skdm/H9JO//+BYYM3TMv0w+WqUcEYiO0aMGgPsLov+G
+	 N3mFqLvzAO/Ys8QVoj82mUNggtyaRouaZbkZQAKAcOfgdgjOxKVdZ/DIeUe7IAjdvIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794893753;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
-	 Content-Type;
-	bh=15f/27mCqGdkiIQYpdpbt3GHAwssTVbPAV+/TyVkDWw=;
-	b=hr5rjexA/+jggG2ldBM6bZ8JyylOKZd4ELKEu1CX9Gjj6WFeb6RQ+hZ4Fhr5tW1JDw05
-	 7n3rkx1rMsSI/tOJ4KBFmlM6JU8IgNuUzFNMx18FPJ13Wfa9ZuvUgzXDCxp/Pvft//XLr
-	 aBAGg0ynMDVE+TAACCK8vGZ1QrmhE9DL49RxKkG/hf/JX7+MhdaKvDmrKU+l5dyw+eGxS
-	 jHHByQ5j+G+g8X/3xROr7MF7lXvd/oAvPub/In+zCzGuCRrg9Vy+s67KfeynT6Ff33Gyh
-	 GYdIKMPPGq/toG/zkbv8rFdvxfZ99zfuvQn0gcQuQFX4DcKkeNwonLWMLcR9vUo0yYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794895383;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=io0BBaeVnjGXirCjbl+rt2I1LtzxyY3wzbu7MlpT3gM=;
+	b=HXTSenYsYpm3kBmHXzpFaUT/LGQ7zmJKiymf1bV5MODLDgg8dOHMZtKo3xYBZ7KarHgX
+	 dzkH1UYFNKfFUMgZFeUMfsTd2ULvCv3S6zzFMsZgazoP63wDVnfvvSn+kmIU/5kYH7OZy
+	 3s039q1AYzaU8m1vzjIQ94ENiK4i8EbrBlwcvTUCL/DQ1X2ejxjfmu+vmgRnhqxygfzss
+	 S4fmbWgwNzP/WONYjvYYKWt8J+wyANwQ5ub9Kssy0L2je/FDnVKxFoEdKjKO+bO3IKXBt
+	 DvBlCNhS/cg08t6Eas9VfCewmZX+3CyO2Dih9yAQTEHQ3+Ehs5RztVog/rWHvPd9s+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=P3VmVc2O;
-	arc=none smtp.remote-ip=209.85.210.198
-Received: from mail-pf1-f198.google.com (mail-pf1-f198.google.com [209.85.210.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=realsil.com.cn;
+	spf=pass smtp.mailfrom=realsil.com.cn;
+	dkim=pass header.d=realsil.com.cn header.i=@realsil.com.cn header.a=rsa-sha256 header.s=dkim header.b=kks6fSdC;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BD0B606A8AB
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 05:35:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0BD0B606A8AB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4C12606A32A;
+	Tue, 17 Nov 2026 06:03:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4C12606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realsil.com.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realsil.com.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=P3VmVc2O
-Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-8b203b0c139so2881511b3a.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:35:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794893752; x=1795498552; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=15f/27mCqGdkiIQYpdpbt3GHAwssTVbPAV+/TyVkDWw=;
-        b=P3VmVc2Ol7wthH2+P7kyujYeWMlyuG52MEiLI/EE2w6iPklXtS/GTnXCk+IYN0BfCB
-         4zjMNImMLeUzATcFcBYirsEO17g8YQO7PP0OVpgiwCEm08UTW/Y4L/ipFkNzNOohb7AY
-         VT3zAox7Z+mvOSdUqVXSM+kPU5hlFUSq5mhHaTo/Vn4Y41Tryao2wbC7EX4MO+T2rm/3
-         o0FAji2EusvuebVkGs14GITYdhpmhZf2rGfKm8pzZhN9sk8bvVkHzv/SzABhxLaeRb2F
-         m82lfKsQRzvSxhBQJ//Yg2kkXBYYhIvpVDue9nWV8ThYWWS/A2Ts4sKVNAdY7cWxU4lO
-         7ArA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794893752; x=1795498552;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=15f/27mCqGdkiIQYpdpbt3GHAwssTVbPAV+/TyVkDWw=;
-        b=CrOVdruf5BsKeMjSykIwaO4mnLC1Yi6YNWiLyvQiRf/CbDk51QIpTSmdXxd9e0W6J7
-         XrXtDjKDJQ4GX7NXAIDxHdLyhgEf7XiirYHheQuoOI0Ie+/M6cIS73JawrPtggAR8kJx
-         bupjIEmDJPV+G21R9s6KUJIGKf+oX+dt20UFht6LIFITNk8TOwlLyuI26ERo5cEAYOi2
-         jXSMPfUV17UjfqiOPeGyh9C98gK3BSi+NXAHHIbjuBtBwACg7ay6cymWQh9HdAI+P0zJ
-         ++ot/hYGJ5Nh1sS8qsa5sHW7ZBoWqv8qsCX/orIy7yq2cDIFzW7UT0AEAPW2HpQ4ZO/T
-         JQrw==
-X-Forwarded-Encrypted: i=1; AL+hErGLUr+vwv0yEaO4ClwWxXagnoPo8Q6erWgjiK28ydCMq39h2HWM7uikhl/3YODsL/hpVQ2xWuQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9bLjcm6/1jdseBJaekC6H7mHCdJbt0BJ+b+O8H8lhv9p4/QK+A
-	YT0c/z4wTeRxohvzcJeQPsFwY09MxQndaHhpbwipzeyVDLSSW/Z7LOjTXFC2gU7qdbecp+XFKOi
-	RN9uYxg==
-X-Received: from pgbm14-n2.prod.google.com ([2002:a05:6a02:618e:20b0:cd6:24a5:115])
- (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6372:a80f:b0:3fa:adeb:3986
- with SMTP id adf61e73a8af0-3faadeb3a65mr5252209637.7.1794893752147; Mon, 16
- Nov 2026 21:35:52 -0800 (PST)
-Date: Tue, 17 Nov 2026 05:35:26 +0000
-In-Reply-To: <20261117053543.84032-1-kuniyu@google.com>
+	dkim=pass (2048-bit key, unprotected) header.d=realsil.com.cn header.i=@realsil.com.cn header.a=rsa-sha256 header.s=dkim header.b=kks6fSdC
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AH61OvG44166715, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realsil.com.cn;
+	s=dkim; t=1794895284;
+	bh=io0BBaeVnjGXirCjbl+rt2I1LtzxyY3wzbu7MlpT3gM=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=kks6fSdC9A/JQFEZVL/8dQwCJOfHmCyDzpfCe3opyArr+bl6DnGCHbXxYdQRHWN82
+	 dNzXG4gFUOfAxtcx/lnb7ijRjQvHMGJsjKbQuiM29pQwkIwhjfB8HEoFUT/trQvAjc
+	 agkU/lFh34K9jaa8oXBUlvoc0oWX6qd/rHQPDoNcSzpRIvkbu0erNyaZAA5jdZYX4+
+	 QetqzYksnsYsKbZT+WN0TWvhzw98o3m9GXXcBkBIDexYTOlpxnCK9OVxLYbu2A1Wn6
+	 hpISlMyqUzm9jvEgrE6NFZzqLrJqrkCMyBxD9vI3bOZmtdIIMnsYTi7os5SUcoVhU0
+	 JNI1SaeJst+5A==
+Received: from RS-EX-MBS1.realsil.com.cn ([172.29.17.101])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AH61OvG44166715
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 17 Nov 2026 14:01:24 +0800
+Received: from RS-EX-MBS1.realsil.com.cn (172.29.17.101) by
+ RS-EX-MBS1.realsil.com.cn (172.29.17.101) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Tue, 17 Nov 2026 14:01:24 +0800
+Received: from 172.29.37.154 (172.29.37.152) by RS-EX-MBS1.realsil.com.cn
+ (172.29.17.101) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
+ Transport; Tue, 17 Nov 2026 14:01:24 +0800
+From: javen <javen_xu@realsil.com.cn>
+To: <andrew@lunn.ch>, <hkallweit1@gmail.com>, <linux@armlinux.org.uk>,
+	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <nb@tipi-net.de>, <maxime.chevallier@bootlin.com>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<daniel@makrotopia.org>, <vladimir.oltean@nxp.com>, Javen Xu
+	<javen_xu@realsil.com.cn>
+Subject: [PATCH net-next v3 1/3] r8169: hold MDIO bus lock while loading firmware
+Date: Tue, 17 Nov 2026 14:01:18 +0800
+Message-ID: <20261117060120.1175-2-javen_xu@realsil.com.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
+In-Reply-To: <20261117060120.1175-1-javen_xu@realsil.com.cn>
+References: <20261117060120.1175-1-javen_xu@realsil.com.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,67 +77,39 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261117053543.84032-1-kuniyu@google.com>
-X-Mailer: git-send-email 2.56.0.679.gc527c65306-goog
-Message-ID: <20261117053543.84032-9-kuniyu@google.com>
-Subject: [PATCH v1 net 8/8] tcp: Pass inet6_iif() to __inet6_lookup_established()
- in tcp_v6_err().
-From: Kuniyuki Iwashima <kuniyu@google.com>
-To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
-	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-tcp_v6_err() passes skb->dev->ifindex to __inet6_lookup_established().
+From: Javen Xu <javen_xu@realsil.com.cn>
 
-When ICMP is sent to a local address not on loopback device,
-ip6_rt_get_dev_rcu() sets dst->dev to lo and ip6_rt_copy_init()
-sets rt6i_idev to the actual device.
+rtl_fw_write_firmware() accesses PHY registers directly, bypassing
+phylib. Hold MDIO bus lock meanwhile, so other phylib users cannot
+interleave their accesses with the firmware sequence.
 
-In ip6_rcv_core(), skb->dev is still lo, but IP6CB(skb)->iif
-is set to ip6_dst_idev(skb_dst(skb))->dev->ifindex.
-
-So skb->dev->ifindex is 1 while inet6_iif(skb) points to the
-actual device.
-
-Since tcp_v6_err() passes the wrong ifindex, such an ICMP error
-is not delivered.
-
-For example, this script creates a socket bound to tun0 and
-generates ICMPv6 Port Unreachable to it, but the socket cannot
-receive it and getsockopt() fails:
-
-  --ip_version=ipv6
-   0 `ip link set lo up`
-  +0 `ip6tables -A OUTPUT -p tcp -j REJECT`
-  +0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) = 3
-  +0 setsockopt(3, SOL_SOCKET, SO_BINDTODEVICE, "tun0", 4) = 0
-  +0 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
-  +0 getsockopt(3, SOL_SOCKET, SO_ERROR, [ECONNREFUSED], [4]) = 0
-
-Let's pass inet6_iif() to __inet6_lookup_established().
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+Signed-off-by: Javen Xu <javen_xu@realsil.com.cn>
 ---
- net/ipv6/tcp_ipv6.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Changes in v3:
+ - New patch
+---
+ drivers/net/ethernet/realtek/r8169_main.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/net/ipv6/tcp_ipv6.c b/net/ipv6/tcp_ipv6.c
-index 29fd0a084c91..ab0eff884d3d 100644
---- a/net/ipv6/tcp_ipv6.c
-+++ b/net/ipv6/tcp_ipv6.c
-@@ -419,7 +419,7 @@ static int tcp_v6_err(struct sk_buff *skb, struct inet6_skb_parm *opt,
+diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
+index f151ab681393..34ea4640467c 100644
+--- a/drivers/net/ethernet/realtek/r8169_main.c
++++ b/drivers/net/ethernet/realtek/r8169_main.c
+@@ -2686,7 +2686,10 @@ void r8169_apply_firmware(struct rtl8169_private *tp)
  
- 	sk = __inet6_lookup_established(net, &hdr->daddr, th->dest,
- 					&hdr->saddr, ntohs(th->source),
--					skb->dev->ifindex, inet6_sdif(skb));
-+					inet6_iif(skb), inet6_sdif(skb));
+ 	/* TODO: release firmware if rtl_fw_write_firmware signals failure. */
+ 	if (tp->rtl_fw) {
++		/* Keep phylib users (hwmon, PTP) off the bus meanwhile. */
++		phy_lock_mdio_bus(tp->phydev);
+ 		rtl_fw_write_firmware(tp, tp->rtl_fw);
++		phy_unlock_mdio_bus(tp->phydev);
+ 		/* At least one firmware doesn't reset tp->ocp_base. */
+ 		tp->ocp_base = OCP_STD_PHY_BASE;
  
- 	if (!sk) {
- 		__ICMP6_INC_STATS(net, __in6_dev_get(skb->dev),
 -- 
-2.56.0.679.gc527c65306-goog
+2.43.0
 
