@@ -1,90 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794925097;
-	b=N9fOoSFj1XV6Z/cMobrgl+7/DGsBLQFkSHrBUDRMFVJ6DPp05/mXllDl86gIzFS5X0kj
-	 YqDt8eeBTBxQ1FS46bCyelAS/MHTsMtV3ipbh4VXiec/50jRNuxk8tH5TeSVygWY3+rNX
-	 B5qNbYYKFHBwlAsJZAAqeBlQaqmy/vLYPMuj+v3LtlxriXVFyZ4cTnZqNDUj7ZrAuxk4y
-	 wKPRGMYHeMUM6H15yFllqTX1pRb7Ps3EZWuGm9CEH36W8mjJzB5F15J3NogP1M6UGE9JA
-	 V1jsST+LuvCKagwz5ps2O1f6FKK1f7DIQpolNmW9FsOj6LZh9dXZphLwX/AzYKgTzMQ==
+	t=1794925169;
+	b=RC4NtPlxUbmaPrxj9cjXhezzH+izex3zfB4lqQCabJIS1LGCj0H7cSkLrNsjSHa0At7e
+	 9ptCwwNnmI26zICYE3joFeTlu/I0Bm7/2gclkH/r6hGanBtIIhVUHThbRAC4eQA+l4Ljq
+	 u5Z7T386ngfMiYD53Z3Nutabkcduc+dbLXCPiXEeYqe+8cJbccclOmZp477C205NRta/t
+	 XVt77+mHY+gtCC1ktB7WbPeJd/t1UQ6Y5FN6Iuww2gHk1dMDLHoYx5vynf4dILq/p/fxN
+	 nu/dnDwZGVXKYv36tdWZWYlW7w7BRi3KLPSEO1/40qWpXd2veF03hy9rDr/0BlV9JzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794925097;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794925169;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=4FXZ9QjPMWSPXHYn/FS5PKL+JaPOXiDC39K9maTGAmk=;
-	b=zlX+pXy4w8ivx9f7Uw/HwcUu0/Fawo5ptDjivdR2Bj+GiKq8FFCZjWf7cmXhb+69RBa0
-	 xoSRDteQfDsdspF/0eBm2IU0/3HK7pDriV7sJNLMioebCev2vGXRKi3xM/IwtRNAh62sD
-	 LvoZe8CwE2JkD4b8yXVr++Of/mJt8u091E96mwm6BXkyGKvhvA2rbUgkgCTzNNkJlG3++
-	 5/t1b5ZWcIQf2X5w47r8HibeTmb8bF9q6WN71HQut7bKzHtNlT0FrwhFrEM2RlrbGkSlF
-	 jAE0GZuwwFas2FFTfozWfKAvLHOUnrYxBOBEP/T2oIso5B876MKhy6ug3xGnuHVGL+w==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=vewm0YM3mK/oI43WitLGRasKLJvDnFpqAzBQT6/SwaY=;
+	b=ikpoGgwCZL0JXF5iudgWc2MCGMHil5XkyYg6wdwn2/5ACHS5kKkUn/IXMT9LxAPAd0LJ
+	 qRig5DmfN053pC1l2CNbgIF0qoRCVbaUevQDvKWgj+OT7qNzPQE4cbmWZf41ojsx6Id2O
+	 YeRXTEWrTMro3xTJbi9b5ft5LWE6ddXSigbGmeTevpPvmlxs4vqlfafYrTcQlTGAv3yPT
+	 fOzCqvQGwZ+qvL6M4veFbl3/zlrx7HPYPRledpAtcx/S/abQEvSnd3+hWnHFeBfRwWM40
+	 /hGxQnCY2eh7nYJf6cSaeHuj+tFcZ+wfk8WpFwm6OG1uFnrIg9izIT+oI/t/TbiNy6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chromium.org;
-	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=dJelGG0W;
-	arc=none smtp.remote-ip=209.85.167.49
-Received: from mail-lf1-f49.google.com (mail-lf1-f49.google.com [209.85.167.49])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g1mIG94u;
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1FE7606A332
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:18:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E1FE7606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5665606A32C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:19:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5665606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=dJelGG0W
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5bccecba199so5061166e87.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:18:16 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=g1mIG94u
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c504707acfeso72909866b.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:19:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1794925095; x=1795529895; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=4FXZ9QjPMWSPXHYn/FS5PKL+JaPOXiDC39K9maTGAmk=;
-        b=dJelGG0W56iwN6dunCqPEgrzwUe45Ks0CUkM0rKYyvzGIUEHgm47Byuj9dY72FWxCp
-         SF+mC8AoSYBbrq3eEt+A863+WPU6mUVYAlSFW5hhiikR0HTQWHrRvAUNCe1DcjXuf6BA
-         MIBHfLKefv71K7JOaENFWhNJKgJyY8K5zKhms=
+        d=gmail.com; s=20260707; t=1794925166; x=1795529966; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=vewm0YM3mK/oI43WitLGRasKLJvDnFpqAzBQT6/SwaY=;
+        b=g1mIG94uiwF/vwzgPogrWrr49hBBpuWyaBIfHz0VTF/3ud2fMbXGndfciZGknZ/oso
+         Unrn2lL/ffxpHHfayW1ZDifeh2AT1/y/drksrPb1V7xh51akTN8sGKAlGIkfyizmLKwS
+         emUd4aZ22uR5Ix9O4mBnymnW2NRNZVmi811c/8E4B152pLU20y3aVNnigmmAZCG9WFaD
+         fe8bVTzXtLSzt5KR7E8Gqh6Af7Z6fTrncNsyQlv9sO9KEyjYUT5HoSbs/iSw40u9nHcX
+         5aBFa4VryAg5TmSOmvsApllXv8XaVk5dHUXdGMiwEZ4CJV0pzYxNkaDv02oaNY4Y0YD3
+         QqMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794925095; x=1795529895;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=4FXZ9QjPMWSPXHYn/FS5PKL+JaPOXiDC39K9maTGAmk=;
-        b=jFLN1gvdhkB4gYjrKYeC8ns3k2nCoRGEZhAsW9Ddqugv2Ub7EVsdDaAhfz+UExAC6e
-         QTkPcA+chajoIPm67gMY9Z+v0D2GeC2kdy4CUCrnJvvA1wHIMOQqVqYuqryLtK+xsS/U
-         nM7+Vp28FwUDl1R15DnPc5yRTY2zjx+MB3rWkmFjJAQul4QsC9So2a+ieylP7GG98bZu
-         npjL0mwDOpolDOkbiF2Gi+iXRISVMEJovLTU0xq80PC61eTxWIlcsND0uWNMPRdtZWCi
-         iT8UjQk/2ejMDHx7xt1ognMODyGyWqTuh2inaIG542GXmmHCIr0rMsicFkETJ01SrVs4
-         cqiA==
-X-Forwarded-Encrypted: i=1; AL+hErF26xhJzwlrU+Ev5s6fqyiT6KaYzBJvnO8NNC486wUuMZ+N7OzUTIv9bPTNImry5soyRP+P6zQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9o3LnTBKeCTfxVP3RKfhJfNhY9m+MB8EAUODPYf7IfeqZINry9
-	+OiCa0YJpVF/Tn/mpf6dtC71TBm4tOc9nJ6WF49MdNHt+UFhD/smYcIDOPrkxYwHd+e7pi5+THW
-	TwWCG5dHdZXA=
-X-Gm-Gg: AYBFou04Z6KdiBUCsjd+Rr1lQ1O/uANF3fNE30Ih7ggryGN5m/X7D62KdgwjSK51CIt
-	ZXwbbCVbUgWEVfTXyKFbB6k/oy28PhfTp+xlJQXkxuvh1ioV/BaPVOLeTXpo1DVfxPkyVY85noQ
-	5zXjHT6ZfJ+iT+wYtVuXbZYmv1jItzyrBLvrv75I+xfYmZ3kPhh6hGxTVWhSyLodnAqjpRSNru9
-	7ajm/Gdn3XaUxuM9CcSasFY7e7UFrUR4yIfW2AmfwsLls8Z4GxKJm1tjuEtaz3nx5EPf6YloSIj
-	KA0Kujd+JtvwUTwdABgdSDLuWSXDZZ1qHWBd+CIzlU8Tug41xMPV/XiJW5J6AQIb2eXdQfpeoNy
-	E2OYBQUTjJm/oqcBkr4XSTgPkgELD2eSfso9/JRTmLCvyFtfH2xTxzOA+afSuVRhdUEHrwKh/hx
-	sV5suycHvVMuby34T3eqTf+cXIUHgyCqspBefkVT6TRORl193pfqgiRhCsI8b7KJXqNpMt3yM5L
-	KZeTtf9adXBQXA8vJ63WIBcJQGyT0Fc/DjPKgE2P4nDCbavzSLILXMvS/2AmuI/AMxJcDdJtNC9
-	ntZ2rWiAIIhfOrBpuG/FNPuSWUkiLJz/yU/QuUtloouKi8bGk0q0VfzFZQ3TOXaH
-X-Received: by 2002:a05:6512:2208:b0:5c1:5970:ae1f with SMTP id 2adb3069b0e04-5c170a25d42mr5249804e87.63.1794925094880;
-        Tue, 17 Nov 2026 06:18:14 -0800 (PST)
-Received: from mail-lf1-f48.google.com (mail-lf1-f48.google.com. [209.85.167.48])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c17135649asm4004082e87.77.2026.11.17.06.18.13
-        for <netdev@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 06:18:13 -0800 (PST)
-Received: by mail-lf1-f48.google.com with SMTP id 2adb3069b0e04-5c14bc5a743so9537e87.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:18:13 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHCXzWI9TtKMTiNq4JfJS0fuh6sq6RXZVVEe8/AJbnA1iExCyzgpCyf0J9369WVi7yJbbcmDwE=@vger.kernel.org
-X-Received: by 2002:a05:6402:a511:10b0:6b5:5d24:5d90 with SMTP id
- 4fb4d7f45d1cf-6b85b4c22d8mr72630a12.3.1794924698252; Tue, 17 Nov 2026
- 06:11:38 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794925166; x=1795529966;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vewm0YM3mK/oI43WitLGRasKLJvDnFpqAzBQT6/SwaY=;
+        b=xs5Yoj9gu752WE2EsRPMZhYFDOmeqOzGYmyqFLspfZM/zarkQqskUOwjO3hOznPV/0
+         bbFlhM09Vje5oy4yzokxalsJGmMIhCXxG8eY5Yw+PYuWvd6VcgM3Qwev2hvReznrTwPF
+         qBPsDQl5DSDRxZuZKWzjDkc7dle6+VfOnNop1qaD97sBCsRMLSiycEBElnpm+8I+j3Hm
+         /voLfwSSCdJ6Sn7+5Gy14jIxvByvzPdGjXpfiPNdYQosnDBy7S8cfgPsphQ+D+WC9yJi
+         PAMwtyRPjNmL+CF8clXTIc5j+cxUzScW1VLJG9DKgqnn31mraU5gEpdUyO2hH2pOSWhc
+         zL7g==
+X-Gm-Message-State: APuU4Z/7mVjrA9N3jfFKOlWmKDnYffNfDwNGYD3TxjFsQEVxtGxBijNl
+	hwZK6yaS7T7IPxGcObdyHDak3sISfrHu5AtU14rLOfDLSKbJZlet/BOT7Rz+MqN4
+X-Gm-Gg: AYBFou1lTxkGFf99D/ModNdrRd+vwJd/lKRg8HaR0xiWdz2Ke9qieV7AM/D4RrqW2mE
+	NswKaf2MVfYeXGJRiEFweqPfYHdMXyJiKL46HNbSFE84CL37by9Vhj4IdtKnc1N0ScrWmb0olG5
+	Xnsg28VZ+g0W9tziubpuy5cHjMgIvS5YUjbaV/IFw9tJUI5ioXacUufHYdsoD8Kk/03J/1VosxS
+	VlvrsXFhq2qgp5Om3xCCIPHo3pWRbr21bk3/UE22HzIvJ7NHa051YeQ3LabuHc1G0ixbVYxRQiP
+	XynZMPHrp2ytjsfVcQPWsW6SjrQoA0L/npMnqvDZEE31Uwbllo9s2WK4jXIzaX74LJ0xPlrNDTw
+	UE/1miDM5XG9qA14Wd80H2Bncy/YomeCx50Um5BorMiC087gR4QBDttYov5c66OxNJy8lkwTA5j
+	QtGN4FJMbf8mn0EcO/W7NZaWQD9NYzDTs05bJZvw1Q6jFPehYdNbhisWjUhjIq85ZRPPZrSNozn
+	FSS3p1eo2x79Ey84IP/en1x+qRLsMCi6KjzOTXESktaVnW3uTfw0DDa/Rn6MV9MCfb9+h6z53Cg
+	1TIbypz8JzbH7KDrbmQ/osWO6+uSvsGJCvd7VZpvg46/dvgG4JngmH35BZKFKhFTAnUM7E5EJvs
+	PYItZy6KcNgyDYLn7LU5ns6xSl9MTJykdgE/H4xS/rK7eywxqP/SDXB7Q+ztbVhtWxDrIa1ODcQ
+	ZSJiQ+yA==
+X-Received: by 2002:a17:906:2441:b0:c41:8e21:4d62 with SMTP id a640c23a62f3a-c509614d4d7mr1248867266b.1.1794925165807;
+        Tue, 17 Nov 2026 06:19:25 -0800 (PST)
+Received: from L-022584.energy.envision.com (dynamic-077-184-154-007.77.184.pool.telefonica.de. [77.184.154.7])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c5095a5abf3sm545215166b.12.2026.11.17.06.19.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 06:19:25 -0800 (PST)
+From: Xin Xie <xiexinet@gmail.com>
+To: netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	andrew+netdev@lunn.ch,
+	shuah@kernel.org,
+	kees@kernel.org,
+	petr.wozniak@gmail.com,
+	qingfang.deng@linux.dev,
+	fmaurer@redhat.com,
+	luka.gejak@linux.dev,
+	bigeasy@linutronix.de,
+	xiaoliang.yang_1@nxp.com,
+	skhawaja@google.com,
+	liuhangbin@gmail.com,
+	stable@vger.kernel.org,
+	sdf.kernel@gmail.com,
+	xiexinet@gmail.com,
+	lukma@denx.de,
+	fmancera@suse.de,
+	danishanwar@ti.com,
+	sunwenbo@cmss.chinamobile.com
+Subject: [PATCH net v10 0/4] net: hsr: fix super-packet forwarding
+Date: Tue, 17 Nov 2026 15:19:18 +0100
+Message-ID: <20261117141922.20-1-xiexinet@gmail.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,140 +117,121 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116230627.3537051-1-jeffxu@chromium.org> <2066d131-f999-4747-beb8-520d5e0ce1db@kernel.org>
-In-Reply-To: <2066d131-f999-4747-beb8-520d5e0ce1db@kernel.org>
-From: Tomasz Figa <tfiga@chromium.org>
-Date: Tue, 17 Nov 2026 23:11:19 +0900
-X-Gmail-Original-Message-ID: <CAAFQd5DzTmyeVQxNdhdy8pPi+ts1cCgbztVJiMoNBeJWBzjdQQ@mail.gmail.com>
-X-Gm-Features: AclHuK8ZMC6yRFY7VxkKfsQMYV8BNfasB49bEPdk_bBjeXaAi9-9aO4mXcafXvg
-Message-ID: <CAAFQd5DzTmyeVQxNdhdy8pPi+ts1cCgbztVJiMoNBeJWBzjdQQ@mail.gmail.com>
-Subject: Re: [PATCH v1 0/7] mm: kasan: skip KASAN for GFP_HIGHUSER
-To: "David Hildenbrand (Arm)" <david@kernel.org>
-Cc: Jeff Xu <jeffxu@chromium.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Vlastimil Babka <vbabka@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>, 
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Lorenzo Stoakes <ljs@kernel.org>, 
-	"Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>, 
-	Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>, 
-	Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>, 
-	Alexander Potapenko <glider@google.com>, Andrey Konovalov <andreyknvl@gmail.com>, 
-	Dmitry Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>, 
-	Marco Elver <elver@google.com>, Boris Brezillon <boris.brezillon@collabora.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Chia-I Wu <olvaffe@gmail.com>, Dev Jain <dev.jain@arm.com>, 
-	Evgenii Stepanov <eugenis@google.com>, Ian Rickards <ian.rickards@arm.com>, Jann Horn <jannh@google.com>, 
-	Jeff Vander Stoep <jeffv@google.com>, Jeff Xu <jeffxu@google.com>, Kees Cook <kees@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, Peter Collingbourne <peter@pcc.me.uk>, 
-	=?UTF-8?Q?Pierre=2DCl=C3=A9ment_Tosi?= <ptosi@google.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>, Will Deacon <will@kernel.org>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	Miklos Szeredi <miklos@szeredi.hu>, Baoquan He <baoquan.he@linux.dev>, 
-	Pasha Tatashin <pasha.tatashin@soleen.com>, Pratyush Yadav <pratyush@kernel.org>, 
-	Allison Henderson <achender@kernel.org>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, linux-mm@kvack.org, kasan-dev@googlegroups.com, 
-	linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org, 
-	fuse-devel@lists.linux.dev, kexec@lists.infradead.org, netdev@vger.kernel.org, 
-	linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 7:10=E2=80=AFPM David Hildenbrand (Arm)
-<david@kernel.org> wrote:
->
-> On 11/17/26 00:06, Jeff Xu wrote:
-> > Hi all,
-> >
-> > Currently, GFP_HIGHUSER_MOVABLE includes __GFP_SKIP_KASAN (commits
-> > c275c5c6d50a, 70c248aca9e7, and 0a54864f8dfb), allowing movable
-> > userspace page allocations to skip KASAN page unpoisoning on allocation
-> > and poisoning on free under CONFIG_KASAN_HW_TAGS (ARM64 MTE). However,
-> > GFP_HIGHUSER does not include __GFP_SKIP_KASAN, even though it shares
-> > the same kernel-accessibility contract in include/linux/gfp_types.h
-> > ("for userspace allocations that may be mapped to userspace, do not nee=
-d
-> > to be directly accessible by the kernel but that cannot move once in
-> > use") and differs only by !__GFP_MOVABLE.
-> >
-> > Moving __GFP_SKIP_KASAN to GFP_HIGHUSER addresses the performance issue
-> > below (following up on the earlier drm/panthor discussion [1, 2]). The
-> > swap issue from that discussion is not addressed by this series:
-> >
-> > 1. Performance: For every 4 KB page without __GFP_SKIP_KASAN,
-> >    mte_set_mem_tag_range() tags all 256 16-byte MTE granules (via
-> >    STG/STZG and DC GVA/GZVA) on allocation and again on free. In
-> >    graphics and UI workloads, DMA-BUF (system_heap) and DRM/GPU
-> >    (shmem/TTM) buffers use GFP_HIGHUSER; while steady-state rendering
-> >    reuses buffers, window resizes, surface transitions, and app launche=
-s
-> >    synchronously allocate and free tens to hundreds of megabytes (~32 M=
-B
-> >    per 4K RGBA frame) on UI/compositor/render threads. That takes a
-> >    significant share of the 8.3 ms (120 Hz) / 16.7 ms (60 Hz) frame
-> >    budget and thrashes CPU data/MTE tag caches (especially on
-> >    cold-cache free). On Armv9.2-A, skipping KASAN cuts ~32 MB DMA-BUF
-> >    alloc+free latency by ~80% (~98% faster close()) and improves the
-> >    OpenGL score of an app-loading benchmark by 15-23%.
-> >
-> > 2. False-positive KASAN report after shmem swap-in readahead [1] (not
-> >    addressed here): when a shmem page is swapped in,
-> >    swap_cluster_readahead() also reads the neighboring swap slots and
-> >    allocates their swap-cache folios with the gfp mask of that shmem
-> >    mapping. A neighboring slot can hold an unrelated page that
-> >    userspace maps with PROT_MTE. If the mask lacks __GFP_SKIP_KASAN,
-> >    that page's folio gets a KASAN tag in page->flags. When its owner
-> >    faults it in, arch_swap_restore() writes the saved userspace tags to
-> >    the memory, but page->flags keeps the KASAN tag. Later kernel
-> >    accesses through page_address() then use a tag that does not match
-> >    the memory and are reported by KASAN.
-> >
-> >    This series does not fix the readahead path. It only removes one
-> >    way to hit it: shmem mappings that use GFP_HIGHUSER (e.g.
-> >    drm_gem_shmem_helper / panthor) now pass __GFP_SKIP_KASAN to
-> >    readahead, so the neighboring folios no longer get a KASAN tag.
-> >    Shmem mappings with other gfp masks that lack __GFP_SKIP_KASAN
-> >    (e.g. GFP_KERNEL) can still trigger the report. That issue should
-> >    be followed up separately, for example in [1].
-> >
-> > What changes for users of GFP_HIGHUSER pages under CONFIG_KASAN_HW_TAGS
-> > (other KASAN modes are not affected):
-> >
-> > - Access through vmap(): nothing changes. Those pointers already carry
-> >   the match-all tag and are not checked today.
-> > - Access through kmap_local_page() or page_address() (for example
-> >   ramfs): accesses are no longer checked by KASAN, as is already the
-> >   case for GFP_HIGHUSER_MOVABLE pages.
-> > - Buffers that the kernel itself fills (pipe, FUSE, kexec, RDS) keep
-> >   KASAN checking by using the new GFP_HIGHUSER_KASAN (patches 1-4).
-> >
-> > GFP_KERNEL, GFP_USER, slab and vmalloc() allocations are not affected.
-> >
-> > Patch 1 adds GFP_HIGHUSER_KASAN
->
-> I really don't want us to spread KASAN-related GFP flags in the kernel.
->
-> There must be a proper way to abstract this.
->
-> Why is GFP_HIGHUSER not sufficient? We were already told that this is mem=
-ory to
-> be mapped into user space. Placing data structure on it and handing out p=
-ointers
-> to that would already be a bit questionable.
->
-> So what are the ways to avoid GFP_HIGHUSER_KASAN?
+HSR and PRP tag, number and de-duplicate each frame on the wire. GRO
+and GSO can hand them one skb holding several frames, which the lower
+device then drops or which goes out with a single tag or RCT and
+sequence number.
 
-I think the idea behind GFP_HIGHUSER_KASAN is to make it possible to
-skip KASAN for GFP_HIGHUSER by default (for most of its users), but
-keep it for some of the users which today use GFP_HIGHUSER for their
-memory allocations, but could benefit from the added security. As per
-the other patches in the series:
+Patch 1 keeps software GRO off on HSR/PRP ports. GRO_HW that the
+driver keeps on is left alone.
 
-  pipe, fuse: use GFP_HIGHUSER_KASAN for pipe buffer pages
-  kexec: use GFP_HIGHUSER_KASAN for segment pages
-  net/rds: use GFP_HIGHUSER_KASAN for message pages
+Patch 2 refuses bridge, bond, team and OVS masters as ports, a macvlan
+or MACsec device on top of a bridge, bond, team or HSR/PRP master, and
+devices that already have a master or cannot take an RX handler.
+This fixes the syzbot recursive seqnr_lock report, as Sebastian
+suggested [1].
 
-That said, I'm not familiar with any of the code mentioned by those
-patches, so I can't really tell how much they would benefit from KASAN
-or if their choice of GFP_HIGHUSER to begin with is correct.
+A port check cannot catch every path back into an HSR master, such
+as a tc/BPF redirect or a tunnel; those still nest the lock and can
+deadlock on the same device. Fixing them without dropping traffic
+needs seqnr_lock released before the port transmit, which can reorder
+frames for receivers without aae9d6b616b5 ("hsr: Implement more robust
+duplicate discard for HSR"). That is left to net-next, where Hangbin's
+patch [2] fits. He dropped it in favor of this series [3]; as this
+series no longer narrows seqnr_lock, it can go ahead there.
 
-Best,
-Tomasz
+Patch 3 segments GSO skbs before per-frame processing, outside
+seqnr_lock. GSO reaches an HSR/PRP port even with GRO off, typically
+from a container attached to a PRP RedBox interlink through veth:
+
+  container/netns                  host PRP RedBox
+  prp0-peer ---- veth ---- prp0-int (interlink RX)
+                                  |
+                           split GSO into frames
+                                  |
+                           sequence number + RCT
+                              /          \
+                           LAN A        LAN B
+
+Some old Linux PRP senders put one RCT on a whole GSO skb; patch 3
+drops such aggregates when it can detect them. With GRO_HW off on
+virtio-net, the host may segment them first and the RCT arrives as
+payload; upgrade the sender or disable GSO and TSO on its HSR/PRP
+master.
+
+Patch 4 adds selftests.
+
+Tested on a lockdep kernel: the new selftests (also with Python 3.9)
+and the existing hsr selftests pass, and the syzbot reproducer no
+longer reports recursive locking. No new W=1 warnings.
+
+No stable backport is requested. The remaining HSR dev->stats races
+are left to a separate series, as Paolo suggested [4].
+
+Based on net aa40afa831eb; also applies to net-next. Patch 3
+conflicts with Sebastian's pending net-next series [5]; its notes give
+the resolution.
+
+Changes since v9:
+- Added Sebastian's Reviewed-by.
+- Patch 1: the role clear in hsr_del_port() and the hsr_port bit moved,
+  so that the series applies with the pending fix [6] and with the XDP
+  series now in net-next [7]. Comment and message updated after the AI
+  review [8].
+- Patch 3: the segment loop uses skb_list_walk_safe(), as Sebastian
+  suggested.
+- Patch 4: three test checks tightened after the AI review [8].
+- AI review [8], not changed: a tunnel routed back through its own HSR
+  master (patch 2) is the existing deadlock described above, and the
+  socket close order in the test helper is harmless.
+
+[1] https://lore.kernel.org/netdev/20261014151838.6RyMIRVM@linutronix.de/
+[2] https://lore.kernel.org/netdev/20260805-hsr_deadlock-v1-1-d8a6f06fc5a8@kylinos.cn/
+[3] https://lore.kernel.org/netdev/anXnxn-PBv8qH6VB@fedora/
+[4] https://lore.kernel.org/netdev/4fc3b9f1-4bef-4b34-ae7a-e89037cce829@redhat.com/
+[5] https://lore.kernel.org/netdev/20261104-hsr_ptp-v10-0-2c4a38ad973c@linutronix.de/
+[6] https://lore.kernel.org/netdev/20261112064716.85381-1-sunwenbo@cmss.chinamobile.com/
+[7] https://lore.kernel.org/netdev/20261112235027.4072149-1-kuba@kernel.org/
+[8] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112153333.20-1-xiexinet@gmail.com
+
+v9: https://lore.kernel.org/netdev/20261112153333.20-1-xiexinet@gmail.com/
+v8: https://lore.kernel.org/netdev/20261107220544.20-1-xiexinet@gmail.com/
+v7: https://lore.kernel.org/netdev/20261009201324.17-1-xiexinet@gmail.com/
+v6: https://lore.kernel.org/netdev/20260809121455.1745-1-xiexinet@gmail.com/
+v5: https://lore.kernel.org/netdev/20260807140751.1351-1-xiexinet@gmail.com/
+v4: https://lore.kernel.org/netdev/20260803222211.877-1-xiexinet@gmail.com/
+v3: https://lore.kernel.org/netdev/20260731090224.18-1-xiexinet@gmail.com/
+v2: https://lore.kernel.org/netdev/20260724161253.79-1-xiexinet@gmail.com/
+v1: https://lore.kernel.org/netdev/20260722171836.196-1-xiexinet@gmail.com/
+
+Xin Xie (4):
+  net: hsr: keep GRO disabled on HSR/PRP ports
+  net: hsr: refuse forwarding devices as HSR/PRP ports
+  net: hsr: segment GSO before per-frame forwarding
+  selftests: net: hsr: verify GRO policy and ordered forwarding
+
+ .../networking/net_cachelines/net_device.rst  |    1 +
+ include/linux/netdevice.h                     |    8 +
+ net/core/dev.c                                |   15 +
+ net/hsr/hsr_device.c                          |   13 +-
+ net/hsr/hsr_forward.c                         |  156 ++
+ net/hsr/hsr_forward.h                         |    1 +
+ net/hsr/hsr_slave.c                           |  145 +-
+ net/hsr/hsr_slave.h                           |    2 +
+ tools/testing/selftests/net/hsr/Makefile      |    7 +-
+ tools/testing/selftests/net/hsr/config        |   10 +
+ .../selftests/net/hsr/hsr_gro_superpacket.py  | 1468 +++++++++++++++++
+ .../selftests/net/hsr/hsr_gro_superpacket.sh  |    9 +
+ .../net/hsr/hsr_ordered_forwarding.sh         |    9 +
+ 13 files changed, 1829 insertions(+), 15 deletions(-)
+ create mode 100755 tools/testing/selftests/net/hsr/hsr_gro_superpacket.py
+ create mode 100755 tools/testing/selftests/net/hsr/hsr_gro_superpacket.sh
+ create mode 100755 tools/testing/selftests/net/hsr/hsr_ordered_forwarding.sh
+
+
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+-- 
+2.53.0
+
