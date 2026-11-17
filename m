@@ -1,47 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.216.245.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794933444;
-	b=kAWFi7++uu6J+s0mGq9Pt7dsT8fhxRehmH6Opc+ZaaUPPmYR0X18TF1WPYx9gg4B4VrK
-	 zMIFiwOv43OQV/xb3nX8swI+WDNQlD2+Um84lYkKqL0YowLEsFbGmDHkF/ad/VMlx60BE
-	 /53BBPgX/TkInYON9VG+M9QZ09EEj0/R0p46XgBTGRWOro5XpFJivLdNSdnsrRece31b8
-	 0X37vzmDNbcni+lymkH3PuXu+ceKuYBiTybDpnrcC4PVg6frRUbKaXZlxVKbzhLc1NX50
-	 jYrqbM+pgJyMRdvY/H6ToxX3pCZc3uJj4rydLm5HtibadQejIUPNqLSuVqJPA4ko5/w==
+	t=1794933516;
+	b=lYZCQeMoioD3ZLpReNGn1c2pLKrsRNq8nWPkkxJi1uceCTSPaZKiMlbZpcL61GvaHWVc
+	 SSHih/IlfqH8AgnACCwB1sZMlHF3hfwM9qFVKVMBuL4mBJ3vNp7d1NDJcyQhRoPn2IPQA
+	 ARc80cYwkdaTCJe8fBbE1Qk1G+AdO5m52GS2VIAc9vLnPf8lcJwdJswSAd78mnHBAslY2
+	 EoASURbCdNUQNYe0jv5XwhaEmP4j5m2S0JeWuH97mjQN9Lk8I09erNYGjhkVND+iz3U7E
+	 y532vQ7Nq5/HEyDu6AqjciGCfMOCrcy0pl2J9OQDRPkElXi6cWo9dO8yHMVxUsU5LdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794933444;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Dk536gR4sAld9G0Co0+KwmHfsUszZELHPoRp8d8uXgc=;
-	b=4TrczPOhW4cEtwOlcrYJgTgLpZrFbhMaZQQnSq7DGvAESZczIO05W9c9nRDKFRT09CG6
-	 20xJcBymQODdeOuHkSR0aTe2vXc+pNWxWP3/82V1PHWwrpKZYHbd5Q80096swmWJpLFeW
-	 exGoizBiuHvtqrlkdTwCLedym4qDHjTL5mPfpMP8mo7smrS9tqPxAL044+823GXm737xk
-	 XfRNxNIn6w94VvmN6rIE+jv31nEfo+5+N+AUV9ph//6WanVC/ZUiFRc1CXYe+NQ6QVk4I
-	 MuhDRrC7Ux9ktlOAqdbSAevZhKI8Nol3wYV7kq0TRlZyy0l7jsWLE0/qOxB6xGBq6hw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794933516;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=46X1A36lRITxJaTPLlxxVzXDY079oCIGjNdvfhIAUtU=;
+	b=zHhw8H3XGnXUJOGEw0RjffuugUeOP7czhNdgbb8Dc3ScJ/pMZwWkh2Gs3NK+kX31gJtv
+	 t7mxzc16P9jdn4DIviXTQ5C41V17zHbxFk75S4IZKEHatkvYDikRtcmAAFIX68qD8Q6R3
+	 QQthgL9DFAMRq2eNCI5We83YXLGiOkT27ypANqvMtwcoA71q6E3O+qG9j/vQueXvcNHHd
+	 skbuk9LxivS45swNjuLqY/CXf6ZnY/YkMMKEa+45DpWiALbgBV24Unlwhl34IMoTVFXKG
+	 /Z52MVULy5d/JsnSnG476hbfVBdXWaVUQtUXRvUJ3zMMqOzqILLL0hkwl1bRjAudFNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=strlen.de;
-	spf=pass smtp.mailfrom=strlen.de;
-	arc=none smtp.remote-ip=91.216.245.30
-Received: from Chamillionaire.breakpoint.cc (Chamillionaire.breakpoint.cc [91.216.245.30])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CzXGWm54;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F072E606A330;
-	Tue, 17 Nov 2026 16:37:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F072E606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=strlen.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=strlen.de
-Received: by Chamillionaire.breakpoint.cc (Postfix, from userid 1003)
-	id 363A360342; Tue, 17 Nov 2026 17:37:21 +0100 (CET)
-Date: Tue, 17 Nov 2026 17:37:19 +0100
-From: Florian Westphal <fw@strlen.de>
-To: Ma Xinmeng <1564938642@qq.com>
-Cc: Pablo Neira Ayuso <pablo@netfilter.org>,
-	netfilter-devel@vger.kernel.org, netdev@vger.kernel.org,
-	Phil Sutter <phil@nwl.cc>
-Subject: Re: [PATCH nf v2 2/2] selftests: netfilter: test re-owning an
- already dormant table
-Message-ID: <avyCvycm9Tvdhp60@strlen.de>
-References: <20261117161520.1031-1-1564938642@qq.com>
- <tencent_65062E982D816637E41FE6F24B678214DF09@qq.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FB38606A333;
+	Tue, 17 Nov 2026 16:38:36 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CzXGWm54
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC3221F000CA;
+	Tue, 17 Nov 2026 16:38:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794933516;
+	bh=46X1A36lRITxJaTPLlxxVzXDY079oCIGjNdvfhIAUtU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CzXGWm54quJek4+WeGA5ThtKKio+wFJfPAJxfJsnaZdl5MOI9Vg0TJSV3hRZXUdPX
+	 sUcKZIOD0i2a9/5fWnivG9SLP5tKVLhvlQjgyz+u80wAPNx68KFoQQzMlPOYm9loQd
+	 sdezHyNDyWbiE8jkrTjtnTxitoye9PZaiwX5dizfOYhbBkhvgAIAi8/lrd2aqHlMQC
+	 +05ngZU3roLo4v6otfUoN+5I4PEeVFGs9QV8omgnYOwK0FwCUU1Zxpdm20Eu0lStOc
+	 oOVNCSE4CsrxNQCptGKN2U+he3l+cUPjZ5ZEPDzWXC0FXdDda4PoLhyx937L5Q+yfe
+	 Z6LwPS4U3BkHw==
+Date: Wed, 18 Nov 2026 00:18:12 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/8] dt-bindings: net: Add MDIO demultiplexer
+Message-ID: <avx-RO_K5h12HWx2@xhacker>
+References: <20261116135442.4827-1-jszhang@kernel.org>
+ <20261116135442.4827-2-jszhang@kernel.org>
+ <16ecb3ac-7876-4db5-9168-5ac9bf31d4b7@lunn.ch>
+ <avvgy_bmRSVApCHA@xhacker>
+ <bd19b55b-00b1-406d-a16b-d04c35efb7d3@lunn.ch>
+ <avxhJs-51vs2Icje@xhacker>
+ <6eb16cd9-27bd-4934-9621-b8928dce6902@lunn.ch>
+ <avx43Nv-DJCX5_Rr@xhacker>
+ <4d4dc86c-c947-40e2-bdaf-ed00a39f3771@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,27 +76,29 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <tencent_65062E982D816637E41FE6F24B678214DF09@qq.com>
+In-Reply-To: <4d4dc86c-c947-40e2-bdaf-ed00a39f3771@lunn.ch>
 
-Ma Xinmeng <1564938642@qq.com> wrote:
-> Add a regression test for the nftables table-adoption path.  The test
-> creates a dormant PERSIST OWNER table, lets the owning nft process exit
-> so the table becomes an orphan, adds a basechain while the table is still
-> dormant, and re-owns the orphan.
+On Tue, Nov 17, 2026 at 05:20:39PM +0100, Andrew Lunn wrote:
+> > > Each transaction?
+> > > 
+> > > Are you proposing to use both MDIO bus master? Why? To the outside
+> > > world, it is one MDIO bus, so you only need one active MDIO bus
+> > 
+> > Yep, both MDIO bus masters. I wanted to let each MAC uses its own
+> > MDIO rather than disturbe another MAC for dual MACs case.
 > 
-> On the buggy tree this calls nf_tables_table_disable() and unregisters a
-> hook that was never registered, which triggers WARN_ONCE("hook not
-> found") and taints the kernel.  The test checks the taint state so it
-> fails on the unfixed kernel and passes once the commit path only
-> disables a table on a real awake-to-dormant transition.
+> How does this actually work? Each bus master sees each PHY. So one
 
-Would you mind reworking this so we can place it in the nftables.git
-shell tests?
+This could work since the demux serializes two masters' access + only
+point to one phy phandle in one mac's DT node.
 
-tests/shell/testcases/transactions/ would be a good place, I think.
+> hardware device is represented twice in Linux. Bad things are then
+> going to happen.
+> 
+> As i said, the outside world has one bus. So you need one MDIO bus
 
-The test would be a bit simpler since nftables run-tests.sh already
-does 'tainted kernel' checks, so it only needs the 'add table', 'add
-chain', 'add table' sequence.
+Yep, I will switch to one MDIO bus solution by coping with the selector
+in the sl2610 stmmac glue driver. A sample dts for dual MACs case has
+been shown in last email.
