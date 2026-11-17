@@ -1,78 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794946805;
-	b=fFDlWaQHUl6/y0i+lh+SjiOPECbjQPgXXL6JJVro5CsWPQzx+aD8kpYyq8buTcUgjASS
-	 3wkxAp2Y2Idxz1jwVBE4nrrm/2MQ6AzixphcRq2SEsylOJR4VYFNeQ1rLusGaeJjoVJxp
-	 wQCVghk1omq9fHNBNIA/f/UGkfi29MDADpjRRQzPxVY1izxNgg3NsbD36f9wFkWdjjkHW
-	 EE2UQLV5x/p5rsuN1Ol/g3VSlqdca7ARbtMym+yP4Hgsc3CUmFDvs/Kug67s0wROfD+sa
-	 WvtPgG/mPTheEPHgFfSMscKt8YRmdF9Sb85erPJR+0jar6VohkorqPhwwXO96MQ48mg==
+	t=1794947222;
+	b=q+OFNOF6qx/3QMZ7tSsJ6A39CyBMT/icnQ4DqLK7397cobsNzaFDxldsTqYo/JdQmi4W
+	 NgqxwwE1uAKg++cjdmn2fpiOjvTP5v5/1ZgRUFdH0+P0YOrh8+IUkyonJG94TCRkIW58c
+	 T8rDAbb7pYQ55oDt+oDc7136z0DkE+bqe5Ck1FGzAelBEmyIisknJqZVT6Yctz71NG1aK
+	 mH4FP/ZW3GSKSOKb6Xz1DfwitdGa9O/PuV0j7TytyOD6ADPW9jhWgSy8LTMPfvgYi3TJK
+	 UYfLyb2XJxlfia126q9lU9gMPIoi/oF+sJIFaCeK1HNdX3uSKqxRk8CjPssGdLRs/Pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794946805;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=2Yth5nPHUGbJx18vRlBtBWemzjlOS16UhKx0Z9GyHbk=;
-	b=NrHmBRcIURgWKJbJghW4ITf+s52UudniO6JZVnL5mjd4hdOY498E6t0GoViWnl6aWR8u
-	 nho6wMJXSMZM91sDBfecIEq9HRiEPSk8rWQGMekGr9xf2ykS6aPUMkUblcFQV6wACbcVF
-	 gdUO/wt7rbC417n27aNCCulWfx2aNW7uGMXzI9Nbzr1XZlQCKCxUAidTz5PiLuhgPhnAq
-	 Ogl9Rq2fDr2MwqJaW/TxIMoc4b7FfDNwk7QSblnNWBqLIiPS+hUfmWxX7xAUx8c3/3R2m
-	 hkaqpRzsbPBIU4u1qKh04lKo77JbUNPxFzGfUfjcVF52QzrSVeVGNXE69IDUTQ77REQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947222;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=NtQRzFm8cV5RodGkfpCY5dyh1Ht76XcmhOuef9Kv3NM=;
+	b=RrSpkao7epIbDvvg4BGy2uXQ72N4ZhK6SFsnvvCAF36uKqdp+UfAblXllmE0wnfcLFS9
+	 rqQ6B8qLqKpC1wsW/79YE2pbf2DQTsBIndbPvGEOo/4ESgxlvRycjgxeeqUJ3uwIj9tEk
+	 86CTIFiwru4h76ivII0SNDRzRr0j5T8GivYp/n0fW/box43kWsbk5fDyyY1EST6PSlYJI
+	 C8oDsjHaHQKeYG5g5Pveb8cQjAji8qCd4uqXkPT0EAMJF7D36yDOXjx/G4SBF+RkbvAmL
+	 mNpCMOjMKFP14Y5oGxWxZMZbEVoV6I/G8MHESaPI191Ensous+4+2dx4NcWXkU7koxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ssi.bg;
-	spf=pass smtp.mailfrom=ssi.bg;
-	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=qwHDIuNG;
-	arc=none smtp.remote-ip=193.238.174.39
-Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=xmousse.com;
+	spf=none smtp.mailfrom=xmousse.com;
+	dkim=pass header.d=xmousse-com.20260707.gappssmtp.com header.i=@xmousse-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=UyByXd7h;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F86B606A31C;
-	Tue, 17 Nov 2026 20:20:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F86B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B621606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 20:27:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B621606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xmousse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=xmousse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=qwHDIuNG
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id 9115521FD2;
-	Tue, 17 Nov 2026 22:19:54 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=2Yth5nPHUGbJx18vRlBtBWemzjlOS16UhKx0Z9GyHbk=; b=qwHDIuNGaklG
-	GqrIYu5RtpspwbXefEwaUfDpr20Fr2MeB8Nf4+A9c4y8CMfEnzif9/ip0g3zVX7G
-	rvSL0aAo7EbrPN/jQ0PtSTM8/LQ+YZ29ThN7+7VG4NoOU+3uGgzPtzHb9FDXnR3M
-	9sO+AMPGshUAhiyXe0Y2P+2cTB2iy2vE1ZIpC8xBF7WX/qliDXBmpzjMnCTyQaVd
-	RTuHTyC99nlhLBwDeLJ9r+O3QsekU6as8k8OjzNXjZukdDPTHaJa093PcXsiOUi7
-	R/jhmdfTnGXe3JYJd3OXmLS9+KIkjTXVX50bqYs94vFx4z/4+AwvL/aF3um/rW0r
-	hehF7zvJFhwNKrfu2Is3B2gR5SQSNeiparag8r++Hvli1EFgKZC93A+7/eVThjQy
-	4WOYZ70+iVwsc87riBBU55CurJ7yJ8VYgdJoWiRkonvp5fI1QkG4F+zES97i62qS
-	6l4qNW3z6yw0cFg189F+X/PMbj5HHaW5NWnpHKVAcTOsoVTiekWchK+DcE2r4P4+
-	HdUI3rERqbwmz7yxWthikarxlleMfdeY2mP9d6kR5wfWpIXmdaWeF0fAMnhF4rQ2
-	OueVyXsCZOVR5vwV4sx2PNJLwWl8B1vBB0SgTTNOvzTACSdwwDeMNpDB8sVesZFB
-	7xe8+x3nWoAaELiEYQ6Xdejpp0StHkU=
-Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Tue, 17 Nov 2026 22:19:54 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by box.ssi.bg (Potsfix) with ESMTPSA id 18261603F2;
-	Tue, 17 Nov 2026 22:19:54 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AHKJind097451;
-	Tue, 17 Nov 2026 22:19:45 +0200
-Date: Tue, 17 Nov 2026 22:19:44 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: Axel Mierczuk <axel.mierczuk@1password.com>
-cc: horms@verge.net.au, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
-        dsahern@kernel.org, kuba@kernel.org, edumazet@kernel.org,
-        pabeni@redhat.com, davem@davemloft.net,
-        netfilter-devel@vger.kernel.org, lvs-devel@vger.kernel.org,
-        coreteam@netfilter.org, netdev@vger.kernel.org, w@1wt.eu
-Subject: Re: [PATCH nf v2 0/2] ipvs: fix OOB write when NATing ICMPv6 errors
- quoting non-first fragments
-In-Reply-To: <20261117134049.52386-1-axel.mierczuk@1password.com>
-Message-ID: <a41ef905-ffa8-14e0-ba12-672d69de41df@ssi.bg>
-References: <20261117134049.52386-1-axel.mierczuk@1password.com>
+	dkim=pass (2048-bit key) header.d=xmousse-com.20260707.gappssmtp.com header.i=@xmousse-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=UyByXd7h
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-49d64a88222so876395f8f.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:27:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=xmousse-com.20260707.gappssmtp.com; s=20260707; t=1794947220; x=1795552020; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NtQRzFm8cV5RodGkfpCY5dyh1Ht76XcmhOuef9Kv3NM=;
+        b=UyByXd7hxY91bv+iLDzA2vJf9ilC73OmQHq6Bi6EZueN+8cUfFiClzaB2mKX41cX7c
+         SSZXHQ+SbO5oRi4oY2j5/ldm0hqy6ZbSoicvyWVXmG/KhMf7D/ZkUOFYvBe9kXwAs7+x
+         ZdFjxcS/an6+FwHKsRYrbBrm6YtAxpBYu5tXEinUYQar2FMgmnY3nLEx9S27TTSGZzDC
+         5fixvuB54+4cQwhzrFDkq3nrqzgHRJ1U7GfrUiQDGIQe7goN8hN6ccyu9xDeu5Owkf5k
+         /X3eK8a7rUwnrKcAKgAX0wl4hi8ukUAU0qC6hC1ntoQ5o0OqS9927kOK4Pw7JhJRO/mG
+         01Kw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794947220; x=1795552020;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NtQRzFm8cV5RodGkfpCY5dyh1Ht76XcmhOuef9Kv3NM=;
+        b=ndCbAveJOEa7mnb8e8p/w6MKcqhk2ktZv4yIrO5332He4733qnxOVO0RR4q7t+C7/B
+         ix6KzLiC4qHMshuaps2r9KrgBuLmQE2buj6rJcug0OLiEEISM/DNs4iaBBxgimN1qA+G
+         IgDhcQEp29dNgfN3eqeG/kK6zVEjalq9XAILF55HX6zoPVbmX0CqQCyrZeJHnD88r+xk
+         KnR65A1b0gzqU53wadC8icfWfmgU69B+OHinbZQwbsEA/YRAaMrDZYnCuVpLeN8dCAah
+         MreFq2CtPwdI2gKfGEQCGXAXJfjM/DkMOzJbsszlfagoh/ADrX+ciPs+pYhhVCM51cEn
+         ljjQ==
+X-Gm-Message-State: APuU4Z9Qm+CWiszEipFgFur1O3ZLrEvri3uE5L0J4MbNm+KhnSXgjti2
+	30PFqGfHeNgs++eqSQhhJDiro08/OMU3lmLd3kJgQFj+1uJ7mytj9V4yyNr4YqWvbyeBP0YBIvD
+	nnS5VTNegRj/H
+X-Gm-Gg: AYBFou3/TjyFRlL1CQFrgXuJieV1+3lE8QddunlOV9UF9xw0y1OWT9sDL3QSGBjPkbE
+	gCQCmauZUQCVkHmwFmEMgNsUAnGwiFvXW2c1hKiaqJyPHd/yhrgdkDFoUKPc6I/DgG7DiAyUS/D
+	ETTRmT4JeZrX1DfENGbKwS7LGnKzglK8dl+LIrWd9EqunMjhNXk0PIeVH/EU5n+9rEyymUbCLuj
+	Pe0g0hhqs+UOojilafs6mP6kzZiqBbj5GHZScUyPOx2Pt/55ruivushl1bbU2eudw2g8ISNCsiy
+	gcAhm0gKx76/nOGFtr5SzSxeiHs60SDVyrOgxFKPLMAPJ2JiqEpE5qQXDLPMgQWyrSwRePEmkRY
+	J6zlre8m8Es8FETCj6J749ptiKnHy4LGHwprq8IByQeRs5NNpKlKia6f4yQhxeZoYrGHJB5WOgY
+	1J/m6JehpF1pm3dsdIDWoKRTPh/hUTRWbyJCndy2ywKb0+mmsTygaOeRZwH4A8b3BYNBPaaiElv
+	38x/aEMU9yEd1vKXCJE+mD33XiZYbtSSH06Yz9iR5XsPgGMscuyLu8PQQaj84/29Eijfi0KOGlz
+	y5otCDxBSGs6ZmLHVjMPXg==
+X-Received: by 2002:a05:600c:8717:b0:4bb:5e8c:13bc with SMTP id 5b1f17b1804b1-4bb7da17f77mr6092795e9.7.1794947220106;
+        Tue, 17 Nov 2026 12:27:00 -0800 (PST)
+Received: from peacock.. ([187.15.172.46])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7ad9430asm70271675e9.15.2026.11.17.12.26.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 12:26:59 -0800 (PST)
+From: Ofir Mano <ofir@xmousse.com>
+To: linux-bluetooth@vger.kernel.org
+Cc: netdev@vger.kernel.org
+Subject: [PATCH 0/1] Bluetooth: add passive-discovery quirk for Intel 9460/9560
+Date: Tue, 17 Nov 2026 20:22:37 +0000
+Message-ID: <20261117202632.49924-1-ofir@xmousse.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,61 +92,67 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 
+Hi all,
 
-	Hello,
+Intel 9460/9560 (8087:0aaa) controllers stop reporting connectable BLE
+advertisements after the first active-scan SCAN_REQ/SCAN_RSP exchange.  The
+controller stays silent until it is reset, even though the host scan is
+configured correctly.
 
-On Tue, 17 Nov 2026, Axel Mierczuk wrote:
+This breaks WebAuthn hybrid (caBLE) passkeys: the phone advertises a
+connectable ADV_IND carrying the FIDO service data, the first operation
+succeeds, and every later operation times out until a reboot or a
+driver/controller reset.  btmon on a failing attempt shows no advertising
+report at all, with `Filter duplicates: Disabled` and the same scan
+parameters as the successful attempt, so the loss is below the kernel.
 
-> This series fixes a 16-byte OOB write past the verified skb area,
-> reachable through ICMPv6 errors that quote non-first fragments.
-> Following Julian's suggestion, it preserves ESP ICMPv6 handling.
-> 
-> Patch 1 includes the embedded IP header in ciph.len at both ICMPv6
-> call sites when parsing stops at a non-first fragment. It stands on
-> its own for stable.
-> 
-> Patch 2 makes ipv6_find_hdr() set *offset to the fragment payload
-> for non-first fragments when target < 0, rejecting a truncated
-> Fragment header, so every successful return updates *offset. It
-> drops the workaround from patch 1, which becomes dead code.
-> 
-> Changes since v1:
-> - Patch 1: rewrote the comment and commit message. Nothing blocks an
->   embedded ESP fragment on ciph.len; it continues because of
->   pp->dont_defrag and its lookup reads only the addresses. Name the
->   skb_ensure_writable() callers, handle_response_icmp() and
->   ip_vs_icmp_xmit_v6(), that size the writable area from ciph.len.
->   Code unchanged.
-> - Patch 2: return -EBADMSG when the Fragment header is truncated, so
->   *offset never exceeds skb->len (Sashiko, Julian). Add Fixes tag
->   (Julian). Drop the ciph.len workaround from patch 1 now that every
->   successful return writes *offset (Sashiko). Describe the
->   handle_response() effect, the nf_tables trace output change and the
->   SYNPROXY callers in the commit message.
-> 
-> v1: https://lore.kernel.org/netfilter-devel/20260925141155.17603-1-axel.mierczuk@1password.com/
-> 
-> Axel Mierczuk (2):
->   ipvs: avoid out-of-bounds write in ip_vs_nat_icmp_v6
->   ipv6: update *offset for non-first fragments in ipv6_find_hdr()
+Same machine, same controller, same firmware build: Windows receives the
+caBLE advertisement reliably.  A USB HCI capture shows Windows scans
+passively (PASSIVE, PUBLIC own address, 1M only, ~10-15% duty and an Intel
+0xFC1E vendor command before each scan), while Linux scans actively.
 
-	Both patches look good to me, thanks!
+We tested the fix space as module variants in the real flow:
+  - stock (active, random address, deferred delivery): 1st works, 2nd fails
+  - active with delivery deferral removed: fails
+  - active with PUBLIC own address: fails (both attempts)
+  - passive: ~1 failure in 18 consecutive operations
+So neither the kernel report path nor the scanner's own address is the
+cause; the latch is tied to the active-scan exchange itself.
 
-Acked-by: Julian Anastasov <ja@ssi.bg>
+The smallest working fix is therefore to scan passively for this
+controller, and to deliver passive reports during discovery.  The latter is
+needed because the existing passive filter drops reports that do not have a
+pending report action or an advertisement monitor.
 
-> 
->  net/ipv6/exthdrs_core.c | 9 ++++++++-
->  1 file changed, 8 insertions(+), 1 deletion(-)
-> 
-> 
-> base-commit: 734bef548a96e8774d6eef5dfa2026c6edc4e80b
-> -- 
-> 2.50.1 (Apple Git-155)
+The patch adds HCI_QUIRK_PASSIVE_DISCOVERY and sets it for 8087:0aaa only.
+**Other controllers keep active scanning**.  The trade-off on the affected
+parts is that scan-response-only data (for example device names carried
+only in SCAN_RSP) is not available during discovery; that matches how the
+vendor stack drives the same hardware.
 
-Regards
+Testing: Pop!_OS, kernel 7.2.15, Intel 9460/9560 (8087:0aaa), firmware 169
+(2024-08-13).  With the quirk, discovery runs PASSIVE with a random address
+(verified in btmon) and 18 consecutive hybrid operations produced one
+unexplained failure.  The patch applies to a clean tree and builds
+bluetooth.ko and btusb.ko.
 
---
-Julian Anastasov <ja@ssi.bg>
+!!! No regression testing was performed on other controllers; 
+the quirk is keyed to this USB ID, so all other devices keep active scanning.
+
+Public reports with the same signature:
+  https://bbs.archlinux.org/viewtopic.php?id=298396
+    (exact 8087:0aaa; scanning works briefly after rmmod/modprobe btusb,
+    then stops again - i.e. a reset clears the latch)
+  https://discussion.fedoraproject.org/t/intel-bluetooth-wont-scan-ble-device-works-on-windows-blank-scan-on-linux/196326
+    (Intel, kernel 7.1.3; btmon shows the extended scan but the controller
+    returns no advertising reports; Windows works on the same laptop)
+  https://issues.chromium.org/issues/41485480
+    (caBLE passkey never completes; worked on 6.3, failed on >= 6.4 with an
+    AX210; closed as "Not a Chrome issue")
+
+Note on scope: ArchWiki reports that passive scanning is broken on Intel
+AX200, so I deliberately did not widen the quirk beyond the tested USB ID.
+
 
