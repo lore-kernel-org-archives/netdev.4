@@ -1,66 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794931057;
-	b=jneOO47roTz7HgqN0ESq83rZnjJQbIdigp8XBJSiFrWhMqMrZHAwD+kv63reFaGPoixd
-	 VXqqP5Tkn9tmYevaED9HA5dRERFuEWPIte9EcT3NZExI1DGXtCsRnMlulgGUtsmycq9+S
-	 okOknROoM769gv+uRPBkTnZWIIYfBnt8YF1qGX81CT+iM6C7tf2J0KUKV6TZhvxDGZUCU
-	 gEcpz9shcupphVvHp2F658hlQ8OzCYdPEpoz/6PN52K8nDmCjsvWSPKHEhoVgFbbyGpLO
-	 YQbGu5yi6dubTpSs6XOjJ4KE34gzPw5+of05L2pMyFElqTAKGZ1eVlRK1mLvgYqtBiw==
+	t=1794931068;
+	b=VbAglL+sEy8bvmHJaEi3kgWHIwS3TiaC3jkYzn8ack7Wd/3+rFVbiI5jb18YvoW599Zc
+	 rV8T+s1JSXAJ78cl5nI4j3wZ5BrB+4jZHIIU+1tGIWNGiriam21hVDouBQ9sMDRWtkqLM
+	 +YXmtYi49hLT7spoveqyAyy+b8qDAGrmUK2KRqu76kB3kIbAErQSCfpPm6X3zGEAk9mJB
+	 1gchuYpJiCoJqgdQoNjaO0EABH42q8dJb+86fYWmaAMj2GDLr6Lct73XeQ9DOiqdZ0kya
+	 dDgD6RDPGL0Tq/uLDI/xFMnDogwpsRX5JhcNgSdqjRZSVQ3GhMW39tydKv5joSoYNbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794931057;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794931068;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
 	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	b=r06Z0cwHYHKqzmWf1pMBS47Fcml3mNTfSgZRyxrcEnZfdCWsjtheKNE6uw0cxaLerL1n
-	 FqOTuT5MaUie9VNjriIgs7H6OvDFO88ly+bHEAAOVm3dN6g23xM0UTaeSSw4hYAT8cnd+
-	 6goyXWbzFTkz79hHiTspUMFRC9BrPWqNTTdsmldOXL+WwXFJ/cOqyg19yXqzSUZZrAnb+
-	 oxajBky9CJ7iFBw5nEODWr8Y1/nXIjBxvIJLN5K+Suu4PK8T2f/jMzasN2lRdClLmqk1I
-	 2YYtqR/MvMZMjI9NNydxYucGZZ9HERQwQQzhdF9n27WniwTD5A1Ilp3OwXpvUfIGkPw==
+	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
+	b=tptiplgsDTOETAHBNaOLXsBguh+Iuv8cOmn+/symZAsvPe8wClf8/AUsco+mm937xEE7
+	 cSu8t0vzgTaHFclqr8GBnwL/ziQyilnPdaFF0k57OzRFITx4F5KhJ05p8HcGRApETYqi9
+	 rqMU/c5D8MtiGUB1qwskzElDPg65U4h5a+9guzi0xcqzmZ+qI7koCynqk2GOMJ/bGQDld
+	 McwHT5zAXgNfgo8Sxkj5yCFpiiD1ZDeKdbXThs/XkDF+m9m+O3nG/t/iiCvf90cC+6kOV
+	 Jwc+mg0+qvM9bnmiwFKjUs78v7FcK4+bTScOKjqGvDhDFJvQVEhRq8XfVam4LkiJB2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bqAunJ9S;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mbPN6lW5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF789606A331;
-	Tue, 17 Nov 2026 15:57:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B4AB606A333;
+	Tue, 17 Nov 2026 15:57:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bqAunJ9S
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 419381F000CC;
-	Tue, 17 Nov 2026 15:57:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mbPN6lW5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1AB91F000CD;
+	Tue, 17 Nov 2026 15:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794931057;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	s=k20260515; t=1794931068;
+	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=bqAunJ9S14rv0YgjXfzLTU5lWReAsZ50+ynx5TK/jY5QUYHv5To3xOotDm6z+S6E7
-	 6TU5zv7Ubom9eSAy9REfh2HQlLh8OHe3A2gxGuG1XsHuiKDpCYyEkQoUSF/bcSYTE+
-	 TV4Qqlw2mbXssOi+eLAoB83Nza0kGJrJVdVBbZYgz1eJ2P/oyI4bHgDEzu4JxRFs8v
-	 7knlCmooWuzWQw2BNNxpVj8/8cnJUongLyWDcKPRZpYn3n41u5jhftUXQyGVMYlXIa
-	 M+6bXA9e8G6PMTCnIFz3tVox5M6xt3dmLk+q9gTuwBbsgJ/2TIaPnyucfn9TxzXW7B
-	 /fJwhUT8nkVbA==
+	b=mbPN6lW5pPEr4cJXZEtjlFj60bN5jIgtTlutNzTQ1zegHmrDymI0BNP4mi7+9R4mc
+	 sasc76g3RoAGWQHT2KsHJMcRqJsK4sSOjgyS/XjUWe9RaRzlHvuaIXD6pdxh10Fknm
+	 /P7Bk82WMlpjJJskoIO8BCK3OsN4Tuy8VUesIM4sUDiPiQY/5ySP4Dgns4S1RGqdGu
+	 pi2fKRMad1FIGXmw/DnnsAFujrA1z0XxqmVfK2sOKqc1ft0anDzZdtR56dJsugYLfo
+	 mwo+ah7cRbuWR+86ZUfIA+D5+Ke+9LLnx492RLoLcXWRGLdpkyMntiz+aUrU/935Uz
+	 ZfC+AwK9T71SQ==
 From: netdev-bot+sinfo@kernel.org
-To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>, Vladimir Oltean <olteanv@gmail.com>,
- Furong Xu <0x1207@gmail.com>, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+To: Joe Damato <joe@dama.to>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-kernel@vger.kernel.org, daniel.machon@microchip.com
 Subject: 
- Re: [PATCH net] net: stmmac: fix num tx queues in stmmac_xdp_get_tx_queue()
-Date: Tue, 17 Nov 2026 15:57:35 +0000
-Message-ID: <179493105581.3291.4118659695077688589@kernel.org>
-In-Reply-To:
- <20261117-stmmac-fix-xdp_get_tx_queue-v1-1-4cd74ee7a76c@oss.qualcomm.com>
-References:
- <20261117-stmmac-fix-xdp_get_tx_queue-v1-1-4cd74ee7a76c@oss.qualcomm.com>
+ Re: [PATCH net-next v2 0/5] net/mlx4: TX helpers and deferred doorbell fix
+Date: Tue, 17 Nov 2026 15:57:47 +0000
+Message-ID: <179493106742.3291.11434436383058043225@kernel.org>
+In-Reply-To: <20261117155353.2250540-1-joe@dama.to>
+References: <20261117155353.2250540-1-joe@dama.to>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -78,14 +68,6 @@ Hi!
 
 This is an automated message. This series looks like a fix, but its
 commit messages seem to be missing some information:
-
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
-
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
 
  - What hardware the change was tested on. For driver fixes please
    mention the device (and if relevant firmware version) used for
