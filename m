@@ -1,96 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.65
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794943164;
-	b=mlgzjGy4nP62DcLFfzj8q2FJu2E9WVjPHCYxz6CY3eEolbfsBMNfXmSHy+Fc1APFEdyl
-	 HgkDREi4mIB9UQBQXnzKy0Y0NHG+EHOcyKo2fh5VSLh0Pe/qg/irwsFCAE8/Fs2HcIC4P
-	 WAndsTHJT4GxFSBemuJxED5S4tSd2CEqS8V6CSKIOuwiplUWlH9hfxh2wjk/1P7/3pD/M
-	 2ZbI6Kuol9s1glKbZuwikybdjCHHNHVmucU0Syhaeu+wg8tzgFuE9mL3w6XjL7SXCr/5I
-	 ZRMFeBoEjoKMS5g6U9KQK74grsj+wB+qkoxDw9k28pxJeJhCvmQRtAcLK0epky9I6iQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943164;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
-	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=B9Qe5tQD6qPSBbF9lnQIj4q0RhQHUryoAFWavqVMrzk=;
-	b=pD6bvInqPYT/oLjql8TR7/URzjWxDXfZ8N0kDbihBdo6M8VLONVWUIY/pb2TN5VtWIWC
-	 Xe6IaHuMliYkpkObpDQTqxJU388KHoY1x2sWUrAgxCby99zHRHuP2H31kxBlRdHasmMMC
-	 br/iuHXaG9bfsU9ULb3ODyjR3XyaE+8rSIFGhwVOvl3HGJXycNu1UVc6XJfnv77S524Y2
-	 axbbnY4U8v7Mx8K2Jm3jaOfeacaqPOeGVPvDZi0KEGTHBODXc8Sf3T8P6cWsJJ58VHch9
-	 nJDygjcZjddWOe8vTQ+XbmxmZfiDhcdUKy/0UXYZ7j6B08feXJjZZAKOdPomBhN0MnA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=WDwOC4fa;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.65
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012065.outbound.protection.outlook.com [40.93.195.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794943203;
+	b=JNQisXdTm6Be6yEC8xYhK4UXCSz23jMohq/KkmxDXudlpdtz0l+9pit4QbbLHBNgtas+
+	 lYOzzbxeX9kGGdbyW4P48FxkCDc0IP9wsFAG6cN2RG4oxo4uWkmmEu3mnhgkxSi3718rs
+	 S9jik8PTglmJj8YK6aHs/tpL7yWDwR0b5XW5ZOQYsKngQ2QD9ctNEZH3pmxM4PF4akMO+
+	 3LepWq1eYccUekJI3jYnl5bACSJiRYbLp/gPXeh2bN9BGlPXmY/EWS8sGsaPGtDZ1eUAz
+	 Ei3ICDrtOOB7wuYASGNVI987kXBsqfQyEscLWWB9gQiuliIEpinJSISpTzDaIoMf8KA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943203;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=5f5C80g30fAPj/I2D0TndVTdrcqmqXcICX0m5JKKxiE=;
+	b=2dUJXhM6XnOcF74TAiOWCbq/1c3PwhAjy1Uhjf8cQUIWa5PpTYmWxJ/d/1rSasCgShZD
+	 KT0Hn6pFdWTFLCwhSg9honuA6ggRhMwweNQEw+pXnlOZ1mYHzmXFJIKVjhvLI/MxMFJoN
+	 UtJgREIagHJADFrrzTY7gkwpNnep2B6OLGSUmdVjwFn6Q3sBmWk05+kJRsJZG2G0WBBtn
+	 FFVjM4+G9mKbWiTtlDLUGaxJFi9KPTKtHHbNNLs9/cQzi9VDr/8q9bdfggv9xzJ1X9lG+
+	 9RpmOsg4Y8r+K87YtjCNDe2FXHGZN5+Tnre0Bjc43VZKjUsdhnl9kPnLW5wRFMtwGrw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U0pAsIZa;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF11B606A31C;
-	Tue, 17 Nov 2026 19:19:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF11B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB2B3606A32C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:20:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB2B3606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=WDwOC4fa
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bzjVULsKPq2/o8zYJs9Akn6F6/HhXdPNs5VdLQ8wF2K3qnH7wLqBLCMLxhxcQGgFKFoyO5VG6+TuEVpyiHuzpPQmIZLMMcNpxaap/U1uh6A2+a7Vur64y8DehFlMFMTlDVk/mnZu6OEraRPmeGZZhez9ISoIt2UWCZGVH6N61P7CKiUmHXCrnOtklD/U6JMor08QPv1p2WruBwhbkRl2qSlPWuq/u0+65kyP8jWJD7V41GEyfPBWlJy8JZlFO9r8XfHlLSajBR4U96S/Tmrt+j234bvbtdiwe4diB7P/YBEBVjh/sllZfuTDLl/IrCBfO2RxPeynQBCUUvlFh+SMhA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B9Qe5tQD6qPSBbF9lnQIj4q0RhQHUryoAFWavqVMrzk=;
- b=WaeFRxiuPKY1pWky7xAgV7HFQl3Jeg4ZDYliASoSFrCCe1yAMbzfQgE1NRhkrjDhRAhk/3+Z1wMSs31b9PaUeWx8MORdOI2MxbcJZS3gBfS1VZOGttTQ1jzYPbgWXyYotWApPKFAt5tE+KYk8tw0mIj27Dwft2S2GnAEDXjMC+di7PN5egF6Zwk5J7WDKPMbN5J85R6XXf4aRT9J8GvKek+gVFAKbM3ymZWnUobnjJ19bdJGQ54WC/Wk/XZnrxuCR51/d7fEDvZlmvxeaSi9oFVQ1S8zHdNyezV25UMbWSkPzGJPobGQXoUYCDDxA+YDhUPropgEgl+ikCXydbe19w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B9Qe5tQD6qPSBbF9lnQIj4q0RhQHUryoAFWavqVMrzk=;
- b=WDwOC4faWaDoa98pR4s1qTXH76mjmUILeVA1xPBjCUeJmIcEWevGBZYzeQCVGwkO1mrLr5Pr7GG7YIu5xyFKWjZZhs1J2wpzLzW6BTOGZLHM+6KVQSyZb/hVAkd+m5xrBd/pvZnQI+h1Z1l8OCkMg63tzwsxZz7mdJ4c83DSDQA=
-Received: from BN0PR10CA0023.namprd10.prod.outlook.com (2603:10b6:408:143::20)
- by SJ1PR12MB6147.namprd12.prod.outlook.com (2603:10b6:a03:45a::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 19:19:15 +0000
-Received: from MN7PEPF0000014E.namprd04.prod.outlook.com
- (2603:10b6:408:143:cafe::45) by BN0PR10CA0023.outlook.office365.com
- (2603:10b6:408:143::20) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Tue,
- 17 Nov 2026 19:19:14 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- MN7PEPF0000014E.mail.protection.outlook.com (10.167.254.40) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 19:19:14 +0000
-Received: from [10.11.96.223] (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
- 2026 13:19:11 -0600
-From: "Nikhil P. Rao" <nikhil.rao@amd.com>
-Date: Tue, 17 Nov 2026 19:18:55 +0000
-Subject: [PATCH net v2 2/2] ionic: limit TSO segments to the minimum Tx
- ring size
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U0pAsIZa
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2eff722a480so741915ad.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:20:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794943202; x=1795548002; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5f5C80g30fAPj/I2D0TndVTdrcqmqXcICX0m5JKKxiE=;
+        b=U0pAsIZaKRAVwB/CUQOe98pN6l9ng4fVxpQsCNRj407Up/Y4v0ww4I2hcNpO3fi/3m
+         yQLtdbkmRAuZOqeeU9+Y1zrBeTdB6KnODUVepEB0/RV3QB+80FsAC5tXjWnCt3JURD/b
+         hVMvuuAnNVFdV/0zWIY5HtQGvXyybQqNBalZTkkDLyBLeaAxAalG7W0IjBVsRFn6e9Ru
+         /kZRmjZXQ3hedfAxPWxC8Zl9zpLogOWnUHf7+6ETsZOyQOUZHXxapqNpMw4Vk4frTNKL
+         j71EZumfZgXABGz48FHpY2/SHsX7TzhOmPO60DNgt0gM8asyMiON+0kP+DspNU7bufEg
+         r2dw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794943202; x=1795548002;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=5f5C80g30fAPj/I2D0TndVTdrcqmqXcICX0m5JKKxiE=;
+        b=kWLMLgOheguaod9TW0K2boHbkTScm3KuYZa8HASyDlSom8aENOnMjRkjAaBJbRWzUw
+         1mmya9geQTcKH+DfZeTw96GVFsbWO84M1QQx7l295912dxRX6iwm3ty079vl0Q9ujaFE
+         hN5WPI7swWUJF+4FBw+wup9OcqXBgFXrY/dlS0NpaW+V3sj1a659kwxe1etj6xOqoGEj
+         YblgmMr/TfgN/MATBJQN5knLbqnEm7vF0U27CSZM4KWzhG6g36CYSfKv/+S7FTccHnuc
+         H+XT5jJkL3laui05utLOj0+Vk/ExevwYSIRafK9YpOy815MQ61bUn4xVHphYyBkWOSb3
+         elAA==
+X-Gm-Message-State: APuU4Z/K63152POtgW3Oq1/B3vDUCkvDMFD91kB2YMbW1hfwULm44BWp
+	0/w/2Y29LE+pAQ4jsP6iTgjnY+TMiTgtyok6vmj542ny4t6fpZOm4eTg
+X-Gm-Gg: AZFdTZeg4jz+y8LoV4hZR/DVriF+LcIDki6xgRg8xHYMJwn1nwhgY4CjN1hXLnBrR5z
+	bde6AFnRZiwpeYu/zalLICBotbSMgohGq1O/eiJZi7c3kNJqoKTVESZYQl+3oGV5sTfGWXKsy9e
+	KelGGtxWig9D09aHFV1Akh6t58fyTWFn+6ART2iwhiScZQbzCEMHg9yuYi10BPQ8TkV/DajnQW+
+	ZfbAs6jtd1D2gKxmS4fM2L1SmNzxs6jI9Ta2UnkfTfR1ybUHerP36Q44gE1Kmg+db+kAv82Z92k
+	OyvcNYyMDDO+VcJRpz8Duc8b12vtBfvPAnFF7JKj2NtAGMKkjc4xlkQoVTU79GzsOcCMNU/sDnY
+	/0lDLOpnrhIiHtViU95XNwVxtU4uGn5e4vp0IsBwpWmneMA6JSImh6tZ4NhcVI1pWFiqRRC5vPP
+	kRAvQ6W65hF6qVuQhHAZ+bkMCVV5/3ST1YLTnTQqIVeGRGHvOh0jzjv5appFix67GGH5zv9uX/2
+	6+4MVAH1ZM7B8NRDndqvXicImKqx9+xyxXwZ85fSKBbLSpfZYxj+1I+0+LtlLiAaqcLN8H8XyEP
+	td8/wMlm4kvEYrp6cLXDCt0Ake9wnvghD1Ek8QbDFkQC0gXGE0rqWMYN
+X-Received: by 2002:a17:90a:d2c7:b0:3ac:9ad9:6afe with SMTP id 98e67ed59e1d1-3b3d0856d06mr202762a91.39.1794943201850;
+        Tue, 17 Nov 2026 11:20:01 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acde45sm318890a91.11.2026.11.17.11.19.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 11:20:00 -0800 (PST)
+Message-ID: <78fc6217-463d-4ad7-9bc5-d737a435ec3e@gmail.com>
+Date: Tue, 17 Nov 2026 11:19:58 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,158 +90,147 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 12/12] net: au1000: reject frames larger than the
+ TX bounce buffer
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
+ horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
+ jeff@garzik.org, danny.kukawka@bisect.de, mugunthanvnm@ti.com,
+ sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
+ manuel.lauss@gmail.com
+References: <20261112045301.3669532-13-f.fainelli@gmail.com>
+ <179483705182.3136.18065066878486336390@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <179483705182.3136.18065066878486336390@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261117-b4-ionic-tso-max-segs-v2-2-f9792566c5d5@amd.com>
-References: <20261117-b4-ionic-tso-max-segs-v2-0-f9792566c5d5@amd.com>
-In-Reply-To: <20261117-b4-ionic-tso-max-segs-v2-0-f9792566c5d5@amd.com>
-To: Brett Creeley <brett.creeley@amd.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Breno Leitao
-	<leitao@debian.org>, Eric Joyner <eric.joyner@amd.com>, Abhijit Gangurde
-	<abhijit.gangurde@amd.com>, <stable@vger.kernel.org>, "Nikhil P. Rao"
-	<nikhil.rao@amd.com>
-X-Mailer: b4 0.15.2
-X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
- (10.181.42.216)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MN7PEPF0000014E:EE_|SJ1PR12MB6147:EE_
-X-MS-Office365-Filtering-Correlation-Id: f2cdddd2-a551-433c-179f-08df44dfab04
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|82310400026|1800799024|376014|23010399003|6133799003|22082099003|18002099003|261009223027099003|13003099007|261021135927099003|261022075727099003|261022105027099003|261021123027099003|261021121427099003|261026121527099003|261026140227099003|261028144727099003|56012099006|11063799006|10067099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	7lspOPN0He5310LnaQKO0C79wjgP5Ot+bndkY0cfQxd1KfW6RnLoNE0cFYt+PfV/JqV+iI2rzIcZn0H1Peu1Afj0a44nTKDtTkQL7jJQwmWdaVnqL8dj+rU3AO9pZCdCMT3gV2/X2iV5NOfIPYZ3ZZZjCTf59ly7YfOOTK3oksY8oINTRoCpJRDVVKZEUsr+zOWaBbScTNtdWTvwMQaqVmfYdAU+OMhltjCU+2xwvtGVg+uY5IY+eEsL2ANMmgR8C/NwojVMH/B16CKWzKUIy/m7TriZt9gQziIvPB/0iApTmg2gXL/d+n+CjCeLKeneqjoueDSMxRwWuDoT6+KDmVAy6kvIyAGQTLaiszGpN6dcq7dFwBcA3orxgwnbxfDtyjPJyI26BYZaM+pDcTVTakO/NTQx01hXBsDy0UK1sQiwDomsG+gjJeWf6lHk97zjWoFz+1+EA2kK84o6RAIzAQAhZEt2HlfpxPyK1LCkP8YVr8hy6c2hNg5ERpbiyY46RmdRYUfYP7kMaPmYRj1Vjj6LX5QXGA3ZQHPFgsEVfqRl3afKNSO+OecPvlV6CfeM2tAYYRyJ+HuwZmXyTCD53iWckoaZmJBhL9XLGmx3G9tQxoK7vVyNwhEEAfze/s6YjyrnsBXBGCudyJG215MdSBmkSCXKo6Y550meVqhU07E=
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700016)(82310400026)(1800799024)(376014)(23010399003)(6133799003)(22082099003)(18002099003)(261009223027099003)(13003099007)(261021135927099003)(261022075727099003)(261022105027099003)(261021123027099003)(261021121427099003)(261026121527099003)(261026140227099003)(261028144727099003)(56012099006)(11063799006)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	wqi6zDhhxfAVPyYyGCgX9oUZ9XbH0gjeZmoN2y+8Zse401m8ff80vrUUDrbnGcJnxnBt0fVVPo3s0uZ/0QylLqeWPABXYuP86DRW0cb/aG7KlyugTjKxeIbil2TeDy9UZT9Jb1b7XzESNEr7ARfZQA05MxR776taGkIGhYV6GywC/X46Ah3OC1vxS0AoVkiS1gp8fllJ7/H466cSGhXBs3lB19G0FUk/GX0tdjlwtOT04B0gxaC1W21w0bsMoSAIdSWsr0L338KPcx+fqFwBHAn5CzBSySdGZ6tlops4JsljD7VM6FNgtTS7GtIVbAuyuTPSi970ITnozIxvIjwMJSzmIQo3S5j0NQskNXXE8LCusX0C8rPufeyz9kEYXOJqBMoKxr5rAF2x8HUsNZPZ9UhDA/vQBpBpaVSQNJGoOWI4Z+LlY2at6LOcK/ovmTV7
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 19:19:14.7024
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2cdddd2-a551-433c-179f-08df44dfab04
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	MN7PEPF0000014E.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6147
 
-ionic uses one Tx descriptor per TSO segment, and a Tx ring holds at
-most num_descs - 1 of them. The driver does not set tso_max_segs, so
-the stack can hand it GSO skbs with more segments than the Tx ring
-can hold. ionic_tx() then stops the queue waiting for descriptors
-that can never become free, and the netdev watchdog fires repeatedly.
+On 11/16/26 05:50, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
+> 
+> Low priority / nit picks for your consideration:
+> 
+> - [Low] The commit message understates how the overflow can be reached.
+> 
+> Pre-existing issues:
+> - [High] Several other drivers in drivers/net/ethernet/amd/ have the same
+>    unchecked copy of skb->len bytes into a fixed-size TX buffer.
+> 
+> --
+> 
+> net: au1000: reject frames larger than the TX bounce buffer
+> 
+> This patch adds a length check to au1000_tx(). Frames larger than
+> MAX_BUF_SIZE are now dropped and counted in tx_dropped instead of being
+> copied past the end of the TX bounce buffer.
+> 
+>> au1000_tx() copies skb->len bytes into a MAX_BUF_SIZE coherent buffer
+>> without checking the length. Oversized non-GSO packets can reach this
+>> path through AF_PACKET with PACKET_VNET_HDR and PACKET_TX_RING, whose
+>> MTU checks are skipped when a virtio header is present.
+> 
+> [Severity: Low]
+> Is this description narrower than the real exposure? It reads as though
+> PACKET_TX_RING is required. The plain sendmsg path through packet_snd()
+> seems to get to the same place:
+> 
+> net/packet/af_packet.c:packet_snd() {
+>      ...
+> 	if (!vnet_hdr.gso_type &&
+> 	    (len > dev->mtu + reserve + VLAN_HLEN + extra_len))
+> 		goto out_unlock;
+>      ...
+> }
+> 
+> After that, __virtio_net_hdr_to_skb() only marks the skb as GSO when the
+> payload is larger than gso_size:
+> 
+> 	/* Too small packets are not really GSO ones. */
+> 	if (skb->len - nh_off > gso_size) {
+> 
+> Take a 4000-byte frame sent with gso_type=TCPV4 and gso_size=65000. It
+> would skip the MTU check and reach au1000_tx() as an ordinary non-GSO skb.
+> 
+> Real GSO skbs also get through, because gso_size is never checked against
+> dev->mtu. au1000 has no TSO, so validate_xmit_skb() segments them in
+> software into frames that can be larger than 2048 bytes.
+> 
+> The new check in au1000_tx() catches all of these paths, so the code
+> looks right. Could the commit message also mention the packet_snd() and
+> GSO routes?
+> 
+>> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+>> index d60430a3795ed..d8855ccf87aa1 100644
+>> --- a/drivers/net/ethernet/amd/au1000_eth.c
+>> +++ b/drivers/net/ethernet/amd/au1000_eth.c
+>> @@ -1008,6 +1008,12 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
+>>   	int i;
+>>   	unsigned long flags;
+>>   
+>> +	if (unlikely(skb->len > MAX_BUF_SIZE)) {
+>> +		dev->stats.tx_dropped++;
+>> +		dev_kfree_skb_any(skb);
+>> +		return NETDEV_TX_OK;
+>> +	}
+> 
+> [Severity: High]
+> This is a pre-existing issue that this patch did not introduce. Do other
+> drivers in drivers/net/ethernet/amd/ need the same check?
+> 
+> Several lance_start_xmit() implementations copy skb->len bytes into
+> fixed-size TX slots with no upper bound. Their slots are smaller than
+> au1000's 2048-byte MAX_BUF_SIZE, so a frame one byte over the limit
+> already overruns the slot:
+> 
+> 7990.c:lance_start_xmit()
+>      skb_copy_from_linear_data(skb, (void *)&ib->tx_buf[entry][0], skblen);
+>      (skblen = skb->len, tx_buf slots are 1544 bytes)
+> 
+> a2065.c:lance_start_xmit()
+>      skb_copy_from_linear_data(skb, (void *)&ib->tx_buf[entry][0], skblen);
+>      (skblen = max(skb->len, ETH_ZLEN), tx_buf slots are 1544 bytes)
+> 
+> sunlance.c:lance_start_xmit()
+>      PIO path: lance_piocopy_from_skb()
+>      DMA path: skb_copy_from_linear_data(skb, &ib->tx_buf [entry][0], skblen);
+>      (TX_BUFF_SIZE is 1544)
+> 
+> sun3lance.c:lance_start_xmit()
+>      skb_copy_from_linear_data(skb, PKTBUF_ADDR(head), skb->len);
+>      (PKT_BUF_SZ is 1544)
+> 
+> atarilance.c:lance_start_xmit()
+>      lp->memcpy_f( PKTBUF_ADDR(head), (void *)skb->data, skb->len );
+>      (PKT_BUF_SZ is 1544)
+> 
+> declance.c:lance_start_xmit()
+>      cp_to_buf(lp->type, lp->tx_buf_ptr_cpu[entry], skb->data, len);
+>      (len = skb->len, TX buffers are 1536 bytes)
+> 
+> Using the AF_PACKET route from the commit message, can an oversized frame
+> in these drivers overwrite the next TX slot and then the RX buffers?
+> 
+> For frames near 64KB, the copy also looks like it would run past the end
+> of the lance_init_block or shared memory area.
+> 
+> Triggering this needs CAP_NET_RAW in the device's netns. The hardware is
+> legacy: Amiga, Sun, Atari, DEC and HP300/MVME.
+> 
 
-This was hit in production: guest TCP traffic with an MSS below 64
-produced 64 KB GSO skbs on the default 1024-entry ring.
+Agreed. I have expanded the commit message to cover both packet_snd() 
+and TX_RING, including packets left non-GSO after virtio-header 
+conversion and oversized segments produced by software GSO. The existing 
+length check covers these cases.
 
-Raise the minimum Tx ring size to IONIC_MIN_TX_DESC (128), for the
-hwstamp and kdump Tx rings as well, and set tso_max_segs to
-IONIC_MIN_TX_DESC - 1 so that every Tx ring can hold the largest TSO
-skb. Larger GSO skbs are segmented in software. 127 segments still
-covers a 64 KB skb at the 536 byte default MSS.
+The other AMD drivers require separate validation and fixes; they are 
+outside this au1000 series.
 
-IONIC_MIN_TXRX_DESC now only applies to Rx, so rename it to
-IONIC_MIN_RX_DESC.
-
-Tested on an AMD Pensando NIC with GSO frames of about 1500 segments,
-injected through a tap with a virtio-net header and redirected to the
-ionic netdev with tc mirred: without this patch the Tx queue stalls and
-the watchdog fires, and with it they are sent.
-
-Fixes: 0f3154e6bcb3 ("ionic: Add Tx and Rx handling")
-Cc: stable@vger.kernel.org
-Suggested-by: Jakub Kicinski <kuba@kernel.org>
-Link: https://lore.kernel.org/all/20261112082753.6ee90fc8@kernel.org/
-Signed-off-by: Nikhil P. Rao <nikhil.rao@amd.com>
-Reviewed-by: Brett Creeley <brett.creeley@amd.com>
----
- drivers/net/ethernet/pensando/ionic/ionic_dev.h     |  3 ++-
- drivers/net/ethernet/pensando/ionic/ionic_ethtool.c |  4 ++--
- drivers/net/ethernet/pensando/ionic/ionic_lif.c     | 10 ++++++----
- 3 files changed, 10 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/ethernet/pensando/ionic/ionic_dev.h b/drivers/net/ethernet/pensando/ionic/ionic_dev.h
-index db90e39a1442..4b3e244e6bbb 100644
---- a/drivers/net/ethernet/pensando/ionic/ionic_dev.h
-+++ b/drivers/net/ethernet/pensando/ionic/ionic_dev.h
-@@ -16,7 +16,8 @@
- 
- #define IONIC_MAX_TX_DESC		8192
- #define IONIC_MAX_RX_DESC		16384
--#define IONIC_MIN_TXRX_DESC		64
-+#define IONIC_MIN_RX_DESC		64
-+#define IONIC_MIN_TX_DESC		128
- #define IONIC_DEF_TXRX_DESC		1024
- #define IONIC_RX_FILL_THRESHOLD		16
- #define IONIC_RX_FILL_DIV		8
-diff --git a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
-index 3518fbf5882d..24fd34b4cfcc 100644
---- a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
-+++ b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
-@@ -708,10 +708,10 @@ static int ionic_set_ringparam(struct net_device *netdev,
- 		return -EINVAL;
- 	}
- 
--	if (ring->tx_pending < IONIC_MIN_TXRX_DESC) {
-+	if (ring->tx_pending < IONIC_MIN_TX_DESC) {
- 		NL_SET_ERR_MSG_FMT_MOD(extack,
- 				       "Tx descriptor count must be at least %d",
--				       IONIC_MIN_TXRX_DESC);
-+				       IONIC_MIN_TX_DESC);
- 		return -EINVAL;
- 	}
- 
-diff --git a/drivers/net/ethernet/pensando/ionic/ionic_lif.c b/drivers/net/ethernet/pensando/ionic/ionic_lif.c
-index 7f0da2b0defd..1f24c00334bd 100644
---- a/drivers/net/ethernet/pensando/ionic/ionic_lif.c
-+++ b/drivers/net/ethernet/pensando/ionic/ionic_lif.c
-@@ -997,7 +997,7 @@ int ionic_lif_create_hwstamp_txq(struct ionic_lif *lif)
- 
- 	features = IONIC_Q_F_2X_CQ_DESC | IONIC_TXQ_F_HWSTAMP;
- 
--	num_desc = IONIC_MIN_TXRX_DESC;
-+	num_desc = IONIC_MIN_TX_DESC;
- 	desc_sz = sizeof(struct ionic_txq_desc);
- 	comp_sz = 2 * sizeof(struct ionic_txq_comp);
- 
-@@ -1062,7 +1062,7 @@ int ionic_lif_create_hwstamp_rxq(struct ionic_lif *lif)
- 
- 	features = IONIC_Q_F_2X_CQ_DESC | IONIC_RXQ_F_HWSTAMP;
- 
--	num_desc = IONIC_MIN_TXRX_DESC;
-+	num_desc = IONIC_MIN_RX_DESC;
- 	desc_sz = sizeof(struct ionic_rxq_desc);
- 	comp_sz = 2 * sizeof(struct ionic_rxq_comp);
- 	sg_desc_sz = sizeof(struct ionic_rxq_sg_desc);
-@@ -1642,6 +1642,8 @@ static int ionic_init_nic_features(struct ionic_lif *lif)
- 	netdev->features |= netdev->hw_features;
- 	netdev->vlan_features |= netdev->features & ~NETIF_F_VLAN_FEATURES;
- 
-+	netif_set_tso_max_segs(netdev, IONIC_MIN_TX_DESC - 1);
-+
- 	netdev->priv_flags |= IFF_UNICAST_FLT |
- 			      IFF_LIVE_ADDR_CHANGE;
- 
-@@ -3284,8 +3286,8 @@ int ionic_lif_alloc(struct ionic *ionic)
- 	lif->index = 0;
- 
- 	if (is_kdump_kernel()) {
--		lif->ntxq_descs = IONIC_MIN_TXRX_DESC;
--		lif->nrxq_descs = IONIC_MIN_TXRX_DESC;
-+		lif->ntxq_descs = IONIC_MIN_TX_DESC;
-+		lif->nrxq_descs = IONIC_MIN_RX_DESC;
- 	} else {
- 		lif->ntxq_descs = IONIC_DEF_TXRX_DESC;
- 		lif->nrxq_descs = IONIC_DEF_TXRX_DESC;
-
+pw-bot: cr
 -- 
-2.43.0
-
+Florian
