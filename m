@@ -1,79 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794906285;
-	b=ZaKQsmIUa+2UyL6FAirYN6GIauDcfJIMp6ZTEdiHjv2oKoXL+a2oxmk1Vgi57TzQmTgK
-	 pe0vk9ddFErTKG36bttCA5IVAP5Rvhsqan1CvmL+r5XCodGlBoZW5MYEfx9VpTcPTXKsG
-	 bdjPY4LPUHJcmYfC47YfYE1sdKx9H6D8xeDvDDdQ9q7K4mUCL4zbnH598nk8ppu+a5nmr
-	 SypmfH59cEOqOCj/sGemEu+zAMClnz9mZSvygXcaRvAwJpCggAaXjsPJ5GF9gO7CheTNR
-	 8nKMOZrjGWn4o+NA0brCy23bmeaaE733Ov4oNUPKG2L1ckPCpdgAWZbtXtOvYQ1yZfg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794906285;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=WbZ2j7KK+/J5WiFdQr9VEro+GebKdoeQF28eK62xn70=;
-	b=uoa/ONR2v2L2XtLwngdoaeFjov2zhWFkdPrTK6MMUICD66s3ChYDBDLZllm5FOme5DNM
-	 LdoWz5yYlVeaKQ9b4k7LA40wMQYAtwPuWbo6xZ84ZbneWzQUefskNdQ2F+gfida7U+3tT
-	 VCvrDOSdWF7J6HRLZb7lt2gf+cFfmTDqCOyhAinI0xkpM2YYREfGzf8VHP+Hl/fL8PSKQ
-	 QAmSBj4Rsa+K0EiC3JbqxP2NPG32ykIbmZnHRBWx6ayyNwc6SM5SqmCSeRY4s2HEyp81P
-	 AsCewZe7CsW8swI5YQVMubR+SQxWcRKEeSYRi3/n56Hp8J1Qb93kdzmWprFABwXswSg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mpiJ6KnJ;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0B4C606A323;
-	Tue, 17 Nov 2026 09:04:45 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mpiJ6KnJ
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794906285;
-	b=1mN9tnzlP1HKVhWl/IOf9omPObK4dALvuhNW5MJO0SsYH7zZxfzJKI9r+ggFDWj6ZYmk
-	 WB1pI8s/vQGrGj2NTy3ZRcSetHs5suBbuVTrfbGhQdl6GNRAkzQQag4HbWcuLNXFNisZ2
-	 +uTP27NbKPm2CwSBjgsDHPx8LsnX4JTwryI4MP6cn3R5tD4Z/lMmymZyKTNWyjAN++z+/
-	 eNn+PTYXF08+JcV81tYw69e5Y6ymwLC2vxYYlebK9XyDJJ2lUvMDQFpoHm4AyHPyMo1nR
-	 X4LLk8FOgimgT4DNJXLyzW40cZraYZ0iMPvRgFugf4FAn4gXJTomx8zU0/jkA+sDO1A==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794906285;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=WbZ2j7KK+/J5WiFdQr9VEro+GebKdoeQF28eK62xn70=;
-	b=Dw5MA5VQj4RGzRBElyN14VEVQMdj1ARqqIjDdTxHF8mPXdBGfBBBL0pYh9znMWqRRPlV
-	 I2Lv7IwKK2f+CWW04DY0HzFBrFHp+7UXCwMv1pAUIrM8GO5S/yzRKv1D3CxAcrI5JXs90
-	 j6Rd7qaIJXRakHTG9lSWV+u7IKpJjWGBfRFMez+Hwzrkz6u6dkRXoTfPB521DF+JXnBON
-	 1JcV9IJpfhdoc8vC9yufjSXBUVvFWteW81rUnV3OnYqcn88TFQvoTr6Ujqvke7QLcTuy+
-	 OgiDcpj8QuOm8yGaVhdeFHcl4JzgF7ZnJEd8IOz28S14755yCDbEfFT2UmbrEyqjw0Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794906360;
+	b=L1sCYBc2ls6rWA20S49vsGMQU0By5u6NdKvIHeNAfVtZ/czXm+u8vqiJERu/8j8g8oFM
+	 94kOw+Zf/8NpT/MR1SBzbXm/NnPFZHQ42JgfWekAcHjG4yWQfGz89eI4wvR5unPUK+Sft
+	 8wec/qmzX2ec0rURrY/ZBF8Ox+czxcfhE0KrGtvAzYwaZqxhac0sgUbZPgagF5hZ78WgF
+	 LMA9DL32LmI+YZWtWJXunVLIGsCst0H6Odikgn5uJngyQMZSgUvbT9L7SMk4/nIJbUyVd
+	 x3zNX/l1aPMIEMcRguC7qZFAKpYzyM8Am7ExS4DF5/AbXN/Cw2W9IyUHc9/VE5bmzaA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794906360;
+	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
+	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=ehnUiJwedFsDrAATUReQKnLArX2RJeKTYfe7cGHZo7I=;
+	b=1FV08X/N0MkgQ3gn7mUPpUBJPutp4N1wzDOUcn3i27vBzbEz7xKgXC0+BdGUNkO16gGV
+	 LWg4LDUY2/1642frOMavn0a75EXsqszoL/M8cViw1jGSFXTM72diGz8+FcX1uf/rzVquA
+	 CwPXLfdjvTaDmGZSJfHuigCq8QswCiH0sRQx0yZ5PO5xuR7PrMM12aPDJ5FgkFRivyVOc
+	 NcO4L2oLHf+Vr7uvzmzJpBq4/GW3gL/2Zo0XIEC09YuSamkRBgA/qZYZrdNPfrFjbwV2M
+	 hiJihlkgkQ9QRdlGBCMX8LywtYnnpep94bZY0Twl98MFcBEw2IZC2uGAxWKG9JBWBFA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=iuUcHZ8b;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id C3B021F000C4;
-	Tue, 17 Nov 2026 09:04:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794906285;
-	bh=WbZ2j7KK+/J5WiFdQr9VEro+GebKdoeQF28eK62xn70=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=mpiJ6KnJNevN1j6B2O4VL4KJu1sYk4KKYsye2hS1B9lQ5QEWpCIxEjSPtRfmwN2ub
-	 WIVk1aW+dGL68+cOffnbaq6K+dwB7C3GVuYOiDEk7416OiF2lKHZS6uKNsG/w4A+m9
-	 wX2ykrW/wLBI5GYLesmik3ggVrIqI3LoVj2AiUfn3+ckLyUVYgbls5PUNdpx7Q66VM
-	 GK8rGo3vKuVgVp0/zydmzyyCykZ9nxWZFDDX34NMYwQrNx+FTgX5aZ/u/2SMjhL+rg
-	 ZnPlM+T8xq/0iEFV4/NrBir1N/KBxyPtcvYQ5ZaVw8XVplNpGt2kdiFwnzSiiHgUuR
-	 9+UWmEIe9vAxw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 543834A767;
-	Tue, 17 Nov 2026 09:04:44 +0000 (UTC)
-From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
-Subject: [PATCH net-next v4 0/2] net: stmmac: Add RK3572 support
-Date: Tue, 17 Nov 2026 17:04:34 +0800
-Message-Id: <20261117-add-board-ok3572-c-net-v4-0-4e9da569395a@qq.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90653606A329;
+	Tue, 17 Nov 2026 09:05:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90653606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=iuUcHZ8b
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 27A00A02C3;
+	Tue, 17 Nov 2026 10:05:49 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1794906351; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=ehnUiJwedFsDrAATUReQKnLArX2RJeKTYfe7cGHZo7I=;
+	b=iuUcHZ8btS/bwWKTtjcsF5tmxeXys+hM3WNg/PMk0jXn0eyPUM3kW1qYRgK+TgspjDMmj+
+	awxTlJsUcAvlrrMAphVh/FeQwTmHCaA4cvJ8EJ+vb8NGj3hk205AYTO27KEPOE4hcKIPMU
+	IA0vJC1qpe0dM4oipUHisRlCK+RaoXdpDFH1voDKUkL5cxcOiWfRl1UB5OUln1U/GkyReU
+	tSX6iuk6iKyUi2i4kOxE5oktMBjtQdEGXt8uwV0IXL6bgbdzC+VG7AbT76uXB2yPIRAyBj
+	xP9inhTqXfMMRdoTSqa0CWpn2u3zoP7N9W60RWXWCHEBrSBinby2S5v5UdmQ6Q==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,132 +53,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Tue, 17 Nov 2026 10:05:49 +0100
+From: Nicolai Buchwitz <nb@tipi-net.de>
+To: netdev-bot+sashiko@kernel.org, florian.fainelli@broadcom.com,
+ justin.chen@broadcom.com
+Cc: opendmb@gmail.com, bcm-kernel-feedback-list@broadcom.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, f.fainelli@gmail.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ pierremarinleclercq88@gmail.com, dave.stevenson@raspberrypi.com
+Subject: Re: [PATCH net-next v7 6/9] net: bcmgenet: split frames that end just
+ past the transmit threshold
+In-Reply-To: <179474771225.2199510.15415138115246393692@kernel.org>
+References: <20261112-nb-genet-mtu-nn-v2-v7-6-43a5d90b3256@tipi-net.de>
+ <179474771225.2199510.15415138115246393692@kernel.org>
+Message-ID: <3d17930b465b31cee713aa4c690d490e@tipi-net.de>
+X-Sender: nb@tipi-net.de
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAKIY/GoC/33O227CMAwG4FdBucYozaFpudp7TLtIExeyiYYmX
- QRCfXfSIHGQ2Hxn2f9nX0jE4DCS7epCAiYXnR9yI9YrYvZ62CE4m3vCKKurXKCthc7rYMH/cKk
- YGBhwAmGFbBplpJI9yeFjwN6dCvxJloUBTxP5uk3ib/eNZlrcZXfv4uTDufyQqpIo5yhj786lC
- ijQjva2kZpXiB/juDH+UPTEHvl/3k0sG5wKUde8Fa2iLwZ/Nuo/DZ4N3UrVW2Nbo/TdmOf5Ck5
- 54LtZAQAA
-X-Change-ID: 20261111-add-board-ok3572-c-net-4d45887c575f
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- David Wu <david.wu@rock-chips.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
- Jose Abreu <joabreu@synopsys.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Cunhao Lu <1579567540@qq.com>, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, Andrew Lunn <andrew@lunn.ch>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794906282; l=3198;
- i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
- bh=dxVQr0Z+Jy++pw/QahoAh2q1mmxM+G108Hhqlj5hWkg=;
- b=YZPG4bebkuCk+kQfDDvJcqu7+fUfXg2fyDNVN2awgoK9n1+HEpXKAp9n+u56ujzpUednHJz/o
- HYeBnC1vk40AErZpP0bmqPpb9gLdh2FWcxa9FPTAA5IH7qtfHxe+HRF
-X-Developer-Key: i=1579567540@qq.com; a=ed25519;
- pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
-X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
- auth_id=1177
-X-Original-From: Cunhao Lu <1579567540@qq.com>
-Reply-To: 1579567540@qq.com
+X-Last-TLS-Session-Version: TLSv1.3
 
-This is one of the subsystem submissions for RK3572 support.
+On 15.11.2026 14:01, netdev-bot+sashiko@kernel.org wrote:
+> [...]
 
-This series adds the RK3572 GMAC bindings and support for both Ethernet
-controllers in the Rockchip stmmac glue driver. It provides RGMII and
-RMII mode and clock control, with MAC RGMII delays disabled.
+> [Severity: Medium]
+> The commit message says the window "is one DMA transfer wide". The TX
+> DMA burst size, though, is set per platform in bcmgenet_dma_init():
+> 
+> 	bcmgenet_tdma_writel(priv, priv->dma_max_burst_length,
+> 			     DMA_SCB_BURST_SIZE);
+> 
+> bcm2711_plat_data uses .dma_max_burst_length = 0x08. The v2, v3, v4, v5
+> and bcm7712 platform data use DMA_MAX_BURST_LENGTH (0x10).
+> 
+> Suppose the window grows with the programmed burst. On the 0x10 burst
+> parts, a frame could end 64 bytes or more past tx_thld_len and still
+> fall inside one transfer. Would bcmgenet_xmit() then skip the split for
+> it? That would leave the Tx DMA stall and the bcmgenet_init_dma()
+> failure in place on those cores.
+> 
+> The measurements in the message come from one v5. Once "net: bcmgenet:
+> allow the MTU to be changed" raises max_mtu on every non-v1 core, this
+> case becomes reachable.
+> 
+> Should the window be derived from dma_max_burst_length, or has 64 been
+> checked on a core with a 0x10 burst?
 
-The RK3572 SoC has eight CPU cores: two Cortex-A73 cores and six
-Cortex-A53 cores. It also integrates an Arm Mali-G310V2 MC1 GPU.
-The OK3572-C board provides two Gigabit Ethernet ports, three USB3 Type-A
-ports, a Type-C dual-role port, eMMC, microSD, and UART.
+Right, bcm2711 has the reduced burst length. I don't know the details 
+why
+this is required, but my tests with 0x10 have confirmed that this quirk 
+is
+needed. I will derive it from burst length in v8.
 
-Testing was performed with Debian 13 minimal and Linux 7.3 on the
-OK3572-C with the FET3572-C module.
+> [...]
 
-Passed functionality:
+> [Severity: Medium]
+> Does ENET_THLD_MAX (3840 bytes) fit in the TBUF of every GENET version
+> that gets it here? bcmgenet_tx_pkt_rdy_thld() returns the same value
+> for all versions. bcmgenet_set_mtu_regs() then writes it on v2 and
+> later, with no clamp per version.
+> 
+> init_umac() programs the TBUF size control only on v3 and later:
+> 
+> 	if (!GENET_IS_V1(priv) && !GENET_IS_V2(priv))
+> 		bcmgenet_rbuf_writel(priv, 1, RBUF_TBUF_SIZE_CTRL);
+> 
+> So v2 has different TBUF sizing but gets the same threshold. The
+> measurements in the commit message are from a v5 only.
+> 
+> Suppose a core's TBUF cannot hold 3840 bytes. Could a frame longer than
+> that TBUF then never reach the threshold and stall the transmitter?
+> 
+> "net: bcmgenet: allow the MTU to be changed" later sets
+> dev->max_mtu = ENET_MAX_MTU for every non-v1 core. That would make this
+> setting reachable on v2 through v4.
 
-- Both Ethernet ports obtain IPv4 addresses and pass bidirectional file
-  transfers.
+I only have tested with v5 (bcm2711).
 
-Stability:
+Florian / Justin: Can you test with older versions or confirm that they 
+will
+behave the same. Otherwise I can also cap max_mtu to v5 only.
 
-- Ethernet error and drop counters do not increase during bidirectional
-  network tests.
+> [ ... ]
 
-AI assistance:
-
-- Codex / DeepSeek V4.1 Flash were used for:
-  - Reviewing and adjusting code style to follow community conventions
-  - Automating tests
-  - Collecting data
-
-Signed-off-by: Cunhao Lu <1579567540@qq.com>
----
-Changes in v4:
-- Skip legacy delay properties and disable MAC RGMII delays on RK3572.
-- Link to v3:
-  https://patch.msgid.link/20261116-add-board-ok3572-c-net-v3-0-a957fdcd9c7a@qq.com
-
-Changes in v3:
-- Deprecate tx_delay and rx_delay and disallow them for RK3572.
-- Link to v2:
-  https://patch.msgid.link/20261111-add-board-ok3572-c-net-v2-0-304466394970@qq.com
-
-Changes in v2:
-- Split the original RK3572 support series by subsystem.
-- Add rockchip,rk3572-gmac to the shared Synopsys compatible list in
-  snps,dwmac.yaml.
-- Link to v1:
-  https://patch.msgid.link/20261022-add-board-ok3572-c-v1-0-0b0fd85a31ee@qq.com
-
----
-Raw dmesg: see the v1 cover letter.
-
-To: Andrew Lunn <andrew+netdev@lunn.ch>
-To: "David S. Miller" <davem@davemloft.net>
-To: Eric Dumazet <edumazet@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>
-To: Paolo Abeni <pabeni@redhat.com>
-To: Rob Herring <robh@kernel.org>
-To: Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: Conor Dooley <conor+dt@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-To: David Wu <david.wu@rock-chips.com>
-To: Alexandre Torgue <alexandre.torgue@foss.st.com>
-To: Giuseppe Cavallaro <peppe.cavallaro@st.com>
-To: Jose Abreu <joabreu@synopsys.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: netdev@vger.kernel.org
-Cc: devicetree@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-
----
-Cunhao Lu (2):
-      dt-bindings: net: rockchip-dwmac: Add RK3572
-      net: stmmac: dwmac-rk: Add RK3572 support
-
- .../devicetree/bindings/net/rockchip-dwmac.yaml    | 15 ++++
- .../devicetree/bindings/net/snps,dwmac.yaml        |  1 +
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c     | 94 +++++++++++++++++-----
- 3 files changed, 91 insertions(+), 19 deletions(-)
----
-base-commit: 067c5c24cef23d913b67eaaf71ae67e7169a6620
-change-id: 20261111-add-board-ok3572-c-net-4d45887c575f
-
-Best regards,
---  
-Cunhao Lu <1579567540@qq.com>
-
-
+--
+pw-bot: cr
