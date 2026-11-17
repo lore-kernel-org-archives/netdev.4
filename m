@@ -1,63 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794879481;
-	b=bQ7FHmb4HRNHfnRfb5w+2yV8p5J+sWMtXE88MccqKlPyA3sEGoJSOnnIwTQsmG9UNVeV
-	 lrRMC50n7w8pHkRL1Km5KLrBQx3bEXX2/7JLaqf2KZ9so/F1prrXT0InoZja2Jr+04rcK
-	 MDo0x1BIRYCxpsU1+ZAPuuji1Eoa3W0BwN85lVVWgG7yGi4PG+8sEUQude5dPJFHO3IVD
-	 C2f81NpiyGQyM+8TBPqbKLLPt8UW7BrUDaHCkVm+aUf2waOvOx+SMpUfBe8dM4miSso/4
-	 x/WXWTOCrQMc2ANWeR+0SyUc1SpbdZDM/B55HiEcSO/6928GF9Kbxsp2ebJXuNrt+xg==
+	t=1794879620;
+	b=Dg8r/W3BDuvrGtSyS+bCdoJ7E4vnzVv3VgiZGtPr7dVly1QU9PuSiDtOjcjXfzLom5R3
+	 Gp5Ea98IOpIZCPv3JPerhUVgTatPN4ZOiT+IDwqcYusj7kdmL9pLuPNqtMY16z7vGw9lw
+	 ZcXYZG/b+fo4bGQiLVHuCtiy8vcIl5Hp5qohhZ1Aszs9pV6d8TGk+UyD7Do3+Vz6cszBZ
+	 dYpGvrS3k/TWqmTi6WDy8XLv6OIBpzT1bMu4uCsO1ocEM2VlMkhMneJD+goHUZss2pcWA
+	 F1Z9uZ7BJHHK3hcj/GFMlxJzkcThd4A1jlODnnepw3HIYQP0F40qbyLjnHFvwHRTPTw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794879481;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=8JcHUYWuXURIlDdVtjfl+F+I3k1RR4DC8FoHZM3MqHk=;
-	b=NrT3gXFqVJUrajPR4uoLP3nYCu9FuZbO1xkHmk6qDA6LJNKG7Vp3yrxn82JBNXIrV933
-	 cjVeofOipy88bsFFeVLmKl9Q7nSsV03ytY/rXJqk4XWXzm34Tkg10Xy94Meww7Z00ms0c
-	 F1daqfjFF8LlP2LcNF83VulvHsa4J5m0hBQ2ESBvla/V8YDMHipyDHgDcsf2ky5dFu3qf
-	 q0WYZrGGk1aTg2H6koVt+tpeaLazPZGRxyeqrxK/qeV9rzRXam3g3ITOhQLzC3MBzQ4RB
-	 x5Q4D2eudc/Lq/zYSEr3G+h72zEBxbCosJR9OvzK0NZ4ldBkVKUjnKA3267khKQmofg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794879620;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=qws+Fz4Ekk6Ecm3aw/aRo4AQeOV511tnJt/HAz178OY=;
+	b=zGzifFhSCqSlarbFcKP5ZY3087ByGgoTbYN7IXrv4kUvvo8Ll80AS+6nz3QNK6zNW8qv
+	 HX7GMfoGBgz8DBi1UoFg3G3WUfiaqP+cbUhtqJT23DCQRoS7Szf9Nznx5OGcMJOB9rcgV
+	 Miyt2O1RmpAa/T6PfdyFuzHFsXdrP9YjorLfj2lZgR9gaUUA5ulPTDRZBuHgxn42wdLWZ
+	 FxNzlCymT6pMxGpmjMWrIxVxvsaJMFTYZIi0W5CY0+RU388EOwk5nn3+GUdzHkJtf+ia2
+	 mtAuSWdmTeP8UdMdrxFTBPUnFRdP9+Sa1m2g3bOohCal0BHP9MFDSXqt/z8m7iM7l/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=fGFmytpc;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DmuJxYRP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AE56606A31C;
-	Tue, 17 Nov 2026 01:38:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AE56606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C5AD606A323
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 01:40:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=fGFmytpc
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=8JcHUYWuXURIlDdVtjfl+F+I3k1RR4DC8FoHZM3MqHk=; b=fG
-	FmytpcbRtrvDNF+9s8ZwFJkcXyrWSOuUTR0YQB5jWn8N4AHzNhGRGM5Q9Un2X+3nI+il55+kZQvib
-	kv6z+w08inaseaOt7yqUlagi+X0Y0bK0r7qZkmdysaXVoL/pIxgekZqhnDTJLn6cAfmZaKLLqz5xf
-	bUnFmMvM6gOSD14=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xT88w-00H2xi-IT; Tue, 17 Nov 2026 02:37:54 +0100
-Date: Tue, 17 Nov 2026 02:37:54 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Janis Edvarts Lacis <janislacis06@gmail.com>
-Cc: netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, wellslutw@gmail.com,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: ethernet: sunplus: check budget before calling
- napi_complete_done()
-Message-ID: <69fdc047-6cf4-4811-9161-8edfc5bcf355@lunn.ch>
-References: <20261114222744.535158-1-janislacis06@gmail.com>
- <179479577764.3136.18033299607451586926@kernel.org>
- <vj5f2zj4fpqp7qaztfp3e5elec44pih3pjqsnkmyhv4js3vxid@naaggpvburqc>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DmuJxYRP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BB7C31F000C5;
+	Tue, 17 Nov 2026 01:40:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794879619;
+	bh=qws+Fz4Ekk6Ecm3aw/aRo4AQeOV511tnJt/HAz178OY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=DmuJxYRPhYSHm3ULmL9zTKQL3tx32zAmXRE0eO/0wmGJd+DiD99B0Fv+FA3fpmZVA
+	 WeRD+mnEd3lmnHKF/TQrJEBIygl065mKAf/ECAB3sM/c/IBfzMzSgoiDQaDMG1B+e8
+	 CUqVcHlUYCnn6cIhymrdh+j2eVAnBMtRr78JpFRRB4QcV2VKjb36vecLKkDyWLLoCl
+	 Pru1LvDJim4y6QTRALjf8vguET4iQk2W4rgFHkXqZkIz08w7RVtFYNwa/7alonPIzL
+	 H+LxpoG08mxWWf8SQfx2gssd2mU+DlvGIac8AhF9g96ULKqjF4+5VoroM/to0Elsup
+	 DzQPzgNyE8dQQ==
+Date: Mon, 16 Nov 2026 17:40:18 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Mingming Cao <mmc@linux.ibm.com>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, horms@kernel.org,
+ edumazet@kernel.org, pabeni@redhat.com, andrew+netdev@lunn.ch,
+ nnac123@linux.ibm.com, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ linuxppc-dev@lists.ozlabs.org, npiggin@gmail.com, chleroy@kernel.org,
+ ritesh.list@gmail.com, sshegde@linux.ibm.com, haren@linux.ibm.com,
+ ricklind@linux.ibm.com, davemarq@linux.ibm.com, bjking1@linux.ibm.com,
+ shaik.abdulla1@ibm.com
+Subject: Re: [PATCH net-next v8 09/15] ibmveth: Split RX poll into per-slot
+ helpers for MQ
+Message-ID: <20261116174018.6cd71ba5@kernel.org>
+In-Reply-To: <20261109235556.60604-10-mmc@linux.ibm.com>
+References: <20261109235556.60604-1-mmc@linux.ibm.com>
+	<20261109235556.60604-10-mmc@linux.ibm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,30 +65,64 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <vj5f2zj4fpqp7qaztfp3e5elec44pih3pjqsnkmyhv4js3vxid@naaggpvburqc>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-> > This note is in the commit body rather than below the --- line, so it
-> > would end up in git history.
-> 
-> Shouldn't it? Documentation/process/maintainer-netdev.rst, under “Bug
-> fixes”, requires describing how the fix was tested. I included the lack of
-> hardware
-> testing in the commit message to make it explicit that it has not been
-> tested on hardware.
+On Mon,  9 Nov 2026 15:55:50 -0800 Mingming Cao wrote:
+> +	if (WARN_ON(queue_index < 0 ||
+> +		    queue_index >= adapter->num_rx_queues)) {
 
-It is unclear if this is a bug fix.
+You add such checks all over the place, why?
+The kernel coding style explicitly recommends against defensive
+programming.
 
-It is unlikely to reach the criteria for stable:
+> +		if (budget)
+> +			napi_complete_done(napi, 0);
+> +		return 0;
+> +	}
+> +
+> +	if (ibmveth_poll_stopping(netdev, napi)) {
 
-https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+Why are you checking if the NAPI is stopping?
+Maybe I missed it in the avalanche of words in the commit message,
+you mention live resize, which I assume is patch 14. I don't get why
+you need to explicitly check this, core already does.
 
-So i don't think it is a bug fix as such.
+> +		if (budget)
+> +			napi_complete_done(napi, 0);
+> +		return 0;
+> +	}
+> +
+>  	while (frames_processed < budget) {
+> +		if (ibmveth_poll_stopping(netdev, napi))
+> +			break;
+> +
+>  		if (!ibmveth_rxq_pending_buffer(adapter, queue_index))
+>  			break;
+>  
+>  		smp_rmb();
+> -		correlator = ibmveth_rxq_read_correlator(adapter, queue_index);
+>  		if (!ibmveth_rxq_buffer_valid(adapter, queue_index)) {
+>  			wmb(); /* suggested by larson1 */
+> -			adapter->rx_invalid_buffer++;
+> -			netdev_dbg(netdev, "recycling invalid buffer\n");
+> -			rc = ibmveth_rxq_harvest_buffer(adapter, queue_index,
+> -							correlator, true);
+> -			if (unlikely(rc)) {
+> -				netdev->stats.rx_dropped++;
+> +			if (ibmveth_poll_recycle_invalid(netdev, adapter,
+> +							 queue_index))
+>  				frames_processed++;
+> -				continue;
+> -			}
+>  		} else {
+> -			struct sk_buff *skb, *new_skb;
+> -			int length = ibmveth_rxq_frame_length(adapter,
+> -							      queue_index);
+> -			int offset = ibmveth_rxq_frame_offset(adapter,
+> -							      queue_index);
+> -			int csum_good = ibmveth_rxq_csum_good(adapter,
+> -							      queue_index);
+> -			int lrg_pkt = ibmveth_rxq_large_packet(adapter,
 
-Since these emails are kept forever, anybody who wants to know will be
-able to find these emails and know it is untested. So i don't think it
-needs to be in the actual commit message.
-
-	Andrew
+You should really factor out the pure code movement to a separate patch.
