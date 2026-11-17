@@ -1,88 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794933610;
-	b=IdwOi6JQdoHjV7TBR3zIFPHkd3h08/ce61V0Ct5lsvQ7lF0YwvqbjXcM0YOepNCI8cd+
-	 0g1qir2+6M3+QOst4Lv41vNz/K+3BIITMtO+hF3InRLm63u0q/9DuAFK/LWEWd6F6VwgY
-	 1Xn079Yo3p7kWfBHlYcGLaeXGoMsrNQO0NNJlBFTApZFJwKasUhrukTOOBI4/TOsDlVYB
-	 FHx1XW4XrAZueIe+GQ4+eDxUCTfAU7evxPYDTdJ7zV5DKdEGiZYG953NricFKcXKQqeQJ
-	 H/zlE4EH8XSAZbT5bmssuyT+FyBiR5cKU+exvgdqqsajcg/3iltmy+/bAlDmq9n5GHw==
+	t=1794933713;
+	b=K2gyyybPRASyrg0r+AlTuYK13TqUVDXCBXd8jkpjBF0Lt2rh2u1RF6tCjo1K5jUopqmu
+	 EpHmmqI0yGPbyKzCPOrcWE8QN3dTd3JaerKKRKtnjeWdjM2y9hpvvfTk6xkylXpMvMTIX
+	 uWFNwpUE+VkEb8nGFRNblh4rcsD2kKkZPsgrOEN4gJZ22NGZkOBkixushKlNlMNoUawc7
+	 8ldmZWgwDuYeeCTSB/+/8+gVJYmsnwmQPKvu62ya7pQx5lDaO+9vxvEpTKx52zYYQvmo5
+	 ATWRtJA9EtvwV5zcjMfsZ/fi6SlrfuV4gYKoDdZCpp+X/19GHwlui/SBuDst92KyVqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794933610;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794933713;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=DV4b38CcVigt3fSdaqPuGNDysKZiLQAbgGKBk8RFyiw=;
-	b=TdkvrLBQqE9R+s3YzmBYmy1jbkV3bs47LYWaTDzLG7CuyyBAgfxm6jJtOe/EIv9yRqwf
-	 bHQcAy9Z/7gVkvy/umv1bJH8El9tBH1JGuH9viPOhAwjgLkDjRBtboihITfVDwUCZY7tL
-	 7ChkdOyKVXtP3KzIA3ptAo+EzYWLo4PcDymVESOhKpSIQAW9zWYOr85beWvoNVDWfHbnn
-	 UwyX7DnimQVceTeIcfed6MAK5wzXPTvFchDhdNNTTf3frCwU0RHqYBsvSjUAjiKrFza+P
-	 KHIDW7sGslYCWWOnkpElvRiRyzydDkRWYyleyvR8TtCC6e5YYEORaIqZ3M1bZ6HIqJg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=sGFrWQujhzJh9uPF6notnBiKMTrdwWirz/MP50Av2KE=;
+	b=ZtP6XJLhUNeMyKjNWocG+WsiiU5bRLCrba1z8SkqohH5nu0idvUwdS39KHkNhdPeEWEj
+	 JmxQZqLKVz7cgqhesXPOK12B1YgCpXFz8u14bgeWMGQVLzj/f8g5qN82zEKqg3nDZeQ1v
+	 f1Zi+TykgfIsV8V9UAopWfd1fhmyZqLKlXv8uDCNjHDqgGnO40bDn6w7bUFqCrIMOrtbw
+	 s7tITx/iuMRNCZYpcT5tmnGR7WXLeT/Hj5AXBASHLNL9lgrY2Dobve3aZ3hg/y+ZaCon9
+	 FzJCTs0D0wxXgBnYZXajs5hfadfkmIrbvZ3Tr8KBBJTU7dnkt3VdgHMd++dDbVVZJtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="B2V2B/k1";
-	arc=none smtp.remote-ip=209.85.160.53
-Received: from mail-oa1-f53.google.com (mail-oa1-f53.google.com [209.85.160.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wr3dxYS8;
+	arc=none smtp.remote-ip=209.85.128.46
+Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD29606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:40:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CD29606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5516E606A337
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:41:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5516E606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=B2V2B/k1
-Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-4ad587ba293so9756fac.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:40:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wr3dxYS8
+Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb5b8ef642so616425e9.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:41:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794933609; x=1795538409; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+        d=gmail.com; s=20260707; t=1794933712; x=1795538512; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=DV4b38CcVigt3fSdaqPuGNDysKZiLQAbgGKBk8RFyiw=;
-        b=B2V2B/k1ENbb5cOuJVzSrspC/eEsnIWd7CrCELRHJMLBanLffRr8bSll/DACeB8dp0
-         3R4M8j3GmT+BmtoZdNBF496uEJ2ZyG4Kj+2MLbJB/dXpt1YUgPNp+gHAuPd7T7JcDIdA
-         wMSFRqtMqsxM7EcEIQYeSq8XOOqXYZwArRxvoq4a2kikVjzbLSO+24bCK8VRxxcVP6V0
-         nbW+8U5M6vNd6M9UqkvaVeFuWRxLYgCnK0kHqQDrj5MS9dBzY6TV9H6/VdmfC7osJSZx
-         4RniRUfABrBHmj9yJQ/THGAiNnW8O93VBmzE83jnEWXYRZx+wK6ABAWLTEPDxJxWk/hM
-         jAtQ==
+        bh=sGFrWQujhzJh9uPF6notnBiKMTrdwWirz/MP50Av2KE=;
+        b=Wr3dxYS8E/sYgWPey/0VSPT1Gfc1PRONLdWZ+g/P/yGPigjE7HGMAvvplayOPv7WOH
+         Gkjdjwv34Iy8UuYflzXUCqU6kmi4fVnB6Fk+N0fNQHjRxHeLEeiZb/j1g8tjKCLgMsN5
+         YyMD0yfaBYIfuj10gUKwwwSjhZkU5+AzRjdih3sqiAMZFNymcpnH07O8k3igCNI3keRy
+         Ssq0vtdPV9i1Grj6jwmLAGksAK4fJroUzS+xxTpKP8NhI+1ujjKQ9rrUmPvF8Cm4qlRv
+         wdUbn6l59WkhiYKC51m+4PFDz6fMOGZt5CUvl/qj/AhDgoUHfdnEawKj/lqEUikAvMoV
+         0YHg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794933609; x=1795538409;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+        d=1e100.net; s=20260707; t=1794933712; x=1795538512;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-gg:x-gm-message-state:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=DV4b38CcVigt3fSdaqPuGNDysKZiLQAbgGKBk8RFyiw=;
-        b=auJg1u4tRcR+NWA6SCXeR5KwmHyOgl4O+ePlBB8O3tXY/7bsXp7a8baargQQczsuaY
-         vQ/SYo2KvarBlkLSvVwaT4ckA732XuqGi+ndsbaboRomMOKiJL9RQt8m3K+1wVpzTaBo
-         zgI5uUe3fEt/xCieWsjrrBxmcigbm+YLWcJowzqQMrt2TD8ztRmXGD9Offd8x3LA8LFy
-         XdqclLKIpcf6NeiF3+zNP0x5YcD7bpeZltQ3XDo7hieuFDpm6N3Ix+U5rl4GoB4E9oJE
-         JwO8TPtDOSuxNsiL+aVjHLzevnOdktFCkrU+Q+vsUdx04pDDQcQEgiHColzQnKwlnFBQ
-         coEw==
-X-Gm-Message-State: APuU4Z9bHJRD1l5fqcEQg77Pb3NhFbaEBC3HVt5k814i/a0ADKXDv0o9
-	erAwrRyBZCuIKV7ydRd2IWhpeQ84siyEU5/rlHx4VskjLXTO0JPiy8h8
-X-Gm-Gg: AYBFou2DxB/nqC0RxHSZyQbfznOulq0nzrm4GpwX1CL5QFjYVxH6n1+AL/C6hy4OMRE
-	6jn9McaNnGWKiQBGbzG7ULMglcFbjoz03i7ZkW2ohQkeb4YAUFAxFYm9yoT4dANQYqXmxkrh6Fe
-	6GasLe2gqhgj3vE02GC+OKoE8Yarb17se6iQD/TjonY12APQhWhZD50/CeOHuURMESqpaX+L/vO
-	OpXY/xqEqDosxXdVe7UHBNqZbt6ri0XkIpa3LM2xACnsctKG/QexZuIZLbZCHJMuGDUU4W/tv9Q
-	m81QJfGUGNJ3nhoNqTinuWZM05+ldX/I2Oxrg9XAcw9yD4lSq7sSO9S4zdSk4xZmqlHpqJwUm0B
-	cg3cBFzqgYLJVRi6fyAXuCKzGK6MeVD8AmZ4pUMM2bxHvY+IYvEHNczS3+Nq9S7j861zjRl0gKN
-	ewOYzVHyO7CvsIcbqcazn8dGW637L/7ummhdyQ48g2nuZs1VoPJdknw5nYr+g+GUFjF+VG8vKRS
-	STB/CM/+Jug0ts9IFzYhfPy5prPBNSiwzgJsQRsCHYtZL3iFRmqBWxaoYK5L3GX7K46G4PEJtgX
-	VQi0lUz1p9O83X8kcbK8yfneXhLH8YA50BQEziUSc611dc6TOCjGkhIdnmGyhXCTVXaFUFQrQtK
-	TyV6w/FHrUpNL8KZcTZFezoBzP70y+6FV9MqKv9Pz5P4FaXg4bvcLspzOxxtT5ICq2fNWPxtAx+
-	t9s1w5BXlOffm0EPUNXlBcgo9Kaz/eYdju/6zeSU4Augxw7ohbbSSpoQ==
-X-Received: by 2002:a05:6870:392c:b0:485:d31b:775b with SMTP id 586e51a60fabf-4afdf3e5cb1mr12548756fac.25.1794933609320;
-        Tue, 17 Nov 2026 08:40:09 -0800 (PST)
-Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b70e175c93sm36148fac.16.2026.11.17.08.40.07
+        bh=sGFrWQujhzJh9uPF6notnBiKMTrdwWirz/MP50Av2KE=;
+        b=XSOKlEDPnsLJD0PJi3i73bxf0KakZgr1DrCgXC+sfrVgqBBz3v4/cMpgk22YP5jmk9
+         Kyh0hUUWyOpO+vAcC0OYiXngFN6Rtws6mEaNFnVmtX7N2NL3sBq91HQMlEOWHwfioj/a
+         EdlarzidIqr2EWO2ljH6lxGIiUwMUeM0mbhlQXBZCvq5omNc92lgj4mrEgibo5zHP7xV
+         cGmrm8SyANWyLlXH0K7BcsjIZqMLv4r7Kah8kYeyATFYoqLyswGh8y5EQDTWsXPAnmpO
+         Odjv6nRQJApKSp8jFaqL06qWdthE5fAnz9o1gJQCyYDWwEeOJ4ePK/a57+WqmTV0qUCl
+         Scmw==
+X-Forwarded-Encrypted: i=1; AL+hErHl6UXI4x9mvz8nsE/VO9EAw7/6RlZ4M5pL3CLTQFb162qqrF1Hd9LQRzEHTGJV/pu8vKQlzls=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/E2hDy/xOZdtQ0kd48PTepHzBjn7QsAD9VZeE3CVPFQlP4Rp9D
+	TdNN2uWCokCjqtkAGNw88w4e8KlrMvdLzbHRpNyajD++gmqdcsoX1v4E
+X-Gm-Gg: AYBFou02ygkwaTB3cjRyJi6oeVeR+PUGJc8UO5xtyG3GbN8rgcb6HVbEsCTfljv5nas
+	NMACCokdK+dRYymKczR9lQ+SfXotud+XFX+1GieDoZXUMSngI4ecGe1nxcmmNYUFc8KLxL1VmGM
+	Q4hEC0IifQFDnlRILlQdIFwk6GiRdM9EZISIe1yWl+usnbNgxBqjeJbg6N2XXRCAHd6kxBm/3Nu
+	aoii3S59M+p8eIoj/lEdAhOlP783cl5WbNXazq8IGHKzJsrFqjUnZurGkKfNU2m61zjNL7BcNVS
+	ovuOMO1E5n758x6IcV82Naug1blD7oEm4tNzM51R53mIz/hCYBq6OS7FyARH0AHT/8QVOq8AsOb
+	1Xhv5FRkZWAnnVb3Yiin9ME2qFgDXD0qyMOtsyfEg13ThUuVgUmcmR+5v2MWB31IgKx5yzSd9y7
+	u5PFkN4ENgl4DUHo8NrH1gEKFYedirWM6Qgj5ZP2+y8BUlnKnrxwIufMlkmzQtRULG6IssHWQ+z
+	mPOVM6FwXsq0pwQejDmRVjHk/dwMvtWM9cXb3KRe3P+/AvaVLr2o7ZYQu+PFj5wtjlQTB+c1x9K
+	l/50Yf2SYAIzg6xJ1WYtGH1BHCo9Q0xhHu0Ea9Na2q3yG1qIwlY+8qyzoMYeJWx6wDxuwSKCVBE
+	2Dw0VEf15XdCQx+9agGHd3TDefBG/81/fZDM//xhWnpaQ8G6Bobf4PXE=
+X-Received: by 2002:a05:600c:3509:b0:4a1:fc98:1cb1 with SMTP id 5b1f17b1804b1-4bb55c5f579mr313862835e9.2.1794933711523;
+        Tue, 17 Nov 2026 08:41:51 -0800 (PST)
+Received: from Ansuel-XPS24.localdomain (93-34-92-103.ip49.fastwebnet.it. [93.34.92.103])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-4bb78430752sm82316475e9.12.2026.11.17.08.41.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 08:40:08 -0800 (PST)
-From: James Hilliard <james.hilliard1@gmail.com>
-Date: Tue, 17 Nov 2026 09:40:00 -0700
-Subject: [PATCH net v2] net: stmmac: preserve RX checksum capability when
- offload is disabled
+        Tue, 17 Nov 2026 08:41:50 -0800 (PST)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	mfd@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 1/4] dt-bindings: net: dsa: Document support for Airoha AN8855 DSA Switch
+Date: Tue, 17 Nov 2026 17:41:28 +0100
+Message-ID: <20261117164132.47167-2-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261117164132.47167-1-ansuelsmth@gmail.com>
+References: <20261117164132.47167-1-ansuelsmth@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,78 +110,112 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOQQ6CMBREr0L+2m9slQquvIdhUeoHvlogbSEQw
- t0teAKT2cxkMm8W8OSYPNySBRyN7Llro5GHBEyj25qQn9GDPEklhEjRD6XlgD5Yqw26CU1D5u0
- Hi0b3uuQPhxlHgVQpdUmvWZbnEuJa76jiaSc9oKUAxS+Mey8yYWNstYZ96Ny8/xnFXv4bHRX5W
- qpKn1WWl3SvrebP0XQWinVdvyK8tL31AAAA
-X-Change-ID: 20261115-submit-stmmac-rx-checksum-capability-v1-ef6645788992
-To: netdev@vger.kernel.org, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, 
- Giuseppe CAVALLARO <peppe.cavallaro@st.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- James Hilliard <james.hilliard1@gmail.com>
-X-Mailer: b4 0.17-dev
+Content-Transfer-Encoding: 8bit
 
-The GMAC, GMAC4 and XGMAC rx_ipc callbacks return whether checksum offload
-is enabled after programming the requested state. A zero return is
-therefore expected when hw->rx_csum is zero.
+Document support for Airoha AN8855 5-port Gigabit Switch.
 
-stmmac_hw_setup() treats every zero return as a lack of hardware support
-and clears plat->rx_coe. Disabling RX checksum offload with ethtool and
-then reopening the interface loses the saved capability. Subsequent
-attempts to enable offload are rejected by stmmac_fix_features(), which
-uses plat->rx_coe to filter NETIF_F_RXCSUM.
+It does expose the 5 Internal PHYs on the MDIO bus and each port
+can access the Switch register space by configuring the PHY page.
 
-Only clear the capability if offload was requested but could not be
-enabled. Keep calling rx_ipc when offload is disabled so that the hardware
-is still programmed with the requested state.
-
-Found while investigating RX checksum offload behavior on H616. Maxime
-Chevallier reproduced the capability loss on AgileX5, CycloneV and
-STM32MP1 and verified that this change fixes it.
-
-Fixes: d2afb5bdffde3 ("stmmac: fix the rx csum feature")
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 ---
-Changes in v2:
-- Correct the Fixes tag to reference the mainline commit.
-- Add Maxime Chevallier's Reviewed-by and Tested-by tags.
-- Include the discovery and hardware confirmation context.
-- Link to v1: https://patch.msgid.link/20261115-submit-stmmac-rx-checksum-capability-v1-v1-1-ea26fa3689be@gmail.com
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ .../net/dsa/airoha,an8855-switch.yaml         | 86 +++++++++++++++++++
+ 1 file changed, 86 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 25894771e9e9..e162976be2e6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3723,7 +3723,7 @@ static int stmmac_hw_setup(struct net_device *dev)
- 	stmmac_safety_feat_configuration(priv);
- 
- 	ret = stmmac_rx_ipc(priv, priv->hw);
--	if (!ret) {
-+	if (priv->hw->rx_csum && !ret) {
- 		netdev_warn(priv->dev, "RX IPC Checksum Offload disabled\n");
- 		priv->plat->rx_coe = STMMAC_RX_COE_NONE;
- 		priv->hw->rx_csum = 0;
-
----
-base-commit: 5e9b2ad9b8384cd3c417cd5e2c3bc7eee4a72791
-base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git main
-change-id: 20261115-submit-stmmac-rx-checksum-capability-v1-ef6645788992
-
-Best regards,
---  
-James Hilliard <james.hilliard1@gmail.com>
+diff --git a/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+new file mode 100644
+index 000000000000..5ad9b9e13983
+--- /dev/null
++++ b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+@@ -0,0 +1,86 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/net/dsa/airoha,an8855-switch.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Airoha AN8855 Gigabit Switch
++
++maintainers:
++  - Christian Marangi <ansuelsmth@gmail.com>
++
++description: >
++  Airoha AN8855 is a 5-port Gigabit Switch.
++
++  It does expose the 5 Internal PHYs on the MDIO bus and each port
++  can access the Switch register space by configuring the PHY page.
++
++$ref: dsa.yaml#/$defs/ethernet-ports
++
++properties:
++  compatible:
++    const: airoha,an8855-switch
++
++required:
++  - compatible
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    ethernet-switch {
++        compatible = "airoha,an8855-switch";
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            port@0 {
++                reg = <0>;
++                label = "lan1";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy1>;
++            };
++
++            port@1 {
++                reg = <1>;
++                label = "lan2";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy2>;
++            };
++
++            port@2 {
++                reg = <2>;
++                label = "lan3";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy3>;
++            };
++
++            port@3 {
++                reg = <3>;
++                label = "lan4";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy4>;
++            };
++
++            port@4 {
++                reg = <4>;
++                label = "wan";
++                phy-mode = "internal";
++                phy-handle = <&internal_phy5>;
++            };
++
++            port@5 {
++                reg = <5>;
++                label = "cpu";
++                ethernet = <&gmac0>;
++                phy-mode = "2500base-x";
++
++                fixed-link {
++                    speed = <2500>;
++                    full-duplex;
++                    pause;
++                };
++            };
++        };
++    };
+-- 
+2.55.0
 
