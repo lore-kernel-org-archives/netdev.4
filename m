@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794919419;
-	b=rS/GdHGFuM283nr4LwN0b4EuJWJEQvrByC5CwyVQVq2J22HWOLQ4zXePE3XDGi5FaK++
-	 Uw2zGVPz7YQf8DlwVXIVsSMEjvNPGmw7KPIDiD+k2WrDf5Us7UgXah35sSJvMRALvFhDK
-	 XlY4rU4lcNcjGYCwp7eDnS4TuUVknM40Cnfv4w2zUKZzkKN2PiBpKaNEAkEdWObPwEQ1/
-	 3vw+aKrdXFUC2whEsNEKIFYnB2fdlQM9kGQSWfipbxk1uXd5OpmZdpzEWhiMTMx6toKAw
-	 GBE+By/FDNeLVPFKcYFVhwlXipFGFBXqaS3/YZJTrJ5H94E5IaWpn+4oSn1L8oj4diQ==
+	t=1794919643;
+	b=bZlUNW/FJFtnS7IfVmvkC/e1X3xElEGenPVE2AHOBOBKY26JrTYvuXIEm3AdHm7j+CPn
+	 MR+JlaoorG62ZUPGjlYyNEEduJCv+SYuzDwWtU66tSiuW6tyWDw4BBwKaIVjoa3OWVmJK
+	 lyTwnBlueSZvuZHkR15rben0Dfu6fiJCQClKoKLYORqAj7yeatWcKkgC9gnYqCoVnOUJU
+	 RKfDVDs39XrNkTJJPLLGr/zyNhaNNh1pe+o3gA9my7Vu2FtfGXNSie2GwG1lAz6j1i5jt
+	 LJV0A0oTpMk8vBUPLYYYcUMTyb3tuLxZM72WWFNL+hdZe+e8MQBjLylXcelJjEf/4Eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794919419;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=XaUQ+Hz7LWKdW7tww8BU5TIlSCF9jq9TzJDir8QTBvgFHBsuq1L+3jLQpU1S9XXW2oml
-	 qh8MhjTk8hI0K/KqWqW9Y0xYRLvrl6RKSjgPfh6fyWyBKRQMNNc1XUfqDm003mCUlNTAr
-	 JNj45LxbY1Nlc+hEuuXuarw5qEyDi5BrUQsF+CdYppdTtKecZYQV0/mutRXqNFge/+vTV
-	 SXUHTWR6OA9I9J64O68/DeEoFBmfa5Bgap2JxKbRCXraZT/CsTJ4w/fq9/KZCr4UfEIo7
-	 iwh9CZZAU3H7fGsfwyE7OK1jwyOLjwuxkWy+9iKoqDez1gS1wmLsJ/gh/t1uVq6BzZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794919643;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=xPLY7t7bHKZomsKY+G59dgn7EtH6VF5+4KkiJGl79f0=;
+	b=R0BFIbcBwNxylKt4gncvykrN80gJJSTATmtd8CwNKG/1jjLbLDdqfcWEIiGearLyK+oi
+	 NG3ZFGG5BPsturKzuz+qazoUA4MQ3MRlgogrcuUI0FovJzyrHA0kvyRO/P+8a6qBCzVa0
+	 6QGQGiP/vA8dqBZH3R7UWcbgGRFnu2/tHFqiUkoBlpDeKHBy2V7Q3nugvoxo4LTRWnJhr
+	 0pTcz+P+jGFBr6ZP0nkZYygmKvqo8iK9bfuTH24LMzMPakoUVruhfYg7b/FRmvtbJQzar
+	 3KHgfiNg2dBQ5UNcxLKBZ7lidXL4mdLFXOPtVAB68mb3hjV8NgaV7RnnXZSGE+ATRqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F0ZJZSxj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dS2L1iO4;
+	arc=none smtp.remote-ip=209.85.221.199
+Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22993606A31C;
-	Tue, 17 Nov 2026 12:43:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11FA5606A32A
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:47:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11FA5606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F0ZJZSxj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 531451F000C4;
-	Tue, 17 Nov 2026 12:43:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794919418;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=F0ZJZSxjVOeL7JI36iP3N5KmCRyTdKxGy4h01DD0QtpjhX38HONSEFdXyV0KyHRZJ
-	 kWrsnpi2pzMhgPlK/V2c0eO6aaf5WyUhuK62ERJdt5L7cPzxZjTbXW5ZjVLMM4nfee
-	 PRuhR/Ywc72hQV/m9h4Kge6Jw1rRgPFAaUpdu7rHq7K3mzfBdeK+OohYwNHXCp+h+w
-	 ySKZcj+G8WYbxgO7DgepXgNdP97DMaD7AlYMjW3dY5+aAwoh2sVNhWNFmF1yNObUiz
-	 rDNuEETZY5ikvWQHgjMnGmBqgW2P9GrDqenOGzgkvWoiJDrDc/BWAPS5Crf98cesYe
-	 8hk9wsBmDsVrw==
-From: netdev-bot+sinfo@kernel.org
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>,
- Randy Dunlap <rdunlap@infradead.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Nathan Chancellor <nathan@kernel.org>,
- Nick Desaulniers <ndesaulniers@google.com>, Bill Wendling <morbo@google.com>,
- Justin Stitt <justinstitt@google.com>,
- "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, llvm@lists.linux.dev
-Subject: 
- Re: [PATCH net-next v22 00/15] net: pcs: Introduce support for fwnode PCS
-Date: Tue, 17 Nov 2026 12:43:36 +0000
-Message-ID: <179491941687.3291.11313796890436002644@kernel.org>
-In-Reply-To: <20261117123956.11981-1-ansuelsmth@gmail.com>
-References: <20261117123956.11981-1-ansuelsmth@gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=dS2L1iO4
+Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5eac42e83e0so1070811e0c.2
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 04:47:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794919642; x=1795524442; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=xPLY7t7bHKZomsKY+G59dgn7EtH6VF5+4KkiJGl79f0=;
+        b=dS2L1iO4rOaMxm4v0JD+RkqQ8oAkda8BFIrZ3PLxJ/LIbESehE7PjZ7TaoZ7hRIf1v
+         +x37Au0lh+8aAITx/tpJMBajQZyJzusSMx6o1r9JA94NGL7nnuF0I0VcP/xOEJBhoKIY
+         bW0PeCpLDEsKbkNoVRCHciaDpyUEMtzAugCIIZhzh5QS/QJFY2VU7mKv1FUJo7ZKGir/
+         qW1PF+VgUgXd4o8Ma7DGue55yfEXd3+AfYR/usy1dCLRpCslIAK1r4PPKGfK+WODt7Wh
+         gy7YPalmZwi72Tk1bEZHAxjYtRcHYMErO88WaiODIzJ4PWRnQA9VQKWui7pIGStlQhXo
+         OOzg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794919642; x=1795524442;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=xPLY7t7bHKZomsKY+G59dgn7EtH6VF5+4KkiJGl79f0=;
+        b=xlXxfOQ7BqDjgiqWSymqRLe7X2A7IS5xNQ13wzduM9OLHdr+GR5EC1RmsOEdrOAMEN
+         BcP8ryKgdNwC0hTQ/HMs4nVIa62fQvzXkS/iz6k3DEymjCtjjj+KHltHLiFsRpkl1mgw
+         diWg7tU1jpyME4qyV5QlVr7bclTUNIrSSQxCEFYwLsdxGGUlt/YPv1x7pR4NyfY2K19i
+         MkVEHTkGVoC4gNvnHn0qlQ0zEmoA5UFFqEOpVyfBaj+OxZc/87geOW6qFMk6oLejfU4L
+         oL6n9l2irTxU9/VoCrMY+aIqxcVptZC2FiLwAl8AIui18qnuivnKtKw8bAjAFJGqb3Qo
+         4pyg==
+X-Forwarded-Encrypted: i=1; AL+hErETwrQ3waa+qMiZOL0CWB4IIHGTc6dRCfmv/xUUtPkxFahr7aeZHK3QhSeNdqMcUi3u9cruxAE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9XZZvLHDP2z5amxMlIbazcqPP+LKw2Y6OeFLjMgTgOp49aUK6+
+	lBixXnIOqSNnK5Z/6W22B1rQPhr95DZ2j1P/LszoHWaB7kuzXasrbURenI5tT1+Xd4FfryH1kYo
+	w6wugP1oLBppCFWfjVVfKpWynjQ==
+X-Received: from uapj19.prod.google.com ([2002:ab0:6453:0:b0:99e:daf:a436])
+ (user=thaisonphan job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6102:6894:b0:7a7:5355:7fb6 with SMTP id ada2fe7eead31-7d64d82affcmr3760790137.24.1794919641586;
+ Tue, 17 Nov 2026 04:47:21 -0800 (PST)
+Date: Tue, 17 Nov 2026 12:47:08 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,27 +75,60 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.703.gf848ed807c-goog
+Message-ID: <20261117124710.1338951-1-thaisonphan@google.com>
+Subject: [PATCH net v3 0/2] tcp: initialize missing request_sock fields in
+ syncookie path
+From: Thaison Phan <thaisonphan@google.com>
+To: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	David Ahern <dsahern@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, "=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ij@kernel.org>, 
+	Olivier Tilmans <olivier.tilmans@nokia.com>, 
+	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
+	netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Thaison Phan <thaisonphan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Hi!
+Initialize missing request_sock fields for TCP connections accepted via
+SYN cookies, where cookie_tcp_reqsk_alloc() and
+bpf_sk_assign_tcp_reqsk() allocate without __GFP_ZERO:
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+- Patch 1 initializes ireq->ir_rmt_addr and ireq->ir_loc_addr to
+  LOOPBACK4_IPV6 in cookie_v6_check(), matching tcp_v6_init_req().
+- Patch 2 initializes saw_accecn_opt, accecn_fail_mode, and syn_ect_rcv
+  in cookie_tcp_reqsk_init() and sets syn_ect_snt in
+  cookie_{v4,v6}_check(), matching tcp_openreq_init() and
+  tcp_{v4,v6}_send_synack().
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+An AI coding assistant helped audit the request_sock initialization
+paths, write the QEMU reproducer, and draft the changelogs.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+v3:
+  - Patch 2: clarify syn_ect_snt / tcp_accecn_third_ack() description
+    for AccECN connections and reference RFC 9768 Table 4
+    (Chia-Yu Chang)
+v2: https://lore.kernel.org/netdev/20261116023709.132684-1-thaisonphan@google.com/
+  - Patch 1: clarify how KASAN (via SLUB_RCU_DEBUG) exposed the bug,
+    explain how it was observed, and include the inet_sock_set_state
+    trace line (Eric Dumazet)
+  - Patch 2: drop redundant treq->syn_ect_snt = 0 in
+    cookie_tcp_reqsk_init() and clarify how the bug was found and
+    observed via TCP_INFO (Eric Dumazet)
+  - Add Eric Dumazet's Reviewed-by tags
+v1: https://lore.kernel.org/netdev/20261114161248.3428695-1-thaisonphan@google.com/
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Thaison Phan (2):
+  tcp: initialize ir_rmt_addr and ir_loc_addr in cookie_v6_check()
+  tcp: accecn: initialize AccECN fields in syncookie path
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+ net/ipv4/syncookies.c | 4 ++++
+ net/ipv6/syncookies.c | 4 ++++
+ 2 files changed, 8 insertions(+)
+
+
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.56.1.703.gf848ed807c-goog
+
