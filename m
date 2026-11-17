@@ -1,83 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953710;
-	b=jPm0wtp2CuhaApNr0uXctdXlGK1ApC8xo70sM37DB9yc/weEUX0ocJbk1t5bPXqAX5xo
-	 6+J7h2TUokXI7F1NIQXRuYCPhaXKwyn7naGQgxJ8Si2JiFBApwArImGgNUE1EusuPRvYh
-	 i4qJRmyuuktmBSbuLCoisZbZsHcFMDYKVJpSzboGEi/2YZZ52jhCqvMcpojZQ6I8hisy3
-	 sO2TEY8nde6j1Ly3YEwWZVQxX+2jTk/jBYpitkQL2gN5g0cFoFUDiTBjUU1VwqTOSaTv9
-	 Y4mbn955cuHppt7DJF5iyjpCSpm3jZqs9eJiwyOrEn/REe6VAb+L0t5jd5z66Wc+5vw==
+	t=1794953742;
+	b=MaouFzF1erUWdecIGOM4UmvUb8Y7gb6cIq044Rl7Q0sz59v33j2fLfYq+ArWYMu+ncdj
+	 jFuPF3ck52giGWf0sBnZqhFe+AN0NBJCMhU1D/ZfqpcXtOMNn+QA1U9T7hwhiXDaOXn8u
+	 mp6yc/8HXsLWyd9EJdZgFW6unL1PMEUF44O4lBgld10Gz9VRfCKbu5JdenMmr3rVCSndq
+	 X5jgj0FLoPql2ycjNWZdY3xOnqOOzzBJrISpfNrLW5+B7Gp+jJ1GewEvx9f5uRKBl+Qqo
+	 PP7ClYzDhX2WAlDqxoGTPHcwuHTS5WRDxZvghZ6Dk93PlnDKf/ILhP/l3yM0mqDapIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953710;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953742;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To;
-	bh=8igbL3DrmgjB8f+3uFsYWHUjBeZpK0nAdLK0B3NxyZE=;
-	b=3uo5JHtWMiDYA9yRigJOmAyFZ80TN5upqyK1AIAimkoyp+fYBkMINdKtJhbaSKLxMwNo
-	 GT8YzCTuVavCRdSclYZ4yJSSrIx9ThmDGj++qM0iGRQDouhmtkCboTIzlyxXJlGoqb/ig
-	 xTwDVHcSTvElyY7ZD2R/wH0aRe9MENIg/CeKIhO2dZs4/0x29JpQgAc+BDGfzOk2LNRVL
-	 ycrPhktzy5SxBnufGTE0iTCaVywngwQ3COCIuPuzjbYKQXYI8crVK7gPBd3Vf/L9A/5uc
-	 6wQyslMhVmnu+NlZUbGIEzQ0YO9xOFiDMP9H8ITz2/6O15lho33qWxDeN4WSO051TtQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=qb5d+Qykm6EKuUkiLZkhF6IKbKMDpNXXQ3MYy2qGuWE=;
+	b=0cW0ZERrl938xdlco0FsGrYEr4DqRfPsGJkavKnP+142x9h+tCvlzZmwUtFjvVvSX60e
+	 X2ONHGwdKYaFnfzIEENNSwIl0MZKXh1xZtEIqU2K3b7PP2cd69zi4ou2MATYSwTrzen5n
+	 7o/HZsidmX3XLSbO5f1ulf419Lv+hR0w/7I+pjBoIEToM2F38hBvfaBDTO7Mn76sn5wuL
+	 HLxqYV0rBwiQAiaKdV/dilZvIBKqu3M+dsp6Sb7kAAErgfU6IiHHBof0T/x9ibHyFu/K5
+	 QLnC6zTNGvD7AlAJ2QdKvc0y15rjcrUnZzw0Qa1A964rt5/+ERdaRPA14Bd3wYljSbQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Omz6m5sE;
-	arc=none smtp.remote-ip=209.85.219.42
-Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
+	dmarc=pass header.from=networkplumber.org;
+	spf=pass smtp.mailfrom=networkplumber.org;
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ncavSq0a;
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68DDD606A32C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:15:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68DDD606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B88A606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:15:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B88A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Omz6m5sE
-Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-91f2b826fe9so1968476d6.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:15:09 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ncavSq0a
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b0e0e65adbso106820a91.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:15:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794953709; x=1795558509; darn=vger.kernel.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=8igbL3DrmgjB8f+3uFsYWHUjBeZpK0nAdLK0B3NxyZE=;
-        b=Omz6m5sEdcCo6i+rZhY1yYYjJkJ14J3/ehViGl2tfjKF8iKEXM6zW6OcK01d0pvglQ
-         /FyWYDd3s9dTK874m371PT9CPkHc8iiyhftD6T3ezaFb/DKKKdfmKq8+1bbBRWF2f59r
-         pPx0POo1MPsFAIzd4H2wfPc3JPhFi1cneOymArj+Nb7qd6SedaCUb+I0aF3LIjuWBWiC
-         0hhANseDZJJQl3514kujAp1eUbsyHKXvuoKsCflx/Akjgi0B/tlwc5X5HqqoixQSbJQe
-         qatcOfCVlvQrT6KKtTYaiM1cyk0aObDlkWtUfL4ACKut8n/uzQdXMiEHSkUPiEYiqVTv
-         sYjg==
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1794953741; x=1795558541; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qb5d+Qykm6EKuUkiLZkhF6IKbKMDpNXXQ3MYy2qGuWE=;
+        b=ncavSq0a+99wl6UzHcFCxzIZisu4na/NK0P/gMZ6tX5KfrAcod2TDI7FDTu6Yet+a4
+         w9GfrWGR8zO5blC3XQmCxHqXwiCg/8SvrrDDsVhP/2569Jv5f3E6D+ubfg6ONRal20pG
+         j8QuvkUzsOHy9k8yWY2gw3KydVek+EQGt3CF2eonMQptqpM1QvZ8WWLjRoVCm+v0q9Ky
+         ueIxUDP6k5+dB2j7sSLw6uLdeF5+RoO+bb+bWCGiYEgJ1kTwEuQSx1VeUtMKKc0fYevh
+         TeKhubVBnupsw5BZdR4CASliwJkOXJFuMiA04GDXVvePaNj2Uy0iSO8J6eVqfSLSAU81
+         fRIQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953709; x=1795558509;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8igbL3DrmgjB8f+3uFsYWHUjBeZpK0nAdLK0B3NxyZE=;
-        b=PMG9PpP2zHAPSInwW+aueo2yVnl93oqDeGJFGopPRszx7sv809slgnErK8sf0DyHcf
-         a6GL35/vJa3kwfw943OfYhzSsQVLf7S3UOIXfM8Ok/lEg5AreS0ISSEhNz1Y+dtUmhhc
-         y2wzVRrVOKKIEDpRSmM15LF7xgEzXr2wzln80i2D08PwCEsNbxYKpmtMboEWtJTqtYxZ
-         D4/oet7Nvi1Jhk5Ng0lPPKBhuYAwvJRxd64vbhWQPFLy0/8hQFUd6WjjwSrrU674dXsC
-         86OS3AhEXNqgNTYr6Nv/q5Ugv1m97weRZJdnPFI5QAB828uonJ4jU/jFfT/z0aDX4yTn
-         XO/w==
-X-Gm-Message-State: APuU4Z84JKFIljmpxl0+Xiw3AkUR6rvamUok3/FUb3/kVx+VyP2Qq9+z
-	wjJhbs6SF2TXMAK6fXkTnRR3W5Cii9HM9tKOGaj+RQ+4PQSAmF+3iha3
-X-Gm-Gg: AYBFou3m9MxRZMn3RGslCPu1ukCeZhgeV7z/Q54YHbf9NfDLeVpf9y4vNgsonhM+Msm
-	gr1tHdRl9fnAtUD5vO9qWU/CrC9tbJwMOvNBw/pk6J0vMFTDf9LZLE58QuONGKGzwdM2A+GdmIh
-	cCwOK76GyvuU+AUq7+k4lph2ETVipwwsG2taCTKSfZgYpbF2YtZT5+MtQ6aQH4T4m0uwQk4XX/S
-	0gwDPrn88+MiSg7wYin1QtPJPEVfAiOgRP27qh7j+gIACfZ/FmLdFF1xxTwaWFrjM7+rp9yPC6/
-	Id9qzKvzorKsZBbU1ZIWyd8xgWdQDEjEzmZ3GuIkl0UaK3HWPMOBNCxjWMcfFKst+MhbqTL8Jdp
-	c9DLTRK5Zrj6bLsGcYpmo7qIlZwZ24o6oU/s95mMShY3Qys8kc+KwVyOl+HD2dTIryQSJHDrGF8
-	wPDeCOZE4kC611QTX25jPinbYcJaL39n6lRoQ9LTx+U7artSyn/WyzLca08NxeXaxVdRG3vs20D
-	96WjEuT6pvj5Mb8wXwNHvg5WCBquHPcU/zQqxOndJ6Z1uP/QVXv9RypARF7hc3LRJtInyx6+3wx
-	yptE1Et7h9iUAMDFQt2mIwTeU2/wU8AqLA==
-X-Received: by 2002:a05:622a:307:b0:55d:1db7:3ef4 with SMTP id d75a77b69052e-55d5a5b77b2mr12272421cf.41.1794953708820;
-        Tue, 17 Nov 2026 14:15:08 -0800 (PST)
-Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d53b7fsm4789176d6.26.2026.11.17.14.15.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 14:15:08 -0800 (PST)
+        d=1e100.net; s=20260707; t=1794953741; x=1795558541;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qb5d+Qykm6EKuUkiLZkhF6IKbKMDpNXXQ3MYy2qGuWE=;
+        b=plPIaKrR+191X7bGDqBl5fxZ6eD7Fhy0xcqVXXEAR+4n4QoMkmupztsWmP4Y5q/Hjs
+         mnCLHIbh9ARMkOzlaDo8SFBuIhFLOB05FUGTq8N4OBn6/A1LUrrehGsvbIhQi2EsQhAW
+         Lr8da1t39YuGZSD5kuPUgFVD42bxuQD/7kQUocPijYx32vYEFbTbMcUXciZWmngr6yyZ
+         kJeBIbdoRyvHXZSIPJR5dT4GpfpyAocsBV0EuXcSdBKqWlEOANZQsf/zCc96BZX+BDC8
+         FzTMtNBmkuyMYVpKJsZVx6zdphXuBnv6G1gKlXlEr2R+LNADbFPSa2Rn6//9Wym42/P6
+         3ThA==
+X-Gm-Message-State: APuU4Z8tvPsAEhZsffsajgrYe71Kw8VjhByZJ9QZrtLvimrjxtuIitC+
+	pj1GFM62CIwJZjrBwjmJmMP7Q/qkF66HFC0tr0PMCsmujLPUt8gezPKAYCh5AwLuTCy9faiND5w
+	iqk7S
+X-Gm-Gg: AZFdTZf97hQoMVcpF+HtIIZ2sSnUN0ZI3HGppyr0HfD5WQ0PBjFSI4kuuTAzkXxRWyV
+	gNbiTtTVwtGUXT7OF2fqk/VhNQcrZ91pGWKTIZIjb7TtqFsmzTRsL3UlyWqsxf2NnOWLynVyoVQ
+	VFzDHXc4z3MtX2lnxFl6eiX3pDMIBEppmUVguJ1HM6vETD7ZaCni3wJWKDVFdgUcyy06DHz3Uoa
+	OqStTn9VlFDWx6a7y5QcZDvIVBDokDGTnW/hyB/pah9kFpYPieqC6bRR6xdthC8cizlzVrQqZ6W
+	TwnoL0e5YeQdju0lSGzSsUbLsqkUDBEaJxcEZa4tm/avSCCmBOJS2hBVAVl+4HanmE+htzLgvbr
+	4cmOGwfJr/RUgRwqOFum+2/EIxHfNvdXv8gtaEvbQ5O1/4VFJM27t8k8qGo+rkzhCFE7dNv7xMN
+	rh66tdRg76NnwOtjQzCKUqj7IXm5m+pCDK2HiccA/Ml+RVx+sXdGzsRC4BAu7bUp9EvnHxxkgpy
+	4WugIFuDiijpVRvMpstPCWt25MmD11zecXeJnama8VUEGCAAxFUqw9/AFEAWLLhTcWBvIluGk43
+	7aLyoo/fwpxVGw9F0svnXDPp2OGN4OSHFbtq5K0d8M6Gm6VYYRlsDxG9ttsl3dXjtS5d91N93ki
+	4oTjBzG+bdwNYeA==
+X-Received: by 2002:a17:90b:440d:b0:3ac:9176:e837 with SMTP id 98e67ed59e1d1-3b3d07c7c8dmr700341a91.50.1794953740643;
+        Tue, 17 Nov 2026 14:15:40 -0800 (PST)
+Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d5570208sm38067a91.0.2026.11.17.14.15.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 14:15:40 -0800 (PST)
+From: Stephen Hemminger <stephen@networkplumber.org>
+To: netdev@vger.kernel.org
+Cc: dsahern@kernel.org,
+	Stephen Hemminger <stephen@networkplumber.org>
+Subject: [PATCH net v3 0/3] rtnetlink: fix truncation of dump entry
+Date: Tue, 17 Nov 2026 14:13:41 -0800
+Message-ID: <20261117221538.184948-1-stephen@networkplumber.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,104 +93,64 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 17 Nov 2026 17:15:07 -0500
-Message-Id: <DMXTZHJA6OGI.3RFGSK5SE9RUF@gmail.com>
-Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David
- Decotigny" <decot@google.com>, "Madhu Chittim" <madhu.chittim@intel.com>,
- "Emil Tantilov" <emil.s.tantilov@intel.com>, "Sridhar Samudrala"
- <sridhar.samudrala@intel.com>, "Brian Vazquez" <brianvv@google.com>, "Li
- Li" <boolli@google.com>, "Alexander Lobakin"
- <aleksander.lobakin@intel.com>, "Daniel Zahka" <daniel.zahka@gmail.com>,
- "Willem de Bruijn" <willemdebruijn.kernel@gmail.com>, "Kees Cook"
- <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- <linux-hardening@vger.kernel.org>
-Subject: Re: [PATCH iwl-next 09/15] idpf: psp: add support for psp key
- rotation
-From: "Daniel Zahka" <daniel.zahka@gmail.com>
-To: "Stan Iliev" <stani@google.com>, "Tony Nguyen"
- <anthony.l.nguyen@intel.com>, "Przemek Kitszel"
- <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>,
- <intel-wired-lan@lists.osuosl.org>
-X-Mailer: aerc 0.21.0-threadmapfix
-References: <20261117145522.1910636-1-stani@google.com>
- <20261117145522.1910636-10-stani@google.com>
-In-Reply-To: <20261117145522.1910636-10-stani@google.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Tue Nov 17, 2026 at 9:55 AM EST, Stan Iliev wrote:
-> Add support for PSP master key rotation:
-> - Introduce VIRTCHNL2_OP_PSP_ROTATE_KEYGEN_REQUEST (563),
->   struct virtchnl2_psp_rotate_keygen_request/_response,
->   VIRTCHNL2_EVENT_PSP_ROTATE_KEY (4) and
->   struct virtchnl2_psp_rotation_event/_data.
-> - Implement the key_rotate PSP device op with
->   idpf_psp_rotation_request(), which fails with -EOPNOTSUPP if
->   VIRTCHNL2_CAP_PSP_REQUEST_ROTATION was not granted. The PSP core
->   increments the PSP device generation before calling the op and
->   doesn't restore it if the op fails: the op restores it then.
-> - Track the master key of the allocated RX SPIs, to report their
->   generation on receive in a later patch: bit 31 of an SPI selects one
->   of the two master keys of the CP, and the CP master key generation
->   of the allocation tells when a master key was replaced. The packets
->   of a master key get the PSP device generation that was current when
->   its first SPI was allocated, which is the generation of the
->   associations using it. Associations then survive one rotation, as the
->   PSP core expects.
-> - Handle VIRTCHNL2_EVENT_PSP_ROTATE_KEY in idpf_recv_event_msg() with
->   idpf_psp_rotation_event(), which logs the new master key generation.
->   The PSP core can't be told about rotations it didn't request, like
->   in mlx5: document the limitation and a possible solution.
->
-> Signed-off-by: Stan Iliev <stani@google.com>
-> ---
+While going through an OSS Scanner dump report for iproute2, I found a
+bug in the netlink route dump.
 
-[...]
+If the first entry of a route dump is too big for the dump skb, the dump
+ends with NLMSG_DONE and status 0. That route, and everything after it,
+is quietly dropped: "ip route show table 100" prints nothing and exits 0.
+It takes something well outside normal use to get there, such as a 500
+way multipath route.
 
-> +/**
-> + * idpf_psp_rx_gen_update - Track the master key of an allocated SPI
-> + * @adapter: private data struct
-> + * @psd: PSP device, locked
-> + * @spi: SPI allocated by the CP
-> + * @cp_gen: CP master key generation of @spi
-> + *
-> + * Bit 31 of an SPI selects one of the two master keys of the CP, a rota=
-tion
-> + * replaces the older one. The HW doesn't tell which master key decrypte=
-d a
-> + * packet: report the PSP device generation that was current when the fi=
-rst
-> + * SPI of the master key was allocated, which is the generation of the
-> + * associations using it, see idpf_psp_rx_process_skb(). The CP master k=
-ey
-> + * generation tells when a master key was replaced, including by a rotat=
-ion
-> + * the PSP core didn't request, see idpf_psp_rotation_event().
-> + */
-> +static void idpf_psp_rx_gen_update(struct idpf_adapter *adapter,
-> +				   struct psp_dev *psd, __be32 spi, u32 cp_gen)
-> +{
-> +	struct idpf_psp_rx_gen *rx_gen;
-> +
-> +	lockdep_assert_held(&psd->lock);
-> +
-> +	rx_gen =3D &adapter->psp.rx_gen[be32_to_cpu(spi) >> 31];
-> +	if (rx_gen->gen !=3D IDPF_PSP_GEN_UNKNOWN && rx_gen->cp_gen =3D=3D cp_g=
-en)
-> +		return;
-> +
-> +	rx_gen->cp_gen =3D cp_gen;
-> +	WRITE_ONCE(rx_gen->gen, psd->generation);
+Two separate paths get it wrong, so there are two fixes.
 
-WRITE_ONCE isn't paired here. I'm guessing the Rx code in series 2 will
-copy rx_gen->gen into the psp skb extension, but that would likely not
-be correct. The generation field in the extension should be copied from
-Rx completion metadata. If such a descriptor field doesn't exist, then
-the key_rotate() implementation might as well pin psd->generation =3D 0
-like mlx5 does.
+Patch 1 covers the generic RTNL_FLAG_DUMP_SPLIT_NLM_DONE path in
+rtnl_dumpit(), which drops -EMSGSIZE and returns skb->len. On an empty
+skb that is 0. This is the IPv4 FIB case.
 
-> +}
-> +
+Patch 2 covers inet6_dump_fib(), which doesn't use -EMSGSIZE at all; it
+suspends the walker and returns a positive value. That one goes back
+further, to when IPv6 multipath routes started being dumped as a single
+RTA_MULTIPATH message. It has to come after patch 1, since it relies on
+rtnl_dumpit() no longer swallowing the error.
+
+Patch 3 adds a selftest: IPv4 and IPv6 multipath routes wide enough to
+miss the first dump skb of a fresh socket. The dump has to either return
+the route or fail with -EMSGSIZE.
+
+v3 - move to net-next and resolve conflicts
+     incorporate Sashiko suggestions
+v2 - drop Assisted-by
+   - correct commit message about "ip route get"
+
+Stephen Hemminger (3):
+  rtnetlink: return EMSGSIZE when first dump entry does not fit
+  ipv6: return EMSGSIZE when first route in dump does not fit
+  selftests: net: netlink-dumps: test dump of route larger than skb
+
+ net/core/rtnetlink.c                        |   5 +-
+ net/ipv6/ip6_fib.c                          |   6 +
+ tools/testing/selftests/net/config          |   3 +
+ tools/testing/selftests/net/netlink-dumps.c | 297 +++++++++++++++++++++++++++-
+ 4 files changed, 306 insertions(+), 5 deletions(-)
+
+-- 
+2.53.0
+
+Stephen Hemminger (3):
+  rtnetlink: return EMSGSIZE when first dump entry does not fit
+  ipv6: return EMSGSIZE when first route in dump does not fit
+  selftests: net: netlink-dumps: test dump of route larger than skb
+
+ net/core/rtnetlink.c                        |   5 +-
+ net/ipv6/ip6_fib.c                          |   4 +
+ tools/testing/selftests/net/config          |   3 +
+ tools/testing/selftests/net/netlink-dumps.c | 297 +++++++++++++++++++-
+ 4 files changed, 304 insertions(+), 5 deletions(-)
+
+-- 
+2.53.0
+
