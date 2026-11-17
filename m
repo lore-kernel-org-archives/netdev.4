@@ -1,63 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794880971;
-	b=bBUH4RPCDv55eArh6z3+Dbmbf6uJEH+G3G7xIGPTMpqlmGGteZnchjzuYJvT4jRIgLik
-	 a44l+SSkPjyRP21S6bYO4keux0UXkbSrNghCNhzg3Z1jMlpMgDQaxIvoRFn+8llh5JGY3
-	 MSrgchuiEfdhuVCCvDQCTycbw/x01/mWNtWKAakUf/xCIyO37uopKqnitpgJLmC6WWKGI
-	 DQU3+rmz/yeJRsER4rGpXRt4idhAaPKWIEHHN80sPDgtwLW5F2txupmLCDwovqbaZ9MWw
-	 gz0k53z3Xl5KNgyilStCSPV2o1fm0QxruuGLLtinE6shZh75e4FzEIQTzTBhsmD2Haw==
+	t=1794880999;
+	b=tWd16HXKKBM+08rYqpi3durNbtAfMbIAsHr59dlhdig9E53CkWSTZfbi2ud/DNrfHo6u
+	 lIYZF6BdTAjXRhbEz/JCy4PgMOdfxVW7w6yUJ+3hER7vNUTy+wiZQcgiaxXm+hB2igqYx
+	 zb4KcXADT+M656gEZb7S3HDWYtPVG68W7rX1z/E01t53FnKBHJRVUzhbPnhPO5BaqsIHY
+	 8QSSIny5TvnnFS8PQxy29nNiiNUWGJWoPClfhqlzVsEyQfiyr8yHWAxq1ZSxk4HhzTE4G
+	 foLNLumwRfQtdZukuq6iPLPU1DB1RsCOH/prNcEBSpZUoPsKeJkmo614F7c0+iwEI/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794880971;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	b=TF5E3OxCLAJ3K3Gd6E9eJewNudqtRFJYUapbQ/RTLVBgutQ8MINSk7Jfk8NuWJXzKixa
-	 onDZWDDJu7Epuh/tvxCd3+ln7OydTP/VY707wUj1iURAd2vQB8ZWA+3AkvHMJL2hhMdZi
-	 ej4LeKG9WksqnEbUGtq/dFETm9CWiwvA7MVKHMy91VmPI+dKfcY0snyRbf7wMEzApN/kD
-	 2Bvv89ciieqcUjfqW6IkIw3HLHCj7kubXl4SoYtuvaaA1jngVIofc3gil7yXn0ADw4Dau
-	 LyFHW+BGQz6uCuPjlROcna1/fCoCsQYKnHW/YqfVSkY5QLmffRaFepuKfod39l3ElBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794880999;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=cOL8N2teNxogAj2QZ3s9w+sDWkha0NfM6W36/zyXk8k=;
+	b=AWyGNcjRWDH/+mP+XRLTXgcpsL7UK++cn99X8Z08QT7uY4GW7OsF88my9m+ZPi8PbowG
+	 8bEmhf1P46vi3DFVbQRXj5P3/HpfcgEYeAubefsCR2ka2Izqp8Si/8WKlem6yB4BGyjXU
+	 XpVXetWRJHHWVpuQxzNgFHFg8LG9+NGjmVPyH8rOu8QYHFST8FqDMZ83dsTNdTVn7qLt7
+	 600Nhh37i/VNsL5CqB8mV49liwG9P9VQfmCwGIXRvpQ75KIfs2R2KBjkPa9Egw185JPHT
+	 dFaQN2ociVia/5NhVQVg+6IHt/591MAaNSnws4aUZKZl5f9Wdh8DvSU8vnKw/enyBhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cOp5rUHy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=kqdqUChk;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BA64606A323;
-	Tue, 17 Nov 2026 02:02:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 766E7606A323;
+	Tue, 17 Nov 2026 02:03:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 766E7606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cOp5rUHy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DEBB1F000C5;
-	Tue, 17 Nov 2026 02:02:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794880971;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cOp5rUHyDo+SsInYRjOh70eTPyKlarvFhp5IwOJyWSPEItEUADIFhRUgYYO/IIPSc
-	 Qaabcbh7XayvCcCVoc+eDA617yURGvWk/RVDCZVSiZXyj27BrBssJ0OGBg0DeE5+wt
-	 48KpwmmXymfz2fAQ0z5yshGwgAbBGZ1MKiS8g93sZu2Dv4FplhhTGC1NZalg9+AI9v
-	 vsTt30yVqjEMa2lq3SpiXQdTJekpIm0h7km41fx0e9l0qyXrX0EBgqWauZo96Kz7AT
-	 IePR7KoSSe0NvcroYKqmLoBWQOU1GzV106d5Ow/JCiP65uEQ0Xo4cY6ypgjMPEQ4a5
-	 K5Ed1wH8zn5ig==
-From: netdev-bot+sinfo@kernel.org
-To: Bobby Eshleman <bobbyeshleman@meta.com>
-Cc: Stefano Garzarella <sgarzare@redhat.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
- Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>,
- virtualization@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>,
- Michal Luczaj <mhal@rbox.co>
-Subject: Re: [PATCH net] vsock: only undo SS_CONNECTING when connect() fails
-Date: Tue, 17 Nov 2026 02:02:49 +0000
-Message-ID: <179488096997.3291.4060234902207167832@kernel.org>
-In-Reply-To: <20261116-vsock-connect-close-v1-1-43fb125973dd@meta.com>
-References: <20261116-vsock-connect-close-v1-1-43fb125973dd@meta.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=kqdqUChk
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=cOL8N2teNxogAj2QZ3s9w+sDWkha0NfM6W36/zyXk8k=; b=kqdqUChkOKuA4n8Jn8fkv5ngVF
+	mlN4pD/nCoYKAPxp2c3eBr+74fqWyH6/acvEhkkVxork8/V6E3V/VU5nN3BRWG2Z1Lu9M+/Qd09pb
+	SriGbrgOAJOJTYTTklVo1LeOcEUplqkpk5EDYSt+XRO+817rx7jJwDhCYID+rZch4hEU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xT8XR-00H39E-Qa; Tue, 17 Nov 2026 03:03:13 +0100
+Date: Tue, 17 Nov 2026 03:03:13 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Paul Louvel <paul.louvel@bootlin.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Herve Codina <herve.codina@bootlin.com>
+Subject: Re: [PATCH net-next v2 2/4] net: phy: marvell: de-duplicate mode
+ initialization code
+Message-ID: <5e93bbae-2ffd-4f0d-b22e-3cc93570c4d6@lunn.ch>
+References: <20261116-marvell-phy-rgmii-v2-0-e04dca67e89a@bootlin.com>
+ <20261116-marvell-phy-rgmii-v2-2-e04dca67e89a@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,22 +71,19 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116-marvell-phy-rgmii-v2-2-e04dca67e89a@bootlin.com>
 
-Hi!
+On Mon, Nov 16, 2026 at 04:27:02PM +0100, Paul Louvel wrote:
+> The code that initializes the m88e151x PHYs to use the SGMII-to-Copper
+> interface is duplicated, and does not restore the old page in case of an
+> error.
+> 
+> Instead, use m88e1510_config_mode().
+> 
+> Signed-off-by: Paul Louvel (Schneider Electric) <paul.louvel@bootlin.com>
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+    Andrew
