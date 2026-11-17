@@ -1,111 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.156.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794904595;
-	b=EJfd4nwXwt2fC3YN+/E/hbLmwXzD/sV8at9HqFvn2lHrRSSDG0QGKVYXk69T10ok0y4P
-	 SGjl9RjaKr1Mo6vHgJu7IdzSj8PZUuhi37qOC63qds70Q7IHnO83e3lfdSoIFlUpP3uW/
-	 iE7H7M6djjRI7QyFwfgGdfLxJFnf/JWS87uTxjzDZsADYOVFaMUolLjOWJh6YGhrC3OKM
-	 y8GmFvZY3wt89L5IvmZEo3GP/wkDX3F5MulPXnF/Qjk46xM7Qh8M1/fXieHJOd63YPT/p
-	 +MSlYBUFBPVzIQ0GI9Eycv5eWehPw+igp3nJOdXzVNHNYrtTsaY4QcuqGWQaGqM19ZQ==
+	t=1794904667;
+	b=ro+VDGx2V4FYZw2l/5xM/ILPGc4BRDPo4bHHVurD+l1fuQsgP+B1f2skVpVjA4mSUxMe
+	 RY2M1opz681L+nC6v2UUsABIh7oeh0XPlP/7K3alkhCMcebHfN41SRdt0fSk02ubIK2m+
+	 fLuLbyqx1nJ/gJdIz4UHDQjHQVlDSIAAcIjG/XSilO2ydaHhCytKLYNdUWdSlmXUsDw5X
+	 g0qYkLVMAOE8JK/4FC9r3mJIk2fs9nQC3FxilgKaBToqSya1NA/TIwk0+2P3Ce0OMti1b
+	 nW5dj5hLTOs9FQLZGLovjz/UoYUoS91UBpHxDUHFlQgIMbex2Y2DwMQ+rPTGzcJCWFQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794904595;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=u/hxpfxH2Ygjpkkpn+gEQ4NFMpeA+YPAHTw9d0qdSc4=;
-	b=sOT1yCLoXQrlJgtdIpimvTODb5Bsuq/DryfFEZ+88pkcLhuHFvCQEcTPZH81N1sz0FA/
-	 JZ3cwXBvBGG01Ibi1C0JGzNcN2/jwTBTh0ReR87qREYzio5VVK82PXRQGnIC3ZKUwQFBT
-	 otIarbYNb+21BA/wGU3f4m8ERnolkwlvJHx92gTG8jFpgxpgMP44BX22+tBm9vK4RwVam
-	 kOQC2wFKv1tiHkGzDUOaPu01IhsKjX1MMuPtUTzoVG6u12l7MigwIVXQ3WnUwFH7X/U4y
-	 QO2Y5xGedUAQvxVLj47Hp+haGnG44dv+8Z5lhpgD4Xb/UR6ZYd8zTBhmXiXdMfbURwA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794904667;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Date:From:To:CC:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
+	bh=0NyQ3KOq2IPC0mUMVnsSxP/V4cdHHSPZ09DQRrw1hbA=;
+	b=VIn0BDjEi5PS0XB7Rb8qUW+X97fXU1oZnwP/FbAI1Z/bH37d12XMlcZ3GX1TqdZIpsQO
+	 N8Ec9uRdCZarRWx0hz4a+yDz7qGpaQV9xVblS+K8E6cdfdODCLSvLXW93uUMaoXzUSf6M
+	 vkNJR/eYGPUq40heXu71OK4GnR6leLEez+9bvk7A73KO8LwaGBmuJ9HTt5LkLqb6ShTVE
+	 Oc95ujq1jTZILbygJQgHT7x1znyHoY8qhx71kwGmLw5WXYdSHayB/UPrE5ZE1uHWomJWX
+	 /zqW6dgnSqnYKigSH2rbG/STFID+RG5QUB25f/gSIqzvJ9zYA9t4aEv9GAsOpmiHgUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amutable.com;
-	spf=pass smtp.mailfrom=amutable.com;
-	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=VB84C1sh;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=marvell.com;
+	spf=pass smtp.mailfrom=marvell.com;
+	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b="SGLwG/ed";
+	arc=none smtp.remote-ip=67.231.156.173
+Received: from mx0b-0016f401.pphosted.com (mx0b-0016f401.pphosted.com [67.231.156.173])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D070A606A8A0
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:36:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D070A606A8A0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67C12606A896;
+	Tue, 17 Nov 2026 08:37:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67C12606A896
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=VB84C1sh
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a2000d5fb1so21992425e9.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:36:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794904592; x=1795509392; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=u/hxpfxH2Ygjpkkpn+gEQ4NFMpeA+YPAHTw9d0qdSc4=;
-        b=VB84C1shjSG034pSk2oK3egXlQwWjuu3VjrdbAKPawk/Twv4Yif6yhPlbROFWtMgPQ
-         3tz2NQZOgPBk3fq0QRZC/paJXFCSb8aJt/mhh+A0iXMTZvR4a2C4xo37cxqDT+bS5wyK
-         cFfqQ64HX4H+WtOYlqmaNWk53bLD4rVzH3Dam/22N7EldMgTIeT60YiznWNjIzN+eEJD
-         Zc6kl9xoD3REW2KAU35dfm9/7zuNgWUL6hteTTxoqyJmYKiacM/NYuvwNSKHsMwzezat
-         1L4qftGlpMPZouPAaee8sA2dATEpRVvU+RzrgkUS2mvSj/+KFRi5Npjbd19v9tUdsF88
-         Zbrw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794904592; x=1795509392;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=u/hxpfxH2Ygjpkkpn+gEQ4NFMpeA+YPAHTw9d0qdSc4=;
-        b=VC3BHBopxrHPsX9AckbpVRfxWvzs+qM2Wy25ibWVzost2p8T1U/CnX/cCO2UuzrSUg
-         4Z/BfYJvOLsg/zRKAjR+jT6sd0by9WdXiS9wh1yWuOGpsN8i36jt45iRmxuNPzeRS4EG
-         JzQq8+ylIZBbjNbCXAtftkDoz7r6GPuVVFMLD/5Rqws3Vg721EGguCVmvLHYXRWO8zkJ
-         i9DtKCcxHvcWL1quIiSvjN9KvbKRajKmBgpuKr3ikKkAPQ0ONXyReCHDnnI4M7JQQEwt
-         vq3zCHRVVZm15+BsIz8r3CZqGQ2fwVg1Q7xMji4qDYgTIZZU6JymNrVzFocR2GEBrQcn
-         z9pw==
-X-Forwarded-Encrypted: i=1; AL+hErE9kAerSjiaugsxUpoS4/715cWB3K2e6NWZtEAuIS1cVNI1XkcwUkWJRocLKbOZZDkBe4TKltY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9mpx/PlYPWGEIHexFLn5Jpbmh4tjML9gLG97N0RCoSUGHz9gTO
-	ofbsVnQ8R8OI14Fwk/nWL5dvpdJ+z7YjJuSO/8RrY0iBi1DlCQIDu34tgBCa/oYEyuXD
-X-Gm-Gg: AYBFou2mlAc+LmfTZHVFXFc8oh1zdLliLtA8Hg9z2aVf7MkHO5WXM94c27e3bNyyXIZ
-	dp6CnvNpkIK9fu8E9SkyryU0htYNF0HQU1F4lq/cL2gIWFY5nkYHN9xs/Iv3h5yhvC/BY/3Lppp
-	oTXHbrUCIc0j4kv/pF8YU5+jZrWS9+vP8Y8ZdOB8Keho717K1KPqPD/gvLyrR7KRW3hIWg8JluD
-	y4cj4OtfUtGrfZmE2q4LWuxidzMw0MexkL6Sv+R4yiUVynHReSk7NM2Zk+X10W4+kBfDp0oe3pN
-	vusZdgwYrpPi1/QWjkGzjmg/1jx9062nWlzYj4t7pql9Df2vYjFDifv/LMMBO2oszolJnB4Yahf
-	BOv0v2TGQSWuQmZ7Mvda27DI0LzyIEAQyWInIG0+OZTlNfuFooX4nyUItzfIMGnFcJiIw6sOaHv
-	T6YGoV42prZZ5MowUYU/BvONaL0Fok20cNv12+MugnajMg085s4nxZV013tsjsDfJTHWKbahjbE
-	f9DzaMTz+xjju6XWr8p76DLwWTiZHlmO2pq/eOgI0+D/mC5vGxwOw/Vov3y9qxCxe27GplHK+Fu
-	LKLk396wPAv8kthUMAZY8OG5mdkPaDFt+CQLZeXkONM7EsVR9LaR0pgk5s/elSSuH5WXK54JG1Y
-	Jb1+1wvMlzHkuGacE3hMZpZ50BvDOHDJbQxGAFm7oVEpd76QOpk13RIUo
-X-Received: by 2002:a05:600c:1f90:b0:4a7:76fa:87e9 with SMTP id 5b1f17b1804b1-4bb55ab281bmr266345525e9.21.1794904592167;
-        Tue, 17 Nov 2026 00:36:32 -0800 (PST)
-Received: from ?IPv6:2003:cf:572c:2800:de4c:6789:33ce:97c2? (p200300cf572c2800de4c678933ce97c2.dip0.t-ipconnect.de. [2003:cf:572c:2800:de4c:6789:33ce:97c2])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78430752sm52548565e9.12.2026.11.17.00.36.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 00:36:31 -0800 (PST)
-Message-ID: <411502f9a4f940c223b2b88d7e19fafdce63172e.camel@amutable.com>
-Subject: Re: [PATCH RFC v3 29/44] s390/hypfs: use fc_init_pseudo()
-From: Alexander Mikhalitsyn <alex@amutable.com>
-To: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org
-Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef
- Bacik	 <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
-	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
- Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org,
- target-devel@vger.kernel.org, 	driver-core@lists.linux.dev,
- linux-mm@kvack.org, bpf@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
-	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org,
- netdev@vger.kernel.org, 	fuse-devel@lists.linux.dev,
- linux-efi@vger.kernel.org, 	xen-devel@lists.xenproject.org,
- ocfs2-devel@lists.linux.dev, 	linux-s390@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, 	linux-usb@vger.kernel.org, Amir Goldstein
- <amir73il@gmail.com>, 	linux-erofs@lists.ozlabs.org,
- linux-kselftest@vger.kernel.org
-Date: Tue, 17 Nov 2026 09:36:30 +0100
-In-Reply-To: <20261116-work-loop-pseudo-v3-29-8cbbea1cf34f@kernel.org>
-References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
-	 <20261116-work-loop-pseudo-v3-29-8cbbea1cf34f@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+	dkim=pass (2048-bit key, unprotected) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=SGLwG/ed
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AH2cfUl379231;
+	Tue, 17 Nov 2026 00:37:23 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=0NyQ3KOq2IPC0mUMVnsSxP/V4
+	cdHHSPZ09DQRrw1hbA=; b=SGLwG/ed2nRy0FHgJD9B3d0RPtj5u2eGBKEP1ayhG
+	XCYKKUJv+LvL10FmXkLM77lTRGj43u90FMuhBHGRHJ8UC7jrhLBGxOlPVaQC8Bsz
+	EzjNOwewTR28BVUTPXHOgVF0PW3r5giFBmh775izlWNwQcK8A9ikp3l89hVZfASH
+	xGBTjGz7itK9wuId6CUy0D9LOmMkQZYAiDBsEiS/dM3orPCMlG3XVMuSb4tX0Lnf
+	aKHNWAiWegCf2TNyLvC8SzpMRF+U3I4obVGRQw9YVvdJT0hgSSVsnuTjZ9/gpk+7
+	qEeSiSF83Yh72XaAnb8lPnylaVsdSxtGJ0ZVl4jkf1QnQ==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4hxr1k9nyj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Tue, 17 Nov 2026 00:37:23 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Tue, 17 Nov 2026 00:37:11 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Tue, 17 Nov 2026 00:37:11 -0800
+Received: from rkannoth-OptiPlex-7090 (unknown [10.28.36.165])
+	by maili.marvell.com (Postfix) with SMTP id CC03F3F7072;
+	Tue, 17 Nov 2026 00:37:17 -0800 (PST)
+Date: Tue, 17 Nov 2026 14:07:16 +0530
+From: Ratheesh Kannoth <rkannoth@marvell.com>
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+CC: Sunil Goutham <sgoutham@marvell.com>,
+        Geetha sowjanya
+	<gakula@marvell.com>,
+        Subbaraya Sundeep <sbhatta@marvell.com>,
+        Bharat Bhushan
+	<bbhushan2@marvell.com>,
+        Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S.
+ Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>,
+        "Jakub
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net] octeontx2-pf: Fix potential use-after-free in
+ representor teardown
+Message-ID: <avwSPI9boSsUEtCr@rkannoth-OptiPlex-7090>
+References: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,38 +90,62 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
+X-Proofpoint-GUID: phVpIgttI2A_VWfw3tIMwlMORsTXlcz1
+X-Proofpoint-ORIG-GUID: phVpIgttI2A_VWfw3tIMwlMORsTXlcz1
+X-Authority-Analysis: v=2.4 cv=DKAacCNb c=1 sm=1 tr=0 ts=6afc1243 cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=l0iWHRpgs5sLHlkKQ1IR:22 a=QXcCYyLzdtTjyudCfB6f:22 a=M5GUcnROAAAA:8
+ a=XehZxDDCrJQRP7pbnkQA:9 a=CjuIK1q_8ugA:10 a=OBjm3rFKGHvpk9ecZwUJ:22
+ a=wU6CqTgRoXS9cGK_lSIY:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDAzMyBTYWx0ZWRfX0lGNNn8yVGFQ
+ wTJ2od9g8YJsmBhFbKBD5aYVjuQ5jlt1GpqoSfAh+SrDt2YD+0s8T+PeTXGNL6rp7De7KaSre9a
+ DLgNBGNmoFgjgD1dE6zj1Nfx2Xjs+jk=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDAzMyBTYWx0ZWRfX5XLTLHPuPOre
+ UJCy80eBzuEq0SLtowTFBGBSh9Bt1/0SG0UUujixc9e3M9JIT4v4957Uw1sr0BxUqTyPOkMsSU/
+ fYLfCJreIyr2KYGxwqywqyZ/meTPcK5oEy3PJ1oN58C2l4fkXiVjzyRsm+z3CLC/oKweE+kU0Lh
+ 6IDu9rWWikVRzfonis0BW+mtq4r15AdDjsVW38Y2OG51dJ8+0x/DT6VtJoHKgON/5TMx4K+Iqzy
+ UJJh3FsPl5gPItwA3MMcSHkOm5UQNB65NU2Gd/T2iotRpw48tPArm3BvM+hhjI13Bm25zLhRtFI
+ OcJZaSgVQW0w1d6PJr5MKkhs2yanLbS750OU81njbehGpDF9mCeSbRj8HwFNd1EH6axLSSqdRWJ
+ ZamFkHnvoOm2xuxs66xCAEf3KJpGA7aFMFczRnfYJdi+/fNlIwS+KLPe2SvT/zX83TrSjiMGjYH
+ TAeLiVfNvP0/rQGglNw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_01,2026-11-16_01,2025-10-01_01
 
-On Mon, 2026-11-16 at 12:05 +0100, Christian Brauner wrote:
-> Initialize hypfs as a pseudo filesystem. This raises SB_I_PSEUDO and
-> also SB_I_NOEXEC and SB_I_NODEV. hypfs never holds executables or
-> device nodes.
->=20
-
-Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
-
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+On 2026-11-16 at 19:42:10, Guangshuo Li (liguangshuo@mail.sdu.edu.cn) wrote:
+> The representor private data resides in its netdev allocation.
+> rvu_rep_destroy() frees that allocation before reading rep->flow_cfg to
+> release the flow configuration.
+>
+> Release the configuration while the representor is still alive.
+>
+> This issue was found by our static analysis tool under development.
+>
+> Fixes: 6c40ca957fe5 ("octeontx2-pf: Adds TC offload support")
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
 > ---
-> =C2=A0arch/s390/hypfs/inode.c | 2 ++
-> =C2=A01 file changed, 2 insertions(+)
->=20
-> diff --git a/arch/s390/hypfs/inode.c b/arch/s390/hypfs/inode.c
-> index 559b011e68800..8662169de477a 100644
-> --- a/arch/s390/hypfs/inode.c
-> +++ b/arch/s390/hypfs/inode.c
-> @@ -12,6 +12,7 @@
-> =C2=A0#include <linux/errno.h>
-> =C2=A0#include <linux/fs.h>
-> =C2=A0#include <linux/fs_context.h>
-> +#include <linux/pseudo_fs.h>
-> =C2=A0#include <linux/fs_parser.h>
-> =C2=A0#include <linux/namei.h>
-> =C2=A0#include <linux/vfs.h>
-> @@ -301,6 +302,7 @@ static int hypfs_init_fs_context(struct
-> fs_context *fc)
-> =C2=A0	sbi->gid =3D current_gid();
-> =C2=A0
-> =C2=A0	fc->s_fs_info =3D sbi;
-> +	fc_init_pseudo(fc);
-> =C2=A0	fc->ops =3D &hypfs_context_ops;
-> =C2=A0	return 0;
-> =C2=A0}
+>  drivers/net/ethernet/marvell/octeontx2/nic/rep.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
+> index 0f5d5642d3f7..662da7fc3953 100644
+> --- a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
+> +++ b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
+> @@ -638,8 +638,8 @@ void rvu_rep_destroy(struct otx2_nic *priv)
+>  		rep = priv->reps[rep_id];
+>  		unregister_netdev(rep->netdev);
+>  		rvu_rep_devlink_port_unregister(rep);
+> -		free_netdev(rep->netdev);
+>  		kfree(rep->flow_cfg);
+> +		free_netdev(rep->netdev);
+>  	}
+>  	kfree(priv->reps);
+>  	rvu_rep_rsrc_free(priv);
+>
+> base-commit: 2e54b3e187300893688c2c7517894f5d96732e05
+
+Reviewed-by: Ratheesh Kannoth <rkannoth@marvell.com>
