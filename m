@@ -1,67 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794885678;
-	b=aNgSlTX/JqpWpUlaLNcgmt0obctjyCeKd/SDEgZTTM+du6CNPJ9Z1VOl6X7Be5LNkGOs
-	 oeOZLWUM6FA9itwCBcriVLlAMP5SxhJL6IlgVemwv71HkcLdDnOJKEpPzRgP0NhAb9i/2
-	 V4EZuKNftlOwzLiKGfdwagrpNCQDsmU3mFdFjhi9zG6wuBGgYSrj0AaEEeS7UaVPqg5vK
-	 VRSoerjSDOE4HcyUNzd7xeS2etWv0m28n04tVRRRw4MzOJKhyAY3L/N9oUFefWHZwUzdy
-	 qJSYq4GEOetwbByN1ZPZrbY5doUzn1CCAu7ilO/FjaMQi9iIg4qmYz9LAHUISrOu3Cg==
+	t=1794886208;
+	b=kJFst+KHTBJSnR8OQunQdjmCH2ToWxL0fXKAcpwuHos3vg3BKg3yq0Y69axeVbf8nEW0
+	 ObkR/bEWETT4IeRL8C3nO7PEjDNPDf7VdLco8Jj8CBPaxgJFsDND+MOdak2viOX87pPaT
+	 iZ9zGOQ8weRzdwtQONVxqRY8hEU+mYY5wdm+BS0gbNq5B6lb4NzpvKNg3/M1bR0a7X0Fk
+	 SAvasemQ/s2GmH4ibMxkZJ9MP1EK0qeYwzXjAkUN04Nxw40F9gl+To10v6pripU51oKi0
+	 OFkTVgZiXtPiq4cr7fMDjDsKbDBgAIyn+XgPFISlCeXUHwwALbCBwMk8W0MjNP6kSAw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794885678;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=rO26LW+ufdiXNmfrDtL+Xv5fKcgTaRK83GRfrt2E/Vw=;
-	b=akJmGlT0KD2bWzAnVjxvr0XDROqRGWx0LCRlwuAnko03HBWeL/S84TP0dyvqXtDdD4Jc
-	 A0ohzb6lUS4Q+2A+3P1ye39eJYj3eWrfCRc+WBP010pYc6CXa3R8T4nwb2TMfQfXt8Zps
-	 9IESLuqlcWGdMEmplpm7dF7RueYxlm12khNdH2H1KdiQDaCSko/tdiiElXywyUkIH9jbg
-	 SiIA8I7UFBYPMcBYZlXfiIzjIBeRIEvT/Jq42k/a+RiU06pyUjwMVy6KB+By5eG/vBkgt
-	 5zDGPgmyWmC/uE6sNM5+a53z2DuFZJVRuO+sOoVkPuQnC/dCFNiczx7G2mwhg/wAkZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794886208;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=uzR312HhxhGcrzDa3qFLv00Y0iLQQbIGumfslx46dMo=;
+	b=HcQtWcn+jrAF+a39EsXWUaH/RkgI6y+cClYuGwD7SbqNkxcuhJD77ftrOzaFvIhH7k86
+	 9OYU/PPE4Fp72eTdWcsGl38S8DK4Tpc5MbWh3/oyJwSdpkkZked0KAzT7UmBppqTmzhIC
+	 /4266FRKr35BrWNNCnlH2mWyCDzI8tvLGD6uAnBNeJPXDgdKn1QERdZOEoy5hRD1x/+LT
+	 y0ArEQITYKCEB8Prj4odfSw2pAQflD7+UgnpZmH2AnWkS6b4QW8uyHXZYymJ5E5bbDm3Z
+	 cHoDv9ZBaiE4LZNC6lZGkaKKGsI77LYKpWb8dl3yqvpt7bIiwl9yX9yOlNBPPehzLoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=UGwvRHmK;
-	arc=none smtp.remote-ip=91.218.175.197
-Received: from mta0.migadu.com (out-197.mta0.migadu.com [91.218.175.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fUsw2Fuh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08319606A32F
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:21:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08319606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CC4360A261F
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:30:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=UGwvRHmK
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=3sZFLvYNczt9kFxoXbCec30m+jYY7F6kMPfr1HfDafo=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794885676; v=1; x=1795490476;
- b=UGwvRHmKFgPqCIrW1+IOf7HaDew49N+BVhQHMXrArjtb7CePxOIgyfRr6iVGUeOOULHQ4piI
- ay0Igm9R9SJ/sMWj8R6rFji9eK64zxB/eI6HZ361zH2UHYSXHKlgUmpnxuMN3iAn3cYjFv6AGlA
- dDiCvcqXPqqcni1qXUUU6KWo=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id e1714dd81b71a4ba;
-	Tue, 17 Nov 2026 03:21:15 +0000
-X-Mizu-Trace-ID: e1714dd81b71a4ba
-X-Migadu-Flow: FLOW_OUT
-Date: Tue, 17 Nov 2026 11:20:59 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev-bot+sashiko@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
-	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, donald.hunter@gmail.com, wessel@jacobi.pw,
-	rdunlap@infradead.org, linux-doc@vger.kernel.org,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	liuhangbin@kylinos.cn
-Subject: Re: [PATCH net-next] netlink: specs: rt-route: move fixed-header to
- operations list
-Message-ID: <avvIG9wTs3KQkL3H@fedora>
-References: <20261112-ynl_fixed_header-v1-1-8475ea19e409@kylinos.cn>
- <179460807877.2199510.9635428422960175112@kernel.org>
- <20261116183921.50286c0f@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fUsw2Fuh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE9AA1F000C8;
+	Tue, 17 Nov 2026 03:30:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794886207;
+	bh=uzR312HhxhGcrzDa3qFLv00Y0iLQQbIGumfslx46dMo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=fUsw2Fuhkx7h0pfy0HN1OHBDcGg6F0RJwNPewEoBgsKktQU03tn57MSFXm+iuBlBQ
+	 mBdogFa9gL1lPvN1sh8UMQ7GtWQ2c4L5tHYLKsbS+oWmaqg+oGT8CeZE76kt5a5LZk
+	 tkGQfT4cYjq4J/MdhgSLnopAgV4Fqq+xE7Px2CTxV/Pdxd3VIfIwj1m/kNiTVxD62k
+	 TUTrIJIJ/RPdQDgziXRe1T11N81iCaC80Jh87a+uXQUVIH7049gMpX8HzZMLqym7kV
+	 s16DznwNCtFzHq6nc5KM5NZWYjOBzjvvybiqix1hYtANgJ56nH48Rg1nGwKlBVJ9Yb
+	 sVaWfF5vf7Mkg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4420391B0A1;
+	Tue, 17 Nov 2026 03:30:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,19 +53,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261116183921.50286c0f@kernel.org>
+Subject: Re: [PATCH net-next] selftests: xsk: drop asm/barrier.h to fix the
+ riscv
+ build
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179488620653.319349.13312639361322418521.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 03:30:06 +0000
+References: <20261116105159.1050557-1-maciej.fijalkowski@intel.com>
+In-Reply-To: <20261116105159.1050557-1-maciej.fijalkowski@intel.com>
+To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+Cc: netdev@vger.kernel.org, magnus.karlsson@intel.com, stfomichev@gmail.com,
+ kuba@kernel.org, pabeni@redhat.com, tushar.vyavahare@intel.com,
+ kerneljasonxing@gmail.com, bjorn@kernel.org, maxime.chevallier@bootlin.com
 
-Hi Jakub,
-On Mon, Nov 16, 2026 at 06:39:21PM -0800, Jakub Kicinski wrote:
-> On Fri, 13 Nov 2026 22:14:38 +0000 netdev-bot+sashiko@kernel.org wrote:
-> > [Severity: High]
-> > Should this be fixed in the doc generator rather than in the spec?
+Hello:
+
+This patch was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Mon, 16 Nov 2026 11:51:59 +0100 you wrote:
+> xsk.c includes <asm/barrier.h>, a leftover from libbpf's AF_XDP code;
+> nothing in it uses a barrier, the ring helpers in xsk.h use C11
+> atomics. On riscv, the tools asm/barrier.h includes <asm/fence.h> from
+> tools/arch/riscv/include. selftests/bpf had that directory on the
+> include path but selftests/net does not, so since the move both
+> xskxceiver and xdp_hw_metadata fail to build on riscv:
 > 
-> 👏️ good AI. I was about to ask this...
+> [...]
 
-Thanks for the reply, I just posted the new update.
+Here is the summary with links:
+  - [net-next] selftests: xsk: drop asm/barrier.h to fix the riscv build
+    https://git.kernel.org/netdev/net-next/c/6ff4c5942a30
 
-Hangbin
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
