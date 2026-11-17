@@ -1,111 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794952468;
-	b=QoQIKkExIjOfFcRitJ9hEM/mx8kLohJIPAozKKtMTq0YQBxTcVHFQxMiXXWDIgA4nm3b
-	 2miW7BI1XbXW2TZF0ejs4hzeBP5LHPwcKAubuvPVozEIX8QXhnsZ+GL/69suXif04dbgj
-	 gbaYAHvJAHCX3T6hPaouid7lnED+X878+Hp/KJAq9zZdabFen0cm2Rovz1ncnWTQbXE1u
-	 4dzQj9tO5oVxO3wHUUbjiYc+78XN7iZ8AAGFmVPtWO96FAu7FThdu5gKf3P2jlUfoMCdW
-	 VKmv5wiHL+wAEBXWe3fRDkDOg2+V0AKLd50Il59KMeSpVf1UJii7FYKSelX2E5M7Ipg==
+	t=1794952497;
+	b=RwWvGY9mJOxsjELDszv0oGazSb1MyEeSk3RtOkfwGWPJ30hz8nLAqNAYEqK+9vU/dssC
+	 cm9TLhwvYF0vBr5Xq1/jFWKvJuCyOUbi7NDQd8KsTRoBPBk78jaJbRdVOefHd0YQsTl4j
+	 zopaaGBbLwAVNO1hNdDnLIFBJs6DeeXFrA9H/C5GCGNm35q5tb6OpRHxkikgJkTxtgkqL
+	 82m5OmVV4/HFqSMWaEKkN03PXc3SqDWsgm+SXeY0QQ3YNtXmsqiQOy+bjK9TT7kygUl3A
+	 hLVvkpCZBhGyRDGzLXOuXJn6eFVrBOjMzxGOKHFN7JIE3C+svUky53Yll0cu7igMiWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794952468;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794952497;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=RDV1bx3ja+YvNrLezba1SlDO8efyEXdMeRFf74ipHOo=;
-	b=sOGJfGT27X6qwwVJEGaLInPFMjKM9QY5tAQ8re82Pwvrgu/U5bXbviumc7D9GDRzkqhU
-	 YjYk5Q66LEibit0ARhbI9u9UxBDivzjaSFNVJAJPNn05QsKjEpFd1piM3UAQCZetyOo9g
-	 2JZti4o2qiYilEJD1gyVgepAzHWZ8Ac3dDw2O3wfDkwm+ZHr0a/lcuwZhAg5mzbRElEiD
-	 PBZWhnl1Wd6POlzYW6A5WSbWU7/Sa/EM++Bce+f5h4fXIYGfdnCsXoWFB69MuOPhBxLn3
-	 2quftsZUzeRGcmEbVqK2y/ySHmqwt4qhiI+vr/G7m4biexWHOPF0EUkera4MpxWMKBg==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=RcRX8bqRjaSVetvCkAy5m45ZgWHcmvyLy0Z8oTre43A=;
+	b=J0j7QFVbNNYRpwLzy58qOLNNGUvhcWDPFU82S6N5ZIIrMsUuIQP8I7H2FgkelPwcHveQ
+	 9L0Y8lvyqY01ZeC8IHFZ1qz4VG+FsYt0G9KELD88oF98N18Yy8W36oHZpFtUoK94z1ezG
+	 NkJPTFuCw2kmOTbPyFgSpvAZN1S3J2XlZNHSS5ZVb5aWsLRma0ewgSkE3Q3tOB7OOvh7E
+	 MgEroCjNlnjW3OsuTYvqhEPqiMUaow9dE39qOcC+GLytfnYULmGt8icYXrVvyGOsDY+Gy
+	 d0pON6dGZiqwWwgbgTnQVGWc+jjtKM1LhHfnCjZ8EVCruQBFCryKaqqUptdt1n52KuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=axpocuFl;
-	arc=none smtp.remote-ip=209.85.215.182
-Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RkTZML68;
+	arc=none smtp.remote-ip=74.125.82.170
+Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 163FE606A336
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 21:54:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 163FE606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8BAD606A339
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 21:54:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8BAD606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=axpocuFl
-Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-ccca948203aso207693a12.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:54:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RkTZML68
+Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-36dbde64409so703256eec.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:54:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794952467; x=1795557267; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RDV1bx3ja+YvNrLezba1SlDO8efyEXdMeRFf74ipHOo=;
-        b=axpocuFl80FvAB6K0rZxxboDLtcNggcPKNN2UKlsVtFpwW/YpEM8wRJS7iMsxv0ACR
-         Yi0bS/ixM2TrOygocp/SAafyE0mM4l+8EY3rVIQyYo6Nro1zs8+2Vy0/7XK6kWI7PtFy
-         r5yXn1ugRgzHH40jFnzDVPt4puK3Ywa2mZR78n9m8q2SxXbN0XFAK6Z6sdX9WUSb4i5x
-         JqXDA4qc62SY+flHQtqb95ZbhWe5R00nawnX6JgDwa8Bx9IfO3FhHT0VNsBwcqgnGZAm
-         zo3MV0RBsD45xyWQZMMW57Hnphg7zudRqxg550FBQKIksQZNaHx98S+PodV/xuAa4yhm
-         Yq0A==
+        d=gmail.com; s=20260707; t=1794952496; x=1795557296; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=RcRX8bqRjaSVetvCkAy5m45ZgWHcmvyLy0Z8oTre43A=;
+        b=RkTZML68vRcewlJnOF1Bz0/MYkCN4dcXe7c6CjYSHnll1rUQ2Yiawq2Wm2VFWTzAv/
+         27Z91WaUKSVq3QbS/1vY2moZiNNvjjYHzqXRhRnfVd6YbB4QIcrA9WKNsaSDHY/+bbGc
+         RG/aBioiJhnhk+Oqlcom37qVFyAK87dY6Z5yVN/+gALhO5zdqlaD1bdJouPEBVs1Nhsa
+         faR/3v4xkScoJFv4J0lQf+tINYZqXb2SVxqKscCv4PYX9c7SaQuHWoXzDhh2V+RonaVP
+         +nWkNtlJJsyloPj3LwERsrQqIJmn3B6AUiHzFrZun34SphyGz5ngikgXVv+aWA1UlNXq
+         qqcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794952467; x=1795557267;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RDV1bx3ja+YvNrLezba1SlDO8efyEXdMeRFf74ipHOo=;
-        b=BfgjeHGLPrut5d2T24yCNYJ8Xc4693bx7SI+WIe5CfJP7LAlQRgYUUWSNVQKhJVlyZ
-         luzfrzYm9/Vm9LRTjta3TvYOK6i3tMkzw9Z8i9vc7/qN7IlnvCGY1Za4I7Dxw6Yrzdex
-         XrEJogpb+kKu3e932het5X6s5a2E6qfFkdcY0Rg6DsT8N7tMomCph5pWhmgKtL03I8WL
-         n+qGqZoJ88Rl3b5KKP5K80AG7CXsfmDv82PAYHzUgGSlkhYSJxuryhLdSaZIe2W7gPCZ
-         zGid8H4cW1W1dZ7QujyxQF0BcgnnpERZW/549Z8Q3nqwX308rMT4BAHkOGemccusf3Jb
-         5c+Q==
-X-Forwarded-Encrypted: i=1; AL+hErGM0JPafPL7+4pf8eQAQEMKWw4JuUU98P41tMD6RAHOqR8VcbuaWDFfv4bvZrep/BGXOJ/LG14=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2V8AzOu2zGzdz2LZoC0dDXso5nE2a/dPoEeEIqWyzMohBK1qb
-	49I48Y57hsKs1DSoU97dRql22S0b7ljo2VP8oXltrk1fE1IGhamzPg0+
-X-Gm-Gg: AZFdTZfclAP0NYQiGOH8YBc6TQjyU1iUMT4YbP3erKYzmjqWIPolix+SKquP4+VVZnG
-	lZraV8VY3xqiFgRVKe4Ptsqo5A1s7Hkec00cG9EyFQvk6m4mbirRTjWodFWbx3yj7v4eZQ83o4X
-	kcG51P3Xz3L4b8BkLoQaHLcsBKs1T8P0J/ceViS5UZe0Lm830X2Ge1fjThxKHJHZMoulesnRj3Y
-	L3GgqhvPPRrJUAE1x0jbz9BLC6NjRw5lsMktub4WrJHj5OgLmgVe2jO0z42e7Ttl2VxrQSNjfhQ
-	RsugSKZm4jO83F+qhkl+bpxOR1H2gvrISy6ZIKcSeU4cbIGkJPOhhb2+MWiOVuGJS8UNkUb03SR
-	ei8BzB61+XJ8TLypM62GCrad1PL9ZyxHKoH/ZKLL/d+oslBvyXwmoe/pbUiMGTHqgFQmIftep/S
-	0OQ+fVRWm7c6CS5OboUWS+9A6JAS5Dj8aEZPanMoNX/wLtrQkr1RI/nbstnqrdS/UFGdXAJQsrm
-	yoFc7xg9MUT4uHz1KB0thyoZ5pA5xg52E9QHgPE+dpEMrwr8paNQhvgn7QO/FJvqPB7PStjV+w7
-	cSrmTs+0Zw5T2+H09lXiUyhG24Ia7A44M1Q=
-X-Received: by 2002:a17:90a:d445:b0:3ac:8897:7bab with SMTP id 98e67ed59e1d1-3b3d0686792mr575601a91.6.1794952467348;
-        Tue, 17 Nov 2026 13:54:27 -0800 (PST)
-Received: from localhost ([2a03:2880:7ff:55::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acd118sm727075a91.12.2026.11.17.13.54.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 13:54:26 -0800 (PST)
-From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-To: "David S. Miller" <davem@davemloft.net>
-Cc: Alexander Duyck <alexanderduyck@fb.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	kernel-team@meta.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	Mohsin Bashir <hmohsin@meta.com>,
-	"Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Bobby Eshleman <bobbyeshleman@meta.com>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	Breno Leitao <leitao@debian.org>,
-	Simon Horman <horms@kernel.org>,
-	Mina Almasry <almasrymina@google.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Dimitri Daskalakis <daskald@meta.com>,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-Subject: [PATCH net v2 5/5] selftests: drv-net: stats: query timestamping stats while down
-Date: Tue, 17 Nov 2026 13:54:16 -0800
-Message-ID: <20261117215416.1901246-6-dimitri.daskalakis1@gmail.com>
-X-Mailer: git-send-email 2.52.1
-In-Reply-To: <20261117215416.1901246-1-dimitri.daskalakis1@gmail.com>
-References: <20261117215416.1901246-1-dimitri.daskalakis1@gmail.com>
+        d=1e100.net; s=20260707; t=1794952496; x=1795557296;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RcRX8bqRjaSVetvCkAy5m45ZgWHcmvyLy0Z8oTre43A=;
+        b=GEYm6dPnOEY7QX+wUEgUa5qWNk0NZTpE1NqUFozM160IU0Zod0ehzfanByE7P7zsUK
+         aPFfH7p7RzCmCLreBFEqgMt+2Ib+xVitXWE8L3ttVg3fqV5XUhJi4NCr3N+B3TftQ+yZ
+         yhIdLjTEB1WVGGW87tsRVOd+lhquJj3diCUNhO25NBKWdVOBb0ZYcouzG/q8M4Wo5iso
+         5hwgLFBoMBpaZeBjnRhktQK0QQeAqVsyMkbJuWhM/qTM7Z5W0j1Al6DVaQoHwOotWCNK
+         YXOF5QcN2hdCe4MhBh020850w3g01PQkvgP1XkKP1QbACdeH0pXjw2PxbaEfXvv7uX/R
+         GXtQ==
+X-Gm-Message-State: APuU4Z/F77Xyj9hHBYF7ou/byLpSSQk444x1xcUZvLObC93ABEt31qrC
+	oZOyHPJNR7Uu65UqU5uuw5DP3PkFD+bLw1j64FiEQFMxWptcUqftv7+RNnPbOw==
+X-Gm-Gg: AZFdTZflhNsRau3vucpkMmBeoQJPMud5WKjBuGvBDh8Hgj21zIb8EDyQ5rs6EuhLPr6
+	ZZQhWrAV1z6idYKkmXgBHcuqQ0/cc3zcpCIzZCpDp+T426kK6Gq+b5o4Rp6unkcvHMtIcbdsyLe
+	CwBVeISHjMFTp2GvOtPrZu9qgEWQNO1JOSth/9jFd26GAhisjta3pyJo+56BtW/opa824WOKprk
+	wkYAqpj2r6a2QVH6dNKEY0d1jIeeoV/bw/bLk4aVWMF1ZwtjTlohoZRE/6BvpULodGLjNXnotG4
+	UZaoyNcWT3i4mXGVspcKr3/NRNEp8oL/Ux1G5O4KPv3f4Y61ZFsi5M4A5UFl1hxyxdg5/zs0VZV
+	7FEA/n2PrUL31H2V6FzE+msf9U4eFeuTKbGxYc7FFrG4DQAahUVuPgBb2YgfMCxxqgXSZR9o2L+
+	sH7UELYyGmf9tuG8N0kPzXqkDkvZUHccBz+gnOo56NadHFCo4I3KG3s6yrqhE/pBp1B5hsTCuoh
+	os2EGfzR7mNtLQBQx/RLS/v4HwuURTu4Yv3Be6QCwVGCtDZ90PwDOneDJMP6Wt10mqd43Y7FEkP
+	znID+KR6OSFi9GShZfj2seoOTCkIDNn5tVMlSpln4K2sZQzRxyvSxG9qLAGURxfYlTSLIv9lFvn
+	5aQ==
+X-Received: by 2002:a05:7300:101:b0:375:388:a6d5 with SMTP id 5a478bee46e88-38281213cd5mr636277eec.32.1794952495726;
+        Tue, 17 Nov 2026 13:54:55 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a6304efbsm1423784eec.7.2026.11.17.13.54.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 13:54:55 -0800 (PST)
+Message-ID: <abd36a9b-5094-4b74-b24f-704405d3d362@gmail.com>
+Date: Tue, 17 Nov 2026 13:54:53 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,63 +91,50 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3 00/10] net: au1000: Bug fixes
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Jijie Shao <shaojijie@huawei.com>,
+ Simon Horman <horms@kernel.org>, Runyu Xiao <runyu.xiao@seu.edu.cn>,
+ David Yang <mmyangfl@gmail.com>, Herbert Valerio Riedel <hvr@gnu.org>,
+ Danny Kukawka <danny.kukawka@bisect.de>, Mugunthan V N
+ <mugunthanvnm@ti.com>,
+ Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+ linux-kernel@vger.kernel.org, Manuel Lauss <manuel.lauss@gmail.com>
+References: <20261117193223.2795612-1-f.fainelli@gmail.com>
+ <179494428616.3291.2255681676266334895@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <f.fainelli@gmail.com>
+In-Reply-To: <179494428616.3291.2255681676266334895@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-From: Dimitri Daskalakis <daskald@meta.com>
+On 11/17/26 11:38, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+> 
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+> 
+>   - Whether the issue was actually triggered, or is only theoretical
+>     (e.g. found by LLM and not proven at runtime). If it was triggered
+>     please include the symptoms, like the stack trace or kernel messages.
 
-Read timestamping statistics before and after ifdown, to catch drivers
-that crash while the interface is down. Counters must not go backwards
-across ifdown; the test does not send timestamped traffic, so a reset
-is only caught if the counters were already nonzero.
+The issue that was found during testing is that doing an interface 
+open/close/open would hang, every other issue was a result of code 
+inspection hunting for other bugs.
 
-Signed-off-by: Dimitri Daskalakis <daskald@meta.com>
----
- tools/testing/selftests/drivers/net/stats.py | 25 +++++++++++++++++++-
- 1 file changed, 24 insertions(+), 1 deletion(-)
+> 
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+> 
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
 
-diff --git a/tools/testing/selftests/drivers/net/stats.py b/tools/testing/selftests/drivers/net/stats.py
-index b08e4d48b15c..e61db30b5181 100755
---- a/tools/testing/selftests/drivers/net/stats.py
-+++ b/tools/testing/selftests/drivers/net/stats.py
-@@ -220,6 +220,28 @@ def check_down(cfg) -> None:
-     netfam.qstats_get({"ifindex": cfg.ifindex, "scope": "queue"}, dump=True)
- 
- 
-+@ksft_disruptive
-+def check_down_ts_stats(cfg) -> None:
-+    """Test timestamping stats are not impacted by ifdown"""
-+
-+    req = {"header": {"dev-index": cfg.ifindex, "flags": {"stats"}}}
-+    try:
-+        stats = ethnl.tsinfo_get(req).get("stats")
-+    except NlError as e:
-+        if e.error == errno.EOPNOTSUPP:
-+            raise KsftSkipEx("timestamping not supported by the device") from e
-+        raise
-+    if not stats:
-+        raise KsftSkipEx("timestamping stats not supported by the device")
-+
-+    ip(f"link set dev {cfg.dev['ifname']} down")
-+    defer(ip, f"link set dev {cfg.dev['ifname']} up")
-+
-+    stats2 = ethnl.tsinfo_get(req).get("stats", {})
-+    for k in stats:
-+        ksft_ge(stats2[k], stats[k], comment=f"{k} went backwards on device down")
-+
-+
- def __run_inf_loop(body):
-     body = body.strip()
-     if body[-1] != ';':
-@@ -311,7 +333,8 @@ def main() -> None:
- 
-     with NetDrvEnv(__file__, queue_count=100) as cfg:
-         ksft_run([check_pause, check_fec, check_fec_hist, pkt_byte_sum,
--		  qstat_by_ifindex, check_down, procfs_hammer,
-+		  qstat_by_ifindex, check_down, check_down_ts_stats,
-+		  procfs_hammer,
- 		  procfs_downup_hammer],
-                  args=(cfg, ))
-     ksft_exit()
+
 -- 
-2.52.1
-
+Florian
