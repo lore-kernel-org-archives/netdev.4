@@ -1,55 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.150
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794910832;
-	b=FjBAF5alnnC+VfG5Bym2R0HcLv5fRprwQ17hplvoR+mDtPqOwRY2F0+TIYBwwNodHMyx
-	 00o26v2E6KdWQAGg0rbClmNnkFQBXcdax63w/722cflPxa68FrIGNleGquF616Ain/cL7
-	 JXaB7A+tGwIT69K2o3dVt8jqKr1zffeL6y1/OWl4KbWMNRhxlnCLJ5Nw2POxVFJe2Ymej
-	 clGug5u2mUrSqcETYsO2s9izbJT1lpV7aaH6Luf4MG50Jcs0od+ljtDerYcfoLtTxot9i
-	 nrYSOxDTBlKdM75Et6yk+OhRuFS2bgQU7stFHV1YmT+WgAxMru+NagZiwo71WxZjCGQ==
+	t=1794910880;
+	b=UZas+/RU+GvXf3QqPZoJ8/TCJsuaHIuZ6Giv2Ul5oGN4ipZ6a1MRo3la26UH4NW3v+Xb
+	 9xITpf2o8Vj4VIWIzan7YoDCXY6NqABiQNNDD7SyNsFOxhf5kBBGWo1mOSK8FPCA5MO4g
+	 XgeX1yWemvqc2+9y/8SJLGa921CROeiOWM2dWuS1ml1f9KLMcDvi/BJJSutA4BYaKYWIC
+	 qjr3uMPzgjh5hZmtbUcNrCzRFTECuhEUqx5ndYCvNYPSYuPCBbG8holNiJiHr9mGauSfj
+	 5ZYAUrXJV8lnyePDJvRGHlIlh5Ehmwz34/3JfJ8jnlTUhWkOa53vtwhRNkbS3Pc6qqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794910832;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
-	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=nByc1UaEqYQlkeBG4PECRqhOC0veVzWVRqV6EubGq+0=;
-	b=h8jXIKcImoRgFS8sscla70Uic1cehtWQ+LHL8hU16ZfSvYhbbeUVMu6+4/sY9p/E4voQ
-	 rdeExMXE4jwwFNUyv7oHYdoZ0UILTQTuJeaB13lzrDaxumKaYsg7aOWDSHccAYgj9dLqr
-	 w+Nxq0e3Bw2TJpxE92YIHrlQZHO4ATYT72zk+kWWONZcQ4V9Y7oYSabvApjdSK3BogKUk
-	 cDupSdnalSGdgfmrrmJXK2llf/Nc5z6lRqCg9UnXQVzsNXJBi8inwhz5qyofLIrESNxNc
-	 iHZ11fSx3lPCpEI5AE+Tb9JQpXBih+v5RpytWQtfuNRZpdGcfFKZeyI6izajvPrY1sQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794910880;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 From:Subject:To:Cc:References:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=VXHuXdDXhimLX4EhrOle8NzbbeLRvG3acFho4x/kUyk=;
+	b=asGireqM2Hr/85VnE2c20TC/kRRNgbw144WkHkzthrBfl9SIIr9qdq5iCsb4XV/x6rBz
+	 zwAbIGlQYc2p1JXeUmzoVmxUnkxTm6XWi4s8+QXMd5XcCi+vskobi5Rggl1cD3fksGQzY
+	 EjBnNWMLM1fla2KZsleSpGcKfit/EX0yDcCPpa0hvTk/EgqGB5bRPq512BwULiVnJ0knG
+	 5hxlMD2X5FF16EnoJIAXPpaoqOY9+8DY+GzQDV7SqnCFuYYJniJvGjFQkO6+jNCA31iCR
+	 Ja3hZVUqfzYKyo3h6OiXYTsCj0TbxURBLv4UX31APjN5TH1VsT10bwGpz0gB0TtiayA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=deGGMriv;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PHOKOGm9;
+	arc=none smtp.remote-ip=91.218.175.150
+Received: from mta0.migadu.com (out-150.mta0.migadu.com [91.218.175.150])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D72CD606A31C;
-	Tue, 17 Nov 2026 10:20:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D72CD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFF0F606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:21:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFF0F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=deGGMriv
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 14E311A158C;
-	Tue, 17 Nov 2026 10:20:30 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id DB9155FC81;
-	Tue, 17 Nov 2026 10:20:29 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B3F6C11BC05B4;
-	Tue, 17 Nov 2026 11:20:25 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794910828; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=nByc1UaEqYQlkeBG4PECRqhOC0veVzWVRqV6EubGq+0=;
-	b=deGGMriv2H9lophJNoGjvuEGR9Guj8B+RbbmSlWvGq6i+YSZbfesBN7brF52V4vXyiWcRW
-	aOK125HBVrTwnoqP4qHi83ACRMVcgtRz26FNwcb2+jMSbo4hgDTj6zzOwuDnC4MpQIh7c2
-	ynoSxFpTVh6bl76JH/MDU4l4/0GgfsMtwHt1KmS3hw48ixJrmMTuzolwaGl6gDo3km1gp7
-	EhI/4olHYiWzAfdn2JubkAG7Q2p4clfRwFuraUU0Es1IZ1qdtIhGDMCJXnIljAAH4hNIN7
-	chSNNbsaGF09giX1waDtl70Fs5sl1hLeX9uZ5mGMEC0aF0Bfie38zz9SQPBslQ==
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PHOKOGm9
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=EANYqrnbRRXxKfS3U0ZNi5RJl50z89Mvm3A6Kbi3qv0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794910876; v=1; x=1795515676;
+ b=PHOKOGm981g+pry+nhrFQj+0b947+p8q0bMn74UUGqwusbPCudNdNQ6z4crA4dcEdjdtAdVP
+ WnTd3XGGHF4YDZX9wW9JnM3QepYxgDGL3GACwZoNniogqz5++FiNI6abPX9xPjySbO95+APkcKd
+ cYetRnsvMm3WLBtOUMLwkIws=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 3762f30bf743f942;
+	Tue, 17 Nov 2026 10:21:16 +0000
+X-Mizu-Trace-ID: 3762f30bf743f942
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <1273d905-a93d-4d56-a831-cecd1dd948c9@linux.dev>
+Date: Tue, 17 Nov 2026 19:21:07 +0900
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,103 +57,158 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 17 Nov 2026 11:20:24 +0100
-Message-Id: <DMXES9NC6HIW.14FBO92H3XSQQ@bootlin.com>
-Subject: Re: [PATCH net-next v6 1/2] net: macb: implement
- ethtool_ops.get|set_channels()
-Cc: "Conor Dooley" <conor.dooley@microchip.com>, "Andrew Lunn"
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, "Russell King" <linux@armlinux.org.uk>,
- <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Paolo Valerio"
- <pvalerio@redhat.com>, "Vladimir Kondratiev"
- <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
- <gregory.clement@bootlin.com>, =?utf-8?q?Beno=C3=AEt_Monin?=
- <benoit.monin@bootlin.com>, "Tawfik Bayouk" <tawfik.bayouk@mobileye.com>,
- "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>
-To: "Nicolai Buchwitz" <nb@tipi-net.de>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261113-macb-set-channels-v6-0-5de59d9e7f02@bootlin.com>
- <20261113-macb-set-channels-v6-1-5de59d9e7f02@bootlin.com>
- <0d65e4cc9a68684cd69ffa7feb5b7440@tipi-net.de>
-In-Reply-To: <0d65e4cc9a68684cd69ffa7feb5b7440@tipi-net.de>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+Subject: Re: [PATCH net] netfilter: nf_tables: don't unregister hooks that
+ were never registered
+To: Ma Xinmeng <1564938642@qq.com>
+Cc: netfilter-devel@vger.kernel.org, netdev@vger.kernel.org,
+ Phil Sutter <phil@nwl.cc>, Pablo Neira Ayuso <pablo@netfilter.org>,
+ Florian Westphal <fw@strlen.de>
+References: <tencent_19A48DA487BBFCFD990AC5A8010C663EA007@qq.com>
+In-Reply-To: <tencent_19A48DA487BBFCFD990AC5A8010C663EA007@qq.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hello Nicolai,
+On 2026/11/17 at 17:54 Ma Xinmeng wrote:
+> A basechain created while its table is dormant is accepted without
+> registering its hook. Re-owning a PERSIST orphan table with DORMANT set
+> then makes nf_tables_table_disable() clear DORMANT before
+> nft_table_disable() walks the chains, so __nf_tables_unregister_hook()
+> no longer sees the dormant state and calls nf_unregister_net_hook() for a
+> hook that was never registered. This triggers WARN_ONCE("hook not found")
+> in __nf_unregister_net_hook().
+> 
+> Track whether a basechain's hook was actually registered and skip the
+> unregister for chains whose hook was never registered. This preserves the
+> existing "add a basechain to a dormant table" API.
+> 
+> Signed-off-by: Ma Xinmeng <1564938642@qq.com>
+> ---
+>   include/net/netfilter/nf_tables.h |  1 +
+>   net/netfilter/nf_tables_api.c     | 29 +++++++++++++++++++++++------
+>   2 files changed, 24 insertions(+), 6 deletions(-)
+> 
+> diff --git a/include/net/netfilter/nf_tables.h b/include/net/netfilter/nf_tables.h
+> index 9d5974823..fcd24502b 100644
+> --- a/include/net/netfilter/nf_tables.h
+> +++ b/include/net/netfilter/nf_tables.h
+> @@ -1243,6 +1243,7 @@ struct nft_base_chain {
+>   	const struct nft_chain_type	*type;
+>   	u8				policy;
+>   	u8				flags;
+> +	bool				registered;
+>   	struct nft_stats __percpu	*stats;
+>   	struct nft_chain		chain;
+>   	struct flow_block		flow_block;
+> diff --git a/net/netfilter/nf_tables_api.c b/net/netfilter/nf_tables_api.c
+> index 8b94b5e7d..25b4075c9 100644
+> --- a/net/netfilter/nf_tables_api.c
+> +++ b/net/netfilter/nf_tables_api.c
+> @@ -428,21 +428,30 @@ static int nf_tables_register_hook(struct net *net,
+>   {
+>   	struct nft_base_chain *basechain;
+>   	const struct nf_hook_ops *ops;
+> +	int err;
+>   
+>   	if (table->flags & NFT_TABLE_F_DORMANT ||
+>   	    !nft_is_base_chain(chain))
+>   		return 0;
+>   
+>   	basechain = nft_base_chain(chain);
+> +	if (basechain->registered)
+> +		return 0;
+> +
+>   	ops = &basechain->ops;
+>   
+>   	if (basechain->type->ops_register)
+> -		return basechain->type->ops_register(net, ops);
+> +		err = basechain->type->ops_register(net, ops);
+> +	else if (nft_base_chain_netdev(table->family, basechain->ops.hooknum))
+> +		err = nft_netdev_register_hooks(net, &basechain->hook_list);
+> +	else
+> +		err = nf_register_net_hook(net, &basechain->ops);
+>   
+> -	if (nft_base_chain_netdev(table->family, basechain->ops.hooknum))
+> -		return nft_netdev_register_hooks(net, &basechain->hook_list);
+> +	if (err < 0)
+> +		return err;
+>   
+> -	return nf_register_net_hook(net, &basechain->ops);
+> +	basechain->registered = true;
+> +	return 0;
+>   }
+>   
+>   static void __nf_tables_unregister_hook(struct net *net,
+> @@ -456,22 +465,30 @@ static void __nf_tables_unregister_hook(struct net *net,
+>   	if (!nft_is_base_chain(chain))
+>   		return;
+>   	basechain = nft_base_chain(chain);
+> +	if (!basechain->registered)
+> +		return;
+> +
+>   	ops = &basechain->ops;
+>   
+>   	/* must also be called for dormant tables */
+>   	if (nft_base_chain_netdev(table->family, basechain->ops.hooknum)) {
+>   		nft_netdev_unregister_hooks(net, table, &basechain->hook_list,
+>   					    release_netdev);
+> +		basechain->registered = false;
+>   		return;
+>   	}
+>   
+>   	if (table->flags & NFT_TABLE_F_DORMANT)
+>   		return;
+>   
+> -	if (basechain->type->ops_unregister)
+> -		return basechain->type->ops_unregister(net, ops);
+> +	if (basechain->type->ops_unregister) {
+> +		basechain->type->ops_unregister(net, ops);
+> +		basechain->registered = false;
+> +		return;
+> +	}
+>   
+>   	nf_unregister_net_hook(net, &basechain->ops);
+> +	basechain->registered = false;
+>   }
+>   
+>   static void nf_tables_unregister_hook(struct net *net,
 
-On Sun Nov 15, 2026 at 8:39 PM CET, Nicolai Buchwitz wrote:
-> On 13.11.2026 18:32, Th=C3=A9o Lebrun wrote:
->> @@ -3351,16 +3374,21 @@ static void macb_context_swap_end(struct macb=20
->> *bp,
->>=20
->>  	lockdep_assert_held(&bp->mac_cfg_lock);
->>=20
->> -	/* Swap contexts & give buffer pointers to HW. */
->> +	/* Swap contexts & give buffer pointers to HW.
->> +	 * !new_ctx means that the swap failed and we keep the old context.
->> +	 */
->> +
->> +	if (new_ctx) {
->> +		old_ctx =3D bp->ctx;
->> +		WRITE_ONCE(bp->ctx, new_ctx);
->> +		wmb(); /* ensure IRQ enabled below read the new context */
->> +	}
->>=20
->> -	old_ctx =3D bp->ctx;
->> -	WRITE_ONCE(bp->ctx, new_ctx);
->> -	wmb(); /* ensure IRQ enabled below read the new context */
->>  	macb_init_buffers(bp);
->
-> The NULL case reuses the old rings without mog_init_rings(). The HW
-> restarts at descriptor 0 but head/tail don't, so Tx stalls after a
-> failed ethtool -L? macb_hresp_error_task() reinits the rings first.
+Thanks for the report, the trigger is clear.
 
-Hum, so you are totally right on that. Both Tx (txq->head + txq->tail)
-and Rx (rxq->tail + rxq->prepared_head) cursors are wrong by being out
-of sync with the hardware cursors.
+I do not think we need a new field for this.
 
-But the approach taken by macb_hresp_error_task() is wrong: it resets
-the Tx cursors and Tx descriptors in the existing context but by doing
-so leak all Tx buffers. Rx buffers aren't leaking because
-gem_init_rx_ring() sets RX_USED on all slots then refills.
+A dormant table never has any basechain hook registered. The real
+problem is that nf_tables_commit() calls nf_tables_table_disable() for
+a table that was already dormant.
 
-Sashiko [0] points out the same issue; I'll wait for the end of the
-Clashiko [1] embargo period before re-sending, to see what it has to
-say.
+Since table adoption added __NFT_TABLE_F_WAS_ORPHAN, having
+__NFT_TABLE_F_UPDATE set no longer implies a dormant state change.
 
----
+Could we instead check __NFT_TABLE_F_WAS_AWAKEN, which records an
+awake-to-dormant transition? This also covers adoption combined with
+such a transition.
 
-There can be two solutions to this:
+Untested, but something like:
 
- - We don't touch the HW cursors RBQPH/TBQPH/RBQP/TBQP by not calling
-   macb_init_buffers() at swap_end. So here the swap operation will
-   have been as close as possible to a no-op where we just stopped the
-   HW for a small window.
+diff --git a/net/netfilter/nf_tables_api.c b/net/netfilter/nf_tables_api.c
+--- a/net/netfilter/nf_tables_api.c
++++ b/net/netfilter/nf_tables_api.c
+@@ nf_tables_commit()
+                         case NFT_MSG_NEWTABLE:
+                                 ...
+-                               if (table->flags & NFT_TABLE_F_DORMANT)
++                               if (table->flags & __NFT_TABLE_F_WAS_AWAKEN)
+                                         nf_tables_table_disable(net, 
+table);
 
- - We do reset the HW cursors. But that means we need to make sure both
-   rings are in a good shape (which they are not with v6).
-
-   It isn't a massive amount of work, but it still is more code (that
-   might be buggy). We need to free pending Tx slots or bring them to
-   the front of the ring. For Rx we should consume RX_USED slots.
-
-I prefer the first approach. It is simpler and alloc-free (ENOMEM is
-probably the reason why the set_channels context swap failed when
-calling netif_set_real_num_queues).
-
-[0]: https://sashiko.dev/#/patchset/20261113-macb-set-channels-v6-0-5de59d9=
-e7f02%40bootlin.com?part=3D1
-[1]: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-macb-set-=
-channels-v6-0-5de59d9e7f02%40bootlin.com
+Also:
+- Please add
+   Fixes: 31bf508be656 ("netfilter: nf_tables: Implement table adoption 
+support")
+- netfilter fixes go through the nf tree: use [PATCH nf].
+- A selftest in tools/testing/selftests/net/netfilter/ would be nice.
 
 Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
-
+Xuanqiang
