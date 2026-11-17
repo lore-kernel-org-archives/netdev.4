@@ -1,102 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794933565;
-	b=4k/FXukWuzJzQs3z+LHJIJDAwebmQTEnUMSy8rMUlBS9WfyofDYGbF9ZSmLFBQMvaXZC
-	 naf6KFtOWnSlZ4HbqE4T0qnFLVL2ZMB/mmKyu9/tp4FlvobEV3oGiq+QbmMd7K0+ucW/x
-	 ENS1J3huqUIeR5jNRoQ8IKQKxbH76t7M/OueAsA765/P0ihUZcnhbhaZ8Xbtv30BCLtF7
-	 t8DskWta0nOEzSChsYzbv8o6bFwnrSazpxedrGcxXGwqIThDLdPNWrI0uHVXcWvGdn/Lu
-	 L39U37mg7u11Ox30I855Uxd2LHj7JXMWe+iHfwJ4a3HeBUOOJN+7g9VwP+dCVCSuNHA==
+	t=1794933586;
+	b=jRW/R5YnDX0lAEDZi0Gp9uSmTbmBNeAsZTv4BY2kr/jIJB38YLPix9stM/cz9wi7A7Ma
+	 ws9mLTQDPU3SYRBZBsFWXM0xDCYDZGEZD48pBxwIaoNIgvUL7DVHhBTzO9aoMAHEod7XD
+	 uHNgYEg3xnhiHbTLklJGMxkvv7j2+Jz9+WeSv3kMI2q3/aGTBcZO7GSWSxw9L/CscoVV7
+	 21XnoZZDOqVLjzIa8xHUHiAuUL4NuA9mPCMJ9tuI+Y4t8dUMqGAj522TFFGZ9RqPm/8JH
+	 Yp5E5yfsbWb89/GHOI9dekkCm2y/Ihdg/TpuHy0goxhUcMAAaQvXI06gQOFtbPeHp/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794933565;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794933586;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
 	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=1yMLSDxkDlgkYE94GCll9k9idUAgyt2V1MICT6ujyig=;
-	b=46bnBrip5Lw6wJMMSpj8/voB+A7SJeDKlgvpmnsT9775zn1RQMP6Vv+8WWZSB68fiLnj
-	 9vcn/k+IrvVpv6X1k0Gg037QRIsl0vxqRltSWI/V/KU0yESWW/xBLHmJL/OoxXS0Rr7kt
-	 LyhV6Noup1z9PUD3d0sFbji2PRVvCUTM4nid6ny0hzLw16RpJq8SgsWujWXSR4EIC5zk1
-	 48F9+y0Kuiiif6e8U0NgomZZwsbqOWJr3ZuhiDqr57wqwkr64MZdWCE69H7/FlR+qbopb
-	 KH4kMzxrjVZzCMOzbGRX6DunZsplipGEuraJ4n7QXKeyFJESWFhhEO+z0yz1Z+W8vjw==
+	bh=/4F+/UcRHsLof3SKLCHcEO2D3rsOio5c6X0Z/n2CUGw=;
+	b=er5pALG0qU4AvXN6ovnThg3h3e84CCDDuNMpbcl1RivxY+pPj3izw9XLAOStUvYRWHhF
+	 fLsZ+ZRsSpX9ncAVFzGWQpd2T6Mg283Xxz1Xaq45f2OgXSQA1xOxJRGltJAYpa6SoM+D8
+	 XWTvhgbZrvkCJuZmsHigmpvsRKWBcQ1zliQN65MyMBBbSpbqztMLN5vE8lq51ItxOydr+
+	 aEwKvHhf1ltH0fLBpqYysN6DJCsyXxvfuJGsEggrRemfwFTZ+HYDrVhSuiQmO/2mK5wZ7
+	 emqyrOIctgMZK689I128rE8c3Q7skVQum5W3P+g6DWaEacDAfrsB7ziRRohVNVawh7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=amutable.com;
 	spf=pass smtp.mailfrom=amutable.com;
-	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=fTE72B86;
-	arc=none smtp.remote-ip=209.85.221.47
-Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="aesidvv/";
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B869B606A898
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:39:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B869B606A898
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03981606A332
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:39:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03981606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=fTE72B86
-Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4a5506f09f5so386131f8f.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:39:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=aesidvv/
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4b467581b98so982545e9.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:39:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794933562; x=1795538362; darn=vger.kernel.org;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794933584; x=1795538384; darn=vger.kernel.org;
         h=mime-version:user-agent:content-transfer-encoding:content-type
          :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
          :cc:subject:date:message-id:reply-to:content-type;
-        bh=1yMLSDxkDlgkYE94GCll9k9idUAgyt2V1MICT6ujyig=;
-        b=fTE72B86Z5rEBpDKAc4NHne/GnXGff3y7H6Jsc0ARGDiGlXWQffN+vDa57pln4ARyL
-         +1G26BfEIl+HbVOj8TA3zSW1iNP9Exo768h3A9fSHxf1A+G4JzKjyZmNEbRVK3OkKcg2
-         ZEYnzKWCZf2SHWcITYJs9lOAqrrzZPxMt6krNLkAMsJlTuduP0x2y7nYx9OSgn5tmOQc
-         3GQldmEymfObWSixuhNM6I5Mvd8VHZwvi+nOGLSVWlk5ZzEm+E3HJN1gWAo3zwQFeuvx
-         9iNDKhUwBHSxIZWVigOWMhavG6aeEqqoqaTE87khyMl0FdFXi08urXs13qAdOls/ZlVA
-         Zdfg==
+        bh=/4F+/UcRHsLof3SKLCHcEO2D3rsOio5c6X0Z/n2CUGw=;
+        b=aesidvv/tWkl6ucd5vcg63Wz+nYZsmz2N4tlcBii1a0qmPtAjMp1D0BkM4s+kG+7vB
+         J6noIj6TWK8JvWnlx5tONCVc5j3eP/3iK2OHAG5vof+0upQH042pml3mvWUEkiPxcfRP
+         lO8mEe7+ckrl+Zrw5AdA2xWssqKCewrjvs7Ndvtc7ukDCecZNF5qbMtPXV89adzyCt9R
+         YW+A58J7j0x1VKABDKxSt6F291Iqt8oIM/AD/88BR7vE/t4u6g6RttG9h62O2/mU4HGR
+         tGUZ+G2WE0dPiIgu0v4WEB29+nU/VuGMlE/IKAdtuefyOFimXgW3oDkqALQe6SaZZrVV
+         QbrA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794933562; x=1795538362;
+        d=1e100.net; s=20260707; t=1794933584; x=1795538384;
         h=mime-version:user-agent:content-transfer-encoding:content-type
          :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=1yMLSDxkDlgkYE94GCll9k9idUAgyt2V1MICT6ujyig=;
-        b=qegQL+QWpwkC+ZTdVM4a6U19aLpryuw4GJhBzZcFy/JCHR95sBFNFGHMHk8D2S5/98
-         1qmSB6riDVOKXfk1RiRBX6y0klgBsCrGDZqvNef9BbjyCZ/lVGgvcwXMM1Z6DAAYPjDU
-         J3OFpJCMijkNfxPsS/HkhCuXDnNWTbPl/z0on+bYoaJSgizlt3PG+QRfa8Pn7gd+fujE
-         gqbTXk0Jtb/JO41su6cGNcCWbqWFLP8u3zQt/cjGxFzubcZfjIZWvZr+2ZoTQn97hlRo
-         hCVcByEta9URgFJistNPTLjuXB0qPox8ykrQA5GqczeaWXlZxRCgdoO7hoUPC6xwvJf6
-         hF7Q==
-X-Forwarded-Encrypted: i=1; AL+hErHje8C6j+n9E0K+Z7eYCqc1DVDWTd5EeFlnwwug2lqEXQswSaskMr2ZlKo83RQSjPTzlHLNWuc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/HnvDjD8DnbMRwK5rLtENzFXZxCZJpizi2BrezQ5enJNrTjlxs
-	KrHqGKBy9efBLNhw0R9pqodGCUAJ84W08AGLYNQ6XeZZFcOvOWlTnTFkzzdASkyvlfgBNdcl/6S
-	BG1eURLox
-X-Gm-Gg: AZFdTZeI2D7CHfN/oD98Wude/1S287EPwQy6aFsVARP6doP5N+8tF/9d2YQClE+mB8h
-	X+o/K0feK0Pn7vnqsydUVpwJ6RUZ4nfFrYTdpyLBPpKZaBkD3Jc3b33qw8AFuf1/Ji2TlURLI1N
-	grCHr2iUC+jsz7CciWeR5l0H/bCbWQO/B4L6Jz8Lew+XAzURWy/h47fm/Ab639zl5DtNWEfLsJg
-	3DRjSv/QJ4lqc6kWzQI90wBsJj6dfwTRu3ur5J5lK3UBsr2URpFj+l9rs0J+dRb1VO5fukAHTuC
-	iSz16L765Sbf/2WWinclqblutOtv9p/b5sQDJqXGaWaQzZ3Un1HGKS1R9cPMxtistAOGxXVeyDi
-	UGPgRbxK07Rtmc5sUMjqZgQSRDqErSIyqaCzkFHJmq5AoKghSGzeUEQei/m3wTv6LhYmD3VIoJr
-	+ZfbyhU0fU35YLw3euY39mDdZ8w4Nv42INfDH1ynardJ/WqXnGqq54N3eyzHHQrOs8odFEUywxC
-	M8Lo9I/9/zz/AIcUFgAoDbdVuwhA0ZwTBYDmsAUpYkAiM47h5EGLm/8bfWVmrlnAkeU3Kh4jabU
-	IVqjrQ78Fl3DbdMTTE4vTCvHqiHWkMI/mNT2OWEMyf6COzRKZ5XtEXL8rInR5k9K1u+ep/y60Mg
-	yFPq3k86F5ed3SO6TXkaKEeTC4TQL7obsj3nxkPUXWJ7rOJiZHaU6jazI
-X-Received: by 2002:a05:6000:15d7:b0:48e:e98:8b6a with SMTP id ffacd0b85a97d-4a6332bcccfmr19985f8f.4.1794933562080;
-        Tue, 17 Nov 2026 08:39:22 -0800 (PST)
+        bh=/4F+/UcRHsLof3SKLCHcEO2D3rsOio5c6X0Z/n2CUGw=;
+        b=bwrPjsvVppGi/Ltt4zwXNWcnovVdwWSSl9OpFK2FvYc7ihkTD80/XQdR2aPjNyx79z
+         zsy1Gi3wRD2I6ntqbThzWPqj7h80QCVeM8AhDG0KdeCYrKeJxEkrZmSTnFK0UwczpeBj
+         z3kqrH8OPkOtW53UYTRxS1fGauSDe9v3TbThu3KbCLZ/KqSIGWB4N2La5Z6pOU2M04t6
+         6lrRmuzvuy2vLA7GIGPuF1d3B7SMeQqyJWe4PadH032Q2seCALJXEKCHkclVUofxPtFy
+         /hm9WSb2odR0fIpHgl4nLk8yj45s7XDrQHr0Vct1ABLpxpud2vWSMsXtL80r8jHqlztG
+         9sGw==
+X-Forwarded-Encrypted: i=1; AL+hErGJ4nkDNHsMYHmQSjcfpN1OXMM9+wR89f9wIirul9IrN9npnYa7NtVv7jb1g5fvJ5L/vc60yfo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+9xpHudreuDd4D6kvSqc/NleITzgU8Uvi/TsqN3qTgoxcEcO5H
+	ztv6Tu76xw3eXH+neiiPkW1ZvPZiXKNUbKt5iAkQU7Xkw3csUwn7VzF5imgyYiRUKlX+
+X-Gm-Gg: AYBFou095iwej+obe8JoVRqa72nZ/aH8dJxfkvTUU095LjRSXnstZYsXDRPQTj+w+MO
+	iSuLiRIgPSAiqyIJalFQPu8T+jIK36UiFQfonlmRfZuV1e/EAx16WAL7WVqE9rnw4hXHy4bhJMm
+	IY8ILD3Fhhff9aSYdPZR0sOTyWvUzszw4kfKfhFOZbOt+J3aruZDBDrbL3V67MrtBNTlzLrqAqk
+	jCZ9Aa2WgjitQMpzdaFNUpupSmOBU6RGTGwKpUe8Z7TZT7WQX1UaTyZQjiHSXJqKwtmes7KvJ5I
+	JHn3s1v+uqAM4ERp6LhbiYeMIaLGoOVCyTb109s+sOhvedBG7PjGBYL3gHzfW1s4BMwXC9Q9HeG
+	w3dUOSwWg1onN2+tm/42D+fnfdO0r/TOgtFCKzs0hm1BuspaQczFYx0rUvDpJR1yd9B6d2aQH00
+	bpJ4dtO0bqO6aJ2r8LNn0tMINg0jy+NlarQYJlgcKsKxlBKah49T+GuvLOxHBwM/bod+zF1mVb6
+	cZ9V7FVOxXaQFmZZSQtZ3+cf4vVBgIzTW/itNQvAX4Qw5z3DHbcWqluqOIkNVZp49waI/muj9S4
+	6VpVxwPVm7gh1kumjL/HYI5oibh0p7aG+cqmElWoEZBy3FTW5lnQ+IzO0bfdeYzvIIYC/VaCzcK
+	+ptNzhKOTniL28eeiPncaK0FLAYxUMcRXT7zh06gPorjHiZNay7JI3DTi0ivzvvuOh1UNWJOGH+
+	WCZg==
+X-Received: by 2002:a05:600c:3551:b0:4a1:992f:d0e7 with SMTP id 5b1f17b1804b1-4bb55a99d21mr315125305e9.16.1794933584407;
+        Tue, 17 Nov 2026 08:39:44 -0800 (PST)
 Received: from ?IPv6:2003:cf:572c:2800:dd2a:c8cf:5d96:bf5b? (p200300cf572c2800dd2ac8cf5d96bf5b.dip0.t-ipconnect.de. [2003:cf:572c:2800:dd2a:c8cf:5d96:bf5b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a43d41ec38sm4564311f8f.19.2026.11.17.08.39.21
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a38b9b986esm5481266f8f.59.2026.11.17.08.39.43
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 08:39:21 -0800 (PST)
-Message-ID: <a0f9a7e10bee8b5d328de14e1bbdbf74f5712d43.camel@amutable.com>
-Subject: Re: [PATCH net 1/2] net: don't leak pidfds through a short
- SO_PEERPIDFD optlen
+        Tue, 17 Nov 2026 08:39:43 -0800 (PST)
+Message-ID: <cf47c058f8944a427885e83214b8ad1c4268cbd8.camel@amutable.com>
+Subject: Re: [PATCH net 2/2] selftests/net: check that a short SO_PEERPIDFD
+ optlen fails
 From: Alexander Mikhalitsyn <alex@amutable.com>
 To: Christian Brauner <brauner@kernel.org>, "David S. Miller"
 	 <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
 	 <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
 Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>, 
  Alexander Mikhalitsyn <alexander@mihalicyn.com>, netdev@vger.kernel.org,
- linux-fsdevel@vger.kernel.org, stable@vger.kernel.org,  Sashiko
- <sashiko-bot@kernel.org>
-Date: Tue, 17 Nov 2026 17:39:20 +0100
-In-Reply-To: <20261117-work-net-peerpidfd_short_optlen-v1-1-a93f56288501@kernel.org>
+ linux-fsdevel@vger.kernel.org
+Date: Tue, 17 Nov 2026 17:39:42 +0100
+In-Reply-To: <20261117-work-net-peerpidfd_short_optlen-v1-2-a93f56288501@kernel.org>
 References: 
 	<20261117-work-net-peerpidfd_short_optlen-v1-0-a93f56288501@kernel.org>
-	 <20261117-work-net-peerpidfd_short_optlen-v1-1-a93f56288501@kernel.org>
+	 <20261117-work-net-peerpidfd_short_optlen-v1-2-a93f56288501@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2-0+deb13u1 
@@ -111,65 +110,86 @@ Precedence: list
 MIME-Version: 1.0
 
 On Tue, 2026-11-17 at 16:25 +0100, Christian Brauner wrote:
-> sk_getsockopt_peerpidfd() caps the caller's optlen at sizeof(int) but
-> never checks that it is at least that large. sk_getsockopt() only
-> rejects a negative optlen. So with an optlen of 0 to 3 we still
-> allocate a pidfd via pidfd_prepare(), copy zero to three bytes of the
-> fd number to userspace, write the short optlen back and then
-> fd_install() the pidfd anyway.
+> Cover SO_PEERPIDFD and SO_PEERPIDFD_THREAD with an optlen of 0 to 3:
 >=20
-> getsockopt() reports success but the caller only got part of the fd
-> number or none of it at all. It has no sane way to find out which fd
-> it
-> has to close and the pidfd stays in its file descriptor table until
-> the
-> process exits. Calling it in a loop fills up the table.
+> - getsockopt() fails with EINVAL
+> - optlen and the buffer stay untouched
+> - no pidfd is installed in the file descriptor table
 >=20
-> scm_pidfd_recv() deals with the same problem for SCM_PIDFD. Since
-> put_cmsg() doesn't fail on truncation it checks the size of the
-> control
-> buffer itself and sets MSG_CTRUNC before it allocates a pidfd.
+> Check that a full-sized buffer still gets a pidfd.
 >=20
-> There's no point in handing out part of a file descriptor number. So
-> fail with EINVAL if optlen is smaller than sizeof(int) before we
-> prepare a pidfd. Since commit e10899b2a098 ("net: add
-> SO_PEERPIDFD_THREAD to get a thread-specific pidfd") SO_PEERPIDFD and
-> SO_PEERPIDFD_THREAD share the helper and the latter inherited the
-> bug,
-> so this fixes both.
->=20
-> Fixes: 7b26952a91cf ("net: core: add getsockopt SO_PEERPIDFD")
-> Cc: stable@vger.kernel.org
-> Reported-by: Sashiko <sashiko-bot@kernel.org>
-> Closes: https://lore.kernel.org/all/sashiko-outbox-205984@kernel.org
-
-Ugh, I wonder how I didn't notice this before... :(
-
-Thanks, Christian!
 
 Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
 
 > Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
 > ---
-> =C2=A0net/core/sock.c | 6 ++++--
-> =C2=A01 file changed, 4 insertions(+), 2 deletions(-)
+> =C2=A0tools/testing/selftests/net/af_unix/scm_pidfd.c | 51
+> +++++++++++++++++++++++++
+> =C2=A01 file changed, 51 insertions(+)
 >=20
-> diff --git a/net/core/sock.c b/net/core/sock.c
-> index ad414878dc5ba..74a00a5e2d116 100644
-> --- a/net/core/sock.c
-> +++ b/net/core/sock.c
-> @@ -1746,8 +1746,10 @@ static int sk_getsockopt_peerpidfd(struct sock
-> *sk, enum pid_type type,
-> =C2=A0	struct pid *peer_pid;
-> =C2=A0	int pidfd;
+> diff --git a/tools/testing/selftests/net/af_unix/scm_pidfd.c
+> b/tools/testing/selftests/net/af_unix/scm_pidfd.c
+> index cbe53fab44fc5..c26f055a19032 100644
+> --- a/tools/testing/selftests/net/af_unix/scm_pidfd.c
+> +++ b/tools/testing/selftests/net/af_unix/scm_pidfd.c
+> @@ -1155,4 +1155,55 @@ TEST(so_peerpidfd_thread)
+> =C2=A0	close(server);
+> =C2=A0}
 > =C2=A0
-> -	if (len > sizeof(pidfd))
-> -		len =3D sizeof(pidfd);
-> +	/* Userspace can't close a pidfd whose number it didn't get.
+> +/* The lowest free file descriptor, where the next pidfd would land.
 > */
-> +	if (len < sizeof(pidfd))
-> +		return -EINVAL;
-> +	len =3D sizeof(pidfd);
-> =C2=A0
-> =C2=A0	spin_lock(&sk->sk_peer_lock);
-> =C2=A0	peer_pid =3D get_pid(sk->sk_peer_pid[type]);
+> +static int lowest_free_fd(int fd)
+> +{
+> +	int nfd;
+> +
+> +	nfd =3D dup(fd);
+> +	if (nfd >=3D 0)
+> +		close(nfd);
+> +	return nfd;
+> +}
+> +
+> +/* A short optlen must fail without installing a pidfd. */
+> +TEST(so_peerpidfd_short_optlen)
+> +{
+> +	const int optnames[] =3D { SO_PEERPIDFD, SO_PEERPIDFD_THREAD
+> };
+> +	int sv[2], i, free_fd, pidfd;
+> +	socklen_t len, optlen;
+> +
+> +	ASSERT_EQ(0, socketpair(AF_UNIX, SOCK_STREAM, 0, sv));
+> +
+> +	for (i =3D 0; i < ARRAY_SIZE(optnames); i++) {
+> +		for (len =3D 0; len < sizeof(pidfd); len++) {
+> +			free_fd =3D lowest_free_fd(sv[0]);
+> +			ASSERT_LE(0, free_fd);
+> +
+> +			pidfd =3D -1;
+> +			optlen =3D len;
+> +			ASSERT_EQ(-1, getsockopt(sv[0], SOL_SOCKET,
+> optnames[i],
+> +						 &pidfd, &optlen));
+> +			ASSERT_EQ(EINVAL, errno);
+> +			EXPECT_EQ(len, optlen);
+> +			EXPECT_EQ(-1, pidfd);
+> +
+> +			/* No pidfd was installed behind our back.
+> */
+> +			ASSERT_EQ(free_fd, lowest_free_fd(sv[0]));
+> +		}
+> +
+> +		/* A full-sized buffer still gets the pidfd. */
+> +		free_fd =3D lowest_free_fd(sv[0]);
+> +		optlen =3D sizeof(pidfd);
+> +		ASSERT_EQ(0, getsockopt(sv[0], SOL_SOCKET,
+> optnames[i],
+> +					&pidfd, &optlen));
+> +		EXPECT_EQ(sizeof(pidfd), optlen);
+> +		EXPECT_EQ(free_fd, pidfd);
+> +		close(pidfd);
+> +	}
+> +
+> +	close(sv[0]);
+> +	close(sv[1]);
+> +}
+> +
+> =C2=A0TEST_HARNESS_MAIN
