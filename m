@@ -1,58 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794927275;
-	b=gSx9mHJFJv0PLup22VFTUXH7c8S9imRE65a9vDNAsKO4HqsFQ6G5Hpxjd920u+NWC1PS
-	 pLyvsBQEN1oQ59iORXJ5IbMDYdv1k7ggrLEjA/XG5AHLC705e+rSGAaLlYaOXuys0MAch
-	 6NtTfm17uPOAU+7eoiGFq/1iIJ+e5jSOvq+CwpzooIUrL+0hCqE5jldpExkF42hP5gq6c
-	 qVpbtmwEucm4DEJdGJ07NeYFr+mm6QoqBUdhddxFqpqOY8ZKp232nOj13Rz4cpCBWb67V
-	 onZ8rusCOF+GGKkyw2Mg43UCayfJ3NLHj4lYuhLubFXKFJi7YedcWOJdqsVXo1x6IVQ==
+	t=1794927339;
+	b=3ad8Shk8kQBkkCa0yB6jFfT8IOyc/7hb84dOgWM3mvdhvEpvnIwsZcK9SSSKlnf+zvjr
+	 FAFy7wMWZhz2oObb1GBiux+SP48WsqAmLBHXzH3MbnPA3t8H84Rqa6R/E8imWL/NlK63B
+	 qyxG6RXbHZ6KNNMCWCYDp6ZchaLvRMx0Z5WEKCC3ZN01cII2Ed/pL7Q/GCsNDokrZX14w
+	 IKoVPn91Qo8AQ2OgAwq4ZGTEYAJ9KX+4oKxzsSDtEeh7xBO4jDumqyNZhjVSQOMtwCUZb
+	 tdFsTwvKIDrH3uov1qCEP9UUyhkzBNCGtl6KcVYutPOtnLuMinMikEyh0BQbVBAEUwA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794927275;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=2Wq9AE25iea427W8wiH0e2Ewq13PobRIAnClSSphGUw=;
-	b=zogvnRhgiWnDEsfNim4GgVIoF6INq8B0oXmec0f0nW0kAXOtatfGImWcbEwTXCCR+iB6
-	 HpI/ODwVYgYpREts+XUWiaFEDvS6rz4UrNqE2MayfTyk2NEM+BfJLK0F7YB9PiUd7BUgw
-	 7Fy1Y4hfEQkI/jd4UxLe+XGaPLZVaEmnuEpAKjtMu4S38eMQML17FohMcIfSH/yevs4q4
-	 VIEOwQjKP1DmZfaJimJ9RmB3SJ5ZPOXATzqTtSW0rqw6vbzKW4ilop22NW81Iki/zr/6u
-	 fETJ1nButQylz6u0gvV8AQzM6TKc7qgvajjj5Mpl3OyidnEIsqk06HuprdkKiGMc0bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794927339;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=tncad3xb72MRHXQPalnrg31jkG++uAFsv3nTcMKPqIc=;
+	b=zijkI4nnPJuUleYVWiuA4aKhVx91ElXC4h2E1wd6XYtQRUTzdsdfbP7/NLrj1goCQ3OD
+	 Laj489o8+JD1XOHw6AmpH90GrRnOQEqkAFK+H/e7+N1ZTFrY5wgTOF+0LPDck8im2OeyW
+	 dFQMl9o90QmnVHz5cCHDGLwgzCK61/ecavexB69L+wIOiqaTzPknmnSj067ZvpyktFtCW
+	 Yp+kwYiJMUJNgQKJe7Yl6e8NtmAsTsEkZpUBF54pVEWm0cWwB9OfvOasvDi4MDiemWKUR
+	 1OuH0x35ZdzC7EeI1kW62AFDI5QRhSu18cbkETQr7w7Fyw9TQ2hxB7GV8hqyAspF+Tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=RldvSNBi;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--stani.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IQP34qwS;
+	arc=none smtp.remote-ip=74.125.224.69
+Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com [74.125.224.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C132606A334
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:54:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C132606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23409606A32A
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23409606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--stani.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=RldvSNBi
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7F2784E4157D;
-	Tue, 17 Nov 2026 14:54:33 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 49E9E5FD6A;
-	Tue, 17 Nov 2026 14:54:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D187511BC0026;
-	Tue, 17 Nov 2026 15:54:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794927271; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=2Wq9AE25iea427W8wiH0e2Ewq13PobRIAnClSSphGUw=;
-	b=RldvSNBih/YepnuGq2MmKOY6A9rIpEumELC0ddV1Qgq3r8IhTrV9lLpBVSihJHenq/I5Vm
-	nd/D9MLgGB234C7uQ88P5bQwFSTY+e4TDToHLYcXFPrmuKPTqcBi7dLVsJw32RGbjuDYJq
-	DSpyU8dNw+tl5D0GFkjGBp4MDLolXdsuoCK7TJlQvzelGr+QaF4TV9f8tpXJQK6ktyC3U1
-	ZIIWLKrlz+S+q7+hhl7LD9tk/gm5zD17LNzTyrGIkcrpSZqz3fehRtbOjXHyJO9Z+zne/f
-	+TVHU/jYSpNFMwbDgip6SnNlQIpAKn1oCFtg8VOPxoboHaMQCZd36nFYvjiQvQ==
-Message-ID: <d06c6f0c-a0cc-4b6c-a0ec-eb459ea0eaef@bootlin.com>
-Date: Tue, 17 Nov 2026 15:54:22 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IQP34qwS
+Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-67bec5d62ebso9691558d50.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:55:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794927337; x=1795532137; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tncad3xb72MRHXQPalnrg31jkG++uAFsv3nTcMKPqIc=;
+        b=IQP34qwS8/V2vbPX1ct2YUd3L8ifLBjpH1S7jG2hJRV3H5C/i7uODHJiXl16Pu9KR2
+         epROf8+9pjsRRv+vT2cbTahX8aD/5kQNn/yaGewwLMwV02ufL/wCEcVf0Z4LAuiPmR+H
+         cG5g8zXXhJFxyC6nENS4R4s2VDitVAN5l8iwWiwi9njfFVYn/sfStFeDBN7jTUrW0g75
+         N2puzdxku1uTnHj3YkYPjkCw1/Jygngi8GVJWw6GOkd0wLeVSNvSfA8HqgFGvCg+6XSo
+         z2co/Hnotz7w7kHyUZPOd93NL6geLc1V83DCFvDtW7EkKsL2BViXFJ1xlsUy1CG0QxJQ
+         D1UA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794927337; x=1795532137;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=tncad3xb72MRHXQPalnrg31jkG++uAFsv3nTcMKPqIc=;
+        b=SCD181v1HnLEQ+rX8OfpzUt2nTgnXirp8JbN3TwyUqp1N02qyVi2wlTIdwlyY+X4Gz
+         VaOxxVJ2FjmKt6+E19udMY1zMUhSr7Ja8vrPRqDjvPWqIPjXtbi4vdiO5EeCt/MDr2bH
+         NCLqceq2ss094cngqkPABmMPnPMFMf1MS65Kx2qik/KhNUFJABG0DYyJzCtkIWw8i044
+         TUArWufybZYoP9VzlJefXqup+QJ6irZwz6Vevg0rTYkFgItODxWqteeYLG8TOFSDX+Z6
+         gwSac0LHsmjf+Ax6wQFqKERgFtlbAgElrHCTgvofXNmNxCpZ2ZKlcPM3qU928gljs30L
+         1oLg==
+X-Gm-Message-State: APuU4Z9qix9MLhx7PsHLHJK8qa40q1wFWVbP0sF7r6D02brZx81y5jZX
+	YtjFpnR9f15AgLgWzmDr/HxlHv/UjBNH/d2VWP3Xllcfn0FXTHB0ZySG5UBLEXJEMt/zjFLWYwW
+	OMg==
+X-Received: from yxrk12.prod.google.com ([2002:a53:b60c:0:b0:67d:bd70:dbc8])
+ (user=stani job=prod-delivery.src-stubby-dispatcher) by 2002:a05:690e:408c:b0:677:cbfc:be34
+ with SMTP id 956f58d0204a3-67d896e0019mr8711688d50.66.1794927336861; Tue, 17
+ Nov 2026 06:55:36 -0800 (PST)
+Date: Tue, 17 Nov 2026 14:55:06 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,92 +74,145 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3 1/3] net: stmmac: honour Rx checksum errors in the
- AF_XDP zero-copy path
-To: Christian Schmidbauer <opensource@grische.xyz>, netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, Oleksij Rempel
- <o.rempel@pengutronix.de>, stable@vger.kernel.org,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Stanislav Fomichev <sdf@fomichev.me>,
- Ong Boon Leong <boon.leong.ong@intel.com>,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- bpf@vger.kernel.org
-References: <20261114133640.3285413-1-opensource@grische.xyz>
- <20261114133640.3285413-2-opensource@grische.xyz>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261114133640.3285413-2-opensource@grische.xyz>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.0.679.gc527c65306-goog
+Message-ID: <20261117145522.1910636-1-stani@google.com>
+Subject: [PATCH iwl-next 00/15] idpf: add PSP offload support, part 1
+From: Stan Iliev <stani@google.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, intel-wired-lan@lists.osuosl.org
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	David Decotigny <decot@google.com>, Madhu Chittim <madhu.chittim@intel.com>, 
+	Emil Tantilov <emil.s.tantilov@intel.com>, Sridhar Samudrala <sridhar.samudrala@intel.com>, 
+	Brian Vazquez <brianvv@google.com>, Li Li <boolli@google.com>, 
+	Alexander Lobakin <aleksander.lobakin@intel.com>, Daniel Zahka <daniel.zahka@gmail.com>, 
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-hardening@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Hi,
+This series adds PSP (PSP Security Protocol) [1] inline crypto offload
+to idpf, through the PSP device API of the PSP core [2]. It comes in two
+parts. This is part 1, which adds the control path.
 
-On 11/14/26 14:36, Christian Schmidbauer wrote:
-> Commit ee0aace5f844 ("net: stmmac: Correctly handle Rx checksum offload
-> errors") taught stmmac_rx() to honour the csum_none status, but
-> stmmac_dispatch_skb_zc() still ignores it and sets CHECKSUM_UNNECESSARY
-> for every IP frame whenever the checksum offload engine (CoE) is
-> enabled.
-> 
-> Since commit fe4042797651 ("net: stmmac: dwmac4: stop hardware from
-> dropping checksum-error packets") dwmac4 delivers such frames instead of
-> dropping them, so this path receives them.
-> 
-> Mark the skb CHECKSUM_NONE when csum_none is set, as stmmac_rx() does.
-> 
-> Fixes: bba2556efad6 ("net: stmmac: Enable RX via AF_XDP zero-copy")
-> Cc: <stable@vger.kernel.org>
-> Assisted-by: Claude:claude-opus-5-5
-> Signed-off-by: Christian Schmidbauer <opensource@grische.xyz>
+The device encrypts and decrypts the PSP packets. Its control plane
+(CP) holds the master keys and the security association database
+(SADB) of the TX keys. idpf manages them with new virtchnl2 commands
+over the mailbox:
+- the CP derives an RX key from a master key and the SPI it allocates,
+  one synchronous request per rx_spi_alloc;
+- the TX keys are inserted into the SADB asynchronously, in batches of
+  up to 101 keys. The SA index that the CP returns for a key goes into
+  a TX context descriptor of each of its packets (part 2);
+- the SA indexes of the released associations are deleted in batches.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Part 1:
+- patches 1-2 wipe the mailbox send buffers on release, as some of the
+  messages carry keys;
+- patch 3 makes the mailbox workqueue visible in sysfs, like the PSP
+  workqueue added later;
+- patches 4-7 add the PSP initialization and negotiate the crypto
+  offload capabilities, the PSP capabilities and the FIPS compliance
+  status;
+- patches 8-10 implement the rx_spi_alloc, key_rotate and get_stats
+  PSP device ops;
+- patches 11-15 add the TX key state, and the insertion of the TX keys
+  into the SADB and their deletion.
 
-Maxime
+Part 2 makes idpf_tso() run after the splitq TX resource check,
+implements the tx_key_add and tx_key_del PSP device ops and the TX and
+RX datapath, and registers the PSP device. Until then, the only change
+visible on a device with the crypto offload is the capability
+negotiation, which also logs the FIPS compliance status.
 
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index 7ffed295eb14..3e5803db19b4 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -5547,7 +5547,7 @@ static struct sk_buff *stmmac_construct_skb_zc(struct stmmac_channel *ch,
->  
->  static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
->  				   struct dma_desc *p, struct dma_desc *np,
-> -				   struct xdp_buff *xdp)
-> +				   struct xdp_buff *xdp, int status)
->  {
->  	struct stmmac_rxq_stats *rxq_stats = &priv->xstats.rxq_stats[queue];
->  	struct stmmac_channel *ch = &priv->channel[queue];
-> @@ -5575,7 +5575,8 @@ static void stmmac_dispatch_skb_zc(struct stmmac_priv *priv, u32 queue,
->  
->  	skb->protocol = eth_type_trans(skb, priv->dev);
->  
-> -	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb))
-> +	if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
-> +	    (status & csum_none))
->  		skb_checksum_none_assert(skb);
->  	else
->  		skb->ip_summed = CHECKSUM_UNNECESSARY;
-> @@ -5789,7 +5790,8 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
->  
->  		switch (res) {
->  		case STMMAC_XDP_PASS:
-> -			stmmac_dispatch_skb_zc(priv, queue, p, np, buf->xdp);
-> +			stmmac_dispatch_skb_zc(priv, queue, p, np, buf->xdp,
-> +					       status);
->  			xsk_buff_free(buf->xdp);
->  			break;
->  		case STMMAC_XDP_CONSUMED:
+PSP is only enabled if the CP grants the new VIRTCHNL2_CAP_CRYPTO
+capability, idpf works as before otherwise. The crypto offload API of
+the CP uses the virtchnl2 opcodes 560 to 567, the
+VIRTCHNL2_EVENT_PSP_ROTATE_KEY event and the VIRTCHNL2_PROTO_HDR_PSP
+protocol ID.
+
+Limitations:
+- PSP version 0 (AES-GCM-128) and the splitq queue model only;
+- the RX datapath only recognizes the IPv6 PSP packet type;
+- master key rotations started by the CP itself can't be reported to
+  the PSP core, as in mlx5;
+- the PSP state doesn't survive a hard reset: the PSP device is
+  unregistered at the start of the reset and registered again once the
+  reset is done, as in mlx5.
+
+Testing, of both parts on next-queue/dev-queue:
+- each patch built with W=1 (allmodconfig) with gcc 15 and clang 21, and
+  with gcc without CONFIG_INET_PSP: no warnings in idpf, libie and ixd,
+  and no new kernel-doc warnings. checkpatch --strict only asks for
+  blank lines between the new virtchnl2.h structures and their
+  VIRTCHNL2_CHECK_STRUCT_LEN(), which would break the style of the file;
+- tools/testing/selftests/drivers/net/psp.py between two hosts with
+  Intel IPU devices (idpf PF, PCI ID 8086:1452), in both directions,
+  plus a local case that checks that a connection keeps receiving after
+  one key rotation: pass:19 fail:1 xfail:2 skip:11. Same result with RX
+  checksum offload off on both hosts, without TCP checksum errors. The
+  skips are the IPv4 cases (no IPv4 on these hosts), PSP versions 1 to 3
+  and kTLS, the xfails need netdevsim. data_mss_adjust fails since
+  commit 3c6e29760c13 ("tcp: Subtract psp_sk_overhead() in
+  __tcp_mtu_to_mss() and tcp_mss_to_mtu()."): the routes between these
+  hosts have mtu 4220 and advmss 4108, so the PSP overhead no longer
+  reduces the 4096 byte MSS, as that commit intends, while the test
+  expects a 40 byte reduction. It passed on the same hosts without that
+  commit;
+- after the tests, the TX keys inserted into the SADB were all deleted
+  once their sockets were gone;
+- with part 1 only, the hosts boot, negotiate the crypto offload and
+  log the FIPS compliance status, without a PSP device.
+
+  An AI coding assistant was used to rework parts of the code and of the
+  commit messages of this series after an internal review, and an AI
+  code review tool (Sashiko) reviewed the series. I reviewed and tested
+  all the changes.
+
+[1] https://raw.githubusercontent.com/google/psp/main/doc/PSP_Arch_Spec.pdf
+[2] https://docs.kernel.org/networking/psp.html
+
+Stan Iliev (15):
+  libie: wipe copied small send buffers on release
+  idpf: wipe mailbox send buffers on release
+  idpf: make the mailbox workqueue visible in sysfs
+  idpf: psp: add psp offload initialization
+  idpf: psp: add support for crypto capabilities
+  idpf: psp: add support for psp capabilities
+  idpf: psp: add support for fips compliance status
+  idpf: psp: add support for psp rx key allocation
+  idpf: psp: add support for psp key rotation
+  idpf: psp: add support for psp statistics
+  idpf: psp: add psp tx key state
+  idpf: psp: add support for psp tx key deletion
+  idpf: psp: add psp work and tx key insertion completion
+  idpf: psp: add support for psp tx key insertion
+  idpf: psp: add psp tx key registration
+
+ drivers/net/ethernet/intel/idpf/Makefile      |   2 +
+ drivers/net/ethernet/intel/idpf/idpf.h        |  15 +
+ drivers/net/ethernet/intel/idpf/idpf_lib.c    |  16 +
+ drivers/net/ethernet/intel/idpf/idpf_main.c   |   5 +-
+ drivers/net/ethernet/intel/idpf/idpf_psp.c    | 738 +++++++++++++++
+ drivers/net/ethernet/intel/idpf/idpf_psp.h    |  86 ++
+ .../net/ethernet/intel/idpf/idpf_psp_def.h    | 190 ++++
+ .../ethernet/intel/idpf/idpf_psp_virtchnl.c   | 841 ++++++++++++++++++
+ .../ethernet/intel/idpf/idpf_psp_virtchnl.h   |  23 +
+ .../intel/idpf/idpf_psp_virtchnl_def.h        |  24 +
+ .../net/ethernet/intel/idpf/idpf_virtchnl.c   |  24 +-
+ drivers/net/ethernet/intel/libie/controlq.c   |  28 +-
+ include/linux/net/intel/virtchnl2.h           | 393 ++++++++
+ 13 files changed, 2376 insertions(+), 9 deletions(-)
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp.c
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp.h
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_def.h
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.c
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.h
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl_def.h
+
+
+base-commit: 4cd5d9c333fb45a4e70ad6a77c44f13bd7312afb
+-- 
+2.56.0.679.gc527c65306-goog
 
