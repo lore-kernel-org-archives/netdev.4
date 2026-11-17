@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794957029;
-	b=t5B3Nn8U5EyX3DZJZZy+gyqgx0G3oSXBCZKUgUbEgLbRQ5IBZa4GWml8Q5v9sPkCe46U
-	 aC8DQga6IAus2d5r0Rlm3+Ga3+Q5GXpRkmrHcw3iUj3NaQEqTcQcYlBVMK3WfqsPh4auY
-	 i7p56/zbySGWnMEL1Idr5ztc/qCFK3biOra0lQ7FB3UaNrz7B3wgaq0ruXtXwXEoAcA44
-	 4UAzRY9cm7zoCQ1rXx4fJkgryAdMzfonzpCuT+bilHwf6CFsjhb3Uv2kHejmrl2KPZ2kO
-	 SoWOZrqHT6+AbsIcnbmet+wPuNlnKUQywaYozIV+DWuVpcm0cXwVBiGuGqb9Y7mn5zQ==
+	t=1794957030;
+	b=SuH+5erxXBg8ijsW5spupJ+0Xj6fD7jfNLqvOKrXtqRY2MCElisJ9ESuJZrLZpU8FNwC
+	 4aFXcYgr6JW6oAbc/ORRzts2x9n/Ccoliw3fZjybEvLUrS240TkVAHxxP+KYSIqMpzaDJ
+	 1N4C9Lcj60UJeFkYrZtu8h+5GDfjo1VYwHVT2qpMmrWnO6q0mfS7J9JFJGCTAuFekdfya
+	 2TXdk+M5RTCRFBJRbScJzi97KJ6okmwkqZ/dbZA6CJH5Nt0JFnXenWupfW00eN2OPPgxT
+	 zeF5HHRVj+nsinfs5RsmN/ySC9P7gP7q1lKe74QEYFHkI6kQlJfyIVI7m3BbotqWJ6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794957029;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794957030;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=V30PxotQwi22hEFXESUjYde/wVtAFXOIhw6/3E1NQPI=;
-	b=PMGw0I+gmxkS59xXCbUy4AGP6bRT+2pbUaROHFerhGgOfkStsYXF3L7TprTbhPAj+GN0
-	 7VOrd4Y6mdRglmIlaIWMY39tBlDTBe55EymbONvhGzTres9pNPnso5DYppWLJfXTLxEA+
-	 Rlwp4X468AUxcTIeoymbpZkpcxEgqL11AX6E/IHTCqd7aZv7HjqrZdTCdgfQLqCnYMBvA
-	 gH/OXS868vOH+cJCLKQ8MuSNsd7P/Bi5/xU+YaUkgEWfi5lsn15zruSSaXdJClKbGQOUq
-	 //GBLBp6SLSlpAiNyML+m4NtpuAGpkuG+uqXggxgo8195hxW/YIKuSrLg1KDJEErLWw==
+	bh=+L+eKin3CnXVq27nF9CwbHqF+i1xWp3XpKvpf5rE5cc=;
+	b=VD/C+nVVBc3kZjeDG0EnHGrSSMi/9gWQtiGJPlC9ihWQhPlPtBb5kbQLAmNibbEzlTnp
+	 NAE+ZWepkBZeUJq/V53Wgyx3NgqYePjDeXaNqqQWGLwC9QESUu8MSP/EXZl6Expb1yyf/
+	 7OjLds8REFSUdJl3QY0Ri0qqudQHVTwbwIKu8gNuFgSBr2ni8Sxr4Z/Xefc4oa958ugW/
+	 sXMJbClfzxBQ9+BgfVowPhcpv1ur+2NfUl8o92m04l3+BGjNdRrk3/8unryiCpqmf642d
+	 D81FJsxUJ/erzgw/bVzuP7DcuFvypJERqchTdlfrfCqhT0gLu+ZDAmrmzANYc+4ZhDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oY1CK1Yi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=giTATKpu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B1FA606A333
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 23:10:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80096606A881
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 23:10:30 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oY1CK1Yi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8EFD11F000C4;
-	Tue, 17 Nov 2026 23:10:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=giTATKpu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C78E01F000C5;
+	Tue, 17 Nov 2026 23:10:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794957029;
-	bh=V30PxotQwi22hEFXESUjYde/wVtAFXOIhw6/3E1NQPI=;
+	s=k20260515; t=1794957030;
+	bh=+L+eKin3CnXVq27nF9CwbHqF+i1xWp3XpKvpf5rE5cc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=oY1CK1Yiptv8Kz8Wln/ZXNghdzg0+KCH6umSMiX4snTTPs4WAlBNVQpHhoLbm+k0B
-	 A5lYcB30aGQrtUQG7sVTemZFf7+OtNkiHVQ5eqsjEWk3AvcB6YPsLvbjuquWbDRN76
-	 QGEE2VIclJcabpd/c6/1+bY64ebhipAgnLs8pxs2p5nXmWanC3Rw5jQcb2PAE9JOYw
-	 +9sw2GWMQ91qcJCothsOA4kEIeV7tzFW7OEj0xbl5nbRXQM4EBDp1JegbuU/FdGjiT
-	 FkN98SG8wQOK4t0kPScD9T+dBDSNnP8vTuxY6PRS9qhNUG9RJitze9GcVdRmPspGzA
-	 Z4ZMcMkRtK9rQ==
-Subject: Re: [PATCH net-next v4 4/6] ionic: map the FEC type through a helper
- in ionic_get_fecparam()
+	b=giTATKpuOGSWoRchZLWnCQaTw/bZ2HYwwVjS94b7BrBkopdpHp4O9Nl5txqSnjZnT
+	 6YFG5+ekWb22Iut7whCaIlRoM7n8X3M6wNT0V9tMwf4mmyjbY1M95lGjYobyVy+Bia
+	 MoGwOVIkr4OEEm9e+iGV01y5a0KUj6SOraUEy8TtZyYuK4Ls5EBY1Vuct0fKGkMAza
+	 BgjJIZhCici1E9P+sbQtJWc4uafEFEn42YG0VpodrUf6H+weYzNyoeuvtdY11CB3LU
+	 8zX6sdzUrEUJXWzzopgsq8W5dziCjRdlM8nEg8Suy3XLl0p5jCOHZX8AsFdRX+g2mV
+	 y4CMA6tqy4CKw==
+Subject: Re: [PATCH net-next v4 5/6] ionic: report the operational FEC mode
+ from ethtool --show-fec
 From: netdev-bot+sashiko@kernel.org
 To: eric.joyner@amd.com
 Cc: netdev@vger.kernel.org, brett.creeley@amd.com, andrew+netdev@lunn.ch,
  davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
  vadim.fedorenko@linux.dev, nikhil.rao@amd.com, edumazet@kernel.org
-Date: Tue, 17 Nov 2026 23:10:28 +0000
-Message-ID: <179495702811.3136.11203317455960639884@kernel.org>
-In-Reply-To: <20261116-ionic-get-fec-stats-v4-4-d25cae9f1e87@amd.com>
-References: <20261116-ionic-get-fec-stats-v4-4-d25cae9f1e87@amd.com>
-X-sashiko-severity: Low
+Date: Tue, 17 Nov 2026 23:10:29 +0000
+Message-ID: <179495702938.3136.7315548716381258707@kernel.org>
+In-Reply-To: <20261116-ionic-get-fec-stats-v4-5-d25cae9f1e87@amd.com>
+References: <20261116-ionic-get-fec-stats-v4-5-d25cae9f1e87@amd.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,91 +64,103 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] In drivers/net/ethernet/pensando/ionic/ionic_ethtool.c, the
-  refactor changes ionic_get_fecparam() so that it reads the device-…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The commit says old firmware "leaves the byte zero", so an
+  autoneg link on that firmware reports FEC off.
 
 --
 
-ionic: map the FEC type through a helper in ionic_get_fecparam()
+ionic: report the operational FEC mode from ethtool --show-fec
 
-This patch moves the mapping from config.fec_type to the ethtool FEC
-values out of ionic_get_fecparam() and into a new helper,
-ionic_fec_type_to_ethtool(). The helper is then called once for
-fec->active_fec and once for fec->fec. The commit message says there
-is no functional change.
+On autoneg links, ionic_get_fecparam() now fills active_fec from
+status.fec_type, the operational mode reported by firmware. Without
+autoneg it keeps using config.fec_type. The commit message says firmware
+that predates status.fec_type leaves that byte zero, so on such firmware
+an autoneg link reports FEC off.
 
 > diff --git a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
-> index 13b5874fe5ad4..8f0f1585116bc 100644
+> index 8f0f1585116bc..ac728b8aa780e 100644
 > --- a/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
 > +++ b/drivers/net/ethernet/pensando/ionic/ionic_ethtool.c
-
-[ ... ]
-
-> +static int ionic_get_fecparam(struct net_device *netdev,
-> +			      struct ethtool_fecparam *fec)
+> @@ -440,6 +440,18 @@ static u32 ionic_fec_type_to_ethtool(u8 fec_type)
+>  	}
+>  }
+>  
+> +/* Firmware that predates status.fec_type leaves it zero, which reads as
+> + * FEC off.  With autoneg disabled the port runs the configured mode, so
+> + * only trust status.fec_type on an autoneg link.
+> + */
+> +static u8 ionic_active_fec_type(const struct ionic_port_info *port_info)
 > +{
-> +	struct ionic_port_info *port_info;
-> +	struct ionic_lif *lif;
-> +
-> +	lif = netdev_priv(netdev);
-> +	port_info = lif->ionic->idev.port_info;
-> +
-> +	fec->active_fec = ionic_fec_type_to_ethtool(port_info->config.fec_type);
-> +	fec->fec = ionic_fec_type_to_ethtool(port_info->config.fec_type);
+> +	if (READ_ONCE(port_info->config.an_enable))
+> +		return READ_ONCE(port_info->status.fec_type);
 
-[Severity: Low]
-Could active_fec and fec end up built from two different values of
-port_info->config.fec_type here?
+[Severity: Medium]
+Is status.fec_type actually guaranteed to be zero on older firmware once
+the device has been through a firmware reset?
 
-The old code loaded config.fec_type once, as the switch expression, and
-set both fields from that one value. The new code does two separate
-plain loads, one per ionic_fec_type_to_ethtool() call. There is no
-local snapshot, no READ_ONCE() and no lock.
+The commit message says:
 
-port_info is coherent DMA memory shared with the device:
+    firmware older than that leaves the byte zero, which reads as FEC off.
 
-ionic_main.c:ionic_port_init() {
+The driver only zeroes that byte when it first allocates the port_info DMA
+buffer. ionic_lif_handle_fw_up() calls ionic_port_init() again. That
+function allocates only when idev->port_info is NULL, so after a reset it
+reuses the old buffer:
+
+drivers/net/ethernet/pensando/ionic/ionic_main.c:ionic_port_init() {
     ...
-	idev->port_info = dma_alloc_coherent(ionic->dev,
-				     idev->port_info_sz,
-				     &idev->port_info_pa,
-				     GFP_KERNEL);
+	if (!idev->port_info) {
+		idev->port_info_sz = ALIGN(sizeof(*idev->port_info), PAGE_SIZE);
+		idev->port_info = dma_alloc_coherent(ionic->dev,
+    ...
+	stat = (__le64 *)&idev->port_info->extra_stats;
+	for (i = 0; i < sizeof(idev->port_info->extra_stats) / sizeof(*stat); i++)
+		WRITE_ONCE(stat[i], IONIC_STAT_INVALID);
     ...
 }
 
-Its address is passed to firmware in ionic_dev_cmd_port_init():
+Before PORT_INIT, only extra_stats is reset, to cover fields the firmware
+does not know about. Nothing clears status.fec_type. The buffer is freed
+only by ionic_port_reset(), which runs from probe and remove.
 
-	.port_init.info_pa = cpu_to_le64(idev->port_info_pa),
+Say a newer firmware has written IONIC_PORT_FEC_TYPE_RS into
+status.fec_type. The device is then reset into firmware older than
+c4e7a75a096c, for example by downgrading with devlink flash and
+FW_CONTROL ACTIVATE, or by falling back to another image. In that case,
+can ionic_get_fecparam() keep reporting the stale RS value as active_fec
+on autoneg links until the driver is reloaded? That would hold even if the
+link negotiated a different mode or no FEC.
 
->From that point, firmware writes config.fec_type. RTNL does not
-serialize those writes.
+This depends on the old firmware not writing the former reserved byte.
+That hasn't been confirmed, but the extra_stats invalidation suggests
+firmware writes only the fields it knows about.
 
-If firmware updates the field between the two loads, ethtool --show-fec
-could report a configured/active pair that never existed together. The
-compiler cannot merge the two loads either: with -fno-strict-aliasing,
-the u32 store to fec->active_fec may alias the u8 source.
+Would it make sense to clear status.fec_type, or the whole status block,
+in ionic_port_init() before PORT_INIT, the same way extra_stats is
+handled?
 
-Given this, is "No functional change" in the commit message quite
-accurate?
+The later commit "ionic: Add .get_fec_stats ethtool handler" also uses
+ionic_active_fec_type(). That path is gated on IONIC_DEV_CAP_EXTRA_STATS,
+so old firmware does not reach it, and the rest of the series does not
+change this.
 
-The later patch in this series, "ionic: report the operational FEC mode
-from ethtool --show-fec", rewrites these lines but keeps the double
-read. When autoneg is off, ionic_active_fec_type() returns
-READ_ONCE(port_info->config.fec_type), and ionic_get_fecparam() then
-reads READ_ONCE(port_info->config.fec_type) again for fec->fec.
+> +
+> +	return READ_ONCE(port_info->config.fec_type);
+> +}
+> +
 
-Would it be simpler to read config.fec_type once into a local u8 and
-use that for both fields?
-
->  
->  	return 0;
->  }
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-ionic-get-fec-stats-v4-0-d25cae9f1e87%40amd.com
