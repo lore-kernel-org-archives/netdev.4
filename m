@@ -1,104 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794933586;
-	b=jRW/R5YnDX0lAEDZi0Gp9uSmTbmBNeAsZTv4BY2kr/jIJB38YLPix9stM/cz9wi7A7Ma
-	 ws9mLTQDPU3SYRBZBsFWXM0xDCYDZGEZD48pBxwIaoNIgvUL7DVHhBTzO9aoMAHEod7XD
-	 uHNgYEg3xnhiHbTLklJGMxkvv7j2+Jz9+WeSv3kMI2q3/aGTBcZO7GSWSxw9L/CscoVV7
-	 21XnoZZDOqVLjzIa8xHUHiAuUL4NuA9mPCMJ9tuI+Y4t8dUMqGAj522TFFGZ9RqPm/8JH
-	 Yp5E5yfsbWb89/GHOI9dekkCm2y/Ihdg/TpuHy0goxhUcMAAaQvXI06gQOFtbPeHp/g==
+	t=1794933610;
+	b=IdwOi6JQdoHjV7TBR3zIFPHkd3h08/ce61V0Ct5lsvQ7lF0YwvqbjXcM0YOepNCI8cd+
+	 0g1qir2+6M3+QOst4Lv41vNz/K+3BIITMtO+hF3InRLm63u0q/9DuAFK/LWEWd6F6VwgY
+	 1Xn079Yo3p7kWfBHlYcGLaeXGoMsrNQO0NNJlBFTApZFJwKasUhrukTOOBI4/TOsDlVYB
+	 FHx1XW4XrAZueIe+GQ4+eDxUCTfAU7evxPYDTdJ7zV5DKdEGiZYG953NricFKcXKQqeQJ
+	 H/zlE4EH8XSAZbT5bmssuyT+FyBiR5cKU+exvgdqqsajcg/3iltmy+/bAlDmq9n5GHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794933586;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794933610;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
-	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
-	bh=/4F+/UcRHsLof3SKLCHcEO2D3rsOio5c6X0Z/n2CUGw=;
-	b=er5pALG0qU4AvXN6ovnThg3h3e84CCDDuNMpbcl1RivxY+pPj3izw9XLAOStUvYRWHhF
-	 fLsZ+ZRsSpX9ncAVFzGWQpd2T6Mg283Xxz1Xaq45f2OgXSQA1xOxJRGltJAYpa6SoM+D8
-	 XWTvhgbZrvkCJuZmsHigmpvsRKWBcQ1zliQN65MyMBBbSpbqztMLN5vE8lq51ItxOydr+
-	 aEwKvHhf1ltH0fLBpqYysN6DJCsyXxvfuJGsEggrRemfwFTZ+HYDrVhSuiQmO/2mK5wZ7
-	 emqyrOIctgMZK689I128rE8c3Q7skVQum5W3P+g6DWaEacDAfrsB7ziRRohVNVawh7Q==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=DV4b38CcVigt3fSdaqPuGNDysKZiLQAbgGKBk8RFyiw=;
+	b=TdkvrLBQqE9R+s3YzmBYmy1jbkV3bs47LYWaTDzLG7CuyyBAgfxm6jJtOe/EIv9yRqwf
+	 bHQcAy9Z/7gVkvy/umv1bJH8El9tBH1JGuH9viPOhAwjgLkDjRBtboihITfVDwUCZY7tL
+	 7ChkdOyKVXtP3KzIA3ptAo+EzYWLo4PcDymVESOhKpSIQAW9zWYOr85beWvoNVDWfHbnn
+	 UwyX7DnimQVceTeIcfed6MAK5wzXPTvFchDhdNNTTf3frCwU0RHqYBsvSjUAjiKrFza+P
+	 KHIDW7sGslYCWWOnkpElvRiRyzydDkRWYyleyvR8TtCC6e5YYEORaIqZ3M1bZ6HIqJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amutable.com;
-	spf=pass smtp.mailfrom=amutable.com;
-	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b="aesidvv/";
-	arc=none smtp.remote-ip=209.85.128.45
-Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="B2V2B/k1";
+	arc=none smtp.remote-ip=209.85.160.53
+Received: from mail-oa1-f53.google.com (mail-oa1-f53.google.com [209.85.160.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03981606A332
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:39:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03981606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD29606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:40:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CD29606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=aesidvv/
-Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4b467581b98so982545e9.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:39:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=B2V2B/k1
+Received: by mail-oa1-f53.google.com with SMTP id 586e51a60fabf-4ad587ba293so9756fac.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:40:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794933584; x=1795538384; darn=vger.kernel.org;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=/4F+/UcRHsLof3SKLCHcEO2D3rsOio5c6X0Z/n2CUGw=;
-        b=aesidvv/tWkl6ucd5vcg63Wz+nYZsmz2N4tlcBii1a0qmPtAjMp1D0BkM4s+kG+7vB
-         J6noIj6TWK8JvWnlx5tONCVc5j3eP/3iK2OHAG5vof+0upQH042pml3mvWUEkiPxcfRP
-         lO8mEe7+ckrl+Zrw5AdA2xWssqKCewrjvs7Ndvtc7ukDCecZNF5qbMtPXV89adzyCt9R
-         YW+A58J7j0x1VKABDKxSt6F291Iqt8oIM/AD/88BR7vE/t4u6g6RttG9h62O2/mU4HGR
-         tGUZ+G2WE0dPiIgu0v4WEB29+nU/VuGMlE/IKAdtuefyOFimXgW3oDkqALQe6SaZZrVV
-         QbrA==
+        d=gmail.com; s=20260707; t=1794933609; x=1795538409; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=DV4b38CcVigt3fSdaqPuGNDysKZiLQAbgGKBk8RFyiw=;
+        b=B2V2B/k1ENbb5cOuJVzSrspC/eEsnIWd7CrCELRHJMLBanLffRr8bSll/DACeB8dp0
+         3R4M8j3GmT+BmtoZdNBF496uEJ2ZyG4Kj+2MLbJB/dXpt1YUgPNp+gHAuPd7T7JcDIdA
+         wMSFRqtMqsxM7EcEIQYeSq8XOOqXYZwArRxvoq4a2kikVjzbLSO+24bCK8VRxxcVP6V0
+         nbW+8U5M6vNd6M9UqkvaVeFuWRxLYgCnK0kHqQDrj5MS9dBzY6TV9H6/VdmfC7osJSZx
+         4RniRUfABrBHmj9yJQ/THGAiNnW8O93VBmzE83jnEWXYRZx+wK6ABAWLTEPDxJxWk/hM
+         jAtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794933584; x=1795538384;
-        h=mime-version:user-agent:content-transfer-encoding:content-type
-         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/4F+/UcRHsLof3SKLCHcEO2D3rsOio5c6X0Z/n2CUGw=;
-        b=bwrPjsvVppGi/Ltt4zwXNWcnovVdwWSSl9OpFK2FvYc7ihkTD80/XQdR2aPjNyx79z
-         zsy1Gi3wRD2I6ntqbThzWPqj7h80QCVeM8AhDG0KdeCYrKeJxEkrZmSTnFK0UwczpeBj
-         z3kqrH8OPkOtW53UYTRxS1fGauSDe9v3TbThu3KbCLZ/KqSIGWB4N2La5Z6pOU2M04t6
-         6lrRmuzvuy2vLA7GIGPuF1d3B7SMeQqyJWe4PadH032Q2seCALJXEKCHkclVUofxPtFy
-         /hm9WSb2odR0fIpHgl4nLk8yj45s7XDrQHr0Vct1ABLpxpud2vWSMsXtL80r8jHqlztG
-         9sGw==
-X-Forwarded-Encrypted: i=1; AL+hErGJ4nkDNHsMYHmQSjcfpN1OXMM9+wR89f9wIirul9IrN9npnYa7NtVv7jb1g5fvJ5L/vc60yfo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9xpHudreuDd4D6kvSqc/NleITzgU8Uvi/TsqN3qTgoxcEcO5H
-	ztv6Tu76xw3eXH+neiiPkW1ZvPZiXKNUbKt5iAkQU7Xkw3csUwn7VzF5imgyYiRUKlX+
-X-Gm-Gg: AYBFou095iwej+obe8JoVRqa72nZ/aH8dJxfkvTUU095LjRSXnstZYsXDRPQTj+w+MO
-	iSuLiRIgPSAiqyIJalFQPu8T+jIK36UiFQfonlmRfZuV1e/EAx16WAL7WVqE9rnw4hXHy4bhJMm
-	IY8ILD3Fhhff9aSYdPZR0sOTyWvUzszw4kfKfhFOZbOt+J3aruZDBDrbL3V67MrtBNTlzLrqAqk
-	jCZ9Aa2WgjitQMpzdaFNUpupSmOBU6RGTGwKpUe8Z7TZT7WQX1UaTyZQjiHSXJqKwtmes7KvJ5I
-	JHn3s1v+uqAM4ERp6LhbiYeMIaLGoOVCyTb109s+sOhvedBG7PjGBYL3gHzfW1s4BMwXC9Q9HeG
-	w3dUOSwWg1onN2+tm/42D+fnfdO0r/TOgtFCKzs0hm1BuspaQczFYx0rUvDpJR1yd9B6d2aQH00
-	bpJ4dtO0bqO6aJ2r8LNn0tMINg0jy+NlarQYJlgcKsKxlBKah49T+GuvLOxHBwM/bod+zF1mVb6
-	cZ9V7FVOxXaQFmZZSQtZ3+cf4vVBgIzTW/itNQvAX4Qw5z3DHbcWqluqOIkNVZp49waI/muj9S4
-	6VpVxwPVm7gh1kumjL/HYI5oibh0p7aG+cqmElWoEZBy3FTW5lnQ+IzO0bfdeYzvIIYC/VaCzcK
-	+ptNzhKOTniL28eeiPncaK0FLAYxUMcRXT7zh06gPorjHiZNay7JI3DTi0ivzvvuOh1UNWJOGH+
-	WCZg==
-X-Received: by 2002:a05:600c:3551:b0:4a1:992f:d0e7 with SMTP id 5b1f17b1804b1-4bb55a99d21mr315125305e9.16.1794933584407;
-        Tue, 17 Nov 2026 08:39:44 -0800 (PST)
-Received: from ?IPv6:2003:cf:572c:2800:dd2a:c8cf:5d96:bf5b? (p200300cf572c2800dd2ac8cf5d96bf5b.dip0.t-ipconnect.de. [2003:cf:572c:2800:dd2a:c8cf:5d96:bf5b])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a38b9b986esm5481266f8f.59.2026.11.17.08.39.43
+        d=1e100.net; s=20260707; t=1794933609; x=1795538409;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=DV4b38CcVigt3fSdaqPuGNDysKZiLQAbgGKBk8RFyiw=;
+        b=auJg1u4tRcR+NWA6SCXeR5KwmHyOgl4O+ePlBB8O3tXY/7bsXp7a8baargQQczsuaY
+         vQ/SYo2KvarBlkLSvVwaT4ckA732XuqGi+ndsbaboRomMOKiJL9RQt8m3K+1wVpzTaBo
+         zgI5uUe3fEt/xCieWsjrrBxmcigbm+YLWcJowzqQMrt2TD8ztRmXGD9Offd8x3LA8LFy
+         XdqclLKIpcf6NeiF3+zNP0x5YcD7bpeZltQ3XDo7hieuFDpm6N3Ix+U5rl4GoB4E9oJE
+         JwO8TPtDOSuxNsiL+aVjHLzevnOdktFCkrU+Q+vsUdx04pDDQcQEgiHColzQnKwlnFBQ
+         coEw==
+X-Gm-Message-State: APuU4Z9bHJRD1l5fqcEQg77Pb3NhFbaEBC3HVt5k814i/a0ADKXDv0o9
+	erAwrRyBZCuIKV7ydRd2IWhpeQ84siyEU5/rlHx4VskjLXTO0JPiy8h8
+X-Gm-Gg: AYBFou2DxB/nqC0RxHSZyQbfznOulq0nzrm4GpwX1CL5QFjYVxH6n1+AL/C6hy4OMRE
+	6jn9McaNnGWKiQBGbzG7ULMglcFbjoz03i7ZkW2ohQkeb4YAUFAxFYm9yoT4dANQYqXmxkrh6Fe
+	6GasLe2gqhgj3vE02GC+OKoE8Yarb17se6iQD/TjonY12APQhWhZD50/CeOHuURMESqpaX+L/vO
+	OpXY/xqEqDosxXdVe7UHBNqZbt6ri0XkIpa3LM2xACnsctKG/QexZuIZLbZCHJMuGDUU4W/tv9Q
+	m81QJfGUGNJ3nhoNqTinuWZM05+ldX/I2Oxrg9XAcw9yD4lSq7sSO9S4zdSk4xZmqlHpqJwUm0B
+	cg3cBFzqgYLJVRi6fyAXuCKzGK6MeVD8AmZ4pUMM2bxHvY+IYvEHNczS3+Nq9S7j861zjRl0gKN
+	ewOYzVHyO7CvsIcbqcazn8dGW637L/7ummhdyQ48g2nuZs1VoPJdknw5nYr+g+GUFjF+VG8vKRS
+	STB/CM/+Jug0ts9IFzYhfPy5prPBNSiwzgJsQRsCHYtZL3iFRmqBWxaoYK5L3GX7K46G4PEJtgX
+	VQi0lUz1p9O83X8kcbK8yfneXhLH8YA50BQEziUSc611dc6TOCjGkhIdnmGyhXCTVXaFUFQrQtK
+	TyV6w/FHrUpNL8KZcTZFezoBzP70y+6FV9MqKv9Pz5P4FaXg4bvcLspzOxxtT5ICq2fNWPxtAx+
+	t9s1w5BXlOffm0EPUNXlBcgo9Kaz/eYdju/6zeSU4Augxw7ohbbSSpoQ==
+X-Received: by 2002:a05:6870:392c:b0:485:d31b:775b with SMTP id 586e51a60fabf-4afdf3e5cb1mr12548756fac.25.1794933609320;
+        Tue, 17 Nov 2026 08:40:09 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b70e175c93sm36148fac.16.2026.11.17.08.40.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 08:39:43 -0800 (PST)
-Message-ID: <cf47c058f8944a427885e83214b8ad1c4268cbd8.camel@amutable.com>
-Subject: Re: [PATCH net 2/2] selftests/net: check that a short SO_PEERPIDFD
- optlen fails
-From: Alexander Mikhalitsyn <alex@amutable.com>
-To: Christian Brauner <brauner@kernel.org>, "David S. Miller"
-	 <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	 <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>, 
- Alexander Mikhalitsyn <alexander@mihalicyn.com>, netdev@vger.kernel.org,
- linux-fsdevel@vger.kernel.org
-Date: Tue, 17 Nov 2026 17:39:42 +0100
-In-Reply-To: <20261117-work-net-peerpidfd_short_optlen-v1-2-a93f56288501@kernel.org>
-References: 
-	<20261117-work-net-peerpidfd_short_optlen-v1-0-a93f56288501@kernel.org>
-	 <20261117-work-net-peerpidfd_short_optlen-v1-2-a93f56288501@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        Tue, 17 Nov 2026 08:40:08 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Tue, 17 Nov 2026 09:40:00 -0700
+Subject: [PATCH net v2] net: stmmac: preserve RX checksum capability when
+ offload is disabled
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,88 +92,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-submit-stmmac-rx-checksum-capability-v1-v2-1-059f9499c386@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/5WOQQ6CMBREr0L+2m9slQquvIdhUeoHvlogbSEQw
+ t0teAKT2cxkMm8W8OSYPNySBRyN7Llro5GHBEyj25qQn9GDPEklhEjRD6XlgD5Yqw26CU1D5u0
+ Hi0b3uuQPhxlHgVQpdUmvWZbnEuJa76jiaSc9oKUAxS+Mey8yYWNstYZ96Ny8/xnFXv4bHRX5W
+ qpKn1WWl3SvrebP0XQWinVdvyK8tL31AAAA
+X-Change-ID: 20261115-submit-stmmac-rx-checksum-capability-v1-ef6645788992
+To: netdev@vger.kernel.org, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe CAVALLARO <peppe.cavallaro@st.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.17-dev
 
-On Tue, 2026-11-17 at 16:25 +0100, Christian Brauner wrote:
-> Cover SO_PEERPIDFD and SO_PEERPIDFD_THREAD with an optlen of 0 to 3:
->=20
-> - getsockopt() fails with EINVAL
-> - optlen and the buffer stay untouched
-> - no pidfd is installed in the file descriptor table
->=20
-> Check that a full-sized buffer still gets a pidfd.
->=20
+The GMAC, GMAC4 and XGMAC rx_ipc callbacks return whether checksum offload
+is enabled after programming the requested state. A zero return is
+therefore expected when hw->rx_csum is zero.
 
-Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
+stmmac_hw_setup() treats every zero return as a lack of hardware support
+and clears plat->rx_coe. Disabling RX checksum offload with ethtool and
+then reopening the interface loses the saved capability. Subsequent
+attempts to enable offload are rejected by stmmac_fix_features(), which
+uses plat->rx_coe to filter NETIF_F_RXCSUM.
 
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
-> ---
-> =C2=A0tools/testing/selftests/net/af_unix/scm_pidfd.c | 51
-> +++++++++++++++++++++++++
-> =C2=A01 file changed, 51 insertions(+)
->=20
-> diff --git a/tools/testing/selftests/net/af_unix/scm_pidfd.c
-> b/tools/testing/selftests/net/af_unix/scm_pidfd.c
-> index cbe53fab44fc5..c26f055a19032 100644
-> --- a/tools/testing/selftests/net/af_unix/scm_pidfd.c
-> +++ b/tools/testing/selftests/net/af_unix/scm_pidfd.c
-> @@ -1155,4 +1155,55 @@ TEST(so_peerpidfd_thread)
-> =C2=A0	close(server);
-> =C2=A0}
-> =C2=A0
-> +/* The lowest free file descriptor, where the next pidfd would land.
-> */
-> +static int lowest_free_fd(int fd)
-> +{
-> +	int nfd;
-> +
-> +	nfd =3D dup(fd);
-> +	if (nfd >=3D 0)
-> +		close(nfd);
-> +	return nfd;
-> +}
-> +
-> +/* A short optlen must fail without installing a pidfd. */
-> +TEST(so_peerpidfd_short_optlen)
-> +{
-> +	const int optnames[] =3D { SO_PEERPIDFD, SO_PEERPIDFD_THREAD
-> };
-> +	int sv[2], i, free_fd, pidfd;
-> +	socklen_t len, optlen;
-> +
-> +	ASSERT_EQ(0, socketpair(AF_UNIX, SOCK_STREAM, 0, sv));
-> +
-> +	for (i =3D 0; i < ARRAY_SIZE(optnames); i++) {
-> +		for (len =3D 0; len < sizeof(pidfd); len++) {
-> +			free_fd =3D lowest_free_fd(sv[0]);
-> +			ASSERT_LE(0, free_fd);
-> +
-> +			pidfd =3D -1;
-> +			optlen =3D len;
-> +			ASSERT_EQ(-1, getsockopt(sv[0], SOL_SOCKET,
-> optnames[i],
-> +						 &pidfd, &optlen));
-> +			ASSERT_EQ(EINVAL, errno);
-> +			EXPECT_EQ(len, optlen);
-> +			EXPECT_EQ(-1, pidfd);
-> +
-> +			/* No pidfd was installed behind our back.
-> */
-> +			ASSERT_EQ(free_fd, lowest_free_fd(sv[0]));
-> +		}
-> +
-> +		/* A full-sized buffer still gets the pidfd. */
-> +		free_fd =3D lowest_free_fd(sv[0]);
-> +		optlen =3D sizeof(pidfd);
-> +		ASSERT_EQ(0, getsockopt(sv[0], SOL_SOCKET,
-> optnames[i],
-> +					&pidfd, &optlen));
-> +		EXPECT_EQ(sizeof(pidfd), optlen);
-> +		EXPECT_EQ(free_fd, pidfd);
-> +		close(pidfd);
-> +	}
-> +
-> +	close(sv[0]);
-> +	close(sv[1]);
-> +}
-> +
-> =C2=A0TEST_HARNESS_MAIN
+Only clear the capability if offload was requested but could not be
+enabled. Keep calling rx_ipc when offload is disabled so that the hardware
+is still programmed with the requested state.
+
+Found while investigating RX checksum offload behavior on H616. Maxime
+Chevallier reproduced the capability loss on AgileX5, CycloneV and
+STM32MP1 and verified that this change fixes it.
+
+Fixes: d2afb5bdffde3 ("stmmac: fix the rx csum feature")
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Tested-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes in v2:
+- Correct the Fixes tag to reference the mainline commit.
+- Add Maxime Chevallier's Reviewed-by and Tested-by tags.
+- Include the discovery and hardware confirmation context.
+- Link to v1: https://patch.msgid.link/20261115-submit-stmmac-rx-checksum-capability-v1-v1-1-ea26fa3689be@gmail.com
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 25894771e9e9..e162976be2e6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3723,7 +3723,7 @@ static int stmmac_hw_setup(struct net_device *dev)
+ 	stmmac_safety_feat_configuration(priv);
+ 
+ 	ret = stmmac_rx_ipc(priv, priv->hw);
+-	if (!ret) {
++	if (priv->hw->rx_csum && !ret) {
+ 		netdev_warn(priv->dev, "RX IPC Checksum Offload disabled\n");
+ 		priv->plat->rx_coe = STMMAC_RX_COE_NONE;
+ 		priv->hw->rx_csum = 0;
+
+---
+base-commit: 5e9b2ad9b8384cd3c417cd5e2c3bc7eee4a72791
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git main
+change-id: 20261115-submit-stmmac-rx-checksum-capability-v1-ef6645788992
+
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
+
