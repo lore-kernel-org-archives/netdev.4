@@ -1,112 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794932186;
-	b=TfUJ76+umJV6HnDmE/Sr7AevAKZCHHKwUcOl2PkHwtmAMJulXBODHNOMoTpqZBNvjgAl
-	 UsJMKTvM7sKXbX2+7LIVw72fi9SvkEDgVkeVRDZAIFt+H51DVRDCc71+q9jJP9LcP0Xbd
-	 nU7WNDwlr8T1WyBVxgctb0KE1A6nC1lZOADvRoB/Xzp8eYgV1RMVefoD41iXsrR8VpSdr
-	 InMRYlmsEFR/L1/5PL8t0qmOZGZdWrNXSQV/go2Q6viX9zU45H/sxxzt2lr2MH51cdr0P
-	 rhy3/5YthRT1MY3qSG+9pyc6QBkQ+bfoScbzmLwj4myyfht4gxqKegquMIjwtuqO9Eg==
+	t=1794932454;
+	b=GoTW6lRO3CcZCopr+YJA5yjkSoVSfCQ+uWMTugkCad6WvWepazjWrlnjq4U2kkW0lHMV
+	 7hdcLcnVa8aAtC+cqcrWZSw1Sbp/X0BzjZpNVZzTT2AbueQevGJrfvc5yfu3XTfDeN2V+
+	 sVngwhjPDROQC1snMQ/oyTGObOH4TiyT0TL1tbXVJEjdAUsHaKiHImwdMqNkfCnI4BZH+
+	 il29t9cL8n0HvGgNh2XalZ6QmZLwQSM2fh9P9524lxLzyPOyqJa2D6CLuTBHSPjvHKc8m
+	 UccwpwM4NFivJRWhhOu03jT/H5VJBDtG997018OPzY00TZxKeBzFzjKDJmyW2siupAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794932186;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=3epTVbKPJVG8iTt/z4MHuDPL8RwQKn3lHAOFYRFX2uc=;
-	b=Yy6hQpsplI07DmOGArLMpMpLMU4LRSslQVNr9NVYr8SclB3ZmofgiRq/S9GWsbcfckZv
-	 sih8wmdcX4rAFc4Ig6xOC6f5Okzirz28Oklu78OCXWAtE57jH5ZygSq3zXSH4toZWaQW8
-	 mOHHYQZp05iouTqDkSj0u0FSlNDAGA5fBb1p63bTVUUapcssvBKaU/on7xnFM7oyMu6tK
-	 9Etpb5GI4oSyK8eX519PbsSVgsS7I9avNKrfbjcb++1VviuEjnWZouWNQPqoJe5vrTtWY
-	 U1G2eacQX3cu00DtRtw7ppNYPHNEfc6YsJlYMLHj8IG/H5YNzlg+O0zf6lk/Ov5Uyrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794932454;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=R8YXxcd0YC0WTNF9Vrbn4gzJwhELMl+f2VxUC/rLuRo=;
+	b=ayF7V82n+G4aou9dsyIeUcBuEB2OfKRsfUXvz1vIKwsF8kZOExZvBl81qKf3X3luKpNY
+	 UW5YkHDsHeqzi/TwevLUPkQz7EkbOqacM9ikXm0wm6fq4DI/ZyNTJ68gkFF8BKibX/H82
+	 8L6Hhz04p6Sk41rXwFUI8Ba6NvPEBaN6szUC1WtPQQI+YNBt0dcakmF3OYx0/F1szYi+0
+	 oiCiMrpr5C4qql77CUfwFyS+eCXJefd4kGpvAVsR8lnmjX1FxahEW33f1nypMyzh/wlKt
+	 CCL3POZCzf9t47ao9NAxEU1HexwSMKFaVYV5NzGbedx/d4k2u0r8s+Auuk0JjlES3mw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudflare.com;
-	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=UpSR2Myj;
-	arc=none smtp.remote-ip=209.85.208.41
-Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=svEAUt2k;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90750606A32C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:16:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90750606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3733606A332;
+	Tue, 17 Nov 2026 16:20:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3733606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=UpSR2Myj
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6b70880c0a4so5940433a12.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:16:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1794932185; x=1795536985; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=3epTVbKPJVG8iTt/z4MHuDPL8RwQKn3lHAOFYRFX2uc=;
-        b=UpSR2MyjHvrEaRxBPQUaVNwY5hXBUuG7pyxygzHG8O1OlkFcTtvImstuQRqRpLBA4r
-         d8ujp2NOgvsfRkCgBHT99e6DvBL3yjoZG+IRzwPN1ecpq8Zu1gziqA/LJJbKmUU32L96
-         +j5J/XDhamhmyebOPpBG6lvLVHypiH9s5zxH4yI6N81cQPeunv+Y+9WbmyCs01sxiCoX
-         E93SVwIf7wxbx0XWpPk+aocZMK9ejnb/JEglkxAcxqwse1Z8hwdGohRj63Nd4/PwWHJk
-         /kSuhuk8KNpLagBGeAGXgI3LSl3mMI3oB4+FQfhFlZpxkA8lCcHoxW090cLST8CcTcKZ
-         OhEw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794932185; x=1795536985;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=3epTVbKPJVG8iTt/z4MHuDPL8RwQKn3lHAOFYRFX2uc=;
-        b=SWb1AoqiXq0d+TFzKdYVNi18seRS6qblUVehG+RBTaZ3JhqV/n/gk2TOY7zJknGpAI
-         wbQQiGXF5MlsqEz2DdFbw3KnncFwd4q/85p9vK1XYQGO+Xu61OaER/nUvGqbN8e2kjoB
-         7ZHgfC3cAYAebP6Jv5hn61KwqOsqKYHnmSpC7U0xe7R29WLsZEyLhH8xTsUENmLKcKqL
-         GgYMG63l8LkGcrf5lDWCbuiN/NjKfMZZw3SFkGGtpCa9JkMz4Tdq4saJK1ErRE0C9Wzd
-         RtaOyUbNL+GzKVwB6O7b541DhkMOr4zyLQNaWVVEP+07WUXKkEpO7a7QBgT3dl7kZefE
-         0PEA==
-X-Forwarded-Encrypted: i=1; AL+hErGV7iCQzYz2KKjrAVAlmgGO0XoY104a3yHStdTI3W6TUgUGQVbjka9ntuvsoQnO3g/4JLFSdz0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9ldk/IogXvFnEKFDqLdgABLxMW/8prEPXPzpTiTnFBmyQrcvl1
-	ZC1QrZhd8soYFm9NvwExnNitBpLEiOoe2ga2KOKzjAub32MlRv5F2OSnpbiBFRrbl5U=
-X-Gm-Gg: AYBFou0bJS7dIp923qCgE0yOXaNX1hzfGyCIIqK4rGGaalnhWczINMonNnMTrEZofze
-	kq/FR6ZO2ehu4zIzCNiIYusjKa3r9q0Dg6XNJLF5IA8KDYKfeFnjbg5xFGwhmqWbg20KeDxXpK+
-	t+uVUU56+JoEyginvTSLjqq53fi/60QUtMxyHezlcM6GqTbZfMY8U4fd6vXzyRHtK90ck7uLTcz
-	iC9+nT2mnWDjpOWbJ58OJMPf2rucSC3FMVlUkwWrz/xYIuyIfllsarhYzjHXj1Z328qDzanq6dz
-	5Ehdv2wiy3PC4UQVPFk63gz4gMw4rWa6qo6xtUQnBYIoA1uH4Mu0UY8gtg/TV1BsDbJ3bJGy9m3
-	TzkVIqH0oR6CcD9YOQ5GhG85k8xmB4C/ybO2GbdEugIqB5wrOCmAh62ilgBXVRLIPYMa7UNe5tM
-	JR/fVUO/vorW7BLnXMzVWwUX5pTmCaD72oYEQWDpopQZ9p4Ygtnf4Z2D2f5ePWmxcRDts26Y2uP
-	+5IHFPKEsRUxXx5Hu/18uLJAnIfM5QT3q5rKnRC/QW20+vK6Yaa91pvyZbD+O3sYNa6/rSl/mFZ
-	J4brVk5N6vtnzjlwREUPR1hpX1VvCpuRUhu20nalqM+uw5o=
-X-Received: by 2002:a17:907:dab:b0:c49:df8f:3c79 with SMTP id a640c23a62f3a-c50963b88f3mr1191532666b.34.1794932184976;
-        Tue, 17 Nov 2026 08:16:24 -0800 (PST)
-Received: from L9JK9NPFH9 ([2a09:bac6:37ad:1e5a::306:c])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510cab33aasm857666b.52.2026.11.17.08.16.22
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 08:16:24 -0800 (PST)
-From: Tianyi Gao <tianyi@cloudflare.com>
-To: Slawomir Stepien <sst@poczta.fm>
-Cc: ast@kernel.org,
-	daniel@iogearbox.net,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	magnus.karlsson@intel.com,
-	aleksander.lobakin@intel.com,
-	ilias.apalodimas@linaro.org,
-	toke@redhat.com,
-	lorenzo@kernel.org,
-	ihor.solodrai@linux.dev,
-	tavip@google.com,
-	maciej.fijalkowski@intel.com,
-	stable@vger.kernel.org,
-	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev
-Subject: Re: [PATCH v6 bpf 2/3] veth: use the frame mem type when running XDP on an xdp_frame
-Date: Tue, 17 Nov 2026 16:16:20 +0000
-Message-ID: <20261117161620.62739-1-tianyi@cloudflare.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261104121316.1155680-3-sst@poczta.fm>
-References: <20261104121316.1155680-1-sst@poczta.fm> <20261104121316.1155680-3-sst@poczta.fm>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=svEAUt2k
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=R8YXxcd0YC0WTNF9Vrbn4gzJwhELMl+f2VxUC/rLuRo=; b=svEAUt2ki8b5CN9Mzp7R21FRHX
+	h+1+/6oQtlSNo6UvB0Cxo3jG8j16W9AzngFomfI4mPSzIrbY7VNE5et6/nCjNZmYk/RmIxzJVXDjq
+	F4+Ih38p11f0AHNk427t7VA8S7/moH07nw2rS5D2hIPNYz2KXlLPB/o/CB52S6w8Xoa8=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTLvD-00HCIO-9E; Tue, 17 Nov 2026 17:20:39 +0100
+Date: Tue, 17 Nov 2026 17:20:39 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/8] dt-bindings: net: Add MDIO demultiplexer
+Message-ID: <4d4dc86c-c947-40e2-bdaf-ed00a39f3771@lunn.ch>
+References: <20261116135442.4827-1-jszhang@kernel.org>
+ <20261116135442.4827-2-jszhang@kernel.org>
+ <16ecb3ac-7876-4db5-9168-5ac9bf31d4b7@lunn.ch>
+ <avvgy_bmRSVApCHA@xhacker>
+ <bd19b55b-00b1-406d-a16b-d04c35efb7d3@lunn.ch>
+ <avxhJs-51vs2Icje@xhacker>
+ <6eb16cd9-27bd-4934-9621-b8928dce6902@lunn.ch>
+ <avx43Nv-DJCX5_Rr@xhacker>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -117,6 +81,22 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
-Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+In-Reply-To: <avx43Nv-DJCX5_Rr@xhacker>
 
-Reviewed-by: Tianyi Gao <tianyi@cloudflare.com>
+> > Each transaction?
+> > 
+> > Are you proposing to use both MDIO bus master? Why? To the outside
+> > world, it is one MDIO bus, so you only need one active MDIO bus
+> 
+> Yep, both MDIO bus masters. I wanted to let each MAC uses its own
+> MDIO rather than disturbe another MAC for dual MACs case.
+
+How does this actually work? Each bus master sees each PHY. So one
+hardware device is represented twice in Linux. Bad things are then
+going to happen.
+
+As i said, the outside world has one bus. So you need one MDIO bus
+master. This is nothing new, the FEC has been doing this for a decade.
+
+	Andrew
