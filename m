@@ -1,59 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794879635;
-	b=rRBnkIZ32cK12rv6+v+WfyUh7qidUg/tChxrN0g7c07jY/+pABlo9TmdrPMb8VRGUlSr
-	 dHkZI535KLFXYqx+x66grW4Fn05zkaUN0B7zMxAZmlCOFYmQQbwYFyEb80gNbD2tBjNVE
-	 YGwxrACiEUijkNu4xWXoPTi1BxHPHo6NHYJ04KcfMmDkYm07IArvu9CHKz5IH52QYMAzk
-	 s9MSfzG3xPabp4zpJnqUYyofRJI+BGjW38ExID4KH66G64e7DkLSxfwvYSlg2NCx44jUF
-	 X3SWohTcwKeazthVVA92RU+k9xw0H1jVTcr/BCdx74YWMrwxOaYlHH4wJ9PUrjelPEQ==
+	t=1794879747;
+	b=XHqBY51M30RPvcdnLVryMdb6B4LpCtHAf1pgURK7peP9TIvB793SnBZ5LmlIdUlo3ZgU
+	 Pop6NCGq2Zx9AOFsTzoj64WyWPyM6I5OAo4CA7qVuL0toBguqdHow+uKzgBiXB4aO6UZK
+	 CIGnCRUYM51SaipR4BQ62npnWAS6RQOriOWB6lnpOKRIB3Y2OyCaDq2vyNvlL88I/v4Tj
+	 xdhXBeUdmMIE+fr7DDVa1K75Lne8Mrf1OZs/C+2I2FHw47LgulBs0wvLhYvpFVZVLQgHX
+	 gBCMxO2C8hDNnCDRGS0yPs3cXExI3nhbHESEBR5i9S2nKX7sHHxvyTTzk3E2IlEEbeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794879635;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=bfWb5RBiPkAxVa1yJSTv5gJyF52mYlUF7kbQr6pnYLQ=;
-	b=u0RkJh4UtFSZEJ2kZGQYQH2SBB8zQKLbX+DpW8D+srfuWCTv7NUloZtwCSbnD2lyPRrW
-	 WY/sdDFKmlRxK+wjtV2euaKpJeTtZ5prKmorYJHeVPMI5BhMW08tziUSjjuhpu2gWU/Vx
-	 DpGr7JR0SPrGYetGfdigRGls7D6aLBfG/JRXMHJQaTlrit4nr3nAcm67/gpQqgR65ie+i
-	 ON/mpICge4qf82tXikmCvpLhdSdZjRsSfF4H3gl2HKSjXYeAKjscVa/V7FiBffKMMktUX
-	 jM7oo6/HeWJl8g+7O8VBSFwiFHB5tTLeGAt/+U0wcP7Etkx5qohdA+G6GT9s8OSKBkQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794879747;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=2qcJKNUTkGRZCr2oq+EUfBGTGp5J3/etKeRpOPwjgBU=;
+	b=EfmnP8ioZ9AWaM/5VS0wSbcPLrnODieQIQiAtA3B+jT0WtAsLOBEQW+gi1lxKvjAiSWC
+	 QmlxMXKffEgIHWjy6pfzd5ADHRP0M33kP93wGD6ThmmW0cxo5NaQaBSFaVWChtsTPFxkP
+	 OfuPzl1RvPQdEMew3fTzqoKoPXI9GSxxJ6Yvtyw6WnCeFlzDGUE+da7pXuK3a1AFYP8ja
+	 zTIhn+a6WWFHCBJn6X+egw+MbpUzoCYJYkXlYnhdhUf3YpsC93Iot7t2KFt/epfqkrNoV
+	 LMHdvOjFPO1m03h4TwRfjZ+F1JuRgYeaLAnfq2O/WbpH1hPaR5ZZfqs5sxntRE5vuig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nO6kpO21;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LEjDeXZt;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AFD6E606A333;
-	Tue, 17 Nov 2026 01:40:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59FB3606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 01:42:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nO6kpO21
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00F2B1F000C4;
-	Tue, 17 Nov 2026 01:40:34 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LEjDeXZt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 101DF1F000C4;
+	Tue, 17 Nov 2026 01:42:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794879635;
-	bh=bfWb5RBiPkAxVa1yJSTv5gJyF52mYlUF7kbQr6pnYLQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=nO6kpO21kZQMHQgs5CBB/3tNhWvahxd0R0sSIjeevIKOOHCaCQA689n3A/RucBZdF
-	 dvMWQ2mSNfKzxroZknuwivvKpSKg1TK2hXFN3EohSb0Y2NFUXFu92fVyX1+H7zUztM
-	 NTdrOjKLMZBHznNPWMvgFo23Ypps+H7cVitW23p3zEPjPJLfab3OQ8oXHE0s2sCNSK
-	 tkmwdTOjDj+MkvGzL88/Jzdj2YlUzhC5ReRHIoxv91gDTqduIbKLIXCMnRFuIZhXVf
-	 tJrUHLEQ/ZOpPPW4/qvDX7+X4pv3M8bDg2iY95D/ayvjKfvstEhrxrpFs/etnJ2nfV
-	 0K/inXqTVpZrg==
-Subject:
- Re: [PATCH net 11/11] ipvs: wait grace period before reusing destinations
-From: netdev-bot+sashiko@kernel.org
-To: pablo@netfilter.org
-Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
- netdev@vger.kernel.org, kuba@kernel.org, pabeni@redhat.com,
- edumazet@kernel.org, horms@kernel.org, fw@strlen.de, ja@ssi.bg
-Date: Tue, 17 Nov 2026 01:40:34 +0000
-Message-ID: <179487963451.3136.12564607186717303065@kernel.org>
-In-Reply-To: <20261116004404.2821183-12-pablo@netfilter.org>
-References: <20261116004404.2821183-12-pablo@netfilter.org>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1794879747;
+	bh=2qcJKNUTkGRZCr2oq+EUfBGTGp5J3/etKeRpOPwjgBU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=LEjDeXZt7eQYEuuM1ubpwQ0N6SSeipR+V1OQXZYkso4dpkBIw+mF7uHgLiiJo++9V
+	 XHtRdnhWQVb9w0IhQdBI+yHwi0Lhg+LeUNVkKzjKWXkF/6F22xTZ4ApAfh93ntjaYX
+	 gHU8SeDtEs1mbBN6vZGNFRvTWBId2IhHZ6z7+DW55RbxITVrb3ioznp1EZU+Vl8zqT
+	 0sMWJOCKeZA6rnXCl9q8dye5lXBCh/I2NxmMAYCD6OQ3+mS1yULS0cS7skWoa4Pod0
+	 1Nh8qWRHq3sHFNWgy/7FP20PjHzIRgd+ZOgS0awZBayClRilH0kp1u0mTEmkZqUbnI
+	 6P7blZrtQxjzA==
+Date: Mon, 16 Nov 2026 17:42:25 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Mingming Cao <mmc@linux.ibm.com>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, horms@kernel.org,
+ edumazet@kernel.org, pabeni@redhat.com, andrew+netdev@lunn.ch,
+ nnac123@linux.ibm.com, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ linuxppc-dev@lists.ozlabs.org, npiggin@gmail.com, chleroy@kernel.org,
+ ritesh.list@gmail.com, sshegde@linux.ibm.com, haren@linux.ibm.com,
+ ricklind@linux.ibm.com, davemarq@linux.ibm.com, bjking1@linux.ibm.com,
+ shaik.abdulla1@ibm.com
+Subject: Re: [PATCH net-next v8 00/15] ibmveth: Add multi-queue RX support
+Message-ID: <20261116174225.7d9e9611@kernel.org>
+In-Reply-To: <20261109235556.60604-1-mmc@linux.ibm.com>
+References: <20261109235556.60604-1-mmc@linux.ibm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,108 +63,19 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Mon,  9 Nov 2026 15:55:41 -0800 Mingming Cao wrote:
+>  arch/powerpc/include/asm/hvcall.h   |    6 +-
+>  drivers/net/ethernet/ibm/ibmveth.c  | 5007 ++++++++++++++++++++++-----
+>  drivers/net/ethernet/ibm/ibmveth.h  |  240 +-
+>  tools/perf/python/powerpc-hcalls.py |    4 +
+>  4 files changed, 4318 insertions(+), 939 deletions(-)
 
-Low priority / nit picks for your consideration:
-
-- [Low] The commit message describes pre-patch code that does not exist.
-
-Pre-existing issues:
-- [Low] The header comment on __ip_vs_del_service() in
-  net/netfilter/ipvs/ip_vs_ctl.c still says " * - We are called under…
-
---
-
-ipvs: wait grace period before reusing destinations
-
-This patch saves an RCU grace-period cookie when an IPVS destination is
-moved to dest_trash or unhashed for an edit. It then waits with
-cond_synchronize_rcu() before the destination's n_list, d_list or
-estimator list links are reused. Trash additions are collected in a
-temporary list, so one cookie is taken after all unlinks in a delete or
-flush.
-
-> When a destination is retrieved from dest_trash, ip_vs_add_dest() currently
-> restarts its estimator before waiting for the grace period.
-
-[ ... ]
-
-> ip_vs_start_estimator() rewrites the node on its temporary list on success,
-> or initializes it on failure, before the current wait. A reader can then
-> follow the changed link or stop traversing the chain early.
->
-> Wait immediately after retrieving the destination, before starting its
-> estimator.
-
-[Severity: Low]
-Does this paragraph match the tree being patched? It reads as if an
-existing grace-period wait is being moved earlier. However, the baseline
-ip_vs_add_dest() has no wait between ip_vs_trash_get_dest() and
-ip_vs_start_estimator():
-
-net/netfilter/ipvs/ip_vs_ctl.c:ip_vs_add_dest() {
-    ...
-	dest = ip_vs_trash_get_dest(svc, udest->af, &daddr, dport);
-
-	if (dest != NULL) {
-		IP_VS_DBG_BUF(3, "Get destination %s:%u from trash, "
-		...
-		ret = ip_vs_start_estimator(svc->ipvs, &dest->stats);
-    ...
-}
-
-This patch adds cond_synchronize_rcu(dest->rcu_state) from scratch, along
-with the rcu_state and need_gp bookkeeping. The phrases "currently" and
-"before the current wait" seem to describe an earlier revision of the
-patch, where the wait came after ip_vs_start_estimator().
-
-Since this is Cc: stable, could the paragraph be reworded to describe the
-new wait being added, so backporters don't go looking for an existing wait
-to move?
-
-> diff --git a/net/netfilter/ipvs/ip_vs_ctl.c b/net/netfilter/ipvs/ip_vs_ctl.c
-> index 5868adda6ed6e..be818bf7d3806 100644
-> --- a/net/netfilter/ipvs/ip_vs_ctl.c
-> +++ b/net/netfilter/ipvs/ip_vs_ctl.c
-
-[ ... ]
-
-> @@ -2063,7 +2123,8 @@ ip_vs_edit_service(struct ip_vs_service *svc, struct ip_vs_service_user_kern *u)
->   *	- The service must be unlinked, unlocked and not referenced!
->   *	- We are called under _bh lock
->   */
-> -static void __ip_vs_del_service(struct ip_vs_service *svc, bool cleanup)
-> +static void __ip_vs_del_service(struct ip_vs_service *svc,
-> +				struct list_head *dest_trash, bool cleanup)
->  {
->  	struct ip_vs_dest *dest, *nxt;
->  	struct ip_vs_scheduler *old_sched;
-
-[Severity: Low]
-This isn't a bug introduced by this patch, but is the "We are called
-under _bh lock" line above __ip_vs_del_service() still accurate?
-
-__ip_vs_del_service() calls ip_vs_stop_estimator() for svc->stats. It
-also calls it for each dest through __ip_vs_del_dest(). Both of these can
-sleep:
-
-net/netfilter/ipvs/ip_vs_est.c:ip_vs_stop_estimator() {
-    ...
-	if (ktid > 0) {
-		mutex_lock(&ipvs->est_mutex);
-		ip_vs_est_kthread_destroy(kd);
-    ...
-}
-
-The callers are ip_vs_del_service() and ip_vs_flush(), both through
-ip_vs_unlink_service(). They run in process context under service_mutex,
-not under a BH lock.
-
-Since this patch already changes the signature here, could the stale
-comment line be dropped or corrected at the same time?
-
+This is way too large, I spent half an hour reviewing and only gotten
+to patch 8. There's no reason for the series to be this big. The 15
+patch limit doesn't mean you should try to cram as much as you can into
+15 patches. Please split this up into (3?) smaller series.
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116004404.2821183-2-pablo%40netfilter.org
+pw-bot: cr
