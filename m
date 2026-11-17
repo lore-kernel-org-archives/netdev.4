@@ -1,49 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794886209;
-	b=1Pv1T7PJMFR0l10VL8MYWPLNySGxw5p81YxJUsow3e1iEBTV5TbAjmmbNw1XQxEdJNHX
-	 dg/VeQ/JQVh8E0AnyP7+5RvcIKi/znSVExj5ZLMeCWz4qQF/XxrD62kQdNp9EfhQZ2wqS
-	 p4RwsEZ5c8wUM07xYYYfo1DgZTM/UtIhR9Jbcqcs/RL+GXjPL7FzmtB/P70UORElgXFkM
-	 sk/U9hQjTGL/1elHKzK3Doirb4oI70yXAgfMTW+wYdn21toFu5vqYTxKqL5RhWjcAIt1n
-	 EoOgB5fo43jSH1rdLQtwoumgr4d7pIXvxmytJyRiQK9zp78gHL1gIHqxGW+CqF3K/mA==
+	t=1794887000;
+	b=iyEzXauoH3efHSXP8u7dFzBTkpZ7IO5P6QcglqxPHx7B3M0mQddESCS3lULWi1k7h279
+	 D6z7OxrB4iV/2nCEtYueFeKA7TMbnEZ5E4a7hg4/El8C584zimxXI9e3tXdI2gs2JhNvB
+	 k2fAWGLL+X8KkyJLrIYdZBT/7S76HChOGrExYpA89DLcPC+GfQB9JiZvI4zBqrww7JQtP
+	 v1JMmJvKJqO0N2sP9EBLcqCtlsoy/7doBm9UX+Dk0jZ8WoOigculH9RnYGk2L+DviSnu7
+	 i69F2xjU1P1aNCHm/VN1xJkxgFMaWg3rMWHBIyoKnCJKqd8NH3JfE/HXkCB0r55Wt/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794886209;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=obpM36XFo9K+MAU1yMUOR/8rhFIiIQkcZVYvkSvSupE=;
-	b=oiRCYg+6C7XwQh7vdCI9H1D7Bt9JvHIV0yy3YRUVQDDd3TX7/Ief2xty6Nr+BoXQmdQ8
-	 y+8KXJin7hs4yGbHFMkcmw6Krw8Ia/Gr/3eRC/YVmiM8XAeoo7/Ol+PbIzkyYuoD0sGSY
-	 Vlnm24qkOsAA9ttoj75yYM73GzyOk50+PBWU06ervBU3cjH9uebN6bD2UkbDvy+Ok46L6
-	 DR60qYBq6RCZWrKLFU6FFaijhitRvngEX5hEvLjoRfGSIxw7gO8d03dcSGMfvSN7ulmh+
-	 QqmuLzaR3NNknmdvEB7Nv9qorGfISK1D+kOqeEEkVnZZ8SE9Sz9BH+9ie3H3KQp09RA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794887000;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:In-Reply-To:References:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=5de7j5buijetKe9mhmqKAeLcHieeqVgYr8IfmGSIxhM=;
+	b=n8G2Au5z21sBhpyjESPsw1EfE/2wV3SZOfZtXpBBWwy8atEs8+5uCxUkjz8NLFWWYefs
+	 tqqelalstiHkgbXbTW0gW/+FdRk6ITxDU8gc9/a5HZlVqiOCdGA8BMpIjiGtAAGM+yB83
+	 5hexQ1LwBM3dD/luTRVJQfHXofr5GQAymJvfHoQbMt0snRsd4FSmVJ4ly/OfSgz6WWsDp
+	 EBFN97VkKYPpADQcVmFgCK7H9rZfU2QQ5Gmtwd+CweIZ/B51mBqPodiFjydRA5kXeQ7Ad
+	 GrbbWv4GBL0hrIjkXsrKyXzRsBFnqXdCHmBXA4aE+YT1Uqtbc0VJltHPPQ9fqdFey4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=THl+hBAy;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C7F060A263E;
-	Tue, 17 Nov 2026 03:30:09 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Kemm3CLw;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E816B606A31C;
+	Tue, 17 Nov 2026 03:43:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E816B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=THl+hBAy
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 449281F000C8;
-	Tue, 17 Nov 2026 03:30:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794886209;
-	bh=obpM36XFo9K+MAU1yMUOR/8rhFIiIQkcZVYvkSvSupE=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=THl+hBAyFz8CC3Z9eNdmq+iXKjeWCcJwwzi+QqjnpAuBGkpPvzXoLkfJ2thdXfPh8
-	 p5QqvN9v2FOzNFYpX+pkQITwrS2v+vA1eaaptO5tOWKQDYv11sLis3yJWSlLSqqHPR
-	 KgEK2MJayW+uEiCWtsBXGz5xwXUD/SrNkxPDPstpt8sWZmambXGoT6Th5pca1pOZ4N
-	 YTb04nBAxrAkN0DAP3O9zMQZt7n9/QD9Iuwh9rkg+yNRJtYS/+6JBWaO3s6IyAu5jr
-	 SuFUFgrpP2X6OsmSN2AntBu2G71urQnAvwMPNgFDuvkJaGQaGOl5DF9FXoJnczcrDD
-	 1ni6/Sv0NawWQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A2FF391B0A1;
-	Tue, 17 Nov 2026 03:30:09 +0000 (UTC)
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=Kemm3CLw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=Kemm3CLwCcIKAD933FqXmrDxKMbH2+HVT/bov0HfMmyUNHWO8PP0IiZIaP8iJWrv12oUwv92jmRl4
+	 gmuKXl1ZtCsW/4OsVql59F3pZX7IRMTOp7Vy7DMPo6mKvYnKy3Wp6W6wiRiHwIm3+wwUyWkl055dL1
+	 TCjAC2P6t0RWcScI=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app09-12009 (RichMail) with SMTP id 2ee96afbcd54e5a-0a617;
+	Tue, 17 Nov 2026 11:43:16 +0800 (CST)
+X-RM-TRANSID:2ee96afbcd54e5a-0a617
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from [198.18.0.50] (unknown[223.108.79.102])
+	by rmsmtp-syy-appsvr07-12007 (RichMail) with SMTP id 2ee76afbcd527b8-a1a99;
+	Tue, 17 Nov 2026 11:43:16 +0800 (CST)
+X-RM-TRANSID:2ee76afbcd527b8-a1a99
+From: Xia Yan <yanxia@cmss.chinamobile.com>
+To: Daniel Wade <danjwade95@gmail.com>, netdev@vger.kernel.org
+Cc: razor@blackwall.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ bridge@lists.linux.dev, linux-kernel@vger.kernel.org, yana06070@163.com
+Subject:
+ Re: [PATCH net] net: bridge: fix skb leak of reinjected link-local frames
+Date: Tue, 17 Nov 2026 11:43:15 +0800
+Message-ID: <1794886995000.600537.2725044486872632095@cmss.chinamobile.com>
+In-Reply-To: <20261115130211.7724-1-danjwade95@gmail.com>
+References: <20261115130211.7724-1-danjwade95@gmail.com>
 Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,49 +72,32 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/2] net: macb: add some missing caps
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179488620777.319349.13405973639311258100.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 03:30:07 +0000
-References: <20261113-macb-caps-v1-0-42e0984b2f09@bootlin.com>
-In-Reply-To: <20261113-macb-caps-v1-0-42e0984b2f09@bootlin.com>
-To: =?utf-8?q?Th=C3=A9o_Lebrun_=3Ctheo=2Elebrun=40bootlin=2Ecom=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: conor.dooley@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, nb@tipi-net.de,
- pvalerio@redhat.com, vladimir.kondratiev@mobileye.com,
- gregory.clement@bootlin.com, benoit.monin@bootlin.com,
- tawfik.bayouk@mobileye.com, thomas.petazzoni@bootlin.com
 
-Hello:
+On 11/15/26 23:32, Daniel Wade wrote:
+> br_handle_frame() passes the link-local frames it neither forwards nor
+> delivers (01:80:c2:00:00:02 to 0d and 0f, unless set in the group
+> forward mask) through NF_HOOK() at NF_BR_LOCAL_IN. Since commit
+> 3b2e2904deb3 ("net: bridge: fix per-port af_packet sockets") the okfn
+> only learns the source and returns 1, which becomes RX_HANDLER_PASS.
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Before that commit the okfn called br_pass_frame_up() and the frame
+was consumed on reinjection. The leak starts at 3b2e2904deb3.
 
-On Fri, 13 Nov 2026 16:59:27 +0100 you wrote:
-> Out of all the compatibles modified, I only could test on Mobileye
-> EyeQ5. The rest is information pulled from public datasheets.
-> 
->  - QUEUE_DISABLE is important for suspend WoL (avoiding tieoff
->    descriptors) and will allow ethtool -L support for those platforms.
-> 
->    The QUEUE_DISABLE patch was sent once as part of the set_channels
->    series [0]. Comments from Nicolai were addressed. Split to keep the
->    series small.
-> 
-> [...]
+The queue paths hold up too. Both fail-open exits in
+__nfqnl_enqueue_packet() reinject NF_ACCEPT inside the enqueue call,
+and nf_queue() still reports the frame as queued. nf_hook() returns
+0, br_handle_frame() answers RX_HANDLER_CONSUMED, and the single free
+is the kfree_skb() in the new okfn. QUEUE_BYPASS just resumes the
+hook walk. If the remaining hooks accept, nf_hook() returns 1 and the
+frame is passed up from br_handle_frame() itself. The branch now
+matches the 0x00 and 0x0e cases above it, including the *pskb
+assignment after skb_share_check().
 
-Here is the summary with links:
-  - [net-next,1/2] net: macb: add QUEUE_DISABLE capability to 3 compatibles
-    https://git.kernel.org/netdev/net-next/c/7175eb0400c7
-  - [net-next,2/2] net: macb: add QBV capability to 4 compatibles
-    https://git.kernel.org/netdev/net-next/c/3515d06ef5a4
+No other bridge okfn leaves the skb with the caller. Delivered frames
+reach netif_receive_skb() through br_pass_frame_up() and forwarding
+goes through br_forward_finish(). The link-local hook was the
+exception.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Reviewed-by: Xia Yan <yanxia@cmss.chinamobile.com>
 
 
