@@ -1,108 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794909645;
-	b=cIdswVWAdoQ6wPq3Asv1DP8qnSUzMDOZydcvBPLk0Fr3e24cMpB+RVvwzzn91lXTGpOk
-	 O1lJOSU6l9A3Auwd7rfZcze6m3ZVhmCzVQlLHig2R1m57cjfXH9gN33kNR07KtAUiu9zG
-	 nKcRHbxYTY6HuWh4tuH4is5YPSSvmKiz/Y6qvz2l5A5kV23sRUMwRp1nc0nQcWRs6yOv7
-	 1Fpca1jVl90mCybQI0MScjyj4i1KA2zgnsLhIHnl0CsBYEayu01sqIk3CF924nbGAgWeH
-	 GMEc6eOul0iLmf18SmDtCO0hbB9cJIi3QRituaJ5KHCTWIJO4mJMIeeapDepwaGnHaQ==
+	t=1794910156;
+	b=5e4MsiFJNsZbrPSWNvz9rhuK7SYTJYvybyqDWDgKvRlTMq4DD5YDAB4GP0fFE9fnZj1K
+	 corBHxa1/0HmVowm2F5E2Gc5heQxN9dGfv4G/BQMABBkvwCZxRnopWDQducy4NJmtll08
+	 8eiI1Bj+I7RQhpvKcp71AL6jiaRVgYvVTiaRIidJcApeTQIFYb6it9zMEq/88pk7jTz2F
+	 zqC4ifY62llYICL1OocMZRAR2T4iIYTTdOUYOcdvq+NIRqoQURzK9dFl+Rbuhuo3wSZvi
+	 +hnQQqi+ij+bT+5pH5tRki6QgLB27bYfFRWM1ba9AfMN2YPPVFgwZDiWh6qL1UXOQxA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794909645;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Y9UjBOHnP3jYIfHPwpekDZ4sBjaCiEDL56fvq3n2mz4=;
-	b=ZN+1hS0i8YyeyqSAX5y3jRUVxUnQ4vLHQBQAGYDGpNCBsJmyGDudv4pPhdwSz/3KM2Yv
-	 uaql2beOdvNgAL6xTLnVqQzJOiQAWncvFtE+U/EHRC0tpHHpyx104ZytD6p1hLlNG3DUG
-	 58A3+kJEaJocrCjphTmyeTadb7woE5ROVTX3WOGAMvGsqy59O5uHotZGz3tOSZxIoHsNW
-	 5UHBmQQWUKzs5FFELWoqy3Cquul4DMjqrJP79T2rUzB3esfGkZqZQdrEHggcr5Anscbdi
-	 QDh8MYsWRuD8TiDjx7bA3Dr2XKElkxwYW8WDeomInvBZy8Eq3MDFA/cjbzBw4SM/4+g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794910156;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=efFy5qzGhOXzdl7ha+UrFef5foRsVEqpNLPg/lX46CI=;
+	b=nNnKd9hHF/vjPlbC2UpsnGMbAwhjTRR/2TFzjcI4LV6chdWkF/VHzAN6RbTlUsF4w5RL
+	 OXRm4Br97+uLrNmuw2BghU6TdN+uOvCoqvJDIAHwvq6jHBoACwlUwrftdsSjBH19gVTHt
+	 f+KO7YSb0ZYq239xF2ejtgxpPqyhTVHAt3j9XgirRZtus28cg1E+WmXseaeeWwWwz5MAk
+	 54VtusAY9bwHIoj8TEd9yuh22WyM6KmrqR/sNh75dTEvokdw6vOig5ZZU1y1TEq+IqknN
+	 ZJKlXxz7D8qwJL0jsYPhrAoQlbP9iku15VxNWP5WBs4DGF2YE7tO67hX8QX7PneegLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=er0NO7JN;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=mVsXSHDB;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fXAjJXt7;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 664DE606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:00:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 664DE606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 354CE606A329
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:09:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 354CE606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=er0NO7JN;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=mVsXSHDB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794909644;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Y9UjBOHnP3jYIfHPwpekDZ4sBjaCiEDL56fvq3n2mz4=;
-	b=er0NO7JNJnlaoA99NcIBeQ8/e1k+vC/zWoFbykJfj/vjL/UpWZP02GRdVxF8kcDRWCOLFH
-	D+49VzF/dVlDL1vAiH+ojuKmPWwjPxT61qkA0JVd66edZ9dmqqQ6f7bhQvanUYJqni7Nyd
-	dpY1/31RX7Ozlif2lHzWR6wh36rYJkI=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-173-5BHixt4aOleujtGmCr6nJQ-1; Tue, 17 Nov 2026 05:00:25 -0500
-X-MC-Unique: 5BHixt4aOleujtGmCr6nJQ-1
-X-Mimecast-MFC-AGG-ID: 5BHixt4aOleujtGmCr6nJQ_1794909624
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e0af48c18so2964239f8f.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 02:00:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1794909624; x=1795514424; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Y9UjBOHnP3jYIfHPwpekDZ4sBjaCiEDL56fvq3n2mz4=;
-        b=mVsXSHDBHijstb3PtRqKjzq1ie/aovDX4QPhq5JoU0j70f16Avkmp6ibFy+qsN9rmZ
-         sR/kQ5F5QxUu9l6roqarMEDsyg4QGPUVxUvPTEcPvsyiPDpO29D+imimrlUJmp7EyIfJ
-         D3+LZB+oRlUq8mo37+mlsWBSYw6YnrojJpML2EeqeHzi6FJ/ghnmDul0sBmc0wg6gNFo
-         lOSiwMSTnuO4adFlKOR6XJhcsxttMODYgMChDEf1S9nnpvEAbMBNQ2JNKgEcT05xDjib
-         y18rpONwK8s26btzknqlSw8LobtcM4N6OI/I980YOMvLQaSHwQuFOrTVP04V+F/Wnn0A
-         k7NQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794909624; x=1795514424;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Y9UjBOHnP3jYIfHPwpekDZ4sBjaCiEDL56fvq3n2mz4=;
-        b=zhtwQn1ANywlW8fFfDpIMbEjSvje8E3Zq69G3uFsMFhNEw3cOSp3j8fmVhcGZXV0tp
-         oCN81RhSvV552pMUlSTFsVp55ejd8WyEYCrqkc8NZHMrSRogCkMyNQMMorL0eR69ZDIO
-         DJHCwH7yCXPtvgS0q/bl6OibFxmifRXRg0G3LxuMHzX1LwIvu6Nqj2wOrOfqNKPR0jKZ
-         6JGGEbBaak6qjJ5nr0O9TNggDfA6WEh71VHRb+W+1uqRoCAU4pTTKFnoHLxyQOT2RPdU
-         87LqBmsDnckB7R1yunr/4B/ezVMH+S3JxFPU9G/VeUWKizUrtSXT2Xb3/pgn9Dp+NDPa
-         Sv6Q==
-X-Forwarded-Encrypted: i=1; AL+hErH8nSWINfUkDZo80Vwk1BZM6Pi92p69efrlAr+WMCEafPkrtbdT7qbHkYNE4TEZyCnU9dNa7+o=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+/CLjt5Y8sDGhNmhns/ePwoEgkNF0+EeNhWSIoNWhcQLYW7D3g
-	PElLJdcAzp+h1PpqivblET53GdrvCUKl/IYLU+EgVIJUd9Kb/sIk2haM168rYGRGtSUN0Fn51nd
-	G5GVB2NRgmACPlHQdchyyqtjDTTBLhbCeqsAqCBxn81w2hKWKgIMZhlRDJA==
-X-Gm-Gg: AZFdTZegOq/YjTLEMntdsBAbwwa9ezcsT6ZNSRE+zrSX0Zyg3zZTFQX6TqPQCYmyxAF
-	B5OYRaXOGnJYrZgQ2bgeG9FnJdiy7NEoV4YPC2n60WXRXn/PoWg51TRnqwzc2V3LVgcGCB4Xp7P
-	xcqiEXaS4tKo9I2RWsj+UMzBiAE5SjH9IDexn+UfZMgW8MyUYyZ6ZCYg/N4U9FNnyhMZQ3rho13
-	sayREKpUp6TylCvKDDHWpwnVb4B7l3oLYypqjNzESXEjWrXQqTcuCFq7yanraH8Rq2tVAsR8tii
-	taB4huKH2CULTZN7H3MjssmshvBOYSTRImikd4riBzna9PW5xDOnqP4hcZ0iaXsTQoL8Rd49HuD
-	gZR4wmKDGcgPJZG8jQ4rdFban8x1KvJRlhIwMg0HSPl45htTc5GcbW1FdS+oUQpyCntxCl2bziu
-	zo8wRwSaAKxNlzf4QaDJ3iI5Zz2rRedzq8UjBNp8Jk0uEO
-X-Received: by 2002:a5d:5f47:0:b0:48e:4115:f3e8 with SMTP id ffacd0b85a97d-49c712ac6c0mr28211630f8f.27.1794909623176;
-        Tue, 17 Nov 2026 02:00:23 -0800 (PST)
-X-Received: by 2002:a5d:5f47:0:b0:48e:4115:f3e8 with SMTP id ffacd0b85a97d-49c712ac6c0mr28211557f8f.27.1794909622639;
-        Tue, 17 Nov 2026 02:00:22 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a4de4cb1b6sm1436394f8f.3.2026.11.17.02.00.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 02:00:19 -0800 (PST)
-Message-ID: <39940277-ffc1-4ede-a9d0-605ba0f8ad3c@redhat.com>
-Date: Tue, 17 Nov 2026 11:00:18 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=fXAjJXt7
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 9A3C3C4D3D7;
+	Tue, 17 Nov 2026 10:09:18 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 481AF5FC81;
+	Tue, 17 Nov 2026 10:09:14 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6857311BC0493;
+	Tue, 17 Nov 2026 11:09:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794910153; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=efFy5qzGhOXzdl7ha+UrFef5foRsVEqpNLPg/lX46CI=;
+	b=fXAjJXt7VgwfXDE9fcErcMBB17TbLufQtAQy/aQ9huR1Xx/tvA7Ehrim4GFW1ZfMKUmQUc
+	dTJc468izwMk+bSY/cE1gXkXsiUe7zqBjItFxy5WpELyXhJBQLg4qqRleg9gk+7iYdznKa
+	rrS9Qr//iVini/YPirHennlVFH+6nbDrJORNyv1hbkTUqHsmZA5p4fPcN+BCGUSTZyrDv+
+	VBwZJTYUT9R6fwzia4Z/OS+pMQ8AT1cFWU1dirOkFkElSncV5rdEtL7lqQxFDTP6Etx1Yt
+	OBg7MCMxQCY6Si2GeH5zunVH/Gl88WyhLaTpBqpfi0R6Nlc1nq2VhmNdtCEbig==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Roshan Kumar <roshaen09@gmail.com>
+Cc: Yousef Alhouseen <alhouseenyousef@gmail.com>,  Alexander Aring
+ <alex.aring@gmail.com>,  Stefan Schmidt <stefan@datenfreihafen.org>,
+  linux-wpan@vger.kernel.org,  netdev@vger.kernel.org
+Subject: Re: [PATCH net] ieee802154: hwsim: free PIB after unregistering
+ hardware
+In-Reply-To: <CANphZRNSXy4tQ9jO7RT5g2X69T-CapR3-sSood1qJfYTRUE8ag@mail.gmail.com>
+	(Roshan Kumar's message of "Fri, 6 Nov 2026 22:06:37 -0800")
+References: <CANphZRNSXy4tQ9jO7RT5g2X69T-CapR3-sSood1qJfYTRUE8ag@mail.gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Tue, 17 Nov 2026 11:09:11 +0100
+Message-ID: <87wlqbn514.fsf@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,43 +73,32 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 10/11] ipvs: do not create conns from packets with
- port 0
-To: pablo@netfilter.org, Julian Anastasov <ja@ssi.bg>
-Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
- netdev@vger.kernel.org, kuba@kernel.org, edumazet@kernel.org,
- horms@kernel.org, fw@strlen.de, ja@ssi.bg, netdev-bot+sashiko@kernel.org
-References: <20261116004404.2821183-11-pablo@netfilter.org>
- <179487963329.3136.11227226787276094605@kernel.org>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <179487963329.3136.11227226787276094605@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 11/17/26 02:40, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] udp_conn_schedule() (net/netfilter/ipvs/ip_vs_proto_udp.c) now
->    drops every UDP packet with source or destination port 0 that matches…
-AFAICS this is the only new/unaddressed comment in this revision.
+Hi Roshan,
 
-@Julian: could you please have a look?
+On 06/11/2026 at 22:06:37 -08, Roshan Kumar <roshaen09@gmail.com> wrote:
 
-Likely no additional revision needed, a confirmation this under control
-would suffice.
+> Hi Yousef,
+>
+> I independently reproduced and tested this issue on current wpan.git
+> (2b4707a149a5). I also prepared the requested rcu_access_pointer()
+> update. It passes checkpatch, targeted W=3D1 allmodconfig/allyesconfig
+> builds, and 200 KASAN teardown rounds without sanitizer findings.
+>
+> Are you planning to post v2? If not, I can forward it while preserving
+> your authorship and Signed-off-by, adding my Signed-off-by as the
+> forwarding submitter.
+>
+> v1:
+> https://lore.kernel.org/all/20260627235805.17310-1-alhouseenyousef@gmail.=
+com/
 
-Thanks,
+No v2 sent by Yousef. It is the fourth time we receive similar patches,
+can you quickly send a v2 like you offered?
 
-Paolo
+Thanks!
+Miqu=C3=A8l
 
