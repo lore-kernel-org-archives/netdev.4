@@ -1,55 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794922371;
-	b=T82NJW3kwTY+AIdR/JBBriELVglbKbd0H7Ov5D+MeGCEGi5gkaGyYelteMH/fJjL3W4c
-	 FCdYVkxDmkliDWPYesJZblF22gVVmHgUvrpuoB24ZEPw0ABA3f7wCuOjMOdb4F+CgoT5z
-	 LFKLCTbMvF86yuX+wiQgm1IyshqxQMkV0uqpVfcu1fFkYbGdkIbvx1EXugcB3eepKQAsD
-	 79YVW20ndbiBS1OWJdjCRcrKqcC1k/dJaqp2Kgdp3HtilVAOGpZzDVjy5gY/Y7xaTa+p8
-	 RrVnhTlBMrekib2L7FwVSHU6+sQv3rQF5okXvzSfvQsHFHax6ZGwutRfkvp5yCmCzEA==
+	t=1794922567;
+	b=lnoi/O4WqgFNfs/K5w2rSpJuX5MQD1id4ezJghqXPz7t0u0qAf/yjG7KTyLN+EaBjUB1
+	 vevYdDtS4wizXL2/Vr9bCAF0lvw2E3UVyoAXcuIP7M3AqQ9HsVuTEbfEuFxGxvgp3a7DJ
+	 6CtWZaLkWZcujvSOjcrP0+gBACnSIVbTwXBbMpotFaHk6p87L6cKO7iLe8SP5Gm640AlS
+	 wsGK9cW2wNe2oQElmEkdvCSHor4QnC3qT+Y1Yr52x1L/6BvjothLF2x/Rc0x9ruNxD7uP
+	 zAOeeg7GM1E3X+FKA090HCnJOIUQJL2AA45jrLSY5T2szOwsfMTMqFz2CcnbNq4MbZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794922371;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
-	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=tiAy5PQmLZ5hEMe6QeP0gUFXTZHoS740/eNTgW6sRH8=;
-	b=ZmNx6Of1X2n56T9CkqdZhIO4qUuljl6Dv0Lv4u9vYK7lNfwFZba7VRNWHXtNNXzZW99U
-	 29tCSSNs7Fp9pCfjSR36xVd+Ptj3sLWKsxUZKzHEb5EcPKOtvaLt/edHIshd3nEGMnQJi
-	 pozcc+CeTBgUUbrtIRANGDYV3y4iA3k2bDdvETtHW/yuAq5aLKziLa0hZhogP+XFIU2mn
-	 Q3zLRxBPPLUd92WWIT8SqQWSnwrkgcWCsIsr3rxYYcvptfVStHcaiJCV7ZECh4ytH+Kzh
-	 GLSxRzuHd4JI2hsab6KkYa9sS4vdgr/PUDFZIuQxsNF4rEiGb2Qdl0aaQTcXeid8rhw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794922567;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=zrjNaK2BMmlXskrm0KIplH9eRZPk+1mRx+s4P8jKOWE=;
+	b=p6vY0AnZWp1ofu+ZsUff8mEC6r63tbpw08+bZOUImBYNIcozYbdq/sGHgi1F/nCUhZ53
+	 QFHxXli6FiT9i4jRSj8gOmiD/5g9SiAi3jBhr1uj9m0ykIRH+VeTSdxbl0aNwCCm72J5l
+	 /40HELYcT4Y+ryRnxBMGzUP7RTksr7qVtWvlWlBfHXWErM4TUZZy/YNtEElo3QQQSEZMT
+	 NPTDluITaoxweOC0oIgekB+debAk4WpxEnQyFRF9VbgIwbEtyMdMTI4z1aHBiHTbXLTFE
+	 X/jzJvJJrqcSioSZwexJzf3bVL6FZyHIYBfeQTeI4dcc+cpUFpx5B8iZwRCJ81t1Z5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gb7PcsfV;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lyyzifHP;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53528606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:32:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53528606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8CC7606A31C;
+	Tue, 17 Nov 2026 13:36:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C8CC7606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=gb7PcsfV
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lyyzifHP
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id DCAF44E41473;
-	Tue, 17 Nov 2026 13:32:49 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 934F6C79A97;
+	Tue, 17 Nov 2026 13:36:09 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id A98DD5FC81;
-	Tue, 17 Nov 2026 13:32:49 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 59F7211BC0024;
-	Tue, 17 Nov 2026 14:32:38 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 25CAD5FC81;
+	Tue, 17 Nov 2026 13:36:05 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D9E8811BC0008;
+	Tue, 17 Nov 2026 14:35:53 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794922364; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=tiAy5PQmLZ5hEMe6QeP0gUFXTZHoS740/eNTgW6sRH8=;
-	b=gb7PcsfVBsbwlRm0khs9/jf2fe/f9ewHuUPO2aFrqIUZmXRjU0W86K651Oeo2/jfkgs7ua
-	ya1ms7sNUnc+lmdn3ziMHBAG9XuFuGatmtQzgvXtCT/TthMUW780a7tNvABZGYws3GZrM1
-	KQrGOV8pIC6dTnY6ihRIxN/3soH0PEcZK7ClMdEM8fP+tUnMN6vDVcjWIQLIvQzU1q+nAF
-	753uplltgp2ia/m6hs+oU9FzjvAxJhk7bl5e0mI3rOSj2NUVqOmutAJ/GRozkYEjVcB5e8
-	9zGDqafEiCbeWlAVIvr90prelyF1jLsMAZx9Zb0Leh5sVbWjYjEQBCRjFgejjA==
+	t=1794922560; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=zrjNaK2BMmlXskrm0KIplH9eRZPk+1mRx+s4P8jKOWE=;
+	b=lyyzifHPUW/TF25iVGcxxozdbgkY/qmW1+lpBdGXZzGqQBZBIxE9ZXOrdLz16IlpxWvZAk
+	e3266PE7euLObTyJBNNOD797XSiUMy+84nhboxxypsKcu5qqeCH+AMH8pXUbz7yQIOFi4m
+	SaWzef4Ie2MByykrYRur3B+bdJc6V5dqFAfpqMamQs7QDl4nqcqBC+BSxjqGrt5p/Ofweb
+	bXxizpY1Ry07WMp2HJIXA8/jPSrSjJC/q2QZ72HJvH3QYlAcD0LHnTLH+PFyxi9O5KdQFf
+	My8aknE77tEPjHyXg5TFzJ3Vqdwj5lkD7lGsu+sQypAq3Y72ZkyBr6VTHnsgag==
+Message-ID: <613e303b-635c-4751-8988-2687f8f39c4b@bootlin.com>
+Date: Tue, 17 Nov 2026 14:35:52 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,94 +61,52 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: stmmac: drop the rest of the frame when
+ napi_build_skb() fails
+To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>, stable@vger.kernel.org
+References: <20261113-stmmac-rx-skb-fail-v1-1-fcaae89f2d2c@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261113-stmmac-rx-skb-fail-v1-1-fcaae89f2d2c@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Date: Tue, 17 Nov 2026 14:32:38 +0100
-Message-Id: <DMXIVFWKAM8A.29COLJ2EC6MUM@bootlin.com>
-Subject: Re: [PATCH net] net: macb: limit jumbo frames to the RX buffer size
-Cc: <linux-riscv@lists.infradead.org>, "Han Gao" <rabenda.cn@gmail.com>,
- <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Jingkun Zheng"
- <zhengjingkun@iscas.ac.cn>
-To: <gaohan@iscas.ac.cn>, "Conor Dooley" <conor.dooley@microchip.com>,
- "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Punnaiah
- Choudary Kalluri" <punnaia@xilinx.com>, "Harini Katakam"
- <harini.katakam@xilinx.com>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261114-macb-jumbo-jml-v1-1-f501395eaf9e@iscas.ac.cn>
-In-Reply-To: <20261114-macb-jumbo-jml-v1-1-f501395eaf9e@iscas.ac.cn>
+Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-Hello Han,
+Hi,
 
-On Sat Nov 14, 2026 at 10:51 AM CET, Han Gao wrote:
-> +/* Longest frame that fits in a single RX buffer */
-> +static u32 gem_jumbo_max_len(struct macb *bp)
-> +{
-> +	u32 len =3D bp->ctx->rx_buffer_size;
-> +
-> +	/* Frame data starts NET_IP_ALIGN bytes into the buffer without RSC */
-> +	if (!(bp->caps & MACB_CAPS_RSC))
-> +		len -=3D NET_IP_ALIGN;
-> +
-> +	return min(len, bp->jumbo_max_len);
-> +}
+On 11/13/26 18:13, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> If napi_build_skb() fails on the first buffer of a frame that spans
+> several descriptors, stmmac_rx() drops that buffer but goes on with the
+> next descriptor of the same frame as if a new frame started there. The
+> rest of the frame is then passed up the stack as a frame of its own. A
+> frame spans several descriptors when it does not fit in the RX buffers
+> of one descriptor.
+> 
+> Mark the frame as errored instead, so that its remaining descriptors are
+> discarded like those of a frame with a receive error. The frame is
+> counted once in rx_dropped and once against the NAPI budget.
+> 
+> Fixes: ec222003bd94 ("net: stmmac: Prepare to add Split Header support")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 
-Why do
+As you say, this only makes sense until Lorenzo's work makes it, this
+should be suitable for net.
 
-   gem_writel(bp, JML, min(bp->ctx->rx_buffer_size, bp->jumbo_max_len));
-   // or
-   gem_writel(bp, JML, min(bp->ctx->rx_buffer_size - NET_IP_ALIGN, bp->jumb=
-o_max_len));
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-And not just
-
-   gem_writel(bp, JML, bp->ctx->rx_buffer_size);
-   // or
-   gem_writel(bp, JML, bp->ctx->rx_buffer_size - NET_IP_ALIGN);
-
-Asked another way: in what case can rx_buffer_size > jumbo_max_len? It
-this can ever occur, it sounds like a bug. It makes no sense to have
-buffers larger than the max jumbo length. If we fix it, then we can use
-the simpler form.
-
-(This is the same report as Sashiko: your min() picks jumbo_max_len only
-for some really specific values of MTU.)
-
->  /* Configure the receive DMA engine
->   * - use the correct receive buffer size
->   * - set best burst length for DMA operations
-> @@ -3286,6 +3298,13 @@ static void macb_configure_dma(struct macb *bp)
->  		netdev_dbg(bp->netdev, "Cadence configure DMA with 0x%08x\n",
->  			   dmacfg);
->  		gem_writel(bp, DMACFG, dmacfg);
-> +
-> +		/* Jumbo frames are always enabled, so limit their length to
-> +		 * what fits in one RX buffer. Longer frames would otherwise be
-> +		 * split across several descriptors and dropped by gem_rx().
-> +		 */
-> +		if ((bp->caps & MACB_CAPS_JUMBO) && bp->jumbo_max_len)
-> +			gem_writel(bp, JML, gem_jumbo_max_len(bp));
->  	}
->  }
-> =20
-> @@ -3422,8 +3441,6 @@ static void macb_init_hw(struct macb *bp)
->  		config |=3D MACB_BIT(NBC);	/* No BroadCast */
->  	config |=3D macb_dbw(bp);
->  	macb_writel(bp, NCFGR, config);
-> -	if ((bp->caps & MACB_CAPS_JUMBO) && bp->jumbo_max_len)
-> -		gem_writel(bp, JML, bp->jumbo_max_len);
->  	bp->rx_frm_len_mask =3D MACB_RX_FRMLEN_MASK;
->  	if (bp->caps & MACB_CAPS_JUMBO)
->  		bp->rx_frm_len_mask =3D MACB_RX_JFRMLEN_MASK;
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Maxime
 
