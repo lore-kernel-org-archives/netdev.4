@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794915880;
-	b=PBDSK7PlxLV2+FSBFC1UKGjQ2iPketzLfwQ8wa7r2szR5LFyI7pzKyxXgrtNjlVsyOCo
-	 qE1vD9eekeEvn9rz+/eAViSF1R1VHhpqT53suUucDvq1iziCR5mwH9bAYLTlZgVkNtf3w
-	 b2uLAc2sLpb63BUH1RxvVUTSVfP6VZ4S3Z0PtHodJkt2Key2HuN24TVY1jgcSd5Fuur/m
-	 GsMLm5UenlMceTWTYx+2XXYPXglQl+MT5NjUW1D9+Cn0UNKXaFQw0TfIZ2cETtSMBSa76
-	 2iy9DheBOHlriSEMTv/lxqlldLN3nlynl3HhjjP9KrrO/S7tfMqYRyKGNAnMNGaoIKw==
+	t=1794915883;
+	b=NWxk73kXE/hvI7DyJMVoYmjDdHhyLhrbzKwvngK7XxVoozoDUAogUqe+I8sVtOeZnKKQ
+	 PziiOT8l2FbsyHmfUKdFhnUKWf7N9ZPh6lv9yGuQL4ivPyeReBrZzT/4axLYU0b1LX1Gb
+	 5xUdeKgWF9B2gL23P8fZUyV0ckM0YtQy+0MnoySNCEw/8gr51XpLpKK1mChYInGaue/2r
+	 H68RT45qL210BhrtekXmgmdhmLLJeiqKl0jIUfngpCl88o7tGLSHarPTTwJWaIZ7/u5VK
+	 qh4OmDi5PsUOJ23AXRJuiFoQ4q7+Z1RCiHp1Z4ADGcUmEi/SiPFWXH8Z7cLu22Pyn6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794915880;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794915883;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=F3FrqstYoZ58clg3fjTCq4uduDDEeqEHJoKcIe9/fkQ=;
-	b=h3NZygP8CHBp5IweocGN1Xzg1ddZBmY9x4NC7NfH27mse+e+vVrf+2h2O1aWIDqztFWX
-	 3xxjdErPpHSOJBXC291bRc6qvKuMBlH6Cy7m1XznKNkTqCDaSzlvTCpJB+zSSI0dkL9+u
-	 bd72RPWZTwqvpJ/iQ5XNvZZ7lfwYzoJ0GJfFf7lINyX/92GS8Wq/A9D/9ZIh5ea/VbXor
-	 mO65Y3kcTZJnFPN+YbLRjG0d8415KqAOcJqBZKW85R2uvD4E0SqtIhgy9CNdkJI3jENMt
-	 JnxO0rwDzhXnE0X3zTyved395ASYnoE6WejxGRyCsuhvG/69JL7THEAJd8174HbJuOQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=r91xmQ4C8F0zPfOaHLbDfcjfSGGWxaZqZu765YmbgHs=;
+	b=mD2bblCqDs0HuL2fr6C8gWPgaT5Ng8f+FpNnOiNVP0Za2xUjYOmCL+gZ1Wh+81x5yiKA
+	 flKcDQfNXrLOmI30TfYdEwQUqc3DSGDIZZA7fnN14i0/PSgquJci/wPqEcyf5PatDU+LH
+	 aDENE4bt7U/cM4Tgu4H4yiUDGnNuGOZE9PfYFjYC0+btu2c3RH1ZVrjfV8Yn7X6HaNHwR
+	 8jlmvh+ZjxpFEE6qWSHquPkAqzvuWKzwhAKc+YUZSrKudgHRJxWm179p7vvVh/2hT+sjB
+	 Tkv44VJ3xpq/OLrDdRm8Sy2P0LqptDcgesAgeVHQGSyNtbrUga5x1nqa5IMt06ahEZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bb9NC1x5;
-	arc=none smtp.remote-ip=209.85.208.178
-Received: from mail-lj1-f178.google.com (mail-lj1-f178.google.com [209.85.208.178])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sl6D8KA3;
+	arc=none smtp.remote-ip=209.85.167.47
+Received: from mail-lf1-f47.google.com (mail-lf1-f47.google.com [209.85.167.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 035DA606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:44:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 035DA606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1DD6606A33E
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:44:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1DD6606A33E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Bb9NC1x5
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-3ab30b3212aso39992931fa.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:44:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=sl6D8KA3
+Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5bccecba199so4855831e87.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:44:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794915878; x=1795520678; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=F3FrqstYoZ58clg3fjTCq4uduDDEeqEHJoKcIe9/fkQ=;
-        b=Bb9NC1x5OLMj6GYojtlvhpg2bGM9QkVVZ/Nuze7fFvnPSyiL3TFFk2hjQ5LFSo5/oS
-         AnE+Y2WaF5Sg2oRLyvYJldA7T1yXNiUO70MnKqvfH9EXdNc1QGOKS0nRLWyihPRCBmB+
-         hHBuPTBFHDRVRVywd9qEV8hRwZPZKWPctrsmSgAxE2nIA6aODanvekNhMQIbqhlV6oBI
-         8U3LzEZePp10oSkctiV/9ScXs2dMTD7t6Zj6S3UOcHWbe7R8qOOmrCG8KMM7qCOZt6qm
-         lhZBvxEg4WRGMbBij0PyRjtLXnQk3X58KtvjIT4fMLMdyP7EB6dbcqw3BDBVP1zEVeMn
-         B2Kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794915878; x=1795520678;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1794915881; x=1795520681; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=F3FrqstYoZ58clg3fjTCq4uduDDEeqEHJoKcIe9/fkQ=;
-        b=r+urpagNEB6D1Rfyf/A7qxlj0sTlg2o+LzRp8kFjGgNJvLRQ5hQ6sQuFOe9iKIhKbE
-         EojoNooAflIMH3hbpm57CqnMFTRYMIyjV4mtX5npmnRC9H7Tfl2tqpwBNs0DB8KF46gh
-         bbiN7kA4tPZekJcb+lNqbUb+OQjL69/WCrwzLh8lJnzYKT0gFYAxlPkUSx0cKa1xFy+l
-         jlvzMOo4qHheaw393p8VeNQsUtC7pnD1vhKpwC8E2WOOkjwxej9aG8LFbhtwSVC3az5t
-         w8dFfiyCboCKybxerGAAAK85w71Ru3oYsKSNzCFOWpsIw/iN0JiDvCSOHrTExdPWeb+s
-         dMfw==
-X-Forwarded-Encrypted: i=1; AL+hErGtR2xsftMiJJOgPFYX8z+3bhIjCFj/i6r+fQE9jWXFq9SVhkm+VXdvQXf/mmadYQBCozIoGns=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9wgAJSljhtL+a0TuCNkiT+jbUrqtkscNyeuIGV/GfEwWP4t4Lu
-	kCUACyzqy9HSPYydGIsJMApvhWwxUqB9jKnL1iqIlPoh2Ef/Oz9NpLNp
-X-Gm-Gg: AYBFou0LuL6GV9jx7XI5z5lIGrVDncLsSMYSe7nTOKwABCm1ecjDzZGaEOBfGjcu4Af
-	0IzwAUNTe/M/mZ0uvOgeM8Ks+vfwgTWArVvSy2Epzh0f3PSs8aPqPrWuGJMfp94zpITljd26w6E
-	Qy13itD9fAKN+hFhQsCGvNK1gItGGWxe6KMQRPfgHCVp2w3ByZFaggiOplUP7OzLpiJUj4uUJl8
-	ebC8J8y5/fjQwZJpmsmKN3W1u7r5gAyAAy9cpDB/zpCYvAuGekonMh/eES8ZgXC5waHUlWwaGug
-	rr0UlgcdSjoHFlAs58oKDfmJtE66iQTxrDDVv7Y15UNhpiPu1auiz/CLDrDw9FV2wb8jnH0u4XK
-	UAOSAxz6k06VGaoHrEJLTjsF5QDYdAKPB1HmCE8RjOIAkx2tDuCblDFp07HZ9rsmZUtKKNLhPfb
-	IQaGbUDiyuD+Q0KrhDsqOuhPhOCwy/Sr2BWxu2rn/ZvRwltAmPPr8iQi6JVBt1hyZBji5aRQSyL
-	f+hLWx1/8wbe30jwIjlwBfOLqIGco+ptlzPHnhXy5QjoqYHyC+ZqJDrB/ulg82VcRG7yLZfVbDi
-	M3fYX04J3DACK903MwHaNNDrNSoslVACSXEVMepFUS1n9fY=
-X-Received: by 2002:a2e:a105:0:b0:3ae:68:d07b with SMTP id 38308e7fff4ca-3ae2b5399b8mr37245611fa.11.1794915877954;
-        Tue, 17 Nov 2026 03:44:37 -0800 (PST)
+        bh=r91xmQ4C8F0zPfOaHLbDfcjfSGGWxaZqZu765YmbgHs=;
+        b=sl6D8KA3FdArmPRJE/9/3+w04VGmJDoM2kpUiE3bxNH3r6gjXuJ31wqpbPJm8xLQSP
+         ReziKQZ/ww36NUUjGiK9BugbjFwhJGiKbpgb3teYqK1i/JL/DWtLuselX4Cktw4IsSzn
+         BbS+lxVRb75D57P+c+oDj1oeo9TBDnsDy0dYgEs+bZBkveiGTIAT+dh9oDpb/3ydcdlp
+         RcQGXATiDmRYmyANYlJNcW3h36Y2lZ/W2oQxqsSRJNQ4mh6d9h1jUgkLydLKZFO2Jw6y
+         65VBX951hp9eNUwdUNBY0ktRDQ0mqSVT/Hel2uek/GoRydpA0ZdH5+mf9tHsdQhnKko8
+         jJZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794915881; x=1795520681;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=r91xmQ4C8F0zPfOaHLbDfcjfSGGWxaZqZu765YmbgHs=;
+        b=V2owqX2iOp6XTQFoq/YOo6W4evCX4UAW9Ygam8p3s57S3dOhVWcN2OXiGb+SkqauA9
+         aXYlLpkWGaQUokK0Hb6mB/SoaktCxUN9SjvOX2PIpri3aHqoUJW+c46i+jc/5eA1DFYS
+         4nzAJIab5HNSsgdSZipdzbWrj4Yw3qblTXWWUO1YSvJkQqXaRV9q9meiAL3yukYa437y
+         joYqE5ZxC9z3E7oqBbXMlZznz0IcGuwZltzd61dxSD0m7pQp18/QxVgTfw0Q0YBGmLp7
+         e7AFeqvGhb4XQsQf3JUGFf21qnBr1MTycRZjMf5jvEo04H1CNFJ0oitQuSiZENpBpCSC
+         L86w==
+X-Forwarded-Encrypted: i=1; AL+hErEVN3i2cstXuE/sSu7fSHQBvKqoM/dBvpATsXae3k3gWWD5eVyB/02L+yRilW5KuTkkJlw9Pqo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z876UILG1gtiHdB99LOPKnNmfWd7LZWO5cJv1LFAmsgJ/yPtUho
+	7JhY0h0gT3oojMAoXbUcoYLAUhCKRjPk6QIYDn1XrOGS7wYx7ShPKMDv
+X-Gm-Gg: AYBFou0tyGK1Iul4BOa6sKRyVn7fIjue527sHjfrCkVkOD4yKzP8bpHmupFFx6/Ibwu
+	LPCZsGz6Ss5H2pC0qbMLEkuaklDTPPDz2/PCyB6B4IA/263CRa1L862qMO5Vr+OkH8Q0fFGbbF6
+	cDsDg1uLz01dUO/UoPTsyTtLYlqDxXTBH+chx7V7Dv2+7pkVDZy5IzSPocImOYfkOFgwMRxyEyZ
+	B3RaxsyCfrSYuUAfkjIQD5mHWNY8vmriEgqMQUgmF160cd3Peuep6l5uYAWw58HEE2xm+YI9i5z
+	UfgKIRbUoCY3Rpq/AQ4kDnrLkmP6giCRCUGKFwtbF30QmDKmGPOQGd7MyyY3tNeDS1QAT/ViJ5A
+	9ga1N/3kZxz2jl7BRe4Nk9uI1+VkMGwC8UprIPKEh3Xb3b1BJH0TztrieEC6DUST3nkt+Beo5oL
+	p+0Xf6moL9rQaWnSFU1/IBHrhvPOk+7b9+CYHDfq9i0++yxFxade9tt8LtGzUhpE7bkmtpwKFc0
+	c0ycVjVYOsx/iTnMjQ9ZdTAh2Wzt3jvt+HeNUUJ/uzNkmDhozenuR7EZx8R451eOCA6nVAlPXdL
+	yP4VwEgORzmnAgTc9y7S4M74pEv/vXljmJ2OAqSoepd0j4w=
+X-Received: by 2002:a05:6512:2246:b0:5c1:56f5:fabc with SMTP id 2adb3069b0e04-5c1709b2313mr5888936e87.24.1794915880522;
+        Tue, 17 Nov 2026 03:44:40 -0800 (PST)
 Received: from NB-6746.corp.yadro.com ([188.243.183.76])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c19f9bff4asm695635e87.56.2026.11.17.03.44.36
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5c19f9bff4asm695635e87.56.2026.11.17.03.44.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 03:44:37 -0800 (PST)
+        Tue, 17 Nov 2026 03:44:40 -0800 (PST)
 From: Artem Shimko <a.shimko.dev@gmail.com>
 To: andrew@lunn.ch,
 	hkallweit1@gmail.com,
@@ -95,10 +96,12 @@ Cc: Artem Shimko <a.shimko.dev@gmail.com>,
 	devicetree@vger.kernel.org,
 	linux-leds@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH net-next v2 0/4] net: phy: dap8211r: add LED control support
-Date: Tue, 17 Nov 2026 14:44:26 +0300
-Message-ID: <20261117114432.2794961-1-a.shimko.dev@gmail.com>
+Subject: [PATCH net-next v2 1/4] net: phy: dap8211r: fix kernel-doc comments for extended register helpers
+Date: Tue, 17 Nov 2026 14:44:27 +0300
+Message-ID: <20261117114432.2794961-2-a.shimko.dev@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117114432.2794961-1-a.shimko.dev@gmail.com>
+References: <20261117114432.2794961-1-a.shimko.dev@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,96 +113,38 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hello,
+The kernel-doc comments for dap8211r_read_ext() and dap8211r_modify_ext()
+incorrectly state that the caller must hold the MDIO bus lock.
 
-This series adds support for LEDs on the DAP8211R
-Gigabit Ethernet PHY.
+Remove the misleading sentence from both comments since the functions
+lock MDIO internally by themselves.
 
-The first patch fixes mistakes in kernel-doc comments regarding MDIO
-locking.
-The second patch documents the optional "leds" node in the Device Tree
-binding. 
-The third patch introduces a small helper to write extended
-registers, since the LED registers are accessed indirectly via
-EXT_ADD/EXT_DATA. 
-The fourth patch implements the LED callbacks
-required by the PHY library.
+Fixes: d90265e75584d ("net: phy: add DAPU Telecom DAP8211R(I) Gigabit Ethernet PHY driver")
+Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
+---
+ drivers/net/phy/dap8211r.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-$ make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/dptel,dap8211r.yaml 
-  SCHEMA  Documentation/devicetree/bindings/processed-schema.json
-  CHKDT   ./Documentation/devicetree/bindings
-  LINT    ./Documentation/devicetree/bindings
-  STYLE   ./Documentation/devicetree/bindings
-  DTEX    Documentation/devicetree/bindings/net/dptel,dap8211r.example.dts
-  DTC [C] Documentation/devicetree/bindings/net/dptel,dap8211r.example.dtb
-$ yamllint Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
-$ grep -i "dap8211r" Documentation/devicetree/bindings/processed-schema.json
-    "http://devicetree.org/schemas/net/dptel,dap8211r.yaml": {
-        "$filename": "/home/a-shimko/patchwork/linux/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml",
-        "$id": "http://devicetree.org/schemas/net/dptel,dap8211r.yaml#",
-        "title": "DAPU Telecom DAP8211R(I) Gigabit Ethernet PHY",
-
-Required:
-CONFIG_NEW_LEDS=y
-    CONFIG_LEDS_CLASS=y
-    CONFIG_LEDS_TRIGGERS=y
-        CONFIG_LEDS_TRIGGER_NETDEV=y
-
-Testing:
-$ ip link set eth1 up
-$ ls /sys/class/leds/
-stmmac-1:01:amber:lan  stmmac-1:01:green:lan
-$ echo netdev > /sys/class/leds/stmmac-1:01:green:lan/trigger
-$ echo eth1 > /sys/class/leds/stmmac-1:01:green:lan/device_name
-$ echo 1 > /sys/class/leds/stmmac-1:01:green:lan/link_1000
-$ cat /sys/class/leds/stmmac-1:01:green:lan/offloaded
-$ ip addr add PEER_IP_ADDR dev eth1
-$ ping -I eth1 ELP_ID_ADDR
-
-$ echo netdev > /sys/class/leds/stmmac-1:01:amber:lan/trigger
-$ echo eth1 > /sys/class/leds/stmmac-1:01:amber:lan/device_name
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/tx
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/rx
-$ cat /sys/class/leds/stmmac-1:01:amber:lan/offloaded
-
-$ echo none > /sys/class/leds/stmmac-1:01:amber:lan/trigger
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/brightness
-
-$ echo netdev > /sys/class/leds/stmmac-1:01:amber:lan/trigger
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/tx
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/rx
-$ ip addr add PEER_IP_ADDR dev eth1
-$ ping -I eth1 ELP_ID_ADDR
-
---
-Best regards,
-artem shimko
-
-ChangeLog:
-  v2:
-    - add a commit fixing kernel-doc comments for dap8211r_read_ext() and dap8211r_modify_ext()
-    - move LED child node down below tx-internal-delay-ps in dptel,dap8211r.yaml
-    - add blank lines in dptel,dap8211r.yaml
-    - restrict LED reg index to 0..2 and fix schema properties in dptel,dap8211r.yaml
-    - fix kernel-doc comment for dap8211r_write_ext()
-    - add LED brightness (force mode) support to driver
-    - remove rules == 0 statement
-    - add TRIGGER_NETDEV_LINK to DAP8211R_LED_SUPPORTED_TRG for dap8211r_led_hw_is_supported()
-    - clean up switch (index) statements
-  v1:
-    - https://lore.kernel.org/all/20261113110546.173624-1-a.shimko.dev@gmail.com/T/#t
-
-Artem Shimko (4):
-  net: phy: dap8211r: fix kernel-doc comments for extended register
-    helpers
-  dt-bindings: net: dptel,dap8211r: add LED nodes
-  net: phy: dap8211r: add extended register write helper
-  net: phy: dap8211r: add PHY LED control support
-
- .../bindings/net/dptel,dap8211r.yaml          |  50 ++++
- drivers/net/phy/dap8211r.c                    | 243 +++++++++++++++++-
- 2 files changed, 291 insertions(+), 2 deletions(-)
-
+diff --git a/drivers/net/phy/dap8211r.c b/drivers/net/phy/dap8211r.c
+index 0bf770f8ebbb..1fe20efd394d 100644
+--- a/drivers/net/phy/dap8211r.c
++++ b/drivers/net/phy/dap8211r.c
+@@ -69,7 +69,6 @@ static const int dap8211r_internal_delay[] = {0, 150, 300, 450, 600, 750, 900,
+  * @reg: Extended register address
+  *
+  * Reads a PHY extended register using the indirect access method.
+- * The caller must hold the MDIO bus lock.
+  *
+  * Return: Register value on success, or negative error code
+  */
+@@ -97,7 +96,6 @@ static int dap8211r_read_ext(struct phy_device *phydev, u16 reg)
+  *
+  * Modifies a PHY extended register using the indirect access method.
+  * New value = (old value & ~mask) | set.
+- * The caller must hold the MDIO bus lock.
+  *
+  * Return: 0 on success, or negative error code
+  */
 -- 
 2.43.0
 
