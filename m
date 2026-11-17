@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794902673;
-	b=0h/cxF2KKpBfR2Ko2/mjyEiijm16r1tqWiq8/94Oj99iGKPjhhNgPLTWGfMCJqvMejaU
-	 S95HdaO+tYARwS/LARVbBDz9kjVJ6DWrq8Wu6pOjSK/Sr2SW1U4iynGrJ52tbHIMeB0UY
-	 owTsmTlyiokmxaWFqKS8fTiCv5wAayOsf55WqFxdgk1Hfl/kX3gE7AYlSbDmPLyfxfJoA
-	 ttHwuM+WAmQRJ5so8SLuVVyGauEci8hhLtQdjaR/AZhaPqUfJCt5yoFj6HeOPrWxMXQlD
-	 cN7dNUmcnRhXpMa3Vwf0yPapBtefETkG96qAGul9QQ2VfwXltRQm/fZSZ6stQPlnWiA==
+	t=1794902857;
+	b=hinC8tAL1DaQNj9bz7p/B/77x7O+Tih/0G/alNPhaJcuaKNTcZuaiunngq1OAUKDqp8X
+	 Ht6RwMnL439+1eCP6W1xvNFb3uFD69KIziEHK/C2uNo9EUeGvYA2vqc3r/VfvVrBPAZgM
+	 W/DddRlw0zPoKQmAYxGtH1IljxaHKhTO2L4jl+BY+rPtncDcrboUp64vV9agY0TYzwjep
+	 VxsxZi07PPOQcd9Jp1IL9uGXW3O7m5kg44bS1X1EZjMBJOYz0qMGmcfO+TMHU3bQmrGPz
+	 G/Nqi2Cpr6fNegRD8fKPzp4gLG4xUgoMstmMiMdGD3XVN1fHwagej18Z89AdgxxGAKA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794902673;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794902857;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=HtFRB5bPt4TXgrizfZY31I/zFnSxSxxLaaw/5VrF4mw=;
-	b=p16cYMqD8o1NnGAOWIZBEEG8M0Z83unvii6vDd4Ttk3mkB08+8KW+JINaEoIhOC+8Qys
-	 2e1MinHd4j8iMW7l0Hje1J/xzf66dbe6F4IYkzqMTZ9b7LIJ1TdASM29E89o1xPI/p3Az
-	 6UlVnZhlVlogF1nkm3b/jKMs5iFeqxg3VoX4JSsS0YUUyYOgW4KAF+bNhHjioJK+0etD9
-	 AQJ+oAdOFWITccawVdjpJSCCME9Hj0fQ+0LQmVowYIZlGjibLSVj2sbx2Cy6rdQuQtc4m
-	 NZnWPQ/w6UnI36B48pj2/GXF1beLyP6xSVFH2gS2ap+lOIeBxKHxT4kyEfdfB/cqIxw==
+	bh=1nO9wfOGzMm/8FJ0wVO3Xlzm+SaPhM9rkt4oW8t+ug8=;
+	b=qwTDXt1r2AKK1/FPhEx1c4Rl8RvTe0LRx8vinpt3N/6NOo9DVfxhyY8r6TLiwQQKwknY
+	 zkTJsPDLFHBqQvtVm+o5E5QiKncdu+Li7+SE+XARaGsnNPTuTuNXiqpfaHy5iwefPn1pJ
+	 +ST4SL7AbLhc8VFr/TJQAewBtABYtoiwaCL2jDNWodRP912IoviUy1+SjNAzIekTwpRVQ
+	 6jzUL61x00/bxDT2qYFcgRuKBuPIns4bTK7RuJ9BcpsQD7d9+H2YT8q7oldqUhgA1rhep
+	 HyhyPNWjUSv9XARrndMgpvniGTtUzE0x7CYvjjv9BSn4Y2fSio59+opAFFuejH2bkHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gQq5GoU2;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UK4eex8i;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC755606A334
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:04:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FD59606A334
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:07:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gQq5GoU2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 646121F000C7
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:04:33 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UK4eex8i
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC1551F000C7
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794902673;
-	bh=HtFRB5bPt4TXgrizfZY31I/zFnSxSxxLaaw/5VrF4mw=;
+	s=k20260515; t=1794902856;
+	bh=1nO9wfOGzMm/8FJ0wVO3Xlzm+SaPhM9rkt4oW8t+ug8=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=gQq5GoU2x82vUZfeplduBHCnkV+vBQC5cqUDRM8IAtii1GaGNMdhVo5qKR1GDunSz
-	 CSUYIML9VdwYnpUYS8d+CPj/3fDhTatFw//Os37KZzuyJh5fdeyGFmVL6Oju5JYMrl
-	 kTHwhTGKAINqctcU1K0ECj15HRmUWZ1CjYYODuWXzDQYGcVb5ZJdtNhr96BrAT4Ny3
-	 xDke5bXbQf8kjnNWW4ke9ITK3cQySBK8d8ajL+PizkqyC8UKkBLomHFbnSxXYQ2nzq
-	 4IYQ8QlH+X7wUUTVjObwxWlnFEa2mDxQEfH6eAgvIVW1v6WfX+J+XxX4W8MwYLEQFZ
-	 2yh5xihY4Qhtw==
-Received: by mail-lj1-f178.google.com with SMTP id 38308e7fff4ca-3ae25dcbd81so40313841fa.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:04:33 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGvjWTePAT3tbezX8yryHpmLpI57tFKfBEV2NNmntBTsETb5lHTsFcm+1DwV+02P6p2942p1Ko=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/nOuBHQuziZcaR761AS2pLfLqwX9h4vJchRdrdU0SiDmBLX0x2
-	E9KNLLMKyv0183a57SdbPaWk9ucXT2jYXWU931QSHh2gRTqkrtBO2/qlEJGYPp0OoBOR4ANijX1
-	NH1LCCOEn+soQkw8yVxfxb4ld8agj8T0=
-X-Received: by 2002:a05:6512:2342:b0:5c1:4cab:2ce4 with SMTP id
- 2adb3069b0e04-5c170b5cf11mr4901474e87.42.1794902672130; Tue, 17 Nov 2026
- 00:04:32 -0800 (PST)
+	b=UK4eex8iN+Losl49v4sF6PBq1eowrdXGSOKUpiLeVIR3OHkBeFcudg/u8kHZYDaKW
+	 AZ6+sQZXUqYlLVaZEqt1vFTGUjJsKJl2LM6GtRWmtKvjd6fONn62Jq8MgKaSqhzH/s
+	 TA4M0ZATVVrnkR40BqqzSCxnya2b/3LRDRyTesLUzvUX9qHh7z/nmu0x+/ksG8eqUD
+	 KIwWBjrJpsy7ru6w7JH33cSvsQykf42PAx+Y3b4cDIJQy+gb5F5pXR2L3gF3lISa5n
+	 ofsdXBtCIlt4VAdDm03eASf2R9Vw+j0D9G68uNPzSqR2fGcPvIkrVQCqidQalOW6Qj
+	 /cRDkr0gj5kVA==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-5be47aa555cso4687815e87.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:07:36 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEOE3ZOZn58CFzyqfTpPbOVgva0NZi1YfGbqlBDf0lzlvf25n78i9ur/YQcf/GAQZsjR0YRu3w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+tSxo86zg9NH1j7W9Zuj3RQEitx6Qi/Vcl6KyV63CNqEbbnVA9
+	vjlL52qgwkHq3LnFXxGWCAGf3tr65diSOeUuECcMxsIGqB8NWWrdxp5KeTOdDHHIMEIIFJRiRJs
+	r9ok6ybWlx8qSvXP8IziLsF/GdQ0AY5Y=
+X-Received: by 2002:a05:6512:2211:b0:5c0:a4e:5cf5 with SMTP id
+ 2adb3069b0e04-5c1709c9da4mr5065524e87.26.1794902855533; Tue, 17 Nov 2026
+ 00:07:35 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,15 +59,15 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112-gemini-ethernet-fixes-3-v8-10-f55bd43e02d3@kernel.org> <179484034800.3136.6036481481685475062@kernel.org>
-In-Reply-To: <179484034800.3136.6036481481685475062@kernel.org>
+References: <20261112-gemini-ethernet-fixes-3-v8-11-f55bd43e02d3@kernel.org> <179484034918.3136.1025801687896166519@kernel.org>
+In-Reply-To: <179484034918.3136.1025801687896166519@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 17 Nov 2026 09:04:18 +0100
-X-Gmail-Original-Message-ID: <CAD++jLnRzQdv_Jf_DuUzNNSxFmcbi5C-JBKcv_6veZDxY5MoEA@mail.gmail.com>
-X-Gm-Features: Aa3M54r1SOGU5b1laXjxhDWeat1SGQPgl1Q-BG8zrQLhxhLwYxICU13TFzCo0dU
-Message-ID: <CAD++jLnRzQdv_Jf_DuUzNNSxFmcbi5C-JBKcv_6veZDxY5MoEA@mail.gmail.com>
-Subject: Re: [PATCH net-next v8 10/19] net: ethernet: cortina: Separate RX
- buffer capacity from free queue size
+Date: Tue, 17 Nov 2026 09:07:23 +0100
+X-Gmail-Original-Message-ID: <CAD++jLmd9rQ2WXuTaD=uBKxT1zyHPkkQwRJd21zwR3r9cQT2qQ@mail.gmail.com>
+X-Gm-Features: Aa3M54qnsrt16SbZICbntOhUQbSJRGpy0uez2yHkdpv98km6SO89_1CCZ78CzCY
+Message-ID: <CAD++jLmd9rQ2WXuTaD=uBKxT1zyHPkkQwRJd21zwR3r9cQT2qQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v8 11/19] net: ethernet: cortina: Validate RX
+ fragment lengths
 To: netdev-bot+sashiko@kernel.org
 Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
 	kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl, 
@@ -78,21 +78,29 @@ Content-Transfer-Encoding: quoted-printable
 On Mon, Nov 16, 2026 at 3:45=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
 te:
 
-> > Fixes: 0bf8c8c94af2 ("net: ethernet: cortina: Normalize free queue poin=
-ters on rebuild")
+> > @@ -1864,6 +1865,9 @@ static unsigned int gmac_rx(struct net_device *ne=
+tdev, unsigned int budget,
+> >                       if (!skb)
+> >                               goto err_drop;
+> >
+> > +                     if (frag_len < NET_IP_ALIGN)
+> > +                             goto err_drop;
+> > +
+> >                       page_offs +=3D NET_IP_ALIGN;
+> >                       frag_len -=3D NET_IP_ALIGN;
+> >                       frag_nr =3D 0;
 >
 > [Severity: Low]
-> Is this Fixes tag pointing at the right commit? 0bf8c8c94af2 does not
-> resolve in the tree. The commit with this subject is 1e7aa52a9993,
-> earlier in this same series.
+> Is this frame now counted as both received and dropped?
+>
+> By the time this check runs, gmac_skb_if_good_frame() has already counted
+> the frame as received:
 (...)
-> Would it be cleaner to squash this change into "Normalize free queue
-> pointers on rebuild"? If not, could the Fixes tag be corrected to
-> 1e7aa52a9993, with the backport pairing and prerequisites listed in both
-> commit messages?
+> Nothing takes back the earlier rx_packets and rx_bytes increments. The
+> rx_bytes value also comes from the hardware byte_count, which this patch
+> otherwise treats as untrusted.
 
-I see the point but the patches are big enough as they are, it's better
-to solve one thing at the time.
+This can be addressed with follow-up patches if desired.
 
 Yours,
 Linus Walleij
