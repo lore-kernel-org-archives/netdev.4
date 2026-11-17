@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794927342;
-	b=JbiN6qxISa5WEQPQBPR27cyD11B3arD79qB7VJez+5Lt72onOO7Z02cPOzV+vWeO56qf
-	 YU2fa63KqrgzyQ0AvZPJvnI5ucOubG7F6Pmp2N6FvGGGNxkZF2gpk/JfPrV3ukvcqbe8M
-	 82jgKYn8fO45qVxN5W7LUZLL/2g8+lRpwFrWRPgEJgtlcBMAy63O+0FdCBkqEBdPWJMkg
-	 t1a9O28G98CHxjlYvG2upZ44bwRQNsZAp2xoRmz5OijCZkAPaRicK+C68ai9vfVGdwWpe
-	 SaCeloOJ8ab62Ui1AAVE8QnzTLVgtYtVdmubRj15wAqNuNmvYAsCyDCz75nQp/XOKRA==
+	t=1794927343;
+	b=papkgoHye0Yo0AmyYAsKpQE+2PFmT1E4ZwT72oY3wm7E0dFZi8qtz9HbCPQqVIQ3HH6k
+	 EFIg3yo2pOz/Et3aYwADVJAUJVZvng+czzTw2peBVZE2NFFv2P0tixqcEkqCIJ316vnlT
+	 +PvPrAyC3FTMfZjEwwkiLq+HJmQjEvf0HzuqfOEMH0laksG/rxmsO2Es41Nai2uYUUL1K
+	 53Z/QOR5bYRC8y1+L4z1kiN/VC3MONyszg5w0zAwG8PFj4vISAY4GhYxfruNJkzcbPHND
+	 YZwOqxzu12vu6lLMkfNHuiInajOYosLwaEgpzJMsyTOtbeEroMkLVqDscvoAY8/ISbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794927342;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794927343;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
 	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=VKadNleMHJBLRP4szDxTc4A4+nJ0/Pl3hG9PQuxpOUk=;
-	b=AvjxLWDy3tQ64z9iIiLY2SbbPusYdGUKPOOuAln0zgopWZpPevmHf3KXrvbRXvjYW5lU
-	 fD4vjM0J+du66mmVsYufmL0yqPygHjga3g7ofjvQh0CkEgWMcxgShdPaV+SzahIfd+F1w
-	 jV/jX/HFID3/i15LDjk6b6noBEJO7CJ1qFRpxzKZVFgiLYFNg2wHDBb04Ug2vpXNEpYL2
-	 g0r9762AbYHFa6YM2jxyHWkmc/Bu2FYfdbZ+ywKTLCPbvt5y3UNR/igl1ZmmrlFus4UkB
-	 qLmbNpDhxT4eV+FE/GbA1iPTlJTLva8PCYlcJaxA5Fkm0/Hv9retDlrZz6KwN2gd7Iw==
+	bh=9xGhqAumENcBNtzDfruylYbHUoXUw8SL2Wwg6sFFVmM=;
+	b=ur2VzrtllfqxXDIXTqf7uAOwf85T+fqjWiJVLD5lbG5xrjMsVi2c570k39xZxFiu0ZA5
+	 n5DkPIJXKDhUtfOxSUn1UJI1oLJs5bjFZeYBqniBoBK/F76PDNigCMTJOx2eI7pIy6x8x
+	 GnhqQ/zKvbydpXduFeJKssWTPaCL4SFp4defZ5tJ9LhiDG22Ny6TMa3q9tXJwD/K+gFYi
+	 03VC5ZTczeVG4OMj/Jh3k86HvvaUtKrBASZ5DbRHy6A3fbYEnLyiryn9TBjZw8htev58t
+	 08KbQl1u0GfnRMmOIg7QKntLkWnUAofzMiVMgo7f7T6fKuGzatkDmO/zMSe7zpyiWxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--stani.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T5T1Vgai;
-	arc=none smtp.remote-ip=209.85.222.200
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Yl9PcNYX;
+	arc=none smtp.remote-ip=74.125.224.71
+Received: from mail-yx1-f71.google.com (mail-yx1-f71.google.com [74.125.224.71])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBFDC606A338
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBFDC606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A37D606A893
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A37D606A893
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--stani.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=T5T1Vgai
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-934963b2bc0so918250185a.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:55:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Yl9PcNYX
+Received: by mail-yx1-f71.google.com with SMTP id 956f58d0204a3-6798fd97f3aso9863342d50.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:55:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794927341; x=1795532141; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1794927342; x=1795532142; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=VKadNleMHJBLRP4szDxTc4A4+nJ0/Pl3hG9PQuxpOUk=;
-        b=T5T1VgaivdD0YfEnxADGj0sSnbChlsGKMyvYd28XOnFm2t/W6zWqHt6GffAlu+DdF8
-         9eDYRC3Wt2sm7L2qAINRIEkFhbAyflBH+lCkkF5xc8jymU5GE+BKQZ+DLor+sZHS0qIM
-         RpLVImvu04e9tBQWX+OZMWU7W3/818RoDPRZPJm3cIDJ6Jh3p1oyCrK/lnA1ssVbdlLw
-         jlJEf3smedj7UfplYFzd7fmwR4Q3qG3jCs0bQvTKvdkbYyTChKNV31tcBFQWnYC4H1vn
-         VihiHM74lldIWjSilWsBapO46SfrwOBzTdLw5EDXcouw8BWcdTUl5SBXmkZ7gOvESryi
-         P9kw==
+        bh=9xGhqAumENcBNtzDfruylYbHUoXUw8SL2Wwg6sFFVmM=;
+        b=Yl9PcNYXflBqIPtfKg2D4kLjvUfhx6aDhhmmzb2FGXFL7CMxrm2BNsjdBwAvRctpUd
+         6vaHXtCuMVlsv/NtTZM00x5Ey4M0LBVuJmFeOfkvElq5O97m2UjFP0FFIPNv5YB/x1Mb
+         SQdYXlFE9TRbM5e6cgUrSVVHO8xHbnpU7nX1dVS7yqBU+gXk0ujgizErg9GrmnenIwrT
+         YJXqsuAIx7OZ7ctYVWTVDLqKpBnrPYwLeK+lkAF1Wd+o1HQIE4Jv6ZYhnBgMkj6ZRunQ
+         YQZkKNniK0J5Mze9zj4H4LiLjaREoppNf107GbU9XoJ9L9GJPCNu8z88Y2eyp63DaSdZ
+         IohA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794927341; x=1795532141;
+        d=1e100.net; s=20260707; t=1794927342; x=1795532142;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VKadNleMHJBLRP4szDxTc4A4+nJ0/Pl3hG9PQuxpOUk=;
-        b=sa/4ylxYWpO8HMXXcbFtFTyNvhI7EvNzjVGi31P6BAS3NEx/hhnYZSxiVgK7sazHQ5
-         MTrN2bjdzEGz5FBxuWYaX7mCNwDvealMWO0DTFE4CjacmXurCHVx9UYIBghtdM0B5dFA
-         SzRFzt9vcxZGN9sTrsb46ps/kX88MfgoZSbGaFMwauVUfdNafY3OH4gSJuDiA7XX3UW0
-         XF0LYJrAxYqNrDEu3gyc+NxkfYBzehkQpi2lXfRLVzNlewAEjRW5yoISUXtK5KoLbbUg
-         Uo6ICMrkt0xVXR5eDNKXIYyToj1FYawJxzG7KjBmNFFofUcoTDknZKMzNeWPHOVLNU1k
-         F7Kw==
-X-Gm-Message-State: APuU4Z+fLdtHvL8897UxL6WquNrm2fVxDF2qo1KqeWtGCaaIgaTWUQdF
-	Fzj0DYRoLWij0HlOApbPoCwJzgyjAHerwdHYRgdNkyrhSRjwjLGbMXaPnjBiMvY1sR2Kv0xHqpA
-	lGw==
-X-Received: from qknvm11.prod.google.com ([2002:a05:620a:718b:b0:93f:43a4:a480])
- (user=stani job=prod-delivery.src-stubby-dispatcher) by 2002:a05:620a:8908:b0:93f:47fa:b722
- with SMTP id af79cd13be357-9494bb858b5mr2039910785a.13.1794927340273; Tue, 17
- Nov 2026 06:55:40 -0800 (PST)
-Date: Tue, 17 Nov 2026 14:55:08 +0000
+        bh=9xGhqAumENcBNtzDfruylYbHUoXUw8SL2Wwg6sFFVmM=;
+        b=rd60X1uvn2spBlUE/Yxd0ULIEJRHzJkVo1kh78YLhmWQUpDmCFTUXz/MgR/QIJ3H8D
+         0sBySjkpoQDi7YoXHLEmaTSuzdfVymJ9c12K0S3LQSoGh0zSxodBHo3dxmfihMUISA8i
+         DqpxfO6yomWjRV2K613P6+mIjj8K0eYQmCd9y9xZtqpb4basU1bt6WGg6ONmwYf8aPeK
+         ZOgmxQPm4ZKZ5sy6xxktiO2SQeOLuiA+ZncnuHzveUo3CKjOtCdymeLKSp3g3vbDkbNe
+         bhxZp11EHe6logsSk8zpgmsDn0eHHj0MC2jo7yzgR+zP7dVkvFXBckraAsb6miT20CYU
+         9pgA==
+X-Gm-Message-State: APuU4Z+NbZxhEfGTzWqaVKo9wKzCqPHYZNLeexNUoVc13d/xj4C5pPqL
+	I7LwyV5+ZWGVgynbkdaYf9o8VTbqLxBLsZTVpeENC6COf32bUNw1zAWlG1fiSw/B3zkw4DRZoEx
+	1AQ==
+X-Received: from ywbi9-n2.prod.google.com ([2002:a05:690c:e209:20b0:8ab:3506:f904])
+ (user=stani job=prod-delivery.src-stubby-dispatcher) by 2002:a05:690e:43c3:b0:67b:f19f:9690
+ with SMTP id 956f58d0204a3-67d8971eb9dmr3968944d50.115.1794927342132; Tue, 17
+ Nov 2026 06:55:42 -0800 (PST)
+Date: Tue, 17 Nov 2026 14:55:10 +0000
 In-Reply-To: <20261117145522.1910636-1-stani@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -79,8 +79,8 @@ Precedence: list
 Mime-Version: 1.0
 References: <20261117145522.1910636-1-stani@google.com>
 X-Mailer: git-send-email 2.56.0.679.gc527c65306-goog
-Message-ID: <20261117145522.1910636-3-stani@google.com>
-Subject: [PATCH iwl-next 02/15] idpf: wipe mailbox send buffers on release
+Message-ID: <20261117145522.1910636-5-stani@google.com>
+Subject: [PATCH iwl-next 04/15] idpf: psp: add psp offload initialization
 From: Stan Iliev <stani@google.com>
 To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
@@ -95,56 +95,352 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-The mailbox messages are freed with kfree() once they were sent, or when
-they couldn't be sent. Some messages hold secrets, e.g. the PSP TX keys
-inserted into the SADB of the device. Free all of them with
-kfree_sensitive() instead: the mailbox isn't a fast path.
+Add the PSP offload initialization:
+- Introduce VIRTCHNL2_CAP_CRYPTO (bit 26 of the other capabilities)
+  and request it in VIRTCHNL2_OP_GET_CAPS if CONFIG_INET_PSP is
+  enabled.
+- Add struct idpf_adapter_psp to struct idpf_adapter.
+- Implement idpf_psp_init(), called from idpf_vc_core_init() on each
+  core init, including after a hard reset, and idpf_psp_free(), called
+  from idpf_remove(). PSP is enabled if VIRTCHNL2_CAP_CRYPTO was
+  granted, see idpf_is_psp_ena(). A failure disables PSP instead of
+  failing the core init.
+- Add the PSP device ops with idpf_psp_set_config(), and
+  idpf_psp_register()/idpf_psp_unregister(). The PSP device is
+  registered in a later patch, once all mandatory PSP device ops and the
+  datapath are implemented.
+- Build idpf_psp.c only with CONFIG_INET_PSP, with static inline stubs
+  in idpf_psp.h otherwise.
 
 Signed-off-by: Stan Iliev <stani@google.com>
 ---
- drivers/net/ethernet/intel/idpf/idpf_virtchnl.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ drivers/net/ethernet/intel/idpf/Makefile      |   2 +
+ drivers/net/ethernet/intel/idpf/idpf.h        |  15 +++
+ drivers/net/ethernet/intel/idpf/idpf_lib.c    |   1 +
+ drivers/net/ethernet/intel/idpf/idpf_main.c   |   2 +
+ drivers/net/ethernet/intel/idpf/idpf_psp.c    | 115 ++++++++++++++++++
+ drivers/net/ethernet/intel/idpf/idpf_psp.h    |  24 ++++
+ .../net/ethernet/intel/idpf/idpf_psp_def.h    |  21 ++++
+ .../net/ethernet/intel/idpf/idpf_virtchnl.c   |   7 ++
+ include/linux/net/intel/virtchnl2.h           |   1 +
+ 9 files changed, 188 insertions(+)
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp.c
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp.h
+ create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_def.h
 
+diff --git a/drivers/net/ethernet/intel/idpf/Makefile b/drivers/net/ethernet/intel/idpf/Makefile
+index 81b27a406747..3162ea913417 100644
+--- a/drivers/net/ethernet/intel/idpf/Makefile
++++ b/drivers/net/ethernet/intel/idpf/Makefile
+@@ -21,5 +21,7 @@ idpf-$(CONFIG_IDPF_SINGLEQ)	+= idpf_singleq_txrx.o
+ idpf-$(CONFIG_PTP_1588_CLOCK)	+= idpf_ptp.o
+ idpf-$(CONFIG_PTP_1588_CLOCK)	+= idpf_virtchnl_ptp.o
+ 
++idpf-$(CONFIG_INET_PSP)		+= idpf_psp.o
++
+ idpf-y				+= xdp.o
+ idpf-y				+= xsk.o
+diff --git a/drivers/net/ethernet/intel/idpf/idpf.h b/drivers/net/ethernet/intel/idpf/idpf.h
+index 77729921b0a3..fe16fd99a41d 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf.h
++++ b/drivers/net/ethernet/intel/idpf/idpf.h
+@@ -28,6 +28,7 @@ struct idpf_rss_data;
+ #include <linux/net/intel/virtchnl2.h>
+ 
+ #include "idpf_txrx.h"
++#include "idpf_psp_def.h"
+ 
+ #define GETMAXVAL(num_bits)		GENMASK((num_bits) - 1, 0)
+ 
+@@ -625,6 +626,7 @@ struct idpf_rdma_irq {
+  * @req_vec_chunks: Requested vector chunk data
+  * @mb_vector: Mailbox vector data
+  * @irq_mb_handler: Handler for hard interrupt for mailbox
++ * @psp: PSP offload state, see idpf_psp_init()
+  * @tx_timeout_count: Number of TX timeouts that have occurred
+  * @avail_queues: Device given queue limits
+  * @vports: Array to store vports created by the driver
+@@ -683,6 +685,7 @@ struct idpf_adapter {
+ 	struct idpf_q_vector mb_vector;
+ 	irqreturn_t (*irq_mb_handler)(int irq, void *data);
+ 
++	struct idpf_adapter_psp psp;
+ 	u32 tx_timeout_count;
+ 	struct idpf_avail_queue_info avail_queues;
+ 	struct idpf_vport **vports;
+@@ -761,6 +764,18 @@ static inline bool idpf_is_rdma_cap_ena(struct idpf_adapter *adapter)
+ 	return idpf_is_cap_ena(adapter, IDPF_OTHER_CAPS, VIRTCHNL2_CAP_RDMA);
+ }
+ 
++/**
++ * idpf_is_psp_ena - Determine if PSP offload is enabled
++ * @adapter: private data struct
++ *
++ * Return: true if PSP offload was negotiated in the last core init, see
++ * idpf_psp_init(), false otherwise
++ */
++static inline bool idpf_is_psp_ena(const struct idpf_adapter *adapter)
++{
++	return IS_ENABLED(CONFIG_INET_PSP) && READ_ONCE(adapter->psp.enabled);
++}
++
+ #define IDPF_CAP_RSS (\
+ 	VIRTCHNL2_FLOW_IPV4_TCP		|\
+ 	VIRTCHNL2_FLOW_IPV4_UDP		|\
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_lib.c b/drivers/net/ethernet/intel/idpf/idpf_lib.c
+index e03661503e5f..1385209519b2 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_lib.c
++++ b/drivers/net/ethernet/intel/idpf/idpf_lib.c
+@@ -6,6 +6,7 @@
+ #include "idpf_ptp.h"
+ #include "xdp.h"
+ #include "xsk.h"
++#include "idpf_psp.h"
+ 
+ static const struct net_device_ops idpf_netdev_ops;
+ 
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_main.c b/drivers/net/ethernet/intel/idpf/idpf_main.c
+index 566d5804c8c1..2fab58f4b02b 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_main.c
++++ b/drivers/net/ethernet/intel/idpf/idpf_main.c
+@@ -5,6 +5,7 @@
+ #include "idpf_devids.h"
+ #include "idpf_devlink.h"
+ #include "idpf_lan_vf_regs.h"
++#include "idpf_psp.h"
+ #include "idpf_virtchnl.h"
+ 
+ #define DRV_SUMMARY	"Intel(R) Infrastructure Data Path Function Linux Driver"
+@@ -180,6 +181,7 @@ static void idpf_remove(struct pci_dev *pdev)
+ 	}
+ 	kfree(adapter->vport_config);
+ 	adapter->vport_config = NULL;
++	idpf_psp_free(adapter);
+ 	kfree(adapter->netdevs);
+ 	adapter->netdevs = NULL;
+ 
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp.c b/drivers/net/ethernet/intel/idpf/idpf_psp.c
+new file mode 100644
+index 000000000000..c1297ec59163
+--- /dev/null
++++ b/drivers/net/ethernet/intel/idpf/idpf_psp.c
+@@ -0,0 +1,115 @@
++// SPDX-License-Identifier: GPL-2.0-only
++
++#include <net/psp.h>
++
++#include "idpf_psp.h"
++
++/**
++ * idpf_psp_init - Initialize PSP offload
++ * @adapter: private data struct
++ *
++ * Called on each core init, including after a hard reset: PSP offload is
++ * negotiated again, the CP may grant different capabilities. PSP offload uses
++ * the virtchnl2 crypto offload API: if VIRTCHNL2_CAP_CRYPTO was not granted or
++ * the negotiation fails, PSP stays disabled for the adapter instead of failing
++ * the core init, see idpf_is_psp_ena().
++ */
++void idpf_psp_init(struct idpf_adapter *adapter)
++{
++	struct idpf_adapter_psp *psp = &adapter->psp;
++	struct device *dev = &adapter->pdev->dev;
++
++	WRITE_ONCE(psp->enabled, false);
++
++	if (!idpf_is_cap_ena(adapter, IDPF_OTHER_CAPS, VIRTCHNL2_CAP_CRYPTO)) {
++		dev_notice(dev, "PSP disabled, crypto capability not granted\n");
++		return;
++	}
++
++	WRITE_ONCE(psp->enabled, true);
++}
++
++/**
++ * idpf_psp_free - Release the PSP offload resources
++ * @adapter: private data struct
++ *
++ * Called on remove, after idpf_vc_core_deinit().
++ */
++void idpf_psp_free(struct idpf_adapter *adapter)
++{
++	idpf_psp_unregister(adapter);
++}
++
++/**
++ * idpf_psp_set_config - Set the PSP device configuration
++ * @psd: PSP device
++ * @conf: new configuration
++ * @extack: netlink extended ack for error reporting
++ *
++ * The configuration is applied by the PSP core.
++ *
++ * Return: 0.
++ */
++static int idpf_psp_set_config(struct psp_dev *psd, struct psp_dev_config *conf,
++			       struct netlink_ext_ack *extack)
++{
++	return 0;
++}
++
++/* PSP device operations, see idpf_psp_register() */
++static struct psp_dev_ops idpf_psp_ops = {
++	.set_config	= idpf_psp_set_config,
++};
++
++/**
++ * idpf_psp_register - Register the PSP device
++ * @adapter: private data struct
++ *
++ * Register the PSP device of the first netdev if PSP offload was negotiated
++ * and the netdev is registered.
++ */
++void idpf_psp_register(struct idpf_adapter *adapter)
++{
++	struct device *dev = &adapter->pdev->dev;
++	struct psp_dev *psd;
++
++	if (!idpf_is_psp_ena(adapter) || adapter->psp.psp_dev)
++		return;
++
++	if (!adapter->netdevs || !adapter->netdevs[0] ||
++	    !test_bit(IDPF_VPORT_REG_NETDEV, adapter->vport_config[0]->flags))
++		return;
++
++	/* The driver only allocates and inserts PSP version 0 keys */
++	adapter->psp.caps.versions = BIT(PSP_VERSION_HDR0_AES_GCM_128);
++
++	psd = psp_dev_create(adapter->netdevs[0], &idpf_psp_ops,
++			     &adapter->psp.caps, NULL);
++	if (IS_ERR(psd)) {
++		dev_err(dev, "PSP failed to register: %pe\n", psd);
++		return;
++	}
++
++	adapter->psp.psp_dev = psd;
++	dev_info(dev, "PSP Netlink device registered successfully: id=%u\n",
++		 psd->id);
++}
++
++/**
++ * idpf_psp_unregister - Unregister the PSP device
++ * @adapter: private data struct
++ *
++ * The PSP core deletes the TX keys of all the associations, see
++ * idpf_psp_tx_key_del(). Called before the netdev of the PSP device is
++ * unregistered.
++ */
++void idpf_psp_unregister(struct idpf_adapter *adapter)
++{
++	struct psp_dev *psd = adapter->psp.psp_dev;
++
++	if (!psd)
++		return;
++
++	psp_dev_unregister(psd);
++	adapter->psp.psp_dev = NULL;
++}
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp.h b/drivers/net/ethernet/intel/idpf/idpf_psp.h
+new file mode 100644
+index 000000000000..0f89dcc3b398
+--- /dev/null
++++ b/drivers/net/ethernet/intel/idpf/idpf_psp.h
+@@ -0,0 +1,24 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef _IDPF_PSP_H_
++#define _IDPF_PSP_H_
++
++#include "idpf.h"
++
++#if IS_ENABLED(CONFIG_INET_PSP)
++
++void idpf_psp_init(struct idpf_adapter *adapter);
++void idpf_psp_free(struct idpf_adapter *adapter);
++void idpf_psp_register(struct idpf_adapter *adapter);
++void idpf_psp_unregister(struct idpf_adapter *adapter);
++
++#else /* !CONFIG_INET_PSP */
++
++static inline void idpf_psp_init(struct idpf_adapter *adapter) { }
++static inline void idpf_psp_free(struct idpf_adapter *adapter) { }
++static inline void idpf_psp_register(struct idpf_adapter *adapter) { }
++static inline void idpf_psp_unregister(struct idpf_adapter *adapter) { }
++
++#endif /* CONFIG_INET_PSP */
++
++#endif /* !_IDPF_PSP_H_ */
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_psp_def.h b/drivers/net/ethernet/intel/idpf/idpf_psp_def.h
+new file mode 100644
+index 000000000000..2edb114784c1
+--- /dev/null
++++ b/drivers/net/ethernet/intel/idpf/idpf_psp_def.h
+@@ -0,0 +1,21 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#ifndef _IDPF_PSP_DEF_H_
++#define _IDPF_PSP_DEF_H_
++
++#include <net/psp.h>
++
++/**
++ * struct idpf_adapter_psp - PSP offload state of an adapter
++ * @enabled: PSP was negotiated with the CP in the last core init, see
++ *	     idpf_is_psp_ena()
++ * @psp_dev: the PSP device, see idpf_psp_register()
++ * @caps: capabilities of @psp_dev
++ */
++struct idpf_adapter_psp {
++	bool enabled;
++	struct psp_dev *psp_dev;
++	struct psp_dev_caps caps;
++};
++
++#endif /* !_IDPF_PSP_DEF_H_ */
 diff --git a/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c b/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
-index c06b2d9bfe0a..fedac4716b08 100644
+index fedac4716b08..3f669683c8c0 100644
 --- a/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
 +++ b/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
-@@ -129,7 +129,7 @@ void idpf_recv_event_msg(struct libie_ctlq_ctx *ctx,
-  */
- static void idpf_mb_clean(struct libie_ctlq_info *asq, bool deinit)
- {
--	libie_ctlq_xn_send_clean(asq, kfree, deinit);
-+	libie_ctlq_xn_send_clean(asq, kfree_sensitive, deinit);
- }
+@@ -9,6 +9,7 @@
+ #include "idpf.h"
+ #include "idpf_virtchnl.h"
+ #include "idpf_ptp.h"
++#include "idpf_psp.h"
  
- #if IS_ENABLED(CONFIG_PTP_1588_CLOCK)
-@@ -218,7 +218,7 @@ int idpf_send_mb_msg(struct idpf_adapter *adapter,
+ /**
+  * idpf_vid_to_vport - Translate vport id to vport pointer
+@@ -584,6 +585,10 @@ static int idpf_send_get_caps_msg(struct idpf_adapter *adapter)
+ 			    VIRTCHNL2_CAP_PTP			|
+ 			    VIRTCHNL2_CAP_EDT);
  
- 	if (err) {
- 		if (!libie_cp_can_send_onstack(send_buf_size))
--			kfree(send_buf);
-+			kfree_sensitive(send_buf);
- 
++	/* PSP offload uses the virtchnl2 crypto offload API */
++	if (IS_ENABLED(CONFIG_INET_PSP))
++		caps.other_caps |= cpu_to_le64(VIRTCHNL2_CAP_CRYPTO);
++
+ 	err = idpf_send_mb_msg_stack(adapter, &xn_params, &caps);
+ 	if (err)
  		return err;
+@@ -3179,6 +3184,8 @@ int idpf_vc_core_init(struct idpf_adapter *adapter)
+ 		goto intr_rel;
  	}
-@@ -230,7 +230,7 @@ int idpf_send_mb_msg(struct idpf_adapter *adapter,
- 	xn_params->send_buf.iov_len = send_buf_size;
- 	xn_params->xnm = adapter->xnm;
- 	xn_params->ctlq = xn_params->ctlq ? xn_params->ctlq : adapter->asq;
--	xn_params->rel_tx_buf = kfree;
-+	xn_params->rel_tx_buf = kfree_sensitive;
- 	xn_params->timeout_ms = min_t(u64, xn_params->timeout_ms, timeout_ms);
  
- 	idpf_mb_clean(xn_params->ctlq, false);
-@@ -264,7 +264,7 @@ int idpf_send_mb_msg_kfree(struct idpf_adapter *adapter,
- 	int err = idpf_send_mb_msg(adapter, xn_params, send_buf, send_buf_size);
++	idpf_psp_init(adapter);
++
+ 	err = idpf_ptp_init(adapter);
+ 	if (err)
+ 		pci_err(adapter->pdev, "PTP init failed, err=%pe\n",
+diff --git a/include/linux/net/intel/virtchnl2.h b/include/linux/net/intel/virtchnl2.h
+index 39fea65c075c..ec1a742b6557 100644
+--- a/include/linux/net/intel/virtchnl2.h
++++ b/include/linux/net/intel/virtchnl2.h
+@@ -221,6 +221,7 @@ enum virtchnl2_cap_other {
+ 	/* Other capability 20 is reserved */
+ 	VIRTCHNL2_CAP_FLOW_STEER		= BIT_ULL(21),
+ 	VIRTCHNL2_CAP_LAN_MEMORY_REGIONS	= BIT_ULL(22),
++	VIRTCHNL2_CAP_CRYPTO			= BIT_ULL(26),
  
- 	if (libie_cp_can_send_onstack(send_buf_size))
--		kfree(send_buf);
-+		kfree_sensitive(send_buf);
- 
- 	return err;
- }
+ 	/* this must be the last capability */
+ 	VIRTCHNL2_CAP_OEM			= BIT_ULL(63),
 -- 
 2.56.0.679.gc527c65306-goog
 
