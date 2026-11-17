@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794907927;
-	b=q8j2FEfHAx16/EZepY3jsD+eqeFTyOPHNWm9VaIKTAeBrSNehL/OSbLDYLJUBU1wD2Q8
-	 z4IsKL2zcYXw7WqipFEbvj9vNYkZ8Pz4UdV2LWMaN+wq6y/BVy+ID3gSDpSr778Sm5Pid
-	 TJ4ZgW4hmJU9kz7UTzTeAlAKUl6/HawrE1MMarj9PKyVHHYmXdkP/mXUXQ0IWJvlwUkra
-	 0L2TL8zClY4o/gfXtYT9zOpWbLl6FTuEZ8ItlP49xmFM4cWHQPL9IE9cTbMvGdDosM3Ie
-	 oYdbR8Ytm02ymKE9DrpK+I3bWm/sWWfYQdojjl8UR+l5M0U/zyUo0ax2r4g3eKHl9Vw==
+	t=1794908009;
+	b=f5aBN+uMBBXaIFw9K4SpKlyMT9pSs0V0rf+M6s1yeRoaU0i06gHtJsO8c4mLfxnzagV9
+	 KHzk66Ix4D0wrpd2m216uqThUZB6uJ5SyM33BRTn0mugZAvrIS5zc9DSdL9/IvcmUmbze
+	 VeorYK80O0FXckv6Ho3REDgtmd/jdzc0mg2f9mVYFsfhagTf/KQ6oPLXpkM4X90HV8bsS
+	 S2bxDjTt99Cgcs7BSZlDRranJ2ilu7jdbRZLWIGLuH8BBTTos9H+71hRPEl7LHZ6uZXgN
+	 AilLhyCESh553uk3CdSGG8lK/LJK6kizDmMFNMntGymYo1Kxwp618HySVxgddazlQqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794907927;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794908009;
 	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
 	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
 	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=05Dto7iUl2Kcv6Db4BnKcvoKyvCaav2FV7Yi0Sie90k=;
-	b=fLGBGkxR0MNIclDH4JneT5lQOrYRfSB0URCbyJGCUe7blN7QEJGytXPUY06Qxwyu/+r/
-	 ukdI8tTg48xSWVV3Cnp5C3c+f91AJ0q91nk1uXbZCVIy7OIvv12m7CG01FQPm0cZuPG4p
-	 qgrHTnzMTJe+fS4d4bYLIAAk+us4Aq6qMH60XzmQKO9vz2j4W3X7aoOJcFqe+/SLIY2+I
-	 58YinP5/ZvKlGfDVWVj7pZulz+EzPPFW2w+VH9JjInlXtIMAV/cFsinZMR5sbwUST/13C
-	 F0o8QmKEWrcuEM/RVP6/AdcN6f06QP3xntJ0ADA69L337zbbmiTT2uyNbdpUiVUJEkQ==
+	bh=Hm9omDHKcVbk1vAST3xtAg1ZnIT3HjaHoa+8ATARj3g=;
+	b=uelUecEvIyUIqxLoYRENw1snyLkLk5sTP9RVK61Ed9cgnvLFN18ARKVf3ROWZ2lpS/7d
+	 eTKRc4woJz2IuAvXxTuHxiiiuHLwkqSJPHUh1bi5viFP7hDV55dSVaK0XDYjUxNZOg4pr
+	 1AB9IOykGZ6hBaSbgY6vOR9WtZT8LBYrdRvdYntWcgOc1Q1UXBx1w32RXgh4JHZmmSGHj
+	 VYD5HnFNkqzn2VHUoFnpaTOibec2pgcf3qfT3VkdfM1j5kKnlejAWrjvu+Psxpfva7k4s
+	 aHRrCnxMdF4OCg3ksCpy8gih5Wwv6qSCX+aALWuy49rPj12XqBREiKpjXkHHPmdNbAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=tipi-net.de;
 	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=f79WN7KI;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=MHe4y5R9;
 	arc=none smtp.remote-ip=194.13.80.246
 Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4786C606A329;
-	Tue, 17 Nov 2026 09:32:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4786C606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D6D8606A31C;
+	Tue, 17 Nov 2026 09:33:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D6D8606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=f79WN7KI
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C351DA03E1;
-	Tue, 17 Nov 2026 10:32:02 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=MHe4y5R9
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8D57EA02C3;
+	Tue, 17 Nov 2026 10:33:26 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1794907924; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1794908007; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=05Dto7iUl2Kcv6Db4BnKcvoKyvCaav2FV7Yi0Sie90k=;
-	b=f79WN7KI6KzNX3KKVQTt2miTDYaOqjvWZB5rEsZdnu3Ykd1ApFURrM+lh2USYwj0QYPPcY
-	GMEZJC+sbI9m7+g5VUBOMfvgNeE7k5AoSa5b3Y6gTWBJGe9r78oBfz4uFtjI+HkalJ05km
-	ZkJBvRyc6KyI5Q17UHsg+Q8dHZK0BbE3FyNLBpRZU/aA/30OfY/Ws6xVi7Bj3naF0NnHfg
-	zQmDpim9SMUgz+qDlj5EXFmB/g+KsYad4mhLYTAwaqryKfmjOw8CvqOcuVNhVwMMRjZrWe
-	zdVlFfgY7LptorEWM/U3nU3F+bg5BmZyViKK/4t9A/CtOZOrA5wFjow56tlHtA==
+	bh=Hm9omDHKcVbk1vAST3xtAg1ZnIT3HjaHoa+8ATARj3g=;
+	b=MHe4y5R9nYxn68Beo+dC84F/mJg5VuUMHm+gmj5mv2nCtNqhaFvg44UcOEYogf+5hWPdol
+	7GWauLmyi7akLx8L7Qa0Oy/BaqmXZAXVGiQKYS2LKCQbjDczsVcYBFpdJWEAYeTz5FMqWq
+	Nsyumx6/tjlKksuKGHr1+nMGlIO9XBzXqIYUznwBkJgbiTB29sfHahb78J/tQFwPAmrvsa
+	yjWJA65sNpN2Mr4vJCFLJiI07BNWGlnMFhKhnLI/PCPv5OvDhIcrYbBkGTmIxXOJgiB3mP
+	Zt9N3hFIAxXQ9XtWZ1fXbHzYYEB7/TTM/wYI4/NwFIt1D9sweOyPbXE6Vir9lg==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,62 +53,59 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 17 Nov 2026 10:32:02 +0100
+Date: Tue, 17 Nov 2026 10:33:26 +0100
 From: Nicolai Buchwitz <nb@tipi-net.de>
 To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, Carlos Soto <carlos.soto@broadcom.com>, Justin
- Chen <justin.chen@broadcom.com>, Doug Berger <opendmb@gmail.com>, Broadcom
+Cc: netdev@vger.kernel.org, Doug Berger <opendmb@gmail.com>, Broadcom
  internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Andrew
  Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Russell King
  <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric
  Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
  <pabeni@redhat.com>, linux-kernel@vger.kernel.org, Mlody12 mlody12
  <kudzo51@gmail.com>
-Subject: Re: [PATCH net-next 3/3] net: mdio: mdio-bcm-unimac: Add Clause 45
- support
-In-Reply-To: <3996fa8c-3346-40ff-8fa0-afa70262028b@broadcom.com>
-References: <20261113211554.2058181-1-florian.fainelli@broadcom.com>
- <20261113211554.2058181-4-florian.fainelli@broadcom.com>
- <7cb0d621e794378956b737530ebade24@tipi-net.de>
- <3996fa8c-3346-40ff-8fa0-afa70262028b@broadcom.com>
-Message-ID: <1a2bd644b2430c88976baa29043d9c4f@tipi-net.de>
+Subject: Re: [PATCH net-next v2 1/4] net: phy: Map C45 probe read errors to
+ -ENODEV during bus scan
+In-Reply-To: <20261116213449.1682731-2-florian.fainelli@broadcom.com>
+References: <20261116213449.1682731-1-florian.fainelli@broadcom.com>
+ <20261116213449.1682731-2-florian.fainelli@broadcom.com>
+Message-ID: <5c4b81ac731b21dc598d9a693d05d468@tipi-net.de>
 X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=UTF-8;
+Content-Type: text/plain; charset=US-ASCII;
  format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-Hi Florian
-
-On 16.11.2026 19:54, Florian Fainelli wrote:
+On 16.11.2026 22:34, Florian Fainelli wrote:
+> get_phy_c22_id() maps a bus read error of -EIO or -ENODEV to -ENODEV, 
+> so
+> that mdiobus_scan_bus_c22() carries on with the next address when 
+> nothing
+> answers. get_phy_c45_ids() only does so for phy_c45_probe_present(); a
+> failed read of the devices in package registers is turned into -EIO, 
+> which
+> mdiobus_scan_bus_c45() treats as fatal and which makes the whole
+> __mdiobus_register() fail.
+> 
+> MDIO controllers that report a read from an empty address as a bus 
+> error
+> (e.g. MDIO_READ_FAIL on the UniMAC MDIO block) and that provide 
+> read_c45()
+> with unmasked addresses therefore cannot be registered: the C45 scan 
+> fails
+> on the first empty address.
+> 
+> Let get_phy_c45_devs_in_pkg() return the bus error and apply the same
+> mapping as get_phy_c22_id() to the two places that look for a device at 
+> an
+> address: the loop over the MMDs and the MMD 0 fallback. Errors from the
+> reads of the per-MMD identifiers, which only happen once a device has
+> answered, are still reported as -EIO.
+> 
+> Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
 
 > [...]
 
->>> @@ -301,6 +390,8 @@ static int unimac_mdio_probe(struct 
->>> platform_device *pdev)
->>>      bus->parent = &pdev->dev;
->>>      bus->read = unimac_mdio_read;
->>>      bus->write = unimac_mdio_write;
->>> +    bus->read_c45 = unimac_mdio_read_c45;
->>> +    bus->write_c45 = unimac_mdio_write_c45;
->> 
->> AFAIU this breaks GENET without DT (e.g. Pi 4 with ACPI). Arguably an 
->> edge case,
->> but last time I tried it worked at least. With your changes all 
->> addresses get
->> a C45 scan there for which the empty ones return -EIO. 
->> get_phy_c45_ids() passes
->> that up instead of mapping it to -ENODEV like the C22 path.
->> 
->> A cheap fix would be to do the same mapping in get_phy_c45_ids() as we 
->> have for C22.
-> 
-> OK, are we the only platform where that is happening? Alignment would 
-> make sense, and I don't assume we will be breaking someone's use case 
-> AFAICT.
+Reviewed-by: Nicolai Buchwitz <nb@tipi-net.de>
 
-The only other I could find ois orion_mdio_xsmi_read_c45 
-(marvell/mvmdio.c)
-
-Regards
+Thanks,
 Nicolai
