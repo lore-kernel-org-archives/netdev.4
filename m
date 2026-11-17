@@ -1,58 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794906785;
-	b=MwrXO2wWhKnXEVZTwGMpU7xm6XtbEkaglniW0c74Vc7wZyzjSak2nRhb8okKSobMH6wS
-	 9Bh3xbkNNaTQi1CFj4u9drOGmJLTUWmt71tlhVQ0JEUF4jpS5n9vYeay+MJBwex2RAMlL
-	 yr0jqhCaPhucq/eMPjaUKTlTaKn7OasxMHSZBM3KUSRGDyD5ZxLrxcmb/Xt0GvVozIct5
-	 CHwL1ESBzrejPUcr6azINno8N773oPacufZk0OsrSujeylrn0uXL0P8eEloZJmrI6ZS9h
-	 F0gA0v0++wl20pCuc4aWjxCdYESn50YfTruR+iRact/Yag6FGKL+wbLsw7ELQWxzJSg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794906785;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=jHmFKQcEpErH6yTd+BcsBpSAeqJz4+fdKXvQPpS1SzY=;
-	b=cezfFQ9tIQYjBeGo/00LbUmzrnM6mZ2auA+fApLzlx9Q4e4qV6SEA2mCGh/Gjjoia0Kx
-	 DjS4I1Z/atwa5ecUxkDduaiC0Uv3dxL3UgMCvD6e1on8Jqc5PGQactS1/evEqlSJ+3Ebs
-	 jfrnkFEluN2PoxQn0bRyjUlGFaJU+j7lMgSma14zElwDrIRB72HQEbSrq3Pk6uPdKAYro
-	 a9T4NO687rkFf5/hyK9JRcKsrugyGf75qntDV7MKRylmElnNEAlFkoo36VuVy03eucIvd
-	 IKza1y+oV8W6Aps8ChRwWDqxsbtcf7S4ejYdhetCy1qkx+2PwQouPTJ2xpO/BiNwTvg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=QohGgGDT;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.16
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794906834;
+	b=PJT15iuuZq5U6xzl5EKf/CNfZ8wNLzAw9m7zqwJrlILsTrIB+OnJIoZ9JSnffiFKnK7m
+	 5habFx+lfpKFAfQv+WScZ0YCcMXu/tDrP5Tml8CLZ2Ojv6iuhazrGGFOesUiWpZsuAGRa
+	 8vrAblK6Roc9ok9vAzcEjQFeHIMd+6SY1b767ch9QqvSttJVoZFMBE2W6hH1Hd+wTt5PF
+	 rNyMFN9TgzQxP0/gILBmpW4SyTI6v5ePM61P1r6nDMTo1ch2jHxKHwhTSWcjmifXH/F5O
+	 /T4DH42TCQ4kOjN8cSiAkFzPXybuXhRXHde5wKMr7RN5MHD7hrghr3cFp9Y2GBz5big==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794906834;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=dGxv60QBd42xTtPfK0bOripWCAeT+bdZiC3TzkgL9Sc=;
+	b=Zk/TfHmsBRyRXANHxf8q2MsopW6xrvO2FWTzgmFNRosVBKj8uHh+8xT0NdkSKcVpAQ11
+	 o4M6dpgpgdMBcIA6MYAZdiaXidEExPHTvewLKihRKRr+OUAcDWbqN1/mN6PLlgJZoNBI1
+	 aDyhAZzk2jA3vops4cVUDoWr3O2x+WQYr8rY4YdfkGpdFJIfjqc5bjRd4VVCPyq5N0qPz
+	 J+GMgvsCSBIN0iY7lFnEDV81chC7RJGa4riOmiXRjV1MXeEKqVA9xyWMdLH2pS6r7AlGT
+	 0QEUu9QU9JlS25PohYxAigt/BEKsDScU619fPS6BSC5vb7yO1Tna6c7EIZbf4ezIHwg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=am7vjWBq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.85.16
+Received: from BYAPR05CU005.outbound.protection.outlook.com (mail-westusazon11010016.outbound.protection.outlook.com [52.101.85.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2C70606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:13:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2C70606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5D06606A32A;
+	Tue, 17 Nov 2026 09:13:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5D06606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=QohGgGDT
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 188D4C4EDBE;
-	Tue, 17 Nov 2026 09:13:07 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B28265FC81;
-	Tue, 17 Nov 2026 09:13:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6D7C611BC0493;
-	Tue, 17 Nov 2026 10:12:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794906781; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=jHmFKQcEpErH6yTd+BcsBpSAeqJz4+fdKXvQPpS1SzY=;
-	b=QohGgGDTtw8azbIR//VvfGrlr4V+zs72XDzrDyoJRb0V8W2WTIhMsS3Om45in7H2LQEW79
-	y5ssLoKHMOcRF/+IV5057ZnzwjPoUzMav9cVjrADQiDTi/ngtIi9W0tDHEewPhs5aHjR6w
-	e54Y8nkGdm8O0wjLBZUwxszXdEB+Ki+9uTLld22EhInWUrVgQGF8K5kfgDzvE/t+azc1oQ
-	XEvKOOiOer6Uvhtd+3T59zk6YyyeWOZ7RbGJlmmIAix6Xe7iS2HWD+uXi4/dM9a3KjopYJ
-	8gb8TbQdW9aL++PfMCZtctJXUqPtztwaNOaUWyr6BdJvb/ff8yfekox+qYfnLA==
-Message-ID: <a0b1ea81-97bf-4a16-895f-5b6820a46c61@bootlin.com>
-Date: Tue, 17 Nov 2026 10:12:54 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=am7vjWBq
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gw8oZwXO09cNH2X2RGuB6sEJ+X/QmMiNHtGeFy7HUYRZD8UjE1XA5iUeBEbESXGWAq7jaqEQ9vqlVSC8DI8Mmpz/AFbuJxtQhGShoUYDp8oFaS4Xt1z4VtyzEMfWVWrzucgNIngKLYx7DlBN1a1XPFOhvPNeELKfllvF9JM73G+46gO7S5AHdSAxpIsShRTVXJcE9WIyMTsPNoiIoVTfh1EU/bHwqmE8jdIUY/pkCyO5gv1MDX7G441jfTuUO8+zwK5u3kjpo96JHsOuoYbK6+Lx5rvjQiN07xD8vjTXNDPeTfEAzlnPdQwLk96mr4EO5Ezsak8PLR4yQ6i0ATTpaQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=dGxv60QBd42xTtPfK0bOripWCAeT+bdZiC3TzkgL9Sc=;
+ b=jC8Cx2/vLFZZGp18ybsP4EEg4ZFAE8SrtA1gSeKDKQqY6ve15uwyg/odQtfRdNudhdL3MsFjP/zebztn8au55h6STLS32sKogyMVbFZe6wXBr25eWXpUbX2nN2yYnt+mtemBEhdFvTQ/dcQM2DdSL8rGZ3jogsUi4dVzCnbnU22pHlOSG0IbRQPZ2wg/I1hVXERDd3xRWGptzf0D5618SM7yF32BPerB0M6fj0PNRTAzWvCSotG1xcPGXernNLFenM2NpFL85hB++NeB3ir4UI/kJinom3rRlQ5mLuU6gXDIswHS9WTs03WFGt9ANDIbZgONtkFFL2t8a8XZW0Iq8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=dGxv60QBd42xTtPfK0bOripWCAeT+bdZiC3TzkgL9Sc=;
+ b=am7vjWBqLZ3ejKl8sf/C50buxonxxq/0ygYVkKdNxGVCT5J9FXcWCyY9Ux0U36jPVsxwqzil24j1BNE0SNonVGmL7uOd1vDELVA/e2CTtMNN87VT/0wIt55GbR8nIr2koppyYvUdkCRdv1euFKM8k/27+IhBexNHBXuKjJPdHdWG50YZ/t0PDDCyt93tTqrR5Jw4Vm4xbUXy0lSMk8iNWn0LLH2ZhsBQrsFo5gBX7gM7ZhywGHOQFytVViqhyW1//VnX2/HF/IY7NIBdQIoGIDjdGmFij2XQo4iGZRLRBCUnTlfAV9Uyj+nsty9sxlGgzuylSxlFCI6ZTNA4kxEiBg==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by LV1PR12MB484207.namprd12.prod.outlook.com (2603:10b6:408:512::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 09:13:50 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0615.009; Tue, 17 Nov 2026
+ 09:13:49 +0000
+Date: Tue, 17 Nov 2026 11:13:40 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: Leonard Lausen <leonard@lausen.nl>
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+	Shuah Khan <shuah@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 0/3] ipv6: Honor prefix suppression for FIB
+ lookups and cached routes
+Message-ID: <20261117091340.GA581197@shredder>
+References: <20261116150132.9594-1-leonard@lausen.nl>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261116150132.9594-1-leonard@lausen.nl>
+X-ClientProxiedBy: TL2P290CA0002.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:2::12) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,74 +105,69 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: re-enable on-chip parity checkers for
- XGMAC ASP 0x2
-To: Zxyan Zhu <zxyan0222@gmail.com>, andrew+netdev@lunn.ch
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- horms@kernel.org, 0x1207@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261114015554.2187341-1-zxyan0222@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261114015554.2187341-1-zxyan0222@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|LV1PR12MB484207:EE_
+X-MS-Office365-Filtering-Correlation-Id: 821d1b9f-64a8-4744-f8a5-08df448b1789
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|7416014|376014|1800799024|10067099003|56012099006|11063799006|261026140227099003|261028144727099003|261022105027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	/Zx3en2jDr0xU8He14FXt/tvr0amPGI1vlFa7GOHpVdX3k0paiasTxr53IvDGzIhPh7ai2jKebQWq+Vl/HCwuuDbu5o0QkOAdxCIj0ikZ1+lTBoK8j8dgl+1ugcv45DdfIgmwZQ+vBgEt8ltayHrQlpj0dpblTy5rgiNuYyyrrM2OZn8hA99pgIvfKrJqQWcY584JavCBtel5MGCNWkOXH2a6EPbvGx4BbWAoDi9M2UcUXvy4reLGdW6Ry2DCkpVtlarXTx5W3TOUD0pnIeZgkjXOi2NgNk36Adj7R7hxQKPE9su4pbK7dra62mOeXFq5wzzdTapgsMNtcSRxov/vWjuR46RN946BAgeflPfuzFi44R0WifvKwqmmKziDsQ4hlEUCFvPHP9b0Jfk2ZGOy213ZyELRw8gqtdito52hnuz6vVqC7127U7yDYb5eHwY+WrbNZ4/fojMmyWEUe07C/Y8uzxW1JCG9hodPhELsPMY8EGhKIwbMEZ03nxfhazXvrCCVCjZdiWec9ttI8zuJFU5k3vpd41eXTVt+aZso1mX0MUyTGSnx7rAeru+dna/C2xUuItqt26IS0HNTk6WL3gKHUhmnhhX9wcyh2e6kZqoor3/7YsxfDmynXP75lIt+QF/LO8QzTFs+R/gJiFb03iqx5ZCpLmTzbII/CTdGVs=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(7416014)(376014)(1800799024)(10067099003)(56012099006)(11063799006)(261026140227099003)(261028144727099003)(261022105027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?OCHYypnLCHi568CXKYgNIGzkoAaz7iJcORDHymuSP7yHW4GqdSPyQIDYRjeL?=
+ =?us-ascii?Q?XMT6ZXBaxRoDvHq1lZJa/5SwxE45Br7xon7Mt2zQTCv+BW3pcW5HhdWE7XIo?=
+ =?us-ascii?Q?gjXtXf4w0X/azlmXAvynaswlwNmgTM1IjQUFnr6LAhitquP0hdise/FCwIAe?=
+ =?us-ascii?Q?SDqsCxOj0nm+nwlOOFFdXC8ab9U99C1l0ylWvDX3jecuwU5ZbnkdoGBP+kV/?=
+ =?us-ascii?Q?9fXKKztbIu94KrcyHkkhQ0+M7LB6u2wES8kbpTYCRoQM6SVIKTqqmYIc6aUi?=
+ =?us-ascii?Q?vqp01SdOSxs6F49B67PKY5xFpli6TocUpeRxXi7MWlVGieg2ukpkVq0naZTL?=
+ =?us-ascii?Q?vhi5uWYpFYbkN6xjVyK663JBYsWXW4ujoAEzpYviwCuEhGju0cfT9X1JzM/G?=
+ =?us-ascii?Q?vNKee73rhVnyppdZSTtUx4LU+JV7jlqNrCwo/CYVzFwQ8PGu0RhJwhLZzJKe?=
+ =?us-ascii?Q?NTsjWsdv9JR8Tf7UB9WbfqrHhkfP4OXlNNXq93FsZ3RvC1yP+0GJMC+OAyzU?=
+ =?us-ascii?Q?FWrvMBZsDjok+2OXpB1XsYLyk5AuHHfqgD0VIfzftrQ2dEKcz8+bf84ZHYFF?=
+ =?us-ascii?Q?WFA9WZ8OS72eGBXFM77yNHW6hT7e0sZOamwlCJ1KMKJ16t6tPYbSwukvJuRF?=
+ =?us-ascii?Q?U1qeF7feiS2AJzwMhhJcg7MKBg6HMij1nfzFaK2RdkwoeZH0dYbS+E8MfKmk?=
+ =?us-ascii?Q?h9sgFoVqs93MivZNsbupW3CyY2NTmmrjOTocVO1wLEYLVaLGmOed+PTK7qnp?=
+ =?us-ascii?Q?ADFXHZMUzAQ3g5/6QBbxnuDFhhm1ulKzUumefRwweMKLhp0ujqFea6+eX/Iq?=
+ =?us-ascii?Q?3ezQJPnejUQ1eNCUcYexXksHi19E2tF5JoFQXACANH+W7+teyYqJ59WfsZJ2?=
+ =?us-ascii?Q?xeq6LBdI+2+2hLNTzn9a2AlACKL5qgZNV16CPaTAyn0QC9pJEet1GYuIW2nA?=
+ =?us-ascii?Q?yTcduAhb3/TNFwPE0jzo94BaQl3xpc53EpUf5L7Q9MhmqCrnKJcgZ2rjJoUp?=
+ =?us-ascii?Q?kOxm7z0c3lcnmPfiVeExMpKF6vDZCWMS5aQAn+Stp/+oHBuEb4RTpVRz2rlH?=
+ =?us-ascii?Q?f/EBDzyipPN4hk2fXm38bDXg/NSgHZrVPTdbsnSDF6KQlMp/ni74PA6448Dh?=
+ =?us-ascii?Q?1GCzTeYegP6ei1C9BH0kAJ4eYti3HZYr3XHeaL94ZXlw328UbD9n36dg0LK+?=
+ =?us-ascii?Q?T60IqbDPLwtk0yRPiFA6W1SktihV6C/gGjyloopAnowti2e/9EuiX8JoloeR?=
+ =?us-ascii?Q?yYYmvg7MWMIpKVNXwNsCTeU7F0mFsgxJeUsCCZPniPxfeDMd5nwbZ35snsvF?=
+ =?us-ascii?Q?iRpMei5dw4OnKPob5wnXmhb9mggkEIOACIYMgCTsqdr/yv3yNXlOb1EUZxaZ?=
+ =?us-ascii?Q?qFBa5czOECP6ddsoCE2gufTOVle/GQ+yBBm6pX9cM/pEcnQrlPMyZmUkgdSE?=
+ =?us-ascii?Q?JI2vqBjE7pid57WSNiM/7Nw7XAZGH5jwgz0Owd1tdwXu6nREqwxRqNLzPIGu?=
+ =?us-ascii?Q?HkJKUA8pyecGZk04EG77J0GmHjXY4m2IMXl8sHOET1JlmQL84oK8ZPZ3CFss?=
+ =?us-ascii?Q?mIBvsMp3q3v4r3fPViZhvkFSbxmZyC9l8uorhXwDvyGIlzJdKAeL3LyDoExY?=
+ =?us-ascii?Q?LTzxwdlRmP90lXl4C7WME+OcF9ZyX2EGxkQHXCjA0FBRaiLnkol2ALfUVKtj?=
+ =?us-ascii?Q?1fT+Nuc/r6K2CD2eLjJMXRWvLws7+6rTkHhploCpPvMLjmJi?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 821d1b9f-64a8-4744-f8a5-08df448b1789
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 09:13:49.9138
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9HRUajHCHZNJD5UD2Q7nwrQeNHwvLSVJFr0ll2bB8iqHEmm6yt7wcZ9f7D6qPtZmz6JDpJf+RLS2bCf2nk98NQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV1PR12MB484207
 
-Hi,
+On Mon, Nov 16, 2026 at 03:01:27PM +0000, Leonard Lausen wrote:
+> Changes since v2:
+> - Add the separate cached-exception fix and PMTU regression case.
 
-On 11/14/26 02:55, Zxyan Zhu wrote:
-> Commit 669a55560e4b ("net: stmmac: Check more MAC HW features for XGMAC
-> Core 3.20") made dwxgmac3_safety_feat_config() bail out early for
-> asp == 0x2, assuming that configuration has no parity protection.
-> 
-> Per the DWC_xgmac databook, the ASP field of MAC_HW_Feature3 selects:
-> 
->   0x1 (AS_EPPE):  all automotive safety features, with ECC and parity
->                   ports on the external application interface
->   0x2 (AS_NEPPE): all automotive safety features, without ECC or
->                   parity ports on the external application interface
->   0x3 (AS_PPE):   all automotive safety features, with parity ports
->                   on the external application interface
-> 
-> The reset value of the field is defined as:
-> 
->   (DWCXG_ASP_ALL && DWCXG_ASP_PPE == 1) ? "3"
->   : (DWCXG_ASP_ALL && DWCXG_ASP_PPE == 0) ? "2"
->   : (DWCXG_ASP_ALL && DWCXG_ASP_PPE == 2) ? "1" : "0"
-> 
-> so ASP 0x2 implies DWCXG_ASP_ALL = 1, where the internal FSM state
-> parity and timeout (MAC_FSM_Control) and the on-chip data-path parity
-> (MTL_DPP_CONTROL) features exist; only the ports on the external
-> application interface are absent.  The early return therefore skips
-> enabling safety checkers that are present in the hardware.
-> 
-> Drop 0x2 from the condition so the FSM and data-path parity checkers
-> are enabled again.
-> 
-> Also update the safety feature descriptions printed by
-> stmmac_dma_cap_show() to spell out that ASP 0x1/0x2/0x3 differ only
-> in the ECC or parity ports on the external application interface; the
-> previous wording, "All Safety Features without ECC or Parity",
-> suggests the on-chip checkers are absent from an ASP 0x2 device.
-> 
-> Keep the early return for ASP 0x4 (EASP), which selects only ECC
-> protection for external memory and has no on-chip parity features.
-> 
-> Tested on XGMAC 3.10 and 3.40 cores.
-> 
-> Fixes: 669a55560e4b ("net: stmmac: Check more MAC HW features for XGMAC Core 3.20")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+Why?
 
-Seems correct to me, couldn't test it but this matches the datasheets
-I have.
+I said (twice) that I will take care of it. It's not net material
+(always broken) and should be routed via net-next. Please send v4
+without the exception "fix" and the related test case.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
-
-Maxime
-
+Given you already have a patch for this, send it to net-next *after* the
+fix is present there.
