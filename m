@@ -1,49 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794885610;
-	b=kQ7guPh09oyMLw4mhke8/SowrqJ9tqqhScjEDLSma4CAQnStkUKlEr5EWdF/ElaxZ7hN
-	 37EENL0LarO/iaiW2tIK2c6IGHq/EGVlwjAuDnTdnCcRij47/PFBBE+2+yrwhLcVWK4jn
-	 +28VQg/68+s9fBtYTQcC5yZcaVvXZyPCFpczhDMlKOhwrNYN9ul7TiMC1wThSMjgtyCwn
-	 hc2/cPdVpZKM/QYw5Svt4EJp+sKTJExWh84CCY6yINgJlkgJr0QBaNQ/ShNLbT8DlkN07
-	 uz/rBMI4mgg7kY3ORCDrm68j9Xdf+QNFEupOWKnVLiaNi2olzbQv+gEkq4ANSpzlcHA==
+	t=1794885678;
+	b=aNgSlTX/JqpWpUlaLNcgmt0obctjyCeKd/SDEgZTTM+du6CNPJ9Z1VOl6X7Be5LNkGOs
+	 oeOZLWUM6FA9itwCBcriVLlAMP5SxhJL6IlgVemwv71HkcLdDnOJKEpPzRgP0NhAb9i/2
+	 V4EZuKNftlOwzLiKGfdwagrpNCQDsmU3mFdFjhi9zG6wuBGgYSrj0AaEEeS7UaVPqg5vK
+	 VRSoerjSDOE4HcyUNzd7xeS2etWv0m28n04tVRRRw4MzOJKhyAY3L/N9oUFefWHZwUzdy
+	 qJSYq4GEOetwbByN1ZPZrbY5doUzn1CCAu7ilO/FjaMQi9iIg4qmYz9LAHUISrOu3Cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794885610;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=3RGoCBh47dSDTCstthCAIZ1pEsXl/vKhhB9tPSmNOyg=;
-	b=MHdnqJF2wQ8g1qE/O62sIKRKswv/AZBdNhJcsgeG2PEwQDFGi5LTl8WOK3EUFaVXhAno
-	 17wgFRKxuHHh2CxtpYBx0+52LiG01V44iDQ+8xbdCGYkbZNsNfP5CDaoa8Bb5/DuIdyGV
-	 XDQqse8qPOikBiuBvW9hSs9Gz0xHW/LIuf5iAPgXS8+8hFbazpBrsrBLUo3meLP4VFpeW
-	 /zv1HDb6di34RdAKyL5qSR8m5kIAmH4dAJz3nHOlFUYFCEolL3bmv7qczxMgtloVIRPDF
-	 cGWGqJV1xcNm2sWrFAesg1Bne2e8RBiy1i3inbu89neWAtEqUIVyzKI9NZ3kzEWdSJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794885678;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=rO26LW+ufdiXNmfrDtL+Xv5fKcgTaRK83GRfrt2E/Vw=;
+	b=akJmGlT0KD2bWzAnVjxvr0XDROqRGWx0LCRlwuAnko03HBWeL/S84TP0dyvqXtDdD4Jc
+	 A0ohzb6lUS4Q+2A+3P1ye39eJYj3eWrfCRc+WBP010pYc6CXa3R8T4nwb2TMfQfXt8Zps
+	 9IESLuqlcWGdMEmplpm7dF7RueYxlm12khNdH2H1KdiQDaCSko/tdiiElXywyUkIH9jbg
+	 SiIA8I7UFBYPMcBYZlXfiIzjIBeRIEvT/Jq42k/a+RiU06pyUjwMVy6KB+By5eG/vBkgt
+	 5zDGPgmyWmC/uE6sNM5+a53z2DuFZJVRuO+sOoVkPuQnC/dCFNiczx7G2mwhg/wAkZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XARNMMac;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=UGwvRHmK;
+	arc=none smtp.remote-ip=91.218.175.197
+Received: from mta0.migadu.com (out-197.mta0.migadu.com [91.218.175.197])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE165606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:20:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08319606A32F
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:21:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08319606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XARNMMac
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F1B01F000C4;
-	Tue, 17 Nov 2026 03:20:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794885609;
-	bh=3RGoCBh47dSDTCstthCAIZ1pEsXl/vKhhB9tPSmNOyg=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=XARNMMac7b9oAraixoILphhxLkouN3lwz1s+iTp+B/6tZ5VqIw38uFEto3/wuIKv2
-	 dcgXPbp2pAeqRP4Xea07dBxuaIdFGtrrdgCDROYdf8yiQVRd2APb6F+tuZdjfORo2C
-	 A919RlWyMVzaruXYRIF/+9LNooe3B2rLD9+CsZdfQ6UgqCNn3efN0u8bLmOt90OWoL
-	 7EEVPozogtEBA4zu/ZYL/0c4gS/7i+76K54AKXwYQA2Em/xl/spJNOtshseKF9wW7U
-	 /lR3jlkpfzVzmMqQ4sR8jJlSfikLpsnp6iynJ/C+GE4JchyA8NIAbQ8peLmSNehMXx
-	 YGXPZozrO+izQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77328391B099;
-	Tue, 17 Nov 2026 03:20:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=UGwvRHmK
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=3sZFLvYNczt9kFxoXbCec30m+jYY7F6kMPfr1HfDafo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794885676; v=1; x=1795490476;
+ b=UGwvRHmKFgPqCIrW1+IOf7HaDew49N+BVhQHMXrArjtb7CePxOIgyfRr6iVGUeOOULHQ4piI
+ ay0Igm9R9SJ/sMWj8R6rFji9eK64zxB/eI6HZ361zH2UHYSXHKlgUmpnxuMN3iAn3cYjFv6AGlA
+ dDiCvcqXPqqcni1qXUUU6KWo=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id e1714dd81b71a4ba;
+	Tue, 17 Nov 2026 03:21:15 +0000
+X-Mizu-Trace-ID: e1714dd81b71a4ba
+X-Migadu-Flow: FLOW_OUT
+Date: Tue, 17 Nov 2026 11:20:59 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: netdev-bot+sashiko@kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, donald.hunter@gmail.com, wessel@jacobi.pw,
+	rdunlap@infradead.org, linux-doc@vger.kernel.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	liuhangbin@kylinos.cn
+Subject: Re: [PATCH net-next] netlink: specs: rt-route: move fixed-header to
+ operations list
+Message-ID: <avvIG9wTs3KQkL3H@fedora>
+References: <20261112-ynl_fixed_header-v1-1-8475ea19e409@kylinos.cn>
+ <179460807877.2199510.9635428422960175112@kernel.org>
+ <20261116183921.50286c0f@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,52 +71,19 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/5] tcp: better visibility when receive queues
- are
- full
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179488560802.316053.11655745821190774508.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 03:20:08 +0000
-References: <20261114155150.235743-1-edumazet@kernel.org>
-In-Reply-To: <20261114155150.235743-1-edumazet@kernel.org>
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- kuniyu@google.com, ncardwell@google.com, horms@kernel.org,
- netdev@vger.kernel.org
+In-Reply-To: <20261116183921.50286c0f@kernel.org>
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Sat, 14 Nov 2026 16:51:45 +0100 you wrote:
-> When a TCP socket can not queue an incoming packet, it is currently
-> hard to tell why, and how often the stack had to work to make room.
+Hi Jakub,
+On Mon, Nov 16, 2026 at 06:39:21PM -0800, Jakub Kicinski wrote:
+> On Fri, 13 Nov 2026 22:14:38 +0000 netdev-bot+sashiko@kernel.org wrote:
+> > [Severity: High]
+> > Should this be fixed in the doc generator rather than in the spec?
 > 
-> Patch 1 adds TcpExtTCPRcvCollapseSkipped, counting the collapses
-> skipped by the rate limit added in commit c2213d9b61c1 ("tcp: rate
-> limit receive queue collapsing"). Patch 2 is the packetdrill test
-> for this rate limit.
-> 
-> [...]
+> 👏️ good AI. I was about to ask this...
 
-Here is the summary with links:
-  - [net-next,1/5] tcp: add TCPRcvCollapseSkipped counter
-    https://git.kernel.org/netdev/net-next/c/7bf8b8ce32a5
-  - [net-next,2/5] selftests/net: packetdrill: add tcp_rcv_collapse_ratelimit.pkt
-    https://git.kernel.org/netdev/net-next/c/32d99662c363
-  - [net-next,3/5] tcp: use SKB_DROP_REASON_SOCKET_RCVBUFF when over sk_rcvbuf
-    https://git.kernel.org/netdev/net-next/c/27a46d593d89
-  - [net-next,4/5] net: add SKB_DROP_REASON_MEMCG
-    https://git.kernel.org/netdev/net-next/c/a2f25e291be5
-  - [net-next,5/5] selftests/net: packetdrill: add tcp_rcv_collapse.pkt
-    https://git.kernel.org/netdev/net-next/c/756561fcd216
+Thanks for the reply, I just posted the new update.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Hangbin
