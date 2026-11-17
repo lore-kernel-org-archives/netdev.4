@@ -1,61 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794881418;
-	b=Jm631WHlAvMy4Uw6/vZfdPRIh654kCFfj9aach5CBj6zBYUEW2TqSmTWDBeAl6Jjx0AX
-	 Xg0IrqLDvLNL7eHhdxfe1y2AwNZceXeuKABD7ETCVpFFOuLCkk532P06KEYq1/bGKdrvC
-	 ij+1x9AospuybEgp51UXkpEg6BRzr34JO+ceX+jNwyQrpOyiOja27HFFh3sEat56s93W5
-	 fJuQmG8f+OrjpHcXWjDKqOopnzXNSbPxVA2KCUVLsKhtYb7sm0mwAt24K/5saH1HCMF0U
-	 zGAN3vx1ZbtVehIEWWfVqXob2i1rsGZXmAfg2xXLmUFQ54uUnes/XK4Xmy6/wdPVy7Q==
+	t=1794881777;
+	b=nQDykHK3CscYf1vwUoc9wYEUTBUBnwxFxke9CaShjVpIardw/6wRCj7hugL6yMDbKb1f
+	 wq2ifyBidSwa7OF4FfBADY/yNfDIh8iTdAFZO3CveDsYn0HtmgU7JD4Zoir+wbs81YnLx
+	 yVvSzvGrTw9PXRtwnWjeUKPZtrJ5TA9oxkFVEvpD0zCt8SLGndCUNfilg4RxULO99wvdQ
+	 S/HX4qvS3Ck71gtFWm+zvGXienkrPoFQzDdv26TxpIpoANUie+bjKY0aB8FlHDKKTh7iJ
+	 ibrUBxuZg7WHZDeSUjiaAFf+PiE4Lx10Ef8Fqb+EsNpl57romkoBXze6Dx4i7W28guw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794881418;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=gdsxziGxpnrDASs1A9+YVSyfwFEePG9frypFab9AlVU=;
-	b=LjhRkfI+sQRZiPzsacK2auwyMl9YVhGJl59fKGT7/I1nMwcsz0iH4RLs1RHmkTZm1GZ/
-	 5OFN+1Mg8HjBRmv6Qsa/FPr3Av6V47b/ldt00QwoBBl9AlyVXp3vH8XoWElEPE/rFkjMG
-	 JuGqPw+S8eB/Y69QaonkZBUs57J/+mW/D6VFVTJGRRPdWrF1rTvrLvSIQ+ZsimN/WT8+z
-	 cyx+nX2WXyOGb//D9DFyDdIoTbUFpTPlHpKwpnWJ7z2eFXM8B3r+SQRN0oWd6+45ulAQ9
-	 Mp1cVC+f+AywbSIWBeQtwmvgfa7Yka18v1yErp5ddmVmdtl9mfCJSOGtyWL/rI2OG/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794881777;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=yt13tp/rvLvexjlMPma+hJFiFj/qQmugNFpZecZf8sw=;
+	b=nwniPakvwUB1mboEFUynxweQpUIlU63A3tpYnDV62sPqDi3vEPmuCh1NeURW6zJtWA38
+	 kJ/hecwQPCjtzQCcmkGRKL6NV8a9KR2/BfeE58JuEQAm+0e0UvcVDduJd64XpWJGungyJ
+	 5Fmzuz+bLpQ8ScTX8alIufD7IKo7Rtu4pRUYNhj7Ky/6Z+6hgAdDiftLxbqTqzqCVRMAJ
+	 xOUaadE2m4oWE5csd9opMcX/k86STHiB0Lob6bfUCwGD7eXyKT/gt8eWvhHpi2giLKhhr
+	 frKGg0+v/ACxmPSXP1Qn2k68BDFA0/LkcvmKaYfjJHc+9lQkJ541dnSwrcXmUxATamQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="Fsw/KBHu";
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BRGHWZ4Z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20DFD606A31C;
-	Tue, 17 Nov 2026 02:10:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20DFD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A20E606A31C;
+	Tue, 17 Nov 2026 02:16:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Fsw/KBHu
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=gdsxziGxpnrDASs1A9+YVSyfwFEePG9frypFab9AlVU=; b=Fsw/KBHusB+0O7hSpR/W8sU2Wc
-	JEmltrjwdNNi63acBpxPj7DzyWZyz76boh532QxlKGNQeoBsvPtoyOuWlOV44gG15W8bSzGzy+Ykb
-	NHFF6Jd5tbGQIPKUGwUZ+fwcNer2J/dbmSKxCyhvR1GsWXdQsrYLv9GEWQCvY6CylGjI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xT8eC-00H3HL-0t; Tue, 17 Nov 2026 03:10:12 +0100
-Date: Tue, 17 Nov 2026 03:10:12 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: David Yang <mmyangfl@gmail.com>
-Cc: netdev@vger.kernel.org, Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: dsa: motorcomm: Resync SMI slave before
- register access
-Message-ID: <c5f399bf-4050-4c1c-8a5f-b983b321b181@lunn.ch>
-References: <20261116162303.1368472-1-mmyangfl@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BRGHWZ4Z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FE141F000C4;
+	Tue, 17 Nov 2026 02:16:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794881776;
+	bh=yt13tp/rvLvexjlMPma+hJFiFj/qQmugNFpZecZf8sw=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=BRGHWZ4ZG4Pk2S9yip/TgmH+UX3gPqHKvnmbx3WYO7WVHx6DhUQ+VsoehKTeDLcXa
+	 HfIpHmKlYHL+glR7sOXidda/KfRzP92NpnD5Qgaz7KxTd6/RoJkovp8ACrNUjGdH1y
+	 h0J2TUX11aSyEF4NIZWzlVGvDlSP1J2rUn05r1B9c7IgNtYX4Hs/2ATUuMRhndrtaZ
+	 YoBBog8btT2sLVSEba+91hEz7SrOcJSU72MYMaYDb/9H+aMNdA0oDSmM4/v4Cjbjek
+	 AcgyM2tnelMvoJ1NSgrtuXp+LkgNrChuOIOPi6Wj4qFYbHmnTxVIe1uzGAOP30TgHu
+	 Am4Mw8VifKZYQ==
+Date: Mon, 16 Nov 2026 18:16:12 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Ivan Vecera <ivecera@redhat.com>
+Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>, Jiri Pirko
+ <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Min Li
+ <min.li@microchip.com>, Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek
+ Kitszel <przemyslaw.kitszel@intel.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard
+ Cochran <richardcochran@gmail.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, intel-wired-lan@lists.osuosl.org, Grzegorz
+ Nitka <grzegorz.nitka@intel.com>, Karol Kolacinski
+ <karol.kolacinski@intel.com>, Saeed Mahameed <saeedm@nvidia.com>, Tariq
+ Toukan <tariqt@nvidia.com>, Petr Oros <poros@redhat.com>
+Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
+ under global dpll_lock
+Message-ID: <20261116181612.107a4b57@kernel.org>
+In-Reply-To: <20261111164021.273409-1-ivecera@redhat.com>
+References: <20261111164021.273409-1-ivecera@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,26 +70,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261116162303.1368472-1-mmyangfl@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 17, 2026 at 12:23:00AM +0800, David Yang wrote:
-> A register access over MDIO is 4 frames: 2 address writes followed by
-> 2 data reads or writes. The SMI slave tracks the phase in a state
-> machine, so an access interrupted between frames, e.g. on an MDIO bus
-> error, leaves the machine in an unknown state, and every following
-> access fails or acts on a stale address until the machine is realigned.
-> 
-> The driver has so far assumed every access succeeds, and relied on
-> manual resetting when the state machine wedged. However, without a
-> dedicated reset line, the reset itself goes through the same SMI
-> interface, causing a chicken-and-egg problem.
-> 
-> Realign the machine once at reset, before the first register access.
-> 
-> Signed-off-by: David Yang <mmyangfl@gmail.com>
+On Wed, 11 Nov 2026 17:40:11 +0100 Ivan Vecera wrote:
+> dpll_lock protects topology and object lifetime, but it also serializes
+> all driver callbacks in the system, so one slow device stalls every other
+> DPLL device, whichever driver it belongs to. mlx5 callbacks issue firmware
+> commands with a 60 s default timeout, and zl3073x callbacks can wait
+> seconds on a driver lock held across ToD writes and phase steps.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Can you provide some real life data of how much this actually helps?
+Real device topology + scenario you hit?
 
-    Andrew
+For the cross-domain pins - shouldn't we stretch the domain to cover
+all interconnected objects on the system instead of hoping people get
+lock ordering right? You documented some rules in the doc, admittedly,
+but not sure how enforceable and practical they are.
