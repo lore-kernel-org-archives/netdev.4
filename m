@@ -1,96 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.97.239
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794939978;
-	b=OqLfDMK0RMpemIuw+PwwHek9ixGZpb0RQRw30qGwVUUCpUoWnBcntDNZxywof0U0moZE
-	 tscCpFdCrlIX/iFLubob1e/bO53Wgf+kX6ouJ+n04MKpqfYE9nj6SSKd17tCJZwWmddkn
-	 R3ccTk1hbOqhX5fs7LdsgRlHoYPRCBt+BooCwj3KT1QFCPyVCU9mAONeHe0HIvFw41PAC
-	 Aid1WFFZuPpfkQXBQIfcZYhV2u+7uSM6R4R+cEI8nhc05E+UBj4GRUoUo+RbtbutPThSA
-	 U6oYIlnpgL/6MTXs9fgDVM51KDxTB/qEnJwAWFpQ5FVjKzU00DBHplZIQvFRtIiPiqA==
+	t=1794940132;
+	b=wVJyX47Ank4RG/Xj+y4/1LfnUB5V3uswvqg5z5xB8pJbuVHKVh+jbyHB74y6k58iHTJn
+	 V20hhhpMcm/jJCQ4cCJQlLA2fHnaG6zAVoKz6YjkF7KIsV9iHA4UwEAICMmWO5k6o4u6E
+	 ebhQyDFuCMGDlUa+cAxsH5+SkMh4MxGdbC4iRl/WY2rU+oSmiXJIey9GGzzK+ehzyJL9E
+	 zTzu62Ka9EKi8C2XU0sLdOYIvcYwPmXMtEvwPISU6kqTTmqGuUPs3hfyX53+oRnFBBe9O
+	 XSj3Gk4hpREAUzRFxEgTgNeQ9wLnym5XMoCEr+5SdytukHNN+pZC/r2bpKGXVQ2Ut3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794939978;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Ul8avXQobHMQCgtgHYaeZ3hLQKdlpeIZoIBnaJtF8Qg=;
-	b=n1uWtJr9cw/ox5yNCeN7VyDpFt5RyAP7dimNqMd6Mamckc4AmPnLMORrJMhKtev1Excg
-	 g/LsbmIka6ptFF4dI8ZIelfk8pP/O7h0EGAFcbCq1/FoJNQteKyJ1tcjDWdZ4oZ9qT+0L
-	 sEazbjwk97Lm2vguvjTAKcv2NC5/c5M0cZvz5Q0ewekTH+pwC4qTPjQqzlq+41e6jKBmH
-	 qGUP/s+Pd+NZ+YfEMApDGGVdOwWk/NkYfK6Lrb1TXlZM+fBVFDwbuFLbnB9EHJWMVMYJ0
-	 SxMXHqZSFc+32UzpCKaFoIL7t0GJ2pRZxGlcWvkH26zWIyg6jQQ3z4eIF7NzYpV65mA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940132;
+	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
+	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=TYCrUZgXrFp7nju9+zel/L//WHtE13MRhrVcFy3OJJs=;
+	b=iAPiDDLOH0Bu5jpA7l5ReLKeT4McyYUuF5zJ1JHpUmEFtNmbZLKIqbqm+ORWsePf6Elq
+	 jRMAPI61Su5WVwYakIR++blfvZBDkTJZIiDBbmx6V6/dbBZpJOgmyqPuN00U7eZfimXJx
+	 ucQKZ1aDODZUOl478EK37XE7ns1XNERKVwAoCZGYbNWjGMNDH7krdExJX0CgBivxiT7wg
+	 zO+iQE9ay3qUQhRQUWluEYiLGs2tNIeTvgrrpPa9HPDLczaLKkeToZ/bGFy+axkoQJLRo
+	 iH1nMEtOt2HWK5F7v8uieg2SAInaeNE0XzNcYGDCe5fJYQG1WxNvSHKoRgBV5HmvRCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AdFNjqyC;
-	arc=none smtp.remote-ip=74.125.229.5
-Received: from mail-dy2-f5.google.com (mail-dy2-f5.google.com [74.125.229.5])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=birger-koblitz.de;
+	spf=pass smtp.mailfrom=birger-koblitz.de;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=vKjlA+51;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=ci2mQDF6;
+	arc=none smtp.remote-ip=23.88.97.239
+Received: from bkemail.birger-koblitz.de (bkemail.birger-koblitz.de [23.88.97.239])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44631606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 18:26:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44631606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6158B606A32C;
+	Tue, 17 Nov 2026 18:28:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6158B606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=birger-koblitz.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=birger-koblitz.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=AdFNjqyC
-Received: by mail-dy2-f5.google.com with SMTP id 5a478bee46e88-36caa19b0ffso51207eec.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:26:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794939976; x=1795544776; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Ul8avXQobHMQCgtgHYaeZ3hLQKdlpeIZoIBnaJtF8Qg=;
-        b=AdFNjqyCThVdzees9+8ELX2UN7gZFx/WwLfYt0iXhQe+cXq8QeN/mULX8SM6CLzfZ1
-         6I8DyV5goFqZiPhc0VYqP2OA8td6xK4R+3a/U4n+M3HAF4FhOeR881smLcNQbUOYp4ep
-         n2YLiSVoJcap5RVfcz9KI1JoDCsrBxwe/H7rhXcVvPLLEj5lRyyWuxkD9L8JFtFyvjFJ
-         1XfHd2uwnX28Y+TA5PqEURm42ayTMnI6sFFG6MRqrr4t3FYj+a0B2/wPNsz1/NMBBSwt
-         eSl65BfDw76YK0mQF9z7eku29ZWdyD/6Hdy6KuiRBjFQrHnGpoXtEO51HthOgGtY2Umx
-         C0Aw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794939976; x=1795544776;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Ul8avXQobHMQCgtgHYaeZ3hLQKdlpeIZoIBnaJtF8Qg=;
-        b=EXbZH9JpF3ytHW2cgPvIQVJh6ZyrL0t5r9urwtUkGznz4wZLtA9LV/hKOB57JKAaMG
-         5Wac57GDMT4vllE0K/gAj6GQX4zhAXpm/CnyTBFErEoYY/B9Avyt1MpByB8xO6vCiNV1
-         08i+Xh3ynEo7+AtT70HMD+B4QCV/1Ln8o6WT1Pv0RwXUH4T145uMcHmKk+KUMfNOpsS0
-         2hvpY+Qrst7TriSe1lv6CmvB/upKFfaaxa/Ev9g70bxI1nh9gkFVeuIpn65VLkJv72R3
-         3JurF5Kippw9ugPs3Cn/xDL6kAPohqBS2eM+fXTZKbuk9MlY2IWjMmCa1Xa4hrGYyExo
-         HVQw==
-X-Forwarded-Encrypted: i=1; AL+hErHxWdROUBt8TH+z8EOZICGL7Sj1/2ElTH0nn06B1t/kYn+EZiDd7MpmRNHEmB5jET3TnJHs9Cg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z982Gyw1w5FwntRcdmVvkaOAZ/61kWG3KgvGtmWaa9YFzT0v++n
-	qAl/7jPW+jlUYlAs8E2IyNnqYKUEK0qPB2IxYDTcfaxsD6G384NSXA9d
-X-Gm-Gg: AZFdTZfS3xiXRku26TOa3lQwhl9n78i59jj79x8sWsCbyEn3bByTen4uaDR22kgxSl/
-	GxwJOlsVDxHJC0o33J4wQQaXf1Eg12zm0Olu3BgwGcGAB59Ab7N6zcEkz5+HbgFssvaJU0AL6OG
-	obG2/vsIn4MVtT5AEz+2wez4PSfebz87nvmg/VVA61MUHWxv/l5JxfqUSoEr/st1hvCH4C8ijza
-	hmTNv4BZnj3FDsRjGGM/Vx8+etbeOUIHy5NGriGE+F1VTe7Lb/K1+fD2zegyy1neiH04ZJvKwIr
-	XVE42e8PlgMIBf0ygd7rmeo6ATARN/v605tn7dtQDhucBlFzca8g3s5mdVBau0X5fZYQ9s/br2U
-	5nTTYbV/eNRzrGAVvv6vYbp72+PqVWNu+q2IoynTwx8LQHBlNlyfkvXIq/VSYH5qM9xHKgJW37z
-	vswLjZ6Noa4HBUcSdwWyNbC4yqZrsibuxuA09P/XrsAMSyAuCR4crlZf33szfulleqR4Gbrxk3c
-	jSKmYfbD9W0pD99TB/8ahpB3E4H6r+jyD8chX7apJ2qxD77ojzUmP3GITFlJyxG81/JIQ8+1yLz
-	7L85eVmZX2HlS2jKuVPoIgyE3g6/eKFngfledzrV9NHpBhr/KlEG9p6szrA=
-X-Received: by 2002:a05:7300:4307:b0:376:c352:2fcb with SMTP id 5a478bee46e88-38281020584mr279305eec.9.1794939976302;
-        Tue, 17 Nov 2026 10:26:16 -0800 (PST)
-Received: from server.lan ([168.138.199.194])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3795378d73dsm45641488eec.2.2026.11.17.10.26.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 10:26:15 -0800 (PST)
-From: Coia Prant <coiaprant@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Heiko Stuebner <heiko@sntech.de>,
-	netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Coia Prant <coiaprant@gmail.com>
-Subject: [PATCH net-next] net: stmmac: dwmac-rk: split gmac_clk_enable into enable/disable
-Date: Wed, 18 Nov 2026 02:25:03 +0800
-Message-ID: <20261117182502.3045841-2-coiaprant@gmail.com>
-X-Mailer: git-send-email 2.47.3
+	dkim=pass (2048-bit key, unprotected) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=vKjlA+51;
+	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=ci2mQDF6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1794940123;
+	bh=PC9BEm+5BWDcKunvskJlZOjZYCOKJ7jpPS6hPUydkJU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=vKjlA+51It75T4/y2wKNvbSOmhUUw8RydptVs+jzo6F77NKG48zISWv5LJH8GSgnD
+	 wabrxm2cAjeZjPZlBOqVmu3O7sRvqs1tvOQXPkie4RxYfkUOrFiNUeNeO60iIkS8RU
+	 MUU/v6qexMWFV/thzNcXNKIEPMqzyMMozBsPqcI3v5on0UU5OBekczRRE3osqdwRvZ
+	 lUoMiO81PEdMSw736gtptvXgnO1edfusyv/vk7ViSAxmeWNjf/vh5bCZyMy3ThS39t
+	 ZIQpX+rnC2oZ/X25T9abkFvQOOdPI8J1eUxNU9P+Vd2Pf/L0XJ4sPkT5II1CD4P7zF
+	 CI1kmaEvnxXwA==
+Received: by bkemail.birger-koblitz.de (Postfix, from userid 109)
+	id 161DF48C78; Tue, 17 Nov 2026 18:28:43 +0000 (UTC)
+X-Spam-Level: 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1794940122;
+	bh=PC9BEm+5BWDcKunvskJlZOjZYCOKJ7jpPS6hPUydkJU=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ci2mQDF6HMx3Yc3YifPASqChiL+b3jR6C3Pt4/LygSIkxZDfI/Tx7feLsrqvlwJ0E
+	 2u7Agqh3/0rb+YL9B11J3fufJigx3rajIRGuUSaIXtaFMr67Tyrr1CpFYWYkxv2+tb
+	 1PnpN2jj8m3ZzB5JX39z0V9v19WJvnObsE+uek0ueE8zozDY6+knJsxOlUZVQj5rZU
+	 ek5hgFuNbpWhgtCjD47v5UdOnmm0x1W7UMLUjeueAOUi/fBCzheGNYgZl7LsHNuEW+
+	 4H0iXMlfxZNr8ky5ZON/9JpUWme88t6pqIxOWOxsaDXB56w+g+MWljZwkInNGCrisB
+	 /D0DrgNhNCOTg==
+Received: from AMDDesktop.lan (unknown [IPv6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb])
+	by bkemail.birger-koblitz.de (Postfix) with ESMTPSA id D8B5B48A23;
+	Tue, 17 Nov 2026 18:28:41 +0000 (UTC)
+From: Birger Koblitz <mail@birger-koblitz.de>
+Date: Tue, 17 Nov 2026 19:28:25 +0100
+Subject: [PATCH net-next] aqc111: Correct endianness handling in
+ rx/tx_fixup
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,144 +75,121 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de>
+X-B4-Tracking: v=1; b=H4sIAMic/GoC/x2MywqAIBAAfyX2nOBKZPQr0cHHVnuxUgkh/Pek0
+ zAwzAuJIlOCuXsh0sOJz9AE+w7cYcJOgn1zUFKNiKiFuV2jsNJtg5y81qOFFl+RNi7/aIFAWQQ
+ qGdZaP19lu9JiAAAA
+X-Change-ID: 20261117-aqc111-b0cf408d776b
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Birger Koblitz <mail@birger-koblitz.de>
+X-Mailer: b4 0.14.2
 
-As the great Linus Torvalds once said in
-Documentation/process/coding-style.rst:
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness-handling
+were found, which are also present in the aqc111 driver:
+ CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+drivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
 
-  "If you need more than 3 levels of indentation, you're screwed anyway,
-   and should fix your program."
+Fix these problems and additionally also make sure that cloned
+skbs are always copied for expansion.
 
-The gmac_clk_enable() function previously used a 'bool enable' parameter
-to handle both clock enabling and disabling. This resulted in deeply
-nested if/else blocks, which made the error handling and rollback paths
-cumbersome and prone to bugs.
-
-This complexity has led to bugs, such as the bulk clock leak fixed by
-commit 8db67bb6a1ff ("net: ethernet: stmmac: dwmac-rk: fix bulk clock leak when the PHY clock fails").
-
-Split the function into two distinct helpers: gmac_clk_enable() and
-gmac_clk_disable(). This flattens the code, removes the boolean flag,
-makes the caller's intent much clearer, and simplifies the error
-unwinding logic.
-
-Additionally, this refactoring aids compiler inlining and CPU branch
-prediction (trust me). The reason is simple: no branch, no prediction.
-While the compiler might optimize it, there's no guarantee it will :P
-
-Signed-off-by: Coia Prant <coiaprant@gmail.com>
+Signed-off-by: Birger Koblitz <mail@birger-koblitz.de>
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 67 ++++++++++---------
- 1 file changed, 36 insertions(+), 31 deletions(-)
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness-handling
+were found, which are also present in the aqc111 driver:
+CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+ddrivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
+    
+Fix these problems and additionally also make sure that cloned
+skbs are always copied for expansion.
+---
+ drivers/net/usb/aqc111.c | 13 +++++++------
+ 1 file changed, 7 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index a37df5767d84..78bc8c71ad10 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -1178,43 +1178,48 @@ static int rk_gmac_clk_init(struct plat_stmmacenet_data *plat)
- 	return 0;
- }
+diff --git a/drivers/net/usb/aqc111.c b/drivers/net/usb/aqc111.c
+index dd53f413c38f6035c18f9922fd4e90d66a73ae53..39d8755ca8e7bff484100f82863cc2ac8582fcc9 100644
+--- a/drivers/net/usb/aqc111.c
++++ b/drivers/net/usb/aqc111.c
+@@ -1074,7 +1074,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 	struct aqc111_data *aqc111_data = dev->driver_priv;
+ 	struct sk_buff *new_skb = NULL;
+ 	u32 pkt_total_offset = 0;
+-	u64 *pkt_desc_ptr = NULL;
++	__le64 *pkt_desc_ptr = NULL;
+ 	u32 start_of_descs = 0;
+ 	u32 desc_offset = 0; /*RX Header Offset*/
+ 	u16 pkt_count = 0;
+@@ -1091,7 +1091,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
  
--static int gmac_clk_enable(struct rk_priv_data *bsp_priv, bool enable)
-+static int gmac_clk_enable(struct rk_priv_data *bsp_priv)
- {
- 	int ret;
+ 	/* RX Descriptor Header */
+ 	skb_trim(skb, skb_len - sizeof(desc_hdr));
+-	desc_hdr = le64_to_cpup((u64 *)skb_tail_pointer(skb));
++	desc_hdr = get_unaligned_le64((__le64 *)skb_tail_pointer(skb));
  
--	if (enable) {
--		if (!bsp_priv->clk_enabled) {
--			ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
--						      bsp_priv->clks);
--			if (ret)
--				return ret;
--
--			ret = clk_prepare_enable(bsp_priv->clk_phy);
--			if (ret) {
--				clk_bulk_disable_unprepare(bsp_priv->num_clks,
--							   bsp_priv->clks);
--				return ret;
--			}
-+	if (bsp_priv->clk_enabled)
-+		return 0;
+ 	/* Check these packets */
+ 	desc_offset = (desc_hdr & AQ_RX_DH_DESC_OFFSET_MASK) >>
+@@ -1116,10 +1116,10 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 		goto err;
  
--			rk_configure_io_clksel(bsp_priv);
--			rk_ungate_rmii_clock(bsp_priv);
-+	ret = clk_bulk_prepare_enable(bsp_priv->num_clks,
-+				      bsp_priv->clks);
-+	if (ret)
-+		return ret;
+ 	/* Get the first RX packet descriptor */
+-	pkt_desc_ptr = (u64 *)(skb->data + desc_offset);
++	pkt_desc_ptr = (__le64 *)(skb->data + desc_offset);
  
--			mdelay(5);
--			bsp_priv->clk_enabled = true;
--		}
--	} else {
--		if (bsp_priv->clk_enabled) {
--			rk_gate_rmii_clock(bsp_priv);
-+	ret = clk_prepare_enable(bsp_priv->clk_phy);
-+	if (ret)
-+		goto err_clk_phy;
+ 	while (pkt_count--) {
+-		u64 pkt_desc = le64_to_cpup(pkt_desc_ptr);
++		u64 pkt_desc = get_unaligned_le64(pkt_desc_ptr);
+ 		u32 pkt_len_with_padd = 0;
+ 		u32 pkt_len = 0;
  
--			clk_bulk_disable_unprepare(bsp_priv->num_clks,
--						   bsp_priv->clks);
--			clk_disable_unprepare(bsp_priv->clk_phy);
-+	rk_configure_io_clksel(bsp_priv);
-+	rk_ungate_rmii_clock(bsp_priv);
+@@ -1220,7 +1220,8 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 	headroom = skb_headroom(skb);
+ 	tailroom = skb_tailroom(skb);
  
--			bsp_priv->clk_enabled = false;
--		}
--	}
-+	mdelay(5);
-+	bsp_priv->clk_enabled = true;
+-	if (!(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
++	if (skb_cloned(skb) ||
++	    !(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
+ 		new_skb = skb_copy_expand(skb, sizeof(tx_desc),
+ 					  padding_size, flags);
+ 		dev_kfree_skb_any(skb);
+@@ -1232,7 +1233,7 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 		skb_put_zero(skb, padding_size);
+ 	/* Copy TX header */
+ 	tx_desc_ptr = skb_push(skb, sizeof(tx_desc));
+-	*tx_desc_ptr = cpu_to_le64(tx_desc);
++	put_unaligned_le64(tx_desc, tx_desc_ptr);
  
- 	return 0;
-+
-+err_clk_phy:
-+	clk_bulk_disable_unprepare(bsp_priv->num_clks,
-+				   bsp_priv->clks);
-+	return ret;
-+}
-+
-+static void gmac_clk_disable(struct rk_priv_data *bsp_priv)
-+{
-+	if (!bsp_priv->clk_enabled)
-+		return;
-+
-+	rk_gate_rmii_clock(bsp_priv);
-+
-+	clk_bulk_disable_unprepare(bsp_priv->num_clks,
-+				   bsp_priv->clks);
-+	clk_disable_unprepare(bsp_priv->clk_phy);
-+
-+	bsp_priv->clk_enabled = false;
- }
+ 	usbnet_set_skb_tx_stats(skb, 1, 0);
  
- static int rk_phy_powerup(struct rk_priv_data *bsp_priv)
-@@ -1453,7 +1458,7 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 	if (ret)
- 		return ret;
- 
--	ret = gmac_clk_enable(bsp_priv, true);
-+	ret = gmac_clk_enable(bsp_priv);
- 	if (ret)
- 		return ret;
- 
-@@ -1544,7 +1549,7 @@ static int rk_gmac_powerup(struct rk_priv_data *bsp_priv)
- 	return 0;
- 
- clk_disable:
--	gmac_clk_enable(bsp_priv, false);
-+	gmac_clk_disable(bsp_priv);
- 	return ret;
- }
- 
-@@ -1556,7 +1561,7 @@ static void rk_gmac_powerdown(struct rk_priv_data *gmac)
- 	pm_runtime_put_sync(gmac->dev);
- 
- 	rk_phy_powerdown(gmac);
--	gmac_clk_enable(gmac, false);
-+	gmac_clk_disable(gmac);
- }
- 
- static void rk_get_interfaces(struct stmmac_priv *priv, void *bsp_priv,
+
+---
+base-commit: 805185b7c7a1069e407b6f7b3bc98e44d415f484
+change-id: 20261117-aqc111-b0cf408d776b
+
+Best regards,
 -- 
-2.47.3
+Birger Koblitz <mail@birger-koblitz.de>
 
