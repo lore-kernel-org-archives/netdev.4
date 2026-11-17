@@ -1,86 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.156.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794904667;
-	b=ro+VDGx2V4FYZw2l/5xM/ILPGc4BRDPo4bHHVurD+l1fuQsgP+B1f2skVpVjA4mSUxMe
-	 RY2M1opz681L+nC6v2UUsABIh7oeh0XPlP/7K3alkhCMcebHfN41SRdt0fSk02ubIK2m+
-	 fLuLbyqx1nJ/gJdIz4UHDQjHQVlDSIAAcIjG/XSilO2ydaHhCytKLYNdUWdSlmXUsDw5X
-	 g0qYkLVMAOE8JK/4FC9r3mJIk2fs9nQC3FxilgKaBToqSya1NA/TIwk0+2P3Ce0OMti1b
-	 nW5dj5hLTOs9FQLZGLovjz/UoYUoS91UBpHxDUHFlQgIMbex2Y2DwMQ+rPTGzcJCWFQ==
+	t=1794904941;
+	b=c0JnJnhRFa0bn1O9A0k9lqpmKnvRs3ieepkP1ExIlB5ptxrOPeot6G2WijMaOxLOznuI
+	 Yq5FXVTlUE33OnAjJCKtP/Dz1rNRSD8l4rGEn1cYBMWa78Xar0078yThkyf4BLwaDkwth
+	 dI/nG7TvFQzJgsr/Uoz7y10Mm64iZL8IRKYrmqWMVsQE7PGFyiXGcyDkvirB5h/TF7voo
+	 67vZgA8+mJFe6fnyUjaYgwDwQUUsM6tlPmr03MMQvvAlVhnZRMEJAYqjAYlR6lwhiclLk
+	 hVEomSyuVqbgad+fkydBsz9AM0WByh6C9tw6+YQccp1Ds6pQhwbnuLF8Wl2/3pq4pZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794904667;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Date:From:To:CC:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To:X-Proofpoint-GUID:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
-	bh=0NyQ3KOq2IPC0mUMVnsSxP/V4cdHHSPZ09DQRrw1hbA=;
-	b=VIn0BDjEi5PS0XB7Rb8qUW+X97fXU1oZnwP/FbAI1Z/bH37d12XMlcZ3GX1TqdZIpsQO
-	 N8Ec9uRdCZarRWx0hz4a+yDz7qGpaQV9xVblS+K8E6cdfdODCLSvLXW93uUMaoXzUSf6M
-	 vkNJR/eYGPUq40heXu71OK4GnR6leLEez+9bvk7A73KO8LwaGBmuJ9HTt5LkLqb6ShTVE
-	 Oc95ujq1jTZILbygJQgHT7x1znyHoY8qhx71kwGmLw5WXYdSHayB/UPrE5ZE1uHWomJWX
-	 /zqW6dgnSqnYKigSH2rbG/STFID+RG5QUB25f/gSIqzvJ9zYA9t4aEv9GAsOpmiHgUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794904941;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=gmdkkh8gDfEPErj63kJWoJNjdLpvycU+X9vGjZzQ0x4=;
+	b=zA0ggFdxZod15AoSTGf+6arFbF35Ycs0npI4qIrumITmIWh3VBECs3bI8G8Yt+0LQrlb
+	 lLbD9e6aZFIJaK74CKLgbxQ7oicwb75zocy7UCgigfiSeJ3u4kFGWnN8LmvYHnjbHsevn
+	 3dEgf91mfGnWdCL0KZZ7A1NUFgSnNBeDCxJTt0ktI9jO0aidG/1yaEcGO7kfWfdvD0sE7
+	 v3qXu8Ju1iE5bDsASkzKkIDNz1ra7+G6t+mhsbPCZeAJ2rRO+A4yfgvNPx7TdOVgcTeE4
+	 2ItK2nsD9UyasFCR3MuSuPcIzVKdUTP1Ap2KxvULQEBKuez5bLVdGP7KQtqLZM4apsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=marvell.com;
-	spf=pass smtp.mailfrom=marvell.com;
-	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b="SGLwG/ed";
-	arc=none smtp.remote-ip=67.231.156.173
-Received: from mx0b-0016f401.pphosted.com (mx0b-0016f401.pphosted.com [67.231.156.173])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gh2D1W3C;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67C12606A896;
-	Tue, 17 Nov 2026 08:37:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67C12606A896
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80B26606A33F
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:42:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=SGLwG/ed
-Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
-	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AH2cfUl379231;
-	Tue, 17 Nov 2026 00:37:23 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pfpt0220; bh=0NyQ3KOq2IPC0mUMVnsSxP/V4
-	cdHHSPZ09DQRrw1hbA=; b=SGLwG/ed2nRy0FHgJD9B3d0RPtj5u2eGBKEP1ayhG
-	XCYKKUJv+LvL10FmXkLM77lTRGj43u90FMuhBHGRHJ8UC7jrhLBGxOlPVaQC8Bsz
-	EzjNOwewTR28BVUTPXHOgVF0PW3r5giFBmh775izlWNwQcK8A9ikp3l89hVZfASH
-	xGBTjGz7itK9wuId6CUy0D9LOmMkQZYAiDBsEiS/dM3orPCMlG3XVMuSb4tX0Lnf
-	aKHNWAiWegCf2TNyLvC8SzpMRF+U3I4obVGRQw9YVvdJT0hgSSVsnuTjZ9/gpk+7
-	qEeSiSF83Yh72XaAnb8lPnylaVsdSxtGJ0ZVl4jkf1QnQ==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4hxr1k9nyj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 17 Nov 2026 00:37:23 -0800 (PST)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Tue, 17 Nov 2026 00:37:11 -0800
-Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
- (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Tue, 17 Nov 2026 00:37:11 -0800
-Received: from rkannoth-OptiPlex-7090 (unknown [10.28.36.165])
-	by maili.marvell.com (Postfix) with SMTP id CC03F3F7072;
-	Tue, 17 Nov 2026 00:37:17 -0800 (PST)
-Date: Tue, 17 Nov 2026 14:07:16 +0530
-From: Ratheesh Kannoth <rkannoth@marvell.com>
-To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-CC: Sunil Goutham <sgoutham@marvell.com>,
-        Geetha sowjanya
-	<gakula@marvell.com>,
-        Subbaraya Sundeep <sbhatta@marvell.com>,
-        Bharat Bhushan
-	<bbhushan2@marvell.com>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S.
- Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>,
-        "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net] octeontx2-pf: Fix potential use-after-free in
- representor teardown
-Message-ID: <avwSPI9boSsUEtCr@rkannoth-OptiPlex-7090>
-References: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gh2D1W3C
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29B641F000C7
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:42:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794904941;
+	bh=gmdkkh8gDfEPErj63kJWoJNjdLpvycU+X9vGjZzQ0x4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=gh2D1W3Cz8HowJ2wbpQ3CQ+f5tVgkLMBFmNw+LoupgdmN7hT6JqbibQHy730KIYh0
+	 a07NoC8Keh3ef1vqDDcDZIPOYG3fg4i1h0DbpJOrBvBZYT68KDR4fCvPt7tkBmbx7K
+	 a3IHkyHpQ1o+EwS562bsO+jSfj6s9T9jQLoRU/aQ6dJLeDqzvVaXgsnPpCtgOMlivT
+	 W0DgwqCfI1timDiAbex1FqnMQMlWkP3zrS/QMqtPjOxXIJudWdd3huQz7d5e+APv/K
+	 UgVUwkdyGGOSZG2F9QUFn2hBHAqCFWMRwoqUdDUEmZMxJMGKjBqQiRV9i2ZdW1Wr4u
+	 iBE3IE44zXlZg==
+Received: by mail-oa1-f54.google.com with SMTP id 586e51a60fabf-48e94879f02so1309578fac.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:42:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFDp9T21X8/e/f/t1dkrV20y4Hqa71uFRqdLoOYfzHGRDc/uq0WsnodDKuINRHTttQV1WeDsqA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9bESVDc0VbJYfwVV0n0YQjxK3pLKGakfV4aDHv7p8UTKgbn7VS
+	CqvJZjZkj3c/Ms0Hpv31VsEhicgeHqG6j1/ZuT86YXXtDfdiIrGCuYK20w5/gR1fAQRnf7SvmZ2
+	dByfv06sYT2IO+WaLQ9ZRxWseiQpL5jI=
+X-Received: by 2002:a05:6870:8a2b:b0:48f:e0f6:c45c with SMTP id
+ 586e51a60fabf-4afdf460eb3mr10813874fac.42.1794904935511; Tue, 17 Nov 2026
+ 00:42:15 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,62 +59,91 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
-X-Proofpoint-GUID: phVpIgttI2A_VWfw3tIMwlMORsTXlcz1
-X-Proofpoint-ORIG-GUID: phVpIgttI2A_VWfw3tIMwlMORsTXlcz1
-X-Authority-Analysis: v=2.4 cv=DKAacCNb c=1 sm=1 tr=0 ts=6afc1243 cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=l0iWHRpgs5sLHlkKQ1IR:22 a=QXcCYyLzdtTjyudCfB6f:22 a=M5GUcnROAAAA:8
- a=XehZxDDCrJQRP7pbnkQA:9 a=CjuIK1q_8ugA:10 a=OBjm3rFKGHvpk9ecZwUJ:22
- a=wU6CqTgRoXS9cGK_lSIY:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDAzMyBTYWx0ZWRfX0lGNNn8yVGFQ
- wTJ2od9g8YJsmBhFbKBD5aYVjuQ5jlt1GpqoSfAh+SrDt2YD+0s8T+PeTXGNL6rp7De7KaSre9a
- DLgNBGNmoFgjgD1dE6zj1Nfx2Xjs+jk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDAzMyBTYWx0ZWRfX5XLTLHPuPOre
- UJCy80eBzuEq0SLtowTFBGBSh9Bt1/0SG0UUujixc9e3M9JIT4v4957Uw1sr0BxUqTyPOkMsSU/
- fYLfCJreIyr2KYGxwqywqyZ/meTPcK5oEy3PJ1oN58C2l4fkXiVjzyRsm+z3CLC/oKweE+kU0Lh
- 6IDu9rWWikVRzfonis0BW+mtq4r15AdDjsVW38Y2OG51dJ8+0x/DT6VtJoHKgON/5TMx4K+Iqzy
- UJJh3FsPl5gPItwA3MMcSHkOm5UQNB65NU2Gd/T2iotRpw48tPArm3BvM+hhjI13Bm25zLhRtFI
- OcJZaSgVQW0w1d6PJr5MKkhs2yanLbS750OU81njbehGpDF9mCeSbRj8HwFNd1EH6axLSSqdRWJ
- ZamFkHnvoOm2xuxs66xCAEf3KJpGA7aFMFczRnfYJdi+/fNlIwS+KLPe2SvT/zX83TrSjiMGjYH
- TAeLiVfNvP0/rQGglNw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_01,2026-11-16_01,2025-10-01_01
+References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-3-kuniyu@google.com>
+In-Reply-To: <20261117053543.84032-3-kuniyu@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Tue, 17 Nov 2026 09:42:02 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqEnTF0RCv4+Vp_WXG8jrwhsAakbXTzU+vfLq+d4WTAqw@mail.gmail.com>
+X-Gm-Features: AclHuK-eXCKxOt8y1BtCP2agpNWIsk4gbc5ohJX4sB1awgl7GI0KsCP1Ck7CnkE
+Message-ID: <CAL4WiiqEnTF0RCv4+Vp_WXG8jrwhsAakbXTzU+vfLq+d4WTAqw@mail.gmail.com>
+Subject: Re: [PATCH v1 net 2/8] tcp: Don't use inner IP TTL for IP_MINTTL in tcp_v4_err().
+To: Kuniyuki Iwashima <kuniyu@google.com>
+Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
+	Stephen Hemminger <stephen@networkplumber.org>, stephen hemminger <shemminger@vyatta.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 2026-11-16 at 19:42:10, Guangshuo Li (liguangshuo@mail.sdu.edu.cn) wrote:
-> The representor private data resides in its netdev allocation.
-> rvu_rep_destroy() frees that allocation before reading rep->flow_cfg to
-> release the flow configuration.
+Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
+=C3=A9crit :
 >
-> Release the configuration while the representor is still alive.
+> RFC 5082 introduced Generalized TTL Security Mechanism (GTSM),
+> and IP_MINTTL and IPV6_MINHOPCOUNT follow that.
 >
-> This issue was found by our static analysis tool under development.
+> If an incoming IPv4 packet has TTL less than inet_sk(sk)->min_ttl
+> configured via IP_MINTTL, the packet is dropped.
 >
-> Fixes: 6c40ca957fe5 ("octeontx2-pf: Adds TC offload support")
-> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+> However, tcp_v4_err() checks the TTL extracted from the ICMP
+> payload, not the one in the outer IP header.
+>
+> The minimal repro is:
+>
+>   --ip_version=3Dipv4
+>    0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+>   +0 setsockopt(3, SOL_IP, 21, [250], 4) =3D 0
+>   +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) =3D 0
+>   +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress)
+>   +0 > S 0:0(0) <...>
+>   +0 < (ttl 10) icmp unreachable host_unreachable [0:0(0)]
+>   +0 %{assert tcpi_state =3D=3D TCP_SYN_SENT}%
+>
+> Let's check ip_hdr(skb)->ttl.
+>
+> Now GTSM is applied to locally generated ICMP errors, but this
+> behaviour matches tcp_v6_err().
+>
+> Note that tcp_v6_err() properly checks ipv6_hdr(skb)->hop_limit.
+>
+> Fixes: 97e3ecd112ba ("TCP: check min TTL on received ICMP packets")
+> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
 > ---
->  drivers/net/ethernet/marvell/octeontx2/nic/rep.c | 2 +-
+> Cc: Stephen Hemminger <stephen@networkplumber.org>
+> Cc: stephen hemminger <shemminger@vyatta.com>
+> ---
+>  net/ipv4/tcp_ipv4.c | 2 +-
 >  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
-> index 0f5d5642d3f7..662da7fc3953 100644
-> --- a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
-> +++ b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
-> @@ -638,8 +638,8 @@ void rvu_rep_destroy(struct otx2_nic *priv)
->  		rep = priv->reps[rep_id];
->  		unregister_netdev(rep->netdev);
->  		rvu_rep_devlink_port_unregister(rep);
-> -		free_netdev(rep->netdev);
->  		kfree(rep->flow_cfg);
-> +		free_netdev(rep->netdev);
->  	}
->  	kfree(priv->reps);
->  	rvu_rep_rsrc_free(priv);
+> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+> index 7d58f522068d..bf8542368032 100644
+> --- a/net/ipv4/tcp_ipv4.c
+> +++ b/net/ipv4/tcp_ipv4.c
+> @@ -546,7 +546,7 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
 >
-> base-commit: 2e54b3e187300893688c2c7517894f5d96732e05
+>         if (static_branch_unlikely(&ip4_min_ttl)) {
+>                 /* min_ttl can be changed concurrently from do_ip_setsock=
+opt() */
+> -               if (unlikely(iph->ttl < READ_ONCE(inet_sk(sk)->min_ttl)))=
+ {
+> +               if (unlikely(ip_hdr(skb)->ttl < READ_ONCE(inet_sk(sk)->mi=
+n_ttl))) {
+>                         __NET_INC_STATS(net, LINUX_MIB_TCPMINTTLDROP);
+>                         goto out;
+>                 }
 
-Reviewed-by: Ratheesh Kannoth <rkannoth@marvell.com>
+Linux sends ICMP errors with the default TTL (64), so locally
+generated errors are now dropped for any min_ttl above 64.
+
+For the strict GTSM case (min_ttl =3D=3D 255) there is no router between
+the peers, so nothing else changes.
+
+But IP_MINTTL is also used with lower values for multi-hop sessions
+("ttl-security hops N"). There, an ICMP from an intermediate router
+using an initial TTL of 64 was accepted before this patch (the quoted
+TTL is the one we sent, minus the hops to that router), and is dropped
+after.
+
+I think this is the right thing to do, since the inner TTL is under
+the sender's control, but I would mention this in the changelog.
+
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
