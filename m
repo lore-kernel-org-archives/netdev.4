@@ -1,72 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.155
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794924271;
-	b=pJBEwOXfaANpSrV2y3lEDjox7EKYCrpyIsSB2o2a9fmCDu7sq5+t4CNpMbXPcbXlfvNc
-	 Kf9UDJFcLjj6xjyW+UyFg1Gh7FDWcV/ixTIcjHOv7vu/KLoBfZwN6mEz/eyjE+1oaKdFL
-	 uboOruc/lxPv8r4O0wTc9Aa70m1exlDJdzwb46C9Fj1sKnOHwvbta8wFKTe02M9G2T6k2
-	 JyqwnB7yMyJ8D5G9MibwnCurzOJUESiUCS7MFJaUwVbNADdO8lyI6A+sjNWfSkW2TOlQ0
-	 UGxuFGmiDVUXxIwjwP7zPOXddR/tKCWtKMCncKOG4GS7yNyQ0T3jEtIDHu40cT8dgEw==
+	t=1794924414;
+	b=bB633bNHngrQa53edMk0T+M8rt/yn1G1wnNz8f3nfdIs8Sj/XBd0Yk5g4w2LP0nyECyM
+	 0++kaQxOrTncr4MGaXjBYcaAnhs3cPr7DhmrEso4JrI5FnWHPLEGmthIYPk8Gig5MTjZP
+	 RORh8i6cr1nXbd/NFZqoDpHA3tq1kIPJSzGIZRDo3FZybt8xTItEp8ymzn4WMfNoT6WuW
+	 TgykvX5KR87DGM1Cc8s0ncCdN4PpYqTZYgiYSSXh8nH1JuukXBNIHfqiopCQIVGEcCLyw
+	 ViLh9A0WLOwbpXtsDjPB1XxgyO9sUqIIT21Mvt9Fg+RgzdLxV3Y5FGa1SwH+Vvqjesw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794924271;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=9ammhtwy9K590KTiGuFRN9TiLwSY3ErK147SvQ2LZpc=;
-	b=I1fTclFmbtTjwFrTA87ezm86CyWlaJ+imqFOM2oLYn0NCWJMten5Buznc5qjeBZqmh9/
-	 wBkko7OoZVXgtsIoJHqL9JqCwwu7b7PVjDRzR45IiSYD3/UMWqoaDk4m4X+gQDSpbcrnr
-	 V8m7m6exbi5PtUAWt51gB4fKx18hQdmvpGvmJqzPOaBkQWMmqELFRO6cAOA1HUqxh3T/0
-	 q65PyakCzK75I3WfPYEITRysvJhDN5iH8JP2hrZMbLf1VnU5If16n2OdIBUXWBh2ATYyV
-	 apbaPjmzW4ZCxVqj35LuCjdnGYMtWy/PQr6NKaNTC9XRWNyoGa/tKhUidRYY27oReag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794924414;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=wHctfggOkvMAe1zfcJUWnX6CvpKatwK3FvB6xlGPFcQ=;
+	b=UBKdJd2Uh/dz9gA942oEdltS4NGLxVQf916DMvcqg/9xns5G6BTo+wtHhZGIJGaSJb+0
+	 ozvTkFHwD2SKA5eDHFTRawhTkK2cRMg8RZou8IU74B66eV9sHiTVq3/IV3PYNw8SukFOr
+	 ljiSmMshtHtInRr9E5C+xZQ8GypaupFo/afDaLbFp4C7smCT4bkixKUZuLs5UKsH6v/63
+	 dzP3S8jxe+ifJMvO8EnJnpQcKDdV6UiuMFXX6Xln6Akc4Cr8vrp6Aiwpt+56FZI58S8u5
+	 QHaPhWBjLtID38bbhA6fbJQ9j+2kVgjeqQN/OfbeO1bpPm1jsXoZJOp+7LbBwQxS0Kw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="VQp/2GAu";
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=isOtUiQk;
+	arc=none smtp.remote-ip=91.218.175.155
+Received: from mta0.migadu.com (out-155.mta0.migadu.com [91.218.175.155])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 329DF606A323;
-	Tue, 17 Nov 2026 14:04:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 329DF606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C46F606A332
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:06:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C46F606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=VQp/2GAu
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=9ammhtwy9K590KTiGuFRN9TiLwSY3ErK147SvQ2LZpc=; b=VQp/2GAugCh6U8BjJBR2NURYTx
-	4wBg5YZIZUjRVRmHsptsQ+NJ5DwvHgOmov8GesBSEqbjAzFsfCODuI0UrioOSMU5J3PY/B0t5+nbB
-	JD1/lKnuopmhJN1FIGlGWWR5xShBob2ACFCt8TlzzJVpyQLQviO1rUVqOQJOD46I9yqs=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTJn5-00HAGJ-QD; Tue, 17 Nov 2026 15:04:07 +0100
-Date: Tue, 17 Nov 2026 15:04:07 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Coia Prant <coiaprant@gmail.com>
-Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Jiawen Wu <jiawenwu@trustnetic.com>,
-	Mengyuan Lou <mengyuanlou@net-swift.com>,
-	"David S . Miller" <davem@davemloft.net>,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=isOtUiQk
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=7jFL7fpobI/gZrx3DO1fKc1S5lGoMCFwS2MeczAZHWc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794924411; v=1; x=1795529211;
+ b=isOtUiQkztxwwEJeqwUEgXEoCFs/dyZHEQF5FzBJ4+OSYvbFT1Z4zhBcdb6Xvd16/d9hivOj
+ pdSI0GPsBzAoy95DWc1bLVPYYqQzu5aNTLNGTcF1cK3AAbJs8YHiZ7d62Xkg/pXsg16XLLcX700
+ UVoV1xWFz194dIBLYO+vbEmg=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 57e14dc29442016a;
+	Tue, 17 Nov 2026 14:06:51 +0000
+X-Mizu-Trace-ID: 57e14dc29442016a
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org,
+	kuba@kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
-	Fabio Baltieri <fabio.baltieri@gmail.com>, netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v4 1/2] net: phy: move
- DECLARE_PHY_INTERFACE_MASK_ZERO to core
-Message-ID: <e3c5f034-1b05-4fcf-bbe1-8b473a8d2a0f@lunn.ch>
-References: <20261110160554.918652-1-coiaprant@gmail.com>
- <20261110160554.918652-2-coiaprant@gmail.com>
- <20261116183012.11a7ba72@kernel.org>
- <CALj3r0gTuJEDd==WzAQ+cK3Og-2zMqvmBrhrd2ARbKJctG5ZAQ@mail.gmail.com>
+	Paolo Abeni <pabeni@redhat.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net-next v2 0/2] netdevsim: add TLS device offload emulation and test
+Date: Tue, 17 Nov 2026 22:06:29 +0800
+Message-ID: <20261117140642.4008-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,22 +72,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CALj3r0gTuJEDd==WzAQ+cK3Og-2zMqvmBrhrd2ARbKJctG5ZAQ@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
 
-> I understand your concern that hiding the init inside the macro seems
-> subjective. Since you mentioned an Andrew ack is needed, and he is the
-> net PHY maintainer (who also looks after the WX driver),
+Running kTLS over this already found a few bugs:
 
-I don't look after the WX driver. I comment on it, as i comment on
-lots of drivers.
+  b17cf742eaad ("tls: device: fix out-of-bounds write in tls_append_frag()")
+  ed642349d87d ("tls: fix the open record check in the max payload size setsockopt")
 
-> If Andrew also feels this doesn't belong in the core, I will drop the
-> macro entirely and switch to explicit manual initialization using
-> phy_interface_zero() in both drivers.
+So I think it is worth sending a formal patchset.  v1 [1] was asked to
+wait for a selftest that can also run against real hardware.  That test,
+drivers/net/hw/tls_hw_offload.py, is in the tree now, so this can move
+forward.
 
-Using phy_interface_zero() is what current code does. I would also say
-using explicate = {0, } is O.K, but i would not hide it in the macro.
+The kTLS device offload path in net/tls/tls_device.c has no test
+coverage upstream -- selftests/net/tls.c is software only, and the
+offload code needs a driver that implements it.
 
-      Andrew
+So teach netdevsim to fake it.  Patch 1 implements tlsdev_ops and
+advertises the TLS features.  Patch 2 lets the existing hardware offload
+test, drivers/net/hw/tls_hw_offload.py, run on netdevsim as well, so the
+same test covers real devices and the netdevsim pair CI already uses.
+
+No crypto is done, like the IPsec, MACsec and PSP emulation netdevsim
+already has: TX puts the plaintext record on the wire, RX just sets
+skb->decrypted.  That only works with netdevsim on both ends and
+offload on in both directions, which is what the netdevsim environment
+of the drivers/net tests gives.  It still covers record assembly and
+the offload lifecycle.
+
+[1] https://lore.kernel.org/netdev/20260901154914.11637-3-jiayuan.chen@linux.dev/
+
+v1 -> v2:
+  - drop the netdevsim-only selftest, run the upstream tls_hw_offload.py
+    on netdevsim instead so the test also covers real hardware (Jakub)
+  - rebase on net-next
+v1: https://lore.kernel.org/netdev/20260901154914.11637-1-jiayuan.chen@linux.dev/
+RFC (July): https://lore.kernel.org/netdev/20260728125658.390500-1-jiayuan.chen@linux.dev/
+
+Jiayuan Chen (2):
+  netdevsim: add TLS device offload emulation
+  selftests: drv-net: run tls_hw_offload on netdevsim
+
+ drivers/net/Kconfig                           |   1 +
+ drivers/net/netdevsim/Makefile                |   4 +
+ drivers/net/netdevsim/netdev.c                |   9 +-
+ drivers/net/netdevsim/netdevsim.h             |  34 ++
+ drivers/net/netdevsim/tls.c                   | 477 ++++++++++++++++++
+ .../drivers/net/hw/tls_hw_offload.py          |   5 +-
+ 6 files changed, 527 insertions(+), 3 deletions(-)
+ create mode 100644 drivers/net/netdevsim/tls.c
+
+-- 
+2.43.0
+
