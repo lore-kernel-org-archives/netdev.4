@@ -1,101 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794908579;
-	b=gd472Z9rbh8h8HEQ65GPW3012MdybxE80CVpxqG7Y413dzm8SFQtHphyLImy8iM/N6mb
-	 DIjwV5QqSlBJg6yh24GF0qUHo1AHWsaI7iUkgb26dmJdRrDPXNNuJAtoVdT1Ajqoy6/p9
-	 F8aTfMmiOkRZ0CaO5TBYNbNy4XGFvkf3eZ5W/MEhX+dSDE2vOzxv39f9rCWWIF8R0Wn4A
-	 NIdWpz+cK2lsgZ7rKw8PYGZPECqt1KLdrLXNsY8Sx+ly/hNdjq2LMMnRi8ewXn7US9KJT
-	 63W28GxVD6dhgA8zbcKIp/JbTgqLymM2LRc237SAj8TDjkr8DxZbRLPNfIax1wxd7tQ==
+	t=1794908634;
+	b=HGO/GjVDlrx1AIvlvlQ4ImCfznyBOo3tGGT1lqwO6r93nwGveHw0BmDrL1hjmhPz364e
+	 68OSOG/8cfNqeBnJnPk4dZ67MIP8X6RigyC9yZ+Lgla1SJN8vJsjq0Yf1czuQI0EyEIan
+	 +q396tf1S2NIIsFPK7Df6P7Sx5yU9VPaBBmZRmbH5qOpTwQjDikyegq3Ip15p3KOjUzdu
+	 c67NbSPYXnOhPE1I3/cmD4tXesn/A71kxSOqWzB2EfeSNdaIv3PRP03AmhPomqL7chjH/
+	 camm4KOFJFrCxYCL18xCelfyym51odVwXdnnAQ0MROXiJOCnNt+CgivZ2nGxKfgYLsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794908579;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=V3vL8aeIwT+5ltERu/luG+I/z29m6lqOOYPSqQdUXB0=;
-	b=niRz2UTWS6bELllvMZ/zKoGVF0Ai76XM5rjQhGP0zNU0gP18jsPpTtV2ocVxkKZh6D5D
-	 1vauAX9RDmqSwGLQEpGUFnR978WhckqDS6HespXRRxK7gnC86PBOvQFgykrjzdvREyLpQ
-	 mePzR2lyZQNK+kIqPIppTRUAjzqD0nBKY5sevpeMXzClsfcrZfygWcZwLmto4TYD2UpAG
-	 FH790rAu3dMlXcpbB8ibtD5WLPL2dJiaRawyhVgC2qDNOhKDX8FMDUSdFNQEDitu9Srq4
-	 6+cYde38JzFYv60saohEfAMBmF4SH1dRf0foZUBEBq3+mYGSYa/+lsTH9D1B8FkZtYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794908634;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=lj/H6ObV+NiCkgR1Za56Q0sbCpzNk/GAy356ZgMOwhs=;
+	b=mSJdslcjBkjwxrodkhQwjXYkVNV1DqHzvOfAp3UPHbmEyBUwWLYLaG3FhkwJSrL4HYPZ
+	 dQXZ5KZF1+l8y55BVT29i+wYA7LBoueOR7mri7IVDfjW2vk0T2/Q6w2/Od19V6mc1sNfh
+	 tsXHgv8rjFVGpUrtZV/tlsqBAq+6JJ3oNqB6lcp1z8LOT6k7zBeIvGcq/1yjxgVjQ5C37
+	 XjVuS0z8tvyKI3UE9GQC8wP1wG7QlDc3QHO4jTJJJy5ot+JFDmwkCh/XVqt3G1z4w5QXt
+	 7J2Sifn/v7194AerDRGZMlw8q5NvZSajnpk4n5Rhh8UCQo3Eg4y1zzCsbuTxpksGVwg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Xr9RHJms;
-	arc=none smtp.remote-ip=192.198.163.9
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.9])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b2SGxfYE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B793B606A338
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:42:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B793B606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B0AF606A330;
+	Tue, 17 Nov 2026 09:43:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Xr9RHJms
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794908578; x=1826444578;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=KVCps87zXCeR0lp+catxeZzLSYwlbU2WzgTfMMiEPG8=;
-  b=Xr9RHJmsz7EmlL7jrzx7tWHNgJCMdT5PiMnjdSZrypwF93yQIYGSdJyW
-   sziVVgM5itXnL8qXFbUedlEOGDxKM17zPblawlwW/kibtezFh3r0gOcuR
-   bJ/pPqoK+eLKIQamyCFy0tNoaJJxXo1xsxBLJL9f+5ebatZ4r6ji3Zw2K
-   GPjy3C2L0sjDzbPbN2hGPuxc/YkPrBfmbMxA0iF4bI4G2kXVCqpm590KZ
-   4kdBm/5yLMqftolPxVqGGR2dFrSS6bYHNn23U9U0PfGFZEt77RuEW548t
-   aHyXoKjMEpKvdKreXMd2UMJhNt/7M7IVVr/v5uRMPm4Tw1oyv1Uu5o5Qa
-   Q==;
-X-CSE-ConnectionGUID: OMniZzj8Tge3PdCl1Qu1sA==
-X-CSE-MsgGUID: YlGePWCiT5qgkVQN6EWZ0g==
-X-IronPort-AV: E=McAfee;i="6800,10657,11968"; a="3553837"
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="3553837"
-Received: from fmviesa011.fm.intel.com ([10.60.135.151])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 01:41:59 -0800
-X-CSE-ConnectionGUID: tPdB0+XCSxerrRtuVli4uQ==
-X-CSE-MsgGUID: kYhDFbGkS8Shiz6jaqrbcA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
-   d="scan'208";a="11591406"
-Received: from irvmail002.ir.intel.com ([10.43.11.120])
-  by fmviesa011.fm.intel.com with ESMTP; 17 Nov 2026 01:41:50 -0800
-Received: from pkitszel-desk1.igk.intel.com (pkitszel-desk1.igk.intel.com [10.217.184.18])
-	by irvmail002.ir.intel.com (Postfix) with ESMTP id 2C2D628199;
-	Tue, 17 Nov 2026 09:41:48 +0000 (GMT)
-From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-To: kuba@kernel.org,
-	netdev@vger.kernel.org
-Cc: aleksandr.loktionov@intel.com,
-	andrew+netdev@lunn.ch,
-	anthony.l.nguyen@intel.com,
-	anzaki@gmail.com,
-	brett.creeley@amd.com,
-	corbet@lwn.net,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	jacob.e.keller@intel.com,
-	jedrzej.jagielski@intel.com,
-	jiri@resnulli.us,
-	leon@kernel.org,
-	mbloch@nvidia.com,
-	mschmidt@redhat.com,
-	ohartoov@nvidia.com,
-	pabeni@redhat.com,
-	poros@redhat.com,
-	rdunlap@infradead.org,
-	saeedm@nvidia.com,
-	skhan@linuxfoundation.org,
-	tariqt@nvidia.com,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Subject: [net-next v6 15/15] ice: support up to 256 VF queues
-Date: Tue, 17 Nov 2026 10:44:53 +0100
-Message-ID: <20261117094913.100756-16-przemyslaw.kitszel@intel.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261117094913.100756-1-przemyslaw.kitszel@intel.com>
-References: <20261117094913.100756-1-przemyslaw.kitszel@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=b2SGxfYE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B52671F0181D;
+	Tue, 17 Nov 2026 09:43:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794908634;
+	bh=lj/H6ObV+NiCkgR1Za56Q0sbCpzNk/GAy356ZgMOwhs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=b2SGxfYEDMWwqaoLT/DMSAPcHCMLtUMRmGRwU0qTq7lYx2HkQQdrWIWozD9/d7X/D
+	 rdeqw6ATESA/iJfR11weE/R5/hA378fwDxhVFg+di3tTSTBZ0TeQWD8jjWcTt9ZwZJ
+	 Hugm5qyQix0ea2pP7/z0TCkLw0Y3NB9dpModUZVl3kHP7nc+YyYom3TgebPrivBPVm
+	 FPiu7BQ7H9WkQL7WqWRZwZ6vKNw6CE7vmCyRQeU6LRhl6KyIyoI3Qv5wKhiKrpc5LU
+	 IfCtQf6j/wbBewtiDeJsdMPbgDLGqcGPWQeujOUQEuOhWakQjYfpLgyhLfw+x+x0dg
+	 jKoMLHTdc40+A==
+Subject:
+ Re: [PATCH net v4 2/3] net: mptcp: reject token 0 in mptcp_token_get_sock()
+From: netdev-bot+sashiko@kernel.org
+To: 2122295973@qq.com
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, matttbe@kernel.org,
+ martineau@kernel.org, geliang@kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ kuniyu@google.com, willemb@google.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Date: Tue, 17 Nov 2026 09:43:53 +0000
+Message-ID: <179490863332.3133.3484259413562043053@kernel.org>
+In-Reply-To: <tencent_43D317CA682E96EDDF89E59E669052BF7E09@qq.com>
+References: <tencent_43D317CA682E96EDDF89E59E669052BF7E09@qq.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,1230 +65,116 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Add support for up to 256 VF queues. To enable more than usual 16, user
-needs to assign GLOBAL LUT (devlink resource named "rss/lut_512") for 64
-queues or PF LUT (name "rss/lut_2048") for maximum of 256 queues. There is
-a need to assign the GLOBAL LUT to PF first, then release the PF LUT
-(initially assigned to PF) from PF, to finally assign it to VF, see
-examples further below. Usual default of number of CPU cores does still
-apply, but queues could be requested later by usual ethtool -L command.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Add devlink instance of VF device to track RSS LUT resources under
-a respective PF devlink instance.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Number of MSI-X vectors assigned to VF is orthogonal to this.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Note that VF reset is deferred to service task.
+- [Medium] This patch rests on the claim that a freshly allocated msk
+  "holds [token 0] until it is hashed".
 
-How to use:
-1. Up to 64 queues
-   a. assign one of 16 GLOBAL LUTs to VF:
-      sudo devlink resource set pci/0000:18:01.0 path rss/lut_512 size 1
-   b. if more queues than the default (num of vCPU/CPU cores) are wanted:
-      sudo ethtool -L $vfiface combined $more
+--
 
-2. Up to 256 queues
-   a. assign a GLOBAL LUT to PF:
-      sudo devlink resource set pci/0000:18:00.0 path rss/lut_512 size 1
-   b. free the PF LUT from PF:
-      sudo devlink resource set pci/0000:18:00.0 path rss/lut_2048 size 0
-   c. assign the PF LUT to VF:
-      sudo devlink resource set pci/0000:18:01.0 path rss/lut_2048 size 1
-   d. if more queues than the default (num of vCPU/CPU cores) are wanted:
-      sudo ethtool -L $vfiface combined $more
+net: mptcp: reject token 0 in mptcp_token_get_sock()
 
-3. display current RSS LUT or RSS table:
-   a. see if RSS is mapped correctly (e.g. for lut_512 there are 512
-      entries expected):
-      ethtool -x $vfiface
-   b. see what devlink devices are present:
-      devlink dev show # note the "whole dev aggregate" device over your pci netdevs
-   c. see PF, VF, and "whole device aggregate" resources:
-      devlink resource show pci/0000:18:00.0 # PF
-      devlink resource show pci/0000:18:01.0 # VF
-      devlink resource show devlink_index/3 # whole dev
+This patch makes mptcp_token_get_sock() return NULL early for token 0.
+The commit message says token 0 is what a torn down msk holds, and what a
+freshly allocated msk holds until it is hashed. The goal is to stop an
+MP_JOIN SYN carrying token 0 from matching a dying or half-initialised msk.
 
-output will look like below, for a device with one PF LUT and one GLOBAL LUT:
-pci/0000:18:00.0:
-  name rss size 2 unit entry size_min 0 size_max 2 size_gran 1 dpipe_tables none
-    resources:
-      name lut_512 size 1 unit entry size_min 0 size_max 1 size_gran 1 dpipe_tables none
-      name lut_2048 size 1 unit entry size_min 0 size_max 1 size_gran 1 dpipe_tables none
+> Both validations in mptcp_token_get_sock() compare the socket's token
+> with the requested one, so for a request for token 0 they cannot tell a
+> match apart from a socket whose token has just been cleared.  With
+> SLAB_TYPESAFE_BY_RCU the same is true for a socket whose memory has
+> already been reused by a new msk that has not been hashed yet.
 
-Big thanks to Mateusz for working together on the whole story for long
-time! Big thanks to Alex Loktionov for pointing the reason of one nasty
-bug with the message size!
+> diff --git a/net/mptcp/token.c b/net/mptcp/token.c
+> index 3429b43a9f7c3..8a603fc8dc059 100644
+> --- a/net/mptcp/token.c
+> +++ b/net/mptcp/token.c
+> @@ -299,6 +299,10 @@ struct mptcp_sock *mptcp_token_get_sock(struct net *net, u32 token)
+>  	struct mptcp_sock *msk;
+>  	struct sock *sk;
+>  
+> +	/* Token 0 is never assigned, but is what a torn down socket holds. */
+> +	if (!token)
+> +		return NULL;
+> +
 
-Co-developed-by: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
-Signed-off-by: Mateusz Polchlopek <mateusz.polchlopek@intel.com>
-Signed-off-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-Reviewed-by: Jedrzej Jagielski <jedrzej.jagielski@intel.com>
-Signed-off-by: Przemek Kitszel <przemyslaw.kitszel@intel.com>
----
-v6:
- * document in ice.rst that VF queues must fit in one free range of PF
-   queues, so with many VFs only a few get 64 queues, and 256 may not be
-   available even with a PF LUT (Petr)
+[Severity: Medium]
+The commit message says a freshly allocated msk holds token 0 "until it is
+hashed". Does that hold for the passive MP_CAPABLE path?
 
-v5:
- * keep reporting the 64 entry RSS LUT to VFs without
-   VIRTCHNL_VF_LARGE_NUM_QPAIRS, and repeat their LUT over the bigger
-   LUT of the VSI; iavf before this series allocates its LUT buffer
-   only once, and overflowed it after a bigger LUT was assigned (Petr)
- * grant REQUEST_QUEUES only when the VF fits in one free range of Tx
-   and Rx queues, counting its own queues as free; scattered mapping
-   is not implemented for VFs, and requests of 64 or 256 queues
-   fragmented the PF queue space, so VFs came up with unprogrammed
-   queues (Petr)
- * offer no more queues than that in the reply to a too big request,
-   not just the RSS LUT limit (Sashiko)
- * drop the check against ICE_MAX_QS_PER_VF, the RSS LUT limit is never
-   bigger (me)
- * mark VFs disabled when preparing for PF reset, until
-   ice_reset_all_vfs() rebuilds them; devlink could change the RSS LUT
-   of a VF just after the PF rebuild, and the VF VSI rebuild then went
-   back to the VSI LUT, with the LUT still taken in the table (Sashiko)
- * register VF devlink resources before devl_register(), and unregister
-   them after devl_unregister(), under one devl lock section, so the
-   VF devlink instance is never visible without them (Sashiko)
- * clamp rss_size to what the RSS LUT can address for all VSI types,
-   under rss_lut_lock; the VF-only clamp was done before taking the
-   lock, and raced with devlink LUT changes; the default rss_size is
-   set on each VSI config again, so no VF special case (Sashiko)
- * don't set rss_size of the PF VSI when restoring its PF LUT after
-   reset, the PF VSI rebuild right after sets the default anyway
-   (Sashiko)
- * drop the second ice_get_vf_vsi() call in ice_vc_config_rss_lut(),
-   the VSI is now looked up before the LUT size check (Sashiko)
+In mptcp_sk_clone_init(), the real non-zero token is stored well before
+the msk is linked into msk_chain:
 
-v4:
- * after a PF reset, lower the queue count only of VFs that lost a bigger
-   RSS LUT, and only to 16; ice_vsi_decfg() set every VF back to the
-   default count, dropping queues granted by REQUEST_QUEUES or set via
-   sriov_vf_msix_count, and took the PF from vsi->back, which is not the
-   VF's PF for the SR-IOV LAG placeholder VSIs (Sashiko)
- * restore the VF RSS LUTs after reset outside of rtnl, which the PF part
-   takes now; VF creation takes rtnl under vfs.table_lock (me)
- * cap REQUEST_QUEUES at 16 for VFs without VIRTCHNL_VF_LARGE_NUM_QPAIRS,
-   also when they use a bigger RSS LUT (Sashiko)
- * report ICE_VF_VSI_ID as vport_id in GET_MAX_RSS_QREGION reply, not the
-   HW VSI number (Sashiko)
- * clear ICE_VF_STATE_NEEDS_RESET on every VF reset, so a VF is not reset
-   again for a change that was already applied (Sashiko)
- * don't create VF devlink instance without VF pci_dev, e.g. on s390
-   (Sashiko)
- * document the VF devlink instance and its RSS LUT resources in ice.rst
-   (Sashiko)
- * do a pending deferred VF reset before handling the next message from
-   that VF, instead of answering it from a half-applied RSS LUT change
-   (GET_VF_RESOURCES offered 64 queues without LARGE_NUM_QPAIRS)
- * re-run service task at once if a deferred VF reset was scheduled
-   during its pass, after ice_handle_deferred_vf_reset(); the wake-up
-   from ice_schedule_vf_reset() is a no-op while the task runs, so the
-   reset waited for the service timer, up to 1 s (me)
- * report the VF queue allocation in num_queue_pairs also with
-   VIRTCHNL_VF_LARGE_NUM_QPAIRS, as in legacy mode and as the
-   out-of-tree ice does, instead of the RSS LUT queue limit; VF learns
-   the limit from GET_MAX_RSS_QREGION or from a REQUEST_QUEUES denial
-   (Sashiko)
- * declare ret and len in one line in ice_vc_get_vf_res_msg()
+net/mptcp/protocol.c:mptcp_sk_clone_init() {
+    ...
+	WRITE_ONCE(msk->token, subflow_req->token);
+    ...
+	mptcp_copy_inaddrs(nsk, ssk);
 
-v3:
- * compute RSS LUT queue count under rss_lut_lock, to not race with
-   ethtool -L (me)
- * allocate VF devlink with ice as the owning driver, via new
-   devlink_alloc_drv(); VF device could be unbound or bound to iavf at
-   that point (me)
- * create VF devlinks only after all VFs are started, not while
-   ice_start_vfs() can still fail and release their VSIs (me)
- * check VF VSI for NULL in ice_vc_request_qs_msg() (me)
- * restore default RSS LUT assignment of VFs after PF reset, FW drops it
- * derive VF rss_size from its queue count and LUT capacity on each
-   VSI config, instead of keeping a stale value (Sashiko)
- * wake up service task when scheduling a deferred VF reset (Sashiko)
- * lower VF queue count to the capacity of its new RSS LUT when the LUT
-   shrinks, instead of keeping the queues allocated and offering them
-   to iavf without VIRTCHNL_VF_LARGE_NUM_QPAIRS (me)
+	mptcp_rcv_space_init(msk, ssk);
+	msk->rcvq_space.time = mptcp_stamp();
 
-v2:
- * drop getting VF ref around vf->needs_deferred_reset, it only opened
-   a window for resource leak and was not needed anyway (Sashiko)
- * replace needs_deferred_reset bitfield with ICE_VF_STATE_NEEDS_RESET
-   bit, consumed by test_and_clear_bit() before the reset, so a request
-   coming in during the reset is not lost
- * take vfs.table_lock in service task only when a deferred VF reset
-   is pending, so freshly enabled VFs do not time out on
-   VIRTCHNL_OP_VERSION
- * add !CONFIG_PCI_IOV stub for ice_schedule_vf_reset()
- * create VF devlink in ice_start_vfs() under vfs.table_lock instead
-   of lazily from the virtchnl handler; take PF devlink lock around
-   devl_nested_devlink_set(); handle VF without devlink on teardown
- * take cfg_lock before the adapter devlink lock in VF resource setters,
-   and reject changes while the VF is not ready (ice_vf_is_ready())
- * switch VF VSI context to the new LUT synchronously, so HW no longer
-   uses the old LUT when it is released
- * use logical_pf_id for VF allocation of PF LUT slots
- * report the RSS qregion width from LUT capacity, and reject VF queue
-   requests above it
- * keep clamping rss_size to num_rxq for non-VF VSIs, so after
-   ethtool -L and PF reset the LUT does not point at absent queues
- * limit PF rss_size to the queue capacity of its current RSS LUT
-   (64 for GLOBAL), on devlink LUT switch and on ethtool -L; restore it
-   from num_rxq when switching back to the PF LUT
- * drop ICE_VSI_FLAG_RELOAD, it was set but never tested (and
-   overwritten on VF reset anyway)
- * use ice_get_vf_vsi() instead of open coding it (Sashiko)
- * commit message: the whole device aggregate is a shared devlink
-   instance (devlink_index/N), not a faux device
- * check devl_nested_devlink_set() return value (Sashiko)
----
- Documentation/networking/devlink/ice.rst      |  27 +++-
- .../net/ethernet/intel/ice/devlink/resource.h |   3 +
- drivers/net/ethernet/intel/ice/ice.h          |   1 +
- drivers/net/ethernet/intel/ice/ice_lib.h      |   2 +
- drivers/net/ethernet/intel/ice/ice_vf_lib.h   |  23 +++
- drivers/net/ethernet/intel/ice/virt/rss.h     |   1 +
- .../net/ethernet/intel/ice/virt/virtchnl.h    |   4 +
- .../net/ethernet/intel/ice/devlink/resource.c | 150 +++++++++++++++++-
- drivers/net/ethernet/intel/ice/ice_ethtool.c  |  14 +-
- drivers/net/ethernet/intel/ice/ice_lib.c      |  20 +++
- drivers/net/ethernet/intel/ice/ice_main.c     |  26 +++
- drivers/net/ethernet/intel/ice/ice_sriov.c    |  15 ++
- drivers/net/ethernet/intel/ice/ice_vf_lib.c   |  72 +++++++++
- drivers/net/ethernet/intel/ice/virt/queues.c  |  82 ++++++++--
- drivers/net/ethernet/intel/ice/virt/rss.c     |  54 ++++++-
- .../net/ethernet/intel/ice/virt/virtchnl.c    |  39 ++++-
- 16 files changed, 497 insertions(+), 36 deletions(-)
+	if (!mptcp_token_accept(subflow_req, msk)) {
+    ...
+}
 
-diff --git a/Documentation/networking/devlink/ice.rst b/Documentation/networking/devlink/ice.rst
-index 6e34c107b28d..90ec1c7848d8 100644
---- a/Documentation/networking/devlink/ice.rst
-+++ b/Documentation/networking/devlink/ice.rst
-@@ -507,27 +507,46 @@ PF LUT.
-     * - ``rss/lut_2048``
-       - The number of PF LUTs owned.
- 
--The resources are registered on two kinds of devlink instances:
-+The resources are registered on three kinds of devlink instances:
- 
- - The devlink instance of each PF, where ``lut_512`` and ``lut_2048`` are
-   either 0 or 1. They are changed with ``devlink resource set``, and the
-   change applies immediately.
-+- The devlink instance of each VF (``pci/<VF BDF>``), nested in the devlink
-+  instance of its PF, with the same two resources. A VF can take a global
-+  LUT, or the PF LUT of its PF.
- - The whole device devlink instance, shared by all PFs of the device, which
-   reports the total usage. Its resources are read-only, setting them fails
-   with ``EPERM``.
- 
- A PF must own at least one of the two LUTs at all times, so switching a PF
- to a global LUT takes two steps: take a global LUT, then release the PF LUT.
- A PF that owns both uses its PF LUT.
- 
-+A VF uses its VSI LUT by default, which spreads traffic over up to 16
-+queues. With a global LUT the VF can use up to 64 queues, and up to 256 with
-+a PF LUT (preferred when the VF owns both). Changing the LUT of a VF resets
-+the VF, and lowers its queue count if the new LUT can't spread traffic over
-+all of them. The VF driver picks the queue count as usual, more queues are
-+requested with ``ethtool -L``. More than 16 queues need a VF driver that
-+supports ``VIRTCHNL_VF_LARGE_NUM_QPAIRS``, like ``iavf``.
-+
-+The queues of a VF must be one contiguous range of the PF Tx and Rx queues,
-+so a request is granted only when the VF fits in one free range (its own
-+queues count as free), and the driver logs how many are free otherwise.
-+The queues of other VFs fragment that space, so with many VFs only a few
-+of them can get 64 queues, and a VF may not get 256 queues even with a PF
-+LUT.
-+
- Changing the LUT of a PF resets its RSS indirection table to the default
- spread, a table set with ``ethtool -X`` is lost.
- 
- RSS LUTs can't be changed while ADQ is configured, and ADQ can't be
- configured while the RSS LUTs of the PF are reassigned.
- 
- Firmware drops the LUT assignments on reset (PFR, CORER or GLOBR). The
--driver then restores the default assignment, and logs that it did so.
-+driver then restores the default assignment, and logs that it did so. VFs
-+that used a bigger LUT get at most 16 queues after that.
- Changes are rejected with ``EBUSY`` while a reset is in progress.
- 
- .. code:: shell
-@@ -543,3 +562,7 @@ Changes are rejected with ``EBUSY`` while a reset is in progress.
-     # switch a PF to a global LUT
-     $ devlink resource set pci/0000:18:00.0 path rss/lut_512 size 1
-     $ devlink resource set pci/0000:18:00.0 path rss/lut_2048 size 0
-+
-+    # give the freed PF LUT to a VF of that PF, and use 256 queues there
-+    $ devlink resource set pci/0000:18:01.0 path rss/lut_2048 size 1
-+    $ ethtool -L $VF_NETDEV combined 256
-diff --git a/drivers/net/ethernet/intel/ice/devlink/resource.h b/drivers/net/ethernet/intel/ice/devlink/resource.h
-index a41bda0ff6c8..4401ce0171e1 100644
---- a/drivers/net/ethernet/intel/ice/devlink/resource.h
-+++ b/drivers/net/ethernet/intel/ice/devlink/resource.h
-@@ -10,7 +10,9 @@ struct devlink;
- struct ice_adapter;
- struct ice_hw;
- struct ice_pf;
-+struct ice_vf;
- 
-+void ice_devlink_vf_resources_register(struct ice_vf *vf);
- void ice_devl_pf_resources_register(struct ice_pf *pf);
- void ice_devl_whole_dev_resources_register(const struct ice_hw *hw,
- 					   struct ice_adapter *adapter);
-@@ -21,5 +23,6 @@ void ice_release_rss_lut_pf(struct ice_pf *pf);
- void ice_prepare_rss_luts_for_reset(struct ice_pf *pf);
- int ice_rebuild_rss_luts(struct ice_pf *pf);
- void ice_free_rss_lut_flr(struct ice_pf *pf);
-+void ice_free_rss_lut_vf(struct ice_vf *vf);
- 
- #endif /* _ICE_DEVL_RESOURCE_H_ */
-diff --git a/drivers/net/ethernet/intel/ice/ice.h b/drivers/net/ethernet/intel/ice/ice.h
-index 611f1346b4a7..daa417edc9b7 100644
---- a/drivers/net/ethernet/intel/ice/ice.h
-+++ b/drivers/net/ethernet/intel/ice/ice.h
-@@ -297,6 +297,7 @@ enum ice_pf_state {
- 	ICE_SIDEBANDQ_EVENT_PENDING,
- 	ICE_MDD_EVENT_PENDING,
- 	ICE_VFLR_EVENT_PENDING,
-+	ICE_VF_RESET_PENDING,
- 	ICE_FLTR_OVERFLOW_PROMISC,
- 	ICE_VF_DIS,
- 	ICE_CFG_BUSY,
-diff --git a/drivers/net/ethernet/intel/ice/ice_lib.h b/drivers/net/ethernet/intel/ice/ice_lib.h
-index 15b65a757beb..320edbdece3d 100644
---- a/drivers/net/ethernet/intel/ice/ice_lib.h
-+++ b/drivers/net/ethernet/intel/ice/ice_lib.h
-@@ -18,6 +18,8 @@ enum ice_l2tsel {
- 	ICE_L2TSEL_EXTRACT_FIRST_TAG_L2TAG1,
- };
- 
-+u16 ice_lut_type_to_qs_num(enum ice_lut_type lut_type);
-+
- const char *ice_vsi_type_str(enum ice_vsi_type vsi_type);
- 
- bool ice_pf_state_is_nominal(struct ice_pf *pf);
-diff --git a/drivers/net/ethernet/intel/ice/ice_vf_lib.h b/drivers/net/ethernet/intel/ice/ice_vf_lib.h
-index 396dfb2b2d97..8abc8c844c96 100644
---- a/drivers/net/ethernet/intel/ice/ice_vf_lib.h
-+++ b/drivers/net/ethernet/intel/ice/ice_vf_lib.h
-@@ -40,6 +40,7 @@ enum ice_vf_states {
- 	ICE_VF_STATE_DIS,
- 	ICE_VF_STATE_MC_PROMISC,
- 	ICE_VF_STATE_UC_PROMISC,
-+	ICE_VF_STATE_NEEDS_RESET,	/* reset deferred to service task */
- 	ICE_VF_STATES_NBITS
- };
- 
-@@ -145,6 +146,7 @@ struct ice_vf {
- 	struct kref refcnt;
- 	struct ice_pf *pf;
- 	struct pci_dev *vfdev;
-+	struct devlink *devlink;
- 	/* Used during virtchnl message handling and NDO ops against the VF
- 	 * that will trigger a VFR
- 	 */
-@@ -243,6 +245,12 @@ static inline bool ice_vf_is_lldp_ena(struct ice_vf *vf)
- 	return vf->num_mac_lldp && vf->trusted;
- }
- 
-+static inline bool ice_vf_is_ready(struct ice_vf *vf)
-+{
-+	return test_bit(ICE_VF_STATE_INIT, vf->vf_states) &&
-+	       !test_bit(ICE_VF_STATE_DIS, vf->vf_states);
-+}
-+
- /* VF Hash Table access functions
-  *
-  * These functions provide abstraction for interacting with the VF hash table.
-@@ -319,9 +327,12 @@ int
- ice_vf_clear_vsi_promisc(struct ice_vf *vf, struct ice_vsi *vsi, u8 promisc_m);
- int ice_reset_vf(struct ice_vf *vf, u32 flags);
- void ice_reset_all_vfs(struct ice_pf *pf);
-+void ice_schedule_vf_reset(struct ice_vf *vf);
- struct ice_vsi *ice_get_vf_ctrl_vsi(struct ice_pf *pf, struct ice_vsi *vsi);
- void ice_vf_update_mac_lldp_num(struct ice_vf *vf, struct ice_vsi *vsi,
- 				bool incr);
-+void ice_init_vf_devlink(struct ice_vf *vf);
-+void ice_deinit_vf_devlink(struct ice_vf *vf);
- #else /* CONFIG_PCI_IOV */
- static inline struct ice_vf *ice_get_vf_by_id(struct ice_pf *pf, u16 vf_id)
- {
-@@ -393,11 +404,23 @@ static inline void ice_reset_all_vfs(struct ice_pf *pf)
- {
- }
- 
-+static inline void ice_schedule_vf_reset(struct ice_vf *vf)
-+{
-+}
-+
- static inline struct ice_vsi *
- ice_get_vf_ctrl_vsi(struct ice_pf *pf, struct ice_vsi *vsi)
- {
- 	return NULL;
- }
-+
-+static inline void ice_init_vf_devlink(struct ice_vf *vf)
-+{
-+}
-+
-+static inline void ice_deinit_vf_devlink(struct ice_vf *vf)
-+{
-+}
- #endif /* !CONFIG_PCI_IOV */
- 
- #endif /* _ICE_VF_LIB_H_ */
-diff --git a/drivers/net/ethernet/intel/ice/virt/rss.h b/drivers/net/ethernet/intel/ice/virt/rss.h
-index 784d4c43ce8b..388f980b4cdf 100644
---- a/drivers/net/ethernet/intel/ice/virt/rss.h
-+++ b/drivers/net/ethernet/intel/ice/virt/rss.h
-@@ -14,5 +14,6 @@ int ice_vc_config_rss_lut(struct ice_vf *vf, u8 *msg);
- int ice_vc_config_rss_hfunc(struct ice_vf *vf, u8 *msg);
- int ice_vc_get_rss_hashcfg(struct ice_vf *vf);
- int ice_vc_set_rss_hashcfg(struct ice_vf *vf, u8 *msg);
-+int ice_vc_get_max_rss_qregion(struct ice_vf *vf);
- 
- #endif /* _ICE_VIRT_RSS_H_ */
-diff --git a/drivers/net/ethernet/intel/ice/virt/virtchnl.h b/drivers/net/ethernet/intel/ice/virt/virtchnl.h
-index d11789b3ae1f..18024f13fb5d 100644
---- a/drivers/net/ethernet/intel/ice/virt/virtchnl.h
-+++ b/drivers/net/ethernet/intel/ice/virt/virtchnl.h
-@@ -78,6 +78,10 @@ struct ice_virtchnl_ops {
- 	int (*get_ptp_cap)(struct ice_vf *vf,
- 			   const struct virtchnl_ptp_caps *msg);
- 	int (*get_phc_time)(struct ice_vf *vf);
-+	int (*get_max_rss_qregion)(struct ice_vf *vf);
-+	int (*ena_qs_v2_msg)(struct ice_vf *vf, u8 *msg, u16 msglen);
-+	int (*dis_qs_v2_msg)(struct ice_vf *vf, u8 *msg, u16 msglen);
-+	int (*map_q_vector_msg)(struct ice_vf *vf, u8 *msg, u16 msglen);
- };
- 
- #ifdef CONFIG_PCI_IOV
-diff --git a/drivers/net/ethernet/intel/ice/devlink/resource.c b/drivers/net/ethernet/intel/ice/devlink/resource.c
-index de9c13e928fa..ec3a095deb9f 100644
---- a/drivers/net/ethernet/intel/ice/devlink/resource.c
-+++ b/drivers/net/ethernet/intel/ice/devlink/resource.c
-@@ -131,6 +131,16 @@ void ice_free_rss_lut_flr(struct ice_pf *pf)
- 		ice_free_rss_lut_flr_locked(pf);
- }
- 
-+void ice_free_rss_lut_vf(struct ice_vf *vf)
-+{
-+	struct ice_pf *pf = vf->pf;
-+
-+	scoped_guard(ice_adapter_devl, pf->adapter) {
-+		ice_devl_res_free(pf, ICE_RSS_LUT_GLOBAL, vf);
-+		ice_devl_res_free(pf, ICE_RSS_LUT_PF, vf);
-+	}
-+}
-+
- static int ice_devl_res_owned_idx(struct ice_pf *pf,
- 				  enum ice_devl_resource_id res_id, void *owner)
- {
-@@ -197,6 +207,34 @@ static u64 ice_rss_lut_pf_occ_get_both(void *priv)
- 		       ice_is_devl_res_owned_by(pf, ICE_RSS_LUT_GLOBAL, pf);
- }
- 
-+static u64 ice_rss_lut_vf_occ_get_global(void *priv)
-+{
-+	struct ice_vf *vf = priv;
-+	struct ice_pf *pf = vf->pf;
-+
-+	scoped_guard(ice_adapter_devl, pf->adapter)
-+		return ice_is_devl_res_owned_by(pf, ICE_RSS_LUT_GLOBAL, vf);
-+}
-+
-+static u64 ice_rss_lut_vf_occ_get_pf(void *priv)
-+{
-+	struct ice_vf *vf = priv;
-+	struct ice_pf *pf = vf->pf;
-+
-+	scoped_guard(ice_adapter_devl, pf->adapter)
-+		return ice_is_devl_res_owned_by(pf, ICE_RSS_LUT_PF, vf);
-+}
-+
-+static u64 ice_rss_lut_vf_occ_get_both(void *priv)
-+{
-+	struct ice_vf *vf = priv;
-+	struct ice_pf *pf = vf->pf;
-+
-+	scoped_guard(ice_adapter_devl, pf->adapter)
-+		return ice_is_devl_res_owned_by(pf, ICE_RSS_LUT_PF, vf) +
-+		       ice_is_devl_res_owned_by(pf, ICE_RSS_LUT_GLOBAL, vf);
-+}
-+
- static int ice_devl_resource_deny_occ_set(u64 size,
- 					  struct netlink_ext_ack *extack,
- 					  void *priv)
-@@ -242,7 +280,9 @@ static int ice_maybe_change_rss_lut(struct ice_pf *pf, void *owner,
- 	struct ice_hw *hw = &pf->hw;
- 	enum ice_lut_type lut_type;
- 	int err, lut_size, lut_id;
-+	struct ice_vf *vf = NULL;
- 	struct ice_vsi *vsi;
-+	u16 rss_size;
- 	u8 *lut;
- 
- 	if (old & new & ICE_HAS_PF_LUT)
-@@ -268,7 +308,8 @@ static int ice_maybe_change_rss_lut(struct ice_pf *pf, void *owner,
- 	if (pf == owner) {
- 		vsi = ice_get_main_vsi(pf);
- 	} else {
--		return -EOPNOTSUPP;
-+		vf = owner;
-+		vsi = ice_get_vf_vsi(vf);
- 	}
- 
- 	lut_size = ice_lut_type_to_size(lut_type);
-@@ -280,9 +321,10 @@ static int ice_maybe_change_rss_lut(struct ice_pf *pf, void *owner,
- 	params.lut_type = lut_type;
- 	params.vsi_handle = vsi->idx;
- 	mutex_lock(&pf->rss_lut_lock);
-+	rss_size = min(vsi->num_rxq, ice_lut_type_to_qs_num(lut_type));
- 	/* PF with RXHASH disabled keeps its LUT zeroed */
--	if (!vsi->netdev || vsi->netdev->features & NETIF_F_RXHASH)
--		ice_fill_rss_lut(lut, lut_size, vsi->rss_size);
-+	if (vf || !vsi->netdev || vsi->netdev->features & NETIF_F_RXHASH)
-+		ice_fill_rss_lut(lut, lut_size, rss_size);
- 	err = ice_aq_set_rss_lut(hw, &params);
- 	if (err) {
- 		NL_SET_ERR_MSG_FMT(extack, "AQ failed: %s", libie_aq_str(hw->adminq.sq_last_status));
-@@ -299,6 +341,15 @@ static int ice_maybe_change_rss_lut(struct ice_pf *pf, void *owner,
- 		vsi->global_lut_id = params.global_lut_id;
- 	vsi->rss_table_size = lut_size;
- 	vsi->rss_lut_type = lut_type;
-+	vsi->rss_size = rss_size;
-+	if (vf) {
-+		u16 max_qs = ice_lut_type_to_qs_num(lut_type);
-+
-+		/* don't keep queues that the new LUT can't spread traffic to */
-+		if ((vf->num_req_qs ?: vf->num_vf_qs) > max_qs)
-+			vf->num_req_qs = max_qs;
-+		ice_schedule_vf_reset(vf);
-+	}
- out:
- 	mutex_unlock(&pf->rss_lut_lock);
- 	kfree(lut);
-@@ -415,6 +466,41 @@ static int ice_rss_lut_pf_occ_set_global(u64 size,
- 				      ICE_ANY_SLOT, extack);
- }
- 
-+static int ice_rss_lut_vf_occ_set_pf(u64 size, struct netlink_ext_ack *extack,
-+				     void *occ_priv)
-+{
-+	struct ice_vf *vf = occ_priv;
-+	struct ice_pf *pf = vf->pf;
-+	int pf_id;
-+
-+	pf_id = ice_devl_pf_id(pf);
-+	scoped_guard(mutex, &vf->cfg_lock) {
-+		if (!ice_vf_is_ready(vf))
-+			return -EBUSY;
-+
-+		scoped_guard(ice_adapter_devl, pf->adapter)
-+			return ice_devl_res_change(size, ICE_RSS_LUT_PF, pf, vf,
-+						   pf_id, extack);
-+	}
-+}
-+
-+static int ice_rss_lut_vf_occ_set_global(u64 size,
-+					 struct netlink_ext_ack *extack,
-+					 void *occ_priv)
-+{
-+	struct ice_vf *vf = occ_priv;
-+	struct ice_pf *pf = vf->pf;
-+
-+	scoped_guard(mutex, &vf->cfg_lock) {
-+		if (!ice_vf_is_ready(vf))
-+			return -EBUSY;
-+
-+		scoped_guard(ice_adapter_devl, pf->adapter)
-+			return ice_devl_res_change(size, ICE_RSS_LUT_GLOBAL, pf,
-+						   vf, ICE_ANY_SLOT, extack);
-+	}
-+}
-+
- /**
-  * ice_rss_lut_is_reassigned - check if RSS LUTs of PF are in non-default state
-  * @pf: the PF to check
-@@ -542,13 +628,17 @@ static int ice_rebuild_rss_lut_pf(struct ice_pf *pf)
-  * @pf: the PF that was reset
-  *
-  * Wrapper of ice_rebuild_rss_lut_pf() that also tells the ethtool core when
-- * the user RSS LUT was dropped. Must be called without rtnl held.
-+ * the user RSS LUT was dropped, and makes the VF VSIs use their default LUTs.
-+ * Must be called without rtnl held.
-  *
-  * Return: 0 on success, negative on error.
-  */
- int ice_rebuild_rss_luts(struct ice_pf *pf)
- {
-+	u16 max_qs = ice_lut_type_to_qs_num(ICE_LUT_VSI);
- 	struct ice_vsi *vsi = ice_get_main_vsi(pf);
-+	struct ice_vf *vf;
-+	unsigned int bkt;
- 	int err;
- 
- 	/* ethtool core sizes RSS buffers by rss_table_size under rtnl */
-@@ -559,8 +649,27 @@ int ice_rebuild_rss_luts(struct ice_pf *pf)
- 	    netif_is_rxfh_configured(vsi->netdev))
- 		ethtool_rxfh_indir_lost(vsi->netdev);
- 	rtnl_unlock();
-+	if (err)
-+		return err;
- 
--	return err;
-+	/* VF creation takes rtnl under table_lock, so don't nest them here */
-+	mutex_lock(&pf->vfs.table_lock);
-+	mutex_lock(&pf->rss_lut_lock);
-+	ice_for_each_vf(pf, bkt, vf) {
-+		vsi = ice_get_vf_vsi(vf);
-+		if (!vsi || vsi->rss_lut_type == ICE_LUT_VSI)
-+			continue;
-+
-+		vsi->rss_table_size = ice_lut_type_to_size(ICE_LUT_VSI);
-+		vsi->rss_lut_type = ICE_LUT_VSI;
-+		/* don't keep queues that the VSI LUT can't spread traffic to */
-+		if ((vf->num_req_qs ?: vf->num_vf_qs) > max_qs)
-+			vf->num_req_qs = max_qs;
-+	}
-+	mutex_unlock(&pf->rss_lut_lock);
-+	mutex_unlock(&pf->vfs.table_lock);
-+
-+	return 0;
- }
- 
- static void ice_devl_res_register(struct devlink *devlink,
-@@ -661,3 +770,34 @@ void ice_devl_pf_resources_register(struct ice_pf *pf)
- 	devl_assert_locked(devlink);
- 	ice_devl_res_register(devlink, pf_resources, pf);
- }
-+
-+void ice_devlink_vf_resources_register(struct ice_vf *vf)
-+{
-+	struct ice_devl_resource vf_resources[ICE_DEVL_RESOURCES_COUNT] = {
-+		[ICE_RSS_LUT_GLOBAL] = {
-+			.name = "lut_512",
-+			.parent_id = ICE_RSS_LUT_BOTH,
-+			.max_size = 1,
-+			.get = ice_rss_lut_vf_occ_get_global,
-+			.set = ice_rss_lut_vf_occ_set_global,
-+		},
-+		[ICE_RSS_LUT_PF] = {
-+			.name = "lut_2048",
-+			.parent_id = ICE_RSS_LUT_BOTH,
-+			.max_size = 1,
-+			.get = ice_rss_lut_vf_occ_get_pf,
-+			.set = ice_rss_lut_vf_occ_set_pf,
-+		},
-+		[ICE_RSS_LUT_BOTH] = {
-+			.name = "rss",
-+			.parent_id = ICE_TOP_RESOURCE,
-+			.max_size = 2,
-+			.get = ice_rss_lut_vf_occ_get_both,
-+			.set = ice_devl_resource_deny_occ_set,
-+		},
-+	};
-+	struct devlink *devlink = vf->devlink;
-+
-+	devl_assert_locked(devlink);
-+	ice_devl_res_register(devlink, vf_resources, vf);
-+}
-diff --git a/drivers/net/ethernet/intel/ice/ice_ethtool.c b/drivers/net/ethernet/intel/ice/ice_ethtool.c
-index 822b94f87156..6f393e13b374 100644
---- a/drivers/net/ethernet/intel/ice/ice_ethtool.c
-+++ b/drivers/net/ethernet/intel/ice/ice_ethtool.c
-@@ -3831,14 +3831,15 @@ ice_get_channels(struct net_device *dev, struct ethtool_channels *ch)
- 
- /**
-  * ice_get_valid_rss_size - return valid number of RSS queues
-- * @hw: pointer to the HW structure
-+ * @vsi: VSI to get the RSS LUT type of
-  * @new_size: requested RSS queues
-  */
--static int ice_get_valid_rss_size(struct ice_hw *hw, int new_size)
-+static int ice_get_valid_rss_size(struct ice_vsi *vsi, int new_size)
- {
--	struct ice_hw_common_caps *caps = &hw->func_caps.common_cap;
-+	struct ice_hw_common_caps *caps = &vsi->back->hw.func_caps.common_cap;
- 
--	return min_t(int, new_size, BIT(caps->rss_table_entry_width));
-+	new_size = min_t(int, new_size, BIT(caps->rss_table_entry_width));
-+	return min_t(int, new_size, ice_lut_type_to_qs_num(vsi->rss_lut_type));
- }
- 
- /**
-@@ -3871,7 +3872,7 @@ static int ice_vsi_set_dflt_rss_lut(struct ice_vsi *vsi, int req_rss_size)
- 		if (!test_bit(ICE_FLAG_RSS_ENA, pf->flags))
- 			vsi->rss_size = 1;
- 		else
--			vsi->rss_size = ice_get_valid_rss_size(hw,
-+			vsi->rss_size = ice_get_valid_rss_size(vsi,
- 							       req_rss_size);
- 
- 		/* create/set RSS LUT */
-@@ -3968,7 +3969,8 @@ static int ice_set_channels(struct net_device *dev, struct ethtool_channels *ch)
- 	}
- 
- 	/* Update rss_size due to change in Rx queues */
--	vsi->rss_size = ice_get_valid_rss_size(&pf->hw, new_rx);
-+	scoped_guard(mutex, &pf->rss_lut_lock)
-+		vsi->rss_size = ice_get_valid_rss_size(vsi, new_rx);
- 
- adev_unlock:
- 	if (locked) {
-diff --git a/drivers/net/ethernet/intel/ice/ice_lib.c b/drivers/net/ethernet/intel/ice/ice_lib.c
-index ff16d19a8c27..134b4daf1746 100644
---- a/drivers/net/ethernet/intel/ice/ice_lib.c
-+++ b/drivers/net/ethernet/intel/ice/ice_lib.c
-@@ -12,6 +12,23 @@
- 
- #include "devlink/resource.h"
- 
-+#define ICE_LUT_VSI_MAX_QS	16
-+#define ICE_LUT_GLOBAL_MAX_QS	64
-+#define ICE_LUT_PF_MAX_QS	256
-+
-+u16 ice_lut_type_to_qs_num(enum ice_lut_type lut_type)
-+{
-+	switch (lut_type) {
-+	case ICE_LUT_PF:
-+		return ICE_LUT_PF_MAX_QS;
-+	case ICE_LUT_GLOBAL:
-+		return ICE_LUT_GLOBAL_MAX_QS;
-+	case ICE_LUT_VSI:
-+	default:
-+		return ICE_LUT_VSI_MAX_QS;
-+	}
-+}
-+
- /**
-  * ice_vsi_type_str - maps VSI type enum to string equivalents
-  * @vsi_type: VSI type enum
-@@ -1697,6 +1714,9 @@ int ice_vsi_cfg_rss_lut_key(struct ice_vsi *vsi)
- 	}
- 
- 	scoped_guard(mutex, &pf->rss_lut_lock) {
-+		/* devlink changes the LUT type under this lock */
-+		vsi->rss_size = min(vsi->rss_size,
-+				    ice_lut_type_to_qs_num(vsi->rss_lut_type));
- 		lut = kzalloc(vsi->rss_table_size, GFP_KERNEL);
- 		if (!lut)
- 			return -ENOMEM;
-diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-index 357dc09a0ade..dbf4fdda7998 100644
---- a/drivers/net/ethernet/intel/ice/ice_main.c
-+++ b/drivers/net/ethernet/intel/ice/ice_main.c
-@@ -2276,6 +2276,30 @@ static void ice_check_media_subtask(struct ice_pf *pf)
- 	}
- }
- 
-+static void ice_handle_deferred_vf_reset(struct ice_pf *pf)
-+{
-+	struct ice_vf *vf;
-+	unsigned int bkt;
-+	int err;
-+
-+	if (!test_and_clear_bit(ICE_VF_RESET_PENDING, pf->state))
-+		return;
-+
-+	mutex_lock(&pf->vfs.table_lock);
-+	ice_for_each_vf(pf, bkt, vf) {
-+		if (!test_and_clear_bit(ICE_VF_STATE_NEEDS_RESET, vf->vf_states))
-+			continue;
-+
-+		dev_info(ice_pf_to_dev(pf), "doing deferred reset of VF %d\n",
-+			 vf->vf_id);
-+		err = ice_reset_vf(vf, ICE_VF_RESET_NOTIFY | ICE_VF_RESET_LOCK);
-+		if (err)
-+			dev_warn(ice_pf_to_dev(pf), "deferred reset of VF %d failed: %d\n",
-+				 vf->vf_id, err);
-+	}
-+	mutex_unlock(&pf->vfs.table_lock);
-+}
-+
- static void ice_service_task_recovery_mode(struct work_struct *work)
- {
- 	struct ice_pf *pf = container_of(work, struct ice_pf, serv_task);
-@@ -2358,6 +2382,7 @@ static void ice_service_task(struct work_struct *work)
- 		return;
- 	}
- 
-+	ice_handle_deferred_vf_reset(pf);
- 	ice_process_vflr_event(pf);
- 	ice_clean_mailboxq_subtask(pf);
- 	ice_clean_sbq_subtask(pf);
-@@ -2374,6 +2399,7 @@ static void ice_service_task(struct work_struct *work)
- 	if (time_after(jiffies, (start_time + pf->serv_tmr_period)) ||
- 	    test_bit(ICE_MDD_EVENT_PENDING, pf->state) ||
- 	    test_bit(ICE_VFLR_EVENT_PENDING, pf->state) ||
-+	    test_bit(ICE_VF_RESET_PENDING, pf->state) ||
- 	    test_bit(ICE_MAILBOXQ_EVENT_PENDING, pf->state) ||
- 	    test_bit(ICE_FD_VF_FLUSH_CTX, pf->state) ||
- 	    test_bit(ICE_SIDEBANDQ_EVENT_PENDING, pf->state) ||
-diff --git a/drivers/net/ethernet/intel/ice/ice_sriov.c b/drivers/net/ethernet/intel/ice/ice_sriov.c
-index d7c4a6540008..1bafd8b00060 100644
---- a/drivers/net/ethernet/intel/ice/ice_sriov.c
-+++ b/drivers/net/ethernet/intel/ice/ice_sriov.c
-@@ -501,6 +501,11 @@ static int ice_start_vfs(struct ice_pf *pf)
- 	}
- 
- 	ice_flush(hw);
-+
-+	/* only now, so the teardown below has no VF devlink to unregister */
-+	ice_for_each_vf(pf, bkt, vf)
-+		ice_init_vf_devlink(vf);
-+
- 	return 0;
- 
- teardown:
-@@ -657,6 +662,15 @@ static void ice_sriov_post_vsi_rebuild(struct ice_vf *vf)
- 	wr32(&vf->pf->hw, VFGEN_RSTAT(vf->vf_id), VIRTCHNL_VFR_VFACTIVE);
- }
- 
-+static struct ice_q_vector *ice_sriov_get_q_vector(struct ice_vsi *vsi,
-+						   u16 vector_id)
-+{
-+	/* Subtract non queue vector from vector_id passed by VF
-+	 * to get actual number of VSI queue vector array index
-+	 */
-+	return vsi->q_vectors[vector_id - ICE_NONQ_VECS_VF];
-+}
-+
- static const struct ice_vf_ops ice_sriov_vf_ops = {
- 	.reset_type = ICE_VF_RESET,
- 	.free = ice_sriov_free_vf,
-@@ -667,6 +681,7 @@ static const struct ice_vf_ops ice_sriov_vf_ops = {
- 	.clear_reset_trigger = ice_sriov_clear_reset_trigger,
- 	.irq_close = NULL,
- 	.post_vsi_rebuild = ice_sriov_post_vsi_rebuild,
-+	.get_q_vector = ice_sriov_get_q_vector,
- };
- 
- /**
-diff --git a/drivers/net/ethernet/intel/ice/ice_vf_lib.c b/drivers/net/ethernet/intel/ice/ice_vf_lib.c
-index 320b393ddaaf..766936e234c9 100644
---- a/drivers/net/ethernet/intel/ice/ice_vf_lib.c
-+++ b/drivers/net/ethernet/intel/ice/ice_vf_lib.c
-@@ -6,6 +6,7 @@
- #include "ice_lib.h"
- #include "ice_fltr.h"
- #include "virt/allowlist.h"
-+#include "devlink/resource.h"
- 
- /* Public functions which may be accessed by all driver files */
- 
-@@ -794,6 +795,8 @@ void ice_reset_all_vfs(struct ice_pf *pf)
- 		ice_eswitch_detach_vf(pf, vf);
- 		vf->driver_caps = 0;
- 		ice_vc_set_default_allowlist(vf);
-+		/* the VSI rebuild applies what a deferred reset was for */
-+		clear_bit(ICE_VF_STATE_NEEDS_RESET, vf->vf_states);
- 
- 		ice_vf_fdir_exit(vf);
- 		ice_vf_fdir_init(vf);
-@@ -933,6 +936,8 @@ int ice_reset_vf(struct ice_vf *vf, u32 flags)
- 
- 	/* Set VF disable bit state here, before triggering reset */
- 	set_bit(ICE_VF_STATE_DIS, vf->vf_states);
-+	/* this reset applies what a deferred reset was requested for */
-+	clear_bit(ICE_VF_STATE_NEEDS_RESET, vf->vf_states);
- 	ice_trigger_vf_reset(vf, flags & ICE_VF_RESET_VFLR, false);
- 
- 	vsi = ice_get_vf_vsi(vf);
-@@ -1010,14 +1015,29 @@ int ice_reset_vf(struct ice_vf *vf, u32 flags)
- 	return err;
- }
- 
-+/**
-+ * ice_schedule_vf_reset - reset VF, deferred to next service_task context
-+ * @vf: VF to reset
-+ */
-+void ice_schedule_vf_reset(struct ice_vf *vf)
-+{
-+	set_bit(ICE_VF_STATE_NEEDS_RESET, vf->vf_states);
-+	/* pairs with test_and_clear_bit() in ice_handle_deferred_vf_reset() */
-+	smp_mb__after_atomic();
-+	set_bit(ICE_VF_RESET_PENDING, vf->pf->state);
-+	ice_service_task_schedule(vf->pf);
-+}
-+
- /**
-  * ice_set_vf_state_dis - Set VF state to disabled
-  * @vf: pointer to the VF structure
-  */
- void ice_set_vf_state_dis(struct ice_vf *vf)
- {
- 	ice_set_vf_state_qs_dis(vf);
- 	vf->vf_ops->clear_reset_state(vf);
-+	/* until ice_reset_all_vfs() rebuilds the VF */
-+	set_bit(ICE_VF_STATE_DIS, vf->vf_states);
- }
- 
- /* Private functions only accessed from other virtualization files */
-@@ -1064,6 +1084,9 @@ void ice_deinitialize_vf_entry(struct ice_vf *vf)
- {
- 	struct ice_pf *pf = vf->pf;
- 
-+	ice_free_rss_lut_vf(vf);
-+	ice_deinit_vf_devlink(vf);
-+
- 	if (!ice_is_feature_supported(pf, ICE_F_MBX_LIMIT))
- 		list_del(&vf->mbx_info.list_entry);
- }
-@@ -1450,3 +1473,52 @@ void ice_vf_update_mac_lldp_num(struct ice_vf *vf, struct ice_vsi *vsi,
- 	if (was_ena != is_ena)
- 		ice_vsi_cfg_sw_lldp(vsi, false, is_ena);
- }
-+
-+void ice_init_vf_devlink(struct ice_vf *vf)
-+{
-+	struct devlink *pf_devlink = priv_to_devlink(vf->pf);
-+	static const struct devlink_ops noop = {};
-+	struct devlink *devlink;
-+	int err;
-+
-+	lockdep_assert_held(&vf->pf->vfs.table_lock);
-+
-+	/* no VF pci_dev when the VFs were not scanned, e.g. on s390 */
-+	if (!vf->vfdev)
-+		return;
-+
-+	devlink = devlink_alloc_drv(&noop, 0, &vf->vfdev->dev,
-+				    ice_pf_to_dev(vf->pf)->driver);
-+	if (!devlink)
-+		return;
-+
-+	scoped_guard(devl, pf_devlink)
-+		err = devl_nested_devlink_set(pf_devlink, devlink);
-+	if (err) {
-+		devlink_free(devlink);
-+		return;
-+	}
-+
-+	vf->devlink = devlink;
-+	scoped_guard(devl, devlink) {
-+		ice_devlink_vf_resources_register(vf);
-+		devl_register(devlink);
-+	}
-+}
-+
-+void ice_deinit_vf_devlink(struct ice_vf *vf)
-+{
-+	struct devlink *devlink = vf->devlink;
-+
-+	lockdep_assert_held(&vf->pf->vfs.table_lock);
-+
-+	if (!devlink)
-+		return;
-+
-+	vf->devlink = NULL;
-+	scoped_guard(devl, devlink) {
-+		devl_unregister(devlink);
-+		devl_resources_unregister(devlink);
-+	}
-+	devlink_free(devlink);
-+}
-diff --git a/drivers/net/ethernet/intel/ice/virt/queues.c b/drivers/net/ethernet/intel/ice/virt/queues.c
-index f87ccf5d370b..76f2ba779053 100644
---- a/drivers/net/ethernet/intel/ice/virt/queues.c
-+++ b/drivers/net/ethernet/intel/ice/virt/queues.c
-@@ -986,6 +986,48 @@ int ice_vc_cfg_qs_msg(struct ice_vf *vf, u8 *msg)
- 				     VIRTCHNL_STATUS_ERR_PARAM, NULL, 0);
- }
- 
-+/**
-+ * ice_vf_max_contig_qs - get the most queues VF could get in one range
-+ * @vf: pointer to the VF info
-+ * @vsi: VSI of the VF
-+ *
-+ * Scattered queue mapping is not implemented for VFs. Queues of the VF count
-+ * as free, as VF reset releases them before it takes the new range.
-+ *
-+ * Return: length of the longest range of free Tx queues and Rx queues.
-+ */
-+static int ice_vf_max_contig_qs(struct ice_vf *vf, struct ice_vsi *vsi)
-+{
-+	struct ice_pf *pf = vf->pf;
-+	unsigned long *txqs, *rxqs;
-+	int max_tx = 0, max_rx = 0;
-+	int b, e;
-+
-+	txqs = bitmap_alloc(pf->max_pf_txqs, GFP_KERNEL);
-+	rxqs = bitmap_alloc(pf->max_pf_rxqs, GFP_KERNEL);
-+	if (!txqs || !rxqs)
-+		goto out;
-+
-+	scoped_guard(mutex, &pf->avail_q_mutex) {
-+		bitmap_copy(txqs, pf->avail_txqs, pf->max_pf_txqs);
-+		bitmap_copy(rxqs, pf->avail_rxqs, pf->max_pf_rxqs);
-+	}
-+	for (int i = 0; i < vsi->alloc_txq; i++)
-+		clear_bit(vsi->txq_map[i], txqs);
-+	for (int i = 0; i < vsi->alloc_rxq; i++)
-+		clear_bit(vsi->rxq_map[i], rxqs);
-+
-+	for_each_clear_bitrange(b, e, txqs, pf->max_pf_txqs)
-+		max_tx = max(max_tx, e - b);
-+	for_each_clear_bitrange(b, e, rxqs, pf->max_pf_rxqs)
-+		max_rx = max(max_rx, e - b);
-+out:
-+	bitmap_free(txqs);
-+	bitmap_free(rxqs);
-+
-+	return min(max_tx, max_rx);
-+}
-+
- /**
-  * ice_vc_request_qs_msg
-  * @vf: pointer to the VF info
-@@ -1004,33 +1046,41 @@ int ice_vc_request_qs_msg(struct ice_vf *vf, u8 *msg)
- 	u16 req_queues = vfres->num_queue_pairs;
- 	struct ice_pf *pf = vf->pf;
- 	u16 max_allowed_vf_queues;
--	u16 tx_rx_queue_left;
-+	struct ice_vsi *vsi;
- 	struct device *dev;
--	u16 cur_queues;
-+	u16 max_lut_queues;
- 
- 	dev = ice_pf_to_dev(pf);
- 	if (!test_bit(ICE_VF_STATE_ACTIVE, vf->vf_states)) {
- 		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
- 		goto error_param;
- 	}
- 
--	cur_queues = vf->num_vf_qs;
--	tx_rx_queue_left = min_t(u16, ice_get_avail_txq_count(pf),
--				 ice_get_avail_rxq_count(pf));
--	max_allowed_vf_queues = tx_rx_queue_left + cur_queues;
-+	vsi = ice_get_vf_vsi(vf);
-+	if (!vsi) {
-+		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
-+		goto error_param;
-+	}
-+
-+	/* without LARGE_NUM_QPAIRS, VF can only use the v1 queue opcodes */
-+	if (vf->driver_caps & VIRTCHNL_VF_LARGE_NUM_QPAIRS)
-+		max_lut_queues = ice_lut_type_to_qs_num(vsi->rss_lut_type);
-+	else
-+		max_lut_queues = ICE_MAX_QS_PER_VF_VCV1;
-+	max_allowed_vf_queues = min(ice_vf_max_contig_qs(vf, vsi),
-+				    max_lut_queues);
-+	if (req_queues > max_lut_queues) {
-+		vfres->num_queue_pairs = max_allowed_vf_queues;
-+		goto error_param;
-+	}
-+
- 	if (!req_queues) {
- 		dev_err(dev, "VF %d tried to request 0 queues. Ignoring.\n",
- 			vf->vf_id);
--	} else if (req_queues > ICE_MAX_QS_PER_VF) {
--		dev_err(dev, "VF %d tried to request more than %d queues.\n",
--			vf->vf_id, ICE_MAX_QS_PER_VF);
--		vfres->num_queue_pairs = ICE_MAX_QS_PER_VF;
--	} else if (req_queues > cur_queues &&
--		   req_queues - cur_queues > tx_rx_queue_left) {
--		dev_warn(dev, "VF %d requested %u more queues, but only %u left.\n",
--			 vf->vf_id, req_queues - cur_queues, tx_rx_queue_left);
--		vfres->num_queue_pairs = min_t(u16, max_allowed_vf_queues,
--					       ICE_MAX_QS_PER_VF);
-+	} else if (req_queues > max_allowed_vf_queues) {
-+		dev_warn(dev, "VF %d requested %u queues, but only %u are free in one range.\n",
-+			 vf->vf_id, req_queues, max_allowed_vf_queues);
-+		vfres->num_queue_pairs = max_allowed_vf_queues;
- 	} else {
- 		/* request is successful, then reset VF */
- 		vf->num_req_qs = req_queues;
-diff --git a/drivers/net/ethernet/intel/ice/virt/rss.c b/drivers/net/ethernet/intel/ice/virt/rss.c
-index 960012ca91b5..99d9295af79c 100644
---- a/drivers/net/ethernet/intel/ice/virt/rss.c
-+++ b/drivers/net/ethernet/intel/ice/virt/rss.c
-@@ -3,6 +3,7 @@
- 
- #include "rss.h"
- #include "ice_vf_lib_private.h"
-+#include "ice_lib.h"
- #include "ice.h"
- 
- #define FIELD_SELECTOR(proto_hdr_field) \
-@@ -1734,7 +1735,9 @@ int ice_vc_config_rss_lut(struct ice_vf *vf, u8 *msg)
- {
- 	struct virtchnl_rss_lut *vrl = (struct virtchnl_rss_lut *)msg;
- 	enum virtchnl_status_code v_ret = VIRTCHNL_STATUS_SUCCESS;
-+	int lut_size = ICE_LUT_VSI_SIZE;
- 	struct ice_vsi *vsi;
-+	u8 *lut;
- 
- 	if (!test_bit(ICE_VF_STATE_ACTIVE, vf->vf_states)) {
- 		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
-@@ -1746,24 +1749,38 @@ int ice_vc_config_rss_lut(struct ice_vf *vf, u8 *msg)
- 		goto error_param;
- 	}
- 
--	if (vrl->lut_entries != ICE_LUT_VSI_SIZE) {
-+	vsi = ice_get_vf_vsi(vf);
-+	if (!vsi) {
- 		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
- 		goto error_param;
- 	}
- 
--	if (!test_bit(ICE_FLAG_RSS_ENA, vf->pf->flags)) {
-+	/* the LUT size reported in the GET_VF_RESOURCES reply */
-+	if (vf->driver_caps & VIRTCHNL_VF_LARGE_NUM_QPAIRS)
-+		lut_size = vsi->rss_table_size;
-+	if (vrl->lut_entries != lut_size) {
- 		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
- 		goto error_param;
- 	}
- 
--	vsi = ice_get_vf_vsi(vf);
--	if (!vsi) {
-+	if (!test_bit(ICE_FLAG_RSS_ENA, vf->pf->flags)) {
- 		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
- 		goto error_param;
- 	}
- 
--	if (ice_set_rss_lut(vsi, vrl->lut, ICE_LUT_VSI_SIZE))
-+	lut = kmalloc(vsi->rss_table_size, GFP_KERNEL);
-+	if (!lut) {
-+		v_ret = VIRTCHNL_STATUS_ERR_NO_MEMORY;
-+		goto error_param;
-+	}
-+
-+	/* repeat the LUT of the VF over the whole RSS LUT of its VSI */
-+	for (int i = 0; i < vsi->rss_table_size; i++)
-+		lut[i] = vrl->lut[i % lut_size];
-+
-+	if (ice_set_rss_lut(vsi, lut, vsi->rss_table_size))
- 		v_ret = VIRTCHNL_STATUS_ERR_ADMIN_QUEUE_ERROR;
-+	kfree(lut);
- error_param:
- 	return ice_vc_send_msg_to_vf(vf, VIRTCHNL_OP_CONFIG_RSS_LUT, v_ret,
- 				     NULL, 0);
-@@ -1920,3 +1937,30 @@ int ice_vc_set_rss_hashcfg(struct ice_vf *vf, u8 *msg)
- 				     NULL, 0);
- }
- 
-+int ice_vc_get_max_rss_qregion(struct ice_vf *vf)
-+{
-+	enum virtchnl_status_code v_ret = VIRTCHNL_STATUS_SUCCESS;
-+	struct virtchnl_max_rss_qregion max_rss_qregion = {};
-+	struct ice_vsi *vsi;
-+	int err, len = 0;
-+
-+	if (!test_bit(ICE_VF_STATE_ACTIVE, vf->vf_states)) {
-+		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
-+		goto reply;
-+	}
-+
-+	vsi = ice_get_vf_vsi(vf);
-+	if (!vsi) {
-+		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
-+		goto reply;
-+	}
-+
-+	len = sizeof(max_rss_qregion);
-+	max_rss_qregion.vport_id = ICE_VF_VSI_ID;
-+	max_rss_qregion.qregion_width =
-+		ilog2(ice_lut_type_to_qs_num(vsi->rss_lut_type));
-+reply:
-+	err = ice_vc_send_msg_to_vf(vf, VIRTCHNL_OP_GET_MAX_RSS_QREGION, v_ret,
-+				    (u8 *)&max_rss_qregion, len);
-+	return err;
-+}
-diff --git a/drivers/net/ethernet/intel/ice/virt/virtchnl.c b/drivers/net/ethernet/intel/ice/virt/virtchnl.c
-index ca8018e3dd42..778637f2868c 100644
---- a/drivers/net/ethernet/intel/ice/virt/virtchnl.c
-+++ b/drivers/net/ethernet/intel/ice/virt/virtchnl.c
-@@ -248,8 +248,7 @@ static int ice_vc_get_vf_res_msg(struct ice_vf *vf, u8 *msg)
- 	struct virtchnl_vf_resource *vfres = NULL;
- 	struct ice_hw *hw = &vf->pf->hw;
- 	struct ice_vsi *vsi;
--	int len = 0;
--	int ret;
-+	int ret, len = 0;
- 
- 	if (ice_check_vf_init(vf)) {
- 		v_ret = VIRTCHNL_STATUS_ERR_PARAM;
-@@ -329,12 +328,19 @@ static int ice_vc_get_vf_res_msg(struct ice_vf *vf, u8 *msg)
- 	if (vf->driver_caps & VIRTCHNL_VF_CAP_PTP)
- 		vfres->vf_cap_flags |= VIRTCHNL_VF_CAP_PTP;
- 
-+	if (vf->driver_caps & VIRTCHNL_VF_LARGE_NUM_QPAIRS &&
-+	    vsi->rss_lut_type != ICE_LUT_VSI)
-+		vfres->vf_cap_flags |= VIRTCHNL_VF_LARGE_NUM_QPAIRS;
-+
- 	vfres->num_vsis = 1;
- 	/* Tx and Rx queue are equal for VF */
- 	vfres->num_queue_pairs = vsi->num_txq;
- 	vfres->max_vectors = vf->num_msix;
- 	vfres->rss_key_size = ICE_VSIQF_HKEY_ARRAY_SIZE;
- 	vfres->rss_lut_size = ICE_LUT_VSI_SIZE;
-+	/* older VF drivers allocate their RSS LUT only once, at init */
-+	if (vfres->vf_cap_flags & VIRTCHNL_VF_LARGE_NUM_QPAIRS)
-+		vfres->rss_lut_size = vsi->rss_table_size;
- 	vfres->max_mtu = ice_vc_get_max_frame_size(vf);
- 
- 	vfres->vsi_res[0].vsi_id = ICE_VF_VSI_ID;
-@@ -2533,6 +2539,10 @@ static const struct ice_virtchnl_ops ice_virtchnl_dflt_ops = {
- 	.cfg_q_quanta = ice_vc_cfg_q_quanta,
- 	.get_ptp_cap = ice_vc_get_ptp_cap,
- 	.get_phc_time = ice_vc_get_phc_time,
-+	.get_max_rss_qregion = ice_vc_get_max_rss_qregion,
-+	.ena_qs_v2_msg = ice_vc_ena_qs_v2_msg,
-+	.dis_qs_v2_msg = ice_vc_dis_qs_v2_msg,
-+	.map_q_vector_msg = ice_vc_map_q_vector_msg,
- 	/* If you add a new op here please make sure to add it to
- 	 * ice_virtchnl_repr_ops as well.
- 	 */
-@@ -2670,6 +2680,10 @@ static const struct ice_virtchnl_ops ice_virtchnl_repr_ops = {
- 	.cfg_q_quanta = ice_vc_cfg_q_quanta,
- 	.get_ptp_cap = ice_vc_get_ptp_cap,
- 	.get_phc_time = ice_vc_get_phc_time,
-+	.get_max_rss_qregion = ice_vc_get_max_rss_qregion,
-+	.ena_qs_v2_msg = ice_vc_ena_qs_v2_msg,
-+	.dis_qs_v2_msg = ice_vc_dis_qs_v2_msg,
-+	.map_q_vector_msg = ice_vc_map_q_vector_msg,
- };
- 
- /**
-@@ -2766,6 +2780,13 @@ void ice_vc_process_vf_msg(struct ice_pf *pf, struct ice_rq_event_info *event,
- 		goto error_handler;
- 	}
- 
-+	/* VF must not see a config change before the reset that applies it */
-+	if (test_and_clear_bit(ICE_VF_STATE_NEEDS_RESET, vf->vf_states)) {
-+		dev_info(dev, "doing deferred reset of VF %d\n", vf_id);
-+		ice_reset_vf(vf, ICE_VF_RESET_NOTIFY);
-+		goto finish;
-+	}
-+
- 	ops = vf->virtchnl_ops;
- 
- 	/* Perform basic checks on the msg */
-@@ -2901,6 +2922,20 @@ void ice_vc_process_vf_msg(struct ice_pf *pf, struct ice_rq_event_info *event,
- 	case VIRTCHNL_OP_GET_QOS_CAPS:
- 		err = ops->get_qos_caps(vf);
- 		break;
-+	case VIRTCHNL_OP_GET_MAX_RSS_QREGION:
-+		err = ops->get_max_rss_qregion(vf);
-+		break;
-+	case VIRTCHNL_OP_ENABLE_QUEUES_V2:
-+		err = ops->ena_qs_v2_msg(vf, msg, msglen);
-+		if (!err)
-+			ice_vc_notify_vf_link_state(vf);
-+		break;
-+	case VIRTCHNL_OP_DISABLE_QUEUES_V2:
-+		err = ops->dis_qs_v2_msg(vf, msg, msglen);
-+		break;
-+	case VIRTCHNL_OP_MAP_QUEUE_VECTOR:
-+		err = ops->map_q_vector_msg(vf, msg, msglen);
-+		break;
- 	case VIRTCHNL_OP_CONFIG_QUEUE_BW:
- 		err = ops->cfg_q_bw(vf, msg);
- 		break;
+Consider a reader in mptcp_token_get_sock() that holds a stale chain
+pointer to an msk whose memory is being reused as this clone, and that is
+looking up the same token T. It would see token == T, a refcount of 2
+from sk_clone(), and a matching netns.
+
+In that case both READ_ONCE(msk->token) != token checks pass and
+refcount_inc_not_zero_acquire() succeeds. Nothing checks whether the
+socket is hashed, so an unhashed msk that is still being built is
+returned. The new !token check doesn't cover this case.
+
+subflow_token_join_request() then uses that msk without holding its lock:
+
+  subflow_check_req()
+    subflow_token_join_request()
+      mptcp_token_get_sock()
+      mptcp_pm_get_local_id()
+      mptcp_pm_is_backup()
+      mptcp_pm_announced_has_ssk()   (different source port)
+      subflow_req_create_thmac()
+
+mptcp_pm_get_local_id() could read the listener's addresses copied by
+sock_copy(), before mptcp_copy_inaddrs() runs. It could then return the
+wrong local ID, or add an implicit endpoint that shouldn't exist.
+subflow_req_create_thmac() could also run before the keys are set up.
+
+The token store is a plain WRITE_ONCE() with no release ordering, and the
+reader has no matching acquire. On weakly ordered CPUs, could
+mptcp_pm_announced_has_ssk() see the new token but still see the
+pm.anno_list and pm.lock contents copied from the listener?
+
+If mptcp_token_accept() then fails, mptcp_sk_clone_destroy() tears the msk
+down while the join request still holds its reference. Because
+mptcp_token_destroy() returns early for unhashed sockets, the msk keeps
+token T.
+
+The third patch in this series ("net: mptcp: verify the token slot in
+mptcp_token_iter_next()") does not touch mptcp_token_get_sock() or the
+clone path, so this case is still open at the end of the series.
+
+Would checking that the socket is hashed after taking the reference work
+here? Another option is to publish msk->token under the bucket lock just
+before hashing. Either would cover this case as well as the token 0
+cases.
+
+>  	rcu_read_lock();
+>  	bucket = token_bucket(token);
+>
+
 -- 
-2.54.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/tencent_D0DCF4B132B20B70FB5AE2D9272AA4AEAF07%40qq.com
