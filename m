@@ -1,99 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.100
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794905409;
-	b=iIIu/GftUT13RD4fwyFcZj40aqZfzyUcw/zzrM4rANhvCDoGP34B5K8z/D9xL81ZrW6T
-	 NpseTR5i/0opKk7Rl0C3uSeTasJ9FB3iQls+9Oa7PA4qK4s8kDQ3F0XoORnAUmeyYbgF2
-	 eQRCmesu41LmFTtz3xYJ0a2w3pzGbI88ccoQ/rHdQK/9tpFxgcTE/YrpmD/T9woBwJOvo
-	 3xrM8c0/siih0Nw7qSda4pvooI2drdZ7yeVl0da6PG5IgPb/+5YRIfrI7hM1wSH2VHeIW
-	 hdpenhiM02utNaCLRrKAed6qZF8zgqRk7rrHxo1NKdouhrts3lm1yLYqQdkpd2Ha9Gw==
+	t=1794905460;
+	b=PjY2m2l+Oc2Kcif0dH9cCyRzFgn33JvPplCRx0JUmFmr03wOGZ6SvcRf75Yu28Vyz206
+	 S/a46R9PTn4frhY5P4yHCopp22nR7Oquq4uPs7dy8haMenpC81fyd5+DvY7nUSOGxOvRR
+	 YyzXgQOPTyUNExJ8TCfkgygfRQKpLI1g0cuM4TZS7AWi/S+++gvtwjbfaJS/ZBbsSK8IY
+	 xYYr6f9VevELxNR57pIeq+Qzcy84GN0kZykEQGnTRHMu+iGK9EBPJL/T5MWKvH7bjTloY
+	 J9ReVi1pgCOhcIUEBsMUB/9AQnzCEtXNG6jIPudIy1ggL4tP34HyMOVjxrvk/VH8ApA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794905409;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=E/RFP3wsLpPNC+geMO+1/yPZx+YppweJwf0WP+dI9gc=;
-	b=SLkdLyVTQ68Xg4cyBU5sV+g1++m5GPXi5G589sBsWbjQ/m0PTpfEHLikTVtu4Z0O7/Rg
-	 DzdEo94KMKkm0/WS0olZD06njn0MAwcYEXU9kXyGcaVq1Zx9cKTWpLlb8ADaHadr+/8Lg
-	 026dVsLgaHPDGs4bgEMt7OcAoOq3fdhdaURGRmqf0Z1yWx1BB2bS70Lp8AiHD+5rSGwEB
-	 6qpVfBMoM+nTASRv9/tV92wjhgPIvKDImH0JLWZSgYuilUQS1bZ/uW12U3FnhW8rI6x9b
-	 8cMPlsoEjSSFTHI4y946TW0DmsXOuCWzygSUjoveQ3vFvf7UWKuW8PZz2yjIZsffAxg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794905460;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=kktxErXVA9vzSuKDfU/GwRl9jfNN1q0kNJMaIMx7e2g=;
+	b=LCKGB4ZXd9tfB/a4Hs4MIVGN5XdpM6MAuBkfgwXws1dLVL7d2/bnTwhQui86SPrCySSN
+	 /O5mV0Tlp2dS/E2gNg/rIw51VuxV/5TU+N6sJpQU2QU8wCbYMvCoEJVxEHZJPrZsen4QP
+	 r/Uu69p+8VO3M2YRS6t4D0MjEXsxyx0xKDF1Hu+b/y6RPf2AndLvvEdJtJMpL/OK7f9uy
+	 90PW8lyAQySPAEAeKrHOYWxR+QOYzs9rQCUNrqwZkgbh9PZByt3kt7wb6XNLRdUc/8vj6
+	 H/0qW8abY72pAgh3DZpgOp94WTedYBnCXaPtKdmPTzuGX21bWq6V9YWLvkEaObHmerw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jonasjelonek.de;
-	spf=pass smtp.mailfrom=jonasjelonek.de;
-	dkim=pass header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=vqrld4rA;
-	arc=none smtp.remote-ip=212.227.17.13
-Received: from mout.kundenserver.de (mout.kundenserver.de [212.227.17.13])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="iNTI1/jw";
+	arc=none smtp.remote-ip=95.215.58.100
+Received: from mta1.migadu.com (out-100.mta1.migadu.com [95.215.58.100])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 072D7606A32A
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:50:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 072D7606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jonasjelonek.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jonasjelonek.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFDEB606A882
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:50:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFDEB606A882
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=vqrld4rA
-DKIM2-Signature:  i=1; m=1; t=1794905403;
- mf=PGpvbmFzQGpvbmFzamVsb25lay5kZT4=;
- rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
- d=jonasjelonek.de;
- s=s1-ionos:rsa-sha256:POv6vOyRIHf4cGYZSrQo5ZPa358y
-   GL5BJRztPkbAmWB55/hDhrg9amTSk7BCs07KJvkTkHXlXNkFKMVUYXrDsPlNoHku1+eB5V+aBxj
-   rkSt6ezD58aa0r84cFiIVk7YiO+zJlBzRlcjPsuNGT77hLPDnF166jiDe8eQQin40RgUcr3XXOw
-   Wf3H7WJ0qnm/1EYmXEnajHs4GOb+xHambD7DyHrHZLFtknwmANXp6W4N6MU6EPxuh0vSoekeRgq
-   AsA5iVTAeAX3OG6Ho3vdrKM+SzJQ5WbP1yeGDKBy8bNh8CvDv4G+JBYBiQM58tHCIqftSCAXOEM
-   i1mtHwgIxaxEvg==;
-Message-Instance:  m=1;
- h=sha256:
-   aFN7WPqU9k+V5anpWemxAEZ9Ygd345uxr3sVYkqCkdg=:
-   mgQEqV6Qa+9ciGJucJIqoAeYrahEWEFblmyXCxYmFlE=,
-  sha512:
-   n4a9BFIYm7gxL9pSeyeaxDA0lvLkhcB9gQDzPemaV1ZHtB9k5nb7uClNF0Kmf+hWWZHhXNLDEM0GUnpFDNfZTA==:
-   HkD1caWtXrhOC5szqlQD6TcqIwrUB8T45F4MVt0GhgmCh3ApWNMm8lHh2UO1tcM3Y6ARDGM1yraWxyIXmw8EJg==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jonasjelonek.de;
-	s=s1-ionos; t=1794905283; x=1795510083; i=jonas@jonasjelonek.de;
-	bh=E/RFP3wsLpPNC+geMO+1/yPZx+YppweJwf0WP+dI9gc=;
-	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:cc:
-	 content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=vqrld4rAE89GSKJyeJMXrapjoZmgWR5Ww16UIULWl0V+V+c1rjXKvDNZD6dqd5bg
-	 aIJWTZvWiIDZC3yEeZ0yaG/WedJVhg0MCnZP/JquFhcBQJxxAmuuzxU6pPakqy7Ue
-	 3h+ImmSxPoaLgr6gIG0VKuV3p17GJjgxl25v8JHG0Tzrv1QYxXYChQkoD6VZkwUUc
-	 W6u94C3ZDG7S3BSGN5k7jcSNY/xuHzOPSN0nm25ZtWHYuli4HdNEe7T0/euMmK42l
-	 xZByYfft/Tve5l0bPF2afVm1gR7rq6IRtV6t+iVl2ybe0NQNhtqqgBmV+oX9p5BiB
-	 W2AMRG5Qs6lBBJA85g==
-X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
-Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue108
- [213.165.67.113]) with ESMTPSA (Nemesis) id 1Mate1-1wsoZt4BdD-00Zcms; Tue, 17
- Nov 2026 09:48:03 +0100
-From: Jonas Jelonek <jonas@jonasjelonek.de>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	linux-doc@vger.kernel.org,
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iNTI1/jw
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=frb27RcRWqYhKgZ/jRZ/7dmrrDCCd2Sc4xBQ+/xfsgo=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794905457; v=1; x=1795510257;
+ b=iNTI1/jwwxCNfYGWarUAmQmm3CnIp51Ytf7U2n3sLJFrtwSileU0NwsknG3ErZWt2F4H2x7B
+ ZNovzud09h6JqoxUdYBodErZHnw6ULZKBhvI+uyU6n94Pgpos/rLhgnah0KoQYm6Mgf3u87GXFz
+ yfXZE9OJNfsWj1B1V1PRXKWc=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 747235d7d1053b67;
+	Tue, 17 Nov 2026 08:50:57 +0000
+X-Mizu-Trace-ID: 747235d7d1053b67
+X-Migadu-Flow: FLOW_OUT
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+To: netdev@vger.kernel.org
+Cc: saeedm@nvidia.com,
+	leon@kernel.org,
+	tariqt@nvidia.com,
+	mbloch@nvidia.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	linux-rdma@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Jonas Jelonek <jonas@jonasjelonek.de>
-Subject: [RFC PATCH net-next 2/2] net: phy: add Realtek XSGMII interface mode
-Date: Tue, 17 Nov 2026 08:47:48 +0000
-Message-ID: <20261117084748.2387647-3-jonas@jonasjelonek.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261117084748.2387647-1-jonas@jonasjelonek.de>
-References: <20261117084748.2387647-1-jonas@jonasjelonek.de>
+	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Subject: [PATCH net-next v1] net/mlx5e: TX, Do not open a multi-packet WQE for a single packet
+Date: Tue, 17 Nov 2026 17:50:36 +0900
+Message-ID: <20261117085036.3138779-1-xuanqiang.luo@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,203 +73,121 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:fyTWJNMXZOGI2apJLpiMdC1QqQowHr0FYkXcz+aRyO2S4BcvyG5
- OsH4l0LJQ6iPPP3C/S/mieZn9v/CYqSMWsPC7mECQ3qFqKhPi3mRLWci9itI4fpprmedrme
- +eC8gZvfP+8oUE+QEXI0SzXL6t9835RMBYgiC/dplSEzBkTQV/kSqv3UwK8KKNriP5v4uuz
- mR27H2Pbp4N/UQ04NgTLg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:8HrvPPkEzUk=;h0anzsgWv8oLWxkLTEWZjVpzFpl
- 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
- OVg==
+Content-Transfer-Encoding: 8bit
 
-Introduce PHY_INTERFACE_MODE_XSGMII for Realtek's proprietary eight-port
-MAC-PHY interface. Append the enum value before PHY_INTERFACE_MODE_MAX
-and provide the xsgmii string mapping.
+From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-Report eight carried ports and per-port 10/100/1000 Mbps capabilities.
-Handle XSGMII as a PHY-status interface in phylink, accepting in-band
-status and limiting the maximum per-port speed to 1 Gbps.
+A multi-packet WQE (MPWQE, added by commit 5af75c747e2a ("net/mlx5e:
+Enhanced TX MPWQE for SKBs")) lets several packets share one WQE, so the
+control and Ethernet segments are fetched by the device once per batch
+instead of once per packet. This saves PCIe bandwidth and CPU cycles, but
+only if the WQE carries more than one packet.
 
-Document that XSGMII's transport capacity is independent of the number
-of enabled ports. A dedicated mode distinguishes it from USXGMII and
-10G-QXGMII without inferring the wire protocol from the active port count.
+With skb_tx_mpwqe enabled, which is the default, mlx5e_xmit() sends every
+skb accepted by mlx5e_tx_skb_supports_mpwqe() through an MPWQE session.
+A session stays open between two calls only while the stack sets
+xmit_more. A packet without xmit_more closes the session and rings the
+doorbell. Hence a packet that comes without xmit_more while no session is
+open opens a session just for itself and closes it right away. Such a WQE
+takes one WQEBB, as a regular WQE does for the same packet, and the
+doorbell is rung for each packet either way, so nothing is saved.
 
-Signed-off-by: Jonas Jelonek <jonas@jonasjelonek.de>
-=2D--
- Documentation/networking/phy.rst | 7 +++++++
- drivers/net/phy/phy-core.c       | 2 ++
- drivers/net/phy/phy_caps.c       | 1 +
- drivers/net/phy/phylink.c        | 3 +++
- include/linux/phy.h              | 4 ++++
- 5 files changed, 17 insertions(+)
+This is the case for the IP fragments of a large UDP datagram and for
+UDP request/response traffic, which reach the driver one packet at a
+time. With pktgen and burst 1 every MPWQE carries one packet (mpwqe_blks
+equals mpwqe_pkts, xmit_more is 0) and the packet rate is 15% lower than
+with skb_tx_mpwqe turned off.
 
-diff --git a/Documentation/networking/phy.rst b/Documentation/networking/p=
-hy.rst
-index d53067ab1a61..675787c4ab52 100644
-=2D-- a/Documentation/networking/phy.rst
-+++ b/Documentation/networking/phy.rst
-@@ -327,6 +327,13 @@ Some of the interface modes are described below:
-     This is the Penta SGMII mode, it is similar to QSGMII but it combines=
- 5
-     SGMII lines into a single link compared to 4 on QSGMII.
-=20
-+``PHY_INTERFACE_MODE_XSGMII``
-+    This is Realtek's proprietary eight-port MAC-PHY interface. A single
-+    SerDes lane operating at 10.3125 Gbaud carries eight ports, each supp=
-orting
-+    speeds of 10Mbps, 100Mbps and 1Gbps. The interface describes the tran=
-sport
-+    capacity, independently of how many ports are enabled. It is distinct
-+    from USXGMII and 10G-QXGMII.
-+
- ``PHY_INTERFACE_MODE_10G_QXGMII``
-     Represents the 10G-QXGMII PHY-MAC interface as defined by the Cisco U=
-SXGMII
-     Multiport Copper Interface document. It supports 4 ports over a 10.31=
-25 GHz
-diff --git a/drivers/net/phy/phy-core.c b/drivers/net/phy/phy-core.c
-index d7a4a977fc8a..2dd36fa18e2c 100644
-=2D-- a/drivers/net/phy/phy-core.c
-+++ b/drivers/net/phy/phy-core.c
-@@ -201,6 +201,8 @@ int phy_interface_num_ports(phy_interface_t interface)
- 		return 4;
- 	case PHY_INTERFACE_MODE_PSGMII:
- 		return 5;
-+	case PHY_INTERFACE_MODE_XSGMII:
-+		return 8;
- 	case PHY_INTERFACE_MODE_MAX:
- 		WARN_ONCE(1, "PHY_INTERFACE_MODE_MAX isn't a valid interface mode");
- 		return 0;
-diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
-index 558e4df4d63c..0de12c42c47b 100644
-=2D-- a/drivers/net/phy/phy_caps.c
-+++ b/drivers/net/phy/phy_caps.c
-@@ -313,6 +313,7 @@ unsigned long phy_caps_from_interface(phy_interface_t =
-interface)
- 	case PHY_INTERFACE_MODE_QUSGMII:
- 	case PHY_INTERFACE_MODE_SGMII:
- 	case PHY_INTERFACE_MODE_GMII:
-+	case PHY_INTERFACE_MODE_XSGMII:
- 		link_caps |=3D BIT(LINK_CAPA_1000HD) | BIT(LINK_CAPA_1000FD);
- 		fallthrough;
-=20
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index e885da1c2831..0028b543c788 100644
-=2D-- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -263,6 +263,7 @@ static int phylink_interface_max_speed(phy_interface_t=
- interface)
- 	case PHY_INTERFACE_MODE_PSGMII:
- 	case PHY_INTERFACE_MODE_QSGMII:
- 	case PHY_INTERFACE_MODE_QUSGMII:
-+	case PHY_INTERFACE_MODE_XSGMII:
- 	case PHY_INTERFACE_MODE_SGMII:
- 	case PHY_INTERFACE_MODE_GMII:
- 		return SPEED_1000;
-@@ -812,6 +813,7 @@ static int phylink_parse_mode(struct phylink *pl,
- 		case PHY_INTERFACE_MODE_PSGMII:
- 		case PHY_INTERFACE_MODE_QSGMII:
- 		case PHY_INTERFACE_MODE_QUSGMII:
-+		case PHY_INTERFACE_MODE_XSGMII:
- 		case PHY_INTERFACE_MODE_RGMII:
- 		case PHY_INTERFACE_MODE_RGMII_ID:
- 		case PHY_INTERFACE_MODE_RGMII_RXID:
-@@ -1046,6 +1048,7 @@ static enum inband_type phylink_get_inband_type(phy_=
-interface_t interface)
- 	case PHY_INTERFACE_MODE_PSGMII:
- 	case PHY_INTERFACE_MODE_QSGMII:
- 	case PHY_INTERFACE_MODE_QUSGMII:
-+	case PHY_INTERFACE_MODE_XSGMII:
- 	case PHY_INTERFACE_MODE_USXGMII:
- 	case PHY_INTERFACE_MODE_10G_QXGMII:
- 		/* These protocols are designed for use with a PHY which
-diff --git a/include/linux/phy.h b/include/linux/phy.h
-index 21afc2082b17..ffff2a6313d3 100644
-=2D-- a/include/linux/phy.h
-+++ b/include/linux/phy.h
-@@ -107,6 +107,7 @@ extern const int phy_basic_ports_array[3];
-  * @PHY_INTERFACE_MODE_LAUI: 50 Gigabit Attachment Unit Interface
-  * @PHY_INTERFACE_MODE_100GBASEP: 100GBase-P - with Clause 134 FEC
-  * @PHY_INTERFACE_MODE_MIILITE: MII-Lite - MII without RXER TXER CRS COL
-+ * @PHY_INTERFACE_MODE_XSGMII: Realtek proprietary eight-port SGMII over =
-10G
-  * @PHY_INTERFACE_MODE_MAX: Book keeping
-  *
-  * Describes the interface between the MAC and PHY.
-@@ -152,6 +153,7 @@ typedef enum {
- 	PHY_INTERFACE_MODE_LAUI,
- 	PHY_INTERFACE_MODE_100GBASEP,
- 	PHY_INTERFACE_MODE_MIILITE,
-+	PHY_INTERFACE_MODE_XSGMII,
- 	PHY_INTERFACE_MODE_MAX,
- } phy_interface_t;
-=20
-@@ -286,6 +288,8 @@ static inline const char *phy_modes(phy_interface_t in=
-terface)
- 		return "100gbase-p";
- 	case PHY_INTERFACE_MODE_MIILITE:
- 		return "mii-lite";
-+	case PHY_INTERFACE_MODE_XSGMII:
-+		return "xsgmii";
- 	default:
- 		return "unknown";
- 	}
-=2D-=20
-2.53.0
+Use the regular WQE path for a packet that has no xmit_more and no open
+session. Packets with xmit_more still open and extend a session, and the
+last packet of a batch still closes it, so batching is unchanged.
+
+The only visible change besides the performance is in the statistics:
+tx*_mpwqe_blks and tx*_mpwqe_pkts no longer count a packet sent alone.
+Such a packet is counted in tx*_packets, as any packet sent with a
+regular WQE.
+
+pktgen, 64 B packets on one TX queue, between two 10G ConnectX-5 hosts,
+2-socket Hygon C86-4G 7490 sender on net-next, the patch switched at run
+time by a temporary module parameter (not part of this patch) so that
+before and after run in the same boot, mean of 3 boots x 3 rounds:
+
+  test                              before    after   change
+  pktgen 64 B burst 1, kpps           1494     1740   +16.5%
+  pktgen 64 B burst 16, kpps          3236     3236    +0.0%
+
+Batches do not regress: with burst 16, which uses xmit_more, the rate is
+unchanged and 15% above skb_tx_mpwqe off, so the gain of MPWQE is kept.
+
+The price is that the regular path runs a little more code for a packet
+than a single packet MPWQE does (mlx5e_sq_calc_wqe_attr(),
+mlx5e_accel_tx_finish()); the packet rate above shows that it is more
+than compensated.
+
+Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+---
+pktgen, 64 B UDP packets, one TX queue, 30M packets per run, sender and
+IRQs pinned, interrupt coalescing fixed, before -> after, in pps:
+  burst 1 (no xmit_more)  1493583 -> 1739855 (+16.5%)
+  burst 4                 2578336 -> 2576508  (-0.1%)
+  burst 16                3235640 -> 3235746  (+0.0%)
+
+After vs before, 3 boots, paired t-test over the boots (2 degrees of
+freedom, so a low power), the change of each boot in brackets:
+- burst 1: +16.5% (p<0.001) [+16.2 +15.9 +17.3]
+- burst 4: -0.1% (p=0.86) [+0.6 -0.4 -0.5]
+- burst 16: +0.0% (p=0.99) [+0.3 -0.0 -0.3]
+
+With the patch, burst 1 is within 1% of skb_tx_mpwqe turned off (1752020
+pps). With burst 4 and 16 turning it off is 1% and 13% slower (2550781
+and 2810510 pps), so the gain of MPWQE for batches is kept.
+
+Single packet MPWQEs, counted with tx*_mpwqe_blks and tx*_mpwqe_pkts:
+with burst 1, before the patch mpwqe_blks and mpwqe_pkts are both
+29993000 for 29993000 packets, after the patch they are 0. With burst 4
+(7519017 blocks, 29972000 packets) and burst 16 (1984750 blocks, 29888000
+packets) the counters are the same before and after.
+
+ drivers/net/ethernet/mellanox/mlx5/core/en_tx.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
+index 14479da98f42..7c1fcd8fb294 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
+@@ -646,6 +646,7 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
+ {
+ 	struct mlx5e_priv *priv = netdev_priv(dev);
+ 	struct mlx5e_accel_tx_state accel = {};
++	bool xmit_more = netdev_xmit_more();
+ 	struct mlx5e_tx_wqe_attr wqe_attr;
+ 	struct mlx5e_tx_attr attr;
+ 	struct mlx5e_tx_wqe *wqe;
+@@ -678,11 +679,13 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	mlx5e_sq_xmit_prepare(sq, skb, &accel, &attr);
+ 
+ 	if (test_bit(MLX5E_SQ_STATE_MPWQE, &sq->state)) {
+-		if (mlx5e_tx_skb_supports_mpwqe(skb, &attr)) {
++		/* An MPWQE for a lone packet saves nothing, use a regular WQE. */
++		if (mlx5e_tx_skb_supports_mpwqe(skb, &attr) &&
++		    (xmit_more || mlx5e_tx_mpwqe_session_is_active(sq))) {
+ 			struct mlx5_wqe_eth_seg eseg = {};
+ 
+ 			mlx5e_txwqe_build_eseg(priv, sq, skb, &accel, &eseg, attr.ihs);
+-			mlx5e_sq_xmit_mpwqe(sq, skb, &eseg, netdev_xmit_more());
++			mlx5e_sq_xmit_mpwqe(sq, skb, &eseg, xmit_more);
+ 			return NETDEV_TX_OK;
+ 		}
+ 
+@@ -697,7 +700,7 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	mlx5e_accel_tx_finish(sq, wqe, &accel,
+ 			      (struct mlx5_wqe_inline_seg *)(wqe->data + wqe_attr.ds_cnt_inl));
+ 	mlx5e_txwqe_build_eseg(priv, sq, skb, &accel, &wqe->eth, attr.ihs);
+-	mlx5e_sq_xmit_wqe(sq, skb, &attr, &wqe_attr, wqe, pi, netdev_xmit_more());
++	mlx5e_sq_xmit_wqe(sq, skb, &attr, &wqe_attr, wqe, pi, xmit_more);
+ 
+ 	return NETDEV_TX_OK;
+ }
+-- 
+2.43.0
 
