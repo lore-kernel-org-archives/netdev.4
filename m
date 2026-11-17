@@ -1,60 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794926737;
-	b=VDXhCGxtWhcKx8vcjgrg+jE6zN0zEoa5PGllj5BTCPATT+6c5z7DnhIXO9aLRtfB0oKN
-	 1mjP/Y/P7YB+eQ9uQPrVuBQe6gNbSI18XmZhoKSq8/dDamoMvnXDYixYaZCcOCdR53cu5
-	 L2yU7Ipe6YTo34ySmwsWfo67K2LshrYNTUqevGO793aGKjWkqjqLjBseW5PCQbv4LHYzO
-	 k8aGcSasCG6YfJyKsCA5vUPVteJCE58b5pBn8GGZU66SFbEIPDxYFkWvpWThy/Ro31Y9t
-	 2FCkWnhkLGkpAp2+wy+dclbzS1hPLZki2xufxUGSesGFuKHGwL9gcaVyvgzeyR22Fkg==
+	t=1794926853;
+	b=IJWn04+o05eL6uw/r0SKp+k9gTojda6k+SKrup6iO1c6iOYzYUuhry9mxf/ua9tDbyea
+	 xqpe0d94pm07Beo2zj8y7C5QQHejBscqudz6nF/3+Q9F0JuaKOwKqqCBFKkr8D5dzQySL
+	 gRDNleGPWVDI9CJ2C+Zk7v3+WemVbTR+/EtXpCAwI4/FsEwbpufNK1JeOe8YyZjppnc++
+	 hJP0vjiFp+SdGMT4zKsLFezh4FZz0hbEIU9GBByMj/XMphnh7T0Iz2VVjurHdKYybS4HG
+	 BAvga+fslqfhM5hA1+t/Vgy4i7Kd1B8NH8esxsv/H1LH6fiXCSvx951lqxoNhuukAnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794926737;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:X-HM-Spam-Status:
-	 DKIM-Signature;
-	bh=AhzMQ2E3g/vRFX15pwJIjwTP95X1ccIWcj1om489vX4=;
-	b=dFs401V+1gjx6T86+xuvG6rXTwKTxejnRAWe4CluR/5hLk9Bn0E9Bf6Z8ojKJym14LOH
-	 RFNJJZ0BXUhWuPy7ybqqPLaHQqMtlgY/q9tEusN/+iqDnh8FJr3447DujbkhxOfh9kHiN
-	 esQ24DQkWRrBhVzJxxfhDG4/6g6Wrv2OY15zw18f+wPWRvyA74T3Nnj1wWe1Up1RvrD+j
-	 Fro+P+A6Pcrq/68yGJGSgQHAPFFFvulevaT5BsY59xa/ZdXhvlpAUKFxAOJ0efYh44jAG
-	 OAOSnA0JgWua5CnqIi/dyn9JgNEaG14niqiUZSqWRVDBZxZHMgg+YprWHbsaeeaLBzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794926853;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
+	b=LICZyPHu7X4IVck7tcyldft9UHXz3o7M22EaJqgHIktyXFrJS9DcaWEAnJodVAn8tJcp
+	 ABXAItKzV/R6BlU0WD6eo1J1opT+tEG6uyBif3JlnXvk4JRnHm24Mqb8SJV4wFVYdoXVw
+	 bEfH1gVIJ4k4Iyx73Que/3onFU815YeY0oW9hXeSm29Edd2JaHFcnpNCawe9l0RfIk3DW
+	 7gnWERz3YULru6quXJ3OQ47HMA9UerT1G5huyqwXbvHqugHiFy8dHnuajQpmpgjBOyzii
+	 V+Gv7fCVH7AKWN9bNvteOQIyslX+st7dcyJQQinRsB+c00MvtYh9WEQ51D0JwlxEkjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eWWleW+P;
-	arc=none smtp.remote-ip=101.71.155.101
-Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DgvzNZLY;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 232BC606A330;
-	Tue, 17 Nov 2026 14:45:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 232BC606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E951C606A31C;
+	Tue, 17 Nov 2026 14:47:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=eWWleW+P
-Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 55020e792;
-	Tue, 17 Nov 2026 22:45:20 +0800 (GMT+08:00)
-From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-To: Boon Khai Ng <boon.khai.ng@altera.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Michal Simek <michal.simek@amd.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	stable@vger.kernel.org
-Subject: [PATCH net 2/2] net: emaclite: Fix potential use-after-free during removal
-Date: Tue, 17 Nov 2026 22:45:18 +0800
-Message-ID: <20261117-571e631490-net-2@mail.sdu.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DgvzNZLY
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4084E1F000C5;
+	Tue, 17 Nov 2026 14:47:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794926852;
+	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=DgvzNZLY7h4qe0jzCmlKFp82hv2gl2xZnkfWtmBjyfTUI7yKbRehoNvKKXtembW9x
+	 PF9XEp63PJsrr8lJPHa7e7qGuTdGJhN/VEPKhZ4WEZu/v5jG1sFUkQUjKxmDsd8Vi8
+	 m3b9171y439IkaCrCElJhzE+Yo2BdC5lcM2FXH8yQgs8CFB5V/R/sJfT48rSs1Q6ob
+	 pZK4jkYHEX9PpK5G9D14oVcl03WKDpNsS3MxQZ9SpGW3iMKDSQ6ubYzxxA+ksI9kJS
+	 xEv6HvglaBhfIik0bO7I/d9esp+GDvdil3HdXCy1GK3Qk/UqyJSSoheDdejm3XYjUM
+	 egjJuk+MQ2yzQ==
+From: netdev-bot+sinfo@kernel.org
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: Boon Khai Ng <boon.khai.ng@altera.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Michal Simek <michal.simek@amd.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: 
+ Re: [PATCH net 0/2] net: Keep MDIO resources until netdev removal completes
+Date: Tue, 17 Nov 2026 14:47:31 +0000
+Message-ID: <179492685179.3291.7664135046736995469@kernel.org>
 In-Reply-To: <20261117-571e631490-net-0@mail.sdu.edu.cn>
 References: <20261117-571e631490-net-0@mail.sdu.edu.cn>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,58 +66,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1e9f8329d03a1kunm6b1ed508156203
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZT05MVkoZT0tKSkIfHkweS1YeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
-	NMVUpLS1VLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=eWWleW+Prxyyl6CPBnxsU9TR71Ot0NZcypj/qxve1DKhKKW2H/JHeYZLe7vD/CyQkXjFnOn7YAoYMQIpTpQbD7k2QrQPX5lkhA4luIo5z1ogKSC+1sDVt+fJ3cCvlsHs6n/0W7c3eEKbO0vFLJYwItp+K0Jaf4JyCxPnF4nVwTw=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=AhzMQ2E3g/vRFX15pwJIjwTP95X1ccIWcj1om489vX4=;
-	h=date:mime-version:subject:message-id:from;
 
-xemaclite_of_remove() frees the MDIO bus before unregistering the
-network device. If the interface is up, unregister_netdev() calls
-xemaclite_close(), whose phy_disconnect() still accesses that bus.
-This can cause a use-after-free during PHY detachment.
+Hi!
 
-Unregister the network device first so that PHY detachment finishes
-before the MDIO bus is unregistered and freed.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-This issue was found by our static analysis tool under development.
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
 
-Fixes: 27cad0084066 ("net: emaclite: Fix MDIO bus unregister bug")
-Cc: stable@vger.kernel.org
-Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
----
- drivers/net/ethernet/xilinx/xilinx_emaclite.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_emaclite.c b/drivers/net/ethernet/xilinx/xilinx_emaclite.c
-index 4719d40a63ba..008e3d1e2981 100644
---- a/drivers/net/ethernet/xilinx/xilinx_emaclite.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_emaclite.c
-@@ -1189,6 +1189,8 @@ static void xemaclite_of_remove(struct platform_device *of_dev)
- 
- 	struct net_local *lp = netdev_priv(ndev);
- 
-+	unregister_netdev(ndev);
-+
- 	/* Un-register the mii_bus, if configured */
- 	if (lp->mii_bus) {
- 		mdiobus_unregister(lp->mii_bus);
-@@ -1196,8 +1198,6 @@ static void xemaclite_of_remove(struct platform_device *of_dev)
- 		lp->mii_bus = NULL;
- 	}
- 
--	unregister_netdev(ndev);
--
- 	of_node_put(lp->phy_node);
- 	lp->phy_node = NULL;
- }
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.43.0
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
