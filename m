@@ -1,99 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.162
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794885358;
-	b=oX12JF+5JBUvYcE4tvOvgT+it/6DgjXVncrTAitI/bG05PaD+B4tOzjjoZxz42Jj6M1Z
-	 yYO73QAuSTTlkRSj1Ct1K/7AKdE+842mu7zT6HE9ssngQHRKlLV2/UkUiScp90R2nEliK
-	 nb9Wj2iS3QFFqJ6fKmKWYcjbDFhCOUbkIz+6y6R05T8QrRddF7ptITZfwAhcvvYJtnIqL
-	 DmuM5jmWbZqX+O7NMbpF0t+p+9opGj7S5g+x1ry4aa4UhR9+O2jlfcEmopoOUlXIH5RFz
-	 8SlW3CVh32FPyb2BgY05uJfNdkoNPsIjlsEuHK5ALDi4j2/ixmNWDg5EH6eJw41IlEw==
+	t=1794885421;
+	b=rtJ+SRUZHiWCR28TF6OxTAHjQYI2vCc+V2zsZhgiyKhEHpK9Ib8qcsCw06qlcaJat5H4
+	 CYxp89bU3iYr5CGy1TanUeAjZaRE4THQRlxH5UZebZGIjntsFz/IYId02p/BU7gos+nUd
+	 ApQa1JuM5SSLsAu+Zi8SiJBgfcos0HYjDPPTB1LghHWwJQdgsUdzNgTq7e1w9MJpS/NwR
+	 q6gHT6U1SWynzrHX5S01nGuSZBlaSv1xZIZthuPV1YJLF62fHMM9czcnliwaozM8s2/tW
+	 8s+Ms26XfhBADDkni0PD8KdVptH53dwlvBQoqrFP9O2H+YkpjYsJKBkqnOifBRQp9UQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794885358;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=hLTAdn75m/X1XOgHCTgJs4b9yJPhm3jmCX7SAzPgrq4=;
-	b=O/MnlVtQUDYUbQcY2RH74cF6PnUnI673vKsIX1gwRPovWvlSDiIS946+rMMif1Vp+0ta
-	 5+Mfrw4GUYlv0opKppLQf1AxwIfGAdMUlbHnc77w0NfJsQz7ShNjQvfUv/AF5ULXaJSNB
-	 zMHp1z/BZQ+nU7UVxNSrAD2Y+QWBEYiGq3sT2dVE1REfZ8oS4XrebPeT7N2ekeUuhKCml
-	 ixEYjWZGDRZpeARcQcTUy0xfJz61iQZ0cUBb226yuPTgE1FdK9QKrxKc0vdXcqO9g87mj
-	 mPrt++jc2Yq/74RobaHDUgIBf0HGgCfb4rGb3r2uv8W/rTt6PlPmnLPBwVdyCeNIs3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794885421;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer;
+	bh=3BqVgFLoD0zMoWkTopht5WfAySy+wXgHPJD+MrXKHjI=;
+	b=ZKyOLdt9FGFsPbjC9vVS/9d0HQ3YG0dSte/STsXVJ5yjms+s2Sg/pI42yvWJLudzzK5C
+	 lyaUS/LGZjgb9x8T7bArkSabg3DHDUqHC5JM743606cyGsu8jZymaPInHTGtr+gXNnxNJ
+	 byB0yBpkWe54g1Eoi7KsAnzYPdRXJ+t0FmKVi0W+1BAV13VPdMHNSennY3WEOEJ0lRVdS
+	 uSAcdmyd4VbbW5Fxb4UOswlzC2VijtWrOc0i45ze0UPrJ8yYp0H9bY6ySTLxdWP/1O9dX
+	 Zh8rVkEBPzoZf2KCe4sth36FP0kaLhFaOKMV09QhNibCkIo5uPlNUwYz8pl+WLuRjUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tPTwUZ9L;
-	arc=none smtp.remote-ip=209.85.160.178
-Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com [209.85.160.178])
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wgTSP80y;
+	arc=none smtp.remote-ip=91.218.175.162
+Received: from mta0.migadu.com (out-162.mta0.migadu.com [91.218.175.162])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12826606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:15:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12826606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 073C3606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:17:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 073C3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tPTwUZ9L
-Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-536717a4d83so43576931cf.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:15:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794885357; x=1795490157; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hLTAdn75m/X1XOgHCTgJs4b9yJPhm3jmCX7SAzPgrq4=;
-        b=tPTwUZ9LEzc6IDdq/15oD7EzCpNa/w0dh2Ny3Vgym5tzyEIi6koNn38x0qlRyVXY2Q
-         1EBwRAZrT/WirZcTseLNVR3rNQpnkZpxSD+uNODvKKuT4qsoNfbhLO5pIa9hTgibNX5Z
-         sv0r6rMt9kfuak+mj8+j8yyajnk32UpKSfQv0HIyc+fsWN/SOwqch13m68KfJ5d07BL4
-         Dfnw/yQDy/r/9b65mUdI8dyThxbbji8PGeU2uDYKPGIU1493vluMYUi3Jhw+zvex1s2U
-         asvnCWvIdcrCsKYSyJjDp0MgjmqnElUz22IKTud8zZ7up+15UpDUuz9D7Vf/ma2zeT3U
-         PCZw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794885357; x=1795490157;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hLTAdn75m/X1XOgHCTgJs4b9yJPhm3jmCX7SAzPgrq4=;
-        b=MD+jp4t91JLtIgLr7f1O4mLJwTp52DEMmpr3Xxidz6EK889FuGiOj0hCOr1rgnC/ef
-         Ne0D3GO1Rd+9Rvisw9Jx60entLPbobDTr32yzcuqMeUsyZfvT8ElO0dE9TGBueV+Ni9M
-         Er9AfqcYHNpjfFrW9PDpQpXs9yNDS1bLzQXXNw0mIwRQ5oDIV7b811QtU4woUy/YAbvQ
-         gtQA+QyeBTEu/woJs9nodZv/47re1wfzb+eklhQtwvroZS5ycG93s/WfyL4y1lVIqZvw
-         x1ISP5O9JEQqgmlBsDKxyXLsWXgflrKEZvx52Nw5nVai2+7Bm2pEz7W/CSudk2DmEiR2
-         vjow==
-X-Forwarded-Encrypted: i=1; AL+hErGjuYxcDlKo6Eq/x4plVpckqmzPHiUDiwEOGzMvYNJETS6/KOS16v6fqB1I0ONguSW5YKNksdc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Qqabu1oumFpmhEk29vMrM+oAcEhn/dLs3i7PA3efA6QxTSVEn
-	brb6S9ggxB1cHjS6Fm4dq/Bnx7xdZJZj1Ke8Sqhnth0FWwM6Z65KPHU3
-X-Gm-Gg: AYBFou1G/6wR8aZ3wIX5BUUUF1yF0/ppDk1NRV2olgtASiZGV0rSZQwSjQT1cC1WhHB
-	rN4qSdMs/1i0vslP5XZyoSiICsJJDRvAYJmVMXmNzZPoeeyifKCNEvLTQwbVJlngpQYYAEc370C
-	BDL5oQIKQxKR+9zfuWFjygMbir5esI/aCMX/kyMT47tabWU6A5oLDGRUKijMAgjq8olFy8HJJ6r
-	t6XHb0llwRzZ/0gLN0EHJkEalgFybACGBc7Hf8+pLMDwUgvfCb0/3oKhBykvxRMXzc8Hzf6YlDV
-	ToGbWSlWPdX/xr7ZOdT2eg5uJ8gOsdV58HFBYaMPN5DMvcu9n/oyChUXa/RFhSJdEhBdBU7Nklp
-	HAefbCAxHrLIrU1PNaV4y4zpB/BLZScuYFkqIy5FpuquZq6AFGadCWLr264afflZWemMFlZt8+e
-	biuPejKyBtN84Ua4God7fJvdfJHpXGa0qeMKbK4tSMmOXgoXnTi7AsaRnz/ez1Vn629mceT5ho3
-	2/eF1fLZJmX7fqYj9Ow+m6fXl18jN8uEBd9ornt37hUO4I2V+unpQoZPzRH3ZJV93/zCQFCmGSs
-	hqbxfQTZizWWO8L5blTNj9IVAe3NDRONazY0jbZd0ioiQH2vZNA7n5+hsfwxVAPo/U3koB1A7uH
-	0Shtbp7ppNISem01Hu9hg
-X-Received: by 2002:a05:622a:14c6:b0:55c:fa5a:b232 with SMTP id d75a77b69052e-55cfa5ab3b2mr121881541cf.4.1794885356928;
-        Mon, 16 Nov 2026 19:15:56 -0800 (PST)
-Received: from linux.. ([8.34.174.240])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23da64c1sm99291826d6.37.2026.11.16.19.15.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 19:15:56 -0800 (PST)
-From: Changyul Lee <lcy8047@gmail.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Changyul Lee <lcy8047@gmail.com>
-Subject: [PATCH iwl-net] i40e: hold mac_filter_hash_lock while validating VF cloud filters
-Date: Mon, 16 Nov 2026 22:15:53 -0500
-Message-ID: <20261117031553.1728084-1-lcy8047@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wgTSP80y
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=MuaxYUaRsYPdPpOlAIaSnGJvIHgDTOslJBgHM2iQNqA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794885419; v=1; x=1795490219;
+ b=wgTSP80yf8EKN4oHSZ2m3SstsUZs7TXUchyozPdwqShSTRfuD/Lj8GdjqoX+3V0EXsShQeiA
+ yJhbVlp8SxUm6yli/qnWWD0K/wk9BytlNhCbuT6/rOhaiTwK5x9XzPXkp++PDGKMFA6FyUQmbin
+ T8MqqOB8XEwan0jTFnPwNQX0=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 01e8b328d17bca94;
+	Tue, 17 Nov 2026 03:16:59 +0000
+X-Mizu-Trace-ID: 01e8b328d17bca94
+X-Migadu-Flow: FLOW_OUT
+From: Hangbin Liu <hangbin.liu@linux.dev>
+Date: Tue, 17 Nov 2026 11:16:40 +0800
+Subject: [PATCH net-next v2] tools: ynl: render operations-level
+ fixed-header in docs
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,60 +60,104 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261117-ynl_fixed_header-v2-1-e7ac247956ee@kylinos.cn>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/3WNwQ6CMBBEf4Xs2Rq2AQFP/ochpLSLrJJi2kogh
+ H+X4tnjy8y8WcGTY/JwTVZwNLHn0e4gTwnoXtkHCTY7g0zlBRGlWOzQdDyTaXpShpyQplC6022
+ edSXss7ejmEflHSwFYWkOUP8S/2mfpEM0xm7PPoxuOd4nPBb/jyYUKMqsyElhRVla3V7LwHb0Z
+ 22h3rbtCw4EoenNAAAA
+X-Change-ID: 20261112-ynl_fixed_header-2d7acfcb54f8
+To: David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>, Donald Hunter <donald.hunter@gmail.com>
+Cc: Hangbin Liu <hangbin.liu@linux.dev>, Wessel Jacobi <wessel@jacobi.pw>, 
+ Randy Dunlap <rdunlap@infradead.org>, linux-doc@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Hangbin Liu <liuhangbin@kylinos.cn>
+X-Mailer: b4 0.16.0
 
-i40e_validate_cloud_filter() runs in the VF message path, which holds
-neither RTNL nor vsi->mac_filter_hash_lock. It looks up the destination
-MAC with i40e_find_mac() and walks vsi->mac_filter_hash for the VLAN
-without the lock. Meanwhile the host can change the VF MAC or port VLAN
-with i40e_ndo_set_vf_mac() or i40e_ndo_set_vf_port_vlan(), which delete
-filters under the lock and free them in __i40e_del_filter() or
-i40e_sync_vsi_filters(). The lookup and the walk can then read a freed
-struct i40e_mac_filter.
+From: Hangbin Liu <liuhangbin@kylinos.cn>
 
-Do the lookup and the walk under mac_filter_hash_lock, as
-i40e_vc_add_mac_addr_msg() does, and do not use the filter after
-dropping the lock.
+The doc generator only rendered keys on each operations list entry, so
+operations-level fixed-header (the family default) never showed up in the
+generated HTML. Add a fallback to emit the default_fixed_header on ops
+that do not set their own.
 
-Fixes: e284fc280473 ("i40e: Add and delete cloud filter")
-Signed-off-by: Changyul Lee <lcy8047@gmail.com>
+After update, rt-route, rt-addr, rt-rule, rt-nexthop and ovs_* all
+shows the fixed header correctly in generated html doc.
+
+Reported-by: Wessel Jacobi <wessel@jacobi.pw>
+Closes: https://patch.msgid.link/8610ee11-e1dc-481a-9654-11188a06786a@jacobi.pw
+Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
 ---
-Found with a static analysis tool we are developing.
+I rebuilt the HTML documentation, the `fixed-header` shows up correctly
+for rt-addr.yaml, rt-route.yaml, rt-rule.yaml, rt-nexthop.yaml, ovs_*.yaml
+---
+Changes in v2:
+- Fix the issue in doc_generator instead of specific yaml file
+- Link to v1: https://patch.msgid.link/20261112-ynl_fixed_header-v1-1-8475ea19e409@kylinos.cn
+---
+ tools/net/ynl/pyynl/lib/doc_generator.py | 18 ++++++++++++++----
+ 1 file changed, 14 insertions(+), 4 deletions(-)
 
-Compile-tested only, with x86_64_defconfig plus PCI_IOV, I40E and W=1.
-
- drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c b/drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c
-index 74b6c0ed8480..da1f1a9c4124 100644
---- a/drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c
-+++ b/drivers/net/ethernet/intel/i40e/i40e_virtchnl_pf.c
-@@ -3624,9 +3624,11 @@ static int i40e_validate_cloud_filter(struct i40e_vf *vf,
- 	 */
- 	if (mask.dst_mac[0] && !mask.dst_ip[0]) {
- 		vsi = pf->vsi[vf->lan_vsi_idx];
-+		spin_lock_bh(&vsi->mac_filter_hash_lock);
- 		f = i40e_find_mac(vsi, data.dst_mac);
+diff --git a/tools/net/ynl/pyynl/lib/doc_generator.py b/tools/net/ynl/pyynl/lib/doc_generator.py
+index 74f5d408e048..0bd83da9a654 100644
+--- a/tools/net/ynl/pyynl/lib/doc_generator.py
++++ b/tools/net/ynl/pyynl/lib/doc_generator.py
+@@ -17,7 +17,7 @@
+         2) YAML Netlink (YNL) doc generator: Generate docs from YAML data
+ """
  
- 		if (!f) {
-+			spin_unlock_bh(&vsi->mac_filter_hash_lock);
- 			dev_info(&pf->pdev->dev,
- 				 "Destination MAC %pM doesn't belong to VF %d\n",
- 				 data.dst_mac, vf->vf_id);
-@@ -3641,6 +3643,10 @@ static int i40e_validate_cloud_filter(struct i40e_vf *vf,
- 					break;
- 				}
- 			}
-+		}
-+		spin_unlock_bh(&vsi->mac_filter_hash_lock);
+-from typing import Any, Dict, List
++from typing import Any, Dict, List, Optional
+ import yaml
+ 
+ LINE_STR = '__lineno__'
+@@ -181,7 +181,8 @@ class YnlDocGenerator:
+ 
+         return "\n".join(lines)
+ 
+-    def parse_operations(self, operations: List[Dict[str, Any]], namespace: str) -> str:
++    def parse_operations(self, operations: List[Dict[str, Any]], namespace: str,
++                         default_fixed_header: Optional[str] = None) -> str:
+         """Parse operations block"""
+         preprocessed = ["name", "doc", "title", "do", "dump", "flags", "event"]
+         linkable = ["fixed-header", "attribute-set"]
+@@ -206,6 +207,13 @@ class YnlDocGenerator:
+                 if key in linkable:
+                     value = self.fmt.rst_ref(namespace, key, value)
+                 lines.append(self.fmt.rst_fields(key, value, 0))
 +
-+		if (mask.vlan_id) {
- 			if (!found) {
- 				dev_info(&pf->pdev->dev,
- 					 "VF %d doesn't have any VLAN id %u\n",
++            # Show the family-wide default when the op does not set its own
++            if default_fixed_header and "fixed-header" not in operation:
++                value = self.fmt.rst_ref(namespace, "fixed-header",
++                                         default_fixed_header)
++                lines.append(self.fmt.rst_fields("fixed-header", value, 0))
++
+             if 'flags' in operation:
+                 lines.append(self.fmt.rst_fields('flags',
+                                                  self.fmt.rst_list_inline(operation['flags'])))
+@@ -367,8 +375,10 @@ class YnlDocGenerator:
+         # Operations
+         if "operations" in obj:
+             lines.append(self.fmt.rst_subtitle("Operations"))
+-            lines.append(self.parse_operations(obj["operations"]["list"],
+-                                               family))
++            lines.append(self.parse_operations(
++                obj["operations"]["list"],
++                family,
++                obj["operations"].get("fixed-header")))
+ 
+         # Multicast groups
+         if "mcast-groups" in obj:
 
-base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
--- 
-2.43.0
+---
+base-commit: c88fd6989aea9237a60a4859139a265bfb7ddc0b
+change-id: 20261112-ynl_fixed_header-2d7acfcb54f8
+
+Best regards,
+--  
+Hangbin Liu <liuhangbin@kylinos.cn>
 
