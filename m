@@ -1,93 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.86.161
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943831;
-	b=larqVKovQ53YPUHh+PXJDUXr7PmZOsdkxyGCusWhdT+vq1Fovny7tfzE5olZj59dZKOS
-	 SacuNfdiLnF4NEW8lqCm9CC/Q0KOSotSO0mIcFzypFKetFwlqCZVZr1bMxGlKODhpLlbP
-	 76m/OPhi544cblDljdiNLP7/Fa8u23dq3WZvcOrjRg32r5boyYtjBpsg5m+tqSkyyeh/C
-	 6eY3TiCwGTRgdHvtO1iw/wICmDKIqELq1QodKkEJX7u3MGExx87f5tuSgBNUqUNy9EDG+
-	 WjwHy+LpwvqLkvBt2TVzJ6TShw2pH1FvpNAN6hduL96cYaR0uNG3GsOFR+1v/+iMSbA==
+	t=1794943914;
+	b=k3NEVkirG8bFh1X/ueSGtUnCAvyXJpTjMMsSMAEigYMtjAC9lZABWqD1XDYtnZa6ZcWw
+	 NE6EoHO4Gxm4f0ASVo5Hxxppwl8xEpqiZ8X4HFgr3XaffL1q12uNis+23uyeb8asYTF7m
+	 2IAcdAP30MVrVR00gYpW+f6SVhFwf/Vk5bweT4sgRZfcaTo9s6xGsEUM+UJoLwmAz6WD9
+	 tMmP9tSiMGULHy36GMXa56yH0YIjCjklywl17qsx6skk6+KHXjhCdzllas6W4f7Pr+vsm
+	 y3OEnV5ScA8HbipjeCBLeibX5ty+ZIUZC46/f8f8uU0IAQQuOy0XgWGU3BSWODPuB4w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943831;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version;
-	bh=vDzK/5X2Ogr9kNQjuXLS2GZMirjcfJzOOHYV6KRLP44=;
-	b=E009wSk1iPPDuTzEoEB+f+C3+zc1b5FwGPAoYpf41sPQcHqe7WLWwQTU0bzDvLRH/bL9
-	 ii1bvHMOZa0zCYXZPI3q89U2uASrLA/jmL6awtukd3YGHcTP+4iUQZw+zg7utEcPZ67sG
-	 sav5CFCY2wxT3Uo1xrFPsi5Iqj2j3e9Ihxb+W/+gTniBXOfi/XtkE24LOyIohvYe5QA+z
-	 yHQLzJZYhi0oFdaWprotqeLJEvPzGoR5qcnsfRuyaUK6wpT98YBWjSQ37Df7VgvnvRGEI
-	 Lp2TLKU4yPobYf4V4bVaN9nAO5Qe8NRGENBKIQotoADU+ZwT+V8DixBBhvIbQMvufxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943914;
+	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
+	 mail-alias-created-date:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-Authority-Info-Out:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
+	bh=tupyPMS6Ppn0golo5XSyKLtR6YNSo+CWY3qgLUPBzKE=;
+	b=IL4M7EkvDXVNugv7tcI1n2cqRUySTayudU5qrdWLiM7jvmdBOEBC2KGtaVdSvX8loP0v
+	 YxD1fpTVs1thHgBpoOIt9y4ZCxPWeT0Z4fVmNMOyFkblE86+Na0E7P/XUH7lTqy9S/gHI
+	 gJTpnBm91eCwg+uhNSwRgg3HYTKsKgPx8Y7gldPGHTtaEX0dHEOoU9g/Gxv2NCjU6LbDp
+	 zUM74cE9dhqeYGMQm8q9b/zRiRiXS/Ss43JlPYXv7MbKTJSQ3iVN2hnp0jsYoUqF0uI8m
+	 Vvd6ca4bNqYPgH3F9+ua6ybJREafIp69Lj/8jlA9bZfvQ6Wgr8Dgwpmtqx5fIOW38LQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="Lnh/w4Rl";
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	dmarc=none header.from=verdict.gg;
+	spf=pass smtp.mailfrom=verdict.gg;
+	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=Ih2ttrqP;
+	arc=none smtp.remote-ip=57.103.86.161
+Received: from outbound.qs.icloud.com (qs-2005c-snip4-11.eps.apple.com [57.103.86.161])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D91EF606A33F;
-	Tue, 17 Nov 2026 19:30:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D91EF606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8E2A606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:31:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8E2A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=verdict.gg
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=verdict.gg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=Lnh/w4Rl
-Received: from pps.filterd (m0528006.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJ9Wh8740559;
-	Tue, 17 Nov 2026 11:29:34 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=vDzK/5X2Ogr9kNQjuXLS2GZMirjcfJzOOHYV6
-	KRLP44=; b=Lnh/w4RlRhaG4N6nyc1DFwrGcMiXkUsXKgukNwGbMh+xnsaMTuQpx
-	ZHdb+ka7mmOcwlTF9BGMO5zfbqKHvwTic2WkcDXQEcTbfddU3GiyoHTxnuHcsn+R
-	aihgLE2NU/HuQBy4nZlRBmJfcUriXX8gUuvbma1HN+Dr3U7VJSn6G7ogtEwoiYCP
-	iP4W9dgtY85RI+P/RuCiZpVNlTyqDG28f2fMHDmDPdw2hyfsQyfpB3OZgX8VJvKR
-	cgH7Lf4+FIIzbOBLQEXl3ZeUUvTnbzySWJ2b2NJzMS3QdixRjcKxA6DM8jAkL+Mp
-	fGrgAzdO+Aucw/ZXtKP+lNcSrczs0xpyA==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0r2u3nnj-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 17 Nov 2026 11:29:31 -0800 (PST)
-Received: from localhost (2620:10d:c085:108::4) by mail.thefacebook.com
- (2620:10d:c08b:78::2ac9) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
- 2026 19:24:22 +0000
-From: Todd Freed <toddfreed@meta.com>
-To: <netdev@vger.kernel.org>
-CC: "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet
-	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Daniel Zahka
-	<daniel.zahka@gmail.com>,
-        Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-        Wei Wang <weiwan@google.com>, Jamal Hadi Salim <jhs@mojatatu.com>,
-        Jiri Pirko
-	<jiri@resnulli.us>, Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann
-	<daniel@iogearbox.net>,
-        Andrii Nakryiko <andrii@kernel.org>,
-        Martin KaFai Lau
-	<martin.lau@linux.dev>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav
- Fomichev <sdf@fomichev.me>,
-        Sabrina Dubroca <sd@queasysnail.net>,
-        Boris
- Pismenny <borisp@nvidia.com>, <bpf@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>
-Subject: [PATCH net v2 3/3] psp: only give time-wait sockets of PSP connections a validator
-Date: Tue, 17 Nov 2026 11:24:11 -0800
-Message-ID: <20261117192411.247117-4-toddfreed@meta.com>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261117192411.247117-1-toddfreed@meta.com>
-References: <20261117192411.247117-1-toddfreed@meta.com>
+	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=Ih2ttrqP
+Received: from outbound.qs.icloud.com (unknown [127.0.0.2])
+	by p00-icloudmta-asmtp-us-east-2d-10-percent-2 (Postfix) with ESMTPS id 9641F3000142;
+	Tue, 17 Nov 2026 19:31:50 +0000 (UTC)
+X-ICL-RepId: 01a1eafe-8209-79a5-981c-e4fdfb0e56a6
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1794943911; x=1826479911; bh=tupyPMS6Ppn0golo5XSyKLtR6YNSo+CWY3qgLUPBzKE=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=Ih2ttrqPnDmpiBxn+/eAIutck6i6j7u7rZqgPk9BKxQiQBVwiMavdAh2ecAnfXh4CBxa4xFNH+QIHapSdpPbmKWB3IOI7KJ1bNScKgXpRtLJL7iBM3GzGICy/1bHvdBycZIDlSS8I7njhLfZ5KnhvC63XIVMzWJ7hZkTXqR8z1o7f3pfTdwPO3ciYL3yjVfKHgVRNG0YFOp2dQHXwQnf7IyvW1w7Als9xrz1dqNEFCRqyatznmEKIpsi3/EFH0m5PAnlA2I+2rCuw0jFlERl7oN5VWKGUKglCCqHJHq7zLyAoCMLXpVgbXJOUIaizL7kcXuwwpwOAPz6UzJqpniV8w==
+mail-alias-created-date: 1621344842221
+Received: from DelNac.mail.msk (unknown [17.57.155.37])
+	by p00-icloudmta-asmtp-us-east-2d-10-percent-2 (Postfix) with ESMTPSA id 1DBAF300019B;
+	Tue, 17 Nov 2026 19:31:47 +0000 (UTC)
+From: Vladimir Vdovin <deliran@verdict.gg>
+To: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Vladimir Vdovin <deliran@verdict.gg>
+Subject: [PATCH net-next v4 0/3] ipv4/ipv6: Cache pmtu on all paths of a multipath route
+Date: Tue, 17 Nov 2026 22:31:38 +0300
+Message-ID: <20261117193141.27004-1-deliran@verdict.gg>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,62 +71,102 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Authority-Analysis: v=2.4 cv=fuhJ914f c=1 sm=1 tr=0 ts=6afcab1d cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=kkcUborcUVj0H7zxAXTl:22 a=VabnemYjAAAA:8 a=pGLkceISAAAA:8
- a=gxZvXKzzpFbKsGQtWD4A:9 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-GUID: 7TGuGGhg92bHct8VuVKRvtKR4evfqnpA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX47SlYJSEqV3x
- ZyoVtD+42qewQ7pHFPBtWwopul4QalVAcYw3IV0iCVaPMH3FAJ2bZTlEVBQi4qi55N6Vh8ZllVG
- ph9k+6IdkhBWtjyhhuhTuqaQ4+h/1gc46rh6HT35yR0kHM//mTva2orJi+ahrauwek0nUDvpt2Z
- PSgv9WzBNFIHVxGrVtiG496zOrfrCBp0QRNpoVkV0uk6ISBSGF3bJ7p0/OSauy+NyCqLHBV0qdg
- XxxhgUSQ2PpqB5i6hNoUQeFMtDwNw7zw/dmRwWXJO2bERuwFULTxKjd/qr8iza4PP+NmGvZZXtf
- WC5Sy/hEwcuYCzQr8TbrYo0WM2fM8LXwcHv9zOn/WaTQn70p/0bX/azs5w+aB8RnXazSSHFOX1T
- H1DDPraKsVExHsL+lJEg0fMM6S32LqRT2hMH9DgZwUVLqpjsFGVEvGBqzD9Zb+wNyJ+F9IbIgF2
- 41LTkUndhJy/jUOQ3SQ==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX0vPdHjS6a2/i
- JNOkh+OtGn94rkeHeaoSQw8NtfPjZxz8EzWUqFuSMCy+3TfRxeUrIuGSZJwkm8cjVLXR+R/WRVT
- w+h5EP/3dndu7zYzAXRWWfIqQTbfH4A=
-X-Proofpoint-ORIG-GUID: 7TGuGGhg92bHct8VuVKRvtKR4evfqnpA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
+X-Authority-Info-Out: v=2.4 cv=YOsKWhGx c=1 sm=1 tr=0 ts=6afcaba7
+ cx=c_apl:c_pps:t_out a=bsP7O+dXZ5uKcj+dsLqiMw==:117
+ a=bsP7O+dXZ5uKcj+dsLqiMw==:17 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=HxOO8S7qDNDRVQTpMkN7:22 a=6uOZW5gG_GFTgJ11RZm6:22 a=VwQbUJbxAAAA:8
+ a=bKHCur5yDY6pmIDHOTwA:9
+X-Proofpoint-GUID: bFUYGdxpfn2VICFhM3OglcjlmOYcU8Dd
+X-Proofpoint-ORIG-GUID: bFUYGdxpfn2VICFhM3OglcjlmOYcU8Dd
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX9GsAPuHikMFn
+ YPexFgrmmH6KHO3Hi7cWq8G760J1OV0kmNfApr3/qGU5Io9Z+mGTNw+RL33ifkbCu1v6T5MvTnq
+ Ivh3G6xbZfe/tRgXBYMxPRw3vtWQ8v0=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX5Cx0vPZc+YHN
+ /d1cO1Cw/O+hOxdJJU9zKFrDjD8mLxrQ50kq1VWRp6Qj0UkdEL1rIS58fNjIaQfoQjr7iVxs68W
+ n6gHJTf/UQn5Kj9GWGM/BcFaAjOKQG059AdxpuwksQzF1GAOw1gVxHBvvo1zZeBhAUWEGu7E8Pw
+ OpHYN59tqr4cOzbS2GvGFKstSQ2vGQfW4HhNZ+qNEd6tDw9OHMHmQoI6COo1so+drYVCvHjFUsw
+ BcEXnBLgsrW7SEQQy7yDFDcAZBrmofL2/4CMbcs54+OUGeJ7/HnfOqbA7rALkpGuZQOfL1XDLX2
+ 6NGMayTbZUwIdI7IRJscbfBOVPhifYagW0Le0Qi93qZe87sWRfdW9v6euUlBDA=
+X-JNJ: AAAAAAABz/8voPgWdjHqiZOUkCs0T0TaIHLK2vUfivmCMGiu7Yp8/zK08BW1y0aOlLEl09
+ xU/pjrCngwRrSnvQuUpQKJyCHbEKgEaf9+Pls9KSex9ijHM1K28H44wvgnLL74+Hmt5LCI
+ RzaNZnd4RkGprGZMeA6JszYvLUfEdi5zsBYDM9Re83v6tHyHWivaVNmysKLUX7sOwX6vVl
+ 2QrMnDpcLiOsXV0+WtOun+K1U2DzhuihPrw5DRs5tKQ+dbVOoyjfGZVwP6YJDzjCEsXf+h
+ 3PnyRsJi+j0d4h6biD22Bh0swb8CgF/z0URxnNrVOcHKhA/GY3dU772FRb3YSFNvHXb6lb
+ fBFaL9WIvcmQuTHSwOeku1P/ifIi5ismbfwH3y8cLwlntUJh37761iTQbV7OfKzisIM8JF
+ +UcXQaq8tewdCyS/46AkhD1vkhjIs8o7pwaUEgs5geZWaqQjw0tc3Qp+56OgRxAnC8v6vJ
+ OvoUb4JNYxZhLlz2wbQaZtegY2e6sQ8dIiSgBRX3sLYWn6LQLF32jbPjETY8PzLlLIaYDa
+ 0q98swTJKz3XjdTQo0p8TG4atLxVYfs8fvcr0zojCR38xqR0hnrgluGK9UUmvdj+kQJWLR
+ FWTK2dkk9ZnBhR5+wJnWbZB03+qKWyNzCgmaKPSkotOnYM7cc7s0nyarMcv0oev9UKfQGh
+ bGKKCGW8ScUkHF000NGUx2aZTKwTaAYEZjV8vbVOVC0G5wCT1sE+2fSwE9oNRxXRxoYaj2
+ d4XBapdpJoehO+2zOU+wSYa7UTpv66zeb6ExTJsmmHC/Dljt5efLE7zfMQKFFKNQFtPMIc
+ mRRF+wgBqKBYytD/O0hzxtfCVzv8yRgVfDd8q3PTyVsD2SKl20d48x5Ou8DaberbCNb1tz
+ vQNrYuwNPptfaorqxDUcWBdL+l7zq/eUVLHqtqcPijw35gHZTSsWQiSreoD7bklybG35zp
+ W1vbR2XCQXGqUEcQiR3B1aXUX0emp9Ly4uCJCz355A9CmzEXnDQ0AfHKQyMvCm7Mp0WSPV
+ /KY2MM0bVHhH/QcVSbQyL2PFIBgIIMD3amPvAl10ZFRLVDWsEYsqFSvlUg1hZVcKH+hJu5
+ +bb55TdoQSOoSf9rQFC0dzpOZF+EAnnF2e5V7gPDCMzuYqv4+aFg4fU28ZZ2vNY6eCSwhN
+ Y1vmAIxpLX77VQoWN8Er7iXU3rwDqu0gEd2S7KAkcJoUVz7nuw1p8Jyb2hxth/0wcHevwL
+ v+s+pY5y4fEF1M+q0w3QsBd/JiZ8mRW/xCjValhf2bm2AbzY9dZFDlErBuI44Tndwa+aCg
+ 8qeWnKR9M2r6Bdf5/pyFO1qH/LEqK2
 
-psp_twsk_init() sets tw_validate_xmit_skb on TCP time-wait sockets.
-Today, that becomes set whether or not the socket has PSP offload, which
-is not needed but is harmless. psp_validate_xmit() passes such packets.
+IPv6 counterpart of commit 7d3f3b4367f3 ("net: ipv4: Cache pmtu for
+all packet paths if multipath enabled"), deferred back then [1].
 
-Set the validator only when the socket has a PSP association with a Tx
-key, as psp_sock_set_tx_key() does for full sockets.
+Patch 1 checks the mtu of a Fragmentation Needed against each path of
+the IPv4 fan-out, not against the looked-up one, patch 2 does the IPv6
+side, patch 3 adds the tests:
+the IPv6 variant of the pmtu.sh multipath test and, for both families,
+a multipath test with paths of different MTU. The IPv4 asymmetric
+test fails without patch 1, the IPv6 tests without patch 2.
 
-Fixes: 6b46ca260e22 ("net: psp: add socket security association code")
-Signed-off-by: Todd Freed <toddfreed@meta.com>
-Reviewed-by: Daniel Zahka <daniel.zahka@gmail.com>
----
- net/psp/psp_sock.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+v4, after the Sashiko review of v3:
+- ipv4: each path checks the mtu for itself, the early returns on the
+  dst are skipped when it was looked up for the Fragmentation Needed;
+  a locked mtu goes no higher than what a path uses, a path with a
+  locked pmtu is left alone
+- ipv6: walk the paths only from ip6_update_pmtu(), where dst comes
+  from a lookup; sockets and tunnels update their own dst as before,
+  a tunnel mtu no longer lands on the other paths of the inner route
+- ipv6: skip a blackhole nexthop and siblings not in the tree
+- tests: ping with ICMP sockets, a raw socket handles a Packet Too Big
+  a second time and could pass the IPv6 tests without the fix
+- tests: the IPv6 addresses on lo are added with nodad, the pings
+  through R2 are 1280 bytes to stay below the 1350 link
+v3: https://lore.kernel.org/netdev/20261113122237.88990-1-deliran@verdict.gg/
 
-diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
-index a6b1c42dd626..5043df0bf711 100644
---- a/net/psp/psp_sock.c
-+++ b/net/psp/psp_sock.c
-@@ -314,10 +314,12 @@ void psp_twsk_init(struct inet_timewait_sock *tw, const struct sock *sk)
- {
- 	struct psp_assoc *pas = psp_sk_assoc(sk);
- 
--	if (pas)
-+	if (pas) {
- 		refcount_inc(&pas->refcnt);
-+		if (pas->tx.spi)
-+			tw->tw_validate_xmit_skb = psp_validate_xmit;
-+	}
- 	rcu_assign_pointer(tw->psp_assoc, pas);
--	tw->tw_validate_xmit_skb = psp_validate_xmit;
- }
- 
- void psp_twsk_assoc_free(struct inet_timewait_sock *tw)
+v3, after the Sashiko review of v2:
+- compare the mtu with what each path uses now, not once with the
+  looked-up dst, so no path gets a pmtu above what it can carry
+- ipv6: keep updating a cached dst itself, the walk may not find it
+- ipv4: Fixes: tag, Fragmentation Needed wording
+- tests: MTU 1350 on the link to R2, so a Packet Too Big from R1 must
+  not be cached on the path via R2
+- tests: return routes on R1 and R2, hex flow labels, skip when
+  "ip route get" has no flowlabel
+v2: https://lore.kernel.org/netdev/20261110095903.84813-1-deliran@verdict.gg/
+
+v2, after the Sashiko review of v1:
+- update an existing exception in place, on every Packet Too Big
+- don't walk the siblings of a fib6_info no longer in the tree
+- commit message: the lookup in ip6_update_pmtu() hashes without
+  protocol and ports
+- new ipv4 patch, tests with paths of different MTU
+v1: https://lore.kernel.org/netdev/20261017210508.71849-1-deliran@verdict.gg/
+
+[1] https://lore.kernel.org/netdev/ad29493c-9e48-4a94-b327-e47af3a9d137@kernel.org/
+
+Vladimir Vdovin (3):
+  ipv4: Check a Fragmentation Needed against each path of a multipath
+    route
+  ipv6: Cache pmtu for all paths of a multipath route
+  selftests: net: pmtu: Add IPv6 and asymmetric multipath tests
+
+ net/ipv4/route.c                    |  90 ++++++---
+ net/ipv6/route.c                    | 138 +++++++++----
+ tools/testing/selftests/net/pmtu.sh | 290 ++++++++++++++++++++++++----
+ 3 files changed, 418 insertions(+), 100 deletions(-)
+
+
+base-commit: d26955e57475434b59d43ba372b2a50d33d5e0ed
 -- 
-2.53.1-Meta
+2.56.0
 
