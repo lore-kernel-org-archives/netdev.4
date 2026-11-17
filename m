@@ -1,49 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794882608;
-	b=DGwgfH8jXoTHgisl4Uitv3Me94oQzC9B3QJAFImd8N6vbw4yprxNv6ZdVdnHGI887/Xa
-	 me2k15ZRwid2GUdgSKGKrwekpkxiXdWxdFrHSpTSabFM+lP0e+wPsp3iD9UFyxJSOPFhC
-	 0/iDxNs2jNkYAciFB73w44jBG308mRR/9Xt986OVtuXV6GqIDWIjf7WgWHEf5vEtuaGwu
-	 QBlMU404MCcp5aQ5qE/sJ0JxBMZ2vWIgF29Obra2BANr3owGvdAv54qtjyz/utcweq/k7
-	 lVAZPTOsINhPexkIItEo5na4y3tx+NveZhLbWTxLpWHS1z9qZcqjBszGyzmWya0xQAA==
+	t=1794882614;
+	b=hwBPC8DvH8b+eYMCUcSkkvoo5mX1HcquJF63moWZPA7RTQZ2fj+kRU6XfykiwP/3D+HH
+	 tqbAHFC0U7ckWh2T/cVrX86GHWwqmlw27+TihbiEfXw74uoIg3/ITD8tYG38LEGOgbvAG
+	 b8t07xH05N0fMkRpjURrt+dCMnnwi0TKKvxeregmpZ2l4S+E0cBuMj/R5CNCcghC5eADs
+	 xJ3Lbph6Ta3KhfDjOSta7wGyjBxPSZVjvYYBixiTPdNvydsu4TSHS18CeGaKEG1ds/FpA
+	 sFaKAoXvRaOzu2VuKLt4jA9efWgcg1npvvtn0ZS2VSBTRSN/GYAZ2rLvRaEszWhzveg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794882608;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=kUuSC94oO3/oz5N3y5d23xYGfsDteOEa8OSE9TcfuLY=;
-	b=sL7Ywamajm3/goNKN5lcKNumK7zdU6lkr3MNKeFzfha86Z9vtlP3tKUqn2sroYgVxFoy
-	 zVPHs3ZNltlJmDZeCY180KH4f1n/5GJ0VF8RYDEwb5M7sFkoD3x6N2/6iLR3QLDKRc5G1
-	 CoVaCVj3jaSWgj89CVNKrroxv+r+OcHEVRYyXBNUb6KPjF7hVJcOCmIjaIyF7NIxfGi1k
-	 hCo3JWDcnaSF265Dvg62PnaARAtAc2/AaZ8PZmXgqkgF+iEhW4p9gjf/u/eImRF/Qgky2
-	 +eWppswVvswPiaWQ+ySGyH/k1/ye7Xx222Pxhoovxwn3cYh2LOVHl+WDpSodBfdVYww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794882614;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=+vU+7Y2PCRNUDXo+sq9092ljm50COrhrbCWF1bkUu8M=;
+	b=wts2agfbh+gCG9FmfEpNe+3qqrHf+wvrq9zQ64PGdWtgC5Cy4CVsvlThiUAL9pgNXMdu
+	 KVaKsRGTyvCwAD61Dm1ZluiBC67n/8fYRuuxFuVTgqixcVktfo8KR/RTAOFDpHjvO4iO+
+	 KiIrmcaqreN3CdBRKiWpDmCYFRrlh5CAq6fn+tpMaETshEibeUvHf8r30/UUlq1IulEiO
+	 c3t/fAi6DN077j4FADkGtmaMpgg59heXe/dV03FvQjd+s0hAYNdV15i/mZHBbTIV6jSUZ
+	 ESzaJkCOkj/P/KV72YCbgdxsUWhYo62HV7e8KSz43H4iZdGCzR8K1y8ugUXXt3Bk5vA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jGkqBFiq;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K5U60MJs;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CAF5606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 02:30:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F633606A329;
+	Tue, 17 Nov 2026 02:30:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jGkqBFiq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE99A1F000C4;
-	Tue, 17 Nov 2026 02:30:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K5U60MJs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3DCB1F000C8;
+	Tue, 17 Nov 2026 02:30:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794882607;
-	bh=kUuSC94oO3/oz5N3y5d23xYGfsDteOEa8OSE9TcfuLY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=jGkqBFiqQ2tQK+dU+1kXVS3FYXO3GWK3gQOl21swvoSrUKNIX4qvwDrgpSibX7uME
-	 QCRqqYr4fxsTdjh3twKWOY0lS80X7TevZXgkxjqpStoBLwLUOaT1V3j34zqd6Viia0
-	 jDPGmGe4lsAQB9SLgsG7hlvBT2itnIVq1D8XkX9l5L5PtY+vAbkhzfr3iAcBhKEtyw
-	 R8xcqDlvwXpE/VBJ+J13gJuV+C8krW8NWpzWBfJwJBvu5TU8q6DII2ENTpJAUigfM/
-	 rsdAaX5QAB2vTrzqO2S7sAzBRAdc9REPjwY6m/+nka39icQHd8fW/ELsu4JgNlidxZ
-	 zO1LoKT8VtwAg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B44DC391B088;
-	Tue, 17 Nov 2026 02:30:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1794882613;
+	bh=+vU+7Y2PCRNUDXo+sq9092ljm50COrhrbCWF1bkUu8M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=K5U60MJsVwNbCJzL0WUx0AlEL9z26JnyzM0wvja/NBLbfJAxRDGXg3IKk2BykT4TF
+	 xquHMR4HCX1awQlNOJNeNuTPkVgUOZCz+vjIvaflhCFJxX9F+7Mu3dGmtrks+9e2vd
+	 e4w6vV9D8w6ClSZ8uLuWeWKozVypqTeUc/Utly9BcrElvZXUml22Gl+O8m9T2Y7PaE
+	 NlVs9YSLXcPORoumN0XZKXgGITyfuSZb/uCwEU+sWg0F9K/Oepajz92v/9lvNdvyEb
+	 5z9JH5oBj6w+wVqwbiUwBVoqdpCm2q0pYYwKUGS8Q7KFZIUikTZbQ9p82vGKwCQ6e0
+	 9KOp79/Z8lJuQ==
+Date: Mon, 16 Nov 2026 18:30:12 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Coia Prant <coiaprant@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: Paolo Abeni <pabeni@redhat.com>, Jiawen Wu <jiawenwu@trustnetic.com>,
+ Mengyuan Lou <mengyuanlou@net-swift.com>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, Heiko
+ Stuebner <heiko@sntech.de>, Aleksandr Loktionov
+ <aleksandr.loktionov@intel.com>, Fabio Baltieri <fabio.baltieri@gmail.com>,
+ netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v4 1/2] net: phy: move
+ DECLARE_PHY_INTERFACE_MASK_ZERO to core
+Message-ID: <20261116183012.11a7ba72@kernel.org>
+In-Reply-To: <20261110160554.918652-2-coiaprant@gmail.com>
+References: <20261110160554.918652-1-coiaprant@gmail.com>
+	<20261110160554.918652-2-coiaprant@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,48 +66,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v4 0/4] selftests: net: add performance metric
- reporting
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179488260653.297000.12268110044714000172.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 02:30:06 +0000
-References: <20261111000246.962871-1-sdf@fomichev.me>
-In-Reply-To: <20261111000246.962871-1-sdf@fomichev.me>
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Hello:
+On Wed, 11 Nov 2026 00:05:53 +0800 Coia Prant wrote:
+> --- a/include/linux/phy.h
+> +++ b/include/linux/phy.h
+> @@ -159,6 +159,9 @@ typedef enum {
+>  #define DECLARE_PHY_INTERFACE_MASK(name) \
+>  	DECLARE_BITMAP(name, PHY_INTERFACE_MODE_MAX)
+>  
+> +#define DECLARE_PHY_INTERFACE_MASK_ZERO(name) \
+> +	DECLARE_PHY_INTERFACE_MASK(name) = { 0, }
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+I wonder who suggested this, hiding the init inside the macro seems 
+a bit subjective. I see no such defines today. We'll need an Andrew 
+ack for sure.
 
-On Tue, 10 Nov 2026 16:02:42 -0800 you wrote:
-> Let Python selftests report numeric measurements, so that CI can track
-> the performance of drivers over time, and add two performance tests.
-> 
-> ksft_metric() reports a measurement of the current test case, which is
-> printed right away as JSON:
-> 
->   # ktap-metric-json: {"goal":"higher","name":"throughput","value":389.127}
-> 
-> [...]
-
-Here is the summary with links:
-  - [net-next,v4,1/4] selftests: net: py: add metric output
-    https://git.kernel.org/netdev/net-next/c/d3def02d1d5f
-  - [net-next,v4,2/4] selftests: drv-net: add an iperf performance test
-    https://git.kernel.org/netdev/net-next/c/c1d2b8e89a29
-  - [net-next,v4,3/4] selftests: drv-net: add a kperf runner
-    https://git.kernel.org/netdev/net-next/c/d069373da963
-  - [net-next,v4,4/4] selftests: drv-net: measure devmem performance with kperf
-    https://git.kernel.org/netdev/net-next/c/a642edca4a88
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Please try to add lore links to previous versions of the patchset
+in the cover letter.
