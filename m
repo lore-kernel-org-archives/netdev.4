@@ -1,106 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794953838;
-	b=nZXpPtSsmIQGwVYhnOVGX6fgXh/T9ylfRRuNN4fqfN6Pw/gnUOdz4vCgiWkUKr5QqjhC
-	 WU2hzjQQs3mvaiMi/6RcA73OPsj06h3YCEEDLuQ5w+IR0xVmq9kx7rU2f0TEgDZKqD3Gz
-	 eg6tiB/bzguAECcXRYwmjKxPJ+J86ujcMwy/VdkJqoWIUxr0QudcCbIvlcIYr7MwmOV8Q
-	 yJZyKj4FTVu+w32q1d6ZEw1mb+FtimyLba/anSrkf8OnEbmOsY3brUBMksFWDKtNhb21o
-	 4MycaWSnOOduyr/gGZ/ZjJ6nN3vR9zNEYxf96cVlYaC84FnHy+Ql+whKmL1mL3QKiRQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953838;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
-	 X-Proofpoint-Virus-Version;
-	bh=naIMYO16Tb2J0b8QTmQ8uSWyAJ0zbIqQUrNZeGUwwtw=;
-	b=paQK38THRvFuBQR0Gv0KgvuxF3tQqqOZlCPlPiTH0Fe+GK45ohQK5IslAXA0GyeNhs1K
-	 pXAh8IA26b/ZY4hYmMs0s5b5q2ziumjgs6ASCzXFyX20oj4/6I50Oa1+QJ7xQV/+9Vbs7
-	 /c+R74FwCRfNDee5kTyhwzGOaHN0tVQaunteBZCJ9J3Ch0Nu2LVVwN0bQEYuHP/ba4Iw5
-	 yNyYWQIGaPBJsp0O9+oONrutyMpSBJY75tBby69UAIekJNMmop8MF6Ww3SYkTnp1v9Q+H
-	 pwCg7UFSyokESrdGDFkrK5S0xRpnYS45ZjA1Wo6IAFAfw7LiaVYD/OsnoDnmMjfrlCQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=EvkMrAlm;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794953834;
+	b=Hur+kFu+xuBdFp9LHM5fFaHJnhG1OQPywsx3QUn2HOheqNEyTu0zHdCU3JBQ6Z37LkDw
+	 uO1GzrZU5DApQyE0NSaky93YeEn0oXSZfJlVXoxwa/Tl9jY7qR/uLhQNhSM/vOfKnxe4Z
+	 svbTF7F2tPPaRdjrvhB+9wFX/yBLM4vi/5ovOPUrGHz+7r7ogv7aGuPpeW52cGDcHLnQx
+	 GFID6dXQx7j38q+nprnoiPGxQW/i7XXIAapJ2PZjSjw89dCyd34JOjOiKgjh1dclqxry5
+	 t0jgKt0j5D84feuBKRuIfge0Vir/LyCCYmF3MGvLU5mPH0IzHaBN+n/FIm9NEMxry5w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953834;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=uxDbfAtxsihW1uNOfx4K6cvOBz6mE1gl4C/JUuE5JYE=;
+	b=3GbF5ijlwBbnxO/wAx+0/L5f8vpfPokw82hwRXGJxTnpDG5g8Q+ascN0kTVHMUeo9veG
+	 F1mxk+M75bnMG7xiJU9f7DrIvJf/PEdXraMr7U71oqaOAfRU6/zwuGgp0wCGx8zw9T0rC
+	 o8AZqLSIGNCcUsNcm3sAV3zcZ+ilhy2FINzubnKvL8K9PIMGpEOTBEzIe6rU/m145F/Oy
+	 p77aHHjZ0ufmtjkp8MRKAzqNQMBu+8NKrPYCXbF/eNGXFg3YMYu5+byOEI3CnGi13kaex
+	 9/04IFwUIWIL7udY8jBVEAZIFNyFdhvB869k1I5myU0qKn76EC3YA4DVJWaj6hV1XOQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T10+kn3j;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 467B3606A339
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:17:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 467B3606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D035606A330;
+	Tue, 17 Nov 2026 22:17:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=EvkMrAlm
-Received: from pps.filterd (m0109332.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHM25Yh1933615
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:17:17 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=pps82601-s2048-2026-q3; bh=naIMYO16Tb2
-	J0b8QTmQ8uSWyAJ0zbIqQUrNZeGUwwtw=; b=EvkMrAlmrDK8ub69Xg7pAjpcfhg
-	bZmfLUAoEXVsHI582DX2XvH/l6wGABdG9omOSqhVscA/IEoGuPA0CuKpLQIwkQrd
-	hBEyFCYOGEXtjyA8x3b0g3YTHTx/sHwE+cQmDTvaKvteMtyAtX6dmBfQkCozkLZf
-	p22cxMmQsz7yD32uSvOi3HsnxIikFWp62dCypEtCz6SeWEqW8jjr10TkF5/Z4PeJ
-	/8L+8tNnAtQ73AhwuAwiHeC+vacHLSuhs6/KyihzjSuZu88a3UB0O+P7RJ2pM+Pq
-	VMyvbB/nLDYMAxlh+5ivYxFI1VuB1MRuJ0Byb/cV3VEMNBGlBCxo+Gavfxw==
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com [209.85.221.71])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0mn0xqaj-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:17:17 -0800 (PST)
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4925ef75fc4so172063f8f.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:17:16 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794953836; cv=none;
-        d=google.com; s=arc-20260327;
-        b=XOBzdeEfciNRLtPi3RfLJo+llkEhvE1loRyFYp/j+brZYSMN5aPtFP5D4RchfK4tPX
-         U34lfN/wnMSkEuOFPsG0Vi/Gpv6S1dQnE3Mv8DhIgbePJybQztkAO8HKy83uV/6Hvg1v
-         LgAl68fUfsVqnf1GG56JVuppL5zykP+NPWKn7TAaC2EcIYngSZw0Oe0P1SGmzKjGaBI7
-         KSAYdQZFKuQg81Ul5/9bdxjJLH3FpX0vT1KC/00leHexb9M7kRb48VWqcAwK8QuqjB4+
-         mrg8Rq0ppDkQAu9R/QxyxA+XuiEwXiF/F6jvxDkKgspKPgB37f/VRgMbMLM4x+ktZKss
-         Ay/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version;
-        bh=naIMYO16Tb2J0b8QTmQ8uSWyAJ0zbIqQUrNZeGUwwtw=;
-        fh=qod244yoB3Swx6BT8pwI4iCjWBm8w97P4EwtSYE3820=;
-        b=Z0rkG3+29GcjvP+STh8FiMLefUXFNnvAPyQtoYYZeYsuRmhP2dq7iO5fiLRVUnSAU1
-         vJld6IX42a/4q/PbvJsVmbYBiOidrBHX/Yl90Bmp7Ena/nTKrLzjMQejUxytFAesgVdL
-         vr1y/PcyQ1pb0DcdxsojXdBNdZcEqeNExVu9Lppd/zLw23ADwspWM+Xxj8GLS9mr4+n3
-         wYZpa6eIgXhQK4eeUEoH9w2jS0OyhMn+07xkPSNtK4qFsOsU6vTgoVB9PPiMQe1p3ns0
-         AJDiMBNj16P+xxhI4QxBfSPrAdUUqJZ3tUF8tB4GZ8oGuDVzjhLC43SXdj+J5XdJXNFU
-         N1lA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953836; x=1795558636;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=naIMYO16Tb2J0b8QTmQ8uSWyAJ0zbIqQUrNZeGUwwtw=;
-        b=PS0hmVIUEEyG7T7ISa4WrTsSC/zLCaUH4+ozlbJjn/JmBAimUN1aXxW+JbtUPxTQ39
-         x2jXRjEnRuK8sRv+YeQT5/eiG70Q1nq8xk9CR0K0ewui1oL16LQ1AFqFKbKyfeicxfTp
-         upakpiOhLQh07zMsL3mdJijGZX91Yt5h9r65GDMBhQx6AO561a2Qhu6/RojORR/kb+Hl
-         ewvA1RAsnVHl9RpaERfzWy8KOO7LsF8sCaaLW0BjfyRht7ua2+gv368TGxP5raKHi1lD
-         O2X6b9i0ucRXugc6cFXMa8vY0zS5Rp+t024vJM5WIUW4lj0VzHAsmCFfEkHP6BhrDBwJ
-         MQ7Q==
-X-Gm-Message-State: APuU4Z+nStRK+Dc+qjvWUd/dCWGNHTCqfiOl3EU03GJXdSLcd6IDgvis
-	N9YXZrURyJCmgAN0ANhiQYUZIqTroMDOh9IET7zyJcLGBPf5OWbfFoSfoFpa5BR+hEShrshCI4U
-	EYnX7uySU+psRmvxsvt4xc4eseeWNC1yVIDvGo34hx9nHaBThyE47SJZ8y5U3oab3QWLfyt6We/
-	PGdLYQmTpQihrr66Ar8jVvWqa1h1IAm00=
-X-Gm-Gg: AZFdTZdyOMsYsq9p68N0cSVGg3CqYAgHomhG3LFfdAH5PJ2MX3Xqv8yUcD0Cm1euGwh
-	aDPV3prrlWOJtYbRro+YE52gD1JBH3ri7fJ2IeO0meZu6G8CepNDLaZInF/i0/tzb3tL058xs9Z
-	wF8CnFrVDwWWvv+IvrFIioYPlm5DhC6pjT/PbTsfywX/jSaPhOxMBe0jNh+ZkYaXGBdVpKUOHBO
-	rzVHB+B7GuUifj48AvIl+tXSaCiiUFAJwO7zq+Tqeuh5Yzr9n8=
-X-Received: by 2002:a05:6000:603:b0:48e:5eac:7e48 with SMTP id ffacd0b85a97d-4a63d2cf7f1mr1645585f8f.22.1794953835999;
-        Tue, 17 Nov 2026 14:17:15 -0800 (PST)
-X-Received: by 2002:a05:6000:603:b0:48e:5eac:7e48 with SMTP id
- ffacd0b85a97d-4a63d2cf7f1mr1645531f8f.22.1794953835465; Tue, 17 Nov 2026
- 14:17:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T10+kn3j
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 506761F000C7;
+	Tue, 17 Nov 2026 22:17:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794953833;
+	bh=uxDbfAtxsihW1uNOfx4K6cvOBz6mE1gl4C/JUuE5JYE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=T10+kn3jLW2dwegfZ02GTw8EvaDVU1KFXq60fSGFP1WPLZLDtCpLinNyfeATNlGYk
+	 FqAaYkdAKQPXEva0AANtdci7vmZmu9KIJ2wJGO8bQbHVHa9w3Nub1zoC/SHUrcEVLf
+	 sLSTUZ7YmW9r5OWG171XIVkUa81WmRl3elvfPM34Fgv6MUaEQaXEOMEnT9qvCHdb+y
+	 VxYmJpbm1tI3RtS4O2rYMiXtKOGioejFAJ22zqq9Hyd1QCk1RgX7jOU6NgXSji66MF
+	 SXHnTdWM5G0dooJlPBBL4ukXcAtUsY0Wobs4xKLt/RL97RRaTHydHOGSt4xZ6RP1mL
+	 /8S+T9XCNU5PA==
+Subject: Re: [PATCH net-next v1] net: pcs: xpcs: add 10000baseCR_Full to
+ 10GBASE-R link modes
+From: netdev-bot+sashiko@kernel.org
+To: francesco@dolcini.it
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ francesco.dolcini@toradex.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 17 Nov 2026 22:17:12 +0000
+Message-ID: <179495383285.3136.3739586857677062012@kernel.org>
+In-Reply-To: <20261116101644.83097-1-francesco@dolcini.it>
+References: <20261116101644.83097-1-francesco@dolcini.it>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,59 +64,114 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261111005533.6436-3-toddfreed@meta.com> <179471269307.2199510.1215468778950936295@kernel.org>
-In-Reply-To: <179471269307.2199510.1215468778950936295@kernel.org>
-From: Todd Bert Freed <toddfreed@meta.com>
-Date: Tue, 17 Nov 2026 14:17:02 -0800
-X-Gm-Features: Aa3M54r5Hu3045uljd3xO655IC2ADA2xeFtOm9g-Da5bBZKD676NvfeHASL2RN4
-Message-ID: <CADh2yMznmWWJsh4ArEhrm2n9fG8i7o3u-kjLrvs_dwsBPiFvtw@mail.gmail.com>
-Subject: Re: [PATCH net-next v1 02/15] psp: take the psp nexthdr from the
- packet on encap
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
-        bjorn@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net,
-        daniel.zahka@gmail.com, donald.hunter@gmail.com, edumazet@kernel.org,
-        kuba@kernel.org, jhs@mojatatu.com, jiri@resnulli.us,
-        john.fastabend@gmail.com, linux-doc@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        linux-rdma@vger.kernel.org, martin.lau@linux.dev, pabeni@redhat.com,
-        saeedm@nvidia.com, horms@kernel.org, tariqt@nvidia.com,
-        weiwan@google.com, willemdebruijn.kernel@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4OCBTYWx0ZWRfX8TJqvliomfHF
- 6kwOp6QKCNEV3GO7javzJKeZMrFGdOV+Q/ZO2QEjWSwdj+SfVcS6Kgxx2LXsIHNIM+z49QbbIS+
- qIJaS3TDDZ9g+3PwmAD7lroCYti2/VXtHoU28cnu1algmWBOMVIr8GwBmMacduS9cV1lGIyj7hF
- 2TdSyN/nwCPzSg38UbOG6Cz2in26a8EMkC3r83RAnG+H2N6WWRjYxSzmz3BwGQWRufLVMMmHouK
- 6xe4LmaeUdO8762giPiXFTiZSFpdqOtNFEpQ3crdvktAHWDUOHgQIPkRcvOWaUkbynQmC7PeHxJ
- 7T0OZkPaeazPAF1nyFPgH733Mw/THUumMwrlp5/AlJ8Vru94HgkoATfTnv8GZQnIgujxoLMqZvS
- /K2kSxTJD24th7QojL10S4V22zyXhFKnyy03cvVozKOvGM/U3wgfzTvBiq0NzcWTIHPtJW6Gw4F
- CQh3zGJqRgGzHRzZ9QA==
-X-Proofpoint-ORIG-GUID: xljbCr207tRkSbduJFIUaPvaivXrih0g
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4OCBTYWx0ZWRfX2g2M6OtCeuEZ
- +y+AwDjSM90yuwgEp0RKyosdXZF0AXlWlPBQBr0Y2mgKa5FC3+SCnAzb8rQDzK618vVNE7rAqDP
- X8FqSUfhiqJ3Mc6ZkUoGOgUCjSm4qw4=
-X-Authority-Analysis: v=2.4 cv=HcmB3SE8 c=1 sm=1 tr=0 ts=6afcd26d cx=c_pps
- a=pX1sPZUoWPGeQgUnKQNIgA==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=xtH7KyWI9dI7BmFOsl-x:22
- a=-eSvoOO0VIkvbIxHXOgA:9 a=QEXdDO2ut3YA:10 a=XGGHjNwGSpTZ5T66x7Ix:22
-X-Proofpoint-GUID: xljbCr207tRkSbduJFIUaPvaivXrih0g
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
 
-> [Severity: Medium]
->
-> psp_dev_encapsulate() now accepts non-TCP packets. Is the outer UDP
-> source port selection in psp_write_headers() still correct when skb->sk
-> is a UDP socket?
->
-> ...
->
-> Should the sk->sk_hash path be limited to TCP sockets, with other sockets
-> falling back to udp_flow_src_port()?
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Yep. v2 will only use sk_hash for TCP.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-pw-bot: cr
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
--Todd
+- [Medium] The commit message names the mechanism: a link mode the SFP
+  layer reports for 10GBASE-R is missing from the XPCS 10GBASE-R list,…
+- [Low] The patch fixes a user-visible functional bug but has no Fixes:
+  tag and no stable Cc.
+
+--
+
+net: pcs: xpcs: add 10000baseCR_Full to 10GBASE-R link modes
+
+This commit adds ETHTOOL_LINK_MODE_10000baseCR_Full_BIT to the
+xpcs_10gbaser_features[] list. The SFP layer reports SFP+ direct attach
+cables as 10000baseCR_Full, and with this change xpcs_validate() no longer
+masks that mode away on the 10GBASE-R interface.
+
+> diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+> index 6466e0ff2a98b..3378528e57f05 100644
+> --- a/drivers/net/pcs/pcs-xpcs.c
+> +++ b/drivers/net/pcs/pcs-xpcs.c
+> @@ -114,6 +114,7 @@ static const int xpcs_100gbasep_features[] = {
+>  static const int xpcs_10gbaser_features[] = {
+>  	ETHTOOL_LINK_MODE_Pause_BIT,
+>  	ETHTOOL_LINK_MODE_Asym_Pause_BIT,
+> +	ETHTOOL_LINK_MODE_10000baseCR_Full_BIT,
+
+[Severity: Low]
+Should this patch have a Fixes: tag and a stable Cc?
+
+This commit added the xpcs_10gbaser_features[] array without
+10000baseCR_Full:
+
+  af8de1e307bf ("net: pcs: Add 10GBASE-R mode for Synopsys Designware XPCS")
+
+Before this patch, a DAC module is rejected through this path:
+
+phylink_sfp_config_optical()
+  phylink_validate_mask()
+    ...
+      xpcs_validate()
+        linkmode_and(supported, supported, xpcs_supported);
+
+Only Autoneg, Pause and Asym_Pause are left after that. So
+phylink_is_empty_linkmode() returns true, and phylink reports:
+
+  "unsupported SFP module: validation with support %*pb failed\n"
+
+Every kernel since af8de1e307bf seems to have this problem, including the
+current stable and LTS trees.
+
+>  	ETHTOOL_LINK_MODE_10000baseSR_Full_BIT,
+>  	ETHTOOL_LINK_MODE_10000baseLR_Full_BIT,
+>  	ETHTOOL_LINK_MODE_10000baseLRM_Full_BIT,
+
+[Severity: Medium]
+Is 10000baseT_Full also missing from this list?
+
+sfp_select_interface() in drivers/net/phy/sfp-bus.c maps six link modes to
+10GBASE-R:
+
+	if (phylink_test(link_modes, 10000baseCR_Full) ||
+	    phylink_test(link_modes, 10000baseSR_Full) ||
+	    phylink_test(link_modes, 10000baseLR_Full) ||
+	    phylink_test(link_modes, 10000baseLRM_Full) ||
+	    phylink_test(link_modes, 10000baseER_Full) ||
+	    phylink_test(link_modes, 10000baseT_Full))
+		return PHY_INTERFACE_MODE_10GBASER;
+
+After this patch, xpcs_10gbaser_features[] has the first five of these but
+not 10000baseT_Full.
+
+For a 10GBASE-T SFP+ module, sfp_parse_support() sets only 10000baseT_Full,
+together with 10GBASER:
+
+	case SFF8024_ECC_10GBASE_T_SFI:
+	case SFF8024_ECC_10GBASE_T_SR:
+		phylink_set(modes, 10000baseT_Full);
+		__set_bit(PHY_INTERFACE_MODE_10GBASER, interfaces);
+		break;
+
+Suppose no PHY can be accessed on the module. Then
+phylink_sfp_config_optical() validates that mask against 10GBASER, and the
+linkmode_and() in xpcs_validate() clears 10000baseT_Full.
+
+Wouldn't that reject the module the same way DAC cables were rejected before
+this patch?
+
+If a PHY is detected, phylink_sfp_config_phy() calls phylink_validate() with
+PHY_INTERFACE_MODE_NA. The 10GBASER pass would again drop all the 10G copper
+modes, so the module couldn't run at 10G over 10GBASE-R either.
+
+The existing comment in xpcs_validate() also hints that this kind of masking
+may not be the right approach:
+
+	/* Populate the supported link modes for this PHY interface type.
+	 * FIXME: what about the port modes and autoneg bit? This masks
+	 * all those away.
+	 */
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116101644.83097-1-francesco%40dolcini.it
