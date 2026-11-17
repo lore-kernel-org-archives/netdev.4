@@ -1,47 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794917232;
-	b=oMhGXe2BZxX/YfA0GAAyBsPYO1GCxH2iE+c2xZu5hQkpaF9uPI/WuvuUWyLjvg2UGNnK
-	 Kvx4ilV5Tqnk6kZWkglnC5xOZX8YX/zNUSIUsPCuQweopRRVW2Bbm24UvI+Xe+hWB1Oy8
-	 ptP9sgQ9BEohQGfuUDPahIQaQ/Z6WsYt4Ju0Z19xWyu5ARPxsWx3AaRzEPNGJt+DRp9vI
-	 OyQyLH0peow5PUjzpgmKsK16TE2PleBA3y3utroJ8a9zYlaUrDqRqXCtoXNCWRnX1QTBP
-	 U73YUrkA43dCGyLCM9dIdfsVuW30YIuRRF8LZY28KoqPfiMxEDQsUBiaJfEyyhjgDUw==
+	t=1794917307;
+	b=hlYpvvGePL0072OHyV2p0Jq147XyIpVZeKsljrVQXGiUhJl0Au++ePZpMgXUOe1SlOFg
+	 SmDZc76a1CL/ktol46djTLRFSI8dFAEeyVJ2nYCtJpvc3X3OWz2JWdzKmuEIzlugvtTxR
+	 8LSGUvHaY+Y8mHObKMnLMycqITZYm8qw8Ho6ASBdW+4OHsdWwIQH5oQoYxbnvtZ6OxZOV
+	 WUV6Mz9O2hBTD2AmlqoRQOOFTo2U8qm6WBijMJDnKV77/QUDFj6ecV7Y8PeR2EKjuS7+7
+	 Y50hHEyGiOMFNiBVCLPojTM30oaCpKo2j3Vrk4pva9FY1wk5BdvHJWp+AlECQQbVAQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794917232;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=VOxDJy9TOCvAQR6vCcCRlG4x+qVSMFqIwRXcOJLd+mA=;
-	b=ak0+j/Ue6nK3NjJTUfZfHpRZgzJAU/pXyvHc0ZDcABf2DrvxjfDXM8bsIjhksXdT+kwq
-	 6Pv+Fu/hdwsDpgPc1ew13VauyIe0HBURK8bXwKnl+pQBuu0PfEbsZUWsP1ItoA1AZHO/2
-	 biNt/rbHyCCbfXWANY8DXB2aNOS3cGnwRyF7oITYY9h512CoIaWM8dKUHh3bNUYurLMy7
-	 z326kfiPqSN3xBYP1CY6BJjje+YUiyk3YfEbqZ/0rNEYgbwPDmmj8ow5c5rHsLPXhFmcI
-	 sQPoF0wy1s3PBDHs4XYsHhLNKwNiPZCeDovJ8wWHBJkwHGTGXbxuGDyc2znhmy9BKhQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794917307;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=56OkhrGtrgZLgIxtH1MefuUDKlgxUJ+RKCBMt2Ztnt4=;
+	b=O+2y1iCIHih+/K7uMMcewRT2qzKM5p3CQnFn7DwmHQLCY9Xb8yFfLu1bOVLmhKzI496O
+	 uG5g4KVZSEyQN7obX+CjwVwUWKHGHbdTZcBYFBABkUXMGkqJpFCrQ4/GUf4PzwOtqjj1C
+	 cYSQJejq5kD9Xgr6o2EP60IzWeGGAmAHkR92Y1HSShmVtQtpDi5MxL8Ml0nE3CiUJ4Vjb
+	 8AVUY3rt+1S5wCOGigEL9gdV2lBNwdU2g6h7ZA9DNj+CJUrafFM3/YIB+TMu0yGZnqKuh
+	 tQA+PRhzprXgm9Ifhh+xxxMi2WZZAHaUElXrHl2XHojHebQJvFg5e/LOkzUrADkzR3Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dE41NnTi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F8H75bw2;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 288A1606A323;
-	Tue, 17 Nov 2026 12:07:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31223606A33A;
+	Tue, 17 Nov 2026 12:08:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dE41NnTi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CE851F000C8;
-	Tue, 17 Nov 2026 12:06:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F8H75bw2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F7F61F000C4;
+	Tue, 17 Nov 2026 12:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794917231;
-	bh=VOxDJy9TOCvAQR6vCcCRlG4x+qVSMFqIwRXcOJLd+mA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=dE41NnTi6gbO17yqFTsArTyug0pn92F7vS/I3uzwxDaxTar9fgQcAwMVjAgkt4zhM
-	 xxcD2vRJvS/zgsFJJW9zJvVDL07+2WytffwJ5zaKvccMYOuSm2gCm9iORJyyQvlDBD
-	 HOVtwMoT2bXEhPNYmY/UlFl+nO9bXdUSc2YfGolaymWH3ELTuNgDYrIxN40WnKslS+
-	 f2ZSVwm9SQAq7FPKmAOjsuT3HWwrzUS5BEfxKbOCDwkNAJH9Hij/XYlK3zdW3IicJR
-	 RbRw7I/PSzsKxZ4xAS2LS3onNv6NRn8G+r0DWbotNrfxiO1UIgHnnfn75KIGqV57GD
-	 d2JOwOBni7Qlg==
-Message-ID: <85ce1f24-8b49-4cd3-a9f7-02d1be69708e@kernel.org>
-Date: Tue, 17 Nov 2026 13:06:54 +0100
+	s=k20260515; t=1794917306;
+	bh=56OkhrGtrgZLgIxtH1MefuUDKlgxUJ+RKCBMt2Ztnt4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=F8H75bw2K23ed5fTh2YEovfZCCoE4Bwb3o10F2V8Lkznkbkz4kgHIqT9BNxdJPmpN
+	 gUHPsfe7ktO3deEyB2AndUcFsN3Bz381m95/n0Wlsa86O/GWUhnQ19m0MztvkpBlnC
+	 sLvki6RVtq9NbmGNUT8ZYv6sBGUWwcacWGuQX3j+vYcZIEw1Y8pKaWcfadEvXf9vCk
+	 TUDVU+4uEgVMC+6nwJWpyheorFKIGoYcjCxjv5YqCs1suxQbD7xuAt8T89yn17o/ni
+	 bIQJfgV//tk3VQ9I1fNqmZ6gb9dS9XxiniEoyYPTR8A6XfgTqds09TqqfGqMXu9pY6
+	 RQx9UoiISPZIA==
+Subject: Re: [PATCH net v6 2/4] net: phy: keep the line of a postponed PHY
+ interrupt balanced
+From: netdev-bot+sashiko@kernel.org
+To: iav@iav.lv
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ maxime.chevallier@bootlin.com, lukas@wunner.de, rafael.j.wysocki@intel.com,
+ wei.fang@nxp.com, niklas.soderlund@ragnatech.se, paul@pbarker.dev,
+ florian.fainelli@broadcom.com, opendmb@gmail.com, Thangaraj.S@microchip.com,
+ shenwei.wang@nxp.com, Haoning.CHENG@cn.bosch.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 17 Nov 2026 12:08:24 +0000
+Message-ID: <179491730493.3136.3230057770418919660@kernel.org>
+In-Reply-To: <20261113-b4-phylib-mac-pm-irq-v3-v6-2-05af2503cb23@iav.lv>
+References: <20261113-b4-phylib-mac-pm-irq-v3-v6-2-05af2503cb23@iav.lv>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,186 +68,194 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 5/7] mm: kasan: skip KASAN for GFP_HIGHUSER
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>, Jeff Xu <jeffxu@chromium.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>,
- Vlastimil Babka <vbabka@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>,
- "Liam R . Howlett" <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, Marco Elver
- <elver@google.com>, Boris Brezillon <boris.brezillon@collabora.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Chia-I Wu <olvaffe@gmail.com>,
- Dev Jain <dev.jain@arm.com>, Evgenii Stepanov <eugenis@google.com>,
- Ian Rickards <ian.rickards@arm.com>, Jann Horn <jannh@google.com>,
- Jeff Vander Stoep <jeffv@google.com>, Jeff Xu <jeffxu@google.com>,
- Kees Cook <kees@kernel.org>, Mark Rutland <mark.rutland@arm.com>,
- Peter Collingbourne <peter@pcc.me.uk>, =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?=
- <ptosi@google.com>, Ryan Roberts <ryan.roberts@arm.com>,
- Tomasz Figa <tfiga@chromium.org>, Will Deacon <will@kernel.org>,
- Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Miklos Szeredi <miklos@szeredi.hu>, Baoquan He <baoquan.he@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Allison Henderson
- <achender@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- linux-mm@kvack.org, kasan-dev@googlegroups.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- fuse-devel@lists.linux.dev, kexec@lists.infradead.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- rds-devel@oss.oracle.com, linux-kernel@vger.kernel.org
-References: <20261116230627.3537051-1-jeffxu@chromium.org>
- <20261116230627.3537051-6-jeffxu@chromium.org> <avwp1ZpVudiT1Gux@gremlin>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <avwp1ZpVudiT1Gux@gremlin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/17/26 11:21, Lorenzo Stoakes (ARM) wrote:
-> On Mon, Nov 16, 2026 at 03:06:25PM -0800, Jeff Xu wrote:
->> Move __GFP_SKIP_KASAN from GFP_HIGHUSER_MOVABLE to GFP_HIGHUSER so that
->> both GFP_HIGHUSER and GFP_HIGHUSER_MOVABLE allocations skip KASAN
->> unpoisoning on allocation and poisoning on free in HW_TAGS mode.
->>
->> Previously, commit c275c5c6d50a ("kasan: disable freed user page
->> poisoning with HW tags"), commit 70c248aca9e7 ("mm: kasan: Skip
->> unpoisoning of user pages"), and commit 0a54864f8dfb ("kasan: remove
->> PG_skip_kasan_poison flag") added __GFP_SKIP_KASAN to
->> GFP_HIGHUSER_MOVABLE because user pages are not intended to be used as
->> directly addressable kernel data structures, and the lower likelihood of
->> catching a kernel linear-map bug on user payload pages does not justify
->> tagging all 256 16-byte MTE granules per 4 KB page on every allocation
->> and free.
->>
->> GFP_HIGHUSER shares the same kernel-accessibility contract in
->> include/linux/gfp_types.h ("for userspace allocations that may be mapped
->> to userspace, do not need to be directly accessible by the kernel but
->> that cannot move once in use"). The only semantic difference between
->> GFP_HIGHUSER and GFP_HIGHUSER_MOVABLE is __GFP_MOVABLE.
->>
->> For every 4 KB page without __GFP_SKIP_KASAN under CONFIG_KASAN_HW_TAGS,
->> mte_set_mem_tag_range() tags all 256 16-byte MTE granules (via STG/STZG
->> and DC GVA/GZVA) on allocation (__kasan_unpoison_pages) and again on
->> free (__kasan_poison_pages). For users of GFP_HIGHUSER, this can
->> significantly impact performance when allocating and freeing large
->> buffers. For example, in graphics and interactive UI workloads, large
->> DMA-BUF and DRM/GPU buffers are allocated with GFP_HIGHUSER: while
->> steady-state rendering reuses swapchain buffers, UI window resizes,
->> surface creation/teardown, and app or scene launches synchronously
->> allocate and release tens to hundreds of megabytes of DMA-BUF
->> framebuffers (~32 MB per 4K RGBA frame, or ~96 MB for a triple-buffered
->> surface) and GPU shmem pools directly on UI, compositor, and render
->> threads. Touching millions of 16-byte granules stalls these critical
->> threads for milliseconds per buffer, a significant share of the 8.3 ms
->> (120 Hz) / 16.7 ms (60 Hz) frame budget, while polluting CPU L1/L2 data
->> and MTE tag caches, evicting hot working-set cachelines, and saturating
->> DRAM bandwidth (especially on free when DMA pages are cold in the CPU
->> cache).
->>
->> GFP_HIGHUSER is used by subsystems such as the DMA-BUF system heap, DRM
->> GEM shmem/TTM and non-movable HugeTLB. They use it instead of
->> GFP_HIGHUSER_MOVABLE only because their pages are pinned for DMA or
->> cannot migrate.
->>
->> What skipping KASAN means for the kernel's own accesses to these pages:
->>
->> - Through vmap(): nothing changes. With CONFIG_KASAN_HW_TAGS those
->>   pointers already carry the match-all tag, so the page tags never
->>   protected these accesses.
->> - Through kmap_local_page() or page_address() (for example ramfs):
->>   post_alloc_hook() now gives the pages the match-all tag, so these
->>   accesses are no longer checked. GFP_HIGHUSER_MOVABLE pages already
->>   behave this way. Callers that want to keep the checks use
->>   GFP_HIGHUSER_KASAN: the previous patches in this series converted
->>   pipe, FUSE, kexec and RDS, and backports of this patch should
->>   include them.
->>
->> Slab allocations cannot use GFP_HIGHUSER, because they do not accept
->> __GFP_HIGHMEM. GFP_KERNEL, GFP_USER and vmalloc() allocations are not
->> affected.
->>
->> This patch does not address the false-positive KASAN report after shmem
->> swap-in readahead with MTE that was reported on drm/panthor [1, 2].
->> There, swap_cluster_readahead() allocates swap-cache folios for
->> neighboring swap slots with the gfp mask of the shmem mapping being
->> swapped in. If such a slot holds a page that userspace maps with
->> PROT_MTE, the folio keeps a KASAN tag in page->flags that does not
->> match the userspace tags restored by arch_swap_restore().
->>
->> This patch only removes one way to hit it: shmem mappings that use
->> GFP_HIGHUSER (such as drm_gem_shmem_helper or panthor) now pass
->> __GFP_SKIP_KASAN to readahead, so the neighboring folios no longer get
->> a KASAN tag. The readahead path itself is unchanged, and shmem mappings
->> with other gfp masks that lack __GFP_SKIP_KASAN can still trigger the
->> report. That issue should be followed up separately, for example in
->> [1].
->>
->> On an Armv9.2-A device running a 6.12-based kernel with kasan.mode=sync,
->> this reduces the allocation + release time of a ~32 MB buffer from
->> /dev/dma_heap/system by ~80%: allocation is ~59% faster and release ~98%
->> faster. Poisoning on free accounted for ~55% of the total before. In an
->> application loading benchmark, the OpenGL score improves by 15-23%,
->> recovering 60-80% of the regression that enabling MTE causes.
->>
-> 
-> This commit message is just inscrutable. It's like reading Finnegan's Wake :)
-> LLMs are obscenely terrible at this stuff unfortunately.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-I truly wonder how some can decide to submit something like that with their name
-under it :)
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] phy_free_interrupt() decides once, from irq_has_action() right
+  after this PHY's free_irq(), whether irq_rerun still owns a unit of…
+- [Medium] On a shared line, phy_free_interrupt() (drivers/net/phy/phy.c)
+  keeps irq_rerun set and leaves the rebalance to resume.
+
+--
+
+net: phy: keep the line of a postponed PHY interrupt balanced
+
+With this change, only the first postponed run of phy_interrupt() disables
+the PHY interrupt line. phy_free_interrupt() now clears irq_rerun when
+free_irq() leaves the line without users. It also adds irq_pm_lock to
+serialize phy_free_interrupt() against the rerun after resume, and moves
+the postpone/rerun logic into mdio_bus_phy_suspend_irq() and
+mdio_bus_phy_resume_irq().
+
+> diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+> index 9af303d60bd6b..8e03c99fce8f5 100644
+> --- a/drivers/net/phy/phy.c
+> +++ b/drivers/net/phy/phy.c
+
+[ ... ]
+
+> @@ -1430,8 +1430,11 @@ static irqreturn_t phy_interrupt(int irq, void *phy_dat)
+>  				pm_wakeup_dev_event(parent, 0, true);
+>  		}
+>  
+> -		phydev->irq_rerun = true;
+> -		disable_irq_nosync(irq);
+> +		/* Disable the line only once: an edge can rerun the thread. */
+> +		if (!phydev->irq_rerun) {
+> +			phydev->irq_rerun = true;
+> +			disable_irq_nosync(irq);
+> +		}
+>  		return IRQ_HANDLED;
+>  	}
+>  
+> @@ -1507,7 +1510,15 @@ EXPORT_SYMBOL(phy_request_interrupt);
+>  void phy_free_interrupt(struct phy_device *phydev)
+>  {
+>  	phy_disable_interrupts(phydev);
+> +
+> +	mutex_lock(&phydev->irq_pm_lock);
+>  	free_irq(phydev->irq, phydev);
+> +	/* free_irq() shuts down a line left without users and the next request
+> +	 * resets its depth; mdio_bus_phy_resume_irq() enables a shared line.
+> +	 */
+> +	if (!irq_has_action(phydev->irq))
+> +		phydev->irq_rerun = false;
+> +	mutex_unlock(&phydev->irq_pm_lock);
+>  }
+
+[Severity: High]
+
+Can irq_rerun go stale on a shared line here?
+
+Whether to keep irq_rerun is decided once, by irq_has_action() right after
+this PHY's free_irq(). If another user is still on the line, irq_rerun
+stays true.
+
+When that remaining user frees the line later, __free_irq() shuts the line
+down. The next request then goes through irq_startup(), which resets
+desc->depth to 0. Nothing clears the first PHY's irq_rerun at that point.
+
+Take two PHYs sharing one IRQF_SHARED line behind cpsw, which sets
+mac_managed_pm. A later patch in this series brings those PHYs under
+postponing:
+
+  wakeup interrupt
+    phy_interrupt(PHY0): irq_rerun0 = true, disable_irq_nosync()  depth 1
+    phy_interrupt(PHY1): irq_rerun1 = true, disable_irq_nosync()  depth 2
+
+  cpsw_suspend()->cpsw_ndo_stop()->phy_disconnect()
+    phy_free_interrupt(PHY0): PHY1 still on line, irq_rerun0 stays true
+    phy_free_interrupt(PHY1): line empty, shut down, irq_rerun1 = false
+
+  cpsw_resume()->cpsw_ndo_open()->phy_request_interrupt()
+    irq_startup() resets depth to 0, irq_rerun0 still true
+
+  mdio_bus_phy_resume_irq(PHY0)
+    enable_irq() at depth 0
+
+Wouldn't this hit the "Unbalanced enable for IRQ" warning in
+__enable_irq()? That is the symptom the commit message says is fixed.
+
+The new guard in phy_interrupt() also seems to make a stale irq_rerun
+worse. Between the line restart and the PHY's resume, a postponed
+level-triggered interrupt now returns IRQ_HANDLED without being serviced
+or masked:
+
+		if (!phydev->irq_rerun) {
+			phydev->irq_rerun = true;
+			disable_irq_nosync(irq);
+		}
+		return IRQ_HANDLED;
+
+The ONESHOT unmask would then keep firing it until that PHY resumes.
+Before this patch, such an interrupt disabled the line again, and resume
+balanced it.
+
+There is also a race. irq_has_action() runs after free_irq() has dropped
+desc->request_mutex, and irq_pm_lock is per phydev. So a request_irq() or
+free_irq() by another driver on the same line can change the answer
+between the two calls.
+
+Would it be possible to tie irq_rerun to the lifetime of the line, rather
+than to a snapshot taken at free time?
+
+>  EXPORT_SYMBOL(phy_free_interrupt);
+>  
+> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+> index 1791d578f4dde..573eb234dc799 100644
+> --- a/drivers/net/phy/phy_device.c
+> +++ b/drivers/net/phy/phy_device.c
+> @@ -332,6 +332,38 @@ static bool mdio_bus_phy_may_suspend(struct phy_device *phydev)
+
+[ ... ]
+
+> +/* Rerun interrupts which were postponed by phy_interrupt()
+> + * because they occurred during the system sleep transition.
+> + */
+> +static __maybe_unused void mdio_bus_phy_resume_irq(struct phy_device *phydev)
+> +{
+> +	WRITE_ONCE(phydev->irq_suspended, false);
+> +	if (!phy_interrupt_is_valid(phydev))
+> +		return;
+
+[Severity: Medium]
+
+The new comment in phy_free_interrupt() says "mdio_bus_phy_resume_irq()
+enables a shared line". Is that always true?
+
+This early return comes before irq_rerun is checked.
+phy_request_interrupt() sets phydev->irq to PHY_POLL in two failure cases:
+
+drivers/net/phy/phy.c:phy_request_interrupt() {
+	...
+	if (err) {
+		...
+		phydev->irq = PHY_POLL;
+	} else {
+		if (phy_enable_interrupts(phydev)) {
+			...
+			phy_free_interrupt(phydev);
+			phydev->irq = PHY_POLL;
+		}
+	}
+}
+
+Suppose a postponed interrupt took a disable on a shared line. Then
+phy_free_interrupt() runs during the sleep window while another user stays
+on the line, for example from cpsw_suspend() or stmmac_reset_subtask()
+through phy_disconnect(). irq_rerun is still true at that point.
+
+If the reopen then fails in one of these two ways, for instance because of
+an MDIO error while the bus is down, phydev->irq becomes PHY_POLL. In the
+second case, phy_free_interrupt() again keeps irq_rerun, because the other
+user is still on the line.
+
+mdio_bus_phy_resume_irq() then returns here without calling enable_irq().
+Since phydev->irq is never set back to the old number, can anything ever
+balance that disable? It looks like the other users of the shared line
+would stay masked for good.
+
+> +
+> +	mutex_lock(&phydev->irq_pm_lock);
+> +	synchronize_irq(phydev->irq);
+> +	if (phydev->irq_rerun) {
+> +		phydev->irq_rerun = false;
+> +		enable_irq(phydev->irq);
+> +		irq_wake_thread(phydev->irq, phydev);
+> +	}
+> +	mutex_unlock(&phydev->irq_pm_lock);
+> +}
+
+[ ... ]
 
 -- 
-Cheers,
-
-David
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-b4-phylib-mac-pm-irq-v3-v6-0-05af2503cb23%40iav.lv
