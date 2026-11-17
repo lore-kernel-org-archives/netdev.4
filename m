@@ -1,58 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794935973;
-	b=dwSICrKcTMTMLvSqUVn/z5MvE9Y61WDXkMXRcV/pZsphXbSqXxxamnF0qP48ahJVRrKY
-	 m9cmhQ0c0JkQ4wKI8wwpn8Up/AvTBf5cRBLtS+unbcEBLURPd+dJxVht3ksUDnMjfZEpb
-	 LmYKNh3Men+URgpab75PnSwyorKoW+6Naq+rsE4cwyUI3oUve0mIawNw9Yu/C2hx1sPjV
-	 Whva+QcHuarPK3fY1lBT3OR99BmufyHMDDbtX2IOCtfglFL/MQv23FYV1x9Zo/tNCJTHC
-	 cCB/D/nRLB0ZxMm1obMAxPBH7RBpxXmurpYjIsfOacseuelttjxTGx02YORD+XL7U/A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794935973;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=9l6zcAg1B3bJEjfNjcishlLBIg+UhItXqaIMzVkYgFM=;
-	b=5EbvQw1PB/Tdd7T/62wkYp+u10zcjH14ec9EVKhCMdSWAoWafb6AxFh1PEim56Ugw8Yq
-	 oPRcLZ6XBcvkOaBBD4nzv4MQeAA4AhxEe9uVZODFQryJ34FUJiIT0CSDJ9rP1A8G9q+IR
-	 86we3Op2PNwVwLE5+dBguq1M+AnAEMUMnjptjxQPrwKI4HUYPdbVRc8REnBwsed6ogBxv
-	 XuyfAwmYgWpNKByg3qlHdnUW8d3YbsdC6V6x10sWvvCycvx6JdQMr/nCRtzJqL4jBxrBv
-	 fXbN5xuls5rUpwXDQn9CeTtUr1MI3H4ARWp9SC6XbHmQ6P0RurMmepiifPTjhVMQ/UA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XgJcx+Wi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.228.134
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794936362;
+	b=mkMn9urfM4rW8I0F0fOcr7yeJz51mWN8c8FsIL8gZ1qJJKdGyBYFAv7ABlKkn6cYBNzG
+	 wRf80rGS1VsAlo62oxwjHvt1OAZJanmMerHy2lyhXddXHudyMtJ6dhKSKyIgcsf/GbOwU
+	 pHraeMvLvSMP+dncIaPGkLDT4PaElMbIwRDIpedR16eUiTJlqshDGeG4UYsXWA1A6IhyT
+	 JL1wzcLH+CfBdagNuddTFuwehLy6Z6DOQBxkG7PC0yCOOueAgft4OjjnLJmVk2ShqCM69
+	 8h8LyeqYxCm6fLe8AfbtThUOdDU817vSkJSDjghzjNUede7pvaHfMECAianVIkQJlDQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794936362;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=373Q6XKV7D4BGtZOuwgJiXk7Z3A+A6WU4sQOoM0c/Xg=;
+	b=XCJyyKWUuiUNnzasTVaceRRH9CQlhsyBe/fDpHeehF2Udji2P8jGnBZi1benCUA7W1f9
+	 VxhBanBthc7Zqz0/8Sk9c+diK0bEe+ccSgupbztc36w85K+idBsTp8Q56xG6dk23kVmG1
+	 Ipfs9WSdWhdpC2p6L+Jr8vWvpVszffd03X/FUlyYr42Bk3yRzfm9C6T82TmHe0zksr/zx
+	 GsyebKlMfi2BtBhvaab8laS5unA+SW48cGm3Agh/jJADgHx41PbtkaaTqKqP1Pnp+K9f6
+	 io9HNjDQwuo2srulFBaxfiVm0Fc5PQMyDHxWsdGK/HAgrXb+hKeS1FSkDD3OtkJbqwA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="e/3ahPEi";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.228.134
+Received: from mail-ej2-f6.google.com (mail-ej2-f6.google.com [74.125.228.134])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B507606A880
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 17:19:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 374EE606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 17:26:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 374EE606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XgJcx+Wi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17AB91F000C6;
-	Tue, 17 Nov 2026 17:19:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794935973;
-	bh=9l6zcAg1B3bJEjfNjcishlLBIg+UhItXqaIMzVkYgFM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XgJcx+WivqJ0da6ZRjR9+8c2lhUd/uL+AVBQeMEHNmzi9V+7mb2dt2rzNXn6QKjbN
-	 Cl2qAhJya70PDyLY2tO5iPQKlbWH7Cjeq6D3W2X8bX3pAoxJc1FcGgmZMzq9Q0VmxT
-	 UW5Ur9raEeLBY6F+gQOOlJDmGxy05FBxtyRS1KtZpm290VzNaU/njyWG58VeGUomHW
-	 9VcAkCwUZYOnx85MwvCE7zhZcpQ1YAYAVhPAr0wZCaOv/G9IopcQJNfK+/FJPeB6Qo
-	 dbrIXlQzweAAt6Y10tFEXKh5+8ljC5TaWtyVsxrbxl/j75oxixYCUB32wnV5hbwmIh
-	 G4DKjQD+pDirQ==
-Subject: Re: [PATCH v1 net-next 4/4] af_unix: Remove MSG_OOB.
-From: netdev-bot+sashiko@kernel.org
-To: kuniyu@google.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com,
- netdev@vger.kernel.org
-Date: Tue, 17 Nov 2026 17:19:32 +0000
-Message-ID: <179493597266.3136.6471867064840750751@kernel.org>
-In-Reply-To: <20261116021845.2533130-5-kuniyu@google.com>
-References: <20261116021845.2533130-5-kuniyu@google.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=e/3ahPEi
+Received: by mail-ej2-f6.google.com with SMTP id a640c23a62f3a-c504fffd8b3so245686866b.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:26:02 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794936360; cv=none;
+        d=google.com; s=arc-20260327;
+        b=SjnAW04/69ogiOCQMf4SU4lGqD+qNILfmhd/F0zjoKyn7t91SoRPQLhKVeI4ebOYda
+         O1aYRnzNEsG1iSgSMN4daDrJGbR8O4QKwNKFDYkkpjpDDSY7g9zGz6Jv2LrT3zy9chKa
+         2Xy4FBvU0a5oBIM/4+KV714v3cLd+WrLDHeFJMOw9kCBny8MQb5BLukU/zA6E5ohZvkx
+         CnJ6GTL7Paq6/qjtDzOFFBql7eE1A2FZJtugS/jXfrZcqEdHzMDgKVL73EUgA7XngrPL
+         4eGqBdrQutmvBQJ1OTyf9SdRhQKnIecMUIMW7/3U1LUlP4bA13adslbU+LCXS9DjtfYe
+         SU3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=373Q6XKV7D4BGtZOuwgJiXk7Z3A+A6WU4sQOoM0c/Xg=;
+        fh=wcvEU0cawSR4MNPcueFTIexFPvA8/ShvVCFN5S9/Y+M=;
+        b=SKwhETUGAScmo+3/9J60GOdBegqyRlUMmUAJI0/7dVUAMYOZRwcn78K2lWpVRK2Ot/
+         nQcNfyuSFoalMS5dxpgb+GMg9fxxnqbACKwGdPIVlL75IzrJjXRvAu9zgfeWLktPVICR
+         aJx8e9ssngXp/IiN+8ZshJZ3YDZqr3VjMltUxa6uzNB7xarmKD88711EfHXFr0TPqIUe
+         /2xqTqyeOMmLMJdmXH3g6+1bXtZF5CGdZ4WAu4I11qT3ZPWXjct2B1SermMhbOeqW8Fw
+         DanzhNVJYl+rV53grZwt0nAurVa4xwMu+zXAwe4xk1Dxh1auHIwumrAcy2TFe4Ls37MM
+         pJyw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794936360; x=1795541160; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=373Q6XKV7D4BGtZOuwgJiXk7Z3A+A6WU4sQOoM0c/Xg=;
+        b=e/3ahPEi2N7JscSx7JIYQiT+8cj5RAH7fGllIp1T2Wr65wtMRkvaK66n/hFmq64URL
+         ux2bNsR+X5gCZwCJpx9GcinbzAMhS4OgumXFCmkWEsYcLQC5FpFrqFwZu12Y0XhmCwrk
+         /yVrqGxdQ9y+wIlV1Ib9/SXF/3g2rQIr1R5IueIPnw3bu5jitZq1QYwYIrspvLmYIFcL
+         AhiV/octTxWJsSioLWxgsK/023TPSedYZvE7jBUYJbz3wVfCdwNLX6Bqd8El6H1FqWXw
+         n55APV8IRc7J9ISdj3Oc7u5ujYoc+jVDlXIPqb5gR07zADC96z35PoldZygSzpKPn9OW
+         3ICw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794936360; x=1795541160;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=373Q6XKV7D4BGtZOuwgJiXk7Z3A+A6WU4sQOoM0c/Xg=;
+        b=OfUzAcPQHW15cHwemacjs4ZHPd+VKMrjA9YJ/rckdJmL3HR+6Cp0zUPz+G2LqtITQr
+         b5XuQztv8nHBEThMhBiSu8MWG9H4+1kJY3PH7vdsbWNT8RmPvWq9P+i7r7i/LC2wffPB
+         JOKcKl44jcDuS5M48sRzh2jptQxlRS02jCPlIqlnwRM17niXcS/YVv7n3h2hb+qABfo6
+         D5s88XPWgRZbRxdMF24rjyxBlkkqfreKL6tqB0GJr4XqsZasd3PP5WeahdoNTg7uwlNp
+         6ZdrP0JTUm4x5NCW2kv56Ow3eCmz5T9NhADk274idcrlCSF4OLrSkPaiEt8gvnX33Fxs
+         BD1A==
+X-Forwarded-Encrypted: i=1; AL+hErEKGR7y1qXbhycbXP5v1kEmIOJqRlp96WdePIbBcMcNMYeoMfiyd18iAqTp3TCeAPJZpouGmqE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9XBOrNiC7hpNJYtcNPL/Ke9gBkhhCosmRKwZPQV36kLaVudUtH
+	iH+oi9u9YsZv70yfCpPjjnpLOhXn8IaEXWvItV9fipiDF5l8LTwHok2W0U9E4gOnIo8m/SqZqUC
+	EAlGE9uOMRtVQjuK32qjL9a+EKbJL1bA=
+X-Gm-Gg: AYBFou1f7tfvcxsuLvUxiH8Uc7gQvooEqWgMNH02x7bHd5wCoSgWCkmvMV2weWgGx9L
+	6ZKRKpfuLcgONLNQkY40jWuFwtFRF2l6NUyss5sBQ9q4izM3K6rZTvklx/qSkyASidKQiNEfcQN
+	sE2ETaPNLVU1nLLMZHSj35mwZ+UFg+LnEAFY+Tz0VM1/+3aBAzNYryYXNo+vtBN4COvv6Q3HlaY
+	efjG6Gqa6M4ZvsPi9uDMBggMGW/aLNZZmXQTYRFd1kSbbAOepy9XWv9DiMqruKn/10lQEy0mq6Z
+	xP3JZCR2hvB55LmT1jgWtaVbc5hguSxm+VVML1NNGMP+w1qTZspmAPORD6CwoWnn1pK+WDvXxNE
+	+9z5q+JGiq1DgSwOX0ffOtlO0s28il1XB8OHimHOE1EE0e3PDJrShKyvko0m5fO9jXITvI7W27q
+	nsAJf+X6WaJlk=
+X-Received: by 2002:a17:907:3e9e:b0:c40:4848:f7fa with SMTP id
+ a640c23a62f3a-c50965421ebmr1292812966b.44.1794936360337; Tue, 17 Nov 2026
+ 09:26:00 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,109 +105,63 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261110160554.918652-1-coiaprant@gmail.com> <20261110160554.918652-2-coiaprant@gmail.com>
+ <20261116183012.11a7ba72@kernel.org> <CALj3r0gTuJEDd==WzAQ+cK3Og-2zMqvmBrhrd2ARbKJctG5ZAQ@mail.gmail.com>
+ <e3c5f034-1b05-4fcf-bbe1-8b473a8d2a0f@lunn.ch>
+In-Reply-To: <e3c5f034-1b05-4fcf-bbe1-8b473a8d2a0f@lunn.ch>
+From: Coia Prant <coiaprant@gmail.com>
+Date: Wed, 18 Nov 2026 01:25:47 +0800
+X-Gm-Features: AclHuK_-ty3BkaDRY6TNyMVy_fEf9UBHYFECA18oX_curJlczmmtv3pUHIwGjA8
+Message-ID: <CALj3r0iwtmfZAN9iS8yN9fic0Q9jVnbYP_Hz1VDheVvmh2GcrA@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 1/2] net: phy: move DECLARE_PHY_INTERFACE_MASK_ZERO
+ to core
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	Paolo Abeni <pabeni@redhat.com>, Jiawen Wu <jiawenwu@trustnetic.com>, 
+	Mengyuan Lou <mengyuanlou@net-swift.com>, "David S . Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Russell King <linux@armlinux.org.uk>, Heiko Stuebner <heiko@sntech.de>, 
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>, Fabio Baltieri <fabio.baltieri@gmail.com>, 
+	netdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Andrew Lunn <andrew@lunn.ch> =E4=BA=8E2026=E5=B9=B411=E6=9C=8817=E6=97=A5=
+=E5=91=A8=E4=BA=8C 22:04=E5=86=99=E9=81=93=EF=BC=9A
+>
+> > I understand your concern that hiding the init inside the macro seems
+> > subjective. Since you mentioned an Andrew ack is needed, and he is the
+> > net PHY maintainer (who also looks after the WX driver),
+>
+> I don't look after the WX driver. I comment on it, as i comment on
+> lots of drivers.
+>
+> > If Andrew also feels this doesn't belong in the core, I will drop the
+> > macro entirely and switch to explicit manual initialization using
+> > phy_interface_zero() in both drivers.
+>
+> Using phy_interface_zero() is what current code does. I would also say
+> using explicate =3D {0, } is O.K, but i would not hide it in the macro.
+>
+>       Andrew
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Hi Andrew,
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Sorry for the misunderstanding, I won't make assumptions about the
+maintainership next time.
 
-- [Medium] This patch removes a userspace-visible AF_UNIX feature with no
-  deprecation step and no evidence that nobody uses it.
+Thanks for the clear guidance on the macro. I'll drop
+DECLARE_PHY_INTERFACE_MASK_ZERO() entirely.
 
---
+In v5, I will use the explicit initialization directly at the
+declaration site in both txgbe and the XPCS driver:
 
-af_unix: Remove MSG_OOB.
+    DECLARE_PHY_INTERFACE_MASK(supported_interfaces) =3D { 0 };
 
-This patch removes MSG_OOB support from AF_UNIX stream sockets. It also
-removes the CONFIG_AF_UNIX_OOB option, the oob_skb field in struct
-unix_sock and the SKB_DROP_REASON_UNIX_SKIP_OOB drop reason. After it,
-ioctl(SIOCATMARK), EPOLLPRI and SIGURG on AF_UNIX behave as if
-CONFIG_AF_UNIX_OOB=n.
+This removes the buggy macro from the WX driver while keeping the
+initialization completely explicit and visible.
 
-> diff --git a/net/unix/Kconfig b/net/unix/Kconfig
-> index 6f1783c1659b8..d378726d5eb92 100644
-> --- a/net/unix/Kconfig
-> +++ b/net/unix/Kconfig
-> @@ -16,13 +16,6 @@ config UNIX
->  
->  	  Say Y unless you know what you are doing.
->  
-> -config	AF_UNIX_OOB
-> -	bool "UNIX: out-of-bound messages"
-> -	depends on UNIX
-> -	default y
-> -	help
-> -	  Support for MSG_OOB in UNIX domain sockets. If unsure, say Y.
-> -
->  config UNIX_DIAG
->  	tristate "UNIX: socket monitoring interface"
->  	depends on UNIX
-> diff --git a/net/unix/af_unix.c b/net/unix/af_unix.c
-> index 96c13682938e1..cc5c7fa40b4d4 100644
-> --- a/net/unix/af_unix.c
-> +++ b/net/unix/af_unix.c
+I'll send out v5 with this fix and the lore links in the cover letter.
 
-[ ... ]
-
-> @@ -2403,12 +2334,7 @@ static int unix_stream_sendmsg(struct socket *sock, struct msghdr *msg,
->  
->  	if (msg->msg_flags & MSG_OOB) {
->  		err = -EOPNOTSUPP;
-> -#if IS_ENABLED(CONFIG_AF_UNIX_OOB)
-> -		if (len)
-> -			len--;
-> -		else
-> -#endif
-> -			goto out_err;
-> +		goto out_err;
->  	}
-
-[Severity: Medium]
-Could this break existing userspace on kernels built with the default
-config?
-
-The removed AF_UNIX_OOB option was default y, and its help text said "If
-unsure, say Y". So most kernels since v5.15 have shipped MSG_OOB support
-for AF_UNIX SOCK_STREAM sockets. On those kernels:
-
-  send(MSG_OOB) queued a 1-byte OOB skb and raised SIGURG on the peer
-  through sk_send_sigurg() in queue_oob()
-
-  recv(MSG_OOB) read the byte back through unix_stream_recv_urg()
-
-  ioctl(SIOCATMARK) reported the mark
-
-  unix_poll() returned EPOLLPRI
-
-After this patch, an unprivileged process that calls send() or recv()
-with MSG_OOB on a connected AF_UNIX SOCK_STREAM socket always gets
--EOPNOTSUPP. The send side fails in unix_stream_sendmsg() and the recv
-side fails in unix_stream_read_generic(). SIOCATMARK now falls through
-to -ENOIOCTLCMD in unix_ioctl(), and EPOLLPRI and SIGURG are never
-generated.
-
-The commit message says plainly that these features go away. Its only
-argument that nobody depends on them is "there is no clear use case". Is
-there evidence that no userspace relies on this behaviour?
-
-Would it be safer to first switch AF_UNIX_OOB to default n, or to warn on
-use, for a few releases before deleting the symbol? With the option
-removed outright, anyone who hits a regression has no way to turn the
-feature back on.
-
-Inside the tree, the series looks consistent. Earlier patches remove or
-rewrite the selftests that used MSG_OOB: af_unix msg_oob.c and
-scm_rights.c, the bpf sockmap_redir case, and the landlock
-scoped_signal_test. No references to AF_UNIX_OOB, UNIX_SKIP_OOB or
-oob_skb remain.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116021845.2533130-1-kuniyu%40google.com
+Coia
