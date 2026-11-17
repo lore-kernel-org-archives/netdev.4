@@ -1,79 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794935709;
-	b=GMh2gPGL4GY5UgojUKaKOquRO/BTc3N4KxIeJH64lLS4vkqfGqzUhvvZb5A1FwVyvyAA
-	 25wkqeHtjJOk8ZgHxjPWwhndEjvGuveJA3i3P8uw7mqofVCpKJ+qibyDcTOyh/H2rH4u0
-	 wjJsio42u8CHUiIcu7iFoezcvsY4t4igNCOt2ahmhAmpswMgynEQ+nVr2y5aJ/eA0AHEV
-	 LJQHFDfTeeKoFT4wvCDQKv5q3f4j3oiovktJBs7HkdqcVM7KI3FwkqvgzVSJjAuk7jBvB
-	 S4B1C5imJo1XUErTbItqqRph8jagMyBHXOwGUEy8YLs/s0HLrgvB7Q8LHQpdoJaRuZA==
+	t=1794935720;
+	b=MRm5EEdIt2JtB1Gs1k4OxTFvhzOI5h4FmPoOVkXoCWvq5iJI8yc3tVy6gF0Ctboac6qD
+	 tlh/yYZt2qvxzkZ5pzbqwsYOj0IBBcPvRV+wW7UOo8ikT7iDme3MpDXm2NADCpDDyb1ne
+	 X6COQ3Nbvw6L4di6GF5KSqpROhSgyqTTaUaAMb84+uUNMq/pma6sRr/uGPgOO5J57ay8B
+	 etkMdeAgHJrFqULFuFqNtTkWvWp2bs2XWa/zgEkLon2kr5Fkp0tOkJFamK58QWVPR4KsM
+	 v7MJMFDhrYz13oMbka+o83kzE0gwY/HZoAfEZE8qvkCkFXHYpWp3JEZL2zuyDpNwtow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794935709;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=K+VTICfGPfWmno915+gEOYcZG0bzY28xKQVSO7l1ZyM=;
-	b=AWNKVVMFEghspF4w8etZVKSS1Iu1NyGdv/4717k+shtEcycYy4w2/sCWq7pQXOMXLPMA
-	 CQC703q0w30HRvY67TB+kgMa7VIMTOTLq1C6Gh9862kwXqNd2zp0f4re6gESjVcPPLiwK
-	 JGXo+r2zN5oRGSH9nv+09VSzYLA5wCrhd2QUNLNO3YU5V713k0reMb62rxJw6qHGThXLV
-	 C34YKaKePaYsuNiEIXzBP3Df3xJTciOTIJStJdYZrjNVlghu1wOaNGBsF17+gsyl0pRYx
-	 8yqp8iS9H5ZWaZP4ycXpDuyigIVkiGPG8YpDOegsbS6kTpH9iSr8iGi9kUsmkTgPbog==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794935720;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=z/T3MP6BIfsWzbmst0ItY6XGUzGBFsEZPjPjgQjBYyA=;
+	b=NBqj154/YbkSdNwU1IQ0uIR3wUNI03A/Q8zaeAUqxN64dXlwicXpGO/WtjtpdZzi106w
+	 +JI1Y1nRYR6wYwqojg+lTLQ0ND9iPNhBz1FDtk5ZNU4cVAcwNYiL1V7XbGSn5gWcE6jyD
+	 DGjN3DcUM3VhLVZpShLaarcMq/NCF2h4l3PBYSHyKU0fu823HoQcZDLxgBre/YJsIThmv
+	 G1BHKaAuKiLyEdLgtJptNUAh5fHImnMl3Py7KmCnRbdgvKWpT3FeDdkgpreT2nV/uj3+h
+	 nsIdgMqOwJuq3PLyqHWPbdhPAq0cGRfQlVSXzHHs9xJv96jqSCFUMJHS77nterOOsTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hSBiVHnb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HeFnzvzQ;
+	arc=none smtp.remote-ip=209.85.222.43
+Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com [209.85.222.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70D62606A32F;
-	Tue, 17 Nov 2026 17:15:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C3D0606A332
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 17:15:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C3D0606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hSBiVHnb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8CD1F000C5;
-	Tue, 17 Nov 2026 17:15:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794935709;
-	bh=K+VTICfGPfWmno915+gEOYcZG0bzY28xKQVSO7l1ZyM=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=hSBiVHnbkID07Y7JhjxruFvVfkmcj+WfMKTIBi7VnehjQb89y9O+MhoUzHRiw5UxF
-	 KuFPUXuh3uSNLAm0FYYgr8Gh8fI72EtGz8Mr5JYs4+bM5b4mUwLtqHbou2vUDITNUJ
-	 GJG94VnwOUcS4fjd2StOdMThiff3SkLQRU0xFo4YuIpD0/j/cfJLMrtG2u7tw8FTvs
-	 sGIFp9lY6TgCOh3SoCds9sJf+yLLCQuka3iRACu7rpD2gTS58XeQB52bHbWyfR9niJ
-	 qlxPaiIyjwProxljp1x5Zba/Evs5yHMEyGUEBos3j4g1EQupBBAWAC1LEXItH2IQ5m
-	 2MVMUr/7D4FkA==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Mina Almasry <almasrymina@google.com>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
- <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
- <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Alexander Duyck <alexanderduyck@fb.com>,
- kernel-team@meta.com, Andrew Lunn <andrew+netdev@lunn.ch>, Jesper Dangaard
- Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, Pavel
- Begunkov <asml.silence@gmail.com>, Jens Axboe <axboe@kernel.dk>, Andrii
- Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar
- Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau
- <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
- <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
- netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org,
- "Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>, Weiming Shi
- <bestswngs@gmail.com>, Nikolay Aleksandrov <razor@blackwall.org>, David
- Wei <dw@davidwei.uk>, Alexander Lobakin <aleksander.lobakin@intel.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Stuart Clark
- <stuclar@meta.com>
-Subject: Re: [PATCH net-next v1 04/11] xsk: Allocate UMEM chunks through
- page_pool
-In-Reply-To: <CAHS8izMxaRKkSKqp3x4dLgTrzuzz5=8WMbEvq5W-oiqoL5vckg@mail.gmail.com>
-References: <20261110102039.1002605-1-bjorn@kernel.org>
- <20261110102039.1002605-5-bjorn@kernel.org>
- <CAHS8izNC9APadHg9yPtROkii1H7TPMAB7Xhxo+y9Cx-XCw9C1Q@mail.gmail.com>
- <87v75xj550.fsf@all.your.base.are.belong.to.us>
- <CAHS8izMxaRKkSKqp3x4dLgTrzuzz5=8WMbEvq5W-oiqoL5vckg@mail.gmail.com>
-Date: Tue, 17 Nov 2026 18:15:06 +0100
-Message-ID: <87o6bn1isl.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HeFnzvzQ
+Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-99e0082c434so10834241.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:15:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794935719; x=1795540519; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=z/T3MP6BIfsWzbmst0ItY6XGUzGBFsEZPjPjgQjBYyA=;
+        b=HeFnzvzQ9atjaXKEeJj0HAz+lRrn7Lw9hxV+oSgHjVlLjguk1Nt+mSj9TVG44H6WdQ
+         1Qfa4dKu9yEVFdLJmd9lW1Sj4qs58kgLU9RWIAQsFZtBhff5DbCXs/IAko1bNKzMY/0x
+         OOaNSxF3lnR0W03KU5M/sAsikJfE5UZ6swzOjCg2AjL2AxAjh876OaSd8tLhCnBqeZQp
+         iT3wfDX+HLDaSPMJYiUBsSVRL6VeiRlXKXnTpfK/2Nh5Z8o9UepytTu+pstLsK6rJ9x/
+         dpey63XD8NhRmwKCXx5dj12M5YOnrzlO0rEL73bxTXbolKDdMQHY7KvnNmN6cAEHOgoH
+         86gg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794935719; x=1795540519;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=z/T3MP6BIfsWzbmst0ItY6XGUzGBFsEZPjPjgQjBYyA=;
+        b=mrrkJAx/ciSBrrRaNnwiAidr0I3IAjESGGq+4xgrdOkpdiwvtN8PEgV24KCeXfSARY
+         hP+SezsXshBh+XPdmwBnsH5gnbTqnUlrgit8fzgwufgb/82ifg9e7uarECIUDU0DDVPK
+         zS0IlqGZMbMl7KXbT5eDI0zA8Naz29WII3KjW41oREALTx8PQ2M7dBXoMNTTF6VF9xWq
+         Gry5v8PVriMPnNjryD1bQik/7s+CiGVzonVVAhnvoMZMyTlCcmPcmtxsokei+K5ZIkH4
+         O30UGCUDazdXBgZjDbugDZDc3PndhXxcAFptJXVnxev+maZ4rk5d13tTCq/dupi3+RzL
+         L9qg==
+X-Forwarded-Encrypted: i=1; AL+hErH1a6lnHnPwZWzHaOM2TbDsVdTO2Czm6RS98PF+y7UmJoF1P61+oVOc90KzRPPvub8KecXscVI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z980yBwrBM19AnZxodrwEQC+CfoEjWfrU+WXHVAeMITZdWaIDbf
+	zlLkoSjOIySDeJcmi6FQOupilNaDNzXlC3sDJMETf8cvw6NlGdW981Ntp1dMYA==
+X-Gm-Gg: AYBFou2rBJ2U7hZV92koD0u2fzgnn9vIPMrVLG06FI1DBuG3Y6Pnzq2c15edrLVXKfy
+	X+1Nu+tJZcVJ07qYlEL9GUpOu+/oCM8jkB7YLSrOb/GOPN6q01//iO8vc2rxIKMmtDTNo/c12tk
+	rSOKVAVEekokvv6obqJ+tIptPpn/adkVJeifTNFASnYE/zuVeQ++r/jHBx/u7p7IsxfL+nPS15k
+	esqxCR4hXBRRJrI1Z/zYTstkYHtCSILQ3/ewhbCVstEBOirFpVQfU2w5Neaz/AfdT6v/rj6VvfW
+	CYHcDIrsfmaXoAvYWpPI5E6TDY5jdMxKs66Eme8gNUi+EquffYrfozIWRRJrT1qgcebEcBQRn/7
+	PBNW8eEqloK2lNBfltmizgEL8rBGTU7DPtaafLA1LYK37GrIG2B+j/9a8cTwJqilmgS4RwyjIyg
+	jjVL/6RR3H2ZkSl8k2J8rvPzZBNoQVzNlUxDPbqLfRXAT1NvWROEVT6FHVsvkQylNjrflxQq4SZ
+	L0+8J7L4rqoz4g8IniRWcJRyRYxk0dg25UhVZPN8ROtMzA6bGdryYGz3ULzeZSITDMGiLTP1uOk
+	Tbhsslq0q2socuasx4FiHfJEPRiCeRsimTElCqHG985IvJ7KPkvO3EG6V+FRvRp1A7Qs4XBJu17
+	BRIKciT9+RI3AColS9lXx7780m44AaHjLmC5DikwKXbuu7B15DAmidaiYQwBuR7lCui9D2wOX9G
+	VpwSo=
+X-Received: by 2002:a05:6102:d90:b0:7cc:9d82:61e2 with SMTP id ada2fe7eead31-7d64d7044camr4099100137.13.1794935719187;
+        Tue, 17 Nov 2026 09:15:19 -0800 (PST)
+Received: from lvondent-mobl5.taila91cb8.ts.net ([72.188.211.115])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-99e4a22d257sm156972241.6.2026.11.17.09.15.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 09:15:18 -0800 (PST)
+From: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
+To: davem@davemloft.net,
+	kuba@kernel.org
+Cc: linux-bluetooth@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [GIT PULL] bluetooth 2026-11-17
+Date: Tue, 17 Nov 2026 12:15:16 -0500
+Message-ID: <20261117171516.3560754-1-luiz.dentz@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,114 +97,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Mina Almasry <almasrymina@google.com> writes:
+The following changes since commit 1f2ac56137c51be0601e18a163d817e02a15913f:
 
-> On Sun, Nov 15, 2026 at 10:55=E2=80=AFAM Bj=C3=B6rn T=C3=B6pel <bjorn@ker=
-nel.org> wrote:
->>
->> Mina Almasry <almasrymina@google.com> writes:
->>
->> > On Tue, Nov 10, 2026 at 2:21=E2=80=AFAM Bj=C3=B6rn T=C3=B6pel <bjorn@k=
-ernel.org> wrote:
->>
->> >> diff --git a/include/net/xdp.h b/include/net/xdp.h
->> >> index 1105bb9e3292..5ab7802ac4e1 100644
->> >> --- a/include/net/xdp.h
->> >> +++ b/include/net/xdp.h
->> >> @@ -368,7 +368,7 @@ static inline bool xdp_buff_add_frag(struct xdp_b=
-uff *xdp, netmem_ref netmem,
->> >>
->> >>         if (unlikely(netmem_is_pfmemalloc(netmem)))
->> >>                 xdp_buff_set_frag_pfmemalloc(xdp);
->> >> -       if (unlikely(netmem_is_net_iov(netmem)))
->> >> +       if (unlikely(netmem_is_net_iov(netmem) && !netmem_address(net=
-mem)))
->> >>                 xdp_buff_set_frag_unreadable(xdp);
->> >>
->> >
->> >
->> > netmem_is_net_iov() check became redundant.
->>
->> Hmm, not quite... netmem_address() is also NULL for a highmem page
->> without a mapping, and the stack reads those through kmap, so they
->> aren't unreadable. The net_iov test keeps them out. I'll add a comment.
->>
->
->
-> Oh. I missed that. There are a bunch of docs actually that explicitly
-> wrongly say to use netmem_address to tell if the memory si readable.
->
-> Can you, in a separate patch, add a netmem_readable() helper and
-> update the docs (and if possible code places) that checked net-iov
-> when they were really checks for readability? Now that you're adding
-> readable net-iovs, all that assumption break right?
+  Bluetooth: L2CAP: Keep recvmsg from resuming a closed channel (2026-11-09 17:04:21 -0500)
 
-Uhm, yes. I'll cook a separate patch that adds netmem_readable().
+are available in the Git repository at:
 
->> >> diff --git a/net/xdp/xsk_pp.c b/net/xdp/xsk_pp.c
->> >> new file mode 100644
->> >> index 000000000000..fdd55265a6cd
->> >> --- /dev/null
->> >> +++ b/net/xdp/xsk_pp.c
->> >> @@ -0,0 +1,246 @@
->> >> +// SPDX-License-Identifier: GPL-2.0
->> >> +/* AF_XDP UMEM as a page pool memory provider
->> >> + *
->> >> + * Each aligned UMEM chunk is a readable net_iov with one owner at a=
- time:
->> >> + *
->> >> + *   userspace --FILL--> page pool --release--> reuse --alloc--> pag=
-e pool
->> >> + *       ^                   |
->> >> + *       +-----RX ring-------+
->> >> + */
->> >> +
->> >> +#include <net/page_pool/helpers.h>
->> >> +#include <net/page_pool/memory_provider.h>
->> >> +#include <net/xdp_sock_drv.h>
->> >> +
->> >> +#include "xsk.h"
->> >> +#include "xsk_queue.h"
->> >> +
->> >> +enum xsk_pp_chunk {
->> >> +       XSK_PP_USER,    /* owned by userspace */
->> >> +       XSK_PP_POOL,    /* owned by a page pool */
->> >> +       XSK_PP_REUSE,   /* on the reuse stack */
->> >> +};
->> >
->> > maybe should be xsk_mp_chunk.
->> >
->> > But also, why is this 3? Usually the mp's track allocated and free. I
->> > assume PP_REUSE is actually free, but I'm curious why it matters to
->> > your mp whether the pool or the userspace holds the memory (or whether
->> > the net stack holds it. Can't it hold it?)
->>
->> REUSE is free, yes. USER and POOL are both allocated, but userspace
->> gives chunks back by writing addresses to FILL, and it can write any
->> address, also one of a chunk the kernel still owns. Taking that entry
->> would hand the device the same chunk twice. So the provider only takes
->> FILL entries for chunks in USER, and drops the rest. io_uring zcrx
->> checks the same with user_refs, and devmem with the socket's token
->> xarray.
->>
->
-> Sounds like devmem choose to do extra-pp-refs on netmems given to
-> userspace, io-uring choose to give extra user_refs for netmems given
-> to userspace, and you have choosen to do something new? I need to read
-> the patches more thoroughly to understand.
+  git://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth.git tags/for-net-2026-11-17
 
-It is close to io_uring's scheme, but simpler. io_uring counts user refs
-per buffer, because one buffer can reach userspace in several pieces,
-each returned on its own, and it keeps a page pool ref while userspace
-holds it. A UMEM chunk is never split, so userspace holds it at most
-once, and one state per chunk replaces the counter: USER means userspace
-has it, REUSE is the free list. The chunk also leaves its page pool
-before userspace gets it, so no page pool ref is held meanwhile. When
-userspace returns a chunk on the FILL ring, we take it only if it is in
-USER state, so userspace cannot return a chunk the kernel still uses.
+for you to fetch changes up to 5beb86f98c3d45f6d64be5b6d6c77480487b41b4:
 
+  Bluetooth: L2CAP: return LE credits from recvmsg under the conn lock (2026-11-17 11:39:36 -0500)
 
-Bj=C3=B6rn
+----------------------------------------------------------------
+bluetooth pull request for net:
+
+Core:
+
+ - hci_conn: Initialize the device before hash insertion
+ - hci_conn: Free the unset handle when adding a connection fails
+ - hci_conn: Refuse new connections once HCI_UP is cleared
+ - hci_sync: Set random address on the set's handle
+ - hci_sync: Remove an advertising set by its handle
+ - hci_sync: Drop the command's sk reference
+ - hci_sync: Disable connection works before draining
+ - hci_event: Find the owner of a terminated adv set
+ - L2CAP: validate MPS and MTU in ECRED connection response
+ - L2CAP: Protect the receive reject-list lookup
+ - L2CAP: Fix size check for receive buffer space
+ - L2CAP: clear the SDU before the receive callback
+ - L2CAP: return LE credits from recvmsg under the conn lock
+ - SMP: Fail if local and remote public key X coords match
+ - MGMT: Fix runtime config status opcode
+ - 6lowpan: Always consume the skb in chan_recv_cb
+
+Drivers:
+
+ - btintel: Don't log unsupported debug features as an error
+ - btintel_pcie: Fix SCP DBGC base address
+ - hci_qca: clear qca_memdump when discarding dump packets
+ - hci_qca: Reopen the UART after enabling QCA2066
+ - hci_qca: Don't use the serdev port after a failed reopen
+ - hci_serdev: serialize flush with transmit work
+ - hci_mrvl: Leave the serdev port lifetime to hci_serdev
+ - vhci: Flush suspend work after removing debugfs
+ - vhci: Serialize packet reception with device creation
+
+----------------------------------------------------------------
+Amir Abudubai (1):
+      Bluetooth: L2CAP: Fix size check for receive buffer space
+
+Cen Zhang (4):
+      Bluetooth: hci_conn: Initialize the device before hash insertion
+      Bluetooth: vhci: Flush suspend work after removing debugfs
+      Bluetooth: vhci: Serialize packet reception with device creation
+      Bluetooth: L2CAP: Protect the receive reject-list lookup
+
+Chandrashekar Devegowda (1):
+      Bluetooth: btintel_pcie: Fix SCP DBGC base address
+
+Chun-Yi Lee (1):
+      Bluetooth: SMP: Fail if local and remote public key X coords match
+
+Hex Lindqvist (1):
+      Bluetooth: btintel: Don't log unsupported debug features as an error
+
+Jeremy Dean Clifton (3):
+      Bluetooth: hci_conn: Free the unset handle when adding a connection fails
+      Bluetooth: hci_conn: Refuse new connections once HCI_UP is cleared
+      Bluetooth: hci_sync: Disable connection works before draining
+
+Joas Antonio dos Santos (2):
+      Bluetooth: hci_qca: clear qca_memdump when discarding dump packets
+      Bluetooth: L2CAP: validate MPS and MTU in ECRED connection response
+
+Luiz Augusto von Dentz (1):
+      Bluetooth: 6lowpan: Always consume the skb in chan_recv_cb
+
+Michael McAllister (1):
+      Bluetooth: hci_mrvl: Leave the serdev port lifetime to hci_serdev
+
+Nguyen Ngoc Thang (1):
+      Bluetooth: L2CAP: return LE credits from recvmsg under the conn lock
+
+Piyus Kedia (1):
+      Bluetooth: L2CAP: clear the SDU before the receive callback
+
+Shuai Zhang (2):
+      Bluetooth: hci_qca: Reopen the UART after enabling QCA2066
+      Bluetooth: hci_qca: Don't use the serdev port after a failed reopen
+
+Weihong Guan (5):
+      Bluetooth: hci_sync: Set random address on the set's handle
+      Bluetooth: hci_sync: Remove an advertising set by its handle
+      Bluetooth: hci_core: Add hci_free_adv_instance()
+      Bluetooth: hci_event: Find the owner of a terminated adv set
+      Bluetooth: hci_sync: Drop the command's sk reference
+
+Xu Rao (1):
+      Bluetooth: MGMT: Fix runtime config status opcode
+
+Zhao Li (1):
+      Bluetooth: hci_serdev: serialize flush with transmit work
+
+ drivers/bluetooth/btintel.c      |  11 ++--
+ drivers/bluetooth/btintel_pcie.h |   2 +-
+ drivers/bluetooth/btqca.c        |   1 +
+ drivers/bluetooth/hci_mrvl.c     |  14 -----
+ drivers/bluetooth/hci_qca.c      |  47 ++++++++++++--
+ drivers/bluetooth/hci_serdev.c   |  17 ++++-
+ drivers/bluetooth/hci_vhci.c     |   5 ++
+ include/net/bluetooth/hci_core.h |   1 +
+ include/net/bluetooth/l2cap.h    |   1 +
+ net/bluetooth/6lowpan.c          |  18 ++++--
+ net/bluetooth/hci_conn.c         |  20 +++++-
+ net/bluetooth/hci_core.c         |  24 ++++---
+ net/bluetooth/hci_event.c        |  42 +++++++++----
+ net/bluetooth/hci_sync.c         | 131 +++++++++++++++++++++++++++++++++------
+ net/bluetooth/l2cap_core.c       | 127 ++++++++++++++++++++++++++++---------
+ net/bluetooth/l2cap_sock.c       |  12 ++--
+ net/bluetooth/mgmt_config.c      |   2 +-
+ net/bluetooth/smp.c              |  13 +++-
+ 18 files changed, 375 insertions(+), 113 deletions(-)
