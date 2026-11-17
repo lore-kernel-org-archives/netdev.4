@@ -1,168 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.3
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794892932;
-	b=RdCKMn2DzCts2xtl5ooa/v1EvvFIeFM9ibKoFbeW6HP7NGeO+gIV5NqF/lZ9vqJJzcCw
-	 pRE4it2WQN1Mu7IeegZaGXDneb6yzig3Kl7NBR9dgEZNaD/5rcwoykG6/d21I9b6QRiqg
-	 /565RzF4aNlOeh79iynMd+EBoyUQm2ElnBvcbdGV0ceR6K1gPizkQoKTBxIzdFLlMvp+o
-	 LEIgGH+UE7P8xYtN+eDfS9dfQ7joYhkK05pqJjlCpkQysl1JFW6SDyJSp3DABxBVT069p
-	 pOoQRch1SzG6uIghk5VyOXY9+XaHRbBNnJgxkdOym9FzFVZZ3cbJ1xumVEXNCxhxY+A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794892932;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:
-	 x-ms-exchange-slblob-mailprops:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:
-	 X-MS-Exchange-CrossTenant-rms-persistedconsumerorg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=DSG9+XFxyYCqwK9X0ajL/EREQyacZ5kDLklRdX+queM=;
-	b=tBBNOmxLVanxPu8oVmGdXvnGGmbPgep9G7Set+KTpa+twF8hShFmERKpW/WiM2ioaKLe
-	 xZFu+NqBZT78q+lol+X3I76t+aPOn/ka1BIri4EoqzuLI4ozIkRGCT6SIIdx28NouttKz
-	 PdKiYBgBqE2llPHGkVcZgJ0LcFcB8QMtwtgLEzRnLclbMbQPBgmLberV0rAJMEu/bgT5m
-	 8EFK/ChoVodDwmG03m7qYrkBsezRMvc9AW8/OVmf624DZt77BEsMiuzAi5gQyoeofo/5S
-	 /1cka2MnBWsm3qUKdXVqYS0Nap9hCtNiriz+EELSTSHzzBtXT/27lcNnda5F+AdDmHw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=outlook.com;
-	spf=pass smtp.mailfrom=outlook.com;
-	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b="I+/56oWi";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.43.3
-Received: from TY3P286CU002.outbound.protection.outlook.com (mail-japaneastazolkn19010003.outbound.protection.outlook.com [52.103.43.3])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794892939;
+	b=oMUdU0yvafnS/CwBYb+bMbuIp+DWsXzWZJ7oR/4hDP3FnLivT9+SX5QC/4ctJm/pQnmS
+	 LRThgWQG+cKSf6gNzLP9ExPn9keLDiDBMuA9sEvu8ttSpX00MVYKv/dHoppDvmuRUZPba
+	 1dXYgJVmgo3idLCKKZJnB0wHuzNbZkYbUCIGxc0PCh6Kno5ZumgTy1I5NZBJPQCzx1IDf
+	 B3ZRJgN8FTNPX+JwMP9T4WuzVqdZ559m+qhIct96isKbO/k4KznDPWeB4G1VJZUJqgnD7
+	 m+uG4w8kaZxqGqFuFnwwc+EzhiHTy+m236Z0wvce5HJQ5JVrftpdWhM7H20yNvmhScg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794892939;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=KH2EdOZQFCM29AQgS9x2MTO2Oio7leMA6Gbor09I+Fo=;
+	b=hzwwv82ZmjJiFnWnHvxwUVLAfDFJr2O0xmS90l4J2rXl34glNBUigNmnm+zE1TVq3U5I
+	 YJR9TE8gxbG18lqZ35/SUw4OGmObKabI7UyUbzTde1GsM/0vtUM1390NEcu2UTo0mryjE
+	 xBnt6yUfUWgCACml8/qblg9Or+8/NXDeEyo2y+118DATknxZKoUHSYEMu7+BLaJmdazO0
+	 TnVKY73Pgeh9C6AvwR1AXH1+zAWoKgI5Gf9hNqARA1+J7yyU1nQMr3NOqbHacM2vLebuF
+	 nwq2I7jQH4YzR6Pc4I5GXskuSwSFvKuTx7vJL/qbtrWA+RSgS5HTtPUAp3EE5Mek8eg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QgpotozO;
+	arc=none smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8767606A332
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 05:22:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8767606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5858606A329
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 05:22:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5858606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=I+/56oWi
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Z+Cq7ZZT7GURFjvE44FsNAcaTiC3e7X2cDZNSnHdqeJhxZ9e1U6qjgxcxdOxZQUvRlNIbz7FtjSxxE252tGwqt0RNM5jt1aTFKoc8StfW9xNanfiVFyZwA4l+L7lkda4wCXUI26E979O4UXqSmr4Vr+MqudYY094amSvymSOOayWLwAoHGfLU1OvcCW8c2xe4A8g8L4RRZI7fQUTbnGO7iUnvlzdo3nJw1PVNB7bCiHgy6ZNeV6FIYVH1up6/5VAdKz7kSb9e7jrFF8P6V+2zKYhdeJnXs367QtMFaBP7Gh4sxDsxr3NvA5TUad690I+0GXfoGw6x6aSTFn+B/vlmg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DSG9+XFxyYCqwK9X0ajL/EREQyacZ5kDLklRdX+queM=;
- b=IbNp2mdVJON2bJcc+d55dgjET8l+kN4emA9AodFL+1PMsu60T0qw5Ikw9qLpWTjB14+w8Ae6cdYoNZoTSGFCuz8SUluSRNA3t5N/iEh5FJnZ/LAttQrZVP3bGvSJy3M+hdZxOkZ9PiZnfr071f7k+ShRAW1gNKDzwaXpvf3iJNmtD0/3KIv5LbONFcVQX4t/dv0gUtz3z9helTulr+PbZ5IJpeTPnU5RfdEIipYd2iUICdSZRNQWEm2jL8rxQcnWJAI6lHAU9Bchk04uXGMPuHa1Dfv/4UspE1cMzCRjj2V216gG0u5w9SHy9DCgl35sqq9en/k4EDKX1rnEFmec9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DSG9+XFxyYCqwK9X0ajL/EREQyacZ5kDLklRdX+queM=;
- b=I+/56oWie27880d9NJSkWhamGN6hKhF34yDQHOYauFZs490ri1ljvpTig5vXPpzBZVLpG9ikWT/g6aGRBsoGWOpCuu5bFJK4FS9le2xoHVaMAIOcTYj/sdtxW6+MvS3z03F3nbfIcTrc508GedTY5C7dwOiaV4JowaBqZdw0UMbhh/WAYqEZPZpQBU/tjHAfYwRsMIoVRh1bzFpisXc0EgjjXfuD2oR1pYMlG8Jhks1mOvwPOh+EhKYudYUgESYB84YqlwPBvFXOkShjWsEafCcgRA/39igZR1cwJwcnzQknAXiBeYfcwXOvtmrmryNQ3+KVdFChLEJzM39has5mJw==
-Received: from TYCPR01MB8485.jpnprd01.prod.outlook.com (2603:1096:400:156::12)
- by TYCPR01MB6654.jpnprd01.prod.outlook.com (2603:1096:400:9b::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 05:22:07 +0000
-Received: from TYCPR01MB8485.jpnprd01.prod.outlook.com
- ([fe80::a16a:9b73:98b9:56b8]) by TYCPR01MB8485.jpnprd01.prod.outlook.com
- ([fe80::a16a:9b73:98b9:56b8%5]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
- 05:22:07 +0000
-From: lei lei <llleigoing@outlook.com>
-To: "netdev@vger.kernel.org" <netdev@vger.kernel.org>
-CC: "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>, "edumazet@kernel.org"
-	<edumazet@kernel.org>, "ncardwell@google.com" <ncardwell@google.com>,
-	"kuniyu@google.com" <kuniyu@google.com>, "davem@davemloft.net"
-	<davem@davemloft.net>, "kuba@kernel.org" <kuba@kernel.org>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "horms@kernel.org"
-	<horms@kernel.org>, "matttbe@kernel.org" <matttbe@kernel.org>,
-	"martineau@kernel.org" <martineau@kernel.org>, "geliang@kernel.org"
-	<geliang@kernel.org>
-Subject: [PATCH net 3/3] mptcp: exclude MSG_PEEK from receive buffer
- autotuning
-Thread-Topic: [PATCH net 3/3] mptcp: exclude MSG_PEEK from receive buffer
- autotuning
-Thread-Index: AQHddlOU5y50aLkDxEeMH8LypaS4hA==
-Date: Tue, 17 Nov 2026 05:22:04 +0000
-Message-ID: <20261117052200.1507847-4-llleigoing@outlook.com>
-References: <20261117052200.1507847-1-llleigoing@outlook.com>
-In-Reply-To: <20261117052200.1507847-1-llleigoing@outlook.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: TYCPR01MB8485:EE_|TYCPR01MB6654:EE_
-x-ms-office365-filtering-correlation-id: 9c2b5445-011a-4de3-0553-08df446ab902
-x-ms-exchange-slblob-mailprops:
- 7qh87CJt6y1mqZO6407WRLxlypE3k+eji948BCY56UxJrO+2ARSi5vt7QyuXBdz/eDt9CDgy3DZLhmP5vNspQ/S/C4qFwMaO2TG7HeZTiuS84pTJugny3Q0u3MelD/VeO6i5qheuQQ1Q67/Idt+L7EQ1qHv72Lo/sqd6BF2RoLxn1uQ1dd8eqf6X+JM635vlAVjkSAhSSzc/kkAsYvEK03g9zhV94RpuG0mlIGIj0q1EGD7FTsR3y5gcJ0sgAxilC7HKdrBqbAGSdZiZYWScit/6LOXoatY+gF+UA8v4p3AUqIpr4X5Kw6xvXyOp7ABSO/hzPdRBt1oRekgMm3P9DIsD+IXENwqBXuJvyzZmVghIMdd3Du4ruyLAodKX/TpQL+xtflYjf9mSUUdCLIiYj1+SZWZz0WQE3w67j4ZPEEBgqO/kVdpHREZ6XpGrUjWomJcTMKQkxVyjpSxRmq9r9YMiV7shIgYhb4Hk+A2Yd8IPNAnZ0UGZTEaWHxK/Rc57iCrtm5pvwyL6wRwpH1M+Xhu2P/yp1K/aIIRralGVp+SrnU0MhguFpqsofoyk/c4irwDfnhrq2GZflQh93pxB+zCB2te2KkZOQlVrKLqU1PnSnvs4ZDuOMloRYHjrsUiOT4aG0igpFy0EEuwYpuniF0Lr+DGQYJFjlis0FQ6K9okIGPyvfip5pGwUCJtVc0ZUaWB8xiwHjwsGfaV8/TW4SshWxFgLgPlt3kQnGjrVRq5WJZxERMoF3ufKgFMm4dNk
-x-microsoft-antispam:
- BCL:0;ARA:14566002|41001999006|12121999013|8062599012|8060799015|51005399006|19110799012|38102599003|15080799012|37011999003|24021099003|31061999003|25010399006|40105399003|102099032|3412199025|440099028;
-x-microsoft-antispam-message-info:
- =?utf-8?B?V3N0MGFaZDY0b21zWXNGMUY5RE9odXArV1JsU01lRkdSS3I4dXpIZjA5K3JZ?=
- =?utf-8?B?eVFXWUpJbHlyZ2RtWFdNaDlESDBUUzlGQWdKbkNyRHdPR2xYTWdLUi9iUzkr?=
- =?utf-8?B?YWVvcVhBeGtCQ3VxTVRnQ0Vuc2N0TjBSb3lIZDdVaU1LbmZPakJlL3dKeFJP?=
- =?utf-8?B?VWdrc3BsVjZZOUNmOHgzY3M4VXVkZkZFaVAvalFXbG5tZzlMOWMwOFNHTEZV?=
- =?utf-8?B?eFhCVEhVSmxWWDJoT2ZjM1VSVHRjY3ZCUHU0ekp0L09NVFRvTUtjTWpmY2ZN?=
- =?utf-8?B?SkliSU9ESVpyYTlrSC8rMThqd0x2VGx4OS8xZVVHZjFEM011SytmcFlHMHM4?=
- =?utf-8?B?cnBKVW9WR3BLb2VWdVZtNFM3WVNLRnRaa3hHb1REY1N5NlJSV2U5ZnV6KytM?=
- =?utf-8?B?Mjh2Um53QUQ0UGcwQUI4MEJFcjNGcjBwejU2THg4MU9WelNReTgrV05XVWxx?=
- =?utf-8?B?ZFVhQ0JHQnJnSlMya3p1ck5NTThVcCtTZ2JnUVZzM3hOQ3A2Q2pwZEhqdC9v?=
- =?utf-8?B?TmhZUkMvUU82dEJicGFGSnRIQjB6RDdGdGNjS3Z1V1JoQkRDNW9GTUNlTXNF?=
- =?utf-8?B?WGUvTFNNNittSTF4K20zQlh6emZFaHRBcUI2SmtYRTVKRWdPeE9UcHZ5QUpl?=
- =?utf-8?B?bjhCNFBrNnc3dlBOVS9aMkdXTjQ0Q3BjSStkaXNKelRiZURkTnd0ZzFuSkFL?=
- =?utf-8?B?Zmo1a25jd0pQOHV1TGtFekdXUk84Qzc4bmZrYzcybS9QQ21Eckw2M1ZFa0FW?=
- =?utf-8?B?NCtJd2dXb3lrUVFwRk9QK1J1TjhUdlZBdm5ZckNDMVhCc3A1SloxbGxhVXNX?=
- =?utf-8?B?dGlOOEpOcENvQ2twZ2dYTFhCelNSL2U2UFlCOVl5bmlXamY2UDNsSWV6Zk5X?=
- =?utf-8?B?M3pCMHhScENXT0RZL0s3SjkybVpEc09iN0pVb1JjeGlNVnEwUzd6bUs5N1Na?=
- =?utf-8?B?aDFWU1I0L3JGeUZoSzVkQ29NNzhQV2NHOStZZ3JNay9ZdlJ0RUNqMzV4Wjhq?=
- =?utf-8?B?dk5FRUd4N0RWTmJtRTREYm1jakNrSzhScEtZNWdmbWIyeHFEejNEclFSNXdq?=
- =?utf-8?B?NnY2RUNmUWlQbE1saTF1OHZuVzRBNUlhaVpheFpybm1jcTVCeFp4ekxZejJD?=
- =?utf-8?B?NjJadXZHNFMwak5DUFVaUXI4MmJGbVNmWlVwWThJOCtIYllTMjcrNEcvV3V5?=
- =?utf-8?B?YU9FY0NOYzV2cURZRGNEYXpZSlhQdW5CS2VhL1pLWTI4aUR1NGJBWEw0QTFi?=
- =?utf-8?B?aWVsT2pSTlkrTEVVS3U3dU9ScUlNaTFtRUJBNnlvZUtFYk8wTUpHd0lBTzdY?=
- =?utf-8?B?UXV4OGMyVkIwTjNCM3Q0UnEwM1JLM1NZYk5VTCsrajNVakt5dVIxU29UcVB2?=
- =?utf-8?B?ME5hNXNhR0M5S252OVZUaWtRYmpJajhLNi8wUmh6TXMvb2VNRUFrMUNvNG82?=
- =?utf-8?Q?RyUouDZF?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?M2hMYlZ1b0kxejBRU3V6ckhBd3hSMlpENm1pdDJ0akxyekI5alQ3L2xFVlFu?=
- =?utf-8?B?bld1VzVST01aUElVT3hUUVpOK1U4TjJnM3lIZWhFV2hXM2VkUE03bkRBcllL?=
- =?utf-8?B?SHB3b2NJN1RKbE5kRGIvdFdJVVNPQnFiZURocks0UVVpK3AyK0tiM1pRTGpE?=
- =?utf-8?B?VzhCVVcycjVpRm4xMjdwQi9FRHpIWlFxNko2NmpCdGY0bG15QnVNbFJTeGJO?=
- =?utf-8?B?NGtSNkpZMmNGb3ZJSTZzZVFESDZ3QW1sZ21ZMTFKNk5DTVYrb1A2aDdTclgy?=
- =?utf-8?B?T2RRMHB6Q3FLbVZuQ1htZEZTdzA1M3RHRGtubWtBV1ZBaWpNM01LaXNFQ0Jv?=
- =?utf-8?B?ZmVGU29pUkE3cmxpWkN0QUN5YVFUYjFsbTBDNnJLaExjRTRqNkhHRXF6dFZO?=
- =?utf-8?B?SzBsaC9xY3NNRE1hcWhvWDJmd3UyQ0x1UWdLOXVmZjRvMStPZ0VabElvRWMx?=
- =?utf-8?B?c0ZWWEpHeFRIbS85Y2orazhQdmhCWllzQUZoazdSalNXZDI2K210aWhGNkho?=
- =?utf-8?B?OGYvb0VKQWN5SDg5azFyckJmSHN4Tlg0cElBODZnY29CU3kzVHB4SjZvczVH?=
- =?utf-8?B?a09ISmorRWtYcjByNHVhaTk3akt3SjN2ZW5SeU4wQUNxanMya080RS92aktY?=
- =?utf-8?B?Sm9hUDhZRkdGaXlvZUpFWUJDek91WnBFUUExY0tROWMxQWtoQXAvNzZqK05D?=
- =?utf-8?B?ZVBHb1hQRHZDc2RSb24zR0dQOGt1azcvT0VadjZoa0NGeTFxZXVxbnk2OWIw?=
- =?utf-8?B?bTJMcjBZeStSSFRYbWVjK1BINTMwbS9UaC95R2NSZ1dkWVBLRnl1dFpnVHFa?=
- =?utf-8?B?Zm1idytPQ2tER05GeE9pQ2lpZnNKQXA1S3ZSeEV2L3h0U3BLV3h6ZHpIZWlz?=
- =?utf-8?B?ekVKMUwzRDhUT2tpS2pRRHg2UUs1MVphR05zbEwybE83b0tmTlF6LzNZTW9j?=
- =?utf-8?B?cWRrcHY4S0NQZEpYQ1BSNmN5QS8vcVBuNFBZbzQ2ZC9GK3I5dFJ1T3ZrNjEr?=
- =?utf-8?B?cTFpamFkN1ByczBaNUp0c1ord0RrYUpVQTFSMWVtLytQQWsvS2pmeWRZbXlV?=
- =?utf-8?B?eG9aa043MnJ2TUl3cnlhNFF5SisxZ2lQcDM2R2xkN2M2RUloeUc3cDMrcVl6?=
- =?utf-8?B?ZkFwQmhRMG5weXhyL0RDb2RraUtoS28rSGhDWVAyTlozL1l5WWM4bFZTNzB1?=
- =?utf-8?B?Vmg0T2hNQys1SkR1RlRGMHhOZkVKTEpsOWR0bktqZnRIZkxNUzNGaldZMnpy?=
- =?utf-8?B?bWxsbFRCSElYRmFWR096OTJoTTdVam5rNmZYSmtnb2hWWVBOSUkxckVzTDNj?=
- =?utf-8?B?NHdUcXg2TU1EbzZBL2FQdVdaZlI1S2dBV3VXSm05c0lWcklRaEwwVjNuM3Iz?=
- =?utf-8?B?N0ducTJYd2RMdHRtRWdwcUd2RUpXWGJYREtCa0xSVEJ4SjNiakFZLzVIMzBF?=
- =?utf-8?B?cFpRaUw2aHJ3NEYzQno3YlpuYXJrcXZLMHlOdVFJRGhPbS9JWjZ2SXNpOXdi?=
- =?utf-8?B?ZVFDc0RBaUJBRmIyNm1Cd3hEenpRSFFZYjVkcllaMGhTeGFwdHBjTUNXRGNE?=
- =?utf-8?B?bXNiUFFIdFVXQ2FZY25DU1lMRzExQXRjRndQMlNKRWh6YlRzb1ZCTUVHemgz?=
- =?utf-8?B?RGsvQUxKbzByQUw2WlhnSWdxV1M2YTVZR2ZaNWZlZ1RiTndVRmIvTnBJcTV6?=
- =?utf-8?B?ZXhkaG16Ykh6UXIvTE5KV1VsS3VaYjlkTGhaLzdPYkdQTC9qVHROdUFoOE5I?=
- =?utf-8?B?Um9GZHpOcmdSdERtbXBaQ3pQdW5OMWdaUGVWWUNKZ0pLVmF0VUZWRVNBZU0w?=
- =?utf-8?B?Z0hLdnh2Q2FCOEF1cHp2MUliTUZySWdLdEFpZk56eDE5MnU3K1ZERkQzNkw1?=
- =?utf-8?Q?ERHgPeWdZDHb6?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QgpotozO
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2e9995ce866so40330245ad.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 21:22:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794892938; x=1795497738; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=KH2EdOZQFCM29AQgS9x2MTO2Oio7leMA6Gbor09I+Fo=;
+        b=QgpotozOIwafP7uLbeWT2TODTeVPHollYT3PV4rkXSBXMCIZTTiFHVXcgv5LmUHUAB
+         sM6H4SaB+swTJKPebfWdVgNSVhx7Ai2xMgBDufHrFUmSndxJZ4iU4RgEs8IbmCwL44H/
+         RnD5BGk7CmQL0gY1bXjT8+5gHGmgOIr7KJ6wJX5KWiZOe0s7QYwEOOaJ8MXVixzFXSCa
+         1VMiM5KSBUz6okr0kI9ILn/Bnje5qU8Ge1mOccIz4SKGjP/ftcIb34IS5Xkmuk+vov+n
+         dgREl+PhzdtQgnIdT8DpMGklQkSQIzOcNzs6VzOfLvEJvqP16HuoeznE6BuY2LKXBF4o
+         tDyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794892938; x=1795497738;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=KH2EdOZQFCM29AQgS9x2MTO2Oio7leMA6Gbor09I+Fo=;
+        b=loiQ5D3xtvh8HPqIHnNp5TxfyRFGR9Q5ouKp5XJTkVhj46gA61CAywCyApx8QRxPpP
+         dU/a3XhDnYeCldvRHjlCf7NVdOWBv8LPOfHrmWajecxFYZZ8b8MzaUtNyY6IH3nyA/hX
+         HvXrN288TqgefUUmrjHmwexYaCA31kulOJgzVqedGn/4HNW3gXvvqqSdTc0+/P0+7Tao
+         7qdg2oFkL3jPBaOBs7c5+M/t/7xWuQHBHtb5JOTKhptkMNr9sZYImYKdMj9XgDwsO2Q9
+         NGAV8bLDUsfK1aytNgYjJtrn0AP8ATn/lN5V8pavbyr4kY/2rUG68n5nHK5coECXwqHk
+         JeQg==
+X-Forwarded-Encrypted: i=1; AL+hErFX040UO36CD8vkkDNrkXaD2tfXwBxyngJDlUJ3mOvPlI5QbV2A+yWGkvjxDEbePlVAAxN67y4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9rFSTMTNYtdu4zTP+sksH4iiRQmwzNCHn5i+X0+Un+YveVb9qf
+	As23pK7m0WPvRGlxAaFVF2OSVQw85TR/OtWHZrGaefASx3j51XTC19Jr
+X-Gm-Gg: AZFdTZdjHAVDyYPsLndgaQn7qD33DZr6lIYRrXhQ288TCAtxFG4uHmjKGe0Imhiqty/
+	9CAtjrtd3jaXP02AmPxWtuKS/d0VEg3XpQwjaUXyZg04LaXEfp1cyBqHZOP4luxI/ambBMhVTIv
+	m6H3ZtjF+TkRc85sjDgxAMTBcWEjnAhVKfVOVR3kvgNdvZiDF4x5q23spzaExrTvqCjePzwQSHw
+	HG3VT9OaBj9pKGWeIHYwkkJ6Xx4kYg8+iJ6wZwC3dd9ia/FuBXrZ7AOkyfd20245JFcfED/QJB3
+	xHuSPjhklb5NJckeKzKP8G2aWDgJC5Mh8G+WWcVad1bQKE7dMNJTXtR3XuN5Vmr866DuNM2Gwzu
+	WXcICkG7Z67R8k4A59sNZSa3olGzrOXYcvP+xWeuCv7JrJjmWeWaZO8wVAyxLz63NNH0rZJ8ddX
+	k+WoONBZ4XKPqacW8pXp/POawDXeLo7eOZ4CJxsHWCsIkKRJjFYEqwYqH36lNAzNTJtsuxX2sE+
+	SGNWdrFNyoSWz8uKYZ1JpZb6d54WrtkFV7KzQ7kBYk9+MTcHLB2u8k5s472Pgqluaww9ghl8Hm5
+	/PyK9TJSDLg5HC8o2xrjQkJTwQOFeMDZ07NFNT3Z8/co86E0FoG6Aal4Il4I2M6VV63Ng0SlNj1
+	LvUivebDYj4N43INNi42rBWSZG//Sqe9+pg==
+X-Received: by 2002:a17:902:d4c5:b0:2ed:3ad6:141d with SMTP id d9443c01a7336-2ee0dad017bmr119363765ad.25.1794892937999;
+        Mon, 16 Nov 2026 21:22:17 -0800 (PST)
+Received: from localhost ([153.61.198.252])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd7a4114csm7909205ad.38.2026.11.16.21.22.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 16 Nov 2026 21:22:17 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 17 Nov 2026 05:22:16 +0000
+Message-Id: <DMX8G01GB597.2KEEFI12YK9V0@gmail.com>
+Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "John Fastabend"
+ <john.fastabend@gmail.com>, "Andrii Nakryiko" <andrii@kernel.org>, "Eduard
+ Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
+ <memxor@gmail.com>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu"
+ <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa"
+ <jolsa@kernel.org>, "Emil Tsalapatis" <emil@etsalapatis.com>, "Ihor
+ Solodrai" <ihor.solodrai@linux.dev>, "Steven Rostedt"
+ <rostedt@goodmis.org>, "Masami Hiramatsu" <mhiramat@kernel.org>, "Mathieu
+ Desnoyers" <mathieu.desnoyers@efficios.com>, "KP Singh"
+ <kpsingh@kernel.org>, "Matt Bobrowski" <matt@bobrowski.net>, "Shuah Khan"
+ <shuah@kernel.org>, <linux-kernel@vger.kernel.org>,
+ <linux-trace-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+ <netdev@vger.kernel.org>
+Subject: Re: [PATCH bpf-next v2 1/9] bpf: Add log support for tracing
+ link_create
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Leon Hwang" <leon.hwang@linux.dev>, <bpf@vger.kernel.org>
+In-Reply-To: <20261114150610.84507-2-leon.hwang@linux.dev>
+References: <20261114150610.84507-1-leon.hwang@linux.dev> <20261114150610.84507-2-leon.hwang@linux.dev>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -172,41 +112,125 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: TYCPR01MB8485.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9c2b5445-011a-4de3-0553-08df446ab902
-X-MS-Exchange-CrossTenant-originalarrivaltime: 17 Nov 2026 05:22:04.0716
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB6654
 
-X19tcHRjcF9yZWN2bXNnX21za3EoKSBwYXNzZXMgYnl0ZXMgY29waWVkIGJ5IE1TR19QRUVLIHRv
-Cm1wdGNwX3Jjdl9zcGFjZV9hZGp1c3QoKSwgYWx0aG91Z2ggdGhvc2UgYnl0ZXMgcmVtYWluIGlu
-IHRoZSByZWNlaXZlCnF1ZXVlLiBSZXBlYXRlZCBwZWVrcyBjb3VudCB0aGUgc2FtZSBkYXRhIGFz
-IG5ldyBhcHBsaWNhdGlvbgpjb25zdW1wdGlvbiBhbmQgY2FuIGluZmxhdGUgdGhlIHJlY2VpdmUt
-bWVtb3J5IGJ1ZGdldC4gU3VidHJhY3RpbmcgdGhlCnVucmVhZCBxdWV1ZSBhdCBhIG1lYXN1cmVt
-ZW50IGJvdW5kYXJ5IGNhbm5vdCB1bmRvIHRoYXQgcmVwZWF0ZWQgY291bnQuCgpUaGUgcmVjZWl2
-ZSBwYXRoIG9yaWdpbmFsbHkgc2tpcHBlZCB0aGlzIGFkanVzdG1lbnQgZm9yIE1TR19QRUVLLgpD
-b21taXQgNTgxMzAyMjk4NTI0ICgibXB0Y3A6IGVycm9yIG91dCBlYXJsaWVyIG9uIGRpc2Nvbm5l
-Y3QiKSBtb3ZlZAp0aGUgYWRqdXN0bWVudCBjYWxscyB3aXRob3V0IHByZXNlcnZpbmcgdGhhdCBj
-aGVjay4KCk9ubHkgYWRqdXN0IHJlY2VpdmUgc3BhY2UgZm9yIG5vbi1wZWVraW5nIHJlYWRzLiBL
-ZWVwIHRoZSByZXR1cm5lZApieXRlIGNvdW50IHVuY2hhbmdlZC4KCkEgbG9vcGJhY2sgdGVzdCBs
-ZWF2ZXMgYSBmaXhlZCAzMiBLaUIgcXVldWUgdW5yZWFkIGFuZCBwZWVrcyA0MDk2IHRpbWVzLgpC
-ZWZvcmUgdGhpcyBjaGFuZ2UsIHNrX3JjdmJ1ZiBncm93cyB0byB0aGUgY29uZmlndXJlZCA4IE1p
-QiBsaW1pdC4KQWZ0ZXJ3YXJkcywgYm90aCB0aGUgYnVkZ2V0IGFuZCB0aGUgcXVldWUgcmVtYWlu
-IHVuY2hhbmdlZCwgYW5kIGEKc3Vic2VxdWVudCBjb25zdW1pbmcgcmVhZCByZXR1cm5zIHRoZSBv
-cmlnaW5hbCBkYXRhIGludGFjdC4KCkZpeGVzOiA1ODEzMDIyOTg1MjQgKCJtcHRjcDogZXJyb3Ig
-b3V0IGVhcmxpZXIgb24gZGlzY29ubmVjdCIpClNpZ25lZC1vZmYtYnk6IGxsbGVpIDxsbGxlaWdv
-aW5nQG91dGxvb2suY29tPgotLS0KIG5ldC9tcHRjcC9wcm90b2NvbC5jIHwgMyArKy0KIDEgZmls
-ZSBjaGFuZ2VkLCAyIGluc2VydGlvbnMoKyksIDEgZGVsZXRpb24oLSkKCmRpZmYgLS1naXQgYS9u
-ZXQvbXB0Y3AvcHJvdG9jb2wuYyBiL25ldC9tcHRjcC9wcm90b2NvbC5jCmluZGV4IGIzYjk3OTQw
-My4uNzlkYjgwNjNhIDEwMDY0NAotLS0gYS9uZXQvbXB0Y3AvcHJvdG9jb2wuYworKysgYi9uZXQv
-bXB0Y3AvcHJvdG9jb2wuYwpAQCAtMjIxNSw3ICsyMjE1LDggQEAgc3RhdGljIGludCBfX21wdGNw
-X3JlY3Ztc2dfbXNrcShzdHJ1Y3Qgc29jayAqc2ssIHN0cnVjdCBtc2doZHIgKm1zZywKIAkJCWJy
-ZWFrOwogCX0KIAotCW1wdGNwX3Jjdl9zcGFjZV9hZGp1c3QobXNrLCBjb3BpZWQpOworCWlmICgh
-KGZsYWdzICYgTVNHX1BFRUspKQorCQltcHRjcF9yY3Zfc3BhY2VfYWRqdXN0KG1zaywgY29waWVk
-KTsKIAlyZXR1cm4gY29waWVkOwogfQogCi0tIAoyLjQzLjAKCg==
+On Sat, Nov 14, 2026 at 07:06 AM Leon Hwang <leon.hwang@linux.dev> wrote:
+
+tldr: pls use uapi names where possible:
+
+> +		bpf_log(log, "tgt_prog_fd and btf_id must be both set or both unset.\n");
+
+The uapi fields are target_fd and target_btf_id.
+tgt_prog_fd and btf_id are arguments of this function.
+Patches 2, 3 and 4 say target_fd for the same field.
+
+> +			bpf_log(log, "Only allow re-attach for tracing and lsm progs.\n");
+
+I think this one misleads. A freplace prog can re-attach.
+It has to pass target_fd and target_btf_id.
+The comment above the check says so.
+
+> +			bpf_log(log, "Invalid attach_btf.\n");
+
+attach_btf is a field of bpf_prog_aux. The user never set it.
+NULL means that the prog was loaded with attach_prog_fd.
+Such a prog can't re-attach at all.
+
+> +		bpf_log(log, "Invalid kprobe_write_ctx.\n");
+
+Another bit of bpf_prog_aux.
+The rule is that both progs write to pt_regs, or none.
+
+> +			bpf_log(log, "Invalid tracing attach_type.\n");
+
+LSM progs get here too.
+
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index 35f8a71..85d97cb 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -3712,7 +3712,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 	}
+ 
+ 	if (!!tgt_prog_fd != !!btf_id) {
+-		bpf_log(log, "tgt_prog_fd and btf_id must be both set or both unset.\n");
++		bpf_log(log, "target_fd and target_btf_id must be both set or both unset.\n");
+ 		err = -EINVAL;
+ 		goto out_put_prog;
+ 	}
+@@ -3725,14 +3725,14 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 		 * attach_tracing_prog flag is set.
+ 		 */
+ 		if (prog->type != BPF_PROG_TYPE_EXT) {
+-			bpf_log(log, "tgt_prog_fd is only allowed for freplace prog.\n");
++			bpf_log(log, "target_fd is only allowed for freplace prog.\n");
+ 			err = -EINVAL;
+ 			goto out_put_prog;
+ 		}
+ 
+ 		tgt_prog = bpf_prog_get(tgt_prog_fd);
+ 		if (IS_ERR(tgt_prog)) {
+-			bpf_log(log, "Invalid tgt_prog_fd.\n");
++			bpf_log(log, "Invalid target_fd.\n");
+ 			err = PTR_ERR(tgt_prog);
+ 			tgt_prog = NULL;
+ 			goto out_put_prog;
+@@ -3787,13 +3787,13 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 		 */
+ 		if (prog->type != BPF_PROG_TYPE_TRACING &&
+ 		    prog->type != BPF_PROG_TYPE_LSM) {
+-			bpf_log(log, "Only allow re-attach for tracing and lsm progs.\n");
++			bpf_log(log, "Re-attach of freplace prog needs target_fd and target_btf_id.\n");
+ 			err = -EINVAL;
+ 			goto out_unlock;
+ 		}
+ 		/* We can allow re-attach only if we have valid attach_btf. */
+ 		if (!prog->aux->attach_btf) {
+-			bpf_log(log, "Invalid attach_btf.\n");
++			bpf_log(log, "Cannot re-attach a prog that was attached to a bpf prog.\n");
+ 			err = -EINVAL;
+ 			goto out_unlock;
+ 		}
+@@ -3849,7 +3849,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 	 */
+ 	if (prog->type == BPF_PROG_TYPE_EXT &&
+ 	    prog->aux->kprobe_write_ctx != tgt_prog->aux->kprobe_write_ctx) {
+-		bpf_log(log, "Invalid kprobe_write_ctx.\n");
++		bpf_log(log, "Only one of freplace prog and its target writes to pt_regs.\n");
+ 		err = -EINVAL;
+ 		goto out_unlock;
+ 	}
+@@ -5921,7 +5921,7 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 	case BPF_PROG_TYPE_LSM:
+ 	case BPF_PROG_TYPE_TRACING:
+ 		if (attr->link_create.attach_type != prog->expected_attach_type) {
+-			bpf_log(log, "Invalid tracing attach_type.\n");
++			bpf_log(log, "attach_type is not expected_attach_type of the prog.\n");
+ 			ret = -EINVAL;
+ 			goto out;
+ 		}
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index ce11e78..ce7f530 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -23873,7 +23873,7 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
+ 
+ 		if (bpf_prog_is_dev_bound(prog->aux) &&
+ 		    !bpf_prog_dev_bound_match(prog, tgt_prog)) {
+-			bpf_log(log, "Target program bound device mismatch");
++			bpf_log(log, "Target program bound device mismatch\n");
+ 			return -EINVAL;
+ 		}
+ 
+@@ -24133,8 +24133,10 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
+ 
+ 		if ((prog->aux->saved_dst_prog_type || prog->aux->saved_dst_attach_type) &&
+ 		    (!tgt_prog || prog->aux->saved_dst_prog_type != tgt_prog->type ||
+-		     prog->aux->saved_dst_attach_type != tgt_prog->expected_attach_type))
++		     prog->aux->saved_dst_attach_type != tgt_prog->expected_attach_type)) {
++			bpf_log(log, "Target differs in type from the target at load time\n");
+ 			return -EINVAL;
++		}
+ 
+ 		if (tgt_prog && conservative) {
+ 			/*
+pw-bot: cr
