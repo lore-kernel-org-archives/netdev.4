@@ -1,50 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.64.183
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.64.23
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794916436;
-	b=eSz3g7/1C7p2AdlR51rKrSj8dlFq5ugYxtI079bvuX3SwCSb95Ixvi89hg1Fb8VLG+cT
-	 z1Eqi1xr+CclTJmZzlghgxT9XaHz6+uzazzJ5YlMWf53J7yhcw/dIzrEJ9H2I09BWWINI
-	 eKLjC+z0OGyXCRPNPckhs/cA6NbZVqfH3ekZmsTKMrZn2y5geyijloWtDgh1E9RSjIk3R
-	 i18fQFqlEMUy3CvGOHeiBMo8yoD5m8hHcAXjJcTwnsl6z+CfaTkd+RUbqO5+6M4s+2fL6
-	 rwzm8aYFSQVH0+eSB1yLAQM/099MiQxwa73UjV5vzDfFMBhSwkgjmMs0yisXksc8M8w==
+	t=1794916441;
+	b=DcsJnLDBx2eecoQtFEKWXZkGb2wlt45kL6jeXpJaYypv8ewCTpri6pk/Z7FHYXkTfJWO
+	 83vHYJ41at2j7LW0F00WS4u0lADzzHQiKEzThaRi05qRaixAo92bJqmm0IEw6vAUQdZuX
+	 IJVuMCxWDDxQy2+4+7VqC9qH688inqyVqmWlmm5/xoBKmUd8wfLMomOzvVFNj8DovgAIM
+	 2u8p9kZ96uXtSBP5JUtpODPx/shhVDGaJwcaVIDf2aQKxlFLPur4cc/Ui8wPH8AguBrFr
+	 i/GJiQsUfhyRzYAKdstUcVkJ6JJaQ98MQ2ScNe4kkhe80YYnTA+t4gKS63PH2l7c2IA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794916436;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794916441;
 	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
 	 mail-alias-created-date:Received:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Authority-Info-Out:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-JNJ;
-	bh=1mziqc7iCo3GycX+OIidCj8rWEHHQUb8Q9gKlOt9Y7A=;
-	b=UZxmzGIxoAs//bVUaSYArd02Chvc66CI9k+5LkOz0pLl1hGRAm2bSvAkf9NL3TEWVn1D
-	 InwylD0qg7GVrNVfiHukE3Dhhi9RxZUazVtZsYCVC7MEjVWWLpbegZvjCASczKiN2Kq3F
-	 UV5FOOGxhfKuzcOftzLeluRmxFue0Kd7XFugs/Vvx18udVlvW6jrVOhtf3wdTXjCk4ocU
-	 DPGd3E/7eN+YY+9Fhyn1JEIFurziKaCUwYP9vRSEVUZX5vKboM2F5+3Zw3ESteWciZpaa
-	 BkcizOmYayfMVYb0A/UOdNS+kcFSQ6xQ7wb9Wq+SLXaB2721asJIHdmnbfR0sqAIcCw==
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Authority-Info-Out:
+	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:X-JNJ;
+	bh=2twkXYHjF0/8A77eNfNjhV5mOhxXr6xgBT1MH1j2qYM=;
+	b=QQJtD7M3HCFgrZPcgDAseaZTKYKWpp/8coqOIHOnBWRaQuxxvG2T08ZlzhBzkHtgF5Ya
+	 zp2kDPl8LSaQ8AjpeRSmnEybqYpVbxZFGwSXiD/FNV8/kWeKTKyDYutdY33qf3USqDFr6
+	 pTrQpbshg9TRJ0Fq9oaAAMzJ9RIV6Slw7xGJiRiYRYKvTNdCHxVuzpJ9b4+unLs3K3DzY
+	 RPYyM3bl9xx0ox9c8dVT/RLEm1vtxUuWHeHl8Z+15elDyIz+gD5NP7BUkrohe+wci64O6
+	 OBfg4Ni5OfedLhc0WzXJiHnwi+hJxULpjsszo+OrxI1v2m+8BKKc80FvL+VoSfNLDvg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=verdict.gg;
 	spf=pass smtp.mailfrom=verdict.gg;
-	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=iIZ5uQDk;
-	arc=none smtp.remote-ip=57.103.64.183
-Received: from outbound.pv.icloud.com (pv-2002b-snip4-2.eps.apple.com [57.103.64.183])
+	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=ndcp1J5x;
+	arc=none smtp.remote-ip=57.103.64.23
+Received: from outbound.pv.icloud.com (pv-2001l-snip4-11.eps.apple.com [57.103.64.23])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD300606A8A8
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:53:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD300606A8A8
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1D73606A33F
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:53:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1D73606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=verdict.gg
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=verdict.gg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=iIZ5uQDk
+	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=ndcp1J5x
 Received: from outbound.pv.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-west-1a-20-percent-1 (Postfix) with ESMTPS id 716CC1800154;
-	Tue, 17 Nov 2026 11:53:51 +0000 (UTC)
-X-ICL-RepId: 01a1e95b-3618-7ef0-9fd5-8f088efaaaa9
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1794916435; x=1826452435; bh=1mziqc7iCo3GycX+OIidCj8rWEHHQUb8Q9gKlOt9Y7A=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=iIZ5uQDkJt2upTptYptd1IRWEsFO0JCXSheQrzhXCVrvpBThideX3ch2bACvdIHhvLVB/YKOV5SzgqLrb+pLHNpALopZqMNo35tLCDrn71xdzGrtphxCsoETZJuBYio4DyMw0BkmC8dptazKHt9eK7hQQt8YWqhMFK1Gjnq6nnigTSgLgu51oFmllvCo/OyUuZl5dRbJph9woKpKw5ZoimsckdzwI04NAPcJVBuNcG/KYoJNbeh1WAq7InWiSPHiL3i5LMs00ZbOPYuzGntBFrFQVXVVJRV7t1dWV09u/boQbXflmcgrR/wW4Fb+a/hW2I8LsAiAnckvlSAU4M0NXg==
+	by p00-icloudmta-asmtp-us-west-1a-20-percent-1 (Postfix) with ESMTPS id 0FA5B18005A8;
+	Tue, 17 Nov 2026 11:53:55 +0000 (UTC)
+X-ICL-RepId: 01a1e95b-47fe-75a1-aaf2-09e0ba1f92cc
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1794916439; x=1826452439; bh=2twkXYHjF0/8A77eNfNjhV5mOhxXr6xgBT1MH1j2qYM=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=ndcp1J5x0stHpyrYYmhh1r9GBuX8+7s3pPjGH7KzAod0YJk0In3nR4Q6K+m5rL47TTEe9mdv8NMFn14IFai28oH0v/MA6ZOXWbf2J8OjqVbLwEfgkxP4z7eDHN//zYmZiCVXdZM33IcmlNqOZwbLKOgB9O+/euFp7lGnAQz8MGrYnCtqmQuqREZiaEX0XeqZq61Y0LiPEroDHY7VX/nB/pQFAUUO1Tx3WxsUcaOvTlruTPjPBH/BKfh7lcPc4QBBzmtuvXptbOcvKMbd3udOY+Pjzbfdb9C+7aJOSElwCYQ0X4ZjZcuepbAVJcFy5nU7/J8Lt4Cu+OOxwxjc2tv/4Q==
 mail-alias-created-date: 1621344842221
 Received: from DelNac.mail.msk (unknown [17.156.192.29])
-	by p00-icloudmta-asmtp-us-west-1a-20-percent-1 (Postfix) with ESMTPSA id C3A0C180020F;
-	Tue, 17 Nov 2026 11:53:46 +0000 (UTC)
+	by p00-icloudmta-asmtp-us-west-1a-20-percent-1 (Postfix) with ESMTPSA id 43C3F180014F;
+	Tue, 17 Nov 2026 11:53:51 +0000 (UTC)
 From: Vladimir Vdovin <deliran@verdict.gg>
 To: Pablo Neira Ayuso <pablo@netfilter.org>,
 	Florian Westphal <fw@strlen.de>,
@@ -67,9 +66,9 @@ Cc: Kees Cook <kees@kernel.org>,
 	linux-hardening@vger.kernel.org,
 	Fernando Fernandez Mancera <fmancera@suse.de>,
 	Vladimir Vdovin <deliran@verdict.gg>
-Subject: [PATCH nf-next v1 2/5] netfilter: nf_conncount: check last_gc before taking list_lock in gc_list
-Date: Tue, 17 Nov 2026 14:53:05 +0300
-Message-ID: <20261117115308.95134-3-deliran@verdict.gg>
+Subject: [PATCH nf-next v1 3/5] netfilter: nf_conncount: size the number of slots from the cpu count
+Date: Tue, 17 Nov 2026 14:53:06 +0300
+Message-ID: <20261117115308.95134-4-deliran@verdict.gg>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261117115308.95134-1-deliran@verdict.gg>
 References: <20261117115308.95134-1-deliran@verdict.gg>
@@ -83,71 +82,180 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA0NyBTYWx0ZWRfXytRjcHo7NObN
- tIX/HnUIUu4bNf9CbqNjLbaNwZamVCmpyV2d2Dica/V1niSBk+Ey4u0yrJQKp+y2t7XLBDYmUWJ
- yL5Cu45iORtBBWGVz2zCWxJIatUJG7c=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA0NyBTYWx0ZWRfXyKylkw1SG2qi
- 1jWJxbuWzUJOjvBv0MYpk/gtdFADoftxSXepvyfsiQztz2gcdABWINCgVnwqzupeY/RUUUGLmoy
- rvbJutmnk93yaE8t7/8uWda0yyfeWX8Excs+5eNeuvr1f07LJ8Rgy/wdJuZZYmymrXg5lOktD27
- +u/w9WxREIO0ic0EXym3O8hQ8NAhiucu57ZQBNq31TNOnNMaPG0nd52tKPm5EtzanhAQj7lQVey
- YqJ0AOrjV+6sYS00ITXl/uOyDsq0DIpqpK3E/ypJosTqoIbYmEKzBVL2c6qJ31q9k2rNPDtgfVs
- faonCpBfpd2tVd04IB0K6DHFe7WzlyE4NcuVjL020uG/YUskL0FO5HiquZRD2M=
-X-Authority-Info-Out: v=2.4 cv=CtMq4X4D c=1 sm=1 tr=0 ts=6afc4051
+X-Proofpoint-ORIG-GUID: rCAXIVkkF_cc1loMeC_C3WXRKh43SzxK
+X-Authority-Info-Out: v=2.4 cv=Cv+ys34D c=1 sm=1 tr=0 ts=6afc4055
  cx=c_apl:c_pps:t_out a=aW9mcIavGNWWFvFFKOxBSA==:117
  a=aW9mcIavGNWWFvFFKOxBSA==:17 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=Lz8lNifEoAKVmCoaIBl5:22 a=zaE7u2tvhngv6054aE9a:22 a=fToKmBgkPectip-2dAkA:9
-X-Proofpoint-ORIG-GUID: uhL8h6THw53LEpvX-W2BxRDsTORi6KqC
-X-Proofpoint-GUID: uhL8h6THw53LEpvX-W2BxRDsTORi6KqC
-X-JNJ: AAAAAAABcM0dWPpN9O6S6SJnrOu62RmtpkBYygQC8UKav6WZDbCEid1GDx9kXKHM9M5vVK
- GEP0fWwuV8rCjDFahqalPj1NOssu1h5jTbqZ8DxNVwyhhk6mvP5Lrl8dygyfcloAZC4lus
- qDP/tsobOxG8m4KlqCePJNVEwPTnNGs5y10bDGJjDyj+44xb1Fyuqyq3t9qMOsIZjUkeLq
- A2y12wgZ9LN9Ts6RGGNVC+JOl694JmLaz8xPobul5U5HMlVSZryY1J7njxuExULj9Vhp1w
- B2u6AxWtyLxEq0+MzjmN6CjeOsgn9047sxQnnp6k1pAiDf2Wl89hcn5/PCE74sqlMLzkO9
- juC2BnSqWtrl6Pqb0d37JSCY8+AX3AhUl5NfXizWVdG749BZ1d/T2CU6t5JMc8l79+zJEV
- vX5fQaLMfnP07fmahmqVNNHY7iMURMVXSnpNZGeYjFYWLo7OmuVZ1Wjm2OQDeVjW1cdf/O
- 2SJHCU7qNj7x9wUj5ia+UqRDcWqKuIUFZ3KXwDQtQAJD3oNDisCTHpg2FsBAYaXbz+YE+r
- 9K7Pe2FWy+LoZJtbpZLl2r+Jy8WkCL8gUtQ3o9Ci3io3u/+JUy84opRcJ0CG90JMUbUoNk
- VgUtqFWQa/+GOd7uTcikEDmaMOeQh18JxY6jwPugX1cXMaAeurI6gHHwXWYtuFbHwMX8wP
- iXX2uw5pW1vV/YOPlRr4Xaq+D1gDkbvEsXwEXt7Y2XOCIYFon7WA3zatID3zQN/g7o57HO
- MyGUGaYPD1UdAMAEetLgf9kDhOHtUEtIfgeHPxLUw/YcVSj+XetF3ULUzywLAfDsrelBnj
- GV6bTqXbUo7KWcmtKSbTcMrboDKFcJDlLp/ktVedTisqkdONELNBGXvBytxNY3qJCbRSKg
- V2mIZmpTRVfOPyTnOkRE9caIx8eJsgWeZSvm5EqgmRUW/xjdRPWxnA/IHA5CgNzlQFf+59
- gMpn5bU6PWQLEK4V
+ a=sVoYjay53MzFMQOSY88A:9
+X-Proofpoint-GUID: rCAXIVkkF_cc1loMeC_C3WXRKh43SzxK
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA0NyBTYWx0ZWRfX4mBNNxI3vFUL
+ B1xermQ4KgMQOej7haWShFJTvKYxkMq0ez1HouTXCONW9difsn2aCWtr++9DVkPnIsMXdU2dkxh
+ Wkj13vJMNirjiMHdgj9KaQN/8OEa4In340C5ZPbGEc72BlQRZWGQlcEU67AdUYNk5iw9a2g7ouo
+ mB6JU9gTvoIeWepDZLhvnvfkYMgjwOjM/LOItAOvSdiWGezomAtAB9QZDdYSFKkmz2XclPc2cPT
+ vJAYY9RxIf9sPwBAK9Cp87JGkP6jKDti+GO4UzK0SYe3jDjNEdP2LghZwOdbSXBSvgd8d6wGpHY
+ 8+dSdQBJLLhpB5VScp0c6VukoD54C6wFmDri0xU2tg6GDTC2VO2kJfciSk4XYo=
+X-JNJ: AAAAAAABHfEnCad7cckNCojQUZnEkegM2FjSQ0NzN6FyQfG8rW1E4wKaGS7xTmIvZYZWjM
+ C2KHMf0W9XimiX2/czzw7nxlvHv/W0L1cuyJcZhaHIEM0Cp51O/8IZNMScHcbzR5doALpr
+ z8PvsacfQXC0KAHBjHCcDJLK6V9WqHJ9ksk290cLCcVekTfxtfZV+PKTukx2Td1FUXZdM/
+ x5I9hDCtRTX1JylkpccJ0BIHDzD3BW2Eaxkk8Ys7wntq0GIQN8Thwekxo5xbqY9qtIin2z
+ aRC9XTZV70rc5oADZ7qZYaFaMbQC/ih2/OQQmO4oB0pc5q682rmrnVop+P11nXCsTFaRYM
+ CdcAJaBjpJAcO5L63delXMFiqr/QvPNuijYBjpDNCd2iN7onWtHQe3X85W/IKgwoD7lScS
+ T/uiPR7kyiUc4nIbjfwCRGgMx5zRyz/p7m3KMT3oKpj91lJOr46JSRBBp8Frisor0td4or
+ Dz1O5ONpLBHtUahJfga7X7PadUGe2KthLi3N7YU3V8P79SDxfemEp3+GhWv+9BQDeVylqY
+ afMoV0k54MJYHYX45iVftfJKaZxUVThbDTVY/Mr9tJWzQudZ2ge7VXvI1aO7KBIJW7vXpO
+ tJCmiMK/vgxEQCLqgFwBMMJG3Z2N0Hj+crzxJ/s+ARk6kTGu5erpkPFLukXG6alA+dbYNE
+ jbu+JVJL8a/JJBnUjaL0OTBUBYvYtLR9M+ilefLspaMUMHYXcSZT8P/p2Js1Nb2vEypCi8
+ F3zkB5qRkLpyLihG6m/CxYeKaA8E49qYLNkQ75EFmGzrcLW/xEZC9xATKAeXSIvdNYr3+1
+ KSuXxWzolzHGW9kEnj9DOMyvNiZm55MLm41YxkjoAv1iPwsPMYKgNJ1zRd+7e/InRSB47u
+ qUY4Dpo3qlgNM8T14NezYWGh+JcAH959BvG7zdY3/tENNc6wSbJJH3wpy4
 
-nf_conncount_gc_list() takes list_lock first and only then finds out,
-in __nf_conncount_gc_list(), that gc already ran during this jiffy and
-there is nothing to do. The trylock still writes to the lock, so every
-caller contends on it even though at most one of them per jiffy does
-any work.
+Every key space is spread over CONNCOUNT_SLOTS rb-trees, each with its
+own lock, so that cpus inserting or reaping different keys do not
+serialize on one another. The number has been 256 since 2014, when
+that was comfortably above the cpu count of anything running this
+code. With 128 or more rx cpus two of them needing the same slot lock
+at once is no longer rare, and the array also bounds how many trees
+the gc worker can walk independently.
 
-This matters on the count-only path of nf_conncount_count_skb(), where
-the lookup itself is lockless: when many cpus query the same list at
-once, the gc attempt is the only thing they serialize on.
+Size it at module init from the number of possible cpus, 16 slots per
+cpu rounded up to a power of two, between the historical 256 and 8192.
+A small system keeps exactly what it had; a 160 cpu one gets 4096
+slots. Possible rather than online cpus: the array is allocated once,
+and cpus that come online later still need their share of slots. The
+array becomes a flexible array member allocated with struct_size(),
+and the pending tree bitmap goes with it.
 
-Read last_gc before the trylock and leave early. The check under the
-lock stays, as it is the one that decides when two cpus race for the
-same jiffy.
-
+Suggested-by: Florian Westphal <fw@strlen.de>
 Signed-off-by: Vladimir Vdovin <deliran@verdict.gg>
 ---
- net/netfilter/nf_conncount.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ net/netfilter/nf_conncount.c | 48 ++++++++++++++++++++++++++----------
+ 1 file changed, 35 insertions(+), 13 deletions(-)
 
 diff --git a/net/netfilter/nf_conncount.c b/net/netfilter/nf_conncount.c
-index 84290e363245..be9e395e25b6 100644
+index be9e395e25b6..7a4b00c2bc65 100644
 --- a/net/netfilter/nf_conncount.c
 +++ b/net/netfilter/nf_conncount.c
-@@ -382,6 +382,10 @@ bool nf_conncount_gc_list(struct net *net,
- {
- 	bool ret;
+@@ -32,7 +32,11 @@
+ #include <net/netfilter/nf_conntrack_tuple.h>
+ #include <net/netfilter/nf_conntrack_zones.h>
  
-+	/* don't bother if we just did GC */
-+	if ((u32)jiffies == READ_ONCE(list->last_gc))
-+		return false;
+-#define CONNCOUNT_SLOTS		256U
++/* Number of rb-trees (and locks) a key space is spread over. Sized from
++ * the number of possible cpus at module init, see nf_conncount_modinit().
++ */
++#define CONNCOUNT_SLOTS_MIN		256U
++#define CONNCOUNT_SLOTS_MAX		8192U
+ 
+ #define CONNCOUNT_GC_MAX_NODES		8
+ #define CONNCOUNT_GC_MAX_COLLECT	64
+@@ -65,13 +69,15 @@ struct nf_conncount_root {
+ struct nf_conncount_data {
+ 	unsigned int keylen;
+ 	u32 initval;
+-	struct nf_conncount_root root[CONNCOUNT_SLOTS];
+ 	struct net *net;
+ 	struct work_struct gc_work;
+-	unsigned long pending_trees[BITS_TO_LONGS(CONNCOUNT_SLOTS)];
++	unsigned long *pending_trees;
+ 	unsigned int gc_tree;
++	unsigned int nr_slots;
++	struct nf_conncount_root root[] __counted_by(nr_slots);
+ };
+ 
++static unsigned int conncount_slots __read_mostly;
+ static struct kmem_cache *conncount_rb_cachep __read_mostly;
+ static struct kmem_cache *conncount_conn_cachep __read_mostly;
+ 
+@@ -574,7 +580,7 @@ count_tree(struct net *net,
+ 	unsigned int hash;
+ 	int ret;
+ 
+-	hash = jhash2(key, data->keylen, data->initval) % CONNCOUNT_SLOTS;
++	hash = jhash2(key, data->keylen, data->initval) & (data->nr_slots - 1);
+ 	root = &data->root[hash];
+ 
+ 	rbconn = find_tree_node(root, data, key);
+@@ -634,9 +640,9 @@ static void tree_gc_worker(struct work_struct *work)
+ 	struct rb_node *node;
+ 
+ 	if (data->gc_tree == 0)
+-		data->gc_tree = find_first_bit(data->pending_trees, CONNCOUNT_SLOTS);
++		data->gc_tree = find_first_bit(data->pending_trees, data->nr_slots);
+ 
+-	tree = data->gc_tree % CONNCOUNT_SLOTS;
++	tree = data->gc_tree & (data->nr_slots - 1);
+ 	root = &data->root[tree];
+ 
+ 	spin_lock_bh(&root->lock);
+@@ -679,10 +685,10 @@ static void tree_gc_worker(struct work_struct *work)
+ 	tree_nodes_free(root, gc_nodes, gc_count);
+ 	clear_bit(tree, data->pending_trees);
+ 
+-	next_tree = (tree + 1) % CONNCOUNT_SLOTS;
+-	next_tree = find_next_bit(data->pending_trees, CONNCOUNT_SLOTS, next_tree);
++	next_tree = (tree + 1) & (data->nr_slots - 1);
++	next_tree = find_next_bit(data->pending_trees, data->nr_slots, next_tree);
+ 
+-	if (next_tree < CONNCOUNT_SLOTS) {
++	if (next_tree < data->nr_slots) {
+ 		data->gc_tree = next_tree;
+ 		schedule_work(work);
+ 	} else {
+@@ -717,18 +723,26 @@ static void nf_conncount_root_init(struct nf_conncount_root *r)
+ struct nf_conncount_data *nf_conncount_init(struct net *net, unsigned int keylen)
+ {
+ 	struct nf_conncount_data *data;
+-	int i;
++	unsigned int i;
+ 
+ 	if (keylen % sizeof(u32) ||
+ 	    keylen / sizeof(u32) > MAX_KEYLEN ||
+ 	    keylen == 0)
+ 		return ERR_PTR(-EINVAL);
+ 
+-	data = kvzalloc_obj(*data, GFP_KERNEL_ACCOUNT);
++	data = kvzalloc(struct_size(data, root, conncount_slots),
++			GFP_KERNEL_ACCOUNT);
+ 	if (!data)
+ 		return ERR_PTR(-ENOMEM);
+ 
+-	for (i = 0; i < ARRAY_SIZE(data->root); ++i)
++	data->nr_slots = conncount_slots;
++	data->pending_trees = bitmap_zalloc(data->nr_slots, GFP_KERNEL_ACCOUNT);
++	if (!data->pending_trees) {
++		kvfree(data);
++		return ERR_PTR(-ENOMEM);
++	}
 +
- 	/* don't bother if other cpu is already doing GC */
- 	if (!spin_trylock_bh(&list->list_lock))
- 		return false;
++	for (i = 0; i < data->nr_slots; ++i)
+ 		nf_conncount_root_init(&data->root[i]);
+ 
+ 	data->keylen = keylen / sizeof(u32);
+@@ -771,15 +785,23 @@ void nf_conncount_destroy(struct net *net, struct nf_conncount_data *data)
+ 
+ 	disable_work_sync(&data->gc_work);
+ 
+-	for (i = 0; i < ARRAY_SIZE(data->root); ++i)
++	for (i = 0; i < data->nr_slots; ++i)
+ 		destroy_tree(&data->root[i]);
+ 
++	bitmap_free(data->pending_trees);
+ 	kvfree(data);
+ }
+ EXPORT_SYMBOL_GPL(nf_conncount_destroy);
+ 
+ static int __init nf_conncount_modinit(void)
+ {
++	/* Each slot has its own lock, so give the cpus that can be in
++	 * insert_tree() or the gc worker at the same time enough of them to
++	 * rarely collide, while a small system keeps the historical 256.
++	 */
++	conncount_slots = clamp(roundup_pow_of_two(num_possible_cpus() * 16),
++				CONNCOUNT_SLOTS_MIN, CONNCOUNT_SLOTS_MAX);
++
+ 	conncount_conn_cachep = KMEM_CACHE(nf_conncount_tuple, 0);
+ 	if (!conncount_conn_cachep)
+ 		return -ENOMEM;
 -- 
 2.56.0
 
