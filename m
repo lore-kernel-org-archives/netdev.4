@@ -1,59 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794904521;
-	b=od+r8xu0ipOaoioqQmr99edxgcDJEEUmUJwkz8M7ScAw1hsQEwbYtx8jYUYOSdTpS8XD
-	 xOle5Q2rnYxB2KZnMmuTW9Ono8HZwif2F+FFfoNL2u4k35//pCl60mlYpHDIyIOff0E9W
-	 18pNFmNA5w+fslH9KRlL4X3pblNdNu+3OUjfAb0VVsW/INpFXQ/UsiSP6YqSUmfQv3eNy
-	 VnZHwSJRiWiQFdOBJyma85v2hXo2MKTB63/7RKeeUB0lrBjW3f1E6pyGKsoBOgk9siHIF
-	 aCOV5337VKI+xzJS3YRlWZXAMZZabPh5D/SDIoPY5d5NT9vdln0LzWVb0bbyzVH+3vw==
+	t=1794904553;
+	b=mrOuxfn2JHO6IwCCzx2PHaUnhHVopePaNgULrUw1NDC2Ok8bwzFXfIH13/L6L1xZqbIZ
+	 GdLWDPMtAXcHA6DoPLuvUxqqFcwXTKQNfZZp4DwN3PwmgJjy61PWXvLM7K3Qf+UWzwQwX
+	 d3mrIPkIo1trxFjgAf53MHSnb9IbrdgVgCYnrAF0IHwOziBg225Moqhl/H75e0GElchWO
+	 WuXfu6DTnOlW/SPS15u2fBv8J45UyHyW1RbnVAvTb2Y7b7B2s0a9nJ30UvmuO7Sdjp36I
+	 IuIZVXcbM/FoR3BceIQV/EPdeUz62+mqc2juzlWkvPFfU5yAq/n9znIVnRoa7uurTyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794904521;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=rFi9I5t2exAzyHDuda6uvYh1L6vcjp/5ii4dTULm/YM=;
-	b=yIt1NZa7ZCvo7UXVQqH5EdL+JVML5y0fwJxjpELchnenK9f3mqJkdwdJVeRPu4qIYKXn
-	 A11hzq4vRKxx31UX3HFJuWaYQ7XglTkQ440G0JTAlKz0uFnqfCLpEH+dRWBiu9tEgQPDz
-	 I7qDUwraKowIPOfiWkDYLXL64u3Tfze+et2BrH/YpqPAZcxDlDLKPiQCLSWfm27FTQ+js
-	 hfDumUF4cBhnNI+cNyj8DoABYGj3XwR5tc4cdpE7moZJOHL3G1WUzP/w7nw9Ml4WFOIqz
-	 VE+sGcOhic5gKGsxmsi/s3a9yzzsD24kFS3ChsEAsVq3tu9hAT2gLg0GSS20HD7Fc4g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794904553;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=LRv3zYGXHNmAePcX/d3rvOHEvwC7ucCmh+YJOWicdz8=;
+	b=0v95uwJoPMMuQgpbWk59zv8IB7eD45gqZ1OQO5etOgJSl7YbsKGA/dDMJhl7ZuEqtGEp
+	 +mzXMiqsvw27DgFtU0LH0H6YeB4uxtogo/1HYVZCaRO+2AM311MnO1Z8AE5c89eqKxOOZ
+	 tEgbCjgzuKnH99OLl5JqnnkQZ6t8mt297FTnTORk1anPCBXj97gs57J5cZD1YtFor0fDK
+	 8QQKWDX1etDOJktPW5X5DzNmWpQCxSFGJH8LrJS7hktQ1e5AAiSsvLtFZHBqmKHK0F2n9
+	 JPdvAF7/o1rd203tA0UqaLoCrkDP4QKgFEIWpTECKR52IhL4eWJ3qkstXV2tB61rFLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TLBowRMY;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RK4YuSFs;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B614D606A89F;
-	Tue, 17 Nov 2026 08:35:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEDA8606A891
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:35:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TLBowRMY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E91161F000CB;
-	Tue, 17 Nov 2026 08:35:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RK4YuSFs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B41FF1F000C5
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:35:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794904521;
-	bh=rFi9I5t2exAzyHDuda6uvYh1L6vcjp/5ii4dTULm/YM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=TLBowRMYC//cKiaOx0eCzhWAxcp8lpAcRXZ+PsisfFJ5tOQ7gAWpkK0OHFKfX0gRQ
-	 RLg61gvu5c2uz5s2My6MjvYEQdSKBzdgT6hR5m1bQmt+0dHvVxyiDNFgrsHIWhS1LJ
-	 xKi6Ak/Di9XhwebzfWzDFF4vUPBVxHuwW799Z3OGHD5gedWkIPdG0f+dzJ6/BsTdls
-	 4up63DCafsvs6G0k28eDsQwc370IrQzk1ioVDkppsXq7OqAcanVzLXsC2cIT5vd008
-	 5RTCVHGG+Z/GLZ4HUMDPKy4zOqG+VnugCWuli6nFe6lve4wgcTGlK4Cq5hjpghbUH2
-	 XgMZd1rldxXiA==
-Subject: Re: [PATCH net v2] net/rds: defer CM id destruction to a workqueue
-From: netdev-bot+sashiko@kernel.org
-To: chenaibing@cmss.chinamobile.com
-Cc: achender@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org, rds-devel@oss.oracle.com,
- linux-kernel@vger.kernel.org
-Date: Tue, 17 Nov 2026 08:35:20 +0000
-Message-ID: <179490452051.3136.18322831263977968329@kernel.org>
-In-Reply-To: <20261116075423.782-1-chenaibing@cmss.chinamobile.com>
-References: <20261116075423.782-1-chenaibing@cmss.chinamobile.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1794904552;
+	bh=LRv3zYGXHNmAePcX/d3rvOHEvwC7ucCmh+YJOWicdz8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=RK4YuSFst31MAgOk5OktcchAACUUSnz6Xl5Oh7lvSxk1rPBJjp8+hGHNmBpyjB1sL
+	 roigEGjcododccS0bww8LLFt5k3wTlzDXh2V1RY11EJe/TWGv4aNmxFsS+dldkAA0Z
+	 xcY3POdTwRyPxSm4lSZkA1IJ1XLJuSIYulxHd6caSw7WBQiqGfucYNf1lhV1IZ5BWf
+	 9Xxk1Pghd6eQcQRRjsvPGmjOtV6NZmQIri+TdPr7Qh8U4lY4PNCVxL3pRM5gofL5k6
+	 sp7R+2+qWFb2gIRDRBadlaCj+DKeg5D7lWDFvtJ4E4blbBkuuxuydsIDDvkZSqcbZ5
+	 raAjlBb0Cz15g==
+Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-71b0d330acfso53529eaf.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:35:52 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHqk9VThW/Vk9jBDGtKhQj/iox/zgeO80rZYzkyqAx8giMPZkyPmhUt76NLYD9HDmB//lzCcMc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/rRNnSsEs+CmRiDUPdqA+JYNW36RboJy1pfigVJT+8MX3hJMaA
+	npB6N7boFS01VibkdaXz2MQ17kc7IqLMPCaKNMY+DEIm2pVnR0tsQOBHLJLOG1L8gpLDO6prmKN
+	x6cH8OMdPt7XZtOcEMl63Smgw6hTa4hs=
+X-Received: by 2002:a05:6820:16a0:b0:71a:fa6f:7465 with SMTP id
+ 006d021491bc7-71b029c0bbdmr1379445eaf.47.1794904552032; Tue, 17 Nov 2026
+ 00:35:52 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,149 +59,171 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-2-kuniyu@google.com>
+In-Reply-To: <20261117053543.84032-2-kuniyu@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Tue, 17 Nov 2026 09:35:41 +0100
+X-Gmail-Original-Message-ID: <CAL4WiioDbGpSGexQGczb84dc2wLy=qjhF38xQ_S1YaRZsM30bA@mail.gmail.com>
+X-Gm-Features: AclHuK_JxO7vkCyw0PsO5E2OM4KdaY8favGnqxm448dBys9BKcMyhVxYg_PT_DI
+Message-ID: <CAL4WiioDbGpSGexQGczb84dc2wLy=qjhF38xQ_S1YaRZsM30bA@mail.gmail.com>
+Subject: Re: [PATCH v1 net 1/8] tcp: Don't accept ICMP for SND.NXT in TCP_SYN_SENT.
+To: Kuniyuki Iwashima <kuniyu@google.com>
+Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
+=C3=A9crit :
+>
+> RFC 5927 states that the acceptable ICMP has seq in
+> SND.UNA =3D< SEG.SEQ < SND.NXT:
+>
+>   These implementations check that the TCP sequence number
+>   contained in the payload of the ICMP error message is within
+>   the range SND.UNA =3D< SEG.SEQ < SND.NXT.
+>
+> tcp_v4_err() and tcp_v6_err() accept packets if seq meets
+>
+>   between(seq, snd_una, tp->snd_nxt)
+>   -> tp->snd_nxt - snd_una >=3D seq - snd_una
+>
+> , which includes both ends.
+>
+> This is fine once connection is established because
+> tcp_acceptable_seq() uses SND_NXT for ACK and RST.
+>
+> However, we should not accept ICMP to SND_NXT for SYN_SENT.
+>
+> The minimal repro is:
+>
+>    --ip_version=3Dipv4
+>     0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+>    +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) =3D 0
+>    +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress)
+>    +0 > S 0:0(0) <...>
+>    +0 < icmp unreachable host_unreachable [1:1(0)]
+>    +0 %{assert tcpi_state =3D=3D TCP_SYN_SENT}%
+>
+> Let's fix off-by-one.
+>
+> Note that we need to check seq !=3D snd_una because tp->snd_nxt
+> is only advanced to tp->write_seq after tcp_transmit_skb().
+> Otherwise, ICMP for SYN could be dropped before tcp_connect()
+> advances tp->snd_nxt.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0
+This hints at a separate issue.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+An ICMP can only be processed in this window if it was generated
+locally and looped back while tcp_transmit_skb() is running
+(netfilter REJECT in OUTPUT for instance).
 
-- [High] The lock cycle this patch is meant to fix can still happen.
-- [Medium] After this patch, each probe RDMA CM id created by
-  rds_ib_laddr_check_cm() stays alive after bind() returns, until…
+At this point connect() owns the socket, so we end up in :
 
---
+        if (!sock_owned_by_user(sk))
+                tcp_done_with_error(sk, err);
+        else
+                WRITE_ONCE(sk->sk_err_soft, err);
 
-net/rds: defer CM id destruction to a workqueue
+The socket stays in TCP_SYN_SENT, SYN is retransmitted until
+tcp_write_err(), and a non blocking user gets no EPOLLERR.
 
-The patch moves rdma_destroy_id() on the probe cm_id in
-rds_ib_laddr_check_cm() onto rds_wq. The goal is to break the lockdep
-cycle between rds_trans_sem and handler_mutex. If the work item cannot
-be allocated, the id is still destroyed synchronously, and rds_ib_exit()
-now flushes rds_wq.
+I think the repro in patch 8 only passes because SO_ERROR falls back
+to sk_err_soft. Could you check tcpi_state there ?
 
-Closes: https://syzkaller.appspot.com/bug?extid=ccdb5058c3df2d94811c
+Also, given an attacker has to guess the ISN anyway, I am not sure
+this one is net material.
 
-> diff --git a/net/rds/ib.c b/net/rds/ib.c
-> index 4ea9838d090c3..66af4a72a5595 100644
-> --- a/net/rds/ib.c
-> +++ b/net/rds/ib.c
+>
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+> ---
+>  net/ipv4/tcp_ipv4.c | 9 ++++++---
+>  net/ipv6/tcp_ipv6.c | 9 ++++++---
+>  2 files changed, 12 insertions(+), 6 deletions(-)
+>
+> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+> index 2fc92a7884fc..7d58f522068d 100644
+> --- a/net/ipv4/tcp_ipv4.c
+> +++ b/net/ipv4/tcp_ipv4.c
+> @@ -499,8 +499,8 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
+>         const int type =3D icmp_hdr(skb)->type;
+>         const int code =3D icmp_hdr(skb)->code;
+>         struct request_sock *fastopen;
+> +       u32 seq, snd_una, snd_nxt;
+>         struct tcp_sock *tp;
+> -       u32 seq, snd_una;
+>         struct sock *sk;
+>         int err;
+>
+> @@ -555,9 +555,12 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
+>         tp =3D tcp_sk(sk);
+>         /* XXX (TFO) - tp->snd_una should be ISN (tcp_create_openreq_chil=
+d() */
+>         fastopen =3D rcu_dereference(tp->fastopen_rsk);
+> -       snd_una =3D fastopen ? tcp_rsk(fastopen)->snt_isn : tp->snd_una;
+> +       snd_una =3D fastopen ? tcp_rsk(fastopen)->snt_isn : READ_ONCE(tp-=
+>snd_una);
+> +       snd_nxt =3D READ_ONCE(tp->snd_nxt);
+>         if (sk->sk_state !=3D TCP_LISTEN &&
+> -           !between(seq, snd_una, tp->snd_nxt)) {
+> +           (!between(seq, snd_una, snd_nxt) ||
+> +            (sk->sk_state =3D=3D TCP_SYN_SENT &&
+> +             seq !=3D snd_una && seq =3D=3D snd_nxt))) {
 
-[ ... ]
 
-> @@ -419,6 +434,15 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
->  			       NULL, RDMA_PS_TCP, IB_QPT_RC);
->  	if (IS_ERR(cm_id))
->  		return PTR_ERR(cm_id);
-> +
-> +	/*
-> +	 * The id is destroyed from rds_wq: rds_trans_get_preferred() calls this
-> +	 * function with rds_trans_sem held for reading, and rdma_destroy_id()
-> +	 * takes handler_mutex, which the CM callback path acquires before
-> +	 * taking rds_trans_sem.  If the allocation fails, fall back to the
-> +	 * synchronous destroy.
-> +	 */
-> +	w = kzalloc_obj(*w, GFP_KERNEL);
+In TCP_SYN_SENT the only sequence we ever put on the wire is the ISN,
+including the Fast Open case (SYN+data is sent with seq =3D=3D ISN, and the
+RTO retransmits the bare SYN).
 
-[Severity: High]
-If kzalloc_obj() fails here, the out: label calls rdma_destroy_id()
-directly. Doesn't that still run inside the down_read(&rds_trans_sem)
-section of rds_trans_get_preferred()?
+So this could simply be :
 
-rds_bind()
-  rds_trans_get_preferred()
-    down_read(&rds_trans_sem)
-    rds_ib_laddr_check()
-      rds_ib_laddr_check_cm()
-        kzalloc_obj() fails
-        rdma_destroy_id()
-          mutex_lock(&id_priv->handler_mutex)
+        if (sk->sk_state !=3D TCP_LISTEN &&
+            (!between(seq, snd_una, snd_nxt) ||
+             (sk->sk_state =3D=3D TCP_SYN_SENT && seq !=3D snd_una))) {
 
-That is the same rds_trans_sem -> handler_mutex dependency that lockdep
-reported. The other half of the cycle is handler_mutex -> rds_trans_sem,
-taken via cma_ib_req_handler() -> rds_conn_create(). If a writer such as
-rds_trans_register() or rds_trans_unregister() is queued on the rwsem,
-this can also hang.
+This mirrors the (seq !=3D tcp_rsk(req)->snt_isn) test in tcp_req_err(),
+and does not need the special case for the window where snd_nxt has
+not been advanced yet.
 
-The commit message says:
-
-    if the allocation fails, the id is destroyed synchronously as before.
-
-"As before" is the behaviour that produced the original report. The
-allocation failure is also easy to trigger with failslab, which is what
-syzbot uses.
-
-Could the work item be allocated before rdma_create_id(), with -ENOMEM
-returned if that fails? rds_trans_get_preferred() already treats any
-non-zero laddr_check() result as "not this transport". rds_bind()
-already maps that to -EADDRNOTAVAIL or -ENOPROTOOPT, so no new error
-handling should be needed.
-
->  	ret = rdma_restrict_node_type(cm_id, RDMA_NODE_IB_CA);
->  	if (ret)
->  		goto out;
-> @@ -484,7 +508,13 @@ static int rds_ib_laddr_check_cm(struct net *net, const struct in6_addr *addr,
->  		 cm_id->device ? cm_id->device->node_type : -1);
->  
->  out:
-> -	rdma_destroy_id(cm_id);
-> +	if (w) {
-> +		INIT_WORK(&w->work, rds_ib_destroy_id_work);
-> +		w->cm_id = cm_id;
-> +		queue_work(rds_wq, &w->work);
-
-[Severity: Medium]
-With the destroy deferred, each probe cm_id stays alive after bind()
-returns, until rds_ib_destroy_id_work() runs. What limits how many of
-these can be pending?
-
-rds_threads_init() creates rds_wq with
-create_singlethread_workqueue("krdsd"). That makes it an ordered queue
-with one worker, shared with the connection, shutdown and free work for
-all of RDS.
-
-An unprivileged user can call bind() on AF_RDS sockets in a loop. The
-call reaches laddr_check() either through rs_transport (set via
-SO_RDS_TRANSPORT) or through rds_trans_get_preferred().
-
-A failed bind leaves the socket unbound. Each attempt with an IPv6
-address, or with an IPv4 address not yet in rds_ibdev->ipaddr_list,
-queues another item. Producers on several CPUs feed one consumer. That
-consumer also contends on the global cma lock mutex and sits behind any
-slow RDS work.
-
-Each pending item holds the rdma_id_private and the
-struct rds_ib_destroy_work. The latter is allocated with GFP_KERNEL and
-no __GFP_ACCOUNT, so it is not charged to the caller's memcg.
-
-If rdma_bind_addr_dst() got far enough, the item also holds two more
-things:
-- a cma_dev reference from cma_acquire_dev_by_src_ip()
-- an ephemeral port in the shared RDMA_PS_TCP space from cma_get_port()
-
-Before this patch, all of these were released before the syscall
-returned.
-
-Could a backlog here pin memory, use up ephemeral RDMA_PS_TCP ports
-needed by other in-kernel users (NVMe-oF/RDMA, iSER, NFS/RDMA), and
-delay IB device removal? cma_process_remove() waits here until every
-pending destroy has run:
-
-	wait_for_completion(&cma_dev->comp);
-
-> +	} else {
-> +		rdma_destroy_id(cm_id);
-> +	}
->  
->  	return ret;
->  }
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116075423.782-1-chenaibing%40cmss.chinamobile.com
+>                 __NET_INC_STATS(net, LINUX_MIB_OUTOFWINDOWICMPS);
+>                 goto out;
+>         }
+> diff --git a/net/ipv6/tcp_ipv6.c b/net/ipv6/tcp_ipv6.c
+> index 5c7ed38f1f56..8691d220cf94 100644
+> --- a/net/ipv6/tcp_ipv6.c
+> +++ b/net/ipv6/tcp_ipv6.c
+> @@ -410,9 +410,9 @@ static int tcp_v6_err(struct sk_buff *skb, struct ine=
+t6_skb_parm *opt,
+>         const struct tcphdr *th =3D (struct tcphdr *)(skb->data+offset);
+>         struct net *net =3D dev_net_rcu(skb->dev);
+>         struct request_sock *fastopen;
+> +       __u32 seq, snd_una, snd_nxt;
+>         struct ipv6_pinfo *np;
+>         struct tcp_sock *tp;
+> -       __u32 seq, snd_una;
+>         struct sock *sk;
+>         bool fatal;
+>         int err;
+> @@ -463,9 +463,12 @@ static int tcp_v6_err(struct sk_buff *skb, struct in=
+et6_skb_parm *opt,
+>         tp =3D tcp_sk(sk);
+>         /* XXX (TFO) - tp->snd_una should be ISN (tcp_create_openreq_chil=
+d() */
+>         fastopen =3D rcu_dereference(tp->fastopen_rsk);
+> -       snd_una =3D fastopen ? tcp_rsk(fastopen)->snt_isn : tp->snd_una;
+> +       snd_una =3D fastopen ? tcp_rsk(fastopen)->snt_isn : READ_ONCE(tp-=
+>snd_una);
+> +       snd_nxt =3D READ_ONCE(tp->snd_nxt);
+>         if (sk->sk_state !=3D TCP_LISTEN &&
+> -           !between(seq, snd_una, tp->snd_nxt)) {
+> +           (!between(seq, snd_una, snd_nxt) ||
+> +            (sk->sk_state =3D=3D TCP_SYN_SENT &&
+> +             seq !=3D snd_una && seq =3D=3D snd_nxt))) {
+>                 __NET_INC_STATS(net, LINUX_MIB_OUTOFWINDOWICMPS);
+>                 goto out;
+>         }
+> --
+> 2.56.0.679.gc527c65306-goog
+>
