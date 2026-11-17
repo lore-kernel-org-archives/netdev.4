@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794932179;
-	b=NYFtcIx5293QmxFdTXFzlwxGXSZ6Czc7E3Lmqmwdq5OdXfyndBqoiugCyD2zBliIMc6u
-	 v7KMxXB9ChPTEGfIDgGfjBNS0bekZRZt9QoAsXMJyKekT52IOzdnBB3Qh7B/ZpmeHPomy
-	 E1vld1mEWJX/yo5EaJXzGhbQs3zVhnoOCywT/Oqp+LI/Vaf4D8OWdDtCRkLqHX+16sCl9
-	 61iOP1afaykJDY64UgAPbdJl5y+l5XYL9tGuKq0nTeFQzsrLT39UaHyNB3GYSE+0kAK8D
-	 N8q6yN79gYYlZs43OIEFwClQnBi2tFJzvSKbHmGNtCUZttiBpoezzRW717q7kDaCpnw==
+	t=1794932186;
+	b=TfUJ76+umJV6HnDmE/Sr7AevAKZCHHKwUcOl2PkHwtmAMJulXBODHNOMoTpqZBNvjgAl
+	 UsJMKTvM7sKXbX2+7LIVw72fi9SvkEDgVkeVRDZAIFt+H51DVRDCc71+q9jJP9LcP0Xbd
+	 nU7WNDwlr8T1WyBVxgctb0KE1A6nC1lZOADvRoB/Xzp8eYgV1RMVefoD41iXsrR8VpSdr
+	 InMRYlmsEFR/L1/5PL8t0qmOZGZdWrNXSQV/go2Q6viX9zU45H/sxxzt2lr2MH51cdr0P
+	 rhy3/5YthRT1MY3qSG+9pyc6QBkQ+bfoScbzmLwj4myyfht4gxqKegquMIjwtuqO9Eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794932179;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794932186;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=hz2h34D2UVi4lF1fkvfUed+mfNI6Bvl3fG3Jdcvoc04=;
-	b=mtoYYQN/abQQ7XD3uGfE+70s3BVuF/MMk+/gKn8DglUMEfPPqKKb4YdBSCGqQtTUIv99
-	 Rtstv/GncIb1yeiX9xcTSgYpGXv8EZk2MMSVj81Qs4NGpmYg0iTQM3m5qPkyGo7toUcKF
-	 u5/D1nJlxLjaJzuNPd7K9DUM7Zxsmw6+PB6YcJP4GyqoKC/LQrb/LQ+RM2A3YQBx/tnbq
-	 gEFawdaP1K38krfmeWjcG5WL5ejRr1D2EIspZOF+aLp5wpNNhya+v6ijNjZGaeRkXa8NC
-	 wCgqCqYNCXOBdUI7AlFjyvdmSBkSx/7a34Vpxbfd0mK8MAwD4yQHDAur4L6uc98t/ug==
+	bh=3epTVbKPJVG8iTt/z4MHuDPL8RwQKn3lHAOFYRFX2uc=;
+	b=Yy6hQpsplI07DmOGArLMpMpLMU4LRSslQVNr9NVYr8SclB3ZmofgiRq/S9GWsbcfckZv
+	 sih8wmdcX4rAFc4Ig6xOC6f5Okzirz28Oklu78OCXWAtE57jH5ZygSq3zXSH4toZWaQW8
+	 mOHHYQZp05iouTqDkSj0u0FSlNDAGA5fBb1p63bTVUUapcssvBKaU/on7xnFM7oyMu6tK
+	 9Etpb5GI4oSyK8eX519PbsSVgsS7I9avNKrfbjcb++1VviuEjnWZouWNQPqoJe5vrTtWY
+	 U1G2eacQX3cu00DtRtw7ppNYPHNEfc6YsJlYMLHj8IG/H5YNzlg+O0zf6lk/Ov5Uyrg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cloudflare.com;
 	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=eTRhz3yX;
-	arc=none smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=UpSR2Myj;
+	arc=none smtp.remote-ip=209.85.208.41
+Received: from mail-ed1-f41.google.com (mail-ed1-f41.google.com [209.85.208.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23E61606A331
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:16:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23E61606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90750606A32C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:16:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90750606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=eTRhz3yX
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c505186727fso337154266b.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:16:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=UpSR2Myj
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-6b70880c0a4so5940433a12.2
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:16:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1794932177; x=1795536977; darn=vger.kernel.org;
+        d=cloudflare.com; s=google09082023; t=1794932185; x=1795536985; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=hz2h34D2UVi4lF1fkvfUed+mfNI6Bvl3fG3Jdcvoc04=;
-        b=eTRhz3yXeGq7o8PaIB0KhMDF0Dgn6xXT29+EpPZuu+KBJKM7DJSi9Uwy8wzRCFNI7W
-         3017OSQlEyeCV3+d/j+y5rDBu4rEIEyTOwoYBq+cSmRs59RH/sImL6zq06IAMbu/iQYI
-         ksfUESf3RIuIn2XoXwvueHGogtL73M8xsXI1ow/sliepz6kEe0ST19yErFYOsqhpsA37
-         pyrhL36q7ba+4qxqOipLdyPKTsgEzXwH+d20T5DZ6MQ/K30TDGLRfJ4FlMJTWy3taUNc
-         e76cfal27IsHenpLMhlo2EQOqSCwL0AGkS2GySCa4jx6RI/XR6lXufXrGVFuRzcWQRLN
-         PgMA==
+        bh=3epTVbKPJVG8iTt/z4MHuDPL8RwQKn3lHAOFYRFX2uc=;
+        b=UpSR2MyjHvrEaRxBPQUaVNwY5hXBUuG7pyxygzHG8O1OlkFcTtvImstuQRqRpLBA4r
+         d8ujp2NOgvsfRkCgBHT99e6DvBL3yjoZG+IRzwPN1ecpq8Zu1gziqA/LJJbKmUU32L96
+         +j5J/XDhamhmyebOPpBG6lvLVHypiH9s5zxH4yI6N81cQPeunv+Y+9WbmyCs01sxiCoX
+         E93SVwIf7wxbx0XWpPk+aocZMK9ejnb/JEglkxAcxqwse1Z8hwdGohRj63Nd4/PwWHJk
+         /kSuhuk8KNpLagBGeAGXgI3LSl3mMI3oB4+FQfhFlZpxkA8lCcHoxW090cLST8CcTcKZ
+         OhEw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794932177; x=1795536977;
+        d=1e100.net; s=20260707; t=1794932185; x=1795536985;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=hz2h34D2UVi4lF1fkvfUed+mfNI6Bvl3fG3Jdcvoc04=;
-        b=pVm91tIVHSiFZVHIJ30u4OFC/D4+FxoUMUesN0IIMR/OCEbrCBJDXaPtv2/ut14qH1
-         b3R1WyiYt/mUYNKyaf6MCev6SDljSYF2uRgDQKJ5lT8hKF69JBOBTYdNmkPWoxTGxWBk
-         Wo1BPZiKlVtpeKbFZXYfSONTcQ2YH+iGgLSOuvgLGZ7g5jLI5CFiq7CKiNVNHpL8vQkc
-         B/o9CopLXTz2wJt7huwqiyboH4cnblE2jVZkVEf2pAnX8yhWXAmrjPiMHikd/d9CVh13
-         RKQsaYQIIxBIeisPgLTXrxOhyY4gRmwaTV7aGh9fxJZNVByjPsb94NT6HAVxce/CmErx
-         IXpQ==
-X-Forwarded-Encrypted: i=1; AL+hErH3BUjj5mzFhtHlBmmXuNQUzJihvEXDEr5sve+wlXRSAhU1XH8CheitnhEGaFg51RMDyI9PIaE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1MbyBvX4Yl/wm6IJj8bF1SMH1El9nklNs/Cdw3VBAup7jxPI/
-	927MMEoMDIkw3YUd3VKnJkt/u1oNnBCuth0hUosFv6ngf1+YGTIlxKyiWFtMOyg3ZS0=
-X-Gm-Gg: AYBFou2dv/06PjjD0u/Trhm9muNxiXC10sWLRhBbhaHGSDfX+UQCIl4ZMZL6ungau86
-	ZSOwuTIHlau2Hkyb/TdfrDcANzoPeTnqyZQ37vB6Z6IjHKZ0UN8Cy/37GyPmwohHr8NQBNLly86
-	TGIlOsdL9YVtgAzZbpS5IaHOLjqXOFX/nAfE91oiowUU19lkHxDfai3htdDg/eGeLkXIctxB0vS
-	ZxjTgGtQIeOK9k78hX5aWtTCWl2t0VM8jvYPJmTGPRsYxiOBgrqgtnRdMwTNzSCykbU8PfZXyJY
-	kbAD4+sQO4k6omcExpuwRHQ/lRDoeA8PeckNQSoYbkECKeFJ7HMSc+ORhKQvZOb6G5tAyQVRCBk
-	SJV1B+pIsT52GZWa0uZ0xiksCNjvaeHEzp7cO3WeQ8FqiqmmJckq/lIDNCNocTkflzv5R/1O1yJ
-	YpWCUSeltMt2ftVkjs7R87qOiA5eFoxevfMJqh3qDRu0iB7uyqUCDlbmaoGAlqc2+H43+3yeFxM
-	Bq0CifVTZ9KG4EkRpNbf0IP+UPo3ZN4+/gmu+hwmgPbVUeIBcTSzLyn06G33O6p3LuFll11hmFS
-	7rsJK+GQZMTSKv1xI99qlGrZfOp0i8edrbbFtl3yYZDV4eM=
-X-Received: by 2002:a17:906:4795:b0:c42:2f4e:522a with SMTP id a640c23a62f3a-c509636a806mr1177152466b.25.1794932177483;
-        Tue, 17 Nov 2026 08:16:17 -0800 (PST)
+        bh=3epTVbKPJVG8iTt/z4MHuDPL8RwQKn3lHAOFYRFX2uc=;
+        b=SWb1AoqiXq0d+TFzKdYVNi18seRS6qblUVehG+RBTaZ3JhqV/n/gk2TOY7zJknGpAI
+         wbQQiGXF5MlsqEz2DdFbw3KnncFwd4q/85p9vK1XYQGO+Xu61OaER/nUvGqbN8e2kjoB
+         7ZHgfC3cAYAebP6Jv5hn61KwqOsqKYHnmSpC7U0xe7R29WLsZEyLhH8xTsUENmLKcKqL
+         GgYMG63l8LkGcrf5lDWCbuiN/NjKfMZZw3SFkGGtpCa9JkMz4Tdq4saJK1ErRE0C9Wzd
+         RtaOyUbNL+GzKVwB6O7b541DhkMOr4zyLQNaWVVEP+07WUXKkEpO7a7QBgT3dl7kZefE
+         0PEA==
+X-Forwarded-Encrypted: i=1; AL+hErGV7iCQzYz2KKjrAVAlmgGO0XoY104a3yHStdTI3W6TUgUGQVbjka9ntuvsoQnO3g/4JLFSdz0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9ldk/IogXvFnEKFDqLdgABLxMW/8prEPXPzpTiTnFBmyQrcvl1
+	ZC1QrZhd8soYFm9NvwExnNitBpLEiOoe2ga2KOKzjAub32MlRv5F2OSnpbiBFRrbl5U=
+X-Gm-Gg: AYBFou0bJS7dIp923qCgE0yOXaNX1hzfGyCIIqK4rGGaalnhWczINMonNnMTrEZofze
+	kq/FR6ZO2ehu4zIzCNiIYusjKa3r9q0Dg6XNJLF5IA8KDYKfeFnjbg5xFGwhmqWbg20KeDxXpK+
+	t+uVUU56+JoEyginvTSLjqq53fi/60QUtMxyHezlcM6GqTbZfMY8U4fd6vXzyRHtK90ck7uLTcz
+	iC9+nT2mnWDjpOWbJ58OJMPf2rucSC3FMVlUkwWrz/xYIuyIfllsarhYzjHXj1Z328qDzanq6dz
+	5Ehdv2wiy3PC4UQVPFk63gz4gMw4rWa6qo6xtUQnBYIoA1uH4Mu0UY8gtg/TV1BsDbJ3bJGy9m3
+	TzkVIqH0oR6CcD9YOQ5GhG85k8xmB4C/ybO2GbdEugIqB5wrOCmAh62ilgBXVRLIPYMa7UNe5tM
+	JR/fVUO/vorW7BLnXMzVWwUX5pTmCaD72oYEQWDpopQZ9p4Ygtnf4Z2D2f5ePWmxcRDts26Y2uP
+	+5IHFPKEsRUxXx5Hu/18uLJAnIfM5QT3q5rKnRC/QW20+vK6Yaa91pvyZbD+O3sYNa6/rSl/mFZ
+	J4brVk5N6vtnzjlwREUPR1hpX1VvCpuRUhu20nalqM+uw5o=
+X-Received: by 2002:a17:907:dab:b0:c49:df8f:3c79 with SMTP id a640c23a62f3a-c50963b88f3mr1191532666b.34.1794932184976;
+        Tue, 17 Nov 2026 08:16:24 -0800 (PST)
 Received: from L9JK9NPFH9 ([2a09:bac6:37ad:1e5a::306:c])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510c83f31csm1746566b.10.2026.11.17.08.16.12
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c510cab33aasm857666b.52.2026.11.17.08.16.22
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 08:16:16 -0800 (PST)
+        Tue, 17 Nov 2026 08:16:24 -0800 (PST)
 From: Tianyi Gao <tianyi@cloudflare.com>
-To: bot+bpf-ci@kernel.org
-Cc: Slawomir Stepien <sst@poczta.fm>,
-	ast@kernel.org,
+To: Slawomir Stepien <sst@poczta.fm>
+Cc: ast@kernel.org,
 	daniel@iogearbox.net,
 	davem@davemloft.net,
 	kuba@kernel.org,
@@ -99,20 +98,15 @@ Cc: Slawomir Stepien <sst@poczta.fm>,
 	ihor.solodrai@linux.dev,
 	tavip@google.com,
 	maciej.fijalkowski@intel.com,
-	syzbot+ff145014d6b0ce64a173@syzkaller.appspotmail.com,
-	andrii@kernel.org,
-	martin.lau@kernel.org,
-	eddyz87@gmail.com,
-	yonghong.song@linux.dev,
-	mason@kernel.org,
+	stable@vger.kernel.org,
 	kernel-team@cloudflare.com,
 	tianyi.gao@linux.dev
-Subject: Re: [PATCH v6 bpf 1/3] xdp: introduce xdp_convert_skb_to_buff()
-Date: Tue, 17 Nov 2026 16:16:03 +0000
-Message-ID: <20261117161602.62553-2-tianyi@cloudflare.com>
+Subject: Re: [PATCH v6 bpf 2/3] veth: use the frame mem type when running XDP on an xdp_frame
+Date: Tue, 17 Nov 2026 16:16:20 +0000
+Message-ID: <20261117161620.62739-1-tianyi@cloudflare.com>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <9b616d465e6f88aab813a79cc84c51ed358861e201bfb23921864e62fc9dc023@mail.kernel.org>
-References: <20261104121316.1155680-2-sst@poczta.fm> <9b616d465e6f88aab813a79cc84c51ed358861e201bfb23921864e62fc9dc023@mail.kernel.org>
+In-Reply-To: <20261104121316.1155680-3-sst@poczta.fm>
+References: <20261104121316.1155680-1-sst@poczta.fm> <20261104121316.1155680-3-sst@poczta.fm>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -125,11 +119,4 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 04, 2026 at 12:53:35PM +0000, bot+bpf-ci@kernel.org wrote:
-> Could mem.type be saved and restored around the program run, or could
-> bpf_prog_test_run_xdp() set the mem type it needs (or use its own
-> xdp_rxq_info)?  The later veth commits in this series only touch
-> drivers/net/veth.c and do not address this.
-
-I think test_run should just use its own copy of the rxq, which is also
-easier to backport.
+Reviewed-by: Tianyi Gao <tianyi@cloudflare.com>
