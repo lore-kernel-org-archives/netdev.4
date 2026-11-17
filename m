@@ -1,80 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.186.204
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.187.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794901122;
-	b=Kho6N/l+8LXT3pH1AtWorV1pzyn99i+LB2jUYe1Ax3BeVUPFxN4l/RGWjgdhNvQIp23N
-	 TOBdOxxmJS/wnVWP9ibl2MD/bcLMb5Obk4x3qPJWqNcXEiHK0GNnXnZpjUX7+KA91FoOO
-	 5kLh+uQ8R+a97ZMjewrrb7fpJJzlqpjJkw8rjCynkyYGOXQ7YP1MvUcB4ezcxKY1diqU+
-	 c26mYbVjzUeYKsHRq4M3uBcctyL4u89hMOAxT33aae4QcdfN76zf575SSw0uA+Ih28kew
-	 IJRMaIJcAHBVViBhuMIjtJtkqVTOlM22C72x6YpfIRyd3E6QUPErQvcHP+SWo+QJNXQ==
+	t=1794901159;
+	b=K4/Z0Op1/Y/tLh8jg8Ueaq8vhAAssBok4sgubcUIr9aVri+hKSsqv3H0366SNfFBt3O9
+	 Q68TmaABC5hkyxHvPaSWjdX7imsrBNqQSy/S2V84CQRvJdCM/4otd9K7PB6GrJtgBIJC2
+	 jgrwcejHXVxZh8IURClYWDUoNBFTlv1VDIaQC0MmIK39oGWZCXtnQKS400N1IH9NUQ2O9
+	 4OVDJZqe8+oOHECXczVnfE9Qaa+L/b39SA1tkbOicQQsV5GGDprOIuo+BsPCgB75KJzEo
+	 hvpTFu5Sm+UWznnj0qjvORbzUqGU8AWz5GQEY8Di/LYONPTdayH6zYAvhynRxnf1C+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794901122;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794901159;
 	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
 	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding:X-Mailer;
-	bh=rEGBody0VV2wZG4UdVJrfQPlKeD6mE9K5pSJg6GixPo=;
-	b=Jh5KHwrIXWEpTTUqWALDUVWvFN8q7t3Th2L3k5n/Sw6UxdgQ9XuWUAoOh2TKbj+E0aNv
-	 HRwNol8G8F0xHe4fiL1wdppYAoPlXKfJcJtWBuVQMZkME+w6cfgUso0yqgEB2sPWpE7DG
-	 73GZahmKg0WRlND15BTCuAXy7EmPZv5jU2Tcv+jQHmz03CmFCRvkARskMzVow5hozBT5b
-	 a2Ufekws347my6UN19joFifIdkY1sVNP2+p0s2Sqe7jIemYtSciBKjyQ/paxfUzMYUWbC
-	 vX4mA/oEoXK/MOQxkbw3qkfefI7nin4K+Eb3oEuGNVupwHgohjgZ+ncahuZQ63+Jx+A==
+	bh=ZEJqQopEVGdySv4Myvg+c3gYz9XwIZ0cMLiWlgz5+bU=;
+	b=q18bdJK/nFUJwNfzDjuZdtPBDaMzlEYmMJu+Y48dGTCPkqSpnR8PflHqWf+xAj/eS/2k
+	 fsIGtqmz9jyWyZWqbGDnktLiex8ex06JLMX/e5eTISzRAhF9gfidvrYKkSF7DHqxuDNvN
+	 oJ477sqHakvDtWJWFiOXZeCYrI84URKUQoyDLk2ieDK5cDmLcNrNZoroD2Ig6/0j7V0o2
+	 d4ygQzZMWZQYXgKpDUGnw84atpAG9v5sCOBUmAJ3lwViM84Dpsyt/fTqPfinF4bnwRErx
+	 NjqHyxp4LWdmkF5Wp3Iw4CEqDYemxM2rtn4mk1CbqfS50ZqreE3dI+9Y6+PynRWjnHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=yahoo.com;
 	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=TrfRpbXx;
-	arc=none smtp.remote-ip=66.163.186.204
-Received: from sonic310-23.consmr.mail.ne1.yahoo.com (sonic310-23.consmr.mail.ne1.yahoo.com [66.163.186.204])
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b="b/XK70u8";
+	arc=none smtp.remote-ip=66.163.187.148
+Received: from sonic316-22.consmr.mail.ne1.yahoo.com (sonic316-22.consmr.mail.ne1.yahoo.com [66.163.187.148])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 163A0606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:38:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 163A0606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5156606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:39:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5156606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=TrfRpbXx
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794901121; bh=rEGBody0VV2wZG4UdVJrfQPlKeD6mE9K5pSJg6GixPo=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=TrfRpbXx1g4aUzd4o965odxUwIp2aq9EMmjnYJEDkp9Xjf/1AM7/ZnL+bGXyBhnze89E7t1D+riZUNPPoZVOdulCwg5DN80hDx7IfwGXNdXPihipyriGzgZKgOvBPZtZIFmOqu6fdYdzhI6+Ol5BlcFgIjcDjoxG/pkAcBmZR4MJCYkPepN/QD0lbWunGPboIt1inY37Phh7ZI3z/GtudW1TLAroZRzAlWIBiC2iDdDRmKV9byWWIEhT33OfNTtveGC3S/khCpVw/AeLP/8AJQaUX3+nBKbBMZz5oiSID4G4ZLgvXaAIhpCJDpk1s1rifkTXrvNe1E0TDGc6DxkKTA==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794901121; bh=Xl9F11Md/Bdp5fb1pDl0YWqMEW4AL2PJZuPLnlucypn=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=p8XCtsEFmJBDK4vyAemFmdleEzYcTYuW6789FjqZ/6M6Dh0tX4C5DEtWd2Oth79UA0HLhGgj1yqh8q7LFskBl22ThipUlklwta8rc/1vaZhMDElc2X1ipyxhZ17trBjNmW8qUkjos/ulIuhHZZ2ygK0QeKeWXtF8KUVVsPmR3KvLEx9chw21Yaw8z12RXosTiLz2rSuI9GLhNp1p9aCUVAgIjp41F0HF7alIUpxjJ/2YmK9rzcR7HX+IT820mIyqPfuv/x/RjQWFp9aer7sjsLR5HLXJr4ycpA83bJ8xRwZjHrNopDMIFdtKvLel/pYb6TVvewDyO07JuHHSIdMdyw==
-X-YMail-OSG: jt.s00QVM1kmz2wucHGCZIdUtD5YH7Ndv7QGbxZcOOaXcLBoklaYUVdyj0jnS9G
- vI5RKOoZ7ARQ_LWSXl4z3igTVpwmIvLUpD.paCRq5UF5NyyQ03mlXYGgkPmAgKuWPeRkJsJCvsXo
- P4whH517pRAlifer2y4_gJhk3SzyC2Gcbx_4Njxf5UghgtleDTaehPjP6WvRbEu9HP7MVxgAKb4P
- 8PrKdFaniJQz5sUq5A6VNAf23DophHJJXpDfbwdkStU6IFcE03XX4YfnKshkMfpJeEpn5e4SmlFO
- cAICAbrumU4PcZYIA6C41ECHJAlU_aLP2vgyIjniIXsiVdI1eBBTEQsLMoBnpe5EfWFlO.KuHrx_
- 34cT0vgEbCwB0TNiK5CPKCei7r1F.mMHfx4GObWQupmxKeGb3OIY8s5g.3rhRZNd6bzfbV_GiYDT
- MTasN1bosKRYXs5V3p8OzzbNyKxYF0HWjKXB9yICB9hwm_1OOeivjCa0NSTMY.l00CCQ66vVUHAS
- ZHOOciYdB9qllO6GfgXSNuThF2_D3_x9lWVRN4eWPEyS_nxG8KNLkbs7c0pZ7VJiYgkHeEJi5TpX
- GIctnKLcv2c7wvHWgMbbUXvin2NPuD4f5x7GmKVzZHjBZ0DWTD0NdpuEaRz9ijTKoJWLaeJfnkH1
- nkARJ1zAuyLH3REfxX4hBV7K4yDGjGM5.FVXcb4lJR_O29uNaVEFIpDIZerdrVhVk0.3foQ5SjSf
- cwWor3NptZgeIze6Vt4_7meG6FDsHUTwrOMAqp8aSzq1wvTlwngvhmvDlO_o36OBHsPDutTS1R4A
- 74G_u27ZBGJNDd2qszwXWY33it.dv77O_By5jz788tgpytVy8Nx306ZJp0DZRJ0vM5gxsi4CRKus
- KqFZ2wjzZ_BRr6NRt9jX1pApOu4RGTHWypffYkY_V.1m1U5dGfp55YCPiUIbctg5uj5q1rfrjYgT
- x8tyyhXvKWZHOtF.uLQvnkN7AmLEzi.MK5RERx2.zjE9126Ibo2fJuKdEx1xQBo8EUfTy.nTPCHi
- W9qhBduxeqIk.1w_Ie.S3JuP3NeYNZwIa5rwJiLFbCLUWK.MQW.gpI5Ws.nuU7IVwch_N8wVppBT
- 1_asBThkIgH0tUd1B7RYMJtXGnsrMXeKSm3tT0bpZRfZzROuqxaPTw7ovxdQvM8HLRjLeLEJZ1Yq
- V7ITt09X_iLkmuT3bd8YXuDPTOJEjzdLYap52QKjJFx7FeHTzzupXPWh33TNMNaUwpLXOm.ovWOm
- 89QDGeOExncf_nPs67iqUPAaF9eBVZwa_shK.p.4jQPJFHKxB2sN3uBeD1UjXekpWFO71IhcBoCO
- OIy.oRZQ5gzRl2kIbdOpTT.K0wrwRqPS.wy7eAagjZZ0ZKkHstwelyzpLoOk_I2Zurt4YgX7ZcvW
- LZyiXO9WPLNq_CCOhj.V7Vwn9j5XFP7HXOJ.BIhIrTfZDj5RF_jD6Gj3znQAn2INw5oC51aidsX_
- 1kc0FA8uEDnsTshclg7LemA7gtTyHDqOJTdDTBDk7ZNx.f1MN2fpykJ7E.PYpkM4MGjf6mV8D7WU
- kxqcgC6DFwXIQsrnL4mTjQzsMGSmEiHS.OVLZzLAtY0AGC8hI0eunkS5tXBUCLSVYT9ThGJA0G9w
- rIBJw1BO6_HtczTlSNqz31Vk5sibR8wVFn6Vcd4Xfs.daTWL3MMpTDV6bClNQK_Q1gigcqOddbh7
- jC6QFMvwbQqr.nDDSb8D3YahBbyfUen6CHlYvJpxQTMOXw1HJu4FD4FxTJ_Ylb14dH8HaIVSaAr4
- dOtPG3u8gllOzMuCnXrujis8k3avWzzLB8Yu9b62WzvoPM4i3AewdLOlqLWrinpxaG_1DXuY2xyG
- TW9b4NtwGzst1Z7LanSerY5_NnhYc4QZtRlEzs9kCzw9iokesoAko4zW7PSy6Zr0RsXoX8KRzAS5
- uFrnlhCJKc2DyuWfyETVPBPzDzNAPKqe_f_fg6RPxFSSuPETmRiCMGNHO73dOHxCuzsyN.1jdeF6
- jO3oHtJ0vUW128_7XIKgj1WRpVmHHmeQeShEH8FUm6h6T3AERGtNOlMFoMhmmY5XMBsKrYEYmvj1
- 79J6ZAXPyhYIwOGfLInGwOw_bdAE6NO3K.BSTguMwQm35_woiTG_EBgbE2y5nIL9ZI2ImuC7zl7R
- QMIUj5QjoJim6T_y7WJDtqh0PCFLuEEED2Uh2es5fhcFlqlGMab9N8Supd71po4OSpz2vyW_JtO4
- KBaI6M9wOFR2QJ2iW7P54I5mJTMoHlbwcVflV74XJITysIskYevLmg_xGU6cWrwNoRIwZsTFpOgD
- OWTJtLHDQxIzZqt7k4w--
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=b/XK70u8
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794901156; bh=ZEJqQopEVGdySv4Myvg+c3gYz9XwIZ0cMLiWlgz5+bU=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=b/XK70u8kWymQqay9h1w55x5moWeAxXGuM3+GspyeHSnaZ2gIZWNdVTDm8rsfjJb6T3ZoRzMtIwY0x7LPslwo/6JN6gkuMbuZR6OYOQOctswrpXbufR4SCB2nUY7th0nQY/yibXz9909DB66ZQmmh1UkipCLiQaxVN4r2I03jmAYe4AWEwPAazejCFdn5/dkzJXwPHbYPka4G1L8yNwIA6JPrpX1QRITRRzDnsRzW7wBciBbZLwhy1/1UCYFBq313Bl9eroKR7C8BuwR9AX8UcxG8Glfq592yMc4tqdbrYyl8c4j604d+To/hzCXUoT2rvFEP15+pgsJrjXIbZ3nng==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794901156; bh=E5H+LXLamFT67kdU5UOoEtXwLYYMDzfxYKSgZFsHNUd=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=c/ZHJvdXU/DCosRz2NE4hXuFvjZHd+gXFb3Faf5QiMBSQb7CWmAbN9qwLCETIjqF4WkKg7X6weu3vfDjLg3r0ZugiX+oTaHPAgFGRv/7OqE0JTNLA97PupM36LIgYSGsOiAntETCrMCTu3vhB1Y8w6s8CfykZe+THd+T2AkgindH+YePXzJmSDIGGQA9K+t3R5iSsb8H4wDOC6dsdFjydrWgz1Qkx0EyKo+9ZI7ckk+fh5Sk4ocoBxRaP08vy3w0/LnFygfTuxa7Q10a2nvWYCp5luDPoFTrXSYeXIRD4s7fefpDT1A29pY5X+PdVIW4NIU/xDiW739901MxY590Pg==
+X-YMail-OSG: fGMWKLUVM1mJdgp9AALeijavgwonekL0Ue4dTB5.6js4ie2wmHa8pe3i13fItIB
+ yfWpBbTM8OilS_j77oo83UDTOMAVWgezgi24tA1Qx4KHwsTb4QsLM34AnAQDVTE.iUY097T2ZnAu
+ TK2YksCb1MMg6_VX1oFh7qoNr5sA6l_8TdwYUOpWOztnBwimXiZHRZxIa2r_wW38Lx2gzQ0rW2N6
+ 1_aL5T9ndqCa7K84p_Fd167sk2_3D.4zePmeKNT7dkRnbGJl_rNO6MIm9UiPHoPN1h4yQ_z_E7o2
+ 3hTjNdXbgCyA1Y05CPSmHhL8NskK8NryyvP2zL9.PUeC1GUln5h2zdZMXCg3zmFmw490nrGLb36Z
+ JfVtv.U5DRV6k7r3d5bybtLPHDDau7wGUo9SLzgkBTgzSOcYFrfoI38WDOQd42W8cQzl_CO7ZJBi
+ 044k0oZquYRSpK2MC.4N3r8yMyxRfaEDCf.LSnxdxzpBbY018tqFvVc6YAzWGyyqVO4RYfJrVCC6
+ r5NQg__o9XtKoaMJCyUI8UrSpjYiuTDG5U7C3Ss1bAodc2Ye9t58GZL13y7GZofPvRMgKPoLNjHr
+ IcicYxM5brXWgLawGQi.zrF2uHhnsiHOXgyShm722piLJhYyAt.eyxVLeY5_lEl_0.tVF43CEGyL
+ h16hLxp6EtVJfb2piSwwbp2SjkaAsKKclsIeDGwYgRt54PBWilPLgGBu83JvE8wTcHK03eHbLVtP
+ dePLAZM0O5dKkfm3gzEBu_p.M9j0rizgCVQPDtFs_ui4w7pWL9Gy13ZkzE53vx8UKMKjB0NG9ZUG
+ p3CGGwIeEQAlk4M9fFx3nmxUAtEFrhCI1XXZp2orxi83qq3OdXQ2rIvoBgxgfc7XMmH.6OdX8pil
+ m2ZoFvMjc5Az9W_kXQGZc9bArXDvOo_SOj8RWvtYtwAHJbtNMQGo.bE.yMyP_4LM0owQIT2uNx2T
+ KmaHWwRmOb_tCID5yIXY9FsXx81ew.7nkzwhWv0GZVk9Zv3qnxWjtWEiRwmFkJMeDFOCcYJh3OJo
+ IFLCiWZoIRTzj8CeF8ZNlJKuAQ9zGyxoBIReySmY_5XJPCiFBrt42YKK.z2gYZ2vD9aBoTXaRVD7
+ ksCW0yxLHPg8kPgm8pMPn5gOZuzDtRfnj9Vdm5tRf4RdlUrAGGMa.5UTNUZfe3mxjzdTT.Du1_y5
+ hprucFlRz_jfqNLK_88RrOHglk7pROLhIDaM2ytAspTEir3zQtMoXkTaopJarfO3hSFpfW_jud52
+ 4AaIYnaz8yqQDBWp1EynIFqaGZ6UoCi1YrNcivWTKULon.xS9MQVfjucCKMoArUHi.UiTsmd5yoW
+ q8iVWWzCizFrC8JE3u52oiuuavW_exOsqljVJwTLFq20wX36110p9P5ASj7OTyivJAsl4ygtGBUL
+ ydnI_DQTet.un1oGeMZQ0zHOgrbf66k5G7iiZK2d1w1AK_d_XcVWozXJbGF1vENUdyJFlRa6uFH2
+ 7qGYpIN2kG4FO5.1LxwPUOSh76WJXIknN8_C4KBcH0Q7jiLpJyQtoOwclwNaKw1YrnVl2Kh33fFO
+ 0K.dHzFVHKuJqPJzKqM8T24zcbIIipyFPOMCQ65lbaOtda8wr506XJcsKk5HnP3xLIkI8EGVI7h_
+ Baw1IqIEWnmSwNWD2fh9zyBl59ocYj0YwwDvbo.WfTrYCk1Pnc.6gJIWajqS37yxBeETO5yYcajn
+ rOJ.YGnm2ux4rEOqu5B5N130tszrRE5Yaat4OV_SADaSuK0zskUk6I9_tMSSmZI3phhb.Tv9mmmw
+ 8WWtAcEinPkaqVXrvqiO.e38JgW1JwYP2fFOL0hZPmGvVbkg98_ONeu.GfUXhC79XQeN6Ao6dcrh
+ T0fynq9YZe.R9Lud3yOqa6lJRNS0mPGcxGbCVS_gOxWuDFcw0V7GUaG8J.0AiBahtyMPly45pd6x
+ pQB3Q87V5uvPaEcr2JwkhBt0kvjspSXZV9iu62arwvi32v5.KjzJ6cqH5MWcf4CijPm_pQKSHJFW
+ ZUEmYNMji2cQy7e6veUKtLkkIb1dw.zOzlmZoDdDaD.mONk_o2UQnz2xNgdq5Hf1kmtDgHdMSHQ6
+ UnPbCQiglcVASVr3E3vpbfmsVicC6uADAV4QUua9aH0aFSXmsDQB82zbONSjMoYzcsv2rdwfYWyk
+ GghNh.iSLae2zjgJ5nK5cTxwvVIqvJQOfxL9UV9KXhfck3d.IDT93CrgPepvpxzNS6_f3t8A2Au0
+ yfs6ulBggOH8IqleljKr9CVtXmJzgCE3UwDpzzAODj8534oswqlSJjz_lecKrd_TijU0P7F3rlr3
+ lz5fQRqOmU7pHHAo-
 X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 3e8cf93b-d7cc-41b3-95bd-ec1c338b0cdd
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic310.consmr.mail.ne1.yahoo.com with HTTP; Tue, 17 Nov 2026 07:38:41 +0000
-Received: by hermes--production-ir2-5dd9bf4598-jnk89 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 92c08c4c83c5e094b5b804c41fa0de80;
-          Tue, 17 Nov 2026 07:38:36 +0000 (UTC)
-Message-ID: <e941720f-6d54-4884-998e-c93b430e476e@yahoo.com>
-Date: Tue, 17 Nov 2026 08:38:34 +0100
+X-Sonic-ID: 860bb0a9-2dbb-4af4-85fd-ef0dd80ee6d2
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic316.consmr.mail.ne1.yahoo.com with HTTP; Tue, 17 Nov 2026 07:39:16 +0000
+Received: by hermes--production-ir2-5dd9bf4598-jnk89 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 017051a6af6b61118c9ce28919ec172c;
+          Tue, 17 Nov 2026 07:39:11 +0000 (UTC)
+Message-ID: <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
+Date: Tue, 17 Nov 2026 08:39:10 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,8 +85,8 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [PATCH net-next v11 06/13] net: dsa: realtek: rtl8365mb: refactor
- VLAN 4k handling
+Subject: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and get
+ vlan 4k for family D
 From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
 To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
@@ -101,154 +101,286 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Mailer: WebService/1.1.27017 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-Move the family-specific VLAN 4k table accessors behind struct
-rtl8365mb_family_info, so that family D can provide its own versions
-without is_d() checks in the shared code. The existing code becomes the
-family C implementation and is otherwise unchanged: rename the
-functions to rtl8365mb_c_vlan_4k_read() and rtl8365mb_c_vlan_4k_write(),
-export them and call them through the family info.
+The hardware structure of 4K VLAN table entries has changed between
+silicon families. Family D's CVLAN entry is two 16-bit words rather
+than three: there is no third word extending member/untag past bit 7,
+and no priority/meter fields at all. The FID field is restricted to a
+narrower 2-bit width. The chip itself supports both IVL and SVL.
 
-No functional change.
+IVL_EN (bit 3, versus bit 14 on family C) follows vlan4k->ivl_en. On
+family D, rtl8365mb_vlan_4k_port_set() enables it while any user port
+has VLAN filtering enabled (dsa_port_is_vlan_filtering()), so that
+static and learned FDB/MDB entries use the same key. Family C keeps IVL
+always enabled, as before.
 
-Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
-Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
+When a vlan_filtering change flips this switch-wide state,
+rtl8365mb_d_vlan_4k_refresh_ivl() updates IVL_EN across the active 4K
+entries, so existing VLANs, including those programmed before filtering
+was enabled, switch between SVL and IVL immediately. Changes that leave
+the state as it is do not touch the table, as the update reads every
+entry.
+
+Reusing the three-word family C layout on family D would read a third
+word that does not exist as a distinct table word on family D's die.
+Whatever data happens to be in that register would be folded into
+member/untag bits [10:8] on read, and written back on every
+read-modify-write cycle in rtl8365mb_vlan_4k_port_set(). Give family D
+its own two-word pack/unpack instead: add rtl8365mb_d_vlan_4k_read() and
+rtl8365mb_d_vlan_4k_write(). The shared code reaches them through the
+vlan_4k_read and vlan_4k_write pointers in struct rtl8365mb_family_info,
+so the pack/unpack code needs no is_d() check.
+
+The two-word layout matches the vendor switch API for this chip
+family, which writes only 0x0510/0x0511 for a CVLAN entry.
+
+Nothing points to them until the family D info is added together with
+the chip table entry in the last patch. Until then they are not static
+and are declared in rtl8365mb_vlan.h, so that the build does not warn
+about unused functions.
+
 Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Reviewed-by: Linus Walleij <linusw@kernel.org>
 ---
- drivers/net/dsa/realtek/rtl8365mb.h      |  5 +++++
- drivers/net/dsa/realtek/rtl8365mb_main.c |  2 ++
- drivers/net/dsa/realtek/rtl8365mb_vlan.c | 21 ++++++++++++---------
- drivers/net/dsa/realtek/rtl8365mb_vlan.h |  7 +++++++
- 4 files changed, 26 insertions(+), 9 deletions(-)
+ drivers/net/dsa/realtek/rtl8365mb_main.c |  13 ++
+ drivers/net/dsa/realtek/rtl8365mb_vlan.c | 144 ++++++++++++++++++++++-
+ drivers/net/dsa/realtek/rtl8365mb_vlan.h |   7 ++
+ 3 files changed, 162 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
-index 3d607bd..d3d5fb3 100644
---- a/drivers/net/dsa/realtek/rtl8365mb.h
-+++ b/drivers/net/dsa/realtek/rtl8365mb.h
-@@ -10,6 +10,7 @@ enum rtl8365mb_family {
- };
- 
- struct rtl8365mb_jam_tbl_entry;
-+struct rtl8365mb_vlan4k;
- 
- struct rtl8365mb_family_info {
- 	enum rtl8365mb_family family;
-@@ -19,6 +20,10 @@ struct rtl8365mb_family_info {
- 	int (*ext_config_forcemode)(struct realtek_priv *priv, int port,
- 				    bool link, int speed, int duplex,
- 				    bool tx_pause, bool rx_pause);
-+	int (*vlan_4k_read)(struct realtek_priv *priv, u16 vid,
-+			    struct rtl8365mb_vlan4k *vlan4k);
-+	int (*vlan_4k_write)(struct realtek_priv *priv,
-+			     const struct rtl8365mb_vlan4k *vlan4k);
- };
- 
- const struct rtl8365mb_family_info *
 diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-index db7e67f..07e0486 100644
+index 07e0486..c693046 100644
 --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
 +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
-@@ -757,6 +757,8 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
- 	.jam_table = rtl8365mb_init_jam_8365mb_vc,
- 	.jam_size = ARRAY_SIZE(rtl8365mb_init_jam_8365mb_vc),
- 	.ext_config_forcemode = rtl8365mb_c_ext_config_forcemode,
-+	.vlan_4k_read = rtl8365mb_c_vlan_4k_read,
-+	.vlan_4k_write = rtl8365mb_c_vlan_4k_write,
- };
+@@ -2285,8 +2285,21 @@ static int rtl8365mb_port_vlan_filtering(struct dsa_switch *ds, int port,
+ 	if (ret)
+ 		goto undo_set_framefilter;
  
- /**
++	if (rtl8365mb_is_d(priv)) {
++		mutex_lock(&priv->vlan_lock);
++		ret = rtl8365mb_d_vlan_4k_refresh_ivl(ds, port, vlan_filtering);
++		mutex_unlock(&priv->vlan_lock);
++		if (ret)
++			goto undo_egress_mode;
++	}
++
+ 	return ret;
+ 
++undo_egress_mode:
++	/* The previous state was the opposite of the new one, see below */
++	(void)rtl8365mb_port_set_vlan_egress_mode(priv, port,
++		vlan_filtering ? RTL8365MB_VLAN_EGRESS_MODE_REAL_KEEP :
++				 RTL8365MB_VLAN_EGRESS_MODE_ORIGINAL);
+ undo_set_framefilter:
+ 	if (prev_accepted_frame != accepted_frame)
+ 		rtl8365mb_vlan_port_set_framefilter(priv, port,
 diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.c b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-index 8d49ffa..566c6bc 100644
+index 566c6bc..f3ac294 100644
 --- a/drivers/net/dsa/realtek/rtl8365mb_vlan.c
 +++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.c
-@@ -48,12 +48,13 @@
- 
- #include "rtl8365mb_vlan.h"
+@@ -50,11 +50,15 @@
  #include "rtl8365mb_table.h"
-+#include "rtl8365mb.h"
+ #include "rtl8365mb.h"
  #include <linux/if_bridge.h>
++#include <linux/if_vlan.h>
  #include <linux/lockdep.h>
  #include <linux/regmap.h>
  
- /* CVLAN (i.e. VLAN4k) table entry layout, u16[3] */
--#define RTL8365MB_CVLAN_ENTRY_SIZE			3 /* 48-bits */
-+#define RTL8365MB_C_CVLAN_ENTRY_SIZE			3 /* 48-bits */
+-/* CVLAN (i.e. VLAN4k) table entry layout, u16[3] */
++/* CVLAN (i.e. VLAN4k) table entry layout: u16[3] on family C, u16[2] on
++ * family D
++ */
+ #define RTL8365MB_C_CVLAN_ENTRY_SIZE			3 /* 48-bits */
++#define RTL8365MB_D_CVLAN_ENTRY_SIZE			2 /* 32-bits */
  #define RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK		GENMASK(7, 0)
  #define   RTL8365MB_CVLAN_MBR_LO_MASK			GENMASK(7, 0)
  #define RTL8365MB_CVLAN_ENTRY_D0_UNTAG_MASK		GENMASK(15, 8)
-@@ -182,10 +183,10 @@ struct rtl8365mb_vlanmc {
- 	u8 meteridx : 6;
- };
- 
--static int rtl8365mb_vlan_4k_read(struct realtek_priv *priv, u16 vid,
--				  struct rtl8365mb_vlan4k *vlan4k)
-+int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
-+			     struct rtl8365mb_vlan4k *vlan4k)
- {
--	u16 data[RTL8365MB_CVLAN_ENTRY_SIZE];
-+	u16 data[RTL8365MB_C_CVLAN_ENTRY_SIZE];
- 	int val;
- 	int ret;
- 
-@@ -230,10 +231,10 @@ static int rtl8365mb_vlan_4k_read(struct realtek_priv *priv, u16 vid,
+@@ -66,6 +70,9 @@
+ #define RTL8365MB_CVLAN_ENTRY_D1_METERIDX_MASK		GENMASK(13, 9)
+ #define   RTL8365MB_CVLAN_METERIDX_LO_MASK		GENMASK(4, 0)
+ #define RTL8365MB_CVLAN_ENTRY_D1_IVL_SVL_MASK		GENMASK(14, 14)
++/* Family D CVLAN entry, word 1 (family D has no word 2) */
++#define RTL8365MB_D_CVLAN_ENTRY_D1_IVL_EN_MASK		GENMASK(3, 3)
++#define RTL8365MB_D_CVLAN_ENTRY_D1_FID_MASK		GENMASK(1, 0)
+ /* extends RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK */
+ #define RTL8365MB_CVLAN_ENTRY_D2_MBR_EXT_MASK		GENMASK(2, 0)
+ #define   RTL8365MB_CVLAN_MBR_HI_MASK			GENMASK(10, 8)
+@@ -231,6 +238,45 @@ int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
  	return 0;
  }
  
--static int rtl8365mb_vlan_4k_write(struct realtek_priv *priv,
--				   const struct rtl8365mb_vlan4k *vlan4k)
-+int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
++int rtl8365mb_d_vlan_4k_read(struct realtek_priv *priv, u16 vid,
++			     struct rtl8365mb_vlan4k *vlan4k)
++{
++	u16 data[RTL8365MB_D_CVLAN_ENTRY_SIZE];
++	int val;
++	int ret;
++
++	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_CVLAN,
++				    RTL8365MB_TABLE_OP_READ, &vid, 0, 0,
++				    data, RTL8365MB_D_CVLAN_ENTRY_SIZE);
++	if (ret)
++		return ret;
++
++	/* Unpack table entry */
++	memset(vlan4k, 0, sizeof(*vlan4k));
++	vlan4k->vid = vid;
++
++	/* member/untag: d0[7:0]/d0[15:8] on both families. Family C
++	 * extends these into data[2] bits [2:0]/[5:3] for its 9th-11th
++	 * ports; family D's die has only 8 ports and no third table
++	 * word, so data[2] does not exist there and must not be read.
++	 */
++	val = FIELD_GET(RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK, data[0]);
++	vlan4k->member = FIELD_PREP(RTL8365MB_CVLAN_MBR_LO_MASK, val);
++
++	val = FIELD_GET(RTL8365MB_CVLAN_ENTRY_D0_UNTAG_MASK, data[0]);
++	vlan4k->untag = FIELD_PREP(RTL8365MB_CVLAN_UNTAG_LO_MASK, val);
++
++	vlan4k->fid = FIELD_GET(RTL8365MB_D_CVLAN_ENTRY_D1_FID_MASK,
++				data[1]);
++	/* Family D has no priority/meter fields in this entry -
++	 * left zeroed by the memset() above.
++	 */
++	vlan4k->ivl_en = FIELD_GET(RTL8365MB_D_CVLAN_ENTRY_D1_IVL_EN_MASK,
++				   data[1]);
++
++	return 0;
++}
++
+ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+ 			      const struct rtl8365mb_vlan4k *vlan4k)
+ {
+@@ -277,6 +323,96 @@ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+ 				     data, ARRAY_SIZE(data));
+ }
+ 
++int rtl8365mb_d_vlan_4k_write(struct realtek_priv *priv,
 +			      const struct rtl8365mb_vlan4k *vlan4k)
- {
--	u16 data[RTL8365MB_CVLAN_ENTRY_SIZE] = { 0 };
-+	u16 data[RTL8365MB_C_CVLAN_ENTRY_SIZE] = { 0 };
- 	u16 vid;
- 	int val;
- 
-@@ -282,6 +283,7 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
- 			   struct netlink_ext_ack *extack,
- 			   bool include)
- {
++{
++	/* Unknown bits of word 1 are written as zero, same as the vendor
++	 * API does for this chip family.
++	 */
++	u16 data[RTL8365MB_D_CVLAN_ENTRY_SIZE] = { 0 };
++	u16 vid;
++	int val;
++
++	/* Pack table entry value */
++	val = FIELD_GET(RTL8365MB_CVLAN_MBR_LO_MASK, vlan4k->member);
++	data[0] |= FIELD_PREP(RTL8365MB_CVLAN_ENTRY_D0_MBR_MASK, val);
++
++	val = FIELD_GET(RTL8365MB_CVLAN_UNTAG_LO_MASK, vlan4k->untag);
++	data[0] |= FIELD_PREP(RTL8365MB_CVLAN_ENTRY_D0_UNTAG_MASK, val);
++
++	data[1] |= FIELD_PREP(RTL8365MB_D_CVLAN_ENTRY_D1_IVL_EN_MASK,
++			      vlan4k->ivl_en);
++	data[1] |= FIELD_PREP(RTL8365MB_D_CVLAN_ENTRY_D1_FID_MASK,
++			      vlan4k->fid);
++	/* No priority/meter/member-untag-extension fields exist in
++	 * family D's 2-word entry - data[1] and data[0] above are
++	 * the whole entry, and data[2] is not part of it at all.
++	 */
++
++	vid = vlan4k->vid;
++	return rtl8365mb_table_query(priv, RTL8365MB_TABLE_CVLAN,
++				     RTL8365MB_TABLE_OP_WRITE, &vid, 0, 0,
++				     data, RTL8365MB_D_CVLAN_ENTRY_SIZE);
++}
++
++/* Family D has no EFID, so a VLAN-unaware bridge must learn in SVL (IVL=0,
++ * FID=0) to match static FDB/MDB entries programmed with VID 0. Use IVL only
++ * while at least one user port is VLAN-filtering. @port/@filtering override
++ * the state of the port currently being changed, as DSA updates
++ * dp->vlan_filtering only after the driver callback returns.
++ */
++static bool rtl8365mb_d_want_ivl(struct dsa_switch *ds, int port,
++				 bool filtering)
++{
++	struct dsa_port *dp;
++
++	dsa_switch_for_each_user_port(dp, ds) {
++		if (dp->index == port ? filtering :
++					dsa_port_is_vlan_filtering(dp))
++			return true;
++	}
++
++	return false;
++}
++
++/* Must be called with &priv->vlan_lock held. */
++int rtl8365mb_d_vlan_4k_refresh_ivl(struct dsa_switch *ds, int port,
++				    bool filtering)
++{
 +	const struct rtl8365mb_family_info *fi;
- 	struct realtek_priv *priv = ds->priv;
- 	struct rtl8365mb_vlan4k vlan4k = {0};
- 	int ret;
-@@ -296,7 +298,8 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
- 		return -EINVAL;
- 	}
- 
--	ret = rtl8365mb_vlan_4k_read(priv, vlan->vid, &vlan4k);
++	struct realtek_priv *priv = ds->priv;
++	struct rtl8365mb_vlan4k vlan4k;
++	bool want_ivl;
++	u16 vid;
++	int ret;
++
++	lockdep_assert_held(&priv->vlan_lock);
++
++	want_ivl = rtl8365mb_d_want_ivl(ds, port, filtering);
++	/* The scan below reads every entry, so do it only if this change flips
++	 * the switch-wide state, not for each port of a bridge.
++	 */
++	if (want_ivl == rtl8365mb_d_want_ivl(ds, -1, false))
++		return 0;
++
 +	fi = rtl8365mb_get_family_info(priv);
-+	ret = fi->vlan_4k_read(priv, vlan->vid, &vlan4k);
- 	if (ret) {
- 		dev_err(priv->dev, "Failed to read VLAN 4k table\n");
- 		return ret;
-@@ -313,7 +316,7 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
++
++	for (vid = 1; vid < VLAN_N_VID; vid++) {
++		ret = fi->vlan_4k_read(priv, vid, &vlan4k);
++		if (ret)
++			return ret;
++		if (!vlan4k.member || vlan4k.ivl_en == want_ivl)
++			continue;
++
++		vlan4k.ivl_en = want_ivl;
++		ret = fi->vlan_4k_write(priv, &vlan4k);
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
+ static int
+ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
+ 			   const struct switchdev_obj_port_vlan *vlan,
+@@ -314,7 +450,11 @@ rtl8365mb_vlan_4k_port_set(struct dsa_switch *ds, int port,
+ 		vlan4k.untag |= BIT(port);
+ 	else
  		vlan4k.untag &= ~BIT(port);
- 	vlan4k.ivl_en = true; /* always use Independent VLAN Learning */
+-	vlan4k.ivl_en = true; /* always use Independent VLAN Learning */
++
++	if (!rtl8365mb_is_d(priv))
++		vlan4k.ivl_en = true;
++	else
++		vlan4k.ivl_en = rtl8365mb_d_want_ivl(ds, -1, false);
  
--	ret = rtl8365mb_vlan_4k_write(priv, &vlan4k);
-+	ret = fi->vlan_4k_write(priv, &vlan4k);
+ 	ret = fi->vlan_4k_write(priv, &vlan4k);
  	if (ret) {
- 		dev_err(priv->dev, "Failed to write VLAN 4k table\n");
- 		return ret;
 diff --git a/drivers/net/dsa/realtek/rtl8365mb_vlan.h b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-index 27a526b..009b127 100644
+index 009b127..625d4c1 100644
 --- a/drivers/net/dsa/realtek/rtl8365mb_vlan.h
 +++ b/drivers/net/dsa/realtek/rtl8365mb_vlan.h
-@@ -18,6 +18,13 @@ enum rtl8365mb_frame_ingress {
- 	RTL8365MB_FRAME_TYPE_UNTAGGED_ONLY,
- };
- 
-+struct rtl8365mb_vlan4k;
-+
-+int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
+@@ -24,6 +24,10 @@ int rtl8365mb_c_vlan_4k_read(struct realtek_priv *priv, u16 vid,
+ 			     struct rtl8365mb_vlan4k *vlan4k);
+ int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
+ 			      const struct rtl8365mb_vlan4k *vlan4k);
++int rtl8365mb_d_vlan_4k_read(struct realtek_priv *priv, u16 vid,
 +			     struct rtl8365mb_vlan4k *vlan4k);
-+int rtl8365mb_c_vlan_4k_write(struct realtek_priv *priv,
++int rtl8365mb_d_vlan_4k_write(struct realtek_priv *priv,
 +			      const struct rtl8365mb_vlan4k *vlan4k);
-+
+ 
  int rtl8365mb_vlan_port_get_pvid(struct realtek_priv *priv, int port,
  				 u16 *pvid);
- int
+@@ -43,4 +47,7 @@ int rtl8365mb_vlan_4k_port_del(struct dsa_switch *ds, int port,
+ int rtl8365mb_vlan_pvid_port_set(struct dsa_switch *ds, int port, u16 vid,
+ 				 struct netlink_ext_ack *extack);
+ int rtl8365mb_vlan_pvid_port_clear(struct dsa_switch *ds, int port, u16 vid);
++
++int rtl8365mb_d_vlan_4k_refresh_ivl(struct dsa_switch *ds, int port,
++				    bool filtering);
+ #endif /* _REALTEK_RTL8365MB_VLAN_H */
 -- 
 2.53.0
 
