@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794958161;
-	b=j3z3F41OiRuqvrFiG6dT363n6nKXifmGmct6N2P6SND34aLvdRJvIqOq+Juj5GH/2coS
-	 zzWYgieIFGwmVAKevWVhM34j0Qc11sIUt36Qt+dm8A0aDgV2ea1y8xYFub6thBo+7DCVE
-	 P8HMpzm76lD73r6eVHIwLMVZ5a8gA0kgBrdAAn120KfbK6IZkHz84uFMsn6dRJqU+Bg4I
-	 mh33SbUFJgVEGOD7qdL+Nfeq2mtiWPcfvr8c8H4ceKLPJEsqrhqzCWexfFhG3gsEOg3Pd
-	 gs47Nt+SbuRAKP6u10+Cvc0ocrFieYCPaVGCysMcGTKkf5RMKhX/cnYQyoTodLv02NQ==
+	t=1794958158;
+	b=YcA0GcuqlIkLsoDI4QAHX4++msBZijDHpmTx10ldUlXhtsFLVxyLIQmOIgnMbfjltUNV
+	 PhCyYtz1521cfw8w+2iABpj/wezrJSxtB06uq0abCuUbjIFPkol5slmvlpsWkdIYS/6f7
+	 2qNoBGFfJ4521d0SF/IQFemh0ImtfRqLmkbdvrDnCw8zAiZ4hVJHXKP6ZRCAGYfKQUdLi
+	 mM/zy6rIE/BA+Fj0jkrT2v5RNYVO0gbjb7pEdssLLhv5EKmvG6hUj3m43R9UflOLyU0Kr
+	 OJoyy0KvNlC5NSJahtqmv/t70YbZdvOGpdNpVIXL0p10g58re8vGZ11edovZdtyTXsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794958161;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794958158;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=6l3YXXOGzefgjfKYki1kUCfxY/B6YsVZGiucocYAgdg=;
-	b=XQcVwdMgwNsOqXbOOpm9oPJbnrqvDTgdg9vXjVR+12UPGE9q/2a7BcR9OxVorlq/7aJY
-	 o3DOJ0ojpuLFqFElfbnIZFA+UA7N4nz+/CkzHaGhK8x8WJ+kib04UAuyMu+LCCNA0nnEo
-	 Sa7BdkY95afMcyVUcfzMDOL/hv0O2KVvracyfxd+qzucuHw3hU3K4uMr8gj78xLU7o979
-	 Et54uIWMoRFcMAy3wHgZCileu7hY3QVZD9DPUfS68q9KbbrJo8H94cFldH5K/4o+5fstR
-	 NtqoU6KWmEXTxuZY1e/PYe1+JEXa/CRwflaqHjcoUmJ83t9K116S8++ztWzCCTtTrFg==
+	bh=2b458MopEXa7uB2O3RLfHV+wzOt6YVuNArYwPbFLSA4=;
+	b=WA6Xu47SkvH08o2/1cvi+CpPLIY26Z3yoY+1m8A0J7d8DUdpIN8vO3S0y7TkOgs8QK2n
+	 xZle65ePCkVsMJ9K/xLlCDtk2Rqs2OhiUFSqTPorBoPAO+5um3uwcPWVbX9Ux53Iyb6dg
+	 6ZoaHqNxmCmXHTiPfo4CVUqmpHFriBd2x8FNPh4I5aeoU1hrXMl2yN3X0sADeX4D5nMuk
+	 wHB4bIS0D8ljfhtbppYb2594gd5qQlUU58GEJmNVW0H9dlg+aagYgjHochsbudeEx/7Tc
+	 Ko9vaxFNsCF9ZD1JP03vt/FicC8yQLwd/POAmZfJTO2IdUsmvAo4XQc5QBXBgoSWnmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="A18a/Unq";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WcZqd4vr;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0BB8606A337;
-	Tue, 17 Nov 2026 23:29:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D9DF606A31C;
+	Tue, 17 Nov 2026 23:29:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A18a/Unq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 048331F000C4;
-	Tue, 17 Nov 2026 23:29:19 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WcZqd4vr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B3891F000C5;
+	Tue, 17 Nov 2026 23:29:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794958161;
-	bh=6l3YXXOGzefgjfKYki1kUCfxY/B6YsVZGiucocYAgdg=;
+	s=k20260515; t=1794958157;
+	bh=2b458MopEXa7uB2O3RLfHV+wzOt6YVuNArYwPbFLSA4=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=A18a/Unq3wxii+l9YzDXGE/+ENja4tS5EdEUKNIx3GdDGY8SdaGxOsyOriS2tNvxO
-	 AWCkr0ugay/umI/Gx71FG7LjbrCVWlOC9P/5loP/UKVe0hBr+7fjxPNnt8/2kwyiAc
-	 FQaFDjIpAYZzcLxzZb18cOSg7+4bpeSwRcMkcEc1DZhht7HhDf3miC0G9MjcBJow4X
-	 hP5yIHTY/wSSxg7v895XNrTt2909uqW4ilNSNoxGmPE84nfSnTpbmn3VIYsZgzeZK9
-	 wjcAAkeVQr4O8N0g0OBXQuT2kmUQ5eeewpNV8+HdglYz8g26dumcNrqmGumQibTALa
-	 B5rbRYpczVO4g==
-Subject: Re: [PATCH net-next 3/9] netfilter: flowtable: retain offload
- ownership until deletion completes
+	b=WcZqd4vr7CaaogZNmgRfWRKTwEKa+bpOUUxlWfd6laABE9Yy3P52bl4jiVZ/YVqyE
+	 k5Iuf97WZlNhaNkrSZAF6oVj9nb9sYpgvLrP91kVpqUrklYeKv0Vxt94AQOb3VDjhY
+	 T8nZNH5hyr8VKgJLanjOxNXUGiEtHKiB2sDl1iYC9phKDaEKK24x5dV/kH79nJEdFx
+	 hxLhxvPLrP3Lld0F4EMIjai1gXyq1USdkc2A4ruvKvbcsE+tXZHwE+DRgeRhRcACvW
+	 BQYNX6ZJlm4NSWzCOD3rH6h6+zLRlZR4cERmF0Ek0hAdMZR2wQzTvgExYZNTKuSCt+
+	 /XD5tsp2OGPAQ==
+Subject: Re: [PATCH net-next 1/9] net: ethernet: bgmac: validate RX length
+ against the DMA packet capacity
 From: netdev-bot+sashiko@kernel.org
 To: florian.fainelli@broadcom.com
 Cc: netdev@vger.kernel.org, rafal@milecki.pl,
@@ -52,10 +52,10 @@ Cc: netdev@vger.kernel.org, rafal@milecki.pl,
  pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, devicetree@vger.kernel.org,
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
  netfilter-devel@vger.kernel.org, coreteam@netfilter.org
-Date: Tue, 17 Nov 2026 23:29:19 +0000
-Message-ID: <179495815956.3136.7417407587662864290@kernel.org>
-In-Reply-To: <20261116222519.1416501-4-florian.fainelli@broadcom.com>
-References: <20261116222519.1416501-4-florian.fainelli@broadcom.com>
+Date: Tue, 17 Nov 2026 23:29:15 +0000
+Message-ID: <179495815587.3136.10288920701294421777@kernel.org>
+In-Reply-To: <20261116222519.1416501-2-florian.fainelli@broadcom.com>
+References: <20261116222519.1416501-2-florian.fainelli@broadcom.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -69,10 +69,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 6 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 4 · Low: 2
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -80,327 +80,151 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] Moving IPS_OFFLOAD_BIT out of flow_offload_teardown() means
-  the lockless check in nf_flow_table_extend_ct_timeout() can no longer…
-- [Medium] This patch reverses the central change of the commit in its
-  Fixes: tag but does not say so, and it does not mention the later…
-- [Medium] The patch's ownership argument ('For hardware flows, GC
-  reaches this point only after hardware deletion is complete ...…
-- [Medium] The patch now releases IPS_OFFLOAD (re-admission) in
-  flow_offload_del() once NF_FLOW_HW_DEAD is set, and the commit…
-- [Low] The new KUnit test nf_flow_test_hardware_retirement() and the
-  NF_FLOW_TABLE_KUNIT_TEST help text say they check that hash removal…
-- [Low] The new Documentation/networking/nf_flowtable.rst text (and the
-  commit message) list the visible side effects of keeping IPS_OFFLOAD…
+- [Medium] In bgmac_dma_rx_read()
+  (drivers/net/ethernet/broadcom/bgmac.c:463), the patch now treats…
+- [Low] The commit message is accurate but leaves out the user-visible
+  impact of the bugs this patch fixes in bgmac_dma_rx_read().
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it is High
+  severity, and the new check does not close it.
 
 --
 
-netfilter: flowtable: retain offload ownership until deletion completes
+net: ethernet: bgmac: validate RX length against the DMA packet capacity
 
-This patch moves the clearing of IPS_OFFLOAD_BIT from
-flow_offload_teardown() to flow_offload_del(), after both hash entries have
-been removed. The goal is that a replacement flow can't be admitted on the
-same conntrack while the old owner's cleanup is still pending. It also
-documents the transient status and adds KUnit tests for the ownership
-lifetime.
+This patch changes the upper bound of the RX length check in
+bgmac_dma_rx_read() from BGMAC_RX_ALLOC_SIZE to BGMAC_RX_MAX_FRAME_SIZE.
+It also rejects lengths shorter than ETH_FCS_LEN. Invalid lengths are
+reported through a rate-limited netdev_err() and counted in rx_length_errors
+and rx_errors.
 
-> diff --git a/Documentation/networking/nf_flowtable.rst b/Documentation/networking/nf_flowtable.rst
-> index d757c21c10f2d..b9b4444357758 100644
-> --- a/Documentation/networking/nf_flowtable.rst
-> +++ b/Documentation/networking/nf_flowtable.rst
-> @@ -205,6 +205,19 @@ refers to the software offload mode, so there is a distinction between [OFFLOAD]
->  which refers to the software flowtable fastpath and [HW_OFFLOAD] which refers
->  to the hardware offload datapath being used by the flow.
->  
-> +During teardown, software fastpath lookups immediately stop matching the
-> +flow. Packets reaching software follow the classic forwarding path, while
-> +hardware deletion may still be pending. The OFFLOAD status
-> +bit remains set until hash removal and asynchronous hardware deletion are
-> +complete, preventing a new owner from racing the old owner's cleanup. As a
-> +result, conntrack dumps can temporarily retain [OFFLOAD] or [HW_OFFLOAD]
-> +and omit the TCP state after a FIN or RST has returned to the slow path.
+> BGMAC_RX_ALLOC_SIZE includes skb_shared_info and alignment space beyond
+> the DMA receive buffer. An invalid completion length can pass that check
+> and reach skb_put() with more data than the skb tailroom permits.
+>
+> Limit received frames to BGMAC_RX_MAX_FRAME_SIZE and reject lengths too
+> short for the FCS subtraction.
 
 [Severity: Low]
-Is this list of side effects complete? Several in-tree users of
-IPS_OFFLOAD_BIT now see the bit set for the whole GC and async DESTROY
-window.
+This isn't a bug, but could the commit message state the user-visible
+impact of what is being fixed?
 
-ctnetlink_dump_info() skips the timeout as well as the protoinfo:
+For len < ETH_FCS_LEN, the u16 subtraction "len -= ETH_FCS_LEN" wraps to
+65532..65535. The skb_put() that follows then ends in skb_over_panic() and
+BUG().
 
-net/netfilter/nf_conntrack_netlink.c:ctnetlink_dump_info() {
-    ...
-	if (!test_bit(IPS_OFFLOAD_BIT, &ct->status) &&
-	    (ctnetlink_dump_timeout(skb, ct, false) < 0 ||
-	     ctnetlink_dump_protoinfo(skb, ct, false) < 0))
-    ...
-}
+Lengths between the skb tailroom limit (about 1602 bytes with
+NET_SKB_PAD=64) and BGMAC_RX_ALLOC_SIZE also reach skb_over_panic().
 
-ct_seq_show() hides the expires field in the same way. As a result, the
-repaired timeout mentioned in the next paragraph can't be seen during this
-interval.
+Lengths from 1537 up to that tailroom limit got through skb_put(). They
+delivered bytes past the 1536-byte DMA-mapped frame area. Those bytes come
+from the non-zeroed netdev_alloc_frag() buffer, and the device never wrote
+them.
 
-nf_nat_used_tuple_harder() also reads the bit as "entry is offloaded":
+The message names the tailroom and FCS cases. It does not say that they
+end in a kernel BUG(), and it does not mention the stale data delivery.
 
-net/netfilter/nf_nat_core.c:nf_nat_used_tuple_harder() {
-    ...
-	static const unsigned long flags_offload = IPS_OFFLOAD | IPS_HW_OFFLOAD;
-    ...
-	if (nf_ct_kill(ct))
-		taken = flags & flags_offload;
-    ...
-}
-
-A torn-down TCP entry in CLOSE or TIME_WAIT that has gone back to the slow
-path would now be evicted but still reported as taken.
-
-The UAPI comment for IPS_OFFLOAD_BIT in nf_conntrack_common.h still says
-"Conntrack has been offloaded to flow table", but this text redefines the
-bit as ownership pending cleanup.
-
-Should these effects be documented here too?
-
-[ ... ]
-
-> diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
-> index 2aa2647ed9df0..4c82097cd50bc 100644
-> --- a/net/netfilter/nf_flow_table_core.c
-> +++ b/net/netfilter/nf_flow_table_core.c
-> @@ -393,12 +393,15 @@ static void flow_offload_del(struct nf_flowtable *flow_table,
->  	rhashtable_remove_fast(&flow_table->rhashtable,
->  			       &flow->tuplehash[FLOW_OFFLOAD_DIR_REPLY].node,
->  			       nf_flow_offload_rhash_params);
-> +	/* Release admission only after both hashes and async hardware state
-> +	 * have gone. An older owner must not clear its replacement's status.
-> +	 */
-> +	clear_bit_unlock(IPS_OFFLOAD_BIT, &flow->ct->status);
-
-[Severity: Medium]
-The commit message says "For hardware flows, GC reaches this point only
-after hardware deletion is complete" and "Holding the admission bit
-prevents overlapping owners".
-
-Can a datapath reader still queue a FLOW_CLS_REPLACE for this flow after
-its DESTROY has completed?
-
-flow_offload_lookup() checks NF_FLOW_TEARDOWN once. The later
-flow_offload_refresh() only looks at NF_FLOW_CLOSING and NF_FLOW_HW:
-
-net/netfilter/nf_flow_table_core.c:flow_offload_refresh() {
-    ...
-	if (likely(!nf_flowtable_hw_offload(flow_table)) ||
-	    test_bit(NF_FLOW_CLOSING, &flow->flags))
-		return;
-
-	if (test_bit(NF_FLOW_HW, &flow->flags))
-		nf_flow_offload_refresh(flow_table, flow);
-}
-
-nf_flow_offload_work_alloc() is gated only by NF_FLOW_PENDING.
-flow_offload_work_handler() clears that bit after flow_offload_work_del()
-has set NF_FLOW_HW_DEAD. One possible sequence:
-
-reader                      gc / offload work
-flow_offload_lookup()
-  TEARDOWN not set
-                            flow_offload_teardown()
-                            nf_flow_offload_del()
-                            flow_offload_work_del()
-                              set_bit(NF_FLOW_HW_DEAD)
-                            NF_FLOW_PENDING cleared
-flow_offload_refresh()
-  nf_flow_offload_refresh()
-    REPLACE queued
-                            flow_offload_work_add()
-                              set_bit(IPS_HW_OFFLOAD_BIT)
-                            flow_offload_del()
-                              clear_bit_unlock(IPS_OFFLOAD_BIT)
-                              flow_offload_free()
-
-After this, the re-installed hardware rule is keyed by a freed cookie, and
-IPS_HW_OFFLOAD stays set on the ct. nft_flow_offload_eval() or act_ct can
-then admit a replacement owner through test_and_set_bit(IPS_OFFLOAD_BIT).
-
-With PREEMPT_RCU or PREEMPT_RT, the reader's RCU section could span
-flow_offload_del(). Could the queued REPLACE work then use the flow after
-flow_offload_free_rcu() has freed it?
-
-The lookup/refresh window existed before this patch, but the new ownership
-argument depends on it being closed. Later patches in the series don't
-touch flow_offload_refresh() or nf_flow_offload_refresh().
-
-[Severity: Medium]
-Does NF_FLOW_HW_DEAD really mean the device removed the rule?
-flow_offload_work_del() sets it unconditionally:
-
-net/netfilter/nf_flow_table_offload.c:flow_offload_work_del() {
-	clear_bit(IPS_HW_OFFLOAD_BIT, &offload->flow->ct->status);
-	flow_offload_tuple_del(offload, FLOW_OFFLOAD_DIR_ORIGINAL);
-	if (test_bit(NF_FLOW_HW_BIDIRECTIONAL, &offload->flow->flags))
-		flow_offload_tuple_del(offload, FLOW_OFFLOAD_DIR_REPLY);
-	set_bit(NF_FLOW_HW_DEAD, &offload->flow->flags);
-}
-
-flow_offload_tuple_del() throws away the return value of
-nf_flow_offload_tuple(..., FLOW_CLS_DESTROY, ...), and
-nf_flow_offload_tuple() skips callbacks that return errors.
-
-A driver's DESTROY can fail and leave the rule programmed, for example
-bnxt_tc_del_flow() after a firmware HWRM failure. In that case
-flow_offload_del() still releases IPS_OFFLOAD and frees the flow, and the
-flow's tuplehash[dir].tuple is the driver cookie.
-
-Could a replacement owner then program a second rule for the same tuple
-while the stale rule, with the old route or NAT, stays in hardware with no
-way to delete it?
-
-The ignored DESTROY result predates this patch. However, the ownership
-serialization described in the commit message depends on deletion having
-completed.
-
->  	flow_offload_free(flow);
->  }
+> diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
+> index 9ef239bc487d7..1c502bd64d7df 100644
+> --- a/drivers/net/ethernet/broadcom/bgmac.c
+> +++ b/drivers/net/ethernet/broadcom/bgmac.c
+> @@ -457,10 +457,14 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+>  				break;
+>  			}
 >  
->  void flow_offload_teardown(struct flow_offload *flow)
->  {
-> -	clear_bit(IPS_OFFLOAD_BIT, &flow->ct->status);
->  	if (!test_and_set_bit(NF_FLOW_TEARDOWN, &flow->flags))
->  		flow_offload_fixup_ct(flow);
->  }
+> -			if (len > BGMAC_RX_ALLOC_SIZE) {
+> +			/* The allocation also contains headroom and skb_shared_info;
+> +			 * only the mapped packet area may be supplied by the DMA.
+> +			 */
+> +			if (unlikely(len > BGMAC_RX_MAX_FRAME_SIZE || len < ETH_FCS_LEN)) {
+>  				if (net_ratelimit())
+> -					netdev_err(bgmac->net_dev, "Found oversized packet at slot %d, DMA issue!\n",
+> -						   ring->start);
+> +					netdev_err(bgmac->net_dev,
+> +						   "Invalid RX length %u at slot %d (flags %#x)\n",
+> +						   len, ring->start, flags);
 
 [Severity: Medium]
-Without this clear_bit(), can the flowtable GC overwrite the timeout that
-flow_offload_fixup_ct() just repaired?
+Does this new bound drop frames that the driver itself tells the MAC to
+accept, and whose MTU it advertises?
 
-nf_flow_offload_gc_step() samples NF_FLOW_TEARDOWN once and doesn't check
-it again before calling nf_flow_table_extend_ct_timeout(). The only guard
-left in the extend helper is the IPS_OFFLOAD_BIT re-test:
+bgmac_chip_init() sets the MAC max frame length to 1550:
 
-net/netfilter/nf_flow_table_core.c:nf_flow_table_extend_ct_timeout() {
-	u32 ct_timeout = READ_ONCE(ct->timeout);
-    ...
-	if (!refcount_inc_not_zero(&ct->ct_general.use))
-		return;
+	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + ETHER_MAX_LEN);
 
-	/* load ct->status after refcount increase */
-	smp_acquire__after_ctrl_dep();
+bgmac_change_mtu() sets it to 32 + mtu, which can be as large as 1564:
 
-	if (nf_ct_is_confirmed(ct) &&
-	    test_bit(IPS_OFFLOAD_BIT, &ct->status)) {
-    ...
-			cmpxchg(&ct->timeout, ct_timeout, new_timeout);
-    ...
-}
+	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + mtu);
 
-That re-test now always passes until flow_offload_del() runs. Consider:
+bgmac_enet_probe() sets max_mtu without subtracting ETH_HLEN or VLAN_HLEN:
 
-CPU0                                CPU1
-nf_flow_offload_gc_step()
-  teardown = false
-                                    flow_offload_teardown()
-                                      set NF_FLOW_TEARDOWN
-                                      flow_offload_fixup_ct()
-                                        nf_ct_refresh()
-nf_flow_table_extend_ct_timeout()
-  READ_ONCE(ct->timeout)
-    /* repaired, below 5 min */
-  test_bit(IPS_OFFLOAD_BIT)
-    /* still set */
-  cmpxchg(&ct->timeout, ct_timeout,
-          now + NF_CT_DAY)
+	net_dev->max_mtu = BGMAC_RX_MAX_FRAME_SIZE - ETH_FCS_LEN;
 
-CPU1 can be the datapath after a failed dst check or a missing outdev, act_ct
-on FIN/RST, or nf_flow_table_cleanup() on netdev events.
+The driver accepts any MTU from 1519 to 1532. At those MTUs a full-sized
+frame can be up to 14 + 1532 + 4 = 1550 bytes. Such a frame is now always
+dropped, logged as an invalid RX length, and counted in rx_length_errors.
 
-The refcount, smp_acquire__after_ctrl_dep() and re-test sequence from
-commit 03428ca5cee9 depends on teardown clearing the bit before
-flow_offload_fixup_ct() repairs ct->timeout.
+Before this patch these frames were delivered with stale tail bytes, so
+dropping them is safer. However, the new comment and the commit message
+assume that len > BGMAC_RX_MAX_FRAME_SIZE can only come from a DMA error.
 
-flow_offload_del() doesn't repair the timeout again. A UDP flow with no
-further packets would therefore keep its conntrack entry for NF_CT_DAY
-instead of seconds or minutes.
+Should max_mtu and/or UMAC_MAX_FRAME_LEN also be clamped to the
+per-descriptor capacity? One option for max_mtu is
+BGMAC_RX_MAX_FRAME_SIZE - ETH_HLEN - ETH_FCS_LEN, possibly minus VLAN_HLEN.
+Could the commit message also mention that these frames are now dropped?
 
-Doesn't this contradict "TCP state and timeout repair run at first
-teardown" in the commit message? Later patches in the series leave
-flow_offload_teardown(), nf_flow_offload_gc_step() and
-nf_flow_table_extend_ct_timeout() unchanged.
+[Severity: High]
+This is a pre-existing issue, and the new check does not appear to close
+it. Can a remote sender get stale buffer contents delivered as a received
+frame through an overflow-continue slot?
 
-[Severity: Medium]
-This undoes the main change of the commit named in the Fixes: tag:
+bgmac_dma_rx_ring_enable() turns on overflow-continue:
 
-    Fixes: e5eaac2beb54 ("netfilter: flowtable: fix TCP flow teardown")
+	ctl |= BGMAC_DMA_RX_OVERFLOW_CONT;
 
-e5eaac2beb54 moved this clear_bit() from flow_offload_del() into
-flow_offload_teardown(). The reason was that conntrack gc could race to
-undo the packet path's timeout adjustment, leaving the entry with the
-one-day offload timeout.
+Each descriptor holds only BGMAC_RX_BUF_SIZE, which is 30 + 1536 bytes.
+The MAC accepts frames up to 1550 bytes by default, and up to 1564 bytes
+after an MTU change.
 
-Moving it back looks safe on mainline only because commit 03428ca5cee9
-("netfilter: conntrack: rework offload nf_conn timeout extension logic")
-removed this block from gc_worker():
+With overflow-continue, the DMA64 engine writes the rest of an oversized
+frame as raw data at offset 0 of the next descriptor's buffer. That buffer
+has no RX status header. brcmsmac's dma_rx() drives the same engine with
+the same 0x400 bit, and it handles these continuation buffers explicitly:
 
-	if (test_bit(IPS_OFFLOAD_BIT, &tmp->status)) {
-		nf_ct_offload_timeout(tmp);
-		...
-		continue;
-	}
+	resid = len - (di->rxbufsize - di->rxoffset);
+	...
+	while ((resid > 0) && (p = _dma_getnextrxp(di, false))) {
+		pkt_len = min_t(uint, resid, di->rxbufsize);
 
-03428ca5cee9 has no Fixes: or stable tag. Suppose this patch is backported
-to a stable tree that has e5eaac2beb54 but not 03428ca5cee9.
+bgmac_dma_rx_read() treats every slot as an independent frame. The new
+check drops the first slot when len > 1536. The next slot is then parsed
+as a fresh frame:
 
-Wouldn't gc_worker() then reset ct->timeout to now + NF_CT_DAY during the
-whole window from teardown to flow_offload_del()? flow_offload_del() would
-then clear the bit without another repair. For closed TCP and expired UDP
-entries, that brings back the bug e5eaac2beb54 fixed.
+	len = le16_to_cpu(rx->len);
+	flags = le16_to_cpu(rx->flags);
 
-Could the commit message say that it reverts part of e5eaac2beb54 and
-depends on 03428ca5cee9?
+In that slot, rx->len and rx->flags are frame bytes 1536..1539, which the
+sender controls. A value in [4, 1536] passes both the poison check and the
+new bound. build_skb() and skb_put() then deliver up to about 1532 bytes
+starting at buffer offset 30.
 
-[ ... ]
+DMA wrote only the first (frame_len - 1536) bytes of that buffer in this
+round, which is at most 28 bytes. The rest is stale netdev_alloc_frag()
+memory, because bgmac_dma_rx_skb_for_slot() only writes the poison header.
+The resulting skb goes to eth_type_trans() and napi_gro_receive(). From
+there it can be processed locally, bridged, or forwarded.
 
-> diff --git a/net/netfilter/nf_flow_table_core_test.c b/net/netfilter/nf_flow_table_core_test.c
-> new file mode 100644
-> index 0000000000000..378a1c60b50b9
-> --- /dev/null
-> +++ b/net/netfilter/nf_flow_table_core_test.c
-> @@ -0,0 +1,86 @@
+The old BGMAC_RX_ALLOC_SIZE check let through an even wider range of
+lengths. This patch narrows that range but does not remove it.
 
-[ ... ]
+Could multi-descriptor frames be tracked so the continuation slots are
+dropped too? Alternatively, could UMAC_MAX_FRAME_LEN and max_mtu be capped
+at the single-buffer capacity?
 
-> +	flow_offload_teardown(flow);
-> +	/* nft_flow_offload must not admit another owner during async DESTROY. */
-> +	KUNIT_EXPECT_TRUE(test, test_and_set_bit(IPS_OFFLOAD_BIT, &ct->status));
-> +	flow_offload_teardown(flow);
-> +	KUNIT_EXPECT_TRUE(test, test_bit(IPS_OFFLOAD_BIT, &ct->status));
-> +	/* Model completed hardware deletion before the GC removes the hashes. */
-> +	clear_bit(IPS_HW_OFFLOAD_BIT, &ct->status);
-> +	set_bit(NF_FLOW_HW_DEAD, &flow->flags);
-> +	rcu_read_lock();
-> +	flow_offload_del(&table, flow);
-
-[Severity: Low]
-Does this test cover the ordering it describes? The Kconfig help says
-"Require hash and asynchronous hardware deletion before re-enrolment".
-However, the only code that makes deletion wait for hardware removal is in
-nf_flow_offload_gc_step():
-
-	if (test_bit(NF_FLOW_HW, &flow->flags)) {
-		if (!test_bit(NF_FLOW_HW_DYING, &flow->flags))
-			nf_flow_offload_del(flow_table, flow);
-		else if (test_bit(NF_FLOW_HW_DEAD, &flow->flags))
-			flow_offload_del(flow_table, flow);
-
-This test sets NF_FLOW_HW_DEAD by hand and calls flow_offload_del()
-directly, and flow_offload_del() reads neither flag. If the
-HW_DYING/HW_DEAD gating were removed or broken, neither case would fail.
-
-Both cases also use IPPROTO_ICMP, so flow_offload_fixup_ct() returns
-immediately. The TCP state and timeout repair at first teardown is never
-exercised. nf_flow_test_teardown_repeat() only checks that
-flow_offload_teardown() no longer touches IPS_OFFLOAD_BIT.
-
-Later in the series the Kconfig help is reworded to "Test flowtable
-ownership during asynchronous hardware deletion", so the gap seems to
-remain in the final state.
+>  				put_page(virt_to_head_page(buf));
+>  				bgmac->net_dev->stats.rx_length_errors++;
+>  				bgmac->net_dev->stats.rx_errors++;
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116222519.1416501-1-florian.fainelli%40broadcom.com
