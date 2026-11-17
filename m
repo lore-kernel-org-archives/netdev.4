@@ -1,68 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794913191;
-	b=CY/uot/QdOk+qVgtTyF6kY7VLuwb3XgMR7caeVjR+gm5RndvrreIoGh7KZxnlhxNlE6+
-	 AiFbajf7euAgsDHhc5kL90aEdISI91AesjwugRzCmKsd4PvTtcM7vU6sPFO2FTLCxu0Kl
-	 MQYvjE3bXcpUo1jc6PyYl9P5eIUraCW/jQ9oMB/00YTOj8jmPdV4ZrDr78P+AZkCufLOs
-	 bdhvxTj6oXR8BjZOo1Wr7JurmGmQ2sik9KVsaRmkLG/vKDozpL2sbFJQusO0mMKM0PODP
-	 C4qe2hWMOHkdsmVwOtE4KGKgEazL7Kp/qXho6mwkyGNJKrhYFxPPRXXh+Vt2NrTIh8A==
+	t=1794913510;
+	b=M4200u6H4+bt3CZbH3DOlDG/ZjeBVPOKUQ4QRpssIfprIR0dkb7286z7RwCutefMEUaF
+	 Ml4xmgO/2T0rbwuPtvVaCgEWM0OU2bB4y7zyUKbng01a+8lK0vQFXT1mvGJcp2gYgxWgE
+	 fiAEtjhr7r3bQHN/IAZRbRbQSZ1rJ731yIXHDgxwITAZF1GluUXRq5MbDTVReYWMU3oR2
+	 kPuIBKvRvjWgWM2+w2PYOpkUj8q/zzhlF5LsXoUQhtLfUKG2OGD49aQO2TnGWtp6cUrg0
+	 X6X5V50OG/OvFHLemsTjLmVd1kuqzjOtKerS5XsxLqEmafhDd52Gl1O8cbZc+QeG/CA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794913191;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794913510;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=hh/bsSW4jmc4opaTi9RD91uQAj+fh+Nn7GjFv3G6gfM=;
-	b=nsjRcAEumq0SooDl0C/AaqML8ffTfiXXb5uivt8+YxvVtSH31KS3lv8S5cdkF5jjRPmH
-	 /MIasTyh7TYuYxt3JQUlwEcjnX/QULjqQwdr9to0clqhq+RCBnofLrdE9kRYPC6v0Y4r1
-	 Ya0N1ryimnwl9LR0txHGNEIk57qrPx5MiDbLRtv/4u+FiY8FEMvZmWu1DsJTOZkZy+Fzw
-	 VH/Et8yiK6mt4AE8iSNwQIejzMv4Z6pPosZEMtRA5KCj7hM0Fkp0cmRQ6phrIj5fL5BZN
-	 bJCPJ7u3fLZEro30mVgySvbdywQFdfP8q3cBP0ovuUWiKkZz+tigvVpJWMbT2gQMglA==
+	bh=APyRDGNpX/sOhc1G62vzvyzvnEtlXJLA4HeAQhpE9p8=;
+	b=OzBTaC4i2yFJ4N77BsY7uDkHY4vO/C8avti+P1Kzgbs6Agr7WGkiCXJTfc8JOaivPquK
+	 D7yJ0lP4PMDOOCe6zUn8Xaz/b6NY3g1lSIKxrTv1KgjllnmM3hJMbQPvmwda+MOIBa5m3
+	 0K2l3Lwhg3+F1Br1cqrJnFarFEfes7TSdKD8Q36/tVSqFWdbHkNRzVXNKvH/KxVFibB2l
+	 Esd2DUOHDH72UrlGnWfwBCF1AGw1ATS6DkVzk6uKp24JfmFhzPhhdbqCRQsKu2MBgZRDN
+	 +aNffDiHLOuvTZZs+QLvbPKM3WH2EP2if8OKf2b87WVSpmt1MFmc3XKY4xUKFJ0CcjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=nEYj1aKK;
-	arc=none smtp.remote-ip=115.124.28.123
-Received: from out28-123.mail.aliyun.com (out28-123.mail.aliyun.com [115.124.28.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qyz7ht9t;
+	arc=none smtp.remote-ip=209.85.214.174
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2FA8606A31C;
-	Tue, 17 Nov 2026 10:59:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2FA8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 040E3606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:05:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 040E3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=nEYj1aKK
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1794913180; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=hh/bsSW4jmc4opaTi9RD91uQAj+fh+Nn7GjFv3G6gfM=;
-	b=nEYj1aKKFrhCXU1DCb9g74stb0N2Zc56WfJ3cB8k0RhejxWq2ov2yd9Nb0tQNAckHnqsFuIYIfZYNYBpRvuqPqW46a8Thu5+zyTn22YeRtMO8jFBeunHZlm+nV73t0tlnKGBeVVcRe0HxZErYTk1KEDMp6HOGnagwsRHVb67N9c=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.06199611|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_regular_dialog|0.0017656-0.000129412-0.998105;FP=3193649721091749240|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam011083034076;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=14;RT=14;SR=0;TI=SMTPD_---.k4.HSHG_1794913178;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k4.HSHG_1794913178 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Tue, 17 Nov 2026 18:59:39 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	netdev@vger.kernel.org
-Cc: Johannes Berg <johannes@sipsolutions.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org,
-	Maoyi Xie <maoyixie.tju@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	M Chetan Kumar <m.chetan.kumar@linux.intel.com>,
-	Guanglei Zhu <zhugl3@xiaopeng.com>
-Subject: Re: [PATCH net 5/5] net: wwan: iosm: validate the command parameter length
-Date: Tue, 17 Nov 2026 18:59:38 +0800
-Message-ID: <20261117105938.9647-1-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <179483731920.3136.4345864455275657786@kernel.org>
-References: <179483731920.3136.4345864455275657786@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qyz7ht9t
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2efd824d492so4583075ad.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:05:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794913509; x=1795518309; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=APyRDGNpX/sOhc1G62vzvyzvnEtlXJLA4HeAQhpE9p8=;
+        b=qyz7ht9t1Yr/kkTxUvTrvKjQmhfUVmM3Npvv2fDSDEHea4DimUkYStpl8EIxByS3sX
+         iw2+XR+u5YS5o8ISS3TdRXoogjcXqv3pwO1rhrT2fLHEkcewe23LZMPKmqTeNbrnN7eO
+         9TyzzvmZUu2BNgcQPELIGJtRWYP8r/CBNm1Mal/5QaEJq9bl3TRTwbDq12hHAyIBGiEd
+         m4sO3CXjpfwpjxWnF/iXgn53LIfRV3i73ZJDZg3BP801DAHxcdqyg1R3vNK+pqg7PuHu
+         M3LnZH3inAsfLqKmz64Dy4y5m6EHdIdzh4fRVemJsN2nR22ALuy6wyXjgd6gKrZvKBGK
+         VR6Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794913509; x=1795518309;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=APyRDGNpX/sOhc1G62vzvyzvnEtlXJLA4HeAQhpE9p8=;
+        b=fEtXtdE2csgDpmkpYy980npAxxhp7dqr+nKMtYAJyY6RBIo4MBy6R+qwhPulwlhjpM
+         Du+RCD3Lt+PeohmmMcKF234z80f/94aRRyxtC8lMamKHK9NvGh0tX3rKI1GCsz2Kwyiz
+         OJTRjKR7tQgL3YGJJiq5VXhoO5cVsZw4io3f9ZlZQO4iKTGzQV/4ioItNY78i67V5ySq
+         YXRQuvrkycctxn9NhlUDqeJjtRO2EMbNo5yVa1SLO5a7C/4Rpx0z/TG5yVp3V1dhTzuG
+         okdidzSHPB77WOH+vMlX6bqd6NBAp6PvQGsGh0tZtQJZnEgZANY+tPqzrkbEv30JhHuc
+         Zrkw==
+X-Forwarded-Encrypted: i=1; AL+hErF64wq9k4gAAzR8MKnNNk7+pYKD7pBKJ50R/4L2genbdlFOhgXjf5qSN7Mbw6AdhhVkN8GV9cw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+sS4w3lVd+L75BRhtvmt8wzqBF65ZbWzf2dBYNixwylz/qa+uB
+	C7Ifwd+BB1fZQj2W6pPn8pJzigRFa22EKMGTQmQs9TOF7PO/B7GcqmEq
+X-Gm-Gg: AZFdTZdJt58YTXBBFdVO3A5JO/Gl4vDdE22A+Nuj2WPa94nn+snlq0L7ME5jM746vOF
+	6SLxkxcP80myBU9FBsT7thCI9Dc/zYSw+el2rhjhVRhzx+eQIPZv+IvBn+8HrDGAKDLN4UAFxEK
+	/eRMMDkWB1M+wHRjXA6pS6TtKCdg2+f5YF4oTgutAdUZgmjyUxFXqr7AOCVh/7d3aQ/MCBf2FXB
+	D08hvpvYHVnY0Q82mTZbZ3kTiOptTDwYj1VRO7XEl/FZvZoVSgOA4CiS00Sbzo6AhKCYYKfwT2p
+	1a79FGd3tFI/gU5VUTgzDUQkxwXsQRS+GuScFLZhgmlo2DC9BzPOz5JLmXIKDR9KbibDoEYnhXx
+	lYkH5B52UL/NVUFIi9rWafXNfydc9thv6sJyOpNPR3DFP6ITSyV4Jdl5xWiydsd8ejY2uiItzZU
+	tbhNoH+XyAdDfx0STcUF83TvbQIlWqSTBJyMqALCpQQDkxrOTjEbV7zM/N45U54AZ6kNCxFGliE
+	kvpzCMcXmyUSfuGC45LlOgQszRGcp4p+iZ/UteCZFUyBySBn1fuE5pvoxTaWQIUBIwb8HgOVQgv
+	OB/EWumW4ZbNRHJkC4JIuLxH/FvJgnI34P8GyofMzwPPNzqmdQ27b7hekivQr9nRU78CNWHb9yG
+	JjkBTcnT5vHVNxA==
+X-Received: by 2002:a17:90a:e710:b0:3a8:92a3:8baa with SMTP id 98e67ed59e1d1-3b1b0a428b8mr11460826a91.27.1794913509232;
+        Tue, 17 Nov 2026 03:05:09 -0800 (PST)
+Received: from JUNVYYANG-MC1.tencent.com ([43.132.141.20])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cddc1898afbsm5633083a12.19.2026.11.17.03.05.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 17 Nov 2026 03:05:08 -0800 (PST)
+From: Jun Yang <juny24602@gmail.com>
+To: lucien.xin@gmail.com,
+	marcelo.leitner@gmail.com
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	linux-sctp@vger.kernel.org,
+	netdev@vger.kernel.org,
+	junvyyang@tencent.com,
+	corvus@tencent.com,
+	stable@kernel.org,
+	Jun Yang <juny24602@gmail.com>
+Subject: [PATCH net v2] sctp: preserve stream scheduler across outq teardown
+Date: Tue, 17 Nov 2026 19:04:49 +0800
+Message-ID: <20261117110459.44083-1-juny24602@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,33 +107,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-On Mon, 16 Nov 2026 13:55:19 +0000, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Medium]
-> Can this bound reject MUX Lite commands that were handled before?
+From: Jun Yang <junvyyang@tencent.com>
 
-Yes. The compatibility branch in ipc_mux_dl_cmds_decode_process() is
-there for cmd_len != size (size = 20), and the protocol minimum is 0x10,
-so my min_t() dropped the 16..19 range that branch is meant to serve.
+sctp_outq_init() clears the installed scheduler when it reinitializes
+an outqueue after teardown. The streams still have scheduler-specific
+state that the old scheduler needs to release if the scheduler changes.
 
-v2 will stop using cmd_len as a parameter bound in the lite path and
-keep only param_len = skb->len - hdr_len. There is no chain walk here,
-one command per skb, and ipc_mux_dl_decode() already rejects a short
-CMDH header, so cmd_len buys no safety. It will still be passed to the
-decoder unchanged, so the compatibility branch keeps working.
+Initialize the queue counters and flags individually so that
+sctp_sched_set_sched() can use the installed scheduler. A new
+association is zero-allocated and starts with the socket's default
+scheduler as before.
 
-> [Severity: Low]
-> This patch has Cc: stable and Fixes: 9413491e20e1. Its context, though,
-> depends on the earlier series patch "net: wwan: iosm: pass the DL
-> command parameter by pointer", which has neither a Cc: stable nor a
-> Fixes: tag.
+When the socket default matches the installed scheduler, streams retain
+their PRIO priorities and WFQ weights. FC and WFQ also retain fc_length,
+including bytes charged for purged chunks. Those chunks were queued on
+the stream and the accounting converges as new data flows.
 
-Correct. v2 will add Fixes: 9413491e20e1 and Cc: stable@vger.kernel.org
-to patch 4/5.
+Fixes: 5bbbbe32a431 ("sctp: introduce stream scheduler foundations")
+Cc: stable@kernel.org
+Reported-by: TencentOS Corvus AI <corvus@tencent.com>
+Link: https://lore.kernel.org/r/20261104105507.62743-1-juny24602@gmail.com
+Signed-off-by: Jun Yang <junvyyang@tencent.com>
+---
+v2:
+  - Initialize the five queue counters and flags individually, as Xin
+    Long suggested.
+  - Document the per-stream settings and fc_length accounting retained
+    when the scheduler stays the same.
+v1: https://lore.kernel.org/netdev/20261104105507.62743-1-juny24602@gmail.com/
 
-The point on 2/5 is also valid. packet_offset equals dl_head_pad_len,
-so this is the same empty case mux_dl_process_dg() already rejects with
-dl_head_pad_len >= dg_len. v2 will use <=.
+ net/sctp/outqueue.c | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
 
-Thanks for the review.
+diff --git a/net/sctp/outqueue.c b/net/sctp/outqueue.c
+index e92fb9da4647..3dafa6e6cab3 100644
+--- a/net/sctp/outqueue.c
++++ b/net/sctp/outqueue.c
+@@ -190,9 +190,12 @@ static inline int sctp_cacc_skip(struct sctp_transport *primary,
+  */
+ void sctp_outq_init(struct sctp_association *asoc, struct sctp_outq *q)
+ {
+-	memset(q, 0, sizeof(struct sctp_outq));
+-
+ 	q->asoc = asoc;
++	q->out_qlen = 0;
++	q->error = 0;
++	q->outstanding_bytes = 0;
++	q->fast_rtx = 0;
++	q->cork = 0;
+ 	INIT_LIST_HEAD(&q->out_chunk_list);
+ 	INIT_LIST_HEAD(&q->control_chunk_list);
+ 	INIT_LIST_HEAD(&q->retransmit);
 
-pw-bot: cr
+base-commit: a2239d5dbbda3a61b6323df8836f605921a29f7f
+
