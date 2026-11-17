@@ -1,100 +1,136 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.44
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.47
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794937054;
-	b=MKlP4OkaKhPshgXQDPw3Cg3RCXHKqQjF/gfQCX6GyVUsWKYRtoiavWxgLhIWjLwze0j/
-	 aACGj4K5auJZ1JJpJPDMSUwsD/d6b96ggEysQd3HwzpubhXP29ap2hTm/5+PmwkiwBbb+
-	 wnoM8orYA5E6LGKvidAy1XqGUx+Pbp7atKutCkjVju/Iv1To2A314xIHfjSHJcYzhFt12
-	 CL7KVxUQZiHl6lamx2CkeY3FQ5VSDP7MvMKCuE2c81rCr+uy93cj72khJET+O4ad9RQiI
-	 tJS+t9w+27DeNnpFArsxJL06eIywjuvnUOvAwUKspipTjNTXVYc8c3NqRRU9Lgf0Q9Q==
+	t=1794937072;
+	b=u20Hb6T/gt6VfnBe0YZVNgk+2Tu5nmFDmfKNEtiEDcdlM4VPqCPV7Au3Y5qvT66k7epP
+	 CvIr7slXDQhFT2Qja0Ferq0G1ulUTSo+EHwmkeciuomIymc35VV+bMcbCeoDNP6Xhly4U
+	 kymarDbCBVOp8vZ6cugEs4xW8Od4OjjBzRdo79n64y63Nn+WUbZdyQcD54YiZCtFI5IS2
+	 ON3c+nxSLbseFnlODoMkom+iZi7+HLYJ7cT3EaNZx9HJs4us4xUo9BhrsQR5e+8n97SZK
+	 mqfCGE0NoqUW5Zi0oD7WxSQJIRYW/YHYF1NIUO3U83sId/eqrsiFgYG+YDcV1O5udUg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794937054;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=uIwpU1G0S/NqSFaGi3+jp2QeKv8+tYQDPWGubJQpaow=;
-	b=Uo2hnvYujcx0sYXcLLek6zN/jjZfJXwVOOYXx7UuPIwy5oXEK2SNFK8JRWw1+/tQgla+
-	 J3XSjODgB2JfqsICuIoUKmzaukWjb4y3wDqpCNb2Uu6beAq0/gVAbzx5Wnv6EnPwoHabr
-	 VEYUJh9nNIPqaOvY7u8jQbJ9V3HpR2XfhaWys9VcSBwF57X9Tjp6qnY0PSbtPADr0lga5
-	 JHPXxIPGFMGR7zGdpMIEax7LARglQLmnEItw7V/7jBHDq4SF1RVcOA8AIQ58jNs2Ia2Q5
-	 7hTzxNGo+6X0dIrwu4f3jBMkDQ+m/JEpdhPAWiG5R3Jh0/FPLrE+r2/sX4VR3K1O6kg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937072;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=KZDINx5lhf7d31ocOX+VQCEAiwgDnXrcbLsOzE74GS4=;
+	b=VkjxnKsMgRPPNxzumFs8mxNg79Nj48tXaC/ZFEeZz7XBXcnU6ZmpppNH30ID2evZAcqQ
+	 TgSqAluoODrkyMPpB7K2fFx9/y+qcaTSGLhhDUT6GAukwRVJvz+Z1Lq31JrHM5L1jq3IN
+	 3OgY+IMkmKTF/JVIdDtgZQtsvBY6xPFQz8tHaYrT0W7LmsNlv5Vc7MdRNyXOuPt9Syxhz
+	 Fnmp1B17Z85xU9U6Uj4spXfI5zDzFmzAEJSF8jNhiGZxBNqAj7GRZlOc4SbBbCQMiiXLS
+	 H0nfkKpoY3cUA/6HTl8fIHvtNIu2+9o9V06iMTcn0yxnl8yrRMxLvvW0AzGWmXuDkBg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=amacapital.net;
-	spf=pass smtp.mailfrom=amacapital.net;
-	dkim=pass header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Q65pbW00;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.44
-Received: from mail-lf1-f44.google.com (mail-lf1-f44.google.com [209.85.167.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=oss.nxp.com;
+	spf=pass smtp.mailfrom=oss.nxp.com;
+	dkim=pass header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=vpbSGS1r;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.69.47
+Received: from AM0PR83CU005.outbound.protection.outlook.com (mail-westeuropeazon11010047.outbound.protection.outlook.com [52.101.69.47])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0177A606A335
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 17:37:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0177A606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amacapital.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amacapital.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD80E606A32C;
+	Tue, 17 Nov 2026 17:37:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD80E606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=amacapital-net.20260707.gappssmtp.com header.i=@amacapital-net.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Q65pbW00
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c1465bbbdaso4385448e87.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:37:33 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794937052; cv=none;
-        d=google.com; s=arc-20260327;
-        b=EgQXq8KW7rssHmzPwq0vle28jODbS2vlmOjt0bOqGbrua1SXqSnXMU4sm51z4G4nSU
-         U+2gkNAV2FYdTTq/sveFxjXIbC5dN2LAOCeSm/l2Zzf4QwreW3EFinRVCdvlt/Ow9MI6
-         9QouJb+xdH6pLEM5UORiKMb0J2imAyCKW5anFjOo1UdZbHluCBdKPHfgjUIut9ikLfxZ
-         GhfSqILcr1djScUop98Qj0uY9s7r0naL2J30w56Pb/mr7+zUM4DbPtbU8IHtXcWwnFAG
-         AobSzR8wIQdoIEuS1GabweJdKf8Gye/wu+ErRIxk23wrsITlWbFR4ihiUbGCF0N99kqB
-         6J1A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=uIwpU1G0S/NqSFaGi3+jp2QeKv8+tYQDPWGubJQpaow=;
-        fh=/hePK3iZILipQY225DWvUjAMIvjiYN867Z4ahY3mI9Y=;
-        b=EZSbxrtBzq6ZBuXgXHnI8tYT0gAir7bzdF6nQv07TvOuklLXZpVc43boCYAm/woGDM
-         1l9KF0rLrWbHQ9XLjE4xWKNnDVphdwd30/nyAcTeJeczpc0oauRdhuYfsYhJOG+eKVgR
-         EeAOhiflJYAf18oQvLInH+M5Yl1SZxfaTaeo8mnofga6kuuCr8cl5gveh/pGCaObIHeX
-         MZ66j6rANw9TKCgFh7JRdkrxG+rtNi6AnpTiMqTvl4Rx7UYAMZ/GfkzKzVS6FhtgqgNq
-         XJr1igauv3fGUOARd+UkLVjU+I1gUdeV+Gum29mKwk4dmcy74tx8et4ipvqxTocXY0g2
-         I1vQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amacapital-net.20260707.gappssmtp.com; s=20260707; t=1794937052; x=1795541852; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=uIwpU1G0S/NqSFaGi3+jp2QeKv8+tYQDPWGubJQpaow=;
-        b=Q65pbW00pHc4gs6KcBvnyKXSyUuTE4JfrmIT6BLnsFPSBfFMXAqtD61+KCEATl4Uhe
-         n1QoXCH9dZOtNmk7yDN7n+6kAjyfy8retEs+PZ6tfSfdQGIq9FUnZOktOKjwHqdFA0U/
-         pU31o5bmeIj0QOEtlAvK+w2pCq3zPPO59ZQ8IX/g2NKs8AnP1pj6ieY5w4Z5OpyXvMt0
-         qmrbgQus2dFV9Uy9SklULFVeaEYqFINed7N4faw6lHIE7N3emkZr72FzTVpCWSyv0FUJ
-         lk7F07Ec5pi4GTUqmENNvo3BxxqG9rVt0mPu9/XYetGXV9iu0+sfFhdOAtGmR6e0rmBn
-         mviQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794937052; x=1795541852;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=uIwpU1G0S/NqSFaGi3+jp2QeKv8+tYQDPWGubJQpaow=;
-        b=Uof1w9XcF7HSsFUcL6B73xmhxSLAEVOe82SrXE3oDAbGC66mSjGJyRSv8arAxZJr5I
-         iYFxs+/uAlk6RoQOY1iA8Pchbg+MYmhuoFeulF3zCdG10rPSfDqFSDmE0+d6dfIDczq2
-         6UCXGrOaeAOUth8NNh3uA3xfmhSBIoescwxvC91Zvbb2D9Qn5iBcyUCeTNaLztmZVX7e
-         ZnsrI4f5InjPXuZibMX64lixFIYFd09ItUmCQuNDs3sefhwEwH6aGqpp8JCE42SUGSws
-         75cY+vaAetBHcfO2UJhn+BEUGMBMyFOL19eJ/QLw6q+/03ycEhHyYc2x+jC1RRiOzR3c
-         nstA==
-X-Forwarded-Encrypted: i=1; AL+hErFivnRjm1Tmxl5QddPr2CX3qUgJGpK+B2BR6DS0/L6CYimpLJbQW89Fa8bgXChm9LE3h9lQ+qE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z90EpB9/VfdFr82R7FRRNr67tXqvoEQU1dBUrMW/yL1gc/Msbb9
-	pJTrScToCTBtV11uBQgJYCqOSv1s1B8x7a2WIcEYEck5flnYWIUTYr0mTMt3v42ULBoBhY0db9Q
-	rXOJD/Gsd/IHryil2DQcaAIuQ01O+8nUt8nG4H/A1
-X-Gm-Gg: AYBFou3U+rJUf8i5NYkDFaGt8YMQ9Cp16+uJGrQvgQXaogG6X7jcLWigVCxRLZuNMQQ
-	c5IJK1gfx/cnFn5KthLm/BodYitZwHtptEcCyO8wZwALKb8KeVWE4AEir3qmEaK6gqF+gfP8Gki
-	FGCR/zWCBtBT091hFY5wqIoaLv+9gVwEvHmmextxBqGOlJlruvMoTnSeV80EXyEW1IlW/OTFjX6
-	4MefzM0vLsFvCfpMsnBxsfxDb4Snle4nRPZdvQtOI4s50LK+lmDIckHEqgbshwkQ+8lKrrN08u+
-	dsctv67NP26SF41NObxwHwBY+8Zz8lyJwkFDq5E/oMeR8RTjn5Npy2sCDezMeF6rBZvm9Ra/ILm
-	uBSDf0PJNlLpCg31SGB0DPp0boCGJBLXoFQ==
-X-Received: by 2002:a05:6512:33d5:b0:5bf:a4e4:c329 with SMTP id
- 2adb3069b0e04-5c170a15b84mr5575263e87.64.1794937052080; Tue, 17 Nov 2026
- 09:37:32 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=NXP1.onmicrosoft.com header.i=@NXP1.onmicrosoft.com header.a=rsa-sha256 header.s=selector1-NXP1-onmicrosoft-com header.b=vpbSGS1r
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nEZEMH0ODW7JS8htOWXrfiAQvVeqbWwn2Y35s05Mc2UEdQ4VzImwVvXZUNq+JUHKadJyeMXULCykLTPCmejFYBWBSqMno2BB4jpoGauj8yWt3tBx6BxCVT1dFY5GQViNsdJ0FUE5us3fJK12/9KrUbuWAOwESPtJmXgeeOrTmYBD4jfwgz8v7oeyjCjIX3h1tmymp4ctx7WY88aaeQVSapsV+YC+38vINmO8rAEQ+2LUr8RQIGxBHXjdJFotWPru7yKfCYAB5DsDsuruub7Duf2hE3O7Bnrm1cmX2fT1fkouUtUNM7nuZCziFtQjVgyKp3AMsFcDF+uWyGY62bEuCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KZDINx5lhf7d31ocOX+VQCEAiwgDnXrcbLsOzE74GS4=;
+ b=k/s90KxTEHCb2GVQ0j2Ak7bqHWrktXxeQQWT6him8m8L2Q4cacGmf3r2dxel7sv/+gNHZGFVXX7LZiWeWEZEUSQJZE2tWSmfiiKLWtjofnWJKKwh+QgfJkDzRvuI9g7my4T4mRxZkKeaOvEwTeTxJECo/kve/GWy0aol4RQ4loCcsSSeQAI11mHPrKN86L7x64ihlsw3GM0gRS1DuY1wFKJAFl1ZOQSkZcZ2m0l3WACxeec44LADfAfHDDfnkK/M2wWUfca7YH4ARiqp9iq5X2RmM6lpPUrJVP5LfmG3ymAQpGtWCgyEb7J+8epcs2Xc1kNVljHMVwZsqsbae7o6MA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KZDINx5lhf7d31ocOX+VQCEAiwgDnXrcbLsOzE74GS4=;
+ b=vpbSGS1r3LrWC3eK3w6TKHMkj7YI0XXWQbnmD5K3E6yDuq3kUR9OVbO9zOA4y4WA1hzLZxGEXpHG1frnnfyvuOx0ANJjwMi6Rb8OhtTWzPVWhxpz8AEY7xr8+hTrJs7b06SSLIsrJpKZNhM0QYx3BNuARP6jdJVMMPHwx7ruhgmtXHBBO/1bCYSQruNIpXNaLhRO/7L1iMq9tu/jxcG3xLTj8fq7xL2phHnhpladaIQ7eGwU5O+DfkLzISF54VZimAgSB5KpVkQwQqOUXLp3WPlsouNtda8xsEcnkj9oTDTU9+yrHMa8h670bKCPhMy1cPORjEKnMqI6aYq2qSHcDQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com (2603:10a6:290:76::14)
+ by GV2PR04MB12582.eurprd04.prod.outlook.com (2603:10a6:150:36f::24) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 17:37:46 +0000
+Received: from MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b]) by MI3PR04MB12438.eurprd04.prod.outlook.com
+ ([fe80::c715:c32:8bb1:b70b%4]) with mapi id 15.21.0615.013; Tue, 17 Nov 2026
+ 17:37:46 +0000
+From: Frank.Li@oss.nxp.com
+To: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Jacek Lawrynowicz <jacek.lawrynowicz@linux.intel.com>,
+	Alex Elder <elder@kernel.org>,
+	Guan-Yu Lin <guanyulin@google.com>,
+	Mathias Nyman <mathias.nyman@linux.intel.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andrzej Kacprowski <Andrzej.Kacprowski@intel.com>,
+	Maciej Falkowski <maciej.falkowski@linux.intel.com>,
+	=?UTF-8?q?Thomas=20Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Will Deacon <will@kernel.org>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Connor Abbott <cwabbott0@gmail.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Hans Verkuil <hverkuil+cisco@kernel.org>,
+	Bingbu Cao <bingbu.cao@intel.com>,
+	linux-pm@vger.kernel.org (open list:POWER MANAGEMENT CORE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev,
+	Frank Li <Frank.Li@nxp.com>,
+	Alex Elder <elder@riscstar.com>,
+	Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>,
+	Karol Wachowski <karol.wachowski@linux.intel.com>,
+	Oded Gabbay <ogabbay@kernel.org>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Matthew Brost <matthew.brost@intel.com>,
+	David Airlie <airlied@gmail.com>,
+	Simona Vetter <simona@ffwll.ch>,
+	Robin Murphy <robin.murphy@arm.com>,
+	"Joerg Roedel" <joro@8bytes.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-pm@vger.kernel.org,
+	linux-usb@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	linux-hwmon@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev,
+	netdev@vger.kernel.org
+Subject: [PATCH v3 1/2] PM: runtime: fix stub pm_runtime_get_if_active() for !CONFIG_PM
+Date: Tue, 17 Nov 2026 12:37:35 -0500
+Message-ID: <20261117173738.1073856-1-Frank.Li@oss.nxp.com>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: PH8PR02CA0008.namprd02.prod.outlook.com
+ (2603:10b6:510:2d0::17) To MI3PR04MB12438.eurprd04.prod.outlook.com
+ (2603:10a6:290:76::14)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,180 +140,194 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261028221705.3915340-1-halg@google.com> <CALCETrW9ygriu54gxiHFLEd5+hJminQo0r8Jwd63wR69Dj4W7w@mail.gmail.com>
- <20261106-befreien-addieren-eislauf-e09212803534@brauner> <CALCETrWa1SBLcb5oWjqjgzZvKvCoHjmYFk=Lf5ytEM9uqm5jYA@mail.gmail.com>
- <avM41a80aig2de-R@google.com> <20261111-behagen-faktisch-entgegen-e2e714373895@brauner>
- <CALCETrUjW=kXxyggDUvEN+Pxc-pE98eVbdW8XBU8JzfqXj_voA@mail.gmail.com> <20261117-rational-ohnehin-unbeugsam-e5c04759a156@brauner>
-In-Reply-To: <20261117-rational-ohnehin-unbeugsam-e5c04759a156@brauner>
-From: Andy Lutomirski <luto@amacapital.net>
-Date: Tue, 17 Nov 2026 09:37:19 -0800
-X-Gm-Features: Aa3M54pEPEuG6xXoA_VcNPLpRvUBxQYv2Rvc07pMupzDgfrZ2jXEXOCCMAfHfMk
-Message-ID: <CALCETrWhuOnBy0N0KznmczD4S2XEK0fbr0C=1KFQqTnoTJbQbg@mail.gmail.com>
-Subject: Re: [PATCH 0/8] userns: per-namespace capability bounding set and
- opt-in netns loopback
-To: Christian Brauner <brauner@kernel.org>
-Cc: "Hallgrimur H. Gunnarsson" <halg@google.com>, Alexander Viro <viro@zeniv.linux.org.uk>, 
-	Paul Moore <paul@paul-moore.com>, Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jan Kara <jack@suse.cz>, 
-	James Morris <jmorris@namei.org>, Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	Jann Horn <jannh@google.com>, =?UTF-8?Q?G=C3=BCnther_Noack?= <gnoack@google.com>, 
-	KP Singh <kpsingh@kernel.org>, Jonathan Calmels <jcalmels@3xx0.net>, 
-	Casey Schaufler <casey@schaufler-ca.com>, linux-fsdevel@vger.kernel.org, 
-	linux-security-module@vger.kernel.org, linux-api@vger.kernel.org, 
-	containers@lists.linux.dev, netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MI3PR04MB12438:EE_|GV2PR04MB12582:EE_
+X-MS-Office365-Filtering-Correlation-Id: b33219af-6a41-4bc5-a1db-08df44d17e27
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|366016|19092799006|7416014|376014|1800799024|18002099003|6133799003|921020|11063799006|56012099006|261026140227099003|261028144727099003|261021123027099003|261021121427099003|10067099003|261009221227099003|261102123227099003|261009223027099003|261009221727099003|261022105027099003|261009223327099003|261009220027099003|261022075727099003;
+X-Microsoft-Antispam-Message-Info:
+	sXtO+HxvVxV42O279f88YaFtOC00rsexvU7RrlOygzOyAv2vKembZvaQz7pSAwPSyEgaSuLyYN/ndIL2WgC6K9nHKydKHmBJZSCmmWvkpOhtcJlJfnLVnYLfiRuuNphj0N8pFjfBU7sT2AQMqOkcgfaJxrVskzJf9oC3v7N2igD6Nb264Szt4kpMUw4r3mL0e1LlPdgQ4qAbmAUJab/7iRdnM8QfMRnD+PuQaoZkmGW7bvwBQlwu/XPVSxXiyMaO5eEUWv2uGp2B0d1WVy1EE1B6pzwEc1wxLAXVA1wQUDXZPPphgvTNF8Bz96O9T1TWzL2gguiaqGOq/8EehU7r4pqBoG3x0BEEGLAPG3jkLvTOtbrHFAOYpB4pSqAcJSqycREhnejO68pesOZjfZF0b5FIgUINvngcyCs+9pQqS7J5QVyS3UBqDqz8ASxuuXpy9neu2BBzr1xPPUKpfyS4vahkWtZq8J2nAiosgXbgrjN3XW0P3rpchBUpgMWgogE74X46EbhSVx/EUAgyWbWKnQeE/nn3k5JFZMC+au8fBsl2fV1ruFYRmGBudJSPb6o0sAdkY8GBWFv+BEWGi+tw0EaSP19Zw4VrSLm71N2RVNq6vTvF6wMyfKol5jlizVkZO6uBNQAhja8ShiJiRSQEOIQZ+VzpBcyjqyNhy8q6KulpM5kCErIdDUAiQ6TTB0fQq1kbPdCbfHpe2Ua6Ghd4CA==
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI3PR04MB12438.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(19092799006)(7416014)(376014)(1800799024)(18002099003)(6133799003)(921020)(11063799006)(56012099006)(261026140227099003)(261028144727099003)(261021123027099003)(261021121427099003)(10067099003)(261009221227099003)(261102123227099003)(261009223027099003)(261009221727099003)(261022105027099003)(261009223327099003)(261009220027099003)(261022075727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?WDTlm33+BJQF8p43MTj+HSWKgcn5Ht/MLtFaOkGIBR4hOjuMRc21/7nkHh66?=
+ =?us-ascii?Q?DyX0vVH446IPkg2uim0IBgdB67fnH8YS2g1JMsfpjX42O+bfCTH9Jl7LlL+r?=
+ =?us-ascii?Q?GyYYqlu2j0ycNLabWrA8tNY4VqaPf7fAbhOuUkj7LO+LwirDH0LRkQMh/S92?=
+ =?us-ascii?Q?Z7yFKXaB0zpmmW4ekpJY2V8fJdZK5N47zEYc1sXMCrZ5xuFWOO+eiDtAh7ZN?=
+ =?us-ascii?Q?iQQlFsI187UGC3a7CCzWGyFP8oi6j+GbaDhChjoIzxOlWXW3qIrevuSPZu9D?=
+ =?us-ascii?Q?U7+B3SILo/NfmZLF1y7aS+Xucc5AxwLKfSlpEFgN0XZArH9z8Z9M/8+YSV/7?=
+ =?us-ascii?Q?d08Af6lowSitlGDad0xf9ViFhnMMpf5hiOJUAKYJjG1LNQpQV/UqqxncWmJl?=
+ =?us-ascii?Q?QJil/ugVeMesv2sQmbedtutbbueAMZc8C9VeP9V5Wu2jBuMb28ACkYOURQTG?=
+ =?us-ascii?Q?cB4UvWFOkTupw5fZXfI1DTzoaYLRqjywcr9vyBENDKftlCP3nONtdQEnw/TU?=
+ =?us-ascii?Q?aH/XB2YPpYt8dYDZKITX7QS3Hc4DYvs1HBDowpBxlMqwUe+Qe2Pje3JY0jXs?=
+ =?us-ascii?Q?8HcM/hoxaovQc55wMMmQd4zdWJLU8nNIIKC5vKEtKfxqFM+HYmfc14dOP7hJ?=
+ =?us-ascii?Q?3d9M0PqfUNgFimnNa7R5gwspa+C1u9dziplilUZLg70zH79CYIvJSqccalT4?=
+ =?us-ascii?Q?VgLpfdjufvgozStzxgFjaRBznxIkxjf8H6YPSVaqyp+HN2Kbcf/3fTkEUWer?=
+ =?us-ascii?Q?pVk/4qmkfirsmu6DdaUQgnah63GoST643Wo+z1o682FM94vNVDJK3xohWk3f?=
+ =?us-ascii?Q?CmoKwCgu+0AlPEpX0Eva26qWbzTfwg3qBwGk0EQwRTZNnPM0zLsBt97YGzpN?=
+ =?us-ascii?Q?VYVPMz3GaDMAzsWMSbaZukcD4OEvYUKK87CkbFbg66wpIlnjcp/WAy5pZT6l?=
+ =?us-ascii?Q?b6WdCC3Vk+MuF+w08d6Pq/h22BeN8hI40yJEzwSj8Wh+/ybqWSjvUax/xe0z?=
+ =?us-ascii?Q?vJt16SrY2nS3XwzMfK04AapeUuyS7qAsD0YP11IZf0dIzekCcbimeizT3bJQ?=
+ =?us-ascii?Q?KOlDoLWh0QRSM/wY0cC7NuH3H6ALXosJj56FMSFLFoCEHtozExIadoqepaeZ?=
+ =?us-ascii?Q?QfC5iKdHAwlPrQ+7WHRLT/vAJOsytvGlnrlilNiJCn5aWqv0A9pNZBmzTD0m?=
+ =?us-ascii?Q?M8BCXvDf0QDGNIw+7csvD9n9Or7GdAPHT/pa54klMWh2mWCXmghs/la27eXO?=
+ =?us-ascii?Q?E3cEvP+BfWGIFMC4L6GyKTSGDSfrbzIm5yO/vyR3cNlXrFh1esVcnX/y8BWx?=
+ =?us-ascii?Q?1lqB6cQlWEQmEjMrGUv/UCkp3Tbj6o8dvAym6wSCTU7yuFC/vIlY6ctSm67C?=
+ =?us-ascii?Q?63iMcwUDwGK+iobxNb7sHFdgZwZvpRgRfhhvCH/LIyCXpHaXsM/04fUseZ9C?=
+ =?us-ascii?Q?vGFPR5pOoo2xawok4CdL89Ng1UmiMzqIrrwpFF7/nERWQ/k6yHGuTS/WNDA/?=
+ =?us-ascii?Q?5WHExSiI7SxOrFvwNlkTc46FVnai5drIbrYkVj5rqdIalL904tmsGuda1wXZ?=
+ =?us-ascii?Q?45B2qr6XNAkHsCofwUW6JwI7LSoPtUAGjBVu3SikzC+yZgKBGdXKwWh/8fte?=
+ =?us-ascii?Q?igput+Wohy7do6k/UnppcgCo8Bs/3edpMFKfzw8o+q3iYkocOl6SvqAXAj/y?=
+ =?us-ascii?Q?kpacsMUhY5cRMtCN7KjpgRMN4UTNYp6HNODfG7NgOiFiL++SYy9V4hBL/Joy?=
+ =?us-ascii?Q?8FFRncMSL2zNEr166xPAQcIe9gjJ/eg5DBLTnz7xkVw0QwTfbHO/?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b33219af-6a41-4bc5-a1db-08df44d17e27
+X-MS-Exchange-CrossTenant-AuthSource: MI3PR04MB12438.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 17:37:46.7668
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: VWfUD6wlehPxnzu4NU3G0iBrBiEqYn3cBibMVadJE6Er5rSdhcaj6M6SwU23gNd2DFl9TxjFKQ0H739L6f38EH4BRzmTW1DDynqmhsMqvSrGrGvqKGs7I07lW0Xr9KoB
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR04MB12582
 
-On Tue, Nov 17, 2026 at 9:10=E2=80=AFAM Christian Brauner <brauner@kernel.o=
-rg> wrote:
->
-> On Mon, Nov 16, 2026 at 09:15:18AM -0800, Andy Lutomirski wrote:
-> > On Wed, Nov 11, 2026 at 7:20 AM Christian Brauner <brauner@kernel.org> =
-wrote:
-> > > * a task that setns()es in later gets
-> > >   ns->cap_bset & (cred->cap_userns | cred->cap_permitted)
-> >
-> > I'm not sure this is ideal.  If a task has cap_userns & CAP_NET_ADMIN,
-> > then there is no attack surface issue with allowing it to enter a
-> > namespace and be NET_ADMIN there even if the namespace itself has
-> > CAP_NET_ADMIN cleared from cap_bset.  But any exemption here would
-> > need to be a new API so that it isn't used by accident.
-> >
-> > I'm mostly saying this because container managers might want to
-> > restrict cap_userns within their containers but still have it
-> > themselves for management.  But maybe there isn't any need to enter
-> > the userns for this purpose.
->
-> I don't think there is. A manager that holds the capabilities itself can
-> just do most things from the outside. I think it's nice that once you're
-> inside a namespace you're bound by its capabiltiy set. Otherwise the set
-> isn't a property of the namespace anymore. If someone comes up with a
-> real need to enter we can add an explicit opt-in later?
+From: Frank Li <Frank.Li@nxp.com>
 
-Fair enough.  Also you've written infinitely more nontrivial container
-managers than I have (I've written container managers, too, but
-they're all special-purpose things that don't do much in the way of
-actual managing).
+When CONFIG_PM is not enabled, should be treated as if runtime PM were
+enabled for the device and the runtime status is active.
 
->
-> > > * Root in a container has caps as well so for containers the exemptio=
-n
-> > >   would be wrong.
-> > >
-> > >   So here we need a a lockable SECURE_NO_USERNS_CAP_RAISE bit thingy.
-> > >   This turns off the exemption and prevents raising the mask.
-> > >
-> > >   Docker lowers the mask, sets and locks the bit, and
-> > >   unshare(CLONE_NEWUSER) in the container doesn't hand out CAP_NET_AD=
-MIN
-> > >   anymore.
-> >
-> > Can you clarify this part a bit?  I'm not seeing why Docker should be
-> > special.  Shouldn't the inside of a Docker container work as much like
-> > a normal non-container system as possible?  What's the use case?
->
-> I picked Docker because you brought it up, and your goal of allowing
-> user namespaces even in Docker is kinda the use case. Docker can only
-> drop the CLONE_NEWUSER block from its seccomp profile if nested user
-> namespaces can't get more caps than root/Docker wants to give them.
->
-> But the bit isn't at all Docker specific. Any privileged task that wants =
-the
-> mask to apply to itself would benefit. With just the exemption this would=
-n't be
-> possible:
->
-> (1) A runtime that holds full capabilities gives a
->     user namespace it creates all bits.
->     It can just set the bit before creating it.
->
-> (2) In a container without a user namespace container root has host-level
->     capabilities. Any user namespace it creates gets them through this
->     exemption thing. So it can also add them back to its mask. And the ma=
-sk is
->     inherited. So every process it starts can then create user namespaces=
- with
->     them.
->
->     by raising the bit we stop both. The locked bit keeps container root =
-which
->     also has CAP_SETPCAP from clearing it.
->
+It's a subtle distinction but the previous behavior returned -EINVAL, which
+means "runtime PM is disabled for the device"
 
-I'm still not 100% sure I'm following this.  By "exemption" are you
-talking about the cred->cap_premitted term here?
+__pm_runtime_resume() returns 1 (called by pm_runtime_get()).
+pm_runtime_get_if_active() is the try-and-get version of pm_runtime_get().
+stub pm_runtime_active() also returns true. So pm_runtime_get_if_active()
+should return the same value as the stub pm_runtime_get(), which is 1.
 
-ns->cap_bset =3D parent->cap_bset &
-                       (cred->cap_userns | cred->cap_permitted);
+Analysis of all callers and their behavior with old (-EINVAL) vs new (1):
 
-(As as aside, as formulated, the parent->cap_bset term should be
-irrelevant, no?  cred always refers to a task in parent, and this
-whole thing is defined so that cap_userns and cap_permitted are always
-subsets of parent's cap_bset, right?)
+Pattern A: if (!pm_runtime_get_if_active(dev)) -- no impact
+  Both -EINVAL and 1 are non-zero, so !ret is false in both cases.
+  Callers: drivers/accel/ethosu/ethosu_perfmon.c,
+           drivers/gpu/drm/msm/adreno/a6xx_gmu.c,
+           drivers/gpu/drm/msm/msm_perfcntr.c,
+           drivers/gpu/drm/v3d/v3d_mmu.c,
+           drivers/gpu/drm/v3d/v3d_perfmon.c (x4),
+           drivers/media/i2c/gc08a3.c gc05a2.c og0ve1b.c ov6211.c,
+           drivers/media/i2c/ccs/ccs-core.c s5kjn1.c lm3560.c (x2),
+           drivers/media/i2c/s5k3m5.c thp7312.c imx283.c ov64a40.c,
+           drivers/media/pci/intel/ipu6/ipu6-buttress.c,
+           sound/hda/core/device.c
 
-I think I agree that there needs to be a way to turn the cap_permitted
-thing on and off (and I'm also not sure whether cap_permitted is
-better than cap_effective), but I'm not convinced that an inheritable
-and lockable bit is necessary or wise.
+Pattern B: if (!ret) after get -- no impact
+  Both -EINVAL and 1 are non-zero, !ret is false in both cases.
+  drivers/gpu/drm/amd/pm/amdgpu_pm.c (comment says "allow access"
+    in kernels without CONFIG_PM), drivers/pci/pci.c
 
-How about changing the rule to:
+Pattern C: ret > 0 / ret <= 0 / ret != 1 checks -- FIXED
+  drivers/usb/core/offload.c: checks (!= 1), old -EINVAL caused
+    -EBUSY even with !CONFIG_PM. Fixed: now returns 1, proceeds.
+  drivers/accel/ivpu/ivpu_job.c: drm_WARN_ON(<= 0), old -EINVAL
+    spuriously triggered WARN. Fixed: 1 > 0, no warn.
+  drivers/gpu/drm/i915/intel_runtime_pm.c: checks (<= 0), old
+    -EINVAL triggered error path. Fixed: 1 > 0, correct path.
+  drivers/accel/ivpu/ivpu_sysfs.c: (> 0), old skipped freq read.
+    Fixed: proceeds correctly without CONFIG_PM.
+  drivers/gpu/drm/xe/xe_pm.c: wraps (> 0), all xe callers
+    (xe_bo.c, xe_shrinker.c, xe_vsec.c, xe_ggtt.c, xe_guc_ct.c,
+    xe_pxp.c) now correctly treat !CONFIG_PM as active.
+  drivers/net/ipa/ipa_smp2p.c: power_on = (> 0), now correctly true.
+  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c: (> 0), now correctly
+    executes stall register update.
+  drivers/staging/media/ipu7/ipu7-buttress.c: active (<= 0) early
+    return now skipped, correctly proceeds.
 
-child->cap_bset =3D parent->cap_bset & soft_cap_userns &
-(cred->cap_userns | cred->cap_permitted)
+Pattern D: explicit -EINVAL check
+  drivers/hwmon/prom21-xhci.c: checks (> 0) then (== -EINVAL).
+    Old: took -EINVAL fallback. New: takes (> 0) fast path.
+    Both succeed when CONFIG_PM is disabled; functionally equivalent.
+  drivers/hwmon/eic7700-pvt.c: call is guarded by IS_ENABLED(CONFIG_PM),
+    stub is never reached. No impact.
 
-a) (ugly but easier) A non-inheritable prctl-controlled mask
-soft_cap_userns, changing the rule to parent->cap_bset &
-soft_cap_userns & (cred->cap_userns | cred->cap_permitted).
-soft_cap_userns would be reset to all ones on on fork and exec to
-avoid creating new inheritable security-relevant state.
+Fixes: c0ef3df8dbaef ("PM: runtime: Simplify pm_runtime_get_if_active() usage")
+Fixes: bd3d245b0fef5 ("usb: core: use dedicated spinlock for offload state")
+Fixes: 7806bad76ac39 ("accel/ivpu: Prevent runtime suspend during context abort work")
+Fixes: 1524c28b99527 ("accel/ivpu: Show NPU frequency in sysfs")
+Fixes: 46edb0a3eb16c ("drm/xe: Fix xe_pm_runtime_get_if_active return")
+Fixes: a71aeff3dd0a7 ("net: ipa: kill IPA clock reference count")
+Fixes: 70892277ca2db ("iommu/arm-smmu-qcom: Make set_stall work when the device is on")
+Fixes: 9ad65684b9285 ("media: staging/ipu7: Ignore interrupts when device is suspended")
+Acked-by: Alex Elder <elder@riscstar.com>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Change in v3
+- fix drm/xe fixes tag hash (sashiko)
+- drop i915 fix tag because guard by CONFIG_PM (sashiko)
+- fix net ipa fixes tag hash (sashiko)
+- Add c0ef3df8dbae ("PM: runtime: Simplify pm_runtime_get_if_active() usage" (sashiko)
 
-b) A whole new create-a-namespace API where the caller chooses
-soft_cap_userns at the time they create the namespace.
+Change in v2
+- add fixes tag for patten C.
+- add Alex Elder ack tags
+- change subject to fix stub pm_runtime_get_if_active()
 
-> On the host none of that matters as the mask is root's own policy there.
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Andrzej Kacprowski <andrzej.kacprowski@linux.intel.com>
+Cc: Karol Wachowski <karol.wachowski@linux.intel.com>
+Cc: Oded Gabbay <ogabbay@kernel.org>
+Cc: Jani Nikula <jani.nikula@linux.intel.com>
+Cc: Joonas Lahtinen <joonas.lahtinen@linux.intel.com>
+Cc: Rodrigo Vivi <rodrigo.vivi@intel.com>
+Cc: Tvrtko Ursulin <tursulin@ursulin.net>
+Cc: Matthew Brost <matthew.brost@intel.com>
+Cc: "Thomas Hellstrom" <thomas.hellstrom@linux.intel.com>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: Alex Elder <elder@kernel.org>
+Cc: Will Deacon <will@kernel.org>
+Cc: Robin Murphy <robin.murphy@arm.com>
+Cc: "Joerg Roedel" <joro@8bytes.org>
+Cc: Rob Clark <robin.clark@oss.qualcomm.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Guenter Roeck <linux@roeck-us.net>
+Cc: Guan-Yu Lin <guanyulin@google.com>
+Cc: Mathias Nyman <mathias.nyman@linux.intel.com>
+Cc: linux-pm@vger.kernel.org
+Cc: linux-usb@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: intel-gfx@lists.freedesktop.org
+Cc: intel-xe@lists.freedesktop.org
+Cc: linux-hwmon@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: iommu@lists.linux.dev
+Cc: linux-arm-msm@vger.kernel.org
+Cc: linux-media@vger.kernel.org
+Cc: linux-staging@lists.linux.dev
+Cc: netdev@vger.kernel.org
+Cc: imx@lists.linux.dev
+---
+ include/linux/pm_runtime.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-I'm still not seeing how there's a difference between host vs
-init-userns-container vs separate-userns-container.  After all, in
-*any* of these contexts, the configuration *of the host or inside the
-container* might want to restrict cap_userns for unprivileged users or
-for everyone, which it can do with whatever API we add to do this.
-And some container manager might run with CAP_NET_ADMIN in such a
-context, and it might want to create its own container that has
-CAP_NET_ADMIN removed from cap_bset.   But I might just be being dense
-here or I might be misunderstanding you.
+diff --git a/include/linux/pm_runtime.h b/include/linux/pm_runtime.h
+index 64921b10ac74f..de9e7518ecef2 100644
+--- a/include/linux/pm_runtime.h
++++ b/include/linux/pm_runtime.h
+@@ -280,7 +280,7 @@ static inline int pm_runtime_get_if_in_use(struct device *dev)
+ }
+ static inline int pm_runtime_get_if_active(struct device *dev)
+ {
+-	return -EINVAL;
++	return 1;
+ }
+ static inline int __pm_runtime_set_status(struct device *dev,
+ 					    unsigned int status) { return 0; }
+-- 
+2.43.0
 
-
-
-There is one thing that continues to bother me about all of this.  In
-a sane world where privilege elevation on exec was simply not a thing
-(no_new_privs =3D true always, nosuid always, no file caps, etc), then
-cap_bset is kind of irrelevant, right?  A task either does or does not
-have NET_ADMIN, and it either does or does not have the ability to
-create *a task in a new userns, including itself, with NET_ADMIN*.
-Since our API is based on creating/entering a userns as opposed to
-spawning tasks into a userns, the rule should be, upon entering a
-userns:
-
-    cap_permitted =3D cap_userns
-
-or something to that effect.  Or maybe:
-
-    cap_permitted =3D ns_enter_requested_caps & cap_userns
-
-and cap_effective and ambient get clamped to cap_permitted.
-
-Unfortunately we don't live in this world, and I'm not convinced that
-can credibly even approximate it, because people really like their
-setuid programs working inside a userns.  It still bugs me that we're
-designing permission systems designed to work in the POSIX model that
-I think we all kind of agree is fundamentally rather messed up.
-
->
-> > In any event, the ptrace access checks also need to be updated.  If
-> > we're adding cap_userns, then one should not be able to
-> > PTRACE_MODE_ATTACH a task with higher cap_userns.
->
-> Yeah, I mentioned that in my reply earlier.
