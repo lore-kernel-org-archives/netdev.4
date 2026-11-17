@@ -1,60 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953834;
-	b=Hur+kFu+xuBdFp9LHM5fFaHJnhG1OQPywsx3QUn2HOheqNEyTu0zHdCU3JBQ6Z37LkDw
-	 uO1GzrZU5DApQyE0NSaky93YeEn0oXSZfJlVXoxwa/Tl9jY7qR/uLhQNhSM/vOfKnxe4Z
-	 svbTF7F2tPPaRdjrvhB+9wFX/yBLM4vi/5ovOPUrGHz+7r7ogv7aGuPpeW52cGDcHLnQx
-	 GFID6dXQx7j38q+nprnoiPGxQW/i7XXIAapJ2PZjSjw89dCyd34JOjOiKgjh1dclqxry5
-	 t0jgKt0j5D84feuBKRuIfge0Vir/LyCCYmF3MGvLU5mPH0IzHaBN+n/FIm9NEMxry5w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953834;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=uxDbfAtxsihW1uNOfx4K6cvOBz6mE1gl4C/JUuE5JYE=;
-	b=3GbF5ijlwBbnxO/wAx+0/L5f8vpfPokw82hwRXGJxTnpDG5g8Q+ascN0kTVHMUeo9veG
-	 F1mxk+M75bnMG7xiJU9f7DrIvJf/PEdXraMr7U71oqaOAfRU6/zwuGgp0wCGx8zw9T0rC
-	 o8AZqLSIGNCcUsNcm3sAV3zcZ+ilhy2FINzubnKvL8K9PIMGpEOTBEzIe6rU/m145F/Oy
-	 p77aHHjZ0ufmtjkp8MRKAzqNQMBu+8NKrPYCXbF/eNGXFg3YMYu5+byOEI3CnGi13kaex
-	 9/04IFwUIWIL7udY8jBVEAZIFNyFdhvB869k1I5myU0qKn76EC3YA4DVJWaj6hV1XOQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T10+kn3j;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.145.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794954007;
+	b=VK9niIJU0B7bex/n9jUw79K6lc8/lI9aKycOBFZ6pZo2kfHkcwiKgGFSJJ1El8Z8GrIQ
+	 6Gdoc9eeCNxQlawEOeD1FPtrhaoZXgg8KTn6q2k/4addhWI1gOTSU8Kl85nf11oTL1yvj
+	 75WFHOwScHB5Sqxb0fZnevvHnO7d1ulFNwaotuhQSjdSc668hKx/6zoUtD57IAnMoJk6P
+	 yXLATU+UedAAEeRLX7dBKKElJ7SkWgwP7nPug40/8/4LxvKAYnb4DfYcs0MIYOXbifIAA
+	 F0NBzhtK1aZG/cOW4iHK8ai9JJtk6f57ELmDGS5CnMNTxPA1gqN5xWa+0KaTrA7srbA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794954007;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version;
+	bh=MrBB22VyQQ34wvgxAVrSinsIzWNGkBwccDyrerQ8zrY=;
+	b=VLc2kNUe9SWYNWgtdf63DiDIkcTbm9IOlc8SIhaMcwH5VnXKWUAx9R+d95420oaBgVN4
+	 Jp9zGGPUgXweyHQwuUBXyFCZYk3/Ft+KvXTmUXUrXsDg7sSHMFPXO2XcovxN6qk+feqaR
+	 TQAYLpRf23qkhwFZ95DEjrkLiKpzcH0O6iek+Y5vApvEN8GYaoNu/GOrqKIPa86KHEMED
+	 hMzUC1+aMNAuuWJ2oCnQg6HKqKAsKT6HFDTRAX+naVXecKf9hwfa23Ne7Y0U278wKPQy5
+	 2Ti6Io8JCnBXzYpHRGzzJFBrov8O3Fx2Pp4daTuaIApNJCHkg+zH9O2994R4PlzYoZw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=de3QWr9u;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=67.231.145.42
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D035606A330;
-	Tue, 17 Nov 2026 22:17:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB46C606A33D
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:20:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB46C606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T10+kn3j
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 506761F000C7;
-	Tue, 17 Nov 2026 22:17:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794953833;
-	bh=uxDbfAtxsihW1uNOfx4K6cvOBz6mE1gl4C/JUuE5JYE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=T10+kn3jLW2dwegfZ02GTw8EvaDVU1KFXq60fSGFP1WPLZLDtCpLinNyfeATNlGYk
-	 FqAaYkdAKQPXEva0AANtdci7vmZmu9KIJ2wJGO8bQbHVHa9w3Nub1zoC/SHUrcEVLf
-	 sLSTUZ7YmW9r5OWG171XIVkUa81WmRl3elvfPM34Fgv6MUaEQaXEOMEnT9qvCHdb+y
-	 VxYmJpbm1tI3RtS4O2rYMiXtKOGioejFAJ22zqq9Hyd1QCk1RgX7jOU6NgXSji66MF
-	 SXHnTdWM5G0dooJlPBBL4ukXcAtUsY0Wobs4xKLt/RL97RRaTHydHOGSt4xZ6RP1mL
-	 /8S+T9XCNU5PA==
-Subject: Re: [PATCH net-next v1] net: pcs: xpcs: add 10000baseCR_Full to
- 10GBASE-R link modes
-From: netdev-bot+sashiko@kernel.org
-To: francesco@dolcini.it
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- francesco.dolcini@toradex.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Tue, 17 Nov 2026 22:17:12 +0000
-Message-ID: <179495383285.3136.3739586857677062012@kernel.org>
-In-Reply-To: <20261116101644.83097-1-francesco@dolcini.it>
-References: <20261116101644.83097-1-francesco@dolcini.it>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=de3QWr9u
+Received: from pps.filterd (m0528009.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHM24MR2211462
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:20:06 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps82601-s2048-2026-q3; bh=MrBB22VyQQ3
+	4wvgxAVrSinsIzWNGkBwccDyrerQ8zrY=; b=de3QWr9uJo7zpRux5nSBZrQPJI1
+	ZuT9RzWRGoDJ4aCQ9SrU4Xxw9lwDJ7b3OmHlR8+w5tIEz3UPpJzxlfS7NWR2ntEF
+	Sx5JJxBsNLgjr1SvG/Lb2/HWRTnrHpAqHnl2JEhCnWbe7ecSMNitIJpelIQxT7L/
+	5ownN3a8BAw3B6TX+M2l1KOePj+0a7YZornHlcIw3dusVrCnZ3PNUvjXrb1W3Jbq
+	9eI4VDUod9rq0HPbutUCHOxnMkEyvDODXmpDon9TP7Jv9fAYKQLTeTydSUIZhpUC
+	6/Ldc6GrPMpfUutcKYiSWDp5WJmepsbra64rsMl8Xl+kkyO3/xGEv7ORWJQ==
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com [209.85.221.72])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0sgnvnbb-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:20:05 -0800 (PST)
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4a3052225cbso241904f8f.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:20:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794954004; cv=none;
+        d=google.com; s=arc-20260327;
+        b=LXgXchtEZSV1jn6jLkyRWUcfqnhc8xzTGCSl16k9FnHFQqQnfMLn6nzPNUqom7K5zL
+         SA5ut/JPTE+9y9GMk/BLFtktNpt/pZU3n5lv/sudB/NkTS0gBETnGgyxUSU8hTUaFiGp
+         mWHslkICzPFmyULb9syeM06u5TKc+9FNrXNenIX7r/J1xWHFwn7vt1JabcPGRB3B+yvA
+         8fWyxQDutxVPyKjbGny3K1B49EuIlMEB4ZshzZmOJgj8vG9pFWpO7UzkJ7QFcewc7ECB
+         OUW4cImHfrAAiJ9Ta5oQLvNDQKtqAYFImB9GLd06SlEq0G0gZAHJjZzi4AOJLVrRTUVC
+         6lCw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=MrBB22VyQQ34wvgxAVrSinsIzWNGkBwccDyrerQ8zrY=;
+        fh=qod244yoB3Swx6BT8pwI4iCjWBm8w97P4EwtSYE3820=;
+        b=DDrMlbbpa+VOm/jIlD/T4jv2Yu/rbIPXnVriKLGGBq36DwVnqXkFT+dg2vKbjKkp8H
+         KdljJNxA7qQLHLlWLWRbsqzR4thmuWOIENDAymNWtlxKjyT9EduvqBIYuJ+8mdiqlPY9
+         cM9Uy9bKBll2/LsB++4f8ADctlrQKANdR3LqLD7kcy44V671x68qaO8AOsSEfoqMH/+g
+         FcERuS2wGOqR+bciNEYtoB0OOh9OVzqe8snVbRWGVKRrpPd+HAZwgQ/tWXradwUE8DOU
+         XTV3GsZRx6U/MzD2R003fEZ1BJ1RxnzQS2dMIsG7J1as8D82vkI0LXjQcPHlQ7GP6WTb
+         8wTQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794954004; x=1795558804;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=MrBB22VyQQ34wvgxAVrSinsIzWNGkBwccDyrerQ8zrY=;
+        b=MMVg6KvDwzAqksVNqlCSdtzLIG4mJ29HqnyO0CUyj5O7Oen1wg+98yyH40T/zsXibm
+         3QOmoBHyjJb4FPZecLdfPLvx4alV/0UIu4rhk9OrbYIx+vfAZQYA3OlBbkAooymcDAsP
+         w08yiUTDIxwiJ/5c9fTKsV0IWXO/GhJ3cet+SibWLHbTyV6xDtcdOn/F5MGC4qT68gMh
+         36v9NZEUSJSHnRxziKxN3SjZkVjn9A09Q8xVfgnS/0nAsEyQmgJx1YJ4yAODabcRR/bK
+         mG9KJAk2dVIySPx7dFF3ubl6TwNpPJ75CIxLuqXmwx8/lED3ZYD+zzTuhYNn+2Ctvc6O
+         gKJA==
+X-Gm-Message-State: APuU4Z9F2s2KAimE4hYMCM/qLC59nfT1MmYpW5tbsyW3Q1XfHchrZstd
+	eJg975rfLiYGy7W+OXoqliprithj7XVVHby3+Aq/tIdB/D9CXv6EdsV73za05skSgFxPRWLtXk6
+	qQuj0bKt378KC233+zqeJCHUKY8OjRbuFuBl8cyMrvHpx45/YJcMaf1fW1t6kmuJr0xoa5NqJOa
+	I6v14nSPLcCAja3IFZyMjMclOGT6PH//s=
+X-Gm-Gg: AZFdTZdqAt5YOePyWfz7LJMgWJ6DU5kCqiQUD1yAJRDqini0fbRS3k6YQ6X4zVGeb6G
+	KeKpe7/TGnjDYcAbWugFiJRjHzon0V4nZm2RiDGg+8nyEzt36PqbF/4VKnnIUjv4A3skZeevz08
+	WQ9DnBN0v7mjKoLE1QZW2iHaRigSJQf+Nq2uGIDFA+sg7LhXPCRA5zntYWZNBLw5vnn9R6juE1d
+	zpD52TtbpY6NcOF9Hoh8BIWMzobk0Zt+LIKsh7EWw2Er2hDj2g=
+X-Received: by 2002:a05:6000:2383:b0:490:f98f:addd with SMTP id ffacd0b85a97d-4a6331c6cdamr2082667f8f.4.1794954004384;
+        Tue, 17 Nov 2026 14:20:04 -0800 (PST)
+X-Received: by 2002:a05:6000:2383:b0:490:f98f:addd with SMTP id
+ ffacd0b85a97d-4a6331c6cdamr2082645f8f.4.1794954004046; Tue, 17 Nov 2026
+ 14:20:04 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,114 +110,63 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261111005533.6436-5-toddfreed@meta.com> <179471269504.2199510.18115986956046547098@kernel.org>
+In-Reply-To: <179471269504.2199510.18115986956046547098@kernel.org>
+From: Todd Bert Freed <toddfreed@meta.com>
+Date: Tue, 17 Nov 2026 14:19:49 -0800
+X-Gm-Features: Aa3M54pE3seHebOeBtbI3cDpMgrW25pWhWq5MbBS5In6ZJStfYB2VZ8sEpNY7Bs
+Message-ID: <CADh2yMyRSH4ZKZaGxFLVXHTE6v3XF38jh2OykqXRxvP4=0TKgQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v1 04/15] psp: add support for socket-less psp associations
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+        bjorn@kernel.org, bpf@vger.kernel.org, daniel@iogearbox.net,
+        daniel.zahka@gmail.com, donald.hunter@gmail.com, edumazet@kernel.org,
+        kuba@kernel.org, jhs@mojatatu.com, jiri@resnulli.us,
+        john.fastabend@gmail.com, linux-doc@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+        linux-rdma@vger.kernel.org, martin.lau@linux.dev, pabeni@redhat.com,
+        saeedm@nvidia.com, horms@kernel.org, tariqt@nvidia.com,
+        weiwan@google.com, willemdebruijn.kernel@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4OCBTYWx0ZWRfXy8mgtknfkTes
+ 4KiwQWYzD1Wxhi6pmfbkqrLK/zPPbhGJuvGLwjs3FDr1eezKcHHvyGs1Y8RAAQOgYza/YArO7+A
+ DMrJwkuD/vL4finKtt82qVcpLVq0+u6ULbiJvKGpigeIxJ0PpR7xCQ/d9qnY+t0ofEtcKfrCyrf
+ WgrtIG5ccK90VEGUA/kSnl/Cjoq43AH7/1dFDqJn9pdUBoKXwhsUTADLQqRH7qKUh9dhCrXYKMT
+ nvTQx1N+a++jyDaEl/JyBlgrTkCY6Nus4bp06xmXXNZ6cLxodAmk/fiP7PJ+2tgtmx7sXSq6iWI
+ vWfpLTDy++BSGWVAoBsCT6ewR/UttBpaq3AHKtozDgBwoTqtPJHwTAaM7q03AySYq1QdKIGc+tr
+ 2qt2AynYyAGWMBqs0joFQyGC0pnPGRAyKPlHHgSqVCAc3xZv50mgLUSN6eZ/Pzse7PWL17KL0y3
+ YQjMXZ+hgt8vX96R8Lw==
+X-Authority-Analysis: v=2.4 cv=UMdIjyfy c=1 sm=1 tr=0 ts=6afcd315 cx=c_pps
+ a=C8Sa+zVB7PeSwznsLr31Mw==:117 a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22 a=U_y8lYiYyhHBU5rMqhb2:22
+ a=6yLQ_yHwUL-M3baYCL4A:9 a=QEXdDO2ut3YA:10 a=eYhU8IiCvE_ms1W8Tcak:22
+X-Proofpoint-ORIG-GUID: Dg3UPdb_oIaRbbn3k2CS1Pg-yWJ47Fqc
+X-Proofpoint-GUID: Dg3UPdb_oIaRbbn3k2CS1Pg-yWJ47Fqc
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4OCBTYWx0ZWRfX5RtJB4tJ/rHu
+ ZGCAPW2wKJ9FLFxJkNgYi2GpgZo/ZHzLblfOv0MHgspaecvW2JMJg0oMyfEcmZNud/RniHSjvQ2
+ F+N6/YN5gLucN9d0I7FFTV640jqhpkU=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+> > key material enters through netlink and is never reported back. no key
+> > is stored for rx associations, and users reference associations by id
+> > and never handle keys
+>
+> [Severity: Medium]
+> Is this paragraph accurate? The code in this patch seems to do the
+> opposite in two places.
+>
+> ...
+>
+> So user space does handle keys, and rx-spi-alloc does report key
+> material back.
+>
+> Could the commit message describe that more precisely? For example:
+> "the Rx key is returned once, by rx-spi-alloc, and is never stored or
+> reported by assoc-get".
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Yes. In v2 it will say the Rx key is returned from rx-spi-alloc, but not
+stored. In v2 rx-spi-alloc won't create an association at all.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The commit message names the mechanism: a link mode the SFP
-  layer reports for 10GBASE-R is missing from the XPCS 10GBASE-R list,…
-- [Low] The patch fixes a user-visible functional bug but has no Fixes:
-  tag and no stable Cc.
-
---
-
-net: pcs: xpcs: add 10000baseCR_Full to 10GBASE-R link modes
-
-This commit adds ETHTOOL_LINK_MODE_10000baseCR_Full_BIT to the
-xpcs_10gbaser_features[] list. The SFP layer reports SFP+ direct attach
-cables as 10000baseCR_Full, and with this change xpcs_validate() no longer
-masks that mode away on the 10GBASE-R interface.
-
-> diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
-> index 6466e0ff2a98b..3378528e57f05 100644
-> --- a/drivers/net/pcs/pcs-xpcs.c
-> +++ b/drivers/net/pcs/pcs-xpcs.c
-> @@ -114,6 +114,7 @@ static const int xpcs_100gbasep_features[] = {
->  static const int xpcs_10gbaser_features[] = {
->  	ETHTOOL_LINK_MODE_Pause_BIT,
->  	ETHTOOL_LINK_MODE_Asym_Pause_BIT,
-> +	ETHTOOL_LINK_MODE_10000baseCR_Full_BIT,
-
-[Severity: Low]
-Should this patch have a Fixes: tag and a stable Cc?
-
-This commit added the xpcs_10gbaser_features[] array without
-10000baseCR_Full:
-
-  af8de1e307bf ("net: pcs: Add 10GBASE-R mode for Synopsys Designware XPCS")
-
-Before this patch, a DAC module is rejected through this path:
-
-phylink_sfp_config_optical()
-  phylink_validate_mask()
-    ...
-      xpcs_validate()
-        linkmode_and(supported, supported, xpcs_supported);
-
-Only Autoneg, Pause and Asym_Pause are left after that. So
-phylink_is_empty_linkmode() returns true, and phylink reports:
-
-  "unsupported SFP module: validation with support %*pb failed\n"
-
-Every kernel since af8de1e307bf seems to have this problem, including the
-current stable and LTS trees.
-
->  	ETHTOOL_LINK_MODE_10000baseSR_Full_BIT,
->  	ETHTOOL_LINK_MODE_10000baseLR_Full_BIT,
->  	ETHTOOL_LINK_MODE_10000baseLRM_Full_BIT,
-
-[Severity: Medium]
-Is 10000baseT_Full also missing from this list?
-
-sfp_select_interface() in drivers/net/phy/sfp-bus.c maps six link modes to
-10GBASE-R:
-
-	if (phylink_test(link_modes, 10000baseCR_Full) ||
-	    phylink_test(link_modes, 10000baseSR_Full) ||
-	    phylink_test(link_modes, 10000baseLR_Full) ||
-	    phylink_test(link_modes, 10000baseLRM_Full) ||
-	    phylink_test(link_modes, 10000baseER_Full) ||
-	    phylink_test(link_modes, 10000baseT_Full))
-		return PHY_INTERFACE_MODE_10GBASER;
-
-After this patch, xpcs_10gbaser_features[] has the first five of these but
-not 10000baseT_Full.
-
-For a 10GBASE-T SFP+ module, sfp_parse_support() sets only 10000baseT_Full,
-together with 10GBASER:
-
-	case SFF8024_ECC_10GBASE_T_SFI:
-	case SFF8024_ECC_10GBASE_T_SR:
-		phylink_set(modes, 10000baseT_Full);
-		__set_bit(PHY_INTERFACE_MODE_10GBASER, interfaces);
-		break;
-
-Suppose no PHY can be accessed on the module. Then
-phylink_sfp_config_optical() validates that mask against 10GBASER, and the
-linkmode_and() in xpcs_validate() clears 10000baseT_Full.
-
-Wouldn't that reject the module the same way DAC cables were rejected before
-this patch?
-
-If a PHY is detected, phylink_sfp_config_phy() calls phylink_validate() with
-PHY_INTERFACE_MODE_NA. The 10GBASER pass would again drop all the 10G copper
-modes, so the module couldn't run at 10G over 10GBASE-R either.
-
-The existing comment in xpcs_validate() also hints that this kind of masking
-may not be the right approach:
-
-	/* Populate the supported link modes for this PHY interface type.
-	 * FIXME: what about the port modes and autoneg bit? This masks
-	 * all those away.
-	 */
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116101644.83097-1-francesco%40dolcini.it
+-Todd
