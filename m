@@ -1,70 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794908119;
-	b=exxjte+yNbt+e58clCBUk4Q1wdnDvqezIjZv3bKHA+qcKwgjA/0u5E4hY3NcRBe2+I4/
-	 EPxqzokATUVdUHq7IXAUd4h/CZjRdvCvGHHqlSV+5aRpxGJ7FT9fS4LpWLIZX66cLqCez
-	 eBLYcr11VQRTq3kOJXrp6f3WxmrCHR2JMk8gncZPKbE3aHPgkoGs+dvTlI+C6+4owkyoh
-	 vYfKqfkxuOaMwM0Ri/ioSV8aQop9sWQ0FdAtHGXy5cyhg33HE2aTQzILr0y65UOwbjCFT
-	 aH1/A9SnpwF68MRXynmbmeLwVrqI9Em6sp83ZIgUomhDokNMswJBk4iaSxWeBmmvAVQ==
+	t=1794908133;
+	b=5R4OBABn1Ta4UwXhfXJ2FXej7MIEFAxRjwM9bWap4JMSW4Ic7FRK5e613smetghioxZb
+	 /84qpruld+ON1IIk33GHgp5crsBonsFdfD5vxnv5ovmxUMgIv/rwc7dS90OErQB3eyu3y
+	 GiJIwVmHx8Icvm4pju6vSk5pqTcwkNxhbSW9AVIXgq8wI5meesZPyyw8lyAckCkHdgI+S
+	 ql3x2cmmIUuwrXrNmEkH4hcdGyZF4nmDhUKSaRoRrlN+dwVkvHEKVHdID/ClqGDbuHjyX
+	 gOnTKuRJmIvzEcmyvMytRyNdIfAo4Ih1sMiAJKz3wDY2zFNFZhBCDUIttwuE+fBffKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794908119;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:X-Last-TLS-Session-Version;
-	bh=fYt6NoMDdyrqrERZ7mRR3UoBXTtlp4FmvfU9QjlpDFQ=;
-	b=GnzHy0HxVgBcYD4prxj4HdKzcoGhP2/V+7U6kW7BP+NBZ7j5DfZL2MC30w1iiB4EMqf2
-	 OTv9GFIsMUO+jleq6MdvXxQO3HrHqvh9wGOwDk1GomvkOSH5AkVot6b4tCPUVJcfHXLC5
-	 wGbbuS6cOoENcShFrG5qy3tzBpVi3ll/fEQrZEghoYFtz3WwvyumIfDzIVE4chEO367JW
-	 so8mNnNCM6ygSvE1vcRoDyhozr5DzCxIjqkk+zF/fIKhKSboXpaj/6MU6n1oR4rf94i5m
-	 AybuPlEU8QEeNZBn4c7SPUPNAqjXpSxb3s4G52mn0kDAdb/BMDc5qJg6XBGwP7bnv+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794908133;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=WwhwaYFJNMtPhT56t3rNjNOo+MK4UinclZfxdqo22ag=;
+	b=JJUwdKAid/RcAxoCn1Q7MvYtVcc1gKQDH2qAD6azruqI02waCgDkQkTID2p6dl+9h7y2
+	 AJBc9bX4VEJafvkqyxWPnq+rL2tHQBoRwmuUPWrOt27je85irJz6WhP7/EApcEmr9FuhZ
+	 hE0KTxFqiR5QBUl5q6Tq24s2Rc5w/y5jXM5argtb4sT5CL2yun+4HyGqK8VFlB4lEC5h2
+	 ltk5mqKd/JZ6CdKBvnhBm0q3SQZ7XSNkRScAxkJe0UUhlnQfHAnxTY2jJ1Hjw+jclrcWB
+	 Rt4UpXV61c9+uIA/odFWMKoQ4zf0PxJcZKC++uUk3+qDs/ZMRPvgB/HDC82qTUFK+vA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=UfGfOffd;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vI11SneC;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 129AA606A329;
-	Tue, 17 Nov 2026 09:35:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 129AA606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADF4E606A331
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:35:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ADF4E606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=UfGfOffd
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=vI11SneC
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id A09E8C4EDB9;
-	Tue, 17 Nov 2026 09:35:21 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 776D94E4094F;
+	Tue, 17 Nov 2026 09:35:31 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 507DC5FC81;
-	Tue, 17 Nov 2026 09:35:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1A16F11BC09A1;
-	Tue, 17 Nov 2026 10:35:12 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 410EE5FC81;
+	Tue, 17 Nov 2026 09:35:31 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 18CF011BC0B8F;
+	Tue, 17 Nov 2026 10:35:23 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794908116; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 in-reply-to:references; bh=fYt6NoMDdyrqrERZ7mRR3UoBXTtlp4FmvfU9QjlpDFQ=;
-	b=UfGfOffdVzOtb009exzd6wtCUhSfr6P2sTXmwATnlF4AXtA/vGkon3RfJQ8XM7ESX8jrFr
-	LbfAMYhZTPeE9oA6zJc4FJb8tcuqy5sDW3e4jCF+zZtEhjdwmpyHc7DM/xzV5yxmdd1IcF
-	QVHQwaK2l9MZCOVaP4Jy1m9lyyU2u7sXj3UE8veUxNhi0FVHPgNPiqNLK1otEBOZ0+CX6t
-	TulBMqGsncp0/k+MlyymuNYddJKAm8xuGVCZlXUgseCvauvgq99mZQcaHHYIHnNiV4DzM6
-	mq0dwXt4pjTyDIlEso7pgtntjErfeoyxOvfjCOl0ncH9EvIgbTobGbZiYZkgcQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Joas Antonio dos Santos via B4 Relay
- <devnull+joasantonio108.gmail.com@kernel.org>
-Cc: alex.aring@gmail.com,  stefan@datenfreihafen.org,
-  joasantonio108@gmail.com,  davem@davemloft.net,  edumazet@kernel.org,
-  kuba@kernel.org,  pabeni@redhat.com,  horms@kernel.org,
-  linux-wpan@vger.kernel.org,  netdev@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  stable@vger.kernel.org
-Subject: Re: [PATCH wpan] mac802154: llsec: reject secured frames with
- security level 0
-In-Reply-To: <20261110-llsec-seclevel-none-v1-1-06ef143e467f@gmail.com> (Joas
-	Antonio dos Santos via's message of "Tue, 10 Nov 2026 09:03:23 +0000")
-References: <20261110-llsec-seclevel-none-v1-1-06ef143e467f@gmail.com>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Tue, 17 Nov 2026 10:35:12 +0100
-Message-ID: <8733szol67.fsf@bootlin.com>
+	t=1794908130; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=WwhwaYFJNMtPhT56t3rNjNOo+MK4UinclZfxdqo22ag=;
+	b=vI11SneCI57vK3QInTMJGFmCHhAx0leLQ4YOKCpOSQITmvWd+ijDWcMsdWsjwe4olDvKXG
+	lJp6vHcNgfsAYJxHFIKAjUyZJopqKXIdt9Yko+ilDnz//erJz52amc8o9TGyqanFZ0/rdE
+	d1WeNt4Uog1Cwm5T8A7opkjYz+Tus1i0LdB7ADk2ztleDz9d7yG20dJAt2gukKMI8LpKNU
+	V/+umM5GnXCckLLfBcPOxL3AwE6Xz8+81LvUTp65dgQhOavHiH90OqrA9+m3E6q6WAlj61
+	vs6Gh+caEYLNzCDzVE5RMMdEGKLg5on2sgGZgCyR9NVksik888lc7sYrsO4CuA==
+Message-ID: <7b9a4fe1-a885-4ace-bad0-b819ac8b11b4@bootlin.com>
+Date: Tue, 17 Nov 2026 10:35:23 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,47 +62,84 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: stmmac: dwmac-sun8i: Defer probe when the
+ EPHY clock is not ready
+To: netdev-bot+sashiko@kernel.org, aiyengar1990@gmail.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, wens@kernel.org, jernej.skrabec@gmail.com,
+ samuel@sholland.org, clabbe.montjoie@gmail.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20261113-b4-sun8i-emac-ephy-defer-v1-1-12a8591702fe@gmail.com>
+ <179490321548.3136.12535368591168637116@kernel.org>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <179490321548.3136.12535368591168637116@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 
-On 10/11/2026 at 09:03:23 GMT, Joas Antonio dos Santos via B4 Relay <devnull+joasantonio108.gmail.com@kernel.org> wrote:
+Hi,
 
-> From: Joas Antonio dos Santos <joasantonio108@gmail.com>
->
-> mac802154_llsec_decrypt() handles every received frame that has the
-> Security Enabled bit set.  The security level is taken from the
-> auxiliary security header of the frame and is not required to be
-> non-zero.  The only check that looks at level 0 rejects the frame only
-> if level 0 is not allowed by the matching seclevel entry, the entry has
-> device_override set and the device is not seclevel_exempt:
->
-> 	if (!(seclevel.sec_levels & BIT(hdr.sec.level)) &&
-> 	    (hdr.sec.level == 0 && seclevel.device_override &&
-> 	     !dev->dev.seclevel_exempt)) {
->
-> Otherwise the frame reaches llsec_do_decrypt(), which sends every level
-> other than IEEE802154_SCF_SECLEVEL_ENC to llsec_do_decrypt_auth().
-> There ieee802154_sechdr_authtag_len() returns 0 for level 0 and
->
-> 	req = aead_request_alloc(llsec_tfm_by_len(key, authlen), GFP_ATOMIC);
->
-> looks for a transform with an authentication tag size of 0.  The key
-> only has transforms for tag sizes 4, 8 and 16, so llsec_tfm_by_len()
-> runs into its BUG().
->
-> The frame is not authenticated at that point.  A station in radio range
-> can crash a node that has llsec enabled if it sends a frame that matches
-> a configured key entry and a device table entry (source address, key id
-> mode and key id are sent in the clear and can be observed), uses a frame
-> type that has a seclevel entry and carries a frame counter that is not
-> lower than the stored one.  No key material is needed.  The frame
-> counter of that device is also updated before the BUG() is reached.
->
-> A frame with the Security Enabled bit set and security level 0 carries
-> no protection and cannot be processed by the incoming security
-> procedure.  Reject it before any key or device state is looked up.  The
-> transmit side already leaves such frames alone in
-> mac802154_llsec_encrypt().
+On 11/17/26 09:13, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 1 · Medium: 0 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [High] The patch makes get_ephy_nodes() in
+>   drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c return -EPROBE_DEFER…
+> 
+> --
+> 
+> net: stmmac: dwmac-sun8i: Defer probe when the EPHY clock is not ready
+> 
+> With this patch, get_ephy_nodes() returns -EPROBE_DEFER when of_clk_get()
+> on the internal PHY node returns -EPROBE_DEFER. Before, it skipped the
+> node and the probe ended with -ENODEV. Other clock errors still skip the
+> node.
+> 
+>> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+>> index 2ece7ba9dd73b..8163e49fa7ad0 100644
+>> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+>> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+>> @@ -801,8 +801,13 @@ static int get_ephy_nodes(struct stmmac_priv *priv)
+>>  		struct clk *ephy_clk;
+>>  
+>>  		ephy_clk = of_clk_get(iphynode, 0);
+>> -		if (IS_ERR(ephy_clk))
+>> +		if (IS_ERR(ephy_clk)) {
+>> +			if (PTR_ERR(ephy_clk) == -EPROBE_DEFER) {
+>> +				of_node_put(mdio_internal);
+>> +				return -EPROBE_DEFER;
+>> +			}
+>>  			continue;
+>> +		}
+>>  		gmac->rst_ephy = of_reset_control_get_exclusive(iphynode, NULL);
+>>  		if (IS_ERR(gmac->rst_ephy)) {
+>>  			ret = PTR_ERR(gmac->rst_ephy);
+> 
+> [Severity: High]
+> Does this deferral come too late in the probe?
+I agree with the bot here, this defer happens after the netdev is registered,
+which isn't great... And it's likely the PHY is on that mux'd bus, no ?
 
-Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
+Was this tested ? Doesn't it really work to return a probedefer so late ?
+
+This mdio mux logic should likely be reworked so that we register the mux in due
+time (i.e during the mdio init sequence, may be by hooking into stmmac_mdio_setup
+or something like that ?)
+
+Maxime
+
+
 
