@@ -1,119 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794896330;
-	b=oIw0TFqhL5WeVz61bO6645B4BaO4k4Ia5O3yp1gbAq0I+keFmqP6zqTxf3c+Y8V1Vx4L
-	 xtv2+GuVpWMtLpveSdBljLcBazOlx16jBCCzLumEDly3A/GpflrREgo7G3h3Gzme2kTfl
-	 qY3sFsdLtXnY8t2TRvRioc8gMiCtzkUGSH8IQsWbT3D9blPk5azfyELSsCBbJgPpi7jx+
-	 wbrVman06a+mKvQpxhsgK/tEWQHUl3yTMsCOaCLR5yzxsrclAN1ywlSmgDaJkxQCCZLDJ
-	 QiqZ2ga/rR65v3cF7gm2e/GIf2Bm0p1MlFzqPb9pKZFULGKsCCbBcXi7n3Qumi9a8IA==
+	t=1794896462;
+	b=2zDFfx6GMSfN3q30kdTXZXWdOAa/MMt/+fMQ4kXPhW3b9ZFWk1S1eLESM8sXyCTWuvgm
+	 gYozBaOwmjui4o1sTf/0IRx8Hl3crSz4B3GZsSTTHMZwkJchUyaJzKbPfDjp+eUY7yF9w
+	 QNPZMRkldueZQqW8HssdqOmRIY0pZTEfOBNhK+jay3vNOt88DijONl2tr8d3MfBqh5JuS
+	 u+5vcq87XL9IdsSEsZTXpmXvweBCsNslGFR8Wo5Mci/27ZBXK3BS9gvCfk0TZmgByFUd5
+	 TUTGEctPcGdPO3Th/0DWSlM2j8c79kytwJTCT1yzkkNpilusD4YW8kFIF85JyvQFrfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794896330;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-DetectorID-Processed;
-	bh=g11jkbPK9Uh4LjBxzLSwdZi+/FJusJ93KkbRXJ+PPXg=;
-	b=dLbemLJvoGW7pSIh24+A/i1wTKXbwnJnC5vsKZMfLvLHu9QzriaJVknWde/f+++EduRX
-	 S7zfOTYU0FiF6Iv4F4m60xWo9kDWldaqKEeVy2qGtgFfIFjHa2Qa9s8vg9zmFpaw5w3HR
-	 OvJSmTQ16Hjirf4RLZhtKLbNUBB9Pzm4lJojd1THa6nDrxA8qFiSIy4gjCySVra+/yyhu
-	 W6XbCIYeqEBZhQrP22C1wsvd5nOnalXafafrPrNrKxPoFBHzaGrogk5xVCiRRD4iHVBYI
-	 zKTdp4J4jXM4PiXbOPeQeEYD3TUEJ7LpbGx5tlLv50op5KeWf/TFSObHwD3HNK/mefw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794896462;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=NMCfTKaQFPqIG16pX0W13wdOlIRyQ9c9PPUggitB6aQ=;
+	b=a8sS0zH/sD2oe/YOSTvo6JYr0z71izpYAUJUfhdzTGsrFZVQh/6Gk2HyuxUMC7rtBm3D
+	 dRCXzITdKfTtEA8f8uTWOb/cDWakBLrdVMsCPxkEaw18lBQ/1ZF/nK7Np7ON6shRFZimg
+	 NJjc1npXLb4t8XBxQaLqnuQly7NaMXE2R027bsAgZnTpWDsMhz8bw5sw0oKX0ZQhlQBdB
+	 NnJHxJ/yQpEcO0kpoV84LizpB/r9x+7rvBmjmq1se7pXEwddarz8srWBquP8loHmxgCeK
+	 7NTNKtM5h/R7ofrVYlEMYjVoKEGPwPqoM+jevyWY2hJzocRmE9iPKZMwl/EUVtptk+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=XQF4UuSz;
-	arc=none smtp.remote-ip=209.85.216.99
-Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=TJd0wc9G;
+	arc=none smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AC33606A329
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:18:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AC33606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 410BB606A329
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:21:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 410BB606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=XQF4UuSz
-Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3b3a9a4a765so449557a91.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:18:50 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794896330; x=1795501130;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=g11jkbPK9Uh4LjBxzLSwdZi+/FJusJ93KkbRXJ+PPXg=;
-        b=zkjg06vpCVFjE1b6jaCwHhQS2LA0ygOp6Ro3P5ZbKddLtAIQ+/GnNDtgb81YCYkZiq
-         tcxgfMnkkOZ651Fzjfq3XgzgCfA7lgODT08NaRKFk4An2bf3oaLx8Onz++vBC2tjWiDL
-         2vE2qafHcJ42mo6yUEyC46oM0LuKWLdU8bsvKyJhaKGQa6ACG939FWdfNQK2Ceqk6eyt
-         mEGoqihhANBykveQZSEWhGLXM3T11Kl4fFiuUtk1cqdK/GasSy3ij/NPnm9cYDaAg3BK
-         qxmu56oCCETpUSoQtQa94R/7Av/P3sh560sRUHzmxCDUQBk+cVdF/K032oDrR1+O2Hg7
-         5Cbg==
-X-Gm-Message-State: APuU4Z87DYeZLJuCsnAHa9vOFHq86Ya8qStFEH0kWk3n9AHmx1a2GS40
-	2bzc697VQG9/8G++rCeAnNo2BrEPeloxrhzEB4fMJyWoSIbKRw7ilDJU9uUu+IgZxIo8gSoJCYM
-	uL8nAPUEdkFDc+ApXnbVl98qPATuTKzABbUXO6D/3l9ScE2c3Z2TB7ZjUCtdas8MZrT3sT1AxFE
-	4rZ1QvpziWYabcv+uZ6djwdLKt8stkdaHrrazxm0Cu7VjMAIvhPMnBz6ArgC++wD0mzbZaXfr7a
-	DtaaFBb6j8NwRc3MA==
-X-Gm-Gg: AZFdTZcXVrLvlh85ZZFMi6iIJBHhsJH1POT4HoZeftPR8a9amMEumSlYavm39HYC5FQ
-	X+J63/Ig/XdzKTc+RGvPUi7JhnkFN3RtKgxGPz1G9xDn9VmcOylL0sBdqlKPWsaHv23fXYWfnl+
-	WDxqhpMB/khC/8vedIU+6lcICdFeWVT0eOOAInINCuM81m3U7cy/HYXzZ1YzUSwuHSH2c0vVZw9
-	qzrDOMXnmwSIfSUB09O4yLkKkl2uDfCniXrwySjjUBWQEOWPUrxhkEXrXY1gcZUzb30MUluJ+Yn
-	Re2HOtVqemby3TpDkMKUeUo0ywFD2oiEYb7UhI8rvHl3dvQSWdR64mSRe1Gs3uk3TqeJPPC/h8w
-	g5SFdDG0khmnzdLdDpw8D72QpxL0MhQ9Gmy8oYij0NPiVtwDlaPH4xlzgVBrvXZGtJKtWApZ3ot
-	Om5Tjwrz6fm6jdYdVCbLVn8G/csm+UHLbbl6qVKzAsHTqv
-X-Received: by 2002:a17:90b:35c8:b0:3ac:e6a:1b2b with SMTP id 98e67ed59e1d1-3b1b05ea8cfmr11854531a91.0.1794896329602;
-        Mon, 16 Nov 2026 22:18:49 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b1b3a71eb9sm6673022a91.4.2026.11.16.22.18.49
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 16 Nov 2026 22:18:49 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cdd9fa2a558so4321746a12.0
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:18:48 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=TJd0wc9G
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2ed408b0d9dso16400515ad.2
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 22:21:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794896328; x=1795501128; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+        d=iiitd.ac.in; s=google; t=1794896460; x=1795501260; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NMCfTKaQFPqIG16pX0W13wdOlIRyQ9c9PPUggitB6aQ=;
+        b=TJd0wc9Ga+6W0cZx0oRDki6Ui8R7jndpZyKiFsjPr7lCT2gmY/5yL8ZydIIGgHOQxF
+         r2YC0YqZNsZSZm1T/O7kooooFoeigqFzkjgpWkf15SZ/aiSn8u9gjv64o7GupjMP67HX
+         4OzYSCYTI1sMSTa+sws9V2SGuE3cw+l6ScSV0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794896460; x=1795501260;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=g11jkbPK9Uh4LjBxzLSwdZi+/FJusJ93KkbRXJ+PPXg=;
-        b=XQF4UuSz4ko+OHuZXQEmWvybXMoXQwKXYf/IlQdpK5z9T+HvS7Meyjt5HIOgYIJOzx
-         ukxSR+YKb2XT0NfX9WMArp0YvubnsRnXisYQHDQfIdD+LXI4lZy+wYVg8Gl7rskMXIfk
-         QVaHrMi4s9jOIEpCnX2JosPVou2iE5qS+FZU4=
-X-Received: by 2002:a17:903:2410:b0:2ef:d981:9576 with SMTP id d9443c01a7336-2efd981ab84mr18000315ad.54.1794896327375;
-        Mon, 16 Nov 2026 22:18:47 -0800 (PST)
-X-Received: by 2002:a17:903:2410:b0:2ef:d981:9576 with SMTP id d9443c01a7336-2efd981ab84mr18000085ad.54.1794896326753;
-        Mon, 16 Nov 2026 22:18:46 -0800 (PST)
-Received: from localhost.localdomain ([192.19.203.250])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd76d8668sm8669335ad.6.2026.11.16.22.18.41
+        bh=NMCfTKaQFPqIG16pX0W13wdOlIRyQ9c9PPUggitB6aQ=;
+        b=B0AOVXBn0fkF5uERwi4S4ViPag/bnGss7knsvvDghCocgSCK+uePQqMRoAze3UZ1in
+         HeTs7zIvX/oAcX6K6Vxg8aqrpk55bNG1cPDbfNSyLpgo3ML7VCtTap/V/UtJiP8vWvJW
+         ICpa/wFHvU5Tl8pAYQvxnIUYeldOruj9G79ID8Mevk2nYbk2lRayBa6fnTqrjze8dOUr
+         Oe1bsqlOgnpRnsTkoTxcB6FIsjJtRTvOZULdZBHd93Yc8c948VhNNCJDje4t41AOKvO2
+         UfoXMocLffTT2GxACdegUeuKnyR5aDBwrjvhkeEC2dvGdn6KRds3LMuYm/JjAiNVhLu6
+         R8pg==
+X-Forwarded-Encrypted: i=1; AL+hErEvDbi7EhSmaCQMRGzB3V83o4PqBSSzPcoBR4ANUS155OoXDaF3HYOipU6I18hTK9hHUlvLUQk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+7SkN04dZiyO0WIIJ2gi5JEuwxCABYqBL3QzoI/O/3Z21bM183
+	cUn3M6mRbQ667+1wqiKYUHehwAFUNwTKRzBmegpJ9z/FNhU1V52xTvBgJrmolH5/wMQ=
+X-Gm-Gg: AZFdTZdtZzFQtJP6cp34NHDLsLqnsS1qM4bOemOB5iom1Fv1HlFbHrsbQmF4Vm4PKzn
+	A191zrc+rdwg4bDjsWG+IwwKG9JTBPeBDy4qBQ4LCzpxMVk98yLKOLWBeRO60iu1qMtTxrvpIBh
+	YrMSKYK3zH3bpO7p5hmGUbOnaF5s1WKFb9i/k6EFGf9r67CSOgya89Tj5kppV8NBqE3jTEaB757
+	DcNgqBNQRcjesGqBDlAFmpakmB2wD4soqiwB3xdDdrF7ABptze02iky5iLJRCx3Nvmb3RnBYTOi
+	WSGNeNaxnRFSrHq4wh20HupvshggbXojw7S+NLjTXZTYVCnFLK2tGhsbnSXdiKnRUDXymJ8LPrK
+	7OC/nRp7GSTsSb+U+ppX6NvQFNlf3G1HVrkpGnS80YW7osNn+WTdVN5RongUvGGd+BJW/5cTuHV
+	Ts9EdilP5EOqLkO/ZkKIs286/KcLGFu9PWVegHPVBiJl69zE0rcc9AsVp5cp+m+G5hA7gPnact2
+	26M1Kdrp2DZ6JDl+pG4e5mnf80J9QfXK7BOSKWh2rvM3+I4jYfafdE42W/Xj2DV3ydqmCMoh/L5
+	N7QMY6r7teFUPcW590zUUSxLSTeeBbmWHwMdtMnY8gpjxF65mZZn9z7bQjj4tuuMbLljkiK5K1i
+	+qKzWuqY1qjyqKS8ne+1pKmXErLL2sEJKaxb2mbOc+mhEfu/PXq7HZRx7f3sTqYJ2heMajFncHj
+	NmgXjdsqA5Xw==
+X-Received: by 2002:a17:902:ce0c:b0:2ef:e59b:f562 with SMTP id d9443c01a7336-2efe59bf9a2mr1743065ad.58.1794896460203;
+        Mon, 16 Nov 2026 22:21:00 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd7a3797esm8112765ad.31.2026.11.16.22.20.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 22:18:46 -0800 (PST)
-From: Bhargava Marreddy <bhargava.marreddy@broadcom.com>
-To: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org
-Cc: netdev@vger.kernel.org,
+        Mon, 16 Nov 2026 22:20:59 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S . Miller" <davem@davemloft.net>,
+	Andrea Mayer <andrea.mayer@uniroma2.it>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	michael.chan@broadcom.com,
-	pavan.chebbi@broadcom.com,
-	vsrama-krishna.nemani@broadcom.com,
-	vikas.gupta@broadcom.com,
-	Bhargava Marreddy <bhargava.marreddy@broadcom.com>,
-	Dharmender Garg <dharmender.garg@broadcom.com>,
-	Rajashekar Hudumula <rajashekar.hudumula@broadcom.com>,
-	Ramakrishna Koduri <ramakrishna.koduri@broadcom.com>,
-	Rahul Gupta <rahul-rg.gupta@broadcom.com>
-Subject: [PATCH net-next v5 5/5] bnge: create NQ0 during probe and keep it active across open/close
-Date: Tue, 17 Nov 2026 06:16:41 +0000
-Message-ID: <20261117061641.122942-6-bhargava.marreddy@broadcom.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261117061641.122942-1-bhargava.marreddy@broadcom.com>
-References: <20261117061641.122942-1-bhargava.marreddy@broadcom.com>
+	Kapil Vaswani <kapil@presceralabs.ai>,
+	Piyus Kedia <piyus@iiitd.ac.in>
+Subject: [PATCH net v2] xfrm: do not write the ethernet header when the mac header is unset
+Date: Tue, 17 Nov 2026 11:50:46 +0530
+Message-Id: <20261117062046.3286096-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -124,633 +104,173 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Unlike the other NQs, NQ0 is not only a datapath queue. Besides Rx/Tx
-completions it also delivers firmware async events (including link
-events). It is currently created in ndo_open() and destroyed in
-ndo_stop(), so async events are not received while the interface is
-down.
+xfrm4_remove_tunnel_encap() and xfrm6_remove_tunnel_encap() restore the
+mac header after removing the tunnel header and then stamp the protocol
+into it:
 
-Create NQ0 once at probe and keep it, together with its MSI-X vector,
-until remove. NAPI is not kept around: as for every other NQ, NQ0's NAPI
-exists only between ndo_open() and ndo_stop(). A dedicated async-only
-vector would avoid sharing but would cost one MSI-X per function, taking
-it away from the Rx/Tx queues, so NQ0's vector is shared instead.
+	skb_reset_network_header(skb);
+	skb_mac_header_rebuild(skb);
+	if (skb->mac_len)
+		eth_hdr(skb)->h_proto = skb->protocol;
 
-The vector's handler serves NQ0 in one of two ways, selected by the new
-BNGE_STATE_NQ0_NAPI bit:
+skb_mac_header_rebuild() does nothing at all when the mac header was
+never set:
 
-  - NAPI mode (interface up): the handler schedules NQ0's NAPI, which
-    handles Rx/Tx, async and HWRM events.
+	static inline void skb_mac_header_rebuild(struct sk_buff *skb)
+	{
+		if (skb_mac_header_was_set(skb)) {
+			...
+		}
+	}
 
-  - Worker mode (interface down): there is no NAPI instance, so the
-    handler queues nq0_work. The worker runs bnge_nq0_poll(), which
-    handles async events, discards completion notifications for CQs
-    (none exist while down) and re-arms the NQ.
+and it does not clear skb->mac_len either, so on an skb whose mac header
+has been unset while mac_len stayed behind, the guard is true and the
+store goes through an unset header.  skb_mac_header() is
+skb->head + skb->mac_header and the unset value of that u16 is 0xffff,
+so eth_hdr(skb)->h_proto is 65535 + offsetof(struct ethhdr, h_proto)
+bytes past skb->head: a two-byte out-of-bounds write landing far outside
+the skb, in whatever object happens to be there.
 
-The mode changes only in open and stop, with NQ0's IRQ disabled and
-nq0_work cancelled, so one context consumes NQ0 at a time. At open,
-bnge_enable_int() arms NQ0 while its IRQ is still disabled; the IRQ is
-enabled again only after the NAPI mode bit is set. Unread
-notifications for the destroyed rings are dropped before NAPI is
-re-enabled, so bnge_napi_poll() needs no bounds check on the CQ handle.
+skb_unset_mac_header() leaves skb->mac_len alone, and of its callers only
+skb_carve_reset_headers() clears mac_len by hand.  end_dt_vrf_rcv()
+(SRv6 End.DT4/End.DT6) unsets the mac header on the receive path so the
+VRF device can rebuild it, and leaves mac_len at the value the original
+ethernet frame had, which is how an skb in this state reaches xfrm input:
 
-nq0_work runs on a dedicated ordered workqueue, nq0_wq.
+  tun_get_user -> netif_receive_skb -> lwtunnel_input
+    -> seg6_local_input_core -> End.DT4 -> end_dt_vrf_rcv
+    -> skb_unset_mac_header (mac_len stays 14)
+    -> VRF l3_rcv -> ip_local_deliver_finish -> xfrm4_esp_rcv
+    -> xfrm_input -> xfrm4_remove_tunnel_encap
 
-Async events received while the interface is down are queued to
-sp_task, which ignores them until open. This patch only makes NQ0
-persistent across open/close; acting on events received while down is
-left for later. Link state and module status are read again at the end
-of open; PHY capabilities are not re-queried, as before this patch.
+  BUG: KASAN: slab-out-of-bounds in xfrm4_remove_tunnel_encap+0x17d/0x220
+       net/xfrm/xfrm_input.c:258
+  Write of size 2 at addr ffff88805f85800b by task syz-executor/10831
+  ...
+  The buggy address belongs to the object at ffff88805f858000
+   which belongs to the cache zswap_entry of size 56
 
-NQ0 always uses irq_tbl[0], independent of the aux (RoCE) vector count.
+The address does not depend on mac_len - it is always
+skb->head + 0xffff + offsetof(struct ethhdr, h_proto), since the unset
+sentinel is what mac_header holds - and mac_len only decides whether the
+write happens.  The value is skb->protocol.  It is two bytes at a fixed
+64KB offset, crossing into an unrelated slab cache.
 
-User-visible and behavioral changes:
+A THIRD SITE HAS THE SAME THREE LINES, in __input_process_payload()
+(net/xfrm/xfrm_iptfs.c), reached when an IPTFS payload is decapsulated:
 
-  - NQ0's vector is named <pci_name>-nq0 and remains requested while the
-    interface is down. It no longer appears as <ifname>-TxRx-0 (or
-    <ifname>-rx-0) in /proc/interrupts. Other vectors keep their names.
-  - BNGE_FIRST_OPEN_NQ becomes 1, so aux (RoCE) vectors start at
-    irq_tbl[1], and the ring_idx handed to the RoCE driver shifts
-    accordingly.
-  - The async event completion ring is configured once at probe rather
-    than on every open. If NQ0 or this configuration fails, probe now
-    fails; previously a configuration failure only logged a warning
-    during open.
+	skb->protocol = protocol;
+	skb_mac_header_rebuild(skb);
+	if (skb->mac_len)
+		eth_hdr(skb)->h_proto = skb->protocol;
 
-NQ0's NAPI is stopped together with the other NQs in
-bnge_hwrm_ring_free(), after the Tx/Rx/Agg ring frees and before the NQs
-are masked. This is needed because NQ0 now stays allocated after close,
-so an NQ0 poll must not race with the doorbell write that follows.
-synchronize_net() waits for a poll that is still writing the doorbell
-after napi_complete_done(). The other NQs get the same ordering on close
-as a side effect.
+and it has its own KASAN report, a use-after-free rather than an
+out-of-bounds, for the reason given below.
 
-This relies on firmware keeping NQ0 and the async event completion ring
-configured across FUNC_DRV_IF_CHANGE down/up.
+That function already knows the test is needed.  Its other mac-header path
+is guarded by old_mac, which it computes at the top as
 
-Signed-off-by: Bhargava Marreddy <bhargava.marreddy@broadcom.com>
-Reviewed-by: Dharmender Garg <dharmender.garg@broadcom.com>
-Reviewed-by: Rajashekar Hudumula <rajashekar.hudumula@broadcom.com>
-Reviewed-by: Ramakrishna Koduri <ramakrishna.koduri@broadcom.com>
-Reviewed-by: Rahul Gupta <rahul-rg.gupta@broadcom.com>
-Reviewed-by: Vikas Gupta <vikas.gupta@broadcom.com>
+	old_mac = skb_mac_header_was_set(skb) ? skb_mac_header(skb) : NULL;
+
+and only rebuilds the header when that is non-NULL.  The site above omits
+the same check.
+
+WHY THE THREE REPORTS CARRY DIFFERENT TITLES, which is worth stating so
+they are not read as three defects.  The address written is a fixed
+skb->head + 0xffff + offsetof(struct ethhdr, h_proto), so what it lands in
+is whatever the allocator placed 16 pages past the skb: a live object gives
+slab-out-of-bounds, a freed one or a page back on the buddy free list gives
+use-after-free, and a different LIVE object gives nothing at all, since
+generic KASAN only tests whether the target address is poisoned.  Across
+six boots of one reproducer the write executed in five and KASAN reported
+it in one.  On a kernel without KASAN it is always silent.
+
+Only write the ethernet header when there is one.  This mirrors what
+xfrm4_transport_input() already does, where the header length is taken as
+skb_mac_header_was_set(skb) ? skb_mac_header_len(skb) : 0, and what
+__input_process_payload() already does for old_mac, and it leaves the
+behaviour of every well-formed skb unchanged.
+
+Link: https://lore.kernel.org/r/20261116174531.2540348-2-piyus@iiitd.ac.in
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
 ---
- drivers/net/ethernet/broadcom/bnge/bnge.h     |  10 +-
- .../net/ethernet/broadcom/bnge/bnge_netdev.c  | 215 ++++++++++++++++--
- .../net/ethernet/broadcom/bnge/bnge_netdev.h  |   5 +
- .../net/ethernet/broadcom/bnge/bnge_txrx.c    |  56 +++++
- .../net/ethernet/broadcom/bnge/bnge_txrx.h    |   3 +
- 5 files changed, 269 insertions(+), 20 deletions(-)
 
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge.h b/drivers/net/ethernet/broadcom/bnge/bnge.h
-index 5f7147baaf83..64c792b278ad 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge.h
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge.h
-@@ -238,12 +238,14 @@ struct bnge_dev {
- #define bnge_warn(bd, fmt, ...)	bnge_log(warn, bd, fmt, ##__VA_ARGS__)
- #define bnge_dbg(bd, fmt, ...)	bnge_log(dbg, bd, fmt, ##__VA_ARGS__)
+v2:
+  - guard the third site, net/xfrm/xfrm_iptfs.c in __input_process_payload().
+    It has the same three lines and its own KASAN report, a use-after-free,
+    and v1 left it alone - which would have closed two write sites of the
+    three while leaving a confirmed one live.
+  - say why the three reports carry different titles (slab-out-of-bounds,
+    use-after-free, use-after-free): the address is fixed relative to
+    skb->head, so the verdict is decided by whatever the allocator put 16
+    pages later, and a live neighbour gives no report at all.
+  - cite __input_process_payload()'s own old_mac computation as the in-tree
+    precedent alongside xfrm4_transport_input()'s.
+
+  No change to the two hunks v1 carried.
+
+Tested at runtime on mainline before and after: both kernels built from
+aebb72744764 ("Linux 7.4-rc3") in one scripted run, x86_64 with
+CONFIG_KASAN_GENERIC, CONFIG_DEBUG_NET, CONFIG_IPV6_SEG6_LWTUNNEL and
+CONFIG_NET_VRF. Six boots each, injecting after the uptime passed 130s. The
+skb_reset_mac_len() warnings at include/linux/skbuff.h:2995 are the control:
+they fire when the unset-header skb reaches the receive path and this patch
+does not touch that site.
+
+                  skb came through   reached the write   KASAN
+  unpatched         5 of 6 boots       5 of 5             1
+  patched           2 of 6 boots       0 of 2             0
+
+Every unpatched boot in which the skb arrived reached the write; no patched
+boot did, including the two in which the control shows the same skb arriving.
+The one-in-five KASAN rate is the point made in the changelog about the
+verdict depending on the neighbour.
+
+checkpatch reports one thing, the missing Fixes: tag. Neither tree we
+reproduced on carries history for these files, so we could not determine the
+introducing commit; we will add it if you can name it.
+
+ net/xfrm/xfrm_input.c | 4 ++--
+ net/xfrm/xfrm_iptfs.c | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/net/xfrm/xfrm_input.c b/net/xfrm/xfrm_input.c
+index 5ed87d513..624ff8055 100644
+--- a/net/xfrm/xfrm_input.c
++++ b/net/xfrm/xfrm_input.c
+@@ -254,7 +254,7 @@ static int xfrm4_remove_tunnel_encap(struct xfrm_state *x, struct sk_buff *skb)
  
--/* Index of the first NQ created in ndo_open() and destroyed in ndo_stop();
-- * lower NQs live from probe to remove.
-+/* Index of the first NQ created in ndo_open() and destroyed in ndo_stop().
-+ * NQ0 (index 0) lives from probe to remove and is managed by
-+ * bnge_nq0_init()/uninit() and the nq0 handoff helpers; therefore,
-+ * bnge_for_each_open_nq() skips it.
-  *
-- * irq_tbl order: probe-time NQs, aux (RoCE) vectors, open-time NQs.
-+ * irq_tbl order: NQ0, aux (RoCE) vectors, open-time NQs.
-  */
--#define BNGE_FIRST_OPEN_NQ	0
-+#define BNGE_FIRST_OPEN_NQ	1
+ 	skb_reset_network_header(skb);
+ 	skb_mac_header_rebuild(skb);
+-	if (skb->mac_len)
++	if (skb_mac_header_was_set(skb) && skb->mac_len)
+ 		eth_hdr(skb)->h_proto = skb->protocol;
  
- #define bnge_for_each_open_nq(i, bd) \
- 	for ((i) = BNGE_FIRST_OPEN_NQ; (i) < (bd)->nq_nr_rings; (i)++)
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-index a9cae94c2a62..8b184978da23 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.c
-@@ -1215,10 +1215,20 @@ static int bnge_init_ring_grps(struct bnge_net *bn)
- 		bn->grp_info[i].agg_fw_ring_id = INVALID_HW_RING_ID;
- 		bn->grp_info[i].nq_fw_ring_id = INVALID_HW_RING_ID;
- 	}
-+	/* NQ0 stays allocated in FW across open/close */
-+	bn->grp_info[0].nq_fw_ring_id =
-+		(u16)bn->nq0->nq_ring.ring_struct.fw_ring_id;
+ 	err = 0;
+@@ -291,7 +291,7 @@ static int xfrm6_remove_tunnel_encap(struct xfrm_state *x, struct sk_buff *skb)
  
- 	return 0;
- }
+ 	skb_reset_network_header(skb);
+ 	skb_mac_header_rebuild(skb);
+-	if (skb->mac_len)
++	if (skb_mac_header_was_set(skb) && skb->mac_len)
+ 		eth_hdr(skb)->h_proto = skb->protocol;
  
-+static void bnge_nq0_clear_rings(struct bnge_net *bn)
-+{
-+	bn->nq0->rx_ring = NULL;
-+	memset(bn->nq0->tx_ring, 0, sizeof(bn->nq0->tx_ring));
-+	bn->nq0->events = 0;
-+}
-+
- static void bnge_free_core(struct bnge_net *bn)
- {
- 	bnge_free_vnic_attributes(bn);
-@@ -1235,6 +1245,7 @@ static void bnge_free_core(struct bnge_net *bn)
- 	bn->tx_ring = NULL;
- 	kfree(bn->rx_ring);
- 	bn->rx_ring = NULL;
-+	bnge_nq0_clear_rings(bn);
- 	kfree(bn->bnapi);
- 	bn->bnapi = NULL;
- }
-@@ -1249,12 +1260,15 @@ static int bnge_alloc_core(struct bnge_net *bn)
- 	arr_size = L1_CACHE_ALIGN(sizeof(struct bnge_napi *) *
- 			bd->nq_nr_rings);
- 	size = L1_CACHE_ALIGN(sizeof(struct bnge_napi));
--	bnapi = kzalloc(arr_size + size * bd->nq_nr_rings, GFP_KERNEL);
-+	bnapi = kzalloc(arr_size +
-+			size * (bd->nq_nr_rings - BNGE_FIRST_OPEN_NQ),
-+			GFP_KERNEL);
- 	if (!bnapi)
- 		return rc;
+ 	err = 0;
+diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
+index 0313a43aa..41af72a92 100644
+--- a/net/xfrm/xfrm_iptfs.c
++++ b/net/xfrm/xfrm_iptfs.c
+@@ -1099,7 +1099,7 @@ static bool __input_process_payload(struct xfrm_state *x, u32 data,
  
- 	bn->bnapi = bnapi;
- 	bnapi += arr_size;
-+	bn->bnapi[0] = bn->nq0;
- 	bnge_for_each_open_nq(i, bd) {
- 		bn->bnapi[i] = bnapi;
- 		bn->bnapi[i]->index = i;
-@@ -1366,6 +1380,7 @@ static int bnge_alloc_core(struct bnge_net *bn)
- 	kfree(bn->rx_ring);
- 	bn->rx_ring = NULL;
- err_free_bnapi:
-+	bnge_nq0_clear_rings(bn);
- 	kfree(bn->bnapi);
- 	bn->bnapi = NULL;
- 	return rc;
-@@ -1979,18 +1994,12 @@ static int bnge_hwrm_ring_alloc(struct bnge_net *bn)
- 	agg_rings = !!(bnge_is_agg_reqd(bd));
- 	bnge_for_each_open_nq(i, bd) {
- 		struct bnge_napi *bnapi = bn->bnapi[i];
--		struct bnge_ring_struct *ring = &bnapi->nq_ring.ring_struct;
+ 				skb->protocol = protocol;
+ 				skb_mac_header_rebuild(skb);
+-				if (skb->mac_len)
++				if (skb_mac_header_was_set(skb) && skb->mac_len)
+ 					eth_hdr(skb)->h_proto = skb->protocol;
  
- 		rc = bnge_hwrm_nq_alloc(bn, bnapi);
- 		if (rc)
- 			goto err_out;
--		bn->grp_info[i].nq_fw_ring_id = (u16)ring->fw_ring_id;
--
--		if (!i) {
--			rc = bnge_hwrm_set_async_event_cr(bd, ring->fw_ring_id);
--			if (rc)
--				netdev_warn(bn->netdev, "Failed to set async event completion ring.\n");
--		}
-+		bn->grp_info[i].nq_fw_ring_id =
-+			(u16)bnapi->nq_ring.ring_struct.fw_ring_id;
- 	}
- 
- 	for (i = 0; i < bd->tx_nr_rings; i++) {
-@@ -2455,6 +2464,8 @@ static void bnge_disable_napi(struct bnge_net *bn)
- 
- 		napi_disable_locked(&bnapi->napi);
- 	}
-+
-+	synchronize_net();
- }
- 
- static void bnge_enable_napi(struct bnge_net *bn)
-@@ -2604,6 +2615,10 @@ static void bnge_hwrm_ring_free(struct bnge_net *bn, bool close_path)
- 		bnge_hwrm_rx_agg_ring_free(bn, &bn->rx_ring[i], close_path);
- 	}
- 
-+	/* Keep after ring frees: their HWRM completions need NAPI. */
-+	if (close_path)
-+		bnge_disable_napi(bn);
-+
- 	/* The completion rings are about to be freed.  After that the
- 	 * IRQ doorbell will not work anymore.  So we need to disable
- 	 * IRQ here.
-@@ -2695,7 +2710,6 @@ static int bnge_nq_request_irq(struct bnge_net *bn, struct bnge_napi *bnapi)
- 	if (rc)
- 		return rc;
- 
--	netif_napi_set_irq_locked(&bnapi->napi, irq->vector);
- 	irq->requested = 1;
- 
- 	if (zalloc_cpumask_var(&irq->cpu_mask, GFP_KERNEL)) {
-@@ -2850,9 +2864,14 @@ static void bnge_init_napi(struct bnge_net *bn)
- 	int i;
- 
- 	for (i = 0; i < bd->nq_nr_rings; i++) {
-+		int map_idx;
-+
- 		bnapi = bn->bnapi[i];
-+		map_idx = bnapi->nq_ring.ring_struct.map_idx;
- 		netif_napi_add_config_locked(bn->netdev, &bnapi->napi,
- 					     bnge_napi_poll, bnapi->index);
-+		netif_napi_set_irq_locked(&bnapi->napi,
-+					  bd->irq_tbl[map_idx].vector);
- 	}
- }
- 
-@@ -2876,6 +2895,91 @@ static void bnge_del_napi(struct bnge_net *bn)
- 	synchronize_net();
- }
- 
-+static int bnge_nq0_init(struct bnge_net *bn)
-+{
-+	struct bnge_nq_ring_info *nqr;
-+	struct bnge_dev *bd = bn->bd;
-+	struct bnge_napi *bnapi;
-+	struct bnge_irq *irq;
-+	int rc;
-+
-+	/* NQ0 helpers hard-code NQ index 0 */
-+	BUILD_BUG_ON(BNGE_FIRST_OPEN_NQ != 1);
-+
-+	bnapi = kzalloc_obj(*bnapi);
-+	if (!bnapi)
-+		return -ENOMEM;
-+
-+	bnapi->bn = bn;
-+	bnapi->index = 0;
-+	bn->nq0 = bnapi;
-+	nqr = &bnapi->nq_ring;
-+
-+	/* NQ0 always sits at irq_tbl[0], independent of the aux vector count.
-+	 * Its ring size is fixed here; a later change to bn->cp_* must
-+	 * re-create NQ0.
-+	 */
-+	rc = bnge_alloc_nq(bn, bnapi, 0);
-+	if (rc)
-+		goto err_free_bnapi;
-+
-+	irq = &bd->irq_tbl[nqr->ring_struct.map_idx];
-+	irq->handler = bnge_nq0_msix;
-+	snprintf(irq->name, sizeof(irq->name), "%s-nq0", pci_name(bd->pdev));
-+
-+	rc = bnge_nq_request_irq(bn, bnapi);
-+	if (rc)
-+		goto err_free_nq;
-+
-+	rc = bnge_hwrm_nq_alloc(bn, bnapi);
-+	if (rc)
-+		goto err_free_irq;
-+
-+	rc = bnge_hwrm_set_async_event_cr(bd, nqr->ring_struct.fw_ring_id);
-+	if (rc) {
-+		bnge_err(bd, "Failed to set async event completion ring: %d\n",
-+			 rc);
-+		goto err_free_hwrm;
-+	}
-+
-+	/* BNGE_STATE_NQ0_NAPI is clear, so from here on the ISR queues
-+	 * nq0_work. nq0_wq must already exist.
-+	 * This is the first arm, so keep it last: the unwind above does not
-+	 * cancel nq0_work.
-+	 */
-+	BNGE_DB_NQ_ARM(bd, &nqr->nq_db, nqr->nq_raw_cons);
-+	return 0;
-+
-+err_free_hwrm:
-+	bnge_hwrm_nq_free(bn, bnapi);
-+err_free_irq:
-+	bnge_nq_free_irq(bn, bnapi);
-+err_free_nq:
-+	bnge_free_nq(bn, bnapi);
-+err_free_bnapi:
-+	kfree(bnapi);
-+	bn->nq0 = NULL;
-+	return rc;
-+}
-+
-+static void bnge_nq0_quiesce(struct bnge_net *bn)
-+{
-+	bnge_nq_free_irq(bn, bn->nq0);
-+	cancel_work_sync(&bn->nq0_work);
-+}
-+
-+static void bnge_nq0_uninit(struct bnge_net *bn)
-+{
-+	struct bnge_napi *bnapi = bn->nq0;
-+
-+	bnge_nq0_quiesce(bn);
-+
-+	bnge_hwrm_nq_free(bn, bnapi);
-+	bnge_free_nq(bn, bnapi);
-+	kfree(bnapi);
-+	bn->nq0 = NULL;
-+}
-+
- static int bnge_init_nic(struct bnge_net *bn)
- {
- 	int rc;
-@@ -2963,11 +3067,28 @@ static int bnge_hwrm_if_change(struct bnge_dev *bd, bool up)
- 	return bnge_hwrm_req_send(bd, req);
- }
- 
-+/* Hand NQ0 from nq0_work to NAPI. NQ0's NAPI was already enabled by
-+ * bnge_enable_napi(). The caller keeps NQ0's IRQ disabled; it is re-enabled
-+ * here.
-+ */
-+static void bnge_nq0_wq_to_napi(struct bnge_net *bn)
-+{
-+	struct bnge_nq_ring_info *nqr = &bn->nq0->nq_ring;
-+	struct bnge_dev *bd = bn->bd;
-+
-+	set_bit(BNGE_STATE_NQ0_NAPI, &bn->state);
-+	enable_irq(bd->irq_tbl[nqr->ring_struct.map_idx].vector);
-+}
-+
- static int bnge_open_core(struct bnge_net *bn)
- {
-+	struct bnge_nq_ring_info *nqr0 = &bn->nq0->nq_ring;
- 	struct bnge_dev *bd = bn->bd;
-+	unsigned int vector0;
- 	int rc;
- 
-+	vector0 = bd->irq_tbl[nqr0->ring_struct.map_idx].vector;
-+
- 	netif_carrier_off(bn->netdev);
- 
- 	rc = bnge_hwrm_if_change(bd, true);
-@@ -2982,10 +3103,19 @@ static int bnge_open_core(struct bnge_net *bn)
- 		goto err_if_change;
- 	}
- 
-+	disable_irq(vector0);
-+	cancel_work_sync(&bn->nq0_work);
-+
-+	/* Clear sp_event bits left by events seen while down. Nothing can set
-+	 * them here: NQ0's IRQ is off, nq0_work is cancelled and the timer is
-+	 * stopped. Link state is read again at the end of open.
-+	 */
-+	WRITE_ONCE(bn->sp_event, 0);
-+
- 	rc = bnge_alloc_core(bn);
- 	if (rc) {
- 		netdev_err(bn->netdev, "bnge_alloc_core err: %d\n", rc);
--		goto err_if_change;
-+		goto err_nq0_resume;
- 	}
- 
- 	bnge_init_napi(bn);
-@@ -3017,6 +3147,7 @@ static int bnge_open_core(struct bnge_net *bn)
- 	set_bit(BNGE_STATE_STATS_ENABLE, &bn->state);
- 
- 	bnge_enable_int(bn);
-+	bnge_nq0_wq_to_napi(bn);
- 
- 	bnge_tx_enable(bn);
- 
-@@ -3032,6 +3163,10 @@ static int bnge_open_core(struct bnge_net *bn)
- err_del_napi:
- 	bnge_del_napi(bn);
- 	bnge_free_core(bn);
-+err_nq0_resume:
-+	/* Drop CQ notifications left by the failed bring-up; re-arms NQ0 */
-+	bnge_nq0_poll(bn);
-+	enable_irq(vector0);
- err_if_change:
- 	bnge_hwrm_if_change(bd, false);
- 	return rc;
-@@ -3233,6 +3368,30 @@ static void bnge_save_ring_stats(struct bnge_net *bn)
- 	}
- }
- 
-+/* Hand NQ0 from NAPI to nq0_work. Call with the netdev lock held, after the
-+ * rings were destroyed in FW (bnge_shutdown_nic()), which also stopped NQ0's
-+ * NAPI through bnge_disable_napi(). The IRQ is off while NQ0 changes hands
-+ * and is re-enabled last, so the ISR queues nq0_work from then on.
-+ */
-+static void bnge_nq0_napi_to_wq(struct bnge_net *bn)
-+{
-+	struct bnge_nq_ring_info *nqr = &bn->nq0->nq_ring;
-+	struct bnge_dev *bd = bn->bd;
-+	unsigned int vector;
-+
-+	vector = bd->irq_tbl[nqr->ring_struct.map_idx].vector;
-+
-+	disable_irq(vector);
-+	/* Nothing should be pending; cancel so bnge_nq0_poll() below cannot
-+	 * overlap the worker
-+	 */
-+	cancel_work_sync(&bn->nq0_work);
-+	clear_bit(BNGE_STATE_NQ0_NAPI, &bn->state);
-+	/* Drop CQ notifications left by the destroyed rings; re-arms NQ0 */
-+	bnge_nq0_poll(bn);
-+	enable_irq(vector);
-+}
-+
- static void bnge_close_core(struct bnge_net *bn)
- {
- 	struct bnge_dev *bd = bn->bd;
-@@ -3243,7 +3402,8 @@ static void bnge_close_core(struct bnge_net *bn)
- 
- 	timer_delete_sync(&bn->timer);
- 	bnge_shutdown_nic(bn);
--	bnge_disable_napi(bn);
-+
-+	bnge_nq0_napi_to_wq(bn);
- 
- 	/* Save ring stats before shutdown */
- 	spin_lock_bh(&bn->stats_lock);
-@@ -3265,7 +3425,6 @@ static int bnge_close(struct net_device *dev)
- 	bnge_close_core(bn);
- 	bnge_hwrm_shutdown_link(bn->bd);
- 	bnge_hwrm_if_change(bn->bd, false);
--	bn->sp_event = 0;
- 
- 	return 0;
- }
-@@ -3567,6 +3726,7 @@ int bnge_netdev_alloc(struct bnge_dev *bd, int max_irqs)
- 		netif_set_tso_max_segs(netdev, bd->tso_max_segs);
- 
- 	INIT_WORK(&bn->sp_task, bnge_sp_task);
-+	INIT_WORK(&bn->nq0_work, bnge_nq0_work);
- 	timer_setup(&bn->timer, bnge_timer, 0);
- 	bn->current_interval = BNGE_TIMER_INTERVAL;
- 
-@@ -3578,6 +3738,14 @@ int bnge_netdev_alloc(struct bnge_dev *bd, int max_irqs)
- 		goto err_netdev;
- 	}
- 
-+	bn->nq0_wq = alloc_ordered_workqueue("bnge_nq0_wq-%s", WQ_MEM_RECLAIM,
-+					     dev_name(bd->dev));
-+	if (!bn->nq0_wq) {
-+		bnge_err(bd, "Unable to create NQ0 workqueue.\n");
-+		rc = -ENOMEM;
-+		goto err_free_workq;
-+	}
-+
- 	bn->rx_ring_size = BNGE_DEFAULT_RX_RING_SIZE;
- 	bn->tx_ring_size = BNGE_DEFAULT_TX_RING_SIZE;
- 	bn->rx_dir = DMA_FROM_DEVICE;
-@@ -3591,24 +3759,35 @@ int bnge_netdev_alloc(struct bnge_dev *bd, int max_irqs)
- 
- 	rc = bnge_probe_phy(bn, true);
- 	if (rc)
--		goto err_free_workq;
-+		goto err_free_nq0_wq;
- 
- 	rc = bnge_alloc_port_stats(bn);
- 	if (rc)
--		goto err_free_workq;
-+		goto err_free_nq0_wq;
- 	spin_lock_init(&bn->stats_lock);
- 
- 	netdev->request_ops_lock = true;
-+
-+	rc = bnge_nq0_init(bn);
-+	if (rc) {
-+		bnge_err(bd, "NQ0 init failed rc: %d\n", rc);
-+		goto err_free_port_stats;
-+	}
-+
- 	rc = register_netdev(netdev);
- 	if (rc) {
- 		dev_err(bd->dev, "Register netdev failed rc: %d\n", rc);
--		goto err_free_port_stats;
-+		goto err_uninit_nq0;
- 	}
- 
- 	return 0;
- 
-+err_uninit_nq0:
-+	bnge_nq0_uninit(bn);
- err_free_port_stats:
- 	bnge_free_port_stats(bn);
-+err_free_nq0_wq:
-+	destroy_workqueue(bn->nq0_wq);
- err_free_workq:
- 	destroy_workqueue(bn->bnge_pf_wq);
- err_netdev:
-@@ -3626,6 +3805,10 @@ void bnge_netdev_free(struct bnge_dev *bd)
- 
- 	unregister_netdev(netdev);
- 
-+	/* NQ0 can queue sp_task; destroy it before the timer and workqueue */
-+	bnge_nq0_uninit(bn);
-+	destroy_workqueue(bn->nq0_wq);
-+
- 	timer_shutdown_sync(&bn->timer);
- 	cancel_work_sync(&bn->sp_task);
- 	bn->sp_event = 0;
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-index 476b5bab96fe..8c300f2fb5f3 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_netdev.h
-@@ -266,6 +266,7 @@ struct bnge_stats_mem {
- enum bnge_net_state {
- 	BNGE_STATE_NAPI_DISABLED,
- 	BNGE_STATE_STATS_ENABLE,
-+	BNGE_STATE_NQ0_NAPI,
- };
- 
- #define BNGE_TIMER_INTERVAL	HZ
-@@ -315,6 +316,8 @@ struct bnge_net {
- 	u32			hash_seed;
- 	u64			toeplitz_prefix;
- 
-+	/* Lives from probe to remove. bnapi[0] points to it. */
-+	struct bnge_napi		*nq0;
- 	struct bnge_napi		**bnapi;
- 
- 	struct bnge_rx_ring_info	*rx_ring;
-@@ -350,7 +353,9 @@ struct bnge_net {
- 	unsigned int		current_interval;
- 	struct timer_list	timer;
- 	struct workqueue_struct *bnge_pf_wq;
-+	struct workqueue_struct *nq0_wq;
- 	struct work_struct	sp_task;
-+	struct work_struct	nq0_work;
- 	unsigned long		sp_event;
- 
- 	struct bnge_ethtool_link_info	eth_link_info;
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_txrx.c b/drivers/net/ethernet/broadcom/bnge/bnge_txrx.c
-index 2f382514c6ea..183b071641ba 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_txrx.c
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_txrx.c
-@@ -45,6 +45,21 @@ irqreturn_t bnge_msix(int irq, void *dev_instance)
- 	return IRQ_HANDLED;
- }
- 
-+/* NQ0 outlives ndo_stop(). While the interface is up it is polled by NAPI
-+ * like any other NQ; while it is down it has no NAPI and nq0_work services it.
-+ */
-+irqreturn_t bnge_nq0_msix(int irq, void *dev_instance)
-+{
-+	struct bnge_napi *bnapi = dev_instance;
-+	struct bnge_net *bn = bnapi->bn;
-+
-+	if (test_bit(BNGE_STATE_NQ0_NAPI, &bn->state))
-+		return bnge_msix(irq, dev_instance);
-+
-+	queue_work(bn->nq0_wq, &bn->nq0_work);
-+	return IRQ_HANDLED;
-+}
-+
- static struct rx_agg_cmp *bnge_get_tpa_agg(struct bnge_net *bn,
- 					   struct bnge_rx_ring_info *rxr,
- 					   u16 agg_id, u16 curr)
-@@ -1396,6 +1411,47 @@ int bnge_napi_poll(struct napi_struct *napi, int budget)
- 	return work_done;
- }
- 
-+/* Poll NQ0 without NAPI: handle its own events, drop notifications for CQs
-+ * that no longer exist, and re-arm it.
-+ *
-+ * Single consumer only: call from nq0_work, or with NQ0's IRQ disabled,
-+ * nq0_work cancelled and all NAPI disabled.
-+ */
-+void bnge_nq0_poll(struct bnge_net *bn)
-+{
-+	struct bnge_nq_ring_info *nqr = &bn->nq0->nq_ring;
-+	u32 raw_cons = nqr->nq_raw_cons;
-+
-+	while (1) {
-+		u32 cons = RING_CMP(bn, raw_cons);
-+		struct nqe_cn *nqcmp;
-+		u16 type;
-+
-+		nqcmp = &nqr->desc_ring[CP_RING(cons)][CP_IDX(cons)];
-+		if (!NQ_CMP_VALID(bn, nqcmp, raw_cons))
-+			break;
-+
-+		/* The valid test of the entry must be done first before
-+		 * reading any further.
-+		 */
-+		dma_rmb();
-+
-+		type = le16_to_cpu(nqcmp->type);
-+		if (NQE_CN_TYPE(type) != NQ_CN_TYPE_CQ_NOTIFICATION)
-+			bnge_hwrm_handler(bn, (struct tx_cmp *)nqcmp);
-+		raw_cons = NEXT_RAW_CMP(raw_cons);
-+	}
-+
-+	nqr->has_more_work = 0;
-+	nqr->nq_raw_cons = raw_cons;
-+	BNGE_DB_NQ_ARM(bn->bd, &nqr->nq_db, raw_cons);
-+}
-+
-+void bnge_nq0_work(struct work_struct *work)
-+{
-+	bnge_nq0_poll(container_of(work, struct bnge_net, nq0_work));
-+}
-+
- static u16 bnge_xmit_get_cfa_action(struct sk_buff *skb)
- {
- 	struct metadata_dst *md_dst = skb_metadata_dst(skb);
-diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_txrx.h b/drivers/net/ethernet/broadcom/bnge/bnge_txrx.h
-index bd0aa6c221a4..3db6809499ba 100644
---- a/drivers/net/ethernet/broadcom/bnge/bnge_txrx.h
-+++ b/drivers/net/ethernet/broadcom/bnge/bnge_txrx.h
-@@ -120,6 +120,9 @@ irqreturn_t bnge_msix(int irq, void *dev_instance);
- netdev_tx_t bnge_start_xmit(struct sk_buff *skb, struct net_device *dev);
- void bnge_reuse_rx_data(struct bnge_rx_ring_info *rxr, u16 cons, void *data);
- int bnge_napi_poll(struct napi_struct *napi, int budget);
-+irqreturn_t bnge_nq0_msix(int irq, void *dev_instance);
-+void bnge_nq0_poll(struct bnge_net *bn);
-+void bnge_nq0_work(struct work_struct *work);
- netdev_features_t bnge_features_check(struct sk_buff *skb,
- 				      struct net_device *dev,
- 				      netdev_features_t features);
+ 				/* all pointers could be changed now reset walk */
 -- 
-2.47.3
+2.34.1
 
