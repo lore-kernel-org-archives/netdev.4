@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794902013;
-	b=NuXphFkzLoO4OMSQv2qaM2N6uAzAhYqEqn7flqo2HFi5rt2kjd/BzsjaS+gBiA92NQvY
-	 Y24zzOTi+C8da1MXdPMIav5IF0QEz3iyt8ZRYO3syihMspRRucsnNJZuR9K4+LhT53QBn
-	 jhj1BG7pTWlo4LEwX3fj+kSBWuFzInyvqkbyomGMGRIwJ5aBRZ31LxZwKxens6GBCo81/
-	 QVTTKKPLSxaFGdZTYhzrQEH1xWs79YGhumNpoen5nZfspM4emkwrJS3G4thAP7b8a2KLT
-	 QZ1EcI4GBwJEwjh2v0gmuT7G0DqZlRAR5S8S7VxSM5eIsMuIsuglyIzjiYL8pSfndOg==
+	t=1794902241;
+	b=rFt/CqeR08Y37MQFJL6p6nZ9PPvShXuyRUJmxVk++H28JxWgCFuCc4hBb2YI3+hKO7zI
+	 HY5hxiPxrUfwQ283nxlJrZHDL2xPDRRDdSWB6BnCVRhL8ORBlzAM47mrGtAIspJQf1KsW
+	 bPDykyCU5VByiHoV93WYmv2C33TFNxs0M9DZBcUt+DFceSu+Y7JhY880g0Nb/WCMx0FeY
+	 gGJ6dxVkCqgviT3zK0FPsVOoZNb2JeR1mfxn/Ygg8ncVbylDJx26Wvwh1OkHnPTFfQluE
+	 5jVZHeqI0FonzNr6YFLpwLKM8GDh3iOzRBdyOn8WYDQHZgL+YfcBTVbUZw1Vk83nUJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794902013;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794902241;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=0PwMgoLCuoMJhIuYDvRS//1Y44f0sWEWfJY3HpnQIQ0=;
-	b=1nJEIyMe/4JFjdN8Xb+SesPASo4gsQVLxlsh9lx0lHBA/7COfLuGqe3tfH7s+SF4XFCm
-	 Rw/pxBk5uNteK0WFoEQpghbJfOOvhnvwe0tWdg5XMwriiwlKM3xuNG1PUHsKAq1RlG4MD
-	 TMc5jOGPzrUuUgotO3vSct8hgn0HtX8Jrirg0SWdG20vQwKQEsNjz0i42kgmObZxZVqdP
-	 BN0ibf5RtoNTBujBKr74HYmSlqGRruP6lHNDI8+1Wm3A+ba6Cnij62hCWbRVhxBX4UhMs
-	 xc3IFfJKPeFlsAQTzB7JS6wkzsOq7wcf/PoD9MuDsJ88Gyhwx6JUW7mhml3e8ITFFLQ==
+	bh=8gsokXl2noPECPycyNJRtOuTlolfT7oLMgYmtfXG9X8=;
+	b=lCC6k7YTq+E5+wQrzNp53/1JrWgGlXKzDzboE8BcbGyv3w8gkZoHc3b3x57rUNvAkOot
+	 XJkCBVIn6tA7/EGl2eKGpEkvfY0J3cdEYr0YLFeTsdazjS1HHiPuBD6xEWr6fT98E4kTH
+	 2jwrxSsBEzdLa5lcowylrlEjDZpaTgewVF8wMSzESNIONJM1MD/1j/sPs/pfNGwhFxtZC
+	 ZpTk+VwwJLZ1vjcjQc3T3I3uVoBJBewMc7Cn+hgRnKmRlPqwiE6lfpK+Ex6i0nPKDYwDO
+	 rYt622wrNM1H8VsUlsicrNBvgaTIAZXQqd4ItJ7VC/hg3taGuKPY51NkRg9CYE79QQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SOQOFO9X;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VIKLsO+O;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FEC4606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:53:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC802606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:57:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SOQOFO9X
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0DD01F000D1
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:53:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VIKLsO+O
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C53B1F000CC
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 07:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794902012;
-	bh=0PwMgoLCuoMJhIuYDvRS//1Y44f0sWEWfJY3HpnQIQ0=;
+	s=k20260515; t=1794902241;
+	bh=8gsokXl2noPECPycyNJRtOuTlolfT7oLMgYmtfXG9X8=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=SOQOFO9XKC7vJlpo+qHy6vxvLxuGMzDKXWQ41JWeHMAiwFkZqbf5pVpb3U5yTVUxg
-	 LzIthaE2B3nnFbhPba4GuX/MMQ+FCGppFi7aCS+3QAt8RBuFb1A1ebDE8J3FB7aSK8
-	 uRnM22Heg4amuy0GuJJpR+1KAeapZRRUoAwjLpMv4WpUgHVaJxW8kR5kYtv7u7RonG
-	 L+CfYACb0DggiY2Cpx0Ezf/wbaY+5Do7Xnh7aOh3qr0QUpOXsFAAX0M05z3kSxeHLT
-	 VcYBneR5pVwWQDL/KVwNrVaWp+fPFXWtjCqWuxsJuLijYOzPHLr5CnEyMhGSXKA3dF
-	 iYqcisk5dOS7A==
-Received: by mail-lf1-f44.google.com with SMTP id 2adb3069b0e04-5c126fa1e3aso3394632e87.2
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:53:32 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHuSEiIdOPmx1pert+QafyI8qOBzgr1DQXVcK8EGjDU1hmZnKtZ8gn56rGxC2yzrg8lOZOL/Ao=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8usqF/VvAYidziJX8eKvMTcIzI1647rYtF7Kgd8HLWh1IBX2lN
-	+3auCvdCNDN5imyFxyRvdqOsndZBGCCY2dHuUE7NOPMy21ZHOUyypnqcqVuwwo0ngcV0agtANjU
-	/qhT3QoxLdmmCLmMeZRQpLmLlLlB/nDM=
-X-Received: by 2002:a05:6512:1304:b0:5c1:5974:8a54 with SMTP id
- 2adb3069b0e04-5c1705faa6emr5336793e87.5.1794902011428; Mon, 16 Nov 2026
- 23:53:31 -0800 (PST)
+	b=VIKLsO+OP+eGmcDTTGowNvL0gmUGgRPCYbfXUQNQm9x3jl5CtoR2yr31E+Nh+/bu7
+	 rweSbZ1QmJWRexue+34GDfrIz5qksk74tZL6asnunimDUPQ5aeqrav7/z9jGDulKpO
+	 nzrC4N/9YBdPd9E/DXDbynfMm4omfCaIBrGdyZdBNwwS526R+L42G5cnSJu8PBzBkk
+	 8FZpeYCeQu/USaKw5zY9SkTUzW+RB+z9H0riUNl26eMMXVRlXtSC/fmJY4jt0/DUiC
+	 Q8RZIoDijjyySN6pojnd2HD8x46OZkq/Z3M6WiA4eegcuBsi2ShwtYzveh5Lr0nXr9
+	 ezFfZS4daC/Ug==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5bfa65c8617so2859425e87.0
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:57:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHwfFri83ZdBq0wSHjiLQRA79gC6bswc5xZYU0g42FBX+2ZOb4BqaPpurOIB/jQXIOqX8eU84c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+uCwoI+hwLhPLNo+5WjAg1Qsys5CIM+dwtUbcs79pfZTdxPrfT
+	sDm4RNfDO1RmeFltC6o3hOzTJUffcYJ3tL8CetdzbCV9Zf3yQAVwWIz4rLkrO3veH8dF9oq5cTm
+	sCzJiGvLH04CvAIhqebK/yQllUrDEUo4=
+X-Received: by 2002:a05:6512:618a:b0:5bf:c4d2:b074 with SMTP id
+ 2adb3069b0e04-5c170a159camr5040159e87.55.1794902240108; Mon, 16 Nov 2026
+ 23:57:20 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,15 +59,15 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112-gemini-ethernet-fixes-3-v8-2-f55bd43e02d3@kernel.org> <179484034429.3136.3425183655553071974@kernel.org>
-In-Reply-To: <179484034429.3136.3425183655553071974@kernel.org>
+References: <20261112-gemini-ethernet-fixes-3-v8-6-f55bd43e02d3@kernel.org> <179484034552.3136.9115305674551947540@kernel.org>
+In-Reply-To: <179484034552.3136.9115305674551947540@kernel.org>
 From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 17 Nov 2026 08:53:18 +0100
-X-Gmail-Original-Message-ID: <CAD++jLmKyr8DsVDAZxTvO9KuUhjq3JZDLyQ=ZKbYWvE_his_WA@mail.gmail.com>
-X-Gm-Features: Aa3M54rCVPjORVrSDgqIOUZ3DiC07EGVI44GyNXyHqpgZGlMKn_Z3BWKS-qQinI
-Message-ID: <CAD++jLmKyr8DsVDAZxTvO9KuUhjq3JZDLyQ=ZKbYWvE_his_WA@mail.gmail.com>
-Subject: Re: [PATCH net-next v8 02/19] net: ethernet: cortina: Keep ports
- bound for shared IRQ
+Date: Tue, 17 Nov 2026 08:57:07 +0100
+X-Gmail-Original-Message-ID: <CAD++jLnvOaLeOrZaJWcc-EW1_wSygQiq-DaE+VAVmr=C=66hJA@mail.gmail.com>
+X-Gm-Features: Aa3M54rDWDfU23Rn4fpz7EzOXoAt-B3WJ-YDYLCTCBPamaaqItrpSWxgxqiqfc0
+Message-ID: <CAD++jLnvOaLeOrZaJWcc-EW1_wSygQiq-DaE+VAVmr=C=66hJA@mail.gmail.com>
+Subject: Re: [PATCH net-next v8 06/19] net: ethernet: cortina: Index free
+ queue fragments with XArray
 To: netdev-bot+sashiko@kernel.org
 Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
 	kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl, 
@@ -78,43 +78,17 @@ Content-Transfer-Encoding: quoted-printable
 On Mon, Nov 16, 2026 at 3:45=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
 te:
 
-> > +     } else {
-> > +             phy_np =3D of_parse_phandle(dev->of_node, "phy-handle", 0=
-);
-> > +             if (!phy_np)
-> > +                     return -ENODEV;
-> > +     }
-> > +
-> > +     phy =3D of_phy_find_device(phy_np);
-> > +     of_node_put(phy_np);
-> >       if (!phy)
-> > -             return -ENODEV;
-> > +             return -EPROBE_DEFER;
->
-> [Severity: High]
-> Can a NULL return from of_phy_find_device() here be permanent instead
-> of transient?
+> [Severity: Low]
+> Should the commit message mention what this xa_insert() costs?
 
-I guess yes? Then things never probe, such things happen.
+No. That is overanalyzing well known kernel abstractions known
+to be performant.
 
-> Doesn't this mean a PHY that is described but absent on one port still
-> disables the working sibling? The commit message says this should no
-> longer happen ("so an unusable interface does not disable its
-> sibling").
->
-> gemini-ssi1328.dts and gemini-wbd222.dts both use phy-handle on
-> ethernet-port@1. On those boards, an unpopulated or unresponsive PHY1
-> would leave no working Ethernet, and the port would stay on the deferred
-> probe list for good. fw_devlink does not parse phy-handle, so nothing
-> puts a limit on the deferral.
->
-> Could the code tell a not-yet-probed MDIO bus apart from a missing PHY,
-> for example by checking whether the PHY node's parent bus has
-> registered?
+> [Severity: Low]
+> Does holding freeq_lock here mean the setup path builds the whole index
+> from atomic reserves?
 
-So this is essentially trying to safeguard from hw failure which
-is overzealous. If the PHY does the driver doesn't probe eventually
-deferred probe gives up, thats OK.
+It's fine I thinkl, I have stress-tested it.
 
 Yours,
 Linus Walleij
