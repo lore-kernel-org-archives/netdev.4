@@ -1,79 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.227
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794917335;
-	b=pyKm8/HlD4a5yO/nw8M0wHwr4IPZC9pvS6KXl/XQEKQHaLTYVuL+xvYud3GoaCK7sGv1
-	 4rm0txiU9OroouPX0u8Bq9c9w4hrr3lD9kz40BiQLNE6q8XlXe7Bia4nQ2CnbQdBvHHG0
-	 ZXyaf99mPxpo0bo/tQRWBb+7KkfU2R0WH5qCgv/BC8jmbtvV/A9QIOf0b4HP29HT8o5cR
-	 kHwcRmYcx+vAE3ixSAO+y6Gfv/iu+tjQEqOTdIX5SRUMfRD9kuQeT1J3ioihkg7T3E7cg
-	 QCPltdhATIM8u2UC7+IXLc5Wmq8epidgwFKxUDKOrTcD74Xxg8984belmcW7ffnh7ag==
+	t=1794917406;
+	b=wCcys045MKj4hF5Hng8xZX9q0ouGlO5R90e0UA98tMz2XgBbFaY/XLrq326bdpCfHiDZ
+	 ottcGwmmwzhGg5e1XgdIS1JR/U39DwbDJhI2ruf98eCBeDYSVlmtPv1VsBPy21zjhlx6v
+	 T0Fg1hbulJwZ4CM62bowVJncdRji6F1f63WgOeY4B3gQobGC56HVVT0uE8hdZIW0oH8Ra
+	 aHoA/MxXg6rUYCa6a0Nu361PJA+DpDLsEPB81wgKKEg8tJcjIC07vkXqHyzWKcpwJ/aSi
+	 zmwro1clxT/6mdyDfLdxThQZNFxoyrUKwvMGCxdMXXg5+8rHAtmk6NSDg3eZ7oJaG9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794917335;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Received:From:
-	 To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=GzNvuoUBJNj9bXeEH2hBNYOe4nzcDcK5XmHL/lMnnsY=;
-	b=pkQL22sUwakldLSK8WsJOynPGzAVUc/esnCiw+/HIChZ6jvA0iYPkLzNtoJr3pdPUpM1
-	 8gbUoMLZP10ba//BPMQAFQ4YU15hukWSwZLjT+vbuxczL4D28pyQ9aKqOkMI06bOtGX6u
-	 5Frozmg3bpWalw/j4RupewkFZABt+I42vD7TnVnOj1SXoG7JTBgrTX04YTzD1XKPo4hOc
-	 5+9UtU3V35xlQLYqv1Q5HPjCAin5/4n51UHGcDowZs+GmBw3BTfHyGAEPYUi/LTAoEQC9
-	 +1NTJt3/neEYtoAQMWY1vCUN3Oq5u9dMBwTnLeqsefVZKz0PeXm19+gH1rhBjMQn2uQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794917406;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=gqZ+veYLqVrqnYZiqLVMN5xeFmCHBA4ngsraJ5utYYM=;
+	b=TJsYl5xErFNMrVjWvHaBE2eXOpxzMz9GsG3QRTe9jspjSY6RHwsKauz/NoDnE/KzsmBd
+	 e1kp7sOj8MBMOSTaa5lwHicU3kYBoqA7E6rlM1yOMDGrxa+ed+WNd9IA3Tsd4x4vN8E8Z
+	 pe+wa2RJ5QWenRMy31Jdi9pBcI04CMP2zLfi4RbYP3wuoeJm+LZtsoL5EAkPzeVjVCfTg
+	 olnMu5kyMI2iVqb9Na84wI9HRzAc6UqFq1nJzVnXs1bqMftKFfiVokWE6W0CWYPISqnzt
+	 W4HZJhqCes+hWGJ583C9hUz3LY2D7mXVoUe5FgJidSf/hWLOABeTIJ6HDKWdQUmqvsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=aIkbXf0u;
-	arc=none smtp.remote-ip=113.46.200.227
-Received: from canpmsgout12.his.huawei.com (canpmsgout12.his.huawei.com [113.46.200.227])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XiROlj94;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DAB54606A338;
-	Tue, 17 Nov 2026 12:08:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DAB54606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C771606A338;
+	Tue, 17 Nov 2026 12:10:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=aIkbXf0u
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=GzNvuoUBJNj9bXeEH2hBNYOe4nzcDcK5XmHL/lMnnsY=;
-	b=aIkbXf0uFCDZg7jxJWG7fOIMYp/nNVRHxRnG+LRpWp8XyFarXxFKOP0Naq54FQkEuxNd+qLj1
-	IC8USqYNs2AgQdkjdDv6FXR/yF5zq+78PKz/nbzDJVu9h13yhi09mlWrBgLxRIaXC25H7ojKXPE
-	DiiR+hy5axE3mnWxvlJm81E=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout12.his.huawei.com (SkyGuard) with ESMTPS id 4jTNly0ZcqznTV6;
-	Tue, 17 Nov 2026 20:07:58 +0800 (CST)
-Received: from dggpemr200018.china.huawei.com (unknown [7.185.36.238])
-	by mail.maildlp.com (Postfix) with ESMTPS id B3E2B40586;
-	Tue, 17 Nov 2026 20:08:51 +0800 (CST)
-Received: from whupemq100015.china.huawei.com (7.152.185.230) by
- dggpemr200018.china.huawei.com (7.185.36.238) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 17 Nov 2026 20:08:51 +0800
-Received: from DESKTOP-62GVMTR.china.huawei.com (10.174.220.94) by
- whupemq100015.china.huawei.com (7.152.185.230) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 17 Nov 2026 20:08:49 +0800
-From: Fan Gong <gongfan1@huawei.com>
-To: Fan Gong <gongfan1@huawei.com>, Wu Di <wudi234@huawei.com>, Teng Peisen
-	<tengpeisen@huawei.com>, <netdev@vger.kernel.org>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, Ioana Ciornei
-	<ioana.ciornei@nxp.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Mohsin Bashir <mohsin.bashr@gmail.com>, Dimitri Daskalakis
-	<dimitri.daskalakis1@gmail.com>, Harshitha Ramamurthy
-	<hramamurthy@google.com>, Larysa Zaremba <larysa.zaremba@intel.com>, "Vadim
- Fedorenko" <vadim.fedorenko@linux.dev>
-CC: <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>, Zhou Shuai
-	<zhoushuai28@huawei.com>, Wu Like <wulike1@huawei.com>
-Subject: [PATCH net-next v04 3/4] hinic3: Wrap long lines and rename q_params
-Date: Tue, 17 Nov 2026 20:08:33 +0800
-Message-ID: <028ead4f86274cfab980def4ef779878cae346f2.1794917917.git.gongfan1@huawei.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <cover.1794917917.git.gongfan1@huawei.com>
-References: <cover.1794917917.git.gongfan1@huawei.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XiROlj94
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 088A21F000CC;
+	Tue, 17 Nov 2026 12:10:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794917406;
+	bh=gqZ+veYLqVrqnYZiqLVMN5xeFmCHBA4ngsraJ5utYYM=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=XiROlj94B9MiArZeD+7hPaFGBGBYUSSAbZ5b6jwzOtB7HBkKRMQ8VLSBBb4Z2GYcN
+	 6pBWeVfR1rUPurU2wQQ+dWWTBj1A/LT0CjyMt8Ln/ObTImfH0ZXH7xBH4tt24TLB1J
+	 IJS62C5rn6nOu05UiVqxHsEWsXAbQ92FoKWt/X8hsYG0ZFsSb6O+i3z7eNXxPzgq/X
+	 udGAWReeaEOMhQE5X374dwqJL+ojoz8Q/br35WJeAIOtcl56IfDkDfF/sh/x7FV6Jh
+	 JrkM0tBZuBucxYVeLAtMFfopbcW2Gtzc77Ry/R33/DqmFpY0aDiUpf/46NhMzKxyOK
+	 8jdZscNmko22A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F154F3926663;
+	Tue, 17 Nov 2026 12:10:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,108 +54,42 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
- whupemq100015.china.huawei.com (7.152.185.230)
+Subject: Re: [PATCH net-next v2] ipv4: igmp: report IFA_TARGET_NETNSID in
+ multicast address dumps
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179491740478.541394.6915913156720247730.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 12:10:04 +0000
+References: <20261112082352.152338-1-sunwenbo@cmss.chinamobile.com>
+In-Reply-To: <20261112082352.152338-1-sunwenbo@cmss.chinamobile.com>
+To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ hangbin.liu@linux.dev, yuyanghuang@google.com, nicolas.dichtel@6wind.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 1342116488@qq.com
 
-Wrap the long function signatures of hinic3_alloc_txrxq_resources(),
-hinic3_free_txrxq_resources(), hinic3_alloc_channel_resources() and
-hinic3_free_channel_resources() so that they fit in 80 columns.
+Hello:
 
-While at it, rename the trxq_params argument of
-hinic3_alloc_channel_resources() and hinic3_free_channel_resources()
-to q_params, matching the name used by the other queue parameter
-helpers. No expression, call or error path changes.
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Co-developed-by: Wu Di <wudi234@huawei.com>
-Signed-off-by: Wu Di <wudi234@huawei.com>
-Co-developed-by: Teng Peisen <tengpeisen@huawei.com>
-Signed-off-by: Teng Peisen <tengpeisen@huawei.com>
-Signed-off-by: Fan Gong <gongfan1@huawei.com>
----
- .../huawei/hinic3/hinic3_netdev_ops.c         | 34 +++++++++++--------
- 1 file changed, 19 insertions(+), 15 deletions(-)
+On Thu, 12 Nov 2026 16:23:52 +0800 you wrote:
+> Commit eb4e17a1d915 ("netlink: support dumping IPv4 multicast addresses")
+> extended RTM_GETMULTICAST to dump IPv4 multicast addresses by reusing
+> inet_valid_dump_ifaddr_req(), which already accepts IFA_TARGET_NETNSID
+> and switches to the target network namespace. However,
+> inet_fill_ifmcaddr() does not include IFA_TARGET_NETNSID in the dump
+> replies yet.
+> 
+> [...]
 
-diff --git a/drivers/net/ethernet/huawei/hinic3/hinic3_netdev_ops.c b/drivers/net/ethernet/huawei/hinic3/hinic3_netdev_ops.c
-index 6007e0e58478..943310274a69 100644
---- a/drivers/net/ethernet/huawei/hinic3/hinic3_netdev_ops.c
-+++ b/drivers/net/ethernet/huawei/hinic3/hinic3_netdev_ops.c
-@@ -121,8 +121,9 @@ static void hinic3_destroy_num_qps(struct net_device *netdev)
- 	kfree(nic_dev->qps_msix_entries);
- }
- 
--static int hinic3_alloc_txrxq_resources(struct net_device *netdev,
--					struct hinic3_dyna_txrxq_params *q_params)
-+static int
-+hinic3_alloc_txrxq_resources(struct net_device *netdev,
-+			     struct hinic3_dyna_txrxq_params *q_params)
- {
- 	int err;
- 
-@@ -176,8 +177,9 @@ static int hinic3_alloc_txrxq_resources(struct net_device *netdev,
- 	return err;
- }
- 
--static void hinic3_free_txrxq_resources(struct net_device *netdev,
--					struct hinic3_dyna_txrxq_params *q_params)
-+static void
-+hinic3_free_txrxq_resources(struct net_device *netdev,
-+			    struct hinic3_dyna_txrxq_params *q_params)
- {
- 	hinic3_free_rxqs_res(netdev, q_params->num_qps, q_params->rq_depth,
- 			     q_params->rxqs_res);
-@@ -251,16 +253,17 @@ static void hinic3_remove_configure(struct net_device *netdev)
- 		hinic3_rss_uninit(netdev);
- }
- 
--static int hinic3_alloc_channel_resources(struct net_device *netdev,
--					  struct hinic3_dyna_qp_params *qp_params,
--					  struct hinic3_dyna_txrxq_params *trxq_params)
-+static int
-+hinic3_alloc_channel_resources(struct net_device *netdev,
-+			       struct hinic3_dyna_qp_params *qp_params,
-+			       struct hinic3_dyna_txrxq_params *q_params)
- {
- 	struct hinic3_nic_dev *nic_dev = netdev_priv(netdev);
- 	int err;
- 
--	qp_params->num_qps = trxq_params->num_qps;
--	qp_params->sq_depth = trxq_params->sq_depth;
--	qp_params->rq_depth = trxq_params->rq_depth;
-+	qp_params->num_qps = q_params->num_qps;
-+	qp_params->sq_depth = q_params->sq_depth;
-+	qp_params->rq_depth = q_params->rq_depth;
- 
- 	err = hinic3_alloc_qps(nic_dev, qp_params);
- 	if (err) {
-@@ -268,7 +271,7 @@ static int hinic3_alloc_channel_resources(struct net_device *netdev,
- 		return err;
- 	}
- 
--	err = hinic3_alloc_txrxq_resources(netdev, trxq_params);
-+	err = hinic3_alloc_txrxq_resources(netdev, q_params);
- 	if (err) {
- 		netdev_err(netdev, "Failed to alloc txrxq resources\n");
- 		hinic3_free_qps(nic_dev, qp_params);
-@@ -278,13 +281,14 @@ static int hinic3_alloc_channel_resources(struct net_device *netdev,
- 	return 0;
- }
- 
--static void hinic3_free_channel_resources(struct net_device *netdev,
--					  struct hinic3_dyna_qp_params *qp_params,
--					  struct hinic3_dyna_txrxq_params *trxq_params)
-+static void
-+hinic3_free_channel_resources(struct net_device *netdev,
-+			      struct hinic3_dyna_qp_params *qp_params,
-+			      struct hinic3_dyna_txrxq_params *q_params)
- {
- 	struct hinic3_nic_dev *nic_dev = netdev_priv(netdev);
- 
--	hinic3_free_txrxq_resources(netdev, trxq_params);
-+	hinic3_free_txrxq_resources(netdev, q_params);
- 	hinic3_free_qps(nic_dev, qp_params);
- }
- 
+Here is the summary with links:
+  - [net-next,v2] ipv4: igmp: report IFA_TARGET_NETNSID in multicast address dumps
+    https://git.kernel.org/netdev/net-next/c/400bd920a724
+
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
