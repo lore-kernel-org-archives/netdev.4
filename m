@@ -1,60 +1,70 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794932046;
-	b=kgF4Q9UDvm0WE0eukQBUb6adsBmMmqJnIzvHQHlT9OPtcYfVpkIaB1eYYBYvSqxfYv6s
-	 Jv7yCNokWNkEXL1bM7lUPyYsj50WX11/tIEh2wftoxY4NVnOdc7PCOSu6nLZyS5o4TQs/
-	 St9aFd26RzPll7Oz18Or8OohlF113J6z3wyHKq0R3XM5UUeG/q0+uXntJWS5dvkgwgB7J
-	 5+TIien60kII5nVrFXOi+gGA6LTldI0SIsJbsws5S3ZMGndGS43+WElG8MMxIUh5xZO3H
-	 dvZYr+7wF/VhMctKIG0ZOzOuBHDPKk/+Jwq3EtfS97W7aCRsUar5qkSb0BAFN8U+QWg==
+	t=1794932126;
+	b=mEcXb42wp4etWyZFwAXkrPkCtKuuGyTAs+JCI8kLeQOaTUy6K8kisPeybX7/sVeAbMLA
+	 JD1nJgoDLGknQMoZmPZmVExYSegnx0Iul/fkmHFc+8oMCNAM08U9LLDVDJeZEQHhay3UO
+	 KoYC3kMlyWIxYP5626TL4NiQQzCFAtTRXfyGxcCWHkAztKp9pt9froEcLMR4tqgLugM9c
+	 qylU0aH6E1jGVgM/sAR+unZo1c/Nj+KRZooV40i+XUg3FMDuxvveYMI4rIodL8daHyBbl
+	 hyMVIpqTD34U0aRMwy/V6eAvHBazkzTSuvItDz5B084ALOSTJ8z3wH9NCqchSZIxxwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794932046;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=HW3M2QrRHc3n1GK3RJRKy1yrUsd6CMKhaLE5Z9UJqrM=;
-	b=uqtRhM6tQmh/u/+7fy5S2WiUv5rSz/n1x/CiNGzTiSrq3xT8qUj6FgdNy7NKTnGn5LnN
-	 +r9eSxyRUomaVu9dwgdR9iuJJmI6ZwVUtzRkHf2WUraULPO8uaGrP7Cz4Nz/Q3WUk6doy
-	 3c6wnIrzK8iQT6CUyxrFDriPoWity25nzsSX2qlvXMR/d9iNdtJoDvZE6O0VOCnVD6IKA
-	 WrW8rsTqDVSmNw3vanT6cem5lTPS2N/QyFkwCM4GPCpgF411d0pLAvMrH53M7h1NzASDH
-	 Qh/J5izzshRZG7njb+bkCQCdfHaJSp4M7bpZqL2vxEADlu7guwNatG1t0vIWZKdQQjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794932126;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=Zo7HDSI3Q+SlzaOYF7jYPSp+q4JGpMuWyCyvC0h9xhE=;
+	b=hc2apAFQ/IZrDDneIhRF8vLdeEnzYYceizu7/EF3NMk5Y1AW+VT7UkWQEoNoKdRKA59H
+	 CEI790psB7a8+T3qwyJMr2bhmJHFJZPZVH/uDwBfTQb6GhmudJp3fMyZKob2wB3/YaPok
+	 CgPo87RDlVq2gyT8NDGLuOGUxiOTPKtftEF7XKUveIqy8CoDAv+VKfXBFf3m89udyV5iL
+	 iXgIapkuJ0+d4wHOjRk2hBj8Qz2h0yXjMaTr3PaJwKGWdL97BlSFk4JNz7yNvDUsz8LfY
+	 IuAqfwd7E4lpTmR/GM/mS9cswA9hddpPhvPQ7EopMm4jn35XaWdKE9jw2DM0C8x3iwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PSXkWR7g;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G4mSmiZL;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0EE2606A331;
-	Tue, 17 Nov 2026 16:14:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AA27606A31C;
+	Tue, 17 Nov 2026 16:15:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PSXkWR7g
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA5E81F000C7;
-	Tue, 17 Nov 2026 16:14:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G4mSmiZL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124F21F000C6;
+	Tue, 17 Nov 2026 16:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794932046;
-	bh=HW3M2QrRHc3n1GK3RJRKy1yrUsd6CMKhaLE5Z9UJqrM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PSXkWR7gP0357vG+MFlvzIduH/v2h5b+qJldoYlm3qzHqcXrhiAeUBg5bb6MOOdsD
-	 GAU54BRJSdYCG5xGT+2K+vCCx07QAFanR2n3+/iyHc/HH1XUybLx4bHpy8cYAPfhAy
-	 kNQ3//c8d6fzi1Sl1dFQMKV3qsOZPep8FNXzuzxX+n5HFqWyTpWajEzuA9nLsBBLLU
-	 ISD0Cy4KsdE8YpWYHDLMObxrddxvVYE6McZs06tRAOCzavGOjdk2d0J2t1QjcPRlHi
-	 Ycm1SeXY35W5CljWrpGHZXDIqvNyTxPvoNINEm9P5rHHcAZYy8kF2xAby7/LubtToH
-	 aA52F8L5KuC5g==
-Subject: Re: [PATCH net v4 2/2] selftests: net: add a test for vxlan snooping
- moving a MAC
-From: netdev-bot+sashiko@kernel.org
-To: ilskdw@gmail.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- kuniyu@google.com, mschiffer@universe-factory.net, nicolas.dichtel@6wind.com,
- shuah@kernel.org, linux-kselftest@vger.kernel.org
-Date: Tue, 17 Nov 2026 16:14:05 +0000
-Message-ID: <179493204551.3136.7774320767698888409@kernel.org>
-In-Reply-To: <20261113155133.75090-3-ilskdw@gmail.com>
-References: <20261113155133.75090-3-ilskdw@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1794932126;
+	bh=Zo7HDSI3Q+SlzaOYF7jYPSp+q4JGpMuWyCyvC0h9xhE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=G4mSmiZLVcOjNEBeCs+lz5x2YwtcGlK6TJK5oN/4tktNqoiKNti4QvDxiwhXF9ZHr
+	 46JQ5u8vZM1Cp2WpanWo4O/o3JKBfgaNPO35w8KCyZmSCwXmGkZbbrhJmmJ/YpOZi7
+	 ZgOo5WrDSLrXgopDCxIRaBzdJV0D38hVApWhCWKEleVUpXenD1rhTd7Bof9SEIKeNZ
+	 /IsegJHOkD6tdtNBQ6jun3EIAJs9sr1q+AzQKtb7r6lXbezyOONoZxBG80J5XZAi+B
+	 CWAwdy8MW+IYiEL5lNcL37P3AcFnWShp8NN4I5bgIrvTcNZK2YQ/RkuoyeHul/bfEy
+	 tu7fbPo0SKAyQ==
+Date: Tue, 17 Nov 2026 23:55:08 +0800
+From: Jisheng Zhang <jszhang@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 1/8] dt-bindings: net: Add MDIO demultiplexer
+Message-ID: <avx43Nv-DJCX5_Rr@xhacker>
+References: <20261116135442.4827-1-jszhang@kernel.org>
+ <20261116135442.4827-2-jszhang@kernel.org>
+ <16ecb3ac-7876-4db5-9168-5ac9bf31d4b7@lunn.ch>
+ <avvgy_bmRSVApCHA@xhacker>
+ <bd19b55b-00b1-406d-a16b-d04c35efb7d3@lunn.ch>
+ <avxhJs-51vs2Icje@xhacker>
+ <6eb16cd9-27bd-4934-9621-b8928dce6902@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,105 +74,101 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <6eb16cd9-27bd-4934-9621-b8928dce6902@lunn.ch>
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Tue, Nov 17, 2026 at 03:59:30PM +0100, Andrew Lunn wrote:
+> On Tue, Nov 17, 2026 at 10:13:58PM +0800, Jisheng Zhang wrote:
+> > On Tue, Nov 17, 2026 at 02:24:16PM +0100, Andrew Lunn wrote:
+> > > On Tue, Nov 17, 2026 at 01:06:19PM +0800, Jisheng Zhang wrote:
+> > > > On Mon, Nov 16, 2026 at 04:06:25PM +0100, Andrew Lunn wrote:
+> > > > > On Mon, Nov 16, 2026 at 09:54:35PM +0800, Jisheng Zhang wrote:
+> > > > > > Assume we have the following implementation:
+> > > > > >           ----------
+> > > > > >           |mmio reg|
+> > > > > > 	  ----------
+> > > > > >              |
+> > > > > >  --------    |      -------
+> > > > > >  | MAC0 |--MDIO-----| PHY |
+> > > > > >  -------- |     |   -------
+> > > > > >           |     |
+> > > > > >  -------- |     |   -------
+> > > > > >  | MAC1 |--     ----| PHY |
+> > > > > >  --------           -------
+> > > > > > 
+> > > > > > Both MAC0 and MAC1 have MDIO bus masters, and tie together to
+> > > > > > a single set of clock and data lines, which go to some PHYs. While
+> > > > > > there's a mmio reg to control which MAC mdio master can operate
+> > > > > > the single mdio clock and data lines, so only one MAC can operate
+> > > > > > the mdio clock and data lines.
+> > > > > 
+> > > > > How does this differ from pinmux?
+> > > > > 
+> > > > 
+> > > > in my case, the two MAC MDIO bus masters share the same MDC and MDIO
+> > > > pins.
+> > > 
+> > > That does not answer my question. How is this different to pinmux?
+> > 
+> > Let me explain the HW in details:
+> > The pad have their own pinmux configuation, which selects the MDC/MDIO
+> > fucntion instead of GPIO or another perif function. That pad
+> > configuration stays MDC/MDIO, I.E unchanged.
+> > 
+> > The register discussed here is a separate selector between the two
+> > MACs' MDIO controllers. With the pads already configured for MDC/MDIO,
+> > it choose whether MAC0 or MAC1 drives the MDC and MDIO.
+> > 
+> > So the proposed demux controls this internal selector and serializes
+> > selection plus the complete MDIO transaction across both MDIO
+> > controllers.
+> > 
+> > Would you prefer model the selector as pinctrl states, with an MDIO
+> > demux selecting the appropriate state under a shared lock before each
+> > transaction?
+> 
+> Each transaction?
+> 
+> Are you proposing to use both MDIO bus master? Why? To the outside
+> world, it is one MDIO bus, so you only need one active MDIO bus
 
-Low priority / nit picks for your consideration:
+Yep, both MDIO bus masters. I wanted to let each MAC uses its own
+MDIO rather than disturbe another MAC for dual MACs case.
+But now it looks like a over-designed solution.
 
-- [Low] In tools/testing/selftests/net/test_vxlan_snoop_move.sh,
-  ping_from_cpu0() (lines 23-28) runs every ping as `taskset -c 0 ip…
-- [Low] test_move_behind_router() (line 45, `setup_ns sw ex a r b`) and
-  test_move_to_link_local() (line 102, `setup_ns sw ex a b`) ignore the…
+> master. All the PHYs are then on that one bus.
+> 
+> I would let the DT pinctrl node connect one MDIO bus master to the
+> outside world, and that is all you need.
 
---
+What about coping with the selector in sl2610 stmmac glue layer? I.E
+use the presence of the mdio child node to identify the provider.
 
-selftests: net: add a test for vxlan snooping moving a MAC
+For dual MACs case:
 
-This adds a selftest for a learning VXLAN device that snoops a known MAC
-moving to another VTEP. The first case moves the MAC from an on-link IPv4
-remote to one behind a router. The second moves it from a global IPv6
-remote to a link-local one. Both cases ping from CPU 0 because the route
-cache is per CPU.
+&ethernet0 {
+	phy-phandle = <&phy0>;
+};
 
-> diff --git a/tools/testing/selftests/net/test_vxlan_snoop_move.sh b/tools/testing/selftests/net/test_vxlan_snoop_move.sh
-> new file mode 100755
-> index 0000000000000..e8c91fbccf6a3
-> --- /dev/null
-> +++ b/tools/testing/selftests/net/test_vxlan_snoop_move.sh
-> @@ -0,0 +1,161 @@
+&ethernet1 {
+	phy-phandle = <&phy1>;
 
-[ ... ]
+	mdio {
+		...
+		phy0: ethernet-phy@1 {
+			reg = <1>;
+			...
+		};
 
-> +ping_from_cpu0()
-> +{
-> +	local ns=$1; shift
-> +
-> +	taskset -c 0 ip netns exec "$ns" ping -c 3 -W 1 -i 0.2 "$@" &> /dev/null
-> +}
+		phy1: ethernet-phy@2 {
+			reg = <2>;
+			...
+		};
+	};
+};
 
-[Severity: Low]
-What happens in ping_from_cpu0() if CPU 0 is not in the allowed affinity
-mask? That can happen under a cpuset that limits the run to CPUs 2-3, or
-when CPU 0 is offline.
+For single MAC case, it should be as simple as coding the selector
+to let itself act as the provider.
 
-In that case sched_setaffinity() would fail with EINVAL. taskset would
-then exit non-zero and ping would never run. Both tests do this:
-
-	ping_from_cpu0 "$ex" 192.168.0.10
-	check_err $? "ping before the move failed"
-
-check_err() records ksft_fail, so log_test() reports FAIL instead of SKIP.
-
-The only precondition check is at the end of the script:
-
-	require_command taskset
-
-That goes through check_command(), which only runs command -v taskset.
-
-Could the script probe first with something like taskset -c 0 true and
-skip if it fails? Another option is to pick a CPU from the current
-affinity mask.
-
-For what it's worth, srv6_iptunnel_cache.sh also hardcodes taskset -c 0.
-
-> +
-> +add_sw_port()
-
-[ ... ]
-
-> +test_move_behind_router()
-> +{
-> +	RET=0
-> +
-> +	setup_ns sw ex a r b
-> +	defer cleanup_ns "$sw" "$ex" "$a" "$r" "$b"
-
-[Severity: Low]
-Should test_move_behind_router() check the return value of setup_ns
-here?
-
-If ip netns add fails, setup_ns() in lib.sh cleans up the namespaces it
-has already created and returns $ksft_skip:
-
-	if ! ip netns add "${!ns_name}"; then
-		echo "Failed to create namespace $ns_name"
-		cleanup_ns "${ns_list[@]}"
-		return $ksft_skip
-	fi
-
-The test keeps going anyway, but $sw, $ex and the other variables now
-name namespaces that no longer exist. Every later ip -n, bridge -n and
-ip netns exec command fails. The ping and fdb checks then call
-check_err(), and log_test() reports FAIL instead of SKIP.
-
-test_move_to_link_local() has the same problem with setup_ns sw ex a b.
-
-A few existing tests, including bareudp.sh, fou_gre_gro.sh and
-nsh_gso.sh, check the setup_ns return value with ||.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113155133.75090-1-ilskdw%40gmail.com
+This way looks simpler than modeling it as pinctrl. what do you think?
