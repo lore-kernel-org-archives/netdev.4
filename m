@@ -1,58 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.14.198.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794956179;
-	b=4frrPldKrhdhf8jmLckvXXpSmmKTBUh3Dj/1c8TdDBmU+vUoHsLPPD35eq2myDRnfJFs
-	 Xp4y5BsSMG1KV38Vnu93eZ94Ercm5JEyyPsO4ONQKz4wtLjU1160RtwsSFcV+kkIuL/Xg
-	 BTbu4l9ITkP+ZhGGJT8mxiD2ukr8xXGXqzVqnBRG9sbJQSHJbo+5YXIOKeaCrcVZKPAC0
-	 x4/hXlaql8WkDXDR23KVlXdDfibOqpt1RadSgcuLCofVi/k344vyq1Muf+DVKtFW7vUiI
-	 nZhvq5txOsWOTnuuP0sAETUcFWZImrHRdX0b4HBdD1jAHR1CENmyPVUrZ0yBiwltQsg==
+	t=1794956189;
+	b=CFmgeT3ohM14D6a9WUjLELt8cZCFFV2T1GKyKjK/bsasxw0+wSAHuXjUeBgIVPiUhmyv
+	 QYQM99+qcrlI63fRfcIfi9DTATyA/bGqRAmrEbYaS0uMQBDBxdxV60qOFtNk8cah394kJ
+	 gjAj4qUV2usbpoCj4VoFZwfSByPpmQjSsQmKWhisAJ0ttaiwrNgEkypiln3E/isH2edRQ
+	 v+yVBvkp+7UqXNNwfAmCv78M0t2hTRfdHwYNjskEix+7+1dJPI8ZKCu3mOzk3lzQinPvG
+	 d8u0+cS6rNBuMGgb36FuN6WA4cYB7O3lnhD9zruSx5B8eOleCWpvl6QjuXPpknxihow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794956179;
-	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Received:DKIM-Signature;
-	bh=IoWcfpKKd2a3SOxxIECXvR8BBWpdj9i8qCmd2x6xdaw=;
-	b=i8Bhg9Nm/4pq3P8F/zTp/7Gu6/zVedbXtPmYXo9KrbANR00BKhtKu8chG8ab99dJO1g6
-	 zu/OFtFz1FW89l5+oZ5eBocpObjKXudz1AradY1b3b5fKw7rulxU2WHjS4nAFEt7moZ3Z
-	 42kUT+G8kwKk5Oeoz1lA4OxHsKWilxDRWDOUgiOhyxcCqWH4GoGqaHkyQR3XJI1eb22Ww
-	 CE1k6nmg7uyUVBILcRN0/7bLHLaaOR3Xi1Lxi38dTR+dFLOnIDrS85gpZLovxUk5jCec1
-	 RviPo+yuLwAwbaC8vvVKHfBbsJ0KUUVvXmNPKqXenQTXL+puI2nOX2H6rrWa0Jy4iKw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794956189;
+	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Received:DKIM-Signature;
+	bh=3a59zJmzKvAQJU3HZ2N5qSMu0nhsAvCBp0sy+NeMNG0=;
+	b=e5TIp9zYOGHNG4Qmz2GbcedqZOT2UzXlph+LK5arV9W92zSrk4yVKNoOubQAF0blRMdy
+	 LqkHYgY06L7Q4aHXmnbYrTfN5a1mF6+nnlwggfgJwwBGEdxvVpsrgyMIQzy0xYBlRX4IP
+	 d1h49OCQAqj7arLl/GwJCFE5gqqkW64rRclyqop45A6bmzHKubspuonQWHqkRPspMBZY1
+	 rdbFfw20uWuSwaLOC5ujuf7CSkFRVfFvo0L5jtbkqLB6zRo/SJP1j3lhjtP4Id9GyQp6d
+	 v/SNqeKUVwtecu2eIbTKAyQe6d1s/WIPIgLyLoIAElB+6yLH+Gj+OlpLed/VhJA2zeA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=rimpianto.com;
 	spf=pass smtp.mailfrom=rimpianto.com;
-	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=hkJ9umYs;
+	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=E5Emiek6;
 	arc=none smtp.remote-ip=46.14.198.178
 Received: from mail.rimpianto.com (mail.rimpianto.com [46.14.198.178])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B372606A31C;
-	Tue, 17 Nov 2026 22:56:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B372606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2019A606A32C;
+	Tue, 17 Nov 2026 22:56:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2019A606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=hkJ9umYs
+	dkim=pass (2048-bit key) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=E5Emiek6
 Authentication-Results: mail.rimpianto.com;
 	auth=pass (plain)
 From: Federico Musto <federico@rimpianto.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: Federico Musto <federico@rimpianto.com>,
-	Chris Snook <chris.snook@gmail.com>,
+To: Chris Snook <chris.snook@gmail.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net v3] net: atl1c: free the RX buffer when the descriptor reports an error
-Date: Tue, 17 Nov 2026 23:55:11 +0100
-Message-ID: <20261117225511.19650-1-federico@rimpianto.com>
+	netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Federico Musto <federico@rimpianto.com>
+Subject: [PATCH net v4 0/2] net: atl1c: fix the RX buffer leak on errored frames
+Date: Tue, 17 Nov 2026 23:55:19 +0100
+Message-ID: <20261117225521.19689-1-federico@rimpianto.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <179410255769.994134.16589271793081668306@kernel.org>
-References: <20261103225218.19206-1-federico@rimpianto.com> <179410255769.994134.16589271793081668306@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,60 +57,59 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 Received: from localhost (Unknown [127.0.0.1])
-	by mail.rimpianto.com (Haraka) with ESMTPSA id 72409802-4A8B-4BA6-8392-E6D007D5C986.1
+	by mail.rimpianto.com (Haraka) with ESMTPSA id 1A751935-FDFB-4345-9147-8CBB6C5D7B43.1
 	envelope-from <federico@rimpianto.com>
 	tls TLS_AES_256_GCM_SHA384 (authenticated bits=0);
-	Tue, 17 Nov 2026 23:55:11 +0100
+	Tue, 17 Nov 2026 23:55:21 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rimpianto.com;
- h=Content-Transfer-Encoding: Content-Type: MIME-Version: References:
- In-Reply-To: Message-ID: Date: Subject: Cc: To: From; q=dns/txt;
- s=s20260314391; t=1794956111;
- bh=IoWcfpKKd2a3SOxxIECXvR8BBWpdj9i8qCmd2x6xdaw=;
- b=hkJ9umYsY89JZ22TWAjcPQAY6KUnSS3SjCNUOXYtiHrLxPnpCfxr9SLmVp1UREAwe5QK8x7qu
- V7/aoAWiF5F8so7q38W+wEjUgvhtzb99c5mZsgBmGMnUYMq4+rGQiwIzudS4KTgdvyGqHlUJQJz
- k6BbZuCR7KUZnmHhGcGz9wLCyvdpfpwg97ho9lR29b/O3dSq45NSw5RgZwXRtzV/PCZgSXTUCcJ
- Q5UpuWM+vrFKpy9DT4flk+Ps/MP3MjEA19x8TF52zh+GItHuf/vXIN0lLKJ+9h0cuVv0MsYH2Wo
- 9Aqh5heURseluiGKAwcJaE7eg+Xn1lYA5Qw4QfZUJJ3Q==
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=s20260314391; t=1794956121;
+ bh=3a59zJmzKvAQJU3HZ2N5qSMu0nhsAvCBp0sy+NeMNG0=;
+ b=E5Emiek69o4rl1eEqvYIyAIHzAzvqt1xcqW3cHsdm6KNbZwhLGYiRRluiE8nSvm1FzYlFS+56
+ Df9jb75V8InrOzbDrtBRLI1w23qGNm9iDYkp8V16M2G0TkgP8XShQvnAc1Rap+g9MGcg09ZMRj6
+ 3hCz/LqNz9cDVkSA+qiFX3vswTxEghMXO7C4hUoqVMuquJDcboMJEKgv7AA/Gvgr//b5d9vMBD8
+ 3Qvqc/zftpwoHLJT0hLzC0YrlH/Egn8FD58fLrfd31rHf4rJoFYMqTMXZpfVr3pfSqYc+g+SgxC
+ yu69+wghVMCCL0XlP4ZGX8Mv8p4ZRqG6vp/ZJ30C5iFg==
 
-Thank you for the detailed review. The findings are addressed in a
-two-patch v4 series.
+Patch 2 is v4 of the fix for the skb and the DMA mapping leaked by every
+RX frame whose descriptor reports an error. The Sashiko review of v3
+pointed out that freeing the buffer there trusts the RFD index and count
+written by the device. v4 checks them against the driver's own ring state
+first and resets on a mismatch, as alx does for the same descriptor
+layout.
 
-The new finding on the device-written RFD count and index is valid. Patch
-2/2 now requires rfd_num == 1, rfd_index == rfd_ring->next_to_clean and a
-non-NULL skb in the expected slot before unmapping or freeing anything.
-On a mismatch it leaves all buffers alone and schedules a reset, following
-alx_clean_rx_irq(). Both the good and error paths then use the software
-index. The multi-RFD free loop from v3 is removed.
+Patch 1 is new. It closes the race between the RX poll and the ring reset
+of the link-down path, which the same review flagged on v2 and on v3 as
+pre-existing but made worse by a free in that window.
 
-The same validation also rejects rfd_num == 0, so an errored descriptor
-with a zero count can no longer be re-read indefinitely.
+The per-patch changelogs are below the "---" of each patch.
 
-The pre-existing link-down reset race is addressed by the new patch 1/2.
-After netif_carrier_off(), it waits for RX polls already in flight before
-resetting the rings. Polls entered later see the carrier off and return
-without touching them. napi_disable() is not used because the work item is
-not serialized against atl1c_down(); a second disable can deadlock against
-the first caller's napi_enable() while holding the netdev instance lock.
+Both problems were found by code inspection. Build-tested with W=1 and
+sparse on netdev/net: no new warnings, three "restricted __le32" sparse
+warnings fewer with patch 2.
 
-The missing dma_rmb() between the valid-bit check and word0, and the
-pre-existing raw word3 endian accesses, remain outside this series. They
-are independent issues and are left to a separate change rather than
-expanding the leak fix further.
+The candidate was also runtime-tested with diagnostic instrumentation on
+a MikroTik CCR2004-1G-2XS-PCIe, which exposes emulated AR8151 functions,
+on a 7.0.14-29-pve kernel. More than 1.5 million RRDs passed the count and
+index validation in a single traffic run, with no mismatch. The candidate
+survived more than 15 MTU-change resets without an RX poll-wait timeout,
+deadlock, Oops or warning. The errored-descriptor path itself was not
+exercised, and this is not a test on a physical AR8151 controller.
 
-Validation on netdev/net:
-- git apply --check and git diff --check pass;
-- checkpatch --strict reports no errors, warnings or checks;
-- baseline and patched W=1 + Sparse builds succeed with no new warnings.
+v3: https://lore.kernel.org/netdev/20261103225218.19206-1-federico@rimpianto.com/
+v2: https://lore.kernel.org/netdev/20261102215253.68185-1-federico@rimpianto.com/
+v1: https://lore.kernel.org/netdev/20261027115156.17128-1-federico@rimpianto.com/
 
-The candidate was also tested with diagnostic instrumentation on a
-MikroTik CCR2004-1G-2XS-PCIe, which exposes emulated AR8151 functions.
-More than 1.5 million RRDs passed the count and index validation in one
-traffic run without a mismatch. The candidate survived more than 15
-MTU-change resets without a poll-wait timeout, deadlock, Oops or warning.
-The errored-descriptor path itself was not exercised, and this is not a
-test on a physical AR8151 controller.
+Federico Musto (2):
+  net: atl1c: wait for in-flight RX polls before the link-down ring
+    reset
+  net: atl1c: free the RX buffer when the descriptor reports an error
 
-pw-bot: cr
+ .../net/ethernet/atheros/atl1c/atl1c_main.c   | 118 +++++++++++-------
+ 1 file changed, 73 insertions(+), 45 deletions(-)
+
+-- 
+2.47.3
+
