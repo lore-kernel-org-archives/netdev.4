@@ -1,80 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.187.148
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794905604;
-	b=ZGfNME+MGQYdsUY2Uw/jt3njQonNmxNHr+lIKmZQw2wCeiodZUwJ3JtnWRZDtNTz8Gah
-	 WzpypiIbAryeMwnn9P+fBXUF3V4jKBaJMgjZBIuABuDXHdHQloRiKxYvCAINLKQCCW3V2
-	 p64JSvYQ7tUvIJmk4rAfqg8SuKhffY0MS3kJqbbVYJip5vV4Vaw97glgHmE5HnU1jIBoV
-	 z1WiEHmHVFJ0t3IiMg6i5p90ag1F/zOghMpCWUFMJZ0bD9VsHawkLy8ngU16vbwnaHVXg
-	 wz6/NG3ht7hYNGEtz4VB+25/F4xrOR0gj0PQz4QEe0RYGH3/y3fow/Pin0tYgitGl7g==
+	t=1794905662;
+	b=O+McFpVFgIJpGLabH9+JlgwjwLimBBHGanG+DKUA5cJuYfWoDw7KzCzyszpdz4pHHokQ
+	 UXNMHs99hWUBzFLHJQuGIbE0vUFGpwVheNYC51ZgSCK01kcsNKyit0/2kadH8gFu36W3l
+	 wCr4lcebLd3tzgWtk5dRD8pc0NNcfjwjdt0yIX8R3UqWwCSMheqYzHcVDchZCxQNPmDdR
+	 W7L7mpY993G6/dIG3jUWRaOnYXi1/ogWXNF2Ps/ijvPIc33E3N1FbY1nKawIHhnQc5lyv
+	 OJQstW2Sd98m2YAh6hqzdPXGdsM5VB1N5zlzn75034YukjMV0Vrhal6LQSIPT+FZ5Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794905604;
-	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
-	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Mailer;
-	bh=Y2ePCxyA9GRcbEb0ADHbQ9VsrTARJtytJnenLlWNQak=;
-	b=t/hOtLL9R7ObSutjI57h5Y8kClow1JYUOFhhj37NAQVqcGsBIfY3yHGvkJUxpql9z/CN
-	 ujLvc1wMxCwMLKw3tPTVGZ6Rx+WcyU3AFP6QOdRtN4piKPkqfP8kijkGFAnaEbHoM/+aW
-	 COaeJdki09t/gZDQqXGkHfHRmCKSYQXJVqdODwsbjkq6Mhi/xpjH4SebYKhaTeDEIoBcw
-	 5lIhS6rJZTwM4WUujW45V4xk7bfA89CL9xnHvA9zTaLpQv6Sym6I4AQ2GT08fHQ0E7LID
-	 QEwH6YYxgLfa/7ogeWd3K97TdUuSSDEwzKCRhyCf09pGLJIIsuG1PletK2uBmdLm+PA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794905662;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=qDCM8YQVZ4z08HfPVX5XegVIT+m8U5Rl7Geg9hTRak8=;
+	b=sxpMBqJpWkFz7121UCJeNKqgbwCAIvLGX572HNojwHXOq46PepWlKVkxvEL0oudDFOXw
+	 RDq5zXcYkQig8A24y6qZThiMH2FgNGRfVfqQLtZtGwcw8kUrndJ+Gs0NxBdoBUvlGHLFf
+	 GD7eGKnTL7WTyhuCECo+f+uxlr7EOTIKka4HmT7eC4xSOYdlFo+FqWpaQ7tY1NuFsF2y6
+	 JGIJv/SWn+DXww7qqWXuwI252nAvECOqxWGXTdv/G+fNLkG7sVnK/zaNYwvZD4y78HlAc
+	 pCnWd0iqlkUAmQu9+iZZb6GxkTSrWEayJTWrOUuG1DUD7SF4LnI6gZ5lf+OqdysY1bA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yahoo.com;
-	spf=pass smtp.mailfrom=yahoo.com;
-	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=LUzSQapK;
-	arc=none smtp.remote-ip=66.163.187.148
-Received: from sonic316-22.consmr.mail.ne1.yahoo.com (sonic316-22.consmr.mail.ne1.yahoo.com [66.163.187.148])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j27IUXuZ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E757F606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:53:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E757F606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30ED1606A323
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:54:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=LUzSQapK
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794905603; bh=Y2ePCxyA9GRcbEb0ADHbQ9VsrTARJtytJnenLlWNQak=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=LUzSQapK8uYuZWjOS5TCfnVzBiHKpg0YAvHVr2BAdVKJ3gDXA/pgJLipKQ6kc5CmeVBbOO8vCt6fZ7nqdW6svU+DquMuBkl3qMeHzU34V5xVuDYg7sCEpu7z9YiWRSx615JVOLSFAN4SjhqSimfg+VEXbhKRjxbKqsnPue6btiYbtRJW6DHM1RL6aetP5zsOORqIF9h8eh0B0gKSOxnkVpHydj1DrWcdRMHI8H5CVO9StYQOjuMOYlwDL7JOprtMLaF2WXXy2KlNH5nTDtEa+MXQqSn/azfLM8aXN/kvWD64Brg5by1BEa6f823Rz4iE52bkATGvzC7CTbSfMpOogg==
-X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794905603; bh=ynuSPZd9gJrIiREYq/WjHnuOozhzzXILreH7QVg0nyH=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=lieIA3thXFKpSY7wL9+GqI0kt2hljEdLOb5tOL3JbNkjCrQPYKL7IVPT1VQpPtRGLqGtRj9fN/tXkHtok23VAQfNvr0DddNLza6FImlG/JOX22B+vu/fhU2KYY3ks6sGpXDcHAsIEY6x2pJNVuwvF35vDdmmlvBfbFp5ARuTRuyMs7wiEmyp2YlBNNeNiw8YfzZpxurNcOqhGB6VbmnO2jK9zkMUGBDc5m7myX26cvWTCCQg54G5ScucYoLTYK09KSNFcwXcXcdTEyiSYjsUe1JFmIf6CruFpiGIj3k6nCRtJcEkwFbBaQPq2MQWlsC/c5RAmOTRISYi5avPq5tmmQ==
-X-YMail-OSG: k8PqssAVM1muWOZDOUm26lmMMDLSu8ibibtzwZSOjFlRjASUP7rPKdnZLJBMoA_
- ETqfHkcVAOYx9IP9k4mnby.Lz3.lDknt8.MqOySRF2IVtgumkSe9kLRDx7pJzt0pdnHPOtv1ElLh
- CrQMWRmhUhNjyf8__UO39l1RmNia92hMCQQIM82ZvVu_dqIPwT281_PM.Dq97.3EE2a3h_5WRlYT
- W.RSsMdw1y2OwRCFOB8wlTCG.JpaQ13ffCMGSZS46v8F7FPISnBIF5mGZwd_kjykP7Kt8flaMC.4
- sRNmXd3SYxzRqSegWfypIoXvAHrrKdbC1XA3hE1tzoRW76LrW588dTIyzy5UCCCifF0wrjqcTkaY
- 5_9IBge3geO6tkyRugmYD52c6xck6slx0AeUbITOArvSabAn7HHU1CF4TpCu_tlbwchtaS94xEmb
- yL5ofYJEruGtfkWa3R6yyCS5s5TzfDlFcxGyLh59zXJ4txRWu5A6A0uT15i8l0f3R5pMENG4Easg
- 5JWJCDg_P5hy.gk5uh_eQdhUyKyXQfXYhPwtdizaWCoxiuyt6GaxvfdSF7yWWY6IxSqyMgkv5SNJ
- _nPhXxC2NVlX1rAUinbRPVBjEnSdV1ggOGWfqp9UhDFxFXN6LzYZG3ckwzZIiJ0nTsWFo2Isnb9p
- XeBaQcS3w5kRAnocFxEkxYqicpAndgnlSYPunP26oiJv7koh3D32jP5woUsE1Najw0j3yU5lJ.z1
- i43lwfphtSd7cRlfoACle2Jlh3I.OccNoIiq07CfCFKOFfSggofhWDOQbDET.bLso9Irx0PTd0F2
- yA7h9T4ZpwpP7Y.AhqJwqoRkCabI3e8kBbkOo4ITnVcyPcSt7S8CNFsQC5qPGzCWG6xbqe2emOm1
- 9301t5wKCTFcaiQn.p9EkZf0e5kQdlzF9_cgzdwctc86R6kUrvWp9cs9lCoV7Uveu_xDx2ys9NWc
- 8S36zNgMPTzhES0cKY_prenNHOF_lYilc8aWdENjlFfsWGyeyFRM9izO0yc7voNZBQLLY09aLTYI
- rZew7xsdKX88ZtWsAw7jIyCz9rBSZcMHhVAjXL7crC6YktAVqVOX5OpoTMq_ETzkWBi2gFdzQxO7
- CZqkdEoQtaa4fRAk5__otcOjCkbRRzWnhxLeK_7HRMXyG6xmwebgL9b8WdaFZvdEWpKxht1fwnN6
- e8dAzF3uuKEVblQFClltpgPfrmfPS5OeIY3hJpKc4RJRzmpsFefv2hYXRxwd9f3AvpfwKI7JRQU4
- 3TTiA5q8uPJ88aBvE0tdnZ9u.QFHn1JVUTzK9lIXnTIysjBHlZgNKNuriBDds_jIQ8zcTUTSzSop
- JV_Qq33N0bie8cYFUyFxrc62YejUnoe_QKOYoEJ9sYrpNiwPdNMJmlKdndiH3OkAe6lUpQMrinhP
- nt.Iowef0hkj7DOT9Oj1nS4oOAjmmWuSj6v98Yn0Ki6mmpjesdHeIH2cfpm0yJ7j1aYJhHE4EpFo
- n0u31qv7QdtEviCKX30XJycAQ03UDSGZngFCJsQyJQ6hteyPo1QSXWP4icrI571SG5Za.jSkMFqE
- asaeYYJbyGvwzzncJsYvDSPVVGSNHHi4DMSk4beu1ICviGtUX_.QOSWc6o0OekD48PTgphTDN5lI
- rOuOjtpMGFAZQgWMZME0J.zjhDIJnGG0BUBqaD9ar2Ei467xoLOR2Q8SWmdG.UvSjnon5VUMUWCH
- Aal0kdSRkxFJJ4UZ2KkSXvxr9OFF9o7vLxDCdLPfx6Gslm7nbO0HBfwVFGPNHGxF42qYkUieMSHc
- upzjhTXLQfFMzF2HxXfueY7P9VOeQS5EQDEZUdq_AZoXZCFBzbt_wk.2iV7FsZJsT6dZzRd_.RAl
- Sw.ffpmKff3K_JTQayhmIAj.8acfH33LTQ2zm_dzUxcm1Ohm4qG4RcR5_ej7h9OA4FiJKFY1es.F
- DsGLMjP8roxI2ZGo9B3Mk.G25b1xDayzvgHO3tjGQ5aIt4xR54ZpqzIf3MbTNgSjXmVO0a2WhWID
- Z6KQJv._J4xJ4iNjIK.eK9VXzN73tdAFo97KwImzkNKJOwNbyiKg.s.L2oKxbtvVtyv3dQpfS68_
- Z1uJNOSAG9n_UGVbdqLX4kimrBkflb0BpqvLhtMh81S9_uUAQXYqMm5PO.tDCWQXHJCzqQBWCf0X
- lQHlmKyQFXUL34o12VSNUxBKW_1OqKTq0G6SKPlwMwH6sHkQ6eVpjA3SPfoyHZ6J_y9.z3XQzrn5
- jyUm..LKPz0zqnGM4mbAqw_0R5x3JYSG1udG1PXqQYa1IgTUldgCRJKHstaLpyrhW2evakbW1b8Y
- uLSXmU8KIaAEmDFuxgtmo
-X-Sonic-MF: <namiltd@yahoo.com>
-X-Sonic-ID: 72bf5874-dbda-4723-a944-938472364770
-Received: from sonic.gate.mail.ne1.yahoo.com by sonic316.consmr.mail.ne1.yahoo.com with HTTP; Tue, 17 Nov 2026 08:53:23 +0000
-Received: by hermes--production-ir2-5dd9bf4598-czvl7 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 50b834a695c931c4b3ed5e4c4ff25ffe;
-          Tue, 17 Nov 2026 08:53:16 +0000 (UTC)
-Message-ID: <d5d5e96a-d321-48b6-8c82-a1b224ab0be5@yahoo.com>
-Date: Tue, 17 Nov 2026 09:53:15 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j27IUXuZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97051F000CB
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:54:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794905661;
+	bh=qDCM8YQVZ4z08HfPVX5XegVIT+m8U5Rl7Geg9hTRak8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=j27IUXuZIQGmoiQCw27806cb3DL1HXSX+nHTQZItfq9DE5e2tmu72ByKxtNxCyFYB
+	 oG/J1tamdgxGp/UYwqDOE3Znwqkfqjjqc5p2tjPRFV1qq67ZkCwFK38rLtyCjYpRl5
+	 LgmvwjK2OrnB539/9fol9L3//p+eT2M/a5e8Dt7FNr8jDHpSvJHhKMthhIXsA8rj5v
+	 B1fFwL/26y4ifPxBXcWNF024pampo8NaejfO8VsUmw0th6IaAaSjRqapomdPOqyT1e
+	 z6bYIf7GtzhjwDRGeBEuue1Yr2jKj/dXX3RKWEVH1e/4gd9of+epM48PGXBy60Ycct
+	 HKMNUjid7I0wQ==
+Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-6b8e2d8df4fso3568863eaf.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:54:21 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFA1+sethvFrPHXEnW5hdjFlvYT8Px7we8Q8bg9vOqDxrlZubHanSJgXHrP0p+sBxE/Vb4JEhg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8B1sfV+j3gETMDmeiDWOud01pixI0ePT8KKlajf2fz0PsuQFlQ
+	0ZfOZFTrnBpzAiZXoo2RQ2z7Hz7r8sazrANyECvoBmxoqi1J5lIg4+OeDqdKRpLxh5vONrFZXMy
+	eCaY/2CUqDZPZTSiSUXL4xnOtp+nBPWE=
+X-Received: by 2002:a05:6820:1caa:b0:716:df91:60fe with SMTP id
+ 006d021491bc7-71ab515e3f4mr9537421eaf.59.1794905661004; Tue, 17 Nov 2026
+ 00:54:21 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,52 +59,58 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v11 08/13] net: dsa: realtek: rtl8365mb: refactor
- PVID handling
-To: Linus Walleij <linusw@kernel.org>
-Cc: andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, linux@armlinux.org.uk,
- luizluca@gmail.com, maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, alvin.sipraga@analog.com, gusfmora@gmail.com,
- kuncy7@gmail.com, fabianotassotti@gmail.com, gabonpivovich@gmail.com,
- contact@c127.dev
-References: <cf3fd237-2290-4002-8de0-ea4100ef0f85@yahoo.com>
- <bee46abf-f05f-4ea4-9797-f47adf8c78e7@yahoo.com>
- <CAD++jLkJxM2yE2QwsDijqnsP+bH=xNfcNy+yj3hbv1k+q9aJ=g@mail.gmail.com>
-Content-Language: pl
-From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-In-Reply-To: <CAD++jLkJxM2yE2QwsDijqnsP+bH=xNfcNy+yj3hbv1k+q9aJ=g@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Mailer: WebService/1.1.27017 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
+References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-6-kuniyu@google.com>
+In-Reply-To: <20261117053543.84032-6-kuniyu@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Tue, 17 Nov 2026 09:54:08 +0100
+X-Gmail-Original-Message-ID: <CAL4WiioFo3LUpeQcZMVLVkW0H=fEoYmx8=EgDWGJtMecZrNydQ@mail.gmail.com>
+X-Gm-Features: AclHuK-vw8wBGD7e6b-klomRRj0LDpGZdputnmt8G9heF9VGPYljrVLVlLQFBPs
+Message-ID: <CAL4WiioFo3LUpeQcZMVLVkW0H=fEoYmx8=EgDWGJtMecZrNydQ@mail.gmail.com>
+Subject: Re: [PATCH v1 net 5/8] tcp: Check ip_sk_accept_pmtu() in tcp_v4_err().
+To: Kuniyuki Iwashima <kuniyu@google.com>
+Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
+	Hannes Frederic Sowa <hannes@stressinduktion.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Linus,
+Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
+=C3=A9crit :
+>
+> Currently, tcp_v4_mtu_reduced() checks ip_sk_accept_pmtu()
+> after calling inet_csk_update_pmtu(), which is too late.
+>
+> Even if we configure a socket not to perform Path MTU
+> Discovery with IP_PMTUDISC_INTERFACE, ICMP_FRAG_NEEDED
+> can overwrite MTU.
+>
+> The last getsockopt() returns 1200 MTU:
+>
+>   --ip_version=3Dipv4
+>    0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+>   +0 bind(3, ..., ...) =3D 0
+>   +0 listen(3, 1) =3D 0
+>   +0 < S 0:0(0) win 65535 <mss 1460,sackOK,nop,nop,nop,wscale 8>
+>   +0 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK,nop,wscale 9>
+>   +0 < . 1:1(0) ack 1 win 257
+>   +0 accept(3, ..., ...) =3D 4
+>   +0 setsockopt(4, SOL_IP, IP_MTU_DISCOVER, [4], 4) =3D 0
+>   +0 getsockopt(4, SOL_IP, IP_MTU, [1500], [4]) =3D 0
+>   +0 write(4, ..., 1000) =3D 1000
+>   +0 > P. 1:1001(1000) ack 1
+>   +0 < icmp unreachable frag_needed mtu 1200 [1:1001(1000)]
+>   +0 getsockopt(4, SOL_IP, IP_MTU, [1500], [4]) =3D 0
+>
+> Let's check ip_sk_accept_pmtu() in tcp_v4_err() as done
+> in tcp_v6_err().
+>
+> Note that inet_sk(sk)->pmtudisc is configured locklessly,
+> so we do not recheck it in tcp_v4_mtu_reduced().  This is
+> same with tcp_v6_mtu_reduced() too.
+>
+> Fixes: 482fc6094afa ("ipv4: introduce new IP_MTU_DISCOVER mode IP_PMTUDIS=
+C_INTERFACE")
+> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
 
-On Tue, Nov 17, 2026 at 09:34 Linus Walleij wrote:
-
- > What about int rtl8366_set_pvid() which is shared in realtek.h and 
-implemented in rtl8366-core.c.
- > (...)
- > If you can confirm that this is the case also for PVID I can send a 
-patch to push this into the RTL8366RB driver.
-
-Confirmed for PVID. rtl8365mb does not use rtl8366_set_pvid(), and none 
-of the realtek_ops VLAN callbacks you listed (get/set_vlan_mc, 
-get/set_vlan_4k, get/set_mc_index, enable_vlan, enable_vlan4k) are used 
-by it. Its PVID, VLAN MC and VLAN 4k handling is private to 
-rtl8365mb_vlan.c and works on its own struct rtl8365mb_vlanmc and struct 
-rtl8365mb_vlan4k, not on struct rtl8366_vlan_mc / rtl8366_vlan_4k.
-
-The family_info callbacks in this series (vlan_4k_read/write, 
-vlan_port_get_pvid, vlan_pvid_port_set/clear, ...) are only an internal 
-split between family C and family D inside rtl8365mb. They do not touch 
-realtek_ops, realtek.h or rtl8366-core.c, so moving the shared rtl8366 
-VLAN/PVID helpers into the RTL8366RB driver would not conflict with this 
-series.
-
-So please go ahead with that patch if you want to; I will rebase on top 
-of it if it lands first.
-
-Best regards,
-Mieczyslaw Nalewaj
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
