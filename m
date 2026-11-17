@@ -1,55 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.38
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794904456;
-	b=gBxdsrS50/sdqkQRFjHXS6VgWqc4Wgtar1TpUeJgNOkBPdqpJQH5Ak5UvKFZPHrtZUbe
-	 +AM2Xt8S4q2XdDDzuvuGVQLeebqHS8ioJ6LY4Lq0D72slXB6MFNLNefKmcVJc7MFyU07J
-	 kgDYD+YxTt5SVuK4sSnsiKqLrSbIDk5pZAH5FBek+QLstsRIuwW+HmmMq6SjQ5wARLGzs
-	 AtON+wkI8L3wKGmuAK3YW/A8TrLqK5PIXvMEvp3u/1U1EQ3jOTAhmHerBqQ6Cx780YM3m
-	 9KAtlHrJvgi1SH6EFNksV2BFwl2BC16iLRSq2vKQgb/u3N8YEVj/u3nF0RuvLQtrZoA==
+	t=1794904504;
+	b=TvKyvbqvoy1yYClkrBTzheS9bmD+0K/Mvy5Hp+SKZSGVZLE3PGbJi4L393f/hphpZ+1H
+	 RfFLQiblOtwBKt+8q4AVbbq0Ie6HcwbHpWA2gfa3/Ah2itCFcwih4wFP9TYEzEG+VKKQj
+	 eE+qU72dJ3W3SqhQWiTyTybtBdfwGZFWcmAaYHWodUWhbUhdUFZUPsd/nYlbigNyfUxT0
+	 tJaa7m4PvTJgFlq294a7zwhm/RCyM/0hifqPE575gFlfht7rGrD7fhTReDlTxBqWDJVXx
+	 gpgy5UaMWbLgoBnR63IOhpoCaoaFW3OAGk8afbPO7N3z6WfCvA5Qp/eIBzqhxBvL0MQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794904456;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Xlo8wcQjaDqpJN+i27lOG2BNVNx2einhHXlhhNfvDxo=;
-	b=saIy48nv7OoEshwZ6I7URReCIwCpqBv+g59WUX5U6sUIBtdTM7Qq38qR+3JMsoKHkzat
-	 9OiX7SHxl5/TCbYSoHXyFkmJxiucl6o1oZ9ZdpJEPZ4jP3t+KaYMCOOjCiaTipx+cNner
-	 iDIxRRPqyacTkTz6yIWaLEzoqWZGrO0OCdLl/7REcXJBaDKl4WrYwOSTpZ3IYiH0hdidW
-	 fYRoc4A6Zu/QDOc9jIepv3/rkgfMBhohzzF+mKrFsWB+JBcuYm4fnkqZbtdypEy8+PPK/
-	 AQGkcllLhv1MdcsH+ULrGdG/9nNQXilLyOp2azhwAdP7PkkknTWvkL9xJ323wb3/48g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794904504;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=9KAZFpOa4tylOS5Nw5xzUePTPvnbB87FGC6zFO/XDbM=;
+	b=DoyGrRbVyt03GGYCmmzgLPB1NXSeY22y9eabuEJZQPiKjgwDmZ6KdAePwqQidEhtXOzt
+	 3/oxNpA0aTR4W/jlaP3u4t0wHc1SYzxMfpt4ARkH16qF5krWe91hJC3SJZ3b2fSQUIqEN
+	 A08y6pxfISy/FazEFR/bdeaVpafkaenh5QJKtyB3aG8OYfhOwj5cGR8kAlbuFnhSpYU6R
+	 ovmmyLbhbVcaAjxB0acTPqCE0M29zkBC4odJFFa9T1ptv6oYhJeBt3HwywJJ1AALb7xfc
+	 xUwz5hDxY7nt+spwjmLObC6Lc8pxhPnKPKRYYMTuiDX5JdKb3LcINyloE6y/VxzAe3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JwoGzyXw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=n55I3HJr;
+	arc=none smtp.remote-ip=95.215.58.38
+Received: from mta1.migadu.com (out-38.mta1.migadu.com [95.215.58.38])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56E4860A2608
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:34:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3863606A897
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:35:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3863606A897
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JwoGzyXw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A4341F000C5
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:34:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794904456;
-	bh=Xlo8wcQjaDqpJN+i27lOG2BNVNx2einhHXlhhNfvDxo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=JwoGzyXw3I6fmJU74safXu0edhbR2qlcATY8pxLsmIkQZ/CvsMKAcCFocrv+mU+N3
-	 l9lFMIxvMggBzC3M6YDhmh9pQ/S0wR/8xeKy5tCmOcQx/oTXtkYT8rg8hBkoUt8Pn7
-	 GU43FVhr2qxfb7YUoIuFs6LdmfjMsFe3cdwTRgG8if1LuzJ7ml8QMT67Mu1qUN0q7I
-	 anUSZ27lS25UZqVD09/Qt+M4fuNPZ24aS/QAsBSQg9vfddQW9ZhEhoRatcWsV65Ptd
-	 YqqgTWnAFEguHl4THEDM5qgUiHq6V1Gv7fFr1qVGFsOkOXgNxTX/a8DED0QGuWRuWW
-	 dqaSOQue5qO6w==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-5be3d5927ceso642141e87.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:34:16 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGjHPI2Cua2KnIUI03fICrPKdsLJRl8LheMf1lSlSemvlXS9PaFJE5pWzYhn/bHUlLenFzsLC8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/5dObKAFnDLsYW+vCLezGuXbsNoxPGERefiku0QLV+Pq9QPtKn
-	eme5COLpGNex1MuBFvMr6ITzUYBgTQKq18iGXgDfzLgRGrWDBTJ3y2eZU6GVo8OJZjeD9Lo7UaM
-	+1GBumOu079u9NplRvtdt6Mazpp8PaDs=
-X-Received: by 2002:a05:6512:3c8c:b0:5bf:d60a:5c60 with SMTP id
- 2adb3069b0e04-5c1709cf5f6mr5064151e87.55.1794904454868; Tue, 17 Nov 2026
- 00:34:14 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=n55I3HJr
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=hC1qvaPQfrqhp9FLOrn21Z0mMkfjkKTnJp1S1GHAOrY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794904500; v=1; x=1795509300;
+ b=n55I3HJr2fMsajjR5X2DWFC3tDjhbtZnHlI/N4gevn5V11c2y7J0wzzBJoxsvX88VG2n1Bvg
+ ZMKh4Fu+RqGVAlIalIWQ9Nj03Z0/sllq0P6mzVRhYZ1sZairwcAS0L2JzoVT9DXGP2eMM8N13nY
+ JulW+PXb6aUQA6LoD88pPRhI=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 055bea7900dda262;
+	Tue, 17 Nov 2026 08:35:00 +0000
+X-Mizu-Trace-ID: 055bea7900dda262
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <51c8a888-c0e7-4045-8395-380cda03ee2c@linux.dev>
+Date: Tue, 17 Nov 2026 17:34:45 +0900
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,85 +58,122 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <cf3fd237-2290-4002-8de0-ea4100ef0f85@yahoo.com> <bee46abf-f05f-4ea4-9797-f47adf8c78e7@yahoo.com>
-In-Reply-To: <bee46abf-f05f-4ea4-9797-f47adf8c78e7@yahoo.com>
-From: Linus Walleij <linusw@kernel.org>
-Date: Tue, 17 Nov 2026 09:34:02 +0100
-X-Gmail-Original-Message-ID: <CAD++jLkJxM2yE2QwsDijqnsP+bH=xNfcNy+yj3hbv1k+q9aJ=g@mail.gmail.com>
-X-Gm-Features: Aa3M54pyqseL91ex5uV7ApTMHAGocbXWZwvG-XI7XkXAJVMEsnCU-17E2PSG6tw
-Message-ID: <CAD++jLkJxM2yE2QwsDijqnsP+bH=xNfcNy+yj3hbv1k+q9aJ=g@mail.gmail.com>
-Subject: Re: [PATCH net-next v11 08/13] net: dsa: realtek: rtl8365mb: refactor
- PVID handling
-To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
-Cc: andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, davem@davemloft.net, 
-	edumazet@google.com, pabeni@redhat.com, linux@armlinux.org.uk, 
-	luizluca@gmail.com, maxime.chevallier@bootlin.com, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, alvin.sipraga@analog.com, gusfmora@gmail.com, 
-	kuncy7@gmail.com, fabianotassotti@gmail.com, gabonpivovich@gmail.com, 
-	contact@c127.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net/mlx5e: kTLS, Simplify error unwind in
+ mlx5e_ktls_set_feature_rx()
+To: Tariq Toukan <tariqt@nvidia.com>
+Cc: horms@kernel.org, saeedm@nvidia.com, leon@kernel.org, mbloch@nvidia.com,
+ borisp@nvidia.com, witu@nvidia.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Xuanqiang Luo <luoxuanqiang@kylinos.cn>, netdev@vger.kernel.org
+References: <20261116110830.2850785-1-xuanqiang.luo@linux.dev>
+ <b0f73ee2-fdff-4b5f-b8d0-43cd293d3058@nvidia.com>
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+In-Reply-To: <b0f73ee2-fdff-4b5f-b8d0-43cd293d3058@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 8:39=E2=80=AFAM Mieczyslaw Nalewaj <namiltd@yahoo.c=
-om> wrote:
+On 2026/11/17 at 6:27 Tariq Toukan wrote:
+> 
+> 
+> On 16/11/2026 13:08, Xuanqiang Luo wrote:
+>> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+>>
+>> mlx5e_ktls_set_feature_rx() has become harder to follow: the error
+>> handling is nested in the conditions and the main flow is conditional.
+>>
+>> Handle the error cases in conditionals, keep the main flow
+>> unconditional, and destroy the accel TCP flow tables in a single
+>> place. Use goto to unlock on the early return.
+>>
+>> No functional change intended.
+>>
+> 
+> Thanks for following up on this.
+> The change is correct, I see no functional change.
+> 
+> However, we can simplify the code further.
+> See below suggestion where code is flat, the same size, and leaves the 
+> enable argument alone.
+> 
 
-> The PVID helpers (rtl8365mb_vlan_port_get_pvid(),
-> rtl8365mb_vlan_pvid_port_set() and rtl8365mb_vlan_pvid_port_clear())
-> work on a VLAN MC table index, which only family C has. Family D stores
-> a raw VID in a per-port register, so it needs its own implementation.
->
-> Move the helpers behind struct rtl8365mb_family_info, as already done
-> for the VLAN 4k accessors: the existing code becomes the family C
-> implementation (rtl8365mb_c_vlan_port_get_pvid() and the like), and
-> the three functions above only call it through the vlan_port_get_pvid,
-> vlan_pvid_port_set and vlan_pvid_port_clear pointers in the family
-> info. The callers are not changed. The following patch adds the family D
-> implementation without any is_d() check in the shared code.
->
-> No functional change.
->
-> The family C functions are not static because they are referenced from
-> the family C info in rtl8365mb_main.c.
->
-> Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Thanks, that's cleaner.
 
-What about:
+I'll send v2 with this form.
 
-int rtl8366_set_pvid() which is shared in realtek.h
-and implemented in rtl8366-core.c.
+Thanks!
+Xuanqiang
 
-It is currently only called from rtl8366_vlan_add() which
-is only used by rtl8366rb.c.
+>> Suggested-by: Simon Horman <horms@kernel.org>
+>> Link: https://lore.kernel.org/ 
+>> all/20261029134019.GG257209@horms.kernel.org/
+>> Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+>> ---
+>> Only compile-tested on top of net-next 7ccc5e05043b (arm64, W=1). I do
+>> not have a crypto-enabled ConnectX NIC to run it on.
+>>
+>>   .../mellanox/mlx5/core/en_accel/ktls.c        | 23 +++++++++++--------
+>>   1 file changed, 13 insertions(+), 10 deletions(-)
+>>
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c 
+>> b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
+>> index 3cc1213c2f68..0f5dcd1b822e 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
+>> @@ -137,19 +137,22 @@ int mlx5e_ktls_set_feature_rx(struct net_device 
+>> *netdev, bool enable)
+>>       mutex_lock(&priv->state_lock);
+>>       if (enable) {
+>>           err = mlx5e_accel_fs_tcp_create(priv->fs);
+>> -        if (!err && !priv->ktls_rx_was_enabled) {
+>> -            priv->ktls_rx_was_enabled = true;
+>> -            err = mlx5e_safe_reopen_channels(priv);
+>> -            if (err) {
+>> -                priv->ktls_rx_was_enabled = false;
+>> -                mlx5e_accel_fs_tcp_destroy(priv->fs);
+>> -            }
+>> +        if (err || priv->ktls_rx_was_enabled)
+>> +            goto out_unlock;
+>> +
+>> +        priv->ktls_rx_was_enabled = true;
+>> +        err = mlx5e_safe_reopen_channels(priv);
+>> +        if (err) {
+>> +            priv->ktls_rx_was_enabled = false;
+>> +            enable = false;
+>>           }
+>> -    } else {
+>> -        mlx5e_accel_fs_tcp_destroy(priv->fs);
+>>       }
+>> -    mutex_unlock(&priv->state_lock);
+>> +    if (!enable)
+>> +        mlx5e_accel_fs_tcp_destroy(priv->fs);
+>> +
+>> +out_unlock:
+>> +    mutex_unlock(&priv->state_lock);
+>>       return err;
+>>   }
+> 
+> Suggestion:
+> 
+>      mutex_lock(&priv->state_lock);
+>      if (!enable) {
+>          mlx5e_accel_fs_tcp_destroy(priv->fs);
+>          goto out_unlock;
+>      }
+> 
+>      err = mlx5e_accel_fs_tcp_create(priv->fs);
+>      if (err || priv->ktls_rx_was_enabled)
+>          goto out_unlock;
+> 
+>      priv->ktls_rx_was_enabled = true;
+>      err = mlx5e_safe_reopen_channels(priv);
+>      if (err) {
+>          priv->ktls_rx_was_enabled = false;
+>          mlx5e_accel_fs_tcp_destroy(priv->fs);
+>      }
+> 
+> out_unlock:
+>      mutex_unlock(&priv->state_lock);
+>      return err;
 
-realtek.h also have these as pointed out earlier to another
-patch set:
-
-struct realtek_ops {
-(...)
-        int     (*get_vlan_mc)(struct realtek_priv *priv, u32 index,
-                               struct rtl8366_vlan_mc *vlanmc);
-        int     (*set_vlan_mc)(struct realtek_priv *priv, u32 index,
-                               const struct rtl8366_vlan_mc *vlanmc);
-        int     (*get_vlan_4k)(struct realtek_priv *priv, u32 vid,
-                               struct rtl8366_vlan_4k *vlan4k);
-        int     (*set_vlan_4k)(struct realtek_priv *priv,
-                               const struct rtl8366_vlan_4k *vlan4k);
-        int     (*get_mc_index)(struct realtek_priv *priv, int port, int *v=
-al);
-        int     (*set_mc_index)(struct realtek_priv *priv, int port, int in=
-dex);
-        bool    (*is_vlan_valid)(struct realtek_priv *priv, unsigned int vl=
-an);
-        int     (*enable_vlan)(struct realtek_priv *priv, bool enable);
-        int     (*enable_vlan4k)(struct realtek_priv *priv, bool enable);
-(...)
-
-I *think* we agreed to push all of this into the RTL8366RB driver because
-the way the RTL8366RB and RTL8365MB were dealing with VLANs
-were just too different to share the abstraction.
-
-If you can confirm that this is the case also for PVID I can send
-a patch to push this into the RTL8366RB driver.
-
-Yours,
-Linus Walleij
