@@ -1,98 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794907335;
-	b=ZN4VP9gp8mcZxNjkMQoGCew7FPOeE2ocGAPdM7t7FekJK/gcUM5rumt2n6NtPNsAwwBH
-	 9aiR/XhDQStW/DkLk6SsqmDCog006fg51EzxNgbBEy1dbgsXSSASDqj/gP6jgwqEiw4/j
-	 jVMtkCko1ExqGEg+eOBAtKdtYOHvSOf4TW0bjWav2AO2vnBATJWnWZvo0Hf4wtzr68Hq/
-	 asCIvDMx9pGMyYDcyiOIiA2eI1jDz0/sE7jmvlUigf13nbKHKZjS5vZHIsijlLUwe95gK
-	 /DIRJ0xI/ukX8xD4LJEcrXatoLFyzQfgD6XTASXR2QQ/eGvvEc7lsg9Z0hrj0GDspPw==
+	t=1794907403;
+	b=c8CqQfu03NMspKYpkrJEiNUFB17QdsAEfkeu6H2iPwU4gy3mj6akoRBVwxlGmffrLOGH
+	 RCZ9QgGoc8Cn8BPCCdv6g1tF9n4scRU4b+7e3oF5m5d3D8ZrCQZJMvQeWeJE/nbdw9UPc
+	 KZL1bNReaDLdRAe7h7rYWud5VHQg7UJzrFA8pCeWumcHUExnOqxqt6SeWxyVk9QB3D4k6
+	 hbzX1YXF03rqs5I2Y8UatDCBN7nbNRe6GhILAtMgaLAIDBoE60ehqOl++J+ZY4T0qy0xC
+	 JIRk6vDDyHXVvz3WLw9i8WdqJXGJSheCtXzwQ6wS5blE5UwVhvbHmzLi6Hbaj10MtOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794907335;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yb6u44XvrqgEBzrXu63168C9irhvj3KwyZom9iAK0aI=;
-	b=0Y+/VftF86155MXWWUW+pOQebyS+I7RJdhBUWse4iIVHzeU5sKLM5dzQP0KTxhzT5SIs
-	 98PXAFwaJJXMuq5OV+v9/T4LEUUzivFl76dFvEkyf8KwOl4yoeCkRHgj4tHAv+9nfpKI2
-	 HDmtGbzp57YRex9n7KtM+VB9JApjxXoB4y/RBkjPVUOGFj29HZRhPWC/sCmumptya8dIg
-	 p0Eo0qtKlTQxPImDAwnlUtopMA1YxCO3/wQT4vZNQwRZPUEqQw1I0VSwKRVXE7bWHELaN
-	 5FK1Lc8xAIMvZxntBqt5zNZrDxlHbcQil/RCY9VVERYxjVkaGbQb81iy3jEfZjeYn+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794907403;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id;
+	bh=fWfrKyD7qtYJoq6JoJHvtsBLIpLUMiVYweeb50Qnupo=;
+	b=JgwJkfhLZBRK4pCFp+DVyD2syDQqnugb5bzDqzJ873jrI4SXu37p1A6+kD+HAoeMdMmP
+	 bvyGSURuZU16ruOdy3rfvd8M7XDYOsqhcvSZrK37/L6IwtcSeVTXSjv1iKuCavdj5y+J7
+	 ftm6TRdQ+bFl4LHlo7E2yu7PV0Wlry85Ycc+VS3OuIfuAWDktMCTUEyiWOiuHB4hUgSfs
+	 Y9G2E+Hq6isrMs3CDBUl6eouP4RPLfmSzAPH3/SEdaaXak1R/sGVIwaqH1YwMGwfuoHp6
+	 S8FhD/C3AORiNIBDUuue56upiswAHoQ7k/7C1UvOWOAjsmyaPkwjBOASyIQz9/XUuTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qCqxw8Rf;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=YMCVe05h;
+	arc=none smtp.remote-ip=195.10.208.42
+Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66893606A329
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:22:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66893606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87260606A31C;
+	Tue, 17 Nov 2026 09:23:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87260606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qCqxw8Rf
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2efc5a60bd6so7034395ad.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 01:22:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794907335; x=1795512135; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yb6u44XvrqgEBzrXu63168C9irhvj3KwyZom9iAK0aI=;
-        b=qCqxw8RfWo7pZ9gZK2/OOFzdFnddnZWU3F8BdPnBphFDfCGs101taaaQSeD5rdBBQ+
-         WWOi72ECg/Vz8lwExssQ8I9wwrpTsbL6T0W91ZIJkuauFQrs4hoIz4SyWgmLdVlbkal8
-         JPn7ufWZtXBn1YHNOtUMgNIOlXm5ylVPZfMQdbBwEumwBsCZplh8v7nwu9wDmva+hitz
-         eAq4JXD+CQpg4za/tmnX0MJ3lxc7MibjysE9p+OvAWmxAjbF1+ljOcVwceuV1jZ/fqS7
-         zYMYn8jxxFzrNOv35JyxMfkp1u8VrVnaEUNLG5MUYMVxddjzRTexmQbypcs7K2X+MkcD
-         /Flg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794907335; x=1795512135;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yb6u44XvrqgEBzrXu63168C9irhvj3KwyZom9iAK0aI=;
-        b=VZJp8XSehY9LAX28wbSuukN21H0KW8ZR6olwaUyB3uaZSFSzVYIynAZqw4hdOo0K+n
-         rljd65wf1/sv7ABW6/0vM8W20DdkUC/N31BOCXm1LFWAqJzjZ4o/u5PsRgAt0SK1me6W
-         Fx6pVzoXkf09TMQLEMHCtzKWoSHWpt5a0l1MamxpsXKzuqCzZWWauXEhu3VWFvkpHAT/
-         vBvSz5glIOleQnc+b0iKurT8VxWq09PTH8p/Qmgrbjmkcpb6+6w0o1GJsJLiBldLrnNO
-         qxT85aYFDsi915HTrG2hWq5ptcDQYSXAwh5QcPURMfWfJkxOYw9nsGzxzm2rdU5+bBIz
-         y+JQ==
-X-Forwarded-Encrypted: i=1; AL+hErHjjpUVEouymJW0ZMeuTdxpG9Z8euKPv6g+vSJYFs9UvSVyKIuIpzu2kYxzCxNLO6fwnANldIg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8vSxT0po1b62dGMIND/wINTzWOF/Xm68rVo2jYwbl+c5k9ytYW
-	p9JiGy7/fg2gD9kWBFshA1te8m+6dm13BuoKBQXJ11wPMrLwhrA9jAUMgYqqHWod
-X-Gm-Gg: AZFdTZdrxrI0pOb/xjB/MeUr/+0gNUO/dt4R3BR/naUIbu44Iv1OY/j90QNmMPzF58V
-	QpCtVGJK/J77IByPmONEsH6AlzlHQIazcqm3lkxmCEK3VqSKT91Nn1EMjDcetKgOhNw3Q0rKMUE
-	SjC6VXI9iBrtVO3h/LJkRY9TJd818PMKsWv5kDM2qK22qSeHFvaqfCGxsdNoEu+GL7Mm+TN5SKj
-	T+AK5aFRorTTg6FaspQxrjZoesTugEqTWGVvKKXIaZ0iFtiX6xuP+VXlN7NOWczpXKheG260B8g
-	UKO7sCz3VTyX7DMnZ091uqurnG6MpPOkBvAsR5W/62VpVTBXSQuNzn/4BiVRJG/+5GA6sJznTO6
-	Bymr1pjP/d+OXqs6pi/jUcTykXXcAfTg/SaYzT5Wy0stzOyx8zyes7jr5H8tyjzfoquy6ae878p
-	GJs2VzAKq+2Y54zr9bIpPOortWPaEhH+MCs3lEi1ccqqAqOJqbSF1I/p7XYqRnKPfIiK2IreTwQ
-	2gJ2acVvtp0+bJnFzJBWHYwAXb+6xdBK3QGm8ktPb+LDjkRjBITNWDTnU5lxZGWJLL6iOzJl8jG
-	j2/3Ggk6BI0hPHTbf/tQsg0+fwIuSh3muSxnAN5Xzz9je3gM
-X-Received: by 2002:a17:902:e801:b0:2ed:1ca2:ea5a with SMTP id d9443c01a7336-2ee0dca839cmr135269225ad.51.1794907334563;
-        Tue, 17 Nov 2026 01:22:14 -0800 (PST)
-Received: from hj.. ([163.239.22.29])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efe98cff9fsm1783345ad.33.2026.11.17.01.22.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 01:22:14 -0800 (PST)
-From: Hyunjung Ko <hj351016@gmail.com>
-To: James Chapman <jchapman@katalix.com>,
-	Jakub Kicinski <kuba@kernel.org>
-Cc: "David S . Miller" <davem@davemloft.net>,
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=YMCVe05h
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jTK5x0qmxz5x1P;
+	Tue, 17 Nov 2026 10:23:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1794907397;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=fWfrKyD7qtYJoq6JoJHvtsBLIpLUMiVYweeb50Qnupo=;
+	b=YMCVe05hGlIf/wh1cR+3rQ3dHyMWbXz6W4bm8U4HGL4Wraj4M0Zl1ydGrdDQ2CsXz0Jode
+	WGP4/fi88NuSKO9gwqrR/IZCQnlxXf8+n7lXLuhMUSrmwV6I1elkzQP8QIIGLEsM0n1TBv
+	gLW38p0RLer1XelKamx3eisLnM/LajLFJwvwtLGcAhD8z02QvttqvbVY5jStWeHlhiAZ5g
+	Eulnga6mXbPHF+TT3Ck35n+mLocdb6AAtDFt7UPbQocHCzMcBGmHeXapG1D31KRBGii0z9
+	4w2oeb5IMFt0xftJM/agUlcDjNECllfxMxGH0MKFf20cuGZKh3XTShP2DqQvVw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Simon Horman <horms@kernel.org>,
-	Chris Elston <celston@katalix.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Hyunjung Ko <hj351016@gmail.com>
-Subject: [PATCH net] l2tp: reject short IPv6 address attributes
-Date: Tue, 17 Nov 2026 18:21:57 +0900
-Message-ID: <20261117092157.85513-1-hj351016@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Florian Westphal <fw@strlen.de>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Antonio Quartulli <antonio@mandelbit.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v3 0/3] ipv6: tie the dst cookie to the lookup that returned the dst
+Date: Tue, 17 Nov 2026 10:21:23 +0100
+Message-ID: <cover.1794906743.git.ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,48 +84,89 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jTK5x0qmxz5x1P
 
-L2TP_ATTR_IP6_SADDR and L2TP_ATTR_IP6_DADDR are NLA_BINARY with .len set
-to sizeof(struct in6_addr), which only bounds the attribute from above.
-l2tp_tunnel_sock_create() then copies a full in6_addr out of each one,
-so a shorter attribute makes it read past the payload. If the attribute
-is the last one in the message this picks up whatever lies behind the
-skb tail (stale heap data unless init_on_alloc is set), which ends up
-in the socket address and can be read back with L2TP_CMD_TUNNEL_GET.
+Hi,
 
-The commands are GENL_UNS_ADMIN_PERM, so this is reachable from a user
-namespace.
+This series implements a first part of the model proposed in [1] to
+address the late cookie sampling race: a dst can be stored together with
+a cookie read after a FIB change that its lookup did not see, and then
+passes dst_check until the next change.
 
-Require the exact length.
+The case that made me post it as a series is xfrm. Adding a policy
+restamps every fib6 node, so a socket whose lookup ran just before the
+insertion keeps its plain dst and leaks plaintext although the policy
+matches. I reproduced it for TCP connect and connected UDP, and the same
+window lets a more specific blackhole route be bypassed for routes using
+nexthop objects. The ovpn patch [2] hit the same pattern in
+dst_cache_set_ip6.
 
-Fixes: f9bac8df908d ("l2tp: netlink api for l2tpv3 ipv6 unmanaged tunnels")
-Cc: stable@vger.kernel.org
-Signed-off-by: Hyunjung Ko <hj351016@gmail.com>
+The conversion is initially limited to tcp_v6_connect,
+ip6_datagram_dst_update and ip6_sk_dst_lookup_flow. Other TCP TX cache
+paths, including established-socket route refills, header rebuilds and
+accepted-socket setup, still use late cookie sampling. This gives the
+lookup-cookie API a small set of users and concrete fixes to review. If
+the approach is accepted, I plan to follow up with a broader conversion
+across the networking core and drivers.
+
+Compared to [1], the fallback cookie is 0 instead of the pre-lookup
+generation, so fib6_flush_trees is left alone, and nexthop-object dsts
+are checked in ip6_dst_check instead of passing the generation down to
+ip6_rt_pcpu_alloc. The other cache users (dst_cache, sctp, ipvs,
+flowtable, sk_rx_dst, the xfrm bundle cookies) are not converted and
+behave as before.
+
+I tested it in a VM with lockdep, PROVE_RCU and DEBUG_ATOMIC_SLEEP,
+using a debug-only delay after the lookup to hit the window: no
+warnings, and the plaintext and blackhole bypass are gone in these test
+cases.
+
+I am targeting net-next to get feedback on the lookup-cookie API and its
+incremental adoption before extending the conversion across the
+remaining cache users. This series provides the writer-side
+prerequisites and converts three socket-cache paths; it does not
+complete the conversion. I am not requesting stable backports at this
+stage. Backport scope and dependencies can be assessed separately once
+the approach has been reviewed.
+
+[1] https://lore.kernel.org/netdev/20260901122501.482920-1-ralf@mandelbit.com/
+[2] https://lore.kernel.org/netdev/cover.1789639346.git.ralf@mandelbit.com/
+
+Thanks,
+
+Ralf Lici
+Mandelbit Srl
+
 ---
- net/l2tp/l2tp_netlink.c | 10 ++--------
- 1 file changed, 2 insertions(+), 8 deletions(-)
+Changes since v2 https://lore.kernel.org/all/cover.1794384146.git.ralf@mandelbit.com/
+- Rebase onto current net-next, preserving the connected-only cache
+  lookup introduced by f778e80b3daf ("ipv6: fix cached route reuse for
+  control messages"). (Jakub)
+- Move the serial update after rt6_multipath_rebalance in fib6_ifup and
+  fib6_ifdown. (Sashiko)
+- Add Fixes tags and improve wording. (Sashiko)
+- Clarify that this is the groundwork for fixing the race and a partial
+  conversion to the new API: other users will be covered in a follow-up
+  series.
 
-diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
-index 89ef04c78787..a07009d4cb00 100644
---- a/net/l2tp/l2tp_netlink.c
-+++ b/net/l2tp/l2tp_netlink.c
-@@ -910,14 +910,8 @@ static const struct nla_policy l2tp_nl_policy[L2TP_ATTR_MAX + 1] = {
- 	[L2TP_ATTR_MTU]			= { .type = NLA_U16, },
- 	[L2TP_ATTR_MRU]			= { .type = NLA_U16, },
- 	[L2TP_ATTR_STATS]		= { .type = NLA_NESTED, },
--	[L2TP_ATTR_IP6_SADDR] = {
--		.type = NLA_BINARY,
--		.len = sizeof(struct in6_addr),
--	},
--	[L2TP_ATTR_IP6_DADDR] = {
--		.type = NLA_BINARY,
--		.len = sizeof(struct in6_addr),
--	},
-+	[L2TP_ATTR_IP6_SADDR] = NLA_POLICY_EXACT_LEN(sizeof(struct in6_addr)),
-+	[L2TP_ATTR_IP6_DADDR] = NLA_POLICY_EXACT_LEN(sizeof(struct in6_addr)),
- 	[L2TP_ATTR_IFNAME] = {
- 		.type = NLA_NUL_STRING,
- 		.len = IFNAMSIZ - 1,
+Changes since v1 https://lore.kernel.org/netdev/cover.1793806941.git.ralf@mandelbit.com/
+- Fix kdoc return statements in patch 2/3. (NIPA)
+
+Ralf Lici (3):
+  ipv6: stamp the default route node with a fresh serial on link failure
+  ipv6: add ip6_dst_lookup_flow_cookie
+  ipv6: use lookup cookies in selected socket dst cache paths
+
+ include/net/ip6_route.h | 18 +++++++++----
+ include/net/ipv6.h      | 13 ++++++++++
+ net/ipv6/datagram.c     |  6 +++--
+ net/ipv6/ip6_output.c   | 57 ++++++++++++++++++++++++++++++++++++++---
+ net/ipv6/route.c        | 30 +++++++++++-----------
+ net/ipv6/tcp_ipv6.c     |  5 ++--
+ 6 files changed, 101 insertions(+), 28 deletions(-)
+
+
+base-commit: 6ff4c5942a301675eb12e5b49d53a81e604624a1
 -- 
-2.43.0
+2.56.0
 
