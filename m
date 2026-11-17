@@ -1,54 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.38
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794904504;
-	b=TvKyvbqvoy1yYClkrBTzheS9bmD+0K/Mvy5Hp+SKZSGVZLE3PGbJi4L393f/hphpZ+1H
-	 RfFLQiblOtwBKt+8q4AVbbq0Ie6HcwbHpWA2gfa3/Ah2itCFcwih4wFP9TYEzEG+VKKQj
-	 eE+qU72dJ3W3SqhQWiTyTybtBdfwGZFWcmAaYHWodUWhbUhdUFZUPsd/nYlbigNyfUxT0
-	 tJaa7m4PvTJgFlq294a7zwhm/RCyM/0hifqPE575gFlfht7rGrD7fhTReDlTxBqWDJVXx
-	 gpgy5UaMWbLgoBnR63IOhpoCaoaFW3OAGk8afbPO7N3z6WfCvA5Qp/eIBzqhxBvL0MQ==
+	t=1794904513;
+	b=dEH4ZWFSLFTUDQ6C6vRNKRTLGqEwsCCLXmC6n8/LdNg4U40IgLVY/J535AB9oEJy11vB
+	 PSw3U6wjissEk5XoxidPoKj2RFiWhTN9x8HxtTsNnNk1827oYzub7XKlVS4ohV7ATBQeL
+	 ZyWxiUPpLipGwRd5wHv2+6PAOAGMyn3mvccSI0y7ThHXCYW0s+RuaWuWkkD5VcvLwioFf
+	 3B4iEIZgsHsv6nxRDrnTgrBeE09W8FKcln1Sp98n99xXkX18tSPKScEFeWWu3slup94sJ
+	 tZ3p+8UeQYxrJ7CVVbwFqQLFtoBI1nsNyyANLFEMx1N1sRPuBA9Y9ZrGkxuelSW448Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794904504;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=9KAZFpOa4tylOS5Nw5xzUePTPvnbB87FGC6zFO/XDbM=;
-	b=DoyGrRbVyt03GGYCmmzgLPB1NXSeY22y9eabuEJZQPiKjgwDmZ6KdAePwqQidEhtXOzt
-	 3/oxNpA0aTR4W/jlaP3u4t0wHc1SYzxMfpt4ARkH16qF5krWe91hJC3SJZ3b2fSQUIqEN
-	 A08y6pxfISy/FazEFR/bdeaVpafkaenh5QJKtyB3aG8OYfhOwj5cGR8kAlbuFnhSpYU6R
-	 ovmmyLbhbVcaAjxB0acTPqCE0M29zkBC4odJFFa9T1ptv6oYhJeBt3HwywJJ1AALb7xfc
-	 xUwz5hDxY7nt+spwjmLObC6Lc8pxhPnKPKRYYMTuiDX5JdKb3LcINyloE6y/VxzAe3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794904513;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=+cVfVc99Mj9JzDjRqkRlx7bbwk4z1TaP6S9xba6j1G0=;
+	b=Ny6j+SwK6sBDIGMrgOaMtiY+vZ9LDrNngJFOfxNS6mt9TUwwlFvrGBkajamh+KtjGvLG
+	 C8q527geqQurI4nH4s0O8KB6hWOrxEXJiwxDD7KuMh3+SycjuTT3sUMq+bgA6QvszyJ/J
+	 xjJt7pOIML9l+h3u4I1HBDFkRR19km8cqhssY2xzEuzlfe6feLSvfyexFhzJ5KvCw+niu
+	 PJI676NX13ajnJwUljCeuhYz5njDBrjpsyrQKMoWRTXY30jXwTqNbvEty94IGiqfTLo+P
+	 zyihfcoSwoqqAdYQC9y4da92sEcEgjGAGKczXGkKIH4v9ROd0HtMiIwFYk4NN3GbTKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=n55I3HJr;
-	arc=none smtp.remote-ip=95.215.58.38
-Received: from mta1.migadu.com (out-38.mta1.migadu.com [95.215.58.38])
+	dmarc=none header.from=amutable.com;
+	spf=pass smtp.mailfrom=amutable.com;
+	dkim=pass header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=asHWLUHh;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3863606A897
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:35:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3863606A897
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94BD1606A8A3
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:35:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94BD1606A8A3
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=amutable.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=amutable.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=n55I3HJr
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=hC1qvaPQfrqhp9FLOrn21Z0mMkfjkKTnJp1S1GHAOrY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794904500; v=1; x=1795509300;
- b=n55I3HJr2fMsajjR5X2DWFC3tDjhbtZnHlI/N4gevn5V11c2y7J0wzzBJoxsvX88VG2n1Bvg
- ZMKh4Fu+RqGVAlIalIWQ9Nj03Z0/sllq0P6mzVRhYZ1sZairwcAS0L2JzoVT9DXGP2eMM8N13nY
- JulW+PXb6aUQA6LoD88pPRhI=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 055bea7900dda262;
-	Tue, 17 Nov 2026 08:35:00 +0000
-X-Mizu-Trace-ID: 055bea7900dda262
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <51c8a888-c0e7-4045-8395-380cda03ee2c@linux.dev>
-Date: Tue, 17 Nov 2026 17:34:45 +0900
+	dkim=pass (2048-bit key) header.d=amutable-com.20260707.gappssmtp.com header.i=@amutable-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=asHWLUHh
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so2440154f8f.2
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:35:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=amutable-com.20260707.gappssmtp.com; s=20260707; t=1794904510; x=1795509310; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=+cVfVc99Mj9JzDjRqkRlx7bbwk4z1TaP6S9xba6j1G0=;
+        b=asHWLUHh9Osx9c7ISjHVvBK+jrwM+bEKiKQ5ZLUG8jHeL8cbDrdmay7aq+azwtlrvN
+         q7YkHw224WJQO7TnM1AyMygFYXrlY29jKpq3C9XROr0oTqsA+UK4p+WS5GMy+xx9DTRb
+         nuDA+OEO8+ykjkDq/RDjAwEfWgenycj+snq2KkG6mulygb6NKchr6plM71+t8W0/+aGL
+         LigMC+giRqQ92TsunABClmE52NWQSdRqhQeez7lH76lemvGh63Ic8nud3Qte/9KpQmbQ
+         YrdviXjfG5hlS64KIE7Iq0kMRVYmtZMNK2hkMRb6Cz1tihRk5N+J71aJKPK+K5E0SOED
+         KbHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794904510; x=1795509310;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+cVfVc99Mj9JzDjRqkRlx7bbwk4z1TaP6S9xba6j1G0=;
+        b=pDQBDfu2hpg6Zr0ujQFR1P727oQm9LAumfqE/99nccDE+T/PoHMz1OxPmIlse/9PTv
+         ulC9xukW4siT/09bYrGSaaSk8FzEmDXHUvi27Ln4DW02Mwafzxr3HjZXzKrUC3PqLBvW
+         /Gm48PBKVcxQw72j5z65RWTyAwbkzcjZY7QUA7EIVj2De7IqGbEjV3DAA6otwrsN58MQ
+         VTZLg6ad1BpfLDhrmnXHe5bFfL7K8XGuspjVWVJLHGQdzwwKJxhO+fbeR96PhI8oXdnT
+         Jm+umVsrVk/p6OqJv8uVgckO//rsf1oXrS0Hpr3n2paMCcdAgp2yYCb8mjtYjvsL1Wbk
+         M8bw==
+X-Forwarded-Encrypted: i=1; AL+hErELznhMpMjofboWMKWCMlTWH972/iHe9ApE64v0DY9RdQCRDTkhFysPQCQvHSBdTEp7vi/URrI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uX5jVE6xC+9cLJH9agwcm/LWCZlnbqwY/YrSE7IZaT3TcbRZX
+	bKB6EUBt63yAvR0wcdEoirGcT0Av9VC5bha/UQB3Sf4sUUUa6VnySH+W9be0x7NtTbUs
+X-Gm-Gg: AZFdTZfctf9wuXRj2pZmsGdLqJVQPxQq+NlZPbz6F3pmE3dYRgKGnRuUxT0pq0qS9oM
+	ijEqMxFCeWsMc8FOBQmjgpdGElq13K5Vur7/Zb1ICP6pWr2V12z5vGgrrVtMo9ElZQMN6YdnEdc
+	9u1NEIfSaLj9tznScf5hDlByyhMowCLWF/4um2YG2L9WrVo4mQ+6xT67+/hLLNkfd13/cNxl6qT
+	pVDMgEywwSkiUt1wTpj9gTQONEz//2+EcSxWg4zIIoBAH7Bfq4xdD2RXdSKP+QZXAb5N5s13Mx3
+	tPzHAqxySKx8pwX7MkVE8ByCppK9OWpLdJXGE+Ou+AhWyi2ik9lX9UbH+e4wUtULbU/GIxWBdOo
+	ZpiRLx5YaaCYKSQJmGj66EfqC1yC/UM3O3WqMt0umt9zxP0Sozlz/s/dLjWraz6Ox6SCpmGG6Jh
+	NUHukIe7/43JwWUkKDwnr8dvFxkPc8HOTC/+4ViGXTSJEN/AHb8kGTsrsEF1UlV5IUVaJ36Ntjj
+	2EzJ/BhiBkoCv/Rxq4Jxx1gaH90q8qxKbbFdaOLnuvJBCxZehVLWuYIWZuvPS8Q7VtQeEok01sJ
+	AlZar5DzQxQquRkPQ1FftlsIjcxHBxKuPhBhWgdsD9SGY5hD686UxqmZWXHF2rZ+QuKrgRotVfo
+	BsC9oCsELTN7wjrgzB4APqAwDdXVfIECyOvxG96Ex37mxOtZY2Uy5GMQu
+X-Received: by 2002:adf:e193:0:b0:48c:7306:18e9 with SMTP id ffacd0b85a97d-49c728c6e6amr26569239f8f.43.1794904509932;
+        Tue, 17 Nov 2026 00:35:09 -0800 (PST)
+Received: from ?IPv6:2003:cf:572c:2800:de4c:6789:33ce:97c2? (p200300cf572c2800de4c678933ce97c2.dip0.t-ipconnect.de. [2003:cf:572c:2800:de4c:6789:33ce:97c2])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-49c603f4e2esm26338505f8f.36.2026.11.17.00.35.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 00:35:09 -0800 (PST)
+Message-ID: <b0ec2cd8f9b7a6a2e4a54c6df2fa897bce068cbd.camel@amutable.com>
+Subject: Re: [PATCH RFC v3 28/44] ocfs2: use fc_init_pseudo() for dlmfs
+From: Alexander Mikhalitsyn <alex@amutable.com>
+To: Christian Brauner <brauner@kernel.org>, linux-fsdevel@vger.kernel.org
+Cc: Jann Horn <jannh@google.com>, Chris Mason <mason@kernel.org>, Josef
+ Bacik	 <josef@toxicpanda.com>, Christoph Hellwig <hch@lst.de>, 
+	linux-block@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-nvme@lists.infradead.org, Alexander Viro <viro@zeniv.linux.org.uk>,
+ Jan Kara <jack@suse.cz>, linux-scsi@vger.kernel.org,
+ target-devel@vger.kernel.org, 	driver-core@lists.linux.dev,
+ linux-mm@kvack.org, bpf@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, selinux@vger.kernel.org, 
+	apparmor@lists.ubuntu.com, linux-nfs@vger.kernel.org,
+ netdev@vger.kernel.org, 	fuse-devel@lists.linux.dev,
+ linux-efi@vger.kernel.org, 	xen-devel@lists.xenproject.org,
+ ocfs2-devel@lists.linux.dev, 	linux-s390@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, 	linux-usb@vger.kernel.org, Amir Goldstein
+ <amir73il@gmail.com>, 	linux-erofs@lists.ozlabs.org,
+ linux-kselftest@vger.kernel.org, Chris Down	 <chris@chrisdown.name>
+Date: Tue, 17 Nov 2026 09:35:07 +0100
+In-Reply-To: <20261116-work-loop-pseudo-v3-28-8cbbea1cf34f@kernel.org>
+References: <20261116-work-loop-pseudo-v3-0-8cbbea1cf34f@kernel.org>
+	 <20261116-work-loop-pseudo-v3-28-8cbbea1cf34f@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,122 +115,40 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net/mlx5e: kTLS, Simplify error unwind in
- mlx5e_ktls_set_feature_rx()
-To: Tariq Toukan <tariqt@nvidia.com>
-Cc: horms@kernel.org, saeedm@nvidia.com, leon@kernel.org, mbloch@nvidia.com,
- borisp@nvidia.com, witu@nvidia.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org,
- Xuanqiang Luo <luoxuanqiang@kylinos.cn>, netdev@vger.kernel.org
-References: <20261116110830.2850785-1-xuanqiang.luo@linux.dev>
- <b0f73ee2-fdff-4b5f-b8d0-43cd293d3058@nvidia.com>
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-In-Reply-To: <b0f73ee2-fdff-4b5f-b8d0-43cd293d3058@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 
-On 2026/11/17 at 6:27 Tariq Toukan wrote:
-> 
-> 
-> On 16/11/2026 13:08, Xuanqiang Luo wrote:
->> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
->>
->> mlx5e_ktls_set_feature_rx() has become harder to follow: the error
->> handling is nested in the conditions and the main flow is conditional.
->>
->> Handle the error cases in conditionals, keep the main flow
->> unconditional, and destroy the accel TCP flow tables in a single
->> place. Use goto to unlock on the early return.
->>
->> No functional change intended.
->>
-> 
-> Thanks for following up on this.
-> The change is correct, I see no functional change.
-> 
-> However, we can simplify the code further.
-> See below suggestion where code is flat, the same size, and leaves the 
-> enable argument alone.
-> 
+On Mon, 2026-11-16 at 12:05 +0100, Christian Brauner wrote:
+> Initialize dlmfs as a pseudo filesystem. This raises SB_I_PSEUDO and
+> also SB_I_NOEXEC and SB_I_NODEV. dlmfs never holds executables or
+> device nodes.
+>=20
+> Reviewed-by: Jan Kara <jack@suse.cz>
+> Reviewed-by: Chris Down <chris@chrisdown.name>
 
-Thanks, that's cleaner.
+Reviewed-by: Alexander Mikhalitsyn <alex@amutable.com>
 
-I'll send v2 with this form.
-
-Thanks!
-Xuanqiang
-
->> Suggested-by: Simon Horman <horms@kernel.org>
->> Link: https://lore.kernel.org/ 
->> all/20261029134019.GG257209@horms.kernel.org/
->> Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
->> ---
->> Only compile-tested on top of net-next 7ccc5e05043b (arm64, W=1). I do
->> not have a crypto-enabled ConnectX NIC to run it on.
->>
->>   .../mellanox/mlx5/core/en_accel/ktls.c        | 23 +++++++++++--------
->>   1 file changed, 13 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c 
->> b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
->> index 3cc1213c2f68..0f5dcd1b822e 100644
->> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
->> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
->> @@ -137,19 +137,22 @@ int mlx5e_ktls_set_feature_rx(struct net_device 
->> *netdev, bool enable)
->>       mutex_lock(&priv->state_lock);
->>       if (enable) {
->>           err = mlx5e_accel_fs_tcp_create(priv->fs);
->> -        if (!err && !priv->ktls_rx_was_enabled) {
->> -            priv->ktls_rx_was_enabled = true;
->> -            err = mlx5e_safe_reopen_channels(priv);
->> -            if (err) {
->> -                priv->ktls_rx_was_enabled = false;
->> -                mlx5e_accel_fs_tcp_destroy(priv->fs);
->> -            }
->> +        if (err || priv->ktls_rx_was_enabled)
->> +            goto out_unlock;
->> +
->> +        priv->ktls_rx_was_enabled = true;
->> +        err = mlx5e_safe_reopen_channels(priv);
->> +        if (err) {
->> +            priv->ktls_rx_was_enabled = false;
->> +            enable = false;
->>           }
->> -    } else {
->> -        mlx5e_accel_fs_tcp_destroy(priv->fs);
->>       }
->> -    mutex_unlock(&priv->state_lock);
->> +    if (!enable)
->> +        mlx5e_accel_fs_tcp_destroy(priv->fs);
->> +
->> +out_unlock:
->> +    mutex_unlock(&priv->state_lock);
->>       return err;
->>   }
-> 
-> Suggestion:
-> 
->      mutex_lock(&priv->state_lock);
->      if (!enable) {
->          mlx5e_accel_fs_tcp_destroy(priv->fs);
->          goto out_unlock;
->      }
-> 
->      err = mlx5e_accel_fs_tcp_create(priv->fs);
->      if (err || priv->ktls_rx_was_enabled)
->          goto out_unlock;
-> 
->      priv->ktls_rx_was_enabled = true;
->      err = mlx5e_safe_reopen_channels(priv);
->      if (err) {
->          priv->ktls_rx_was_enabled = false;
->          mlx5e_accel_fs_tcp_destroy(priv->fs);
->      }
-> 
-> out_unlock:
->      mutex_unlock(&priv->state_lock);
->      return err;
-
+> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
+> ---
+> =C2=A0fs/ocfs2/dlmfs/dlmfs.c | 2 ++
+> =C2=A01 file changed, 2 insertions(+)
+>=20
+> diff --git a/fs/ocfs2/dlmfs/dlmfs.c b/fs/ocfs2/dlmfs/dlmfs.c
+> index d3bfcada3e3bf..1789ec96dc130 100644
+> --- a/fs/ocfs2/dlmfs/dlmfs.c
+> +++ b/fs/ocfs2/dlmfs/dlmfs.c
+> @@ -21,6 +21,7 @@
+> =C2=A0#include <linux/module.h>
+> =C2=A0#include <linux/fs.h>
+> =C2=A0#include <linux/fs_context.h>
+> +#include <linux/pseudo_fs.h>
+> =C2=A0#include <linux/pagemap.h>
+> =C2=A0#include <linux/types.h>
+> =C2=A0#include <linux/slab.h>
+> @@ -563,6 +564,7 @@ static const struct fs_context_operations
+> dlmfs_context_ops =3D {
+> =C2=A0
+> =C2=A0static int dlmfs_init_fs_context(struct fs_context *fc)
+> =C2=A0{
+> +	fc_init_pseudo(fc);
+> =C2=A0	fc->ops =3D &dlmfs_context_ops;
+> =C2=A0
+> =C2=A0	return 0;
