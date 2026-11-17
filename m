@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794950061;
-	b=0amkrrFt+FJDyunt8zUcNI8IOjfaPWbRx3ZX81ksK4Ao5Y9eLMPmFIxzfv6Qn4IFihPc
-	 JVIxVtKLYVmmuysYj6eszVW9OZ83GzdaycuixHnE9BKvp64A/dD458Mae/jvsL0/Mzaqs
-	 qmWnIIEI9tsgYiADZ8BdwB82uUdl4m6yPwn3+pkoCMbJZFBTq+RBw4MsbpZ7R/6Mfr3zh
-	 1wCsY226RPlM4GdU71VsJTEogM6Mg2eqbZUpmY2XciWbTiYZwHPpFflqZSnTnvywuIeuL
-	 ZrTLRBYlGFhwK2kKTyjB79t+fEsn0OOpxL3Lx/CTfzFyn/VrbysFsjrqeYbTqOOkeBg==
+	t=1794950062;
+	b=cw2/oR7SHj0+ADRlxaivjR0dEzMuqOARPRlhSgd8bxVz4EgIrTMIS6xiUOHQ7EnZUVYS
+	 pcCrwlTyt1RVaRCqEEpooQgRWj/aY8V5syNc+7nf9xZi66P31msf3O/Ji15AXWz0Gb5cY
+	 /kW0dgmQmk3QyFvRLLV23PVqnmYZ2lW9AJ47MhFAh66K0TISPftyjlOaR4anSO8jSdUat
+	 T6iZZqYryXKzAA9MDXxttjae2ELkU8n7nfNtq3ZysnVSyobUSMCWxjqz6ORVS/vmig8XT
+	 hbLA4Hd69lcdRJ13GKtGjWZUmXkAT6AsDI3J/hfIA2AjOdDR0GLizRyWYEJuL01nEnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794950061;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794950062;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=TcpFUjEcAbKNKX1+Kz1Nz7s9gX1dNDQMX7S3PRCPz44=;
-	b=h+6pKjrm/Uxq7sgrLYBkgojovkeGPOJx2ognId6pZ5cbQlqXXJkLJ90b3UBn11/wJlwX
-	 kiN0ArGFk2bR/8qmAD4RcW33HfhiwMh+oZXfC1CTq/K81Ovx2hGWHhwzVO5OEBgqbjdvF
-	 iTmTssObIn6q3985CBaCGygBTD2QJQ6d36YdEUo31MFlGrCunxEX/EyrBXJe+8JP3lKvr
-	 qVs2Md7e/6MpM1QOdk/uLwpjW7cci/cCaom8ROHrfmu2icT/gF+HZZHxx8gnTG0KF9NNr
-	 klY1cBcJfmTSvyVq3qGUhlKuCJ7ONC5TPG0bQedhbjBK2LGVdZHW9oHwG52bh6RkJDw==
+	bh=SdPRRe+HXuGNV3z6Rw6BrKjM2bO4XfhywsJ6yCYXhJw=;
+	b=qbjeRXrKbkTnhzIPJp2ZRQi7RTL7zlhQjQOeb8Y2Qbo7dS1SRS7XwqGm2qSqx81o3xqe
+	 RH1+AduMezVIpXAnnxQ2HYbxvXWimQrWYPQO85RKou7KXlEfchS8MOcE0979UrEmgsL1t
+	 q8KE8t261ycoHReX5zwZS81nhSW109jbYJHxX8jbQFUtj0Fr65dI3nL7IZnFzDGaqgTSv
+	 gR+LL2fe9ZD+Kz8EJn94QZVmUsdMouxz9pWLmD/PyHQXQ7cQppHi4L9ZES3IdxpmjPxgY
+	 JpO8MnlrUKFrw0ps5oCWphlMiK7AZDJqIDBTiRwZVuifyrUMk242wtVvik0SybrG8NA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UabMZzBb;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IrOU4LAu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23CE3606A334
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 21:14:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45A7A606A32C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 21:14:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UabMZzBb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FC0D1F000C4;
-	Tue, 17 Nov 2026 21:14:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IrOU4LAu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D5551F000C4;
+	Tue, 17 Nov 2026 21:14:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794950060;
-	bh=TcpFUjEcAbKNKX1+Kz1Nz7s9gX1dNDQMX7S3PRCPz44=;
+	s=k20260515; t=1794950062;
+	bh=SdPRRe+HXuGNV3z6Rw6BrKjM2bO4XfhywsJ6yCYXhJw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=UabMZzBb8bXiFkATDfhjF8FI8uNKBN/kJmMa5x+zXfaVkuL3BxLhY9N5SY2QAiWxc
-	 WTdcC7D/viMKcvv2dmKgEknub1FP833b5YuP9fFb0s3LwS3ayNH8ySHqfAV98XN5UZ
-	 FfeGMZ9pGDjVEwSa6/BthCmldBadw7qCVEDtvLVcqpxnrzT/0YRwSsJJ2XYT2dnxG3
-	 HQ6vRmd3u7e+ykw3iidC7hjnUEwNyeaNE2ezIBfZHpT/Ds3Zfe1FAXmZ85RpMYmAvs
-	 3qUPa7Q0tmKPdA5lF2nCIuwjSllYJx40NxmrauoANE/0kCmmiPtd+0cSqp2MuQ930M
-	 7t4ta+Q2VVzDg==
-Subject: Re: [net PATCH 2/6] fbnic: Do not accumulate HW stats from failed
- register reads
+	b=IrOU4LAu3uOhwDADT/RlwMKStCrvK59zzrEn1Ju74GtJK79wyV+ZdECXjT6GGlQoC
+	 DXfYg/2qu2Juuy6DTRooi5FZvgDN61AKx17rJVFpxMcD9a7oii9yjJ4FGKSucMHvXN
+	 sxbRyKGuUp47mIlxsFhPNQz2v0ygjYY4g1JIx1t+ozIYqhZeDgi711XXgQ7BG2G5XB
+	 QI9pI+e2GCV7sodfihiX2JinamFG/TkCzAlybv/D1bIW0ee8HavSLKi0LQjgz69Dm3
+	 krIZvfdnPrGf9RBCDUuSXf7Sd43nFdeSE5az8Ld3NnGCqjh7EcOp9Ehy6QqSpRFbbQ
+	 SYC/bxeO0cOwQ==
+Subject:
+ Re: [net PATCH 3/6] fbnic: Cover all of the HW stats with the stats lock
 From: netdev-bot+sashiko@kernel.org
 To: alexander.duyck@gmail.com
 Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@google.com, horms@kernel.org, kernel-team@meta.com, kuba@kernel.org,
  pabeni@redhat.com
-Date: Tue, 17 Nov 2026 21:14:19 +0000
-Message-ID: <179495005990.3136.15414982968445441738@kernel.org>
-In-Reply-To: <179460249371.8819.4646491882671802455.stgit@ahduyck-xeon-server.home.arpa>
-References: <179460249371.8819.4646491882671802455.stgit@ahduyck-xeon-server.home.arpa>
-X-sashiko-severity: High
+Date: Tue, 17 Nov 2026 21:14:21 +0000
+Message-ID: <179495006109.3136.9222422977894063290@kernel.org>
+In-Reply-To: <179460250360.8819.2203630667210523871.stgit@ahduyck-xeon-server.home.arpa>
+References: <179460250360.8819.2203630667210523871.stgit@ahduyck-xeon-server.home.arpa>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,10 +64,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,109 +75,83 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The fix is incomplete: `fbnic_pcs_rsfec_stat_rd32()` in
-  drivers/net/ethernet/meta/fbnic/fbnic_mac.c still adds failed reads…
-- [Low] The commit message describes the failed-read symptom accurately
-  only for the 64-bit counters.
+- [Medium] The commit message and Fixes: tag describe a race that cannot
+  happen at this commit.
 
 --
 
-fbnic: Do not accumulate HW stats from failed register reads
+fbnic: Cover all of the HW stats with the stats lock
 
-This commit changes the fbnic HW stats helpers so they skip updating the
-running totals once a failed register read has disabled CSR access. The
-check is added to fbnic_hw_stat_rd32(), fbnic_hw_stat_rd64(),
-__fbnic_mac_stat_rd64() and fbnic_mac_stat_rd32().
+This patch puts the fbnic MAC stats under hw_stats.lock. The lock is now
+taken in the ethtool pause, eth-mac, eth-ctrl and rmon getters and in
+fbnic_reset_hw_stats(), and the ASSERT_RTNL() is gone. It also drops
+rtnl_lock() from the PCIe stats debugfs read.
 
-> When a register read fails, as it does for every read once a DPC
-> containment event takes the link down, the fbnic_rd32 function returns
-> all ones and disables CSR access, so every later read also returns all
-> ones until the device is recovered. A stats read in that window adds the
-> difference between all ones and the last value to the total, which
-> subtracts the counter's whole value since the last rebase.
-
-[Severity: Low]
-Does this description hold for the 32-bit counters?
-
-In fbnic_hw_stat_rd32() and fbnic_mac_stat_rd32() the delta is computed
-in u32:
-
-	stat->value += new_reg_value - stat->u.old_reg_value_32;
-
-When new_reg_value == 0xffffffff, this gives 0xffffffff - old. That value
-is zero-extended and added to the u64 stat->value. So the 32-bit counters
-(TMI/TTI/RPC/RXB drops, per-queue HW drops, 32-bit MAC stats) would jump
-forward by nearly 2^32 instead of dropping.
-
-Only the 64-bit helpers wrap the total downward, because fbnic_stat_rd64()
-returns ~0ULL there. The code change looks correct for both widths. Could
-the commit message also mention the forward jump in the 32-bit counters?
-
-> diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_mac.c b/drivers/net/ethernet/meta/fbnic/fbnic_mac.c
-> index 16271c717a5aa..2aacbf0a6af40 100644
-> --- a/drivers/net/ethernet/meta/fbnic/fbnic_mac.c
-> +++ b/drivers/net/ethernet/meta/fbnic/fbnic_mac.c
+> That is no
+> longer the case. ethtool only takes RTNL on the Netlink path for the
+> operations a driver lists in op_needs_rtnl, and fbnic lists only the
+> pause getter among the stats ones, so the eth-mac, eth-ctrl and rmon
+> getters update the MAC stats with only the netdev instance lock held,
+> racing each other and the reset.
 
 [ ... ]
 
-> @@ -417,6 +421,10 @@ static void fbnic_mac_stat_rd32(struct fbnic_dev *fbd, bool reset, u32 reg,
->  	u32 new_reg_value;
->  
->  	new_reg_value = rd32(fbd, reg);
-> +	/* A failed read disables CSR access and returns all ones */
-> +	if (!fbnic_present(fbd))
-> +		return;
-> +
->  	if (!reset)
->  		stat->value += new_reg_value - stat->u.old_reg_value_32;
->  	stat->u.old_reg_value_32 = new_reg_value;
+> Fixes: 45079e00133e ("net: ethtool: optionally skip rtnl_lock on Netlink path for GET ops")
 
-[Severity: High]
-Should fbnic_pcs_rsfec_stat_rd32() in this same file get the same check?
+[Severity: Medium]
+Can the race described here actually happen at this commit?
 
-It reads the clear-on-read FEC/PCS counters and never calls
-fbnic_present():
+fbnic is ops-locked. fbnic_netdev_alloc() sets queue_mgmt_ops
+unconditionally:
 
-drivers/net/ethernet/meta/fbnic/fbnic_mac.c:fbnic_pcs_rsfec_stat_rd32() {
-    ...
-	pcs_rsfec_stat = rd32(fbd, reg) & 0xffff;
-	pcs_rsfec_stat |= rd32(fbd, reg + 1) << 16;
+    netdev->queue_mgmt_ops = &fbnic_queue_mgmt_ops;
 
-	/* RFSEC registers clear themselves upon being read so there is no
-	 * need to store the old_reg_value.
-	 */
-	if (!reset)
-		stat->value += pcs_rsfec_stat;
-}
+That makes netdev_need_ops_lock() true, so netdev_lock_ops() really takes
+netdev->lock for this device.
 
-After fbnic_rd32() clears uc_addr0, both reads return ~0U, so
-pcs_rsfec_stat ends up as 0xffffffff. These counters have no baseline to
-subtract. As a result, corrected_blocks, uncorrectable_blocks and every
-SymbolErrorDuringCarrier lane would grow by about 4G on each stats poll
-while the device is unreachable.
+ethnl_default_doit() takes that lock around prepare_data() whether or not
+RTNL is needed:
 
-One path that reaches it:
+    if (need_rtnl)
+        rtnl_lock();
+    netdev_lock_ops(req_info->dev);
+    }
+    ret = ops->prepare_data(req_info, reply_data, info);
 
-fbnic_get_stats64()
-  fbnic_get_hw_stats()
-    __fbnic_get_hw_stats32()
-      fbnic_get_phy_stats32()   /* reset == false */
-        fbnic_mac_get_fec_stats() / fbnic_mac_get_pcs_stats()
-          fbnic_pcs_rsfec_stat_rd32()
+The dump path does the same, and the notify path asserts the same lock.
+The only core callers of the fbnic get_eth_mac_stats, get_eth_ctrl_stats,
+get_rmon_stats and get_pause_stats callbacks are stats_prepare_data() and
+pause_prepare_data(). So the getters are already serialized against each
+other by the instance lock.
 
-The service task reaches it the same way through fbnic_get_hw_stats32(),
-and so does ethtool through fbnic_get_fec_stats().
+fbnic_reset_hw_stats() has two callers. fbnic_init_hw_stats() runs from
+fbnic_probe() before the netdev is allocated or registered, so no ethtool
+request can reach the device yet. __fbnic_pm_attach() holds the same
+instance lock around the reset:
 
-dev_get_stats() does not check netif_device_present(). A read of
-/proc/net/dev during a DPC/AER outage, or after fbnic_pm_suspend(), would
-therefore hit this path.
+    rtnl_lock();
+    netdev_lock(netdev);
 
-fbnic_reset_hw_stats() calls these readers only with reset == true. That
-skips the add but does not rewind stat->value, so the inflated totals
-would remain after recovery.
+    fbnic_reset_hw_stats(fbd);
 
-Would adding the same "if (!fbnic_present(fbd)) return;" after the two
-reads in fbnic_pcs_rsfec_stat_rd32() close this gap?
+Nothing else touches fbd->hw_stats.mac or calls the fbd->mac->get_*_stats
+callbacks.
+
+After 45079e00133e, the old comment and ASSERT_RTNL() in
+fbnic_reset_hw_stats() were out of date. But netdev->lock still seems to
+serialize every path that touches the MAC stats.
+
+The locking change itself looks fine as a consistency cleanup. Later in
+this series the reset moves into __fbnic_pm_resume() and runs under
+hw_stats.lock only, without netdev_lock. That later change is what makes
+the lock added here necessary.
+
+Could the commit message say that the instance lock already serializes
+these paths, and that this patch makes hw_stats.lock the single
+protection to prepare for the later reset move? Could the Fixes: tag
+also be dropped, or could the message name a path that actually reaches
+the race? As written, the tag may lead to this being backported to
+stable as a fix for a race that does not exist there.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179460241885.8819.7179935130629202331.stgit%40ahduyck-xeon-server.home.arpa
