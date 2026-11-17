@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794952467;
-	b=HzWVLkZeQMSASS5GOV0Paw6Rqa4GwoLyoo6/nvwhZdWQZTunqy4UtAQ2eWwMQno6+khk
-	 msVvHAyC4Eqje2VpaYFEHGYn5E5WHJpXplbY3AREXRBEF8rAUVfXK6MVde6BA2XE22bFj
-	 hOVpNgvioPBPH317+a5S59LPAqLDe7p31CR25Z3zPO+kfAfeu2nRoHfesar9gLqSsaMFf
-	 EGkO7jMdIJZypF6Vk9pXkcadVV3f+TENhq2xhVrbhLCDrmlySxT+Hj1hmi6XI4U83lSrY
-	 lZvdRKIpYCJh1iDf5D3QQltug8eFxGZG7EDWRQ7Pqc1095nBxp4fWBISYas7qJX2M2g==
+	t=1794952468;
+	b=QoQIKkExIjOfFcRitJ9hEM/mx8kLohJIPAozKKtMTq0YQBxTcVHFQxMiXXWDIgA4nm3b
+	 2miW7BI1XbXW2TZF0ejs4hzeBP5LHPwcKAubuvPVozEIX8QXhnsZ+GL/69suXif04dbgj
+	 gbaYAHvJAHCX3T6hPaouid7lnED+X878+Hp/KJAq9zZdabFen0cm2Rovz1ncnWTQbXE1u
+	 4dzQj9tO5oVxO3wHUUbjiYc+78XN7iZ8AAGFmVPtWO96FAu7FThdu5gKf3P2jlUfoMCdW
+	 VKmv5wiHL+wAEBXWe3fRDkDOg2+V0AKLd50Il59KMeSpVf1UJii7FYKSelX2E5M7Ipg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794952467;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794952468;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=unHyNeWX8PX1jyirARf+iKrxDFRYbbmelnAqb9Mc0co=;
-	b=E7pOUog2fYQRx2X2qGWvxFgc8GNeD6nbzYuaswbIPy1uJhC7neDa54Nr0YqS6erme8g5
-	 DtZgzwasddWfpqVx+PVUbRUQvLWsfkvp23w3DExRzvOpwn5imztiPjAQaniZbHTLRlmJk
-	 e2IVYfM8KwBraBbJ7HOgFrRrw/l4EdRy4VunGF82Z4n+9pLFIpAGP3S/cEqAO7+Cor33Z
-	 6umtIOLqM4ZXdkx3UO7JYKJLYC9jrEF4epP2cRv5TB22G0getttxT6EPO/sRBQtWTEU9q
-	 zEm8iH0X9PeEieU0tMNfyR9ZOcGNHj6+XSWM++b3NwvxVbDZ+OYR0OlidyptfbVJ7cQ==
+	bh=RDV1bx3ja+YvNrLezba1SlDO8efyEXdMeRFf74ipHOo=;
+	b=sOGJfGT27X6qwwVJEGaLInPFMjKM9QY5tAQ8re82Pwvrgu/U5bXbviumc7D9GDRzkqhU
+	 YjYk5Q66LEibit0ARhbI9u9UxBDivzjaSFNVJAJPNn05QsKjEpFd1piM3UAQCZetyOo9g
+	 2JZti4o2qiYilEJD1gyVgepAzHWZ8Ac3dDw2O3wfDkwm+ZHr0a/lcuwZhAg5mzbRElEiD
+	 PBZWhnl1Wd6POlzYW6A5WSbWU7/Sa/EM++Bce+f5h4fXIYGfdnCsXoWFB69MuOPhBxLn3
+	 2quftsZUzeRGcmEbVqK2y/ySHmqwt4qhiI+vr/G7m4biexWHOPF0EUkera4MpxWMKBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=riBjzB5M;
-	arc=none smtp.remote-ip=209.85.215.177
-Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=axpocuFl;
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7F2D606A331
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 21:54:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7F2D606A331
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 163FE606A336
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 21:54:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 163FE606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=riBjzB5M
-Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cd62c570b5dso268600a12.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:54:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=axpocuFl
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-ccca948203aso207693a12.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:54:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794952466; x=1795557266; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794952467; x=1795557267; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=unHyNeWX8PX1jyirARf+iKrxDFRYbbmelnAqb9Mc0co=;
-        b=riBjzB5MVLmRh3b1aBuzUIyK3vQW1es77xK0z8CytPctKTSIfvXk0K/rNw9u+Hgzr+
-         kVuDVQ/19TWUs2FWaWGrF/RmBLI6do4qWvlV71Pi+omw9UZavtXCuQbDW7pO6ZbsxKqp
-         aZ2mA2arpJrAum4A6WZy3AeittLsfQqAc3q1YFvL8fdME14wF+eYBcWOwXm/+ovmf9/S
-         ZDwnz84QSnb1/0EaY7/2OIGDQ9PyCVdEiHYk1cQq06H2TnjS7pOGMPnrmG/xGuXy/WXo
-         UJIDHDD0P6RpqkRymrW9yEStG05syQGCwKxSfQ0IOJoZMLTqBEtUVXqVC2MKoAdG5xNY
-         m+ow==
+        bh=RDV1bx3ja+YvNrLezba1SlDO8efyEXdMeRFf74ipHOo=;
+        b=axpocuFl80FvAB6K0rZxxboDLtcNggcPKNN2UKlsVtFpwW/YpEM8wRJS7iMsxv0ACR
+         Yi0bS/ixM2TrOygocp/SAafyE0mM4l+8EY3rVIQyYo6Nro1zs8+2Vy0/7XK6kWI7PtFy
+         r5yXn1ugRgzHH40jFnzDVPt4puK3Ywa2mZR78n9m8q2SxXbN0XFAK6Z6sdX9WUSb4i5x
+         JqXDA4qc62SY+flHQtqb95ZbhWe5R00nawnX6JgDwa8Bx9IfO3FhHT0VNsBwcqgnGZAm
+         zo3MV0RBsD45xyWQZMMW57Hnphg7zudRqxg550FBQKIksQZNaHx98S+PodV/xuAa4yhm
+         Yq0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794952466; x=1795557266;
+        d=1e100.net; s=20260707; t=1794952467; x=1795557267;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=unHyNeWX8PX1jyirARf+iKrxDFRYbbmelnAqb9Mc0co=;
-        b=sRP6L4qryF9uy0cHwJ9I4AdyP/zcSs52X1DJoHnDZGYaE10pbb9iBloXeH0KyNLpmU
-         rPjxlU/AuvJ9xhyl2cPq9Qi/5Nj21yaXragkxEqKNsHfL6b3W+3i50pFCZwvl2vDA92k
-         hOZkFcz0NQpGrpq86nhWNToA3+s8fSyRctJv7+xN0gT1H7bITEv66WZCnVwO4N5KDSHC
-         8KWQU/BI6ihR6SmFdxP849Q9oHDVTugxH9hCFf1U10F6lSJa4Ch7Z3eDOu8jeo+DyP53
-         biRSf1jYmh+eXskAEQ5oGyrcNsrciMN42Fu5JUGSqVRVeqPssDXVIvgu64OYvIE20ToC
-         O04Q==
-X-Forwarded-Encrypted: i=1; AL+hErFUK2kC7XgXNe5QhYDPTN6jpoxmyGWKN8GgRqdUP67yQZ9FavuevkKvcW97Oxz5d2dBs52FNfo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8udXjXB/MW9dA63aB39cM183BlGKyTxWJsn00S3Cr4mB2zBfYI
-	A/rMeg2ehdKzIDexPzlKaasE2nZ7oOTftVprSC3B72LAUb9gfzZm0A6k
-X-Gm-Gg: AZFdTZdj5XcFbyctFdK/Og04VS0oXfEDkkDZ7meqWBz1QDUAIugT0kRwFihho7syI+H
-	lgBBgEgHvOh3ACKmdpKPzTZJScc+Y596tL2sXtpXP6z/zUhYFpeReyB8BXozu9HXfXxZSlJysr0
-	7bJuALpWvd42GLnSYuZO/DGRsl6DEwGKzjn3MUV4/3QZZZUwV7UKy4oImm7TPgHkd1nQ9ExKiSL
-	usCxBeKOoqsDu/SQUvFiSvykympeGOE3033RGlz7UigfYInHNQpjHefMkeDeApz+X5je4c4Cx51
-	6bG4dyvequuJb0WJoaRZ1wcTfkBRGet5EbA9czSC3fqB99OKl2oLFqvYHlPQCMTEKt3JtBPghhc
-	2/n2lMp4nMqTu+4KxAhAaEpYu9G73ijzOHmVEsMbs+TsJILi+50mavtKxprmyxAXastxvCfz6fh
-	ZFANUtu0AF76Yse5SWI3JE+OXCPjrJO5PUGkG39LAdrnJQ8AwNg9wuHu5X34/2WVc026GgX4qXM
-	BVR6TvyRwmLW5snHuDfogG7A172ad4jL/TY3ky2hOK9n10HHi9xyRe/Pr0THXqap8KV6SM19qvE
-	KZrE+khnz7r5rVDU4PkDfnnON3VXSl9tl6g=
-X-Received: by 2002:a17:90b:4b0d:b0:3b0:c7ab:4644 with SMTP id 98e67ed59e1d1-3b3d0759d9amr653141a91.14.1794952466153;
-        Tue, 17 Nov 2026 13:54:26 -0800 (PST)
-Received: from localhost ([2a03:2880:7ff:4c::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d19b6e18sm732056a91.10.2026.11.17.13.54.25
+        bh=RDV1bx3ja+YvNrLezba1SlDO8efyEXdMeRFf74ipHOo=;
+        b=BfgjeHGLPrut5d2T24yCNYJ8Xc4693bx7SI+WIe5CfJP7LAlQRgYUUWSNVQKhJVlyZ
+         luzfrzYm9/Vm9LRTjta3TvYOK6i3tMkzw9Z8i9vc7/qN7IlnvCGY1Za4I7Dxw6Yrzdex
+         XrEJogpb+kKu3e932het5X6s5a2E6qfFkdcY0Rg6DsT8N7tMomCph5pWhmgKtL03I8WL
+         n+qGqZoJ88Rl3b5KKP5K80AG7CXsfmDv82PAYHzUgGSlkhYSJxuryhLdSaZIe2W7gPCZ
+         zGid8H4cW1W1dZ7QujyxQF0BcgnnpERZW/549Z8Q3nqwX308rMT4BAHkOGemccusf3Jb
+         5c+Q==
+X-Forwarded-Encrypted: i=1; AL+hErGM0JPafPL7+4pf8eQAQEMKWw4JuUU98P41tMD6RAHOqR8VcbuaWDFfv4bvZrep/BGXOJ/LG14=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/2V8AzOu2zGzdz2LZoC0dDXso5nE2a/dPoEeEIqWyzMohBK1qb
+	49I48Y57hsKs1DSoU97dRql22S0b7ljo2VP8oXltrk1fE1IGhamzPg0+
+X-Gm-Gg: AZFdTZfclAP0NYQiGOH8YBc6TQjyU1iUMT4YbP3erKYzmjqWIPolix+SKquP4+VVZnG
+	lZraV8VY3xqiFgRVKe4Ptsqo5A1s7Hkec00cG9EyFQvk6m4mbirRTjWodFWbx3yj7v4eZQ83o4X
+	kcG51P3Xz3L4b8BkLoQaHLcsBKs1T8P0J/ceViS5UZe0Lm830X2Ge1fjThxKHJHZMoulesnRj3Y
+	L3GgqhvPPRrJUAE1x0jbz9BLC6NjRw5lsMktub4WrJHj5OgLmgVe2jO0z42e7Ttl2VxrQSNjfhQ
+	RsugSKZm4jO83F+qhkl+bpxOR1H2gvrISy6ZIKcSeU4cbIGkJPOhhb2+MWiOVuGJS8UNkUb03SR
+	ei8BzB61+XJ8TLypM62GCrad1PL9ZyxHKoH/ZKLL/d+oslBvyXwmoe/pbUiMGTHqgFQmIftep/S
+	0OQ+fVRWm7c6CS5OboUWS+9A6JAS5Dj8aEZPanMoNX/wLtrQkr1RI/nbstnqrdS/UFGdXAJQsrm
+	yoFc7xg9MUT4uHz1KB0thyoZ5pA5xg52E9QHgPE+dpEMrwr8paNQhvgn7QO/FJvqPB7PStjV+w7
+	cSrmTs+0Zw5T2+H09lXiUyhG24Ia7A44M1Q=
+X-Received: by 2002:a17:90a:d445:b0:3ac:8897:7bab with SMTP id 98e67ed59e1d1-3b3d0686792mr575601a91.6.1794952467348;
+        Tue, 17 Nov 2026 13:54:27 -0800 (PST)
+Received: from localhost ([2a03:2880:7ff:55::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acd118sm727075a91.12.2026.11.17.13.54.26
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 13:54:25 -0800 (PST)
+        Tue, 17 Nov 2026 13:54:26 -0800 (PST)
 From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
 To: "David S. Miller" <davem@davemloft.net>
 Cc: Alexander Duyck <alexanderduyck@fb.com>,
@@ -100,9 +100,9 @@ Cc: Alexander Duyck <alexanderduyck@fb.com>,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
-Subject: [PATCH net v2 4/5] netdevsim: report fake timestamping stats
-Date: Tue, 17 Nov 2026 13:54:15 -0800
-Message-ID: <20261117215416.1901246-5-dimitri.daskalakis1@gmail.com>
+Subject: [PATCH net v2 5/5] selftests: drv-net: stats: query timestamping stats while down
+Date: Tue, 17 Nov 2026 13:54:16 -0800
+Message-ID: <20261117215416.1901246-6-dimitri.daskalakis1@gmail.com>
 X-Mailer: git-send-email 2.52.1
 In-Reply-To: <20261117215416.1901246-1-dimitri.daskalakis1@gmail.com>
 References: <20261117215416.1901246-1-dimitri.daskalakis1@gmail.com>
@@ -119,41 +119,59 @@ Content-Transfer-Encoding: 8bit
 
 From: Dimitri Daskalakis <daskald@meta.com>
 
-drivers/net selftests can't skip on netdevsim. Implement get_ts_stats
-with fixed counters so the stats test can read timestamping statistics.
+Read timestamping statistics before and after ifdown, to catch drivers
+that crash while the interface is down. Counters must not go backwards
+across ifdown; the test does not send timestamped traffic, so a reset
+is only caught if the counters were already nonzero.
 
 Signed-off-by: Dimitri Daskalakis <daskald@meta.com>
 ---
- drivers/net/netdevsim/ethtool.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ tools/testing/selftests/drivers/net/stats.py | 25 +++++++++++++++++++-
+ 1 file changed, 24 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/netdevsim/ethtool.c b/drivers/net/netdevsim/ethtool.c
-index c3d2bc783d55..e0c4c96209c4 100644
---- a/drivers/net/netdevsim/ethtool.c
-+++ b/drivers/net/netdevsim/ethtool.c
-@@ -205,6 +205,14 @@ static int nsim_get_ts_info(struct net_device *dev,
- 	return 0;
- }
+diff --git a/tools/testing/selftests/drivers/net/stats.py b/tools/testing/selftests/drivers/net/stats.py
+index b08e4d48b15c..e61db30b5181 100755
+--- a/tools/testing/selftests/drivers/net/stats.py
++++ b/tools/testing/selftests/drivers/net/stats.py
+@@ -220,6 +220,28 @@ def check_down(cfg) -> None:
+     netfam.qstats_get({"ifindex": cfg.ifindex, "scope": "queue"}, dump=True)
  
-+static void nsim_get_ts_stats(struct net_device *dev,
-+			      struct ethtool_ts_stats *ts_stats)
-+{
-+	ts_stats->pkts = 3;
-+	ts_stats->lost = 1;
-+	ts_stats->err = 0;
-+}
+ 
++@ksft_disruptive
++def check_down_ts_stats(cfg) -> None:
++    """Test timestamping stats are not impacted by ifdown"""
 +
- static u32 nsim_get_rxfh_key_size(struct net_device *dev)
- {
- 	return NETDEV_RSS_KEY_LEN;
-@@ -275,6 +283,7 @@ static const struct ethtool_ops nsim_ethtool_ops = {
- 	.set_fecparam			= nsim_set_fecparam,
- 	.get_fec_stats			= nsim_get_fec_stats,
- 	.get_ts_info			= nsim_get_ts_info,
-+	.get_ts_stats			= nsim_get_ts_stats,
- };
++    req = {"header": {"dev-index": cfg.ifindex, "flags": {"stats"}}}
++    try:
++        stats = ethnl.tsinfo_get(req).get("stats")
++    except NlError as e:
++        if e.error == errno.EOPNOTSUPP:
++            raise KsftSkipEx("timestamping not supported by the device") from e
++        raise
++    if not stats:
++        raise KsftSkipEx("timestamping stats not supported by the device")
++
++    ip(f"link set dev {cfg.dev['ifname']} down")
++    defer(ip, f"link set dev {cfg.dev['ifname']} up")
++
++    stats2 = ethnl.tsinfo_get(req).get("stats", {})
++    for k in stats:
++        ksft_ge(stats2[k], stats[k], comment=f"{k} went backwards on device down")
++
++
+ def __run_inf_loop(body):
+     body = body.strip()
+     if body[-1] != ';':
+@@ -311,7 +333,8 @@ def main() -> None:
  
- static void nsim_ethtool_ring_init(struct netdevsim *ns)
+     with NetDrvEnv(__file__, queue_count=100) as cfg:
+         ksft_run([check_pause, check_fec, check_fec_hist, pkt_byte_sum,
+-		  qstat_by_ifindex, check_down, procfs_hammer,
++		  qstat_by_ifindex, check_down, check_down_ts_stats,
++		  procfs_hammer,
+ 		  procfs_downup_hammer],
+                  args=(cfg, ))
+     ksft_exit()
 -- 
 2.52.1
 
