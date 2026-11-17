@@ -1,55 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.252
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794905662;
-	b=O+McFpVFgIJpGLabH9+JlgwjwLimBBHGanG+DKUA5cJuYfWoDw7KzCzyszpdz4pHHokQ
-	 UXNMHs99hWUBzFLHJQuGIbE0vUFGpwVheNYC51ZgSCK01kcsNKyit0/2kadH8gFu36W3l
-	 wCr4lcebLd3tzgWtk5dRD8pc0NNcfjwjdt0yIX8R3UqWwCSMheqYzHcVDchZCxQNPmDdR
-	 W7L7mpY993G6/dIG3jUWRaOnYXi1/ogWXNF2Ps/ijvPIc33E3N1FbY1nKawIHhnQc5lyv
-	 OJQstW2Sd98m2YAh6hqzdPXGdsM5VB1N5zlzn75034YukjMV0Vrhal6LQSIPT+FZ5Ag==
+	t=1794905816;
+	b=RHPvAjL1aSav2LOCDRNDEC06fBAEfzwHz3zUOXQN2Tej6blkd0EmqEGinXzX0zklr0yX
+	 nTnocMG6q1laxuxDJRlIFwxEzUQAyA+QEC3oOIAnTgteSBAr8A7/xEIFj8UmoHreB49kg
+	 +lXmFTn73aC/9dgfcH6sQwmtyuD1lg2fxa5x0o0GxX2KUrFguU39MZHXP3YFGUZzPGeiS
+	 /lSsY+EMGu4o0TA/LkTCm0bSi2LI2Ha7qwUKa7MX8Eb+8TxWwR90qGLlwkoBv6FsrjzlA
+	 C5ht2DxEHVwIXrwXRPwcikqqY0H0Ryfe1c6/ptHMIprwPQpotnIg9h1RPToCOzsYLng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794905662;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=qDCM8YQVZ4z08HfPVX5XegVIT+m8U5Rl7Geg9hTRak8=;
-	b=sxpMBqJpWkFz7121UCJeNKqgbwCAIvLGX572HNojwHXOq46PepWlKVkxvEL0oudDFOXw
-	 RDq5zXcYkQig8A24y6qZThiMH2FgNGRfVfqQLtZtGwcw8kUrndJ+Gs0NxBdoBUvlGHLFf
-	 GD7eGKnTL7WTyhuCECo+f+uxlr7EOTIKka4HmT7eC4xSOYdlFo+FqWpaQ7tY1NuFsF2y6
-	 JGIJv/SWn+DXww7qqWXuwI252nAvECOqxWGXTdv/G+fNLkG7sVnK/zaNYwvZD4y78HlAc
-	 pCnWd0iqlkUAmQu9+iZZb6GxkTSrWEayJTWrOUuG1DUD7SF4LnI6gZ5lf+OqdysY1bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794905816;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=pcfBs8WoN7/q9bbgEnCRQbl/I6Zh/jFSmI3HMkPPCd4=;
+	b=MMJ3nCqKxtfPn9cmgVZ2WBJo+bd0yxbMcrRp7IP0YpOxmUFNVYhs06+nGUxmL9ah6xEh
+	 FJE+TjZ+FAUwVA26OFpTdXDr7JEexUvaO2CdNR6qHbFK/If51c7yO4s+lHLR1pS+pNQ06
+	 kKLNfSmjWSeLqrIqJi2exlQikYVHAOg3jgOYPVZUu78rGHPCcRZsdB3gxJxC6dmNrift+
+	 kT9PatTWLN2iNeWrrotV3jDAlJCa4EG8S9XbNH/i6279/A9cQpF1zNSJOWciEi6p+8pgk
+	 Op5ZuAIxitv/U0ETvwZFdnr4GHoJHbfKP1hSOpe29OD8XXGEu36PTW8WUd2CfMO6NSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j27IUXuZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=qBh4UeCf;
+	arc=none smtp.remote-ip=162.62.57.252
+Received: from out162-62-57-252.mail.qq.com (out162-62-57-252.mail.qq.com [162.62.57.252])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30ED1606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:54:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 785EB606A31C;
+	Tue, 17 Nov 2026 08:56:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 785EB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j27IUXuZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B97051F000CB
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:54:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794905661;
-	bh=qDCM8YQVZ4z08HfPVX5XegVIT+m8U5Rl7Geg9hTRak8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=j27IUXuZIQGmoiQCw27806cb3DL1HXSX+nHTQZItfq9DE5e2tmu72ByKxtNxCyFYB
-	 oG/J1tamdgxGp/UYwqDOE3Znwqkfqjjqc5p2tjPRFV1qq67ZkCwFK38rLtyCjYpRl5
-	 LgmvwjK2OrnB539/9fol9L3//p+eT2M/a5e8Dt7FNr8jDHpSvJHhKMthhIXsA8rj5v
-	 B1fFwL/26y4ifPxBXcWNF024pampo8NaejfO8VsUmw0th6IaAaSjRqapomdPOqyT1e
-	 z6bYIf7GtzhjwDRGeBEuue1Yr2jKj/dXX3RKWEVH1e/4gd9of+epM48PGXBy60Ycct
-	 HKMNUjid7I0wQ==
-Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-6b8e2d8df4fso3568863eaf.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:54:21 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFA1+sethvFrPHXEnW5hdjFlvYT8Px7we8Q8bg9vOqDxrlZubHanSJgXHrP0p+sBxE/Vb4JEhg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8B1sfV+j3gETMDmeiDWOud01pixI0ePT8KKlajf2fz0PsuQFlQ
-	0ZfOZFTrnBpzAiZXoo2RQ2z7Hz7r8sazrANyECvoBmxoqi1J5lIg4+OeDqdKRpLxh5vONrFZXMy
-	eCaY/2CUqDZPZTSiSUXL4xnOtp+nBPWE=
-X-Received: by 2002:a05:6820:1caa:b0:716:df91:60fe with SMTP id
- 006d021491bc7-71ab515e3f4mr9537421eaf.59.1794905661004; Tue, 17 Nov 2026
- 00:54:21 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=qBh4UeCf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794905810; bh=pcfBs8WoN7/q9bbgEnCRQbl/I6Zh/jFSmI3HMkPPCd4=;
+	h=From:To:Cc:Subject:Date;
+	b=qBh4UeCfRGNmULKLi37uyJzgUF3bgfyLf1wMavNxNH2u5/8H5SRfkr2xnP98rmTCG
+	 4YFFuNjc9u2qyaxwx31FhUqk4XGIDH3goqd+zUrrLF0PckggVN2w244J4Z/eyShhfp
+	 N+x73l3GjHhI8mfgNispCDi4L7BNWM+HpiAZE9iw=
+Received: from localhost.localdomain ([182.239.117.117])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id E2EB2C0E; Tue, 17 Nov 2026 16:56:46 +0800
+X-QQ-mid: xmsmtpt1794905806tpl1au0xj
+Message-ID: <tencent_19A48DA487BBFCFD990AC5A8010C663EA007@qq.com>
+X-QQ-XMAILINFO: OATpkVjS499u53pa9/MNGWk1BkZ8N4WdYcoDK7jSSNCrDUNyf7oMft53Db4Oh8
+	 NeQx/igDUjDQh8/Co/2YijQ6ZNyysj/v/3Ei0TN/UWfx8qjkQB04/lbpE9lUxE2N77KcUDvBh+Qy
+	 vTC5rUskIXkexnsqs5GVXKkEIqXcGNP2hBNEL/VwDnK4OWH6nFnJ+pMaPQR+g5LJGh/FGIcsBeX8
+	 qW7ZNEuJbGmMT8saVvwOMWbqGr5wYYbWNeir9rr3yTp6RlfG02kFHH/bei8qwZX1/YObtJOZcDyU
+	 Mr0MC3wDHc81H5Ei736OdAV8pagEcTvKVIx3x4z+rJCgBOeJowWwOkM8i29tk4aiEUfRBsFwCvl7
+	 F5eUFVCWQte3Jt+A1ip1u7K19Oe9FP0NvfazUVznOixwDff1dsfeyv5CQ9I4IYv2uNTH7xVq6Q61
+	 ULAMCG3zDpHaXTKx9GHoYkRYJqpqpLm62CcieQxMVTeY0eQxEEewaNuUf+gm/V0nGlipYKAY7+PH
+	 LT+EOpzN8OR08hcEzzM8jWhNvTc6odgrEY3gl8duIXX52abfSJTEntHF4ScDbCYlWY1OoabWfYvA
+	 5jIJkNUfixzIw707aj3BrCxvTP+fak4CtWkwWNjkEtsYaLZrUgBjx67VEjoMjj/J8dJXpRn+O83U
+	 XRhIC5ONdivL265VnHdV9PdooEdx7vrxjcE2ZArnHjNBbcanStsqxctlqqYqCuQkeCgxC6ABVplS
+	 PyOyF3XAUD26SSAODQtFhAos79FEUvxvdTuc9z10VQjQM19pE2YLh6LpWDvu+GT7xtnrmB9+DTg4
+	 CUt6nHwpknWUL5t562R/zp/o0em2m9gO5mTixfjiA5VDdLrXtWFFlNT8tkwyEhrfWFyJKWn1AJmD
+	 g5QOW7HEKkPC9iabg47tpBYU4jCGtrETwjegxZ11Ftluk9WD5lBCfHS3d251AXKp6CHRhGuwGe1r
+	 95GgFrDwj943i9eUk6xrK9hg6XMpwyaEyokI/Ioci89U5rwxEjcM1xxyAfvgmurT/r9IxnDfOV7p
+	 fOKjf9Oh/QPA7OL8YIGR1VyBWUuopXCE2fKZ0LkXNfTS1To40/4b7TY052FxoIHpxo0Iz7XQ==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: Ma Xinmeng <1564938642@qq.com>
+To: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>
+Cc: netfilter-devel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Phil Sutter <phil@nwl.cc>
+Subject: [PATCH net] netfilter: nf_tables: don't unregister hooks that were never registered
+Date: Tue, 17 Nov 2026 16:54:27 +0800
+X-OQ-MSGID: <20261117085615.1701-1-1564938642@qq.com>
+X-Mailer: git-send-email 2.49.0.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,58 +78,110 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-6-kuniyu@google.com>
-In-Reply-To: <20261117053543.84032-6-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Tue, 17 Nov 2026 09:54:08 +0100
-X-Gmail-Original-Message-ID: <CAL4WiioFo3LUpeQcZMVLVkW0H=fEoYmx8=EgDWGJtMecZrNydQ@mail.gmail.com>
-X-Gm-Features: AclHuK-vw8wBGD7e6b-klomRRj0LDpGZdputnmt8G9heF9VGPYljrVLVlLQFBPs
-Message-ID: <CAL4WiioFo3LUpeQcZMVLVkW0H=fEoYmx8=EgDWGJtMecZrNydQ@mail.gmail.com>
-Subject: Re: [PATCH v1 net 5/8] tcp: Check ip_sk_accept_pmtu() in tcp_v4_err().
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
-	Hannes Frederic Sowa <hannes@stressinduktion.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
->
-> Currently, tcp_v4_mtu_reduced() checks ip_sk_accept_pmtu()
-> after calling inet_csk_update_pmtu(), which is too late.
->
-> Even if we configure a socket not to perform Path MTU
-> Discovery with IP_PMTUDISC_INTERFACE, ICMP_FRAG_NEEDED
-> can overwrite MTU.
->
-> The last getsockopt() returns 1200 MTU:
->
->   --ip_version=3Dipv4
->    0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
->   +0 bind(3, ..., ...) =3D 0
->   +0 listen(3, 1) =3D 0
->   +0 < S 0:0(0) win 65535 <mss 1460,sackOK,nop,nop,nop,wscale 8>
->   +0 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK,nop,wscale 9>
->   +0 < . 1:1(0) ack 1 win 257
->   +0 accept(3, ..., ...) =3D 4
->   +0 setsockopt(4, SOL_IP, IP_MTU_DISCOVER, [4], 4) =3D 0
->   +0 getsockopt(4, SOL_IP, IP_MTU, [1500], [4]) =3D 0
->   +0 write(4, ..., 1000) =3D 1000
->   +0 > P. 1:1001(1000) ack 1
->   +0 < icmp unreachable frag_needed mtu 1200 [1:1001(1000)]
->   +0 getsockopt(4, SOL_IP, IP_MTU, [1500], [4]) =3D 0
->
-> Let's check ip_sk_accept_pmtu() in tcp_v4_err() as done
-> in tcp_v6_err().
->
-> Note that inet_sk(sk)->pmtudisc is configured locklessly,
-> so we do not recheck it in tcp_v4_mtu_reduced().  This is
-> same with tcp_v6_mtu_reduced() too.
->
-> Fixes: 482fc6094afa ("ipv4: introduce new IP_MTU_DISCOVER mode IP_PMTUDIS=
-C_INTERFACE")
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+A basechain created while its table is dormant is accepted without
+registering its hook. Re-owning a PERSIST orphan table with DORMANT set
+then makes nf_tables_table_disable() clear DORMANT before
+nft_table_disable() walks the chains, so __nf_tables_unregister_hook()
+no longer sees the dormant state and calls nf_unregister_net_hook() for a
+hook that was never registered. This triggers WARN_ONCE("hook not found")
+in __nf_unregister_net_hook().
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Track whether a basechain's hook was actually registered and skip the
+unregister for chains whose hook was never registered. This preserves the
+existing "add a basechain to a dormant table" API.
+
+Signed-off-by: Ma Xinmeng <1564938642@qq.com>
+---
+ include/net/netfilter/nf_tables.h |  1 +
+ net/netfilter/nf_tables_api.c     | 29 +++++++++++++++++++++++------
+ 2 files changed, 24 insertions(+), 6 deletions(-)
+
+diff --git a/include/net/netfilter/nf_tables.h b/include/net/netfilter/nf_tables.h
+index 9d5974823..fcd24502b 100644
+--- a/include/net/netfilter/nf_tables.h
++++ b/include/net/netfilter/nf_tables.h
+@@ -1243,6 +1243,7 @@ struct nft_base_chain {
+ 	const struct nft_chain_type	*type;
+ 	u8				policy;
+ 	u8				flags;
++	bool				registered;
+ 	struct nft_stats __percpu	*stats;
+ 	struct nft_chain		chain;
+ 	struct flow_block		flow_block;
+diff --git a/net/netfilter/nf_tables_api.c b/net/netfilter/nf_tables_api.c
+index 8b94b5e7d..25b4075c9 100644
+--- a/net/netfilter/nf_tables_api.c
++++ b/net/netfilter/nf_tables_api.c
+@@ -428,21 +428,30 @@ static int nf_tables_register_hook(struct net *net,
+ {
+ 	struct nft_base_chain *basechain;
+ 	const struct nf_hook_ops *ops;
++	int err;
+ 
+ 	if (table->flags & NFT_TABLE_F_DORMANT ||
+ 	    !nft_is_base_chain(chain))
+ 		return 0;
+ 
+ 	basechain = nft_base_chain(chain);
++	if (basechain->registered)
++		return 0;
++
+ 	ops = &basechain->ops;
+ 
+ 	if (basechain->type->ops_register)
+-		return basechain->type->ops_register(net, ops);
++		err = basechain->type->ops_register(net, ops);
++	else if (nft_base_chain_netdev(table->family, basechain->ops.hooknum))
++		err = nft_netdev_register_hooks(net, &basechain->hook_list);
++	else
++		err = nf_register_net_hook(net, &basechain->ops);
+ 
+-	if (nft_base_chain_netdev(table->family, basechain->ops.hooknum))
+-		return nft_netdev_register_hooks(net, &basechain->hook_list);
++	if (err < 0)
++		return err;
+ 
+-	return nf_register_net_hook(net, &basechain->ops);
++	basechain->registered = true;
++	return 0;
+ }
+ 
+ static void __nf_tables_unregister_hook(struct net *net,
+@@ -456,22 +465,30 @@ static void __nf_tables_unregister_hook(struct net *net,
+ 	if (!nft_is_base_chain(chain))
+ 		return;
+ 	basechain = nft_base_chain(chain);
++	if (!basechain->registered)
++		return;
++
+ 	ops = &basechain->ops;
+ 
+ 	/* must also be called for dormant tables */
+ 	if (nft_base_chain_netdev(table->family, basechain->ops.hooknum)) {
+ 		nft_netdev_unregister_hooks(net, table, &basechain->hook_list,
+ 					    release_netdev);
++		basechain->registered = false;
+ 		return;
+ 	}
+ 
+ 	if (table->flags & NFT_TABLE_F_DORMANT)
+ 		return;
+ 
+-	if (basechain->type->ops_unregister)
+-		return basechain->type->ops_unregister(net, ops);
++	if (basechain->type->ops_unregister) {
++		basechain->type->ops_unregister(net, ops);
++		basechain->registered = false;
++		return;
++	}
+ 
+ 	nf_unregister_net_hook(net, &basechain->ops);
++	basechain->registered = false;
+ }
+ 
+ static void nf_tables_unregister_hook(struct net *net,
+-- 
+2.56.0.windows.4.niugit
+
