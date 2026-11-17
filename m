@@ -1,113 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.45
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794935617;
-	b=1vQokaQ+s2FZyC34wdoeiiRMrae6Rxk30bYP0eO3sOQVHxkCDSNF93GV/bGYjeMGE/jR
-	 xRQGM42YVca4V1fCWf+Yql++aWkcQFouiHC6ZydO67m0et3nPnuBzdq4AnYocXF2p2rVJ
-	 u2iYklsXipm62y1MqCxlhQYlmdx1NOzUOKWEH9eHCnj1gNoE5S+I74cgttp8smEADxbqt
-	 qxGW07F3oFMXVYNLy7ZlfQwPMnpZlHmtRKsBA5zNi1YIrgXv2/bvJ4i1f928xqr8lp6M2
-	 16SUWCCyEQ80qdysHg2U+Ue1GYdcJtrvXqi2FVT4qYgKpBLCFVEg0At/h+BMROY29YA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794935617;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:X-NV-OnPremToCloud:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=zLoEYKfjOZOPtqfv2yXSyfHCccz35/eboXPpP+Au6F0=;
-	b=CL91tfyidRAnH3A+WGgRyChHZqLOImRdNoKiHXV3YafXgUpBgERAZzfSt9syK34YVuBG
-	 Pe4JpRfinmKacw7KxzpK0UAMVmo6bkxdi7GccTUlJRhOgBtKtkqugFlzB3PgpVtwepETt
-	 Ufa4664l8XzxmopS53NleKFqkdMISyJOKNIx+gUcxYwNdpvT6UwYaxNsVa3sEOBBQrZ9p
-	 X6rw8FTCNp+Jwftq7qWTAqi5vTxOL9eiGjbkY+EHPo372m3FVsV0QzozHqi6VbczE3Or/
-	 2Vsk0L0xdKtWKWHY6EIfVo4qXvWEKBmSVr0BuG/yT2Upz4gz4x2WfBscYwhvxsn/MPg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=SFLQ1ppo;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.209.45
-Received: from PH8PR06CU001.outbound.protection.outlook.com (mail-westus3azon11012045.outbound.protection.outlook.com [40.107.209.45])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794935647;
+	b=heMBlxDOUa+Xv6b5dIR8ZXUL34Hq5hZvzRZEzcugHzyB1zWSs0RT+Nk3k62/1hb6NhNq
+	 Seu0S+3mf1U2yXG9/3P0tTDUC6z6j+Lzl13+SIUTLX7OQlU1/90UpZ3PttduiycrFtkuJ
+	 VRxlI1ptXE0EuvEUz6ev0GUqmZCAbM8RKhuxOsVneRhutBEAUdE2gmp1LzqKKjTjlNsfM
+	 fIHAVQHfORd7JJosWrXr5UC+iMNmSjqKgY3eMP5S9y3gy9/QNsouqHwtKjgwbX7bDuwtn
+	 Lba0W8q9NYZ/98P9JUUk9ezS1WuYu64i4MwIeqaLgBRLKofutS2MSJ6AkESPt/FowMg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794935647;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=NRyU0VXlTkdP1/qvlbXfSzmeB6PM6cbuXEo4V1pctGY=;
+	b=4o0M1A629nW4WQ2646DyW7W/Q7mgkWZRFblBxRmcjlw6D7wvhQLOVKSsHCPln8jmcrj7
+	 Pwzo2K8Cn6IBulPYvG6rXTexlFCZPZzdMgEB6I8KxT6mbtSAqJ+RIp6I9ECVmaRhdP5Eh
+	 j7Iy9+1Wso4zXkPVLPKZmKH0ARlT4sV3k/8zi1ng1ucN1PerYYS11SgKQ6nNUXuIbvw8N
+	 WSDj1FxA0gew55UThnK6chOb2d3ODj8WgH69PTb2VD7/HERN9DNEVh14XN2LviYnQIxed
+	 5TqXaMgPG5vI70zyyEzenzi0EBtnwUKUi/lIurSb12KQ+GI4lQEhnxLDX+E4AXKgmvw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="TNwd9t9/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EB98606A330;
-	Tue, 17 Nov 2026 17:13:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EB98606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85ECB606A31C;
+	Tue, 17 Nov 2026 17:14:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=SFLQ1ppo
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BIxWoNqhwLNTq8PWSbDkG/+J+J/350hrQ464yTZgafBon8b9lnLyMn2+WZJAMIcLFeFg+6b62iH/qtScpf/XaiNvyuFixr/N4w1UrcNUzWz3z4RCFkORZaBGjFVuDSYLPwuzbfQddfQMOAy1LDkbgnu57U7pZQOHBsvOuLL5jNYuYL3gVo9E5sp/9QVSp7+lB2dZMhJUrERdYij6FpXDsH1ywizsXzQ/Ev2K6uPQ2IGuFg9ACmSveMb4qgkK5zwoKJgS5vIuTv1bITk5otEJ/RsqV+Ln5GVgsbsJGnLoSm218zmdA1BkFhwm2dqycpx5Qp+4wocNs7DB1FpSRR/noQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zLoEYKfjOZOPtqfv2yXSyfHCccz35/eboXPpP+Au6F0=;
- b=v7VS/Rx6zQkbLx0ZW5YJAkyA+JvMjqeWQT2cUAaxjNCUCxwGZYXSe9ITbdu6eWXekBncPfzQ81eO7IiObLjAjM/MS54yVZ1i/K0UiluxkXuSs3f//kRUrJLhmQ0bUKnf9m1DQYGGAJdumzEwcHDmhwHnC55MCqMdBigiTzL60BPDv5mCEHMqP7aU3HZMz18yAfVAjJSwVgA+nHcYRwYeDK4iZNuSr4abRdN6hFiN69t31DFMW9PVsSNYKU558oLDf9SMrojvhUeHVnd9NAoLohzqlKx9vWpqWoIEXFK0oD9x7PKAEcoZl4jCUsvIlsYl3WWmH7w9AyqVVY+NuG2rog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=ziepe.ca smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zLoEYKfjOZOPtqfv2yXSyfHCccz35/eboXPpP+Au6F0=;
- b=SFLQ1ppo9yieBs30K5l6R0UHpOCXOjJ4uQ1EDbENJagPzrfVoID3iabrXLJ3nrUPYckfZQwnpkmyXMwwwHJJbxpWHUVjGF4RNCTQGiBaSIJ3uWbkC6T6wgKEo3v1JyOhsaB/v1wu2M9tSV+DcBaXkmU0YOfj0zpyBg+6cbPcoR6sRRsmlr4+lJLo6tm+umyDxm8PWrATPCFnoUQ2uQKdOMLo0rRf0MuPphfhcCh4optcfFztJmv6/M+h+10oyT6WgZFf+H52rj/1Pf4IimIt9frwOF/xv1OugJnTEN5GjzOynbX1VAqKZCLtwXt0DiJUuy+zcBwsERrL114nwIBUVg==
-Received: from SJ0PR03CA0155.namprd03.prod.outlook.com (2603:10b6:a03:338::10)
- by CY1PR12MB9675.namprd12.prod.outlook.com (2603:10b6:930:105::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
- 2026 17:11:31 +0000
-Received: from SJ1PEPF00002320.namprd03.prod.outlook.com
- (2603:10b6:a03:338:cafe::58) by SJ0PR03CA0155.outlook.office365.com
- (2603:10b6:a03:338::10) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.14 via Frontend Transport; Tue,
- 17 Nov 2026 17:11:31 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- SJ1PEPF00002320.mail.protection.outlook.com (10.167.242.86) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 17:11:31 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 17 Nov
- 2026 09:11:08 -0800
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 17 Nov 2026 09:11:07 -0800
-Received: from vdi.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 17 Nov 2026 09:11:03 -0800
-From: Yishai Hadas <yishaih@nvidia.com>
-To: <jgg@ziepe.ca>, <leon@kernel.org>
-CC: <linux-rdma@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<saeedm@nvidia.com>, <tariqt@nvidia.com>, <mbloch@nvidia.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <edumazet@kernel.org>,
-	<davem@davemloft.net>, <andrew+netdev@lunn.ch>, <dtatulea@nvidia.com>,
-	<moshe@nvidia.com>, <yishaih@nvidia.com>, <maorg@nvidia.com>
-Subject: [PATCH V2 rdma-next 18/21] RDMA/mlx5: Clamp log_max_cq_sz shift in CQ size checks
-Date: Tue, 17 Nov 2026 19:09:11 +0200
-Message-ID: <20261117170914.27410-19-yishaih@nvidia.com>
-X-Mailer: git-send-email 2.18.1
-In-Reply-To: <20261117170914.27410-1-yishaih@nvidia.com>
-References: <20261117170914.27410-1-yishaih@nvidia.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TNwd9t9/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4F061F000C5;
+	Tue, 17 Nov 2026 17:14:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794935647;
+	bh=NRyU0VXlTkdP1/qvlbXfSzmeB6PM6cbuXEo4V1pctGY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=TNwd9t9/XGKlncwoxJPsyje6+O4dpP5ku58Mpp7QpykW21hRU24e7OyhFQOFLciD3
+	 29wDKM5s9fQuNCM01MGCMTwcBZHTKwQdsNtqa7KbaUKomgmrOjw4ONVzwknMHgSKWG
+	 1/ngYLQ7fkk6zwnEFmvEkhsBFU0rrWBDVK01KIhZAY8wwmSD8BfUnHzr3O6ECtL3IE
+	 u1gWEaoZknei2o6RPefiK6Y9Pv118lQd9Tbgj+OxIU/l4ZeNMJUeOk7Seiwb4Z23fa
+	 avUcbgeGAljAO6nP3GxtzkHh3NhCflawy+bc6tSkh2Am7hoM2GVwuD99dWB//R/78k
+	 9Tnxc6+M677Ag==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>, Magnus Karlsson
+ <magnus.karlsson@intel.com>, Maciej Fijalkowski
+ <maciej.fijalkowski@intel.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Jonathan Corbet
+ <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Alexander Duyck <alexanderduyck@fb.com>,
+ kernel-team@meta.com, Andrew Lunn <andrew+netdev@lunn.ch>, Jesper Dangaard
+ Brouer <hawk@kernel.org>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>, Pavel
+ Begunkov <asml.silence@gmail.com>, Jens Axboe <axboe@kernel.dk>, Andrii
+ Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>, Kumar
+ Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
+ <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>,
+ netdev@vger.kernel.org, bpf@vger.kernel.org, io-uring@vger.kernel.org,
+ Mina Almasry <almasrymina@google.com>
+Cc: "Mike Marciniszyn (Meta)" <mike.marciniszyn@gmail.com>, Weiming Shi
+ <bestswngs@gmail.com>, Nikolay Aleksandrov <razor@blackwall.org>, David
+ Wei <dw@davidwei.uk>, Alexander Lobakin <aleksander.lobakin@intel.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, Stuart Clark
+ <stuclar@meta.com>
+Subject: Re: [PATCH net-next v1 11/11] eth: fbnic: Support AF_XDP page pool
+ zero copy
+In-Reply-To: <6303b161-0f35-47ee-ab70-ebd4e802ae09@gmail.com>
+References: <20261110102039.1002605-1-bjorn@kernel.org>
+ <20261110102039.1002605-12-bjorn@kernel.org>
+ <6303b161-0f35-47ee-ab70-ebd4e802ae09@gmail.com>
+Date: Tue, 17 Nov 2026 18:14:04 +0100
+Message-ID: <87se0z1iub.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -117,198 +82,59 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00002320:EE_|CY1PR12MB9675:EE_
-X-MS-Office365-Filtering-Correlation-Id: c37f9ff5-581c-4396-c6eb-08df44cdd36b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700016|23010399003|18002099003|22082099003|261009223027099003|56012099006|11063799006|261102123227099003|261028144727099003|261026140227099003|261026121527099003|261021121427099003|261022075727099003|261022105027099003|261021123027099003|261021135927099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	0BDup/O/Cp/7TM+oHhxqwWcpWSlRaGQTHCnsUVnNd5B5KbO6zlrju/rxy6zZCT2n3DEdcc9uzmfdgdSc/xMsA2DtPvJaQlGBVP+Mu6MUZAWx3GeV4p3C4IiwMgE9Xh2iFblxSTZGozW4uIoytPHWSiWlbiONie5bRoMPM6lOv2ijK3XKcl3zoN9MUjykJaEf6NzagOprdibCBtV4tSR6GXng/ox+7ehpX0Saxmr00gm+cKQz+omoblSiW5nqLeGWNur+PwkHfMzrYpLkB3+Phv4ysAUwYc1pfMMXWclNWsjGiKwDHTNYRrYzgvNVpQDTTd6djxYxAc/cz0AOkbnA/uTei16QUATN/Pfta2La6ibwQL2ht9lmPta4MJcFbKAkCqB+NAJMJ5rwTosU4/ZJTIsBhFy83Z7x1clDtZwQdNGkvTsIJNVLfnsOBYr4DJhlAg9svG9MZOfLqVSYeFevlg+QNELXaO6yg58JMbIPyYOMczmRbSnKpc9WpK+431quFOe3EiOPY+r4GKVE7zt+ugVuT4eu3842o3rndAD0pUGJ4nBe0DmINOL8U3sRLTJgCIQJTUMsYBeKP2MwlF36cK+eA/NphIVLCi0tXjvzgyEY6v1Gw/3kDA6zAr0RPy4tYcaGgFR+hrdtUUrv1Db58PVD1gL+ioGrmqZ72wRpsOeEjmjgKwOi8kpzIpZ7DmaXWVS37cz9g+l4aRlYRC50tQ==
-X-Forefront-Antispam-Report:
-	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700016)(23010399003)(18002099003)(22082099003)(261009223027099003)(56012099006)(11063799006)(261102123227099003)(261028144727099003)(261026140227099003)(261026121527099003)(261021121427099003)(261022075727099003)(261022105027099003)(261021123027099003)(261021135927099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	4MrjMorjNpiRAjbBLSn/8b7DMxbc+hlOm+7hvbUmeC+xAgxy6p1Slp1QvqOHuYlvXQT7VBcnuh1c2hTZkCNrWhbQa+edQjdZhq4MFG+3KPYT8HXdDVEVaqew1WRyejEWkeh0z7BRaqi6ILGuwD4pyJl27kXxiA4LHFiOFG0yT6kbbaiNOtXTiW+sEXwZ2iUPBN//m21LTnZxxKCSD2VEXq7OhQa490DdB7WwG9uIo+sT7RVZjZxiT1gA6f+TcIOatUw7qN1oDKCxuxf4htCS/J6yVBi/z7IV1jZOQzj/+ib+WUOE6ANc6o4fs9jLSZuwCyw8f9qzHywKH8MEPH+5FcHBzcInTMKZ5nwBp7KK3G12HzebuYr8wEGOnbKROLYqq8sqfetgPY+uBP0KXQTA1koUNcbiiZvrh8lDe/15IyJ0p6/lmJtY5f8WDQxz5+s0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 17:11:31.5770
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: c37f9ff5-581c-4396-c6eb-08df44cdd36b
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	SJ1PEPF00002320.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9675
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-The CQ create and resize paths check the requested size against
-1 << log_max_cq_sz. The cap is 8 bits wide, so an untrusted NIC can
-report 31 or more, which makes the shift undefined. A large limit also
-lets the rounded up CQ size exceed INT_MAX, and it is then truncated
-when passed on as an int.
+Dimitri Daskalakis <dimitri.daskalakis1@gmail.com> writes:
 
-Such a size also overflows the CQ buffer size, entries * cqe_size,
-which create_cq_user() and alloc_cq_frag_buf() compute as an int. A
-user CQ buffer smaller than the CQ the NIC is given then passes the
-umem size check, and a kernel CQ gets a zero-sized buffer that
-init_cq_frag_buf() writes to.
+> On 11/10/26 2:20 AM, Bj=C3=B6rn T=C3=B6pel wrote:
+>> Header and payload rings share one provider page pool, so refills even
+>> them out, and a short pool does not starve one of them. Payload
+>> buffers start at chunk offset 0, and the UMEM headroom rules require
+>> headroom only in the first buffer. A chunk is one 4 KiB device page,
+>> also with larger kernel pages, so rings fed by the provider post one
+>> descriptor per chunk.
+>>=20
+> [...]
+>>  	qt->sub0.page_pool =3D pp;
+>> +	fbnic_bdq_set_page_size(&qt->sub0, xsk ? rx_page_size : PAGE_SIZE);
+>>  	qt->hdr_max =3D 0;
+>>  	if (!page_pool_supports_frag(pp))
+>> -		qt->hdr_max =3D fbnic_whole_hdr_max(FBNIC_RX_HROOM);
+>> +		qt->hdr_max =3D fbnic_whole_hdr_max(qt->rx_hroom);
+>>  	if (netif_rxq_has_unreadable_mp(fbn->netdev, rxq_idx)) {
+>>  		pp_params.order =3D get_order(rx_page_size);
+>>  		pp_params.max_len =3D rx_page_size;
+>>  		pp_params.flags |=3D PP_FLAG_ALLOW_UNREADABLE_NETMEM;
+>>  		pp_params.dma_dir =3D DMA_FROM_DEVICE;
+>>=20=20
+>> +		pp =3D page_pool_create(&pp_params);
+>> +		if (IS_ERR(pp))
+>> +			goto err_destroy_sub0;
+>> +	} else if (xsk && !xsk_pool_uses_sg(xsk)) {
+>> +		pp_params.flags &=3D ~PP_FLAG_MEM_PROVIDER;
+>> +		pp_params.rx_roles =3D 0;
+>> +		pp_params.max_len =3D PAGE_SIZE;
+>> +		rx_page_size =3D PAGE_SIZE;
+>> +
+>>  		pp =3D page_pool_create(&pp_params);
+>>  		if (IS_ERR(pp))
+>>  			goto err_destroy_sub0;
+>
+> Maybe I'm misunderstanding, but why is it necessary to create a new page =
+pool for
+> sub1 if !sg? All frames should be sent to sub0, and the buffers in sub1 s=
+hould sit idle.
 
-Take the limit from MLX5_CAP_GEN_LOGSZ_U64(), round up in 64 bits, and
-reject sizes above INT_MAX. Compute the buffer size with
-check_mul_overflow(), as resize_user() already does.
+(BTW, the reply to your other mail didn't show up on lore for some
+reason, but I hope you got it! If not, holler!)
 
-Signed-off-by: Yishai Hadas <yishaih@nvidia.com>
----
- drivers/infiniband/hw/mlx5/cq.c | 52 ++++++++++++++++++++++++---------
- 1 file changed, 39 insertions(+), 13 deletions(-)
+You're right, it is not needed. I'll fix this in the next version. Every
+frame fits in one chunk on the header ring, and the device drops bigger
+frames. With SG, both rings share one pool.
 
-diff --git a/drivers/infiniband/hw/mlx5/cq.c b/drivers/infiniband/hw/mlx5/cq.c
-index 831bdf238319..7180357f9dd7 100644
---- a/drivers/infiniband/hw/mlx5/cq.c
-+++ b/drivers/infiniband/hw/mlx5/cq.c
-@@ -897,10 +897,14 @@ static int alloc_cq_frag_buf(struct mlx5_ib_dev *dev,
- 	struct mlx5_frag_buf *frag_buf = &buf->frag_buf;
- 	u8 log_wq_stride = 6 + (cqe_size == 128 ? 1 : 0);
- 	u8 log_wq_sz     = ilog2(cqe_size);
-+	int size;
- 	int err;
- 
-+	if (check_mul_overflow(nent, cqe_size, &size))
-+		return -EINVAL;
-+
- 	err = mlx5_frag_buf_alloc_node(dev->mdev,
--				       nent * cqe_size,
-+				       size,
- 				       frag_buf,
- 				       dev->mdev->priv.numa_node);
- 	if (err)
-@@ -943,6 +947,7 @@ static int create_cq_user(struct mlx5_ib_dev *dev, struct ib_udata *udata,
- {
- 	struct mlx5_ib_create_cq ucmd;
- 	unsigned long page_size;
-+	size_t buf_size;
- 	unsigned int page_offset_quantized;
- 	__be64 *pas;
- 	int ncont;
-@@ -966,9 +971,13 @@ static int create_cq_user(struct mlx5_ib_dev *dev, struct ib_udata *udata,
- 
- 	*cqe_size = ucmd.cqe_size;
- 
-+	if (check_mul_overflow((size_t)entries, (size_t)ucmd.cqe_size,
-+			       &buf_size))
-+		return -EINVAL;
-+
- 	cq->buf.umem = ib_umem_get_cq_buf_or_va(&dev->ib_dev, attrs,
- 						ucmd.buf_addr,
--						entries * ucmd.cqe_size,
-+						buf_size,
- 						IB_ACCESS_LOCAL_WRITE);
- 	if (IS_ERR(cq->buf.umem))
- 		return PTR_ERR(cq->buf.umem);
-@@ -1167,6 +1176,15 @@ static void notify_soft_wc_handler(struct work_struct *work)
- 	cq->ibcq.comp_handler(&cq->ibcq, cq->ibcq.cq_context);
- }
- 
-+/*
-+ * Next power of 2 above entries. It can be 2^32, which doesn't fit the
-+ * unsigned long of roundup_pow_of_two() on 32-bit archs.
-+ */
-+static u64 cq_roundup_entries(u64 entries)
-+{
-+	return 1ULL << fls64(entries);
-+}
-+
- int mlx5_ib_create_user_cq(struct ib_cq *ibcq,
- 			   const struct ib_cq_init_attr *attr,
- 			   struct uverbs_attr_bundle *attrs)
-@@ -1174,7 +1192,7 @@ int mlx5_ib_create_user_cq(struct ib_cq *ibcq,
- 	struct ib_udata *udata = &attrs->driver_udata;
- 	struct ib_device *ibdev = ibcq->device;
- 	struct mlx5_ib_create_cq_resp uresp = {};
--	int entries = attr->cqe;
-+	u64 entries = attr->cqe;
- 	int vector = attr->comp_vector;
- 	struct mlx5_ib_dev *dev = to_mdev(ibdev);
- 	struct mlx5_ib_cq *cq = to_mcq(ibcq);
-@@ -1186,15 +1204,17 @@ int mlx5_ib_create_user_cq(struct ib_cq *ibcq,
- 	int cqe_size;
- 	int eqn;
- 	int err;
-+	u64 max_cq_entries = MLX5_CAP_GEN_LOGSZ_U64(dev->mdev, log_max_cq_sz);
- 
--	if (attr->cqe > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	if (attr->cqe > max_cq_entries)
- 		return -EINVAL;
- 
- 	if (check_cq_create_flags(attr->flags))
- 		return -EOPNOTSUPP;
- 
--	entries = roundup_pow_of_two(entries + 1);
--	if (entries > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	entries = cq_roundup_entries(entries);
-+	/* cq->ibcq.cqe and create_cq_user() take an int */
-+	if (entries > max_cq_entries || entries > INT_MAX)
- 		return -EINVAL;
- 
- 	cq->ibcq.cqe = entries - 1;
-@@ -1262,7 +1282,7 @@ int mlx5_ib_create_cq(struct ib_cq *ibcq, const struct ib_cq_init_attr *attr,
- 		      struct uverbs_attr_bundle *attrs)
- {
- 	struct ib_device *ibdev = ibcq->device;
--	int entries = attr->cqe;
-+	u64 entries = attr->cqe;
- 	int vector = attr->comp_vector;
- 	struct mlx5_ib_dev *dev = to_mdev(ibdev);
- 	struct mlx5_ib_cq *cq = to_mcq(ibcq);
-@@ -1274,12 +1294,14 @@ int mlx5_ib_create_cq(struct ib_cq *ibcq, const struct ib_cq_init_attr *attr,
- 	int cqe_size;
- 	int eqn;
- 	int err;
-+	u64 max_cq_entries = MLX5_CAP_GEN_LOGSZ_U64(dev->mdev, log_max_cq_sz);
- 
--	if (attr->cqe > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	if (attr->cqe > max_cq_entries)
- 		return -EINVAL;
- 
--	entries = roundup_pow_of_two(entries + 1);
--	if (entries > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	entries = cq_roundup_entries(entries);
-+	/* cq->ibcq.cqe and create_cq_kernel() take an int */
-+	if (entries > max_cq_entries || entries > INT_MAX)
- 		return -EINVAL;
- 
- 	cq->ibcq.cqe = entries - 1;
-@@ -1577,18 +1599,22 @@ int mlx5_ib_resize_cq(struct ib_cq *ibcq, unsigned int entries,
- 	int inlen;
- 	int cqe_size;
- 	unsigned long flags;
-+	u64 entries64 = entries;
-+	u64 max_cq_entries = MLX5_CAP_GEN_LOGSZ_U64(dev->mdev, log_max_cq_sz);
- 
- 	if (!MLX5_CAP_GEN(dev->mdev, cq_resize)) {
- 		pr_info("Firmware does not support resize CQ\n");
- 		return -ENOSYS;
- 	}
- 
--	if (entries > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)))
-+	if (entries64 > max_cq_entries)
- 		return -EINVAL;
- 
--	entries = roundup_pow_of_two(entries + 1);
--	if (entries > (1 << MLX5_CAP_GEN(dev->mdev, log_max_cq_sz)) + 1)
-+	entries64 = cq_roundup_entries(entries64);
-+	/* resize_user() and resize_kernel() take an int */
-+	if (entries64 > max_cq_entries + 1 || entries64 > INT_MAX)
- 		return -EINVAL;
-+	entries = entries64;
- 
- 	if (entries == ibcq->cqe + 1)
- 		return 0;
--- 
-2.18.1
+I first tried sharing the pool for non-SG too. But then up to 255 chunks
+sit unused in the payload ring :P
 
+
+Bj=C3=B6rn
