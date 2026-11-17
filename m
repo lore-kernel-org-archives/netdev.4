@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794936919;
-	b=NKCirCqRLu+5N+MdYnPZxrLTFCGBFAVaH/2jcz7To9gpO97jD8/3Ip1QWbQQWETTkq3t
-	 p5ilF7Mrk4MnZB+KG6HRrO7ISGMb3VbRQOx5hRO0uaq5hSXQoUbRQhuGFkpJjvUudPWyS
-	 zYSsHte7hsR6FgYG4uUDh7GaTZvX8uPeNnwz88mpAhCviixrG+CWAbcGmFpYorL5BxKpE
-	 +IWVhuemF9TX1YGtVl4C8LvMY2T36koc9mtkZXabVT4sez8XGAMmRYf1EvcLIOkhJ1D1F
-	 kldHiq3F0aBmOaVJB8O5CXA/64P/CZg74ZzT4w4zEy/NWMkczLT1vhIDfYEiZIo7N1g==
+	t=1794936915;
+	b=14OSY+FnjyhNNYk8ObhlawcrmqXycCavB1hlJpyo+KeDpq+uJuKcnbCa/ksIUeVAVU4J
+	 Mr51d5HEJnH4Mz7thSErJJscpuGM65oPEsUGDB+2zJS6OgSF86jVmHYPnfaJoXlsuOK6q
+	 DBJA586gj6ogQAbBfDT+eYiMvA2Wg05QQPAA6U/b2Wj65ngeh2InAfgi7O3LhB+ErQDSQ
+	 dgr8h5tsCQKusKuuTPYR4km0a7yfK5vHnldVAt7/ubhoFIqie6bhyYvOL3qqIH4/QEIJ6
+	 +wh9ZcnL64cSx5sZHzp1StkIrLhvXG/sSLFzPRdF8xPuKwtbT0ViGh6Dd2ncmg9sB6w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794936919;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794936915;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=xdxs12743NDoNJxbnDGKAhLTeXv90Ow3q001NJmFiRo=;
-	b=WnJGq3S9tckLug8osN0gkkWrws5lK0+glUUtgLtBKECTihIJi3gqBnvnVaoLNagaEDoI
-	 sBhzkAWfXWH3SzRJ7ZeT3DnzOrArrFqFz52sl6Dj2tL1khfWKSZJzo7ve5JyxMZPHqg3n
-	 InuQojdWxg1MFJxL9yTz3dRIDR6HU9Acsar66DRNr2A8mUGddmHgm7Qwsnw+RnaAmdnJX
-	 DfA+G9+gMVyQ95c8nW+2KaPOSlG1FQnImQ3PhUaMX5IGcNtjvSpcc6mFphGasWbA2lgdB
-	 fHQgLFVZTdsVH3Ct/ahkPrg9T9wwvSBqVd2sVDWasMKXex3g7P+NZ6KksOHlqLUpNJQ==
+	bh=ysk2En5dt3U606AzY6P1J/hKMgdqPY85D/NlOep2mDM=;
+	b=eg5M4InC3GKX/5WKzjNioBqx/vNrvNTNDwxxD0lPu8A19ZLcP64+zNGwnxUOell6AxzK
+	 RoNzpsD8q2/UqHdBVr+wqaGdV4Kv05y8A7+b51MhaWPUqLWdGikahrEPyBb2ad+L7HtJS
+	 NkiYcpecG4jkIv9W9T0DosfjYugFo5G9Nz4vKFwwmVL9uVMVLFR5KlbbyEWK6AqL1Z5jw
+	 TaxycKC/eBuPFh9FruPY6Udar3n/twsL20Qj6WrLzXTPJSPvi/wFEYh3Yx7gI7xltOK8Q
+	 292dMiBZv7B5WEKg1DLAXdANrtK6vg1OoSw1f+buDCXr6vnv28XwHSnDh3c+TwzChdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iY0cVogF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZIPaXsJe;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DDD8606A8A8;
-	Tue, 17 Nov 2026 17:35:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D0A7606A883;
+	Tue, 17 Nov 2026 17:35:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iY0cVogF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D83F1F000D1;
-	Tue, 17 Nov 2026 17:35:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZIPaXsJe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 821621F00923;
+	Tue, 17 Nov 2026 17:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794936918;
-	bh=xdxs12743NDoNJxbnDGKAhLTeXv90Ow3q001NJmFiRo=;
+	s=k20260515; t=1794936914;
+	bh=ysk2En5dt3U606AzY6P1J/hKMgdqPY85D/NlOep2mDM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=iY0cVogFK/z7QGVoaMgG1ymZmRQqjTfWjlHGqoCcByQxgAvsVAZ7t5hqehI6aIttK
-	 HN6yNEXIeFfeP7d31+Ez6PRir/PwO1eGDDZfZ4/yLTuk7PbZyQK5GwT3i0RLvefNHQ
-	 NYoj68Q9/p/Wihb7mjz0Z+A+XLBt7p6ITbtSQQajvohhh1GTprobAJLtVMlYTD7LkJ
-	 BT5Ryo8OSIOX+KIds3Hxljd8OMS7SFHIRmcJgoVRIj5+5yRh2cKtJpha2PJXeSAbXw
-	 JKX2F6ns4aVnI6NuVe0s7IX4lolK29oe5rxex/zIVt2XO0WExtllhcpKiB2oXC2A7P
-	 944yyN522tkfQ==
-Subject: Re: [PATCH 6/9] soc: rockchip: grf: Restore the RK3588 PHP StreamIDs
- after system suspend
+	b=ZIPaXsJezFD6AiJqncn2itUrMLKrGXEgbgoPFwcEsq8boZKgknPdwJtMy2wI4sXGr
+	 HqQUFqbXQvLNgBq08hK7OekXX3IdsOfggLyQRBeNb7w083up+ru65npI5lUKFQ6xQR
+	 a+Yp57ygka+UF3/I9hhXL5MyfBnNacdwqwdYZ0XOeUp5qkcibJMnpYf2b/IK4JOV08
+	 b/uLjlkHATw4GCztXNJ40m4zvRjQjMd3RiEFXbBasTWHqLGDome3NANaagIXVkZR0S
+	 pOA2fghSKmGiAadVTXL4uHQdXzmgyb6EIt9AdoiWkW8UjTB4rysSlX3tF9GtGv3UB7
+	 vhT7ijesUk4PA==
+Subject: Re: [PATCH 3/9] dt-bindings: soc: rockchip: grf: Allow a clock for
+ the RK3588 PHP GRF
 From: netdev-bot+sashiko@kernel.org
 To: aiyengar1990@gmail.com
 Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
@@ -53,10 +53,10 @@ Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
  linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org, praan@google.com,
  will@kernel.org, robin.murphy@arm.com, iommu@lists.linux.dev,
  shawn.lin@rock-chips.com, sebastian.reichel@collabora.com
-Date: Tue, 17 Nov 2026 17:35:16 +0000
-Message-ID: <179493691692.3136.5141582035448551878@kernel.org>
-In-Reply-To: <20261113-mmu600-php-v1-6-231196049a3b@gmail.com>
-References: <20261113-mmu600-php-v1-6-231196049a3b@gmail.com>
+Date: Tue, 17 Nov 2026 17:35:13 +0000
+Message-ID: <179493691305.3136.16311404541139130213@kernel.org>
+In-Reply-To: <20261113-mmu600-php-v1-3-231196049a3b@gmail.com>
+References: <20261113-mmu600-php-v1-3-231196049a3b@gmail.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -76,47 +76,123 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The concern: the commit message says that 'The SMMU aborts a
-  master whose StreamID was lost', but at this commit mmu600_php is…
+- [Low] The RK3588 PHP GRF clock is allowed but not required.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but there is a
+  pre-existing use-after-free in the error unwind of…
 
 --
 
-soc: rockchip: grf: Restore the RK3588 PHP StreamIDs after system suspend
+dt-bindings: soc: rockchip: grf: Allow a clock for the RK3588 PHP GRF
 
-This commit keeps the RK3588 PHP GRF StreamID table after init. It also
-registers a syscore resume op that rewrites any StreamIDs lost when PD_PHP
-is powered off during system suspend. The op is only registered when the
-GRF node has a clocks property.
+This patch changes the clocks conditional in the Rockchip GRF binding.
+The rockchip,rk3588-php-grf compatible is now exempt from "clocks: false",
+so the node can describe pclk_php_root and the syscon regmap can enable it.
 
-> The PHP GRF is in PD_PHP, which firmware may power off in system
-> suspend. The SMMU aborts a master whose StreamID was lost.
+> diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+> index e94c83d7c1383..2525eb51f13b0 100644
+> --- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+> +++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+> @@ -321,8 +321,16 @@ allOf:
+>          - clocks
+>  
+>      else:
+> -      properties:
+> -        clocks: false
+> +      if:
+> +        not:
+> +          properties:
+> +            compatible:
+> +              contains:
+> +                const: rockchip,rk3588-php-grf
+> +
+> +      then:
+> +        properties:
+> +          clocks: false
 
 [Severity: Low]
-Is this description accurate for the tree at this commit?
+Should rockchip,rk3588-php-grf go into the enum in the if: branch above,
+so that clocks is required and not just allowed?
 
-In arch/arm64/boot/dts/rockchip/rk3588-base.dtsi the mmu600_php node is
-still disabled at this point:
+The commit message says the PHP GRF is clocked from pclk_php_root, which
+gets gated. The later patch "arm64: dts: rockchip: Add the PHP GRF clock on
+RK3588" says PHP GRF accesses hang without it.
 
-    mmu600_php: ...
-        ...
-        status = "disabled";
+This block already handles GRFs that need a clock. rockchip,rk3588-vo-grf
+and rockchip,rk3576-dcphy-grf are listed in the enum, which both allows and
+requires clocks.
 
-None of usb3otg2, gmac0/1 or sata0-2 point at it with an iommus property
-yet. That means the SMMU abort described above can't happen in-tree with
-this patch alone, and rockchip_grf_resume() has no visible effect yet.
+As written, a php_grf node without clocks still passes dtbs_check. At
+runtime, of_syscon_register() treats a missing clock as optional:
 
-Two later patches in the series fix that:
+drivers/mfd/syscon.c:of_syscon_register() {
+    ...
+		clk = of_clk_get(np, 0);
+		if (IS_ERR(clk)) {
+			ret = PTR_ERR(clk);
+			/* clock is optional */
+			if (ret != -ENOENT)
+				goto err_clk;
+    ...
+}
 
-  "arm64: dts: rockchip: Attach the masters of the RK3588 PHP SMMU"
-  adds iommus = <&mmu600_php N> to the six masters.
+On such a DT the regmap would never enable pclk_php_root. The StreamID
+restore added later in the series ("soc: rockchip: grf: Restore the RK3588
+PHP StreamIDs after system suspend") would also be skipped without any
+warning.
 
-  "arm64: dts: rockchip: Enable the RK3588 PHP SMMU" removes the
-  status = "disabled" line.
+If the clock is meant to stay optional for older DTBs, could the commit
+message say so? The binding also doesn't say which clock is expected. There
+is no items list or description naming pclk_php_root.
 
-So by the end of the series the restore does take effect.
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. With
+this series, php_grf goes through the clock-attached path in
+of_syscon_register(). Is there a use-after-free of the struct clk in that
+function's error unwind?
 
-Could the commit message say that this patch prepares for those later DTS
-changes? Or could the patch be moved after them in the series?
+regmap_mmio_attach_clk() stores the clk in the regmap context before it
+prepares it:
+
+drivers/base/regmap/regmap-mmio.c:regmap_mmio_attach_clk() {
+	ctx->clk = clk;
+	ctx->attached_clk = true;
+
+	return clk_prepare(ctx->clk);
+}
+
+Two failures reach err_attach_clk: clk_prepare() failing, or
+of_reset_control_get_optional_exclusive() returning an error. For example,
+the reset lookup returns -EPROBE_DEFER if the reset controller hasn't
+probed yet. The unwind is:
+
+err_attach_clk:
+	if (!IS_ERR(clk))
+		clk_put(clk);
+err_clk:
+	regmap_exit(regmap);
+
+clk_put() frees the struct clk through __clk_put()->free_clk(). After that,
+regmap_exit()->regmap_mmio_free_context() still uses the stored pointer:
+
+	if (!IS_ERR(ctx->clk)) {
+		clk_unprepare(ctx->clk);
+		...
+
+clk_unprepare() then reads clk->core from the freed object. If
+clk_prepare() was the step that failed, it also unprepares a clock that was
+never prepared.
+
+Would it fix this to detach the clock from the regmap, or to call
+regmap_exit(), before clk_put()?
+
+The php_grf node has no resets, so for php_grf only a clk_prepare() failure
+can reach this path. Any syscon node with both clocks and resets is
+affected. Syscon registration is retried on every lookup, so the path can
+run repeatedly. The unwind comes from a00406b71c5f ("mfd: syscon: Add
+optional clock support") and 7d1e3bd94828 ("mfd: syscon: Allow reset
+control for syscon devices").
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-mmu600-php-v1-0-231196049a3b%40gmail.com
