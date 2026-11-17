@@ -1,108 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794907673;
-	b=J+4R8Uf1ixFOYw0E055fq/qv12i2ij+gs7Yrb4FNi0JligpJaR8hx45Yenduofju6zwp
-	 JVan8qMr+CFbn1/+7yWSjKRwCxeYrBhXKXXJmFXT/fS/UI40wb2jczT+i0U92xomU0vBw
-	 VrCA/1gPL6zcqjlbq/vc1dYUztpEIxl63mN7S8p3wkZhuszSpZ+6h73T4E3Ncfr9LNSCn
-	 oAXANoOSOqg9EEYrx8fIg5BC44maYsrmUV+ufSZFTAtFclyg+jUAuNt04rf8cj4T/ykAq
-	 l8FdHWYYG5Wg9w6LvZ5CwujaGCcWXROZtBjNvtWC8AzZD31EmmNORdYcXMbGltFa36w==
+	t=1794907771;
+	b=yZJxxbg5mP1TefB7gUMZNydDTjzgFSarZmEl2ft8KULJd+Rzoqxk/YHtvRVvwfMH0vE9
+	 94Z+9WIfITTtFq+I0ZGDYZixIklay5avHzPNKqZ3SSV2KTZAgLtUDKkbB/Wvu3Kf6oNkJ
+	 YJkhKV4gpCCB84VdGRkCtbikCyHZ/KLtLeCRtfh4w0EEn4FPt8WVpJGlGhQY9sZQ5/fD8
+	 FUWkmhu6ws+k+gAAmN4J4wLvB16FzRGAulUb+TXuYM+DkbTkRsR9gOJ26L2gX1e1I1N+M
+	 tYjC6+pJbcNxsSgZ19nmegWcC98zCsWcClkqgmO42g7vMlSwMfeHF3sOrUuZxwNtvBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794907673;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=M3vDB+5rl54xRwlu5umW2bDXJdtwD3HGmENV54NS6J0=;
-	b=hdByWgG9L5jMip7Kold+n3uT+LmLBU9r9+/nBMfWGMxzPEwchiC2oRSZmemVBQobyi2K
-	 qaD/DHwKhY3nodNEohD+z4cplwSrOZTDot6vCmMoBU3J2epvUQFtuIat/nX/MG0UNTws4
-	 ZWESnPESumqPJn6MnCsDGImIxfgWG+RzZ3TQs/4nGfLnuAXef14JG5xa50E7WAWrncl6y
-	 vOLzgMy55os3eKFO8Uv/lcqc5yxap+sg5XPuXUANXHrg5Q3PUePUnoiloLcBMtDZg3O7b
-	 0jBWUmnYfMfKwIzda8xnQDXcrafWsSQnVYDndN6xLJ5uCuEtXKeHYKI7jBPLNe+oMng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794907771;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=YE7hb6EJ8MnZjqeIFG8zu2TxBYRPi6yG8xDT6an+A0I=;
+	b=m04iYqtivEvt4bjk5GSGIh50HjXCOJklpIaK6v+JduyO5R9WRlMX0jIrOv4mgz27xeUF
+	 psI7AeSonAl/SgsQnPoFoHMwnhRnqHBOdslpxD/MkosltB4Q3IRpwSexPrNgsiWLOvqyC
+	 qrL/jBnzLyk40Wz54ipqJJDDJ6CoDcEhhmbs03iaawj/BuB34K9Q1d+6L5h35zowCCAe9
+	 NfzqChdkILiZCiBNwT5Qe7EtXUeIKcHrHzEPjQUIcADoCtmsJH9Wy5Xfuqjo6Q6ikc0vp
+	 wg7Owjm/D0wsgnXFsri/bh2w8vb3ecHITb+u8cvxcxkik7TS58eBCje6ZJt7aWzr2ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DMRWqqIj;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="boCp+FI/";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=corp.free.fr;
+	spf=pass smtp.mailfrom=corp.free.fr;
+	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SiOqTfVw;
+	arc=none smtp.remote-ip=212.27.60.169
+Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 221F4606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:27:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 221F4606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFE7E606A33A;
+	Tue, 17 Nov 2026 09:29:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFE7E606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=DMRWqqIj;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=boCp+FI/
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794907672;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=M3vDB+5rl54xRwlu5umW2bDXJdtwD3HGmENV54NS6J0=;
-	b=DMRWqqIjr/v+tB4T0uPzDlXWOYI+7iNqiv2aP7GxhmovR3MCSPe3uVAu6P+95eGfLM4sET
-	ddBXMICdVybZGoQh583ry5Lb8wtHOxPnirc/8iLJ4pgpcmMcxq/KxwC6R9p9DikVnm4Xia
-	swLr3Sg1orsvllZd/dVE0bxMiCxRZ6s=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-158-x0fh_MF8OeGtIfG6AcixCg-1; Tue, 17 Nov 2026 04:27:50 -0500
-X-MC-Unique: x0fh_MF8OeGtIfG6AcixCg-1
-X-Mimecast-MFC-AGG-ID: x0fh_MF8OeGtIfG6AcixCg_1794907670
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48fbcf023dcso1935740f8f.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 01:27:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1794907669; x=1795512469; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=M3vDB+5rl54xRwlu5umW2bDXJdtwD3HGmENV54NS6J0=;
-        b=boCp+FI/hDAZAkfjzO9KQ/m1kfZyxdknrunTG9o0PUuvqOF5eqrCLzZXvIYE79kqrJ
-         hXxqP5w9TjeDEhwbk0u21UPsa9ztIHUo2xj2ZLKZK91LiEMQF812boTglOW4a9yjeoZH
-         MZlQliXexnGRr4BwsUv0iC4rA/XLAyH4ou4p/WwYWJHjSkPAAW1ZMAngWrr6JPTo3AkU
-         XGVs2nS2Ntmuu68CLdKIROJXJ3eyt8EhWL3oJLYFaf26gP2iWUsxkkZcVZOvnEVBvoQS
-         Jb2AKzIAkIGtsw9zVmaOwy1Etez1sYS/YqGUpcj6rFqzR+sc+w6jBls9UKyuoKUxbFva
-         PPUA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794907669; x=1795512469;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=M3vDB+5rl54xRwlu5umW2bDXJdtwD3HGmENV54NS6J0=;
-        b=cbG6eBj2cuk18ihLv+3PY0nBxLwjqAT5yAxJAp+VqND8d3xfflskQS0LjxR84fEYQF
-         kdX0/K1cE7X90Eq/II5FGSNjgbPrg8hhoB0PSyqeflVBYx4NAEqjC4NAbCuJgdiY85DV
-         G4BR/MYkiGhPQpPmuHqSs59e/iIv+bhEPCH85SjC9YNvTkw4wnbygXsytiLySftFxMUR
-         x4I+WHcBUIJRhzlTRDS7RHUDNcL4V+xqGlLB4QmUZebWhLcHOxNnMBAIqy7VvOau+/Ag
-         uXSBY7KIjrIh78zwlU/+PWXPkJ+n6VqlWKC/YS3wCGfU/lnBXZbNRPm8CUsA53Z6RdQL
-         T0mg==
-X-Forwarded-Encrypted: i=1; AL+hErFvP6DX8zNFKRsDjF93bCA0XeyZzWv+J6C/KI7K7bvxtC94W2vH57BVj5g7HqzrYWQvNWt1q9Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/UylV0s/Xyxz8scoJtqQHLkRcjl2VW1mhPDd2WenBdQZzn3Tqg
-	5XncarG7YurgkZuwOAs0onNQV5KctIxoN4yDj+A9HKMAEaPOBGp4dQ5DbPHfREzdeUrKk6FGY/b
-	vNcTzFoS3WqTmKL3kllkbGufcwh8kmnbwYu8q4Y4tALCPn1ci0i8oWJRubw==
-X-Gm-Gg: AYBFou0Wk73IPNJyvnH6FJusWmW2+tyIyBzIiIWKzJDWHAN0I1DAtZjp5bNSpGCAHDJ
-	7sHuehdZyRLOASoa+eOK3DMaLZYhL5zQ969j69YWKakkl11aylXL6st5vlmihvhaLeu0nJ/IfiF
-	7Kng8OIcOpR0GP5WQYmrgN1o3MOhH1fEa/sa7a7diIwbWs8PFfrV75x0dG3dzmeEnH/Y0RbXFHv
-	KbO3CBqWco9w3i6RUbFZi7aruB3e0isw/t29UcX1zNlw2KjyTjMt3PjQm4kfSvInms/0UTFnxya
-	eSuqzttY98KtN7dsI80ZHZL5dhZ451OdEqUlGJ51MuHkrcnHwAkRX58XsQ6+0LRyDqQBiEvwC3Z
-	FPSozL9T32S5BvGWGzDbERRYUNp15s0EkcL0v0ujyqXRzdSN4/Z2X6e1RrpcOfNo0p7z9iFP/HL
-	Tf7bxzrPFjlBALn40LUq/9IzxfsZH+kINvOOt3lJKBU1rP
-X-Received: by 2002:a05:600c:6092:b0:4a2:397:73f6 with SMTP id 5b1f17b1804b1-4bb55a44be7mr262648905e9.8.1794907669344;
-        Tue, 17 Nov 2026 01:27:49 -0800 (PST)
-X-Received: by 2002:a05:600c:6092:b0:4a2:397:73f6 with SMTP id 5b1f17b1804b1-4bb55a44be7mr262648315e9.8.1794907668849;
-        Tue, 17 Nov 2026 01:27:48 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb571f976esm190909215e9.3.2026.11.17.01.27.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 01:27:48 -0800 (PST)
-Message-ID: <1fdde915-0e1f-4ffe-bd62-61897fca958e@redhat.com>
-Date: Tue, 17 Nov 2026 10:27:46 +0100
+	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SiOqTfVw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
+	t=1794907762; bh=iLmIdYcI+NQQ9aOw3zP2Rr0bm+RPSvskVZvNhW00Cv0=;
+	h=From:To:Cc:Subject:Date:From;
+	b=SiOqTfVw9EXhZWKeAAvzAA4gEMDrVvlB/HNB51gC/QrMG7qsxvGiZtgDAgKJ/CuLz
+	 RIRb2v66dM7eMQOMYPaiVon6juCybF0iW57uCoo9hXlzZK84ba5GqEaUNxG+PN8zX4
+	 kspe5IeN/sI2jKWvQxLAB7btKabncL6n6dZ30rFAEkYS4TrsmYAp+aXN8qq1vUh9bF
+	 EI5zTdR7VSnQKFzJTnCpilzZg+ThurdH8dsz8Jqov9hxIw1kfnAV3+dTV3aiAT+xmI
+	 8b6xfTl64KvXO4S085MfX5k8UvW7xtllA3VPMpHm1mbxFpaEGQJD66WpQuhxyqaa3e
+	 408qJGRBtfgGw==
+Received: from lnxos-dev.home (82-66-150-212.subs.proxad.net [82.66.150.212])
+	by rcs.proxad.net (Postfix) with ESMTPSA id 7606444C017F;
+	Tue, 17 Nov 2026 10:29:21 +0100 (CET)
+From: Alexandre Cassen <acassen@corp.free.fr>
+To: Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>,
+	Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Michael Chan <michael.chan@broadcom.com>,
+	Pavan Chebbi <pavan.chebbi@broadcom.com>,
+	Potnuri Bharat Teja <bharat@chelsio.com>,
+	Donald Hunter <donald.hunter@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	oss-drivers@corigine.com,
+	=?UTF-8?q?Asbj=C3=B8rn=20Sloth=20T=C3=B8nnesen?= <ast@fiberby.net>
+Subject: [PATCH net-next v2 00/10] tc flower: tunnel key partitioning for RX queue steering
+Date: Tue, 17 Nov 2026 10:29:03 +0100
+Message-ID: <20261117092915.255194-1-acassen@corp.free.fr>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,204 +86,103 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v15 00/13] dpll: add SiTime SiT9531x DPLL clock
- driver
-To: Ali Rouhi <arouhi@sitime.com>
-Cc: "vadim.fedorenko@linux.dev" <vadim.fedorenko@linux.dev>,
- "arkadiusz.kubalewski@intel.com" <arkadiusz.kubalewski@intel.com>,
- "ivecera@redhat.com" <ivecera@redhat.com>, "kuba@kernel.org"
- <kuba@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "cjubran@nvidia.com" <cjubran@nvidia.com>,
- "Oleg.Zadorozhnyi@devoxsoftware.com" <Oleg.Zadorozhnyi@devoxsoftware.com>,
- "prabhakar.mahadev-lad.rj@bp.renesas.com"
- <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "jiri@resnulli.us" <jiri@resnulli.us>
-References: <20261110202607.55744-1-arouhi@sitime.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261110202607.55744-1-arouhi@sitime.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/10/26 21:26, Ali Rouhi wrote:
-> This series adds a DPLL subsystem driver for the SiTime SiT95316 and
-> SiT95317 I2C clock generators. Each device integrates four PLLs with
-> automatic reference selection and on-chip TDC phase-offset measurement,
-> and is used for synchronization in telecom, networking, and data-center
-> timing.
-> 
-> Patch 1 changes the DPLL core: phase_offset_get and phase_adjust_get
-> may return -ENODATA, and the core then leaves the attribute out of the
-> pin message instead of failing the dump. Patches 11 and 12 use it. The
-> rest is the device-tree binding, the driver under
-> drivers/dpll/sit9531x/, and the MAINTAINERS entry.
-> 
-> v1: https://lore.kernel.org/netdev/20260511211143.19792-1-arouhi@sitime.com/
-> v2: https://lore.kernel.org/netdev/20260520191943.73938-1-arouhi@sitime.com/
-> v3: https://lore.kernel.org/netdev/20260731180951.65725-1-arouhi@sitime.com/
-> v4: https://lore.kernel.org/netdev/20260806232439.27551-1-arouhi@sitime.com/
-> v5: https://lore.kernel.org/netdev/20260810230439.22866-1-arouhi@sitime.com/
-> v6: https://lore.kernel.org/netdev/20260812175337.18155-1-arouhi@sitime.com/
-> v7: https://lore.kernel.org/netdev/20260815221919.64226-1-arouhi@sitime.com/
-> v8: https://lore.kernel.org/netdev/20260902214030.20955-1-arouhi@sitime.com/
-> v9: https://lore.kernel.org/netdev/20260915000015.80480-1-arouhi@sitime.com/
-> v10: https://lore.kernel.org/netdev/20260921201108.42676-1-arouhi@sitime.com/
-> v11: https://lore.kernel.org/netdev/20260930233714.87679-1-arouhi@sitime.com/
-> v12: https://lore.kernel.org/netdev/20261009183151.78497-1-arouhi@sitime.com/
-> v13: https://lore.kernel.org/netdev/20261013224131.27149-1-arouhi@sitime.com/
-> v14: https://lore.kernel.org/netdev/20261016005823.13690-1-arouhi@sitime.com/
-> 
-> Most of the changes in v15 answer the netdev AI reviewer's findings on
-> v14 and further runs of the same reviewer on drafts of this revision.
-> Each fix is folded into the patch that introduces the code. The design
-> section below states once the decisions those findings kept returning
-> to. One v14 finding doesn't hold: the DIVN fraction read is not
-> byte-reversed, because the part stores the fraction least significant
-> byte first, and the kernel-doc of sit9531x_divn_static() now says so.
-> 
-> Rob Herring's Reviewed-by on the binding is carried on patch 3. One
-> sentence of its description changed since v14: it now lists the die
-> outputs the SiT95317 bonds out and the names its datasheet gives them.
-> Ivan Vecera's Reviewed-by on v14 patches 4, 6, 7, 9 and 11 is not
-> carried, since each of those patches changed.
-> 
-> Oleg and I used LLM coding assistants to write parts of the driver code
-> and of the commit messages, and reviewed and revised what they
-> produced. v14 marked each such patch with Assisted-by: LLM; v15 drops
-> the tag following commit 1e035297ffda ("docs: remove Assisted-by
-> references").
-> 
->    1     dpll core: omit phase attributes a driver has no value for
->    2     bindings: vendor prefix
->    3     bindings: the device schema
->    4     basic support: paged regmap, variant detection, probe
->    5     DPLL types and pin properties from system firmware
->    6     register the DPLL devices and pins, and keep their state
->    7     input pin state and operational state on a DPLL
->    8     input pin priority
->    9     pin frequency, both directions
->    10    output pin state (mute)
->    11    output phase adjust
->    12    phase offset through the TDC
->    13    the inter-PLL sync line as a pair of pins
-> 
-> The two bindings patches come before the driver, so the driver never
-> matches on a compatible string before the schema that describes it is
-> in the tree.
-> 
-> Every patch builds with only the earlier patches applied: no patch
-> calls something a later patch introduces. This was re-checked for this
-> posting patch by patch with W=1 and with sparse, and kernel-doc -Wall
-> is clean on every driver patch. checkpatch --strict at 80 columns is
-> clean except for the "does MAINTAINERS need updating?" hint on patches
-> 5 and 6, which add files under drivers/dpll/sit9531x/; patch 4 already
-> covers that directory with an F: entry.
-> 
-> Design decisions and hardware assumptions
-> =========================================
-> 
-> Configuration ownership. The part runs a configuration it loaded before
-> the driver binds, from efuse or from a blob the board applies. The
-> driver reads that configuration and never resets the part, rewrites
-> loop-filter coefficients or touches a register the configurator sets.
-> What it changes at runtime is what the DPLL API asks it to change:
-> input selection and priorities, output enables, rates and delays, the
-> inter-PLL sync source. Where the loaded configuration puts a PLL
-> outside what the API can express, the driver reports what the part
-> does and withholds the control rather than reconfiguring the part:
-> a PLL in manual input select is reported in MANUAL mode with no
-> selection or priority setters; a half-armed fast lock registers without
-> the attribute. The driver does not write the part at probe or resume,
-> with one exception below.
-> 
-> Automatic selection. A PLL whose profile arbitrates by priority is
-> reported AUTOMATIC: the part picks among the listed inputs by the
-> priorities it is given, and the driver keeps the table and the active
-> selection register in step with the priorities it was asked for. When
-> a PLL that lost every input sits in holdover and an input returns, the
-> driver doesn't wait for the part: it re-selects the PLL when an input
-> edge is sampled, and once on the first sample after probe or resume,
-> where no edge could have been seen. Whether a PLL returns to a
-> higher-priority input that recovers is the profile's REVERT_EN; the
-> DPLL API has no attribute for revertive selection and no driver
-> exposes its setting.
-> 
-> Qualification. The driver selects on loss of signal and reports ACTIVE
-> from it. The frequency-drift monitors are reported as a qualification
-> failure on an input the PLL is not on; an input the part keeps tracking
-> while its drift flag is set is reported as the part reports it.
-> 
-> Register access. The part shows one 256-byte page at a time, selected
-> through the register at offset 0xFF of every page and latched on the
-> STOP of that write. The regmap is that flat window; the driver selects
-> the page itself under its own lock, remembers the page it selected,
-> forgets it on any failed transfer and on resume, and re-selects on the
-> next access. No other regmap user, debugfs included, can move the
-> page. The I2C_SLAVE_FORCE path of i2c-dev is the
-> documented debugging override and is not defended against.
-> 
-> Clocks and supplies. The XO is taken through
-> devm_clk_get_optional_enabled() for its rate and to hold a reference,
-> so clk_disable_unused() cannot gate an XO the loaded configuration runs
-> from; the enable is not what starts the XO, and the reference goes back
-> to the provider on unbind or a failed probe. A clock or a rail the part
-> must keep without a driver bound is the provider's property
-> (CLK_IS_CRITICAL, regulator-always-on), as for any part that is
-> configured before Linux runs.
-> 
-> VCO rate. The VCO rate is derived as Fref * DIVN, the XO rate (with the
-> doubler) times the PLL page's static divider, which is how the register
-> map defines the inner loop; the binding describes the XO and no other
-> reference. The estimate is bounded: a product outside the PLL's VCO
-> band is reported once and refuses every frequency request, and inside
-> the band a rate is programmed only when the estimated Fvco is a whole
-> multiple of it.
-> 
-> Output pads. The driver reads the pad-enable bits only to tell a CMOS
-> output from a differential one, and mutes a CMOS output by forcing both
-> pads off. It reports an output muted when both pads are forced off, the
-> only state its own mute produces; a profile that forces one pad is
-> reported as driven. The debug key gates the Force registers only; the
-> directive registers that commit a programming sequence are written
-> without it, as the configurator's scripts do.
-> 
-> Phase offset. The measurement compares the selected input against a
-> physical output the PLL drives, as the documented procedure does, so a
-> PLL with no routed, enabled output reports no phase offset (the
-> attribute is omitted). A sample taken while the input disappears is
-> rejected when the monitor reports the loss afterwards.
-> 
-> Notifications. The driver sends again a change notification it could
-> not build for a change it made itself (a failed request that moved
-> hardware, a read-through that moved a value, the sync-line source). It
-> does not retry the notifications the core sends after a successful
-> request: dpll_pin_prio_set() and dpll_pin_state_set() discard that
-> result for every driver, and a retry in the driver would notify the
-> change twice.
-> 
-> Recovery after a failed write. A sequence that fails part-way leaves
-> the part in a state the driver records as pending: a priority table
-> not latched, a forced holdover to release, a delay to re-time, an
-> output realignment, a debug window to close, a sync-line page half
-> written. The poll retries each until the write succeeds; unbind retries
-> once more and warns about what is left; resume drops the pending delay
-> and realignment, since the registers it re-reads describe the part
-> after a suspend that may have reloaded it, and keeps the sync-line
-> ownership records until a retry resolves them.
-AFAICS none of the AI comments look critical, but the sheer volume of
-them is asking for a new revision.
+RSS cant spread GTP-U traffic between a few endpoints. The outer headers
+barely vary and mlx5 does not hash the TEID. One flower rule per TEID does
+not scale.
 
-Please note that you should respond to AI reviews: comments should be
-acknowledged or disputed. Addressing minor or medium issues could be
-postponed, with proper reasoning.
+Add a mask to the flower enc_key_id key and offload it on mlx5e NIC flows
+with skbedit queue_mapping. One rule then steers a block of tunnel keys to
+an RX queue. This "tunnel key partitioning" supports fine-grained session
+placement. In a 5G mobile network, the UPF can place a session on a CPU by
+allocating its TEID from the right block [1]. Any scheduling algorithm can
+then pick that block.
 
-Thanks,
+  tc filter add dev eth0 ingress protocol ip flower skip_sw \
+      ip_proto udp dst_port 2152 enc_key_id 0x40000000/0xc0000000 \
+      action skbedit queue_mapping 1 skip_sw
 
-Paolo
+This series generalize an earlier GTP-U work [2] to other tunnels that the
+ConnectX family can steer: GRE, VXLAN and GENEVE.
+
+Patches 1 to 5 refuse a partial mask or a key wider than the VNI where a
+driver cant honor them. Patches 6 and 7 add the flower mask and its test.
+Patch 8 adds queue mapping to mlx5e NIC flows. Patch 9 adds the tunnel key
+match to mlx5e NIC and eswitch flows without a tunnel device. Patch 10
+documents the result.
+
+Without a tunnel device nothing decapsulates. enc_key_id reads the tunnel
+header on the wire like on cxgb4 and hns3. On mlx5 the plain ip_proto and
+dst_port keys select the match register. A rule without a tunnel device
+used to ignore enc_key_id and now matches it or gets refused. I can rework
+patch 9 on a dedicated key if that looks cleaner.
+
+Tested on ConnectX-7 with firmware 28.48.1000 in NIC mode. Also tested on
+the uplink and VF representors in dmfs, smfs and hmfs. This includes
+redirect to a VF. GTP-U needs flex parser profile 3 and GENEVE profile 0.
+The bnxt, cxgb4 and nfp patches are build tested only. So is the min
+inline check of patch 9, because ConnectX-7 needs no inlining. The selftest
+passes under User-Mode Linux and fails on a kernel without the mask.
+
+Multiple AI tools were used to test this feature. They found the problems
+fixed by patches 1 to 5.
+
+The iproute2 support is posted separately.
+
+v2:
+- cxgb4: also refuse a mask that leaves no VNI bit.
+- cxgb4, nfp and mlx5: add Fixes tags.
+- selftest: run the enc_key_id mask test in software only.
+- mlx5 queue mapping: refuse it after any terminating action.
+- mlx5 outer key: refuse other tunnel keys and representors that need
+  inlining.
+- docs: drop a wrong sentence about skip_sw and name the tunnel ports.
+- nfp and selftest: wrap two lines over 80 columns.
+The first six follow the Sashiko review of v1 [3].
+
+v1: https://lore.kernel.org/netdev/20261109131039.959438-1-acassen@corp.free.fr/
+[1] https://gtp-guard.org/articles/5g-upf-pump-up-the-volume/#benefits-of-range-partitioning
+[2] https://github.com/acassen/research/tree/main/UPF-flow-steering
+[3] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261109131039.959438-1-acassen%40corp.free.fr
+
+Alexandre Cassen (10):
+  bnxt_en: require an exact tunnel id in TC flows
+  cxgb4: flower: refuse a tunnel key wider than the VNI
+  nfp: flower: refuse a tunnel key wider than the VNI
+  net/mlx5e: TC, refuse a tunnel key wider than the VNI
+  net/mlx5e: TC, reject a partial tunnel key with tunnel mapping
+  net/sched: cls_flower: add enc_key_id mask
+  selftests: forwarding: tc_flower: test the enc_key_id mask
+  net/mlx5e: TC, offload RX queue mapping in NIC flows
+  net/mlx5e: TC, match the tunnel key without a tunnel device
+  docs: networking: describe tunnel key partitioning in TC queue
+    filtering
+
+ Documentation/netlink/specs/tc.yaml           |   4 +
+ Documentation/networking/tc-queue-filters.rst |  22 ++++
+ drivers/net/ethernet/broadcom/bnxt/bnxt_tc.c  |   7 ++
+ .../ethernet/chelsio/cxgb4/cxgb4_tc_flower.c  |  15 +++
+ .../net/ethernet/mellanox/mlx5/core/Makefile  |   6 +-
+ .../mellanox/mlx5/core/en/tc/act/act.c        |   1 +
+ .../mellanox/mlx5/core/en/tc/act/act.h        |   1 +
+ .../mellanox/mlx5/core/en/tc/act/rx_queue.c   |  67 +++++++++++
+ .../ethernet/mellanox/mlx5/core/en/tc_tun.c   | 110 ++++++++++++++++++
+ .../ethernet/mellanox/mlx5/core/en/tc_tun.h   |  14 +++
+ .../mellanox/mlx5/core/en/tc_tun_geneve.c     |  46 ++++++++
+ .../mellanox/mlx5/core/en/tc_tun_gre.c        |  31 +++++
+ .../mellanox/mlx5/core/en/tc_tun_gtp.c        |  36 ++++++
+ .../mellanox/mlx5/core/en/tc_tun_vxlan.c      |  45 +++++++
+ .../net/ethernet/mellanox/mlx5/core/en_tc.c   |  19 +++
+ .../net/ethernet/mellanox/mlx5/core/en_tc.h   |   1 +
+ .../ethernet/netronome/nfp/flower/offload.c   |  22 ++++
+ include/uapi/linux/pkt_cls.h                  |   2 +
+ net/sched/cls_flower.c                        |   5 +-
+ .../selftests/net/forwarding/tc_flower.sh     |  54 +++++++++
+ 20 files changed, 504 insertions(+), 4 deletions(-)
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/rx_queue.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_gtp.c
+
+-- 
+2.43.0
 
