@@ -1,101 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794913510;
-	b=M4200u6H4+bt3CZbH3DOlDG/ZjeBVPOKUQ4QRpssIfprIR0dkb7286z7RwCutefMEUaF
-	 Ml4xmgO/2T0rbwuPtvVaCgEWM0OU2bB4y7zyUKbng01a+8lK0vQFXT1mvGJcp2gYgxWgE
-	 fiAEtjhr7r3bQHN/IAZRbRbQSZ1rJ731yIXHDgxwITAZF1GluUXRq5MbDTVReYWMU3oR2
-	 kPuIBKvRvjWgWM2+w2PYOpkUj8q/zzhlF5LsXoUQhtLfUKG2OGD49aQO2TnGWtp6cUrg0
-	 X6X5V50OG/OvFHLemsTjLmVd1kuqzjOtKerS5XsxLqEmafhDd52Gl1O8cbZc+QeG/CA==
+	t=1794913579;
+	b=C1QGEQa8K2kmm3Q7uYK31qJsseRaCjVlQBC3waLicego4dVT55xuo9dGf3fjEoCj2tz0
+	 0YX40o4nSlnYra5vvb/WCYdKIlz3Xod6ON0kgeYCJiQ6k3EZ2F67m7gsAq6ees42I1k4I
+	 Ct2Slvf85oCj8497kDIDZH66QKw+TaS95YcSqKnlDx2VOqzJMN6xFlpj0fxzpl3OyrLGM
+	 kyNODtHDLuW/oorxbRM96rsesPcHRNj9FW6NO5eEt91moO8f6C+eMvUD8PC3/kwmN/fOi
+	 ivhNB+mYDBYAyLpixmdD7JouEevHKrOTEB7PWTfkSWeUwhWks/pE306Z48TMgPUb23A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794913510;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=APyRDGNpX/sOhc1G62vzvyzvnEtlXJLA4HeAQhpE9p8=;
-	b=OzBTaC4i2yFJ4N77BsY7uDkHY4vO/C8avti+P1Kzgbs6Agr7WGkiCXJTfc8JOaivPquK
-	 D7yJ0lP4PMDOOCe6zUn8Xaz/b6NY3g1lSIKxrTv1KgjllnmM3hJMbQPvmwda+MOIBa5m3
-	 0K2l3Lwhg3+F1Br1cqrJnFarFEfes7TSdKD8Q36/tVSqFWdbHkNRzVXNKvH/KxVFibB2l
-	 Esd2DUOHDH72UrlGnWfwBCF1AGw1ATS6DkVzk6uKp24JfmFhzPhhdbqCRQsKu2MBgZRDN
-	 +aNffDiHLOuvTZZs+QLvbPKM3WH2EP2if8OKf2b87WVSpmt1MFmc3XKY4xUKFJ0CcjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794913579;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=y3gUkGRr0U1p2ZCNesM9xfptWY2/llhKtyiVyy36QM4=;
+	b=TFHLXkGpfniMej5q3KpYnoOEBtiWiGozdDt0Fk8MYtapPQvYigBI+a4beFkr3qfTXkqz
+	 1YZRC3I0a0+ZH+XK6Zv87fdPEwVzcAH575D8+lWabs/ziqKI3Uvy26yQmh4G8usi6RQ2l
+	 E+9432zHOLXPb/2t44D8V/vYcNvknr86/wXatyOlJWv7oAOyleANMYLUiEWjtUUsOX43b
+	 tEsrk0iZ4SarVrcncDZZRbRxny+8Ny90MBKj+I7owYq56AW2Fp1p2cB4gSl6OxYD56QSX
+	 kIloLxNHFMps+tTFyL/mrv2eXPgw1N/eziKhzKeB+Ad4vzWRmgxTDLHV3rXgYQfU40w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qyz7ht9t;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=yJNDrt6G;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 040E3606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:05:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 040E3606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35726606A31C;
+	Tue, 17 Nov 2026 11:06:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35726606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=qyz7ht9t
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2efd824d492so4583075ad.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:05:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794913509; x=1795518309; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=APyRDGNpX/sOhc1G62vzvyzvnEtlXJLA4HeAQhpE9p8=;
-        b=qyz7ht9t1Yr/kkTxUvTrvKjQmhfUVmM3Npvv2fDSDEHea4DimUkYStpl8EIxByS3sX
-         iw2+XR+u5YS5o8ISS3TdRXoogjcXqv3pwO1rhrT2fLHEkcewe23LZMPKmqTeNbrnN7eO
-         9TyzzvmZUu2BNgcQPELIGJtRWYP8r/CBNm1Mal/5QaEJq9bl3TRTwbDq12hHAyIBGiEd
-         m4sO3CXjpfwpjxWnF/iXgn53LIfRV3i73ZJDZg3BP801DAHxcdqyg1R3vNK+pqg7PuHu
-         M3LnZH3inAsfLqKmz64Dy4y5m6EHdIdzh4fRVemJsN2nR22ALuy6wyXjgd6gKrZvKBGK
-         VR6Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794913509; x=1795518309;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=APyRDGNpX/sOhc1G62vzvyzvnEtlXJLA4HeAQhpE9p8=;
-        b=fEtXtdE2csgDpmkpYy980npAxxhp7dqr+nKMtYAJyY6RBIo4MBy6R+qwhPulwlhjpM
-         Du+RCD3Lt+PeohmmMcKF234z80f/94aRRyxtC8lMamKHK9NvGh0tX3rKI1GCsz2Kwyiz
-         OJTRjKR7tQgL3YGJJiq5VXhoO5cVsZw4io3f9ZlZQO4iKTGzQV/4ioItNY78i67V5ySq
-         YXRQuvrkycctxn9NhlUDqeJjtRO2EMbNo5yVa1SLO5a7C/4Rpx0z/TG5yVp3V1dhTzuG
-         okdidzSHPB77WOH+vMlX6bqd6NBAp6PvQGsGh0tZtQJZnEgZANY+tPqzrkbEv30JhHuc
-         Zrkw==
-X-Forwarded-Encrypted: i=1; AL+hErF64wq9k4gAAzR8MKnNNk7+pYKD7pBKJ50R/4L2genbdlFOhgXjf5qSN7Mbw6AdhhVkN8GV9cw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+sS4w3lVd+L75BRhtvmt8wzqBF65ZbWzf2dBYNixwylz/qa+uB
-	C7Ifwd+BB1fZQj2W6pPn8pJzigRFa22EKMGTQmQs9TOF7PO/B7GcqmEq
-X-Gm-Gg: AZFdTZdJt58YTXBBFdVO3A5JO/Gl4vDdE22A+Nuj2WPa94nn+snlq0L7ME5jM746vOF
-	6SLxkxcP80myBU9FBsT7thCI9Dc/zYSw+el2rhjhVRhzx+eQIPZv+IvBn+8HrDGAKDLN4UAFxEK
-	/eRMMDkWB1M+wHRjXA6pS6TtKCdg2+f5YF4oTgutAdUZgmjyUxFXqr7AOCVh/7d3aQ/MCBf2FXB
-	D08hvpvYHVnY0Q82mTZbZ3kTiOptTDwYj1VRO7XEl/FZvZoVSgOA4CiS00Sbzo6AhKCYYKfwT2p
-	1a79FGd3tFI/gU5VUTgzDUQkxwXsQRS+GuScFLZhgmlo2DC9BzPOz5JLmXIKDR9KbibDoEYnhXx
-	lYkH5B52UL/NVUFIi9rWafXNfydc9thv6sJyOpNPR3DFP6ITSyV4Jdl5xWiydsd8ejY2uiItzZU
-	tbhNoH+XyAdDfx0STcUF83TvbQIlWqSTBJyMqALCpQQDkxrOTjEbV7zM/N45U54AZ6kNCxFGliE
-	kvpzCMcXmyUSfuGC45LlOgQszRGcp4p+iZ/UteCZFUyBySBn1fuE5pvoxTaWQIUBIwb8HgOVQgv
-	OB/EWumW4ZbNRHJkC4JIuLxH/FvJgnI34P8GyofMzwPPNzqmdQ27b7hekivQr9nRU78CNWHb9yG
-	JjkBTcnT5vHVNxA==
-X-Received: by 2002:a17:90a:e710:b0:3a8:92a3:8baa with SMTP id 98e67ed59e1d1-3b1b0a428b8mr11460826a91.27.1794913509232;
-        Tue, 17 Nov 2026 03:05:09 -0800 (PST)
-Received: from JUNVYYANG-MC1.tencent.com ([43.132.141.20])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cddc1898afbsm5633083a12.19.2026.11.17.03.05.06
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 17 Nov 2026 03:05:08 -0800 (PST)
-From: Jun Yang <juny24602@gmail.com>
-To: lucien.xin@gmail.com,
-	marcelo.leitner@gmail.com
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	linux-sctp@vger.kernel.org,
-	netdev@vger.kernel.org,
-	junvyyang@tencent.com,
-	corvus@tencent.com,
-	stable@kernel.org,
-	Jun Yang <juny24602@gmail.com>
-Subject: [PATCH net v2] sctp: preserve stream scheduler across outq teardown
-Date: Tue, 17 Nov 2026 19:04:49 +0800
-Message-ID: <20261117110459.44083-1-juny24602@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=yJNDrt6G
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B00D91A1605;
+	Tue, 17 Nov 2026 11:06:17 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 74F095FC81;
+	Tue, 17 Nov 2026 11:06:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7D8A711BC0493;
+	Tue, 17 Nov 2026 12:06:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794913572; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=y3gUkGRr0U1p2ZCNesM9xfptWY2/llhKtyiVyy36QM4=;
+	b=yJNDrt6GP4E62RqG9gzmjY5xkLYVMACBX7hpOVMbd/yb3GDgPTc3Z+OHXJUSvjcp+GmfR9
+	9yjBcGZ8XOEQrZcwL+i9MiMadJusbAnUczI+SDShsMcnWMVzQv1FAXiK00c8cIS90hq9r1
+	xjr1wOuEEgPn5ErFtRKWVB+6IErAe2GJe8c4XPmrtnIiSORq9WRW3QTF45DEBWlsj4J6gt
+	VRCQitDPrUDCtL6E8f1X1EppcQbjyyE3tlJk6twendRCs1TUxLWSbNlkUlHeNoXcn3WFR2
+	5eRy8ly1H138an0K1OLpt8/qurzk6GQQl0Kj/WMOg8Sh9wSFGzKveo6RQkogVA==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: Petr Vaganov <petrvaganoff@gmail.com>
+Cc: Alexander Aring <alex.aring@gmail.com>,  Stefan Schmidt
+ <stefan@datenfreihafen.org>,  linux-wpan@vger.kernel.org,  "David S.
+ Miller" <davem@davemloft.net>,  Eric Dumazet <edumazet@kernel.org>,  Jakub
+ Kicinski <kuba@kernel.org>,  Paolo Abeni <pabeni@redhat.com>,  Simon
+ Horman <horms@kernel.org>,  Phoebe Buckheister
+ <phoebe.buckheister@itwm.fraunhofer.de>,  netdev@vger.kernel.org,
+  linux-kernel@vger.kernel.org,  lvc-project@linuxtesting.org,
+  stable@vger.kernel.org
+Subject: Re: [PATCH net] mac802154: remove redundant security_enabled
+ assignment
+In-Reply-To: <20261116065235.27348-1-petrvaganoff@gmail.com> (Petr Vaganov's
+	message of "Mon, 16 Nov 2026 13:52:34 +0700")
+References: <20261116065235.27348-1-petrvaganoff@gmail.com>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Tue, 17 Nov 2026 12:06:05 +0100
+Message-ID: <87y0arlntu.fsf@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,59 +78,114 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-From: Jun Yang <junvyyang@tencent.com>
+On 16/11/2026 at 13:52:34 +07, Petr Vaganov <petrvaganoff@gmail.com> wrote:
 
-sctp_outq_init() clears the installed scheduler when it reinitializes
-an outqueue after teardown. The streams still have scheduler-specific
-state that the old scheduler needs to release if the scheduler changes.
+> During fuzz testing, the following issue was discovered:
+>
+> BUG: KMSAN: uninit-value in ieee802154_hdr_push_sechdr net/ieee802154/hea=
+der_ops.c:54 [inline]
+> BUG: KMSAN: uninit-value in ieee802154_hdr_push+0xa62/0xb20 net/ieee80215=
+4/header_ops.c:108
+>  ieee802154_hdr_push_sechdr net/ieee802154/header_ops.c:54 [inline]
+>  ieee802154_hdr_push+0xa62/0xb20 net/ieee802154/header_ops.c:108
+>  ieee802154_header_create+0xa83/0xd20 net/mac802154/iface.c:396
+>  wpan_dev_hard_header include/net/cfg802154.h:525 [inline]
+>  dgram_sendmsg+0xc6d/0x15d0 net/ieee802154/socket.c:677
+>  ieee802154_sock_sendmsg+0x8f/0xd0 net/ieee802154/socket.c:96
+>  sock_sendmsg_nosec net/socket.c:711 [inline]
+>  __sock_sendmsg+0x2f3/0x360 net/socket.c:726
+>  ____sys_sendmsg+0x960/0xc30 net/socket.c:2581
+>  ___sys_sendmsg+0x285/0x3e0 net/socket.c:2635
+>  __sys_sendmmsg+0x33c/0x950 net/socket.c:2724
+>  __do_sys_sendmmsg net/socket.c:2751 [inline]
+>  __se_sys_sendmmsg net/socket.c:2748 [inline]
+>  __x64_sys_sendmmsg+0xc6/0x150 net/socket.c:2748
+>  x64_sys_call+0x12a8/0x3cf0 arch/x86/include/generated/asm/syscalls_64.h:=
+308
+>  do_syscall_x64 arch/x86/entry/common.c:47 [inline]
+>  do_syscall_64+0xd9/0x1c0 arch/x86/entry/common.c:78
+>  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>
+> Uninit was stored to memory at:
+>  ieee802154_hdr_push_sechdr net/ieee802154/header_ops.c:51 [inline]
+>  ieee802154_hdr_push+0xa5b/0xb20 net/ieee802154/header_ops.c:108
+>  ieee802154_header_create+0xa83/0xd20 net/mac802154/iface.c:396
+>  wpan_dev_hard_header include/net/cfg802154.h:525 [inline]
+>  dgram_sendmsg+0xc6d/0x15d0 net/ieee802154/socket.c:677
+>  ieee802154_sock_sendmsg+0x8f/0xd0 net/ieee802154/socket.c:96
+>  sock_sendmsg_nosec net/socket.c:711 [inline]
+>  __sock_sendmsg+0x2f3/0x360 net/socket.c:726
+>  ____sys_sendmsg+0x960/0xc30 net/socket.c:2581
+>  ___sys_sendmsg+0x285/0x3e0 net/socket.c:2635
+>  __sys_sendmmsg+0x33c/0x950 net/socket.c:2724
+>  __do_sys_sendmmsg net/socket.c:2751 [inline]
+>  __se_sys_sendmmsg net/socket.c:2748 [inline]
+>  __x64_sys_sendmmsg+0xc6/0x150 net/socket.c:2748
+>  x64_sys_call+0x12a8/0x3cf0 arch/x86/include/generated/asm/syscalls_64.h:=
+308
+>  do_syscall_x64 arch/x86/entry/common.c:47 [inline]
+>  do_syscall_64+0xd9/0x1c0 arch/x86/entry/common.c:78
+>  entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>
+> Commit f30be4d53cad ("mac802154: integrate llsec with wpan devices")
+> introduced mac802154_set_header_security() as the sole function
+> responsible for enabling frame-level security: it sets both
+> hdr->fc.security_enabled =3D 1 and initializes hdr->sec together,
+> maintaining the invariant that security_enabled =3D 1 implies hdr->sec
+> is initialized.
+>
+> However, ieee802154_header_create() was left with a pre-existing
+> assignment:
+>
+>     hdr.fc.security_enabled =3D cb->secen;
+>
+> This assignment can set security_enabled =3D 1 (from a stale cb->secen)
+> even when mac802154_set_header_security() returns 0 without initializing
+> hdr.sec, violating that invariant. ieee802154_hdr_push_sechdr() then
+> reads uninitialized hdr.sec fields.
+>
+> The stale value in cb->secen arises from a specific setsockopt()
+> sequence: calling WPAN_SECURITY_ON (secen_override=3D1, secen=3D1) and
+> then WPAN_SECURITY_DEFAULT (secen_override=3D0, secen unchanged at 1).
+> This undocumented combination likely explains why the bug was rarely
+> triggered.
+>
+> Remove the redundant assignment; mac802154_set_header_security() is the
+> only correct place to set security_enabled.
+>
+> Found by Linux Verification Center (linuxtesting.org) with Syzkaller.
+>
+> Closes: https://syzkaller.appspot.com/bug?extid=3D60a66d44892b66b56545
+> Closes: https://syzkaller.appspot.com/bug?id=3D23f21e76e9d2d1ed587cb5e715=
+15260d6d025b63
+> Fixes: f30be4d53cad ("mac802154: integrate llsec with wpan devices")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Petr Vaganov <petrvaganoff@gmail.com>
+> ---
+>  net/mac802154/iface.c | 1 -
+>  1 file changed, 1 deletion(-)
+>
+> diff --git a/net/mac802154/iface.c b/net/mac802154/iface.c
+> index f437b8daa00d..7b7332805ecc 100644
+> --- a/net/mac802154/iface.c
+> +++ b/net/mac802154/iface.c
+> @@ -368,7 +368,6 @@ static int ieee802154_header_create(struct sk_buff *s=
+kb,
+>=20=20
+>  	memset(&hdr.fc, 0, sizeof(hdr.fc));
+>  	hdr.fc.type =3D cb->type;
+> -	hdr.fc.security_enabled =3D cb->secen;
+>  	hdr.fc.ack_request =3D cb->ackreq;
+>  	hdr.seq =3D atomic_inc_return(&dev->ieee802154_ptr->dsn) & 0xFF;
 
-Initialize the queue counters and flags individually so that
-sctp_sched_set_sched() can use the installed scheduler. A new
-association is zero-allocated and starts with the socket's default
-scheduler as before.
+There has been a similar patch in 2023 but it was never updated by the
+author. Fixes tag is better here, it should be taken.
 
-When the socket default matches the installed scheduler, streams retain
-their PRIO priorities and WFQ weights. FC and WFQ also retain fc_length,
-including bytes charged for purged chunks. Those chunks were queued on
-the stream and the accounting converges as new data flows.
+Reviewed-by: Miquel Raynal <miquel.raynal@bootlin.com>
 
-Fixes: 5bbbbe32a431 ("sctp: introduce stream scheduler foundations")
-Cc: stable@kernel.org
-Reported-by: TencentOS Corvus AI <corvus@tencent.com>
-Link: https://lore.kernel.org/r/20261104105507.62743-1-juny24602@gmail.com
-Signed-off-by: Jun Yang <junvyyang@tencent.com>
----
-v2:
-  - Initialize the five queue counters and flags individually, as Xin
-    Long suggested.
-  - Document the per-stream settings and fc_length accounting retained
-    when the scheduler stays the same.
-v1: https://lore.kernel.org/netdev/20261104105507.62743-1-juny24602@gmail.com/
-
- net/sctp/outqueue.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
-
-diff --git a/net/sctp/outqueue.c b/net/sctp/outqueue.c
-index e92fb9da4647..3dafa6e6cab3 100644
---- a/net/sctp/outqueue.c
-+++ b/net/sctp/outqueue.c
-@@ -190,9 +190,12 @@ static inline int sctp_cacc_skip(struct sctp_transport *primary,
-  */
- void sctp_outq_init(struct sctp_association *asoc, struct sctp_outq *q)
- {
--	memset(q, 0, sizeof(struct sctp_outq));
--
- 	q->asoc = asoc;
-+	q->out_qlen = 0;
-+	q->error = 0;
-+	q->outstanding_bytes = 0;
-+	q->fast_rtx = 0;
-+	q->cork = 0;
- 	INIT_LIST_HEAD(&q->out_chunk_list);
- 	INIT_LIST_HEAD(&q->control_chunk_list);
- 	INIT_LIST_HEAD(&q->retransmit);
-
-base-commit: a2239d5dbbda3a61b6323df8836f605921a29f7f
-
+Thanks,
+Miqu=C3=A8l
