@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794881907;
-	b=AboWtDp7wZ/Kk7Lq8imXklxJ+wfCmQbqrgzqOh4a9IfoAMgP4loC2eAI7uubTGCVJBbV
-	 PJTd9ezRQBxnkwLP2QVCmsRRxb+c7bnpINp7K60Pzgp6uJyEczD6n1ADjd+0e7vmA2iHm
-	 phU0O1KVG5P/wIyFDDjSggf/LBpF00+i1KS6+gTD68CX3ACMtgPsflgN3T+D1jZKBzWMg
-	 j3oyhNDHQzQjhT2BtkzwcnxWakro2ZsP8Ivfsjf94lNNby3n3MYmsDr7JaxqoHzFCnBmX
-	 idxxG4vYIZxBxoETmIE6nVjjD6uXZj4ROgSjSmv6afS+vf/nByTLEzK73ZiJKtIOjrQ==
+	t=1794881903;
+	b=mJBS7XJTDs5evo/hGWh8ph/cOxZ83+eJB4jqr8hWO/5zKqbGPokz1Ufc7XWbWTYR6WLq
+	 xd+MSt0AAMY3bLR3EPwDK6UMKxpV2m6QLHXziMNk0HhNbFmesmNBF1tinQ+o5rqZogxWg
+	 oD8/k+1nXDdK9X0PQo2UAf4aBDg2DXLrA30jc5FlfvLVjj6L1LjLE+0C+FdKLQCauUxby
+	 FLpmqCOHNsGzHFDTqaokgySnx0uBf2FekUekFkcVEkTl47hLqL4BeQUtCeIl6SAssGgQh
+	 PNfl5/xHe6zyJu52nH/b8mGSxH+DEghN9D150DcFP6fkXwqBXE8gJRPDvtz1JcZSnFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794881907;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794881903;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=uXNAolqoDuD1b2D+yUcAQm+hCu7hdccYS5JOFuamf7k=;
-	b=L0uU9z5poLPjCha7Ab0XYiBimOYy1m26XHBf1vS8ZpD3JBz8xsSjVDNbamsuvOb4YfrE
-	 5RU3LIceIQO5kvxxTBXsZzpWZwpBLfCrskv934SM7YadWUSFJLwuhfEUPliiQ63DCXo+b
-	 AA4ZIE8ZOHnCojDDCWU4DD6GZOnUt113dysSL3SPdLvYEmYv/u3VjaprTGC84hR96J6CD
-	 +AzC5Wpp/F7qn8ia+ZNsLWh4VUZWpBYNzDRRduoRwg0u6x+URWqUR+rb/CqzN3f96OfsJ
-	 cfQeiPyOfaZbxiYbUO9Tg4qcPUu8oQB0btHWHNjtL/0q0VPe9SRdlxbH+7G3l1OPdBw==
+	bh=brr3DvJqwDgwIdOITUi2l4ifUKdb6KRcxgyG27EeCyE=;
+	b=TOsIppLaRo6Rp1wdQhYSg1k3zDtogwAQW1XLWVYrWs8i06XhEXpzewS23I3lJJvqi9II
+	 89uNQON4co/w1lUt9V83bS4bUUROTHjxKdjaX6a24iGZdXMxJWLxGbSzkACpy+u+Emr/D
+	 Q9L8Xl8c46So9/ENWDzvkVExLogCsOxGQUkznHalpiP0gUrhF0e1sOuijunN9C5G0kb9g
+	 7UpNH4o7GgicRSZsvDK4AugXdOptAxqI3tCD2gCdmIhHyEg1y+K59Os0VGeQ7/reC+mWi
+	 jCoRXfyozETt+nKLXjQ9pIxFmpOzGKqR3FR8r8n3DkiFg/eEZ5wjuOCs88uOZdf8kRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TVPZkEOu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OAdAUAHO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2C76606A880;
-	Tue, 17 Nov 2026 02:18:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2092606A331;
+	Tue, 17 Nov 2026 02:18:22 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TVPZkEOu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDA881F000C9;
-	Tue, 17 Nov 2026 02:18:26 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OAdAUAHO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AF7F1F000C4;
+	Tue, 17 Nov 2026 02:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794881907;
-	bh=uXNAolqoDuD1b2D+yUcAQm+hCu7hdccYS5JOFuamf7k=;
+	s=k20260515; t=1794881902;
+	bh=brr3DvJqwDgwIdOITUi2l4ifUKdb6KRcxgyG27EeCyE=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TVPZkEOuIRkqnWOuJGzNyYvmd/794cG3j6ig+syo8w+MbEeE3yzeVouzWhrh5WVM4
-	 6Q9K7cKTRKJpDk6H2UwtZr77gED4zoQzh+HMas/PstSrE2UffRnz4Pmlw2j7Z+qVat
-	 svxuZ32tPyH2Ybm65mEDyCSg7Iu7YlYrNhbrxCeGhv1dcRvYqI9heClPXMsKNR0vaN
-	 C1FQcnHvPahRSxwSJ63dNLL9zEAnGvZLqg0Rc+Kl3RnasGHkNf5oKT/RNkqJ9f9T06
-	 pQxMA6Z9rLPEo6ZgWX/TLwTmilFvqbFzGq2og+6MwyyVdbGdsCXRZeN5bX19TAx7C3
-	 Zye6tPqBgdpeA==
+	b=OAdAUAHOX80FlsWZ/pjpEch4HfMWPAeYvWk8R6pdGYvp66RInorh95+VGt3FI4Bmb
+	 tbAdG3bUHqw/bft3QeP7EqXOy36RwRiIh86n+4u2jsUjp4x+OpltySkS6yVDR6+PQH
+	 ufsl7H+k9/BAtG0Pacbt031g8wUoP32w2Ii9HDDh/SbkOjn5xY/Cd2zB4FucIqOk9+
+	 T/kxFuquc3drWbTxrGnt9p3TC2moJVOM5WKWD3RWbofDF2bn7xpsyq4UJjxCVNxF5V
+	 xAIKsDWzo4rkpA+GJ09wDdsoXX9jNAViSqwMzh7wa690EoRS2tmWz95OkqqeFm+CuK
+	 25FVcZj6k2RMQ==
 From: Jakub Kicinski <kuba@kernel.org>
 To: arouhi@sitime.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -56,12 +56,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	devicetree@vger.kernel.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v15 12/13] dpll: sit9531x: add support to get phase offset on the connected input pin
-Date: Mon, 16 Nov 2026 18:18:25 -0800
-Message-ID: <20261117021825.2220421-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v15 10/13] dpll: sit9531x: implement output pin state on a DPLL
+Date: Mon, 16 Nov 2026 18:18:21 -0800
+Message-ID: <20261117021821.2220343-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261110202607.55744-13-arouhi@sitime.com>
-References: <20261110202607.55744-13-arouhi@sitime.com>
+In-Reply-To: <20261110202607.55744-11-arouhi@sitime.com>
+References: <20261110202607.55744-11-arouhi@sitime.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,377 +76,232 @@ Content-Transfer-Encoding: 8bit
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-dpll: sit9531x: add support to get phase offset on the connected input pin
+dpll: sit9531x: implement output pin state on a DPLL
 
-This patch adds a phase_offset_get callback for the sit9531x input pins.
-The callback reads the on-chip TDC through the PLL debug window and
-converts the code to picoseconds using the PLL's Fvco. It also adds retry
-handling for debug taps and debug keys left changed, and moves the stop
-path's pending-write retries into a helper that the probe error path now
-calls too.
+This adds state_on_dpll_get/set callbacks for output pins. DISCONNECTED
+mutes an output by forcing the slot's Hi-Z pairs inside the output
+programming state, and CONNECTED releases the force. Output pins are now
+registered when they are routed to the DPLL.
 
 > diff --git a/drivers/dpll/sit9531x/core.c b/drivers/dpll/sit9531x/core.c
-> index 9896d5aa40f56..8f305cc27737e 100644
+> index c7ab33993c288..458de502bc8f7 100644
 > --- a/drivers/dpll/sit9531x/core.c
 > +++ b/drivers/dpll/sit9531x/core.c
-
-[ ... ]
-
-> @@ -2559,6 +2585,171 @@ static int sit9531x_clear_notifications(struct sit9531x_dev *sitdev)
+> @@ -459,53 +459,42 @@ static int sit9531x_output_forced_hiz(struct sit9531x_dev *sitdev,
 >  	return 0;
 >  }
 >  
-> +/**
-> + * sit9531x_phase_offset_read - read phase difference via TDC
-> + * @sitdev: device pointer
-> + * @pll_idx: PLL index (0-3)
-> + * @phase_offset: phase difference in 1/DPLL_PHASE_OFFSET_DIVIDER ps
-> + *
-> + * The TDC code is a 35-bit magnitude with a separate sign bit;
-> + * phase_diff = tdc_code / fvco. Caller must hold sitdev->multiop_lock.
-> + *
-> + * Return: 0 on success, -ENODATA if Fvco is unknown, <0 on other errors
-> + */
-> +int sit9531x_phase_offset_read(struct sit9531x_dev *sitdev, u8 pll_idx,
-> +			       s64 *phase_offset)
-> +{
+> -#define SIT9531X_LOOP_LOCK_TRIES	3
+> -
+> -/* Close the loops and lock the debug block without committing */
+> -static void sit9531x_prg_abort(struct sit9531x_dev *sitdev)
+> +/* Re-read an output's mute state. Caller must hold sitdev->multiop_lock. */
+> +int sit9531x_output_state_refresh(struct sit9531x_dev *sitdev, u8 out_idx)
 
 [ ... ]
 
-> +	rc = sit9531x_get_fvco(sitdev, pll_idx, &fvco);
-> +	if (rc) {
-> +		if (rc == -ENODATA)
-> +			dev_dbg(sitdev->dev,
-> +				"PLL%c: Fvco unknown, skip TDC\n",
-> +				'A' + pll_idx);
-> +		return rc;
-> +	}
-
-[Severity: Medium]
-Can this scale the TDC code by an Fvco that the driver itself treats as
-wrong?
-
-For an out-of-band value, sit9531x_get_fvco() warns once per PLL and still
-returns 0:
-
-drivers/dpll/sit9531x/core.c:sit9531x_get_fvco() {
-    ...
-	/*
-	 * Outside the PLL's VCO band, Fref * DIVN is usually not the rate the
-	 * PLL runs at, as for a PLL fed from another PLL.
-	 */
-	if (!sit9531x_fvco_in_band(pll_idx, *fvco) &&
-	    !(sitdev->fvco_band_warned & BIT(pll_idx))) {
-		...
-	}
-
-	return 0;
-}
-
-sit9531x_output_phase_adjust_set() and the output frequency setter reject
-an out-of-band Fvco through sit9531x_fvco_in_band(). This path has no such
-check.
-
-When a PLL's Fref * DIVN is out of band, would a phase offset scaled by the
-wrong Fvco be reported as a valid DPLL_A_PIN_PHASE_OFFSET? After the first
-warning there would be no indication at all. The kernel-doc above also
-promises "-ENODATA if Fvco is unknown".
-
-[ ... ]
-
-> +	/*
-> +	 * A status data read latches a sample and returns the previous one;
-> +	 * read three times as the documented procedure does.
-> +	 */
-> +	for (i = 0; i < SIT9531X_DBG_STATUS_READS; i++) {
-> +		rc = sit9531x_read_pll_u8(sitdev, pll_idx,
-> +					  SIT9531X_PLL_REG_DBG_STATUS_DATA,
-> +					  &v);
-> +		if (rc)
-> +			goto relock;
-> +	}
-
-[Severity: Low]
-Should SIT9531X_PLL_REG_DBG_STATUS_ADDR be programmed before these reads?
-
-According to regs.h, the address register "selects the block the data
-register reports". Nothing writes it here, so the latch reads use the last
-address written. The only writer is sit9531x_chan_routed_ref_read(), which
-leaves SIT9531X_DBG_STATUS_ROUTED_SRC in place.
-
-In today's only caller, the first routed-ref read always runs just before
-this, so the state is predictable. Neither the kernel-doc nor regs.h
-mentions that dependency, though.
-
-If the Dig_Sys_read latch only advances for a specific status address,
-could DBG_DATA_0..4 hold a stale or unrelated sample here?
-
-[ ... ]
-
-> +	/* Per the register map the sign bit set means a positive offset. */
-> +	tdc_signed = sign ? (s64)tdc_raw : -(s64)tdc_raw;
-
-[Severity: Medium]
-Does "positive" in the register map match the DPLL uAPI sign convention?
-
-Documentation/driver-api/dpll.rst defines DPLL_A_PIN_PHASE_OFFSET as:
-
-  The negative value means that phase of signal on pin is earlier in time
-  than dpll's signal. Positive value means that phase of signal on pin is
-  later in time than signal of a dpll.
-
-Neither this comment nor SIT9531X_TDC_SIGN_BIT in regs.h says which signal
-the register map treats as leading. If positive there means the reference
-leads the feedback, every reported offset would have the opposite sign.
-
-Could the comment say which convention the hardware uses?
-
-[ ... ]
-
-> @@ -2689,13 +2880,20 @@ static int sit9531x_chan_select_fetch(struct sit9531x_dev *sitdev, u8 pll_idx)
->  	return 0;
->  }
->  
-> -/*
-> - * Read the reference the device feeds a PLL from the debug status bus; the
-> - * active selection does not change on a fallback. The caller rules out free-run
-> - * first and must hold sitdev->multiop_lock.
-> +/**
-> + * sit9531x_chan_routed_ref_read - read the reference the device feeds a PLL
-> + * @sitdev: device pointer
-> + * @pll_idx: PLL index (0-3)
-> + * @ref: logical input index, SIT9531X_INTSYNC_PIN_ID, or SIT9531X_REF_INVALID
-
-[Severity: Low]
-Should SIT9531X_MAX_INPUTS also be listed for @ref?
-
-sit9531x_hw_src_input() maps SIT9531X_PRIO_SRC_OCXO to SIT9531X_MAX_INPUTS,
-the XO slot. That value is not below info->num_inputs. A future caller of
-the newly exported helper could use it to index state sized by num_inputs.
-
-[ ... ]
-
-> @@ -3637,6 +3833,61 @@ static void sit9531x_dev_stop(struct sit9531x_dev *sitdev)
-
-[ ... ]
-
-> +err_unregister:
-> +	list_for_each_entry_continue_reverse(sitdpll, &sitdev->dplls, list)
-> +		sit9531x_dpll_unregister(sitdpll);
-> +
-> +	sit9531x_dev_pending_retry(sitdev);
-> +
-> +	return rc;
-> +}
-
-[Severity: Low]
-This isn't a bug, but the probe failure path changes here and the commit
-message doesn't mention it.
-
-Before this patch, err_unregister only unregistered the DPLLs. It now runs
-the former body of sit9531x_dev_stop(): priority table write-backs, forced
-holdover release, phase flush undo, output re-timing, sit9531x_prg_commit()
-and divider flushes.
-
-Would this fit better as a separate fix, or in the patch that added the
-pending-write machinery?
-
-Some other parts don't seem to belong here either:
-
-- The reworded comment above sit9531x_reselect() is unrelated to phase
-  offset.
-- tap_pending was added in "dpll: sit9531x: add support to adjust output
-  phase" with no user. Its companions tap_write_code, tap_read_code and
-  key_pending only arrive in this patch.
-
-[ ... ]
-
-> diff --git a/drivers/dpll/sit9531x/dpll.c b/drivers/dpll/sit9531x/dpll.c
-> index e6271ebd47ac1..ba4ac5e7d365d 100644
-> --- a/drivers/dpll/sit9531x/dpll.c
-> +++ b/drivers/dpll/sit9531x/dpll.c
-> @@ -488,6 +488,122 @@ sit9531x_dpll_input_pin_prio_set(const struct dpll_pin *pin, void *pin_priv,
+> @@ -554,6 +543,174 @@ static int sit9531x_prg_commit(struct sit9531x_dev *sitdev)
 >  	return 0;
 >  }
 >  
 > +/*
-> + * Report the loop's residual phase error, sampled with the loop closed. The TDC
-> + * compares against a signal the PLL drives, so a PLL driving no output returns
-> + * -ENODATA.
+> + * Unlock the Page 3 debug registers and enter PRG_CMD; output-system writes
+> + * take effect only in this state.
 > + */
-
-[Severity: Medium]
-Is "sampled with the loop closed" actually enforced?
-
-The callback never checks sitdev->loops_open. sit9531x_prg_commit() sets
-it when the SIT9531X_LOOP_LOCK write fails on every try:
-
-	sitdev->loops_open = !!rc2;
-
-The poll worker treats that as a known state: it retries the commit and
-skips flush pulses. Here, though, the decision to sample comes from
-sit9531x_dpll_selection_active(), which uses lock state cached at the last
-poll.
-
-Suppose prg_commit() fails during an output frequency, mute or delay change.
-Until the next poll, could the cache still report tracking, so the TDC is
-sampled with the loops open and reported as a residual phase error?
-
-> +static int
-> +sit9531x_dpll_input_pin_phase_offset_get(const struct dpll_pin *pin,
-> +					 void *pin_priv,
-> +					 const struct dpll_device *dpll,
-> +					 void *dpll_priv, s64 *phase_offset,
-> +					 struct netlink_ext_ack *extack)
+> +static int sit9531x_prg_enter(struct sit9531x_dev *sitdev)
 > +{
-
-[ ... ]
-
-> +	/*
-> +	 * Read the monitors live: on loss of signal the device falls back
-> +	 * without a request.
-> +	 */
-> +	rc = sit9531x_input_mon_fetch(sitdev);
+> +	int rc;
+> +
+> +	rc = sit9531x_write_u8(sitdev, SIT9531X_REG_OUTSYS_DEBUG,
+> +			       SIT9531X_DEBUG_UNLOCK_VAL);
 > +	if (rc) {
-> +		mutex_unlock(&sitdev->multiop_lock);
-> +		NL_SET_ERR_MSG(extack,
-> +			       "Failed to read the input clock monitors");
+> +		sit9531x_write_close(sitdev, SIT9531X_REG_OUTSYS_DEBUG,
+> +				     SIT9531X_DEBUG_LOCK_VAL);
+> +		return rc;
+> +	}
+> +
+> +	rc = sit9531x_write_u8(sitdev, SIT9531X_REG_PRG_DIR_GEN,
+> +			       SIT9531X_PRG_CMD_STATE);
+> +	if (rc) {
+> +		sit9531x_prg_commit(sitdev);
 > +		return rc;
 > +	}
 
 [Severity: Medium]
-Can a transient I2C error here end the whole system-wide pin dump?
+If the SIT9531X_PRG_CMD_STATE write fails, should this path really run the
+full sit9531x_prg_commit()?
 
-For the routed, tracking pin, this callback does live I2C on every pin GET,
-every pin DUMP and every pin change notification. That covers an optional
-output state refresh, two monitor fetches, two routed-ref reads and the
-full TDC sequence in sit9531x_phase_offset_read(). In total that is dozens
-of transfers under multiop_lock.
+Before this patch, the failure path called sit9531x_prg_abort(). Its comment
+was "Close the loops and lock the debug block without committing".
+sit9531x_prg_commit() starts by writing to the same register that just
+failed:
 
-The earlier patch "dpll: sit9531x: register DPLL devices and pins" caches
-status "so a netlink call does not become a burst of I2C transfers". This
-commit message doesn't mention moving away from that.
+	rc = sit9531x_write_u8(sitdev, SIT9531X_REG_PRG_DIR_GEN,
+			       SIT9531X_UPDATE_NVM);
 
-Every I2C failure becomes a hard error. That includes failures in
-sit9531x_output_state_refresh() and sit9531x_input_mon_fetch(), which only
-decide whether the optional attribute is present.
+After that it retries LOOP_LOCK, rewrites sitdev->loops_open, sleeps 100 ms
+under multiop_lock and closes the debug key. Its return value is ignored
+here.
 
-In sit9531x_phase_offset_read(), a failed tap restore or relock is already
-queued for retry, yet it still replaces a valid sample:
+So an entry that may never have reached PRG_CMD now sends an NVM shadow
+update. The comment above sit9531x_prg_commit() ("re-lock the loops after
+sit9531x_prg_enter()") does not seem to describe this case.
 
-	ret = sit9531x_tap_restore(sitdev, pll_idx);
-	if (ret)
-		chan->tap_pending = true;
-	if (ret && !rc)
-		rc = ret;
+This also changes how the existing caller sit9531x_output_freq_set() from
+the previous patch behaves on failure. The new sit9531x_output_enable() and
+sit9531x_output_disable() paths get the same behaviour. The commit message
+does not mention the change.
 
-The core only tolerates -ENODATA:
+Was this meant to be part of this patch, or should a commit-free abort stay
+on this path? The same call is still there at the end of the series.
 
-drivers/dpll/dpll_netlink.c:dpll_msg_add_phase_offset() {
-    ...
-	if (ret) {
-		if (ret == -ENODATA)
-			return 0;
-		return ret;
-	}
-    ...
-}
-
-and dpll_nl_pin_get_dumpit() only carries on after -ENODEV:
-
-		ret = dpll_cmd_pin_get_one(skb, pin, cb->extack);
-		if (ret) {
-			genlmsg_cancel(skb, hdr);
-			if (ret == -ENODEV) {
-				ret = 0;
-				continue;
-			}
-			break;
-		}
-
-Wouldn't a single I2C error on this device drop the pins of every other
-DPLL driver listed after it in the dump? It would also make
-dpll_pin_event_send() drop the notification. The driver's own comment
-already notes that "the core fails a whole pin dump if any callback
-returns an error".
-
-Should these cases return -ENODATA instead, at least once a valid sample
-has been taken?
-
-[ ... ]
-
-> +	rc = sit9531x_chan_routed_ref_read(sitdev, sitdpll->id, &routed);
-> +	if (!rc && routed == dpin->id) {
-> +		rc = sit9531x_phase_offset_read(sitdev, sitdpll->id, &offset);
-> +		if (!rc)
-> +			rc = sit9531x_chan_routed_ref_read(sitdev, sitdpll->id,
-> +							   &routed);
+> +
+> +	return 0;
+> +}
+> +
+> +/*
+> + * Mute or unmute every Hi-Z pair of a slot. Caller must already be in the
+> + * programming state.
+> + */
+> +static int sit9531x_output_hiz_write(struct sit9531x_dev *sitdev, u8 slot,
+> +				     bool mute)
+> +{
+> +	u8 mask[SIT9531X_HIZ_PAIRS], state[SIT9531X_HIZ_PAIRS];
+> +	struct sit9531x_hiz_pair p[SIT9531X_HIZ_PAIRS];
+> +	int i, rc, undo_rc;
+> +
+> +	sit9531x_output_get_hiz_regs(slot, p);
+> +
+> +	if (!mute) {
+> +		for (i = 0; i < SIT9531X_HIZ_PAIRS; i++) {
+> +			rc = sit9531x_hiz_set_bit(sitdev, p[i].mask, p[i].bit,
+> +						  false);
+> +			if (rc)
+> +				return rc;
+> +		}
+> +		return 0;
+> +	}
 
 [Severity: Medium]
-Can these routed-ref reads leave the PLL debug window unlocked without
-key_pending recording it?
+Does un-mute lose a Hi-Z force set by the loaded profile?
 
-sit9531x_phase_offset_read() ends with:
+This branch clears the MASK bit of all three pairs and restores nothing. The
+mute path saves mask[] and state[], but uses them only to roll back on
+error.
 
-	chan->key_pending = !!ret;
+The commit message says "an un-mute releases the force and the pads return
+to the loaded configuration". Take a CMOS output whose profile forces one
+pad and leaves the other driving (part_muted). Here the force on that pad
+is cleared too.
 
-so after a successful relock, key_pending is false. The second
-sit9531x_chan_routed_ref_read() then unlocks SIT9531X_PLL_REG_DEBUG again.
-If its final lock write fails all SIT9531X_CLOSE_TRIES, it only returns
-the error:
+sit9531x_dpll_output_pin_state_on_dpll_get() reports such an output as
+CONNECTED, which matches the core.h kernel-doc ("reported as driven").
+However, sit9531x_dpll_output_pin_state_on_dpll_set() skips a request only
+when part_muted is clear:
 
-relock:
-	lock_rc = sit9531x_write_pll_close(sitdev, pll_idx,
-					   SIT9531X_PLL_REG_DEBUG,
-					   SIT9531X_PLL_DEBUG_LOCK);
+	if (!sit9531x_output_state_refresh(sitdev, dpin->id) &&
+	    sitdev->out[dpin->id].enabled == enable &&
+	    !sitdev->out[dpin->id].part_muted) {
 
-	return rc ? rc : lock_rc;
+dpll_pin_state_set() in the DPLL core does not compare against the current
+state. So a request for CONNECTED, which GET already reports, still reaches
+sit9531x_output_enable(). That runs the 100 ms programming sequence and
+releases the pad the profile kept in Hi-Z. A mute followed by an un-mute
+ends the same way.
 
-The first routed-ref read behaves the same way.
-
-In that case sit9531x_tap_back_retry() returns early:
-
-	if (!chan->tap_pending && !chan->key_pending)
-		return;
-
-So neither the poll worker nor sit9531x_tap_pending_retry() (on stop or
-probe failure) relocks the window. The only other closer is
-sit9531x_chan_state_fetch(), and it calls the routed-ref read only while
-the PLL is tracking.
-
-If the PLL then moves to holdover, free-run or OUTER_DIS, does the debug
-window stay open, even after the driver is removed?
+Should the un-mute put back the profile's original force bits instead of
+always clearing them? This code is unchanged at the end of the series.
 
 [ ... ]
 
-> @@ -520,12 +638,14 @@ static const struct dpll_pin_ops sit9531x_dpll_input_pin_manual_ops = {
+> +/* Caller must hold sitdev->multiop_lock. */
+> +int sit9531x_output_disable(struct sit9531x_dev *sitdev, u8 index)
+> +{
 
 [ ... ]
 
->  static const struct dpll_pin_ops sit9531x_dpll_input_pin_norate_manual_ops = {
->  	.direction_get		= sit9531x_dpll_input_pin_direction_get,
->  	.state_on_dpll_get	= sit9531x_dpll_input_pin_state_on_dpll_get,
->  	.operstate_on_dpll_get	= sit9531x_dpll_input_pin_operstate_on_dpll_get,
-> +	.phase_offset_get	= sit9531x_dpll_input_pin_phase_offset_get,
->  };
+> +	slot = info->clkout_map[index];
+> +	rc = sit9531x_prg_enter(sitdev);
+> +	if (rc)
+> +		return rc;
+> +
+> +	rc = sit9531x_output_hiz_write(sitdev, slot, true);
+> +
+> +	ret = sit9531x_prg_commit(sitdev);
 
 [Severity: Low]
-What about the XO pin? The commit message says:
+This isn't a bug, but every mute and un-mute runs the full output-system
+programming sequence. That is debug unlock, PRG_CMD, UPDATE_NVM, LOOP_LOCK
+and a 100 ms sleep under multiop_lock.
 
-  Only the input the part feeds the PLL has an offset.
+The commit message says this happens "inside the programming state". The
+previous patch describes the settling time of that state, and the comment
+in sit9531x_dpll_output_pin_state_on_dpll_set() documents the 100 ms
+loop-unlock window. So this is mostly covered already.
 
-but sit9531x_dpll_xo_pin_ops has no phase_offset_get:
+Would it still be worth stating the cost explicitly in this commit message?
 
-static const struct dpll_pin_ops sit9531x_dpll_xo_pin_ops = {
-	.direction_get		= sit9531x_dpll_input_pin_direction_get,
-	.frequency_get		= sit9531x_dpll_input_pin_frequency_get,
-	.state_on_dpll_get	= sit9531x_dpll_xo_pin_state_on_dpll_get,
-};
+[ ... ]
 
-SIT9531X_PRIO_SRC_OCXO is a priority table source, and
-sit9531x_hw_src_input() maps it to SIT9531X_MAX_INPUTS, the XO pin id. So
-sit9531x_chan_routed_ref_read() can report the XO as routed, and a PLL
-tracking the OCXO never reports an offset.
+> diff --git a/drivers/dpll/sit9531x/dpll.c b/drivers/dpll/sit9531x/dpll.c
+> index a450a81d02f4c..a32d37a396b11 100644
+> --- a/drivers/dpll/sit9531x/dpll.c
+> +++ b/drivers/dpll/sit9531x/dpll.c
 
-Is the XO meant to be excluded? If so, could the commit message say so and
-explain why the TDC doesn't apply to it?
+[ ... ]
+
+> @@ -638,10 +639,114 @@ sit9531x_dpll_output_pin_frequency_set(const struct dpll_pin *pin,
+>  	return rc;
+>  }
+>  
+> +/*
+> + * DISCONNECTED while the output is forced to Hi-Z, by a mute request or by the
+> + * loaded profile.
+> + */
+> +static int
+> +sit9531x_dpll_output_pin_state_on_dpll_get(const struct dpll_pin *pin,
+> +					   void *pin_priv,
+> +					   const struct dpll_device *dpll,
+> +					   void *dpll_priv,
+> +					   enum dpll_pin_state *state,
+> +					   struct netlink_ext_ack *extack)
+> +{
+> +	struct sit9531x_dpll_pin *dpin = pin_priv;
+> +	struct sit9531x_dpll *sitdpll = dpll_priv;
+> +	struct sit9531x_dev *sitdev = sitdpll->dev;
+> +	const struct sit9531x_out *out;
+> +	int rc = 0;
+> +
+> +	mutex_lock(&sitdev->multiop_lock);
+> +	out = sit9531x_out_state_get(sitdev, dpin->id);
+> +	if (out->state_stale)
+> +		rc = sit9531x_output_state_refresh(sitdev, dpin->id);
+
+[Severity: Low]
+Can this report an old mute state if the Hi-Z force bits are changed outside
+the driver?
+
+The hardware is read again here only when state_stale is set. The poll
+re-reads an output in sit9531x_dpll_output_ntf_pending() only when the
+driver itself has set ntf_pending:
+
+	if (!out->ntf_pending)
+		return false;
+
+Suppose a profile is reloaded, or the registers are written with an I2C
+tool, while the driver is bound. GET then keeps returning the old
+CONNECTED/DISCONNECTED value, and no pin change notification is sent.
+
+The input priority tables are handled differently: the poll picks up
+external rewrites. The output frequency and phase getters read the
+registers live. Later in the series the cache is refreshed on resume, but
+runtime polling still never refreshes it.
+
+Is that difference intended?
+
+> +	if (!rc)
+> +		*state = out->enabled ? DPLL_PIN_STATE_CONNECTED
+> +				      : DPLL_PIN_STATE_DISCONNECTED;
+> +	mutex_unlock(&sitdev->multiop_lock);
+
+[ ... ]
