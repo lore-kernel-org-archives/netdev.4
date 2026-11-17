@@ -1,55 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.254.49.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794926934;
-	b=F0uGPnbPVSLwZageI+SoO5pCm1SCMs7yYBUcSr8Az+sZJ/flE52sC1ESMdhvfUhv4cx7
-	 0WveVIqiDS0kB0G5tP3M6RHcydDxIDCShoKjBcFKIv10XbhCs4y1/FY8HqGCbhul/lKfe
-	 dmxs3OGekbJHCrrkupb/NBeroBW9PMoLnNf+EZeYrF4jrJSz9OkSg544QT306wVDfH2Ce
-	 kdJn4+hnqMBR8MCtR3kS9s8yipSh5rVgHxY8obhds0//Ze/OFhHgRM79sRp3WrPUXd3Un
-	 84C2HbWCgzrmp2PG42TDMDGFLfxOuIzt4TpFZnKK52rQCNHmi779lQC0f4Tap7STBbg==
+	t=1794927006;
+	b=bh2ErS3YyGAKeyH4OjvzjDAwBZeYVJADWNnDiYb2NaFAxAOoBjCBQQ6+A892OF9hf1MY
+	 qa83Lfu25aTRPrSqTldngPLvaBQi9O2y3CUb7HEJPhhR/PS/bc/zKUTylZZeow0v1VHqv
+	 ZFZlzuLaZWdTzO1AlQcTHdyvf3Y5qbHyQS8yfTf5R9eujPZ6T35qpAN74KHmujAZaNNB4
+	 mlTt+9urcw+dg5jDd1z40DP7SHBO1Z2EGVa7HB2OLrke6/g1JIF422XILCXTP1pcu5mj8
+	 zjRA42GfakH428eK0MsXuJeb604mGcqAVbYlumO/fYnXjWxqDXS6pmQ2X8970guQdsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794926934;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
-	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=wq3L7CVQUzhiYGcq5Umlktwmr+nGcj2X2cywevrWa94=;
-	b=fpkLYO9Ps+GOjNEr977jNbvjwkFhxf+EUbk8Q/belbIVMTDhhwi6a6cOHRtlWmtQ19UC
-	 xibzAPbeYo0GGz0sU1KNKq6ZeO8UD16Gb6BZIlTN+j2jZsmYk81vZ1G1fVHZ/vx72bzeg
-	 D2uPQ3D6kuOoRoNeQ+tDpzqSw6dNs5uHvFJ/c4cDFkTAcx/2YFEsItqo6v6/F/hkDphm8
-	 p6dauuBQmogWpkpdOWDWiDk9mGWM8it8Tp7AQ1xA+IHOCVIB2aYTlV4OkakJZmqtPh7PC
-	 3LzikdE/jILWFM9REsa+NKuJvXlxaZMs8Uc6c3gxJ75eknWKP0VJz5Q3Eeyngf5AFYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794927006;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=9f/zHcLvxWtQu21XecKTcghtz6+6bj2ttB2w08JqT4I=;
+	b=nuH2T/YtDvtOq8sT3ToHJUooJ3ku6aOu3JAjl+ju/YZzJml1QuIW9R6cd1yK0pCKmibw
+	 OYS04+wcPqH6dP5d/fU93DDXkaiCiNijyBM3HeVOONMeX5N75zaWQ2hLjDE/3Vdb73ss7
+	 mqjIpGMqtpIRIjIoWmr7NsY91u0m17pkIo2O3LhCC+DbXWEGW0yFiFjVs1c+Vb6CwDM1G
+	 CPsALdN7pVFDvJBwmJI+jdIXuChB5YO+iqlD8jc+VFLM2RUQL8oBoBZZhJ8HrHxhI3Ibm
+	 U/eCcx9yUCEB0xiFucfTQFZGViLvH3S/HkqmNCsiUXhak4ug8Ok+ZdZrkgXfiB2bEYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=GG5dgskb;
-	arc=none smtp.remote-ip=45.254.49.197
-Received: from mail-m49197.qiye.163.com (mail-m49197.qiye.163.com [45.254.49.197])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aigczfsA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E71D4606A32A;
-	Tue, 17 Nov 2026 14:48:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E71D4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA3F9606A323;
+	Tue, 17 Nov 2026 14:50:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=GG5dgskb
-Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 55020e7e8;
-	Tue, 17 Nov 2026 22:48:46 +0800 (GMT+08:00)
-From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-To: Jeremy Kerr <jk@codeconstruct.com.au>,
-	Matt Johnston <matt@codeconstruct.com.au>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] mctp: i3c: Fix potential thread leak on registration failure
-Date: Tue, 17 Nov 2026 22:48:45 +0800
-Message-ID: <20261117-571e631490-mctp-i3c-0@mail.sdu.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aigczfsA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81C8B1F000C5;
+	Tue, 17 Nov 2026 14:50:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794927006;
+	bh=9f/zHcLvxWtQu21XecKTcghtz6+6bj2ttB2w08JqT4I=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=aigczfsALaWDHs09gJhyZVzsB9hidXg5hWYHJu311um3SmJ3/hc21RlfMJav5wK86
+	 l8eXI+7oO9+xCRJYjNwFGGIWNTYi8ilyJqFSNWRMwZKPjWhUOfMPhth+mRQxN45Z9y
+	 KnmJT6RhPhv4YlEBR5u45lWucwcDhbPt9c9cMtHo73ivEubo5hshVXeafnC0BlqlUE
+	 7Ho/7uLNbH8Pc291aZdpO0ROOLhbZOsgjp7Oz8LEcZRxUff6u0MOAIQNtzmADZ46c3
+	 TdiPxCvGaPco1jTxeCJaDZuyQhkD3lxMXlWr21R9E3Loy6VU4ArpCeGbH3JSZIBZjO
+	 PbjyeP4pZKxtw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7761B3927056;
+	Tue, 17 Nov 2026 14:50:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,64 +53,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1e9fb5c1f03a1kunm36b1c76b156473
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTRlJVkNNGU1NSxoaQxhPHlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
-	NMVUpLS1VLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=GG5dgskbVJap7bA65teDSSUQKGRwJ4F63EmTuncrDDtjQoJ+6FrpX2iTHkSW6/JBC8Gka+yAdJD6q5wRhCmQsSW3MaS6d4HzwLYAjQuL3U/XIF/0OD2Kb9J05ONkFRyKwEk1oR7tNln6EEwVSOTdMASdPudziAuyxKWIlDg7cRo=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=wq3L7CVQUzhiYGcq5Umlktwmr+nGcj2X2cywevrWa94=;
-	h=date:mime-version:subject:message-id:from;
+Subject: Re: [PATCH net] net/tls: serialize context removal in
+ tls_device_down()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179492700528.635190.1108444356171254276.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 14:50:05 +0000
+References: <20261112043209.102404-1-lee@jaeyeong.cc>
+In-Reply-To: <20261112043209.102404-1-lee@jaeyeong.cc>
+To: Jaeyeong Lee <lee@jaeyeong.cc>
+Cc: netdev@vger.kernel.org, john.fastabend@gmail.com, kuba@kernel.org,
+ sd@queasysnail.net, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, alice.kernel@fastmail.im,
+ tariqt@nvidia.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
-mctp_register_netdev() can fail before netdev registration begins,
-leaving the TX thread and bus list entry allocated. The error path
-assumes ndo_uninit has already cleaned them up.
+Hello:
 
-Always clean up on registration failure. Make bus cleanup idempotent
-because later registration failures can already have called ndo_uninit.
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-This issue was found by our static analysis tool under development.
+On Thu, 12 Nov 2026 04:32:17 +0000 you wrote:
+> tls_device_down() moves each context to tls_device_down_list while
+> holding tls_device_lock. It then drops its reference and removes the
+> context after releasing the lock.
+> 
+> tls_device_queue_ctx_destruction() removes contexts from the same list
+> under tls_device_lock. If it removes an adjacent context while
+> tls_device_down() is deleting its node, the two list updates can
+> interleave. One update can then target a context freed by the other path,
+> causing a use-after-free write.
+> 
+> [...]
 
-Fixes: c8755b29b58e ("mctp i3c: MCTP I3C driver")
-Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
----
- drivers/net/mctp/mctp-i3c.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Here is the summary with links:
+  - [net] net/tls: serialize context removal in tls_device_down()
+    https://git.kernel.org/netdev/net/c/81c8333141b9
 
-diff --git a/drivers/net/mctp/mctp-i3c.c b/drivers/net/mctp/mctp-i3c.c
-index 5f225999d715..2d55ca88f0a8 100644
---- a/drivers/net/mctp/mctp-i3c.c
-+++ b/drivers/net/mctp/mctp-i3c.c
-@@ -492,7 +492,8 @@ __must_hold(&busdevs_lock)
- 	}
- 
- 	kfree_skb(mbus->tx_skb);
--	list_del(&mbus->list);
-+	mbus->tx_skb = NULL;
-+	list_del_init(&mbus->list);
- }
- 
- static void mctp_i3c_ndo_uninit(struct net_device *ndev)
-@@ -624,7 +625,7 @@ __must_hold(&busdevs_lock)
- 	rc = mctp_register_netdev(ndev, NULL, MCTP_PHYS_BINDING_I3C);
- 	if (rc < 0) {
- 		dev_warn(&ndev->dev, "netdev register failed: %d\n", rc);
--		goto err_free_netdev;
-+		goto err_free_uninit;
- 	}
- 	return mbus;
- 
-@@ -634,7 +635,6 @@ __must_hold(&busdevs_lock)
- 	 */
- 	mctp_i3c_bus_free(mbus);
- 
--err_free_netdev:
- 	free_netdev(ndev);
- 
- err:
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-base-commit: 2e54b3e187300893688c2c7517894f5d96732e05
+
