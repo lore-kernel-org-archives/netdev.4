@@ -1,101 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794915905;
-	b=LmBkAAxjNSkiq6M7CEtpFykxA0ISnS1SoD6dSxqebst5A1/E623ReZHs1YC7XAir6/QU
-	 VxpiHsATxbm/jee1KDVRqgjSF5xj3CHvxTR2pbKnyJ6D6ztIC0Cn9jogMN4sdvKD/a/RQ
-	 JhZxUsy9TcGU4Vpi6sXsGglZp0qToFXtsM4mm85rK01IT29CfLGZl1/LJgfqJcq4Hd6Pn
-	 mz7s9Fp0UfQqUXXfiSetQnB1tgMmRvy0zY6yVwzFM1wPIaSJ6C5VPnAUyp+biCpuCdUBs
-	 ZL0KZ4d8lnTX3FMfzPELzLfQPFsg8WdrBARs82KtGFrvDMbZ7JCpBK4oMj/u1+yNHRw==
+	t=1794916209;
+	b=s8h/0OGQ5eQXCZD42K7VU4kknFuqwmEhbCu63IakmZKh+Ec/MREhI0nbGLtmlkt4K1Ua
+	 s7g36WAEROvM0R1JWAobgvGS8AwJY9QKbjgvE5rMjZ6VpS4mHMKPflDdCzyePLZAfFFAu
+	 GKx984JARjgcNDUk2OciMT91ly9l2NVpCvgYZqIIsIL3Ji3ftdMgSUZSIcxXrdc0gYqQu
+	 tmqrT6WfgEvwjbcjP3mVb4P9xsGnJL/zBPBtxV51xkv9mzztlvzSzsYihWJ/esrvRtcJq
+	 nFmh+4xXa/eOAvu0TAmq8BtzUXWOFQl7dUiONNk3OBjqAqfSBShyd7dB6Vv+zkIwjaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794915905;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=EHTZ/1KUGWNJTaA44N1B6xy5DZM7ZoLUszGDdI/4cdo=;
-	b=zFvDpicanVCpQjykw+585vcgbN7UsjHpJHWHbtLx/T/olyGi6cchklznuwNwXSTimOqI
-	 qBWSbZaiYx218Sm2J7K0ylds5l3loMOFLowrauxOKG2uGSDMcHyER33k2qP1v3fGLi2/B
-	 uRuPjllTizMsM3WliqFe1D5sJ5Ju1/yD95iIufRorEOHBy57qNjCpboGsH5tj4S1mYqP9
-	 DWxB9Gfw8IR87P+nWrULhAcVHvQMSVJuOSp5SyOdKe5KUiIn5uf8ZUEGHKSHiXZferFwu
-	 C+DvAPYx0aAfFzOiR20b01CT07BpOcIhMmjsBD6VDbfzSxe0LLkb/Fmh5bUyhIpPBmg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794916209;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=NYCi6TRZf6fY/IIDQvm/vPxYiFe6DC8NUAUlATMW1bQ=;
+	b=G7yEqutuCV6FocXPs5p/907PENpZpyT1cNUHDDs5EACOveijdJA3iUqTs9lm0U2F39Qs
+	 NCRRKeZWG20MJVyGHRcxorp9eftfAF7RaHeGWdrCQ3mjw74+FUQ8Qzb2vsZJYYS1Em7bu
+	 n6FMYvdcCJnJRLdXwBL2G0PQlD2vn+7VMRP8r5jU2JAO3+A/bHkBxd9ShcH10sMzUvgTr
+	 3zNRGkXOBl/bTP0wvGN/uvWsJVlUn0EOCPvxld10K0qa/TPgtXHiToA/pm1ZuuxKkK5MQ
+	 3i/PMqwRy4Qn8PQG/uJs81eUb7FUiWBNcDllFizo+mt8fYFBdIhK7jtjiGpZgnBrWYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VGiaafKL;
-	arc=none smtp.remote-ip=209.85.214.173
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com [209.85.214.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EYNZgfQt;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36838606A329
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:45:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36838606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5A60606A31C;
+	Tue, 17 Nov 2026 11:50:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VGiaafKL
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-2ed08b07213so21378375ad.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:45:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794915904; x=1795520704; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=EHTZ/1KUGWNJTaA44N1B6xy5DZM7ZoLUszGDdI/4cdo=;
-        b=VGiaafKLm0Xdg+3FKaZmGIukFPRYRb0YRpgodlpQl332TOMfRYzBIo40kh43Y/yMpT
-         GvI48PA2g646iMvr6fPnu2MJZ556ul+EKeH5SNIjMMw7FiPcalTQ14hpEgVkeF8qTDku
-         fvBrp+hrjdWQJfpzei8N+dhaKgQiY+fyFdZuCBFZHR5Hfkf8cyrPPniI9Nv9j7yRuvVO
-         9iJBKo2IWm4WNjIwGOp331BuCujIYFY+O3O7AYZ2geCUFwxTzJRC8KECDBoO8SQzuzBC
-         ztDLnmG0FRlFDwZ8z5GxB2yRTws6BG31D1AWMbdNjuUURQXfxFaNRWudTvlqBG7YTDrw
-         uM5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794915904; x=1795520704;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EHTZ/1KUGWNJTaA44N1B6xy5DZM7ZoLUszGDdI/4cdo=;
-        b=ixFtwFzPT0UoROeUC+v4e0fvkm3R+wMCKbk29kAYyBtYWutxJaesGcM7jedD2hJOc/
-         4HW38TifJphTpLSuuHpHKwSkp4McLm55ekgU9gmsnWcNol4wJX8nKhT66gpnBJmKv6zs
-         we1BukxpU4gEZc3l9taKNLiHvAChAHbVPu/s5A0nVQF2aIbqhAV0zcHsebJHJNbsZjIS
-         jMBZRUoHhje3OPfuOs20GPlYpxmy5t7NV/7kFnGx3IEUN55RlOT5OJPuorr3AnjWPnMe
-         FuBFc0RB/sKEAWZli/12QObW5M54sFXF7N6KqtR7G4waGjXyZ7V8xtxUsicPzow4yYDd
-         crWw==
-X-Forwarded-Encrypted: i=1; AL+hErF+QbUi9ZAX99Hl1JnHSyWH6Omhtm7jCCdPrluGkuGIl3GWs5bajQzYWRLFgaKSGSTUqxPm83g=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9MGuXssQQUm/gB53T7+jzmescjisLuUgh+MrNjGMrLhS8Bc3ly
-	+57En7manqBGrnfm3eEH5mFdrsUZISB/7J2r3M012SGpMaOtw7/XmeL/+/I0dw==
-X-Gm-Gg: AZFdTZe+t4jdn2glahZhGM2eNCpiw7PozILVVI4QUAt15wX9D9nqGCNNnxBJRhxCWWx
-	9OwNIIAZm1/5gPHa1wCfolyHTOKTtCDMWNND6F34PNLp+CHRiyP6QGS48sThDwLb0/K0Rptj0zt
-	auZrp5yIId++wRbBUEAMAA5oOnMsPJfFkpw3YYZpGaOODGY3SaHE2GdO91/nddjB28kIoDvGue/
-	/Vy2xSnB70vXa+LIMTEExsgE7h8qX6A7EVocea4sNPPGw6H8dTLlFcfD1Btrc7M+p+74BDKNBhA
-	2W/h7qR1l7/F8Zq4WZ51GGAxF7gC5v2zesKINWIzdVWtOM5uIBUtU2MN6wNHz+9ZCwIjUPSqdiq
-	U8SoKO2HvqamtuF4GkhCTXeK6QC/LMVYjuD2Ax3ssxVcCKKDapVUkgid1EtjYPBkablxklO9qpT
-	U+uiCtmAszsQwUwAQiatlF7uBkO5Q1uTi6cCsmXel219mtf/gQf4bEqcmuY5WOaW3QU1pcRDhmi
-	THudmRvINz/ZvOUnqCLhpmW+aVMgTZ0O+EVTlSNplbsCI50AL5JVREc8RsWFnnSMvjuCUJhBj3g
-	DvVnEvODZ04uMDCDw3TyNBu8Kg1zNc+I7sTF4jFI1OoA
-X-Received: by 2002:a17:903:228c:b0:2e6:5ef:abe9 with SMTP id d9443c01a7336-2ee0dcd0c58mr112203625ad.37.1794915904206;
-        Tue, 17 Nov 2026 03:45:04 -0800 (PST)
-Received: from gmail.com ([116.162.234.168])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd7a1636csm13585765ad.17.2026.11.17.03.44.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 03:45:03 -0800 (PST)
-From: Xue Boyang <fuchen.dust@gmail.com>
-To: Pablo Neira Ayuso <pablo@netfilter.org>
-Cc: kadlec@netfilter.org,
-	fw@strlen.de,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	phil@nwl.cc,
-	sunyiqixm@gmail.com,
-	bsdhenrymartin@gmail.com
-Subject: Re: [PATCH nf v4] netfilter: ipset: fix double free on kernel-side delete during resize
-Date: Tue, 17 Nov 2026 05:44:51 -0600
-Message-ID: <20261117114451.608829-1-fuchen.dust@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <avwswXiJh8HUPa5T@chamomile>
-References: <20261117101018.523826-1-fuchen.dust@gmail.com> <avwswXiJh8HUPa5T@chamomile>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EYNZgfQt
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF92C1F000CC;
+	Tue, 17 Nov 2026 11:50:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794916208;
+	bh=NYCi6TRZf6fY/IIDQvm/vPxYiFe6DC8NUAUlATMW1bQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=EYNZgfQtqgPkFFtYkvMeeDjpO9D7sYstMhGPrt7rJmjvIOVLAFFopt0IjLbwVoMoS
+	 lux2ixZ1OmZ64tjp3jm5Ivdw0/9SHp2ZOiZD065Gj325xW4IhjVm3zHY0W4xxIJT9A
+	 fjmTJUa2UxPfuoARQdjPQ/gXumPjJ9VurKHwfn1vmn3hqAHejDraWFgln3R7J5/88t
+	 Ze6TlzdTN8u5FlkzqEblOtIIbyMBPa4FqCtJBBYcebh4hPwKLBJVh8dUVf7YyVQCFc
+	 Wr7XeySyzfFZ6m8fXeZr9Tvwh+zOxSr4QgqTDe+knBSgJrTjGgXbvZMecsXmBg0pgi
+	 B5I3k9MrHJvNQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B43E13926661;
+	Tue, 17 Nov 2026 11:50:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,22 +53,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 01/11] ipvs: fix problems during connection deletion
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179491620753.531240.17009155565990687416.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 11:50:07 +0000
+References: <20261116004404.2821183-2-pablo@netfilter.org>
+In-Reply-To: <20261116004404.2821183-2-pablo@netfilter.org>
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
+ netdev@vger.kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ edumazet@kernel.org, horms@kernel.org, fw@strlen.de, ja@ssi.bg
 
-Thanks for the pointer. I had not taken that series into account when
-preparing v4.
+Hello:
 
-I have now looked through it. The rhashtable conversion removes the
-ipset-specific table-copy resize path, so it appears to avoid this
-double-free/UAF class at its root rather than fixing the individual
-races in the old resize implementation.
+This series was applied to netdev/net.git (main)
+by Pablo Neira Ayuso <pablo@netfilter.org>:
 
-I will run the reproducer and the related GC/dump tests against v10 and
-report the results.
+On Mon, 16 Nov 2026 01:43:54 +0100 you wrote:
+> From: Julian Anastasov <ja@ssi.bg>
+> 
+> Sashiko reports for problem when deleting connections.
+> 
+> If connection timer expires, its callback can not be
+> concurrently running but if connection is deleted
+> the callback can be running on another CPU even
+> after all references are released. Before now we
+> continued with the connection freeing, risking the
+> callback to access the deleted connection after it
+> is freed. As ip_vs_conn_del() runs under RCU lock
+> there is no risk for accessing a connection freed
+> by concurrent timer callback. As Sashiko warns, the
+> risk is present if normal connection expires and
+> tries to delete its cp->control chain with
+> ip_vs_conn_del_put() without holding a RCU read lock.
+> 
+> [...]
 
-Since that series targets nf-next and is a fairly large conversion,
-while this issue also affects existing and stable kernels, would you
-prefer that I replace this v4 synchronization rework with a smaller
-targeted fix for nf/stable, leaving the complete cleanup to the
-rhashtable series?
+Here is the summary with links:
+  - [net,01/11] ipvs: fix problems during connection deletion
+    https://git.kernel.org/netdev/net/c/5ae07c10854f
+  - [net,02/11] ipvs: avoid stack overflow from recursive connection expiration
+    https://git.kernel.org/netdev/net/c/d4e4cd04de2c
+  - [net,03/11] ipvs: reject FTP control ports as data ports
+    https://git.kernel.org/netdev/net/c/a107e150e105
+  - [net,04/11] ipvs: ftp: skip conntrack templates in ip_vs_ftp_out
+    https://git.kernel.org/netdev/net/c/4656934d460d
+  - [net,05/11] ipvs: update flags and seqs in backup server under lock
+    https://git.kernel.org/netdev/net/c/f3aff3d80b57
+  - [net,06/11] ipvs: read flags and seqs in master atomically
+    https://git.kernel.org/netdev/net/c/aa9afc79f57b
+  - [net,07/11] ipvs: honor the overload state and do not enter it forever
+    https://git.kernel.org/netdev/net/c/567ca80d77ba
+  - [net,08/11] ipvs: validate cport in received sync records
+    https://git.kernel.org/netdev/net/c/1d1e8bc81f79
+  - [net,09/11] ipvs: skip cport 0 connections in ip_vs_conn_out_get()
+    https://git.kernel.org/netdev/net/c/5c8d6e2596e0
+  - [net,10/11] ipvs: do not create conns from packets with port 0
+    https://git.kernel.org/netdev/net/c/7439e0fed91f
+  - [net,11/11] ipvs: wait grace period before reusing destinations
+    https://git.kernel.org/netdev/net/c/5367e14e92bb
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
