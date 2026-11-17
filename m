@@ -1,55 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794906117;
-	b=pFGvzwuUE3ypRxTooj4SeJuEZLeVYa6aDukPX9DV8L8x3lus3D5KWpDfEcJYVXd6LI3u
-	 N88IhmxkdchhtvGT6Ua1n48Nh8iepaQgdzw5gIrGliItAbjdKSY3VBgbZZDz5ZRjpoaQq
-	 0RH3NdL0FbkShezzbAyo9NKfDbwN/tLSfl53Sk+RFG1YbM8z97iZV34rKLfg16Wwsqtos
-	 Q2VPgShLTs2mV/SW0zVvf5EJNEmQvH74GeKCyW2oWnwaPJdIcGpbRUrM8t0k7e+oIaXkk
-	 oapFsuL3jsvBQX6c8L/2KTlafT5xjvpjVn85oCeGM+K1v3QGu8eNvtVpScFBPW0QsQw==
+	t=1794906193;
+	b=J7OSW8OLQkmKzNGQFrhXMDnrv1FJ2Qnfjo+vSJyRnlovLncOU+NjC5eNEQodn+6V5t2o
+	 MwCy796nmJCqe42eziDV6N/gYpCV6kNYIaL5hv2iMy8quiYBvLEhkbXD+USPXZsXEkBnG
+	 G1K1XZZxA6FNRDF0CpwWUMXTPWfcuSzTUOnbT862hCJ+rhq5CImJBAhUvHdDddnHPy7Fq
+	 yBFj//bqIY6XVjMHkyFR33A0ns5/hB0f3Jv7xW1jjKhF32cP72yC681kbKdVwzJx8LDth
+	 dvZqgHUpZs+crUSsZhhhlQaRMPMp4rFyvj5gGCT0YqrmkMULDVPlCrazQV1KN5Wfo1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794906117;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=BpUqBOHF6TGszsQFATJaoLltzcdcC/QzJ7Q8LQGe8Lg=;
-	b=vRcq/5UZWJULb+sVnqSGfq5o7hkM2+yPaNAUqbExM65pgIKi1SUPYyJEAhkOKJZUXkmS
-	 pm0V13ZeADh66FirKa54NsmDg8Gvv1FqPuXb7BO8huotqftiUzxPV+S2Ftl8WTmRP0nCo
-	 IhaLrhWtPG5451YfypLJBBaIO2R43HpH4FA3j8Dz0jFecT436qapkqvBC0yqh7UBQagkO
-	 NT9wCf4vV7iHcNwzCqlWLwZzYkxJR7AKAY3TGtVh9Tfb7GvABqmjb8mCqzR8Xrx7DbrEJ
-	 TgwcJvpvqqtaHl/1+9KyU6XUru4nF8iPzGj8jo7YtacyWXJCCspzixr3ZCpRibUikoA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794906193;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=hvg3RQBiwirhAQjdPWfa0+UsARg13XFMJIhD/81V4SsNNjQhiVGV71jJddl3K6QspaoO
+	 DDfcSbr5bfqPPT03QY3YLaw+meQ6xj8vXkvO8d08zqAtvAfxefWP+boykGp1fXvisoMu3
+	 u1PyzJ1ngfqYl1T4S1nmiD/RGpfrQmMLT4yAaD7bTvjItF7I/P6kdE5yL3lOCRaNOSlPr
+	 Noe6/El3SuEuQjpQp+zYq/F6W0OO73bgcOEJOTTD5QWDXUkHQ1EmZ+Yr3LwJ9FLMquPol
+	 SFNDizvuldewJebxRvUrLxaCv36jAGZQm77AoX6W7tCNVB4lIZu2xNriwpX45T0Uhew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DLXwgYFc;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5WEjPAo;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7877A606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:01:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 091A8606A335;
+	Tue, 17 Nov 2026 09:03:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DLXwgYFc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FF1B1F000C5
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:01:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m5WEjPAo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43CF61F000C5;
+	Tue, 17 Nov 2026 09:03:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794906117;
-	bh=BpUqBOHF6TGszsQFATJaoLltzcdcC/QzJ7Q8LQGe8Lg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=DLXwgYFcR9TXe1BtDpeLwiX4mnw4zKfpkJVPnC5041DbQBazHWCBNE+PhyrptJCgI
-	 6b2wuZSvrJlkvHEYBJSG6S4WjrbRpK7G0pdXPY2oaOUdHz4eJSoIstw72mGrAa98sv
-	 u564tYa5zhFIZ/Q8FmVMIOtWp/IkIO5sFJ4xxu+gcfNL4MHK43C3tcBFerohbK8j2L
-	 S/4LpJxNAQjr+IN9EiMZVWEr5oIl6jEqV9qfxVsRj+k8wie0zWY1PSzV9u2Dyg05Be
-	 La+T4lX0vxA6MCP3sTK/JJSYiB4QDn5lJCtK7UfiR03wR4mRIk0WzJE8X/6lzdmRBc
-	 9zL7s5tWno9ww==
-Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-705cb6ceebaso4543248eaf.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 01:01:57 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGiZidve5ntR7V4qAwDC09w6cBeDwPQ5t6+N7toWAQ3zcmTQNVnI/lzXYT4/3Ud76HunNHh2pg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8T4yZJ7ijMkGjUf0UQaCptkHBr0GgGANBx4+DxH5xG++ZPQtLU
-	3sGI5d3Y0ZSNApwDgeBfCFdOEvQGhTUO5Xy5/31IZ8CTI+FubCEWfFlzZjgRRq4c2mJKmOMOnmc
-	Z47kU6ZR19zSKJsG9XVSq3kpwmttkQdo=
-X-Received: by 2002:a05:6820:151a:b0:71a:fc24:cdad with SMTP id
- 006d021491bc7-71afc24d442mr2828590eaf.17.1794906116331; Tue, 17 Nov 2026
- 01:01:56 -0800 (PST)
+	s=k20260515; t=1794906192;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=m5WEjPAoAR2qci/dM9sNSuv00gVgwdrXdvDS+OKQl1UySWpng3QruyZ7xW0FeLaGy
+	 0Yer9coIr8qHfxDW7c3DRy8x4F8lVcZUTqJHqWssdBSmubMOEyMumoEBCt1OGJ0LX4
+	 QpRyGeev3pht9M/h+qxvYpCi4XV2/BW5LLZ6DUgsst8Qf5AxVWUGHv8jedRgX3mMsF
+	 4Os3DQVKmp7dQEJbXB/ee4/MAgjTwMo562Z+y7fUBOLoIFaDJAzrNM7XAJsCUMM93Z
+	 2uf8dkBS5lD+TrBmLhZ71Rgzu5BWDRo+7JLuLIK9JjGKj0+hv/ATgfAMm+KWIp+rop
+	 6Hs9G59M3RGbg==
+From: netdev-bot+sinfo@kernel.org
+To: Ma Xinmeng <1564938642@qq.com>
+Cc: Pablo Neira Ayuso <pablo@netfilter.org>, Florian Westphal <fw@strlen.de>,
+ netfilter-devel@vger.kernel.org, netdev@vger.kernel.org,
+ Phil Sutter <phil@nwl.cc>
+Subject: Re: [PATCH net] netfilter: nf_tables: don't unregister hooks that
+ were never registered
+Date: Tue, 17 Nov 2026 09:03:11 +0000
+Message-ID: <179490619175.3291.4042436087847232013@kernel.org>
+In-Reply-To: <tencent_19A48DA487BBFCFD990AC5A8010C663EA007@qq.com>
+References: <tencent_19A48DA487BBFCFD990AC5A8010C663EA007@qq.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,48 +63,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-8-kuniyu@google.com>
-In-Reply-To: <20261117053543.84032-8-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Tue, 17 Nov 2026 10:01:45 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqjiQfxcKTr82UXee_zhzoX-5im=OrEFwtMMSaLLHmVBg@mail.gmail.com>
-X-Gm-Features: AclHuK93PLlQrLNunIkWha2EN7H9XuICM3_ilAak0FEfyXgKjY6TtIVx30dMyPY
-Message-ID: <CAL4WiiqjiQfxcKTr82UXee_zhzoX-5im=OrEFwtMMSaLLHmVBg@mail.gmail.com>
-Subject: Re: [PATCH v1 net 7/8] tcp: Pass inet_sdif() to __inet_lookup_established()
- in tcp_v4_err().
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
-	David Ahern <dsahern@kernel.org>, David Ahern <dsahern@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
->
-> tcp_v4_err() passes 0 sdif to __inet_lookup_established().
->
-> So, ICMP error coming from VRF can be leaked to a socket not
-> bound to the device.
->
-> For example, this test fails at the last assert because the
-> socket receives ICMP error:
->
->   --ip_version=3Dipv4
->    0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) =3D 3
->   +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress)
->   +0 > S 0:0(0) <...>
->   +0 `ip link add vrf0 type vrf table 10`
->   +0 `ip link set vrf0 up`
->   +0 `ip link set dev tun0 master vrf0`
->   +0 `ip route add 192.0.2.0/24 dev tun0 table 10`
->   +0 < icmp unreachable port_unreachable [0:0(0)]
->   +0 %{ assert tcpi_state =3D=3D TCP_SYN_SENT, tcpi_state }%
->
-> Let's pass inet_sdif() to __inet_lookup_established().
->
-> Fixes: 3fa6f616a7a4 ("net: ipv4: add second dif to inet socket lookups")
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+Hi!
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
+
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
