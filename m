@@ -1,107 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794911013;
-	b=Ny5hlfuMGVpFw538gKuubPR0OfA+VHJos9nduK0CFICTDl2VQExxMoEXvcLhDGG6fVni
-	 4vDX91ZqyYAtivxApLxLBZmQN5JKTS0xMfFAIJmZryY1iSLS9w+Y6iBaUWgjJkNb4hNiM
-	 PgoQZPbV8sTjNG8UiiUGhgExCQJTXM54mDYPHZNts6XtHeSOcLEyyxitRvR4W9q+iO4e+
-	 yv3MG02wPpW6E6CsCc9YnGkckNypC0xKtygjrVZr5bLpsizVK6rGbxwZxynndhQPkCXxC
-	 cVOMHf/iXKeF56iq2DcLO4Cm/+wn/rWdUNzgVFUd90a9qQO2IQIc89Sd8uZZN0hDP5Q==
+	t=1794911035;
+	b=Ec1uIylehV8Gy2Xw/3IXZ2cceCm0WGKKieJ26cSy8S9V1W1LrVOCG1X1oWnvDsfi38j+
+	 jQr8INrqwTeN0TSOdIsKiPiWLLnJJcPtR45Qg2hdenGoFiHMNQ+c+UjpHfs8Q6cU5xfFL
+	 tUSfDqTshf+IDXEvft8Q2Xhh6V7Piw0bg5VGHcpcYmgVOzfHXM12LgVS13epf1odLRkwD
+	 Uuitm2Vo5VVc/fb5yTMrXEgng+COrI2VL6LXphOUKAkouTy+/SpV4mHYSl9ZEq65O4H2J
+	 UZGes1DEH2c+Z5CKJ5L74BqjPdVhhbx5qiQ4WM2g9jJ9WFe2JlkYebU3nJOLmGgJFWg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794911013;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=DjsejkRzYNs7HgK1jG5OP5VX/gmq6yS31WYEACSluoo=;
-	b=TyWx1UtDKYzTMkhZP3QhvPd2BjNU4fANX7vUASLVi0sNhABDQRX5pl3Dt/ynJIVaRarH
-	 1Rn6CvgBctLuPxbD9gmZVq67ZroEEKPbeV8w1uO3yYM0N0Nf2Ljcr09dUc+Aute9CQLNa
-	 2yej2j6Cw7K6qejkNIqGjLUOceWRFtNyq6usUtp2nBzrGD8c1oC5XIR+6izKZyvkBTbcx
-	 d12J37wheb/el44qwiR6LhLY1IO4up1q/c1+TaAzF3XDsbtXW9ESkqQqoM6WkrPvmXqic
-	 pJsTr0BMQdcGS9WkmWKf3Vr0IdmCBKZMY0egpdgonqVWkisFSfMelAZeBNBPF3FKwfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794911035;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
+	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=DjF+KTI6bUfAyzuUUdOxWs2s35Pc9lvGpTrqDOnYYw0=;
+	b=aV9MMsrUHTLWfKba7Vb5ptzNdAeBUbh+mLA0ZrzvMG8zoYhmP49wI1BH/k04964/qiCs
+	 rZ+643eAvvEdxCKAhzk0gc1812pWIR2RxuiqhbWu+5n0Qeft6S6i5aAiBr1ajdKP0XsMv
+	 KkShiK9c4qvtT8UMtqAbpuVP/bcWZORxBfyKoVcKLEhL5MTtUD3JkY1oBWp5A+99wL+4p
+	 ZZoq894l4Sz/CaZxNlob4UefmqccmaEFRS5GIOmtMyhlrgLR8XgEqAbD4bzYvNZcDOz0o
+	 n4H5PZcLzIp1V3Z0nrIyaFMVzVnAaY93Vx9cs+ezk98uMimzpwpDE25LBQLiSYE5OxA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=etDJOiya;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=J4CIb+QY;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Syrschel;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BA8D606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:23:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1BA8D606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9196F606A884
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:23:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9196F606A884
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=etDJOiya;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=J4CIb+QY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1794911012;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DjsejkRzYNs7HgK1jG5OP5VX/gmq6yS31WYEACSluoo=;
-	b=etDJOiyasiks6YIIATAsrZ9FksYaB3rxedv1Fh8ZHPAzpZ3wyyCl7QoCcWxNvkZIFeCxnH
-	YOYJMwcvKA+rcXnrwxzWsn+HUGd0eGVwvEzlMiPgG1USGerduPG5m5gMS3rxB3Gs4CaRAi
-	SuGgUOmw0Zd1bLXntuwEPNqEd1hLA2I=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-655-67eU7jprNbKZeswULjeHcQ-1; Tue, 17 Nov 2026 05:23:30 -0500
-X-MC-Unique: 67eU7jprNbKZeswULjeHcQ-1
-X-Mimecast-MFC-AGG-ID: 67eU7jprNbKZeswULjeHcQ_1794911009
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4a35e1d2dddso37014295e9.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 02:23:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1794911009; x=1795515809; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DjsejkRzYNs7HgK1jG5OP5VX/gmq6yS31WYEACSluoo=;
-        b=J4CIb+QYP52F5Ozz1YSRzNCLJP8GFuZ9WKhiO5qnYiSoQNpG8/9CwWGoKgL1SmKr7Y
-         D+58Njqz4HR60pBqUd2n90oOsNkK1Sy2U1zMRrSeHthZntF5pEQvvXZkoh936sFct2mi
-         egpCxuefUqMLqSSOvC22AgPh4pSB6LkTfX1A5qCP9dG0yKlMTFxCKZUXUiCBdEc2neDs
-         mBjODN41nRz9wXqyXzjXWhRSPwROi16gisiGLAQsMpNc0WqI++yt3gNo1Y0Zy1lv82fC
-         CJXCfoQQT0W5YaZJyhquybp8584U+2wQR5pRnxub3YOd7TY+EN+1Bc23h9Ta3l6apaxR
-         ZRow==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794911009; x=1795515809;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=DjsejkRzYNs7HgK1jG5OP5VX/gmq6yS31WYEACSluoo=;
-        b=GBlr31v/OKXwOcjkRMWKLgeJfWq5GtJlZBi1DGMdZheAr9BWCXErctKSrtpzsn2BIN
-         Z63j6Gg52xtDmOhqhIRoukYYsmjPMeH0PcN6mZ4SCB3fRyV2UgwSZNa0XuYsvy1/aBKV
-         fj/eJ6TtBH/TQ/iAIiFYS9SMfRfofa2Bf/IV6LuxKpTuQ39HU9/VHDhJPiimIoPIRUYy
-         wHAtaJ74FRjwJvgeYuMli1RJmhFa6b1KwYjoUTHdZJ16HUwgS7Ot6DKfU2tQVlUymlH8
-         8DLLQH6JpW0sFwGE7uIquSzNgKGiBoUUiOB0/KmRC8qRJG3V8iFfs1u//wiiLaav7r+5
-         Whgw==
-X-Gm-Message-State: APuU4Z/tW5SZ3xg170qvQhBFD4gPyeo+h4nUpWEe8sdWq2l0ypCA7KaV
-	EzUkRUMuctVZQHY+ch+F7Gwbn4PaZDZeg/zwiOLrlD3bw8lOe0VzN6P7l7015pXOdJm6BK5I0VZ
-	7UqZOjKGJTTnJN+uH7uOwtzmBF7ANaEuV3iaNlZ+1H+mHteIk7dVZQgyIOg==
-X-Gm-Gg: AYBFou1bpsmo9l7Fx4liGPYFa7u/WArhOsinFl0qLHrRtShYq1BgkmIcpHqpbtKUCSb
-	4MLH8/VGLPPZn4FiYeZmI4WRBFQv723JSGhpgj/axx+Y2HRzrJc38s3iXRuoxMActmB4BXyoAr+
-	D0jLLJS+jRlo+ZB+0MemeLEEMj3XeygCqDFoP5hPlIsjjOgYiwOB4VI046LuDjwFFJer4gPtNZW
-	Zsp6rPRmbZBFTYohKb0GhxO37jm0KyaK0Z6nOT6BotSTsYs2hf2/6REEeofdyITv/5e8bir0JCg
-	3SSfWU0nEoShx2+ZPRQb7kQ5Yj5z9SDsrrrv0ZVpOlV0lhOmKwxXXo8EI29TGhel0ok9GhVPrEV
-	mQWKrIIQivjclWzovfFu8dkqEP2bMo0uLi6cxS7uTYDGOYTeHrHZwv/OP+T1kYQeNyER+K7BvO5
-	SPfkClhIkHiLD74+wVwXFoLSC/dx8MhR2IXC8IVK2XQWpe
-X-Received: by 2002:a05:600c:6097:b0:4bb:6626:5a25 with SMTP id 5b1f17b1804b1-4bb66265d0bmr183353795e9.20.1794911009445;
-        Tue, 17 Nov 2026 02:23:29 -0800 (PST)
-X-Received: by 2002:a05:600c:6097:b0:4bb:6626:5a25 with SMTP id 5b1f17b1804b1-4bb66265d0bmr183353215e9.20.1794911008961;
-        Tue, 17 Nov 2026 02:23:28 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78420edasm86900245e9.9.2026.11.17.02.23.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 02:23:27 -0800 (PST)
-Message-ID: <09156786-c9c6-47e3-8674-816b80300a3f@redhat.com>
-Date: Tue, 17 Nov 2026 11:23:25 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Syrschel
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 2A40E4E41471;
+	Tue, 17 Nov 2026 10:23:53 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id F37D45FC81;
+	Tue, 17 Nov 2026 10:23:52 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B2C0711BC02EE;
+	Tue, 17 Nov 2026 11:23:49 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794911031; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=DjF+KTI6bUfAyzuUUdOxWs2s35Pc9lvGpTrqDOnYYw0=;
+	b=SyrschelNGJ5mq9nOl9En/KFFH1oE7qbhx7tr9EvnR0ZyqUpSiyk3gfQy2sVi7juWwphmH
+	4wbi/ipB3x0Hdn1OaZ1LyjN+1bXk1mNU7wHiz7IyMMEVULYPNI/sh0xQ3v512/CXvLaubP
+	SanA5BJ27BU7iYmYmzKrvFXzrufSYHVAFcKuvzqpIMEQGUzBhFyMTKsMXsJ+Hdxkrxt/sT
+	sjQdlxE05NCZw9u9bJHT+gr65ROfKHf5aK04PV1FI4hxIXvCCVFaKchwrC2NE7LnURG7H6
+	SXvtO4raKA/y9B5l+pvrtA5BRxMkWEJwiovQtxHwtbu3KpvBCbUmzseqDnvYFw==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,79 +58,91 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 0/5] net: devmem: size TX net_iovs from the
- dmabuf layout
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
- andrew+netdev@lunn.ch, edumazet@kernel.org, horms@kernel.org,
- shuah@kernel.org, almasrymina@google.com, sdf@fomichev.me,
- leitao@debian.org, dtatulea@nvidia.com, asml.silence@gmail.com,
- bobbyeshleman@meta.com, daniel@iogearbox.net, razor@blackwall.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20261111224740.2744522-1-sdf@fomichev.me>
- <1b764043-2efd-4e65-adb9-a47c0136446b@redhat.com>
- <avZC2hp_0ODMQ4SG@devvm16445.scu0.facebook.com>
- <avZZ-6GGciPC0Lti@devvm16445.scu0.facebook.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <avZZ-6GGciPC0Lti@devvm16445.scu0.facebook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 17 Nov 2026 11:23:49 +0100
+Message-Id: <DMXEUVLLYME0.28DXLBJQS5GGF@bootlin.com>
+Cc: "Conor Dooley" <conor.dooley@microchip.com>, "Andrew Lunn"
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
+ Abeni" <pabeni@redhat.com>, "Russell King" <linux@armlinux.org.uk>,
+ <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "Paolo Valerio"
+ <pvalerio@redhat.com>, "Vladimir Kondratiev"
+ <vladimir.kondratiev@mobileye.com>, "Gregory CLEMENT"
+ <gregory.clement@bootlin.com>, =?utf-8?q?Beno=C3=AEt_Monin?=
+ <benoit.monin@bootlin.com>, "Tawfik Bayouk" <tawfik.bayouk@mobileye.com>,
+ "Thomas Petazzoni" <thomas.petazzoni@bootlin.com>
+To: "Nicolai Buchwitz" <nb@tipi-net.de>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+Subject: Re: [PATCH net-next v6 2/2] net: macb: distribute evenly Tx SRAM
+ segments
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261113-macb-set-channels-v6-0-5de59d9e7f02@bootlin.com>
+ <20261113-macb-set-channels-v6-2-5de59d9e7f02@bootlin.com>
+ <00aea741bd079eb9168fb2ef9b656f25@tipi-net.de>
+In-Reply-To: <00aea741bd079eb9168fb2ef9b656f25@tipi-net.de>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On 11/13/26 01:41, Stanislav Fomichev wrote:
-> On 11/12, Stanislav Fomichev wrote:
->> On 11/12, Paolo Abeni wrote:
->>> I'm wondering if making a comparison vs MAX_SKB_FRAGS==45 would be
->>> complex and if you could do that, too.
->>
->> Originally I did not want to include bigtcp to keep it apples to apples:
->> same tso size, just 16 frags in skb vs 1 (in ideal case).
->>
->> I just tried running mlx5 with 45 frags configured and it fails to start with
->> the following error:
->> mlx5e_attach_netdev() warns "MLX5E: Max SQ WQEBBs firmware capability: 16, needed 23" and returns -EIO.
->>
->> (fwiw quick review with llm claims that mlx5 only supports up to 20 skb frags)
->>
->> What I also tried just now is `gso_max_size 524280` (on top of this series)
->> and it ups single flow throughput from 200Gbps to 240Gbps (presumably
->> by making the receiver go faster with 512K TSOs vs 64K TSOs) and halves
->> the sender softirq..
->>
->> I hope this gives you more data, not sure running with 20 frags is worth
->> it (vs 16)? LMK if you disagree or want me to run something else.
+Hello Nicolai,
 
-Thanks, the above is quite exhaustive :)
+On Sun Nov 15, 2026 at 8:40 PM CET, Nicolai Buchwitz wrote:
+> On 13.11.2026 18:32, Th=C3=A9o Lebrun wrote:
+>> GEM has registers to configure the Tx SRAM segments distribution across
+>> queues. The reset value is apprioriate (even spread) but we need to
+>> care if/when number of active queues is modified (or if we inherited
+>> unevenly initialised hardware from bootloader).
+>>=20
+>> To distribute segments, we take as input the number of queues
+>> (ctx->num_queues) and the number of segments (found inside DCFG6).
+>> Its output is a number of segments for each queue, formatted as
+>> powers-of-two (eg 2 for queue 0 means it has 2^2=3D4 segments).
+>>=20
+>> Signed-off-by: Th=C3=A9o Lebrun <theo.lebrun@bootlin.com>
+>> ---
+>>  drivers/net/ethernet/cadence/macb.h      | 14 ++++++
+>>  drivers/net/ethernet/cadence/macb_main.c | 76=20
+>> +++++++++++++++++++++++++++++++-
+>
+>> [...]
+>
+>>  static void macb_init_hw(struct macb *bp)
+>>  {
+>>  	u32 config;
+>> @@ -3465,6 +3522,20 @@ static void macb_init_hw(struct macb *bp)
+>>  	if (bp->caps & MACB_CAPS_JUMBO)
+>>  		bp->rx_frm_len_mask =3D MACB_RX_JFRMLEN_MASK;
+>>=20
+>> +	/* Distribute Tx SRAM segments evenly based on active number of=20
+>> queues.
+>> +	 * TXQSEGALLOC is only documented for some GEM integrations.
+>> +	 */
+>> +	if (bp->caps & MACB_CAPS_TXQSEGALLOC) {
+>> +		unsigned int num_segments;
+>> +		u32 val;
+>> +
+>> +		num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE,
+>> +					       gem_readl(bp, DCFG6));
+>> +		val =3D gem_sram_distribute_segments(bp->ctx->num_queues,
+>> +						   num_segments);
+>> +		gem_writel(bp, TXQSEGALLOC_LOWER, val);
+>
+> This only runs on open, not on a context swap. So ethtool -L on a
+> running interface keeps the old split until the next down/up?
 
-> Fun fact, also setting gro_max_size on the receiver gets line rate over
-> single flow:
-> 
-> I   client.c: Connected 1:cpu 39 | 1:cpu 118
-> client: == Source 2401:db00:255a:4a:bace::b
-> client:   Tx389.448 Gbps (2921248849920 bytes in 60008026 usec)
-> client:   Rx  0.000 Gbps (0 bytes in 60008026 usec)
-> client:   TCP retrans reord rtt rttvar d_ce snd_wnd cwnd
-> client:             2   125  86      2    0 15300608 10142
-> client:   net CPU 39: usr: 0.03% sys: 0.06% idle:67.39% iow: 0.00% irq: 5.69% sirq:26.81%
-> client:   app CPU 40: usr: 0.05% sys: 2.91% idle:95.67% iow: 0.00% irq: 0.21% sirq: 1.14%
-> client: == Target 2401:db00:255a:44:bace::b
-> client:   Tx  0.000 Gbps (0 bytes in 60009306 usec)
-> client:   Rx389.438 Gbps (2921238435008 bytes in 60009306 usec)
-> client:   TCP retrans reord rtt rttvar d_ce snd_wnd cwnd
-> client:             0     0 210    122    0  999424   10
-> client:   net CPU118: usr: 0.00% sys: 0.00% idle: 1.60% iow: 0.00% irq: 0.33% sirq:98.05%
-> client:   app CPU119: usr: 2.75% sys:77.46% idle:18.95% iow: 0.00% irq: 0.47% sirq: 0.34%
-> 
-> 4200MTU, 32K rx-buf-len, this patch series, gso/gro_mas_size of 524280,
-> still the default number of frags (enough on rx to fill 512K GRO with 32K
-> chunks).
+Agreed! How I'll solve this:
 
-That looks just great!
+ - Make gem_sram_distribute_segments() self contained: it does the
+   bp->caps check, figures out num_queues+num_segments on its own and
+   does the writel(val, TXQSEGALLOC_LOWER) at the end.
 
-FTR, my understanding is that Jakub wants to say his last word here, so:
+ - With that, we can call gem_sram_distribute_segments(bp) once at
+   macb_init_hw() and once at swap_end.
 
-Acked-by: Paolo Abeni <pabeni@redhat.com>
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
