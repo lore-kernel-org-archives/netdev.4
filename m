@@ -1,61 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794951587;
-	b=49JKZtlESIvF6EM7tI4vZ1zFldDAxo8dLDLMTVkhtZoPtZi1zr7ye/sNkai2399EUOrG
-	 p5uehfkeRQjM/Y6aIjZKAToQY3WbQK9i4X324CAm7N3hoHQfNJ4Ef/tO3SvnaNkRkequQ
-	 9xejwCwa8NdkIP0lO9IB1wFRyxub5bE0S6bZ3wePVnCLjVEFq0I5tt+49VJiL/03voKMl
-	 ReYaCQoVujEL/Hj1LWv3ian5hgyLBYsBpPO5TRvSXa8gUiY6r9KTyq8VlKw+TSjLNF4Qt
-	 XcE/iVPZAF+MgsgbHXIKbg0HiwP2p5IqnFYA/vrusAf8CYReOE3QnpbvBOTXbQQaRFQ==
+	t=1794952324;
+	b=y43EV1VFQq/l3vZxvvvK4YAx96AvFXIonvSI9R0UpDHmGhrjoZwn94rocvEtac70mrqf
+	 8tnG7Z88qZPEusGjlzvwm4E5wQfOv2lvmHg3zNEJ8GtRVcGT1+koDeKV6FY5mrsvfGhB6
+	 d9U3oghTNhB6Pj4pb1FovdYERVaCxg8Dna+TEdUU/2A0TvW/cmz3AvjMW9A60dp0WjBL8
+	 BW2lMDDtSCj9BcWxy/A0wfoWSgC4pKSb7GjStBLDGn/MFDHhrua57RXCku3ktQziFzWlT
+	 GziZsvC6hwtuyuC1AXQhCe+W5fl2lf9NFqQrkVVb5020p9mpCPRTr7xfaaft2wz5/Tw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794951587;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=nYYC2xC8vF6voVEKyIhR0QplX4ecu6RMdRgEFOEfxB8=;
-	b=h1DJ7mEFLFsiqvoArGgjKmsxS7VVhGsrGLkWXQGO0lp17EmXw+HNPkUXp3KeMALLOc8B
-	 acrXqvYiNH01PzmDMR0yGd3HbcmbfvHAdeRzKcCApJQ9UNUQWmESaexqg9Cornfr3CQEK
-	 0TVf8F/pqdSWO0ZwB4xHlDu8bmWNp+M/oF8FagLDRgV3pkZwzss1ghCEqIFkWvCoaQH7t
-	 FktpYbaX+isAC1FbJqyg4AwftCEBH8vWhGfpMEM4NlfxgWH1Na6FrCsM26gcyS6FC4+zn
-	 GUCEC35Nn/A6Ml8EU0+ezfewUaYK3v+sH/zaIFCp7TsTSBByW0JacpYSA/SnCHr4SsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794952324;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=1qwGms5hMR2ux4q7/I/Tiy8y6p3Q9O52I2CVtKqKrq4=;
+	b=W0w5WAld1Ezi1aAoxeA1C974h/n99LYUr6u02kz3AWjATFOj3x7K5CSwGkqYN1v+rglr
+	 9N5VZfJBzE7wTMtXN+URouzEsThrcpY/nMqtADPEYir1ljpn/IZHRTozYYlqSyXX1rVaI
+	 xA0evxTiVthyBn48u/H4xBxdwSYXtnJQaRBqXL5BWLyHtsRWs4bqhGB5yWT41ekuqicES
+	 vpmSXT4mV5a0VxjAhuMltyRXF/zywR/BySt1kpvRR3FORwVvoiB7lXlBNDPdp+Gakfjga
+	 ZEpOsHhMSRbWhymvL+h+H/2THOy9J67u96QhjFp541R6hBlRNW4ZJFtHY30zIz+77Dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eNfibGzj;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=udPMbES0;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DFC6606A31C;
-	Tue, 17 Nov 2026 21:39:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2886F606A32A
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 21:52:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2886F606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eNfibGzj
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FF0E1F000C4;
-	Tue, 17 Nov 2026 21:39:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794951587;
-	bh=nYYC2xC8vF6voVEKyIhR0QplX4ecu6RMdRgEFOEfxB8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=eNfibGzjDdrNQm474gUXgsB/rV1VrvwV805LTYqiMBbBcMO23M9bdn608QvWBUNxo
-	 KPSc3xqtQ1oJhw0cSHFAwACLi2QAtFdDB5PDGt9isWeHncIi3U+H5vIQ6TnmUpFNaO
-	 9t+YyUYqra/h65BafwYt8Dr4x+ZRQPI+H6Q+9AxdSKRjlAu+PrRw8476kFtowltKfO
-	 L3wtNR60pkvPtDnS8l/P6+EyjakotcTPdRnoDoTtnwka1jcJozduHb889nsYQfzyRX
-	 8hZfK5XySnV3WRDYn+oBRILZSoZmlDn7w8qQxYbTivrYwW8DRDecj8TRLlbO2dyuP9
-	 KE76K+vg1qj9Q==
-Subject:
- Re: [PATCH net-next 3/3] net: mdio: mdio-bcm-unimac: Add Clause 45 support
-From: netdev-bot+sashiko@kernel.org
-To: florian.fainelli@broadcom.com
-Cc: netdev@vger.kernel.org, carlos.soto@broadcom.com, justin.chen@broadcom.com,
- opendmb@gmail.com, nb@tipi-net.de, bcm-kernel-feedback-list@broadcom.com,
- andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org, kudzo51@gmail.com
-Date: Tue, 17 Nov 2026 21:39:45 +0000
-Message-ID: <179495158559.3136.13854046342906426133@kernel.org>
-In-Reply-To: <20261113211554.2058181-4-florian.fainelli@broadcom.com>
-References: <20261113211554.2058181-4-florian.fainelli@broadcom.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=udPMbES0
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-381f65e4e4bso624240eec.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:52:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794952322; x=1795557122; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1qwGms5hMR2ux4q7/I/Tiy8y6p3Q9O52I2CVtKqKrq4=;
+        b=udPMbES0S0UI5JNlspXvnRXGLvL+W2zq0yiU1w96P37k5Clj8PLIHs74era0RAU0Ck
+         hxRFnHVeaE1+K46NXpoMDEBiOQN/jbrobcU5NvTyPHLWcBaeZ9WOZBsY3pWYImVnK1l/
+         Tz5SAWxpqn/9xRjvU+94p5aXsYnx1riQgoEdSjoPMC7+epTrL4hPPk7UGIoGiyMVNFdb
+         qo5xaFet9hI6c8jd4rUhZpd6duPUY/0wB8iRajlAOC62OMBievQT89txsk3+q/fUv9+c
+         8/1IDUj/+gx+Q5KvRQ+7UwJVQHznrEP1SfY8LzaZLCQWEf3256bjNMGf1Se7W/eHIxMu
+         NAXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794952322; x=1795557122;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1qwGms5hMR2ux4q7/I/Tiy8y6p3Q9O52I2CVtKqKrq4=;
+        b=EDUkjWT9Z3K6sZBJidSKZT9C+Zt0MMyUlgocJl3tjhHBwtthwbf7Kw+KLZWSbEcrot
+         inq1/KJlOU4vgJm9yRAtU32MHcRq6HPjyRzQEG/2sTBCR5BQ/Oxq1GCiTRdpDk1F/1oR
+         Oj8lsT4yxHCP4OlZmEDTDd4CNrBxzMSTo2jRCspOPDtCTtVpiUl8DNLKzVUY6tc8O87m
+         0KbnqUzFWv1rsJTS2hueYWJow4Fin2Q6UoP8p1EyjR2xubAKtUGv9ApGGPqiA5WWvpXv
+         3xmHSGMYKan1zOMFswYyE2Fjt6OHEt+jyQSSmxFNpUoY6ih6vWcV357a3G0VOaYAaYij
+         qPUA==
+X-Forwarded-Encrypted: i=1; AL+hErGwyn89hwyX+eDVeL3kvEE8uhQBVHXLgQLZ2UyLw1vQaaIj1rk7CuTV0PFHcPGuVPpTf23uAY0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8pn0hP/KT3d1OTOZ78dFMUUuvkFKtYkrR+uq2lu4Re0wXYvOZt
+	8gx57TK7LMlUhzuKaIK2YtetUjm3MtqCB9ybPRu0tqYQMnO7E6RbKzPx
+X-Gm-Gg: AZFdTZelUnMnGHvj6xKiIwJi9QRZqaH7y/nbHpWJ6oIKulkGyhP1KfARMnDjMKeLDkC
+	kedoP/Xw6PAJfUGo+NafwFhQVf9DT/wB8oRx2wxpn7qAxR8GxOdy/25sxJ4U/AtW0bVzVXWccdE
+	uIuqGRbB0BKtEG9lydApDtDhmnv+Rhq1wIZOeCNifQ1Qr0uuk/FVAmnRCH+m1CKqumtQFUpUfbN
+	pkfSkArzwzBqelrrpDcu7AfcKRwxsYxEmpVSZJoT4dcbfAP9EfNruVDdOhMLx8/j34YRqO8HAxm
+	pUp5AFlT8svz97gmwqpk9mT30CYIanSPKdMT6Q6q9IKC/839wTCZOheS1/kvJHcFzZdGPOaQmY3
+	I/dSu1EmHszQaoDL6ViwOa85VlILJpCElNQEAfZEwfzIR3rcWsr4vQx9FgaBmWs3T/ubD59qQ0C
+	irWiYkAAsoUCXaKAr+7eBxb/Z4NvlMZh9brW0Epy2zkq2WeY/nARVfuHaIqNEbtQ2JsmX3gaG1v
+	DAOVO7LqJWVYX2k6QDyhNewoSoWFbP7pjiMIs3IKWBlQclSCAS4/nOR7zxHOpVgMPlBqJryVYyP
+	iGLUMFQvrz5hBDNaUitURqw6nm8GX8uRyovEjJxtgGfXAVVBAcrjdu2djiahqO8uNi0=
+X-Received: by 2002:a05:7301:da17:b0:378:314:402c with SMTP id 5a478bee46e88-382814260bamr585440eec.28.1794952322062;
+        Tue, 17 Nov 2026 13:52:02 -0800 (PST)
+Received: from ?IPV6:2620:10d:c085:21d6::11c9? ([2620:10d:c090:400::5:bd16])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a4522829sm852730eec.1.2026.11.17.13.52.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 13:52:01 -0800 (PST)
+Message-ID: <09ae2064-38ff-4d25-83e5-0ac4c3eb1658@gmail.com>
+Date: Tue, 17 Nov 2026 13:52:00 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,228 +92,137 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: mlx5: Allow police as the last action of a
+ TC rule
+To: Mark Bloch <mbloch@nvidia.com>, netdev@vger.kernel.org
+Cc: saeedm@nvidia.com, leon@kernel.org, tariqt@nvidia.com,
+ cjubran@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org, idosch@nvidia.com
+References: <20261117031337.4126403-1-mohsin.bashr@gmail.com>
+ <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
+Content-Language: en-US
+From: Mohsin Bashir <mohsin.bashr@gmail.com>
+In-Reply-To: <82d9959a-8176-4433-94a4-ff72445306ca@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 1
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 11/17/26 11:18 AM, Mark Bloch wrote:
+> On 17/11/2026 5:13, Mohsin Bashir wrote:
+>> From: Mohsin Bashir <hmohsin@meta.com>
+>>
+>> In switchdev mode, mlx5 offloads police only when other actions follow
+>> it. TC needs no extra action for a police-only rule to work. The mlx5
+>> driver makes every police rule forward to the post meter table, but for
+>> a rate police it adds that forward only after verify_attr_actions() has
+>> checked the rule, so the check rejects it. The ok result of police is
+>> also handled as pipe. In TC, ok accepts the packet and ends the action
+>> list, whereas mlx5 goes on with the actions after police.
+>>
+>> Support police as the only action of a rule. Set the forward while
+>> parsing police, as is already done for police with mtu, and forward
+>> an ok result to the end of the TC chains, as the driver does when it
+>> offloads the gact ok action. The upcoming selftest series also relies on
+>> such rules for TC offload validation.
+>>
+>> The patch was tested on a ConnectX-7 in switchdev mode with the command
+>> below, and it was verified that the rule is offloaded and limits the
+>> matching traffic to the configured rate, using the hardware drop counter.
+>>
+>>    tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>>      ip_proto udp dst_port 5201 \
+>>      action police rate 100mbit burst 1m conform-exceed drop/ok
+>>
+>> Cc: Carolina Jubran <cjubran@nvidia.com>
+>> Signed-off-by: Mohsin Bashir <hmohsin@meta.com>
+>> ---
+>>   drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c | 3 ++-
+>>   drivers/net/ethernet/mellanox/mlx5/core/en_tc.c            | 3 +++
+>>   2 files changed, 5 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> index 1bd1c94fb977..52295f5d644c 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc/act/police.c
+>> @@ -94,13 +94,14 @@ tc_act_parse_police(struct mlx5e_tc_act_parse_state *parse_state,
+>>   		      MLX5_FLOW_STEERING_CAP_MATCH_RANGES))
+>>   			return -EOPNOTSUPP;
+>>   
+>> -		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>>   		attr->flags |= MLX5_ATTR_FLAG_MTU;
+>>   	} else {
+>>   		attr->action |= MLX5_FLOW_CONTEXT_ACTION_EXECUTE_ASO;
+>>   		attr->exe_aso_type = MLX5_EXE_ASO_FLOW_METER;
+>>   	}
+>>   
+>> +	attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+> 
+> This makes every police that is the lact action pass verify_attr_actions()
+> not only ok case described.
+> 
+> what happens with:
+> "police ... conform-exceed drop/pipe"
+> with this not writes to FTEID_TO_REG so what happens once a packet
+> reaches the port action table?
+> 
+> also what about:
+> tc filter add dev eth0 ingress pref 100 protocol ipv6 flower skip_sw \
+>      ip_proto udp dst_port 5201 \
+>      action police rate 100mbit burst 1m conform-exceed drop/pipe \
+>      action police rate 100mbit burst 1m conform-exceed drop/pipe
+> 
+> won't this create a loop?
+> 
 
-- [High] This patch sets bus->read_c45 unconditionally.
-- [Medium] In the new two-cycle C45 sequence, the only completion check
-  for the ADDR cycle is the return value of priv->wait_func().
-- [Medium] MDIO_CFG now has two read-modify-write paths that share no
-  lock.
-- [Low] C45 callbacks and the MDIO_CFG clause switch are turned on for
-  every compatible in unimac_mdio_ids: brcm,asp-v3.0/v2.2/v2.1-mdio,…
+Thanks for reviewing Mark.
 
---
+Ahh! I missed the loop case. I had a patch to handle pipe on the last 
+police but I dropped it, since my testing showed the post_act table 
+still passed the packets up. Let me respin and send pipe and jump on the 
+last police to the end of the TC chains. Would that work in your opinion?
 
-net: mdio: mdio-bcm-unimac: Add Clause 45 support
+>> +
+>>   	return 0;
+>>   }
+>>   
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>> index 1d35c97aea0b..8685e41487f3 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+>> @@ -3892,6 +3892,9 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
+>>   		attr->action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+>>   		break;
+>>   	case FLOW_ACTION_ACCEPT:
+>> +		attr->action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+>> +		attr->flags |= MLX5_ATTR_FLAG_ACCEPT;
+>> +		break;
+>>   	case FLOW_ACTION_PIPE:
+>>   		err = set_branch_dest_ft(flow->priv, attr);
+>>   		if (err)
+> 
+> This also changes rules where police is not the last action.
+> The conform result defaults to ok when it is not given.
+> 
+> action police rate 100mbit burst 1m conform-exceed drop \
+>          action mirred egress redirect dev eth2
+> 
+> 
+> won't with this change the conforming packets go to the tc end table
+> and not to the redirect dev?
+> The rule is still reported as offloaded and installs the redirect
+> which can't reached now.
+> 
 
-This commit adds Clause 45 read/write callbacks to the UniMAC MDIO driver.
-Each C45 access issues an ADDR cycle followed by a READ/WRITE cycle, and
-MDIO_CFG is switched between C22 and C45 mode as needed. The BMSR
-workaround read in unimac_mdio_reset() is also skipped for children
-compatible with "ethernet-phy-ieee802.3-c45".
+Maybe I am missing something here, but when the conform action is not 
+given, doesn't it default to ok? For example, if we have
+   action police rate 100mbit burst 1m conform-exceed drop action drop
+shouldn't conforming packets still be pushed up rather than dropped by 
+the following action, making the action drop (or the action mirred) dead 
+code?
 
-> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-> index df267bb826966..6059b32580c54 100644
-> --- a/drivers/net/mdio/mdio-bcm-unimac.c
-> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
+> Mark
+> 
 
-[ ... ]
-
-> @@ -96,7 +102,43 @@ static int unimac_mdio_poll(void *wait_func_data)
-
-[ ... ]
-
-> +static void unimac_mdio_set_clause(struct unimac_mdio_priv *priv, bool is_c45)
-> +{
-> +	u32 cfg = unimac_mdio_readl(priv, MDIO_CFG);
-> +	u32 new_cfg = cfg;
-> +
-> +	if (is_c45)
-> +		new_cfg &= ~MDIO_C22;
-> +	else
-> +		new_cfg |= MDIO_C22;
-> +
-
-[Severity: Low]
-Do all of the IP revisions in unimac_mdio_ids support the MDIO_CFG clause
-bit and the C45 opcodes (ADDR=0b00, READ=0b11)?
-
-The C45 callbacks and this MDIO_CFG read-modify-write are now enabled for
-every compatible: brcm,asp-v3.0/v2.2/v2.1-mdio, brcm,bcm6846-mdio,
-brcm,genet-mdio-v1..v5 and brcm,unimac-mdio. They are also enabled for the
-non-DT GENET pdata instantiation. Nothing gates this per compatible through
-match data, and unimac_mdio_set_clause() also runs on every C22 access.
-
-If a revision lacks C45 support, C45 accesses would put undefined frames
-on the bus. Those accesses can come from the core C45 scan on an unmasked
-bus or from SIOCGMIIREG with a C45 phy_id.
-
-Could the commit message say whether all of these revisions implement C45?
-
-> +	if (new_cfg != cfg)
-> +		unimac_mdio_writel(priv, new_cfg, MDIO_CFG);
-> +}
-
-[Severity: Medium]
-Can this read-modify-write of MDIO_CFG race with unimac_mdio_clk_set()?
-
-unimac_mdio_set_clause() runs under bus->mdio_lock. unimac_mdio_clk_set()
-writes the same register with no lock held:
-
-unimac_mdio_clk_set() {
-    ...
-	reg = unimac_mdio_readl(priv, MDIO_CFG);
-	reg &= ~(MDIO_CLK_DIV_MASK << MDIO_CLK_DIV_SHIFT);
-	reg |= div << MDIO_CLK_DIV_SHIFT;
-	unimac_mdio_writel(priv, reg, MDIO_CFG);
-    ...
-}
-
-It is reached from unimac_mdio_resume() after the bus is registered.
-Before this patch, bus accesses never wrote MDIO_CFG.
-
-The GENET parent resumes first. bcmgenet_resume() calls
-phy_start_machine() (or phy_start() through bcmgenet_netif_start()). With
-mac_managed_pm set, the PHY state machine work can then issue MDIO
-accesses while the child unimac resume is running clk_set.
-
-Two interleavings look possible:
-
-(a) clk_set reads cfg, set_clause flips MDIO_C22, then clk_set writes
-back the stale clause bit. The next ADDR and data cycles go out in the
-wrong framing. For example, a WR_C45 becomes a C22 write of val to
-register devad.
-
-(b) set_clause reads cfg, clk_set writes the new MDC divider, then
-set_clause writes back the old divider. The restored MDIO clock frequency
-is lost until the next resume.
-
-This needs a "clock-frequency" property, otherwise clk_set returns early,
-plus mixed C22/C45 traffic so that the clause bit actually changes.
-
-[ ... ]
-
-> @@ -107,8 +149,19 @@ static int unimac_mdio_read(struct mii_bus *bus, int phy_id, int reg)
->  		return ret;
->  
->  	/* Prepare the read operation */
-> -	cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> -		(reg << MDIO_REG_SHIFT);
-> +	unimac_mdio_set_clause(priv, is_c45);
-> +	if (is_c45) {
-> +		ret = unimac_mdio_addr_c45(priv, phy_id, devad, reg);
-> +		if (ret)
-> +			goto out;
-> +
-> +		cmd = MDIO_RD_C45 | (phy_id << MDIO_PMD_SHIFT) |
-> +			unimac_mdio_c45_devad(devad) |
-> +			(reg & MDIO_C45_REG_MASK);
-> +	} else {
-> +		cmd = MDIO_RD_C22 | (phy_id << MDIO_PMD_SHIFT) |
-> +			(reg << MDIO_REG_SHIFT);
-> +	}
->  	unimac_mdio_writel(priv, cmd, MDIO_CMD);
-
-[Severity: Medium]
-Is the ADDR cycle guaranteed to have finished before MDIO_CMD is
-overwritten here?
-
-The only completion check is the return value of priv->wait_func() in
-unimac_mdio_addr_c45(). For GENET-instantiated buses, that is
-bcmgenet_mii_wait():
-
-bcmgenet_mii_wait() {
-    ...
-	wait_event_timeout(priv->wq,
-			   !(bcmgenet_umac_readl(priv, UMAC_MDIO_CMD)
-			   & MDIO_START_BUSY),
-			   HZ / 100);
-	return 0;
-}
-
-It returns 0 even when the wait timed out with START_BUSY still set. With
-HZ=100, HZ / 100 is a single jiffy. That can expire well before a ~25 us
-MDIO frame completes, and the same happens if the MDIO_DONE interrupt is
-delayed.
-
-In that case unimac_mdio_addr_c45() reports success while the ADDR frame
-is still in flight. unimac_mdio_do_read() and unimac_mdio_do_write() then
-write the RD_C45/WR_C45 command and set START_BUSY again without checking
-that the controller is idle. Could this corrupt the frame, return data
-from an incomplete read, or send a C45 write to the wrong register?
-
-bcmgenet_mii_wait() behaves this way independently of this patch. What
-this patch adds is the dependency of the data cycle on the ADDR cycle.
-The "if (ret) goto out" after the ADDR cycle can never trigger on GENET
-buses.
-
-[ ... ]
-
-> @@ -301,6 +390,8 @@ static int unimac_mdio_probe(struct platform_device *pdev)
->  	bus->parent = &pdev->dev;
->  	bus->read = unimac_mdio_read;
->  	bus->write = unimac_mdio_write;
-> +	bus->read_c45 = unimac_mdio_read_c45;
-> +	bus->write_c45 = unimac_mdio_write_c45;
-
-[Severity: High]
-Can setting read_c45 unconditionally make bus registration fail on the
-non-DT GENET path?
-
-With read_c45 set, __mdiobus_register() runs mdiobus_scan_bus_c45() on
-every address that is not masked and has no C22 device. On an empty
-address, a C45 read sets MDIO_READ_FAIL, and unimac_mdio_do_read()
-returns -EIO:
-
-	if (!(bus->phy_ignore_ta_mask & 1 << phy_id) && (cmd & MDIO_READ_FAIL)) {
-		ret = -EIO;
-		goto out;
-	}
-
-get_phy_c22_id() converts -EIO to -ENODEV. get_phy_c45_ids() does not:
-
-	phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
-	if (phy_reg < 0)
-		return -EIO;
-
-mdiobus_scan_bus_c45() then aborts on any error other than -ENODEV:
-
-	if (IS_ERR(phydev) && (PTR_ERR(phydev) != -ENODEV))
-		return PTR_ERR(phydev);
-
-On the non-DT GENET path, bcmgenet_mii_register() does:
-
-	if (dn)
-		platform_device_set_of_node(ppdev, bcmgenet_mii_of_find_mdio(priv));
-	else
-		ppd.phy_mask = ~0;
-
-That leaves bus->phy_mask = ~pdata->phy_mask = 0. With np == NULL,
-of_mdiobus_register() calls __mdiobus_register() directly, so all 32
-addresses are scanned.
-
-The C45 scan starts at address 0. With a PHY at address 1, as on ACPI
-systems such as RPi4 BCM6E4E, the first empty address returns -EIO.
-__mdiobus_register() then removes the C22 PHYs it already found, and
-unimac_mdio_probe() fails with "MDIO bus registration failed". The MAC
-is left without a PHY.
-
-DT-described buses are not affected, because __of_mdiobus_register()
-forces phy_mask = ~0.
-
-Should C45 read failures on empty addresses be reported as -ENODEV (or
-0xffff) instead of -EIO, or should the C45 callbacks be limited to buses
-where the scan is masked?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113211554.2058181-1-florian.fainelli%40broadcom.com
