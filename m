@@ -1,86 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794942580;
-	b=asVmzxRpfbVK4lriCniN65F56N0D8ml95KUAj2FwUewRtDz7MK9s28e+iBvt1GpLONaR
-	 0EW0SNcVv3ARn0eg4riFk5HCuIdA803VX5mjFgjbTbc3IfEnj5fkfwHZonTQSzfcwB0xO
-	 3iaLbKJ3HzI8o5NhHL2+sp+GTNgTws+udy+mrttkHmnCCI8Uz14WoLscavYlavbRJYDKC
-	 Gh65Yx9pyd6cbHla1HDAEHjrxtNLH4ZVb1Wb/fb2WkqmZscHstOFOwS+5MWIVP6JXMItX
-	 y/CSGx70gSm8s5FtZs8Qxd1t8v5J/IkSX6XgqsgFplLF0Q+1U3L0A9hTj+MftgmP+xw==
+	t=1794942723;
+	b=4/seDuKMh9H/f+C/j7AX98hoRaxPJ2CmVvkZlN/LSJFwRmgllkMxddKcrqaqoPZ1MkuG
+	 eb+kx8j/L/Pu/oWpnFl54AMDAa/sXz9Otb5c+TBNNKA0lrdDXJyoB33/AjZ4yYz9UJ8GU
+	 txr6TeeAGnKwOXBWD+izujXMKloNZqPojl7k2twyDc5lC0S/9q/Qi07B1G5xtCdSwUJCo
+	 nzTLxVMwqrHQ08uwXNFH7gaXjTlRwCWPfJ1Wmkq9Zcl2eCKOias7HZPWQs5Q/I9d7O6B9
+	 vaphSaQmmFzMSjzpfEJcqJc//zJs2D1R09iDjoHuMBUR0bMr5CHjzHS0KaRHER0K9jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794942580;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794942723;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
 	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
 	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=+aYf8g41eVpT0waLNALL3a30OTIwyYVnd0XINX9JXbw=;
-	b=fBJ0J2hBBY4aJ+Nh5ji4MKQ7dQdwo3qagfpzxXJplqW3Uv2ESEgayTLWd8/PItdsjk0F
-	 /rb5cqhVqCgn2GhM+d3Fjyo59Kg4qXfcDhLgxzfbF+r0L1RnRfn3ENOdbWlxJ8sjoP4nd
-	 uTLeSkySxBcIpe5p1q9gAg7cqfrNfSTKF10xt15phMvrR7teGQKsgLNqhCA4yIxZm0cGQ
-	 wbeLLh+30q/nc1tHw6QU5/oeSwCXANafWDwM2xKVf/wZoMj/Vf5mWgDIYbjKDhv8xqzHH
-	 Y+4yadsYrZCvcsupEE4Jf+lZg7+LmX8mmxcmTHIrzwT/dMLNKg4/cI+NALGHu4v+9TA==
+	bh=bT39nq+rkIX6hcx56sUqmxgqdg9Payqc0fsUYc8anSk=;
+	b=GVfob3Ropq1JjNVvFB1klF1LwJVz89+P/4C//wmrWK0EXdPWtBM/Cmo5/HZSCbFgBKl3
+	 L7iud4TWxAKSRW8cRNCjEX4MsFFWrUze+lVV+ZGXL0RpzNzQVMcdDLHLr/To3axco1PvN
+	 Y7OsgbpPTbKqNiqRa+KIwFRbY+VOTDopskukzJV0aHqMyEEEmmafTcmr8r2gwZO0S58uR
+	 wu6YeA00j428n5s5/hGfA5QE9W7lgB56Ef39jMPURSXp0oCQmZB88y3DMOL8lE+2ZGN3U
+	 i5RV0KmJ8v0ByeTBz1kVnyFxcXUry8LrLCxX0eDnhhD45HaEnucLJslkz1gIA8rWorQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LTrFGvh2;
-	arc=none smtp.remote-ip=209.85.215.177
-Received: from mail-pg1-f177.google.com (mail-pg1-f177.google.com [209.85.215.177])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lYkknru+;
+	arc=none smtp.remote-ip=209.85.216.45
+Received: from mail-pj1-f45.google.com (mail-pj1-f45.google.com [209.85.216.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43C89606A32F
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:09:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43C89606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CC14606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:12:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CC14606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LTrFGvh2
-Received: by mail-pg1-f177.google.com with SMTP id 41be03b00d2f7-cdb15cd8558so131663a12.2
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:09:40 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lYkknru+
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-3b3c9820789so35418a91.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:12:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794942579; x=1795547379; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794942723; x=1795547523; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=+aYf8g41eVpT0waLNALL3a30OTIwyYVnd0XINX9JXbw=;
-        b=LTrFGvh2up8kjBogLk1ZtofYatncwr6QZ2sdT8/epET8mDeNGmKTb219caMjagOQ/R
-         HqyRirJeJR1PjcUZDv0WZwz8DggWHkRljVrdRmNrb9YNTa1e9wUtlueBx/wQHStV5cXJ
-         Lz6SfZzFF0XEF0bJt6sWWm+y2HO7w/sZwJr63eMgnPhFWMIl7VhhBQKxoOuy5AWrk7/V
-         QS2tcp0a9MgB1Itek+FxYHoDJPV1QWg9IRPFx3X7VV0Z88EXxe7yMQYPD4vzVK+fD2GA
-         VqNjnZKz9HSwvBEH84jktD7qXuUgxt0+soidstQT81bfcSVk8PCOyG/fHsAwGH3y1OKM
-         /Ovg==
+        bh=bT39nq+rkIX6hcx56sUqmxgqdg9Payqc0fsUYc8anSk=;
+        b=lYkknru+81p/+aoxpQJlfSE32fNy1p5tv+2ndWpsgBDwv7JlC1GbCRDEW+jD9yYASJ
+         QlGeIGRn42P7sWsTepbKEU27k1VYkS+ap+qINxLXKoROS+quoR2WRwNXa42fxpO1j5uj
+         I2dsObFGtJTRiHmmNX4J2q6rNX4D+uUzunj5kn1W6s8UJuawcsFN7eB1sC3Pr3gm9DMi
+         7xz/Q6XrrJYJGj0DWQH5UJgNJZR8C8IpxPFrF9v0V2r+JXE1SZf0orc7MXqO6fk8+EnN
+         0ht2KDONgU1gIc4t6YdCwtBdr6kCueAX+qpdlULF9VmLyaAbwVll/prLWCMrm4cOJM9q
+         NIEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794942579; x=1795547379;
+        d=1e100.net; s=20260707; t=1794942723; x=1795547523;
         h=content-transfer-encoding:content-type:in-reply-to:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+aYf8g41eVpT0waLNALL3a30OTIwyYVnd0XINX9JXbw=;
-        b=BraqzcOEEBuSBfnj8WIVklDCjZ8fxgw6WlhuANhBqnY83Hm3HajUpBjx24R0/YoLHk
-         smcIDsJyUH9N2xcAzSfWtOiPCpUAeL8z5dhY8bhHaTeQDgVWIOuuTlAxCKnOr0eNS5dJ
-         99w1Da2xRN69F5Z5Qr72hHhv2hbDo4tHUugfQqT0A75ZshDY7/Vn+s1YpKwxS6k0IN6j
-         ZKhL2Q2dNBtO9/9QNwVZnYaPyfEG5DEjzlCNX93lbqYFEUZ8e+i4m4clS7jcBcIYunQb
-         H1Z0OoC212O3mg9eFAbvTh4ibO7ijP9MyI4ok4UFRN5K63vhQntgP7gH2rwmWQ/A1/rj
-         R+lw==
-X-Gm-Message-State: APuU4Z81mJYuzXtOkBY0uEIJkMqjRzHHCA4p6QMjYHf6c9RJEMZLRSjI
-	ct8QBVXZuEcBAiODElJr6MbfdoP0CIFSPVvRcNw4tsQ3mFHKzlb9EmhONtFtsA==
-X-Gm-Gg: AZFdTZd/ZsY9W7CitHBIHmhDd6F564dkDe1k/GYGXGZiwiPD+/gUP9Ao7fi//Jiz6wu
-	P/pSUHBN9CzWfyeY/XgdFlzbNIzoZK/MKAUphm9Wuzx7nVhcHxsCbo/0oJIP17HcS2q9XBgavfv
-	zKtJNVtQs1q6XDaStFKjbElSUFnwFwmQ10D1apQGiLwWNdyrbE1Jm1MbdIBuixLakzQGVkModdp
-	b+unruwP9W13Bo/WAbq/vgogfdctgAmij7D4veNKaPCbaPGFQuAIzgWGzF25kCsCH9tQbu33A0R
-	3Et4w4MzPxH1VFATCLEHrznDUvK+ijaN4/LlZWsuV2PemUfevuHQCTV3Vi5wi+M8wnnMq+guyYq
-	H0N3Zz7yeQuERcElccYCamKPaEBh94ymCjXVtfr8nqAgs5jBt8benmzVZL8A4vXJjYRx1+sqMyq
-	YQ/foWIOmzlMP3Clv9/Eo2gUmFuhOSaW9yyJSofoPEc231hFibPkg3SibjiFS/fVqDpZyIR+pP4
-	Cz9MlZDmA6qLZNrtp8OCfPT1qrxsqKfzUm1ZSTi42LFu1dYILgoqFrtu+XwYCf64I7Yf1/bgbyB
-	yz0bZoEQdICpGewKIBplW1+o8GoLx5xwmIOz3qAUUlHk3c3Xex9Zhi2d
-X-Received: by 2002:a17:90a:d445:b0:3a7:ef4:164b with SMTP id 98e67ed59e1d1-3b3d06873d0mr304059a91.2.1794942579422;
-        Tue, 17 Nov 2026 11:09:39 -0800 (PST)
+        bh=bT39nq+rkIX6hcx56sUqmxgqdg9Payqc0fsUYc8anSk=;
+        b=C1zrHA71a1QPIXhYRSJ/MspymnvqgN5VpNiektfj/XU2sNSvPvcr3JQLzf8YVreFID
+         vLbfF21Bs5UV79ThUq2gILp4zEEY54DmqMG8mW71RGkmjleDHphy86G/2xIm1tIvbciS
+         HNNZK18Gt7J22524NsKsbOK+La7S7Vtm92d9dBHn+IbN/VnG09AuLX/+V67iIfLeG5Ky
+         jtplSe0+9kV+ADh0X8ZUTPI3BB2UNOa4g6P1W4nNfBLVjL6v+XIoPpb1CnN1zgaU9JR8
+         l6KDW4Q3fEtJlRq1/NWpaCva+Q0fZv8ctW/33o2rT5fhgIaAerckPso1oaRbOppxl04s
+         aH8g==
+X-Gm-Message-State: APuU4Z9oznrjMbDfcLGAr5XJUVtDlCudtAChEKb4nq8KyEjJ7e8NasuU
+	Al8Lf1ebcqAbohuS6ZtbibK0FFmtpIbYXQfnsM3GJCUk6hRCyY/r1syy
+X-Gm-Gg: AZFdTZdkJfH+d3d/xf8BGm4OsnLrChH7bRSf0CRFiI6/RlTawk5oQGhsYd/yxVZFePU
+	P+kjkhZggXCB1fLamJjRiyMJmMQHGsNM1ENzoXhIF4F+rzEYYxnGjQnEtzQFvWJ2mucWG7+eaQx
+	wF32Na1dqhdTUzuo4J1JGKU+icvLRLBxR7ILl2+d0vBk9BSLC3awzbKfRfZv6+RJhl6240wiTKz
+	0IEBXRhSFKrwwVN6x5OlvR7gRv7BBJ7Ith3zIdyOTo+QlHbEjFJr1rIuVQCySt38ODKLwbPgd0k
+	SVadeSoooItYDMBNQ1xUgZdw4fIed5L6rDMy/2WmyGZEHrOUDshDCJvLTQPmmE2f0Xf9bc1w4Ra
+	0aUlz1JNSFngqRpVtT6tB4m/RwlpDR2eHAbkSZNJsxgok91XYs835oVHZxSlFi4B/KIEqCdWJXJ
+	YpOSE10hSuy8LI8f5Slu4dlWQ8fqELobxHi8R5IFHt0Y8TKnZfaP3wL9Fdr6qwkOfZ4bl+217Os
+	uYnJDdLToYfyCfcq7Y2LvHDnKGioM7g5WbK5N2Ye+Gi1+WJXpZElN3dSDO98HbaSv5uTNPXLlsQ
+	tLGP4JfHz94YcHUTZJ+soq22svRkZY78PFVSM2dVGrZrnMGykWvIQO9U
+X-Received: by 2002:a17:90b:3f4d:b0:3b3:8094:3228 with SMTP id 98e67ed59e1d1-3b3d07597b4mr329507a91.14.1794942722670;
+        Tue, 17 Nov 2026 11:12:02 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac70ea45sm5191801a91.17.2026.11.17.11.09.35
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac2b5ec6sm5413030a91.10.2026.11.17.11.11.55
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:09:36 -0800 (PST)
-Message-ID: <09116c63-4c6b-440d-914a-e75902dc36ae@gmail.com>
-Date: Tue, 17 Nov 2026 11:09:33 -0800
+        Tue, 17 Nov 2026 11:11:57 -0800 (PST)
+Message-ID: <d6c9b502-abc1-40c5-a3e6-9bebdcdd3933@gmail.com>
+Date: Tue, 17 Nov 2026 11:11:54 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,8 +91,8 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 04/12] net: au1000: report MDIO transaction
- timeouts
+Subject: Re: [PATCH net v2 06/12] net: au1000: assign a valid MAC address
+ without platform data
 To: netdev-bot+sashiko@kernel.org
 Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
@@ -101,13 +101,13 @@ Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
  jeff@garzik.org, danny.kukawka@bisect.de, mugunthanvnm@ti.com,
  sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
  manuel.lauss@gmail.com
-References: <20261112045301.3669532-5-f.fainelli@gmail.com>
- <179483704272.3136.4869685253432664524@kernel.org>
+References: <20261112045301.3669532-7-f.fainelli@gmail.com>
+ <179483704445.3136.5178913144882531268@kernel.org>
 Content-Language: en-US, fr-FR
 From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <179483704272.3136.4869685253432664524@kernel.org>
+In-Reply-To: <179483704445.3136.5178913144882531268@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
 On 11/16/26 05:50, netdev-bot+sashiko@kernel.org wrote:
 > Thank you for your contribution! Sashiko AI review found more severe
@@ -116,65 +116,57 @@ On 11/16/26 05:50, netdev-bot+sashiko@kernel.org wrote:
 > 
 > Low priority / nit picks for your consideration:
 > 
-> - [Low] The patch adds a second timeout exit to au1000_mdio_write()
->    (drivers/net/ethernet/amd/au1000_eth.c), and both exits log the same…
+> - [Low] The commit message overstates how far the bug reaches, and it
+>    carries a Fixes: tag.
 > 
 > --
 > 
-> net: au1000: report MDIO transaction timeouts
+> net: au1000: assign a valid MAC address without platform data
 > 
-> This commit makes au1000_mdio_write() return -ETIMEDOUT instead of
-> reporting success when the MII controller stays busy. It also adds a
-> readl_poll_timeout() check after the write so that a failed final
-> transaction is reported to phylib. The read path now returns -ETIMEDOUT
-> instead of -1.
+> When no platform data is passed, au1000_probe() now calls
+> eth_hw_addr_random(). Before this, the device kept an all-zero dev_addr,
+> and eth_validate_addr() rejected it at open time.
 > 
->> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
->> index 7063f9e5bc7c0..6b2e216a83618 100644
->> --- a/drivers/net/ethernet/amd/au1000_eth.c
->> +++ b/drivers/net/ethernet/amd/au1000_eth.c
-> 
-> [ ... ]
-> 
->> @@ -292,26 +293,27 @@ static int au1000_mdio_read(struct net_device *dev, int phy_addr, int reg)
-> 
-> [ ... ]
-> 
->>   	while (readl(mii_control_reg) & MAC_MII_BUSY) {
->>   		mdelay(1);
->>   		if (--timedout == 0) {
->>   			netdev_err(dev, "mdio_write busy timeout!!\n");
->> -			return;
->> +			return -ETIMEDOUT;
->>   		}
->>   	}
->>   
->> @@ -320,6 +322,13 @@ static void au1000_mdio_write(struct net_device *dev, int phy_addr,
->>   
->>   	writel(value, mii_data_reg);
->>   	writel(mii_control, mii_control_reg);
->> +
->> +	ret = readl_poll_timeout(mii_control_reg, mii_control,
->> +				 !(mii_control & MAC_MII_BUSY), 20, 20000);
->> +	if (ret)
->> +		netdev_err(dev, "mdio_write busy timeout!!\n");
+>> The supported no-platform-data path leaves dev_addr as all zeroes. The
+>> device can register but eth_validate_addr() prevents it from opening.
 > 
 > [Severity: Low]
-> This isn't a bug, but could this message use different wording from the
-> one in the busy wait loop above?
+> Can any in-tree configuration actually reach this path?
 > 
-> Both timeout paths in au1000_mdio_write() now print "mdio_write busy
-> timeout!!". The first one fires before anything is written to the
-> registers. The new one fires after writel() has already started the
-> transaction, so the PHY register may or may not have been changed. From
-> dmesg there is no way to tell which of the two happened.
+> The only in-tree au1000-eth platform devices are au1xxx_eth0_device and
+> au1xxx_eth1_device in arch/mips/alchemy/common/platform.c. Both always set
+> platform_data:
 > 
-> au1000_mdio_read() already uses two separate messages ("read_MII busy
-> timeout!!" and "mdio_read busy timeout!!"). Something like "mdio_write
-> completion timeout" here would separate the two write cases the same way.
+>      .platform_data          = &au1xxx_eth0_platform_data,
+> 
+> au1xxx_override_eth_cfg() is the board override path, used by
+> board-mtx1.c. It copies into the same static structures, so the pointer
+> stays non-NULL:
+> 
+> 	if (port == 0)
+> 		memcpy(&au1xxx_eth0_platform_data, eth_data,
+> 			sizeof(struct au1000_eth_platform_data));
+> 
+> au1000_eth_driver has no of_match_table or id_table. It can only bind by
+> name to the platform devices above.
+> 
+> So dev_get_platdata() never seems to return NULL for an in-tree user. The
+> failure described could only happen with out-of-tree board code that
+> registers the device without platform data.
+> 
+> The code change itself looks correct. It restores what the !pd branch did
+> before 7718f2c27dbd, which only added eth_hw_addr_random() to the
+> invalid-MAC branch.
+> 
+>> Fixes: 7718f2c27dbd ("au1000_eth: use eth_hw_addr_random() instead of random_ether_addr()")
+> 
+> Could the commit message say that only out-of-tree platform code can hit
+> this, or describe the change as hardening? As written, the Fixes: tag may
+> lead to a stable backport for a failure no mainline configuration can hit.
+> 
 
-Sure, that can be improved to be clearer.
+Yes this is more of a defensive change, I will drop it from this series.
 
-pw-bot: cr
+pw-bot: not applicable
 -- 
 Florian
