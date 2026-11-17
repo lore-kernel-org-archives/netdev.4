@@ -1,49 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794876622;
-	b=DGAuNWRaxN0Hh6miSLcnU7qInLOhMeKrm7Xn8wlMnxnaS2R3O9ZaOS6/SGTH8818tXRD
-	 cwHHf6bV4hNFzLbx0nZJxOlZF8+/GEMm2duc+6kND9HhpqNs4YlKi7qztelByx/SSAwhf
-	 cNP2KDk7LfM/Oe57V9pce5lA80VzP5q9FY9zFuntG8J2DMFfiimskVSlPqa7jAb9KvjGJ
-	 I2D2XCQUIJE/ShLSWVilPD7S0eEjo2LuMzsH96acwY97A0f8AqKWfMQbRXDL3KBhsxmOZ
-	 VwjF65r5EM9k4ysnmUOCCtfrFFVREcoAZnXut+gQxZJthjj2J9VxwE0m4IOBSK9c08A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794876622;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=AeWR1ZnJrjv79Z06dCxAT7bcFZY6XtYFN4mmbfPTD6E=;
-	b=UL3ufeUwqjcfJqEW0qdnzCWtW4uUsXA2qNc1ESsZrDbcl5Pk1KXZwSzOiVxL3Nu3dqvC
-	 nXWYbZaNskxj5dfEibqamtjnRgAlZcCPt3G/Vh9mrNKYmhzDsDRrGXiPG+Swg4dQbBcrn
-	 kadvVbzHRUI5eLwD7EqbsmhmZ6PlDXWr6F0f5mdZ8XBoMfbth0k3Amel70Gj+1d0luJFq
-	 ADrCvz5E0GfcNy/UfglnbKrFvIReO0PspLTpg+sQC1S1O/HwjUgxV0+MazObZQ1zZlECi
-	 FNj2BPxt7vW7M+PNTj1jQX0U1bpg9X23pRvMvbp4P6gVlB4/wr6h9s/Wy5j56KMim3w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mSI3wxP9;
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794876855;
+	b=hetYojggvYnM5m/0aJziq7q7vXOiUHcDHCB3Fm0Y6pBFt9IArkJmy4G+Uoqk9rKz7BJQ
+	 DpYejTg147f4dylug0Wymx8Q688ONqyo8I+FMZBVP4qJNlb2eLqCS09Hco/ka8e6I+Gw5
+	 +qkOI8bNYpBIyuFbqP9FsRWwJiRAHZ+XKS5IEKguGiFqXb9ZjF/ZEH2fCQlIyLkuAvoQ1
+	 aLZyAhlTbS09KV2V1xQJDagLaZrEebMvUB2trQL4KYRh6oya0ihZAasOIw6RLuHX+8ROf
+	 FXyoNlfErxAH9/yaLTicquuPOYSI5czYakcnB6+xPCV0Mau3VgdsmHHAykQJAxZX4YA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794876855;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:X-B4-Tracking:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=dbiC7zpOEBQ0UbasPePQNA0/AZ6p919eqPCqdLiBoME=;
+	b=gVrtL+k0YFazdWeGtHOfsHgRMmerSdjpjqv7aV32j29koXZS4EQs+w/qWN92iVtygaeq
+	 2Gi5EOfLeDUwEt+4GRB1d/sxWkSaiOMSu8RaUOe4UU53KX0W+RtAvDleNWWffIllR427z
+	 23qWwE/X/d9uYNeL2crGTo+75Yei5AjRZXPW9qssjAlbGqx6lZSCmQs+nZ2sdgPJfMO50
+	 chg5kniNaoK3m1rrUiENx9Jy1ZBCS5XUZ9OfoTpnRJvWRjMcWZeuIOpcPTrsKH9eUJOzQ
+	 TVz5wNp7fq+c2jaP98+KNPeT2RVgaMRK1YMPofQuY/TJ5TbWOBCclTozzXVcgSGOcFA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cv7oZbB2;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 399C3606A31C;
-	Tue, 17 Nov 2026 00:50:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82845606A330;
+	Tue, 17 Nov 2026 00:54:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mSI3wxP9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF9901F000C4;
-	Tue, 17 Nov 2026 00:50:21 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cv7oZbB2
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794876855;
+	b=CrLUme1iEj4POlCOhQxR7lk5KeaMn1RSyuA3dMY8ZB+qxY3Y/ZQSYDci6Mr5ChRzD0MC
+	 z1KOW81Ctrz0FOapyog+WiEMJJvXLX62+tuAwS02cXmxXxODeCgtCfPGIiCyYmSgbiGjt
+	 q4kND2A5nkimJ3W8FKVn3NXV0yljCH4ACg+xOVBAF3tZThhtKh55FmO0FYv14m75udva7
+	 CydmkRXHJNyZ/tqQ49sTKua42vAtdHaoDR5XBrWpKhqATegcGv0ITJ8y5Ktsp0tM9zZ6n
+	 1fwLbXGWadZGh69ZdkCoLuU0/BJFpvZWGp3MW81c5Xw1Te0YeaSe9DIzNUmxrj2fU9Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794876855;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:X-B4-Tracking:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Endpoint-Received:X-Original-From:Reply-To:
+	 Content-Transfer-Encoding;
+	bh=dbiC7zpOEBQ0UbasPePQNA0/AZ6p919eqPCqdLiBoME=;
+	b=qNfLHbuVIlLztafFxF9tMTK9VfiNrz8TS1uRVDnrlI8BuGGKbq0zQt5TQAY9HbwYM4/C
+	 L9R6tKj8cXBknsqMbkH40eRBKeyJzDh0dq86HPx90dgAxGTPOvFOX4YsaZsMNMP/ZNAJ5
+	 sGtcAghsbfa03wwsuiojMBZOgfOTjsgywDq+vOrjG2MPXi/b6YhNYIgKAcSHrU0g8LEFt
+	 9VQo2VraXTmt0y1fpBy64WYXV0FwB18j89znH33JoS8RtFBx6VErV6RcQT/ICkWwO26X4
+	 ifa0Ri+YmF9BcDzr/JN49TuD0lAc+PekmqNKTds72Nd/HoQijKhppA8mr7ej1uL0bxg==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id 6B27B1F000CC;
+	Tue, 17 Nov 2026 00:54:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794876621;
-	bh=AeWR1ZnJrjv79Z06dCxAT7bcFZY6XtYFN4mmbfPTD6E=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=mSI3wxP9j5dH7LfxN5ShPDI45b65yMytt4Olnr16mxSZfPCTb1UcexTs3JO9pecN6
-	 KcTFbpsDueQVA7jR17/xiPHpLgSOCgIkh95hv75DoJPj+S3kofOJI1rxG4gMRTC2br
-	 OKqDlgj5EqEndehwopqPbNqm+egpxcWLc7+y5znVgISXAGWSZBKs2xs5ggYjucWm9K
-	 gDjfmGw1G5zbRgmsG6HK9F75GqSfJ2GFR+5d0eH/7NSUR+I9XBHRJ+2cOPNRSitnSR
-	 cZnqHciv+LwdfQpje20JUsoxKz+0Ch6/RLWNyRNCy9LVgb3PooGpH3z+zV0AnsGQ7C
-	 2ahPmmo6IKoXQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B439A391AFE7;
-	Tue, 17 Nov 2026 00:50:21 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20260515; t=1794876855;
+	bh=dbiC7zpOEBQ0UbasPePQNA0/AZ6p919eqPCqdLiBoME=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=cv7oZbB2SYxCaLT3rV3TbMtYQvvHyvAyPRxJnR6yFCKKtLhF9bYaZSbjQyZ2dnAT3
+	 Pf+KE5Of9dkevIwZJeGg+4d17tKBm1WwEUuK+QXae59rNULf0mfZ33A+J6WbCZw3O2
+	 bNjIkvA4Sy5HKQ/LBHDrgOGCbV1lZ5Sf0tFL9kHlc0xlvF6JeGnTMzDKslPbnTZ4Xz
+	 RsjkisBxg4V/7LUNrosh6rWFlMYr2Zk/NDaQixnVeNv5Py5UhZyDYk8CHTqvzGjQSn
+	 WZLevzThq148EueRWKnmnLrg50VywnJuEoi8r+QGDPiKEx1IAVX+1kV88XmcRO0wIB
+	 z1fy4V2eyHEnw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id C0AAC4A656;
+	Tue, 17 Nov 2026 00:54:13 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Tue, 17 Nov 2026 00:54:06 +0000
+Subject: [PATCH net v2] net: mdio: mux-meson-g12a: keep the MAC data path
+ when switching MDIO
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,40 +83,178 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [GIT PULL] wireless-next-2026-11-16
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179487662053.265995.6171718418421009808.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 00:50:20 +0000
-References: <20261116122302.1501378-3-johannes@sipsolutions.net>
-In-Reply-To: <20261116122302.1501378-3-johannes@sipsolutions.net>
-To: Johannes Berg <johannes@sipsolutions.net>
-Cc: netdev@vger.kernel.org, linux-wireless@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-g12a-mux-data-path-v2-1-fc56db5973af@iav.lv>
+X-B4-Tracking: v=1; b=H4sIAK6l+2oC/32NTQ6CMBCFr0Jm7RimKn8r72FYDLTCJFpIWxsM4
+ e42PYDL77287+3gjRPjoSt2cCaKl8UmUKcCxpntZFB0YlClqojohhMpxvdnQ82BceUwY3VVPOh
+ hrAfVQhquzjxly9IHWBOgT+EsPizum48i5eqfMxISlkSadX1pqra5C8fzK0J/HMcPQbjRyLYAA
+ AA=
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4841; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=Oka1iBI9vfxsi4AhO3yJ38sooyDgeJia2wLavleLy1U=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDFm/l25o1Wb33sA1P7/WYGdUtIT4ga9nZLmeb3rAPiUoe
+ Y5Php1fRykLgxgXg6yYIsuEQxq3MpZc/evvYf4AZg4rE8gQBi5OAZhIqwfD/zTzR62Lp0xv87za
+ +3b5mhr/Lh7x6js/L78psNGzrHt0SZHhf8WnScJL1tlOCwqYu2ZTdyFjV/f7kOyeUxZaop5nV6S
+ HMwIA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Reply-To: iav@iav.lv
+Content-Transfer-Encoding: 7bit
 
-Hello:
+From: Igor Velkov <iav@iav.lv>
 
-This pull request was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Switching the mux to the internal MDIO bus writes SMI_SRC_MAC together
+with USE_INTERNAL and RX_CLK_EPHY to ETH_PHY_CNTL2. The last two move the
+MAC data path and RX clock to the internal PHY. On boards whose MAC uses
+an external PHY, any access to the internal PHY stops reception until an
+access to the external bus switches the mux back.
 
-On Mon, 16 Nov 2026 13:20:08 +0100 you wrote:
-> Hi,
-> 
-> Here's a chunk of new work, partially I'm sending this now
-> to not build up too much of a queue, but also because it's
-> conflicting with net and I'd like to solve that.
-> 
-> Four files have conflicts, from what my test merge said:
-> 
-> [...]
+phylib suspends and resumes the unattached internal PHY across system
+sleep. stmmac sets mac_managed_pm, and with Wake-on-LAN in the MAC
+phylink_resume() does not start the external PHY, so nothing switches
+the mux back. On ODROID-HC4 (RTL8211F), after suspend-to-RAM with WoL in
+the MAC and an RTC wakeup, ETH_PHY_CNTL2 stays at 0x260 and the MAC
+receives nothing while TX works.
 
-Here is the summary with links:
-  - [GIT,PULL] wireless-next-2026-11-16
-    https://git.kernel.org/netdev/net-next/c/e1dd8486807c
+With the MAC on the external PHY, SMI_SRC_MAC alone is enough to read
+the internal PHY ID (0x0180/0x3301) while RX keeps running; adding
+USE_INTERNAL or RX_CLK_EPHY stops RX.
 
-You are awesome, thank you!
+Set the data path bits only when the PHY the MAC attaches sits on the
+internal bus. Look the PHY up with fwnode_get_phy_node(), as stmmac
+does, so phy-handle and the deprecated phy and phy-device all count.
+
+Fixes: 7090425104db ("net: phy: add amlogic g12a mdio mux support")
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+Tested on ODROID-HC4: three RTC wakeups from suspend-to-RAM with WoL in
+the MAC (ETH_PHY_CNTL2 0x40, RX working), one without WoL.
+---
+Changes in v2:
+- Find the PHY with fwnode_get_phy_node(), as stmmac does, so the
+  deprecated phy and phy-device references count too (Sashiko).
+- Drop the dwmac-rk comparison from the comment and commit message.
+- Link to v1: https://lore.kernel.org/r/20261115-g12a-mux-data-path-v1-1-011dad738698@iav.lv
+---
+ drivers/net/mdio/mdio-mux-meson-g12a.c | 50 ++++++++++++++++++++++++++++++----
+ 1 file changed, 45 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/net/mdio/mdio-mux-meson-g12a.c b/drivers/net/mdio/mdio-mux-meson-g12a.c
+index 71c44385489d..e0acbd3ed383 100644
+--- a/drivers/net/mdio/mdio-mux-meson-g12a.c
++++ b/drivers/net/mdio/mdio-mux-meson-g12a.c
+@@ -12,6 +12,7 @@
+ #include <linux/iopoll.h>
+ #include <linux/mdio-mux.h>
+ #include <linux/module.h>
++#include <linux/of.h>
+ #include <linux/phy.h>
+ #include <linux/platform_device.h>
+ 
+@@ -56,6 +57,7 @@ struct g12a_mdio_mux {
+ 	void __iomem *regs;
+ 	void *mux_handle;
+ 	struct clk *pll;
++	bool mac_uses_internal_phy;
+ };
+ 
+ struct g12a_ephy_pll {
+@@ -149,7 +151,7 @@ static const struct clk_ops g12a_ephy_pll_ops = {
+ 
+ static int g12a_enable_internal_mdio(struct g12a_mdio_mux *priv)
+ {
+-	u32 value;
++	u32 value, cntl2;
+ 	int ret;
+ 
+ 	/* Enable the phy clock */
+@@ -169,10 +171,11 @@ static int g12a_enable_internal_mdio(struct g12a_mdio_mux *priv)
+ 		PHY_CNTL1_CLK_EN |
+ 		PHY_CNTL1_CLKFREQ;
+ 	writel(value, priv->regs + ETH_PHY_CNTL1);
+-	writel(PHY_CNTL2_USE_INTERNAL |
+-	       PHY_CNTL2_SMI_SRC_MAC |
+-	       PHY_CNTL2_RX_CLK_EPHY,
+-	       priv->regs + ETH_PHY_CNTL2);
++
++	cntl2 = PHY_CNTL2_SMI_SRC_MAC;
++	if (priv->mac_uses_internal_phy)
++		cntl2 |= PHY_CNTL2_USE_INTERNAL | PHY_CNTL2_RX_CLK_EPHY;
++	writel(cntl2, priv->regs + ETH_PHY_CNTL2);
+ 
+ 	value |= PHY_CNTL1_PHY_ENB;
+ 	writel(value, priv->regs + ETH_PHY_CNTL1);
+@@ -301,6 +304,42 @@ static int g12a_ephy_glue_clk_register(struct device *dev)
+ 	return 0;
+ }
+ 
++/* The data path follows the PHY the MAC attaches, looked up as stmmac does */
++static bool g12a_mac_uses_internal_phy(struct device_node *mux_np)
++{
++	struct device_node *parent_bus, *mac, *phy_bus, *mux;
++	struct fwnode_handle *phy;
++	bool internal = false;
++	u32 reg;
++
++	parent_bus = of_parse_phandle(mux_np, "mdio-parent-bus", 0);
++	if (!parent_bus)
++		return false;
++
++	mac = of_get_parent(parent_bus);
++	of_node_put(parent_bus);
++	if (!mac)
++		return false;
++
++	phy = fwnode_get_phy_node(of_fwnode_handle(mac));
++	of_node_put(mac);
++	if (IS_ERR(phy))
++		return false;
++
++	phy_bus = of_get_parent(to_of_node(phy));
++	fwnode_handle_put(phy);
++	if (!phy_bus)
++		return false;
++
++	mux = of_get_parent(phy_bus);
++	if (mux == mux_np && !of_property_read_u32(phy_bus, "reg", &reg))
++		internal = (reg == MESON_G12A_MDIO_INTERNAL_ID);
++	of_node_put(mux);
++	of_node_put(phy_bus);
++
++	return internal;
++}
++
+ static int g12a_mdio_mux_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -313,6 +352,7 @@ static int g12a_mdio_mux_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	platform_set_drvdata(pdev, priv);
++	priv->mac_uses_internal_phy = g12a_mac_uses_internal_phy(dev->of_node);
+ 
+ 	priv->regs = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(priv->regs))
+
+---
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
+change-id: 20261115-g12a-mux-data-path-642abdbc7b29
+
+Best regards,
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Igor Velkov <iav@iav.lv>
 
 
