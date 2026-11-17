@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794881889;
-	b=ZV3kDlzzEwSo6b6fh4a8iQy77nh/0PkqysFMtR9N2eb/hc1s+uypuG6cMJ9K+f8rIDWR
-	 r2t20NLpuaOm3zsWLfFbUJ+WMQSU4xAXvIwSHYezC6GdJcw/6Zn72GNaRfU42NSN3ufMX
-	 mN6S8RV3k4WOVxOMpV1ykbnHMzrsC/tevIzLWDs6Mxhe27P3ORfxLCc6Z4msn7n+Pc6dH
-	 nQ5Ka/MQlY3u4FRPmUCf04B6MRrWhkFbgSUvzQuriJcG6OvD1f5GtxmNY50rJUdaKWWsO
-	 bTOkMD0lhO1yH5OCXtY0SY4TqGuAM+uYbKpQKjmx1ySvvEhtRrXPlS/A6ykzRMM4V4Q==
+	t=1794881894;
+	b=FnGvLKnB+W2kXYrAAnv/XrZdg03F0TinV9gVOBAku+7BTMPDZQd/jE56vb1W5mH/oYnZ
+	 Xjihdv+WxAq79+OiRFoUGJ32J5+Cp0qx7P0pPZCD9tj3Qw/ON8TzjGLRYJiwFzNBpr7mC
+	 nha9erFlxtTVh1ogV4iG41wPVRH8/qStKJ/XgryGGS2z9a/pqY87mjfTyMr+5NbVsrtqs
+	 onSNxdfH19aRfHuN3FyA3YlYCmWGuVYD9ZFtd9uZLf6QlcyshSKaKoKuCz9eeNbuF+vfW
+	 +9R/Ck6mj1QRsIPTvtN+gQ9i6f/xPL6M0RemIZ0TxiL+a4PI1ovis3wAT2dKdssJI/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794881889;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794881894;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=mppN7GntlOCaFRrXViro60hi5hqTY4zzMWa9bIunJD8=;
-	b=2DDvY4jz9lekHE8E6uXnMxVPBhyvDKhfp79ooljHXfOKB7WOGvvp/QbIWC7zjaico4Kk
-	 4sUsL7Fs5UF+SnD6xiVX8aF5nP+K/nqq8uYY1wNhtx3Gngl9LFOZvdjW+8XmjODuQYM89
-	 JYFLJS2xtXCnWxhUfh87dAvQoOJM4wb6avhN/n5WwjkFKMSS7hn2EDx5zYkJFa+WjShUZ
-	 a7pWgJJBXiiqk5jXRO6YFvehARq93vSbCKCv3N4p61tSUlgNOgT46+AED3ATT3HB+W/Hq
-	 l6ZkOwu6LT6h+85oOBbQVzZvNRGdzj0xq3w608BE243YDSVj/tTLU+AD2Gio+hgdowg==
+	bh=NcnjKRzqIty6DSvUi988wG09npHOupeuFWZpOtOlzJo=;
+	b=p7p8stlsf/WEnP10MIo43Cw/dvPsCTWHLwOE8/OThLP2HCqoGnreUyUCAMLqSWZmB6zH
+	 muhnBSbep9vXUYnP6cwTjmYks8ql/Gkn6mDZQnIGrpkGPPBiuHf0P4a7Gy3nh1spg3gib
+	 BqtAOLeFvLMX21Hdl12mQ0hstLMa7ik9zC7gWHjfy9atFYGexb/mXyn9XgGuU3EYboPF5
+	 aD0aGYzXdw4W0MvBgg2V+Ira5Ybb3wPrM+W3pH/kfikn+wzuZ+ndHmPQM4FSaZBVeCyXJ
+	 0ETc2/sfrIC4EfiUTM6LgJ/2FA+pso2/uIqggEBGnaBY2u9WGmEh0X6wSfb1u2kTMjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XbORpJKA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V6CTV3wS;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BC94606A323;
-	Tue, 17 Nov 2026 02:18:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 97F4F606A88D;
+	Tue, 17 Nov 2026 02:18:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XbORpJKA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2F81F000C4;
-	Tue, 17 Nov 2026 02:18:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V6CTV3wS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 670EA1F000C9;
+	Tue, 17 Nov 2026 02:18:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794881888;
-	bh=mppN7GntlOCaFRrXViro60hi5hqTY4zzMWa9bIunJD8=;
+	s=k20260515; t=1794881894;
+	bh=NcnjKRzqIty6DSvUi988wG09npHOupeuFWZpOtOlzJo=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XbORpJKAPQt4CDN9QrCWjYpRfqRD8LErIUSZKaEI58Zb4TdDPTRFC9KYxd5QZdpSa
-	 AZrbetMV3gqnmzO+Uz4YGKIlbq5Id50VvYlzgualg5RdmJebvDg/8MNlx96Y6En6XA
-	 uJEf33ubcqG5S3eGteHZG9zuSXZU6Q3t7QRH+Bv3naJU4Sfi7YhoRB4WZPEez0Bgm7
-	 GjouutnMhwvLysKabKJo9QMrgrPbWLn0ESTQ2cu5JMTeyzq/mZd0XV0v0tPxzFVSdI
-	 dwRqWVsBmdW4ZrFUc4m+33M28m/4M3P+VC2qv/DN9M+jqtwbdr1H0e8l42IzuynpbE
-	 BLOG0tgBcgOrA==
+	b=V6CTV3wS09f0lFxHDCayEnBSSkaeazxm3wk6QWIgezC3/I0uf1vCriCMo5tFW8BrB
+	 pdsJMfT0rdBDmYT/gqOyqYULJFyrti7FiOXzWhRiep/QOeBD7LoBGngkfmYUEg6XL8
+	 1kX7L4J986t0fzmK3UglhsYxhMLtVCBYO13qR7Sqkeei/FH0Vb4XujigaVAy5AmQJP
+	 qdTdVvepUpkbOF1IXb8ktbdzsXxei3WSxniUa9zjL7rlo1Jw/2djFwOizGwUJ1nRM0
+	 xxJkk107VQ+PQDLp+IXfd/HwtdjoSTAkgr1LC0dLSSGExOlIS86BrBuq0Ujo6GPnO+
+	 OmNvKCtIqnY3g==
 From: Jakub Kicinski <kuba@kernel.org>
 To: arouhi@sitime.com
 Cc: Jakub Kicinski <kuba@kernel.org>,
@@ -56,12 +56,12 @@ Cc: Jakub Kicinski <kuba@kernel.org>,
 	devicetree@vger.kernel.org,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v15 03/13] dt-bindings: dpll: add SiTime SiT95316 clock generator
-Date: Mon, 16 Nov 2026 18:18:06 -0800
-Message-ID: <20261117021806.2220034-1-kuba@kernel.org>
+Subject: Re: [PATCH net-next v15 05/13] dpll: sit9531x: read DPLL types and pin properties from system firmware
+Date: Mon, 16 Nov 2026 18:18:11 -0800
+Message-ID: <20261117021811.2220116-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261110202607.55744-4-arouhi@sitime.com>
-References: <20261110202607.55744-4-arouhi@sitime.com>
+In-Reply-To: <20261110202607.55744-6-arouhi@sitime.com>
+References: <20261110202607.55744-6-arouhi@sitime.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,163 +76,105 @@ Content-Transfer-Encoding: 8bit
 This is an AI-generated review of your patch. The human sending this
 email has considered the AI review valid, or at least plausible.
 ---
-dt-bindings: dpll: add SiTime SiT95316 clock generator
+dpll: sit9531x: read DPLL types and pin properties from system firmware
 
-This adds a YAML binding for the SiTime SiT95316/SiT95317 I2C DPLL clock
-generators. It covers the XO, reset and interrupt lines, the supplies, and
-the input and output pins, building on dpll-device.yaml. It also adds a
-MAINTAINERS entry for the binding.
+This commit adds prop.c. It reads the DPLL type from "dpll-types". From the
+input-pins and output-pins firmware sub-nodes it reads each pin's label,
+connection type and supported frequencies. It also builds package labels
+for the inputs, the outputs, the XO and the INTSYNC pins, and gives outputs
+with no supported-frequencies-hz a 1 Hz to 1 GHz range.
 
-> diff --git a/Documentation/devicetree/bindings/dpll/sitime,sit95316.yaml b/Documentation/devicetree/bindings/dpll/sitime,sit95316.yaml
+> Read the DPLL type and, for each pin, its label, direction, capabilities
+> and supported frequencies from the firmware node, with defaults for a
+> node that gives none.
+
+[Severity: Low]
+Does this description match what sit9531x_pin_props_get() does?
+
+The direction is not read from the firmware node. It is the dir argument
+passed in by the caller. It only selects which sub-node ("input-pins" or
+"output-pins") sit9531x_prop_pin_fwnode_get() searches.
+
+The capabilities are not read from firmware either. Each pin class gets a
+fixed value: DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE, or 0 for the XO.
+
+The message also leaves out two things the code does:
+
+- It parses the per-pin connection-type property into DPLL_PIN_TYPE_*.
+
+- The getter writes sitdev->ref[index].freq, using the first
+  supported-frequencies-hz entry.
+
+Could the commit message be updated to match the code?
+
+> diff --git a/drivers/dpll/sit9531x/prop.c b/drivers/dpll/sit9531x/prop.c
 > new file mode 100644
-> index 0000000000000..5356a73a80620
+> index 0000000000000..b9405eba49a39
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/dpll/sitime,sit95316.yaml
-> @@ -0,0 +1,214 @@
+> +++ b/drivers/dpll/sit9531x/prop.c
+> @@ -0,0 +1,327 @@
 
 [ ... ]
 
-> +  Pin numbering.  An input pin's reg is its lane: 2k is INkP and 2k + 1
-> +  is INkN, 0 to 7.  A pair the loaded configuration runs differential is
-> +  one input, described at 2k.  An output pin's reg is its physical output
-> +  OUTn, 0 to 11; the SiT95317 bonds out the die's outputs 0, 3, 4, 5, 7, 8,
-> +  9 and 11, which its datasheet names OUT0 to OUT7 in that order.
-
-[ ... ]
-
-> +  input-pins:
-> +    type: object
-> +    patternProperties:
-> +      "^pin@[0-9a-f]+$":
-> +        type: object
-> +        properties:
-> +          reg:
-> +            maximum: 7
+> +	if (!fwnode_property_present(props->fwnode,
+> +				     "supported-frequencies-hz"))
+> +		goto skip_fwnode_props;
 > +
-> +          supported-frequencies-hz:
-> +            maxItems: 1
-> +            description:
-> +              The rate wired to the input, in Hz, as a single entry.  An
-> +              input runs at the rate the board feeds it and has no
-> +              frequency to select, so that entry is what the pin reports
-> +              as its frequency.
-
-[Severity: Low]
-Does maxItems: 1 actually limit this to a single rate?
-
-dpll-pin.yaml gives supported-frequencies-hz no explicit type, so the type
-comes from the dtschema -hz unit-suffix rule. If that rule makes it a uint32
-matrix, a top-level maxItems only counts bracket groups. A list written the
-way microchip,zl30731.yaml writes one would then count as a single group and
-pass:
-
-    supported-frequencies-hz = <10000000 25000000>;
-
-This depends on how dtschema types -hz properties, so it may not apply.
-
-If it does, the driver later in the series takes freqs[0] as the input's rate.
-It still advertises every listed value as a supported frequency, even though
-sit9531x_dpll_input_pin_ops has no .frequency_set.
-
-Would limiting the inner dimension (for example items: [ maxItems: 1 ]) or
-giving an explicit shape guarantee a single value?
-
-> +
-> +patternProperties:
-> +  "^vddo([0-9]|1[01]|0_1|10_11)-supply$":
-> +    description: |
-> +      Supply of an output driver, named after its VDDO pin.  The SiT95317
-> +      has one per output, VDDO0 to VDDO7, numbered as that part's
-> +      datasheet numbers its outputs; in the pin numbering of this binding
-> +      those are outputs 0, 3, 4, 5, 7, 8, 9 and 11, in that order.  The
-> +      SiT95316 has VDDO0_1, VDDO2 to VDDO9 and VDDO10_11, the two shared
-> +      pins each powering the pair of outputs they are named after.
+> +	/* A -hz property is 32-bit; no rate of this part needs more. */
+> +	num_freqs = fwnode_property_count_u32(props->fwnode,
+> +					      "supported-frequencies-hz");
 
 [ ... ]
 
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          const: sitime,sit95317
-> +    then:
-> +      properties:
-> +        output-pins:
-> +          patternProperties:
-> +            "^pin@[0-9a-f]+$":
-> +              properties:
-> +                reg:
-> +                  enum: [0, 3, 4, 5, 7, 8, 9, 11]
-
-[Severity: Low]
-On the SiT95317, don't the two numberings in this node collide?
-
-Output pin reg is the die output index. The vddoN-supply names follow the
-SiT95317 datasheet numbering, VDDO0 to VDDO7.
-
-So output-pins/pin@3 is datasheet OUT1. But vddo3-supply powers datasheet
-OUT3, which is die output 5. The same thing happens for 4/7, 5/8 and 7/11.
-
-One supply name also maps to different outputs on the two parts. vddo3 feeds
-reg 3 on the SiT95316 but reg 5 on the SiT95317.
-
-This enum accepts 0, 3, 4, 5 and 7, which are also valid datasheet output
-numbers. A board DT that numbers SiT95317 output pins by datasheet OUTn would
-pass validation for five of the eight outputs. Its label, frequency and
-enable state would then describe a different physical output. Only datasheet
-OUT1, OUT2 and OUT6 would be rejected.
-
-The driver does not enable the supplies today. A later change that looks up
-per-output supplies by pin reg would work on the SiT95316 but switch the wrong
-output driver on the SiT95317.
-
-Could one numbering be used for both reg and the supply names on the
-SiT95317?
-
-[ ... ]
-
-> +            input-pins {
-> +                #address-cells = <1>;
-> +                #size-cells = <0>;
+> +	rc = fwnode_property_read_u32_array(props->fwnode,
+> +					    "supported-frequencies-hz",
+> +					    freqs, num_freqs);
+> +	if (rc) {
+> +		dev_warn(sitdev->dev,
+> +			 "failed to parse supported-frequencies-hz for %s: %d\n",
+> +			 props->package_label, rc);
+> +		goto err_alloc_ranges;
+> +	}
 > +
-> +                /* IN0P and IN0N: pair 0 runs single-ended */
-> +                pin@0 {
-> +                    reg = <0>;
-> +                    label = "clkin0";
-> +                    connection-type = "ext";
-> +                    supported-frequencies-hz = <10000000>;
+> +	/* The first listed rate seeds the input's rate */
+> +	if (num_freqs > 0 && dir == DPLL_PIN_DIRECTION_INPUT && !xo)
+> +		curr_freq = freqs[0];
 
 [Severity: Medium]
-Should the cell width of supported-frequencies-hz be fixed here before this
-becomes ABI?
+This reads supported-frequencies-hz as u32. Does that match the other
+driver that uses this generic property?
 
-This example uses 32-bit cells. The only other in-tree DPLL binding that
-uses the same dpll-pin.yaml property, microchip,zl30731.yaml, uses 64-bit
-cells:
+The property is defined in the shared dpll-pin.yaml, which does not give a
+cell width. zl3073x_pin_props_get() reads the same property as u64:
 
-    supported-frequencies-hz = /bits/ 64 <10000 10000000>;
-
-Its consumer, zl3073x_pin_props_get() in drivers/dpll/zl3073x/prop.c, reads
-the property with fwnode_property_count_u64(). dpll-pin.yaml gives the
-property no type, and this binding does not say which width a SiT9531x node
-has to use.
-
-The SiT9531x driver added later in this series reads it as u32:
-
-drivers/dpll/sit9531x/prop.c:
-	/* A -hz property is 32-bit; no rate of this part needs more. */
-	num_freqs = fwnode_property_count_u32(props->fwnode,
+drivers/dpll/zl3073x/prop.c:zl3073x_pin_props_get() {
+    ...
+	num_freqs = fwnode_property_count_u64(props->fwnode,
 					      "supported-frequencies-hz");
+    ...
+	fwnode_property_read_u64_array(props->fwnode,
+				       "supported-frequencies-hz", freqs,
+				       num_freqs);
+    ...
+}
 
-Suppose a SiT9531x node is written the way zl30731.yaml does it:
+The microchip,zl30731.yaml examples also use /bits/ 64 for it.
+
+Suppose a SiT9531x board DT follows that convention:
 
     supported-frequencies-hz = /bits/ 64 <10000000>;
 
-The u32 count is then 2, and fwnode_property_read_u32_array() returns
-{0, 10000000}, because the high word comes first.
+That is one item, so it passes the sitime binding's maxItems: 1. But
+fwnode_property_count_u32() returns 2, and freqs[] becomes {0, 10000000}.
 
-With that input, curr_freq = freqs[0] is 0 and the reference frequency is
-never seeded. sit9531x_dpll_input_pin_frequency_get() then reports 0 Hz, and
-the pin also advertises a 0 Hz supported frequency next to the real one.
+curr_freq = freqs[0] is then 0, so sitdev->ref[index].freq never gets
+set. The pin also advertises a DPLL_PIN_FREQUENCY(0) entry next to the
+real rate.
 
-Output pins have no item limit on this property, so that encoding would pass
-dt_binding_check there too.
+The reverse also breaks: zl3073x would read a 32-bit cell list as packed
+u64 values.
+
+Should the shared binding define one width that both drivers follow, or
+should the sitime binding state the 32-bit width explicitly?
+
+[ ... ]
