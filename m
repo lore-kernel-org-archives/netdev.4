@@ -1,99 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794959044;
-	b=IwnfysX4C3PbogDN3m9V9sxxzGdWVE4s2Zy12nM3osKLpDsFGAHf3/GzhIk06wIlW8Ex
-	 nlzbZ9dAbH3liX02OmKQDFtpHhkkNF0Y+iaH29QyAcqkIRhxAJb2a9rzvPc71amQpY+IG
-	 hvXob6PJpAO2n+i7mvlLYpSAXUq7oQM33RCuTDvk86SjEtN5g+Awi3Te5JXwU7cLUHFUF
-	 8xT2Srq1T4ugL0/20QeErr/0NwWf7E8soQl4jV9rPL47cojB7IAbhfkXzBK91+fV4gE3w
-	 hRo21mijdJ3j11SSQh0iExkbDVGspoPWUtvJ0J/H9EfrFFZ0YB3/YCs9j8l66KepIlw==
+	t=1794959076;
+	b=rcb0WZ9EGhf1ehvaFpKfMpru56/k1UBSy3/ONf45gxsP71M84A0JtYW18rNBuRo3dKw0
+	 t+VmNm83ASz/h9KaoraZfj08oJp2eRIPRXZY03eFvAYSqPLlyNK4+Lx6BTLDO6dKyW3/O
+	 zPqFKUD+fmycx0bp//LgrbarPGB4TFZZC7BcIJcPZKM4yJ4XYGFZTy+vufEZvt1PJznop
+	 qcHmzM+bikX+W8KWzsTlfkCQmT5YdQB7OZ5wURQJY+wq86f/Aq29qlrdb1Jc58rOF4O1x
+	 ljkmgIv0Jc4J1NERree7YrTwn6bI9cYcagaRDrnIOebsOCD5mOdzKftQmoQnvsotYgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794959044;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=chWuGj4JSfuHqV8d6iYVixzJTNnCSogSzx0lpANcwLI=;
-	b=BtG4nJFwJGkvV/qBgNaKKsWewiqZvw6x61eEayONaNh8qDRKRpRFMdHgBnNYOIZcuq23
-	 g1tlvEHHcyrXCLQ5J480szCXCDnXWgGY5lwqiO64R7ldr5pLXSRfa276QGcAiW1J8oLHK
-	 LOWVne4PJvJEZ6nZjS9gF9996mgaM9hMh8yB+I8H0pfNJvNyZl4EXw3viZzi8yYlSeNLz
-	 BWeEcZG0B0UKN3yCN7/tCYP4oJz7rXJ06gTQJznYKkAhjkjFzZBUUAykcOGY0AM+KdQk+
-	 ONcl4ZUfggv13KshbI519PmmRiKAjow0guPtkpEGvpqa+Zn/utnjrDiGCZGyjvFSsbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794959076;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=PAsluYk9Z+JsPGZr43ACSk4wnv2NKYTkxlXrZqnDYOo=;
+	b=QNkldxjYNDrb+nhphCGDkk/tdm+7dxQE/nuBCej4azEciliI0SntkATIZ3HGed05skZk
+	 6GAET7L5FT+KBfDneAtyJsm7Trg+c4Y/wSEN2zqbIBQnJOxyzwn+9T8QbrjegkZA1l7Y5
+	 R5Xz2M0c0/cvbKQiVmcPY95FitKqWlQA9rrQbju43CWkVOGsOquekRv6W8OUehdPKdMFi
+	 B1JJ0ngeyaWAHKO3iUaq91WPVxR+d0O14bUvuHlWShfLLRHruMh2ZQFr1FXTPdAIsUWc1
+	 qauqKdHiDe2TfCmoGi3nZlue2wlJpibSwbpjhKRxp4/a0XlRCLH1Tp7mXxGb8+ePzww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=fx5C73B5;
-	arc=none smtp.remote-ip=209.85.160.98
-Received: from mail-oa1-f98.google.com (mail-oa1-f98.google.com [209.85.160.98])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Lwh5h2uF;
+	arc=none smtp.remote-ip=209.85.215.197
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com [209.85.215.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21E76606A335
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 23:44:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21E76606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01142606A334
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 23:44:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01142606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=fx5C73B5
-Received: by mail-oa1-f98.google.com with SMTP id 586e51a60fabf-4ad587ba293so271641fac.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:44:03 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794959043; x=1795563843;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=chWuGj4JSfuHqV8d6iYVixzJTNnCSogSzx0lpANcwLI=;
-        b=kGkP22a/EpTpP7Po+equCJvsUfGREwnydE21MmWhH09sbgOJ4UjkiOf+H/87YyEBtj
-         vXyKW82JJYvh4fRWwsCis8uQMy4nSJqeUV7isFb0bV5OxD4d1lLVXEKZOk7Z5GaJUkxC
-         NS6jNa4FK/eO7DiXX8nLh3fsiG7wisOGIzaUgTjl9E7I/Er2eneYTOwEw+GfOcPGefT3
-         D3RBiTmeuJjrvjUocrRrwOg4K8800Qa1zeLpx+kyISXCm2+jvCmEUfl6v73xaJSCnPnu
-         jd4qRu2cXumNJmd8tPI9G6nxYBurLzTnCPMrpCSdFIcYlPnWhBwC2RMYRL1j77kQIjKI
-         5kdw==
-X-Gm-Message-State: APuU4Z/Ae3fOr91IjoptJYvMZnCKNZppkQ5CL9asG/6OEcTiJUdZMn3J
-	vrYov11yTTwE/UyErtS4U9vnbtiv6nQh7gRgA3U6bp2zaXPAndAgb3UAcFgMM+thzSfkIBcPFFz
-	CsSD/ryw+tbSZPbVsQGWCkMGsMAfPgc4cOXjUESz6uqmO9poK8CXSRnl9haoVNK/foeFSLgsd2i
-	a5bp5p/i7SlovSH4Xj+8cl+SzgUXZBC0ZygHrP0+1GVhyS1GRaBI32Mgh2GbuMY4XJNuYWMHbk+
-	RH5Vc7bmPCIwFbi
-X-Gm-Gg: AYBFou10MRWaStlSeiOByQ9E+AGQ/w8rk+LTTabyryoVjp9u4dAMsRuVL6biRw8zXt7
-	TQpMAU9DHvAdg7y+sxIutTEos1CO0/QXDRA/m/eMvrh633RmzX7GYY1mgFL4X40OvRJz0uhWLVw
-	lHtbP4Bbj+HzXT18o7WcT+WAb4jt4ZQdEce0Cg6enCTXP7S2DxxjAiva533psFQmAjz2UxGbV8i
-	+LHTGtUK3DbHUnisNVdVlONU+YiuKoC5vupDDko8bIykE0cd9ojHQwfZRscK30UAd0j/3XhUm/W
-	OoLGmA7dIfw4ZKo52Yt6YXVBBZxkXQ3jnZcxptaVNWHsg+YKR6ZA8O6xJWJFKpkpB01OsNKfAyn
-	8mJgdHDigHudHV+64PVouUiosn9x6FJUdtULlRcCuEJEBrY+hCX+t1GRDLMhFK6ES97n/edeRb7
-	jytnUewBPYPluFJ23PwoijpBApg8mobyWD90tOnfuk
-X-Received: by 2002:a05:6871:4406:b0:4a7:2bbe:4601 with SMTP id 586e51a60fabf-4b75fb0d219mr664705fac.57.1794959042889;
-        Tue, 17 Nov 2026 15:44:02 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 586e51a60fabf-4b7469f1e9asm12079fac.29.2026.11.17.15.44.01
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 17 Nov 2026 15:44:02 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f2005ce21so72798985a.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:44:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Lwh5h2uF
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-cde2fadb00cso301065a12.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 15:44:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1794959041; x=1795563841; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1794959075; x=1795563875; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PAsluYk9Z+JsPGZr43ACSk4wnv2NKYTkxlXrZqnDYOo=;
+        b=Lwh5h2uFpGvjGR6FYANsXlT+7wDXWkLlddhNW+A8OpCJV0B6wnHbG2DAePT5hGfAa5
+         rsPCI6ac/aUrYrziXg8pECIzA9+13gVsMM8rRbkYiB39xPI16EB0rbBuQP36mZqaVm1c
+         RuvjDXOQ+dVmkS+U4Kynxr9SUr1BlxhVxXXhleFy0WKjIbwzXjj9T28xtP1fZ1WrN8kJ
+         pBRjSnnY5F/e/buYbuyaRH1Jt19dQSlC3XbUFFURA2lFp0B7nqVYHCOy1Ho5vLmuiw0X
+         ww3ysPnUTHVprdbWdGl6pqoJRhhlID3iH1kPZE7G8CbusWCwG/g/2SjNGRWzvC05HPv4
+         jusA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794959075; x=1795563875;
+        h=content-transfer-encoding:content-type:cc:to:from:subject
+         :message-id:references:mime-version:in-reply-to:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=chWuGj4JSfuHqV8d6iYVixzJTNnCSogSzx0lpANcwLI=;
-        b=fx5C73B50D5pL98mnf/EuUK1aU3XaQQEwC/yr/QKs3NcOr5bllWST48sJUQJd5690z
-         3FiAl4iBOYGHkbFpY9pJly+GpsphIndhMkWphfVzVM459bAK+LlV4+KxmIV7q7cZaAuA
-         iUZF3BvUrWZfPuwk0tUzGcwrxNm99GPtei+wc=
-X-Received: by 2002:a05:620a:3710:b0:93f:633b:ee13 with SMTP id af79cd13be357-94999572c59mr220413485a.28.1794959040883;
-        Tue, 17 Nov 2026 15:44:00 -0800 (PST)
-X-Received: by 2002:a05:620a:3710:b0:93f:633b:ee13 with SMTP id af79cd13be357-94999572c59mr220408585a.28.1794959040114;
-        Tue, 17 Nov 2026 15:44:00 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b7ccf2fsm43121785a.36.2026.11.17.15.43.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 15:43:59 -0800 (PST)
-Message-ID: <5cc0d365-3821-4dab-8015-22cbc94be1e0@broadcom.com>
-Date: Tue, 17 Nov 2026 15:43:55 -0800
+        bh=PAsluYk9Z+JsPGZr43ACSk4wnv2NKYTkxlXrZqnDYOo=;
+        b=xDwYaxmSQDZUwMsNlmANRA2k/VpWdSp2ySYE9O2bAztWvQFCObR3/Uu/ysPWmweji4
+         YesUetyMH9lPXoZkAseFCnMoI1IQizVFo4JuFclebSTzUHL9K8CIYDL7mJaoCXhq2cCB
+         dGX/b5FHy4UCBLLnUQ0ZjMVvOGmXUUFGTfJO+wg4wO1+177aDuBjBILTkF9nuWOwjR+j
+         KhNtnU6GXeotTdjHmyqaifFzs8O39M5Gbmu9hWeflGjVzQwffdPFrUcpaVBbrUDEazxZ
+         ummmzDJwjwr+Z+cz9u8A9ZumMXc+874u+XmEzJVZHR7ulzYC5SQyAV2AinDgqU6ytAlq
+         uLbQ==
+X-Forwarded-Encrypted: i=1; AL+hErH1lKDI0BP65iMEDZzZhlrSeDX0c1mAcfajItxf85gacrfij0uVPI5qOjW+nI/wiQvWXraNiow=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+gwsPDWz7B0pYBDK1PWY7LZh72QOLIa7/aKd52Mk4MOZIkpV4+
+	JIF/H4fhH0hBvAVisCrDWARhLtYbwdwmLAKBoqrzMNpkhNq8xbJVoDq7LjYhe5QqhqhznhY5/VF
+	bbeZ+Fg==
+X-Received: from pgfy11.prod.google.com ([2002:a05:6a02:850b:b0:cdd:ce89:40e5])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a21:e38b:b0:3de:463c:7fce
+ with SMTP id adf61e73a8af0-3fe970ed2e0mr774820637.12.1794959075163; Tue, 17
+ Nov 2026 15:44:35 -0800 (PST)
+Date: Tue, 17 Nov 2026 23:44:34 +0000
+In-Reply-To: <CAL4WiipmG_J4ASJ3LRhhvS7X+pFMdvq1CM_UnXRYH2M0ajZahQ@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,245 +79,127 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 1/9] net: ethernet: bgmac: validate RX length
- against the DMA packet capacity
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, rafal@milecki.pl,
- bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- horms@kernel.org, corbet@lwn.net, jonas.gorski@gmail.com, olteanv@gmail.com,
- pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org
-References: <20261116222519.1416501-2-florian.fainelli@broadcom.com>
- <179495815587.3136.10288920701294421777@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <179495815587.3136.10288920701294421777@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Mime-Version: 1.0
+References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-5-kuniyu@google.com>
+ <CAL4WiipmG_J4ASJ3LRhhvS7X+pFMdvq1CM_UnXRYH2M0ajZahQ@mail.gmail.com>
+Message-ID: <avzmgUDfPybeinKE@google.com>
+Subject: Re: [PATCH v1 net 4/8] tcp: Fix reqsk abort condition on ICMP errors.
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: Eric Dumazet <edumazet@kernel.org>
+Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/17/26 15:29, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] In bgmac_dma_rx_read()
->    (drivers/net/ethernet/broadcom/bgmac.c:463), the patch now treats…
-> - [Low] The commit message is accurate but leaves out the user-visible
->    impact of the bugs this patch fixes in bgmac_dma_rx_read().
-> 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but it is High
->    severity, and the new check does not close it.
-> 
-> --
-> 
-> net: ethernet: bgmac: validate RX length against the DMA packet capacity
-> 
-> This patch changes the upper bound of the RX length check in
-> bgmac_dma_rx_read() from BGMAC_RX_ALLOC_SIZE to BGMAC_RX_MAX_FRAME_SIZE.
-> It also rejects lengths shorter than ETH_FCS_LEN. Invalid lengths are
-> reported through a rate-limited netdev_err() and counted in rx_length_errors
-> and rx_errors.
-> 
->> BGMAC_RX_ALLOC_SIZE includes skb_shared_info and alignment space beyond
->> the DMA receive buffer. An invalid completion length can pass that check
->> and reach skb_put() with more data than the skb tailroom permits.
->>
->> Limit received frames to BGMAC_RX_MAX_FRAME_SIZE and reject lengths too
->> short for the FCS subtraction.
-> 
-> [Severity: Low]
-> This isn't a bug, but could the commit message state the user-visible
-> impact of what is being fixed?
-> 
-> For len < ETH_FCS_LEN, the u16 subtraction "len -= ETH_FCS_LEN" wraps to
-> 65532..65535. The skb_put() that follows then ends in skb_over_panic() and
-> BUG().
-> 
-> Lengths between the skb tailroom limit (about 1602 bytes with
-> NET_SKB_PAD=64) and BGMAC_RX_ALLOC_SIZE also reach skb_over_panic().
-> 
-> Lengths from 1537 up to that tailroom limit got through skb_put(). They
-> delivered bytes past the 1536-byte DMA-mapped frame area. Those bytes come
-> from the non-zeroed netdev_alloc_frag() buffer, and the device never wrote
-> them.
-> 
-> The message names the tailroom and FCS cases. It does not say that they
-> end in a kernel BUG(), and it does not mention the stale data delivery.
-> 
->> diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
->> index 9ef239bc487d7..1c502bd64d7df 100644
->> --- a/drivers/net/ethernet/broadcom/bgmac.c
->> +++ b/drivers/net/ethernet/broadcom/bgmac.c
->> @@ -457,10 +457,14 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
->>   				break;
->>   			}
->>   
->> -			if (len > BGMAC_RX_ALLOC_SIZE) {
->> +			/* The allocation also contains headroom and skb_shared_info;
->> +			 * only the mapped packet area may be supplied by the DMA.
->> +			 */
->> +			if (unlikely(len > BGMAC_RX_MAX_FRAME_SIZE || len < ETH_FCS_LEN)) {
->>   				if (net_ratelimit())
->> -					netdev_err(bgmac->net_dev, "Found oversized packet at slot %d, DMA issue!\n",
->> -						   ring->start);
->> +					netdev_err(bgmac->net_dev,
->> +						   "Invalid RX length %u at slot %d (flags %#x)\n",
->> +						   len, ring->start, flags);
-> 
-> [Severity: Medium]
-> Does this new bound drop frames that the driver itself tells the MAC to
-> accept, and whose MTU it advertises?
-> 
-> bgmac_chip_init() sets the MAC max frame length to 1550:
-> 
-> 	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + ETHER_MAX_LEN);
-> 
-> bgmac_change_mtu() sets it to 32 + mtu, which can be as large as 1564:
-> 
-> 	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + mtu);
-> 
-> bgmac_enet_probe() sets max_mtu without subtracting ETH_HLEN or VLAN_HLEN:
-> 
-> 	net_dev->max_mtu = BGMAC_RX_MAX_FRAME_SIZE - ETH_FCS_LEN;
-> 
-> The driver accepts any MTU from 1519 to 1532. At those MTUs a full-sized
-> frame can be up to 14 + 1532 + 4 = 1550 bytes. Such a frame is now always
-> dropped, logged as an invalid RX length, and counted in rx_length_errors.
-> 
-> Before this patch these frames were delivered with stale tail bytes, so
-> dropping them is safer. However, the new comment and the commit message
-> assume that len > BGMAC_RX_MAX_FRAME_SIZE can only come from a DMA error.
-> 
-> Should max_mtu and/or UMAC_MAX_FRAME_LEN also be clamped to the
-> per-descriptor capacity? One option for max_mtu is
-> BGMAC_RX_MAX_FRAME_SIZE - ETH_HLEN - ETH_FCS_LEN, possibly minus VLAN_HLEN.
-> Could the commit message also mention that these frames are now dropped?
-> 
-> [Severity: High]
-> This is a pre-existing issue, and the new check does not appear to close
-> it. Can a remote sender get stale buffer contents delivered as a received
-> frame through an overflow-continue slot?
-> 
-> bgmac_dma_rx_ring_enable() turns on overflow-continue:
-> 
-> 	ctl |= BGMAC_DMA_RX_OVERFLOW_CONT;
-> 
-> Each descriptor holds only BGMAC_RX_BUF_SIZE, which is 30 + 1536 bytes.
-> The MAC accepts frames up to 1550 bytes by default, and up to 1564 bytes
-> after an MTU change.
-> 
-> With overflow-continue, the DMA64 engine writes the rest of an oversized
-> frame as raw data at offset 0 of the next descriptor's buffer. That buffer
-> has no RX status header. brcmsmac's dma_rx() drives the same engine with
-> the same 0x400 bit, and it handles these continuation buffers explicitly:
-> 
-> 	resid = len - (di->rxbufsize - di->rxoffset);
-> 	...
-> 	while ((resid > 0) && (p = _dma_getnextrxp(di, false))) {
-> 		pkt_len = min_t(uint, resid, di->rxbufsize);
-> 
-> bgmac_dma_rx_read() treats every slot as an independent frame. The new
-> check drops the first slot when len > 1536. The next slot is then parsed
-> as a fresh frame:
-> 
-> 	len = le16_to_cpu(rx->len);
-> 	flags = le16_to_cpu(rx->flags);
-> 
-> In that slot, rx->len and rx->flags are frame bytes 1536..1539, which the
-> sender controls. A value in [4, 1536] passes both the poison check and the
-> new bound. build_skb() and skb_put() then deliver up to about 1532 bytes
-> starting at buffer offset 30.
-> 
-> DMA wrote only the first (frame_len - 1536) bytes of that buffer in this
-> round, which is at most 28 bytes. The rest is stale netdev_alloc_frag()
-> memory, because bgmac_dma_rx_skb_for_slot() only writes the poison header.
-> The resulting skb goes to eth_type_trans() and napi_gro_receive(). From
-> there it can be processed locally, bridged, or forwarded.
-> 
-> The old BGMAC_RX_ALLOC_SIZE check let through an even wider range of
-> lengths. This patch narrows that range but does not remove it.
-> 
-> Could multi-descriptor frames be tracked so the continuation slots are
-> dropped too? Alternatively, could UMAC_MAX_FRAME_LEN and max_mtu be capped
-> at the single-buffer capacity?
-> 
->>   				put_page(virt_to_head_page(buf));
->>   				bgmac->net_dev->stats.rx_length_errors++;
->>   				bgmac->net_dev->stats.rx_errors++;
-> 
+On Tue, 17 Nov 2026 09:49:35 +0100, Eric Dumazet wrote:
+> Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> =
+a =C3=A9crit :
+> >
+> > RFC 1122 Section 4.2.3.9 states the following soft errors
+> > must not abort connections:
+> >
+>=20
+> Linux has never followed this for non-synchronized states.
+>=20
+> tcp_v4_err() and tcp_v6_err() call tcp_done_with_error() for any error
+> in TCP_SYN_SENT and TCP_SYN_RECV, soft or hard. RFC 5461 section 4.1
+> documents this, and names Linux.
 
-[Medium] RX bound vs. MAC max frame length / max_mtu
+Ah interesting, I missed that.
 
-Valid. The driver programmed UMAC_MAX_FRAME_LEN to 32 + ETHER_MAX_LEN 
-(or 32 + mtu), and max_mtu ignored ETH_HLEN, so the MAC could accept 
-frames larger than one RX descriptor can hold, which the new check then
-drops. In v2, UMAC_MAX_FRAME_LEN is clamped to BGMAC_RX_MAX_FRAME_SIZE 
-and max_mtu becomes BGMAC_RX_MAX_FRAME_SIZE - ETH_HLEN - VLAN_HLEN -
-ETH_FCS_LEN (1514). MTUs 1515..1532 are no longer accepted; frames of
-that size were already delivered with stale tail bytes. The commit
-message now says so.
+>=20
+> Tests 1 and 2 in patch 6 actually depend on it : host_unreachable
+> aborts the TCP_SYN_SENT socket.
+>=20
+>=20
+> >   o    Destination Unreachable -- codes 0, 1, 5
+> >
+> >        Since these Unreachable messages indicate soft error
+> >        conditions, TCP MUST NOT abort the connection, and it
+> >        SHOULD make the information available to the
+> >        application.
+> >
+> >   o    Time Exceeded -- codes 0, 1
+> >   o    Parameter Problem
+> >
+> >        This should be handled the same way as Destination
+> >        Unreachable codes 0, 1, 5 (see above).
+> >
+> > Commit 9cf7490360bf ("tcp: do not drop syn_recv on all icmp
+> > reports") introduced the abort arg to tcp_req_err() to avoid
+> > aborting connection on ICMP_REDIRECT.
+> >
+> > However, tcp_v4_err() still abort on soft errors (ICMP_NET_UNREACH
+> > (0), ICMP_HOST_UNREACH (1)) and ignore hard errors.
+> >
+> > For example, we can see SYN+ACK retransmitted after receiving
+> > hard error:
+> >
+> >   --ip_version=3Dipv4
+> >    0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+> >   +0 bind(3, ..., ...) =3D 0
+> >   +0 listen(3, 10) =3D 0
+> >
+> >   +0 < S 0:0(0) win 65535 <mss 1460,nop,nop,sackOK>
+> >   +0 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK>
+> >   +0 < icmp unreachable port_unreachable [0:0(0)]
+> >   +1 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK>
+> >
+> > Also, tcp_v6_err() uses icmpv6_err_convert(), which handles
+> > ICMPV6_PARAMPROB messages as hard error while RFC 5461 defines
+> > as soft error.
+> >
+> > But we should handle ICMPV6_UNK_NEXTHDR as hard error because
+> > it is used as IPv6 version ICMP_PROT_UNREACH.
+> >
+> > Let's correct the abort condition in tcp_v4_err() and
+> > tcp_v6_err().
+> >
+> > Note that icmpv6_err_convert() is used by other protocols.
+> >
+> > Fixes: 9cf7490360bf ("tcp: do not drop syn_recv on all icmp reports")
+> > Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+> > ---
+> >  net/ipv4/tcp_ipv4.c | 7 ++-----
+> >  net/ipv6/tcp_ipv6.c | 3 ++-
+> >  2 files changed, 4 insertions(+), 6 deletions(-)
+> >
+> > diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+> > index fd9588bba967..f11e090d04fb 100644
+> > --- a/net/ipv4/tcp_ipv4.c
+> > +++ b/net/ipv4/tcp_ipv4.c
+> > @@ -529,11 +529,8 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
+> >
+> >         seq =3D ntohl(th->seq);
+> >         if (sk->sk_state =3D=3D TCP_NEW_SYN_RECV) {
+> > -               tcp_req_err(sk, seq, type =3D=3D ICMP_PARAMETERPROB ||
+> > -                                    type =3D=3D ICMP_TIME_EXCEEDED ||
+> > -                                    (type =3D=3D ICMP_DEST_UNREACH &&
+> > -                                     (code =3D=3D ICMP_NET_UNREACH ||
+> > -                                      code =3D=3D ICMP_HOST_UNREACH)))=
+;
+> > +               tcp_req_err(sk, seq, (type =3D=3D ICMP_DEST_UNREACH &&
+> > +                                     icmp_err_convert[code].fatal));
+>=20
+>=20
+> After this patch, a TCP_SYN_SENT socket and a Fast Open TCP_SYN_RECV
+> child abort on net/host unreachable, but a request socket does not.
+>=20
+> We also lose the ability to get rid of a request for an unreachable
+> client, and keep retransmitting SYNACK instead.
+>=20
+> If the problem is that hard errors are ignored for IPv4 request
+> sockets, I would rather add them than remove the soft ones :
+>=20
+>         abort =3D type =3D=3D ICMP_PARAMETERPROB ||
+>                 type =3D=3D ICMP_TIME_EXCEEDED ||
+>                 (type =3D=3D ICMP_DEST_UNREACH && code !=3D ICMP_FRAG_NEE=
+DED);
+>=20
+> This matches what we do for TCP_SYN_SENT. The IPv6 side would then
+> need the same treatment instead of using 'fatal'.
 
-[High, pre-existing] overflow-continue continuation slots
+I'll update both in that way.
 
-The analysis is right: with BGMAC_DMA_RX_OVERFLOW_CONT, the tail of an
-oversized frame lands at offset 0 of the next descriptor, which has no 
-RX header, and was previously parsed as a new frame. Rather than 
-tracking multi-descriptor frames, v2 caps the MAC maximum frame length 
-at the single-buffer capacity (the clamp above), so oversized frames are 
-dropped by the MAC and never spill into a following descriptor.
-
-[Low] commit message
-
-Fixed in v2: it now describes the skb_over_panic()/BUG() cases (len <
-ETH_FCS_LEN and len above the tailroom) and the delivery of
-uninitialized netdev_alloc_frag() bytes.
-
-pw-bot: cr
--- 
-Florian
+Thanks!
