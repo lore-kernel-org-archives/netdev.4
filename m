@@ -1,57 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.236.52.120
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794889628;
-	b=38mbr76BWV5to9a8KZhUwP36pFhcrzc8v+cZrsGUd6z/PSiAH1eibTCbC6qZUvaxZBqd
-	 lqRk16m1SqbQSpz7v5ZCWf36zMo1qBo7pDAUk0VwyQr6Evq021DjWQrGDgB1drfEs/W+u
-	 /tirXSM7avjs7jSK9FcmMO9cA4XbV0wBWs5kuxDmlJ6dnyK9CeNFVLRbjJ2yLDm70GMwL
-	 QFoQT855/se1ld8gEWD5HgJyxnEd5IlmM/e9ChIiHOIyFOf3bmMoeXb16oW7i8ks+kBcf
-	 wXKYhq3IupMfzwH25Yg9ddhLaAKMeG/IABCtf+M5K2pPJO1kNL7ImUgCPt6a2ZuWM4w==
+	t=1794889706;
+	b=Ie3N1d7fCFRQhh8OVLXK4bf7PP/0PVtQJJtXjLDNjvqa+a+PUnTCSCaCcb9VCMM+Q41I
+	 fdDRUHfgkWhGnQiNX29EQeTYr8hPjz4aDJX7uwKNjwgpcmnccImNJsuqero4oTA+Rbu32
+	 jV1W2XypIsix5RZ/yPzdIYYWvpgIUxj+xGq9aAr6CkARVo4JCTiKwWhkQFydOIdxPcwes
+	 XmMb/5tml+6Il4bxjDizTqzhlRsu8blPzn4pKfISzf5CF+NbFw6of3dh4MndV68N6IImb
+	 vIUMyE1EK3AtIwOha7UGRxzLuule+p0RMZBBBHDAGZNT3Lh8hdJzkNseLEDGYEciekw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794889628;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Mailer:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=sFybFcKRVCMmwYTPFrOZ69E+4bDngwwdegvKAzmsDEg=;
-	b=ZRKPmlMs2cfq/G822LlmLQjJnAZeiY6Gj0NS/UdczFsBmiyxtnZEtw1KoqxY36ltVZRl
-	 xEKCrcYROKeK+FpRuWty1RBmH4lIDDVj5DpJPcZ9GuhTlEPJB2BQTZb88F/iVMpVArwfn
-	 +S3st575LqvWE9fjIEZjah9ceSQLLW4dbJUACI5tRQoQ5rPHWChlX/DKwBy1iDk/MqoMw
-	 cg/mFPThaadlGxhyrN45sgbELuO0kL5dk5SxBe0pzh3gSJvIbgN0mwrU5WMjqo2pVda5b
-	 LAW7RfEHONc0TYtLPhpWd3GkFWzzmhI1X0hDMG0oDFM3C9EralDvgebQzt2HfFVoWrQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794889706;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-Id:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:X-HM-Tid:X-HM-MType:
+	 X-HM-Spam-Status:DKIM-Signature;
+	bh=8z5exWLOsArB3n8YhVSSxwP7PGSyUO5muX6NLLxT+tM=;
+	b=Ikj+kIvELMN7MeC+EL3JZNxf2kSESAbkHdslYAR0KkNd/GyygRRIY8E9nBTtm87naK5s
+	 btxPVPhXXshgEAX6J6xieiptgB5qwSxpGS5sGlzHRFDqRuvvAOj8d1ykurcwaFwf1aqt5
+	 /crlLwbjPjonz454DDvKDMkU3SVQgKQQviKCMmYevbrC+rV0AVm9uE4mIfPT5HgacZ3gG
+	 LYR44d/nErXG+Bb/N6VzFrgFYKjHNmYJe456eDpA/oDv9reXLznGvHjhk+qi7urOwoX6T
+	 TtMlE8ysTWlrYKJp07+/30wOx2P8Qlm/9ScxZfa8JsuH1ZskDV5uJZm6b3lUvOiQIeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ocb1DtN9;
-	arc=none smtp.remote-ip=117.135.210.3
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
+	dmarc=pass header.from=rock-chips.com;
+	spf=pass smtp.mailfrom=rock-chips.com;
+	dkim=pass header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=YrTcGqLX;
+	arc=none smtp.remote-ip=160.236.52.120
+Received: from mail-m16023652120.xmail.ntesmail.com (mail-m16023652120.xmail.ntesmail.com [160.236.52.120])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DFCC606A31C;
-	Tue, 17 Nov 2026 04:27:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8DFCC606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CB2F606A32A;
+	Tue, 17 Nov 2026 04:28:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CB2F606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rock-chips.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rock-chips.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=ocb1DtN9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version:
-	Content-Type; bh=sFybFcKRVCMmwYTPFrOZ69E+4bDngwwdegvKAzmsDEg=;
-	b=ocb1DtN94JkOUBbFAR7uXX/TKGgjf+ByqAnUk1EH7C4bPycE+rqiYaqBaJRnmc
-	Tnpd6Bo3dyntjk9T3SorVYtdR8bE/7LDhVdBbjW8wAd24SfQTB346xo6+una/EnR
-	NbpQ9J/E7Ddy7LhJogxzUk2QpF8h33FMbSoo6L/zgrbU4=
-Received: from WIN-TOG0NDEIICD.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-1 (Coremail) with SMTP id _____wD3X3eO1_tqF_PiHg--.17474S2;
-	Tue, 17 Nov 2026 12:26:55 +0800 (CST)
-From: Shirong Zhao <shxzhaosr@163.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: wan: farsync: reuse card slots after hot-unplug
-Date: Tue, 17 Nov 2026 12:26:54 +0800
-Message-ID: <20261117122654.747083-1-shxzhaosr@163.com>
-In-Reply-To: <179488901459.3291.9572765536095948605@kernel.org>
-References: <20261117121314.811514-1-shxzhaosr@163.com>
- <179488901459.3291.9572765536095948605@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=rock-chips.com header.i=@rock-chips.com header.a=rsa-sha256 header.s=default header.b=YrTcGqLX
+Received: from localhost.localdomain (unknown [61.154.14.86])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 54ef0f5d3;
+	Tue, 17 Nov 2026 12:28:11 +0800 (GMT+08:00)
+From: David Wu <david.wu@rock-chips.com>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	Jose.Abreu@synopsys.com,
+	davem@davemloft.net,
+	rmk+kernel@armlinux.org.uk,
+	maxime.chevallier@bootlin.com,
+	lorenzo.bianconi@oss.qualcomm.com,
+	luis.la@mail.de,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org,
+	David Wu <david.wu@rock-chips.com>
+Subject: [PATCH net-next] net: stmmac: dwmac4: schedule RX NAPI on Receive Buffer Unavailable
+Date: Tue, 17 Nov 2026 12:27:54 +0800
+Message-Id: <20261117042754.96177-1-david.wu@rock-chips.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,38 +61,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
-X-Mailer: git-send-email 2.53.0
-X-CM-TRANSID:_____wD3X3eO1_tqF_PiHg--.17474S2
-X-Coremail-Antispam: 1Uf129KBjvdXoWruw18trWUAr4UXF1Uuw1xKrg_yoWkGrbE9w
-	n0y397Zw1UZFnFqr45K3WUXr4DKay7Z348Cr18J3WYkr4xJ345Zan7uryxZFnruwsFkrs0
-	vrykK34IvryIvjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUU1CJJUUUUU==
-X-CM-SenderInfo: hvk06xhdrv2qqrwthudrp/xtbC7g+y8Gr714-tawAA3s
+X-HM-Tid: 0aa1e7c331f709cckunm33dd12d8265067
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlDTR8aVkNOQ0gfQ00eTB1DSlYVFA
+	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlNSlVKTk9VSk9VQ01ZV1kWGg8SFR0UWUFZT0tIVUpLSU
+	9PT0hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=YrTcGqLXRx7m55KeVzUU/L6fM3vKFbPcByx7YNFZ/OrV7m5qtwL+Yw08EZ6TaCGyN1vAoytfWiSs21Nbr3ADV9HHcZvS17Hph9Ak+3M7OXwQd7JwrNGOUxfeKkkt9UMO0V5xHs1czXCmt7xC04Oej6/eur8NJd205yvC+TTuTaY=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=8z5exWLOsArB3n8YhVSSxwP7PGSyUO5muX6NLLxT+tM=;
+	h=date:mime-version:subject:message-id:from;
 
-Hi,
+Once the RX ring is exhausted, the RX DMA enters the suspend state and
+no more Receive Interrupts can be generated: incoming frames are kept
+in the MTL RX FIFO and are dropped once it overflows. The RX DMA only
+resumes after software refills the ring and updates the RX tail
+pointer, which is done by the RX NAPI poll (stmmac_rx_refill()).
 
-Thanks.  To answer the two points:
+Commit 1b9707e6f1a9 ("net: stmmac: enable RPS and RBU interrupts")
+enabled the RBU interrupt for dwmac4, but the interrupt handler only
+updates the statistics counter without scheduling the RX NAPI. The RX
+NAPI is therefore never invoked, stmmac_rx_refill() never runs, and
+the RX path hangs forever once the ring has been exhausted.
 
-- How it was found: this came out of an LLM-assisted static review of
-  mainline, looking for resource bookkeeping bugs in drivers.  It was
-  not a user report and not a syzbot finding.
+Schedule the RX NAPI when the RBU interrupt is received, aligning the
+dwmac4 behaviour with XGMAC (commit 6338488356d2 ("net: stmmac: xgmac:
+Add RBU handling in DMA interrupt")).
 
-- Triggered?  Not observed at runtime: I do not have FarSync hardware,
-  so this is a code-inspection finding.  The failure mode is
-  deterministic, though: fst_card_array[] has FST_MAX_CARDS slots,
-  fst_add_one() indexes it with a file-static counter that is only
-  ever incremented, and fst_remove_one() clears the slot without
-  decrementing the counter.  Every probe/remove cycle therefore
-  consumes one slot permanently, so after FST_MAX_CARDS cycles probe
-  fails with "FarSync: too many cards" although no card is present.
-  A probe failure after the slot was claimed leaks the slot the same
-  way.
+This can be observed on a GMAC4 based platform with Split Header (SPH)
+enabled under high TCP RX pressure, where the slower RX refill path
+lets the RX ring run dry.
 
-The patch picks the first free slot instead of the counter, so slots
-are reused after removal; card->card_no already records the slot that
-fst_remove_one() clears, so the rest of the driver is unchanged.
+Tested with Split Header (SPH) enabled, running a large file download
+over TCP:
 
-Compile-tested against mainline 666539eecdf4 with W=1, no warnings.
+- Without this change, the RX path hangs permanently once the RX ring
+  is exhausted: the RX tail pointer is never updated again and the
+  DMA channel status register latches the RBU bit, while the TX path
+  keeps running.
+
+- With this change, each RBU interrupt is handled and the RX path
+  recovers by itself. e.g. 3 RBU events within 6 ms during a download
+  peak, each one self-recovered (the RX tail pointer resumes advancing
+  right after), with no further RBU events afterwards.
+
+Signed-off-by: David Wu <david.wu@rock-chips.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+index a0249715fafa..929aa77ce247 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_lib.c
+@@ -153,8 +153,10 @@ int dwmac4_dma_interrupt(struct stmmac_priv *priv, void __iomem *ioaddr,
+ 
+ 	/* ABNORMAL interrupts */
+ 	if (unlikely(intr_status & DMA_CHAN_STATUS_AIS)) {
+-		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU))
++		if (unlikely(intr_status & DMA_CHAN_STATUS_RBU)) {
+ 			x->rx_buf_unav_irq++;
++			ret |= handle_rx;
++		}
+ 		if (unlikely(intr_status & DMA_CHAN_STATUS_RPS))
+ 			x->rx_process_stopped_irq++;
+ 		if (unlikely(intr_status & DMA_CHAN_STATUS_ETI))
+-- 
+2.25.1
 
