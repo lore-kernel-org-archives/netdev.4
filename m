@@ -1,80 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943948;
-	b=DybXkl6zxqwRGhDjdPKGbZRpqz/OTJVsgSyAXDpRyShtrHKxwo7Jc7pyDBUzFevpIdSB
-	 Z1fjhHHyK4K7EUktmPgVQ7Zh5RhZesZyvv5rHRs6aNUUQBGL+2z3MJ7pr/gFZ4o6HxMWp
-	 j5b/80A6Axyugz/UysqhTh1RK4nmvQ09ElY3qfG5651EOMwgl4uqPBJjssdytYX+0cAZN
-	 zb68BKV5YX0/ZrqrtSMUgHCP6SXBBAG+J622DN8AQ2YvYZY5PQeIWG3HvwCu1peC+u9Or
-	 EQfagyZeJqFds+YO6YpT6O+xSSHgpIek8cLrDWozDv66J6coEiMnN06uRumOk2XmxiA==
+	t=1794943951;
+	b=x03DH+6MuZLoT2KfJDuQBJg0NziAG5qMzkUfKlD1mKLLJYpupTugJpMOXV9aweivIjrd
+	 ygRMlfwmCtGwIOY6V4Tuex6oWXLn/Q18eJBc3Oxwfn/Hor7yQAPFMKScQ8VAoiimuOFv8
+	 M1tkgRKoA9IxNskwTnUohr/txcNeGjWXzw1eFhXg/n1TNqc0NcKFhA86mcCehpopA2nIm
+	 6wglE2xBgtmM2r+w7qZSiL4l7pOEpDql+x9Au3iILXoBaiOLlfvWBQSDP/dkwyf0u1l81
+	 kaKFv2lj3WUTsFfxtJK8x8lCGXFTeTQi8/5Z7tiubEisxxtiWRdpEbDzpVJJK7oniQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943948;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943951;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=blIHNGoq77sgX2t/OQClpCFe4Blt1RrVY9bNJJPMTf8=;
-	b=twKBPnjeC+wPopKLfUhjS5LJMSgvzwwYIlnQLlseJPFFtTBrEV+P3kjdJKvUJvDGF9Ce
-	 lJIpg07WdFKuOjh8JwI0CSVYpMi4H2Ir8BJpaNSMi9YrakWsoDiqRx7oxDK6nCoOCItBk
-	 wU84J5fZs83TxGrlBiq8QjDFxDKZoqPFjggbQNqpUCZbcHOPqq/n6/ue478TXxh7Px7ZW
-	 OKiCukR+S0eFIxXd6VSLqyXsf7n9j9KrlXujrcXPMR1dvBtvgzPhLxHhk8SPAb43/Kx+Y
-	 i/ca0OSze1cehCF0OtPT2LvaT9hpv7dtnylsXiYXnwQBtsdDfzTPScuSvZ4hkBMe+8A==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=aFPoSxt0aWUwwqX5xUF8SwWRu98kYFqbtHO45/HLvLo=;
+	b=oqzpMhe8656QNjdr3C56qfQfVutYaOpRVp0vHrENmZcJ1s8k7OaXH8JWIZcP8CvGqZBz
+	 767/mNs4yw92hX8zBKrJqfVd1IP/iPjvzq5swltQG09zsQ2IIqGf9e178bMv8wTZx1pvq
+	 YjFZfES4NtVhC3giqQ6wfObkTJvaxqNH+4acL/uFnqu69Xa6l/WMHpuZDEuECmo86vPmt
+	 uYLLw2yMvjN2BYvtvo51fvpeF0UKYhBkC8PxYZHcQxgND2BR63WybOgdq91ywWaZuc3eL
+	 W7tDUtUoiUaVYEc3t3PyMqHwyxXb8CATSznBRFHk8dMwZq5hHQrLJYInJ4AGnQN4o9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hUjJRn+Q;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wgsy+YBE;
 	arc=none smtp.remote-ip=74.125.82.175
 Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AE17606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:32:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AE17606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F283606A330
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:32:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F283606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hUjJRn+Q
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-3712b6d9843so338755eec.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:32:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wgsy+YBE
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-380b40319bdso433663eec.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:32:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794943947; x=1795548747; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=blIHNGoq77sgX2t/OQClpCFe4Blt1RrVY9bNJJPMTf8=;
-        b=hUjJRn+QdlbzcRdNQbDkJUPqq3WAtwVUaYeX8Y7aeMSvyCQGDnOt1k+OW3m+8gIDfT
-         UmYh/b9nY6aMLIHg4F9KDE+DWKR0hl3ESMUNrzFtva3UmOvJqWFOt03BNNH0vLAOSe03
-         4vc4/NQ/Ixk7wC8YqH/VbTr1zYETd5twvh2fNi38dWCzZJW420KuPCGxSK054CvYCDqD
-         F3+UxgNFd6ehqmgiUaP+6qMw6o+wtUKk3lCdVuk36guckoroDPX7REfcHsCC3R3yEOIY
-         tvhkyK2BLIxooZhdmcmRKJFpXPx084c34wYbfaPBm4GxtfEq0+kYpjkd8nLeE1KBu8R4
-         41vA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794943947; x=1795548747;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1794943950; x=1795548750; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=blIHNGoq77sgX2t/OQClpCFe4Blt1RrVY9bNJJPMTf8=;
-        b=B8oRhrfWi349zwTbHw1i3vugSdFrhS6UbSZDAryqbsqeflVbmEUa4Es0EUq07XHVYH
-         ylquZrU1cTTl1loJR0tYplJPKYt3tx465axcCveiwqGIhyFj64idARRoLWrRD/NMMmV6
-         sSzKJbDjbpKgzO8Cw9nVIAVzyKoGr3PFVnwnwVE8LYqdHO6xsiJtHrJi5ESIR2yVGMKL
-         WOoqjlF/z5BoumFUXyYu1c2Zm/CWt14ADjDh4CFS8X0H7w1q/p/rrivi4QadJ4VTKHaX
-         C3t9Q9WY1zah9hse0VPzaClBMsm1Q18HhhzNdfgHv4r1QRVyJ+QkePBbsYDP6atA58Wq
-         I/6g==
-X-Gm-Message-State: APuU4Z+fsffUw/9YDcThPZZoMP+nAGUbN2Yf+S8q5EgO9kUzL/DTmbbe
-	qgVUZOXTWzw9pdhs0sg2xQ59wlCbyNiOd4wS3qNePUO14m0blqCMqZSx+DokKw==
-X-Gm-Gg: AZFdTZdEXN0hFkPF0Ebb+U1PEyL3h1d622caTVoF5JNDmK74dCC3g2dxid5z3LyU/vR
-	8OgD/qp96czL8QOipeWZPz+jnPTo346uedQxaGPfl9ULXSflcKXNAGuiNYjCxAqcZuQJkowMdag
-	rHhVEAv1vsMQCBF39inSqyV53zNwRc7tJyWoJeC9ryg80l+mKvpr1//z9VRV35JAWSUFaLSZv/Q
-	aalfSdyqvFtpnN5DsvaZvLI0HZKXlKV6oqYJ6gc9QeGwYui304bw9PXcP+inKO7xjl7mcBQkI2Q
-	yietX6m9BcI95wYUjGFxMXEb3CsWPb29thXBwyWQl/y2XbJBp/pv+VfNS38l84+BHXSggYZYe5D
-	9sl3Zwb1265hzox1kMbNhRrpuPsRg8Ubz9T7D1+YuXwBLGcaH49gHCsX1ooMwheESERwqWmxznR
-	dvNYDt+0GzslQ0gddSXl+lthxDFo29GIlCK6EemJn60cS5PG6TXaWZ4Z6qwLS10aFGciAXVmGOV
-	qDBUwc8/Xhmwa/t5PG4lGEGeyiy+VO/SJndE173oShnLaQ3ceUc04foItHuYmB0bPtsxYKPqdKo
-	mDrwX+Kl
-X-Received: by 2002:a05:7300:51cf:b0:381:1d8a:d402 with SMTP id 5a478bee46e88-3827ff7b022mr361034eec.12.1794943947161;
-        Tue, 17 Nov 2026 11:32:27 -0800 (PST)
+        bh=aFPoSxt0aWUwwqX5xUF8SwWRu98kYFqbtHO45/HLvLo=;
+        b=wgsy+YBERwE8HaMtCH3zQhnnpciwtzZQP80JZzZBJmv4J5oZOK2jGXvtwO8otIBVu7
+         48Ht2WBjJy+TE+NPdtHH8/kI8rcXsp1iKMjxdqeRHebP3uiq2VG8QZ2yvs8u/moOA2X0
+         eQO1AIh21ELdvzeca8Ld0lJB27M2qQYJb527ZgkSkUYRtRCgw6O847EpKhHyvlkmmHeS
+         hQePV0RNVl+dH7YG1CA9qxQo6LTNYZfajEqXkxxooWzXz+pPXs1zkhVHILC/M1q9ZEwa
+         R0891SpFrMdpYOe2pKuLbYSRRbS5VnYddB0FS0LX/xYkyFcgDoaQHvv7yZS+MHgyWKhG
+         w18w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794943950; x=1795548750;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=aFPoSxt0aWUwwqX5xUF8SwWRu98kYFqbtHO45/HLvLo=;
+        b=NxnHPmZIidvp31JDGVVWNgtLK3cZSODhrWEJaWrnj6egOYxfLod1VMX1U8Z7sMhuqN
+         4cawXo4m4hHJczfArjs4pKIqByppdMUZv1ZOGteHRxxm8jmHWKFUa9VB+5et/O44saKO
+         wMrHt7NHGPvkaY4CWJeU5FTSXdWL6TRWLrjtzHP3ofBjmwH6rwEo5r3YASfzk+4b/zXg
+         fKz0C6ZqeK8SaIFx0Lildju6TcX6nfWNaOtPcNrYZ7R3O/JO24O9zVA86E1JOYwg0j2k
+         /GDrj/1c5lV1M9Oov1ZswyvyGOVJpJ5NKfbLoerq6RMlmro07fixsbV1syFy7Bl8orvh
+         eaMg==
+X-Gm-Message-State: APuU4Z+2gy/JvP757a+aeIFdmO6AWmYL1hm9PzQ7dSnrFgAX3KogmUJO
+	WGTORIcrd6RZHjJMn1gfGa/SjdLXJM/02noRRlVqpkxAv8mI96iQFdsynp1Jqg==
+X-Gm-Gg: AZFdTZf3ccX2Oi9/e5vTFDYyX/8JI2OQC7CQBjaUF4vzINdYgLaF/Z82SJStnRcF0B5
+	q8+k6jyRo2ZOvTTivGUpO5SHCb/dQ0DY4vV6Yr8OQSvmAQDgUw/O0VgH0vrMNq85pKemRGDWNSz
+	RMmuRNiU1XE3/fINobUQK+oC7KaL5HppYTeaEnf0KZ2RlZYhBA5R6fi56XLSsM0QwYguF8WRNwI
+	KRaf26hpPFeA2D9NlTp6NcJvU2NA7RJaXiT1B+X+3SjAUXDcxjCXzsxbqREZPOT16VcfeJb6OdD
+	SYyJ323dkCiAglJaXKhBqjuyk/UEonjWadYFQ1EjK1O/WT0vWheSF1RAK4KNHelsFdkSKJjgXA5
+	xRhyAEHZ1tyQOZ3K4cb1jBb6K14FvgdA2HgKcEqMEsRwVrbwFW5v/iW/7cWEW6OFNNDotvSrOtr
+	oT3g1czdQlh9FAZ1FdOJroL7JiUBZObPEp82Xi9kW+pn7hw8IuuwbC49P5sx8EiJSJw/0QiqvbH
+	yAHeQAi0N+ZvCEY/9Q5hXGpwCp5JAXTA2CPgrUHQPw5DNChNet5A0AsR9sQUP7luwQP5lWvxl4N
+	V9HFkcV5
+X-Received: by 2002:a05:7300:2387:b0:381:2114:99d0 with SMTP id 5a478bee46e88-3828181007amr456120eec.39.1794943950264;
+        Tue, 17 Nov 2026 11:32:30 -0800 (PST)
 Received: from eldorado ([2600:8802:b00:1f88::287])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059e3sm173376eec.5.2026.11.17.11.32.25
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059e3sm173376eec.5.2026.11.17.11.32.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 11:32:26 -0800 (PST)
+        Tue, 17 Nov 2026 11:32:29 -0800 (PST)
 From: Florian Fainelli <f.fainelli@gmail.com>
 To: netdev@vger.kernel.org
 Cc: Florian Fainelli <f.fainelli@gmail.com>,
@@ -95,10 +97,12 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
 	linux-kernel@vger.kernel.org (open list),
 	Manuel Lauss <manuel.lauss@gmail.com>
-Subject: [PATCH net v3 00/10] net: au1000: Bug fixes
-Date: Tue, 17 Nov 2026 11:32:13 -0800
-Message-ID: <20261117193223.2795612-1-f.fainelli@gmail.com>
+Subject: [PATCH net v3 02/10] net: au1000: clear all-multicast mode when restoring hash filtering
+Date: Tue, 17 Nov 2026 11:32:15 -0800
+Message-ID: <20261117193223.2795612-3-f.fainelli@gmail.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261117193223.2795612-1-f.fainelli@gmail.com>
+References: <20261117193223.2795612-1-f.fainelli@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,83 +114,30 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series fixes RX descriptor recycling, receive filtering, MDIO error
-reporting, TX ring synchronization, MAC/PHY lifecycle ordering, and TX
-bounce-buffer bounds in the Au1xxx Ethernet driver. It also adds the
-LAN83C183 PHY resume delay needed for MII clock recovery on the MTX-1.
+MAC_PASS_ALL_MULTI remains set after IFF_ALLMULTI is cleared or the
+multicast list shrinks below the filter limit. Clear it when programming
+the selective multicast hash so unwanted multicast traffic is filtered
+again.
 
-Changes in v3:
-- Drop the no-platform-data MAC-address patch: in-tree platform devices
-  always supply platform data, so this is defensive hardening rather
-  than a fix for an in-tree configuration.
-- Drop the buffer descriptor free-list insertion patch: the affected
-  list is only rebuilt during teardown and is never consumed again.
-  The series now contains 10 patches instead of 12.
-- Distinguish MDIO write-completion timeouts from pre-write busy
-  timeouts in the diagnostic message.
-- Clarify that the LAN83C183 recovery-delay patch and the following
-  au1000 MAC/PHY sequencing patch are both required to fix MTX-1 reopen.
-  Keep the PHY patch first so its delay is available to the MAC fix.
-- Remove the unreachable initialization-error branch and PHY rollback
-  from au1000_open(). Correct the commit message to distinguish the new
-  synchronous PHY resume from the existing initialization-before-
-  phy_start() ordering, and reconcile the reset comments.
-- Expand the TX bounds-check commit message to cover plain AF_PACKET
-  sendmsg(), PACKET_TX_RING, and oversized software-GSO segments.
-- Rebuild the kernel and root filesystem and repeat MTX-1 regression
-  testing after the review changes.
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Florian Fainelli <f.fainelli@gmail.com>
+---
+ drivers/net/ethernet/amd/au1000_eth.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Changes in v2:
-- Rebase onto net.
-- Reset the MAC after PHY/MDIO teardown, and avoid MAC control accesses
-  when its clock is already disabled.
-- Use sleepable polling for MDIO write completion.
-- Advance tx_tail when submission reclaims a completed TX descriptor,
-  and consume transmitted skbs outside the lock with an IRQ-safe helper.
-- Restore receive filtering before enabling RX, with the address-list
-  and device locks held to keep the programmed filter consistent.
-- Resume the PHY synchronously before MAC initialization, clear cached
-  link state on open, and use acknowledged link/duplex state under the
-  device lock. Place the LAN83C183 recovery-delay patch before this fix.
-- Add a TX length check to prevent overflowing the DMA bounce buffer.
-
-Testing:
-The current series was rebuilt with Buildroot and tested on a Meshcube
-MTX-1, using the Alchemy PROM Ethernet-address lifetime fix as a separate
-boot prerequisite. That prerequisite is not included in this series.
-All 11 boot-smoke checks passed, including 15 down/up cycles across
-normal, promiscuous and all-multicast modes, removal/rebind after an
-opened/closed interface and a never-opened interface, and connectivity
-recovery. No kernel findings were reported. The final 10-packet ping
-lost one reply; a subsequent 100-packet test had zero loss. The cause of
-the isolated loss was not established.
-
-These hardware tests cover boot and Ethernet lifecycle behavior; full
-AF_PACKET overflow triggers and fault injection were not exercised.
-
-Sashiko AI review identified issues addressed in the revisions. OpenAI
-Codex assisted source analysis, code and changelog revisions, patch
-consolidation, and regression testing.
-
-Florian Fainelli (10):
-  net: au1000: recycle RX descriptors on allocation failure
-  net: au1000: clear all-multicast mode when restoring hash filtering
-  net: au1000: disconnect the PHY before freeing the MDIO bus
-  net: au1000: report MDIO transaction timeouts
-  net: au1000: serialize TX completion with packet submission
-  net: au1000: restore receive filtering before enabling RX
-  net: au1000: restore RX buffer addresses when restarting the MAC
-  net: phy: smsc: wait for LAN83C183 power-down recovery
-  net: au1000: keep the MAC stopped until the PHY link is ready
-  net: au1000: reject frames larger than the TX bounce buffer
-
- drivers/net/ethernet/amd/au1000_eth.c | 145 +++++++++++++++++++-------
- drivers/net/phy/Kconfig               |   2 +-
- drivers/net/phy/smsc.c                |  26 +++++
- 3 files changed, 133 insertions(+), 40 deletions(-)
-
-
-base-commit: 145480b28ca82e9fae789427cc4569e596515a32
+diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+index cd25248f4e3a..58bc8e1b539d 100644
+--- a/drivers/net/ethernet/amd/au1000_eth.c
++++ b/drivers/net/ethernet/amd/au1000_eth.c
+@@ -1042,7 +1042,7 @@ static void au1000_multicast_list(struct net_device *dev)
+ 					(long *)mc_filter);
+ 		writel(mc_filter[1], &aup->mac->multi_hash_high);
+ 		writel(mc_filter[0], &aup->mac->multi_hash_low);
+-		reg &= ~MAC_PROMISCUOUS;
++		reg &= ~(MAC_PROMISCUOUS | MAC_PASS_ALL_MULTI);
+ 		reg |= MAC_HASH_MODE;
+ 	}
+ 	writel(reg, &aup->mac->control);
 -- 
 2.53.0
 
