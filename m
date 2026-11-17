@@ -1,96 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794911725;
-	b=4Dm3lo3n0YaXVQLa8UF1y6SmISHW1tKq2OXt4i0XJnold+BH0l5+ElsQlxl8KFhuVg9W
-	 kEz1O8FOrCEQz6tJupJXwdzSUP9kttvIcf8YL2BZ9dkKGEefn0/WBxUdQJg0n9eiHYN5D
-	 B82e9JAOWIxaKlvr2Ft6jc5I+uhlIp8tOXLE3bHvoCTlfGygXxehpJ/aTGVy88xwBTB+O
-	 7EHtkFMfxELSFocdOt/sBZywrVp7hG7y3+2e6msA5T690TSIKS0kxucehZpb6PdeSy3tY
-	 a1wFLONRLg+Z6J3Uv4aVauyFs1/y0bLshWKzXsiCRM03Jt//VZv2zG0hW3zYNvipeQw==
+	t=1794911790;
+	b=2jbYIeXIrNljkTkBPEVAa6kh2TCHo0sF2Oij3noYXmR4vUGLC4pvJfEdK3k0Z1gZrq8m
+	 WZjNHBO8uUaElMf7MNaDMAEXlG6RBvZBHq4KXn3BU8l5vjgUIcbYtOuLGiCtowVIgdV2D
+	 8jDfY8BKHLEkasUgHcvaGuX8rTpc5ZnPOR4kU7DzFHYdR7o5PfpFggFdLy99Uxhbsg4Qn
+	 psJie9jYHDtKaHlsOJmFlyV202MESluzbXHK8YaERQF4wvmf0akqWGW4NKCIAopzau3vs
+	 1+gCP7UCLvENfRCKvM2AskKteVFR3FtdgwAkdGS8R1b0j9KcqdfGfnD5+OzTn2ihlhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794911725;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794911790;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=RuyZ4/NgPAofSNXbBjGZkZZB9QA0/aMDca1cWrs9WFg=;
-	b=DyR9vY1o13fW/0nqV4TCwHMjJ25i+z1era6pbMEe+KpxxzvZF2azTNfVcyzf34TlOwpo
-	 0WhG53hNp2/+d6Dtei3DQzA/LNz4YwgVNedJvOdsWsCg1wCgoy2vhzTLppOy7u9LAdWN5
-	 TNXKqoOgWM7hSqTQ55cE+iB2sd8RGfJnHCX01vWIuy3N1sdyHf0QjCOgPbMc+o7cLpRwM
-	 hNuuFMAs6PExoK1twmFzZ5+rODPu3VyMgBYh0DFZ1PyBJHhWTEcCa0pDfcAD33T9BegIS
-	 ox9uuG9+L19u7zB+RR8y6YL+MLniSMABn0FGDM37Fzw9Tu0J1VAgF80T+7JWtJz9CJQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=dVsMMxnk5C2hLXw6Cp+8gHfJckxJ7C3h8A+Jqq/uxAU=;
+	b=bY8hNtb382N1vGo1Thlq4MGLSMcRs1JwKHttNWzSvdzXVb2S91s9/IxejATlDvsxDPEY
+	 VBQ+MCoWXpbDY/6KrlrMYCeOGNiz1sIVHkGPXquNo5cCtTmYyqXDpQGCRN7oF5Bcb8krg
+	 Omo5ARy9JT1IRCQtd8ruvo5hcTh7CIsVSnWcM2K+VKZd5h0wRKVTyi35qbdEQb2xBvNON
+	 /VAByNxm8VpUAnlymYEkeLGTbPBWrde+EjB0F0pyT10pmNeMNe/1OsvleBb6MX5wyP3nb
+	 9X+ZEEhF87UtuKYUEzQBNxTh9rvK2sl8CXCcOEvzjj6A6EJfwxdBJR3v9Gb9LEaTWWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RvFXG8Wj;
-	arc=none smtp.remote-ip=209.85.215.170
-Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z1SpCXml;
+	arc=none smtp.remote-ip=209.85.214.172
+Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EC22606A893
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:35:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EC22606A893
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE2F0606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 10:36:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE2F0606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RvFXG8Wj
-Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cc751eddf25so3472296a12.3
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 02:35:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Z1SpCXml
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2efe591a1f6so1236395ad.2
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 02:36:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794911725; x=1795516525; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RuyZ4/NgPAofSNXbBjGZkZZB9QA0/aMDca1cWrs9WFg=;
-        b=RvFXG8WjjKnTMy0oENVxlESIdVeF6WKEdiNDXunqUUCkkvQvKrb1EXZV9xmGB08fS3
-         GKBazE4QO+VsYoH2bZHPTRAvxGv4vB31iiEM/JNLZ+0ti7GUimE9nOHnUyWU5J+oxavn
-         Usr7arx6vVCNPU0a0O/knm5dDC0CPAlKkRY+lI4/OwzgM+9n7B61/hvjrn9xMv/3vf41
-         MaBmT7CMkPOuR1+8iWIJEUqhi1dzJ4sKDGGwtXG7WmbGSjsvwMs5u+yaDQ6lUdy31rP6
-         SPBda7tpj6zYniwGPOHetVokVPwpScwCsEiYqFE0y6oRJCAuK3KxHcP9sXQUmXeWuTBZ
-         3neg==
+        d=gmail.com; s=20260707; t=1794911788; x=1795516588; darn=vger.kernel.org;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=dVsMMxnk5C2hLXw6Cp+8gHfJckxJ7C3h8A+Jqq/uxAU=;
+        b=Z1SpCXmlYQlLPR8Osm1Ibu44+bpd2wZezOrB/tbGkBrxWRb37aEq9G3cUx/KlkNJce
+         7n0kyoHmAKDG1RHOvOaEuyrDGetF8IARZQ7GIqH+YkqnSxpdtLAxJjjA9sX3f+NXuGD0
+         SRrWstDUmMqUZuVziQwFYMqfI8CzMmZrftlUESydVlvrW70wnq/VlDml1jcmVOXf01bO
+         gSA+PicsO5Uf8gVm3KAswe9l178IwdxwoSXsJ1ByQz9gUArsQWEy3K2pmlXhvVqYJo3T
+         vyrgoDNZD7xOQTK6kiVThBlB2/582umMpiWjOct2AM7huOmIyWHWxA4YnHDwQuLFE/mP
+         NjaQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794911725; x=1795516525;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RuyZ4/NgPAofSNXbBjGZkZZB9QA0/aMDca1cWrs9WFg=;
-        b=GvaKiZiThq9w8bqmUOOD0P4/yfHgziCZ8iyON8gd9KSGmPLuDoXuPNlwHhgKU5gjPF
-         Uvht8tJgZtMt777FUjA3sC7XAcG8FTgPgjf4W0i7WzufEso0nR9jnDPCSC/RkQKgSM+7
-         oNU/SMSQbc6Ca2y28PbCuGtDAp4HLY5vDvYW2WnXxgh7Ewb/aJkc6TYMwgtyznbz51kK
-         JWptWUNcr2Pf2Z3FzAMYlYY6nGC4AwWC3wTicxutos+fclR8isNp9DUb1yyWrSINIOk4
-         EhvkVg4p7WPyh06yhN6oMgSEHMD9kFguMR/RwhNIqojKaKts7TQs5zA+lQNIRJ47uPDq
-         A8ZQ==
-X-Forwarded-Encrypted: i=1; AL+hErHqI4kncdpWW21WsQVnnBbbohGg29nLEz+77g8UNqcB9Hdz+pwbYyzE3PwPI0qIs2GY9fOKceA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z91A3T52z8yaIeeavRfkUmCWfGHEW0lx7yMeTLAqai54sx4xOe8
-	yO5TMAAjx5QyGxPdIMHwj1PgrUTP35+eAEjlts0ypqkI0kEBnz75u/yF
-X-Gm-Gg: AZFdTZfCJSHUZZtTLmk/t4G27cQLunDq2/fmP+/4mife63qVqtVoznIU8aKkXD4hzSG
-	G/DUU7djMZNN3c3dExt9MHMIjvnUIp3BNRHh+wEbpKwbpKMx6w2NmzHDTT8eMqq3NOtHqmlxCAr
-	01VHmp0UBPIwL7nspgIhno5ByQMcoQZoRDr4FN+XJVVoSQCIBkhz3ySDwW20t2BTiClytpkfe1n
-	gjwKDJDsFx4HwR+9mTJZ9Ld/Y6c2D5r/2c32pURzTMIDEXRLintyGYej+m6nNQdSWc8xfjG4HJy
-	lQm94LNPpj9Vq+0yFP9uqwS1XzRSH51DstSzh5IeknfBgGt4dRaZ+c6KoIU4KmtUl9fY26u8BFb
-	x9+I+mmOacRFcV+MK3iV/zSjNkG/UW9KTK0NzbkTkcafZU4HyE6njP9qcAkprkxAuBW9QrakCbk
-	QqDHXbeXL51K9mnKxqIjNDEJhgIqcv6x0izBhA3Ttxi4rXI1AE7ln5UtBJ9E4ewgaq+lwCSZEZ8
-	caQ5NVGtH8WqgQ65O+FW1edjM4yweDJpgg1I8xuhOQmgg/3INoJ4EIHCKP8wZn9b5b+r3BpZjx6
-	x6ugFWbYYWWKVMaYxBzLrbMCzdmGSiusO1ql3qopve+e
-X-Received: by 2002:a17:90b:1f86:b0:3ac:7556:8ee0 with SMTP id 98e67ed59e1d1-3b1b0b666c5mr13803607a91.19.1794911724811;
-        Tue, 17 Nov 2026 02:35:24 -0800 (PST)
-Received: from gmail.com ([116.162.234.168])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3abeaf532sm3518806a91.14.2026.11.17.02.35.20
+        d=1e100.net; s=20260707; t=1794911788; x=1795516588;
+        h=cc:to:content-transfer-encoding:content-type:mime-version
+         :message-id:date:subject:from:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=dVsMMxnk5C2hLXw6Cp+8gHfJckxJ7C3h8A+Jqq/uxAU=;
+        b=EVXYhTR582jMBG3mWEImRDjg9vM/tnAKR7I12C1QG6i5P8DrG+h9kSfH7wRjBXAjkm
+         upN1MJnA0Qh3EL1InMv3mCeuvgpXOuZUy9UJdkE6YOQfgMJU+In5+mhLQADhohGlgc+/
+         ht4IvQLOvoWA/D5G3Wy8WDU+euwI6MmHgi82IUokdXVVsrU7O11RT7IL5sGDqoZqNDNu
+         zJeBq+luIBztJFeYCsWiC6vMNgQkJy5dth3u7KjHbnc76e2s6QCTMlFvsoYfsVw+KV3D
+         HGtNAPQT7eVnLGLTIRGlewYqgoItmJn4cvXSKGUUlk8H+O7fstP6h5YIzW3LA3A5cvt7
+         uJaw==
+X-Gm-Message-State: APuU4Z+Zpdm6aQV7tS6a3dOWf+i+sxdE6SNPfyv6Hjlbd67MhheyArFX
+	cVAcij27sJ/MdjB/98foYWTE446ZIF5PG3n+rD6uip4vl5x13ygHQOki
+X-Gm-Gg: AZFdTZcoJZHZRURevVxH31FlVnppHtuzhrdk8dIFnp24FvKn5kIj2WcEATqAGz6Dd1h
+	/MTVh13E2xSLhbLadnD4haKCFziFNLWkcAKhHkt/i6tQcPm5l/zaTkGbtjvx10sCTGCNUDzoOxt
+	2aCvoVX2qr2GoJlJtqvUXeAVh9MUBLL6+q8jqhOiu1JtGdVcmZvZXqjbgGZfOMUW7hvvd05dhtQ
+	NIQFHqva/6lpJAnO4j3rKU5PLa4JefeKETAFBBJxGECXipcZMJSrcjzC4haZpK1ZO34gXdTTCIv
+	7GbPotzkTI2qiJHGKGEcOaFkXo5AcLdD1bk44NYFi9BwgB2Ymnmh6n4ZfkkMH1RMei1+GshEZr/
+	PB41h42YhwHAw/C4lOdnK7qIAayEuwKep4bkm768xQCp9nl3aKjPvkLEtnV9UfAEf2ywnnLv6WJ
+	EiGjhXzp07IXBNenrlfsgTZUfHrUVcfG3sY8wreja/eX6Tt/edIwjh3ezJ5rUyNzjF7nOkGXAZ7
+	GD3O/9x6gvGvb9J+RUJlzGfJqiub11khetA6Hu7YUiOv/ku1Fl4U+vJKtjw1+bM8TbOri95GELZ
+	nqQcJlsNLqEbUTt4n/TbuQNWnOXsH8heyVT7H43+iecnGOp5asgZTZTuXpDE3mAKSwdbZirPzFd
+	41h6pXngYRgWQxDyEkneCEY6MMhroQPCvUsIcexFonBcy1X3DM3OL+McsM6P3l66gwP6naNZgbn
+	CjH/A=
+X-Received: by 2002:a17:903:1905:b0:2ed:2176:2452 with SMTP id d9443c01a7336-2ee0da7c0f7mr125573235ad.18.1794911788247;
+        Tue, 17 Nov 2026 02:36:28 -0800 (PST)
+Received: from [169.254.3.1] ([143.248.188.96])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2efd76d8f08sm13094805ad.4.2026.11.17.02.36.22
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 02:35:24 -0800 (PST)
-From: Xue Boyang <fuchen.dust@gmail.com>
-To: Robin van der Gracht <robin@protonic.nl>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: Oliver Hartkopp <socketcan@hartkopp.net>,
-	kernel@pengutronix.de,
-	linux-can@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH net] can: j1939: fix null-ptr-deref in j1939_session_completed()
-Date: Tue, 17 Nov 2026 04:35:15 -0600
-Message-ID: <20261117103516.535910-1-fuchen.dust@gmail.com>
-X-Mailer: git-send-email 2.53.0
+        Tue, 17 Nov 2026 02:36:27 -0800 (PST)
+From: SeungJong Ha <engineer.jjhama@gmail.com>
+Subject: [PATCH net-next v3 0/3] rust: net: phy: suspend may run without
+ phy_device->lock
+Date: Tue, 17 Nov 2026 19:36:18 +0900
+Message-Id: <20261117-exp-phy-rs-maybelocked-v3-0-4e183a7366a7@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,70 +93,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIACIu/GoC/4XOyw6CMBAF0F8hXTumD0qsK//DuOhjgCqvtEggh
+ H8XcMPGuLyZuWdmJhGDx0iuyUwCDj76tlmDOCXElropELxbM+GUZ4wxCjh20JUThAi1ngxWrX2
+ hA+esVEoJzI0ma7kLmPtxh++kwR4aHHvy+E7i2zzR9pu77ZY+9m2Y9h8Gtjf+nRsYUBCUC2sVl
+ RLVrai1r862rfcjAz8y6U+GrwxTOnUukxeTmSOzLMsHd0UN5R8BAAA=
+X-Change-ID: 20261110-exp-phy-rs-maybelocked-ddc59993efba
+To: FUJITA Tomonori <fujita.tomonori@gmail.com>, 
+ Trevor Gross <tmgross@umich.edu>, "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Miguel Ojeda <ojeda@kernel.org>, Boqun Feng <boqun@kernel.org>, 
+ Gary Guo <gary@garyguo.net>, 
+ =?utf-8?q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
+ Benno Lossin <lossin@kernel.org>, Andreas Hindborg <a.hindborg@kernel.org>, 
+ Alice Ryhl <aliceryhl@google.com>, Danilo Krummrich <dakr@kernel.org>, 
+ Daniel Almeida <daniel.almeida@collabora.com>, 
+ Tamir Duberstein <tamird@kernel.org>, 
+ Alexandre Courbot <acourbot@nvidia.com>, 
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>, 
+ Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org, rust-for-linux@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, SeungJong Ha <engineer.jjhama@gmail.com>
+X-Mailer: b4 0.15.2
 
-j1939_session_completed() looks up the receive skb using the session's
-current data packet offset and passes the result to j1939_sk_recv()
-without checking it. If no queued skb covers that offset, the lookup
-returns NULL and receive-side processing can dereference it.
+The Rust PHY abstraction tells every driver callback that PHYLIB holds
+`phy_device->lock`, but phy_suspend() calls `suspend` without it, also
+right after the state machine drops the lock. This was found while
+auditing the SAFETY comments of Rust abstractions against their C
+callers, and confirmed with Clang's context analysis [1].
 
-An inconsistent ETP session offset can leave the receive buffer lookup
-unsatisfied when the session completes. The DPO receive path does not
-validate the offset against the receive buffer, so completion cannot
-assume that the lookup always succeeds.
+Patch 1 drops `read_mmd`, `write_mmd` and `match_phy_device`, which make
+the same claim but are called under other conditions, and have no users.
+Patch 2 makes `Device` generic over a lock context and documents when
+the `Locked` callbacks run without the lock, and patch 3 gives `suspend`
+the `MaybeLocked` one.
 
-Check the returned skb before distributing the message and releasing
-the lookup reference. Keep session deactivation and activation of the
-next queued session unconditional, so a missing receive buffer does
-not leave the completed session active. This also matches the NULL
-handling already used by j1939_simple_txnext().
+No in-tree driver is affected, so if this is not worth doing before
+there is a real user, I am happy to drop it.
 
-AI assistance was used to analyze the bug and prepare this patch.
+The audit, the patches and their changelogs were done with an AI coding
+assistant (Claude Code, Claude Opus 5.5) and reviewed line by line by
+me. Compile-tested only.
 
-Fixes: 9d71dd0c7009 ("can: add support of SAE J1939 protocol")
-Cc: stable@vger.kernel.org
-Signed-off-by: Xue Boyang <fuchen.dust@gmail.com>
+[1] https://docs.kernel.org/dev-tools/context-analysis.html
+
 ---
+Changes in v3:
+- Give `suspend` the `MaybeLocked` context, and make `genphy_suspend()`
+  available in both contexts (netdev AI review)
+- Move `soft_reset` and `genphy_soft_reset()` back to `Locked`, since
+  `genphy_soft_reset()` in `MaybeLocked` could race with lock holders
+  in `suspend`, and document phy_mii_ioctl() as an existing PHYLIB race
+  instead (netdev AI review)
+- Drop `match_phy_device` as well (netdev AI review)
+- Fix the `get_features`, `soft_reset`, `read_status` and `resume`
+  SAFETY comments, and name the context at each `from_raw()` call
+- List the exceptions in the `Locked` documentation, including MAC
+  drivers that call phy_init_hw() or phy_read_status() directly
+- Link to v2: https://lore.kernel.org/r/20261115-exp-phy-rs-maybelocked-v2-0-8fa7897a0352@gmail.com
 
-Notes (j1939-null-submit):
-    Based on mainline commit 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4.
-    The affected transport.c and socket.c are unchanged from the original
-    local report baseline daf677c2c6449011ee695d55b48b5b2977a36f88.
-    
-    Validation:
-    - Built net/can/j1939/ with W=1 on x86_64, CONFIG_CAN_J1939=m,
-      CONFIG_KASAN=y and CONFIG_WERROR=y; no build warnings or errors.
-    - A temporary userspace harness executed the extracted completion
-      function with stubbed dependencies. It checked missing-buffer receive,
-      normal receive reference balancing, and transmit completion. The old
-      function passed NULL to the delivery stub; the patched function did
-      not, while retaining the completion-helper call.
-    - This revision has not been boot-tested or run against a CAN interface.
-      The harness is not an end-to-end kernel regression test.
-    
-    AI assistance (OpenAI coding assistant) was used for source analysis,
-    commit-message preparation, and build and isolated-function checks.
-    No packet-level reproducer or triggering sequence is included.
+Changes in v2:
+- Keep `&mut self` on the moved methods, so that `match_phy_device` does
+  not gain register access (netdev AI review)
+- Give only `soft_reset` the `MaybeLocked` context
+- Drop `read_mmd` and `write_mmd` instead of leaving them `Locked`
+- Document how PHYLIB calls the `Locked` callbacks, and fix the
+  `from_raw()`, `phy_id()` and `genphy_soft_reset()` SAFETY comments
+- Link to v1: https://lore.kernel.org/r/20261110-exp-phy-rs-maybelocked-v1-0-3023cc9055e9@gmail.com
 
- net/can/j1939/transport.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+---
+SeungJong Ha (3):
+      rust: net: phy: drop unused read_mmd, write_mmd and match_phy_device
+      rust: net: phy: make Device generic over a lock context
+      rust: net: phy: pass a MaybeLocked device to suspend
 
-diff --git a/net/can/j1939/transport.c b/net/can/j1939/transport.c
-index 8fcfd13e5e6f8..ecf7f245f8378 100644
---- a/net/can/j1939/transport.c
-+++ b/net/can/j1939/transport.c
-@@ -1244,8 +1244,10 @@ static void j1939_session_completed(struct j1939_session *session)
- 	if (!session->transmission) {
- 		se_skb = j1939_session_skb_get(session);
- 		/* distribute among j1939 receivers */
--		j1939_sk_recv(session->priv, se_skb);
--		consume_skb(se_skb);
-+		if (se_skb) {
-+			j1939_sk_recv(session->priv, se_skb);
-+			consume_skb(se_skb);
-+		}
- 	}
- 
- 	j1939_session_deactivate_activate_next(session);
+ drivers/net/phy/ax88796b_rust.rs |   4 +-
+ rust/kernel/net/phy.rs           | 299 +++++++++++++++++----------------------
+ rust/kernel/net/phy/reg.rs       |  17 ++-
+ 3 files changed, 139 insertions(+), 181 deletions(-)
+---
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
+change-id: 20261110-exp-phy-rs-maybelocked-ddc59993efba
 
-base-commit: 666539eecdf4db623f5e3c3e55cf9f2dfad24aa4
+Best regards,
+--  
+SeungJong Ha <engineer.jjhama@gmail.com>
+
