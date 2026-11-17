@@ -1,49 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794907044;
-	b=KiDT0laxYTvQ6EvVkui4NmpcmyV+923DIb749rD+LYdiOKuoODrB7aLGbpx+nN1qjyqk
-	 zAS8HLtQ9czF1hEysD+wc7EW29NtmhHDYRmcip7KsdHYBHTpjE8rWXaPKXEwdqP77fDBM
-	 iZLqp7w1wAGUoLSlKDicFejBgNF4GHQox7sDiImYuIhc9/I/h/PDV4/3DY3TRkgPDMEq8
-	 SWOBoM9UescOl8kINpE98cOqRJzP6upYXQYY0DfdZvmTYYsnqk7cpT84xi2amJ+zZxjr2
-	 laeMJrUwjhtQhOcek7I7gVqrGeuyvR5CwTRbET/i9W1CoghDrL/QMx4TZaEXwJYKQBA==
+	t=1794907259;
+	b=pC8EebVZU75l2wwUiRPn4Jo0ZZ7nOai+ki6aIAsnetbCxAWlVtJ8g3IxMKksZFl0obga
+	 ITp61nAa+o5HAD8q81dnTr80gakI4N+OvwMjexpiXTEXYGGtVYMHsK042aJgKRVjboGs5
+	 yTys0eyufCHCMi9aT+jypYZrxMLpmcdVtSJuTH8FgH/GIpdolmQK9ULXOSzitLZ23obOq
+	 FLM1awXa8/uonF8MajmzW7ljKjwDm2ItdLwxRVH81d1whsTBpRtWbLaaCb3U8cQlhH4pR
+	 55ZAdk8z4QGBNchRZGyNn61ErFUSGXfwf3iUhkdVM3nXlb+lNVmdOWkGOArOgtOzUOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794907044;
-	h=DMARC-Filter:Received:DKIM-Signature:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:Message-ID:X-Sender:Content-Type:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=yZ0fAR/QCay6UZgUjG0ZZBVxDPQuZejQY6FBcdailnQ=;
-	b=kFOZxJXmFJxuJZSjp4rEHp2Sq4KR2mxYuIWx4lIBOzgM3NqBpOHU47TPJ/wBbFDAWsU2
-	 JxpVbrrOpfa6nVxhUQTMyM5jPdMMQj6si/pS8OioBcwDyMA0sY3ht4/O1bzpGQDOGoWLg
-	 Afz8igS9tUSHqtRqc6I3MZ3yhJy8375tb+Qq4bx0cHzriZsfF6I/VTZvsOszC8CVjJj2I
-	 5EkiroZ7kwPWGk+nX0fa8dXvAbw45h1GUbvDQs4h4ia/O1MeUdpXU00rHrEMvCrRERFJ8
-	 E7wayka7089nJKCsLlVZozG/OIhTp0fRhkhp5eshRb4+rC4MvZ4CH+ogfbnefWQwbew==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794907259;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=GHb3MG4ar21Ji9AsYm3wR9uXYPAPEdFfHbmibMl1wnw=;
+	b=dmLXP8/hB8blNh0FshMX2hNj6zRPkK2wCHXXeHEzuGYsbQpRjTGOHgLJN3+ZOHxdwFMe
+	 hZGuJGGhLJ99XJwxH13w50eUZqd9P5QAhuEXhDrxtZWpN+zZKI8aJet1D6r80uituDAfA
+	 46FgSmM7NYgmbTR6vla4QmO18PB4SkHTd8S/6oUSZtYm2f5MWLze0kol8dxJDIPKUaDq3
+	 oMJhZvLWpgJHvD3x6iOxZka3IMcOj3/7miLRT3f8Y5TYmz6nRU0Q6no7EugkxyMDMb3Oe
+	 GzhcJcL1xgmTIDO3rjz/iKgm1OBj7EZJinEK1ZH14337JkjGg5esVPaC3Q4RkVhexHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=uC+K7fY5;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P3+peLbh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3785606A32C;
-	Tue, 17 Nov 2026 09:17:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3785606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC55B606A32A
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:20:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=uC+K7fY5
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id ACBB7A0E37;
-	Tue, 17 Nov 2026 10:17:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1794907040; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=yZ0fAR/QCay6UZgUjG0ZZBVxDPQuZejQY6FBcdailnQ=;
-	b=uC+K7fY560vQHp9hzdSs/zSj9et9Mpp9alYYZbfB3FTk5AxdE7ZXQnfUl4+VTpJxBec43g
-	1vqcBgel0UP3xRaN/KzjuxP0im088fg0lNACF0Cub5TZ4rSTSPYWf6GyMEQZF96j5DC80E
-	LxBMHOjGEYC494LS+i+XcwrJx2SksdFN/B/FuEIpUxfWhUBnFw/cspgQuppkz0u6sk0Cur
-	AhaJtZ7disj6Aj89xXWsxkLtBwYKIplDS8T0oaaJuKl2at4oMUzZ5TpPsTRADhh1ucXxTr
-	1SrCFo9dDctHSEj/OiCOuW/6IK3cA+Bs99wJyiFxtujke2eOVMrSQUFcTDz9Mw==
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P3+peLbh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 475621F000CB
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:20:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794907259;
+	bh=GHb3MG4ar21Ji9AsYm3wR9uXYPAPEdFfHbmibMl1wnw=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=P3+peLbhVPkT5lkGdgB7/HVy4oaUes6i9lRf2E1TJSPddf2QGN4en8JmxjB9t7LV8
+	 xK3QnX4wjy245nh9wCkbThws3xgUe1dP5ZzhWkpK0SGfJRG1uQ0t2gatN5MiZxKrBg
+	 7TSX6vN6xMF4rMpZgpbw5Gx2Pg1Zeoa5qC2A+5qnSb5zMBkRc4M767pPH6G8QZHK4l
+	 4yrNBwE6RaKWkjxKOxEUqz2zjWkMWfveTgY8ahvUitkTZ7yF5QeSUVYvNbeJjlFllO
+	 YpznL7Jm2bJSIKOYQ2RECfuKTbewytcUgDyke4rmO0OB+UkmJQMHeX1sNYcSijiu7m
+	 v3JmTDZr0d7Yg==
+Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-71acdd32a53so1270280eaf.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 01:20:59 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHw3cJUBcLJIB/t+o+/TcG/ZPxpjQcI6dVg2MOJX5bYw0ckjPzIvjYTWQtBJhDZaRGdtYlkDfo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80yyz2xgTdS8xPvMgKsC2G6aB2bNjK+A2+TXCMB2EyLdIcSQrZ
+	sSAIzzaV620F+KMJdQ4C6J6xQllStaQGcaorw+P1+vAD0PB3QpsiK9Bb/wtdFGC2r+riCfpxVNQ
+	CrYqcqlfh9Z/p/8NApbNkES5LrNazcRU=
+X-Received: by 2002:a05:6820:168c:b0:6dd:bc51:888d with SMTP id
+ 006d021491bc7-71acc1970cemr6535008eaf.87.1794907258431; Tue, 17 Nov 2026
+ 01:20:58 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,36 +59,237 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 17 Nov 2026 10:17:19 +0100
-From: Nicolai Buchwitz <nb@tipi-net.de>
-To: netdev-bot+sashiko@kernel.org
-Cc: opendmb@gmail.com, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, f.fainelli@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, pierremarinleclercq88@gmail.com,
- dave.stevenson@raspberrypi.com, justin.chen@broadcom.com
-Subject: Re: [PATCH net-next v7 9/9] net: bcmgenet: reassemble jumbo frames
- from status block fragments
-In-Reply-To: <179474771487.2199510.9115361919445613385@kernel.org>
-References: <20261112-nb-genet-mtu-nn-v2-v7-9-43a5d90b3256@tipi-net.de>
- <179474771487.2199510.9115361919445613385@kernel.org>
-Message-ID: <fb5dcb28401cf523601ea61e2118219b@tipi-net.de>
-X-Sender: nb@tipi-net.de
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20261117041029.80543-1-juanagusnicco@gmail.com>
+In-Reply-To: <20261117041029.80543-1-juanagusnicco@gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Tue, 17 Nov 2026 10:20:47 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiptsFQ6dinHeAGrpxeXxdn0meRSR9tkEQaTkopPJiub7A@mail.gmail.com>
+X-Gm-Features: AclHuK_1jsrjd0rFQKTxUrwhKy8SYCc-iBIqOUG61SFod-auZpaFVEhEMskdUeE
+Message-ID: <CAL4WiiptsFQ6dinHeAGrpxeXxdn0meRSR9tkEQaTkopPJiub7A@mail.gmail.com>
+Subject: Re: [PATCH net v2] tcp_metrics: hash the destination address with SipHash
+To: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+Cc: Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 15.11.2026 14:01, netdev-bot+sashiko@kernel.org wrote:
-> [...]
+Le mar. 17 nov. 2026 =C3=A0 05:10, Juan Agustin Niccolini
+<juanagusnicco@gmail.com> a =C3=A9crit :
+>
+> The tcp_metrics bucket is derived from a fold of the peer address.
+> For IPv4 the fold is ipv4_addr_hash(), which returns the address
+> unchanged. For IPv6 it is ipv6_addr_hash(), which XORs the four
+> 32-bit words of the address. net_hash_mix() is only XORed in after
+> that fold, so two addresses of either family with the same fold share
+> a bucket in every netns.
+>
+> A remote attacker with an IPv6 /64 can thus compute, without knowing
+> net_hash_mix(), addresses that collide with a chosen IPv4 or IPv6 address=
+:
+>
+>   w3 =3D w2 ^ p0 ^ p1 ^ target    /* p0, p1: prefix, w2: free */
+>
+> A bucket holds six entries and the seventh insert replaces the oldest.
+> tcp_init_metrics() seeds the initial RTO from the cached RTT, so the
+> attacker can tell whether an entry it planted was evicted. Filling the
+> bucket of a chosen address with such entries reveals whether that
+> address, or another one in the same bucket, connected in the meantime.
 
-> [Severity: Medium]
-> Has the wider TX descriptor length field been confirmed on GENET v2, v3
-> and v4, or only on v5?
+Note that entries are created from tcp_update_metrics(), when the
+flow is closed, not when the victim connects.
 
-Only on v5 (see 6/9). There it is at least 14 bits. A 16361 byte 
-AF_PACKET
-frame is one linear descriptor with the payload matching exactly.
+>
+> The same test, with six entries of one fold and a seventh of another,
+> shows whether two folds share a bucket. Each answer rules out values
+> of net_hash_mix(), the only unknown, and since XOR and multiply is not
+> a PRF a few hundred answers recover it. The attacker can then fill
+> every bucket and see which one any client's connection evicts from.
 
-> [....]
+How many connections does your reproducer need, for each phase ?
+
+1) Recovering net_hash_mix().
+
+2) Filling the table (16384 * 6 flows with the default size ?),
+   then each sweep to find which bucket was hit.
+
+Each probe also has to wait for an RTO, so wall time matters too.
+
+Also, how does this behave on a server with real traffic ? Every
+other client closing a flow evicts entries as well. You mention
+a test against Ubuntu 24.04 over the internet, was this host
+serving anything else ?
+
+Please add these numbers to the changelog, they are needed
+to evaluate how practical this is, and if this is net or net-next
+material.
+
+Note that many servers (including Google ones) have tcp_no_metrics_save=3D1
+
+> The multiplication in hash_32() is invertible, so that bucket leaks
+> about 14 bits of the client's address, depending on the number of
+> buckets.
+>
+> Hash the address with SipHash and a random key instead, as commit
+> 2ee66e948717 ("inetpeer: randomize RB-tree node comparison using SipHash"=
+)
+> did for inet_peer. net_hash_mix() and hash_32() are kept, to separate
+> namespaces and to reduce the result to the table size.
+>
+> Fixes: 51c5d0c4b169 ("tcp: Maintain dynamic metrics in local cache.")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Juan Agustin Niccolini <juanagusnicco@gmail.com>
+> ---
+> v2: - use siphash_1u32() for IPv4, a4.vif is always zero in tcp_metrics
+>       (Kuniyuki)
+>     - call tcpm_addr_hash() once after the address family branches
+>     - changelog: explain more clearly why net_hash_mix() and addresses
+>       are recoverable
+> v1: https://lore.kernel.org/netdev/20261112064624.15245-1-juanagusnicco@g=
+mail.com/
+>
+> Comments below are the same as on v1.
+>
+> This can be exploited remotely to recover a client's IPv4 address.
+> A single host narrows the address to about 262 thousand candidates,
+> and because each netns keys the hash differently, intersecting buckets
+> extracted from multiple hosts converges quickly into one candidate;
+> 3-5 are enough. The net_hash_mix() value only needs to be extracted
+> once per boot per host.
+>
+> Many common cases facilitate this. For instance, a browser loading
+> one page connects to several hosts within the same second. That
+> supplies the buckets needed to converge, and the shared timing shows
+> they belong to the same client.
+>
+> I reproduced the bug on a QEMU guest running mainline (2a500a04d6f9) and
+> against Ubuntu 24.04 over the internet. With the patch applied, the
+> reproducer no longer finds addresses that share a bucket. The
+> reproducer is available on request.
+>
+> For stable: 5.10 and 5.15 lack siphash_aligned_key_t;
+> "static siphash_key_t tcpm_hash_key __read_mostly __aligned(16);" can
+> be used there.
+>
+> This bug was discovered during an LLM-based code review.
+>
+>  net/ipv4/tcp_metrics.c | 28 +++++++++++++++++++++-------
+>  1 file changed, 21 insertions(+), 7 deletions(-)
+>
+> --- a/net/ipv4/tcp_metrics.c
+> +++ b/net/ipv4/tcp_metrics.c
+
+Your patch lacks the "diff --git" and "index" lines, and the hunk
+headers have no function context. Please use plain git format-patch
+for the next version.
+
+The code itself looks good to me.
+
+Thanks.
+
+> @@ -8,6 +8,7 @@
+>  #include <linux/init.h>
+>  #include <linux/tcp.h>
+>  #include <linux/hash.h>
+> +#include <linux/siphash.h>
+>  #include <linux/tcp_metrics.h>
+>  #include <linux/vmalloc.h>
+>
+> @@ -94,6 +95,22 @@
+>
+>  static DEFINE_SPINLOCK(tcp_metrics_lock);
+>  static DEFINE_SEQLOCK(fastopen_seqlock);
+> +
+> +static siphash_aligned_key_t tcpm_hash_key __read_mostly;
+> +
+> +static u32 tcpm_addr_hash(const struct inetpeer_addr *a)
+> +{
+> +       net_get_random_once(&tcpm_hash_key, sizeof(tcpm_hash_key));
+> +
+> +       if (a->family =3D=3D AF_INET)
+> +               return siphash_1u32((__force u32)a->a4.addr, &tcpm_hash_k=
+ey);
+> +
+> +       return siphash_4u32((__force u32)a->a6.s6_addr32[0],
+> +                           (__force u32)a->a6.s6_addr32[1],
+> +                           (__force u32)a->a6.s6_addr32[2],
+> +                           (__force u32)a->a6.s6_addr32[3],
+> +                           &tcpm_hash_key);
+> +}
+>
+>  static void tcpm_suck_dst(struct tcp_metrics_block *tm,
+>                           const struct dst_entry *dst,
+> @@ -270,13 +287,11 @@
+>         case AF_INET:
+>                 inetpeer_set_addr_v4(&saddr, inet_rsk(req)->ir_loc_addr);
+>                 inetpeer_set_addr_v4(&daddr, inet_rsk(req)->ir_rmt_addr);
+> -               hash =3D ipv4_addr_hash(inet_rsk(req)->ir_rmt_addr);
+>                 break;
+>  #if IS_ENABLED(CONFIG_IPV6)
+>         case AF_INET6:
+>                 inetpeer_set_addr_v6(&saddr, &inet_rsk(req)->ir_v6_loc_ad=
+dr);
+>                 inetpeer_set_addr_v6(&daddr, &inet_rsk(req)->ir_v6_rmt_ad=
+dr);
+> -               hash =3D ipv6_addr_hash(&inet_rsk(req)->ir_v6_rmt_addr);
+>                 break;
+>  #endif
+>         default:
+> @@ -284,6 +299,7 @@
+>         }
+>
+>         net =3D sock_net(req_to_sk(req));
+> +       hash =3D tcpm_addr_hash(&daddr);
+>         hash ^=3D net_hash_mix(net);
+>         hash =3D hash_32(hash, tcp_metrics_hash_log);
+>
+> @@ -310,18 +326,15 @@
+>         if (sk->sk_family =3D=3D AF_INET) {
+>                 inetpeer_set_addr_v4(&saddr, inet_sk(sk)->inet_saddr);
+>                 inetpeer_set_addr_v4(&daddr, inet_sk(sk)->inet_daddr);
+> -               hash =3D ipv4_addr_hash(inet_sk(sk)->inet_daddr);
+>         }
+>  #if IS_ENABLED(CONFIG_IPV6)
+>         else if (sk->sk_family =3D=3D AF_INET6) {
+>                 if (ipv6_addr_v4mapped(&sk->sk_v6_daddr)) {
+>                         inetpeer_set_addr_v4(&saddr, inet_sk(sk)->inet_sa=
+ddr);
+>                         inetpeer_set_addr_v4(&daddr, inet_sk(sk)->inet_da=
+ddr);
+> -                       hash =3D ipv4_addr_hash(inet_sk(sk)->inet_daddr);
+>                 } else {
+>                         inetpeer_set_addr_v6(&saddr, &sk->sk_v6_rcv_saddr=
+);
+>                         inetpeer_set_addr_v6(&daddr, &sk->sk_v6_daddr);
+> -                       hash =3D ipv6_addr_hash(&sk->sk_v6_daddr);
+>                 }
+>         }
+>  #endif
+> @@ -329,6 +342,7 @@
+>                 return NULL;
+>
+>         net =3D sock_net(sk);
+> +       hash =3D tcpm_addr_hash(&daddr);
+>         hash ^=3D net_hash_mix(net);
+>         hash =3D hash_32(hash, tcp_metrics_hash_log);
+>
+> @@ -819,7 +833,7 @@
+>         if (a) {
+>                 inetpeer_set_addr_v4(addr, nla_get_in_addr(a));
+>                 if (hash)
+> -                       *hash =3D ipv4_addr_hash(inetpeer_get_addr_v4(add=
+r));
+> +                       *hash =3D tcpm_addr_hash(addr);
+>                 return 0;
+>         }
+>         a =3D info->attrs[v6];
+> @@ -829,7 +843,7 @@
+>                 in6 =3D nla_get_in6_addr(a);
+>                 inetpeer_set_addr_v6(addr, &in6);
+>                 if (hash)
+> -                       *hash =3D ipv6_addr_hash(inetpeer_get_addr_v6(add=
+r));
+> +                       *hash =3D tcpm_addr_hash(addr);
+>                 return 0;
+>         }
+>         return optional ? 1 : -EAFNOSUPPORT;
