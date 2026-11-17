@@ -1,70 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.124.96
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794934160;
-	b=w23blO+/ZUdfvjrzy74VAYXj281IvrJpN3RCiDDb3PXtZbDLRh2hxmQ9vZsddbwbCHsM
-	 PH2vHqntXBfwYLxEfj3AOnIVtgK+eWLsu6dhsHdK8XA3ndj7xdmHOtGIpwIpOXZoAtvzq
-	 OaBT/ci31k6IKVkxQtTfbAJaYk9/YnxgRx3eemDRcOlIlxkp3rT4HYbCXF9VQwlU3JA8/
-	 UU63OBLQPqRjb0n+8rsSSxhaOkd8CWQCJnx4XaGzYdUEX8psQ24r8oErkvpYwyP4cQwuU
-	 BPYEOrHAkIaN7AMez4RcQDRXFUSsSkwAUYPer2Qs/eb2m9S8OskkQBTvFrQCmotNfeg==
+	t=1794934284;
+	b=wKx3HSHj+gXURwPux5LzhkvwqMQ9zmTv96dY5xmPHVJdeX2TkPkpdCLFBi6s5RGd3Iin
+	 J1RbTtxzVzPtbRA11FQKNJgrmIUZsgLcpQlLW3u2/V0CaTYkgAZwJBcy0asBBhNZqcs4W
+	 ZktbpiI68JF04ZmOvoZwP4ENvopHDhWPiclMYkVNJghqAlnVsZ7dCAobRAZYVJ5S16Q22
+	 L0/YsSiQTPMHPpu7dOgHxhJJ+1p1P8fkTY6g9VYC+piC/p2N/hKQbmEFf20vCFfPzfEFh
+	 QPV73lxkMtY5hAx31iyakXYrbQv8Hldfs9PRI/11EOfXGXo9Rvhqnk8Uk/1VMJdKprA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794934160;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=Scl/VifAjlxPDoAR0t/AhiRabE59EDiCI7/IkrSw3+M=;
-	b=hlvW8hUtOdCcFHxnnG/efV0iZyMTx/1kV/YPNzhjf4Q2kohU643zuDzeNXH5geZY32n1
-	 fttrzGFsxZcsYMyyUQ02pl4dTFHuu6M8NFZ0sjWpSRJ8BuRrHMKffBdpFmowxLv7IrW43
-	 ZMjg2ZLOEKep4suMhlPnDYPMIUeePuNrI2f7V9nlEaPkqQpl+7TBfZtKUqHEphQPEk3EP
-	 JiMvnfDUMPMqWblTHq9SHmR2T6bo38IcHidYjju8UF46Hg4igqngZ7xPkkZEjFsRIsXFY
-	 zrLbqQa9vcnAC5YsGavNVXdJstCc4Ghu+nUrIZnNh211wV/BMX6G8bTUxVis91h9oVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794934284;
+	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:From:To:
+	 Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xnTlG3RhB5eZYXoKfh+lrOl3/6yxxp2X5UnqYVp1GAI=;
+	b=4XVumJF8kLxCqBbLazWVWNS76bSTf0zSu4j7o7lB7o9n1fceN0onlmSFlhKNPODVFbur
+	 PMppfzENowbRVDO/1WdKiDXVnpQPRCUAszw0fKUWzSammdOy73Snxh4zCEQSu61BqAZ96
+	 Gcjfw9E22KUgvW4LUAlwvyMXeV6YYVZWFqE68BLE76ycCqvHek4BPT8jd+Bb8aqpzP9Ux
+	 f4HcWequ7+u1Mv8/maPrYs7LBqBm5sw050/lORSmEEjhFp8X1iwNeYeYT+LHeRknmIv+w
+	 9/0usUGRRiFe4jojnV6KQzoLFOIYwD/9NCApral/uWzo5aiDCWkBgPnCXIM9NgefYDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aIeRJ75E;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=yandex.ru;
+	spf=pass smtp.mailfrom=yandex.ru;
+	dkim=pass header.d=yandex.ru header.i=@yandex.ru header.a=rsa-sha256 header.s=mail header.b=fu1HXOF+;
+	arc=none smtp.remote-ip=51.250.124.96
+Received: from forward100a.mail.yandex.net (forward100a.mail.yandex.net [51.250.124.96])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03A17606A31C;
-	Tue, 17 Nov 2026 16:49:20 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7CFD606A33D
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:51:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7CFD606A33D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex.ru
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex.ru
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aIeRJ75E
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3F431F000CB;
-	Tue, 17 Nov 2026 16:49:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794934159;
-	bh=Scl/VifAjlxPDoAR0t/AhiRabE59EDiCI7/IkrSw3+M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=aIeRJ75E+9ST4vOLKED9LJSC1b+MQ6CDTXIHOyZ4D9fc7EvV6clSf1nXJKIyXN3HO
-	 zk8sfd0ETNlAz+2/ewTdVDDUImFZFd2CrtllN00E5B/eFnhnRNeKJ8N6SXaiOosc2N
-	 wKZof/4+J3uj2rfto011U4mCJJCpxP8RWdfOITsuOsMLA3crXqexX1mSsQ0/w2M6Bp
-	 LyiKPPVX+uZrrbpvaWWe92vRfBL6lf39Syd7GWv8j2iCeWBZXvkOG9hKsSuq7OiI5p
-	 8MT3yswJXkDCu1RdrKuyvFEucdhYmxccv7CIOyCD9L+QizogYZbQwMcw/DCPeHAst/
-	 ocY+AxXGYimnQ==
-Date: Tue, 17 Nov 2026 17:49:11 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: "Hallgrimur H. Gunnarsson" <halg@google.com>
-Cc: Andy Lutomirski <luto@amacapital.net>, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Paul Moore <paul@paul-moore.com>, 
-	Serge Hallyn <sergeh@kernel.org>, Kees Cook <kees@kernel.org>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Jan Kara <jack@suse.cz>, 
-	James Morris <jmorris@namei.org>, Simon Horman <horms@kernel.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
-	Randy Dunlap <rdunlap@infradead.org>, Jann Horn <jannh@google.com>, 
-	=?utf-8?Q?G=C3=BCnther?= Noack <gnoack@google.com>, KP Singh <kpsingh@kernel.org>, 
-	Jonathan Calmels <jcalmels@3xx0.net>, Casey Schaufler <casey@schaufler-ca.com>, 
-	linux-fsdevel@vger.kernel.org, linux-security-module@vger.kernel.org, linux-api@vger.kernel.org, 
-	containers@lists.linux.dev, netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 0/8] userns: per-namespace capability bounding set and
- opt-in netns loopback
-Message-ID: <20261117-grabung-sowie-symmetrie-41925e0f1b84@brauner>
-References: <20261028221705.3915340-1-halg@google.com>
- <CALCETrW9ygriu54gxiHFLEd5+hJminQo0r8Jwd63wR69Dj4W7w@mail.gmail.com>
- <20261106-befreien-addieren-eislauf-e09212803534@brauner>
- <CALCETrWa1SBLcb5oWjqjgzZvKvCoHjmYFk=Lf5ytEM9uqm5jYA@mail.gmail.com>
- <avM41a80aig2de-R@google.com>
- <20261111-behagen-faktisch-entgegen-e2e714373895@brauner>
- <avsymRBSulVZfouF@google.com>
+	dkim=pass (1024-bit key) header.d=yandex.ru header.i=@yandex.ru header.a=rsa-sha256 header.s=mail header.b=fu1HXOF+
+Received: from mail-nwsmtp-smtp-production-main-73 (mail-nwsmtp-smtp-production-main-73.yp-c.yandex.net)
+	by forward100a.mail.yandex.net (postfix) with ESMTPS id 9AFA4C03DB;
+	Tue, 17 Nov 2026 19:51:12 +0300 (MSK)
+Received: by mail-nwsmtp-smtp-production-main-73 with ESMTPSA id 8pcmEQ0mua60-7s8HV7bS;
+	Tue, 17 Nov 2026 19:51:11 +0300
+X-Yandex-Fwd: 1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
+	t=1794934271; bh=xnTlG3RhB5eZYXoKfh+lrOl3/6yxxp2X5UnqYVp1GAI=;
+	h=Message-ID:Date:Cc:Subject:To:From;
+	b=fu1HXOF+WB8tkBLAnYa//UwM5+WLJ7+kyPMhRJDTBmzbWDFWRa318TfGZYc9Pwvor
+	 +VpIa2E8pqV169upH6lcMNGupesUsDe5SiPx155LR4Uk4NNPtjzLhxN4vaqy8Y6V8m
+	 g38YFsyJZYT7jizbyBH4+J/joWfh5XP/txKSJCQ8=
+Authentication-Results: mail-nwsmtp-smtp-production-main-73; dkim=pass header.i=@yandex.ru
+From: Dmitry Antipov <dmantipov@yandex.ru>
+To: Nikolay Aleksandrov <razor@blackwall.org>,
+	Ido Schimmel <idosch@nvidia.com>
+Cc: bridge@lists.linux.dev,
+	netdev@vger.kernel.org,
+	Dmitry Antipov <dmantipov@yandex.ru>
+Subject: [PATCH] net: bridge: avoid redundant strlen() in show_backup_port()
+Date: Tue, 17 Nov 2026 19:51:06 +0300
+Message-ID: <20261117165106.635733-1-dmantipov@yandex.ru>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,22 +65,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <avsymRBSulVZfouF@google.com>
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 16, 2026 at 04:43:05PM +0000, Hallgrimur H. Gunnarsson wrote:
-> Quick question on AUDIT_CAPSET: today it's only emitted on capset() and
-> only logs capability sets that capset() can modify (explicitly or
-> implicitly like cap_ambient). It does not include cap_bset which is
-> modified via prctl(). Since capset() never modifies cap_userns either,
-> does it make sense to treat it like cap_bset and leave it out of
-> AUDIT_CAPSET, relying on prctl auditing instead?
+In store_backup_port(), prefer strchrnul() over strchr() to
+avoid redundant call to strlen().
 
-Fine by me as well.
+Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
+---
+ net/bridge/br_sysfs_if.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-> Thanks for the feedback and the detailed proposal. It looks good to me
-> and nicely ties everything together. I'll prepare a V2 for review based
-> on this hybrid design.
+diff --git a/net/bridge/br_sysfs_if.c b/net/bridge/br_sysfs_if.c
+index 621d62a063d9..03205b3f465f 100644
+--- a/net/bridge/br_sysfs_if.c
++++ b/net/bridge/br_sysfs_if.c
+@@ -231,12 +231,12 @@ static ssize_t show_backup_port(struct net_bridge_port *p, char *buf)
+ static int store_backup_port(struct net_bridge_port *p, char *buf)
+ {
+ 	struct net_device *backup_dev = NULL;
+-	char *nl = strchr(buf, '\n');
++	char *nl = strchrnul(buf, '\n');
+ 
+-	if (nl)
++	if (*nl != '\0')
+ 		*nl = '\0';
+ 
+-	if (strlen(buf) > 0) {
++	if (nl - buf > 0) {
+ 		backup_dev = __dev_get_by_name(dev_net(p->dev), buf);
+ 		if (!backup_dev)
+ 			return -ENOENT;
+-- 
+2.56.1
 
-Sounds good.
