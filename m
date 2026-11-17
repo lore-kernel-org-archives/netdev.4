@@ -1,73 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794874635;
-	b=eUHygT0ym9EBbF2xtFJ6EVCoNI6C+AorhvNO1viBHlnI+MLJUjrU4+jTiAqKM6nkgkiS
-	 fD1oXlkvcWYhjztn67ePjxlVt7+ITp29BdNzlzQ5uun/rY9bhhbdyxENQA4mlzum4JQbT
-	 faWAsWQNCbPBexLNcRRo/m3ydJwjHBOqiVZmteq3sd8p5sSE2Uaasxa8SCjgQkz7nt58M
-	 Rw57c/f6x/B9LV77lzJx2aTU/a5oHbh6GEz9mi334sGqgwxzAhScB7+6U7LSP2VZDpdYX
-	 bh/tMtlrSg0HFw6mBbeDnVWY1sprsc7Ke7xFwtXQRM72PN6/OTFNAfT3vE82wMwvj+w==
+	t=1794874807;
+	b=wBplru90nP/dGGh7YlfJzJLPJKc3bLc2NMLyh9ajFh4SnGKNn1mxCqMjveWHvvL6HDNO
+	 V2hCi+15gW57DHElCY6jKeard7GKO/U4Wu5mVaEPLiDtksF8Q1OOfEsMWnssOvmI7f5KT
+	 g+Q0QGiHPj8+Cak+Hp7V7JsoOKaC72Kq05SGN9Es1uTlUX+KsbhknkvqZwhiEn7rI+TB8
+	 51Ke0TE39noY2t9vhY8NqPcvPBaYLtUfAcTyHAx0P3M6A3tkt7XPtZ7dcqaBXHAJIdOJH
+	 S3VcYKUmNodR6evOrx9/MbHPUVcCRYxhJCwNsPLAeuPAAgvp4pqGBNIL1Be5kYGoqPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794874635;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=CVYsmp0KczWzE0joivXQDORwssfDFQQlsu469l4XFpg=;
-	b=j3KYXWrsDznHhIVnsgYA7cOBdsmslvatKWxyXAv5bgA5AyieZpSFkHQ/gqdm591Oi7E+
-	 5GFi7oAhpqzqzxPT9Za1d5gTlLdIPZ4N8OMioU8MgfLShNcwBHgIN9ilaJdIabcZmzeuD
-	 ykmWjq6msz1N00Px4yFtci+/qR3CC++UfY+5jFsSQflOZzwq4eL7naOp+4PVpCqSTNBWS
-	 bgkGw43fEe+4YseOMJfM4ii0cAqE3MtF39gBoD/SShzH3qKA1Ool9XUCKmcsQwI7V2U6X
-	 OFqp4aDUecspQgt+MijKuXTJEOwsG/3Zesvn2617883/m4qHTEOaCpEamCYHsDUklCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794874807;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=YC0f0CFnTNvYryYxUtUimiX+FDelPcf3dZpNQNi0OF4=;
+	b=ehcACL2Vzz/pe4FzTHbVQnUxilkcdn/K2uRE4N+43R5Q7AuDbAaKbesOH5RVxMtV+C8P
+	 HRxN3gDdNxtzHLmJrfV94BGH/jKhtE20qiE0D6gOwJAqBKT0SdZJToIf7DTOwCJYo/DeE
+	 kJ7FLAxgO85PDbenMlbIc+Qd5TYsbklEj/4u/bqRGOhi9uG98Fu4Whxp8aTnhnBDUBBWt
+	 3Lfmg7nitrM+bqzeph8HW9ERCoDjY2qy1ZThI18oCrQrG1pMme6+o1zCF/BBJEHnKThOg
+	 Sbdl5fRJhdKcjmA6cQiJlvghEnIzHHArFTm67syholuMeuiKt6ow76RASFdJzH0DKvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=telaak.dev;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.128.179
-Received: from mail-yw1-f179.google.com (mail-yw1-f179.google.com [209.85.128.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XQ5MsPkw;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B541606A323
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:17:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B541606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=telaak.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-yw1-f179.google.com with SMTP id 00721157ae682-8b4e246acc2so10837537b3.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 16:17:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794874633; x=1795479433;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=CVYsmp0KczWzE0joivXQDORwssfDFQQlsu469l4XFpg=;
-        b=muO//Gb8Gdmg9r22v00WYi8PFlEo60V1plk52ZvvoRMJzzz1OYWTTPLi+14aGNs6IZ
-         FZQVJZXk9ezR/onRWmdax5cPFQpqyibsHd3429dc0p7hw53lLVGoRo0GBTVxi0ozmu7i
-         VZxpzfJyh9LJaZ1Y2hD5ZYPHDySykuP94Inl3ZgqNJdoSqGPD6o7yFG0HxAAGEqMKlqX
-         t9iBskT/HUmeEbnlAQ3BM1rLQ9ad96Fjuh3HaPk8BaNRA9KDSP/weyR9QmfOQhPGcWa7
-         YvcE+cw9lXV3rRXrzY+nhDOxXmxMhMLYGGGdHn68N1YhHYy0K3bAbrMVEzzAXxiXerKk
-         WGpw==
-X-Forwarded-Encrypted: i=1; AL+hErHxD1M0BAp6WuLYKisO8SrH68D2MtzFOjGpDVj2i59i9AheaT7oRnC8DDj3/q/vrHjPA+00DiY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9nqmAjLnXYW9UQkZ1R930VSLriWHQKybz3ija5WWrc3znYdi/b
-	7qgtGn42AEnGuz6oOH8SkVVYf63Uzn/nXxQ+XRfQx1lkTPGYcVWzqOn/
-X-Gm-Gg: AZFdTZcUtMhu1U++PSxf+P8234+c1YhOCjoPdG+lSndQE+2DnEU+EmAKiEeDGyv2aws
-	ptwhTBLySsBNBO3cLQL9zv1i9VD9UGkvo/dCvhg7HuThiSJuNOHuS4e7SHamcx9Bl/3jHxLs2V3
-	6IzzztSpciLxYm7peKw1a2m/XwDN+W3xBBcxe+z60390yNS0DjFItqQgnnm5U6vWBWn85uMqe8a
-	Bhj3lgiBgXFyh6lzeZo8vDeBTAIb3MPi7Sy1VrD2nXXK5Z0XtW9eaqMFedycmVlMctV7S8ZgSVk
-	GivPerqH9K1MK2d1Zh59G32DzRzOwMbDeenybkmFmoD6krpZLRi7rfK/gzCSUCw5wIqzFwkRSVZ
-	tKtwjljz+uNiJnS+gmBY5hEwSxAIAkXV+04FJ6xeyM1nzupOOaVPlWBSWHXQ/L3C4sR0SA2VrVt
-	JLvKzrvzlrlwdMfPGp/ydoEczv0d+xjCBCaU5vFp0D16nbSK851RbM9832vLH36HpDJa6hkERkk
-	LaWY1r/wLpdbV/1kKieVfu4SoE+GqO/qFjlCI7SfmFGRZs/7E6m2OB09VkP1/iFDY0zlWb3xVkf
-	PNhSHlvMTCPAv7ydzpx+Oh5V7mk0G+eniDwB9nmWaiya7g3QKfFAcsljDAx4dACILPxFD1nOWiu
-	h4n43ysRppvnqOoJ7/+h2N08/VrOSl+oShw==
-X-Received: by 2002:a05:690c:dc9:b0:8b3:1c7c:1b70 with SMTP id 00721157ae682-8b4aa3c727fmr79090967b3.53.1794874633458;
-        Mon, 16 Nov 2026 16:17:13 -0800 (PST)
-Received: from 1.0.0.127.in-addr.arpa ([71.68.170.161])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b4ec065d13sm11873787b3.25.2026.11.16.16.17.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 16 Nov 2026 16:17:13 -0800 (PST)
-From: Joseph Telaak <joseph@telaak.dev>
-Date: Mon, 16 Nov 2026 19:16:58 -0500
-Subject: [PATCH net-next v2] net: dsa: b53: mirror CPU-bound frames to port
- 5 when port 8 is unused
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10B18606A31C;
+	Tue, 17 Nov 2026 00:20:06 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XQ5MsPkw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82A491F000C4;
+	Tue, 17 Nov 2026 00:20:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794874806;
+	bh=YC0f0CFnTNvYryYxUtUimiX+FDelPcf3dZpNQNi0OF4=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=XQ5MsPkwbtaKe8d00NSxPCD6OAKrunNc+QRDoyviqNZYs08ebk67we41baAgJsZ2h
+	 xr/sLWo/CO092gU3aQzAQTvJysQkjXrAg49tqIWdfENtoql3GhutvIf3Mt8KZuscEB
+	 AZ8OAW1wX6zjjl5pIj/ZpB1y7m8GrXJC0nNdB2DeUv2XzPWluTcjA6tD4QzrLTI/Tg
+	 NKu7B2r7c+Ys8EUM1V6IK/wgTgZ/NaydHfhuR8FTEVQdeNGw/NE/FCr5zUrJHHKQbb
+	 smIB7QGSMg6sjhmlGlKpZla6F9JrUQYAt/F647lfLcEIbrTxXnr9ncgQ5qFzaNPc3z
+	 zkYWs2pi127hg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7736C391AFE7;
+	Tue, 17 Nov 2026 00:20:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,165 +53,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261116-b53-bpdu-mirror-v2-1-c39ab745730f@telaak.dev>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAA/2WNOw6DMBBErxJtnY1YI0Ckyj0iChuvg/MxyDYWE
- eLu4VOmHM28eTME9pYDXE8zeE422N6tQZxP0HbSPRitXjOITJREWY2qyFENesSP9b73qHNTlm0
- lK6MFrNTg2dhpf7yD44iOpwjN0YRRPbmN2+G27WyIvf/u8kQ7cXiI/jyJkNDUJhdca1FodYv8l
- vJ10ZygWZblB580LFfLAAAA
-X-Change-ID: 20261109-b53-bpdu-mirror-d3f66c7a7fd2
-To: Florian Fainelli <florian.fainelli@broadcom.com>, 
- Jonas Gorski <jonas.gorski@gmail.com>, Andrew Lunn <andrew@lunn.ch>, 
- Vladimir Oltean <olteanv@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Joseph Telaak <joseph@telaak.dev>
-X-Mailer: b4 0.16.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v3 0/2] virtio_net: AF_XDP zero-copy fixes for arm64
+ and
+ XDP queues
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179487480503.257811.3119115367169464801.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 00:20:05 +0000
+References: <20261110153003.23731-1-yanhaishuang@cmss.chinamobile.com>
+In-Reply-To: <20261110153003.23731-1-yanhaishuang@cmss.chinamobile.com>
+To: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+Cc: mst@redhat.com, jasowangio@gmail.com, xuanzhuo@linux.alibaba.com,
+ eperezma@redhat.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, netdev@vger.kernel.org, virtualization@lists.linux.dev,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org
 
-With port 5 as the CPU port, b53_brcm_hdr_setup() puts the switch in
-dual-IMP mode, in which frames for the CPU from the user ports still go
-to port 8: BPDUs, the IGMP/MLD copies b53_enable_mcast_snooping()
-enables, and most traffic of standalone ports. On boards that leave
-port 8 unconnected these are lost, so STP never sees its peers and a
-loop between two user ports takes the host off the network.
+Hello:
 
-Mirror them to port 5: frames to the bridge group address as they enter
-a user port, everything else as it leaves port 8, which is enabled with
-its link forced up and in the disabled STP state so that only frames for
-the CPU leave it. The switch has one mirror, so tc mirroring is refused.
-Frames to 01:80:c2:00:00:02, 03 and 0d still do not reach the CPU from a
-bridged port.
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Observed on a BCM53125 board in real use, with both user ports cabled
-into the same LAN. Tested there with a host sending test frames into a
-user port: bridged, BPDUs reached the CPU and forwarding kept working;
-standalone, all but EAPOL to 01:80:c2:00:00:03 did, once each. No
-selftests were run.
+On Wed, 11 Nov 2026 00:29:59 +0900 you wrote:
+> Two AF_XDP zero-copy fixes for virtio_net.
+> 
+> Patch 1: on arm64, binding a zero-copy socket fails with -ENOMEM and a
+> "rejecting DMA map of vmalloc memory" warning whenever the device uses
+> the DMA API (e.g. VIRTIO_F_ACCESS_PLATFORM), because the static TX
+> header lives in the kernel image, which arm64 maps in the vmalloc area.
+> 
+> [...]
 
-Fixes: 8fab459e69ab ("net: dsa: b53: Enable Broadcom tags for 531x5/539x families")
-Signed-off-by: Joseph Telaak <joseph@telaak.dev>
----
-Tested on a BCM53125 with this patch on a 7.3-based kernel, which only
-lacks b53_enable_mcast_snooping(). Still net-next despite Fixes:, as it
-enables port 8 and takes the mirror on every dual-IMP board; I can
-resend to net if preferred. Boards that can wire port 8 (5301x, 58xx)
-are better off using it.
----
-Changes in v2:
-- Also mirror what the switch sends to port 8 to port 5 (Jonas's egress
-  mirror), with port 8 enabled, its link forced and in the disabled STP
-  state, on all dual-IMP chips
-- tc mirroring refused with -EOPNOTSUPP (not run on hardware: no clsact
-  in the test image)
-- Check that port 8 exists and is unused; add Fixes:
-- A CFP redirect to port 8, where the chip has a CFP, is left for a
-  follow-up
-- Link to v1: https://patch.msgid.link/20261111-b53-bpdu-mirror-v1-1-f9f32e9d25db@telaak.dev
----
- drivers/net/dsa/b53/b53_common.c | 48 ++++++++++++++++++++++++++++++++++++++++
- drivers/net/dsa/b53/b53_priv.h   |  1 +
- 2 files changed, 49 insertions(+)
+Here is the summary with links:
+  - [net,v3,1/2] virtio_net: Don't DMA map the kernel image for the AF_XDP TX header
+    (no matching commit)
+  - [net,v3,2/2] virtio_net: Disable AF_XDP pools on queues above curr_queue_pairs
+    https://git.kernel.org/netdev/net/c/1932779607d2
 
-diff --git a/drivers/net/dsa/b53/b53_common.c b/drivers/net/dsa/b53/b53_common.c
-index b7aff5e238e8..f82139b0c501 100644
---- a/drivers/net/dsa/b53/b53_common.c
-+++ b/drivers/net/dsa/b53/b53_common.c
-@@ -745,6 +745,10 @@ void b53_disable_port(struct dsa_switch *ds, int port)
- 	struct b53_device *dev = ds->priv;
- 	u8 reg;
- 
-+	/* Port 8 carries frames for the CPU to the mirror */
-+	if (port == B53_CPU_PORT && dev->cpu_mirror)
-+		return;
-+
- 	/* Disable Tx/Rx for the port */
- 	b53_read8(dev, B53_CTRL_PAGE, B53_PORT_CTRL(port), &reg);
- 	reg |= PORT_CTRL_RX_DISABLE | PORT_CTRL_TX_DISABLE;
-@@ -1326,6 +1330,42 @@ int b53_setup_devlink_resources(struct dsa_switch *ds)
- }
- EXPORT_SYMBOL(b53_setup_devlink_resources);
- 
-+/* With port 5 as the CPU port and port 8 unused, the switch runs in dual-IMP
-+ * mode and still traps frames for the CPU from the user ports to port 8.
-+ * Mirror them to port 5: frames to the bridge group address as they enter a
-+ * user port, everything else as it leaves port 8, which needs Rx/Tx enabled
-+ * and its link forced up for that, so b53_disable_port() leaves it alone.
-+ * This takes the switch's only mirror.
-+ */
-+static void b53_setup_cpu_mirror(struct dsa_switch *ds)
-+{
-+	struct b53_device *dev = ds->priv;
-+	int cpu_port = 5;
-+
-+	dev->cpu_mirror = false;
-+	if (dev->tag_protocol == DSA_TAG_PROTO_NONE ||
-+	    dev->imp_port != B53_CPU_PORT || B53_CPU_PORT >= ds->num_ports ||
-+	    !dsa_is_cpu_port(ds, cpu_port) ||
-+	    !dsa_is_unused_port(ds, B53_CPU_PORT))
-+		return;
-+
-+	/* Rx/Tx on, STP disabled: only trapped frames leave port 8 */
-+	b53_write8(dev, B53_CTRL_PAGE, B53_PORT_CTRL(B53_CPU_PORT),
-+		   PORT_CTRL_DIS_STATE);
-+	b53_write8(dev, B53_CTRL_PAGE, B53_PORT_OVERRIDE_CTRL,
-+		   PORT_OVERRIDE_EN | PORT_OVERRIDE_SPEED_1000M |
-+		   PORT_OVERRIDE_FULL_DUPLEX | PORT_OVERRIDE_LINK);
-+
-+	b53_write48(dev, B53_MGMT_PAGE, B53_IG_MIR_MAC,
-+		    ether_addr_to_u64(eth_stp_addr));
-+	b53_write16(dev, B53_MGMT_PAGE, B53_IG_MIR_CTL,
-+		    (MIRROR_DA << MIRROR_FILTER_SHIFT) |
-+		    (dsa_user_ports(ds) & MIRROR_MASK));
-+	b53_write16(dev, B53_MGMT_PAGE, B53_EG_MIR_CTL, BIT(B53_CPU_PORT));
-+	b53_write16(dev, B53_MGMT_PAGE, B53_MIR_CAP_CTL, MIRROR_EN | cpu_port);
-+	dev->cpu_mirror = true;
-+}
-+
- static int b53_setup(struct dsa_switch *ds)
- {
- 	struct b53_device *dev = ds->priv;
-@@ -1387,6 +1427,8 @@ static int b53_setup(struct dsa_switch *ds)
- 			b53_disable_port(ds, port);
- 	}
- 
-+	b53_setup_cpu_mirror(ds);
-+
- 	ret = b53_enable_mcast_snooping(dev);
- 	if (ret)
- 		return ret;
-@@ -2604,6 +2646,12 @@ int b53_mirror_add(struct dsa_switch *ds, int port,
- 	struct b53_device *dev = ds->priv;
- 	u16 reg, loc;
- 
-+	if (dev->cpu_mirror) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "The mirror carries CPU traffic to port 5");
-+		return -EOPNOTSUPP;
-+	}
-+
- 	if (ingress)
- 		loc = B53_IG_MIR_CTL;
- 	else
-diff --git a/drivers/net/dsa/b53/b53_priv.h b/drivers/net/dsa/b53/b53_priv.h
-index c4d2a41c714f..15f745d79bf4 100644
---- a/drivers/net/dsa/b53/b53_priv.h
-+++ b/drivers/net/dsa/b53/b53_priv.h
-@@ -170,6 +170,7 @@ struct b53_device {
- 
- 	/* run time configuration */
- 	bool enable_jumbo;
-+	bool cpu_mirror;
- 
- 	unsigned int num_vlans;
- 	struct b53_vlan *vlans;
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
----
-base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
-change-id: 20261109-b53-bpdu-mirror-d3f66c7a7fd2
-
-Best regards,
---  
-Joseph Telaak <joseph@telaak.dev>
 
