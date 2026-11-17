@@ -1,61 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.250.124.96
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794934284;
-	b=wKx3HSHj+gXURwPux5LzhkvwqMQ9zmTv96dY5xmPHVJdeX2TkPkpdCLFBi6s5RGd3Iin
-	 J1RbTtxzVzPtbRA11FQKNJgrmIUZsgLcpQlLW3u2/V0CaTYkgAZwJBcy0asBBhNZqcs4W
-	 ZktbpiI68JF04ZmOvoZwP4ENvopHDhWPiclMYkVNJghqAlnVsZ7dCAobRAZYVJ5S16Q22
-	 L0/YsSiQTPMHPpu7dOgHxhJJ+1p1P8fkTY6g9VYC+piC/p2N/hKQbmEFf20vCFfPzfEFh
-	 QPV73lxkMtY5hAx31iyakXYrbQv8Hldfs9PRI/11EOfXGXo9Rvhqnk8Uk/1VMJdKprA==
+	t=1794934553;
+	b=I/jYjJhQqpvNX7iuSFnSHlGC9012Pc2XNNVViRW6H0vMTSa59EpQ35l12tD1CjhttOV3
+	 LiW0iu2B58f6wcMJD3NnEkE9a5dRCJBBE6/MZBlYo7U6Sl41SsJu4IiMdiNE32cXQvkaJ
+	 aPe6gQPmH4fNNiI8jqZ/KS4KwIFJ1o6NzyILueE8l2JZ95el9wk/4+dHoVumOSoROLeKG
+	 Cyo3AqoCVZmhtTgWmKsv//zEZ0Nc5ZR5UBgQF9INjy5R2GZu+qPcEnDzuDfCAdsBkduAo
+	 l5LRXZs8KgJHiKNZXphff02tjUPXj77yr6qDN+EywCPHrYkWW62kxjJ5zuSOXEB3DMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794934284;
-	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:From:To:
-	 Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xnTlG3RhB5eZYXoKfh+lrOl3/6yxxp2X5UnqYVp1GAI=;
-	b=4XVumJF8kLxCqBbLazWVWNS76bSTf0zSu4j7o7lB7o9n1fceN0onlmSFlhKNPODVFbur
-	 PMppfzENowbRVDO/1WdKiDXVnpQPRCUAszw0fKUWzSammdOy73Snxh4zCEQSu61BqAZ96
-	 Gcjfw9E22KUgvW4LUAlwvyMXeV6YYVZWFqE68BLE76ycCqvHek4BPT8jd+Bb8aqpzP9Ux
-	 f4HcWequ7+u1Mv8/maPrYs7LBqBm5sw050/lORSmEEjhFp8X1iwNeYeYT+LHeRknmIv+w
-	 9/0usUGRRiFe4jojnV6KQzoLFOIYwD/9NCApral/uWzo5aiDCWkBgPnCXIM9NgefYDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794934553;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=rdVP8970YC8GrPU7E70d6kuddX0/TeiUXS73Mp4QXYE=;
+	b=eNqyuCu75TZNfHxaHP3gz+UJgcfAbHcepZR1aRwrhduzk8HONtZutisDgUQsq/htgEVh
+	 7V1l9X8guWq3W0FOQA/1w4I4RxZklfG1FXr/NrbD4y8KV72S7c4VZK+FO2SoYPNJ9Genf
+	 m0g4lEB/ZP1FQBojvOrljUmC8a/dHkWkt+31Szt/nZSRoGP346MXUYCur7gEkRoPrNM2i
+	 sWyzwhrIuNlKtk9s7So6zADH0KDMaWvYvtuMQUULlwQ0+nn1va2Qk1oiZGMZ3ECAzDtm4
+	 N/wNxNSVyZCS6BXiXEtZdedH86O+XSullnbRZX43G2iFLN6+2AZpI2dbZuXX8dN/zCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yandex.ru;
-	spf=pass smtp.mailfrom=yandex.ru;
-	dkim=pass header.d=yandex.ru header.i=@yandex.ru header.a=rsa-sha256 header.s=mail header.b=fu1HXOF+;
-	arc=none smtp.remote-ip=51.250.124.96
-Received: from forward100a.mail.yandex.net (forward100a.mail.yandex.net [51.250.124.96])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hFZpR8U5;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7CFD606A33D
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 16:51:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7CFD606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex.ru
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7D66606A31C;
+	Tue, 17 Nov 2026 16:55:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7D66606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=yandex.ru header.i=@yandex.ru header.a=rsa-sha256 header.s=mail header.b=fu1HXOF+
-Received: from mail-nwsmtp-smtp-production-main-73 (mail-nwsmtp-smtp-production-main-73.yp-c.yandex.net)
-	by forward100a.mail.yandex.net (postfix) with ESMTPS id 9AFA4C03DB;
-	Tue, 17 Nov 2026 19:51:12 +0300 (MSK)
-Received: by mail-nwsmtp-smtp-production-main-73 with ESMTPSA id 8pcmEQ0mua60-7s8HV7bS;
-	Tue, 17 Nov 2026 19:51:11 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex.ru; s=mail;
-	t=1794934271; bh=xnTlG3RhB5eZYXoKfh+lrOl3/6yxxp2X5UnqYVp1GAI=;
-	h=Message-ID:Date:Cc:Subject:To:From;
-	b=fu1HXOF+WB8tkBLAnYa//UwM5+WLJ7+kyPMhRJDTBmzbWDFWRa318TfGZYc9Pwvor
-	 +VpIa2E8pqV169upH6lcMNGupesUsDe5SiPx155LR4Uk4NNPtjzLhxN4vaqy8Y6V8m
-	 g38YFsyJZYT7jizbyBH4+J/joWfh5XP/txKSJCQ8=
-Authentication-Results: mail-nwsmtp-smtp-production-main-73; dkim=pass header.i=@yandex.ru
-From: Dmitry Antipov <dmantipov@yandex.ru>
-To: Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>
-Cc: bridge@lists.linux.dev,
-	netdev@vger.kernel.org,
-	Dmitry Antipov <dmantipov@yandex.ru>
-Subject: [PATCH] net: bridge: avoid redundant strlen() in show_backup_port()
-Date: Tue, 17 Nov 2026 19:51:06 +0300
-Message-ID: <20261117165106.635733-1-dmantipov@yandex.ru>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=hFZpR8U5
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 26E711A167C;
+	Tue, 17 Nov 2026 16:55:50 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id DD2005FDAD;
+	Tue, 17 Nov 2026 16:55:49 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 57B9611BC0039;
+	Tue, 17 Nov 2026 17:55:31 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794934544; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=rdVP8970YC8GrPU7E70d6kuddX0/TeiUXS73Mp4QXYE=;
+	b=hFZpR8U5WBz2fvhgHtJ2bmkXXlurn8Nla80rAyBtouwTNPXOU5wPF0wRFp6bGEYWszl3WI
+	JQbCD5jDktDOG7RtVsgMSA60TUe6i6qUAKnx+zJMwXXHVOk7UACGAT2lbpiYiEcA0AR8/+
+	UC8+co7BNuh/+Xcdt/rcaGKAqzooXBcc+AujYeK1KV8vIy5HWYD2iAKf1e/Llm0S/6K7zy
+	DhhRnXedvLLxqjXF3ajX4zJ98glkEMso9dqOzEstJPe+Y2UOljBCEXWSgEBOvqxmuVU1iz
+	OdwfBy5932FU+2XmRxXzNcTlW9DGqtbMw1LdHFmhs/amAM+YsWeXyzCaq06uRw==
+Message-ID: <3c907364-7adc-4fb9-a990-674563e1228e@bootlin.com>
+Date: Tue, 17 Nov 2026 17:55:30 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,36 +62,43 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3] net: stmmac: program the FSM timeout timer
+To: zhu xin <zxyan0222@gmail.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ rmk+kernel@armlinux.org.uk
+References: <20261116114923.1157920-1-zxyan0222@gmail.com>
+ <6c323fca-5d38-40f4-a923-26bdf43cea7c@bootlin.com>
+ <CAP7veT+3eNY82uka0-x5MzburF_x7tyvvSdGnhQP9_EYs-Os2w@mail.gmail.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <CAP7veT+3eNY82uka0-x5MzburF_x7tyvvSdGnhQP9_EYs-Os2w@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-In store_backup_port(), prefer strchrnul() over strchr() to
-avoid redundant call to strlen().
+Hi,
 
-Signed-off-by: Dmitry Antipov <dmantipov@yandex.ru>
----
- net/bridge/br_sysfs_if.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+On 11/17/26 14:19, zhu xin wrote:
+> Hi Maxime,
 
-diff --git a/net/bridge/br_sysfs_if.c b/net/bridge/br_sysfs_if.c
-index 621d62a063d9..03205b3f465f 100644
---- a/net/bridge/br_sysfs_if.c
-+++ b/net/bridge/br_sysfs_if.c
-@@ -231,12 +231,12 @@ static ssize_t show_backup_port(struct net_bridge_port *p, char *buf)
- static int store_backup_port(struct net_bridge_port *p, char *buf)
- {
- 	struct net_device *backup_dev = NULL;
--	char *nl = strchr(buf, '\n');
-+	char *nl = strchrnul(buf, '\n');
- 
--	if (nl)
-+	if (*nl != '\0')
- 		*nl = '\0';
- 
--	if (strlen(buf) > 0) {
-+	if (nl - buf > 0) {
- 		backup_dev = __dev_get_by_name(dev_net(p->dev), buf);
- 		if (!backup_dev)
- 			return -ENOENT;
--- 
-2.56.1
+> Right, ntmrmd was indeed added for upcoming glue drivers and has no
+> in-tree user yet. I'll drop the field and just program a hardcoded default
+> for now.
+> 
+> What default would you prefer? The databook doesn't suggest a particular
+> value for NTMRMD. 1s (NTMRMD = 0x6) is my choice because FSM
+> transactions complete in microseconds, so 1s is comfortably above that
+> to avoid false timeouts, and it sits in the middle of the supported
+> range. I'm happy to use whatever you deem appropriate.
+
+1s seems reasonable to me :) let's go with that,
+
+Thanks,
+
+Maxime
 
