@@ -1,60 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794916692;
-	b=PyMi1cv7smaMTe7Q3myw59MulJmINWoC8t4mbRIdXbJ8SJVEnsN3VhRxOoaOlMFcxlFZ
-	 mUHN65QrACgjjJYKiSEFn1tOiKrGy8p9miRwDQs1JY7JYpJG5STvNqNzdimbcl65iwEGd
-	 VqUxMkdOrbrS9Kr/jevKEEOyEDavUTWgPUHtUg68FlO8oKQwsPbXjC6+96PhMZOp1DdDt
-	 CsCvO9hxNL3X23GUB7yRcJnmakq2R31u0AneYXdg9paTpeE6IsmhpQb1nKm9Cbw4fgLk+
-	 zSJWMocS29Lj/zu1Fd1p8tTAtA3uFaOPV2PUCwObc0QFqfm5aDIlhgrHbnuBe5eGZZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794916692;
-	h=Received:DKIM-Signature:From:To:Cc:In-Reply-To:References:Subject:
-	 Message-Id:Date:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Mailer;
-	bh=uQsg9cbXgPGnWTrR12hIhc3L1CckILBXPhZ/5G/thIc=;
-	b=4LRQPpKH1d1t14EXAJsy1cD9Zx0UhWMBoGSvwjw1Ip0PkMBYfkF7tCBCaYc7/GQ0TWgt
-	 JB85us9XEj1772gaB6ioGWdhYYrllZXksWfoH81x6yybc3R7K65J4AvXg6AMgdZ7MZ+yF
-	 qUm60Q6EfvdSW6IlIJZ4ybLX/+uLCJ168z3HveuEca7LxLmcLuW1gQ72j2btvGfgFxbda
-	 8o1ldtAuuDIuatgQAI77tUf/sb7mBPiKGRosfZBVltDuDlmR7cm6BmnRT4wGRe9O6eRd/
-	 VxfHtPpia9HEVQwHYE7kP7flM06UUoDtDlknIZZiCtY5Ti7dxWbTwEv0+Wa4eJepI6Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JryBEltg;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794916796;
+	b=YA0x+76v4DI7vcuHPYB7drhR9gnDT3VJo6CaEZ5AwkqfMplojWn5CsDjNF9YrBWi/Qvo
+	 qe7Hx+5vtoCgIUD7/aL8u+QY0+34s1J6ZBCH/4t+puhFywPt/Bh+PUBKFXNjhdWiNafw2
+	 a4PmssQvcuQS+bOGTA91ZgcrZDd85pMnje0xS087zfYZ+kUnrGOv2qcvv8O1QO4uYpYzw
+	 4FGnUmrVkR/iptzLH8+5DufCLRoDdG/PtJszfMM65SAEmRbuIuL6j5l4J2yAe4S3j3xUJ
+	 bOIE0JOZ9PcYKSLKVvqyjBgz24RwyUtHXHstGOFk1XIwR/dWWVirMrmvWDqSW5bRSLw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794916796;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=wvYrkGHaYgq964D4RoetspcqTg4aqX4FpXn0tpmhxz4=;
+	b=jisUO84jZOcskHX74/AYNyOXtVPfcxHfZxElUH0LRK5IT1hV+Hj4CyWP6Nc7JrMSOpBg
+	 2ilnq2JFwAKrpQSx8yMP6jgJ1GcgjW0UqFc06akf1uz+XCvkHH9z6O/OyTxIzDjhXzJA+
+	 yuwR20zY7rWth3+IQPLBVTrDS/WugOgOyK20oFEB6hemAEMRQlNHAM+DobDecn2p/hKih
+	 wz1xn3mut6ttLkmrLghnGIAuTOCkp1AaSqjdg1vUDKYbfCMXrYzHZMnCVbqdlJTr0E9It
+	 h9XwrLjuHwflqZjyoymrT9ZOjTPw2iQsjiwFRPK5f+4uRGVqv42txLGcWELt7KxrY1w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=RXH5n0nr;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A944A606A31C;
-	Tue, 17 Nov 2026 11:58:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5582606A331;
+	Tue, 17 Nov 2026 11:59:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5582606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JryBEltg
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46B961F000C4;
-	Tue, 17 Nov 2026 11:58:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794916691;
-	bh=uQsg9cbXgPGnWTrR12hIhc3L1CckILBXPhZ/5G/thIc=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date;
-	b=JryBEltgfE+PEBaUn1crtsNN5a15s68RO/QM/OyXGcHftUiZU5BSbZyK2vc3Yiu8D
-	 wbFqEvJD7qEReowSaUlBupDlCHdKuET3NphrBwZC7NCms4MqK+glTHHSJYUiPSI7pp
-	 u0R13/KHx1r6zcyHgFRbPQyVetA2rvPaKmPR9RKFLsTZKnKmwz6NDU3aL3taP8XMxI
-	 utqh3ZhJQlH9dF8OGKOAomi1njitPX4+pMr83XgwzAfMSHArnc1BRJMyYnergy4hV2
-	 F4f1DyT+SgrCAzR9fJGHyxbzGdrrtzNGNKSajZ52CTTDdO4f3iszan+hoV0WXU8mlI
-	 k0j3XTy6WQh/w==
-From: Leon Romanovsky <leon@kernel.org>
-To: linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, 
- netdev@vger.kernel.org, Saeed Mahameed <saeedm@nvidia.com>, 
- Tariq Toukan <tariqt@nvidia.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, Chris Mi <cmi@nvidia.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Gal Pressman <gal@nvidia.com>, Jakub Kicinski <kuba@kernel.org>, 
- open list <linux-kernel@vger.kernel.org>, Moshe Shemesh <moshe@nvidia.com>, 
- Paolo Abeni <pabeni@redhat.com>, Parav Pandit <parav@nvidia.com>, 
- Shay Drori <shayd@nvidia.com>
-In-Reply-To: <20261116144554.1194389-1-tariqt@nvidia.com>
-References: <20261116144554.1194389-1-tariqt@nvidia.com>
-Subject: Re: [PATCH mlx5-next 0/3] mlx5-next updates 2026-11-16
-Message-Id: <179491668884.7160.16573878848653853300.b4-ty@kernel.org>
-Date: Tue, 17 Nov 2026 06:58:08 -0500
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=RXH5n0nr
+Received: from ptx.office.stw.pengutronix.de (ptx.office.stw.4.pengutronix.de [10.9.0.3])
+	(Authenticated sender: relay-from-ptx.office.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 669DF205A24;
+	Tue, 17 Nov 2026 12:59:52 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1794916792;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wvYrkGHaYgq964D4RoetspcqTg4aqX4FpXn0tpmhxz4=;
+	b=RXH5n0nrpC3Q5v32r01na/y230felqkilE/+8+6AbFmqVNKyxuKRcv/u0B8vyJ46m6ZaVb
+	xH/HDdh5GrBAxqeqx/a+YdxB7qUW/cOPSrxzyult7RAaXb0cQEuN1uGL+TRzI68yJCLDSR
+	/9pzWjw+yCFdyLlL5s/CdRtZxqpRwz2VkjBB9Zj70WN76TlfvJmSG5Gh9Ari0+kHg4aSJR
+	t8TAzF11zoQILpGks5BdG7YI3uSaWhul+4aFze+2V+bn8ttLijvRWo8w+pXG0VC5SOXhS6
+	vn1YfSq7b9Ow6mCdtmVZR823uDt/yBMOwZVfDkNv/PJs2liBLQ06dZwrjYTpLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1794916792;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=wvYrkGHaYgq964D4RoetspcqTg4aqX4FpXn0tpmhxz4=;
+	b=Qs01rxDu+WqKU5PljSvlvzqYv6X6ehQ7RCRrVhZ7ybEDKM3rlTtZzFL5AFpA1SvaHaZmbj
+	n7f/NNCcAyP4+w23TB0hHRRJpyss/8YmCSQqpjpIdF55qankam7Hrwq7ossSGoE09WvQgm
+	W02LGcKadj26K9HgoxdCrdw+8HF1RxMc8hU0WwGGK5KGAtl0xCBpSz8JoXDxgekyYxUWbU
+	1TRXUzIzzR+Fu5oEY7BM3x4hBVTFDUT215gHUKR/her+lxxTedcKr/r5ZE2SOqhRZp9ry7
+	N8RLFPmsiR0ceLB/oP5QqJES6P/lYOugD881GtGMAg3YZMcGPAnl3SjcSdR5bg==
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794916792; a=rsa-sha256;
+	cv=none;
+	b=S5DU+/+tDjlZGHSwA+CvYnh22vQMK3zLrJXxmippDtrASAacD21LHyFoUCh87jdWcPvJ4h
+	LXvgI3X7/4IDKsjJI1KQ0gPftdFVtwCaDyDEmPx9NZULkGNKXfxnzPqauEACLHZW9xxK27
+	JpAo5xMYwETeekhDmSte7XyhGz/Q4iGED2w6IZP2+UeJwd2DhWcYDQ2kQZF1uVxdbuitSe
+	WiirYrOEmv26ttgaGDVoHbjrikScvRG4SRVQLFJnKL/oJrkahAEfBVoJweMlMxpZj6NWPl
+	MccrjqN8ZLbWfOIygDlrdk+F5xkgC8OAomWWzZ6oWbVoYp8Z1alAe473OFsrtw==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-ptx.office.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
+Received: by ptx.office.stw.pengutronix.de (Postfix, from userid 1058)
+	id 4C7901BFABC; Tue, 17 Nov 2026 12:59:52 +0100 (CET)
+Date: Tue, 17 Nov 2026 12:59:52 +0100
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+To: netdev-bot+sashiko@kernel.org
+Cc: woojung.huh@microchip.com, UNGLinuxDriver@microchip.com, andrew@lunn.ch,
+	olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	arun.ramadoss@microchip.com, jiri@resnulli.us, linusw@kernel.org,
+	f.fainelli@gmail.com, vivien.didelot@gmail.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	kernel@pengutronix.de, jensemil.schulzostergaard@microchip.com
+Subject: Re: [PATCH net-next v2 1/3] net: dsa: microchip: ksz9477: apply a
+ shorter ageing time at once
+Message-ID: <avxBuDOb9k8Wrj7E@pengutronix.de>
+References: <20261115-ksz-stp-ageing-v2-1-7af27320033e@pengutronix.de>
+ <179482683512.3136.850497985215218789@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,33 +95,30 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-18f8f
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <179482683512.3136.850497985215218789@kernel.org>
 
+On Mon, Nov 16, 2026 at 11:00:35AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Does this flush the dynamic FDB entries of every port on the switch?
 
-On Mon, 16 Nov 2026 16:45:51 +0200, Tariq Toukan wrote:
-> This series contains mlx5 shared updates as preparation for
-> upcoming features.
-> 
-> Regards,
-> Tariq
-> 
-> Chris Mi (1):
->   net/mlx5: Add MLX5_PCI_PF_TYPE_QUERY_PF to mlx5_ifc
-> 
-> [...]
+Yes. Fast Aging is a control for the whole switch, and so are the Age
+Count and Age Period. I checked it on a KSZ9893 with one entry on each
+user port: both were gone right after the pulse. v3 says this in the
+commit message and the comment.
 
-Applied, thanks!
+A flush per port would not help: the stale period applies to the
+entries of all ports, so all of them would need the flush.
 
-[1/3] net/mlx5: Extend nic_cap_reg layout to its full register size
-      https://git.kernel.org/rdma/rdma/c/7ababe9e9414ac
-[2/3] net/mlx5: Add IFC bits for SW RoCE monitor matched packets counter
-      https://git.kernel.org/rdma/rdma/c/97d5d1636d96ba
-[3/3] net/mlx5: Add MLX5_PCI_PF_TYPE_QUERY_PF to mlx5_ifc
-      https://git.kernel.org/rdma/rdma/c/b77e82a6ebdf45
+> The pulse can also fire when the ageing time grows.
 
-Best regards,
--- 
-Leon Romanovsky <leon@kernel.org>
+Yes, that is on purpose. The commit message has this case: from 4 x 2 s
+to 1 x 31 s, an entry stayed about 63 s without the pulse. It happens
+only when the Age Count gets smaller. In STP use the count does not get
+smaller when the bridge restores the ageing time.
 
+> Is a fixed 2 ms sleep long enough on all chips that use this function?
+
+I can test only the KSZ9893. The comment at the define says so.
+
+pw-bot: cr
