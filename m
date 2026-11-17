@@ -1,101 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794880762;
-	b=W+hh4PmBTQJXEeSxTOI6GxRvSW8jFEwM2ZzRf3BXabkM8qPuV8VgUqr2rWRVWTyR+nWO
-	 qxl5a6u9VdfP/Fc9SFiL/6APl92rDxu9f8464fK9uHpaLDk3hmkgu7cCtjRKfuMN+Z/fH
-	 P5kWvEhxV2srxLFUaqjtGk2CQgvfMBo45EZemo92k9YSXHjaG1/ZZcQbOstlm4FfQjc4k
-	 6nVT+jktCzubwJgAbwp6mY6DFKGqtAkx9ujXSk2XPHCvdQNdj7/1GBI4jo2YQUiqiCYKV
-	 8NoCDn61LCynwOJtlhknvi8ZXP1A7jeUId7qirfcoKYxWRRAVBb5zPOh1Lp1LiaOaKQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794880762;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=88J4YdBdkt+GoqrMDEy8FKRRTjOaDrfPJo+wbtg/xiw=;
-	b=I6FTHaPLEIUY9CneSTKKEU2+/osH345PjYOEVD8QC0rP6FwZqbLojIgDNcSDhUMj2PZP
-	 eO2EaE+6ydZypUxsI+z3+60x/Uv2E+mOqVpr1JJaaXlZGvyvz/laK4DCpUiig24VCA+DG
-	 bnAsW6xkxbhLAXBoUj4izJ26yIDZDpuvBZtXGqwu8P8ma1d3y/E1t6gtAEeSbSRk072Ij
-	 ja1lAl65Rsds9+N+Atta/UfmvTirkbjFVkyBOtx0LNPYPHCaZS7R3GJjsG1nThceDGx5T
-	 zOEn3Z4VaQTXjJ13cvMBADS5ZJonG+n9ey5f3qiX7Q7k98bKQbiVx+wbFkTHDdjl/7Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T7gWSw78;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.176
-Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794880919;
+	b=htFCQfbybUDFZnNxTnxTZHVQPSFjC4tQoIY42eScJcwEiUuH8tnfdBoF5XIV1ulu10v8
+	 IQz/ff56onra4LJolMyNGsnlBqeca7mgYB7h2YihAi6ShCgjqc9VBnpQ2svl4a7+bxPg6
+	 Ee7G0qUVrbpZIuXK9USP2UYxWWeDgiLbtvA9YeN8a0fRCIL+5zstM1dvF+8ijsy0AhEP4
+	 sbCWpkWvkMMewaWlIzm6maQycS9grzWyVcoO2oXxULW4NZt8tEQmkJI5sH5udHiZqA+f7
+	 5rJFO+ieuxBwInkSCD/TvC2DrS7WjhzCVTgCgOlZFkPrj2juJ3owGevxYTihrlglmFQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794880919;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Date:From:To:
+	 CC:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Originating-IP:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version;
+	bh=Ku0j2RSSECTD5D5F5xIHoIOwMMHflp1GoH9WYHEowKI=;
+	b=X7yPZdOCgYVrI63BQRxEgAbmpk2mWfTvaMUuZm/yBjEF4xKN0J0vN58SjibG9L1HX6zI
+	 61by9ZfKDzP/+RbHtZ+J4WxFPYnnxz8Pjj10MfP8POwl8LvTxKKatN4wyfkGO6DPViKKc
+	 hWOQOc32p5UNy6AWvC1woSB83A/LXYkAHQhzdz0UNSZX/65XLLm3/Kb/WS8/NyhKhXO9U
+	 SrIVgK5DTBbjk8qeu1fXOMDrGXD3KbXPAzYMc1Ev61xXlV5j9ZzjGuobxIvLPjjZzxBTR
+	 63rBpATRLc6TLPCGITjLSHhzykf2TXZz/sv9hT65Kiu2m2GyHiORobW8cCfOsdrRm7w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=gMgLOzw9;
+	arc=none smtp.remote-ip=67.231.153.30
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE3EB606A329
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 01:59:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE3EB606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C17A7606A31C;
+	Tue, 17 Nov 2026 02:01:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C17A7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=T7gWSw78
-Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8a594d313a3so2954726b3a.1
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 17:59:21 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794880761; cv=none;
-        d=google.com; s=arc-20260327;
-        b=OitEOAcho5VhzXtScsjXejl3kNMzSuM/fK52XSE4+MYFUvQVwt/Q4ikXvimqaDjxXA
-         MIle51andP2AxJVF3ru6H8USsdm2/xZL5xEcIKdhMD7xCPXxazAJkP4TnSDapXs0NgNF
-         NNhLgnEaL8BLFWctFY8idppwVMAhRbr5LyqQXvkLJnqCUsxEAFc/s0i2ZYDZ1zSHm41i
-         sbGQn2YprKeqKO9T2wgXFWze++A95Md2LUe8VOqXZ9oj7FUbJD62qDhvRam9DLvHYVGS
-         lFW8disscQ6dgL7KmC+JSZYeVxYDmYwTKU7iMvXTfzmVofKplLSWUt0RyVFVnbOBXr7B
-         stlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=88J4YdBdkt+GoqrMDEy8FKRRTjOaDrfPJo+wbtg/xiw=;
-        fh=4llzJgpoPA5jfHFG9XVrNky9MklMSxiwE7sWmmu2BL4=;
-        b=s0RYr5wtT32IUYf8qkMmJWyM+491R7IB0ByTD614Or/bXwYiFZpt2udh0BaC4isr5R
-         BUzBKMNOkmx2wNyjHxmFzWF4hJAVaH0nL03ThAN7jboPUx4xJdDtz/Gudv6TetglLarx
-         ex8+JZabeEuyfAV+/BbIxL97mxlHl0wkdEVf4Cu73X2hsigTRQeSupDQLupWkxeJa/qK
-         6kx6SRzFgp2Ji1amYh6qmcma+L0iJuJPrpP2SPyxNlBK/hB/JmgHBSgqtc/veIJIIPZt
-         +DVYCquTVpOAPhm+BT+LEuMKAq49Tc3eLwGlXGJ8x1EzD+xbF28X30XGUAlY7N36tnNb
-         AQ6Q==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794880761; x=1795485561; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=88J4YdBdkt+GoqrMDEy8FKRRTjOaDrfPJo+wbtg/xiw=;
-        b=T7gWSw78lGMzFYCcz7Czk6YfLjZVacf7Cc+TvBjANCCGpZ/+aEKwvBjqoue9GeweJo
-         LfMSO5A9vfIsEkqHuzLUwTJUn2q7otmbgUah6yJQPq+5r+NuK+0tmO+lH864d1/ZO/eL
-         57Xyjxb5lUDuH8L8zZsRpVU+WXmPKvVbVs9m2GTiF/0XtLT194isM+ehQdKw51a+uikk
-         Wl3S2LzIKC6gx9d+kgCAaD3wGeJDD882teGGM4MXagOWGwOMFBniGsnAIs6BE5XxQA3T
-         9l3jIQce+buFjDrK6G/Na4yj2WFAQWcIdZHB5I4jEejiukH47tfc9w0nA+2Ivb1pSCQN
-         JmDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794880761; x=1795485561;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=88J4YdBdkt+GoqrMDEy8FKRRTjOaDrfPJo+wbtg/xiw=;
-        b=psIxjKbcP2ZT92RWG8VYFBIfPzETrTEI69lG3iqtmPD8+3zv9x8qIh41LBY4ipfWYd
-         BDco/m7Ja5ofBVcy73TV5s4SD7bVzQp7VfSno0WjrtJvFSm90HYomy2WQa4eas2yT6nY
-         9yyprWIPVRmvea1Gw1ma01Y7nKyQ55vl8FNbbWRQ/oqg6twsSiXN8pybYPhQ/b2GXdnO
-         yilXDoC8rSXjcwElv5/qWKKuSSYFCF8dX/77wDvLk9cnbzY0EPDgPzzPbWiB4GBMNqQD
-         pcW626JjbO1s5tX3rVNe1bga+lht55ZxdHb807Sk0JuRV8DdEYwLhEndqGaMZfI+s0wi
-         Qusw==
-X-Forwarded-Encrypted: i=1; AL+hErHOtmORfxnuRIu3H72U6svfNsR2GTvV7N/LiK0Udg5wrMs2hAA+oXonBl6gLSTHbNRFMDm/fQ8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9/RLlJNfqfKZhW/tzAt6D6bKYgal92M22vaxdmBXKcOXsuMGkT
-	YIqa8byPlRb4rRoWTuq44/MERcTVry9MLfWmGeSnx16dJ8+2kD4jAHDwaNcp2V19hE6YE7N3H7i
-	a3xcaY+C8jaE8IqupXAB9ylCJ7vW7DpI=
-X-Gm-Gg: AYBFou3+Ioz0qznXVi/N3b4zFEC4zIb0lZaTiSvqt7UqFnTW6TM9Xb0pKdgWoVRSV/b
-	mN/DD3qzoDl8PnlRpVFgWOqe7cGn7UQHrXNtQfNZfJzcjMlShOC3F12DJKibaWo/3rvfI6LFFil
-	/1Mn4drBpZdn0SWPcRkTDCL4Jlg2N6+eqdhB9Ud8DEofPvlEZC8sH4d9SF3geK5fX1aaiZLrv7z
-	pk6KHkv/FuIFsCEgB9jAha1hgcTqGm7spt4X4s1QeJQncB+UgRrfE97cPhk1j2/Y+iTj1edMwWg
-	wlwbQKCKiYjgxlU3hH/A8G6iQoJqI0oPDW9V3F77pnKnMBa7cDB2rYFZywcyIJrAHYd+jAeQx7d
-	hIYode3lSCAjhiqIRo8fhNq62gRXlZS9UiM+gM0y1Lys5zvYenGaPLoFh9NywbDBTbvlKakr6W0
-	QxWFMmub1inJ/8/F5TrUkmETTsncQuyb2FkA==
-X-Received: by 2002:a05:6a00:1a8f:b0:899:21db:3f6c with SMTP id
- d2e1a72fcca58-8beb21cb506mr11014368b3a.1.1794880760919; Mon, 16 Nov 2026
- 17:59:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=gMgLOzw9
+Received: from pps.filterd (m0528006.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AGNP9wq2501538;
+	Mon, 16 Nov 2026 18:01:48 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pps82601-s2048-2026-q3; bh=Ku0j2RSSECT
+	D5D5F5xIHoIOwMMHflp1GoH9WYHEowKI=; b=gMgLOzw9LmZW/RuyYjOzGznNtyW
+	BPovHIqvU89vqC1dxAvGlNO8uw32EhP78GI5Pfr6cxQOdsvv+x7UbS/PpjafVi8w
+	JApvhOvR93mrpXJ/PMsy2AcdygKUacYfLDvpqJl8YNfB4SxL0pvEUJPavqwjfJAQ
+	yJ05S64GGHDRBFm3cq4r+oZZn6ihwXuFegscoSLbAsNEsXTK0JP1P16/a27EKEmy
+	A+SjsHZAJzJBnQXPTTYHGLkvBqyKyWPTRmVqfgHB8Za7Miw8FvPZlegYSt/uHc0L
+	sht/gfA4Vytf5IXOHeyEWGEr6B2vLtf7gijgqtAjLcqj2qi7fBs6IzHpB6A==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4hy95pb7ek-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 16 Nov 2026 18:01:48 -0800 (PST)
+Received: from localhost (2620:10d:c085:208::7cb7) by mail.thefacebook.com
+ (2620:10d:c08b:78::2ac9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
+ 2026 02:01:47 +0000
+Date: Mon, 16 Nov 2026 18:01:46 -0800
+From: Bobby Eshleman <bobbyeshleman@meta.com>
+To: Stefano Garzarella <sgarzare@redhat.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>,
+        George Zhang <georgezhang@vmware.com>, Andy King
+	<acking@vmware.com>,
+        Dmitry Torokhov <dtor@vmware.com>
+CC: <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, Kyle Zeng <kylebot@openai.com>,
+        Michal Luczaj
+	<mhal@rbox.co>
+Subject: Re: [PATCH net] vsock: only undo SS_CONNECTING when connect() fails
+Message-ID: <avu1igVm0ZpwRuWB@devvm29614.prn0.facebook.com>
+References: <20261116-vsock-connect-close-v1-1-43fb125973dd@meta.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,203 +84,118 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112092114.12458-1-ljp1205831794@gmail.com> <179482095589.3136.2362257339716532422@kernel.org>
-In-Reply-To: <179482095589.3136.2362257339716532422@kernel.org>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Mon, 16 Nov 2026 20:59:09 -0500
-X-Gm-Features: AclHuK_War1T5zrgB_Ouw4Ktq31IpAlp_uIzGk8Kbj4QLzA7noWfu4odgJ7Twvk
-Message-ID: <CADvbK_diB=3u2mdX9NkeCW8h8NJPpsO2nfufP4+gvS=tCm9DOw@mail.gmail.com>
-Subject: Re: [PATCH net] sctp: preserve the last transport during INIT error cleanup
-To: netdev-bot+sashiko@kernel.org
-Cc: ljp1205831794@gmail.com, netdev@vger.kernel.org, jiapenglin@tencent.com, 
-	marcelo.leitner@gmail.com, davem@davemloft.net, edumazet@kernel.org, 
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	vladislav.yasevich@hp.com, linux-sctp@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261116-vsock-connect-close-v1-1-43fb125973dd@meta.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDAwNyBTYWx0ZWRfX9UTifV07RlfW
+ slr0AuCt/kRd2KZsuyTloN/zNF4zT3hqKGBGPer70FXnkQgEJptDU3x1sYhIwaOlDIXDxGSn8HR
+ 9r6/vHQaoeryzgv81wIV7P6ISfor3h78T4l9p2eM15CZZhaVqx2iaPPWAJvbQHMqjXFHrjz7Elg
+ SLUaeDz3TSUW1h/Q3QSz1+rla1HPSKXH1Ng0IOCyjuz/J0AYNtsM4UuSg7DFtw8vvCnqvflDAk8
+ Cu/AIfVPQhIobfiJEItUkzWGkQkcZZJrWGT/iTv3S/nXZEEoioy2mvowze0RQ/dOFzF7Gd1tngQ
+ c4Xq+cj4P7JaxxktCfGH9MHaSHmbi8AN0Rn6XkzRxq+cl7nVF0WwVflMofOO9b5FKlygy/Axsgg
+ nydTkYYYLjnNgmMW+7eht1RWdhsqkOylYAqS3xygI108uZl2uzlBRiNbW4YhK3EnppCsL5VDZpY
+ 4lH5ReWNbwGLMrXrnWA==
+X-Proofpoint-GUID: 0JjRKIriMoQB9BLde1FIFIMcAIDj5FOg
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDAwNyBTYWx0ZWRfX53Ayfa6u3Cnb
+ xsgUk8LJMF183vp9ZXV96IRlF2CQnd+FQ6J9HiXqtMSjUvXNEHxk5zU10CTmHgRALRdlYdxNcLr
+ 4OySwOPDsNNyEv3cT5Hleuj9mWcobes=
+X-Authority-Analysis: v=2.4 cv=Yuea1IYX c=1 sm=1 tr=0 ts=6afbb58c cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=7x6HtfJdh03M6CCDgxCd:22 a=kkcUborcUVj0H7zxAXTl:22 a=VwQbUJbxAAAA:8
+ a=LG5T7v2SAAAA:8 a=VabnemYjAAAA:8 a=X65phdXsX5pB4qzOv-sA:9 a=CjuIK1q_8ugA:10
+ a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-ORIG-GUID: 0JjRKIriMoQB9BLde1FIFIMcAIDj5FOg
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-16_07,2026-11-16_01,2025-10-01_01
 
-On Mon, Nov 16, 2026 at 4:22=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 2
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] When cleanup fails, the new `!list_is_singular()` guard in
->   sctp_process_init() (net/sctp/sm_make_chunk.c) keeps whichever non-=E2=
-=80=A6
-> - [Low] The commit message says "The retained transport is freed when the
->   association is destroyed", which suggests the kept non-ACTIVE=E2=80=A6
-> - [Low] The comment at the clean_up label of sctp_process_init()
->   (net/sctp/sm_make_chunk.c) still reads "/* Release the transport=E2=80=
-=A6
->
-> --
->
-> sctp: preserve the last transport during INIT error cleanup
->
-> This patch changes the clean_up path of sctp_process_init() so that the
-> loop removing non-ACTIVE peer transports always keeps the last one. That
-> stops sctp_assoc_rm_peer() from using the empty list head as the
-> replacement transport and crashing in sctp_assoc_set_primary().
->
-> > Keep the last transport during cleanup so sctp_assoc_rm_peer() has a
-> > valid replacement. The retained transport is freed when the association
-> > is destroyed.
->
-> [Severity: Low]
-> Is this description accurate for the path in the oops trace above?
->
-> The trace shows sctp_do_sm()->sctp_process_init() with no sctp_sf_*
-> frame. That is the SCTP_CMD_PEER_INIT path through sctp_cmd_process_init(=
-).
-> The sm_statefuns.c callers pass a new or temporary association and free i=
-t
-> on failure. This caller instead runs on the live COOKIE_WAIT association:
->
-> net/sctp/sm_sideeffect.c:sctp_cmd_process_init() {
->     ...
->         if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init=
-, gfp))
->                 error =3D -ENOMEM;
->     ...
-> }
->
-> In sctp_sf_do_5_1C_ack(), SCTP_CMD_PEER_INIT is queued before the
-> TIMER_STOP(T1_INIT) and NEW_STATE(COOKIE_ECHOED) commands. Those commands
-> are dropped when the interpreter bails out. The association stays in
-> COOKIE_WAIT with T1-init armed, and primary_path, active_path and
-> retran_path all point at the retained non-ACTIVE transport. Later T1-init
-> retransmissions use that transport.
->
-> Before this patch, every transport left after a failed sctp_process_init(=
-)
-> was ACTIVE.
->
-> Could the commit message describe this new state, where a live associatio=
-n
-> keeps running on a single non-ACTIVE transport?
->
-> > diff --git a/net/sctp/sm_make_chunk.c b/net/sctp/sm_make_chunk.c
-> > index 15c2d87575a8a..e4b7dacf174e6 100644
-> > --- a/net/sctp/sm_make_chunk.c
-> > +++ b/net/sctp/sm_make_chunk.c
-> > @@ -2528,7 +2528,8 @@ int sctp_process_init(struct sctp_association *as=
-oc, struct sctp_chunk *chunk,
-> >       /* Release the transport structures. */
->
-> [Severity: Low]
-> This isn't a bug, but the comment no longer matches the loop, which now
-> keeps the last transport on purpose, whatever its state.
->
-> Could the comment say that one transport has to remain because
-> sctp_assoc_rm_peer() takes the first list entry as the replacement path?
-> Without that, the list_is_singular() check could later look redundant.
->
-> >       list_for_each_safe(pos, temp, &asoc->peer.transport_addr_list) {
-> >               transport =3D list_entry(pos, struct sctp_transport, tran=
-sports);
-> > -             if (transport->state !=3D SCTP_ACTIVE)
-> > +             if (transport->state !=3D SCTP_ACTIVE &&
-> > +                 !list_is_singular(&asoc->peer.transport_addr_list))
-> >                       sctp_assoc_rm_peer(asoc, transport);
->
-> [Severity: Medium]
-> Does this keep the right transport? The guard keeps whichever non-ACTIVE
-> transport the walk reaches last, which is the tail of
-> asoc->peer.transport_addr_list. That is not necessarily the transport for
-> peer_addr, the address the INIT-ACK came from.
->
-> For an existing peer, sctp_assoc_add_peer() only promotes SCTP_UNKNOWN:
->
-> net/sctp/associola.c:sctp_assoc_add_peer() {
->     ...
->                 if (peer->state =3D=3D SCTP_UNKNOWN) {
->                         peer->state =3D SCTP_ACTIVE;
->                 }
->                 return peer;
->     ...
-> }
->
-> New transports are appended with list_add_tail_rcu(), and
-> sctp_process_param() adds the INIT-ACK address parameters as
-> SCTP_UNCONFIRMED.
->
-> Consider this sequence:
->
-> 1. The peer_addr transport X is UNCONFIRMED and is primary. This can
->    happen through sctp_setsockopt_primary_addr() or through an INIT-ACK
->    SET_PRIMARY parameter. A Stale Cookie error then runs
->    sctp_cmd_del_non_primary(), which leaves only X and returns the
->    association to COOKIE_WAIT.
->
-> 2. A new INIT-ACK from X carries address parameters Y1 and Y2, which are
->    appended as UNCONFIRMED. The list is now [X, Y1, Y2].
->
-> 3. The packet reaches clean_up. One way is an address that collides with
->    a transport of another association on the endpoint, so
->    sctp_hash_transport() returns -EEXIST. Another is the ADD-IP without
->    AUTH check.
->
-> The loop then removes X (primary moves to Y1), then Y1 (paths move to Y2)=
-,
-> and keeps Y2. Y2 is an unverified address from the INIT-ACK that was just
-> rejected.
->
-> sctp_assoc_rm_peer() has set init_last_sent_to to NULL, so when T1-init
-> fires:
->
-> net/sctp/sm_sideeffect.c:sctp_cmd_interpreter() {
->     ...
->                 case SCTP_CMD_INIT_CHOOSE_TRANSPORT:
->                         chunk =3D cmd->obj.chunk;
->                         t =3D sctp_assoc_choose_alter_transport(asoc,
->                                                 asoc->init_last_sent_to);
->                         asoc->init_last_sent_to =3D t;
->                         chunk->transport =3D t;
->                         t->init_sent_count++;
->                         /* Set the new transport as primary */
->                         sctp_assoc_set_primary(asoc, t);
->     ...
-> }
->
-> INITs go to Y2 and Y2 becomes primary. Y2 also stays hashed in
-> sctp_transport_hashtable, so packets from it still match this association=
-.
-> If X had been ACTIVE, X would have been kept and Y1 and Y2 removed instea=
-d.
->
-> Would it be more deterministic to keep the transport returned by the firs=
-t
-> sctp_assoc_add_peer(asoc, peer_addr, ...) call, or the current
-> primary_path?
+On Mon, Nov 16, 2026 at 05:57:53PM -0800, Bobby Eshleman wrote:
+> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
+> can complete the handshake, setting sock->state to SS_CONNECTED, and then
+> reset the connection, e.g. in vhost_vsock_reset_orphans(),
+> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
+> connect() gets the lock back, it finds sk_err set and moves the socket
+> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
+> and a connect() to a CID on another transport makes
+> vsock_assign_transport() release the transport the socket was connected
+> on.
+> 
+> Only move the socket back to SS_UNCONNECTED if it is still
+> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
+> another connect() fails with -EISCONN.
+> 
+> Fixes: d021c344051a ("VSOCK: Introduce VM Sockets")
+> Reported-by: Kyle Zeng <kylebot@openai.com>
+> Link: https://lore.kernel.org/netdev/20260909-vsock-connect-reset-closing-v1-1-50298b9ccfbf@rbox.co/
+> Suggested-by: Michal Luczaj <mhal@rbox.co>
+> Reviewed-by: Michal Luczaj <mhal@rbox.co>
+> Signed-off-by: Bobby Eshleman <bobbyeshleman@meta.com>
+> ---
+>  net/vmw_vsock/af_vsock.c | 19 +++++++++++++------
+>  1 file changed, 13 insertions(+), 6 deletions(-)
+> 
+> diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
+> index 1d7d53542724..6395c6a7b0b1 100644
+> --- a/net/vmw_vsock/af_vsock.c
+> +++ b/net/vmw_vsock/af_vsock.c
+> @@ -1704,6 +1704,16 @@ static void vsock_connect_timeout(struct work_struct *work)
+>  	sock_put(sk);
+>  }
+>  
+> +/* Avoid breaking the socket when another thread has changed its sock->state
+> + * while we were asleep.
+> + */
+> +static void vsock_connect_close(struct socket *sock)
+> +{
+> +	sock->sk->sk_state = TCP_CLOSE;
+> +	if (sock->state == SS_CONNECTING)
+> +		sock->state = SS_UNCONNECTED;
+> +}
+> +
 
-Please try to fix it by using a check like:
-
-  !sctp_cmp_addr_exact(&transport->ipaddr, peer_addr)
-
-instead of
-
-  !list_is_singular(&asoc->peer.transport_addr_list)
-
-Thanks.
+Actually there is an issue in the guest netns series that I think would
+be fixed by moving TCP_CLOSE within the conditional block here. Will
+respin tomorrow.
 
 pw-bot: cr
 
->
-> >       }
-> >
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261112092114.12458-1-ljp1205831794%40gmail.com
+Best,
+Bobby
+
+
+>  static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
+>  			 int addr_len, int flags)
+>  {
+> @@ -1862,8 +1872,7 @@ static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
+>  			 * sk_state == TCP_SYN_SENT, which hereby we break.
+>  			 * In such case VIRTIO_VSOCK_OP_RST will follow.
+>  			 */
+> -			sk->sk_state = TCP_CLOSE;
+> -			sock->state = SS_UNCONNECTED;
+> +			vsock_connect_close(sock);
+>  
+>  			/* Try to cancel VIRTIO_VSOCK_OP_REQUEST skb sent out by
+>  			 * transport->connect().
+> @@ -1877,10 +1886,8 @@ static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
+>  	}
+>  
+>  	err = sock_error(sk);
+> -	if (err) {
+> -		sk->sk_state = TCP_CLOSE;
+> -		sock->state = SS_UNCONNECTED;
+> -	}
+> +	if (err)
+> +		vsock_connect_close(sock);
+>  
+>  out_wait:
+>  	finish_wait(sk_sleep(sk), &wait);
+> 
+> ---
+> base-commit: 533ec433efdc11196f438da90d683053a57257ff
+> change-id: 20261116-vsock-connect-close-1beb7cb51e7a
+> 
+> Best regards,
+> -- 
+> Bobby Eshleman <bobbyeshleman@meta.com>
+> 
