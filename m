@@ -1,97 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.49
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794953481;
-	b=qG6j0n2VkbZBhzAbn4gGw142Dd7NC9n5k5CnJkfS45tLxNiIwuwwhq8HM+UBtJVTuqzg
-	 zDS0l8iq7KjvuukjVWzNbmlzbQSHq+267bp+ReFLXCxgrmq3E1EJWr3GTMHVytOdMfzHy
-	 x8/g44Jq6KjRP7IYZugOn8wNenQGQwk16qzlJNeovmd2ExJV2V8kBHBvmiBS77WmG117E
-	 76xpmowH9pePf4LSF+2vuWZvjLYu/m0yQNg6/ViM0Ct7c56xnMxJ8IqLhEsVLRVDMpnCZ
-	 mtai2MpgIGo5mD90JuHR3D/tfisZ6K5U4emfvpeth6RQjsy1RcuW0hlkdXuxYORgLWw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794953481;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.51
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794953524;
+	b=El8hxarHhHpsmTsP9vgGf5X2vtAaVRzAJ2joZ4SyduEGM7yLzxVg+hVtTvgQfa6wHmLD
+	 h45+QqKwArjL1ynVU0x0wLq2Z6fujcR8bhGVvVR+klv+8CAdUUSoMwuWy6PQiOKr7APVW
+	 ry/pudHaVoYXr823XhlBfpVwou1iuCB8Bri14cwakXBbkRaGmEdXSg9oze0fYucauyhWS
+	 ly6Apjutt3TXjxSUzUrn0Viw+Nsqa1DQsyWLhugA2S1ZmTwVIXh8wmHcT88mQbC5eRBFt
+	 /Jf5C7ethD/cFSVpXUM2KBx1lfAK7oqD5ixWbes8xJJ4m+UO3jy03QlFha0/JBdAnoA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794953524;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=Wmcf4mViIOBztFuD7lQQZhUYPulduXRhG7H996WEMdo=;
-	b=uoJEYUVkgUWPjw6GvvoC/++TZ2HTDlzNieOrcL/usj+pJAf51J6ClobvBG6OLPPy45MR
-	 /+izSoSMlTADyFylE7WHS8mwCBMCID/hBrquVDHFicjw4n6MQg0mTzSQSoe2bDDyx+eUt
-	 0LfWUIyc3I+ibB3537g5V6B4gjhg5w9vPWael1KQYx/5fL62sIIxJRxzZ0WEAKut5mrO2
-	 yBaVuztbTFq5zu7mwkt6C/AvbGSLvgIieXFSpSW7NvoggT6TA4Hs6Ll/9/0Kqum0Zmvrm
-	 8Dxpulvs3oh+CGpVLbQ3Fpzm7r+JFgRN98VCCHj9eF9aRLcNxTlyWvc8WrRiokXD8lA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=PvLBfcgdHrqGIkCbXq9P0ltK62QrqPFTCIKYFfNKE4Q=;
+	b=zRPAR6iFm5Kqqo4casAalw8Prv0llaezsAZki+YYjWzc03oG5c1iDvQdYSAOxDtrxTt2
+	 KmaIPOSWAse1mL4jN9ucfE8kYIPJQLyj034nW9SmUuoSPEZGAzmBctHqA4V2dtpGG9TxR
+	 xyZWSDqBweEwJh5kz15nwyM2MQ1flSS4o5EnSieEwFxZixgFeQtqCOW8/cyXlph94cTzu
+	 UtssccviEB1Bv8kSsByuNJpeN12ert3RNrLYufL2TbmPcyocbIRMEsVCPhVGBExD+MyWB
+	 sx2DQ3ahFMGQwoF72PDaVMdMeFdYdIZ6j1crXr/iHM3bJno0XEx3qHBjTVy3YPrcRJQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xwKbNyAE;
-	arc=none smtp.remote-ip=209.85.128.49
-Received: from mail-wm1-f49.google.com (mail-wm1-f49.google.com [209.85.128.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hq8ONukK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FAAB606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:11:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FAAB606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56C19606A337
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:12:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56C19606A337
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xwKbNyAE
-Received: by mail-wm1-f49.google.com with SMTP id 5b1f17b1804b1-4bb55cda775so1158265e9.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:11:20 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hq8ONukK
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-490f38e9688so132036f8f.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:12:04 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794953523; cv=none;
+        d=google.com; s=arc-20260327;
+        b=nQrrYjrqIUsj/etGnvCMP62EUbmL20HY8ZQRn+95q5lzgMUwHNoJWTWpS9l0mxBuP8
+         W+bQD6kwKe867j+8MieQTfY3owUJwZRSbJMn/wGAk9trd/T5ZWP1jQ7Vkg1APrBjnWzS
+         16vwB4kHUKBS4UgF42qTQ0897TgKGnooiFHGGQT/NkACVTefd75G/nwdlYa1CSTO81Zp
+         E0kN6Zb+iK4GQMmk77JJ04u5cHb5GGsH47ivvv1r8CvlAYzIZEuMh9enqIy2XxiIi2VU
+         ncYCfoiFaaj2gacM7qjaZS3yYGIYJIWosq4z+Yj1KUnwX2oCDby1NJ80ZrGyDvA1CGYD
+         laYw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=PvLBfcgdHrqGIkCbXq9P0ltK62QrqPFTCIKYFfNKE4Q=;
+        fh=sgMlnpPIkoatpKB1xJDHQICPZqesERPploa6LoXqXLk=;
+        b=hCZtx7HgrxBCp7eepa1lS0rPHsOe5sp5AyA9KK9CtN24x28VaxQsvwbYTkrpvqbozs
+         oHhHla1MAT7zcaxioi+FUo9XXSQDdZZ/UmMxZzIW/lMRtViCZvMkS1MFN5Ee6e9CBORw
+         LY02qJF7Glz+bAV2dch1Jl8Dbdox3mPMCryRuIV/TJ+bYe6qXuKJauK8Lf5Df4mIcktp
+         ZP0TMQ5b3b/IY7/ihAcQZbjd5a+MDZIlbnNdVoZAMq43Yol15KsLeWCER43iorX1vUCv
+         gm5fZDV3LmE20HbAJuY4pB2JxaGQNxLNu6UbZilykZMr2GKudop4IZ/IdduzfvcB+3qW
+         mFnA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794953479; x=1795558279; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1794953523; x=1795558323; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Wmcf4mViIOBztFuD7lQQZhUYPulduXRhG7H996WEMdo=;
-        b=xwKbNyAEpGluQH9rvCPzjJLKmdbHwziqyoXJmimHR8b0x4UT5So9NotetuoXq5Gaaz
-         jQ7a165cGDY5qq75zgEEKil8MWCxOK1096rbl2u/ScaYAsKz85XNma7zgkJpUy3EBZ9s
-         OqB6QQAgR22FEjOpHtaQ4vFzDCwkBeKcg7irDTAGUwISRzagKGoUUQge9YN/GcwfMZPD
-         E/+KNCWWx5of8Gn3hy94sVncAekUANIDhXUSwL599wRlg8mpmmmc4mCD/LRROOYgNY6h
-         3DyGNpLQXzxGCuLaryJPuXz7xqKj8seO2HFqvo0xYtIWKEWGcvIV3sqlFGFaXQv/jLna
-         SN4g==
+        bh=PvLBfcgdHrqGIkCbXq9P0ltK62QrqPFTCIKYFfNKE4Q=;
+        b=hq8ONukKLl1zJE4LpOHxPIT/VttXbuTBBhhBzcxGS7ycwPbMFkFRgJyAdeS3B2eecT
+         R/d5hhRTVquzEItdtaUB8g91yUCZGgiWJ2f6xqNz/yIs3IMNURBcbP1JKmOfP7+JNclP
+         kRIsYdlfF9qLxardrWmKOKdZC5QlxaUzL/zNE/OrZf+UoWsPgY67eCwPo1aRoDeNnZ1a
+         lvqwpwUCmH2ugE6cLq8ovECeZj38Y9+Ng5ddI4g4hVoPl4dQFVTJj1UqNmAaRtk+WJY5
+         nh+ozLgpvU6b+MSPRUunMocuUvxcxt9qJmTPi2ziDxQ3/6WmCf/YGGfrHdsbo+hG5Kn8
+         V4cw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794953479; x=1795558279;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1794953523; x=1795558323;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Wmcf4mViIOBztFuD7lQQZhUYPulduXRhG7H996WEMdo=;
-        b=CbquxbhY3Omy1YDR+ogoRThMjYeADSh1MtSjFKHkUUAyRdTcz8bLaPmRcCOHmX1jb1
-         knMWjsGblxW1H1iugPwHrynQb8Juz5pXu2zVSpZ5Vp7LpDs0Pg4Oym7S/QsMW2gQUTrb
-         2KQp54lFPwAYtet8FXWjkh0im2dmTyW6vxDyLggTHGvBQn7r3tQzHjpSxJqtwqnuIrXG
-         D27FLbiVenfoyxbuk48RacqDGzu9EEl5syUxxdnBLA9B639GwGTKE6S/wLBnrh8k8bjM
-         W5bdVeA0pxaoLCbVYunoDlyGU7hwmAPW5oRJ7odxhs5aQ/dRU6UIo/h9BopmTDDtGQWw
-         jrIw==
-X-Gm-Message-State: APuU4Z8J05PYd1UFEIgjIvmY0MCWGL8AwqGJTKsCa7zVyCY0U9uP2nyd
-	pnIcw3jWJ6/SDbg7+tkx5uPnKTid10CCIP99WGf7L9SK9GzqWejJB20u
-X-Gm-Gg: AYBFou0iZjdYmxrZWNiySwQVDV5vKFYFrqN+DmzPei19qkHvZq2nU1nQQ9iK4bwI3/i
-	/TDQ84nYVRaIwKjIVSeuUAwIHrmhfbJRuKscsH76aIjMLzkNU2BS8IpYXQAclP9ij4W5GmWKRB5
-	vsWmtkfekaNJ1/CRjvygTPSEmnHkPR63n4m/GLukaY3yLyEDYUypvSlTVX7xYxq1Z2Qlb2aXYGP
-	8hfQa3VVsorhsuVrOEKjzAi8tIvWROIR9UohfvXKJYD5BcL6jz0kAerQEvAIr+5zw291iVNP30E
-	EMKh1f187KwhLA/LKGVXsYaXYUVQPVvSpE+4kXQ7jzJ2/h8fPtaO76av0UEaJyigzqTJnhPbrco
-	x5S/44hlvjGXGioUuUezqOzTyE627QDnb5GRlZCR1FDrP0RqTxatZsnBCJ/6zBeUwSbFk2E7Eig
-	kSe7z6Sr96EdFcwPmUfckzWGHFFTB5OLiafVnm39ahAuiXRFtOAXeCG6e3XPeO+pAL2zXkttL/R
-	MIIgfdbssmGqx8e5bhgHxbRitN9DqCjr343h08j2sol42L/8vDuv4MmvHUNiXXmFREKppSihIzp
-	GstowkdCh491U/U1J6W/f8O5hk2gSgp0xX5tWck/Si11f5fn9CfTkD8jyJyfoz2QXq4aovP78TG
-	/dEGzk8zZhxxHwwpX6m4teac3uIAFH3hWgBBcuDeM
-X-Received: by 2002:a05:600c:a013:b0:4a2:526b:d40f with SMTP id 5b1f17b1804b1-4bb7d57749dmr12502495e9.0.1794953479148;
-        Tue, 17 Nov 2026 14:11:19 -0800 (PST)
-Received: from laptop.tail250202.ts.net ([87.110.86.243])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb78346f4asm99960585e9.0.2026.11.17.14.11.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 14:11:18 -0800 (PST)
-Date: Wed, 18 Nov 2026 00:10:32 +0200
-From: Janis Edvarts Lacis <janislacis06@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, wellslutw@gmail.com, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: ethernet: sunplus: check budget before calling
- napi_complete_done()
-Message-ID: <uscwfcie3wlbyljcowjvwhto7aecdid7cxjknvd4t6t4fyj5tt@lpyoijsxuduk>
-References: <20261114222744.535158-1-janislacis06@gmail.com>
- <26c5c08f-d6f5-49b2-9fa8-de6f8c244a78@lunn.ch>
- <7zevuoiao6ildvkxt5baqnalb3nrx736krdxkbrbxouelukveq@2wo6m6cfl6rn>
- <461f7e59-6c1d-4ad5-9eb9-5e5d9b4a9e90@lunn.ch>
+        bh=PvLBfcgdHrqGIkCbXq9P0ltK62QrqPFTCIKYFfNKE4Q=;
+        b=yDgokMi1x4UVfANSmbdI10vRtC01zI9rjj6PgPbH7Bzf5mi1G+m0wVazpjumKX6+Pu
+         C4bBvHSLw9C8y6GShhlZ0+wQz0G+iXqoAqcshZZ9YNwy5cmSP+Q9DwInfbotR26Sjxh3
+         GeFfUAgcWzxfByuD7FKPZikVxzxkfKtCZcVlFbJr9B+6AdRXgoM3CTk62/JV+wh2/8Fj
+         VOkRC45BZwtwWyGysfnqr/WlbxvNGClaxmDmcPmCIavBACmuvJsV3VG0mH0GlNeNJlJj
+         n6fVp+SwkRyheeJSvSaN1EfdJmgl6IgFjv7Y6A4Mn6Initm/VU9RjwAIHFX7VdcXkrFa
+         XqxA==
+X-Gm-Message-State: APuU4Z8qxE9qG7mW2GXBGWyytUkZpE8zHaH+CM/1fhfeAckIsfjnTbhM
+	rRsPTjjNAF4YTVrv55H8x533+dEPQbpiCm0hAyZLqz8LgktajSrHU0SyhWHwtEVcUXQHY9+fmG/
+	CkTbDd1ASYFfSblahGB6R70j30HhRScV0Vg==
+X-Gm-Gg: AZFdTZdSjZ5Y4X5FBkBgnvXX39lAiLU0OkLDwliluI3BQV09jgVYQ1esrFXJLigglOs
+	9bPA0YhRti2lbuMlTBTWyuLB4/tvagttKeEHendurMyiyF6O9E/YnN2FfId4yfgOxY3o/QKBVbC
+	RwWocuGELcwvq88zqTAdpgO/Y/WVUNda5Y9eiVzBERcMB3fcS3GjtVoFYhjamlel1+GgPT8sc8O
+	l7zEpaeI6BGJGTQrm9K7ct+P/SWGWFazuoGRl9CGq81c73scZSC6a46rozR3q+WD7ZJyIOxayhT
+	ywHTepUqOPJAZcS6sHwWv86QGgzUwUCib8TpgsBLPM+D7AB6SjeodkgpyWFEBzTSyh2svL9yfr5
+	uecXZaN1bkK3y5aMlAfAPRZKcOlBp9Xh6QNNNw9gsQI40QRrLTSDpqqe+qAwzJvdQnE7/msoJFf
+	oNgt67KfxHWLg2RhLyQe7WDRAdwp/5ldbJJzyiJu4bbQI1SL48RF9Agg==
+X-Received: by 2002:a05:6000:47ca:b0:4a5:da3f:861e with SMTP id
+ ffacd0b85a97d-4a63ab75484mr1051704f8f.23.1794953522542; Tue, 17 Nov 2026
+ 14:12:02 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,30 +104,155 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
-In-Reply-To: <461f7e59-6c1d-4ad5-9eb9-5e5d9b4a9e90@lunn.ch>
+References: <179460249371.8819.4646491882671802455.stgit@ahduyck-xeon-server.home.arpa>
+ <179495005990.3136.15414982968445441738@kernel.org>
+In-Reply-To: <179495005990.3136.15414982968445441738@kernel.org>
+From: Alexander Duyck <alexander.duyck@gmail.com>
+Date: Tue, 17 Nov 2026 14:11:26 -0800
+X-Gm-Features: Aa3M54rliRn85WjiypMI1nkB2CSLR81qjJjQO5dW_13CqoruH3NujP6cDIcp3i8
+Message-ID: <CAKgT0Ue4SA-XAWYmM+od+rZuVG8dnVviVJbGQjHf-iEyBHxzHA@mail.gmail.com>
+Subject: Re: [net PATCH 2/6] fbnic: Do not accumulate HW stats from failed
+ register reads
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@google.com, horms@kernel.org, kernel-team@meta.com, kuba@kernel.org, 
+	pabeni@redhat.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 16 Nov 23:19, Andrew Lunn wrote:
->> I am fairly confident the change is correct, as the documentation
->> supports it.
+On Tue, Nov 17, 2026 at 1:14=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+te:
 >
->So the LLM review is wrong?
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 0 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [High] The fix is incomplete: `fbnic_pcs_rsfec_stat_rd32()` in
+>   drivers/net/ethernet/meta/fbnic/fbnic_mac.c still adds failed reads=E2=
+=80=A6
+> - [Low] The commit message describes the failed-read symptom accurately
+>   only for the 64-bit counters.
+>
+> --
+>
+> fbnic: Do not accumulate HW stats from failed register reads
+>
+> This commit changes the fbnic HW stats helpers so they skip updating the
+> running totals once a failed register read has disabled CSR access. The
+> check is added to fbnic_hw_stat_rd32(), fbnic_hw_stat_rd64(),
+> __fbnic_mac_stat_rd64() and fbnic_mac_stat_rd32().
+>
+> > When a register read fails, as it does for every read once a DPC
+> > containment event takes the link down, the fbnic_rd32 function returns
+> > all ones and disables CSR access, so every later read also returns all
+> > ones until the device is recovered. A stats read in that window adds th=
+e
+> > difference between all ones and the last value to the total, which
+> > subtracts the counter's whole value since the last rebase.
+>
+> [Severity: Low]
+> Does this description hold for the 32-bit counters?
+>
+> In fbnic_hw_stat_rd32() and fbnic_mac_stat_rd32() the delta is computed
+> in u32:
+>
+>         stat->value +=3D new_reg_value - stat->u.old_reg_value_32;
+>
+> When new_reg_value =3D=3D 0xffffffff, this gives 0xffffffff - old. That v=
+alue
+> is zero-extended and added to the u64 stat->value. So the 32-bit counters
+> (TMI/TTI/RPC/RXB drops, per-queue HW drops, 32-bit MAC stats) would jump
+> forward by nearly 2^32 instead of dropping.
+>
+> Only the 64-bit helpers wrap the total downward, because fbnic_stat_rd64(=
+)
+> returns ~0ULL there. The code change looks correct for both widths. Could
+> the commit message also mention the forward jump in the 32-bit counters?
 
-No, the review is not wrong. It correctly points out that the budget
-cannot be exhausted during normal NAPI polling in this driver, which
-I had missed originally.
+If a follow-up is requested we can look at updating the commit
+message. The thing to keep in mind is that there aren't that many 32b
+registers for the interface, so the much more common visibility to the
+issue is the issues seen with the 64b counters.
 
-It correctly identifies that the old code unmasks interrupts even
-when napi_complete() returns false. My change calls napi_complete_done()
-before unmasking interrupts and only unmasks them if it returns true,
-indicating that NAPI polling has completed and interrupts can be re-enabled.
+> > diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_mac.c b/drivers/net/=
+ethernet/meta/fbnic/fbnic_mac.c
+> > index 16271c717a5aa..2aacbf0a6af40 100644
+> > --- a/drivers/net/ethernet/meta/fbnic/fbnic_mac.c
+> > +++ b/drivers/net/ethernet/meta/fbnic/fbnic_mac.c
+>
+> [ ... ]
+>
+> > @@ -417,6 +421,10 @@ static void fbnic_mac_stat_rd32(struct fbnic_dev *=
+fbd, bool reset, u32 reg,
+> >       u32 new_reg_value;
+> >
+> >       new_reg_value =3D rd32(fbd, reg);
+> > +     /* A failed read disables CSR access and returns all ones */
+> > +     if (!fbnic_present(fbd))
+> > +             return;
+> > +
+> >       if (!reset)
+> >               stat->value +=3D new_reg_value - stat->u.old_reg_value_32=
+;
+> >       stat->u.old_reg_value_32 =3D new_reg_value;
+>
+> [Severity: High]
+> Should fbnic_pcs_rsfec_stat_rd32() in this same file get the same check?
+>
+> It reads the clear-on-read FEC/PCS counters and never calls
+> fbnic_present():
+>
+> drivers/net/ethernet/meta/fbnic/fbnic_mac.c:fbnic_pcs_rsfec_stat_rd32() {
+>     ...
+>         pcs_rsfec_stat =3D rd32(fbd, reg) & 0xffff;
+>         pcs_rsfec_stat |=3D rd32(fbd, reg + 1) << 16;
+>
+>         /* RFSEC registers clear themselves upon being read so there is n=
+o
+>          * need to store the old_reg_value.
+>          */
+>         if (!reset)
+>                 stat->value +=3D pcs_rsfec_stat;
+> }
+>
+> After fbnic_rd32() clears uc_addr0, both reads return ~0U, so
+> pcs_rsfec_stat ends up as 0xffffffff. These counters have no baseline to
+> subtract. As a result, corrected_blocks, uncorrectable_blocks and every
+> SymbolErrorDuringCarrier lane would grow by about 4G on each stats poll
+> while the device is unreachable.
+>
+> One path that reaches it:
+>
+> fbnic_get_stats64()
+>   fbnic_get_hw_stats()
+>     __fbnic_get_hw_stats32()
+>       fbnic_get_phy_stats32()   /* reset =3D=3D false */
+>         fbnic_mac_get_fec_stats() / fbnic_mac_get_pcs_stats()
+>           fbnic_pcs_rsfec_stat_rd32()
+>
+> The service task reaches it the same way through fbnic_get_hw_stats32(),
+> and so does ethtool through fbnic_get_fec_stats().
+>
+> dev_get_stats() does not check netif_device_present(). A read of
+> /proc/net/dev during a DPC/AER outage, or after fbnic_pm_suspend(), would
+> therefore hit this path.
+>
+> fbnic_reset_hw_stats() calls these readers only with reset =3D=3D true. T=
+hat
+> skips the add but does not rewind stat->value, so the inflated totals
+> would remain after recovery.
+>
+> Would adding the same "if (!fbnic_present(fbd)) return;" after the two
+> reads in fbnic_pcs_rsfec_stat_rd32() close this gap?
 
-Finally, it brings up some pre existing issues that seem to be appropriate
-for separate patches.
-
-If this patch still makes sense as a net-next change, I will update the commit 
-message to explain the ordering and conditional interrupt masking.
-
-Best regards,
-Janis
+Yeah, this probably does need the same fix. If possible I would prefer
+to do this as a follow-on patch.
