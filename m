@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794874808;
-	b=IjKdcd88WRrj2dkzs/aM8KN48yG+CmLpByBrs3twCTuv7eBb8vxbBWCHqSd75HfhHbc+
-	 33MR89K/Yn9k82gNaUxQTtPihHL1IfIBGN+93NVLuBUay/os8K6OsnfvS0sfvLOCTzCpz
-	 Y45G9StKICLk88klvwPNEmidkXQ78ny7DUvaxyFvqI5RjV5sSRaBQuMmTe/kBAOmQSa9U
-	 uPE8f7dNeeGMwwGz6GpP1kQc1o/dwtilivd6WQuygbBaouNZueysnkL99MMpKoMA6EW4H
-	 XB1ARNAIETHOwzdex3jahRzXOQ8Rqcdr1w3vbbxV+wXyeMWQlOM4OkikkliIK22fO+w==
+	t=1794874814;
+	b=F+JX76KHlrDaqvdbUT+526Iw2tyipG3eYiiKrJtdLx9wSON+OiKJGpy/uwpLJNHAeCeQ
+	 TS24cpZSwmYOK+df49kqWGdQsMEPmP4j3p5AbwwPxTozacVTwBOFp6829OVA4huEDjYQO
+	 6QoD/To4alneOefubagqBlm19QORS/wOHfRatOiKSVgeChueWomAExGUvNTvKt1E/J9Fh
+	 4sUNMhuk3xrDAZLTgP/1h/tCeWQCi+UYniAr6u7qDiqlOOcDM4CyPKaY4/K09YLbU/N0i
+	 6YWZ8O+62JzVDG1xP3KNaf68v7wRPM4kTq9B7qNFJ/6kxwsRfmvICEn6Ht0KRShHKPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794874808;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794874814;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=4C+hHaQoI/htJ4th9nKPEWiUVD7EJpf5lUFg3nSpV5g=;
-	b=Jee2wk3CywPMb7vm+7Drq23zmfGMd8YqF34G1uFdTsMQXMOSRBcy5kqyhIF40wA5tV/O
-	 IRf20M0NEmGw4N74akFkqadJw5NVa7Y42YR5+dqEGm+6x+994Xq+AefdM309dw5GB5dwZ
-	 8rgs8Serw7LgrNd+srtRIciDL5yC2pTkFPJtkwO20Jettzux6xGbT3RsRNGNrcq4gGIJ6
-	 srNkyc46t/Y0mDhWwIHw51I/+8C/Nxbk108uBJ8J7rVKLDYm0bT2+XjhNxqkxUKcqP630
-	 qIyZ8p4Lu8bV8Hzuwu2Gvh90N+uepJp06v5sei2SeFBmNbo3aQrMPBqn8kJp9waQxfw==
+	bh=c1Qw+fK1zKwsCLLrGTQVQVYyJN7HmcawuWunxu5oAJI=;
+	b=1IwzPZx/Kv/awIk6Q4baWSZMfwIb9ITMJsE/ckSgZCS7X8vKZzrshhiIVzqtaGFh4ZE5
+	 uSvcr72BmKOh3s3lqobWzIJxwb+YJ0SGKtaZSoytDc1cKdHpdkTB13kRl58sugDIJwbQn
+	 +3UYPfOLV4nNvp5o76W76J8l0wHEcBhv/E/k4JDR4AAC90G6x1uNfXAk1+oBxnNGNQ/2O
+	 DZl2zfoAIQ+lI2sfjf823HS2I70UDHoMVAAhykvET00wumUZh1MuvbmpEUPfoi0Qka8gf
+	 6g6gnxvlOJpOc98sLHokLnPNpSV49GD1/VK1RR8bdKXc6XZ4qfwOMNJcoAa834lR5Zg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AUXXjp6v;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j04otoJK;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4675A606A884;
-	Tue, 17 Nov 2026 00:20:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9BE52606A333;
+	Tue, 17 Nov 2026 00:20:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AUXXjp6v
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 077821F000C5;
-	Tue, 17 Nov 2026 00:20:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j04otoJK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4373E1F000C5;
+	Tue, 17 Nov 2026 00:20:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794874808;
-	bh=4C+hHaQoI/htJ4th9nKPEWiUVD7EJpf5lUFg3nSpV5g=;
+	s=k20260515; t=1794874814;
+	bh=c1Qw+fK1zKwsCLLrGTQVQVYyJN7HmcawuWunxu5oAJI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=AUXXjp6v0MbRnT8sZm9LoaSiwSaiXGcUsJo1UKVHnudai2g8He9Zjf7PjMo/0NkvG
-	 XGKEl/TijQMHDMi/FARlWEXUbd+UTpiHGmbyV01Ljjx3sPUexHy30FCjn81C/sILN3
-	 TYBeYZYi+04mt0ah2TbMLwa5QO+CYTDywOntKJ1LPrk6eoRGaQHW3vZUJQddvxjuiB
-	 FZPrhw1d7lDd8Ztd4VLmEpa0c8hqaOF9n6TauTrCI4mRPqNw/4YtQM4PXem3r3tMsT
-	 BMuz2BmcWUulnwwGtua2DsHXmCUOQnNlYVS6Fq2B0FYGsQ3OTxa53AQ/0Xl+ku6zlE
-	 ZRgxpJS6ZsVyw==
+	b=j04otoJKWSllEwsXwDk8UNEJc2jK71Y3oxhdjUzcoZZNeIGMGALsxexQyDWjwxvzY
+	 qzeHvMOsekfOGJ/ZWAr/JkXnDtbS0/kftD4XGW5mWktwFcth7Q0SvYvOl/eY64yoXH
+	 S35N95bLrVyh8I3biZl+jSmZ54XuJazjskK4uPrVwZzCcJF6qYimFbipNqbmQyJtS3
+	 WC18h+dwZx55HjbSoqeFMInbpNXXG/hGMubYyijgb/5i0Lqoz8cbppLDsoSdkpSjUr
+	 KC3zG5wUeCPlpZcJ7YoZOBpol1ZT4f9JAie2HFVNf16Ue7HTHF9kRh057bAi/qBU/l
+	 06cHo5wVB68Pw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F16BC391AFE7;
-	Tue, 17 Nov 2026 00:20:07 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A352391AFE7;
+	Tue, 17 Nov 2026 00:20:14 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,39 +54,51 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] sctp: validate SACK pull length against chunk length,
- not skb length
+Subject: Re: [PATCH net-next 1/7] dt-bindings: net: can: ifi,canfd-1.0:
+ Convert to
+ DT schema
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179487480652.257811.15441708488067706931.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 00:20:06 +0000
-References: 
- <3fbf59d17a91c46098e3d4115e06987918b68c45.1794495702.git.lucien.xin@gmail.com>
-In-Reply-To: 
- <3fbf59d17a91c46098e3d4115e06987918b68c45.1794495702.git.lucien.xin@gmail.com>
-To: Xin Long <lucien.xin@gmail.com>
-Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org, davem@davemloft.net,
- kuba@kernel.org, edumazet@google.com, pabeni@redhat.com, horms@kernel.org,
- marcelo.leitner@gmail.com, tlatkdgus1@gmail.com
+ <179487481277.257811.5528472784391485936.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 00:20:12 +0000
+References: <20261113071325.4092169-2-mkl@pengutronix.de>
+In-Reply-To: <20261113071325.4092169-2-mkl@pengutronix.de>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+ linux-can@vger.kernel.org, kernel@pengutronix.de, quchaosheng000406@163.com,
+ robh@kernel.org
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+This series was applied to netdev/net-next.git (main)
+by Marc Kleine-Budde <mkl@pengutronix.de>:
 
-On Thu, 12 Nov 2026 10:01:42 -0500 you wrote:
-> sctp_sm_pull_sack() derives its pull length from the num_gap_ack_blocks
-> and num_dup_tsns fields in the SACK body, but validates it against
-> chunk->skb->len (the remaining packet data) rather than the SACK chunk's
-> declared length. A malformed SACK with an inflated num_dup_tsns can pass
-> this check when subsequent chunks pad the skb, advancing skb->data past
-> the SACK boundary into later chunks.
+On Fri, 13 Nov 2026 08:08:49 +0100 you wrote:
+> From: Quchaosheng <quchaosheng000406@163.com>
+> 
+> Convert the IFI CAN-FD controller binding from free-form text to DT
+> schema.
+> 
+> Reference can-controller.yaml. interrupts is required: the driver obtains
+> it with platform_get_irq().
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] sctp: validate SACK pull length against chunk length, not skb length
-    https://git.kernel.org/netdev/net/c/533ec433efdc
+  - [net-next,1/7] dt-bindings: net: can: ifi,canfd-1.0: Convert to DT schema
+    https://git.kernel.org/netdev/net-next/c/0efc358417de
+  - [net-next,2/7] dt-bindings: net: can: bosch,cc770: Convert to DT schema
+    https://git.kernel.org/netdev/net-next/c/489a164909b2
+  - [net-next,3/7] dt-bindings: net: can: holt,hi311x: Convert to DT schema
+    https://git.kernel.org/netdev/net-next/c/f0d13562fbdb
+  - [net-next,4/7] net: can: cc770: update the binding file reference in the driver comment
+    https://git.kernel.org/netdev/net-next/c/8c4de4078890
+  - [net-next,5/7] dt-bindings: net: can: fsl,mpc5xxx-mscan: Convert to DT schema
+    https://git.kernel.org/netdev/net-next/c/1911b1c42960
+  - [net-next,6/7] dt-bindings: net: can: convert grcan to DT schema
+    https://git.kernel.org/netdev/net-next/c/ea1907f738d0
+  - [net-next,7/7] net: can: grcan: update the binding file reference in the driver comment
+    https://git.kernel.org/netdev/net-next/c/194bf22b60a5
 
 You are awesome, thank you!
 -- 
