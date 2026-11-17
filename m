@@ -1,78 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794934938;
-	b=TbV3e6pu1rVBISd9LWkLLDy1DKouTCHOkxXDAJ70STSW1Vtz49ZaaSwAWoP3NtRm5z/6
-	 yw1mRmihFsbMCy92JMrAJ0VPa8C1Kyi5meHvm6m8gBf3mLzdR4JMRoON4N6kKb0guWjJY
-	 mxMVukVmk7A73Ol4ZiihS3nDEXEkNjYIH7eQhzib/ZABFoX5oApWzptzVddHPnwE+Acnd
-	 bRqkfyH0y8lJlu4+Frb0/gNpgPezmkmgj0aBOLKbMlE0MIrS5m93jXwbLfunrql257/qI
-	 VmT2JTjg30Sg/ST9WAXW5J04f4mxN1OYy3y61ZYYjQpLAAycAgEtfQAiNHrppWsPTiQ==
+	t=1794935034;
+	b=NgyOTg1QDmdbDXzqar61ig2G1txtdU3w7cPu/W0rlB8LBLfurzs+LbH54UQX2T1jD0IN
+	 kKkfrFhSYtGvTVLyj7+GoUeXFCp/GqqRMjskvcCklolFIJJ5pWfZKpaYWnbferjxGs8A3
+	 Y3/mcGWztrt8SWSJP9iBipRMs+O5DV+XrV+uF8EDtHjULdWy/VIqmWHaQ3GcuBpqdDowj
+	 tHJkLJj39g2y8+BKMv/V0sXGafDPPHaaoGmnTplL2sWJD1jFIDcheUU8RLEc3O0ax8QHU
+	 eCuPHTHNsuFgjF6GWd8QZzZbFCraUK+ae64VB54gkDT1OE3T9a16x3hVodZPerU+MmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794934938;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=FcrHbezu7ZWjOBBzfj/zQMKcAeBb+uf9T04gRQhuzOk=;
-	b=WG/2S9Uj7sCcJB2ddAT318IEk8YzvDnbx22ZDNSsQNpCCW0JqKu7QwSvoQ7wphUNTAi7
-	 Bio8dTvdoEnUgD/ZZa/hgayyhF4FaWyyCoOLUshB3+S0B8eHYs4fSPDMWGMCdaSPe3u49
-	 WY0w4wHboxQhpsseyqy/OHn/PBgbEWsjXO6k7kFtjzjwbKgboYSsInTwMGybarstkIjH9
-	 nU0yL/PZU7eUvpK6r+yu7UKpF/iksrtVl+RN1WJa+xsjmdlMvYMwb8mdmjZRhN3F5a7UF
-	 L51DiTqKKeg+ytaHxVIJsmwnNi9TVTdTkE15WM6r4c3xOVG/f5VKsvKZGMSi6oAxhDg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794935034;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=6dFwgttTw42R11mfM5CS+XLJ1B724S1YmPtAmkJ59Zg=;
+	b=gq8rY7CHz3qg2bkxGRw+4aAz/gtYmwwv+NiJArkzgtzsPNZYJiTuaytlRI/2ZARu9qs1
+	 PYIRccCtX6lCFlN+oI2jPW8IgUjt2kk4peNtNPWNAeTDZ7qZDs+xTn0lMvJwVy07W27R9
+	 amVo16C2bvppJW/AQ/NqG8k6ER4EEOlKljPxgghRLSr0Fpwsz7YV9PENPsdBehnL3ubQA
+	 SMpZwcQm3Tt1AnaHpMAarMm/QPwqPWByuQY/csqFMwKXRVJDvENJeg0+nae4XUngjqfq6
+	 FuODr+nIdArJ38lqAzz0bdYsHtEg1SLQ3zrez7clssHqsAa4D5+h+2VSx1Pu14ElS9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="f/DRJ1Jl";
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=id5wW1Yc;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EEB7606A31C;
-	Tue, 17 Nov 2026 17:02:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EEB7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2F270606A31C;
+	Tue, 17 Nov 2026 17:03:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=f/DRJ1Jl
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=FcrHbezu7ZWjOBBzfj/zQMKcAeBb+uf9T04gRQhuzOk=; b=f/DRJ1JlxkjQKKgiumVsBQLZiM
-	eDTDyC59fnlSke8btoyFTBTwVRFcx+9cVDiI9CG/Pz2v9BYmdwQ+QQbltpSrGKAtu9khXAdMhvLaa
-	XUlhedOVcJCmg6GCDC8DLRu+rRMS0WFHhTYyecmdffAiAPgJi315dQDd8J2q8Y3rVGrk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTMZJ-00HDCG-CW; Tue, 17 Nov 2026 18:02:05 +0100
-Date: Tue, 17 Nov 2026 18:02:05 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/8] dt-bindings: net: Add MDIO demultiplexer
-Message-ID: <ae24af14-8168-44f0-a150-f18057cc3c95@lunn.ch>
-References: <20261116135442.4827-1-jszhang@kernel.org>
- <20261116135442.4827-2-jszhang@kernel.org>
- <16ecb3ac-7876-4db5-9168-5ac9bf31d4b7@lunn.ch>
- <avvgy_bmRSVApCHA@xhacker>
- <bd19b55b-00b1-406d-a16b-d04c35efb7d3@lunn.ch>
- <avxhJs-51vs2Icje@xhacker>
- <6eb16cd9-27bd-4934-9621-b8928dce6902@lunn.ch>
- <avx43Nv-DJCX5_Rr@xhacker>
- <4d4dc86c-c947-40e2-bdaf-ed00a39f3771@lunn.ch>
- <avx-RO_K5h12HWx2@xhacker>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=id5wW1Yc
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A3DD1F000C5;
+	Tue, 17 Nov 2026 17:03:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794935034;
+	bh=6dFwgttTw42R11mfM5CS+XLJ1B724S1YmPtAmkJ59Zg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=id5wW1Yc8sK5qIZOs77g2mA0NjqLmOmsePJZZhyrbS77fOlAPbsi+zaw3zw5U9iTg
+	 ufz7dU/V2oPT5huVg/MYUTklZnqGCgE91SNFWuRm0ccQEGzbdt/+dhdLPD8EnbH2uk
+	 iFhseD4OSLMQQsFR+/Rur3Wns7rRWpPJahElxuAWB7lhHPWlA/ju6WoRuac2eA+fJz
+	 2AEyYIcLmxqjR70+QyPcSQXE31rtuIDAw3W9SX3j+AIx+WfgDMFwvKGzRJgjFXQr8+
+	 seS5WTDvrPHhZQ4A54q1iJw4BGhXMiuEPEEQag+/cq+bWn+VgQwkx/pV2o1x+7NG8q
+	 tSuTUaYQky4iA==
+Subject:
+ Re: [PATCH net] tap: clamp zero-copy copylen to remaining payload length
+From: netdev-bot+sashiko@kernel.org
+To: graypanda.inzag@gmail.com
+Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 17 Nov 2026 17:03:53 +0000
+Message-ID: <179493503300.3136.4070504744747730772@kernel.org>
+In-Reply-To: <20261113164903.785381-1-graypanda.inzag@gmail.com>
+References: <20261113164903.785381-1-graypanda.inzag@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,32 +64,119 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <avx-RO_K5h12HWx2@xhacker>
 
-On Wed, Nov 18, 2026 at 12:18:12AM +0800, Jisheng Zhang wrote:
-> On Tue, Nov 17, 2026 at 05:20:39PM +0100, Andrew Lunn wrote:
-> > > > Each transaction?
-> > > > 
-> > > > Are you proposing to use both MDIO bus master? Why? To the outside
-> > > > world, it is one MDIO bus, so you only need one active MDIO bus
-> > > 
-> > > Yep, both MDIO bus masters. I wanted to let each MAC uses its own
-> > > MDIO rather than disturbe another MAC for dual MACs case.
-> > 
-> > How does this actually work? Each bus master sees each PHY. So one
-> 
-> This could work since the demux serializes two masters' access + only
-> point to one phy phandle in one mac's DT node.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-And it all blows up when you don't use DT, or the MDIO node is missing
-and of_mdiobus_register() falls back to mdiobus_register() which scans
-all the devices on the bus.
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
 
-> Yep, I will switch to one MDIO bus solution by coping with the selector
-> in the sl2610 stmmac glue driver.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Good.
+- [Medium] The Fixes: trailer in the commit message is an unfilled
+  template: `Fixes: <12자리_커밋_해시> ("<원본_커밋_제목>")`.
+- [Low] The commit message and the new comment ("A padded vnet header can
+  leave fewer payload bytes than GOODCOPY_LEN.") describe only the…
 
-	  Andrew
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but tun_get_user()
+  in drivers/net/tun.c has the same unbounded zero-copy copylen.
+
+--
+
+tap: clamp zero-copy copylen to remaining payload length
+
+This commit clamps copylen in the zero-copy TX branch of tap_get_user()
+to the remaining payload length. Without the clamp, a padded vnet header
+can leave fewer frame bytes than GOODCOPY_LEN, and the uninitialized
+part of the skb linear head is then transmitted.
+
+> Fixes: <12자리_커밋_해시> ("<원본_커밋_제목>")
+
+[Severity: Medium]
+This trailer looks like an unfilled template. The placeholders translate
+to "<12-digit commit hash>" and "<original commit title>".
+
+The trailer sits above the --- separator, so git am keeps it in the
+applied commit, and stable tooling can't use it to select the fix for
+backporting.
+
+Could this cite the commit that introduced the zero-copy copylen sizing
+in tap_get_user()? That would be either the macvtap zerocopy support or
+the later copylen clamp rework.
+
+> diff --git a/drivers/net/tap.c b/drivers/net/tap.c
+> index 2f19fb07bb2d4..b1f8776a5ca57 100644
+> --- a/drivers/net/tap.c
+> +++ b/drivers/net/tap.c
+> @@ -608,6 +608,8 @@ static ssize_t tap_get_user(struct tap_queue *q, void *msg_control,
+>  		struct iov_iter i;
+>  
+>  		copylen = clamp(hdr_len ?: GOODCOPY_LEN, ETH_HLEN, good_linear);
+> +		/* A padded vnet header can leave fewer payload bytes than GOODCOPY_LEN. */
+> +		copylen = min_t(unsigned long, copylen, len);
+
+[Severity: Low]
+The comment and the commit message only describe the case where
+hdr_len == 0 falls back to GOODCOPY_LEN. Doesn't this min_t() also close
+a second trigger?
+
+__tun_vnet_hdr_get() checks hdr_len against the iterator count before it
+skips the header padding:
+
+drivers/net/tun_vnet.h:__tun_vnet_hdr_get() {
+    ...
+	if (hdr_len > iov_iter_count(from))
+		return -EINVAL;
+
+	iov_iter_advance(from, sz - parsed_size);
+    ...
+}
+
+That means a guest-supplied hdr_len is bounded by payload plus padding,
+not by len. Before this patch, with a large TUNSETVNETHDRSZ,
+clamp(hdr_len, ETH_HLEN, good_linear) could reach good_linear while len
+is only 14. The leak would then be much larger than the 114 bytes
+described.
+
+Should the changelog and the comment mention this path, so the size of
+the disclosure isn't understated?
+
+[Severity: High]
+This is a pre-existing issue and wasn't introduced by this patch, but
+does tun_get_user() in drivers/net/tun.c have the same unbounded
+copylen?
+
+drivers/net/tun.c:tun_get_user() {
+    ...
+		copylen = min(hdr_len ? hdr_len : GOODCOPY_LEN, good_linear);
+		linear = copylen;
+    ...
+}
+
+Nothing bounds copylen to len there. When zerocopy is set,
+tun_can_build_skb() returns false, and tun_alloc_skb() calls
+skb_put(skb, linear) with linear == copylen. zerocopy_sg_from_iter()
+then copies only min(skb_headlen(skb), iov_iter_count(from)) bytes into
+the head.
+
+Both triggers seem to apply to tun:
+
+  - the 246-byte vnet header plus 14-byte frame from the commit message
+    (tun_vnet_ioctl() only enforces a lower bound on the header size)
+  - an oversized guest hdr_len, as described above
+
+tun_chr_open() sets SOCK_ZEROCOPY unconditionally. With
+vhost_net.experimental_zcopytx=1, the more common tun backend would
+therefore still put uninitialized host heap bytes on the wire.
+
+The notes below the --- cite the analogous tun.c report. Is a matching
+fix for tun_get_user() planned?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113164903.785381-1-graypanda.inzag%40gmail.com
