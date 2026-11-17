@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794935971;
-	b=ADBVG456lxyk5FFNznUAnDVvRaTzb3l/IaEyfF4W7uhT9BpGCfHlyu9ubiu1cXVxUadA
-	 UYCYXk86PBYEazx7np14tVJsI8fFVaJy958fmap67wBPWpuXBD2swsBPFJ8fY61kniW+I
-	 STVCJeBWHrbSR9mBjGyv5zczWN+t/fq2HovKz8pmEqEi1f1/NOSGiUViJTZHOi4u+z6Yr
-	 ckPAd/wZtv49J85p9QQSlV9zpjOeAVLh1VfT0TVzmDtZQ1qK9yiz+9vfrsXPql/+EDqoL
-	 +CTId7H2PlxyjvW4XsdYF1e/JFyDHjGt6Ycep2KVNndS8fCks5RvhhcBRDvRKLZjiqg==
+	t=1794935972;
+	b=H7m9fRKylDaoB/a2Lc+h6ZsbB9dCakt2CUpv4C1tMxct21nzXV6ld5rslIVTk/TJC5cY
+	 5db/vDeJrYC64RxDDLXijxrkTtN4Abryp91GUv1DFm8Zd07X8wuYaTMsw2nHpti4u7E/L
+	 Ef4ZW1wk7E7JX+39cQGYnLuRKI9GnKkasxmuJl5XSuGtffHzHTc6bmlyS00k0tluepDkN
+	 c/6d8ziRMhWlx0FAZuiOu1/uP+y9nPDgLf6I8/U7o0khVn1LI02gUPv4Shc1u69USID8o
+	 5dMbAU870MMcwHIpaysFwj9YcqNXv9crL7qTuKJZg6jF7K+6o1Vvd0ZD9gMc70QEh0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794935971;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794935972;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=W4aFLpUfe3XiCxc2PObsnrTodftdXNUU558nT7u5UfA=;
-	b=DPYCbtdBxsU9DBih113IQ/HA4GNNsmGTukBrQofg2eyZHaJ+HsG8RqH2yX6uBE/eUsw9
-	 znAshFE9HtI122HGMISSIqwO5XhVJjm6aDFjUYjgaur9IiVWEKnsUhw6xT0TLDYDn4QnT
-	 tlYxTnM9s59nSycfjr2aAZCFtSKhIlgprmdMUUpVNFKfgjFLBILpVQwpaJDoRkCeaumot
-	 IpjM990JdHHo0N95RzwAUAsQ0M7QmbTd2ndxC5Ja9vjH+DTefTrjwFDj2s3tX3EZHY7nj
-	 f3XjOhlS6wOQF5tqO2VJQ6JY9xD/prZLAbr680lpKqx7fpCP609CbM1bkzsRJC45qoA==
+	bh=huFHxyOwSJEeq70j8XuTfasaKzIzpOtIVN2ePHRwlVI=;
+	b=alNK6+4HZvuqxy74HH4ERGWyGqyHL77KimxeLl8L+4ymNnpJfnFU+iXwcLo/ur+ExqwF
+	 McwFHSBKIRaOoUc3ZCyG8O534cxOTiVMHk/VjrPW72hh4i8eft6bBzxDvdvbooienTweW
+	 DR3ChxUwgixlH2jdWN7eH8uSWlXatM/9/NGJpExMj3h0fVYSB4RRJG+1/xUSTykjt8y7j
+	 nvYmd2GUUGle3yvKJ6FRFb6PvqvraSzyNKz0lusI934bLLa6kQFSsmfLxKdieqxG8lcZS
+	 /hGt3F6cVziPNsGp6k5cHRH6+nwFnlemc6awhXML6GppGB/xGXeOU6F0QoSU4BbhSQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mhPn3cKi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nCHLintG;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90FC1606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 17:19:31 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D503606A334
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 17:19:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mhPn3cKi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CDD61F000C4;
-	Tue, 17 Nov 2026 17:19:31 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nCHLintG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 100641F000CB;
+	Tue, 17 Nov 2026 17:19:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794935971;
-	bh=W4aFLpUfe3XiCxc2PObsnrTodftdXNUU558nT7u5UfA=;
+	s=k20260515; t=1794935972;
+	bh=huFHxyOwSJEeq70j8XuTfasaKzIzpOtIVN2ePHRwlVI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mhPn3cKiaaWVfVod30aryF66cjFtwpMWtSD7EAF+Dx5DLDSPA4B7MzhrAOYpILqqI
-	 j8BPCfb2MuYSLnGkwJwjcZbIPQ2N1cGHHY2WMB16aCIor2MBcvxNXg0nElreL0E/g5
-	 uIn3EYM+QMtyV0wa5NgahDSueomWtVKgndr/xgliHb/y1d7+aGjpGzfoLto1weTg3C
-	 J5yr2QdgbuAMESFYB9ytj0T41BuY3wlNLJs2+dTOv9HnDPTOgUPyRfkbaLYRioIWjH
-	 ug6ncJoPTnwVWCd4sBf/YqP/E7HuId6xU5gSqoVHbwxC6RXojGQhkNMC251XY/Ewms
-	 btoc4xPnGdwAg==
-Subject: Re: [PATCH v1 net-next 1/4] selftests: landlock: Replace MSG_OOB with
- O_ASYNC+F_SETSIG.
+	b=nCHLintGCNiF4KRb2IaSPS+XqLo4EM4FX0BNGKoUa5tVOTV8jERZosLpXOA9owL4b
+	 6SSCnodMnUT+iEQ92mE5Z3POZVU+l+6sjYlT82pumJd9lDJKBmDb09dpxpz7jCbYpK
+	 eLmNu/q89PHFsMA0mkoIlimAu0N0IB7JgmWQbs4W0gPItU7Zzqspf5FDMf1VK1s+0p
+	 paNrxH9s4Dv1kpdMuCmR6LJpxl1DarqTsCEzgCjwN5m6ctPfpksfcnXonahVo0l47Y
+	 1GX6H1o4dYe5xHt34Hkw5xSS39lD1nTu/z8kE4ZbSGyNlAyED80qY0i3JA1+ZkkhdY
+	 9P4aLcoszIV8w==
+Subject: Re: [PATCH v1 net-next 2/4] selftests: bpf: sockmap: Remove AF_UNIX
+ MSG_OOB test case.
 From: netdev-bot+sashiko@kernel.org
 To: kuniyu@google.com
 Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
  pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com,
  netdev@vger.kernel.org
-Date: Tue, 17 Nov 2026 17:19:30 +0000
-Message-ID: <179493597059.3136.12928298602383914551@kernel.org>
-In-Reply-To: <20261116021845.2533130-2-kuniyu@google.com>
-References: <20261116021845.2533130-2-kuniyu@google.com>
+Date: Tue, 17 Nov 2026 17:19:31 +0000
+Message-ID: <179493597161.3136.12291669288172895358@kernel.org>
+In-Reply-To: <20261116021845.2533130-3-kuniyu@google.com>
+References: <20261116021845.2533130-3-kuniyu@google.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -70,83 +70,102 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] After this patch, no landlock selftest reaches
-  hook_file_send_sigiotask() through send_sigurg().
+- [Low] In test_redir() and test_send_redir_recv()
+  (tools/testing/selftests/bpf/prog_tests/sockmap_redir.c), the patch…
+- [Low] At this commit, the only selftest covering AF_UNIX MSG_OOB with
+  sockmap is gone: the `{ AF_UNIX, SOCK_STREAM, MSG_OOB }` entry in…
 
 --
 
-selftests: landlock: Replace MSG_OOB with O_ASYNC+F_SETSIG.
+selftests: bpf: sockmap: Remove AF_UNIX MSG_OOB test case.
 
-This commit removes MSG_OOB from the fown.sigurg_socket and
-trace_fown.deny_scope_fown tests. They now do a plain send() to a socket
-with O_ASYNC and F_SETSIG(SIGURG) set, so they no longer depend on
-CONFIG_AF_UNIX_OOB. The commit also drops CONFIG_AF_UNIX_OOB from the
-landlock selftest config, and it moves the close() of client_socket later
-so that no extra POLL_HUP signal is sent.
+This commit removes the AF_UNIX SOCK_STREAM MSG_OOB case from the
+sockmap_redir selftest, because MSG_OOB support is going to be dropped
+from AF_UNIX. It also removes the socket_spec.send_flags field, which is
+no longer used, and the OOB handling in test_send_redir_recv() and
+test_socket().
 
-> diff --git a/tools/testing/selftests/landlock/scoped_signal_test.c b/tools/testing/selftests/landlock/scoped_signal_test.c
-> index 259cdcc8aa5cc..c4c365007370a 100644
-> --- a/tools/testing/selftests/landlock/scoped_signal_test.c
-> +++ b/tools/testing/selftests/landlock/scoped_signal_test.c
+> diff --git a/tools/testing/selftests/bpf/prog_tests/sockmap_redir.c b/tools/testing/selftests/bpf/prog_tests/sockmap_redir.c
+> index 9c461d93113db..e73d3a674a741 100644
+> --- a/tools/testing/selftests/bpf/prog_tests/sockmap_redir.c
+> +++ b/tools/testing/selftests/bpf/prog_tests/sockmap_redir.c
 
 [ ... ]
 
-> @@ -560,20 +539,22 @@ TEST_F(fown, sigurg_socket)
->  		create_scoped_domain(_metadata, LANDLOCK_SCOPE_SIGNAL);
->  
->  	/*
-> -	 * Sets the child to receive SIGURG for MSG_OOB.  This uncommon use is
-> +	 * Sets the child to receive SIGURG.  This uncommon use is
->  	 * a valid attack scenario which also simplifies this test.
->  	 */
->  	ASSERT_EQ(0, fcntl(recv_socket, F_SETOWN, child));
-> +	ASSERT_EQ(0, fcntl(recv_socket, F_SETSIG, SIGURG));
-> +	ASSERT_EQ(0, fcntl(recv_socket, F_SETFL, O_ASYNC));
+> @@ -255,20 +251,6 @@ static void test_send_redir_recv(int sd_send, int send_flags, int sd_peer,
+>  	if (recv_buf != send_buf[0])
+>  		FAIL("recv(): payload check, %02x != %02x", recv_buf, send_buf[0]);
+>
+> -	if (send_flags & MSG_OOB) {
+> -		/* Fail reading OOB while in sockmap */
+> -		try_recv("bpf.recv(sd_out, MSG_OOB)", sd_out,
+> -			 MSG_OOB | MSG_DONTWAIT, false);
+> -
+> -		/* Remove sd_out from sockmap */
+> -		xbpf_map_delete_elem(maps->out, &u32(0));
+> -
+> -		/* Check that OOB was dropped on redirect */
+> -		try_recv("recv(sd_out, MSG_OOB)", sd_out,
+> -			 MSG_OOB | MSG_DONTWAIT, false);
+> -
+> -		goto del_in;
+> -	}
 
 [Severity: Low]
-After this change, does any landlock selftest still reach
-hook_file_send_sigiotask() through send_sigurg()?
+With these assertions and the { AF_UNIX, SOCK_STREAM, MSG_OOB } entry
+in test_redir() removed, does any selftest still cover AF_UNIX MSG_OOB
+together with sockmap at this commit?
 
-fown.sigurg_socket and trace_fown.deny_scope_fown now reach the hook only
-through the send_sigio() path:
+The kernel side is still present here. AF_UNIX send(MSG_OOB) still
+works, and unix_stream_bpf_recvmsg() still has the rejection:
 
-  sock_wake_async()
-    kill_fasync()
-      send_sigio()
-        send_sigio_to_task()
-          sigio_perm()
-
-The sigio_to_pgid_members and sigio_to_pgid_self tests in the same file
-already cover that path. They use a pipe with F_SETSIG(SIGURG) and O_ASYNC.
-
-The other caller is still in the kernel after AF_UNIX MSG_OOB is removed.
-It is reachable from tcp_check_urg(), smc and x25:
-
-  sk_send_sigurg()
-    send_sigurg()
-      send_sigurg_to_task()
-        sigio_perm(p, fown, SIGURG)
-
-The hook in security/landlock/task.c still names this caller:
-
-hook_file_send_sigiotask() {
+net/unix/unix_bpf.c:unix_stream_bpf_recvmsg() {
     ...
-	/* Lock already held by send_sigio() and send_sigurg(). */
-	lockdep_assert_held(&fown->lock);
+	if (flags & MSG_OOB)
+		return -EOPNOTSUPP;
     ...
 }
 
-The trace section comment also still says "Trace test for the asynchronous
-SIGIO/SIGURG delivery path".
+This seems to be intentional and only lasts until the end of the series.
+After the later patch "af_unix: Remove MSG_OOB.", unix_stream_sendmsg()
+and unix_dgram_sendmsg() return -EOPNOTSUPP for MSG_OOB, and the receive
+paths reject it as well. At that point, the "OOB dropped on redirect"
+behaviour checked here no longer exists, and the removed case would fail
+at send().
 
-These tests would keep passing if send_sigurg_to_task() stopped calling
-sigio_perm(), or called it without fown->lock held. The later patches in
-this series (the sockmap and af_unix MSG_OOB test removals, and "af_unix:
-Remove MSG_OOB") do not seem to add a replacement test for this path.
+Removing the test before the feature looks like the right order. This
+note is only about the short coverage gap between the two patches.
 
-Could these tests use TCP urgent data over loopback instead? That reaches
-sk_send_sigurg() without AF_UNIX OOB. If not, could the sigurg_socket name
-and the comments be updated so they no longer claim send_sigurg() coverage?
+[ ... ]
+
+> @@ -365,12 +345,10 @@ static void test_redir(enum bpf_map_type type, struct redir_spec *redir,
+>  {
+>  	struct socket_spec *s, sockets[] = {
+>  		{ AF_INET, SOCK_STREAM },
+> -		// { AF_INET, SOCK_STREAM, MSG_OOB }, /* Known to be broken */
+
+[Severity: Low]
+This isn't a bug, but the commit message only mentions the AF_UNIX case
+and send_flags:
+
+  Let's remove the test case from sockmap_redir.
+
+  Note that struct socket_spec.send_flags is no longer used so
+  removed too.
+
+This line also drops the commented-out TCP MSG_OOB entry and its "Known
+to be broken" note. The entry never ran, and without send_flags it could
+not stay as written: MSG_OOB would land in in[0].
+
+Would it be worth mentioning in the commit message that the in-tree note
+about TCP plus sockmap OOB being broken is removed as well?
+
+>  		{ AF_INET6, SOCK_STREAM },
+>  		{ AF_INET, SOCK_DGRAM },
+>  		{ AF_INET6, SOCK_DGRAM },
+>  		{ AF_UNIX, SOCK_STREAM },
+> -		{ AF_UNIX, SOCK_STREAM, MSG_OOB },
+>  		{ AF_UNIX, SOCK_DGRAM },
 
 [ ... ]
 
