@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794920138;
-	b=zEZLmGxq2f76xE+5FVttMshLh/TQPnBgOyszDj9F6pJYCe7QcHv/s3yacLyTVssUanNo
-	 ySpampZcqfB1oK8rRloS/DkWddP06KXXmd3RoK29FSMFSqs8fVqrJjWt1Omh7uw9YCJ6Z
-	 zLNwlnakPFP6zQwHzjvEcmDE28FKL1l6PV3E1y4BztOiJ4GxGvG1N5ZJiOXl15c+H+tjQ
-	 m3R9CWmSV4QUbCn2ht+WEIy3ST8q+ZifTrG6mDz4cRSSMjh1CN3mGJhyrVMCrPaCPs+k6
-	 8vAulMztHGKyUSGaK+x5Rsj3sKH80zVcY3Jat8+OP0E4s6b+zyxyha96BP+LrP93sGA==
+	t=1794920172;
+	b=QWxBZeQjs0BKKExcsDvjguamnyT3BXZPcOOXvEa4M4JIvD6S0D1TLgL3kef1L0+M5dnN
+	 KIMhSBL2BCuHAxNIQ50D6+S6vh1yRVIZwVtzGdCZqw1Z8yWWlIVhzlpFhibqgrt7OGcDG
+	 KP4ogjX6G9r3ovJxCsU3reRMCrn/PIRS1HK7nwailP9jNA5OM2JS9z3j/G97jSU/OLn+X
+	 CJLuOvGxDbYLIihapgMg58KcRJQ8e0FNdAjkgkUIUfGd1Kilr3WX2XBnT1UZ1unmUWNgf
+	 17c0mf6f/Gedogr6LAKLC35SjOQDKGGk2xQK+a9Kagf5mRpV/4+7IfI2HHsr5XyvxrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794920138;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794920172;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
@@ -16,92 +16,92 @@ ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	 X-Authority-Analysis:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
 	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=Z4dX78GuYSiPqA2FlATo7FmVUT99P1UESYr9b7xa8HQ=;
-	b=aZhXZauFTkWhcIvk5SKW9S8YTJ7vHgCN26TY9W9H+bXahk9+pyw2xh+9NcEXXRvgX34J
-	 al55lQ8yxZ9gfSDNsDO0r9FkP6R83/Oe1TIHvQXp4XqEYBsNUnDvXR/BeLcv240DjTf9+
-	 VEiNsMDp8qv5xsAb2gaKexwVR7qDGCC62slgwp47X4/5qmII3mx9pWRJkfMFqJ5Hxrikp
-	 LUyPLvDGU/HHlUuHKJxdMYP+9SmRSg+bq02nDzyeCBNcPtzkHdaIjPPWzyyc73XKifuL6
-	 LvTk5/693b5swHBnA/zqBcJ2CQPKXXcuj4fuwG8BWr2orcyNJDeHMMnXtLsQQGuipug==
+	bh=CRYqBTv4x5sG5yKQiqFGY54mrAYYf9g0PlzTS//Wg3Y=;
+	b=BrpRX4M1GMA+E7FYDI/ZFQw3oecOF5B3K2mZ/IL242j8kEy4q4LlJONdYABLOdVKK2pG
+	 yg2LlMeTxiCTCqLwlahicbF/EucQCitgrqFTSa0HfWlOltitJ+jDTpZHAgS5Sz7vhNzFy
+	 u72V34JwJuZad7vS6s1vt1XfJ+7mZNjm0zxxOm5EqNfmp7tKPoLV2m2goiYd2caMgx0TY
+	 hHKkpE7vSEpe0NEvGT25DgS7LSkgGhiJ1pYtKknOQnbzv7+MLwEoAILBCmL0epBiLQ3Sy
+	 qaEvcxNEoFLakywGp0Gw4Vk7D3eNXTLUkcRCXUUOYJJyePJn7uw/6ApL0+Ay0U2fVbA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UVu1Zs6O;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SrP6a0mJ;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nwFZS+o6;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=V6sAylgf;
 	arc=none smtp.remote-ip=205.220.180.131
 Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 494B6606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:55:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 494B6606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00152606A323
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:56:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00152606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UVu1Zs6O;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=SrP6a0mJ
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nwFZS+o6;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=V6sAylgf
 Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHC1Mpu2756095
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:55:37 GMT
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHC1IeI2755790
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:56:11 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Z4dX78GuYSiPqA2FlATo7FmV
-	UT99P1UESYr9b7xa8HQ=; b=UVu1Zs6O5pjQrgl8jVoF/KSh952CKn4Mxao/SNKs
-	kqd8b2qwDynvMxUsmaLrYj6z2BVYlmzQLy+CMsa5df9q5YFmgNcD88e53Vl3WoAu
-	jiOj3LPr0c3oRHbnw7Xuu7bifE9RYQ/7/MCa3H8UEMqxMY1e/Zn6cAY1UfBlSiXx
-	E15H98yH5J51/dNLeorOkf6Rpy7dzNn5KZtDQQp2WnPb6nbgReyzSmSvVjO7q0HS
-	fK5bJhNLcfvjKzhKbTPRpWQuKkx/iLoJVzpDaSaRdxscycDH0+UVJvdMUFsc1gu3
-	eGkWUBMWQUfiWLeFIksrtmBIBLh/ZJPJIoYhq7woprUJ7w==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0fjuhy5p-1
+	:references:subject:to; s=qcppdkim1; bh=CRYqBTv4x5sG5yKQiqFGY54m
+	rAYYf9g0PlzTS//Wg3Y=; b=nwFZS+o67KhwDPfC7G9harCmXeX98czysd8GWGuv
+	tVQdksrBdJ78Z9xIVi8U0NSB+r+RPOukgdMYNPmZ4YhXYg6d/U12PP7v7qt3Ntqm
+	Y3TK4z5/WsIApoTVMgJgXKexN6AsiSBII8Un54PjjUwHAoRVN7bZzHb8GS6KfCLl
+	I3rXAMr5snleHPi+Hz6EnUC52M/0MiVguYtPGGT1BjSVh1AbQ+MK18otqqUIJNx+
+	jsOtc9HHWJ3Q8nWV8BZs64JWWSpr+f24eixHmQl5hCudKHf2TQfPu+2qh97ExHsx
+	be6dDdiMC5GVAlvslyL7yrnGg1P6a1cuIK2eACbcmWdK5w==
+Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0fjuhy7q-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:55:37 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-9495dd0f07eso803726185a.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 04:55:37 -0800 (PST)
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:56:10 +0000 (GMT)
+Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-99076c676cbso817553241.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 04:56:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794920136; x=1795524936; darn=vger.kernel.org;
+        d=oss.qualcomm.com; s=google; t=1794920170; x=1795524970; darn=vger.kernel.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Z4dX78GuYSiPqA2FlATo7FmVUT99P1UESYr9b7xa8HQ=;
-        b=SrP6a0mJSjBcZuXgQDPpoOBc1I7pTOgrlj+E10MHI7O86ryc4KAdBLQoEI/m0X5QUy
-         E7ff4E8yBebQMVr5Pv9TlIallK+5Z1Ow1/E+v/08Zu8GeecnbPcLZINDMFnVaqdjTNge
-         CyDcetpJ+mgT92eQZNRUcjenXefnimtgvhmy7JYmy6ONktL1lDcX1lL4F66F1oRioQ/5
-         ybj2VM3PJtpNLT7zwxKlU3BtmgejzmBiR+g0+zcePAOQMpb2SfVey/CcsKfSvrRwWSFC
-         tBACEOAeZYYIh9wT5W/3MUyBhsi7lJZVd+HY7MOjQIsbT6v0IjRmnaoa4HjfXwNv6jt3
-         KvtQ==
+        bh=CRYqBTv4x5sG5yKQiqFGY54mrAYYf9g0PlzTS//Wg3Y=;
+        b=V6sAylgfKqP+DLwtnBeZY+lqwP9ChdH9sKsMzjiZ01m/p85lehWJf7AKd8fTw4nomx
+         5TLVC4nzAYu/oxn6dmZzuGMgSEWAJl0bRBoKlxJtK7whDBI16e10x/QtNftu2etSbkpb
+         1umZk5Inr35giuQh73y2r8B3GU1DRNUDRnqAGBmryDJY7kNYeOvpiIlN59UszVChxqpS
+         efM3E7z7q+M2whM2jCMsuM8CvIP1ENLGABPb9m6E4eidEM/zI8jLD72FO307JwX0bpb6
+         wOs6d9C77bBw9ZW33I2eBd61cuzyPxWB9T5vs6kTJf1nsGeW7TghO9qB6R8Z5vhpdmNY
+         +JoQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794920136; x=1795524936;
+        d=1e100.net; s=20260707; t=1794920170; x=1795524970;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Z4dX78GuYSiPqA2FlATo7FmVUT99P1UESYr9b7xa8HQ=;
-        b=nE2oMgfwni2v1LtDjuFHwgIsq4vXplB8blpy3txBB0e/uyzF7/fDsxTfCS8VGWpGs6
-         bs6uemuaL1n3vVokrSLX71ocrfbZ7XRYgjm1u672UoSegqQnrj0wxHws5rOfk0JAPmcS
-         I2UUzTD+nBA7ECXPvzXZIMO3vPKaR4Hex4ee37r/Ta8B1Fw2Xczin59qU4mlXyQQSMCl
-         bzemQatO7OP8pQcs/ah27NKKbEkt+NWLcD4b7IflmgrHl3yobXMetDRszNq56hLYnV91
-         im1bUM3hCa2ayVo4OnmrnT8/i4BsRMX8EauCPxGOhS+uUOYBB4rhAZOvK+r/hp9IXtR2
-         ukdA==
-X-Forwarded-Encrypted: i=1; AL+hErHuXP5DpdUzm4aJ9prUJUADB4WDXIdadL8js6ly5XQ0tN4MxazsaiRBD06pkGoVOiWbtW5NjEo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+wW3PzYifuc5We3lpX9QY95MmmsrZXn78Vea0YE9b7ZxUe4uS8
-	WSfupJgNTAyV/e9TZlRIXA84NpAc9FTXnrvtIZKASBTdhSoUrRkruJ5jQVYA3yXJha7O5UkpBLK
-	/WQ6tvFk3y+RvJvlW6H2El2czDsX7UscbDcoo79w6TwMwiy3QBoOKW/6HElw=
-X-Gm-Gg: AYBFou1JzGiFlzAvrlRUOKvE5GzCz7z9ASl0xm2UcNQNX9Q5GGqGcLoQEf2WXUCzSYL
-	PyYVUiwW8werweY3qnbacMeEiZrZeOBZ0PFoJz6GgBhj2iAB3FECYhcJZHriBp1ghUyUExJD5Mb
-	1Sv0iBAilgr691JKXG66/lAQvckd6o73PoY65T99sYVv/OE0MN93/Ws8367OplhLUDG/PF1esHU
-	ZjwOcpiMFcfVMdd0ZAAwjsw7itKWPCP09fErMey6hzIdT3VEtf4/SqAVTeRwAphE4w8Yde9ncv6
-	29HvappXn+weN5fFthuGVWnQZafYnmN4bvC6UKl3vupz/ya66+qGM7oH+TvGAI0D0a1aKZVZCnA
-	WQ4rYUC3+k54tOBujn05YENAZUxPKjuroCVz8sIMzAOSlpwdW+tP5VWnkU04zNJs=
-X-Received: by 2002:a05:620a:2a14:b0:93e:d364:c9fe with SMTP id af79cd13be357-9494bbcc105mr2188195585a.40.1794920136289;
-        Tue, 17 Nov 2026 04:55:36 -0800 (PST)
-X-Received: by 2002:a05:620a:2a14:b0:93e:d364:c9fe with SMTP id af79cd13be357-9494bbcc105mr2188189285a.40.1794920135649;
-        Tue, 17 Nov 2026 04:55:35 -0800 (PST)
+        bh=CRYqBTv4x5sG5yKQiqFGY54mrAYYf9g0PlzTS//Wg3Y=;
+        b=lcTEsHizSdDaUPLX0101wHdrD4nf9oR0FLlQYVq+jTTtHxG52oxJLMdr9A/TaxOKp5
+         IJpUPOqa89zc80b1WeDkp1bG8rZCYXa8Q+kY6FV6XCLi/81wNhRNt+b4+zz0iwCxSiDx
+         lEDur+zTY3RUimRoag9xHtD2xIJOXMz+1Muv1UHsD6maQ7fwYftfNhoPv1g9/8rBzX8+
+         XB/MLU3sQzjlSIP8Vm39DXwGmNzLnYigPdoj/em3c9UwUmAIPLjDaVUei5BKag2MSfal
+         aO9zuA9wPTrBGJhCZxifQAsf6VT1Z1uqxc39xzyCeDjF0OHTX17Wcpn5l6XBCgWgVIwC
+         CfXQ==
+X-Forwarded-Encrypted: i=1; AL+hErFejQUM4x00+vhL4p0eYMrXP5tixfsP8Yq9r2B9ECYx8fPlmyncDhnGzdfpBlDCdCfMiWgIuo8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+wj0vpcTPHaLTp43z+rlCYf7ASayraAs8T8ftr0+ZEKac+zFlt
+	WHcdRyk+g9mg5q3+CX+0rDcnkvvxSBZr+KQcCm6fr170TwYmkC0zyTyTK0LW7lzuwsQTlRBVkcT
+	bXH3bCuEuumDKpmCNG19LVc2jvM9hAx1Ap1yZy748qyoXvSrJLjfwAg6c6J8=
+X-Gm-Gg: AYBFou39wkLYAzuKJg1iJsk+SIZMmwkdZkqGSfQHVm3cc6HcGp/bpVP8+YLM1kEZUKk
+	Ep+MZeEaTjXaryEtdfGVcVSNi9Eld0PJRpLR37+b6A9dGGHcrRj3UW9HIgj5BVYnBdIN80+s1Gp
+	wLdkIbBAJWZz36looNXrBwAcWzUXU2LK3r3ZKH934YbEwczmewmvCIVVKKxcAIFnwQiu8DDz/yo
+	aAg4emTUDy8cqqW2HFlSZMIr8XT0HGYClMKvdYjM+cy1VLMz+Kd1kvk4XDIuVaV93Kx4knDYb5y
+	DWNDHEIRnFAZEya7VH2Gpzhnjsif+WBgGf79scND7ObKNi/ljiGDYCJ3wnI7E/951MtDeeM1cvw
+	Wsy0q3iQmHkAf+ua8eq7IAsJzaMj7idf4ToiVGhvKz0OX+NAMElIe/y4bHHA7mec=
+X-Received: by 2002:a05:6102:84c2:b0:7cb:bc5e:7dad with SMTP id ada2fe7eead31-7d64d6d61b4mr3074706137.10.1794920170024;
+        Tue, 17 Nov 2026 04:56:10 -0800 (PST)
+X-Received: by 2002:a05:6102:84c2:b0:7cb:bc5e:7dad with SMTP id ada2fe7eead31-7d64d6d61b4mr3074669137.10.1794920169296;
+        Tue, 17 Nov 2026 04:56:09 -0800 (PST)
 Received: from localhost ([195.50.164.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a378138cfdsm5159093f8f.58.2026.11.17.04.55.33
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb783f8154sm72247915e9.4.2026.11.17.04.56.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 04:55:34 -0800 (PST)
-Date: Tue, 17 Nov 2026 13:55:33 +0100
+        Tue, 17 Nov 2026 04:56:08 -0800 (PST)
+Date: Tue, 17 Nov 2026 13:56:07 +0100
 From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 To: netdev-bot+sashiko@kernel.org
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -115,11 +115,11 @@ Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
         emil@etsalapatis.com, ihor.solodrai@linux.dev, netdev@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
         nb@tipi-net.de
-Subject: Re: [PATCH net-next v10 1/4] net: xdp: add
- __xdp_build_skb_from_buff() helper
-Message-ID: <avxOxc3sU3bd29-t@lore-qca>
-References: <20261112-stmmac-rx-mb-v10-1-d3d04b65c6bc@oss.qualcomm.com>
- <179484961485.3136.18371294575845722948@kernel.org>
+Subject: Re: [PATCH net-next v10 2/4] net: xdp: add xdp_buff_shrink_tail()
+ helper
+Message-ID: <avxO59MbI0ql5YhQ@lore-qca>
+References: <20261112-stmmac-rx-mb-v10-2-d3d04b65c6bc@oss.qualcomm.com>
+ <179484961693.3136.10654880889378798099@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -130,28 +130,28 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="IgpR4FCbaFWOr+d8"
+	protocol="application/pgp-signature"; boundary="kB4YMmlds/8C4Vd2"
 Content-Disposition: inline
-In-Reply-To: <179484961485.3136.18371294575845722948@kernel.org>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA1MSBTYWx0ZWRfX5I/O7PmnghkW
- Lyoh9YECNEDRs9nTwuQ0EDUWh8F2FExi/IkL+dCRx4D3OSwwCD3sty/UGV5cdan3u+EwW4aXbkS
- iXhC4m8RJ1rr2s2cpQrd5UvUCmv9GoIT9IipjawmeI/ASnbbeDzljHLLa/GtqxUNbN0h9t/+zJP
- X7Gy9pt2iga/NA2T613xS2/azHBEIz6YD35PdXk+aznCyEfFfZm0NTjkMHJW3NvUcBViGd+7PG5
- mj44xMTVLTmCTq2QdAUVz4Ec+KDy1975JcqmKTiyAtlm2gP/2AM8Q9epCQqyD8CvoDde0VD9LZy
- V5t0pXe4wAn2RAQXCRf0TcoV2R4yHMMrKeruKueEM8Oy7VEeFhiB1G8Q+WH8nb1h2ffjlX3y/gL
- erqkJXsAYI8vl47NDdJ8d6s/z3T1Guhie945KjLWBpX4j7xj8EWHsitXBR/y3I17UPp+DnvlIkc
- 2W4QxxQs9x/iCXGbeig==
-X-Authority-Analysis: v=2.4 cv=JfIpPkKV c=1 sm=1 tr=0 ts=6afc4ec9 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
+In-Reply-To: <179484961693.3136.10654880889378798099@kernel.org>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA1MSBTYWx0ZWRfXx0nBDRYL+aNV
+ IYMoQoDmdJR91RvVfiffxTo4uE6toH3lKnLIRT6OCXH4JgIgjqooYuF0uYhZ99ezTMYOoAogzB3
+ VHG+ks+rWiPWMPSqShSvjnpKZitqnhyD7+j4yFfbUOPw9FI0sZ9teMcEuk3b0j1r1ZsFx7o2+zD
+ b7lWzvSAcp8cZpN8RO47dYiGdXilGEBHj7q87zinvmNmig57hEBcT8AH1VFw1zYK+NzRuLiOnyv
+ dBPpHsD35s9oHTW1NuRfLUGINE8R0COwp7BfRsGet8Nfj6x1YewxYUu0ynlX5PUqKYT6Q2R8c9l
+ Kt2Ka3uBJP6OCx7fAtixLIWoL+997JlvF/Ae/vcEKuQOG132dDNuTDYdotAFfg+iecCNSzXxZJA
+ atRuxTZ1rhqi6LA0NxUoVvpjkpFzzkL7uFRuKOYfwrgr6oFlWo8ibuSjz4Cv7n0gPgIxgGLZWsA
+ 9OtnYZhItV/zfjxsxrw==
+X-Authority-Analysis: v=2.4 cv=JfIpPkKV c=1 sm=1 tr=0 ts=6afc4eea cx=c_pps
+ a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
  a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=9R54UkLUAAAA:8
- a=EUspDBNiAAAA:8 a=--SqLFdaUOMV0DsZRZ8A:9 a=QEXdDO2ut3YA:10
- a=CvoAkVhk7Y3g_VbaP6MA:9 a=NFOGd7dJGGMPyQGDc5-O:22 a=YTcpBFlVQWkNscrzJ_Dz:22
-X-Proofpoint-ORIG-GUID: UWtznqlnWlQ__aWJLrtSUcBxY4aUVkT8
-X-Proofpoint-GUID: UWtznqlnWlQ__aWJLrtSUcBxY4aUVkT8
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA1MSBTYWx0ZWRfX/yUO9Hm4g19D
- SM1+KzGAEKKvaTQEo68zr/W5WgaFe0b1DqEpi6Ceb4x/pqRYiYYGi96jspqSDaZ9Cl5utaXHB8/
- b7Q9PSJ1g957keuVQBM0iI/1KIIquzs=
+ a=EUspDBNiAAAA:8 a=haHO5IcbFzYs7ll2q3kA:9 a=QEXdDO2ut3YA:10
+ a=OVCSiOd5OdK5HwpI3AwA:9 a=TD8TdBvy0hsOASGTdmB-:22 a=YTcpBFlVQWkNscrzJ_Dz:22
+X-Proofpoint-ORIG-GUID: 5EIIGopsSV97l8bM5pnHDKID1-SggZRz
+X-Proofpoint-GUID: 5EIIGopsSV97l8bM5pnHDKID1-SggZRz
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA1MSBTYWx0ZWRfX5DFtAyddFo+g
+ gv/5x88fBqX46iJndAaSlrSfSYcihNSM/CpXxsoX+RLWdjKdGezsyzXtx1NeOWqq548qv8mv/02
+ IDAvOx1uicfyjmWF9G9UgBXUunb4uUY=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-17_02,2026-11-16_01,2025-10-01_01
@@ -162,121 +162,181 @@ X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
  definitions=main-2611170051
 
---IgpR4FCbaFWOr+d8
+--kB4YMmlds/8C4Vd2
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in ca=
-se
-> you want to address the nit picks below when you respin.
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
 >=20
-> Low priority / nit picks for your consideration:
+> Critical: 2 =C2=B7 High: 0 =C2=B7 Medium: 0 =C2=B7 Low: 0
 >=20
-> - [Low] The kerneldoc for the newly exported __xdp_build_skb_from_buff()
->   (net/core/xdp.c:622-633) says only "Protocol parsing is left to the=E2=
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>=20
+> - [Critical] The patch removes the lower-bound check `data_end <
+>   xdp->data + ETH_HLEN` from the linear path of bpf_xdp_adjust_tail()=E2=
 =80=A6
->=20
-> --
->=20
-> net: xdp: add __xdp_build_skb_from_buff() helper
->=20
-> This patch splits xdp_build_skb_from_buff() in two. The new exported
-> __xdp_build_skb_from_buff() builds the skb without calling
-> eth_type_trans(). A static inline wrapper in include/net/xdp.h keeps the
-> old behaviour and still calls eth_type_trans(). The goal is to let stmmac
-> process the L2 header (software VLAN) before protocol parsing.
->=20
-> > diff --git a/net/core/xdp.c b/net/core/xdp.c
-> > index 1d679e8fd6493..470bf90d93ef2 100644
-> > --- a/net/core/xdp.c
-> > +++ b/net/core/xdp.c
-> > @@ -620,17 +620,18 @@ void xdp_warn(const char *msg, const char *func, =
-const int line)
-> >  EXPORT_SYMBOL_GPL(xdp_warn);
-> > =20
-> >  /**
-> > - * xdp_build_skb_from_buff - create an skb from &xdp_buff
-> > + * __xdp_build_skb_from_buff - create an skb from &xdp_buff
-> >   * @xdp: &xdp_buff to convert to an skb
-> >   *
-> >   * Perform common operations to create a new skb to pass up the stack =
-=66rom
-> >   * &xdp_buff: allocate an skb head from the NAPI percpu cache, initial=
-ize
-> >   * skb data pointers and offsets, set the recycle bit if the buff is
-> > - * PP-backed, Rx queue index, protocol and update frags info.
-> > + * PP-backed, record the Rx queue index and update frags info. Protocol
-> > + * parsing is left to the caller.
->=20
-> [Severity: Low]
-> Does "Protocol parsing is left to the caller" fully describe what the
-> caller now has to do?
->=20
-> Moving eth_type_trans() out of __xdp_build_skb_from_buff() also moves out
-> the other work it does:
->=20
-> net/ethernet/eth.c:eth_type_trans() {
-> 	skb->dev =3D dev;
-> 	skb_reset_mac_header(skb);
->=20
-> 	eth =3D eth_skb_pull_mac(skb);
-> 	eth_skb_pkt_type(skb, dev);
->     ...
-> }
->=20
-> So the skb returned by __xdp_build_skb_from_buff() has skb->dev =3D=3D NU=
-LL
-> and no mac header, and protocol and pkt_type are not set. This is true
-> even though rxq->dev is available inside the helper.
->=20
-> The peer helper __xdp_build_skb_from_frame() still sets these:
->=20
-> 	/* Essential SKB info: protocol and skb->dev */
-> 	skb->protocol =3D eth_type_trans(skb, dev);
->=20
-> As a result, the two __xdp_build_skb_* helpers now return different
-> minimal skb state.
->=20
-> Nothing breaks today. The only in-tree user of the underscore variant
-> later in the series is stmmac_rx(), and it calls
-> eth_type_trans(skb, priv->dev) before napi_gro_receive(). A future caller
-> that does its own L2 handling and reads "protocol parsing" as just
-> skb->protocol could pass an skb with no dev to napi_gro_receive() or
-> netif_receive_skb().
->=20
-> Could the kerneldoc say that the caller must also set skb->dev and reset
-> the mac header, for example by calling eth_type_trans()?
->=20
-> A smaller point: the public xdp_build_skb_from_buff() wrapper in
-> include/net/xdp.h no longer has any kerneldoc. The kerneldoc for
-> xdp_build_skb_from_zc() still refers readers to it:
->=20
->  * Similar to xdp_build_skb_from_buff(), but for XSk frames. Allocate an =
-skb
->=20
-> [ ... ]
+> - [Critical] The new exported xdp_buff_shrink_tail() (net/core/xdp.c)
+>   checks a linear shrink only against the lower bound: `data_end =3D=E2=
+=80=A6
 
-I will fix it in v11.
+I will fix them in v11.
 
 Regards,
 Lorenzo
 
 >=20
+> --
+>=20
+> net: xdp: add xdp_buff_shrink_tail() helper
+>=20
+> This moves the XDP tail-shrink logic out of bpf_xdp_adjust_tail() and into
+> net/core/xdp.c. The frag shrink helpers move with it, and a new exported
+> xdp_buff_shrink_tail() handles both the linear and frags cases.
+> bpf_xdp_adjust_tail() now sends every negative offset to the new helper
+> so stmmac can share it for FCS stripping.
+>=20
+> > diff --git a/net/core/filter.c b/net/core/filter.c
+> > index 9b8d5191c4ba2..5ea45dfce7a22 100644
+> > --- a/net/core/filter.c
+> > +++ b/net/core/filter.c
+> > @@ -4438,96 +4438,21 @@ static int bpf_xdp_frags_increase_tail(struct x=
+dp_buff *xdp, int offset)
+>=20
+> [ ... ]
+>=20
+> >  BPF_CALL_2(bpf_xdp_adjust_tail, struct xdp_buff *, xdp, int, offset)
+> >  {
+> >  	void *data_hard_end =3D xdp_data_hard_end(xdp); /* use xdp->frame_sz =
+*/
+> >  	void *data_end =3D xdp->data_end + offset;
+> > =20
+> > -	if (unlikely(xdp_buff_has_frags(xdp))) { /* non-linear xdp buff */
+> > -		if (offset < 0)
+> > -			return bpf_xdp_frags_shrink_tail(xdp, -offset);
+> > +	if (offset < 0)
+> > +		return xdp_buff_shrink_tail(xdp, -offset);
+> > =20
+> > +	if (unlikely(xdp_buff_has_frags(xdp))) /* non-linear xdp buff */
+> >  		return bpf_xdp_frags_increase_tail(xdp, offset);
+> > -	}
+> > =20
+> >  	/* Notice that xdp_data_hard_end have reserved some tailroom */
+> >  	if (unlikely(data_end > data_hard_end))
+> >  		return -EINVAL;
+> > =20
+> > -	if (unlikely(data_end < xdp->data + ETH_HLEN))
+> > -		return -EINVAL;
+> > -
+> >  	/* Clear memory area on grow, can contain uninit kernel memory */
+> >  	if (offset > 0)
+> >  		memset(xdp->data_end, 0, offset);
+>=20
+> [Severity: Critical]
+> With the ETH_HLEN check gone from this path, what stops a grow on a
+> linear xdp_buff from wrapping the pointer?
+>=20
+> The offset argument is ARG_ANYTHING, so a program can pass any positive
+> int. data_end is computed as xdp->data_end + offset. For the linear grow
+> case, the only check left is data_end > data_hard_end.
+>=20
+> On a 32-bit kernel with the default 3G/1G split, packet buffers sit at
+> or above 0xC0000000. Take xdp->data_end =3D 0xC5000100 and
+> offset =3D 0x3B000000: data_end wraps to 0x100. That passes the
+> data_hard_end check, and then this runs:
+>=20
+>     memset(xdp->data_end, 0, offset);
+>=20
+> It would zero about 1 GiB of kernel memory past the packet buffer. After
+> that, xdp->data_end is set below xdp->data.
+>=20
+> Before this patch, a wrapped value was always below xdp->data + ETH_HLEN,
+> so the removed check returned -EINVAL for it. That check now exists only
+> in xdp_buff_shrink_tail(), which runs only when offset < 0.
+>=20
+> The return value also changes for short frames. A linear frame already
+> shorter than ETH_HLEN used to get -EINVAL from
+> bpf_xdp_adjust_tail(ctx, 0), or from a small grow that left it under 14
+> bytes. It now gets 0. That seems to contradict this sentence in the
+> commit message:
+>=20
+>     Behavior for valid offsets is unchanged.
+>=20
+> Should the lower-bound check stay in bpf_xdp_adjust_tail() for the
+> offset >=3D 0 linear path? The later patch "net: stmmac: rework stmmac_rx
+> to support XDP rx multi-buff" doesn't touch bpf_xdp_adjust_tail(), so
+> this still looks present at the end of the series.
+>=20
+> [ ... ]
+>=20
+> > diff --git a/net/core/xdp.c b/net/core/xdp.c
+> > index 470bf90d93ef2..7c98dbc2a770c 100644
+> > --- a/net/core/xdp.c
+> > +++ b/net/core/xdp.c
+> > @@ -672,6 +672,97 @@ struct sk_buff *__xdp_build_skb_from_buff(const st=
+ruct xdp_buff *xdp)
+>=20
+> [ ... ]
+>=20
+> > +int xdp_buff_shrink_tail(struct xdp_buff *xdp, int offset)
+> > +{
+> > +	void *data_end =3D xdp->data_end - offset;
+> > +
+> > +	if (unlikely(offset < 0))
+> > +		return -EINVAL;
+> > +
+> > +	if (unlikely(xdp_buff_has_frags(xdp))) /* non-linear xdp buff */
+> > +		return xdp_frags_shrink_tail(xdp, offset);
+> > +
+> > +	if (unlikely(data_end < xdp->data + ETH_HLEN))
+> > +		return -EINVAL;
+> > +
+> > +	xdp->data_end =3D data_end;
+>=20
+> [Severity: Critical]
+> Can xdp->data_end - offset wrap here and still pass the lower-bound
+> check?
+>=20
+> bpf_xdp_adjust_tail() passes -offset, so a program can ask for a shrink
+> of up to INT_MAX bytes. The old inline code also checked
+> data_end > data_hard_end for shrink requests, and that rejected a
+> wrapped result. This path no longer has that upper-bound check.
+>=20
+> Some 32-bit configurations put lowmem below 0x80000000. Examples are
+> ARM with VMSPLIT_1G (PAGE_OFFSET is 0x40000000), nommu ARM (PAGE_OFFSET
+> is PHYS_OFFSET), x86-32 with VMSPLIT_1G or VMSPLIT_2G_OPT, and m68k.
+>=20
+> On those, a shrink larger than (u32)xdp->data_end wraps to an address
+> between data_end + 2^31 and 2^32. That is always above
+> xdp->data + ETH_HLEN, so the check passes and the wrapped pointer is
+> written to xdp->data_end.
+>=20
+> The packet then appears to span gigabytes of kernel memory. Direct
+> packet access, bpf_xdp_load_bytes() and bpf_xdp_store_bytes(), XDP_TX,
+> redirect, and skb construction on XDP_PASS all trust data_end after
+> that.
+>=20
+> Should offset be checked against the linear length before the pointer
+> subtraction? This code is also unchanged at the end of the series.
+>=20
 > --=20
 > Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
 set/20261112-stmmac-rx-mb-v10-0-d3d04b65c6bc%40oss.qualcomm.com
 
---IgpR4FCbaFWOr+d8
+--kB4YMmlds/8C4Vd2
 Content-Type: application/pgp-signature; name=signature.asc
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCavxOxQAKCRA6cBh0uS2t
-rN8KAP9n5nAt1PRZw9UtpxsfE+nfrsPd8jBTaqd/v/2xmf0JLgD+LNQ8PQVLXBEM
-4iO7vZYN47HIhryG3h5wueYeqlLIewo=
-=S4jk
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCavxO5wAKCRA6cBh0uS2t
+rEaaAP0bCS+8PXbCG4IQReMWkZwemcUWcImjpdq9d1cLr9EguQD/QGWDD2EyxewI
+SjOXKQpcar8Y7mQ+mx+C3VPKTfHBMQs=
+=dcAu
 -----END PGP SIGNATURE-----
 
---IgpR4FCbaFWOr+d8--
+--kB4YMmlds/8C4Vd2--
