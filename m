@@ -1,58 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794921276;
-	b=QcT2Zi98wIHYyTdC/w2YoGgPSc780UWKkq9i+3gpG4RsZmeVUK93y3S261tv7w+D/7KQ
-	 uRYhxpOAa4VVMtLZuOhE7MXRYgVYU/Viz/nfMzZ1lVJcNchVf9DIoL1jUiJz5i5htnOHE
-	 CntH+26ssJyE3IhfQIzLV20KAFliYL/mOLY3RcV1Spych9Czzjo/uMa5o+5Iyf/DeCgzu
-	 /ZHT9nMIJ0ggZhEtM1MTMK5ECHYeqqqXdeEp2oBvbpm5OKN1kKv7QsR/q4dbk8eBev0/h
-	 4W9qeTpmKzr5QS/oMNbF7BcIkhQ/zuDXwBL+uy2iuFXqEyTOrPyb2qD3oO8It+yn2mg==
+	t=1794921283;
+	b=YEYlrCDy+irdWDbwnqEx7JD67KzOtj9FNxj/qoEK5p1kzvVZxaRrSiiTnR8UtNmEnz3j
+	 SjM7Vg6wgmRec4agYUi84X8bcEl1EOyTE9/vfTqWlKxIvXs4iKIq8hFc/5+Eu3M6g/6a/
+	 vdRnATL0yxXIwQh8HjVlREg0jWsxmiMlQuKFivGB95y7LTT7USgwcFbTW+ZT2ZMdvvicR
+	 7qKEQlZg1LoQs8WkzV9q+wXIIf0+dkwZCx/4oasfqY2+zkjPLmWwdV2WqMtakphczbYVl
+	 v3d0JFsNwQ1WTkk6b+gxFgDQhydbA9OeHg/9FhRmTXYwh9JyRzV57bBa4MbxLPS1rdA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794921276;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794921283;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=7cgl7yc5iVLhr224nmSrB4Z3hvi64B3G73hI753Om8A=;
-	b=RKZtsuEPTxwN4N0HulNyUofAdJGnQP1GGyB1lCPvTFUlXBUKZXLmXj7c51vn1+UGaBzf
-	 hhe8uS0SfFijhFcusR3ULmDlijHdaiBuJFtX2ipLuqeEkHQ5D8VqGAfi25hwukMk7xwLa
-	 IqaF/lEIzwdYIvuFbl6TIUGH2haX1NS2rNd8lQacSg1sN7M/VwXvsr4qHw0o+BXf4rsuZ
-	 lpUWNVnWEqOFbkLSWGTi16Yt5nv+fDLICkZy51yZ4bboscE5YTpEEMlbNMWpp3wzmrTOI
-	 LLHkNRYTuZhjm5DhRHVNk9BUg8pmSfqkWLnvRbF+y4vmbnMvAcEwvli9Ky4Dvl3AxXA==
+	bh=xyPkutf+7u4MBeQWcEZC0BYLhd811Pqb+vA5vUZ5q7U=;
+	b=bWKjZBGFLG0QanCaNfaMkC904268UMO6QFetDqAILhA0zDzxupo//K5aqfGdkBpdLmZ/
+	 GH9UbrEm9XEz61cvJI93w+QgDjzJWspp2l9AkphIW1Pcg12Z2vOZUO+zydE2vd5fbWgK/
+	 gCse4S8Oi3KYa0rjw7+sA49jMnJ/i9QqbSXWXam0Iijvf3XdCBTjAKxzFsfNtDF6oX3x0
+	 XZ83ksZu5MzHw6n9st59iBklm3t56dbi8S6OMnr98fB/fhQoUjIv/6Yvxa/fvm0dJgeSz
+	 quH5FucfWmYpGH4lejJEX08SyhIMRJpX0iJEVugs4qS9fTVyw/mhjGpar8uM9S5lRsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="YXpwqc3/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GVVA2TtO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E95B606A88A;
-	Tue, 17 Nov 2026 13:14:35 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22464606A323;
+	Tue, 17 Nov 2026 13:14:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YXpwqc3/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1893D1F000CA;
-	Tue, 17 Nov 2026 13:14:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GVVA2TtO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9A131F000C6;
+	Tue, 17 Nov 2026 13:14:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794921275;
-	bh=7cgl7yc5iVLhr224nmSrB4Z3hvi64B3G73hI753Om8A=;
+	s=k20260515; t=1794921283;
+	bh=xyPkutf+7u4MBeQWcEZC0BYLhd811Pqb+vA5vUZ5q7U=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YXpwqc3/3iT0EvXEI7bSEqa4FjMeKnipGuuaNjIDLONGkXTbuXvPUyyhDyyBWXcL7
-	 /lsWVPX2OslzTnBvOeamsFrSb7taydNZo+tRZOTkUfZ4+D60ZU5NPn7EprvZE39Cib
-	 1TGKcAcCk63CnhhJZeFHaruGXUgpa3vU+dMNENz0XOiSa8HvOzUITpkFFCBw1WQp/q
-	 CZuaW1rrR/RrMmYMeI7urkMymzzGeUcI+s5klazsjriSOTKkuYEDRF42b2ZI0uH1l3
-	 iNAatOX7/wMwvdPLYmXB7A05Prf0pO1Jh0KFOkKOSrOlqa4J7iSPw8F1tvjfq8hrk7
-	 LCc1RiPhScJbQ==
-Subject: Re: [PATCH net-next v3 3/3] selftests: net: pmtu: Add IPv6 and
- asymmetric multipath tests
+	b=GVVA2TtOKCATkUVgz44orb44F6ykiWv6QfYowOc81WmQ5JHbSJnuEIvtXX1eDP5x7
+	 +eaxtRfiU4i1bPhGayTJ+jpfq5sHebMIW0mVYD39Vb1hZnQm2tGbfGE5kXdeExBOBi
+	 UqQhcVTTS24CHnLWE7HVH6/WpFwwpCSG0W8i+X70EtBrNz1NPT3viafmBK5Xc6Ak+U
+	 0lfpu0s0ua0zUNDS08vjQfBILohX79k1XcEVe8ua5Kh3r4J2XrTsMeIFGwcUlfCIkA
+	 /XOvRGzAEIaBCoJ4TU1oF1KE2aZ9ayNraIrK9MPOPFBHgB6sNvnlAHYVnCO+pFop1D
+	 nIdz+1F2ROIrA==
+Subject: Re: [PATCH net-next v4 1/8] dt-bindings: net: add Xilinx TSN Endpoint
+ Ethernet MAC
 From: netdev-bot+sashiko@kernel.org
-To: deliran@verdict.gg
-Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- shuah@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-Date: Tue, 17 Nov 2026 13:14:34 +0000
-Message-ID: <179492127464.3136.16715840375114819070@kernel.org>
-In-Reply-To: <20261113122237.88990-4-deliran@verdict.gg>
-References: <20261113122237.88990-4-deliran@verdict.gg>
-X-sashiko-severity: Medium
+To: srinivas.neeli@amd.com
+Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
+ conor+dt@kernel.org, richardcochran@gmail.com, michal.simek@amd.com,
+ bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
+ edumazet@kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rt-devel@lists.linux.dev, git@amd.com, neelisrinivas18@gmail.com
+Date: Tue, 17 Nov 2026 13:14:41 +0000
+Message-ID: <179492128136.3136.2884088710304095071@kernel.org>
+In-Reply-To: <20261113-patches_v2_external-v4-1-56bb26f042a4@amd.com>
+References: <20261113-patches_v2_external-v4-1-56bb26f042a4@amd.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,101 +68,264 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In tools/testing/selftests/net/pmtu.sh, the new IPv6 variants
-  of setup_multipath_new() and setup_multipath_old() add host6_a_addr…
+- [Low] The top-level schema never requires the '^ethernet@[0-9a-f]+$'
+  (xlnx,tsn-ep-mac) child or the '^switch@[0-9a-f]+$' (xlnx,tsn-switch)…
+- [Low] The per-xlnx,num-priorities allOf branches force tx-queues-config
+  to hold exactly queue0..queue(N-1).
+- [Low] The wrapper compatible is IP-version-specific ('xlnx,tsn-
+  endpoint-ethernet-mac-3.0').
+- [Low] The commit message says 'Each external port@N references its PHY
+  through a phy-handle in the matching mdio-<N> child.' Since v3, the…
+- [Low] ethernet-port@1 and ethernet-port@2 restrict phy-mode to gmii,
+  rgmii and rgmii-id, which excludes rgmii-txid and rgmii-rxid.
+- [Low] clocks/clock-names is a fixed list of six required entries (gtx,
+  gtx90, host_rxfifo, host_txfifo, ref, s_axi), with no conditional on…
 
 --
 
-selftests: net: pmtu: Add IPv6 and asymmetric multipath tests
+dt-bindings: net: add Xilinx TSN Endpoint Ethernet MAC
 
-This commit makes pmtu_ipv4_mp_exceptions family agnostic and adds an
-IPv6 variant of it. It also adds IPv4 and IPv6 asymmetric multipath
-tests. These pick a flow through each router and check which paths get
-PMTU exceptions.
+This adds a YAML binding for the Xilinx TSN Endpoint Ethernet MAC IP in
+its Bridged Endpoint configuration. The top-level wrapper node owns the
+shared clocks and xlnx,num-priorities. It has an xlnx,tsn-ep-mac child for
+the host-side DMA channels and an xlnx,tsn-switch child for the three-port
+switch, its MDIO buses and its ports.
 
-> diff --git a/tools/testing/selftests/net/pmtu.sh b/tools/testing/selftests/net/pmtu.sh
-> index c7cd271714ef7..2bd132991841a 100755
-> --- a/tools/testing/selftests/net/pmtu.sh
-> +++ b/tools/testing/selftests/net/pmtu.sh
+> children and per-MAC interrupt-names entries. Each external
+> port@N references its PHY through a phy-handle in the matching
+> mdio-<N> child.
+
+[Severity: Low]
+Is this sentence still accurate after the v3 rename? The binding now only
+accepts ethernet-port@1 and ethernet-port@2 inside the ethernet-ports
+container. That container has additionalProperties: false, so the schema
+would reject a node named port@1.
+
+Should this say ethernet-port@N instead?
+
+> diff --git a/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> new file mode 100644
+> index 0000000000000..2fd22bc0d0357
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/xlnx,tsn-endpoint-ethernet-mac.yaml
+> @@ -0,0 +1,536 @@
 
 [ ... ]
 
-> @@ -994,49 +1014,112 @@ setup_ovs_bridge() {
->  }
->  
->  setup_multipath_new() {
-> -	# Set up host A with multipath routes to host B host4_b_addr
-> -	run_cmd ${ns_a} ip addr add ${host4_a_addr} dev lo
-> -	run_cmd ${ns_a} ip nexthop add id 401 via ${prefix4}.${a_r1}.2 dev veth_A-R1
-> -	run_cmd ${ns_a} ip nexthop add id 402 via ${prefix4}.${a_r2}.2 dev veth_A-R2
-> -	run_cmd ${ns_a} ip nexthop add id 403 group 401/402
-> -	run_cmd ${ns_a} ip route add ${host4_b_addr} src ${host4_a_addr} nhid 403
-> +	family=${1}
+> +properties:
+> +  compatible:
+> +    const: xlnx,tsn-endpoint-ethernet-mac-3.0
 > +
-> +	if [ ${family} -eq 4 ]; then
-
-[ ... ]
-
-> +	else
-> +		host_a_addr=${host6_a_addr}
-> +		host_b_addr=${host6_b_addr}
-
-[ ... ]
-
-> +	fi
+> +  clocks:
+> +    items:
+> +      - description: GTX clock for transmitter logic and RTC
+> +      - description: GTX 90-degree phase shifted clock for RGMII
+> +      - description: Host RX FIFO clock
+> +      - description: Host TX FIFO clock
+> +      - description: Reference clock for IDELAY control
+> +      - description: AXI-Lite register interface clock
 > +
-> +	# Set up host A with multipath routes to host B host_b_addr
-> +	run_cmd ${ns_a} ip addr add ${host_a_addr} dev lo
-> +	run_cmd ${ns_a} ip nexthop add id ${family}01 via ${nh_a_r1} dev veth_A-R1
-> +	run_cmd ${ns_a} ip nexthop add id ${family}02 via ${nh_a_r2} dev veth_A-R2
-> +	run_cmd ${ns_a} ip nexthop add id ${family}03 group ${family}01/${family}02
-> +	run_cmd ${ns_a} ip route add ${host_b_addr} src ${host_a_addr} nhid ${family}03
+> +  clock-names:
+> +    items:
+> +      - const: gtx
+> +      - const: gtx90
+> +      - const: host_rxfifo
+> +      - const: host_txfifo
+> +      - const: ref
+> +      - const: s_axi
 
-[Severity: Medium]
-With family 6, can this route add race against DAD on the lo address?
+[Severity: Low]
+Does the IP still have all six clock inputs when both external ports are
+GMII? The description says gtx90 is the phase shifted clock for RGMII.
+The list does not depend on the ports' phy-mode, so a GMII-only design
+still has to supply gtx90.
 
-host6_a_addr is added to lo without nodad, so ipv6_add_addr() marks it
-IFA_F_TENTATIVE. addrconf_dad_start() only queues dad_work. The flag is
-cleared later, once addrconf_dad_work() takes the rtnl lock and reaches the
-IFF_LOOPBACK shortcut in addrconf_dad_begin().
+The example already feeds the same clock to both gtx and gtx90:
 
-The next command uses that address as the prefsrc. In
-ip6_route_info_create_nh() the address is checked like this:
+    clocks = <&misc_clk_2>, <&misc_clk_2>, <&misc_clk_1>, <&misc_clk_1>,
 
-    if (!ipv6_chk_addr(net, &cfg->fc_prefsrc, dev, 0)) {
-        NL_SET_ERR_MSG(extack, "Invalid source address");
-        err = -EINVAL;
+Later in the series, tsn_ip_probe() in xilinx_tsn_main.c requests all six
+clocks as mandatory:
 
-ipv6_chk_addr() bans IFA_F_TENTATIVE. If dad_work hasn't run yet, the route
-add fails with "Invalid source address".
+    ret = devm_clk_bulk_get(dev, TSN_NUM_CLOCKS, w->clks);
 
-The same check covers the legacy nexthop route in setup_multipath_old(),
-and the host B routes in both helpers.
+A DT without gtx90 would therefore fail to probe. The binding does not say
+which clock inputs exist in the GMII configuration. The ref (IDELAYCTRL)
+clock may still be needed for GMII.
 
-The run_cmd return values are ignored. The status of setup_multipath()
-comes from the last router route add, so setup() still succeeds even when
-host A or B has no multipath route.
+If the GMII configuration has no gtx90 input, should that clock depend on
+the ports' phy-mode?
 
-Would that lead to spurious failures? Examples would be "no flow through
-veth_A-R2 found" in test_pmtu_ipvX_mp_asym_exceptions(), or a missing
-exception on veth_A-R2 in pmtu_ipv6_mp_exceptions.
+> +
+> +  ranges: true
 
-IPv4 has no DAD, so the IPv4-only version of these helpers didn't have
-this race. Would adding nodad to the IPv6 lo addresses, as other net
-selftests do, avoid it?
+[ ... ]
+
+> +patternProperties:
+> +  "^ethernet@[0-9a-f]+$":
+> +    type: object
+> +    $ref: /schemas/net/ethernet-controller.yaml#
+> +    unevaluatedProperties: false
+> +    description:
+> +      Endpoint MAC sub-node. Provides the host-side data path through the
+> +      DMA channels described by its dmas / dma-names.
+> +    properties:
+> +      compatible:
+> +        const: xlnx,tsn-ep-mac
+
+[Severity: Low]
+The wrapper compatible is versioned (xlnx,tsn-endpoint-ethernet-mac-3.0).
+This child and the switch child (xlnx,tsn-switch) use unversioned names
+that cover the whole family.
+
+Documentation/devicetree/bindings/writing-bindings.rst asks for specific
+compatibles and says not to use device-family names. For sub-blocks of a
+bigger device, it prefers a compatible derived from the parent device.
+
+The MDIO and PTP blocks sit at fixed offsets in the per-MAC windows of
+this IP version. How would these child compatibles distinguish a later TSN
+IP revision with a different sub-block layout?
+
+Should the child compatibles follow the parent IP version too? If not,
+could the commit message explain why they are generic?
+
+[ ... ]
+
+> +      dma-names:
+> +        minItems: 2
+> +        maxItems: 16
+> +        items:
+> +          pattern: "^(tx|rx)_chan[0-7]$"
+> +        allOf:
+> +          - contains:
+> +              pattern: "^tx_chan[0-7]$"
+> +          - contains:
+> +              pattern: "^rx_chan[0-7]$"
+
+[ ... ]
+
+> +      tx-queues-config:
+> +        type: object
+> +        additionalProperties: false
+> +        description:
+> +          TX queue configuration node that maps IP priority queues to
+> +          DMA TX channels. The TSN IP supports multiple priority queues for
+> +          QoS scheduling. Each priority queue must be described exactly
+> +          once and map to a distinct TX channel listed in dma-names. Two
+> +          queues must not use the same TX channel. The mapping need not
+> +          follow the channel numbering. For example, queue0 with
+> +          xlnx,dma-channel-num set to 5 means priority queue 0 uses tx_chan5
+> +          for data transfer.
+
+[Severity: Low]
+Should dma-names be tied to xlnx,num-priorities in the same way as the
+queueN children?
+
+The per-N allOf branches force tx-queues-config to hold exactly queue0 to
+queue(N-1). dma-names only needs one tx_chan entry and one rx_chan entry,
+and it has no uniqueItems. As far as I can tell, this would validate:
+
+    xlnx,num-priorities = <8>;
+    dma-names = "tx_chan0", "rx_chan0";
+    tx-queues-config {
+        queue0 { xlnx,dma-channel-num = <0>; };
+        ...
+        queue7 { xlnx,dma-channel-num = <0>; };
+    };
+
+That contradicts the description above, which says each queue maps to a
+distinct TX channel listed in dma-names.
+
+The driver added later in the series ("net: xilinx: tsn: parse endpoint
+DMA channel configuration") also requires an exact match in
+xlnx_tsn_ep_probe():
+
+    if (num_tx_dma_channels != num_prio)
+        return dev_err_probe(dev, -EINVAL,
+                     "TX channel count %u must equal num-priorities %u\n",
+
+The binding does not document this rule. A DT with more tx_chan entries
+than priorities passes dt_binding_check but fails probe. The driver
+rejects all of these cases at probe time with an error message.
+
+Could each per-N if/then block also limit the tx_chan entries to exactly
+N (contains with minContains/maxContains), and could dma-names get
+uniqueItems: true?
+
+The MAINTAINERS entry here lists only the binding file. The driver
+directory is added to it later in the series.
+
+[ ... ]
+
+> +          ethernet-port@1:
+> +            type: object
+> +            unevaluatedProperties: true
+> +            description:
+> +              External Ethernet port wired to MAC1, reached through the
+> +              mdio-1 bus.
+> +
+> +            properties:
+> +              reg:
+> +                const: 1
+> +
+> +              phy-mode:
+> +                enum:
+> +                  - gmii
+> +                  - rgmii
+> +                  - rgmii-id
+
+[Severity: Low]
+Why are rgmii-txid and rgmii-rxid left out here and on ethernet-port@2?
+
+phy-mode describes which RGMII delays the board does not provide. A board
+whose PCB adds only one of the two delays needs one of those modes. With
+this enum, the board author has to choose rgmii (one delay missing) or
+rgmii-id (one delay applied twice).
+
+The gtx90 clock is described as "GTX 90-degree phase shifted clock for
+RGMII", which suggests the MAC may shift TXC itself. Does the MAC add the
+TX delay? If it does, and the PHY also adds the TX delay for rgmii-id, the
+delay would be applied twice.
+
+Should the binding say whether the MAC applies this delay, or describe it
+with a property such as tx-internal-delay-ps?
+
+[ ... ]
+
+> +additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - clocks
+> +  - clock-names
+> +  - xlnx,num-priorities
+> +  - ranges
+> +  - '#address-cells'
+> +  - '#size-cells'
+
+[Severity: Low]
+Should the ethernet@ and switch@ children be required here?
+
+The description and changelog say the binding covers only the fixed
+Bridged Endpoint configuration. ethernet-port@0/1/2 are required because
+a DT missing any of them "cannot describe working hardware". Even so, a
+wrapper with no switch@ child, or with no children at all, still passes
+dt_binding_check.
+
+A node with only an ethernet@ child already validates under
+xlnx,tsn-endpoint-ethernet-mac-3.0. That is the Endpoint-only layout the
+changelog says is not supported yet.
+
+If the two configurations are told apart later by which children are
+present, shouldn't this schema state that requirement now?
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113122237.88990-1-deliran%40verdict.gg
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-patches_v2_external-v4-0-56bb26f042a4%40amd.com
