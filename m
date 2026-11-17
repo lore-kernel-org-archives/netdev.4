@@ -1,62 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.204.34.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794884198;
-	b=J86KXZj3NBtfx5GV2eW3c41BvdmpxQmkG2ftECq740Rq0TyrlWITOJpGYNxlapB1IYEh
-	 MOnMCLMmpXYcpRPXU4BANQE4cwAr+Uumd7Bq9lVWSTlg2nye9LKey6fvLkektWsYEp38R
-	 9rf7Cez4zyIkVSxhMz5neJaaiZuPaP03fGTnTg48bGcFz42AlLi69lh07tCkFhgMRrHA3
-	 u4AB+vkJLQaERgwNJtyidGApRkhahUxvHRWApUWUknQ9cRkv+pX7lBdHI+2BB2DjhiyPC
-	 YJe3gWKl/TECIam+fzusF6QaXz/bpfULQL4KpG+PQzedsomPSIeslElyNJBiU8msWVA==
+	t=1794885109;
+	b=PWiKM87CmeTPoQmbtaGyyDnntwrBoGwD5NG+mwhsMgrznmWnolXbnj6u364gknNP08kK
+	 iyi+SLrHKC41bTHHszW0h2FwQX1JDewZtxVfpbHx7ULe984TX/PdpJKBxODRWGubQMBUH
+	 xgO0cJfZ2x7APMAH9GjXS1s13Tw+d6N8bo3ZAk+iiC30qNKcyKD+sYvqNySbBV0eJHu32
+	 GdIc0V92LIV1NPfI2G05cjAdMFGj24OKfD1HPLDs9T08jO7Dt6kzWdO86JpDHi7TxG+9K
+	 z/SdLASn6N5J1ToDDPUFkvQz1EiCReFV1R3z3tEweJ+1el87zVq+LLwcXG5fbdqJogA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794884198;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
-	 X-QQ-RECHKSPAM;
-	bh=OJRWJeXrvQmODYAExg7m4mDpe5p58dqYM/Hnn4LmFfE=;
-	b=zci3q73G1mDUQ1A3uh6Xuy8nK0IFx8Rv9igKmF9/5ZL2DZLGiaARnRnnZtRpn2fjEIC0
-	 EKBtOgynhSJ45ADbuaCvEOgLzS3SGmeJPWywpq/4IVHM2yNQ2Cxqkl0TqvT3Sl+sQ5L/w
-	 kynhF39gqnE74J0TTQHxYK63MvBWWmE4ovIjkF3QyS5lYj/LxNbiQUzHCLU2xQGv4HkcB
-	 OBzKEGuN66jzHgT0SqxOayYTBiwxo5gXW0UFrBku+BjS4yR60Uj+qYBu9M+Vu+bxMcWx4
-	 JqAWw4YBXTm3HKxAbYO5GZkfcQ5K/V4YOLAGBsdVA4fUSqpM/jvbcLUM1ejvIl8S3qA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794885109;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=3oEyXkT10pdH7P7mR2+WY3w5NVnu5TROP12ldyy9kHs=;
+	b=Op9NRsyZ9DIIDHtglhp285GrAAi2aSG8ZcF/Z6r8094arKTiWH1DO0dNIFTanA+6ClJH
+	 CPpdU1kEDCjAWWHx0zufNat6uq81nnivELkJAGzjY8cYApc+CGDf/m4DtFR5lEaONZ/Fy
+	 SNWaj9/9tpR+FPjhQaVbJRqI2PtU6T7r06wPOgapLvE8TM88M5XSuFtsoA/zVZIHo5VmF
+	 w+h9ij8acYeY5lh8PpO7lxhhvw5RrLD9tBLNSkGO9CabHuVwpvHLoGR3HScXMkYbinn86
+	 GPwAJbk/QvVl3yZ/7s1N1YkfjCQdZL0OrMNo7ATReJtAOVS35xxFh4H0U4AH3s/cVTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mucse.com;
-	spf=pass smtp.mailfrom=mucse.com;
-	arc=none smtp.remote-ip=54.204.34.130
-Received: from smtpbguseast2.qq.com (smtpbguseast2.qq.com [54.204.34.130])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CkinACuk;
+	arc=none smtp.remote-ip=209.85.219.46
+Received: from mail-qv1-f46.google.com (mail-qv1-f46.google.com [209.85.219.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 971F8606A31C;
-	Tue, 17 Nov 2026 02:56:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 971F8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
-X-QQ-mid: zesmtpsz7t1794884128td16f0902
-X-QQ-Originating-IP: tKITFu9fk6+0Q5Dh8wVGUM32Tg2lPtWsb2gOC8zAMLo=
-Received: from localhost ( [203.174.112.180])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Tue, 17 Nov 2026 10:55:26 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 1497016459313032982
-EX-QQ-RecipientCnt: 10
-Date: Tue, 17 Nov 2026 10:55:26 +0800
-From: Yibo Dong <dong100@mucse.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	yaojun@mucse.com
-Subject: Re: [PATCH net-next v2 2/5] net: rnpgbe: Report link settings
- through ethtool
-Message-ID: <72676011073A7040+20261117025526.GA214154@nic-Precision-5820-Tower>
-References: <BD205A7832D36E7D+20261116030917.1329989-1-dong100@mucse.com>
- <66AFF2810AB647C8+20261116031020.1330219-1-dong100@mucse.com>
- <d7351f56-d4fa-4ba0-a0c6-c7bdf7aac460@lunn.ch>
- <2207C8DCDD49F5EE+20261116044737.GA1342898@nic-Precision-5820-Tower>
- <cf674063-6c6f-43f6-a18a-d7ed5bef8a5c@lunn.ch>
- <236B4E2337BC768E+20261117014902.GA205295@nic-Precision-5820-Tower>
- <2ddca58c-608f-4a0f-a26d-df92c2c34c69@lunn.ch>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA806606A889
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 03:11:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA806606A889
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CkinACuk
+Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-9210214fcf6so1509816d6.1
+        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 19:11:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794885108; x=1795489908; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3oEyXkT10pdH7P7mR2+WY3w5NVnu5TROP12ldyy9kHs=;
+        b=CkinACuksaJtTkDpqUFv9vcV5g/yL9gClGFP+pQzi4I/aiNiVxkM9zLrBjZE1SQqOo
+         UVWbNftox6mz9HF5fRLW9piEVzz4vsDeS+rXIJFb/4FbtH3pz8FE8gvmNP0j5Ue6Whko
+         L1C3UQSOZocMl4+eRqgH74dFAhssAqTbkQug7ttn8nTZEg2qYfxGv8FWfYeFZBXtw8cc
+         AX+GBM2IVXZdNGNG6wWdMOFpsdy+LGeWo+iK1AJsOqoKvNqLVLKldPzeamFXM7RfXvMs
+         QcHnrFDy/PkPA0bzH2Gy1JNPeu21B7Fe62Q7U3vQkEmdxdlgm/leMac0pF7hlviS1nYL
+         Ea+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794885108; x=1795489908;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3oEyXkT10pdH7P7mR2+WY3w5NVnu5TROP12ldyy9kHs=;
+        b=tBoixjNlYP34EW3SCROQs+eY5yd0fsPgZhL/Jg+X59yq+skaP6zNeVqe88FyjV3wkK
+         /CPSwngupsP0KSiKVhcD4PJ5eQTQeu145xCzFq0ML4WkLv18cS4oRCTFTFI4dLA1c7nI
+         qmpZrG4VsIb5R82B7f/x4ouruoj9PJm4B+DK8nd8s+i5fgUgJOAXt19ZjdAZTmVQfX6k
+         HdT72MF4O5x/3LBkxYYH4PIhaxll1dxv9wblfCP/V0T7ePkxzC7sYFGpi7HIC37X564A
+         FQJ1eUdp590ILRtw4pBPoPyAcZ0EOEFwHasvOqvbKlAbxA1ghTCFa4DXWHT9wpgBrj7y
+         L/PA==
+X-Forwarded-Encrypted: i=1; AL+hErGU9p/Be0feeL5Z5MrB8gpsycMKoF5oULEOld9C3oY5NSbRKrh1MvtM+J1Hod9BlWWp3EvG1qA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+fo75OausvnnJInjAq6oMTcQPEnXOteAlUoe9aLCQpYg73wpJi
+	MFk2KMXAElgioGY+6X6OVU8Sh8O8m7Z4oGltrR3JSF1p3Q64qBTDeZ1j
+X-Gm-Gg: AZFdTZfTvBXbrVplcH9cMKu1o5blfgxsNhKaLdoljOixJutZypM2xCzClcmJZLp5rfS
+	L1Qaz+XGmokWkN5BkXy/VZsg+gFPcITIKj+/zooflQFExJhcyDZ5a0BCdb7+NRqHV2b7BKZyqKI
+	Ssi5uCEDQslR8wWWB8YJGF7OSjfkqmr2sTdTCaWX1bhieJCAUqIR3ttEa0d39y59fx0++RHj5tf
+	6yOqkqOYUU5L0GW8bHZJw40ao2YHieo2EFpXTgZr0Epb5akjsMe343wk91BHEEOQPt1OQYOZLj2
+	mvnatqO9ipcUiYQYlDqHNfL5meDSO6yf6wwbR9wkL2p2zifZA7qU46PynWnwWDcp7aZCx69RaiY
+	tKjyzZvli7tf96XrInY3hgMZtmI/TD2/4NFhfzxA24l+4XQaUhrpIHEgzcp2XLMxl0jfBiTi+Vd
+	Wuv3wW9kNQjhTjTp/SQ5TYaMvukHCralSjpXUi42JoZ5R4qr/pCjJmcg6nBBYB44W1AH2IJuI52
+	EELVFuZA3VHlYR6cbWZiKU7B/et6xtdmdaNAn73OxzmmBQnrSKizKFKBTw4kUrfeWH0doQDwqcb
+	qmNQx8L04qIl2V/5yriuHehczKDM8VYDD7qbjWFo2e3+Yk/jcz8E8tUFIcFnLnLqeEm2hcAZzG0
+	=
+X-Received: by 2002:a05:6214:dac:b0:920:f523:a79d with SMTP id 6a1803df08f44-920fcaedb93mr24717456d6.12.1794885107860;
+        Mon, 16 Nov 2026 19:11:47 -0800 (PST)
+Received: from linux.. ([8.34.174.240])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d5f3e4sm101713436d6.16.2026.11.16.19.11.46
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 16 Nov 2026 19:11:47 -0800 (PST)
+From: Changyul Lee <lcy8047@gmail.com>
+To: Saeed Mahameed <saeedm@nvidia.com>,
+	Leon Romanovsky <leon@kernel.org>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Mark Bloch <mbloch@nvidia.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Parav Pandit <parav@nvidia.com>,
+	Shay Drory <shayd@nvidia.com>,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Changyul Lee <lcy8047@gmail.com>
+Subject: [PATCH net] net/mlx5: SF, remove probed SF devices when arming vhca events fails
+Date: Mon, 16 Nov 2026 22:11:41 -0500
+Message-ID: <20261117031141.1720619-1-lcy8047@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,83 +107,81 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2ddca58c-608f-4a0f-a26d-df92c2c34c69@lunn.ch>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: NF3tN0JyXxqWu7NjtIcYXK8bcIOdmVHhxYIC0zpg+h8MhENMz3GA6d/e
-	ISSuw6hgkhILUTfdAeIosI6AOMwmwAjbLsyyJpaDJWt4LS5xhzg+aBUMSygj6ECVSVIoEtw
-	Ni2zIpGBMHZtftRe2poBPivrArlvSZ/LirzXMNIiLdzf+KRF9gfp4zSoOly3p/4ZW3aAgk4
-	j3U9UPketSdGy6FZbxj1oTtiSLEVci2sdgSsu66AsA47cfNzD5zNVnb55sT3yfKqo59KPPB
-	gqALQgPANDTWMWwp4Lj3DztnGvpVq9Irw5I7rE+l2PliEzVZHNjUEJNjWZwQ5l32BKNyzj8
-	JBUglHSODeUv7E1ygJDV4yXjL92xUMR2mRdnN8wOjTIg8zaarXw5nEXZqJukA9b3ulVtcLH
-	52zP2YRFaL5xd59OBeTrt6Z+5MnumVgD4UO3w6SHALBgfIzjaKZLyajgtog7OWksc7oTXSx
-	sDUA0DDV1LbpPeqkFsORAor1iMZuREGSelbw3iuPlMyXntlpMKMkHoyrIQDEW8rEY6ztMv+
-	9ld6ghfIlPXwFGGTcDS8WtZeX8jM6xd55dKF+pJGMTzsshmF/igdZQ6lZPl+fVp6VIsF6c5
-	ohsLfEcUPomfEZlfss3/pkdwZGh/87yAcpdI3AULlEq5dVGgvVq6bTHgw82MlwfoNpFT/pI
-	mesG0NMkN7jhqmfxgn/5NqsWP7GrkDuuUQCwz9nUUHCKtktNAgdPToJRiCmtO5UoL0XKQ0w
-	bSPS+XPOvyU097BqMMVvlW6Kqw/n9359PxwOj5ZFfGbinzakc3VHMTWul4e1RaNtBu44Tr9
-	oNWKo8rPoN2DiW1TmKIJb/suwbS/Cm53BP7atjrJfkfl9cRLYIPegfaaYwSZuuIYSpSpOYQ
-	/VvxIglYQlybbspkKVBrBvNFk8wgZaafOLMAp4yYaJZEL6xGIgSNFeL8Hlv+aSJYwEd1rCA
-	s+Tkzcp/h+5AC2bAmK1KCCB40yIHapufqr/S9J/9D5wtBNMw/bNf5hiKZaVKZXAz+/gnybh
-	/Kosc41Elp0ViYpW1iFa2dkEG44WuOX1XPjObQwNNyKKh7isATQ7Cn6QnpX+g=
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-X-QQ-RECHKSPAM: 0
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 17, 2026 at 02:54:45AM +0100, Andrew Lunn wrote:
-> On Tue, Nov 17, 2026 at 09:49:02AM +0800, Yibo Dong wrote:
-> > On Mon, Nov 16, 2026 at 02:18:28PM +0100, Andrew Lunn wrote:
-> > > > link, speed, duplex and mdix are updated asynchronously by
-> > > > the mailbox event handler, outside RTNL. link_lock protects these updates
-> > > > and provides a consistent snapshot in the getter.
-> > > 
-> > > O.K, thanks for the explanation.
-> > > 
-> > > I removed too much context, so i cannot see here. What about
-> > > lp_advertising? That also comes from the firmware, reported on link up
-> > > when autoneg completes.
-> > > 
-> > The firmware manages autonegotiation and reports the negotiated speed
-> > and duplex through mailbox link events. However, the current mailbox
-> > interface does not expose the link partner's advertisement bitmap.
-> > 
-> > Therefore, lp_advertising is currently left zero to indicate that this
-> > information is unknown to the driver.
-> > 
-> > If reporting lp_advertising is must, we would need to add a new
-> > firmware mailbox command to retrieve the link partner's advertisement,
-> > or add lp_advertising to link-event mbx alongwith link, speed and
-> > duplex.
-> 
-> It is not a must, but it is useful.
-> 
-> Or you can just throw away your firmware, expose the MDIO bus, and let
-> phylink drive the hardware. Less code, less bugs, more functionality
-> for free.
-The GMAC provides MDIO register access, so exposing an MDIO bus is
-technically possible. However, the firmware currently manages the PHY,
-and its interface does not provide a PHY ownership handover mechanism.
-Introducing host-side PHY management would require coordinated firmware
-and driver changes to avoid independently configuring the same PHY.
+mlx5_sf_dev_table_create() queues work that probes the SFs which are
+already active, and then arms the vhca state events. If arming fails,
+the arm_err path stops and flushes that work and frees the table, but
+the SF devices that the work already added stay on the auxiliary bus
+and in table->devices. dev->priv.sf_dev_table is set to NULL, so
+mlx5_sf_dev_table_destroy() returns early later and nothing removes
+them, while they keep pointing at the parent mlx5_core_dev.
 
-In addition, on this SoC, the firmware configures MDI/MDI-X through
-AXI-mapped control registers driving the PHY's pi_force_mdix_en and
-pi_force_mdix_mode inputs. This control path is outside the PHY's MDIO
-register interface.
+Remove them with mlx5_sf_dev_destroy_all() after the work is flushed,
+as mlx5_sf_dev_table_destroy() does. Move the helper up so that it is
+defined before the new caller.
 
-The firmware also supports link management before the host driver is
-loaded and while the host is shut down, including wake-up handling.
-On OCP platforms, it supports preserving the PHY link across driver
-reloads and host shutdown. These capabilities are already implemented
-in firmware, although driver support for them is not included in this
-series. Any future ownership handover would need to preserve them.
+Fixes: 4f57332d6a55 ("net/mlx5: SF: Fix probing active SFs during driver probe phase")
+Signed-off-by: Changyul Lee <lcy8047@gmail.com>
+---
+Found with a static analysis tool we are developing.
 
-Would it be acceptable for this series to retain the firmware-managed
-PHY design without registering an MDIO bus, and leave lp_advertising
-zero for now? If a mailbox command is added to expose the link partner's
-advertisement, we can populate lp_advertising in a follow-up patch.
-> 
-> 	Andrew
->
-Thanks for your feedback.
+Compile-tested only, with x86_64_defconfig plus MLX5_CORE, MLX5_CORE_EN,
+MLX5_ESWITCH, MLX5_SF and W=1.
+
+ .../ethernet/mellanox/mlx5/core/sf/dev/dev.c  | 23 ++++++++++---------
+ 1 file changed, 12 insertions(+), 11 deletions(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/sf/dev/dev.c b/drivers/net/ethernet/mellanox/mlx5/core/sf/dev/dev.c
+index e75cbf333898..44f6292ad59e 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/sf/dev/dev.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/sf/dev/dev.c
+@@ -328,6 +328,17 @@ int mlx5_sf_dev_notifier_init(struct mlx5_core_dev *dev)
+ 	return mlx5_vhca_event_notifier_register(dev, &dev->priv.sf_dev_nb);
+ }
+ 
++static void mlx5_sf_dev_destroy_all(struct mlx5_sf_dev_table *table)
++{
++	struct mlx5_sf_dev *sf_dev;
++	unsigned long index;
++
++	xa_for_each(&table->devices, index, sf_dev) {
++		xa_erase(&table->devices, index);
++		mlx5_sf_dev_remove_aux(table->dev, sf_dev);
++	}
++}
++
+ void mlx5_sf_dev_table_create(struct mlx5_core_dev *dev)
+ {
+ 	struct mlx5_sf_dev_table *table;
+@@ -360,6 +371,7 @@ void mlx5_sf_dev_table_create(struct mlx5_core_dev *dev)
+ arm_err:
+ 	mlx5_sf_dev_destroy_active_works(table);
+ 	mlx5_vhca_event_work_queues_flush(dev);
++	mlx5_sf_dev_destroy_all(table);
+ add_active_err:
+ 	kfree(table);
+ 	dev->priv.sf_dev_table = NULL;
+@@ -367,17 +379,6 @@ void mlx5_sf_dev_table_create(struct mlx5_core_dev *dev)
+ 	mlx5_core_err(dev, "SF DEV table create err = %d\n", err);
+ }
+ 
+-static void mlx5_sf_dev_destroy_all(struct mlx5_sf_dev_table *table)
+-{
+-	struct mlx5_sf_dev *sf_dev;
+-	unsigned long index;
+-
+-	xa_for_each(&table->devices, index, sf_dev) {
+-		xa_erase(&table->devices, index);
+-		mlx5_sf_dev_remove_aux(table->dev, sf_dev);
+-	}
+-}
+-
+ void mlx5_sf_dev_notifier_cleanup(struct mlx5_core_dev *dev)
+ {
+ 	if (mlx5_core_is_sf(dev))
+
+base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+-- 
+2.43.0
+
