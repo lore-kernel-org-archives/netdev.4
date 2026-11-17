@@ -1,103 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794922864;
-	b=MQhEQtkV+FOXT27hWNOU3VW30qBO30kV7IftYYR/v0IookUkMi1GUHBi2rQwJhJkNw/D
-	 mYbo7znVtXR9Ze/54IP42gqRN/qzSG0qXPQx/YDMX/Uc+VWSZJDXBF+f3hvgkttVy6afi
-	 TzR7mRI53H8df0MnNYX4UK3VsobFlFn1wY0n3gdacfawFr+vGPGvdsfFP367cGyoq2NpA
-	 EkNBx14QKqb947cUa1c/OtCaFwPw9i+ZrVoApCqeuJcErtCIQ5pwonuL4u9HINs7S9dZd
-	 2up5vRKDxyTGlRt4rwhk4DuXWUPKevtrepvgCPnzbykfIYVFj1cnVjob3/LVf/TP1tA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794922864;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794922888;
+	b=uetwqgDSHGBZ9xDWooeXL4pR8dzszsa2OEBZoC9vViR3/i36parah9AmCgE/FXqP7zxS
+	 hCYE0T+ja8X1mzlp75m//VkRxjOTlj378R2stWIYOXBPyVbI7WET6BRZS2ghNYo3lV3AQ
+	 JcXzRDJ8cNBK9x5nVPQvZ3GfvTuc8NY0mVRhN0VoU397HAt5LjRoLOYwJ1az912xiN7Cz
+	 CjpG9ZOn0l9DA4n5YNEYkYrJg9xdX//HZcWvJid1MZuNP1QoPuGLNziiBOojOJR27xj39
+	 VUp3K1I9h1RvrHGilH47tfQXC7/OoXhaQVn7puIULA3tJ0d4JE8Kgk1hNE90oAL7+pA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794922888;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=ggUMg57NI4rSntSxrT/atwUvnqGEIweOKKELEMre8CQ=;
-	b=kK6XOq95WfLIondkI5QHATMmWl1Akk5mAdwpeHcv6AqT6LG2mZQTU7tyLaH1xY+kFEGr
-	 aZ3Zy36pctJf9FiJ8HMjjIPiy28XlocPTrRzVOSu9Yea6M0dFH+tOVo11J/m4nX+KFkGj
-	 UEJykY++teCapbmdKgS1xuvD9txccWI8mFBnB/vDISa87D6C53m+QOT4R9TQMOQatLx5m
-	 f2anHAJ7Z1AnLcvqI52HQNEwMCAEJrRxIJf8alXotHQPY1vP6Lkb/xyF8lMVHTb54oclj
-	 fx+jZudBZKw/+6ucMuuPEMJiBX9KpeA7oDH/jPPQONT71n8ycIeEKG+WGoY2rloGb5g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=1password.com;
-	spf=pass smtp.mailfrom=agilebits.com;
-	dkim=pass header.d=1password.com header.i=@1password.com header.a=rsa-sha256 header.s=google header.b="X1186pl/";
-	arc=none smtp.remote-ip=209.85.219.42
-Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=7Wpg3cT5I6s6GnyI0QhfON8nAL8HSLyzxKK2eKgU8bw=;
+	b=L/aEcIFsUmCWpCts22CO0ETmkKK2atNP2sJ8UKuD6nHjp4gsV6+vcGOmgTYGoD6IaMD3
+	 VzEKWyfe60OcOjOMAVqJC0xoan7dri6GNH18Ld8L9UVWZCTS82sqidPsSr02e4l2HC2HH
+	 9zjMdEn1cir6S/mqmmiTdrrfmeRKDH54YTGYkkdCS/jMdau2SZUNQg9QE5Sa2bpkFqsFu
+	 yM0csLw2VejGSYxBj0W048pLVz5d/WCyy7iNmPPvhOxK7JEdKC7R2Ia/eoYS9yCv/BJCr
+	 Zo7pDeJwHnPG80wyuOmLCH3QfVK92sWW67d8KPOhBWA+/UHsSjrJr/PBn+2ib33ggQA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HXZD6+bO;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.54
+Received: from mail-ed1-f54.google.com (mail-ed1-f54.google.com [209.85.208.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68E3E606A33A
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:41:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68E3E606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=1password.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=agilebits.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E2AA606A33A
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:41:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E2AA606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=1password.com header.i=@1password.com header.a=rsa-sha256 header.s=google header.b=X1186pl/
-Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-91f30ff609eso39131956d6.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 05:41:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HXZD6+bO
+Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-6b75712fb57so6017071a12.2
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 05:41:28 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794922887; cv=none;
+        d=google.com; s=arc-20260327;
+        b=q7/cD9VLwcgq9R4WYLj6Nm4m1xmxem0hyjXlpHFpG5P71tCvpjRAQ0hzt+/tKJOTGW
+         6YI5qQ0RJZKeyhHEUZRslOMusn3o7FFpNjMkAxkAnivjhhNRydm1Rf8n+scZ/auxC/YA
+         6BGTZlYJI0RzxIq2xOJZDU+DoESppAwwfoCzHx9euYMig3Dcl/0Jdvn07H+MEjx7/ddt
+         Qb5VGaZUcwoSMCdls2aZChm7dDdNkayUjJNNtOTkv5Jh7UfBLbAvYjybWHVbwXG+Jj+M
+         baf8gx96SlEfeCOghUuIydwUlhBqvtUM8se3rU8p12hDx1LHMATzXPyZuh3noHWT0jFz
+         eQLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=7Wpg3cT5I6s6GnyI0QhfON8nAL8HSLyzxKK2eKgU8bw=;
+        fh=hbHqMJA39kpypZHfHiOApbI0C29yeFy6y+2PKS/czBc=;
+        b=cxA6Fv5TgRy8pxEEJEzXuFWwOh1qLXaHeu+Z61NhOz0V/7btBbbSOeOX6E5/el8TXI
+         VN3Cq45E/b1wDH9+d+92KJ/OJdFxVgAwa2DUmQNDDiSpfvNQ8nt5bEWE0fNIZaFfAk4G
+         178wFpnUTjYdYNYxvFETV2El+SAbcdRUu+eVlProtXnPd/5qsAUXE3hc7TSMNHbUWd8c
+         6U2tr65Wb8Xsj68QXtyAgER3yKWr8hBqFcX401GuBhu2/f5jsVDT3eGmLcDgh0XbAXqN
+         IgAf0njf0fc3ppU4wsNNbBtKeF1+VfqoU6A9COi8I0cDkCBT2sl+84GnL4b8ple2RJZp
+         eJmQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1password.com; s=google; t=1794922862; x=1795527662; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ggUMg57NI4rSntSxrT/atwUvnqGEIweOKKELEMre8CQ=;
-        b=X1186pl/CKh0y0NtPcZQoWQJ/T1JZMTX2b8iz9xh1P0m/yqwrj6D1FqFpXGtGxwmDv
-         OWVXdgTVS/i+yJtXU9W9o99iJlQu4GszSb+2rXXy/NUUvjmq5OD7xGhuTv38T2EM6ECb
-         JlU186pBgSIrJWqOXC0ia98Z/zuThl2xHSnps=
+        d=gmail.com; s=20260707; t=1794922887; x=1795527687; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=7Wpg3cT5I6s6GnyI0QhfON8nAL8HSLyzxKK2eKgU8bw=;
+        b=HXZD6+bOfJsqVWxCIDhCrOX0w0tZU6Qb/j1uDssVapw+Ww7+0R3+poAelpj8hd30Uk
+         NRHXrhn4tct1eSaoNp46WjRi+tv91i99TN22b1qevYVL8cvYI0iyYdiFa5yTKzolgHGk
+         8sMne0X5x8cIw0Bn+YjBIpGqXPeglmO0o3KddQI5WHKRGiS6xUDAvsFwtqDTgSDDmUSL
+         MUkHm4nVBccOcAud4fo/vDh8WhsTW0pzO74y9BjVQkHMK8lO86VC/EoMAjY/vl22CH/Q
+         ECbYDcJOPfeAOCjCZgumewFmNWl431+UgM8dmy1CPsxOhFPEuqJuAjaGLdXJ/yTGpMMN
+         GXlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794922862; x=1795527662;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ggUMg57NI4rSntSxrT/atwUvnqGEIweOKKELEMre8CQ=;
-        b=iNzKeokNPMiufYkATBhcR2NFwNK2JTE+JK+9rWhBN1MlSBi/HZzTqXdunaTD+Qfu2W
-         TBwQ/Xf/xDiv2/ZC1nQ0eKDpP3GAhpfhQWNhnun8/0YqSFAnwQV5Kkk597lnCd+T1Zay
-         YPywMInXXwFR+nh3XEGqBACm9SXB51lrgRF4FqOMGckY4LNUlM//gCChqoC5GNl+2u53
-         FWTCdCZuK/i0hl3k2WwgGcAGjYDwdgHHsFoSBWLIa9hNOdRXOzI3MUPRlQU8zU1hEMke
-         9hcLbDDTlbI6KHm7hnx0CYf/ez1A78cMWYqNlbq+GN6wqvE8kREWX6pH6DDmpll306NQ
-         TJ6A==
-X-Forwarded-Encrypted: i=1; AL+hErH+WNvHfzjKnTusZFuRY3UXj/kaRgntWkNUEZ25QSkgnABGXJhMTJgXFah8B+u30MZNQ1ytuBc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+CZ6MLydrciVxs+NfBKmfAMnYIHrKBDM20aBlHg419nZlIwAFy
-	7GMtqrV4B8HsBeYjYPJS9vhXOd3yB3iW+Swq2B9JiqUrZpViSew8/3tfJpXYFpvMjK0=
-X-Gm-Gg: AZFdTZdsDqBNCbh6o1sBEAe68f+y9NzfrdXBXWL6I4y2kdRsgJXs1AOjqmAVwQahy+z
-	eBZ0KOlAbndmLd63R6OR9RIsx9N6m0cYrY3Z+wsbP/WbPwqEsG+PnpspUS5Rh00aXYxujDR/5gi
-	WVqn8zs28J1ljceOZgfC8el8Kjwy+guyDNdYBRinR8+6iuPCSxJsPL1ECQRcrNA7eAlyzCVSADu
-	Kx/7N7Omfff0VoBzETmV4cy/AT8NESWnwv0Jq3Lje+h16SyvekwY+sXpGGZVogHV9lepv6Tum1p
-	7SrIHbrHs7WiAIQu/I0uAKEA+DQjgFKkmcu6g4Zht6ZRe6Gs/puBeAhkWndp0XAh8+KeeWVgokP
-	Dqf3nTbkUtmYMEOToziomrTMuMbViqCV23hsmMS6IsLDw4KtDO9ByESGxbzjMfnfsfQ2ykpzZe5
-	qU6ARMN9/YZ7KyJtnl/0y9ABDKf2yfB0AjWixDPZMB6dX9IKitWTjsU2Is4smBmX44xsD+4Kslo
-	cxoALpUM+QJP5RVUA3GXAUh/tsTyx64hV9doVVYmNoEUz2aIcD/0a0CyaO2XFSo8FWDmWEVZPBt
-	OZhZB1X9107VtGfzIDhoefAy0Zb5Sx2qzCcb5cYJpwZfbru9N+kIO5dr3Z6a
-X-Received: by 2002:a05:6214:318e:b0:91f:1e1b:7b3a with SMTP id 6a1803df08f44-91f2425dae2mr206400816d6.57.1794922862205;
-        Tue, 17 Nov 2026 05:41:02 -0800 (PST)
-Received: from localhost ([2600:4041:59c3:300:b8f8:e592:18c8:ba23])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23d5f3e4sm112644946d6.16.2026.11.17.05.41.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 05:41:01 -0800 (PST)
-From: Axel Mierczuk <axel.mierczuk@1password.com>
-To: ja@ssi.bg,
-	horms@verge.net.au,
-	pablo@netfilter.org
-Cc: fw@strlen.de,
-	phil@nwl.cc,
-	dsahern@kernel.org,
-	kuba@kernel.org,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	davem@davemloft.net,
-	netfilter-devel@vger.kernel.org,
-	lvs-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	netdev@vger.kernel.org,
-	w@1wt.eu,
-	Axel Mierczuk <axel.mierczuk@1password.com>
-Subject: [PATCH nf v2 2/2] ipv6: update *offset for non-first fragments in ipv6_find_hdr()
-Date: Tue, 17 Nov 2026 08:40:49 -0500
-Message-ID: <20261117134049.52386-3-axel.mierczuk@1password.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20261117134049.52386-1-axel.mierczuk@1password.com>
-References: <20261117134049.52386-1-axel.mierczuk@1password.com>
+        d=1e100.net; s=20260707; t=1794922887; x=1795527687;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7Wpg3cT5I6s6GnyI0QhfON8nAL8HSLyzxKK2eKgU8bw=;
+        b=VpvYLQwj/9nRRCk4MEdY6TKcq4q19qltHAQ0slRFaaLtM1SzSfp9bnI43x/mt3Sp+b
+         AepO4Eu2u2/0I+nLoxVld/1ciqXjeB5SlPVD6zNVpbCuwgX8nSrZ+guJddNSpLbt1dP3
+         oRv3/3Yp2DG0OXyQC2Nz5WUEkzM7cVk9oZM7omDy56luAcvyUy/a4Fq8VyufZqW0Z0XO
+         sozcIJgwD0TCe2howNXOUmcCnpPfdHXyMy2RxDwVAPHurendFF+75iAMQsKpUHTWnpCB
+         zn9Zms4oZWBLLF76DQl1/LYgXPud9HY4Ri2Vc2eTyT9VMwCZfM2npnncRmoUOYo88qfu
+         LbxA==
+X-Forwarded-Encrypted: i=1; AL+hErEzsUMUy7tAh4PqfKEpK8pL5+TdtXMjvOKNWKcxcyPJ0DxVZk5Ti7HQ3bXPs/N2aSl7oHDLVcE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+zw/zmyBcxuXdS3uxMZYw6P+2jCADf65rVQJZGUn3jcE0mzz/c
+	9LQTDn8roWae9PvPO0aQ+4dnganV3K9Z7AebxnU+HujkC8MdNyDxXwlM77I7yMwQ37YXyrTZ8/J
+	sxb5BwPd/+WJQKbeRRVbgcDFbJyb89HM=
+X-Gm-Gg: AYBFou1hmEpyi1bBm23fX5wVinypK8fNraCB9iAJwbci42tRARP3CQNlv04Mg1jU/Ho
+	E8M/b24zUAz0ChnITdiPTnrM9GcaQYk3/eWJFKk5Dj9A/8kxwRy1cysYZawIgn9+JsnjeTBrnun
+	hqbNhCnGYbYYAleHH35IPFNfWwbXaOUmJTownYdHqnqEXbQw9r1etjwxza7t/Gws5FSDV1wy7wa
+	5jG81Ytrmf+1NAdVIR9eQR/DLjwOxotSCbE5uYFRK4pqILjsVtKd5gNlkamIwgdFwEobDmvVcBV
+	/0hZdQD/e0NgEsquSahsqKH/zUypM9hZB9uAyCO4fD6Wn9RfO0G5ZKZ8ockapdMmrQ4+iBG+eIL
+	2ZH+nSYHfCe1Dk+jepWVH7wr1Q4oRrOv5JrSfSQ==
+X-Received: by 2002:a05:6402:22d0:b0:6b6:966f:28c with SMTP id
+ 4fb4d7f45d1cf-6b7c0bbe6f0mr8200959a12.11.1794922886352; Tue, 17 Nov 2026
+ 05:41:26 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,118 +104,52 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261117114432.2794961-1-a.shimko.dev@gmail.com>
+ <20261117114432.2794961-5-a.shimko.dev@gmail.com> <052adff8-b1d4-4cf2-941c-cfb2725d13a0@lunn.ch>
+In-Reply-To: <052adff8-b1d4-4cf2-941c-cfb2725d13a0@lunn.ch>
+From: Artem Shimko <a.shimko.dev@gmail.com>
+Date: Tue, 17 Nov 2026 16:41:15 +0300
+X-Gm-Features: AclHuK9B7NyGEv7s06EQ-PBXvC_X_ioRVUg7CDZFlHxN77tZjCz1y9ac7S-od64
+Message-ID: <CAOPX745DQDpYh=PNQxDkH1DbfwMRwD8DV81TaX33mNk-9aX3oQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v2 4/4] net: phy: dap8211r: add PHY LED control support
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net, 
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
+	krzk+dt@kernel.org, conor+dt@kernel.org, maxime.chevallier@bootlin.com, 
+	pavel@ucw.cz, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-leds@vger.kernel.org, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The non-first fragment early return is the only successful exit of
-ipv6_find_hdr() that leaves *offset untouched, so a target < 0 caller
-gets back the offset it started with, the network header, instead of
-a position past the headers it asked to skip.
+Hi Andrew,
 
-IPVS relies on the offset being advanced. ip_vs_fill_iph_skb_off()
-stores it in iph->len, and handle_response() sizes
-skb_ensure_writable() from it before rewriting the IPv6 source
-address, so for a non-first ESP fragment matched through
-ah_esp_conn_out_get() the copy-on-write check covered none of the
-header. The ICMPv6 paths had the same problem with the embedded
-header. The previous patch works around it there so that it can be
-backported on its own.
+On Tue, Nov 17, 2026 at 4:36=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> > +/*
+> > + * LED_COMCON force mode bits:
+> > + * bit 2   - FORCE_EN (enable force mode for this LED)
+> > + * bit 1:0 - FORCE_MODE (00 =3D OFF, 01 =3D ON, 10/11 =3D blink mode1/=
+mode2)
+> > + *
+> > + * Only ON/OFF is supported.
+> > + */
+> > +#define DAP8211R_LED_COMCON          0xA00B
+> > +#define DAP8211R_LED_FORCE_EN_BIT    BIT(2)
+> > +#define DAP8211R_LED_FORCE_ON_BIT    BIT(0)
+>
+> Given your comment, this last one is not strictly correct.
+>
+> Otherwise, this looks O.K. Lets see what the LLM says.
 
-For non-first fragments with target < 0, set *offset immediately
-after the Fragment header, at the start of the fragment payload, and
-return -EBADMSG when the Fragment header is truncated, as the other
-exits already do for the header they skip. Callers must still account
-for the nonzero fragment offset. A NEXTHDR_FRAGMENT search continues
-to return the Fragment header's offset.
+Sashiko said only [1]: Sashiko has reviewed this patch and found no issues
+For some reason it replied only to me and linux-leds.
 
-nf_tables stores the offset in pkt->thoff whatever the fragment
-offset is, so nf_trace_fill_pkt_info() now dumps the network headers
-up to the fragment payload for non-first fragments instead of an
-empty network header and the IPv6 header as transport header.
-SYNPROXY uses the offset without checking the fragment offset as
-well and now reads the fragment payload instead of the IPv6 header;
-the -EBADMSG check keeps the offset within the packet. The other
-target < 0 users check the fragment offset first or only use the
-returned protocol.
+I'll fix the comment and make v3.
 
-Drop the ciph.len workaround from the previous patch: every
-successful return now writes *offset, so ciph.len can no longer equal
-ciph.off.
+Thank you.
+--
+Best Regards,
+artem
 
-Fixes: b777e0ce7437 ("[NETFILTER]: make ipv6_find_hdr() find transport protocol header")
-Suggested-by: Julian Anastasov <ja@ssi.bg>
-Signed-off-by: Axel Mierczuk <axel.mierczuk@1password.com>
----
- net/ipv6/exthdrs_core.c         |  9 ++++++++-
- net/netfilter/ipvs/ip_vs_core.c | 20 --------------------
- 2 files changed, 8 insertions(+), 21 deletions(-)
-
-diff --git a/net/ipv6/exthdrs_core.c b/net/ipv6/exthdrs_core.c
-index 4a9748338cf4..3112408ed2f3 100644
---- a/net/ipv6/exthdrs_core.c
-+++ b/net/ipv6/exthdrs_core.c
-@@ -179,7 +179,10 @@ EXPORT_SYMBOL_GPL(ipv6_find_tlv);
-  *
-  * Note that non-1st fragment is special case that "the protocol number
-  * of last header" is "next header" field in Fragment header. In this case,
-- * *offset is meaningless and fragment offset is stored in *fragoff if fragoff
-+ * for target < 0, *offset points immediately after the Fragment header,
-+ * at the start of the fragment payload. Callers must still account for
-+ * the nonzero fragment offset before interpreting the payload. The
-+ * fragment offset is stored in *fragoff if fragoff
-  * isn't NULL.
-  *
-  * if flags is not NULL and it's a fragment, then the frag flag
-@@ -259,8 +262,12 @@ int ipv6_find_hdr(const struct sk_buff *skb, unsigned int *offset,
- 				if (target < 0 &&
- 				    ((!ipv6_ext_hdr(hp->nexthdr)) ||
- 				     hp->nexthdr == NEXTHDR_NONE)) {
-+					if (skb->len - start <
-+					    sizeof(struct frag_hdr))
-+						return -EBADMSG;
- 					if (fragoff)
- 						*fragoff = _frag_off;
-+					*offset = start + sizeof(struct frag_hdr);
- 					return hp->nexthdr;
- 				}
- 				if (!found)
-diff --git a/net/netfilter/ipvs/ip_vs_core.c b/net/netfilter/ipvs/ip_vs_core.c
-index d5da16ff9673..fd503f0efb57 100644
---- a/net/netfilter/ipvs/ip_vs_core.c
-+++ b/net/netfilter/ipvs/ip_vs_core.c
-@@ -1206,16 +1206,6 @@ static int ip_vs_out_icmp_v6(struct netns_ipvs *ipvs, struct sk_buff *skb,
- 				     true, &ciph))
- 		return NF_ACCEPT; /* The packet looks wrong, ignore */
- 
--	/* ipv6_find_hdr() stops at the Fragment header of a non-first
--	 * fragment and leaves ciph.len == ciph.off. Only AH and ESP
--	 * (pp->dont_defrag) pass the fragoffs check below and their
--	 * lookup reads only the addresses, but handle_response_icmp()
--	 * sizes skb_ensure_writable() from ciph.len before
--	 * ip_vs_nat_icmp_v6() rewrites the embedded header. Include it.
--	 */
--	if (ciph.len == ciph.off)
--		ciph.len += sizeof(struct ipv6hdr);
--
- 	pp = ip_vs_proto_get(ciph.protocol);
- 	if (!pp)
- 		return NF_ACCEPT;
-@@ -2046,16 +2036,6 @@ static int ip_vs_in_icmp_v6(struct netns_ipvs *ipvs, struct sk_buff *skb,
- 	if (!ip_vs_fill_iph_skb_icmp(AF_INET6, skb, offset, true, &ciph))
- 		return NF_ACCEPT;
- 
--	/* ipv6_find_hdr() stops at the Fragment header of a non-first
--	 * fragment and leaves ciph.len == ciph.off. Only AH and ESP
--	 * (pp->dont_defrag) pass the fragoffs check below and their
--	 * lookup reads only the addresses, but ip_vs_icmp_xmit_v6()
--	 * sizes skb_ensure_writable() from ciph.len before
--	 * ip_vs_nat_icmp_v6() rewrites the embedded header. Include it.
--	 */
--	if (ciph.len == ciph.off)
--		ciph.len += sizeof(struct ipv6hdr);
--
- 	pd = ip_vs_proto_data_get(ipvs, ciph.protocol);
- 	if (!pd)
- 		return NF_ACCEPT;
--- 
-2.50.1 (Apple Git-155)
-
+ [1] https://sashiko.dev/#/patchset/20261117114432.2794961-1-a.shimko.dev@g=
+mail.com?part=3D4
