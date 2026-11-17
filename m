@@ -1,63 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794922575;
-	b=xETgKiau9VWxS415JI8HcJhQxsnJI2m8S8eLiNouUwCJpIn+Wspdp/Jo8Ybp77DbAOBY
-	 KZbPwKE67UFMlmcpxWWCR99OOJKVnp2nnpDl3MdK7v7JmR2MEZq/VBUjOCUF7JDrakVLx
-	 L8sBXa3bIIGjnDJ0geYcwWkCmtxkCPcYH88DC5klESYY3qYVZgl+FTHp3Hm186wHncaWO
-	 aGPnQc87vq6yLcNX3AdHjdJ0JNDkccJnkaP/+TDrIqhKZ9R1TT6IrWDVwGF1HxNeOKluy
-	 VzTuz0mE/RujxjyaM5ocYZfG3iLS6xT3rEWDexQITxMVA5Q8W3gmffIrL0rWClDrTdw==
+	t=1794922859;
+	b=fAg+ctBqnQd9/lgHKHG1Vk2v1L5XALYgHuu6Yu1umSyriPEfXZxOQ05xeyTIgf4glSwL
+	 fB90eL1kvx1xstECJgZ4ZnKpvG2oDfRkF7C2uSF/9b++OT5J5bpfWSNcGe7hOBHXIwOFx
+	 YEGJd2+HpxWKxquxb0OnRaUYGL71/OjsLUe49PH6CasqbMLxiZrU9LtFVFqO1N08UGdcF
+	 XMYHibWd2mAWwGLZaPU7okMECkZLW64W7TCGR6vGRA4JVcOSnMmm8p66SiGHqTSX0ucdN
+	 i1gu0XjTk/rKu1MHWlRdznZFeisImEWygoz0Aj4+KtAz7KjIX2maxC9MxTiP5gBeDtQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794922575;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=X/2BPYcmOvPNZZbRU++v01rC+kIhnNmGpFqU4z7Oxsc=;
-	b=OWFIslVyWA5bsSF8U6yx+HAB+edKsG2oh9s3EU8jr4mffZRaBsUulNc06ltnloZ4Hofx
-	 WBjGEOe4QbAyuR+rVwPMKdvRbB/+HFO3mtByxTKw1YCOhlizD3w2IhXNeI12eibATrCpr
-	 MJDci2254A81hyfIT9g5hHJ/JHFvCasLVo0rKQX9t111lSm91hKAmeC1WBca06ZajCwA8
-	 jf/dTKeUf9lbnmMRuGL37yKM8DMtx3BMTaT/KYUKgmBFZY/b4vueJ05qLipTNHFH6h+gS
-	 y0jeenx5UMDK3A81r8Y3OthdKupeumiotXkXfbSgmb6s8/WDgxv/TQlvY6P7nbYh9bQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794922859;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=TwB4RSE1ahOv1eWO7HrIP9Xo526ulRCGPxUhrPC4tB0=;
+	b=DrWsLpLJr0gUD/0aejwGmtp+zNkflV0Ck8ZlA+l77ckQLyfAf6tqv535jUi0nDFIOfbJ
+	 LkHilTARqZeZneDreasfGYLLfXD+YmQ+rjh6Om2ZiCseQbMRXDOL+lDiLSaXqG47eZkVs
+	 QYxzR8UDDi4GwFkeEo4mHM3NSGtUw/v62Xz2co/FVdP7bsYVtrKUoKvOiA6NeYg+EiQbv
+	 vxbaBJE3D1ql+dLkemjkhD7CSVB9B5Xi8z8gH+kYWtfS6zLN5K7VGE8LmetCNS+I4Tqxe
+	 AwY0E4nWjqBpNDrdLWdwYSG6PEbqw2rtn3fYsN9s2VSLwu+qGx9ysa5dvZFHHH9/KLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=cHa5pIYV;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=1password.com;
+	spf=pass smtp.mailfrom=agilebits.com;
+	dkim=pass header.d=1password.com header.i=@1password.com header.a=rsa-sha256 header.s=google header.b=mbrGrYZU;
+	arc=none smtp.remote-ip=209.85.219.49
+Received: from mail-qv1-f49.google.com (mail-qv1-f49.google.com [209.85.219.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF21A606A32F;
-	Tue, 17 Nov 2026 13:36:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF21A606A32F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71956606A32A
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:40:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71956606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=1password.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=agilebits.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=cHa5pIYV
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=X/2BPYcmOvPNZZbRU++v01rC+kIhnNmGpFqU4z7Oxsc=; b=cHa5pIYVEjGDKHP3a9oo/XSAMY
-	2karsmE33psxJFXv8KK2DfED1Zj3HSwk75ikjjSKNI8ZV1AouUUOO88LanyGgtLj18gL/l7ijN/3r
-	av65dgsjmxHm/jjLGVte3ew15zvZUb+iI3X+6sCLYbiyKdS73wIDWu+RqGsXbZHGwSlc=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTJLx-00H9yH-47; Tue, 17 Nov 2026 14:36:05 +0100
-Date: Tue, 17 Nov 2026 14:36:05 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Artem Shimko <a.shimko.dev@gmail.com>
-Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	maxime.chevallier@bootlin.com, pavel@ucw.cz,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-leds@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v2 4/4] net: phy: dap8211r: add PHY LED control
- support
-Message-ID: <052adff8-b1d4-4cf2-941c-cfb2725d13a0@lunn.ch>
-References: <20261117114432.2794961-1-a.shimko.dev@gmail.com>
- <20261117114432.2794961-5-a.shimko.dev@gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=1password.com header.i=@1password.com header.a=rsa-sha256 header.s=google header.b=mbrGrYZU
+Received: by mail-qv1-f49.google.com with SMTP id 6a1803df08f44-91c1f548f87so81247036d6.2
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 05:40:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1password.com; s=google; t=1794922858; x=1795527658; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TwB4RSE1ahOv1eWO7HrIP9Xo526ulRCGPxUhrPC4tB0=;
+        b=mbrGrYZU/2TOeFzN23IFhtlXtGQ53gHxnOmST27w/O81rXdXcuR1XDou6E1j48MhA6
+         wwq4r2OalvYh9HWBrwgCxsJq6diJWHagel8aNFSlqQNTCIJbHhie31WwSYbXJgaS49Fh
+         FCqoYH74WEGJ3ZcXJ1zVY7dOj6La1jKN4T+Go=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794922858; x=1795527658;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TwB4RSE1ahOv1eWO7HrIP9Xo526ulRCGPxUhrPC4tB0=;
+        b=E3UjZoUrtKI82cx38oH0qRBmNhNJDvATI2oiC47FZBrUv01oeuFFIrMACcp8SyYKH6
+         SMxdjFE0WA1pPjI+GCMyOg2YebiE1OZgtqIWLTVVEijZfCiD2DbhmEXmC+eJOMUldS9n
+         q4TluLI/QarAcKoAKw+c7b581jkV++fP1Hqa6gPUZNsxrfYJsa2ygOBmmVntiRToHpsp
+         MZveRM7VXIpjVYT2yWsVx7qtFHnJX0mXJpGi8ryegMMsUXSsqmcGrdTrZSOdjkFnKdRf
+         AcNMWrwRKgHI/NbgCOXgLcAFrvsXuIvas5HvAHpAlB7nHfq66JebzfoEFRmrLwy/FvEU
+         hQFw==
+X-Forwarded-Encrypted: i=1; AL+hErFA11tZzAD5GMpA19rBXTuGFGZX136b0DatKsXcVTLGUe6jf6DuMgb3b5cpN1dvrH6lQFiU0gc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/9B7JkCvMFjzZNuKt/skACJIIPASX2o9T9w91e96nQw9jlwUMO
+	2vgsr05yg1E0RavbbkYkvjoUbNXMIqBi1v4aTKpyoHomBAOa4p2zLN1wAz4vqH0BG4g=
+X-Gm-Gg: AYBFou3MTKGtkq/8rFFKO2TtvPpijx8fgzjWbpFrBiSn7JxotcLMQlP4fROrpXFkVJP
+	5ydrvlss381YXWWRgZ5SASKC7yLmid8QoVL2uzO+BvjhwGnHZlksAJ5XK5z02HHICbOZlRNJF8b
+	QhQdMW4AF2XBsmrdWdf/nhAHVtJSXkdKXhHwY4WT5Uy/qHXBXyeS8A3YCyZDXoznUA0ztIeiYqp
+	gK5uCrk00LaG3J4TxWDPBCRnsHj3sK0nP/BiA1TVwqu2qA5mhOxexS2zD7WD6urFQ2+3++3qe98
+	5mPx3BwURWMfiLeFon+phehY2MyCUUnP42sqMEZvugeXnLRpt3IrkwXs5e1ocO775SAoqAhq2LX
+	uYGkuCxmke03gypBNWnCuO0DoSyKPRegBn16gS+URj/sKj696AvXa9OKEPgIw0SfSwv/QSo7U6c
+	30t+sWc2vQDlyNkLDTE+FWXZSzS29jA78J4ZFVe+a8RzJBjPBhsgsBmovHfY9tH/HhHT/8Fo9NG
+	SY6Dm75nsTohH/VG2w0GuCM2KolyiTP5OokzHtGcglxmb8IZmYw3W00vC7SKgQ8f0ZavEP5XSpz
+	exMJLT6/MDhbq8LnBl1wlTmPT2eobjrfdGHpa2qHZ2iFC1WeY4xDqAaQMIpY
+X-Received: by 2002:a05:6214:62d4:10b0:91e:850b:770b with SMTP id 6a1803df08f44-91f24151026mr170565066d6.17.1794922858319;
+        Tue, 17 Nov 2026 05:40:58 -0800 (PST)
+Received: from localhost ([2600:4041:59c3:300:b8f8:e592:18c8:ba23])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-91f23db3a81sm110979646d6.42.2026.11.17.05.40.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 05:40:57 -0800 (PST)
+From: Axel Mierczuk <axel.mierczuk@1password.com>
+To: ja@ssi.bg,
+	horms@verge.net.au,
+	pablo@netfilter.org
+Cc: fw@strlen.de,
+	phil@nwl.cc,
+	dsahern@kernel.org,
+	kuba@kernel.org,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	davem@davemloft.net,
+	netfilter-devel@vger.kernel.org,
+	lvs-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	netdev@vger.kernel.org,
+	w@1wt.eu,
+	Axel Mierczuk <axel.mierczuk@1password.com>
+Subject: [PATCH nf v2 0/2] ipvs: fix OOB write when NATing ICMPv6 errors quoting non-first fragments
+Date: Tue, 17 Nov 2026 08:40:47 -0500
+Message-ID: <20261117134049.52386-1-axel.mierczuk@1password.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,23 +104,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117114432.2794961-5-a.shimko.dev@gmail.com>
+Content-Transfer-Encoding: 8bit
 
-> +/*
-> + * LED_COMCON force mode bits:
-> + * bit 2   - FORCE_EN (enable force mode for this LED)
-> + * bit 1:0 - FORCE_MODE (00 = OFF, 01 = ON, 10/11 = blink mode1/mode2)
-> + *
-> + * Only ON/OFF is supported.
-> + */
-> +#define DAP8211R_LED_COMCON		0xA00B
-> +#define DAP8211R_LED_FORCE_EN_BIT	BIT(2)
-> +#define DAP8211R_LED_FORCE_ON_BIT	BIT(0)
+This series fixes a 16-byte OOB write past the verified skb area,
+reachable through ICMPv6 errors that quote non-first fragments.
+Following Julian's suggestion, it preserves ESP ICMPv6 handling.
 
-Given your comment, this last one is not strictly correct.
+Patch 1 includes the embedded IP header in ciph.len at both ICMPv6
+call sites when parsing stops at a non-first fragment. It stands on
+its own for stable.
 
-Otherwise, this looks O.K. Lets see what the LLM says.
+Patch 2 makes ipv6_find_hdr() set *offset to the fragment payload
+for non-first fragments when target < 0, rejecting a truncated
+Fragment header, so every successful return updates *offset. It
+drops the workaround from patch 1, which becomes dead code.
 
-	   Andrew
+Changes since v1:
+- Patch 1: rewrote the comment and commit message. Nothing blocks an
+  embedded ESP fragment on ciph.len; it continues because of
+  pp->dont_defrag and its lookup reads only the addresses. Name the
+  skb_ensure_writable() callers, handle_response_icmp() and
+  ip_vs_icmp_xmit_v6(), that size the writable area from ciph.len.
+  Code unchanged.
+- Patch 2: return -EBADMSG when the Fragment header is truncated, so
+  *offset never exceeds skb->len (Sashiko, Julian). Add Fixes tag
+  (Julian). Drop the ciph.len workaround from patch 1 now that every
+  successful return writes *offset (Sashiko). Describe the
+  handle_response() effect, the nf_tables trace output change and the
+  SYNPROXY callers in the commit message.
+
+v1: https://lore.kernel.org/netfilter-devel/20260925141155.17603-1-axel.mierczuk@1password.com/
+
+Axel Mierczuk (2):
+  ipvs: avoid out-of-bounds write in ip_vs_nat_icmp_v6
+  ipv6: update *offset for non-first fragments in ipv6_find_hdr()
+
+ net/ipv6/exthdrs_core.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+
+base-commit: 734bef548a96e8774d6eef5dfa2026c6edc4e80b
+-- 
+2.50.1 (Apple Git-155)
+
