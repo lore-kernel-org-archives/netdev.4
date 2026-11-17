@@ -1,84 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794907780;
-	b=ef7wV5jRQf3tUxqltyibsCwpPRFo4h8w7/VFnceY1dE7te06V5DH6yD5iUzINQ4Vhu5d
-	 EmZiq+gvBOQY2tDjwX+l0t1nEqdAvRMxqh3bu5Rj/zC3Zd6y/Xvl/x5OiGmds9oS2HdHT
-	 UhTw0APm/19DdNeCrG8EWxA8suaPDd51zwRjJ4O1B0dGyq9JIaknuiWVr3EHq/fJHbdzt
-	 /XQ8C+RZ0QlaLcPfLEoTqwBKotQwV153DSM66LmJBiheNdOwHVGz/4DR70VhLoQ4wQ5Ov
-	 65TuJ1mZYZqjdL5tqhEdXl0YhbYvKcEm3+O2z6L2Kbu7bJSPcSUhemJ4JgR1xzg8rUQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794907780;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xqQWfWKatMYIK2o9eLxPURKMr0Gqkug9p556vmmLLro=;
-	b=3UgUqx0h3TaRMy3c5ET3QCeC+kkhSNbZlvEa620VAb2bwRtpz42DWSU6UdoGjpLIrYYO
-	 TCYYZsM7k43sKjg5fE3ozbTiQj6/3/WnfZhvTszLHYAiXlUNZCUJQW4b5YQqS2WMcqHg2
-	 lJamQ6x9qItS0QvlI/D/YbW+G7vsaUubKcGQCAKmL1LDLhsmZ/i8XKUCrSRb+11Lqlwjy
-	 25Vc+kO8oOWkoaEy8bQlClrBFsPvDsy65mz82InevTIe00iK0MbNhm6WI+bTuPltfG5A7
-	 Mib/iQQCX30VrHxat0lPwe5E4XqOJpsDmxKVyoTPFGJS6OXYZJzvYp5swP/eFf59qxA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=corp.free.fr;
-	spf=pass smtp.mailfrom=corp.free.fr;
-	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=Sj+fDnbN;
-	arc=none smtp.remote-ip=212.27.60.169
-Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.2
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794907877;
+	b=Gy6JjxDOyeLe7Jm+KyMNRY4gKIIAucUB4d0D5ux3YeT0fjmlmlT6EFlyVsKnY5+atSP3
+	 hdHBxRl7o65ELxQkkirg+sxOZq7MAJ6a9y//LbZ65yuihMOx95HkyStVz03onREShWE9z
+	 OJEaHCQ0BoUXMoEA/UttVQV50z+wjDY/2TLxFywsBj+8Zo72Ik88fplCJmx8BHcoQ2Svz
+	 9c5qon+JsPdaQX6sYxgUOHdOj4yBf46jdP9V+4j6GLP1rgjwlf9i8IsFymwu/ZLHv7xNE
+	 aCF2+MWIPSkIGfYgp8yC+ZFPbt7eisiIDNq/oh5EwOfkO1wWRC/DPeDPXTPQTjOSalA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794907877;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=YTfl1Rudit220v0ZHVhYdp7bEqkIR8M6W9ypzH56mJ8=;
+	b=w7GIPNV84FQNhfaBSLMtJhVX9MjNOqfSjVUFXEUfe2/Bq809qgU5FkchVdETHJv+HpRq
+	 D3g3CYAWky1cgl5HFROu9wVbcbAr/pSx00YNUYgz7qhYvbshIb2CAjXjstCpl7lX4jEoc
+	 6RfmKFxrBh3ELn2+GbFRYbvtjOAbXaS2hvP1T7juNWpU+8gkct2LUaKaCjpne0RvvRit1
+	 CmrD6JHXImkI7bBkuEeGvh75SZSOoAMvdS41Reod+wjvwz8PJKHxd9UQ3EkNxNPjwXRqZ
+	 ixex/2phdBcUXEKKVumbZguY9wqj1I1s9ClqbjukXBFKu++8uuoHkoU+k2oajCZBcbQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=kNWO90aH;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.57.2
+Received: from BN8PR05CU002.outbound.protection.outlook.com (mail-eastus2azon11011002.outbound.protection.outlook.com [52.101.57.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 653C460A2623;
-	Tue, 17 Nov 2026 09:29:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 653C460A2623
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0C19606A329;
+	Tue, 17 Nov 2026 09:31:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0C19606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=Sj+fDnbN
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
-	t=1794907764; bh=qPmG8P+hFAtTUxkbaEcSp1PyPgXZo0DXS68/FvOLOG8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Sj+fDnbNzmtSvk5xqSC3Y8E9IhXqSNQk6YlG3JZSdyb5InDNl19tyx/SqnCjWcCno
-	 PvQ0YdWlio/UH+c78gRkKf5HTpMBjiuaO1IiMofsrs5dYp/dEoeHnSAIpEEKE94Jnd
-	 y0XZdKH+uGHgXJSDboluV4yL87IuEE2uz1O5dosrnEaWAO3riQH96jpTCyi/IXtg4w
-	 xv8x90TN/ycoAFOdGNaI0NZmIT97xHWBXxJW7Fy8EPzHUgzo6LxssneAnqphEM35zw
-	 jgK67lwL7GSmQ0Fd7/4/E8iy2TAesTZyd1cX/va0PCelb36f7B3iKxL7xWgICora5S
-	 jOx1OJGdSxXLQ==
-Received: from lnxos-dev.home (82-66-150-212.subs.proxad.net [82.66.150.212])
-	by rcs.proxad.net (Postfix) with ESMTPSA id 8CADB44C0B5A;
-	Tue, 17 Nov 2026 10:29:23 +0100 (CET)
-From: Alexandre Cassen <acassen@corp.free.fr>
-To: Saeed Mahameed <saeedm@nvidia.com>,
-	Leon Romanovsky <leon@kernel.org>,
-	Tariq Toukan <tariqt@nvidia.com>,
-	Mark Bloch <mbloch@nvidia.com>,
-	Jamal Hadi Salim <jhs@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Michael Chan <michael.chan@broadcom.com>,
-	Pavan Chebbi <pavan.chebbi@broadcom.com>,
-	Potnuri Bharat Teja <bharat@chelsio.com>,
-	Donald Hunter <donald.hunter@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Shuah Khan <shuah@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	oss-drivers@corigine.com
-Subject: [PATCH net-next v2 04/10] net/mlx5e: TC, refuse a tunnel key wider than the VNI
-Date: Tue, 17 Nov 2026 10:29:07 +0100
-Message-ID: <20261117092915.255194-5-acassen@corp.free.fr>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261117092915.255194-1-acassen@corp.free.fr>
-References: <20261117092915.255194-1-acassen@corp.free.fr>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=kNWO90aH
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WwQ9nvPQDu2eD5w0mouIzqweQJKZtJYKxsWkTqkmkeo8pVfn8RETKBYq7+QND0tWprrUm1f0qYcHDsnILucMZMWN545fHr9kn3n6a5tiWUryfO9TTK2+i1LIbM5tof/fOyNT2vdfrolyu0JtrMukrhwoenQ7HRZOAMa6RPcW2t/1JOSg73Rpwt7I5nmK2TP1rMyjFsP6NmNoPTrntB72AcEDCSzrpavvPVuvc8Qap2k4Bim/YePWkcn6IwV+D/InMi7Emz4QPA3TcBP6CDm5itBpk0u+p0HzaHMVuCBSEQiKBUmeuH9zrxSU5uNtT/U+xPGhbSPKPuIQgkaUDa5hhw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=YTfl1Rudit220v0ZHVhYdp7bEqkIR8M6W9ypzH56mJ8=;
+ b=volL3QgWGIIx3ruW43VN7OIfoYE/G5WnD5q6FFGM+s3sWAs1AUCnIUhAUaeTFiXU+hhreV1QcU5tKYXicPO6i0bN6csOwxK/LFkBhOd8umpPR8PCd0l7C1sqNqap9TrCvp66hlpcwWPm/VHuiw/p24TsMAIFrMszgPHeXH+Q7I8UzPAOtsKIn3oFEvfQqN4z3movqB0V6/oxcIEHAOlHp/ko9lYYCeRI0X23+az6GCXg3vplK9g8frHSoEgruPcsDr7nqHKjR79PcT/NcQtElSHXSU6ajcTNIUF1piz+fZrca0IGK0p0V1nN3dWb0zlwIrqOrFk2nY+wy+lJsMlS8g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=YTfl1Rudit220v0ZHVhYdp7bEqkIR8M6W9ypzH56mJ8=;
+ b=kNWO90aHH/gWHiEXA4FvweOv7hljG5niVpbXU7tfvX0HJluQJ0n7Lh2zI98P5fpEqf5X67tePmpONsdEYNDHOL+lhRmSh9DcX5phxIHTkWkCe26fA4/R1gO/Qfo7LK8uWIzDPsR63SZdJg3mxzBrbvasKUFWVHdKdmbnqgBBYYStzHiwFr4hAqlWNY/Lem3xUmFemegj2OeLW8yF1A8uSnlMRf2+D7X32FL6Llq65zw5CdsvWAMVLGeNbF543QUGpUekubKMBLBSBKdwxYipjTOOx7Hr8tgLi5PcK1np4zjoTEhVIl+SXUFCQsHNdAl+WBDL8XXyPDp7UCVXgoQjGg==
+Received: from CH0PR04CA0045.namprd04.prod.outlook.com (2603:10b6:610:77::20)
+ by DS3PR12MB153673.namprd12.prod.outlook.com (2603:10b6:8:611::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Tue, 17 Nov
+ 2026 09:31:11 +0000
+Received: from DS2PEPF00007107.namprd05.prod.outlook.com
+ (2603:10b6:610:77:cafe::9) by CH0PR04CA0045.outlook.office365.com
+ (2603:10b6:610:77::20) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.10 via Frontend Transport; Tue,
+ 17 Nov 2026 09:31:11 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ DS2PEPF00007107.mail.protection.outlook.com (10.167.23.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Tue, 17 Nov 2026 09:31:11 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 17 Nov
+ 2026 01:30:51 -0800
+Received: from [10.125.206.246] (10.126.230.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.56; Tue, 17 Nov
+ 2026 01:30:47 -0800
+Message-ID: <591b2771-7e87-48de-8256-3d3fe553e294@nvidia.com>
+Date: Tue, 17 Nov 2026 11:30:45 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,80 +104,96 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V1 rdma-next 02/24] net/mlx5: Derive adversarial mode from
+ CC guest memory encryption
+To: Leon Romanovsky <leon@kernel.org>
+CC: <jgg@ziepe.ca>, <linux-rdma@vger.kernel.org>, <netdev@vger.kernel.org>,
+	<saeedm@nvidia.com>, <tariqt@nvidia.com>, <mbloch@nvidia.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <edumazet@kernel.org>,
+	<davem@davemloft.net>, <andrew+netdev@lunn.ch>, <dtatulea@nvidia.com>,
+	<moshe@nvidia.com>, <maorg@nvidia.com>
+References: <20261110134320.34408-1-yishaih@nvidia.com>
+ <20261110134320.34408-3-yishaih@nvidia.com> <20261116094522.GF11319@unreal>
+Content-Language: en-US
+From: Yishai Hadas <yishaih@nvidia.com>
+In-Reply-To: <20261116094522.GF11319@unreal>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00007107:EE_|DS3PR12MB153673:EE_
+X-MS-Office365-Filtering-Correlation-Id: 82727f5c-737c-4934-1d89-08df448d84b1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|23010399003|1800799024|36860700016|82310400026|4143699003|11063799006|56012099006|261026121527099003|261026140227099003|261028144727099003|10067099003|261021135927099003|261022075727099003|261021121427099003|261022105027099003|261102130727099003|261102123227099003|261009223027099003|18002099003|22082099003|6133799003|13003099007;
+X-Microsoft-Antispam-Message-Info:
+	quaIkvW0YigiNrva2WpYXiw8e4ZxNIpa6OmtjXac5L1kJQ8a63hhEDD81JvBJ5ldI3/PCS6ZW5RFuAFJfOMEM6BJJxogFhpJ9m5XNHhLt1OddZAHA8kkmGz/RnnrkkMLr0GZ4uLZUTRIpfxlnis0DghBcRDwXmDu1Twhrrh89lKwXobMtWmNjCLWeNNTl0a3mzZCs/Jhh4J3dE7JczxopoNcecQbGKc8wCjVkwhjnPuQWWqRW8tDonDW9291S8WY4V9oRzdqniav+dUzmtDPRiZeGxOd6zMz/kwtlFrdGHkGLm+LHRmPUBIEv/VslvOijy06ii/Ud18+AyZM7YcnM+x6NF3s0RSxQw7rUyxfCVJasiDf6dvglFwVCTrWSDZGk3W45P13oOUYwX7e0igro8p9uDDlR30yEQdWr1hqK4wtxLx0w+TWz8qcTJaYf5QX+nvXaFukPoh58SyvBTzF8H6OcpgsB7wOIrQqV7oIC8lxPeMZ2k11i7XtFozLvIl/cNs5Qx9RqhoFOqqmAMFgMi9yjlCey+yeRc+VSSiXouj15Z7phJ/RTW5q6wvDyexT4+ml4VswEkTS8hdR+qG+UUuWxzHUDLEr3erL4xhlf0nNa3vYEnPUM8LyBHKpqx1s0H0ezdlBRTvfet2auZZiDd/ZjqG9sf/qRw60shLZLP8UipiuEvFOq+aHCruv1FmcBXPgFBePB5ebjD5vEd584g==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(23010399003)(1800799024)(36860700016)(82310400026)(4143699003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(10067099003)(261021135927099003)(261022075727099003)(261021121427099003)(261022105027099003)(261102130727099003)(261102123227099003)(261009223027099003)(18002099003)(22082099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	UMp6QueLMZy8FtCyKixFFyNeKZX5ruDuUsdN5/JoujN+ZPeI9y2M6m7qpwxLNH01OLEaRty4RMAe+ANaVVB0ZY3qD/XXNb60JaGwZf8Zhudk8oT0GMB9ZoLE/uutUTW1OCMeatYOONWPHZB9Prnkpakdtacr5XLO8rOj9Uk36EbL3p1ARaRZGERUwclQn+4FC1rateKuiuJe3anH8vIKlAv2I/goZPJV5+6WHaSdOiSbGoxbiX4QJ8hzmPg+Ife38vlw36ntgUYpFnMwLgZR3hEIcJaEuYRKhMXZt0WXlwF5WM8ECG0aNM7L1wN+sil9WKFeBQpEduBy5IXZbOMpkz+2RuttJ1RHpVSwO1bvYeIuYdNs2xsEO+ZwqWxd1b71jTT6d0E79/GXzW5o1leoKN66XY/VWdgmwWLZfWdJuUTsMT1kWN+hvzvMawMWQi6T
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 17 Nov 2026 09:31:11.5774
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 82727f5c-737c-4934-1d89-08df448d84b1
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DS2PEPF00007107.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB153673
 
-VXLAN and GENEVE flows truncate the key and the mask of enc_key_id to a 24
-bit VNI. An exact key above bit 23 already selects the wrong VNI. Flower
-is about to accept partial masks. A mask that only covers bits above 23
-would then match any VNI. Refuse a key that no VNI can match. GRE keeps
-its 32 bit key.
+On 16/11/2026 11:45, Leon Romanovsky wrote:
+> On Tue, Nov 10, 2026 at 03:42:58PM +0200, Yishai Hadas wrote:
+>> Add mlx5_is_adversarial() to report whether the driver treats the NIC
+>> as untrusted. In a confidential computing guest, the hypervisor and any
+>> passthrough device are outside the guest's trust boundary, so the mode
+>> is derived from cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT).
+>>
+>> This turns adversarial mode on automatically in such guests, without
+>> any administrator configuration.
+>>
+>> Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
+>> Signed-off-by: Yishai Hadas <yishaih@nvidia.com>
+>> ---
+>>   drivers/net/ethernet/mellanox/mlx5/core/main.c | 7 +++++++
+>>   include/linux/mlx5/driver.h                    | 1 +
+>>   2 files changed, 8 insertions(+)
+>>
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/main.c b/drivers/net/ethernet/mellanox/mlx5/core/main.c
+>> index 1a45474ce03d..f9e10464a71b 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/main.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/main.c
+>> @@ -31,6 +31,7 @@
+>>    */
+>>   
+>>   #include <linux/highmem.h>
+>> +#include <linux/cc_platform.h>
+>>   #include <linux/module.h>
+>>   #include <linux/init.h>
+>>   #include <linux/errno.h>
+>> @@ -484,6 +485,12 @@ bool mlx5_is_roce_on(struct mlx5_core_dev *dev)
+>>   }
+>>   EXPORT_SYMBOL(mlx5_is_roce_on);
+>>   
+>> +bool mlx5_is_adversarial(void)
+>> +{
+>> +	return cc_platform_has(CC_ATTR_GUEST_MEM_ENCRYPT);
+>> +}
+>> +EXPORT_SYMBOL_GPL(mlx5_is_adversarial);
+> 
+> I would expect all drivers to follow the driver core's trust level instead.
+> https://lore.kernel.org/all/20261109-device-trust-core-v2-0-3b12d9a9f861@nvidia.com/
+> 
 
-Found by an AI code review agent while auditing the users of enc_key_id.
-Confirmed by code inspection. The wrong match was not triggered. Tested
-on ConnectX-7 with firmware 28.48.1000 in switchdev mode on VXLAN, GENEVE
-and gretap devices.
+OK, in V2 the mode will be kept per device, ready for the core's trust 
+level once it lands. Until then, it will still come from 
+cc_platform_has(), so it's enabled automatically in a CC guest.
 
-Fixes: bbd00f7e2349 ("net/mlx5e: Add TC tunnel release action for SRIOV offloads")
-Fixes: 9272e3df3023 ("net/mlx5e: Geneve, Add support for encap/decap flows offload")
-Signed-off-by: Alexandre Cassen <acassen@corp.free.fr>
----
- drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h       | 3 +++
- .../net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c    | 8 ++++++++
- drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c | 8 ++++++++
- 3 files changed, 19 insertions(+)
-
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h
-index 6873c1201803..d7c778bbb2ef 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun.h
-@@ -13,6 +13,9 @@
- 
- #ifdef CONFIG_MLX5_ESWITCH
- 
-+/* VXLAN and GENEVE match registers hold a 24 bit VNI */
-+#define MLX5E_TC_TUN_N_VNI BIT(24)
-+
- enum {
- 	MLX5E_TC_TUNNEL_TYPE_UNKNOWN,
- 	MLX5E_TC_TUNNEL_TYPE_VXLAN,
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c
-index bf969212cc77..ee04fcdca6ff 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_geneve.c
-@@ -141,6 +141,14 @@ static int mlx5e_tc_tun_parse_geneve_vni(struct mlx5e_priv *priv,
- 	if (!enc_keyid.mask->keyid)
- 		return 0;
- 
-+	if (be32_to_cpu(enc_keyid.key->keyid) >= MLX5E_TC_TUN_N_VNI) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Tunnel key does not fit the 24 bit VNI");
-+		netdev_warn(priv->netdev,
-+			    "Tunnel key does not fit the 24 bit VNI\n");
-+		return -EOPNOTSUPP;
-+	}
-+
- 	if (!MLX5_CAP_ESW_FLOWTABLE_FDB(priv->mdev, ft_field_support.outer_geneve_vni)) {
- 		NL_SET_ERR_MSG_MOD(extack, "Matching on GENEVE VNI is not supported");
- 		netdev_warn(priv->netdev, "Matching on GENEVE VNI is not supported\n");
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c
-index 467fbe43b89e..33911e72d20d 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_vxlan.c
-@@ -173,6 +173,14 @@ static int mlx5e_tc_tun_parse_vxlan(struct mlx5e_priv *priv,
- 	if (!enc_keyid.mask->keyid)
- 		return 0;
- 
-+	if (be32_to_cpu(enc_keyid.key->keyid) >= MLX5E_TC_TUN_N_VNI) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Tunnel key does not fit the 24 bit VNI");
-+		netdev_warn(priv->netdev,
-+			    "Tunnel key does not fit the 24 bit VNI\n");
-+		return -EOPNOTSUPP;
-+	}
-+
- 	if (flow_rule_match_key(rule, FLOW_DISSECTOR_KEY_ENC_OPTS)) {
- 		int err;
- 
--- 
-2.43.0
-
+Yishai
