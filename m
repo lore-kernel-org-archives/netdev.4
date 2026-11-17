@@ -1,74 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.252
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794905816;
-	b=RHPvAjL1aSav2LOCDRNDEC06fBAEfzwHz3zUOXQN2Tej6blkd0EmqEGinXzX0zklr0yX
-	 nTnocMG6q1laxuxDJRlIFwxEzUQAyA+QEC3oOIAnTgteSBAr8A7/xEIFj8UmoHreB49kg
-	 +lXmFTn73aC/9dgfcH6sQwmtyuD1lg2fxa5x0o0GxX2KUrFguU39MZHXP3YFGUZzPGeiS
-	 /lSsY+EMGu4o0TA/LkTCm0bSi2LI2Ha7qwUKa7MX8Eb+8TxWwR90qGLlwkoBv6FsrjzlA
-	 C5ht2DxEHVwIXrwXRPwcikqqY0H0Ryfe1c6/ptHMIprwPQpotnIg9h1RPToCOzsYLng==
+	t=1794905939;
+	b=z1aIOb5LN9mRXGvG0kpkzgE0vSZUbmj9l0NPHYqPpKxIxdWdTfgDck6TP729/fKHuISY
+	 9Y60sj9hMHZOoBHnwCWESgTlMD/dDrv93XLVIXqNchKgmnCd7P6QWNWmaVKGepIgtYPKr
+	 RhtvDy19igaxzhpqWozQB5SeumJ7lzvTw8KaovsRrIUJuOK37eV5ZP7F6mFNeG6VwmjKB
+	 vyovz2eON1uc32oSDwDHdh9cTYPpnOAS30I8FPASVqYbvfuXZByC30rEkN5fO1ms1ZF2Y
+	 OmJvmthR17P4HdF59NzdNTM/hPbLqkc18BIGLniCDoiNMWOs3pfgYfpDbm7xpdqDPiA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794905816;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=pcfBs8WoN7/q9bbgEnCRQbl/I6Zh/jFSmI3HMkPPCd4=;
-	b=MMJ3nCqKxtfPn9cmgVZ2WBJo+bd0yxbMcrRp7IP0YpOxmUFNVYhs06+nGUxmL9ah6xEh
-	 FJE+TjZ+FAUwVA26OFpTdXDr7JEexUvaO2CdNR6qHbFK/If51c7yO4s+lHLR1pS+pNQ06
-	 kKLNfSmjWSeLqrIqJi2exlQikYVHAOg3jgOYPVZUu78rGHPCcRZsdB3gxJxC6dmNrift+
-	 kT9PatTWLN2iNeWrrotV3jDAlJCa4EG8S9XbNH/i6279/A9cQpF1zNSJOWciEi6p+8pgk
-	 Op5ZuAIxitv/U0ETvwZFdnr4GHoJHbfKP1hSOpe29OD8XXGEu36PTW8WUd2CfMO6NSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794905939;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=j20jUeo2D8tXCYG3h9U3B9iHcEOwmU6u4Am/bMgyyxY=;
+	b=LU3W1Z7WyEUhSn+JM2orh0Bp/0mCHchGYdQ9iOpAL68ND3xxBijP6un5kIbN57AIZQcL
+	 oL2z6wT06mTm0LDmuOMLtn16sTHXpdfLh2Voh0RREX8e1jtVAljFlgGlIZFrwwYTUwOx3
+	 QXaFTI6NcXRKJJeGnD9CK3rlucnfrRdF1ebADqfTaBG6r2Up2hcuSGOBHrG/qJ/QA6Nwr
+	 SDL2AHlXlEGTu918uiAq/1L/bEhaPeePaKSNcjEr1ptVhvmcXmK5BLt6VhYmEB9HJrW6B
+	 PeTH2ZTYjgFPFkf0vcT5jqFEduS58E96X7K3Co7I61biSX1VKQv63Q1skGR6B4ZlBoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=qBh4UeCf;
-	arc=none smtp.remote-ip=162.62.57.252
-Received: from out162-62-57-252.mail.qq.com (out162-62-57-252.mail.qq.com [162.62.57.252])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KiOjIsgf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 785EB606A31C;
-	Tue, 17 Nov 2026 08:56:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 785EB606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A58D606A8BB
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:58:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=qBh4UeCf
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794905810; bh=pcfBs8WoN7/q9bbgEnCRQbl/I6Zh/jFSmI3HMkPPCd4=;
-	h=From:To:Cc:Subject:Date;
-	b=qBh4UeCfRGNmULKLi37uyJzgUF3bgfyLf1wMavNxNH2u5/8H5SRfkr2xnP98rmTCG
-	 4YFFuNjc9u2qyaxwx31FhUqk4XGIDH3goqd+zUrrLF0PckggVN2w244J4Z/eyShhfp
-	 N+x73l3GjHhI8mfgNispCDi4L7BNWM+HpiAZE9iw=
-Received: from localhost.localdomain ([182.239.117.117])
-	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
-	id E2EB2C0E; Tue, 17 Nov 2026 16:56:46 +0800
-X-QQ-mid: xmsmtpt1794905806tpl1au0xj
-Message-ID: <tencent_19A48DA487BBFCFD990AC5A8010C663EA007@qq.com>
-X-QQ-XMAILINFO: OATpkVjS499u53pa9/MNGWk1BkZ8N4WdYcoDK7jSSNCrDUNyf7oMft53Db4Oh8
-	 NeQx/igDUjDQh8/Co/2YijQ6ZNyysj/v/3Ei0TN/UWfx8qjkQB04/lbpE9lUxE2N77KcUDvBh+Qy
-	 vTC5rUskIXkexnsqs5GVXKkEIqXcGNP2hBNEL/VwDnK4OWH6nFnJ+pMaPQR+g5LJGh/FGIcsBeX8
-	 qW7ZNEuJbGmMT8saVvwOMWbqGr5wYYbWNeir9rr3yTp6RlfG02kFHH/bei8qwZX1/YObtJOZcDyU
-	 Mr0MC3wDHc81H5Ei736OdAV8pagEcTvKVIx3x4z+rJCgBOeJowWwOkM8i29tk4aiEUfRBsFwCvl7
-	 F5eUFVCWQte3Jt+A1ip1u7K19Oe9FP0NvfazUVznOixwDff1dsfeyv5CQ9I4IYv2uNTH7xVq6Q61
-	 ULAMCG3zDpHaXTKx9GHoYkRYJqpqpLm62CcieQxMVTeY0eQxEEewaNuUf+gm/V0nGlipYKAY7+PH
-	 LT+EOpzN8OR08hcEzzM8jWhNvTc6odgrEY3gl8duIXX52abfSJTEntHF4ScDbCYlWY1OoabWfYvA
-	 5jIJkNUfixzIw707aj3BrCxvTP+fak4CtWkwWNjkEtsYaLZrUgBjx67VEjoMjj/J8dJXpRn+O83U
-	 XRhIC5ONdivL265VnHdV9PdooEdx7vrxjcE2ZArnHjNBbcanStsqxctlqqYqCuQkeCgxC6ABVplS
-	 PyOyF3XAUD26SSAODQtFhAos79FEUvxvdTuc9z10VQjQM19pE2YLh6LpWDvu+GT7xtnrmB9+DTg4
-	 CUt6nHwpknWUL5t562R/zp/o0em2m9gO5mTixfjiA5VDdLrXtWFFlNT8tkwyEhrfWFyJKWn1AJmD
-	 g5QOW7HEKkPC9iabg47tpBYU4jCGtrETwjegxZ11Ftluk9WD5lBCfHS3d251AXKp6CHRhGuwGe1r
-	 95GgFrDwj943i9eUk6xrK9hg6XMpwyaEyokI/Ioci89U5rwxEjcM1xxyAfvgmurT/r9IxnDfOV7p
-	 fOKjf9Oh/QPA7OL8YIGR1VyBWUuopXCE2fKZ0LkXNfTS1To40/4b7TY052FxoIHpxo0Iz7XQ==
-X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
-From: Ma Xinmeng <1564938642@qq.com>
-To: Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>
-Cc: netfilter-devel@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Phil Sutter <phil@nwl.cc>
-Subject: [PATCH net] netfilter: nf_tables: don't unregister hooks that were never registered
-Date: Tue, 17 Nov 2026 16:54:27 +0800
-X-OQ-MSGID: <20261117085615.1701-1-1564938642@qq.com>
-X-Mailer: git-send-email 2.49.0.windows.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KiOjIsgf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BFC11F00923
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:58:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794905939;
+	bh=j20jUeo2D8tXCYG3h9U3B9iHcEOwmU6u4Am/bMgyyxY=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=KiOjIsgfkFbVZvZt7uEGEPSP0XCkj8WDD/sF7RivL/AitiIFtQlIv2pmQnbj7aQVM
+	 pJKNlryBMC0Y0LHoXddu3dEuY5aKTSqnIefnN4vHYfKHM+U0vS77uPVJhtgC2ZDePI
+	 hdL45Q6OP+gTA+BjS+0t2knu8QNvPTRxVnxV/9H+WDuONZeOhrG9a+5OTEznG42ZzZ
+	 vEAUMwuFqWd9l2mFUrz2bmsHU2TAytQW67uRbIXf/HTTKgu2QjPjxIHWb9p57hEvi6
+	 A8YMB0rJZqoRyFS6xqDI11af+m+B5OHrJvIa70QVM0sm/4UVhpdegmJNXeF8xu0SBW
+	 iro0DQj9RJSDQ==
+Received: by mail-oa1-f45.google.com with SMTP id 586e51a60fabf-475920b9ca2so1383311fac.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:58:59 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErELmGRdeTzYXzdbKhc+fq+5RpWauuX28EguMj3hPjp/J/Bdf4k/jK57dE2yJH9fSJXmjvdes5M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9zRmRURqWvpposIKXwJ8vWqv/704zPf5pIyE03IeZBw0J65K3u
+	pax56OBSk85wvs3gXrx8m/T0DJrVbmkoYC2bxatA19HNxvUv1sjIEwFlNEHUS/XfrHakuGNGTgc
+	B82IlrDFKqSYCT6YQaywAeQ4hzYdsxdM=
+X-Received: by 2002:a05:6870:e997:b0:49e:d4c:e6f0 with SMTP id
+ 586e51a60fabf-4afdf792c6bmr9942751fac.46.1794905938329; Tue, 17 Nov 2026
+ 00:58:58 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,110 +59,310 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-7-kuniyu@google.com>
+In-Reply-To: <20261117053543.84032-7-kuniyu@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Tue, 17 Nov 2026 09:58:46 +0100
+X-Gmail-Original-Message-ID: <CAL4Wiiq3VFrjakaHqaBB74yTgZbb8MBvtzSMiTr778CY7MdggQ@mail.gmail.com>
+X-Gm-Features: AclHuK8QBxdQgTxju2kl0Z3J7UIkc8Vsg-o4oWW9_KVf2CH80SFEaEcG5XebJqM
+Message-ID: <CAL4Wiiq3VFrjakaHqaBB74yTgZbb8MBvtzSMiTr778CY7MdggQ@mail.gmail.com>
+Subject: Re: [PATCH v1 net 6/8] selftest: net: packetdrill: Add ICMP and
+ ICMPv6 tests.
+To: Kuniyuki Iwashima <kuniyu@google.com>
+Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-A basechain created while its table is dormant is accepted without
-registering its hook. Re-owning a PERSIST orphan table with DORMANT set
-then makes nf_tables_table_disable() clear DORMANT before
-nft_table_disable() walks the chains, so __nf_tables_unregister_hook()
-no longer sees the dormant state and calls nf_unregister_net_hook() for a
-hook that was never registered. This triggers WARN_ONCE("hook not found")
-in __nf_unregister_net_hook().
+Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
+=C3=A9crit :
+>
+> tcp_icmp_ipv4.pkt and tcp_icmp_ipv6.pkt cover the scenarios
+> fixed by the preceding patches.
+>
+> tcp_v6_err() already checks the outer hop limit and
+> ip6_sk_accept_pmtu(), so Test 2 and 5 in tcp_icmp_ipv6.pkt
+> pass without the series.
+>
+> ICMP and ICMPv6 behaviour are unlikely to change, so splitting
+> into multiple files per test case is not worth it.
+>
+> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+> ---
+>  .../net/packetdrill/tcp_icmp_ipv4.pkt         |  98 ++++++++++++++++
+>  .../net/packetdrill/tcp_icmp_ipv6.pkt         | 111 ++++++++++++++++++
+>  2 files changed, 209 insertions(+)
+>  create mode 100644 tools/testing/selftests/net/packetdrill/tcp_icmp_ipv4=
+.pkt
+>  create mode 100644 tools/testing/selftests/net/packetdrill/tcp_icmp_ipv6=
+.pkt
+>
+> diff --git a/tools/testing/selftests/net/packetdrill/tcp_icmp_ipv4.pkt b/=
+tools/testing/selftests/net/packetdrill/tcp_icmp_ipv4.pkt
+> new file mode 100644
+> index 000000000000..122bf9a14862
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/packetdrill/tcp_icmp_ipv4.pkt
+> @@ -0,0 +1,98 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +--ip_version=3Dipv4
+> +
+> +`./defaults.sh`
+> +
+> +// Test 1: Client in TCP_SYN_SENT rejects ICMP quoting seq =3D=3D snd_nx=
+t (RFC 5927 4.1)
+> +// In SYN_SENT, SND.UNA =3D ISN, SND.NXT =3D ISN + 1.
+> +// The sequence number in ICMP must satisfy SND.UNA <=3D SEG.SEQ < SND.N=
+XT.
+> +// An ICMP message quoting seq =3D=3D 1 (snd_nxt) must be dropped, while=
+ seq =3D=3D 0 (snd_una) aborts.
+> +    0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+> +   +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) =3D 0
+> +   +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress=
+)
+> +   +0 > S 0:0(0) <...>
+> +   // Out-of-window ICMP quoting seq =3D=3D 1 (snd_nxt) must be dropped
+> +   +0 < icmp unreachable host_unreachable [1:1(0)]
+> +   // Socket stays in TCP_SYN_SENT, so SYN retransmission occurs after 1=
+s
+> +   +1 > S 0:0(0) <...>
+> +   // In-window ICMP quoting seq =3D=3D 0 (snd_una) is accepted and abor=
+ts connection
+> +   +0 < icmp unreachable host_unreachable [0:0(0)]
+> +   +0 %{ assert tcpi_state =3D=3D TCP_CLOSE }%
+> +   +0 getsockopt(3, SOL_SOCKET, SO_ERROR, [EHOSTUNREACH], [4]) =3D 0
+> +   +0 close(3) =3D 0
+> +
+> +// Test 2: Client with IP_MINTTL (21) checks outer IP TTL in tcp_v4_err(=
+)
+> +// An ICMP with outer TTL < min_ttl (250) must be dropped, while outer T=
+TL >=3D min_ttl
+> +// must be accepted even though the quoted inner IP header has lower TTL=
+ (64).
+> +   +0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_IP, 21, [250], 4) =3D 0
 
-Track whether a basechain's hook was actually registered and skip the
-unregister for chains whose hook was never registered. This preserves the
-existing "add a basechain to a dormant table" API.
+Ah.... could we instead update packedrill, adding IP_MINTTL ?
 
-Signed-off-by: Ma Xinmeng <1564938642@qq.com>
----
- include/net/netfilter/nf_tables.h |  1 +
- net/netfilter/nf_tables_api.c     | 29 +++++++++++++++++++++++------
- 2 files changed, 24 insertions(+), 6 deletions(-)
+Same for IPV6_MINHOPCOUNT
 
-diff --git a/include/net/netfilter/nf_tables.h b/include/net/netfilter/nf_tables.h
-index 9d5974823..fcd24502b 100644
---- a/include/net/netfilter/nf_tables.h
-+++ b/include/net/netfilter/nf_tables.h
-@@ -1243,6 +1243,7 @@ struct nft_base_chain {
- 	const struct nft_chain_type	*type;
- 	u8				policy;
- 	u8				flags;
-+	bool				registered;
- 	struct nft_stats __percpu	*stats;
- 	struct nft_chain		chain;
- 	struct flow_block		flow_block;
-diff --git a/net/netfilter/nf_tables_api.c b/net/netfilter/nf_tables_api.c
-index 8b94b5e7d..25b4075c9 100644
---- a/net/netfilter/nf_tables_api.c
-+++ b/net/netfilter/nf_tables_api.c
-@@ -428,21 +428,30 @@ static int nf_tables_register_hook(struct net *net,
- {
- 	struct nft_base_chain *basechain;
- 	const struct nf_hook_ops *ops;
-+	int err;
- 
- 	if (table->flags & NFT_TABLE_F_DORMANT ||
- 	    !nft_is_base_chain(chain))
- 		return 0;
- 
- 	basechain = nft_base_chain(chain);
-+	if (basechain->registered)
-+		return 0;
-+
- 	ops = &basechain->ops;
- 
- 	if (basechain->type->ops_register)
--		return basechain->type->ops_register(net, ops);
-+		err = basechain->type->ops_register(net, ops);
-+	else if (nft_base_chain_netdev(table->family, basechain->ops.hooknum))
-+		err = nft_netdev_register_hooks(net, &basechain->hook_list);
-+	else
-+		err = nf_register_net_hook(net, &basechain->ops);
- 
--	if (nft_base_chain_netdev(table->family, basechain->ops.hooknum))
--		return nft_netdev_register_hooks(net, &basechain->hook_list);
-+	if (err < 0)
-+		return err;
- 
--	return nf_register_net_hook(net, &basechain->ops);
-+	basechain->registered = true;
-+	return 0;
- }
- 
- static void __nf_tables_unregister_hook(struct net *net,
-@@ -456,22 +465,30 @@ static void __nf_tables_unregister_hook(struct net *net,
- 	if (!nft_is_base_chain(chain))
- 		return;
- 	basechain = nft_base_chain(chain);
-+	if (!basechain->registered)
-+		return;
-+
- 	ops = &basechain->ops;
- 
- 	/* must also be called for dormant tables */
- 	if (nft_base_chain_netdev(table->family, basechain->ops.hooknum)) {
- 		nft_netdev_unregister_hooks(net, table, &basechain->hook_list,
- 					    release_netdev);
-+		basechain->registered = false;
- 		return;
- 	}
- 
- 	if (table->flags & NFT_TABLE_F_DORMANT)
- 		return;
- 
--	if (basechain->type->ops_unregister)
--		return basechain->type->ops_unregister(net, ops);
-+	if (basechain->type->ops_unregister) {
-+		basechain->type->ops_unregister(net, ops);
-+		basechain->registered = false;
-+		return;
-+	}
- 
- 	nf_unregister_net_hook(net, &basechain->ops);
-+	basechain->registered = false;
- }
- 
- static void nf_tables_unregister_hook(struct net *net,
--- 
-2.56.0.windows.4.niugit
-
+> +   +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) =3D 0
+> +   +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress=
+)
+> +   +0 > S 0:0(0) <...>
+> +   // Outer TTL 10 < min_ttl (250): dropped, socket stays in TCP_SYN_SEN=
+T
+> +   +0 < (ttl 10) icmp unreachable host_unreachable [0:0(0)]
+> +   +1 > S 0:0(0) <...>
+> +   // Outer TTL 255 >=3D min_ttl (250): accepted, socket aborts
+> +   +0 < (ttl 255) icmp unreachable host_unreachable [0:0(0)]
+> +   +0 %{ assert tcpi_state =3D=3D TCP_CLOSE }%
+> +   +0 getsockopt(3, SOL_SOCKET, SO_ERROR, [EHOSTUNREACH], [4]) =3D 0
+> +   +0 close(3) =3D 0
+> +
+> +// Test 3: Listener with IP_MINTTL (21) checks TTL before reqsk handling
+> +// An incoming fatal ICMP with outer TTL < min_ttl (255) must not abort =
+TCP_NEW_SYN_RECV,
+> +// while outer TTL >=3D min_ttl (255) must abort it.
+> +   +0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) =3D 0
+> +   +0 setsockopt(3, SOL_IP, 21, [255], 4) =3D 0
+> +   +0 bind(3, ..., ...) =3D 0
+> +   +0 listen(3, 10) =3D 0
+> +   +0 < (ttl 255) S 0:0(0) win 65535 <mss 1460,nop,nop,sackOK>
+> +   +0 > (ttl 64) S. 0:0(0) ack 1 <...>
+> +   // Outer TTL 10 < min_ttl (255): dropped, reqsk survives
+> +   +0 < (ttl 10) icmp unreachable port_unreachable [0:0(0)]
+> +   +1 > (ttl 64) S. 0:0(0) ack 1 <...>
+> +   // Outer TTL 255 >=3D min_ttl (255): accepted, fatal ICMP aborts reqs=
+k
+> +   +0 < (ttl 255) icmp unreachable port_unreachable [0:0(0)]
+> +   +0 < (ttl 255) . 1:1(0) ack 1 win 65535
+> +   +0 > R 1:1(0)
+> +   +0 close(3) =3D 0
+> +
+> +// Test 4: Server in TCP_NEW_SYN_RECV does not abort on soft errors but =
+aborts on fatal error
+> +   +0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) =3D 0
+> +   +0 bind(3, ..., ...) =3D 0
+> +   +0 listen(3, 10) =3D 0
+> +   +0 < S 0:0(0) win 65535 <mss 1460,nop,nop,sackOK>
+> +   +0 > S. 0:0(0) ack 1 <...>
+> +   // 4a: Soft errors must not abort reqsk
+> +   +0 < icmp unreachable host_unreachable [0:0(0)]
+> +   +0 < icmp unreachable net_unreachable [0:0(0)]
+> +   +0 < icmp time_exceeded [0:0(0)]
+> +   +0 < icmp parameter_problem [0:0(0)]
+> +   +1 > S. 0:0(0) ack 1 <...>
+> +   // 4b: Fatal error (port_unreachable) must abort reqsk
+> +   +0 < icmp unreachable port_unreachable [0:0(0)]
+> +   // Remote sends 3rd ACK: listener responds with RST because reqsk was=
+ aborted
+> +   +0 < . 1:1(0) ack 1 win 65535
+> +   +0 > R 1:1(0)
+> +   +0 close(3) =3D 0
+> +
+> +// Test 5: Socket with IP_PMTUDISC_INTERFACE ignores ICMP_FRAG_NEEDED
+> +// Socket configured with IP_PMTUDISC_INTERFACE (4) must not overwrite M=
+TU
+> +// upon receiving ICMP_DEST_UNREACH with code ICMP_FRAG_NEEDED.
+> +   +0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) =3D 0
+> +   +0 bind(3, ..., ...) =3D 0
+> +   +0 listen(3, 1) =3D 0
+> +   +0 < S 0:0(0) win 65535 <mss 1460,sackOK,nop,nop,nop,wscale 8>
+> +   +0 > S. 0:0(0) ack 1 <...>
+> +   +0 < . 1:1(0) ack 1 win 257
+> +   +0 accept(3, ..., ...) =3D 4
+> +   +0 setsockopt(4, SOL_IP, IP_MTU_DISCOVER, [4], 4) =3D 0
+> +   +0 getsockopt(4, SOL_IP, IP_MTU, [1500], [4]) =3D 0
+> +   +0 write(4, ..., 1000) =3D 1000
+> +   +0 > P. 1:1001(1000) ack 1 <...>
+> +   +0 < icmp unreachable frag_needed mtu 1200 [1:1001(1000)]
+> +   +0 getsockopt(4, SOL_IP, IP_MTU, [1500], [4]) =3D 0
+> +   +0 close(4) =3D 0
+> +   +0 close(3) =3D 0
+> diff --git a/tools/testing/selftests/net/packetdrill/tcp_icmp_ipv6.pkt b/=
+tools/testing/selftests/net/packetdrill/tcp_icmp_ipv6.pkt
+> new file mode 100644
+> index 000000000000..bd0cc365a088
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/packetdrill/tcp_icmp_ipv6.pkt
+> @@ -0,0 +1,111 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +--ip_version=3Dipv6
+> +
+> +`./defaults.sh`
+> +
+> +// Test 1: Client in TCP_SYN_SENT rejects ICMPv6 quoting seq =3D=3D snd_=
+nxt (RFC 5927 4.1)
+> +// In SYN_SENT, SND.UNA =3D ISN, SND.NXT =3D ISN + 1.
+> +// The sequence number in ICMP must satisfy SND.UNA <=3D SEG.SEQ < SND.N=
+XT.
+> +// An ICMP message quoting seq =3D=3D 1 (snd_nxt) must be dropped, while=
+ seq =3D=3D 0 (snd_una) aborts.
+> +    0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+> +   +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) =3D 0
+> +   +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress=
+)
+> +   +0 > S 0:0(0) <...>
+> +   // Out-of-window ICMPv6 quoting seq =3D=3D 1 (snd_nxt) must be droppe=
+d
+> +   +0 < icmp unreachable address_unreachable [1:1(0)]
+> +   // Socket stays in TCP_SYN_SENT, so SYN retransmission occurs after 1=
+s
+> +   +1 > S 0:0(0) <...>
+> +   // In-window ICMPv6 quoting seq =3D=3D 0 (snd_una) is accepted and ab=
+orts connection
+> +   +0 < icmp unreachable address_unreachable [0:0(0)]
+> +   +0 %{ assert tcpi_state =3D=3D TCP_CLOSE }%
+> +   +0 getsockopt(3, SOL_SOCKET, SO_ERROR, [EHOSTUNREACH], [4]) =3D 0
+> +   +0 close(3) =3D 0
+> +
+> +// Test 2: Client with IPV6_MINHOPCOUNT (73) checks outer IPv6 hop_limit=
+ in tcp_v6_err()
+> +// An ICMPv6 with outer hop_limit < min_hopcount (250) must be dropped, =
+while outer
+> +// hop_limit >=3D min_hopcount must be accepted even though the quoted i=
+nner hop_limit is 64.
+> +   +0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_IPV6, 73, [250], 4) =3D 0
+> +   +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) =3D 0
+> +   +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress=
+)
+> +   +0 > S 0:0(0) <...>
+> +   // Outer hop_limit 10 < min_hopcount (250): dropped, socket stays in =
+TCP_SYN_SENT
+> +   +0 < (ttl 10) icmp unreachable address_unreachable [0:0(0)]
+> +   +1 > S 0:0(0) <...>
+> +   // Outer hop_limit 255 >=3D min_hopcount (250): accepted, socket abor=
+ts
+> +   +0 < (ttl 255) icmp unreachable address_unreachable [0:0(0)]
+> +   +0 %{ assert tcpi_state =3D=3D TCP_CLOSE }%
+> +   +0 getsockopt(3, SOL_SOCKET, SO_ERROR, [EHOSTUNREACH], [4]) =3D 0
+> +   +0 close(3) =3D 0
+> +
+> +// Test 3: Listener with IPV6_MINHOPCOUNT (73) checks hop_limit before r=
+eqsk handling
+> +// An incoming fatal ICMPv6 with outer hop_limit < min_hopcount (255) mu=
+st not abort
+> +// TCP_NEW_SYN_RECV, while outer hop_limit >=3D min_hopcount (255) must =
+abort it.
+> +   +0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) =3D 0
+> +   +0 setsockopt(3, SOL_IPV6, 73, [255], 4) =3D 0
+> +   +0 bind(3, ..., ...) =3D 0
+> +   +0 listen(3, 10) =3D 0
+> +   +0 < (ttl 255) S 0:0(0) win 65535 <mss 1440,nop,nop,sackOK>
+> +   +0 > (ttl 64) S. 0:0(0) ack 1 <...>
+> +   // Outer hop_limit 10 < min_hopcount (255): dropped, reqsk survives
+> +   +0 < (ttl 10) icmp unreachable port_unreachable [0:0(0)]
+> +   +1 > (ttl 64) S. 0:0(0) ack 1 <...>
+> +   // Outer hop_limit 255 >=3D min_hopcount (255): accepted, fatal ICMPv=
+6 aborts reqsk
+> +   +0 < (ttl 255) icmp unreachable port_unreachable [0:0(0)]
+> +   +0 < (ttl 255) . 1:1(0) ack 1 win 65535
+> +   +0 > R 1:1(0)
+> +   +0 close(3) =3D 0
+> +
+> +// Test 4: Server in TCP_NEW_SYN_RECV does not abort on soft error or
+> +// non-UNK_NEXTHDR ICMPV6_PARAMPROB, but aborts on fatal error or
+> +// ICMPV6_UNK_NEXTHDR.
+> +   +0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) =3D 0
+> +   +0 bind(3, ..., ...) =3D 0
+> +   +0 listen(3, 10) =3D 0
+> +   +0 < S 0:0(0) win 65535 <mss 1440,nop,nop,sackOK>
+> +   +0 > S. 0:0(0) ack 1 <...>
+> +   // 4a: Soft error (address_unreachable) must not abort reqsk
+> +   +0 < icmp unreachable address_unreachable [0:0(0)]
+> +   +1 > S. 0:0(0) ack 1 <...>
+> +   // 4b: Non-UNK_NEXTHDR parameter problem (header_field) must not abor=
+t reqsk
+> +   +0 < icmp parameter_problem header_field [0:0(0)]
+> +   +2 > S. 0:0(0) ack 1 <...>
+> +   // 4c: ICMPV6_UNK_NEXTHDR parameter problem (unknown_next_header) mus=
+t abort reqsk
+> +   +0 < icmp parameter_problem unknown_next_header [0:0(0)]
+> +   // Remote sends 3rd ACK: listener responds with RST because reqsk was=
+ aborted
+> +   +0 < . 1:1(0) ack 1 win 65535
+> +   +0 > R 1:1(0)
+> +   +0 close(3) =3D 0
+> +   // 4d: Fatal unreachable error (port_unreachable) must abort reqsk
+> +   +0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) =3D 0
+> +   +0 bind(3, ..., ...) =3D 0
+> +   +0 listen(3, 10) =3D 0
+> +   +0 < S 0:0(0) win 65535 <mss 1440,nop,nop,sackOK>
+> +   +0 > S. 0:0(0) ack 1 <...>
+> +   +0 < icmp unreachable port_unreachable [0:0(0)]
+> +   +0 < . 1:1(0) ack 1 win 65535
+> +   +0 > R 1:1(0)
+> +   +0 close(3) =3D 0
+> +
+> +// Test 5: Socket with IPV6_PMTUDISC_INTERFACE ignores ICMPV6_PKT_TOOBIG
+> +// Socket configured with IPV6_PMTUDISC_INTERFACE (4) must not overwrite=
+ MTU
+> +// upon receiving ICMPV6_PKT_TOOBIG.
+> +   +0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
+> +   +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) =3D 0
+> +   +0 bind(3, ..., ...) =3D 0
+> +   +0 listen(3, 1) =3D 0
+> +   +0 < S 0:0(0) win 65535 <mss 1440,sackOK,nop,nop,nop,wscale 8>
+> +   +0 > S. 0:0(0) ack 1 <...>
+> +   +0 < . 1:1(0) ack 1 win 257
+> +   +0 accept(3, ..., ...) =3D 4
+> +   +0 setsockopt(4, SOL_IPV6, IPV6_MTU_DISCOVER, [4], 4) =3D 0
+> +   +0 getsockopt(4, SOL_IPV6, IPV6_MTU, [1520], [4]) =3D 0
+> +   +0 write(4, ..., 1000) =3D 1000
+> +   +0 > P. 1:1001(1000) ack 1 <...>
+> +   +0 < icmp packet_too_big mtu 1280 [1:1001(1000)]
+> +   +0 getsockopt(4, SOL_IPV6, IPV6_MTU, [1520], [4]) =3D 0
+> +   +0 close(4) =3D 0
+> +   +0 close(3) =3D 0
+> --
+> 2.56.0.679.gc527c65306-goog
+>
