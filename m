@@ -1,83 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794948008;
-	b=vl8eYFm/ZAZMT5ersH3/Af86lhS/dK4jMl6A2/fyV6s1SvGlzFiNQ3FQRUiCgTxNn/f/
-	 AMmVXxnoR3WBChzRrg77Lx1kxRGBjEhfXPH/O8TJoq6JzzUNH2vFa/T3hFaIzIlczEAYH
-	 g0hCO3VKNsz2LUOQa5VIDZlf/SFIpxvL/ljXQwCFnY/yQiNtmrhBNAqYbCcK126xHKkIl
-	 X07xTFGE3ZSWv9INZ+tzIvPvYOxUw5JW2STg0XTvMAtqsbuoJroNudJU7/O6i8B7dzwcB
-	 3r/hXr7a6khSQU4SSOXIKUhyCgvykWKTOTTu2LU96E6Hn9jVadq2XuoBvoNtV14PvWw==
+	t=1794948583;
+	b=bxilC4SfBRUOl4f3OuHpqI3k5R2DwWmte86biBG40wYdtlz6s9a0u1VoDAMGvv0yFZ6d
+	 7TOesngBmGk9hbU20jpHWd5I8PfzOTQUojZoO29//K8wFWqHV0+s0vTSsijLwuk3MWSVs
+	 r18umAHCpeeD4RxhwHlCUfa7i7qFJHAm+DwgriWgEWZAjddfUKoWbHDafuBBmXF1FngMJ
+	 bzqIh5yfy6e6eVqrSVZb0zSzlqmf9Zcov+nHR3VntjaqOVa6YKL6fVwrLjnUAoV7ghIlD
+	 dmff/4kdO350LFZWiGFRsy9RWdZq8TdSZyQK+S8bxd3g6Xj3tfYFpIuhZzAKRF7lA1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794948008;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:From:To:Cc:
-	 Subject:X-Mailer:References:In-Reply-To;
-	bh=+zkjXBeMkEDc7QufXqaSGB6NEDq0WBn2vnhWa4XM0nU=;
-	b=p3zb6R+m3/pvJP/Zig2aGPWctt3iQbGPpO2nxMlxtrS8Rc7RMX8XtizfgBkAroyDvoEY
-	 QNGACMRxWxy/sIqYPd+11soTLJBnjHETdKdFTkbFPmDlRt85etNarE26q+sNCjqDkUHZB
-	 rwQSs4/5x0s93T5LJF+nIOOA+Xxxx/8sU2b8PiBBvpnI/DpA8QJX9BM5Ht7He3hejvdQe
-	 j/pJn0iifQRvddb9vqIPnMqB0ZOyC773fIt/CrzuTaCjoDDBWHeB+gfD8pLigt+Ym0QUa
-	 q091NJE0n2KYLfapbxaXFyKXt9/NHx87iIptCzMbNzCFKYEWCuEy9cquJd67aH+Desw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794948583;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=NUlEEEDBCi1bmyvHfQ+uHqyviSTkLqSCmjkjTwlp/4E=;
+	b=uFHlToUlZtN2MidU5X2ze28iMbFXovh8CeyO+4rjm0gxY93joRBCQB/bV1k2WZ6L4qCk
+	 o5L15iembnIwH4J79kkdlCUzvSQz9mtr8Mps8S+im1tMlnRtNcGhXwAczgoPeKB7lrV7z
+	 uAve8lfJQ9sj+qTum08GO15bixKcf65X7dSoBJ4wbyHLaGA7YLg2I3f/CSelt+IKFnovI
+	 fF76+L1cM5J5sW0rKuCtJC0dtd5BeVAMjZwXSDKpkK/TLgiwqLgcXrIzBmXDf1cSNmRTH
+	 MejuuBKB6rfhzQOi/L2w/uXMtqIdEmjEdensl5wJ8XZuQb04uKtCrdw4f067ajuRtDQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wQiTHEmc;
-	arc=none smtp.remote-ip=209.85.219.52
-Received: from mail-qv1-f52.google.com (mail-qv1-f52.google.com [209.85.219.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6AB9D606A32C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 20:40:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6AB9D606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=CgBaa5QG;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3E3DF606A332;
+	Tue, 17 Nov 2026 20:49:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E3DF606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wQiTHEmc
-Received: by mail-qv1-f52.google.com with SMTP id 6a1803df08f44-92106d5371dso1474656d6.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 12:40:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794948007; x=1795552807; darn=vger.kernel.org;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=+zkjXBeMkEDc7QufXqaSGB6NEDq0WBn2vnhWa4XM0nU=;
-        b=wQiTHEmcLJ1w5dl8W2ZrpxnxgBRRFkilfGpWObOByVV4ZYPw/L+jCRd1Scet6nixi/
-         YeuzcfJncBd63FE+zpAuuNmoyZKqAb65YnbzZMsWF/qZ4QNZvRpkwhDzXo8Tx0BaUefL
-         e7fKeoW+QD8YekVedo20sv8Qve0pX2hmS+p9KBznLxnZXk/Oco2p06XjUYBVeTelSg92
-         lWIeUbfDatuFMCbU40OQKvqQLmnN47Md6n+LyaRYhZUEYj0JjmKo6o394rvpJ5XUqNmC
-         vk5KDIcarGarUX9DogDTjL+kNjq18fEh+H/j16Xtr5IIQKDf1Hnry0JHY5tKID/GOIkW
-         xzgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794948007; x=1795552807;
-        h=in-reply-to:references:subject:cc:to:from:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=+zkjXBeMkEDc7QufXqaSGB6NEDq0WBn2vnhWa4XM0nU=;
-        b=Z9SlEUkyGLx/0EJCV22eXQouortHKQKflRf+XC9H3ZWe8USNZyKHVx7DWQo1N5UNXY
-         BkHJYW5jl2qBltm4fzbQ5i6kKbTa7Em9xB1tS1Va7SCbcJ+YskqjDTUDv2ZEdqJbbHtO
-         2qdTWUAxK6FWO41zVIrQqS+Tx+qclaEkK92uIiP2Y8xYPHWUlBUev7/YQS9B8qeg0GYw
-         oubziXaBNzGiEmHY07F4I9Y/2NmI48Vlzlm/3fM0f/fvKkV/wydRNJptF0M3IqzIIAUQ
-         y3j3rE814+4f6b86Tas8uP9gQzkgLyoFbyNuCaRQORn8egmiltKunekV7mBkPAcZfM/3
-         X8Eg==
-X-Gm-Message-State: APuU4Z9SJYviIcRWuroV/GXFXSEgB1FLummlexaqQexSeGf2o1L6iytn
-	ZvBPf9ZiuphwSqYyJyB/dlWJhZgQsN5W4iNLkC0bApweg9brwCy/1hMv
-X-Gm-Gg: AZFdTZeR6jRUpFtamwKUO3uDubU95CoDnIYvusYIVIYm3hVKnouzIupg3cL75+I7hMC
-	4/eEDyqs936sy9n1duPYZWtJydVbocgD/LtwWuPnu5IAohjq+rsVpsyJODa+6z2U1AUpNQEPmCc
-	gzMe6Kt9P+Osg66A9tdMP+Q480JDYOFRXoNE7abX1Rcb/4zmJfGDuselJx3STo9o7TJoMr4zq5z
-	nm0XzhDfKoN+UHNkApObAbXdPd+VY7yNtMQmIqCgTcLp3tuOCwKuv0mVd5GpkFXyKiLP2ryQoAj
-	/3Vqi2zX6QKp/8v+OVOkZX3SwfGQQkJ6vDzdKYMZ8SJKGyh1MlTE480BMeutEkSdZeb9gOqI2kD
-	vfXIFCyxK7QjBoahtCu+YRiD2B4rnbqTlGxX+gpu1lB3lGQ8UCyw9hMzYACuHhl6546duxRfF++
-	K+Js/hd9pgwYpAVewwqbp8pPbR9fq8h5YlEZAYMRoe7rH77y3rqGYQWoACwFEu9fqvXqoEqXbQW
-	oKf8RyQ4xuprJj92jSS0gbI2sgCc9v4exRdwx78ue7Qs3ml1iCiV0d1CIbVocaxauXv1kEiP6w2
-	8KD2ne0sJG3R94Hm6dc4y3VY0bv2r95zPg==
-X-Received: by 2002:a05:6214:449e:b0:917:8c2d:4283 with SMTP id 6a1803df08f44-920fd36e10bmr57938796d6.22.1794948007115;
-        Tue, 17 Nov 2026 12:40:07 -0800 (PST)
-Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114db5db5sm2876646d6.43.2026.11.17.12.40.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 12:40:06 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=CgBaa5QG
+Received: by linux.microsoft.com (Postfix, from userid 1216)
+	id 6AF4420B7169; Tue, 17 Nov 2026 12:49:42 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6AF4420B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1794948582;
+	bh=NUlEEEDBCi1bmyvHfQ+uHqyviSTkLqSCmjkjTwlp/4E=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CgBaa5QGQtOh/TcWsiMX82jOM3XZr32kyyK4Ir6OTclO7GpkHXDk1W7m8F+isOUiy
+	 g79hBs7fQCC6x9TtpqQqFZbm6JuEaw1QUDPZ+fY8fs+ofAqDhYF9d3POLONrHyxBs7
+	 wCCqixEn2QxJ1gVR5lYxZHd89w6zD3jY5zuK3PQM=
+Date: Tue, 17 Nov 2026 15:49:42 -0500
+From: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+To: Haiyang Zhang <haiyangz@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, netdev@vger.kernel.org,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Wei Hu <weh@microsoft.com>,
+	Konstantin Taranov <kotaranov@microsoft.com>,
+	Simon Horman <horms@kernel.org>, Long Li <longli@microsoft.com>,
+	Erni Sri Satya Vennela <ernis@linux.microsoft.com>,
+	Aditya Garg <gargaditya@linux.microsoft.com>,
+	Dipayaan Roy <dipayanroy@linux.microsoft.com>,
+	Manish Awasthi <mawasthi@linux.microsoft.com>,
+	Breno Leitao <leitao@debian.org>, linux-kernel@vger.kernel.org,
+	linux-rdma@vger.kernel.org, paulros@microsoft.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH net] net: mana: Set 1 usec / 1 comp as default and
+ minimum interrupt moderation
+Message-ID: <avy95r1UiCvvgRjD@linuxonhyperv3.guj3yctzbm1etfxqx2vob5hsef.xx.internal.cloudapp.net>
+References: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,114 +72,298 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 17 Nov 2026 15:40:02 -0500
-Message-Id: <DMXRYOOJPIXS.1DIGZP64RMRLW@gmail.com>
-From: "Daniel Zahka" <daniel.zahka@gmail.com>
-To: "Stan Iliev" <stani@google.com>, "Tony Nguyen"
- <anthony.l.nguyen@intel.com>, "Przemek Kitszel"
- <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, "Andrew Lunn" <andrew+netdev@lunn.ch>,
- <intel-wired-lan@lists.osuosl.org>
-Cc: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, "David
- Decotigny" <decot@google.com>, "Madhu Chittim" <madhu.chittim@intel.com>,
- "Emil Tantilov" <emil.s.tantilov@intel.com>, "Sridhar Samudrala"
- <sridhar.samudrala@intel.com>, "Brian Vazquez" <brianvv@google.com>, "Li
- Li" <boolli@google.com>, "Alexander Lobakin"
- <aleksander.lobakin@intel.com>, "Daniel Zahka" <daniel.zahka@gmail.com>,
- "Willem de Bruijn" <willemdebruijn.kernel@gmail.com>, "Kees Cook"
- <kees@kernel.org>, "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- <linux-hardening@vger.kernel.org>
-Subject: Re: [PATCH iwl-next 07/15] idpf: psp: add support for fips
- compliance status
-X-Mailer: aerc 0.21.0-threadmapfix
-References: <20261117145522.1910636-1-stani@google.com>
- <20261117145522.1910636-8-stani@google.com>
-In-Reply-To: <20261117145522.1910636-8-stani@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261113204427.1922848-1-haiyangz@linux.microsoft.com>
 
-On Tue Nov 17, 2026 at 9:55 AM EST, Stan Iliev wrote:
-> Add support for querying the FIPS compliance status of the crypto
-> offload:
-> - Introduce VIRTCHNL2_OP_GET_FIPS_COMPLIANCE_STATUS (567) and
->   struct virtchnl2_get_fips_compliance_status_resp.
-> - Implement idpf_send_get_fips_compliance_status(), called from
->   idpf_psp_init(), which logs the status as
->   "compliant@cmvp_cert_<a>_and_<b>" or "noncompliant". The status is
->   informational only: failing to read it doesn't disable PSP.
->
-> Signed-off-by: Stan Iliev <stani@google.com>
+On Fri, Nov 13, 2026 at 12:44:04PM -0800, Haiyang Zhang wrote:
+> From: Haiyang Zhang <haiyangz@microsoft.com>
+> 
+> The existing code sets interrupt moderation defaults to 0 usec and 0
+> completions, which may cause CQ starvation of our NIC HW, and TX time
+> out error like:
+> mana 7870:00:00.0 ens1: NETDEV WATCHDOG: CPU: 14: transmit queue 4 timed out 63434 ms
+> 
+> To fix, change the default and minimal rx/tx usecs and frames to 1.
+> When the HW supports interrupt moderation, reject ethtool rx/tx usecs
+> and frames below 1.
+> Also clamp the values written by mana_gd_ring_dim() to [1, max], so
+> no caller, including the DIM work, programs a zero value.
+> On the HW without interrupt moderation support, do not request CQ
+> moderation, the usecs and frames stay at 0, and cannot be modified by
+> ethtool.
+> The PF capability is queried again when the device resumes from a
+> reset or suspend, so re-initialize these settings before re-attaching
+> the vPorts.
+> 
+> Advertise this change to the PF with the new driver capability flag
+> GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: 433f482add31 ("net: mana: Add Interrupt Moderation support")
+> Signed-off-by: Haiyang Zhang <haiyangz@microsoft.com>
+
+Tested-by: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+Reviewed-by: Hamza Mahfooz <hamzamahfooz@linux.microsoft.com>
+
 > ---
-
-[...]
-
+>  .../net/ethernet/microsoft/mana/gdma_main.c   |  5 ++
+>  drivers/net/ethernet/microsoft/mana/mana_en.c | 76 +++++++++++++------
+>  .../ethernet/microsoft/mana/mana_ethtool.c    | 26 +++++--
+>  include/net/mana/gdma.h                       |  6 +-
+>  include/net/mana/mana.h                       |  9 ++-
+>  5 files changed, 88 insertions(+), 34 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/microsoft/mana/gdma_main.c b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> index ab942d5bfe05..10be69e97ceb 100644
+> --- a/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> +++ b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+> @@ -646,6 +646,11 @@ void mana_gd_ring_dim(struct gdma_queue *cq, u32 mod_usec, bool mod_usec_vld,
+>  	struct gdma_context *gc = cq->gdma_dev->gdma_context;
+>  	u32 dim_val;
+>  
+> +	mod_usec = clamp_t(u32, mod_usec, MANA_INTR_MODR_USEC_MIN,
+> +			   MANA_INTR_MODR_USEC_MAX);
+> +	mod_comps = clamp_t(u32, mod_comps, MANA_INTR_MODR_COMP_MIN,
+> +			    MANA_INTR_MODR_COMP_MAX);
 > +
-> +/**
-> + * idpf_send_get_fips_compliance_status - Get the FIPS compliance status
-> + * @adapter: Driver specific private structure
-> + *
-> + * Query the FIPS compliance status of the crypto offload with
-> + * VIRTCHNL2_OP_GET_FIPS_COMPLIANCE_STATUS and log it in the legacy
-> + * "compliant@cmvp_cert_<a>_and_<b>" form, or as "noncompliant".
-> + *
-> + * Return: 0 on success, negative on failure.
+>  	/* Convert the DIM values to doorbell parameters */
+>  	dim_val = FIELD_PREP(MANA_INTR_MODR_USEC_MAX, mod_usec) |
+>  		  FIELD_PREP(MANA_INTR_MODR_COMP_MASK, mod_comps);
+> diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
+> index 7e9223143fc7..95bf153c3e1a 100644
+> --- a/drivers/net/ethernet/microsoft/mana/mana_en.c
+> +++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
+> @@ -2515,9 +2515,6 @@ static void mana_rx_dim_work(struct work_struct *work)
+>  	cur_moder = net_dim_get_rx_moderation(dim->mode, dim->profile_ix);
+>  	cq = container_of(dim, struct mana_cq, dim);
+>  
+> -	cur_moder.usec = min_t(u16, cur_moder.usec, MANA_INTR_MODR_USEC_MAX);
+> -	cur_moder.pkts = min_t(u16, cur_moder.pkts, MANA_INTR_MODR_COMP_MAX);
+> -
+>  	mana_gd_ring_dim(cq->gdma_cq, cur_moder.usec, true,
+>  			 cur_moder.pkts, true);
+>  
+> @@ -2533,9 +2530,6 @@ static void mana_tx_dim_work(struct work_struct *work)
+>  	cur_moder = net_dim_get_tx_moderation(dim->mode, dim->profile_ix);
+>  	cq = container_of(dim, struct mana_cq, dim);
+>  
+> -	cur_moder.usec = min_t(u16, cur_moder.usec, MANA_INTR_MODR_USEC_MAX);
+> -	cur_moder.pkts = min_t(u16, cur_moder.pkts, MANA_INTR_MODR_COMP_MAX);
+> -
+>  	mana_gd_ring_dim(cq->gdma_cq, cur_moder.usec, true,
+>  			 cur_moder.pkts, true);
+>  
+> @@ -2871,10 +2865,15 @@ static int mana_create_txq(struct mana_port_context *apc,
+>  		cq_spec.modr_ctx_id = 0;
+>  		cq_spec.attached_eq = cq->gdma_cq->cq.parent->id;
+>  
+> -		/* DIM setting can be changed at runtime */
+> -		cq_spec.req_cq_moderation = true;
+> -		cq_spec.cq_moderation_usec = apc->intr_modr_tx_usec;
+> -		cq_spec.cq_moderation_comp = apc->intr_modr_tx_comp;
+> +		/* Request CQ moderation only if HW supports it.
+> +		 * DIM setting can be changed at runtime.
+> +		 */
+> +		if (gc->pf_cap_flags1 &
+> +		    GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> +			cq_spec.req_cq_moderation = true;
+> +			cq_spec.cq_moderation_usec = apc->intr_modr_tx_usec;
+> +			cq_spec.cq_moderation_comp = apc->intr_modr_tx_comp;
+> +		}
+>  
+>  		err = mana_create_wq_obj(apc, apc->port_handle, GDMA_SQ,
+>  					 &wq_spec, &cq_spec,
+> @@ -3206,10 +3205,14 @@ static struct mana_rxq *mana_create_rxq(struct mana_port_context *apc,
+>  	cq_spec.modr_ctx_id = 0;
+>  	cq_spec.attached_eq = cq->gdma_cq->cq.parent->id;
+>  
+> -	/* DIM setting can be changed at runtime */
+> -	cq_spec.req_cq_moderation = true;
+> -	cq_spec.cq_moderation_usec = apc->intr_modr_rx_usec;
+> -	cq_spec.cq_moderation_comp = apc->intr_modr_rx_comp;
+> +	/* Request CQ moderation only if HW supports it.
+> +	 * DIM setting can be changed at runtime.
+> +	 */
+> +	if (gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> +		cq_spec.req_cq_moderation = true;
+> +		cq_spec.cq_moderation_usec = apc->intr_modr_rx_usec;
+> +		cq_spec.cq_moderation_comp = apc->intr_modr_rx_comp;
+> +	}
+>  
+>  	err = mana_create_wq_obj(apc, apc->port_handle, GDMA_RQ,
+>  				 &wq_spec, &cq_spec, &rxq->rxobj);
+> @@ -3894,6 +3897,40 @@ int mana_detach(struct net_device *ndev, bool from_close)
+>  	return 0;
+>  }
+>  
+> +/* Match the interrupt moderation settings to the PF capability, which is
+> + * queried again when the device resumes from a reset or suspend. Must be
+> + * called before the queues are created.
 > + */
-> +int idpf_send_get_fips_compliance_status(struct idpf_adapter *adapter)
+> +static void mana_init_intr_modr(struct mana_port_context *apc)
 > +{
-> +	struct libie_ctlq_xn_send_params xn_params =3D {
-> +		.chnl_opcode	=3D VIRTCHNL2_OP_GET_FIPS_COMPLIANCE_STATUS,
-> +		.timeout_ms	=3D IDPF_VC_XN_DEFAULT_TIMEOUT_MSEC,
-> +	};
-> +	const struct virtchnl2_get_fips_compliance_status_resp *resp;
-> +	struct device *dev =3D &adapter->pdev->dev;
-> +	char status[128];
-> +	size_t reply_sz;
-> +	u32 num_certs;
-> +	int len, err;
-> +	/* The request has no payload, but libie can't send empty messages */
-> +	u8 dummy =3D 0;
-> +	u32 i;
+> +	struct gdma_context *gc = apc->ac->gdma_dev->gdma_context;
 > +
-> +	err =3D idpf_send_mb_msg(adapter, &xn_params, &dummy, sizeof(dummy));
-> +	if (err)
-> +		return err;
-> +
-> +	reply_sz =3D xn_params.recv_mem.iov_len;
-> +	resp =3D xn_params.recv_mem.iov_base;
-> +	if (reply_sz < sizeof(*resp)) {
-> +		err =3D -EIO;
-> +		goto release_rx;
+> +	if (!(gc->pf_cap_flags1 &
+> +	      GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION)) {
+> +		apc->intr_modr_rx_usec = 0;
+> +		apc->intr_modr_rx_comp = 0;
+> +		apc->intr_modr_tx_usec = 0;
+> +		apc->intr_modr_tx_comp = 0;
+> +		apc->rx_dim_enabled = false;
+> +		apc->tx_dim_enabled = false;
+> +		return;
 > +	}
 > +
-> +	num_certs =3D le32_to_cpu(resp->num_certs);
-> +	if (struct_size(resp, certs, num_certs) > reply_sz) {
-> +		err =3D -EIO;
-> +		goto release_rx;
-> +	}
+> +	/* Keep the current settings, unless they were never initialized
+> +	 * because the port was probed without the capability.
+> +	 */
+> +	if (apc->intr_modr_rx_usec && apc->intr_modr_rx_comp &&
+> +	    apc->intr_modr_tx_usec && apc->intr_modr_tx_comp)
+> +		return;
 > +
-> +	if (!num_certs) {
-> +		dev_info(dev, "PSP FIPS compliance: noncompliant\n");
-> +		goto release_rx;
-> +	}
-> +
-> +	len =3D scnprintf(status, sizeof(status), "compliant@cmvp_cert_");
-> +	for (i =3D 0; i < num_certs; i++)
-> +		len +=3D scnprintf(status + len, sizeof(status) - len, "%s%u",
-> +				 i ? "_and_" : "", le32_to_cpu(resp->certs[i]));
-> +	dev_info(dev, "PSP FIPS compliance: %s\n", status);
-> +
-
-You should think about exposing this with a netlink uapi instead of
-making userspace parse it from dmesg. Maybe PSP dev-get.
-
-I would also suggest moving this to a series after the PSP
-implementation. It doesn't make sense to have the PSP driver API
-implemented over the span of two separate series when stuff like this is
-in between.
-
-> +release_rx:
-> +	libie_ctlq_release_rx_buf(&xn_params.recv_mem);
-> +	return err;
+> +	apc->intr_modr_rx_usec = MANA_INTR_MODR_USEC_DEF;
+> +	apc->intr_modr_rx_comp = MANA_INTR_MODR_COMP_DEF;
+> +	apc->intr_modr_tx_usec = MANA_INTR_MODR_USEC_DEF;
+> +	apc->intr_modr_tx_comp = MANA_INTR_MODR_COMP_DEF;
+> +	apc->rx_dim_enabled = MANA_ADAPTIVE_RX_DEF;
+> +	apc->tx_dim_enabled = MANA_ADAPTIVE_TX_DEF;
 > +}
+> +
+>  static int mana_probe_port(struct mana_context *ac, int port_idx,
+>  			   struct net_device **ndev_storage)
+>  {
+> @@ -3924,15 +3961,7 @@ static int mana_probe_port(struct mana_context *ac, int port_idx,
+>  	apc->cqe_coalescing_enable = 0;
+>  	apc->cqe8_coalescing_enable = 0;
+>  
+> -	/* Initialize interrupt moderation settings if supported by HW */
+> -	if (gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION) {
+> -		apc->intr_modr_rx_usec = MANA_INTR_MODR_USEC_DEF;
+> -		apc->intr_modr_rx_comp = MANA_INTR_MODR_COMP_DEF;
+> -		apc->intr_modr_tx_usec = MANA_INTR_MODR_USEC_DEF;
+> -		apc->intr_modr_tx_comp = MANA_INTR_MODR_COMP_DEF;
+> -		apc->rx_dim_enabled = MANA_ADAPTIVE_RX_DEF;
+> -		apc->tx_dim_enabled = MANA_ADAPTIVE_TX_DEF;
+> -	}
+> +	mana_init_intr_modr(apc);
+>  
+>  	mutex_init(&apc->vport_mutex);
+>  	apc->vport_use_count = 0;
+> @@ -4256,6 +4285,7 @@ int mana_probe(struct gdma_dev *gd, bool resuming)
+>  			enable_work(&apc->queue_reset_work);
+>  			netdev_lock(ac->ports[i]);
+>  			apc->link_cfg_error = 1;
+> +			mana_init_intr_modr(apc);
+>  			netdev_unlock(ac->ports[i]);
+>  			err = mana_attach(ac->ports[i]);
+>  			rtnl_unlock();
+> diff --git a/drivers/net/ethernet/microsoft/mana/mana_ethtool.c b/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> index 4068e08acb16..96aabf7a8f08 100644
+> --- a/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> +++ b/drivers/net/ethernet/microsoft/mana/mana_ethtool.c
+> @@ -505,9 +505,12 @@ static int mana_set_coalesce(struct net_device *ndev,
+>  	bool dim_changed = false;
+>  	struct gdma_context *gc;
+>  	u32 max_cqe_frames;
+> +	bool modr_sup;
+>  	int err;
+>  
+>  	gc = apc->ac->gdma_dev->gdma_context;
+> +	modr_sup = gc->pf_cap_flags1 &
+> +		   GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION;
+>  	max_cqe_frames = gc->cqe8_coalescing_sup ? MANA_CQE_COAL_PKTS_8 :
+>  						   MANA_RXCOMP_OOB_NUM_PPI;
+>  
+> @@ -517,7 +520,7 @@ static int mana_set_coalesce(struct net_device *ndev,
+>  	if ((ec->use_adaptive_rx_coalesce || ec->use_adaptive_tx_coalesce ||
+>  	     ec->rx_coalesce_usecs || ec->tx_coalesce_usecs ||
+>  	     ec->rx_max_coalesced_frames || ec->tx_max_coalesced_frames) &&
+> -	    !(gc->pf_cap_flags1 & GDMA_PF_CAP_FLAG_1_DYN_INTERRUPT_MODERATION)) {
+> +	    !modr_sup) {
+>  		NL_SET_ERR_MSG(extack,
+>  			       "Interrupt Moderation is not supported by HW");
+>  		return -EOPNOTSUPP;
+> @@ -534,18 +537,27 @@ static int mana_set_coalesce(struct net_device *ndev,
+>  		return -EINVAL;
+>  	}
+>  
+> -	if (ec->rx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX ||
+> -	    ec->tx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX) {
+> +	/* Without the HW capability, only zero values pass the check above */
+> +	if (modr_sup &&
+> +	    (ec->rx_coalesce_usecs < MANA_INTR_MODR_USEC_MIN ||
+> +	     ec->tx_coalesce_usecs < MANA_INTR_MODR_USEC_MIN ||
+> +	     ec->rx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX ||
+> +	     ec->tx_coalesce_usecs > MANA_INTR_MODR_USEC_MAX)) {
+>  		NL_SET_ERR_MSG_FMT(extack,
+> -				   "coalesce usecs must be <= %lu",
+> +				   "coalesce usecs must be between %d and %lu",
+> +				   MANA_INTR_MODR_USEC_MIN,
+>  				   MANA_INTR_MODR_USEC_MAX);
+>  		return -EINVAL;
+>  	}
+>  
+> -	if (ec->rx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX ||
+> -	    ec->tx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX) {
+> +	if (modr_sup &&
+> +	    (ec->rx_max_coalesced_frames < MANA_INTR_MODR_COMP_MIN ||
+> +	     ec->tx_max_coalesced_frames < MANA_INTR_MODR_COMP_MIN ||
+> +	     ec->rx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX ||
+> +	     ec->tx_max_coalesced_frames > MANA_INTR_MODR_COMP_MAX)) {
+>  		NL_SET_ERR_MSG_FMT(extack,
+> -				   "coalesce frames must be <= %lu",
+> +				   "coalesce frames must be between %d and %lu",
+> +				   MANA_INTR_MODR_COMP_MIN,
+>  				   MANA_INTR_MODR_COMP_MAX);
+>  		return -EINVAL;
+>  	}
+> diff --git a/include/net/mana/gdma.h b/include/net/mana/gdma.h
+> index 29d152e18596..6191ddddc27f 100644
+> --- a/include/net/mana/gdma.h
+> +++ b/include/net/mana/gdma.h
+> @@ -776,6 +776,9 @@ enum {
+>  /* Driver supports handling throttled EQEs */
+>  #define GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE BIT_ULL(32)
+>  
+> +/* Enforce min 1 usec, 1 frames for Interrupt Moderation */
+> +#define GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE BIT_ULL(33)
+> +
+>  /* Capabilities in the PCI-only group below rely on dynamic MSI-X allocation
+>   * and on the servicing and reset paths reached through
+>   * mana_schedule_serv_work(). Transports that provide neither leave
+> @@ -801,7 +804,8 @@ enum {
+>  	 GDMA_DRV_CAP_FLAG_1_EQ_MSI_UNSHARE_MULTI_VPORT | \
+>  	 GDMA_DRV_CAP_FLAG_1_DYN_INTERRUPT_MODERATION | \
+>  	 GDMA_DRV_CAP_FLAG_1_NON_CONTIGUOUS_BUFFERS | \
+> -	 GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE)
+> +	 GDMA_DRV_CAP_FLAG_1_THROTTLED_EVENT_QUEUE | \
+> +	 GDMA_DRV_CAP_FLAG_1_SET_MIN_INTR_MOD_VALUE)
+>  
+>  #define GDMA_DRV_CAP_FLAGS2 0
+>  
+> diff --git a/include/net/mana/mana.h b/include/net/mana/mana.h
+> index 218d540bc994..84afc4199e87 100644
+> --- a/include/net/mana/mana.h
+> +++ b/include/net/mana/mana.h
+> @@ -74,9 +74,12 @@ enum mana_priv_flag_bits {
+>  /* 8-pkt mode packs up to 2 packets per PPI entry */
+>  #define MANA_CQE_COAL_PKTS_8 8
+>  
+> -/* Default/max interrupt moderation settings */
+> -#define MANA_INTR_MODR_USEC_DEF 0
+> -#define MANA_INTR_MODR_COMP_DEF 0
+> +/* Default/min interrupt moderation settings */
+> +#define MANA_INTR_MODR_USEC_DEF 1
+> +#define MANA_INTR_MODR_COMP_DEF 1
+> +
+> +#define MANA_INTR_MODR_USEC_MIN 1
+> +#define MANA_INTR_MODR_COMP_MIN 1
+>  
+>  #define MANA_ADAPTIVE_RX_DEF true
+>  #define MANA_ADAPTIVE_TX_DEF true
+> -- 
+> 2.53.0
+> 
