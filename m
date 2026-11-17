@@ -1,57 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794945567;
-	b=5mFzfNNHtSWFJLP+NU7IV+jdWsPwZP2DtE4QuW3M0sbtD5EMm8GS1uqaQeM4DAWeUorR
-	 7tOvHiVl2/cK2dIt5iU4FnZvpuXf1lOwWQejGqrw34tdOumnN2/2m7rLkYVAVFVodu10A
-	 N5GFUOT5YCy0AK4kBtITvGNoBFpw5sezz2cV9kwJFzsBMpmKdvKatSzfDuyqaGJpFrmsM
-	 yynHzwTG5HPbAIDEHntyilk6WeMKSn0WQ4IRJnETHQQW0c1W3okltBPfCW1qVfA7IdGT2
-	 h3xIcethtH027vitddC3GG6+FZgL1CeS0DJuly77+7QxXEdZeiku+DPsAeSTKgKJ8zg==
+	t=1794946318;
+	b=x1Jp7TdjT1MyaP1VOEYis2XUtArF67/QWHsCk8ZBuAul9fY1WvG6XgvAFy8X5GlcRJsP
+	 sT8inVroDRwDaPX7SgtSDV3XHLQwvGGBzMKlLNh3v84eStHfKEzvQFeTwgtXZeZ53KaAO
+	 O2ujdoi2JiYE0jASXGE6AQScUaexTYzvxwUuDh34uMUN8iM8tNdmc3AOqFgkWA9G2l3LN
+	 eiCxfbHBaV+doqmOW7fZYUUMWV41NxiDlnigno5V3OPglgs6py1WszB1bHJig9XP7yWky
+	 Pf3k16oI8iE0Xt5nSGEiOqAE8Tksv3kk9AxYtDkJ5NaJ4e2sEn+NBiQXRbH9ugb38Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794945567;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794946318;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=IQR3igTBNU7ZDEZUBg66UUtdh/DXmx8v8trPPrK13qs=;
-	b=LZm6DsP7HdM3E7o5luSblP+6P6X0/t/iPs+eSaZ9DeZxeQjy5dzKzHfwxp8P7zqYgR8V
-	 kqoOsai1WLJ5ZxLviHRyMH5bn5z+l58PRZlD8z72LJ4kB+NLRoGlwVek2l8DHOh2gWlT9
-	 QKvECMOYxFpfFwRH1zcmaKXS85VcF2UY5yjwOFK5DY1hTQAX2kdQ36I+mHRvwithMxG1U
-	 lb4f32fuJBXOtKSfl0vSnu5OXwX77yk8mx3QJW4r6bf1vvS+lgjqwowEatKR6z0ycujy2
-	 8RixUdr26z76pgLufRyBV2cjYWTNo4k05sJ3AWxsWQX9pt3N6xJ2FmogkWoApwFJuTg==
+	bh=0Xw7sicO49xx1e53p8DOzr3TxFtSjf8C10oK/0OkufU=;
+	b=u4MJ1OW97AOikRw6Zeb5QaEbzWrhHD4ZZHALNJb70fCcRtGElPbmoGgirt5HS5U7TfYT
+	 Ilj35G2CDzEtjpT124w0RNSASOjGG+cdjf1CqEc8KZh6kpVf/zxM5F1dZ5ZLdke77LoRC
+	 iYesNH6Dtc0bIjxChmo0z5qZnNWzKlWdRZcXd9OnSaVm38iLvkSEhFKDiI1q6+RIq6hG6
+	 GuFSrwrVUNiLyvo/mDNUR71GvwNsslSu+H5IaUDL1G8KMcAk4c+6Bg25tNWTtWVdbGl8w
+	 dCy/M5pazhQhUbyg7TUwCfpTVmuzS/OwPaY3rFYdc7+Y0woOkSRpJDQCl+K3hkNXa9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lLfQ75Qm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=leN1kErd;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF6AE606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:59:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F016606A32A;
+	Tue, 17 Nov 2026 20:11:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lLfQ75Qm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44F291F000C5;
-	Tue, 17 Nov 2026 19:59:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=leN1kErd
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C9E51F000C5;
+	Tue, 17 Nov 2026 20:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794945567;
-	bh=IQR3igTBNU7ZDEZUBg66UUtdh/DXmx8v8trPPrK13qs=;
+	s=k20260515; t=1794946318;
+	bh=0Xw7sicO49xx1e53p8DOzr3TxFtSjf8C10oK/0OkufU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lLfQ75QmVFWytUrhPBcecjg/6vm7k4rjunCVgK/Xzzo5Fbt8MRFu1cogsGN5I7X20
-	 dGw5EUkzkt/Dr77mNzDxgOuB0q7Edws1cmBQZGp9BYRq1A2EFnjWcRybUS6PCuYWJH
-	 gdgonkOvBqXO0BrjQfLKsWov0CrQ4U3hwbZAhCPbgLsVo2XbvY1whxXNzUfSG6fsAW
-	 Tca0dpL9slbhaP97SvSzG9dHsCSPEGaPDv6sSaQHTH7oSkFC6Sv2K4P2eDoulLHrtt
-	 +Yb/3ua67qnaFJz7c70ibv/ynRqFSzy+aRPd9y89B09bDQ3K/tN+uaaEUhZCkMMsrV
-	 prKPNeR5+fZDA==
-Subject: Re: [PATCH net-next v2] net/sched: em_text: pad the text pattern in
- the ematch dump
+	b=leN1kErd7AFeG7YXpOD96U2cg+fIBtINU274Mx04HZ/geophLs7lCkc8WQ9WrxJUc
+	 mODjQO/CCsESD4IxLhuD0SKgg7dWVxKkKkzpzKkXdmbhFpIVmYDoQFgaLkh5EutAr/
+	 2J0B3RsuLDlrGOYoWiiEbJ0mw8yik8wpToAaZBR3kRoLh7oTiOeyaBU1TrPEUbivIi
+	 bKfAFVTYJ+0vL6ccyZHNOmcRbcKV6qvDzZUQ6mdwZd2Rieg12IivDycdbeZjcPhJPB
+	 xRC4j8FCj/FLQhIAuJWH5qmOqQd9JcJxLgI2FrgwFEykKP8QYVMMmCUTPuKBlpLH9i
+	 /CA4uPtvuwI9A==
+Subject:
+ Re: [PATCH net] gve: fix checksum state and gso_segs of HW-GRO packets
 From: netdev-bot+sashiko@kernel.org
-To: victor@mojatatu.com
-Cc: netdev@vger.kernel.org, jiri@resnulli.us, jhs@mojatatu.com,
+To: joshwash@google.com
+Cc: netdev@vger.kernel.org, hramamurthy@google.com, andrew+netdev@lunn.ch,
  davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, sashiko-bot@kernel.org
-Date: Tue, 17 Nov 2026 19:59:26 +0000
-Message-ID: <179494556684.3136.3254895311432959761@kernel.org>
-In-Reply-To: <QDISC-7SHE.v2.r0.20261109072128-1@mojatatu.com>
-References: <QDISC-7SHE.v2.r0.20261109072128-1@mojatatu.com>
-X-sashiko-severity: Medium
+ jordanrhee@google.com, nktgrg@google.com, thostet@google.com,
+ willemb@google.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+ pkaligineedi@google.com
+Date: Tue, 17 Nov 2026 20:11:56 +0000
+Message-ID: <179494631679.3136.4477194401214815440@kernel.org>
+In-Reply-To: <20261113195553.2220562-1-joshwash@google.com>
+References: <20261113195553.2220562-1-joshwash@google.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,10 +66,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Critical: 0 · High: 1 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,160 +77,164 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message says "A padded text ematch is the same size
-  as the request that installed it ... Since the dump is no larger than…
-- [Low] The patch fixes a long-standing, user-visible netlink dump bug
-  but carries no Fixes: tag.
-- [Low] The commit message describes the impact as "the ematch list is
-  therefore misparsed", and its reproducer needs two text ematches.
+- [High] Regression: HW-GRO packets in VLAN-tagged TCP flows are now
+  dropped.
+- [Medium] For IPv6, gve_rx_complete_rsc() assumes TCP always starts
+  right after the fixed 40-byte header: `thoff = nhoff + sizeof(struct…
 
 --
 
-net/sched: em_text: pad the text pattern in the ematch dump
+gve: fix checksum state and gso_segs of HW-GRO packets
 
-This patch changes em_text_dump() to append the text pattern with
-nla_put_nohdr() instead of nla_append(). The pattern is now padded to a
-4-byte boundary, so the next ematch in the dump stays aligned. The commit
-message also argues that a padded dump can never be larger than the
-request that installed the filter.
+The patch makes gve_rx_complete_rsc() set the network and transport
+headers for HW-GRO packets. For packets the device verified, it also seeds
+th->check with the pseudo-header checksum and calls tcp_gro_complete() so
+the skb becomes CHECKSUM_PARTIAL. It also tells IPv4 from IPv6 by the
+EtherType instead of the device packet type, and computes gso_segs from
+the TCP payload length.
 
-Link: https://lore.kernel.org/netdev/e0f4776a-0457-4069-9f79-3c97de2a54d0@redhat.com/
+> diff --git a/drivers/net/ethernet/google/gve/gve_rx_dqo.c b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+> index 82ed5e48b00ab..58696d26c6986 100644
+> --- a/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+> +++ b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
 
-> This is a followup of commit 9c572a83037a ("net/sched: fix potential
-> stack infoleak in em_text_dump()") as reported by Sashiko.
+[ ... ]
 
-[Severity: Low]
-Should this patch have a Fixes: tag? Commit 9c572a83037a fixed a different
-issue: it zero-initialized conf to plug a stack infoleak. It did not
-introduce the misalignment.
-
-The unpadded append goes back to the original em_text implementation in
-d675c989ed2d ("[PKT_SCHED]: Packet classification based on textsearch
-(ematch)"):
-
-    RTA_PUT_NOHDR(skb, sizeof(conf), &conf);
-    RTA_APPEND(skb, conf.pattern_len, textsearch_get_pattern(tm->config));
-
-add93b610a4e ("[NET_SCHED]: Convert classifiers from rtnetlink to new
-netlink API") converted this directly to nla_put_nohdr() plus nla_append(),
-so the bug stayed in.
-
-Without something like:
-
-    Fixes: d675c989ed2d ("[PKT_SCHED]: Packet classification based on textsearch (ematch)")
-
-the stable tooling may not pick this up.
-
-> tcf_em_tree_dump() records the raw span as the ematch entry's nla_len and
-> then writes the next ematch's nlattr header at that unaligned tail.
-> Userspace walks the list with RTA_NEXT()/NLA_NEXT(), which rounds each
-> attribute length up to four bytes, so it looks for the next entry at an
-> aligned offset the kernel did not write.  The ematch list is therefore
-> misparsed as soon as a text ematch has a pattern length that is not a
-> multiple of four.
-
-[Severity: Low]
-Is the impact wider than the ematch list? em_text_dump() leaves the skb
-tail unaligned. tcf_em_tree_dump() then uses that raw tail for
-match_start->nla_len and for both nla_nest_end() calls.
-
-cls_basic_dump() and cls_cgroup_dump() close TCA_OPTIONS at the same
-unaligned tail and then write the action stats after it:
-
-net/sched/cls_basic.c:basic_dump() {
-    ...
-	if (nla_nest_end_safe(skb, nest) < 0)
-		goto nla_put_failure;
-
-	if (tcf_exts_dump_stats(skb, &f->exts) < 0)
-    ...
-}
-
-tcf_fill_node() then sets nlh->nlmsg_len = skb_tail_pointer(skb) - b,
-which is also unaligned. In a filter dump, the next filter's nlmsghdr from
-nlmsg_put() and the NLMSG_DONE from netlink_dump() go into the same skb at
-that unaligned offset.
-
-Userspace NLMSG_NEXT() steps by NLMSG_ALIGN(nlmsg_len), so every later
-message in that recv buffer is read from the wrong offset. This means a
-single text ematch with pattern_len % 4 != 0 can corrupt a whole tc filter
-show batch. The reproducer in the commit message, by contrast, uses two
-text ematches.
-
-Could the commit message describe this, so stable maintainers can judge
-backport priority?
-
-> diff --git a/net/sched/em_text.c b/net/sched/em_text.c
-> index bc45edb8c03bf..1e7b41e579e24 100644
-> --- a/net/sched/em_text.c
-> +++ b/net/sched/em_text.c
-> @@ -128,8 +128,8 @@ static int em_text_dump(struct sk_buff *skb, struct tcf_ematch *m)
+> @@ -1017,20 +1039,11 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
+>  	if (!rsc_seg_len)
+>  		return 0;
 >  
->  	if (nla_put_nohdr(skb, sizeof(conf), &conf) < 0)
->  		goto nla_put_failure;
-> -	if (nla_append(skb, conf.pattern_len,
-> -		       textsearch_get_pattern(tm->config)) < 0)
-> +	if (nla_put_nohdr(skb, conf.pattern_len,
-> +			  textsearch_get_pattern(tm->config)) < 0)
+> -	switch (ptype.l3_type) {
+> -	case GVE_L3_TYPE_IPV4:
+> -		shinfo->gso_type = SKB_GSO_TCPV4;
+> -		break;
+> -	case GVE_L3_TYPE_IPV6:
+> -		shinfo->gso_type = SKB_GSO_TCPV6;
+> -		break;
+> -	default:
+> -		return -EINVAL;
+> -	}
+> -
+
+[ ... ]
+
+> @@ -1049,10 +1061,35 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
+>  		skb_frag_off_add(frag, hdr_len);
+>  		skb->data_len -= hdr_len;
+>  		skb->tail += hdr_len;
+> +		/* napi_gro_frags() pulls the Ethernet header later. */
+> +		nhoff = ETH_HLEN;
+>  	}
+> +
+> +	skb_set_network_header(skb, nhoff);
+> +	proto = nhoff ? ((struct ethhdr *)skb->data)->h_proto : skb->protocol;
+> +	switch (proto) {
+> +	case htons(ETH_P_IP):
+> +		shinfo->gso_type = SKB_GSO_TCPV4;
+> +		thoff = nhoff + ip_hdrlen(skb);
+> +		break;
+> +	case htons(ETH_P_IPV6):
+> +		shinfo->gso_type = SKB_GSO_TCPV6;
+> +		thoff = nhoff + sizeof(struct ipv6hdr);
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+
+[Severity: High]
+Could this cause HW-GRO packets from VLAN-tagged TCP flows to be dropped?
+
+gve sets no NETIF_F_HW_VLAN_* features, and struct
+gve_rx_compl_desc_dqo has no VLAN tag field. A tagged frame therefore
+arrives here with h_proto (or the skb->protocol set by eth_type_trans())
+equal to ETH_P_8021Q or ETH_P_8021AD. That value hits the default case and
+returns -EINVAL. The error then ends up as a silent drop:
+
+gve_rx_poll_dqo()
+  gve_rx_complete_skb()
+    gve_rx_complete_rsc()
+      return -EINVAL;
+  gve_rx_free_skb(napi, rx);
+  rx->rx_desc_err_dropped_pkt++;
+
+Before this patch, gso_type came from ptype.l3_type, which does not depend
+on the L2 layout. These packets then went on to napi_gro_frags() or
+napi_gro_receive() and were delivered.
+
+The fixed nhoff of 0 or ETH_HLEN also assumes there is no tag. Adding the
+VLAN EtherTypes to this switch alone would leave the network and transport
+headers pointing at the tag instead of the IP and TCP headers.
+
+The commit message says:
+
+  "tell IPv4 from IPv6 by the EtherType, as qede and bnx2x do"
+
+Both of those drivers strip VLAN tags in hardware. For example, qede sets
+NETIF_F_HW_VLAN_CTAG_RX. Also, on an unknown protocol qede_gro_receive()
+only logs an error and still delivers the skb.
+
+Would it be better to keep using ptype.l3_type here? Or, for an
+unrecognized EtherType, deliver the skb without the fixup instead of
+returning -EINVAL? The patch is also tagged for stable, and the commit
+message does not mention this behavior change.
+
+> +	skb_set_transport_header(skb, thoff);
+> +
+>  	shinfo->gso_size = rsc_seg_len;
+> -	shinfo->gso_segs = rsc_segments;
+> +	shinfo->gso_segs = DIV_ROUND_UP(skb->len - thoff - tcp_hdrlen(skb),
+> +					rsc_seg_len);
+> +
+> +	if (!IS_ENABLED(CONFIG_INET) ||
+> +	    unlikely(skb->ip_summed != CHECKSUM_UNNECESSARY))
+> +		return 0;
+>  
+> +	gve_rx_fixup_gro_checksum(skb);
 
 [Severity: Medium]
-Does the size argument in the commit message hold when the request uses
-unaligned trailing lengths? The commit message says:
+For IPv6, is it safe to assume TCP always starts right after the fixed
+40-byte header?
 
-  Since the dump is no larger than the request, the padding cannot push the
-  dumped TCA_OPTIONS past U16_MAX.
+	case htons(ETH_P_IPV6):
+		shinfo->gso_type = SKB_GSO_TCPV6;
+		thoff = nhoff + sizeof(struct ipv6hdr);
 
-The kernel does not seem to require the request lengths to be 4-byte
-aligned. nla_ok() only checks that nla_len fits in the remaining length.
-So the last attribute at each nesting level can have an unaligned nla_len,
-including in tcf_em_tree_validate():
+Nothing checks that ipv6_hdr(skb)->nexthdr == IPPROTO_TCP, and
+desc->ipv6_ex_add is not checked here.
 
-    for (idx = 0; nla_ok(rt_match, list_len); idx++) {
+gve_rx_skb_csum() withholds CHECKSUM_UNNECESSARY only when ipv6_ex_add is
+set:
 
-and em_text_change() only checks:
+	} else if (ptype.l3_type == GVE_L3_TYPE_IPV6) {
+		/* Checksum should be skipped if this flag is set. */
+		if (unlikely(desc->ipv6_ex_add))
+			return;
+	}
 
-    if (len < sizeof(*conf) || len < (sizeof(*conf) + conf->pattern_len))
-        return -EINVAL;
+According to gve_desc_dqo.h, that bit only covers Destination Options and
+Routing headers. Suppose the device coalesces a TCP flow that carries, for
+example, a Hop-by-Hop header. The transport header would then land on the
+extension header, and tcp_hdrlen() would read a bogus doff, so gso_segs
+would be wrong.
 
-rtm_tca_policy does not validate TCA_OPTIONS at all, and cgroup_policy
-and em_policy only mark the nests as NLA_NESTED.
+gve_rx_fixup_gro_checksum() would then write the pseudo-header seed at
+thoff + 16. With an 8-byte Hop-by-Hop header, that offset is the upper
+half of the real ack_seq:
 
-A hand-built RTM_NEWTFILTER for cls_cgroup with exact, unpadded lengths
-appears to be accepted:
+	th->check = ~tcp_v6_check(len, &ipv6_hdr(skb)->saddr,
+				  &ipv6_hdr(skb)->daddr, 0);
 
-    TCA_OPTIONS                nla_len 65533
-      TCA_CGROUP_EMATCHES      nla_len 65529
-        TCA_EMATCH_TREE_HDR    nla_len 8
-        TCA_EMATCH_TREE_LIST   nla_len 65517
-          ematch               nla_len 65513 (data_len 65501 = 24 + 65477)
+tcp_gro_complete() would also set csum_start and csum_offset from the same
+wrong offset.
 
-Before this patch, that filter dumps back to an identical 65533-byte
-TCA_OPTIONS. With nla_put_nohdr(), the pattern now takes
-NLA_ALIGN(65477) = 65480 bytes, so the dumped sizes become:
+When ipv6_ex_add is set, the checksum write is skipped. The transport
+header and gso_segs are still set from the assumed offset, though. Before
+this patch, the RSC path did not read or write the TCP header.
 
-    ematch 65516, list 65520, TCA_CGROUP_EMATCHES 65532,
-    TCA_OPTIONS 65536
-
-The dump then fails:
-
-cls_cgroup_dump()
-  nla_nest_end_safe() -> -EMSGSIZE
-tcf_fill_node() -> -EMSGSIZE
-tfilter_notify_prep()
-    if (size > U16_MAX + NLMSG_GOODSIZE)
-        return ERR_PTR(-EMSGSIZE);
-
-After that, RTM_GETTFILTER for this filter always fails. The RTM_NEWTFILTER
-notification is never sent, and tfilter_del_notify() deletes the filter
-without a notification. Any pattern_len from 65477 to 65479 triggers this,
-and cls_basic has the same 56-byte overhead.
-
-Should em_text_change() reject a pattern_len whose padded size cannot be
-dumped? If not, the claim in the commit message should be corrected.
-
->  		goto nla_put_failure;
->  	return 0;
->
+The driver doesn't show whether the device's RSC engine ever coalesces
+IPv6 packets with extension headers. qede and bnx2x make the same
+fixed-offset assumption. If the device can do this, should the code check
+nexthdr, or skip the fixup when nexthdr is not IPPROTO_TCP?
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-7SHE.v2.r0.20261109072128-1%40mojatatu.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113195553.2220562-1-joshwash%40google.com
