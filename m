@@ -1,63 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.79.31.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794873553;
-	b=VLELEGRTm1fJkUuHlL802xzsWk+QdK4u7G368858bNukmuzv9qF0JLQuO4pDakkge/N6
-	 57XwS8m2tVxLo0/TfvcuRl9RKT5jNS3Ql+Wqq1+4rTpqgorjw4CLkShZry+OyVscPdNfr
-	 tveg+cP4px5fS16ripK/AltEHD66oAVwqNRNwms5Bj54r2NpqesdoMvAq+spZIPt45J0U
-	 mdG7omFeIFurlqYsPDT0w7BFOUeZaAXBBfDPbmc2j/nFAg77NpDbx1NMbBT3x6v15+D+/
-	 6teftVaWs12oXyZe6A/hlTnzfgk9CSXZCAA8JUCPXs2D/uNXDHY6N1o6jvO0EFPH9vg==
+	t=1794873608;
+	b=Ylt+m4tdzC36t2vW53Tah8pipAtP59/eT1CwTOV2kF1Ixbmb5oWg4iLjH+mdHT+us+0g
+	 dJEvJSDEhCaqhMf2cVD8YwjYjJEHBxrE4fuvtDflhqJP9rOIdQ5wW2gac56zg+4hiRB22
+	 EMJaAsIPiocnA4gGIE54/8PdVbjI750t1Isg7HrBwiCHsyOLlbglQ+08DJETLjK5bvaG+
+	 +fc+DkzTNvX+P1N4zkhBXnkow7tc7eExk5L8MNayTKsqIXsIqunJpFHw1DfKGWo+KFRJc
+	 AgWNGObDXkU1jzhMj0wjsW0uc/N3J/n2eKcEpL2uEIrQ26hxHq+Ks/ixNtAtENkE12A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794873553;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:X-GEOIP-COUNTRY:X-REAL-IP;
-	bh=nin7jykf+1qwPlDmJuey+0ddsoOn/N4Mltgp5tKoVP4=;
-	b=C/v/m1jowykCeTghLHE5K63AY/H/vjrGD8AMFC4BiACNbjoWdVd1KtEGVb5i+eqx5xMh
-	 q1U39vLmuSnaeBCJHQH24h11SobR4Zl9/g7KEghGSIN59ZCSiP1g8DfVUnp8AFHFyrhno
-	 cWPPH+xocNUluoyZACo7C3NTrqtDV2Tx7QVtuqUBahf+HWVWOE8U/8TVbSQhAAhDe/j2A
-	 jTGnwRgEK/3KaXI08Hxa2vY7G66ly+TzUPwRjNcEtFl4PLHOj8sTwiFelCAZ22Sr5BoAk
-	 JmXCKrQ48wIhZfBWwjWDePXYFKoO9yJrvWGS7/s0uUP745vwVIfYxO1e3InOZ+Gf1jw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794873608;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=Dq7TfMW/kTMuS8oCBTkJpQVA3goDLDWa4OsUOEaTQco=;
+	b=Xdc+QGAk1Va2TCyKBb+9eMITkYaaqiBs1Rxv2ETIsGdtkUPLHa12wXdEp8V06aQugi7p
+	 cKXFZp46g2IMS1MiCR5nFD08fzxRpwqTQ2ckQqDnGo2tDyQQhLDC7Jo03zD2L/34kNyYI
+	 hUXYr02STBuuilWIuRhzqK4Fx56krI4iPKUWnRf6Zkqviydu08iEzb2a8yQpv1tIOpaWE
+	 13GPd9Xd6UHJxYbbynYY9qEgiSHE0X/Vg6ZtF1gi40fEo9TJbe12ipt6aDvqu7/f84+3y
+	 cLEWvELTcW78VRajCvLWgWVzApY0C3GWrhtQC7HhzijmSLSGZS+lP8DQpdJv22agtHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=openservis.cz;
-	spf=pass smtp.mailfrom=openservis.cz;
-	dkim=pass header.d=openservis.cz header.i=@openservis.cz header.a=rsa-sha256 header.s=openservis header.b=AalfMdcp;
-	arc=none smtp.remote-ip=80.79.31.78
-Received: from s01.openservis.net (s01.openservis.net [80.79.31.78])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVwSCm4h;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3587606A31C
-	for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 23:59:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3587606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=openservis.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openservis.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1FA5606A33E;
+	Tue, 17 Nov 2026 00:00:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=openservis.cz header.i=@openservis.cz header.a=rsa-sha256 header.s=openservis header.b=AalfMdcp
-Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
-	(Authenticated sender: info@openservis.cz)
-	by s01.openservis.net (Postfix) with ESMTPSA id D4884214
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:59:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=openservis.cz;
-	s=openservis; t=1794873548;
-	h=from:from:reply-to:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:in-reply-to:in-reply-to:  references:references;
-	bh=nin7jykf+1qwPlDmJuey+0ddsoOn/N4Mltgp5tKoVP4=;
-	b=AalfMdcpjgwRnrXrFjIaFg/M0S2CtWwqzd/pOYOM9mGI70xKVDY45td0ap6w6rzP5gdLRo
-	iywUD00KnPbY2OejY98t3VuJmROktyRF7fr96XzYhxq5PCQx+3dXq1g8VTD+nPZxqK7s/f
-	uQrW793VqNVFPbKie65RhG4tnwEVH9MJgPZDKXp9aMdqjQek6OZtu4Mvw7bDOXFrbk4Q7J
-	Mc0Y4w2bAhpoAgi51h0ZvS1HMg8pQDaSiCQnSJP1YescI0AJsgQg2kIGDawh/mthf0Eixf
-	EVdyQPfcvElv3mg9i3NdkwuaN64NXaGFtRDMuFHqw51iYMgaEwJSmCOKm+Pw+w==
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-5363316fa0cso54295251cf.3
-        for <netdev@vger.kernel.org>; Mon, 16 Nov 2026 15:59:08 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGi7D1UGL3VUuo0Cj/uGHMMtpgVhzpQQDwXIeA4VjhiDPo9Ql7K5YGwLvV55Hi0kDsZSYwWvBY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8oI7C+HS7QBcBfUGszYbOnxQFxywIRmHWo+R5IAGsH7d3lGNFJ
-	q56gf3q6P51Wp4Pc/GuLlxH6x+5Q1FwG5mszxEMTl+yEo6uoKt9jXDO/CqI9z+iBjxyyNQEXYEo
-	5cEghT66TDSjeMQKQkgvFvy4bkgcC5yY=
-X-Received: by 2002:ac8:5f51:0:b0:535:2283:20a3 with SMTP id
- d75a77b69052e-55ac775f26bmr217181761cf.33.1794873547763; Mon, 16 Nov 2026
- 15:59:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVwSCm4h
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 895E71F000C6;
+	Tue, 17 Nov 2026 00:00:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794873608;
+	bh=Dq7TfMW/kTMuS8oCBTkJpQVA3goDLDWa4OsUOEaTQco=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=dVwSCm4hh8ESVga6NfzJuaB1Q/4uaT1n2QfKYEs9UpjNNlNmNrKlVW0oczcPChqcv
+	 8MTOkG8htzY/QlbHZyUDyYAE/1cBUw5r0GP2LQzkJzNstj3C0l8deHcFaqSF/Da7aN
+	 IBbBMMIQ+GvEJMiGiAbhongTndxegbJMotrl81WSjhccoZ4MG/AmQ9bldtbghOeUN5
+	 6zr/xYlyJ5VAYCpc7vwv5/7XLaPDGCFcn3IveMn5IJQKqT6JVKYbYHWT4FaliK6R6b
+	 mQ7zHbDC3Y7lctC9F98Jw/26jfV/ChYrvmAUZiNdJuvXFzMLpUCCzhsTeE0hFeUN7e
+	 HoU1BAHEfP8ew==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773A5391B061;
+	Tue, 17 Nov 2026 00:00:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,47 +53,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAFvzkdAXBNAWcHFNo6akAo63Wd8B_jvhkt=AEmuLR9fgPBEfGg@mail.gmail.com>
- <avuFkgYTcgaVISkg@strlen.de>
-In-Reply-To: <avuFkgYTcgaVISkg@strlen.de>
-Reply-To: info@openservis.cz
-From: "OpenServis.cz" <info@openservis.cz>
-Date: Tue, 17 Nov 2026 00:58:31 +0100
-X-Gmail-Original-Message-ID: <CAFvzkdD-y0XZ7v1Yi8WC8uVdJhg3qDuFQRzfd5qaikc9QZn6Tg@mail.gmail.com>
-X-Gm-Features: AclHuK_VQzfAeziU74sDSpTrMqHvPO1d76NDLas38q9C84hFt1lIf1I2KmLhkMY
-Message-ID: <CAFvzkdD-y0XZ7v1Yi8WC8uVdJhg3qDuFQRzfd5qaikc9QZn6Tg@mail.gmail.com>
-Subject: Re: [BUG] netfilter: synproxy: server ACK carries TSecr shifted
- twice, rejected by tcp_check_req() since v6.15
-To: fw@strlen.de
-Cc: netfilter-devel@vger.kernel.org, netdev@vger.kernel.org, 
-	coreteam@netfilter.org, pablo@netfilter.org, phil@nwl.cc, edumazet@kernel.org, 
-	ncardwell@google.com, kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, 
-	pabeni@redhat.com, horms@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-X-GEOIP-COUNTRY: US
-X-REAL-IP: 209.85.160.180
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v2] net: dcb: flush rewrite table on device
+ unregister
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179487360703.250117.8797539923887130473.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 00:00:07 +0000
+References: <20261112033622.40333-1-sunwenbo@cmss.chinamobile.com>
+In-Reply-To: <20261112033622.40333-1-sunwenbo@cmss.chinamobile.com>
+To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+Cc: daniel.machon@microchip.com, petrm@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ alazar@nvidia.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ 1342116488@qq.com
 
-Florian Westphal <fw@strlen.de> wrote:
-> Please try this patch:
->
-> netfilter: synproxy: fix double tsoff application in server ACK TSecr
+Hello:
 
-Thanks, this fixes it here, for both IPv4 and IPv6.
+This patch was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Mainline 141b164bbe18 (v7.4-rc3) without and with the patch, same lab
-script and rules as in the report, run in a QEMU/KVM guest, iptables
-v1.8.11 (nf_tables), 1000 sequential connections each. IPv6 goes to a
-listener on the SYNPROXY host itself (Docker userland proxy):
+On Thu, 12 Nov 2026 11:36:22 +0800 you wrote:
+> In dcbnl_flush_dev(), which is called upon NETDEV_UNREGISTER for net
+> devices with dcbnl_ops, only entries in dcb_app_list matching
+> dev->ifindex are freed. The entries in dcb_rewr_list added via
+> dcb_setrewr() are not flushed.
+> 
+> This causes a memory leak of struct dcb_app_type nodes in dcb_rewr_list
+> when a DCB-capable net device is unregistered, and leaves stale entries
+> in the global rewrite table that could inappropriately match if another
+> net device later reuses the same ifindex.
+> 
+> [...]
 
-- without the patch: TcpExtTSEcrRejected +1048 (IPv4) and +1016
-  (IPv6), 12 and 4 connections over 0.5 s (longest 1.69 s and
-  1.67 s), TcpExtTCPSynRetrans +12 and +4
-- with the patch: TcpExtTSEcrRejected +0 and +0, no connection over
-  0.5 s, TcpExtTCPSynRetrans +0 and +0
-- capture of one IPv4 connection with the patch: backend SYN-ACK
-  "TS val 153206942", ACK from SYNPROXY "TS ecr 153206942" (without
-  the patch 3776466496 vs. 3257743975, i.e. tsoff added twice)
+Here is the summary with links:
+  - [net-next,v2] net: dcb: flush rewrite table on device unregister
+    https://git.kernel.org/netdev/net/c/6836fa400109
 
-All other checks of the lab still pass.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Tested-by: Dominik Shaim Ulrich <info@openservis.cz>
+
