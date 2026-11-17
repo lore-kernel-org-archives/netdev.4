@@ -1,55 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794906232;
-	b=LtABbgg5WNVUx5iQSCi9fKwx07uAaZa/8lcIqa+rB51YGZbth46Dz4qSt0zqPpSZ5pjR
-	 oetUWes8Gyl5bHowXbzfSp0TD0WMe9I1QXu6QtwllA1GbnTLryffm4XTu+79f+LYwRBk2
-	 iCywtbBWoMFeDESC4LnlgMH+oCUDtvyOPZshkmRkqGZx0W+LMJhfFj0iXF8e7FIXAngSo
-	 wyLa0DrJRtGBbZKicpOqO+F5eEigJS5P4cpaAMl069XvQZdnHNQVyq+1PQJxm2YPB5rbW
-	 1j0IitXByDtXXQbY4BpXkKDnh6iDwxph1RYwYmUlvUXcharaF7PnQk6yJtaU0UMhrwA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794906232;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=1vCDKG3/eVpcl8iwJXntDMyR/AUu8eFv37zY32xxLQw=;
-	b=Gs0hgEQSZ2yTmXYrSbtFYWtfoUM6seudrpYO2lX4GqqXhlEfHX4W3Mw22vgonnri7oCb
-	 8BVimTKu4kL0Rltf4rJV5FlSdYatfedHbyiG3hf0eFi6S+1MFl6GopfqsW7/XBBxf3fDA
-	 gnWF8MCodnIyZTnHmct5/XFLfiS1ajQia7+uH38rIyrtweEDBWpbzj6dkawc2XKMwFCOi
-	 H5r0c1xHwbmGeZC3sEcFsZNR5jsovi+IsbWoCyFIS51jkNEs7AVQH1sOy7acaD9spdP4a
-	 8ziA1Pnemcp98wPh+t3GUBBt2kKbD7V7EkExJSldDtenYxr84Xlc/OnWVeONUHQwXZw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="W8C/oUHF";
-	arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1794906285;
+	b=Cb5ixiqHAfL8ZJ09OxFsysCAULXBT80GA6m8ZZoXRTeEVDiI8e7ddfnJOi+4B8JMMTW6
+	 Zn787LoH2er2tB7gCciKEeqe9FEoD3/WrBLBAzsb0LykHsKXFlC5vR63dH5hK0U/PvlWY
+	 K0zS+6Duv0hzU39jOAe+mYMc+xfY7g3SIn5DwJir3Uc8B9o2vwYf2yJjYjUmnqHQBc622
+	 Ok/XxJ9AFa6P7tMRa64YCvL+as2Qdf10L7kHw3zutmC/8GZMVBMKpw4tCiCWGMfucM6Cm
+	 mtFH1DzXXCSYU8bJNqPQJvbgTHXOH1oICkIgCKx7FSpguc4Veqcb+jUVuebEx+FyjuA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794906285;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=/KOAVv6apLichQ/OSMK32xkM/AZHKlMXP5BUywmr1vA=;
+	b=ylBFteKZ7NshvYHZ3BUQGs8JQuXVByEe2YnJeWncP6KPqnkvQLFHZglvX15mpju49AzS
+	 OcNpI0Z+NP0VJppZn77AntkCT+vBH1WbnVjm2SdTAn6XibgSroM+jbwyuEsLfLlMBLYix
+	 Hm6Dj0YHTI62z6HQjWvCrdvuYYY42OqL2iuJ3bo95hy84l+YvWwYzrSG34d7OGu3xsTGd
+	 qikufPfXFNOQhFcAvToTTl24A4B2rGQ120p1aswXzylNsvZspTzMSo1MESJ+jrHIYC/up
+	 784dC4LMLBb1x43OuL+R9KYIwACRI4ZhYkHXjKF1eXPHmsSt/eaUwkG8auWb3tYbYow==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AMBDjDnm;
+	arc=fail smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99E71606A31C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:03:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0BE6606A329;
+	Tue, 17 Nov 2026 09:04:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=W8C/oUHF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5DF931F000C8
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 09:03:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AMBDjDnm
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1794906285;
+	b=K5aG3FPo4svlZZxwC3BHNUorlQ/CdodVEFGQMUdxy3h9R3I32DhSC2OiqpjaEdzq5Prz
+	 AOejLnA2seTqF2n0xnWwyNhlR9PGADGxMSlVfo1GSo9mNb71Em95XCUSqi3iW9ApeKKG6
+	 lm2HW02mRhYilFroIViwKui0JktB9fI1ZhejL4bFgnfKS8JeVCYWPzUjtI0Vzt+ROm1Tf
+	 cHWKece80qWVxyGFQpygtId+xGEaxfBHptZ1TJWt2uPWPDBLVkvSj2dB1faxwCEOmlcdm
+	 haqQKUkpPBHIx6gAQcnw3rFt5Po/Mkr1axi9Z8C2VqTJv5stlBn1PbfqLICZLVfcIVQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1794906285;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=/KOAVv6apLichQ/OSMK32xkM/AZHKlMXP5BUywmr1vA=;
+	b=NsNYaV6vSHvrkA7KL47EkwgPRppy8jHHyTaz/9pPtWxkpVs6Q4TrpUrvd3MHU6nmB+8u
+	 zuLTd7xN54TXnPPo5iDql/T79q+XTcp3q7ov4GPJ0JeKj++fhVShoUS6h0SWn1s05zKEH
+	 QZ51J11BjlrPTVeyZqWFLlmvGR7OQQCySqak1vSbJ/pe7OG2Q/RXnaNCID1MJdt1+V5/C
+	 QhsilGgJgdlqIXTm29Q8sjYLKf6VEfKk+xymx5HxwvBszS5/qmI0mEIo+rUJ+0wa1b6Ra
+	 QJD2yT4nL8b2g7NGBrAvIk0s6+q3ehZ9gQTMnhsGJhojxvCVmCDzaGOfR4i4/JLZK3g==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.kernel.org (Postfix) with ESMTPS id DF77C1F000C5;
+	Tue, 17 Nov 2026 09:04:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794906232;
-	bh=1vCDKG3/eVpcl8iwJXntDMyR/AUu8eFv37zY32xxLQw=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=W8C/oUHFJd0NY22bHaVq505IsvTuQW2g0jq6qmE/8vqQpsekWoslijKopTrhkS84J
-	 PB2Rck6qMtZYlhnYOWLeuofsBedGi35A8ekZUlL32JGJAW8hVnob3cvohyx3oWjpwn
-	 M6UhLwIpWpgQoNFLf8Axyz9l3v71Gp2lDwl93tHKepRF7QsMEVmJH+73GD2ufLjbuE
-	 zkBTDablnDR9z/GXr2wq4BQucCVBu8MOv5nr9VL6nDvxDh7iqCXlFqSN4IowBzUMGg
-	 w/NavTdVi0aqUBjLa/BYk9nfSez1nI+lSIcA9k1z0FlTJT7sfOIuCt2TuwzzgAK0SF
-	 heyyrDnci+YmQ==
-Received: by mail-oo1-f52.google.com with SMTP id 006d021491bc7-6df7f544919so3185908eaf.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 01:03:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFt1/8PVtNkR920Uf2r8EwNtQX5cavvsjGRpItc4hkSS2GxJClTDeLUZglq/XLSSDThpU/RelY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/fkU55K+ONCB3iAci1jyGe6O0ABcmTDT2oK1sP2A9m5+N/uW8E
-	hPUcuvZK/uVzedkcMdSN6XmRbalJbdyVV1kDlC2tCB/1hlnnVz47lFtGa84EdFYAdP74JfjEMkx
-	5JGhB493MR8YGWO93mvAanqRjwF7z97E=
-X-Received: by 2002:a05:6820:169f:b0:71a:d8a5:4d1b with SMTP id
- 006d021491bc7-71ad8a551abmr5801118eaf.36.1794906231676; Tue, 17 Nov 2026
- 01:03:51 -0800 (PST)
+	s=k20260515; t=1794906285;
+	bh=/KOAVv6apLichQ/OSMK32xkM/AZHKlMXP5BUywmr1vA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=AMBDjDnmGFoKp+zjMyV1W6EV12YThZjexefuc2+ebAbaZSkLG0CTZGgvLDB0xpRp4
+	 XeBEq3toa9Tp/Jhdma7AkX/gPNXDxWzbyUM3sRQ32bhtuBOlAg2dMz0vx5iuCswYRw
+	 lM5OgKr6NcUMfCt5lYss3qy+VL1hZRcLYIfE01Crn6+ldEYf5ghhYZaTBC0tX7trA4
+	 InlOu1Nhc2ywucRgLt8yCXv888XtLQU08QWuN+BnemQ3ObR/e1HIHQf4y5n976i2Pj
+	 C2LNnu73j5wnQtiVZjwb6wzjwiQctA4LOPQTLeJSIEHA6iNJnNo9gvWmRR7zLT1oNd
+	 Y0x7LtEn7er7w==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 6F6DF4A75E;
+	Tue, 17 Nov 2026 09:04:44 +0000 (UTC)
+From: Cunhao Lu via B4 Relay <devnull+1579567540.qq.com@kernel.org>
+Date: Tue, 17 Nov 2026 17:04:35 +0800
+Subject: [PATCH net-next v4 1/2] dt-bindings: net: rockchip-dwmac: Add
+ RK3572
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,60 +83,133 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-9-kuniyu@google.com>
-In-Reply-To: <20261117053543.84032-9-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Tue, 17 Nov 2026 10:03:39 +0100
-X-Gmail-Original-Message-ID: <CAL4WiioNcgo6sS1ULk6TG0dWeM01Xt8yE7vMg-53YT52gXXOfA@mail.gmail.com>
-X-Gm-Features: Aa3M54oMTqtGnr71fQcKsEqCExpfYVLAe8jPzWIfu2Ho68fK1pc0aSENO5LMZsg
-Message-ID: <CAL4WiioNcgo6sS1ULk6TG0dWeM01Xt8yE7vMg-53YT52gXXOfA@mail.gmail.com>
-Subject: Re: [PATCH v1 net 8/8] tcp: Pass inet6_iif() to __inet6_lookup_established()
- in tcp_v6_err().
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261117-add-board-ok3572-c-net-v4-1-4e9da569395a@qq.com>
+References: <20261117-add-board-ok3572-c-net-v4-0-4e9da569395a@qq.com>
+In-Reply-To: <20261117-add-board-ok3572-c-net-v4-0-4e9da569395a@qq.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ David Wu <david.wu@rock-chips.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
+ Jose Abreu <joabreu@synopsys.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>
+Cc: Cunhao Lu <1579567540@qq.com>, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com, Andrew Lunn <andrew@lunn.ch>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1794906282; l=2963;
+ i=1579567540@qq.com; s=20261015; h=from:subject:message-id;
+ bh=nFnIN3lO+XTZBGs+5YkcYP0f6N9wWK6y8Seywzr6SIY=;
+ b=9SYat9LnbqGPUNHGpDhwc31lg+NnzZ77J6S1DEukr/EOu1//Vw0YmjkuSvvCcmc8QipZbYxnI
+ nPcSmU3Ut6dB42rJvdSt77yYeE3veNyUVKM/ntNNFBiimWPApyTMexl
+X-Developer-Key: i=1579567540@qq.com; a=ed25519;
+ pk=sUTWrzlIwT4C7ctjNfVZAzzg0G7QUn2XxRGpYsw4RtM=
+X-Endpoint-Received: by B4 Relay for 1579567540@qq.com/20261015 with
+ auth_id=1177
+X-Original-From: Cunhao Lu <1579567540@qq.com>
+Reply-To: 1579567540@qq.com
+Content-Transfer-Encoding: 7bit
 
-Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
->
-> tcp_v6_err() passes skb->dev->ifindex to __inet6_lookup_established().
->
-> When ICMP is sent to a local address not on loopback device,
-> ip6_rt_get_dev_rcu() sets dst->dev to lo and ip6_rt_copy_init()
-> sets rt6i_idev to the actual device.
->
-> In ip6_rcv_core(), skb->dev is still lo, but IP6CB(skb)->iif
-> is set to ip6_dst_idev(skb_dst(skb))->dev->ifindex.
->
-> So skb->dev->ifindex is 1 while inet6_iif(skb) points to the
-> actual device.
->
-> Since tcp_v6_err() passes the wrong ifindex, such an ICMP error
-> is not delivered.
->
-> For example, this script creates a socket bound to tun0 and
-> generates ICMPv6 Port Unreachable to it, but the socket cannot
-> receive it and getsockopt() fails:
->
->   --ip_version=3Dipv6
->    0 `ip link set lo up`
->   +0 `ip6tables -A OUTPUT -p tcp -j REJECT`
->   +0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) =3D 3
->   +0 setsockopt(3, SOL_SOCKET, SO_BINDTODEVICE, "tun0", 4) =3D 0
->   +0 connect(3, ..., ...) =3D -1 EINPROGRESS (Operation now in progress)
->   +0 getsockopt(3, SOL_SOCKET, SO_ERROR, [ECONNREFUSED], [4]) =3D 0
->
-> Let's pass inet6_iif() to __inet6_lookup_established().
->
-> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+From: Cunhao Lu <1579567540@qq.com>
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Add the rockchip,rk3572-gmac compatible with the snps,dwmac-4.20a
+fallback and require rockchip,php-grf.
 
-I wonder if you could send (maybe later in net-next) packetdrill tests
-for 7 and 8 ?
+Mark tx_delay and rx_delay as deprecated and disallow them for RK3572
+so new designs do not use the legacy delay properties.
 
-Thanks.
+Signed-off-by: Cunhao Lu <1579567540@qq.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+---
+Changes in v3:
+- Deprecate tx_delay and rx_delay and disallow them for RK3572.
+
+Changes in v2:
+- Add RK3572 to the shared Synopsys compatible list for consistency.
+---
+ Documentation/devicetree/bindings/net/rockchip-dwmac.yaml | 15 +++++++++++++++
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml     |  1 +
+ 2 files changed, 16 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+index e8dda1961ab3..d7b7bb008235 100644
+--- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+@@ -27,6 +27,7 @@ select:
+           - rockchip,rk3506-gmac
+           - rockchip,rk3528-gmac
+           - rockchip,rk3568-gmac
++          - rockchip,rk3572-gmac
+           - rockchip,rk3576-gmac
+           - rockchip,rk3588-gmac
+           - rockchip,rv1108-gmac
+@@ -54,6 +55,7 @@ properties:
+               - rockchip,rk3506-gmac
+               - rockchip,rk3528-gmac
+               - rockchip,rk3568-gmac
++              - rockchip,rk3572-gmac
+               - rockchip,rk3576-gmac
+               - rockchip,rk3588-gmac
+               - rockchip,rv1126-gmac
+@@ -112,6 +114,7 @@ properties:
+     minimum: 0
+     maximum: 0x7F
+     default: 0x30
++    deprecated: true
+ 
+   rx_delay:
+     description: Delay value for RXD timing.
+@@ -119,6 +122,7 @@ properties:
+     minimum: 0
+     maximum: 0x7F
+     default: 0x10
++    deprecated: true
+ 
+   pcs-handle:
+     description:
+@@ -141,11 +145,22 @@ required:
+ allOf:
+   - $ref: snps,dwmac.yaml#
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: rockchip,rk3572-gmac
++    then:
++      properties:
++        rx_delay: false
++        tx_delay: false
++
+   - if:
+       properties:
+         compatible:
+           contains:
+             enum:
++              - rockchip,rk3572-gmac
+               - rockchip,rk3576-gmac
+               - rockchip,rk3588-gmac
+     then:
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 2c4842404bf6..80d3b43e2889 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -94,6 +94,7 @@ properties:
+         - rockchip,rk3506-gmac
+         - rockchip,rk3528-gmac
+         - rockchip,rk3568-gmac
++        - rockchip,rk3572-gmac
+         - rockchip,rk3576-gmac
+         - rockchip,rk3588-gmac
+         - rockchip,rv1108-gmac
+
+-- 
+2.34.1
+
+
