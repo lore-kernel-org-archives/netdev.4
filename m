@@ -1,63 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794921290;
-	b=u7gwAdVUnFF/xWpAwNzhCtMaoKjItLmiCuNBnBkvt+ujU5uGIHXMm79JndzMnq3K96IZ
-	 hV0k8PXZ83rzbEEJ6EsbEiphqDy1N4NQT4RktyVRbL+XCMX3PNvr1qJPM+GsXdEVbqr1I
-	 52aeozztPaAv+ixewjtMC7RQsY4ig9sP8naYT6hRKTyot1TlhF/B2tfkcwd94ozLSkOeN
-	 OFOW5lz+9FxSuWb2niCs2srCYF9csavLsd1tHj2aZp4c4x+V/ZbKRXtbGejKcCzqBgLag
-	 EUh1HbRxuyKVK4iRRqyhs2/fiUQHj1WvZQK6VlCHUxsQSOCocQM54lCqYxXAsT2tEPg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794921290;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=yYcw0Falz++hoNxE0Fb+2KmUKtbLZH7CzeMBLg0tNac=;
-	b=KRP4xtCWS4SlcP1Fzmz6dxC9SlEeMrwMbF0HYyVBTtzYNZXGGj20rBWNgOlBwMlH+785
-	 e8knxE5XZ0GoOafeEbYyeC5DpD8W8YOBFbWRL/u85oOqTKd8TP6uB+luqnv8qdTzUkxRh
-	 22ec/fKUVIDtxmeD59DnxqPa1Oo6fh0CphQP49iPrdqIsMiemei4ntJs39JrOVF6+r03V
-	 8EOxmD3B4qVF+Bl4YjuFqPb6TS8v1BarTG8O9yznQ0oUyBWZy0FEOomMYEE7U/iltHp8k
-	 XGD5tgOZDgj+pWyCWKyMM2CC/sdTW5fHvGivXXKi+vGBcV+MUIqJbw8LvRuYyFA0sUg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LkXca84u;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794921337;
+	b=Ru57nx+xd/qkWT5VRtv1682rmf5AiPDbrAoOyjs2sHtp9+a1bB2WhP7ePbJtX/n4qsOl
+	 ydPWXSBQeKTtHVa5PHtr3SQj4cvyyCNdeLXiq2nSlvmqPWAeLbxNdHN3Fsyr8Uag9GLWE
+	 0ledZVXIJwen/tKzCmfxFrJG5VtWjU8rVpuzD2Lop3Ip6m2ZXUY3ZLaSGVpTh/FpSbTpS
+	 weKHoyDv/0WOwgfuH2eDqqmV1Efnkk73uysfmxdXSq0Q8k3Mcy5CLX3g/7E6qtw7QsiWz
+	 3zcBIz8Z4tAka9XWIAJqabDCIsmEmLoHdzeuvmAoGjUZeUbC0e+2SE1XrFjgrgBfjYA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794921337;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=1jF6nkDRFB/GiZglzFtKPBujyqk5PL06Y3EZwEZ3anc=;
+	b=UIUwNF611iyXz0RpphuVNWVB1QIStwcVjqThdiffc8MsrRzVpeoQi78SrGQdEPnFDP4p
+	 lmI7DMoR5Sd1yS4LDEqKlqmJmznTM5JIORLWNmwF27ZPrqiiZU4pF6mYLMAczgTE07pFk
+	 6Z0RPZ2poXmN+bH7/gqky8/bWq5UyV+M+E9Qp7rcy3BkV7Z5ny74Hw/yC7PR+vH4KClK1
+	 pl2HyPIwW0ih69cfwvGkG6UYbCnf60sVDCxAtJAee4Ljgz1V1isD7naX5xvMp6bBU+uMU
+	 MZ/nn+CdY4M+/3ZPDEYT5UwQ64DgTEjy+bhnn1HxXcasXfRA1mZPhby5xl3FHq3YKTw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=NuJ2Ql3h;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.44
+Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5343F606A336;
-	Tue, 17 Nov 2026 13:14:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B183E606A31C
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 13:15:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B183E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LkXca84u
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D29411F000D4;
-	Tue, 17 Nov 2026 13:14:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794921290;
-	bh=yYcw0Falz++hoNxE0Fb+2KmUKtbLZH7CzeMBLg0tNac=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LkXca84uOBWW3hAjwHdbezdaR173l+h/2ljhuXUAyucU/2yhvepmlMLPiOukT/6JG
-	 ceP81avO08loKcZP37BGljJkTdYfwQ2odY+Wf3wC61sCCRDreHXfLS2R8lTTiD/+iy
-	 tbKhwqmIA3TNEeNyjpY3SwUYZqCt83aCa3MpFx6B77Hax926OQjdYQGnd9QAEPA3/a
-	 kQ7mWl5ZAlIv2CkujIJXbKzkmFAx7BABZw6akcB5A087xGUTlKF0fDqZDm2DQfAyyt
-	 t3pYpaYEU5LT+w2D0lEm0g8+8ljZGZ98dvBd/9GXHjlqm5nSk/fvFcIUdLtkWCh4no
-	 gwh3AiZGkXrqg==
-Subject:
- Re: [PATCH net-next v4 7/8] net: xilinx: tsn: add the endpoint TX data path
-From: netdev-bot+sashiko@kernel.org
-To: srinivas.neeli@amd.com
-Cc: nagadheeraj.rottela@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, richardcochran@gmail.com, michal.simek@amd.com,
- bigeasy@linutronix.de, clrkwllms@kernel.org, rostedt@goodmis.org,
- edumazet@kernel.org, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rt-devel@lists.linux.dev, git@amd.com, neelisrinivas18@gmail.com
-Date: Tue, 17 Nov 2026 13:14:48 +0000
-Message-ID: <179492128844.3136.901676801121295751@kernel.org>
-In-Reply-To: <20261113-patches_v2_external-v4-7-56bb26f042a4@amd.com>
-References: <20261113-patches_v2_external-v4-7-56bb26f042a4@amd.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=NuJ2Ql3h
+Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67be4f2f4d4so5613087d50.2
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 05:15:36 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794921336; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mztg9qC+7MqZHW85yOQwJ02nglsASh3Z76b0vHlzvRovHwTFfztUItVcHEQdtYFiW0
+         2cFw/fpXo6ovGMXy2eYsS9GSoiyoZGhBUxJn0i1xChB8ZGgv7OVJ3eDb5ZwJN73rEr5B
+         W62Yr8wZmCS36VdOwhMd7RCbDJblzjUrroiIUdxegnIomqs7bZAdNa5vRDbeHif/yjxF
+         ZqgUSszt0W9DfX23rh+6folppdj5EyonimWbXbJqQDxY3qh8Xx+n5kZZMCq70100RuMO
+         J/cIdzYwa5TH1y6n8g7FosiT0shBzRfZG/w+n1++NRYHu4TpV6TNEkHoyne6ATZEgJO4
+         jP/A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=1jF6nkDRFB/GiZglzFtKPBujyqk5PL06Y3EZwEZ3anc=;
+        fh=aLZqss/aq+NuTNBfJo217weQC9LPEdnaursDMXULNeU=;
+        b=Zsd9rwJIjuvB0Bhx8UZhKDeyCMBdrwq8mYF8rEFdseeu9aXLodyjmIFhPPFmWdDFOz
+         gS1EFPCuKVEFctXaWq2Xw+owh4xTp7R5xc6D9uyp4eSM6fULEAXb24ToVDe0aQuVvOVI
+         kWyCvC6IgnOHOI8hunZ6gV8y6QJo5uoMfhaT+dAGVxczRNB006gWArrR2O5Lzre/Cw4s
+         teGWqeqLfDX1tdiMUbzRUCLs8KIvwXwMTeqZmB7U7gvRsUR3m0c22sD8P1IX7mBmSyfc
+         suZY7MsxyYKauaH+9Gi8qZA7jgldiDYnR/Bnr6jM2OaSdgle+cbIL1lIplbJS1IU9Xaj
+         KQHQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mojatatu.com; s=google; t=1794921336; x=1795526136; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=1jF6nkDRFB/GiZglzFtKPBujyqk5PL06Y3EZwEZ3anc=;
+        b=NuJ2Ql3hrgR/TwVxkytKuMigdKpEd1OBYeXGjlBd6DYYX7OR56G74NgO/xIRG1Qjb/
+         50W3GlzbUGfFkfeoOXFSnlco/IsS60ONNnpGLfKehD0RPM4wgiVgYGD/ZmTgaON7Mbz2
+         jgbX0fr9r1aIJph7TctK020EWmnCkfY4Vr8Fs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794921336; x=1795526136;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=1jF6nkDRFB/GiZglzFtKPBujyqk5PL06Y3EZwEZ3anc=;
+        b=nAJx6N+TeWkq7NG2qHbMBwJKeWaLEMk9aOfp73BvJ+VZmycQX0TXtxN8H/qZ2JDhSZ
+         ebHx2Lc77UH9/P186yU2f+5Fe2gnpRZ1bDtfy8lbZ+bfZd9uP96ZjVHoM/pcXsgNnM4+
+         KRtUjKSaJ8281vVgztUqZMDF5Aka/2v478pD4G4PagSOoYvjG/aJH3f+Tm9HciMQy1Hv
+         vvf6oMvkqowspEY2bZdaPqlwJhcNEpjZSStMZXiBKFrB8xjllF8FZu7uJoz4egKoJudN
+         5EDAP9IgDzCxVg26fSFslNIAUAHPn5IhLpCP89vCgUYtwXlbreRX4GzwA79EDAUrlqnt
+         v7jQ==
+X-Gm-Message-State: APuU4Z8soECaQ6Vw0gcWXlkdxFZ9cMhMnnIdRk0Hc2HiFofh2qwqIdnu
+	qpKHN5MswEzIPTKu2YDBjbOQ9ccEGrcxIEEHP0ASEAAqsM6O/y/wDyLiTyQV3zQMc+6wPZjkZRF
+	FjOfdPQS/QFQhwfKrCT7wInUiJZYtPUMubk8XqU5N
+X-Gm-Gg: AZFdTZcwRuzm6Zpe/4vfunCslJ9d+t8Wdj05mpD9QR77S0JZxTsRLJzhKlT7veJkcdO
+	pc0f2S9W88OFmdBSjGrwZ3GA5mE5WERTxjHtRJTIFcMzejq04zD+Jl73VRAo4lCUyr21zGf/hMK
+	9jglBntCva/2gAtijCSnmZCAY9ywkAq6yj9qRINoYNHZUDJNN4OxhQV4ZzVd/2dnmi1TrFPOD3L
+	jRPVSvUBTyfUFrWuf2UIuBdaH6/bFxQKY0JB53vcuBuXP0ySH1oAGbckXIxVNEJBXLNqrQa1ZU5
+	KkRtheisb9S1jL6TsxeijBZJRdcvtoZIGil1OhxJt1FUsKx4hoKrl5r6ZsVc7aKvngLM46G/vyF
+	C2wbsMG58aT61omoSZ8qvakUHNuJLLWKwsMN60SpTv0mN6QfNVumdBEB5LsdY0VlJqDmyKla7ys
+	f7DOzAY93eY3V4i93XHHSKDHZm6kkniv6xqHTP
+X-Received: by 2002:a05:690e:408e:b0:67d:abc4:a4d4 with SMTP id
+ 956f58d0204a3-67dabc4a519mr4026388d50.72.1794921335493; Tue, 17 Nov 2026
+ 05:15:35 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,455 +101,127 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <CORE-9NOG.v4.r0.20261116135311@mojatatu.com> <CORE-9NOG.v4.r0.20261116135311-4@mojatatu.com>
+ <DMWXH28YQDYH.1SI4Y5WQ7EPSR@gmail.com> <CAM0EoMk10vCoAKZq0P=8A_jed=Z3SudLEUV8uvXO5F=ewNjnGQ@mail.gmail.com>
+ <DMX7RM93TMGR.AXFN4YJ55REF@gmail.com>
+In-Reply-To: <DMX7RM93TMGR.AXFN4YJ55REF@gmail.com>
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+Date: Tue, 17 Nov 2026 08:15:23 -0500
+X-Gm-Features: AclHuK-WzLYszVXBsuW9keMZDCNkdCoq7_wHfjFaf6G49fobSVbVlVyY5hH2KC4
+Message-ID: <CAM0EoMkqwoJdzChpCVcw+c_XXsR7hw1_Wy6J-zQbq4JjogqTSA@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 4/4] bpf: drop the stale dst when redirecting
+ to an explicit nexthop
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: netdev@vger.kernel.org, Daniel Borkmann <daniel@iogearbox.net>, 
+	John Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, 
+	Martin KaFai Lau <martin.lau@linux.dev>, Andrii Nakryiko <andrii@kernel.org>, 
+	Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi <memxor@gmail.com>, Song Liu <song@kernel.org>, 
+	Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, 
+	Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	bpf@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>, 
+	Victor Nogueira <victor@mojatatu.com>, Sashiko <sashiko-bot@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 6 potential
-issue(s) to consider.
-
-Critical: 0 · High: 1 · Medium: 3 · Low: 2
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] ep_start_xmit() takes and releases xchan->tx_lock with
-  spin_lock_bh()/spin_unlock_bh() at lines 396/404/413/416 and…
-- [Medium] The TX path assumes every submitted MCDMA descriptor comes
-  back through exactly one in-order completion callback, with a per-…
-- [Medium] ep_stop() sets ep->closing and calls
-  dmaengine_terminate_sync() on every TX channel (line 498) before…
-- [Medium] net: xilinx: tsn: ep_start_xmit() TX flow control ignores DMA
-  segment limit
-- [Low] The commit body covers only TX channel selection, map/submit and
-  queue stop/wake.
-- [Low] Several hot-path checks in ep_start_xmit() can never fire, and
-  the commit message ('The driver consults tx_dma_chan_map[] only to…
-
---
-
-net: xilinx: tsn: add the endpoint TX data path
-
-This commit adds the transmit path for the Xilinx TSN endpoint driver.
-Frames are mapped into a scatterlist and submitted to the MCDMA TX channel
-for their logical queue, and BQL drives queue stop/wake from the
-completion callback. It also adds software TX timestamping and reorders
-ep_stop() so the TX channels are terminated before the queues are
-disabled.
-
-> Add the transmit path so the endpoint can send frames.
+On Mon, Nov 16, 2026 at 11:50=E2=80=AFPM Alexei Starovoitov
+<alexei.starovoitov@gmail.com> wrote:
 >
-> Select the TX channel by indexing tx_chans[] with the frame's logical
-> queue. ep_init_dmaengine() fills that array in logical-queue order, so the
-> index maps to the channel that queue's descriptors were set up on. The
-> driver consults tx_dma_chan_map[] only to reject a queue with no mapping.
-> Map the frame and submit it to that channel. Stop the queue when the ring
-> runs out of space, and wake it from the completion callback once a slot
-> opens.
+> On Mon, Nov 16, 2026 at 02:06 PM Jamal Hadi Salim <jhs@mojatatu.com> wrot=
+e:
+> > encap ip/ip6 or encap xfrm template the tunnel template lives in
+> > dst->lwtstate  that wont work (packet reaches the tunnel or xfrm
+> > device with no encapsulation).
+>
+> ok. agree.
+>
+> > For that reason we cant drop 3 and 4. I see the change in 2/4 (I see
+> > 1/4 not changing either) .  The change is not that small because it
+> > will have to touch multiple core files (although just small mechanical
+> > surgeries). Summary it will still be 4 patches..
+>
+> can we keep the route and fix neigh_update_process_arp_queue() instead ?
+> The bug is its lookup via dst. Only teql needs that lookup, I think.
 
-[Severity: Low]
-This isn't a bug, but the commit message only covers channel selection,
-map/submit and queue stop/wake. Should it also mention these other changes
-in the patch?
+Didn't look closely - eql moves skb->dev to a slave the same way, but
+has no neighbour code of its own, so it looks like teql is the main
+player.
+But the drain is not the only reader: skb_tunnel_info() reads
+skb_dst(skb)->lwtstate, so keeping the route leaves dst->dev=3DA on a
+skb bound for B. With the 2/4 I was planniong for v5 no drain change
+is needed at all, since dst_neigh_lookup_skb() returns NULL on the
+replacement metadata dst and the existing n2 =3D=3D NULL path already
+outputs on the parking neighbour.
 
-  - software TX timestamping through skb_tx_timestamp(), plus the new
-    .get_ts_info = ethtool_op_get_ts_info, which changes ethtool -T output
-  - BQL accounting through netdev_tx_sent_queue(),
-    __netif_txq_completed_wake() and netdev_tx_reset_subqueue()
-  - the reordered ep_stop(), where dmaengine_terminate_sync() now runs on
-    each TX channel before netif_tx_disable()
+> A is the device of the route, B is the target of the redirect:
+>
+>   skb is queued by        skb->dev  neigh->dev  lookup via dst gives
+>   ----------------------  --------  ----------  --------------------
+>   ip_finish_output2()     A         A           the same neigh
+>   bpf_redirect_neigh(nh)  B         B           neigh on A, the bug
+>   nft fwd                 B         B           neigh on A, the bug
+>   __teql_resolve()        master    slave       neigh on master
+>
+> The diff skips the lookup when skb->dev is neigh->dev.
+> lwtstate, NBMA tunnels, realm and ICMP errors work as today.
+> The fast path doesn't change. No need for patches 2, 3 and 4.
+> and 1/4 is not a prerequisite.
+>
+> Your teql 3/3 queues the skb with skb->dev =3D=3D slave. With this diff
+> the neigh of the slave adds the header and sends the skb.
+>
+> thoughts?
+>
+> diff --git a/net/core/neighbour.c b/net/core/neighbour.c
+> index d6e9c7c..04758ca 100644
+> --- a/net/core/neighbour.c
+> +++ b/net/core/neighbour.c
+> @@ -1331,9 +1331,11 @@ static void neigh_update_process_arp_queue(struct =
+neighbour *neigh)
+>                  * the packet in the output path.  So what we need to do
+>                  * here is re-lookup the top-level neigh in the path so
+>                  * we can reinject the packet there.
+> +                * When skb->dev is neigh->dev 'neigh' is the top-level o=
+ne.
+> +                * dst can be a route via another device after a redirect=
+.
+>                  */
+>                 n2 =3D NULL;
+> -               if (dst &&
+> +               if (dst && skb->dev !=3D neigh->dev &&
+>                     READ_ONCE(dst->obsolete) !=3D DST_OBSOLETE_DEAD) {
+>                         n2 =3D dst_neigh_lookup_skb(dst, skb);
+>                         if (n2)
 
-The reasons for the ep_stop() ordering and for the timestamping are only
-in the v3/v4 changelog below the --- line. That text does not end up in
-the git history.
+This will fix the cases you showed in the table above i.e nft(6),
+bpf(6) but will break any xfrm and many lwt paths (including
+bpf_lwt/6). Apologies if i am stating something that might be already
+obvious, but let me illustrate with one example: lwt.
 
-> diff --git a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-> index f179062c7d148..6e2721a74f287 100644
-> --- a/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
-> +++ b/drivers/net/ethernet/xilinx/tsn/xilinx_tsn_ep.c
+A is the device of the route, B is the target of the redirect, and lwt
+is the lwtstate that route carries (encap type ip/ip6).
 
-[ ... ]
+skb is queued by nft_fwd_neigh_eval(), skb->dev=3DB, neigh->dev =3D B
+Lookup via dst gives neigh on A  - because the dst is still the
+arrival route and dst->dev is A; ipv4_dst_neigh_lookup() takes the
+device from the dst and the address from the skb  _ only when the
+route has no gw_  (the device is never taken from the skb)
+(Essentially, this is the bug) i.e a non-NULL neigh means the drain
+reinjects on A's neighbour, so the frame leaves B with A's neighbour
+and A's source.
+dst also carries lwtstate (outer endpoints) that B's tunnel needs.  A
+drop takes it down with the route.
+Note on skb_valid_dst(): "true" means only "the slot is a route", not
+"the route carries nothing". A route may carry an lwtstate that this
+test cannot rule out.
 
-> @@ -311,8 +316,151 @@ static void ep_dma_rx_cb(void *data, const struct dmaengine_result *result)
->  	ep_rx_refill(xchan, true);
->  }
->  
-> +static void ep_dma_tx_cb(void *data, const struct dmaengine_result *result)
-> +{
+So a skb_dst_drop() will result in dropping the packet in the cases i
+described. Example for gre:
+skb_tunnel_info() then finds neither a METADATA_IP_TUNNEL template nor
+a dst->lwtstate(encap type ip/6) and gre tx will then drop the skb
 
-[ ... ]
+I have a patch for 2/4 i can share if it would help the discussion.
 
-> +	scoped_guard(spinlock_bh, &xchan->tx_lock) {
-> +		skbuf_dma = ep_get_desc(xchan,
-> +					xchan->ring_tail & (xchan->ring_size - 1));
-> +		if (!skbuf_dma || !skbuf_dma->skb)
-> +			return;
-
-[ ... ]
-
-> +	if (unlikely(result->result != DMA_TRANS_NOERROR)) {
-> +		DEV_STATS_INC(ndev, tx_errors);
-> +		dev_kfree_skb_any(skb);
-> +	} else {
-
-[Severity: Medium]
-What happens to the TX ring after an MM2S DMA error?
-
-In the xilinx_dma provider, xilinx_mcdma_irq_handler() only sets
-chan->err when it sees XILINX_MCDMA_IRQ_ERR_MASK. Descriptors only
-complete when IOC is set. xilinx_dma_complete_descriptor() stops at the
-first descriptor whose last segment lacks XILINX_DMA_BD_COMP_MASK.
-
-So the descriptors that did complete in that IRQ are the ones reported
-with an error result. An error IRQ without IOC produces no callbacks at
-all.
-
-ep_start_xmit() sets callback_param to xchan rather than to the per-slot
-skbuf_dma, so this callback always consumes the ring_tail slot. If one
-callback never arrives, does every later completion land on the wrong
-slot? That would unmap and free the wrong skb, and report the wrong length
-to BQL and tx_bytes.
-
-Also, xilinx_mcdma_start_transfer() returns early while chan->err is set,
-so the channel stays halted. It only recovers when the next
-xilinx_dma_tx_submit() calls xilinx_dma_chan_reset(). That reset is
-controller-wide, so it can disturb the RX channels too, and stale entries
-are left on active_list.
-
-Nothing in the driver terminates or resyncs the channel after an error.
-ep_netdev_ops has no .ndo_tx_timeout, so the TX watchdog is never armed.
-
-Once the ring fills, can this queue stay stopped until the interface is
-taken down and up again?
-
-[ ... ]
-
->  static netdev_tx_t ep_start_xmit(struct sk_buff *skb, struct net_device *ndev)
->  {
-
-[ ... ]
-
-> +	if (ep->tx_dma_chan_map[queue] == TSN_DMA_CH_INVALID) {
-> +		if (net_ratelimit())
-> +			netdev_warn(ndev, "Logical TX queue %d has invalid DMA mapping\n",
-> +				    queue);
-> +		goto err_drop_skb;
-> +	}
-
-[Severity: Low]
-This isn't a bug, but can this check ever fire?
-
-ep_parse_tx_queue_config() does all of the following:
-
-  - rejects queue indices >= num_tx_queues
-  - rejects duplicate queues through queue_seen
-  - requires each node to name a valid channel listed in dma-names
-  - requires count == num_tx_queues
-
-So either every logical queue in [0, num_tx_queues) gets a valid mapping,
-or probe fails.
-
-The queue >= ep->num_tx_queues check above looks unreachable too. The
-netdev has one TX queue per TX DMA channel, and the core caps
-queue_mapping.
-
-The !skbuf_dma branch below looks dead as well. ep_alloc_dma_chan()
-either allocates every skb_ring[] entry or fails.
-
-The commit message says:
-
-  The driver consults tx_dma_chan_map[] only to reject a queue with no
-  mapping.
-
-That wording suggests an unmapped queue can show up at runtime. Should
-these checks be dropped, or the commit message reworded?
-
-> +
-> +	xchan = ep->tx_chans[queue];
-> +
-> +	sg_len = skb_shinfo(skb)->nr_frags + 1;
-> +	txq = netdev_get_tx_queue(ndev, queue);
-> +
-> +	spin_lock_bh(&xchan->tx_lock);
-
-[Severity: High]
-Is spin_lock_bh() safe in ndo_start_xmit here?
-
-Documentation/networking/netdevices.rst says ndo_start_xmit may be called
-with interrupts disabled by netconsole:
-
-netpoll_send_skb()
-  local_irq_save(flags);
-  __netpoll_send_skb()
-    HARD_TX_TRYLOCK()
-    netpoll_start_xmit()
-      ep_start_xmit()
-        spin_unlock_bh(&xchan->tx_lock)
-          __local_bh_enable_ip()
-            lockdep_assert_irqs_enabled();
-
-The driver does not set IFF_DISABLE_NETPOLL, so netconsole can bind to
-this netdev directly. It can also get here through a DSA user port,
-because dsa_user_netpoll_setup() sets up netpoll on the conduit, and a
-later patch in the series makes this device a conduit.
-
-With lockdep enabled, this splats on every netconsole transmit.
-
-Without lockdep, a pending softirq is still a problem. spin_unlock_bh()
-can then call do_softirq(), which runs softirq handlers with interrupts
-re-enabled. That happens inside netpoll's irq-off section, while this CPU
-still holds the txq _xmit_lock.
-
-If NET_TX then runs qdisc_run()->sch_direct_xmit() on the same txq,
-wouldn't HARD_TX_LOCK spin on a lock its own CPU already holds?
-
-The normal xmit path already runs with BH disabled, and the TX completion
-runs from the DMA tasklet. Would plain spin_lock() (or spin_lock_irqsave())
-be enough here? The same question applies to the second spin_lock_bh()
-section around dmaengine_submit().
-
-[ ... ]
-
-> @@ -343,10 +491,16 @@ static int ep_open(struct net_device *ndev)
->  static int ep_stop(struct net_device *ndev)
->  {
->  	struct xlnx_tsn_ep *ep = netdev_priv(ndev);
-> +	unsigned int i;
->  
-> -	netif_tx_disable(ndev);
->  	WRITE_ONCE(ep->closing, true);
-> +	for (i = 0; i < ep->num_tx_queues; i++)
-> +		dmaengine_terminate_sync(ep->tx_chans[i]->chan);
-> +
-> +	netif_tx_disable(ndev);
-
-[Severity: Medium]
-Can ep_start_xmit() still run while this loop terminates the TX channels?
-
-The TX queues are still enabled at this point. __dev_close_many() has
-called dev_deactivate_many(), but that only quiesces the qdisc paths.
-
-__dev_direct_xmit() is used by PACKET_QDISC_BYPASS and by AF_XDP generic
-xmit. It checks netif_running() before taking HARD_TX_LOCK. After that it
-only checks netif_xmit_frozen_or_drv_stopped(txq).
-
-So a sender that passed the running check can reach ep_start_xmit() and
-call dmaengine_submit() and dma_async_issue_pending() on a channel that is
-being terminated. Documentation/driver-api/dmaengine/client.rst calls
-that undefined. Also, xilinx_dma_terminate_all() resets the channel and
-sets chan->idle without holding chan->lock.
-
-xilinx_dma_free_descriptors() drops the queued descriptors for the
-[ring_tail, ring_head) slots without running callbacks, so ring_tail does
-not move.
-
-When the newly submitted frame completes, ep_dma_tx_cb() would consume
-the oldest terminated slot. It would unmap and consume the wrong skb, and
-charge tx_packets, tx_bytes and BQL with that frame's length.
-
-Moving netif_tx_disable() back to the front would reopen the race from
-the v4 changelog: a callback that read closing as false could wake the
-queue after netif_tx_disable(). Would it work to check closing and do the
-wake both under tx_lock, or to disable the queues both before and after
-the terminate loop?
-
->  	ep_exit_dmaengine(ep);
-> +	for (i = 0; i < ndev->num_tx_queues; i++)
-> +		netdev_tx_reset_subqueue(ndev, i);
->  
->  	return 0;
->  }
-
-[ ... ]
-
-> @@ -311,8 +316,151 @@ static void ep_dma_rx_cb(void *data, const struct dmaengine_result *result)
->  	ep_rx_refill(xchan, true);
->  }
->  
-> +static void ep_dma_tx_cb(void *data, const struct dmaengine_result *result)
-> +{
-> +	struct xlnx_tsn_ep_dma_chan *xchan = data;
-> +	struct skbuf_dma_descriptor *skbuf_dma;
-> +	struct netdev_queue *txq;
-> +	struct net_device *ndev;
-> +	struct scatterlist *sgl;
-> +	struct sk_buff *skb;
-> +	int sg_len;
-> +	int len;
-> +
-> +	scoped_guard(spinlock_bh, &xchan->tx_lock) {
-> +		skbuf_dma = ep_get_desc(xchan,
-> +					xchan->ring_tail & (xchan->ring_size - 1));
-> +		if (!skbuf_dma || !skbuf_dma->skb)
-> +			return;
-> +
-> +		skb = skbuf_dma->skb;
-> +		sgl = skbuf_dma->sgl;
-> +		sg_len = skbuf_dma->sg_len;
-> +
-> +		dma_unmap_sg(xchan->dma_dev, sgl, sg_len, DMA_TO_DEVICE);
-> +
-> +		skbuf_dma->skb = NULL;
-> +		WRITE_ONCE(xchan->ring_tail, xchan->ring_tail + 1);
-> +	}
-> +
-> +	ndev = skb->dev;
-> +	txq = netdev_get_tx_queue(ndev, skb_get_queue_mapping(skb));
-> +	len = skb->len;
-> +
-> +	if (unlikely(result->result != DMA_TRANS_NOERROR)) {
-> +		DEV_STATS_INC(ndev, tx_errors);
-> +		dev_kfree_skb_any(skb);
-> +	} else {
-> +		DEV_STATS_INC(ndev, tx_packets);
-> +		DEV_STATS_ADD(ndev, tx_bytes, len);
-> +		dev_consume_skb_any(skb);
-> +	}
-> +
-> +	__netif_txq_completed_wake(txq, 1, len,
-> +				   CIRC_SPACE(READ_ONCE(xchan->ring_head),
-> +					      READ_ONCE(xchan->ring_tail),
-> +					      xchan->ring_size), 2,
-> +				   READ_ONCE(xchan->ep->closing));
-> +}
-> +
->  static netdev_tx_t ep_start_xmit(struct sk_buff *skb, struct net_device *ndev)
->  {
-> +	struct dma_async_tx_descriptor *dma_tx_desc;
-> +	struct xlnx_tsn_ep *ep = netdev_priv(ndev);
-> +	struct skbuf_dma_descriptor *skbuf_dma;
-> +	int queue = skb_get_queue_mapping(skb);
-> +	struct xlnx_tsn_ep_dma_chan *xchan;
-> +	struct netdev_queue *txq;
-> +	int sg_len, nents, ret;
-> +	dma_cookie_t cookie;
-> +
-> +	if (unlikely(queue >= ep->num_tx_queues)) {
-> +		if (net_ratelimit())
-> +			netdev_warn(ndev, "Invalid TX queue %d (max %u)\n",
-> +				    queue, ep->num_tx_queues);
-> +		goto err_drop_skb;
-> +	}
-> +
-> +	if (ep->tx_dma_chan_map[queue] == TSN_DMA_CH_INVALID) {
-> +		if (net_ratelimit())
-> +			netdev_warn(ndev, "Logical TX queue %d has invalid DMA mapping\n",
-> +				    queue);
-> +		goto err_drop_skb;
-> +	}
-> +
-> +	xchan = ep->tx_chans[queue];
-> +
-> +	sg_len = skb_shinfo(skb)->nr_frags + 1;
-> +	txq = netdev_get_tx_queue(ndev, queue);
-> +
-> +	spin_lock_bh(&xchan->tx_lock);
-> +	if (CIRC_SPACE(xchan->ring_head, READ_ONCE(xchan->ring_tail),
-> +		       xchan->ring_size) <= 1) {
-> +		netif_txq_try_stop(txq,
-> +				   CIRC_SPACE(xchan->ring_head,
-> +					      READ_ONCE(xchan->ring_tail),
-> +					      xchan->ring_size),
-> +				   2);
-> +		spin_unlock_bh(&xchan->tx_lock);
-> +		if (net_ratelimit())
-> +			netdev_warn(ndev, "TSN TX ring full\n");
-> +
-> +		return NETDEV_TX_BUSY;
-> +	}
-> +
-> +	skbuf_dma = ep_get_desc(xchan, xchan->ring_head & (xchan->ring_size - 1));
-> +	if (!skbuf_dma) {
-> +		spin_unlock_bh(&xchan->tx_lock);
-> +		goto err_drop_skb;
-> +	}
-> +	spin_unlock_bh(&xchan->tx_lock);
-> +
-> +	sg_init_table(skbuf_dma->sgl, sg_len);
-> +	ret = skb_to_sgvec(skb, skbuf_dma->sgl, 0, skb->len);
-> +	if (ret < 0)
-> +		goto err_drop_skb;
-> +	sg_len = ret;
-> +
-> +	nents = dma_map_sg(xchan->dma_dev, skbuf_dma->sgl, sg_len, DMA_TO_DEVICE);
-> +	if (!nents)
-> +		goto err_drop_skb;
-> +
-> +	dma_tx_desc = dmaengine_prep_slave_sg(xchan->chan, skbuf_dma->sgl,
-> +					      nents, DMA_MEM_TO_DEV,
-> +					      DMA_PREP_INTERRUPT);
-> +	if (!dma_tx_desc)
-> +		goto err_unmap_sg;
-> +
-> +	skbuf_dma->skb = skb;
-> +	skbuf_dma->sg_len = sg_len;
-> +	dma_tx_desc->callback_param = xchan;
-> +	dma_tx_desc->callback_result = ep_dma_tx_cb;
-> +
-> +	skb_tx_timestamp(skb);
-> +
-> +	spin_lock_bh(&xchan->tx_lock);
-> +	cookie = dmaengine_submit(dma_tx_desc);
-> +	if (dma_submit_error(cookie)) {
-> +		spin_unlock_bh(&xchan->tx_lock);
-> +		skbuf_dma->skb = NULL;
-> +		goto err_unmap_sg;
-> +	}
-> +	WRITE_ONCE(xchan->ring_head, xchan->ring_head + 1);
-> +	netdev_tx_sent_queue(txq, skb->len);
-> +	netif_txq_maybe_stop(txq,
-> +			     CIRC_SPACE(xchan->ring_head,
-> +					READ_ONCE(xchan->ring_tail),
-> +					xchan->ring_size),
-> +			     2, 2);
-> +	spin_unlock_bh(&xchan->tx_lock);
-> +
-> +	dma_async_issue_pending(xchan->chan);
-> +
-> +	return NETDEV_TX_OK;
-> +
-> +err_unmap_sg:
-> +	dma_unmap_sg(xchan->dma_dev, skbuf_dma->sgl, sg_len, DMA_TO_DEVICE);
-> +err_drop_skb:
->  	dev_kfree_skb_any(skb);
->  	DEV_STATS_INC(ndev, tx_dropped);
->  	return NETDEV_TX_OK;
-
-[Severity: Medium]
-What happens when the MCDMA segment pool runs out before this ring
-does?
-
-The driver sets NETIF_F_SG, and skbuf_dma->sgl has room for
-MAX_SKB_FRAGS + 1 entries. But the stop and wake decisions in
-ep_start_xmit() and ep_dma_tx_cb() only look at CIRC_SPACE() on the
-TX_BD_NUM_DEFAULT (64) slot frame ring. That allows up to 62 frames in
-flight per channel, however many segments each one uses.
-
-In the xilinx_dma provider, each channel has a fixed pool of
-XILINX_DMA_NUM_DESCS (512) segments on chan->free_seg_list.
-xilinx_mcdma_prep_slave_sg() takes at least one segment per
-scatterlist entry. With fully fragmented skbs at 18 entries each,
-28 frames in flight leave too few segments for the next one. At that
-point the frame ring is still less than half full.
-
-dmaengine_prep_slave_sg() then returns NULL. The frame is unmapped
-and freed through err_unmap_sg and err_drop_skb, and it is counted as
-tx_dropped. The queue is never stopped, so the stack keeps handing
-over frames that fail the same way until completions return segments
-to the pool.
-
-Nothing leaks and the queue does not stall. But sustained SG traffic,
-such as zerocopy senders or forwarded paged skbs, sees packet loss
-where it should see backpressure.
-
-Should the flow control account for segments as well as frames? For
-example, the TX ring could be sized so that ring_size *
-(MAX_SKB_FRAGS + 1) fits in the provider's pool. Or the stop
-threshold could reserve the worst-case segment count per frame.
-
-Alternatively, should a prep failure with frames still in flight stop
-the queue and return NETDEV_TX_BUSY, and rely on ep_dma_tx_cb() to
-wake it?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-patches_v2_external-v4-0-56bb26f042a4%40amd.com
+cheers,
+jamal
