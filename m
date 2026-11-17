@@ -1,67 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794921719;
-	b=dtkbFOe+NtNpwT0LgFEzO8nzHIXX6aEqE/XCm+SV5ahqx9sCezdJ4XJowX4uEaBF7HrF
-	 RRP1Lbadhnx2SgPhRWe68Ed/ZgDfgmO2S8+rFXKaOVtlc3JT+dUhellVkaV+fDUdI/rwr
-	 rdjDADR0a1KD1e46A2ekS9ufhgP+J0PyDNt30okYD5+A/2O+Jt2FjSLDNXcGlPJ+9toGF
-	 RjUKsDfl18vDBKSns2n5EUiqfeiZU62L0A9WQznNYKmXM11AcWbS91A+W3dJkPR5+iy6+
-	 oegkW1eHvZNA2050Q93nw/l7EAX9oueoBWtN2lk2biYghq9SlNodOfcTc35zafUD6gQ==
+	t=1794921859;
+	b=l4RMwYaONRmJXkAvAeeTpH9rnG8vTCNIlVvWLe7SOHIzj8QcgSc72EXnYDUFpQnNyaVi
+	 LwIBc8LyT74BEymheOifhNqqHxrfRSeQ5xEQJsuS7g/j2HaHH6l4JSHUe0x3YUJaysZM/
+	 Mq71ipnvcdyy0w03ASfPd77eRzlxwqiwE1RjvnvSbbQiOlk71OPtqQkHPGqCcT7oWnnQS
+	 omYdiE8Doy1fA0cYTUbfBPc7I74o8lbKFuNu2FI6DQXUwHwBTXcsjsxli0y+fenwmKBDm
+	 oQB1CpOX6DvY6NWZggredQ0eUUlhqxAXsrivD93rOfeT+RrrYoBLsTMBRoBDjUtDm2Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794921719;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=jG/OnUlisMY7qep2I+IqNw1TKDaNTr//dvYoFFDJd0c=;
-	b=bNJo8xZlRrNvbZRUglUV1MHf21NBdpLJXwg/FRKPYAYb7Ry8yCo6TTSC98HfVGu1Hm4I
-	 rRUs1lpdqr15gY5YSjq3agqfVeOWi8c6HW81QfCy5LW8NgbRO7ICncHk4kVJYI1GYnFi3
-	 VhOAT15BQqYqw8Q6kvQs1zEu39ML+yLBKcoUKF36DSC77qWdKtkQ4aG8wPwxtZEHJlVsy
-	 h9WbiC51sMIosrnDGe14032nzlc85c+K3tN2HM3pEy7qFkNvSQV8VmivTwsgaXtHcDare
-	 CCc+ymYphae/dwahGgtwZ6txN13TYPLSA16nd/DkVF7DGg2RH3H1xNmBf2cQpqObZEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794921859;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=LCW9KCj8fXCtRdp+cQ/OpKbfijxh9Ai6M8Fp+nr/O58=;
+	b=JmaSRd8r5717qCnURW5M8TmDmIlJ7FejiTAfsqI9Xkcey8H3Y0SzZ5hUKK1dXO3eZ2JV
+	 m0ph2FL7pF38yqYoCGHTSllruRHqizXh+kCo/IuRfx3Z4+HBKPsn4k0/ldwLdhn1XUojx
+	 jc509clnkWTXLju8hnQmK/KiMAuOZncOH7OblCdhw1x8vS00AsaIb0UvadmcUr9qJBM4o
+	 0DkHf3jzXJEN/vsg+L6XD6NtvJeTpLUEckCVtJw66pLZ3BjOMzaS5kU1QRsr/9ODIrJTy
+	 VipZF+fYKhJN6YnVhF7Wue6XnWIrOwbKt89MjWtQWoG5kmd1VUiroX52MtRRgeBNAYw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Be29zpYv;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eKVloJE6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDFA6606A31C;
-	Tue, 17 Nov 2026 13:21:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BDFA6606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C54C0606A31C;
+	Tue, 17 Nov 2026 13:24:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Be29zpYv
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=jG/OnUlisMY7qep2I+IqNw1TKDaNTr//dvYoFFDJd0c=; b=Be29zpYvIUO7RfTkiCnhB1B50q
-	PIPV9MyGsPt6AwMCWTVSgrlUykV4HlUjezLCfPOACskDuc1Z50TKinbYf3EVca1hkRVyI+sjIVZ9+
-	CUFBLcf6eUDoRElxj7ToutLsAbepTyxmzeecW1mttRTaKlpR+w3+ZbeslvW9pb9JSO40=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTJ86-00H9nm-9e; Tue, 17 Nov 2026 14:21:46 +0100
-Date: Tue, 17 Nov 2026 14:21:46 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Yibo Dong <dong100@mucse.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	yaojun@mucse.com
-Subject: Re: [PATCH net-next v2 2/5] net: rnpgbe: Report link settings
- through ethtool
-Message-ID: <edd0589c-1a48-44a6-ad15-b9133ee4f751@lunn.ch>
-References: <BD205A7832D36E7D+20261116030917.1329989-1-dong100@mucse.com>
- <66AFF2810AB647C8+20261116031020.1330219-1-dong100@mucse.com>
- <d7351f56-d4fa-4ba0-a0c6-c7bdf7aac460@lunn.ch>
- <2207C8DCDD49F5EE+20261116044737.GA1342898@nic-Precision-5820-Tower>
- <cf674063-6c6f-43f6-a18a-d7ed5bef8a5c@lunn.ch>
- <236B4E2337BC768E+20261117014902.GA205295@nic-Precision-5820-Tower>
- <2ddca58c-608f-4a0f-a26d-df92c2c34c69@lunn.ch>
- <72676011073A7040+20261117025526.GA214154@nic-Precision-5820-Tower>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eKVloJE6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2D761F000C4;
+	Tue, 17 Nov 2026 13:24:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794921859;
+	bh=LCW9KCj8fXCtRdp+cQ/OpKbfijxh9Ai6M8Fp+nr/O58=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=eKVloJE6u12n3aW8MpErcfxIgJZ+c118D0+J7pFUz9pLCKa7kNo1+KK33oMfyFjhI
+	 58Mxa3LN/wEw8mF9Np1tWR+oPyaJVQKaKf0qd9WJXXoAKMuEsrCkKpsRt+wcyazt/F
+	 bzpKH4tipZErfR9p0SJXTh+243c61Rhr7pxLiHKTXP5f7TcV3SjMgD0CHJC/TkXdwk
+	 0qoaB5ENFlvLvMWWnj/eDde+1DMwQYU+SBdLg9PkwD+QqTZbAx+mFUf/z/smkka/jU
+	 XsAFNE36XjqUK2WteIRQ2XmZzCBdIwsVHs+jGJwxXvZ8XD8PDKVa3yNIuSvrOD3rVk
+	 oUHWvBGeLS/rQ==
+Subject: Re: [PATCH net-next v13] net: reduce ARFS flow updates by checking
+ LLC affinity
+From: netdev-bot+sashiko@kernel.org
+To: nashuiliang@gmail.com
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, sdf.kernel@gmail.com, daniel@iogearbox.net,
+ kuniyu@google.com, netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 17 Nov 2026 13:24:18 +0000
+Message-ID: <179492185829.3136.8645050662806185449@kernel.org>
+In-Reply-To: <20261113125643.2255-1-nashuiliang@gmail.com>
+References: <20261113125643.2255-1-nashuiliang@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,68 +65,176 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <72676011073A7040+20261117025526.GA214154@nic-Precision-5820-Tower>
 
-On Tue, Nov 17, 2026 at 10:55:26AM +0800, Yibo Dong wrote:
-> On Tue, Nov 17, 2026 at 02:54:45AM +0100, Andrew Lunn wrote:
-> > On Tue, Nov 17, 2026 at 09:49:02AM +0800, Yibo Dong wrote:
-> > > On Mon, Nov 16, 2026 at 02:18:28PM +0100, Andrew Lunn wrote:
-> > > > > link, speed, duplex and mdix are updated asynchronously by
-> > > > > the mailbox event handler, outside RTNL. link_lock protects these updates
-> > > > > and provides a consistent snapshot in the getter.
-> > > > 
-> > > > O.K, thanks for the explanation.
-> > > > 
-> > > > I removed too much context, so i cannot see here. What about
-> > > > lp_advertising? That also comes from the firmware, reported on link up
-> > > > when autoneg completes.
-> > > > 
-> > > The firmware manages autonegotiation and reports the negotiated speed
-> > > and duplex through mailbox link events. However, the current mailbox
-> > > interface does not expose the link partner's advertisement bitmap.
-> > > 
-> > > Therefore, lp_advertising is currently left zero to indicate that this
-> > > information is unknown to the driver.
-> > > 
-> > > If reporting lp_advertising is must, we would need to add a new
-> > > firmware mailbox command to retrieve the link partner's advertisement,
-> > > or add lp_advertising to link-event mbx alongwith link, speed and
-> > > duplex.
-> > 
-> > It is not a must, but it is useful.
-> > 
-> > Or you can just throw away your firmware, expose the MDIO bus, and let
-> > phylink drive the hardware. Less code, less bugs, more functionality
-> > for free.
-> The GMAC provides MDIO register access, so exposing an MDIO bus is
-> technically possible. However, the firmware currently manages the PHY,
-> and its interface does not provide a PHY ownership handover mechanism.
-> Introducing host-side PHY management would require coordinated firmware
-> and driver changes to avoid independently configuring the same PHY.
-> 
-> In addition, on this SoC, the firmware configures MDI/MDI-X through
-> AXI-mapped control registers driving the PHY's pi_force_mdix_en and
-> pi_force_mdix_mode inputs. This control path is outside the PHY's MDIO
-> register interface.
-> 
-> The firmware also supports link management before the host driver is
-> loaded and while the host is shut down, including wake-up handling.
-> On OCP platforms, it supports preserving the PHY link across driver
-> reloads and host shutdown. These capabilities are already implemented
-> in firmware, although driver support for them is not included in this
-> series. Any future ownership handover would need to preserve them.
-> 
-> Would it be acceptable for this series to retain the firmware-managed
-> PHY design without registering an MDIO bus, and leave lp_advertising
-> zero for now? If a mailbox command is added to expose the link partner's
-> advertisement, we can populate lp_advertising in a follow-up patch.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-You have not implemented anything special, other systems offer the
-same features, using phylink. However, it is fine to implement it all
-your own, rather than reuse existing software. SoC devices tend to
-make use of Linux to do all this, and PCIe devices tend to reinvent
-the wheel and do it in firmware. We are happy either way.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-    Andrew
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] With net.core.arfs_llc_affinity enabled, the new early `goto
+  out` in set_rps_cpu() (net/core/dev.c:5301-5305) can skip…
+- [Low] Commit message / documentation completeness (baseline: not
+  confirmed as a defect).
+
+--
+
+net: reduce ARFS flow updates by checking LLC affinity
+
+This patch adds a default-off sysctl, net.core.arfs_llc_affinity. When it
+is enabled, set_rps_cpu() does not call ndo_rx_flow_steer() if the flow's
+previous RFS target CPU and the new one share an LLC. The per-queue
+rflow->cpu is still updated, so software RFS keeps following the
+application.
+
+> diff --git a/Documentation/networking/scaling.rst b/Documentation/networking/scaling.rst
+> index 6c9836000a8d1..d85fe7a9e9bfb 100644
+> --- a/Documentation/networking/scaling.rst
+> +++ b/Documentation/networking/scaling.rst
+> @@ -468,6 +468,15 @@ of CPU to queues is automatically deduced from the IRQ affinities
+>  configured for each receive queue by the driver, so no additional
+>  configuration should be necessary.
+>  
+> +When the flow's previous target CPU and the new target CPU share the
+> +last level cache (LLC), the hardware steering update can be skipped,
+> +since the application's cache locality is preserved either way. This
+> +reduces contention on driver-internal locks when application threads
+> +migrate frequently between CPUs sharing an LLC. The functionality
+> +remains disabled until explicitly enabled through::
+> +
+> +  /proc/sys/net/core/arfs_llc_affinity
+> +
+
+[Severity: Low]
+
+This isn't a bug, but the text gives the condition only as the previous
+and new target CPU sharing the LLC. The code in set_rps_cpu() has two more
+requirements: old_cpu must be online, and rflow->filter must not be
+RPS_NO_FILTER.
+
+Could the documentation mention these? It could also say that after a
+skip, packets keep arriving on the old queue and are RPS-forwarded to the
+application CPU.
+
+[ ... ]
+
+> diff --git a/net/core/dev.c b/net/core/dev.c
+> index a230ecce9327d..15a5c7caaf8e8 100644
+> --- a/net/core/dev.c
+> +++ b/net/core/dev.c
+
+[ ... ]
+
+> @@ -5274,7 +5278,7 @@ static bool rps_flow_is_active(struct rps_dev_flow *rflow,
+>  
+>  static struct rps_dev_flow *
+>  set_rps_cpu(struct net_device *dev, struct sk_buff *skb,
+> -	    struct rps_dev_flow *rflow, u16 next_cpu, u32 hash)
+> +	    struct rps_dev_flow *rflow, u16 old_cpu, u16 next_cpu, u32 hash)
+>  {
+>  	if (next_cpu < nr_cpu_ids) {
+>  		u32 head;
+> @@ -5293,6 +5297,13 @@ set_rps_cpu(struct net_device *dev, struct sk_buff *skb,
+>  		if (!skb_rx_queue_recorded(skb) || !dev->rx_cpu_rmap ||
+>  		    !(dev->features & NETIF_F_NTUPLE))
+>  			goto out;
+> +
+> +		if (static_branch_unlikely(&arfs_llc_affinity) &&
+> +		    old_cpu < nr_cpu_ids && cpu_online(old_cpu) &&
+> +		    cpus_share_cache(old_cpu, next_cpu) &&
+> +		    READ_ONCE(rflow->filter) != RPS_NO_FILTER)
+> +			goto out;
+> +
+
+[Severity: Medium]
+
+Can this skip ndo_rx_flow_steer() even when the NIC is not delivering the
+flow anywhere near next_cpu?
+
+old_cpu is tcpu from get_rps_cpu(), which is rflow->cpu, the last software
+RFS target. That is not necessarily the CPU that services the queue the
+hardware filter delivers to.
+
+The rflow->filter != RPS_NO_FILTER test is also not checked against
+rflow->hash or rps_flow_is_active(). The existing tmp_rflow check further
+down in set_rps_cpu() does both.
+
+set_rps_cpu() writes rflow->cpu on every exit, including the paths where
+no hardware steering happened:
+
+    q_tag_ptr = READ_ONCE(rxqueue->rps_flow_table);
+    if (!q_tag_ptr)
+        goto out;
+    ...
+        if (hash != READ_ONCE(tmp_rflow->hash) ||
+            next_cpu == tmp_cpu)
+            goto out;
+    ...
+    rc = dev->netdev_ops->ndo_rx_flow_steer(dev, skb,
+                                            rxq_index, flow_id);
+    if (rc < 0)
+        goto out;
+    ...
+out:
+    ...
+    WRITE_ONCE(rflow->cpu, next_cpu);
+
+On those paths rflow is still the arrival queue's entry. Its filter keeps
+the old filter id, but its cpu moves to the new CPU. For example,
+mlx5e_rx_flow_steer() can return -ENOMEM, -EPERM or -EPROTONOSUPPORT.
+
+Consider this sequence:
+
+1. Flow F has filter f steering it to queue Q near LLC-A. Q's entry is
+   {filter = f, cpu = cA}.
+
+2. The application moves to cB in LLC-B. cpus_share_cache(cA, cB) is
+   false, so steering towards rmap(cB) is attempted, but it fails on one
+   of the paths above. Q's entry becomes {filter = f, cpu = cB}, while
+   the NIC still delivers F to Q.
+
+3. The application moves to cB' in LLC-B. cpus_share_cache(cB, cB') is
+   true and filter == f, so steering is skipped.
+
+4. get_rps_cpu() only calls set_rps_cpu() when rflow->cpu != next_cpu, so
+   every later move inside LLC-B is skipped as well.
+
+After that, would every packet be RPS-forwarded from Q's CPU in LLC-A to
+the application in LLC-B, with the hardware filter never retried? Before
+this patch, each migration retried steering. A retry could succeed once
+the colliding filter had expired or memory was available again.
+
+The filter id can also be stale or belong to another flow:
+
+- RPS_NO_FILTER is only written at table allocation and when
+  old_rflow->filter == rc.
+- rps_may_expire_flow() only reports expiry to the driver. Nothing clears
+  rflow->filter after the driver deletes the rule.
+- A colliding flow's filter in the same rfs_slot() would also pass this
+  check.
+
+Changing IRQ affinity also changes the queue-to-CPU mapping without
+touching rflow->cpu.
+
+This seems to conflict with the claim in the commit message and
+scaling.rst that "cache locality for the application is preserved either
+way".
+
+Would it make sense to also require READ_ONCE(rflow->hash) == hash and an
+activity check? Another option is to compare next_cpu with the CPU that
+services the arrival queue (skb_get_rx_queue(skb)), or with
+smp_processor_id(), instead of rflow->cpu.
+
+>  		rxq_index = cpu_rmap_lookup_index(dev->rx_cpu_rmap, next_cpu);
+>  		if (rxq_index == skb_get_rx_queue(skb))
+>  			goto out;
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113125643.2255-1-nashuiliang%40gmail.com
