@@ -1,69 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794897234;
-	b=I0Czt8keAVQQ2du+XYBySfYyzZbD2EbQv43ErnorBO+T/Lz1h16FB4TV1JnpctQXlzMG
-	 9+NfY60/w9nH+FDaq+XzZ5VsMi4tjyHdLCFgQG1vVIdEvPqnQGTxgKy3vukTjBLrUax8Q
-	 RIiS7IsTQA5ag/icecKU0M4DXD/KbH/6+ZvIQQbzzPdHFF6yGnIFlfd+1J3QlZrtVYAGQ
-	 pgKslenbQiQPepDSig7NDuXmT2qPWz0KsmC9JtlVVRlDCRPBejPQjyPcHscQCE12ygNZb
-	 P02L7L5JpqHtDPyggHmGrcafz4+rP8Lq0OMATQqtS/HCzhVloIPvCpRBsmaVyaXwJ7w==
+	t=1794897890;
+	b=nbVkpnigUuiQwyNNkeeHhEhCGW9q/TICyOOq+j9siWSmxO3Hr8gjhd+68XWnRiLsDBg3
+	 DvomcqPdt84KX47XZJjveeF0QecBnsMuD7MnP3ozovX9XZtLXGk+BMyRB9Xw2gM4bco9R
+	 qySGEnzUjA5zG7bT9vsLVLomBYXDsEjNSxKjuZMVJ8oWN/CmTMOO9AbVMjI7jvzzT60/L
+	 TATrF45VjZILJZh2480JiNAS2HC/tuSuw4Z5XLxOKzWwd2YeLA2CdtInzWVNwbpQ93eux
+	 ojELikn9q/dpzPJ01+PVyiU/UkBtgZt5DPOm1S4/zLY9ouD15Y11lm5RPf7F8Tobj1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794897234;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=YnlME4NSWr73vdj2f9LnC+6k0GH5g2x5meC+XPL1Jh0=;
-	b=bLF2+wQVsbEE/ROh7UCAhjR4FdrPsV9cb+hPu1zxLcBYHEGExm5pkWLhMJtBxBJqeDQ0
-	 hh6n88ECW15d1SlndTdYXp8+TMoNCqVi2VG7Q/alcST325NVC68hXL4BJP9207YBV5BRx
-	 pXPw2/HRPdCt2qNO5a6qdqWrubCHAgvERLS9gLHWdHw7Ov8fuXBSctC1UTZIFjPI3sGVm
-	 4eaIGVK58m1J9dhKS36a/HfcJ1flm0aAAJ7A8Di1SfIT0UjAb1dMnZmIS68GEyL0uWLB2
-	 1pfowIgx9bdu6XJVuu7ZhjehKPAuksc5f7MpgNFUz0kJCOTp22tFkBLH01NCIuJOcpg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794897890;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=hOnWhf2UYUafyeK5eqb3reqBBAwOK+jIEmpgbPZ8v1k=;
+	b=5bwoUHsBeb9saDM350QKGwpu9jUooBdYXRJOi/WDMM/xrKqOSFhqL3R9Nnvj3xazGt90
+	 cJ322sUIy1c+WJq1IyeeiQ1grdZ7Y43FQ4yJvGDePmZ0EgjcAgXqVs25UG1tLWAbQzrVv
+	 i3Hg1jX5EjnRu/R6n9jDYhJrKQPJDp1MfmalDTSU5XO4G5LG8TA2DDSmbS3jOtG2JW2Md
+	 sMKai/NiGgsrL0Tgyp64uJv41diAg9lWdE3i8gAe/RWNIjRqf4X4ObwRxAFzQMWEmjMMp
+	 PVmkR65FOX/qe+WI2cl9tksIQDSgWNPWfkEQR0TRq6xBo2FTJj43tNqFVUkG7k4D7eA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=h-partners.com;
-	spf=pass smtp.mailfrom=h-partners.com;
-	dkim=pass header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=jj515hhJ;
-	arc=none smtp.remote-ip=113.46.200.217
-Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gvcYvyi2;
+	arc=none smtp.remote-ip=198.175.65.10
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B977606A31C;
-	Tue, 17 Nov 2026 06:33:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B977606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=h-partners.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=h-partners.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3C74606A323;
+	Tue, 17 Nov 2026 06:44:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3C74606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=h-partners.com header.i=@h-partners.com header.a=rsa-sha256 header.s=dkim header.b=jj515hhJ
-dkim-signature: v=1; a=rsa-sha256; d=h-partners.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=YnlME4NSWr73vdj2f9LnC+6k0GH5g2x5meC+XPL1Jh0=;
-	b=jj515hhJ40QLAjkq/K9reOZ6Y0vUHq5koxh7CMRJfcIS8EkJi/6YFWWN2ABZHNHgom4u0t9S2
-	KKfL6OYLWEAPHKN9Ed6XgAEuE04EeSy8Qx9IVWPJuVv4hRfLf15s0+l87hZ+47nIo/cIR7fgrUT
-	VD/6G/NgzWNFu+drDxawiII=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jTFKL3G4VzcbPw;
-	Tue, 17 Nov 2026 14:32:54 +0800 (CST)
-Received: from kwepemr100001.china.huawei.com (unknown [7.202.195.168])
-	by mail.maildlp.com (Postfix) with ESMTPS id F07E040684;
-	Tue, 17 Nov 2026 14:33:44 +0800 (CST)
-Received: from huawei.com (10.50.159.234) by kwepemr100001.china.huawei.com
- (7.202.195.168) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 17 Nov
- 2026 14:33:44 +0800
-From: xietangxin <xietangxin@h-partners.com>
-To: Jakub Kicinski <kuba@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-CC: Dmytro Linkin <dlinkin@nvidia.com>, Vlad Buslov <vladbu@nvidia.com>, Jiri
- Pirko <jiri@resnulli.us>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>,
-	<syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com>,
-	<gaoxingwang1@huawei.com>, <huyizhen2@huawei.com>
-Subject: [PATCH net] netdevsim: fix devlink rate node leak on devlink_free()
-Date: Tue, 17 Nov 2026 14:32:37 +0800
-Message-ID: <20261117063237.865953-1-xietangxin@h-partners.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=gvcYvyi2
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1794897890; x=1826433890;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=ESQjpD8S2LW070yACMHY9t3rIJIM32CEwZ+XZ+1Vu5E=;
+  b=gvcYvyi2Z1tJPBKlvSs3Eu9JbUzgSZQbkeY01iIV7guv1lDKYVbim4oT
+   fCApOSUphr4v7YAW82Hgmi1byDcMVZ5MDFn7BVhTvr0uCTQieiB8oDBGH
+   lheCqJ7kpF6ofSLhmNxAtnN4TL7IHZQKV6cMA2Rnkypc+OXAhwNY1dFsq
+   MhVH4NwXUJTS3rNf1hQ7T7UO6VOS87PEdyoWSgK3baNQonvqGE9EpAobY
+   hht3QGhxXQTLY1QAPryvO6rbAxCvJLrX89HLQQDhHAaP+ADpiYZq5JOnN
+   LGMLGDu1myK8MnH4nbsMdk9D9d3A2CYiUQVu9b8MFaJaHO1iPJeSx/xHQ
+   w==;
+X-CSE-ConnectionGUID: fvif3nhYS3GV8MQ1PPGmaA==
+X-CSE-MsgGUID: INSYKuGeRm+4t4mrQ+OdzA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11968"; a="3564578"
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="3564578"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 16 Nov 2026 22:44:49 -0800
+X-CSE-ConnectionGUID: K2ZTOQLqQ36QOI5pE7FNuA==
+X-CSE-MsgGUID: 3W5u5vGJQKGsicfVVW/6ag==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="10152989"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 16 Nov 2026 22:44:46 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTCvr-00000001AAp-04dz;
+	Tue, 17 Nov 2026 06:44:43 +0000
+Date: Tue, 17 Nov 2026 14:44:22 +0800
+From: kernel test robot <lkp@intel.com>
+To: Hang Nan <2122295973@qq.com>, netdev@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, mptcp@lists.linux.dev,
+	matttbe@kernel.org, martineau@kernel.org, geliang@kernel.org,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, horms@kernel.org, kuniyu@google.com,
+	willemb@google.com, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, 2122295973@qq.com
+Subject: Re: [PATCH net v5 2/3] net: mptcp: reject token 0 in
+ mptcp_token_get_sock()
+Message-ID: <202611171407.G0WgWRA6-lkp@intel.com>
+References: <tencent_46FC62D4DE8FB8E6C90049F5AB28BDAA8C05@qq.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,64 +87,33 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemr100001.china.huawei.com (7.202.195.168)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <tencent_46FC62D4DE8FB8E6C90049F5AB28BDAA8C05@qq.com>
 
-netdevsim allows switching the eswitch mode to switchdev with zero VFs
-and creating rate nodes on such a device. However during device teardown
-nsim_dev_reload_destroy() only drops the eswitch back to legacy when VFs
-were configured, so the rate nodes are never destroyed and trigger the
-WARN_ON(devlink_rates_check()) in devlink_free():
+Hi Hang,
 
-  WARNING: net/devlink/core.c:544 at devlink_free+0x18c/0x26c, CPU#2: bash/5032
-  Modules linked in: netdevsim ...
-  CPU: 2 UID: 0 PID: 5032 Comm: bash Not tainted 7.4.0-rc3+ #77 PREEMPTLAZY
-  Call trace:
-   devlink_free+0x18c/0x26c (P)
-   nsim_drv_remove+0x9c/0xb4 [netdevsim]
-   nsim_bus_remove+0x10/0x1c [netdevsim]
-   del_device_store+0x110/0x190 [netdevsim]
-   ...
+kernel test robot noticed the following build errors:
 
-Evaluate the eswitch mode check unconditionally, so rate nodes are
-destroyed whether or not any VF was ever configured.
+[auto build test ERROR on net/main]
 
-Reproduce by:
-  $ echo "10 1" > /sys/bus/netdevsim/new_device
-  $ devlink dev eswitch set netdevsim/netdevsim10 mode switchdev
-  $ devlink port function rate add netdevsim/netdevsim10/n1
-  $ echo 10 > /sys/bus/netdevsim/del_device
+url:    https://github.com/intel-lab-lkp/linux/commits/Hang-Nan/net-mptcp-reject-token-0-in-mptcp_token_get_sock/20261116-225828
+base:   net/main
+patch link:    https://lore.kernel.org/r/tencent_46FC62D4DE8FB8E6C90049F5AB28BDAA8C05%40qq.com
+patch subject: [PATCH net v5 2/3] net: mptcp: reject token 0 in mptcp_token_get_sock()
+config: x86_64-rhel-9.4-kunit (https://download.01.org/0day-ci/archive/20261117/202611171407.G0WgWRA6-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261117/202611171407.G0WgWRA6-lkp@intel.com/reproduce)
 
-Fixes: 885226f5680e ("netdevsim: Implement support for devlink rate nodes")
-Cc: stable@vger.kernel.org
-Reported-by: syzbot+bbd81e1e2276c534dea1@syzkaller.appspotmail.com
-Closes: https://lore.kernel.org/netdev/6af9824c.920b2b3a.148c65.0009.GAE@google.com/
-Signed-off-by: xietangxin <xietangxin@h-partners.com>
----
- drivers/net/netdevsim/dev.c | 7 +++----
- 1 file changed, 3 insertions(+), 4 deletions(-)
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611171407.G0WgWRA6-lkp@intel.com/
 
-diff --git a/drivers/net/netdevsim/dev.c b/drivers/net/netdevsim/dev.c
-index c6b17b387327..b483c25dfecd 100644
---- a/drivers/net/netdevsim/dev.c
-+++ b/drivers/net/netdevsim/dev.c
-@@ -1700,11 +1700,10 @@ static void nsim_dev_reload_destroy(struct nsim_dev *nsim_dev)
- 		return;
- 	debugfs_remove(nsim_dev->take_snapshot);
- 
--	if (nsim_dev_get_vfs(nsim_dev)) {
-+	if (nsim_dev_get_vfs(nsim_dev))
- 		nsim_bus_dev_set_vfs(nsim_dev->nsim_bus_dev, 0);
--		if (nsim_esw_mode_is_switchdev(nsim_dev))
--			nsim_esw_legacy_enable(nsim_dev, NULL);
--	}
-+	if (nsim_esw_mode_is_switchdev(nsim_dev))
-+		nsim_esw_legacy_enable(nsim_dev, NULL);
- 
- 	nsim_dev_port_del_all(nsim_dev);
- 	nsim_dev_hwstats_exit(nsim_dev);
+All errors (new ones prefixed by >>, old ones prefixed by <<):
+
+>> ERROR: modpost: net/mptcp/mptcp_token_test.ko: symbol 'mptcp_token_exists' undefined!
+
 -- 
-2.43.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
