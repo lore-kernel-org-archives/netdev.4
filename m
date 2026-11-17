@@ -1,63 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=12.32.117.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794924562;
-	b=C0KSiZq/fMcGV0VlJSC2CHTi/jSuxyjKX7y1kQ8zbnW7vIzzCbUHXeeQRNbLLg2zu/A6
-	 7G2cj2r1nm6Heyw1sI/TyuJdsidr3VkM6bXxoj3HAAuxO2sMtxu/cMYJ9vsOvMU77R9B0
-	 4yFHTEEVfxt3edGvxXUst8GLfpEk6iHyLcS/JcwERff3DDRUo4NI4AROdXQKLxVXf2htt
-	 sFa/2EynRIeYlpmhRbJCGQPFHU5AZeWabvSjA0DIud9Q7G3Dzyf4qWqNNQv0jMFNJGFdT
-	 lXbFV5kiORskamziaWjmFWSGy9kCeuM3bjUBr3g+FikqiAsEYPAbvWv8kty/ttS1nhw==
+	t=1794924606;
+	b=LVCuPFJN1oH3Ly6+TZzmv1/631leY0UldocLlsA8AlUBKK7t7A+3O4o4GY6L3bekvfsR
+	 xUxGWcp4UmMFPkBSUz+eKrOBUbl3nDLTI++4X9fYZBkzvMShjVaqA/FJ8YWRLmPsVFN0I
+	 s2CVtmYTRKOGnO0zFueCXe79PLhUcTeS0N/tN++H/Otf/AQQss2yY+kehQFDXt6095ejO
+	 zzPE8TunDW45m3J6a1V1RwR7V7ytfOAr8WsRG7TSnX4jUgA52utijlmIbDFpy2c8+tRc6
+	 cKzrlW5RcBFWf2fk3DzBDRpGsEXDDzmAa+x6qB/moGcSoazx+3EXGOtFrIh5hsYSdpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794924562;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=IS5A69DN3etoBCzAim4M2YEDkR7TO4KkrjqVc99lAhQ=;
-	b=HrrNI7oLKOXTtM5UMkSipNVeygS0n4Rlh4KI6GYLx+R9BpGoLABVmTI6xNm8K2Z6TtyB
-	 urghJUQ7J5vdnkG8pp/exDV4I4pchnZkcSS9U4yQKysVEt3GwPnS2SJLkyTCi3x8Vx20x
-	 PplkRBjX1beTEO2YRDcY+Ekh2g2JHX4if0Rj56WjHe/PYLBbHT/5/sV9cWeLJi5tBX+Tk
-	 nLIUr4HyKFB60qP46Rv3SxSde402I3aMJxHUip7Ewrv0J6W64Z6IzlyQdM848BoF85OgT
-	 3YNU3qiahLDgl8aOIiWHXMy4vKcmUb9frLADzmRfuDjvkDNkrp63kY1g/1QQ2Kq54bA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794924606;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=F5meV2QUxN85asib0EvXq8wNQNxI3hiyY6zOUQ0uvmA=;
+	b=NiVg2OONI+IFlNDo2beYI8+XiGfIuNO11FKcNpsgilY6nKb/bmFAmfoy+gQPCYxPnor3
+	 2oIyMy9cX7i80GXyQ0KDeFNyoe6Kck09TUwkeZpcc90BTN1oCKwxxMjXLGCY7GLZVqot5
+	 1gIn9dlpx7XmWwEBkajx841Se5/HVIQ26Vszt2B7oq0rS+8D/U7aesbWX+cq3Zi22YAJ4
+	 eg/xETFV4TmvHHroA27/2N1MiVKygYuCPlkJ+adAdNWyTtgZ3HEfR22rU65mPU0lZkhlZ
+	 f9COPQVYLdwQNR9oqkYFa+hFYigeJlQVUpGVilvQLN2nNcvh7EnsAmD7oca3f1jE23g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=chelsio.com;
-	spf=pass smtp.mailfrom=chelsio.com;
-	arc=none smtp.remote-ip=12.32.117.8
-Received: from stargate.chelsio.com (unknown [12.32.117.8])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iDX+A6uE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37C2B606A323;
-	Tue, 17 Nov 2026 14:09:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37C2B606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=chelsio.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chelsio.com
-Received: from localhost ([10.193.191.19])
-	by stargate.chelsio.com (8.14.7/8.14.7) with ESMTP id 6AHE5ZYp013372;
-	Tue, 17 Nov 2026 06:05:36 -0800
-Date: Tue, 17 Nov 2026 19:35:02 +0530
-From: Potnuri Bharat Teja <bharat@chelsio.com>
-To: Alexandre Cassen <acassen@corp.free.fr>
-Cc: Saeed Mahameed <saeedm@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
-        Tariq Toukan <tariqt@nvidia.com>, Mark Bloch <mbloch@nvidia.com>,
-        Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>,
-        Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Michael Chan <michael.chan@broadcom.com>,
-        Pavan Chebbi <pavan.chebbi@broadcom.com>,
-        Donald Hunter <donald.hunter@gmail.com>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Randy Dunlap <rdunlap@infradead.org>, David Ahern <dsahern@kernel.org>,
-        Ido Schimmel <idosch@nvidia.com>, Shuah Khan <shuah@kernel.org>,
-        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "linux-rdma@vger.kernel.org" <linux-rdma@vger.kernel.org>,
-        "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
-        "linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-        "oss-drivers@corigine.com" <oss-drivers@corigine.com>
-Subject: Re: [PATCH net-next v2 02/10] cxgb4: flower: refuse a tunnel key
- wider than the VNI
-Message-ID: <avxfDps1eq4i4Zj8@chelsio.com>
-References: <20261117092915.255194-1-acassen@corp.free.fr>
- <20261117092915.255194-3-acassen@corp.free.fr>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7645606A333;
+	Tue, 17 Nov 2026 14:10:05 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iDX+A6uE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE3011F000C9;
+	Tue, 17 Nov 2026 14:10:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794924605;
+	bh=F5meV2QUxN85asib0EvXq8wNQNxI3hiyY6zOUQ0uvmA=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=iDX+A6uEkn+A8RQZ2AhilY8u8OhUo/EO/XvGcRtdB/wESZVJyXVch7b+NLPIQP7Nv
+	 y7A7s98AcicR395lMZgT5zIcAJ/RrB+tHDAa5JBMB35325fSun7jpPJp7l4JH45tkj
+	 ZIf24AlJiwSn5s3G3xBrR8hS06lsr77AiZqy33k2PcAJYiot7i9qWlvP3cV94aZ/MA
+	 J3CqhHYmN7/vD7c4pTHI88SaezQwEILZwhayJmI11mUGgpq+nFYDSmCF7VmAA55w1H
+	 GT6vn+ulAJbICfh61jGv79iorlxzJTU418TOOSz+I+qK5dueiRn3Un/BqSH8KSbPta
+	 IYE99BfW5oMow==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4431392704C;
+	Tue, 17 Nov 2026 14:10:05 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,59 +53,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117092915.255194-3-acassen@corp.free.fr>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2] MAINTAINERS: exclude CAN documentation from
+ general
+ networking
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179492460428.610117.3153920075892405328.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 14:10:04 +0000
+References: <20261113-exclude-can-docs-from-netdev-v2-1-8ae9dc553024@qq.com>
+In-Reply-To: <20261113-exclude-can-docs-from-netdev-v2-1-8ae9dc553024@qq.com>
+To: Cunhao Lu <1579567540@qq.com>
+Cc: kuba@kernel.org, netdev@vger.kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, mkl@pengutronix.de,
+ mailhol@kernel.org, socketcan@hartkopp.net, robin@protonic.nl,
+ o.rempel@pengutronix.de, kernel@pengutronix.de, max@enpas.org,
+ linux-can@vger.kernel.org, linux-kernel@vger.kernel.org
 
-On Tuesday, November 11/17/26, 2026 at 14:59:05 +0530, Alexandre Cassen wrote:
-> cxgb4 holds a 24 bit VNI and truncates the key and the mask of enc_key_id.
-> An exact key above bit 23 already selects the wrong VNI. Flower is about
-> to accept partial masks. A mask that only covers bits above 23 would then
-> clear the VNI mask and encap_vld. The rule would match any traffic its
-> other keys allow. Refuse a key that no VNI can match and a mask that
-> leaves no VNI bit.
-> 
-> Found by an AI code review agent while auditing the users of enc_key_id.
-> Confirmed by code inspection. The wrong match was not triggered. Build
-> tested only.
-> 
-> Fixes: 98f3697f8d41 ("cxgb4: add tc flower match support for tunnel VNI")
-> Signed-off-by: Alexandre Cassen <acassen@corp.free.fr>
-> ---
->  .../net/ethernet/chelsio/cxgb4/cxgb4_tc_flower.c  | 15 +++++++++++++++
->  1 file changed, 15 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_tc_flower.c b/drivers/net/ethernet/chelsio/cxgb4/cxgb4_tc_flower.c
-> index 3307e5042681..467f055e318c 100644
-> --- a/drivers/net/ethernet/chelsio/cxgb4/cxgb4_tc_flower.c
-> +++ b/drivers/net/ethernet/chelsio/cxgb4/cxgb4_tc_flower.c
-> @@ -316,6 +316,21 @@ static int cxgb4_validate_flow_match(struct netlink_ext_ack *extack,
->  		return -EOPNOTSUPP;
->  	}
->  
-> +	if (flow_rule_match_key(rule, FLOW_DISSECTOR_KEY_ENC_KEYID)) {
-> +		struct flow_match_enc_keyid match;
-> +		u32 key, mask;
-> +
-> +		flow_rule_match_enc_keyid(rule, &match);
-> +		key = be32_to_cpu(match.key->keyid);
-> +		mask = be32_to_cpu(match.mask->keyid);
-> +		if (key >> ENCAP_VNI_BITWIDTH ||
-> +		    !(mask & GENMASK(ENCAP_VNI_BITWIDTH - 1, 0))) {
-> +			NL_SET_ERR_MSG_MOD(extack,
-> +					   "Tunnel key does not fit the 24 bit VNI");
-> +			return -EOPNOTSUPP;
-> +		}
-> +	}
-> +
+Hello:
 
-Thanks for the change. the 24-bit vni bitfield silently truncated wider keys and masks.
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-Reviewed-by: Potnuri Bharat Teja <bharat@chelsio.com>
->  	if (flow_rule_match_key(rule, FLOW_DISSECTOR_KEY_BASIC)) {
->  		struct flow_match_basic match;
->  
-> -- 
-> 2.43.0
+On Fri, 13 Nov 2026 10:33:06 +0800 you wrote:
+> From: Cunhao Lu <1579567540@qq.com>
 > 
+> The SocketCAN, ISO-TP and J1939 documents and the CAN driver documentation
+> directory match the broad Documentation/networking/ pattern in
+> NETWORKING [GENERAL]. This makes get_maintainer.pl select netdev and the
+> general networking maintainers for these CAN-specific documentation
+> changes.
 > 
+> [...]
+
+Here is the summary with links:
+  - [net,v2] MAINTAINERS: exclude CAN documentation from general networking
+    https://git.kernel.org/netdev/net/c/8868b79a430e
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
