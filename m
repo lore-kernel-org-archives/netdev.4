@@ -1,55 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.72.192.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794905388;
-	b=p6zUyseDVWT4a84X0hfIBWAdik+0xlq7F90mIIqSXpg76FjhAdCQbKBik37C1gZgWgQR
-	 rFPN2t+z2x27RWc2I+sAo78XpodYkw7dRumO3/ONRrCv5pMRLN0PSsZffuzdtp6KXnYak
-	 8eXhUnheDf6W/brrb3v3qFebEuDkK4OFG9GwBYsnhddiKLIToZE/ir/uN0tkS1upPcYKZ
-	 zFyyEQqFGvigbtafcEWWeWLSdTGbZsJ490YiSApdj+PkpJpD9M8KiD+KnEcFJgvaV01hF
-	 m4xZibeOouwfzZIZQWZFd8zPGQXzVu2qFENEF4FHiiGI2Nz+IgfNsuPzwXekm+3AoDQ==
+	t=1794905392;
+	b=WAeTLPSTIoZrAR9ZXt+5zo5Q57afWakeBBq3U9mP4qBWmiinkBt5jvW3z27qIl2sewWw
+	 tZFEHJaUOylAkBPsDoSxtE5X7SENuzqWXcgbQvkRREwQq2XnZGgt9zE2q31k6Mg75l88k
+	 E5JO8G5ozrDSVT0zofgbDUF55H5jqw+/Me2wpOUj64PF2X+OWjU4nyB5oeJl1iQSMfLfR
+	 068Tt1GYNVswORt9/Tjgjx6UGoKJGHzC6kTHi5uBuAZ3fcaMVNI6dRnlA1VkDt3RXUQgr
+	 Tfuz++4YlV/OuM5CcNEta5m5whPZGwB26CKjh+Q2T1FqE9Ua7QQ1M+Qn845cvM6xbiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794905388;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=fyhBKlpPcQyT2myiX0EScmV8WklZyGW831jALJF8TyM=;
-	b=vpv9jZibQnl2Re+7LuA/RT3jz4AOgU3fSY685g1YN52n4JrcbjDdVVql4SJe7B4IudMn
-	 aC7rj0Y94PDXvJMOWebLiBdrykVoXfd7VUTi0L5A2P+Fp8QxM03ZYhSx9gVa+pvMjSvjm
-	 1bWgUqUkc3ICj8xTB92z40Bwj/i0o/ync0dyQ4wyhZdU7fMrpcVcnmnp62P4NumIy/oVw
-	 +ASEq7um6O+rXRgeWiorcxhe6mwyN9vKc8ufU4kZqLoudVCKdKASqiwhbQ/ips6DRxnqx
-	 5VLl8/yLw/WYf+QuLA1ohuaYVveCADwlYaFwwI+I0lmlLpEibfDeEGbf2cqONGdoROg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794905392;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
+	bh=dDphXepmTf/DSdA6L5iPJVxN4NKPCh9r42nuQhCZVoM=;
+	b=dSqLSlO5g50PtFvwuIeL66eWzhNobOoLRrasa553UgDiD61mw36yDwfUF/kCur7GI18p
+	 nPnzM+wWJh4DccmuQ4maI7TNWLk69NmaNQ4OViP7asejHt0CdAKMGOh137pHC6a4q31YB
+	 9Sh9IpHNiYW3pUFmKTkCYTtlGKEMm2H94Ss6tlX5i1eLW0/rFePZWp9YUva6+kKWmUKyq
+	 vKE6qrJvUOQQrcYaNKJxq3+Ev5mVY0IK7Q/ZAIo9AmSAyb8dMXEbh1HNkb5UbmYF+zaF9
+	 6BOKbkda2mLnKPTIrNOO64/C0yjzOwqcwc5SwKQ4Ibv8Cs7QYQEh3kIkg2WFerzwN7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="D4fZO33/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=jonasjelonek.de;
+	spf=pass smtp.mailfrom=jonasjelonek.de;
+	dkim=pass header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=hWPvmLjd;
+	arc=none smtp.remote-ip=217.72.192.75
+Received: from mout.kundenserver.de (mout.kundenserver.de [217.72.192.75])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1946F606A884
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:49:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC282606A890
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:49:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC282606A890
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=jonasjelonek.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jonasjelonek.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=D4fZO33/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B89411F000C8
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 08:49:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794905387;
-	bh=fyhBKlpPcQyT2myiX0EScmV8WklZyGW831jALJF8TyM=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=D4fZO33/jlfiiS09+9aSgBnyctBrFN7jmdl2Tqp1CiIAKXofBGQYD34rDw6RoUX0k
-	 JxsZMIOVWcJYnLfg3HQWKcKqAiyr0FtQBXe7eWgMkIMi860DUSDDYc9I2o7bkI67Ne
-	 UrkR8SJN7zbidu6iKqIcpC1UtmvRdcb+AThG5Q/CKZGquKCBNB9Jk37C3KIVqHGZfH
-	 kgerzsnuresXhl+7DkZxy4GgrrH2wapBfMStFZcVhocCq3Y0iy/LsFWwXUjCzkvlXH
-	 4pKPAvyE1jAq65raTvC+MgaP24mk9b5V2W6ak8UNqP7741XIQCIclAGYb90WO8tQd1
-	 Av6AEfO0x2FQg==
-Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-71af0656bedso1096986eaf.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 00:49:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFvspG4r0lZa3mNmFOzQ6Rrf7Q6ouGeWLpaPvLKdha6iV8E6jxOsAfjyXhOZNQMrCtSw2chziw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ZJ3s2kH867S4ancBrpaNEdHAk3X/o4HZQGZ1qshXpaWGU1R4X
-	A8OAkLtWWfQc7x3tXfWC0EYJrwJ+Q3wE/+xzJ81oMzdjyEd/BR/rFhE+9cgP+h1M50Q7CIzmzaH
-	E8dDDSbD+iA6tJOboQtI5HKY/WpA7smA=
-X-Received: by 2002:a05:6820:f00d:b0:71a:f4ed:7013 with SMTP id
- 006d021491bc7-71af4ed9b17mr3862417eaf.87.1794905385929; Tue, 17 Nov 2026
- 00:49:45 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=jonasjelonek.de header.i=jonas@jonasjelonek.de header.a=rsa-sha256 header.s=s1-ionos header.b=hWPvmLjd
+DKIM2-Signature:  i=1; m=1; t=1794905386;
+ mf=PGpvbmFzQGpvbmFzamVsb25lay5kZT4=;
+ rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+ d=jonasjelonek.de;
+ s=s1-ionos:rsa-sha256:ZC+sXOfAMxaM8rblxdDR1kWd7xuX
+   os0U5KaHmabIgUtvYzdSx49B5XoYlFJjEyDTS2A07mnje/ZlSG0fJSUno/7uQag2Dkyz2ZA5zx4
+   n7MuChEIkeOu5/dvFeg6syQMnzjubAPD185EfJd+nm8uSTus2JKFBMS3BlLMkwFkdKy7u9ZESMk
+   9qE5DJ3TgXN7GpnDKB0jbmsnG/9FtRpX0tWGRdM8G5MgRxrGjNsoTjbbof1Oho24xpncHcFv1Tj
+   yMWWQMjMZykk8+o1/Wv/xEy1ZxokEjQuKvckBQ2Dri/i8cqya4GQzgSV9S3x2iw7jvTOwlQzwVa
+   S1qxZY+ETFDyDw==;
+Message-Instance:  m=1;
+ h=sha256:
+   6jSxRpdrKNFVuIJ1JFQ1jjEIC0YmNnOqBgkrA5Q5wEo=:
+   5S00Mf9YRv4dtSRWDlxv3uk7E45ViznI6QfTF+tEijk=,
+  sha512:
+   EkuheOQNW+OQ3I1aJQ8tRMsfu+y1ZJUgykHrq+dE6SV60J1vpMMAC+hZgLy1nWfYCC7DNGvYWkHfq5X8zI5soQ==:
+   KvRlFwS9eEU7srxHQ848tEa/sX1K6k+NT2fJBt0+NcJn9Joh4Av1HHpHC3TvJ2egsdpa0os18PxoaCbkagH2Ng==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jonasjelonek.de;
+	s=s1-ionos; t=1794905281; x=1795510081; i=jonas@jonasjelonek.de;
+	bh=dDphXepmTf/DSdA6L5iPJVxN4NKPCh9r42nuQhCZVoM=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=hWPvmLjd7hsKZd+j618UV+7+A+G8R9K4bQSyHSsFqDr/f6ApXd52M/69gvKeLktx
+	 c670jf3vGb6qNW16aMWdc8Wol9sd9cw/BKbs0RSH/D3CqErQ4/Zt1l8xVE6X2U0wS
+	 J22cuJbv2tTIltjmBs7PZQ+1Ehjl4Wsx/r5UZUSH8D4qN3WBnr+FG6Zwaugnrex7L
+	 R2CVEQ7Zbb//miw46JqpaxKoHNIwSm4k++f1eyxO973KJBcHKmtqsXlTEE5CACQNP
+	 7xUSEuP0/0URcePIF4/But8rFMWLor3I424CnUl0OQTZs2CohZfCb/crfuf/MdZKH
+	 uvUGeNiXkMSZe219+g==
+X-UI-Sender-Class: 55c96926-9e95-11ee-ae09-1f7a4046a0f6
+Received: from client.hidden.invalid by mrelayeu.kundenserver.de (mreue108
+ [213.165.67.113]) with ESMTPSA (Nemesis) id 1N4yyQ-1wSmJg3WMe-013gdd; Tue, 17
+ Nov 2026 09:48:01 +0100
+From: Jonas Jelonek <jonas@jonasjelonek.de>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Jonas Jelonek <jonas@jonasjelonek.de>
+Subject: [RFC PATCH net-next 1/2] dt-bindings: net: add Realtek XSGMII interface mode
+Date: Tue, 17 Nov 2026 08:47:47 +0000
+Message-ID: <20261117084748.2387647-2-jonas@jonasjelonek.de>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261117084748.2387647-1-jonas@jonasjelonek.de>
+References: <20261117084748.2387647-1-jonas@jonasjelonek.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,142 +103,94 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117053543.84032-1-kuniyu@google.com> <20261117053543.84032-5-kuniyu@google.com>
-In-Reply-To: <20261117053543.84032-5-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Tue, 17 Nov 2026 09:49:35 +0100
-X-Gmail-Original-Message-ID: <CAL4WiipmG_J4ASJ3LRhhvS7X+pFMdvq1CM_UnXRYH2M0ajZahQ@mail.gmail.com>
-X-Gm-Features: AclHuK-MB_hicykrnPahJRX4E3k4bFWtUvkPGORfWT_7RkYK8C4v0tNFSGCQvfM
-Message-ID: <CAL4WiipmG_J4ASJ3LRhhvS7X+pFMdvq1CM_UnXRYH2M0ajZahQ@mail.gmail.com>
-Subject: Re: [PATCH v1 net 4/8] tcp: Fix reqsk abort condition on ICMP errors.
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:rBcdlKiuMzWqqMqMx3j3k1snq8RgXxY6R4WvEE8/UO5VKiSjYP1
+ kS6Umd45dbsyGH+W3/UcgT0Hil1paPtJxYU/jlIi8d/PQHBxzcF5PCO7ymy7oiMBN5UoLwH
+ 8D1XkIYZ7C/VXGmlU3dHlYtJlv+nxBYeOc7+EAz9ALRgJIK0JENs37LIWpF6xyypYizIvI4
+ 8ohxmgdGuEbPp+NSz3daA==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:k/KB5u+1Fqk=;LvhFHHapjoWbfsknFWLvmzbcCdh
+ Jixmmgcny4+xTeVBEEhis/ZVF78ZpwRIHDT2hqLQYySeZYhEAt8sZRqjHszg65ThcdIxsVYyD
+ Cbw8Q5EkgHfuSb163YfDwfkWgE3e7XDpiHwn2FtnoiwIkIv0ij98ssAbOT/3sSG05iKv1/+Uq
+ CMyR92yraW9eUGz8tOXjQKenY6quAXAUj0fhnUoeTUwABh3GEY5GScce7lrCq40rAZvOrvF6f
+ u4itnXbwHY4cPHagoxr5WV9G4aUHqYawUde+ggXI6gQSH7gjTXSB+GXBF8FV8fn4ra2SVZfUP
+ dRIxWq7a0Ui77YP8ApQ+E5oNib9fzXPfnGr8RpIxLIEhiEE4IaBQtbctRUolpqoQMFNGN80TG
+ TWceGGAu6pDxa9BtjnDpiiI9AgoGwjlffrClb+f0Bw+Zi6f9+87IEBlx/sNycwF+UljG3m3BC
+ nUKcCdZ/+jm4v5Uzmlu68rZyyn0xfnwLGWXHYkFsFTRahLxl/2vNwtIlmBb8agVBjcBLkbFak
+ oFAo1qSPBHmOyLeKqKZZ418MdbQODrbv2ZljYLWgCjmuC4Vzb+lJreoYuJf27ZXwO4lQQNZ0D
+ fC4AC1FBLqnu25VMEe2473T59IC1igRoKkpPDQM62c2HYnrwSi6Ye+RHZNemJO8G0JFJkuQdq
+ AWmi2OwwCjOVi8l4mQtJzY7iB9AHMSVNzHkCcE49vbb8iupKHrP46nO1GL4LPAmFAVihbbzu1
+ D0E+xhGReDQc3jL6Ibalj0n+3N1fJul93RfwJ5nm9NhYDg6zGqinM71JhaXlIAfrTPHP+SnPB
+ ZONfRvjujPGNXG1BdMj+iM1ZyRXnD9FozIW399MaQ9zBjEok6kTHB9hFDugC6VCFm19uXFzsS
+ Whh9M8AmZbMxmANdaGzFim4/IpqQH7DEgVocwB9HxqbyE9jciwPMcApTdRfCd1L4apnpxDPND
+ PnwxQ3Mw6AjU2bNa/KpRWaFWdi3rOvPTakI78xoc/ZkEtQLGCaZlEWT7aij0FIQCyJTh+yHir
+ d9p7kL5pkoW6a14Gsf+YaGsczRTNSabLOSYfvwKoQseditWtOrrDpM0x724b9c4HlnbrnGYSJ
+ 4GAzaMBhRbYDPrQ3qPMjUqjFkfGemMfcklzLTm9ZE+zYIEmA12b8TKZ8vxHzKh60z2zn+Y00X
+ pCo1mOfEByIXWL221DHVhZ7YxlB/+hsLuOblrGFd1Cde4jabAUYV+cU6Fw7dj9gjvixEzTtLu
+ OvEZPVGfSP12RbbCKQPw+peWbBefuf/vsUmrZO/OodBBbpbJ25UjvqVaH8qrvho81khwf9+X7
+ duK+4G1z9nE+lVJnwsY7eZ7yTFl1ly4t89rcb0rLyCVstx9VZnJtPXhqYWlQ2+8UX9mgt9NH1
+ GmkgYtzAEnIDhjT8+JbFUeE89OmfLoWqi/YYhfacWzgypGdNrYhSySkfLtyVSqSL1RJ8YBf3V
+ 7QWZQIrSo8wg0Gh99wGQIgx0CgIUkjcK1pWQ0RXtZT96eV7H9EowdTaK6fOtG2HHeUxTOFOMt
+ +UvRDvMgl3T+WQxGFsfL+BFW6PGR0jjGjHRotCYCV3zEHCndoIbu6sfaVEIRJLHp8chLXNeLB
+ aoEhEUtcF2lB9Wg+/FN8JoAAhi6q0QsLsOmPszBv73iQ2jxRTALHeFEToVB/CctnUazGa/0NO
+ ktMwLkbRajfN9aWToK1BxM/AfhxMFxm/rd69Igr7xjx7UxRS3jyCURlrmLN3GT+7qjBi4Bqwe
+ dUCRNwCUincf8I5oiPjTs+S3p8ge+NPLPh0pH8astkwQtKZkRfSC3Bp8Oa3KUMvZUDEuCdnLC
+ XAZYZgQZYyze2NcYkMH+ZuuWPv4iuy9JRWvj1CtslCY7fioqs9tEcW0Oag1NMPb7rfsANNgFA
+ OtCjYXwEVW8UC6xYEtGqT4yacw4xyLuSgnFF0XCI0NP+sxJZWfh6FzuH253SBtDdWbmjmyQ4M
+ mxX4cfv3QPQRd/UQdvGgVX7IDV4fswkWbnHPsn/c4TEJnZ32x0Cf0QUFGiGaDtQy6YTHgCWG7
+ jqq6Puqt6811ahjTasssvEI98kc2Ai3aHgOgyVG3R9i455VmcSvvaJqyHjQQEzks/OBBbQbqA
+ 6dDSyOubwLmnVIfZ0Kd9LpSc+VJH7JxAtJysTbpLEJI/Dt4qCSGaxII4kP9iqjz7bKozdjXzQ
+ x1mokeBVhQLgFFYt40CxOULJRVs3Ln/wTb3U2D0J9oBbMjOlloSyM/gONXAellpJOmhrI1Kga
+ MqkEF7jdPOAkUS2hPbu6bOCXfLE944RvXoyMuHSO/Q7TEwXa81L50VaETAvsY1ntO3x9E8NyG
+ jcQI0PQHmQAEa8K6JW1moVvxDqQERaFGGwTAFwqZJRhBs5rX3Y6kXOxEZZd4227OXGWg8fse9
+ m6xq2dN8ishZNm8prYczOIRpvZFi6OCPHF1sjEucD8QlUfjyWKEPUJrY+gqiqvkjOPIi4WEPQ
+ tgKeeQxCkImC8pyml5WNeVuQXSiXcCw4xHL+NJi3QWMGf2yOvKMNK0T24SqZlmffkj9iNONQm
+ TSL+H+R2XsUqV7B7TYyORBIi99U2eglQ+FHMkrZ3nV/aB+bFF2ogLig4CFZuI0sB100ZE5+Ak
+ T5LxEW0StGdNAW9PPdw/Q5CekHBaa0VHg+iIYyT7vCES3gXomYPY+hzVHBqTe/eXgW/UQVJjK
+ ytcNiIgCJ6ByDDf4IvgT4mGLyx3Krn/d39IMWbQvLIzXwAn+uoUjtfWuZgIJME9aWWY3eRi1W
+ AxHjPyFCsKWhls6KczxRf6dhMh+NVl5PelxU75OjK9vhP0HrQReYXkC2etYiXpJEgVyGwOh9b
+ 34p3+sbXyhaANxN4tNT6dlIAByjsCRgdRDRCsKJJL3QnxVlpp+l7JKJ4typFjSDCnc5cHhzz3
+ N+dtZX5LFVES2wsnYPeJsCqCSDCns2IYOvnrXTLqFWEPD5qXv5xCGpTFV1JyGIgdpxfsVfnsJ
+ 3Sdu9ZUvKjPjOf8vRasPr2rADc5ui/uB5tjY2ygk5gU10lL1LEKIzTCA6RUbuyurNlm6MP5jv
+ hw/sTo4cOQc7zszpuE/Oakyf5kFfUA4CAIp9thpJZjWNglAY4I7VDelkRCMx9yqZNfYGUQI+r
+ 2o3I1eS/6QHapDFzkaMRzEf00L1nCcq7P3MUO8TibBNzPc2KPQU/mUmEj+iijuFSdC0uhCYDc
+ uWqppjrWeEui6oAZU+oWEpQrhslh/MbmxQzd2c++dSfys8mQ9OAoWN31jzTcwkFfBkv12a+q1
+ zEgqlJG+GgNzdJgUr3+2sBTxwlW8aY8ZzQ67MVixHgq2cVwNvkbQGTsUEaZm4Jbis9txhtblu
+ Vn3gt0GeVlNmPSDj4g0w++nF5sTLzUUoBqmWtMabhaemA2B+sEvsuGfY65AZ+y2IVyYJeiM3x
+ VhzWvL7OZpO1oey3qzw93vj0xPKTorwiqFgXo7gm2uwWiyQGMBjjbT9garrQ6uC5s0o7n1XaZ
+ caSXIpsYgHcA3HVJnM18SMkk20plMq79suZLUFfKBWF4M7avT76md+4Q5zTD391rX8lRgy5Ot
+ 63NjDdsHF7EFnsmQXHX9d2Rvm18VVnaOHr9UiG9cy1pLSZOYEt8NV+tIJl1ocDabDo+OEPxyx
+ tbH15g7s1SDZjv28YhBtqWMVFkwvfvbkwDfe5fm2iRBhzu2Bz4hE1D9AYdMYPdpDqe15L/Cuh
+ yAuBwXw+HYVTz6TChC/ol/4FjAx1jB6cKrw/fP4j6VppAf9RyHEJmC/HMRztDNXk1AiR3s6uf
+ 8Hd3CrZQPTiwuEIU3IRm+6eDabxFEU2SwcwhkZfvhFRUBGr9ijbUowdmWYeLQKtdy85OcxHVK
+ jZyFGepyikr9FwVlk08qEVqlkBBeQrsyYEncOk3IE8TWx8oiYt40TOCMiLViEA5/Ji2zVYUX8
+ 1rUe4vemrlX9z+dt5iG2oGpslX60sJVoKw08YCBHPpprdzpnwYXOxVD3tIM4NBNxjOPnUtdBe
+ KOL5rdGSQun5uEXS8BQJbQsNTXO6Aia0Q6YW2TYYjgBVIkjPRapqPMhDIBwjj9zCxbeoduOix
+ DFw==
 
-Le mar. 17 nov. 2026 =C3=A0 06:35, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
->
-> RFC 1122 Section 4.2.3.9 states the following soft errors
-> must not abort connections:
->
+Add xsgmii to the supported MAC-PHY connection types. Realtek's
+proprietary XSGMII interface carries eight 10/100/1000 Mbps ports over a
+single 10.3125 Gbaud SerDes lane and is distinct from USXGMII and
+10G-QXGMII.
 
-Linux has never followed this for non-synchronized states.
+Signed-off-by: Jonas Jelonek <jonas@jonasjelonek.de>
+=2D--
+ Documentation/devicetree/bindings/net/ethernet-controller.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-tcp_v4_err() and tcp_v6_err() call tcp_done_with_error() for any error
-in TCP_SYN_SENT and TCP_SYN_RECV, soft or hard. RFC 5461 section 4.1
-documents this, and names Linux.
+diff --git a/Documentation/devicetree/bindings/net/ethernet-controller.yam=
+l b/Documentation/devicetree/bindings/net/ethernet-controller.yaml
+index 30b2a335116e..e9406ddd0fc0 100644
+=2D-- a/Documentation/devicetree/bindings/net/ethernet-controller.yaml
++++ b/Documentation/devicetree/bindings/net/ethernet-controller.yaml
+@@ -45,6 +45,7 @@ properties:
+       - psgmii
+       - qsgmii
+       - qusgmii
++      - xsgmii
+       - tbi
+       - rev-mii
+       - rmii
+=2D-=20
+2.53.0
 
-Tests 1 and 2 in patch 6 actually depend on it : host_unreachable
-aborts the TCP_SYN_SENT socket.
-
-
->   o    Destination Unreachable -- codes 0, 1, 5
->
->        Since these Unreachable messages indicate soft error
->        conditions, TCP MUST NOT abort the connection, and it
->        SHOULD make the information available to the
->        application.
->
->   o    Time Exceeded -- codes 0, 1
->   o    Parameter Problem
->
->        This should be handled the same way as Destination
->        Unreachable codes 0, 1, 5 (see above).
->
-> Commit 9cf7490360bf ("tcp: do not drop syn_recv on all icmp
-> reports") introduced the abort arg to tcp_req_err() to avoid
-> aborting connection on ICMP_REDIRECT.
->
-> However, tcp_v4_err() still abort on soft errors (ICMP_NET_UNREACH
-> (0), ICMP_HOST_UNREACH (1)) and ignore hard errors.
->
-> For example, we can see SYN+ACK retransmitted after receiving
-> hard error:
->
->   --ip_version=3Dipv4
->    0 socket(..., SOCK_STREAM, IPPROTO_TCP) =3D 3
->   +0 bind(3, ..., ...) =3D 0
->   +0 listen(3, 10) =3D 0
->
->   +0 < S 0:0(0) win 65535 <mss 1460,nop,nop,sackOK>
->   +0 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK>
->   +0 < icmp unreachable port_unreachable [0:0(0)]
->   +1 > S. 0:0(0) ack 1 <mss 1460,nop,nop,sackOK>
->
-> Also, tcp_v6_err() uses icmpv6_err_convert(), which handles
-> ICMPV6_PARAMPROB messages as hard error while RFC 5461 defines
-> as soft error.
->
-> But we should handle ICMPV6_UNK_NEXTHDR as hard error because
-> it is used as IPv6 version ICMP_PROT_UNREACH.
->
-> Let's correct the abort condition in tcp_v4_err() and
-> tcp_v6_err().
->
-> Note that icmpv6_err_convert() is used by other protocols.
->
-> Fixes: 9cf7490360bf ("tcp: do not drop syn_recv on all icmp reports")
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
-> ---
->  net/ipv4/tcp_ipv4.c | 7 ++-----
->  net/ipv6/tcp_ipv6.c | 3 ++-
->  2 files changed, 4 insertions(+), 6 deletions(-)
->
-> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-> index fd9588bba967..f11e090d04fb 100644
-> --- a/net/ipv4/tcp_ipv4.c
-> +++ b/net/ipv4/tcp_ipv4.c
-> @@ -529,11 +529,8 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
->
->         seq =3D ntohl(th->seq);
->         if (sk->sk_state =3D=3D TCP_NEW_SYN_RECV) {
-> -               tcp_req_err(sk, seq, type =3D=3D ICMP_PARAMETERPROB ||
-> -                                    type =3D=3D ICMP_TIME_EXCEEDED ||
-> -                                    (type =3D=3D ICMP_DEST_UNREACH &&
-> -                                     (code =3D=3D ICMP_NET_UNREACH ||
-> -                                      code =3D=3D ICMP_HOST_UNREACH)));
-> +               tcp_req_err(sk, seq, (type =3D=3D ICMP_DEST_UNREACH &&
-> +                                     icmp_err_convert[code].fatal));
-
-
-After this patch, a TCP_SYN_SENT socket and a Fast Open TCP_SYN_RECV
-child abort on net/host unreachable, but a request socket does not.
-
-We also lose the ability to get rid of a request for an unreachable
-client, and keep retransmitting SYNACK instead.
-
-If the problem is that hard errors are ignored for IPv4 request
-sockets, I would rather add them than remove the soft ones :
-
-        abort =3D type =3D=3D ICMP_PARAMETERPROB ||
-                type =3D=3D ICMP_TIME_EXCEEDED ||
-                (type =3D=3D ICMP_DEST_UNREACH && code !=3D ICMP_FRAG_NEEDE=
-D);
-
-This matches what we do for TCP_SYN_SENT. The IPv6 side would then
-need the same treatment instead of using 'fatal'.
-
->                 return 0;
->         }
->
-> diff --git a/net/ipv6/tcp_ipv6.c b/net/ipv6/tcp_ipv6.c
-> index 0f1523fff939..29fd0a084c91 100644
-> --- a/net/ipv6/tcp_ipv6.c
-> +++ b/net/ipv6/tcp_ipv6.c
-> @@ -447,7 +447,8 @@ static int tcp_v6_err(struct sk_buff *skb, struct ine=
-t6_skb_parm *opt,
->         seq =3D ntohl(th->seq);
->         fatal =3D icmpv6_err_convert(type, code, &err);
->         if (sk->sk_state =3D=3D TCP_NEW_SYN_RECV) {
-> -               tcp_req_err(sk, seq, fatal);
-> +               tcp_req_err(sk, seq, type =3D=3D ICMPV6_PARAMPROB ?
-> +                           code =3D=3D ICMPV6_UNK_NEXTHDR : fatal);
->                 return 0;
->         }
->
-> --
-> 2.56.0.679.gc527c65306-goog
->
