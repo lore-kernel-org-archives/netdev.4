@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794940676;
-	b=gerOoGUtuVGownc908iH511oKhP1T77iaNO2+xSBZkAouYNFWUIOSbu25+NzqFLkVG2j
-	 yF/YIZaeDEx+6Y9JcgfDvkp2x3FYo9BTNxfZtMqpr1ejgQqfSx3tIQaFxQXD1a43o3lbK
-	 I86TXGeXzg6zWw57cYwh5MxkQPoKXRKVOa+h1UhL8HLKr4pPB2gLeYKdKHIg6UmqjlQSd
-	 tJ/ptHpHgDuv08q/v3xIjoQtyNEPbLQ1dbyvV+1m3HEwmgnnXqeF0JXH+jjBFTa4e82N8
-	 /rT8um+mrFNiW1RdEui6BXXI5qd9w73cOW6ReCLrjjrUDNHeADGtba7uXjrFjUWDr0w==
+	t=1794940677;
+	b=ABgXTxAa5hDu3dGqlK1Uv1/NQSnctOvUVtuJcpedbsdiFZXifzZGfkepb31oHq2Xe8cr
+	 avputvaDXoK71JPNTrf/G7D0q9n3kAYkrYbIXuK938J+JWiP3RuJ19JPDCYI5oh/xjj4X
+	 YGp1u7eAN9s4cH2zjcpJwlb7QdRowrL1bUN61ChTyv+Pk8UQLPdceZMF4ptTSBejT/GSE
+	 RZEYpoc57hZD1hjnp1wtMgBcPoLH5z1+XlxQ0pEN9QeoZX88lxqB9izweRrbapIsPR5k7
+	 orlp2jrSKdAQxdNpZHIVXYOyh8B0s9/6j54soeX4nVcIOnNKeBsc2HzAwIAFISASIcg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794940676;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794940677;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=TSYJayqFjuHEEWb2vq3BKF/+h/T6t10DspFxLkZbLnI=;
-	b=3RrUUg5r3xtqG3rbVOXF0C8WmKUX9ozIi2dpzw1pJ8Xm+39d/D3XuheZVklUv7ZXdd1A
-	 FsMeni0AxqH8S8psp2P2AWc4OKQMZiUPZNOaLc3no203Ykf1euwXTUkAeydFU6sV6tSfw
-	 no7enx39eoWmLDh56U4tEIfzzbRvceV/lq3DaCY2uH05wOFJwEzaREkt0GTE3Ar3KDDX1
-	 8HzGJOj1l88SK31tEGKe37cI9za09wvHlQ6JrPDY5+cYilGrASa7FE2aort5zdyS+UlcL
-	 1dpTmzzpZkDF1hqxJ4L1l3UbQ0QCQG/SYlDKpfhQWR/l3mgwY/hS63nUk9NtkcbjTvw==
+	bh=HS/rVs0O7LE+BkNUxTstJQy2yrEb12UXlOn4mUIxDSA=;
+	b=oaGfei6fXsrPTLazn8sBECrkk1x3EWgw2dT+GtVq8uOqbU4r/YUjyTv2wKocmwaDTVuz
+	 Xag/8xfYbxQdMWWJF2t5in6CE+oS3xJn73P36NOMTVpCQntR3iDgAIwovUAHGSHmKOhdh
+	 Lq+BoDgln1yyBhWLEfRqMbIEGh2QMMn0NLWRdSSheKUigLauakkL4+tj8D1LY8YjuUSiG
+	 07HqmSfzfN6A1gYv/ZgnwLMXljVuHafHuv6BIl6eXReZEGtiMb8RRlRywMr/aNcvPhHRO
+	 /uo3ur6YzQcgNntzNwRfnlrG6CdSlDNii19PiVYOkSIX/Yo9Y6zsPO42j5+Yn78aN2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XPcd9Pmr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HKznYMIV;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1980F606A32A
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 18:37:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E63A606A330
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 18:37:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XPcd9Pmr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 66C961F000C4;
-	Tue, 17 Nov 2026 18:37:55 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HKznYMIV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 841DC1F000C8;
+	Tue, 17 Nov 2026 18:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794940676;
-	bh=TSYJayqFjuHEEWb2vq3BKF/+h/T6t10DspFxLkZbLnI=;
+	s=k20260515; t=1794940677;
+	bh=HS/rVs0O7LE+BkNUxTstJQy2yrEb12UXlOn4mUIxDSA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XPcd9PmriZ2S3kMYAx0Suechn5sl7fTYHqdVWysAJogO/IqUzv3HZKOmcs4Hbnq/B
-	 +nHCqQSCV4jZx8N0Pdn9/HM8mPe5eevS0oFfjx2lWFaVzpMDNoK15V0mIB8HjV7j+M
-	 nuJCOurnYAxFjzDWdjuHlf7CGqcq0UBscFOw2O9Rj4fm//z8CLgL0pYupPV4P/OYOd
-	 qR8uOZcjxX/M4YfDHvq4gBKb3UiBVd9aE1vq/xKdFn3eVm9uaBuebKXmmUG/AgqNEV
-	 pf7U5Y7MM+RCcXFd0jIzrquxMozuFAyo2xfPjEGZq3QzViqc1FRhVGzCtyy51MDJ+f
-	 NmBDaDCVQdskA==
-Subject: Re: [PATCH net v3 4/7] tipc: fix missing link-up event on memory
- allocation failure
+	b=HKznYMIVz/zfAbPqRGb9P8oElno9j4bNOo7XObT3u3T5OabqTRb4wMP0KDgjQ2Q2I
+	 q3GAsxR8+ttNMYK3i+YWwk21jvIKagr44BvwaJHbTe14HZUXHBt+dLp7R4/5n2Ju3E
+	 Sx7yGdh5pixTWhvfL1NS4wFSwm5m3qEUur7O1+0lMIRcZHjfd656/sFdwJkanZJu2f
+	 wCxZLDPQfbc75yDHI55N+bhdx3yXo+SZx0VLDjScl2AHt2NrEMNXsgztSmpE7xV7xM
+	 sESmfR9NGgWRxPm4BLqdU1FBDs6KB4uQR53wVHbb+R+gjVw+0uDlu08xocBeQyq7ar
+	 QCIED2oKb8neQ==
+Subject: Re: [PATCH net v3 5/7] tipc: validate original address of received
+ skb in tipc_named_rcv()
 From: netdev-bot+sashiko@kernel.org
 To: tung.quang.nguyen@est.tech
 Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
  edumazet@kernel.org, pabeni@redhat.com, jmaloy@redhat.com, horms@kernel.org,
  tipc-discussion@lists.sourceforge.net,
  syzbot+64197f7577a09686ffdb@syzkaller.appspotmail.com, lkp@intel.com
-Date: Tue, 17 Nov 2026 18:37:54 +0000
-Message-ID: <179494067499.3136.17991206184972687844@kernel.org>
-In-Reply-To: <20261116063529.6185-5-tung.quang.nguyen@est.tech>
-References: <20261116063529.6185-5-tung.quang.nguyen@est.tech>
+Date: Tue, 17 Nov 2026 18:37:56 +0000
+Message-ID: <179494067612.3136.6822690964741396713@kernel.org>
+In-Reply-To: <20261116063529.6185-6-tung.quang.nguyen@est.tech>
+References: <20261116063529.6185-6-tung.quang.nguyen@est.tech>
 X-sashiko-severity: Critical
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -68,7 +68,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 5 potential
 issue(s) to consider.
 
-Critical: 2 · High: 0 · Medium: 2 · Low: 1
+Critical: 1 · High: 1 (1) · Medium: 2 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,286 +76,347 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Critical] The new duplicate (-EEXIST) error path in
-  tipc_service_insert_publ() (net/tipc/name_table.c) erases and kfree()s…
-- [Critical] The fault introduced by the -EEXIST free in
-  tipc_service_insert_publ() leads to a remotely triggerable infinite…
-- [Medium] In tipc_rcv() (net/tipc/node.c), the new code after
-  tipc_node_write_unlock() takes the node read lock again and purges…
-- [Medium] The commit message describes only plumbing an error code out
-  of tipc_nametbl_publish() and resetting the link on -ENOBUFS.
-- [Low] tipc_node_write_unlock() (net/tipc/node.c) reads bearer_id =
-  n->link_id & 0xffff while holding n->lock, then calls…
+- [Critical] Both bug classes the commit says it fixes are still
+  reachable from a remote peer: publications that are never removed, and…
+- [High] Check-then-act race in the new validation.
+- [Medium] The fix for this case is right, but the commit message
+  describes the wrong mechanism and understates the impact.
+- [Medium] The new check in tipc_named_rcv() only verifies that
+  msg_orignode(hdr) is some non-preliminary remote node in node_htable.
+- [Low] The kernel-doc for the newly exported tipc_node_find_remote()
+  (node.c:660-669, prototype at node.h:106) does not describe the real…
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  tipc_publ_notify() walks n->publ_list with list_for_each_entry_safe()…
 
 --
 
-tipc: fix missing link-up event on memory allocation failure
+tipc: validate original address of received skb in tipc_named_rcv()
 
-This patch adds an int *err output parameter so tipc_nametbl_insert_publ()
-and tipc_nametbl_publish() can report errors. If the TIPC_LINK_STATE
-publication fails with -ENOBUFS in tipc_node_write_unlock(), the link is
-reset so the publication can be retried. It also adds cleanup of the
-service range and service on failure, and an xmitq purge in tipc_rcv().
+This patch makes tipc_named_rcv() reject name distributor messages whose
+original node address is the local node, zero, or not in the node table.
+The lookup is moved into a new helper, tipc_node_find_remote().
+tipc_node_subscribe() and tipc_node_unsubscribe() now use that helper too.
 
-> Fix this issue by checking the error code returned through the
-> output parameter of tipc_nametbl_publish(). If the error indicates
-> a memory allocation failure, reset the link so that the
-> TIPC_LINK_STATE publication can be retried.
-
-[ ... ]
-
-> v3:
-> - Free sr in tipc_service_insert_publ() on memory allocation failure.
-> - Free sc in tipc_service_find() on memory allocation failure.
-> - Purge xmitq in tipc_rcv() in case tipc_node_write_unlock() resets a bearer.
+> 2. A remote peer can send a withdrawal message whose original address
+>    is equal to the local node's address or is unknown. Upon receiving
+>    this message, the local node can follow this execution path:
+>
+>    tipc_named_rcv()
+>     tipc_update_nametbl()
+>      tipc_nametbl_remove_publ()
+>       tipc_node_unsubscribe()
+>        return NULL;
+>       kfree_rcu(p, rcu);
+>
+>    As a result, the publication is freed, but p->binding_node remains
+>    linked to the local node's publ_list. Subsequent traversal of this
+>    list will access freed memory.
 
 [Severity: Medium]
-The commit message only describes passing the error code out of
-tipc_nametbl_publish() and resetting the link on -ENOBUFS. The patch
-also:
+Is this the right mechanism? The local node has no publ_list. The comment
+in name_table.h says remote publications live on node->publ_list. Local
+ones live on name_table->node_scope or cluster_scope.
 
-- adds an xmitq purge in the tipc_rcv() slow path
-- tears down a newly created tipc_service (hlist_del_init_rcu() plus
-  kfree_rcu()) in tipc_nametbl_insert_publ()
-- adds -EEXIST handling in tipc_service_insert_publ() that frees sr
-- changes the pr_err() in tipc_nametbl_remove_publ() to
-  pr_warn_ratelimited() with different text, and ratelimits the bind
-  failure warning
-- makes tipc_nametbl_publish() report -ENOBUFS but still return the
-  inserted publication when the cluster-scope distribution skb can't be
-  allocated
-
-These changes are only mentioned in the v3 notes below the --- line,
-and those notes are not kept in git history.
-
-The notes also don't seem to match the code. The sc teardown is in
-tipc_nametbl_insert_publ(), not tipc_service_find(). The sr free happens
-on -EEXIST, when sr is live, rather than on allocation failure, when sr
-is NULL.
-
-Could the commit message describe these changes?
-
-> diff --git a/net/tipc/name_table.c b/net/tipc/name_table.c
-> index 73b032ba2f8d0..e8b768699ab93 100644
-> --- a/net/tipc/name_table.c
-> +++ b/net/tipc/name_table.c
-
-[ ... ]
-
-> @@ -353,6 +356,9 @@ static bool tipc_service_insert_publ(struct net *net,
->  			pr_debug("Failed to bind duplicate %u,%u,%u/%u:%u/%u\n",
->  				 p->sr.type, p->sr.lower, p->sr.upper,
->  				 node, p->sk.ref, key);
-> +			if (err)
-> +				*err = -EEXIST;
-> +
->  			goto exit;
->  		}
->  	}
-> @@ -368,9 +374,15 @@ static bool tipc_service_insert_publ(struct net *net,
->  	}
->  	res = true;
->  exit:
-> -	if (!res)
-> -		pr_warn("Failed to bind to %u,%u,%u\n",
-> -			p->sr.type, p->sr.lower, p->sr.upper);
-> +	if (!res) {
-> +		if (err && *err == -EEXIST) {
-> +			rb_erase_augmented(&sr->tree_node, &sc->ranges,
-> +					   &sr_callbacks);
-> +			kfree(sr);
-> +		}
-
-[Severity: Critical]
-Can this free a live service_range that still holds publications?
-
--EEXIST is only set after a matching _p is found in sr->all_publ, so sr
-is not empty at this point. Also, tipc_service_create_range() returns the
-existing range when lower and upper match exactly:
-
-	if (lower == sr->lower && upper == sr->upper)
-		return sr;
-
-So a freshly allocated sr, whose all_publ is empty, never reaches this
-branch.
-
-When it triggers, every binding in the range silently disappears from
-the name table, and subscribers get no TIPC_WITHDRAWN event.
-
-The orphaned publications still have all_publ and local_publ pointing
-into the freed sr. Later withdrawals fail in tipc_service_find_range(),
-so the publications leak, and nt->local_publ_count is never decremented
-for local ones.
-
-A remote peer can reach this, because tipc_update_nametbl() now passes a
-non-NULL &err:
+In the own-address case, the withdrawal can match one of our own
+cluster-scope bindings. publ_to_item() sends the type, lower, upper, port
+and key of those bindings to every peer:
 
 tipc_named_rcv()
   tipc_update_nametbl()
-    tipc_nametbl_insert_publ(net, &ua, &sk, key, &err)
-      tipc_service_insert_publ()
+    tipc_nametbl_remove_publ()    <- matches local p (sk.node == own)
+    tipc_node_unsubscribe()       <- returns early due to in_own_node()
+    kfree_rcu(p, rcu)
 
-One bulk or legacy NAME_DISTRIBUTOR message carrying two identical
-PUBLICATION items looks sufficient, since those messages bypass the
-seqno filter in tipc_named_dequeue(). The peer could then re-publish the
-range and become its only destination.
+When p is freed, p->binding_sock is still on tsk->publications (added in
+tipc_sk_publish()). p->binding_node is still on nt->cluster_scope. Later
+walks would then read freed memory:
 
-The v3 note says sr is freed "on memory allocation failure", but on
--ENOBUFS sr is NULL and there is nothing to free. Is this block needed
-at all?
+  tipc_sk_withdraw()
+  named_distribute(), via tipc_named_node_up()
+  tipc_named_reinit()
 
-The problem seems to remain at the end of the series. The later commit
-"tipc: fix NULL pointer dereference in named_distribute()" treats
--EEXIST from tipc_nametbl_insert_publ() as an expected result for the
-self-node publication, and that result goes through this same path.
+So any cluster peer seems able to cause a use-after-free of local socket
+bindings. Could the commit message say so, and name the lists that are
+actually left pointing at freed memory?
+
+In the unknown-address case, such a publication can only exist through
+scenario 1, where tipc_node_subscribe() failed. Its binding_node was only
+initialized by tipc_publ_create(), so freeing it leaves nothing dangling.
+Is the unknown-address part of scenario 2 accurate?
+
+> diff --git a/net/tipc/name_distr.c b/net/tipc/name_distr.c
+> index 3ea5e900cb454..1fe650a95eb42 100644
+> --- a/net/tipc/name_distr.c
+> +++ b/net/tipc/name_distr.c
+> @@ -378,18 +378,26 @@ void tipc_named_rcv(struct net *net, struct sk_buff_head *namedq,
+
+[ ... ]
+
+>  	spin_lock_bh(&tn->nametbl_lock);
+>  	while ((skb = tipc_named_dequeue(namedq, rcv_nxt, open))) {
+>  		hdr = buf_msg(skb);
+>  		node = msg_orignode(hdr);
+> +		n = tipc_node_find_remote(net, node);
+
+[Severity: Medium]
+This check accepts any remote, non-preliminary node in the node hash table.
+Should it also check that orignode is the peer that actually sent the
+message?
+
+tipc_rcv() and tipc_node_bc_rcv() only call tipc_named_rcv() on
+n->bc_entry.namedq of the sending node. There, n was found through
+msg_prevnode(). Only the queue is passed down, though:
+
+net/tipc/node.c:tipc_rcv() {
+    ...
+		tipc_named_rcv(net, &n->bc_entry.namedq,
+			       &n->bc_entry.named_rcv_nxt,
+			       &n->bc_entry.named_open);
+    ...
+}
+
+Valid name distributor messages always carry orignode equal to the
+sender, because named_prepare_buf() calls tipc_msg_init() with our own
+address.
+
+With this patch, peer B can still send PUBLICATION items with orignode set
+to another live peer A. They are linked onto A's publ_list and stay there
+until A goes down. B can also send WITHDRAWAL items that remove A's real
+bindings from the name table.
+
+Would rejecting msg_orignode(hdr) != n->addr fit better here? That would
+also cover the own-address and unknown-address cases this patch targets.
 
 [Severity: Critical]
-Following on from the above, can this also cause an infinite loop in
-tipc_publ_notify()?
+Can a node that is down but still hashed pass this check?
 
-Suppose a peer sends the same item X three times. All three can be in a
-single bulk message:
+When peer Y loses contact, node_lost_contact() sets TIPC_NOTIFY_NODE_DOWN.
+tipc_node_write_unlock() then drains Y->publ_list:
 
-1. X is inserted as p_old, and tipc_node_subscribe() adds p_old to
-   n->publ_list.
-2. The second X hits -EEXIST and sr is freed. p_old is orphaned but
-   stays on n->publ_list.
-3. The third X gets a fresh, empty sr2 from tipc_service_create_range()
-   and passes the duplicate check. It is inserted as p2, which lands
-   right after p_old on n->publ_list.
+net/tipc/node.c:tipc_node_write_unlock() {
+    ...
+	if (flags & TIPC_NOTIFY_NODE_DOWN)
+		tipc_publ_notify(net, publ_list, node, n->capabilities);
+    ...
+}
 
-Before this patch the third insert was rejected, so p_old and p2 could
-not exist at the same time.
+Y stays in node_htable until tipc_node_cleanup() deletes it, which happens
+after NODE_CLEANUP_AFTER (300000 ms). tipc_node_find() ignores node state,
+so tipc_node_find_remote(Y) keeps succeeding during that window.
 
-When the peer then brings the node down:
+Suppose a malicious peer X sends a PUBLICATION with orignode = Y in that
+window:
 
-tipc_node_write_unlock()
-  tipc_publ_notify()
-    /* publ = p_old, tmp = p2 */
-    list_for_each_entry_safe(publ, tmp, nsub_list, binding_node)
-      tipc_publ_purge(net, p_old, addr)
-        tipc_nametbl_remove_publ()  /* returns p2, not p_old */
-        tipc_node_unsubscribe()     /* list_del_init(&p2->binding_node) */
-        kfree_rcu(p2, rcu)
+tipc_named_rcv()
+  tipc_node_find_remote(Y)       <- succeeds
+  tipc_update_nametbl()
+    tipc_nametbl_insert_publ()
+    tipc_node_subscribe()
+      list_add_tail(&p->binding_node, &Y->publ_list)
 
-On the next iteration publ is p2. Because p2->binding_node was
-list_del_init()'d, list_next_entry(p2) is p2 itself, so the loop never
-gets back to the list head.
+Y->publ_list has already been drained and is never walked again. Then:
 
-If this runs from tipc_rcv() or tipc_node_timeout() in softirq, the CPU
-livelocks.
+tipc_node_timeout()
+  tipc_node_cleanup()
+    tipc_node_clear_links()
+    tipc_node_delete_from_list()  <- Y is eventually freed
 
-On preemptible RCU kernels, it can also run from process context, for
-example bearer disable via netlink -> tipc_node_link_down() ->
-tipc_node_write_unlock(). There the grace period could end while the
-loop is still dereferencing p2, which would be a use-after-free.
+publ_list is never drained before Y is freed. p stays in the name table
+permanently, and p->binding_node points into the freed node.
 
-The address validation added later in the series doesn't seem to block
-this, because the peer uses its own valid node address.
+Later a node with address Y is created again, for example after Y reboots.
+X then sends a matching WITHDRAWAL with orignode = Y:
+
+tipc_named_rcv()
+  tipc_node_find_remote(Y)       <- succeeds on the new node
+  tipc_update_nametbl()
+    tipc_nametbl_remove_publ()   <- returns the stale p
+    tipc_node_unsubscribe()
+      list_del_init(subscr)      <- writes into the freed old tipc_node
+
+Doesn't this mean both problems from the commit message are still
+reachable by a remote peer: a publication that is never removed, and a
+list operation on freed memory?
+
+A presence check alone doesn't seem to close this. Would either of these
+work?
+
+  - require orignode == n->addr, with n up
+  - drain publ_list in tipc_node_cleanup() or tipc_node_free()
+
+Later patches in the series don't seem to change tipc_named_rcv(),
+tipc_node_find_remote() or tipc_node_cleanup() in this respect.
+
+> +		if (!n)
+> +			goto free_skb;
+> +		else
+> +			tipc_node_put(n);
+
+[Severity: High]
+The reference is dropped right after the check.
+tipc_node_subscribe() and tipc_node_unsubscribe() later do a separate
+lookup. Can the node be removed between the two lookups?
+
+Only tn->nametbl_lock is held across both. tipc_node_cleanup() runs from
+the node timer on another CPU and takes only node_list_lock and n->lock
+before tipc_node_delete_from_list() calls hlist_del_rcu():
+
+CPU A                               CPU B
+tipc_named_rcv()
+  tipc_node_find_remote(Y) ok
+  tipc_node_put(n)
+                                    tipc_node_timeout()
+                                      tipc_node_cleanup()
+                                        tipc_node_delete_from_list(Y)
+  tipc_update_nametbl()
+    tipc_node_subscribe() or
+    tipc_node_unsubscribe()
+      tipc_node_find_remote(Y) fails
+
+For a PUBLICATION, the insert has already succeeded. p is left in the name
+table on no publ_list, which is scenario 1 again.
+
+For a WITHDRAWAL, tipc_node_unsubscribe() fails silently and
+tipc_update_nametbl() frees p anyway:
+
+		p = tipc_nametbl_remove_publ(net, &ua, &sk, key);
+		if (p) {
+			tipc_node_unsubscribe(net, &p->binding_node, node);
+			kfree_rcu(p, rcu);
+
+p->binding_node is still on the old node's publ_list at that point, which
+is scenario 2.
+
+tipc_node_cleanup() only removes a node that has been down for
+NODE_CLEANUP_AFTER, so this needs the spoofed orignode described above.
+Would holding the validated node, and its liveness, from the check through
+subscribe/unsubscribe close this?
 
 [ ... ]
 
 > diff --git a/net/tipc/node.c b/net/tipc/node.c
-> index d84b0274fefc4..870f84e2fb1c4 100644
+> index 870f84e2fb1c4..dfbeed21dbc1b 100644
 > --- a/net/tipc/node.c
 > +++ b/net/tipc/node.c
-
-[ ... ]
-
-> @@ -429,12 +430,15 @@ static void tipc_node_write_unlock(struct tipc_node *n)
+> @@ -657,16 +657,37 @@ void tipc_node_stop(struct net *net)
+>  	spin_unlock_bh(&tn->node_list_lock);
+>  }
 >  
->  	if (flags & TIPC_NOTIFY_LINK_UP) {
->  		tipc_mon_peer_up(net, node, bearer_id);
-> -		tipc_nametbl_publish(net, &ua, &sk, sk.ref);
-> +		tipc_nametbl_publish(net, &ua, &sk, sk.ref, &err);
->  	}
->  	if (flags & TIPC_NOTIFY_LINK_DOWN) {
->  		tipc_mon_peer_down(net, node, bearer_id);
->  		tipc_nametbl_withdraw(net, &ua, &sk, sk.ref);
->  	}
+> -void tipc_node_subscribe(struct net *net, struct list_head *subscr, u32 addr)
+> +/**
+> + * tipc_node_find_remote - Find a node associated with an address
+> + * @net: the associated network namespace
+> + * @addr: node's address
+> + *
+> + * Return:
+> + * * Found node - Success
+> + * * NULL       - Invalid node's address
+> + *
+> + */
+> +struct tipc_node *tipc_node_find_remote(struct net *net, u32 addr)
+>  {
+>  	struct tipc_node *n;
+>  
+>  	if (in_own_node(net, addr))
+> -		return;
+> +		return NULL;
+>  
+>  	n = tipc_node_find(net, addr);
+> +	if (!n)
+> +		return NULL;
 > +
-> +	if (err == -ENOBUFS)
-> +		tipc_node_link_down(n, bearer_id, false);
+> +	return n;
+> +}
 
 [Severity: Low]
-Does bearer_id still refer to the same link instance at this point?
+This isn't a bug, but the kernel-doc for this newly exported helper doesn't
+say that the returned node holds a reference. tipc_node_find() takes it
+with kref_get_unless_zero(), and the caller has to drop it with
+tipc_node_put().
 
-bearer_id was read from n->link_id while n->lock was held, but the lock
-is dropped before tipc_nametbl_publish() runs.
+NULL also covers more than an invalid address:
 
-In that window, tipc_node_timeout(), a parallel tipc_rcv() or a bearer
-reset could take the link down and bring it back up with a new session.
-That new link-up's own LINK_STATE publication may succeed.
+  - own or zero address (in_own_node())
+  - unknown address
+  - preliminary node
+  - node whose kref already reached zero
 
-tipc_node_link_down() only checks that a link exists on the bearer:
+Could the Return section list these cases?
 
-	le = &n->links[bearer_id];
-	l = le->link;
-	if (!l) {
-		tipc_node_write_unlock_fast(n);
-		return;
-	}
+Also, this sequence is redundant:
 
-So this could reset the healthy, re-established link, or defuse its
-pending link-up, and send TIPC_LINK_STATE subscribers a spurious
-down/up. Should the reset be tied to the link instance whose publication
-failed?
+	if (!n)
+		return NULL;
+
+	return n;
+
+The function could just return tipc_node_find(net, addr).
 
 [ ... ]
 
-> @@ -2193,6 +2197,16 @@ void tipc_rcv(struct net *net, struct sk_buff *skb, struct tipc_bearer *b)
->  			}
->  		}
->  		tipc_node_write_unlock(n);
-> +
-> +		/* tipc_node_link_down() was called in
-> +		 * tipc_node_write_unlock().
-> +		 */
-> +		tipc_node_read_lock(n);
-> +		le = &n->links[bearer_id];
-> +		if (le->link && !tipc_link_is_up(le->link) &&
-> +		    !skb_queue_empty(&xmitq))
-> +			__skb_queue_purge(&xmitq);
-> +		tipc_node_read_unlock(n);
-
-[Severity: Medium]
-Is this purge limited to the case where tipc_node_write_unlock()
-actually reset the link?
-
-tipc_node_write_unlock() returns void, so the condition here only checks
-the current link state.
-
-This slow path runs whenever n->state != SELF_UP_PEER_UP or
-usr == TUNNEL_PROTOCOL. That covers establishment, failover and synch,
-when the link is often legitimately not up.
-
-For example, tipc_link_proto_rcv() returns TIPC_LINK_UP_EVT while the
-link is still establishing:
-
-	/* ACTIVATE_MSG takes up link if it was already locally reset */
-	if (mtyp == ACTIVATE_MSG && l->state == LINK_ESTABLISHING)
-		rc = TIPC_LINK_UP_EVT;
-
-The link only becomes up later, in tipc_node_link_up(), which runs after
-this purge.
-
-Could this drop messages that tipc_node_check_state() or
-tipc_node_bc_sync_rcv() queued earlier on this path? One example is the
-RESET_MSG that __tipc_node_link_down() builds for a parallel link when a
-FAILOVER_MSG arrives on a link that is still establishing.
-
-Another CPU could also change the link state between the write unlock
-and the read lock, for example on a link timeout or bearer reset.
-
-tipc_link_is_up() also reads l->state under only the node read lock,
-while fast-path receivers on other CPUs modify it under the read lock
-plus le->lock.
-
->  	}
+> @@ -679,12 +700,9 @@ void tipc_node_unsubscribe(struct net *net, struct list_head *subscr, u32 addr)
+>  {
+>  	struct tipc_node *n;
 >  
->  	if (unlikely(rc & TIPC_LINK_UP_EVT))
+> -	if (in_own_node(net, addr))
+> -		return;
+> -
+> -	n = tipc_node_find(net, addr);
+> +	n = tipc_node_find_remote(net, addr);
+>  	if (!n) {
+> -		pr_warn("Node unsubscribe rejected, unknown node 0x%x\n", addr);
+> +		pr_warn("Node unsubscribe rejected, invalid node 0x%x\n", addr);
+>  		return;
+>  	}
+>  	tipc_node_write_lock(n);
 
-[ ... ]
+[Severity: High]
+This is a pre-existing issue, not introduced by this patch. Does
+tipc_publ_notify() walk n->publ_list without any lock that serializes it
+against this list_del_init()?
+
+tipc_node_write_unlock() drops n->lock before calling
+tipc_publ_notify(net, publ_list, ...). tipc_publ_notify() then iterates
+without n->lock:
+
+net/tipc/name_distr.c:tipc_publ_notify() {
+    ...
+	list_for_each_entry_safe(publ, tmp, nsub_list, binding_node)
+		tipc_publ_purge(net, publ, addr);
+    ...
+}
+
+tipc_publ_purge() only takes nametbl_lock for each entry. Meanwhile,
+tipc_named_rcv() on another CPU holds nametbl_lock and takes n->lock in
+tipc_node_unsubscribe() to run list_del_init(subscr).
+
+The new check still accepts orignode equal to a node that is going down.
+Such messages can be Y's own messages that were already queued, or a peer
+spoofing orignode = Y.
+
+Suppose a concurrent WITHDRAWAL removes the entry saved in tmp:
+
+  - list_del_init() makes tmp->binding_node point to itself
+  - tmp is passed to kfree_rcu()
+  - list_next_entry(tmp) == tmp on the next step
+  - tipc_publ_purge() finds nothing to remove
+
+The loop then never ends, which hangs the CPU in softirq context.
+
+The walk can also run in process context, for example on bearer disable:
+
+tipc_node_delete_links()
+  tipc_node_link_down()
+    tipc_node_write_unlock()
+      tipc_publ_notify()
+
+There, an RCU grace period can complete between iterations, so tmp could
+be read after it has been freed.
+
+A concurrent list_add_tail() could also be missed by the walk, which would
+leave that publication unpurged.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116063529.6185-1-tung.quang.nguyen%40est.tech
