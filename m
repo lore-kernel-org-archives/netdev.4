@@ -1,99 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.42
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1794926376;
-	b=MAFOqoaP99P0AK/ifLgY2sBUoJlsuyHf0Gdv2OeSc/CiaoOJKOW6Mi7FnRtJXZaF9U9G
-	 Ri6iEjwu74Nv4qiRK97SYC3P9/V3/yrrgfRyLh8RKCyhIxavB70yxeXoCpiAF4HUjs+Dh
-	 MgM8wm61FF/WgBHt+RqKA7ocrnTEzRvILOUDElwuVK8fXNPLAzU/oVVsUA84UDdlh4dMa
-	 2w7qiLvsoHGFYxBW0o429HgP5STlSvX7njHyqjapePhX4sAfTQDx1lPcFMKxmEPpVpr0V
-	 xnX4gWkx51yMj/MpIFjk3wbda8EMbLl49VNXThCbS3T9Smy1vIfNMQP1GmoLWRWiKCA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794926376;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=P0olrsHIDvlSNbwag3VVPNk9dsjV/Xue4p9PcZmWx0M=;
-	b=JwdgaVAgWC90baZtDziWPe6xRLZl4d/yQ2O8m3bYpFzT5ltStu9PrH+54/luGMoKdn8/
-	 8tI16rahKDZ83avWo83uejlqRfbO1k0ViaG+GenSeXfPDQ2HmU9CWAzGFBOtiFeV8m3oj
-	 2KZaRMPtlYHRTti7AVZgg3dTrx+FxUtB9ZIlfGstEBtddYHKD/TVqTPV5CkqiWh6RwCJ+
-	 9TiSwW7RF7K25Ugr+M5HcsG20Dk/d8PfIzNJQ87HLVkdXGiUnoZnDYll7kZJMSCkCXxhO
-	 a0Xv5zvEc5X8yq15ZpkYE8lQygvHgKqC4nnEVh9OfoZbFWnwaWUELb9B0EDsxzKtErw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=ahyCFgha;
-	arc=fail smtp.remote-ip=209.85.208.42
-Received: from mail-ed1-f42.google.com (mail-ed1-f42.google.com [209.85.208.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794926410;
+	b=nGtVSZlRxyQMpBCtBk8cjrw+Wp1jMkiUiBs7YMsrAIT0hoXXHn016xzxCTcszPdWC0C0
+	 E5OcPbdmCVV159ze4f2oDOSGJuG8A8XeRfksPHYqHzxa88avWVS5SvyxbnhMr7rKNTANy
+	 Vgwi5EtextdmmD8rhUasezKEqSjxaWUFwdD96EMRSELo8bw4OpKVfZBV2B9eOBrGQzyKv
+	 UjAaT6xwzczkN/BufGhsfaoMOTjrsdTYNjnQCdg5h4mzVuYZMq0IuojybrrpCLxA4eCne
+	 lf2TkDNHF3/KWPhANffqRzt5mBOmStnRV6jQOcKuP/MTWx7YCcjIHs0V8ni/keb4UFw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794926410;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=lZSCPDEbsG1aPYaCkUI/AIdDTXYmLwooFXwBj9p0HvU=;
+	b=Vwbigs2EcIdDEhLFY3enlcksScbJjJs0I3+nBHRCCkp9tFVp6Uhh0Z0df3dhZ9shSEK8
+	 5PKR1KL8uDmSSwxhzbiueKBqM4dJ7xnzuK9IxrPpwMnYSDF9zbDjAF4QYbs6joEM14VYH
+	 ccDqiwIKpFt2FaL769RtrsiBtgegMDSPcDbZ3zWNfIQbQOE6SelAHIxRnp/X5JvM/QoQE
+	 vWBDnPgMZ0bwd6Ld/BP6MAP6wCxr7UynmqG9slJaCMsbgCXM9nIWV7mmKNYtfKJPAg/5h
+	 b/cXbFWb1G/mGvlyDbM3hiVc1vEYmPCoHMQqKyXZxdDOJh7/hAe1WDxdRrL0Vmx2UAg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hxNEC23f;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B38D8606A32A
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:39:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B38D8606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3EAD606A88E;
+	Tue, 17 Nov 2026 14:40:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=ahyCFgha
-Received: by mail-ed1-f42.google.com with SMTP id 4fb4d7f45d1cf-6b2237b596cso10550019a12.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:39:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794926371; cv=none;
-        d=google.com; s=arc-20260327;
-        b=DMKYHSjEu26HWVLe4F4MyX8xcXl7b3vTaWYq88AB6okeB3TxN6nR8ZYX0yBbcV+sAQ
-         E+MUczuSCFD8gHFrUeVU5/p9YJ+0pbP7aHkijDNMPGZVE8VJ/NqtCv4FTX9sSehtpEAM
-         5gYdVABdsGdNNksPZbQbkkf8QGtJ/OhDQDrVZX0r7/ZqRzCZNhQ1MkFbZ9wXp+c3yquK
-         RdQRdEuKD8D8x/JWZRvlJSUtduuHOAzVyY0hp9LYfe6e31dF1toxGvFU4KBPZkHm4Ls2
-         Ph8AFrAmrzJ9RH+cQLah9JbbC5bZ9YrjblbekYBl+Wx2F5mY8+Bv4u8K86NfikMOVL/g
-         qvCQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=P0olrsHIDvlSNbwag3VVPNk9dsjV/Xue4p9PcZmWx0M=;
-        fh=eAr41Drd+35npdiNSRlAVVYSPW5GN7pDtrA64rLqubY=;
-        b=IbCvZyKDeN+Wu14+nHIM7JaicrwaiM7xhcSPkTJi9peNvOvra+qiBwGgS+OrCs5CNG
-         MfN5iLbSdBt096Ve0WYZLj/sZ9A2dxjPemEd8PlUSAsRtT4eneGGBaiE1voLIPuNtlnC
-         uEl4FhAQPCwpip7vubHkHxH7m1n5oW+3Xoak6HE+Kta3n4UeLXkf1OTz6LbpkQEOJFuJ
-         DfzW46DRCQZIN0Y0wOBzbbqY5ygZoERqLSyk2tQRjNmn1//1D+wRPvmTyRCfSYNKYH2g
-         FdN5u1rKPUovjYdj8p0/81mrD1ojLALWEXrYwp0ntQkl+G3WuIEFJpYSLEC74KmBgfxS
-         U8jg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1794926371; x=1795531171; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=P0olrsHIDvlSNbwag3VVPNk9dsjV/Xue4p9PcZmWx0M=;
-        b=ahyCFghaXuEhaXgFyVP9RDu5fehkDQbPmcmZJkrhaedokFXiJrx/aKuvRAeqgLmiH9
-         djlDIjrjUAmgLZxfCLxVUjEKNVCSty2E9U7zI40EChAqidbJl2c5cPyxmnyMlp49Whwd
-         CybT8jPljM0fA5otepH0cTTKZTEJ59U2FIi2I=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794926371; x=1795531171;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=P0olrsHIDvlSNbwag3VVPNk9dsjV/Xue4p9PcZmWx0M=;
-        b=0goqGM28RgXrdc+3bP07Ned+2HeAf+n3+aJh7S4IQj0FhCY4X3e0z+NHgceAMJB4Ef
-         TkYWqXA83k0uTMRvE2i1oAGogub3jk5bgS9gNpWhyTJbVXT96Tzm5edhWrQSWV1mxIdP
-         F9WYje0D2ltH90BwvAMSlgymH3dwbAfi19+jHy+8mifyT3eNEDnD+ReCAKeSQIxRQhKc
-         bdJedOwOWTwOe3ExvTNcoPiiMa1WUQY6CZEnTkuj713zBQ7Jsqu1k0JUaO8PBaEwt8Zp
-         T5X4X1wO6+BFSKltVsZkiuWwwzCKf6aK1sBT/r/+sY4c+wJFj8jo4KXVjzjEaXfzQvkW
-         4HCQ==
-X-Forwarded-Encrypted: i=1; AL+hErFBF+NbCpS4D5pHo3MhguIbog9lOU7Bc9vD6xktwiOv+mOj0Zgq8s499K8Q+dbwVDqJJ3z00Qw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/QWknL/xKQ6IRFkoXE8WwujbmAICkQHg0ck+GNWvQmWXPDjS3g
-	SppN8OggL5o2MCvMZbwk4ZDj5IKo8IY0gEUhBIPb2Ow8LLyzrHt1A9J1FptrAamHtRyp2yuQp7R
-	ypcGob0KjUcYu37+JTeMyU6ZXdMWjhYZI3x4Ju5lyaE7pD3ePTdlr050B/+b2
-X-Gm-Gg: AYBFou1wIGAgmm/CPyW6fJbQCJ7j81tAGEQyreAUPJClebF2jjbIHhffsCoAzpVH58l
-	JSw/rypHFdqaeu3yHTx4QAsh6N6kLq8zFSg2jmMfGAJfKC6LN/EbZForfUCIXuorX/ZriUQZ83k
-	TRqPyJR24vuY4iR1l++yHSLiU3hOSOZbHNpdQbhb14NjYo9R7vyW246gxNgq7L4C0a68joyg9HL
-	qqLTj3ZOqWQw9lFJr7w9wxkjrg0qo4sBesiVJzvPtBlLkkvGqyJcg5BRFLQs9uakR+PEerDfB9g
-	+WWFpUtrMFgCaJXMDGLmXYIOcM7ki13VO8JrwN/aMkhza7MVC5U88v5dfevujity7+hIBf2d0IA
-	hS6SgHnRyHa1Is5OIs9w6hU08LfcoHYFlwxem5xcL/yIdDR2u5H653HvUnMi1Gy57QAprHaCNkh
-	X5XH+WmXqOtuvFLrH1dQoBBpTZpg4Q0MrsLn+wHfl1jIcaLUZtm84nu02QzazlkbLxwbJqQBudg
-	uYveA==
-X-Received: by 2002:aa7:cf97:0:b0:6b7:df0c:18c2 with SMTP id
- 4fb4d7f45d1cf-6b7df0c1c80mr7160252a12.12.1794926370896; Tue, 17 Nov 2026
- 06:39:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hxNEC23f
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9FD441F000C4;
+	Tue, 17 Nov 2026 14:40:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794926410;
+	bh=lZSCPDEbsG1aPYaCkUI/AIdDTXYmLwooFXwBj9p0HvU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hxNEC23fHYZDqJfT3SMMuD5CLBLG66XenrVq1PBhDZObQarbaFxsXeFUYb8RjELwQ
+	 NLfkalxCwNWM4DrCZD2gpQB/TX37a4thEIPZ9wehFrbOiHeBsds8eB+QCpYVLUpAdu
+	 leKskZZ+DCOU+BqBVXPjNcKEkN/QpX2JZWutM7M9ed20dYgisWlIuN+KD5jhyzacha
+	 EGgQbunYPwWtZPAfpQLyc6OzDCodF8hPw+Of5+jsGG9qRBF2SO59QpAYttM3ldMJhQ
+	 bTEDl8qZSvPlsODt+WRuY6Q2yx8I4vjeRBFAcBcYe96TZBW8/sKj/gzDuWSKk+C8hQ
+	 XKWUPM1rlT6Cw==
+Subject: Re: [PATCH net-next 2/6] bonding: finish XDP setup before publishing
+ the slave
+From: netdev-bot+sashiko@kernel.org
+To: hangbin.liu@linux.dev
+Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org
+Date: Tue, 17 Nov 2026 14:40:09 +0000
+Message-ID: <179492640916.3136.15521805995964497359@kernel.org>
+In-Reply-To: <20261113-bond_enslave_restruct-v1-2-364c549e78db@kylinos.cn>
+References: <20261113-bond_enslave_restruct-v1-2-364c549e78db@kylinos.cn>
+X-sashiko-severity: Critical
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,328 +65,208 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261117062046.3286096-1-piyus@iiitd.ac.in> <CAL4Wiipye9XojWhp2-XqPC0kABk3LsTmE8Z0D779+GJT_A7N8g@mail.gmail.com>
-In-Reply-To: <CAL4Wiipye9XojWhp2-XqPC0kABk3LsTmE8Z0D779+GJT_A7N8g@mail.gmail.com>
-From: Piyus Kedia <piyus@iiitd.ac.in>
-Date: Tue, 17 Nov 2026 20:09:19 +0530
-X-Gm-Features: AclHuK8etuqyiEgjTDf-ydiBAGJEz77A5x1U4gnTFtk-tCGeeoPrSbeiq3QmSew
-Message-ID: <CADq=QSx0zmA5Ks7-aZYai-t7buC7hP5Xj9d6p4Rgkx0ixE_Uaw@mail.gmail.com>
-Subject: Re: [PATCH net v2] xfrm: do not write the ethernet header when the
- mac header is unset
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	"David S . Miller" <davem@davemloft.net>, Andrea Mayer <andrea.mayer@uniroma2.it>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	netdev@vger.kernel.org, ipsec@lists.linux.dev, linux-kernel@vger.kernel.org, 
-	Kapil Vaswani <kapil@presceralabs.ai>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hi Eric,
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Thanks for the suggestion! We have submitted a new patch:
-https://lore.kernel.org/all/20261117143612.95112-1-piyus@iiitd.ac.in/
+Critical: 1 · High: 0 · Medium: 0 · Low: 2
 
-We also tested it on our platform and the KASAN bugs are gone after this pa=
-tch.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks and regards,
-Piyus Kedia
-Kapil Vaswani
+- [Critical] Heap out-of-bounds write in bond_update_slave_arr(),
+  introduced by moving the XDP setup ahead of the slave_cnt increment.
+- [Low] The commit fixes real, user-visible leaks on the bond_enslave()
+  XDP-failure path but has no Fixes: tag.
+- [Low] The commit message describes a stale version of the error path.
 
-On Tue, Nov 17, 2026 at 1:43=E2=80=AFPM Eric Dumazet <edumazet@kernel.org> =
-wrote:
->
-> Le mar. 17 nov. 2026 =C3=A0 07:21, Piyus Kedia <piyus@iiitd.ac.in> a =C3=
-=A9crit :
-> >
-> > xfrm4_remove_tunnel_encap() and xfrm6_remove_tunnel_encap() restore the
-> > mac header after removing the tunnel header and then stamp the protocol
-> > into it:
-> >
-> >         skb_reset_network_header(skb);
-> >         skb_mac_header_rebuild(skb);
-> >         if (skb->mac_len)
-> >                 eth_hdr(skb)->h_proto =3D skb->protocol;
-> >
-> > skb_mac_header_rebuild() does nothing at all when the mac header was
-> > never set:
-> >
-> >         static inline void skb_mac_header_rebuild(struct sk_buff *skb)
-> >         {
-> >                 if (skb_mac_header_was_set(skb)) {
-> >                         ...
-> >                 }
-> >         }
-> >
-> > and it does not clear skb->mac_len either, so on an skb whose mac heade=
-r
-> > has been unset while mac_len stayed behind, the guard is true and the
-> > store goes through an unset header.  skb_mac_header() is
-> > skb->head + skb->mac_header and the unset value of that u16 is 0xffff,
-> > so eth_hdr(skb)->h_proto is 65535 + offsetof(struct ethhdr, h_proto)
-> > bytes past skb->head: a two-byte out-of-bounds write landing far outsid=
-e
-> > the skb, in whatever object happens to be there.
-> >
-> > skb_unset_mac_header() leaves skb->mac_len alone, and of its callers on=
-ly
-> > skb_carve_reset_headers() clears mac_len by hand.  end_dt_vrf_rcv()
-> > (SRv6 End.DT4/End.DT6) unsets the mac header on the receive path so the
-> > VRF device can rebuild it, and leaves mac_len at the value the original
-> > ethernet frame had, which is how an skb in this state reaches xfrm inpu=
-t:
-> >
-> >   tun_get_user -> netif_receive_skb -> lwtunnel_input
-> >     -> seg6_local_input_core -> End.DT4 -> end_dt_vrf_rcv
-> >     -> skb_unset_mac_header (mac_len stays 14)
-> >     -> VRF l3_rcv -> ip_local_deliver_finish -> xfrm4_esp_rcv
-> >     -> xfrm_input -> xfrm4_remove_tunnel_encap
-> >
-> >   BUG: KASAN: slab-out-of-bounds in xfrm4_remove_tunnel_encap+0x17d/0x2=
-20
-> >        net/xfrm/xfrm_input.c:258
-> >   Write of size 2 at addr ffff88805f85800b by task syz-executor/10831
-> >   ...
-> >   The buggy address belongs to the object at ffff88805f858000
-> >    which belongs to the cache zswap_entry of size 56
-> >
-> > The address does not depend on mac_len - it is always
-> > skb->head + 0xffff + offsetof(struct ethhdr, h_proto), since the unset
-> > sentinel is what mac_header holds - and mac_len only decides whether th=
-e
-> > write happens.  The value is skb->protocol.  It is two bytes at a fixed
-> > 64KB offset, crossing into an unrelated slab cache.
-> >
-> > A THIRD SITE HAS THE SAME THREE LINES, in __input_process_payload()
-> > (net/xfrm/xfrm_iptfs.c), reached when an IPTFS payload is decapsulated:
-> >
-> >         skb->protocol =3D protocol;
-> >         skb_mac_header_rebuild(skb);
-> >         if (skb->mac_len)
-> >                 eth_hdr(skb)->h_proto =3D skb->protocol;
-> >
-> > and it has its own KASAN report, a use-after-free rather than an
-> > out-of-bounds, for the reason given below.
-> >
-> > That function already knows the test is needed.  Its other mac-header p=
-ath
-> > is guarded by old_mac, which it computes at the top as
-> >
-> >         old_mac =3D skb_mac_header_was_set(skb) ? skb_mac_header(skb) :=
- NULL;
-> >
-> > and only rebuilds the header when that is non-NULL.  The site above omi=
-ts
-> > the same check.
-> >
-> > WHY THE THREE REPORTS CARRY DIFFERENT TITLES, which is worth stating so
-> > they are not read as three defects.  The address written is a fixed
-> > skb->head + 0xffff + offsetof(struct ethhdr, h_proto), so what it lands=
- in
-> > is whatever the allocator placed 16 pages past the skb: a live object g=
-ives
-> > slab-out-of-bounds, a freed one or a page back on the buddy free list g=
-ives
-> > use-after-free, and a different LIVE object gives nothing at all, since
-> > generic KASAN only tests whether the target address is poisoned.  Acros=
-s
-> > six boots of one reproducer the write executed in five and KASAN report=
-ed
-> > it in one.  On a kernel without KASAN it is always silent.
-> >
-> > Only write the ethernet header when there is one.  This mirrors what
-> > xfrm4_transport_input() already does, where the header length is taken =
-as
-> > skb_mac_header_was_set(skb) ? skb_mac_header_len(skb) : 0, and what
-> > __input_process_payload() already does for old_mac, and it leaves the
-> > behaviour of every well-formed skb unchanged.
-> >
-> > Link: https://lore.kernel.org/r/20261116174531.2540348-2-piyus@iiitd.ac=
-.in
-> > Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-> > Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
-> > ---
-> >
-> > v2:
-> >   - guard the third site, net/xfrm/xfrm_iptfs.c in __input_process_payl=
-oad().
-> >     It has the same three lines and its own KASAN report, a use-after-f=
-ree,
-> >     and v1 left it alone - which would have closed two write sites of t=
-he
-> >     three while leaving a confirmed one live.
-> >   - say why the three reports carry different titles (slab-out-of-bound=
-s,
-> >     use-after-free, use-after-free): the address is fixed relative to
-> >     skb->head, so the verdict is decided by whatever the allocator put =
-16
-> >     pages later, and a live neighbour gives no report at all.
-> >   - cite __input_process_payload()'s own old_mac computation as the in-=
-tree
-> >     precedent alongside xfrm4_transport_input()'s.
-> >
-> >   No change to the two hunks v1 carried.
-> >
-> > Tested at runtime on mainline before and after: both kernels built from
-> > aebb72744764 ("Linux 7.4-rc3") in one scripted run, x86_64 with
-> > CONFIG_KASAN_GENERIC, CONFIG_DEBUG_NET, CONFIG_IPV6_SEG6_LWTUNNEL and
-> > CONFIG_NET_VRF. Six boots each, injecting after the uptime passed 130s.=
- The
-> > skb_reset_mac_len() warnings at include/linux/skbuff.h:2995 are the con=
-trol:
-> > they fire when the unset-header skb reaches the receive path and this p=
-atch
-> > does not touch that site.
-> >
-> >                   skb came through   reached the write   KASAN
-> >   unpatched         5 of 6 boots       5 of 5             1
-> >   patched           2 of 6 boots       0 of 2             0
-> >
-> > Every unpatched boot in which the skb arrived reached the write; no pat=
-ched
-> > boot did, including the two in which the control shows the same skb arr=
-iving.
-> > The one-in-five KASAN rate is the point made in the changelog about the
-> > verdict depending on the neighbour.
-> >
-> > checkpatch reports one thing, the missing Fixes: tag. Neither tree we
-> > reproduced on carries history for these files, so we could not determin=
-e the
-> > introducing commit; we will add it if you can name it.
-> >
-> >  net/xfrm/xfrm_input.c | 4 ++--
-> >  net/xfrm/xfrm_iptfs.c | 2 +-
-> >  2 files changed, 3 insertions(+), 3 deletions(-)
-> >
-> > diff --git a/net/xfrm/xfrm_input.c b/net/xfrm/xfrm_input.c
-> > index 5ed87d513..624ff8055 100644
-> > --- a/net/xfrm/xfrm_input.c
-> > +++ b/net/xfrm/xfrm_input.c
-> > @@ -254,7 +254,7 @@ static int xfrm4_remove_tunnel_encap(struct xfrm_st=
-ate *x, struct sk_buff *skb)
-> >
-> >         skb_reset_network_header(skb);
-> >         skb_mac_header_rebuild(skb);
-> > -       if (skb->mac_len)
-> > +       if (skb_mac_header_was_set(skb) && skb->mac_len)
-> >                 eth_hdr(skb)->h_proto =3D skb->protocol;
-> >
-> >         err =3D 0;
-> > @@ -291,7 +291,7 @@ static int xfrm6_remove_tunnel_encap(struct xfrm_st=
-ate *x, struct sk_buff *skb)
-> >
-> >         skb_reset_network_header(skb);
-> >         skb_mac_header_rebuild(skb);
-> > -       if (skb->mac_len)
-> > +       if (skb_mac_header_was_set(skb) && skb->mac_len)
-> >                 eth_hdr(skb)->h_proto =3D skb->protocol;
-> >
-> >         err =3D 0;
-> > diff --git a/net/xfrm/xfrm_iptfs.c b/net/xfrm/xfrm_iptfs.c
-> > index 0313a43aa..41af72a92 100644
-> > --- a/net/xfrm/xfrm_iptfs.c
-> > +++ b/net/xfrm/xfrm_iptfs.c
-> > @@ -1099,7 +1099,7 @@ static bool __input_process_payload(struct xfrm_s=
-tate *x, u32 data,
-> >
-> >                                 skb->protocol =3D protocol;
-> >                                 skb_mac_header_rebuild(skb);
-> > -                               if (skb->mac_len)
-> > +                               if (skb_mac_header_was_set(skb) && skb-=
->mac_len)
-> >                                         eth_hdr(skb)->h_proto =3D skb->=
-protocol;
-> >
-> >                                 /* all pointers could be changed now re=
-set walk */
-> > --
-> > 2.34.1
->
-> I think you are fixing the wrong layer.
->
-> I would have used something more generic.
->
-> net: clear skb->mac_len in skb_unset_mac_header()
->
-> skb_unset_mac_header() marks the mac header as unset but leaves
-> skb->mac_len alone, so an skb can end up with no mac header and a
-> non-zero mac_len. Code that uses mac_len to decide whether a mac
-> header is present is then misled.
->
-> end_dt_vrf_rcv() (SRv6 End.DT4/End.DT6) unsets the mac header of the
-> decapsulated packet so that the VRF device can rebuild it. The VRF
-> device only does so when a packet sniffer is attached, so without one
-> the skb continues up the stack with mac_len =3D=3D 14. In
-> xfrm4_remove_tunnel_encap() and xfrm6_remove_tunnel_encap(),
-> skb_mac_header_rebuild() is a no-op for such an skb, and the following
->
->         if (skb->mac_len)
->                 eth_hdr(skb)->h_proto =3D skb->protocol;
->
-> writes two bytes at skb->head + 0xffff + offsetof(struct ethhdr, h_proto)=
-:
->
->   BUG: KASAN: slab-out-of-bounds in xfrm4_remove_tunnel_encap+0x17d/0x220
->   Write of size 2 at addr ffff88805f85800b by task syz-executor/10831
->    xfrm4_remove_tunnel_encap
->    xfrm_input
->    xfrm4_esp_rcv
->    ip_protocol_deliver_rcu
->    ip_local_deliver_finish
->    seg6_local_input_core
->    lwtunnel_input
->    __netif_receive_skb
->    netif_receive_skb
->    tun_rx_batched
->    tun_get_user
->
-> Clear mac_len in skb_unset_mac_header() so that all callers leave the
-> skb in a consistent state, and remove the now redundant assignment in
-> skb_carve_reset_headers(). The other callers are on egress paths
-> (__bpf_redirect_neigh(), bpf_lwt_push_ip_encap()) or only reach the
-> helper when the mac header was already unset (bpf_update_srh_state()),
-> and do not read mac_len afterwards.
->
-> The issue was reported on the list by Piyus Kedia and Kapil Vaswani,
-> who found it by fuzzing with AI assistance and reproduced the KASAN
-> splat on v7.4-rc3. Their reproducer was not published, so this patch
-> is build tested only.
->
-> Fixes: 664d6f86868b ("seg6: add support for the SRv6 End.DT4 behavior")
-> Reported-by: Piyus Kedia <piyus@iiitd.ac.in>
-> Reported-by: Kapil Vaswani <kapil@presceralabs.ai>
-> Closes: https://lore.kernel.org/netdev/20261116174531.2540348-2-piyus@iii=
-td.ac.in/
-> Signed-off-by: Eric Dumazet <edumazet@kernel.org>
->
-> diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
-> index 6787fcf6ac3e43fe87fa5f9007b6d99f7aea0b44..9cd8eff0309cc3a646dc49e83=
-a0cea79512cf8f5
-> 100644
-> --- a/include/linux/skbuff.h
-> +++ b/include/linux/skbuff.h
-> @@ -3186,6 +3186,7 @@ static inline u32 skb_mac_header_len(const
-> struct sk_buff *skb)
->  static inline void skb_unset_mac_header(struct sk_buff *skb)
->  {
->         skb->mac_header =3D (typeof(skb->mac_header))~0U;
-> +       skb->mac_len =3D 0;
->  }
->
->  static inline void skb_reset_mac_header(struct sk_buff *skb)
-> diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-> index 1ac1e327ac4c6258726efaba346297ccbec7eef4..8fe0938d6131031a33b535fdf=
-60d9eec50041ea4
-> 100644
-> --- a/net/core/skbuff.c
-> +++ b/net/core/skbuff.c
-> @@ -6984,7 +6984,6 @@ static void skb_carve_reset_headers(struct sk_buff =
-*skb)
->         skb_unset_mac_header(skb);
->         skb_unset_transport_header(skb);
->         skb_reset_network_header(skb);
-> -       skb->mac_len =3D 0;
->
->         /* Inner offsets have no "unset" marker, zero them so that
->          * skb_inner_network_header_was_set() becomes false and no
+--
+
+bonding: finish XDP setup before publishing the slave
+
+This patch moves dev_xdp_propagate() in bond_enslave() ahead of the
+slave_cnt increment, the ns maddr setup and active slave selection, so the
+XDP setup becomes the last fallible step. It also moves
+bond_xdp_set_features() earlier. It replaces err_dec_slave_cnt with a new
+err_set_xdp label that undoes the promiscuity, allmulti and address sync.
+
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index 340af4c3fa201..80b6c18ee9c28 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -2313,22 +2313,11 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  		}
+>  	}
+>  
+> -	WRITE_ONCE(bond->slave_cnt, bond->slave_cnt + 1);
+> -	netdev_compute_master_upper_features(bond->dev, true);
+> -	bond_set_carrier(bond);
+> -
+
+[ ... ]
+
+> -	/* XDP capability and prog-count were already validated above */
+>  	if (bond->xdp_prog) {
+>  		struct netdev_bpf xdp = {
+>  			.command = XDP_SETUP_PROG,
+> @@ -2341,19 +2330,35 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  		if (res < 0) {
+>  			/* ndo_bpf() sets extack error message */
+>  			slave_dbg(bond_dev, slave_dev, "Error %d calling ndo_bpf\n", res);
+> -			goto err_dec_slave_cnt;
+> +			goto err_set_xdp;
+>  		}
+>  		if (bond->xdp_prog)
+>  			bpf_prog_inc(bond->xdp_prog);
+>  	}
+>  
+> +	bond_xdp_set_features(bond_dev);
+> +
+> +	/* Must called before bond_update_slave_arr() or bond_select_active_slave() */
+> +	WRITE_ONCE(bond->slave_cnt, bond->slave_cnt + 1);
+
+[Severity: Critical]
+After this reordering, dev_xdp_propagate() runs the slave driver's ndo_bpf
+when the new slave is already on the bond's lower list
+(bond_master_upper_dev_link() ran earlier) but slave_cnt has not been
+incremented yet. If a notifier fires from inside ndo_bpf, can it rebuild
+the slave arrays using the old slave_cnt?
+
+For example, dpaa2_eth_setup_xdp() closes and reopens a running device:
+
+drivers/net/ethernet/freescale/dpaa2/dpaa2-eth.c:dpaa2_eth_setup_xdp() {
+    ...
+	up = netif_running(dev);
+	...
+	if (up)
+		dev_close(dev);
+    ...
+	if (up) {
+		err = dev_open(dev, NULL);
+    ...
+}
+
+Take balance-xor or 802.3ad mode (802.3ad once there is an active
+aggregator) with an XDP program attached to the bond. The call chain
+looks like this:
+
+bond_enslave()
+  dev_xdp_propagate()
+    dpaa2_eth_xdp()
+      dpaa2_eth_setup_xdp()
+        dev_close()                    /* NETDEV_DOWN */
+          bond_netdev_event()
+            bond_slave_netdev_event()
+              bond_update_slave_arr(bond, NULL)
+
+bond_update_slave_arr() sizes the arrays from slave_cnt (N). It then walks
+all N+1 slaves on the list with no bound:
+
+	usable_slaves = kzalloc_flex(*usable_slaves, arr, bond->slave_cnt);
+	all_slaves = kzalloc_flex(*all_slaves, arr, bond->slave_cnt);
+	...
+	bond_for_each_slave(bond, slave, iter) {
+		...
+		all_slaves->arr[all_slaves->count++] = slave;
+
+Does this write one struct slave pointer past the end of all_slaves->arr[]
+and usable_slaves->arr[]? The arrays are then published with a count
+larger than their allocation, so the xmit hash path could read past them
+too. dev_open() then raises NETDEV_UP, which would do the same thing again.
+
+For the second slave, struct_size() comes to 32 bytes, which fills a
+kmalloc-32 object exactly. The write to arr[1] would then hit the
+neighbouring object.
+
+The same applies to any other slave driver whose ndo_bpf synchronously
+raises NETDEV_UP, NETDEV_DOWN or NETDEV_CHANGE.
+
+Before this patch, slave_cnt was incremented before dev_xdp_propagate(),
+so these rebuilds saw the right count. The new comment above says slave_cnt
+must be updated before bond_update_slave_arr(), but calls that come in
+through notifiers from ndo_bpf now break that rule.
+
+This still seems to be there at the end of the series.
+bond_publish_slave(), added in "bonding: factor out slave publication",
+still runs after the XDP setup.
+
+> +	netdev_compute_master_upper_features(bond->dev, true);
+> +	bond_set_carrier(bond);
+
+[ ... ]
+
+> @@ -2363,8 +2368,15 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  	return 0;
+>  
+>  /* Undo stages on error */
+> -err_dec_slave_cnt:
+> -	WRITE_ONCE(bond->slave_cnt, bond->slave_cnt - 1);
+
+[Severity: Low]
+The commit message says:
+
+    If XDP setup then fails, the error path
+    jumps to err_sysfs_del and leaks:
+
+and:
+
+    follows the publication of the slave and a failure can no longer
+    leak slave_cnt or ns maddrs.
+
+Does this match the parent commit? There, a dev_xdp_propagate() failure
+already does goto err_dec_slave_cnt, which decrements slave_cnt. That
+label came from a978095699641d ("bonding: fix slave_cnt leak on XDP
+enslave failure").
+
+In this hunk the patch actually removes err_dec_slave_cnt, which the
+reorder makes unnecessary. Could the commit message say so and reference
+a978095699641d?
+
+Separately, there's a typo in the new comment:
+
+	/* Must called before bond_update_slave_arr() or bond_select_active_slave() */
+
+"Must called" should be "Must be called". The typo is carried into
+bond_publish_slave() by "bonding: factor out slave publication".
+
+> +err_set_xdp:
+> +	if (!bond_uses_primary(bond)) {
+> +		if (bond_dev->flags & IFF_PROMISC)
+> +			dev_set_promiscuity(slave_dev, -1);
+> +		if (bond_dev->flags & IFF_ALLMULTI)
+> +			dev_set_allmulti(slave_dev, -1);
+> +		if (bond_dev->flags & IFF_UP)
+> +			bond_hw_addr_flush(bond_dev, slave_dev);
+> +	}
+
+[Severity: Low]
+This block fixes leaks that users can actually hit, but the commit has no
+Fixes: tag.
+
+In non-primary modes, the parent code jumped from a dev_xdp_propagate()
+failure to err_sysfs_del without undoing any of these:
+
+- the promiscuity/allmulti increments
+- the addresses added by dev_mc_sync_multiple()/dev_uc_sync_multiple()
+  and the LACPDU dev_mc_add()
+- the ns target maddrs added by bond_slave_ns_maddrs_add()
+
+The XDP setup placement comes from 9e2ee5c7e7c3 ("net, bonding: Add XDP
+support to the bonding driver"). That is also the Fixes: target of
+a978095699641d. Placing the ns maddrs before the XDP setup comes from
+8eb36164d1a6 ("bonding: add ns target multicast address to slave
+device").
+
+This failure can really happen. For example, dpaa2_eth_setup_xdp() returns
+-EINVAL when the MTU is not valid for XDP:
+
+	if (prog && !xdp_mtu_valid(priv, dev->mtu))
+		return -EINVAL;
+
+Should this carry Fixes: 9e2ee5c7e7c3 and/or Fixes: 8eb36164d1a6?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-bond_enslave_restruct-v1-0-364c549e78db%40kylinos.cn
