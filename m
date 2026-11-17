@@ -1,81 +1,82 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794920543;
-	b=SWVoypI2c0wNZ5P9bnyM1E45AGnH3A5kCi3tReOxNzvXx20ty8dI+kuk4xyXB/whYsSJ
-	 eO5fj3TqxO4btlA/5NY8QCjGec21bTuKaBEwS8dmTV19eqP/vpnRFOyuiwMeRkYoBgIe9
-	 eyw81XHIfRxdvftPqyk0aRtoRs7zRAfsMcwHBdK1nbS7ejmAXc7fNeBbE3UIaQdln7rew
-	 AoQoJcJXGXmAa3ceX3ogKR9Cn6Vh7xttPHqAmZCfIdmVqyy3rGE8RQPVX0K1bc3DBkai0
-	 4PBc6/K13EFCRj7TrQ3JkXISb7BkX/0Rg48VF+wX48+ykUs6U25ZURqjqzhQBx/F2yg==
+	t=1794920544;
+	b=ZUAaMfpcMz5wXVPTgOg6DRXnGsqxDO4jixQbVUASdbFlSEQfQcrKtT2ci2P9NUsHRz5I
+	 uRNXCz7ts0lgFCB9sbLhInhn2syscbttDp6iEZ+YuOryi8hnWo6ovuKbdOCe8BRGuecZb
+	 Oe5y2Wkxa6D6OyerEmLSpzii2Rctr0nfC7Eeg3OIKDw/JMJC90RkfrLHW1fRfG18F8faF
+	 2eXg1TGmzmDHB86EUIySyaXgWwX6rIX53x7+S29sdsdnFaQomVb+1F8Lb6qyVeviwvc3l
+	 B7eqibArniWp2LEqp73XSWoGftZBC8dz62GcsOaXCdv9fuGcnKJ2u2QWRNif8gTy0OQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794920543;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Subject:Date:
-	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=V6bFgtqLLSexV794EZ1sdh+46bO9VjBalhkVgSjPsS8=;
-	b=5T+zGKpcEJg7vJB7DYjILZMQtYap1VLViKtmY9X4TaNf92mNtqI6leBo2BqYt70G04nh
-	 0Cxr0UeIUe1CVb2qafDk8IY689VSv5DuqogyiT/F/vL4M035dHCa7Y7/bcSg0Rcq9W2QG
-	 sFE1bYL3xzF6J9iig/xCagpP5CKU/cPJXtmua7aZjtBzApaK0yZQRotiC+ZAR+U4VRGug
-	 rA1uFdlYkj7QmphGq8vJT7Z1PBK6Zm1fv4yDdnIZ0DvQ4MtARXfVTQzpI4FwZIx9cI2sr
-	 bOZkgAze7SGAlTJ1b8QlwbZOk63V3L3zoVrV8vah9r1YNM7ie8e48fmUXFzqk80IZrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794920544;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 References:In-Reply-To:To:Cc:X-Mailer;
+	bh=GqEwTqWJZtisWFpMzK6ZIl8KwFJNECYB6CTezDbTxDI=;
+	b=lkliCnRJRr46gm+6VKcYcDwtV303PvwnzCxXa8v/wXuZfS1cbCa6XhEHZoN5F59KAe/y
+	 uKBdcij/6COvY1dbwRLH3wF479wlJAC8sl3vMtYpy7LTYFFX0w/iGav36u0EKSvxk/Lxm
+	 iiNcsiTdZ4Ob2FsHhc/uDr4EgUrjn7Figcu0JKsNVuoYlzoI0+iVsFiVmyf8Xqni2F6oK
+	 Wom4ik62p+hTC/f1m6NS/dfdF9nU3mXsR9SDDZwKayVyvTxLx+FoTrC1fDDnXjORJphWP
+	 H0Vsuh6vQRE8Dci2Dp+uDRTOxUlS3LOPqbB6R9DeQ60QxbPrX4x/9BvTjXE0p74pnsQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=pengutronix.de;
 	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=YC6ZCi0o;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=IpUodTkv;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 812AE606A31C;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 813A1606A32A;
 	Tue, 17 Nov 2026 13:02:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 812AE606A31C
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 813A1606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=YC6ZCi0o
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=IpUodTkv
 Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.pengutronix.de [IPv6:2a0a:edc0:0:1101:1d::ac])
 	(Authenticated sender: relay-from-dude04.red.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 7BF212058D7;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 99221205A5E;
 	Tue, 17 Nov 2026 14:02:19 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1794920539;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=V6bFgtqLLSexV794EZ1sdh+46bO9VjBalhkVgSjPsS8=;
-	b=YC6ZCi0oZIngV+XZQrVNDydKlBlnHJT+0zuWiDAfdrQWt0DMmhM32Ug9YO9TxMPK0CTK6p
-	t16Qc1XQfFoQs/KaML+JFwTUmySP9+B1BAdGZelT6v5vATAnpOI/GSJBuOw7ZZ2gRxw4yH
-	Yj3G6r6rk01l2huArpJlyModcfTUGf42YNVZXwySZIYmWj14u7qDRPFlxpQRv5vovkwjPm
-	b92iG4EBRZTkfvqklkLseF4mbZqG8nBF2zRfquNWON6VHjW8n3ForgsRLTkiAE8tjYuFWv
-	2th068eer/f0YLawJAdIqTc6zsFBEvqgwIJ7bdT00cNhlMszG0ybWfrbaQZ8kQ==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GqEwTqWJZtisWFpMzK6ZIl8KwFJNECYB6CTezDbTxDI=;
+	b=IpUodTkvJ1rTTgYlkq7YCboc0amCKPjZbSXBgrkTalyq1L28jKz+W9STjO0wNrPMgr3ba4
+	uOjnomJpVCC7hVpA6XSGY68ij68X08/tG1/i/iuuYwJtWujJb9VUMJaI5hsBnvGSH6G/x4
+	0wigbSzSsO1phE9DxeOEkiZLntwegGc7yzOiNoYV1GzMAVmtZ8K8XouskvH8hq2cQPVNIk
+	jck8ExlQ3JMZUUv7jw5CnBU04SP8ccRGj1wVutkQAg2Sno5xtWsJPAI56SDpopOGPbABzv
+	8wR0w8MXj6Xd+nvvlmXGiorNDk2mVB/HZGcRzgVIkT/HtsF9kdSDi6xXzHyV5g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1794920539;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=V6bFgtqLLSexV794EZ1sdh+46bO9VjBalhkVgSjPsS8=;
-	b=FHNgDsm0PCNCQUTzqY5dcaNdmwYjOoZAph8S0t2QgOqBYYLXP1Uz3YQ7ASX5491cPiGcTM
-	9cOYmMwrC79Mz/Wz9LMpj/Y0EIGdrrc427kKxnjGj5xMUUnn344/PqatB++upaInGVOlXx
-	3c/1KOswtUYnJhCA0QpVx6yRVcdboLk6/HrxQr6WD/4yzdS/lhJXsVMM3mkuZwk1wLiLl9
-	5z6ZqgkJMUw+DaxdapL8QfJgToGXXatXgHIVD9b2R2nr7GK/5LSQqJD5xUCNFGIRwMt3uw
-	tJMEsyiZOyEGORMEUJRJmND6oN7mr8QOstUazwjXLQ9cw+/65IOTk8eRuNZmsA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GqEwTqWJZtisWFpMzK6ZIl8KwFJNECYB6CTezDbTxDI=;
+	b=Cc1s1Q9gGogpRxOJzKrmg6b8g3FZPQBgFP1djDeHLay3YqFqcLfsYGQle6lKHrlbleYNiu
+	cggkdhqA0FiTWyOMK7pA0TvyERp6U7tT9CY3OjO5drIoTbqGW+CKhK/w6MQ//0MnT0MtbF
+	2YEMVmnL+W/nlb4naaBBeEUO1KklOOWCd12wrIkLc63xxnWgsrai00AV998TGPV073XwHW
+	MJDmQT1g+lhTre1vZANTYN0GNYKXZaLz77xw5Kdn1GkLvge0NqhsNhRAJqLP5AM4GBsjzL
+	+6YKAvCm6ToYlZCHf8bdExu/OwlU6N9U9a8iOZ2+ixYRSwDvuslcmhfjrdjg9w==
 ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794920539; a=rsa-sha256;
 	cv=none;
-	b=GnnDV+Dgvhhjpbd52yRTNKsMhEUP+5wAn1GmlscJNrmd+erNDDZ4FiiSQ8JbVW2rtdX/Tg
-	bXRCZmqmW+VpIIHFoRMoSU0eNfE705M29Qxpl4bPyeoMnFgKlyN8U3roHi5iIk8alIDbU8
-	t4zCbri4pAhFxajK2aeU1YA3JZbZnOqfcaevv/jzOefbat2f4AlTr42GEw3PS5TdRp076/
-	efGrdlBrbYBniXVU9mkHSenrUIwkkHFiQoXQVvXeMwbeaoK+JQg9cM7XJdSnMihnIuCuD6
-	LR+5SNqnY8DSeoMqlStY/+i8YUtNcs7iQmAYltAomFBtzhENm9cn9JzradB8ww==
+	b=WlZBIrHiF5KtA7qnMeyWFLRoGoeJukmq+Rv9N+VYb0WsBe1Frb7fngxxkJz6eF+JI/EyEB
+	Ufp9SzYLafiFaqnYuB4zCt+gqH8QmA5taoa32u3qG0+kJHfjLGIWfot4llvtt0HwVB2KFT
+	+NnxXWVJdaG7nKARgjnVA3nRHUZHWKacx0asTDLVKWBp0W8KCgh/GyWuX/GgHXCtVoRU8+
+	oZ38r8x6EVOaJ11DitmFTCP8+n2Y9rO+Y2uyHG2gf17j05MIUQcE7RlJ8LvqbZz2mOIkkZ
+	jW1EFm/SqLyddGr+f2DsVAc9dIN0lt85JkVMkGsDNef4E8W8yZgFYNSPbq93/w==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=relay-from-dude04.red.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
 Received: by dude04.red.stw.pengutronix.de (Postfix, from userid 1058)
-	id 6D6B13814A3; Tue, 17 Nov 2026 14:02:19 +0100 (CET)
+	id 7151A3815D2; Tue, 17 Nov 2026 14:02:19 +0100 (CET)
 From: Oleksij Rempel <o.rempel@pengutronix.de>
-Subject: [PATCH net-next v3 0/3] net: dsa: make a shorter bridge ageing
- time take effect
-Date: Tue, 17 Nov 2026 14:02:10 +0100
-Message-Id: <20261117-ksz-stp-ageing-v3-0-135de6b9f8ad@pengutronix.de>
+Date: Tue, 17 Nov 2026 14:02:12 +0100
+Subject: [PATCH net-next v3 2/3] net: dsa: ignore the old ageing time of
+ the port being changed
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -87,11 +88,9 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAFJQ/GoC/2XOwU7DMAwG4FeZcsaQOHRhnHiPiYPbeq2F5lZJF
- hWmvjtZBRJiR8v+v99XkzgKJ/O6u5rIRZJMWgf/sDPdSDowSF9ngxb3zlkPH+kLUp6BBhYdINi
- GaH94wQM3pobmyCdZNvBolDMoL9m8101LiaGNpN14A3sqfIbfi6czid7yo6Q8xc/tn+I25af6+
- X91cWABO2y7gC70TG8z63DJcVJZHnveWgv+MVxzZ2A1Ap0weLTWe74z1nX9Bqd+rCIlAQAA
-X-Change-ID: 20261103-ksz-stp-ageing-705aa69829e5
+Message-Id: <20261117-ksz-stp-ageing-v3-2-135de6b9f8ad@pengutronix.de>
+References: <20261117-ksz-stp-ageing-v3-0-135de6b9f8ad@pengutronix.de>
+In-Reply-To: <20261117-ksz-stp-ageing-v3-0-135de6b9f8ad@pengutronix.de>
 To: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com, 
  Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
@@ -106,110 +105,113 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  Oleksij Rempel <o.rempel@pengutronix.de>
 X-Mailer: b4 0.14.2
 
-During an STP topology change, the bridge lowers the ageing time so
-that stale FDB entries go away quickly. When the change is over, the
-bridge sets the configured value again. On DSA switches, both steps
-can go wrong:
+Pass the port to the ageing time notifier. When
+dsa_switch_fastest_ageing_time() takes the minimum, skip the cached
+dp->ageing_time of that port and use the requested value instead. DSA
+updates the cache only after the notifier.
 
-- On a KSZ9893, ksz9477 does not apply a shorter value at once. Patch 1
-  fixes this.
-- The DSA core can keep the short value after the bridge has restored
-  the long one. Patch 2 fixes this, and patch 3 does the same for a
-  port that has left the bridge.
+Without this, the minimum includes the port's old ageing time. During
+an STP topology change, the bridge lowers the ageing time to
+2 x forward_delay (8 s with forward_delay 4 s). When it restores the
+configured value, DSA programs the cached 8 s again, and the switch
+keeps ageing at 8 s.
 
-In a lab test on a KSZ9893, I cut one of two redundant paths while a
-station sent one-way UDP or raw Ethernet traffic. Without the series,
-the traffic stopped for up to 56 s, long after STP had converged. With
-it, the traffic came back after 12 to 15 s, about as long as STP
-needed to converge.
+An automated review of the lan9645x bridge series pointed this out [1].
+I reproduced it on a KSZ9893 and tested the fix there.
 
-The series fixes the cases I hit on a KSZ9893: the switch keeps a
-short ageing time after an STP topology change, or after a port leaves
-the bridge. Some cases are not fixed. In them, the switch keeps an
-ageing time that no bridge asks for. Two are known:
-
-- The last bridged port of a switch leaves while its bridge has a
-  short ageing time.
-- The last port of one bridge leaves the switch while another bridge
-  stays on it. The switch keeps the short value of the bridge that is
-  gone.
-
-There may be more such cases. I did not look for them.
-
-The patches carry Fixes tags. They still go to net-next, because
-patches 2 and 3 change the DSA core and affect every driver with
-.set_ageing_time.
-
-With patch 2, sja1105 reloads its static config once more when the
-bridge restores the ageing time.
-
-To check patches 2 and 3 on a KSZ9477-family switch over I2C, read the
-ageing register from debugfs (<device> is the I2C device, for example
-3-005f):
-
-  dd if=/sys/kernel/debug/regmap/<device>-32/registers bs=15 \
-     skip=$((0x310)) count=1 2>/dev/null
-
-The ageing time in seconds is bits 5:3 of the first byte times the last
-byte. For example, in "0310: 55450096" bits 5:3 of 0x55 give 2 and 0x96
-is 150, so the ageing time is 2 x 150 s = 300 s.
-
-Without STP, after a boot (the comments give the register value):
-
-  ip link add br0 type bridge stp_state 0
-  ip link set lan1 master br0
-  ip link set lan2 master br0
-  ip link set br0 up
-  ip link set br0 type bridge ageing_time 1000    # 10 s
-  # 0310: 4d45000a (1 x 10 s)
-  ip link set lan2 nomaster
-  ip link set br0 type bridge ageing_time 30000   # 300 s
-  # with the series:      0310: 55450096 (2 x 150 s)
-  # without patch 2 or 3: 0310: 4d45000a (1 x 10 s)
-
-With kernel STP, start again with a bridge that runs STP, here with
-forward_delay 4 s. lan1 and lan2 need a link to peers that do not run
-STP, so that br0 is the root bridge:
-
-  ip link del br0
-  ip link add br0 type bridge stp_state 1 forward_delay 400
-  ip link set lan1 master br0
-  ip link set lan2 master br0
-  ip link set lan1 up
-  ip link set lan2 up
-  ip link set br0 up
-  # wait until /sys/class/net/br0/bridge/topology_change reads 1
-  # 0310: 55450004 (2 x 4 s)
-  ip link set lan2 nomaster
-  sleep 30
-  # with the series:      0310: 55450096 (2 x 150 s)
-  # without patch 2 or 3: 0310: 55450004 (2 x 4 s)
-
-Tested on a KSZ9893.
-
+Fixes: 77b61365ecef ("net: dsa: remove the transactional logic from ageing time notifiers")
+Link: https://lore.kernel.org/netdev/179180428624.434549.14425623884223795761@kernel.org/ [1]
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
 ---
 Changes in v3:
-- Link to v2: https://lore.kernel.org/r/20261115-ksz-stp-ageing-v2-0-7af27320033e@pengutronix.de
+- No changes.
 
 Changes in v2:
-- Link to v1: https://lore.kernel.org/r/20261104-ksz-stp-ageing-v1-0-2c2bc7217dea@pengutronix.de
-
+- Pass the port to the notifier and skip its old value, instead of
+  updating the cache first (Andrew)
+- Rephrase the subject and the commit message, and move the sja1105
+  note to the cover letter
+- Add a Fixes tag
 ---
-Oleksij Rempel (3):
-      net: dsa: microchip: ksz9477: apply a shorter ageing time at once
-      net: dsa: ignore the old ageing time of the port being changed
-      net: dsa: forget the port ageing time when the port leaves the bridge
+ net/dsa/port.c   |  7 ++++---
+ net/dsa/switch.c | 17 +++++++++++++----
+ net/dsa/switch.h |  1 +
+ 3 files changed, 18 insertions(+), 7 deletions(-)
 
- drivers/net/dsa/microchip/ksz9477.c | 41 ++++++++++++++++++++++++++++++++-----
- net/dsa/port.c                      | 13 +++++++++---
- net/dsa/switch.c                    | 17 +++++++++++----
- net/dsa/switch.h                    |  1 +
- 4 files changed, 60 insertions(+), 12 deletions(-)
----
-base-commit: 6ff4c5942a301675eb12e5b49d53a81e604624a1
-change-id: 20261103-ksz-stp-ageing-705aa69829e5
+diff --git a/net/dsa/port.c b/net/dsa/port.c
+index 1f5536c0dffc2311db24015697e0c8f5c014ac74..15e7da20b0e2f470a0ce5b763fa73b9b66b4c6f2 100644
+--- a/net/dsa/port.c
++++ b/net/dsa/port.c
+@@ -876,11 +876,12 @@ int dsa_port_ageing_time(struct dsa_port *dp, clock_t ageing_clock)
+ {
+ 	unsigned long ageing_jiffies = clock_t_to_jiffies(ageing_clock);
+ 	unsigned int ageing_time = jiffies_to_msecs(ageing_jiffies);
+-	struct dsa_notifier_ageing_time_info info;
++	struct dsa_notifier_ageing_time_info info = {
++		.dp = dp,
++		.ageing_time = ageing_time,
++	};
+ 	int err;
+ 
+-	info.ageing_time = ageing_time;
+-
+ 	err = dsa_port_notify(dp, DSA_NOTIFIER_AGEING_TIME, &info);
+ 	if (err)
+ 		return err;
+diff --git a/net/dsa/switch.c b/net/dsa/switch.c
+index a670a04edb7237a2606bc1959f6f2bb324c832ab..e9bef66fea3173c54fcde88da319cb8fd91195fc 100644
+--- a/net/dsa/switch.c
++++ b/net/dsa/switch.c
+@@ -20,14 +20,23 @@
+ #include "trace.h"
+ #include "user.h"
+ 
+-static unsigned int dsa_switch_fastest_ageing_time(struct dsa_switch *ds,
+-						   unsigned int ageing_time)
++static unsigned int
++dsa_switch_fastest_ageing_time(struct dsa_switch *ds,
++			       const struct dsa_notifier_ageing_time_info *info)
+ {
++	unsigned int ageing_time = info->ageing_time;
+ 	struct dsa_port *dp;
+ 
+-	dsa_switch_for_each_port(dp, ds)
++	dsa_switch_for_each_port(dp, ds) {
++		/* info->dp is the port being changed. Its cached value is
++		 * stale until the notifier returns. Skip it.
++		 */
++		if (dp == info->dp)
++			continue;
++
+ 		if (dp->ageing_time && dp->ageing_time < ageing_time)
+ 			ageing_time = dp->ageing_time;
++	}
+ 
+ 	return ageing_time;
+ }
+@@ -44,7 +53,7 @@ static int dsa_switch_ageing_time(struct dsa_switch *ds,
+ 		return -ERANGE;
+ 
+ 	/* Program the fastest ageing time in case of multiple bridges */
+-	ageing_time = dsa_switch_fastest_ageing_time(ds, ageing_time);
++	ageing_time = dsa_switch_fastest_ageing_time(ds, info);
+ 
+ 	if (ds->ops->set_ageing_time)
+ 		return ds->ops->set_ageing_time(ds, ageing_time);
+diff --git a/net/dsa/switch.h b/net/dsa/switch.h
+index be0a2749cd9791e19b8f03c6f6ceafb2d0432b14..5362ee9bfb68cfb52759c108d0626c55e19bb3a3 100644
+--- a/net/dsa/switch.h
++++ b/net/dsa/switch.h
+@@ -39,6 +39,7 @@ enum {
+ 
+ /* DSA_NOTIFIER_AGEING_TIME */
+ struct dsa_notifier_ageing_time_info {
++	const struct dsa_port *dp;
+ 	unsigned int ageing_time;
+ };
+ 
 
-Best regards,
 -- 
-Oleksij Rempel <o.rempel@pengutronix.de>
+2.47.3
 
