@@ -1,49 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794916210;
-	b=Rld/Z/+TgfZyTeeZ8k+5qoYh0KYSOOt7370fZTjK9E9ws8ZU3gLSEKEAburwH2ROJIev
-	 c6U1OC/BVPYRkwx7MC1VkbJ+jcIDmyYWCVDjP6/WSRDOO7jmPNPBpWQ9EAtXQqaY2Li1Z
-	 hyCm4cvq2d5R76YqNydAvbvebTh1dbVvABGL9cKBJWubfVPNbmwvIp8mggSucM/dnkwzL
-	 IxsqsvJ4cTAw/q5HUwO1XAnjgk09plFcxPIMaBLGSq0RMHIEISo3jtsINJH8zo5Ruqnzr
-	 aDpGcPcKBrd6hbtUvLZ3R/WS8By6gC/4A+5UwsHWGQEr2ztYloc290SLrjtV/Osl//g==
+	t=1794916215;
+	b=sChlwLf+eAwhUtecp4VHVDAALKqwplrvYkrIoMhlg/JCSesIKEjoPeW+wfrt+BfFUI2A
+	 iK9TGWCaS7D3NdfGENjqLojSj6eZO/XIS1DZGB4YmDjH3tg/aR7dzOORTmAuWpxrAKrbu
+	 iPDlDUvLGkDkIBl3t+8NuTfcfrPG3PuUcAlsDWwMtEWcXB90KwH7XriSVBugrEUomPLOn
+	 ofUmHzn/Ru8RMFsz/6RYAFIV41VpNBR5g5YI+YQjcA6/iQnjQHWMbuYfXgs9OubXP8YG8
+	 VtzlK2UTQqp/hu8NgeWBGniiM65yYmlnT2dSTX5kWdlFNFVemPzUZG3bMY5qFLmxSTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794916210;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=r1YdVZ14bdR6BreskSYxpV++ApdZZnlmoWMv+w8ECBQ=;
-	b=MOKUOBbbU3xp3kwVnBo4h0JvkOO2oOF7l3zu6CSTcmT8Zkp2onfqVq9jXWlUt8C4Qpyn
-	 NsUAAd4Gk1brRzy7vkczBZWDRQB6cgzVTe325mKDNC+mPkoK51pwTMmvhZRakSVCax8cZ
-	 XZcBUjoT4C/Y9wCVXKjH0yPD7Hgo3D9DXxFtgH29Nm7XOkayO/00YKhxFgY70xwuUfewA
-	 Fyg9nw1YeitP9+WBt3hhDiOiZZvqDpm2mlyQ9RNbkTnmKS3EGhGiVs9xuylfUWbt/Oc3p
-	 y80w1U0QhFndUyqVV5+4k+8Xzv7Hta2ZL+2zqHhohr1m/5NM0lmD65b/Ju9WJupr/KA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794916215;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=9z9luSqpxK+3G7vNMlPxAahsBNomIlzweL9Vvy7FJ9A=;
+	b=OcqIrcHUk1/rMXfKZ99+RV6S7QtFTZxu5nstv6FnR9AZykNrmlqRLhpAHb0yMnFArtDs
+	 Qs/n62J0N34CxtznYPs0HKRwVS0GdAKGqrd6WSMMF2HJ6TTbe08Kg8qqsTjLJhyNPLEHF
+	 4DXt2vcmVX6QfD2l4Rqe6jLD+PWVti9l0zUq7GpmmiWBV0uTJOd/wSJoiEZ1babSdiDiW
+	 rgO8b41/5VtwgPnNN5KBcNEnKjwufslRVKjf5HWXfa8rXRCuneQlZx8U9dYXX08wK4OPq
+	 RhfxloYruqQbg6D4Jyps5et2/+fE1cyDw8lF+1DdvsF052bjDsokYsyy7RrY/8kF2Ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TnZyV4Pf;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="rYpFc/lp";
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63B28606A88C;
-	Tue, 17 Nov 2026 11:50:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1223A606A32F
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:50:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1223A606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TnZyV4Pf
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 41EE51F000CB;
-	Tue, 17 Nov 2026 11:50:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794916210;
-	bh=r1YdVZ14bdR6BreskSYxpV++ApdZZnlmoWMv+w8ECBQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=TnZyV4PfVd5LNSxO/1Aw9/XMgU695MnKJaEeP8n8vL2UoyaWuOEHV0VspIQ0+9FFz
-	 VBTNMpiGttm2aW0wyVmBzEJZHL4JxuymYi/lfaIuTkHe/mXpzncA8tXheyUQmn+80Y
-	 HGQIcJVGe14a0KSGZzDE3NCI8SGb/tGoCOoy3t4sHM0FvHj4taayvflVmysaJANwax
-	 7ynmE6+nr/WS3BpWDwHRdtpGYTdhbJt2SPqrTP76I5a9cg9UT2on4avZ84iouAHAQA
-	 h+wV7xfniS/CS7Y/CEk/7E4oTc9WxJ8GoL2AJN70kHvhZazSaqb0M7M/tK/+emfTyR
-	 R2jQUR7zBrnWw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A4893926661;
-	Tue, 17 Nov 2026 11:50:10 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=rYpFc/lp
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1794916215; x=1826452215;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=lG2nImVC9c8/pRfZMC9gWS5P8n/kAGAqJx+p/zwxPMM=;
+  b=rYpFc/lp6+EdTE1V/vFN8qOUrTLGbNZMzKZakJeSOBRXI1A69mwsV+f2
+   kwoT+PcrTtfFJ0GoS6B8Dq+ki2rpcWlEy121sJcArDbIEX41UPsRq5o7J
+   OcJOKWnpUwp9udfeSv7LfjCDZTzqgN3lR6PRghAw/FdKCG8mvMXjh+dKK
+   DYa6mokJYwPyOkO8+SgFiOFiCNKS55Xz3hynDuQxzZD0Qb7ncHrDmaI61
+   sUeQ3qjko17aYNpI1FFu1E9vqBzn1FUVx/5FEeYCOUlEzcfg1x1t5504H
+   dXMz0E90bNZibpZtKqwBF4btrNad0aBIBBDs+lemcMgZxWMixhO2g+Gx7
+   A==;
+X-CSE-ConnectionGUID: 4RkwkwX5SQKBAad+joVk0g==
+X-CSE-MsgGUID: gbZs8cbHRS2T44dJYHdCKQ==
+X-IronPort-AV: E=Sophos;i="6.27,218,1787036400"; 
+   d="scan'208";a="66634410"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 17 Nov 2026 04:50:08 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Tue, 17 Nov 2026 04:50:07 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Tue, 17 Nov 2026 04:50:05 -0700
+Date: Tue, 17 Nov 2026 12:50:04 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Avi Weiss <thnkslprpt@gmail.com>
+CC: <netdev@vger.kernel.org>, <akiyano@amazon.com>, <darinzon@amazon.com>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <evostrov@amazon.com>
+Subject: Re: [PATCH net v2 RESEND] net: ena: avoid double-counting TX DMA
+ mappings on failure
+Message-ID: <20261117115004.dtjs633vcl3sgrec@DEN-DL-M70577.microsemi.net>
+References: <20261115114233.2307630-2-thnkslprpt@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,45 +80,29 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH] bonding: reject IEEE 802.15.4 and 6LoWPAN devices in
- bond_enslave
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179491620877.531240.2226036750385717075.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 11:50:08 +0000
-References: <20261112130833.233208-1-skalpesh942@gmail.com>
-In-Reply-To: <20261112130833.233208-1-skalpesh942@gmail.com>
-To: Kalpesh Solanki <skalpesh942@gmail.com>
-Cc: jv@jvosburgh.net, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- socketcan@hartkopp.net, yaojiale02@163.com
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261115114233.2307630-2-thnkslprpt@gmail.com>
 
-Hello:
-
-This patch was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Thu, 12 Nov 2026 18:38:33 +0530 you wrote:
-> When the first non-Ethernet slave is enslaved to a bond,
-> bond_setup_by_slave() copies slave_dev->type to the bond device.
-> However, the bonding driver does not set up subsystem-specific
-> mid-layer contexts or private structures:
+> ena_tx_map_skb() increments tx_info->num_of_bufs after each successful
+> DMA mapping. If a later fragment mapping fails, the error path adds the
+> fragment index to this count before calling ena_unmap_tx_buff(). This
+> can cause DMA unmapping of buffers that were never mapped and
+> out-of-bounds access to the buffer array.
 > 
-> 1. IEEE 802.15.4 routines (such as ieee802154_llsec_dump_table(),
->    nl-phy.c, and socket callbacks) identify WPAN devices by dev->type
->    alone and unconditionally dereference dev->ieee802154_ptr and
->    dev->ml_priv (ieee802154_mlme_ops). Because bonding never allocates
->    these, this results in a NULL pointer dereference.
+> Remove the extra increment so that cleanup uses only the number of
+> successfully mapped buffers.
 > 
-> [...]
+> Discovered by comparing the in-tree ENA driver with Amazon's standalone
+> ENA driver.
+> 
+> Compiled with W=1 under x86_64 defconfig and allmodconfig configurations.
+> Fixes: 38005ca816a7 ("net: ena: add functions for handling Low Latency Queues in ena_netdev")
+> Signed-off-by: Evgeny Ostrovsky <evostrov@amazon.com>
+> Signed-off-by: Avi Weiss <thnkslprpt@gmail.com>
 
-Here is the summary with links:
-  - bonding: reject IEEE 802.15.4 and 6LoWPAN devices in bond_enslave
-    https://git.kernel.org/netdev/net/c/297ae1590173
+Seems like v2 was resend to add the "changes" section only ..
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+anyway, this version does what was asked for on v1 and the fix looks good to me.
 
-
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
