@@ -1,62 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794947575;
-	b=W9vZJxwfVll+RI9+OgY9KYZ++Ng1ERAk5qEtZCN30JXLN6u1IbFBCascnlMzYwJVRiqx
-	 WR3JQjuoJDSbxDUWRYqTr1DpFx6DJMbmrX6IqPt4NaUKJ0nQAjgLEw45v7NbhQ/2FqJPB
-	 CTvmmFh3rdvonAtjPgVBnrk4AfW8nGQG4LrJuTUFr8AdhZoaAO8OSXNsuJiyngzvVW7xt
-	 rH7piCJtkf/c7W0zYxwBr1L4TZiKpjlNADfzsb6SXvwthVU8/Tw/Wj59qO9j62sHbZ5cV
-	 fUGKDHKi0o0aaTfi0a9A3rqFP6FbhLWNb5s+XZ5fcOrxw4DV3+mkKKWp/5UtyeFHpAA==
+	t=1794947581;
+	b=EuuCLMC46ZN45uLGCFrekwOCJMOvaO8Lz5if2Z1Jr82b0fbZVhFbuh+bm2zo6V4tZQud
+	 vKnOkvWdQp7vUih9igu/KVZi4eYtYqqDwgbEkUTvSeu8ybGsYDCKoCci7CqRoY+6Uw4C9
+	 /CxKkw09fajRxJNM4WsV4L1qMH5VYii85idTZ2uYR4A+rvaBhYOHYwS8rE5dijQXf0I1f
+	 13HwEEQZnYVX6TIqzU2evDRWkKhQoUntSCCsO3D3mi7b5QjLvGymjYq28gY+gviCYg9JO
+	 crWEzwtrkmqyT4Wz6pKvPYc8FigJ3h1qwjXrZ3PvTqI2FV+CRRrxWVH/Wko/l7xVH8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794947575;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794947581;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-GUID:
 	 X-Proofpoint-Virus-Version;
-	bh=UTEMOblH/VihvxNhVSH4vDNOlT/5rl5B3v1mDwWjQNc=;
-	b=0oaxqkHW7rVPMgxzXqEzDDJ8n60YUIOnDM5e8o37acRQxTL9JAMMTHU1pvLcX474hnow
-	 QUAQRhLjVYAN+6RIhlJPKSuMWjg4HO1y0Xldkibx715UkxQMv9LlPkaDF7cTWEbmd5rTk
-	 p7lrKL/iBl66POkttml2iKpxELFpZ4E311PDrjY1bvokllznlNR/wRYTtC2xVNcMQJ0V3
-	 wHFey2RkUkMNcW/1Dt1+1KdmOeHyWEYT/suczXfq37vRaEd0b96sw9eYAG4fvBRHhCKII
-	 XutAywn+ekpTZT9Zw1E6Nk5fAVjIR3WaUMQDC2OFAYjPxQrOZCv7D1VmiujmfxsY4sw==
+	bh=OLtaG+Pu1maY6rt/HdHQFjJddjJhd4wD4ISM/FxG5HE=;
+	b=HK57h9YVzu1zijc+1hP2Mx1yPZbe3PH4CnZQQIFQk0z2mVKfCLSuykpmIkGgH8nzY4iH
+	 JhX/3VtbKzLtHQEjmrMj/iXAvL+WgnWoTwOsUa2aJnemzputytWwcaooNUcGV7AYN3xmV
+	 J2EyfQqWgrA6GUzzqTYDeBq4u2HrGKhpf+1ehEKlW/fxJxPpfpq0qXA2UKdjFVROw0LsJ
+	 VhT07QCR4cjGbVHe0OJ6YlFZ6HxrAZRTebZom3ssC1MMu1l9M0M9fcfRYNxh2nAQ5HI4e
+	 +0gSc8NImIWyDA4J6dMbhCvgikswPbH+/dvx46UF9iZnOcMT/huMhPJ+DDf1wF78LEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=meta.com;
 	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=jcnmHeeG;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=kVH78VB9;
 	arc=none smtp.remote-ip=67.231.153.30
 Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34A53606A31C;
-	Tue, 17 Nov 2026 20:32:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34A53606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D77C6606A8AD;
+	Tue, 17 Nov 2026 20:33:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D77C6606A8AD
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=jcnmHeeG
-Received: from pps.filterd (m0528004.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJKYQf1701724;
-	Tue, 17 Nov 2026 12:32:42 -0800
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=kVH78VB9
+Received: from pps.filterd (m0109332.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AHJ9Vgk1542210;
+	Tue, 17 Nov 2026 12:32:48 -0800
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=UTEMOblH/VihvxNhVSH4vDNOlT/5rl5B3v1mD
-	wWjQNc=; b=jcnmHeeGBVKHKhpHpxJ4RvZBbiwMnoYmavRCvIl+BllCT0CirvQRp
-	sizMtW8meF+KwBU7AAWNExkjIwuBWXW+ITQtgZwv8UggMyrPCZA1AhuxJVSVv5Wm
-	HOiCqHmqTqDZopF9LvEKabAnbAnA0CSzgCpW2ZpCqNdhu8A/lB35CMdpt999LiVY
-	QRfGPQA+/ZhFC6dMADtZeRptJ8OvsS9Gh0qXt876RZdRMaRUwm+7KqD3PR7V56Ni
-	ia1v6skPTprajLTqCnNdtEcvjTjsOQ+ongQRdSnB7FsihlmPl8qYMs2+YpQ62OHb
-	NpRhcgg3/XTpOyulKQtSX4rPEKYFqDe8Q==
+	pps82601-s2048-2026-q3; bh=OLtaG+Pu1maY6rt/HdHQFjJddjJhd4wD4ISM/
+	FxG5HE=; b=kVH78VB9zuU919GRnErbVYNADgYHx4AniMQNoOHjGJr7N4satg3Jl
+	eVX9+Y1q9I1rcX67Sz6N23UH9Qqnk0OAn0bSbHGBxqlZQtqnGgKgmdYerjrk4WMA
+	sBXK/OGEy+PydMnQ/7xKXskP/h/cv2ySkDN0VKicMB1bQD5CT0BNWX2IbHbTXf/A
+	j3o1q0eW5FpHqDHCiqz2fyZqHhCJ0OW7/DgeERrLonH1yTT5vpdD00/aVugTGKyW
+	Qp8jFzllJ1Kpn32FfXCiUJ54PpTE9WqZsEoSH+w10On8E3gfprh+81dQBT4ESSlK
+	fmC+8tXG/WANj4eKEguiD3Bw8xVuq6pYQ==
 Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0w0brvgh-2
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0mn0wkje-2
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 17 Nov 2026 12:32:40 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:1c::1b) by mail.thefacebook.com
+	Tue, 17 Nov 2026 12:32:44 -0800 (PST)
+Received: from localhost (2620:10d:c0a8:1b::30) by mail.thefacebook.com
  (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
- 2026 20:31:51 +0000
+ 2026 20:31:49 +0000
 From: Todd Freed <toddfreed@meta.com>
 To: <netdev@vger.kernel.org>
 CC: "David S. Miller" <davem@davemloft.net>,
@@ -91,11 +91,10 @@ CC: "David S. Miller" <davem@davemloft.net>,
 	<tariqt@nvidia.com>,
         Wei Wang <weiwan@google.com>,
         Willem de Bruijn
-	<willemdebruijn.kernel@gmail.com>,
-        <stable@vger.kernel.org>
-Subject: [PATCH net v6 8/8] net/mlx5e: psp: tso: replace only the length in checksum seed
-Date: Tue, 17 Nov 2026 12:31:37 -0800
-Message-ID: <20261117203137.804424-9-toddfreed@meta.com>
+	<willemdebruijn.kernel@gmail.com>
+Subject: [PATCH net v6 6/8] selftests: drv-net: psp: test ipv6 tcp socket with extension headers
+Date: Tue, 17 Nov 2026 12:31:35 -0800
+Message-ID: <20261117203137.804424-7-toddfreed@meta.com>
 X-Mailer: git-send-email 2.53.1
 In-Reply-To: <20261117203137.804424-1-toddfreed@meta.com>
 References: <20261117203137.804424-1-toddfreed@meta.com>
@@ -110,95 +109,269 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Proofpoint-GUID: aTw-mv_vEeF9n33yYOnNLmCaSJuB8HJK
-X-Proofpoint-ORIG-GUID: aTw-mv_vEeF9n33yYOnNLmCaSJuB8HJK
-X-Authority-Analysis: v=2.4 cv=NM1AaE6g c=1 sm=1 tr=0 ts=6afcb9e9 cx=c_pps
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfXw5Mqdc+UlF92
+ MxwveQ8XTuq8Gpi0nCdKTaxjkmZv8zb0r1BZzFKW+vXrcXCDAJAjSxXZyJU3R3u7VqoAJKKtWpy
+ wHk3oMLRGlnfbIxGyaW3XQ5ypvgnLXz1EC8aKW6Hk1A9Zfl//st2yxvz7vJKfhP/D+NtR7bkZ2H
+ yS6OqxftwZvcujFNcsW35MDiIW17OE/fPi+0m0Ksl0Kwvydsx8ReLo0e4oHmHlsb/cbzrUDyH/O
+ vgprPM2hSliS6u5x1ulx8oW6Xv7j7adS5PnTdl94pKSfU3gVkG2HuALOXGZPlyOYBknMxf0JMVx
+ 6QobYCGi0kbSlTFE0MzEacFbjKPQWv7c63SJY7/ajpkH5I0y6mOV2R2OBmlnYDxB2IeRhAM2+BU
+ ykQaIcplAkE8EZqn8AGJOubM5QUE+SJq6VusVdUSny3YuGoqeFPHDJ632gOKJ8gqFHA+kACVogq
+ vynaIWSiya1CrO1br3Q==
+X-Proofpoint-ORIG-GUID: lpM0MyASMMadqy5_hvSJeNd3czl1ifDQ
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfX7bndebUlA/8c
+ PXuf6A/sA6ul7+r6INocMStxQnsptDTc/fL+9peTSswcZ0X3Niaajbb4oRtanpuDT6pnoRlJooD
+ XQBfmfbnfsSg5yPBLfMs1zQNF9Wqk9E=
+X-Authority-Analysis: v=2.4 cv=HcmB3SE8 c=1 sm=1 tr=0 ts=6afcb9ef cx=c_pps
  a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
  a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=GbPsI2Ihf5RTnMjR_gZv:22 a=pGLkceISAAAA:8 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
- a=nThHfc4DiEoPSTtPicgA:9 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfX24GpxoqCJlI4
- /EY4M8A6hfunbHQDsj3xYURMwl/HyKt5yztK2CIoDytswzQhT8PHaiTZ//izey5JYAKxSsjtYd+
- GvOeE7bP7QqE5lx07cGki4ZJw3NbC70=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA4MSBTYWx0ZWRfX8+61FN2XdG53
- VPerl7sT2TJT8w1WppfTmtgiuVIw6EeNa/DlNf/tqFI8ihNNR/DYdRGCtIqMFuUpy86s5pmTyBL
- 9nK/LjpYXhwa7fn2F8p9symlZ8NCKQYJ9vRhWxtGdE5ZrsEC0myhFZ1yUFe428Uz8atdlt2kpDa
- 5/caL3Vbd+MmFa6u4NHyPUTaYX8aulY7oNRvU6fDCWCaxL5Nr9gAccUJ0p9dBa1z0nQAdIaSIRa
- KCu7kGwdYxq5wJfdHh8lSqjcOnRKZrojjOk8MA83dlBxNvNMcxf8uMc97mdCX0N8+XaJ6orJVgx
- TX72/VXcGbAzq+Xa8xj6FOaroD2wNQp0NTf81oWVJMqXUy7iAR3QmraCZ1ZSuCV8n0ayEzUaQnm
- hc3FbGoYY+Hdmy88Ntnx4DiqQ13qB2ofLbuW9n8LqQ/j1D6Pahl4/5e2cLAaHnlVI/z6qNsZbEq
- pBZW4Kytss/YeMRu2SQ==
+ a=xtH7KyWI9dI7BmFOsl-x:22 a=VabnemYjAAAA:8 a=JE7m3MBIUUSpghwH1AUA:9
+ a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-GUID: lpM0MyASMMadqy5_hvSJeNd3czl1ifDQ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
 
-for psp tcp with tso,
+send on a psp tcp socket in three phases, checking the device's
+tx-packets and what the peer received after each:
 
- - __tcp_transmit_skb() -> tcp_v6_send_check() or tcp_v4_send_check()
-   computes the checksum seed using the addresses on the socket and the
-   total length, then
+ 1/ no socket options. the data is sent, counted, and received.
 
- - mlx5e_psp_handle_tx_skb() recomputes the checksum seed using
-   addresses from the packet's l3 header, and the length of one segment
+ 2/ an extension header set on the socket. the packets are dropped,
+    tx-packets is unchanged, and nothing reaches the peer. the data
+    stays queued.
 
-the length difference is expected by the device. however, the difference
-in addresses is incorrect in cases where the l3 header daddr is an
-intermediate hop, for example,
+ 3/ option removed. the queued data, then new data, is sent, counted,
+    and received.
 
- - ipv4 source route option (IP_OPTIONS with lsrr or ssrr)
- - ipv6 IPV6_RTHDR header (conceptually ; ipv6 extension headers are not
-   properly supported on this path yet)
+the test has three variants: a destination options header
+(IPV6_DSTOPTS) and a hop-by-hop options header (IPV6_HOPOPTS), each
+holding one padn option, and a segment routing header (IPV6_RTHDR).
 
-in these cases every segment of the tso packet to go out with a bad tcp
-checksum
+a software filter on the peer also counts, and drops, udp packets from
+the socket's address to the peer's. psp packets reach the peer as
+decrypted tcp packets, as expected. packets which were encapsulated but
+are malformed or unencrypted (this is what mlx5 does) show up as udp,
+and the test asserts there are none. if the filter cannot be set up the
+test is skipped.
 
-the fix is to replace only the length in the seed which tcp had already
-computed. this is also what tcp_gso_segment() does.
+tx-packets is read after it has quiesced, because some devices refresh
+counters periodically (mlx5 takes about a second).
 
-tested on connectx-7, with a psp tcp socket whose ipv4 loose source
-route's first hop isn't the final destination, and the peer checking
-tcp checksums in software.
+without the fix in "psp: don't encapsulate ipv6 packets with extension
+headers", netdevsim encapsulates the packets in a malformed way and
+counts them in tx-packets, and the test fails on that. with mlx5
+(connectx-7), the packets go out unencrypted and aren't counted in
+tx-packets. the test fails on the udp packets which reach the peer.
+capturing on the peer,
 
-Fixes: e5a1861a298e ("net/mlx5e: Implement PSP Tx data path")
-Acked-by: Daniel Zahka <daniel.zahka@gmail.com>
-Cc: stable@vger.kernel.org
+  tcpdump -i <dev> -nn -A 'ip6 and src host <sender> and not tcp'
+
+shows them as udp, with the test's payload readable.
+
 Signed-off-by: Todd Freed <toddfreed@meta.com>
 ---
- .../mellanox/mlx5/core/en_accel/psp_rxtx.c    | 21 ++++++++-----------
- 1 file changed, 9 insertions(+), 12 deletions(-)
+ tools/testing/selftests/drivers/net/config |   1 +
+ tools/testing/selftests/drivers/net/psp.py | 150 ++++++++++++++++++++-
+ 2 files changed, 148 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/psp_rxtx.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/psp_rxtx.c
-index 348fd7a96261..d9c2742b3c24 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/psp_rxtx.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/psp_rxtx.c
-@@ -177,18 +177,15 @@ bool mlx5e_psp_handle_tx_skb(struct net_device *netdev,
- 		return false;
- 	}
- 	if (skb_is_gso(skb)) {
--		int len = skb_shinfo(skb)->gso_size + inner_tcp_hdrlen(skb);
--		struct tcphdr *th = inner_tcp_hdr(skb);
--
--		if (skb->protocol == htons(ETH_P_IP)) {
--			const struct iphdr *ip = ip_hdr(skb);
--
--			th->check = ~tcp_v4_check(len, ip->saddr, ip->daddr, 0);
--		} else {
--			const struct ipv6hdr *ip6 = ipv6_hdr(skb);
--
--			th->check = ~tcp_v6_check(len, &ip6->saddr, &ip6->daddr, 0);
--		}
-+		u32 seg_len = skb_shinfo(skb)->gso_size + inner_tcp_hdrlen(skb);
-+		u32 len = skb->len - skb_inner_transport_offset(skb);
-+
-+		/* update just the length component of the checksum seed
-+		 * tcp computed the seed with the total length, but mlx5
-+		 * devices are expecting the segment length
-+		 */
-+		inet_proto_csum_replace4(&inner_tcp_hdr(skb)->check, skb,
-+					 htonl(len), htonl(seg_len), true);
- 	}
+diff --git a/tools/testing/selftests/drivers/net/config b/tools/testing/selftests/drivers/net/config
+index 4838adf27fa1..409f9a96a102 100644
+--- a/tools/testing/selftests/drivers/net/config
++++ b/tools/testing/selftests/drivers/net/config
+@@ -4,6 +4,7 @@ CONFIG_DEBUG_INFO_BTF_MODULES=n
+ CONFIG_INET_PSP=y
+ CONFIG_IPV6=y
+ CONFIG_MACSEC=m
++CONFIG_NET_ACT_GACT=m
+ CONFIG_NET_ACT_SKBEDIT=m
+ CONFIG_NET_CLS_ACT=y
+ CONFIG_NET_CLS_BPF=y
+diff --git a/tools/testing/selftests/drivers/net/psp.py b/tools/testing/selftests/drivers/net/psp.py
+index c114d2245135..cae369d8ab63 100755
+--- a/tools/testing/selftests/drivers/net/psp.py
++++ b/tools/testing/selftests/drivers/net/psp.py
+@@ -18,12 +18,12 @@ from lib.py import ksft_run, ksft_exit, ksft_pr
+ from lib.py import ksft_true, ksft_eq, ksft_ne, ksft_gt, ksft_raises
+ from lib.py import ksft_not_none
+ from lib.py import ksft_variants, KsftNamedVariant
+-from lib.py import KsftSkipEx, KsftFailEx
++from lib.py import KsftSkipEx, KsftFailEx, CmdExitFailure
+ from lib.py import NetDrvEpEnv, NetDrvContEnv
+ from lib.py import Netlink, NlError, PSPFamily, RtnlFamily
+ from lib.py import NetNSEnter
+ from lib.py import bkg, rand_port, wait_port_listen
+-from lib.py import ip
++from lib.py import ip, tc
  
- 	return true;
+ TCP_ULP = 31
+ 
+@@ -153,6 +153,58 @@ def _check_data_outq(s, exp_len, force_wait=False):
+ def _get_stat(cfg, key):
+     return cfg.pspnl.get_stats({'dev-id': cfg.psp_dev_id})[key]
+ 
++
++def _get_quiesced_stat(cfg, key, timeout=10):
++    """
++    Like _get_stat(), but wait till the value stops changing. Note
++    that some devices refresh flow counters periodically, e.g. once
++    per second with mlx5.
++    """
++    val = _get_stat(cfg, key)
++    end = time.monotonic() + timeout
++    while True:
++        time.sleep(1.5)
++        new = _get_stat(cfg, key)
++        if new == val:
++            return val
++        val = new
++        if time.monotonic() >= end:
++            ksft_pr(f"{key} still changing after {timeout}s: {val}")
++            return val
++
++
++def _remote_count(cfg, proto, match):
++    """
++    Count, and drop, the @proto packets matching flower @match which reach
++    the remote, with a software filter on its ingress (offloaded filter
++    counters are refreshed periodically). Dropping keeps such packets away
++    from the remote's stack. Returns a function reading the count, or None
++    if the filter can't be installed.
++    """
++    flt = (f"dev {cfg.remote_ifname} ingress protocol {proto} pref 1 "
++           f"handle 0x5053 flower")
++    try:
++        qdiscs = tc(f"qdisc show dev {cfg.remote_ifname}", json=True,
++                    host=cfg.remote)
++        # An ingress qdisc takes the filter as well as clsact
++        if not any(q['kind'] in ('clsact', 'ingress') for q in qdiscs):
++            tc(f"qdisc add dev {cfg.remote_ifname} clsact", host=cfg.remote)
++            defer(tc, f"qdisc del dev {cfg.remote_ifname} clsact",
++                  host=cfg.remote)
++        tc(f"filter add {flt} skip_hw {match} action drop", host=cfg.remote)
++    except CmdExitFailure as e:
++        ksft_pr(f"Can't install a filter on the remote: {e}")
++        return None
++    defer(tc, f"filter del {flt}", host=cfg.remote)
++
++    def count():
++        filters = tc(f"-s filter get {flt}", json=True, host=cfg.remote)
++        for f in filters:
++            for act in f.get("options", {}).get("actions", []):
++                return act["stats"]["packets"]
++        raise KsftFailEx("no action on the remote filter")
++    return count
++
+ #
+ # Test case boiler plate
+ #
+@@ -679,6 +731,97 @@ def removal_device_bi(cfg):
+         _close_conn(cfg, s)
+ 
+ 
++def _ipv6_exthdr_variants():
++    padn = bytes([0, 0, 1, 4, 0, 0, 0, 0])  # one PadN option
++
++    def srh(peer):
++        """ segment routing header, with @peer as its only segment """
++        return (bytes([0, 2, 4, 0, 0, 0, 0, 0]) +
++                socket.inet_pton(socket.AF_INET6, peer))
++
++    yield KsftNamedVariant("dstopts", socket.IPV6_DSTOPTS, lambda peer: padn)
++    yield KsftNamedVariant("hopopts", socket.IPV6_HOPOPTS, lambda peer: padn)
++    yield KsftNamedVariant("rthdr", socket.IPV6_RTHDR, srh)
++
++
++def _src_addr(dst):
++    """ The source address the kernel picks for @dst """
++    with socket.socket(socket.AF_INET6, socket.SOCK_DGRAM) as u:
++        u.connect((dst, 9))
++        return u.getsockname()[0]
++
++
++@ksft_variants(_ipv6_exthdr_variants())
++def data_send_ipv6_exthdr(cfg, opt, val):
++    """ Test that PSP drops IPv6 packets with an extension header """
++    cfg.require_ipver("6")
++    _init_psp_dev(cfg)
++
++    # Packets which were encapsulated but malformed or left unencrypted
++    # reach the remote as UDP. Set up the count before connecting, so a
++    # skip doesn't leave the responder mid key exchange.
++    peer = cfg.remote_addr_v["6"]
++    remote_udp = _remote_count(cfg, "ipv6", f"src_ip {_src_addr(peer)} "
++                               f"dst_ip {peer} ip_proto udp")
++    if not remote_udp:
++        raise KsftSkipEx("can't count UDP on the remote")
++
++    s = _make_psp_conn(cfg, 0, "6")
++    try:
++        rx_assoc = cfg.pspnl.rx_assoc({"version": 0,
++                                       "dev-id": cfg.psp_dev_id,
++                                       "sock-fd": s.fileno()})
++        tx = _spi_xchg(s, rx_assoc['rx-key'])
++        cfg.pspnl.tx_assoc({"dev-id": cfg.psp_dev_id,
++                            "version": 0,
++                            "tx-key": tx,
++                            "sock-fd": s.fileno()})
++        _check_data_outq(s, 0)
++
++        def wait_outq_empty():
++            for _ in range(100):
++                if _get_outq(s) == 0:
++                    break
++                time.sleep(0.5)
++            _check_data_outq(s, 0)
++
++        # 1. No option: sent, counted, and received
++        tx_pkts = _get_quiesced_stat(cfg, 'tx-packets')
++        total = _send_careful(cfg, s, 20)
++        wait_outq_empty()
++        ksft_gt(_get_quiesced_stat(cfg, 'tx-packets'), tx_pkts)
++        _check_data_rx(cfg, total)
++
++        # 2. With the option: dropped, not counted, and nothing reaches the
++        # peer. The data stays queued.
++        s.setsockopt(socket.IPPROTO_IPV6, opt, val(peer))
++        tx_pkts = _get_quiesced_stat(cfg, 'tx-packets')
++        udp = remote_udp()
++        queued = _send_careful(cfg, s, 20)
++        _check_data_outq(s, queued, force_wait=True)
++        ksft_eq(_get_quiesced_stat(cfg, 'tx-packets'), tx_pkts)
++        ksft_eq(remote_udp(), udp, comment="UDP at the remote")
++        _check_data_rx(cfg, total)
++        total += queued
++
++        # 3. Option removed: the queued data, then new data, sent and
++        # received
++        tx_pkts = _get_quiesced_stat(cfg, 'tx-packets')
++        s.setsockopt(socket.IPPROTO_IPV6, opt, b'')
++        wait_outq_empty()
++        total += _send_careful(cfg, s, 20)
++        wait_outq_empty()
++        ksft_gt(_get_quiesced_stat(cfg, 'tx-packets'), tx_pkts)
++        _check_data_rx(cfg, total)
++    finally:
++        # With the option, the queued data, the FIN and the ACKs would be
++        # dropped, leaving an orphan holding the association
++        try:
++            s.setsockopt(socket.IPPROTO_IPV6, opt, b'')
++        finally:
++            _close_psp_conn(cfg, s)
++
++
+ def _get_psp_ver_ip_variants():
+     for ver in range(4):
+         for ipv in ("4", "6"):
+@@ -1195,7 +1338,8 @@ def main() -> None:
+                                                           cfg.comm_port),
+                                                          timeout=1)
+ 
+-                cases = [data_basic_send, data_mss_adjust]
++                cases = [data_basic_send, data_mss_adjust,
++                         data_send_ipv6_exthdr]
+ 
+                 if has_cont:
+                     cases += [
 -- 
 2.53.1-Meta
 
