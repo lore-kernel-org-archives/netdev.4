@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794873608;
-	b=Ylt+m4tdzC36t2vW53Tah8pipAtP59/eT1CwTOV2kF1Ixbmb5oWg4iLjH+mdHT+us+0g
-	 dJEvJSDEhCaqhMf2cVD8YwjYjJEHBxrE4fuvtDflhqJP9rOIdQ5wW2gac56zg+4hiRB22
-	 EMJaAsIPiocnA4gGIE54/8PdVbjI750t1Isg7HrBwiCHsyOLlbglQ+08DJETLjK5bvaG+
-	 +fc+DkzTNvX+P1N4zkhBXnkow7tc7eExk5L8MNayTKsqIXsIqunJpFHw1DfKGWo+KFRJc
-	 AgWNGObDXkU1jzhMj0wjsW0uc/N3J/n2eKcEpL2uEIrQ26hxHq+Ks/ixNtAtENkE12A==
+	t=1794873610;
+	b=BqXHe7JL84kE2+Lc1dHlyQUurK8Ht6+hFSKYEqziunyOWy2Sf+oxrZghWUyXRbx7A1WS
+	 PqaEMV7HdxTftDY3hA4KTbKFqozxSOenKAroTCbqyol3tQv1yDJ3YM46na+hsjFgHQafn
+	 QAxfaFlhX/HXhU17D+qXbk87BFpRh38gRaVr4KtRXPg/N8CV7uYTCiD2J54AT1GoYmFm8
+	 etcIoD0VK93oxVRQbS7DzYxEcZdZfSsPfRsnqrrzUV6eb/RzaqdEBlAVS/lleGJoG+c8w
+	 xHZI20Ch0h+BG17Xj1GbJi+H3PWvQPDwVzxByj0d2NIi/4g7uyQ2sEqOE1MS8D95tzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794873608;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794873610;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=Dq7TfMW/kTMuS8oCBTkJpQVA3goDLDWa4OsUOEaTQco=;
-	b=Xdc+QGAk1Va2TCyKBb+9eMITkYaaqiBs1Rxv2ETIsGdtkUPLHa12wXdEp8V06aQugi7p
-	 cKXFZp46g2IMS1MiCR5nFD08fzxRpwqTQ2ckQqDnGo2tDyQQhLDC7Jo03zD2L/34kNyYI
-	 hUXYr02STBuuilWIuRhzqK4Fx56krI4iPKUWnRf6Zkqviydu08iEzb2a8yQpv1tIOpaWE
-	 13GPd9Xd6UHJxYbbynYY9qEgiSHE0X/Vg6ZtF1gi40fEo9TJbe12ipt6aDvqu7/f84+3y
-	 cLEWvELTcW78VRajCvLWgWVzApY0C3GWrhtQC7HhzijmSLSGZS+lP8DQpdJv22agtHQ==
+	bh=OdZQQt6syitoBc9C2HEDvAOoOewrXacI5OUEL4JbqQY=;
+	b=HxHDCi3ThrudLgDhyTeqzyBFvnVWrtljBCYTR2c7/GYRgAcmsafajnllXFsS7qboOgCA
+	 Q3xqftO8LoVICKJN7YHLRFQgN6Fs6+0nRk1khnmpfcRtg3RDjVRProRUBs4BP6ihoU0OL
+	 al6sKKdQsyba+9hiR0DNHX6qL7bgts+yZfT33pqi3b3OIwKU8afLKuMRsoMzS0314dWLm
+	 rOfVBNAQ9tn4D5K4lHVUk0QO0PKyImqJStvt3q18qZLUsxvSeJC862QRAd7zf18e+yTaZ
+	 4CrKlEFG5tjEW5L7brgcXNa0/2G4nstEvRyJgT/V0ddLN4Eak8fh1/TlIDVtk7thMcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVwSCm4h;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nw2+AGag;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C1FA5606A33E;
-	Tue, 17 Nov 2026 00:00:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 418E6606A884;
+	Tue, 17 Nov 2026 00:00:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dVwSCm4h
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 895E71F000C6;
-	Tue, 17 Nov 2026 00:00:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nw2+AGag
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D09D1F000C7;
+	Tue, 17 Nov 2026 00:00:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794873608;
-	bh=Dq7TfMW/kTMuS8oCBTkJpQVA3goDLDWa4OsUOEaTQco=;
+	s=k20260515; t=1794873610;
+	bh=OdZQQt6syitoBc9C2HEDvAOoOewrXacI5OUEL4JbqQY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=dVwSCm4hh8ESVga6NfzJuaB1Q/4uaT1n2QfKYEs9UpjNNlNmNrKlVW0oczcPChqcv
-	 8MTOkG8htzY/QlbHZyUDyYAE/1cBUw5r0GP2LQzkJzNstj3C0l8deHcFaqSF/Da7aN
-	 IBbBMMIQ+GvEJMiGiAbhongTndxegbJMotrl81WSjhccoZ4MG/AmQ9bldtbghOeUN5
-	 6zr/xYlyJ5VAYCpc7vwv5/7XLaPDGCFcn3IveMn5IJQKqT6JVKYbYHWT4FaliK6R6b
-	 mQ7zHbDC3Y7lctC9F98Jw/26jfV/ChYrvmAUZiNdJuvXFzMLpUCCzhsTeE0hFeUN7e
-	 HoU1BAHEfP8ew==
+	b=nw2+AGag5DMdSS05Miu0Qc/9mj4DJiULdGBeKA5tF1K0AB7XsvuJv8ayR46JaTYBj
+	 jOsY4G7p5wElgK15r0JJFVTwRKcMOxuWT+9O4N4S7IwMv1iV19MMdCP5BdRspMsUOn
+	 Z8zo86io6CcGydNJWr3+nacH88mhLF/J9Zdj5riAcabcSsTqzSbslp3m/x6mzZ5E1E
+	 Ur0DgCmyxV3uUlZ4Db78HhG+d9LfnTpWHhQOF9rCR79rkKPQMMLwkuJliKQMPLQvj7
+	 6Dz4oxM3uN2CGwLMqrDN0rLptSrZ2XglWlMkL7DV+RNm/9W5vuayCTfAn1olgEKDqE
+	 vVzDpc7Jyd+8g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773A5391B061;
-	Tue, 17 Nov 2026 00:00:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F0221391B06A;
+	Tue, 17 Nov 2026 00:00:09 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,41 +54,45 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2] net: dcb: flush rewrite table on device
- unregister
+Subject: Re: [PATCH] net: kunit: move struct net_devmem_dmabuf_binding off
+ stack
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179487360703.250117.8797539923887130473.git-patchwork-notify@kernel.org>
-Date: Tue, 17 Nov 2026 00:00:07 +0000
-References: <20261112033622.40333-1-sunwenbo@cmss.chinamobile.com>
-In-Reply-To: <20261112033622.40333-1-sunwenbo@cmss.chinamobile.com>
-To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
-Cc: daniel.machon@microchip.com, petrm@nvidia.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- alazar@nvidia.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- 1342116488@qq.com
+ <179487360852.250117.8355978177760085009.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 00:00:08 +0000
+References: <20261113101109.3227815-1-arnd@kernel.org>
+In-Reply-To: <20261113101109.3227815-1-arnd@kernel.org>
+To: Arnd Bergmann <arnd@kernel.org>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, aleksandr.loktionov@intel.com, sdf@fomichev.me,
+ almasrymina@google.com, arnd@arndb.de, horms@kernel.org, willemb@google.com,
+ josef@toxicpanda.com, wang.zhan@smartx.com, daniel@iogearbox.net,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
 
 Hello:
 
 This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Thu, 12 Nov 2026 11:36:22 +0800 you wrote:
-> In dcbnl_flush_dev(), which is called upon NETDEV_UNREGISTER for net
-> devices with dcbnl_ops, only entries in dcb_app_list matching
-> dev->ifindex are freed. The entries in dcb_rewr_list added via
-> dcb_setrewr() are not flushed.
+On Fri, 13 Nov 2026 11:11:00 +0100 you wrote:
+> From: Arnd Bergmann <arnd@arndb.de>
 > 
-> This causes a memory leak of struct dcb_app_type nodes in dcb_rewr_list
-> when a DCB-capable net device is unregistered, and leaves stale entries
-> in the global rewrite table that could inappropriately match if another
-> net device later reuses the same ifindex.
+> The net_devmem_dmabuf_binding structure is really way too big to
+> live on the stack, and causes warnings on my randconfig build machine
+> with a reasonable per-function limit:
+> 
+> net/core/net_test.c: In function 'netmem_ref_test_tcp_devmem_recv':
+> net/core/net_test.c:1720:1: error: the frame size of 1744 bytes is larger than 1536 bytes [-Werror=frame-larger-than=]
+>  1720 | }
+>       | ^
+> net/core/net_test.c: In function 'netmem_ref_test_skb_segment':
+> net/core/net_test.c:1477:1: error: the frame size of 1584 bytes is larger than 1536 bytes [-Werror=frame-larger-than=]
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v2] net: dcb: flush rewrite table on device unregister
-    https://git.kernel.org/netdev/net/c/6836fa400109
+  - net: kunit: move struct net_devmem_dmabuf_binding off stack
+    https://git.kernel.org/netdev/net/c/271884902742
 
 You are awesome, thank you!
 -- 
