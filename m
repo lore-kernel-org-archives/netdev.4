@@ -1,64 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794917968;
-	b=ioXwakZZMwQb+dHWO7FIbwLImvFa5H6drhjq9Ec18YxUTa9sUQSCy7H7QLfja9wPpfRT
-	 IRrFpseBcDnn1Yv25FOoq66PoA0tAwXv6s8XpUIUKvlkJpJc5CTxib0wiAtbts1kjLgR5
-	 IpcAcb8b8k6Mq0ocO88TZ2z+yfI9vSwKg3SyPZsYzSmBtcxXibtKUH1q650d2pCeGbaO0
-	 2tPq6kZWA86JZhBKWxsAkEYPcgzPHpyGrxN9lWQcscydbciJlepDABYTuyduGAfpVWoz1
-	 +nn74VcGg0bd962wF5FkXzcg+VFtCJsjmH3TMW+3hcgyIoMExQ7eiJZVka5hMg+KoMQ==
+	t=1794918006;
+	b=BjABsHzs6axZKYnoLxt6L5Ou9pApz+4z3es6UmzLijsFN6bHVfa4p/f8ODJZ45J+gHHZ
+	 B2njRN2jahWuqTLUx6qBiTPbByhKCZbfXdeRd/zbsCaKZmFA0Oe+ALjxqwBcsvQTylI3Y
+	 gbivp1VSe1NQbqp7g+XlfvRwQ9PVyJ5Qrkb4yNvsapIaRAo17GbKiv6+eilVyKBOuJpDU
+	 X/pqTGudNC6Pg5thNK/o9WZOQMgYDH1IKQGIUYeDYs+rR7prJodSjrZ7ounsSef2gIj2G
+	 ufL6+lUDIr4rFVvFTagv/TuLPiX1cspeBYxJEb7rZcnww6sjqRPZNeko5JKkHZVuwGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794917968;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=bAqhpt5SmcNHh18+WgBOwF32RfrRMvxEuACaGU0iKrY=;
-	b=QHebkLZKYC+9mP0OmPCaqKYvcvsYKTvhbM7PKl3kgUxsHSA/Y5TPmeWoKz18iOrMr6RM
-	 tsK1zj7y8UgNhW++7KTiIuZZwb/lVet7d4Y7fltt/0GcZky2naObnK4tKpSPIEmKUOTyz
-	 rT/Hjy+aLSBln+DWpWcwUkbBKTt0VOIu3E+gQB0stYQIk/WJhP3qKig6lVT7V7oTXbCU7
-	 N9yEmmjfw/OsIpRvTGpxPhiqAxBniYFPGsBveuEe8XPjDiTlnGW+e+WCEhM2gpWWTy1s9
-	 bZWCHpvx+pYJt3WXXQ0xkc00QvE7jhawK1EAxaMRoWu5DrDo4pnZvq6InR6ghcdJJJg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794918006;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=dIC6GQqXVKLou+U/WOVLQXBv5bHNyz9EKKHU7Lxe6T0=;
+	b=4l3Pq5QoZ4Pv6LmTKwOAsf3Z/bvSlmBh7NaQxt9nlOBCcG3+RbL51+/51Xg69Lg+1Wiu
+	 y4sGw0bj8D2vzA3JthdMe2Ig73g1qOCw9ltdeGenj39/bsmzXW/RoEzNRMFRW0Xx4lHFl
+	 eL0f3nZAsb1Jl0ek4X/RDxrrsrXFf+ymMyHFwh58P3k+PtmNFzftJXb65L59yT4gQhlF5
+	 RUz/sijrPiQsPA5rtpSImODRfpBP1TDq+Bh1MJV8hlU5fJuROM2BeCGzMpRFhunRK/8YK
+	 Zbfb9wm+S3OHP0x0dU6jE4GAsVnjxwwu/w+gxXf26rU8i/AJUr9aM3RFGRxXHqVVNlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=nwjLQsUm;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MYeD63pM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 11663606A336;
-	Tue, 17 Nov 2026 12:19:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11663606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86182606A886;
+	Tue, 17 Nov 2026 12:20:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=nwjLQsUm
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1794917965;
-	bh=bAqhpt5SmcNHh18+WgBOwF32RfrRMvxEuACaGU0iKrY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nwjLQsUmgkUw2fIMHhptCO+5jj3fZ+oq/FJUSLxNFQUm+QVtj5ut/OWN25rlRmbLo
-	 txO87ZSZJm9f37lxaowL+alqPXdrEDj5RH+FPfQl//EmkeDyxEPxaxvaFu1UhfVLp6
-	 dM2672IjKXuTm2aHwHvCDJw+uRmHKFttobpuqeEGJ8poVIXbRQVx9hBzA0KQMjjltb
-	 H2PB0V29OMzgQLYlJ/rFw5Hfn37YssnzfnYkiekv7D5mL8EHxskqX5oHZvZA6e/y/a
-	 FO0SXLyjb8RdwtQbKxadSV436henXMd749tqAHmQy2J8qdMGnXXB1Ky0Gh/eT0cClN
-	 JWEB3OfbUUfNg==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 65AE860058;
-	Tue, 17 Nov 2026 13:19:25 +0100 (CET)
-Date: Tue, 17 Nov 2026 13:19:22 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Xue Boyang <fuchen.dust@gmail.com>
-Cc: kadlec@netfilter.org, fw@strlen.de, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, phil@nwl.cc, sunyiqixm@gmail.com,
-	bsdhenrymartin@gmail.com
-Subject: Re: [PATCH nf v4] netfilter: ipset: fix double free on kernel-side
- delete during resize
-Message-ID: <avxGSmw0DYWUZJrn@chamomile>
-References: <20261117101018.523826-1-fuchen.dust@gmail.com>
- <avwswXiJh8HUPa5T@chamomile>
- <20261117114451.608829-1-fuchen.dust@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MYeD63pM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 441D61F000C5;
+	Tue, 17 Nov 2026 12:20:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794918006;
+	bh=dIC6GQqXVKLou+U/WOVLQXBv5bHNyz9EKKHU7Lxe6T0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=MYeD63pMBd9xh5S7aUc0BYCmO1CGmHRYmkr+CjTke6T+UFMvMoQIvTwF6hgjKY9PU
+	 3prV+CK2pJOXfPuR++Ajya073aGgFgPO5KfY79rx3cvoCL0fGID4yBd5zpEOREt3F5
+	 M+lf/ttsLytRAAzmkMLercG9R/wplUepwHUzkedklMvEBVUHRfTyynIF7TuJLJz0TW
+	 oMGY8JN+epKpHpE0JRqXM12ZujS6VyLObtN7+zyOEpovNcm45pkihMVzNcmyCDCr2o
+	 F0N8C/iY6aRW7kZhLbiBB5cr9qb1OKzop4Io9E0rci0i+kWlSeuCGXIF5hhIQcpO+s
+	 LH1NaOXj3zbQg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A47D3926663;
+	Tue, 17 Nov 2026 12:20:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,29 +53,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261117114451.608829-1-fuchen.dust@gmail.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v3] net: usb: cdc_ncm: fix out-of-bounds read of
+ chained
+ NDP32 offset
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179491800478.546052.18043881095735155809.git-patchwork-notify@kernel.org>
+Date: Tue, 17 Nov 2026 12:20:04 +0000
+References: <20261112082022.995351-1-rc4d5a@protonmail.com>
+In-Reply-To: <20261112082022.995351-1-rc4d5a@protonmail.com>
+To: Ryan Prinz <rc4d5a@protonmail.com>
+Cc: oliver@neukum.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-usb@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
-On Tue, Nov 17, 2026 at 05:44:51AM -0600, Xue Boyang wrote:
-> Thanks for the pointer. I had not taken that series into account when
-> preparing v4.
+Hello:
+
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
+
+On Thu, 12 Nov 2026 08:22:09 +0000 you wrote:
+> The NDP offset read from dwNextNdpIndex on the 32-bit NTB (NDP32)
+> path is not checked for a negative value before use. A
+> device-supplied dwNextNdpIndex in the 0xFFFFFFF0-0xFFFFFFFF range
+> sign-converts to a small negative int. cdc_ncm_rx_verify_ndp32()'s
+> existing bounds check then double-wraps: promoting the negative int
+> to size_t first produces a huge value, and adding
+> sizeof(struct usb_cdc_ncm_ndp32) to that wraps it back down to a
+> small value that passes the "> skb_in->len" check, causing an
+> out-of-bounds read of up to 16 bytes before the skb's data buffer.
 > 
-> I have now looked through it. The rhashtable conversion removes the
-> ipset-specific table-copy resize path, so it appears to avoid this
-> double-free/UAF class at its root rather than fixing the individual
-> races in the old resize implementation.
-> 
-> I will run the reproducer and the related GC/dump tests against v10 and
-> report the results.
+> [...]
 
-Thanks.
+Here is the summary with links:
+  - [net,v3] net: usb: cdc_ncm: fix out-of-bounds read of chained NDP32 offset
+    https://git.kernel.org/netdev/net-next/c/c1824744b3b6
 
-> Since that series targets nf-next and is a fairly large conversion,
-> while this issue also affects existing and stable kernels, would you
-> prefer that I replace this v4 synchronization rework with a smaller
-> targeted fix for nf/stable, leaving the complete cleanup to the
-> rhashtable series?
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-I think -stable backports of Florian's ipset update for net-next will
-be needed.
+
