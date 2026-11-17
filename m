@@ -1,86 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794943203;
-	b=JNQisXdTm6Be6yEC8xYhK4UXCSz23jMohq/KkmxDXudlpdtz0l+9pit4QbbLHBNgtas+
-	 lYOzzbxeX9kGGdbyW4P48FxkCDc0IP9wsFAG6cN2RG4oxo4uWkmmEu3mnhgkxSi3718rs
-	 S9jik8PTglmJj8YK6aHs/tpL7yWDwR0b5XW5ZOQYsKngQ2QD9ctNEZH3pmxM4PF4akMO+
-	 3LepWq1eYccUekJI3jYnl5bACSJiRYbLp/gPXeh2bN9BGlPXmY/EWS8sGsaPGtDZ1eUAz
-	 Ei3ICDrtOOB7wuYASGNVI987kXBsqfQyEscLWWB9gQiuliIEpinJSISpTzDaIoMf8KA==
+	t=1794943685;
+	b=tn4XE53E+mMlcnuSXTucSNR8fCLoCzSs9gjNiAiQC0JAynfz8hEQleaEEJidUlFsm4li
+	 ovhxlmEzrcOl4d2wfxREv3h4V4u9xb+wtD9bmP20EYfLa/qxdnSMDu91bOzLAOZlE19qm
+	 Ch3/SVcS/uwxDlo4S8ggXZC7K33jIRLCSpW23j/tz13cykmLjcF4l9DKD+VFuZb39mVbg
+	 dshln0sbz6Kx5fkRn7SXWPTVfjkRKF3c17tnFZXj+yg7qrtq7VLfyL2JRby4ALCW7bXxj
+	 zR9alKDUbAMnjuXPlw3z1pU90O2aEI94LMF0MSGOu2w2cgmgO4buafMxLom6T9ZGMsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794943203;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=5f5C80g30fAPj/I2D0TndVTdrcqmqXcICX0m5JKKxiE=;
-	b=2dUJXhM6XnOcF74TAiOWCbq/1c3PwhAjy1Uhjf8cQUIWa5PpTYmWxJ/d/1rSasCgShZD
-	 KT0Hn6pFdWTFLCwhSg9honuA6ggRhMwweNQEw+pXnlOZ1mYHzmXFJIKVjhvLI/MxMFJoN
-	 UtJgREIagHJADFrrzTY7gkwpNnep2B6OLGSUmdVjwFn6Q3sBmWk05+kJRsJZG2G0WBBtn
-	 FFVjM4+G9mKbWiTtlDLUGaxJFi9KPTKtHHbNNLs9/cQzi9VDr/8q9bdfggv9xzJ1X9lG+
-	 9RpmOsg4Y8r+K87YtjCNDe2FXHGZN5+Tnre0Bjc43VZKjUsdhnl9kPnLW5wRFMtwGrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794943685;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version;
+	bh=QQ/iT9XMRjvb+CJ/YdA/w+zP0SyApH3w0cvhQ8OnPdE=;
+	b=GionMB0cJoquHWVpwgeli+ervXA829VC8+PwZ+nq+2BaAYQDQulV9cSB9coUGS+H2UQ8
+	 Ve3A3YQhKZXPR1OEoUAggvjqgH814zTlDbeQha1zAr6nAd8xWXjhpfZ80al1Q5+Z3oDYt
+	 cOiosgNknMAb6VCnWTRDoYRyOD08xzKwIBRccPAI+4LkTd7fyqURwtVt5MeUeNeYi48qW
+	 etLER0ciKPCqoY0LppduwKUqs55u9wEQgo+Df3Qx8OI4UYWarGf8zdHvI2NrVefhnjRnf
+	 97Xn1es31aSq4v7UiIitouA5DBK08YtWVymNAFKZNGyW2uEb5P36e0HLu6N9M3DeXrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U0pAsIZa;
-	arc=none smtp.remote-ip=209.85.214.178
-Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NaHmg8am;
+	arc=none smtp.remote-ip=67.231.153.30
+Received: from mx0a-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB2B3606A32C
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:20:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB2B3606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4888E606A31C;
+	Tue, 17 Nov 2026 19:28:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4888E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=U0pAsIZa
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2eff722a480so741915ad.0
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 11:20:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794943202; x=1795548002; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=5f5C80g30fAPj/I2D0TndVTdrcqmqXcICX0m5JKKxiE=;
-        b=U0pAsIZaKRAVwB/CUQOe98pN6l9ng4fVxpQsCNRj407Up/Y4v0ww4I2hcNpO3fi/3m
-         yQLtdbkmRAuZOqeeU9+Y1zrBeTdB6KnODUVepEB0/RV3QB+80FsAC5tXjWnCt3JURD/b
-         hVMvuuAnNVFdV/0zWIY5HtQGvXyybQqNBalZTkkDLyBLeaAxAalG7W0IjBVsRFn6e9Ru
-         /kZRmjZXQ3hedfAxPWxC8Zl9zpLogOWnUHf7+6ETsZOyQOUZHXxapqNpMw4Vk4frTNKL
-         j71EZumfZgXABGz48FHpY2/SHsX7TzhOmPO60DNgt0gM8asyMiON+0kP+DspNU7bufEg
-         r2dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794943202; x=1795548002;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=5f5C80g30fAPj/I2D0TndVTdrcqmqXcICX0m5JKKxiE=;
-        b=kWLMLgOheguaod9TW0K2boHbkTScm3KuYZa8HASyDlSom8aENOnMjRkjAaBJbRWzUw
-         1mmya9geQTcKH+DfZeTw96GVFsbWO84M1QQx7l295912dxRX6iwm3ty079vl0Q9ujaFE
-         hN5WPI7swWUJF+4FBw+wup9OcqXBgFXrY/dlS0NpaW+V3sj1a659kwxe1etj6xOqoGEj
-         YblgmMr/TfgN/MATBJQN5knLbqnEm7vF0U27CSZM4KWzhG6g36CYSfKv/+S7FTccHnuc
-         H+XT5jJkL3laui05utLOj0+Vk/ExevwYSIRafK9YpOy815MQ61bUn4xVHphYyBkWOSb3
-         elAA==
-X-Gm-Message-State: APuU4Z/K63152POtgW3Oq1/B3vDUCkvDMFD91kB2YMbW1hfwULm44BWp
-	0/w/2Y29LE+pAQ4jsP6iTgjnY+TMiTgtyok6vmj542ny4t6fpZOm4eTg
-X-Gm-Gg: AZFdTZeg4jz+y8LoV4hZR/DVriF+LcIDki6xgRg8xHYMJwn1nwhgY4CjN1hXLnBrR5z
-	bde6AFnRZiwpeYu/zalLICBotbSMgohGq1O/eiJZi7c3kNJqoKTVESZYQl+3oGV5sTfGWXKsy9e
-	KelGGtxWig9D09aHFV1Akh6t58fyTWFn+6ART2iwhiScZQbzCEMHg9yuYi10BPQ8TkV/DajnQW+
-	ZfbAs6jtd1D2gKxmS4fM2L1SmNzxs6jI9Ta2UnkfTfR1ybUHerP36Q44gE1Kmg+db+kAv82Z92k
-	OyvcNYyMDDO+VcJRpz8Duc8b12vtBfvPAnFF7JKj2NtAGMKkjc4xlkQoVTU79GzsOcCMNU/sDnY
-	/0lDLOpnrhIiHtViU95XNwVxtU4uGn5e4vp0IsBwpWmneMA6JSImh6tZ4NhcVI1pWFiqRRC5vPP
-	kRAvQ6W65hF6qVuQhHAZ+bkMCVV5/3ST1YLTnTQqIVeGRGHvOh0jzjv5appFix67GGH5zv9uX/2
-	6+4MVAH1ZM7B8NRDndqvXicImKqx9+xyxXwZ85fSKBbLSpfZYxj+1I+0+LtlLiAaqcLN8H8XyEP
-	td8/wMlm4kvEYrp6cLXDCt0Ake9wnvghD1Ek8QbDFkQC0gXGE0rqWMYN
-X-Received: by 2002:a17:90a:d2c7:b0:3ac:9ad9:6afe with SMTP id 98e67ed59e1d1-3b3d0856d06mr202762a91.39.1794943201850;
-        Tue, 17 Nov 2026 11:20:01 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acde45sm318890a91.11.2026.11.17.11.19.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 17 Nov 2026 11:20:00 -0800 (PST)
-Message-ID: <78fc6217-463d-4ad7-9bc5-d737a435ec3e@gmail.com>
-Date: Tue, 17 Nov 2026 11:19:58 -0800
+	dkim=pass (2048-bit key, unprotected) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=NaHmg8am
+Received: from pps.filterd (m0089730.ppops.net [127.0.0.1])
+	by m0089730.ppops.net (8.18.1.11/8.18.1.11) with ESMTP id 6AHJ9rPc3914158;
+	Tue, 17 Nov 2026 11:27:28 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=QQ/iT9XMRjvb+CJ/YdA/w+zP0SyApH3w0cvhQ
+	8OnPdE=; b=NaHmg8amMGPnZqS58P55byRr87/6Tu9iPaP+ZDnLrzUfZ0qlAaJ4u
+	UBvSAgRMxfWZTUNIIYE79JsODPn68UicIo3N8zQApzoWR2LtQCIzt5AVn0EOea6z
+	gt0uw+9rrl4ckLiOH8IV1odjNr0OmZU5MClwf4CuTyNldvx7uAyYe/H6ISGO5L4Z
+	n4YywghqD/J/7eQQrpmE/9JFiy12VRQd2Bv32HWJ1mMIZsyfhgsRcEpKyuO7Ktn8
+	B6jo/TBMjJ3J7KRu3DcWKj7M8k7iw7PHhnrZNL2zWlSoMj1v5J0VvVJW6V4EJrDS
+	R2+sml1a5BWqyS+dEGpqJ5q+saKMd7DrA==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by m0089730.ppops.net (PPS) with ESMTPS id 4j0p7y4cx9-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 17 Nov 2026 11:27:24 -0800 (PST)
+Received: from localhost (2620:10d:c085:108::4) by mail.thefacebook.com
+ (2620:10d:c08b:78::2ac9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 17 Nov
+ 2026 19:24:21 +0000
+From: Todd Freed <toddfreed@meta.com>
+To: <netdev@vger.kernel.org>
+CC: "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet
+	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+        Daniel Zahka
+	<daniel.zahka@gmail.com>,
+        Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+        Wei Wang <weiwan@google.com>, Jamal Hadi Salim <jhs@mojatatu.com>,
+        Jiri Pirko
+	<jiri@resnulli.us>, Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann
+	<daniel@iogearbox.net>,
+        Andrii Nakryiko <andrii@kernel.org>,
+        Martin KaFai Lau
+	<martin.lau@linux.dev>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav
+ Fomichev <sdf@fomichev.me>,
+        Sabrina Dubroca <sd@queasysnail.net>,
+        Boris
+ Pismenny <borisp@nvidia.com>, <bpf@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <stable@vger.kernel.org>
+Subject: [PATCH net v2 2/3] bpf: don't redirect decrypted skbs from egress to ingress
+Date: Tue, 17 Nov 2026 11:24:10 -0800
+Message-ID: <20261117192411.247117-3-toddfreed@meta.com>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261117192411.247117-1-toddfreed@meta.com>
+References: <20261117192411.247117-1-toddfreed@meta.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,147 +97,117 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 12/12] net: au1000: reject frames larger than the
- TX bounce buffer
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
- horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
- jeff@garzik.org, danny.kukawka@bisect.de, mugunthanvnm@ti.com,
- sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
- manuel.lauss@gmail.com
-References: <20261112045301.3669532-13-f.fainelli@gmail.com>
- <179483705182.3136.18065066878486336390@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <179483705182.3136.18065066878486336390@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfXxwU60u2yZ0ko
+ UjsBYLZobfj6bQd5zqIbz0rtEPTUs8vBVqYpy/hZun+Q2OZZlAyDMCxUhgczjjU/DfRhTe8SvAO
+ cR/toSEf8/zuFZEYQLyM6lhSxrh94ilD1OPQTzF4WrgR+UOeSg3kXl0VTT1lAj4HnxQu6MdWV50
+ 8sIYtp//mmMMgavG1EDqkAjrkA7UfLgCMGNAKVfLia13UZSIzlzmx4ThVfzqP/Nd5Nkattb/AI6
+ GsC8PTYEXYIPvJrxNGVj0tDiEmM4xCiUf+eDLrmu+INXuzL7uerwP1hqKatlhWMSjGfXpBetlqe
+ 9Kd8RXOYsCFe3NvzJWyQGfZT0m+dKtYSRApEQlhsICwM0MjNdOwQkclSh7AToUTGBimCjlcO9SZ
+ mHgBsE4sK9EtrHenLGdXct/uq2pd5b91oQTAihed/+yCyLCPIA9l9tooTlqaC0UMNqVHAZSRSS0
+ K7KUF8KfbuPydh2A19w==
+X-Authority-Analysis: v=2.4 cv=bJyDs/+Z c=1 sm=1 tr=0 ts=6afcaa9e cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
+ a=855S8uPTkML1Oy45N9_h:22 a=VwQbUJbxAAAA:8 a=VabnemYjAAAA:8
+ a=P5U4b8cfyem6Y1jgc2cA:9 a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-GUID: rxdXGiyJ2yFCWB3pvXeQiboehAGVUE95
+X-Proofpoint-ORIG-GUID: rxdXGiyJ2yFCWB3pvXeQiboehAGVUE95
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE3MDA3NyBTYWx0ZWRfX5JCi0q5WeCDw
+ XOVKr0U38Ixzr6uToz00lerrhABHwHOm12QfZDCMfqxZOWTeJvbYj7GZe+RaFxokXtDDZDmJwSV
+ YRS57iogxryZ5Sc8MRWdyRLSW9kDDlg=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_04,2026-11-16_01,2025-10-01_01
 
-On 11/16/26 05:50, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in case
-> you want to address the nit picks below when you respin.
-> 
-> Low priority / nit picks for your consideration:
-> 
-> - [Low] The commit message understates how the overflow can be reached.
-> 
-> Pre-existing issues:
-> - [High] Several other drivers in drivers/net/ethernet/amd/ have the same
->    unchecked copy of skb->len bytes into a fixed-size TX buffer.
-> 
-> --
-> 
-> net: au1000: reject frames larger than the TX bounce buffer
-> 
-> This patch adds a length check to au1000_tx(). Frames larger than
-> MAX_BUF_SIZE are now dropped and counted in tx_dropped instead of being
-> copied past the end of the TX bounce buffer.
-> 
->> au1000_tx() copies skb->len bytes into a MAX_BUF_SIZE coherent buffer
->> without checking the length. Oversized non-GSO packets can reach this
->> path through AF_PACKET with PACKET_VNET_HDR and PACKET_TX_RING, whose
->> MTU checks are skipped when a virtio header is present.
-> 
-> [Severity: Low]
-> Is this description narrower than the real exposure? It reads as though
-> PACKET_TX_RING is required. The plain sendmsg path through packet_snd()
-> seems to get to the same place:
-> 
-> net/packet/af_packet.c:packet_snd() {
->      ...
-> 	if (!vnet_hdr.gso_type &&
-> 	    (len > dev->mtu + reserve + VLAN_HLEN + extra_len))
-> 		goto out_unlock;
->      ...
-> }
-> 
-> After that, __virtio_net_hdr_to_skb() only marks the skb as GSO when the
-> payload is larger than gso_size:
-> 
-> 	/* Too small packets are not really GSO ones. */
-> 	if (skb->len - nh_off > gso_size) {
-> 
-> Take a 4000-byte frame sent with gso_type=TCPV4 and gso_size=65000. It
-> would skip the MTU check and reach au1000_tx() as an ordinary non-GSO skb.
-> 
-> Real GSO skbs also get through, because gso_size is never checked against
-> dev->mtu. au1000 has no TSO, so validate_xmit_skb() segments them in
-> software into frames that can be larger than 2048 bytes.
-> 
-> The new check in au1000_tx() catches all of these paths, so the code
-> looks right. Could the commit message also mention the packet_snd() and
-> GSO routes?
-> 
->> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
->> index d60430a3795ed..d8855ccf87aa1 100644
->> --- a/drivers/net/ethernet/amd/au1000_eth.c
->> +++ b/drivers/net/ethernet/amd/au1000_eth.c
->> @@ -1008,6 +1008,12 @@ static netdev_tx_t au1000_tx(struct sk_buff *skb, struct net_device *dev)
->>   	int i;
->>   	unsigned long flags;
->>   
->> +	if (unlikely(skb->len > MAX_BUF_SIZE)) {
->> +		dev->stats.tx_dropped++;
->> +		dev_kfree_skb_any(skb);
->> +		return NETDEV_TX_OK;
->> +	}
-> 
-> [Severity: High]
-> This is a pre-existing issue that this patch did not introduce. Do other
-> drivers in drivers/net/ethernet/amd/ need the same check?
-> 
-> Several lance_start_xmit() implementations copy skb->len bytes into
-> fixed-size TX slots with no upper bound. Their slots are smaller than
-> au1000's 2048-byte MAX_BUF_SIZE, so a frame one byte over the limit
-> already overruns the slot:
-> 
-> 7990.c:lance_start_xmit()
->      skb_copy_from_linear_data(skb, (void *)&ib->tx_buf[entry][0], skblen);
->      (skblen = skb->len, tx_buf slots are 1544 bytes)
-> 
-> a2065.c:lance_start_xmit()
->      skb_copy_from_linear_data(skb, (void *)&ib->tx_buf[entry][0], skblen);
->      (skblen = max(skb->len, ETH_ZLEN), tx_buf slots are 1544 bytes)
-> 
-> sunlance.c:lance_start_xmit()
->      PIO path: lance_piocopy_from_skb()
->      DMA path: skb_copy_from_linear_data(skb, &ib->tx_buf [entry][0], skblen);
->      (TX_BUFF_SIZE is 1544)
-> 
-> sun3lance.c:lance_start_xmit()
->      skb_copy_from_linear_data(skb, PKTBUF_ADDR(head), skb->len);
->      (PKT_BUF_SZ is 1544)
-> 
-> atarilance.c:lance_start_xmit()
->      lp->memcpy_f( PKTBUF_ADDR(head), (void *)skb->data, skb->len );
->      (PKT_BUF_SZ is 1544)
-> 
-> declance.c:lance_start_xmit()
->      cp_to_buf(lp->type, lp->tx_buf_ptr_cpu[entry], skb->data, len);
->      (len = skb->len, TX buffers are 1536 bytes)
-> 
-> Using the AF_PACKET route from the commit message, can an oversized frame
-> in these drivers overwrite the next TX slot and then the RX buffers?
-> 
-> For frames near 64KB, the copy also looks like it would run past the end
-> of the lance_init_block or shared memory area.
-> 
-> Triggering this needs CAP_NET_RAW in the device's netns. The hardware is
-> legacy: Amiga, Sun, Atari, DEC and HP300/MVME.
-> 
+On transmit, skb->decrypted means that the device must encrypt the
+packet, e.g. a packet of a kTLS or PSP device offload socket.
 
-Agreed. I have expanded the commit message to cover both packet_snd() 
-and TX_RING, including packets left non-GSO after virtio-header 
-conversion and oversized segments produced by software GSO. The existing 
-length check covers these cases.
+On receive, skb->decrypted means that the device decrypted the packet,
+and kTLS device offload trusts it as such (tls_device_decrypted()).
 
-The other AMD drivers require separate validation and fixes; they are 
-outside this au1000 series.
+bpf_redirect() and bpf_clone_redirect() with BPF_F_INGRESS send the
+packet to a device's receive path with the bit still set, where it claims
+to have been decrypted by the device, although it was never encrypted.
 
-pw-bot: cr
+Drop decrypted skbs which bpf redirects from egress to ingress, as mirred
+does since the previous patch.
+
+__bpf_redirect() tells egress from ingress by tc_at_ingress, which is
+only kept up to date in tc. It is also reached from LWT xmit programs
+(ip route ... encap bpf xmit), which run in ip_finish_output2(), before
+__dev_queue_xmit() clears the bit. A forwarded packet can still have it
+set there by the tc ingress hook of the device it came in on, and would
+pass the check: whether the packet is dropped would depend on unrelated
+tc configuration of its input device.
+
+Clear the bit before running an LWT xmit program, as __dev_queue_xmit()
+would right after. This also gives the program's other uses of the bit,
+in the redirect helpers and in its __sk_buff->tstamp access, the egress
+view, which matches where it runs.
+
+Sashiko found the LWT case when reviewing this patch as patch 7 of v1
+of the net-next series "psp: introduce socket-less associations", which
+it was split out of.
+
+Fixes: 414776621d10 ("net/tls: prevent skb_orphan() from leaking TLS plain text with offload")
+Reported-by: Sashiko <sashiko-bot@kernel.org>
+Closes: https://lore.kernel.org/netdev/179471270091.2199510.4320994626979041884@kernel.org
+Cc: stable@vger.kernel.org
+Signed-off-by: Todd Freed <toddfreed@meta.com>
+---
+ net/core/filter.c  | 10 ++++++++++
+ net/core/lwt_bpf.c |  8 ++++++++
+ 2 files changed, 18 insertions(+)
+
+diff --git a/net/core/filter.c b/net/core/filter.c
+index 946b07a17fce..defbef3a9f75 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -2226,6 +2226,16 @@ static int __bpf_redirect_common(struct sk_buff *skb, struct net_device *dev,
+ static int __bpf_redirect(struct sk_buff *skb, struct net_device *dev,
+ 			  u32 flags)
+ {
++	/*
++	 * On transmit, decrypted asks the device to encrypt the packet. Sent
++	 * to ingress, the packet would read as decrypted by the device.
++	 */
++	if (unlikely((flags & BPF_F_INGRESS) && !skb_at_tc_ingress(skb) &&
++		     skb_is_decrypted(skb))) {
++		kfree_skb(skb);
++		return -EINVAL;
++	}
++
+ 	if (dev_is_mac_header_xmit(dev))
+ 		return __bpf_redirect_common(skb, dev, flags);
+ 	else
+diff --git a/net/core/lwt_bpf.c b/net/core/lwt_bpf.c
+index 72c86ff2a847..4861fe2b4959 100644
+--- a/net/core/lwt_bpf.c
++++ b/net/core/lwt_bpf.c
+@@ -13,6 +13,7 @@
+ #include <net/gre.h>
+ #include <net/ip.h>
+ #include <net/ip6_route.h>
++#include <net/tcx.h>
+ 
+ struct bpf_lwt_prog {
+ 	struct bpf_prog *prog;
+@@ -327,6 +328,13 @@ static int bpf_xmit(struct sk_buff *skb)
+ 		__be16 proto = skb->protocol;
+ 		int ret;
+ 
++		/* The packet is on egress, but a forwarded one can still have
++		 * tc_at_ingress set by the tc ingress hook of the device it
++		 * came in on, until __dev_queue_xmit() clears it. Clear it
++		 * now, so that the redirect helpers see the direction of this
++		 * hook.
++		 */
++		tcx_set_ingress(skb, false);
+ 		ret = run_lwt_bpf(skb, &bpf->xmit, dst, CAN_REDIRECT);
+ 		switch (ret) {
+ 		case BPF_OK:
 -- 
-Florian
+2.53.1-Meta
+
