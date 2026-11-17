@@ -1,71 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794927339;
-	b=3ad8Shk8kQBkkCa0yB6jFfT8IOyc/7hb84dOgWM3mvdhvEpvnIwsZcK9SSSKlnf+zvjr
-	 FAFy7wMWZhz2oObb1GBiux+SP48WsqAmLBHXzH3MbnPA3t8H84Rqa6R/E8imWL/NlK63B
-	 qyxG6RXbHZ6KNNMCWCYDp6ZchaLvRMx0Z5WEKCC3ZN01cII2Ed/pL7Q/GCsNDokrZX14w
-	 IKoVPn91Qo8AQ2OgAwq4ZGTEYAJ9KX+4oKxzsSDtEeh7xBO4jDumqyNZhjVSQOMtwCUZb
-	 tdFsTwvKIDrH3uov1qCEP9UUyhkzBNCGtl6KcVYutPOtnLuMinMikEyh0BQbVBAEUwA==
+	t=1794927341;
+	b=xUAMdXqLTpChenkzBgNJi2aNfWsv+86/kl7BWgHwl93x/b55VmFtQAioupZ8yJG8ALXw
+	 cI3iOQswzKa+4cabEcy7ZCSEshPqsyoNnw42fEOFehJ25QTqL7aX/Iweb+xGQJFpq3TTL
+	 moeBwSkdPjOmkf6yCYp2iZnYo6inRQvNQp7+LeKsikDOLS20DBLlr3ToXABcxg5pfqSlL
+	 i8sOwBUYi7oiVXLOdEqBD+n4W88QIbBCwWVNTgq6LQeAAM4V+a22LO/V/nOqL0Vppq0IX
+	 jOa0uIVbb/65B0j87PndeWKWqfju2E0vysEdDRgthUAvUb3UwarPnIXC1Wlc49whthA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794927339;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794927341;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=tncad3xb72MRHXQPalnrg31jkG++uAFsv3nTcMKPqIc=;
-	b=zijkI4nnPJuUleYVWiuA4aKhVx91ElXC4h2E1wd6XYtQRUTzdsdfbP7/NLrj1goCQ3OD
-	 Laj489o8+JD1XOHw6AmpH90GrRnOQEqkAFK+H/e7+N1ZTFrY5wgTOF+0LPDck8im2OeyW
-	 dFQMl9o90QmnVHz5cCHDGLwgzCK61/ecavexB69L+wIOiqaTzPknmnSj067ZvpyktFtCW
-	 Yp+kwYiJMUJNgQKJe7Yl6e8NtmAsTsEkZpUBF54pVEWm0cWwB9OfvOasvDi4MDiemWKUR
-	 1OuH0x35ZdzC7EeI1kW62AFDI5QRhSu18cbkETQr7w7Fyw9TQ2hxB7GV8hqyAspF+Tg==
+	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
+	 References:X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=X3DwMEGrZ57pkqE3y7BJjL3MnOYoEVHYkRTWJRAevnQ=;
+	b=u1wXT9p8rIGMb/SgZozTzWq29Kyg0e1GHFepUbpeFDIUNafHJzi3Fb+NRuUKP4mGMTCz
+	 UizgkiV1ltmy1ZMGSeA1B7AhH8xWlWPB5NSUyYIxK+2Zh7XJWGIbhruPuFHHs18okxoNY
+	 /Ptbm/8REayOsDljkNJFwA56L1SfxiDwD1HZJtOZkx6yMeNtfHWKpPLLfRyjoXOnT4qLZ
+	 7YoagSLeNbJwE+ARPzOeagd/HnJxGmqPK8pkYUQQ0la6Q1uuIUxBILNsVqVWHaQjcp38a
+	 frHrgaLQIQQKxgLc0kRibnezV+XdUHIHURBbhm7d2y9JwlUvEHk972t4rPS2/TWfiEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--stani.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IQP34qwS;
-	arc=none smtp.remote-ip=74.125.224.69
-Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com [74.125.224.69])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CGd7BfaT;
+	arc=none smtp.remote-ip=209.85.222.197
+Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23409606A32A
-	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23409606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEEE0606A32A
+	for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 14:55:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CEEE0606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--stani.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=IQP34qwS
-Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-67bec5d62ebso9691558d50.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:55:37 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=CGd7BfaT
+Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f2373e9b4so531550285a.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 06:55:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1794927337; x=1795532137; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tncad3xb72MRHXQPalnrg31jkG++uAFsv3nTcMKPqIc=;
-        b=IQP34qwS8/V2vbPX1ct2YUd3L8ifLBjpH1S7jG2hJRV3H5C/i7uODHJiXl16Pu9KR2
-         epROf8+9pjsRRv+vT2cbTahX8aD/5kQNn/yaGewwLMwV02ufL/wCEcVf0Z4LAuiPmR+H
-         cG5g8zXXhJFxyC6nENS4R4s2VDitVAN5l8iwWiwi9njfFVYn/sfStFeDBN7jTUrW0g75
-         N2puzdxku1uTnHj3YkYPjkCw1/Jygngi8GVJWw6GOkd0wLeVSNvSfA8HqgFGvCg+6XSo
-         z2co/Hnotz7w7kHyUZPOd93NL6geLc1V83DCFvDtW7EkKsL2BViXFJ1xlsUy1CG0QxJQ
-         D1UA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794927337; x=1795532137;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=google.com; s=20260707; t=1794927340; x=1795532140; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tncad3xb72MRHXQPalnrg31jkG++uAFsv3nTcMKPqIc=;
-        b=SCD181v1HnLEQ+rX8OfpzUt2nTgnXirp8JbN3TwyUqp1N02qyVi2wlTIdwlyY+X4Gz
-         VaOxxVJ2FjmKt6+E19udMY1zMUhSr7Ja8vrPRqDjvPWqIPjXtbi4vdiO5EeCt/MDr2bH
-         NCLqceq2ss094cngqkPABmMPnPMFMf1MS65Kx2qik/KhNUFJABG0DYyJzCtkIWw8i044
-         TUArWufybZYoP9VzlJefXqup+QJ6irZwz6Vevg0rTYkFgItODxWqteeYLG8TOFSDX+Z6
-         gwSac0LHsmjf+Ax6wQFqKERgFtlbAgElrHCTgvofXNmNxCpZ2ZKlcPM3qU928gljs30L
-         1oLg==
-X-Gm-Message-State: APuU4Z9qix9MLhx7PsHLHJK8qa40q1wFWVbP0sF7r6D02brZx81y5jZX
-	YtjFpnR9f15AgLgWzmDr/HxlHv/UjBNH/d2VWP3Xllcfn0FXTHB0ZySG5UBLEXJEMt/zjFLWYwW
-	OMg==
-X-Received: from yxrk12.prod.google.com ([2002:a53:b60c:0:b0:67d:bd70:dbc8])
- (user=stani job=prod-delivery.src-stubby-dispatcher) by 2002:a05:690e:408c:b0:677:cbfc:be34
- with SMTP id 956f58d0204a3-67d896e0019mr8711688d50.66.1794927336861; Tue, 17
- Nov 2026 06:55:36 -0800 (PST)
-Date: Tue, 17 Nov 2026 14:55:06 +0000
+        bh=X3DwMEGrZ57pkqE3y7BJjL3MnOYoEVHYkRTWJRAevnQ=;
+        b=CGd7BfaTKcEZnmBpM3ZHO6Gng5nLM/htKmuPUXYUy2XlFK/IjORTCW5sZ6VU65q5Ju
+         9rzj7guEyL8KAEzE02TWHyPaTuH12UK5m7PSAM0vKSkR7C2AkOK52wIMZ0DlAH3uA1pN
+         7zNcbFMMwkrbNqH7J3HXBHBeMNMTBoAy1LYa+zYr5GNia5l7yjgpIthClr49LfbKL2Pb
+         opYYpEf2QxJhCEn2uJsvEqX0pvavX/+UHvkk1mIIqsASsdYPo964LdRekAO18KihJnZU
+         iuOPWTHoAZS9RfpgsAvkD4axvBHUBAdGFy1NeHZtqRM1G+S3HMEy7maZwzl8uZLpvGvR
+         1R/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794927340; x=1795532140;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=X3DwMEGrZ57pkqE3y7BJjL3MnOYoEVHYkRTWJRAevnQ=;
+        b=oVJNiIJRTS1Hp1NWfEiROQ7P3Po2X89b8KX9K1IUYkwG62jczDmqWclfBbbKSSMKXK
+         9ShQCgAPloyaS7OvgJTjmAw7RH+lR0MM78ZcQNJbgBL5wogYY9N0y7AF4jC7Q7L9Exgt
+         1oNgNs5fjuBLuAZAAYcIE1f2pNTFYhIjheYvPut4ttofKLxzaVXwI5lvO3r/ZDC6XVOr
+         Lv06SLNShCGoaVIHvOYQG0IfmopxWJZr3RisYHw02MifVJKIoTpeP+gQ8jg717+7DpZR
+         4fVV1WV+05vTo5fjSUjSff4Ht7DfJspBKhQ//I6YQDqLGw7hp+pgAjk73/iLrXGR4tKL
+         uEPA==
+X-Gm-Message-State: APuU4Z8Facbj4xB3Nwgyv/F6jPFUi2l7RdzoC2ocS6BREuMNMRCoxmYl
+	6bwYHyWOUwYTuO2iGZMztqOyKdJFFlGzl8opH6cCe3Xcha22vhXaMydRmvfjr6wt3ww1pNffPUz
+	iGw==
+X-Received: from qknrh21.prod.google.com ([2002:a05:620a:8f15:b0:945:e9b7:7c18])
+ (user=stani job=prod-delivery.src-stubby-dispatcher) by 2002:a05:620a:870e:20b0:949:8a03:c35e
+ with SMTP id af79cd13be357-9498a03c384mr411244985a.54.1794927339421; Tue, 17
+ Nov 2026 06:55:39 -0800 (PST)
+Date: Tue, 17 Nov 2026 14:55:07 +0000
+In-Reply-To: <20261117145522.1910636-1-stani@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,9 +77,10 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
+References: <20261117145522.1910636-1-stani@google.com>
 X-Mailer: git-send-email 2.56.0.679.gc527c65306-goog
-Message-ID: <20261117145522.1910636-1-stani@google.com>
-Subject: [PATCH iwl-next 00/15] idpf: add PSP offload support, part 1
+Message-ID: <20261117145522.1910636-2-stani@google.com>
+Subject: [PATCH iwl-next 01/15] libie: wipe copied small send buffers on release
 From: Stan Iliev <stani@google.com>
 To: Tony Nguyen <anthony.l.nguyen@intel.com>, 
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>, "David S. Miller" <davem@davemloft.net>, 
@@ -92,127 +95,79 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>, linux-hardening@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-This series adds PSP (PSP Security Protocol) [1] inline crypto offload
-to idpf, through the PSP device API of the PSP core [2]. It comes in two
-parts. This is part 1, which adds the control path.
+libie_ctlq_xn_send() copies the messages that fit in LIBIE_CP_TX_COPYBREAK
+bytes into a DMA buffer of their transaction, which is reused for later
+messages but never cleared. The messages can hold secrets, e.g. the PSP
+TX keys that idpf inserts into the SADB of the device.
 
-The device encrypts and decrypts the PSP packets. Its control plane
-(CP) holds the master keys and the security association database
-(SADB) of the TX keys. idpf manages them with new virtchnl2 commands
-over the mailbox:
-- the CP derives an RX key from a master key and the SPI it allocates,
-  one synchronous request per rx_spi_alloc;
-- the TX keys are inserted into the SADB asynchronously, in batches of
-  up to 101 keys. The SA index that the CP returns for a key goes into
-  a TX context descriptor of each of its packets (part 2);
-- the SA indexes of the released associations are deleted in batches.
+Wipe the copy once the message was sent, when its send queue entry is
+cleaned, and when it couldn't be sent. The transaction can be reused as
+soon as that entry is cleared, see libie_ctlq_xn_pop_free(): order the
+wipe before it with smp_wmb(), paired with smp_acquire__after_ctrl_dep()
+after the check of the entry, so that the wipe can't overwrite the next
+message on weakly ordered architectures.
 
-Part 1:
-- patches 1-2 wipe the mailbox send buffers on release, as some of the
-  messages carry keys;
-- patch 3 makes the mailbox workqueue visible in sysfs, like the PSP
-  workqueue added later;
-- patches 4-7 add the PSP initialization and negotiate the crypto
-  offload capabilities, the PSP capabilities and the FIPS compliance
-  status;
-- patches 8-10 implement the rx_spi_alloc, key_rotate and get_stats
-  PSP device ops;
-- patches 11-15 add the TX key state, and the insertion of the TX keys
-  into the SADB and their deletion.
+Signed-off-by: Stan Iliev <stani@google.com>
+---
+ drivers/net/ethernet/intel/libie/controlq.c | 28 ++++++++++++++++++---
+ 1 file changed, 24 insertions(+), 4 deletions(-)
 
-Part 2 makes idpf_tso() run after the splitq TX resource check,
-implements the tx_key_add and tx_key_del PSP device ops and the TX and
-RX datapath, and registers the PSP device. Until then, the only change
-visible on a device with the crypto offload is the capability
-negotiation, which also logs the FIPS compliance status.
-
-PSP is only enabled if the CP grants the new VIRTCHNL2_CAP_CRYPTO
-capability, idpf works as before otherwise. The crypto offload API of
-the CP uses the virtchnl2 opcodes 560 to 567, the
-VIRTCHNL2_EVENT_PSP_ROTATE_KEY event and the VIRTCHNL2_PROTO_HDR_PSP
-protocol ID.
-
-Limitations:
-- PSP version 0 (AES-GCM-128) and the splitq queue model only;
-- the RX datapath only recognizes the IPv6 PSP packet type;
-- master key rotations started by the CP itself can't be reported to
-  the PSP core, as in mlx5;
-- the PSP state doesn't survive a hard reset: the PSP device is
-  unregistered at the start of the reset and registered again once the
-  reset is done, as in mlx5.
-
-Testing, of both parts on next-queue/dev-queue:
-- each patch built with W=1 (allmodconfig) with gcc 15 and clang 21, and
-  with gcc without CONFIG_INET_PSP: no warnings in idpf, libie and ixd,
-  and no new kernel-doc warnings. checkpatch --strict only asks for
-  blank lines between the new virtchnl2.h structures and their
-  VIRTCHNL2_CHECK_STRUCT_LEN(), which would break the style of the file;
-- tools/testing/selftests/drivers/net/psp.py between two hosts with
-  Intel IPU devices (idpf PF, PCI ID 8086:1452), in both directions,
-  plus a local case that checks that a connection keeps receiving after
-  one key rotation: pass:19 fail:1 xfail:2 skip:11. Same result with RX
-  checksum offload off on both hosts, without TCP checksum errors. The
-  skips are the IPv4 cases (no IPv4 on these hosts), PSP versions 1 to 3
-  and kTLS, the xfails need netdevsim. data_mss_adjust fails since
-  commit 3c6e29760c13 ("tcp: Subtract psp_sk_overhead() in
-  __tcp_mtu_to_mss() and tcp_mss_to_mtu()."): the routes between these
-  hosts have mtu 4220 and advmss 4108, so the PSP overhead no longer
-  reduces the 4096 byte MSS, as that commit intends, while the test
-  expects a 40 byte reduction. It passed on the same hosts without that
-  commit;
-- after the tests, the TX keys inserted into the SADB were all deleted
-  once their sockets were gone;
-- with part 1 only, the hosts boot, negotiate the crypto offload and
-  log the FIPS compliance status, without a PSP device.
-
-  An AI coding assistant was used to rework parts of the code and of the
-  commit messages of this series after an internal review, and an AI
-  code review tool (Sashiko) reviewed the series. I reviewed and tested
-  all the changes.
-
-[1] https://raw.githubusercontent.com/google/psp/main/doc/PSP_Arch_Spec.pdf
-[2] https://docs.kernel.org/networking/psp.html
-
-Stan Iliev (15):
-  libie: wipe copied small send buffers on release
-  idpf: wipe mailbox send buffers on release
-  idpf: make the mailbox workqueue visible in sysfs
-  idpf: psp: add psp offload initialization
-  idpf: psp: add support for crypto capabilities
-  idpf: psp: add support for psp capabilities
-  idpf: psp: add support for fips compliance status
-  idpf: psp: add support for psp rx key allocation
-  idpf: psp: add support for psp key rotation
-  idpf: psp: add support for psp statistics
-  idpf: psp: add psp tx key state
-  idpf: psp: add support for psp tx key deletion
-  idpf: psp: add psp work and tx key insertion completion
-  idpf: psp: add support for psp tx key insertion
-  idpf: psp: add psp tx key registration
-
- drivers/net/ethernet/intel/idpf/Makefile      |   2 +
- drivers/net/ethernet/intel/idpf/idpf.h        |  15 +
- drivers/net/ethernet/intel/idpf/idpf_lib.c    |  16 +
- drivers/net/ethernet/intel/idpf/idpf_main.c   |   5 +-
- drivers/net/ethernet/intel/idpf/idpf_psp.c    | 738 +++++++++++++++
- drivers/net/ethernet/intel/idpf/idpf_psp.h    |  86 ++
- .../net/ethernet/intel/idpf/idpf_psp_def.h    | 190 ++++
- .../ethernet/intel/idpf/idpf_psp_virtchnl.c   | 841 ++++++++++++++++++
- .../ethernet/intel/idpf/idpf_psp_virtchnl.h   |  23 +
- .../intel/idpf/idpf_psp_virtchnl_def.h        |  24 +
- .../net/ethernet/intel/idpf/idpf_virtchnl.c   |  24 +-
- drivers/net/ethernet/intel/libie/controlq.c   |  28 +-
- include/linux/net/intel/virtchnl2.h           | 393 ++++++++
- 13 files changed, 2376 insertions(+), 9 deletions(-)
- create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp.c
- create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp.h
- create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_def.h
- create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.c
- create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl.h
- create mode 100644 drivers/net/ethernet/intel/idpf/idpf_psp_virtchnl_def.h
-
-
-base-commit: 4cd5d9c333fb45a4e70ad6a77c44f13bd7312afb
+diff --git a/drivers/net/ethernet/intel/libie/controlq.c b/drivers/net/ethernet/intel/libie/controlq.c
+index 6214fc036ce5..c31d3c9e792a 100644
+--- a/drivers/net/ethernet/intel/libie/controlq.c
++++ b/drivers/net/ethernet/intel/libie/controlq.c
+@@ -694,9 +694,16 @@ libie_ctlq_xn_pop_free(struct libie_ctlq_xn_manager *xnm)
+ 		 * address is dirty in any way, reuse is already safe.
+ 		 */
+ 		if (xn->tx_msg &&
+-		    data_race(xn->tx_msg->send_mem.pa) == xn->small_dma_mem.pa)
++		    /* READ_ONCE() for the control dependency below */
++		    data_race(READ_ONCE(xn->tx_msg->send_mem.pa)) ==
++		    xn->small_dma_mem.pa)
+ 			continue;
+ 
++		/* The small buffer is wiped before the message is cleared,
++		 * pairs with the smp_wmb() of libie_ctlq_xn_rel_tx_buf()
++		 */
++		smp_acquire__after_ctrl_dep();
++
+ 		clear_bit(free_idx, xnm->free_xns_bm);
+ 
+ 		return xn;
+@@ -998,6 +1005,8 @@ int libie_ctlq_xn_process_send(struct libie_ctlq_xn_send_params *params,
+ 		if (!libie_ctlq_send_desc_avail(ctlq)) {
+ 			if (!libie_cp_can_send_onstack(buf_len))
+ 				libie_cp_unmap_dma_mem(dev, dma_mem);
++			else
++				memzero_explicit(dma_mem->va, buf_len);
+ 
+ 			return -EBUSY;
+ 		}
+@@ -1132,10 +1141,21 @@ static void libie_ctlq_xn_rel_tx_buf(const void *ctx,
+ {
+ 	const struct libie_ctlq_xn_rel_tx_ctx *rel_ctx = ctx;
+ 
+-	if (!libie_cp_can_send_onstack(dma_mem->size)) {
+-		libie_cp_unmap_dma_mem(rel_ctx->dev, dma_mem);
+-		rel_ctx->rel_tx_buf(dma_mem->va);
++	/* Small messages are copied into the buffer of their transaction,
++	 * which is reused: wipe the copy, the message may hold secrets, e.g.
++	 * crypto keys
++	 */
++	if (libie_cp_can_send_onstack(dma_mem->size)) {
++		memzero_explicit(dma_mem->va, dma_mem->size);
++		/* libie_ctlq_send_clean() clears the message next, which lets
++		 * libie_ctlq_xn_pop_free() reuse the buffer
++		 */
++		smp_wmb();
++		return;
+ 	}
++
++	libie_cp_unmap_dma_mem(rel_ctx->dev, dma_mem);
++	rel_ctx->rel_tx_buf(dma_mem->va);
+ }
+ 
+ /**
 -- 
 2.56.0.679.gc527c65306-goog
 
