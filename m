@@ -1,64 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794936925;
-	b=tWWtIy+Jvpny+ScdQjcSW4ZwtplQhsZOAi0+AN9dYTGa0OYnJz9WxB6JX73cqv9Vskqt
-	 1cBHAMXo81Ouu4bX93LC+sNaRZoQK2n8ZjqPAT3Z5LGIsaO41fEE5O2YQ+zaUAxkHDalZ
-	 IozClgPoURCtT5/bWe1JkZ9lNYCbt9punHWnn5NyDD5UD+nN2eodzGb3vDywndmGik+N3
-	 7Uj0Xig74R6/zJQQ2hMQGoFmO1ZfPirk3T2Pg42U28if3MeK+wK1v5GGy7Q6OVTRYP9Ep
-	 mfvJCwD6d8y+RIjceCqIgteHsWRzfLeUfiN8fucMOXWLkEaAK4/6mFyOUEw5mvzRNGg==
+	t=1794937046;
+	b=MDekGpKvc7EhwvoBl19FLvvFXkpzXXbSLh3ozefic0iTuJblljUtZHi0FF1isQfmcEXN
+	 PBbFvaBPgpr4vNij9sL+7a/ENz8x/JRRyqALFhykKOTEQpa402uTgKIG/aLe35gqvjhq0
+	 FdUtefDc9ypAwxfcWNDYlUv7ft1lElvc7WrSlG6grMpLM4ocQudGgGvervo7VSWH+suwm
+	 FMiU408D3TxLF3c5TDIw6DMdaNOghMK6AdPW42/nwXdfk/2pAU6j2l8ZVvDopHjQm3/uT
+	 grH1YGcxVJUXPwGuVO1jaucFYZf3mhG8Ax+JCa4R5ogBmyYqbh2PMYN8YQ/JlZ7cqNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794936925;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=yZ3I9vRuX9ylJnvAv8Fd/DK7PqgzivRoTz54b66hM4s=;
-	b=aWPUgx0Tjl7d917UhLN7uzDS1ewVdy88d9eUzPz5uEFyx+3KJCaD1KitPZUt7HRnQ9Z1
-	 f6NZetGGsLYQT86l6fV845oqMEifGZqdkfgh46kdYypkXSmnNBYmJHl2ZvyZLQIw41jLw
-	 tW6qJYZkYVUzJ91nRU9wPP6MjiJScCGj0j6OMKRvJygcMHhcbd5iDyK43BkfnHJXWVyE/
-	 3ZFDEqgSyOdC9QyM2r8s3JXsgv55/hKyzn8zAYfugDFOYHqE0fOTDOJg51oSKnaeb5eEU
-	 bO8UdlWI7kbPXXAJmsu/QRcF2C8qj3jDO5/sm7usDQS/tMgV5487S/hLFh8pedWUs1w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794937046;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=eWM1j+sd2GO3WIAK+yuTHGO/7gs7dlnVrZBPsWXtV+M=;
+	b=JNKWR1IsQAGTej9/fH9wxMG9pKYaQXLez8rEAKAruy9pBIfpFTFdM83tQEPGIvnXDOP+
+	 NMxZJB+zVQekxPV7hR4XH64JZU3jZW6EuUMuOX/QJ6HDucg8rpWk8+tW+hWj+FMwtEw9u
+	 7MF/OadXjjTaY/jZWePffIsgA786fopEJl16pEQRpA/r+uezoJQ+V3ViWOeFGADIOn55M
+	 VortPRKt6Uf0ULXdCO0KVsE8kEFeYbBZVsE6dxvMp2aHDeI7LunBRdvrqsmAL9pf6Qjsv
+	 nutlwKzAfEZhaM90zvQivmZulo2/4JGhCHBhrH7H/U7Hm+MJHQwtiCn5WtKSqJJEZjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ldprS0uN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cJOE2HPh;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14126606A8AB;
-	Tue, 17 Nov 2026 17:35:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C7944606A31C;
+	Tue, 17 Nov 2026 17:37:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ldprS0uN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 437971F00923;
-	Tue, 17 Nov 2026 17:35:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cJOE2HPh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0B721F000C5;
+	Tue, 17 Nov 2026 17:37:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794936924;
-	bh=yZ3I9vRuX9ylJnvAv8Fd/DK7PqgzivRoTz54b66hM4s=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ldprS0uNwFt+H1U3be8E2gOLAGnw8BZl5s5GVpiNWByV+Ly/0OSD22JIeeAxEMp/g
-	 vajUIU0EUhPQ6Grik6d7HoZo4QrEZCG/qbdNGA2DeRmLimaYUz3G22jERtSf0rlEsJ
-	 XdkI0kkGlwRriDnm0fVfu4H+JZKAVemm7juPMN6KScB8unOvuReiocyYvXxlLxcjrI
-	 jGnyjhxSnD1caR+wZ8oWP9VduidgsFBMr6HkihNTcuMyt0h8DBOB+F4f0IMukeKkOM
-	 aNCUusgK+8Is7lqQdWI9scgMjEIbl0y4zrdB5uLRljVPhKN+GZHQu7GSdlgYDZS3NS
-	 pDxvT9nAn7D5Q==
-Subject: Re: [PATCH 9/9] arm64: dts: rockchip: Enable the RK3588 PHP SMMU
-From: netdev-bot+sashiko@kernel.org
-To: aiyengar1990@gmail.com
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, david.wu@rock-chips.com,
- dlemoal@kernel.org, cassel@kernel.org, fancer.lancer@gmail.com,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org, praan@google.com,
- will@kernel.org, robin.murphy@arm.com, iommu@lists.linux.dev,
- shawn.lin@rock-chips.com, sebastian.reichel@collabora.com
-Date: Tue, 17 Nov 2026 17:35:22 +0000
-Message-ID: <179493692280.3136.14096741635369747694@kernel.org>
-In-Reply-To: <20261113-mmu600-php-v1-9-231196049a3b@gmail.com>
-References: <20261113-mmu600-php-v1-9-231196049a3b@gmail.com>
-X-sashiko-severity: Critical
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1794937046;
+	bh=eWM1j+sd2GO3WIAK+yuTHGO/7gs7dlnVrZBPsWXtV+M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=cJOE2HPhpSsJ4zAAhbUz4fJvGabem5kKC4T7eVRiK7y5A1Xd6YUcBs6yQaOHq0phR
+	 zyah+eDzTPYVuCv16Dby/ic8hUZbO1lBaIpRV3s9zHosrK1rYXc1z2XJMfDYQuHlBW
+	 TMosYrepdzQRGY+SGJCG2cSLl3V6bf30yLul0CLzLjV31rG+2tKeZgJbHn9vBjXLhe
+	 d+tcIm16g7LiCLywM3iSO4uuqF6/ojxF5LodVCzm4JOEf4rYbWJIc3nYx5KoTpif2R
+	 MP9Jkq+Gc3y8zULfYW7ziuHfjVFo2YfBd3L3XNHWIIGvMyvUSc772iQ/dZKXN7EwWQ
+	 lAxLBTE/HeCrQ==
+Message-ID: <970679ef-861e-4dbc-89d5-a77c28c47e4d@kernel.org>
+Date: Tue, 17 Nov 2026 18:37:19 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,153 +51,101 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net v2 2/2] tcp: accecn: initialize AccECN fields in
+ syncookie path
+Content-Language: fr
+To: Thaison Phan <thaisonphan@google.com>
+Cc: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>,
+ Kuniyuki Iwashima <kuniyu@google.com>, "David S . Miller"
+ <davem@davemloft.net>, David Ahern <dsahern@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?=
+ <ij@kernel.org>, Olivier Tilmans <olivier.tilmans@nokia.com>,
+ Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>,
+ Stan Iliev <stani@google.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261116023709.132684-1-thaisonphan@google.com>
+ <20261116023709.132684-3-thaisonphan@google.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ xsFNBFXj+ekBEADxVr99p2guPcqHFeI/JcFxls6KibzyZD5TQTyfuYlzEp7C7A9swoK5iCvf
+ YBNdx5Xl74NLSgx6y/1NiMQGuKeu+2BmtnkiGxBNanfXcnl4L4Lzz+iXBvvbtCbynnnqDDqU
+ c7SPFMpMesgpcu1xFt0F6bcxE+0ojRtSCZ5HDElKlHJNYtD1uwY4UYVGWUGCF/+cY1YLmtfb
+ WdNb/SFo+Mp0HItfBC12qtDIXYvbfNUGVnA5jXeWMEyYhSNktLnpDL2gBUCsdbkov5VjiOX7
+ CRTkX0UgNWRjyFZwThaZADEvAOo12M5uSBk7h07yJ97gqvBtcx45IsJwfUJE4hy8qZqsA62A
+ nTRflBvp647IXAiCcwWsEgE5AXKwA3aL6dcpVR17JXJ6nwHHnslVi8WesiqzUI9sbO/hXeXw
+ TDSB+YhErbNOxvHqCzZEnGAAFf6ges26fRVyuU119AzO40sjdLV0l6LE7GshddyazWZf0iac
+ nEhX9NKxGnuhMu5SXmo2poIQttJuYAvTVUNwQVEx/0yY5xmiuyqvXa+XT7NKJkOZSiAPlNt6
+ VffjgOP62S7M9wDShUghN3F7CPOrrRsOHWO/l6I/qJdUMW+MHSFYPfYiFXoLUZyPvNVCYSgs
+ 3oQaFhHapq1f345XBtfG3fOYp1K2wTXd4ThFraTLl8PHxCn4ywARAQABzSRNYXR0aGlldSBC
+ YWVydHMgPG1hdHR0YmVAa2VybmVsLm9yZz7CwZEEEwEIADsCGwMFCwkIBwIGFQoJCAsCBBYC
+ AwECHgECF4AWIQToy4X3aHcFem4n93r2t4JPQmmgcwUCZUDpDAIZAQAKCRD2t4JPQmmgcz33
+ EACjROM3nj9FGclR5AlyPUbAq/txEX7E0EFQCDtdLPrjBcLAoaYJIQUV8IDCcPjZMJy2ADp7
+ /zSwYba2rE2C9vRgjXZJNt21mySvKnnkPbNQGkNRl3TZAinO1Ddq3fp2c/GmYaW1NWFSfOmw
+ MvB5CJaN0UK5l0/drnaA6Hxsu62V5UnpvxWgexqDuo0wfpEeP1PEqMNzyiVPvJ8bJxgM8qoC
+ cpXLp1Rq/jq7pbUycY8GeYw2j+FVZJHlhL0w0Zm9CFHThHxRAm1tsIPc+oTorx7haXP+nN0J
+ iqBXVAxLK2KxrHtMygim50xk2QpUotWYfZpRRv8dMygEPIB3f1Vi5JMwP4M47NZNdpqVkHrm
+ jvcNuLfDgf/vqUvuXs2eA2/BkIHcOuAAbsvreX1WX1rTHmx5ud3OhsWQQRVL2rt+0p1DpROI
+ 3Ob8F78W5rKr4HYvjX2Inpy3WahAm7FzUY184OyfPO/2zadKCqg8n01mWA9PXxs84bFEV2mP
+ VzC5j6K8U3RNA6cb9bpE5bzXut6T2gxj6j+7TsgMQFhbyH/tZgpDjWvAiPZHb3sV29t8XaOF
+ BwzqiI2AEkiWMySiHwCCMsIH9WUH7r7vpwROko89Tk+InpEbiphPjd7qAkyJ+tNIEWd1+MlX
+ ZPtOaFLVHhLQ3PLFLkrU3+Yi3tXqpvLE3gO3LM7BTQRV4/npARAA5+u/Sx1n9anIqcgHpA7l
+ 5SUCP1e/qF7n5DK8LiM10gYglgY0XHOBi0S7vHppH8hrtpizx+7t5DBdPJgVtR6SilyK0/mp
+ 9nWHDhc9rwU3KmHYgFFsnX58eEmZxz2qsIY8juFor5r7kpcM5dRR9aB+HjlOOJJgyDxcJTwM
+ 1ey4L/79P72wuXRhMibN14SX6TZzf+/XIOrM6TsULVJEIv1+NdczQbs6pBTpEK/G2apME7vf
+ mjTsZU26Ezn+LDMX16lHTmIJi7Hlh7eifCGGM+g/AlDV6aWKFS+sBbwy+YoS0Zc3Yz8zrdbi
+ Kzn3kbKd+99//mysSVsHaekQYyVvO0KD2KPKBs1S/ImrBb6XecqxGy/y/3HWHdngGEY2v2IP
+ Qox7mAPznyKyXEfG+0rrVseZSEssKmY01IsgwwbmN9ZcqUKYNhjv67WMX7tNwiVbSrGLZoqf
+ Xlgw4aAdnIMQyTW8nE6hH/Iwqay4S2str4HZtWwyWLitk7N+e+vxuK5qto4AxtB7VdimvKUs
+ x6kQO5F3YWcC3vCXCgPwyV8133+fIR2L81R1L1q3swaEuh95vWj6iskxeNWSTyFAVKYYVskG
+ V+OTtB71P1XCnb6AJCW9cKpC25+zxQqD2Zy0dK3u2RuKErajKBa/YWzuSaKAOkneFxG3LJIv
+ Hl7iqPF+JDCjB5sAEQEAAcLBXwQYAQIACQUCVeP56QIbDAAKCRD2t4JPQmmgc5VnD/9YgbCr
+ HR1FbMbm7td54UrYvZV/i7m3dIQNXK2e+Cbv5PXf19ce3XluaE+wA8D+vnIW5mbAAiojt3Mb
+ 6p0WJS3QzbObzHNgAp3zy/L4lXwc6WW5vnpWAzqXFHP8D9PTpqvBALbXqL06smP47JqbyQxj
+ Xf7D2rrPeIqbYmVY9da1KzMOVf3gReazYa89zZSdVkMojfWsbq05zwYU+SCWS3NiyF6QghbW
+ voxbFwX1i/0xRwJiX9NNbRj1huVKQuS4W7rbWA87TrVQPXUAdkyd7FRYICNW+0gddysIwPoa
+ KrLfx3Ba6Rpx0JznbrVOtXlihjl4KV8mtOPjYDY9u+8x412xXnlGl6AC4HLu2F3ECkamY4G6
+ UxejX+E6vW6Xe4n7H+rEX5UFgPRdYkS1TA/X3nMen9bouxNsvIJv7C6adZmMHqu/2azX7S7I
+ vrxxySzOw9GxjoVTuzWMKWpDGP8n71IFeOot8JuPZtJ8omz+DZel+WCNZMVdVNLPOd5frqOv
+ mpz0VhFAlNTjU1Vy0CnuxX3AM51J8dpdNyG0S8rADh6C8AKCDOfUstpq28/6oTaQv7QZdge0
+ JY6dglzGKnCi/zsmp2+1w559frz4+IC7j/igvJGX4KDDKUs0mlld8J2u2sBXv7CGxdzQoHaz
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <20261116023709.132684-3-thaisonphan@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Hello,
 
-Critical: 1 · High: 1 · Medium: 0 · Low: 1
+On 16/11/2026 03:37, Thaison Phan wrote:
+> cookie_tcp_reqsk_alloc() and bpf_sk_assign_tcp_reqsk() allocate struct
+> request_sock without __GFP_ZERO, leaving saw_accecn_opt,
+> accecn_fail_mode, syn_ect_rcv, and syn_ect_snt uninitialized. When
+> accecn_ok is negotiated in cookie_{v4,v6}_check(),
+> tcp_ecn_openreq_child() reads all four fields to initialize the child
+> socket's AccECN state.
+> 
+> In addition, because the temporary request_sock used to send a cookie
+> SYN-ACK is immediately freed, treq->syn_ect_snt is lost. If the listener
+> marks ECT (e.g. DCTCP), failing to record syn_ect_snt causes
+> tcp_accecn_third_ack() to flag TCP_ACCECN_ACE_FAIL_RECV when the peer
+> reflects ECT, disabling ECT for the rest of the connection.
+> 
+> Initialize saw_accecn_opt, accecn_fail_mode, and syn_ect_rcv in
+> cookie_tcp_reqsk_init() to match tcp_openreq_init(), and set syn_ect_snt
+> from the listener's TOS/tclass in cookie_{v4,v6}_check() to match
+> tcp_{v4,v6}_send_synack().
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I got a review from Sashiko [1] asking me to fix the same issue, and I
+was going to send the same patch. So this v2 looks good to me:
 
-- [Critical] This patch enables mmu600_php on every RK3588 board, but the
-  kernel cannot restore the SMMU after deep suspend.
-- [High] This patch's commit message says "the SMMU has its clock", and
-  the earlier series commit "arm64: dts: rockchip: Add the clock and…
-- [Low] The mmu600_php node that this patch enables has `clocks = <&cru
-  ACLK_MMU_PHP>;` and `resets = <&cru SRST_A_MMU_PHP>;`…
+Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 
---
+[1] https://lore.kernel.org/sashiko-outbox-213944@kernel.org
 
-arm64: dts: rockchip: Enable the RK3588 PHP SMMU
-
-This commit removes status = "disabled" from the mmu600_php node in
-rk3588-base.dtsi. That enables the arm-smmu-v3 instance in front of the
-PHP masters (GMAC, SATA, USB3 host2) on all RK3588 boards. The commit
-message notes that PD_PHP loses power in deep suspend and that arm-smmu-v3
-system sleep support is needed.
-
-Link: https://lore.kernel.org/r/20260929034510.2023173-1-praan@google.com
-
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> index cb0a39f637887..0c3d59a391826 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3588-base.dtsi
-> @@ -574,7 +574,6 @@ mmu600_php: iommu@fcb00000 {
->  		clocks = <&cru ACLK_MMU_PHP>;
->  		resets = <&cru SRST_A_MMU_PHP>;
-
-[Severity: High]
-
-The commit message says "the SMMU has its clock". Does anything actually
-enable ACLK_MMU_PHP for the SMMU?
-
-The arm-smmu-v3 driver has no clk_get()/clk_prepare_enable(), reset_control
-or pm_runtime handling. The node has no power-domains, so genpd pm_clk
-does not apply. The platform core does not enable DT clocks by itself
-either.
-
-In drivers/clk/rockchip/clk-rk3588.c the clock is a plain gate with no
-flags:
-
-	GATE(ACLK_MMU_PHP, "aclk_mmu_php", "aclk_php_root", 0,
-			RK3588_CLKGATE_CON(34), 8, GFLAGS),
-
-Its only enable references come from its children ACLK_GMAC0/1,
-ACLK_SATA0/1/2 and ACLK_USB3OTG2. Two things can turn it off:
-
-- clk_disable_unused at late_initcall_sync, when no master is bound
-  (modular drivers, or a board that enables only some PHP masters).
-- The last master disabling its ACLK on runtime suspend or remove.
-
-The SMMU driver still touches the hardware after that. It issues CMDQ
-TLBI/CFGI plus CMD_SYNC on unmap and on flush-queue timeouts, it runs the
-eventq/gerror handlers, and at reboot it runs:
-
-arm_smmu_device_shutdown()
-    arm_smmu_disable_action()
-
-That usually happens after the consumer masters have already shut down.
-
-Could this cause CMD_SYNC timeouts or a stalled bus access? The "Add the
-PHP GRF clock on RK3588" commit in this series describes a similar hang
-for pclk_php_root.
-
-The earlier commit "arm64: dts: rockchip: Add the clock and reset of the
-RK3588 PHP SMMU" says the clock was added "so the SMMU keeps its clock
-while its masters are idle". Does that need clock handling in the driver
-(plus a binding update), or the gate marked as critical or
-ignore-unused, rather than only the DT property?
-
-[Severity: Low]
-
-Will this node pass dtbs_check now that it is enabled? The binding in
-Documentation/devicetree/bindings/iommu/arm,smmu-v3.yaml does not define
-clocks, resets or power-domains, and it has:
-
-additionalProperties: false
-
-No patch in the series updates this binding, although the dwmac, ahci and
-grf bindings are updated.
-
-Also, the "Add the clock and reset..." commit says the reset is added "as
-for the PCIe SMMU". The sibling mmu600_pcie node, which uses the same
-compatible, has neither clocks nor resets.
-
->  		#iommu-cells = <1>;
-> -		status = "disabled";
-
-[Severity: Critical]
-
-The commit message says:
-
-  PD_PHP is powered off in deep suspend and the SMMU resumes from reset
-  in bypass, so this needs arm-smmu-v3 system sleep support [1].
-
-Is that support in the tree this patch applies to? No earlier patch in
-the series seems to add it.
-
-In drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c, arm_smmu_driver has no
-.pm:
-
-static struct platform_driver arm_smmu_driver = {
-	.driver	= { ... },
-	.probe	= arm_smmu_device_probe,
-	.remove = arm_smmu_device_remove,
-	.shutdown = arm_smmu_device_shutdown,
-};
-
-The only code that programs the stream table, the queues and SMMUEN is
-arm_smmu_device_reset(), and only arm_smmu_device_probe() calls it. The
-syscore op added to drivers/soc/rockchip/grf.c earlier in the series
-restores only the PHP GRF StreamID registers.
-
-With this node enabled, the PHP masters get IOMMU DMA domains and their
-drivers program IOVAs. Those masters are usb_host2_xhci, gmac1, sata0 and
-sata2, plus gmac0 and sata1 from rk3588-extra.dtsi.
-
-After a deep suspend cycle, does the SMMU stay in its reset bypass state
-while stmmac, ahci and xhci keep using descriptor rings and buffers at
-their old IOVAs?
-
-If so, the IOVAs would be treated as physical addresses. On gmac RX the
-frame contents come from the network and would be written to whatever RAM
-or MMIO sits at that address. TX and SATA/USB reads could leak arbitrary
-memory.
-
-PD_PHP is also defined only in drivers/pmdomain/rockchip/pm-domains.c and
-the dt-bindings header. No DTS references it, and mmu600_php has no
-power-domains property, so genpd cannot order an SMMU save and restore
-either.
-
-Before this patch the node was disabled and these masters used direct
-DMA, so suspend did not hit this problem. Should enabling this node wait
-until the arm-smmu-v3 sleep support in [1] is merged?
-
->  	};
-
+Cheers,
+Matt
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-mmu600-php-v1-0-231196049a3b%40gmail.com
+Sponsored by the NGI0 Core fund.
+
