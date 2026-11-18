@@ -1,80 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018603;
-	b=GrRBCtXjaJSqZ3mhjifKju61d8xNjzaWl9znUVLi7ZupL6A7MRqbjuuNzkJgSZI99DDP
-	 MzlWL/exaX4sznQMBHngP0ogqXQ9YbrnyKXqbPKswmKjUhnRUv7l/ezPYi2X22trLNZ3V
-	 xf9hRGUfYX62gkUp5pklWDpafHR+1v6uNu04bEuUwAIJ2oo1mgjSXB1Aq3z1TsxLymFf1
-	 2F3K1jakvAREd07ktlARSfdNpWk5n1/DYCbkIorYmf3MadWr1Lh42YdrJB2qxUdvcffX9
-	 Ge/9Inru2NyaXZPHw03u0VmybZurV2+WZjHKefyR/ki4R3+KG/l2IAXYH8W32m93auw==
+	t=1795018611;
+	b=W9fV0bqRnVv6iaKKTcY/Cm74UgNAbgDNJhv0wXyLNismXgtMVpHr4J6P4lI3lgZBEkSX
+	 GwtWatbUN+JFQlq1eQz3AbqPRjliTmYu/8QEG6tmLS019K50w5yXcQGPCfd62u8dvKZ/K
+	 8jtI5enCmm3uE91sqEht2a99rMb1c1W5LaG5Ntnky5AdVeGVw8U9whd+51RV5SCTNo88g
+	 ACdXHiwtdfWJJC2ZHeIXMkZUc3BWQ+lsW2fR4UIoff0eYYqZyEcEjaffz3ExUjiJRrVkK
+	 DMwvWWmTmNjS1DcvZWc6FZx6ncHZQM9Ki9fYGCpS/9nRBmC244qq/AKjbGwR3sw7ERw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018603;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018611;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=+hDJ59DAiZ9oaoQ4Kn0wejktfUDrr5uda88bBbLHEsg=;
-	b=P7KwzLZlVxioY5MQqoPUCah6INAyyAQes8pTI3jBQg/yeNSBGHLfIv1WZXEMOBhIU2J4
-	 jSPuHulLT8VnWxCBVJu2Y0dAQiSSHV+mca8WSZXD4kNykEQJ/SsQSyz6w0bfci9LRfzux
-	 zJpAyiptlO+ei/d77uyMRm/ABERSr9HzKLEzX7IUqdNfVOIcdk3CauXr83k1VsSgnEhvL
-	 VmIFQfYOQh12DwlqDqSP1d5Mklv1D9eRFBlc86TTdrXBevLMTdxuRJhQTM/28IVDzvdqd
-	 KcOE5VApjW0tN7t1I8OfFQWCHQ0qvEyHCNQI0qBmNO1TTJ+PD5FWdrk9ctsSG3I5Wqg==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=5Mt1j1NeBKppdPhQUtkeyMgCerh85ZsDSz+CjHWhBd8=;
+	b=3tSW92vAYXh/fjsSEE7WmfnZa+Wv2fpaMNaCSpB5rYfCGwRamvA6rqvl8lUN8BO2Q033
+	 lSgksBWjHvghZfg89GiOhz4PJ/SuxOWiJ59RA+dhSvNEgj/Q612SfaYmoceCNQrsXFSW7
+	 JR0xcPgdPWG5G/V0mI23sqYEjqMnQxwsltAbNHLC87sr/xduQirFDxY9mCkCVZ4X+vtyn
+	 PFs9dpgxVt1yysyOPx3CNZeTGLh1JMjNXs5fMQbSwyCPXgi5z/DcaZzgLvVH7nWI2BA+8
+	 74A6+JQUMg+xvjolsCr/CwcM3w10mWQed0V0d36hXVjyvNUaAokLC6JlxqyIP+qEtOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ccxItMpV;
-	arc=none smtp.remote-ip=74.125.227.131
-Received: from mail-pj2-f3.google.com (mail-pj2-f3.google.com [74.125.227.131])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YF532Un7;
+	arc=none smtp.remote-ip=74.125.227.138
+Received: from mail-pj2-f10.google.com (mail-pj2-f10.google.com [74.125.227.138])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F6B8606A32A
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:16:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F6B8606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB8D9606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:16:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB8D9606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ccxItMpV
-Received: by mail-pj2-f3.google.com with SMTP id 98e67ed59e1d1-3ada6c66964so222095a91.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:16:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YF532Un7
+Received: by mail-pj2-f10.google.com with SMTP id 98e67ed59e1d1-3b3d12563ecso507185a91.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:16:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795018602; x=1795623402; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+hDJ59DAiZ9oaoQ4Kn0wejktfUDrr5uda88bBbLHEsg=;
-        b=ccxItMpV0dtW5594Xn7TJbW87gSKf4IvHD9fjpkuHCHYo8sZ/oVnH4fgzRiCpDDbrV
-         /qu2j6GRtqKMMYYSVqZgLlnwtnE+hO9y3ml5GKeMO98wh3avt47mhDK/7ukjdRhAo+qg
-         TiEwsEiLIzhHrzksmEUFCSShU4FPRZw1Gr6NNwIf9oZfrSp/6znwyk+yMTqemulec254
-         FGyuIfPUopBor+IUXqEWzuhNjfBro1d43eQCqesDB2lwxGw4HwMDy1dI0b3AOlk0nnoS
-         ysF9iGijvW/kquY0gJ4vSMxDPvH++EQo498pEwftCrC6Eu1mS+drpV7+DM9P4tY9b1q6
-         M/Sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795018602; x=1795623402;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795018610; x=1795623410; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+hDJ59DAiZ9oaoQ4Kn0wejktfUDrr5uda88bBbLHEsg=;
-        b=M6hYOlqSucUv2ysryinhRAHAj9wNUrG3ATgUEOqiJruKMg7gxFaf65osTh611kKpSF
-         i3XEmwiQQndFyRZibSy2QsTnLg3LfzC1izfkZdNMDX2Vghx3o5jxNYImmZFCHF2TvC1K
-         JAfvaXXJ2SYvArrZJH7up/Jk/wZ2WmY/4LMunusw8QtL+X2K12bctsdonkArfUuqYboG
-         KzX/risW3xAcNHuB61WqJql91AL5V+psjkIMut9z9sSQ3hzLtFBHCn8jEw5MSCz1o9R0
-         oWwi+9oFGQL1rzA1C0qoXCfMtzkPc3DCZfbsxPDBaSMMJIKJ8hRGLuxn4zxzo/XCrDBl
-         Ft3A==
-X-Gm-Message-State: APuU4Z8tfSTMzDwDQkzacrfJ8XIlEpzIuVdFtSb3F6EvYhZRTDiBwNE8
-	Od4mr8ejh1kSPHxErzXlYq+QR6m3rdSjZkrODjYbbdAQyP0T4ZlC9tG1
-X-Gm-Gg: AZFdTZdP/EajCGakwxYbYMBcZOmbmoEvUQBcFR7FW1JO6CCbdtJUnc3tQ0fVCBtkWIt
-	BHOX3LdcP1fifsO0IeIEeIi1Y+bZkZpILEpZ9OYGNhoEdwYENI36I1VHL6xlZFSw6ArD7cqOP5C
-	FhthvmwzhmnLvy021AemQqKE5S9rwU/Fv3BLl4UINRgBP8QzCVkkRJz4H36D1aSeTxyWCFC3RqM
-	cufxC+Bb0JFdPrbWWFRD3mNRWv8QGopbovQ2koq3NRy4RgNyVGXfy1NnHNBMQbhtYXp0aSdtvqt
-	74i6GIRWIoD5Dl+H7rIVuloHRxakk6/boFFot4wtzj0LhnaaAO4D5lNbYdKZmxQthY1vNNYTRkB
-	BSPC/wLfVg4avo+WgavRDgx50x+aXvvPCv3XNerG6xm+sV1yC36b+BxC3C1a5muOiqZ075TH6v2
-	shCbSpR1WxjxThn8s2DIJVjMZLNpPTOo1VI0u9XxNmW7Tp6U5w83skvgWckOhfwUAWu/kKqGRV6
-	Ao1MK8ErbRPSQl6bm5fdb0xfI909a94UNiM3r8S1DDLgStaAMP4WjLSFaX1jFq3ybpVndRcp8F2
-	EWhi1v50cyJRGDJnYvB3YZ0QbWVNAX7dbz3X5DBus3lZVVU=
-X-Received: by 2002:a17:90b:5390:b0:3ab:2d17:51c5 with SMTP id 98e67ed59e1d1-3b3d0640f3bmr3428395a91.6.1795018601880;
-        Wed, 18 Nov 2026 08:16:41 -0800 (PST)
+        bh=5Mt1j1NeBKppdPhQUtkeyMgCerh85ZsDSz+CjHWhBd8=;
+        b=YF532Un7EfdsWUOyRvMcMPwNcfTpF8mLMNWjr8N88MGn6ZYleGUDOqh670UiNeMiPX
+         MYNTt5y3qfJwfKVC/UgqOt1Vyiwyq2V5n2U3rhIuUjz5TSLBBkgHrPc+fkxDlgr0CrpX
+         z/tvtjU7YgyrObfxzp6ETdn1Kic8NC94yvGM/I1fSLpgqUKEG3FlyWYVm+WvfpOMEcEn
+         mtexkcehBm4WD9RLbjeur1nf0XCnsYQDlVNyUZ0UeAr9b7DZr0Meoq3jB3p2i0ZbS3Wq
+         twEUyTQfHFOV/cBfSBZu6yGiQN9pNFSqermpNvBT0URnd2fVANm2u98hFX6IIXNZA6M3
+         LLFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795018610; x=1795623410;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=5Mt1j1NeBKppdPhQUtkeyMgCerh85ZsDSz+CjHWhBd8=;
+        b=ec/bSymGpXVwGQQaAZEcNYiiZEtz+HKozRdkhN2z0Oe/0TpmoAijjVXivHpdI4YWvY
+         wqcz2zZlc/4i+nGMsiyW/rOnDSeAmZkQwxizT/lAICdnNFNiEU8CuYgwtWKslK0OG3E8
+         m2wKlxVQjOWBdXWg/PZlmu9BpzPD6QRa6HoS6JoEW3BJM/2BwY2XhAno/bHopCoBZgqG
+         SjwY+wEOtDneu/Z0JeFREkx/FAbjm4f8zEums2RJ3hogEdCXnUOdaV3LTrGEU9F4mSHu
+         1GLZAJ/6ZdOG38u/oOa5VFSKKXimF6eF5KJ3mF3V/Ibyti91T144CusHMDUGiEC1GFar
+         GyTQ==
+X-Gm-Message-State: APuU4Z9ypGuZp1UVtwQYMITsorqhH0tCry87D0wuV5bK+FFSY4BRlMNq
+	+XbLzKiQN+RDtyaQfgxsXeyA3VM5Ux8CpKhllWWAWgr6oCHzvpyRFETuzrYI3P+V9rvntQ==
+X-Gm-Gg: AZFdTZd73Dhqj8qT87xobl8BxyNI8l7T6ByvO7vDHm7IjFdKBtVoc8PiuG/PcuixDDn
+	eLyuwHWGqmHK8PQufauFVPkgmPvSLVT/DXPm4dmduueYXecFhFUeSQ94E2V8mOdMdzUVqxwzPbq
+	hRzqHk5QjXVrtMN+4fRzwDqIV5jH4/30D69JUzjohXY/ZaWUefKISqchJWc1l0tOnLWaWdO4bVX
+	azmE1fIFbfqxB4dbc5mb1yWYTGHfBTA/XjuiIrsNpzsqT2Md1BQlbKNd6gD89Z9NiFxI35mod/T
+	UTKiFH95sTP9jQsjklf3qM1seMlM/0xiMJTsWKotDSWNVdVdsJThlzz+FQ9xlY3LWKYySPKnxxs
+	A+m/NXzOmpxA+DfTX9DJjklWHgGeye838tdSiEeCt4zKqPB6uG9sUK2WSLiLwxY/mp6zkikJWth
+	hxxBpXSDTJSuhR+VtaEgYusDrIIDw+5QEXSvsIVibqPNiL4FmvkZje4tHAT1CD+06Jabj7dFaio
+	ARPyMXq3mhbYNB6bYVQhOss8vM1glkKFKV9x8iqioipg8VTp+35nh36kJd0jqdeiWzzfDy8khCX
+	yL5V4BbNzyij72BW3tpmL3Nx9tPpJXG27JtoOxSLKWG7ctU=
+X-Received: by 2002:a17:90b:4b86:b0:3ab:1b19:78f4 with SMTP id 98e67ed59e1d1-3b3d06a487emr3376460a91.6.1795018609907;
+        Wed, 18 Nov 2026 08:16:49 -0800 (PST)
 Received: from J4f-Laptop.localdomain ([183.36.237.113])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde533658e4sm256978a12.2.2026.11.18.08.16.36
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde533658e4sm256978a12.2.2026.11.18.08.16.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 08:16:41 -0800 (PST)
+        Wed, 18 Nov 2026 08:16:49 -0800 (PST)
 From: Shihuang Liu <shlomojune6@gmail.com>
 To: bpf@vger.kernel.org
 Cc: netdev@vger.kernel.org,
@@ -93,10 +95,12 @@ Cc: netdev@vger.kernel.org,
 	kuba@kernel.org,
 	qmo@kernel.org,
 	Shihuang Liu <shlomojune6@gmail.com>
-Subject: [PATCH bpf-next v2 1/2] bpf: Reject offloaded maps as map-in-map inner maps
-Date: Thu, 19 Nov 2026 00:16:31 +0800
-Message-ID: <20261118161632.177820-1-shlomojune6@gmail.com>
+Subject: [PATCH bpf-next v2 2/2] bpf: Reject maps without iter_seq_info in bpf_iter_attach_map
+Date: Thu, 19 Nov 2026 00:16:32 +0800
+Message-ID: <20261118161632.177820-2-shlomojune6@gmail.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118161632.177820-1-shlomojune6@gmail.com>
+References: <20261118161632.177820-1-shlomojune6@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,72 +112,37 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Offloaded ARRAY/HASH maps share map_type with the software maps but use
-bpf_map_offload_ops and a different object layout.  bpf_map_meta_equal()
-compares map_type, key/value size, flags and the btf record only, so an
-offloaded map can be inserted into an outer map created from a software
-template.  The verifier and JIT then use the software layout on the
-offloaded object: an ARRAY lookup writes to bpf_offloaded_map.dev_priv
-and a HASH lookup reads bpf_htab fields past the 320-byte allocation.
-An offloaded map used as inner_map_fd is accepted too and leads to a
-NULL map_lookup_elem call.
+bpf_iter_attach_map() checks map_type only, so an offloaded ARRAY/HASH
+map can be attached to a bpf_map_elem iterator.  Offloaded maps have no
+iter_seq_info, so __get_seq_info() falls back to the target's seq_info,
+which is NULL for bpf_map_elem, and prepare_seq_file() dereferences it
+when the iterator is opened.
 
-Drop map_meta_equal from bpf_map_offload_ops so the existing check
-rejects offloaded templates, and compare ops in bpf_map_meta_equal() so
-an offloaded candidate no longer matches a software template.
+Reject maps without ops->iter_seq_info.  All map types accepted here
+provide it.
 
-Fixes: a38845729ea398 ("bpf: offload: add map offload infrastructure")
+Fixes: d6c4503cc296 ("bpf: Implement bpf iterator for hash maps")
 Link: https://lore.kernel.org/all/20261112105620.57520-1-shlomojune6@gmail.com/
 Signed-off-by: Shihuang Liu <shlomojune6@gmail.com>
 ---
- kernel/bpf/map_in_map.c | 7 ++++---
- kernel/bpf/syscall.c    | 1 -
- 2 files changed, 4 insertions(+), 4 deletions(-)
+ kernel/bpf/map_iter.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/kernel/bpf/map_in_map.c b/kernel/bpf/map_in_map.c
-index 0fa3f2ac0f992f..9ec3bbfb5d4e3c 100644
---- a/kernel/bpf/map_in_map.c
-+++ b/kernel/bpf/map_in_map.c
-@@ -38,6 +38,7 @@ struct bpf_map *bpf_map_meta_alloc(int inner_map_ufd)
- 	if (!inner_map_meta)
- 		return ERR_PTR(-ENOMEM);
+diff --git a/kernel/bpf/map_iter.c b/kernel/bpf/map_iter.c
+index a58c148692e6c3..9e459a2d34c3aa 100644
+--- a/kernel/bpf/map_iter.c
++++ b/kernel/bpf/map_iter.c
+@@ -176,6 +176,10 @@ static int bpf_iter_attach_map(struct bpf_prog *prog,
+ 	    map->map_type != BPF_MAP_TYPE_RHASH)
+ 		goto put_map;
  
-+	inner_map_meta->ops = inner_map->ops;
- 	inner_map_meta->map_type = inner_map->map_type;
- 	inner_map_meta->key_size = inner_map->key_size;
- 	inner_map_meta->value_size = inner_map->value_size;
-@@ -65,7 +66,6 @@ struct bpf_map *bpf_map_meta_alloc(int inner_map_ufd)
- 	}
- 
- 	/* Misc members not needed in bpf_map_meta_equal() check. */
--	inner_map_meta->ops = inner_map->ops;
- 	if (inner_map->ops == &array_map_ops || inner_map->ops == &percpu_array_map_ops) {
- 		struct bpf_array *inner_array_meta =
- 			container_of(inner_map_meta, struct bpf_array, map);
-@@ -88,8 +88,9 @@ void bpf_map_meta_free(struct bpf_map *map_meta)
- bool bpf_map_meta_equal(const struct bpf_map *meta0,
- 			const struct bpf_map *meta1)
- {
--	/* No need to compare ops because it is covered by map_type */
--	return meta0->map_type == meta1->map_type &&
 +	/* An offloaded map has the map_type of a host map and its own ops */
-+	return meta0->ops == meta1->ops &&
-+		meta0->map_type == meta1->map_type &&
- 		meta0->key_size == meta1->key_size &&
- 		meta0->value_size == meta1->value_size &&
- 		meta0->map_flags == meta1->map_flags &&
-diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
-index 60c4d84b9aba6f..0cae12c3f70849 100644
---- a/kernel/bpf/syscall.c
-+++ b/kernel/bpf/syscall.c
-@@ -112,7 +112,6 @@ int bpf_check_uarg_tail_zero(bpfptr_t uaddr,
- }
- 
- const struct bpf_map_ops bpf_map_offload_ops = {
--	.map_meta_equal = bpf_map_meta_equal,
- 	.map_alloc = bpf_map_offload_map_alloc,
- 	.map_free = bpf_map_offload_map_free,
- 	.map_check_btf = map_check_no_btf,
++	if (!map->ops->iter_seq_info)
++		goto put_map;
++
+ 	aux->map = map;
+ 	err = bpf_iter_map_check_prog(prog, aux);
+ 	if (err)
 -- 
 2.43.0
 
