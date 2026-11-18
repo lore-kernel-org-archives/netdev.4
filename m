@@ -1,56 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=178.154.239.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043553;
-	b=xYyxhqElalgkACjL2KJxH88DNvPG0omIC3EyIGlTgjDI3xWgW7ytvmQNUcRwODxA5JEP
-	 W940vLkOyQ9HEqIM+SjNthzD8n6rZo6VtU3ePudgfhrHgcFLRkNj/lqNWqBBItfUAGwam
-	 g7hh/FMQyOLwGeNSZn+NhSAAbdqWlMkfNVEJYE9Uef5F/SkCXFeYnM/xu+NW/G1ZkYTnY
-	 KpLHztONBNoT0yyy8X9U3xVm0qzjeh19IFPPJJe1wol5iHvpQ6RsCEDsGIBowUqeh9c3B
-	 I9FuIMvwoMb3QMP48COWIC7X0mI0H0t24KS3/iLCnhaldSWonDky7sopsTGhz5SKung==
+	t=1795043633;
+	b=bFuGsPZyeEwoWmls6zzHZFNMjJelGZb0whPnc1h/LRFd+Z38OM/SfMg+fmFSV7ACMwWg
+	 hbolBXpAUUcg3nUx5eyyyGtJVPoD62p5MKd2dnZfX0hVhWQvJqx8Oys7w2tuNWDIs975a
+	 CLHn/nByyZ+D3hoOPNNmKZF+L7kfjavU/nWo5ytbeXDIvKAEHlQNLN1UVVmwqSpUdndde
+	 DtKeVZcKFv31Y/ZeilqJ56YrWaP+AELG0N8XGaaya8WyrXC63IhxAxmJDtSKcJ/UGuwWa
+	 3hHkVddhYGiDv29gMsaYt1I7Q/ozWM/tIPT82+IzKrnc0feptztI4VPS1CqxJrZ5pCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043553;
-	h=DMARC-Filter:Received:Received:X-Yandex-Fwd:DKIM-Signature:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=YVDspEK0iLkF1tAiZM9WXoiqd71MESnJ392z8YtPtdQ=;
-	b=y6is2zV1S6TVZXIHazTngg0Y9rU5mb9VUYlCAHI0Ik+q6V8QglIijG3qyyCrV8skQx2T
-	 URlpU1taVDy+WtfKTznzMIXfba84Ju8XyX349apJ2o0Jexk+iHK+QwPEduvFsiGb4/CkK
-	 dFyRy6sMd1MyTleHgXzWHJpJHC13gyEzHRqOMdfnBrC4NcOCsSPTQ/WI8F9jLhTZG95i/
-	 Ru+Qvrkv5jHt/FCIrjwLIea4GPnzubQvl/i7tj+h/LChifDtvLlqTk4al8xtmQpaw4BRj
-	 L9i4uXuiWEwCeORhablda/wXg0OpFM6/GoovB4EZRGUdGYkdxv8U7yzu8oJ15SpsnFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043633;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=U2sLAuN9XmB+8Qa4Z+TqAPFS0kw+btbeuIVWSXx3mKQ=;
+	b=RbknOmpHjBdNDiBre+bUhTfBqZKB+aHYDtfcH+jz94y9/uKZ7VS6vg1521vU3orIHyZn
+	 gLLczbjFcVYul9gEGaFfrWODrEtRyR3DnO3o7gQGfdgghxU3VAO5cda5KjBikqiuPHX7I
+	 ln0mYlQXUslm86Lg7YitfB+P48J6NMEe6XCiynl06pBr+lIQq30+36roleHiqVJB0OU+b
+	 kpYt0klbRmBR1JQDwbpnSndDeX+zSCKNOXfRiYvH/2k8QuCITWEQ/M2rxSW68E/N4tlqp
+	 mfhQf2ippmgR4348Mg6g3vqX72Grmy93vGafZU+mDeD7Zh6H2gmcnmCmU1Ql8ymZbLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yandex-team.ru;
-	spf=pass smtp.mailfrom=yandex-team.ru;
-	dkim=pass header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=A+SBiDxM;
-	arc=none smtp.remote-ip=178.154.239.200
-Received: from forwardcorp1d.mail.yandex.net (forwardcorp1d.mail.yandex.net [178.154.239.200])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSLSNfcN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75F0A606A320;
-	Wed, 18 Nov 2026 23:12:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75F0A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=yandex-team.ru
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yandex-team.ru
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EBC760A2634
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:13:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=yandex-team.ru header.i=@yandex-team.ru header.a=rsa-sha256 header.s=default header.b=A+SBiDxM
-Received: from mail-nwsmtp-smtp-corp-main-57 (mail-nwsmtp-smtp-corp-main-57.yp-c.yandex.net)
-	by forwardcorp1d.mail.yandex.net (postfix) with ESMTPS id 35A3580E78;
-	Thu, 19 Nov 2026 02:12:21 +0300 (MSK)
-Received: from [IPV6:2a02:6bf:8080:a88::1:1b]
-	by mail-nwsmtp-smtp-corp-main-57 with ESMTPSA id JCkYfr0vwW20-hJIPHIu7;
-	Thu, 19 Nov 2026 02:12:20 +0300
-X-Yandex-Fwd: 1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yandex-team.ru;
-	s=default; t=1795043540;
-	bh=YVDspEK0iLkF1tAiZM9WXoiqd71MESnJ392z8YtPtdQ=;
-	h=From:In-Reply-To:Cc:Date:References:To:Subject:Message-ID;
-	b=A+SBiDxMIEUT0J6uZtYuI730PtZZpPLYU7cYw/Ls2+RDYHodrDacY46IuaQGz9PXi
-	 gRzw3DIux8SDSvu6PoryMe2ov2hP1dfROPkoTxDiWucwHV1KDtMKwc/B88wNESMwuo
-	 4k/PXv+eVQ7KgZZNCiCLc7/DsDFGvG9CwFR7lkV4=
-Authentication-Results: mail-nwsmtp-smtp-corp-main-57; dkim=pass header.i=@yandex-team.ru
-Message-ID: <b01826d2-63b9-4e2d-8857-a8cb72cd6ed5@yandex-team.ru>
-Date: Thu, 19 Nov 2026 02:12:19 +0300
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSLSNfcN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E67611F000CE
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:13:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795043632;
+	bh=U2sLAuN9XmB+8Qa4Z+TqAPFS0kw+btbeuIVWSXx3mKQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=eSLSNfcNODBJWE+smdCpOQvgxJ3yCTsRV1ti30sCEnkO3vNdMdOkA/x7U53t7qXV3
+	 By773AaFnvn0RoQGwDzS4etnUHqi4d+q+5OJO75RgPnRmYIsRqjyyi2k3AszecNcSC
+	 +YRgzM6KApU8tIs+P3pJruiZu1zk8F2SUzR/1DHobGD2AfXhk6AOSZDBc7lXduqVAc
+	 Qb2UKu9U8QdwlxsdcEP3ksLNa16GGGJWySlJsPwYyeOG3qwL5dFdQwQkiyG8fg676U
+	 7TXOMVnrN0aktYPTMRTofxxQ7qeXKHDQvFvlVO5dTVVWKddCuhzyqWNfZLznJZz/lQ
+	 NU6mi/L0c7L/w==
+Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-86103aaac12so228150a34.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:13:52 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFNwGlHQXnRBuG4ofg8Wo3QffpuoGes5UbisVzPzpPGr0GvVjOzd8WQYT8zE4Ddxz4ucbgH0e8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/Q1zdib67zSbZVLtiop+KFAu0wHP5SP3Njh6x6ZfTebrQnluWy
+	eNAewOmLm7SCObaR4lginYs+CYEk350177AiSZqxCYT85DrV0S22hx0JhTrczPJZ+Fuml4+11PT
+	QOcYUt4ZZJfDlLR3pa1THDsA0YzwCfpE=
+X-Received: by 2002:a05:6820:3505:20b0:71a:fb85:d056 with SMTP id
+ 006d021491bc7-71b2e1830d0mr153233eaf.6.1795043632256; Wed, 18 Nov 2026
+ 15:13:52 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -60,76 +59,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net/packet: don't direct reclaim for contiguous
- ring blocks
-To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261117085951.681985-1-d-tatianin@yandex-team.ru>
- <willemdebruijn.kernel.3b356fe59c775@gmail.com>
-Content-Language: en-US
-From: Daniil Tatianin <d-tatianin@yandex-team.ru>
-In-Reply-To: <willemdebruijn.kernel.3b356fe59c775@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261118-nb-genet-xmit-drop-kick-nn-v1-1-e4e54b143d60@tipi-net.de>
+ <377f9f22-4ef6-4b55-9276-ffa4893eda1e@broadcom.com>
+In-Reply-To: <377f9f22-4ef6-4b55-9276-ffa4893eda1e@broadcom.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Thu, 19 Nov 2026 00:13:40 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqM4uAi-YZyWKc8nJv3TL67tU1VnKrAEXTpLV6Pgn0BrA@mail.gmail.com>
+X-Gm-Features: AclHuK8eBwJrfhyin3SZg4bGLsa4kZahp_0pSqnbPmibibSVGeBRbc-WcUQOYsk
+Message-ID: <CAL4WiiqM4uAi-YZyWKc8nJv3TL67tU1VnKrAEXTpLV6Pgn0BrA@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: bcmgenet: write the Tx producer index when
+ a frame is dropped
+To: Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: Nicolai Buchwitz <nb@tipi-net.de>, Doug Berger <opendmb@gmail.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Justin Chen <justin.chen@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/19/26 1:45 AM, Willem de Bruijn wrote:
-
-> Daniil Tatianin wrote:
->> alloc_one_pg_vec_page() first asks the page allocator for a physically
->> contiguous block and falls back to vmalloc if that fails.  The first
->> attempt uses __GFP_NORETRY, but that still allows one round of direct
->> compaction and reclaim before giving up.  Under fragmentation every
->> block of a ring pays for that round, so setting up a ring can stall the
->> caller for seconds even though vmalloc would have worked right away.
->>
->> On hosts that run tcpdump periodically we saw ring setup (8 order-6
->> blocks) stall for up to 1.4 s per block and 3.5 s per ring.
-> Is this still the case with recent commit 0e05a469c294 ("mm/page_alloc:
-> avoid direct reclaim and compaction for costly __GFP_NORETRY allocations")?
-
-I think this fixes the issue for order > 3, so my patch is not needed 
-anymore.
-Thanks for pointing it out!
-
+Le mer. 18 nov. 2026 =C3=A0 22:01, Florian Fainelli
+<florian.fainelli@broadcom.com> a =C3=A9crit :
 >
->> The contiguous block is only an optimization.  User space maps the ring
->> page by page either way.  So make the first attempt without direct
->> reclaim, as kvmalloc() already does since commit 46459154f997
->> ("mm: kvmalloc: make kmalloc fast path real fast path").  kswapd is
->> still woken.  The last resort attempt after a failed vmalloc keeps
->> direct reclaim.  Order-0 blocks are left alone, the vmalloc fallback
->> would reclaim for them anyway.
->>
->> Signed-off-by: Daniil Tatianin <d-tatianin@yandex-team.ru>
->> ---
->>   net/packet/af_packet.c | 10 +++++++++-
->>   1 file changed, 9 insertions(+), 1 deletion(-)
->>
->> diff --git a/net/packet/af_packet.c b/net/packet/af_packet.c
->> index 8250e6a791f6..38f35a4f9d49 100644
->> --- a/net/packet/af_packet.c
->> +++ b/net/packet/af_packet.c
->> @@ -4493,8 +4493,16 @@ static char *alloc_one_pg_vec_page(unsigned long order)
->>   	char *buffer;
->>   	gfp_t gfp_flags = GFP_KERNEL_ACCOUNT | __GFP_COMP |
->>   			  __GFP_ZERO | __GFP_NOWARN | __GFP_NORETRY;
->> +	gfp_t first_gfp_flags = gfp_flags;
->>   
->> -	buffer = (char *) __get_free_pages(gfp_flags, order);
->> +	/*
->> +	 * A contiguous block is only an optimization because vmalloc works
->> +	 * too. Do not stall in reclaim or compaction to get one.
->> +	 */
->> +	if (order)
->> +		first_gfp_flags &= ~__GFP_DIRECT_RECLAIM;
->> +
->> +	buffer = (char *) __get_free_pages(first_gfp_flags, order);
->>   	if (buffer)
->>   		return buffer;
->>   
->>
->> base-commit: 073d54dc3ccc8c8109c56e4d984d1ad616554463
+> On 11/18/26 12:40, Nicolai Buchwitz wrote:
+> > With xmit_more, queued frames reach the hardware only when a later fram=
+e
+> > writes TDMA_PROD_INDEX. If that frame is dropped, the write is skipped
+> > and the queued frames wait for the next transmit on that ring, which ma=
+y
+> > never come.
+> >
+> > Write the producer index on the drop paths too.
+> >
+> > Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+>
+> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+
+I think this is a net candidate, even if you could not reproduce the bug.
+
+Fixes: ddd0ca5d60b3 ("net: bcmgenet: add support for xmit_more")
+
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
