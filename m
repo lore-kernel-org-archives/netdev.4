@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022822;
-	b=2GleQL5GxIXm8q0VFQPUtPbdBRBWyIS59A28kS2KNl6SdpsWm25ao8I0h1cl9b87D+vr
-	 ONH/f4o3vBp1gArvj3946oJ+8Gi9ju+Tvq+ro/jZqOb/UlbWT/9YxZy/7FjEhMmKTwXCp
-	 lSYk3eVfNx+i3QQkuYGz08i1hisY21xud856i/x3Mg6TSrGl0MgDB0ZlViFqWm4XSTbao
-	 Kz++OJ8pAvrGMZimAXPqriDf+iutAZrgpv6f1s57ElOtuQlYgO1MXzFeuMzBFWD/ii4gE
-	 qAC1drrEMcpWnD4zNsUWinwavydFiJCL1ldNh7OpaaBQAvRId8nbpKnzsCiIsMqkJlw==
+	t=1795022825;
+	b=P7f7r+bP06pb9y/gfCnDozvwbvppDJthjKrtxIy4xwzlUI8dJYLyO6gr86vRkGPpCtRf
+	 qR7RnzkKzQ1+KqJURcy1LDUngWCbKf9vr02wy8A0I+DPC8FtlIvecRvTM2sA38/fauxhm
+	 eBisg8PeFd4FL0W3EvZFGr4iDyGhABoQjjNMq+LrSvcTLVZZo59+zMw3awbdScZVQQQGr
+	 v3kQSoNHTHUoy7WukXNytzZllnTalcVLVg8o2ccP7CPszL7YiFJvcsIHGgIs+rvCRByn4
+	 2ZQD5VVDJjLbe+8ZwHs1xmE9MnDrMcNSF4UiOFySnmKDJPMbbMyXHRIK5eFeNWkUZkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022822;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022825;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=GGhYkGebGexfGExsMQfltWE8JbYR5fBAohiVWSo1Fhk=;
-	b=AWGqRlVriES/wjdi/HJbRxiD6rNHBUK8N0UQf4hTh5byfjk/L1faz1kCqcNX+g8SIJ2W
-	 y0CeFquQwgHEbu8P5nU7vSGvsemwAVI+0Tccz9eUXuLAHfTc+PxioY1ylQayN5PfRdHV3
-	 1odyMFTW8kOu9Jb7Vbwxa9DrxrBvjl7vikYJamMTUtdtOpZzgu5oz8wjv/HLbo9FnkxZz
-	 732FF94/XwKEwPkeY+OWNwISnOEfautWngn1Q6ztWyzX0PoEdbInyCt/7Bn1TIBCpRKMP
-	 thlrf2jdXjrL+aYiLH0Kdab6hcsUrs3XcJsL+elHyUVpMyhrkoa1ZI41XIY6w8G+5Og==
+	bh=KFFn/WCEGPLX6zwthexMeWkVLi7QjqutGiq+pXgO3pc=;
+	b=Zyd8GxA9vMT4t8rUw1ZhvGwLi+OAzqBPhQva3shwbMInE875d7qq5WB1nkWOeqc+hMf5
+	 H2ScZpQUtDoWLeYr80ChrKvJpnvHm376xOUgui/pL01yTulDzSMG8vxd8NG5hRDDBNIB8
+	 YTaAVwyJRJla6K5IVyphEcLdFPh09/qXbYxVDO5yUS6LYYYwhTl+iSCQmRzo37ybIURC/
+	 XahCEqoATx5B+FfpqxauyK+zNspw6SdS+4VXAaqAw7lVu5fn6IfXNi35vACu90vqOpAJB
+	 Iu35v8nnrC8fHWGcHkpj1a1kDk/7nX+LV23FyeLZ4e5C5fFxIO6wnx6gm5FxyfONFuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHELRVvR;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l5VDV5fO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ABC30606A76D
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:27:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7BD7606A775
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:27:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fHELRVvR
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A1DE1F000C4;
-	Wed, 18 Nov 2026 17:27:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l5VDV5fO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 661531F000C4;
+	Wed, 18 Nov 2026 17:27:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022822;
-	bh=GGhYkGebGexfGExsMQfltWE8JbYR5fBAohiVWSo1Fhk=;
+	s=k20260515; t=1795022825;
+	bh=KFFn/WCEGPLX6zwthexMeWkVLi7QjqutGiq+pXgO3pc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fHELRVvReToQfCU9wVfxnSZjVjwAg0qwC7egXwtHFFz+CFACnYx+udxlmCi3YRBKx
-	 jMrihPHbShQyXJId5QwIvTsOCI2xKlfYKrOaXuPELI7mUjIBzwPfrBrxy+TwzpM1qL
-	 4cR7VIlfDrXkKwzrmV7EV9ZKNrF4+FTgKBLqyw3ND81K4FSzcosbAIfO9MmMtI2rOV
-	 Ardk7kKWIIxf8lc/YQvER0px3JH7HSTY7ZNq3VXw2c2PaeQDU7RVD3Ak5uhVjRo5xx
-	 QHNFFKKNutw1DF57DPvF4yyyU6BBxy4S1RR6Myv3pebCkMidTa2HTPF7+sWe0uoBtY
-	 hy6ZAQINFiXwA==
+	b=l5VDV5fO45qojyRgIEqYuXgZARP8DVJhVRnf2ZM1NTq/i8bbOWlSwEZt5cd2q8zsc
+	 6VOOS0lva/ude0Df1CD/ky3nwNE9cGEWwYrZ8xsnD5Hy0hSQcC61/TmmciF4ET9wQp
+	 wJ0lJJwE/7J319B/LWKG834DATbXql3LcR8l9FoDTcQeYX4TnFO1NlGwRPs3bIPhLm
+	 JGMG4U1BUbnbkgNyJXnmxynxeF9OzjWWVWWKFbXYnPjsaU0UfRNE/pS8f6fpOdqV25
+	 gpWPuB+aYzeJB4UNmTJh6V2kEgHmyQLbUHnGiKjXdkf516+fC0vPpJIPC3/1Tbl570
+	 ZR4yG6Vmzc17Q==
 From: Eric Dumazet <edumazet@kernel.org>
 To: "David S . Miller" <davem@davemloft.net>,
 	Jakub Kicinski <kuba@kernel.org>,
@@ -50,9 +50,9 @@ Cc: Kuniyuki Iwashima <kuniyu@google.com>,
 	Michael Tuexen <tuexen@fh-muenster.de>,
 	netdev@vger.kernel.org,
 	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net-next 1/2] tcp: do not accept ACK of our ISS on active opens
-Date: Wed, 18 Nov 2026 18:26:53 +0100
-Message-ID: <20261118172654.1267071-2-edumazet@kernel.org>
+Subject: [PATCH net-next 2/2] selftests/net: packetdrill: add tests for ACK of ISS
+Date: Wed, 18 Nov 2026 18:26:54 +0100
+Message-ID: <20261118172654.1267071-3-edumazet@kernel.org>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261118172654.1267071-1-edumazet@kernel.org>
 References: <20261118172654.1267071-1-edumazet@kernel.org>
@@ -67,124 +67,233 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Michael Tuexen asked on the tcpm list [1] whether, after a completed
-handshake, a segment with SEG.ACK == ISS is a duplicate ACK or a ghost
-ACK. Flavius-Romeo Mazilu answered that Linux behaves differently
-depending on which side opened the connection:
+Once a connection is established, a segment with SEG.ACK == ISS
+acknowledges bytes we never sent. It must be dropped and a challenge
+ACK sent back (RFC 5961 Section 5.2), regardless of which side
+opened the connection.
 
-- passive opens drop it and send a challenge ACK,
-- active opens accept it as an old duplicate ACK.
+Add four tests covering the ways a socket can be established:
 
-This comes from commit 3d501dd326fb ("tcp: do not accept ACK of bytes
-we never sent"), which bounds the range of acceptable old ACKs
-by tp->bytes_acked.
+- tcp_rfc5961_ack-iss-server.pkt: passive open
+- tcp_rfc5961_ack-iss-client.pkt: active open
+- tcp_rfc5961_ack-iss-fastopen-client.pkt: active open, data in SYN
+- tcp_rfc5961_ack-iss-simultaneous-open.pkt: crossed SYNs
 
-On active opens (including Fast Open and simultaneous opens),
-tp->snd_una starts at ISS and the ACK of our SYN goes through
-tcp_snd_una_update(), so tp->bytes_acked counts the SYN.
-On passive opens, tp->snd_una starts at ISS + 1 and the SYN-ACK
-is not counted.
+Each test also checks that SEG.ACK == ISS + 1 is still silently
+accepted as a genuine old ACK.
 
-The SYN is not a payload byte, and no valid ACK ever carried ISS:
-the lowest ACK a peer can send on a synchronized connection is ISS + 1.
+Only the passive open test passes without the previous patch.
 
-Counting the SYN widens the acceptable range by one sequence number.
-
-tp->bytes_acked is exported to user space (tcpi_bytes_acked,
-bpf_tcp_sock, bpf_sock_ops) and tools/testing/selftests/bpf expects
-the SYN to be counted, so leave it unchanged.
-
-Instead, remember in a new bit that our SYN was counted,
-and subtract it in the tcp_ack() check.
-
-Mazilu's observation was confirmed by code inspection and with
-packetdrill on an unmodified kernel: after an active open, a segment
-with SEG.ACK == ISS is silently accepted, where a passive open
-answers with a challenge ACK.
-
-Tested with the packetdrill tests added in the following patch,
-which fail on the active side before this patch, and with the other
-tests in tools/testing/selftests/net/packetdrill.
-
-[1] https://mailarchive.ietf.org/arch/msg/tcpm/ZbjDTFQSHeKSVHAToyAnKBr3TpU/
-
-Fixes: 3d501dd326fb ("tcp: do not accept ACK of bytes we never sent")
-Reported-by: Flavius-Romeo Mazilu <flavius.mazilu@stud.acs.upb.ro>
-Closes: https://mailarchive.ietf.org/arch/msg/tcpm/ym6lb-UkrW2298LRnTLxCysoo0g/
+Link: https://mailarchive.ietf.org/arch/msg/tcpm/ym6lb-UkrW2298LRnTLxCysoo0g/
 Signed-off-by: Eric Dumazet <edumazet@kernel.org>
 ---
- Documentation/networking/net_cachelines/tcp_sock.rst |  1 +
- include/linux/tcp.h                                  |  3 ++-
- net/ipv4/tcp.c                                       |  1 +
- net/ipv4/tcp_input.c                                 | 10 ++++++++--
- 4 files changed, 12 insertions(+), 3 deletions(-)
+ .../tcp_rfc5961_ack-iss-client.pkt            | 46 +++++++++++++++++++
+ .../tcp_rfc5961_ack-iss-fastopen-client.pkt   | 40 ++++++++++++++++
+ .../tcp_rfc5961_ack-iss-server.pkt            | 45 ++++++++++++++++++
+ .../tcp_rfc5961_ack-iss-simultaneous-open.pkt | 42 +++++++++++++++++
+ 4 files changed, 173 insertions(+)
+ create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-client.pkt
+ create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-fastopen-client.pkt
+ create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-server.pkt
+ create mode 100644 tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-simultaneous-open.pkt
 
-diff --git a/Documentation/networking/net_cachelines/tcp_sock.rst b/Documentation/networking/net_cachelines/tcp_sock.rst
-index 554e8c14a401f27ec5a6c109877bb122942bade9..78f74eb7699063022adc5d4524a82466c82e4758 100644
---- a/Documentation/networking/net_cachelines/tcp_sock.rst
-+++ b/Documentation/networking/net_cachelines/tcp_sock.rst
-@@ -59,6 +59,7 @@ u8:2                          fastopen_client_fail
- u8:4                          nonagle                 read_write                              tcp_skb_entail,tcp_push_pending_frames
- u8:1                          thin_lto
- u8:1                          recvmsg_inq                                 read_mostly         tcp_recvmsg
-+u8:1                          bytes_acked_syn                             read_mostly         tcp_ack
- u8:1                          repair                  read_mostly                             tcp_write_xmit
- u8:1                          frto
- u8                            repair_queue
-diff --git a/include/linux/tcp.h b/include/linux/tcp.h
-index e6b79cf4798f497ea43bb987431da2c797ee3086..13a192cc3c62e219235e0610924fe460148be19c 100644
---- a/include/linux/tcp.h
-+++ b/include/linux/tcp.h
-@@ -235,7 +235,8 @@ struct tcp_sock {
- 		tcp_usec_ts : 1, /* TSval values in usec */
- 		is_sack_reneg:1,    /* in recovery from loss with SACK reneg? */
- 		is_cwnd_limited:1,/* forward progress limited by snd_cwnd? */
--		recvmsg_inq : 1;/* Indicate # of bytes in queue upon recvmsg */
-+		recvmsg_inq : 1,/* Indicate # of bytes in queue upon recvmsg */
-+		bytes_acked_syn:1;/* bytes_acked includes our SYN */
- #ifdef CONFIG_BPF
- 	u32	bpf_tcp_ops_flags;
- #define BPF_TCP_OPS_TEST_FLAG(TP, ARG) \
-diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
-index d510e982dcea9830442d4c7afedb67deb3c28115..498889efe2e3323484b9d30842d9f16475165e4a 100644
---- a/net/ipv4/tcp.c
-+++ b/net/ipv4/tcp.c
-@@ -3472,6 +3472,7 @@ int tcp_disconnect(struct sock *sk, int flags)
- 	tp->segs_out = 0;
- 	tp->bytes_sent = 0;
- 	tp->bytes_acked = 0;
-+	tp->bytes_acked_syn = 0;
- 	tp->bytes_received = 0;
- 	tp->bytes_retrans = 0;
- 	tp->data_segs_in = 0;
-diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index d35048c363be5cb985ba1efb9dab24c9aaab4fda..6cf6cb3336b23b065b93d747e0565475ce4c3d0c 100644
---- a/net/ipv4/tcp_input.c
-+++ b/net/ipv4/tcp_input.c
-@@ -3712,6 +3712,8 @@ static int tcp_clean_rtx_queue(struct sock *sk, const struct sk_buff *ack_skb,
- 		} else {
- 			flag |= FLAG_SYN_ACKED;
- 			tp->retrans_stamp = 0;
-+			/* tcp_snd_una_update() counted our SYN. */
-+			tp->bytes_acked_syn = 1;
- 		}
- 
- 		if (!fully_acked)
-@@ -4333,8 +4335,12 @@ static int tcp_ack(struct sock *sk, const struct sk_buff *skb, int flag)
- 	if (before(ack, prior_snd_una)) {
- 		u32 max_window;
- 
--		/* do not accept ACK for bytes we never sent. */
--		max_window = min_t(u64, tp->max_window, tp->bytes_acked);
-+		/* Do not accept ACK for bytes we never sent.
-+		 * Our SYN, if counted in bytes_acked, is not one of them:
-+		 * no valid ACK ever carried ISS.
-+		 */
-+		max_window = min_t(u64, tp->max_window,
-+				   tp->bytes_acked - tp->bytes_acked_syn);
- 		/* RFC 5961 5.2 [Blind Data Injection Attack].[Mitigation] */
- 		if (before(ack, prior_snd_una - max_window)) {
- 			if (!(flag & FLAG_NO_CHALLENGE_ACK))
+diff --git a/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-client.pkt b/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-client.pkt
+new file mode 100644
+index 0000000000000000000000000000000000000000..50c0638a5219d8389ab433765f9f65fa0f0a8ffc
+--- /dev/null
++++ b/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-client.pkt
+@@ -0,0 +1,46 @@
++// SPDX-License-Identifier: GPL-2.0
++//
++// Active open: once the connection is established, SND.UNA is at least
++// ISS + 1.  A segment with SEG.ACK = ISS acknowledges nothing we ever
++// sent past the SYN, and the SYN itself can not be acked "again" as a
++// stale duplicate: no ACK carrying ISS was ever valid on this
++// connection.  It must be treated like any other ACK for bytes we never
++// sent (RFC 5961 Section 5.2): dropped, and a challenge ACK sent back.
++//
++// The SYN consumes one sequence number but is not a payload byte, so it
++// must not widen the range of acceptable old ACKs.
++
++`./defaults.sh
++sysctl -q net.ipv4.tcp_invalid_ratelimit=0
++`
++
++   0 socket(..., SOCK_STREAM, IPPROTO_TCP) = 3
++  +0 fcntl(3, F_GETFL) = 0x2 (flags O_RDWR)
++  +0 fcntl(3, F_SETFL, O_RDWR|O_NONBLOCK) = 0
++  +0 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
++  +0 > S 0:0(0) <...>
+++.01 < S. 0:0(0) ack 1 win 10000 <mss 1000,nop,nop,sackOK,nop,wscale 0>
++  +0 > . 1:1(0) ack 1
++
++// SND.UNA = SND.NXT = ISS + 1, no payload acked yet.
++// SEG.ACK = ISS must trigger a challenge ACK.
+++.01 < . 1:1(0) ack 0 win 10000
++  +0 > . 1:1(0) ack 1
++
++// Get 1000 bytes of payload acked.
++  +0 write(3, ..., 1000) = 1000
++  +0 > P. 1:1001(1000) ack 1
+++.01 < . 1:1(0) ack 1001 win 10000
++
++// SND.UNA = ISS + 1001.  Old ACKs in [ISS + 1, ISS + 1001] are valid
++// duplicates, but SEG.ACK = ISS is still below anything the peer could
++// have legitimately sent.
+++.01 < . 1:1(0) ack 0 win 10000
++  +0 > . 1001:1001(0) ack 1
++
++// SEG.ACK = ISS + 1 is a genuine old ACK: silently accepted, no
++// challenge ACK.  The next packet on the wire must be our new data.
+++.01 < . 1:1(0) ack 1 win 10000
+++.01 write(3, ..., 1000) = 1000
++  +0 > P. 1001:2001(1000) ack 1
+++.01 < . 1:1(0) ack 2001 win 10000
+diff --git a/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-fastopen-client.pkt b/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-fastopen-client.pkt
+new file mode 100644
+index 0000000000000000000000000000000000000000..5e8c7f8ee7ddb812761dd5dbc72e2f01ff46c644
+--- /dev/null
++++ b/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-fastopen-client.pkt
+@@ -0,0 +1,40 @@
++// SPDX-License-Identifier: GPL-2.0
++//
++// Fast Open variant of tcp_rfc5961_ack-iss-client.pkt.
++//
++// The SYN carries data, and the SYN-ACK acks both the SYN and its
++// payload.  SEG.ACK = ISS must still trigger a challenge ACK, while
++// SEG.ACK = ISS + 1 (SYN acked, payload not yet) is a valid old ACK.
++
++`./defaults.sh
++ ./set_sysctls.py /proc/sys/net/ipv4/tcp_timestamps=0 \
++		  /proc/sys/net/ipv4/tcp_invalid_ratelimit=0`
++
++// Cache warmup: send a Fast Open cookie request
++    0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) = 3
++   +0 sendto(3, ..., 0, MSG_FASTOPEN, ..., ...) = -1 EINPROGRESS (Operation is now in progress)
++   +0 > S 0:0(0) <mss 1460,nop,nop,sackOK,nop,wscale 8,FO,nop,nop>
++   +0 < S. 123:123(0) ack 1 win 14600 <mss 1460,nop,nop,sackOK,nop,wscale 6,FO abcd1234,nop,nop>
++   +0 > . 1:1(0) ack 1
++   +0 close(3) = 0
++   +0 > F. 1:1(0) ack 1
++   +0 < F. 1:1(0) ack 2 win 92
++   +0 > . 2:2(0) ack 2
++
++// SYN + 500 bytes of payload, all acked by the SYN-ACK.
++   +0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) = 4
++   +0 sendto(4, ..., 500, MSG_FASTOPEN, ..., ...) = 500
++   +0 > S 0:500(500) <mss 1460,nop,nop,sackOK,nop,wscale 8,FO abcd1234,nop,nop>
++ +.01 < S. 0:0(0) ack 501 win 14600 <mss 1460,nop,nop,sackOK,nop,wscale 6>
++   +0 > . 501:501(0) ack 1
++
++// SND.UNA = ISS + 501.  SEG.ACK = ISS must trigger a challenge ACK.
++ +.01 < . 1:1(0) ack 0 win 1000
++   +0 > . 501:501(0) ack 1
++
++// SEG.ACK = ISS + 1 is a genuine old ACK: silently accepted, no
++// challenge ACK.  The next packet on the wire must be our new data.
++ +.01 < . 1:1(0) ack 1 win 1000
++ +.01 write(4, ..., 100) = 100
++   +0 > P. 501:601(100) ack 1
++ +.01 < . 1:1(0) ack 601 win 1000
+diff --git a/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-server.pkt b/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-server.pkt
+new file mode 100644
+index 0000000000000000000000000000000000000000..508380ff1e72d2a31b13471989f0cb0f5377011a
+--- /dev/null
++++ b/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-server.pkt
+@@ -0,0 +1,45 @@
++// SPDX-License-Identifier: GPL-2.0
++//
++// Passive open counterpart of tcp_rfc5961_ack-iss-client.pkt.
++//
++// Once the connection is established, a segment with SEG.ACK = ISS
++// acknowledges bytes we never sent.  It must be dropped and a challenge
++// ACK sent back (RFC 5961 Section 5.2), whatever amount of payload was
++// acked so far.
++
++`./defaults.sh
++sysctl -q net.ipv4.tcp_invalid_ratelimit=0
++`
++
++   0 socket(..., SOCK_STREAM, IPPROTO_TCP) = 3
++  +0 setsockopt(3, SOL_SOCKET, SO_REUSEADDR, [1], 4) = 0
++  +0 bind(3, ..., ...) = 0
++  +0 listen(3, 1) = 0
++
++  +0 < S 0:0(0) win 10000 <mss 1000,nop,nop,sackOK,nop,wscale 0>
++  +0 > S. 0:0(0) ack 1 <...>
+++.01 < . 1:1(0) ack 1 win 10000
++  +0 accept(3, ..., ...) = 4
++
++// SND.UNA = SND.NXT = ISS + 1, no payload acked yet.
++// SEG.ACK = ISS must trigger a challenge ACK.
+++.01 < . 1:1(0) ack 0 win 10000
++  +0 > . 1:1(0) ack 1
++
++// Get 1000 bytes of payload acked.
++  +0 write(4, ..., 1000) = 1000
++  +0 > P. 1:1001(1000) ack 1
+++.01 < . 1:1(0) ack 1001 win 10000
++
++// SND.UNA = ISS + 1001.  Old ACKs in [ISS + 1, ISS + 1001] are valid
++// duplicates, but SEG.ACK = ISS is still below anything the peer could
++// have legitimately sent.
+++.01 < . 1:1(0) ack 0 win 10000
++  +0 > . 1001:1001(0) ack 1
++
++// SEG.ACK = ISS + 1 is a genuine old ACK: silently accepted, no
++// challenge ACK.  The next packet on the wire must be our new data.
+++.01 < . 1:1(0) ack 1 win 10000
+++.01 write(4, ..., 1000) = 1000
++  +0 > P. 1001:2001(1000) ack 1
+++.01 < . 1:1(0) ack 2001 win 10000
+diff --git a/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-simultaneous-open.pkt b/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-simultaneous-open.pkt
+new file mode 100644
+index 0000000000000000000000000000000000000000..17a545712a929760332a0cbceabb00ef1a38f234
+--- /dev/null
++++ b/tools/testing/selftests/net/packetdrill/tcp_rfc5961_ack-iss-simultaneous-open.pkt
+@@ -0,0 +1,42 @@
++// SPDX-License-Identifier: GPL-2.0
++//
++// Simultaneous open variant of tcp_rfc5961_ack-iss-client.pkt.
++//
++// Our SYN is acked by the SYN-ACK of the peer while we are in SYN-RECV
++// state.  Once established, SEG.ACK = ISS must trigger a challenge ACK.
++
++`./defaults.sh
++sysctl -q net.ipv4.tcp_invalid_ratelimit=0
++`
++
++   0 socket(..., SOCK_STREAM|SOCK_NONBLOCK, IPPROTO_TCP) = 3
++  +0 connect(3, ..., ...) = -1 EINPROGRESS (Operation now in progress)
++  +0 > S 0:0(0) <...>
++
++// Crossed SYN.
+++.01 < S 0:0(0) win 10000 <mss 1000,nop,nop,sackOK,nop,wscale 0>
++  +0 > S. 0:0(0) ack 1 <...>
+++.01 < S. 0:0(0) ack 1 win 10000 <mss 1000,nop,nop,sackOK,nop,wscale 0>
++// The SYN part of this SYN-ACK is a duplicate, and is DSACKed.
++  +0 > . 1:1(0) ack 1 <nop,nop,sack 0:1>
++  +0 %{ assert tcpi_state == TCP_ESTABLISHED, tcpi_state }%
++
++// SND.UNA = SND.NXT = ISS + 1, no payload acked yet.
++// SEG.ACK = ISS must trigger a challenge ACK.
+++.01 < . 1:1(0) ack 0 win 10000
++  +0 > . 1:1(0) ack 1
++
++// Get 1000 bytes of payload acked.
++  +0 write(3, ..., 1000) = 1000
++  +0 > P. 1:1001(1000) ack 1
+++.01 < . 1:1(0) ack 1001 win 10000
++
+++.01 < . 1:1(0) ack 0 win 10000
++  +0 > . 1001:1001(0) ack 1
++
++// SEG.ACK = ISS + 1 is a genuine old ACK: silently accepted, no
++// challenge ACK.  The next packet on the wire must be our new data.
+++.01 < . 1:1(0) ack 1 win 10000
+++.01 write(3, ..., 1000) = 1000
++  +0 > P. 1001:2001(1000) ack 1
+++.01 < . 1:1(0) ack 2001 win 10000
 -- 
 2.53.0
 
