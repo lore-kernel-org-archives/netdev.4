@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795042263;
-	b=Lj+U9HP7VPobh3j46HZQc5R2eDUzSOv0J97ky6xuDzFRAe3nss6HTdyB+4i//kAADLYp
-	 cyANkuEGdsP/CccvV44uOJ0bxwEDbm75Qf6QhCJwbLGzkzSdvmLxIcXbEKXG5RIWKlj9J
-	 7EKZP3jpmvO5Gm1FTxPi03MaJV6aj6cFUgod6iO+AtAs5vdPlXx1YwZ43VUyQpqaxFvCz
-	 yioRGk5lH40Jx+fPzFTMJlSAQyqKYtCJn3MMlHicUTASsvPTIDPY13sPIHeBzoWWmiKZO
-	 TliO7xWaetHL7rBpouOrW/YZLfW8IGh/yLAIAB4Tz85A7V3H0vrfCL+AL2rhnOirMzA==
+	t=1795042703;
+	b=HAhyGCHOtoo1DLeoySUbXbgG7QeJ68Ct7jLn2M9DHBOMhEAEWgkFyDWnov9bWI+KU3g1
+	 IlsnFS2LVQ6MM4NBN9TGlXCdYMiGLhQv1d8GL4hDPSuoXhJqzzsslinnpX99YwdG1noe0
+	 0octHDldof/gZkmWrA9gQ3OznKbwbA+J2aBkJtwjqtnXdB/lq7aogFkuKACgKgWpS2GPp
+	 rv36/qKtPZAfMm4jJ41KM/AAvPwelk57IKibEvmZ2m90Cio8IqUIcJhl9kdpGPEawLwF8
+	 f9CfLhM2pskndbTkI1mWBnkpg/I5zomaUn1f4cUiy59rlVNPJfByLzeqi4cu63tDfRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795042263;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795042703;
 	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=CWBJvpsMboC5fIm+EhmmjBPiJxGEcwAoo9l9AcLljrA=;
-	b=T3f5fiBj8thttEKXj3W+JII1jlUrNK2PssK6vukPcI4hvAHMR6bONCKab01Y4P9Ugx98
-	 5JlnlM3VO1gmPOxaCyHo2kwr3HKF9s6Rajxjt6XWvoVOx/omek19k2voUmXvn8qr1w1BY
-	 RcalzYnVLaYDttGLDmZ3+XGX4pnm5B022gg7CerFxA8EANGllM2A47K418y8N3ALdXaJG
-	 NUbEoyCDF0f1Ehgrdtv1qhCjjdkCnyzTYMexV4Uy2UPSXKraFElrHdKvPn0sl1tw19jTN
-	 +N4zDypgTZfeRLqBBtvH6K/JwpngfVfXVBiWzmDXuORP4gYUon9SqyjQNFlfdTtVS+g==
+	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=mhhQ9Ioq+2qUazDNyhj0906QRa7/QEquZU1rpFFbyfw=;
+	b=R2zEmGB49CglJpBG9u7rq1HcuQ0Es/EGPuyzjSozreU7R6zrg8GGYxQ2WcMBtfjy2kcE
+	 POG9c3R3J3H78XPzgN4dVO5YCTaQhKT+/OePCpuPdvyfE4WAGXQdnHsuhGb36xccPEq40
+	 sWjbqU4ry8Ci136IwCIp4BW5tvE0juLxmmruwwoW+wEEdFsGzGjfmxExSYDeFFoHbp4ji
+	 +ntDbNFGFppAb1AIjeXVfZweF4/uF5e8NmFCOpOYJ92FvIPaFWXn4zJ70LJeNEdphqo2d
+	 LpK3/vbKPkmQE+9lSOew3Ye1Zq7Hgez93jstxuQ3vIms4rmnx3x+IOwQdcBPGSh61zw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NcEW0lMu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="V/X+Qtf4";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF1A9606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 22:51:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1869606A32F
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 22:58:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NcEW0lMu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A03981F000C4;
-	Wed, 18 Nov 2026 22:51:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V/X+Qtf4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B46E1F000C7;
+	Wed, 18 Nov 2026 22:58:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795042262;
-	bh=CWBJvpsMboC5fIm+EhmmjBPiJxGEcwAoo9l9AcLljrA=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=NcEW0lMuKUF3bytYaCHYkKaC/3qACJRZSwN1ZbF0AomvLkxpeYOG4yFVfApeOt904
-	 NYMlSyaDE677CwND14anFeGOGSQRziI1vBQxSqsM2RixJWgFT4gCvUL3nUQyGrGot3
-	 FK80mqqd0A0trIghuVD1AVcbz9Gn8/WA8Y/yfhpPO3zo7A1KsyTWVRFEjWu8uXXNmT
-	 eTajZ4hclrJSR1n7p4Eavt/QkXpT1rGMmb+adELa3bS1eT2/AEO7uvwjnhbKJbNoHU
-	 m7PXzgb7iLDtR5JaHFt2ttRLQ0TgB+Z7w2wDPfhRvfwayIhFM68M2Q0eGFf66XS0Yv
-	 JdM7Cv7CHO0ow==
-Message-ID: <bcb9db70-7211-40ee-931e-40b1dbaa716a@kernel.org>
-Date: Wed, 18 Nov 2026 15:51:01 -0700
+	s=k20260515; t=1795042703;
+	bh=mhhQ9Ioq+2qUazDNyhj0906QRa7/QEquZU1rpFFbyfw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=V/X+Qtf4hIKu5jHJX1+PxB2nEt41q8+4c/jpTdEEoFc2BI1O5PD7sdC2mW4akLaCi
+	 nZusPH2dXcNLmJ3GalAKMf4fKXEz7UE9HQ+Lmb1zAKCEwsKMa7CG65R04OXI3oBQrS
+	 uHOURWSFvgbDWGuHhY4tJmNHZXXV3x9EBIjdUw/u2wm35fdOdbMrdJ16dIvyvSqMc4
+	 WVX47lwXYsX2wYXoBKzZsfqoL5sJJQUckzn2CIRtfML//rzy/JSCUeJjU2SQJQpNIv
+	 a9XyRx2RuP5s/9LvxddJDO0SL2kjJucifzdhdSKpfEHAN3cesm9w7IU1OXibF7NEhb
+	 YFZ+wWae9wvxg==
+Message-ID: <99ccfd3c-47d6-41bd-a8d4-5036f0edafea@kernel.org>
+Date: Wed, 18 Nov 2026 15:58:22 -0700
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,29 +52,55 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iproute2-next] ip: netconf: show IPv6 force_forwarding
-To: Gabriel Goller <g.goller@proxmox.com>, netdev@vger.kernel.org
-References: <20261028-ip_netconf_show-v1-1-a20fc6b20025@proxmox.com>
+Subject: Re: [PATCH iproute2-next 1/2] mnl_utils: add a dump helper for
+ NLM_F_DUMP_INTR
 Content-Language: en-US
+To: Petr Oros <poros@redhat.com>, netdev@vger.kernel.org
+Cc: Stephen Hemminger <stephen@networkplumber.org>,
+ Ivan Vecera <ivecera@redhat.com>, Jiri Pirko <jiri@resnulli.us>
+References: <20261110110101.2155953-1-poros@redhat.com>
+ <20261110110101.2155953-2-poros@redhat.com>
 From: David Ahern <dsahern@kernel.org>
-In-Reply-To: <20261028-ip_netconf_show-v1-1-a20fc6b20025@proxmox.com>
+In-Reply-To: <20261110110101.2155953-2-poros@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 
-On 10/28/26 7:10 AM, Gabriel Goller wrote:
-> Allow users to inspect and monitor force_forwarding, which enables
-> per-interface IPv6 forwarding independently of the global forwarding
-> setting.
+On 11/10/26 5:01 AM, Petr Oros wrote:
+> The kernel sets NLM_F_DUMP_INTR on a dump message when the dumped
+> objects changed between two parts of the dump, so the result can miss an
+> object or list it twice. mnl_cb_run2() answers the flag with EINTR on
+> the first such message. mnlu_gen_socket_sndrcv() then prints "kernel
+> answers: Interrupted system call" and returns with the rest of the dump
+> still queued in the socket. The caller has passed a part of the objects
+> to its callback by then and cannot tell an interrupted dump from a
+> request that failed.
 > 
-> The sysctl was introduced with kernel commit
-> f24987ef6959 ("ipv6: add `force_forwarding` sysctl to enable per-interface forwarding").
+> Add mnlu_gen_socket_sndrcv_dump(). It clears the flag in every received
+> message before the callbacks run, reads the dump to its end and tells
+> the caller through a bool that the dump was interrupted. The caller can
+> then repeat the request on the same socket or warn the user, as
+> rtnl_dump_filter() does for rtnetlink dumps.
 > 
-> Signed-off-by: Gabriel Goller <g.goller@proxmox.com>
+> The receive loop is shared with mnlu_socket_recv_run() and
+> mnlu_gen_socket_sndrcv(), which behave as before.
+> 
+> Reviewed-by: Ivan Vecera <ivecera@redhat.com>
+> Signed-off-by: Petr Oros <poros@redhat.com>
 > ---
->  ip/ipnetconf.c        | 4 ++++
->  man/man8/ip-netconf.8 | 4 ++--
->  2 files changed, 6 insertions(+), 2 deletions(-)
+>  include/mnl_utils.h |  5 ++++
+>  lib/mnl_utils.c     | 58 +++++++++++++++++++++++++++++++++++++++------
+>  2 files changed, 56 insertions(+), 7 deletions(-)
 > 
 
-applied to iproute2-next.
+...
+
+> @@ -120,6 +143,12 @@ int mnlu_socket_recv_run(struct mnl_socket *nl, unsigned int seq, void *buf, siz
+>  	return err;
+>  }
+>  
+> +int mnlu_socket_recv_run(struct mnl_socket *nl, unsigned int seq, void *buf, size_t buf_size,
+> +			 mnl_cb_t cb, void *data)
+
+fixed the line length and applied the set to iproute2-next.
+
 
