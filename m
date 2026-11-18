@@ -1,55 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=101.71.155.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011520;
-	b=mo0WkzICEE3J4CFc39rp5Q59cji/yg6md4hm04mgQfG8jW6gBTizZbmoxF0Cmc3sfUu9
-	 hsByWHTvZXqQIXoN+QPXnuqCQigcZ8dNqaoaiTjTIH7DXs6LNoEf/kvcoJneIMu0G/Im4
-	 zSvIZ58RQcn73WArUpsL/d7QFl5Ifwll6dLXy2jTVqRu8cn5yw1tp8V6yITf2WVh8kf9h
-	 JQ0SDHTJ1z29wkOiXcEB6yBHD7IW6AtZn3mzCg2YczekTL2Ql02nl1pICtIDWggkch38M
-	 khKDEywumfMWLhtCsF4kHxojaBTim3c/D8L4/vChf+6NSYavKzYqSJSDUwwyzrlU4lQ==
+	t=1795011779;
+	b=yPg8NO+5Qv2odXVhkCxLOEZjffRfgG6XeeOLKAxhA1+QcQ+xa38s9QrPTKrWNRt157po
+	 4TN71NS9O3UgRRnK9JbB/qjyBMnVLRPHi8bN7Sw5ZWBVGlpbRQ6KKFgaLW6q1ay6nzSdG
+	 Ic27JSJNoTtJa7xIn2l3/LkCo2LSoUxe5RY+TLLJpU9Qlp1OF7nLdAH/O0CJz6ypKJbV/
+	 qAA/0+51VqHySLwP7HEslUJstamtYXDcrvsqd/t2Tb22Z5GAqWRyH6WBuq1XLsaXCAu7A
+	 R2cD5YiCrrNJ/NP+AFUD0b/aKVgvUImIzcrGvnZlv50px8srqi95SQQFrJDHNeSyZbw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011520;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-HM-Tid:
-	 X-HM-MType:X-HM-Spam-Status:DKIM-Signature;
-	bh=PM8GC4O0D6ai6QoDJ1GdgTbrRAjYwDPST4RLoXxC2Ug=;
-	b=bzwjPABr5N7LhajqwKbP7YGyAEcnh4GS2J41LhrOOfQX77wkMJkV1K8nG1XCqwGu/OoL
-	 Ehb5qQRxv8rxjAQ7HCt0hnM2fKAxjQin2F2NYw2VWR/EWLqwEXeUuu/vOGGUK/m9Lg6vF
-	 iswuJeZo2iRHbBqkBSxqtzvEYI+Pp5v2S/dvQtR44MF9cScyuLGpKnXii3BbFRQWHnbZm
-	 SImrZNN4Z+MW7fjjbPT/nh1AlcDGDjK3+9EiSo+1uFrMvkI+F8CZYr+HknuWh2MX9LmAG
-	 Wf/UlySUulTIjYJIRsjDyKZ5VnRkm6uUyLHHs3wy+8NLzBcZvlNA1mCqFggl32zHLeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011779;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
+	b=JcTn3SS70AKhjzMXDxmXt0bjqA7BG7G2CRQwi9Oq2Ro87qLzUEosVbIZUBPh4LfnKRf2
+	 CUuYj9sEmuZNIgTdgJ2q0YDOFGCrtqPE6uq8/vphOnYAP7tQFipG/ZGfGAhAjAUZltKOw
+	 3qL/4WYD6sDrDfc0mJaAhJibi9yV/WawxonP8Uw2jxJIxyBlePcrhdCR3XYYMUSLRo9qp
+	 AAvARvkunvwRQoJ2AJp9vXc23kzKh3kZLeUrMRKKJxVBRTYN0M9nRtXU3LfdS4cJDOc0L
+	 ZlVau86Pd8A8IdyHar4rRzTsf0G1MF7/t8/Rjxen8pAtYvvH3w21LgkcwPmcLzIaAVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b="gIKJfK4/";
-	arc=none smtp.remote-ip=101.71.155.101
-Received: from mail-m155101.qiye.163.com (mail-m155101.qiye.163.com [101.71.155.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hrCazA9P;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFE6C606A33A;
-	Wed, 18 Nov 2026 14:18:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFE6C606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0740606A33B;
+	Wed, 18 Nov 2026 14:22:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=gIKJfK4/
-Received: from lgs.. (unknown [101.76.249.61])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 5526d78fc;
-	Wed, 18 Nov 2026 22:18:24 +0800 (GMT+08:00)
-From: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
-To: =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] net: bgmac: Fix potential MDIO use-after-free during removal
-Date: Wed, 18 Nov 2026 22:18:23 +0800
-Message-ID: <20261118-324f82bd41-net-bgmac-0@mail.sdu.edu.cn>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hrCazA9P
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 34DBC1F000CA;
+	Wed, 18 Nov 2026 14:22:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795011778;
+	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=hrCazA9PxKkZx/HFWduZjzrwhKN+vnlXsIrIdQvlhAzgRKBiMJI1FhsqTJ0DuMEHs
+	 3c1guksL71QvupS9mActpqvwCqHHlqvs3p/Q0NhAhCyhQXM4ewG4kKDkSMYK5G5AK7
+	 26gz0LKWpl0Wf4nUwSGh1mt98kmuT0ZOAa2J56e0UXWqPXqJ2FnO+nk668qBJZUJTW
+	 I3dhbL2W5QxZ77FseKY1NwAlyNB25Sa7y+emu25UGrj0+96YyQb8g9r0h+WQw9xoBw
+	 O5RpRHIncmkriEMY6erjyyTw095aug/1lwXvqfQlgagJRolIqCiazlX02HuGIEaU4C
+	 db9CrZEC6hUVQ==
+From: netdev-bot+sinfo@kernel.org
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Cc: =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>,
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: 
+ Re: [PATCH net] net: bgmac: Fix potential MDIO use-after-free during removal
+Date: Wed, 18 Nov 2026 14:22:57 +0000
+Message-ID: <179501177771.3291.6091133152515318342@kernel.org>
+In-Reply-To: <20261118-324f82bd41-net-bgmac-0@mail.sdu.edu.cn>
+References: <20261118-324f82bd41-net-bgmac-0@mail.sdu.edu.cn>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,47 +66,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0aa1ef05e9c303a1kunm49a18c861a0fcc
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVlCTE1IVkxMSEpNTk1NH09MTlYeHw
-	5VEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVKS0lCQ0
-	NMVUpLS1VLWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=gIKJfK4/A2ZL3N5O2DgWKubTDX4fouTdIqqH8fCMJgryh4ww0EuyMHUv8aQmtd6Sl5sCpUhAojPNRceUsfrBdoH01YVJlGPhNJBxE4R91IEfMqRL7jq0ceUIhirsAmWNxMxqEckXi7wifpmfMHPXcKSLEsSPyDExrsPjhh20FTQ=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=PM8GC4O0D6ai6QoDJ1GdgTbrRAjYwDPST4RLoXxC2Ug=;
-	h=date:mime-version:subject:message-id:from;
 
-The BCMA remove callback destroys its MDIO bus before
-bgmac_enet_remove() disconnects the attached PHY. The PHY detach path
-still accesses that bus.
+Hi!
 
-Remove the netdev and disconnect the PHY before unregistering the MDIO
-bus.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-This issue was found by our static analysis tool under development.
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
 
-Fixes: f6a95a24957a ("net: ethernet: bgmac: Add platform device support")
-Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
----
- drivers/net/ethernet/broadcom/bgmac-bcma.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-diff --git a/drivers/net/ethernet/broadcom/bgmac-bcma.c b/drivers/net/ethernet/broadcom/bgmac-bcma.c
-index 36f9bad28e6a..e9229d86c7d0 100644
---- a/drivers/net/ethernet/broadcom/bgmac-bcma.c
-+++ b/drivers/net/ethernet/broadcom/bgmac-bcma.c
-@@ -329,8 +329,8 @@ static void bgmac_remove(struct bcma_device *core)
- {
- 	struct bgmac *bgmac = bcma_get_drvdata(core);
- 
--	bcma_mdio_mii_unregister(bgmac->mii_bus);
- 	bgmac_enet_remove(bgmac);
-+	bcma_mdio_mii_unregister(bgmac->mii_bus);
- 	bcma_set_drvdata(core, NULL);
- }
- 
-
-base-commit: 2e54b3e187300893688c2c7517894f5d96732e05
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
