@@ -1,140 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.70
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794985761;
-	b=FQ7ejipGop31XDxTrYd2lgvJ0cDRdPMETIKpay8cjP8U1E0DmLaEhbpQ9tza9izrd994
-	 gcOdhCPKh2/ycvCnpSnWrus0BNCpBsDan4Dux9B1KthbyKD5ty37b3dd2tD8/3MgFqbKO
-	 BZN0AF4Agl8j/3ajiulMbE46zfhQDWYIW0/I38sm155Y4ORwdKE6RuYY6gRIS4JOgP6Vg
-	 7+AwupydX9tKO437mmZ/iMN9naPVSqQBhL2xRlEomniCzn7knDBmOLqKclwF7VMoZDvv2
-	 pFd85IUjN+wpG2tXLY5kpJhNg1X/dH491NYVpQ4b9HIp10gMRK6CEZcIWQE37+ilLtQ==
+	t=1794987246;
+	b=OLKTijIE+awogd6egd1TZWsnwIEh9wqKn0zbKQUTGTq84MuMaNxYbKISBKtZeAiPKxwh
+	 feHo3hTJxkk5b5ecm1mLf0H3hKktt4DxmBPetWLI+lhbjy9evq5x47COVySOTf6/1b7rT
+	 +NYsZxUfaTBlhBbD+R7gWJ7xGbx4Rz6PAVU5vur0x5SsuvGHpMt4duaxtbyBmXZ7tzgbH
+	 foTrFb1bGzknqeaYJyvQELR2H+lCE/If/nZTjv8bwlsXQIT0d78u8AB9VodgNg4sxKzN0
+	 +n/UZtUXozMEdjGCIRQs50/EqQdGryOH1TwpqQnMv5FzdOeFZN17KzuLmm+cz701tGA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794985761;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794987246;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:From:Content-Language:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
 	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
 	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
 	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
 	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=FuGSYKm1Psl1WqdDEw5xSkaBkWGUAITFOLJFmGFywCc=;
-	b=Oc0iwMgF3kB9z887EgBnhP6ai6cuDvVIMxWOyMcFwJBPUl8Xoz8FntDzfpsHiXVoSP2A
-	 5ani2aISbetspa4IXINle+S6vR/2+ICEllPbWDh+Ufe9Ys5rPMYQaA+tkHNf3nM3C57hG
-	 N3XFNBXEhbbCR3meDI6iMQV2e4O8vNGNXJaEARJBAH7U8tKoRx5ksJQwD6hCHP3zoWACF
-	 tsYGMIEvTbvpgY8W5kxy6C97h78NGezzm4CgMwem8mlEkXYzKLwMYZtJp3GDway8yHGFR
-	 tXCqXtciWslnAuPTTnzIUi3ETVovWc9D+oa4ckMSLqmlzYt/ThBTwzGsUwK289MNElQ==
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=71OmnO+FWbA4EhJ7EN+OTkAqWLzkAt6SqNvR5q45ls0=;
+	b=eWFzZylNDUN9G/EPJL1xJTIJ9NectpbAuXk2oFVzMpwEqdVPKO01h6RMNDog5v7/dd3K
+	 VxbojwFCH8+k68MU2r46Y41xgYmaBtxav9S0WK5B0Be3CjAxSITohoHOtkYfgBdq46kr1
+	 7Ima2+J7ytlOjn8wNKZNbTJVKbQtColiBh5eRNH3bECTxd4BcnX3oci0io1tOUp9DDdX0
+	 mko2FY4ikOmB+P3n1oApbCifrGd9tUGrieVvhO6WSaXpaODz5o5Jc+BjgjI/pAVegz736
+	 IeofS5CTHrjuqiTPwuTTnogqz7HSX8dmR5+kCpNcIcHalFf1N9G+ge/D2qYfI2zYxYw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eSFWv2ec;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=cKN+HBUT;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.18
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=oKSIu2Qc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.70
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013070.outbound.protection.outlook.com [40.93.201.70])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2395606A333;
-	Wed, 18 Nov 2026 07:09:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2395606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85EBA606A31C;
+	Wed, 18 Nov 2026 07:34:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85EBA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=eSFWv2ec;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=cKN+HBUT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1794985761; x=1826521761;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=jwVd7zw2PQi7SdX+5GWqBWIbGFKF/6YuR/M17Rrk8k8=;
-  b=eSFWv2eca0+RWgk/THW2NfJOoiJ+JGZwZ2w16RATihTlhS6IPEAuzqBZ
-   /hLF+IkB3/Iq4c9b5jFwgjrxFTDhF5Aqkmpql+PxAY2XwT7KVsrOuC+wS
-   jdJVTKAtA4FVufpoEVzi6m0BiRvtyigVV8hEwkzlt41++m/LCF46qzF9S
-   YK+XHfW7GShsz6R4lid4udIUupbnYOXlSbZ2RLiB+VRQbEXULj/PbQj9v
-   I952W6Xu+gJMWBHGB4/EKmSLolWob0Mglsp6UDiQEkAERfYqf9RIstLLa
-   7kCrqRSlzISN67v2mn271y0I5vxZ/9NAXVeubS3pkyIJtmTpeRW2PIE2L
-   A==;
-X-CSE-ConnectionGUID: NHJ4qg8iS9CIgfYBvh7dZA==
-X-CSE-MsgGUID: 77oJjoR6R9mnl1qxGxWudw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11969"; a="3808300"
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="3808300"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 23:09:20 -0800
-X-CSE-ConnectionGUID: Uc2wL9pSSz6q1aLearV0jg==
-X-CSE-MsgGUID: Hx6a/UbpTFOreEk8ozO/sg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="10450479"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by fmviesa001.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 17 Nov 2026 23:09:20 -0800
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 17 Nov 2026 23:09:19 -0800
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56 via Frontend Transport; Tue, 17 Nov 2026 23:09:19 -0800
-Received: from CH4PR04CU002.outbound.protection.outlook.com (40.107.201.31) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 17 Nov 2026 23:09:19 -0800
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=oKSIu2Qc
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JHq8CBVEngFRjX/ykdaO82JhAaF8UZ4S7eB0LTqrs4Gn4stBc0Fbmf/scvFrv+gTvw0OQ1c/MUpnqY+Xxa3w2pq1eTDox5CgrWydBLKfagMwQIjY2Vsd1qSypJqVhPd1BFz/AZq3IEfjgheir2e0ROqXccP1iXENNfhn8iH+40bdKWpNXYPwLuAVetZ+3NcK6MN4O82iII80OwFXMgPKPSZid6Z2LLgt7bzI6FLAdMthE7VNkNlsy/G1NkmqZkbDnoa96Zp7b9y6J49CDSH8YEErWj+yIyED7L8hya1ECa5KZpDLbs3TPcF4U5DL2yKStwWoqjTIYrHodFVjCt/Y3w==
+ b=wdKAIEGnqdhU/EHEpEmLwUWftF30FTizR18CjiJZl5OBIk0Mt9CG67kYJR7Gk6R4buzoOL87F3MjSjywAeZS093GSZZSUk+vaIR1zn0ny0+uCoW5e+cr8PfgmP6mOvgkc1DJIXmN0cXEme6LPs6hBcSED8TWSjSVE1zwYRxXP4CqSA94cthB3bYSfbtHFvR75mVyAWA34Yc5M9WEb5AadMEcyr5j+ThXOjxGw6X1pqWl0YDncXC65EE4l4ZBhgQbFwZHzwgWdT8iBJYJcDalRyI6SX0nN3oNNT5J9Yq8ty83n1RxQiyDhuYolL9TtFgC3J1YLxuyDfDtlXUs5Zjbew==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FuGSYKm1Psl1WqdDEw5xSkaBkWGUAITFOLJFmGFywCc=;
- b=xiZW6mzaBSNq8H7R0jnJL2rQl0ampWeovi3zWvWCsL7j/4yrO8dDTOMUPUN/FUpA0Q3fERf/FAMgUcq+3CG/UtymD8djODWqG/OGm6UGormA0uKZoBUkh+RN1GPTDVcYBLje/frEhv07IrIqO8LDqLMxf1tLAEPvsqvr4OodaHjLyeSUS39GR8zWFNccg7cry6nz/+Mhejj3EeovYG9+kobWtzB5CgZFEYXySGQ08Qwb2yyeG0E1MiYSzIzHVdEryCnUwtCK20k4WW48kFG+dPdd2+28dNXszeAlqvytzNUbBmySyaM4FhcYfh292NAiN00jAdBkINrXkNsZnctQ/w==
+ bh=71OmnO+FWbA4EhJ7EN+OTkAqWLzkAt6SqNvR5q45ls0=;
+ b=PFJQTaorj+btu/GQHbdEdVWzRzrAdxnBaERWNdmr7kgPjY5VAd0aYP52PJObcll1c52ye2vQmfVuiusrB/R1yKMWTd2j1N93dL/3pSSEnt7z5J1C564dcgDEARaK9gCRy448OInC9kpTqvIA+E65nsl0+Xt6dGNdpYVYr/XnUCTNigBIX0GPzp8HP/C5aO4bOfbIyViVc5T0jEKRZ69h7DHso00WLVuJQZVN6JH+ikur98bH3Jk7dcjVFves2a3PRZA8l+W7G5dN95mMKuBELdVrlRGyaHbDYCDmIJhouZeFJx4gnuJt3JNNfWqn6zd69w2XW7z6rgAJoWBDnFCKyg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FuGSYKm1Psl1WqdDEw5xSkaBkWGUAITFOLJFmGFywCc=;
- b=cKN+HBUTIUKm6vwGQHZG0Y0yYG2+xTS3PjgnIxENp14NH0ZoKnytHOybHh5Ho0jJra5OkSu69ZCfpopTsPV4+6qvAiLHopnwIfWTJrFKVBrVz/dQazuq9ESsMOaD8AG9r6zoC2iFhDwpiPtbXY/NxHrZUSd8OUhr4eBblkQjeCY=
+ bh=71OmnO+FWbA4EhJ7EN+OTkAqWLzkAt6SqNvR5q45ls0=;
+ b=oKSIu2QcuIBY3gBoAslJAehQIUbvqoFOn3cbCza/8IKjn4ieDrICYeaK9yZQKCjJwJRoBNEdSeDR1UrRMfis5tYqVwhvBj913hy0sRevca8+7okw961lmfbzmJllF/Um0IqrFliEZEpdmLrRpNKGpW+VQxiitsfyZHTk1N+OLm0=
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ0PR11MB5630.namprd11.prod.outlook.com (2603:10b6:a03:3bb::6)
- by PH7PR11MB6675.namprd11.prod.outlook.com (2603:10b6:510:1ad::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 07:09:16 +0000
-Received: from SJ0PR11MB5630.namprd11.prod.outlook.com
- ([fe80::79de:af84:3b43:84e3]) by SJ0PR11MB5630.namprd11.prod.outlook.com
- ([fe80::79de:af84:3b43:84e3%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 07:09:16 +0000
-Message-ID: <a2284c4d-8c30-4d98-8886-9d9f90bb9b97@intel.com>
-Date: Wed, 18 Nov 2026 09:09:09 +0200
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10) by SJ2PR12MB7866.namprd12.prod.outlook.com
+ (2603:10b6:a03:4cc::13) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.592.10; Wed, 18 Nov
+ 2026 07:34:01 +0000
+Received: from SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3]) by SA1PR12MB999228.namprd12.prod.outlook.com
+ ([fe80::4dba:119e:8e7c:37b3%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
+ 07:34:01 +0000
+Message-ID: <fd25ed52-e3ea-41a2-9f62-2397d5d9e8c8@amd.com>
+Date: Wed, 18 Nov 2026 18:33:45 +1100
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-net v2 2/2] igc: treat I226-LMvP as an I226 device
-To: =?UTF-8?Q?Daniel_Via=C3=B1o?= <danividanivi@gmail.com>,
-	<intel-wired-lan@lists.osuosl.org>, <netdev@vger.kernel.org>
-CC: <anthony.l.nguyen@intel.com>, <przemyslaw.kitszel@intel.com>,
-	<bhelgaas@google.com>, <linux-pci@vger.kernel.org>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <linux-kernel@vger.kernel.org>
-References: <20261111093035.513635-1-danividanivi@gmail.com>
- <20261111093035.513635-3-danividanivi@gmail.com>
+Subject: Re: [PATCH v2 18/19] PCI: Replace untrusted state with device trust
+To: Leon Romanovsky <leon@kernel.org>, Robin Murphy <robin.murphy@arm.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Danilo Krummrich <dakr@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Johannes Berg <johannes@sipsolutions.net>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Bjorn Helgaas <bhelgaas@google.com>,
+ "Joerg Roedel (AMD)" <joro@8bytes.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
+ David Woodhouse <dwmw2@infradead.org>, Lu Baolu <baolu.lu@linux.intel.com>,
+ Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+ Marcel Holtmann <marcel@holtmann.org>,
+ Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+ Nipun Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
+ Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+ linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+ linux-input@vger.kernel.org, netdev@vger.kernel.org,
+ linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
+ linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-doc@vger.kernel.org, linux-pci@vger.kernel.org, iommu@lists.linux.dev,
+ Jason Gunthorpe <jgg@ziepe.ca>
+References: <20261109-device-trust-core-v2-0-3b12d9a9f861@nvidia.com>
+ <20261109-device-trust-core-v2-18-3b12d9a9f861@nvidia.com>
+ <d0999161-3b27-4c3b-9d66-1d117c4836fd@arm.com> <20261110122237.GG8635@unreal>
+ <b4c2538f-8021-4abc-be2e-fcd1596f84ca@arm.com>
+ <20261117124801.GD124972@unreal>
+From: Alexey Kardashevskiy <aik@amd.com>
 Content-Language: en-US
-From: "Ruinskiy, Dima" <dima.ruinskiy@intel.com>
-In-Reply-To: <20261111093035.513635-3-danividanivi@gmail.com>
+In-Reply-To: <20261117124801.GD124972@unreal>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: TLZP290CA0005.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:9::12) To SJ0PR11MB5630.namprd11.prod.outlook.com
- (2603:10b6:a03:3bb::6)
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SY6PR01CA0131.ausprd01.prod.outlook.com
+ (2603:10c6:10:1b9::7) To SA1PR12MB999228.namprd12.prod.outlook.com
+ (2603:10b6:806:4db::10)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -145,106 +123,258 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR11MB5630:EE_|PH7PR11MB6675:EE_
-X-MS-Office365-Filtering-Correlation-Id: 863e8d2a-a5f4-4418-a15c-08df4542db32
+X-MS-TrafficTypeDiagnostic: SA1PR12MB999228:EE_|SJ2PR12MB7866:EE_
+X-MS-Office365-Filtering-Correlation-Id: bd85bdef-bc7f-4f4b-6fb7-08df454650ad
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|7416014|366016|1800799024|4143699003|11063799006|56012099006|261026121527099003|261026140227099003|261028144727099003|10067099003|261022075727099003|261021121427099003|261022105027099003|261102123227099003|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: 0Ru+zrUrsm9INQFyjyUHIK9BgvaAkG+SN2ebXghWDB5Sbb437sWEMfOJ6bJQcpDTXoC4xfAPiPXeb0CIhuZGFMe9J6VaQJqxiK/E1X3lMt0wMmY18l/9TCRRiKlXGgpPhzsw4DJPNKv24p8iCcZI4pbh9g+XcAWS3a5o5bMpmH6Hbs0jfY+C8Kan24zD31kJUeAmegJhVyEEV0VCVX4+HdB63yOpYXR3XgiMo5t7V53HQXKFAheixAwybjsfCz19QJL1q2lJI38qBiW8JB6tSR4Ca993Jcp2lmQecHWW6+Dl+ZtgX1j0ONq6rpZ9r1RpduIo9S0Qwgg/rHSOKO4W7WtU7nE6H+kh5t8u/3r/Bncbhv2lWJWEOdR1d3aAatg7n6UPXNSnA19dzkjzlifXdNVamOVuR1XiCZag5Df6UunuyXmByd/nlwM0HR+H3QLiZhtpIi81SkxdojiTYLXmLp9hzGuisgF+VoEBjXUEGIdS/LxhlM/gWlSiqgq7Eu599ihbJNVxk0jea9TN79eSBstYbCEHrwT8OTFAXhyRhmFLp36oQEVdkZ7ijjDdnPNBeUe6aXtoQXCowX/k1Sfw7IvIg0nK7NOUIPL79UcxZo4/j3x9ywalBseCSunYdOPI
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR11MB5630.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(366016)(1800799024)(4143699003)(11063799006)(56012099006)(261026121527099003)(261026140227099003)(261028144727099003)(10067099003)(261022075727099003)(261021121427099003)(261022105027099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|1800799024|376014|23010399003|366016|261026140227099003|56012099006|10067099003|11063799006|261009223027099003|261026121527099003|5023799004|4143699003|261028144727099003|261022075727099003|261022105027099003|261021121427099003|261102123227099003|261021123027099003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	kZxqGkqBkyBWGddz7J43Pl2uxsBLycER/2T8xvGeAlMFBYBrqILCeo2xLkvd7irsvHU3dkvMSuLYf8YFAGzYLW5ITQqs7VrwHfg6ge9RLBWA2rmzvXDJfIi+MQarPcP8BLXI5lLOEReRYrxmkgxEKTO5X4dRXJvXy9iYHC+W3Q3eIKuc7qPScMtYS4mt4k5ydQcu8Gmn0ZrZ1gnFrMQGDEvMhHZGJh/GzQyYtkuxknydptTCtMEIcOgbvKz9911rwFxWWvBgWpCgHkn6yQYLvXdEXuE4EG2OZWZ6fx7xSL+UyyUFQVtUgjP9539uPO/lf6g+GMFPTFgT6VoNqio9L1ZqJmf9ABYL4V8mkKK5SLCrJSWdWD9+wzlmgOnk0mY5zbVQMj7ICC5KgJBsg0h5eTNtOvza4IjsxYwVqWTNzsm9c7XbeppZdFHC9gP1RAKywD/PeHoJjmWA9d3jLvRViv6LihiaFYlzln9Cv+HOgLXkUcenh6cZcL48JPafpaRfO4RVUE5qUEuXvt54ePYY5SslDAT/VJ8+zA+uS/FoZE+zXfqT2RV7Ad9CclhY7Zkb5Ofs587wGOoiFn4CdF1cEkDeJXpN+6Mormj5WThJej3v0ZlWEKW1kyMxVysEzZuGCt8Z9uWhM0Xji146/E8TgFiYQfla2tgcOJxcOPKtbZk=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB999228.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(23010399003)(366016)(261026140227099003)(56012099006)(10067099003)(11063799006)(261009223027099003)(261026121527099003)(5023799004)(4143699003)(261028144727099003)(261022075727099003)(261022105027099003)(261021121427099003)(261102123227099003)(261021123027099003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WmExNDNPWURyV256Y3hkMUFBRjk1T2VYYzF6R3JRR21PYlJ1cXc3MXBXeWFm?=
- =?utf-8?B?cVBaWWtCem1rSVBqT3o5VWlwak5vTVhxcGsraGdmVDY3b1FLN3k4R2FoejNL?=
- =?utf-8?B?NU1PbkljeVdvU0NnRSs2WXRBVXh0UkRWcElMb2VpcnJtQmIxODhrckNoNVFU?=
- =?utf-8?B?UndoUk5lZnp6dzFkRW9CcUJ3TXV5b2k0T3p0RzFBS2RMOTlHdCt2YWhrbzdY?=
- =?utf-8?B?SGc5SDNmYmFaZ3hET3JjL3NBbTBlUkFTZURTM3FhSUVZMUhZNkpEeHk1Mytw?=
- =?utf-8?B?TWkyYzUxZDBjOHl4bG5rTU1TcCtZVVBIWW9WRzFQekF6VVJiTmFuTnJjSVBI?=
- =?utf-8?B?TEp6aHRKWEZad0NXbnk1VHZkR2psZG8wL1JmeEJRbEZtZjQ3M25RVWY5dFk3?=
- =?utf-8?B?eDVIajM0ZUpwOStFMDE5UklWd0t0cTNOK2tpMEI3WGNiNDA4cENBSTd1RUtI?=
- =?utf-8?B?d25PZXpLL2k5TjRZaEpaNG5HejdJejBYYXNKQnB2TFlhaUR3SVVTT3pzeUtZ?=
- =?utf-8?B?UmczTHpJNUxIT0FRNTMxblBHRTJ2ZWk2Y0NGcUlGL0xhaEQyNTJxWlozeHVX?=
- =?utf-8?B?NGxEbm5yaG9wTHpwUE9Xbys5cjk2blRjSmsxRjJVblprcGxHcE02RFZ1Y2Rw?=
- =?utf-8?B?WCtsN3ZpWTdwUlp4bVdkYW4rNkNyVUwwbnBPcTJ5akpLZ2g4VFVyb3p1R3F0?=
- =?utf-8?B?OWhpMmYwNE9tdnEya3pZMEhyZHE1SWNYRW1zeSswQjMxRllEQ2M3RWY3aDRt?=
- =?utf-8?B?OFYyd29GMTRHdXNIMTNDajhnT1h1NDJaYzZDV09iQnM3YVg5WWFPZXlwS09u?=
- =?utf-8?B?dU5XN3BGYkU1ZzlRZ2ZndXRkV1krbW12ajZLWDBBRFdNQy80Vzl6dm9RaEUw?=
- =?utf-8?B?NmtibmJ4SmFKa05vZTFiYXd3QXJKN053QWNaQTBRaVlNeDNTS2I1Q1E5L1VQ?=
- =?utf-8?B?eHllMWJzNTNOYWN2RThIalpqMHhMS0RvZUxFcjV1d3Q4aXhNUVphMDNMeGRX?=
- =?utf-8?B?UmdUTGxqaXBmck1ReFFhQXpDQi9kK1VRWGwzbCs5cExvdG5YRUQzNG9xMFFy?=
- =?utf-8?B?akpTd2JrellUbUdjTXZ1Q3NNaW1ZZE03MURJK09DSkg4TEl3TThZbjRrQ0Ix?=
- =?utf-8?B?U2tKZnJscFhvLzU3clV1VHM1WmtDM3hvV3VaTW5KdDdweE5EelZRYUQwVGd0?=
- =?utf-8?B?Z1FxV3g2NjZYYjVVcEFEVGMxMDZvN3IraVEwZVlDc3lFYWtUSEVKQWpNZFV5?=
- =?utf-8?B?cDdpUTc2MjBjbjJKZjV4ZW9BOWtRVFRvb0pKTWdSWUdFaTdTcExKTzVaMmhu?=
- =?utf-8?B?N0NRVjR2N1FGUWFXdkJYR1J0angvYVVYVUN0WW92OTJiblNqZjFCeS8rTFU4?=
- =?utf-8?B?OFpoVVo2VTc0N2RmS0N4WTB3RG9yQkUxT1ZjbWxGSVpIMWl0VnFibE9vU1BX?=
- =?utf-8?B?cnZJTVJqa2tCak8xbTZiMnBzakNmejM2WTJwNUpZaDhVUFFtMmJySUdMMVZo?=
- =?utf-8?B?bndVdzYva2hZTlIwT2dQU3hXdUJ2ZUowMGQ4UHZvcXNjV3NhUzN1bTZXalY1?=
- =?utf-8?B?MDRqc1BZOHJINml3M0IxM3pWZDNUSXliYTkzWXNhSzlOVldmV3lsYnFXY3Mw?=
- =?utf-8?B?Ty9jTjB4V1pLQnM2cXNzd2xuMm55S244UzYzVFZ1c3NMV1I4cnhZMzRoVmFp?=
- =?utf-8?B?aHREKzdzMjI0WVNSUHg3TjhPVzc2S05mNGEwY1VJbDYxb3djVzMxV0RiR21l?=
- =?utf-8?B?NWVMdDlmU3NUMHNDTEJGZ0FndjJmT3lyZjBzYlFjRU9YdklPNXRQVHo2YVdJ?=
- =?utf-8?B?RW9mdHYwZUVVV3p6VDB0TmE5eDVLbitVdXkvVXpzT3M3cmE0V3hWK0tERGlJ?=
- =?utf-8?B?Y0Y3dmpkRnNRaGVmdyt5M280NDVodGl4bjBQSEo3NURrUDVEYUdxYUU0di83?=
- =?utf-8?B?S2JWWlZmSFVSbzRGdGRTZ0VaN0J4Q04rdkVKL3RURmVyNlptZnVTRHljZjFx?=
- =?utf-8?B?QzFtL3ZoWmcvUmRZdmF1L1F1a2VYTDJDTU9LT2tETFBHUlQ2czdGUEdLdDRa?=
- =?utf-8?B?NjViemV5aVduWW9ZMVowZmw0RVNaQ1BkdUJTcHE5RzBhMVpnVmRXd1lZQ0lN?=
- =?utf-8?B?VUZJYXIzL2lyQ3NFRkpBM0IrTkhzR2ZqeXo3RDVoOFVYaUZpVXRCaGJtVjg2?=
- =?utf-8?B?YWJyRmVDZWw2dU5zZTVZRDRyL1BMa25VVWRoYlpLMjRuMmhOOWI1WXR5VUVE?=
- =?utf-8?B?VXNkUjRYdnBwSVhTNkEveGVUVUIwellucXlGNW9YZVlNVjlQdWxIaVkwOEZ1?=
- =?utf-8?B?UmxwejhoTEdxY3Q2QTBMWG5RZzlrQ0tYNnF0TEZ3WExobE15Y09zZz09?=
-X-Exchange-RoutingPolicyChecked: pouRMW25okF8GhmivxTeU++euZZSgh0f8ni+NnmG7VBu/zPVGJWrj7ycqwYcBmPQWfjAF5gBIHD5ptev/EYTzfuWZO+TfbjI1Tt8Y9RqHuQy09SPCMdmIRg10jtiCKNXcNlmpNgVRY0tXJ9GQ9HFnbzVN6HgPPwg1JHBz5vD1n0fc8AQmSHRyS9BQehShkulBs9Eo7Y9GHMOXbx4YAAiE//KkJr9RA8UKO4zeSqkYpJiOMPoQLWoJGH+jDEwbfb4TlAFtX7sjNE5yBqmaFAuiRuF5vZGxnWJkhZIqmDN7lj0Gl3DmZ0XHijQuOXY8Qp9WAwxxI8Oy6E5azi8es7rfg==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 863e8d2a-a5f4-4418-a15c-08df4542db32
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR11MB5630.namprd11.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?djU3N2JoaG5SRnpKelptR3lmL2dSdG4zTEE5enJuUVhWQ3ZIa0dpYmQzekdC?=
+ =?utf-8?B?NGhLM1AxN2tWV0hFNnJJZW51cnNGS1dLeFY2d1lxQVlsNG1YeDhjT044RTFa?=
+ =?utf-8?B?aWxhSjRCUHNERXJPczJFZDZaU056UkJEZUFFYlFMbEdqWDVIbElsZG1PUTls?=
+ =?utf-8?B?MVRZWEJGbjlQSzE4M25qeENiNXhpaHBmYVVOT3QzQi9QZm0rYmxCbnMvM2FW?=
+ =?utf-8?B?UmpBSWRZSUwxTjJMM2RsNzJtYzBrZmJJZCt5UkhFRVo1OEZjTXF4TmJ2anI1?=
+ =?utf-8?B?V1hrQWRTUjkzMHZYenh5UVlrYkdPNHVUNTVGWFZSUnNUYyt0ekh5d0loUzRu?=
+ =?utf-8?B?K0NUcm10TENvekVtWTNjZlUwMjlaL0cwQmp3VlNsSzJBbHFpUW5CNFlnOWNH?=
+ =?utf-8?B?eHNuQWhCMWdJVGpWTzBmek9qeStINTFWR1k1OUxia1RzUkxrRFQwSzRpRnZS?=
+ =?utf-8?B?NW5RNHhsd254Qm1UcFM2OUhiUWphdVZxU1Jzbi9vK2xTa1pMU01iRXR0c210?=
+ =?utf-8?B?NGpzNmlaS1RCdHUwYmVLWDdsSHNCc2tWbWF1NWhrZkFJbWV5UFRMMDhKMFN4?=
+ =?utf-8?B?MUxOWW5mTjhwYitQMXpCdDRYSFc4Rm9CaWtqTjBVUEd2SzlROU83NGhQdjlG?=
+ =?utf-8?B?bVZ5c2hBNmI5NCtLTHY1QkFRTldKVlJzeHYwNFAzS0M0Mkk5OGNScTg0M1Bo?=
+ =?utf-8?B?Zlp6anduTUFjUVFUeGVtYVc1RzRXMlZQSHFoSTlVQlZGTVA0a2xxWldJRkI3?=
+ =?utf-8?B?NG5zL1IrREZLWU1PZ3RIQ1F3T3Zmd3Z5Mjl0cHh1S05xSno2NlNHTTBWVWJ0?=
+ =?utf-8?B?OUl1V2srdkJzai8xbS9BcUlGWUFRalJKTVZtM2NCMUYvM08yc2FIUVFjSzFJ?=
+ =?utf-8?B?Q2JKcVlQMnVHMXd5ZG5xRzdFb2x0ZVVWNHRxcE1kU2hsMEQySHpwQ1JFemcy?=
+ =?utf-8?B?Mkg3V3I0MkZScVVJSEhjb2YySDI1L0NiTmlNSnU2NlUvTHR3TFJxbFFsSXAr?=
+ =?utf-8?B?d1RIaTB2NzBrNjlCR1hDZ0k0NVd3MFRDRjRWWXdLTVVyWGdkNGpIRDRNODF5?=
+ =?utf-8?B?bXk1VmJ5NVFKR1BGbm1NRkRpM0VnNjlBakRYQ2twZG1GRTV2Z1dJQ1Z1WXJj?=
+ =?utf-8?B?bGRMeGsrWnpnYzFQTnVkUnZSMEl5YWs2bmpiZjZ2TUNyMjV0aTAxb0tqWXV3?=
+ =?utf-8?B?Z3lPcEZpdzZIR3FUMmg4eXpyaHdBdmEzTGZSMFZ0ZzM1dWloMnlMR0FGa21z?=
+ =?utf-8?B?N3laVWhZZU9vcGpTQitqS2xydzJhQ3VLeW5GRzR2VXZUa1NmZmhISWNldDZB?=
+ =?utf-8?B?cUpDT0d1cXpIckpjT3AyNE1UNW81dVdEZ0dhaHlldmh5NFVKcmNhOEZ2VFRX?=
+ =?utf-8?B?L0REb3QxSnR6aTVucXJ5elZvcXZGTHBxUHFnWTJEQkowbjFDdG5FQkp4dE5q?=
+ =?utf-8?B?NWhlb1AxSGNwVVk4ZGJKcU1hd3NlRWNNTHRmMFZ5cVBROEhvdUxocjk0bmNu?=
+ =?utf-8?B?NVBUOUpkMTNQd3YwZFJ2MkxXK3YvWnh6UGhETDAwNmZtNGxOei9Oak5pY3Mx?=
+ =?utf-8?B?L3lOVWZSdVZiekZhUnFlak9tZFovbVRJLzJGcDB5c0ppOTNmbDhFbzB3WnJx?=
+ =?utf-8?B?bmRXYllkYjJoUEZTa0tjOU0zbVVpL0MrdXRtUHJVSWFJT0VRc0N5TGhoNElT?=
+ =?utf-8?B?VFBQQk5ZZXJlbjAzcnVuem1qT3JFMGhoMjZmS3pFR1AvTHBibVQ1Q3FEbmsv?=
+ =?utf-8?B?M05tZERoZWxyVjUvbUhNRHRuOFMxaFc4VVI3R0V2dHpiK1FvYjhvU0E3ZDJz?=
+ =?utf-8?B?MTRSUmVUTDlsbFp4WkFOM211UUtyMU9mckllRFM5M054a1I4YXlWQmJMUGM4?=
+ =?utf-8?B?SnNhVTdlbUxrYVFyNVVUNVZuN0VNVGlqc3lhdk5GYWp1Y2ZvWEJjN2hSSHhI?=
+ =?utf-8?B?aDd6WG1NajdIVWtiSGRrejBSL3U2K2pITmsxNWJYcHRobjFxMGI3ek5FWk9O?=
+ =?utf-8?B?aXUzYjdGZU5FV21veUxidXpVN3IyNkpxeExGOS83eEZXaWcrd2V1Q3pxYUVI?=
+ =?utf-8?B?RUE2SjJ2M1paWTRPbndkS3JmVTlNOWhXMEpRTzltVlh0TS9qYlNzclh4amhO?=
+ =?utf-8?B?eGFteFZDZlhHN3BmT2xoaG14d00ycTF0enB1ampSL3VYNUlIa2ZJNVF3OVF3?=
+ =?utf-8?B?aFlRV0Zxa2UrZEM4SjBkT3FZd1JMTkhuQmtTaEtCb1VkdnN6UkdnVjVyVDFG?=
+ =?utf-8?B?ZXNnYXQxS243MkwxTjhvVTU4akRremwyemlkbjE5OUdLVkhsQlFvQVZibjdj?=
+ =?utf-8?Q?2pFLH8CnXLePCKoejg?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: bd85bdef-bc7f-4f4b-6fb7-08df454650ad
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB999228.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 07:09:16.0001
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 07:34:01.4690
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 6tLpM3tk9YAzTU6PY1RYovopn5m5OWUNjCX7oYNLh72TXJAkZ8AAq/XyLHn7IwDIuXHEVQiBgD/HKb9OrGbtww==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB6675
-X-OriginatorOrg: intel.com
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1CclyQk6YPOQ+Exb7LflDSdMYo57jIk9mtHPrVn1FJzl+16k1BeAm8LItqcpegYfmjW3EVUh2jaWqFXUiteQxg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB7866
 
-On 11/11/2026 11:30, Daniel Viaño wrote:
-> The I226-LMvP device ID (0x5503) was added by commit 8f20571db527
-> ("igc: Add new device ID"), but when commit b8897dc54e3b ("igc: remove
-> I226 Qbv BaseTime restriction") introduced igc_is_device_id_i226(), it
-> was left out. As a result I226-LMvP is currently treated as neither an
-> I225 nor an I226 part.
+On 17/11/26 23:48, Leon Romanovsky wrote:
+> On Mon, Nov 16, 2026 at 05:13:59PM +0000, Robin Murphy wrote:
+>> On 10/11/2026 12:22 pm, Leon Romanovsky wrote:
+>>> On Mon, Nov 09, 2026 at 01:53:02PM +0000, Robin Murphy wrote:
+>>>> On 09/11/2026 7:33 am, Leon Romanovsky wrote:
+>>>> [...]
+>>>>> diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+>>>>> index b486b8bbd1fcd..8be2a246d4903 100644
+>>>>> --- a/drivers/iommu/iommu.c
+>>>>> +++ b/drivers/iommu/iommu.c
+>>>>> @@ -1879,7 +1879,7 @@ static int iommu_get_def_domain_type(struct iommu_group *group,
+>>>>>     static int iommu_get_default_domain_type(struct iommu_group *group,
+>>>>>     					 int target_type)
+>>>>>     {
+>>>>> -	struct device *untrusted = NULL;
+>>>>> +	struct device *restricted = NULL;
+>>>>>     	struct group_device *gdev;
+>>>>>     	int driver_type = 0;
+>>>>> @@ -1901,14 +1901,15 @@ static int iommu_get_default_domain_type(struct iommu_group *group,
+>>>>>     		driver_type = iommu_get_def_domain_type(group, gdev->dev,
+>>>>>     							driver_type);
+>>>>> -		if (dev_is_pci(gdev->dev) && to_pci_dev(gdev->dev)->untrusted) {
+>>>>> +		if (dev_is_pci(gdev->dev) &&
+>>>>> +		    pci_dev_default_is_restricted(to_pci_dev(gdev->dev))) {
+>>>>
+>>>> I think this should be the generic device_is_adversarial(gdev->dev) now - in
+>>>> fact probably all the dev_is_pci()/to_pci_dev() stanzas aren't conceptually
+>>>> PCI-specific, just an artefact of the current "untrusted" flag being so.
+>>>
+>>> I wanted to do the same, but iommu_get_default_domain_type() may be called
+>>> before the PCI device's trust level has been set. At that point, we are
+>>> still in "disabled" mode, whereas device_is_adversarial() checks for
+>>> "adversarial" mode.
+>>>
+>>> The below is from AI, I asked to present me the path for that:
+>>> --------------------------------------------------------------------------------
+>>> For a newly discovered PCI device with an available IOMMU and a new IOMMU group:
+>>> pci_scan_single_device()
+>>>     pci_device_add()
+>>>       device_add()
+>>>         bus_notify(dev, BUS_NOTIFY_ADD_DEVICE)
+>>>           blocking_notifier_call_chain()
+>>>             notifier_call_chain()
+>>>               iommu_bus_notifier()
+>>>                 iommu_probe_device(dev)
+>>>                   __iommu_probe_device(dev, NULL)
+>>>                     iommu_setup_default_domain(group, 0)
+>>>                       iommu_get_default_domain_type(group, 0)
+>>>
+>>> For a device whose initial policy is adversary, its state during that call is:
+>>> dev->trust_policy          = DEVICE_TRUST_POLICY_ADVERSARY
+>>> dev->trust_level           = DEVICE_TRUST_DISABLED
+>>> dev->trust_committed_level = DEVICE_TRUST_DISABLED
+>>> dev->driver               = NULL
+>>>
+>>> device_is_adversarial(dev) = false
+>>>
+>>> The active level changes later, during binding:
+>>> really_probe()
+>>>     device_trust_prepare()
+>>>       __device_trust_prepare()
+>>>         WRITE_ONCE(dev->trust_level, DEVICE_TRUST_ADVERSARY)
+>>>     dev->bus->dma_configure()
+>>>     call_driver_probe()
+>>
+>> OK, that seems less than ideal. Feels like it would be better if bus code
+>> set the initial device state prior to device_add, so then it only ever
+>> changes later as a result of an explicit attestation/acceptance process. If
+>> the initial IOMMU probe still has to poke into bus-specific code to avoid
+>> always making a worst-case assumption, doesn't that rather defeat the point
+>> of having a generic abstraction?
 > 
-> Add IGC_DEV_ID_I226_LMVP to igc_is_device_id_i226(). This changes the
-> behaviour for I226-LMvP in the following places, all of which now
-> match the other I226 parts:
+> As Jason said, this is part of a very large series. Each series is an
+> adventure in itself. Even Greg's seemingly simple request to convert the
+> USB authorization knob to this new scheme has been extremely painful
+> because of AI reviews. They keep pointing out bugs and gaps that are
+> automatically attributed to me simply because I'm touching that part of
+> the code.
 > 
->   - igc_probe() and igc_io_slot_reset() disable ASPM L1.2, as done for
->     I226 since commit 0325143b59c6 ("igc: disable L1.2 PCI-E link
->     substate to avoid performance issue").
->   - igc_tsn_enable_offload() and igc_tsn_disable_offload() set and
->     restore the I226-specific RETX (Qbv full) thresholds.
->   - igc_tsn_enable_offload() handles the FutScdDis bit and the base
->     time as on I226.
+>>
+>> Even with the slightly dubious argument that this series only intends to
+>> shuffle the existing PCI code around rather than fully introduce the generic
+>> abstraction that it claims to, if the PCI behaviour is still just based on
+>> propagating the internal "untrusted" flag plus the new global override, both
+>> of which *are* known at add_device time into the common trust state, then
+>> there seems little excuse for not doing that up-front so that the new API
+>> *can* just work as expected.
 > 
-> Intel confirmed that the I226 TSN functionality introduced by commit
-> b8897dc54e3b also applies to I226-LMvP.
-> 
-> Fixes: b8897dc54e3b ("igc: remove I226 Qbv BaseTime restriction")
-> Link: https://lore.kernel.org/all/5d45a583-198c-467d-afbe-8f19398e82f3@intel.com/
-> Signed-off-by: Daniel Viaño <danividanivi@gmail.com>
-> ---
->   drivers/net/ethernet/intel/igc/igc_base.c | 1 +
->   1 file changed, 1 insertion(+)
-> 
-> diff --git a/drivers/net/ethernet/intel/igc/igc_base.c b/drivers/net/ethernet/intel/igc/igc_base.c
-> index ab9120a31..6865fef40 100644
-> --- a/drivers/net/ethernet/intel/igc/igc_base.c
-> +++ b/drivers/net/ethernet/intel/igc/igc_base.c
-> @@ -447,6 +447,7 @@ bool igc_is_device_id_i226(struct igc_hw *hw)
->   	case IGC_DEV_ID_I226_V:
->   	case IGC_DEV_ID_I226_K:
->   	case IGC_DEV_ID_I226_IT:
-> +	case IGC_DEV_ID_I226_LMVP:
->   		return true;
->   	default:
->   		return false;
+> I would prefer to keep both PCI and USB out of this series on device trust
+> levels. Let's see what people say if I drop them in v3.
 
-Reviewed-by: Dima Ruinskiy <dima.ruinskiy@intel.com>
+
+I'd rather you did not as it is going to make experiments with CoCo VMs harder.
+
+
+> 
+>>
+>>>>
+>>>>>     			/*
+>>>>> -			 * No ARM32 using systems will set untrusted, it cannot
+>>>>> -			 * work.
+>>>>> +			 * No ARM32 using systems select a restricted trust
+>>>>> +			 * policy; it cannot work.
+>>>>>     			 */
+>>>>>     			if (WARN_ON(IS_ENABLED(CONFIG_ARM_DMA_USE_IOMMU)))
+>>>>>     				return -1;
+>>>>> -			untrusted = gdev->dev;
+>>>>> +			restricted = gdev->dev;
+>>>>>     		}
+>>>>>     	}
+>>>> [...]
+>>>>> @@ -616,6 +608,28 @@ static inline struct pci_dev *to_pci_dev(const struct device *dev)
+>>>>>     {
+>>>>>     	return container_of(dev, struct pci_dev, dev);
+>>>>>     }
+>>>>> +
+>>>>> +static inline bool
+>>>>> +pci_dev_default_is_restricted(const struct pci_dev *pdev)
+>>>>> +{
+>>>>> +	enum device_trust_policy policy = READ_ONCE(pdev->dev.trust_policy);
+>>>>> +
+>>>>> +	return policy == DEVICE_TRUST_POLICY_DISABLED ||
+>>>>> +	       policy == DEVICE_TRUST_POLICY_ADVERSARY;
+>>>>> +}
+>>>>
+>>>> Unless I've wildly misunderstood, I'm not sure this is right - if the user
+>>>> has set DEVICE_TRUST_POLICY_DISABLED to explicitly override the bus-default
+>>>> behaviour, but that leads to the IOMMU layer special-casing all PCI devices
+>>>> as adversarial and thus force-*enabling* all their trust-model restrictions,
+>>>> isn't that pretty much the complete opposite of what was asked for?
+>>>
+>>> We have two levels: policy - that describes the default of all devices
+>>> for that bus. level - actual decision on how that device is going to be
+>>> operated.
+>>>
+>>> "Disabled" prevents driver probing until the device is authorized,
+>>> "Adversary" permits probing and requests the available protections
+>>> for operating an untrusted device.
+>>>
+>>> Both need conservative initial IOMMU setup: a disabled device may later
+>>> be authorized as adversary, and authorization does not rebuild its IOMMU
+>>> domain.
+>>
+>> Urgh, I can be absolutely certain I'm not the only one who is going to be
+>> confused this way... I see "disabled" and instinctively take it to mean
+>> disabling the device_trust *mechanism*, as the logical thing that people
+>> will reach for in terms of "I don't care what this new thing is, just get it
+>> out of my way and let my drivers work like they always used to; I want to
+>> disable the new thing."
+> 
+> I completely agree. I was under the impression that these names had already
+> been decided, since I picked up where Dan left off.>>
+>>  From there it then also makes perfect self-consistent sense that
+>> "device_trust=full" would be the opposite end of the scale as in "Apply the
+>> explicit trust model 'fully', to all devices regardless of their bus-level
+>> default."
+>>
+>> Now I guess you could name it something like "device.default_trust_level" to
+>> attempt to make it clearer that it represents a value the value represents
+>> the "trust" *of* each individual device itself, but TBH it's still liable to
+>> look backwards to many users - similarly it's hard to guess that
+>> FOO_POLICY_DISABLED might mean something entirely different from "don't
+>> enforce the policy for FOO.", thus rather than try to contort the naming of
+>> everything, I'd still be much more inclined to just flip the meanings to be
+>> more intuitive from the outsider perspective.
+>>
+>> Say you upgrade your kernel and find your boot is broken because it now
+>> flibbles, but at least there is a "flibble" parameter whose values are
+>> "disabled", "wibble" and "frobble". Are you really going to spend time
+>> straight off reading up on what flibbling is to understand what wibbles and
+>> frobbles mean? Or is your instinct just going to be to try the seemingly
+>> obvious way of disabling flibbling, and then getting positively annoyed if
+>> that only makes it flibble harder?
+> 
+> What about: blocked, adversarial and unrestricted
+
+yes, that's better.
+
+> instead of: disabled, adversarial and full
+
+may be simplify: blocked, restricted, unrestricted? Thanks,
+
+
+> 
+> Thanks
+> 
+>>
+>> Robin.
+
+-- 
+Alexey
+
