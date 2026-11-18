@@ -1,58 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.80.171.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795024626;
-	b=X6zpix4D8KypfuuTqxqDj8quyukqZ5p0hHbBJQLTetmKqBgJGp2EE0f7OkFhCQE9m5Vy
-	 OjhXJAX5SSNEFClU4HyXHrTo7nkseqS1Izp+iysmb3ro8k3iTdfocrYecGgGfSGi7IaUn
-	 7WVhLaRJ0aC/KlRJFi8D2MIzxemWWA/MwdluaitGi1041WIDRDGmpKChlehvVzH27LFnj
-	 9QncfPbRRCjS+XuCbECiEn+Vvd2153hl0ZPIPZMEmS1wK6+iL0SaDUJ3a2PRrJ0sP1UM9
-	 bfal3aNnUBKysp0N9fX76/Zw3T1ha7bJg74+B2xej4yk/I3lM6bWkwNRBbMTeTz6Z/Q==
+	t=1795024685;
+	b=wxHm0eL4m9LaDPdjUPu62srOgcsupOLuvqDjygy8lTrgXvwWfPVBoozYbUm4bLJeCXsD
+	 /s1bAYIb08kXWEceQ7YlBdhGqYGmHfP6JtlvC2zM+P0GbUvpMR05Vd2qPN2jkwtoG0Qyp
+	 zDYu+3/Qlt4FlhJl3K6SgFFxzXoTCFTiiQSRbvkauU92E1D4ULocFVuxfsyi9emYXt0BV
+	 6or0ujHWHd/xuvk08wNXKye3M1jN6S19rX+cbyFi53EnwFRPTbno4TJGDv3Lxf0OjYlmV
+	 vLuBXJHsujUKxHTQipMm37ZaxwIqjFrQbrbvihK0ODIcDGlBN7Mah4I9P8ppj21jzUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795024626;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=228KQJ6URMBlHpySeauUAIbmNzS+ein6ZxweO0f/KQ8=;
-	b=HCZwk75Xz2KVkaQRKYCDX234rxasO7m8cr/w3OoZquAU93+4HpSTVzGPBRCu8eul8Sjk
-	 oHYlTG0vn8bwUgMwneDN7RcpyZ0PF6OU5v2b4XU75GzUI9YlPkaHB7pAzcDA7EDdpgVkc
-	 hmF8/acEkPzXDfPQuq9O1idKb9uqz0XDwo3mIipf1gMR+j9sd3jrhYAV0RH5mZqF0Oe1L
-	 uXrM0tBcsyoVFEHPjkSf7TwUJLNYH/CowtKmnPk3WpbNx/VRtg6ZCF7QOAbsSbfKo5vOK
-	 0xgEGbL1p1Vf6Xu2/fY9EZTioF90JCNlFZM6wZFfPqKoRrmZ8vhvPLSrtQZXB5uBJXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795024685;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=RGDLIgYtKGzTxHwh4JIzPb3Di1bl+x0qfKrKZD0RCL8=;
+	b=hCojAV93urFieIdcxDdaBOhpQkUKNCeT16piw+WLo7fEccQl3RRM8d2dao++hcaRxr0V
+	 TwO/AHVW+g9qeeI5ImVeeqIqDhfcBHl5so3o7Yx5z6gMcno3KN5y7zUBwtRLz6RsZ+fBQ
+	 SYTngwPmCfBgDng/kxt2TTV6CbbTNc6oXX0YRA3iNLUhBJKSwgL3ijO9T5ihJz4wv6exs
+	 4HZj1JnYK1ExFfGLeMArkt/qMKos3kvLkvtkxuVlwSg+WLpymxEHZR4Y9P+A+p8P1HdJE
+	 N0JCbCIxjCJxR86GTcAV9K0nQTYVSlcQpg3I3CzZHAvPV8SjubBcOANPCzxS0N6Tofg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F43GLJiZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=letteboer.com;
+	spf=pass smtp.mailfrom=letteboer.com;
+	dkim=pass header.d=letteboer.com header.i=@letteboer.com header.a=rsa-sha256 header.s=dkim header.b=LquxNC90;
+	arc=none smtp.remote-ip=45.80.171.131
+Received: from albissimus.dikhoed.net (albissimus.dikhoed.net [45.80.171.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D106606A325;
-	Wed, 18 Nov 2026 17:57:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F7F6606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:58:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3F7F6606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=letteboer.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=letteboer.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F43GLJiZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B6AB1F000C4;
-	Wed, 18 Nov 2026 17:57:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795024626;
-	bh=228KQJ6URMBlHpySeauUAIbmNzS+ein6ZxweO0f/KQ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=F43GLJiZfqIwmG19kHrjZ/oWi+rmfDHnHV6vSVzCVK+Pl8JNFP2GaqwsbMtrupdDt
-	 ulpVekSsQVnAGRenFteVM0l/OTmDeWnA8ccXTEHh3se2ltx+DRn/1HiNeSMCr7k7HK
-	 DJphiLiUkV87OYmQiAk2m+8k1lJeOMuDCNhX4EDzR8bvSt8yKaaaVAA8m7cdxTIALW
-	 f7R1niRz/+GnxNKInEtwa/JJ/1PZGioWq7eYR5KBd3EXhH1iABMRbjuMNdmhdNGlXf
-	 cwGizGrQwPqtVfWz5O5D7Lwws+cYOm2Xgfgr1ok9jdO62jFm+gEAHDSHQ3S8nnArc3
-	 z3JxeeGaazETQ==
-Date: Wed, 18 Nov 2026 17:57:01 +0000
-From: Simon Horman <horms@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: sunwenbo@cmss.chinamobile.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, hangbin.liu@linux.dev, kuniyu@google.com,
-	maheshb@google.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, 1342116488@qq.com
-Subject: Re: [PATCH net v2] ipvlan: update port flags only after
- ipvlan_set_port_mode() succeeds
-Message-ID: <20261118175701.GO860048@horms.kernel.org>
-References: <20261112064821.85624-1-sunwenbo@cmss.chinamobile.com>
- <179483705411.3136.2665029224845053782@kernel.org>
+	dkim=pass (1024-bit key) header.d=letteboer.com header.i=@letteboer.com header.a=rsa-sha256 header.s=dkim header.b=LquxNC90
+Received: from [IPV6:2a10:3781:39b5:1::134] (graver.dikhoed.net [IPv6:2a10:3781:39b5:1::134])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by albissimus.dikhoed.net (Postfix) with ESMTPSA id 7755DD294E0;
+	Wed, 18 Nov 2026 18:58:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=letteboer.com;
+	s=dkim; t=1795024682;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RGDLIgYtKGzTxHwh4JIzPb3Di1bl+x0qfKrKZD0RCL8=;
+	b=LquxNC900FUQ2D6dMFxo9uOJHf95UcyVUuQieqTjQPGUPi+BeMvrN+L4e+thxI5dI5EMZt
+	RqJHyuSeJSeET6/+7ytajlWtcj6hs5hruLZ70YfJUAPZpUE/nX490G/Xtsg4C6hjmXV52d
+	AAkU8kwQbwKLTTmk2IdHPKrSN9k+w2o=
+Message-ID: <75638763-689b-45f3-b8dd-72f74c4dea3a@letteboer.com>
+Date: Wed, 18 Nov 2026 18:58:02 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,115 +60,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [REGRESSION] r8169: RTL8127A (XID 6c9) SFP+ link fails to come up
+ in 7.4-rc3 (inband/10gbase-r)
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: hkallweit1@gmail.com, netdev@vger.kernel.org, regressions@lists.linux.dev
+References: <9e803eea-2446-425a-93d3-2524890d9508@letteboer.com>
+ <bb775cfb-525b-4471-bc80-46bb9f98cc31@lunn.ch>
+Content-Language: en-US
+From: Frits Letteboer <frits@letteboer.com>
+In-Reply-To: <bb775cfb-525b-4471-bc80-46bb9f98cc31@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179483705411.3136.2665029224845053782@kernel.org>
 
-On Mon, Nov 16, 2026 at 01:50:54PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 1 · Medium: 0 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] The fix is incomplete.
 
-Hi Wenbo,
+On 18/11/2026 16:32, Andrew Lunn wrote:
+> On Wed, Nov 18, 2026 at 04:18:41PM +0100, Frits Letteboer wrote:
+>> Hi Heiner,
+>>
+>> Between Linux 7.3 and 7.4-rc3, my Realtek RTL8127A (XID 6c9) SFP+ NIC
+>> stopped establishing a link and generating interrupts under r8169.
+> Can you do a git bisect? Find out which patch broken it?
+>
+Thank you for your reply.
 
-This does seem of concern. Could you comment on this?
 
-> --
-> 
-> ipvlan: update port flags only after ipvlan_set_port_mode() succeeds
-> 
-> This patch moves the write of the shared port->flags in ipvlan_link_new()
-> to after ipvlan_set_port_mode() has succeeded. The goal is that a failed
-> creation of a second ipvlan on an active port does not change the flags
-> of the ipvlan interfaces that already exist.
-> 
-> > diff --git a/drivers/net/ipvlan/ipvlan_main.c b/drivers/net/ipvlan/ipvlan_main.c
-> > index f29864db662aa..5732b167c5b3c 100644
-> > --- a/drivers/net/ipvlan/ipvlan_main.c
-> > +++ b/drivers/net/ipvlan/ipvlan_main.c
-> 
-> [ ... ]
-> 
-> > @@ -691,6 +685,12 @@ int ipvlan_link_new(struct net_device *dev, struct rtnl_newlink_params *params,
-> >  	if (err)
-> >  		goto unlink_netdev;
-> >  
-> > +	/* Flags are per port and latest update overrides. User has
-> > +	 * to be consistent in setting it just like the mode attribute.
-> > +	 */
-> > +	if (data && data[IFLA_IPVLAN_FLAGS])
-> > +		port->flags = nla_get_u16(data[IFLA_IPVLAN_FLAGS]);
-> > +
-> 
-> [Severity: High]
-> Can a failed RTM_NEWLINK still overwrite the shared port->flags here?
-> 
-> The commit message says:
-> 
->   "Defer updating port->flags until after ipvlan_set_port_mode() succeeds,
->   after which ipvlan_link_new() has no remaining failure paths."
-> 
-> When ipvlan_link_new() returns 0, the creation is not yet committed. The
-> caller, rtnl_newlink_create(), can still fail after ops->newlink():
-> 
-> net/core/rtnetlink.c:rtnl_newlink_create() {
->     ...
-> 	err = rtnl_configure_link(dev, ifm, portid, nlh);
-> 	if (err < 0)
-> 		goto out_unregister;
-> 	if (tb[IFLA_MASTER]) {
-> 		netdev_lock_ops(dev);
-> 		err = do_set_master(dev, nla_get_u32(tb[IFLA_MASTER]), extack);
-> 		netdev_unlock_ops(dev);
-> 		if (err)
-> 			goto out_unregister;
-> 	}
->     ...
-> out_unregister:
-> 	if (ops->newlink) {
-> 		LIST_HEAD(list_kill);
-> 
-> 		ops->dellink(dev, &list_kill);
-> 		unregister_netdevice_many(&list_kill);
->     ...
-> }
-> 
-> For ipvlan, the dellink callback is ipvlan_link_delete(), which calls
-> __ipvlan_link_delete(). Neither function restores port->flags. When
-> port->count > 1, the shared port survives with the flags from the failed
-> request.
-> 
-> The IFLA_MASTER failure is easy to trigger. A new ipvlan has no master
-> upper device, so do_set_master() goes straight to the ifindex lookup. That
-> returns -EINVAL for a nonexistent ifindex, or -EOPNOTSUPP for a device
-> without ndo_add_slave, such as lo.
-> 
-> For example, with ipv1 on eth0 in bridge mode, this command fails but
-> leaves ipv1 in private mode:
-> 
->   ip link add link eth0 name ipv2 master lo type ipvlan mode l2 private
-> 
-> The port->mode change made by ipvlan_set_port_mode() also persists on this
-> path. Moving the assignment within ipvlan_link_new() cannot cover this
-> case.
-> 
-> Would this need port state to be saved and restored across the whole
-> rtnl transaction, for example by restoring it from dellink when creation
-> is rolled back?
-> 
-> >  	mutex_lock(&port->pnodes_lock);
-> >  	list_add_tail_rcu(&ipvlan->pnode, &port->ipvlans);
-> >  	mutex_unlock(&port->pnodes_lock);
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261112064821.85624-1-sunwenbo%40cmss.chinamobile.com
+I was going to bisect, however it seems after loading the out-of-tree 
+r8127 driver,, the link now comes up reliably, even with the r8169 
+driver. I am thoroughly confused.
+
+Though it seems we still aren't out of the woods yet with the WATCHDOG 
+timeouts. After about 30 minutes uptime, these are the only 2 occurrences:
+
+-----
+
+[    3.818915] r8169 0000:0a:00.0: enabling device (0000 -> 0003)
+[    3.826994] r8169 0000:0a:00.0 eth1: RTL8127A, 8c:a6:82:71:89:12, XID 
+6c9, IRQ 152 (32 total)
+[    3.826997] r8169 0000:0a:00.0 eth1: jumbo features [frames: 16362 
+bytes, tx checksumming: ko]
+[   18.535947] r8169 0000:0a:00.0 re0: renamed from eth1
+[   39.126650] r8169 0000:0a:00.0 re0: configuring for inband/10gbase-r 
+link mode
+[   39.126794] r8169 0000:0a:00.0 re0: Link is Up - 10Gbps/Full - flow 
+control off
+[   41.671211] r8169 0000:0a:00.0: invalid VPD tag 0x00 (size 0) at 
+offset 0; assume missing optional EEPROM
+[  388.690611] r8169 0000:0a:00.0 re0: NETDEV WATCHDOG: CPU: 8: transmit 
+queue 0 timed out 5776 ms
+[  388.690624] r8169 0000:0a:00.0 re0: ASPM disabled on Tx timeout
+[  393.703543] r8169 0000:0a:00.0 re0: NETDEV WATCHDOG: CPU: 2: transmit 
+queue 0 timed out 5001 ms
+
+---
+
+
+Frits
+
+
