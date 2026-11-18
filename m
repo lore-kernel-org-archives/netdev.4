@@ -1,75 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013011;
-	b=QBxRvvwwBEJ8+1LGSDjo1l9HcW1jqd+WBXwBOPHmKRFp6uCw1Bem2lwtLpY+mRi0FKuQ
-	 uQj8UmQSnbN8XmjeFwGple7Nbt7Znxe1/Wdl9LYQEgikiwwhiViEVhPlkvK4iPAkozCMi
-	 kFKgrZUYI8/EZ7LaXD/o5+rheQ0clfH0P03hlwg8zFy6mqgX/ybRwkc81q+AbP222zExD
-	 8UtkC+K+6THKGltYAHuPf8c+YjW42j9WLiXNWJjtKU2GBNwLf8vLZtr/Fpx9LfAbQgAsW
-	 Se7VdsHFieEiG60VuqsbTpBot0QWGXypb517PYTEr1RylJhThjJuYIHhG+zaS387j8g==
+	t=1795013368;
+	b=wRYx67PHAtwrHe8SaL45kMPPttsg731dBCpmmzXWxXwrqRZVvxsGuT18hhh6C/jf+cEd
+	 xhOCztmgoTZ5y8lUCt6jGznhoL24Hcf31DhFWxQbXG6O3wScZnBqjWVnyhWAtSy1HNnzh
+	 yVFac3XvMNQKml5zGghrFXiBWZFEjCNO+8/vw3o+W8VRYd26t45e6t9woQsmFqptiVo3/
+	 AUhUXzFqW+SNut/pOZSyvl3FbgyqLQSqraHrUB7WGJfO2UEeLf03/N2QqW9CfslZW8ljz
+	 sk4xtnEoODCMbTrMW0+/YMAdZKfWiPbOTMTEKaZea5qUl0KkcJERd681OW6jls9n11A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013011;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=nQI31A8nM1HFXrWHagb8jBMaXz6oHhOttNUJXUBc14I=;
-	b=VqSrn5hVmkaHxAx8GJ1N0KX8xrnjQSzun+fbwYoZ9mM55/Vcj3iGdf9ZnUYL+RAz4m+q
-	 8EtUf1WrbmjTkuGejOH6wmrO6+/jYsMm6iaDiSx6/XPPH7g3K4SzeMG1jJnDthxxr3qwZ
-	 sPTIOIz5a+di/6hFH0pmdGZxkV23SQnV3SVjeBCqtgb3G+bEl8P9hkoBDqpNhBcyI8AZd
-	 fdjzzPeuYpl6lS3CuOV7WTD3RwH2aP77tG5SybJSQPbacGC+7cFIv6ktFhSH+ZeTTn2o7
-	 K7MQgeAcG9G3gCGWiMob1W6y3D05on9DSkR9HcTAeCsqt/VzZTiANxU6UOUHGHspIFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795013368;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=BYcPcCyuXaGPcw4Sps5aRqIsygn9wJni60rOOIJDu6o=;
+	b=QXCRzgx7+1hiSxgB21Zkc0tDf3bxBH4Ctm/a3L1U2QXS5NwS95XfPtjUobLS40wDeiM/
+	 f94kNH2610O49D02Zg2cKHOay5H7FsNTveW++J9lMh2/9TA1KFtxJPjRXHma57GIvaqly
+	 ar04jIf9/ZxLHzTp+2oGsWCJMlg4JvB10F/70nQCH12g38ZP4cyGQL2+xmq5UFS4ITz1s
+	 5Qaj7A+WZg52IwyQsyxFedl2aTsSYxEi5Ond4RJqgyQZFQQZRdgbOw9o3ZpGLQkBRQwtJ
+	 P2l9DLlbtQ/WOePNMV9f+rXUydQOL+3tNeUKIPEwpACpk59yVBcQanXD4ZJZ42DR5aw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GdqpYixL;
-	arc=none smtp.remote-ip=95.215.58.182
-Received: from mta1.migadu.com (out-182.mta1.migadu.com [95.215.58.182])
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ka70EADD;
+	arc=none smtp.remote-ip=209.85.216.48
+Received: from mail-pj1-f48.google.com (mail-pj1-f48.google.com [209.85.216.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7CE1606A330
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:43:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7CE1606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE867606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:49:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE867606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GdqpYixL
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=AppivPbRx09iLKxx7zqp6xlSPgYNyfP4WN/ejwBB+TY=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795013008; v=1; x=1795617808;
- b=GdqpYixLK04rGvDIEpCcezWIcHXU3SMQs31qVddNTfQp+dpXq+gLTdkPJ0+1SoRhHPLjE6U2
- vwGTAyamXhW6BQTKONX/64YmNVODcGx4hA7afq0awKVodT7wCuwEPASK9FgtIQy10cjxtQkB+U8
- fJFdyGsdPn8AqAvTqls88lnY=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 1d825a135c3023ab;
-	Wed, 18 Nov 2026 14:43:28 +0000
-X-Mizu-Trace-ID: 1d825a135c3023ab
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Kyuwon Cho <kyuwoncho18@gmail.com>,
-	Eric Dumazet <edumazet@kernel.org>,
-	stable@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 2/2] tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
-Date: Wed, 18 Nov 2026 22:42:38 +0800
-Message-ID: <20261118144249.358481-2-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118144249.358481-1-jiayuan.chen@linux.dev>
-References: <20261118144249.358481-1-jiayuan.chen@linux.dev>
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=ka70EADD
+Received: by mail-pj1-f48.google.com with SMTP id 98e67ed59e1d1-3ae691283ecso592086a91.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:49:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795013367; x=1795618167; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BYcPcCyuXaGPcw4Sps5aRqIsygn9wJni60rOOIJDu6o=;
+        b=ka70EADDZbBXDDdGF/x2AeYZsWL4ifYBDhKgXDeYTFIEXp6edCjkZmi5qkKKoc/6BZ
+         VB4yQGqey7SYvuZ8rKQWRUrXiIDcM8m/POvwzuf1+isVpDkTYHcethGUF8I7pgaF0mfK
+         2u9EJgCmC/IAVrK6Q+jeUFyJbX/RCH9eHrv/tLDsr25IaGDXb9k9T4vQ1nrV9r/LMc6X
+         IAb33TSpa88eMVi+Ut2j5V3eFAhLreJ0UOEGIYR06u0QxRt+T207ZE6oq0DZSo4rAvT4
+         0+liuU8iwlsR+1dygQE6pMPqjyDbAXgy+6lopbmR1oL6EXBlVkD2F22yv0J04abt0h/Z
+         21IQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795013367; x=1795618167;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=BYcPcCyuXaGPcw4Sps5aRqIsygn9wJni60rOOIJDu6o=;
+        b=qntqxcWWm8pIlYJLMwoDstP+4Jgr4n2W07k/bni55ca3GtY6BzgCanRZ8weKuAxD6w
+         5pj2nau9D2rmNzuIW02pJ2qflddqB2YJv8ZdMfy87rktuPD7+QaRNPN1b7DMA/fcwRdf
+         UfkshRV6/ZNGPMpL9SxgoxsYsng2m3Wnn5LF5fabI2+rHbWnJmJVSMuMI4gRRFR9rnN1
+         +fYqUUkN9+jrP2UWhUivcDgL3b5+DeauH58ZGnrQbtbR5Nj5LSr78faTRvf7siWBIQ5L
+         TZgqhT/puj9oEruj71AE1GEQrJDLc70GTJ3rwUbEgUV3MBHBS48rJOdDpX2346CbxL6Z
+         TfmQ==
+X-Forwarded-Encrypted: i=1; AL+hErF5XwNjEctDskzqPciIls+Qeu4sExLtOvClBbsGMqjFwl6wGMuEnBHNHdt3Twp78fLNJ3tYPEg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+C6/wVoS1ermMd/ZlBVdefFm/kKVik6l5TQauHflyr4AWSa8pY
+	QZ25w3m0O84L7k+c+z02wAbQmAhdJZY2RtvthKBFZN0nU+USmd09zxAFqqqABIkZ8Mk=
+X-Gm-Gg: AZFdTZd/KzuetEtXypErNlo4VxswwZ0236jWUjZvwFJzQ/21UyxMCF5MPlt/9/kF/o8
+	MLnVe6V4v/Xhu3B+ethUywvXmuwrpzG5jla/wr/Mt9+G0XkkmXNc8Oq9sQQb+Om8ZT8C74uSCmN
+	E2CgcTNpeUzMRpdj8yfhbhgOk9DSXSpmTD9wpM0FyOz0VeNy+StlrzdU/oFMffNn35qfWSsY71m
+	1HhzjQsyLJ1GczTPhFJbqBfxP2soOHeURonOe+kFeqhpUOSXlzMNjrJBpA82DFyt+Ws9SCRocZS
+	iauoJTLUF1fCPaB3XcMQvQVJY2rOwjFd59h5Z3VxmonqiKgoGSFBT465kfkV6qIlCmjvpWI1NMP
+	92jOnh2wihIyo45zsYnlbE9USu9nQi88bY66nVvlfam36fqsKvrBJTAxEP/pPLAGrOiFmPkYbbT
+	zAQBtfrjqGNI1blghIIc9AutJwDNQ/3VXNVc4z6x0OeLkE4edG/2TfCGqflRkUJE/O4TZJQpbZ+
+	PAv0pzNZZy13msyV7ax0U1wm6mtMVctilFGJImNUR6jFAeX61qiQiMU/d4rwK4uCDd2OIB7oqVM
+	PwtufQX96LJe9+/DxuOCF0scbeflWVfqQfCd55l7iJw=
+X-Received: by 2002:a17:90b:384a:b0:3ae:3e9b:5265 with SMTP id 98e67ed59e1d1-3b3d07e3772mr1728966a91.26.1795013367002;
+        Wed, 18 Nov 2026 06:49:27 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:41::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d143d69csm4697610a91.1.2026.11.18.06.49.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:49:26 -0800 (PST)
+Date: Wed, 18 Nov 2026 06:49:25 -0800
+From: Joe Damato <joe@dama.to>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: davem@davemloft.net, michael.chan@broadcom.com, netdev@vger.kernel.org,
+	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	horms@kernel.org, pavan.chebbi@broadcom.com
+Subject: Re: [PATCH net-next 3/6] eth: bnxt_en: allocate per-queue SW state
+ on the queue's NUMA node
+Message-ID: <av269expBpYxDy+6@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>,
+	Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+	michael.chan@broadcom.com, netdev@vger.kernel.org,
+	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	horms@kernel.org, pavan.chebbi@broadcom.com
+References: <20261118023905.3050661-1-kuba@kernel.org>
+ <20261118023905.3050661-4-kuba@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,101 +104,21 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118023905.3050661-4-kuba@kernel.org>
 
-icsk_backoff is used as a shift amount in inet_csk_rto_backoff():
+On Tue, Nov 17, 2026 at 06:39:02PM -0800, Jakub Kicinski wrote:
+> Allocate the SW rings, agg bitmap, TPA state, completion ring
+> page arrays, completion sub-ring structs, SW stats and the SW USO
+> header buffer on the NUMA node of the CPU which will service the queue.
+> This lowers the cost of cache misses for NAPI fast path (and xmit, for Tx).
+> 
+> Previous change already allocated the page pools on the right node.
+> 
+> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+> ---
+>  drivers/net/ethernet/broadcom/bnxt/bnxt.c | 87 ++++++++++++++---------
+>  1 file changed, 52 insertions(+), 35 deletions(-)
 
-	u64 when = (u64)icsk->icsk_rto << icsk->icsk_backoff;
-
-It can go past 63 on the paths of both callers:
-
- - RTO: tcp_retransmit_timer() increments it on every backed-off RTO
-   with no cap of its own, then an ICMP unreachable goes through
-   tcp_ld_RTO_revert().
- - zero window probe: tcp_send_probe0() increments it up to
-   tcp_retries2, and tcp_probe_timer() calls the helper in its orphan
-   check. commit 6d4634d1b091 ("net: Limit logical shift left of TCP
-   probe0 timeout") clamped tcp_probe0_when() but not this one.
-
-Seen on the RTO path with tcp_retries2=255 and a silent peer:
-
-  UBSAN: shift-out-of-bounds in ./include/net/inet_connection_sock.h:258:40
-  shift exponent 73 is too large for 64-bit type 'long long unsigned int'
-  Call Trace:
-   <IRQ>
-   dump_stack_lvl+0xc1/0xf0
-   dump_stack+0x10/0x20
-   __ubsan_handle_shift_out_of_bounds+0x1d1/0x390
-   tcp_ld_RTO_revert.cold+0x16/0x92
-   tcp_v4_err+0xdb3/0x13e0
-   icmp_socket_deliver+0x1a7/0x390
-   icmp_unreach+0x2dd/0xe50
-   icmp_rcv+0x93e/0xe30
-   ip_protocol_deliver_rcu+0x36b/0x3e0
-   ip_local_deliver_finish+0x37d/0x620
-   ip_local_deliver+0x165/0x1d0
-   ip_rcv+0x284/0x320
-   __netif_receive_skb_one_core+0x16b/0x1c0
-   __netif_receive_skb+0x21/0x150
-   process_backlog+0x37e/0x1200
-   __napi_poll.constprop.0+0xa5/0x5e0
-   net_rx_action+0x4c0/0xf70
-   handle_softirqs+0x204/0x9b0
-   __irq_exit_rcu+0x13c/0x220
-   irq_exit_rcu+0xe/0x20
-   sysvec_apic_timer_interrupt+0x92/0xd0
-   </IRQ>
-
-The zero window probe path gives the same splat from tcp_probe_timer().
-
-On x86-64 the shift count is masked, and the u64 can already be 0
-before that (e.g. icsk_rto == 200 and icsk_backoff == 61). An orphan
-that should be dead can then be seen as alive in tcp_probe_timer(), and
-tcp_ld_RTO_revert() can end up with a smaller RTO than intended.
-
-Cap the shift at 32: any non-zero icsk_rto << 32 exceeds TCP_RTO_MAX, so
-the min_t() result is what the unbounded math would give. The
-ilog2(TCP_RTO_MAX / TCP_RTO_MIN) + 1 bound of tcp_probe0_when() does not
-fit here, as icsk_rto has no TCP_RTO_MIN floor the way tcp_probe0_base()
-has.
-
-Found by checking sysctl ranges against their users. Reproduced the RTO
-path in a VM with UBSAN: a - r - b netns, tcp_retries2=255 and
-tcp_rto_max_ms=1000 on a, blackhole route on r for 75s, then switch it
-to unreachable. With this patch the splat is gone on both paths.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-Closes: https://lore.kernel.org/netdev/179499954853.1440581.6627074959099619480@gmail.com/
-Suggested-by: Eric Dumazet <edumazet@kernel.org>
-Link: https://lore.kernel.org/netdev/CANn89i+=QRibXsm6tw-eVwhB3wjOtgF-MtVu0G--K5=oWP97+A@mail.gmail.com/
-Cc: stable@vger.kernel.org
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
-v2 -> v3: mention the zero window probe path, add Reported-by/Closes
-(Eric) and Suggested-by/Link (Neal), say how it was found and tested,
-point Fixes at 1da177e4c3f4. No code change.
----
- include/net/inet_connection_sock.h | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
-
-diff --git a/include/net/inet_connection_sock.h b/include/net/inet_connection_sock.h
-index 903499581db7..562e12033a5d 100644
---- a/include/net/inet_connection_sock.h
-+++ b/include/net/inet_connection_sock.h
-@@ -255,9 +255,10 @@ static inline unsigned long
- inet_csk_rto_backoff(const struct inet_connection_sock *icsk,
- 		     unsigned long max_when)
- {
--        u64 when = (u64)icsk->icsk_rto << icsk->icsk_backoff;
-+	u8 backoff = min_t(u8, 32U, icsk->icsk_backoff);
-+	u64 when = (u64)icsk->icsk_rto << backoff;
- 
--        return (unsigned long)min_t(u64, when, max_when);
-+	return (unsigned long)min_t(u64, when, max_when);
- }
- 
- struct sock *inet_csk_accept(struct sock *sk, struct proto_accept_arg *arg);
--- 
-2.43.0
-
+Reviewed-by: Joe Damato <joe@dama.to>
