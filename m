@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794963053;
-	b=5c+JFzgjxiUZo2f5StcvUvxWgIwdffbO/06VGZhE4vQ0wDV2/lAUBjn9I2HJFfRDHTkc
-	 v+6QRELz7cHPhg+QQp45eJ87dVJMOEaJTFXozKmY3mT9W4RvPINM0fLeIepU2ldACzU0g
-	 vc/iF4hgIviIx+eyrJz4P/GPUEzL78D3c0B58wGtTp9rNan2RdekFIFiFDFVTvn07cNrL
-	 ecYNn+qmF1SSS4IZTqdIL1MWkPNKrjAY1Hgik87DrVcbdKSqrcCicqSZ1QnY0bn4DPqx6
-	 gcWwCFxvLSGGHOAVYiv1JxCEh+HsNruvR/zol5I3LrFn+oqE770N5lQsOjERJuLRfxA==
+	t=1794963055;
+	b=TLALIVhTbFBb7jCKSD9WKuEu0Hqb29VgLcwEV0nUFb1mZRGM4iRCzpQxcB9vb0O+S0SU
+	 TG7/dP3PknSHiUxkQBYHCh1RCyx06JOFxRekJPpYKUUg2+SLIwYCG9R1Zfu7yclug9Mrb
+	 UL8p1gpklnNCnAx/WpPT4AoDSAQ9snIyGwIMTP+3bPMfHSpc+KuOIrF5k3GZT8CHW8YUD
+	 1eXLlkpK1fTdcaV84iplV8gfXIv6FAybIWUTvfRfjU4ie8Z4lsVA5og+qlyixRt40NsGy
+	 iXblGJCjMKFCV3fZwix1y/DTIP/mcimOWVlvsX2rjWJaOpDMoDRf6bK/Pebce1N46ww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794963053;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963055;
 	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:In-Reply-To:
 	 References:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=1HjDgetzaSV+gGD+4cusZKhiMXtdDcBis/DzzNrElPs=;
-	b=Z6B/p0Jpm79RepsvuERCsXCKex+FbfXw7VTVQ3v6eYmj/iFJP7+R9o2ypsRwo62HglbW
-	 9KPacY5eKZaH/CiW13LollaWf6eJNLqKk6nqHn3QxkjoaErSzZpXRzzrOB8KBErREVOsn
-	 z0NK5Kt94QRUChqaML2imFoHdytUNV6x4nc85mqr+a7oin8/DLwkGWurwOUQMrN7CPY4f
-	 utP6uuCQ5fcE6l6yjYwyjaz1TDnqJ8CtxNvtS8KkYUcqbDi7/NvZhs8tDsAlZlj7768Om
-	 YZKTNSD8/EV/SSFvjaqUJsgQLx6nIyeh83TmJl/bhnKgZmje1jEt0PtkozHe6mlx2xg==
+	bh=PhPJEJghdDWbERy/q3n4Hzr9Rm9mUGxMcJTwgKd0XyA=;
+	b=n/wRfhQSb9Bm0phmBtKlRAIb619FeRioyW9xzvid7s7urgbtoTMpvcigGA6zexZuY05/
+	 jgo6QhBIJDJad3YnviKjMpCdmPLeYS5mio+/zM8odnYcnEev7OmM6/OQB4ETkHTtp1EXM
+	 HC/l7EQxb5gCr9hFrMGz3wWa/dqAjGOIwdWeBEtqPcBLYi4APuNilQQl4bRBPFxrbSpoY
+	 gBy973dC5EzvNee1PKoqaUMkahEP6tnQoMyw0UY3CUJd3tAC21/5o9rXMSkVAC+/VpuaI
+	 iVi55h/oLX7RUchjWiLxpGMCms/E8EinZ6wGjQkNwwUAwGqG95x4jH8ZkWTCybK0HXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="iA/s5BRk";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DhrETlcu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0DBC606A882
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:50:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 112B7606A334
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:50:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iA/s5BRk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4815F1F000C6;
-	Wed, 18 Nov 2026 00:50:52 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DhrETlcu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC3BA1F000C5;
+	Wed, 18 Nov 2026 00:50:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794963053;
-	bh=1HjDgetzaSV+gGD+4cusZKhiMXtdDcBis/DzzNrElPs=;
+	s=k20260515; t=1794963054;
+	bh=PhPJEJghdDWbERy/q3n4Hzr9Rm9mUGxMcJTwgKd0XyA=;
 	h=From:To:Subject:Date:In-Reply-To:References;
-	b=iA/s5BRkO6tx/YlGi0p2X2tWyx4IF5hJIInGGfSwjugbYmQ/7EdtmYboj1rTkbsXh
-	 OQCrX23wdjCioDSa6NdsiT5tPGfk4Ztjqhz3yYHtBzyR3PeWQM4GA5r4LL37A+usKi
-	 8eU53c6s09QKQb4gm4kr/K2iNM7Y72J5A03rpECdZgcd0iapc52RzPeYL/KQNm0EIN
-	 qzlFoTvOhIGVDHkpaabPrEG14FRh9qsnwPuotJJXmY1BixJcHoWCf7HKQH7HtkoDBf
-	 QFx3WK/CnCN5rZFK3W1O3ObUlz1umb0IUTjW5CnhPD9VRk+smvFjm/PrivEHilNExL
-	 iknHCk4m2Umfg==
+	b=DhrETlcurKYwscaNgyVqczZ615lsfJKIuMTiYe6qyuL/KJbmGpypdZeOc7d9qYv6Z
+	 m2/7yrMrq2ppviaQRFz9rsjVHqtu/0xc/l1XJrVdBUU67NBtT32L97uXlAkKy9IPcy
+	 6iqBy1rxe2XAg9B4F21rX5Qy5Id5DGblfVg16iISpzdlQKYgtLetVcQ1DYL2fFOOqM
+	 F56Mb14VEhYC+Pr5l/AYQWP4cx6UHhB6inhlXmSqgCOl5gdwPLW+25xZYLbgsCvDBE
+	 HgTvj1kngmwyQuxFE1wiT5BaEfHCuQnPYD2USgd4N1TiSqXnaPLIM4jyapkeUtIcB3
+	 v/Zgpl3YwwgiQ==
 From: Chris Mason <mason@kernel.org>
 To: mason@kernel.org,
 	edumazet@kernel.org,
@@ -51,9 +51,9 @@ To: mason@kernel.org,
 	willemb@google.com,
 	josef@toxicpanda.com,
 	netdev@vger.kernel.org
-Subject: [PATCH net 2/3] tcp: clamp RTT samples in tcp_rtt_estimator()
-Date: Tue, 17 Nov 2026 19:50:50 -0500
-Message-ID: <20261118005048.53393-3-mason@kernel.org>
+Subject: [PATCH net 3/3] tcp: reject RTT samples from TSecr above 120 s
+Date: Tue, 17 Nov 2026 19:50:51 -0500
+Message-ID: <20261118005048.53393-4-mason@kernel.org>
 In-Reply-To: <20261118005048.53393-1-mason@kernel.org>
 References: <20261118005048.53393-1-mason@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
@@ -68,70 +68,58 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-tcp_rtt_estimator() keeps its state in u32 fields, in microseconds.
-srtt_us holds 8 times the smoothed RTT, so it wraps at an RTT of
-536.9 s. Samples can be larger than that:
+tcp_rtt_tsopt_us() returns the timestamp clock minus TSecr as an RTT
+sample, and accepts up to 2,147 s. If TSecr echoes an old timestamp,
+the sample is the age of that timestamp, not an RTT.
 
-- For an ACK of retransmitted data, the sample is the timestamp clock
-  minus TSecr, and tcp_rtt_tsopt_us() accepts a sample of up to 2,147 s.
+tcp_ack_update_rtt() takes this sample for an ACK of retransmitted data.
+tcp_rtt_estimator() clamps it to 120 s. The congestion control gets the
+sample unclamped, in rs->rtt_us.
 
-- For a SACK of a segment that was never retransmitted, the sample is
-  the age of that segment.
+tcp_rcv_rtt_measure_ts() passes the sample to tcp_rcv_rtt_update(),
+which computes sample << 3 in u32 arithmetic. That wraps from 536.9 s
+on.
 
-Samples from TSecr could wrap these fields when they still held jiffies.
-The age of a segment can wrap them since commit 740b0f1841f6 ("tcp:
-switch rtt estimations to usec resolution"), which took the wrap of the
-smoothed RTT from 2^29 jiffies to 2^29 us.
+The fix used here is to reject a sample from TSecr above 120 s, for both
+callers of tcp_rtt_tsopt_us().
 
-The fix used here is to clamp each sample to 120 s, the largest possible
-RTO, in tcp_rtt_estimator(), where the samples of all sources meet.
+An ACK of retransmitted data whose TSecr is more than 120 s old now
+gives no RTT sample. So it no longer resets the backoff, as on a
+connection without timestamps.
 
-The smoothed RTT now saturates at 120 s. A path with a larger real RTT
-sees that in TCP_INFO, in the pacing rate and in the metrics cache.
-
-Found by code inspection (Eric Dumazet), and confirmed with LLM
-generated reproducers on an unmodified kernel. Fixed by LLM, and
-tested with the reproducers and existing kernel selftests.
+Found by LLM code inspection, and confirmed with LLM generated
+reproducers on an unmodified kernel. Fixed by LLM, and tested with
+the reproducers and existing kernel selftests.
 
 Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Fixes: 740b0f1841f6 ("tcp: switch rtt estimations to usec resolution")
 Signed-off-by: Chris Mason <mason@kernel.org>
 ---
- include/net/tcp.h    | 7 +++++++
- net/ipv4/tcp_input.c | 2 +-
- 2 files changed, 8 insertions(+), 1 deletion(-)
+ net/ipv4/tcp_input.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/include/net/tcp.h b/include/net/tcp.h
-index 6a714189bcc7..a617a72ee2c6 100644
---- a/include/net/tcp.h
-+++ b/include/net/tcp.h
-@@ -164,6 +164,13 @@ static_assert((1 << ATO_BITS) > TCP_DELACK_MAX);
- 
- #define TCP_TIMEOUT_MIN_US (2*USEC_PER_MSEC) /* Min TCP timeout in microsecs */
- 
-+/* Max RTT sample for tcp_rtt_estimator(). srtt_us holds 8 times the RTT, and
-+ * mdev_us and rttvar_us up to 4 times its deviation, all in u32, like the sum
-+ * in __tcp_set_rto(). A larger sample could not raise the RTO, which
-+ * TCP_RTO_MAX bounds.
-+ */
-+#define TCP_RTT_MAX_US	(TCP_RTO_MAX_SEC * USEC_PER_SEC)
-+
- #define TCP_TIMEOUT_INIT ((unsigned)(1*HZ))	/* RFC6298 2.1 initial RTO value	*/
- #define TCP_TIMEOUT_FALLBACK ((unsigned)(3*HZ))	/* RFC 1122 initial RTO value, now
- 						 * used as a fallback RTO for the
 diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index f65697bc96c9..10a23ee20e61 100644
+index 10a23ee20e61..8de54d9804e1 100644
 --- a/net/ipv4/tcp_input.c
 +++ b/net/ipv4/tcp_input.c
-@@ -1098,7 +1098,7 @@ static void tcp_event_data_recv(struct sock *sk, struct sk_buff *skb)
- static void tcp_rtt_estimator(struct sock *sk, long mrtt_us)
- {
- 	struct tcp_sock *tp = tcp_sk(sk);
--	long m = mrtt_us; /* RTT */
-+	long m = min(mrtt_us, TCP_RTT_MAX_US); /* RTT */
- 	u32 srtt = tp->srtt_us;
+@@ -901,15 +901,16 @@ static inline void tcp_rcv_rtt_measure(struct tcp_sock *tp)
+ 	tp->rcv_rtt_est.time = tp->tcp_mstamp;
+ }
  
- 	/*	The following amusing code comes from Jacobson's
++/* A sample from TSecr above TCP_RTT_MAX_US is bogus, not large. */
+ static s32 tcp_rtt_tsopt_us(const struct tcp_sock *tp, u32 min_delta)
+ {
+ 	u32 delta, delta_us;
+ 
+ 	delta = tcp_time_stamp_ts(tp) - tp->rx_opt.rcv_tsecr;
+ 	if (tp->tcp_usec_ts)
+-		return delta;
++		return delta <= TCP_RTT_MAX_US ? delta : -1;
+ 
+-	if (likely(delta < INT_MAX / (USEC_PER_SEC / TCP_TS_HZ))) {
++	if (likely(delta <= TCP_RTT_MAX_US / (USEC_PER_SEC / TCP_TS_HZ))) {
+ 		if (!delta)
+ 			delta = min_delta;
+ 		delta_us = delta * (USEC_PER_SEC / TCP_TS_HZ);
 -- 
 2.55.0
 
