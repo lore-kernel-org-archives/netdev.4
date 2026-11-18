@@ -1,69 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.97.239
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=206.189.79.184
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020151;
-	b=GjyM3jxJ9bK/MArRY+5f0mzO3z290w0bOfV9NLsTYyhSL3KSZ90LcsTNnv6RS6mGPs2L
-	 NagoWMcdpNyjuRxhc+4gJOpMzyI6mKv82/rgl0GPANAlrnSSSxbyGyovIIM8HVRw0e5Ul
-	 H4vvOxNg4r/X3NmbCfD8a/TY/uBgfxBvjljd2jIVQ06EFco0I1V+GajUqxeUseM4fdGRe
-	 9WGdCkQK5Ui7tVevBNiR1g5PtJoB837Hs88e4djej+k5nEqhrGlsW3VbYY8nVTHbvUF4z
-	 pTddj4PJhBgUxlbVdY1aTW7c/C8uPG+fnCUIYxpsYg5CJgEWdiky36+LU9ot6YFYtlA==
+	t=1795020545;
+	b=V4YdeJ+tIG3Jv7+65GNBx+rXmXZ2r8rmG06o5TW+jiPYsraL/mGw38pzDv9zTSA9YpJg
+	 +Ocyxld5yVSTBTJO4XN04DvzzgMmHnaVCDSaJVmq4/pxzVuvsbRWFAGcO1/x+q+7MuC3G
+	 XAgDqUxZrWrGr5u6oFkWfwdpAb00Vq2quU9aaBc0VYN81I8vz9ra7HdmKSj3xYRefaBo8
+	 qUIc4FSzrblPqIc2lkm95jSxgUW3SW2+kjyUsYht7I447bfBeXZ/VBPJD8cXvN011EMxi
+	 9fWFAlJq5UpQP1vKdTFTOAooTdqJfii2xP0gd6Q+AZnnV5owoJwq6wvhw6/x1GlaxUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020151;
-	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
-	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=mqewyvM+xTwHwNVbHo8A+a7U2L7f4JKm4mjUkqZmHhI=;
-	b=VcFuLAcgXfAvYgPnKOKtIYPj+0irr3g/SvlXAPU4I9dMDCEqlVz0uyeF70A0LThw3T5c
-	 cGaF5cuE076k3QQxzOK3OMLhme3D+Gaj68NpsYSI9COrG2aJYWQtFu1T2XW/R9mjCdHGy
-	 8ZKj90haUoG2NU3RCMPfVhHbZG7uORMEHcBwilKh5iaGdlEAO/rlL2H5dRd6VqL19FSA5
-	 y+V0jx+tjADN9wKRaEz8ZrzeLDVbUDOtHboyWGTOyIyoCB6uDBmUKnIJCZMyQIPDuU9Lq
-	 JEXYfN17SCKmPPIfSEjqE9l5pOYKZV9gcYoCXZiVTIMmSBihHTkFUQjr/affVT8LLYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795020545;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=hWJN6kDiFcKd52ipYvnXH8YmIUyV9Q/O5bup6RCYzks=;
+	b=RnnnRFqlypP7ZHMqzA7FrcJ9PTtjNG9fEjm4n11OFw1T8IAvU1FApdvW4x43oKoGQI0o
+	 9tQoKJyPgm1VMX1p4GPlUK0pBQmUqXAisRuE9YXcUBpecY8QdTbjS8eNx0MuPdPaXUSs7
+	 5tN/kcUAzKffD//nBJKpAZwG4FJiRCUT4mfUJP8Y4Bw/ZsrJWCmjH3Rgkga5FJSbGop/V
+	 +A80O3jw08qpy2OJu/DDgOZ5SMqizvXgLKBfIO/ZCeSohF/7I6KyGhcrMtohKXG0BkU5z
+	 P35oIdamcA3cb0YZO7oxInp+du7UTGT94dP59T3qq6O00wcCKzQ6vuO2gAV9n8+ifhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=birger-koblitz.de;
-	spf=pass smtp.mailfrom=birger-koblitz.de;
-	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=ViD2Yut0;
-	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=Xo8acUbO;
-	arc=none smtp.remote-ip=23.88.97.239
-Received: from bkemail.birger-koblitz.de (bkemail.birger-koblitz.de [23.88.97.239])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6FD00606A339;
-	Wed, 18 Nov 2026 16:42:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6FD00606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=birger-koblitz.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=birger-koblitz.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=ViD2Yut0;
-	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=Xo8acUbO
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
-	s=default; t=1795020148;
-	bh=brBAKiw0fRzbnx646PXODeFFtM5LjDCKovENSeKDJLQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ViD2Yut0D2YfdCBrBJquoR2loPFezw1CeOcw3hfUcZ8o3MLtGmrnH7+m0OOOZBr5k
-	 L5A8/NhHdhj748CKXY0fntPBARS3AEd5qOiEqRYqA1c9CMzoU5M+t0jC9mCqartws7
-	 uK7uRNFihRIVeiVyj/nkMOp5rnRpDWK8Blv9dVkqXll5gC8UEMSD7j5FWBTVM5HS8q
-	 vq8GaskfEP20TODWq3ARFIbpiFkR6qC8tEldTL+cfWHmQYi8BMP4COJj4LxKgVkr7J
-	 L0Z7vR1KgalC2FexMh94iuX86aVQR9ANdF0eBpIX4Hcc621lu+w29ikx6lE50fBWbs
-	 zkThyBVUWOEqQ==
-Received: by bkemail.birger-koblitz.de (Postfix, from userid 109)
-	id 3546F48D5E; Wed, 18 Nov 2026 16:42:28 +0000 (UTC)
-X-Spam-Level: 
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
-	s=default; t=1795020146;
-	bh=brBAKiw0fRzbnx646PXODeFFtM5LjDCKovENSeKDJLQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Xo8acUbOBrW0rl93+XHU9n/VTHjoIosO7sXdwsyyn8Jt+YhprVImLrXmao5/yLr1S
-	 98lpkoQz+00kx2DSTSUAnvWxC2DQxT0IgKSzPPJgCl7w+bjhCPyRRcwY4TPk73+xD9
-	 MPN+v1eyoKtn0qMfAKog9bpabWLfG1T1LB4oil5XijFI7dlO1e7MJYZdnzj7LPsvXG
-	 vOAlwey4Jxz5vjV2tUV+mCh8gBNMeGw6Oqz/Z08ZZwzPB4VC9SR5n20TjkIzc+T6Cm
-	 ojJ97jg8/hfwsQmqSdHs2QiRlZH5w6CD38AXfb7mhAn1Hvq9S9KD8lnyvYvarcWehS
-	 cZXNHJuS4+mPg==
-Received: from [IPV6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb] (unknown [IPv6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb])
-	by bkemail.birger-koblitz.de (Postfix) with ESMTPSA id AE2AC48D57;
-	Wed, 18 Nov 2026 16:42:25 +0000 (UTC)
-Message-ID: <2e601d9c-1271-4802-a45c-a16a0d9cfa8d@birger-koblitz.de>
-Date: Wed, 18 Nov 2026 17:42:19 +0100
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	arc=none smtp.remote-ip=206.189.79.184
+Received: from zg8tmja2lje4os43os4xodqa.icoremail.net (zg8tmja2lje4os43os4xodqa.icoremail.net [206.189.79.184])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E7E69606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:49:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7E69606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wDn4IT01v1qYMchAg--.6937S3;
+	Thu, 19 Nov 2026 00:48:52 +0800 (CST)
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app4 (Coremail) with UTF8SMTPSA id zi_KCgD3553y1v1qtoLWAA--.8705S4;
+	Thu, 19 Nov 2026 00:48:50 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>
+Cc: netdev@vger.kernel.org,
+	linux-afs@lists.infradead.org
+Subject: [PATCH] net: rxrpc: Release challenge connection ref on abort
+Date: Thu, 19 Nov 2026 00:48:08 +0800
+Message-ID: <20261118164808.988724-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,41 +51,77 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
- RTL8157 and RTL8159
-To: Andrew Lunn <andrew@lunn.ch>, Chih Kai Hsu <hsu.chih.kai@realtek.com>
-Cc: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "kuba@kernel.org" <kuba@kernel.org>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- nic_swsd <nic_swsd@realtek.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
- "edumazet@google.com" <edumazet@google.com>, "bjorn@mork.no"
- <bjorn@mork.no>, "pabeni@redhat.com" <pabeni@redhat.com>,
- "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>
-References: <20261110032416.16968-11-nic_swsd@realtek.com>
- <179464851836.2199510.10154643847175029122@kernel.org>
- <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
- <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
-From: Birger Koblitz <mail@birger-koblitz.de>
-Content-Language: en-US
-In-Reply-To: <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:zi_KCgD3553y1v1qtoLWAA--.8705S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAARs7
+X-CM-DELIVERINFO: =?B?hAd9CgXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGfl47zcsfjhtZ+B4RvRe1EMhzHBeCyxAM7zUvenrEF8sY6P
+	R4ftDLX+9SzwAxfRPo1UBgVD61hajoPA+xClc2IZ6gTdFpZgo8ILqGuPlH8ACQ==
+X-Coremail-Antispam: 1Uk129KBj93XoW7uw1rWrWfCr17Aw1DAFWkuFX_yoW8CrW7pF
+	Z0kryfKFWkJrsxJanxAF1kZ3Z8Ar1kJry7J34ruw1rAws5KwnIyFs5t3ZFqrnxGwn7GryU
+	Z3W5tanrCF45Z3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUvvb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_tr0E3s1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26r1j6r4UM28EF7xvwVC2z280aVCY1x0267AK
+	xVWUJVW8JwAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
+	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAF
+	wI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48JM4x0Y48IcxkI7V
+	AKI48G6xCjnVAKz4kxMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I
+	3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxV
+	WUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8I
+	cVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aV
+	AFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuY
+	vjxU2YFCUUUUU
 
-On 18/11/2026 2:42 pm, Andrew Lunn wrote:
->> I plan to add two new functions, rtl_nway_restart() and rtl8152_get_link_ksettings,
->> to replace mii_nway_restart() and mii_ethtool_get_link_ksettings, respectively.
-> 
-> Ideally, you should port this driver to phylink.
-> 
-> 	 Andrew
+A challenge can abort a connection during validation.  The caller may then
+queue the challenge with an extra reference to that connection.  If the
+connection worker sees the abort first, it drops the skb without dropping
+that reference.
 
-Indeed, all of the (integrated) PHYs on the adapters supporeted by r8152 
-I looked at are already supported under drivers/net/phy/realtek/
-It should be straight-forward with many immediate benefits.
+Check the connection state again after validation and release the challenge
+reference when an aborted connection discards a queued challenge.
 
-Birger
+Fixes: 5800b1cf3fd8 ("rxrpc: Allow CHALLENGEs to the passed to the app for a RESPONSE")
+Assisted-by: Codex:GPT-6
+Signed-off-by: Lin Ma <linma@zju.edu.cn>
+---
+ net/rxrpc/conn_event.c | 15 ++++++++++++++-
+ 1 file changed, 14 insertions(+), 1 deletion(-)
+
+diff --git a/net/rxrpc/conn_event.c b/net/rxrpc/conn_event.c
+index 98ad9b51ca2c..bdb762b2fc05 100644
+--- a/net/rxrpc/conn_event.c
++++ b/net/rxrpc/conn_event.c
+@@ -249,8 +249,16 @@ static int rxrpc_process_event(struct rxrpc_connection *conn,
+ 	struct rxrpc_skb_priv *sp = rxrpc_skb(skb);
+ 	int ret;
+ 
+-	if (conn->state == RXRPC_CONN_ABORTED)
++	if (conn->state == RXRPC_CONN_ABORTED) {
++		/* A challenge queued before the abort still owns a conn ref. */
++		if (sp->hdr.type == RXRPC_PACKET_TYPE_CHALLENGE &&
++		    sp->chall.conn) {
++			rxrpc_put_connection(sp->chall.conn,
++					     rxrpc_conn_put_challenge_input);
++			sp->chall.conn = NULL;
++		}
+ 		return -ECONNABORTED;
++	}
+ 
+ 	_enter("{%d},{%u,%%%u},", conn->debug_id, sp->hdr.type, sp->hdr.serial);
+ 
+@@ -486,6 +494,11 @@ bool rxrpc_input_conn_packet(struct rxrpc_connection *conn, struct sk_buff *skb)
+ 		}
+ 		if (!conn->security->validate_challenge(conn, skb))
+ 			return false;
++		if (rxrpc_is_conn_aborted(conn)) {
++			if (conn->completion == RXRPC_CALL_LOCALLY_ABORTED)
++				rxrpc_send_conn_abort(conn);
++			return true;
++		}
+ 		return rxrpc_post_challenge(conn, skb);
+ 
+ 	case RXRPC_PACKET_TYPE_RESPONSE:
 
