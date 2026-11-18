@@ -1,83 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983419;
-	b=HofwLnlX5PrpH+mpGb0Qf2dsVFr0HofhVkn5G9kxx1nzMwXj9Ztf1hL2czqklkHVe4Rh
-	 y3y20dfm/xjaH6wYS0Ol2Pm+wPBLyO2xyWQfZsk8b4GS1qITcShVO5jWnx2FdCYjJHeSw
-	 Mc/aZwUPB4aztys8qOxcx+mmDsX2tE+Xq/2m4lp+PgcGDXD0y8k6awJZyKoLhWuksNApW
-	 qW1Q+wGHimwrL+RbOfIqAhFiii+fi9UzMPRLZJpkb2+XLeh9zCRNNA34408J8JX1aK+Xp
-	 RTXqhr4gZPqiivxU8BxyssHb9fJtCfZtH9gPwsFvUhmtHfqPgBgYc+52caSnNy3QPOA==
+	t=1794983614;
+	b=WeqfAJ7AgRMZxh1sqEoV2X9mVhYKSPkwosixj9Wp90Pds2URXyBxzcz7AxHmkhu0I1o1
+	 +QkUBn2BF5NSg8//tNhTZaAUg9lVQwndqFhXkH1hqVH+UlaIwGZ4vZU9sy5A+rP7poqXy
+	 1+gS42G9UT6N7WXOrIdDwWN7VwSlA4ho83+pJdfUx4b7KnbRMo+2ExhSaEyLpQi6qZA/r
+	 N8zyzDtJm4pSaNuAoSB9RfKup+CCThNqKuprmCXqiyFGIcSrtn+loQoCABKXnk2GRvL5U
+	 erAMvY1mFVu/XjFv6QQ/ohSqnliWyekTw9UfcgFqZroJOO2LWwnHi8l6CQcFW8SkOQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983419;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=yUNkvnQgkpAUmM7UnJDGcKS+DORiVd6eaYFO8hODs1E=;
-	b=vTBFiS/Vsq/dcVAkboegQlFfVGHnqBex3gxl8HdrkS730f+sxi3KEsEp9Z2DbwLbtucp
-	 38DIGDq39mCbxt+01XgY037/ZlKwOkXLK0qm32sHtXH1yx6gYCpwx85fLrWzEuiXIowwv
-	 /gLRcjEn0CkpIWU0EwzWCMkOGQZPIX5e0aHH/DenFdP00pzG2Y8f4bHaA5Rth4rdcP0TS
-	 aUHbUlpo1OctCRZoAtyCrn2fL0EEWrpB6/xb/F4wXToHRCsKOnyjjgnJ41Bb3hvnSgiAA
-	 PNgrubDjYVcHmYJGMu+zFJmT7fQ9NSs1DbdH70hh/2GCUvyQQxfL8f/LEHlP2kVEgQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983614;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
+	b=QPkA9ag/Mc0fgLiy9JPNQqzYcd2irvqVAWfyNGe0kSz/u6oWKB0dZgtREbULJJj1lguv
+	 FmKSigS2c///U+q34LHEKAZZZ1ug8DNCGJob/kFMVjI6CjdN5mTUHLO69VjCKs27BAZKw
+	 Cj7CxgImOs4QwWiJnjeGH1cm1V5F++FUrUsdLkCioKuVwt+DiostRwp0E8f/NVpTN3VXA
+	 nqD9h3p+vg3yKFme/HRrvljgHVvg1yNPZsozW3nlGQL0XL8hhxSR4QB4/PrNh/kTC/YRJ
+	 I9/Icaa9d8VK0aSsGB3v9BtQE4HYVRSDCIvkhLOwBpA5E1U9Vij+4RVF3qRyP9uOnvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ko43Ox4j;
-	arc=none smtp.remote-ip=162.62.57.49
-Received: from out162-62-57-49.mail.qq.com (out162-62-57-49.mail.qq.com [162.62.57.49])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ivQghRHa;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Fp4fJ3jX;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61BDB606A339
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:30:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61BDB606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34932606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:33:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34932606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ko43Ox4j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794983403; bh=yUNkvnQgkpAUmM7UnJDGcKS+DORiVd6eaYFO8hODs1E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ko43Ox4jx0aKDkRXFoAqJMPhj1YwfHip3IycmY2cKhlWB+XeP9p5YUa+Q/viwjnwV
-	 2Mh3HhdgJDUUUE1s4c9fJTYEWs0u5rOlLOsD0xsKRmcQNr/APSXdgUqn9jTo7LdtgN
-	 3Ypnlxf96Y+oBVPza/7ByhJ5NcS/9CyzbY538+xM=
-Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
-	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
-	id 780AFEF0; Wed, 18 Nov 2026 14:30:00 +0800
-X-QQ-mid: xmsmtpt1794983400t0euiw4ki
-Message-ID: <tencent_98F714E924966679E826125C2CB18B092A07@qq.com>
-X-QQ-XMAILINFO: MDbayGdXPuoeVlDwiAHpY9olE8QoVaZ52ALez41k/GM6rZtggONbbYUZ89KPty
-	 xevHCAjqfUkSAXGeJxLZy3y9Ej8MlyxYQFZWMdalyA25Xz+EzAIXzN24SrHIhgSqz2jdbWPzLi/F
-	 BomMURei64Jw0LeoXTXN3Cuz4tMtszb2/u39ujSvgWZFCoUzIj4bBuJfnTfjMjtMTR8jSZLk8VsP
-	 r0j6YkzQ4yYS9AzmxxhXkxumCIl1AyV7xtrAKYkH/gDlqldlWtY6wI1uIwruSgty6LrJknlCY9/E
-	 iAZ9iWn+y7cK+2JgGCjW34WBzT0dBCKsuN/yNaucvrg8aML8+CcVsnRWYXT93mgG0oJV/BjN9rI9
-	 LRwJ/lKClZIoT3BgDCQOnNtslsesXPRnP7Qtp+bDYHvNHTay55W/RUND9GYtUirnONd1PjupZpUu
-	 Crp+mPQkRUHkHCAIsnDZx+bk5q22HdblYqE2B7V9JTizMz2D+rH4zXb4/r5ErPNoGlu3iGZifaU0
-	 EqZetzhupTlHghe0Y4jiK7M9XhfUe1k7p7Cx2U/ycv2K7q2B7nya/+Bd60GIaHJfAppKPL4rtoKs
-	 kiCDxkc8Dxq82cZ8QUN3jRsKl8IWiE4bhuZsfyuons+WbXcaAjlRHV7Vm3bwLxTCEnYSszRKTn6m
-	 yDqg2JkTZ4Pz6Bmhd1M238fKSBNbGVnpznakyCFip+AQviBOoPiCaL0GzzT4W31J04iO8fOCIMDm
-	 Yj9Pxr3tEZxq3EawQTxeODTL0iidQGvU0ZTBJfFojF1zzCk9+kU97IJYK+4ZCSAId0mR+iPGwZLa
-	 kID1xNzG2Yr5c2vcDqC+xdFVfrThoP1aAmDDEjB9vJnRW/oszZnpBoyIJd3PQHUe9ojFKIiXLltf
-	 4JBneQOWVy3E29vqMAHR4HK6n4VENM3iSOUz/lxqdznn0JQ8nCjk4NwOfC4gW1QHT4j3Zlb6n+In
-	 pZnHX6cZYqc1KWjqZ3PMmtMx3182LSI52ciunK+KFM/4E6s61Xd476NEckZTkXgn0+5kI6a3+GQm
-	 FbGSQp0PjGoKVOiIU1X26/i1SzfentGTBZMk2QBbQ/AcL0nPglfpeGlmehj6CXTpfhKrLjB4Y81P
-	 SKJG8AJhMbooUV+4vdpc7qof5T1JxA50ANnQbBJutM56bdooGTHpzu5QGEqdCHq5ywhfb3kHFd8/
-	 Sep+8=
-X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
-From: Shuai Liu <847807867@qq.com>
-To: netdev@vger.kernel.org
-Cc: dsahern@kernel.org,
-	idosch@nvidia.com,
-	edumazet@kernel.org,
-	davem@davemloft.net,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
-Subject: [PATCH net v2] ipv6: addrconf: regenerate missing host route on RTM_NEWADDR
-Date: Wed, 18 Nov 2026 14:30:00 +0800
-X-OQ-MSGID: <20261118063000.841588-1-847807867@qq.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261118062828.840641-1-847807867@qq.com>
-References: <20261118062828.840641-1-847807867@qq.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ivQghRHa;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Fp4fJ3jX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1794983613;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
+	b=ivQghRHa7aHXycTCAk13nbpBx5z3W1dNgH+vQvlGMON2X+QF8CBPBJYbgBV97RbUwDRtir
+	exKvSiGE3g88NUClB4MN3HXn5hqkE0eHVgrayFvP8p0bUp39vPsN01tn3Pl+j+4cRTPjmT
+	esvnfSTamqwBk1Sndn3g4AOGQaE90ak=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-582-ysQLyFGJOa2GOFtgviWMEQ-1; Wed, 18 Nov 2026 01:33:31 -0500
+X-MC-Unique: ysQLyFGJOa2GOFtgviWMEQ-1
+X-Mimecast-MFC-AGG-ID: ysQLyFGJOa2GOFtgviWMEQ_1794983610
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a35e1d2dddso5145855e9.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:33:31 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1794983610; x=1795588410; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
+        b=Fp4fJ3jX8fL3RkP2MYtSO/q5wVOjCaqut2mwdt3VSNCGIWBmalQYnQEsH/v/Wp7w36
+         ppoCCpu6jqoQWcmpIKe6gsQnZUMBvAzBMk+W71ojaWP9ncG6lGw10PhcK8nDDi9gcukU
+         8Xce9Ujz27J7Nr2MYnUTyRls4WOCxuIfejnwF+RLNtpsMWAjeDrWOXEfombtByHcmuAc
+         O52cL4ND9OMyLIYVc5jvbt1NjWIeAjHn2noPkhTb+vstAcWbNJypjGOPXDNkxhVCbL4I
+         /OU8BKWNVeCeLR44YJJsrBPcx7A7FoNv+frcRCsKviZfdVJBvdyooV1r7cUcUUNE/ycW
+         7zHQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794983610; x=1795588410;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=jm9UtSkj5qTjc2aQp3GV2uLJyBITV/apzUIo7FVG7gI=;
+        b=mmpCNQckcqWRlVw+c5TFXvQVBMItCWrPQGktB6x7owGZD3lwHgelE7Sb1uDektQ5qV
+         IFWUzWRzN5mvY0AiiCf2oU5MS5nNQrsj8zMkZdQJHE68VmLwuVXPA3hpf9yHjE/lIufh
+         9JHIUSzNwPALhMgUGANlAZlcOPX49DhubBvcnTfURktrXoOCmEeU0YiL5P/xrBA2MdiP
+         2+MDcegkSy9nX56Hf5aAZeyKn2IQe0AAqiFiv0H3hdEnyUzhzNyPFzRq92qBqzKNXdhm
+         ReQ6WSCTgxNAxV7xppmKY1LdcMZ1bPZSjfVHyzgP7uVNv4A22VGPDkuGHN7A/IG5AyUi
+         LhBg==
+X-Forwarded-Encrypted: i=1; AL+hErGQfq7JT/tBWbRFpGs74agZnvugEinY3NK5r0wBhkItv/8glbPl9gKcv88Joupqmktgt9tLUa4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+A7O3RrJeYioEgMDAi0siRQe2jUlIREdl4mosH3CYV4txDB1mz
+	D6z4HvEqsyqp5CarTzVnWRIkr0j8JFs7+HZ393Sxd3m+Ro8AaBdxAqZvGUbQImXp53TEY8JKuOd
+	LGBfKQ2USxCn1NL1m+LzhY163OKtDir84zq5shlZ4wlKWqYjEzpA0BawgIA==
+X-Gm-Gg: AZFdTZe1VcRLIvFC+qO/u5Ckl70//Hy3i/yxCA8+8LjW9+4y21y9LrUbGzfROmGvcYJ
+	fIadYfWkKpsvll0jnCTw7ApDq0rKlOQK983FTQwS6MV15Yyxut0YsU672lMzS2gQBapOjHc9HL8
+	B8aN8gynhsBukhEIYUjWlMYQSszn/Kl5RfuaxKdfzMZRG5mM5CA2+2FXlb8xwYkH4wD+pPPc+LL
+	WFrLHLs5zncgIBdzD6FDlEsVak1v4gNSMxnpFb20v9CcgAFkLBnEcKaGDWUSXEpvDH+f7Dk1Uma
+	mQSqfcEjnJ1JEYG4EhDVCNJSr8WTcwACLP1EcP2AXvNFDsNqLMKn92fg34/PeEaeznoUsQBHW97
+	sLtYASbNqGm4Aq3avpc5JDPHlrV2z82tZ58zZhqvSzEA=
+X-Received: by 2002:a5d:5d0d:0:b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4a7963080e7mr331959f8f.47.1794983610345;
+        Tue, 17 Nov 2026 22:33:30 -0800 (PST)
+X-Received: by 2002:a5d:5d0d:0:b0:4a7:9630:7b5a with SMTP id ffacd0b85a97d-4a7963080e7mr331922f8f.47.1794983609777;
+        Tue, 17 Nov 2026 22:33:29 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1520:4400:d78d:7b2d:2f5d:e08f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65560b5f1sm2935743f8f.21.2026.11.17.22.33.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 22:33:28 -0800 (PST)
+Date: Wed, 18 Nov 2026 01:33:26 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Nguyen Dinh Phi <phind.uet@gmail.com>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>,
+	Stefano Garzarella <sgarzare@redhat.com>,
+	Bobby Eshleman <bobbyeshleman@meta.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Asias He <asias@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
+Message-ID: <20261118012321-mutt-send-email-mst@kernel.org>
+References: <20261117164916.2332953-1-phind.uet@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -87,78 +120,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117164916.2332953-1-phind.uet@gmail.com>
 
-When an interface MTU drops below IPV6_MIN_MTU, addrconf_notify()
-stops IPv6 on the interface via addrconf_ifdown(). With
-keep_addr_on_down enabled, permanent addresses are kept but their
-host routes are deleted and ifp->rt is cleared; recovery is expected
-to happen when the device is brought up, where the NETDEV_UP path
-runs addrconf_permanent_addr().
+On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
+> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
+> vhost_vsock_mutex, but It is also read without that mutex in
+> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
+> 
+> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
+> ioctl while the device has TX traffic. For example:
+> 
+>  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
+>    vhost_vsock_dev_ioctl+0x25f/0x720
+>    __x64_sys_ioctl+0xc2/0x110
+>    x64_sys_call+0x299/0x20a0
+>    do_syscall_64+0xc9/0x510
+>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+> 
+>   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
+>    vhost_vsock_handle_tx_kick+0x41b/0x740
+>    vhost_run_work_list+0x97/0xc0
+>    vhost_task_fn+0x98/0x1f0
+>    ret_from_fork+0x2e2/0x3c0
+>    ret_from_fork_asm+0x1a/0x30
+> 
+>   value changed: 0x0000004d -> 0x00000032
+> 
+> Both readers load the CID once and works correctly with either the
+> old or the new value.
+> 
+> Mark the store with WRITE_ONCE() and the two lockless loads with
+> READ_ONCE(), so KCSAN knows the race is intentional.
 
-That recovery never happens when IPv6 is stopped through the
-NETDEV_CHANGEMTU path: the device itself never goes down, so no
-NETDEV_UP event follows when the MTU is restored. The address is
-left with ifp->rt == NULL while the device is up, and every later
-RTM_NEWADDR notification only warns:
+You make it sounds like it is just KCSAN false positive.
+Is it?
+if yes, this should be data_race. If no, document why.
 
-  BUG: Address ::ffff:127.0.0.1 on device lo is missing its host route.
 
-syzbot hit this by flapping lo's MTU across IPV6_MIN_MTU with
-keep_addr_on_down set and toggling IFF_NOARP, which restarts DAD;
-DAD is skipped on the loopback device, so DAD completion and the
-warning repeat on every toggle and the address stays permanently
-without its host route.
 
-Instead of only warning, regenerate the host route with
-fixup_permanent_addr() when RTM_NEWADDR arrives for an address
-without ifp->rt on an up device, keeping the warning only for the
-allocation failure case.
+> 
+> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
+> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
+> ---
+>  drivers/vhost/vsock.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+> index 88a310390eb0..f26c59013075 100644
+> --- a/drivers/vhost/vsock.c
+> +++ b/drivers/vhost/vsock.c
+> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
+>  
+>  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
+>  				   lockdep_is_held(&vhost_vsock_mutex)) {
+> -		u32 other_cid = vsock->guest_cid;
+> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
+>  
+>  		/* Skip instances that have no CID yet */
+>  		if (other_cid == 0)
+> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
+>  		hdr = virtio_vsock_hdr(skb);
+>  
+>  		/* Only accept correctly addressed packets */
+> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
+> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
+>  		    le64_to_cpu(hdr->dst_cid) ==
+>  		    vhost_transport_get_local_cid())
+>  			virtio_transport_recv_pkt(&vhost_transport, skb,
 
-Fixes: 2d819d250a13 ("ipv6: Handle missing host route in __ipv6_ifa_notify")
-Reported-by: syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=af16ddc8fd22a1d135f8
-Signed-off-by: Shuai Liu <847807867@qq.com>
----
-Changes since v1:
-- Correct the subject prefix to target the net tree.
+Will prevent compiler from hoisting the reads out of the loops.
+Does it matter?
 
- net/ipv6/addrconf.c | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
 
-diff --git a/net/ipv6/addrconf.c b/net/ipv6/addrconf.c
-index 4b0cb7d23541d..70230ffdc077f 100644
---- a/net/ipv6/addrconf.c
-+++ b/net/ipv6/addrconf.c
-@@ -6357,17 +6357,17 @@ static void __ipv6_ifa_notify(int event, struct inet6_ifaddr *ifp)
- 		/*
- 		 * If the address was optimistic we inserted the route at the
- 		 * start of our DAD process, so we don't need to do it again.
--		 * If the device was taken down in the middle of the DAD
--		 * cycle there is a race where we could get here without a
--		 * host route, so nothing to insert. That will be fixed when
--		 * the device is brought up.
-+		 * Otherwise, if the host route is gone while the device is up
-+		 * (e.g. dropped by addrconf_ifdown() for a low MTU and the
-+		 * address kept by keep_addr_on_down), regenerate it.
- 		 */
--		if (ifp->rt && !rcu_access_pointer(ifp->rt->fib6_node)) {
--			ip6_ins_rt(net, ifp->rt);
--		} else if (!ifp->rt && (ifp->idev->dev->flags & IFF_UP)) {
--			pr_warn("BUG: Address %pI6c on device %s is missing its host route.\n",
--				&ifp->addr, ifp->idev->dev->name);
-+		if (!ifp->rt && (ifp->idev->dev->flags & IFF_UP)) {
-+			if (fixup_permanent_addr(net, ifp->idev, ifp))
-+				pr_warn("BUG: Address %pI6c on device %s is missing its host route.\n",
-+					&ifp->addr, ifp->idev->dev->name);
- 		}
-+		if (ifp->rt && !rcu_access_pointer(ifp->rt->fib6_node))
-+			ip6_ins_rt(net, ifp->rt);
- 
- 		if (ifp->idev->cnf.forwarding)
- 			addrconf_join_anycast(ifp);
-
-base-commit: 7cfbf79c66c63e807ea452abf0546e6f6d6833a6
--- 
-2.43.0
+> @@ -859,7 +859,7 @@ static int vhost_vsock_set_cid(struct vhost_vsock *vsock, u64 guest_cid)
+>  	if (vsock->guest_cid)
+>  		hash_del_rcu(&vsock->hash);
+>  
+> -	vsock->guest_cid = guest_cid;
+> +	WRITE_ONCE(vsock->guest_cid, guest_cid);
+>  	hash_add_rcu(vhost_vsock_hash, &vsock->hash, vsock->guest_cid);
+>  	mutex_unlock(&vhost_vsock_mutex);
+>  
+> -- 
+> 2.53.0
 
