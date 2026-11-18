@@ -1,99 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.19
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795040110;
-	b=G1WmFIFW8j7Pm+y2B1NoY89TcZSVYthggLKSGICiM4VHJ8EhxoWZajYXf6M2jbxZUDLB
-	 XO2CcYCRHm5hirsvex3l2Y1MK5RCXSuNnygZ6YWUbtxv73jF0Kr6kefq3lUHvNpw6TpnC
-	 48RcjeL+eoeoisiHYntIGh5iqjJ5zuiLjHiyzHKk+aRSMsVoSlyclxeND3MZQuPBcNLqJ
-	 fOsZPwzuNSG3YkYWRUf5S3nyM3Bm7X33m5HRln/LQUH+CjUpM5HfF0diy2t1lXkxqBkLK
-	 O5JZaGkmyC3x2G097MpZjNhgwlGImT6BBL1dGeciqzIjkat5XKCXo0+37E9ZU1hVQmg==
+	t=1795040136;
+	b=XmXoE/YoXUBMkM1R7sJWxcSVlRNQ4cmmvm7zfNOcvEPgyO0oBHi82Z10LwPXq8SCqBNn
+	 7vsux2dHdzCJMZA8rLfW2x+1jubheZJ0Sji6S5Llo6lvJW5EHgw491MGDcUKXUyA5YzKW
+	 /Ze+e16yupfnBAugdnIGGPDN2UspKNvKm8Q4uYDkDoGGf6Gj8CT9yFGXd4B03dwf2/fLe
+	 P14/mrQ6r9knm8hr6SEVLBKQNWysCFEWYk6fD3KYe5amXcb5BWsD2AjHMs0c8TC7pnqpG
+	 kqifK65T1gZXJJwyp5bwKWBIspEFyL/Lg1ysXtWOqF2sF71I3RoWiWZnGagLqoz4s1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795040110;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=UYDwHSE5wwUU5wr/ldY53nDmpcZK978KS2tp9JlUb1c=;
-	b=1Q5dNQGTv3YKzGkmg0VlzsjhwrItOrzO1OlNRTMCwwgBrsijb/Hrj/9gLfpMfPXCZG0C
-	 6t2rJ75mBQ50YfjZ1RtgbQXh8Acbjjo85bGHdRHWLnWLEXjBP6rtpm1uNX/8qBNoS6dJR
-	 fpwqYng8WSSOxdwQGelpO5PaEaV/kfmV9PJLy8X49sRg8m0iP5QjmRG96/hFDP80ibBjr
-	 xN0YUocc51uTsh6/U5Clj+gmHgvZjxRfC3/ESrZyNAsrda1CbP+eyZvsx2epcJhUFGOm0
-	 6ZCuvVRwfwl3GTwc9PJi8fxx18gDNjT8xT+kTnIN+E255NskB6+nzWtASsSCo6PbQ4w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795040136;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=e0puxu11uw6EkDOS3QsOBhNMDjZor1AmTioNsCPSIoU=;
+	b=TnYoE3hq8kldi2d9Vd7AycVbNJTvvaqRr++Va9KLwPbrG+CoQZZj8eQtv022KhfcakaZ
+	 rmGj8CkPys/LA+Ro43zAOEVDO/crzZ66QnH8URgqtvqMSh9z6BBRcCIEJ4Eev3aOqveRx
+	 xwEJGa/HnPMSZjDs+NAluThOjCPNDnL2nTrsIh35jeSLNK6z4Z08RgEBuIKvCok9Ll6fW
+	 1SbtHLrZeUmOL9wmeCO6Ip9Sj4LT1PcGpDxsqrSnCWaJfytsT8tAGvVoL4ue1P+vmcaOF
+	 qeizVEaJ2e0qIVblpjbbmnD15tGkU+k5l7NxX4GwuzfI97p/mUNoeQzBPHEFFbPTcjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W5TIvLsE;
-	arc=none smtp.remote-ip=209.85.128.46
-Received: from mail-wm1-f46.google.com (mail-wm1-f46.google.com [209.85.128.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Vmip2v4f;
+	arc=none smtp.remote-ip=198.175.65.19
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DF69606A331
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 22:15:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DF69606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E955606A31C;
+	Wed, 18 Nov 2026 22:15:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E955606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W5TIvLsE
-Received: by mail-wm1-f46.google.com with SMTP id 5b1f17b1804b1-4bb61185057so12813415e9.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:15:09 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795040108; x=1795644908; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UYDwHSE5wwUU5wr/ldY53nDmpcZK978KS2tp9JlUb1c=;
-        b=W5TIvLsE8miJjNtD8gg+/f7Z5gT2XmLyzQuanaR3zvu/LjOV5n6cLdQ2cC6RAKXk2z
-         GkfeXlBELlM+hq1Bg0ePt7Tp5sOYZSyR9k/EhyvZrSzNiCKpen+vKI+maSPqNR4uMlBy
-         8nAtBumIlKLSiN3EIvGNT6+g3OMMq9tfL8u+NXmQPvb6HP5Ht1YAEYaD42fK/EidYrs5
-         OW9n2QX0GxM2fTq4bzONle0R+QKGYNfsJm3ZnsfqH5Ys5e6THrn0QGXwVUjPriyEFG3y
-         6lGakkOWviU/DeOCnwsygmvB1RyVrfwkNgbv2JWLlZzfvH98jeO8JMnWZF6hnDSfBi2M
-         u/3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795040108; x=1795644908;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UYDwHSE5wwUU5wr/ldY53nDmpcZK978KS2tp9JlUb1c=;
-        b=A+361tvfmKy6ajXcwVsHj7vMEIz9vS+yUHCfjtX6HNCrXkFw/cjq3kU0ViiqZPIDDl
-         fdP22R5JfolmO7V4kijs+7jSJR6mLEQvq/eERHFe2WUzYw3qT5K6w1tQI7EAhvETxQJs
-         6+jkbnCS+TWXoFHLEoW2SxZgythFJOJCeI4ArHNLpitBMLkdlfxaIDu4XY7RjAFRNo+p
-         LRdjYpukQHYX8BQuw28U5dMZeXHyh4y+PZTxkXZG2bJPR4Lt6kdST99YoULZdE+67IdX
-         pYcOLakATYXWkKVAFHGxICc6Y7CbHLJzleOw96pPJkTGU4EiqGFX5r279cAgZ0iqTabx
-         5TWw==
-X-Gm-Message-State: APuU4Z/MFaPlfXoIQCC0CXKOlkjPS76FcBNR6oo1v/pyAr0ddTjXJ41z
-	G3SN5CuXKRidLTD4LmCHpKh8tCdXy2s4lg0Kim8Y58d28W6i0p5n9D6i
-X-Gm-Gg: AYBFou33gAJhI7A/wGkm94Z1KCBGdTrzOSOApldwsvJXaQoVtltEn/sVgtJ17SlKlnV
-	eWWOqYoOPXPODhcEF4Wp6mMjAIRjo4wMG4uydfitCPwfrYPzhRiCEx0KohD0+N1O4yKifvfNf2h
-	VWyEQBRiTs0eMRhtkK10b+xjg9Ay7bHP2JWUJNEC497SN4tk8o939zUMHiHUE4rnrRV5VweDEP+
-	wbbmm2uY0SQSiGQcZ5YE2d+U8C2TKq1jv3dzMe1BOp5M8XnBv4CEfOKtxXoAMtue5pk0pom25EF
-	k/ZrK1adzr6SBz4m5h7Yk83b8NBQ+gdnyfs4l8KNmKqz8qGj/uoCfXBEOFhe1bEI6UyGEGD1IYR
-	rGVznpbDS86/GvrLk/2yO2ICGXPpC5Ggarkcw8OBrNNoarAoGmtUbH6XjqtQdRuriLta6AkcDLq
-	3XFrGV18ER6qhIuEfW9RO/YnecrrUpsEVw2SqAoQLaDFkXyJ3Nn+h9f0ypWlnNrcWiP90mi1XOw
-	nT7LvA7GTrDco9TFkhtmg1WfEihHfoo2HY0rG86WExgNfW1kZ7SqwcIW6wGocpLGdqkX91iBtsv
-	3lueP9Y2mQnMq5esghUUqmk484RZmu2KxcNkmiYKxfEhuuJRiJZCTNxL1jZVmFaF7+3LcddZ0Hg
-	ZQPavoDS+odeBB6hGc0/GsoKn5CrajBEuWCvg24MzIg==
-X-Received: by 2002:a05:600c:1d9c:b0:4a9:2a92:231f with SMTP id 5b1f17b1804b1-4bb7da21ffcmr85380735e9.7.1795040107843;
-        Wed, 18 Nov 2026 14:15:07 -0800 (PST)
-Received: from dpawlik-thinkpadp1gen7.rmtpl.csb ([46.205.218.30])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb844e912asm3859115e9.12.2026.11.18.14.15.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 14:15:07 -0800 (PST)
-From: Daniel Pawlik <pawlik.dan@gmail.com>
-To: linux@armlinux.org.uk
-Cc: netdev@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	petr.wozniak@gmail.com,
-	maxime.chevallier@bootlin.com,
-	olek2@wp.pl,
-	andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	Daniel Pawlik <pawlik.dan@gmail.com>
-Subject: [PATCH net v2] net: sfp: skip PHY probe on bridge-less OEM SFP-10G-T revisions A and B
-Date: Wed, 18 Nov 2026 23:14:50 +0100
-Message-ID: <20261118221450.1764790-1-pawlik.dan@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Vmip2v4f
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795040135; x=1826576135;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=kMuBiIFxltAIjikpl7vK3di7IS3jrzFLHdvUlAWFAtM=;
+  b=Vmip2v4fPQX9tNZgylnvpJTnUAauRD6HYma/5elA2noIrSCnv4y9pVek
+   nm6pSTPeTaCl55c+J56Sd0bkeOaSr4051P7ToZ02S0ObgDBoAmgsa5CyG
+   +EV4Z08iPfPxHz+peUh4q/F2n4EYqKLNfewU5FM/3Pa/RbzC65cJF8jip
+   5RIQpUhkxWfKJl6Pio7jQmB83IwEfLhzDSwQXK0RzGSXm90lUAxKKmSKg
+   EsyqohmYdfNPvvvrDwmHgBos/2rwX2j/RM89dUMhEu4DbQq7u5LO1h65n
+   Pi3jsGwj0fBaTOgAuV5yJ2pJwpzEMVZufzmmiT3m85yC5+teJNyuESL0s
+   w==;
+X-CSE-ConnectionGUID: AUf4m39jRtqEjbUFI6oqJg==
+X-CSE-MsgGUID: Xq6IgimUTvSc4zoGeitcDg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3919412"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3919412"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 14:15:33 -0800
+X-CSE-ConnectionGUID: oVdWhmTXTcGBnFFPqzvCiQ==
+X-CSE-MsgGUID: PORxCRw+TimmA918XZfGcg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10651745"
+Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 18 Nov 2026 14:15:30 -0800
+Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
+	(envelope-from <lkp@intel.com>)
+	id 1xTnw6-00000001ETm-2tJG;
+	Wed, 18 Nov 2026 22:15:26 +0000
+Date: Thu, 19 Nov 2026 06:15:26 +0800
+From: kernel test robot <lkp@intel.com>
+To: Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org,
+	kuba@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net-next v2 1/2] netdevsim: add TLS device offload
+ emulation
+Message-ID: <202611190536.FTvmv1cW-lkp@intel.com>
+References: <20261117140642.4008-2-jiayuan.chen@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,160 +89,110 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117140642.4008-2-jiayuan.chen@linux.dev>
 
-"OEM SFP-10G-T" modules with vendor revision "A" have no RollBall
-I2C-to-MDIO bridge: page 3 of the 0x51 EEPROM passively echoes written
-bytes, so every RollBall command times out. With instrumented mdio-i2c,
-the CMD register reads back exactly the written command byte (0x02)
-forever, with no DONE and no I2C errors. 0x56 reads back all 0xff, so the
-PHY is not reachable at all. A genuine RollBall module with the same
-vendor and part number (revision "02", AQR113C PHY) on the same board
-answers DONE on the first poll and its PHY attaches within ~2 seconds.
-A rev B module with an RTL8261BE PHY, reported on the OpenWrt tracker,
-hits the same RollBall timeouts. The bridge probe added by
-commit 8fe125892f40 ("net: phy: sfp: probe for RollBall I2C-to-MDIO
-bridge in mdio-i2c"), since reverted, found no bridge on it, after
-which the module worked.
-That module reaches this quirk entry only because its part number is
-"SFP-10G-T" at that point: it is a rate-adapting module which reports
-"SFP-10G-T" with a 2.5G or faster peer and "SFP-10G-T-I" with a 1G
-peer, and only the former matches this entry, which is the sole entry
-forcing RollBall on it. The "SFP-10G-T-I" variant matches no quirk and
-keeps the default behaviour either way.
+Hi Jiayuan,
 
-Because the SFP-10G-T quirk forces RollBall, the kernel retries the PHY
-probe 25 times at ~21 seconds per attempt, i.e. for over nine minutes,
-before giving up and falling back to inband mode. Each attempt runs from
-sfp_timeout() with rtnl_lock held, so for the whole window every rtnl
-user on the system stalls in ~21 second chunks, including the state
-machines of other SFP cages: insertion and removal of a module in another
-cage is only processed after the current attempt ends. In one test, a
-module pulled from the other cage kept being polled by phylib until the
-attempt ended, triggering a WARN from phy_error_precise().
+kernel test robot noticed the following build errors:
 
-Give the SFP-10G-T entry its own fixup that skips the PHY probe for
-revisions "A" and "B", while keeping the forced extended compliance code
-so that the module still links up in 10GBASE-R inband mode as before.
-Other revisions keep the RollBall fixup unchanged.
+[auto build test ERROR on net-next/main]
 
-Tested on a Banana Pi BPI-R4 with rev A and rev 02 modules: the rev A
-module links up at 10G ~16 s after insertion instead of over nine
-minutes, and the rev 02 module is unaffected. No rev B module was
-available for testing; its match is based on the report above.[1]
+url:    https://github.com/intel-lab-lkp/linux/commits/Jiayuan-Chen/netdevsim-add-TLS-device-offload-emulation/20261117-220630
+base:   net-next/main
+patch link:    https://lore.kernel.org/r/20261117140642.4008-2-jiayuan.chen%40linux.dev
+patch subject: [PATCH net-next v2 1/2] netdevsim: add TLS device offload emulation
+config: i386-buildonly-randconfig-1004-20261119 (https://download.01.org/0day-ci/archive/20261119/202611190536.FTvmv1cW-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261119/202611190536.FTvmv1cW-lkp@intel.com/reproduce)
 
-[1] https://github.com/openwrt/openwrt/pull/22910
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202611190536.FTvmv1cW-lkp@intel.com/
 
-Fixes: 324e88cbe3b7 ("net: sfp: add support for multigig RollBall transceivers")
-Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
-Link: https://lore.kernel.org/netdev/20260624084814.20972-1-petr.wozniak@gmail.com/
+All errors (new ones prefixed by >>):
 
----
+   In file included from include/linux/tcp.h:19,
+                    from include/linux/ipv6.h:103,
+                    from drivers/net/netdevsim/tls.c:3:
+   drivers/net/netdevsim/tls.c: In function 'nsim_tls_dev_add':
+>> include/net/sock.h:404:37: error: 'struct sock_common' has no member named 'skc_v6_rcv_saddr'; did you mean 'skc_rcv_saddr'?
+     404 | #define sk_v6_rcv_saddr __sk_common.skc_v6_rcv_saddr
+         |                                     ^~~~~~~~~~~~~~~~
+   drivers/net/netdevsim/tls.c:298:35: note: in expansion of macro 'sk_v6_rcv_saddr'
+     298 |                 conn->laddr = sk->sk_v6_rcv_saddr;
+         |                                   ^~~~~~~~~~~~~~~
+>> include/net/sock.h:403:45: error: 'struct sock_common' has no member named 'skc_v6_daddr'; did you mean 'skc_daddr'?
+     403 | #define sk_v6_daddr             __sk_common.skc_v6_daddr
+         |                                             ^~~~~~~~~~~~
+   drivers/net/netdevsim/tls.c:299:35: note: in expansion of macro 'sk_v6_daddr'
+     299 |                 conn->raddr = sk->sk_v6_daddr;
+         |                                   ^~~~~~~~~~~
 
-This does not re-introduce the generic RollBall bridge probe reverted in
-commit b521003c27eb ("Revert 'net: phy: sfp: probe for RollBall
-I2C-to-MDIO bridge in mdio-i2c'"): the probe path, its timeouts and the
-MDIO bus creation for genuine RollBall modules are untouched. It only
-narrows the existing "OEM SFP-10G-T" quirk by vendor revision, so modules
-that do have the bridge keep the current behaviour.
 
-Further bridge-less revisions of this part number may exist; they can be
-added to the fixup once their lack of a bridge is confirmed on hardware.
+vim +404 include/net/sock.h
 
-Changes in v2:
-- Match the vendor revision with sfp_strlen(), so NUL-padded revisions
-  are accepted the same way as the rest of the quirk matching
-  (sfp_strlen() moved above the fixups, it was defined after the quirk
-  table).
-- Add the Fixes: tag for the commit that forced RollBall on this part
-  number, and target net instead of net-next accordingly.
-- Spell out in the commit message how the rev B module reaches this
-  quirk entry (part number depends on the peer speed).
+4dc6dc7162c08b9 Eric Dumazet             2009-07-15  382  
+68835aba4d9b74e Eric Dumazet             2010-11-30  383  #define sk_dontcopy_begin	__sk_common.skc_dontcopy_begin
+68835aba4d9b74e Eric Dumazet             2010-11-30  384  #define sk_dontcopy_end		__sk_common.skc_dontcopy_end
+4dc6dc7162c08b9 Eric Dumazet             2009-07-15  385  #define sk_hash			__sk_common.skc_hash
+5080546682bae3d Eric Dumazet             2013-10-02  386  #define sk_portpair		__sk_common.skc_portpair
+05dbc7b59481ca8 Eric Dumazet             2013-10-03  387  #define sk_num			__sk_common.skc_num
+05dbc7b59481ca8 Eric Dumazet             2013-10-03  388  #define sk_dport		__sk_common.skc_dport
+5080546682bae3d Eric Dumazet             2013-10-02  389  #define sk_addrpair		__sk_common.skc_addrpair
+5080546682bae3d Eric Dumazet             2013-10-02  390  #define sk_daddr		__sk_common.skc_daddr
+5080546682bae3d Eric Dumazet             2013-10-02  391  #define sk_rcv_saddr		__sk_common.skc_rcv_saddr
+^1da177e4c3f415 Linus Torvalds           2005-04-16  392  #define sk_family		__sk_common.skc_family
+^1da177e4c3f415 Linus Torvalds           2005-04-16  393  #define sk_state		__sk_common.skc_state
+^1da177e4c3f415 Linus Torvalds           2005-04-16  394  #define sk_reuse		__sk_common.skc_reuse
+055dc21a1d1d219 Tom Herbert              2013-01-22  395  #define sk_reuseport		__sk_common.skc_reuseport
+9fe516ba3fb29b6 Eric Dumazet             2014-06-27  396  #define sk_ipv6only		__sk_common.skc_ipv6only
+26abe14379f8e2f Eric W. Biederman        2015-05-08  397  #define sk_net_refcnt		__sk_common.skc_net_refcnt
+7c268eaeec6388b Kuniyuki Iwashima        2025-10-14  398  #define sk_bypass_prot_mem	__sk_common.skc_bypass_prot_mem
+^1da177e4c3f415 Linus Torvalds           2005-04-16  399  #define sk_bound_dev_if		__sk_common.skc_bound_dev_if
+^1da177e4c3f415 Linus Torvalds           2005-04-16  400  #define sk_bind_node		__sk_common.skc_bind_node
+8feaf0c0a5488b3 Arnaldo Carvalho de Melo 2005-08-09  401  #define sk_prot			__sk_common.skc_prot
+07feaebfcc10cd3 Eric W. Biederman        2007-09-12  402  #define sk_net			__sk_common.skc_net
+efe4208f47f907b Eric Dumazet             2013-10-03 @403  #define sk_v6_daddr		__sk_common.skc_v6_daddr
+efe4208f47f907b Eric Dumazet             2013-10-03 @404  #define sk_v6_rcv_saddr	__sk_common.skc_v6_rcv_saddr
+33cf7c90fe2f97a Eric Dumazet             2015-03-11  405  #define sk_cookie		__sk_common.skc_cookie
+70da268b569d32a Eric Dumazet             2015-10-08  406  #define sk_incoming_cpu		__sk_common.skc_incoming_cpu
+8e5eb54d303b7cb Eric Dumazet             2015-10-08  407  #define sk_flags		__sk_common.skc_flags
+ed53d0ab761f5c7 Eric Dumazet             2015-10-08  408  #define sk_rxhash		__sk_common.skc_rxhash
+efe4208f47f907b Eric Dumazet             2013-10-03  409  
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  410  	__cacheline_group_begin(sock_write_rx);
+43f51df41729559 Eric Dumazet             2021-11-15  411  
+9115e8cd2a0c6ea Eric Dumazet             2016-12-03  412  	atomic_t		sk_drops;
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  413  	__s32			sk_peek_off;
+7d452516b67add4 Eric Dumazet             2025-09-29  414  	struct sk_buff_head	sk_error_queue;
+b178bb3dfc30d95 Eric Dumazet             2010-11-16  415  	struct sk_buff_head	sk_receive_queue;
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  416  	/*
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  417  	 * The backlog queue is special, it is always used with
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  418  	 * the per-socket spinlock held and requires low latency
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  419  	 * access. Therefore we special case it's implementation.
+b178bb3dfc30d95 Eric Dumazet             2010-11-16  420  	 * Note : rmem_alloc is in this structure to fill a hole
+b178bb3dfc30d95 Eric Dumazet             2010-11-16  421  	 * on 64bit arches, not because its logically part of
+b178bb3dfc30d95 Eric Dumazet             2010-11-16  422  	 * backlog.
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  423  	 */
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  424  	struct {
+b178bb3dfc30d95 Eric Dumazet             2010-11-16  425  		atomic_t	rmem_alloc;
+b178bb3dfc30d95 Eric Dumazet             2010-11-16  426  		int		len;
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  427  		struct sk_buff	*head;
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  428  		struct sk_buff	*tail;
+fa438ccfdfd3f6d Eric Dumazet             2007-03-04  429  	} sk_backlog;
+b178bb3dfc30d95 Eric Dumazet             2010-11-16  430  #define sk_rmem_alloc sk_backlog.rmem_alloc
+2c8c56e15df3d4c Eric Dumazet             2014-11-11  431  
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  432  	__cacheline_group_end(sock_write_rx);
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  433  
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  434  	__cacheline_group_begin(sock_read_rx);
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  435  	/* early demux fields */
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  436  	struct dst_entry __rcu	*sk_rx_dst;
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  437  	int			sk_rx_dst_ifindex;
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  438  	u32			sk_rx_dst_cookie;
+5d4cc87414c5d11 Eric Dumazet             2024-02-16  439  
 
-v1: https://lore.kernel.org/netdev/20261116093605.294365-1-pawlik.dan@gmail.com/
----
- drivers/net/phy/sfp.c | 54 +++++++++++++++++++++++++++++++------------
- 1 file changed, 39 insertions(+), 15 deletions(-)
-
-diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
-index 85e57a16bb52..bfc049a3fcd1 100644
---- a/drivers/net/phy/sfp.c
-+++ b/drivers/net/phy/sfp.c
-@@ -482,6 +482,44 @@ static void sfp_fixup_rollball_cc(struct sfp *sfp)
- 	sfp->id.base.extended_cc = SFF8024_ECC_10GBASE_T_SFI;
- }
- 
-+static size_t sfp_strlen(const char *str, size_t maxlen)
-+{
-+	size_t size, i;
-+
-+	/* Trailing characters should be filled with space chars, but
-+	 * some manufacturers can't read SFF-8472 and use NUL.
-+	 */
-+	for (i = 0, size = 0; i < maxlen; i++)
-+		if (str[i] != ' ' && str[i] != '\0')
-+			size = i + 1;
-+
-+	return size;
-+}
-+
-+static void sfp_fixup_oem_10gt(struct sfp *sfp)
-+{
-+	char rev = sfp->id.base.vendor_rev[0];
-+
-+	/* Revisions A and B of this module have no RollBall I2C-to-MDIO
-+	 * bridge (on rev A, page 3 of the 0x51 EEPROM just echoes written
-+	 * bytes), so every RollBall command times out and the PHY probe
-+	 * keeps retrying for over nine minutes, holding rtnl_lock for ~20
-+	 * seconds per attempt. The PHY is not accessible at all, so use the
-+	 * module without one.
-+	 */
-+	if (sfp_strlen(sfp->id.base.vendor_rev, 4) == 1 &&
-+	    (rev == 'A' || rev == 'B')) {
-+		dev_info(sfp->dev,
-+			 "rev %c has no RollBall MDIO bridge, not probing for a PHY\n",
-+			 rev);
-+		sfp->mdio_protocol = MDIO_I2C_NONE;
-+		sfp->id.base.extended_cc = SFF8024_ECC_10GBASE_T_SFI;
-+		return;
-+	}
-+
-+	sfp_fixup_rollball_cc(sfp);
-+}
-+
- static void sfp_quirk_2500basex(const struct sfp_eeprom_id *id,
- 				struct sfp_module_caps *caps)
- {
-@@ -629,7 +667,7 @@ static const struct sfp_quirk sfp_quirks[] = {
- 	// OEM SFP-GE-T is a 1000Base-T module with broken TX_FAULT indicator
- 	SFP_QUIRK_F("OEM", "SFP-GE-T", sfp_fixup_ignore_tx_fault),
- 
--	SFP_QUIRK_F("OEM", "SFP-10G-T", sfp_fixup_rollball_cc),
-+	SFP_QUIRK_F("OEM", "SFP-10G-T", sfp_fixup_oem_10gt),
- 	SFP_QUIRK_S("OEM", "SFP-2.5G-T", sfp_quirk_oem_2_5g),
- 	SFP_QUIRK_S("OEM", "SFP-2.5G-BX10-D", sfp_quirk_2500basex),
- 	SFP_QUIRK_S("OEM", "SFP-2.5G-BX10-U", sfp_quirk_2500basex),
-@@ -656,20 +694,6 @@ static const struct sfp_quirk sfp_quirks[] = {
- 	SFP_QUIRK_S("ZOERAX", "SFP-2.5G-T", sfp_quirk_oem_2_5g),
- };
- 
--static size_t sfp_strlen(const char *str, size_t maxlen)
--{
--	size_t size, i;
--
--	/* Trailing characters should be filled with space chars, but
--	 * some manufacturers can't read SFF-8472 and use NUL.
--	 */
--	for (i = 0, size = 0; i < maxlen; i++)
--		if (str[i] != ' ' && str[i] != '\0')
--			size = i + 1;
--
--	return size;
--}
--
- static bool sfp_match(const char *qs, const char *str, size_t len, bool prefix)
- {
- 	size_t qs_len;
 -- 
-2.56.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
