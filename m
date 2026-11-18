@@ -1,56 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005478;
-	b=paTqgXJx5YrTd3MVgfrfR8Mg1mK5H4ahMswQua1dr43oD22ygtQRu2zurcQJexzTPm/7
-	 bjQi+lWFscLhkrj/qVJZoJ50sBKu5HzMde2VeZbI23u03KgelJ39XOm0HopUTUwPx70LK
-	 jRycL+JEeeVfj39rgWh9PO96cBKc94O+3PMPOGy1iOb/6k/LTzhIYitKsL/yjZ5Vu9mQn
-	 18iwJxB2NH6RlDvhIZdW+FQMMn4FZzp4w0XH8JoeBsv7qkPMLan0XQZFT7kO74Ajok5e8
-	 R9sXP5M2XzLx+B9dzWs0+2XB2csNAY3fTfneGQ4TFSctvTACZXfIPjtbaS9uwdmvynQ==
+	t=1795005492;
+	b=A2VhNgbwmJ+s6cC4m+Wjls/luCsvEafKU4tin6Shy5LDRK7af61G0OuYrESSPCx3WNZp
+	 On4zKxfsvGHT8likJtmFVRmyM2uz3gnXdV7/yp7WGY9KtMJx/7DO1O53nEzOtlZbzw3BJ
+	 pPXYdDy8sDWsL1zbUh3PKwaZkWQKzf9+HdcMMDXNN/L/0qPeNjepC5jXa5tiQ//0DAZLz
+	 tI6TuNivLYgl8ek3VXu615Thrrkp7W19LR7Bo5xptUTpgbTooaEKY65tk0pZhoUXp2TM5
+	 WgjJ2mPPhgtiigsfudnJrcmfhFHLmoBqLBbqwaphDveeAVo5ft7u636dT7rtG1C7J8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005478;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=7QOeBdmv6Xwg/EN2J9zY875mkqRWcXEr4cDGZS3VmpQ=;
-	b=27kouMByoL6uImaKZOWpGZeWd7UO5JXLb3L6Ey9sqiFvUeClIVXDdNP12lvrcGlTMOrG
-	 zrP+iQUcAWb+SVXsvzoK9ryL6cKdF5N9p++59WAZPqPlkjbW1i4FcwT53oHdKBnlgyItP
-	 zeaLNtWHRKkszI9uHq3zOFUeBwALZkOa0PMScUIef0J+3IbydgiYqA69zb7PUieYMnGx6
-	 Q/FRJZ/PTT1a1siH3R7ZO5dD1G/2RHhYkL/QL5AbR3IH89i6MXvVBFgk6szc+k7eaZjqI
-	 eEzCKA77FCXDflxkxStKu9brEU9uJFqXxXRXhESa+/EQcJeSv/SILsdsM2Vwud04SjA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005492;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=3JEg1AwzSEupesdC8S4FAgHllW0FrPrT3+DWipbTAuQ=;
+	b=bQqZsDsYYoQMmAOAwmv093XtP4DQo5dNHavfjpymfLtU8bDLF43GAkWM2de+tF0rwBSH
+	 792yfReo90Izlc2+cbUKoGkrRaHlGbQdHl3ZnGz+3IwJRjd1AXlCaFXM2Nert3xgTaudQ
+	 mTH4Mpj0hH7QGsdFDCab1hSXhNvPjTfMX3gGU6/hO56iQE4bBG8uW6MoLUTsms0vGKF0g
+	 dkKlIdL7HZsK5wVmjPWwbihGvFcMZ47uZzLPwk6oGfU5jbO90WHssTwf5C4+PmFcEW5Pn
+	 jvwhWYe7GH4/Vi0AIk/NU+oWCY4w7nrx1zWmi18jv8cJvPqj/lUH9NtfVcTtYrqt3KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OkyuPRrr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TEN8gExW;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 079F7606A320;
-	Wed, 18 Nov 2026 12:37:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C593A606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:38:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OkyuPRrr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D1EE31F000C5;
-	Wed, 18 Nov 2026 12:37:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TEN8gExW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E4571F000C8;
+	Wed, 18 Nov 2026 12:38:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795005477;
-	bh=7QOeBdmv6Xwg/EN2J9zY875mkqRWcXEr4cDGZS3VmpQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=OkyuPRrr3DwYPID2w/OkQQrFT7KO/BR7E7voWzmkQbGeroV2JNxaZpdcEoRdylf6w
-	 xfuDIA4H5bTO4jHIs+FqzuGbC7wjWTHoOoTZBISz2BF8oh8IqhSfWJ+aZLkb8HyQHd
-	 nYv8+1rXmqEOr3RghWQA7MMOjay+tHRTnwVVC4Fme7YZ7hXIg3kwipVqOpf7JY8tcp
-	 U6VSQpuDrtH8VSeqleC8nA+3kPXimy/XSHRHnplnkrrjMVMgSpzTwGN75u/PS4aUS/
-	 U3iYNsjIjHOz/BMVqhCHK4SEP/99EbM7GenZwGOmFM48xTLDkG9GQ6JB7EZLfDyXkT
-	 CMAc3aj8whV1A==
-Date: Wed, 18 Nov 2026 13:37:52 +0100
-From: Christian Brauner <brauner@kernel.org>
-To: "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	Alexander Mikhalitsyn <alexander@mihalicyn.com>, netdev@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
-	stable@vger.kernel.org, Sashiko <sashiko-bot@kernel.org>
-Subject: Re: [PATCH net 0/2] net: fix a pidfd leak with a short SO_PEERPIDFD
- optlen
-Message-ID: <20261118-sessel-wegziehen-randalieren-6567fbf10f82@brauner>
-References: <20261117-work-net-peerpidfd_short_optlen-v1-0-a93f56288501@kernel.org>
+	s=k20260515; t=1795005492;
+	bh=3JEg1AwzSEupesdC8S4FAgHllW0FrPrT3+DWipbTAuQ=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=TEN8gExWcin45BOxeULyT2eiTtmzFFQ79wLf60FFW4hC/bGoIDCmIMoEJ7wUANtYL
+	 97L5pC5+/9sPjzi/gR9RkleQX3SnvtZ3vRXseSGfhi5s2i8Y6eeOtR4Rxhfj+oRPkN
+	 NuG4BTqO7vXt4BKfVBxwioJinUsFW5DVGpPTdWnPLnRolrSJ2humil2CvngQO9pZw/
+	 siIu9hTRY2VlcTTNahaXymrLhG5eOajc5pqhoHg5h2cmeIAA0AxCHs9IjSSrGrr2s5
+	 dW9G4r1xrHCH/jDtCSpi5+Q5A/4QHUFTJddfwZy3g3iQnwz5BEm+9ZFIZEYtxSd0YD
+	 k9HqT3twr2idQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+ michael.chan@broadcom.com
+Cc: netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
+ andrew+netdev@lunn.ch, horms@kernel.org, pavan.chebbi@broadcom.com, Jakub
+ Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH net-next 4/6] eth: bnxt_en: explicitly keep device-only
+ memory on the device's node
+In-Reply-To: <20261118023905.3050661-5-kuba@kernel.org>
+References: <20261118023905.3050661-1-kuba@kernel.org>
+ <20261118023905.3050661-5-kuba@kernel.org>
+Date: Wed, 18 Nov 2026 13:38:09 +0100
+Message-ID: <87ik1u8gcu.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,29 +62,20 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261117-work-net-peerpidfd_short_optlen-v1-0-a93f56288501@kernel.org>
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 17, 2026 at 04:25:29PM +0100, Christian Brauner wrote:
-> SO_PEERPIDFD caps optlen at sizeof(int) but never rejects a shorter one.
-> With an optlen of 0 to 3 getsockopt() still installs a pidfd and copies
-> only part of the fd number to userspace, or none of it. The caller can't
-> close an fd it doesn't know about, so the pidfd sticks around until the
-> process exits.
-> 
-> That's been the case since SO_PEERPIDFD went in for v6.5. When I moved
-> the code into a helper for SO_PEERPIDFD_THREAD in v7.4-rc1 I kept the
-> bug, so the new option has it too.
-> 
-> So just fail with EINVAL before we prepare the pidfd. SCM_PIDFD already
-> does the equivalent and sets MSG_CTRUNC before it allocates anything.
-> The second patch adds a selftest.
-> 
-> Note that before v7.4 the code still lives inline in sk_getsockopt(). So
-> the fix won't apply to the stable trees as is but the change there is
-> the same.
-> 
-> Signed-off-by: Christian Brauner (Amutable) <brauner@kernel.org>
-> ---
+Jakub Kicinski <kuba@kernel.org> writes:
 
-Are you taking this, Jakub, or should I throw this into the vfs.fixes pile?
+> Context memory (and the FW crash dump buffer which reuses the same
+> helpers) is used by the device, once set up the host only touches it
+> on the slow path (diagnostics, FW trace). Pass the device's node to
+> bnxt_alloc_ring() rather than NUMA_NO_NODE to make it clear that this
+> memory is not meant to follow any queue.
+>
+> Ring page tables are only read by the device, annotate their
+> allocation so that they stay put once the ring pages start following
+> the queue.
+>
+> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+
+Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
