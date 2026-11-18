@@ -1,49 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.254.200.92
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794964208;
-	b=HlEDtnZiAwhEq5oQTFXChpiz5eFmMAFBoNbc97m5Xs/CfFmZXk/PV2IbleC3YK4bk6u9
-	 chGNyxFeVpLJBjl5auR6nBk/oOa1CIf/eKf1jmEKnlRkVt+V2f/bcWOzX/aivqRkAOrCX
-	 l1UzklybqCbWi4oUDtv1+lCu66ubkVdUc+dJ7jlEvLVtyQ2jxwaGho+v/8c9OM80zM3Ky
-	 pAYMGMwtDZLcZ38v+VWMUHsk+0Yr0N/4VeW9dtjjVL1ZAd7yvvsOkpwr/DWiduIvDzU++
-	 MSPSuxnFvw7n3/df9QjvB2D3o1CJfmMhEUHlPfHNXC0VHeGFRhg0G94mNUBAokhKUJQ==
+	t=1794964705;
+	b=tW2teiUTMocjvgjzV5HnDdISL+pelD5IuHIHoCom2M7Oo6bpWgaOeQQXr5qWe8wAP3cd
+	 BLY2D8TwdjwlLe0Iobq9qPgXnBNpE2X4YuYnsDVSKPbBKggRkwZBAdyWB/7lzxzJVBaWt
+	 yd63b4RD4B295FsOczz8rMaIPki9lTR4PlEWKSJJZBnK+nS/U+/S2I3GLKFNDTCjvHh7m
+	 FtHwtrOgb8lX16nmbkCr705dL6Z0jtdIUa6Vl8SigHJ/3xLmARYI0c7DnN/xL8pbzBGyg
+	 jK5Orvs/H+4Oxx5wcI6TfUfeR9gMIxFAyQcUxvCZNc69n0UF7twQOKGhMVq3a2ZfG7Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794964208;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=BEwJS0ivuU7/kFpwecEYYU5t203aJ3clGIgLhquHn6s=;
-	b=HqIRmQLQlx4XVatcK77WoJMXCEVYSdc9124lGcyXhf6ADhPAM4c8saqpYkuxssOUT42m
-	 YlITV2G9rJvzl8sa/HVtdINrU0so59tBJt9ixAimq05+hiSCkixHyEV64JcnCJkYkQtyd
-	 xM4tddqVm9lwJmFDGPB1lq2vGiv4kFUSr9AZtdk8FJsom+rtnyGXCNYEIMf8/otRwoUcf
-	 LyVpwQckdr5GLb6dgQrGJbhSPTp2fo5MkeA+mykkMZ7tmYYbehFzV58yryimzGOH+6ZxW
-	 FrpHeFLS7UFzpqQyB6torNW3EcDYiKEUhJW+fDhm84YLga0tZhhFeDVMxofepxjozfQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794964705;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:
+	 X-QQ-RECHKSPAM;
+	bh=R8q6bgm/ELFOdBBZBoDVeavwWA2zBB+mb4iXfAChBEQ=;
+	b=BfXDMvT8CWo4yzrqLpU40J++uMUxMDF1TZentviMKsg+ihqcbYamEtHSXtXzHic+XX1F
+	 Zp/0iKRkFYRTtaT6uhULMMvBfza8htZqzVBYkkmCOP4y3HWOvrgekduUsiel59yws+USH
+	 gcvjefcs/WKSCcEKFXW40sFiOKD7ERKKV+Eyc5b62c9zb/JR+myGoULw73W0Vs7dSJGSi
+	 93SP79DWMIsbCU5fKPdivryAkAerF0WwwLqNu0RN7dvOEm5BvmvBq6DrrthZVFnZSX1rp
+	 OLYIVsEkjYqOIW81vNGbyqWP9EjWnNfj8iCqMINEYGOGpr+d+2EbDJnOacLxCdRnzwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="S/e0iSFW";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=mucse.com;
+	spf=pass smtp.mailfrom=mucse.com;
+	arc=none smtp.remote-ip=54.254.200.92
+Received: from smtpbgsg1.qq.com (smtpbgsg1.qq.com [54.254.200.92])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B133606A31C;
-	Wed, 18 Nov 2026 01:10:08 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S/e0iSFW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4319F1F000C5;
-	Wed, 18 Nov 2026 01:10:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794964208;
-	bh=BEwJS0ivuU7/kFpwecEYYU5t203aJ3clGIgLhquHn6s=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=S/e0iSFWfwfsWvkfwgrtQKscggnWAQpCW4T+I0r7wQ7zf7foj1u6UILzvAFpuVgA1
-	 h4UIu482cXPD0a6rn+rYvmkRVgAEeL76Frx/OtIGxXH6cF4tIK1YCC8pnQ4l7TeDRw
-	 sBDs+K66gt80zsc641T0C9Cf4IUxG3Hf6I9nP5Ag+ctFGtW/WDvUmzfo/IPr7AivWS
-	 KC0EkoGbaGLXw3yiUHMBqlug1T8c8+ZeadhmGq6a0MmNBvClGLthecy1SBEbZEPQJT
-	 LULq7MXvHJJ/WFPZupRSnoy+iVyJTdpB4ZSG9jBZzLpUjfNw6o4VJ7C6K2ot7+0ngd
-	 xLcSCSbojpkwQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A248392B1FE;
-	Wed, 18 Nov 2026 01:10:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 562B3606A31C;
+	Wed, 18 Nov 2026 01:18:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 562B3606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
+X-QQ-mid: esmtpsz10t1794964655tabf454fc
+X-QQ-Originating-IP: UnQsg3N1AZD/pmDQixE8VaH7T3FcjDTfhNdPug9S/AA=
+Received: from localhost ( [203.174.112.180])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 18 Nov 2026 09:17:32 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 753152919533523365
+EX-QQ-RecipientCnt: 10
+Date: Wed, 18 Nov 2026 09:17:32 +0800
+From: Yibo Dong <dong100@mucse.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	yaojun@mucse.com
+Subject: Re: [PATCH net-next v2 2/5] net: rnpgbe: Report link settings
+ through ethtool
+Message-ID: <1A1D135CCA0CCD0C+20261118011732.GA418924@nic-Precision-5820-Tower>
+References: <BD205A7832D36E7D+20261116030917.1329989-1-dong100@mucse.com>
+ <66AFF2810AB647C8+20261116031020.1330219-1-dong100@mucse.com>
+ <d7351f56-d4fa-4ba0-a0c6-c7bdf7aac460@lunn.ch>
+ <2207C8DCDD49F5EE+20261116044737.GA1342898@nic-Precision-5820-Tower>
+ <cf674063-6c6f-43f6-a18a-d7ed5bef8a5c@lunn.ch>
+ <236B4E2337BC768E+20261117014902.GA205295@nic-Precision-5820-Tower>
+ <2ddca58c-608f-4a0f-a26d-df92c2c34c69@lunn.ch>
+ <72676011073A7040+20261117025526.GA214154@nic-Precision-5820-Tower>
+ <edd0589c-1a48-44a6-ad15-b9133ee4f751@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,41 +68,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [GIT PULL] bluetooth 2026-11-17
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179496420703.1386019.11059029920092045078.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 01:10:07 +0000
-References: <20261117171516.3560754-1-luiz.dentz@gmail.com>
-In-Reply-To: <20261117171516.3560754-1-luiz.dentz@gmail.com>
-To: Luiz Augusto von Dentz <luiz.dentz@gmail.com>
-Cc: davem@davemloft.net, kuba@kernel.org, linux-bluetooth@vger.kernel.org,
- netdev@vger.kernel.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <edd0589c-1a48-44a6-ad15-b9133ee4f751@lunn.ch>
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: NFFdcD2eoy6wiOKGqKfpUUXtBv9pcY6hUlqIRpBHUhSiugncIPsM+NkX
+	YWt33Bclan+FoNtkL+GkHL6WNJ+QUs81JJkRYl4BaSl7sEGW/+8yA96dPXcah25CetapKSd
+	rGOEBmPqlKbWt6JXPASqWZMG+P7w+7oOyaMUCvQll7+yf3h6WNLhk0BKGA+CWH9vYF50LLj
+	GT1/5jpfCSQ9g4dWJrAeALujzcAR9o6dzJBjbP5+5UPBIFIhReYk6ucYUoEUUcEze2PSlYh
+	QvBJYF9sT2M9qhlOt83GsfMax6IO5M7cZIhMSJF1/82HqzM47ymAV3wEcDU8dmpvYK0zCZ7
+	v4QSiRC7f7OndFVRDEUMIpQlQWMZBKPNGuL6IB48XMSzWtzbvQLMvPtzamlGg18jyEVQQPe
+	6f1sQzN0vGipoHuE36YuOpZnFciq65HX39USSU2G44DhsPFmE/+O8EopTTFLM3oOyrBmouK
+	WoTp2oy9rLOtCShSQvHrJMHCRgxSFqxeF6avXfbaA9kH1H49ZSifltFHOZHcFt9tXZORhgj
+	NQDnuFGiruH53BvhpNcHwRcFZS41hyt8iNhQVJ9d7xi1MJ2kGKjYxLEqswfW07oNcpKirMs
+	h13RyQ0E+yoVTvMSidHNUq++0e+WMUB/JDLSgg74r1+Y/1JBAfUpVf+fSkBZIOjJI+7gATk
+	CY8awEhbAFfwImKD1hlqRI26gPJAat2IXe4almoo84LwmpnP1xWUV8TueL2U6q5STXij3Ni
+	iPqIUzz6zch83yNx9Gf/19W3/UmzA48GklsCpeWqIcAn03kFOoQ+Mh6+Fvr/wXC5BzrpJWb
+	4jMYpokWFQz85fpGeFQ3+kWeRe/4I1B5btNgRQhO/C9orJPty/yyMUATMqRZfQIueFELBeC
+	s1FSsIPgWI7Q61bDO/vKvzPYq0nU/NDa16iMuo8qK1OetRzs0KdYm30AYYreyCSxvVahtpJ
+	iOnK7h7Jiwgj7Qx2iekoTSm9LvhEZXDC/HztKEJsR2zw+rxSPGbjxWmsCfzMpNvajMNE5Gd
+	J8cPO/pPVlCrJn0iMP+zEEy9FbFGr8uF3SkkqYVcY7McetXkxchf9P2gqLbJnTCNz7SWNP4
+	JNWjICTUpKX
+X-QQ-XMRINFO: NS+P29fieYNwqS3WCnRCOn9D1NpZuCnCRA==
+X-QQ-RECHKSPAM: 0
 
-Hello:
-
-This pull request was applied to netdev/net.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Tue, 17 Nov 2026 12:15:16 -0500 you wrote:
-> The following changes since commit 1f2ac56137c51be0601e18a163d817e02a15913f:
+On Tue, Nov 17, 2026 at 02:21:46PM +0100, Andrew Lunn wrote:
+> On Tue, Nov 17, 2026 at 10:55:26AM +0800, Yibo Dong wrote:
+> > On Tue, Nov 17, 2026 at 02:54:45AM +0100, Andrew Lunn wrote:
+> > > On Tue, Nov 17, 2026 at 09:49:02AM +0800, Yibo Dong wrote:
+> > > > On Mon, Nov 16, 2026 at 02:18:28PM +0100, Andrew Lunn wrote:
+> > > > > > link, speed, duplex and mdix are updated asynchronously by
+> > > > > > the mailbox event handler, outside RTNL. link_lock protects these updates
+> > > > > > and provides a consistent snapshot in the getter.
+> > > > > 
+> > > > > O.K, thanks for the explanation.
+> > > > > 
+> > > > > I removed too much context, so i cannot see here. What about
+> > > > > lp_advertising? That also comes from the firmware, reported on link up
+> > > > > when autoneg completes.
+> > > > > 
+> > > > The firmware manages autonegotiation and reports the negotiated speed
+> > > > and duplex through mailbox link events. However, the current mailbox
+> > > > interface does not expose the link partner's advertisement bitmap.
+> > > > 
+> > > > Therefore, lp_advertising is currently left zero to indicate that this
+> > > > information is unknown to the driver.
+> > > > 
+> > > > If reporting lp_advertising is must, we would need to add a new
+> > > > firmware mailbox command to retrieve the link partner's advertisement,
+> > > > or add lp_advertising to link-event mbx alongwith link, speed and
+> > > > duplex.
+> > > 
+> > > It is not a must, but it is useful.
+> > > 
+> > > Or you can just throw away your firmware, expose the MDIO bus, and let
+> > > phylink drive the hardware. Less code, less bugs, more functionality
+> > > for free.
+> > The GMAC provides MDIO register access, so exposing an MDIO bus is
+> > technically possible. However, the firmware currently manages the PHY,
+> > and its interface does not provide a PHY ownership handover mechanism.
+> > Introducing host-side PHY management would require coordinated firmware
+> > and driver changes to avoid independently configuring the same PHY.
+> > 
+> > In addition, on this SoC, the firmware configures MDI/MDI-X through
+> > AXI-mapped control registers driving the PHY's pi_force_mdix_en and
+> > pi_force_mdix_mode inputs. This control path is outside the PHY's MDIO
+> > register interface.
+> > 
+> > The firmware also supports link management before the host driver is
+> > loaded and while the host is shut down, including wake-up handling.
+> > On OCP platforms, it supports preserving the PHY link across driver
+> > reloads and host shutdown. These capabilities are already implemented
+> > in firmware, although driver support for them is not included in this
+> > series. Any future ownership handover would need to preserve them.
+> > 
+> > Would it be acceptable for this series to retain the firmware-managed
+> > PHY design without registering an MDIO bus, and leave lp_advertising
+> > zero for now? If a mailbox command is added to expose the link partner's
+> > advertisement, we can populate lp_advertising in a follow-up patch.
 > 
->   Bluetooth: L2CAP: Keep recvmsg from resuming a closed channel (2026-11-09 17:04:21 -0500)
+> You have not implemented anything special, other systems offer the
+> same features, using phylink. However, it is fine to implement it all
+> your own, rather than reuse existing software. SoC devices tend to
+> make use of Linux to do all this, and PCIe devices tend to reinvent
+> the wheel and do it in firmware. We are happy either way.
 > 
-> are available in the Git repository at:
+Thanks for the clarification.
+>     Andrew
 > 
->   git://git.kernel.org/pub/scm/linux/kernel/git/bluetooth/bluetooth.git tags/for-net-2026-11-17
-> 
-> [...]
-
-Here is the summary with links:
-  - [GIT,PULL] bluetooth 2026-11-17
-    https://git.kernel.org/netdev/net/c/7a4e97161014
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
