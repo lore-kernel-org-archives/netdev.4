@@ -1,60 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795021125;
-	b=vulYEU9MNP5syxoYBp9lBzN7Jfl/buC/6d0CSoZtvcKcdC9wPSbWeraFB9AJyTXqwRtY
-	 kW9QMG86JtEzTMUBpPajnEJQ0NAn41IItLcxoghN4nIdhaNCDFG4q3W1WovCq0h0vgDr4
-	 ab8VwqR+jWf1MejjPkffGYbCsjjVIYytXbRyZFHvD/NppfPhYM6JVQxJ7+D5ot+mTKmLh
-	 8zHGDu/eQJmNbHeQdegXkxnSTfMSP8i+IhNKX7asojPhbTcz+pfDy1t2Ka76jskRKe5ls
-	 O3Q77RzP5Lx/R6qBNDV9DTMyxFGqY/jAo1qOj+nq29QPYCHbyFo2xgs55qyO9xPETgg==
+	t=1795021165;
+	b=47D4GdNrCEE5pSMLic0NfbejR0YGkAymRqpbx2nm8w2DUqeb/xUWs2ospXZ8EMUe6fnz
+	 VFJjyfRLQA80vvK+cVxCg1rr+Cjxibr/njDOQaqdOoiGjE8kTFoBnKbHLm9QesPW63396
+	 NsX7Hhn4nDi5oh8IGrbw/cQFeLCg7Ai8CKQMpeZ0GwuboKr1i/IS5IXG52S23GNOXDRya
+	 yh25Dp30y9zUakhJ6bu0xdCJDntB4OHinPFyNM29Tr0029s7+vQAZ9D+vR761hFtvA5gb
+	 zwVdHBCPnzpR9khjTHzI7ibh2We48j+Qpx1UxTrSmyo4quD2ECOQPhmH7xqYZ+Mse8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795021125;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=V+EJ9RUzxCOAUO4kV71qX/xQMGJep7DBGe17w5CTk4o=;
-	b=AdF6cx75EHl2AeDT475Dcf8q9jjFSLfA39FFQRAZcbBEYDKqAixLlPYz74QYII3HRYtr
-	 rtw00pjyZqMBt/wbH8OkEXHkozy0QZ2/mw4iNb31+Tzs3v+GCc80LuUAEUfPSJUt1ezy7
-	 dkPNFcjdRkXfOr7x8ulp3ymF6UpX9mfs6EVZAuMa2vgirVpEWRtbdp35rxtklY6XWYXl0
-	 JnXJlAk8SCNChHjDgFNLu3G848qzTV8ezGBmLTY3dXInz8+wqLKBe4SBiHtisZFKgoXkb
-	 crSB+AxjNs3DLw9f/YBuAQWGEiFrgDe4wUBQ7LN/u2N1OO/sLU9O9FydJ+iNHLp9M9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021165;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=7T9ENv9fYoNqueNN1cl4L0LtuGcP2bPFYDoRLfK8lQQ=;
+	b=wp7oVly4krEiYjMtfHFqkfPZIBHi2iCpwe2+RxO5SMWZczknnq1mqopPHNYGzB6aZ4nW
+	 KgpdyetVBTWKESHJICbR1zF/nnlPxGCvbkIG4s37Vp4QcQjSWiOY0vCB++oPDyDY3VXuj
+	 T2pIDhFZIwoprmqB4GAPYzy7yBDiJxfMnd3QbPDtWPrl6XBOxzvW/xShA7bMq2YdcmGeJ
+	 GvAwp4Y1VEl4TRT4NMbrRCQDKNU2w90YmhRDhECCW3cHE+wAxt7nOADw2hf/z7zZ65HS1
+	 BVc9Zx9N7tCJLtppdLGvwJSluVeb6m0Fc3rgc2/7MMYqp7bth6ioyT63p3RxuneM6og==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RrpNn6y+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="U7ge/EMe";
+	arc=none smtp.remote-ip=192.198.163.16
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C6A606A31C;
-	Wed, 18 Nov 2026 16:58:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E9C9606A31C;
+	Wed, 18 Nov 2026 16:59:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E9C9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RrpNn6y+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE9F31F000C4;
-	Wed, 18 Nov 2026 16:58:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795021125;
-	bh=V+EJ9RUzxCOAUO4kV71qX/xQMGJep7DBGe17w5CTk4o=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=RrpNn6y+46QpHOKdkuUZGRwTHBl2RNFAcYLU0yhTf1eIFbFQ5Sjn2IoCVG/QNFDrB
-	 c7cLq6Yfbf4MYDoVspr2ozfH6ynwL+0ji76+UISzk6VUdLA+p3wsBPYr4LELz59JhK
-	 4+5JfoDsidETaf7xeKUjDOA+/grt5FpJhPbgAJnLWLMQzMvAgduXsQX1adEW8pfnyS
-	 qFvaVLxxygBnEm5YD/SmXO3EjGtaGU/qrVzuVDFM8+c1HGvcDN68kt1BifltYnex1P
-	 Vs+gHY0VArQUN37M8fGmi42JdCcOeOEwoE9OmOiSQPDUbnNUYgpYQqPT+kuGioOcbE
-	 MoFxd8al8Y2TQ==
-Subject:
- Re: [PATCH] net: dst: Avoid false sharing between tclassid and __rcuref
-From: netdev-bot+sashiko@kernel.org
-To: jiebin.sun@intel.com
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, tim.c.chen@linux.intel.com,
- tianyou.li@intel.com, wangyang.guo@intel.com
-Date: Wed, 18 Nov 2026 16:58:44 +0000
-Message-ID: <179502112428.3136.7381445616366581807@kernel.org>
-In-Reply-To: <20261116015732.2744688-1-jiebin.sun@intel.com>
-References: <20261116015732.2744688-1-jiebin.sun@intel.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=U7ge/EMe
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795021164; x=1826557164;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=cghH6f8GIelkFBs05EiJ1FaW5yY1//I8u9iMgXAXf0Q=;
+  b=U7ge/EMehyqXYTSb0rvV9kk7d/LjKLfrN+Rq5i9N2uJHgNVRpWZGWCPY
+   kIaRFfah1631lKdGY7osUfUc1JfMq3jTnK7ShzkXODEr+j8Z4E3d51NHw
+   6CwD1OmmqI17Llf4AA8unDDCUds0qhBuSlNIVJWb3T0lkqtMAsJFQjJm2
+   DmlrCRQReusldDhIujdwc8T+KM5na7PlgQukR55/hebvxs6UB8mSDWpmH
+   j46rDnzwxm+Nb1JDxPvr9LqqinCYOi2U6C547CVmXx3gDY6CWuf6xCgbW
+   qdxRnU6wghG/O+bdtbTr8d2wyTWo6mJvYxHl4GAY5rWHrhllFU0H4Afbj
+   w==;
+X-CSE-ConnectionGUID: Pok4RVhtShalVFmAO6YJyQ==
+X-CSE-MsgGUID: WDdoaoJCS2GvArkKmFgaUQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11970"; a="3868101"
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="3868101"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 18 Nov 2026 08:54:00 -0800
+X-CSE-ConnectionGUID: uWueeSFkRAGx+hPQf4nS/g==
+X-CSE-MsgGUID: 6s/qUNgtQQq1UMg+UdEedg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="10197369"
+Received: from boxer.igk.intel.com ([10.102.20.173])
+  by orviesa006.jf.intel.com with ESMTP; 18 Nov 2026 08:53:56 -0800
+From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+To: netdev@vger.kernel.org,
+	bpf@vger.kernel.org
+Cc: kuba@kernel.org,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	pabeni@redhat.com,
+	edumazet@kernel.org,
+	horms@kernel.org,
+	davem@davemloft.net,
+	shuah@kernel.org,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	willemb@google.com,
+	petrm@nvidia.com,
+	bjorn@kernel.org,
+	magnus.karlsson@intel.com,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net-next] selftests: net: don't warn when bpftool is missing
+Date: Wed, 18 Nov 2026 17:53:38 +0100
+Message-Id: <20261118165338.1064930-1-maciej.fijalkowski@intel.com>
+X-Mailer: git-send-email 2.38.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,101 +92,58 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+xskxceiver and xdp_hw_metadata need bpftool to generate their BPF
+skeletons, so they are skipped when it is missing or does not work.
+The kernel test robot builds selftests without bpftool and reports the
+warnings about it as new build regressions in both net-next and
+bpf-next. Skipping the two tools is expected there, so drop the
+warnings.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Fixes: e8f9d8237988 ("selftests: xsk: move the AF_XDP test suite to selftests/net")
+Fixes: d01fb5c81130 ("selftests: net: move xdp_hw_metadata from selftests/bpf")
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/r/202611140904.io658Rze-lkp@intel.com/
+Closes: https://lore.kernel.org/r/202611141124.V0t6dlFo-lkp@intel.com/
+Signed-off-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+---
+Based on the bpf-net-xsk-move tag so it can go to net-next and bpf-next
+through another shared branch, as Alexei asked:
+https://lore.kernel.org/netdev/CAADnVQK=Y1CY=m0gGegLB-jm9S1cUcEcKUuNx33PT2W-tdMCuw@mail.gmail.com/
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+ tools/testing/selftests/net/Makefile     | 2 --
+ tools/testing/selftests/net/lib/Makefile | 2 --
+ 2 files changed, 4 deletions(-)
 
-- [Medium] The patch moves tclassid after lwtstate in struct dst_entry
-  (include/net/dst.h), which makes sizeof(struct dst_entry) on x86-64…
+diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
+index 83882735229d..a7f8b2c0b763 100644
+--- a/tools/testing/selftests/net/Makefile
++++ b/tools/testing/selftests/net/Makefile
+@@ -231,8 +231,6 @@ BPFTOOL ?= bpftool
+ HAS_BPFTOOL := $(shell $(BPFTOOL) version >/dev/null 2>&1 && echo y)
+ ifeq ($(HAS_BPFTOOL),y)
+ COND_GEN_FILES += xdp_hw_metadata
+-else
+-$(warning excluding xdp_hw_metadata, bpftool not installed or not working)
+ endif
+ 
+ TEST_GEN_FILES += $(COND_GEN_FILES)
+diff --git a/tools/testing/selftests/net/lib/Makefile b/tools/testing/selftests/net/lib/Makefile
+index 0a6cd733883d..5765625ae7f7 100644
+--- a/tools/testing/selftests/net/lib/Makefile
++++ b/tools/testing/selftests/net/lib/Makefile
+@@ -10,8 +10,6 @@ BPFTOOL ?= bpftool
+ HAS_BPFTOOL := $(shell $(BPFTOOL) version >/dev/null 2>&1 && echo y)
+ ifeq ($(HAS_BPFTOOL),y)
+ COND_GEN_FILES += xskxceiver
+-else
+-$(warning excluding xskxceiver, bpftool not installed or not working)
+ endif
+ 
+ TEST_FILES := \
 
---
-
-net: dst: Avoid false sharing between tclassid and __rcuref
-
-On 64-bit builds, this commit moves dst_entry::tclassid to sit after
-lwtstate, so it no longer shares a cache line with __rcuref. On x86-64,
-struct dst_entry grows from 136 to 144 bytes. The commit message says the
-SLAB_HWCACHE_ALIGN caches used for rtable and rt6_info absorb the growth.
-
-> diff --git a/include/net/dst.h b/include/net/dst.h
-> index dbedfe72e1fd1..f01cfb42f97c1 100644
-> --- a/include/net/dst.h
-> +++ b/include/net/dst.h
-
-[ ... ]
-
-> @@ -94,6 +94,7 @@ struct dst_entry {
->  	struct uncached_list	*rt_uncached_list;
->  #ifdef CONFIG_64BIT
->  	struct lwtunnel_state   *lwtstate;
-> +	__u32			tclassid;
->  #endif
->  };
-
-[Severity: Medium]
-The commit message says:
-
-  However, both struct rtable and struct rt6_info are allocated from slab
-  caches with SLAB_HWCACHE_ALIGN, so the per-object allocation sizes
-  remain unchanged at 192 bytes for rtable and 256 bytes for rt6_info.
-
-Does the same hold for struct metadata_dst? It also embeds dst_entry, but
-it is allocated with kmalloc and not from an aligned cache:
-
-include/net/dst_metadata.h:
-struct metadata_dst {
-	struct dst_entry		dst;
-	enum metadata_type		type;
-	union {
-		struct ip_tunnel_info	tun_info;
-		...
-	} u;
-};
-
-The union is 16-byte aligned because ip_tunnel_info::options[] is marked
-__aligned_largest. So the 8-byte growth of dst_entry becomes 16 bytes
-here. On x86-64 with CONFIG_DST_CACHE=y, sizeof(struct metadata_dst) goes
-from 240 to 256.
-
-metadata_dst_alloc() then allocates that size plus the options length:
-
-net/core/dst.c:metadata_dst_alloc() {
-	...
-	md_dst = kmalloc_flex(*md_dst, u.tun_info.options, optslen, flags);
-	...
-}
-
-With the new 256-byte base, does any optslen > 0 now land in kmalloc-512
-instead of kmalloc-256?
-
-On a collect_md device, vxlan_rcv() does this for every received packet:
-
-	tun_dst = udp_tun_rx_dst(skb, vxlan_get_sk_family(vs), flags,
-				 key32_to_tunnel_id(vni), sizeof(*md));
-
-That reaches udp_tun_rx_dst()->__ip_tun_set_dst()->metadata_dst_alloc()
-with GFP_ATOMIC and optslen = sizeof(struct vxlan_metadata), which is 4.
-Before this patch the allocation is 244 bytes (kmalloc-256). After it,
-the allocation is 260 bytes (kmalloc-512).
-
-geneve_rx() passes gnvh->opt_len * 4. Before the patch, options of up to
-16 bytes still fit in kmalloc-256. After it, would any Geneve option at
-all push the allocation into kmalloc-512?
-
-The growth also applies to 64-bit kernels built with
-CONFIG_IP_ROUTE_CLASSID=n, where nothing reads tclassid on the hot path.
-
-Could the commit message cover the metadata_dst case? Alternatively,
-could the layout be arranged so that metadata_dst stays within the
-256-byte kmalloc bucket?
-
+base-commit: d01fb5c8113055e3d1b7f573261ae6a30abf4e53
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116015732.2744688-1-jiebin.sun%40intel.com
+2.43.0
+
