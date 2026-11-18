@@ -1,66 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966935;
-	b=pqokZGV/O/yIeCVcYOAIfH81wKYuyRXvmfuV5/+j921EBAaebUmf0KXwxn/hHUTLVXxn
-	 jMDiA9edYMXyGkzkTYkwyvmbxwH5bcQYgfcR26wOZPJFSBQLUUbvHAl/8WfW6a9nNDik9
-	 v1WbPAs6pQPjS9x6yrlGylwDgddzvh3OCjcLQK1CXuqG9gWYlFps9+GCWjHd6s/Pyn0VS
-	 YOtYGfWfd/sFaVNh50jHNmkKFD1o35NBrxUwCC6NdIEg14fdFnov51noINIzTb5xTMPTO
-	 yZptG+xuMumNpLWjIr+25gdXKePenbyGMwFEe2dTQ+9R74rcrPZY9fHlwjtvdJlDrmg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966935;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version;
-	bh=zFY1GmSViuXI0rPHC6t3ZteUEq5nixMZVkXt8LdMcNY=;
-	b=DO0LsUbFvhXxfeWh4fYGe6flsR6GN5AcvZbl06BrOLgWtm8hGo88S5Jxnu6NC2VhcO6D
-	 6hvDvi5B6yhShEjS82sMrKTgcy5mnLI4pWqwHsrIKMdLu4c/OB0Xt0uZQrxtuM+C3svEq
-	 vIV1HRFasdRR/YctrryO66L9sienc9OsEmhf8qxmStg7z4ua9hPfaA+qqfaA4SQG7PCt+
-	 EPa25WdiR/oDgbfJslfDS5vOYJteuYrFnx8oWAsjY741e7SeCck31GkS7To4E/OWTZK8q
-	 tXhij4DWFhy6sbk99cuITKL7CkPmjq1meaETizDk6M4U79m9moCmz35CE5a+onv65IQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=CVs8weoz;
-	arc=none smtp.remote-ip=67.231.145.42
-Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794966965;
+	b=p7N3pSHF5AfxjtsD5ML2BOceYHvrUPcXqTa47mGC6F0qUPwPGyoPRKCrN8+04ccEwvn/
+	 UBUdKcVw/m2qXARWjS5ftIKEyxfzsjm6FCy4jk6wVuPMOQ0JIs7CmA49mchPDanvomD2V
+	 NFhXo/1gKfdaUssRPrvxzDIMzYbrte0B+rU35YJPi1A8IU1Qey5//yHnsyeifvjLTCJO6
+	 iIWV3AM4DL0RWWxc+wUEppdPvk0eHD7ozgSR4oO0KB5M7BLilkDbTMZZ+EW1l8P5CgT9c
+	 TUZ/AT0t257PK8PkWQlgJTyr4ZdgEWjdEhNaxCMkORchqwwtqCegJU/YUuD/3Wlhvpg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966965;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=G2eyVexux7xZ2qLgWDwjsl1IL+COs4FsJsVc6uJeVnA=;
+	b=weCcwW4ZPiWat8VkbBAhIbuQppkiw2GE8RSAW/4EV4TUXCBb3uJjpptGHD5MQTNn3Qw4
+	 6y2b+4kdZGb0/ZpZD/rpCIcoBRuJXVpICGmIps7xERw6uxY62ZD6imr3nzMii18zuAc0q
+	 eH8VZT+7o4vCQN1dgRYltL43jO7B4yFz4JYj36hKVWG8eWRnU4+H8VsnqCGx5k8r62ryF
+	 ov32WZEzRQzTrFMn0+49YxQFYuDLV52CzcnLeF4hakCLiGdvqTihnmRg/KgtcF4+YIO3/
+	 JqhDaChZsrg2j1YTvSg0UfISBiP7Ri68PUffxKbjlXm2GqbkX+kfW4/oXuDTCmqCKYg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0PgG4Qlw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.45
+Received: from mail-yx1-f45.google.com (mail-yx1-f45.google.com [74.125.224.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2B65606A8B2;
-	Wed, 18 Nov 2026 01:55:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2B65606A8B2
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88A0A606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:56:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88A0A606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=CVs8weoz
-Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI11rAC258466;
-	Tue, 17 Nov 2026 17:55:19 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=zFY1GmSViuXI0rPHC6t3ZteUEq5nixMZVkXt8
-	LdMcNY=; b=CVs8weoz86JWvaUASY6ZBMehCnJNzYNJZ9kHX0YqQaF3Vpvmjitq/
-	Jd4XJFY+GNBvFlM/g9KN3kKcBoPkaPipZ5VYmafQbbOkAkBzlE0s0DiSofoXXtVr
-	jjpgA3VkEyKgdPHhvCRBNEdVUftx+CuUb90eoevtgHVwbJVI8D+B+McuTPJvkdPG
-	umHmRZVCCwOM3b5wWRRxGRKzPZtXfKHZXl4rYBQhE4kWsrGcSLOP0slUR59C7t4Y
-	oleIToc32+S83W0Tha1TSAbshE8FdnPvuBOhtJXXf5Xkks063sVGAxnGK1LpA+HS
-	eLxJfTrHthKVmeXlo6IjhUfeAuPzLppfw==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0yu79b7g-5
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 17 Nov 2026 17:55:18 -0800 (PST)
-Received: from localhost (2620:10d:c085:208::7cb7) by mail.thefacebook.com
- (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Wed, 18 Nov
- 2026 01:55:08 +0000
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-Date: Tue, 17 Nov 2026 17:54:50 -0800
-Subject: [PATCH net-next v7 7/7] selftests/vsock: test the netns assign
- privilege checks
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0PgG4Qlw
+Received: by mail-yx1-f45.google.com with SMTP id 956f58d0204a3-67db35e7953so415423d50.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 17:56:05 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794966964; cv=none;
+        d=google.com; s=arc-20260327;
+        b=TsgApFPCGU5aH52nL1PA2cFtldvLHaAsZGEjL19tKBC1b4fk2HLFuaSUVIho91/W36
+         LM/St0/E+arBPOmu3vbN2JAR5ARGQN6AsMc0I+XZGscmRDrOijYEbkUCX+VQCtUYX8ee
+         dXTKhD940j9d7Ek+r7JmQ2lZbd5DE55l/7JefyF7XAbQGwzz5JZgDOiIbiabLpdpk0MA
+         8EWFeZgkeh2CjOaepxhsUCJ6l2Q6fp8HcsX4rQRiL0LHOHfrsadpO61zz1tK7EveMphF
+         Ka6dAWkQXXZ+fTtdypht4o6c0zNpAe8k3BbC8jfXd7YaE96CMyvXSK1TkWr1TTHPtBgZ
+         vR3w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=G2eyVexux7xZ2qLgWDwjsl1IL+COs4FsJsVc6uJeVnA=;
+        fh=VJXwTXBcObxsnKl5qhWPE/j4gIM5HRzj+eUyr/u5dVM=;
+        b=S7ZTNvDQMOQuJMa25+KKdQ01+CNRgMnXeFH46CAJQ47XJyXjmXCKUljLPBBXyDiIiN
+         5oyZOaAFXZaSB71+mt5/K0InKPxNca6TPxOP+Dh1ZNYYBL1HRAKdAFAQWccE3wDpvnry
+         3AkO22gyFe2e/KK2gFzMT+x+/CQm7S4/tRZ62lVaLSB8faDNUARelawhDPhV+1Pn6MCB
+         gMNgMfuNgEpkX1nDETXN9Kz+22YKogL01BjQUzPKXrPVcVR0+7Qm+e4m1vAgG0DzH3la
+         VbS8I2rZMf2wtBCBlDUn0OZD72c8SJfA1eyV0kzGO+QtzxcV9d4Xicl+hVDYv/Zc2u5y
+         jYkg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794966964; x=1795571764; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=G2eyVexux7xZ2qLgWDwjsl1IL+COs4FsJsVc6uJeVnA=;
+        b=0PgG4Qlw7lF/CxqAO/mhpfqQWgwoMdyyVbMSI3RIowTfZTNlRnA1F+IDegq/0QU2mo
+         iU/0OHEKudUImQJg3wVL5FNFnRzDFSyqPiKVZxlsQqEVmrBt/+3S9tqHgLWfDGw3gdEw
+         kYzbOGFz3F4uGQn79pgqx8Zah235LyWDQy/Q+//wXwhLjidKsWHp6rsDzFyKf9Y56SuX
+         MqlXyIJm6N2cqHkDHy8RAKRAt38yJc3/B8m/YTXIlwA6swGvW3qecFASE+PXtLAFsgbH
+         V2aWgu3SfyOTvTw0g6lfXmi45JT0PSc98UIHEg0m+fSnGyskJm3fQQLXVyBkafyyAzzl
+         MamA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794966964; x=1795571764;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=G2eyVexux7xZ2qLgWDwjsl1IL+COs4FsJsVc6uJeVnA=;
+        b=fgdWdquSiAIA9e4XCes4uxYpfaxjD9M1JzQGiUug2ImN/H86RnsiJLrAUnu/BSzMr1
+         +LluuuhRZfZji/fTCESDc3M+ytkQDsIAJC44yV0RFW5DRkLNGIh4aq23FV107vXYUJcV
+         oWwOO/4SjC99gGZ3P1MIAxlzVoSAptUqB1wzdkHmBEdnEnhhWa29su2D+fzQv4HP6w34
+         mS69+TwrQhSPxNJN9pMZiKuUB1UARHT8Y1Mqw3heVGswVtz+wPA4bYnIhn/e/LrBroU6
+         eMe5daIZRCwZ4xkflZmMAkU/CBUC+QshiZHXpmshapNVR+gwvH0zz2bioIrLMRkD/Xpc
+         648g==
+X-Forwarded-Encrypted: i=1; AL+hErHuN9JAIjfE3ly72LKxitri7KMzlKvOlnL51H7OhEl0BO9ZCWl00bjchoCUa2N07g+5bUwgHYM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+E0dPUTZEIy9h87O+qyFbgaV7jjrtcyD1TT4JcoLHgZRPKhENb
+	Cjy0fZfpKpm40KVbJarwgGSXF1+GuVTMTZFznEX6W7nrXLF96ZihHRI5ej8da8OhE+z14R2ETQM
+	YKOGZNRY8Ls12hmrDymJSpAS2g0r/LSo=
+X-Gm-Gg: AZFdTZfVjN5JpZ2k34EVyyxkxugJ8E+Ry2C0qg2ZVPsXTP+Kjm9MVsPDWl/eLv+x9xx
+	X79hZhC2QCW41poCqHKlnf5m5nglSIIjEj1bBzGywNX7j95EDd9KlWajgWbXH+4RGdEF6e8hLXw
+	zPmAZ9PGejPLt1Sv3APmbiA0DHhX/n5/ghr/vE9UCbYvtN++xB09nxTeRqNzbnZoRQF+I0j77dc
+	kCcHe2/jev57Ie/tozN9qCMVGCBHCOVQKfg2PcncftlWX0w8cAzaf9R7cPwdZEGirEhHtR+Dmkq
+	ZOX1Tf/IM02PUqdY8wG2ygJ1r+tncG659gNzJMtzyq5CtHg61mV4zxkp26ntDVUUMXULrp1n8ru
+	SfzHdnCK8EWZ/88Ps4QuXDPjo255FTiG3vHY0y4QEVVGh8xie4o1g6b5Tf5vWzedFZ5YQS7aGdt
+	4uEL9dupo1UeqZo3YMLw==
+X-Received: by 2002:a05:690e:4086:b0:67d:be72:8776 with SMTP id
+ 956f58d0204a3-67dd45ea00amr463913d50.91.1794966964498; Tue, 17 Nov 2026
+ 17:56:04 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,211 +104,30 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261117-vsock-guest-ns-v7-7-7e522ea9dd9b@meta.com>
-References: <20261117-vsock-guest-ns-v7-0-7e522ea9dd9b@meta.com>
-In-Reply-To: <20261117-vsock-guest-ns-v7-0-7e522ea9dd9b@meta.com>
-To: Stefano Garzarella <sgarzare@redhat.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>,
-        Simon Horman <horms@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Stefan Hajnoczi
-	<stefanha@redhat.com>,
-        "Michael S. Tsirkin" <mst@redhat.com>,
-        Jason Wang
-	<jasowangio@gmail.com>,
-        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-        =?utf-8?q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
-        Shuah Khan
-	<shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>,
-        Donald Hunter
-	<donald.hunter@gmail.com>,
-        Eric Dumazet <edumazet@kernel.org>,
-        George Zhang
-	<georgezhang@vmware.com>, Andy King <acking@vmware.com>,
-        Dmitry Torokhov
-	<dtor@vmware.com>, Eric Dumazet <edumazet@kernel.org>
-CC: <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
-        <kvm@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-        <sargun@sargun.me>, <jlinbox@meta.com>,
-        Bobby Eshleman <bobbyeshleman@gmail.com>,
-        Bobby Eshleman
-	<bobbyeshleman@meta.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwNyBTYWx0ZWRfX4X5jm5ND0ngv
- Qv2eyerH9J0U+/1HX9mKtdCZFoL2UNP04l4PkltbVNGLQVy5C7q+iT7dS4UUhddkyiO6MingYAh
- eV6KwJUpeZU5mHW/nLDZO928Jbso3VOwqOUCIgUXcllEtF7V0uYqat0X0NwG8y+eChoKtu/EbWz
- w3tUCC2xY3ArKuezy9aE7LLUX/M+XCJch5oj1QKXlgvu7OVizzviPcndMOdqIUpZAXMABplotI7
- mwnLVSBbewu4htQ9QDHK0Pv8FuC6Y6/IFXkIIc9f+R7KvpL3c+1V8o7C3OpAC75cY4EMcY5m38r
- WMOaI0GMJKZxZ3J8a71evs68raQHg0lPKYnlQXUEnTDBL4uicASGa2fTUtJWwCG/JrBbabo+fWy
- tTHyPfQ7vl4lDVtDt2BLQxfaPfUDX/cvWv2htCGDrJD1Sh2wknxwNk5uWgKG/6ru0G4K/ZBJ7AW
- JCRi7XyUy0LQF56yM5w==
-X-Proofpoint-GUID: 6Y-FZ5uo1aR49g4HGwJZtF0lfGDg53aB
-X-Authority-Analysis: v=2.4 cv=Zph4uN7G c=1 sm=1 tr=0 ts=6afd0586 cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=PAz_-FQ8hEVmOPYdF0yf:22 a=VabnemYjAAAA:8
- a=xFiaXek5eyy1MN0Ju3QA:9 a=QEXdDO2ut3YA:10 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-ORIG-GUID: 6Y-FZ5uo1aR49g4HGwJZtF0lfGDg53aB
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwNyBTYWx0ZWRfX7w4PEP8IuPmu
- pM5lMK35WzOXcFWfw3VES7X/TsLGGcQQDb63Thv1ucWaEqaMFyo24hyGIJYt2Ub2ek6HfBRb815
- ouWbUJo3YmNyILg32L6wNV7IaxlJ1Bg=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
+References: <cf3fd237-2290-4002-8de0-ea4100ef0f85@yahoo.com> <bee46abf-f05f-4ea4-9797-f47adf8c78e7@yahoo.com>
+In-Reply-To: <bee46abf-f05f-4ea4-9797-f47adf8c78e7@yahoo.com>
+From: Gustavo Foletto Mora <gusfmora@gmail.com>
+Date: Tue, 17 Nov 2026 22:55:53 -0300
+X-Gm-Features: AclHuK9EWKO0TFISSwiSK9OFoeyFR4IjX0irTWLTwRxNcN1S8kecosOA6iRlcK0
+Message-ID: <CAK+kzgxnKDWi=Fp-5t5_JjN9dwARTgeoHP+XvryPQ1w_gkRn5Q@mail.gmail.com>
+Subject: Re: [PATCH net-next v11 08/13] net: dsa: realtek: rtl8365mb: refactor
+ PVID handling
+To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, 
+	davem@davemloft.net, edumazet@google.com, pabeni@redhat.com, 
+	linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	alvin.sipraga@analog.com, kuncy7@gmail.com, fabianotassotti@gmail.com, 
+	gabonpivovich@gmail.com, contact@c127.dev
+Content-Type: text/plain; charset="UTF-8"
 
-VSOCK_CMD_DEV_NETNS_SET refuses callers without CAP_NET_ADMIN in the
-init user namespace.
+Tested on family D only (RTL8367S-VB, TP-Link EX511 v2): the PVID paths
+now reached through the family info behave as with v10, PVIDs set and
+cleared on access ports, untagged and priority-tagged frames handled per
+PVID, deleting another VLAN keeps the PVID. The family C implementation
+is not exercised here.
 
-Add two tests: one confirms that CAP_NET_ADMIN is required even by a
-privileged user and the other confirms that CAP_NET_ADMIN in an
-unprivileged user ns alone is insufficient.
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
 
-CONFIG_USER_NS is needed to test the CAP_NET_ADMIN + unprivileged user
-ns case.
-
-Signed-off-by: Bobby Eshleman <bobbyeshleman@meta.com>
----
-Changes in v6:
-- Require setpriv only for the two privilege tests, not every ns_guest_
-  test (Sashiko)
-
-Changes in v4:
-- Require EPERM in the privilege tests, cli.py does print the errno, and
-  probe unshare -Urn so a setup failure skips (Sashiko)
-
-Changes in v3:
-- Require setpriv only for the ns_guest_ tests, not the whole script
-
-Changes in v2:
-- Assert only that the command fails, not EPERM: ynl's cli.py does not
-  report the errno (Sashiko)
-- Use ynl cli.py for the assign
----
- tools/testing/selftests/vsock/config    |  1 +
- tools/testing/selftests/vsock/vmtest.sh | 59 ++++++++++++++++++++++++++++++++-
- 2 files changed, 59 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/vsock/config b/tools/testing/selftests/vsock/config
-index 5f0a4f17dfc9..4b31085558fa 100644
---- a/tools/testing/selftests/vsock/config
-+++ b/tools/testing/selftests/vsock/config
-@@ -109,3 +109,4 @@ CONFIG_FS_DAX=y
- CONFIG_MEMORY_HOTPLUG=y
- CONFIG_MEMORY_HOTREMOVE=y
- CONFIG_ZONE_DEVICE=y
-+CONFIG_USER_NS=y
-diff --git a/tools/testing/selftests/vsock/vmtest.sh b/tools/testing/selftests/vsock/vmtest.sh
-index c771d0cb9268..248a4c6900f1 100755
---- a/tools/testing/selftests/vsock/vmtest.sh
-+++ b/tools/testing/selftests/vsock/vmtest.sh
-@@ -94,6 +94,8 @@ readonly TEST_NAMES=(
- 	ns_guest_assign_g2h_netns_host_connect_ok
- 	ns_guest_assign_g2h_netns_pins_ns_ok
- 	ns_guest_assign_g2h_netns_old_conn_send_fails
-+	ns_guest_assign_g2h_netns_no_cap_net_admin_fails
-+	ns_guest_assign_g2h_netns_unpriv_user_ns_fails
- )
- readonly TEST_DESCS=(
- 	# vm_server_host_client
-@@ -191,6 +193,12 @@ readonly TEST_DESCS=(
- 
- 	# ns_guest_assign_g2h_netns_old_conn_send_fails
- 	"Check connections made before the assign stop sending once they lose the device."
-+
-+	# ns_guest_assign_g2h_netns_no_cap_net_admin_fails
-+	"Check assigning the guest's vsock device to a namespace needs CAP_NET_ADMIN."
-+
-+	# ns_guest_assign_g2h_netns_unpriv_user_ns_fails
-+	"Check an unprivileged user cannot claim the guest's vsock device via a user ns."
- )
- 
- readonly USE_SHARED_VM=(
-@@ -204,6 +212,8 @@ readonly USE_SHARED_VM=(
- 	ns_guest_assign_g2h_netns_host_connect_ok
- 	ns_guest_assign_g2h_netns_pins_ns_ok
- 	ns_guest_assign_g2h_netns_old_conn_send_fails
-+	ns_guest_assign_g2h_netns_no_cap_net_admin_fails
-+	ns_guest_assign_g2h_netns_unpriv_user_ns_fails
- )
- readonly NS_MODES=("local" "global")
- 
-@@ -367,13 +377,22 @@ check_deps() {
- 
- check_ns_guest_deps() {
- 	local tname=$1
-+	local deps="unshare python3"
- 	local dep
- 
- 	if [[ ! "${tname}" =~ ^ns_guest_ ]]; then
- 		return 0
- 	fi
- 
--	for dep in unshare python3; do
-+	# test-specific guest dep checks
-+	case "${tname}" in
-+	ns_guest_assign_g2h_netns_no_cap_net_admin_fails | \
-+	ns_guest_assign_g2h_netns_unpriv_user_ns_fails)
-+		deps="${deps} setpriv"
-+		;;
-+	esac
-+
-+	for dep in ${deps}; do
- 		if [[ ! -x $(command -v "${dep}") ]]; then
- 			log_host "no ${dep} for test ${tname}"
- 			return 1
-@@ -1951,6 +1970,44 @@ test_ns_guest_assign_g2h_netns_pins_ns_ok() {
- 	return "${KSFT_PASS}"
- }
- 
-+check_assign_g2h_eperm() {
-+	local wrapper=$1
-+	local out
-+
-+	if out=$(vm_ssh "init_ns" -- "${wrapper}" python3 /root/ynl/cli.py \
-+		--no-schema --spec /root/ynl/vsock.yaml \
-+		--do dev-netns-set 2>&1); then
-+		log_host "assign unexpectedly succeeded under '${wrapper}'"
-+		return "${KSFT_FAIL}"
-+	fi
-+
-+	if [[ "${out}" != *"Operation not permitted"* ]]; then
-+		log_host "no EPERM under '${wrapper}': [${out}]"
-+		return "${KSFT_FAIL}"
-+	fi
-+
-+	return "${KSFT_PASS}"
-+}
-+
-+test_ns_guest_assign_g2h_netns_no_cap_net_admin_fails() {
-+	check_assign_g2h_eperm "unshare -n setpriv --bounding-set=-net_admin"
-+}
-+
-+test_ns_guest_assign_g2h_netns_unpriv_user_ns_fails() {
-+	local unpriv_uid=65534
-+	local unpriv
-+
-+	unpriv="setpriv --reuid=${unpriv_uid} --regid=${unpriv_uid}"
-+	unpriv="${unpriv} --clear-groups"
-+
-+	if ! vm_ssh "init_ns" -- "${unpriv} unshare -Urn true"; then
-+		log_host "unprivileged user namespaces unavailable, skipping"
-+		return "${KSFT_SKIP}"
-+	fi
-+
-+	check_assign_g2h_eperm "${unpriv} unshare -Urn"
-+}
-+
- shared_vm_test() {
- 	local tname
- 
-
--- 
-2.53.1-Meta
-
+Thanks,
+Gustavo
