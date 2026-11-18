@@ -1,95 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983245;
-	b=L068lUtX744Utj7SEbyXY3/pCabnUnNiWLr9CgatLet1lnxS+Rbis8q7bS7vVSF5epC2
-	 9vt+gbNWZLjIW389DuCkpjZE1/Yp1F2kh3L9fS/aBCYWrZWnJ4ZKBFYfFvwY4SoCYeDj3
-	 7oCJvTd1v5oEECL0q0rHe4gkbyJa8/H/0t2aEowCMnfc9MYSHNoTZ9fDj9QiUO3e0kHPc
-	 St7Jt3gKQpc0dSGT+H6Mp5jL1ev6H+Mb29/EmG5wB0ngrn9NLFvFbkbJaN6En3sY5+CqX
-	 g+rmN4/hfLpHtxA7sZhIwtzWOsnD4L8U7qFlv3qR+JpIjxAk51Cd4zXKVtyjtiFOhyw==
+	t=1794983273;
+	b=Tf7Wj4Mtn6m46M3coQzptvnx0c7P5WH2TKEAIbjtQl5/DLbU3ERvdMfHYxeQDcNuFMUq
+	 t6MW2xvDlKjJr/kI/bxT7/YnZJF+RKNrJBxM+DGOpJoN64R7BlM4hnnYDioh07EA7aOVv
+	 xvQtpl5OTkiyF23wxR9dMk0VwI0aCiEdOLavKCzeR2FAxCrsIuSYcWmRZyFLQKEcfIIsC
+	 WWJPbt6fhnxhbEm1LDV3wCiRRzd03Kdc9m7v98gB7+0H0At9U1PEUHN+BmwrlEaNuaJjn
+	 LwlG/yGw9HTBXvuZ8EOJmhsN02iqA/8dEF+3Aho+O9NrvyY74R1x9Q0NxsQRf2KTDJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983245;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983273;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=7z2zaD9FhGQE52XLgJ6ugKxfSiH1puWP6hppmumNUXE=;
-	b=Jm6/H6Gck606Atdg5yi7byCbGaDI51dACup1j4KoNMX9/PxeHMhVhyCMH/0HIvBwZQ+U
-	 vnrxjPKOU+PJS7C4Q+UjApffJFrYP9o9NK0CH+rg/JMlXTLlDXLcLku5NkIf119flNVPR
-	 x72JZ5KI9ayJIm77upEH/j+jc2EbAxnIKlXq34HlIKLrdypl/7xOxYDAT8Qyae0U+snGo
-	 DsTG7+QOuCS/PsgoSmpBX2/ISqPjCjpLTvT36UXgWmW+WGVP2vLE7z6+3UAP3GgdSepWx
-	 lH6jd0UG2+EG7eY6C9PdjlBR5ZOU3jsjwz6mcDDvtJ/UM1aIZMxwviOoIFx01hakyxA==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=u5Ctav/yDjXLRSHJvbAGfgAiHawDLtclHE70KW98KZA=;
+	b=ZL6jxG1bhknbJPrG5lVZU4yvlvO0kfCKTLQL8c5gbIYdnlQYbIJiuMu63ZT2uIcDB1DN
+	 W93FopdtdsffOkniwmfuU3vb/KBsbWnSYa3d+oR4guIveevZFLSbPwIgP80tWdFYAQiFM
+	 tJ9oA+V0NQj62y1ays9hFx819ZFYKzPAQgDjjB0AlBtPJgcfTmL4sD5NecNxzgP7M8qFI
+	 3CMhiXcMwJiuaQea/oHQcIbsL1DC8mhgY2ZEb4014NlY13ggaIJVsCvK/v0tgIJg5s8mc
+	 Ka++JHvTka/SRva1jPumuTq01INUD4kF+W95LpCpw8finNMYAN2YL3O7K9z51Bki89A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x7IwsRBo;
-	arc=none smtp.remote-ip=74.125.82.49
-Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WXeG34R6;
+	arc=none smtp.remote-ip=209.85.215.178
+Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEF93606A325
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:27:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEF93606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AF5A606A32C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:27:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AF5A606A32C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=x7IwsRBo
-Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1ae58d17cd9so581354c88.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:27:24 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WXeG34R6
+Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cdab8873d9dso406050a12.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:27:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794983244; x=1795588044; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7z2zaD9FhGQE52XLgJ6ugKxfSiH1puWP6hppmumNUXE=;
-        b=x7IwsRBoydcdMDD+Flq5s/JnPlKTEaTAsAn2nfIjGaw9MBXsSkA2Nfw1JPuT/ZsYiO
-         HFnNJEA/pLadXhW1Es4LkjsSrJk5cCs6GzQANCXo9CK0HEkNqwyA79/NvxV2VT1qN5wp
-         ykphWF/0eZ+abm4urq7bmJ5tU3rsxPO0CwuSGB6CCcg0u09knvlleABa3/THBgY8JxSS
-         k2yECAxi+hhOeO3KlJ/e2Y8XcfRLPLHadbCyN6f/pSkmNQU1Cs9yOgAA0h4mih9uOzBZ
-         alWCisxdNxSdOk1hpRZvy0cA7ejdlDqC4Y++CwLE9zby1T9bxWTadwbAH7oyzSQNKuwW
-         4rPw==
+        d=gmail.com; s=20260707; t=1794983272; x=1795588072; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=u5Ctav/yDjXLRSHJvbAGfgAiHawDLtclHE70KW98KZA=;
+        b=WXeG34R6DDZWngdAiJaA7PHvZ+uKaDZCO7R75Gb/fZ5hR4hqnw+Oj05fyFYLPZ20aH
+         lbxhyngcn0slgj164eujmb5/+SJC+8ah9Tennp1z0ZQ3ShlHv7Nr3QsQ4SPr9dl2JlZ8
+         ogZVVmxe4pIimIDxBdPJ7Ev5355PJdJp97ovhBknNamNrmYhhK/SGJjxNb4gjOpvwCpq
+         t9hd6TV4/OzNpS+/lUjU4QM8KWrgzA1VkT2iceUk5HB+c6kjU6pfzdSPP+C4fHNQr64a
+         uqidN6z5JhYNhWASGiplpEFeVCNXuRFK5QyLHAC/1A0CIvrpq+XDyZqcCyky9HqyaRq5
+         3LTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794983244; x=1795588044;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=7z2zaD9FhGQE52XLgJ6ugKxfSiH1puWP6hppmumNUXE=;
-        b=owPsnkUbgH5s/SY7qItb8ZgQo36uxQusy0kJrQGTwQDWhV93WMU2gw2OTmWKGTrnMN
-         c3Du1y6NO1FlZ1aM52xkuNfY1jlwyhERD4buUA8B5tIArCUQpZgLQLodLl0IcknpzWe5
-         NjyJU8VoS+AuUwKSZeqyinCFvk5ZPT92bPFm8jEHc55utIeTTlZEjs+8FS++lZvrUP10
-         n4tKttzl9Y+EXngeQ6iy4jbOqRTpm0fEiYORjsW8xqS1gIlFLF8yDmArCfbm36kvbmdL
-         Kau17g3gW3VWrxBLOS+IIwB3Kz053KBcxwVgoE8FvVbUKD/8ygtBOG13Zk7paoZD4pYs
-         Bqmw==
-X-Forwarded-Encrypted: i=1; AL+hErHz6RjgLAAhLHgRS7naN6VA69HlxI6TdML3g3LbqMO3gdnC93L97QGB5t1N8qruiiEDdgvXoqw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9uqRCFyk1HvnCRjLpNKixwD93VhF1rnig0GnFbLpim7OiUOY87
-	ER51FIXVfXWJxHFqBF2p46NxyTbx8C3ANvwNd9sq26qocyVcNbU4VZGF
-X-Gm-Gg: AYBFou1xbkv5CkYkZKroUu7iqkiTkMpQRqNMs4PWgf6e01YmLTUqX4jlOvQsGj6L8++
-	XBlWDgJ90Q8oOypf+s2v6OfcyYRkeuDNo96GucCoNPUwyPEUzFOY9QoLCtEstrGHKM4+iZqBFmF
-	ooK+nVBhC/u9HfEeWso4DlxaOziFANOsuKyYL5SmrAB4uo81fb+Wos6rhdUY49MPlWhQ74nYaZS
-	LuUsD70CFnER2bbtLUkJH5lrrIt0b3asL/gQnDRxHfv5uyrM/Gj7BAKeOj/MrOnK7yXPYqCm8VQ
-	+n4CUlRx+Le7/tAIIFNS3Of5uOhFbfuAHFc1OsSOi2MHfiNs8XCH46a6ZHLlTmpmmI1ZiNp5ZV4
-	WzlZDxHRRhYRKTGMideyunMqsQPna+e26cWgfqqh8jIpwrIZjU4MZWxvakt824RyewSrSth/Oq2
-	Gk4R3d+I5+q5Da2FfhP3DPszaX8Fxh9nFp8MZ/8fikb2tDsKkRIDsd3EOXcQnjr1SZeg/kJ8fCi
-	PEa1dXj3wsjaT1GF1/PFNNXmgP90vfihidPhEUTK76ys2cs/WDpPMVCNRY/kgzadFaHxs8Rqjqa
-	hXH6wi4GVmXPK6wXPHumMR6sLSBlMQ28M4kr26I=
-X-Received: by 2002:a05:7022:b88a:b0:1ab:faad:cba with SMTP id a92af1059eb24-1b543d06698mr1557626c88.34.1794983243728;
-        Tue, 17 Nov 2026 22:27:23 -0800 (PST)
-Received: from kq.cs.ucr.edu (kq.cs.ucr.edu. [169.235.27.223])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4eafsm3608663c88.14.2026.11.17.22.27.23
+        d=1e100.net; s=20260707; t=1794983272; x=1795588072;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=u5Ctav/yDjXLRSHJvbAGfgAiHawDLtclHE70KW98KZA=;
+        b=SlqwMgENyoSnA7myhx37qz9+sTKX3WwY/ApTmggvytq49kR0y/DR83cybHcXaitNgt
+         h+2V73b6qdKL+Lb5RTdL4PlMZMefNGYoDHsFLOetPBhxXU/4TWhv6Wk84j9er5ckHLnG
+         DUkIJqNu4eK82Cv61eo+iEvnmtXsRffunljRC5+wVj1LlxSgo9mg2sD2Yu300UIgfDdC
+         hbVeAfEICDCcPXNfJiiiAO3rHAv2ybXIyYZhczW1833DpBmH6XWSczvx1XetXhjBXAe3
+         IBocHp9znvazk2IAVMPW/1xBjcpefhc+R/mWZhG9SBcZBxV754KaFQ9OdK4RQsKRNMsv
+         /e9w==
+X-Gm-Message-State: APuU4Z+vpiRUIhcQo23btm2eYmvWj1oDtYJdwoekx31xdWBWh9Vu+ecx
+	tLdW1YBKQRtHsKWbsnEzfTjG9UWaUqIYuP2C2jwKYpQ7INxWmSY75Gwd
+X-Gm-Gg: AZFdTZet0UbKraOIwZA0zYXsoKd8jCFgndU2I8thDH6e+EmOG6Y03aMPx9bwIUwy3hH
+	K0HeWhDMvhkSztimEH+xg0MtL7vDAFdpiYRsAUUZhXaqJSl3BX33Vu+/aAwrjXX9C/jCGTQ19+v
+	WZwxFvMMvF6LrxzhiXSp+AoIUbSfqoMoPZHjgH90CAOgbdS8G465PCJQduH/KMjCZ4PD8Jioyti
+	simuvahPwaRvmFeXuD7hWszVWYzYeJnt76nSoVr8zrQDd/4pb1sNryNW6tGgsvlbDe0JQF6j1wa
+	GgUNXZhy73pRNoNW75bnC0uLMIFhn6gUD0goRoowex5wqhgWR1RZrclPChFq+dlWFUaDxlyo/7A
+	IZbvAapdx6vJKW27xoznhwyIRR7p3DhCvrYqzyrNYkTHyaPSZpmj0Su+WQFqEqSCxBJ0Pj7XgQ4
+	LGzDhHiUvUT7JM8RXgjkoWkaCyMO3l21hPIRIP4sej6IZH46qrPNdyryN9Wn0wh75HJTe/F7aSo
+	FkxxbvM+eVjMCsc5XDwIXIOjaMr5irRfINvmFBmD0GE3TgtJjhOW/zNe00tyoGgykDsAQA8+0BF
+	POCNz4GTUHi8/xevNWOf/qig+iXnHy9qrhybj+94R/nl1nWtXh3TM9Ylz5OJtxanWlGnsQu/CP5
+	z3843V/67nmic0Ywg5HNEDwWRSEDnW3iByFT3+c8lxRABbZqMslV0ArVE
+X-Received: by 2002:a17:90b:2d88:b0:3ae:8106:6074 with SMTP id 98e67ed59e1d1-3b3d07649c6mr1578634a91.16.1794983272450;
+        Tue, 17 Nov 2026 22:27:52 -0800 (PST)
+Received: from [169.254.3.1] ([143.248.188.96])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acd118sm2576836a91.12.2026.11.17.22.27.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:27:23 -0800 (PST)
-From: Zhengchuan Liang <zcliangcn@gmail.com>
-To: "David S . Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhengchuan Liang <zcliangcn@gmail.com>
-Subject: [PATCH net-next v2] net: avoid hashing the namespace pointer for device names
-Date: Tue, 17 Nov 2026 22:26:52 -0800
-Message-Id: <c9b3c1a0e3410ffa70db448e2299ed420528b5ff.1794981913.git.zcliangcn@gmail.com>
-X-Mailer: git-send-email 2.25.1
+        Tue, 17 Nov 2026 22:27:52 -0800 (PST)
+From: SeungJong Ha <engineer.jjhama@gmail.com>
+Date: Wed, 18 Nov 2026 15:27:44 +0900
+Subject: [PATCH net] net: release netpoll dev_lock when NETDEV_PRE_UP
+ vetoes an open
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,49 +91,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-netpoll-preup-veto-v1-1-7d3fdf101d3a@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAF9F/WoC/yWMywrCMBBFf6XctQOdGiP6K+LC1qmOlCQkaRFK/
+ 91Rl+c+zooiWaXg3KzIsmjRGAx412B43sJDSO/G6NrOM/ORgtQUp4lSljnRIjXSye1bdxidZ9/
+ DjlaN+v5JL7A9rv+wzP1LhvrVYds++xXTS3sAAAA=
+X-Change-ID: 20261117-netpoll-preup-veto-943045f4616b
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Neil Horman <nhorman@tuxdriver.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, SeungJong Ha <engineer.jjhama@gmail.com>
+X-Mailer: b4 0.15.2
 
-dev_name_hash() salts device-name hashes with the network namespace
-pointer. An unprivileged user can time SIOCGIFINDEX lookups for chosen
-missing names and identify collisions with a resident name such as "lo".
-Ranking this collision pattern across possible KASLR slides recovers the
-init_net pointer and thus the kernel text base.
+When netpoll is attached to a device, __dev_open() takes
+npinfo->dev_lock through netpoll_poll_disable() before calling the
+NETDEV_PRE_UP notifiers, but returns without releasing it when a
+notifier vetoes the open. The next attempt to open the device then
+sleeps in down() with RTNL held, and every other RTNL user blocks
+behind it.
 
-Use an unsalted name hash. Each network namespace has a separate hash
-table, so this does not change lookup or namespace-isolation semantics.
+For example, with netconsole on a wireless interface, cfg80211 vetoes
+the open while the wiphy is rfkill-blocked. Release the lock on that
+path, as the ndo_open() error path does.
 
-Found by AI-assisted code review and reproduced unprivileged on an
-unmodified kernel without fault injection. The reproducer and networking
-selftests pass with this change.
+Found by an AI coding assistant reviewing __dev_open(). Reproduced in
+QEMU on an unmodified net tree with mac80211_hwsim built in and
+netconsole bound to wlan0:
 
-Fixes: 8387ff2577eb ("vfs: make the string hashes salt the hash")
+  ip link set wlan0 down
+  echo 1 > /sys/class/ieee80211/phy0/rfkill0/soft
+  ip link set wlan0 up    # fails: RF-kill
+  echo 0 > /sys/class/ieee80211/phy0/rfkill0/soft
+  ip link set wlan0 up    # hangs in D state:
+    down
+    __dev_open
+    __dev_change_flags
+    netif_change_flags
+    do_setlink
+
+With this patch the last command succeeds. Selftests were not run.
+
+Fixes: ca99ca14c95a ("netpoll: protect napi_poll and poll_controller during dev_[open|close]")
 Cc: stable@vger.kernel.org
-Assisted-by: LLM
-Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
+Signed-off-by: SeungJong Ha <engineer.jjhama@gmail.com>
 ---
-Changes in v2:
-- Pass NULL instead of net_hash_mix(), which would expose a seed shared
-  by other per-network namespace hash tables.
-- Target net-next, as requested by Eric.
+The fix just drops the lock on the veto path, the same way the
+ndo_open() error path a few lines below already does.
 
-v1: https://lore.kernel.org/all/62774f8c6cbad549d1a95f88df99ab7745d7f6b8.1790917676.git.zcliangcn@gmail.com/
+I tested it in QEMU on net (297ae1590173) with mac80211_hwsim and
+netconsole built in: the reproducer from the commit message hangs
+without the patch and completes with it. W=1 allyesconfig and
+allmodconfig builds are clean for net/core/dev.c.
 
- net/core/dev.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+The bug was found, and the reproducer and patch written, with Claude
+Code (Claude Opus 5.5). I reviewed all of it by hand and re-ran the
+reproducer myself.
+---
+ net/core/dev.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/net/core/dev.c b/net/core/dev.c
-index d88af07aea29..12100fbf9022 100644
+index 3c58db732761..0be9e78572ff 100644
 --- a/net/core/dev.c
 +++ b/net/core/dev.c
-@@ -195,7 +195,7 @@ static inline void dev_base_seq_inc(struct net *net)
+@@ -1748,8 +1748,10 @@ static int __dev_open(struct net_device *dev, struct netlink_ext_ack *extack)
  
- static inline struct hlist_head *dev_name_hash(struct net *net, const char *name)
- {
--	unsigned int hash = full_name_hash(net, name, strnlen(name, IFNAMSIZ));
-+	unsigned int hash = full_name_hash(NULL, name, strnlen(name, IFNAMSIZ));
+ 	ret = call_netdevice_notifiers_extack(NETDEV_PRE_UP, dev, extack);
+ 	ret = notifier_to_errno(ret);
+-	if (ret)
++	if (ret) {
++		netpoll_poll_enable(dev);
+ 		return ret;
++	}
  
- 	return &net->dev_name_head[hash_32(hash, NETDEV_HASHBITS)];
- }
--- 
-2.34.1
+ 	set_bit(__LINK_STATE_START, &dev->state);
+ 
+
+---
+base-commit: 297ae15901733df7562a6781613fb49f3d270401
+change-id: 20261117-netpoll-preup-veto-943045f4616b
+
+Best regards,
+--  
+SeungJong Ha <engineer.jjhama@gmail.com>
 
