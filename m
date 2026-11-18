@@ -1,61 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794980403;
-	b=40ed+PjwOsfy9yVT9fKbdIwsDDCB7lEdMrZcbdF7IR7rnOCQQ1/Cb9PZ9ILJmaPOHnum
-	 vleKpkw37vh4YlBDuX/k1DRHUSXmNh/dOMj8QXTKlY3wfpOUJlV4lCfQBcjLJ7x3hlmwH
-	 WaNZBaitZHOYcychE91T0u77TlZIfsQOIBqkZ1iQghms9Ytjdl+qqF9L9AxKnKILGAJEL
-	 7uh8Cc8077HQAHsJju++KNUHNMaZFi1bWlxojWSXmmKkBCVg9LZeJC1uFnXypj6tTDYiA
-	 6ky29+6W8Rw84NWlmbzwbmNgyro53NPapHflUmyCksBvYqU6gQ62jAs5mbY+vDPDgLQ==
+	t=1794980914;
+	b=VOrRg6Yf0bvfQxfDVqf/QzpxPs7V2JBCmf59+aaib4VzyQ9qrof9fqL8MrcTwIG+xE8e
+	 zpnbLPIwUQV+IWGpDXMFgRZSREyOLmRXRW4DZnLyPa/3WfrpQkHW1DIy1WL6jBjeoPRio
+	 GvZ74iyQVKVv/+EJxVA5HgrUOOq4m89t6K2OeBLhlaKeVd7YVROoCsZGwCNIewfRnVVzk
+	 cbF1U8uZeIVikz6MALxGUHQXAURQLX8STGeSKJ5ME0RBmAME5hVdpZyXmnbPtWlz3r1ie
+	 B/hh9XdxqseThPkL4qHr82v4wHRnWVSZ+R+5+qTHrDR0MNStCIJzNTAxgAFktmMFbLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794980403;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=lq08pXz2oO1mnLEMAJoPp9lNJOytVldSqHeb3gUuNIk=;
-	b=oASKs32XneasbO4/cOM3btSteopxVF6hyKV6cIDuh5j2nzXPkyQfNX9VMYLJ9DUvce3m
-	 H/uxmMJELEwrS7MEaoB73N23n9hdfGbxwykz0jKhRNT9geRbyjJKOV7+DCQ6J7CtIRmvr
-	 VjdWYZQqP4YQfYpJzNz5RQJsGDSrlwbnsuUVseI/ktyeIGebdxEAiRhRxH1WKrmriWscM
-	 bHV29A534SjtDOdfE9PfY3RYCwCsT09MHs8Y21SJoU1wCpWlkEGQho2TRj5rk32N7yDPw
-	 P9GKk4Gg30HY4KOaEgRQu2DjlS3Q8Mk9fetZyq45lIOOqYpjhYYzQLTrd+mM47NIjUw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794980914;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=9FcR6f6lZr/1s4o7lTSV9eGaaKbHWarYrN/iQAvAeI8=;
+	b=p+yEPtqVgt75wZVYx5grPqzWSQfrQHtynEbNSen6OqYJ/Q2GyrrKE2ujub5pVoI4adY9
+	 fj+2fIwCmXLERF0piMVvTQJAmkwZWXaHZ7YV1vXiJtQeWfS8/+1gEJv8Ko8q3dzH5vvq5
+	 jvm4qveHTUKeueX0Qfk3hubJn24A2zXKqHRfMCkOCu1EktfHvzYQebKqnWF5aRobnxpeo
+	 G920SCrVlD1j9cPndHPBIl0ftJBr3PA+SvPqdc7JpKPN0yKJebYCdDcmk+RKoWICnDN7C
+	 japZbIV9xFc9AZ82ip8UtZ3zv1vVvvDm5SrwyNGxJuQ+kI9NkX4PCwrW31YlG0krQXw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GCwso30C;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nHWt2ZDp;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TMBGcDhZ;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CC82606A325;
-	Wed, 18 Nov 2026 05:40:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29097606A338
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:48:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29097606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GCwso30C
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18C3F1F000C4;
-	Wed, 18 Nov 2026 05:40:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794980403;
-	bh=lq08pXz2oO1mnLEMAJoPp9lNJOytVldSqHeb3gUuNIk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GCwso30CaIdinJYmEMlvk8ij9ndvkk+OCwQOJpn6kV2K4PmITwg9hDMg/KKzDid2u
-	 ANEt5xl5bwpceVMb9WHW7nkgXaqyrgdNlTVeffxK+GyyIBe+UjysR5yGhy/CcHsxKP
-	 lQa5oLrKsgHTKMUbuRZ9pZowe/IaKyHJu3WLnp5uE6OPvGEoP+2YH2ypyXqSHaC4cP
-	 isOTFrSVyBN3EGlPBveJL/ugB6iT10tSVxYS3ntEKhPrIzi08hUAtAPIwIumf5Ri7h
-	 l0Ee8pBBMFUo9hkk9Ojx7UMysmCzOYdese6rmYSfU4NVRM7daGp2nHZOVoqnauJdhq
-	 EdypvLcuScBqQ==
-Subject: Re: [PATCH net v2 2/2] tcp: accecn: initialize AccECN fields in
- syncookie path
-From: netdev-bot+sashiko@kernel.org
-To: thaisonphan@google.com
-Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
- davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, ij@kernel.org, olivier.tilmans@nokia.com,
- chia-yu.chang@nokia-bell-labs.com, stani@google.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 18 Nov 2026 05:40:01 +0000
-Message-ID: <179498040151.3136.12001610371899379772@kernel.org>
-In-Reply-To: <20261116023709.132684-3-thaisonphan@google.com>
-References: <20261116023709.132684-3-thaisonphan@google.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=nHWt2ZDp;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=TMBGcDhZ
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI2UubD472513
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:48:33 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	9FcR6f6lZr/1s4o7lTSV9eGaaKbHWarYrN/iQAvAeI8=; b=nHWt2ZDpbZDXkOrz
+	UaMNUO9qGabbZNVb1k9K2lNu5nOaP+LXSvK9enqlisnS5oOicDiBFp2tL6rb43e0
+	YCfy2rW8bHkvs52S+c00cXusU3yBYC+8wJXhvPaWH4oOf5SARAQHAAwbtbk7niBc
+	avDF47XiU+/NJNNmgyzNuFvmR4mKkb1hV9rgX4Y+NHvj9T6gLe1n5AG2frrYDhM/
+	wtEMLuqDQnNL1/zLXI/1xE1dgl3uLefhlBY7a+q/2RC2lmgtoaXILbRJed587GRt
+	+OYGZtUyP4pfUnCn7qKazsOeSPDMLqTir7Wek6I/YmOMtBTe16x3R7aFn0iNwLyt
+	db7yhg==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv89crk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:48:32 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2efad644688so5491135ad.3
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 21:48:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794980911; x=1795585711; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9FcR6f6lZr/1s4o7lTSV9eGaaKbHWarYrN/iQAvAeI8=;
+        b=TMBGcDhZ3IZoga/aCV3DBCaoyLmZjhPmoP+BUuxbpYq9tQ72BDkahFcWTiLizHFk4z
+         hlnv7PmWMeoR5n5ZNmnyibPlVuYitPGC4jWIR3D1iGoMV9lbcT5brQXIQfQiqvft7l1k
+         sBBCl6+zlLiw8DlzL5/bDOkhCnX46uOIIE1LbSlLYnrfH8mijg/nx10ySWzsgD/kO5X4
+         ba360PmCttaC2EVdJMWrOnBYh3D0ZGfI5RIqwBCxZZmp1HdVH2GV2RXwE0KzSQQ5XDEw
+         8qI9G5yV3sa6PHBZgtyH7p51t0RtcYBl+Vu4xji17+qEj6EsS7u1zzeDU3Xd2+JQGSjI
+         zBtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794980911; x=1795585711;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9FcR6f6lZr/1s4o7lTSV9eGaaKbHWarYrN/iQAvAeI8=;
+        b=ofgyOOEt2/FJi36YFiPgpjuRmol8Hkf1SZzCBX+egm/aIiQCrM0/cP1ocmRBAYWOFi
+         XNy3fzrQ85M2vfIRa0GK8bBO0ES1CJLnVr7eRraFw6BvMYh+TyrAMca5+4l0baiZvkYc
+         OH3GpTbDysjedfyyZnvqubGsTfh/FinpIAHjY42TxFzSEG7zwWPMpq9vSA9C/U6Q+2K+
+         sY/NeQVVNiCfsROTUkz/00QEOHfbJ9OJfe9/a2d6cSJHkaRqvWr8L7bX0hkxEpmaVEfx
+         yWsfTIzumv8L+OILvJabPW2i+gqVZB3WEzRLVJHuolmKOoVFlwb6KjY0w6EFLn4fz9GO
+         YpBQ==
+X-Forwarded-Encrypted: i=1; AL+hErGywNW+aaBiCgcuiCJcYEUWJnVU7yA+79np44CybpATmckUNXJoMIPBUGLAC1yx9FvVkKv8SBw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+/80SlJej4r7PALnBYGJ8dyWFsfDqu48fiOKjXSJ/tPrWoogqS
+	I7NL61V9e46QTJ7hZw1QNiqF35/AwdYeNGI+mo7LSEa60q2VdLSwxaPqQ9yBn8YH+MY5ggOCYwZ
+	Fp9KY31nHC499zcTv0zQAkBXAQMQB2AkX7DHZgZ6+czUMNvUfxugbwghygg4=
+X-Gm-Gg: AZFdTZfuSmzxbCi1hLwqxYeYyiQn/PN1SaZSTlPzdqdBpEi4r8BfcmWW3iIn3h9W9eN
+	wgCeqa8OSVA/Bg5IMKl/jFfzvrjvKC8ASfl6jvHyvDuFkAAOmZO0diAta8qb0WmkxnslvhhBxn8
+	3egQW9lINagj3483U510tabSIIIWo17jwrAXGYjw+ailBIUlqbh98Tp5LrEFFHaBhop+k6mZnZx
+	PZBtAquCdKAwKlXMTYxdFiMp35GGSM3hdFjRQh6ABsK7kpq7gvlhKEEnQ/SuLICzX51TNXBo5/o
+	Aoxw0tyYQ5TOKfwNfq1mfgtVw3PRUWcKXJblNHpVtpgWV9VlBmRt4pke+TTOZQ3ULX2B/e3n//d
+	3vggToCwUeRT2JDRNbAQW02ItPxXBnCNWi8rMq1qVjueSxvfaLcEGIsthGy/z8z4Iphcaz0ZBQV
+	EGOkcR6eE=
+X-Received: by 2002:a17:903:9cc:b0:2e9:a782:bb82 with SMTP id d9443c01a7336-2eff7559a67mr15155835ad.54.1794980911328;
+        Tue, 17 Nov 2026 21:48:31 -0800 (PST)
+X-Received: by 2002:a17:903:9cc:b0:2e9:a782:bb82 with SMTP id d9443c01a7336-2eff7559a67mr15155485ad.54.1794980910703;
+        Tue, 17 Nov 2026 21:48:30 -0800 (PST)
+Received: from [10.218.31.237] ([202.46.22.19])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff62842absm6722775ad.61.2026.11.17.21.48.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 17 Nov 2026 21:48:30 -0800 (PST)
+Message-ID: <12a0edcc-2c99-4f68-9ebd-0a9ec76bece7@oss.qualcomm.com>
+Date: Wed, 18 Nov 2026 11:18:23 +0530
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,157 +116,340 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 2/2] net: wwan: qcom_bam_dmux: Assign
+ restricted DMA pool to remote processor
+To: netdev-bot+sashiko@kernel.org
+Cc: stephan@gerhold.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+        kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+        krzk+dt@kernel.org, conor+dt@kernel.org, loic.poulain@oss.qualcomm.com,
+        ryazanov.s.a@gmail.com, johannes@sipsolutions.net, edumazet@kernel.org,
+        linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        deepak.singh@oss.qualcomm.com
+References: <20261112-qcom-bam-dmux-vmid-ext-v6-2-7a16bd3dff18@oss.qualcomm.com>
+ <179483727219.3136.17411591489340995392@kernel.org>
+Content-Language: en-US
+From: Vishnu Santhosh <vishnu.santhosh@oss.qualcomm.com>
+In-Reply-To: <179483727219.3136.17411591489340995392@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: cNwaJvAImFPNOopJS11DmM9lTCcTXHD8
+X-Authority-Analysis: v=2.4 cv=N9u8hG9B c=1 sm=1 tr=0 ts=6afd3c30 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22
+ a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=dyU1RJjCsz40DC5tq2IA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAyMiBTYWx0ZWRfX28cBpVWsPkvM
+ yDM+ZaUTcevY/GTQqOIf+ZLxDkbLe5jfGv3+UD2hIAf3j3jhvKpU1rIbAHAsjCwXNyP+i2353I2
+ 5+Ja78DL5c2JyBRPBSjIB0+mXxKtkvcLbzDd2uv0gI/1pyXa+OfoBHStFwHTLX1c5W/XoKMocgb
+ HTKamdS7FYpxBxcWuAYWGohr/OWzihLN9SLH9Tpk4yFR4gpWD9jH+LaUgiLU7+kK9QhEt2AmS5W
+ kz7jWR2h3d1Yy02CTi5PspsUIbNJK0t9nTXNeftfEUS/kUldbht7a1JTc4oXRh/ma7CmS/Sn4T6
+ jAi/J5hHwEREb2ml2mTbwfMAtWlpvua/4bNVstH9Q1620xXRL2nOMD4xaDu6PnmO715PwxhT8MY
+ FJUNhUOyW2SYb9QfXuOLD/VCy123RBWZ4/zSWbxa7u2loKWJdkzcPXhaE7wgpJct+a1jeh0ymc4
+ QuhQm0S8bsPNELrmEFQ==
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAyMiBTYWx0ZWRfX44O+D68xwbVz
+ 1t8AYjtd6gvhtYNxdoLF+sA+tPAl1ZrAayRpy23cEm04nZGGEiCmsPAaIj86JLb+Hep5PKQsISI
+ MHNlBTwTDZuM9uhsobgyjEsQB5uA4YI=
+X-Proofpoint-GUID: cNwaJvAImFPNOopJS11DmM9lTCcTXHD8
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 phishscore=0 suspectscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 malwarescore=0 lowpriorityscore=0 bulkscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180022
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+On 16-11-2026 07:24 pm, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 4 potential
+> issue(s) to consider.
+>
+> Critical: 0 · High: 0 · Medium: 4 · Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>
+> - [Medium] The patch does not do what the commit message says for BAM
+>    descriptor FIFOs.
+> - [Medium] The driver can unbind while the restricted DMA pool is still
+>    assigned to {HLOS, vmid}, and then it loses the only record of that.
+> - [Medium] Requesting the PC IRQ with IRQF_NO_AUTOEN and enabling it only
+>    at the end of bam_dmux_probe() means any change in the remote's power-…
+> - [Medium] bam_dmux_remove() decides whether to take the restricted DMA
+>    pool away from the remote VM using the cached software flag…
+>
+> --
+>
+> net: wwan: qcom_bam_dmux: Assign restricted DMA pool to remote processor
+>
+> When qcom,vmid is present, this patch requires a restricted DMA pool to
+> be attached to the device. It then calls qcom_scm_assign_mem() to share
+> that pool between HLOS and the modem VMID before the DMA channels are
+> requested. The pool is handed back to HLOS on remove or on a probe
+> error, unless the remote still holds its power vote, and the PC IRQ is
+> now requested with IRQF_NO_AUTOEN and enabled at the end of probe.
+>
+>> diff --git a/drivers/net/wwan/qcom_bam_dmux.c b/drivers/net/wwan/qcom_bam_dmux.c
+>> index 1479f8362e04e..04f3d46d4c3f3 100644
+>> --- a/drivers/net/wwan/qcom_bam_dmux.c
+>> +++ b/drivers/net/wwan/qcom_bam_dmux.c
+> [ ... ]
+>
+>> @@ -760,6 +766,88 @@ static int __maybe_unused bam_dmux_runtime_resume(struct device *dev)
+>>   	return 0;
+>>   }
+>>   
+>> +static int bam_dmux_assign_dma_pool(struct bam_dmux *dmux)
+>> +{
+>> +	struct device *dev = dmux->dev;
+>> +	struct device_node *rmem_np;
+>> +	struct reserved_mem *rmem;
+>> +	struct qcom_scm_vmperm dst[2];
+>> +	u64 src = BIT_ULL(QCOM_SCM_VMID_HLOS);
+> [ ... ]
+>
+>> +	if (!is_swiotlb_for_alloc(dev))
+>> +		return dev_err_probe(dev, -EINVAL,
+>> +				     "Restricted DMA pool not attached\n");
+> [Severity: Medium]
+> Does this cover the BAM descriptor FIFOs the way the commit message
+> describes? The commit message says:
+>
+>    "BAM-DMUX DMA mappings and BAM descriptor FIFOs must therefore be
+>    constrained to a designated memory region"
+>
+> and:
+>
+>    "When the BAM DMA controller references the same pool, its descriptor
+>    FIFOs are covered by the assignment as well."
+>
+> The FIFOs are allocated on the BAM DMA controller's own device, not on
+> dmux->dev:
+>
+> drivers/dma/qcom/bam_dma.c:bam_alloc_chan() {
+>      ...
+> 	bchan->fifo_virt = dma_alloc_wc(bdev->dev, BAM_DESC_FIFO_SIZE,
+> 					&bchan->fifo_phys, GFP_KERNEL);
+>      ...
+> }
+>
+> The FIFOs only come from the restricted pool if the BAM DMA node has its
+> own memory-region that points at the restricted-dma-pool. The binding
+> doesn't allow that. qcom,bam-dma.yaml has no memory-region property and
+> sets additionalProperties: false, and this series only updates
+> qcom,bam-dmux.yaml.
+>
+> The check here only looks at is_swiotlb_for_alloc(dmux->dev). Nothing
+> checks the device behind the rx/tx channels.
+>
+> With a DT that follows the bindings, probe would succeed without a
+> warning. Meanwhile, bam_dmux_power_on()->dma_request_chan()->
+> bam_alloc_chan() would allocate the FIFOs outside the assigned region.
+> Wouldn't that leave the XPU violation the patch is meant to prevent?
+>
+> Is a bam-dma binding update or a check on the channel device needed
+> here?
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+This is covered by the separate BAM DMA binding change:
+https://lore.kernel.org/all/20261021-qcom-bam-dma-vmid-ext-v3-1-299355e8dd3b@oss.qualcomm.com/
 
-- [Medium] On the BPF custom-syncookie path, the new syn_ect_snt
-  assignment in cookie_v4_check() (net/ipv4/syncookies.c:508) and…
-- [Medium] tcp: accecn: missing option init on 3rd ACK in syncookie path
+>
+> [ ... ]
+>
+>> +static void bam_dmux_reclaim_dma_pool(struct bam_dmux *dmux)
+>> +{
+>> +	struct qcom_scm_vmperm hlos = {
+>> +		.vmid = QCOM_SCM_VMID_HLOS,
+>> +		.perm = QCOM_SCM_PERM_RW,
+>> +	};
+>> +	u64 src = dmux->dma_pool_perms;
+>> +	int ret;
+>> +
+>> +	if (!dmux->dma_pool_perms)
+>> +		return;
+>> +
+>> +	ret = qcom_scm_assign_mem(dmux->dma_pool_base, dmux->dma_pool_size, &src,
+>> +				  &hlos, 1);
+>> +	if (ret) {
+>> +		dev_err(dmux->dev, "SCM reclaim restricted DMA pool failed: %d\n", ret);
+>> +		return;
+>> +	}
+> [Severity: Medium]
+> What happens to the pool ownership when this call fails? The same
+> question applies when bam_dmux_remove() skips the reclaim on purpose
+> because pc_state is still set:
+>
+> 	if (!dmux->pc_state)
+> 		bam_dmux_reclaim_dma_pool(dmux);
+> 	else if (dmux->dma_pool_perms)
+> 		dev_warn(dev, "Leaving restricted DMA pool assigned to remote\n");
+>
+> In both cases the region stays assigned to HLOS and the modem VMID. The
+> only record of that is dmux->dma_pool_perms, which lives in the
+> devm_kzalloc'd struct bam_dmux. devres frees it as soon as remove() or
+> the failed probe returns.
+>
+> On the next probe (module reload, sysfs rebind, deferred re-probe),
+> bam_dmux_assign_dma_pool() always starts from:
+>
+> 	u64 src = BIT_ULL(QCOM_SCM_VMID_HLOS);
+>
+> That no longer matches the real owners (HLOS | vmid). Hyp-assign checks
+> the source VM list against the current ownership, which is why users
+> such as rmtfs_mem keep their perms around for the reclaim.
+>
+> Wouldn't qcom_scm_assign_mem() then fail with "SCM assign restricted DMA
+> pool failed" on every probe until reboot?
+>
+> The commit message says the execution environments are tracked
+> explicitly for the reclaim. Isn't that record lost in exactly the unbind
+> case it is meant to handle?
 
---
+The tracked permissions are used for the reclaim in remove(). If the reclaim
+is skipped or fails, the pool stays assigned, which is fail-safe, since the pool
+is static reserved memory that is never returned to the page allocator. This
+matches the existing qcom_scm_assign_mem() users, which also only log reclaim
+failures.
 
-tcp: accecn: initialize AccECN fields in syncookie path
+>
+>> +
+>> +	dmux->dma_pool_perms = 0;
+>> +}
+> [ ... ]
+>
+>> @@ -821,7 +913,7 @@ static int bam_dmux_probe(struct platform_device *pdev)
+>>   		goto err_disable_pm;
+>>   
+>>   	ret = devm_request_threaded_irq(dev, dmux->pc_irq, NULL, bam_dmux_pc_irq,
+>> -					IRQF_ONESHOT, NULL, dmux);
+>> +					IRQF_ONESHOT | IRQF_NO_AUTOEN, NULL, dmux);
+>>   	if (ret)
+>>   		goto err_disable_pm;
+>>   
+>> @@ -838,11 +930,14 @@ static int bam_dmux_probe(struct platform_device *pdev)
+>>   			bam_dmux_power_off(dmux);
+>>   	}
+>>   
+>> +	enable_irq(dmux->pc_irq);
+> [Severity: Medium]
+> Can a remote power-control transition get lost between the line-level
+> sample and this enable_irq()? In bam_dmux_probe() the sequence is now:
+>
+> 	ret = irq_get_irqchip_state(dmux->pc_irq, IRQCHIP_STATE_LINE_LEVEL,
+> 				    &dmux->pc_state);
+> 	...
+> 	if (dmux->pc_state) {
+> 		if (bam_dmux_power_on(dmux))
+> 	...
+> 	enable_irq(dmux->pc_irq);
+>
+> With IRQF_NO_AUTOEN, __setup_irq() skips irq_startup(), so the smp2p
+> and smsm unmask callbacks don't run until enable_irq(). During that
+> window, qcom_smp2p_notify_in() still updates last_value but only
+> dispatches bits set in irq_enabled:
+>
+> drivers/soc/qcom/smp2p.c:qcom_smp2p_notify_in() {
+>      ...
+> 		status = val ^ entry->last_value;
+> 		entry->last_value = val;
+>      ...
+> 		for_each_set_bit(i, entry->irq_enabled, 32) {
+>      ...
+> }
+>
+> smsm_intr() also updates last_value, and smsm_unmask_irq() resyncs the
+> cached state when the IRQ is enabled:
+>
+> drivers/soc/qcom/smsm.c:smsm_unmask_irq() {
+>      ...
+> 	/* Make sure our last cached state is up-to-date */
+> 	assign_bit(irq, &entry->last_value,
+> 		   readl(entry->remote_state) & BIT(irq));
+>      ...
+> }
+>
+> handle_nested_irq() is never called, so IRQS_PENDING is never set and
+> enable_irq() has nothing to resend.
+>
+> bam_dmux_pc_irq() flips the cached value instead of reading the line:
+>
+> 	bool new_state = !dmux->pc_state;
+>
+> A single missed edge would therefore leave the driver's view inverted
+> from then on. The remote's transition is never acked, later edges are
+> handled with the wrong polarity, and the pc_state check in
+> bam_dmux_remove() that gates the pool reclaim is wrong too.
+>
+> When the modem is already up at probe time, the window also covers
+> bam_dmux_power_on() (dma_request_chan(), skb allocation, DMA mapping).
+> IRQF_NO_AUTOEN is set unconditionally. Wouldn't this regression affect
+> every BAM-DMUX platform, not just the ones with qcom,vmid?
 
-This commit initializes saw_accecn_opt, accecn_fail_mode and syn_ect_rcv
-in cookie_tcp_reqsk_init() so they match tcp_openreq_init(). It also sets
-syn_ect_snt from the listener's tos/tclass in cookie_v4_check() and
-cookie_v6_check(), so the child socket's AccECN validation knows which ECN
-codepoint the cookie SYN-ACK carried.
+Yes, this was a known trade-off when moving to IRQF_NO_AUTOEN. Closing
+the window needs a level-based bam_dmux_pc_irq(), which changes the PC
+handshake on all BAM-DMUX platforms and can be addressed in a separate
+patch if needed.
 
-> diff --git a/net/ipv4/syncookies.c b/net/ipv4/syncookies.c
-> index 4e0ff3b820627..1a837ed6efa00 100644
-> --- a/net/ipv4/syncookies.c
-> +++ b/net/ipv4/syncookies.c
+>
+>>   
+>>   	return 0;
+>>   
+>>   err_disable_pm:
+>>   	pm_runtime_disable(dev);
+>>   	pm_runtime_dont_use_autosuspend(dev);
+>> +	bam_dmux_reclaim_dma_pool(dmux);
+>>   	return ret;
+>>   }
+>>   
+>> @@ -877,6 +972,12 @@ static void bam_dmux_remove(struct platform_device *pdev)
+>>   	disable_irq(dmux->pc_irq);
+>>   	bam_dmux_power_off(dmux);
+>>   	bam_dmux_free_skbs(dmux->tx_skbs, DMA_TO_DEVICE);
+>> +
+>> +	/* The remote side may still access the pool if it holds its power vote */
+>> +	if (!dmux->pc_state)
+>> +		bam_dmux_reclaim_dma_pool(dmux);
+>> +	else if (dmux->dma_pool_perms)
+>> +		dev_warn(dev, "Leaving restricted DMA pool assigned to remote\n");
+> [Severity: Medium]
+> Can dmux->pc_state still be trusted at this point? Once
+> disable_irq(dmux->pc_irq) has run above, bam_dmux_pc_irq() no longer
+> runs. pc_state then shows the last edge that was processed, not the
+> remote's current power vote.
+>
+> The RX side is started by the remote. The comment in probe says "the RX
+> path may be active even if we are runtime suspended, since it is
+> controlled by the remote side".
+>
+> Suppose the remote raises its vote after disable_irq(), or pc_state is
+> already inverted by the lost edge in bam_dmux_probe(). This code would
+> still call bam_dmux_reclaim_dma_pool() and remove the modem VMID while
+> the remote holds its vote.
+>
+> That seems to contradict the commit message:
+>
+>    "Skip the reclaim and leave the pool assigned if the remote side still
+>    holds its power vote, since it may still access the pool."
+>
+> Should the line level be read again here before deciding whether to
+> reclaim, for example with irq_get_irqchip_state(dmux->pc_irq,
+> IRQCHIP_STATE_LINE_LEVEL, ...)?
 
-[ ... ]
+In both cases, the reclaim runs after bam_dmux_power_off(), which has
+already reset the BAM pipes and freed their descriptor FIFOs, so no
+transfers that access the pool are left. A vote raised after
+disable_irq() is also never acked. Reading the line level here can be
+done together with the level-based PC handling mentioned above if
+needed.
 
-> @@ -502,6 +505,7 @@ struct sock *cookie_v4_check(struct sock *sk, struct sk_buff *skb)
->  		ireq->rcv_wscale = rcv_wscale;
->  	ireq->ecn_ok &= cookie_ecn_ok(net, &rt->dst);
->  	treq->accecn_ok = ireq->ecn_ok && cookie_accecn_ok(th);
-> +	treq->syn_ect_snt = READ_ONCE(inet_sk(sk)->tos) & INET_ECN_MASK;
+Thanks,
+Vishnu
 
-[Severity: Medium]
-Is the AccECN option on the third ACK ever looked at on the syncookie
-path? With cookies the listener kept no state, so the client's first
-AccECN option arrives on the same ACK that cookie_v4_check() and
-cookie_v6_check() turn into a child. On the normal SYN_RECV path,
-tcp_check_req() records it before the child is created:
-
-net/ipv4/tcp_minisocks.c:tcp_check_req() {
-    ...
-	if (tcp_rsk(req)->accecn_ok && tmp_opt.accecn &&
-	    tcp_rsk(req)->saw_accecn_opt < TCP_ACCECN_OPT_COUNTER_SEEN) {
-		u8 saw_opt = tcp_accecn_option_init(skb, tmp_opt.accecn);
-
-		tcp_rsk(req)->saw_accecn_opt = saw_opt;
-    ...
-}
-
-Here cookie_tcp_reqsk_init() sets saw_accecn_opt to
-TCP_ACCECN_OPT_NOT_SEEN. Nothing between cookie_tcp_check() and
-tcp_ecn_openreq_child() calls tcp_accecn_option_init(), even though
-cookie_tcp_check() already parses the options into tcp_opt.accecn.
-The child therefore starts with tp->saw_accecn_opt ==
-TCP_ACCECN_OPT_NOT_SEEN.
-
-The tcp_child_process() -> tcp_rcv_state_process() -> tcp_ack()
-pass on the same skb does not fix this. snd_una already equals
-ack_seq, and ts_recent was copied from req->ts_recent. So neither
-FLAG_FORWARD_PROGRESS nor FLAG_TS_PROGRESS is set, and
-__tcp_accecn_process() returns before it reaches
-tcp_accecn_process_option().
-
-With saw_accecn_opt stuck at zero:
-
- - tcp_established_options() never emits AccECN options, even though
-   accecn_opt_demand is set.
- - A zeroed option on the third ACK is not caught as
-   TCP_ACCECN_OPT_FAIL_SEEN.
- - TCP_INFO reports tcpi_accecn_opt_seen as 0.
- - Later processing in tcp_accecn_process_option() can flag
-   TCP_ACCECN_OPT_FAIL_RECV on a connection where the peer did send
-   the option.
-
-This patch is aligning the cookie path with tcp_openreq_init(), so
-should cookie_v4_check() and cookie_v6_check() also do the equivalent
-of the tcp_check_req() block once accecn_ok is known? The parsed
-tcp_opt is local to cookie_tcp_check() and is not available on the
-cookie_bpf_check() path. Would you prefer to re-parse the options
-there or plumb them through? Or is this meant as a separate fix?
-
-[Severity: Medium]
-Does this assignment also apply to requests that come from
-cookie_bpf_check()? On that path the kernel never sent the SYN-ACK. A
-TC/XDP program built it, and bpf_sk_assign_tcp_reqsk() only gets an
-ecn_ok bit from struct bpf_tcp_req_attrs:
-
-net/core/filter.c:bpf_sk_assign_tcp_reqsk() {
-    ...
-	ireq->ecn_ok = !!attrs->ecn_ok;
-    ...
-}
-
-So the program has no way to report which ECN codepoint it put on the
-SYN-ACK, and the listener's tos/tclass is only a guess here.
-
-The in-tree reference program sends Not-ECT for both families, in
-tools/testing/selftests/bpf/progs/test_tcp_custom_syncookie.c:tcp_handle_syn():
-
-	ctx->ipv4->tos = 0;
-    ...
-	*(__be32 *)ctx->ipv6 = bpf_htonl(0x60000000);
-
-When the listener runs DCTCP or another TCP_CONG_NEEDS_ECN CC, its
-tos/tclass carries ECT(0), so syn_ect_snt becomes ECT(0) here.
-
-An AccECN client that receives the Not-ECT SYN-ACK reflects it in the
-third ACK through tcp_accecn_reflector_flags(), giving ACE=0b010.
-cookie_accecn_ok() then sets accecn_ok, and the child setup does:
-
-tcp_get_cookie_sock()
-  ->syn_recv_sock()
-    tcp_ecn_openreq_child()
-      tcp_accecn_third_ack(sk, skb, treq->syn_ect_snt)
-        tcp_accecn_validate_syn_feedback()
-            if (!tcp_ect_transition_valid(sent_ect, ect)) {
-                tcp_accecn_fail_mode_set(tp, TCP_ACCECN_ACE_FAIL_RECV);
-
-Would this set a false TCP_ACCECN_ACE_FAIL_RECV, the same failure the
-commit message describes, on every BPF syncookie connection to an
-ECT-marking listener? Before this patch the field was uninitialized. On
-zeroed memory it read as 0, which happened to match the Not-ECT SYN-ACK
-from that program.
-
-The same applies to the IPv6 line below, which uses np->tclass.
-
-Could the listener's tos/tclass be skipped for BPF-validated requests
-(req->syncookie set by the kfunc)? Alternatively, struct
-bpf_tcp_req_attrs could carry the SYN-ACK ECN codepoint.
-
->  
->  	ret = tcp_get_cookie_sock(sk, skb, req, &rt->dst);
->  	/* ip_queue_xmit() depends on our flow being setup
-> diff --git a/net/ipv6/syncookies.c b/net/ipv6/syncookies.c
-> index b33011b71fff6..7435ebcc366cd 100644
-> --- a/net/ipv6/syncookies.c
-> +++ b/net/ipv6/syncookies.c
-> @@ -276,6 +276,7 @@ struct sock *cookie_v6_check(struct sock *sk, struct sk_buff *skb)
->  		ireq->rcv_wscale = rcv_wscale;
->  	ireq->ecn_ok &= cookie_ecn_ok(net, dst);
->  	tcp_rsk(req)->accecn_ok = ireq->ecn_ok && cookie_accecn_ok(th);
-> +	tcp_rsk(req)->syn_ect_snt = READ_ONCE(np->tclass) & INET_ECN_MASK;
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116023709.132684-1-thaisonphan%40google.com
+>
+>>   }
