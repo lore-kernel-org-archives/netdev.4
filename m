@@ -1,84 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996267;
-	b=ETyqdV9y8KeEfR+OoKmgeggJPgfrpWVJVAqjod/LaX+VyNW1gviHUf0PED17Quvwgjz8
-	 B2EEqtvHVvQyV5nIENGqWNKnuCikJVKl1cdEfmPIqhW2mC2+boEbLkFgoWYejXKzRo+55
-	 6dZEBIoIwoxNH7HXHVBT6u9XdRnrNnrp8ztx4zpFF6c/Favg2cKO5QRRxO9Kk8QLpSd6A
-	 YcFVLmacd2E2oJTmrX9Ip4B55oCKVOsqzlWcP4x7BwoYk4TlkutM7oZIKYODKSKPvLtTX
-	 gOHwPI7TmVbKVXcISSiKTh0ebEE8G6bcxOZ9MnO3M4qwVsCJyRRgVgAFVAKOWLqUuvA==
+	t=1794996310;
+	b=IzLu+w/2eRntjnZXek8tTQfc0cB51rUFCJio+oSwIBFKpdtXGxBGRISIt5OuY9Qg3rTN
+	 CN5h8clEFjjVWvgNhYQg8ifUFI5K2/YhJwF+4htRWx6ETusBt18pPGfooykhiXdKtoSvq
+	 ddiWR+6Z4By71CzR5MmaL02VbnPIYDSSg0OSsgYcKgkutzKnCgjrIQrdtDOz/FJvJNJoy
+	 /0S+UW6oupzpqYmRop9Qd1TldWB+bcSUOiQDZYH1bjfR2PdI/7FEo3R2eo164UL+aG0aZ
+	 8VNXWaY3g874pdlnXILeJ18rMgiUQ4dYsuSYxdHoQFDhU4VDIuccUacVNwKPxB6JlpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996267;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
-	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
-	bh=Q3ss+bMAywcoTR+sv0KAcM3aywyzYmassgWdS2br2Xg=;
-	b=OeiTZ2ezf0F69OprH0r/NtqZe4y9d3GywuK0A0mB0RZDkBQuDKTnrPxb3LR0z+LzFB1T
-	 VGGfmx6wPw+p6+sw8xDcKO9QK7R3D1AAQx7cDFkeW9Get6yY0bKLOzznqBQexFppXHrQA
-	 3m42uIbkCNa3NxGW6qbzzdihH1KvaOh846bRCXmgBXlcCUcPsQZYRFSlHb0iwUc95o8G+
-	 HJ0CR+PXjdZaMBtddxIb6/W5CtEbZI+c/8HKR6iRdCUSs7BP9YpwnchzGMc5boEHEtAL2
-	 ecE7ecnkGQkAD3BPenYTYwGK41UIFKushoG4IH4Gjh1x4TT028Z2a1p23jMaafzvS7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996310;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=9CUfMcOWf/ySS4QRwsQRGf/yO85yR43VJtR79G/UDeU=;
+	b=iTBrWIzQmDzOTLx6vF9mYCw3cIamgDqCK+HyDD3/ApR7nV/0v66hJySi9fOqsvFKtgjF
+	 +udlGGTRg545DNtC4s6EncwnoBuZCT2ZuBT192CPcw7uhIsLBViX5FIZf3O2Le07pHmgz
+	 K6TEZhYygrTaPqxuZEEOYGAMoc8+O5vPi1d6sTq5hi2UGWmjK3BsltFYnXnRA1qFZWfC3
+	 oSKddwA47nYW0Glg1U7Ps3Cs7ku+/OK8Spf7PJtS4ybbWIZAdpmW0LMzwKY1E619f7vuc
+	 ESQf3GHQa4ZM221Bn3zqPFahdvjdSL62ICk6AzPvc28BxDzPz4tbgLaGxdwMwMgJtTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V7COnju1;
-	arc=none smtp.remote-ip=209.85.160.170
-Received: from mail-qt1-f170.google.com (mail-qt1-f170.google.com [209.85.160.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cotHS17t;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BF07606A325
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:04:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1BF07606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B49AB606A31C;
+	Wed, 18 Nov 2026 10:05:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=V7COnju1
-Received: by mail-qt1-f170.google.com with SMTP id d75a77b69052e-55d03bfd477so8360451cf.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:04:26 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794996266; x=1795601066; darn=vger.kernel.org;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=Q3ss+bMAywcoTR+sv0KAcM3aywyzYmassgWdS2br2Xg=;
-        b=V7COnju1jRjM9JtJL2wiAUsC9gP1sU+i5NBC4oK3EFqERfMEnn/Gqiyz6wLAv3X3JW
-         6FjO7//qLwCCl1QNaSV7fRnn13bLbqbCrH+vlCba4zEcb61hqZ+/u7xK2jnUqcfSLqUm
-         ZrizwfanSAFZOmFJVd8zemdSaMioUQ/7O+8N+wYXMAhF5Ue45HAPjRw6PJ9FADnSsqvu
-         fRUTBtmJgSJ23wnLszuwG/3Z2RDKdqqtkoc9cBQ0KAz1rqiXI3U1zNpZNkvUet9Lo4gL
-         nJwT9rynfQ2f+Sre2co+j57mLjssJbzrIm+VSJenkLNnUL56tV2aHu2wSyNKz3FTiatK
-         F3Jg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794996266; x=1795601066;
-        h=in-reply-to:references:cc:to:from:subject:message-id:date
-         :content-type:content-transfer-encoding:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Q3ss+bMAywcoTR+sv0KAcM3aywyzYmassgWdS2br2Xg=;
-        b=nAqjFR674OShtoMvsrXYcIuzL6rBBeYVQnekslnPf8ENiuSSkYhO6zkGvLVPC0a8oF
-         J+kULj2hHR84wv46cxvfllXnnc39rLpovNKXbEZi2GRB/a/1sa79IVT9G5yr/LnAlMXg
-         FksGpJChVqny3bRELNW8GJezgSUVrG8EirFEVnMNNa73BUmsX/OZFHr+T18dclbuLTye
-         f9UHEXyOYyO+6kwncabiTc5Pn/wgsezMDLSYZD5dKKKSVZPPfilJI9l2sQ+BhxqOi6rz
-         c4B0pVj+3xXjSazbu3aTgFe03CBX+yxc2y2PS6h4Kcrpf8Y6VHedTM/1ytLL9wsyXbTW
-         qj/g==
-X-Forwarded-Encrypted: i=1; AL+hErHc+MyFwk9ZS/UZ86QqDIdw86HVhKvvSFeSbNqJjoudRxA07B+PKBi/xI3TA1EDGkof9mKmxg0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9oGpF/7BRLCauoYuieVyCoyAMfuqTEF6gMOT5PfVh3opiomM0L
-	udcJ9DejBBQvfz/mjSuP/4p2zsUmEGd1k4ARmMLFuACmrCZ5YtJYunFj
-X-Gm-Gg: AYBFou0rGb3IAmIm951+MiYH7eGZWPbtitHGSP1A3mIANfqpnxPoR8hIuQ0JbNqwWH7
-	JbLozP2mBKf1dkK6sfjHXiO4qyw91EhS2xHpkIvmrYjlZdxubvGap+CkgXIUknDM2hhC62ZiLod
-	rywgTPc+eEHzg5uU+vDxqaXK3bYLJ6dJgA186W+CFh5jmvKLFBp+foJDnEUuJkgyUSonzZhVaXF
-	wYQqk8b4UA8xNPTdirnV0R75O9oouukOaRHQTfUdufflREWRIvYAPiA6ZxI6jr7VXPpkoi86eB8
-	ctLgS/EFfdVHJE9fTxK3R3QxBtWzWErtMjzjeAUOUlPiJPM8Cb7jazesPfzHviE8Tm4ADkEpibs
-	nFvi+w66lngwJMle8hyV9/RpYZxRsjVTTSJOtzqszj7kUCEktQ1mrPEgzRokcANwzWR4fyR1f4l
-	zXNyZTPE2yQ5ZKV58RrPFbU+ki0WGJX9bo+gCfy+/zuSC/CPb/SN9XXK7OnYXH3L12rkqnw0sl2
-	iO08X6T39J/cK4gKRujadf/3kCE4cH4ptOs6DbfLF534+4UAAhMm+GJO6GoiTZmCAGMcjlgX1z0
-	+ROMoe6pxINJx8uQknsM8Co2fXtEzx9r+A==
-X-Received: by 2002:ac8:5a91:0:b0:55c:7769:9a0a with SMTP id d75a77b69052e-55d5a3224bfmr33606021cf.5.1794996265839;
-        Wed, 18 Nov 2026 02:04:25 -0800 (PST)
-Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d638cesm17505736d6.29.2026.11.18.02.04.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 02:04:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cotHS17t
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A9611F000C4;
+	Wed, 18 Nov 2026 10:05:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794996310;
+	bh=9CUfMcOWf/ySS4QRwsQRGf/yO85yR43VJtR79G/UDeU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=cotHS17tDk8ESqd+ambByDtxQFvyc8PHtid4yZuQ1cInxZUY0CHB/+19XYLhRujUE
+	 WilRsY107GHFLf/2TK/eQjfE1K45NxIGaDMgeIbe7GRPiUNRbjXxxjF2McY4BBPDSm
+	 KPKFvgCo4MefIX/v0a8mqGCK+rFve1WUOcfIfIEr4KHDBDubUDT+aCPeykbHeEohiR
+	 op2C+lF1BNYSwunExNPtVdgVq90JdXhWvrPmzPjtaNSeFqBmdvcAG6tPIOrHkSwpoB
+	 TKJOLjEZon/KSJ1/M13d6//AigXviqLVA8h+cj+nlOmkUKJ9Z7Wp0eRo+GNHq6Qlrl
+	 jyBGSVGwWLH+Q==
+Date: Wed, 18 Nov 2026 10:05:06 +0000
+From: Simon Horman <horms@kernel.org>
+To: joasantonio108@gmail.com
+Cc: david@ixit.cz, krzk@kernel.org, oe-linux-nfc@lists.linux.dev,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 1/2] nfc: st21nfca: add spinlock to serialize SE
+ APDU request state
+Message-ID: <20261118100506.GB860048@horms.kernel.org>
+References: <20261112-st21nfca-v2-v3-0-c81702269e01@gmail.com>
+ <20261112-st21nfca-v2-v3-1-c81702269e01@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -87,111 +57,100 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 18 Nov 2026 05:04:24 -0500
-Message-Id: <DMY92K13JB4A.2KW6B4PA2L6A1@gmail.com>
-Subject: Re: [PATCH net-next 2/4] eth: mpnic: add promiscuous and
- all-multicast filters
-From: "Daniel Zahka" <daniel.zahka@gmail.com>
-To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
-Cc: <alexanderduyck@fb.com>, <kuba@kernel.org>, <kernel-team@meta.com>,
- <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
- <pabeni@redhat.com>, <dimitri.daskalakis1@gmail.com>,
- <mohsin.bashr@gmail.com>, <linux-kernel@vger.kernel.org>,
- <netdev@vger.kernel.org>
-X-Mailer: aerc 0.21.0-threadmapfix
-References: <20261116-mpnic-l2-oot-v1-2-8dc6eb3582b0@gmail.com>
- <179499313144.3136.4262860920559871885@kernel.org>
-In-Reply-To: <179499313144.3136.4262860920559871885@kernel.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112-st21nfca-v2-v3-1-c81702269e01@gmail.com>
 
-On Wed Nov 18, 2026 at 4:12 AM EST, netdev-bot+sashiko wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in ca=
-se
-> you want to address the nit picks below when you respin.
->
-> Low priority / nit picks for your consideration:
->
-> - [Low] On every ndo_stop, mpnic_clear_rx_mode()
->   (drivers/net/ethernet/meta/mpnic/mpnic_netdev.c, called from=E2=80=A6
->
-> --
->
-> eth: mpnic: add promiscuous and all-multicast filters
->
-> This commit implements IFF_PROMISC and IFF_ALLMULTI using the last DMAC
-> TCAM entry, which matches either every address or only the multicast bit.
-> It also changes the default action on TCAM misses from pass to drop.
->
->> diff --git a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c b/drivers/ne=
-t/ethernet/meta/mpnic/mpnic_netdev.c
->> index 16611813db555..43547a7d6e5c7 100644
->> --- a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
->> +++ b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
->
-> [ ... ]
->
->> @@ -54,6 +64,7 @@ static void mpnic_clear_rx_mode(struct mpnic_dev *mpd)
->> =20
->>  	mac_addr[MPNIC_TCAM_MACDA_BROADCAST_IDX].state =3D MPNIC_TCAM_S_DELETE=
-;
->>  	mac_addr[MPNIC_TCAM_MACDA_HOST_ADDR_IDX].state =3D MPNIC_TCAM_S_DELETE=
-;
->> +	mac_addr[MPNIC_TCAM_MACDA_PROMISC_IDX].state =3D MPNIC_TCAM_S_DELETE;
->
-> [Severity: Low]
-> Should this check for MPNIC_TCAM_S_VALID before moving the promisc entry
-> to delete?
->
-> The broadcast and host address entries are always valid while the
-> interface is up. The promisc entry is usually MPNIC_TCAM_S_DISABLED,
-> though. That is its state whenever IFF_PROMISC and IFF_ALLMULTI are both
-> clear and the mc list is empty, and also after mpnic_promisc_sync() has
-> already removed it.
->
-> The state comment in mpnic_rpc.h only lists valid as a source of delete:
->
->  *  Valid     1	-> Delete     3
->  *  Delete    3	-> Disabled   0
->
-> The other place this patch adds that deletes the same entry follows
-> that rule:
->
-> mpnic_promisc_sync() {
->     ...
-> 	} else if (mac_addr->state =3D=3D MPNIC_TCAM_S_VALID) {
-> 		mac_addr->state =3D MPNIC_TCAM_S_DELETE;
-> 	}
-> }
->
-> With ip link set dev X up and no promisc/allmulti flags set, followed by
-> ip link set dev X down, the path is mpnic_stop()->mpnic_clear_rx_mode()
-> ->mpnic_write_macda(). This takes a disabled entry straight to delete,
-> and then issues an UNLOAD_TRIG for entry 1023 even though it was never
-> loaded.
->
-> The extra unload looks harmless, because mpnic_rxb_init() already
-> unloads every entry at init. The remaining problem is that the code no
-> longer matches the documented state ordering, and the two delete sites
-> behave differently.
->
-> This is still the case at the end of the series. The later commit "eth:
-> mpnic: sync unicast and multicast address lists" updates the same
-> comment to add "Delete 3 -> Add 2". It does not add a disabled to delete
-> transition, and it does not add a state check here.
->
-> Could this either check the state, the way mpnic_promisc_sync() does, or
-> document disabled to delete as an allowed transition?
->
+On Thu, Nov 12, 2026 at 01:39:29PM +0000, Joas Antonio dos Santos via B4 Relay wrote:
+> From: Joas Antonio dos Santos <joasantonio108@gmail.com>
+> 
+> The bwi_active flag, callback pointer (cb), and callback context
+> (cb_context) in st21nfca_se_info are accessed concurrently from
+> multiple contexts without synchronization:
+> 
+>  - st21nfca_hci_se_io() sets them from the netlink path
+>  - st21nfca_se_wt_work() reads/clears them from the timeout workqueue
+>  - st21nfca_apdu_reader_event_received() reads/clears them from the
+>    HCI rx path
+> 
+> Add a spinlock (se_lock) and take it around the accesses in these
+> three paths.  The callback pointer and context are copied under the
+> lock and invoked after releasing it, since both the callback and
+> nfc_hci_send_event() may sleep.
+> 
+> Also move the bwi_active = true assignment before mod_timer() so that
+> the flag is always set before the timeout handler could observe it.
+> 
+> st21nfca_se_deinit() is not changed here.  It still accesses
+> bwi_active without the lock; the teardown ordering has problems of its
+> own which need a separate fix.
+> 
+> Found by LLM-assisted manual code review.
+> 
+> Fixes: 2130fb97fecf ("NFC: st21nfca: Adding support for secure element")
+> Cc: Simon Horman <horms@kernel.org>
+> Signed-off-by: Joas Antonio dos Santos <joasantonio108@gmail.com>
 
-A check is not necessary. If I respin a v2, I'll adjust the comment, but
-I think overall this isn't an issue.
+Hi Joas,
 
->> =20
->>  	mpnic_write_macda(mpd);
->>  }
->
-> [ ... ]
+sashiko.dev has provided an AI-generated review of this patch,
+which seems to raise issues not covered so far.
+
+  Can releasing se_lock before mod_timer() leave bwi_timer armed while
+  bwi_active is false?
+
+  CPU0                                    CPU1
+  st21nfca_hci_se_io()
+    spin_lock(&se_lock)
+    bwi_active = true
+    spin_unlock(&se_lock)
+                                          st21nfca_apdu_reader_event_received()
+                                            timer_delete_sync(&bwi_timer)
+                                            ...
+                                            spin_lock(&se_lock)
+                                            bwi_active = false
+                                            spin_unlock(&se_lock)
+    mod_timer(&bwi_timer, ...)
+                                          st21nfca_hci_remove()
+                                            st21nfca_se_deinit()
+                                              /* bwi_active is false, skips
+                                               * timer_delete_sync() */
+                                            kfree(info)
+  <softirq>
+    st21nfca_se_wt_timeout()
+      schedule_work(&info->...)  <-- use-after-free
+
+  The ST21NFCA_EVT_WTX_REQUEST branch in st21nfca_apdu_reader_event_received()
+  also calls mod_timer(&info->se_info.bwi_timer, ...) without holding se_lock or
+  checking bwi_active, which likewise re-arms bwi_timer after a timeout or on an
+  unsolicited event while bwi_active is false.
+
+  In addition, st21nfca_se_deinit() reads and clears bwi_active without se_lock,
+  only calls timer_delete_sync(&info->se_info.bwi_timer) when bwi_active is
+  true, and leaks cb_context if it cancels an in-flight request:
+
+  drivers/nfc/st21nfca/se.c:st21nfca_se_deinit() {
+  	if (info->se_info.bwi_active)
+  		timer_delete_sync(&info->se_info.bwi_timer);
+  	if (info->se_info.se_active)
+  		timer_delete_sync(&info->se_info.se_active_timer);
+  	cancel_work_sync(&info->se_info.timeout_work);
+  	info->se_info.bwi_active = false;
+  	info->se_info.se_active = false;
+  }
+
+  These gaps are not addressed in the follow-up commit "nfc: st21nfca: prevent
+  double completion of SE APDU request" either.
+
+  Link: https://sashiko.dev/#/patchset/20261112-st21nfca-v2-v3-0-c81702269e01%40gmail.com?part=1
+
+I actually think there are two issues here.
+
+1. The headline issue relating to races in teardown. This strikes me as
+   a pre-existing problem. And suitable for follow-up.
+
+2. This part: " In addition, st21nfca_se_deinit() reads and clears
+   bwi_active without se_lock". And it seems to me it would be worth
+   addressing that in an updated version of this patch for completeness.
 
