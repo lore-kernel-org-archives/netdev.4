@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967808;
-	b=seXh+odRh2bVmSX1VqP2ape//Bai8WiFrJ0OnnWdQh4GyCPq16RoPvxyeUYwBBhPWVVN
-	 82PZe4HxZrf7BxpHJv0n7tXdfza6rXAB/TNbt/I15MKf9fm0sd8tRhDY0eRdmGxtuja4w
-	 r3gYlON0goZgtFTr6sl4fsCME+B6PvZhz4pbGJNS9H82nm6bPIer0oTVd2KgPTMdQhgPQ
-	 NZcyLXaU3+ivf5vWqVUCmgNAYNW7fb2Fzet/V1nkwBU/SLct9W8AI8mfRW8LCtcjgBDaB
-	 K7K21w59910kXWXCFWbKMeO0WPCFq3TY9ZBeIaCpK+qQYhpq/9FeaNTAV1B6KIhiBjw==
+	t=1794967811;
+	b=Jf/FATVXurPwUm+KfTx3uQHYkF+VLq0Vq8qVbXxyvWz+nsNaPJ57DIMw595GTOQUAXOm
+	 bffys9dE7U/TfqUvlUcD4zXZqvqTQj2FYNOotRxXCt0SUEwNFXFqgkrJZD6zs4BF/KFM0
+	 iYRHzisJ0PR3IyxAcUSXVDhWYfBdmkedrxr33ByGd8Cteb8/fyXyu23ntmxQUxwn4vmmO
+	 TSoM4JeJI+/InRf7fK7tSCPIxG2z3EKGvDwzUOjekERdw+AHoUHOykbLV9EIOaH9R78JP
+	 WODxsHdIqIEGCzcCwdr3Lng3arsOveucGEleHD47C6rJOb0ek4GgAyKSBSDG9kdAxgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967808;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967811;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=3PpxRRk/bQeKzZGNJ7h5uX8M1JkfHN+OI1kHnZjXcQc=;
-	b=dZpJzaN4e88za2vGryoME8X4SlN93DZ5RzlMCyDa22VXygM9HEWRP5SsMZ+9g+AYKRSC
-	 tFgPBaRRF6brqYkyZ9PnHuPzBOp5A6I8Pq7Hxl72nI24akit8F9hTdp5KgWby2DgkkX3Z
-	 VB8FBe0BWWsJmbv3b9boDWG7aiDJR2JoEpsEAn9eia7WTwEZZ+vLTJwZlWcXo+5p5lIv0
-	 w7Tne0bLaVuPvxBI+xC8gO8spMQBn9/tN+m5R6ez9VuwIzXcqo/D9d0JQE3GUu9xqVrHn
-	 xqEbPjAOLEc2AFZE9p9AdV0XgS+bVYNAJM3Uait2p7yW5THWlpFRe5XqiPCy2S1G3+g==
+	bh=KC2+vMIdgBSKayVHc7Ws+U3uVp6Z3Ak+J6WEhPtRw3w=;
+	b=rENVcHc4oZaZFz9tKk+Y6IVthf2VpsJJ+MqKt9cT7qOZr7zME2APUET7PFEfRTzDtZWz
+	 ELsEtEUEtsNYATG5zK56HrokSpMRhEc3z4FdQAqKkBld0cSmtY6xeIJBkVM0WwFNaOMmV
+	 lTYbBM7AKZrqeSffdFkZVKGYu9HWhyTfQnWTHkSieyoLfiJhBD+fQuvatKjmBzY65gFR0
+	 8Ie+a0bjaHEb+/P02wAq8IthQO7ajWskCmDEaDIlr9LRRuRv+/5WGFmnSGFi6/8EyOI00
+	 lWzP/0KPj2WmnSGRkXh/9xLjGuxEJNTC95lM7dL2VGX9B3VPYZ9hTyMKHrnQjmNffDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z3sJ6LyQ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GNRjM7l/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6069606A31C;
-	Wed, 18 Nov 2026 02:10:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3FEF606A325;
+	Wed, 18 Nov 2026 02:10:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z3sJ6LyQ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C8061F000C4;
-	Wed, 18 Nov 2026 02:10:07 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GNRjM7l/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 868E01F000C4;
+	Wed, 18 Nov 2026 02:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794967807;
-	bh=3PpxRRk/bQeKzZGNJ7h5uX8M1JkfHN+OI1kHnZjXcQc=;
+	s=k20260515; t=1794967810;
+	bh=KC2+vMIdgBSKayVHc7Ws+U3uVp6Z3Ak+J6WEhPtRw3w=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Z3sJ6LyQMKVy1d/xef/3MwiMpiSrXumXLqU4MT9bP96vl40TiMb+I5PPGlr/6IgBg
-	 kF2Kb5qyk4xxv99ndlXrB2A80HY/YnqqrMxHkEMXQz9FiMUy67oy4o+WVRjQVCeNXf
-	 SlGLm/qMweA8komZfsKUJ8xZ0xLPJJFCZRtIt1QBZzKHFm4Nt06kYdYqrsBehNhcA7
-	 cFlM/Ev2Cxdwjufc8uI8lUNe8/2pm5O/SKC1JM3camj6F9x6+L8yBubkpB1uEUUlVW
-	 9emalSLuo/6UbiVb8MBz8lFfmnVPdKfNPEU4hKB96PEhfWA8n9CzKaTvI8XT2XMBKz
-	 TTf8fyuxS70xQ==
+	b=GNRjM7l/xiy50HWgh62L1YdW8sTHtRbdW7BJgH3kVHokLU72Uu48Qi2eipucXdD7Z
+	 fpiu+JuToo5pTrHbWLdjPapPOE2TD3nUT6oSsHfqgVsBDmlqZ/cHjQehUjBOTF6hvz
+	 1wxnJfQC7B1iHuGHEmucs+CVNODFT64QEntH6F0wcl/V62cTVq52wnugnQ1BnNRQI9
+	 59zPsCADDyW1k5MMnDFQYcOMeHjNj8DxjxPjVoByN7DnFyHbm569zBZ+vUNrNvPHaR
+	 kJM21pF2eK3H2ax6kiTPsbI92BUncQTT2O8KJ/HyhDOzR8L9MxUKYGMHHZ/0VMyYd2
+	 BD8HWZtO8JlNg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A664392B1FF;
-	Wed, 18 Nov 2026 02:10:07 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77400392B1FF;
+	Wed, 18 Nov 2026 02:10:10 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,44 +54,41 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 0/2] net: spacemit: Fix TX timeout work deadlock
- and
- RTNL in PM callbacks
+Subject: Re: [PATCH net-next v13] net: reduce ARFS flow updates by checking
+ LLC
+ affinity
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179496780578.1408948.14862363785692324970.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 02:10:05 +0000
-References: <20261113132435.434615-1-alitariq45892@gmail.com>
-In-Reply-To: <20261113132435.434615-1-alitariq45892@gmail.com>
-To: Ali Tariq <alitariq45892@gmail.com>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, dlan@kernel.org,
- troy.mitchell@linux.spacemit.com, wangruikang@iscas.ac.cn,
- amadeus@jmu.edu.cn, tmshlvck@gmail.com, meatuni001@gmail.com,
- s-vadapalli@ti.com, maxime.chevallier@bootlin.com, vadim.fedorenko@linux.dev,
- linux-riscv@lists.infradead.org, spacemit@lists.linux.dev,
- linux-kernel@vger.kernel.org, leitao@debian.org
+ <179496780902.1408948.5643474909251504479.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 02:10:09 +0000
+References: <20261113125643.2255-1-nashuiliang@gmail.com>
+In-Reply-To: <20261113125643.2255-1-nashuiliang@gmail.com>
+To: Chuang Wang <nashuiliang@gmail.com>
+Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, sdf.kernel@gmail.com, daniel@iogearbox.net,
+ kuniyu@google.com, netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
 Hello:
 
-This series was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Fri, 13 Nov 2026 18:24:33 +0500 you wrote:
-> This series fixes two locking problems in the SpacemiT K1 Ethernet
-> driver.
-> 
-> Patch 1 fixes the TX timeout work, which ends up waiting for itself
-> through cancel_work_sync() in emac_down(), so every TX timeout leaves
-> RTNL held forever.
+On Fri, 13 Nov 2026 20:56:34 +0800 you wrote:
+> When an application migrates to a different CPU, RFS records the new
+> CPU in the global rps_sock_flow_table via rps_record_sock_flow().  On
+> the next packet of a flow, get_rps_cpu() notices the change and calls
+> set_rps_cpu() to update the per-queue flow entry.  With Accelerated
+> RFS (ARFS), set_rps_cpu() also invokes the driver's ndo_rx_flow_steer()
+> callback so that the NIC steers the flow to a queue close to the new
+> CPU.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v2,1/2] net: spacemit: Fix TX timeout work deadlocking on itself
-    https://git.kernel.org/netdev/net/c/0dcf21648f25
-  - [net,v2,2/2] net: spacemit: Hold RTNL lock in emac_resume() and emac_suspend()
-    https://git.kernel.org/netdev/net/c/f60eae61466c
+  - [net-next,v13] net: reduce ARFS flow updates by checking LLC affinity
+    https://git.kernel.org/netdev/net-next/c/1a0dd3c7c4ac
 
 You are awesome, thank you!
 -- 
