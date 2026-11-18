@@ -1,62 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795013561;
-	b=vLYzhNoVMb8csXhwyzu2OgLOmNsEPP1FBHL9UizmgNkky3PhqxatRclWHYkjqWzksCXA
-	 6lFS+LYsFQwqBqXuMeT9TqQ5pIfRzSkrH5IwnGgeCMeS1Ngi/cDM6Xu9jx40qFvdB8HZF
-	 rB0GBIQnWvTjMq4yMyTiM7Oa6rzG2RLJekufiFYRJSM6Ggav0KVjddWIukMCyVm0/RGM+
-	 X4ILFEO7csfQhM9X0P4zaXdsyB1RyRVUKDAXTnfGc3BJxwP+znB4yjrIM9MbA0DzF1BGO
-	 uoPOodiUN324SCQYX5l18zMmoKGSpvZbO637SlyPX9q2Gi+p97ZzVgIFm8VU/56MyKw==
+	t=1795014014;
+	b=stlW5csZTucYrki/GrupIlgRFJ8Zhzd72BJMUabYPmOMwMzvmewtQGBemSQM0xTYadSG
+	 o8QokMfkTdXhqTJAExSxP5RjanXooMhUP4t36G5fiFx7EAeOAj247gPAEhG+7wZ+IEOke
+	 shT6pjrmVy8mIRYv/vtDggLPWf9p+4OUeaYRV52xmADNLJdh/iO7l8hRnrB14qP+55MgY
+	 exnLxvjLlJCwiFDmzO9Tle+69R5WZ+olZEmwilMeQHarxZY4k4dl4/2w0zJQmRP6GFx8b
+	 BAOpvNbI4H0uRE3SoX1l2wT34on7LjQnV5WHI9raLOc5Vlq1JTHtVRijmAwC/e6fRrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795013561;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:
-	 Organization:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Rspamd-Queue-Id;
-	bh=pnA9abm8tKCVM9tIK3l/Su5BC83HTMGiHZbk93iWfqI=;
-	b=nCQXQXYw2z6tE4h8MdB/Kfpufz+Fqe1BrDfxsyIn0FnpZSUryRwHpbZyhjAPqpvTE5xO
-	 8fiL/tI9lFZu4S7T7a5no6puJKBbalP4Kp+jmukDDgvMdEnymhubFgmaHuOlvXPqyKS2V
-	 xqflMghJsYWYza6ARmC1nuG8psUQwM9fgrLCXQ8xqFyUUwYzvkZ9kKtnsxCMSq9hSYNao
-	 zIhZD/EDHOMRkBD0FmTqCDmSzS0t2Gdgw5XM1jGyiTchCA4rqTwF6RpV/kObvRFjvt2VN
-	 AaA7FAf/kkU5AjNPRD8+Y9F6qE2Jh3IFouXRN1RCk1XdBAUKFdTw9dv59mAh0KF79IQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795014014;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=XlAV/hqrW5p9nPGYpRn1iBgoiJOYeDSYBvQqMDaDr0o=;
+	b=4aA7gvQ7BF7dO8/8aqdNssSnaCto59UqR91MsLZnbruhosusqbkRSgnK6EUvq82uFoOr
+	 vpzbbGEASydWWil6QQFu6jny19fctTCvTF51W9vWzNUKsMSso556Nqsuu/OQkoIRzXur2
+	 dbsceCL7Xrrcl9GrTgeaK7ij38jkApT48A3onqIUS93FvUHPQbDvv7S7wmiElngCuefu9
+	 TuCIPe8pJNnPUGFqNpraRhrEp+3NwKL/Hjr+u+FzHYn9ybrLCpu+3n/5OrOFe0mizk0t7
+	 r+pN0VJeLo+0LSEpQAD0cxMaFpQYukrgk2ApQGdmQeL2S1PeQYPMIs5Iyae9ZapF4XA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=EmsZyBQW;
-	arc=none smtp.remote-ip=195.10.208.42
-Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=e46tK6tm;
+	arc=none smtp.remote-ip=209.85.216.99
+Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9AAB460A2613;
-	Wed, 18 Nov 2026 14:52:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9AAB460A2613
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 276B8606A339
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:00:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 276B8606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=EmsZyBQW
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jV4MM4M4hz5wkr;
-	Wed, 18 Nov 2026 15:52:31 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795013551;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pnA9abm8tKCVM9tIK3l/Su5BC83HTMGiHZbk93iWfqI=;
-	b=EmsZyBQWl3mIWf54qckm4AL2FWnWPQltJ16v4suq+m6zKB5dVSyasZC9x4pZnAgWiua/n/
-	qSHiG+NYJsV/y35oPsTl5upz2YjsZPhO377xLqE9m1cO5GgYVEdYOZ7ANXinkgemGyW9Wq
-	ZLGB6TZYzCqTP9OeSvFB35JHqy+/SJF2gkztz+2t20L1WfHHItZZ0TRRl3l/hzpzxE5AxC
-	SOfLwz0PK8yHXKqXGn+vjooG57KIJGMloU95Oi5zCisHK6NKNl5+Eulk9U8qtzhg9VwC+9
-	FFLJdMPaWsAxqs5lQGYP6OrXkoCQI3w3oGotOaYAcd5f3K6e4GljlrMT3n40RA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
-Message-ID: <3f6b535c-fce1-41d7-90a4-b15cfa20db52@mandelbit.com>
-Date: Wed, 18 Nov 2026 15:52:28 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=e46tK6tm
+Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3b197cd42b0so698001a91.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:00:13 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795014013; x=1795618813;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=XlAV/hqrW5p9nPGYpRn1iBgoiJOYeDSYBvQqMDaDr0o=;
+        b=OKGX96jQ5uqbeDigMR8zONKerKcKCcv2E1uQShOSKRHYjIOu3z/VFUVlMWBtHKvwt/
+         78sMAccx9gnCemaDd4ZD+HJVsonzy35uWR1l1FNx4X2fu2f/ZgQt8GINx2LFpE/69lkx
+         ORjAASf66+mHsGG5RlgNtebJRwg5/A6IsP5eASCEWdDhzLU0gWYSsCaE9/ZBG9l+4ien
+         QuseAYpfvdqV/Gf/ZNy8Uyb4jxybWBFqxjO5ZUj0ieLAwDHOkupB1E0luJ3YS0TUs7aV
+         pcmDLkMcKQ+su3vw1ePuLyYoHwd/U1NuXplOYRuIAiY8Nq65U9tPczIk0aaI9eKpOeAZ
+         w9YA==
+X-Forwarded-Encrypted: i=1; AL+hErF0vn6c641PtBzViMtH6MckDdJ8Lx6t+PK71ilZ7ME+FmFdVnYxRitkdwSFNz144LZPno0ZdEU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/h3Ac00zMsZDWZjfb+L/SPMgl3MUYT2Sd978kjMeDmZ1RgS5uN
+	NxHn4VTL+RmsghthLLLNn8acOrY1BnkEDhFTuWGO6MxulFvYxPLm55MbDl22ysIOyN6iQNpsoTb
+	DjswSQJMLEkJjT1TK5pWV0ijReFXwK2PvF/xlirVXSYb1/GtSQ746WEgH9psZAlU6iwMCEugt20
+	rGlsYiZtGC798KMc4/v4qOHDKR7DxpqezPPnS2ZMx6bfchQnE5o2QJ2J3Z1DgADtdFvVoX6mT5z
+	FyF68NGNFQ=
+X-Gm-Gg: AZFdTZcMnadS60wvqH3a7Tfz5S61pZeQDL/3sF8uulJC3AQQ3SDQdytA472EUxLZ31l
+	UU5BUPKJ1zmoOyjyKafF/5+bCH2Os3IWDoZEDtOk5s4d8FixSBtNETA452tRkldg7uSyCjZfrKQ
+	AI5SK9IAlchcW1ORs2Z0MRD81qQqIZsumicZGDO+8DXezRHjnybjsyd240MwX/XJnK2J37vdyNE
+	iAUZsc4GFhy0FlCCEaNULupXdjwE4KuXJ15HzKbMurcES9gNRW6UTn8wwo4SbIqDt+5dd70EB0P
+	IWWA+gd5iABU/0NfSxrlVFGRiSnt/xKX+x6J9LhavOjT7mEedScPTIwbB64jkw/fbkm3dTimrCW
+	AltMpEucr2F4POBMIvLwF3sGxYLckaL2vAxTz8fDT+omK1qVq+IdmwwYKzPgdxh9W/CUuR+ivja
+	NnZd0LCHu+QVAwISEYWdvxcW6OZFQq12S2VfmfKg==
+X-Received: by 2002:a17:90b:5848:b0:3b0:a757:e372 with SMTP id 98e67ed59e1d1-3b3d07d81demr2649531a91.47.1795014012930;
+        Wed, 18 Nov 2026 07:00:12 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3ac02cce6sm4125117a91.7.2026.11.18.07.00.12
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 18 Nov 2026 07:00:12 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1a5005fd0f8so1992808c88.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:00:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795014011; x=1795618811; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XlAV/hqrW5p9nPGYpRn1iBgoiJOYeDSYBvQqMDaDr0o=;
+        b=e46tK6tm3prl7lw3gg5xHZkIPHhaGAeM1LzlBIk02RJfwNI3tFmsPPopZNamp0+ApZ
+         fES5sjHee6YIwU8WroB8Dp9brZQ3hZxrayavZmi125O/8gpDEGsWMHzYrcXWEbZJiyWp
+         46dMPRegKzq184vySW3oLgVETVL0gddWbsczo=
+X-Forwarded-Encrypted: i=1; AL+hErFq1ovnLciww4EeVzQ1pA/IX/esGR4/jxs+j+NDmfAjKkZ1Scj8UwRegyw6kZgrhwMeQE1reRw=@vger.kernel.org
+X-Received: by 2002:a05:7022:2219:b0:1ae:e0f5:2cdd with SMTP id a92af1059eb24-1b543c2571dmr3544196c88.28.1795014010678;
+        Wed, 18 Nov 2026 07:00:10 -0800 (PST)
+X-Received: by 2002:a05:7022:2219:b0:1ae:e0f5:2cdd with SMTP id a92af1059eb24-1b543c2571dmr3544132c88.28.1795014009697;
+        Wed, 18 Nov 2026 07:00:09 -0800 (PST)
+Received: from pc-hpe-top-git-sendmail-server.dhcp.broadcom.net ([192.19.234.250])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5446f589esm8211742c88.1.2026.11.18.07.00.06
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:00:09 -0800 (PST)
+From: Pavan Chebbi <pavan.chebbi@broadcom.com>
+To: michael.chan@broadcom.com,
+	kuba@kernel.org
+Cc: andrew+netdev@lunn.ch,
+	andrew.gospodarek@broadcom.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	Pavan Chebbi <pavan.chebbi@broadcom.com>
+Subject: [PATCH net-next] tg3: Add support for boards integrated with security SoCs
+Date: Wed, 18 Nov 2026 20:32:47 +0530
+Message-ID: <20261118150247.1145764-1-pavan.chebbi@broadcom.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,81 +114,174 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 1/3] igb: fix RTNL assertion when resuming from
- runtime suspend
-To: Janis Edvarts Lacis <janislacis06@gmail.com>
-Cc: intel-wired-lan@lists.osuosl.org, Tony Nguyen
- <anthony.l.nguyen@intel.com>, Przemek Kitszel
- <przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-References: <20261116153041.3002666-1-antonio@mandelbit.com>
- <20261116153041.3002666-2-antonio@mandelbit.com>
- <rab7ustlezklu43vnjkby5mqh33bgqoztlz6bv5wxkjqfvbtfd@imjngi6j72nz>
-Content-Language: en-US
-From: Antonio Quartulli <antonio@mandelbit.com>
-Organization: Mandelbit SRL
-In-Reply-To: <rab7ustlezklu43vnjkby5mqh33bgqoztlz6bv5wxkjqfvbtfd@imjngi6j72nz>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 4jV4MM4M4hz5wkr
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Hi Janis, thanks for the review!
+Add support for Broadcom NetXtreme NX1 network interface controllers
+integrated with security SoCs. This enables proper driver recognition
+and initialization for these hardware Root of Trust enabled network
+adapters.
 
-On 18/11/2026 14:21, Janis Edvarts Lacis wrote:
-> On 16 Nov 16:30, Antonio Quartulli wrote:
->> Since commit ac8c58f5b535 ("igb: fix deadlock caused by taking RTNL in
->> RPM resume path") __igb_resume() doesn't take RTNL for runtime resume,
->> but __igb_open() still calls netif_set_real_num_{tx,rx}_queues(), which
->> require it. An asynchronous runtime resume (e.g. after the link comes
->> back) then triggers "RTNL: assertion failed".
->>
->> Skip them when resuming. The counts are set again on every regular open,
->> which happens under RTNL; the only case left out is a fallback from
->> MSI-X to MSI during a resume, which leaves the stack with more queues
->> than the device uses until the next open.
-> 
-> RTNL is not held only on runtime resume, it is held on a normal resume.
-> __igb_open() skips netif_set_real_num_{tx,rx}_queues() for both resume
-> types. Maybe it makes sense to skip them only on runtime resume when the
-> RTNL is not held?
+The boards are identified by their PCI subsystem IDs. Add the new
+subsystem device IDs and a helper that matches them.
 
-You're right.
-RTNL is held on normal (system sleep) resume, so the counts can and 
-should be set there.
+These boards need the following deviations from the default behavior:
 
-> 
-> May I ask why is it okay to leave out the fallback case, can't it lead
-> to trouble if the counts are not updated but a fallback happens?
+- Never drive GPIO1. These boards use GPIO1 for mailbox communication
+  between SoC and the NIC, internal to the board, so it must not
+  be driven externally and is always kept cleared. Skip it when
+  switching to Vaux or Vmain power, and do not set it in
+  tp->grc_local_ctrl.
 
-Ouch..you're right again.
-The fallback case can't be left out: with fewer rings than the stack's 
-real queue count, igb_tx_queue_mapping() maps several TX queues onto 
-tx_ring[0], each under its own xmit lock, and igb_xsk_pool_disable() can 
-index a ring that doesn't exist (Sashiko reported the same on this 
-version....).
+- Do not enable EEPROM write protection, even if the NIC config in
+  SRAM requests it.
 
-To summarize: in v3 I'll set the counts directly on normal resume and on 
-runtime resume from a work item that takes RTNL (as patch 2 already does 
-for the NAPI links).
-Until the work item has run, igb_xmit_frame() will drop packets for 
-queues the device doesn't have instead of mapping them onto tx_ring[0] 
-(the stack drops them anyway when the count is lowered), and the XSK 
-disable path will skip rings that don't exist.
+- Do not enable Wake-on-LAN. These boards reuse the GPIO that
+  Wake-on-LAN depends on for other purposes, so Wake-on-LAN cannot
+  work on these devices. Clear WOL_CAP so that it is not advertised.
 
-Best,
+Signed-off-by: Pavan Chebbi <pavan.chebbi@broadcom.com>
+---
+ drivers/net/ethernet/broadcom/tg3.c | 52 ++++++++++++++++++++++++++++-
+ drivers/net/ethernet/broadcom/tg3.h | 13 ++++++++
+ 2 files changed, 64 insertions(+), 1 deletion(-)
 
-> 
-> Best regards,
-> Janis
-
+diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
+index 95827df4cf6a..9c431f76d4a5 100644
+--- a/drivers/net/ethernet/broadcom/tg3.c
++++ b/drivers/net/ethernet/broadcom/tg3.c
+@@ -2840,6 +2840,9 @@ static void tg3_pwrsrc_die_with_vmain(struct tg3 *tp)
+ 	    tg3_asic_rev(tp) == ASIC_REV_5701)
+ 		return;
+ 
++	if (tg3_flag(tp, CITADEL))
++		return;
++
+ 	grc_local_ctrl = tp->grc_local_ctrl | GRC_LCLCTRL_GPIO_OE1;
+ 
+ 	tw32_wait_f(GRC_LOCAL_CTRL,
+@@ -2913,6 +2916,9 @@ static void tg3_pwrsrc_switch_to_vaux(struct tg3 *tp)
+ 			grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE2 |
+ 					    GRC_LCLCTRL_GPIO_OUTPUT2);
+ 		}
++		if (tg3_flag(tp, CITADEL))
++			grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE1 |
++					    GRC_LCLCTRL_GPIO_OUTPUT1);
+ 		tw32_wait_f(GRC_LOCAL_CTRL,
+ 			    tp->grc_local_ctrl | grc_local_ctrl,
+ 			    TG3_GRC_LCLCTL_PWRSW_DELAY);
+@@ -10537,7 +10543,10 @@ static int tg3_reset_hw(struct tg3 *tp, bool reset_phy)
+ 		tp->grc_local_ctrl |= tr32(GRC_LOCAL_CTRL) & gpio_mask;
+ 
+ 		/* GPIO1 must be driven high for eeprom write protect */
+-		if (tg3_flag(tp, EEPROM_WRITE_PROT))
++		if (tg3_flag(tp, CITADEL))
++			tp->grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE1 |
++						GRC_LCLCTRL_GPIO_OUTPUT1);
++		else if (tg3_flag(tp, EEPROM_WRITE_PROT))
+ 			tp->grc_local_ctrl |= (GRC_LCLCTRL_GPIO_OE1 |
+ 					       GRC_LCLCTRL_GPIO_OUTPUT1);
+ 	}
+@@ -15220,6 +15229,38 @@ static struct subsys_tbl_ent *tg3_lookup_by_subsys(struct tg3 *tp)
+ 	return NULL;
+ }
+ 
++static bool tg3_is_citadel(struct tg3 *tp)
++{
++	if (tp->pdev->subsystem_vendor == TG3PCI_SUBVENDOR_ID_BROADCOM) {
++		switch (tp->pdev->subsystem_device) {
++		case TG3PCI_SUBDEVICE_ID_CITADEL_BEVERLYWOOD:
++		case TG3PCI_SUBDEVICE_ID_CITADEL_BEL_AIR:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2908:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2909:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2906:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_E14A:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_E34A:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2904:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2905:
++			return true;
++		default:
++			return false;
++		}
++	}
++
++	if (tp->pdev->subsystem_vendor == TG3PCI_SUBVENDOR_ID_DELL) {
++		switch (tp->pdev->subsystem_device) {
++		case TG3PCI_SUBDEVICE_ID_DELL_5720_L21T00:
++		case TG3PCI_SUBDEVICE_ID_DELL_5720_XE9880L:
++			return true;
++		default:
++			return false;
++		}
++	}
++
++	return false;
++}
++
+ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
+ {
+ 	u32 val;
+@@ -15231,6 +15272,9 @@ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
+ 	tg3_flag_set(tp, EEPROM_WRITE_PROT);
+ 	tg3_flag_set(tp, WOL_CAP);
+ 
++	if (tg3_is_citadel(tp))
++		tg3_flag_set(tp, CITADEL);
++
+ 	if (tg3_asic_rev(tp) == ASIC_REV_5906) {
+ 		if (!(tr32(PCIE_TRANSACTION_CFG) & PCIE_TRANS_CFG_LOM)) {
+ 			tg3_flag_clear(tp, EEPROM_WRITE_PROT);
+@@ -15430,6 +15474,12 @@ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
+ 			tp->phy_flags |= TG3_PHYFLG_DISABLE_1G_HD_ADV;
+ 	}
+ done:
++	if (tg3_flag(tp, CITADEL)) {
++		tg3_flag_clear(tp, EEPROM_WRITE_PROT);
++		tg3_flag_clear(tp, WOL_CAP);
++		tg3_flag_clear(tp, WOL_ENABLE);
++	}
++
+ 	if (tg3_flag(tp, WOL_CAP))
+ 		device_set_wakeup_enable(&tp->pdev->dev,
+ 					 tg3_flag(tp, WOL_ENABLE));
+diff --git a/drivers/net/ethernet/broadcom/tg3.h b/drivers/net/ethernet/broadcom/tg3.h
+index a9e7f88fa26d..713fe9c821e2 100644
+--- a/drivers/net/ethernet/broadcom/tg3.h
++++ b/drivers/net/ethernet/broadcom/tg3.h
+@@ -100,6 +100,8 @@
+ #define TG3PCI_SUBDEVICE_ID_DELL_MERLOT		0x0109
+ #define TG3PCI_SUBDEVICE_ID_DELL_SLIM_MERLOT	0x010a
+ #define TG3PCI_SUBDEVICE_ID_DELL_5762		0x07f0
++#define TG3PCI_SUBDEVICE_ID_DELL_5720_L21T00	0x0e19
++#define TG3PCI_SUBDEVICE_ID_DELL_5720_XE9880L	0x0ea1
+ #define TG3PCI_SUBVENDOR_ID_COMPAQ		PCI_VENDOR_ID_COMPAQ
+ #define TG3PCI_SUBDEVICE_ID_COMPAQ_BANSHEE	0x007c
+ #define TG3PCI_SUBDEVICE_ID_COMPAQ_BANSHEE_2	0x009a
+@@ -111,6 +113,16 @@
+ #define TG3PCI_SUBDEVICE_ID_ACER_57780_A	0x0601
+ #define TG3PCI_SUBDEVICE_ID_ACER_57780_B	0x0612
+ #define TG3PCI_SUBDEVICE_ID_LENOVO_5787M	0x3056
++/* NetXtreme NX1 boards integrated with Citadel security SoCs */
++#define TG3PCI_SUBDEVICE_ID_CITADEL_BEVERLYWOOD	0xd346
++#define TG3PCI_SUBDEVICE_ID_CITADEL_BEL_AIR	0xd146
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2908	0x2908
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2909	0x2909
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2906	0x2906
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_E14A	0xe14a
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_E34A	0xe34a
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2904	0x2904
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2905	0x2905
+ 
+ /* 0x30 --> 0x64 unused */
+ #define TG3PCI_MSI_DATA			0x00000064
+@@ -3122,6 +3134,7 @@ enum TG3_FLAGS {
+ 	TG3_FLAG_ROBOSWITCH,
+ 	TG3_FLAG_ONE_DMA_AT_ONCE,
+ 	TG3_FLAG_RGMII_MODE,
++	TG3_FLAG_CITADEL,
+ 
+ 	/* Add new flags before this comment and TG3_FLAG_NUMBER_OF_FLAGS */
+ 	TG3_FLAG_NUMBER_OF_FLAGS,	/* Last entry in enum TG3_FLAGS */
 -- 
-Antonio Quartulli
-
-CEO and Co-Founder
-Mandelbit Srl
-https://www.mandelbit.com
+2.52.0
 
