@@ -1,87 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.92.39.34
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795010994;
-	b=EiceZmvAiw+11R81QiBedOpeovEJ/sGZGmInrmoEq1to41cnADjpT122PN6mYrBZpvAT
-	 k9ePFf/LCOfqo7vbOjupY4/S6rIWNbVhBwlteC5h3joxYtbw7gyCietMzqNHspr0n7uQo
-	 8zsxCaS6FJS79uOgzbBpZR6GyPIPDiUY6RghkNnwj16UeXsMjWP+CmGNx741SjOXZ2uBP
-	 JxSJ2sQZzdcb8ziCsVXErl3PZifm4ZTZ9mIoukF6m0eLEq6Yrs0L65gs8UOTtNMQlHr/7
-	 AugHlHvIKuU+59grUdkLmOU5bVBoXVCG1n4E5SD2+NBAJByFjwTODGsdmn1ammM5LiA==
+	t=1795011132;
+	b=saGQbHJGcCqS1ljS77eNeL+GPcND0BmtBaVA6VEKIqIEXU+EAY+EDkr7zidxrxGOvVaN
+	 HQ/qGtpgT4lgzWDbm4x7v0ar7b38B+6J/O25o8PZsQd3VGydkKulxPcIyFbUbMSUDtDzi
+	 +BUEDXTe9Z7Km5ogtWDPGnJUbaK2tJxe+nvFLH/xWkMPLHNY+BLSjQdWzQj7BpsO21YDe
+	 1Ubfs0n8TTZj7y7Ht88OKWnvMNubnMYlJjT8UryQUIL/iS0/qiaXOszm/SctzdaLzgp6O
+	 uGg0il3mFuZB3ashlzaKTMdpxEJJboYYNsAmiVs18I2Mvxn9WSsmGg9JuSjKusiJ9jA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010994;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=BRL2FY/Y5x9MK15pkYN4oq+5dGS22KALYfU5C+9r3IA=;
-	b=jgXpuYK3/ptz/qnENk2ADqgtZjTtlIH0/t7Ej2v7a1fXmgELcvhwjp5AUKDjhbtni+K0
-	 lFtiA4HKIy3vpLooAf6cvyGcyINBBCBH76cAsFRpB11XJC19p/agFu/Pax40pCy5ml6QB
-	 /A2dE97fe81UBKbM8Q8p5s4ZBJpUcY5dOKClUcfRkYnQzKOM54bgXLcQP2skCPiwVHFpt
-	 eIlzuQmYg/PcUq4EdakJboABk7lj73AFnfD/3CEp7kzTPW2LaFO/kAP9FPDRB2F5z/qtE
-	 7aArlVBY6DjIABeaT33Lboa9JOr2eJx/igF4WZTgIatf6OHdWjCKfuafu1MMcnJAZWw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011132;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:
+	 Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=hojdwrIITI4zkYtiYiRVHN6AZWC3dKU7aVs/egORTGg=;
+	b=AQcxlc/A7+Gb5pyLubzggTWut+rVcR3Ki2qz4NcgJ13+OC2J8jOX73dn/knJzMk69YYO
+	 TUEMQzD8b95OzmqzskxS+N2WGSkf2OYFikHzRoOhpX9AMWtrzJoOjCvvE4zcBEtZMpWUM
+	 xZ93+hJLDtjlvYk6CNVnUbe+kJpGouoYyj2HuZgkhksF/mfWgENRQ9I0liLAjhrcGTSPb
+	 cmEyZDt7rnedRLPl9xobSo3p2vT2vY4m6VUpiWfI2BNqVlXELSuvd0+CoEcbC5WNrbYqJ
+	 H0m/bfwSii0q1TYY+vSLx17jKfeVM30XrRRBGgcSc9kWF43qmVPHpy2/IzQXUWi3xOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SggfainD;
-	arc=none smtp.remote-ip=209.85.160.42
-Received: from mail-oa1-f42.google.com (mail-oa1-f42.google.com [209.85.160.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=ugreen.com;
+	spf=pass smtp.mailfrom=ugreen.com;
+	dkim=pass header.d=ugreen.com header.i=@ugreen.com header.a=rsa-sha256 header.s=pkvm2402 header.b=hq0F3Ch4;
+	arc=none smtp.remote-ip=54.92.39.34
+Received: from smtpbgjp3.qq.com (smtpbgjp3.qq.com [54.92.39.34])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8484160A5BC4
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:09:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8484160A5BC4
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94826606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:12:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94826606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ugreen.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ugreen.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SggfainD
-Received: by mail-oa1-f42.google.com with SMTP id 586e51a60fabf-48e9476e26aso397311fac.3
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:09:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795010992; x=1795615792; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=BRL2FY/Y5x9MK15pkYN4oq+5dGS22KALYfU5C+9r3IA=;
-        b=SggfainD8LXgmD/6503Njh+//c1wfIzjNTlTeOAmUbfhNae4g8u0uGE50mieyEpMSx
-         vJOsbPiVxJgQg960taxf9lO4c3eR5Ex6rYHbJu29zeq8YvjhNcSSIDw+oMic0VZX+oKj
-         TozB1AYVDkVcjsJ96sYLDE+VM/sB0cdxYH1sz6tHw5ApJBNhrdlDoDFx2Ue3+ybOeVEP
-         9ECDfWe2Ucr5+LYTK3rP56vXdl3EjorV/pzymMGqfcVTOYfhF4PfYZXBrNpVoTB5g4AT
-         JGAFYVJHSe4j83xmLiMH0icnMf85cxG7e26SUFYIYj6MbktAidUIT23AerJriQdfWxh0
-         boZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795010992; x=1795615792;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BRL2FY/Y5x9MK15pkYN4oq+5dGS22KALYfU5C+9r3IA=;
-        b=Y5eD1QBKNPMBDvEZ2X8GVrnYeds55EZ4ym9S/hmgvljuoIwR5Ld9zxSwhFjPn9xBEQ
-         H1VOjGCMH6cIul36VHOjj1QzBAoXfiIZL9opTDbuRZE188FIf8NbrxNy/B/AqYgcFFRH
-         cRNEw4cgoCJdOFUsJgMceE3jSOnIj8mvlnMKk+otmefmN5T+7fStwsoEYjuV1Cjf3CbC
-         YqZ9/5DXMQuPbchblmrdXPPtjeiXjy5PDZuEkSpsouLymvcXkOnczMWeH3q7UalR3q6d
-         N4j10WnkdbRsRk/YxtSUS9CMPm5h2w/xOmD2A7GJq0ab/P0ho17q0kjMomMILKjAGPOj
-         y67g==
-X-Forwarded-Encrypted: i=1; AL+hErHpLPMYy8hlbiECZOY4/Dgxya7QjCsw8/x4Y5tmVkYwvUcRAisbC4uTeP8M7rXmFNQMnWO9pUI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+OpK2kr6iWKKY78gXI4YWciXUbU4CvSESNujTuku09E015G2BS
-	cSWxq/VhgXKDJx24X8XyUFEaEYVrk3XvSiPC+H5F/ppTWIE6wm27lzFq
-X-Gm-Gg: AYBFou0pYFS6/UupdVa3TN8Avkgcvuh7rb0xdq3cl9LsJ9Ew1ivSNICz58FwLSPtpjN
-	ttsMxCSZn9nYeKj2ZhwZrnpq6kNsIjLw/Kr+OovCf/RZu33yhGe8Bmy2VYxlK5f9CBKCy2BLwca
-	a0eH00fkZ46xCqlAz5P0cca3rlzp3VrsoRVTUk4P+rDjO/RwaXSuatLGHxz13MXFaXTaTlzG0nV
-	XHGG9lM97babKgY3NXh73MWUUPGnmeSF2wEyJlzTYWZahJe58D1g4ia9ISOEuZ1akhGfDq//yhT
-	CuYr0wLHX9as6nO/ZsXigs9JCPs3FsSA9F8KzGqLjWWyuEd6hvkiXghnJ0xA8o7TIp7ahf5yvpI
-	t71N0KP9/BK3L5A3cUV7aLKcVy86DmVDwI88cqIZjTjNUQMxWsUuKcSKcfw5LV9gwfesxAmwMIH
-	ae8P3K4kK/8ckocfThdQcKktDI5MkVh9iWw7raLqY2ce11ZFJCHkiNMRb/ymfFaFGTYnkiBEAHS
-	0fUdmsL7qZcSmmwgAEQ/Ao6dT1Jyz7+CQ8NLmH1R5O4IzMbzwDI0lrgp0eutMQ0AILqq4IK1p3Z
-	6zpIxzaeiSB19FzHTwB3fEb1VPA=
-X-Received: by 2002:a05:6870:5d90:b0:4ad:5a7a:f7e5 with SMTP id 586e51a60fabf-4b75c761327mr2028436fac.18.1795010991987;
-        Wed, 18 Nov 2026 06:09:51 -0800 (PST)
-Received: from localhost ([2a03:2880:30ff:40::])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b74560e8b7sm2192339fac.17.2026.11.18.06.09.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 06:09:51 -0800 (PST)
-From: Daniel Zahka <daniel.zahka@gmail.com>
-Date: Wed, 18 Nov 2026 06:08:08 -0800
-Subject: [PATCH net-next v5 6/6] selftests: drv-net: psp: add rekey tests
+	dkim=pass (1024-bit key, unprotected) header.d=ugreen.com header.i=@ugreen.com header.a=rsa-sha256 header.s=pkvm2402 header.b=hq0F3Ch4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ugreen.com;
+	s=pkvm2402; t=1795011098;
+	bh=hojdwrIITI4zkYtiYiRVHN6AZWC3dKU7aVs/egORTGg=;
+	h=From:To:Subject:Date:Message-Id:MIME-Version;
+	b=hq0F3Ch4HWG43mYwPAbRu9DUkwqd8RXCP0fs92VY9oQDZsdK740Rv0SshOOiP+ZRU
+	 RsA0BUNbGwMtyt9VtQjMrmCILR7MJJSFP4kfQJXNI8PtxoJJTUyFjcl/75D56BFVy2
+	 2kw0IjL2SYmTiIq5wRDwSMuXFfqDfnt8nXxgcHEU=
+X-QQ-mid: esmtpgz11t1795011096t4302abd2
+X-QQ-Originating-IP: 6M+pst5Rwr46zckO5aa0WJLFAE3nxp7+63f6wWWgYrk=
+Received: from exmail.qq.com ( [14.155.219.48])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 18 Nov 2026 22:11:32 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 15232806219287984304
+From: Hanson Wang <hanson.wang@ugreen.com>
+To: netdev@vger.kernel.org
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	nic_swsd@realtek.com
+Subject: [RFC] r8169: possible TX completion ordering issue on arm64
+Date: Wed, 18 Nov 2026 22:11:30 +0800
+Message-Id: <20261118141130.2694997-1-hanson.wang@ugreen.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,511 +65,118 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-psp-v5-6-b9ec840e0296@gmail.com>
-References: <20261118-psp-v5-0-b9ec840e0296@gmail.com>
-In-Reply-To: <20261118-psp-v5-0-b9ec840e0296@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>, 
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, 
- Donald Hunter <donald.hunter@gmail.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, Shuah Khan <shuah@kernel.org>
-Cc: Daniel Zahka <daniel.zahka@gmail.com>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kselftest@vger.kernel.org, Willem de Bruijn <willemb@google.com>
-X-Mailer: b4 0.13.0
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpgz:ugreen.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: OA8qd4daQrT+6oqn275lL6SDcTpdszQh1bg6kSzR3bwZt+SEPdtq/vuT
+	UOnOIrg2YD0fjENpY4+kKgcpGh5NGFCCsqeMtpAaHQemaVbtdcjw9piL46jU360NUfiPdh7
+	8f2AL4xI7AHgxuehol9vRPR5x5lMoU+lTy+GAt2G5097nBMdO3unnzzGW2S2L06sbOMwu/M
+	OW2M72WvvTiCFNfbVvlxRY6VOd4plbjyJ63Gfa5z5r+0wB2OSplX7SayNARohO0YrXepIGz
+	PtU6yYZ+eKJsugGTZtlJUDX5wiZknYB8XMPADAYiBWaTeH1unWJlDJwPampw3fa0Z2aPjj3
+	fNyWTzg6cI9ZC7Y9wPUdCu9K4BCothAo1r9lTuKbJdtUY1sU7/xLDwPY3+5IvC18ZOw8X64
+	UA6JFQnK9as2N34CD0nM4adfeX1hOiJSHRTzfi5iHlAb4PEbNjtMG1wtRfuLcHG4gxKfShN
+	SO8R8NGf9eKKnFNv/2cees3r97Bay7OJIRVYjfSjINr5wN9HRFldwBInxbaLhtsSNnZjBxh
+	HCogBgOFAm49FEANu7xajwc3S3PHbzhsQfpx2Bcweu04ZwWJO1GmR3hW6RL/aQBnxfsxcxJ
+	BKgUfhOuf43GCXAS3M17YktK1+o/VQLn3ATsUhppotU9DLtjIhNmhtm8z0Ty4K7RdwQTxvN
+	UUbJwOvng6taMEIYcWJ1Sy7J+Zh7BdsatsaWNt5KJKnruuwTE728YnVFh0iGYs+NzzpL4tv
+	LxszpL8deEDF1nHx7lA5tEgKecf73hsVG2qdXPDGq0pTIoNBYUD8+ftGT9XRUnad/Yyl7yV
+	4AQPyT5nOzIiNzHYPlewx6Dj9WquHcIODQZw8jsjUPYnIiRAnceAHVV8tTmFEBYISPgxi6k
+	rxn1HGddvDPFwztbbfrZFY0FwVezcbLYFFFTunsOqBbiTra7Hkd3C+LxpGPw18l/xBbXbck
+	xjQHAf01nVOIoBy7AaOGAvD0ti3tDS7gTORbIluidkK9Xb+xRWf6NU/igs9m0YfkXG8q4Pu
+	K2bXvPbnf057+fYm289X9HNspQb1ACJMI4o64chf4mv2dn6lV85wgjdPtzgge96+1aPBCrs
+	Q==
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+X-QQ-RECHKSPAM: 0
 
-Add testcases for rekeying psp connections.
+Hi,
 
-Tests include coverage for different cases where rx-assoc and tx-assoc
-should fail based on mismatched psp version and psp state.
+We observed four crashes in dql_completed() on an RK3588-based arm64
+board (UGREEN RK3588C DH4300Plus).  The NIC is an RTL8125B, XID 641,
+at PCI 0002:21:00.0, linked at 2.5Gbps.  The kernel is a vendor
+6.1.84 build (6.1.84 #d64bed19bdfd).  We compared the cur_tx publish
+and read with current mainline and that part looks the same:
+rtl8169_start_xmit() still does smp_wmb() followed by WRITE_ONCE(),
+and rtl_tx() still does READ_ONCE() before reading the descriptor.
+The vendor tree still calls netdev_completed_queue() directly; mainline
+has since switched that call to netif_subqueue_completed_wake().  We
+have not reproduced this on mainline.
 
-Add rpc endpoints for tx-assoc, rx-assoc, and key-rotate netlink calls
-to the psp_responder.
+All four oopses stop at the same place:
 
-Reviewed-by: Willem de Bruijn <willemb@google.com>
-Signed-off-by: Daniel Zahka <daniel.zahka@gmail.com>
----
-v5:
-- drop the fail-fast change to _recv_careful(); it is a pre-existing helper
+  kernel BUG at lib/dynamic_queue_limits.c:27!
+  Internal error: Oops - BUG: 00000000f2000800 [#1] SMP
+  pc : dql_completed+0x13c/0x14c
+  lr : rtl8169_poll+0x3a0/0x54c [r8169]
 
-v4:
-- reuse _recv_careful() and _req_echo() now in net-next instead of
-  redefining them
+One of them, from idle softirq:
 
-v3:
-- drop test for rx rekey rejected without a device key rotation
-- fail fast in _recv_careful() if the peer closes the connection
-- in the basic rekey tests, run traffic across a rotation before the
-  rekey, and rotate again after it to verify the new key is in use
-- drop unneeded key rotation from rekey_rx_version_mismatch()
-- carry the key length in the responder's assoc message instead of
-  deriving it from the version
+  CPU: 2 PID: 0 Comm: swapper/2 Tainted: G        W   E     6.1.84 #d64bed19bdfd
+  Hardware name: UGREEN RK3588C DH4300Plus Board (DT)
+  Call trace:
+   dql_completed+0x13c/0x14c
+   __napi_poll+0x3c/0x1d0
+   net_rx_action+0x16c/0x3a0
+   __do_softirq+0x120/0x338
+   ____do_softirq+0x14/0x20
+   call_on_irq_stack+0x24/0x40
+   do_softirq_own_stack+0x20/0x30
+   __irq_exit_rcu+0x98/0xc0
+   irq_exit_rcu+0x14/0x20
+   el1_interrupt+0x48/0xa0
+   el1h_64_irq_handler+0x14/0x20
+   el1h_64_irq+0x74/0x78
+   arch_cpu_idle+0x14/0x40
+   ...
+  Kernel panic - not syncing: Oops - BUG: Fatal exception in interrupt
 
-v2:
-- add tests for rekeys rejected due to psp state and version mismatch
-- add test for rx rekey rejected without a device key rotation
-- add rx-assoc, tx-assoc, and key-rotate rpcs to psp_responder
----
- tools/testing/selftests/drivers/net/psp.py         | 232 ++++++++++++++++++++-
- .../testing/selftests/drivers/net/psp_responder.c  | 119 +++++++++++
- 2 files changed, 349 insertions(+), 2 deletions(-)
+Another is the same pc/lr from process context (ctl_serv), entering
+softirq via el0_interrupt.  Two of the four were preceded by
+"NETDEV WATCHDOG: eth0 (r8169): transmit queue 0 timed out" and
+"ASPM disabled on Tx timeout".  The other two were not.
 
-diff --git a/tools/testing/selftests/drivers/net/psp.py b/tools/testing/selftests/drivers/net/psp.py
-index a6b46acf6bf8..67577f722b3b 100755
---- a/tools/testing/selftests/drivers/net/psp.py
-+++ b/tools/testing/selftests/drivers/net/psp.py
-@@ -28,6 +28,10 @@ from lib.py import ip
- TCP_ULP = 31
- 
- 
-+_PSP_MAX_KEY_LEN = 32
-+_PSP_ASSOC_MSG = f'!IBB2x{_PSP_MAX_KEY_LEN}s'
-+
-+
- def _get_outq(s):
-     one = b'\0' * 4
-     outq = fcntl.ioctl(s.fileno(), termios.TIOCOUTQ, one)
-@@ -80,6 +84,33 @@ def _close_psp_conn(cfg, s):
-     _close_conn(cfg, s)
- 
- 
-+def _recv_all(s, target):
-+    data = b''
-+    while len(data) < target:
-+        chunk = s.recv(target - len(data))
-+        if not chunk:
-+            raise KsftFailEx(f"peer closed after {len(data)} of {target} bytes")
-+        data += chunk
-+    return data
-+
-+
-+def _remote_rx_assoc(cfg):
-+    _send_with_ack(cfg, b'rx assoc\0')
-+    msg = _recv_all(cfg.comm_sock, struct.calcsize(_PSP_ASSOC_MSG))
-+    spi, version, key_len, key = struct.unpack(_PSP_ASSOC_MSG, msg)
-+    return version, {'spi': spi, 'key': key[:key_len]}
-+
-+
-+def _remote_tx_assoc(cfg, version, rx):
-+    msg = struct.pack(_PSP_ASSOC_MSG, rx['spi'], version, len(rx['key']),
-+                      rx['key'])
-+    _send_with_ack(cfg, b'tx assoc\0' + msg)
-+
-+
-+def _remote_key_rotate(cfg):
-+    _send_with_ack(cfg, b'key rotate\0')
-+
-+
- def _spi_xchg(s, rx):
-     s.send(struct.pack('I', rx['spi']) + rx['key'])
-     tx = s.recv(4 + len(rx['key']))
-@@ -150,6 +181,21 @@ def _check_data_outq(s, exp_len, force_wait=False):
-     ksft_eq(outq, exp_len)
- 
- 
-+def _psp_txrx(cfg, s, rounds, sent=0):
-+    """Send data both ways, and return the total bytes sent to the peer"""
-+    sent += _send_careful(cfg, s, rounds)
-+    _check_data_rx(cfg, sent)
-+    _req_echo(cfg, s)
-+    return sent
-+
-+
-+def _require_version(cfg, version):
-+    """Skip the test unless the device supports the given PSP version"""
-+    name = cfg.pspnl.consts["version"].entries_by_val[version].name
-+    if name not in cfg.psp_info['psp-versions-cap']:
-+        raise KsftSkipEx("PSP version not supported", name)
-+
-+
- def _get_stat(cfg, key):
-     return cfg.pspnl.get_stats({'dev-id': cfg.psp_dev_id})[key]
- 
-@@ -510,6 +556,186 @@ def _data_basic_send(cfg, version, ipver):
-     _close_psp_conn(cfg, s)
- 
- 
-+def _rekey_rx(cfg, s, version, sent):
-+    """Rekey the Rx direction, running traffic after each step"""
-+    rx_assoc = cfg.pspnl.rx_assoc({"version": version,
-+                                   "dev-id": cfg.psp_dev_id,
-+                                   "sock-fd": s.fileno()})
-+    sent = _psp_txrx(cfg, s, 1, sent)
-+
-+    _remote_tx_assoc(cfg, version, rx_assoc['rx-key'])
-+    return _psp_txrx(cfg, s, 1, sent)
-+
-+
-+def _rekey_tx(cfg, s, sent):
-+    """Rekey the Tx direction, running traffic after each step"""
-+    version, tx = _remote_rx_assoc(cfg)
-+    sent = _psp_txrx(cfg, s, 1, sent)
-+
-+    cfg.pspnl.tx_assoc({"dev-id": cfg.psp_dev_id,
-+                        "version": version,
-+                        "tx-key": tx,
-+                        "sock-fd": s.fileno()})
-+    return _psp_txrx(cfg, s, 1, sent)
-+
-+
-+def rekey_rx_incomplete(cfg):
-+    """Test rejecting Rx rekey until the PSP connection is established"""
-+    psp_ver = 0
-+    _init_psp_dev(cfg)
-+
-+    with _make_lo_conn() as s:
-+        assoc = cfg.pspnl.rx_assoc({"version": psp_ver,
-+                                    "dev-id": cfg.psp_dev_id,
-+                                    "sock-fd": s.fileno()})
-+
-+        # Reject rekey before Tx state is configured.
-+        with ksft_raises(NlError) as cm:
-+            cfg.pspnl.rx_assoc({"version": psp_ver,
-+                                "dev-id": cfg.psp_dev_id,
-+                                "sock-fd": s.fileno()})
-+        ksft_eq(cm.exception.nl_msg.error, -errno.EBUSY)
-+
-+        cfg.pspnl.tx_assoc({"dev-id": cfg.psp_dev_id,
-+                            "version": psp_ver,
-+                            "tx-key": assoc['rx-key'],
-+                            "sock-fd": s.fileno()})
-+
-+        # Reject rekey until authenticated PSP traffic has been received.
-+        with ksft_raises(NlError) as cm:
-+            cfg.pspnl.rx_assoc({"version": psp_ver,
-+                                "dev-id": cfg.psp_dev_id,
-+                                "sock-fd": s.fileno()})
-+        ksft_eq(cm.exception.nl_msg.error, -errno.EBUSY)
-+
-+
-+def rekey_tx_incomplete(cfg):
-+    """Test rejecting Tx rekey until the PSP connection is established"""
-+    psp_ver = 0
-+    _init_psp_dev(cfg)
-+
-+    with _make_lo_conn() as s:
-+        assoc = cfg.pspnl.rx_assoc({"version": psp_ver,
-+                                    "dev-id": cfg.psp_dev_id,
-+                                    "sock-fd": s.fileno()})
-+
-+        cfg.pspnl.tx_assoc({"dev-id": cfg.psp_dev_id,
-+                            "version": psp_ver,
-+                            "tx-key": assoc['rx-key'],
-+                            "sock-fd": s.fileno()})
-+
-+        # Reject rekey until authenticated PSP traffic has been received.
-+        with ksft_raises(NlError) as cm:
-+            cfg.pspnl.tx_assoc({"dev-id": cfg.psp_dev_id,
-+                                "version": psp_ver,
-+                                "tx-key": assoc['rx-key'],
-+                                "sock-fd": s.fileno()})
-+        ksft_eq(cm.exception.nl_msg.error, -errno.EBUSY)
-+
-+
-+def rekey_rx_version_mismatch(cfg):
-+    """Test rejecting an Rx rekey whose version does not match socket state"""
-+    _init_psp_dev(cfg)
-+    _require_version(cfg, 1)
-+
-+    s = _establish_psp_conn(cfg, 0)
-+    try:
-+        _psp_txrx(cfg, s, 1)
-+
-+        with ksft_raises(NlError) as cm:
-+            cfg.pspnl.rx_assoc({"dev-id": cfg.psp_dev_id,
-+                                "version": 1,
-+                                "sock-fd": s.fileno()})
-+        ksft_eq(cm.exception.nl_msg.error, -errno.EINVAL)
-+    finally:
-+        _close_psp_conn(cfg, s)
-+
-+
-+def rekey_tx_version_mismatch(cfg):
-+    """Test rejecting a Tx rekey whose version does not match socket state"""
-+    _init_psp_dev(cfg)
-+    _require_version(cfg, 1)
-+
-+    s = _establish_psp_conn(cfg, 0)
-+    try:
-+        _psp_txrx(cfg, s, 1)
-+
-+        with ksft_raises(NlError) as cm:
-+            cfg.pspnl.tx_assoc({"dev-id": cfg.psp_dev_id,
-+                                "version": 1,
-+                                "tx-key": {'spi': 0x12345678,
-+                                           'key': b'\xa5' * 32},
-+                                "sock-fd": s.fileno()})
-+        ksft_eq(cm.exception.nl_msg.error, -errno.EINVAL)
-+    finally:
-+        _close_psp_conn(cfg, s)
-+
-+
-+def _get_psp_ver_variants():
-+    for ver in range(4):
-+        yield KsftNamedVariant(f"v{ver}", ver)
-+
-+
-+@ksft_variants(_get_psp_ver_variants())
-+def rekey_rx_basic(cfg, version):
-+    """Test rekeying the Rx key of an established connection"""
-+    _init_psp_dev(cfg)
-+
-+    s = _establish_psp_conn(cfg, version)
-+    try:
-+        data_len = _psp_txrx(cfg, s, 1)
-+        cfg.pspnl.key_rotate({"id": cfg.psp_dev_id})
-+        data_len = _psp_txrx(cfg, s, 1, data_len)
-+        data_len = _rekey_rx(cfg, s, version, data_len)
-+        cfg.pspnl.key_rotate({"id": cfg.psp_dev_id})
-+        _psp_txrx(cfg, s, 1, data_len)
-+    finally:
-+        _close_psp_conn(cfg, s)
-+
-+
-+@ksft_variants(_get_psp_ver_variants())
-+def rekey_tx_basic(cfg, version):
-+    """Test rekeying the Tx key of an established connection"""
-+    _init_psp_dev(cfg)
-+
-+    s = _establish_psp_conn(cfg, version)
-+    try:
-+        data_len = _psp_txrx(cfg, s, 1)
-+        _remote_key_rotate(cfg)
-+        data_len = _psp_txrx(cfg, s, 1, data_len)
-+        data_len = _rekey_tx(cfg, s, data_len)
-+        _remote_key_rotate(cfg)
-+        _psp_txrx(cfg, s, 1, data_len)
-+    finally:
-+        _close_psp_conn(cfg, s)
-+
-+
-+@ksft_variants(_get_psp_ver_variants())
-+def rekey_both_sides(cfg, version):
-+    """Test rekeying both directions"""
-+    _init_psp_dev(cfg)
-+
-+    s = _establish_psp_conn(cfg, version)
-+    try:
-+        data_len = _psp_txrx(cfg, s, 10)
-+
-+        cfg.pspnl.key_rotate({"id": cfg.psp_dev_id})
-+        _remote_key_rotate(cfg)
-+
-+        # first, rx then tx
-+        data_len = _rekey_rx(cfg, s, version, data_len)
-+        data_len = _rekey_tx(cfg, s, data_len)
-+
-+        cfg.pspnl.key_rotate({"id": cfg.psp_dev_id})
-+        _remote_key_rotate(cfg)
-+
-+        # now, tx then rx
-+        data_len = _rekey_tx(cfg, s, data_len)
-+        _rekey_rx(cfg, s, version, data_len)
-+    finally:
-+        _close_psp_conn(cfg, s)
-+
-+
- def __bad_xfer_do(cfg, s, tx, version='hdr0-aes-gcm-128'):
-     # Make sure we accept the ACK for the SPI before we seal with the bad assoc
-     _check_data_outq(s, 0)
-@@ -1209,7 +1435,8 @@ def main() -> None:
-                                                           cfg.comm_port),
-                                                          timeout=1)
- 
--                cases = [data_basic_send, data_mss_adjust]
-+                cases = [data_basic_send, data_mss_adjust,
-+                         rekey_rx_basic, rekey_tx_basic, rekey_both_sides]
- 
-                 if has_cont:
-                     cases += [
-@@ -1225,7 +1452,8 @@ def main() -> None:
-                     ]
- 
-                 ksft_run(cases=cases, globs=globals(),
--                         case_pfx={"dev_", "data_", "assoc_", "removal_"},
-+                         case_pfx={"dev_", "data_", "assoc_", "rekey_",
-+                                   "removal_"},
-                          args=(cfg, ))
- 
-                 cfg.comm_sock.send(b"exit\0")
-diff --git a/tools/testing/selftests/drivers/net/psp_responder.c b/tools/testing/selftests/drivers/net/psp_responder.c
-index 411a23be78d5..669956e0d7a4 100644
---- a/tools/testing/selftests/drivers/net/psp_responder.c
-+++ b/tools/testing/selftests/drivers/net/psp_responder.c
-@@ -5,6 +5,7 @@
- #include <sys/poll.h>
- #include <sys/socket.h>
- #include <sys/time.h>
-+#include <arpa/inet.h>
- #include <netinet/in.h>
- #include <unistd.h>
- 
-@@ -23,6 +24,7 @@ static bool should_quit;
- struct opts {
- 	int port;
- 	int ifindex;
-+	int devid;
- 	bool verbose;
- };
- 
-@@ -141,6 +143,108 @@ static void send_str(int sock, int value)
- 	send(sock, buf, ret + 1, MSG_WAITALL);
- }
- 
-+struct assoc_msg {
-+	__be32 spi;
-+	__u8 version;
-+	__u8 key_len;
-+	__u8 pad[2];
-+	char key[PSP_MAX_KEY_LEN];
-+};
-+
-+static void
-+handle_rx_assoc(struct ynl_sock *ys, int data_sock, int comm_sock)
-+{
-+	struct assoc_msg msg = {};
-+	unsigned int key_len;
-+	__u32 spi;
-+
-+	if (data_sock < 0) {
-+		fprintf(stderr, "WARN: rx assoc but no data sock\n");
-+		send_err(comm_sock);
-+		return;
-+	}
-+
-+	if (rx_assoc(ys, &spi, msg.key, &key_len, data_sock)) {
-+		fprintf(stderr, "ERROR: rx_assoc() failed\n");
-+		send_err(comm_sock);
-+		return;
-+	}
-+
-+	msg.spi = htonl(spi);
-+	msg.version = psp_vers.rx;
-+	msg.key_len = key_len;
-+	send_ack(comm_sock);
-+	send(comm_sock, &msg, sizeof(msg), MSG_WAITALL);
-+}
-+
-+static void
-+handle_tx_assoc(struct ynl_sock *ys, char *data, int data_sock, int comm_sock)
-+{
-+	struct assoc_msg msg;
-+
-+	if (data_sock < 0) {
-+		fprintf(stderr, "WARN: tx assoc but no data sock\n");
-+		send_err(comm_sock);
-+		return;
-+	}
-+
-+	memcpy(&msg, data, sizeof(msg));
-+	if (msg.key_len > PSP_MAX_KEY_LEN) {
-+		fprintf(stderr, "ERROR: tx assoc key too long\n");
-+		send_err(comm_sock);
-+		return;
-+	}
-+
-+	if (tx_assoc(ys, msg.version, ntohl(msg.spi), msg.key, msg.key_len,
-+		     data_sock)) {
-+		fprintf(stderr, "ERROR: tx_assoc() failed!\n");
-+		send_err(comm_sock);
-+		return;
-+	}
-+
-+	send_ack(comm_sock);
-+}
-+
-+static int rotate_key(struct ynl_sock *ys, int devid)
-+{
-+	struct psp_key_rotate_rsp *rsp;
-+	struct psp_key_rotate_req *req;
-+
-+	req = psp_key_rotate_req_alloc();
-+
-+	psp_key_rotate_req_set_id(req, devid);
-+
-+	rsp = psp_key_rotate(ys, req);
-+	psp_key_rotate_req_free(req);
-+
-+	if (!rsp) {
-+		perror("ERROR: failed to rotate key");
-+		return -1;
-+	}
-+
-+	psp_key_rotate_rsp_free(rsp);
-+
-+	return 0;
-+}
-+
-+static void
-+handle_key_rotate(struct ynl_sock *ys, struct opts *opts, int comm_sock)
-+{
-+	if (opts->devid < 0) {
-+		fprintf(stderr, "WARN: key rotate but no PSP device\n");
-+		send_err(comm_sock);
-+		return;
-+	}
-+
-+	if (rotate_key(ys, opts->devid)) {
-+		fprintf(stderr, "ERROR: rotate_key() failed\n");
-+		send_err(comm_sock);
-+		return;
-+	}
-+
-+	send_ack(comm_sock);
-+}
-+
- static void
- run_session(struct ynl_sock *ys, struct opts *opts,
- 	    int server_sock, int comm_sock)
-@@ -233,6 +337,9 @@ run_session(struct ynl_sock *ys, struct opts *opts,
- 			match;						\
- 		})
- 
-+#define cmd_w_msg(_name, _type)						\
-+		(off >= sizeof(_name) + sizeof(_type) && cmd(_name))
-+
- 			do {
- 				consumed = false;
- 
-@@ -247,6 +354,16 @@ run_session(struct ynl_sock *ys, struct opts *opts,
- 						fprintf(stderr, "WARN: echo but no data sock\n");
- 					send_ack(comm_sock);
- 				}
-+				if (cmd("rx assoc"))
-+					handle_rx_assoc(ys, data_sock,
-+							comm_sock);
-+				if (cmd_w_msg("tx assoc", struct assoc_msg)) {
-+					handle_tx_assoc(ys, buf, data_sock,
-+							comm_sock);
-+					__consume(sizeof(struct assoc_msg));
-+				}
-+				if (cmd("key rotate"))
-+					handle_key_rotate(ys, opts, comm_sock);
- 				if (cmd("data close")) {
- 					if (data_sock >= 0) {
- 						close(data_sock);
-@@ -277,6 +394,7 @@ run_session(struct ynl_sock *ys, struct opts *opts,
- 				}
- 				if (cmd("exit"))
- 					should_quit = true;
-+#undef cmd_w_msg
- #undef cmd
- 
- 				if (!consumed) {
-@@ -472,6 +590,7 @@ int main(int argc, char **argv)
- 		}
- 	}
- 	psp_dev_get_list_free(dev_list);
-+	opts.devid = devid;
- 
- 	if (opts.ifindex && devid < 0)
- 		fprintf(stderr,
+dql_completed() is called as (dql, count).  At the BUG the registers
+are:
 
--- 
-2.52.1
+  x1 = 0x00000570   x2 = 0x00000534   delta = 0x3c
+  x1 = 0x000007de   x2 = 0x000007a2   delta = 0x3c
+  x1 = 0x000009d8   x2 = 0x0000099c   delta = 0x3c
+  x1 = 0x00001091   x2 = 0x00001055   delta = 0x3c
 
+The failing check is BUG_ON(count > num_queued - num_completed).  The
+branch goes straight to the BRK, so x1 is still count and x2 is still
+num_queued - num_completed.  In every case the completion count is
+0x3c = 60 = ETH_ZLEN bytes ahead of the outstanding BQL count, which
+is one short frame padded to the minimum length.  RTL_GIGA_MAC_VER_63
+pads such frames to ETH_ZLEN.  We have not established why the counts
+diverge.
+
+While looking at the TX path I noticed that rtl8169_start_xmit()
+publishes the new ring index with:
+
+  smp_wmb();
+  WRITE_ONCE(tp->cur_tx, tp->cur_tx + frags + 1);
+
+and rtl_tx() then does:
+
+  while (READ_ONCE(tp->cur_tx) != dirty_tx) {
+          status = le32_to_cpu(READ_ONCE(tp->TxDescArray[entry].opts1));
+
+On arm64 a control dependency does not order the later load of opts1,
+or the later read of the BQL counters, against the load of cur_tx.
+smp_wmb() orders the writer's stores, but the reader has no pairing
+barrier.  A CPU could observe the new cur_tx, still see DescOwn clear
+on a descriptor that has not been handed to the hardware, and account
+that skb in netdev_completed_queue() before __netdev_sent_queue() is
+visible.  That would trip this BUG_ON.  I may be missing an ordering
+guarantee that already covers this.
+
+Would an acquire load on the reader be appropriate here?
+
+  -     while (READ_ONCE(tp->cur_tx) != dirty_tx) {
+  +     while (smp_load_acquire(&tp->cur_tx) != dirty_tx) {
+
+This is a question, not a fix.  We have not A/B tested it, and we have
+not reproduced the oops on mainline.
+
+Thanks,
+Hanson Wang
