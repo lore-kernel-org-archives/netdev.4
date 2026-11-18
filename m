@@ -1,99 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.73
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795016034;
-	b=bsNXgs0Q1kg1suWuZB73gdb+MaC+7SJt53FhNID7kyF6VBj+f2KPTi9W7p7TeZqSnVkH
-	 pltoVNDUSXscX6qvmcIna+TwmSAgZe4oRtdqrVyzVDVMevX90h1znRsb9cjkgBYMpKXDX
-	 +Y7A55beWiu31cIjhP4ZE1VmY4JnOJAGkFlRDBLOsVOBAHmdeRPLmpAvw5rhb0vpRBp7N
-	 clJ1M9J9Vns9J44zc5DkE1fVBbNnPCQli/sM3BWDmUkzU6hqLXBCo/4RAQjDrmU2/evoG
-	 cUePtKcKymY5LuXso26X+lbMr6nIgbaJ43rHy0Zn9Xbgl+6Iz5wHX3dSNm3E+gsqqXQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016034;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=lWrCVJWLesJnIcVUok2QlZd+ly33TndKetEhrY+zgk4=;
-	b=EjotKdyEwjH+t0iDhipGb7eVtjx4OY8R9ikpwAWBsxola1wK0F5DFn1NMu5njnxf8a9R
-	 MO+ZD/EADgNvSvk4A828bJMkEA8grsSZVK2sz2Rr/L8ULvbxujeIR/aq2V1c/99oNDfuK
-	 HIktI7ra+o68tI6Nod+oyzjI+SqIcXkHqQmsTJfh6I3ektxEpcwLR1/kK0JCX8wX29hfP
-	 peO2gH2grvaPSQd6DKtpn9JWtRr7wPilfDHndDboKYxKc8odujKJw/d4yx8GU3gTkOYLY
-	 1utLXHMRFo2utls8IaIQ9+xEP2MKVY0Weh79MgqVTah8qKMJVuR1Q678m5Zv7R5lyTQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TVXTjvFP;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.73
-Received: from mail-lr2-f9.google.com (mail-lr2-f9.google.com [74.125.230.73])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795016122;
+	b=BpdoUJcIfnAKaqQVOkWesOmOeP66C2dJiaZYlqQRd7nNhRsAggyCqOxjn1mr591oIAlf
+	 ZcGjUgSLYcZ5nSy4exn7TPE1rvlWDp/GKUy7e5hpe7YQ2OE+crNH8IMVoXw0P/F2mviHX
+	 tqlkOa6eQYE/QPt/VJbYZ9V0CGUPrsJKPcITea/zZ0OOjbSrtbVv7H+gQ1tBr2ASP5/lf
+	 VRO0WIxUc1LciVZTPvOW4tsYgJwa6OVrLyrlcLWHYNgu9os+0UekSSy9XVQ+5eS23DqbZ
+	 La6TWqZd95EhIczDYmLumats837RA4oks++DHcQC5b//FqrkhEKudx8iqGMO4oKnIbg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016122;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
+	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
+	 Content-Type;
+	bh=2JOgQsZtcfZfp5n0OL9wK42UVY0JMJIOIn5ME9tFFo0=;
+	b=cRzXpXi0NeLH3woIGEg00xx3xLfnVKotqA3VUg2LXD6HXxwYlnOOfJsNYsqFFwzpVQww
+	 IbGIAPGxLmH9HgeSCd3zKNTLL88RquEs0BZFThAv6lzxy8+tDmQU3VGf78fcXia3j+0Se
+	 2TxAczvml1tA3Pkdmon6E+XEFMiXwHN6p3idglTTXDo0pzmaRPTnVMuahPEMvrrwvcfoF
+	 OdmwXXZEOagjLpUd2R+uGJExPILFpQWqjZBmo5QjRmDpnbIfua4rCO70L3vgd8s4m9xY8
+	 f5qVNJhMv03eRO3R+z/mRdRbwolJlDbgJYBL4abF1JPnpXAaGPtvYHoeNHI7HDGi7qw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ssi.bg;
+	spf=pass smtp.mailfrom=ssi.bg;
+	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=BLjMYauq;
+	arc=none smtp.remote-ip=193.238.174.39
+Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3303606A32A
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:33:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3303606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 232D8606A31C;
+	Wed, 18 Nov 2026 15:35:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 232D8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TVXTjvFP
-Received: by mail-lr2-f9.google.com with SMTP id 38308e7fff4ca-3ad31c004d8so5593481fa.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:33:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795016032; cv=none;
-        d=google.com; s=arc-20260327;
-        b=SQS6rVGWFxdTCpx6CxUIb6aOqDR4NuH6RtC69VlMKX7Yi75gHg6LX8tH1jrh9NDgD/
-         dhwJifQoMkZCe6N6ZSZD22q1x36Qj/VNcrxCjvef4zMgPWApGBf/6fN8YZl8XCOeayR0
-         CyGtYGfJnv6bJo3/i+PgjNqj2PYq8XCRWYnXevXRWy4mPMdlZot26vq2Ay/35PnmQYK5
-         sHfwjy2LCwkTDLV3M3F/1Cr56wKzQZvDUpuSFxeZWrLOacH6dGnhQmPEIrT+ELhfaCHs
-         EsKaXQt6uw+OK6PUVJjez/VFuFBJebYlsC4ZvOsDRqM+q4q/SL2sBclDF6YcV8FokGuc
-         5ZXg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=lWrCVJWLesJnIcVUok2QlZd+ly33TndKetEhrY+zgk4=;
-        fh=VNT6R6+rPyaFaQ2ePUNlQljxIW2+ymjSELrWHRDGzZU=;
-        b=CjW1qHdtUOTynwtkF+crW/WvQeBeI28uuYlVaTmOpZI6j0Li3EILsTMYrv3exsownl
-         WHZNAZ6RgjAtXl7Yb1RoHrMVxCXx7yCQGg3/kGi+o94gotsOr1acaW+3SxJRC2AtxGTp
-         E1Dppba2X7ow89A+X5F2EJizhn5uNgrU6XfisNde24Vh6ZXYeSNEZ0wzLxaE2nA4mHTo
-         zTQ+UmvG1SkuF92T4KSkQXDM/dT/fdJA8ULIxA19u4UUgNDR6rGtQutVlZux+xL34ppd
-         2S/wJBGjqbvuh6IieOhXMBAyEkXtQmK2HO08A5LwAcTwsbYyDAMVfp1Y4uxCBEPmXCPW
-         cWJg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795016032; x=1795620832; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lWrCVJWLesJnIcVUok2QlZd+ly33TndKetEhrY+zgk4=;
-        b=TVXTjvFPXhzc/bLEx+ZoM6GYbNLHu0lXds4uZhiPohiurv43e2An51C/moLDZn6r6p
-         j3dJb1dPwshv3xWv43juKXtN4ffDqcgfrVWnA3rozDpb9p+Yu/25cE2FwpGjOjelZj8x
-         7ri4xTBUOyO+x4rYdHCFN8/EcBNmL2FX85iQTCkIc/1RYmvMbHPPDHw8UFiffINAIMNr
-         kSy2zo5qljS4cqeNaGTla4fgwYX12ykGsocfKTdllG2dD5hxX4J/Ip3Kz8ONcd5O3bFV
-         ByBMEH5LorYevTS1+th5TTWR30f/G+ClveLX1sLMV2CSLC1igIvViMFEunbJH0N6R39k
-         v/0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795016032; x=1795620832;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lWrCVJWLesJnIcVUok2QlZd+ly33TndKetEhrY+zgk4=;
-        b=fDEr3bv/K1lNM0Jb5AagImFIg9BGKPQ/eSCN3eu5hmU5uXTrLOTBRks89ou2VZZExt
-         SL8TE8WpyZlmCquTvJ+sclW3r8Gkb1H7WnGSkgLPvpeV4xM4YbLEBmxEfw1XI5jMxm2Z
-         eYL7y1Is2UEYS/34u8ATkb++yB4EegkGeoOteUf8XSxVRguwoMmtu0aP1EsKGjRVi/5I
-         mFJD/oeO4Zmv9Y+eh7QjiZ/bGGUfcu6O0d4gMHTdB7KXIbBCG9/Ks+5ohjySU6rrexNN
-         ERnpTIB39BRcsKak0z0wyPnGoyXMuGLdoJ6tRklTabcuJo7b+66WmIQG6AnLpqtcIT0Q
-         yoSA==
-X-Gm-Message-State: APuU4Z9t1j9+1QpFSj5qTJc/YsmmAB/lTvXSmkLHrX9mqLSJNTMTv2Vr
-	TDSxy0EbnT3tl0x00CqHYXSkT+L8WP/CHPOwTbzbm3wT6b8oJghD5CmS+uVhBZQR4yQQcF4kr50
-	uCs6l3kHMhfhIxcrxUW3SUx7yrFLqTzc=
-X-Gm-Gg: AYBFou38PyEZIXtKRJSEjdh5kuocDaSEqUA/ntflyV+lW2xQEDyyBPnEZOXOe5SaRcn
-	fW8LTsSjfwC00qHf/qhN8UHlvMjrnuAB+ZvkK55oj1g3dpD7GLuDRiU05DUaV+E3XLAYVoui3gL
-	FuSvdWE6TiR4dFu4bQSX1RbkZTSh1Ynptsxk2H/x3ZKIoGFXhQcvRjJmIjHfLlv5O1lTUUGDw12
-	8YbRLx9uKzVoD1Umicj2Fr0nJTI6fvU0syVAbnlKMkLT16Pt3WiwgnAorbQTROMmDbEBgii5zRM
-	YvMKRCrtT02zbpUFRA9Y/KN+vOl3iYVmIoxIMmLflugCy23YQ73lsgL+ni6ajeasqOi3K8J86aX
-	0d1/cljppSa7BClKNUXdoPabGEy9FnI8BKnURd3Y=
-X-Received: by 2002:a05:6512:10d4:b0:5bf:a12b:9ba8 with SMTP id
- 2adb3069b0e04-5c1aa2a82b2mr954623e87.65.1795016031617; Wed, 18 Nov 2026
- 07:33:51 -0800 (PST)
+	dkim=pass (4096-bit key) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=BLjMYauq
+Received: from mx.ssi.bg (localhost [127.0.0.1])
+	by mx.ssi.bg (Potsfix) with ESMTP id 3C93621FD9;
+	Wed, 18 Nov 2026 17:35:19 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
+	:content-type:content-type:date:from:from:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
+	 bh=2JOgQsZtcfZfp5n0OL9wK42UVY0JMJIOIn5ME9tFFo0=; b=BLjMYauqVQSW
+	tnMQ8k5DmqVfsFU0VQlQmqbI6x75Ohj0f/SlcUe8GFOxUroMCv7JqYLNDnhpc+i4
+	0ArRVHJB5BupqP13kHBXDkp00yDMZU0zErMif+97wJMD/8hnr2d2zpESKldDdMSq
+	XVTuWUImozBfKgMLoDvOWj0Srtj2KUraigDVgbg27bGpknqm6P7rljAG49YCzpBV
+	TOnWpzTboZ+KLhR5L8rKZkHrOVSu7XIpLjfBogPWZfsbzLFoDEtRBwsoZZ7dDu5L
+	NXn92cmJpTVckUVwNN6Q3kP51gdZKOJfsY9FsLkZ4iz5NYqE+5jV/Tn4lAhOiI3o
+	OqsasnSbAPeRAiAZ/n8Tf4qAJuidyu2VKTBVpkMLEty611Id3JGIr1valdoSRPzb
+	a7S78RGu5Ha4kbBwH9JPXw/5HUK0vZ6ZXhD0A6dUt9FDrLMpST7t5TlVFGNCjMpH
+	oh9rOSKcxC5mCfU9LtlIzfQzQM5C8hsmmjwvYYHdp3XIDDzrUU6ddJBMOldjD8Ab
+	jeoZ+HwlXjGn66OISWl3XwtNlQmbXJbD+Ed7RdjpLyIqBwOG/RC+S1wxX+z23FcX
+	oOdvaziBGN0WV9Dv4wApTx640u2GrTwAweKb5VI3/bhkosjMeri+zYf/kR8BpKBX
+	cr/eBDtmeCwBgycAi323j6pHqI6yA/8=
+Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
+	by mx.ssi.bg (Potsfix) with ESMTPS;
+	Wed, 18 Nov 2026 17:35:19 +0200 (EET)
+Received: from ja.ssi.bg (unknown [213.16.62.126])
+	by box.ssi.bg (Potsfix) with ESMTPSA id D14A3608B0;
+	Wed, 18 Nov 2026 17:35:18 +0200 (EET)
+Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
+	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AIFZIui079866;
+	Wed, 18 Nov 2026 17:35:18 +0200
+Date: Wed, 18 Nov 2026 17:35:18 +0200 (EET)
+From: Julian Anastasov <ja@ssi.bg>
+To: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+cc: Pablo Neira Ayuso <pablo@netfilter.org>, Simon Horman <horms@verge.net.au>,
+        Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+        lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+        netdev@vger.kernel.org, coreteam@netfilter.org
+Subject: Re: [PATCH nf v5] ipvs: ftp: do not link expectations to unconfirmed
+ conntracks
+In-Reply-To: <20261118151726.2509853-1-theodorlarionov@gmail.com>
+Message-ID: <8d0623c6-a7a5-5fab-f233-3356468b78e2@ssi.bg>
+References: <20261118151726.2509853-1-theodorlarionov@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,109 +81,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115152408.48205-1-shlomojune6@gmail.com> <179492922969.3136.7887984434455212903@kernel.org>
-In-Reply-To: <179492922969.3136.7887984434455212903@kernel.org>
-From: J4f J4f <shlomojune6@gmail.com>
-Date: Wed, 18 Nov 2026 23:33:39 +0800
-X-Gm-Features: AclHuK_34vwhIVJ-WP0ppE9rmwaXeEQwWTV-oztY6Pf9rWosEEVQnDoBmiUwEAo
-Message-ID: <CAE_Lbw=mYME61mRgAJFh1CArWPwL34yUyJGPrBkrpgk9VPxchg@mail.gmail.com>
-Subject: Re: [PATCH v1] net: sock_reuseport: check program type on the
- migration path
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, edumazet@kernel.org, 
-	kuniyu@google.com, pabeni@redhat.com, willemb@google.com, davem@davemloft.net, 
-	kuba@kernel.org, horms@kernel.org, audit@example.invalid
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
 
-On Tue, 17 Nov 2026 at 23:27, <netdev-bot+sashiko@kernel.org> wrote:
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 0 =C2=B7 Low: 1
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [High] net: sock_reuseport: placeholder Signed-off-by trailer in commit
->   message
-> - [Low] The commit message says loading a BPF_PROG_TYPE_SOCKET_FILTER
->   program with expected_attach_type=3DBPF_SK_REUSEPORT_SELECT_OR_MIGRATE=
-=E2=80=A6
->
-> --
->
-> net: sock_reuseport: check program type on the migration path
->
-> This commit makes reuseport_migrate_sock() and reuseport_stop_listen_sock=
-()
-> treat a reuseport program as migration capable only when its type is
-> BPF_PROG_TYPE_SK_REUSEPORT. Checking expected_attach_type alone allowed a
-> SOCKET_FILTER program to run with a struct sk_reuseport_kern context.
->
-> > A BPF_PROG_TYPE_SOCKET_FILTER program can be loaded with
-> > expected_attach_type set to BPF_SK_REUSEPORT_SELECT_OR_MIGRATE and
-> > attached to a SO_REUSEPORT TCP group; both steps are allowed without
-> > CAP_BPF.
->
-> [Severity: Low]
-> Is "both steps are allowed without CAP_BPF" accurate for a default
-> configuration?
->
-> In bpf_prog_load() in kernel/bpf/syscall.c, this check runs before the
-> SOCKET_FILTER/CGROUP_SKB exemption for unprivileged loads:
->
-> kernel/bpf/syscall.c:bpf_prog_load() {
->     ...
->         if (sysctl_unprivileged_bpf_disabled && !bpf_cap)
->                 goto put_token;
->     ...
-> }
->
-> The sysctl starts at 2 when CONFIG_BPF_UNPRIV_DEFAULT_OFF is enabled:
->
-> int sysctl_unprivileged_bpf_disabled __read_mostly =3D
->         IS_BUILTIN(CONFIG_BPF_UNPRIV_DEFAULT_OFF) ? 2 : 0;
->
-> That Kconfig option is "default y" in kernel/bpf/Kconfig. So on a default
-> kernel, a task without CAP_BPF (or a BPF token granting it) can't load th=
-e
-> socket filter in the first place. Unprivileged users can only reach the
-> out-of-bounds access when kernel.unprivileged_bpf_disabled has been set
-> to 0.
->
-> Could the commit message mention that the unprivileged case depends on
-> this sysctl? That would help backporters and security triage judge the
-> exposure. The code change itself is not affected by this.
->
-> [Severity: High]
-> The author and Signed-off-by trailer both use the identity
-> Linux kernel audit <audit@example.invalid>. That isn't a person, and
-> the .invalid TLD is reserved (RFC 2606), so the address can never
-> receive mail.
->
-> Signed-off-by is the Developer's Certificate of Origin described in
-> Documentation/process/submitting-patches.rst. It certifies that a
-> specific person wrote the change or has the right to pass it on under
-> the kernel's license. A placeholder identity can't make that
-> certification. Nobody can be reached at this address if questions
-> about the patch come up later, so this can't be applied as is.
->
-> Could you resend with the author and Signed-off-by set to your real
-> name and a working email address? If you're forwarding a change
-> written by someone else, it needs the original author's sign-off
-> followed by your own. The code change itself is not affected by this.
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261115152408.48205-1-shlomojune6%40gmail.com
 
-Will fix it.
+	Hello,
 
-pw-bot: cr
+On Wed, 18 Nov 2026, Theodor Arsenij Larionov Trichkine wrote:
+
+> ip_vs_ftp_out() can link an expectation to an unconfirmed conntrack. A
+> later extension add on the same packet, such as seqadj in
+> ip_vs_update_conntrack() or NAT, then reallocates ct->ext and leaves the
+> expectation pointing into the freed area:
+> 
+>   BUG: KASAN: slab-use-after-free in nf_ct_unlink_expect_report+0x490/0x4c0
+>   Write of size 8 at addr ffff888004dd4e48 by task syz.2.17/649
+> 
+> Check the conntrack at the start of ip_vs_ftp_out() and drop the packet
+> unless the conntrack is confirmed, is not a template and already carries
+> the seqadj extension.
+> 
+> Fixes: b25adce16064 ("ipvs: correct usage/allocation of seqadj ext in ipvs")
+> Suggested-by: Julian Anastasov <ja@ssi.bg>
+> Suggested-by: Pablo Neira Ayuso <pablo@netfilter.org>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+> ---
+> v5: drop the second nf_ct_get().
+> v4: check the conntrack at the start of ip_vs_ftp_out(). A server reply
+> that fails the check is now dropped even when it is not a PASV/EPSV
+> response. Without a conntrack, e.g. with a notrack rule, only PASV/EPSV
+> replies were dropped before.
+> Link to v4: https://lore.kernel.org/netfilter-devel/20261117123944.270667-1-theodorlarionov@gmail.com/
+> 
+>  net/netfilter/ipvs/ip_vs_ftp.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
+> 
+> diff --git a/net/netfilter/ipvs/ip_vs_ftp.c b/net/netfilter/ipvs/ip_vs_ftp.c
+> index 44de99f4d187..cf640cba0b12 100644
+> --- a/net/netfilter/ipvs/ip_vs_ftp.c
+> +++ b/net/netfilter/ipvs/ip_vs_ftp.c
+> @@ -29,6 +29,7 @@
+>  #include <linux/netfilter.h>
+>  #include <net/netfilter/nf_conntrack.h>
+>  #include <net/netfilter/nf_conntrack_expect.h>
+> +#include <net/netfilter/nf_conntrack_seqadj.h>
+>  #include <net/netfilter/nf_nat.h>
+>  #include <net/netfilter/nf_nat_helper.h>
+>  #include <linux/gfp.h>
+> @@ -283,6 +284,12 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
+>  	if (cp->state != IP_VS_TCP_S_ESTABLISHED)
+>  		return 1;
+>  
+> +	ct = nf_ct_get(skb, &ctinfo);
+> +	if (!ct || !nf_ct_is_confirmed(ct) || nf_ct_is_template(ct))
+> +		return 0;
+> +	if (!nfct_seqadj(ct))
+> +		return 0;
+> +
+>  	/* Linear packets are much easier to deal with. */
+>  	if (skb_ensure_writable(skb, skb->len))
+>  		return 0;
+> @@ -382,7 +389,6 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
+>  	}
+>  	buf_len = strlen(buf);
+>  
+> -	ct = nf_ct_get(skb, &ctinfo);
+>  	if (ct && !nf_ct_is_template(ct)) {
+>  		bool mangled;
+
+	Just drop the 'mangled' var and unindent the code:
+
+	/* If mangling fails this function will return 0 ...
+	...
+	if (nf_nat_mangle_tcp_packet(...
+	    ... )) {
+		ip_vs_nfct_expect_related(skb, ct, n_cp, ...
+		...
+		ret = 1;
+	}
+
+	because we do not need to check with nf_ct_is_template again.
+
+Regards
+
+--
+Julian Anastasov <ja@ssi.bg>
+
