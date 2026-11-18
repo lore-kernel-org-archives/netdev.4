@@ -1,60 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.98
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022243;
-	b=FpbqoEzkbBT0ca37lnz72W9V0eSFZevGIndvcqwgd991PWEFFGtbY22dhSv41mb9vxR7
-	 S88U0bSXQ9JDXAGZdudPZBK2G/YpZiTUOjwRCmDNOHAmV5RO6oiLvPNJ4N1sPzLVc19f2
-	 AyUIovaCp6lWO+8LZuehw8amguRCO3uH4LgPwHyqorJ9F0EZqIoozbhuhRyRZbJhVa5p1
-	 h8TtB53u3XPi1ZFSXfU0XdSeL1aSBwR92lFQgx2Q9+/VXElnNSTSlQ/0oyiXYbZO3ILjm
-	 nk2j8MX8uZm+RLWtBM7ySNMEhj3lzLn9aM7OxqkCMqd7YiFxaHCAkMyZTRyEHGiJigw==
+	t=1795022533;
+	b=nsQduFNRfjBVQTEZeFw24Jh3nRzxoDzXXadp6nbqNLTRc1JtWb6rK0924r/pSccWi7Rl
+	 0C+HZKe+u+lCt/oywGag0itgweqlAYti1gCKxgQVPlUL8e1eThk82596L0RTbmM7UXCck
+	 rj65Ac87++UtGpo7wq12tt8AAX+blKwGW2B1DCIwXXAD9zX4Lso+Tc5imahW27Z9amDfJ
+	 Owl1/iyHp9QyuZX/vjUnlMIS6UgdaIobm+NchSc1xOu+L3i7vn6H4vhfhMcRAcyx8IVNZ
+	 3ynyYSobwlQmIpOYwGyLI8UTiN+IlBcRdbgo2B/1jUG1XHhihjR1jgiUc+WYQHyJnsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022243;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=28XEaP/ltV/ETk9fcENFl2aQLFUd74IdM6wgYvIduOw=;
-	b=NcUv1nf1BT2lBcv4BwKtfjL+MyUQTpc+FjJH+evKHMJGwTZ1WpRjFYqoRRFkGcz9HVhC
-	 BenmLsE3NkLDWhmPpx1/Ogg85vtyPVwN/jHTVXuGIpsGB+ANjzSQo6m/g5Z/6cjvhZhK5
-	 vl2tfp1n494ijrbnP6ugqjswTImcCH7GYX0I0z1llZFFqDfsmQip7ys3p5pxV6pNHC3CU
-	 R74WGW3wX3ARhuE9eYnbkI3CczgTv/81x/3/yBMApcqcAMkLr5Sa3dOND10Q22yHy6a5y
-	 wjEYb4at7AF1S6V8UQk6ydhLbJO1klydm0RyrDe63qZptCtiWZnzk6ukSlo4uZHq26g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022533;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=mY/FNLYTzlT6/9iFOU+8LtK9dRUupasMtXWg1lgUwjY=;
+	b=eyPoH5imgmrUYiS8XF+DtK+xqCEnE4SNrLDcFILW/pW1LP/FAZqSY5Q2jSOJflTereV4
+	 FuTKOm7TpPeG5MF2OylyEgq3uS8DLuhYV09CwBiou6WP/FZHNyi+QlbVIe2EMPlKFfOzt
+	 Q7K2DoNZzne8roxgTlpiqi9XLdG1r9eNUWHA89yPjgAW6jVw1e87xP2e6M+eXbci7V8Ts
+	 tvZSa5cZUWa2ZowaHHnoTP/j/YSWLp6wjlXhFPa51S4imAiq4rbHk9YrqbKu/5/FtA7qV
+	 5BK1lk/OcneCBjKfsUJOoi3OxL+SPG6zdR2n45cYxGX+VmuKDjsYJ4aR0gxlbN4TkCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I3m51p1y;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QCmbXsw9;
+	arc=none smtp.remote-ip=209.85.216.98
+Received: from mail-pj1-f98.google.com (mail-pj1-f98.google.com [209.85.216.98])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D528606A32C;
-	Wed, 18 Nov 2026 17:17:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6AC1606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:22:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6AC1606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I3m51p1y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910DD1F000C4;
-	Wed, 18 Nov 2026 17:17:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022243;
-	bh=28XEaP/ltV/ETk9fcENFl2aQLFUd74IdM6wgYvIduOw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=I3m51p1yxSCa+XRhyxBrIPFQediyExc5Zl82Subm6rC9snVZkpaSkqD9McVYcqQF8
-	 pFGoVFbnn9iZ6/HPJZFEPA3uQ/wODAHWITb98jbHtx2w2NtO9bZESF30Tqz97yF1fT
-	 oV8F2Vno4OBPUzU6W6bxntO4a6QqgOKEYWrqx/QQle9Q/FnZjiiNHO5JxiTGYs/y4W
-	 0CKOU0sgnZb8S6S/4u0Yx49srfvleH0YZuvMs0cTL8f/E3eGi35DUbwUyk4v2BrnuU
-	 ygFqurvKnKZOMjOe4aS36sqebvLKddv5xbtRtaoxERF7jTpLJH07z7LnKY7A/9acBD
-	 qABu+hqO6ZTew==
-Subject: Re: [PATCH net-next v4] net: phy: aquantia: Poll global status
- register for provision ID
-From: netdev-bot+sashiko@kernel.org
-To: hongmei.xu@oss.qualcomm.com
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- sagar.cheluvegowda@oss.qualcomm.com
-Date: Wed, 18 Nov 2026 17:17:22 +0000
-Message-ID: <179502224211.3136.8031848811478345993@kernel.org>
-In-Reply-To: <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
-References: <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=QCmbXsw9
+Received: by mail-pj1-f98.google.com with SMTP id 98e67ed59e1d1-3ac9f49b984so31162a91.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:22:12 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795022532; x=1795627332;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=mY/FNLYTzlT6/9iFOU+8LtK9dRUupasMtXWg1lgUwjY=;
+        b=Y3QQVTrMp8CgjRigKvmCM7YJmb9iy4M+84UuzcnNoei69E3adQ5hsLzq5iDqSGeV1Z
+         YoJr78pZ99x6fx6dEBf/RqZUOX8CuujLyYncG5+ML6ulLGX1/7e24VVJRttSG4uwzIsq
+         sUVo45Pqt4b3mfo+4E+ov2N2Hvlwx8vRlfs4qlmEnePaU7dcK2UJvOwbuTvW15WVsMGb
+         PJ9KbgVyfYRtZnyvbxEMqV15KoXQboSI70wIk1dTjjs43cgXWnezIMBAbF7Q8yE7MTF6
+         HlfbBqYAjfIV3tIWtdlqPYgiqm1e5NZMmBnkIpiA0cmafwSDzDMZs4hnOq34N6ZO8mP6
+         Ggew==
+X-Gm-Message-State: APuU4Z/+F1cxljjy8EI0uMaB23bSwH6Nq2s/9avnBBIhZd9Wx5rrYx/y
+	I9/i9eKh/zc4BS3sZE/1XbAYZyhM4FPryeuu5kdpuNJl10+xcZW3aSngQ2A+4va5DeSbsxfPh9b
+	Am/wGUgtm25N6XnG/ursgulYeMCui5q15SwQSBJ+uVF3kmdQUGHs9z75alhQJ7/PlOB38HYdmgt
+	lOgtM7yhGrK+Fnz2sLF4M89fZpeP89Qc9UZ64xNcp2WzlfW/E5S4uFpKqq2jC+R09UmY4C9cMK9
+	rDf3kmwIWGxGh35
+X-Gm-Gg: AZFdTZd+hGfDJW7r/Uzmd8FYFTo8etlDLrRWNrYQOQf7eSojWHgUWwVmUWRam4aF2Z5
+	z5H8A2rDNYo+DtSnWG/on7tSMZun7a1sRP95EIUv/NLTIMZYu+Hx31LTq1Kytj60x1tMu70QvQa
+	GO6lxrrevBpp9qdwVPe+HkPb3GaDl4mrNIRFOC5lVH0Vo0eQjfuWRQyMnqfw4azI170vcg8elUl
+	otgUwsJut4q/gDEGh+C/U7smv0LUWt7Zy+JUlIWqTl1RBUOVYnkdTVSUSIJorCi65UKWI07lOT3
+	xlZa1WseRDncTxGr2mGozCBW6R37QsUf4e2F3afJBMoXtCu6iKMMUHiTO4E07AHyQyHa1V4CBZQ
+	blzKqz3ZYHnkRTjgutkQ8+INn1ySEaTZ1eWJzP25/rLYOk5rj3fH3s84IZxCXeGauXf53/TFHPw
+	8EG4alZqhlGj8MLuu6lTpBaKQSBeTt5Ks5GFbF1eOC/DE=
+X-Received: by 2002:a17:90b:2507:b0:3b0:a413:dd8e with SMTP id 98e67ed59e1d1-3b3f697a952mr52579a91.43.1795022532053;
+        Wed, 18 Nov 2026 09:22:12 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3f6bdeb01sm70721a91.7.2026.11.18.09.22.11
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 18 Nov 2026 09:22:12 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-8a05b68f851so25071b3a.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:22:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795022530; x=1795627330; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mY/FNLYTzlT6/9iFOU+8LtK9dRUupasMtXWg1lgUwjY=;
+        b=QCmbXsw9Q7pbMssiRJAA+fDmlvxstuKAuNkfpYE570k5fb06Uh/ls5PbiHErevwLaK
+         AsntTPCiEwGG8Lq2VJ7UDGXF+bLPcTfvIdd8ccKdMmaz+sFvHJy8hCMPYEFieADslYZu
+         JJ3GvdAJWpPG68HtpInXd+6sv4Y2hXAv808Jo=
+X-Received: by 2002:a05:6a20:1611:b0:3e2:28f0:b360 with SMTP id adf61e73a8af0-3fff0101ffemr132521637.0.1795022530107;
+        Wed, 18 Nov 2026 09:22:10 -0800 (PST)
+X-Received: by 2002:a05:6a20:1611:b0:3e2:28f0:b360 with SMTP id adf61e73a8af0-3fff0101ffemr132501637.0.1795022529163;
+        Wed, 18 Nov 2026 09:22:09 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde53506b98sm312451a12.30.2026.11.18.09.22.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 09:22:08 -0800 (PST)
+Message-ID: <e8714dba-f51a-40a2-9bda-be49fb3b16ff@broadcom.com>
+Date: Wed, 18 Nov 2026 09:22:05 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,179 +103,255 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 4/9] dt-bindings: net: describe the Northstar
+ flow accelerator
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, rafal@milecki.pl,
+ bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ horms@kernel.org, corbet@lwn.net, jonas.gorski@gmail.com, olteanv@gmail.com,
+ pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org
+References: <20261116222519.1416501-5-florian.fainelli@broadcom.com>
+ <179495816151.3136.14110323389854628043@kernel.org>
+Content-Language: en-US, fr-FR
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <179495816151.3136.14110323389854628043@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+On 11/17/26 15:29, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 2
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The flow-accelerator register resource in brcm,bcm4708-fa.yaml
+>    is modelled as a standalone MMIO block with only `compatible` and…
+> - [Low] The new brcm,bcm5301x-gmac.yaml schema is selected only when the
+>    `brcm,flow-accelerator` property is present (`select: required:…
+> - [Low] The FA binding description calls switch port 5 'IMP5' ('Switch
+>    port 5 (IMP5), connected to GMAC0, ...').
+> 
+> --
+> 
+> dt-bindings: net: describe the Northstar flow accelerator
+> 
+> This commit adds a binding for the register block of the
+> BCM4708/BCM53011/BCM53012 flow accelerator. It also adds a schema for the
+> brcm,flow-accelerator phandle on the GMAC2 BCMA Ethernet node. The
+> description covers the second CPU path, port 5 to GMAC0, for exceptions
+> that bypass the accelerator.
+> 
+>> diff --git a/Documentation/devicetree/bindings/net/brcm,bcm4708-fa.yaml b/Documentation/devicetree/bindings/net/brcm,bcm4708-fa.yaml
+>> new file mode 100644
+>> index 0000000000000..f744b23433c46
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/net/brcm,bcm4708-fa.yaml
+>> @@ -0,0 +1,45 @@
+> 
+> [ ... ]
+> 
+>> +description: |
+>> +  The flow accelerator is inline between GMAC2 and switch port 8 (IMP0).
+>> +  GMAC0 and GMAC1 bypass it. The GMAC2 BCMA Ethernet node references this
+>> +  register block through a brcm,flow-accelerator phandle. Miss packets carry
+>> +  a prepended accelerator descriptor in place of the embedded switch tag.
+>> +
+>> +  Switch port 5 (IMP5), connected to GMAC0, provides a second CPU path for
+> 
+> [Severity: Low]
+> Should this say IMP1 instead of IMP5? The b53 SRAB code calls the two IMP
+> ports IMP0 (port 8) and IMP1 (port 5):
+> 
+> drivers/net/dsa/b53/b53_srab.c:
+> #define  B53_SRAB_IMP1_SLEEP_TIMER	BIT(10)
+> #define  B53_SRAB_P7_SLEEP_TIMER	BIT(11)
+> #define  B53_SRAB_IMP0_SLEEP_TIMER	BIT(12)
+> 
+> This description already uses IMP0 for port 8.
+> 
+>> +  exceptions that must bypass the accelerator, including TCP control,
+>> +  low-TTL and oversized packets. Describe that CPU port with an ethernet
+>> +  phandle to GMAC0 and an internal, 1 Gbps full-duplex fixed link in the
+>> +  switch's ports node. Port 8 remains the data connection to GMAC2.
+> 
+> [ ... ]
+> 
+>> +  reg:
+>> +    maxItems: 1
+>> +
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +
+>> +additionalProperties: false
+>> +
+>> +examples:
+>> +  - |
+>> +    flow-accelerator@18027c00 {
+>> +        compatible = "brcm,bcm53011-fa";
+>> +        reg = <0x18027c00 0xc0>;
+>> +    };
+> 
+> [Severity: Medium]
+> Can the flow accelerator be treated as a standalone MMIO block? The example
+> address 0x18027c00 falls inside the 4 KiB BCMA window of GMAC core unit 3.
+> bcm-ns.dtsi already describes that core under the 0x18000000 axi bus:
+> 
+> arch/arm/boot/dts/broadcom/bcm-ns.dtsi:
+> 		gmac3: ethernet@27000 {
+> 			reg = <0x27000 0x800>;
+> 		};
+> 
+> The binding allows only compatible and reg. It has no clocks or resets
+> and no link to the GMAC3 core. It also does not say that the hosting core
+> must be out of reset and clocked.
+> 
+> Later in the series, bcm_ns_fa_init() in
+> drivers/net/ethernet/broadcom/bcm-ns-fa.c maps this node and writes to it
+> straight away:
+> 
+> 	np = of_parse_phandle(parent->of_node, "brcm,flow-accelerator", 0);
+> 	...
+> 	fa->regs = devm_ioremap_resource(parent, &res);
+> 	...
+> 	writel(0, fa->regs + FA_STATUS_MASK);
+> 
+> Nothing in bgmac or bcm-ns-fa calls bcma_core_enable() on core unit 3.
+> bgmac_probe() also rejects core_unit 3 when that core has no MAC address,
+> so it never gets enabled there.
+> 
+> Suppose the bootloader leaves the GMAC3 wrapper in reset or clock-gated.
+> Could bgmac_probe() for GMAC2 -> bcm_ns_fa_init() -> writel() then take
+> an imprecise external abort or hang the bus? And if something later resets
+> the GMAC3 wrapper, would that wipe the programmed FA state?
+> 
+> This is inferred from how AI wrappers usually behave. I have not checked
+> it against the Northstar register map, so I can't confirm that GMAC3
+> hosts the FA. On BCM53012 boards where CFE leaves core 3 enabled, it may
+> work as is.
+> 
+> Should the binding describe how the FA relates to its hosting core, or
+> the clocks and resets it depends on?
+> 
+>> diff --git a/Documentation/devicetree/bindings/net/brcm,bcm5301x-gmac.yaml b/Documentation/devicetree/bindings/net/brcm,bcm5301x-gmac.yaml
+>> new file mode 100644
+>> index 0000000000000..76fbe2abf5152
+>> --- /dev/null
+>> +++ b/Documentation/devicetree/bindings/net/brcm,bcm5301x-gmac.yaml
+>> @@ -0,0 +1,27 @@
+>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>> +%YAML 1.2
+>> +---
+>> +$id: http://devicetree.org/schemas/net/brcm,bcm5301x-gmac.yaml#
+> 
+> [ ... ]
+> 
+>> +select:
+>> +  required:
+>> +    - brcm,flow-accelerator
+>> +
+>> +properties:
+>> +  brcm,flow-accelerator:
+>> +    $ref: /schemas/types.yaml#/definitions/phandle
+>> +    description: |
+>> +      Phandle to the BCM4708, BCM53011 or BCM53012 inline flow accelerator.
+>> +      Only GMAC2 (BCMA Ethernet core unit 2) has this connection.
+>> +
+>> +additionalProperties: true
+> 
+> [Severity: Low]
+> The "Only GMAC2" restriction exists only in the description text. The
+> schema is selected purely by the presence of the property, and it sets
+> additionalProperties: true. Wouldn't a DT that puts brcm,flow-accelerator
+> on gmac0 (ethernet@24000), gmac1 or gmac3 still pass dt_binding_check and
+> dtbs_check?
+> 
+> Nothing checks that the phandle points to a brcm,*-fa node either.
+> 
+> Later in the series, bgmac_probe() in bgmac-bcma.c enforces the rule at
+> runtime:
+> 
+> 	if (of_property_present(core->dev.of_node, "brcm,flow-accelerator") &&
+> 	    core->core_unit != 2)
+> 		return -EINVAL;
+> 
+> So a misplaced phandle makes that GMAC fail to probe, and dtbs_check gives
+> no warning beforehand.
+> 
+> Separately, the file name and $id suggest a brcm,bcm5301x-gmac compatible,
+> but the BCMA GMAC nodes have no compatible. Is that naming intended?
+> 
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+[Medium] FA modeled as a standalone MMIO block
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The register block does not overlap the GMAC3 node: 0x18027c00 is in the
+GMAC3 BCMA window but outside the 0x800 bytes described by 
+ethernet@27000. Per the data sheets, the FA is part of the AXI MAC + FA 
+block together with the four GMAC cores (GMAC3 being the block's 
+loopback port), not a separate peripheral. It has no clock or reset 
+input of its own in the DT, and BCMA wrappers are not modeled as DT 
+clocks/resets.
 
-- [Medium] The new poll in aqr_wait_reset_complete()
-  (drivers/net/phy/aquantia/aquantia_main.c, lines 720-734) treats…
-- [Low] The commit message says the patch fixes a user-visible defect in
-  existing AQR113 support ('Starting subsequent firmware operations…
-- [Low] aqr_need_provision_id_check() (aquantia_main.c:684-690) limits
-  the new wait to PHY_ID_AQR113 and PHY_ID_AQR113C.
-- [Low] When the new PROV_ID poll times out, aqr_wait_reset_complete()
-  logs a warning and returns 0 (aquantia_main.c:732-736).
+I cannot tell from the documentation how the GMAC3 BCMA wrapper state
+affects access to these registers, so I am checking this on hardware and 
+will add the core enable to bcm_ns_fa_init() if it turns out to be 
+needed. v2 documents where the registers live in the binding description.
 
---
+[Low] IMP5 vs IMP1
 
-net: phy: aquantia: Poll global status register for provision ID
+Agreed, port 5 is IMP1. Fixed in v2.
 
-On AQR113 and AQR113C, aqr_wait_reset_complete() now goes on to poll the
-PROV_ID field of VEND1_GLOBAL_RSVD_STAT1 until it is non-zero, after the
-firmware ID check. A read error is returned to the caller. A poll timeout
-only logs a warning, and the function still returns 0.
+[Low] GMAC2-only restriction / naming
 
-> Starting subsequent firmware operations before the provision ID is
-> valid leads to steady link failures; this has been observed during
-> AQR113 PHY bring-up.
+v2 restricts the consumer schema to ethernet@26000 with a $nodename
+pattern. BCMA GMAC nodes have no compatible, which is why the schema is
+selected by the property; the description now says so. dt-schema cannot
+check what the phandle points to, the driver validates the compatible.
 
-[Severity: Low]
-This describes a link failure with the existing AQR113 support. That
-support already goes through aqr_gen4_config_init()->
-aqr_gen1_config_init()->aqr_wait_reset_complete().
-
-Should this carry a Fixes: tag and possibly Cc: stable? Is it meant for
-net or net-next?
-
-> diff --git a/drivers/net/phy/aquantia/aquantia_main.c b/drivers/net/phy/aquantia/aquantia_main.c
-> index e95d391a6dc23..a5bba9be0d069 100644
-> --- a/drivers/net/phy/aquantia/aquantia_main.c
-> +++ b/drivers/net/phy/aquantia/aquantia_main.c
-> @@ -681,12 +681,24 @@ static int aqr107_set_tunable(struct phy_device *phydev,
->  #define AQR_FW_WAIT_SLEEP_US	20000
->  #define AQR_FW_WAIT_TIMEOUT_US	2000000
->  
-> +static bool aqr_need_provision_id_check(struct phy_device *phydev)
-> +{
-> +	return phy_id_compare(phydev->drv->phy_id, PHY_ID_AQR113,
-> +			      phydev->drv->phy_id_mask) ||
-> +	       phy_id_compare(phydev->drv->phy_id, PHY_ID_AQR113C,
-> +			      phydev->drv->phy_id_mask);
-> +}
-
-[Severity: Low]
-This isn't a bug, but AQR114C, AQR115, AQR115C and AQR813 also go
-through aqr_gen4_config_init() and aqr_wait_reset_complete(), and they
-won't get this wait. The v4 changelog says the narrower scope is
-intentional.
-
-Were those parts checked for the same provisioning behaviour? If so,
-could the commit message say so?
-
-> +
->  /* If we configure settings whilst firmware is still initializing the chip,
->   * then these settings may be overwritten. Therefore make sure chip
->   * initialization has completed. Use presence of the firmware ID as
->   * indicator for initialization having completed.
->   * The chip also provides a "reset completed" bit, but it's cleared after
->   * read. Therefore function would time out if called again.
-> + *
-> + * On AQR113 and AQR113C, additionally wait for the provisioning ID to
-> + * become non-zero, indicating that firmware provisioning is complete.
-> + * Without this polling, link issue can be seen after phy boot.
->   */
->  int aqr_wait_reset_complete(struct phy_device *phydev)
->  {
-> @@ -702,7 +714,26 @@ int aqr_wait_reset_complete(struct phy_device *phydev)
->  		return val;
->  	}
->  
-> -	return ret;
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (aqr_need_provision_id_check(phydev)) {
-> +		ret = read_poll_timeout(phy_read_mmd, val,
-> +					val < 0 ||
-> +					FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_PROV_ID, val),
-> +					AQR_FW_WAIT_SLEEP_US, AQR_FW_WAIT_TIMEOUT_US,
-> +					false, phydev, MDIO_MMD_VEND1,
-> +					VEND1_GLOBAL_RSVD_STAT1);
-
-[Severity: Medium]
-Is PROV_ID a reliable sign that provisioning is done? Elsewhere in the
-driver it looks like a fixed identifier of the firmware image. It sits
-next to FW_BUILD_ID and has no validity bit:
-
-drivers/net/phy/aquantia/aquantia.h:
-#define VEND1_GLOBAL_RSVD_STAT1_FW_BUILD_ID	GENMASK(7, 4)
-#define VEND1_GLOBAL_RSVD_STAT1_PROV_ID		GENMASK(3, 0)
-
-aqr_build_fingerprint() reads it only as one part of the image
-fingerprint:
-
-	build_id = FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_FW_BUILD_ID, val);
-	prov_id = FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_PROV_ID, val);
-
-The v4 changelog also says some PHYs use PROV_ID=0 as a valid value.
-
-aqr_need_provision_id_check() decides from the silicon ID. The PROV_ID
-value, though, comes from whichever image gets loaded, whether from flash,
-nvmem or the filesystem.
-
-What happens if an AQR113/AQR113C runs an image with provisioning ID 0?
-
-The poll could then never succeed. Every call would poll MDIO for the
-full AQR_FW_WAIT_TIMEOUT_US (2 seconds) and log "Firmware provisioning ID
-not ready". aqr_wait_reset_complete() is called from:
-
-aqr107_probe()->aqr_firmware_load()->aqr_wait_reset_complete()
-
-phy_init_hw()->aqr_gen4_config_init()->aqr_gen3_config_init()->
-  aqr_gen2_config_init()->aqr_gen1_config_init()->
-  aqr_wait_reset_complete()
-
-Would bring-up then take at least 4 seconds per PHY, plus 2 seconds on
-every attach and resume?
-
-The commit message also seems to contradict itself. It says that starting
-operations before the provision ID is valid "leads to steady link
-failures", but also that a timeout "does not necessarily prevent link
-establishment".
-
-It also says a timeout "indicates a hardware-level provisioning failure".
-Nothing in the driver appears to support that.
-
-The driver already polls readiness signals tied to hardware state. One is
-the wait_on_global_cfg poll of VEND1_GLOBAL_CFG_100M in
-aqr_gen2_fill_interface_modes(). Another is
-VEND1_GLOBAL_GEN_STAT2_OP_IN_PROG. Would one of those work for AQR113
-instead?
-
-> +		if (val < 0) {
-> +			phydev_err(phydev, "Failed to read VEND1_GLOBAL_RSVD_STAT1: %pe\n",
-> +				   ERR_PTR(val));
-> +			return val;
-> +		}
-> +		if (ret)
-> +			phydev_warn(phydev, "Firmware provisioning ID not ready\n");
-> +	}
-> +
-> +	return 0;
->  }
-
-[Severity: Low]
-This isn't a bug, but the new comment above aqr_wait_reset_complete()
-says the function waits for the provisioning ID, "indicating that
-firmware provisioning is complete". On timeout it only warns and
-returns 0, so callers cannot tell that provisioning did not finish.
-
-Returning 0 here looks right. aqr_firmware_load() treats -ETIMEDOUT as
-"no firmware loaded" and would load a new image over the running one.
-Also, aqr_gen1_config_init() does the downshift, MDI and LED writes
-whatever this returns.
-
-Could the comment say that the provisioning wait is best effort? Could it
-also say that the link failure described in the commit message can still
-happen after a timeout?
-
+pw-bot: cr
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a%40oss.qualcomm.com
+Florian
