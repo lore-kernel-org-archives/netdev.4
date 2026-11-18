@@ -1,62 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027596;
-	b=yh92Yab2bz/0h9kDTIHHK6A/DzDnNX80JE4665mvTg6P+AMdhWlVQrNrE2kfDNJJjsMb
-	 Y5DBU/7tBo7qqflLhj+EJwXOLgvYPQ7PnUFA5p+tIog9rzv1Jhgz02+obYIJBIYqXrE6U
-	 FZ9NmvbKDy2qUP7cTlhRf4ZFdErB43ctvdQtg+0EvOsK+EvZAfJF6M8bRjEA9+zebnjrd
-	 s8Pz4ox1otsn9mWytOVAflu6krQlOTHf8bMJTR8qy1WzzTplpITOITm6yR5iSvUzPhTzL
-	 Ez8KogpvKM1CKbJr3NGXfovQOc+PdV5Hz79m9Nt1pB54PR5sNQO0YKORQ7o02DPPLyw==
+	t=1795027708;
+	b=VukqwJC4kAIoR5Gj6VmIWlae7YTdXdF3FKiql6uHGUlp910mm/QVJWlwuJ/CeyUZ/zkj
+	 XLfG4pINf1MGtZpeTaWvQfH4wx/t+X7torOBak4SGk/YWC6DOOBG0SjjyOqH/iBNArspV
+	 +LooLi4RsGEBUo9ju9TARkYpYI6pIoqUi+Mk/fcBoOPgjyyoov+j4hEVYJlWbrtjZPPWq
+	 0Jz6joUEWfURwFNbqBBudnR9Crn5cOEgjEfMgSn+hthoeIc4pfLcRWCHi7KUkqRFnkwyR
+	 dMsGrtDb6ak1vuTPGLZPzoGX8KlxQ4z+1VVXqA0GafH4BM606vnN11qM51+thHTKyrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027596;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=0gWaaqlBeOYUC+C+1fvhqDgaQxw/BjGOD9U7GCCUc9w=;
-	b=3ByTDUcuYXPtX4Z7rHrEnYWcEd5YbzSaqzFQjQPX0/OcAJzlBdOwia9ZraLr9BALLupc
-	 0HggIB3F/eZTM6EzyqTpBgCd8HcGQfYkDm98aOeBNlwAx4ZlLXInfLhelQgKThTsLbrjM
-	 g/tZU3eptB8x6ZS3NaKDftqe7nyV4zybAalKhM6diAuB/vsM9kAtg3FLvUomYWCMwWbF0
-	 ZRGrLL15hrW1gYfzupbWHhW2d/WrPqZN/+yAi16+n+GZveIGYA48/aGAZ+iydrnVJN9Ir
-	 NkyOczTMZ3fwXpN8rVDO7D5A5Ad1NA9/cn0jIHsCn5em26aDMKB994CizAx4jkskvyg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027708;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:X-ThreadId:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=kmVHzEKlJfSD2s5xwTlOX6Me/gLnw4aWJN5jsCl2uHE=;
+	b=ijs9qiR+iQu6Xg76eaVY6NgZLP/OLuY+3C9F14tAifVP3yOZQKm4ow44mXhpQg2zosNr
+	 bEFTFDnDCloqTPyEkhsFSjperZQ+gFgs9oe1NFVgOLXTwJ0/CGyhfLyzDIjAV4lGDD1Yt
+	 9CQaN6/xkyXfTJJvluSSuINSc4Fvjay4j/GTgMARUOUqEyoKgT8kcKy7tgcq1d9SPIsJh
+	 bcCKN3PD+G2wcE3RWsx8ctlRAKvyrExsyIm3FdV+UEoH/4z7/z0JYhirN85s2pvYmhb5P
+	 aYuagtOzPwXLQKs64rebSxEPSIq6rLH8xBgMhmqPQoNW5LR1TwdLggaQTrRHwUZifPg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=NR6BAlQC;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I6hT4+9b;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C6538606A338;
-	Wed, 18 Nov 2026 18:46:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C6538606A338
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1114606A331
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 18:48:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=NR6BAlQC
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=0gWaaqlBeOYUC+C+1fvhqDgaQxw/BjGOD9U7GCCUc9w=; b=NR6BAlQC0t4l9Rusxoe6dX1ZME
-	jp277QVulkgU/F/Q6UjKFhTY80f2Jgkv/yeYtwyzb9NhIu7N5h2kw46PZPduBvHLhXKssChp91UhY
-	O0AhSIOUtn4rGSrwVSh7wZJhAHaD3uv6qKTdSuhE73LOO1XxY5gB4tsrbtqbyZQ+EorI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTkfx-00HUf7-Dd; Wed, 18 Nov 2026 19:46:33 +0100
-Date: Wed, 18 Nov 2026 19:46:33 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Frits Letteboer <frits@letteboer.com>
-Cc: hkallweit1@gmail.com, netdev@vger.kernel.org,
-	regressions@lists.linux.dev
-Subject: Re: [REGRESSION] r8169: RTL8127A (XID 6c9) SFP+ link fails to come
- up in 7.4-rc3 (inband/10gbase-r)
-Message-ID: <0b8d1aa5-5fe6-4472-85a2-15a5b7b09df9@lunn.ch>
-References: <9e803eea-2446-425a-93d3-2524890d9508@letteboer.com>
- <bb775cfb-525b-4471-bc80-46bb9f98cc31@lunn.ch>
- <75638763-689b-45f3-b8dd-72f74c4dea3a@letteboer.com>
- <2e06bc02-eb83-4ff9-a454-685480135bb8@lunn.ch>
- <e970af13-35de-4249-8d0d-a2bdfced1058@letteboer.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I6hT4+9b
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D5B31F000C6;
+	Wed, 18 Nov 2026 18:48:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795027708;
+	bh=kmVHzEKlJfSD2s5xwTlOX6Me/gLnw4aWJN5jsCl2uHE=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=I6hT4+9bDd5KJp1pvHcrD6d+uu5J2sLTh6pcrQMyHKqeYkD1qhsxDF3RvVUFYJLCz
+	 /6stBVajqo/fqE5RIuiiUfaRXffsrDVVH7+/D7dalVEzlA8JsY8+cif1KVGlMRc3p4
+	 sTtz45dwNpJZ8HghXq6V4k1Zo+owFj+NDB0o76V5EZJ4Zyohs/dfdy4kEvlwVpS+EL
+	 /yRJtwJdIMrPMaMBIsLLgFGFuHF7MWPHP8jTT/1tRixua/KGt61s/or/HmOrtpL4vm
+	 /p1IsCWECs7zJEYU+cZ4xK6ISkZRx4AKpciDIukQDAF0g+OQEK4XvWN+CAs9jC8hFj
+	 kT6p7wTkMofLw==
+Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
+	by mailfauth.stl.internal (Postfix) with ESMTP id A65D4780043;
+	Wed, 18 Nov 2026 13:48:27 -0500 (EST)
+Received: from stl-imap-13 ([10.204.2.104])
+  by stl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 13:48:27 -0500
+X-ME-Sender: <xms:-_L9aslQyg49Grhn5Iz0wefE3dvCrllqthgZbpkKF3abEDpvtxdCpg>
+    <xme:-_L9amrPk7N-ZQI30n1ZtCSCFpznGouT_GXo557TGHVmWlPH4ptrcuhZXAdbaDQFw
+    RlOeUtQs6ApWWeJZQmFsJMFmgEpnCW92u5y20bYJH1TGsylipMmcj5q>
+X-ME-Proxy-Cause: dmFkZTFdelxg8lQPAANZ9ZXlzxz3fHDAD/CWf78VCBL81nob1lDimXPht4lcJ0ChwQTWMF
+    IzzXE/glTNL2aO+Z3JsC0mt5PBOAM3heBjdku7GY3S1M7mSpoljduXPZHEAfQBcxRAEAVk
+    bxK+zkbM/YmuCdk8Or6tR1eucvHqTqFSslEFDZCqGJ7TFxSR2SRhDWp5CzPT1kxHo1h7r4
+    ZKqadqiFmmoVdXUjkcYmuBCZwPrA1R5GbwD5ww8PNKQ6n/9Z1YxZ9JNU96Pvsw9srMjdyN
+    uH7knNiOtf7hCr9NdF06G1Li/2HYNdiXag3CLmAJ2Uzp0HTFFcSaEQ++WUY8v/Nh2se9J5
+    0TuMXveie1UUlayolRDR29PF9jPYIV9GMp9HdixcvabdfvU4WWiaLJk2AUUvoh+pNVKI7f
+    bDpSkAaCuC+0btJaGZybYtyR+NAo1UjOuuDmOoRSMA6/F8L04+OFxJJSysDECxLwYt5UiC
+    gSd2099+gaGvYU10M3Y7tIiB2wTsLEuBiuNFob9GN4fb8SJBZuPF18Wc9riAO6pEpULCtx
+    ZcbjgxnnOOpRaT8/YdfvFwOvykx2M9pmYwEyMrO+AW5zQ9VK54YmHX1rn9WgMT0faZePqj
+    NKfGyssK85u523655YjEsB7tSR25Qf2IUi0EMZLpO4Et3ipkga+lNUTlE5UQ
+X-ME-Proxy: <xmx:-_L9atQpYDjTuMpuaQTM_SyxXTjlmPXi42W36jimoWzOolRaCnfy5Q>
+    <xmx:-_L9alDNbjCd4K_0Wwv8fHY73rZM4BwcukGFU4KRa6OFKTRe-NL7Jg>
+    <xmx:-_L9asKOscgSHxVhMjjEXo6yHUmN4zNzrGJr5uKunzJ9y0BBz9PhLg>
+    <xmx:-_L9aoDnmMcKA4ytIOi_WyyXVGIsd3RCPSs_reg9blwVkajX0Lh2dg>
+    <xmx:-_L9apus4pW1z0izXZpkW6U5eMrPAIebSLTPdyLmVbqowsTZvokTqdOn>
+Feedback-ID: iccae4b50:Fastmail
+Received: by mailuser.stl.internal (Postfix, from userid 501)
+	id 56CCFF60084; Wed, 18 Nov 2026 13:48:27 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,41 +77,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <e970af13-35de-4249-8d0d-a2bdfced1058@letteboer.com>
+Date: Wed, 18 Nov 2026 13:48:06 -0500
+From: "Chris Mason" <mason@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ willemb@google.com, josef@toxicpanda.com, netdev@vger.kernel.org
+Message-Id: <37e80ec6-d2f6-4683-9d6f-4e9c959564c5@slotsi13m47>
+X-ThreadId: ACB5QwprTRMB
+In-Reply-To: <179502618349.3136.1063676165373741119@kernel.org>
+References: <20261118155144.18393-5-mason@kernel.org>
+ <179502618349.3136.1063676165373741119@kernel.org>
+Subject: Re: [PATCH net v2 4/5] tcp: clamp the samples in tcp_rcv_rtt_update()
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 18, 2026 at 07:31:06PM +0100, Frits Letteboer wrote:
-> 
-> On 18/11/2026 19:06, Andrew Lunn wrote:
-> > On Wed, Nov 18, 2026 at 06:58:02PM +0100, Frits Letteboer wrote:
-> > > On 18/11/2026 16:32, Andrew Lunn wrote:
-> > > > On Wed, Nov 18, 2026 at 04:18:41PM +0100, Frits Letteboer wrote:
-> > > > > Hi Heiner,
-> > > > > 
-> > > > > Between Linux 7.3 and 7.4-rc3, my Realtek RTL8127A (XID 6c9) SFP+ NIC
-> > > > > stopped establishing a link and generating interrupts under r8169.
-> > > > Can you do a git bisect? Find out which patch broken it?
-> > > > 
-> > > Thank you for your reply.
-> > > 
-> > > 
-> > > I was going to bisect, however it seems after loading the out-of-tree r8127
-> > > driver,, the link now comes up reliably, even with the r8169 driver. I am
-> > > thoroughly confused.
-> > Try a really cold boot. Pull the plug, so it does not have any standby
-> > power. If the board supports WoL, it could be it is kept powered even
-> > when 'turned off'.
-> > 
-> > After a cold boot, see if the 7.4-rc3 boots correctly. That is what we
-> > are mostly interested in.
-> 
-> I forgot to mention that I did that before sending the mail. I just did it
-> again and left it disconnected for 5 minutes, just to be sure.
+On Wed, 18 Nov 2026 18:23:03 +0000, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: High]
+> Can a long window-fill time still wrap before it gets to this clamp?
 
-Nice. Not everybody would think of this.
+tcp_stamp_us_delta() narrows the delta to u32 first, so from 4295 s
+on the clamp sees what is left of it. Your 4300 s example is right.
 
-So, probably not a regression. Unless you manage to reproduce it
-again.
+It takes a flow that needs more than 71 minutes to fill one receive
+window, so I don't think it's as bad as High, but the changelog says the
+patch covers both callers and for this one that isn't true yet.
 
-	Andrew
+> Would it be better to clamp the 64-bit delta in tcp_rcv_rtt_measure()
+> before it is narrowed to u32?
+
+Yes, so I can spin a v3 with this change, or make a follow up, I'll defer to
+netdev maintainers:
+
+-	delta_us = tcp_stamp_us_delta(tp->tcp_mstamp, tp->rcv_rtt_est.time);
++	/* Clamp the delta before it is narrowed to u32. */
++	delta_us = min_t(u64, tp->tcp_mstamp - tp->rcv_rtt_est.time,
++			 TCP_RTT_MAX_US);
+
+-chris
