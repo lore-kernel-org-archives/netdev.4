@@ -1,49 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.189.82
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794988255;
-	b=LpdaTDof+pgPcOz87c2ljE40uJenytDShBJSxvEUmlYqpc4ZlyHFq1chWbVThl4u0AWo
-	 mQTRx+M3QHW2e6u1uk4wXnc/fipfeR6uWLU3T57ByRSS7z1HyyL6FPp30p0n8UndNKvSu
-	 Y6p8NvZ425D7tztYq7/yWAGp50o+mOZLrI92ascUxpBn15KOuS2cSD2Z8EcBqvEv47Tt3
-	 +lK48wuyZ4BTYnkrCnJahXmo0QdtOn9HghJhZQKMoXsMvRTPhDNDBE4b7VJS2aaJ6PEay
-	 iw+stCdgRMokMIC05NuJph8p4ShG1Mz2mb9l0CMeAAUe9N5izMWo70sdI2oLGK+gctQ==
+	t=1794988789;
+	b=hp4QL+bA0Yf+RaklS7vvy7YGNXhE8aZ8VYOH5ocrqDdWv1KyLdqw1iHu82+7YAOuh8Ci
+	 03wAO6jiWAomVOqaajZ8J1ZRRXGzUfU6Nh6Ipv1aIn6F39ZJUdZPFBDhY9g3uUfKCAfOb
+	 ZwTZB+rR77xWM/nObFUkuxK7uHzE2K33eKIihT01Y0uy/5apS7DF5WPCBRhGQzRO5jcZI
+	 Yp0KuuOxzTmjosB3oQU3dYGRgEyyunCSgCcsbGQTEgZgJgHAA8qs4GvIGQNKWh5RmFPk0
+	 CLxjgyzUY2jd1sZtc5bdWMKVnvei8o97tQgR6QNX5DeoplcQm76GHx18vhvTzvyp7eA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794988255;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=l91mS4zSVSG6E8U9qMb4lyxiEjC7Nm+mIRs8YI1Zjzk=;
-	b=AbKvd15vA7OeTqrwEDJLk0CI4towrQWbvivQme8yIdx9YEY3JF3OUajLxpLznVjso+0b
-	 V8CEqsHra19QBHRGouacbkGpPPH8EItss9SSjHoEyticLUQYqdkdTLSo7aW5ZhZUOHauh
-	 UJlRo4lEsODOxRRwVUos/zioHxI4M41cwf3v+ByP7nRP1PvTTgxQyBmwnP5YuIUotc6Re
-	 32vMjK6JygtVbxLWuykr7hlUTCg7H1IJFWr/+UyY8hJYfnMs8kJzVAPpRM1fcB/fpgKmr
-	 Pxc2Ho/pws7+Q5loDovIr5lUApPOq+Bud7BUpfz3/vVu5125FAY6/IkOGz/CdLRKqPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794988789;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Mailer;
+	bh=W5u5mMFK+ku88QTK4KObLpRAVOSpX9G17e4WlGIk8Tk=;
+	b=KA+sTR9joXoweMp7k+qzeglnsiT7xmp5QpjczJGA0nd9pMXWEOAIJcvOJUVH/pakqoHC
+	 o0o+nb1Gprg7JiIABUrsptZ44DThzTO0Xh91xKx/MSZYRYbKYxMHSQjiDtECW6GRW1603
+	 ebi2xZvQ0sJ3uOyVaCag7MYgbbB6cOJdbFP3RFsikFlABooUufbZQLyqkAjaGBQR1Laho
+	 jYevxwtUzT/6C7RdzfmV+S0LIQR1hfCvMl43bK7aCuTSB6NJtQwz4CNcjQt2Kp7PQOGsn
+	 LGfwMQw5gew+JdltRvnZXrVc0/L4FQztXcrZu1lx5U1nQVw5Em36rbJNepU9MliFFvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=KFZLryDg;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 92000606A31C;
-	Wed, 18 Nov 2026 07:50:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92000606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b="CL6/cpdz";
+	arc=none smtp.remote-ip=66.163.189.82
+Received: from sonic306-20.consmr.mail.ne1.yahoo.com (sonic306-20.consmr.mail.ne1.yahoo.com [66.163.189.82])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89FAF606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:59:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89FAF606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=KFZLryDg
-Received: from [10.26.7.43] (unknown [4.213.232.22])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7C4C120B7169;
-	Tue, 17 Nov 2026 23:50:47 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7C4C120B7169
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1794988252;
-	bh=l91mS4zSVSG6E8U9qMb4lyxiEjC7Nm+mIRs8YI1Zjzk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=KFZLryDgsHMq8xjo5y0HLmtBR2GdT03fq61lM6R0Wn4xiqPUiQLHrbE73uz/6VDeh
-	 Ff/fbWeBqpTysbhPe+oeubuFuUfv/PK2PUzVdSvQyp7UPeGO+2m/LmT1m4X6Xk4hTR
-	 TJaxFt7esINQRTlbM/qrn8/OO68T8xosh6Rpii34=
-Message-ID: <4fbc1890-e8e4-4c1c-a0b8-6d38c5afcfbf@linux.microsoft.com>
-Date: Wed, 18 Nov 2026 13:20:46 +0530
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=CL6/cpdz
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794988787; bh=W5u5mMFK+ku88QTK4KObLpRAVOSpX9G17e4WlGIk8Tk=; h=Date:Subject:To:Cc:References:From:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=CL6/cpdzptZ0Is6AvT6sbTFqTN/70QBl/XhXJ3XybBGgEcs3pMRkSBh1HVbsm4zxvVLWGCM04VSPysQyAbreY87oz2LQX3IjhZLW/vp3hUuJSxDjOKZGDiX2GJhhlk/RANH2kpVX0Ixv/bGhuEQhBUUhkfnSuCZYRFobXqS5QWt40lJOWVzx67BURlpKZn8IrfksPOhZWMMsbWVCPCkijQTnff5zhzIoUJgxzNBOo+pc8sYZ60G6f9RZez2VygAKhRzGlcD4T9EmODza7TXyg9X70Sm7jAQnofydseZ6retRBhNjLYCwtHB0yMq8Au/7v/AieGJaHE69rZJWuox2xg==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1794988787; bh=1x1G2SHOdr4tNaiwBd3OEspsyrBErtGBWdANZKOA+DD=; h=X-Sonic-MF:Date:Subject:To:From:From:Subject; b=tBfxS2YEOoIs7QedTi7LIh6wucK9OJc/xgiFdCJRj+NKuhj9lGKaO8mvHk3QxYJCFbzfhOkmRH0x1NaDR+Ef2rOu4dKcDKK4ciFpWgYO2dmDQWT3xdHDWvaRICODQnxSS4iR/mkbM6wAT8juZh3BLzNvTx3HCMEpWs6tg/3JgEf1NhmsUV83aS61fUCRsst7SL8ZoQTeBf+ZF0PQ9SYOYq77hjj1TGJSKUW13AQg4u+alAk4l/9kcoC3hpTdPngce5jDAG7kj9gDnC5TRSrYZzDsvCUuEoA81VrbGIT6e7u9PNuq6+lZCTAic6VtPD+8brxmYdUpWDoKXDAojgVsJA==
+X-YMail-OSG: q.vf0b8VM1lsBJ.RR94X1Se6L7EmTGzbxBwpqPdNm6TKyPXQgmkFQMGtW7WankF
+ u3lPKmNfD6H0HosYzn9wWSb2nGoQY4mAR1qlO8qZVTh06CmBNszkFH0fPBs0RLLloHWr5FmPo9sm
+ hi9uuKcPxd4edy0GAsMCM7wEl94lnhLlXAEZbzBC3MdPWFOGw6srx8GeOe6HM_2rNgxIOyhpmAmV
+ NffJrlunD2XwR98IIwcnNW8gghYIr_OhRZ_VHW4_g0tnTpwjK2cibDZgvcFvAyXYDIAPYBPpyTsV
+ KVknZRaK04fBJIfnTwbUqCKNLXNcG3.rBaVXWUceEugKojwXkYhKu5E.p8uGGlbv__C6FWpwQjyk
+ jgVeHjGn7JghYeebNAmNeiWlkS0bskB0_LLRBF81P6JMR9jSFt2V7KhvV5bOfOLOIBa1RJrSugW6
+ 5Ykyf5YYBpKv2w0NG7PwqOeFrGjeq4zB5lDlm7GTjEgn3MuzioguVSufCaZOmYtI97Tm99W.nHY.
+ IbQdGg0KMLYQwldcWZH3Xe2AbEt9ICzj0lE9dWrLjnpo6V0gZRUbqnlXUKqfbIXN1jPhoW7BKq50
+ UiDsjDpfmK9BZ35I9ESiCTy5wQSHy4NiUKnBRi7NGeLE9bJY8CLUR8P2UL6sjcv4mI.2OYGaZwyJ
+ jtjph9sIH6H.tpylr8ob0HkxCL3pVJ4xst4pWtoHtglVUkTXCS3n.Jzx5vUDbSNlj3_uTYynH2GS
+ EDXLoRvqb7Dwm1N.vaHfLoc.4cCwEUEPV88FjNwNwnk9yo.D_tE_S..rLRvUJKt27ojrT_l59eiS
+ DUBnzu35TnhNCba8SEwZL6bxE1P4TK3eItNn30tBjp1BG7DFU8qfK8eJ92Qq8u6aj2qc3qBjtBCL
+ JPQ_ymCzwtI8Kq01tGRVOLks2.1pbHz3egs5kZapVzkqECmrxE58L49jCz.JLGky_.xY8Mh35PNU
+ ZuGC63M9SMjmMjItxlvyEwdX7RZ7PVyBQWGA4Owmdyn8KXvqZj.3NTuodzFxXXQSIE.4Zfu4KbSw
+ 15SA3U8XQYENVW8MLUseS9l083L3S8R5a7A9wxl_GW7mCcHN0RooSEPKXxr.tyuGjGs8LqxiTzVR
+ Xaq3bqLGhHoDTXZvU9xdLQ6ZDDXyySEWuD8wlEFm5VLhqzkJHZjOS4o6tRXSjk3743SzjEMMmDcJ
+ OV9Eyq6ex1NbY6q6lkUUhcq0.PIlxPSmOIMBacguYOacGLA291ya0xUh0q7WnyDqdwcUFYFKmbxW
+ fsgw6nLExkMzoFIE0JFWsLr_GmTIqvmh3q9v8iJNcIcxHlS11aqIEGkL4yv.41E.5c1Wo0JvBlst
+ 78C8lmQUvXfu9CxD.7hO2U98MGciLgABP7RupMquA1mnawMt6sSn0Ix2.ES8DZP64nceUKx1Tk1L
+ UqCWeO_2JP3wRKysoC7VlJH_z.pBnVKT8ZFnnullx61cqURM4OyQ_TmIVinok2p66XpTgMS507YP
+ ii0cYVNul_McMMK1rmCTP1.MTtHAN4.xIKjpLiDSofvMyKRbXHDzHqGSKmYSzil5YPqoXtivLsxa
+ G5.kVCNDeY0OQALUAdYDarYOssb1pUwUpclyxPssm909z4pt60udoitrAQtFpYk.HsIzgjidfhWH
+ 0MR3fO9j73beh3IzkecPuDL_CtU3SsZfVkEFkx.hQGQcbB4_iEUj_D3CSy3euQ3iMQIg1mWnfGHt
+ LgnTEmRUKGvuQhVhQqveF2cZYPuxbACRQEVbru6weX6jfA4MZsBhfsjFc92uvwErA1GktGfEHlrm
+ AwHrAagkkZ2o_hSNNJ.c0nY5SKwul9frwed2yBUWfG123davaAUObitwiFBdUaFfo655w5LM6VLS
+ nJlqV1E0tdWudAlh8UisfujUX4lYlGrXn3Bfl6YmXZ8yj3Z8RJtI6R23C1zAUtodwtaXgpsdTfC9
+ DtvaJP7amUVBWGtbWpV_2NjVCRwXsr9A22e1G7QM.C827fGPUjTs.p9B0TAZdkni3M9SYMt1lO.q
+ ZEg0Wf_ZsS03S6Y9UKuuW1UDSFbl4KHW3H6J9AElX.80jSJqVTPSCfjb42eUc62slVkZJwzwdVh6
+ TRai60FPeQ7NsmbAFUKrYj1PGxOMp2kCTnlExSpO1rj5nHikD.sD0YL4z_OEcQTnZHfWwf4BDGf1
+ MNP6kzLdXatUmWG8cJusyeEy3xO.U8wDn7FxrKdRJ387QsLBWb6bR6Cnf1MCrhyNQ0_BGAqYON_o
+ xienan11c4MTZuZ0rYulwE4URjP9mttbcS6pHDhsSHxx_9aXZLJS4G4nMDO2zqSXhkFR52vpPsqL
+ tRaJ_fGZQb_eInvUbYafUWQ--
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: bd71f71b-e7b3-40d4-bfd2-70d195e2a4d3
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic306.consmr.mail.ne1.yahoo.com with HTTP; Wed, 18 Nov 2026 07:59:47 +0000
+Received: by hermes--production-ir2-5dd9bf4598-jgkl4 (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 8aae2971950a5279db19506ff147a8ad;
+          Wed, 18 Nov 2026 07:59:41 +0000 (UTC)
+Message-ID: <6e61078d-45a5-4ebf-9dc3-a74b80a637f3@yahoo.com>
+Date: Wed, 18 Nov 2026 08:59:38 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -54,514 +85,59 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: mana: Avoid waiting on dead HWC after device
- reset
-To: netdev-bot+sashiko@kernel.org
-Cc: haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, kotaranov@microsoft.com,
- horms@kernel.org, ernis@linux.microsoft.com, gargaditya@linux.microsoft.com,
- mawasthi@linux.microsoft.com, kees+treewide@kernel.org,
- schakrabarti@linux.microsoft.com, leitao@debian.org,
- linux-hyperv@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261112085226.878780-1-sahilchandna@linux.microsoft.com>
- <179483726776.3136.399784833950391727@kernel.org>
-Content-Language: en-US
-From: Sahil Chandna <sahilchandna@linux.microsoft.com>
-In-Reply-To: <179483726776.3136.399784833950391727@kernel.org>
+Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and
+ get vlan 4k for family D
+To: Gustavo Foletto Mora <gusfmora@gmail.com>,
+ Linus Walleij <linusw@kernel.org>
+Cc: andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org, davem@davemloft.net,
+ edumazet@google.com, pabeni@redhat.com, linux@armlinux.org.uk,
+ luizluca@gmail.com, maxime.chevallier@bootlin.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, alvin.sipraga@analog.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
+References: <cf3fd237-2290-4002-8de0-ea4100ef0f85@yahoo.com>
+ <7edbdf93-91e1-4dd1-9ecf-35863cecc277@yahoo.com>
+ <CAD++jLmDszU-XBV9bVDH39cYLSKMDOAHEMdu7s8mxYjfhEvuNA@mail.gmail.com>
+ <CAK+kzgwVSG4CBv8NQvQaqyr__BZbd860EDfEMoZU5JdFCYhtTw@mail.gmail.com>
+Content-Language: pl
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+In-Reply-To: <CAK+kzgwVSG4CBv8NQvQaqyr__BZbd860EDfEMoZU5JdFCYhtTw@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27017 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-On 16-11-2026 19:24, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 6 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 1 · Medium: 3 · Low: 2
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] If mana_gd_dev_reset() fails, mana_dealloc_queues() lowers
->   hwc_timeout to 1 ms (cmpxchg at mana_en.c:3889) before any teardown…
-> - [Medium] The wait before a function-wide device reset drops from 120 s
->   to about 300 ms.
-> - [Medium] The patch claims to bound how long mana_dealloc_queues() holds
->   RTNL when the hardware is unresponsive ('This replaces the 120s drain…
-> - [Medium] net: mana: premature TX NAPI deletion in mana_dealloc_queues()
-> - [Low] mana_hwc_destroy_channel() now skips mana_smc_teardown_hwc() when
->   hwc_dead is set, but its comment still says 'If it's non-zero, the HWC…
-> - [Low] The comment above mana_need_log() still says '/* Suppress logging
->   when we set timeout to zero */'.
-> 
-> --
-> 
-> net: mana: Avoid waiting on dead HWC after device reset
-> 
-> This patch replaces the 120 s sleep-based TX drain in mana_dealloc_queues()
-> with synchronous CQ polling of up to about 300 ms per queue, then resets the
-> device if sends are still pending. A successful reset sets a new hwc_dead
-> flag, which makes mana_hwc_send_request() fail fast and skips
-> mana_fence_rqs() and the SHM teardown handshake; a failed reset lowers
-> hwc_timeout to 1 ms.
-> 
-> Link to v2: https://lore.kernel.org/all/20261030125009.3758592-1-sahilchandna@linux.microsoft.com/
-> 
->> diff --git a/drivers/net/ethernet/microsoft/mana/gdma_main.c b/drivers/net/ethernet/microsoft/mana/gdma_main.c
->> index ab942d5bfe058..94ee3b61527d6 100644
->> --- a/drivers/net/ethernet/microsoft/mana/gdma_main.c
->> +++ b/drivers/net/ethernet/microsoft/mana/gdma_main.c
->> @@ -153,7 +153,9 @@ bool mana_need_log(struct gdma_context *gc, int err)
->>  		return true;
->>  
->>  	hwc = gc->hwc.driver_data;
->> -	if (hwc && hwc->hwc_timeout == 0)
->> +	if (hwc &&
->> +	    (READ_ONCE(hwc->hwc_timeout) == 0 ||
->> +	     READ_ONCE(hwc->hwc_dead)))
->>  		return false;
-> 
-> [Severity: Low]
-> This isn't a bug, but the comment above mana_need_log() still reads:
-> 
-> /* Suppress logging when we set timeout to zero */
-> 
-> With this change, every -ETIMEDOUT is also suppressed once hwc_dead is set,
-> even when hwc_timeout is non-zero. That includes the new fail-fast returns
-> from mana_hwc_send_request(). So callers such as mana_destroy_wq_obj(),
-> mana_pf_deregister_filter(), mana_gd_destroy_dma_region() and the "Failed
-> to disable vPort" message in mana_dealloc_queues() log nothing.
-> 
-> Could the comment be updated to cover the hwc_dead case too?
-> 
-Ack.
->> diff --git a/drivers/net/ethernet/microsoft/mana/hw_channel.c b/drivers/net/ethernet/microsoft/mana/hw_channel.c
->> index fb9f38f65911c..ca9dcbfea9e46 100644
->> --- a/drivers/net/ethernet/microsoft/mana/hw_channel.c
->> +++ b/drivers/net/ethernet/microsoft/mana/hw_channel.c
-> 
-> [ ... ]
-> 
->> @@ -819,7 +819,11 @@ void mana_hwc_destroy_channel(struct gdma_context *gc)
->>  	 * non-zero, the HWC worked and we should tear down the HWC here.
->>  	 */
->>  	if (gc->max_num_cqs > 0) {
->> -		mana_smc_teardown_hwc(&gc->shm_channel, false);
->> +		if (READ_ONCE(hwc->hwc_dead))
->> +			dev_warn(hwc->dev,
->> +				 "HWC unavailable, skip SHM teardown handshake\n");
->> +		else
->> +			mana_smc_teardown_hwc(&gc->shm_channel, false);
->>  		WRITE_ONCE(gc->max_num_cqs, 0);
->>  	}
-> 
-> [Severity: Low]
-> The comment just above still says the HWC should be torn down here whenever
-> max_num_cqs is non-zero. mana_smc_teardown_hwc() also describes the
-> handshake as required:
-> 
-> drivers/net/ethernet/microsoft/mana/shm_channel.c:mana_smc_teardown_hwc() {
->     ...
-> 	/* Read shmem response (polling for VF possession) and validate.
-> 	 * For teardown, waiting for response is required to ensure hardware
-> 	 * invalidates MST entries before software frees memory.
-> 	 */
->     ...
-> }
-> 
-> Right after this branch, mana_hwc_destroy_channel() frees the HWC queues,
-> caller_ctx and the hwc itself.
-> 
-> Skipping the handshake is only safe if a successful mana_gd_dev_reset()
-> guarantees the device has dropped those MST entries. Is that assumption
-> written down anywhere?
-> 
-> The pcie_flr() kernel-doc says it initiates FLR "unconditionally on @dev
-> without checking any flags and DEVCAP". A 0 return shows that the device's
-> config space is readable again, not that the reset actually happened. If
-> the FLR were ignored, hwc_dead would be set on a live device and the
-> handshake would be skipped. I couldn't check from the tree whether MANA
-> always honours FLR.
-> 
-> Could these comments explain why the handshake can be skipped after a
-> reset?
-> 
-Ack, updated comment explaining the same in v4.
-> [ ... ]
-> 
->> diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
->> index 38249e092090a..739021aa09b38 100644
->> --- a/drivers/net/ethernet/microsoft/mana/mana_en.c
->> +++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
-> 
-> [ ... ]
-> 
->> @@ -3799,42 +3809,110 @@ static int mana_dealloc_queues(struct net_device *ndev)
-> 
-> [ ... ]
-> 
->> +				tx_cq->budget = 0;
->> +				for (retry = 0; retry <= MANA_TX_DRAIN_RETRIES;
->> +				     retry++) {
->> +					do {
->> +						tx_cq->work_done = 0;
->> +						mana_poll_tx_cq(tx_cq);
->> +					} while (tx_cq->work_done);
->> +
->> +					if (!atomic_read(&txq->pending_sends) ||
->> +					    trigger_flr ||
->> +					    READ_ONCE(hwc->hwc_dead))
->> +						break;
->> +					if (retry < MANA_TX_DRAIN_RETRIES)
->> +						msleep(100);
->>  				}
->> -				break;
->> +			}
->> +
->> +			pending = atomic_read(&txq->pending_sends);
->> +
->> +			if (!trigger_flr && pending > 0) {
->> +				trigger_flr = true;
->> +				flr_txq_id = txq->gdma_txq_id;
->> +				flr_pending = pending;
->> +			}
->> +		}
-> 
-> [Severity: Medium]
-> This cuts the wait before a device reset from 120 s to about 300 ms. If any
-> queue still has pending_sends after the first poll and three more 100 ms
-> apart, trigger_flr is set and mana_gd_dev_reset() runs.
-> 
-> mana_gd_dev_reset() calls pcie_flr() on PCI and cdx_dev_reset() on CDX. So
-> it resets the whole function, including the HWC and every vPort, not just
-> the stalled queue.
-> 
-> On success, hwc_dead is set. Nothing clears it until
-> mana_hwc_destroy_channel() frees the hwc. Until then, every HWC request
-> from any port or from mana_ib fails with -ETIMEDOUT in
-> mana_hwc_send_request().
-> 
-> Recovery depends on mana_gf_stats_work_handler() getting -ETIMEDOUT and
-> calling mana_schedule_serv_work(). mana_cdx_bus_ops does not set
-> schedule_serv_work. Does the device stay dead on CDX?
-> 
-> mana_dealloc_queues() also runs on every ndo_stop and mana_detach() (MTU,
-> channel, ring and XDP changes), not only during recovery. A device that is
-> just slow or briefly paused would have finished draining within the old
-> 120 s window. Now it gets a function-level reset.
-> 
-> Is 300 ms known to be long enough before a reset this disruptive? It would
-> help if the commit message explained why 300 ms was chosen. It could also
-> say that the reset is function-wide and that the device stays unusable
-> until a service reset.
-> 
-300 ms decision is not hardware heuristic but something I added from
-testing, updated comment message for the same in v4. Rest of hwc timeout
-failure are same as before the patch.
->> +		if (trigger_flr && !READ_ONCE(hwc->hwc_dead)) {
->> +			/* Completions never arrived: the device is
->> +			 * unresponsive. Issue device reset and
->> +			 * mark the HWC dead so subsequent HWC commands
->> +			 * fail fast instead of each waiting the full
->> +			 * hwc_timeout.
->> +			 */
->> +			err = mana_gd_dev_reset(gd->gdma_context);
-> 
-> [Severity: Medium]
-> The commit message says:
-> 
->   "This replaces the 120s drain timeout with at most 300 ms of sleep per
->   queue."
-> 
-> However, mana_gd_dev_reset() still runs synchronously here, with RTNL and
-> the netdev instance lock held. On PCI this calls pcie_flr():
-> 
-> drivers/pci/pci.c:pcie_flr() {
->     ...
-> 	if (!pci_wait_for_pending_transaction(dev))
-> 		pci_err(dev, "timed out waiting for pending transaction; performing function level reset anyway\n");
->     ...
-> 	msleep(100);
-> 
-> 	ret = pci_dev_wait(dev, "FLR", PCIE_RESET_READY_POLL_MS);
->     ...
-> }
-> 
-> pci_dev_wait() keeps sleeping, doubling the delay each time, until the
-> Command register reads back valid. It gives up only after about 60 s.
-> 
-> This reset is issued exactly when the driver has decided the device is
-> unresponsive. If the device does not come back from FLR, can RTNL be held
-> for about another 60 s here?
-> 
-> After that, the reset-failure path also reaches mana_fence_rqs(), which
-> sleeps 100 ms per RXQ when the fence fails.
-> 
-Updated commit message in v4 to address this.
->> +			if (err) {
->> +				netdev_err(ndev, "device reset failed %d with %d pkts pending in txq %u\n",
->> +					   err, flr_pending, flr_txq_id);
->> +
->> +				/* reduce timeout if device reset failed */
->> +				timeout = READ_ONCE(hwc->hwc_timeout);
->> +				if (timeout > 1)
->> +					cmpxchg(&hwc->hwc_timeout, timeout, 1);
->> +			} else {
->> +				WRITE_ONCE(hwc->hwc_dead, true);
->>  			}
->>  		}
-> 
-> [Severity: High]
-> If mana_gd_dev_reset() fails, hwc_timeout drops to 1 ms here, before any
-> teardown command has been sent. The commit message explains why the
-> commands are still posted:
-> 
->   "If the reset fails, the device may not have been reset and may still
->   access memory, so teardown commands are still posted"
-> 
-> hwc_dead stays false, so mana_disable_vport_rx(), mana_fence_rqs(),
-> mana_destroy_wq_obj() and mana_gd_destroy_dma_region() are all posted.
-> But mana_hwc_send_request() now waits only 1 ms for each reply:
-> 
-> 	timeout = READ_ONCE(hwc->hwc_timeout);
-> 	if (!wait_for_completion_timeout(&ctx->comp_event,
-> 					 (msecs_to_jiffies(timeout)))) {
-> 
-> Any firmware reply slower than 1 ms gives -ETIMEDOUT, and the callers
-> ignore it.
-> 
-> The pending TX SKBs are unmapped and freed in the loop just below. After
-> that, mana_destroy_rxqs(), mana_destroy_txq() and mana_destroy_eq() free
-> the RX buffers, queue rings and DMA-region memory. mana_gd_destroy_queue()
-> frees the memory whether or not the destroy succeeded:
-> 
-> drivers/net/ethernet/microsoft/mana/gdma_main.c:mana_gd_destroy_queue() {
->     ...
-> 	mana_gd_destroy_dma_region(gc, gmi->dma_region_handle);
-> 	mana_gd_free_memory(gmi);
-> 	kfree(queue);
-> }
-> 
-> Can the device then DMA into memory that has already been freed?
-> 
-> Before this patch, the first teardown command on this path waited the full
-> hwc_timeout. If the HWC still worked, every teardown command was
-> acknowledged before memory was freed. This path is also much easier to
-> reach now, since the reset follows a 300 ms stall instead of 120 s.
-> 
-> The 1 ms value also stays in place until the HWC is rebuilt. A timed-out
-> msg_id slot is freed and handed out again right away through
-> find_first_zero_bit(), and ctx->comp_event is initialised only once, when
-> the HWC is set up. mana_hwc_handle_resp() matches a reply to its caller
-> only by msg_id:
-> 
-> drivers/net/ethernet/microsoft/mana/hw_channel.c:mana_hwc_handle_resp() {
->     ...
-> 	ctx = hwc->caller_ctx + msg_id;
-> 	err = mana_hwc_verify_resp_msg(ctx, resp_msg, resp_len);
->     ...
-> 	memcpy(ctx->output_buf, resp_msg, resp_len);
->     ...
-> 	complete(&ctx->comp_event);
-> }
-> 
-> So a late reply to one request can complete a later request that got the
-> same slot.
-> 
-> The mana_en commands catch this with the msg_type check in
-> mana_verify_resp_hdr(), so mana_destroy_wq_obj() won't accept a stale
-> fence reply. mana_gd_destroy_dma_region() checks only resp.hdr.status:
-> 
-> 	err = mana_gd_send_request(gc, sizeof(req), &req, sizeof(resp), &resp);
-> 	if (err || resp.hdr.status) {
-> 
-> Could a stale reply with status 0 be accepted here as a successful
-> GDMA_DESTROY_DMA_REGION?
-> 
-> Would it be safer to keep the normal hwc_timeout for the teardown commands
-> when the reset fails?
-> 
-I have removed the timeout reduction from here in case of reset fails,
-the only reason to add this here was due to a previous AI review comment
-but the issue is real as highlighted and timeout should not have been
-reduced, so reverted this back in v4.
-> [ ... ]
-> 
->> @@ -3799,42 +3809,110 @@ static int mana_dealloc_queues(struct net_device *ndev)
->>  	 * a txq because it may not timely see apc->port_is_up being cleared
->>  	 * to false, but it doesn't matter since mana_start_xmit() drops any
->>  	 * new packets due to apc->port_is_up being false.
->> -	 *
->> -	 * Drain all the in-flight TX packets.
->> -	 * A timeout of 120 seconds for all the queues is used.
->> -	 * This will break the while loop when h/w is not responding.
->> -	 * This value of 120 has been decided here considering max
->> -	 * number of queues.
->> +	 * Drain the in-flight TX completions for each queue. TX is already
->> +	 * stopped, so pending_sends can no longer grow. For each queue,
->> +	 * disable NAPI so it cannot run at the same time as this drain,
->> +	 * then poll its CQ for up to 300 ms. If sends are still missing,
->> +	 * the hardware is not responding: reset the device and mark the
->> +	 * HWC dead so that later HWC commands fail fast.
->>  	 */
->>
->>  	if (apc->tx_qp) {
->>  		for (i = 0; i < apc->num_queues; i++) {
->> +			struct napi_struct *napi;
->> +			struct mana_cq *tx_cq;
->> +			int pending;
->> +
->> +			if (!apc->tx_qp[i])
->> +				continue;
->> +
->> +			tx_cq = &apc->tx_qp[i]->tx_cq;
->>  			txq = &apc->tx_qp[i]->txq;
->> -			tsleep = 1000;
->> -			while (atomic_read(&txq->pending_sends) > 0 &&
->> -			       time_before(jiffies, timeout)) {
->> -				usleep_range(tsleep, tsleep + 1000);
->> -				tsleep <<= 1;
->> -			}
->> -			if (atomic_read(&txq->pending_sends)) {
->> -				err = mana_gd_dev_reset(gd->gdma_context);
->> -				if (err) {
->> -					netdev_err(ndev, "device reset failed %d with %d pkts pending in txq %u\n",
->> -						   err,
->> -					    atomic_read(&txq->pending_sends),
->> -					    txq->gdma_txq_id);
->> +			napi = &tx_cq->napi;
->> +
->> +			if (txq->napi_initialized) {
->> +				/* Stop the NAPI poll so it cannot run
->> +				 * concurrently with the synchronous drain.
->> +				 */
->> +				napi_synchronize(napi);
->> +				napi_disable_locked(napi);
->> +				cancel_work_sync(&tx_cq->dim.work);
->> +
->> +				/* Poll the CQ until no sends are outstanding,
->> +				 * sleeping 100 ms between polls. Poll once
->> +				 * if earlier queue was stuck or device
->> +				 * has already been reset.
->> +				 * A zero budget frees skbs via the non-NAPI
->> +				 * path, which is required outside softirq.
->> +				 */
->> +				tx_cq->budget = 0;
->> +				for (retry = 0; retry <= MANA_TX_DRAIN_RETRIES;
->> +				     retry++) {
->> +					do {
->> +						tx_cq->work_done = 0;
->> +						mana_poll_tx_cq(tx_cq);
->> +					} while (tx_cq->work_done);
->> +
->> +					if (!atomic_read(&txq->pending_sends) ||
->> +					    trigger_flr ||
->> +					    READ_ONCE(hwc->hwc_dead))
->> +						break;
->> +					if (retry < MANA_TX_DRAIN_RETRIES)
->> +						msleep(100);
->>  				}
->> -				break;
->> +			}
->> +
->> +			pending = atomic_read(&txq->pending_sends);
->> +
->> +			if (!trigger_flr && pending > 0) {
->> +				trigger_flr = true;
->> +				flr_txq_id = txq->gdma_txq_id;
->> +				flr_pending = pending;
->> +			}
->> +		}
->> +
->> +		if (trigger_flr && !READ_ONCE(hwc->hwc_dead)) {
->> +			/* Completions never arrived: the device is
->> +			 * unresponsive. Issue device reset and
->> +			 * mark the HWC dead so subsequent HWC commands
->> +			 * fail fast instead of each waiting the full
->> +			 * hwc_timeout.
->> +			 */
->> +			err = mana_gd_dev_reset(gd->gdma_context);
->> +			if (err) {
->> +				netdev_err(ndev, "device reset failed %d with %d pkts pending in txq %u\n",
->> +					   err, flr_pending, flr_txq_id);
->> +
->> +				/* reduce timeout if device reset failed */
->> +				timeout = READ_ONCE(hwc->hwc_timeout);
->> +				if (timeout > 1)
->> +					cmpxchg(&hwc->hwc_timeout, timeout, 1);
->> +			} else {
->> +				WRITE_ONCE(hwc->hwc_dead, true);
->>  			}
->>  		}
->>
->>  		for (i = 0; i < apc->num_queues; i++) {
->> +			struct napi_struct *napi;
->> +			struct mana_cq *tx_cq;
->> +
->> +			if (!apc->tx_qp[i])
->> +				continue;
->> +
->> +			tx_cq = &apc->tx_qp[i]->tx_cq;
->> +			napi = &tx_cq->napi;
->> +
->>  			txq = &apc->tx_qp[i]->txq;
->>  			while ((skb = skb_dequeue(&txq->pending_skbs))) {
->>  				mana_unmap_skb(skb, apc);
->>  				dev_kfree_skb_any(skb);
->>  			}
->>  			atomic_set(&txq->pending_sends, 0);
->> +
->> +			if (txq->napi_initialized) {
->> +				netif_napi_del_locked(napi);
->> +				txq->napi_initialized = false;
->> +			}
->>  		}
->>  	}
->>
-> 
-> [Severity: Medium]
-> This deletes the TX NAPI and clears txq->napi_initialized long before
-> the SQ object is destroyed and the TX CQ is detached.
-> 
-> mana_destroy_txq() was arranged so that mana_gd_detach_cq(),
-> netif_napi_del_locked() and clearing napi_initialized all happen
-> together, after mana_destroy_wq_obj(GDMA_SQ). Its comment says this is
-> so a completion EQE that arrives before the WQ is destroyed still finds
-> the CQ, and so one grace period covers both mana_gd_intr() and NAPI
-> users.
-> 
-> With this change, the TX CQ is still published in gc->cq_table[], and
-> the EQ is still live, while mana_disable_vport_rx(), mana_fence_rqs(),
-> mana_destroy_rxqs() and mana_destroy_wq_obj() run. A completion EQE for
-> this CQ in that window reaches mana_schedule_napi() on a napi_struct
-> that has already been through netif_napi_del_locked().
-> 
-> The memory stays valid until kvfree() in mana_destroy_txq(). The
-> NAPI_STATE_SCHED bit left set by napi_disable_locked() probably keeps
-> this from doing real harm. Still, this is exactly the ordering
-> mana_destroy_txq() was written to avoid.
-> 
-> When mana_destroy_txq() runs later, napi_initialized is already false
-> for every queue, so its detach/del block is skipped. The CQ is then
-> detached from mana_deinit_cq() -> mana_gd_destroy_queue() ->
-> mana_gd_destroy_cq(), which calls synchronize_net() again. That gives
-> two grace periods per TX queue under RTNL, where there used to be one.
-> 
-> I assume napi_initialized is cleared here so that mana_destroy_txq()
-> does not call napi_synchronize() and napi_disable_locked() a second
-> time. Both would spin forever on the NAPI_STATE_SCHED bit left by the
-> first disable.
-> 
-> Could that be avoided without moving the deletion? For example, the
-> disabled state could be tracked separately from napi_initialized, so
-> that mana_destroy_txq() skips only the synchronize/disable step. The
-> detach and netif_napi_del_locked() would then still happen together
-> after mana_destroy_wq_obj().
-> 
-I have made this change in v4. Handling this in mana_destroy_txq ().
+Subject: Re: [PATCH net-next v11 07/13] net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D
 
-pw-bot: cr
+Hi Gustavo,
+
+Thanks for testing v11, and for the detailed report on the vlan_filtering toggle. I will add your Tested-by on 7, 8 and 9 in the next revision, noting for 8 and 9 that it is family D only.
+
+On the 5.4 s per toggle: agreed, scanning all 4095 entries over MDIO is too slow. I plan to track the VIDs that are in use and scan only those in rtl8365mb_d_vlan_4k_refresh_ivl().
+
+I also have a question where your hardware would help. The Sashiko review of v11 12/13 (https://sashiko.dev/#/patchset/cf3fd237-2290-4002-8de0-ea4100ef0f85%40yahoo.com, "Muted" so it did not go to the list) raises the same shared-FID problem you reported earlier. It says:
+
+> Does sharing SVL FID 0 between standalone ports and an offloaded
+> VLAN-unaware bridge break DSA standalone port isolation?
+> [...]
+> Once a MAC is learned or programmed on an offloaded bridge port in
+> FID 0, any frame arriving on a standalone or software-bridged port for
+> that destination MAC hits the bridge port entry instead of flooding to the
+> CPU port, and is dropped by the ingress port's isolation mask.
+
+and suggests a way out:
+
+> Commit "net: dsa: realtek: rtl8365mb: set and get vlan 4k for family D"
+> defines a 2-bit FID field (RTL8365MB_D_CVLAN_ENTRY_D1_FID_MASK) in the
+> family D CVLAN entry and rtl8365mb_d_l2_uc_to_data() already serializes
+> uc->key.fid when ivl is false, so could the offloaded bridge be assigned a
+> non-zero SVL FID to keep it separate from FID 0 on standalone ports?
+
+I cannot verify this from the vendor API alone. What I would like to know, if you have time to try it on the EX511:
+
+1. With IVL_EN=0 (VLAN-unaware bridge), if the FID field of the bridge VLAN's 4K entry is set to 1 (for example by a temporary hack in rtl8365mb_vlan_4k_port_set()), does the chip learn the bridge hosts with FID 1? A debug print of key.fid in rtl8365mb_d_l2_data_to_uc() on the learned entries should show it.
+2. Which VLAN4K entry do the standalone ports classify into with PVID 0? If it is not the same entry, they would stay in FID 0 and the bridge could use another FID. If it is the same entry, the FID cannot separate them.
+3. If 1 and 2 work out, do static entries written with key.fid = 1 replace the learned ones?
+
+If you see that the chip does not use the VLAN4K FID for learning, I will keep this as a documented limitation in the commit message, as it is now. If it does, I will look at giving the offloaded bridge its own FID in a follow-up, with FDB/MDB entries for the bridge keyed with that FID and standalone ports left on FID 0.
+
+Thanks,
+Mieczyslaw
