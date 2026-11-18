@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997919;
-	b=1Rk/iNnw7wMz4fyURotTuGJN6d/VcJJJofXSzu0EA7ja9WYI3zKlZ42h8zhIZYOCPTjK
-	 1Xpqm5jiQPDGm48ijV5wxOt+yteBEldyNApvkyg0F8jMQ9VPUOkSb/f1Iq2V6Yn5dGESt
-	 2Ba0vDajWiW3Fpa9sESRBRSfYwRMQ+L1CQyYCrywewu+ZKzsEweyEZ/wvriHpUD0cTGKo
-	 EyqN++F755KB7VKv8f7oxxmq23KQ9UGlbiCf99Jo1cMmRaIlZbQEddxOLQwSfFuY/uZni
-	 V7xrwP7oMYuDwHCvuleAL+DZbHcviUGLY3f/chcK7Twgre8fnRZ1dXf82ibo/LnHTBQ==
+	t=1794997914;
+	b=svCMXA/ZJQgx/wugRM5ZbU1UVwgHLTE761Fsgy4ojGVN/NSRRFev6ziipkuNi2FZO/hV
+	 GIdHNOD3VU9my+uApKtZM6wuw7z36OphNND22O+1ys9qh27Eekx7qPn9QKUi0qnnBCkab
+	 XdC232V65hdwfRux0GJL2UW9zUHmXc7qz14g8Xnkq5VXTFr/2j1TDH8NpjWxCfgWZ7hsH
+	 phjk7iMWTAUIsYu0+2MR0XEPJmubndqVodEqFzOX+AL/HH2eqqAFm3pj2Agdbl5+4mlVy
+	 LrxdFcrDljsXBG34AilbURfYKXNLfkJkFVf8a1z0zqFGgfMRJN9TTMMeOX8IeMKm3wQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997919;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997914;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=P8vxApBGT0u4j4FUHi/CkDPkx6JQ5Wjd/VD7MyC9yUo=;
-	b=yWp84ETRIuH7JdbjZfO2XkH32hZNomFl0XVRAMuCESLL2xdDpi7xc3xH475+EzJeAuSU
-	 RcAURnhcNWYBsxGfd6oiL1+R7nXKgGxALbrDmL6T4gAVt1Lq/m20FVte/4PZnA9NPHd+X
-	 7SI72jrxhf1KEf+u7fCAHPayEUwlgB1Wo/JILZcCavIcKMwEiEIA5cHMF6fuDdm8dhDlR
-	 IKDY3/kpjCqvSCi9POvThplhSOTrkfTUW1C6EOsRiECII2/BnUPPmRt+YWTd++HqMpxuS
-	 ptxAWcwXjevaAwkRO3po0pImweTvy/LpVkEJj5NEpzgi2uxGET55xf6lf2H6u+dHVRA==
+	bh=12Z/blDM1A992Y/WX9Tffx98lEKuxjToJj7Etbtn4kk=;
+	b=E/jaEtQ1F56QjGoFysKvZzbQgXRbbc4N6wpTK76LAwV6r+s/CJvM9iXacvEfK20BYx+b
+	 hMV3TA9bMwlk5Tn2lKiJETkf/lB73ANeqKMbC0p6dir0d+CoL2V13TYIsXBAfjcR6Zhqw
+	 ktCTUXcHTTbvyX6WgPyUNMTacEmVdYPFuMPuyI+cKA6JIDfZcr/c3PuoPYeOVEigAdMpH
+	 MjbV1g7KoOVNBbIe5BBAIKiwyOqM86DL7l2ut4F+b01KCBxVhLN0uuasRe74yc3BqJgLc
+	 XjdHGa3WuT4WIIxJ77jHWoHsmztH9heSOPFM8V6P3j1FuMvdVWinxEwgnjiQHc7ZzlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N2Dj1eyk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S9NuUema;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37240606A338;
-	Wed, 18 Nov 2026 10:31:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96E86606A320;
+	Wed, 18 Nov 2026 10:31:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=N2Dj1eyk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BEDF1F000CD;
-	Wed, 18 Nov 2026 10:31:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S9NuUema
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F1FB1F000C4;
+	Wed, 18 Nov 2026 10:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794997919;
-	bh=P8vxApBGT0u4j4FUHi/CkDPkx6JQ5Wjd/VD7MyC9yUo=;
+	s=k20260515; t=1794997914;
+	bh=12Z/blDM1A992Y/WX9Tffx98lEKuxjToJj7Etbtn4kk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=N2Dj1eyk8iSvmgrgm1BiK+ZscXl8ugro//qUSj0qaMDX0EflrHyjEY7RnYWdB9e6a
-	 Emxi3xzt26SL8QcmSoCYCkEe0TBYR+1ptE1PSOYsXUk2+EMttZe3qDoJe7PSzG6o7r
-	 se6ss0e7SNYuLFm7vqSwI6t0+3jJopyJ2R9agW5gA96DazNN+tU0rSGT7RS/meoEqs
-	 j6QP84FQR2PczsX3LDgnEUf+6yMbAXJ7NPzcG/NbSTGYKKNXZVkonzoOoBJr/7ZnkL
-	 Ntm4XrMYTuwRLjPDgmcDVt48vh7NvUnL+/Ab217Ms9wOA8qbKqHokGV+sxZ/gTYeAT
-	 2mee9k4uwmtLw==
-Subject: Re: [PATCH net-next V2 08/10] net/mlx5: LAG: replace fixed
- MLX5_MAX_PORTS arrays with dynamic allocation
+	b=S9NuUemaydoWdJ9SaVZ8yadou0dGhyeD1K2t7u3fD5hUFe42lGa4Oxdcd9v2iHQPc
+	 oYWIXc4vAaaEOHjhG0xiTW/O4BJjDEaxKwb9nJR4mnlDKaZh0GowJEru/qrJoPcfcD
+	 9eUvIGC/bSaxN1TSw3RCgnXiYTaJH4AVpOzcZIZgNw3INZlgUyiFeEx4oTjZiUtQ9T
+	 WimHqaYS0OsQHJzD7/FRXGKH5oArQhcKtC+EWTKSQgBio5H/qEeOymI2+vQhk0+tb2
+	 znqqQJPwvS3wBiOR6EB3XFWf9OnnmTu8AR+swRifpME85OdldjOLd3FTkJeNeb+9HT
+	 BR0aB96A7aUqg==
+Subject: Re: [PATCH net-next V2 01/10] net/mlx5: Distinguish VFs/SFs in the SW
+ system image GUID for LAG grouping
 From: netdev-bot+sashiko@kernel.org
 To: tariqt@nvidia.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
@@ -50,11 +50,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
  moshe@nvidia.com, ohartoov@nvidia.com, phaddad@nvidia.com, saeedm@nvidia.com,
  shayd@nvidia.com, udar@nvidia.com
-Date: Wed, 18 Nov 2026 10:31:57 +0000
-Message-ID: <179499791769.3136.2377396411292995534@kernel.org>
-In-Reply-To: <20261116103010.1129666-9-tariqt@nvidia.com>
-References: <20261116103010.1129666-9-tariqt@nvidia.com>
-X-sashiko-severity: High
+Date: Wed, 18 Nov 2026 10:31:52 +0000
+Message-ID: <179499791273.3136.2247906810795336370@kernel.org>
+In-Reply-To: <20261116103010.1129666-2-tariqt@nvidia.com>
+References: <20261116103010.1129666-2-tariqt@nvidia.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,157 +78,122 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] Possible heap out-of-bounds read/write in
-  mlx5_mpesw_metadata_cleanup()…
-- [Low] The commit message ends with "Thus, removes the hard dependency
-  on MLX5_MAX_PORTS", which overstates what the patch does.
+- [Medium] The patch changes the SW system image GUID of a VF/SF that
+  passes mlx5_virt_lag_is_supported(): mlx5_sw_guid_vf() or…
 
 --
 
-net/mlx5: LAG: replace fixed MLX5_MAX_PORTS arrays with dynamic allocation
+net/mlx5: Distinguish VFs/SFs in the SW system image GUID for LAG grouping
 
-This converts lag_mpesw.pf_metadata and the mdev array in
-mlx5_lag_query_cong_counters() from fixed MLX5_MAX_PORTS sized arrays to
-dynamically allocated buffers. pf_metadata is sized by ldev->max_fns when
-MPESW is enabled. The cong counters array is sized by ldev->ports.
+This patch changes mlx5_query_nic_sw_system_image_guid() so that each
+discriminator byte after the FW system image GUID has a fixed position,
+and trailing zero fields are trimmed. It adds VF and SF marker bytes that
+are only set when mlx5_virt_lag_is_supported() is true, and it raises
+MLX5_SW_IMAGE_GUID_MAX_BYTES from 9 to 11.
 
-> Thus, removes the hard dependency on MLX5_MAX_PORTS.
-
-[Severity: Low]
-Is this statement accurate? This patch converts only two arrays.
-
-This patch leaves the devs[MLX5_MAX_PORTS] scratch array in
-mlx5_lag_rescan_devices_locked_filter() in place. The later series patch
-"drop MLX5_MAX_PORTS scratch array from device rescan" removes it.
-
-Some arrays tied to the LAG member index space are still there at the end
-of the series. That index space is no longer capped at MLX5_MAX_PORTS,
-because "decouple iteration end-of-walk from MLX5_MAX_PORTS" moved
-xa_alloc() to XA_LIMIT(0, U8_MAX - 1):
-
-drivers/net/ethernet/mellanox/mlx5/core/lag/lag.h:struct lag_tracker {
-    ...
-    struct netdev_lag_lower_state_info  netdev_state[MLX5_MAX_PORTS];
-    ...
-}
-
-drivers/net/ethernet/mellanox/mlx5/core/lag/port_sel.h:struct mlx5_lag_port_sel {
-    ...
-    struct mlx5_flow_handle *rules[MLX5_MAX_PORTS * MLX5_LAG_MAX_HASH_BUCKETS];
-    ...
-}
-
-Could the commit message say that these remain? Or should they be
-converted or bounded as well?
-
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/lag/mpesw.c b/drivers/net/ethernet/mellanox/mlx5/core/lag/mpesw.c
-> index 49602f8306155..8a867a04916a8 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/lag/mpesw.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/lag/mpesw.c
-> @@ -15,6 +15,9 @@ static void mlx5_mpesw_metadata_cleanup(struct mlx5_lag *ldev)
->  	u32 pf_metadata;
->  	int i;
->  
-> +	if (!ldev->lag_mpesw.pf_metadata)
-> +		return;
-> +
->  	mlx5_lag_for_each(i, 0, ldev, MLX5_LAG_FILTER_ALL) {
->  		dev = mlx5_lag_fn(ldev, i)->dev;
->  		esw = dev->priv.eswitch;
-> @@ -27,6 +30,9 @@ static void mlx5_mpesw_metadata_cleanup(struct mlx5_lag *ldev)
->  		mlx5_esw_match_metadata_free(esw, pf_metadata);
->  		ldev->lag_mpesw.pf_metadata[i] = 0;
->  	}
-> +
-> +	kfree(ldev->lag_mpesw.pf_metadata);
-> +	ldev->lag_mpesw.pf_metadata = NULL;
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/vport.c b/drivers/net/ethernet/mellanox/mlx5/core/vport.c
+> index 78f3d15b599d0..bab43df6a7d72 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/vport.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/vport.c
+> @@ -1308,10 +1308,37 @@ u64 mlx5_query_nic_system_image_guid(struct mlx5_core_dev *mdev)
 >  }
+>  EXPORT_SYMBOL_GPL(mlx5_query_nic_system_image_guid);
 >  
->  static int mlx5_mpesw_metadata_set(struct mlx5_lag *ldev)
-> @@ -36,6 +42,12 @@ static int mlx5_mpesw_metadata_set(struct mlx5_lag *ldev)
->  	u32 pf_metadata;
->  	int i, err;
->  
-> +	ldev->lag_mpesw.pf_metadata =
-> +		kcalloc(ldev->max_fns, sizeof(*ldev->lag_mpesw.pf_metadata),
-> +			GFP_KERNEL);
-> +	if (!ldev->lag_mpesw.pf_metadata)
-> +		return -ENOMEM;
+> +static u8 mlx5_sw_guid_load_balance(const struct mlx5_core_dev *mdev)
+> +{
+> +	if (MLX5_CAP_GEN_2(mdev, load_balance_id) &&
+> +	    MLX5_CAP_GEN_2(mdev, lag_per_mp_group))
+> +		return MLX5_CAP_GEN_2(mdev, load_balance_id);
+> +	return 0;
+> +}
 > +
+> +static u8 mlx5_sw_guid_sf(const struct mlx5_core_dev *mdev)
+> +{
+> +	return mlx5_core_is_sf(mdev) && mlx5_virt_lag_is_supported(mdev);
+> +}
+> +
+> +static u8 mlx5_sw_guid_vf(const struct mlx5_core_dev *mdev)
+> +{
+> +	return mlx5_core_is_vf(mdev) && mlx5_virt_lag_is_supported(mdev);
+> +}
 
-[Severity: High]
-Can ldev->max_fns grow after this allocation while MPESW is still active?
+[Severity: Medium]
+Does this break the same-HW check between a PF and a VF/SF that passes
+mlx5_virt_lag_is_supported()?
 
-The allocated length is not stored anywhere. Yet
-mlx5_mpesw_metadata_cleanup() walks the members with mlx5_lag_for_each(),
-which checks against the current max_fns:
+Suppose the VF/SF's own caps report multi_uplink_eswitch=1, lag_master=1
+and num_lag_ports < 2. The VF key then becomes guid + [lb|0] + 0x01, which
+is 10 bytes. The SF key becomes guid + [lb|0] + 0x00 + 0x01, which is 11
+bytes. A PF never sets either marker, so its key is still 8 or 9 bytes.
 
-#define mlx5_lag_for_each(i, start_index, ldev, filter) \
-	for (int tmp = start_index; \
-	     tmp = mlx5_get_next_lag_func(ldev, tmp, filter), \
-	     i = tmp, tmp < (ldev)->max_fns; tmp++)
+mlx5_same_hw_devs() requires the lengths to match:
 
-mlx5_ldev_add_mdev() grows max_fns without looking at the LAG mode:
-
-drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c:mlx5_ldev_add_mdev() {
+drivers/net/ethernet/mellanox/mlx5/core/dev.c:mlx5_same_hw_devs() {
     ...
-	/* max_fns is the iteration ceiling; grow it, never shrink. */
-	if (idx >= ldev->max_fns)
-		ldev->max_fns = idx + 1;
-    ...
+	return plen && flen && flen == plen &&
+		!memcmp(fsystem_guid, psystem_guid, flen);
 }
 
-sd_lag_init() calls it for each SD secondary, also without checking
-ldev->mode:
+That means it now returns false for any PF paired with such a VF/SF.
 
-drivers/net/ethernet/mellanox/mlx5/core/lib/sd.c:sd_lag_init() {
+mlx5e_tc_is_vf_tunnel() only reaches that comparison when out_mdev is a
+PF and route_mdev is a VF/SF:
+
+drivers/net/ethernet/mellanox/mlx5/core/en_tc.c:mlx5e_tc_is_vf_tunnel() {
     ...
-	mlx5_sd_for_each_secondary(i, primary, pos) {
-		err = mlx5_ldev_add_mdev(ldev, pos, sd->group_id);
-    ...
+	if (route_mdev->coredev_type != MLX5_COREDEV_VF &&
+	    route_mdev->coredev_type != MLX5_COREDEV_SF)
+		return false;
+
+	return mlx5e_same_hw_devs(out_priv, route_priv);
 }
 
-Here is one possible sequence on an SD card:
+For a virt-LAG-capable VF/SF route device, will it now always return
+false? These are the paths that would be affected:
 
-  devlink esw_multiport=true
-    mlx5_lag_enable_mpesw()
-      mlx5_mpesw_metadata_set()
-        kcalloc(max_fns = 2)
+mlx5e_set_vf_tunnel()
+  mlx5e_tc_is_vf_tunnel()
+    mlx5e_same_hw_devs()
+      mlx5_same_hw_devs()
 
-  secondary PF probes later
-    mlx5e_probe() -> mlx5_sd_init() -> sd_lag_init()
-      mlx5_ldev_add_mdev()     /* idx 2, max_fns = 3 */
+- In mlx5e_set_vf_tunnel() the check fails and the code jumps to out with
+  err = 0. The encap flow is still offloaded, but without the VF vport
+  source port rewrite (MLX5_ESW_DEST_CHAIN_WITH_SRC_PORT_CHANGE plus the
+  VPORT_TO_REG metadata). The encapsulated packet then goes straight to
+  the uplink and skips FDB processing of the VF vport.
 
-  devlink esw_multiport=false, or unload
-    mlx5_lag_disable_mpesw()
-      mlx5_mpesw_metadata_cleanup()
-        reads and writes pf_metadata[2]
+- mlx5e_update_vf_tunnel() returns -ENODEV on route updates.
 
-SD secondaries have fn->dev set, so the MLX5_LAG_FILTER_ALL walk visits
-them. Three things then go wrong for any index past the allocated count:
+- On decap, mlx5e_tc_tun_route_lookup() no longer sets
+  rx_tun_attr->decap_vport to the VF vport.
 
-- cleanup reads pf_metadata[i] past the end of the slab object.
-- if that stale value is non-zero, it calls
-  mlx5_esw_acl_ingress_vport_metadata_update() on that eswitch, and
-  mlx5_esw_match_metadata_free() with an ida id that was never allocated.
-- it writes 0 to pf_metadata[i] past the end of the buffer.
+- In mirred_nic.c, the NIC-mode redirect check
 
-With the old embedded u32 pf_metadata[MLX5_MAX_PORTS], a member added
-later at an index below MLX5_MAX_PORTS read a zero slot and was skipped.
+	if (priv->netdev->netdev_ops != out_dev->netdev_ops ||
+	    !mlx5e_same_hw_devs(priv, netdev_priv(out_dev))) {
 
-The last patch in the series ("do not add a device to an already-active
-virt LAG") says SD secondaries join before MPESW can be enabled. Is that
-enforced anywhere?
+  now rejects redirects between a PF netdev and such a VF/SF netdev with
+  "devices are not on same switch HW".
 
-- mlx5_devlink_esw_multiport_set()->mlx5_lag_mpesw_enable() does not
-  check SD readiness.
-- mlx5_phys_mpesw_validate()->mlx5_lag_check_prereq() only checks
-  mlx5_lag_num_devs(ldev) == ldev->ports. That counts port members, not
-  SD secondaries.
+The commit message says:
 
-Would it be safer to record the allocated length and bound the cleanup
-loop by it? Another option is to refuse max_fns growth and SD joins
-while MPESW is active.
+  "so a VF/SF that cannot join a virt LAG keeps its current key and is
+  still identified as the same HW as its PF."
+
+That covers VFs/SFs that cannot join a virt LAG. It doesn't cover the
+ones that can, and none of the consumers above are updated.
+
+Should mlx5_same_hw_devs() compare without the VF/SF markers? Or should
+the LAG grouping key be kept separate from the key used for same-HW
+detection?
+
+> +
+> +static u8 (* const mlx5_sw_guid_fields[])(const struct mlx5_core_dev *mdev) = {
+> +	mlx5_sw_guid_load_balance,
+> +	mlx5_sw_guid_vf,
+> +	mlx5_sw_guid_sf,
+> +	/* New fields should be added at the end */
+> +};
 
 [ ... ]
 
