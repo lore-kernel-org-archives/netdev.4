@@ -1,57 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795006210;
-	b=xw0+qJyoufE+1DRhhBhW9qtkZtK6Eo0OPXqkNf5qqJ4oYeNlORHLksQAPN+4PAs3QZxN
-	 CwTyrZgyxQ6fOv4Bjbgn5eV4EUJFdcsMMHwCHCZfywR7PtBp2BcH84Hm0LYBWcGa7scyO
-	 HE14WYxCKy18vUPacQXGRsb67WMzKaMGtQzAc2JK4T/KkInf/NPtsdyP7rOIG5IV/KKy7
-	 NMsQCr66OTUW/UIjOnMa3YahXkaiXwQsKYQ+ixnJySrRGP3b0f1Z4y+jnz10RbjYVvXW5
-	 rnv0A3vHjIOvmsKZAjm8SXjg6GmFx1FnJPc9YkAXBKwzcUBOlxZyWGnFOt7uzxCZNiw==
+	t=1795006285;
+	b=wtYyECvJITLMeQdixMwQXp5aadMKhg735XDarOOv7PI0wAe0aZSf90kjUkwYsAwd+leh
+	 /PC8KEp/puJ6qAJRwj1EGuQ/TLPPdEetTYEZHuxo9UefBeRCHC3FcW3esnO7IyWz9ZCyp
+	 GHx5IMPz8/tS2o0i5aNrc69PJXE/nv8h54raJLrA2+nlNqy1SmPcbIMoAgcHQ1eh+/MSZ
+	 jFgNXgjOALoU37mhBH29RMRVPA2mNxthozQP5OurWdF+zBeJdFHZ2r6C8p3YDFajOInxs
+	 IiqosSDmnBlrl2ZwJkHsjjsY5KjfbHQmOq5P1wxd0sRpHeFuECyobpSUA2L+ZiJeAfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795006210;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=/SM7w2WdNTF2713IzNCXPrTgJergVRTCb1DkxJ5XLFU=;
-	b=u0NlF3hSWW89qUkglWh2xxzQjT/oIHTx4TwdFNe9iIjl1Qo/myA1uO/cdaMRR7PdkjZD
-	 qz12BAimQRtyciB6BbByfRMGiszsi56NOm/8o2+gFGn323LRvH4Hkl25TULUZYWBjhShN
-	 h+wehGEO/DGcXfSFyjuUv/lol9DnMdY5pZvhubyPWi1RoFkVYXK+63cTHPiuMVsZjVaQP
-	 ema86sz3qdP9+eSITNt3tzWicVhtyYDkTgO4w9MmEw03BvpPlIi/n1J61hzOtS8w/7061
-	 iIl+q77Vi3EgpnWkH6ckCtqYfBSKI04rLDWAHjSyS5sR/YGzwYAZDPMT8BYPDlWTTsw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795006285;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=nYuOjm8xQJMsBWaOOrKGxnekKQWVnD5kRNJ5Ku24pwI=;
+	b=p0I5SbVJtwGsYF8qMnk1LE4EIdVhNGma2Hic4eLeALeII9ZF6tt86Kz1sgzIG5mZWabo
+	 W3HO26F4qLvlanQ9oa7KZd/Yvgi1ZfH9l7mWgKTMc6Mc4pnuuPqbk4+S8tmfURKjcan4j
+	 KMqFc2AxQq17aR/5eUXJ8xghoKDK2uSApHRT3A1Sq5Yd63y2jtaz4o5EwiIx8neSSIeYK
+	 fWzY58k4KwNO+NxghrzmREdrE1ttxudO1KUaxfxid7YTr1P5fFSG6riFXLOLPH8e13P+Y
+	 vQNLkJsfIIa/EdlJvGjUgeDdjojPE3pEo/g/wHudQ2LNRxW7vAwfEmBnDLyQb4064Jw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aT4zVWgF;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IVNLBgFz;
+	arc=none smtp.remote-ip=91.218.175.11
+Received: from mta0.migadu.com (out-11.mta0.migadu.com [91.218.175.11])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36991606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:50:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4EFFB606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:51:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4EFFB606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aT4zVWgF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36F3A1F000C4;
-	Wed, 18 Nov 2026 12:50:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795006209;
-	bh=/SM7w2WdNTF2713IzNCXPrTgJergVRTCb1DkxJ5XLFU=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=aT4zVWgFsXi+vUl/ux8TbHlbhBs3/32We/0MC+GYlrtxmirLjmezK48n3xFf6TZzT
-	 iRW+KxWIkxOjkgPJfSdJUdrESFw4qNWkUbW+uuMBekyirjbcgrOGbw8H5+L51wrTJm
-	 wPoHPQLu7mwiQlSXfu4dodBlazzuj1OAKCQ63Cpr05XECb/tTB6gCQXPOKRNCsmIA8
-	 xbpN0UpIRzTANr+1HjFkw15UC/Z61U6/5Z197nqowpnn0Ro2T9bP2plEx9iIykiLM7
-	 KeOOvtLrPiAg34Q4HDqSvtVOMD3dTzXBeECM2+AHUyr6pNIowoNOqU5KsWCPdnLIKb
-	 IWlnJG434DwoQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
- michael.chan@broadcom.com
-Cc: netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
- andrew+netdev@lunn.ch, horms@kernel.org, pavan.chebbi@broadcom.com, Jakub
- Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH net-next 6/6] eth: bnxt_en: restart Rx queues when their
- IRQ moves to another NUMA node
-In-Reply-To: <20261118023905.3050661-7-kuba@kernel.org>
-References: <20261118023905.3050661-1-kuba@kernel.org>
- <20261118023905.3050661-7-kuba@kernel.org>
-Date: Wed, 18 Nov 2026 13:50:07 +0100
-Message-ID: <87a4n68fsw.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=IVNLBgFz
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=S4tIs0eXTP8/ESlTI3EDlKJDy7qEJ4aWifgLG6CtFzY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795006282; v=1; x=1795611082;
+ b=IVNLBgFzmRuyK7s18N4RsxnDzheqIxrl0fZ9T2nZNi5FOD5Q9zBdnc2YDgdZY1E336446/ny
+ +jBxgZoZAumntV9/mRzfLpWHoVOkIwt0E11iG2oJdfRGPXzqgM/Nkarlc/ya/b+WRxKRVdBT0hB
+ aOo+87CphSW7QQyhCTwb1vKk=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id f2a36f7fe13e4e18;
+	Wed, 18 Nov 2026 12:51:22 +0000
+X-Mizu-Trace-ID: f2a36f7fe13e4e18
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: mptcp@lists.linux.dev,
+	matttbe@kernel.org,
+	stable@vger.kernel.org,
+	pabeni@redhat.com
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Mat Martineau <mathew.j.martineau@linux.intel.com>,
+	Matthieu Baerts <matthieu.baerts@tessares.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 5.15.y v1 0/1] minimal mptcp UAF fix for 5.15
+Date: Wed, 18 Nov 2026 20:50:30 +0800
+Message-ID: <20261118125032.200934-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,25 +71,118 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Jakub Kicinski <kuba@kernel.org> writes:
+We encountered an MPTCP-associated use-after-free in kernel 5.15. The
+affected applications do not enable MPTCP on purpose: Go turns MPTCP on
+for listening sockets by default, so any Go service that calls Listen()
+ends up with an MPTCP listener without the application opting in, and even
+when the client speaks plain TCP.
 
-> Rx queue memory is allocated on the node of the CPU servicing the queue
-> when the device is opened. On a running device it only follows IRQ
-> affinity changes if TPH is enabled, as a side effect of the queue
-> restart which applies the new TPH Steering Tag.
->
-> Schedule the affinity update work whenever the device supports the
-> queue API, not just when TPH Steering Tag changed. Queue restart places
-> all the memory it reallocates, other than the ring page tables, on
-> the page pool's node, so compare the page pool's nid to decide if
-> the queue has to move.
->
-> Since we need queue state of the currently allocated queue to compare
-> nid - check that the device is still up after errors.
->
-> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+In mptcp_close() the listener subflow is orphaned (marked SOCK_DEAD) before
+__tcp_close() -> inet_csk_listen_stop() runs on it. A connection whose 3-way
+handshake completes in that window is cloned from the already SOCK_DEAD
+listener subflow and inherits SOCK_DEAD; a following RST then frees that child
+via tcp_done() -> inet_csk_destroy_sock() while it is still linked in the
+listener accept queue, and inet_csk_listen_stop() later walks onto the freed
+socket.
 
-Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
+
+time line:
+close(listen_fd):                            3-way handshake & rst (plain TCP client)
+
+mptcp_close
+  // mark ssk as SOCK_DEAD
+  sock_orphan(ssk);
+  __mptcp_destroy_sock
+    // ssk in conn_list is listen sk
+    __mptcp_close_ssk
+                                             // in 3-way handshake
+                                             tcp_v4_syn_recv_sock
+                                               // inherit SOCK_DEAD state from listen ssk
+                                               inet_csk_clone_lock
+                                             // process RST
+                                             tcp_reset
+                                               tcp_done
+                                               // sk is SOCK_DEAD
+                                               inet_csk_destroy_sock
+                                                   sock_put(sk); // freed
+      __tcp_close(ssk, 0)
+        // free child
+        inet_csk_listen_stop()
+            process child        <==== process freed sk
+
+
+
+
+Upstream closed this window with commit 57fc0f1ceaa40 ("mptcp: ensure listener
+is unhashed before updating the sk status"), so that would be the one to
+backport. But it does not fit 5.15 well:
+
+1. It calls mptcp_subflow_queue_clean() and mptcp_event_pm_listener(), which
+   are not in 5.15.
+2. Its mptcp_disconnect() hunk relies on commit b29fcfb54cd7 ("mptcp: full
+   disconnect implementation"), which is not in 5.15 either. Without it,
+   shutdown(SHUT_RD) on a listener leaves the msk in TCP_LISTEN with the
+   subflow already in TCP_CLOSE, and the WARN_ON_ONCE() in
+   mptcp_check_listen_stop() fires on close().
+3. It needs the follow-up commit 3fffa15bfef4 ("mptcp: ensure subflow is
+   unhashed before cleaning the backlog") to get the unhash order right.
+
+The simplest fix for 5.15 is this patch: in mptcp_close(), unhash the listener
+subflow and drain its accept queue before it is orphaned. A better backport is
+welcome.
+
+This may become much easier to hit once services move to a newer Go.
+
+A reproducer (written by an LLM) is at:
+https://gist.github.com/mrpre/053f1849b5accec13c0fe9c569739fd7
+
+
+------------[ cut here ]------------
+refcount_t: addition on 0; use-after-free.
+WARNING: CPU: 59 PID: 404175 at lib/refcount.c:25 refcount_warn_saturate+0x12e/0x150
+RIP: 0010:refcount_warn_saturate+0x12e/0x150
+RSP: 0018:ffffad3c8a2d7b68 EFLAGS: 00010246
+RAX: 0000000000000000 RBX: 0000000000000000 RCX: 0000000000000000
+RDX: 0000000000000000 RSI: 0000000000000000 RDI: 0000000000000000
+RBP: ffffad3c8a2d7b70 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000000 R12: ffff88f3421c2300
+R13: ffff88d43e13b508 R14: ffff88f3421c26f0 R15: ffff88d3df5d4900
+FS:  0000000000000000(0000) GS:ffff89127fd40000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 000000c04e5f8000 CR3: 00000005dfaba004 CR4: 00000000007706e0
+PKRU: 55555554
+Call Trace:
+ <TASK>
+ inet_csk_listen_stop+0x3e1/0x530
+ __tcp_close+0x3bc/0x440
+ __mptcp_close_ssk+0xb9/0x210
+ __mptcp_destroy_sock+0x11c/0x280
+ mptcp_close+0x25d/0x3b0
+ inet_release+0x44/0x90
+ __sock_release+0x42/0xb0
+ __fput+0x98/0x270
+ ____fput+0xe/0x20
+ task_work_run+0x6d/0xb0
+ do_exit+0x1e7/0x3c0
+ do_group_exit+0x3b/0xb0
+ get_signal+0x17a/0x940
+ arch_do_signal_or_restart+0xba/0x130
+ exit_to_user_mode_loop+0xae/0x160
+ exit_to_user_mode_prepare+0xad/0xc0
+ irqentry_exit_to_user_mode+0x9/0x20
+ irqentry_exit+0x21/0x40
+ exc_page_fault+0x93/0x190
+ asm_exc_page_fault+0x27/0x30
+
+
+Jiayuan Chen (1):
+  mptcp: fix UAF of child socket on listener close
+
+ net/mptcp/protocol.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+-- 
+2.43.0
+
