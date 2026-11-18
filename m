@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795027222;
-	b=5NOmK70WBx6Wl6+EZOQP71a5HtErlCm1dP1UotNHGfCmIwV0qTVZVB3fu7YaQddgKZus
-	 ZDremaLJq/PeShLlQtD2u0NQ6HoWtv9zFphpTWcmXJcD8y1Ejnw2Uxmv7HGJ9VbO8GlSY
-	 Ml/Xz7GdJ8Ig8fLjToE2ttCOmP0XT5Gm6OlK4g9mMi3c7HURd7K7j/r5B6CgSQbzF8i2/
-	 2OWOgg/0VeqhQ15GkALDZhDkrAFPxYW7ZPkaI3FG2mOyqw0PcOKN5BhojmDHtbyuURVra
-	 wLXxRMYcGRdzwfHfRQOIfyL1LBOwdwEuV3qQ1+LEmZ/hTfkXHO3WR1CxHvkyZLSImxA==
+	b=SVOLR+vzgQUPdjv+2HeDGlUEz+G5s7BDD+0kMr3bknWH60QKsp613zDFN+vkdGufCNRh
+	 Sj2NM0KBmhak+/Ltg+sUP6UN4cqhD5uXFkuqhaDlSxIdiDWObXtgkIlPw4rd1JFAJ2lCa
+	 dC5FST6PES9SAD3YP2wENd4vYRcdts/uvejq5lzP5FdMZ3HQ1ENRi2GpOdbFDEICQXwee
+	 A+pLyR/8vqJ565eijo3xjOMUwp816f7tcMfq9DYA/XoPD07hf8jW1MJ941fhWgFNP20Dr
+	 q3Gor3wDFytYmH5zpemu5SBi/TJ9g3usBhVQHf4xMm2ctLSDhcrBe7Zqv32puM8koaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795027222;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=KNYr3ilNv2jRxQxc+GNh9GAPVKAnnLtBh3rUqOHQhuY=;
-	b=jvXxLLIa4x4B+FMQ+bm5OkdRmCUOgQZcrJP9HC/B//tJR2W53njPTHBapGir1dx//jkk
-	 nClVTujaHR/AFk3u8WC+OvHz5g+AmZlIWnS0Dp59vlYrG0WTR6yCnaxe1gOkvk9l7R6IH
-	 0PKApCSq23k8b6CTbBTVXFFUc1dAmO3jvDO1+2AfFHp5onabRBPhXRc9SrKfjGkLYlDCv
-	 9KNSfuuVj3i3p4VP+vBRL0I3ekyo9hcVncotmFxfqyjjNQMjD+axdWSEVYSaBIiwNO2Tj
-	 6scRpBB6BVNULSEa20BMEdD/2GSQZvnVJJD41GcOW4H6t6B1/Q3QtRj3uA0se1S4OtQ==
+	bh=LV/A5tIOZa1lq2JSm9kNqwlNcEPOyfzUDdKJupm5Ajs=;
+	b=BM/lb1i/AyXOBEN8eGIWjpVpQeNn8mpKEBygbke2Mftf2fiDhOAtkAOlsuzbxEnU8N0n
+	 Vj5WYNQe6tvkZ2SEJvzb0aTQfFMwTd5NnReTcq5F7mPqroM/PlnPHiLnAqUAmIcPbReDh
+	 Cgfn7hEcG7FzJE63xErve++zlqxUym2RKr9mnwVvH2lZxQKsPmSBN3dx7hxJtHK+6cgBH
+	 WvawSh4VU8eiyIdvW4f/vHjELF3lo7PxyCTYDS7t9Mx3A77jE0tCeGkAiGIgc8NOUtjx7
+	 t7U7K4LjVv84TGQ8B7vXQJ1uWFBZlWRALrUDNmUzNN6U4cE4/QRxORuHx7SazteZF1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=szelinsky.de;
 	spf=pass smtp.mailfrom=szelinsky.de;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=hF4EwO6C;
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=Sm1elltE;
 	arc=none smtp.remote-ip=85.214.127.56
 Received: from szelinsky.de (szelinsky.de [85.214.127.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2871A606A32C;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 286E3606A32A;
 	Wed, 18 Nov 2026 18:40:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2871A606A32C
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 286E3606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=hF4EwO6C
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=Sm1elltE
 Received: from localhost (localhost [127.0.0.1])
-	by szelinsky.de (Postfix) with ESMTP id 3A202E83AA5;
-	Wed, 18 Nov 2026 19:40:14 +0100 (CET)
+	by szelinsky.de (Postfix) with ESMTP id 75B07E838E4;
+	Wed, 18 Nov 2026 19:40:13 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
-	s=mail; t=1795027214;
+	s=mail; t=1795027213;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=KNYr3ilNv2jRxQxc+GNh9GAPVKAnnLtBh3rUqOHQhuY=;
-	b=hF4EwO6CL1FA385cym/udvoQFR0tAdV3ZlpMtbhKnvr8lKsI6Z9K3ErtJjnomHd4ccowIv
-	bKnc8KdZVDCgKab2m9cr3Ug0g9g3/WKg0GvTsm5owbR2+83OsONPT+kAM7CylGW/oMOryT
-	opej9jyDp2QgJyIbGR3s6JE844DTdznbNrpmZQoocwIwTbwU8IdjGEtAhegk2DuxtrHKuo
-	4+QgcnvjyEbOi5Uv1bwyYf4c/MxMIgDnqB4yyDt4sO5R70HsTAoteLkWJd32zD59cdbBrE
-	1D7u0o8xXiWxHlvOD+QrlC4ppeUrQp/G1cEXnGBxicZ2eQ9Qt/fv1P0/4m7Y8A==
+	bh=LV/A5tIOZa1lq2JSm9kNqwlNcEPOyfzUDdKJupm5Ajs=;
+	b=Sm1elltEdo8bRGYuzRLu7sOUWDkd1fqIcXXvemsWJxLHkYzl16gfyRnh8EcW3ZN+MTYov7
+	JTbP50ORua9pde11a7mta6IUEP5HC/w3st65WombWTE0RS/syak5gKib7QM44cHxIkC6xV
+	DoIJJmX6aT4nMO4+GoFMtJceaqm8U/mfJVfh0IUVOU6dW41ZniitjMljIL6jbF/8JFePxW
+	WZ4MkUAKu0iQDz5RxBvrfv8LNPoropjQXCohn3IrNpWYOHVKi722KGmzU5whij+l4qGICm
+	E1lUn8Cg212VVl3xiCks+C6PaBLmfqpIj0ZL7ycJbZ0K5T0Q7c1jJYAYnOMmGg==
 X-Virus-Scanned: Debian amavis at szelinsky.de
 Received: from szelinsky.de ([127.0.0.1])
  by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
- id MQ_CH_SJCWQM; Wed, 18 Nov 2026 19:40:14 +0100 (CET)
+ id 9FlkbnfALF5K; Wed, 18 Nov 2026 19:40:13 +0100 (CET)
 Received: from p14sgen5.. (unknown [91.25.97.186])
 	by szelinsky.de (Postfix) with ESMTPSA;
 	Wed, 18 Nov 2026 19:40:13 +0100 (CET)
@@ -73,9 +73,9 @@ Cc: Simon Horman <horms@kernel.org>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Carlo Szelinsky <github@szelinsky.de>
-Subject: [PATCH net v5 02/14] net: pse-pd: remove dead pi_get_admin_state() checks
-Date: Wed, 18 Nov 2026 19:39:45 +0100
-Message-ID: <20261118183957.2031311-3-github@szelinsky.de>
+Subject: [PATCH net v5 01/14] net: pse-pd: size the notification kfifo after defaulting nr_lines
+Date: Wed, 18 Nov 2026 19:39:44 +0100
+Message-ID: <20261118183957.2031311-2-github@szelinsky.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118183957.2031311-1-github@szelinsky.de>
 References: <20261118183957.2031311-1-github@szelinsky.de>
@@ -90,51 +90,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-pse_controller_register() already fails when a driver has no
-pi_get_admin_state() callback. So the checks for it in
-pse_pi_is_enabled() and pse_control_get_internal() are never true.
-Remove them.
+pse_controller_register() allocates the notification kfifo before it
+turns nr_lines == 0 into 1, and kfifo_alloc() fails for a size below 2.
+So a controller with nr_lines 0 or 1 cannot register. pse_regulator
+(podl-pse-regulator) never sets nr_lines, so its probe has failed with
+-EINVAL ever since the kfifo was added.
 
-No functional change. It makes the next patch, which fixes an error
-path in pse_control_get_internal(), smaller.
+Apply the default first, and allocate at least two entries.
 
+Triggered in QEMU (arm64) with a test-only PSE controller with
+nr_lines 0: its probe failed with "failed to allocate kfifo
+notifications". With this patch it registers.
+
+Fixes: ffef61d6d273 ("net: pse-pd: Add support for budget evaluation strategies")
 Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
 Acked-by: Oleksij Rempel <o.rempel@pengutronix.de>
 Signed-off-by: Carlo Szelinsky <github@szelinsky.de>
 ---
- drivers/net/pse-pd/pse_core.c | 10 ----------
- 1 file changed, 10 deletions(-)
+ drivers/net/pse-pd/pse_core.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
-index 972264b26036..309adec93679 100644
+index a3d4a3d7e525..972264b26036 100644
 --- a/drivers/net/pse-pd/pse_core.c
 +++ b/drivers/net/pse-pd/pse_core.c
-@@ -412,13 +412,8 @@ static bool pse_pw_d_is_sw_pw_control(struct pse_controller_dev *pcdev,
- static int pse_pi_is_enabled(struct regulator_dev *rdev)
- {
- 	struct pse_controller_dev *pcdev = rdev_get_drvdata(rdev);
--	const struct pse_controller_ops *ops;
- 	int id, ret;
- 
--	ops = pcdev->ops;
--	if (!ops->pi_get_admin_state)
--		return -EOPNOTSUPP;
--
- 	id = rdev_get_id(rdev);
- 	mutex_lock(&pcdev->lock);
- 	if (pse_pw_d_is_sw_pw_control(pcdev, pcdev->pi[id].pw_d)) {
-@@ -1423,11 +1418,6 @@ pse_control_get_internal(struct pse_controller_dev *pcdev, unsigned int index,
- 		goto free_psec;
+@@ -1043,16 +1043,19 @@ int pse_controller_register(struct pse_controller_dev *pcdev)
+ 	mutex_init(&pcdev->lock);
+ 	INIT_LIST_HEAD(&pcdev->pse_control_head);
+ 	spin_lock_init(&pcdev->ntf_fifo_lock);
+-	ret = kfifo_alloc(&pcdev->ntf_fifo, pcdev->nr_lines, GFP_KERNEL);
++
++	if (!pcdev->nr_lines)
++		pcdev->nr_lines = 1;
++
++	/* kfifo_alloc() rejects a size that rounds up to less than 2 */
++	ret = kfifo_alloc(&pcdev->ntf_fifo, max(pcdev->nr_lines, 2U),
++			  GFP_KERNEL);
+ 	if (ret) {
+ 		dev_err(pcdev->dev, "failed to allocate kfifo notifications\n");
+ 		return ret;
  	}
+ 	INIT_WORK(&pcdev->ntf_work, pse_send_ntf_worker);
  
--	if (!pcdev->ops->pi_get_admin_state) {
--		ret = -EOPNOTSUPP;
--		goto free_psec;
--	}
+-	if (!pcdev->nr_lines)
+-		pcdev->nr_lines = 1;
 -
- 	/* Initialize admin_state_enabled before the regulator_get. This
- 	 * aims to have the right value reported in the first is_enabled
- 	 * call in case of control managed by software.
+ 	if (!pcdev->ops->pi_get_admin_state ||
+ 	    !pcdev->ops->pi_get_pw_status) {
+ 		dev_err(pcdev->dev,
 -- 
 2.43.0
 
