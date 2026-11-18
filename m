@@ -1,58 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996490;
-	b=uwCtn5C9ZaD729SbyFGZkzMCQmrssiPGRD3sUYxGHlYB6RivtEpk76D9nKGr54SpTmZX
-	 GVxja1m1iSsAvWOcBrjvZ5fuMIyKOFipYbf+AjlR3mN4MOxXYLC7SSKWBmwH4csd1lQzG
-	 C24je/GcRcXQsKHrDXcb9ZxoUmO2sUdj1eIQuY87iFwTGQcZ4UEh0otKs+2nZlMy5U4OO
-	 fUIfsYM97og4nbtHVSiMvjOvyx0pXsNW6NYjLkb+BufkWT4cKwa9nT1DW5OG/1amS5ks2
-	 PzRzG+r5p4Yes4UuyL7hiNgmpgAS3jgTNLXyoEEF9JryZC9QTYUIEY3f8mxWVshKzyQ==
+	t=1794996509;
+	b=RJ1Vmig/7/dznMcMefxRSdpVY0LNoAr5MuHDOSYTThNUWK39EqGVtoDJ6Bgp9XC5OvPi
+	 akcHDye6DhASetvbxipWpMULmQXazrZ+zrVjt0YXrPbFB+iDrgQo9JVlZZk/HfX5vu21H
+	 Tmiik724TDmw/c5HwjmuSaT9t/DYVESoT+nmnXY1N4QQAeT6CmDhvcTBihwszaNGDJW7P
+	 4BU19CewTlobetQrCl1L+VFvtBKEMvjFdcCZyNuUnGgIYywICiDWH6vxgwVC1HIjUfKPM
+	 22yWvo2oHswOoiKJAYIrrkEFMuCXpLLZlzCskwImdT2lehb363308ff3ZOWFEM2KLNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996490;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=2fYXTXftmdzsP/+f1B8lN9HNa0Az3yORMxg4vrQ+jss=;
-	b=J14PZ5kXC7YeNTQZCIY9SRJta+9gQFi6PEOJkUE0dzqSHRaV/kWZeJ0z/JHw7eT3zX8z
-	 jRuDAM9xHo+i0kVS7inQtNzRL5TUOZxqCs+gRRHnUGivEo7zkDaXv9Se8nAkzM3/vBc9C
-	 ussqEuO7x/MZQBAkJNMfM6VSMNBwXSzRIoWrr31ecmDEX3AFzJfVhBe4HqcbIMjnG7HTP
-	 C0d5+EgqyTlVyNcMm1b8mr8uX0HC9O5L0tB9vAghpUskpBqjHeANtJHE5+xnupkpExGxV
-	 J7IPSWFa7oaca9dmjjqZOQKBDXUcT+XLyDv8VL7soFTicGTuanedI1e9dCGKAgOHfZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996509;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=HJGHBkg8q9GeoAXMt47s20vWqfkaH+s6d3oyuiKMFTI=;
+	b=jSnSOe2o0gLi+hIMQDInesuJpoOCL9y3SSPvNkdMafgN3veDGehzBouc9l4zQdr64dtO
+	 +YfgmEC7GlQTrbdmlm62B21cQi79MbEHc8sq3zh7F5CV58nGGX6b1h0vGbsN9tM2WUnfz
+	 daJkjgbyMA77NbOe5K119bjlOCgrb6a8hTsGSqC4N7Ygb9tauS83BdJOrFJw//YKKGoEY
+	 aNkzNfze5A676YjyZljvKg93EGoJSqKVJX4c/RYPdeYiPikREmgw0uI5vIaIfnfdIu6XX
+	 vOKlVnBbou+AZ9H/avUUgntT2WDIzViv5gTR+YsEQddVwhI0AlLCM/Q/PObegpSypjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BB68AZtP;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o0MfZbn2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 096D1606A320;
-	Wed, 18 Nov 2026 10:08:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 096D1606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF5CE606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:08:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BB68AZtP
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id B82171A16CA;
-	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 8287A5FE9B;
-	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A2AF211BC0FB7;
-	Wed, 18 Nov 2026 11:08:02 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1794996487; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=2fYXTXftmdzsP/+f1B8lN9HNa0Az3yORMxg4vrQ+jss=;
-	b=BB68AZtPrIn+wgtM1x0/qC7DyHiQUVWopQ1ssGA+Y1TOzd4KMKNB60b0LVYKPkFD9VcV76
-	ahMku5oXly3kXhg6nJkequfEi/o0utfR/TvUIWlGNImc3vP8BvMvUmRhApieN4/N8KCYwf
-	l/hrXd2gA3WjA1e7vKM9KeUyM2WBZtiXXEmgNKvH+TG1Oe06+7l9vFYVM5eu+iB6h5xHek
-	T6qgOu3gbAJO4lJ4ZPDdXG1UvhMV/ebWvbqw6X3eYH8AZJsdXGhjHefWqHouqaF3BjGsFe
-	WYmaBt3S9BMHRDLD3gqOU6/f4gY/nvcQfrmV9CiUUOFvB1zN3BEx8peLKIbNQQ==
-Message-ID: <2b82341c-be67-43ef-9a0c-0bf0394b627a@bootlin.com>
-Date: Wed, 18 Nov 2026 11:08:01 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=o0MfZbn2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC6331F000C4
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:08:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794996508;
+	bh=HJGHBkg8q9GeoAXMt47s20vWqfkaH+s6d3oyuiKMFTI=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=o0MfZbn2MHboK60qcGlg22D5CdWPmwCpHEprZnLSHVzHe1UPSAxCC5GARFAfQRxTU
+	 Grwuz8e4QSeYNdQwYDID8vc1cfD3tUKhX8vQGjscZE8oyX6IuV+cEh2usPlTiOx0a+
+	 yy85z0MTjRB6uc4OCROtsRETR3Sl9GhK7XZI7JtdJEh8kloADvzuGyN1WR2/UkS8aR
+	 XAY9zKUwh2JVILiSlWzN6sMEvsSYRqJECp2JCbbjKdrhC4IqOKT0KklTbHIlqOHH4l
+	 XvKYLz0DLorSwJCHkpuzjjp18dShiVcyl+0TI3rxS/J9TIFxAFFQgkiBicSqD/KeJf
+	 TW1bgQKSFa1KA==
+Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-716d052dc23so405859eaf.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:08:28 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHFxs8bBqtyzyYXuReYx1tSbkDZGPFWlz9bV0vZ4tW9YESl33b4FZ9BgmdEOp4Uwelc6TOg1So=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Nqzjv2uaU6AHXqvxX7iWyOO+kLC0NbFW2MJB2Cz/tL26iDoZj
+	h/jagZw4fZcyySF7tmMl4WkWentbWs5x72E72vtxdWBUycGqOAWUkk6wD7Gxnbyy2iK6KpSBrum
+	vSBxkDs7YKXXPdQ+P4bQK6Pm6qTjiT74=
+X-Received: by 2002:a05:6820:4912:b0:6b3:bb82:2736 with SMTP id
+ 006d021491bc7-71b18485659mr1455456eaf.17.1794996508190; Wed, 18 Nov 2026
+ 02:08:28 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,63 +59,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Linux)
-Subject: Re: [PATCH net v4 06/14] net: pse-pd: check the PI state under the
- lock when setting a power limit
-To: Carlo Szelinsky <github@szelinsky.de>, netdev-bot+sashiko@kernel.org
-Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
- Liam Girdwood <lgirdwood@gmail.com>,
- Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <179477645553.3136.3930514306381646741@kernel.org>
- <20261116182052.1262742-1-github@szelinsky.de>
-From: Kory Maincent <kory.maincent@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261116182052.1262742-1-github@szelinsky.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+References: <20261118005048.53393-1-mason@kernel.org> <20261118005048.53393-2-mason@kernel.org>
+In-Reply-To: <20261118005048.53393-2-mason@kernel.org>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 11:08:16 +0100
+X-Gmail-Original-Message-ID: <CAL4WiipsyMP6_XMtCMLhDVNpKEEZvus79KKDJQoRwFafatRgYQ@mail.gmail.com>
+X-Gm-Features: AclHuK_0_ncZ97x_WGsloQNvidD6Heqolgw-euDceyg4XymZYSrp8qoyHOmD_Yw
+Message-ID: <CAL4WiipsyMP6_XMtCMLhDVNpKEEZvus79KKDJQoRwFafatRgYQ@mail.gmail.com>
+Subject: Re: [PATCH net 1/3] tcp: don't let __tcp_set_rto() return 0
+To: Chris Mason <mason@kernel.org>
+Cc: ncardwell@google.com, kuniyu@google.com, davem@davemloft.net, 
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, willemb@google.com, 
+	josef@toxicpanda.com, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
+Le mer. 18 nov. 2026 =C3=A0 01:50, Chris Mason <mason@kernel.org> a =C3=A9c=
+rit :
+>
+> __tcp_set_rto() computes the RTO as (srtt_us >> 3) + rttvar_us, in u32
+> arithmetic and with no lower bound. A comment in tcp_set_rto() says that
+> the algorithm guarantees an RTO above TCP_RTO_MIN. But tcp_rto_min() is
+> only applied to rttvar_us, so that guarantee is lost if the sum wraps.
+>
 
+The wrap is what patch 2 fixes. Once samples are clamped to 120 s,
+the sum is bounded by ~600 s and can not wrap anymore, so this
+paragraph no longer justifies the patch.
 
-On 11/16/26 19:20, Carlo Szelinsky wrote:
-> On Sun, 15 Nov 2026 21:00:55 +0000, netdev-bot+sashiko@kernel.org wrote:
->> Does this description understate what the old race did? It looks like
->> the budget was leaked permanently, not just reserved for a while.
-> 
-> Right, the budget is lost until the controller is bound again.
-> v5 says that, and fixes the old "powered" comment.
-> 
->> Is admin_state_enabled && isr_pd_detected enough to show that the port is
->> actually powered?
-> 
->> Does this still leave part of the race with pse_isr() open?
-> 
-> Both were there before this patch, which only moves the old check
-> under the lock. They need their own fixes, so I keep them out of
-> this series. The cover letter lists both.
-> 
-> Kory, are you OK with fixing the two older problems in a follow-up?
-> I am happy to work on them next, if you have a preferred approach.
+Also, usecs_to_jiffies() rounds up, so a wrapped sum only gives
+rto =3D=3D 0 if it lands exactly on 0 modulo 2^32. Any other value gives
+at least one jiffy, and the backoff recovers from that.
 
-Yes, I am ok with this.
+There is another way to get 0, with no wrap, and I think this is the
+one the changelog should describe:
 
-> Also, are you fine with the rest of v4? I kept your Reviewed-by on 8
-> after the small change there, so please tell me if that is not OK.
+tcp_rto_min() can return 0 if the route has a locked RTAX_RTO_MIN
+metric of 0. ip_metrics_convert() only rejects a zero locked cwnd.
+All other knobs have a non zero floor (tcp_rto_min_us sysctl,
+TCP_RTO_MIN_US, TCP_BPF_RTO_MIN).
 
-Except for comment change or commit message change, I would prefer to 
-have my R-by removed if there is code change. Thanks for asking.
+Then a first RTT sample of 0 usec gives:
 
-For patch 8, I am ok with the changes, you can keep my R-by.
+  srtt_us   =3D max(1U, 0 << 3)            =3D 1
+  mdev_us   =3D 0
+  rttvar_us =3D max(mdev_us, tcp_rto_min_us(sk)) =3D 0
 
-Regards,
--- 
-Köry Maincent, Bootlin
-Embedded Linux and kernel engineering
-https://bootlin.com
+  __tcp_set_rto() =3D usecs_to_jiffies((1 >> 3) + 0) =3D 0
 
+A 0 usec sample is possible with usec TS, because tcp_rtt_tsopt_us()
+returns delta before min_delta is applied in that case.
+
+> tcp_retransmit_timer() backs off by doubling icsk_rto, so the backoff
+> only works if icsk_rto is nonzero.
+>
+> Of the three callers, only the thin-stream branch of
+> tcp_retransmit_timer() clamps the result. tcp_set_rto() and
+> tcp_ld_RTO_revert() store it in icsk_rto with an upper bound only.
+>
+> The fix used here is to keep the result of __tcp_set_rto() from 0, for
+> all of its callers, so that the backoff recovers from any state of the
+> RTT estimator.
+>
+> Found by LLM code inspection, and confirmed with LLM generated
+> reproducers on an unmodified kernel. Fixed by LLM, and tested with
+> the reproducers and existing kernel selftests.
+>
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+
+Linux-2.6.12-rc2 had no rto_min setting at all. rttvar was floored
+by the TCP_RTO_MIN constant, and tcp_rtt_estimator() had:
+
+        if (m =3D=3D 0)
+                m =3D 1;
+
+So the comment was correct at that time, wraps aside.
+
+The configurable minimum came with:
+
+Fixes: 05bb1fad1cde ("[TCP]: Allow minimum RTO to be configurable via
+routing metrics.")
+
+Please use this tag and reword the changelog in v2, or drop the
+Fixes: tag and send this one to net-next as hardening, since it needs
+a zero locked rto_min route metric.
+
+Thanks.
