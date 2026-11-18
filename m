@@ -1,58 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795014416;
-	b=AL9LrL8Tv67EGeVafL6OMqlXasThXceE9Opa6AYYayEzd1m32gQQG1a6Wc/E+lUzC/cs
-	 08bKBkBh9fFIhXyl514J8LnbeMUYfzGtcjbBKNN6c/mGfUmq+DPTzsgA5XwEBoK0BRPWu
-	 cqwfwO8mLz3XEQwnC62/TxXslb/39o2jlR2bp4vIG0bLChTgMqOpdof2h7U97fiUgS5jO
-	 55BqMuPuHEXn3EaBUl8oRPof1tyj2Ctfl5NneaMVBTptxb2zFy9BF7AzsUHZfYmRPkVo+
-	 NGobfVUh8Z8Ea3f02mukYg8ugyUB9yePuAheV9T7Wclj8P/QL5sHoFcnTfL95nzXOmw==
+	t=1795014422;
+	b=IXWyXp5uoL0dkT5bAJbWHMT5/zAs7MMrEPQNSa2tlPws5eWPRzqm2pJXzZOXcKzbKl7b
+	 FiVtIGTlqwBosDDJG79vx21gZTATBQYUmYAuF14bAfeTBc+MC/5horWj7JHLF6eK3XIkR
+	 yY2zbSxcI9UfWJ05m9V1XOon5I9WCvpcIy7xUOAJ2qcPqAS/53T82G7KGV99hiExcjUys
+	 fyq8mqW14WaUTEW7XyW28f1uZF8opOqwlsjfHEyUZGpaGQMRzmU/riJs6chemwu7WF3dn
+	 bUiCmTy8PhQUdetmN3qGQ+tkBkeP+EogWfZaU9AUGxkd82PezJUGC+XOKvSqjDAFeXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795014416;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=83uVxgrEq/KHZPaRBP/vtVmxJ0Dkegg3YGWIX/TiyJA=;
-	b=cyCgKaddfq7tT/ClYSMEKjzXs0UVBNdpB2W9Ju8iSNNcraaB1/oyXmQbQ4bgs7bjFGuv
-	 KZYRG0lVgX2zdQ4rVO+YY8K6uu/Genwg3Ek3xZ9Du+ojtAQIC29ATMiJKw8/boBTIr3R0
-	 Gx1AzsBDd2Lq/kVYGsqRVIOzd6Z1k86LdK/48FdlaPHF2ImNsg+WBX9JuRjD/gR1jZSWw
-	 4L3a2LpR7/94VDsucX4t86A5qqLDfFDppskwOnI4I/2jVuXlrmBynWWhjQ5DAQ3wufMqq
-	 FSRZgci0qIJ26dnjNJaAd3BX8LSzA+w5reOGB66d+nu/VWC6nnFkq+pNbeB4143Qaww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795014422;
+	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:
+	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=FLLgoY4vzpl3VeoTzJ1Eki0KKKvfGT0/D/rtdudkmNU=;
+	b=5cSUMrv2KERwDEcdHvwl0BShHipKqfuyPPkscjnuEC9YHYg5Gvifiylk89KaRoprFwK6
+	 Q0IvxSH6V7Rmp3sItdGwIwD3Ai1QRGkCQv5o6A85vOG9b3s66OPH9i39sgnc52md69nOZ
+	 3oH8CQHT9HhWzvVY8yOGXNRh0codb/xD5LZ1XADTW1ck0cTNZ/ccWe5kIZh7nuGnp9g64
+	 dUzm4l9SGGi7KM+i4zuoW8mGMWrCL7LEi69RoE2qZKbubpNxOT2L2z5kaP5lIjPJjtlkC
+	 woLjrbWCTASF72+BxhJyBfs0muIQbYxWdXDv5lcWyIDb3qogKeVCU3mlbIUXaI/SknQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0g0R4jS;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KiyeB1Fu;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CA23606A32F;
-	Wed, 18 Nov 2026 15:06:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00AD5606A335
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:07:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c0g0R4jS
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B4161F000C4;
-	Wed, 18 Nov 2026 15:06:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KiyeB1Fu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0A61F000C9
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:07:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795014416;
-	bh=83uVxgrEq/KHZPaRBP/vtVmxJ0Dkegg3YGWIX/TiyJA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=c0g0R4jSls70FcEfEtTYh/gU12t1TLrpQPsG0SBMcjeEK1SHaBQq5LF2/fA6p9BWu
-	 Rl8dCtc/9GrRJ1TxDesqDNcWfySsMvLhQWzlJ/eum2Afg4Odg80nUcWtqQtJ6+JTkD
-	 ZjYXA4GJNMlzh1azd/mXlB0o5zc/KnUXzHJetc5qOfB/7trYSK1jWhZM0si1sjw+eQ
-	 o777azljqij/UIT3jKYWK2jpBrEyRa7A5wrQY87uyo091KTA4fRDrFRp9cyhLl2ug9
-	 jUtIByZOzXr/jhOGUiM/0iwZ3s6IS+9zGkwa0UX40knUMNCMgbDPQGlyCaBA5PcdSJ
-	 T5FSWkk5wQmeg==
-Date: Wed, 18 Nov 2026 15:06:51 +0000
-From: Simon Horman <horms@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: xiaolinkui@126.com, david@ixit.cz, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	oe-linux-nfc@lists.linux.dev, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn,
-	yangguikun19@qq.com, stable@vger.kernel.org
-Subject: Re: [PATCH net] nfc: llcp: fix SNL PDU size truncation in
- nfc_llcp_allocate_snl()
-Message-ID: <20261118150651.GE860048@horms.kernel.org>
-References: <20261111095907.3366028-1-xiaolinkui@126.com>
- <179473943962.2199510.6509653868703486721@kernel.org>
+	s=k20260515; t=1795014421;
+	bh=FLLgoY4vzpl3VeoTzJ1Eki0KKKvfGT0/D/rtdudkmNU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=KiyeB1FuKANKheiwNKWWrLntCZ1zpria8hiMsmm6kDNS1SSSoDwX8H7ZHpxspvan8
+	 7tcL9t3gHcQ2p/hrpQ+hcKKFPT2WUTZH/R6clrP2VI4RALEBLzPNRDXVfM/ioqTbe9
+	 hEhRZRLOmSqhCO4neP4vqxMuiEvv0h9lWsFlp8fMJmgyK8+9M2DL6JAJ/p3AIM16r9
+	 f1ypW/wBmu8svD0Uhd2ZXj9gaMSqZUuzTYsvFQ4T4139tVjq35t9lUocitpHogmrLp
+	 7JyLLQ19e8Lvx7d2unhqZi7zrFIYYV6z5VvE8uU5deD3J624LQbFsP7teaeDnVZYen
+	 bUuWX8uVFCu4w==
+Received: by mail-oo1-f48.google.com with SMTP id 006d021491bc7-71aea92f666so685917eaf.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:07:01 -0800 (PST)
+X-Gm-Message-State: APuU4Z8TZq0TtFensaLhkAnJPYxWrBUue5GM5FxKJd0H8RI8LoHaDHfr
+	n/K734BLGUCpn8bZVofrx648/tHOcOBlcijrEKrYsjmyA9iGiC/NTuE6QXAcKkB9HKW8AnSck23
+	m5/rWZ9TH/dv2F4N6LtjtFf6rEVyhfmw=
+X-Received: by 2002:a05:6820:7095:10b0:6f8:fcce:a410 with SMTP id
+ 006d021491bc7-71b18552c41mr1594981eaf.55.1795014421167; Wed, 18 Nov 2026
+ 07:07:01 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,157 +58,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179473943962.2199510.6509653868703486721@kernel.org>
+References: <20261118144249.358481-1-jiayuan.chen@linux.dev> <20261118144249.358481-2-jiayuan.chen@linux.dev>
+In-Reply-To: <20261118144249.358481-2-jiayuan.chen@linux.dev>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 16:06:50 +0100
+X-Gmail-Original-Message-ID: <CAL4WiipSzUmvGxRM5PMBugXJ0qjAnobT6+pNuEJhUqTVrVR1Uw@mail.gmail.com>
+X-Gm-Features: AclHuK915aJOXi82aBAcq1O_eeNA6-6Devxm-s0eHQNf5wtCOhOKeEZz0_kjdHc
+Message-ID: <CAL4WiipSzUmvGxRM5PMBugXJ0qjAnobT6+pNuEJhUqTVrVR1Uw@mail.gmail.com>
+Subject: Re: [PATCH net v3 2/2] tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
+To: Jiayuan Chen <jiayuan.chen@linux.dev>
+Cc: netdev@vger.kernel.org, Kyuwon Cho <kyuwoncho18@gmail.com>, stable@vger.kernel.org, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, linux-doc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 15, 2026 at 10:43:59AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The commit message names the wrong trigger and leaves out the
->   real one.
-> 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but the patch
->   makes it easier to reach.
-> 
-> --
-> 
-> nfc: llcp: fix SNL PDU size truncation in nfc_llcp_allocate_snl()
-> 
-> This commit changes the size accumulator in nfc_llcp_allocate_snl() from
-> u16 to size_t, so the SNL PDU allocation size can no longer wrap before
-> alloc_skb(). The commit message says the overflow comes from
-> nfc_genl_llc_sdreq() building many SDREQ TLVs out of a netlink request.
-> 
-> Link: https://lore.kernel.org/netdev/tencent_634C55A23C7CCCA3985283BFED46A69C9E09@qq.com/
-> 
-> > nfc_genl_llc_sdreq() walks the nested NFC_ATTR_LLC_SDP attributes of a
-> > GENL_ADMIN_PERM request, builds one SDREQ TLV per attribute and sums
-> > their lengths into the size_t tlvs_len. Each URI is capped at
-> > U8_MAX - 4 bytes by nfc_sdp_genl_policy, so every TLV fits in its u8
-> > tlv_len, but nothing caps the number of attributes, so tlvs_len can
-> > exceed U16_MAX.
-> 
-> [Severity: Medium]
-> 
-> Can this netlink path actually wrap the u16?
-> 
-> nfc_genl_llc_sdreq() only walks a single attribute:
-> 
->     nla_for_each_nested(attr, info->attrs[NFC_ATTR_LLC_SDP], rem) {
-> 
-> NFC_ATTR_LLC_SDP is one NLA_NESTED attribute, and its nla_len is a
-> __u16, so the nested payload is at most 65531 bytes.
-> 
-> Each entry costs at least 8 bytes of nest and URI attribute headers plus
-> NLA_ALIGN(uri_len), and it produces a TLV of only uri_len + 3 bytes. With
-> uri_len = 251 that comes to about 64014 TLV bytes at most. The
-> LLCP_HEADER_SIZE, NFC_HEADER_SIZE, tx_headroom and tx_tailroom that
-> nfc_llcp_allocate_snl() adds are small for the in-tree drivers.
-> 
-> The path that does look able to wrap is the remote SDRES one:
-> 
-> nfc_llcp_recv_snl()
->     nfc_llcp_build_sdres_tlv()   /* 4 bytes per 3-byte SDREQ TLV */
->     nfc_llcp_send_snl_sdres(local, &llc_sdres_list, sdres_tlvs_len)
->         nfc_llcp_allocate_snl()
-> 
-> A peer in NFC range can send one SNL PDU packed with 3-byte SDREQ TLVs
-> (type, len=1, tid). sdres_tlvs_len then grows to about 4/3 of the frame
-> size.
-> 
-> Neither nci_add_rx_data_frag() (via skb_cow_head()) nor
-> digital_recv_dep_data_gather() (via skb_copy_expand()) caps the
-> reassembled frame. An SNL PDU of about 49 KB would therefore wrap the old
-> u16 size and hit skb_over_panic() in nfc_llcp_send_snl_sdres().
-> 
-> The code change fixes both senders, since they share
-> nfc_llcp_allocate_snl(). Could the commit message describe the SDRES path
-> that an unprivileged remote peer can trigger, instead of the
-> GENL_ADMIN_PERM netlink path? As written, it reads as if the bug needs
-> CAP_NET_ADMIN to trigger.
+Le mer. 18 nov. 2026 =C3=A0 15:43, Jiayuan Chen <jiayuan.chen@linux.dev> a =
+=C3=A9crit :
+>
+> icsk_backoff is used as a shift amount in inet_csk_rto_backoff():
+>
+>         u64 when =3D (u64)icsk->icsk_rto << icsk->icsk_backoff;
+>
+> It can go past 63 on the paths of both callers:
+>
+>  - RTO: tcp_retransmit_timer() increments it on every backed-off RTO
+>    with no cap of its own, then an ICMP unreachable goes through
+>    tcp_ld_RTO_revert().
+>  - zero window probe: tcp_send_probe0() increments it up to
+>    tcp_retries2, and tcp_probe_timer() calls the helper in its orphan
+>    check. commit 6d4634d1b091 ("net: Limit logical shift left of TCP
+>    probe0 timeout") clamped tcp_probe0_when() but not this one.
+>
+> Seen on the RTO path with tcp_retries2=3D255 and a silent peer:
+>
 
-It seems to me that the analysis above is correct and the patch
-could benefit from a v2 that rewords the commit message.
+Nit: tcp_retries2 does not need to be changed for the RTO path.
+TCP_USER_TIMEOUT and TCP_RTO_MAX_MS on the socket are enough, since
+retransmits_timed_out() then only looks at the elapsed time.
 
-> 
-> > diff --git a/net/nfc/llcp_commands.c b/net/nfc/llcp_commands.c
-> > index 80a00938c8696..0a3d66e6cd59f 100644
-> > --- a/net/nfc/llcp_commands.c
-> > +++ b/net/nfc/llcp_commands.c
-> > @@ -542,7 +542,7 @@ static struct sk_buff *nfc_llcp_allocate_snl(struct nfc_llcp_local *local,
-> >  {
-> >  	struct sk_buff *skb;
-> >  	struct nfc_dev *dev;
-> > -	u16 size = 0;
-> > +	size_t size = 0;
-> 
-> [Severity: High]
-> 
-> This is a pre-existing issue, but now that size no longer wraps, does
-> nfc_llcp_recv_snl() leak the llc_sdres_list entries when alloc_skb() fails
-> here?
-> 
-> nfc_llcp_send_snl_sdres() returns before the loop that frees the entries:
-> 
-> net/nfc/llcp_commands.c:nfc_llcp_send_snl_sdres() {
-> 	skb = nfc_llcp_allocate_snl(local, tlvs_len);
-> 	if (IS_ERR(skb))
-> 		return PTR_ERR(skb);
-> 
-> 	hlist_for_each_entry_safe(sdp, n, tlv_list, node) {
-> 		skb_put_data(skb, sdp->tlv, sdp->tlv_len);
-> 
-> 		hlist_del(&sdp->node);
-> 
-> 		nfc_llcp_free_sdp_tlv(sdp);
-> 	}
->     ...
-> }
-> 
-> nfc_llcp_recv_snl() ignores the return value, and the list head is on its
-> stack:
-> 
-> net/nfc/llcp_core.c:nfc_llcp_recv_snl() {
-> 	HLIST_HEAD(llc_sdres_list);
->     ...
-> 	if (!hlist_empty(&llc_sdres_list))
-> 		nfc_llcp_send_snl_sdres(local, &llc_sdres_list, sdres_tlvs_len);
-> }
-> 
-> Each SDREQ TLV from the peer leaves behind a struct nfc_llcp_sdp_tlv and
-> its 4-byte tlv buffer. That is about 72 bytes for every 3 bytes on the
-> wire.
-> 
-> Before this change, a frame that needed more than 64 KiB wrapped size and
-> panicked. Now alloc_skb() gets the full size, about 4/3 of the frame.
-> 
-> That allocation can fail for costly orders under fragmentation. It always
-> fails once the request is above MAX_PAGE_ORDER: on x86-64 with 4 KiB
-> pages, that is an SDRES over 4 MiB, from an SNL PDU of about 3 MiB.
-> 
-> Frame reassembly has no cap, so one such frame would leak around 1M
-> entries, roughly 72 MB. Repeated frames could drive the system to OOM.
-> 
-> The same leak happens when local->dev is NULL and nfc_llcp_allocate_snl()
-> returns -ENODEV.
-> 
-> Should the tlv_list entries be freed on this error path, either in
-> nfc_llcp_send_snl_sdres() or in its caller?
+No need to respin only for this.
 
-The problem flagged above seems to be reachable both before and after this
-patch. So I think it can be handled separately to this patch.
-
--- 
-pw-bot: changes-requested
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
