@@ -1,53 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795031770;
-	b=kL3kJZJ+Avdw82/4KIZz9l24d7+CZuCScrenEOGJlBQAv/F823fqr5eLf2hTyYH45wDL
-	 5L3sMjZjzRUzbKkLD2lJq22v5rZCJDqM2TLm4fTVRy0JJRvgBVBd9t6ylFnyOET0JEw5x
-	 a2oIxE0+JIcluFfzaD2f+JnJDZfg1jYj/OT7fdfIjjxs53EmvpUBTzCVnX5dqyObZVstW
-	 SbWR08jGpCnBJ2xp8WePds2D1V90wiaS4TfMhIwB/QptnfFwiDLVsLj54ixShWiVkkEC7
-	 2ZNFk5Yt+P7RHHY1SaZOzsL0pNQhAdJja/dOrZccU87cFD2z5Tbp7ff9huEdiz/NZ7g==
+	t=1795031771;
+	b=w7eyMmJkJQ+DXOG7JCnJho230ND1hyPn6WXqteICuGacwKYYAU4Y5xcfil8Nu/LUQDna
+	 duDLpPE3OiLb/hSK+57h0jbNp7yNaWysOn8yoUO8lQv2qK+72ShBda/baE81bjTlVCV2m
+	 wQ0r9FG84X6K43D3EI9EwGY8NihsqhyWajGPtZj7VEFGRiSE1PHYQl0xXSZrCAEsYzZXu
+	 v3BHu5SAP/AXAWK4bK492JJ8deJcezH2Tnz4QIqb+oppaCoTxIj5bl1c4JCH/b1eXIPw4
+	 vO2ZDbJK7NpvrxdipM+FINNaANR5cCiad1ClMyMIPiLnPtmsjjztlsrnwK5iDyA+4EA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795031770;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795031771;
 	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=Fe6NwmngpGFMvh00hUNwLYVq+WURZ5Qeqr57JlWT/9w=;
-	b=OE7fW+u5n2B4ykOIeLXuoD3BH1ubnTiYVb5A5jjbEqk4MfSkWz+VHjDozpotMLjO4kvH
-	 z75Z0rXjuNl97BTeUtNYkh1TR1TdBALgRQXZbcmKffB7Fb0esrU9t3UMRMLAFVe5oiopT
-	 C88cNfIJaF0KCVhRbv+jVhunX+vhtI3ocU0gG3a131NXE6kp2PtthmtSairs+skxJvLei
-	 0iv19Hq/dZk4ARjqawjMxl11hFhKH03wMEGqsPB9myE6f1c5ESz/WhKfDL4JkMdP5Ye/8
-	 PeGc/POk+e8mp/7jGkQRtjInyuUMqwrcFVQMRVczJd9u2EyDIaq5UQ3JNuTntj8rsTg==
+	bh=yOpjJnayY+MXiVhxxuaYASYK0OcqJoRCEArFDMmhwrQ=;
+	b=sIusjvmDbMbVY0KHni7xkvst8ECxB/JV8ognDbsO6c/cT8GmjiFZd94+1SpGPgC+jnTV
+	 wBcN/AU5CoYOFA9JODNtcfx9QYTutLKs41QRCRav+deg/bKDdJJtQPJzqLFYv22jsD9ga
+	 SYmfyOsbbXhgwbTWtiKc45xxlkYk3YmuxqnyfVMPy/v6ATMzSmzVAzHpPqFkuwp7drLW8
+	 uJrt6sv8PQ4uOdtOhSTEJjD1pHw8LsAgp8wBPXnwWOhOJ52a5bMKzdHTUPJ/dJbDawNwQ
+	 ul6W57FaDJR5swuCveZ14Iv9ksifa1BlXwgEZmlZj8TBLcDuSNqSFTftaok4EfKVCWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=tipi-net.de;
 	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=EPXY0pMs;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=OC7g98i4;
 	arc=none smtp.remote-ip=194.13.80.246
 Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFE96606A33E;
-	Wed, 18 Nov 2026 19:56:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFE96606A33E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEDF560A261D;
+	Wed, 18 Nov 2026 19:56:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EEDF560A261D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=EPXY0pMs
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 75221A21D7;
-	Wed, 18 Nov 2026 20:56:06 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=OC7g98i4
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 8D7F0A24BD;
+	Wed, 18 Nov 2026 20:56:08 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795031767; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795031769; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=Fe6NwmngpGFMvh00hUNwLYVq+WURZ5Qeqr57JlWT/9w=;
-	b=EPXY0pMsn7zHc/2CjglYLq8ukmt2LfHl5NHCtsa8+s+KxAfgacRt8czW2orVeabqBkUvCC
-	VgNPMGmOXZHW1C/0RTHgcE0u+1ioHEp8M41q5h20RI+uyiGMrvCwMliIgoffGvPir4Zpyu
-	Y5Migvphqx5y5TnmfS/zsyRv0v3mnvG+FHWAxxMk09wEjB//3Csp92GhvcuOrd5v+l7+HH
-	Fw7lXMD/ryctDrfczzjsLMcrmZE+5/Bbgfkbb37+q9PFzwFs4Ka6lKr4Dq/I8eR5ympU2d
-	OdwPoEloFJE10O85rqYljZvM+jGx8kfvU1lEWfsrZp2nDdLfHV5sFtcbXkNt6g==
+	bh=yOpjJnayY+MXiVhxxuaYASYK0OcqJoRCEArFDMmhwrQ=;
+	b=OC7g98i4lTGNmrn2zLWqkNOBEbitWvx/fKf8bpShaMBLMkNMiY388Gd/uQnbpL/ZS4diKi
+	C7vTJ44e5MIhxyT8qK5AcKxdUo0aDwVvskxxqkwDvDwJcClAY66+gA4W4nIrNY5G7Tt1Oq
+	HX0ieaCTj0mpQo18c4uJzvBSs1Hqn8MQzsBNzypBvnxmnGawkCWnQueKL27FA82gYPnrk1
+	XH4LAxpBm0X0bs92qAkfLKEZZ3RPqchRsqhThuKCEUOLfJ9+YpDh4xR8PIPQokwKiQKhbK
+	nM0WMpozhGjLFf034UZ7rKfU3PWOXOURjiBh9IKrYXvOh4jF/3orYt42K7udFQ==
 From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Wed, 18 Nov 2026 20:55:30 +0100
-Subject: [PATCH net 1/4] net: bcmgenet: accumulate the DIM packet and byte
- counters
+Date: Wed, 18 Nov 2026 20:55:33 +0100
+Subject: [PATCH net 4/4] net: systemport: accumulate the DIM packet and
+ byte counters
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,7 +59,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-nb-genet-dim-stats-net-v1-1-13b275f1e088@tipi-net.de>
+Message-Id: <20261118-nb-genet-dim-stats-net-v1-4-13b275f1e088@tipi-net.de>
 References: <20261118-nb-genet-dim-stats-net-v1-0-13b275f1e088@tipi-net.de>
 In-Reply-To: <20261118-nb-genet-dim-stats-net-v1-0-13b275f1e088@tipi-net.de>
 To: Doug Berger <opendmb@gmail.com>, 
@@ -77,35 +77,31 @@ X-Mailer: b4 0.16.0
 X-Last-TLS-Session-Version: TLSv1.3
 
 net_dim() computes rates from the difference between two samples and
-needs running totals, but bcmgenet_desc_rx() passes the counts of the
+needs running totals, but bcm_sysport_desc_rx() passes the counts of the
 last poll. Adaptive coalescing then picks profiles from wrong rates.
-
-On a CM4 at a steady 300 Mbit/s UDP, DIM changed profile about 1000
-times in 20 s. With the fix it settles, and Rx interrupts drop from about
-4500/s to 2240/s.
 
 Accumulate the counters instead.
 
-Fixes: 9f4ca05827a2 ("net: bcmgenet: Add support for adaptive RX coalescing")
+Fixes: b6e0e875421e ("net: systemport: Implement adaptive interrupt coalescing")
 Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
- drivers/net/ethernet/broadcom/genet/bcmgenet.c | 4 ++--
+ drivers/net/ethernet/broadcom/bcmsysport.c | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-index 4d2be2a21ed1..70c6a6465c81 100644
---- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-+++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
-@@ -2486,8 +2486,8 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
- 		bcmgenet_rdma_ring_writel(priv, ring->index, ring->c_index, RDMA_CONS_INDEX);
+diff --git a/drivers/net/ethernet/broadcom/bcmsysport.c b/drivers/net/ethernet/broadcom/bcmsysport.c
+index bc88a27da16b..d3041ad60698 100644
+--- a/drivers/net/ethernet/broadcom/bcmsysport.c
++++ b/drivers/net/ethernet/broadcom/bcmsysport.c
+@@ -844,8 +844,8 @@ static unsigned int bcm_sysport_desc_rx(struct bcm_sysport_priv *priv,
+ 			priv->rx_read_ptr = 0;
  	}
  
--	ring->dim.bytes = bytes_processed;
--	ring->dim.packets = rxpktprocessed;
-+	ring->dim.bytes += bytes_processed;
-+	ring->dim.packets += rxpktprocessed;
+-	priv->dim.packets = processed;
+-	priv->dim.bytes = processed_bytes;
++	priv->dim.packets += processed;
++	priv->dim.bytes += processed_bytes;
  
- 	return rxpktprocessed;
+ 	return processed;
  }
 
 -- 
