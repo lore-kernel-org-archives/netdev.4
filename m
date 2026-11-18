@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.218
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795007145;
-	b=FAfYT0JURTB9rRdQO5O9tR2G8K37UOOdn3ijXzYvd5MsA3eknhtMKI9rZ1QaouMD2G/j
-	 fewLMY0KzKCjqojw7TEFFIRlc/v9uTK5B6r6qWI89KRwLYuTyEGnm7kjUJ95Zb62+zN6I
-	 WJZSnM4Cl/XQHCYuiQMX+BUwBn2ItXuqtTUsXMqqDTbK4jOMbyINAdF4jBwWyq7T6WKdg
-	 6AtavbXiU7Jbc0dTBS5xdnkGtowMRbumuzuZG+ah3V7/B0RGsCEskwa7QLxtzTLzy8Dak
-	 wsxFGUdoNKgKuqflj8TC4+B4lqinD9U4guknzPRSXOucphVu0tmMW1zSGYQDAGA1NKw==
+	t=1795007157;
+	b=H38DAeHcQ8EPyNVp+iACbMFhn3eZWIc7UFYHhaeEvCfqVNu4CY88LmiAkcusokelWaYD
+	 tfBJTAcWtBjHwyykskDStaftbfsiUpVC8esoTptSwVwmPi0FXwdPYmi0fMxSfngoMaSx0
+	 9e05ScUXsODcS3p2lLeGCPNjufX/ughDB60s2/TPkPtvv9ch+2z50cwVW3O8jjgfPUdVe
+	 thA6LEry8p+FdqVRjPynM20z8shOfLyJ+DVKZcqRoFh/2h13TXgiCW5Iaucs+qsFutBGe
+	 7eb5thEGpO6iTh8PS47ioH/qZd+wPyALxXCrsH8bqh01givQC0CxQ5Jr/XUFzJ9pArw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795007145;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795007157;
 	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
 	 X-ClientProxiedBy;
-	bh=V6fUqmW8r47UTtI2vv0NdUZDAcIxExrL6NpF9SdNaSM=;
-	b=oOsJoy4xGIitUx0AzEfLzOtynHsAMAWi2JxV2p639fMNFecQvIFN2a7YeXB2a97L+MLC
-	 yuh9vTMxu1GRMxWOLVy92KYj92SV+XOj+X1yKPX1yF9s63sr+gWu9oNIsd+vpqW4lCkg7
-	 +rCssm7LJT9ai8DQToDDg++QMt6IRnNg6jw7fY8p4+SLsQDE1MnWbA/0HUwKgbnF7Dkyg
-	 1pfj4PwRaYNQprMjcNeJ2bIg3RP+2O/HkC6/uiyMurTkc0n2zq4VyqPzOTyyVc994Z37H
-	 kMP9bZarwyjGx/Bwo6hD6tRhcu2+UQ7h+TMHeuy4zwfFx58yHYJidRkIlXSEz+j7r0A==
+	bh=CPGg3eLHNQSbC3O3rR/rLK+YHuzq1/qfafrhMY766mw=;
+	b=gDgGGzmkDL13A7bAlQ8tk/ZxUjsyfo/nZ2bMGb6OjZQzVOKVZUW1WD5A4X3WUcxywMiP
+	 NVm7wnvtj54TxiK6ULW1uZtBmqTFszd9VtgnXVvxL0zElAuys2GzgWGsIGh7j4tvcYmZG
+	 s6xzXYmrdgbOWB6YurnM+mp+dofrmHxj6DxuKREFTq2tKOxtUcNJTLm7Q4o/tFSDrxXoZ
+	 ZKpIMcGHAJ6JPIyT/MzMo+/ME9NF0AISYStJ7KV4AtlGF8dpSGhAZVHf7PkSOrUiJnztq
+	 IiUqkGCuTvb1f3Jqaebu2s8zVX3J/jcqthDZajU4NZBFYE7i3+pl316qNHTfgmoHTGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=huawei.com;
 	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=DuiDZ4x4;
-	arc=none smtp.remote-ip=113.46.200.217
-Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=NKKviRQg;
+	arc=none smtp.remote-ip=113.46.200.218
+Received: from canpmsgout03.his.huawei.com (canpmsgout03.his.huawei.com [113.46.200.218])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3BA3C606A320;
-	Wed, 18 Nov 2026 13:05:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3BA3C606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E2A9606A325;
+	Wed, 18 Nov 2026 13:05:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E2A9606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=DuiDZ4x4
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=NKKviRQg
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=V6fUqmW8r47UTtI2vv0NdUZDAcIxExrL6NpF9SdNaSM=;
-	b=DuiDZ4x4+bTYwiv47xD7n5dqhnesBUw21YU8hJbEXZiNncMCocCAUpBtfn12Deh08XbsXKY3a
-	KN0pqXOD1qqOhgkbZOnhY9OI/xlR6GWOlhUWhM9mgVkEwPiOAPD9puyvaZQ1wnNSut1KGAo7Ue6
-	DAU4vjtRxZgLlOBaMYhbE/4=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jV1z3352zzcZyJ;
-	Wed, 18 Nov 2026 21:04:47 +0800 (CST)
+	bh=CPGg3eLHNQSbC3O3rR/rLK+YHuzq1/qfafrhMY766mw=;
+	b=NKKviRQgwj9K4UFO/ubIpNIszrPn8PsvpHf7BN8A7ry3Q3/pmMYUpSRZ4SbWI72oniifqivwG
+	9I9aye3JGsfnJx047My9GeCUVLrvoKN2v7viGrJ+S38gLOgbHw3GQWK14SwyM6FSNwsffwiESUr
+	zpbk8jDvUGJdhyb9k0cuRHI=
+Received: from mail.maildlp.com (unknown [172.19.162.223])
+	by canpmsgout03.his.huawei.com (SkyGuard) with ESMTPS id 4jV1z72VjgzpSv5;
+	Wed, 18 Nov 2026 21:04:51 +0800 (CST)
 Received: from kwepemo500018.china.huawei.com (unknown [7.202.195.199])
-	by mail.maildlp.com (Postfix) with ESMTPS id 2016B40537;
-	Wed, 18 Nov 2026 21:05:40 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 85DDB40575;
+	Wed, 18 Nov 2026 21:05:41 +0800 (CST)
 Received: from localhost.localdomain (10.50.163.32) by
  kwepemo500018.china.huawei.com (7.202.195.199) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 18 Nov 2026 21:05:39 +0800
+ 15.2.2562.45; Wed, 18 Nov 2026 21:05:40 +0800
 From: Jijie Shao <shaojijie@huawei.com>
 To: <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
 	<pabeni@redhat.com>, <andrew+netdev@lunn.ch>
@@ -58,10 +58,12 @@ CC: <shenjian15@huawei.com>, <liuyonglong@huawei.com>,
 	<chenhao418@huawei.com>, <yangshuaisong@h-partners.com>,
 	<ningwei15@huawei.com>, <netdev@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <shaojijie@huawei.com>
-Subject: [PATCH net v5 0/4] net: hns3: fix multiple bugs in reset/error paths
-Date: Wed, 18 Nov 2026 21:03:26 +0800
-Message-ID: <20261118130330.3026625-1-shaojijie@huawei.com>
+Subject: [PATCH v5 net 3/4] net: hns3: fix interface stuck after OOM with full hardware rx queue
+Date: Wed, 18 Nov 2026 21:03:29 +0800
+Message-ID: <20261118130330.3026625-4-shaojijie@huawei.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118130330.3026625-1-shaojijie@huawei.com>
+References: <20261118130330.3026625-1-shaojijie@huawei.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,143 +78,296 @@ Content-Type: text/plain
 X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
  kwepemo500018.china.huawei.com (7.202.195.199)
 
-This series contains four bug fixes for the HNS3 driver, all related
-to resource lifecycle management on reset, driver unload, or error
-paths.
+NAPI polling on hns3 is driven by hardware RX interrupts. Under
+memory pressure, RX skb and frag allocations fail, packets are no
+longer reaped from the hardware rx ring. Once the ring fills, the
+hardware stops generating RX interrupts and NAPI is never scheduled
+again -- even after memory becomes available, leaving the interface
+deadlocked.
 
-Patch 1 fixes a vector resource leak in the error path of
-hns3_nic_alloc_vector_data, where a devm_kcalloc failure after
-successful get_vector() leaves allocated vectors unreleased.
+Break the deadlock by adding a software recovery path that re-arms
+NAPI via a 250ms delayed_work, independent of hardware interrupts.
+A per-ring bitmap tracks which RX rings are in OOM state; the work
+function schedules NAPI for the vector backing each affected ring.
+OOM state is marked when an RX allocation failure is detected in the
+poll path and cleared when the delayed_work fires.
 
-Patch 2 fixes a page_pool leak in the error path of
-hns3_alloc_ring_memory, where an hns3_alloc_ring_buffers() failure
-for an RX ring frees the descriptor ring but not the page_pool
-allocated just before.
+This supersedes the busy-poll recovery from commit 68752b24f51a
+("net: hns3: schedule the polling again when allocation fails"),
+which returned budget on allocation failure to keep NAPI polling
+and caused CPU spinning under prolonged memory pressure. Now
+hns3_clean_rx_ring() returns recv_pkts instead of budget on
+allocation failure, letting NAPI exit and the delayed_work take
+over. The exit refill is still attempted for the descriptors
+accumulated since the last refill, so the head pointer is written as
+before; descriptors from earlier iterations are not re-armed when an
+allocation failure short-circuits the in-loop refill.
 
-Patch 3 fixes an interface stall that occurs when the hardware RX
-queue is full and memory allocation fails.  Without an RX interrupt,
-NAPI is never scheduled and the queue cannot drain.  A delayed work
-re-arms NAPI polling on affected rings to break the deadlock.
+Add a per-ring rx_oom_cnt ethtool counter, incremented for each NAPI
+poll that hits an RX allocation failure. It is a diagnostic counter
+for this recovery path, not the standard rx-alloc-fail qstat.
 
-Patch 4 fixes a use-after-free in debugfs read callbacks that can
-access priv->ring and ring->desc while reset, driver unload, or
-ethtool ring resize is freeing those resources.  A mutex is added
-to synchronize debugfs readers against resource teardown.
+The bitmap is allocated in hns3_init_all_ring() and freed in
+hns3_uninit_all_ring(). It is allocated after every ring is set up,
+so a failure inside hns3_init_all_ring() leaves nothing behind, and
+it is reused because hns3_set_ringparam() calls hns3_init_all_ring()
+without hns3_uninit_all_ring(). The delayed_work is cancelled in
+hns3_uninit_all_ring() before the rings and the bitmap are released,
+and also in hns3_nic_uninit_vector_data() before the NAPI instances
+are torn down.
 
-A note on how these were found.  Patch 1 came out of internal code
-review; it needs devm_kcalloc() to fail after get_vector() has
-succeeded, so we have not hit it at runtime.  Patch 2 was reported by
-Sashiko against v2 and is likewise an error-path only issue that we
-have not triggered.
+hns3_nic_net_down() does not cancel the work, so a pending work may
+still run after the interface goes down. If it runs while DOWN is
+set, it clears the per-ring bits without scheduling NAPI. If the
+interface is brought back up within the 250ms window, it sees the
+stale bits with DOWN cleared and schedules NAPI for those rings once,
+ending in a single extra poll round with no packet to clean. Both
+outcomes are harmless.
 
-Patch 3 is a real customer problem.  Under memory pressure the RX
-ring filled up, RX interrupts stopped coming in and the interface
-went dead.  There was no stack trace - the interface going dead was
-the only symptom we had to go on.
-
-Patch 4 was hit in the lab while reading the debugfs queue files
-during a reset/unload; it ended in a NULL pointer dereference and a
-hung machine.
-
-All four were built and run on a Huawei Kunpeng EVB with the on-board
-hns3 NIC.  Patches 1 and 2 were not exercised on their failure paths.
-
+Fixes: 68752b24f51a ("net: hns3: schedule the polling again when allocation fails")
+Signed-off-by: Jijie Shao <shaojijie@huawei.com>
 ---
 Changes in v5:
-  - Patch 3: cancel oom_task and free the bitmap together in
+  - Cancel oom_task and free the bitmap together in
     hns3_uninit_all_ring(), before the rings are released.
-  - Patch 3: use only atomic bitops in hns3_oom_task() and drop
-    bitmap_zero().
-  - Patch 3: count rx_oom_cnt for each NAPI poll that hits an RX
-    allocation failure, and drop the duplicate update from
+  - Use only atomic bitops in hns3_oom_task() and drop bitmap_zero().
+  - Count rx_oom_cnt for each NAPI poll that hits an RX allocation
+    failure, and drop the duplicate update from
     hns3_oom_task_schedule().
-  - Patch 3: correct the description of the exit refill and the
-    teardown ordering.
-  - Patch 4: document the page_pool_info and error-code changes in the
-    commit message.
-  - Patch 1 and 2: no change.
-v4: https://lore.kernel.org/all/20261111125810.3359030-1-shaojijie@huawei.com/
+  - Correct the description of the exit refill and the teardown
+    ordering.
+v4: https://lore.kernel.org/all/20261111125810.3359030-4-shaojijie@huawei.com/
 Changes in v4:
-  - Patch 1: correct the reason for resetting priv->vector_num, as
-    reported by Sashiko.  hns3_nic_dealloc_vector_data() is not
-    reachable after hns3_nic_alloc_vector_data() fails, so the reset
-    is not protecting that path; it keeps the count from describing
-    vectors that were already handed back.
-  - Patch 2: name hns3_fini_ring() instead of the non-existent
-    hns3_free_ring_memory(), and drop "mirroring" because the destroy
-    order differs.  The pool is destroyed before the descriptor ring
-    here, which is safe because hns3_alloc_ring_buffers() has already
-    detached every buffer.
-  - Patch 3:
-    * Allocate rx_ring_oom_bm in hns3_init_all_ring() only after every
-      ring has been set up, and free it in hns3_uninit_all_ring().
-      This fixes the leak and the NULL bitmap dereference reported for
-      hns3_set_ringparam(), which calls hns3_init_all_ring() without a
-      matching hns3_uninit_all_ring(); the allocation is reused when
-      the pointer is already set.
-    * Cancel the delayed work in hns3_nic_uninit_vector_data() instead
-      of hns3_nic_net_down(), so every teardown path cancels it before
-      the bitmap is freed.  This closes the use-after-free reported
-      for the self-test and external loopback paths, which set DOWN
-      without going through hns3_nic_net_down().
-    * Drop the cancel and bitmap_zero from hns3_nic_net_down().  A
-      pending work that runs while DOWN is set zeroes the bitmap and
-      exits, and one that runs after the interface is brought back up
-      only schedules a single extra poll round.
-    * Always attempt the exit refill in hns3_clean_rx_ring(), so the
-      descriptors cleaned by this poll stay armed and the head pointer
-      is written as before.
-    * Document why rx_oom_cnt is not the standard rx-alloc-fail
-      counter, as requested in review.
-  - Patch 4: describe both writer paths (client_uninit/reset_uninit vs
-    set_ringparam) explicitly, note the -EBUSY user-visible change, and
-    return -EBUSY from hns3_dbg_page_pool_info() instead of -EFAULT so
-    that sibling readers agree.
-v3: https://lore.kernel.org/all/20261030095633.377289-1-shaojijie@huawei.com/
+  - Allocate rx_ring_oom_bm in hns3_init_all_ring() only after every
+    ring has been set up, and free it in hns3_uninit_all_ring().  This
+    fixes the leak and the NULL bitmap dereference in the
+    hns3_set_ringparam() path, which calls hns3_init_all_ring()
+    without a matching hns3_uninit_all_ring(), and reuses the existing
+    allocation on a ring resize.
+  - Cancel the delayed work in hns3_nic_uninit_vector_data() instead
+    of hns3_nic_net_down(), so every teardown path cancels it before
+    the bitmap is freed.  The self-test and external loopback paths
+    set DOWN without going through hns3_nic_net_down().
+  - Drop the cancel and bitmap_zero from hns3_nic_net_down().  A
+    pending work that runs while DOWN is set zeroes the bitmap and
+    exits, and one that runs after the interface is brought back up
+    only schedules a single extra poll round.
+  - Always attempt the exit refill in hns3_clean_rx_ring(), so the
+    descriptors cleaned by this poll stay armed and the head pointer
+    is written as before.
+  - Document why rx_oom_cnt is not the standard rx-alloc-fail counter.
+v3: https://lore.kernel.org/all/20261030095633.377289-4-shaojijie@huawei.com/
 Changes in v3:
-  - Patch 1: simplify commit message; drop the accumulated-leak
-    consequence paragraph and clarify that the vector_num reset avoids
-    a NULL deref in hns3_nic_dealloc_vector_data().
-  - Patch 2: new patch, fixes a page_pool leak in the error path of
-    hns3_alloc_ring_memory().
-  - Patch 3: rework the OOM bitmap from per-vector to per-ring,
-    indexed by ring->queue_index.  Add cancel_delayed_work_sync() in
-    hns3_nic_net_down() after hns3_disable_irqs_and_tqps().  Remove
-    the OOM marking in hns3_handle_rx_copybreak() since the packet is
-    still delivered via the original page.
-  - Patch 4: add Fixes tag for the ring resize path.  Add per-ring
-    page_pool NULL check at hns3_dump_page_pool_info() entry.
-v2: https://lore.kernel.org/all/20261021121426.3096838-1-shaojijie@huawei.com/
+  - Rework the OOM bitmap from per-vector to per-ring, indexed by
+    ring->queue_index, so each ring's OOM event is counted exactly
+    once per oom_task firing cycle regardless of vector sharing.
+  - Add cancel_delayed_work_sync(&priv->oom_task) to
+    hns3_nic_net_down(), placed after hns3_disable_irqs_and_tqps(),
+    eliminating the stop/open window where a preempted worker could
+    clear a bit newly set by NAPI on the reopened interface.
+  - Remove the hns3_ring_set_oom_state() call from
+    hns3_handle_rx_copybreak(): napi_alloc_frag() failure returns
+    -ENOMEM but the packet is still delivered via the original page,
+    so it should not drive the OOM recovery work.
+v2: https://lore.kernel.org/all/20261021121426.3096838-3-shaojijie@huawei.com/
 Changes in v2:
-Patch 1:
-  - No change.
-Patch 2:
   - Clear per-vector OOM bitmap when device is DOWN to avoid
     spurious napi_schedule() on next up event.
   - Move rx_oom_cnt accounting to hns3_ring_set_oom_state() with
     test_and_set_bit() for per-event counting.
-Patch 3:
-  - Drop hclge_debugfs.c changes; mutex only protects enet-layer.
-  - Replace guard(mutex) with explicit mutex_lock/unlock.
-  - Remove redundant NULL checks; unify -EPERM to -EBUSY.
-v1: https://lore.kernel.org/all/20260915132434.1141742-1-shaojijie@huawei.com/
+  - Expand changelog: reference commit 68752b24f51a, explain
+    hns3_clean_rx_ring() return value change, document rx_oom_cnt
+    per-event counting semantics.
+v1: https://lore.kernel.org/all/20260915132434.1141742-3-shaojijie@huawei.com/
 ---
+ .../net/ethernet/hisilicon/hns3/hns3_enet.c   | 60 ++++++++++++++++++-
+ .../net/ethernet/hisilicon/hns3/hns3_enet.h   | 18 ++++++
+ .../ethernet/hisilicon/hns3/hns3_ethtool.c    |  1 +
+ 3 files changed, 76 insertions(+), 3 deletions(-)
 
-Jijie Shao (4):
-  net: hns3: fix vector resource leak in hns3_nic_alloc_vector_data
-  net: hns3: fix page_pool leak in hns3_alloc_ring_memory error path
-  net: hns3: fix interface stuck after OOM with full hardware rx queue
-  net: hns3: fix use-after-free in debugfs read during reset/unload
-
- drivers/net/ethernet/hisilicon/hns3/hnae3.h   |   1 +
- .../ethernet/hisilicon/hns3/hns3_debugfs.c    | 127 +++++++++++-------
- .../net/ethernet/hisilicon/hns3/hns3_enet.c   |  79 ++++++++++-
- .../net/ethernet/hisilicon/hns3/hns3_enet.h   |  18 +++
- .../ethernet/hisilicon/hns3/hns3_ethtool.c    |   3 +
- 5 files changed, 178 insertions(+), 50 deletions(-)
-
-
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
+index 5677e32fc3da..60fc296020ab 100644
+--- a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
++++ b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
+@@ -78,6 +78,8 @@ module_param(page_pool_enabled, bool, 0400);
+ #define HNS3_MIN_TX_LEN		33U
+ #define HNS3_MIN_TUN_PKT_LEN	65U
+ 
++#define HNS3_OOM_POLL_INTERVAL_MS	250
++
+ /* hns3_pci_tbl - PCI Device ID Table
+  *
+  * Last entry must be all 0s
+@@ -4161,6 +4163,7 @@ static int hns3_add_frag(struct hns3_enet_ring *ring)
+ 			if (unlikely(!new_skb)) {
+ 				hns3_rl_err(ring_to_netdev(ring),
+ 					    "alloc rx fraglist skb fail\n");
++				hns3_ring_set_oom_state(ring);
+ 				return -ENXIO;
+ 			}
+ 
+@@ -4450,6 +4453,30 @@ static int hns3_handle_rx_bd(struct hns3_enet_ring *ring)
+ 	return 0;
+ }
+ 
++static void hns3_oom_task(struct work_struct *work)
++{
++	struct hns3_nic_priv *priv = container_of(work, struct hns3_nic_priv,
++						  oom_task.work);
++	bool down = test_bit(HNS3_NIC_STATE_DOWN, &priv->state);
++	struct hnae3_handle *h = priv->ae_handle;
++	struct hns3_enet_ring *ring;
++	u16 i;
++
++	for (i = 0; i < h->kinfo.num_tqps; i++)
++		if (test_and_clear_bit(i, priv->rx_ring_oom_bm) && !down) {
++			ring = &priv->ring[i + h->kinfo.num_tqps];
++			napi_schedule(&ring->tqp_vector->napi);
++		}
++}
++
++static void hns3_oom_task_schedule(struct hns3_enet_ring *ring)
++{
++	struct hns3_nic_priv *priv = netdev_priv(ring_to_netdev(ring));
++
++	schedule_delayed_work(&priv->oom_task,
++			      msecs_to_jiffies(HNS3_OOM_POLL_INTERVAL_MS));
++}
++
+ int hns3_clean_rx_ring(struct hns3_enet_ring *ring, int budget,
+ 		       void (*rx_fn)(struct hns3_enet_ring *, struct sk_buff *))
+ {
+@@ -4471,6 +4498,9 @@ int hns3_clean_rx_ring(struct hns3_enet_ring *ring, int budget,
+ 
+ 		/* Poll one pkt */
+ 		err = hns3_handle_rx_bd(ring);
++		if (unlikely(err == -ENOMEM))
++			failure = true;
++
+ 		/* Do not get FE for the packet or failed to alloc skb */
+ 		if (unlikely(!ring->skb || err == -ENXIO)) {
+ 			goto out;
+@@ -4489,10 +4519,15 @@ int hns3_clean_rx_ring(struct hns3_enet_ring *ring, int budget,
+ 	 * FBD number with head pointer
+ 	 */
+ 	if (unused_count > 0)
+-		failure = failure ||
+-			  hns3_nic_alloc_rx_buffers(ring, unused_count);
++		failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
++
++	if (unlikely(failure))
++		hns3_ring_set_oom_state(ring);
+ 
+-	return failure ? budget : recv_pkts;
++	if (unlikely(hns3_ring_is_oom_state(ring)))
++		hns3_oom_task_schedule(ring);
++
++	return recv_pkts;
+ }
+ 
+ static void hns3_update_rx_int_coalesce(struct hns3_enet_tqp_vector *tqp_vector)
+@@ -4787,6 +4822,7 @@ static int hns3_nic_init_vector_data(struct hns3_nic_priv *priv)
+ 			       hns3_nic_common_poll);
+ 	}
+ 
++	INIT_DELAYED_WORK(&priv->oom_task, hns3_oom_task);
+ 	return 0;
+ 
+ map_ring_fail:
+@@ -4886,6 +4922,8 @@ static void hns3_nic_uninit_vector_data(struct hns3_nic_priv *priv)
+ 	struct hns3_enet_tqp_vector *tqp_vector;
+ 	int i;
+ 
++	cancel_delayed_work_sync(&priv->oom_task);
++
+ 	for (i = 0; i < priv->vector_num; i++) {
+ 		tqp_vector = &priv->tqp_vector[i];
+ 
+@@ -5201,6 +5239,16 @@ int hns3_init_all_ring(struct hns3_nic_priv *priv)
+ 		cond_resched();
+ 	}
+ 
++	/* hns3_set_ringparam() calls this without hns3_uninit_all_ring(). */
++	if (!priv->rx_ring_oom_bm) {
++		priv->rx_ring_oom_bm = bitmap_zalloc(h->kinfo.num_tqps,
++						     GFP_KERNEL);
++		if (!priv->rx_ring_oom_bm) {
++			ret = -ENOMEM;
++			goto out_when_alloc_ring_memory;
++		}
++	}
++
+ 	return 0;
+ 
+ out_when_alloc_ring_memory:
+@@ -5215,6 +5263,12 @@ static void hns3_uninit_all_ring(struct hns3_nic_priv *priv)
+ 	struct hnae3_handle *h = priv->ae_handle;
+ 	int i;
+ 
++	cancel_delayed_work_sync(&priv->oom_task);
++	if (priv->rx_ring_oom_bm) {
++		bitmap_free(priv->rx_ring_oom_bm);
++		priv->rx_ring_oom_bm = NULL;
++	}
++
+ 	for (i = 0; i < h->kinfo.num_tqps; i++) {
+ 		hns3_fini_ring(&priv->ring[i]);
+ 		hns3_fini_ring(&priv->ring[i + h->kinfo.num_tqps]);
+diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.h b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.h
+index 933e3527ed82..fe2e88b9eff7 100644
+--- a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.h
++++ b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.h
+@@ -449,6 +449,7 @@ struct ring_stats {
+ 			u64 non_reuse_pg;
+ 			u64 frag_alloc_err;
+ 			u64 frag_alloc;
++			u64 rx_oom_cnt;
+ 		};
+ 		__le16 csum;
+ 	};
+@@ -585,6 +586,8 @@ struct hns3_nic_priv {
+ 	struct hns3_enet_tqp_vector *tqp_vector;
+ 	u16 vector_num;
+ 	u8 max_non_tso_bd_num;
++	struct delayed_work oom_task;
++	unsigned long *rx_ring_oom_bm;
+ 
+ 	u64 tx_timeout_count;
+ 
+@@ -711,6 +714,21 @@ static inline unsigned int hns3_page_order(struct hns3_enet_ring *ring)
+ #define hns3_rl_usec_to_reg(int_rl) ((int_rl) >> 2)
+ #define hns3_rl_round_down(int_rl) round_down(int_rl, 4)
+ 
++static inline void hns3_ring_set_oom_state(struct hns3_enet_ring *ring)
++{
++	struct hns3_nic_priv *priv = netdev_priv(ring_to_netdev(ring));
++
++	hns3_ring_stats_update(ring, rx_oom_cnt);
++	set_bit(ring->queue_index, priv->rx_ring_oom_bm);
++}
++
++static inline bool hns3_ring_is_oom_state(struct hns3_enet_ring *ring)
++{
++	struct hns3_nic_priv *priv = netdev_priv(ring_to_netdev(ring));
++
++	return test_bit(ring->queue_index, priv->rx_ring_oom_bm);
++}
++
+ void hns3_ethtool_set_ops(struct net_device *netdev);
+ int hns3_set_channels(struct net_device *netdev,
+ 		      struct ethtool_channels *ch);
+diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+index 7b92a3c73ef6..14642f81efe1 100644
+--- a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
++++ b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+@@ -62,6 +62,7 @@ static const struct hns3_stats hns3_rxq_stats[] = {
+ 	HNS3_TQP_STAT("non_reuse_pg", non_reuse_pg),
+ 	HNS3_TQP_STAT("frag_alloc_err", frag_alloc_err),
+ 	HNS3_TQP_STAT("frag_alloc", frag_alloc),
++	HNS3_TQP_STAT("rx_oom_cnt", rx_oom_cnt),
+ };
+ 
+ #define HNS3_PRIV_FLAGS_LEN ARRAY_SIZE(hns3_priv_flags)
 -- 
 2.43.0
 
