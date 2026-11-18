@@ -1,104 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.104
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794999014;
-	b=t6+JggnZMP4In1Q4K7iTJzSZn7BwQRXM28fnuODQNn2ETKEx9IbY5f6yDU8QjNPff16/
-	 N7asIRMWhgCb4ta7WesY5nMvqHbHo9SpOY3CJyTy82id7bMduu7nQV6+w1YlrxaUBkjbr
-	 jUtWizGgOky3cDL/XOOYeFJmc/TBiTmALUBbOFESh7I4gldNeFGJ2oXFl5JlCk9xYVq1Q
-	 5HnIZ5mwz8usrDzgCg2WU4yRW78LYBMQx2MXCi0y98SWJIMM/v4HCfgKeeaqHPzrx5uaz
-	 PZ8bImpGcRjpmBHVwhhypjjOMi8KLbDimURUDulEW+WKB5j3EEIWauHGAuhSj+NgIjg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999014;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=x6KMkdvdUnp9PB7Dt1o3j55lqU0GHumozI0pPJyFNrg=;
-	b=N2EqPFNY26+JzqSJDTt89msCAEsBxpKer9BjkDjW1Zje9y23B4dXnTFoah4t8KAoaWnv
-	 lbwHJE0JXHS3nmdlBW8Ch3F7BVOltiESt1UP6dPVe1z1Gab8aYnwHYKM2Tlk7MD38Ks73
-	 cruWVCocc4eihy0QgEWA8swpphdSxwi7WAGIB0oOUzstuXxvpZSAP0gXLf5KJnOZxrjlE
-	 064lRX/HSgCyaXV+4nakuHzmX2GW1ww7Kh8rUlih9xWvghRRTsqLYENKB5tQX6fVttGrU
-	 tklX4/9gH1ZBEnBS8kFo5458IHWdjwR1hdh+KWqS1QbEUOKxcuJWHrDucN/SZvCBOLw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kontron.de;
-	spf=pass smtp.mailfrom=kontron.de;
-	dkim=pass header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=vA7WALLX;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.104
-Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11022104.outbound.protection.outlook.com [52.101.66.104])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794999028;
+	b=ONMzY2Tsdo+r+674ACBd/8jgbrWq+Y853wn++j0SWxIpYuJxJko9KILMFNpDWtD6GS+l
+	 ai1SDAPKMb8+does7e6flFOK/uqWTVn6K/XsSY1CquVnhnjaRfz70+YzBuendW1BXYdOI
+	 f+SRDOeR+piPRDkc4i2TVMRxIc8qcWTsOF1DTEFirx+yoszKZv2jABq3bpssjHOv0uc2M
+	 mv1yRdf2mmFkRcF2zsAYZDnPjjf2CA8Hcf7IvYdbr97GkRk5mosIOnEB6ePPtlKbwY0Lq
+	 ZsCw92fN1c3pihObxZQdIIKVLFk1NaGgFs9qU+2juNC3d1vv00U4woGIOJ+luuSKWbg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999028;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=2tyJQEQnFeWwomXQ5IRkBcHcwvd362+cG6pq/T5Bwi4=;
+	b=QU+yJIIvXQV/elyx2dUWg7yLpPk08YeGVf8zfcMDKa/yFYCJmEJGNriLdAICIKo1KZVk
+	 aZQImw1nX1eFKRA4CIJdYGPorSQXYmYdptOb6ycG5bi+nkXLEb91i8QbJUpBNGnzgKsSH
+	 iFAJzzswYNDXhctf3Qu0+tW26oDbxo3y4nPb3jCeCWJmUNLPv6oPDgBRmT4rUgh4y0g7H
+	 0r2wEDP6HSYx6o4xCK9z+b+A5RllK/zRri2nvNT/xelBLmyuV3O5sSiFLtTcid/BPZ5Ld
+	 uGw7fj6QvMYl3WiQlAqzLu4+mQIUQzKMD0t/I5/cNzi/9JWUm7J48W+pMzrhJXqzFpw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Pr//q/Y8";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD45F60A2606;
-	Wed, 18 Nov 2026 10:50:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD45F60A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kontron.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kontron.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78383606A31C;
+	Wed, 18 Nov 2026 10:50:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=vA7WALLX
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JujDXdDqJTa12Jt9HeihSLk2MIzbvEqfXlgdpDl+s9fbtDcMu0o92b7XoxMq+XCF+r23f7hDtg9uysK22CHWRXR0w4P+jyxwwOYWB/+LSljnTJQ01kkc/zAWQn8htfPhOLPh2bRf05Yo9SyTnhqVddumMe/gjLlGuToOg24T4HPNryBbbfAsfZTDwW1ZnCXfbERDG265C7aBTjzCV71W82jbMellJ2BthCAY29BT/OIMCKHTDvxqwWze4dAjEue52jjocLKj4MMtjzatMe6Wd0HLxeaSh+ixuum5RiVD6AtF0uyMrg6kYGA9BoGEt/knj+ZPRpUbvJnoBcnhG2qZbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x6KMkdvdUnp9PB7Dt1o3j55lqU0GHumozI0pPJyFNrg=;
- b=ExXo/g8zEM+Mfq4Qr6SXogOYZ0tT5Zmu6wpN6cW6aJqmvfne0mfjEiJuZnWrcKB0zetOAhBdQpz1D625fOmEyj+kU7yMXecbL2UYBr/9blfijfPhCtcLPs534rl0BZvrRddl2age30ON7/v3h/w9Ajj2T9dHA39mIXJCeQ5a5WdgrUlGB/vs8ypSO7SeuRWZkv9gDoa964taN4If6QvvSvuY7qQJnjm8Z6nvTBev0cgVF9/GsunLGiSiSGaGfORbsPL3cArFcGdy9aQtVXln8rElcQ4aEE1AJgcOO8eyZhPcIbd2g/JI1xJepthslEliPlbsQM4kuKigy7+m590EMQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x6KMkdvdUnp9PB7Dt1o3j55lqU0GHumozI0pPJyFNrg=;
- b=vA7WALLXeky1WT3sjSrOtktEW3yLqNpDeJ4FUkwLMu/LXX0jgksqYCeGXVVRmX2VnEocCRkE6JUXpiY/73b6FrMo47NWLAkz1rG3tlFmP3X3XVGR1OvssMb1N2j+4s3AeNjBZ5I0bqj+hOxlhm1dkja3dsxsJLHvLBCZ4exorypqHYnxQ9LQF1ADanzAFRoz0XbH2oR35+cKvRgYOtya/Siz6EDakIjenVn2Vo+piv7MI4VgIWQQUajajFqtzYzU9XcS7jQXyc0VZ6U+Ab5LxoMSqMp+uV8sc11DsPjfYaX3QV5D+qES/9qKoFyur7knpfabSNUVM3+SLYsQ1iLbDw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by PA4PR10MB5682.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:102:264::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.6; Wed, 18 Nov
- 2026 10:50:09 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0639.006; Wed, 18 Nov 2026
- 10:50:08 +0000
-Message-ID: <f0538c2e-873a-4522-9883-c28113efb0bb@kontron.de>
-Date: Wed, 18 Nov 2026 11:50:07 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/4] net: enetc: Add i.MX952 support
-To: Clark Wang <xiaoning.wang@nxp.com>, Frieder Schrempf <frieder@fris.de>,
- Claudiu Manoil <claudiu.manoil@nxp.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>
-Cc: "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-References: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
- <ZR6PR04MB5878801865D14143CC9622B73CF37A2@ZR6PR04MB587880.eurprd04.prod.outlook.com>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <ZR6PR04MB5878801865D14143CC9622B73CF37A2@ZR6PR04MB587880.eurprd04.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PAZP264CA0038.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:1fc::20) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pr//q/Y8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03ABB1F000C5;
+	Wed, 18 Nov 2026 10:50:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794999028;
+	bh=2tyJQEQnFeWwomXQ5IRkBcHcwvd362+cG6pq/T5Bwi4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=Pr//q/Y8OiVPLDdAT5oOmIcmCL8xXTs8vFj8sUFKQYdCvGikTJ0MxLgfNrOxR0Ta7
+	 AvTRZmLuVgJcBFYzqHm6BJF+z8/n8NgYxsuIdIhK3XrCehTmx4m77tW024J0HY7NaN
+	 TCsXb/wtvXkZ97WVBVrd5ZNfmeNPReiJukadaoCOGcU0xmTOwygDw8RetcGwRI83bA
+	 EZDxFtJH54PQVrXoaFNElTjvs939KZH+QAnzmgH2xqETia+5LNJUHTvcsosMOdFE3J
+	 NPf/f7/QyQoOlw81m8LAQrJSKwq5Z1SVPncq6MUyzIBgRZRfIv3KsUzMGyCy4bVghB
+	 bBpHjPargRbJg==
+Message-ID: <aa9a2189-71e5-409e-b89d-c14441bccb72@kernel.org>
+Date: Wed, 18 Nov 2026 11:50:20 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,125 +51,99 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|PA4PR10MB5682:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5402297f-04b4-4e33-0258-08df4561b69d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|23010399003|1800799024|376014|7416014|22082099003|18002099003|921020|4143699003|11063799006|56012099006|261028144727099003|261021121427099003|10067099003|261021123027099003|261009223027099003|261021135927099003|261102123227099003|261026140227099003|261022105027099003|261026121527099003;
-X-Microsoft-Antispam-Message-Info:
-	sF1PmmvLpfUnt3yz1Wbuv8DJNC8Y0AIyGNVBgT4bkJ0iQ27WaA0GgnQESspTuBW95okY6pTU8LW/9dn1FIw7AnxdBBA1M4Q2Ih0PbiypYq9rFL7uBxtPzcrCUPO6qMr4RTbxe/UtgBKBfBSTMOZIXtYztYKqRuMUIZl7PKosbweMTyeL3Pg7lUO3HkL59n6DRmQK5gtO+3cnLiJ53eh/8GZ7cXbK+cK3/yys5hd7Et4+viM1YAOiTigAo8rZnn9R2KPkrSa9TEiKfBjLkqw4g5I6VUsnhYZtd7hwY86QNdOFuoSPuBY0rqII1oIFXj9o31G0VIef9SAwTt7UeN5i9RdObdNfvA/bBRE28m5MfjD/wl/MkOzx7gPBHP2of+SEBuIeJVZqr/mIAzyU0wTuQwrqiSXtj5TnSdKAF2ID26M/apfpcD4CCzi0o333lesmrLeRDPkD75H/v9t1jYGNO1gzDNMavnQf6KMQLd8YXUfHa0bp/x8oJcIcJ50HzjIRJkouYTTyd8+Cfpm8v5WEK6opg9Zfe3guKmAO9Vi8YD7CPwwMhi3PUIJN/yCjBgTjf1H7APoQvscpbAF3qsTWI+1PFM5kFHBKFu4edW9N704jnEUF9KNAinQch24YRSS0/3r8/BsTVhpxbWw8gDLv/WVEPs+6od1LXSK5ysVA8qY=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(23010399003)(1800799024)(376014)(7416014)(22082099003)(18002099003)(921020)(4143699003)(11063799006)(56012099006)(261028144727099003)(261021121427099003)(10067099003)(261021123027099003)(261009223027099003)(261021135927099003)(261102123227099003)(261026140227099003)(261022105027099003)(261026121527099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?S1pPWURKZ1NaWUp4ZHRhR285RnVBRkNVakExdmVLL3h3VldiRG9BYUUrRU4r?=
- =?utf-8?B?WEVNQldBTXNBZFZzbjVyTkh3M0p1VEE5aXhFeldVaEtFNWJaK09UV0lFQnk3?=
- =?utf-8?B?Z2IyM2ZWSEhTd0hBS3dVWEFKV09jYWxVK3hDWTFhNTF6cEUvWGVNY25MVy94?=
- =?utf-8?B?cjB1Lzc1SHZpSDl5VHdnS3hXUmtBM0s3bk5xOXhyVGY3WHoyb01qdUlqalVl?=
- =?utf-8?B?WjBrUk5GWWhUSS9jODR3Z1RIYzdIbUszMlpVNEdSZzhsKzF5Zld6bHFuUjR5?=
- =?utf-8?B?aVgyNVg3Q3ZPVDk0VSsrcWUrSW1JN2Q5dDJMQktiVFlUQUFmU3ZXWERwejNo?=
- =?utf-8?B?KzIzcmVlTlcwRTdiajhUMVV3TzI2Y0dXK2RSV2RQTFJMVzdvZW1ncDFQUlpL?=
- =?utf-8?B?NEVmRkxpUzI3bmEzcVlIVnVSS0lxMVFFcTB6a3dMRXdSaE9DdkpUaEN0V2VQ?=
- =?utf-8?B?UTBKQ3lISE9JTlpScmdXd1ZwZVc0aUZtNjhUcVE4ci9NSEtSWWNxNUozUEs2?=
- =?utf-8?B?cngxSVZMMHJ5UVZVaG9VQ0hKcFRwaW5TN3NuVTU4QlR4cEl1anhvQnJMRFZ4?=
- =?utf-8?B?elErNmhRMUd6UktZc01ieHRMYk1DSW1yV0ZEMitZS05hbnBFN2t2Kzd0bUpK?=
- =?utf-8?B?V2NReVlWQlpUc2JFa2ZTRFhjMUlMY2wyQ3l6VTZveU5ocGVNOUVxLzEwcEJx?=
- =?utf-8?B?VEhDZUhycGJWVUZJRFZhRCtIMndadSt0dk9xV3hnWUlKb051VFdwWHF1ZVg2?=
- =?utf-8?B?VDkyMktXMDFteVl0bGRnd2lDNVdWM0d2YnMxSDhKZ0hmTEVZaVE5ODJyV2pk?=
- =?utf-8?B?RFlkRXYyTzJZRjBRaHQwaVdUMjMwVDJSbHVZVmpvR0h0TzNncmtCTzVIYm0y?=
- =?utf-8?B?ck5GTXVaRVJzd0tSSXlZK2FjWFBUK011ZmY0U0RyQ0tZcFFWdllHRlA0MGR0?=
- =?utf-8?B?aDBiRUVBM3AvS08ydHAvMnV0OE5kQ3YzaTFCTzVmTkpMMlVKaTRJWmhPNFRK?=
- =?utf-8?B?Q2N4eXlRTWowa1FWOWFhUTQ4U0VtNk12VUFJQlQ1RkUvWTdHWnRYYmNxZmxP?=
- =?utf-8?B?eGFQRmNMMmk0RVlUSG1KKzJsOWNLQlArNncrM0lJeFYzcis1aXJvWUU5QllX?=
- =?utf-8?B?bW00NTRUKzZQd1pQNzhaeUozWi9BK2grSWFIemtBQ0NrQ3BteVZXL2lsMXVN?=
- =?utf-8?B?UERQcG1ESUkwSnlPRXAzbFhkUEhJTU95VGRicVBOK1dWRkE2TGEvRElaa0V0?=
- =?utf-8?B?QmNIVFh6aVc4Z29IVGRhOENlQWh2YjliSWhvMjRKTmJqN2trM2tZL0lQZGNm?=
- =?utf-8?B?SzZGYWFUdW1Fbmg5d1kwVDg1UERSQTdkMlNTR29wcm0xR2x1ZlZEbmxidzEr?=
- =?utf-8?B?YzhnVnU4N0hKN2VaN0JnNUg0MWRRRGd5OTlyNjZPai9YZHlHZVdyQkR1MEJi?=
- =?utf-8?B?S2RWc1lZVk5RQ1hRMHpjNU1hK3VzM2s1R3B5U2lqb0lLTlowRDBzd2cxL01m?=
- =?utf-8?B?WnpkL2FZZmoyekt4TTcvNDhpaHBVS0EyVi84b2ZyWHRScXNRajRwR1BCNnov?=
- =?utf-8?B?Mjdtbm0wcUhwbkZjQTZFNjZZZS95aHhWQldVVEpkSzV0dWZkeFB6TU5RV2FC?=
- =?utf-8?B?NnYwa0x1RFNIcmU1bWpWVGNGejkvU1dib1BWc2xTZzRlV1dlVjRmLzVJd0RR?=
- =?utf-8?B?OHViTGxnL3o3NlFQYmQzaldCdEN1YU1XTlloYXA2WDkyM0dScHNWRGFiSS9k?=
- =?utf-8?B?MkhMMTJZd3ZnSTFZYWFzS2ZITi9vRzRseU8xODMvOUtaTUQvTWVLT25HNUt5?=
- =?utf-8?B?Mi9sUnErd2R5c1RtNFlqYXU5ZDlCcDJmRzU5YlFNNkw3dWwzU3FUYXN3ZnVM?=
- =?utf-8?B?T0UxSVFCbkVWNUQ3Z2tvNzlOVTZWUjF4dVIrNkZ1dXJWL0EwRSthTWhRcytq?=
- =?utf-8?B?QkQ0aEI0Tks1TEUxcmFDWlhmblcrV0ZHWEViUnZIdC9RZWFTRTlXNVFZSEt3?=
- =?utf-8?B?TTlDMm9jZzU4S2xUbUNPZ3N3aUNMRHVjbElmMStOR1ovWmYvbEUwemZkTE05?=
- =?utf-8?B?SGdxOGpvc2U1SDdmWHNKeHYrTm1BVElpbUM5QWhyUzloNExXOThQNjRyUDcz?=
- =?utf-8?B?djhYeWFJSkl4NldlbnZlNHg4eUFEMWljdzRDYXB4MTdwaGZJRjMvaW1EK3hR?=
- =?utf-8?B?N1o3QWFiNEVrUmd5VDVlSk5DZU1LcEtFV05xZGNsUllFS0E3THByaW5DTWw2?=
- =?utf-8?B?czRTdGN5YUhlRUxPMExmNnRabkRxZFNHSEpqcjZ1OUFzRlFHSWkxQm1KV2pS?=
- =?utf-8?B?dTBxZ3RweCs4N0VxUnlpZk9uSXV5VmpEaHpiNnBzWWVTWFJDUzNqV1NvelpI?=
- =?utf-8?Q?GzrvLssg8PsM7NQs=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5402297f-04b4-4e33-0258-08df4561b69d
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:50:08.9265
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: EQStJxiE7TUlRsyFEQdc/buGfNyJdm+mL1C5J0CCYmFrrE1tMs3dvZ1r+h4zrIpChEWpSwFJJA74tZe3fcHkz0GTyex7sxkq2/6wdao3NeM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR10MB5682
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net v5 0/3] mptcp token hash ordering and token 0 lookups
+Content-Language: fr
+To: Hang Nan <2122295973@qq.com>
+Cc: netdev@vger.kernel.org, mptcp@lists.linux.dev, martineau@kernel.org,
+ geliang@kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kuniyu@google.com,
+ willemb@google.com, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+References: <tencent_50E9A78F95855D54DA67136F3D8520017F0A@qq.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <tencent_50E9A78F95855D54DA67136F3D8520017F0A@qq.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 18.11.26 11:43, Clark Wang wrote:
-> [Sie erhalten nicht h?ufig E-Mails von xiaoning.wang@nxp.com. Weitere Informationen, warum dies wichtig ist, finden Sie unter https://aka.ms/LearnAboutSenderIdentification ]
-> 
->> Subject: [PATCH net-next 0/4] net: enetc: Add i.MX952 support
->>
->> This adds support for the NETC Ethernet controller on the i.MX952 SoC.
->>
->> i.MX952 has two ENETC instances (IP revision 4.6), each on its own PCIe bus.
->> ENETC0 shares bus 0 with the NETC timer and the central EMDIO,
->> ENETC1 sits alone on bus 1. The NETC system clock runs at 133 MHz, compared to
->> 333 MHz on i.MX95.
->>
->> The patches are ported from NXP's lf-6.18.y vendor kernel. The device tree
->> changes for imx952.dtsi and the i.MX952 EVK will be sent separately to the i.MX
->> tree.
->>
->> Tested on the i.MX952 EVK with ENETC0 (RGMII): the link works, hardware
->> timestamping is available and the PHC runs at the correct rate. ENETC1 is
->> untested as it needs an add-on board.
->>
->> Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
->> ---
->> Clark Wang (2):
->>       net: enetc: netc_blk_ctrl: add i.MX952 support
->>       ptp: netc: use 133 MHz system clock on i.MX952
->>
->> Frieder Schrempf (1):
->>       dt-bindings: net: nxp,netc-blk-ctrl: add i.MX952 compatible
->>
->> Wei Fang (1):
->>       net: enetc: add i.MX952 ENETC support
->>
->>  .../devicetree/bindings/net/nxp,netc-blk-ctrl.yaml |  1 +
->>  drivers/net/ethernet/freescale/enetc/enetc.c       | 23 +++++++
->>  .../net/ethernet/freescale/enetc/enetc_ethtool.c   |  1 +
->>  drivers/net/ethernet/freescale/enetc/enetc_hw.h    |  2 +
->>  .../net/ethernet/freescale/enetc/netc_blk_ctrl.c   | 73
->> ++++++++++++++++++++++
->>  drivers/ptp/ptp_netc.c                             |  7 ++-
->>  6 files changed, 106 insertions(+), 1 deletion(-)
->> ---
->> base-commit: d6816d9a93b66a12bf01e10037e377f3333ad6cc
->> change-id: 20261118-imx952-enetc-bd2bc331e1b5
->>
->> Best regards,
->> --
->> Frieder Schrempf <frieder.schrempf@kontron.de>
-> 
-> Hi Frieder,
-> 
-> I have sent the V1 patchset for imx952, will sent V2 this week.
-> https://lore.kernel.org/all/20261104092217.1730351-1-xiaoning.wang@oss.nxp.com/
+Hi Hang Nan,
 
-Thanks! I totally missed your series when I was searching for it.
+On 16/11/2026 15:58, Hang Nan wrote:
+> This series restores acquire ordering for the mptcp token lookup and fixes
+> two pre-existing defects in that hash table which ordering alone cannot
+> cover.
 
-Please ignore this series and sorry for the additional noise.
+I didn't do a full review of this series because of the build failures,
+but here are just a couple of quick notes:
+
+- The patches you send are not linked to the cover-letter, see the
+  In-Reply-To [1] pointing to a different Message-ID than the
+  cover-letter [2]. Your messages ID are probably modified when sent.
+
+- Please wait for Netdev Sashiko [3] before sending new versions.
+
+- Use 'mptcp:' prefix instead of 'net: mptcp:'
+
+- Split the new kunit tests from the modification in the code to ease
+  backports.
+
+- (Honestly, a test for a !token guard is probably not worth 50 lines.
+   The first KUNIT_EXPECT_PTR_EQ on the empty table, or no new test at
+   all seems more reasonable.)
+
+- (I agree that the Token 0 is never assigned... in Linux: the RFC8684
+   accepts it, but the Linux implementation don't. Maybe mention that in
+   the commit message to avoid confusions.)
+
+[1] https://lore.kernel.org/tencent_BB8DA72524E32FD374B8B2950B247B62E207@qq.com
+[2] https://lore.kernel.org/tencent_50E9A78F95855D54DA67136F3D8520017F0A@qq.com
+[3] https://netdev-ai.bots.linux.dev/sashiko/
+
+Cheers,
+Matt
+-- 
+Sponsored by the NGI0 Core fund.
 
