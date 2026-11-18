@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026184;
-	b=LyzhBGz0S/40KjLCw+BKySn2DnhdrkjONUQ4+bSfhKVc0SYeNdC7fGIjG4b0gfi1fN6B
-	 R0VeEQy5uAdy9nLvr3tMy1cdHelDTh7DmAvnCkAr6noTvLZe8ZX5PbnKlw2gisCdP+GgL
-	 CmLf+2fg++A6V+e0LrSRUGCMC6YEtd2DJmDOwVZgVh7R3ppm4OAeMXCsbKu+t5DOVpawR
-	 V5Y8lw+vvxZhZfE3+mZPtY2pvgQmU21Vvt9VfAWQbxEJD55GH5owteiqEgG4EasTwIVMm
-	 NeBnHrF1v+n5Qqml5oBUJJsnEBBwKsmDxqw2LH1K/wqLuSGSaI5c3j94EoKs3vQDD0A==
+	t=1795026182;
+	b=W3iMo6nG7Ldy+GA+gplCembfDCVvJSrT1nRy4OHiOmW173+ZOWa5WosniLeaOwJQSlnH
+	 DGjB7EqwJ59K4e/IQfPBHh0TUDk09JcrN/dcnKxMtUiCffD0eC1ENVGnhWTDmgSSM3KOF
+	 udCUPfhFZf2QIVhBHo/0qwmfNUKDLHoClHmbvmU2VGXavvuf9FfFtHZQx33BQ+vleFWcx
+	 dj0W63EgGI2jhGfJSieAHnsEHctuie1+L+busUGYwO8CEMRQzg+Ev+f0YUS6zQJcjHklg
+	 YFPv4jZDPW/zsqSGAzl5IkQjUqd8cjorMFddVYSC5fyRoZ6vbxuDr49B9qzv8jy4z9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026184;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026182;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=1BLuMdvTJ1JeEYJY7PkA8OaRV4HThP5dbZvdIrOXxco=;
-	b=Uo4RHoC0hgJvmCj+UEgQp+ejwvsVKHAg2sZ/3tsOFlPHS3WJVVjw5CLLOzH0dfYdkLH/
-	 K3Ml1BZQCZzKrX/hH6gXn2NpGZQag1TjJu4eEN04r8TI9M+ideAhjGOO5ui825jIqgZu5
-	 pO1cGOFbo94L4tdTGcKRkFWfDZw0hNiVw8xlhVy2q+FVHCRKIY2zduCsBQZc35i1+gDIg
-	 04mOZd/68X6C7umJQpFGDJ92s4zmgK+b/H+iDrbJIKzhwJ+z1lOAfyH0dcMsov1+vA7hi
-	 183Jsm0QDaswL0SGGU9Lh27rez66Id14u5//SSpyQZc4bogtFVVnGXRJkCjfotwafjA==
+	bh=ENFg+sThSDKHfPDKu0R8k/GbgkEojaxI5fvOA2IZTmc=;
+	b=1ATwlZxpAgbGipJa+F1sM6oTjBmsxadrFZ7TqhV+4J4pWd1iAC5ValFVYrBLBKWak2ci
+	 BZUNTMZm8hL6svDpApGQ5x4luRM5IMA+EGSGkjSX7h3zsT4qRlbj6oj8EqnfSMwe8SN21
+	 2rLjFrQ+Rhmoo4xKjYvCu3rOR532QWyNKsE8A3H5kX05sZsqntAeg6vvam3SisEEh25Pb
+	 aurX9AjG/eOr6DlmJc7fNfm8SwFgO3vymd18CuE0aS27hWugnDAum9j7sYpXx35SHAB53
+	 DCc0wQbgkoxU65AyMid6uAUQ3qspMMTLPYWwzF68k0D3zWX6Kd/D8AdaJsXbS3cwdpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fg8QpE8D;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q7SwwG5F;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE58760A260C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 18:23:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96B1E60A2601
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 18:23:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fg8QpE8D
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0F151F000CA;
-	Wed, 18 Nov 2026 18:23:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Q7SwwG5F
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 968AA1F00927;
+	Wed, 18 Nov 2026 18:23:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795026184;
-	bh=1BLuMdvTJ1JeEYJY7PkA8OaRV4HThP5dbZvdIrOXxco=;
+	s=k20260515; t=1795026182;
+	bh=ENFg+sThSDKHfPDKu0R8k/GbgkEojaxI5fvOA2IZTmc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Fg8QpE8DIiQzDSw7eGq0ChdNF/BTPr5uKYZ6yfoxkKRkPG+HHpiqLMtxOqLM8VTkJ
-	 KZq529Fa+EH2m2yj03DhIl0NBrUjo/ZNEtaanJaWt3sd17nqyEeHZzHLZGIFNuJrg/
-	 UNhgqPYWtUl8xKJFyjFZ46Mp9c26rTulQEsFZMevYrCQKAkoqpqIkliN6FihY4GPaB
-	 WLhbMw8A/heeVGc8agblO8i+Np1/RFqUxkw5WlBLWH7OZiUco0qEl2meWYmAEdJFu4
-	 9HX7rViP9zskpkhdKEtuOJF419wAd7vJBR3/rGdeCShWqxPXm6rvhOgbMb410Z3ZRW
-	 6eCbbV5rfqfiQ==
-Subject: Re: [PATCH net v2 4/5] tcp: clamp the samples in tcp_rcv_rtt_update()
+	b=Q7SwwG5FmZH6mZeYlT0WKPWKzZ2tiw2LpBYOniGBZBQTIxcSRJSwIloVYpepn1isS
+	 L17i+bxrfCp0Ah+2AOsBJ+mN4zkYv++QSIVsrVw5g8paKjf5drkNIcUS9h7McDN/oF
+	 r1OXDPc7JatA4hvqW59+LOR8cBSrlmp+YAQkD1clXLJ905aj7KleYd5wq1i0VK1dUK
+	 9yCZ3NQfqZtgBkeafFflDT+V13UA2nzRr7X+5mcTan5ioZagNX8/75G6qSYEZitKON
+	 Yy+ZzOuhqbZIAPzxJiL+Hd4M2WFWmt/+/XKcZVPVt6PJORPpq4TXa3H04sQIGSmWp3
+	 4uuJDkIjlJ2gQ==
+Subject: Re: [PATCH net v2 1/5] tcp: don't let __tcp_set_rto() return 0
 From: netdev-bot+sashiko@kernel.org
 To: mason@kernel.org
 Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
  davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
  willemb@google.com, josef@toxicpanda.com, netdev@vger.kernel.org
-Date: Wed, 18 Nov 2026 18:23:03 +0000
-Message-ID: <179502618349.3136.1063676165373741119@kernel.org>
-In-Reply-To: <20261118155144.18393-5-mason@kernel.org>
-References: <20261118155144.18393-5-mason@kernel.org>
-X-sashiko-severity: High
+Date: Wed, 18 Nov 2026 18:23:01 +0000
+Message-ID: <179502618115.3136.7194709885956735724@kernel.org>
+In-Reply-To: <20261118155144.18393-2-mason@kernel.org>
+References: <20261118155144.18393-2-mason@kernel.org>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -63,108 +63,70 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The fix is incomplete.
-- [Low] The comment on TCP_RTT_MAX_US in include/net/tcp.h (lines
-  167-172) still says it is the 'Max RTT sample for tcp_rtt_estimator()'…
+- [Low] The commit message of "tcp: don't let __tcp_set_rto() return 0"
+  gets the thin-stream caller wrong.
 
 --
 
-tcp: clamp the samples in tcp_rcv_rtt_update()
+tcp: don't let __tcp_set_rto() return 0
 
-This patch clamps the sample passed to tcp_rcv_rtt_update() to
-TCP_RTT_MAX_US before the shift left by 3. The goal is that a
-receive-window fill time of 536.9 s or more no longer wraps in u32
-arithmetic. The commit message says this covers both callers of
-tcp_rcv_rtt_update().
+This commit makes __tcp_set_rto() return at least 1 jiffy. Without that
+floor, a route with a locked RTAX_RTO_MIN of 0 and an RTT sum under one
+jiffy leaves icsk_rto at 0, and the exponential backoff in
+tcp_retransmit_timer() can never get it above 0. Because the floor is in
+__tcp_set_rto(), both tcp_set_rto() and tcp_ld_RTO_revert() get it.
 
-> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-> index 69e038b9389ae..d9a66a1342efd 100644
-> --- a/net/ipv4/tcp_input.c
-> +++ b/net/ipv4/tcp_input.c
-> @@ -857,7 +857,11 @@ void tcp_initialize_rcv_mss(struct sock *sk)
->  static void tcp_rcv_rtt_update(struct tcp_sock *tp, u32 sample, int win_dep)
->  {
->  	u32 new_sample, old_sample = tp->rcv_rtt_est.rtt_us;
-> -	long m = sample << 3;
-> +	long m;
-> +
-> +	/* Keep sample << 3 and the smoothed estimate within u32. */
-> +	sample = min(sample, TCP_RTT_MAX_US);
-> +	m = sample << 3;
-
-[Severity: High]
-Can a long window-fill time still wrap before it gets to this clamp?
-
-In tcp_rcv_rtt_measure(), the sample comes from tcp_stamp_us_delta():
-
-net/ipv4/tcp_input.c:tcp_rcv_rtt_measure() {
-    ...
-	delta_us = tcp_stamp_us_delta(tp->tcp_mstamp, tp->rcv_rtt_est.time);
-	if (!delta_us)
-		delta_us = 1;
-	tcp_rcv_rtt_update(tp, delta_us, 1);
-    ...
-}
-
-That helper narrows the s64 difference to u32:
-
-include/net/tcp.h:
-static inline u32 tcp_stamp_us_delta(u64 t1, u64 t0)
-{
-	return max_t(s64, t1 - t0, 0);
-}
-
-So by the time min() sees an interval of 2^32 us (about 4295 s) or more,
-it has already been reduced modulo 2^32.
-
-For example, a 4300 s window-fill time arrives here as 5,032,704 us
-(about 5.03 s). That passes the 120 s clamp unchanged. With win_dep=1 it
-is stored when old_sample == 0 or when m < old_sample.
-
-The only writer of rcv_rtt_est.time is the new_measure label in
-tcp_rcv_rtt_measure(), and nothing resets a pending measurement when the
-connection goes idle. The window-completing segment could arrive after
-more than about 72 minutes of idle time or a slow sender. Would that
-still hit the case the commit message describes, where "the wrapped
-value is kept whenever it is below the current estimate", only with a
-higher threshold?
-
-Without timestamps the win_dep path only lowers the estimate. A bogus
-small value would stay for the life of the connection.
-
-Would it be better to clamp the 64-bit delta in tcp_rcv_rtt_measure()
-before it is narrowed to u32?
+> Do it in __tcp_set_rto() and not in tcp_set_rto(), since
+> tcp_ld_RTO_revert() uses the same sum. The third caller, the linear
+> timeouts of thin streams in tcp_retransmit_timer(), already clamps the
+> result to tcp_rto_min().
 
 [Severity: Low]
-This isn't a bug, but the comment on TCP_RTT_MAX_US in include/net/tcp.h
-still describes the constant only in terms of tcp_rtt_estimator() and the
-RTO:
+Does this describe the thin stream caller correctly for the configuration
+this patch targets?
 
-/* Max RTT sample for tcp_rtt_estimator(). srtt_us holds 8 times the RTT, and
- * mdev_us and rttvar_us up to 4 times its deviation, all in u32, like the sum
- * in __tcp_set_rto(). A larger sample could not raise the RTO, which
- * TCP_RTO_MAX bounds.
- */
-#define TCP_RTT_MAX_US	(TCP_RTO_MAX_SEC * USEC_PER_SEC)
+The trigger here is tcp_rto_min() returning 0 for a route with a locked
+RTAX_RTO_MIN of 0. At this commit, tcp_rto_min() passes the route metric
+through with no lower bound:
 
-After this patch, tcp_rcv_rtt_update() also relies on 8 * TCP_RTT_MAX_US
-fitting in u32 for rcv_rtt_est.rtt_us, which is not an input to
-__tcp_set_rto(). tcp_rtt_tsopt_us() also uses the constant.
+include/net/tcp.h:tcp_rto_min() {
+    ...
+	if (dst && dst_metric_locked(dst, RTAX_RTO_MIN))
+		rto_min = dst_metric_rtt(dst, RTAX_RTO_MIN);
+	return rto_min;
+}
 
-Could the header comment be extended to cover the receive-side users?
-Alternatively, a static_assert could check that TCP_RTT_MAX_US << 3 fits
-in a u32.
+Before this patch, the thin stream branch in tcp_retransmit_timer() was:
+
+net/ipv4/tcp_timer.c:tcp_retransmit_timer() {
+    ...
+		icsk->icsk_rto = clamp(__tcp_set_rto(tp),
+				       tcp_rto_min(sk),
+				       tcp_rto_max(sk));
+    ...
+}
+
+This gives clamp(0, 0, rto_max) == 0 whenever (srtt_us >> 3) + rttvar_us
+is below one jiffy. icsk_rto then stays at 0 for up to
+TCP_THIN_LINEAR_RETRIES retransmissions. After that, the exponential
+branch (icsk_rto << 1) keeps it at 0.
+
+The code change fixes this path as well, because the floor is in
+__tcp_set_rto(). Only the rationale looks wrong.
+
+Could the commit message say that the thin stream path is also affected
+and fixed by this change, instead of saying it is already protected?
+
+The later commit "tcp: bound the rto_min of a route in tcp_rto_min()"
+clamps tcp_rto_min() to at least 1. That makes the statement true once
+the whole series is applied. However, this patch has its own Fixes: tag
+and may be backported on its own.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118155144.18393-1-mason%40kernel.org
