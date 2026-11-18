@@ -1,49 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993905;
-	b=wbDxYoqd0xQHku6piz1G6rOIHIKZD758S3m9excd2Ey3Oup8zJT6/Hh66KXxMh30NppU
-	 uGMoj9uUSeiTtXDjf+2LkmdZ13P9rPFYw3JZdamo8Q7oUz2qL6OaDngnoyfOl2yZbopnr
-	 ewu1uOoc6DjtAcZg7pho5EhH8/dageoAftYOUfxfu9RmHIVlDJOXrwMAQ9PEn5VjlzZa4
-	 XVGzi8t6qkVI3zhbCRS2xOmeSjhj6erajpQlaAkpZFruGmiDGiYluTAeN0adIzl6pOmNz
-	 UMgvkUxQmNrJwoWSbJUP04aPQ7FnkdC1y00eleJwyKGw5zqiT4AE+pV3DXo0v/bXk2A==
+	t=1794994218;
+	b=4oPgn82NGi06Itq6SPOme6MGco1wU/GfJCiz11UvUFgYEpJ3P0RwvfnjEXZxBexN75AS
+	 eye3pUtR+E4TwuQzvz2XZJODdTVtVC/75fwk+cgmO7lk6GUWB3A6sTgdKmK1CfbIGfTqM
+	 5vnWSnUxN302OwA97/fw7W6mP2QccsACaphgqx/UnbwpVbtNjkn8wE8SL9uVlheCLeKUT
+	 etukF5ESJ7WNDWDpYC0Qv5kyTabj6uuX+j226JItX8hFGJzplT2oDiRe81k10l9FFgYO3
+	 qCXc2WOFNuRiDt1r5MjkcPmyf4zqD419QI+KZHIoZClP10L8jiCmLUvMYcH0yyaUl3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993905;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=k4+R43wkQ5coZwEY7y2Wgwoj0XAwBzUTWTsiGrCMIT0=;
-	b=0wLx6LZoUHc1e8D+CjrruphUN22lyFtOPuiIX4EFjA/jbB9Q5u7a/Nfz0z0v7UXNKj2Q
-	 PPwLuXFCueLiSe7vcswVOZE2ujiUX942OqP9ihr5sHseqdgjweO98Rqx0h1Ed31phaAfi
-	 TrmsC3Aid9+j5uVcYxgojmuWiiu/UGCiy7OQkeuID1zgefPb/fXWX6L4J5I0LzCBI6HI/
-	 27Q9a1fdaYprrCORsgfu2Pcv74FKEfOsialVjAU2RZYv2fmZpqgn9nPsK0YWuW0mPb/uy
-	 LtEOmLYvANiNaWw6UomgvYllEJwf9PKAlAuX3dI4AI+P3+72rabn74KygikIkEBsviA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994218;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=I137t/b2HCf/JgYtsEMky8nuvLyX5jojfAj0ADTMjuU=;
+	b=vJo1AWO4wRX+tNEZ8kuXm58Mj2uTzGJoBAL+fIen5q1PifNy/Qu5O97vPq0+gi1ec+JF
+	 r6wF8mwO4iYDStoskYIzDm3wI9auHxsZTteyfQg8CGB1Dt7aAx2k5NcEW2nXIohg2NqfE
+	 2uIE/ul6xIFcL+pxOZlF1G55bK419IzRIrHr2iEGCf0vpgNY+zZ9wUZJVVm7aC6jSFS/G
+	 LLiqT7Ddk4v9lZk3hOBuIBZD5/1KgZhD03f3zlpq7+xQo4zVZuNSMh8k9wsoX2JteA3Xo
+	 3cQ8BHAuFjb4W5TJMIddKZo+stuHN00SiBrDzHLUYqqhrKcd8JbAzCb97UNUnnksm8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b="M/Dw6inN";
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2E88A606A31C;
-	Wed, 18 Nov 2026 09:25:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E88A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mBREJxG9;
+	arc=none smtp.remote-ip=209.85.221.47
+Received: from mail-wr1-f47.google.com (mail-wr1-f47.google.com [209.85.221.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72C76606A32C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:30:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72C76606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=M/Dw6inN
-Received: from [10.26.7.43] (unknown [4.213.232.23])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 996FB20B7169;
-	Wed, 18 Nov 2026 01:24:59 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 996FB20B7169
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1794993903;
-	bh=k4+R43wkQ5coZwEY7y2Wgwoj0XAwBzUTWTsiGrCMIT0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=M/Dw6inNHz55R75Vl0dUx8c1XG7vMvdfPiYaAdYX0UkRIq93SU6DVHfSG96WyVPW1
-	 fe0YQFyR9Zh9HiuM2pFWjrQo18F80YdyTozEf5VCK4apalCthdahp9zhekAcAqJ7WN
-	 3yNwzPrlDjcytOKWsiRVL+QjP9kzjYwU5yYfq3hM=
-Message-ID: <d739628d-ae56-4543-b15d-a7976ab8f92b@linux.microsoft.com>
-Date: Wed, 18 Nov 2026 14:54:58 +0530
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mBREJxG9
+Received: by mail-wr1-f47.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso395032f8f.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:30:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794994216; x=1795599016; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=I137t/b2HCf/JgYtsEMky8nuvLyX5jojfAj0ADTMjuU=;
+        b=mBREJxG9FkN4FznRWb5Z1HhMrY/Xv0FwWRZ0H+ctq5p7521GuELpcri+gGNR/be/07
+         DUHccy3El/HTEV5xmYRkB14D51VpO4EKG7e41K1s5viehU4LEHdZnICNY6SgKdCV3SEt
+         LALAanhpIPNVNB3GkigBWwQ3hmjPTR0N/ECZSV7qiz5D2H+pOcAPGz8HYQPYBzESHPB5
+         l0hmpsTp9/fN/tVMK5TTJFn+B4hAyQPTOjxgkWVxRvkPQ1MlcWciDF8FKrt/v49LMlki
+         sZ4cmfXNyswBgzwycWuZdkZXxhaALQwMtKGkCbJmbv3iIQ5vg4v0tEud11j/wDgwcwYG
+         Z+7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794994216; x=1795599016;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=I137t/b2HCf/JgYtsEMky8nuvLyX5jojfAj0ADTMjuU=;
+        b=2eBE2jcuiBUQ0Ztx4R5BghNthxNoArBr2+FCmOzvRIAPKrYJya3BFFbGlt/s9krVyP
+         o0twL9chtj8e1WqglCg0ExSug5/LJu4lU1CSawFxvl2J37xa38Qk/padr1Vj00Jqbyya
+         Z+lXsAA8iJrbeFm/CP5VUg/FCcaQ3/e6gFevQVmejLqblzB2r6cUGWaNxtEKVct7LtUS
+         C2BEhpqfgBz2vhI7zBQ6oRSsCVUs+JfzaLfLG+kcwkcY8uxST0gkyiUErWd7T8GCpDzT
+         RALdd29sJ1aZKVYy8BSu1avj3AOX7Te5M++S/IWkfEodbZ6hP51FSaNkgJnC6ClCzjUH
+         QDzA==
+X-Gm-Message-State: APuU4Z99qlXqWPEtY2C4CHUNAQjDUUwBJjqjaz6jUGx+EvFo953ZUhbV
+	eYI9shcKS/2k1nWof04esoC2yh5vrI2kCejq0vaibHpQvlDiKPpEbrV1Zw9f8uf8
+X-Gm-Gg: AZFdTZdSRha6NtmMY0vjwKrCXAW/DfZBd9iWbKQVvsD9cUuaNx/XRI9Qn1o4lTd2kaP
+	45zyv0zFI7JCmdH/0QCk7B54JPz70HYowCi0URC0GukfA5ohEg146aj9Bysqzh+fXKdZ3862e9M
+	GogxitYjFuuQ2tOh0LNQ64mrzw3A1f9b2VmY5++10TgpI3PAFrlzE7PtGT2qAgTpOh4sjtN7atN
+	ZKPT6XXssPDujp5usiwnkJh3FFtGmirW6+9IePN8QhdwYId7lppe8Lgqne7m8GGRFcCSljGS7pJ
+	raWH34hRzO9dz0PxlCH2aw4JkafUlabuqi/CRCEKOJk8FuRY7xgk5ApeINiYtMgANiBuRwU4UVI
+	vdZroz2VJZ0tLBni5L9MAswGXS0RKz/lfz6vNrr1ZP2mdIoyKSFD50qEVubW/j2bqNDm4Wn02x0
+	pJfKBAgMP3c/HrJWGeyJyeW4pD2rm2wyI3eyODGt0pstNGDVNbMKtB9zsNxAKHKEtDccDgmqe+k
+	tbmhViaiggvEpVRX5tH/9J03VF4Q8isi8gREWUQJNSa4MxG26LStfOPCL702LELKJn915uGpPvS
+	+2whsAGXdAQCo8e2OXS4ePts3ucjuKJz0IBQ3jcydR1AxwTSQfEalUQBy53qMaw+SqSRpizBVPF
+	LCKUDq429L2/s4im6ENzQKZHLjy+a3EKWyZVizwAfWRkF3Oof61U/0iYPmNeG9IYccCNZVWcTV2
+	UUuGtfriBdkDSGyfAeAuwbqk+uv/V7toKOABKtwKp2L84Vg9ILJK/s
+X-Received: by 2002:a05:6000:40c6:b0:493:4426:96c7 with SMTP id ffacd0b85a97d-4a63ecb5478mr4038646f8f.57.1794994215650;
+        Wed, 18 Nov 2026 01:30:15 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a00-1028-8388-a84e-c049-d359-3a47-0198.ipv6.o2.cz. [2a00:1028:8388:a84e:c049:d359:3a47:198])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a6560962adsm3800503f8f.41.2026.11.18.01.30.13
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 18 Nov 2026 01:30:14 -0800 (PST)
+From: Josef Schlehofer <pepe.schlehofer@gmail.com>
+To: netdev@vger.kernel.org
+Cc: marcin.s.wojtas@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	maxime.chevallier@bootlin.com,
+	w@1wt.eu,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v4 0/6] net: mvneta: fix the TX queue arbitration and the mqprio offload
+Date: Wed, 18 Nov 2026 10:30:06 +0100
+Message-ID: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,103 +101,65 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: mana: Add CQE polling as first-level TX
- timeout recovery
-To: Breno Leitao <leitao@debian.org>
-Cc: haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, weh@microsoft.com,
- kotaranov@microsoft.com, horms@kernel.org, ernis@linux.microsoft.com,
- gargaditya@linux.microsoft.com, linux-hyperv@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-rdma@vger.kernel.org
-References: <20261112105752.978446-1-sahilchandna@linux.microsoft.com>
- <avWrMQK_DuZ1hAwD@gmail.com>
- <fc2ae552-86ee-40af-a997-454c2d3b176d@linux.microsoft.com>
- <avbdPt1WSC9qEuYw@gmail.com>
-Content-Language: en-US
-From: Sahil Chandna <sahilchandna@linux.microsoft.com>
-In-Reply-To: <avbdPt1WSC9qEuYw@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 13-11-2026 15:46, Breno Leitao wrote:
-> On Fri, Nov 13, 2026 at 02:04:08PM +0530, Sahil Chandna wrote:
->> On 12-11-2026 17:37, Breno Leitao wrote:
->>> Hello Sahil,
->>>
->>> On Thu, Nov 12, 2026 at 04:57:18AM -0600, Sahil Chandna wrote:
->>>> Implement a graduated recovery approach: on the first TX timeout (or
->>>> when the previous timeout was more than 2 minutes ago), schedule NAPI on
->>>> the stalled queue's TX CQ via napi_schedule(). This triggers
->>>> mana_poll_tx_cq() through the normal NAPI path, processing any pending
->>>> completions without relying on the interrupt and recovering
->>>> missed-interrupt scenarios without queue reset.
->>>
->>> Which interrupt is being missed here?
->>>
->> Hi Breno,
->>
->> It is the TX CQ completion interrupt. After NAPI finishes, it re-arms
->> the TX CQ. When a new CQE arrives, the hardware post EQE, which raises
->> the MSI-X and schedules NAPI. If that notification for the TX CQ is lost
->> , NAPI never runs for the TX CQ and pending_sends never drains and the
->> queue stays stopped,  so napi_schedule() polls the CQ, reaps the CQEs
->> and re-arms it.
-> 
-> Thanks.  Which one gets lost, the EQE or the MSI-X?
-Hi Breno,
+The NETA TX arbiter is left at its reset default, fixed priority.
+Under load a busy TX queue starves the others. OpenWrt has worked
+around this since 2017 by sending all TX traffic of its 32-bit boards
+through queue 0 [1].
 
-Sorry for the delay, i was checking on these with my team.
-Regarding what is lost here. The patch is trying to solve the scenario
-where TX CQ never arrive due to some reason, it is not handling the
-MSI-X lost scenario and one of the netdev bot comment highlights the
-same. Though i will work on framing commit message more clearly in next
-version. Thanks !
-> 
->>>> If any subsequent TX timeout fires on any queue, within 2 minutes of
->>>> the previous one, escalate to the existing port-level detach/attach
->>>> reset, as the CQE poll did not recover the queue.
->>>
->>> How was 2 minutes chosen? mana sets watchdog_timeo to 15 * HZ, no?
->> The watchdog_timeo is TX stall timeout setting i.e if a queue remains
->> stalled for this much time, it trigger watchdog timeout. Here, 2 minute
->> is not timeout/wait. The 2 minutes here is for deciding whether a new
->> queue stall event is a repeat of the previous incident or a new,
->> unrelated one that should get the cheap poll first. For e.g. if a queue
->> gets stalled, 15 * HZ sec later, timeout occurs and this patch trigger
->> manual NAPI, if another stall occurs (it can be on any queue) within 2
->> minutes of last one, the existing recovery mechanism of mana
->> detach/attach will be tried.The patch is adding a first level less
->> destructive recovery first.
->> For selecting 2 minutes, I do not have any hardware basis for it afaik,
->> but I can confirm and check with our host team as well.
-> 
-> So the goal is to tell an isolated stall from a wider problem.
-> 
-Yes, and take just a minimal step to solve it rather than entire port
-detach/attach.
-> A port-wide timestamp only approximates that. It cannot tell the same
-> queue from another one, and since dev_watchdog() reports one queue per
-> run, two queues that stall together show up ~15s apart: the first gets
-> a kick, the second gets the port reset anyway, no?
-> 
-yes, that is correct. The approach in this patch solves first instance
-of stall on any queue with CQE polling and if that does not solve it
-(based on another queue stall observed) go for existing mechanism
-(detach/attach), but I agree to your point here that another queue which
-stall after one queue had level 1 CQE polling would have a full
-detach/attach rather than level 1 polling. I will work on this in v2.
-> Could mana_tx_timeout() check this directly? Look at the other TX queues
-> the way dev_watchdog() does (stopped, with trans_start older than
-> watchdog_timeo). If more than one is stalled, reset right away.
-> 
-> Otherwise kick this queue, and reset if the same queue times out again
-> within a couple of watchdog periods, as gve_tx_timeout_try_q_kick()
-> does. That also gets rid of the 2 minutes.
-Thanks, I will go through this approach and update in v2. I am currently
-discussing this internally.
+Patch 6 serves the TX queues in weighted round robin, as mvpp2 does.
+With an mqprio offload the fixed priority stays, so a class that fills
+the link still starves the lower classes. With the default priority
+map this includes ARP, which is in class 0.
 
-Regards,
-Sahil
+Patches 1 to 5 fix older bugs in the mqprio offload, found while
+working on patch 6. All of them need an admin to set up an mqprio
+offload, and the oops fixed by patch 3 also needs mvneta.txq_number
+below rxq_number (both default to 8). v4 therefore targets net-next.
+If patches 1 to 5 should go to net instead, I can send them as a
+separate series.
+
+With patch 2, replacing an offloaded mqprio qdisc under a new handle
+loses the traffic classes of the new qdisc. Patch 2 explains why.
+
+Tested on a Turris Omnia (Armada 385) as net f56daaadfeca plus this
+series, which applies unchanged to net-next. Without an offload four
+TCP streams got 23.5 Mbit/s each on a 100 Mbit/s link and 232 Mbit/s
+each on a 1 Gbit/s link. With an offload the higher class got 94 and
+926 Mbit/s. Only the Armada 385 was tested, the version 1 registers
+for the Armada 370 and XP come from their manuals, and suspend and
+resume were not tested.
+
+Changes in v4:
+- Retargeted from net to net-next.
+- Patch 5 replaces "unwind a failed mqprio setup" and checks the whole
+  setup before writing, so a rejected replace keeps the hardware setup
+  of the attached qdisc (Sashiko). Reviewed-by dropped.
+- Patch 3 is new and checks the TX queue range without a shaper too.
+- Patches 3 and 4 come before patch 5, so they apply without it.
+- Patch 6 also writes the version 1 arbiter registers and keeps the
+  fixed priority when a setup is rejected.
+- Patches 1 and 2 keep their code and their Reviewed-by tags.
+- v3: https://lore.kernel.org/netdev/20261104224518.66487-1-pepe.schlehofer@gmail.com/
+- v2: https://lore.kernel.org/netdev/20261103125021.70845-1-pepe.schlehofer@gmail.com/
+- v1: https://lore.kernel.org/netdev/20261102112816.12322-1-pepe.schlehofer@gmail.com/
+
+[1] https://github.com/openwrt/openwrt/blob/a5e96c837ead549820867bb83c1ad471e39f5ace/target/linux/mvebu/patches-6.18/700-mvneta-tx-queue-workaround.patch
+
+Josef Schlehofer (6):
+  net: mvneta: lift the per-queue TX rate limits
+  net: mvneta: fix the removal of the mqprio offload
+  net: mvneta: check the TX queue range of an mqprio offload
+  net: mvneta: keep the TX rate limits across open and MTU change
+  net: mvneta: validate an mqprio setup before applying it
+  net: mvneta: serve the TX queues in weighted round robin
+
+ drivers/net/ethernet/marvell/mvneta.c | 184 +++++++++++++++++++-------
+ 1 file changed, 137 insertions(+), 47 deletions(-)
+
+
+base-commit: 7ccc5e05043b1bb84326b19a2b05938d8f7a2ae6
+-- 
+2.54.0 (Apple Git-157)
+
