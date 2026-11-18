@@ -1,54 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=116.203.77.234
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998292;
-	b=xk6ykH3TnedIqMYa6fT+KWvN9XsOND6Oq3Qz1N9FcUj+9B8hEuPM8cKl006Z85esTTST
-	 2EGpnXZrT2LQjggA/0bkcCHW2hOADenwmBM4y9J+uOIjWYNXK0Tx/RUsCM5G0Q0uD+f2F
-	 09y9OLnEQ8KXRvWoYOE0CUFLEMX6gfvrvlJGhWeQeC8+3lp+1M90KWygHfQUvvwp+SOSJ
-	 87U06kFwHqbtYL7qKEYL1Bt2F9HDRHd8T8OpgC3RyDH+ZJ7At3aI0iecNKI9zQJrRhgp0
-	 aUJ/UHhRqy+3p5nZT08q6W9uE8uiJ1BBCYnflnaihyrIuAVULegUcqAdR83701Ntf0A==
+	t=1794998326;
+	b=nTb3whJdAPs4e3HROLGj2W+BopR0+40XrrxRHnQwL6KC6J+5KmDQiTgIcclHyWDZxHBo
+	 Y+52EZ5xkIPbmZEbGp/rN5AfhkmYObhhFb1DcHF+qkSPHuJ/WO1CR68qvwolXAIpoQBY7
+	 kI8AhLb2z52jechIbk/QxtYvKtse0YMLceh0W3eGJVUBjVVonIci7gjZcPSkW2XTgksn2
+	 FXaryrstBLnRAOu2mQpUOZml8/4v0fJh6AqmCkUdC508MbGAcRBkNKnpSgzjSzD4auSY6
+	 dphfLPvljM5+DJUah0tsVzorbfszRAoloG6+o6wYC3WjjazSxhxjw+q069GucemJ8JA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998292;
-	h=DMARC-Filter:From:DKIM-Signature:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Developer-Signature:X-Developer-Key;
-	bh=n/D0iDwmoJTg+XoeBh7WBm9H62/QgbJubiBufD6hlEs=;
-	b=VLgx78BWELvd5MNHl9QF6BNJWTnKSYV+dX7fv2zu5tFPvTogxqoAN81tKOmPlehSPT5J
-	 PVApDgcTUm7lqZ9XQjSQZQNXzgih9IlMkebyXl9qWV1SLOm+DXo9YpxJ3kA9+ayknwlE5
-	 StmtwpDN/kvFSAp0SQS00WTA+ni7lEwviIblZWyp6qSCDxZB0v9NjEkHPc3D7q9JtHWoz
-	 p44kU+m5ZLdQNW7ib4Kh+LWpvC/xznDTEZ2cv04qg8ykw+ldd7MRrkAJv245MvLrI/y4Z
-	 Rt5i2WCOd6Fpq87hgy40QgCt6wAdGkqsXQ+GZY665kz91MFvi5ZPXstMnw8IE4PiwGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998326;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=GxtG9BPmfEwj6u3aHjtehCc68SConjGhseToJDF1BtA=;
+	b=kNq4TIYyMaOlvh3Jc1IDi62BpwXbztRwrx5bPNfn+ENzTaVX7vHjRBkEB9NPplqdkw3j
+	 eFmB+WPHqWdWBTa+aNpC+kzeSJ4Ht9/XHugZBsFLleblZXDJplv9yzGty74nMIwcrO85v
+	 tJdp2GWZqCoPWTYMfPBw8xoUEeYT0+xwwzAxyBqEUCXHPCeoGrrogcgiaOKofH7SDdX0t
+	 MVm2BmWxUJmti8nCqaAX7OTbKh+F/naSkwX4ygMhXhh+4/u8U7PlSnvHnT1wuMtIPRbHh
+	 JuV1uOg4zXfUtGWeXNyAxWUYtwOeuwdL6iKFuYuqG/22uEJYVjlMAUo2cBXw+OSIP9w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fris.de;
-	spf=pass smtp.mailfrom=fris.de;
-	dkim=pass header.d=fris.de header.i=@fris.de header.a=rsa-sha256 header.s=mail header.b=cbdgaM5T;
-	arc=none smtp.remote-ip=116.203.77.234
-Received: from mail.fris.de (mail.fris.de [116.203.77.234])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RaDOZtLy;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5169D606A32C;
-	Wed, 18 Nov 2026 10:38:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5169D606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=fris.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fris.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34501606A331
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:38:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=fris.de header.i=@fris.de header.a=rsa-sha256 header.s=mail header.b=cbdgaM5T
-From: Frieder Schrempf <frieder@fris.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fris.de; s=mail;
-	t=1794998283;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=n/D0iDwmoJTg+XoeBh7WBm9H62/QgbJubiBufD6hlEs=;
-	b=cbdgaM5T5s9jR3A30UmD4cq1fYmDP5VXR7I+dDMc1Zt+6rcAhKQo716cQwG+ycKyVMGqDH
-	Sm2mEE9/eiIJmKLZDaEb3lz1u5wqoIwj+zD6uNp2SRKj1HiJomgfEFXpCge+6ga1OC7kzF
-	PE+NtndKbQdnT8NVfCLQtXaoNMAcxC4oJHoFgRY5i08m0nK4PV4/yKAwdJ3kVkR0877Aog
-	wxpJL2yoYblsKPP3DURIogN4VjIs46rA0cGcDwFKdzkK8+WXWa8EJyFwAI6Kr+M0kgeP/W
-	wcenfLPNID6CI6cQKHx3joqNhPwFIYy1iDg/6aECe3iOlEClgGtkvqKRRSdYEg==
-Date: Wed, 18 Nov 2026 11:37:40 +0100
-Subject: [PATCH net-next 2/4] net: enetc: netc_blk_ctrl: add i.MX952
- support
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RaDOZtLy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 110611F000CB
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:38:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794998326;
+	bh=GxtG9BPmfEwj6u3aHjtehCc68SConjGhseToJDF1BtA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=RaDOZtLyEJIbynRwJUAKMqPJaHF6f8UpIpFwhgq4+u/Mz1DkAAXmSJolb1BL8hqK4
+	 cBBH7c8KhvjoQTw6Gluv/9VbzxJXLCOzD4q5ZgCj072SWMIrAZZKNNFin4T+6EkqBI
+	 1uqtiTgwE1lJK3bgeb6nMZXEpLH+IkGOhZPiuJ46jgJsp6GxFu2/TD/4KeUtXMErAS
+	 4YQeGSnDUHRWmqIEpKdCNMTymnLaLYoXUPHdb3DygFMNgOsxbfS8+4VCkA7EuNp+OX
+	 eiJDsoMeIPRLX+ltwxBvCYvRYLC4OoXgKYfdftSjL6Lpkrpp5C5g83LXxVF2CZq8Wf
+	 fVVS33owbj/LQ==
+Received: by mail-oa1-f49.google.com with SMTP id 586e51a60fabf-4ad5b52f0a7so546643fac.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:38:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErErx/Oacmc2fCLPFSL/dTt+ORdg8ww9/XMCwUO95Lckzg1o4HUrnEJF+l2gLWyS5O0BZIrlw90=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80JuSmKFrXBDJS+mCMyhVSLAqqyf7ABMzSoTajYJF+3IBs+huq
+	Uj7muGvPG065FeuyUNra3yGaUmQmecQTerIR9dPZsrCkPAOQLXGqgnW4Z/UjuGtyuZkDUSBqypD
+	J601FhiEXpU3cGqdiwieAgVO24hgq/CY=
+X-Received: by 2002:a05:6871:341c:b0:4ad:9182:beb1 with SMTP id
+ 586e51a60fabf-4b75764e892mr1847510fac.7.1794998325378; Wed, 18 Nov 2026
+ 02:38:45 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,169 +59,96 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-imx952-enetc-v1-2-25721440602e@kontron.de>
-References: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
-In-Reply-To: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
-To: Claudiu Manoil <claudiu.manoil@nxp.com>, 
- Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>, 
- Clark Wang <xiaoning.wang@nxp.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Richard Cochran <richardcochran@gmail.com>
-Cc: imx@lists.linux.dev, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Frieder Schrempf <frieder.schrempf@kontron.de>
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4561;
- i=frieder.schrempf@kontron.de; h=from:subject:message-id;
- bh=d9oMzGdWfXIHl1LXk+KZd1a3xMWwttegSnZ6/LEfcsA=;
- b=owGbwMvMwCWWWSatKlDTJMZ4Wi2JIetvA8fpxYlLyovtt5wse+kbXLtkyRTH4hkL9fvf/ToZ7
- d3O4tLZUcrCIMbFICumyCLFb/Ha1izWR/5YdRTMHFYmkCEMXJwCMJHDqxgZjojknFsfq7ln8Uwv
- 0TJdcaG7QklHZStsZA8KKWtwSs5PYGRYuebQms9Ls4T3z7R+vkYk9k7usd7UAuXk6Azj+4w/ytU
- 4AQ==
-X-Developer-Key: i=frieder.schrempf@kontron.de; a=openpgp;
- fpr=1A0F38EB3D365D4C1FC67B5A69761B25107C8216
+References: <20261116024056.1274402-1-bsdhenrymartin@gmail.com> <20261118100729.jn66g5cvdkspoqjc@DEN-DL-M70577.microsemi.net>
+In-Reply-To: <20261118100729.jn66g5cvdkspoqjc@DEN-DL-M70577.microsemi.net>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 11:38:33 +0100
+X-Gmail-Original-Message-ID: <CAL4Wiip+hBuFcdyZPrJ+T-rKrwyfNTXDu9MUirPn4XtDpa3nZA@mail.gmail.com>
+X-Gm-Features: AclHuK_c97tQ7s3T-ZTa9kSnkLABdRyUU8aDaqUhtSXXdkZQ2STr-YTR9BqUiPc
+Message-ID: <CAL4Wiip+hBuFcdyZPrJ+T-rKrwyfNTXDu9MUirPn4XtDpa3nZA@mail.gmail.com>
+Subject: Re: [PATCH] net: fix uninitialized heap leak in multicast address dumps
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Henry Martin <bsdhenrymartin@gmail.com>, Paolo Abeni <pabeni@redhat.com>, 
+	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>, 
+	Stanislav Fomichev <sdf.kernel@gmail.com>, Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
+	Yuyang Huang <sigefriedhyy@gmail.com>, 
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-From: Clark Wang <xiaoning.wang@nxp.com>
+Le mer. 18 nov. 2026 =C3=A0 11:07, Daniel Machon
+<daniel.machon@microchip.com> a =C3=A9crit :
+>
+> Hi,
+>
+> > __hw_addr_create() allocates entries with kmalloc() and initializes
+> > only addr_len bytes of ha->addr. Dump paths emit entries using the
+> > current dev->addr_len, which can grow after the entry was created:
+> > tun's TUNSETLINK changes a device from ARPHRD_NONE (addr_len 0) to
+> > ARPHRD_IP6GRE (addr_len 16). Both the RTM_GETMULTICAST dump and
+> > /proc/net/dev_mcast then emit up to 16 bytes of never-written slab
+> > memory per entry.
+> >
+> > This discloses leftover kernel heap contents to anyone reading those
+> > interfaces.
+> >
+> > Zero the tail of ha->addr at creation time, so dumps can only emit
+> > initialized bytes.
+> >
+> > Cc: stable@vger.kernel.org
+> > Fixes: a748ee242681 ("net: move address list functions to a separate fi=
+le")
+> > Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
+> > Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> > ---
+> >  net/core/dev_addr_lists.c | 5 +++++
+> >  1 file changed, 5 insertions(+)
+> >
+> > diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> > index d827cc21867b..53a2dfa2706c 100644
+> > --- a/net/core/dev_addr_lists.c
+> > +++ b/net/core/dev_addr_lists.c
+> > @@ -100,6 +100,11 @@ __hw_addr_create(const unsigned char *addr, int ad=
+dr_len,
+> >       if (!ha)
+> >               return NULL;
+> >       memcpy(ha->addr, addr, addr_len);
+> > +     /* Entries are dumped with the current dev->addr_len, which can g=
+row
+> > +      * after creation (e.g. tun TUNSETLINK), so never leave the tail
+> > +      * uninitialized.
+> > +      */
+> > +     memset(ha->addr + addr_len, 0, MAX_ADDR_LEN - addr_len);
+> >       ha->type =3D addr_type;
+> >       ha->refcount =3D 1;
+> >       ha->global_use =3D global;
+> > --
+> > 2.43.7
+> >
+>
+> Looks right.
+>
+> Just a thought, I think switching to kzalloc, like so:
+>
+> +       ha =3D kzalloc(alloc_size, GFP_ATOMIC);
+>
+> Would give you the same fix, and you would get rid of that extra tail len=
+gth
+> arithmetic.
+>
+> Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 
-Add NETCMIX support for i.MX952 platform. i.MX952 has two ENETC
-instances, each on its own PCIe bus: ENETC0 at bus 0 devfn 0 and ENETC1
-at bus 1 devfn 0. Their link MII protocol is configured through the
-same NETCMIX register as on i.MX95.
+I agree with Daniel, kzalloc() would be simpler here, this is not
+fast path. You can then remove the "ha->sync_cnt =3D 0;" line.
 
-The i.MX952 RM describes E0TXHPTBCR and E0TXLPTBCR as the byte-credit
-limits for the ENETC transmit datapath. Both ENETC0 transmit
-byte-credit registers reset to 0x5dc, which matches the RM example for
-a 1536-byte maximum frame size. That is too small once jumbo frames are
-enabled when the NETCMIX root clock is 133 MHz: the credit counter is
-exhausted too early, which reduces transmit throughput. Program them to
-0xc35, the same as port 1, during IERB initialization.
+This is fine as a hardening measure, but the root cause is in tun:
 
-Signed-off-by: Clark Wang <xiaoning.wang@nxp.com>
-[fs: squashed NXP a9dd7adc7e44, 68415a57f31e]
-Signed-off-by: Frieder Schrempf <frieder.schrempf@kontron.de>
----
- .../net/ethernet/freescale/enetc/netc_blk_ctrl.c   | 73 ++++++++++++++++++++++
- 1 file changed, 73 insertions(+)
+bonding and team both call dev_uc_flush() and dev_mc_flush() when
+they change dev->type and dev->addr_len. TUNSETLINK does not, so
+entries created with the old addr_len stay in dev->uc and dev->mc,
+in an rb-tree which is now searched with a different key length.
 
-diff --git a/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c b/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-index 658fab31e9ed7..6e3098a0a43ee 100644
---- a/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-+++ b/drivers/net/ethernet/freescale/enetc/netc_blk_ctrl.c
-@@ -67,6 +67,8 @@
- #define IERB_EMDIOFAUXR			0x344
- #define IERB_T0FAUXR			0x444
- #define IERB_ETBCR(a)			(0x300c + 0x100 * (a))
-+#define IERB_ETXHPTBCR(a)		(0x3070 + 0x100 * (a))
-+#define IERB_ETXLPTBCR(a)		(0x3074 + 0x100 * (a))
- #define IERB_LBCR(a)			(0x1010 + 0x40 * (a))
- #define  LBCR_MDIO_PHYAD_PRTAD(addr)	(((addr) & 0x1f) << 8)
- 
-@@ -89,6 +91,10 @@
- #define IMX94_ENETC1_LINK		4
- #define IMX94_ENETC2_LINK		5
- 
-+#define IMX952_ENETC0_BUS_DEVFN		0x0
-+#define IMX952_ENETC1_BUS_DEVFN		0x100
-+#define IMX952_BYTE_CREDIT		0xc35
-+
- #define NETC_ENETC_ID(a)		(a)
- #define NETC_TIMER_ID(a)		(a)
- 
-@@ -368,6 +374,56 @@ static int imx94_netcmix_init(struct platform_device *pdev)
- 	return 0;
- }
- 
-+static int imx952_netcmix_init(struct platform_device *pdev)
-+{
-+	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
-+	struct device_node *np = pdev->dev.of_node;
-+	phy_interface_t interface;
-+	int bus_devfn, mii_proto;
-+	u32 val;
-+	int err;
-+
-+	/* Default setting */
-+	val = MII_PROT(0, MII_PROT_RGMII) | MII_PROT(1, MII_PROT_RGMII);
-+
-+	/* Update the link MII protocol through parsing phy-mode */
-+	for_each_child_of_node_scoped(np, child) {
-+		for_each_child_of_node_scoped(child, gchild) {
-+			if (!of_device_is_compatible(gchild, "pci1131,e101"))
-+				continue;
-+
-+			bus_devfn = netc_of_pci_get_bus_devfn(gchild);
-+			if (bus_devfn < 0)
-+				return bus_devfn;
-+
-+			err = of_get_phy_mode(gchild, &interface);
-+			if (err)
-+				continue;
-+
-+			mii_proto = netc_get_link_mii_protocol(interface);
-+			if (mii_proto < 0)
-+				return mii_proto;
-+
-+			switch (bus_devfn) {
-+			case IMX952_ENETC0_BUS_DEVFN:
-+				val = u32_replace_bits(val, mii_proto,
-+						       CFG_LINK_MII_PORT_0);
-+				break;
-+			case IMX952_ENETC1_BUS_DEVFN:
-+				val = u32_replace_bits(val, mii_proto,
-+						       CFG_LINK_MII_PORT_1);
-+				break;
-+			default:
-+				return -EINVAL;
-+			}
-+		}
-+	}
-+
-+	netc_reg_write(priv->netcmix, IMX95_CFG_LINK_MII_PROT, val);
-+
-+	return 0;
-+}
-+
- static bool netc_ierb_is_locked(struct netc_blk_ctrl *priv)
- {
- 	return !!(netc_reg_read(priv->prb, PRB_NETCRR) & NETCRR_LOCK);
-@@ -783,6 +839,16 @@ static int imx94_ierb_init(struct platform_device *pdev)
- 	return 0;
- }
- 
-+static int imx952_ierb_init(struct platform_device *pdev)
-+{
-+	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
-+
-+	netc_reg_write(priv->ierb, IERB_ETXHPTBCR(0), IMX952_BYTE_CREDIT);
-+	netc_reg_write(priv->ierb, IERB_ETXLPTBCR(0), IMX952_BYTE_CREDIT);
-+
-+	return 0;
-+}
-+
- static int netc_ierb_init(struct platform_device *pdev)
- {
- 	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
-@@ -882,8 +948,15 @@ static const struct netc_devinfo imx94_devinfo = {
- 	.ierb_init = imx94_ierb_init,
- };
- 
-+static const struct netc_devinfo imx952_devinfo = {
-+	.flags = NETC_HAS_NETCMIX,
-+	.netcmix_init = imx952_netcmix_init,
-+	.ierb_init = imx952_ierb_init,
-+};
-+
- static const struct of_device_id netc_blk_ctrl_match[] = {
- 	{ .compatible = "nxp,imx95-netc-blk-ctrl", .data = &imx95_devinfo },
-+	{ .compatible = "nxp,imx952-netc-blk-ctrl", .data = &imx952_devinfo },
- 	{ .compatible = "nxp,imx94-netc-blk-ctrl", .data = &imx94_devinfo },
- 	{},
- };
+I think TUNSETLINK should flush both lists, in a separate patch.
 
--- 
-2.56.0
-
+Thanks.
