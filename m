@@ -1,84 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.55
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012770;
-	b=CTa3sPER14R3X66Eww+5kdOjvO7lQc5No9p911d5Pm3a4PKh+9o9+jwphiIbuAaFEqBy
-	 OV4Egu0bLUP6eTSyqI3IXBbcxSVsiSIDIRYn1o67up27uFEViljf5BI9iidgge58axPZ/
-	 P11aFNqhHE8g6TS6xo3yVdBeQCXnrWwi4E2Za7VoJHIep9Zm499HrPcN345N5CIRxl0li
-	 CiQiDQPJvtc+wU+Erww/jH05X4l7NkvTSV0SIyQY6c2BaN37rMFWl9GK3lySuPAo5eHuY
-	 Dum+aRoDKXra/rPRqKHPz6Tl9hGf9/kym98knc4I+hld3/xWcGsE0RhJsi5h872MLPg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012770;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=wn4w1sOHDWq6Q/CcG6uXsFLBxtrAmn/giQOE7FW30EM=;
-	b=kBqoH0/+9/kOcdxxloTFuB8hPkc3M1vP2AWfFfuh7n85elc36pRj4Uink7SQ1ptKahaa
-	 gioDRpcT399jYgmB4A8i2b+Pv1rmBTW1PH/T7r3SfEls6alyH0ioHkzFOnpRCTq4agMN9
-	 C4lasCB21hI+VpC6dXptJiIlz43ToeuEZKW+bXc2ONtt3zIhcdXhqR+n+UD5eQPOFKM1P
-	 zglivfyj6gXV8WbQ9C93fePKqSIbqVvVEWSWJbssMSK5vdQCXBrPQPSpjwNkmrTSyvkMn
-	 g0TkJF7udIZF2YWDdJ8Nb3bBnmVs6z0YjG0Pcd85i//yynpXgYWF/NlTyeOQGrY/HIQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=KmgreEfP;
-	arc=none smtp.remote-ip=195.10.208.55
-Received: from mout-b-110.mailbox.org (mout-b-110.mailbox.org [195.10.208.55])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.43
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795012839;
+	b=lwAxQCHpkm04BfHoOUphUZKY+I2n3eB+OfxUcizcoQAFQchIeA5FkfaU911JhwJg8F2X
+	 BKTFPU6ICPrirxcTEe7X2I5g4TBnKcc8dYgmyvlvhrs3B4P9efkYM7syWrcfwpcE3TEax
+	 uOUZjI2Meka4KDr9z0mu7mUXDZkNuMajlrGPfyNwHMm95+NDwK7w28tRxll+onBad1aW7
+	 sGQzY/LPZdLP5xY54l+5wi4JLqa3Z5azV7VRR6PfWkz5IcvPgJGffZA5kk8XouxHc8+kz
+	 HuGOVtC3Ehu2hCkNkQvhFK4mYTa/iTK8Ip81YkBtiCvivz3qvFqsnNjqcilSNsAPz2Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012839;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=LhVoHzvEdL/Z/KdmPXXkuybPf4rArSyXNKEfeIYny9Y=;
+	b=Dm9UGgsN83l/gMwn75KHztf367TX3aw96BtfCo3PgdCQrEN4ur1Ex3lyezZTOZsIg2og
+	 Kf2xJC20PQ9wFEU3e3wKUyno3pw7PMSULExLhNIsgUJ+QRJinDFz+csM4pG27unNPPrgl
+	 Y3+pQ5K3RwcXJ865kwevu2Yckxd0Exl4w4XOWNbIxaVPCCYRcm/+CTfZCQPaZAVP1G4gb
+	 nmPb57yKw7Fe7i06jZAduDePT5cqYoBDJT7DP4IVT8/nnuhMnAyhnSoSertNJJUQVoZma
+	 ExEbAer8HxbKyyHD+ilOyew8WTWPpzBGipNhfOtAm5MOAjIOylVIG82xZaEBUZ0iuWA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=amd.com;
+	spf=fail smtp.mailfrom=amd.com;
+	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=EFzZ2Ez1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.43
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012043.outbound.protection.outlook.com [52.101.53.43])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09C86606A31C;
-	Wed, 18 Nov 2026 14:39:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09C86606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 44270606A32F;
+	Wed, 18 Nov 2026 14:40:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 44270606A32F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=KmgreEfP
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-110.mailbox.org (Postfix) with ESMTPS id 4jV4476MzKzNlh1;
-	Wed, 18 Nov 2026 15:39:19 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795012759;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wn4w1sOHDWq6Q/CcG6uXsFLBxtrAmn/giQOE7FW30EM=;
-	b=KmgreEfPcAsLsbdiBVPG/VXlTgRvTe57B+qJ5QP6cJSLTU1LROF5xfHfikHbjpf4bsICZ6
-	Qt9nfB8Jji9lyJEPw59kCqxzkyK1pXG+8zSO4PVxvEhj8lnwE5I6Tl51QQPT4009VL9Coe
-	RUD6ZwL+q39DNXOIIH42YrOPBYvKfqLHt2AGi1UdNQSzkfQEHoqvE6CZZ1+WG2yz+MvQ6z
-	z3guxZkhq7S5AYEEczYmWkUdVeakzvfM+YwvgxBga/n48ZH36fnEykD8ZOpnHTIX4nOAb8
-	MLvt2MbSAmOgV/NTTep/vOkp1T7Cf2l+41AQ1Opi8unM7ALktO546jDHrpYEVA==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: Xia Yan <yanxia@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Florian Westphal <fw@strlen.de>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Antonio Quartulli <antonio@mandelbit.com>,
-	linux-kernel@vger.kernel.org,
-	yana06070@163.com
-Subject: Re: [PATCH net-next v3 2/3] ipv6: add ip6_dst_lookup_flow_cookie
-Date: Wed, 18 Nov 2026 15:39:08 +0100
-Message-ID: <20261118143909.115729-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <1794991714000.1115021.7710558447771708161@cmss.chinamobile.com>
-References: <1794991714000.1115021.7710558447771708161@cmss.chinamobile.com>
+	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=EFzZ2Ez1
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cVFdlWe8LgBMJjPhBjtstrDBq2bwxJdovoNxcLAEP+NehqaxffvWiYUax83sMY6A/zVYsgRrafa6U/MRrWRs6hmSvMca+kwbcPzCO6d6Iaf6+8KCi/89U4EdiRUe0FWx9OlVcEbVJeMP178s+GvfxAfKXFseVSQiEIya96OWIbh5L/gMABhvXjn6+x5s9t9AN5F2Zp/a0PVAD60mKGoy9FPNHoLbSGIepoqySamzCFZwjeIi7FZuwGbwhE1w3s4tbDFlr85T0kljZ4D9qmQVXBfE0nc8deZAETZfD7JdQarEmzh3pBHg8ldDg7G3U2gNRg5PJEVhbbiir3MU9ICK1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LhVoHzvEdL/Z/KdmPXXkuybPf4rArSyXNKEfeIYny9Y=;
+ b=CqaRC0EsRs06jKsd3sWJgAhAqD+/WTyxAwIPXK9Oo4jrXMNpw0rSXH5wAneaM+ARvk9y9GhImMRUWCFSIJ6wp1w/Ya5X7Ymb9J2Kmf2pHcNAmr9gUKXqt69cOWTfuUmbrZUtfC8/ceebWLS1YKJaEswAjDqpVCgrPpwERfNE2zNePeyEzNure4UNN8xtnCh8blvrmrHUngg6axmT+W3f5Ggd+FWiTEI6f/iup3/fiXiNAFNX8x5yH2mw7740hcuZA/5OXnJwnPXPxYZpgcZXqQeuFSmtOGiBFlTEELP2w2BBTVhYgKUJImiNy2QFHazm9VZ3qHBexd8+ejNKxsqvcw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=amd.com;
+ dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
+ header.from=amd.com; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LhVoHzvEdL/Z/KdmPXXkuybPf4rArSyXNKEfeIYny9Y=;
+ b=EFzZ2Ez1aHwrrQ5UgKaFM3e7v8upLAnDDL4Qz8kLaUZZWiWVGp13feZYd1feDGdhWBCnrmxRgBJ7MgPeP9BWajy0e3OeggM4yrAgg0P0ZqO0MfdlSPvOvaZcfKFHCZnBdZ4Ymx4cnaiuyFjRa8J4KjyZH5aQbc2s/tWgMhlWyV0=
+Received: from CH0PR03CA0450.namprd03.prod.outlook.com (2603:10b6:610:10e::28)
+ by IA0PPFD4454CAA9.namprd12.prod.outlook.com (2603:10b6:20f:fc04::be5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
+ 2026 14:40:36 +0000
+Received: from DS2PEPF00007107.namprd05.prod.outlook.com
+ (2603:10b6:610:10e:cafe::84) by CH0PR03CA0450.outlook.office365.com
+ (2603:10b6:610:10e::28) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.615.13 via Frontend Transport; Wed,
+ 18 Nov 2026 14:40:36 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ DS2PEPF00007107.mail.protection.outlook.com (10.167.23.70) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.4 via Frontend Transport; Wed, 18 Nov 2026 14:40:36 +0000
+Received: from airavat.amd.com (10.180.168.240) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 18 Nov
+ 2026 08:40:32 -0600
+From: Prashanth Kumar KR <prashanthkumar.k.r@amd.com>
+To: <netdev@vger.kernel.org>
+CC: Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>, "Eric
+ Dumazet" <edumazet@kernel.org>, "David S . Miller" <davem@davemloft.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, <linux-kernel@vger.kernel.org>,
+	Prashanth Kumar KR <prashanthkumar.k.r@amd.com>, Sarath Babu Naidu Gaddam
+	<SarathBabuNaidu.Gaddam@amd.com>
+Subject: [PATCH net] MAINTAINERS: Update AMD XGBE driver maintainers
+Date: Wed, 18 Nov 2026 20:09:10 +0530
+Message-ID: <20261118143910.3573840-1-prashanthkumar.k.r@amd.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -89,109 +108,60 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jV4476MzKzNlh1
+Content-Type: text/plain
+X-ClientProxiedBy: satlexmb07.amd.com (10.181.42.216) To satlexmb07.amd.com
+ (10.181.42.216)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS2PEPF00007107:EE_|IA0PPFD4454CAA9:EE_
+X-MS-Office365-Filtering-Correlation-Id: e280369f-ba0e-47b7-6c66-08df4581e85c
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|82310400026|23010399003|36860700016|10067099003|261026140227099003|56012099006|11063799006|261022075727099003|261021123027099003|261021121427099003|261022105027099003|261102123227099003|261028144727099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	oJyDvBQyqvdp2+WFZiKwvK8YM1XzVtytH3bkWt2QjaiugHMzDCCjx0aKGyq8N4SkEKmEfL4cI5OytXHQ0OezIBcG30Y1xWrwV5tG9psFRGCxsVQDOFx+tBSIvRKSBgITANZajLpcmFRGzpyf8GstOi+ReOtCXUf5wEWOxPILS50lLTHkQTAc+DZabWGFbRkAPz6Gg0pYc6OIeAx347C9tRHe78sRyEFg5+Uq2CMgQQPDoUNEbOw0EBKBma3tzzdYHEaMSOfbH4Re6ke+GXirLa0j7TzgW6Wrmaqehn1Mg+z/9H1jOGFDK574oXZEsQEw3rRgUf2BbbNDMbclbcBbISQdIU4UvgcF7lGsacNwqHLAesSaEKqkzmW8LalNWTqy54d8Wf7xS9TSOlCFV+YU3ShU5AyWRni6CQAFQQkLt6kq8B445RhEd8ZiCTYbsm+OVAvRuKK53HkQzDQjf9y2xA7l/J3WGj4r+X5aBr8M59zSo/Ko9CGf/dUR0qu7gs1FjsQQcdD4b+iTKOY1l0p7SFNVdGsx8zCwAUCFj2nm2nSQJxAUM8aBBoRNtVL7H3P1TOBnvNqoOP4Jbm6DA3kqKsaD6XSg9XXvILDPEeN6bBJwPUjHEDRM2c6UxO5fXoG332oZ9aZvg/oK0Y1AEWsAOuqWFs2ftMwBa/JBWjm0623QIDpOX6FSOic85cIaehwQnLq9ydonhRsUd1xpMxI4tQ==
+X-Forefront-Antispam-Report:
+	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(23010399003)(36860700016)(10067099003)(261026140227099003)(56012099006)(11063799006)(261022075727099003)(261021123027099003)(261021121427099003)(261022105027099003)(261102123227099003)(261028144727099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	MPP+SfIukL1tfllKQs88u15Ay011EQYXAyMle0irrFuhYX4xS50areiyXZjtJ9840BGhVDL0XvkdmSd3nX47LdS/p39X+Ia+4ybzItPeMEVwl80sEU1jzWZCxMNB4ZvV9Z+s3/b7jn+mEa038JkTQxkzD+e0Zcxwu1nT79lu+2XpntNnjMCG2fgdClXt+VumFdm9ZsS88ojcM6WC7kM7MaD1UzP3WHri73HtKXHKT88pG31efxRozyQ0bHqjhEObZo/Zftge+eRJwXS7Ackfu/phN+y7sCUwYpFznZBYL9MEXVN2AbGWuJyQGSq+7rtdn3zkd3lUSjjKIEaAiN00T22F2RgA0xfvESoHgCHzlI0AWR++DdLEGN8Lry7Spy0Rprt6zLOYTv73oY+WhUB6ZVptbU0cXskUZRbQVmoInfRpe7XGaajJrMh0stBL/8LS
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 14:40:36.0555
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: e280369f-ba0e-47b7-6c66-08df4581e85c
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DS2PEPF00007107.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PPFD4454CAA9
 
-Hi Xia,
+Remove Raju Rangoju, who will no longer be maintaining the AMD XGBE
+driver, and add Sarath Babu Naidu Gaddam as a maintainer to help with
+its ongoing development and maintenance.
 
-On Wed, 18 Nov 2026 16:48:34 +0800, Xia Yan <yanxia@cmss.chinamobile.com> wrote:
-> I traced the race and the fix against current net-next.
->
-> On the writer side, xfrm_policy_insert() links the policy and then calls
-> rt_genid_bump_ipv6(), which resolves to fib6_flush_trees(). A fresh serial
-> is allocated from the namespace counter first, then every node is
-> restamped under tb6_lock. A late rt6_get_cookie() can pick up that
-> post-insertion serial for a dst whose lookup ran before the insertion,
-> and the pair keeps passing dst_check until the next flush. Sampling the
-> cookie between two generation reads closes the in-lookup window. A
-> policy inserted after the helper returns is still caught later, because
-> the restamp changes fn_sernum itself and the stored pre-insertion cookie
-> stops matching. fib6_new_sernum() never returns 0, so the fallback
-> cookie always fails fib6_check().
->
+Cc: Sarath Babu Naidu Gaddam <SarathBabuNaidu.Gaddam@amd.com>
+Signed-off-by: Prashanth Kumar KR <prashanthkumar.k.r@amd.com>
+---
+ MAINTAINERS | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Yes, that's a pretty good summary of the change with the small
-correction that a newly linked node holds fn_sernum 0 until fib6_add
-stamps it. So a cookie-0 dst can pass a check in that window, and fails
-as soon as the stamp lands.
-
-> 1/3 checks out as well. The old code kept writing -1 into the node, so a
-> second failure changed nothing and the namespace generation never moved.
-> The fresh allocation under tb6_lock matches the discipline the
-> fib6_ifup()/fib6_ifdown() paths already get from __fib6_clean_all().
-> The conversion boundary in 3/3 also matches the tree: rawv6 does not
-> cache the dst, and the accepted-socket and refill stores in tcp_ipv6.c
-> are listed as follow-up.
->
-
-In fact there are many users of cached IPv6 dsts that will need
-conversion and this series is mainly here to introduce the new API.
-
-> One thing I could not fully work out is the ordering behind the
-> generation checks. When the lookup misses a change, the reader relies on
-> the two generation reads to notice it. My understanding is that this
-> needs the change visible before the counter advance, and the counter
-> advance visible before the node restamps. I could not establish either
-> hop, though I may well be missing something.
->
-> In xfrm_policy_insert(), the policy is linked into the hash and
-> rt_genid_bump_ipv6() runs within the same critical section. As far as I
-> can tell, the linking stores and the cmpxchg on fib6_sernum are all
-> relaxed, with no barrier between them. Could a reader read the advanced
-> generation in gen0, miss the policy during the lookup, sample a
-> restamped fn_sernum, and still read the same generation in gen1?
->
-
-Both hops are covered by fib6_new_sernum. It allocates the serial with
-atomic_try_cmpxchg, which is fully ordered when it succeeds, so it acts
-as an smp_mb before and after the update of fib6_sernum.
-
-For the first hop, the policy (or route) is linked before
-fib6_new_sernum runs, which gives message passing against the smp_rmb
-after gen0: a reader that reads the advanced generation in gen0 also
-finds the policy.
-
-> In fib6_flush_trees(), the serial is allocated before __fib6_clean_all()
-> takes tb6_lock, and fib6_clean_node() stamps the nodes with a plain
-> WRITE_ONCE(). spin_lock() is an ACQUIRE, and my reading of
-> memory-barriers.txt is that operations issued before an ACQUIRE may
-> complete after it. So a reader could sample the restamped fn_sernum
-
-For the second hop, every fn_sernum write follows a successful
-fib6_new_sernum on the same CPU: fib6_update_sernum,
-__fib6_update_sernum_upto_root, and fib6_clean_node in the flush case.
-The full barrier orders the counter update before the tb6_lock
-acquisition and the stamps, so the ACQUIRE semantics of spin_lock don't
-matter here. A reader that samples a restamped fn_sernum reads the
-advanced generation in gen1 after the smp_rmb, and the helper returns
-cookie 0.
-
-> between two reads that both still return the old generation. The only
-> pairing I found written down here is fib6_get_cookie_safe()'s smp_rmb()
-> against the smp_wmb() in __fib6_update_sernum_upto_root().
->
-
-Right, this isn't documented. The barrier comments in
-ip6_dst_lookup_flow_cookie should name fib6_new_sernum as the pairing
-side, and fib6_new_sernum should state that its full ordering is relied
-upon.
-
-I also checked both hops with an LKMM litmus test: the outcome you
-describe is forbidden with atomic_cmpxchg and becomes reachable with
-atomic_cmpxchg_relaxed.
-
-While going through the writers I also noticed that xfrm_policy_insert
-unlinks a replaced policy only after rt_genid_bump_ipv6, so a lookup
-after the bump can still match the old policy. That is a writer-side
-ordering issue independent of this series, and it affects the current
-late cookie sampling in the same way. I'll send a separate fix.
-
-Does this explanation address your concern? If so, I'll carry your
-Reviewed-by. I'm waiting for the Sashiko review of v3: if it reports
-anything that needs a respin, I'll add the barrier comments in v4,
-otherwise I'll send them as a follow-up.
-
-Thanks for the careful review!
-
+diff --git a/MAINTAINERS b/MAINTAINERS
+index d738990161bd..64e7079668be 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -1376,8 +1376,8 @@ F:	include/trace/events/amdxdna.h
+ F:	include/uapi/drm/amdxdna_accel.h
+ 
+ AMD XGBE DRIVER
+-M:	Raju Rangoju <Raju.Rangoju@amd.com>
+ M:	Prashanth Kumar K R <PrashanthKumar.K.R@amd.com>
++M:	Sarath Babu Naidu Gaddam <SarathBabuNaidu.Gaddam@amd.com>
+ L:	netdev@vger.kernel.org
+ S:	Maintained
+ F:	arch/arm64/boot/dts/amd/amd-seattle-xgbe*.dtsi
 -- 
-Ralf Lici
-Mandelbit Srl
+2.34.1
+
