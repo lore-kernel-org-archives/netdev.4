@@ -1,57 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005171;
-	b=KjRdi279nsqLqjvhBTKSbBEm0BiCZJPQk0g7gzyhnbE0Dp3HcWAF81pA+nlraLXDxTiS
-	 EKt0D+A/mTwQucJQmT6yZJ8MpY9cfQkXyRrXhpoTpfr2OXR1NTUrUMvDhiduLC54K2dNA
-	 MGffAI+/GOHLaMlncAITT6XEuxvz0ohPujiqM+e7Me50g5ItyZ/grL00a3zJ0dPYrTeog
-	 FzEliC1EcCaAGoeIMOfGVffogE66X69gLAKV8qFEKEzRVruEI2vDlfyJEPylZSIkRRAjA
-	 ZIOIWBY3nxfZvZpiShr7EkSd7Lk6cAjUFKDTx3Yqpl9+an008BtqH4ttmlgCkU9LeoA==
+	t=1795005238;
+	b=KnlR/h9jDJB/5AsP5TY4Qo25sGR0+BUpSwij3K+DMm8A1/PCRl8Vnrp4zONukWW8FYhx
+	 tUUbeFlidWO96xGaWSsk6CHj7OKKLBwHTWvAwKOWEIG741LrTFNCnq1uuP3a52GBseWeY
+	 LsJKcwQkqG6f+mcDVl4+1jVtcMHeY5k7YktM+K3lgha34mrChPPVv4yiap4cwpt0VHYk6
+	 kP/NG1IqSZFhaaSZRQPMzQky8I1WYK38zQ/Gqh0KBur+S7/kIxaiRXnrYyfOQRAnYKfCz
+	 lFyuEzDnUK+GYrfHdKSB/fXtLdM1uAZYGKau6bMHWPz3mgG1KtyAgpTgRSVyITnSuhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005171;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ShLpZYTENcJZPipwC/hhnl5p06S5JbZ4bVx6LKeKESY=;
-	b=ynatj1gn2/N/NFh8uVxkXTFs6U/AXlz5egAlS0+XqzDmyQQd7Wc8A7ztG9KS6tX6jN87
-	 OoLC2U11LKBhhExWW4M7+nmVyx1KYeT8nal7Mwvv6S6qq8ds5sIlrvDph9a7cmkphwg4M
-	 Gdo7hHfLH/bBqLJKcsFUMNxLP/Dmpi+O/KqFGTLBeoERvB69xmv2YPChmvA3DHMjDKoLn
-	 udk9VFMIiGHI900l/tNuExs0yg0JHgdW2H3/KpFZ/Llp/Rn4B+CZzrDn8Dsbpm6biABr/
-	 jWAOjh4Z/8owhEYYQfBgC+mER1TCfv1uQmsg7iYeFc9qvdKM9A9Cwsy3weea3v+Uk+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005238;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=7KqS7FUoP8+YKU7UrHzi7vh0N1UT3YTJh6Xu6F9Q1YE=;
+	b=g1ML/WRTwQq5QuvWqqcbOQtoy745cQjoMl/IKUfpYRs+L3U2bXORfAi/2VhG6PvBGBts
+	 xlLcGSN/6g6sOXay9XhrkdiVTveaHDvZV7ACkFUCJhCqnCDm/bGJ/m2Z2uIcDypAmgQj+
+	 aPJMoFJL1VECtf5oaUDgMtd2q9MYQ6TgMyWTFKw0iBCpWhcLfF/eQvxWzOZoQT73tUcuw
+	 wnK7Z2RY45tpboAOHN3HcZVy4f6P1CFhyJnrZ2Tra6LTDh0lXE2UxtJttleqtGOYob9GZ
+	 XwnMrNsGMN8+KohHefV91HENy1Z4Rdp5zt9hCSpSjJof54zbNsenzVxzkMsAyxAvSlg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cZiyZTd1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AqOxdMhE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51352606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:32:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57830606A31C;
+	Wed, 18 Nov 2026 12:33:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cZiyZTd1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5038A1F000C7;
-	Wed, 18 Nov 2026 12:32:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AqOxdMhE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 32F871F000C4;
+	Wed, 18 Nov 2026 12:33:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795005170;
-	bh=ShLpZYTENcJZPipwC/hhnl5p06S5JbZ4bVx6LKeKESY=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=cZiyZTd1KtOhRhqSV5Ke4WXZOX5LFTuMXrmobuw2nQsXa7hLn2pgm8ZCTpp1NSmxE
-	 8Cc+uObjW+n9dP5EJr7ickConOwyUcKqJ9hYg/rp8mDQVCfLROMMmLB/6yfXldEWaf
-	 DaEob9HtuvFLQNzkf4e4Nu6iihsb+P9N2Glnl6bBBLCX5gZgH/k8pW5Jfsb1dpsdWo
-	 Rfe4CxZPE2sCS9FFIaMICSe9w1nWt4BwNfV+S5ofSAXXAy1snxGFlhY427iYl4E4ve
-	 /uumTB6atatcrUTXZc04s2P09weyEaGVBA5Li0KWk+YMcxF2c7KGLgvsMRErzq2Zur
-	 1PlhVSpo9e61g==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
- michael.chan@broadcom.com
-Cc: netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
- andrew+netdev@lunn.ch, horms@kernel.org, pavan.chebbi@broadcom.com, Jakub
- Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH net-next 2/6] eth: bnxt_en: follow explicitly set IRQ
- affinity when placing page pool
-In-Reply-To: <20261118023905.3050661-3-kuba@kernel.org>
-References: <20261118023905.3050661-1-kuba@kernel.org>
- <20261118023905.3050661-3-kuba@kernel.org>
-Date: Wed, 18 Nov 2026 13:32:47 +0100
-Message-ID: <87qzgi8gls.fsf@all.your.base.are.belong.to.us>
+	s=k20260515; t=1795005238;
+	bh=7KqS7FUoP8+YKU7UrHzi7vh0N1UT3YTJh6Xu6F9Q1YE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=AqOxdMhEs01XQBpejSIlq0G8D0FKi9lFXWJYsZrPjRaSggICn9tOqDlXl194k2MxS
+	 +QccRf2dtIxUxvYZtO4fb+129fQ/ICWKCpyvCZsLh062xtvLMdewbw1tTscUXSFz7A
+	 jlAlyD7vtNw4TAd4q2zQh3vbAqNfNVUIOpK4PfO7Gxcqfcjyxm5zBjWKD+n9UOthBF
+	 ZhFvnTYjiF4/Ythmu/vFvU+u7S6nge5eWbCMrF3l8hkv9K++rzIbd08bU9QGJ0gWpF
+	 YcHDAt9aKLBGcIc3yWqmZwm3xDKNyYsfe37quRpGJImD7NXS9QfE0oru22D3wOk7db
+	 rx6TEPM39+OIQ==
+Subject: Re: [PATCH net-next v4 2/2] net: dsa: mxl-gsw1xx: reset the switch
+ through reset-gpios
+From: netdev-bot+sashiko@kernel.org
+To: joseph@telaak.dev
+Cc: hauke@hauke-m.de, andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, daniel@makrotopia.org,
+ p.zabel@pengutronix.de, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 18 Nov 2026 12:33:56 +0000
+Message-ID: <179500523674.3136.3797005435367758007@kernel.org>
+In-Reply-To: <20261115-mxl-gsw1xx-reset-v4-2-4ecd18c922e2@telaak.dev>
+References: <20261115-mxl-gsw1xx-reset-v4-2-4ecd18c922e2@telaak.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,24 +65,154 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
 
-Jakub Kicinski <kuba@kernel.org> writes:
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-> The driver picks the NUMA node for each Rx ring's page pool with
-> cpumask_local_spread() at open. IRQ affinity configured by the user
-> is already recorded by the driver and persists across close/open
-> cycles. Use it instead of cpumask_local_spread().
->
-> The affinity notifier runs without any of the locks held by
-> the allocation paths, and copying a multi-word cpumask is not atomic.
-> Like for the TPH Steering Tag, have the notifier compute the node
-> (of the first online CPU in the mask) and publish it with WRITE_ONCE().
->
-> Queue restart (bnxt_queue_mem_alloc()) needs to resolve the NUMA
-> node instead of copying the nid of the old page pool.
->
-> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] gsw1xx_probe() (drivers/net/dsa/lantiq/mxl-gsw1xx.c) can skip
+  the switch reset without logging anything.
+- [Low] gsw1xx_probe() pulses the hardware reset on every probe attempt:
+  assert, fsleep(250000), deassert, fsleep(1000000).
+
+--
+
+net: dsa: mxl-gsw1xx: reset the switch through reset-gpios
+
+This patch gets an optional reset control in gsw1xx_probe() and pulses it
+before the first register access. The pulse is 250 ms asserted, then 1 s
+before access, which is the timing from the vendor's GSW150 driver. It
+also adds imply RESET_GPIO to the Kconfig entry and extends the help text.
+
+> diff --git a/drivers/net/dsa/lantiq/mxl-gsw1xx.c b/drivers/net/dsa/lantiq/mxl-gsw1xx.c
+> index 0c7ea242a62c2..33b73b2ed5fe7 100644
+> --- a/drivers/net/dsa/lantiq/mxl-gsw1xx.c
+> +++ b/drivers/net/dsa/lantiq/mxl-gsw1xx.c
+
+[ ... ]
+
+> @@ -737,6 +739,30 @@ static int gsw1xx_probe(struct mdio_device *mdiodev)
+>  	if (!priv->gswip.hw_info)
+>  		return -EINVAL;
+>  
+> +	/* The MDIO core handles reset-gpios only for PHYs. Reset the switch
+> +	 * here, so it does not run with whatever the bootloader configured.
+> +	 */
+> +	reset = devm_reset_control_get_optional_exclusive(dev, NULL);
+> +	if (IS_ERR(reset))
+> +		return dev_err_probe(dev, PTR_ERR(reset),
+> +				     "failed to get reset control\n");
+> +
+> +	if (reset) {
+
+[Severity: Medium]
+If the switch node has reset-gpios, can the reset still be skipped here
+with no message at all?
+
+In two configurations, devm_reset_control_get_optional_exclusive()
+returns NULL even when reset-gpios is in the DT.
+
+With CONFIG_RESET_CONTROLLER=n, the stub in include/linux/reset.h does:
+
+    return optional ? NULL : ERR_PTR(-ENOTSUPP);
+
+With CONFIG_RESET_GPIO=n, __fwnode_reset_control_get() in
+drivers/reset/core.c returns before it tries the reset-gpios fallback:
+
+    if (!IS_ENABLED(CONFIG_RESET_GPIO))
+        return optional ? NULL : ERR_PTR(ret);
+
+In both cases the if (reset) branch is not taken. Probe then continues
+with the bootloader state. The commit message says this state makes port
+0 fail with "failed to connect to PHY: -ENODEV".
+
+The new help text in drivers/net/dsa/lantiq/Kconfig says:
+
+    A switch whose hardware reset is described with reset-gpios is
+    only reset when RESET_GPIO is enabled as well, which this option
+    does by default.
+
+Is this true for every config? RESET_GPIO is inside "if RESET_CONTROLLER"
+and depends on GPIOLIB. RESET_CONTROLLER is only default y if
+ARCH_HAS_RESET_CONTROLLER. NET_DSA_MXL_GSW1XX provides neither
+dependency, so on x86 or generic MIPS, for example, the imply has no
+effect.
+
+The reset-gpios binding added earlier in this series describes it as the
+switch's hardware reset input. It also says the slew rates return to
+their power-on defaults "after a reset through reset-gpios". A DT that
+follows the binding can silently get neither.
+
+Other DSA drivers with a switch-level reset-gpios call
+devm_gpiod_get_optional() directly, and that only needs GPIOLIB. Examples
+are qca8k-8xxx.c, realtek/rtl83xx.c, mv88e6xxx/chip.c, lan9303-core.c,
+vitesse-vsc73xx-core.c, mt7530-mdio.c and ksz_common.c.
+
+Would that approach work here? If not, could probe at least warn or fail
+when reset-gpios is present but no reset control was obtained? Could the
+help text also name the RESET_CONTROLLER and GPIOLIB dependency?
+
+> +		ret = reset_control_assert(reset);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to assert reset\n");
+> +
+> +		fsleep(GSW1XX_RESET_ASSERT_US);
+> +
+> +		ret = reset_control_deassert(reset);
+> +		if (ret)
+> +			return dev_err_probe(dev, ret,
+> +					     "failed to deassert reset\n");
+> +
+> +		fsleep(GSW1XX_RESET_DEASSERT_US);
+> +	}
+
+[Severity: Low]
+Does this pulse the reset again on every probe attempt after
+-EPROBE_DEFER?
+
+The reset runs before gswip_probe_common() reaches dsa_register_switch().
+dsa_register_switch() can return -EPROBE_DEFER, for example when the
+conduit is not registered yet:
+
+net/dsa/dsa.c:dsa_port_parse_of() {
+    ...
+		conduit = of_find_net_device_by_node(ethernet);
+		of_node_put(ethernet);
+		if (!conduit) {
+			rtnl_unlock();
+			return -EPROBE_DEFER;
+		}
+    ...
+}
+
+It also defers when the tagger module is not loaded yet.
+
+For MDIO-attached switches, the conduit is often missing on the first
+try. The MAC driver registers its MDIO bus, which probes the switch,
+before it calls register_netdev(). That first attempt usually runs inside
+the MAC driver's own probe.
+
+Each retry resets the chip again and blocks for another 1.25 s, because
+both fsleep() calls become msleep(). The commit message says this timing
+is only known for the GSW150. Nothing breaks, since the next attempt
+redoes the PCS init and the GPIO pin-mux, so the cost is boot time.
+
+Could the reset be pulsed only once, or could the line state be kept
+across probe attempts?
+
+>  	priv->gswip.gswip = gsw1xx_regmap_init(priv, "switch",
+>  					       GSW1XX_SWITCH_BASE, 0xfff);
+>  	if (IS_ERR(priv->gswip.gswip))
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115-mxl-gsw1xx-reset-v4-0-4ecd18c922e2%40telaak.dev
