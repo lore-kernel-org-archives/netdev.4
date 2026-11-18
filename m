@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032946;
-	b=HnvEWEf5tg6Gzu16/9QQEL/bsFp/1EWHyweIZLMavjtOTMolkyvfLW3qb+S5bcovPk3R
-	 h/eZFUt0KL7I+i9ewomktqE2ZLIaryJxXL7NRzEQxFuBcjKNWvNlzOsEsKlXQFGPagbCL
-	 RXFExi16zdtzT/wnFYhzMskJx6k25cnRGNopYOmuI7WlWnvrupW3afLfPPraaGUsJEkam
-	 gdGglYJrRhe80q+V3hyYFskAI56mbTAJ9bb709ceLwT7PcvztXQSCnZEIvSmmeLqvvs9N
-	 SSGGe96C71vag+jtde797GiJqoDiz+EX8mvucnYEWyBNtiLNc4jJc9E7/3hY8qwJAzw==
+	t=1795032996;
+	b=woRSmv9h55g22olqDpN/vl7Z59phsdVk0IqebQjMIOItky/KWkdOwXsylA2JUe4N9HF+
+	 2UcJVuvhg3rUS2ir+vY2CxL4Ix44IwKfaiPZbQlCj6uPSOzR4yan8piiBDTT1Bw8QZLV5
+	 CmxeXJ5uUfZvXtjLbU0pvhYlIXnsjgxmWslCfNg4xYkpJ9fUN54KVy9Qv/io/0RcV+205
+	 tyj/37zg6DSJyVEu1PKdQDhOuPtlYeka8K41N1WNVVJVTPPYbmt6AgyTUZzS+5ooNaXil
+	 RdjfvG4HNAEumlyGhEbfXtz6YoSM3GG0arukrSqHIPHRY+F+qY3bmOOwee5Kcvcj0Sw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032946;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032996;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=alE3qKWc8NVAdXHhS7gzmUz2VtKJvT/F5tzY0t38/Ok=;
-	b=UDqILgmvsROJsccWVWPD6kJt5Y4rNPhGM7I40Mv6+HAI9OD9WBVkIrFwcB4FXmWUUPpL
-	 Lat6l5yIyHZjEUyTEcgprfprJiBXMUOGLeliJMahVjCeuLBBfaahdrNeM70L67y2QmbyT
-	 t8bJiPv4pKTIot8yXurmH7D1Y6trhSviyKO6ZZ+RrjrGjBXYI/y+JsEmVUyF7kxBcN8ea
-	 GWtnlxmwq7vsoRZ8KrruTk4Ewiz2mR08HRBmcdWphsUttOGa6IRkyLHat2djXE3wWohNB
-	 eB0/rgfJEKllniIv43DWtQMQIT0L/7Qj0c/qCVna4E+6vVhLoIn8KC4auJwiW9KaA4A==
+	bh=7BbG6Ibh3KVMcdt0G6qbp+g1C+02LBnBwZSTdZVSGeQ=;
+	b=Bx4kBzvlE0JkQ1U9d6DnJKT5sh73w/+IdxXQO/L3nS0Pr4AEbaoBsULhHQS61agUFios
+	 cP7RKYh5kEnkVXAOCMXJanFu3Sc7+xeO/BJSwvXD+jy5LFVtaax5AWwjTtMWQxX+lNgBI
+	 S5jEgvfINdhrE/XP1CgeLfFd1BVbEU9Sy9doc5Vdlmy/VWsLJaJ5+KJpWWYc5dQHYqgNq
+	 y9q0XXWc/xOjfDohzi8kyOmdAChWp3tnAoOef0G3iANxrWThOXl7R3n7DNQRY6nGeWSU7
+	 mmmlRepzRYUFk098lTKm44qKdRewJTLqyxWVY5fYk9garEnCP0Pq2AzSXB9rqGbnKEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j6ZLz9gc;
-	arc=none smtp.remote-ip=209.85.221.199
-Received: from mail-vk1-f199.google.com (mail-vk1-f199.google.com [209.85.221.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y9OAzbGm;
+	arc=none smtp.remote-ip=209.85.222.72
+Received: from mail-ua1-f72.google.com (mail-ua1-f72.google.com [209.85.222.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ECB8606A32F
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:15:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ECB8606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16839606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:16:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16839606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--thaisonphan.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=j6ZLz9gc
-Received: by mail-vk1-f199.google.com with SMTP id 71dfb90a1353d-5ee30bf935eso387471e0c.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:15:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=Y9OAzbGm
+Received: by mail-ua1-f72.google.com with SMTP id a1e0cc1a2514c-99be6943b20so1003196241.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:16:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795032945; x=1795637745; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795032995; x=1795637795; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=alE3qKWc8NVAdXHhS7gzmUz2VtKJvT/F5tzY0t38/Ok=;
-        b=j6ZLz9gcnoh/yCLGPw27IZQHM1iLGDhjgvjd4iKPziOV+l4XFss7jDz8l+hyNtAtMq
-         GfaCWT27iBVt4qJOL3c9Nug3ryKOYKFTNZTRCotBsUh3qB2RXNCg+2Xjltth0ovj7WpA
-         Wmra0gSUnqHGG0rGR1i+NwKCIQQrFOnco2u+bhxtnbdhCk+WwiXkuaym6TanSHA/NTVX
-         MbxFDHRcxCmo9g3pji96KYGMuquJj/BEJFjYSaSW90ZsEnMNqg9GQuKU5MUiJ7H4kone
-         9cmk/CwQTgv00udvQVaKJn1pfX6FtKcTxLdn9aC5cMaieM739MZn5UTu7P6Vrj4Zp9oE
-         173g==
+        bh=7BbG6Ibh3KVMcdt0G6qbp+g1C+02LBnBwZSTdZVSGeQ=;
+        b=Y9OAzbGm6kYJALJzjtZ05ZvviapuwbRA2eVXG9xEOzdMK987x+7hSsEHqwQVuCIutS
+         e556beZWHU5xfLOYt3j8Ne0HwFTB4Afoz5gzgrmwd02Kh+evM7nRzJUNETZKD+54eZvQ
+         krEGNSgdZBzxmXN5YmF24HT1azeHV6CAu+tcyEQwBjTYtPkfewUoVJZ+O8mpIc2V2AWw
+         /JMyBBvxrA/v20EVokYkXHQ5JU0CphOLaul7I4AF16m9jvMrTYV8a48BcA+4Uzjy3Q3x
+         o9g9kuf2KIM/1n8QiY1Rdzrt84dwJkxs/hcum5A26XOjIjnRdlXlw6MnHzcdxwIpCPnj
+         xzCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795032945; x=1795637745;
+        d=1e100.net; s=20260707; t=1795032995; x=1795637795;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=alE3qKWc8NVAdXHhS7gzmUz2VtKJvT/F5tzY0t38/Ok=;
-        b=durUmgeWnE7RoA+av3muXhM5IVQ0eIa7LQTkXhzOo+bL5PEVlFpHC/+THcIfS22927
-         poqo/uCJPSkJqsxnetHJgC7JDTuk4/EZgCShNycMv37KFgspFBNIgNRiJvBDdr0Gzvbm
-         ZpEoV9K5/7X27je6gkxuFnd31R3fjAJyL34xrmh+GUC7aG2f6tALW3IsXUdo4ugnVltS
-         FphQxOrkYbUq/s49NPsjKpJyuCT3fwNTN6ZNEvnRlrzabKQtmVmXJxrwgED8u8NsOb51
-         YpaXAqpoiaKpYoRD/pkw1ku9MuRnBb/PbA1M1ISYK1wLfLaqxEihqsJGJD1hvVNcpdY/
-         Ppyw==
-X-Forwarded-Encrypted: i=1; AL+hErGJDUKH0Z/IY5lxENPkljwvZDvYXMw8f0tSL4ylDCjF3iCEFm0j8gWvfLfgnTufBziPTNZcXIs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9TAqp46VR3+LMCdgVKY3Pl58CvR1u/rHtwVAxCdY9xARiv0pQt
-	7ajrtOVuS3NioG74KtCy16neR72z3+lp8vGZk0+ItfMTzj6k0U2QjKRAMyliB7sLTa54snyP+Vq
-	0uDl6oXlxRz76OISm13/bpej4HQ==
-X-Received: from vkbed14.prod.google.com ([2002:a05:6122:470e:b0:5ee:363f:e720])
+        bh=7BbG6Ibh3KVMcdt0G6qbp+g1C+02LBnBwZSTdZVSGeQ=;
+        b=bwryN6jsxH03C3dCBR1n8C97dl2ayKVqlyHF1ym6aAIQiD9S0iH5sCRNjQo/8+eDaq
+         7lrKHD9F4c2MYFryGtFS4ffNJcO5lNSDjGhq5ZCAFXLOt8sxoRegxXnA/Q9EF2X3rDO1
+         y9wQhW1za+0US+vtBppjwhMXac0PvMMhzjlmJ88HgPKU60zzf7fYBt9DEY0fXpz5IDR4
+         UfCYYHCoDYu0E+yTzAph4Hnth6yYP/fnLA03hQktoO4hxLEE4ysQeJDhHdcqFmux2q9N
+         hvde3tgD5206H/PQoW7WpMHA7MTaPg+cGv/lrKhL6Z2m0IeU+gtgvOiub7ElzivjSRxA
+         GiVg==
+X-Forwarded-Encrypted: i=1; AL+hErG17B31dleJ/kDTvtitV2Pm67VkEOwfN2Ud1CwLUhZTr1gnWv1h3TtRKIyHzb6NkJuRJKHAbrI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/PvWfIi0IAtZYpRwjTIbtdiCHinlSYYRgNuouoQ/37RpExR9Fa
+	2mviaHDCQ2/eUFtVOu5cafmx1hRuanj2XBBzr5Oeyoh92Ncy31jxP0dtP2wFX5nTN1qKWx01A8F
+	kT7h4sRIVRhos7NLQ//U+n625+g==
+X-Received: from vsbbd17.prod.google.com ([2002:a05:6102:1571:b0:7c3:3c65:bb6d])
  (user=thaisonphan job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6122:208d:b0:5ce:76cf:fb2e with SMTP id 71dfb90a1353d-5ee6470544amr1998275e0c.16.1795032944886;
- Wed, 18 Nov 2026 12:15:44 -0800 (PST)
-Date: Wed, 18 Nov 2026 20:15:40 +0000
-In-Reply-To: <CAL4Wiir50_Z+m00GyU9BpRdAqgXs8V-L0S8kmmES=JiYyt==gg@mail.gmail.com>
+ 2002:a05:6102:149d:b0:7cc:1045:604 with SMTP id ada2fe7eead31-7d6ba4ca641mr1483449137.30.1795032994710;
+ Wed, 18 Nov 2026 12:16:34 -0800 (PST)
+Date: Wed, 18 Nov 2026 20:16:32 +0000
+In-Reply-To: <sashiko-outbox-220941@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,67 +79,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261116023709.132684-1-thaisonphan@google.com>
- <20261116023709.132684-3-thaisonphan@google.com> <CAL4Wiir50_Z+m00GyU9BpRdAqgXs8V-L0S8kmmES=JiYyt==gg@mail.gmail.com>
+References: <20261117124710.1338951-1-thaisonphan@google.com>
+ <20261117124710.1338951-3-thaisonphan@google.com> <sashiko-outbox-220941@kernel.org>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261118201540.2446821-1-thaisonphan@google.com>
-Subject: Re: [PATCH net v2 2/2] tcp: accecn: initialize AccECN fields in
+Message-ID: <20261118201632.2447530-1-thaisonphan@google.com>
+Subject: Re: [PATCH net v3 2/2] tcp: accecn: initialize AccECN fields in
  syncookie path
 From: Thaison Phan <thaisonphan@google.com>
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: Thaison Phan <thaisonphan@google.com>, Matthieu Baerts <matttbe@kernel.org>, 
+To: sashiko-reviews@lists.linux.dev
+Cc: Thaison Phan <thaisonphan@google.com>, sashiko-bot@kernel.org, 
+	Eric Dumazet <edumazet@kernel.org>, Matthieu Baerts <matttbe@kernel.org>, 
 	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
 	"David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
 	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
 	"=?UTF-8?q?Ilpo=20J=C3=A4rvinen?=" <ij@kernel.org>, Olivier Tilmans <olivier.tilmans@nokia.com>, 
 	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
-	netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+	netdev@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-On Wed, Nov 18, 2026 at 10:30:58AM +0100, Eric Dumazet wrote:
-> Sashiko has a point about the BPF custom syncookie case.
+On Wed, Nov 18, 2026 at 12:47:28PM +0000, sashiko-bot@kernel.org wrote:
+> [Severity: Medium]
+> Does the syncookie path leave tp->saw_accecn_opt stuck at
+> TCP_ACCECN_OPT_NOT_SEEN when the peer includes an AccECN option on the
+> third ACK?
 >
-> Requests coming from cookie_bpf_check() also reach this line, but the
-> kernel did not send that SYN-ACK, a TC/XDP program did. The listener's
-> tos/tclass says nothing about the ECN codepoint the program used, and
-> struct bpf_tcp_req_attrs has no way to report it.
-[...]
-> Could you send a v3 doing something like this (untested)?
->
-> In cookie_tcp_reqsk_init():
->
->         treq->saw_accecn_opt = TCP_ACCECN_OPT_NOT_SEEN;
->         treq->accecn_fail_mode = 0;
->         treq->syn_ect_rcv = 0;
->         treq->syn_ect_snt = 0;
->
-> In cookie_v4_check():
->
->         /* SYN-ACK was not sent by the kernel if req->syncookie is set. */
->         if (!req->syncookie)
->                 treq->syn_ect_snt = READ_ONCE(inet_sk(sk)->tos) & INET_ECN_MASK;
->
-> And the same in cookie_v6_check() with np->tclass.
->
-> Letting the BPF program report the codepoint it used (a new field in
-> struct bpf_tcp_req_attrs) would be net-next material.
->
-> The other Sashiko remark (AccECN option carried by the third ACK is not
-> processed in the syncookie path, unlike tcp_check_req()) looks correct,
-> but this is not something added by this patch. It can be handled
-> separately, no need to grow this series.
->
-> Please mention the BPF case in the changelog. You can keep the
-> Reviewed-by tags on both patches.
+> In the normal SYN-RECV path, tcp_check_req() calls tcp_accecn_option_init()
+> on the third ACK to update treq->saw_accecn_opt and treq->accecn_fail_mode
+> before tcp_ecn_openreq_child() copies them to the child socket.  The
+> syncookie path bypasses tcp_check_req(), and when tcp_child_process() later
+> runs tcp_rcv_state_process() -> tcp_ack() on that third ACK, neither
+> FLAG_FORWARD_PROGRESS nor FLAG_TS_PROGRESS is set, so
+> __tcp_accecn_process() returns before calling tcp_accecn_process_option().
 
-Makes sense, thanks for catching that and suggesting the fix. Since v3 [1]
-already went out yesterday for Chia-Yu's changelog clarification, I'll fold
-the !req->syncookie check, restore treq->syn_ect_snt = 0, and note the BPF
-custom syncookie behavior in v4.
+Agreed, this is a valid observation, though it is pre-existing missing
+functionality in syncookie AccECN option handling rather than something
+introduced by this patch. Per Eric's guidance on v2 [1], we will leave 3rd
+ACK AccECN option initialization for a separate follow-up patch rather than
+growing this fix series.
 
-I think the Sashiko remark on the (AccEcn Option carried by the third ACK) is
-correct as well, but I agree we can fix that in a separate patch set as it
-isn't directly related to uninitialized fields.
+Marking v3 as changes-requested as I am sending v4 to guard the syn_ect_snt
+update with !req->syncookie for the BPF custom syncookie path.
 
-[1] https://lore.kernel.org/netdev/20261117124710.1338951-1-thaisonphan@google.com/
+[1] https://lore.kernel.org/netdev/CAL4Wiir50_Z+m00GyU9BpRdAqgXs8V-L0S8kmmES=JiYyt==gg@mail.gmail.com/
+
+pw-bot: cr
