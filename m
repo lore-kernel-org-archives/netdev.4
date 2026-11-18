@@ -1,99 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.65
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795001192;
-	b=DVCKIttckzPsY4LR2Qny1EogqC31fUuhW4Zp/e5FnpXFbG2YR5BWAyelZydGpbpyvxlh
-	 ZuOig62qqDwKBlhJcmam3TNLUWd1oISdnWdwJaoS5LXLGl0u7ybW8CSJ1iJBLuAx2ZsfG
-	 g3w5beRTb3XZ4hxlmoNr8f0EvGdMITyiUu6c1LWUeWHtb3ecfBual3MMyqkqSSuZazvDX
-	 L5qOV07DZRzxkvyc9H9+9JB9X3iBo8aicqWF6/dp0gtbISViOcfunANq6/NSl34YZTO68
-	 NEJnbU3yhpkBKpJlTFHrM/0R8/o8bDrlwWhB1x6bpUpHHUp6pbO0r8yc16mlUpttEAg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795001192;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=OcEcSBm6DzCdkI2h76AbUUhQcprcTFWiNpi0Jlvp5sQ=;
-	b=iAltY3jvrT/Brltw3EzXaH71OIia8j4DpDZhVMGu+5NHLpgl5AcY5rUMVW1o4NILtCUi
-	 iX53XkSiXvS7x2yPovN+iqRrrvRy+o++mcAosvMbZ4Fdkukxg2EYJGfLFqOq2D5GerCnS
-	 9Ctpmp8QgewRup2sDtsX99idX8Uzx6KHNDVZUVBlIGkHRUAHvMO+kSa2rP+b6FQRUDsLq
-	 lU4uuTpjzvdYjvQMvMxxzjcNDVh+8iZbMjP0zyvu8QkM62mAeTp42hqF7wM2aw00GMORW
-	 1QVJBkwl9V2g3uMx3KvR2y02Z4Ijmj4fizwuC5oVbXixFQraNKPsNu/F5v2PO7o5/CA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=N+LdF8C+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.65
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013065.outbound.protection.outlook.com [40.107.201.65])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795001325;
+	b=2t+ivM9c3QiSzvcoBI4+cmOQSsKxNG+9VIClsXssS0wiPbbiYLeQV7r8UZ0l2XOSf9F0
+	 lEXnkmHlhVLzCQxsyHMYLV01PB3C4Xp7NeQ5ginTNxpX6UapDFtlEltnh6ZKly+Ttmbu0
+	 NL5dPLKcyDPrn5QrzDvJvc4PjKaRG0QlywZDBaLdYqGVhNOfInW3wOi+0hZkK5qzyY5Iw
+	 5W3MPd5im/569/miy9ESWPZxEQ+uRaCzxsPBv+X/lusVnsN3q6T4E8xkmXA+S/3lslL+B
+	 DOFoiuxW0t9mvENziQlCiCvyZB5DMmTULyXlLNXeqH6TUwJYijhhBkmNs8ZDjnTfnFQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795001325;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Mime-Version:Content-Transfer-Encoding:Content-Type:Date:Message-Id:
+	 Subject:From:To:Cc:X-Mailer:References:In-Reply-To;
+	bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
+	b=RVppebfSfExOLGaZlr4sbXk/dABVVjEHX2GD9FitHapWP/uvDJRXY/p8mUS4IPxC45UZ
+	 3yiudixZdGaUAzq7fu2oPpEps9ORGuJoeWUSeuc9oNYHMCcNobhVVbVyOyL6X2teXEtVM
+	 kNjFj35H6hJAftBvmV3d6RgRtTvXoNSWH1lJAbQf7bwU+9Tbws3hXwxfp8gVn8yJDh4C8
+	 mA9NO/k9B6hAHTJSuBa0gV6BDoajOjRsqEMfRI3iTKZjPOl0kH2dUGGGMOc1hnZhW0/IG
+	 tJ6oCYNNSAbRq9PCVlRmqFM3otTV9UnIYUnE4CaBU8SwReN3q8u8bHcm5CMG3FJ0//g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J9D5OyQQ;
+	arc=none smtp.remote-ip=209.85.219.42
+Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82A8606A31C;
-	Wed, 18 Nov 2026 11:26:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E82A8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77F24606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 11:28:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77F24606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=N+LdF8C+
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DcoKtRcM8tssgYosEiSSW4IQf6ddP3KyURhNR2/bqkJ8ocRXblZjvYamQ591eTzcp5E95jfbGQ23Bx1R8JxWgS/p77hfTb02Tl43I7xRGu1QsC/gz3U30HCiwvOuCdb22AFXa6BwTVQ4NYLfq3YNx1jGtwWFGsTeGDSKg9HoNNYt2yKh0B5LfXHZNXFwWe6TgM7vh0qayheA6S62X9Q/SDHzXAIUTWa3ozUlMtjLZCplpuW2J3Z00nj6wJJygafA3L0HJ2icZh9yV7nL3rd/wkCQplwpakj8E1dQgXktT+Rw53Dii2GkPy+C8+8Bi1obM4HsKOVMdzAofwoZhuGLsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OcEcSBm6DzCdkI2h76AbUUhQcprcTFWiNpi0Jlvp5sQ=;
- b=d6mmCveSHV5kuyB24IWfebWGJL1ht3AoEIQOY/1zK5s16jOuHhnJIP4BK/krkv03RY2aeRWCXnINlznOAVCv887X5k/o+wQqJ7yBrR3hUZSf75nQDraBwToTtEGRAicmB3DgvwqYy/+eLfpuKw2nIjQBRB+C6r2+FwCXdC5tIJbHbgE4GPbTtcICwdM23FtRQ9+rLt6IFuXRJtDb2BpbLkQWG2xjStg7Ig4BP6S3fAzPtvSfauSarQBNZkvDz2yK92foANovrETw14Uu20LfxhIZAkQuj9G+pqOCJToc+QbRTCgrrmUZEk0gA8xolH5On7OEKCHBpvVSVXzWzBHu3A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OcEcSBm6DzCdkI2h76AbUUhQcprcTFWiNpi0Jlvp5sQ=;
- b=N+LdF8C+WMi1n3tXAgJIG4xDXkanK2JfkrYf3G8qbSrexP0oGOYIoLZv69D2RWyxDbIsPgfn/Q1zbKSwp3SkkU4ofGjCadYlakSLQrEbcOXG33sQTK/vdc2BIK3KFkWgYLHfYwexWsxEmekrCi3Y16JeN38QVRfzHoiwxvzt9mkoN1on+h/+eR0Jx/wd0htsGVMkMB3gh6TkYSBq81TQvQBjAZWC0SmRBsi7i17O2nHHr5F8OHCGanod2y9aDLq4agBmjEANIr9rvUlMPzc/36X9UWOVj0eQDJ1uwAv5uaRpD0tZv4C1oJ/xm0E1XBmtGdmyaU5iwULuetRuZaxV0w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15) by PH7PR12MB8426.namprd12.prod.outlook.com
- (2603:10b6:510:241::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 11:26:28 +0000
-Received: from IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f]) by IA4PR12MB932075.namprd12.prod.outlook.com
- ([fe80::5a6f:1f74:6ccb:cf2f%5]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 11:26:28 +0000
-Message-ID: <2c11ca60-b1c7-45be-94dd-b0fb648109e1@nvidia.com>
-Date: Wed, 18 Nov 2026 13:26:15 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net/mlx5e: Hold sync_lock while resetting VXLAN ports
-To: Changyul Lee <lcy8047@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>,
- Leon Romanovsky <leon@kernel.org>, Tariq Toukan <tariqt@nvidia.com>,
- Mark Bloch <mbloch@nvidia.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Moshe Shemesh <moshe@nvidia.com>,
- Aya Levin <ayal@nvidia.com>, netdev@vger.kernel.org,
- linux-rdma@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261113040323.2090829-1-lcy8047@gmail.com>
-Content-Language: en-US
-From: Tariq Toukan <tariqt@nvidia.com>
-In-Reply-To: <20261113040323.2090829-1-lcy8047@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TL2P290CA0026.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:3::13) To IA4PR12MB932075.namprd12.prod.outlook.com
- (2603:10b6:207:12d::15)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=J9D5OyQQ
+Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-91f2dd5dddaso8047496d6.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 03:28:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795001324; x=1795606124; darn=vger.kernel.org;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
+        b=J9D5OyQQ7CtDJfGNBTDrS8xXQb1oxOlFHB2CwmcqpmdeGfNTXI0akJ0lAfAC8TqwEE
+         W50Zc7KjwtcLjWa64N2bJICEox+7cN8GZp6uc5A+aZVDr1EgOu+t+DzvVISOmYq2iAnP
+         PN/umpdWd49EvKjLiMbMTTDtc2chbXkrfAjgKwizy/4ebN+GLj6a8QG9/g9QGRq3LP2F
+         5aqm27u+smmz8Up+MD8FsgOPaxTto6ProUjm1Ki35/BNDk9qaIae2f3/ow6m/6yAcjKq
+         cLv7TJBXbB76xCs5dvWqFwpFu2U8Z1Q49AEo32dVZKR7hFJLipWw1HLWdgp89P5IDKk2
+         3zvA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795001324; x=1795606124;
+        h=in-reply-to:references:cc:to:from:subject:message-id:date
+         :content-type:content-transfer-encoding:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PTE76i3nixm+phqU46XvEqvVLXQTlr+vsdjYP97MKXk=;
+        b=YBz9SpV6MZzgOclKt3MWZx++2gk0ubStdK5C9/NChlF7yDl83Pb/VmttlZ0ZxRubZO
+         oxH6u2gwMGd9S2xDhPyUNg4YgN9E2Fboof56EMn1J6cDSflsq9MNcqs5menfw6NldYOu
+         jggkaozYvG22o4EYKEB6oi7uQ0bAKhN9eAP8+w3z0ILG8Njm/e1tSHfs10CtACfmg4Yt
+         zC0ACQRk3ot5PbN+AGjC/b/d8DAbdo8EsqynCkICGzYnbpjL32BqXGqgjVd2pB8sITDc
+         RuIB+lFBru2sQxnYMtVaLaymBGzH4RZfI1RpCfCeeRC8i8gr6K4UabS7Ap/c1pgUQQ2A
+         Advg==
+X-Forwarded-Encrypted: i=1; AL+hErF0y7h+l5dTZG460ooDQPC2XgbLZ/lS90gQ8glIogRqsHIJvj9xKEXwRTOMRMNYl5CUUqgx8nQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9xZjEaF+Wz9A7BtkCJvMZa+7zK/aX5Pygwb1unb+Nl+IkZJH7j
+	zII3W21M/FIYKh2tbPLEHb2ByzPczL6p+sbMFtEbVDcq2JguqievGIDr
+X-Gm-Gg: AZFdTZeaYJ12V7aWKnavtPD88Lwb9CcD8P3W+8XAL4kdrQXoxpOe4L9Jz70F+hTJbKv
+	ksBRLH/QCdfXGWNPgh8KKonIPUXTCasfghmRSblvCEdT9A+dJmo3bLZscFlZRmAeMtfDoQVob0y
+	BhWaYL0dY8mv3jyHw4qshprURR3m+QUxiXK/iA/pI8VjPLsfkMpR5hrVFCpOJMtAwjEptisK5uN
+	EGK4lZWpv55/4RQLobo7g3xEMLEOwXbDAleXbTA4N86nkmM0qrYbo9QaKrKtfyScsbbtrWbCy51
+	gbvsSP/RPSpm5M9amyKdboY4ErnyUV7kLU3kqWS7pvmX6n2q3Qasc15dyGCmHvZw+jMK7peTP4X
+	thhOAh/2HRoVPVU8a8gM0DCQef/giTQ+g5pxN0qzYXF1a9u/uXIGyw2uJjw/sBQMOpm59uQUZO5
+	swLTr4nnyuRhP6jx/Dxw8d3+uvdxQrLs21fiRzHlOtJIIsxsOSZrDly6svWJWQbhhe99k0nqPE3
+	9gVCxxmbZYVcuUzZMvqTEDOw5517+nqYwhvRs5uwBjZ/2Ji8pTGH7LbeDcV3/VRRhLHlgNry6Ie
+	as76bbdQ0Z0DyaGeyODZI7ZA8jWJ6yVxwQ==
+X-Received: by 2002:ad4:5aaf:0:b0:91f:329a:904 with SMTP id 6a1803df08f44-92114ee2ddcmr32476686d6.32.1795001324220;
+        Wed, 18 Nov 2026 03:28:44 -0800 (PST)
+Received: from localhost ([2600:4040:9399:4000:e553:72e5:7d37:c7ef])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92114d35dabsm19207126d6.17.2026.11.18.03.28.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 18 Nov 2026 03:28:43 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,94 +87,161 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA4PR12MB932075:EE_|PH7PR12MB8426:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6deb7689-8323-4ef7-90cd-08df4566c998
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|22082099003|18002099003|261009223027099003|11063799006|56012099006|261102123227099003|261028144727099003|261026140227099003|261021121427099003|261022105027099003|261021135927099003|261021123027099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	XE+INUDSHjUvxn8n5o8sWpuAilDP56S7ITfk/uYB8ytk3Ii/v4aYsCRBbalj/DBMzhkuOsYuh7zkJ5rNPhDpxOWQ1AfviTZI27EJbhbhLE9Ti1Rp+UtIJXDsKNsz9OKe9ObXkkEI8GDgH5TVK90f4adwdnfogZM4dmV/PoOqlP6NvV9abcOYkhGeVGH2rOmxBmrxl0TW4/Ngxt/UBIHCnOmIRZEWMnnLutHlQGkJmr2t1qoBDlXkHAQw3i/cE9fEoLHmHpo0W2Oi8y65VsLYRv+/pJhTc+VcgSBo0wlLWm8+EI1cFXje05CancmfMCWATnNrApe/xgWDbFZHzS+3J8h1lyxzp0HktXG/Gf7UZytasLmFKmurElUW7ouQDTybMNKE/vHleiYIIkVx7AAUNj0YHNzEw5G+Nk+x9OsoqCqjfWA5swxBCK8Atn8OG1Na++TqLbqm7nisbbssm96TvMr5TVAtp8hd1hAu6ntwnM0cjLKzhfCDJXottGxGyIKgsHnDQwsJyGY47RYrJXyt2fvzpp4Y9uMbdXI35Xq7pZ5ppoQJyfumSIz2XzHkf2yyWvWWusUpNB2wiN5LvFJrYZrMmvZo9xhBqyIUib3b3olfT+PNgAikdrr65D9+2cvXIh79hCLOzfSwgM8Bm6VCDal9zpCtfi54fhxFUVtOzDA=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB932075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(22082099003)(18002099003)(261009223027099003)(11063799006)(56012099006)(261102123227099003)(261028144727099003)(261026140227099003)(261021121427099003)(261022105027099003)(261021135927099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?RUR6M0Nrc3REWlJaSkxPdTJKV21sUFdEZytyM0NBYmNRdVRIUWVTVTFwdk5B?=
- =?utf-8?B?aTVjTjNxOHpBc1B5UzZUb3o1ZFBjaVdYVkc3aERvRmU5NjduRUJCRjR2RVk2?=
- =?utf-8?B?QVlkVCtscml6Uk5qdi9sVVJWRUtBSEh0SVJ6VEpXZTJGSXc3RTJJWGw2N3BK?=
- =?utf-8?B?VEl1Y0lQQjdQaUFNUU4yOXBtY3U0eWhISTd1enlqYWZMeGVmSGlJa0IvRXJB?=
- =?utf-8?B?K0RyMVU5THNuL0VNK3RwR0d4SkNvdHFaR2FXUFhicjdlc3FHWWNyVlp0cS90?=
- =?utf-8?B?UXRyY0lHeGY0aHJMZnN6S3J1aVBQd0F3ZkltSTM2cWJEd2JPcUNFbWpTZTA5?=
- =?utf-8?B?dS9nWFkvREJUdlpSZnVQUDZEa3NuTXRXbHAvVmZpUDltRFVBcmt1SC9JdTBv?=
- =?utf-8?B?d3FRRCtEZHpISFVZQnJTWU8rVnk0THZyVHF1YnVBL1ZVam1sVnlSTWEwbmNv?=
- =?utf-8?B?N0tMUTBMNDJnWExBMnNqd3Q2QW5lL1FXUzdSdGlIL3gvRXIydjgvR0NkcjYw?=
- =?utf-8?B?bVErYWliY3Zsbkxsalovbkx3N253MFJ4NXVqTzRjV0MrKzVWa24rSHM4WlMv?=
- =?utf-8?B?NE5XUzN1UVI0VnhVOVc2dGNpVEcvZlY2UjUvcDdsSmZOYUFDekl2ZGZEWlBJ?=
- =?utf-8?B?MWFYYXNTSWIwVTYwajdveTd1czZwanFvRTZDY0Y3TXk0VkFtN0V6TkwybVdq?=
- =?utf-8?B?cEc3WEgyeVgrSEQreVhmMU9qcXJsa0ZQRFpUSGN3dHFDUDdKTzNLLy91THV1?=
- =?utf-8?B?R2puQXRJVEJkdDcvYTBwL0hxYm5mSU54cU1qNnJ0bktMTHR6S1ppYjA5NVhm?=
- =?utf-8?B?NE04WnpxL3ZudlNvbmNLcGg5TkRoZnB0ZW5kNElCMk4vbG9ScGlmSGhXdXJU?=
- =?utf-8?B?NVh0bjdjbGJCWktpdVpXbnNCL3RUTVBvVU9pNFhWdWVzdElwTUd3bjlYazhu?=
- =?utf-8?B?dEdBazhzWHM4WWVuQ3VQNmRmdXhUZGM4MUt2MWMyQ2xGTUpvUkhuWktOcG1w?=
- =?utf-8?B?T2dBcGhhSkgxRVVsNWtmTkgxaXBPQ0NYTzh5WG0zV3FuZXpRdm1mdXlCUytN?=
- =?utf-8?B?UTdGb3lLc2ttYnF2RTUzYklXWlZKWDZpcFBCNW5aMWgyTHZsVzluN1loOTd4?=
- =?utf-8?B?OUpNZXRkM1kvRTlDZ1NOV1lpNGVCSGtSV3VtM2ZVR3dnYjNUM1hQcUpMZ2Vw?=
- =?utf-8?B?QmdQSkVTem1oYjlpM2J3RFFrZFNRak9DR2poL3lHYXJNbnJidGpYRGVqa3JN?=
- =?utf-8?B?MkJVQVBsTEFsZEFXTy9mK0xoY3VFOVZkbjBaYTJ6YlplQkxWZGZHOWRiMjBR?=
- =?utf-8?B?ZjIwdFFVYXdDL0czeDVmUXdRdTd5WEtCL0h3M1YvZG5ZTjBjTzNnZFhRWWVK?=
- =?utf-8?B?UHhlRmlDK2l3N0d4aXNuWjE5ZXAyM0RrbHdYam5KTWI3TEZCNU9pcWgrcDdQ?=
- =?utf-8?B?NU9hc3g1S3cySGEzdHlybm5JSFVrNWJkTVRsRXZhQlg5M3VTMkd6Q2Yxc09P?=
- =?utf-8?B?dEZhZHBtM1VoY0FxYnJHUklCa1NhVmRSQVdMT09KSnRWT3ZYNFJhWmRjb0tF?=
- =?utf-8?B?NjFKY3RuVzlWaHNyeC9YWE14WS9ZampmMDFONXhDazIxV0MrNlc1Mnh1WXhk?=
- =?utf-8?B?bUlzc1J5a3czYmdpYTJyUnBYbks3SzJWcmZoTFZrYWgyaW1ZKzJCWGs0Vjgx?=
- =?utf-8?B?cE84MlhCanVZS1p6NGFPYno3am5VdFhqbFNwaXJ2bTl6RjFoSEU5VDZ3ZG5y?=
- =?utf-8?B?b3l3VlBjWmk1MER3dXd4YUxFYmZob2VkN040MThxL01VZkF3QnM4eTZESFFh?=
- =?utf-8?B?dzNMRklnOUhiQm1qWjNtalNJUVAxeDdOVFJsZGpnM09XeEoxVk5xNDNjdnUx?=
- =?utf-8?B?RWxiaWd2SjA2K3NqQXNWS3BKMUxhMWFmMC9JVmhLdmhiVG1OdWdKdk1qY3l4?=
- =?utf-8?B?WmozZk1oVFBUdzcwZlBYa2wzYks1VU1PQ215RHZETC9pNWtrYVNyZVBqWmpQ?=
- =?utf-8?B?MDRaUjc0UmRaYUUwRXR6Kzh1NzRwTmdhNDlURHQ1aWNxL0hsODJlWGYzaUUy?=
- =?utf-8?B?enBCRWMzNVZUMlBIVUt4N0RYVWcwRDVjbU1TTm8xWk1BVEw2SXYvMElDNkd3?=
- =?utf-8?B?SjA4VGRTTnJsekNwQWdkVGI3eEJ0cFphTUhMbFBxcTBEdkxzdVZkaWZZOFVF?=
- =?utf-8?B?TDgyL09nNGlWTEw4a3E4R3IxYTdHbTBBOU1CbmsxOHpqOC9xMlY1RHhUaWZM?=
- =?utf-8?B?TUpNaGNDaCsya1JwRGVaTk9maVNBeWZDTm1tcjJNOElsRTQ4emVPMFYzN0gx?=
- =?utf-8?B?cDFUc21yK2V4N0tnNFk3Y0NMZ0hBUC9Rcy9oL3hZRmVmTVJSNTZjQT09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6deb7689-8323-4ef7-90cd-08df4566c998
-X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB932075.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 11:26:28.1877
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AaeJMGuj1fRFLnROcmun8vbInhSuJPEdYUo31nAZ9SAHo8Ov+tlrB/fHsPdA3lYV2Obf3WKxTu8hk0uc+viGEw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8426
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 18 Nov 2026 06:28:42 -0500
+Message-Id: <DMYAV3MCA9T5.180N4MSVXNWT@gmail.com>
+Subject: Re: [PATCH net-next v4 3/5] psp: defer tx key deletions for SADB
+ drivers
+From: "Daniel Zahka" <daniel.zahka@gmail.com>
+To: <netdev-bot+sashiko@kernel.org>, <daniel.zahka@gmail.com>
+Cc: <kuba@kernel.org>, <willemdebruijn.kernel@gmail.com>,
+ <davem@davemloft.net>, <edumazet@kernel.org>, <pabeni@redhat.com>,
+ <horms@kernel.org>, <corbet@lwn.net>, <skhan@linuxfoundation.org>,
+ <rdunlap@infradead.org>, <donald.hunter@gmail.com>,
+ <andrew+netdev@lunn.ch>, <shuah@kernel.org>, <netdev@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+ <linux-kselftest@vger.kernel.org>, <willemb@google.com>
+X-Mailer: aerc 0.21.0-threadmapfix
+References: <20261116-psp-v4-3-1a599df2aefa@gmail.com>
+ <179498190614.3136.5698785790307751985@kernel.org>
+In-Reply-To: <179498190614.3136.5698785790307751985@kernel.org>
 
+On Wed Nov 18, 2026 at 1:05 AM EST, netdev-bot+sashiko wrote:
+> Thank you for your contribution! Sashiko AI review found 4 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 2
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] The new PSP_ASSOC_DEFER_TX_KEY_DEL path in `psp_assoc_free()`
+>   (net/psp/psp_sock.c:118-121) gives up its only psd reference before=E2=
+=80=A6
+> - [Medium] Removing the SADB check in `psp_sock_tx_rekey()` lets any non-
+>   admin user who can reach the PSP device rekey one established TCP=E2=80=
+=A6
+> - [Low] The commit message never says that this patch turns on Tx rekey
+>   for SADB devices.
+> - [Low] The patch adds a lock-context rule for SADB drivers that only the
+>   commit message states: they must not call `psp_dev_unregister()` with=
+=E2=80=A6
+>
+> --
+>
+> psp: defer tx key deletions for SADB drivers
+>
+> This commit adds a deferred deletion queue for Tx keys on SADB devices.
+> A key detached by a Tx rekey is removed from the device only after a
+> BQL-based descriptor grace period, which a delayed work item checks by
+> snapshotting per-queue num_queued and polling num_completed. It also
+> makes INET_PSP depend on BQL, requires ops-locked netdevs for SADB
+> drivers, and drops the check that rejected Tx rekey on SADB devices.
+>
+>> diff --git a/Documentation/networking/psp.rst b/Documentation/networking=
+/psp.rst
+>> index 43f222b38d3d4..ceb1e232317fc 100644
+>> --- a/Documentation/networking/psp.rst
+>> +++ b/Documentation/networking/psp.rst
+>> @@ -202,6 +202,48 @@ Drivers must use ``psp_skb_get_assoc_rcu()`` to che=
+ck if PSP Tx offload
+>
+> [ ... ]
+>
+>> +* Before calling ``psp_dev_unregister()``, the driver must ensure that =
+all
+>> +  outstanding Tx descriptors containing key references have been comple=
+ted
+>> +  or discarded. PSP core deletes all remaining Tx keys during
+>> +  unregistration without waiting for a grace period.
+>
+> [Severity: Low]
+> Should this list also say that psp_dev_unregister() must not be called
+> with the netdev instance lock held? The commit message states that rule.
+> It is not in this list or in the psp_dev_unregister() kernel-doc, and
+> nothing asserts it.
+>
+> psp_dev_unregister() now starts with:
+>
+> psp_dev_unregister()
+>   psp_deferred_del_stop()
+>     disable_delayed_work_sync(&psd->tx_del.work)
+>
+> and psp_deferred_del_work() takes the locks in this order:
+>
+> 	mutex_lock(&psd->lock);
+> 	netdev_lock(psd->main_netdev);
+>
+> Suppose a driver calls psp_dev_unregister() while holding
+> main_netdev->lock, and the work is blocked in netdev_lock(). Wouldn't
+> disable_delayed_work_sync() then wait forever?
+>
+> Even with the work idle, the later mutex_lock(&psd->lock) in
+> psp_dev_unregister() would run under the netdev lock. That inverts the
+> lock order the work uses.
+>
+> mlx5 complies today, because mlx5e_nic_disable() drops the netdev lock
+> before mlx5e_psp_unregister().
+>
+> Could the rule go in this list with the other requirements? Something
+> like lockdep_assert_not_held(&psd->main_netdev->lock) in
+> psp_dev_unregister() would also match the ops-lock WARN_ON check in
+> psp_dev_create().
+>
+> [ ... ]
+>
+>> diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
+>> index d497f41c483e1..48bffe088c79b 100644
+>> --- a/net/psp/psp_sock.c
+>> +++ b/net/psp/psp_sock.c
+>> @@ -114,8 +114,14 @@ static void psp_assoc_free(struct work_struct *work=
+)
+>> =20
+>>  	mutex_lock(&psd->lock);
+>>  	if (psp_dev_is_registered(psd)) {
+>> -		if (psp_assoc_needs_tx_key_del(pas))
+>> +		if (psp_assoc_needs_tx_key_del(pas)) {
+>> +			if (pas->flags & PSP_ASSOC_DEFER_TX_KEY_DEL) {
+>> +				psp_deferred_del_queue(psd, pas);
+>> +				mutex_unlock(&psd->lock);
+>> +				return;
+>> +			}
+>
+> [Severity: Medium]
+> Once pas is on psd->tx_del.next, its psd reference belongs to the
+> deferred queue. This path keeps no reference of its own across
+> mutex_unlock(&psd->lock). Can psd be torn down while this thread is
+> still inside mutex_unlock()?
+>
+> Documentation/locking/mutex-design.rst says mutex_unlock() may access the
+> mutex after releasing ownership, so the caller has to keep the mutex
+> alive until it returns. When there is a waiter, __mutex_unlock_slowpath()
+> releases ownership and then still takes lock->wait_lock and calls
+> debug_mutex_unlock(lock).
+>
+> A possible sequence:
+>
+> CPU1 (psp_assoc_free work)         CPU2 (psp_dev_unregister)
+> psp_deferred_del_queue(psd, pas)
+> mutex_unlock(&psd->lock)           mutex_lock(&psd->lock) succeeds
+>   still in slowpath                psp_deferred_del_uninit()
+>                                      psp_dev_put(psd)
+>                                    mutex_unlock(&psd->lock)
+>                                    psp_dev_put(psd)
+>                                      psp_dev_free()
+>                                        mutex_destroy(&psd->lock)
+>                                        kfree_rcu(psd, rcu)
+>   debug_mutex_unlock(lock)
+>
 
+Ah TIL. I was a bit naive that mutex_unlock() can still be running while
+the next waiter enters the critical section.
 
-On 13/11/2026 6:03, Changyul Lee wrote:
-> mlx5_vxlan_reset_to_default() walks vxlan->htable without sync_lock
-> and calls mlx5_vxlan_del_port() for each user port. mlx5e_nic_disable()
-> and mlx5e_uplink_rep_disable() call it after rtnl_unlock(), so the
-> udp_tunnel_nic work can run mlx5e_vxlan_unset_port() at the same time.
-> If that removes and frees the entry saved as the next one in
-> hash_for_each_safe(), the walk then reads freed memory.
-> 
-> Hold sync_lock over the whole walk, and add __mlx5_vxlan_del_port() for
-> callers that already hold it.
-> 
-> Fixes: c5eb51adf06b ("net/mlx5e: Fix VXLAN synchronization after function reload")
-> Signed-off-by: Changyul Lee <lcy8047@gmail.com>
-> ---
-> Found with a static analysis tool we are developing.
-> 
-> Compile-tested only, with x86_64_defconfig plus MLX5_CORE_EN and W=1.
-> 
->   .../ethernet/mellanox/mlx5/core/lib/vxlan.c   | 24 ++++++++++++-------
->   1 file changed, 15 insertions(+), 9 deletions(-)
-> 
-Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
-
-Thanks.
+pw-bot: cr
