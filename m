@@ -1,100 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794990240;
-	b=D5B47Fmqnn2OYaoVWVqBT1mdLFUjgaw4cjj4b9Fo0csGNa7Ivi7BBYmpGBLRajm219IA
-	 KIYLlW3y6Lvg2mI1zVG4fXyBpIDhO7U6OpPGmRe3wANRZQ1huyiNucMGzYiml8VdLTyvt
-	 SeSTrjoOap/D5OZGLVLE502d7ryRxHubMN9GetKx4Kue7NL5kLMXgZIVvmlpyCBjYFKIk
-	 YsYgnRfCDPsw+qH9pOa239IMoTomgrrqs5vDDUlrBdcL2yo7mQJCiaHBAdDpHUEJ53e64
-	 V2qTwhbxSnAgQOEUHIj3yTfB6TqXrNDfsIPKgMZDg8FmdKV4FWSMtQHSa5l3+N6OwJw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794990240;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=/6/kh5W30HhpdBPfGGAYex3HyQBO9GYAQyqbkb72JOY=;
-	b=1GGgrBnO1RLAfP3vHKcSYt1alScqxyc3G/yAKZOjTrSzQ05uNUNhmIXHjOMvzD1b4jnN
-	 zbz5VOvZQrH03Ajoh58YyZFmt2jClGyPYqt2Wua88WQp9tE8hLQdMt14ZegnfclJum3vx
-	 f1Jwm1kOnht4iPrt9RrHuevtVSUbspJz4ry+Its2hJpvyWN8axuS1IeT6sWqmchoDD7Gx
-	 m/Xm3CSW2Sr0KrYtKd86/9KLwiwnEviJOFTY0TQNAYs1Zlir1EAiYz8AwamBS57G/qQqA
-	 Ul8qo+pdljf8n18LjELw2+4iZBY4Y27JPm/zKHbAfVzYk4cwuV5UNhAuc+14UoJ2RpA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EvXJLKLS;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
-Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com [209.85.208.180])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.121
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794990438;
+	b=mQyL3chnW2p/nSm+K83qT4Lh55r2XsCqpN7L/9ufIPO8odeUp+9REVKqAEH9evZSrx+8
+	 Bc3xrILssWaW3j+O++LlUy9ig4R4qKJEiwXk0vz/QXZr/5rziLneRqQZflAHUrphgyX7l
+	 6pBBsEmODCJa6g4IiX7Sh7gVp2S0nNN3csF+JqDlrcGNmiMDjYakQzbm7SeKUdHHcqYeA
+	 JJNcpXWVs6+41DxoUzZwHLcwqWiiGLdjvxjm65cH6w/kaoNuGdHnT69WgLI39abLjMUJd
+	 G1L9vMAlkmkk+7wkSWfVg0v4iGU5xZF5MiMOuGDtkM7rP7mItzpKSJTPR2+5n2ycFEA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990438;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=gadXbyq6kkimUUJ2iNNLdaAaP/G19gIHifpqbx4fy98=;
+	b=qrcM8bIIIe+BBIbFxe0ffz0RrfkRYYbJbUJ+C8CPFGbNbwBV/I4Mv+JgEzqhHDWL8/4C
+	 c3ffRoiTxOvvn7JYC4ytAecwphLDQ3mX5eVwTanTKJginMI2zfxkJWS7d5G3CsniSOkdU
+	 uz7eQAJ2GEP4rKq6AMnLIG7UNfcJfXDoekKNULwjYWbAIr2mFVfdCFjEJ+F62vkAbp8WD
+	 1/X03mKaiACVEMijmgN1JY1GenI3cYBB5vK8JbSnPA0TK6fZRgVhoi/h9W34uiPtApLf+
+	 xBVWKgniDDNlss716DAPC8bOkuI3gMV7cqrJjrqOovjGii9rUIjAh2uvfbY3s6RfDww==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=m42car4W;
+	arc=none smtp.remote-ip=95.215.58.121
+Received: from mta1.migadu.com (out-121.mta1.migadu.com [95.215.58.121])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2064F606A330
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:23:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2064F606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03C3C606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:27:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03C3C606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EvXJLKLS
-Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3accd1ff4c3so5901111fa.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:23:59 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794990238; cv=none;
-        d=google.com; s=arc-20260327;
-        b=CcJm1snikX9bMNmQ+baPv6N7kppC9WfVxYsAcrB9WA3xhp4nRFMtTomwyos7KyQv0E
-         h1tP88bBSf2GNj8B+6nbxhoFK9K07JZcNhxws+mNAF2fufLhxWxATfxfI5GQIy3mPtyN
-         d07EG//Sez18ldc930RE5K+8i80Dht8nQXdT2SXGu63K6gNXFu4Z9zfjGZu8Vqu/8+y8
-         7czPsm1qYzABXXKfiB/BVEKdDIlXE69OsV+6CYL3ZA9U/F467Dw8hJI46jw0YQhKz08M
-         Os90eUxmvYLfnvdPByS5LvbVlgUKsyQAI+aOSf1XVb6GJ0kinR3uG8yhA1JH275fCv93
-         FN2g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=/6/kh5W30HhpdBPfGGAYex3HyQBO9GYAQyqbkb72JOY=;
-        fh=99GZjcgrzuavPNMoX9fPQFTDK1gSN4AJu8GsV+jj96Q=;
-        b=PYtuEdpycbj2Usb/21RC5b+nr/0pt5k7mTzbpRDxO+BLDSq/njA+75XoML9EJkmJrG
-         oJXwV/OaB6WjoyiAzKTzn2DhnX+tZ2vkUgUoISjLG3wadD6QYKl9AJ3N6q9dApOtooB6
-         sMXN9tyO7487ycnhtE1ydsJnxGU8/5kfoY8Jx0n7+GG4ybIHeFyQLzX/c8+nwe0yTEkE
-         gjVTAM+H61uPdHnrmjITM75IjQZcbCICEbyY7ZF4rHPADkZyrLMm0YSvBQLy7hG5Xq60
-         U+NVM8o9QFWamSkosrVyTbEs+o9pYbQMfO6BXqco44tN+fVUCSk+mVtMrbyDWSNWAkjd
-         dvDA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794990238; x=1795595038; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/6/kh5W30HhpdBPfGGAYex3HyQBO9GYAQyqbkb72JOY=;
-        b=EvXJLKLSa/4hjF0z9uIGue3u4pc6jkvzQtH1f0PBQlA2FVXtoPM6ojFBdYIrO9fCHd
-         gHLSqnSeEfO1o+aR4+ToQqcMZJXpNI/PpQsRjf3JnYKg4l5OrG9GfOx2ognqvlqwf4cC
-         oGfa8z3jCGvAgOY0DG/zesjLpzS0sbKftLc2dkRKHA3lQrbh/GG6JQGSWndQyDh1LCbx
-         VAmw19KDh16mWOJxlCIFgQtSBIq0E/kB17vYawIjnftezLPjh/QwRoL+5BTwAxd5rL1x
-         sHfLbLcUbC+z+MB2OlR+2AS3n0IDuJrhjyndONQJwnw7e4zWqLVTaowQaFc4fU+LENot
-         nrrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794990238; x=1795595038;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=/6/kh5W30HhpdBPfGGAYex3HyQBO9GYAQyqbkb72JOY=;
-        b=EjEp9ZxRSFXw8q+FbMNim3sP+7mYKsNMrakYAbRHGFgDdaQW7ZGbMwwE+1sZGpREIC
-         eTApZ2I4q5jEija55mkh4NOGXNqRAy2UKIMxWlMSMpGRqm50DwiQDK0KuV0IVZQF4oNa
-         wtLjg+BSaTVmq+6MzLobjUAJJgLyCYVxkvaFgFyU8Q0Dku0ID/IDQyIuSacZ22FklSyf
-         WSRtl1UyLc/BSwxlKxR9kEanQL5/8g6XCAFNnHc4FK04uiywjw94ZzZpgECUua5TZTlz
-         vMU768+Fl3inyHCBpjOFKKK4judnm8QSTXikjVJVPDefivrSX/eMiShBtP7JDDUxwMV4
-         jgBg==
-X-Forwarded-Encrypted: i=1; AL+hErHnXnRVFymXny/Aiht5XXPCX0Nm6yiIozVJkKD4YH4R8Dfg6FdavH3ST/LmofvML61hid1NLRA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9q0RK+g+s6cUejF+S+DTNlBzhvMI5mcphZ0sV98E4WkisMK1u7
-	ESIJ0AFQykD3R3C4OCTRYar0Ur4ya7NcfKSl3BYPpPpUkbaIabnoqplHZEz8tht8H3b03vRHR3Y
-	0LGEpoRe2eKEcNzPG/hql72R4rmH5LTE=
-X-Gm-Gg: AYBFou1+yWxqQKePZnGmsMe67m+omg16lTIYhgK5rqirsKLOOa5cTAJ1Et9/IcfuR30
-	UHBJDMZYQ8OCi6BQlb4Cq8LUEWuuJophn+9gyEbTF+Dmpld+RAyy7rB/n93I/QnVSr7bJ6waFnX
-	QFO7xn00A+m0yaT0veU0x97th457jn65rDQUh4jWUpotaozxKvw0pF5MrKHtlf431+YUx2VBCLt
-	pbtvEEfsQKXYy2vV9n0cGYWB9eLhtEmbismrZ5rNM4CRd1ttT8kUTi6GZuv9oox/4sxacS8JCEm
-	jnQ0OFf81voTxBB40kxHOwMuOkznhgTPLiga6xQvkCFDIxqprjKRhcT8DErgczOvgz4fMmhWdzk
-	FxkYkvhCC8sOIsp5yMVDWwWPPQk40HejoQFjHmnptl7XJHo6vtjqI/sc5iNhkvaKaNinDiyo27F
-	jqymxfa8CyBhrseaSeK6lx1fVqWt+slgcbH2uDV2iAmEtU0DeKrt/+s0CuD6fkyQ==
-X-Received: by 2002:a05:651c:a165:b0:3ac:d178:4fab with SMTP id
- 38308e7fff4ca-3ae670bf950mr5692991fa.15.1794990237903; Wed, 18 Nov 2026
- 00:23:57 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=m42car4W
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=aoOLVpBoWNs84O56OwBWfuEn1iIlTR6T4qFPvvTlP/0=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794990436; v=1; x=1795595236;
+ b=m42car4Wimit/SuZmWvk0s7e+6V2UvcS0iy/1++b7+ZHPR3+5YjHsSdcLvDbZxabEc/GyIta
+ bcDW9vq2GX8DqlhLUrPJqKp0HaOMVKWk253W5gqnUrp3VawRZTC+7czkT5z37NDdkpY/9mMb7d2
+ rysiXhxfI0eW3U1bEabY27rw=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta12.migadu.com with ESMTPS id dd52a83b7784220a;
+	Wed, 18 Nov 2026 08:27:15 +0000
+X-Mizu-Trace-ID: dd52a83b7784220a
+X-Migadu-Flow: FLOW_OUT
+Date: Wed, 18 Nov 2026 16:27:07 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Pin-yen Lin <treapking@google.com>
+Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Bjoern Doebel <doebel@amazon.de>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>, Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org, Matthieu Baerts <matttbe@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	Jonathan Toppins <jon.toppins+linux@gmail.com>,
+	linux-kselftest@vger.kernel.org, Hangbin Liu <liuhangbin@gmail.com>
+Subject: Re: [PATCH net] selftests: bonding: fix failover race in
+ bond_options.sh prio test
+Message-ID: <av1hWxGIlZUJDUpl@fedora>
+References: <20261112014942.2946303-1-treapking@google.com>
+ <avaewOJD7tX1UYfE@fedora>
+ <avanVkILHDYdpond@fedora>
+ <CAHwYsio=qtCY10EPnh+qvWpdgtQUG5mw1b3WKMt9_Kytcc7h9A@mail.gmail.com>
+ <avwBrbJfp4ET9ifT@fedora>
+ <CAHwYsiqwCVPJqtQRoP+9Uw66RpdGL4zuiCPO8+mqShxnvFgDPw@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,25 +77,118 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118081530.32-1-luob87709@gmail.com> <179498993525.3291.5601341761915431183@kernel.org>
-In-Reply-To: <179498993525.3291.5601341761915431183@kernel.org>
-From: bin luo <luob87709@gmail.com>
-Date: Wed, 18 Nov 2026 16:23:45 +0800
-X-Gm-Features: AclHuK8tzrXAnBEEnV7izSR1ok85RQGJJb1sS75npmL1o0nlxOXbqqrnO8hfmRg
-Message-ID: <CALa7h7Ges-aY7SrJcODTESgq8q04Ak5a_3ksT1FTjQe8RYzwWg@mail.gmail.com>
-Subject: Re: [PATCH v2] net/nfc: fix skb ownership on data exchange errors
-To: netdev-bot+sinfo@kernel.org
-Cc: oe-linux-nfc@lists.linux.dev, johan@kernel.org, david+nfc@ixit.cz, 
-	netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAHwYsiqwCVPJqtQRoP+9Uw66RpdGL4zuiCPO8+mqShxnvFgDPw@mail.gmail.com>
 
-Hi,
+Hi Pin-yen,
+On Tue, Nov 17, 2026 at 06:32:52PM -0800, Pin-yen Lin wrote:
+> Hi Hangbin,
+> 
+> On Mon, Nov 16, 2026 at 11:26 PM Hangbin Liu <hangbin.liu@linux.dev> wrote:
+> >
+> > Hi Pin-yen,
+> > On Mon, Nov 16, 2026 at 05:30:28PM -0800, Pin-yen Lin wrote:
+> > > Thanks for the pointer, but I believe Bjoern's patch addresses a
+> > > different problem.
+> >
+> > I think they are the same issue, as you comment also said
+> >
+> > The ARP/NS monitor marks a slave down when it has received nothing for
+> > too long.
+> 
+> This is the existing behavior of the bonding driver, and the prio test
+> uses it to check which backup slave takes over. Slaves being marked
+> down is not the root cause of the test failure. Instead, the root
+> cause is the ping replies described below.
 
-The issue was first identified through manual code inspection during
-our NFC callback-ownership audit. I traced the NCI data-exchange
-completion path into rawsock and found that a non-NULL skb could
-bypass cleanup on the error path. I then reproduced the behavior with
-a QEMU NFC_VIRTUAL_NCI test.
+If the backup slaves are not mark down, we can active the correct slave
+based on the priority, right? I think that's the root cause. The ping testing
+is just for checking connectivity.
 
-Best regards,
-Bin Luo
+> 
+> >
+> > >
+> > > Bjoern's patch keeps the traffic flowing so that idle slaves are kept
+> > > alive between the test steps. This patch fixes the case where the ping
+> > > replies from bond_check_connection() only arrive on the active slave
+> > > right before it is set down. The active slave's failure is then
+> > > detected one monitor interval late, when the backups have also timed
+> > > out.
+> >
+> > The reason is we set arp interval to 100ms, and slowwait also check every
+> > 100ms. If the backup slave down at the same check point, e.g.
+> >
+> >   t=300  monitor: eth1 idle 230ms -> still up
+> >   t=400  monitor: eth1 idle 330ms -> down
+> >                   eth2 idle 400ms -> down too
+> >
+> > The test failed.
+> 
+> I don't think the slowwait interval makes a difference here.
+> 
+> The ARP monitor decides which slave becomes active, and slowwait only
+> reads the result afterwards. The test expects the active slave and the
+> backups to time out in different monitor runs, so that a backup can
+> take over. In the example above, eth2 is already down when the bond
+> picks the new active slave, no matter when slowwait polls.
+
+
+My idea is, by extending the arp interval, there is a larger gap. e.g.
+
+   t=300  monitor: eth1 still up
+		   ^^ slowwait check, incorrect active slave
+   t=400  monitor: eth1 down
+                   eth2 still up, should become active slave
+   t=500  monitor: eth1 down
+                   eth2 still up, active slave
+		   ^^ slowwait check, correct active
+
+> >
+> > >
+> > > The ARP requests triggered by Bjoern's ping are sent only about once
+> > > per second, which isn't frequent enough for this failure. I tested
+> > > Bjoern's patch and confirmed that it didn't fix the issue in our
+> > > testing environment. We also can't simply use arping instead because
+> > > iputils arping doesn't support sub-second intervals.
+> > >
+> > > If you're worried that the 200ms sleep is too short, would increasing
+> > > it to 0.5s or 1s work for you?
+> >
+> > It's not about the sleep time before setting active slave down. I'm afraid
+> > about the slowwait checking time. Even we sleep 1s, with arp interval 100,
+> > we still only have 100ms checking window. Before the window, the active slave
+> > is up, after the window, the backup slave also down. With a debug kernel, this
+> > time is a little tight.
+> >
+> > So, either we have some background arp traffic, or let's extend the arp
+> > interval to a larger one.
+> >
+> > What do you think?
+> 
+> I agree that a 100ms ARP interval could be too short in environments
+> like a debug kernel.
+> 
+> Background ARP traffic doesn't widen that window, though: it is sent
+> through the active slave, so once the active slave is set down,
+> nothing reaches the backups. It could only help with the ping reply
+> race if it were very frequent; Bjoern's patch triggers about one ARP
+> request per second and didn't fix the failures in our testing.
+
+For background traffic, I mean let the client send the arp requests,
+not from active slave of server. With arp_validate 0, the backup slaves
+will update last_rx and won't be down with idle.
+
+> 
+> Increasing the ARP interval alone won't address the ping reply race,
+> but it should help in environments like a debug kernel. I'd prefer to
+> keep this patch focused on the ping reply race and send the ARP
+> interval change as a follow-up, but I can fold it into v2 if you
+> prefer.
+
+Doesn't extending the arp_interval (e.g. to 500) resolve your issue?
+Are you still able to reproduce the problem?
+
+Thanks
+Hangbin
