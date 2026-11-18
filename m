@@ -1,86 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011133;
-	b=FI1973yQgWtg+xt9/QuBNci9cdAOI00BPhd4Tzj3L7Hmlq6ETXEWk32mSVhThMAc5epy
-	 o1MpIlgN1LGsDVVyygg+syVFi3NcYQ8EE1+G1Znit6pu+mKe1Q/4s4VVLyeCR4STUvGnc
-	 Kc6YdVNWiKzT7hGNhvX21INXSpfY3gyay/ENuvfFfhClkpO8gUautuPCo6gXT4n4nnXm5
-	 UWCYuxydJE63YpRyVHEseJAarujoE53ZHptTrBTwR8JbDHCos0fSE+nsstdbpS4WBg/Qc
-	 7clMAsewiBWk1lKp1CHLf18if7hrnaBge5bZdVLAQkEbNNvPUNYk4rRwmT8xDxv1Diw==
+	t=1795011215;
+	b=vlXhawbh+6FX1+NHH/D+/rLjRsVawBsw7IA4qkPt0cgFkt4KkPiAZbgSEdHM/NjowuWY
+	 9mHHLibj0uUbOMZ5sWAB6zCwTO7bJY02n/lB50y//8cZZmVM/RADY08SAq/dkKA4/jopK
+	 K3n2OKjpkKCZmPUMbq12Pq4+eN4aCQ46LRddutEBikh8ntZyvBRn2+0hv0v678cUOfHkd
+	 9aExWnofvXnpxf6BJTOJFCdaZIbeel4puEQXu1BLdqMm2bw4kCd/+WKyDlTGVIkDzkW7f
+	 V9czSFUYw1e9bWqC34o4HGDpsdxTUWCO/RpINsJKtuoseLBx9H/QCkdmUSqqTLMcDcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011133;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
-	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
-	b=afaO0ToyDr85AjFTIr+xUCR7yIZgReNLVyERLKEiLgislp1w6ECtHIKCw4lwy2ic2rPh
-	 A+pnKjlP6+XK4TgAu4ktQ2MlsALp93xpBFItRjBOjMq+LSCJqMMYTctY3dI4jkUIFj18P
-	 fUkU0UzZgvPazAYbxjKzIyXy4Qyo5QcOOOH3zN2qcEAo0X7/iBrsLI+w0UJCW+2dnMoJD
-	 B+WPidx53W2RbmyddUKB2HZV9UT1PGLf16SW6vN7q7AkD2Cjb7V45qfys6FgBx8sPCdhy
-	 wsIwLPS0qrvotGx9ZvybYVcAc6n0zK0zip+CCdetoLCupSJia1p5oXiMsd+FPgTi7Og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011215;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Nm7knwVhQfHseANsuvpG5MUS6IV9swMP+DvaCdvGlvU=;
+	b=kT1GXbI90NpiRixYWq4kenPks4u6OJw0cqr7SwNUIx7wBDGt77TIR52uFyeWCasb5FRt
+	 tqVje1KxLyUgkFyWs2iueOyuYEqxS3BM1ITr8fUTyrG1ocIkC2KdC3gIi7QgRDPiaJiAY
+	 N5cfLw3u0aMRys//X4uey7gUlXGLSjGAdNA6jfmzLMGZ4DhEyy97IOZUzVFqOmvxFtXNx
+	 WUW8KqIEmWIw8zIqTWgKSLFdMDsVubgF9weIduJ+YfEY6H4Z4sFRuVRdSA3pOLFzUw3Az
+	 5EwjWzlPCpeMa1ypfZ2CYcJL7aw4NG/xvIW8X4tx9BqC5sStQNCgFgskA+q+uxt/HAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=baylibre.com;
-	spf=pass smtp.mailfrom=baylibre.com;
-	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=X+Du2E5H;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ieSuVSdX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3C0760A2616
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:12:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3C0760A2616
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A58A7606A330;
+	Wed, 18 Nov 2026 14:13:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=X+Du2E5H
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so381292f8f.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:12:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre.com; s=google; t=1795011126; x=1795615926; darn=vger.kernel.org;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
-        b=X+Du2E5HeDdGwpJtkkybS4mRnYIN76epeyKOe0BAKNzk2aIzSHPLlFW1sPj87xh6QD
-         r8+27iMo40fH3/Dfjz/gjFCrVzVzwYvkUZD9TFz9bTM2Tc3FHcMsL2SxK0ysirMwspZ6
-         bFZaHoYqXkDu1jjng6iK63CdgKssDdTzOvbzGkeu4BC33Kqb/OL0JZe3/FnqX3w7/Q09
-         CoxzHRaFuCZM5DNQ+HEpaMLG+idiYekrYrYyjwysV7ldZqI8eqFfS9p9yDN77C27r4nd
-         aQWcGYi1pHhF3PATB+2bvKGeW6ek3lSjSwjVlq1jIHKFJ/2km/fmms3HIkfrJRTOi6Bb
-         ot/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795011126; x=1795615926;
-        h=message-id:date:references:in-reply-to:cc:to:from:subject
-         :content-transfer-encoding:content-type:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
-        b=PGLlPbOUWoR0ik/vdBGjTkf4Y4l5fcPtO4oAw0k3gj6QxB7SDCgGEYUyqS4g/WWRVb
-         2MQ38d7dZqlpPLHjgct34CVH5SaNwz24UuuYgXhT3U9tX53zqfNyPu3r0cMv70j+kWTx
-         asXsxyIwHSQYqE3bxs7+rRewr3DEAKay1nM6zRnvob0mTd2AUsAyTy0GAzvrRt4lg1im
-         1lvaGsm1qYZvw/kUKA6+Dj65p1KGmvlsRuWEDIRHgjrbx3l5Qf5XFBiIXA7osBd0rM2n
-         w36hVjjbVnrF/YRmMEwhPqfDOeM5xTdPJlORpF5F8vqP5w/IXqbEQj5lpt0EdxyghASq
-         VYRw==
-X-Forwarded-Encrypted: i=1; AL+hErEvcA4NV0pgsQtbU4apbAWVVtXBE/GrK0IeZqSECmBN4n/NsadV+tVdjlrwilR/jHfmT2waBoY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9c4rMMiImEL6L/PoaLASF5IOibRjsZAtAi4kcpd+szvYFiR2Qy
-	poOHcrLKx15KsuDLwpZAg/pn3kUMo01tjhoN5YIGNS4UHEx9qqDVA+Gt5BtTcbjrXv+eHvTQM2u
-	n84H6
-X-Gm-Gg: AZFdTZcqHWwKIddBSoBSA7SQRSB31FZyDP0Zj3bmqFml53R+yKSSQVP6D0xr0hMxRej
-	7FcuhAEVFnd7WRZTWlaRrQH31je619LKCcYAbbJPb1U0SKt583ciqY1U9fI4R55jqMp1ctrTmI5
-	sQD7SXo4iDDv7y8XbuTXhFb9BPP32ynXjNHLrF4KPKIYOW+O4cK52mTpbl7J8svojNhuJFNcWtX
-	xItopMtqOYGJYxVlqtn/rwmFnLpsg3RmDiOTlpPddH/4dlYzWtXQkPdJcncDZ6mPsvUSufEzo1R
-	EussLtUnP7/WyFtc4M5sSYUuYM27Fp/dUO2Mr20H9v37xKNsvgcdl1JLFONtdMnycrrNMm+TfCO
-	pZYKWOdr09WDt/q7n0hTIDOhbCGGLgam8Kb7CcbsK0wrbES2chFx/iEdtuQJ5FroW2zPhor6NYz
-	aOf1+LOuyd3vW5fSmXlJ9UVB7uzQZ9E8ZIpzG0PbGhZF++YIcQo9UdawsnreB50icU4qfWGfQPA
-	q0XbQRy0r5JHByCAdr/r9oWngmOwsWqr3hmztBbfbbTtL6pBWulMw7kWn/cI5QT2RFbMr/GiZ4S
-	gKeiaVIYa+M27TnZEzfrKG/tcPC6XMxLnfmpNnYkEB4o+lam
-X-Received: by 2002:a05:6000:186b:b0:48e:88e2:fe6a with SMTP id ffacd0b85a97d-4a63f4623d2mr6222883f8f.49.1795011126108;
-        Wed, 18 Nov 2026 06:12:06 -0800 (PST)
-Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a650d2ecd0sm5590663f8f.8.2026.11.18.06.12.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 06:12:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ieSuVSdX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C579F1F000C4;
+	Wed, 18 Nov 2026 14:13:34 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795011215;
+	bh=Nm7knwVhQfHseANsuvpG5MUS6IV9swMP+DvaCdvGlvU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ieSuVSdXVN8BeQNm/tgVz1twPTRdYCxo2LUwMMLa3beCGAxWYQHd+cWS09lgC4UHW
+	 EhgBKlw3tpGW59ctyRVTBGYfy/OVrcl2l2Ia7VjHQ8utApakkkLkT0FCJKanVcOlPA
+	 SJfc071jr5ch5ypR/0MyjZGCNxR99VfOmAdvmGaOcXAwc1jCMbZBS9GOktqrT34BgG
+	 MYe1jF8pjOmcuD/A8xLnknoHZEoDHg4vJReJ5R5xfM+QY9X+ABtmwvfNmQNlK3T5Re
+	 unYE6GBsm1JPWrsXURk9qMFy5U5d4AYY7UreXc6mg4tqy99PcgvTa19AoafHt3tlj5
+	 CKHR1BJK370Hg==
+Subject: Re: [PATCH net] octeontx2-pf: Fix potential use-after-free in
+ representor teardown
+From: netdev-bot+sashiko@kernel.org
+To: liguangshuo@mail.sdu.edu.cn
+Cc: sgoutham@marvell.com, gakula@marvell.com, rkannoth@marvell.com,
+ sbhatta@marvell.com, bbhushan2@marvell.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Wed, 18 Nov 2026 14:13:34 +0000
+Message-ID: <179501121429.3136.3547762606402557223@kernel.org>
+In-Reply-To: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
+References: <20261116-c29ba55625-net-otx2-representor@mail.sdu.edu.cn>
+X-sashiko-severity: Critical
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,79 +64,230 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Subject: Re: [PATCH] MAINTAINERS: Update UltraRISC driver maintainers
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Xincheng Ji <jixincheng@ultrarisc.com>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
- Manivannan Sadhasivam <mani@kernel.org>, 
- Bjorn Helgaas <bhelgaas@google.com>, Stephen Boyd <sboyd@kernel.org>, 
- Brian Masney <bmasney+clk@redhat.com>, 
- Jerome Brunet <jbrunet+clk@baylibre.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Linus Walleij <linusw@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
- Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
- linux-pci@vger.kernel.org, linux-clk@vger.kernel.org, 
- netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
- Fei Chen <chenfei@ultrarisc.com>, Conor Dooley <conor@kernel.org>, 
- linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Jerome Brunet <jbrunet@baylibre.com>
-In-Reply-To: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
-References: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
-Date: Wed, 18 Nov 2026 15:12:02 +0100
-Message-Id: <179501112283.639563.5233054429317576626.b4-review@b4>
-X-Mailer: b4 0.17-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1377; i=jbrunet@baylibre.com;
- h=from:subject:message-id; bh=vlDn3aALOXByZVs7mEqRvuJC3A1ctnxY975yMiaHYv8=;
- b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFl/N5nknC99zPPvkMAeEz+LJ/rb3O42SObtqLnBOZNhY
- rKGh3pmRykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACbyv5rhf+pRtSNHwkU+xf62
- 3H1MSnpnB/t0htMrxT57Xp29uUlbppLhf/BEnSWNU72uGOXvU9VP+/jowUV9g7UhNjMfXXfY/J3
- 3GgMA
-X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
- fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-> Jia Wang and Xincheng Zhang have left UltraRISC and are no longer
-> maintaining its drivers. Jia's listed company email address is
-> no longer available.
-> 
-> Replace Jia Wang with Xincheng Ji and add Fei Chen as a co-maintainer
-> for the DP1000 PCIe, clock, DWMAC and pinctrl drivers. Remove
-> Xincheng Zhang from the PCIe maintainer entry.
-> 
-> Having two maintainers provides continuity for maintenance and
-> patch review when either maintainer is unavailable, as suggested
-> by Conor Dooley during the UltraRISC maintenance handover.
-> 
-> Link: https://lore.kernel.org/all/20261112-legend-outcast-c2226b5e02a1@spud/
-> 
-> Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
-> ---
-> Hi all,
-> 
-> Jia Wang and Xincheng Zhang have left UltraRISC and no longer
-> maintain these drivers. Jia's listed company email address is
-> no longer available.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Maintenance is not necessarily tied to an employer.
-It would be better if the people removed could Ack the change, and let
-the community know they don't plan on being involved anymore.
+Critical: 1 (1) · High: 0 (2) · Medium: 0 · Low: 0
 
-If they do not reply within a reasonable timeframe (a cycle maybe?) I guess
-you can remove them anyway.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-That does not prevent you from adding yourself in the meantime.
+- [Critical] The patch is titled "Fix potential use-after-free in
+  representor teardown", but rvu_rep_destroy() still frees rep_dev while…
 
-I suppose this would go through a starfive/riscv tree ?
+Pre-existing issues:
+- [Critical] This problem wasn't introduced by this patch, but
+  rvu_rep_setup_tc_cb() copies per-representor pointers into the long-…
+- [High] This problem wasn't introduced by this patch, but the flow_cfg
+  setup used by representor TC offload has broken locking and error…
+- [High] This problem wasn't introduced by this patch, but
+  rvu_rep_state_evt_handler() runs from the AF->PF up-mbox work on…
 
-For the clock:
-Acked-by: Jerome Brunet <jbrunet@baylibre.com>
+--
+
+octeontx2-pf: Fix potential use-after-free in representor teardown
+
+This patch reorders rvu_rep_destroy() so that rep->flow_cfg is freed
+before free_netdev() releases the netdev allocation that holds the
+representor private data.
+
+> diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
+> index 0f5d5642d3f7a..662da7fc39536 100644
+> --- a/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
+> +++ b/drivers/net/ethernet/marvell/octeontx2/nic/rep.c
+> @@ -638,8 +638,8 @@ void rvu_rep_destroy(struct otx2_nic *priv)
+>  		rep = priv->reps[rep_id];
+>  		unregister_netdev(rep->netdev);
+>  		rvu_rep_devlink_port_unregister(rep);
+> -		free_netdev(rep->netdev);
+>  		kfree(rep->flow_cfg);
+> +		free_netdev(rep->netdev);
+
+[Severity: Critical]
+Can rep->stats_wrk still be pending when free_netdev() releases the
+rep_dev here?
+
+The rep_dev lives in the netdev private area. Nothing in rep.c ever
+cancels stats_wrk. rvu_rep_get_stats64() re-arms it on every stats read:
+
+drivers/net/ethernet/marvell/octeontx2/nic/rep.c:rvu_rep_get_stats64() {
+    ...
+	schedule_delayed_work(&rep->stats_wrk, msecs_to_jiffies(100));
+}
+
+The unregister_netdev() call just above seems to arm it too:
+
+unregister_netdev()
+  unregister_netdevice_many_notify()
+    rtmsg_ifinfo_build_skb(RTM_DELLINK, ...)
+      dev_get_stats()
+        rvu_rep_get_stats64()
+          schedule_delayed_work(&rep->stats_wrk, ...)
+
+When the timer fires about 100ms later, rvu_rep_get_stats() would run on
+the freed allocation:
+
+	rep = container_of(del_work, struct rep_dev, stats_wrk);
+	priv = rep->mdev;
+
+	mutex_lock(&priv->mbox.lock);
+	...
+	stats = &rep->stats;
+	stats->rx_bytes = rsp->rx.octs;
+
+It reads rep->mdev from freed memory, takes a mutex through that pointer,
+and writes into rep->stats. The timer embedded in the delayed_work also
+stays linked in the timer wheel after the free.
+
+This can happen on devlink eswitch mode set to legacy, PCI remove, or
+module unload, for any representor that has RVU_REP_VF_INITIALIZED set.
+After a module unload, the handler could also run after the module text
+is gone.
+
+The error unwind in rvu_rep_create() has the same pattern:
+
+	while (--rep_id >= 0) {
+		rep = priv->reps[rep_id];
+		unregister_netdev(rep->netdev);
+		rvu_rep_devlink_port_unregister(rep);
+		free_netdev(rep->netdev);
+	}
+
+This patch targets a use-after-free of the rep private data in this loop.
+Should it also add cancel_delayed_work_sync(&rep->stats_wrk) before
+free_netdev() in both teardown paths?
+
+>  	}
+>  	kfree(priv->reps);
+
+[Severity: High]
+This isn't a bug introduced by this patch, but can
+rvu_rep_state_evt_handler() still run against the freed reps here?
+
+It runs from the AF->PF up-mbox work on pf->mbox_wq:
+
+otx2_mbox_up_handler_rep_event_up_notify()
+  rvu_event_up_notify()
+    rvu_rep_state_evt_handler()
+
+It looks up the rep and does a read-modify-write without a lock:
+
+	rep = priv->reps[rep_id];
+	if (info->evt_data.vf_state)
+		rep->flags |= RVU_REP_VF_INITIALIZED;
+	else
+		rep->flags &= ~RVU_REP_VF_INITIALIZED;
+
+rvu_rep_destroy() frees each rep with free_netdev() and then frees
+priv->reps. It does not flush pf->mbox_wq, does not clear priv->reps, and
+shares no lock with that handler.
+
+rvu_eswitch_config(priv, false) doesn't seem to order this either. On
+the AF side, the NIX LF start/stop handlers check rvu->rep_mode without
+synchronization and send the PFVF_STATE up message without waiting for a
+response. rvu_mbox_handler_esw_cfg() also updates rep_mode without
+synchronization.
+
+Suppose a VF's NIX LF starts or stops while the eswitch is being switched
+to legacy or the device is being removed. Could the handler then read the
+freed priv->reps array and modify flags in a freed rep_dev?
+
+>  	rvu_rep_rsrc_free(priv);
+
+[Severity: Critical]
+This is a pre-existing issue, but are priv->netdev and priv->flow_cfg
+left dangling after the loop above?
+
+rvu_rep_setup_tc_cb() copies the per-representor pointers into the
+representor PF's otx2_nic:
+
+	priv->netdev = rep->netdev;
+	priv->flags = rep->flags;
+	priv->pcifunc = rep->pcifunc;
+	priv->flow_cfg = rep->flow_cfg;
+
+Nothing restores or clears these fields, and the loop frees both objects.
+Several paths use the stale pointers afterwards.
+
+The first is in rvu_rep_destroy() itself, when SQEs are still pending:
+
+rvu_rep_rsrc_free()
+  otx2_free_hw_resources()
+    otx2_free_pending_sqe()
+      txq = netdev_get_tx_queue(pfvf->netdev, sq_idx);
+      netdev_tx_completed_queue(txq, tx_pkts, tx_bytes);
+
+This writes into the TX queue array that free_netdev() already freed.
+
+The second is devlink. The params stay registered after the switch to
+legacy mode. otx2_dl_mcam_count_get() and otx2_dl_ucast_flt_cnt_get()
+read the freed flow_cfg, and otx2_dl_mcam_count_set() writes to it:
+
+	pfvf->flow_cfg->ntuple_cnt = ctx->val.vu16;
+	otx2_alloc_mcam_entries(pfvf, ctx->val.vu16);
+
+DEVLINK_CMD_PARAM_GET doesn't require GENL_ADMIN_PERM, so any user can
+trigger the reads.
+
+The third is switching back to switchdev. That goes through
+rvu_rep_create()->rvu_rep_rsrc_init()->otx2_init_hw_resources()->
+otx2_pool_aq_init(), which does:
+
+	pp_params.netdev = pfvf->netdev;
+	pool->page_pool = page_pool_create(&pp_params);
+
+page_pool_list() then does hlist_add_head() into the freed
+netdev->page_pools and sends a netlink event for the freed net_device.
+
+Should this teardown also clear priv->netdev, priv->flow_cfg and the
+copied flags?
+
+[Severity: High]
+This is a pre-existing issue, but the flow_cfg freed above is set up by
+rvu_rep_mcam_flow_init(), which seems to have locking and error handling
+problems.
+
+rvu_rep_mcam_flow_init() sends NPC_MCAM_ALLOC_ENTRY messages without
+holding priv->mbox.lock, and then always unlocks it:
+
+	if (allocated)
+		sort(&rep->flow_cfg->flow_ent[0], allocated,
+		     sizeof(rep->flow_cfg->flow_ent[0]), mcam_entry_cmp, NULL);
+
+	mutex_unlock(&priv->mbox.lock);
+
+Neither this function nor rvu_rep_setup_tc_cb() takes the mutex. Lockdep
+would report a bad unlock balance on the first flower setup.
+
+Without lockdep, can this release the mutex while another user holds it,
+such as the rvu_rep_get_stats() worker, rvu_rep_notify_pfvf() or
+rvu_eswitch_config()?
+
+The caller also ignores the return value:
+
+	if (!(rep->flags & OTX2_FLAG_TC_FLOWER_SUPPORT))
+		rvu_rep_mcam_flow_init(rep);
+	...
+	priv->flow_cfg = rep->flow_cfg;
+
+If the kzalloc fails, rep->flow_cfg is NULL. If the flow_ent kcalloc
+fails, the early return skips INIT_LIST_HEAD() on flow_list and
+flow_list_tc.
+
+otx2_tc_add_flow() checks OTX2_FLAG_TC_FLOWER_SUPPORT, but
+otx2_tc_del_flow() and otx2_tc_get_flow_stats() do not. Both reach
+otx2_tc_get_entry_by_cookie(), which walks flow_cfg->flow_list_tc. Can
+that dereference a NULL or uninitialized list head?
+
+Finally, the flower support flags are only set when allocated is non-zero.
+If the AF allocates no MCAM entries, every later TC callback re-runs the
+init and overwrites rep->flow_cfg. Does that leak the previous flow_cfg
+and flow_ent each time? The FLOW_CLS_STATS callbacks from filter dumps
+don't need CAP_NET_ADMIN.
 
 -- 
-Jerome
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-c29ba55625-net-otx2-representor%40mail.sdu.edu.cn
