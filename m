@@ -1,97 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008992;
-	b=3bcC+EEhheJ25QF5OnLiL4qgwsPBsSe9VIfYf/RjF7yCLtwS9bVhU+OgH6L+JzV6lNDk
-	 FhK/RezaLCUVDsEoqjUUPf23qqjptma47F13e3BAvvnh2b9oABDBHP7FgCcYdij3oR/po
-	 8InANVCzJNMBakbO1N98SKukKJ+P5XxkF7s+vZuROG7vDDo1hTUT+f3fAfFaQ5A5H8e8F
-	 0rZXiXMxSZnR3GUgMstaTVVlHMF0L2FZbKlS81KMwBQXkJ4rlpw/15Im4HcmCJjnUgLLV
-	 wHHWSVvPdo2oFRflmaPaA/UzZA/Y+CAeblaeIN6VBr59hS2dpNrUs52pFs2gDXdHgLA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008992;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.182
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795009040;
+	b=p0lgFDPqbyr/8ajpgokPpQoC/ZbRVcuWCuJIaZEGSB4CVoR7Ale1QBp36zKVts/WbXp+
+	 U6a5HbRT1DLHoYeyzAfzC/O8TeHZ/j8B5bV61C2M0Kxffe/g03UIdXobvA0C4b79XwIqw
+	 5bi8uRRV4moY7QO2ALkUkIsiqdjSD0+QZXLr8MEyIdDUxUZHwLuhrVzAXakPBe/LLcKjt
+	 Dg5qTQ0reZWGuScsVZ18zga+UzkLh7bu5mV1SBGx1d94ALjK4HXJxh4cbqlobPC/VwdBd
+	 8/bI1vVIMFZiZTogACzoxTo5QYoMUQesgTDcvCfScIDO5zJsYZyAP1k6r0KwWAfF0lQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009040;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:In-Reply-To:References:X-Mailer:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=Rjo73h4z6lxvsI8gaNf28And7gUEPL6GIiSTU2ZRTEE=;
-	b=F4HPy8PMSAog2kF57mQKgD/P34KKug8CjIRVq0r3bltO8enxpO+XkMtvi8dHBh6UCxoI
-	 2oTYR4pLJQd247Ry/i0NUE0DMyNdvqKndadOoOUym+923Q6HkYI+/p27uviqHKB5b95NK
-	 hw60kiZssmRynnsYqAfjvf0ojcXc23lUQdSeyelip9THWfQ2hMadTLESJxDpCUFsvNDUO
-	 iwXPTmQbQyRS6QAUg6MkT+XdXzBsnAPp4eGHSg4HLW3yB3T1LI6SD4g4A9H9KFghexBd5
-	 ax1ZVlgG0a+Cbs8x/HpPwofQtH8WpNAhUjKEGYFNqeLPoV/HrfTJXRePD45f7F/LmXA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=+Pne64dTPZwiQyGJLnEYc8Ub7GDR3IIujV0fV2jCbvA=;
+	b=gMEF4EM6wtlTAUmVFCjEVlhsYka8qkDeACjboX+AQokOTi9rgr+dJNsZoaGBKTIqC+ob
+	 PSRGmxJN443EfFMwBL71WNyi4+UXvo1WPB26am/F9fFSAS4wrKamvwYn7/bvLFRS2rlsq
+	 lGVf4T8ZeF6i5Q5+sHAzOVfHeBgTeV/p8N1HkcnJtxTVUXc/m8VG97C/euWr64Z0jbDqL
+	 mk+181VAM0B5sPjUFipF+SCXSRL0dpd34ZZ7CpImdQRzIT1XY7KXASShcLguUoCBU9F6L
+	 PGMCHQzppcaFEB3KCxg1jd+WWZDmAI/FlDbTKU8ShbzWr3jj4yZZ3Vljtefg2stbHlg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fwwByKpn;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yQzGMHKE;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57E53606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 13:36:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57E53606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A93EE606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 13:37:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A93EE606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fwwByKpn
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-49d05d51553so6613615e9.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:36:32 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yQzGMHKE
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cdadf7e248aso494238a12.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:37:19 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795009039; cv=none;
+        d=google.com; s=arc-20260327;
+        b=hawg1h2eA39sl9mpIrEOswe2KQ1QMjSvPtK3w9ERMOvm6LHKmuMIA+pZhqu1kHF7uo
+         VaumiO0104hYSFDGvHhw4AGi4obJJL2RBsnGwC7z1+6CvKM1FfwwwbDEFRFvcL7+0ajq
+         s2ttampoERKYcCMP7nMwOCxNUpeQEtiwHnNz8YcZO2j3kye0+t3CrcCbfeHQpdJ//D5n
+         RvfCEfIXP9ketTFdIMkMun02wwsfziDAsuRwdk6U/jGXFFr33ICpwlEX50Rry8lYd9cZ
+         lB5UxDze+2Kpjj2q8/le5mUDuQj6PDUFbP+A3wG6QG3/VIrK408GB71hr7H6WmOMLpfD
+         5pwg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=+Pne64dTPZwiQyGJLnEYc8Ub7GDR3IIujV0fV2jCbvA=;
+        fh=YTPxdiGiyoexVKzS03fKlXo1nqG3oQBqtP/GcCseRYM=;
+        b=bRIcU4w8apI+eYyadrht4vkUQ5T+clNdVZb0/s0wyJVb3ttVv6384Lk74VIL5ShpmS
+         Yzpj2waPL9tx9IXPSg3YWRFkaJiizRHWPhYm4EgqMOc+oOzsAGAuI5SXxqrI1B8CeMjK
+         3gHEc1C3cKTxt8ctzfBXUvAr40U9wGSu4MwYmi91glsWVK7fIFO3/HAvt2XkP3ev7WhO
+         Hy2kenhCJDtwqfP7fQhP2FjWCzmsRxKDycmz49MNae8QpPSGkf3BpmukK93gHQUvwzi0
+         FWI6D95WtLx3sq4O+vAbX8JuTRGjMhZRzDOS3cXw+N05YFttuxc2BJ7dFX6sT37fdo/O
+         sOag==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795008991; x=1795613791; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Rjo73h4z6lxvsI8gaNf28And7gUEPL6GIiSTU2ZRTEE=;
-        b=fwwByKpnADdE/EaknDuSMxbKtGtTmU8wthRvTJ+gAwTdZasKuPriFeQvShyLIYACnP
-         WfTK/xBKkfaQiwzn2eaBpAfiG6ElQ1PgWr4Ul0fb5sVMSt39vpw0J3EgWE0ZbykIaT51
-         bjDrlCjQ6WXQAWUicoByEVTq7PlCZVuT4lOxaWTMra02mr4obRs7OI36AG6yzqUhC5xQ
-         VmXGDHRd+xx0YwHeAC0hdJVoPpeA21Kl5cxE+Ld7G5pixUh3gxCi75RPYM/hw34CaiPV
-         6sIoPVqzhMJ28vjbPHt/d5Kg/N/6KosRsO59Q7UYHVLSK5cus+6OZWYYQbWn3eFrr7gb
-         xqJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795008991; x=1795613791;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795009039; x=1795613839; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Rjo73h4z6lxvsI8gaNf28And7gUEPL6GIiSTU2ZRTEE=;
-        b=qpd6a/xm1+b2l7BDnvY4aALt00Hmf0g71V5H1vk64Gl0CQB/O9m4dno/V6ehp2uD3P
-         wPLXpJEgv7haoYzDiD3nsJT6HySm0mG/wBlDMneYULV+XDGIaSSuplyTyD+TfUYWmRn6
-         xnN7KBuNdxjYujeNmUZ14+6/xIWxA4+dYnB7gq2aWG0JkkliZHEHcHX8JbaU+FwyMCKc
-         z5pV6ODDG8skBx7B6Fok8G6rWQ+WGO9dmn6FA5PCs+buO1x42jcAC+s48XJ49gcfaU8l
-         9iCMLVVwdvoAlu+9XyU7S7gfE7+Gzf1jqS8CTf6OJOcKhTod77RKWIi9kLHSn4sGHgWn
-         CI1Q==
-X-Forwarded-Encrypted: i=1; AL+hErEjHWO9Zf2lZQzZ0v1Thott9ir8QPkwYvVKMsVmLL291SybmNFw35nvylbXYGX07mI+0yy+Kqs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nq8VeGdkmfr5KhF49oI3uMmcPKdiA6I7wnCuFhyTBqAJGncgS
-	JzyDntVJ62Rdp85cvyDsAgBwkoxFHq8K1rqC0kGsR9E4vxBIGudq/Gyn
-X-Gm-Gg: AYBFou0ylTmgWM4DI+eiAgz3iy6gpTA/hAlS2Bath76d2j3nChksO7g0XcHRT4A0bPz
-	3BZI2M20Rwa3v1wQqXyPlCgvxZs5nc09zElTyyA3OTURO9W5bpcawC0f+iJwWYb02HWeFSdClAj
-	HDcYja67dPvBaEvnlOds2BCD/CPvRXbXNIvYKD46D++b0ZD4h3sRQfA32YBM0gRL1UMslaB688J
-	bzVM/HHI/VELZaPQwWF4+G3lSOgyrQ6BrvwRpxvxI2bqST75nDWbI5NORb8JaYm67HAL8juHrvO
-	X8odUjdJ48243BsEurvuHdHpiUUe98DFbHxW+lQ5PpODDoEyx6iO+DS72/nuZCTw+Rg/N4I9UGD
-	jq6ByxwgVLJZX/X3iy7tClzb+1iBwZ+JRjbJVBZV9W4HrsDOz1T8hUZQsZq/iOK/+vByzrwGLaO
-	ESTr4/jsN/WynivJIzzQCA6eaZtYBhSz6B5ICkcAWEBHgaM8LsxqRkqJ+381f/i8wHe2nRBDmM6
-	8hZASsefQhTokM4EgUuG89ui6gE5XlPgtyMwTS42nRXfYJiKPmsOL8Y4At+ED2Aw9DOV0gU122b
-	aZqLG4sH8+NSNVWwepure/PG6Y39UbitKE3CbWVKaR+aAJeutVHa6kzxEsxEri+Mzg==
-X-Received: by 2002:a05:600c:500c:b0:4bb:6118:4f57 with SMTP id 5b1f17b1804b1-4bb7da25015mr49022345e9.18.1795008990546;
-        Wed, 18 Nov 2026 05:36:30 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb7d28ec3asm73299805e9.0.2026.11.18.05.36.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:36:30 -0800 (PST)
-Date: Wed, 18 Nov 2026 13:36:29 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Eric Dumazet <edumazet@kernel.org>
-Cc: Chris Mason <mason@kernel.org>, ncardwell@google.com, kuniyu@google.com,
- davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- willemb@google.com, josef@toxicpanda.com, netdev@vger.kernel.org
-Subject: Re: [PATCH net 3/3] tcp: reject RTT samples from TSecr above 120 s
-Message-ID: <20261118133629.1e9714b4@pumpkin>
-In-Reply-To: <CAL4WiirGtN4e6HO-aEBU57507XxSdEz5b0oto45hbRA_0sivtw@mail.gmail.com>
-References: <20261118005048.53393-1-mason@kernel.org>
-	<20261118005048.53393-4-mason@kernel.org>
-	<CAL4WiirGtN4e6HO-aEBU57507XxSdEz5b0oto45hbRA_0sivtw@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        bh=+Pne64dTPZwiQyGJLnEYc8Ub7GDR3IIujV0fV2jCbvA=;
+        b=yQzGMHKEJROyCquvbV4qUTagObIHpoGve/NcUDxFpQYfDhxtnEg0IG5t+dSj3J7pVJ
+         QAbQ22ps5zSwJFXhbt/kfd9X4N2ta7l4nSJkcXPhNJx6Sgs71LMgTtPRo0ZiP3Dx5+Kc
+         FoIB7HltZ2Z1Pd2tUFTmJao2EWFsfGidpoBGGWW+fu+aoZpXfxjjVjWjlRAb8KT1lSl3
+         WazlPd85fFGF50nyICnd6IV9SXdR2TCJCubsVqW19Okn3cIgMF0gVdZjAvhQ/S139SKe
+         E4UmDwajDGx2VHrQLoCP5C0wbHm9HKlhXVoeqD0+VwOllLry+8AojExiSCNkxb9PN7MA
+         dkXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795009039; x=1795613839;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=+Pne64dTPZwiQyGJLnEYc8Ub7GDR3IIujV0fV2jCbvA=;
+        b=xaRzTBD8FHJAYga/5IaPZegUaXFK5u0Fel0nZYCfg+M1KnefLjBUnUiZUx+MoSdlLk
+         w/F7dw0Ubjar3BnOric43at46a01dTfhpcA+0zhOSXcRA3EsivveZ0qd3hq1ptsr3U7X
+         uq3jSP71n9FH4F0GPNPbfmDA0U3gROwDwgSgTWC+Nk+hoXS+prgonJ5SRtp1sgtPz01W
+         rK/MxTFsZZqdA1VmO7AY6V8Y9e4fxCsQ3fFKyDOnmp+g3Dpxg7EMvODZFaAHTJisl1P2
+         nrUd61zlUGapBjpJeuLrq3sJdGFG3ZoABRNs4XR9tUiQH8qyZxjp/EhFFFs8oqpX5WZu
+         c8dg==
+X-Forwarded-Encrypted: i=1; AL+hErG5yA055OBVtZ2DM0YwJ3JjKi7bo6xFJXf2Ab6LQL3It+W3zXvSHEOrn99r8T1Mc86s0GhpJmE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9GwJosP1vZxAGQEbO25OBuRzcabvWKxf7X4IjlHgnCceQj/q97
+	B6CQ9nnX6KWOCbpkC+5QVWWe04gNv2CNTiwLSgpMNvvacM8QeNm14GLYb7OScqvBal5UwRy5OCT
+	1/U7WW1nTyqllN1uiL1mOSZ5rWO6BtjE=
+X-Gm-Gg: AZFdTZdO/6Rgk5lP0Myq6tAuxhP5pfHSXuSGK6RduaiPevDsuEccUn5CnaBnyxbE8DK
+	dIx1630gD8YOhxlaDW5iP6fUCdghewKSHKLKe0bHUQDsHngMx12a8o74fpXS+aoYiV7BrRSm+h2
+	WOcW3tgGQ78EWjO31z7O9iPLwADAdWGO+Tmjfb5nyveKhX64+jD4zdW1uSnGnfUJJdialrsxa2r
+	ayqtaz9ehlqlzegkFaXCiYzfbe2GCeH9wP21vagAh1bPoPd8xJ3fnOONgkEWRA9EMuulh3pDRRw
+	JRs+gv+UB+9XkePMzgj2eijcIoiB5NqcNuXmowCsyHuDZt5ET6Y4gclzpEiYrQBXwPzX63xAP1D
+	/1AW0k6lUAzHKtUjigkMZ96xjkoSlpE2PI89fBwmPJF64fmPhh/B08QIL9KDB
+X-Received: by 2002:a17:90b:1dcf:b0:3b3:ae0b:4e01 with SMTP id
+ 98e67ed59e1d1-3b3d074ce68mr2508725a91.13.1795009038969; Wed, 18 Nov 2026
+ 05:37:18 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,98 +103,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com> <20261118115915.116177-1-poros@redhat.com>
+In-Reply-To: <20261118115915.116177-1-poros@redhat.com>
+From: Magnus Karlsson <magnus.karlsson@gmail.com>
+Date: Wed, 18 Nov 2026 14:37:06 +0100
+X-Gm-Features: AclHuK8kWb7QpgODRzoYcPDh6yhYlBlMmtzxE4k3I08iqW3ixJVQ38vDDF66nYA
+Message-ID: <CAJ8uoz0MMUx68rMZWoZs-JwjodpRixwQSrgpyta1NsanGPn=dg@mail.gmail.com>
+Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
+ 2026-11-13 (ice)
+To: Petr Oros <poros@redhat.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>, netdev@vger.kernel.org, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, edumazet@kernel.org, 
+	davem@davemloft.net, andrew+netdev@lunn.ch, horms@kernel.org, 
+	Jacob Keller <jacob.e.keller@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>, 
+	Marcin Szycik <marcin.szycik@linux.intel.com>, 
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>, intel-wired-lan@lists.osuosl.org
+Content-Type: text/plain; charset="UTF-8"
 
-On Wed, 18 Nov 2026 10:58:14 +0100
-Eric Dumazet <edumazet@kernel.org> wrote:
+On Wed, 18 Nov 2026 at 13:00, Petr Oros <poros@redhat.com> wrote:
+>
+> I think this pull is a good moment to ask how fixes for Intel drivers
+> should flow, because it is not the first time a fix spent months on
+> intel-wired-lan and then hit a wall on net.
+>
+> My patches 2/6 and 3/6 have been on intel-wired-lan since June, v4 on
+> July 8 [1]. They were reviewed and tested by Intel validation there,
+> and four months later Sashiko found real problems in them on this
+> pull. I have a v5 and will send it once it is tested.
+>
+> Jake's E82x timestamp fixes went through three pulls before a part of
+> them was applied [2], and Maciej described the same loop on the i40e
+> pull in September [3].
+>
+> I know Intel patches go through iwl and are not applied to net
+> directly [4]. But for fixes it means that the review which decides
+> happens on netdev months after the iwl review and validation, and every
+> respin goes through both again. And if iwl stops cross-posting to
+> netdev, as Jakub suggested [5], Sashiko will see Intel fixes only in
+> the pull.
+>
+> So does the iwl round still make sense for fixes? Would it be better to
+> send fixes straight to net with iwl in Cc, and have Tony's ack and the
+> Tested-by from Intel validation on netdev?
 
-> Le mer. 18 nov. 2026 =C3=A0 01:50, Chris Mason <mason@kernel.org> a =C3=
-=A9crit :
-> >
-> > tcp_rtt_tsopt_us() returns the timestamp clock minus TSecr as an RTT
-> > sample, and accepts up to 2,147 s. If TSecr echoes an old timestamp,
-> > the sample is the age of that timestamp, not an RTT.
-> >
-> > tcp_ack_update_rtt() takes this sample for an ACK of retransmitted data.
-> > tcp_rtt_estimator() clamps it to 120 s. The congestion control gets the
-> > sample unclamped, in rs->rtt_us.
-> >
-> > tcp_rcv_rtt_measure_ts() passes the sample to tcp_rcv_rtt_update(),
-> > which computes sample << 3 in u32 arithmetic. That wraps from 536.9 s
-> > on.
-> >
-> > The fix used here is to reject a sample from TSecr above 120 s, for both
-> > callers of tcp_rtt_tsopt_us(). =20
->=20
-> This only covers one of the two callers of tcp_rcv_rtt_update().
->=20
-> tcp_rcv_rtt_measure() is called from tcp_event_data_recv() for every
-> data segment, with or without timestamps:
->=20
-> delta_us =3D tcp_stamp_us_delta(tp->tcp_mstamp, tp->rcv_rtt_est.time);
-> if (!delta_us)
->         delta_us =3D 1;
-> tcp_rcv_rtt_update(tp, delta_us, 1);
->=20
-> delta_us is the time the peer took to send one receive window. Any low
-> rate flow can take more than 536.9 s for that, no bogus TSecr needed.
->=20
-> Then 'sample << 3' wraps, and since win_dep is 1, the wrapped value
-> is kept whenever it is smaller than the current estimate:
->=20
-> if (old_sample =3D=3D 0 || m < old_sample) {
->         new_sample =3D m;
->=20
-> For instance a 540 s sample ends up as rcv_rtt_est.rtt_us >> 3 =3D=3D ~3.=
-1 s.
->=20
-> We should also clamp in tcp_rcv_rtt_update(), like patch 2
-> does in tcp_rtt_estimator(), so that both sources are covered [1]
->=20
-> With that, 'old_sample - (old_sample >> 3) + sample' converges to at
-> most 8 * 120 s, which fits in u32 too.
->=20
-> >
-> > An ACK of retransmitted data whose TSecr is more than 120 s old now
-> > gives no RTT sample. So it no longer resets the backoff, as on a
-> > connection without timestamps.
-> > =20
->=20
-> This seems fine to me. We send a retransmit at least every
-> TCP_RTO_MAX, and the retransmit filling the hole updates TS.Recent on
-> the receiver, so a well behaved peer does not echo a TSval that is more
-> than 120 s old in an ACK of new data.
->=20
-> [1]
-> Something like this on top of your patch (compile tested only):
->=20
-> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-> index 2d739cfdae8c33d12cd34e00388a29f0f4229806..708a989e5a63bb6ad67cc777d=
-57815ae197c451e
-> 100644
-> --- a/net/ipv4/tcp_input.c
-> +++ b/net/ipv4/tcp_input.c
-> @@ -857,7 +857,11 @@ void tcp_initialize_rcv_mss(struct sock *sk)
->  static void tcp_rcv_rtt_update(struct tcp_sock *tp, u32 sample, int win_=
-dep)
->  {
->         u32 new_sample, old_sample =3D tp->rcv_rtt_est.rtt_us;
-> -       long m =3D sample << 3;
-> +       long m;
-> +
-> +       /* Keep sample << 3 and the smoothed estimate within u32. */
-> +       sample =3D min_t(u32, sample, TCP_RTT_MAX_US);
+Glad you brought this up. IMO, it makes no sense for fixes to go
+through iwl and it makes contributing fixes (or new
+features/optimizations) a lot more painful. Sometimes even to the
+point that you just stop contributing something. I am not in the NIC
+team at Intel, but sometimes I have to do network core work that also
+touches our drivers. In this case, that patch set goes straight to
+net-next (as iwl cannot and should not take core patches), but any
+driver fix that I find on the way needs to go to iwl-net so that it
+can go to net and be backported. So the fixes that my patch set are
+dependent on and that should go in first are instead sent to a
+slow-path (i.e. iwl-net) and after X weeks/months appear in net and
+then net-next. But my patch set in net-next is dependent on these
+fixes so I have to either wait or just cross my fingers that my new
+feature is stable enough even without those fixes. Not optimal in my
+opinion.
 
-You can't need min_t() here.
+So anything that could be done to speed up this process would be very
+welcome. Sending fixes straight to net would be great. The validation
+team could pick those patches up from the list and run the regression
+tests against them, or would that take too long?
 
-David
+Anyway, good initiative. I am sure there is a solution to this that we
+will all like.
 
-> +       m =3D sample << 3;
->=20
->         if (old_sample =3D=3D 0 || m < old_sample) {
->                 new_sample =3D m;
->=20
-> Thanks.
->=20
+/Magnus
 
+> [1] https://lore.kernel.org/all/20260708125755.706263-1-poros@redhat.com/
+> [2] https://lore.kernel.org/all/20261021-jk-e825c-timestamp-processing-logic-fixes-srcu-v5-0-72289a4ac8eb@intel.com/
+> [3] https://lore.kernel.org/all/are4rBUJO3mzrkO8@boxer/
+> [4] https://lore.kernel.org/all/20260721174642.7749143e@kernel.org/
+> [5] https://lore.kernel.org/all/20260922112216.41e6f8cf@kernel.org/
+>
+> Regards,
+> Petr
+>
+>
