@@ -1,72 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.168
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794970754;
-	b=cVh9ertb2rLoVvlatxGXSCb850h1m30VRUVOT34rtFO8VlgZWdOI+FZNVBCRZc9wLUN9
-	 UwgDW5uNAZtIH2ZDAfr0d0wiA3YhaF0IVTF6sNpIkl1oxH5+n1e8/3qHlDDwqmBVmduyy
-	 VG47px670tjvsqqVO/JET1ZuyQV6qj/EyEV7Ma3eAVpNKUufHypfF9FWs4WCqgYWZ8sod
-	 fJjjgJRWV7LMFtdmSDvsgz0PY8fWb+xP/4DftKlgLnJdwe2pAPX7G/+vE77jIm6U6Zym+
-	 Ynnw9Gxo41B7jlBJCwKPSyxL9GE99m7QGNx8bC+mb80NcvpmEOm/7aE6deN7nPiG2Rw==
+	t=1794970807;
+	b=ScgPx9ug9LJcmW92ab1gjGd8PYEUa8AIb9rryX796s77qDEMYdlUq2F749EIZmcMexhL
+	 odGOFFdKsVWRo5dfbtOdcw4TiWYRakX/ZHO9KWHs/mP3TxJtJzDAkcc2cMij9y8hesShN
+	 80jmg0KE+XV8GJBSAXM7Uc+3uk1lW0bpPq2Q1yj0gSJHOYXbfsAlS3+FLKLYZW/qHdAbz
+	 tDz5UglnL2MP27I649VRjDtTRdckfOFJUoTbFt6J74K/lrPPHshpN2Mf9wuok4Ij2gGCH
+	 V6czjs5w0D4iy/9TOk5rboEQ+TEZfchDCqG8UIzr7jby2KazLpFAcQOwCk+UC+km21g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794970754;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=hKNadeghD4t96xVRga8eHBeh1KEt9UEEgQUl3K4u/fk=;
-	b=gZQHM5Q4O+hUjN4ivxLYGb3JBTqIvso0PH599caEmEAPpYlhOIA+9cO3leKuaHtaoXM0
-	 j7ZnBwWd70MrkCHk8uSesHDrV22ohbnNFT1aHXDPP7YxvcoBJolXzVVUrheCo69+9kuz6
-	 YNHMOz3dys1IbG98Mcj/1a1bK0Juh6V3jMSkESu5OMRKET0Mv/OQ4yC1RRWtNVh6FS9xg
-	 w8HyycCNCSCvxgCf2k1Lv7GHEgrx0Z6jGHNrp3kepfyZ8iY2NJ6yzw16h/Mf3Xjx6Ga7q
-	 7s5kfpgm24S7pJCjyL/8qw0KyzsY6Dh6ObZ67CeRDNmBiP0sn7DxXsmtuLmDpP7tedQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794970807;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=nxw3T6hIiyrliHjAIUAtUnPcNMPfg3kcXV8A3vdG7MQ=;
+	b=A3nqWEIz/3dQD2FMLzaERoSBt8VwnmJVgXcOnlgv0tKlnLrSCyHc7EV56ObehuaxgWWC
+	 EvNK7GYHDOVq1y+w3o3KzrHymTxsbnVzGRw7Jvn08fVB9FxZed37MYHvYpSTjHUVpuPfB
+	 r2Z9O+Y8M8yi8kECjqmFjqjwOH+HWruUt6FfVG4ADPPoUDAxEIn0Oe+Ag2kKBFUPZJjQY
+	 z/aEqDcF9vEFC42dwqmMavmblDy4DkqJ/4im5W5TO8jOX6T+l/Sz/98jKwioUWW0Whzvi
+	 aMfN/OgFpxpZonlWUnoXULIPH/YUp0uECsPIV72VFWD6B0+jMnUo9OXpwAvPhCORJIA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WK1BFh3k;
-	arc=none smtp.remote-ip=91.218.175.168
-Received: from mta0.migadu.com (out-168.mta0.migadu.com [91.218.175.168])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=en1D0uBC;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB648606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:59:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB648606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0595C606A334;
+	Wed, 18 Nov 2026 03:00:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WK1BFh3k
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=o+mw5452YG3BbC1ZrMAJhmXBOZ3fUIA50s92Q87f+OM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794970751; v=1; x=1795575551;
- b=WK1BFh3kzR+JZ0nksrH3KDMnOSsTq1OSD73n0CrG7IoLF+hEoiA6jPo26uEA9g+E3XT2ZJcX
- b+HhZAb76rjLAZvOZEmJosTt5WFHl+2H4DB/A1oaNLYYt/auKaOiNgXMfzE5lW2FPYgTnSdprH3
- cs0fkgOWYeJ5Svofb38LOBXo=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id cd8b8ab25e26c594;
-	Wed, 18 Nov 2026 02:59:10 +0000
-X-Mizu-Trace-ID: cd8b8ab25e26c594
-X-Migadu-Flow: FLOW_OUT
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-To: netdev@vger.kernel.org,
-	tariqt@nvidia.com
-Cc: horms@kernel.org,
-	saeedm@nvidia.com,
-	leon@kernel.org,
-	mbloch@nvidia.com,
-	borisp@nvidia.com,
-	witu@nvidia.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-Subject: [PATCH net-next v2] net/mlx5e: kTLS, Simplify error unwind in mlx5e_ktls_set_feature_rx()
-Date: Wed, 18 Nov 2026 11:58:46 +0900
-Message-ID: <20261118025846.3377199-1-xuanqiang.luo@linux.dev>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=en1D0uBC
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD4641F000C4;
+	Wed, 18 Nov 2026 03:00:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794970806;
+	bh=nxw3T6hIiyrliHjAIUAtUnPcNMPfg3kcXV8A3vdG7MQ=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=en1D0uBC01DCLbTYgyzEy15JLNWkhpp3JeKaP08htwXR6RsSGmnok+L7B+zvO9BEu
+	 M5cv7/Bh005CER+hzdom7cAemdgX7TWGC22UwsAFY7vrA9AC1r3sQjrIWB3ZkLbZQ4
+	 mrTJCaAcv4/QgVwtVgoj26GKngxRiiEZq6tAkdzPB3R7dy/C2vPCpbFmJlDVQyxfYM
+	 yWVvRfIbcnHgNRTZfATI+KAILfN6eceDv6rtsmDX18fVEfZXqzaCChuczkHQY1eryO
+	 nA0YKeXBpcicjdZmP89bCJFb91I+WPU8soYudxoKzaPO6aROS3FfHEypO3jZfzeudE
+	 NvNIhDzjqnKRQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B43F4392E981;
+	Wed, 18 Nov 2026 03:00:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,75 +54,45 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 0/2] net: sparx5/lan969x: fix RX ring stall on frames
+ from inactive ports
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179497080553.1433107.371747421258981777.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 03:00:05 +0000
+References: <20261116-sparx5-rx-inactive-port-v1-0-343d8bab58bb@microchip.com>
+In-Reply-To: 
+ <20261116-sparx5-rx-inactive-port-v1-0-343d8bab58bb@microchip.com>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ UNGLinuxDriver@microchip.com, memoriaru@foxmail.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 
-From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Hello:
 
-mlx5e_ktls_set_feature_rx() has become harder to follow: the error
-handling is nested in the conditions and the main flow is conditional.
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Handle the disable case first, handle the error cases in conditionals,
-and keep the main flow unconditional. Use goto to unlock on the early
-returns.
+On Mon, 16 Nov 2026 10:56:03 +0100 you wrote:
+> On Sparx5 and lan969x, a received frame whose source port does not map
+> to an active port is never consumed from the FDMA RX ring: the NAPI poll
+> stops on it, and finds the same DB again on every following poll.
+> 
+> Patch 1 fixes Sparx5, where the same skb grows on every poll until
+> skb_over_panic().
+> 
+> [...]
 
-No functional change intended.
+Here is the summary with links:
+  - [net,1/2] net: sparx5: fix RX ring stall on frames from inactive ports
+    https://git.kernel.org/netdev/net/c/81d2cf1c6d56
+  - [net,2/2] net: lan969x: fix RX ring stall on frames from inactive ports
+    https://git.kernel.org/netdev/net/c/1a47bc214d00
 
-Suggested-by: Simon Horman <horms@kernel.org>
-Suggested-by: Tariq Toukan <tariqt@nvidia.com>
-Link: https://lore.kernel.org/all/20261029134019.GG257209@horms.kernel.org/
-Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
----
-Changes:
-v2:
-  - Handle the disable case first and keep the enable argument unchanged,
-    instead of reusing it as a flag to destroy the tables. (Suggested by
-    Tariq.)
-
-v1: https://lore.kernel.org/all/20261116110830.2850785-1-xuanqiang.luo@linux.dev/
-
- .../mellanox/mlx5/core/en_accel/ktls.c        | 27 ++++++++++---------
- 1 file changed, 15 insertions(+), 12 deletions(-)
-
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
-index 3cc1213c2f68..2358ad1f2331 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ktls.c
-@@ -135,21 +135,24 @@ int mlx5e_ktls_set_feature_rx(struct net_device *netdev, bool enable)
- 	int err = 0;
- 
- 	mutex_lock(&priv->state_lock);
--	if (enable) {
--		err = mlx5e_accel_fs_tcp_create(priv->fs);
--		if (!err && !priv->ktls_rx_was_enabled) {
--			priv->ktls_rx_was_enabled = true;
--			err = mlx5e_safe_reopen_channels(priv);
--			if (err) {
--				priv->ktls_rx_was_enabled = false;
--				mlx5e_accel_fs_tcp_destroy(priv->fs);
--			}
--		}
--	} else {
-+	if (!enable) {
- 		mlx5e_accel_fs_tcp_destroy(priv->fs);
-+		goto out_unlock;
- 	}
--	mutex_unlock(&priv->state_lock);
- 
-+	err = mlx5e_accel_fs_tcp_create(priv->fs);
-+	if (err || priv->ktls_rx_was_enabled)
-+		goto out_unlock;
-+
-+	priv->ktls_rx_was_enabled = true;
-+	err = mlx5e_safe_reopen_channels(priv);
-+	if (err) {
-+		priv->ktls_rx_was_enabled = false;
-+		mlx5e_accel_fs_tcp_destroy(priv->fs);
-+	}
-+
-+out_unlock:
-+	mutex_unlock(&priv->state_lock);
- 	return err;
- }
- 
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
