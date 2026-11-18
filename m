@@ -1,93 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009092;
-	b=ESIa9EVyp8V16epy5lnaS9Vy/+sH6B5MD8tqP/ZVz5eag+MV91hafQPd+zhYDtjijjqn
-	 7V/BL72Vng+DHWCUfvA0VyXeCjJzPm0oraPuw9gcyEYhpUuGn83SLxwgHMjjq3M3FMS6+
-	 z9mZwaEeeKoCHv+8ogg3V5lUG7560UQyihqD/i0SYLX5LLjlhCnXshsQEPxT36Qbn/k7F
-	 ufmgp6smKJb5xQiWtFteH4pFMX6jdk5Qh8D5nUrOaJ/PgNxq3UNcav3cS00W1AfnP3uma
-	 GInrdaQUfN/8Ve7AHTZMCp2Bd3X4YY25npMDTPg1+l3f9cUNl7nVcmbFeu1i2teI1Ug==
+	t=1795009346;
+	b=acn9vHh74mh5MxMJvGeUTFs70DRPzuMSXsgtqg4bOxKJUfFwR1ftjeAv8AVKjn5tR6U5
+	 NCqAknW+sX8+UnM38plEpzFL/5t9TlnliGIrpfHPg3lKWVCEzPG82KcTg9j7jdGUgK0N8
+	 ch8g23TqBrHUtqfXbac8IEh6AFNjwbER56i4oB3ElBv/hwop0kiqDhEYqNmlkVEZGAOiQ
+	 hf9MJmmeKmdBOhZGyzEITY9uhKHqYseMd6H4mE/mPFRHClhFXD53tnHaqh11NnYE8aLh+
+	 o1VSZqNUqd5pTXhoH5do3U+QrGPlg04RRbKMEDfddUiUv0FJjUB12p31a4aL/vEreEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009092;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:Content-Type:Content-Transfer-Encoding:
-	 MIME-Version;
-	bh=a5bNHyxaBopSMQv9gyQkBCOwl0pjMAXYd/WU9PGwyfE=;
-	b=HintXlyZdXSsvBa+fUkYuLmpMoX2u4G+qNIscdUIcXE17HUYR/OzVynEM8ZQkCdPKbdg
-	 9mI38IlQv7Rnuj5rNJReZiG0L6YBezQQ3eyyUdMnTP9Zub26mvJi+cP2z3miFtrz/oHOH
-	 51B1kINKG577ksGPwOrmdXEPgvgEJAhmdZqMXuL9zo5jNDgXZHGmLAhCmnTsj736x6Q8V
-	 dUd0912JPPNognEfozTOUD3FV3wC343XjjqHP9Hl0e929fSGrCUGNHBMD/Dhx4m5WaPUi
-	 0xaUptL7BzZgfWQlpnw7JDSO6PURQgsSWZCXeT53Y/imG7wgkXW4a/53QKW8T+UFxlg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009346;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=sh4rom9HebDa7DENWU6/EprNkkfkvz9BCOVBxOg6B/Y=;
+	b=K3K9zgCfoydvwNzChmqC1/+XY9V/DogDwvEu/ChoavpUK7t0/PwFwM6QP7xsd52lkNNQ
+	 4D1NgInN5nVL8cuMic1AJoBW1kdpGhgiyR9vN2Ssm3TS6phEWAyoOx/Dz9psddlVdxQTn
+	 76IE9lsooD58haNdY5+bGqP2SafEU9bQ/3FL0/B69t6lZ7kiZMYUf3Z4UeWadyAP7+leX
+	 qTeJB5QUEgTJ1lz/ponRaHnAOQwd69B+2AT8vTGvg137vwZpEvKiGFTf73OXyIkEy4X6q
+	 J/zfdbwAeLpu2hnZF/428Xo8UHEXvV8onp12nuISdJX8iTXuxVfH5KwL/W+7AQdtHEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="yc/64Vhq";
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=RY24NxGC;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E9AD60A260D
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 13:38:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E9AD60A260D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1FFF606A320;
+	Wed, 18 Nov 2026 13:42:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1FFF606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yc/64Vhq
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b197cd42b0so609406a91.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:38:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795009091; x=1795613891; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=a5bNHyxaBopSMQv9gyQkBCOwl0pjMAXYd/WU9PGwyfE=;
-        b=yc/64Vhq8tbXHjERtz8Vm35z96IcXW71GyAv4m1s3Irs0PXIlZ9Xra+CyTvFc2Sv8c
-         WmR7861gO92zRdkhMbIqfnEJ2cAtRMRTZdOIjIkLVYRZbTYX3Td5Gbd8JeJBibdJzmVu
-         i/DioH/xIlPgKNsGhyS0DDWTw1CRzgLCgurCcPgowRLosYLDh1Bv7vgoXQ8WsXgx49tP
-         FQesJDZx5lkCzY1T1uHuB7Piv3xTzZ1QdLaTf2iFTLDdICJzkmdtEO+twRcUcb2k9F8s
-         dj4PoSorY/wxi8On4WP76mtc7qBh7qvsAttrWX5FpCFkW7pmn3XFrF8VP0jlNpHKwLai
-         bmVQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009091; x=1795613891;
-        h=mime-version:content-transfer-encoding:content-type:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=a5bNHyxaBopSMQv9gyQkBCOwl0pjMAXYd/WU9PGwyfE=;
-        b=hA4xVxKnKFNBW+p4AhFhD/6MoDDtBcUchmjbRWRrlhAjKKmuP4wWMYxDTiPHbIIzj6
-         UI6xkxWej4do/WRuGZ7v/aySzoq5krMkDlwRhqt0WJTThUiovXjM4SOagKMdWhna4OYP
-         GO3pvsNXXMlMuZ55oA6Kq+s3a1c8eHJRvQm66ZGJDLM35VrkrvhS4vJDpw0DWMS8ee7b
-         zmPbo6XcfQs+fJ4gme/fS5N1g3Ixy2WRlXLfEWgDfvO4Kr7jO28OI/1vim9qUfBZ94em
-         4LXVmzQcHj4Yh60f+O0M3iStz31K/mY1x3knJ1jVME1fOfsH0bfh2KTzV8aclKsbWLpj
-         yvvg==
-X-Gm-Message-State: APuU4Z8/ORMj7IavqTz5J7R/3iCef9RroC++S+xZcr1fWaqEMHKf5tty
-	vH4UaIuDSVD6Syh/xKp024iim4CcEmtPcJl/f/FdMm7vJsOEXSychNTwj+SdgvMnp7oDPg==
-X-Gm-Gg: AZFdTZeH2wFj+f5gJA0aoWcsW43JkCqfEQ9Kgnv8O7UzaSIHSoK8qvLbEw5qYf01kuu
-	i1tnpP4eB9i5oAwT1vJL6c9iJsYY4LjozlBhhWMI5OlcLQDbN5r6+ZVsxAhckjyhVzPB0yc6Gp1
-	tN6eESEZTXm/z30MgLRLZJgq+QN8BsZLd6hwYizyKlU5sUFWPU12ivas8K2cFaOjstBnnb/lFyZ
-	ywm1vSuOEPZqldLsWj6kh1bTRr8RATnOCZCIsikVnIrZifLlVWdTCVnN3V/+AykoNywJ56H1svy
-	WEpQp21mQyT2LmJWd7Vq5AHk4RUzUgjIqnPoZyr20EHVMzUEktXAiOmvTALWo4+EbUNN03mmSnf
-	HFwD19HMmWkHeJ4hTZ0wWePYBPojWzZY5kAhd/1SIix1pZldRMUmIk0ELkkarokdFYmq4GR8rj+
-	RYIbWLbKu96CxaLrCjEA+tByw0zR0huzbk7gRh3obdlznWNn5WuH7IJsIjmiBzYsetp7zbyZnOQ
-	UOKyeSGRSsMWLxdS/Rn8ktVsps6NQpBg3Q6JAca1h9h6vIk+8z2hh6vheCI1g4Ch92VIWc=
-X-Received: by 2002:a17:90b:288c:b0:3b3:7759:d2da with SMTP id 98e67ed59e1d1-3b3d0689ademr2728689a91.5.1795009091301;
-        Wed, 18 Nov 2026 05:38:11 -0800 (PST)
-Received: from [172.21.0.2] (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d187daf4sm4671824a91.4.2026.11.18.05.38.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:38:10 -0800 (PST)
-Date: Wed, 18 Nov 2026 05:38:10 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- linux-kernel@vger.kernel.org
-Subject: [PATCH net] bonding: reject a non-Ethernet 802.3ad slave even when
- the type matches
-Message-ID: <179500849159.1877154.14715369660816392826@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=RY24NxGC
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=sh4rom9HebDa7DENWU6/EprNkkfkvz9BCOVBxOg6B/Y=; b=RY24NxGCpz/fje5zxxCjreIuP7
+	EspJUlQxsb5r0Ugkj9W2Fki9l6/NooVTowjB+VbWQyQyTjU9E2zSggxjf+DqDs1BEEGluTWKtgozU
+	Uo8KXb5T1uUuuBWpw3aW+qU2tv3/hTOAGR3ECPgA8e0o9ztA0/kVM8vDXxyAf3gDlpVo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTfvW-00HQXx-In; Wed, 18 Nov 2026 14:42:18 +0100
+Date: Wed, 18 Nov 2026 14:42:18 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chih Kai Hsu <hsu.chih.kai@realtek.com>
+Cc: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	nic_swsd <nic_swsd@realtek.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"bjorn@mork.no" <bjorn@mork.no>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"mail@birger-koblitz.de" <mail@birger-koblitz.de>
+Subject: Re: [PATCH net-next v8 10/11] r8152: add TGPHY register access for
+ RTL8157 and RTL8159
+Message-ID: <cafe3b8f-2b65-41d6-b31d-a1cabbf93720@lunn.ch>
+References: <20261110032416.16968-11-nic_swsd@realtek.com>
+ <179464851836.2199510.10154643847175029122@kernel.org>
+ <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -97,72 +74,13 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <0c6318e175b14ce8b86a957c7c79d5db@realtek.com>
 
-Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
-devices") rejects a non-Ethernet first slave in 802.3ad mode, but only
-when enslaving it changes the bond's type. A bond keeps the type of its
-last slave after that slave is released, so a bond that once had an
-ARPHRD_TUNNEL6 slave can be set to 802.3ad and take another TUNNEL6
-device, such as a second bond prepared the same way, without the check.
-bond_open() then adds the 8-byte lacpdu_mcast_addr to that slave with
-dev_mc_add(), which copies the slave's 16-byte addr_len:
+> I plan to add two new functions, rtl_nway_restart() and rtl8152_get_link_ksettings, 
+> to replace mii_nway_restart() and mii_ethtool_get_link_ksettings, respectively.
 
-  BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex+0x26a/0x6d0
-  Read of size 16 at addr ffffffff878a1620 by task test/115
-  Call Trace:
-   <TASK>
-   __asan_memcpy+0x23/0x60
-   __hw_addr_add_ex+0x26a/0x6d0
-   dev_mc_add+0xb1/0xf0
-   bond_open+0xaa6/0xf90
-   __dev_open+0x2fd/0x7f0
-   __dev_change_flags+0x480/0x670
-   netif_change_flags+0x7b/0x160
-   do_setlink.isra.0+0x16f8/0x3960
-   rtnl_setlink+0x474/0x870
+Ideally, you should port this driver to phylink.
 
-An unprivileged user can set this up in its own user and network
-namespace.
-
-Do the 802.3ad check for every first slave, not only when the bond's
-type changes.
-
-Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
----
-This was first reported privately to security@kernel.org. Eric
-reviewed the patch there, judged that no embargo is needed, and asked
-for it to be posted here with his Reviewed-by.
-
-The patch was written with LLM assistance; we reviewed and tested it.
-With it our reproducer is clean in 6 of 6 runs on v7.4-rc3 and in 6 of
-6 runs on net (2a324a58a084).
-
- drivers/net/bonding/bond_main.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-index 042d7c75548f..f2e645f869b1 100644
---- a/drivers/net/bonding/bond_main.c
-+++ b/drivers/net/bonding/bond_main.c
-@@ -1959,13 +1959,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 	 * ether type (eg ARPHRD_ETHER and ARPHRD_INFINIBAND) share the same bond
- 	 */
- 	if (!bond_has_slaves(bond)) {
-+		if (slave_dev->type != ARPHRD_ETHER &&
-+		    BOND_MODE(bond) == BOND_MODE_8023AD) {
-+			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
-+				     "8023AD mode requires Ethernet devices");
-+			return -EINVAL;
-+		}
- 		if (bond_dev->type != slave_dev->type) {
--			if (slave_dev->type != ARPHRD_ETHER &&
--			    BOND_MODE(bond) == BOND_MODE_8023AD) {
--				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
--					     "8023AD mode requires Ethernet devices");
--				return -EINVAL;
--			}
- 			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
- 				  bond_dev->type, slave_dev->type);
- 
+	 Andrew
