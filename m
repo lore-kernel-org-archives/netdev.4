@@ -1,56 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.69
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795036492;
-	b=1V78/yRdqMWkx1WIsd7bnGmKgjcqfEQV3rR6tbDuUUKpcZf++DX1ozwWaZ74oR71dVVa
-	 Rom3Z93Z5e+Wk2TdsT/w2VPiB/MDnu5GRWnS7kol9DW624dthDV1P3r1HL7c37uB0fvc0
-	 oadWr5bOLpJ0q+3HlXFfRXVvhDjV6YKHLuFdk2PNY84Z7tXGtS6BILzcSK9HkSUk3U3V4
-	 bvwAJqu9sZEUCNlQB26nlgCqDRmLt9YbljDnax7zJcaVjH997raoC6R4pENymk5AIu6cC
-	 kq4mVw5dx+O5z5vZ2LQHq1lzXkzdePC5PAzL35dI09PtOOSJtS+BxZgB4FVSahZ4h5A==
+	t=1795036850;
+	b=PLTvjxhZRRZ3rvudzzgHS3JwapRoIzbLq+12BxoSRXyACZ0c82fpNinC/zm8g9WAU7qg
+	 yBvaAno55TFxwVKAhDGCfKy/kymWG4Tx5qRu97MOd3BFI0K1ELuv5ctzG4kgQ72wQucE4
+	 ZZsxtJ/Co4qID8awoM+IFW9oCz9CmSGTD/dZ8ZLvfNjoLa05w7lrYnigtugH5tEINMk/A
+	 REuhwP3nYz912aBtqozZqauh5YWQMb4Y7ZFe2ZzhMr7vl/YwBnola9IOL7W7qZm/cpcH+
+	 WZU0a3jtjwWWzehk9VjkZV9Veo/RrpO59n+u1xhJ/LmwJFr9FUZeIVXI2jnW/0VUhrw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795036492;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=IRN8e1YgeSGzhUuFsD2VLCnpoWk3n4qAeM580YrGeI4=;
-	b=JpepUGtP2Sv5lYI7daoRF57v7nCqt4cdqsjNlFjby1Cl+TdUmgeulytXShKLMc6VKepL
-	 /m/Au80IceM6tA7Hx2bMWqx8d9rBsPWZVn56wY6v3L3Yf4qPg1uN9Xauh/CXX3dfGo6ma
-	 +4eEKuFB7p6QCJLBGxdkQU5YV7Gloslhj/Ss7tNLVGG0IgSiw7MD0IfdBYzGUA8EUYnMi
-	 jxy3GqN6KiZCNR7kXdibrJaKSQ3xdDrrAgMtTw71rAZ1UoDQc27t/reTjIOaF7S7oHvTR
-	 jYJlrkAGReLwpZ56U2nzHlHrvJ5DPxNV8zk4JARKJyJfauP95+j/Ir/fac2FSN5da+Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795036850;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=BaCRLdzAuoi39HOKcNTVEIs412iZT+l2iPoEW0IR1dE=;
+	b=FV6O92pOWHHP/68HRtm3EfBtXAmST/qp8AMwLPPKadFg97qgj/IkHDtvj8PvWaQZAX+w
+	 nf8Nkn5OZaYl3GB2YpDv0VcZ9lPQpWdvOJLH5vmebaZZ2x6DgPVHhqhKBh0c1ti1ZcViq
+	 VbmQ7mOTJrTKn5vO5JS9yjHS5HBvXySKs3/T9Oc9q1MPIMTC6PRwdesb4ULJOACniOwg7
+	 T4LCe0eAyHmZyWh2jY+hgUQyx3QQomWhZJsLCezJifciQ1EoLrlOnEtDwAnuFcGklkWaf
+	 2ZUPU9VGQPJi9fdRuGCXw4eJpjIKNhO0ezRwp/G3/hjwXnLAPrtxU3T5ztMHE0NIQ7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZiA9haQ4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--joshwash.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZbPmtjps;
+	arc=none smtp.remote-ip=209.85.216.69
+Received: from mail-pj1-f69.google.com (mail-pj1-f69.google.com [209.85.216.69])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D02C606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 21:14:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9740F606A332
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 21:20:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9740F606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--joshwash.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZiA9haQ4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF3301F000C4;
-	Wed, 18 Nov 2026 21:14:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795036492;
-	bh=IRN8e1YgeSGzhUuFsD2VLCnpoWk3n4qAeM580YrGeI4=;
-	h=From:To:Cc:Subject:Date;
-	b=ZiA9haQ4tMQKr8lYRgQ3BeMsgjR4ai24W4NxEIkuZ7EyAv6CcsWG9FioicltCbMll
-	 2VoXCRYt9qh4ixjtsEYlg0FAoLIcPPKbfkufufr+CnETNblNsLRN6LNFdPolZG0pIj
-	 B5fpXsCozRL0qSxe1iUqG++4BKcnReyAbQXxd8bCbPlHmdzM1cnIbieDeHp3jzFElw
-	 2SX2jdwzVqsEjHGyQBMJrOHzBa0PePcHNPS0Wvzg2SMw3m0BxGBMF65GgtOnud6L/+
-	 zbahE8ybS7ruc9fsTaLbbm5W0Ex+L4/Pj39wkymMMFGtnpUecorvedcjzqFd+YKCrY
-	 euDydSniDeoJw==
-From: Eric Dumazet <edumazet@kernel.org>
-To: "David S . Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>
-Cc: Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org,
-	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net-next] net/packet: wait for a single RCU grace period in packet_release()
-Date: Wed, 18 Nov 2026 22:14:39 +0100
-Message-ID: <20261118211439.1453635-1-edumazet@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ZbPmtjps
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-3ae7faf4ff7so1694489a91.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 13:20:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795036849; x=1795641649; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=BaCRLdzAuoi39HOKcNTVEIs412iZT+l2iPoEW0IR1dE=;
+        b=ZbPmtjpsPpJY4jb+VoJmyW0c51SCPuyrYvtoBLhtLPR0e8zL7P6gQxmgNuG50p2DFF
+         OgcuzSZIEdNWElALaQDmQMBEb/IbB3Rxm4RCHMX6HEMt5bXVLZLBby7AHyBhF5HEe9ye
+         DsT2/7Xk2qG7qLwCovp5iwenD1yoFn/lMkrISjiYoFFQYEQIzOI4KfotITrMeoUaf7Lx
+         NeYR4Dlimd30CqLdRK24JVwRodxxFC1EeLCp7gKm5K22LSoHnERccRmbh0RDAPBr5RLE
+         9YSvlL7c2vjzoE/+YauQWwJk3Rg7etbZ0jGhgs8t+RGXpXDZ5kWx6HpwNFzzx4zZ0M7g
+         SfBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795036849; x=1795641649;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BaCRLdzAuoi39HOKcNTVEIs412iZT+l2iPoEW0IR1dE=;
+        b=GjLy5WEPZneCyaOGih4D9PZzm5kk3oCMo5YlvSTJW07VRZncIbPvuWa9+Qo4W3k6vt
+         KzDxMqRLJBCGeloWBb5oE8CZNdGiNq9cLQ3H1qyO8y9WMIR67+zt1N+tqkzEA15O3q77
+         yb+XWyhwEtPmRWajUqXVilnPi1QYIoJTsoLmDD0z2lWQjGtylJktYzUXNsR4SrKwC8xv
+         /m/xdB2QLMzfLO+VvjSaG2fQXadZy88DY8pud9EmN1TK1NiAX7wyJBQw6qiq/QQwyByB
+         UurpgVsBiRwXSog8IeUwS9NGweIXiA4ug0sAzP1y69IylBKpT1l2apvVigKCwxmbzhv0
+         uOig==
+X-Gm-Message-State: APuU4Z+sgdEttXL8XegW3fT6/uoWqv/liPfGpDcmuEk3kkvuW2QwW+gH
+	zzEzJLRd5yhhj4K1BRcre3V0h/k3fj50Kx13zk72woOMGgoixB5R4B7bTINZAyyph3imSPHWe1U
+	1sbkBoqL1SIrJ//7QTjETp8o2571Pje4aLJYjjIYRADtu3PvAVehyxot0/Dd1NDq+aopWXaXVc1
+	Oy+WVDNY4RJJUOVXdTotFiXxnNAVhA98G502a0fdd/a0BTFc8=
+X-Received: from pjbbb19.prod.google.com ([2002:a17:90b:93:b0:3b1:15d2:6bd3])
+ (user=joshwash job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:3b8a:b0:3b0:9e42:b67c with SMTP id 98e67ed59e1d1-3b3d07c727emr3909499a91.61.1795036848539;
+ Wed, 18 Nov 2026 13:20:48 -0800 (PST)
+Date: Wed, 18 Nov 2026 13:20:45 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,94 +75,220 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.708.g77570a6a1d-goog
+Message-ID: <20261118212045.3575303-1-joshwash@google.com>
+Subject: [PATCH net v3] gve: fix checksum state and gso_segs of HW-GRO packets
+From: Joshua Washington <joshwash@google.com>
+To: netdev@vger.kernel.org
+Cc: Joshua Washington <joshwash@google.com>, Harshitha Ramamurthy <hramamurthy@google.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Jordan Rhee <jordanrhee@google.com>, Ankit Garg <nktgrg@google.com>, 
+	Willem de Bruijn <willemb@google.com>, linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Praveen Kaligineedi <pkaligineedi@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Closing an AF_PACKET socket waits for one RCU grace period per ring
-in packet_set_ring(), then for another one at the end of
-packet_release(). A socket with an rx ring (libpcap, tcpdump) pays for
-two grace periods, a socket with both rx and tx rings for three.
+From: Ankit Garg <nktgrg@google.com>
 
-All the RCU unpublishing is done at the beginning of packet_release(),
-when unregister_prot_hook() removes the socket from the ptype lists or
-from its fanout group. Nothing is unpublished after that point:
+With HW-GRO enabled, gve_rx_complete_rsc() turns a coalesced packet into
+a GSO skb by setting gso_size, gso_segs and gso_type, but leaves it
+CHECKSUM_UNNECESSARY with th->check as the device wrote it. Unlike
+tcp4_gro_complete() and tcp6_gro_complete() for a SW-GRO packet, it does
+not seed th->check with the TCP pseudo-header checksum or set
+CHECKSUM_PARTIAL.
 
-- When closing, packet_set_ring() finds the socket not running and
-  does not touch the hooks.
+The GRO stack completes a HW-GRO skb itself only if it holds the skb for
+merging (since commit 5eddb24901ee ("gro: add support of (hw)gro packets
+to gro stack")). Otherwise the skb is delivered as is, e.g. with rx-gro
+off or for a packet that is flushed immediately (e.g. with PSH set). If
+such an skb is forwarded out of a TSO-capable device, netif_needs_gso()
+accepts it as CHECKSUM_UNNECESSARY and the device segments it with a
+bogus checksum seed, so every segment is dropped by the receiver. This
+blackholes forwarded TCP traffic on VMs acting as routers or NAT
+gateways and was observed on VMs in real use.
 
-- fanout_release() only clears po->fanout and unlinks the group from
-  fanout_list, both under fanout_mutex. If it drops the last reference
-  on the group, all members have already been unlinked, so the fanout
-  hook was removed by __fanout_unlink().
+Fix it in a manner consistent with other drivers with HW-GRO: set the
+network and transport headers and, for packets whose checksum the device
+verified, seed th->check with the pseudo-header checksum and call
+tcp_gro_complete(), passing gso_segs through NAPI_GRO_CB(skb)->count.
+skb->data points at the Ethernet header on the napi_gro_frags() path and
+at the IP header on the header-split and copybreak paths, so account for
+that when setting the network header. Since the header layout now
+matters, tell IPv4 from IPv6 by the EtherType, as qede and bnx2x do,
+rather than by the packet type.
 
-Call fanout_release() and synchronize_net() right after the socket has
-been detached, before the rings are torn down, and skip the wait in
-packet_set_ring() when closing. That single grace period covers the
-rings, po->rollover and the fanout group.
+The device only coalesces TCP directly over IPv4 or IPv6, without VLAN
+tags, IPv6 extension headers or encapsulation, so the IP header always
+follows the Ethernet header and the TCP header always follows the IP
+header. The IP and TCP header lengths are read from the packet, so check
+that the headers are in the linear part before using them, and drop the
+packet otherwise.
 
-The setsockopt() path of packet_set_ring() is unchanged.
+Also compute gso_segs from the TCP payload length. It was computed from
+skb->data_len, which is 0 for a packet that rx_copybreak copied whole
+into the linear part, leaving such packets with gso_segs 0 and a
+non-zero gso_size. Such small packets usually carry a single segment, so
+deliver a packet with at most one segment of payload as a non-GSO skb.
 
-Average close() duration over 20 sockets bound to lo, in a 4 vCPU
-virtme-ng guest:
-
-                         before      after
-  no ring                7.86 ms    7.76 ms
-  rx ring                8.01 ms    4.01 ms
-  tx ring                8.00 ms    4.00 ms
-  rx + tx rings         11.96 ms    4.00 ms
-  rx + tx rings, fanout 12.02 ms    4.01 ms
-
-Tested with tools/testing/selftests/net/run_afpackettests
-(psock_fanout, psock_tpacket, txring_overwrite) on a kernel without
-KASAN or lockdep.
-
-Signed-off-by: Eric Dumazet <edumazet@kernel.org>
+Fixes: e637c244b954 ("gve: Advertise NETIF_F_GRO_HW instead of NETIF_F_LRO")
+Cc: stable@vger.kernel.org
+Reviewed-by: Jordan Rhee <jordanrhee@google.com>
+Reviewed-by: Praveen Kaligineedi <pkaligineedi@google.com>
+Signed-off-by: Ankit Garg <nktgrg@google.com>
+Signed-off-by: Joshua Washington <joshwash@google.com>
 ---
- net/packet/af_packet.c | 17 ++++++++++++-----
- 1 file changed, 12 insertions(+), 5 deletions(-)
+Changes in v3:
+- Document that the device only coalesces TCP directly over IPv4/IPv6,
+  without VLAN tags, IPv6 extension headers or encapsulation (Sashiko)
+- Link to v2: https://lore.kernel.org/netdev/20261116224308.986555-1-joshwash@google.com/
 
-diff --git a/net/packet/af_packet.c b/net/packet/af_packet.c
-index 6ace2a5b2d177e3de89361a3092536a8f6c5e00a..96c5216a9d6b47700da682d864368eead8572297 100644
---- a/net/packet/af_packet.c
-+++ b/net/packet/af_packet.c
-@@ -3224,6 +3224,15 @@ static int packet_release(struct socket *sock)
+Changes in v2:
+- Check that the IP and TCP headers are in the linear part before
+  using them (Eric Dumazet)
+- Note in the changelog that the device does not coalesce VLAN tagged
+  frames (Eric Dumazet)
+- Do not mark packets with at most one segment of payload as GSO
+- Link to v1: https://lore.kernel.org/netdev/20261113195553.2220562-1-joshwash@google.com/
+
+ drivers/net/ethernet/google/gve/gve_rx_dqo.c | 84 ++++++++++++++++----
+ 1 file changed, 68 insertions(+), 16 deletions(-)
+
+diff --git a/drivers/net/ethernet/google/gve/gve_rx_dqo.c b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+index 82ed5e48b00a..b4dbfb1ba39b 100644
+--- a/drivers/net/ethernet/google/gve/gve_rx_dqo.c
++++ b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+@@ -13,6 +13,7 @@
+ #include <linux/ipv6.h>
+ #include <linux/skbuff.h>
+ #include <linux/slab.h>
++#include <net/gro.h>
+ #include <net/ip6_checksum.h>
+ #include <net/ipv6.h>
+ #include <net/tcp.h>
+@@ -1000,13 +1001,34 @@ static int gve_rx_dqo(struct napi_struct *napi, struct gve_rx_ring *rx,
+ 	return -ENOMEM;
+ }
  
- 	packet_flush_mclist(sk);
- 
-+	f = fanout_release(sk);
++/* Prepare a HW-GRO packet the way tcp4/6_gro_complete() prepare a SW-GRO
++ * packet, so that it can be resegmented by GSO or TSO if it is forwarded:
++ * seed th->check with the TCP pseudo-header checksum and set CHECKSUM_PARTIAL.
++ */
++static void gve_rx_fixup_gro_checksum(struct sk_buff *skb)
++{
++	int len = skb->len - skb_transport_offset(skb);
++	struct tcphdr *th = tcp_hdr(skb);
 +
-+	/* The socket is no longer reachable from the receive path:
-+	 * unregister_prot_hook() removed it from the ptype lists and
-+	 * from its fanout group, if any. Wait once for packets currently
-+	 * being received, this covers the rings, po->rollover and @f.
++	if (skb_shinfo(skb)->gso_type & SKB_GSO_TCPV4)
++		th->check = ~tcp_v4_check(len, ip_hdr(skb)->saddr,
++					  ip_hdr(skb)->daddr, 0);
++	else
++		th->check = ~tcp_v6_check(len, &ipv6_hdr(skb)->saddr,
++					  &ipv6_hdr(skb)->daddr, 0);
++
++	NAPI_GRO_CB(skb)->count = skb_shinfo(skb)->gso_segs;
++	tcp_gro_complete(skb);
++}
++
+ static int gve_rx_complete_rsc(struct sk_buff *skb,
+ 			       const struct gve_rx_compl_desc_dqo *desc,
+ 			       struct gve_ptype ptype)
+ {
+ 	struct skb_shared_info *shinfo = skb_shinfo(skb);
+-	int rsc_segments, rsc_seg_len, hdr_len;
++	int rsc_seg_len, hdr_len, nhoff, thoff, gso_type, payload;
+ 	skb_frag_t *frag;
++	__be16 proto;
+ 	void *va;
+ 
+ 	/* HW-GRO only coalesces TCP. */
+@@ -1017,20 +1039,11 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
+ 	if (!rsc_seg_len)
+ 		return 0;
+ 
+-	switch (ptype.l3_type) {
+-	case GVE_L3_TYPE_IPV4:
+-		shinfo->gso_type = SKB_GSO_TCPV4;
+-		break;
+-	case GVE_L3_TYPE_IPV6:
+-		shinfo->gso_type = SKB_GSO_TCPV6;
+-		break;
+-	default:
+-		return -EINVAL;
+-	}
+-
+ 	if (skb_headlen(skb)) {
+-		/* With header-split, payload is in the non-linear part */
+-		rsc_segments = DIV_ROUND_UP(skb->data_len, rsc_seg_len);
++		/* With header-split or copybreak, eth_type_trans() has already
++		 * pulled the Ethernet header.
++		 */
++		nhoff = 0;
+ 	} else {
+ 		/* HW-GRO packets are guaranteed to have complete TCP/IP
+ 		 * headers in frag[0] when header-split is not enabled.
+@@ -1039,7 +1052,6 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
+ 		va = skb_frag_address(frag);
+ 		hdr_len =
+ 			eth_get_headlen(skb->dev, va, skb_frag_size(frag));
+-		rsc_segments = DIV_ROUND_UP(skb->len - hdr_len, rsc_seg_len);
+ 		skb_copy_to_linear_data(skb, va, hdr_len);
+ 		skb_frag_size_sub(frag, hdr_len);
+ 		/* Verify we didn't empty the fragment completely as that could
+@@ -1049,10 +1061,50 @@ static int gve_rx_complete_rsc(struct sk_buff *skb,
+ 		skb_frag_off_add(frag, hdr_len);
+ 		skb->data_len -= hdr_len;
+ 		skb->tail += hdr_len;
++		/* napi_gro_frags() pulls the Ethernet header later. */
++		nhoff = ETH_HLEN;
++	}
++
++	/* The header lengths come from the packet, so make sure the headers are
++	 * in the linear part before reading them and writing th->check.
 +	 */
-+	synchronize_net();
++	if (unlikely(skb_headlen(skb) < nhoff + sizeof(struct iphdr)))
++		return -EINVAL;
 +
- 	lock_sock(sk);
- 	if (po->rx_ring.pg_vec) {
- 		memset(&req_u, 0, sizeof(req_u));
-@@ -3236,10 +3245,6 @@ static int packet_release(struct socket *sock)
++	skb_set_network_header(skb, nhoff);
++	proto = nhoff ? ((struct ethhdr *)skb->data)->h_proto : skb->protocol;
++	switch (proto) {
++	case htons(ETH_P_IP):
++		gso_type = SKB_GSO_TCPV4;
++		thoff = nhoff + ip_hdrlen(skb);
++		break;
++	case htons(ETH_P_IPV6):
++		gso_type = SKB_GSO_TCPV6;
++		thoff = nhoff + sizeof(struct ipv6hdr);
++		break;
++	default:
++		return -EINVAL;
  	}
- 	release_sock(sk);
++	if (unlikely(skb_headlen(skb) < thoff + sizeof(struct tcphdr)))
++		return -EINVAL;
++	skb_set_transport_header(skb, thoff);
++	if (unlikely(skb->len < thoff + tcp_hdrlen(skb)))
++		return -EINVAL;
++
++	/* With at most one segment of payload, this is not a GSO packet. */
++	payload = skb->len - thoff - tcp_hdrlen(skb);
++	if (payload <= rsc_seg_len)
++		return 0;
++
++	shinfo->gso_type = gso_type;
+ 	shinfo->gso_size = rsc_seg_len;
+-	shinfo->gso_segs = rsc_segments;
++	shinfo->gso_segs = DIV_ROUND_UP(payload, rsc_seg_len);
++
++	if (!IS_ENABLED(CONFIG_INET) ||
++	    unlikely(skb->ip_summed != CHECKSUM_UNNECESSARY))
++		return 0;
  
--	f = fanout_release(sk);
--
--	synchronize_net();
--
- 	kfree(po->rollover);
- 	if (f) {
- 		fanout_release_data(f);
-@@ -4674,7 +4679,9 @@ static int packet_set_ring(struct sock *sk, union tpacket_req_u *req_u,
++	gve_rx_fixup_gro_checksum(skb);
+ 	return 0;
+ }
  
- 	spin_unlock(&po->bind_lock);
- 
--	synchronize_net();
-+	/* packet_release() already detached the socket and waited. */
-+	if (!closing)
-+		synchronize_net();
- 
- 	err = -EBUSY;
- 	mutex_lock(&po->pg_vec_lock);
+
+base-commit: aa40afa831ebfe45e40a23721711059f2ac584d4
 -- 
-2.53.0
+2.56.0.679.gc527c65306-goog
 
