@@ -1,54 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989916;
-	b=wlyOvLhSwXWgMegy84EYCDrvTZiiLcLPsdKYBxcexn93QoP+fGqCSZVJt8ZdhKDPA1RR
-	 JNwx2HxaQ4dCi5GIzuuZ31kphVdkR04hliyB9JF8FjlZLvlIXe113SqMIxNZK3ZVwtS6w
-	 FAd66sctSDZDdEj8KKWB99l/wGO2EEtlaNjzGkFhA8sS76weshVo32iQbA6yoG+qRE8YZ
-	 +2txETVF/Owg5I3aqP7Ks3LU2uiRtYV8HcNLAAwscgu0Dj/zVCjIfWzLTDRZYZQuT31KR
-	 87lzNFuFPEvW44QirEIcj49GbCRbrIMnNeSdWFTofNM9D61VHoYOwKjtsNyH5V8Y2Pg==
+	t=1794989927;
+	b=jT2qWGisaPbssrXeySl7R002rQSItry/CQHE1Ee0k9lUST2ohjzdNvBv+liWoMe6dk4+
+	 pLYqOmuYN1FQn7eFYqEoLroCCWoSmCal/b7X9paTu/WawbjI+c7UOcBulUn7WiSmqyAtA
+	 Z5PswTqAGqH3L6lVUZ3vTCZXY0aKbEePOty4znXb9fPKieHL2LbLV/N/sERkdInMl/CQp
+	 pqh1OhCobqS+kHLR47hU/JALuAXmPRpPI9KRoUKbfFYYD5f8zS9gnVYVIxSoyHL4fqnqk
+	 6PwLCH12OJVntxNIXMJ37e/iZxrxVrrifr2W3JZbYBya4zBqIsgE0aY6Jhl72MkUHXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989916;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989927;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
 	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=H9xLzacw9O3Ae6IPS6OvDsKe5aOdvS28cPSDtBJ+zWhAiWVao0dk6d2YPMgXkM7nAvAw
-	 PDqWLONWmWAf544RIy3tHEwGzamoDu50j6zhClAZu+l6m4MIGH/FCow4vi8pwIkMhwoVP
-	 T7rqcXv/c848bWAXCoSBPE0JArbtaNSVVlTSpMsw2Eq2syAbVBk0IRyTQRMtwr9ZgJyVF
-	 7xkPklLWVJvt/B3xb+iZP2uoAljMlFdXRnMvTVcDWdJB8c99X/pIjxNFF38cCVgeSNq6+
-	 AaqNxtJBNhxbqBTS+Xk1IScf7zCqnEHuzYOmPiCVQK0sSMoC9a5niJcLbsO884jTVvg==
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	b=HI2owRtFfsXwJaFxwGQN8hcP8IVxsrCvGm/Wcon4nQj5z2Xe5CuBdkP4INvo5NwQtypE
+	 C9Y1/99oIy3lGxG6eAVUaQe1YaFW016134kXH4RLMsIqWCP6SDiET38QrVr7gwE8sis6r
+	 KRC0mFoEYtPRXf3cJezgSlTQzln4OsaQbVG8EBSiU36Uw+/hfggxJibcxV49Uc0YRxJr5
+	 zeYGVMED+ya68KoSpzH3DVvZSazAf5TYBWP45bJkrOGvxIGluaye4hDhiVO0hlsJbNXGl
+	 m5cVBKeNiLHai/rVsTQjUce9GzNie4cnt1ZbrfajlGxnIV4ng9UhtsZvEJ8owkwYFFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h5t31y31;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZoslcJ7M;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E0FE606A33A;
-	Wed, 18 Nov 2026 08:18:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6793C606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:18:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h5t31y31
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAE601F000C4;
-	Wed, 18 Nov 2026 08:18:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZoslcJ7M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50DAA1F000C4;
+	Wed, 18 Nov 2026 08:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794989916;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	s=k20260515; t=1794989927;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=h5t31y31eDy76OU/2JA4Ex2sy11WvLdedcIKjHhsgaoDV5xMnNMuMFSmxmfCkn4AO
-	 HqD+Wb9V/zvQKvc+o3rcKV1rTV2z17Ae71Uujy2nq+/TiTrQM+zcpkGaIMoW0svRGf
-	 P5Aan6Rysw7FksbQyejQJAVvu2NwlK3ugBDlsOcziarF/dcVP+3b2z8LDqUujZWL2q
-	 EIj+byzFBW2/QQ3mQc0HkllBn0Q5mcGGNDX/1k7HJeY+SPL0UElcDPFNYoQh3SS0z0
-	 yZ95DGY2SXh+gRm3KTnexgthatvsCQse/szeYopCcQvKDyt4wGpHrwmZPRdw9fF62G
-	 tqswsnJD/0x0A==
+	b=ZoslcJ7MHvXFKhgWMJ5R2bHLG9u9/iPjT7xc4EyK2TFquNyYnqw5ph2F9J88oGbyt
+	 Q1jhfFX50tQwJS7taiYbIaBls+3HP26/ZeY1uac19Iu0YmIwYRIWD19Xjm/Dlua8Kr
+	 5pd0MsHpAlrDTmM6KCxD+S0VkjI93fzPlQNhU7jset2yImYrbgd95qIm/pu8ITmw/n
+	 rmPCyOIDw7swWklqlN41kGxf0kDAWgZIOf9kkAHgPOTMz1ypJS4Sbe9GdfOmiDj2YT
+	 OHc2OfILPyUZ+dt/h4WCLaSfmgEZjFN4HxulcklODUUoP/6DbIyAxFOfZuCb5AqlWs
+	 F0Tut7RmDdX9w==
 From: netdev-bot+sinfo@kernel.org
-To: Bin Luo <luob87709@gmail.com>
-Cc: oe-linux-nfc@lists.linux.dev, johan@kernel.org, david+nfc@ixit.cz,
- netdev@vger.kernel.org
-Subject: Re: [PATCH] net/nfc: fix skb ownership on data exchange errors
-Date: Wed, 18 Nov 2026 08:18:35 +0000
-Message-ID: <179498991526.3291.17359550581304539436@kernel.org>
-In-Reply-To: <20261118081341.1514-1-luob87709@gmail.com>
-References: <20261118081341.1514-1-luob87709@gmail.com>
+To: Mengyuan Lou <mengyuanlou@net-swift.com>
+Cc: netdev@vger.kernel.org, jiawenwu@trustnetic.com,
+ duanqiangwen@net-swift.com, linglingzhang@net-swift.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, hramamurthy@google.com,
+ jacob.e.keller@intel.com, przemyslaw.kitszel@intel.com
+Subject: Re: [PATCH net v8 0/2] net: wangxun: protect ring accesses with RCU
+Date: Wed, 18 Nov 2026 08:18:45 +0000
+Message-ID: <179498992591.3291.11634378826963805001@kernel.org>
+In-Reply-To: <20261118081329.39551-1-mengyuanlou@net-swift.com>
+References: <20261118081329.39551-1-mengyuanlou@net-swift.com>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -74,6 +77,10 @@ commit messages seem to be missing some information:
  - Whether the issue was actually triggered, or is only theoretical
    (e.g. found by LLM and not proven at runtime). If it was triggered
    please include the symptoms, like the stack trace or kernel messages.
+
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
 
 Please do not repost the series just to address the above. Instead,
 reply to this email with the missing information, so that reviewers
