@@ -1,79 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794989456;
-	b=4O6FHcmh55SS2/xIKM+vMSJBDfZwSlWX/MNEUxHnLzJMNudswJw0QIqv2gc/ahxyxAkf
-	 YlzJ5EwmQt+c/elZIZucTgfnh2T91ij8Je6W9rj/sx2vN9DQOmBHXCeukP0D/kXzbK4Fx
-	 7Nj27VBRY/qVFq1XQZ6OdwBNz2iQzT66Hgd2wiHLU0JqvsTfzzqzS1cAnieMnHEAsAihM
-	 2TDW0JsECr40c+RxscPY7lbxIBcM3N+Yw+PRf4KASN8MLVj8qa7BzVw9kYZd89sey2h0P
-	 cP2nqJwHMhMfWuKV5PltTBl1ieuXVpc+qW3f4EE3xCHTtqU3iIr1PJZXswbiQoHusdA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989456;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=/NpcbjWSUChqv+cvOMiA6HbBw2XREIxDhCy3LbF2ABk=;
-	b=ZPZTrknFtWdTOY1/pBf5pAJ7I23214rEIthXoLS3LIzwo7+SS6GLoeLwicnX25CrwjYJ
-	 7NvnM5JYTntanch5WK4fXd4iXzsTrUYujgDVc3vvSpQx3ben4tJdC58bGA7yzaPlyMUNG
-	 WSH7dmZQxJacPQeqFQlRYIXkWCvcrKR9PuMkbrKPp51CdIqbfnEsN62PojVVnegcZoRUR
-	 Vph1gQmUYD3Vmwmb0qTY2vBNbBgxmA6NpHIHZjaWG6npr+VEpR6RsMsY7LBuqpHU3DRxy
-	 aHXQiLf5GtccYOuJfBguLmSUOh7B1wIZfhXPhfQwLqW2cvl8j0woaOWPohkSdz5mobw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RKH0mxUO;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AA61606A31C;
-	Wed, 18 Nov 2026 08:10:56 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RKH0mxUO
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1794989455;
-	b=Zhms7/di3DRoi22sOUN6/8lVbuh3Nndf1+OkN7PtapQcfc4U4ifWYcei02AApX3g/A3/
-	 WEPEPVu7qf4wwOqlzCD0uLTGivCK6eaCyq7c3D6agMHtp1rFtARUAAnwU2IOP8U6AQYTG
-	 taRQtaU5Gr12uJ8UoRfTlJAV/TswHoz5zgWTMFfP/82HieAEUxlFuryrMp19hza+ENh3d
-	 +OURY9cDtLLxWQkHEdlnijjArI4Zh+tjaT+i0wyAfyGi+cFeXav1HAGE4CXuchWjV+ytT
-	 aU+YQ+tznx4TjzCfZYKaaI3gikfA5B2/mxXqJPus6mI3T/gIeyc3BPjyy83TNeqDSjA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1794989455;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=/NpcbjWSUChqv+cvOMiA6HbBw2XREIxDhCy3LbF2ABk=;
-	b=s7/u7goyCnHIpchxMk5LN3AEbz5ovhSL2s5ZLqacBOWmL8AYubNMJziof8XT86SMGDpn
-	 tguOwSQqnc1z1/zSlvqjGBzhkxa4S+HGo4EqUF1S01rEAzHcQrzgKTGUwGfs5cCT0zRDM
-	 R36v31WXb21w7fAMsoIdSS6w6YT7bdpL2iKUSppsmVYTsYGGf67AcXPKaJdINGMBy6612
-	 DUM8tmwj9CMRY4LqJ3HDCH2dwMVmpE1zw4H/pUZknSG8BpywLl7adq1/aLVX2pafDc7Db
-	 DRqX/RPV71IG47EuNzbH90PH7zqgUGvhy3sl1FOY8UEPdGtwZvhO5+0vQhpyRpWTkjA==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.169
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794989631;
+	b=O8fwHB68vzF20CR9D0zuJNMQdgTxjuM/b0FFcjO15ekBK+dpU4ZYcUuxJWQ10yr0AjNl
+	 Y3F/OKu/tuBQoHjL2ULYC9eHE3MHS2C6hC9aHMwXoHr63jwGXcM+FiOBFuCrShF0Oi8HT
+	 IoInc4F35pWDuQNH4CAzSs/RmRk6r3Q/Rjx48iXkTtH47Sfsdwwih7g5sqd0oMgw6+vgz
+	 684A5fuT/K273TMKd0wnMpZ1tdXkM1i4V106ZW+xMWdo4bsJkSWCM3F2nZPBOXzoOd/ch
+	 neaR+s1JohDbYMLO7mG26TZTeLjshz/feX5vdqrEcn1mKsPxyYdP1QZae2xC1y3u1eQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794989631;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=t4Ktyk770oXAGuQam8qgSxAjxXyC+FyRLT8hbvMUFqo=;
+	b=BR/sfLLflECHKeuW5RCsmCjfMAtgQS7QcmmE9QH9oUJYgkwwofNB2tkV96k792IoJCHA
+	 bYZviDbJricJt1M2HD/cdMx1qnMR29qgutpIaHCUYerUXO1yeIaQR11U7DafwALo9gj1M
+	 NeiXWkaQhdR/atIVCZUgU+ByWb4qY4zKtnr5OsaGe+1vs/HcIha1l0avxRYop1l/AYgpz
+	 3KlwYQCeGROFY27HOXLwnhj/XOBdwmt9Np/eypCaWC3urbZLTZqxPG8yYx84XZfsnZNz2
+	 nx87+Dte8lwGULEBpoJaUwTTPwcPTBSdCmaQX+inz15WJyfGXch2K87HmdP22E+uDlg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aorIRj85;
+	arc=none smtp.remote-ip=209.85.210.169
+Received: from mail-pf1-f169.google.com (mail-pf1-f169.google.com [209.85.210.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 4FD161F000C5;
-	Wed, 18 Nov 2026 08:10:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794989455;
-	bh=/NpcbjWSUChqv+cvOMiA6HbBw2XREIxDhCy3LbF2ABk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=RKH0mxUOqBSs7+f5Xppogi8HvUfVGBO26MYqpW3CXbQ3XR4/NBtNpwVjbN5aUk3ep
-	 zyVD4jBmksm7cNl1jRlfm/zFv20Tt2Vz/62h5g2vkCgNhwg3dUdSIVcYkTU2Lo9fLS
-	 4LkmTwuXN2A6ncbK+Tpu6Jcra3yN5YrbFekTvtSGYaklF0eIJYyqGtNfvCdsL2d9qz
-	 Fk87aek0Lv0qAK2jxcmvbnf0cXE7gwDoG7KtJbiXmywEHVKXtyd+YDmjL6+J8PT0wf
-	 VJuUClHRsVI2RkUYZbJiuE28BbFMdT6nOZuidwjGPj/DvErn8HJdK+JkTMu8hsTFj/
-	 PFjcQYMxkp6Yg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id CDE744AC91;
-	Wed, 18 Nov 2026 08:10:54 +0000 (UTC)
-From: Yongjian Wang via B4 Relay <devnull+echoowall.gmail.com@kernel.org>
-Date: Wed, 18 Nov 2026 16:10:52 +0800
-Subject: [PATCH net-next v2 1/2] tcp: document black hole detection for
- tcp_mtu_probing
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43734606A33A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:13:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43734606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aorIRj85
+Received: by mail-pf1-f169.google.com with SMTP id d2e1a72fcca58-8b58d6f67a5so395449b3a.2
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:13:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794989629; x=1795594429; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=t4Ktyk770oXAGuQam8qgSxAjxXyC+FyRLT8hbvMUFqo=;
+        b=aorIRj85yO+KdmU13LcQzntWUw07t3ERm2MS2ZQazEP9NSUdTGr+wAZqehqrSmgz1d
+         Ek8VOCbii41qrn7q4hofoMnJ7TmyDUb0v5D2L0jiRuZ9QLjWhn+ZBh7rdOFU/zU4/kNF
+         8iFTiuVMBDIXeVkatN68snoV5NtVeJuzta8DhwfSe1j6GdXR30DjeQarfr8Vpb0gU1n+
+         /tvgm6C8vcOfyBay1vvdvCFkQ6/bknQmZl7bciC3eBKXc0CZi0JWcfGyXwvXRfpB96w4
+         fbAmDIRmGcDQjyPApQveAjOaotz+/oqpmOkvqg9HBzf9pTpTlIPiuw4wK5lFjn0qzh2k
+         wT2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794989629; x=1795594429;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=t4Ktyk770oXAGuQam8qgSxAjxXyC+FyRLT8hbvMUFqo=;
+        b=uDi3M01aELjbp+eXiF15z83+VuK/vchJJtGambdcOxZDgD34HJPXfn2zG0cNsSje0V
+         IEmDJhDp51F0zVaBna4O64PopDsyRV231P4xSG/exev0HgULMifCTmo04VCNeUupjRUN
+         nFE15hJ5cJzJQQl69wCBVu44WrinmB0UQ3aDoIvXOLb+A+Wek636VTpXv47haeXJNLTz
+         r82j4O9wE8JLpIVObbJWH4moc7holzhF+SG3+xXqHfgFeb710tnfNjE1QaWfFQsVxM05
+         J95RQH/kcu1uB1Gh7Qsyp3Eawg7EmQBm7xOM4RVlL1e2AdFRY6crXH2mnIq8KQo6pFlq
+         Zstw==
+X-Forwarded-Encrypted: i=1; AL+hErF+tCG9cMNpzD7Vid/LCCCUUpboUINNTkVjA3gHMC+3pra5Yejf5DKfEgIdLEJ61oejzLXXetE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8vD1VVvf+cy8IAbFZy3FqjA2am4E52v5T2Ju0ooczdUvdCJjUi
+	MJdnt8fK+pwXfGtOK/TZK9bOvIMAKYeLqY8x1cFJJLN7C0pDWyumGbZr
+X-Gm-Gg: AYBFou0TpOWLsnaC2bwGKRDve4rJUJcShPj2zJtBxbqgTEnpjt00byYtp5V7/L3ukXo
+	gk0GJZK+WM5MsnGWFm3ISeZfuHt8ZEOwBi4VOysow7oBLaaQQMJ1kldklXWP1tl3S4d34lbaRWM
+	5yhj2qxJogGolO+9ujDweZjzg1Y4ItmOSsoYprGk1GU4X+Aesm90c1WSWrogZ0EZiRK27MZJepm
+	aOvKi9AbvJW+KgiVHcxS5Jjx+m68oH1q70RXU/xy1Adc/XMiMDZjuPYVvZI2nnj/CuCEr9iPxBj
+	4HUjNJ0oWFtIGLUYGIPMHMDRPIjDpR1fECmHK9PbkH4R00yvkiwguaO1j5GbqU+I4Xf7MgZz0mn
+	m9zODeuZPX6LWw/GOKbTwRZsuECr823PnMf2jOE1DfOcIEQ3OJ4SaPHsSimbdK2uQFfz3FWmFu+
+	cnyuXigu7oB8OjUXko2Hh23Mj34eTRjvBzDm8kb2e57ZrKAORmUdsuw77sVxLpDCWxFgvAV/5d+
+	eWwrQ4pm2whuxSBZmOAmwhZx34qLT+2WX/mKTBP32urE2S5nWtb3Wk2pR7Y3coGPrMiSkHVa7XQ
+	jx6MOc/PXMbKQHiWafcxmHSGFWFhBNqpTwv8oNsO7i9IWOovGcWlXlXoaxeAtqcjlRfz6TGxMRh
+	AnvE+9jSJOmDkKQz0sKnFWPgOrOsKjLBs/vcrqocXBl19GG9DMBTggNnbFqwNMO27meMek9IaMs
+	NLWlMT9a4pvzLTqxu8J4o=
+X-Received: by 2002:a05:6a00:a28:b0:8b5:9654:d340 with SMTP id d2e1a72fcca58-8c5d42eff9amr1473706b3a.33.1794989629507;
+        Wed, 18 Nov 2026 00:13:49 -0800 (PST)
+Received: from LAPTOP-3B99V33A ([218.194.44.207])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c5cac8fe3csm763993b3a.21.2026.11.18.00.13.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 00:13:48 -0800 (PST)
+From: Bin Luo <luob87709@gmail.com>
+To: oe-linux-nfc@lists.linux.dev
+Cc: johan@kernel.org,
+	david+nfc@ixit.cz,
+	netdev@vger.kernel.org,
+	Bin Luo <luob87709@gmail.com>
+Subject: [PATCH] net/nfc: fix skb ownership on data exchange errors
+Date: Wed, 18 Nov 2026 16:13:41 +0800
+Message-ID: <20261118081341.1514-1-luob87709@gmail.com>
+X-Mailer: git-send-email 2.51.0.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,87 +98,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261118-tcp-mtu-probing-doc-v1-v2-1-e795f20b8cfe@gmail.com>
-References: <20261118-tcp-mtu-probing-doc-v1-v2-0-e795f20b8cfe@gmail.com>
-In-Reply-To: <20261118-tcp-mtu-probing-doc-v1-v2-0-e795f20b8cfe@gmail.com>
-To: corbet@lwn.net, edumazet@kernel.org, davem@davemloft.net, 
- kuba@kernel.org, shuah@kernel.org, pabeni@redhat.com
-Cc: Yongjian Wang <echoowall@gmail.com>, rdunlap@infradead.org, 
- linux-doc@vger.kernel.org, horms@kernel.org, ncardwell@google.com, 
- kuniyu@google.com, skhan@linuxfoundation.org, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1794989453; l=2444;
- i=echoowall@gmail.com; s=20261026; h=from:subject:message-id;
- bh=ta6f43Q9WCijtV9U1XrIJWYCHAQ4FrHJdfRc+ckR0n8=;
- b=S4lH+mwLEmJOlG3gNxDU33WKSApX7xGkxPBbsThKzrn0lyRgQxF6BY/IaRIex1VXZzX6Fqylt
- pTvvDpGU65vABIK5GKvo5VMuNv+z+nFeD26bUy85582xk+RWcS4iIyj
-X-Developer-Key: i=echoowall@gmail.com; a=ed25519;
- pk=9XP6JhqjjPsHCF6UZZZTeqTRnXIa4+ufggnxXtTJ+no=
-X-Endpoint-Received: by B4 Relay for echoowall@gmail.com/20261026 with
- auth_id=1323
-X-Original-From: Yongjian Wang <echoowall@gmail.com>
-Reply-To: echoowall@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Yongjian Wang <echoowall@gmail.com>
+NFC data exchange callbacks may receive a non-NULL response skb together
+with an error. The ownership of the skb is not documented, causing the
+rawsock and LLCP error paths to return without freeing it. Digital DEP
+also frees the response after invoking the callback, which conflicts
+with callback ownership.
 
-ip-sysctl.rst says that tcp_mtu_probing=1 enables MTU probing once an
-ICMP black hole is detected, but not when that happens or what TCP
-does then.
+Document that the callback takes ownership of a non-NULL skb regardless
+of err. Free it on the rawsock and LLCP error paths, clear the Digital
+DEP response pointer after the callback, and release the skb when the
+NCI loopback connection lookup fails.
 
-Describe both, as implemented in tcp_write_timeout() and
-tcp_mtu_probing(). Also add the missing defaults of tcp_mtu_probing
-and tcp_base_mss.
-
-Signed-off-by: Yongjian Wang <echoowall@gmail.com>
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+Signed-off-by: Bin Luo <luob87709@gmail.com>
 ---
- Documentation/networking/ip-sysctl.rst | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ include/net/nfc/nfc.h | 2 ++
+ net/nfc/digital_dep.c | 1 +
+ net/nfc/llcp_core.c   | 2 ++
+ net/nfc/nci/core.c    | 1 +
+ net/nfc/rawsock.c     | 5 ++++-
+ 5 files changed, 10 insertions(+), 1 deletion(-)
 
-diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-index 0b7bfbd98a92..6ac8b3fb9aae 100644
---- a/Documentation/networking/ip-sysctl.rst
-+++ b/Documentation/networking/ip-sysctl.rst
-@@ -412,6 +412,8 @@ tcp_base_mss - INTEGER
- 	Path MTU discovery (MTU probing).  If MTU probing is enabled,
- 	this is the initial MSS used by the connection.
+diff --git a/include/net/nfc/nfc.h b/include/net/nfc/nfc.h
+index bcafab5c5..d3c2d6735 100644
+--- a/include/net/nfc/nfc.h
++++ b/include/net/nfc/nfc.h
+@@ -37,6 +37,8 @@ struct nfc_dev;
+  *
+  * When a rx or tx package is lost or corrupted or the target gets out
+  * of the operating field, err is -EIO.
++ * If skb is non-NULL, ownership is transferred to the callback regardless
++ * of err. Providers must not access or free skb after invoking the callback.
+  */
+ typedef void (*data_exchange_cb_t)(void *context, struct sk_buff *skb,
+ 								int err);
+diff --git a/net/nfc/digital_dep.c b/net/nfc/digital_dep.c
+index 968547c30..c7f5378cd 100644
+--- a/net/nfc/digital_dep.c
++++ b/net/nfc/digital_dep.c
+@@ -882,6 +882,7 @@ static void digital_in_recv_dep_res(struct nfc_digital_dev *ddev, void *arg,
  
-+	Default: 1024
-+
- tcp_mtu_probe_floor - INTEGER
- 	If MTU probing is enabled this caps the minimum MSS used for search_low
- 	for the connection.
-@@ -711,6 +713,25 @@ tcp_mtu_probing - INTEGER
- 	- 1 - Disabled by default, enabled when an ICMP black hole detected
- 	- 2 - Always enabled, use initial MSS of tcp_base_mss.
+ exit:
+ 	data_exch->cb(data_exch->cb_context, resp, rc);
++	resp = NULL;
  
-+	A black hole is detected when the retransmission timer fires after
-+	the handshake and retransmissions have stayed unacknowledged for as
-+	long as tcp_retries1 retransmissions would take with an RTO starting
-+	at 200 ms and doubling each time, which is 3 seconds with the
-+	default tcp_retries1. This time is counted from the first
-+	retransmission and only checked when the timer fires, so a flow
-+	with a 200 ms RTO detects the black hole at the fifth timeout,
-+	about 6 seconds after the original transmission.
-+
-+	With value 1, the first detection enables MTU probing and lowers
-+	the MSS to tcp_base_mss if it is larger. From then on, and from the
-+	first detection with value 2, each further retransmission timeout
-+	lowers search_low to half its MSS, keeping it at most tcp_base_mss
-+	and at least tcp_mtu_probe_floor and tcp_min_snd_mss, and lowers the
-+	MSS to match if it is larger. Once MTU probing is enabled, the
-+	connection also probes for a larger MSS, as with value 2.
-+
-+	Default: 0
-+
- tcp_probe_interval - UNSIGNED INTEGER
- 	Controls how often to start TCP Packetization-Layer Path MTU
- 	Discovery reprobe. The default is reprobing every 10 minutes as
-
--- 
-Git-157)
-
-
+ error:
+ 	kfree(data_exch);
+diff --git a/net/nfc/llcp_core.c b/net/nfc/llcp_core.c
+index 74bf81700..3619e12b3 100644
+--- a/net/nfc/llcp_core.c
++++ b/net/nfc/llcp_core.c
+@@ -1638,6 +1638,8 @@ void nfc_llcp_recv(void *data, struct sk_buff *skb, int err)
+ 
+ 	if (err < 0) {
+ 		pr_err("LLCP PDU receive err %d\n", err);
++		if (skb)
++			kfree_skb(skb);
+ 		return;
+ 	}
+ 
+diff --git a/net/nfc/nci/core.c b/net/nfc/nci/core.c
+index 73e3a9647..678f744a2 100644
+--- a/net/nfc/nci/core.c
++++ b/net/nfc/nci/core.c
+@@ -413,6 +413,7 @@ static void nci_nfcc_loopback_cb(void *context, struct sk_buff *skb, int err)
+ 
+ 	conn_info = nci_get_conn_info_by_conn_id(ndev, ndev->cur_conn_id);
+ 	if (!conn_info) {
++		kfree_skb(skb);
+ 		nci_req_complete(ndev, NCI_STATUS_REJECTED);
+ 		return;
+ 	}
+diff --git a/net/nfc/rawsock.c b/net/nfc/rawsock.c
+index f7d7a599f..3bf65b1fb 100644
+--- a/net/nfc/rawsock.c
++++ b/net/nfc/rawsock.c
+@@ -156,8 +156,11 @@ static void rawsock_data_exchange_complete(void *context, struct sk_buff *skb,
+ 
+ 	pr_debug("sk=%p err=%d\n", sk, err);
+ 
+-	if (err)
++	if (err) {
++		if (skb)
++			kfree_skb(skb);
+ 		goto error;
++	}
+ 
+ 	err = rawsock_add_header(skb);
+ 	if (err)
