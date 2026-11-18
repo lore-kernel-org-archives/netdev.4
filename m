@@ -1,60 +1,134 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993134;
-	b=l+MQJCnPxV6WVF19c/PHYi8AcA1UY1mSveYTTxPqqoK9Yx6VaDa3sT+lb1BKe12UukTU
-	 ofzvI+LTZv9HGSI8mzpnUMbl0A/J9j4C9AYo9qQLJKvzLWemrKr9RxIxYW5ovFv/qWoRF
-	 k4tAZo2utKjpgs3l47gIBiV6GWz4gb6DrmNfJDXum5YHrxcdI3eEIPsGYj7QLTIFZRDgw
-	 Al4SGWo4Yzu0lnP9BwZKNiZ30LN+VVFtHevTOVYNN7CeADF01bLefO6lXr89qu9/JI2a3
-	 yDeaV9d95i3kYb3ghke57/iETxcCT9yLRmRo13cX2PmwJT3FqMke7OzUyGxUNFA+Clg==
+	t=1794993209;
+	b=zlSwryaPvqW9VkB8be1rl1n0YMYILLZvEbfSlvjKk6DMj/CYjqYgSFo4J6FuOxyhNOKp
+	 QIblLOnJ0PDaf2jtroatFy7gNtgLkm1YcpoBNUeiCaHZ4myeic5DOOmCplCjAoXYqV8ty
+	 FTCYMq4cZQnspKb3M/r8KOvznJGOuJFAb9BpUvvUk8f2oRv5aJcpwbhHMqRpju5CoFsSC
+	 TsbOAfjXhdo1TsIl96sMxwzfXlcHlNmHgkOFFJMc2VwdHJf5g76kkbhueWrOEaSRvsm5+
+	 Ox6F4MB+HXzdFRzVYuRyLkyXfDcRdsgh54dGNYrzLLKyE1Ok1LDybKkkBSTY4Nr7VBw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993134;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=j4VEP/66boLRVWLZORrD0dkbCraUxgEcYkZxlyDhLLA=;
-	b=5qxGmFr8xewqGZ2JwSajrdbdWMqJ4stwXKZSWeroD/nib8JHTBUtUytkQwNihekzJQZe
-	 2iV779r65lOj8BxE6JMrxsaZTS6QmBgw7LNPUvUPninMdHEeWWg67zx7lx3OuuuzUG1dg
-	 Oq+vdTRpGs+i1GZXKtUVOHHyOyKrmtNbx5k/wcwcEN0TZ0c311BZ4d2BhoQ6J2OfICtJW
-	 TQbtnFDhk1N+na8ZoneinNXwe2zDPqfCjq3QqKk9LimmudgAsXMGmFJwpif35j6fFPAm5
-	 2y1oQe/VgIJPL8wC+2vpfYmYrBvfitnAPQmF2WExFoCllcTz3f6X5R5fs+PjGEV1yVw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993209;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=mgNqGNkSyaCHbgQrLwcGSMfAaOL0GqaL9ZS9mVJYGS0=;
+	b=Fw8NjhyMOTG3g+xSbNnYFhLXgmpftk1pN7HPB2EB2NLqzVFP8ZZhIvBk1NDPCv/OcZ/j
+	 ePetvoXB3rdvO+X3y3HSUEW9/aqJlXE1KBpjZEkxXmgcgGuRQIaS5tYTsVIW5zIREFrkB
+	 N5xwo93NwkljA/Ijb8PvglEx4OV103MrauBGuiMkLTJx97mKZJIQTsaauYKRQbmQKU2yb
+	 SUz3G3ivZ81A+Xcl954C6+km5ft9PZgEfVw4qjl1HDZvnXv0FMLKvSdas9mBUrht8nRql
+	 gDG/nyvLDezczxrgyqp3i3Ob/jOvIT4Lh9LmmObw5nZXuLLZYs9rUzKpYtswbqvvEnQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP+qJlwZ;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pkek45nb;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PXSt+6+a;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED45A606A8A8;
-	Wed, 18 Nov 2026 09:12:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10380606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:13:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10380606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP+qJlwZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 126C71F000C5;
-	Wed, 18 Nov 2026 09:12:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794993133;
-	bh=j4VEP/66boLRVWLZORrD0dkbCraUxgEcYkZxlyDhLLA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fP+qJlwZnVEhyynEgSeitpCeMW7M6F45Eovjgo30VhhhRs9AA6t9w5QEBxZnYb/f+
-	 0unogwzVha6dzU/YARlKowC/Ju/uno8z0TkMhun82clA6jSzY5vcuN75/1FIljT4WC
-	 1SPn0eWj9F7RMkxAEA1+rrkLvgRx2XhEnefIr6YdIJhPcCA++BpNmnicDuMYCvG40L
-	 48L7T9eBnC9Nf0EyyPuQeE5b3yC0VkYclaYmn/0xkV4R0Dv742h1i8Zesg9aWvTdCp
-	 q1Rjb1vzmu8UTz30JBxHnmkJnBcVbMzioxVIcqkc1kBGcrnNyP26+s3zM5QlmS/80M
-	 yn7lOcW92e9KA==
-Subject:
- Re: [PATCH net-next 3/4] eth: mpnic: sync unicast and multicast address lists
-From: netdev-bot+sashiko@kernel.org
-To: daniel.zahka@gmail.com
-Cc: alexanderduyck@fb.com, kuba@kernel.org, kernel-team@meta.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- pabeni@redhat.com, dimitri.daskalakis1@gmail.com, mohsin.bashr@gmail.com,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Wed, 18 Nov 2026 09:12:12 +0000
-Message-ID: <179499313262.3136.12811016164943625265@kernel.org>
-In-Reply-To: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
-References: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=pkek45nb;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=PXSt+6+a
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI8U6Lr2106361
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:13:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=mgNqGNkSyaCHbgQrLwcGSMfA
+	aOL0GqaL9ZS9mVJYGS0=; b=pkek45nbZFw72X9I8v8wMsLNJXBCsEMpfHvRIst7
+	kM04LP2uU7f5U1c95BoC5DPA4ehI2dhuQ07JZHLebGvWwdE+3QTyPKALXHO+9pBP
+	81621wRkxS5w17kMXJBHXH3DI9gjIFUY1HjshMe++yBiBzeM8vCxCAUWKfeqHx+j
+	5o5KEEduiMP0hfg2DV+lpzrR0SSadcP6c1RJ/vHyjU0ldHfQgLjB+83SYVMqvX7F
+	wDXCMQU9LGh3vLK0BTQag0/WwwhJ/YIz8LEIUKNQmeG9lqS/kVVdWN54nufevHnc
+	8jbTFXaxZW/oyhFZEV8niu5HRXs/Q5hUw5ivkMM3leHNDQ==
+Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv8t6vk-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:13:27 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93f26dd2165so216465585a.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:13:27 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=oss.qualcomm.com; s=google; t=1794993207; x=1795598007; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mgNqGNkSyaCHbgQrLwcGSMfAaOL0GqaL9ZS9mVJYGS0=;
+        b=PXSt+6+aE9/P372Gpfe00GB07ZTkanSHMmS3UrWpVLhIHmy7KJzpwxF6fdUZxOsRQJ
+         ye4whvdtsVhvunvQt2Mu6It/KGAQgHFSGOslYIBA4xnG9jgWrTtpBPnR8l5VwXM4jDrW
+         wrbjy1O40cDoLYBd54OdePSdmyYGyaPWcYOUEGTlsPbvTBu1ig++2yDp+HyF/oG5Z4IA
+         ky8UG4uw0jlr/mj74Mt3Twfsoj3UZgUnXZKFEdjkyyAHwu/m0De+fuNZ3KQTeBbtvv+G
+         bqkDzdD0ZsJ046N89187hFCs9GshFPTUjJhm1bse/aqx9CAaZjqzdlZWZJACon3A1bCc
+         u6Vw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794993207; x=1795598007;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mgNqGNkSyaCHbgQrLwcGSMfAaOL0GqaL9ZS9mVJYGS0=;
+        b=EzL+GyEoC7VksrJvax6DIDXg65F82Yfh0oHbhdxXXetGGL7ADKeXG+Kwx9Eo61aihW
+         ukMdNJ2kJyjjY9rzAD6Fy7XHRkaFdbj6olMt3uCo69fUPn9eycmFsyod52UbJCfUKAeJ
+         zpBy9daMui/vv+VQN6y/n79jQf2ssYRHAqRwNqffcYIxGRGxxVSORfOQcUmBncBmfm3p
+         KySE5ujabrN9e7BepUFzLl4MdmH+O7vVHmSoOEI8xb4IvmfW169HyHzAbLpIV+lVCwCj
+         HrrO1GetjtAABX5HzbW0Ge/duVhzYOIflvGwpe85A16pTr85UA6RDP34lYHlrmsQRTIj
+         hPbw==
+X-Forwarded-Encrypted: i=1; AL+hErFWfdlvk7V4zvEXcrxU8OCWX1eKT7bDGFW8lY3ZM3Kxp2fUFi+iTcf2L/+QFVDvGxFuq8uEtSk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/3I+q8l3+zvuz6MEgVhUcLIDMGlMVKzs44A0BORjlLF0AxqBXy
+	86JQzziMFIaGYIba5q6rg/ql6aeX2zu5Ct94+mHVrOh8V7Yuu/+CF4ZFW5EHLvv2UAPemZ0S+p7
+	mLNZnlqiyJpqV6fbVvG5SpU1MfJgpN5ETQ3/elMTtZgZo0qzdBuUW7xVpmrM=
+X-Gm-Gg: AYBFou3na08dyVOIatCb14JXFidnFOh8qFHhO8qVxTdvdYP7F+4A0dbRNIk007R1oCr
+	0RiRzWd4F7JlTM+riXwgCsRGcSW736+y5084LrYdjpvvwUgxzuwe4UsAV4eqfE8f3CjT1cF4UWK
+	SQCleRfjP6Im3bKBXq0GG91d3ELsOTlxy5PEmtMK4dSAyeCx2X6LocC75yAc9SieD4+EeXrfimA
+	vo+Z/kMrrJnH7JLaexTZKiQUYljIq3H5B6WuQFuJEDcXLfcZP7oIx+uP0iTXoNIgNOnMVDkOmoy
+	jsP9+1ELIdNnJsERU2vkdKrk4HATDZxA9McAFpPnWRv2hhm6/Z9cc66RQ6TAZJYzoeKrhoDUxF+
+	r8iTikS4+qPl1ZTwGtgQw2jvPlvg856OyZ9UCyEPBBhD9b/JN2bukq11wMVA10e4=
+X-Received: by 2002:a05:620a:4413:b0:947:81e0:bd0b with SMTP id af79cd13be357-9499957e922mr390438585a.20.1794993207024;
+        Wed, 18 Nov 2026 01:13:27 -0800 (PST)
+X-Received: by 2002:a05:620a:4413:b0:947:81e0:bd0b with SMTP id af79cd13be357-9499957e922mr390436285a.20.1794993206497;
+        Wed, 18 Nov 2026 01:13:26 -0800 (PST)
+Received: from localhost ([195.50.164.66])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65693389dsm3301484f8f.48.2026.11.18.01.13.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 01:13:22 -0800 (PST)
+Date: Wed, 18 Nov 2026 10:13:21 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>,
+        Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+        Russell King <linux@armlinux.org.uk>,
+        Richard Cochran <richardcochran@gmail.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+        Jose Abreu <joabreu@synopsys.com>,
+        Maxime Chevallier <maxime.chevallier@bootlin.com>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org,
+        linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v4 06/10] net: stmmac: qcom-ethqos: set initial
+ RGMII link clock to lowest speed
+Message-ID: <av1sMajsn4Al-xgw@lore-qca>
+References: <20261117-shikra_ethernet-v4-0-c41902e5f2fa@oss.qualcomm.com>
+ <20261117-shikra_ethernet-v4-6-c41902e5f2fa@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,112 +138,97 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="rKfa5t58Xe8YK57u"
+Content-Disposition: inline
+In-Reply-To: <20261117-shikra_ethernet-v4-6-c41902e5f2fa@oss.qualcomm.com>
+X-Proofpoint-ORIG-GUID: MfqYOfLHHFTVoFIk-YJwylSgKypWQAVm
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzNiBTYWx0ZWRfXwXJUllT96d16
+ vPhVzUaUnzN46+Vbf3AhHXCu4ETWbkj44P5CdxkkyE7DxahuRHj13GKfrIuCQ3Ezt6uLvH7zSV2
+ qjvpiSmbciZVHxT5gZ7AV0/zNHHuxr8=
+X-Proofpoint-GUID: MfqYOfLHHFTVoFIk-YJwylSgKypWQAVm
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzNiBTYWx0ZWRfXzuHrQ/R/cepU
+ 8tX/AENQoemiEh2/GWptHI52klxeCjNZRNZV7Mebiinmn18PSyFTN81//+Jps8TmajnTXsS5Rla
+ edyAvRev9wfZ6o3Wc/YMHFrO1xelYKQPhqQVhmRm/xazQ5GIIaNzzNQB0v2DNvQfaTGp7Khyqil
+ zdpP1MFHVSIGkra7t7BUsA4b4ZTPVHJlzJ80R4pNJhA+uniRCdEIf2J2tZG3MTIhTuYIwNf06Ug
+ m2kW/9hd7zCAqxKFgfYohRyp8CS7CNYcqvwOEpduYC2qVX9U2s84jDtLIjDqy0iTj7zj7JOTGsl
+ xRmV3GFSRhR1Glt7w6RZJsdI11bpNS9X8QsStzkzmvyWZP1/5Xq+0IuYJJsP1MtP5/2qvc5rlXJ
+ nrVC8VSy/woPpKgKEFr1++YMYTrb0mzA5nxJl+VRBdgaHQdzTv0TB3WiZPaTsid2zy+fojf59BI
+ KWQKgRax1uTCpAONWLA==
+X-Authority-Analysis: v=2.4 cv=NNVAaE6g c=1 sm=1 tr=0 ts=6afd6c37 cx=c_pps
+ a=qKBjSQ1v91RyAK45QCPf5w==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=P-IC7800AAAA:8
+ a=EUspDBNiAAAA:8 a=RmR1C2qGtOR5igIFRNkA:9 a=CjuIK1q_8ugA:10
+ a=qFG7hDbQzpJO8DkesHAA:9 a=NFOGd7dJGGMPyQGDc5-O:22 a=d3PnA9EDa4IxuAV0gXij:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ bulkscore=0 priorityscore=1501 malwarescore=0 phishscore=0 adultscore=0
+ suspectscore=0 clxscore=1015 impostorscore=0 lowpriorityscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180036
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+--rKfa5t58Xe8YK57u
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> On probe the RGMII link clock is initialised at SPEED_1000, which
+> translates to a 250 MHz source clock even when no PHY link is present,
+> drawing unnecessary power.
+>=20
+> Initialise at SPEED_10 instead; set_clk_tx_rate updates the rate once
+> a link is established.
+>=20
+> The DLL locking is not affected by the current clock rate. This has
+> been confirmed with actual hardware testing as well as the fact that
+> the existing code performs the DLL lock first before changing the clock
+> rate when the link speed changes.
+>=20
+> Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Reviewed-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
 
-- [Medium] The unicast and multicast lists are synced in the wrong order
-  in __mpnic_set_rx_mode()…
+> ---
+> v4: add some details in the commit message to address concerns raised
+> by Sashiko.
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/dr=
+ivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> index 99ea7e0cfb00..192788e00dfa 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
+> @@ -828,7 +828,7 @@ static int ethqos_hlos_setup(struct qcom_ethqos *ethq=
+os,
+>  	if (ret)
+>  		return ret;
+> =20
+> -	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface, SPEED_100=
+0);
+> +	ethqos_set_clk_tx_rate(ethqos, NULL, plat_dat->phy_interface, SPEED_10);
+>  	qcom_ethqos_set_sgmii_loopback(ethqos, true);
+>  	ethqos_set_func_clk_en(ethqos);
+> =20
+>=20
+> --=20
+> 2.34.1
+>=20
 
---
+--rKfa5t58Xe8YK57u
+Content-Type: application/pgp-signature; name=signature.asc
 
-eth: mpnic: sync unicast and multicast address lists
+-----BEGIN PGP SIGNATURE-----
 
-This commit adds the secondary unicast and multicast addresses to the
-MACDA TCAM and advertises IFF_UNICAST_FLT. When either list outgrows the
-table, the driver falls back to promiscuous or all-multicast mode. A
-per-slot users count is kept so the same address can sit in both dev->uc
-and dev->mc.
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCav1sMQAKCRA6cBh0uS2t
+rEoxAQCXFnBdtRXO+i6NHOYmwXKbg0uyCKdVXH/7nhAU25CIswEA79MQ20mTgIZQ
+/VNRnKPr2gb/4bOoyHks5lzMSJAhZQs=
+=aBpG
+-----END PGP SIGNATURE-----
 
-> diff --git a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
-> index 43547a7d6e5c7..c01e276c4a74d 100644
-> --- a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
-> +++ b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
-
-[ ... ]
-
-> @@ -35,7 +53,14 @@ static void __mpnic_set_rx_mode(struct mpnic_dev *mpd,
->  		mac_addr->state = MPNIC_TCAM_S_ADD;
->  	}
->  
-> -	if (!netdev_hw_addr_list_empty(mc))
-> +	err = __hw_addr_sync_dev(uc, netdev, mpnic_addr_sync,
-> +				 mpnic_addr_unsync);
-> +	if (err == -ENOSPC)
-> +		uc_promisc = true;
-> +
-> +	err = __hw_addr_sync_dev(mc, netdev, mpnic_addr_sync,
-> +				 mpnic_addr_unsync);
-> +	if (err == -ENOSPC)
->  		mc_promisc = true;
-
-[Severity: Medium]
-Can the device get stuck in unicast promiscuous mode here, even though a
-TCAM slot is free?
-
-The uc and mc lists share the same MACDA slots (between
-MPNIC_TCAM_MACDA_BROADCAST_IDX and MPNIC_TCAM_MACDA_HOST_ADDR_IDX). The
-whole uc pass, both its flush and its add phase, runs before the mc pass
-flushes stale multicast entries.
-
-Consider this sequence:
-
-1. The table is full of multicast entries and a secondary unicast
-   address U is added. mpnic_macda_sync() returns -ENOSPC, U stays at
-   sync_cnt == 0, and mpnic_promisc_sync() enables unicast promisc.
-
-2. A multicast address M is then removed. The core runs
-   netif_rx_mode_run()->mpnic_set_rx_mode()->__mpnic_set_rx_mode().
-
-3. The uc pass retries U. M's slot is still MPNIC_TCAM_S_VALID, so
-   mpnic_macda_free() rejects it, mpnic_macda_sync() returns -ENOSPC
-   again, and uc_promisc is set.
-
-4. The mc flush runs only after that. It calls mpnic_macda_unsync() on M:
-
-	if (!--mac_addr->users)
-		mac_addr->state = MPNIC_TCAM_S_DELETE;
-
-   mpnic_write_macda() then frees the slot.
-
-The reverse case works. A unicast removal can make room for a pending
-multicast address, because the uc flush runs before the mc add.
-
-Would it make sense to flush stale entries from both lists before either
-add phase runs?
-
-[ ... ]
-
-> @@ -53,7 +78,7 @@ static int mpnic_set_rx_mode(struct net_device *netdev,
->  	struct mpnic_net *mpn = netdev_priv(netdev);
->  
->  	if (netif_running(netdev))
-> -		__mpnic_set_rx_mode(mpn->mpd, mc);
-> +		__mpnic_set_rx_mode(mpn->mpd, uc, mc);
->  
->  	return 0;
->  }
-
-Because mpnic_set_rx_mode() always returns 0, netif_rx_mode_run() never
-calls netif_rx_mode_schedule_retry() for the case above.
-
-mpnic_service_task() doesn't re-run the rx mode sync either. So U stays
-unsynced and the promisc entry (zero mask) stays installed until some
-unrelated rx-mode event happens. The commit message says:
-
-  Advertise IFF_UNICAST_FLT so we don't need to use promiscuous mode to
-  handle extra unicast addresses.
-
-The later patch in the series, "eth: mpnic: support changing the MAC
-address", keeps the same uc-then-mc ordering.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-mpnic-l2-oot-v1-0-8dc6eb3582b0%40gmail.com
+--rKfa5t58Xe8YK57u--
