@@ -1,77 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.227.138
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016122;
-	b=BpdoUJcIfnAKaqQVOkWesOmOeP66C2dJiaZYlqQRd7nNhRsAggyCqOxjn1mr591oIAlf
-	 ZcGjUgSLYcZ5nSy4exn7TPE1rvlWDp/GKUy7e5hpe7YQ2OE+crNH8IMVoXw0P/F2mviHX
-	 tqlkOa6eQYE/QPt/VJbYZ9V0CGUPrsJKPcITea/zZ0OOjbSrtbVv7H+gQ1tBr2ASP5/lf
-	 VRO0WIxUc1LciVZTPvOW4tsYgJwa6OVrLyrlcLWHYNgu9os+0UekSSy9XVQ+5eS23DqbZ
-	 La6TWqZd95EhIczDYmLumats837RA4oks++DHcQC5b//FqrkhEKudx8iqGMO4oKnIbg==
+	t=1795016154;
+	b=qmNU41ftpi6o7pEClQYBH8I6Lm7LdJ5sg3+AeVbGsqRDXmROEP1wXBIG59D9zaZObTZL
+	 Sk3dRrkFYd5NQ7dtEsTVXiVRYSgvvWU4ZGaen/1Mfh+/OQ5MBsbh1D/nWt8PFh8Fa0cDn
+	 s1HmV/cD0rf7+LrWpsJup+ezC3sGrOTzPKdD5SAkQxgvfNV+q7HeUobzLcWfrtfkPBSco
+	 TvPQhvNCtWiznUMJTTQpK7Ecxy1R1/6WK1Ap848fYc7RMOqiUHmUMA1ewyFKUe/cPw0qn
+	 fiuGNgNFQEClpN2VxCbKG3WkSi4RkPUcGH+cFKbPlLx4kdRiqqzxgNrNfTJAQVOwXUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016122;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=2JOgQsZtcfZfp5n0OL9wK42UVY0JMJIOIn5ME9tFFo0=;
-	b=cRzXpXi0NeLH3woIGEg00xx3xLfnVKotqA3VUg2LXD6HXxwYlnOOfJsNYsqFFwzpVQww
-	 IbGIAPGxLmH9HgeSCd3zKNTLL88RquEs0BZFThAv6lzxy8+tDmQU3VGf78fcXia3j+0Se
-	 2TxAczvml1tA3Pkdmon6E+XEFMiXwHN6p3idglTTXDo0pzmaRPTnVMuahPEMvrrwvcfoF
-	 OdmwXXZEOagjLpUd2R+uGJExPILFpQWqjZBmo5QjRmDpnbIfua4rCO70L3vgd8s4m9xY8
-	 f5qVNJhMv03eRO3R+z/mRdRbwolJlDbgJYBL4abF1JPnpXAaGPtvYHoeNHI7HDGi7qw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016154;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=3Qmc9lNd7iPlnbZyEjNTU1GhBxli118PZ9egywv3GAI=;
+	b=eMYihDrSlaHGcs4EMYytQQetdSKLewW9/em0EhDwenCnhWdH70gCcumADj4xBwkERBmI
+	 aYgjnuKikl1OlKEmj0bEiE0TkVdSDNlWCsg6dixz2+QYmnU99BG7iZQwtF3f11+0V+kTP
+	 M3634Z56qOTBS8rWeuyv6HoyDslSt+jP4ytaNK961kfHtTte32KKa2PyQBTougY1VoP3Z
+	 VhX0WXaGcxH/EQ8HHgl6rm70/GKA3C5dRFIOm538WuI9jhSYnHDtBMmaQuduivfZPS8zi
+	 Cv83UO+5NvSYZ1Wm+vCBe0Iuor5PZXS/QX9/IN4QME4JdwhZ1J4vVgANGzNRY5XzO5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ssi.bg;
-	spf=pass smtp.mailfrom=ssi.bg;
-	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=BLjMYauq;
-	arc=none smtp.remote-ip=193.238.174.39
-Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yP0QupT4;
+	arc=none smtp.remote-ip=74.125.227.138
+Received: from mail-pj2-f10.google.com (mail-pj2-f10.google.com [74.125.227.138])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 232D8606A31C;
-	Wed, 18 Nov 2026 15:35:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 232D8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB57060A2603
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:35:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB57060A2603
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=BLjMYauq
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id 3C93621FD9;
-	Wed, 18 Nov 2026 17:35:19 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=2JOgQsZtcfZfp5n0OL9wK42UVY0JMJIOIn5ME9tFFo0=; b=BLjMYauqVQSW
-	tnMQ8k5DmqVfsFU0VQlQmqbI6x75Ohj0f/SlcUe8GFOxUroMCv7JqYLNDnhpc+i4
-	0ArRVHJB5BupqP13kHBXDkp00yDMZU0zErMif+97wJMD/8hnr2d2zpESKldDdMSq
-	XVTuWUImozBfKgMLoDvOWj0Srtj2KUraigDVgbg27bGpknqm6P7rljAG49YCzpBV
-	TOnWpzTboZ+KLhR5L8rKZkHrOVSu7XIpLjfBogPWZfsbzLFoDEtRBwsoZZ7dDu5L
-	NXn92cmJpTVckUVwNN6Q3kP51gdZKOJfsY9FsLkZ4iz5NYqE+5jV/Tn4lAhOiI3o
-	OqsasnSbAPeRAiAZ/n8Tf4qAJuidyu2VKTBVpkMLEty611Id3JGIr1valdoSRPzb
-	a7S78RGu5Ha4kbBwH9JPXw/5HUK0vZ6ZXhD0A6dUt9FDrLMpST7t5TlVFGNCjMpH
-	oh9rOSKcxC5mCfU9LtlIzfQzQM5C8hsmmjwvYYHdp3XIDDzrUU6ddJBMOldjD8Ab
-	jeoZ+HwlXjGn66OISWl3XwtNlQmbXJbD+Ed7RdjpLyIqBwOG/RC+S1wxX+z23FcX
-	oOdvaziBGN0WV9Dv4wApTx640u2GrTwAweKb5VI3/bhkosjMeri+zYf/kR8BpKBX
-	cr/eBDtmeCwBgycAi323j6pHqI6yA/8=
-Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Wed, 18 Nov 2026 17:35:19 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by box.ssi.bg (Potsfix) with ESMTPSA id D14A3608B0;
-	Wed, 18 Nov 2026 17:35:18 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AIFZIui079866;
-	Wed, 18 Nov 2026 17:35:18 +0200
-Date: Wed, 18 Nov 2026 17:35:18 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
-cc: Pablo Neira Ayuso <pablo@netfilter.org>, Simon Horman <horms@verge.net.au>,
-        Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-        lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org,
-        netdev@vger.kernel.org, coreteam@netfilter.org
-Subject: Re: [PATCH nf v5] ipvs: ftp: do not link expectations to unconfirmed
- conntracks
-In-Reply-To: <20261118151726.2509853-1-theodorlarionov@gmail.com>
-Message-ID: <8d0623c6-a7a5-5fab-f233-3356468b78e2@ssi.bg>
-References: <20261118151726.2509853-1-theodorlarionov@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yP0QupT4
+Received: by mail-pj2-f10.google.com with SMTP id 98e67ed59e1d1-3b3bbd46625so300087a91.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:35:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795016153; x=1795620953; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=3Qmc9lNd7iPlnbZyEjNTU1GhBxli118PZ9egywv3GAI=;
+        b=yP0QupT4N4LRNps0kf45U5ceMoPgEFIHrfAFIu7l4xEwo7gzDxBRz6j8xgTDi+Z1xE
+         UjeD87JhTWVaVo1jlCVyg6DzWgKb4HLsk1Hn5IRxv14EElD8WlMPu+0atQIWlnsRxAVf
+         yxDJ4SONkjlwP+gW0hCK9tWtsDh2ntiXBSr5sottqEheRBNqpjgrPqlvqnu7MpURWfEZ
+         Nm0EPeI2628kd7lwxk1W847ia/xVHg3+FeFj+AlNUPuRdwOVozlyVh5d0g9E7qz0TZSQ
+         bjKXkWYCOUVTSj24IP5tHeBA7Z33kJoXzeBPphlVPjK1QRQNeyRnYs4BsbEYuthzATT+
+         a98g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795016153; x=1795620953;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=3Qmc9lNd7iPlnbZyEjNTU1GhBxli118PZ9egywv3GAI=;
+        b=v7exzyFr6u+TetiFRNVDRjMQD03kVUQ+VRzmVS58W+pkHipBEGVE1Jix61QMauzwuJ
+         CtuGUYgXg5Z3cDHT3o208yPLEkYCfCftY0qdGSWwvxDVpq1go5loY8OYlO12IqirW2vZ
+         lQRkTBNM6Fp1MTlr1o8HRJzMm4cvzifws5edhIKM23t8ZutqaNjeI4pDpyEzqaXiJP9H
+         Kjzzy70bHhxRMAhsUn26md8i+Zp+Lb1tiUoASS4+uttcI2f7LeiJCRLYa5emgYCFSYZ0
+         xWQ0pBV0WEGUXNchMBewzz3rm43RHEx/LD+oEwSMbYTLfT7Kcghpd9vods5/SPb82IFC
+         ik6g==
+X-Gm-Message-State: APuU4Z8liLigrEcrl2bbXGdbpaMWgqPBQMU8fGNIKff6JhG1VRAZpJXQ
+	Y6FSHIV8M4T/EC1CaFv+PrZGSJXEQUgZ0UvmqwAfQCk7YP/NelsfwGnz+s90be/dQi38eA==
+X-Gm-Gg: AZFdTZdivDYUVwNMcigpRAjRr4hlWzmqPqTb3un97/muZaRlgzqL6fmExK+1QU4kpIu
+	QcJzk7SsSI+/jc+0E+a133KD68J58O9uTvEQcwiB07oVBBPO/AioB6/LtqUZKJc16+OV3RS5D7R
+	lAHMfcch/gSQHCI+GMHst2pS1huxDlbXZh4FwZCy4llldRRbwkk9Xen0NXILijT1thymjcaSaiB
+	i+q6cdNvQNCp33ooWsjthZ63kx2VIvjz7pWES24D1exp0BBhpSNIK1Fee2nWURhuce7mqdo0qyK
+	ObH1M3KhJ6u58NRbDiRidWgMROujnGKNni+y5CSL4jQSt8uDvs6FGvBjgMK95fXmEgLlsDTBE71
+	u7Fe7YQ9K6++2YQ86iXYOFuzNF9ua5egrgRp4RQEKIc23pkeKlx/DR8PVIWmP5N7WJL3NDd7qGn
+	Rzgx9ExIg6NYSGT33xwS1GVQQuXV077GQvol3efwzWAotvPkKFzhKNB96uvi3LKY4deVot1zwDG
+	GzI4MCboE6bSC3XN81ZtdYlIooL6cQKe/K1oOt6E/ZaVwKgM/IzJLd8r882kQ2I0MPRPiNsHPDE
+	BTa9T+FYxRXvG/CBGpK4VNc11MDPn6BVlhKA1HcOCwKNUmA=
+X-Received: by 2002:a17:90b:4f8d:b0:3a4:6e84:e7f6 with SMTP id 98e67ed59e1d1-3b3d064130amr3334575a91.5.1795016152908;
+        Wed, 18 Nov 2026 07:35:52 -0800 (PST)
+Received: from J4f-Laptop.localdomain ([183.36.237.113])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2eff6214cd8sm15952755ad.44.2026.11.18.07.35.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:35:52 -0800 (PST)
+From: Shihuang Liu <shlomojune6@gmail.com>
+To: netdev@vger.kernel.org
+Cc: bpf@vger.kernel.org,
+	edumazet@kernel.org,
+	kuniyu@google.com,
+	pabeni@redhat.com,
+	willemb@google.com,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	horms@kernel.org,
+	Shihuang Liu <shlomojune6@gmail.com>
+Subject: [PATCH v2] net: sock_reuseport: check program type on the migration path
+Date: Wed, 18 Nov 2026 23:35:41 +0800
+Message-ID: <20261118153541.172499-1-shlomojune6@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,89 +99,77 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 
+A BPF_PROG_TYPE_SOCKET_FILTER program can be loaded with
+expected_attach_type set to BPF_SK_REUSEPORT_SELECT_OR_MIGRATE and
+attached to a SO_REUSEPORT TCP group.  Closing a listener that still
+has queued children then runs it with a struct sk_reuseport_kern
+context even though it was verified against struct sk_buff, which
+KASAN reports as a stack-out-of-bounds in ___bpf_prog_run().
+Reaching this without CAP_BPF requires
+kernel.unprivileged_bpf_disabled=0; with
+CONFIG_BPF_UNPRIV_DEFAULT_OFF=y, the Kconfig default, the sysctl
+starts at 2.
 
-	Hello,
+reuseport_migrate_sock() decides from prog->expected_attach_type
+alone, a field user space sets that does not identify the program
+type.  Require BPF_PROG_TYPE_SK_REUSEPORT there and in
+reuseport_stop_listen_sock(); socket filters still work as
+selectors, so the selection path is unchanged.
 
-On Wed, 18 Nov 2026, Theodor Arsenij Larionov Trichkine wrote:
+Fixes: d5e4ddaeb6ab ("bpf: Support socket migration by eBPF.")
+Signed-off-by: Shihuang Liu <shlomojune6@gmail.com>
+---
+Changes in v2:
+- Fix the author identity in From: and Signed-off-by:.
+- Mention the kernel.unprivileged_bpf_disabled dependency.
 
-> ip_vs_ftp_out() can link an expectation to an unconfirmed conntrack. A
-> later extension add on the same packet, such as seqadj in
-> ip_vs_update_conntrack() or NAT, then reallocates ct->ext and leaves the
-> expectation pointing into the freed area:
-> 
->   BUG: KASAN: slab-use-after-free in nf_ct_unlink_expect_report+0x490/0x4c0
->   Write of size 8 at addr ffff888004dd4e48 by task syz.2.17/649
-> 
-> Check the conntrack at the start of ip_vs_ftp_out() and drop the packet
-> unless the conntrack is confirmed, is not a template and already carries
-> the seqadj extension.
-> 
-> Fixes: b25adce16064 ("ipvs: correct usage/allocation of seqadj ext in ipvs")
-> Suggested-by: Julian Anastasov <ja@ssi.bg>
-> Suggested-by: Pablo Neira Ayuso <pablo@netfilter.org>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
-> ---
-> v5: drop the second nf_ct_get().
-> v4: check the conntrack at the start of ip_vs_ftp_out(). A server reply
-> that fails the check is now dropped even when it is not a PASV/EPSV
-> response. Without a conntrack, e.g. with a notrack rule, only PASV/EPSV
-> replies were dropped before.
-> Link to v4: https://lore.kernel.org/netfilter-devel/20261117123944.270667-1-theodorlarionov@gmail.com/
-> 
->  net/netfilter/ipvs/ip_vs_ftp.c | 8 +++++++-
->  1 file changed, 7 insertions(+), 1 deletion(-)
-> 
-> diff --git a/net/netfilter/ipvs/ip_vs_ftp.c b/net/netfilter/ipvs/ip_vs_ftp.c
-> index 44de99f4d187..cf640cba0b12 100644
-> --- a/net/netfilter/ipvs/ip_vs_ftp.c
-> +++ b/net/netfilter/ipvs/ip_vs_ftp.c
-> @@ -29,6 +29,7 @@
->  #include <linux/netfilter.h>
->  #include <net/netfilter/nf_conntrack.h>
->  #include <net/netfilter/nf_conntrack_expect.h>
-> +#include <net/netfilter/nf_conntrack_seqadj.h>
->  #include <net/netfilter/nf_nat.h>
->  #include <net/netfilter/nf_nat_helper.h>
->  #include <linux/gfp.h>
-> @@ -283,6 +284,12 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
->  	if (cp->state != IP_VS_TCP_S_ESTABLISHED)
->  		return 1;
->  
-> +	ct = nf_ct_get(skb, &ctinfo);
-> +	if (!ct || !nf_ct_is_confirmed(ct) || nf_ct_is_template(ct))
-> +		return 0;
-> +	if (!nfct_seqadj(ct))
-> +		return 0;
-> +
->  	/* Linear packets are much easier to deal with. */
->  	if (skb_ensure_writable(skb, skb->len))
->  		return 0;
-> @@ -382,7 +389,6 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
->  	}
->  	buf_len = strlen(buf);
->  
-> -	ct = nf_ct_get(skb, &ctinfo);
->  	if (ct && !nf_ct_is_template(ct)) {
->  		bool mangled;
+v1: https://lore.kernel.org/all/20261115152408.48205-1-shlomojune6@gmail.com/
 
-	Just drop the 'mangled' var and unindent the code:
+ net/core/sock_reuseport.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-	/* If mangling fails this function will return 0 ...
-	...
-	if (nf_nat_mangle_tcp_packet(...
-	    ... )) {
-		ip_vs_nfct_expect_related(skb, ct, n_cp, ...
-		...
-		ret = 1;
-	}
-
-	because we do not need to check with nf_ct_is_template again.
-
-Regards
-
---
-Julian Anastasov <ja@ssi.bg>
-
+diff --git a/net/core/sock_reuseport.c b/net/core/sock_reuseport.c
+index fccbdd0430b059..9ab76697a794fc 100644
+--- a/net/core/sock_reuseport.c
++++ b/net/core/sock_reuseport.c
+@@ -460,6 +460,18 @@ void reuseport_detach_sock(struct sock *sk)
+ }
+ EXPORT_SYMBOL(reuseport_detach_sock);
+ 
++/*
++ * Only a BPF_PROG_TYPE_SK_REUSEPORT program is verified against
++ * struct sk_reuseport_kern, which is the context bpf_run_sk_reuseport()
++ * passes to it.  expected_attach_type is set by user space and does not
++ * identify the program type.
++ */
++static bool reuseport_is_migration_prog(const struct bpf_prog *prog)
++{
++	return prog && prog->type == BPF_PROG_TYPE_SK_REUSEPORT &&
++	       prog->expected_attach_type == BPF_SK_REUSEPORT_SELECT_OR_MIGRATE;
++}
++
+ void reuseport_stop_listen_sock(struct sock *sk)
+ {
+ 	if (sk->sk_protocol == IPPROTO_TCP) {
+@@ -474,7 +486,7 @@ void reuseport_stop_listen_sock(struct sock *sk)
+ 						 lockdep_is_held(&reuseport_lock));
+ 
+ 		if (READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_migrate_req) ||
+-		    (prog && prog->expected_attach_type == BPF_SK_REUSEPORT_SELECT_OR_MIGRATE)) {
++		    reuseport_is_migration_prog(prog)) {
+ 			/* Migration capable, move sk from the listening section
+ 			 * to the closed section.
+ 			 */
+@@ -644,7 +656,7 @@ struct sock *reuseport_migrate_sock(struct sock *sk,
+ 
+ 	hash = migrating_sk->sk_hash;
+ 	prog = rcu_dereference(reuse->prog);
+-	if (!prog || prog->expected_attach_type != BPF_SK_REUSEPORT_SELECT_OR_MIGRATE) {
++	if (!reuseport_is_migration_prog(prog)) {
+ 		if (READ_ONCE(sock_net(sk)->ipv4.sysctl_tcp_migrate_req))
+ 			goto select_by_hash;
+ 		goto failure;
+-- 
+2.43.0
