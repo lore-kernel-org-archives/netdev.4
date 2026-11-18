@@ -1,99 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043823;
-	b=X7BX9ASu5UPR3NHJv8Cw5qi0wsPW50RfiYz0NypIqZF9YJjDTPzyCz5bnVK54d9002S4
-	 rN72SnrxL6z/4ugL0bEgDTMDPitCeZy/J7ZlT9RB70ubraUbWo8iqd6nOcx/Pkp+CO/GU
-	 EXbOQsGLS5zDDV6h1MvzoLTjTh0ABq49N2QfljpGwMxPlP5Rn1uOoRj4eaikr0X3IDj68
-	 Imdw5HzQeDM/1ah2xSSk5gBJYxlrbC0Swhc5KMsRH0RPZw4lXfZKIr2MXQOrsatO5Z2Dd
-	 ZG8CSsAeR+PixJLQTjArk/qUmRjQMQTX08snth9zfUgQGx2CjLe46Z7k95uLdcIyyng==
+	t=1795044269;
+	b=MI1uzKpU94j9jWizIHp2tVEsgKktjXdzSWdVnAbg9kw82b8pWYu6VwtUylFI0e8u0pib
+	 8nw2G+j3P92LCo3faJ7SVHexMrxi7uKXKMwgqiY6Ra9AhAd0ziG78+/ypKc6Wn8MDs7sK
+	 LrmPl2fFhoGLX9NhAb+YROgXP3ttZBpYvHg6OUaR8mWNJyZXFQpQgMX08foVcMHVUdwLl
+	 RYr3CzLjy5TP6AKFWtrwzGz8l0JEI3FvDrB77Sdw6M6U5j34ZfSdi3ZWfkZV8TtEpW0Cw
+	 JhyC8BMBhiOe1LCsQBlUNSzRtPf089koAW2b1pyfCV5wKdZXB5XTTic0xmf9DpYimHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043823;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
-	b=hPwQn4u9Gs1QRSDG7fnGLSkLp9dnbOJ0yq7nG3ZaBRDyzn1pxU66A5MkL+q6FSDDO5ek
-	 eTa0m0k2OnsDDhhsWq8hLA1u7AmoUHEbfOeH3jvADueMRKxBV/4F5CtYEfLwveBU1Owq7
-	 /iFhLu3nUv9QnipaNOP4n0Z670UkF5blEUt6IRtt5wZTeFvspDv7Z5yzyw0+e1A3y4rLT
-	 QRUBWqRjEiAVumyASe0BZkZPBlbamphx02aVi7C6biZgMxjQ7QXDmoTz5ipxff6CkOJ8G
-	 1foCillRSA0JEejpvzNX4ouAFjtt3YDO1RN6LbkxCKokuEutUPiZesQiE/R86yaz+1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044269;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=BSCa59sPJ/PSZfMTVFZuayrd2SH02jn2s/5XOxmFNtM=;
+	b=F0ck5suWrmbuHcQY+rf51JYpxohsObmgzuK55A3WD+WTUFv1yxHHockq78+v+F1hy2Dv
+	 XNnA3PUfEZNfEidPoeI1tLlg3X4cp/5tTGq1zkxH/27UO+jHpuyKSd9HHecZnBFgGPso5
+	 J7/UiU/4typ4EwHZLGR57KLxLjIvJN/stHAFyowgHbOhL0hPNMzLoK0cMymw4K4cEXpBS
+	 N60KcHQQ8uOW2IXVP3qfbThSpb913AcSqmvgckd6s/Ovw5JPKM4UQC1Xy5VHw9UPu+8L+
+	 2ZHcGaBPIFlGLJya+RUiMP7m6O4lyI3c8TScHUt779aOh2Ji/xH43bISgoWzLNFgxZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wGxdAVzU;
-	arc=none smtp.remote-ip=74.125.229.2
-Received: from mail-dy2-f2.google.com (mail-dy2-f2.google.com [74.125.229.2])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ayTrHnCo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 345C2606A325
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:17:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 345C2606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45783606A32C;
+	Wed, 18 Nov 2026 23:24:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wGxdAVzU
-Received: by mail-dy2-f2.google.com with SMTP id 5a478bee46e88-327b1d5824fso1096805eec.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:17:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795043822; x=1795648622; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
-        b=wGxdAVzU55D/UTOdKilRGohvnaaIPVWd86ia2R/x3qv+oyPmY3pdJTBK/VF5mnItDq
-         iVLpsObynSXM2egP56umevRyki+uSG6qQcgMQgIUXLDHRSzBYVAa5ynAgYe1k3d/1Vov
-         SgOwPCf+wVT5d/biw4qJPEqKRB6Qr9nrHdKbk88z3C1DciiFOqet2foTdqMBnjcRHE9V
-         XGFqcKqjveK5xyDEiRow16NMDNFBDPrLaVn282ofacK6Z+NEkBo30G3STp5eTY0yTtRN
-         0JEwJ1zrI4/UOcwujjL1iBXYs4c9tpEYjGaQLeReckH5Lyi5cpPQGxLBX/5rrwU6Q/QS
-         KH9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795043822; x=1795648622;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
-        b=Zzndz22+f5R/iYsBCxATHXKpeLBVaxFUtliOyLAK/K4qwYMBjMEnUawV/ZCYi84xnB
-         K/mJqxBUh78L+cyNeMUBSZuVMlt6zT2vP033n0j/Wc/kCEUMnmme3Ro7Y+d6egJtira6
-         oFoiRHPbmRybqriDnoKj0MZs0GDblbx1Jnt6G5fj7Eg/pTYzG8Daz6rEN9XFW9i594eM
-         isIsSvY+vv0KIV5CCjloqF49IBKUsRL5CiE6zJApbhD79ezcG396lG82SN/HkPeZJkur
-         3AmMIsjVGE1uKKa2r3KXq7daVG2CJzGxpV4Of3hDy5fcYzsNNKQJ33jSjnG1+PfkMjw5
-         fjZA==
-X-Gm-Message-State: APuU4Z83drfoidGebTc8SRZ1gdlp2aIQXK+USAEFMoi858HAcMd/hWxi
-	8CVD3nOwYjVxdf5+Cap4Qmoh8hOapX/7yLGAZlERORxJ5bMyCjv6yMa5
-X-Gm-Gg: AYBFou3tmubK4BTSNz3oPdJPhhUd1AKPZI3mCwIdn4cRlfE67c3Lxr19zmL423bb58p
-	VJnOFJ/jH8BNkLmsRZe2Bs51Iv1f8JknK/ylODJm3s6WjYKPn8WP0sGvuvEpyPN4nVSScD42Ia5
-	h0IQ9lIOf/Rp8+1LcfFC2d8EimD6fV3al1imyNJzR5hLzNq03kMqs1vXO7VMClcxJKM6FETdWEJ
-	Q5Bx7AV8rOVOyr8ED2Xg03YFPKdXEcPWU6C5l80wOWbekdUCllpRSc6bqz8pIGB8B5jGZRmhLEE
-	aVpJ96xwX/M51Ba4BQKITP7mgERnmopXRFy/I7WAi05QR3xFGXIn8hKjoDpN3cZ+9c5Tv1lCUmi
-	c8xPpAUPhdtwp/Y3TX4smCB6ETPjwXurH4IUEbnAbvHlSh2OKnKorANvJ7uiABRYGNelpZ2miTa
-	y8xeeirDGgT/zcEMfXndO/MV7ehg7n7/Kc7drZL8/B0JNNZYxcGDGjz62sxpAautVh4J6GHVhDz
-	Sz+Kbq8ca6rsMQqqty7EHpJ7fkfzlR90pCVS4Wvmafwh5rYPZcNp1QAVAZuXWn7x8eN2ZLuCagp
-	e6UTIn2WbCpgHjvSRqQ9aEA=
-X-Received: by 2002:a05:7022:ea8a:b0:1b5:1a5a:1dc with SMTP id a92af1059eb24-1b543be9b64mr3808568c88.12.1795043822125;
-        Wed, 18 Nov 2026 15:17:02 -0800 (PST)
-Received: from localhost ([2a03:2880:9ff:43::])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4eafsm9021578c88.14.2026.11.18.15.17.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 15:17:01 -0800 (PST)
-Date: Wed, 18 Nov 2026 15:16:55 -0800
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-To: Mina Almasry <almasrymina@google.com>
-Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>, 
-	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, 
-	Josef Bacik <josef@toxicpanda.com>, Kaiyuan Zhang <kaiyuanz@google.com>, 
-	Willem de Bruijn <willemb@google.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
-	Stanislav Fomichev <sdf@fomichev.me>, Pavel Begunkov <asml.silence@gmail.com>, 
-	Daniel Borkmann <daniel@iogearbox.net>
-Subject: Re: [PATCH net-next v5 3/3] tcp: propagate skb_zcopy() uarg in
- tcp_mtu_probe()
-Message-ID: <av4x4oM-xxCmymSg@devvm16445.scu0.facebook.com>
-References: <20261115004003.3695475-1-almasrymina@google.com>
- <20261115004003.3695475-4-almasrymina@google.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ayTrHnCo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9016C1F000C9;
+	Wed, 18 Nov 2026 23:24:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795044269;
+	bh=BSCa59sPJ/PSZfMTVFZuayrd2SH02jn2s/5XOxmFNtM=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ayTrHnCoFeBBil7bSuDZjmnbE1M64UrIRQj1MkXyFQjpSQ/vUCud0XFPCeZMhBaV6
+	 SCy0MofY2ikikERAIjGc3G39JNhGJN8E8REpYzp3C6s11yq2qCwUW06jhRr7tJJkXy
+	 dDFa967q5tVVVjF26stEpVfr2UchqYibrGAo9dfnOkzeDsR10g1z8qDinqk+CIWj/3
+	 fAWhlkWJ/sCv+9dUKf/T6TJ4R/BPxJWHwzHEVaFQ41Z5RvzbEB0w9ndvQzoyIe2J8I
+	 FprG+p6b6snt2G1acc1u9FCnRi2pO0mH2XamgFQDcwBsRNS4/NT/4qtODsFODPjWXt
+	 1HlEXZNX3m7IA==
+From: Jakub Kicinski <kuba@kernel.org>
+To: davem@davemloft.net
+Cc: netdev@vger.kernel.org,
+	edumazet@google.com,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org,
+	michael.chan@broadcom.com,
+	manishc@marvell.com,
+	joshwash@google.com,
+	hramamurthy@google.com,
+	tariqt@nvidia.com,
+	saeedm@nvidia.com,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	sdf@fomichev.me,
+	willemb@google.com,
+	przemyslaw.kitszel@intel.com,
+	bpf@vger.kernel.org,
+	Jakub Kicinski <kuba@kernel.org>
+Subject: [PATCH net-next 1/8] net: stop making HW-GRO depend on SW GRO
+Date: Wed, 18 Nov 2026 15:23:08 -0800
+Message-ID: <20261118232315.3593731-2-kuba@kernel.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261118232315.3593731-1-kuba@kernel.org>
+References: <20261118232315.3593731-1-kuba@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,34 +74,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20261115004003.3695475-4-almasrymina@google.com>
+Content-Transfer-Encoding: 8bit
 
-On 11/15, Mina Almasry wrote:
-> tcp_clone_payload() takes references on source skb fragments when
-> building an MTU probe skb, but never attaches the source skb's zerocopy
-> ubuf_info (uarg) to the probe skb. When tcp_mtu_probe() subsequently
-> frees fully consumed source skbs via tcp_eat_one_skb(), skb_release_data()
-> drops their uarg references and can deliver the zerocopy completion to
-> userspace while the unacknowledged probe skb still references the user
-> buffers.
-> 
-> Additionally, tcp_can_coalesce_send_queue_head() only checks
-> skb_pure_zcopy_same() (which compares SKBFL_PURE_ZEROCOPY), allowing
-> adjacent zerocopy skbs with different uargs (or a mixed-zerocopy skb and
-> a non-zerocopy skb) to be coalesced into a single probe skb that can
-> only hold one destructor_arg.
-> 
-> Reject coalescing across different skb_zcopy() uargs in
-> tcp_can_coalesce_send_queue_head() and propagate the uarg to the probe
-> skb via skb_zcopy_set() in tcp_clone_payload().
-> 
-> This is a pre-existing issue found by manual code inspection and LLM
-> review; it was not triggered in production. Verified with the net_core
-> KUnit test suite; not tested on real hardware.
-> 
-> Fixes: 736013292e3c ("tcp: let tcp_mtu_probe() build headless packets")
-> Signed-off-by: Mina Almasry <almasrymina@google.com>
+bnxt, qede and bnx2x clear NETIF_F_GRO_HW whenever NETIF_F_GRO is off.
+Nothing in the stack needs that. HW-GRO'd skbs arrive already coalesced
+with gso_size set, exactly like LRO frames, and LRO never depended on
+the software GRO bit. netif_elide_gro() only gates the software path,
+and the in-driver consumers of the offload key off the feature bit
+itself, not off NETIF_F_GRO.
 
-Acked-by: Stanislav Fomichev <sdf@fomichev.me>
+The coupling gets in the way of exercising the offload on its own:
+turning SW GRO off to isolate HW GRO takes HW GRO down with it on these
+three drivers, which is why the GRO selftests carry a generic XDP hack.
+The core only ever constrained GRO_HW on RXCSUM, RXFCS and LRO, and the
+other HW-GRO capable drivers do not couple the two either.
+
+User visible change: "ethtool -K $dev gro off" no longer implies
+"rx-gro-hw off" on bnxt, qede and bnx2x.
+
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+---
+ drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.c | 2 +-
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c       | 3 ---
+ drivers/net/ethernet/qlogic/qede/qede_filter.c  | 3 +--
+ 3 files changed, 2 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.c b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.c
+index 6fb0619731ae..5686c4ecb944 100644
+--- a/drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.c
++++ b/drivers/net/ethernet/broadcom/bnx2x/bnx2x_cmn.c
+@@ -4934,7 +4934,7 @@ netdev_features_t bnx2x_fix_features(struct net_device *dev,
+ 	if (!(features & NETIF_F_RXCSUM))
+ 		features &= ~NETIF_F_LRO;
+ 
+-	if (!(features & NETIF_F_GRO) || !bnx2x_mtu_allows_gro(dev->mtu))
++	if (!bnx2x_mtu_allows_gro(dev->mtu))
+ 		features &= ~NETIF_F_GRO_HW;
+ 	if (features & NETIF_F_GRO_HW)
+ 		features &= ~NETIF_F_LRO;
+diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+index 6846a27bfef4..27c53db2c9e4 100644
+--- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
++++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+@@ -14092,9 +14092,6 @@ static netdev_features_t bnxt_fix_features(struct net_device *dev,
+ 	if ((bp->flags & BNXT_FLAG_NO_AGG_RINGS) || bp->xdp_prog)
+ 		features &= ~(NETIF_F_LRO | NETIF_F_GRO_HW);
+ 
+-	if (!(features & NETIF_F_GRO))
+-		features &= ~NETIF_F_GRO_HW;
+-
+ 	if (features & NETIF_F_GRO_HW)
+ 		features &= ~NETIF_F_LRO;
+ 
+diff --git a/drivers/net/ethernet/qlogic/qede/qede_filter.c b/drivers/net/ethernet/qlogic/qede/qede_filter.c
+index 5bf32f1034e0..d0e203167e35 100644
+--- a/drivers/net/ethernet/qlogic/qede/qede_filter.c
++++ b/drivers/net/ethernet/qlogic/qede/qede_filter.c
+@@ -915,8 +915,7 @@ netdev_features_t qede_fix_features(struct net_device *dev,
+ {
+ 	struct qede_dev *edev = netdev_priv(dev);
+ 
+-	if (edev->xdp_prog || edev->ndev->mtu > PAGE_SIZE ||
+-	    !(features & NETIF_F_GRO))
++	if (edev->xdp_prog || edev->ndev->mtu > PAGE_SIZE)
+ 		features &= ~NETIF_F_GRO_HW;
+ 
+ 	return features;
+-- 
+2.56.1
+
