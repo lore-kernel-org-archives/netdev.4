@@ -1,67 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997508;
-	b=gRbCarQQOdWs6ax2Ql+rojbVrORErU9jLr56CmKc2+VV5SI3+CLN//dlExzQe8lxL4C5
-	 cUwp394ZSElzTg9GEyEvIIMaGwC6RBaKm7OFzxn7fXLkbnVgcqKO4uHCu8PGn2FNnZQLB
-	 boQf8J52+SD39XKk4W2Dv0bk7TC3xSol8pGLlfWFOYgvKHknnL+Gr7ikLEviFMya0lutC
-	 uS9ZB+ZuiMFtpjB7nFSOH6jXdTEJ9PBX6/xbdAJsp47jjqho2EieiZqg11Bzd2gaGVl7n
-	 QfObNZmQ89IQgS1dX9HyiGIpLNqLM2ZKFqFS/1fb+EQnrscSOjwyL30Qbbq/vNV+wyQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997508;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Date:Message-ID;
-	bh=Yhigk21UeHnX3LFKE02WJlX+yu75OJpAsHrP2ixijWE=;
-	b=HqYQ6EWeygH/NdAgslriO1hR+8z+Ul6cAONddagCiyVDxf9gFPLhmcw/J5ycyRUyD+Su
-	 qCuJMUUMym+imliswpJH827zOIXpOL5keK3JmRogpsX0Ohlq02Dwg1G20igWLcPJv/2cN
-	 5SF4lPfaplucprWSRwG9TkmQ2JbSe/0neyGhTyM7D/MR0eOIE9yRTkGoNvgnaYO6MEIaw
-	 YO8d0Co6M3Sy7ftJZ14/w2i6Sn33DNHOQg6TZLQ9Z3iFvGin+xtuGijnfzjVGsMGHreyy
-	 KPoAQU58SG3zBavD278wrSogMoCF/9cq2V8/6OLFt4L+58E/ErxHEa5x343iP737DBQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=NefQZF7j;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id CF2E1606A32A;
-	Wed, 18 Nov 2026 10:25:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF2E1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794997719;
+	b=nuJzu+ml7z3kwNZTRdasYcTgLVtk5BNhjQ0iNd7vYRsAa6yps1VWV6E72QH/sFCXv2yt
+	 HojzhsKD+6nmZsFRVleSDkH76Ur8/SfSDiQMttVTZ6ObbAasPuZQspNJEcSxdbdldRjYI
+	 bISDin5kpvhLs4uH6xdW+itsOeHZOiMPvSdGCZR3Pan0lyAR26b6z1guBLyD+D64o0v98
+	 SUKaj6RssnoiZiwFGx3iceJYKnMqU4ebNOsjTWoFBhTtQFK3HCSoid3/0lSQskxLIwIQ7
+	 86QeNrlseI/y0I0wKcXQU+1VC0IvzuMwVXzTfLBy7NgECdRtks5PDYFK0SevIKLozow==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997719;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
+	b=veiU6knkZGSSR/0wyLJmXhSSIcTxAbJsLRze9rr0PlXh164ItAdDA6Q5Fslz1FQnCHHu
+	 MwWznC7TNyKHPWs5icSbV2DHDan6nutxNnpvSVOp535nAJigtCvGusaAs1M8OBaP/F9hd
+	 7Qm1zsLZdXEiDoGIe7lEnvfmxNewvikyWia+MJfDhrF/eihNefkFtbE5tTqkYIeoUSNEM
+	 oJAXM6ZQqiBCbiJJ++CwNxRcK8weSFv4T72hzHMzvOqWd9Rgkyizn2j0AXyyXankd/CPg
+	 7cLhApRa/1r2D1khd6R7T0ReFCenzyNOaBGjoi95C8JGTjp2UGoFNS/3XJFJNeBZ9/g==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=hartkopp.net;
+	spf=fail smtp.mailfrom=hartkopp.net;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=lDG9J8mG;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=222K0LPy;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.50
+Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.50])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C46F2606A334;
+	Wed, 18 Nov 2026 10:28:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C46F2606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hartkopp.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=hartkopp.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=NefQZF7j
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=NefQZF7jCQieaZJKEurUuZjqrM6zvK+V0mrRU1WNN7RnvWkzTp6RQeG1rjS4vzG/5dgEgy9ybc58f
-	 WyZTRRu7kbrprdKGZ2jc2Ikh56P7UsNaBqibH8jNJas2S+m6OViJrZyj1FjBVFWAqnbGOlpOtE9k8m
-	 kNXYlzfzuiCxbvEo=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afd7cff391-10eb7;
-	Wed, 18 Nov 2026 18:25:04 +0800 (CST)
-X-RM-TRANSID:2ee56afd7cff391-10eb7
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from [198.18.0.131] (unknown[223.108.79.102])
-	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96afd7cfedfd-d3b0d;
-	Wed, 18 Nov 2026 18:25:04 +0800 (CST)
-X-RM-TRANSID:2ee96afd7cfedfd-d3b0d
-From: Xia Yan <yanxia@cmss.chinamobile.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, linux-kernel@vger.kernel.org, kuniyu@google.com,
- xeb@mail.ru, yana06070@163.com
-Subject: Re: [PATCH net-next v3] ip6_gre: fix changelink conflict checks for
- L2 tunnels
-In-Reply-To: <179489968486.3136.18372818760197436344@kernel.org>
-References: 
- <179455350258.84965.17518172977020586093.ip6gre-v3@cmss.chinamobile.com>
- <179489968486.3136.18372818760197436344@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=lDG9J8mG;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=222K0LPy
+ARC-Seal: i=1; a=rsa-sha256; t=1794997714; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=T0oG06Hasto73lK69x61uGBrhtqGnNFBa+C1mkaqvH11Y/vXWbEahYixMEI4R0zV45
+    To1NjurFZhBhaCc3cNM47sySnIhQykA5mOPVdaMcN+38lr+KCwKFPgU8GNtlakH7zWRe
+    +eySaMuQ4HAVW0W6iNV9TPT3cHa/2dgkhcnpQP+Pj8P9A2mZX4dzkXLG9Nh6+DdtrTmB
+    nOdU8XymawSiPh1vArtxUbltKV9/MbdbsHHGJZl9bxE5/eHT3Conn6JwvnXaHsREInHL
+    1PVnVRpmEbs0IUaPkqar3QBdUy3lXqYGWFxwQpPDZDqh/mUvZQcsGVaBqxju9NJ313ov
+    39fw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1794997714;
+    s=strato-dkim-0002; d=strato.com;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
+    b=bb2ueOovuYxjLdsBZIYMu82QszoGh6PLGKUCOa6w8/v8iPGPwgtpF5trGKtS8h8ZbN
+    qAzSGUAsdWvnWPrw9zzsYbbRI0E2HLtlGjwCKISdi1qlPWNNkyys0+A8iUtXxuncG84c
+    IA2vm3w1yDqZytqJ27E+TQ/hPastQTvY+2L/UWfoyXOnX2cTwr9WISWJfqAwfomNCJbq
+    KfPrtg5lwVMTRD2jnaIUFcsE2W16SIcJJMPkOxvVPi/HVs4sNB2llBp3A1/yMLi8qlaf
+    WzzaS32q6FFox5eAQHM1MTxk5mN778tqsLjAZLOdpC7jLQ2e5gHWoLg5hBfEOKBQfgj0
+    aXSw==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1794997714;
+    s=strato-dkim-0002; d=hartkopp.net;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
+    b=lDG9J8mG9/fgAF3U6xqk1cDW5Fr2J9m7gOeFDbMWw/FKR1U24O/bRBdCDam5378j6+
+    O/8nJl24sjX3IkEj63oYVrFcHGlXMjjOM8iOSsHF1vxoucXUCdBPSauLUD18+7altBmb
+    zmHdvTTx+ikM4jns2lRqKg8wLleRieua7v9+7OuJ/wQyR+pdjEcQm3k9DWZZn/dpzAnG
+    SNOeLjW63zMQwKB/b+jeZ8wpVMQ4id7AlSwwwPw0+dxMx7ZwKqSQ9XLMtdW6lBciVuCR
+    NkicXY3WldO7NMWiolTUYeQSmwTi5Av34B0YsGIqAf3WjD0i5A/NDG3rB5fJqgiNTOaM
+    CKhw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1794997714;
+    s=strato-dkim-0003; d=hartkopp.net;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
+    b=222K0LPyRcXb5rR5wPa448LSKh9eOkw8Tls2plCXCsq/hEGmR7tQre9PkcdanGWgSE
+    DusmpnyK8vbh8EdKHSCA==
+X-RZG-AUTH: ":P2MHfkW8eP4Mre39l357AZT/I7AY/7nT2yrDxb8mjH4JKvMdQv2tTUsMrZpkO3Mw3lZ/t54cFxeEQ7s8bDup0Q=="
+Received: from [IPV6:2a00:6020:4a38:6810::989]
+    by smtp.strato.de (RZmta 55.6.3 AUTH)
+    with ESMTPSA id Kfdf2a2AIASYFIt
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Wed, 18 Nov 2026 11:28:34 +0100 (CET)
+Message-ID: <5884daae-c820-4e2b-b5d1-7ac2dfb6013a@hartkopp.net>
+Date: Wed, 18 Nov 2026 11:28:29 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,34 +95,85 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Date: Wed, 18 Nov 2026 18:24:57 +0800
-Message-ID: <179499749739.1141732.10101346678312526903.ip6gre-v4-followup@cmss.chinamobile.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH can-next v2] can: bcm: Document cyclic transmission
+ failures
+To: raoxu <raoxu@uniontech.com>
+Cc: mkl@pengutronix.de, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, corbet@lwn.net, horms@kernel.org,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, linux-can@vger.kernel.org,
+ netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <75785AF83A9D9B09+20261118091938.3365557-1-raoxu@uniontech.com>
+Content-Language: en-US
+From: Oliver Hartkopp <socketcan@hartkopp.net>
+In-Reply-To: <75785AF83A9D9B09+20261118091938.3365557-1-raoxu@uniontech.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi,
 
-I reproduced both cases and addressed them in v4:
-https://lore.kernel.org/netdev/179491056935.741041.1816208847037703396.ip6gre-v4@cmss.chinamobile.com/
 
-Metadata updates now go through the duplicate check when their receive
-parameters change. Moving one onto an existing ordinary tunnel returns
-EEXIST, including for L3 GRE.
+On 18.11.26 10:19, raoxu wrote:
+> From: Xu Rao <raoxu@uniontech.com>
+> 
+> The CAN broadcast manager continues its configured cyclic transmission
+> schedule even when a CAN frame cannot be passed to the configured
+> network interface.
+> 
+> Such failures are not reported to user space. The failed transmission
+> is not retried by the broadcast manager, the timing remains unchanged,
+> and a non-zero count is decremented.
+> 
+> As a result, a TX_EXPIRED notification requested with TX_COUNTEVT
+> indicates that the configured transmissions at ival1 have been
+> processed, not that they were successfully sent.
+> 
+> Document this behavior to prevent applications from treating TX_EXPIRED
+> as confirmation of successful transmission.
+> 
+> Suggested-by: Oliver Hartkopp <socketcan@hartkopp.net>
+> Signed-off-by: Xu Rao <raoxu@uniontech.com>
 
-Updates that keep the receive parameters unchanged skip that lookup.
-They also keep the hash entry in place, so updating either device in an
-existing ordinary/metadata overlap does not change the receive priority.
-Both GRE and ERSPAN changelink paths do this.
+Acked-by: Oliver Hartkopp <socketcan@hartkopp.net>
 
-UML tests passed for all three kinds, including received-packet checks.
+Many thanks,
+Oliver
 
-On Fixes, Ido asked to drop Fixes/stable and target net-next:
-https://lore.kernel.org/netdev/20261030151629.GA85001@shredder/
-I've kept that for v4.
-
-Thanks,
-Xia Yan
-
-pw-bot: cr
-
+> ---
+> Changes in v2:
+> - Target can-next as requested by Oliver Hartkopp.
+> - Adopt Oliver's suggested wording describing transmission failures
+>    from the user's perspective.
+> - Clarify the TX_EXPIRED notification semantics and scope the lack of
+>    retries to the broadcast manager.
+> - Remove implementation details and redundant descriptions.
+> 
+> This documentation-only update follows the review of v1. The earlier
+> proposal to change BCM transmission accounting was dropped.
+> 
+>   Documentation/networking/can.rst | 8 ++++++++
+>   1 file changed, 8 insertions(+)
+> 
+> diff --git a/Documentation/networking/can.rst b/Documentation/networking/can.rst
+> index 51bc70748f75..ae47f40bf456 100644
+> --- a/Documentation/networking/can.rst
+> +++ b/Documentation/networking/can.rst
+> @@ -892,6 +892,14 @@ only one timer is needed 'count' is set to zero and only 'ival2' is used.
+>   When SET_TIMER and START_TIMER flag were set the timers are activated.
+>   The timer values can be altered at runtime when only SET_TIMER is set.
+> 
+> +If a CAN frame cannot be passed to the configured CAN network interface
+> +(e.g. due to a full transmit queue or the interface being down), this
+> +failure is not reported to user space. The transmission sequence
+> +continues as configured: the frame is not retried by the broadcast
+> +manager, the timing remains unchanged, and a non-zero ``count`` is
+> +decremented anyway. Therefore, a ``TX_EXPIRED`` notification (requested
+> +with ``TX_COUNTEVT``) only indicates that the ``count`` transmissions
+> +at ``ival1`` have been processed, not that they were successfully sent.
+> 
+>   Broadcast Manager message sequence transmission
+>   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+> --
+> 2.50.1
+> 
 
