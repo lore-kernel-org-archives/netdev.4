@@ -1,61 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.92.39.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795011132;
-	b=saGQbHJGcCqS1ljS77eNeL+GPcND0BmtBaVA6VEKIqIEXU+EAY+EDkr7zidxrxGOvVaN
-	 HQ/qGtpgT4lgzWDbm4x7v0ar7b38B+6J/O25o8PZsQd3VGydkKulxPcIyFbUbMSUDtDzi
-	 +BUEDXTe9Z7Km5ogtWDPGnJUbaK2tJxe+nvFLH/xWkMPLHNY+BLSjQdWzQj7BpsO21YDe
-	 1Ubfs0n8TTZj7y7Ht88OKWnvMNubnMYlJjT8UryQUIL/iS0/qiaXOszm/SctzdaLzgp6O
-	 uGg0il3mFuZB3ashlzaKTMdpxEJJboYYNsAmiVs18I2Mvxn9WSsmGg9JuSjKusiJ9jA==
+	t=1795011133;
+	b=FI1973yQgWtg+xt9/QuBNci9cdAOI00BPhd4Tzj3L7Hmlq6ETXEWk32mSVhThMAc5epy
+	 o1MpIlgN1LGsDVVyygg+syVFi3NcYQ8EE1+G1Znit6pu+mKe1Q/4s4VVLyeCR4STUvGnc
+	 Kc6YdVNWiKzT7hGNhvX21INXSpfY3gyay/ENuvfFfhClkpO8gUautuPCo6gXT4n4nnXm5
+	 UWCYuxydJE63YpRyVHEseJAarujoE53ZHptTrBTwR8JbDHCos0fSE+nsstdbpS4WBg/Qc
+	 7clMAsewiBWk1lKp1CHLf18if7hrnaBge5bZdVLAQkEbNNvPUNYk4rRwmT8xDxv1Diw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795011132;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:From:To:Cc:Subject:Date:Message-Id:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:X-QQ-SENDSIZE:
-	 Feedback-ID:X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=hojdwrIITI4zkYtiYiRVHN6AZWC3dKU7aVs/egORTGg=;
-	b=AQcxlc/A7+Gb5pyLubzggTWut+rVcR3Ki2qz4NcgJ13+OC2J8jOX73dn/knJzMk69YYO
-	 TUEMQzD8b95OzmqzskxS+N2WGSkf2OYFikHzRoOhpX9AMWtrzJoOjCvvE4zcBEtZMpWUM
-	 xZ93+hJLDtjlvYk6CNVnUbe+kJpGouoYyj2HuZgkhksF/mfWgENRQ9I0liLAjhrcGTSPb
-	 cmEyZDt7rnedRLPl9xobSo3p2vT2vY4m6VUpiWfI2BNqVlXELSuvd0+CoEcbC5WNrbYqJ
-	 H0m/bfwSii0q1TYY+vSLx17jKfeVM30XrRRBGgcSc9kWF43qmVPHpy2/IzQXUWi3xOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795011133;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Subject:From:To:
+	 Cc:In-Reply-To:References:Date:Message-Id:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key;
+	bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
+	b=afaO0ToyDr85AjFTIr+xUCR7yIZgReNLVyERLKEiLgislp1w6ECtHIKCw4lwy2ic2rPh
+	 A+pnKjlP6+XK4TgAu4ktQ2MlsALp93xpBFItRjBOjMq+LSCJqMMYTctY3dI4jkUIFj18P
+	 fUkU0UzZgvPazAYbxjKzIyXy4Qyo5QcOOOH3zN2qcEAo0X7/iBrsLI+w0UJCW+2dnMoJD
+	 B+WPidx53W2RbmyddUKB2HZV9UT1PGLf16SW6vN7q7AkD2Cjb7V45qfys6FgBx8sPCdhy
+	 wsIwLPS0qrvotGx9ZvybYVcAc6n0zK0zip+CCdetoLCupSJia1p5oXiMsd+FPgTi7Og==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ugreen.com;
-	spf=pass smtp.mailfrom=ugreen.com;
-	dkim=pass header.d=ugreen.com header.i=@ugreen.com header.a=rsa-sha256 header.s=pkvm2402 header.b=hq0F3Ch4;
-	arc=none smtp.remote-ip=54.92.39.34
-Received: from smtpbgjp3.qq.com (smtpbgjp3.qq.com [54.92.39.34])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=X+Du2E5H;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 94826606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:12:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 94826606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=ugreen.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ugreen.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3C0760A2616
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:12:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3C0760A2616
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ugreen.com header.i=@ugreen.com header.a=rsa-sha256 header.s=pkvm2402 header.b=hq0F3Ch4
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ugreen.com;
-	s=pkvm2402; t=1795011098;
-	bh=hojdwrIITI4zkYtiYiRVHN6AZWC3dKU7aVs/egORTGg=;
-	h=From:To:Subject:Date:Message-Id:MIME-Version;
-	b=hq0F3Ch4HWG43mYwPAbRu9DUkwqd8RXCP0fs92VY9oQDZsdK740Rv0SshOOiP+ZRU
-	 RsA0BUNbGwMtyt9VtQjMrmCILR7MJJSFP4kfQJXNI8PtxoJJTUyFjcl/75D56BFVy2
-	 2kw0IjL2SYmTiIq5wRDwSMuXFfqDfnt8nXxgcHEU=
-X-QQ-mid: esmtpgz11t1795011096t4302abd2
-X-QQ-Originating-IP: 6M+pst5Rwr46zckO5aa0WJLFAE3nxp7+63f6wWWgYrk=
-Received: from exmail.qq.com ( [14.155.219.48])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 18 Nov 2026 22:11:32 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 15232806219287984304
-From: Hanson Wang <hanson.wang@ugreen.com>
-To: netdev@vger.kernel.org
-Cc: Heiner Kallweit <hkallweit1@gmail.com>,
-	nic_swsd@realtek.com
-Subject: [RFC] r8169: possible TX completion ordering issue on arm64
-Date: Wed, 18 Nov 2026 22:11:30 +0800
-Message-Id: <20261118141130.2694997-1-hanson.wang@ugreen.com>
-X-Mailer: git-send-email 2.34.1
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=X+Du2E5H
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so381292f8f.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:12:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795011126; x=1795615926; darn=vger.kernel.org;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
+        b=X+Du2E5HeDdGwpJtkkybS4mRnYIN76epeyKOe0BAKNzk2aIzSHPLlFW1sPj87xh6QD
+         r8+27iMo40fH3/Dfjz/gjFCrVzVzwYvkUZD9TFz9bTM2Tc3FHcMsL2SxK0ysirMwspZ6
+         bFZaHoYqXkDu1jjng6iK63CdgKssDdTzOvbzGkeu4BC33Kqb/OL0JZe3/FnqX3w7/Q09
+         CoxzHRaFuCZM5DNQ+HEpaMLG+idiYekrYrYyjwysV7ldZqI8eqFfS9p9yDN77C27r4nd
+         aQWcGYi1pHhF3PATB+2bvKGeW6ek3lSjSwjVlq1jIHKFJ/2km/fmms3HIkfrJRTOi6Bb
+         ot/g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795011126; x=1795615926;
+        h=message-id:date:references:in-reply-to:cc:to:from:subject
+         :content-transfer-encoding:content-type:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=8+oQ1HV3e9R+CSE12Qaoq1BXQEmnqEm37qYpcdR4cOY=;
+        b=PGLlPbOUWoR0ik/vdBGjTkf4Y4l5fcPtO4oAw0k3gj6QxB7SDCgGEYUyqS4g/WWRVb
+         2MQ38d7dZqlpPLHjgct34CVH5SaNwz24UuuYgXhT3U9tX53zqfNyPu3r0cMv70j+kWTx
+         asXsxyIwHSQYqE3bxs7+rRewr3DEAKay1nM6zRnvob0mTd2AUsAyTy0GAzvrRt4lg1im
+         1lvaGsm1qYZvw/kUKA6+Dj65p1KGmvlsRuWEDIRHgjrbx3l5Qf5XFBiIXA7osBd0rM2n
+         w36hVjjbVnrF/YRmMEwhPqfDOeM5xTdPJlORpF5F8vqP5w/IXqbEQj5lpt0EdxyghASq
+         VYRw==
+X-Forwarded-Encrypted: i=1; AL+hErEvcA4NV0pgsQtbU4apbAWVVtXBE/GrK0IeZqSECmBN4n/NsadV+tVdjlrwilR/jHfmT2waBoY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9c4rMMiImEL6L/PoaLASF5IOibRjsZAtAi4kcpd+szvYFiR2Qy
+	poOHcrLKx15KsuDLwpZAg/pn3kUMo01tjhoN5YIGNS4UHEx9qqDVA+Gt5BtTcbjrXv+eHvTQM2u
+	n84H6
+X-Gm-Gg: AZFdTZcqHWwKIddBSoBSA7SQRSB31FZyDP0Zj3bmqFml53R+yKSSQVP6D0xr0hMxRej
+	7FcuhAEVFnd7WRZTWlaRrQH31je619LKCcYAbbJPb1U0SKt583ciqY1U9fI4R55jqMp1ctrTmI5
+	sQD7SXo4iDDv7y8XbuTXhFb9BPP32ynXjNHLrF4KPKIYOW+O4cK52mTpbl7J8svojNhuJFNcWtX
+	xItopMtqOYGJYxVlqtn/rwmFnLpsg3RmDiOTlpPddH/4dlYzWtXQkPdJcncDZ6mPsvUSufEzo1R
+	EussLtUnP7/WyFtc4M5sSYUuYM27Fp/dUO2Mr20H9v37xKNsvgcdl1JLFONtdMnycrrNMm+TfCO
+	pZYKWOdr09WDt/q7n0hTIDOhbCGGLgam8Kb7CcbsK0wrbES2chFx/iEdtuQJ5FroW2zPhor6NYz
+	aOf1+LOuyd3vW5fSmXlJ9UVB7uzQZ9E8ZIpzG0PbGhZF++YIcQo9UdawsnreB50icU4qfWGfQPA
+	q0XbQRy0r5JHByCAdr/r9oWngmOwsWqr3hmztBbfbbTtL6pBWulMw7kWn/cI5QT2RFbMr/GiZ4S
+	gKeiaVIYa+M27TnZEzfrKG/tcPC6XMxLnfmpNnYkEB4o+lam
+X-Received: by 2002:a05:6000:186b:b0:48e:88e2:fe6a with SMTP id ffacd0b85a97d-4a63f4623d2mr6222883f8f.49.1795011126108;
+        Wed, 18 Nov 2026 06:12:06 -0800 (PST)
+Received: from localhost (82-67-6-57.subs.proxad.net. [82.67.6.57])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a650d2ecd0sm5590663f8f.8.2026.11.18.06.12.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 06:12:05 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,118 +90,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:ugreen.com:qybglogicsvrgz:qybglogicsvrgz3a-0
-X-QQ-XMAILINFO: OA8qd4daQrT+6oqn275lL6SDcTpdszQh1bg6kSzR3bwZt+SEPdtq/vuT
-	UOnOIrg2YD0fjENpY4+kKgcpGh5NGFCCsqeMtpAaHQemaVbtdcjw9piL46jU360NUfiPdh7
-	8f2AL4xI7AHgxuehol9vRPR5x5lMoU+lTy+GAt2G5097nBMdO3unnzzGW2S2L06sbOMwu/M
-	OW2M72WvvTiCFNfbVvlxRY6VOd4plbjyJ63Gfa5z5r+0wB2OSplX7SayNARohO0YrXepIGz
-	PtU6yYZ+eKJsugGTZtlJUDX5wiZknYB8XMPADAYiBWaTeH1unWJlDJwPampw3fa0Z2aPjj3
-	fNyWTzg6cI9ZC7Y9wPUdCu9K4BCothAo1r9lTuKbJdtUY1sU7/xLDwPY3+5IvC18ZOw8X64
-	UA6JFQnK9as2N34CD0nM4adfeX1hOiJSHRTzfi5iHlAb4PEbNjtMG1wtRfuLcHG4gxKfShN
-	SO8R8NGf9eKKnFNv/2cees3r97Bay7OJIRVYjfSjINr5wN9HRFldwBInxbaLhtsSNnZjBxh
-	HCogBgOFAm49FEANu7xajwc3S3PHbzhsQfpx2Bcweu04ZwWJO1GmR3hW6RL/aQBnxfsxcxJ
-	BKgUfhOuf43GCXAS3M17YktK1+o/VQLn3ATsUhppotU9DLtjIhNmhtm8z0Ty4K7RdwQTxvN
-	UUbJwOvng6taMEIYcWJ1Sy7J+Zh7BdsatsaWNt5KJKnruuwTE728YnVFh0iGYs+NzzpL4tv
-	LxszpL8deEDF1nHx7lA5tEgKecf73hsVG2qdXPDGq0pTIoNBYUD8+ftGT9XRUnad/Yyl7yV
-	4AQPyT5nOzIiNzHYPlewx6Dj9WquHcIODQZw8jsjUPYnIiRAnceAHVV8tTmFEBYISPgxi6k
-	rxn1HGddvDPFwztbbfrZFY0FwVezcbLYFFFTunsOqBbiTra7Hkd3C+LxpGPw18l/xBbXbck
-	xjQHAf01nVOIoBy7AaOGAvD0ti3tDS7gTORbIluidkK9Xb+xRWf6NU/igs9m0YfkXG8q4Pu
-	K2bXvPbnf057+fYm289X9HNspQb1ACJMI4o64chf4mv2dn6lV85wgjdPtzgge96+1aPBCrs
-	Q==
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Subject: Re: [PATCH] MAINTAINERS: Update UltraRISC driver maintainers
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Xincheng Ji <jixincheng@ultrarisc.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Stephen Boyd <sboyd@kernel.org>, 
+ Brian Masney <bmasney+clk@redhat.com>, 
+ Jerome Brunet <jbrunet+clk@baylibre.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Linus Walleij <linusw@kernel.org>, Paul Walmsley <pjw@kernel.org>, 
+ Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
+ Alexandre Ghiti <alex@ghiti.fr>, Rob Herring <robh@kernel.org>, 
+ linux-pci@vger.kernel.org, linux-clk@vger.kernel.org, 
+ netdev@vger.kernel.org, linux-gpio@vger.kernel.org, 
+ Fei Chen <chenfei@ultrarisc.com>, Conor Dooley <conor@kernel.org>, 
+ linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Jerome Brunet <jbrunet@baylibre.com>
+In-Reply-To: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
+References: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
+Date: Wed, 18 Nov 2026 15:12:02 +0100
+Message-Id: <179501112283.639563.5233054429317576626.b4-review@b4>
+X-Mailer: b4 0.17-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1377; i=jbrunet@baylibre.com;
+ h=from:subject:message-id; bh=vlDn3aALOXByZVs7mEqRvuJC3A1ctnxY975yMiaHYv8=;
+ b=owGbwMvMwCW2VtK+WnvWU3HG02pJDFl/N5nknC99zPPvkMAeEz+LJ/rb3O42SObtqLnBOZNhY
+ rKGh3pmRykLgxgXg6yYIksNd7X4O0mtL7Om69yGmcPKBDKEgYtTACbyv5rhf+pRtSNHwkU+xf62
+ 3H1MSnpnB/t0htMrxT57Xp29uUlbppLhf/BEnSWNU72uGOXvU9VP+/jowUV9g7UhNjMfXXfY/J3
+ 3GgMA
+X-Developer-Key: i=jbrunet@baylibre.com; a=openpgp;
+ fpr=F29F26CF27BAE1A9719AE6BDC3C92AAF3E60AED9
 
-Hi,
+> Jia Wang and Xincheng Zhang have left UltraRISC and are no longer
+> maintaining its drivers. Jia's listed company email address is
+> no longer available.
+> 
+> Replace Jia Wang with Xincheng Ji and add Fei Chen as a co-maintainer
+> for the DP1000 PCIe, clock, DWMAC and pinctrl drivers. Remove
+> Xincheng Zhang from the PCIe maintainer entry.
+> 
+> Having two maintainers provides continuity for maintenance and
+> patch review when either maintainer is unavailable, as suggested
+> by Conor Dooley during the UltraRISC maintenance handover.
+> 
+> Link: https://lore.kernel.org/all/20261112-legend-outcast-c2226b5e02a1@spud/
+> 
+> Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
+> ---
+> Hi all,
+> 
+> Jia Wang and Xincheng Zhang have left UltraRISC and no longer
+> maintain these drivers. Jia's listed company email address is
+> no longer available.
 
-We observed four crashes in dql_completed() on an RK3588-based arm64
-board (UGREEN RK3588C DH4300Plus).  The NIC is an RTL8125B, XID 641,
-at PCI 0002:21:00.0, linked at 2.5Gbps.  The kernel is a vendor
-6.1.84 build (6.1.84 #d64bed19bdfd).  We compared the cur_tx publish
-and read with current mainline and that part looks the same:
-rtl8169_start_xmit() still does smp_wmb() followed by WRITE_ONCE(),
-and rtl_tx() still does READ_ONCE() before reading the descriptor.
-The vendor tree still calls netdev_completed_queue() directly; mainline
-has since switched that call to netif_subqueue_completed_wake().  We
-have not reproduced this on mainline.
+Maintenance is not necessarily tied to an employer.
+It would be better if the people removed could Ack the change, and let
+the community know they don't plan on being involved anymore.
 
-All four oopses stop at the same place:
+If they do not reply within a reasonable timeframe (a cycle maybe?) I guess
+you can remove them anyway.
 
-  kernel BUG at lib/dynamic_queue_limits.c:27!
-  Internal error: Oops - BUG: 00000000f2000800 [#1] SMP
-  pc : dql_completed+0x13c/0x14c
-  lr : rtl8169_poll+0x3a0/0x54c [r8169]
+That does not prevent you from adding yourself in the meantime.
 
-One of them, from idle softirq:
+I suppose this would go through a starfive/riscv tree ?
 
-  CPU: 2 PID: 0 Comm: swapper/2 Tainted: G        W   E     6.1.84 #d64bed19bdfd
-  Hardware name: UGREEN RK3588C DH4300Plus Board (DT)
-  Call trace:
-   dql_completed+0x13c/0x14c
-   __napi_poll+0x3c/0x1d0
-   net_rx_action+0x16c/0x3a0
-   __do_softirq+0x120/0x338
-   ____do_softirq+0x14/0x20
-   call_on_irq_stack+0x24/0x40
-   do_softirq_own_stack+0x20/0x30
-   __irq_exit_rcu+0x98/0xc0
-   irq_exit_rcu+0x14/0x20
-   el1_interrupt+0x48/0xa0
-   el1h_64_irq_handler+0x14/0x20
-   el1h_64_irq+0x74/0x78
-   arch_cpu_idle+0x14/0x40
-   ...
-  Kernel panic - not syncing: Oops - BUG: Fatal exception in interrupt
+For the clock:
+Acked-by: Jerome Brunet <jbrunet@baylibre.com>
 
-Another is the same pc/lr from process context (ctl_serv), entering
-softirq via el0_interrupt.  Two of the four were preceded by
-"NETDEV WATCHDOG: eth0 (r8169): transmit queue 0 timed out" and
-"ASPM disabled on Tx timeout".  The other two were not.
+-- 
+Jerome
 
-dql_completed() is called as (dql, count).  At the BUG the registers
-are:
-
-  x1 = 0x00000570   x2 = 0x00000534   delta = 0x3c
-  x1 = 0x000007de   x2 = 0x000007a2   delta = 0x3c
-  x1 = 0x000009d8   x2 = 0x0000099c   delta = 0x3c
-  x1 = 0x00001091   x2 = 0x00001055   delta = 0x3c
-
-The failing check is BUG_ON(count > num_queued - num_completed).  The
-branch goes straight to the BRK, so x1 is still count and x2 is still
-num_queued - num_completed.  In every case the completion count is
-0x3c = 60 = ETH_ZLEN bytes ahead of the outstanding BQL count, which
-is one short frame padded to the minimum length.  RTL_GIGA_MAC_VER_63
-pads such frames to ETH_ZLEN.  We have not established why the counts
-diverge.
-
-While looking at the TX path I noticed that rtl8169_start_xmit()
-publishes the new ring index with:
-
-  smp_wmb();
-  WRITE_ONCE(tp->cur_tx, tp->cur_tx + frags + 1);
-
-and rtl_tx() then does:
-
-  while (READ_ONCE(tp->cur_tx) != dirty_tx) {
-          status = le32_to_cpu(READ_ONCE(tp->TxDescArray[entry].opts1));
-
-On arm64 a control dependency does not order the later load of opts1,
-or the later read of the BQL counters, against the load of cur_tx.
-smp_wmb() orders the writer's stores, but the reader has no pairing
-barrier.  A CPU could observe the new cur_tx, still see DescOwn clear
-on a descriptor that has not been handed to the hardware, and account
-that skb in netdev_completed_queue() before __netdev_sent_queue() is
-visible.  That would trip this BUG_ON.  I may be missing an ordering
-guarantee that already covers this.
-
-Would an acquire load on the reader be appropriate here?
-
-  -     while (READ_ONCE(tp->cur_tx) != dirty_tx) {
-  +     while (smp_load_acquire(&tp->cur_tx) != dirty_tx) {
-
-This is a question, not a fix.  We have not A/B tested it, and we have
-not reproduced the oops on mainline.
-
-Thanks,
-Hanson Wang
