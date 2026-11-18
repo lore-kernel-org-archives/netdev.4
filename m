@@ -1,55 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019635;
-	b=MLx7XqKR0svoPpUkxo2W6yIWrvL4plXyVaD9XO5wud6K+VxCXTcPAFWylHmxGynVNGN5
-	 Uyvw+kus0q9nRpsF3KkteuUKbGIXoZnU5wWQV5ICu3PmDLrhkibiizSNj/NmBILVzbD4t
-	 fcDLaUUBaJN1wKanRLrBUhsRwgXV38PhWZUYX12VdjmTiRbte54maYJn6sBYUwQbBdxac
-	 qWiG5m/ZkMoaswPhhnMfGi/njmcjsB6yiwWnAvD9mR+qlXCJdTqMIZGMAQR1oa//o9yEl
-	 G6Diwi2ZXXfOZHpmIYmcQ13TWyTD/mvPSAyHloFrFed61CSBG8L4HkL+vTGIORIJfhw==
+	t=1795019686;
+	b=3CrjLBcoLsIOcxRpuMZSF9zFw0hfve25NxsEOR2jKfXotKauhH9IJLFaYqDbjN3GBdNt
+	 I2tqZNwz+jkGQSeI7qRhLVZpgb9VxnkfC+8qwRm1RIQvfRVCyrnKkFTTt2gwR88IiRrzY
+	 xBXUBY5dZ9+CCtR6wg0fi380f+PHO8vlQyr9fdt8zYrfadDT+3JCmikHWd6/oGF/QId+S
+	 eVB8fzR0T9/gBm8uFD5T6Fw68KnutkhBhHXd4LE2tCLKAxT6pZiSTIb0H/0y7bnTr+eFd
+	 g8ebTY9JWeXD0dwb9FE5JXrDl0HlcaCAFqrevkYfg2Y4/XIUFrqvhcbFh1PaKUdmVOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019635;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019686;
 	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
 	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
 	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=YP+R8WLwJ5gMOWgNgp+UjujL64A5cni2cbp56pSez54=;
-	b=FxZB/LFkFvRC1wBrEqqy9cJ1WEVZFmXKq+LISAEDb9zQ4EjYIDwpJcQMtuY1GuZ6Qo/W
-	 Op1CRUSQ4Xj/i/RctqWBl/vpSoXinb/keuuFbkQxUm9FvadN0XC9pig2tezt5LfFQVwBa
-	 n6MuAEeCzwUCeJGt1/6VM2bzGS5vMaPyC9nq+ui1NrL5jz32ZrBAkoeFy8ijVOhO+xxUk
-	 WeZd6CaC18dXmElXNSThOkWPWRZKQoNZJz5DDVrP7L4ZbbXPTRdYzthFMeFnaY2cCy0XA
-	 SsroMdwIQpcPvZIk7Bp+GZXWV2Qw/Ihu6T6oeTjm1VkAgCo0b6/JggGnphVAsuDZ6aA==
+	bh=5wR5zM6vhPf+AYQ3hGmjEY/5qmiybh5sIQfaO4YFM6o=;
+	b=tD5BIEB+6A+rXG4sSradCkpr7r/ze+8QbDmkiHdlTLx0SYVku3xBp/HxIxoEuO0J85kw
+	 c7uaAXZDxDOa/5tBM3xpAfCS+DcpxbAr/vf/uHNFLxJMqUrrcZSKzB7zEgA/wCUCpVHII
+	 HosuqwO0eH7dJgRkYek0EqRI+psHc1fEmrOt0YGxbi7f3RxxamsoVZkytQJMRR7gaCpPm
+	 9CppmZ4165xxuEum24KpYvGNtvj55WwiUx7bqbtur4pT7+doFaADjr/LwryB2SmSOHlCY
+	 TNBxLqOMwNWuEaqSAoM2XMvc6bPTTBdpvq9QdQwujBuAawFY/1a536i0KvpFgWxLDPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SPXsUEHq;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ojhU4GR5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63242606A332
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:33:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A449F606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:34:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SPXsUEHq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 347901F000C5
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:33:55 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ojhU4GR5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65DC81F000CD
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:34:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795019635;
-	bh=YP+R8WLwJ5gMOWgNgp+UjujL64A5cni2cbp56pSez54=;
+	s=k20260515; t=1795019686;
+	bh=5wR5zM6vhPf+AYQ3hGmjEY/5qmiybh5sIQfaO4YFM6o=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=SPXsUEHqNkvcxwsbngoNx8tdbGZNeIp9hfNvdlMxrUKHedVPFFf6HgfbPsA0g0JR2
-	 vyEpyNV0MVQKuZ/Ds5jWOhCxVGnGyseaQpGD8Or980E1s6RdKIHYf+BdLvp1LBcSer
-	 lZyt1q83cIjJHNXwFcdZ/hGh7Q0CFo/GC+pws+v0Tq+LNeh5F9UF3luKo7nT8HlQzt
-	 BsuHVCBzTA5VxqBQwPwKSvWuykxFMdJsZJGg7YWVi0+MEFXbQ6TJ7M6Tus9A0ttcsL
-	 1YQs38E5sAjamfeF2E0dQ2ZcDferJwH+lauV6BfaKKfj4AD1zxiEQ9vxy8mM7XvUX9
-	 MEFL8p0ATmaIw==
-Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-6d68de53053so894122eaf.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:33:55 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFQdmWJYcU99a91IRN171va7J/DNVucbIOxGMGgO5YB/yRv0cJUlmLQFNEtvU8wZlnmL9z9bi0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+B2MJMwaJfI4DQ4iH37BclwR1WpXBlFcgVrDHLuO5bJaER+mKf
-	KvPf/XPVPRPAwdTKk8k/sfL/YVyb8D9/0Kp/UBnuoiMhaHQC0kMz/Qscu5EevEv2UjCmkGGheTV
-	kKblebO8yqk9BT0jfSMdz5KNWP64D8sM=
-X-Received: by 2002:a05:6820:1501:b0:716:e855:5002 with SMTP id
- 006d021491bc7-71b296a9e95mr232895eaf.55.1795019634458; Wed, 18 Nov 2026
- 08:33:54 -0800 (PST)
+	b=ojhU4GR5DC89JFOo059YzLC+Ws9RQHbuJHEOoQtGukFqeL3pP3QoIJXcvlVluWjnQ
+	 VgrqO7wAvd6ggOgpmz77AQ5XGacmLJP/PHgxQemmZWLUVvt1d7kLLQJlXUjx1POgLe
+	 icITDF2R+PA94GuFHi+/F7foeaiAO7v6YL6cfs8pbt8yUFvOI7AINMO4lpK+tGmDHY
+	 lSmcxsENLBccqLvOGXvhbriwGjqRgAhwMTRIzzHoI9SeX9Ad5izK4tWW13OCAueJpZ
+	 NkeSjTFvYW6m0BTp9o4XKDTpkK3teFYg7v8QXidvCipjTlBoDXIsxBzLAYC9dMP2wB
+	 zHNHqHa+THi3A==
+Received: by mail-oo1-f48.google.com with SMTP id 006d021491bc7-71acdd32a53so474456eaf.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:34:46 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErEOoEw1w4qabj9lJXqeYBZWeCavuZtQzWefKjnd8LSD6GJX8sLtnEKZ7LjIOgd0PCMIJwEIwXs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Q++bN9ALGah0kNd5xlnUHXvZsjTPjhgLUNrqf/YkxhbDMY2sQ
+	9C6MMsOg75NS6pXLCw+kBhhsk1bGrsTEEFQrBu1VSZb31+Q+dUsQYRzNXH86P8T+2mX0FhfepBx
+	ywVAVoIHSbaKDZipacpJ1QxBjejTCBtk=
+X-Received: by 2002:a05:6820:a75a:10b0:71a:f5b7:e0c1 with SMTP id
+ 006d021491bc7-71b18609662mr1248292eaf.74.1795019685717; Wed, 18 Nov 2026
+ 08:34:45 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,14 +59,14 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118155144.18393-1-mason@kernel.org> <20261118155144.18393-6-mason@kernel.org>
-In-Reply-To: <20261118155144.18393-6-mason@kernel.org>
+References: <20261118155144.18393-1-mason@kernel.org> <20261118155144.18393-5-mason@kernel.org>
+In-Reply-To: <20261118155144.18393-5-mason@kernel.org>
 From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 17:33:43 +0100
-X-Gmail-Original-Message-ID: <CAL4WiirjhPBCMTPk2Eas4BMX8j7+9oO5wMJFBNspV2yr0KmtEw@mail.gmail.com>
-X-Gm-Features: AclHuK9Y1OKOvK1mdydHTZNOY_6g2y2abTuZZFvh0eBNeeZSbsnDTMJK-l8bBqc
-Message-ID: <CAL4WiirjhPBCMTPk2Eas4BMX8j7+9oO5wMJFBNspV2yr0KmtEw@mail.gmail.com>
-Subject: Re: [PATCH net v2 5/5] tcp: bound the rto_min of a route in tcp_rto_min()
+Date: Wed, 18 Nov 2026 17:34:34 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiprQbDE9GDMOG7ZtWSPCKUaQ7zV0qe+vZ8S33AV539GGg@mail.gmail.com>
+X-Gm-Features: AclHuK97qatPEmcaPNn7Gw1pqZZMejCHLG1RKCRlFJULE7n2DzLPHSH_CcoMZGk
+Message-ID: <CAL4WiiprQbDE9GDMOG7ZtWSPCKUaQ7zV0qe+vZ8S33AV539GGg@mail.gmail.com>
+Subject: Re: [PATCH net v2 4/5] tcp: clamp the samples in tcp_rcv_rtt_update()
 To: Chris Mason <mason@kernel.org>
 Cc: ncardwell@google.com, kuniyu@google.com, davem@davemloft.net, 
 	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, willemb@google.com, 
@@ -77,72 +77,30 @@ Content-Transfer-Encoding: quoted-printable
 Le mer. 18 nov. 2026 =C3=A0 16:51, Chris Mason <mason@kernel.org> a =C3=A9c=
 rit :
 >
-> For a route with a locked RTAX_RTO_MIN, tcp_rto_min() returns the metric
-> as it is, and that can be any 32-bit number of milliseconds. All other
-> ways to set the minimum RTO have a nonzero floor: the tcp_rto_min_us
-> sysctl, TCP_RTO_MIN_US and TCP_BPF_RTO_MIN.
+> tcp_rcv_rtt_update() starts with sample << 3 in u32 arithmetic, so a
+> sample of 536.9 s or more wraps.
 >
-> Both ends of that range give us trouble.
+> tcp_rcv_rtt_measure() can hand it one. Its sample is the time the sender
+> took to fill one receive window, and a low rate flow can take longer
+> than that. This caller only looks for a minimum, so the wrapped value is
+> kept whenever it is below the current estimate. A 540 s sample ends up
+> as an estimate of about 3.1 s.
 >
-> With an rto_min of 0, tcp_init_metrics() can start a connection with an
-> RTO of 0, if the cached RTT is below one jiffy:
+> Clamp the sample to TCP_RTT_MAX_US in tcp_rcv_rtt_update(), like
+> tcp_rtt_estimator() does on the send side. That covers both callers, and
+> the smoothed estimate now tops out at 8 * 120 s, which fits in a u32.
 >
->     icsk_rto =3D crtt + max(2 * crtt, tcp_rto_min(sk)) =3D 0
+> Found by code inspection (Eric Dumazet), who also suggested the fix.
+> Confirmed with an LLM generated reproducer on an unmodified kernel, and
+> tested with the reproducer and existing kernel selftests.
 >
-> It sets icsk_rto itself, so the lower bound in __tcp_set_rto() does not
-> help here.
->
-> At the other end, tcp_rto_min_us() and the sum in __tcp_set_rto() are
-> u32 values in usec, so an rto_min of more than about 71 minutes does not
-> fit.
->
-> Clamp a locked rto_min to the range from one jiffy to TCP_RTO_MAX in
-> tcp_rto_min().
->
-> ip_metrics_convert() could reject these values instead, as it does for a
-> locked cwnd of 0. But a route with "rto_min lock 0" is accepted today
-> and mostly works, so that would break existing setups.
->
-
-I agree, please keep the clamp in tcp_rto_min().
-
-A locked cwnd of 0 makes no sense, but "rto_min lock 0" can be read
-as "as low as possible", and we can not start rejecting it now.
-
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-
-> A route still shows the rto_min that it was given, while TCP uses one
-> jiffy or 120 s.
->
-> Found by LLM code inspection, and confirmed with LLM generated
-> reproducers on an unmodified kernel. Fixed by LLM, and tested with
-> the reproducers and existing kernel selftests.
->
-> Fixes: 05bb1fad1cde ("[TCP]: Allow minimum RTO to be configurable via rou=
-ting metrics.")
+> Fixes: 645f4c6f2ebd ("tcp: switch rcv_rtt_est and rcvq_space to high reso=
+lution timestamps")
+> Suggested-by: Eric Dumazet <edumazet@kernel.org>
 > Signed-off-by: Chris Mason <mason@kernel.org>
 > ---
 >
 > Notes:
->     v1->v2: new patch
->
->  include/net/tcp.h | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->
-> diff --git a/include/net/tcp.h b/include/net/tcp.h
-> index a617a72ee2c6..27de546dc802 100644
-> --- a/include/net/tcp.h
-> +++ b/include/net/tcp.h
-> @@ -939,7 +939,8 @@ static inline u32 tcp_rto_min(const struct sock *sk)
->         u32 rto_min =3D READ_ONCE(inet_csk(sk)->icsk_rto_min);
->
->         if (dst && dst_metric_locked(dst, RTAX_RTO_MIN))
-> -               rto_min =3D dst_metric_rtt(dst, RTAX_RTO_MIN);
-> +               rto_min =3D clamp(dst_metric_rtt(dst, RTAX_RTO_MIN),
-> +                               1, TCP_RTO_MAX);
->         return rto_min;
->  }
->
-> --
-> 2.55.0
->
+>     v1->v2: new patch (Eric), with min() instead of min_t() (David)
+
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
