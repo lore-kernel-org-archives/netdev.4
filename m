@@ -1,67 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795041272;
-	b=ofddTnKml3b50XrsvVh5ZM7DGqB8gYWRbPWJMBfyMIht4pCZMUEqZinUgz1ibVrWBm7j
-	 TFE+zdI2nBazzYnZRGwGVmscw3snUSS1WVwUxC/FcK6qY1eshHZKno6mkmI8L6i6KdQ94
-	 kEf5ZgrAH7sU2w0dDMLUE2AcVqJJ4BC2ITjyXtXt7aNWjPtkgEt5398wwCrxhzwJxjZCs
-	 uQm/+zAeX1x/c7Os15a6Cn1yO9F6v4VaWop3IrQAZWp4Rn4Sqis6k+pIo6zDVqaqiulcT
-	 fVKx8UGT5+wGuIJIimW+BMszflIwooTQ6w9H62wOrtXOcHvd128lZM74vofv2hiYKsg==
+	t=1795041956;
+	b=O5TY5GFiBa7+9bXX9eyXNkehiafv6GcJjSAjRVp6ODyQ59MkOKxPyw5qpD0+2ULpAzVa
+	 TfhZpu2ogy/1HF7kykq2VjrMX57Id2AnPNvzJipaOkRvgGPwHC9foBCg5pS5XJFVDROOY
+	 wfSFFXtn2SKmlq/0c3Kmf8iJy4x68W6KQIG4mRkDypXwTaEtsJWj7QrkZb8IiIM2NMQhT
+	 Ufxm7KCzQ3Rv7iA+nuGr2ZBT+UKTUMM6zYTlItd2OAaJPYfAtKJuDwCDQwhRr18dKD5l1
+	 dtB7d22TKbP+o0CpETUB+deNxlib3MOLgrEkKVop2YXAfeUjo6ZbocnvUdRWp8lfjPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795041272;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:User-Agent:X-stable:X-Patchwork-Hint:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=pLYLBI//VahNQuCwQVR9uHA1X/jzENqltyiJq0jsrSg=;
-	b=1//+fzMYKgRaW68uw2/XOTK/iYw7OuKDhxYDcKVGYC3lZ6ztfmLl9IYTr4jgzSOSaJ8G
-	 DTX2xWv/6FsR2gL+VjiiFFvuSbKaoKsbgfoQuPTAaQZbkHxD8MvepPGDBpW4h2rpCHczO
-	 rB70ImczknCiFicBZYkURT0Vc9myRAkqnZMYRLKeC64Xm1PsGk27pgcWHIfT96K9J5b05
-	 gqXjNFYcGQFYqgoqbsdyKH69YOYOwMT1N7BwJQcJQKXevpWT+uJZvUlsvgycRakFUuAQE
-	 CV2kHvdz2fT9yY2DqcUHEcJ6fzcWzxmQaDM/1nzHQDW9xwiZL7GdsmM5bm7yjpUqrpQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041956;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=nlxflGN2P4bdLJLhBshlbVu7vfLlT4P5XJep01GeEKU=;
+	b=m4cbZqMrZAB+Tey7Maz0y6JdrQipm1/9BHH8H8cDgFgSwdVJdbTyGdQ8urYaHz9ybooE
+	 4h/FpwDfAXwF+55qadGvt9uhfxhUDJExZTD0TC4d2utvYr+k55J/Mxi4gTTFuGreivXLS
+	 99EdpPP2/wHyzA85EmJFIQzR9/fW5K1zpuO1HmwCXLcLoefJaPoI92NKiiItS5utYhA7t
+	 xxW/TBQ1yqcmiICGdZo0443ui/mdpZn782BnT/U/3KGM5ejpTT2gPKWj0r2KSItMHtbFZ
+	 sTKM8GQyc4WX4k59ADVAR5w5enTCBRll7vV+6NqbYBtqn0T3IFDhBDZAWyn60fSUCnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=fXJXlVQN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nLrH8uEk;
+	arc=none smtp.remote-ip=209.85.160.182
+Received: from mail-qt1-f182.google.com (mail-qt1-f182.google.com [209.85.160.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52F78606A31C;
-	Wed, 18 Nov 2026 22:34:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CF20606A337
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 22:45:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CF20606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=fXJXlVQN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A08941F000C4;
-	Wed, 18 Nov 2026 22:34:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795041272;
-	bh=pLYLBI//VahNQuCwQVR9uHA1X/jzENqltyiJq0jsrSg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=fXJXlVQNmX9RG4aUD7q0Qd4wUZv4WF/DzMeIKIpyvrZsixy/aOBbU9R9o71SDn+cE
-	 PjHT73ah383eIFjxWforMn2hMOF1PSsvzAb+MCkIzTwa0ceUqvWvlBhM/G2Ba3Utfh
-	 QEkgrOsppzAZvGhgRidLLxEowvuYKJSZ33BcdNo8=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Kalle Valo <kvalo@kernel.org>,
-	linux-wireless@vger.kernel.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Simon Horman <horms@kernel.org>,
-	Johannes Berg <johannes.berg@intel.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 6.6 2717/3318] wifi: cfg80211: fix header kernel-doc typos
-Date: Wed, 18 Nov 2026 15:55:39 +0100
-Message-ID: <20261118150442.370643732@linuxfoundation.org>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261118150313.527275416@linuxfoundation.org>
-References: <20261118150313.527275416@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nLrH8uEk
+Received: by mail-qt1-f182.google.com with SMTP id d75a77b69052e-5366ae57896so14424411cf.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:45:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795041954; x=1795646754; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=nlxflGN2P4bdLJLhBshlbVu7vfLlT4P5XJep01GeEKU=;
+        b=nLrH8uEkm+gHs351X2lhHHDZV8l//way/DxHSO9CK8eQ446ifZ7wOy3mUG7gcdFyNL
+         8ZXMzeSwhyj2Ok7A0Hfh0ljx6owI5NLTR8hDo2UD0QVKbGZYdinUS0p1ysPwr/2U/+to
+         8JQ16WjPfe4uDOR1+2e+dNrrsGa55auzWdZYlwnC14WQEMp+Jbes5u6TUDWBZ7JDQYZ4
+         C5py3OJ9zhyaiWQrwJLFGbSkWXVZCovtG3V4RQ9KA/39ARFFh80i9wFenzne5mh4OdZS
+         9bBhg3+zECx5PZTNdPJLz0g04inxC7/58TaWhMzCIm2rD+JDRFjUII0L4QybM8Ifn5R0
+         GYFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795041954; x=1795646754;
+        h=content-transfer-encoding:content-type:mime-version:subject
+         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nlxflGN2P4bdLJLhBshlbVu7vfLlT4P5XJep01GeEKU=;
+        b=fZh727sJeYM/P1udp8yXxssy+OrCFT0LDNuNMu6zgWCJVtITRLK4kLs1g4w3IbnNwI
+         M6QPU8BH0p5qo3asCxc7w1sMj26DIxXU2ojjRZR66saXqtMxS6SL5UyPK0jya+ytI7ot
+         IzHgZn9b75GGjMT8I8ONqo/FOS0DrkN0HIB7reV2AC0JLGcjpr+idmtOFjMxx/gZMYOp
+         hMJ/msbqXOX4i/BieM0OIqvIY7tI8Q+MM/or4/oX70kiakNbk6YUos8mWxZyVkwVo91n
+         ziMV6mFJt7NEfqOscWsuEIML0lH+IMvD+yRzsldE7aH4XHyYnhIbeVJQ+zcGVk15YXRO
+         TgPw==
+X-Forwarded-Encrypted: i=1; AL+hErGkMIibYz5uQV8akxRT/vr8mzaxwOkMoGkJmiufkjB5TvlQK6rpo2QP/GelSPiVRRoq01ueJXw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9tvKTrRIeT9hqXTdS8ryBoGWGhgtP/+PuJCYyV66SlG1iLErcf
+	PIq/9hiRwuqwEJknxXFrDJLBDhxK3dsOOgb4MqW24fBwvPWQ21tv1WzE
+X-Gm-Gg: AYBFou0ssAaZ5ReTNlan4THPe177E+RrM8gSJkuY/4V6gGK6qn/RGMUuEfDx8mrrakm
+	7qqjtla8EWBVaj2JybqNqm8rkCrqNm6PWb3V06JdGv0dmn2Z4IpCKK+pm1wlqlsNOBP4F0O2YqN
+	Y7onCcq+51BfqOYgZXjwo+dIwOMZAyrPQD5BORhVYEcfvCHuTa/t2m4UJ+GWXRX7vRPMXdWfB2M
+	a1vhmXby6Pw1eDemYoSpaIj3czTMpDYBa0GLMksdMik/pTh3WAdvy/B/tnl6GeEK8mER2N++BpV
+	rysUvYIIriGUI7RF6jnYi9u4TtMXuqzTBRCNgjaTwoHBLV5vmMS2Hl1AsDoUvlQklfwFQQFeXmD
+	Gzyc38QDcqzPFd5TBMOn8i4YD7fme3nQa2pXLaB/cIr9UQ4Eg4OIznFIPIgOTzDiElJgKTynndU
+	eDFFTfyGuaWnFh1USgq4gZTeajH1ABZ7XZ2CgS7Bj2fjNSZek71Dt2b8kRWnzSJv20UPx1agWVv
+	V0XDZVRn3dujeFuJp2iFCM57yvrKJvobLfTbNFeS51aZ9ysQMHIoFo6DtSKH9tmtgEe1P6z1zro
+	RDCbu24wusxbNeHKTgE9CNx9yzcW9BKKYY44OvKd15nKoZDYAFW2wLSuRUqA6ekElIVKDs8o0rt
+	Hv0gk0RK497joCy4SS5vKH3pm8jyaS9cCIfCJiDFngyGl/Xj9ZzDljazzfUPOrlc8j4qJEX2TVq
+	bPUC8mFtmI
+X-Received: by 2002:a05:622a:2589:b0:55d:3540:5da1 with SMTP id d75a77b69052e-55d5a543552mr62410941cf.19.1795041954499;
+        Wed, 18 Nov 2026 14:45:54 -0800 (PST)
+Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d66c52318sm10266441cf.29.2026.11.18.14.45.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 14:45:53 -0800 (PST)
+Date: Wed, 18 Nov 2026 17:45:52 -0500
+From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+To: Daniil Tatianin <d-tatianin@yandex-team.ru>, 
+ Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>
+Cc: Daniil Tatianin <d-tatianin@yandex-team.ru>, 
+ Simon Horman <horms@kernel.org>, 
+ netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+Message-ID: <willemdebruijn.kernel.3b356fe59c775@gmail.com>
+In-Reply-To: <20261117085951.681985-1-d-tatianin@yandex-team.ru>
+References: <20261117085951.681985-1-d-tatianin@yandex-team.ru>
+Subject: Re: [PATCH net-next] net/packet: don't direct reclaim for contiguous
+ ring blocks
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,126 +107,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: 7bit
 
-6.6-stable review patch.  If anyone has any objections, please let me know.
+Daniil Tatianin wrote:
+> alloc_one_pg_vec_page() first asks the page allocator for a physically
+> contiguous block and falls back to vmalloc if that fails.  The first
+> attempt uses __GFP_NORETRY, but that still allows one round of direct
+> compaction and reclaim before giving up.  Under fragmentation every
+> block of a ring pays for that round, so setting up a ring can stall the
+> caller for seconds even though vmalloc would have worked right away.
+> 
+> On hosts that run tcpdump periodically we saw ring setup (8 order-6
+> blocks) stall for up to 1.4 s per block and 3.5 s per ring.
 
-------------------
+Is this still the case with recent commit 0e05a469c294 ("mm/page_alloc:
+avoid direct reclaim and compaction for costly __GFP_NORETRY allocations")?
 
-From: Randy Dunlap <rdunlap@infradead.org>
-
-[ Upstream commit 98e0c7f85773ab161d804103649b33f8a97cf1b3 ]
-
-Correct spelling of several words.
-
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-Cc: Johannes Berg <johannes@sipsolutions.net>
-Cc: Kalle Valo <kvalo@kernel.org>
-Cc: linux-wireless@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@google.com>
-Cc: Jakub Kicinski <kuba@kernel.org>
-Cc: Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org
-Reviewed-by: Simon Horman <horms@kernel.org>
-Link: https://lore.kernel.org/r/20231001191633.19090-1-rdunlap@infradead.org
-Signed-off-by: Johannes Berg <johannes.berg@intel.com>
-Stable-dep-of: 298618f28bd3 ("wifi: cfg80211: reg: protect regdb pointer with RCU")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- include/net/cfg80211.h | 20 ++++++++++----------
- 1 file changed, 10 insertions(+), 10 deletions(-)
-
-diff --git a/include/net/cfg80211.h b/include/net/cfg80211.h
-index 2343f4c0f1d8e..5565465f146f7 100644
---- a/include/net/cfg80211.h
-+++ b/include/net/cfg80211.h
-@@ -2447,7 +2447,7 @@ struct mesh_config {
-  * @user_mpm: userspace handles all MPM functions
-  * @dtim_period: DTIM period to use
-  * @beacon_interval: beacon interval to use
-- * @mcast_rate: multicat rate for Mesh Node [6Mbps is the default for 802.11a]
-+ * @mcast_rate: multicast rate for Mesh Node [6Mbps is the default for 802.11a]
-  * @basic_rates: basic rates to use when creating the mesh
-  * @beacon_rate: bitrate to be used for beacons
-  * @userspace_handles_dfs: whether user space controls DFS operation, i.e.
-@@ -2720,7 +2720,7 @@ struct cfg80211_bss_select_adjust {
-  * @match_sets: sets of parameters to be matched for a scan result
-  *	entry to be considered valid and to be passed to the host
-  *	(others are filtered out).
-- *	If ommited, all results are passed.
-+ *	If omitted, all results are passed.
-  * @n_match_sets: number of match sets
-  * @report_results: indicates that results were reported for this request
-  * @wiphy: the wiphy this was for
-@@ -2754,7 +2754,7 @@ struct cfg80211_bss_select_adjust {
-  *	to the specified band while deciding whether a better BSS is reported
-  *	using @relative_rssi. If delta is a negative number, the BSSs that
-  *	belong to the specified band will be penalized by delta dB in relative
-- *	comparisions.
-+ *	comparisons.
-  */
- struct cfg80211_sched_scan_request {
- 	u64 reqid;
-@@ -3596,7 +3596,7 @@ struct cfg80211_update_ft_ies_params {
-  * This structure provides information needed to transmit a mgmt frame
-  *
-  * @chan: channel to use
-- * @offchan: indicates wether off channel operation is required
-+ * @offchan: indicates whether off channel operation is required
-  * @wait: duration for ROC
-  * @buf: buffer to transmit
-  * @len: buffer length
-@@ -3714,7 +3714,7 @@ struct cfg80211_nan_func_filter {
-  * @publish_bcast: if true, the solicited publish should be broadcasted
-  * @subscribe_active: if true, the subscribe is active
-  * @followup_id: the instance ID for follow up
-- * @followup_reqid: the requestor instance ID for follow up
-+ * @followup_reqid: the requester instance ID for follow up
-  * @followup_dest: MAC address of the recipient of the follow up
-  * @ttl: time to live counter in DW.
-  * @serv_spec_info: Service Specific Info
-@@ -6728,7 +6728,7 @@ static inline const u8 *cfg80211_find_ie(u8 eid, const u8 *ies, int len)
-  * @ies: data consisting of IEs
-  * @len: length of data
-  *
-- * Return: %NULL if the etended element could not be found or if
-+ * Return: %NULL if the extended element could not be found or if
-  * the element is invalid (claims to be longer than the given
-  * data) or if the byte array doesn't match; otherwise return the
-  * requested element struct.
-@@ -6875,7 +6875,7 @@ int regulatory_hint(struct wiphy *wiphy, const char *alpha2);
- /**
-  * regulatory_set_wiphy_regd - set regdom info for self managed drivers
-  * @wiphy: the wireless device we want to process the regulatory domain on
-- * @rd: the regulatory domain informatoin to use for this wiphy
-+ * @rd: the regulatory domain information to use for this wiphy
-  *
-  * Set the regulatory domain information for self-managed wiphys, only they
-  * may use this function. See %REGULATORY_WIPHY_SELF_MANAGED for more
-@@ -6966,7 +6966,7 @@ bool regulatory_pre_cac_allowed(struct wiphy *wiphy);
-  * Regulatory self-managed driver can use it to proactively
-  *
-  * @alpha2: the ISO/IEC 3166 alpha2 wmm rule to be queried.
-- * @freq: the freqency(in MHz) to be queried.
-+ * @freq: the frequency (in MHz) to be queried.
-  * @rule: pointer to store the wmm rule from the regulatory db.
-  *
-  * Self-managed wireless drivers can use this function to  query
-@@ -9182,9 +9182,9 @@ bool cfg80211_iftype_allowed(struct wiphy *wiphy, enum nl80211_iftype iftype,
- 
- /**
-  * cfg80211_assoc_comeback - notification of association that was
-- * temporarly rejected with a comeback
-+ * temporarily rejected with a comeback
-  * @netdev: network device
-- * @ap_addr: AP (MLD) address that rejected the assocation
-+ * @ap_addr: AP (MLD) address that rejected the association
-  * @timeout: timeout interval value TUs.
-  *
-  * this function may sleep. the caller must hold the corresponding wdev's mutex.
--- 
-2.53.0
-
+> The contiguous block is only an optimization.  User space maps the ring
+> page by page either way.  So make the first attempt without direct
+> reclaim, as kvmalloc() already does since commit 46459154f997
+> ("mm: kvmalloc: make kmalloc fast path real fast path").  kswapd is
+> still woken.  The last resort attempt after a failed vmalloc keeps
+> direct reclaim.  Order-0 blocks are left alone, the vmalloc fallback
+> would reclaim for them anyway.
+> 
+> Signed-off-by: Daniil Tatianin <d-tatianin@yandex-team.ru>
+> ---
+>  net/packet/af_packet.c | 10 +++++++++-
+>  1 file changed, 9 insertions(+), 1 deletion(-)
+> 
+> diff --git a/net/packet/af_packet.c b/net/packet/af_packet.c
+> index 8250e6a791f6..38f35a4f9d49 100644
+> --- a/net/packet/af_packet.c
+> +++ b/net/packet/af_packet.c
+> @@ -4493,8 +4493,16 @@ static char *alloc_one_pg_vec_page(unsigned long order)
+>  	char *buffer;
+>  	gfp_t gfp_flags = GFP_KERNEL_ACCOUNT | __GFP_COMP |
+>  			  __GFP_ZERO | __GFP_NOWARN | __GFP_NORETRY;
+> +	gfp_t first_gfp_flags = gfp_flags;
+>  
+> -	buffer = (char *) __get_free_pages(gfp_flags, order);
+> +	/*
+> +	 * A contiguous block is only an optimization because vmalloc works
+> +	 * too. Do not stall in reclaim or compaction to get one.
+> +	 */
+> +	if (order)
+> +		first_gfp_flags &= ~__GFP_DIRECT_RECLAIM;
+> +
+> +	buffer = (char *) __get_free_pages(first_gfp_flags, order);
+>  	if (buffer)
+>  		return buffer;
+>  
+> 
+> base-commit: 073d54dc3ccc8c8109c56e4d984d1ad616554463
 
 
