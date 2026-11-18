@@ -1,101 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.196
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.72
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794998047;
-	b=pPMx68fhXCToABsnibxHL1YTxvEAS8sy2IogWYrfZIVcHdLjojmabtLb8D4BfuPy/rE1
-	 amZ+6IOnl4Wciw5fnh6TWAPgR8UX21ugDXy1aPIne/24BqqvxJOHMzcSCe19NQWD9N+TS
-	 d5sswlS7Zj6qsI2EiCGP5PnKc3z4FdjXPtwaf/O768UwAT3yHmpUWN9SOaoM6dojZTEgn
-	 3HbAvr/JKLMH78Irrl3DlBC0IW1LDZWPaHj5Mpgfa24VUXquLlsd2u6O6GeKfUmljQkHK
-	 7fNNGu4nNoAbeOBemkoK4VNV/f48cn3CYRoL7ctSdtth1Uj0KHzQPu0Bw1krW5iMfEw==
+	t=1794998060;
+	b=nC9TaQUQJnEQ2M/8HU5nGabkP/AYQwcOEgM+SrfqMC+disumjZiStsyPfCXEU0//K+KI
+	 j9il8l5haWnrhtftXumd1RYPuunzlWki+7b2iD7LqhYVYkJeKAtbQME4DLRDwcxXh+Mpo
+	 B+47dexzEOQJ/pbn3sAu369Szzok/MEwnfc2vqwdgGSEWBzN6rB5I0AjPQQpuQ11IU8Ap
+	 5DojkGR8U9nhKtBhYfZMP+oIpj3a0IZDxENXNYx/S8nspxI19d+Ql3rDuKKtF1e9Mym+d
+	 +1Om0xbV9f02LDZjLgrhj5LggeXCFekd57aSXa+oE2HQLyCgXWDMzKqmj2Hz6Sv3vnA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998047;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998060;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 MIME-Version:From:In-Reply-To:References:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=eD7/BYNgXt5h1pVY4hpidQ7Lmdtjmpv7PndDUmck0HY=;
-	b=M5g+d4FupWDVr3mIxPoLp4KmX9DFCj+L5c2AYnMhD87h843fBOWKjIirK15qLNq+o1CL
-	 jkmEInYdKmnMz378bDtxXmHePmS5UHebkhYOfj3oioeSvOjPZ82bCFX9BjA0hRnkJGp23
-	 66TPgJ0XN3bev9RQxoxL+D9lBoICTcfshY5K8gkGDQ0PzN1g8ktZGbYUiJjo/9LaD5l+y
-	 WFk7qIAE348pep6A/tfohhrrZDIGFu0KX9H+2r3WAb7CFp/1+bbPI0oswd7ueWjQjkTfe
-	 Td4i00ApDdf9702qmCS2ptD9EnJDPXU1jiF6T3ydl3s9oIKvf3cdlahHYDr9MVK/I+g==
+	bh=3JJyCLMjAoCvBL5z/kqfW84D/kd6FKsaVFTlQhwEbTc=;
+	b=pN0kyE/k0DnkvgkuXUTmHijBMEV/yKW7kKnFRw1M8MbRf+rEvIk1vi8sSNYgvERBORWi
+	 s0EOYAAKsYthqdZQR23Cpz0NQVz9p5bqFBYP2tekCxu3x8uZ88Cq3be3MrAuLgL3iZIFS
+	 Fda12WsRr+T92n6Z8QgWj2xPmU9hMXSztTjHF+gFsmdh/ykkHdKt+lhSbAmSb3GOhjuQ6
+	 hhdoQ9q+MzFlFVnpgvb4Bx8oRFX3C9oQiStjx02uBOfN0lHRVuMYmoCexGlufjpLrZqnn
+	 MmOMzweLEk+RcQVFCX2VwCUp4aLgU+V+oXbMjWYwop6GDCgjc2SnEjXB4vu/VQaC9HQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TRuL5z+J;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.196
-Received: from mail-oi1-f196.google.com (mail-oi1-f196.google.com [209.85.167.196])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="nrQFtW/w";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.72
+Received: from mail-oa2-f8.google.com (mail-oa2-f8.google.com [74.125.231.72])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F7F5606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:34:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5F7F5606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51EBD606A33F
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:34:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51EBD606A33F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TRuL5z+J
-Received: by mail-oi1-f196.google.com with SMTP id 5614622812f47-4e4a4d77e5bso1187319b6e.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:34:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1794998046; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=nrQFtW/w
+Received: by mail-oa2-f8.google.com with SMTP id 586e51a60fabf-4adade2ee63so143759fac.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:34:20 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794998059; cv=none;
         d=google.com; s=arc-20260327;
-        b=kbXDs+3wdb048YXNQyzGGLfiI0Zj9pbABxey1gwr33TFnv1Lq4B5CXMj6egAHnjKXF
-         paseyAm49l4kWDiUz7HWCqbMM0y9LTuJvP1jehqHVT1bg3kPkgVwdzCgyW6XTu9GYeer
-         wcm1zlqGybgiD/jn60x2liKm5rg4K7YycsLv7c1mZoLqiAWDzjnVHsfbCfbsYeS8e8SN
-         O6QWXm1A0CBMCMPGG+EHL5i9MyxSUOaVxlyW+xfU5d1cnkiPxOe+6bexK6SuqcwajgbC
-         EBVhBMe/5wNGBFg6t7yJm1jz0zzBeaiAxLscDkFP+qhtWJqFnu1IXKTCtkp3pw5B5XcI
-         X61Q==
+        b=Y4ipizpWxMjqCgGiVY2sIFgIt90MzO0O5CDqghRo7k+VeS1Q2WUykrznycO53JSnKw
+         cNur3F6qztnMsfARL5CzGADTNMgwZH4ASieJIhk7QzV2JHVoWSYVdpawBZVU5ETlATsp
+         AHIR12Fj9PO/fbDbQiBKoHvmij50I6oTcYgncJZwBGoaNJ/ugGdoEQ/yTEospp03HMCE
+         g+5ptdGSFR77ZpRaj1uZyRfEEW/1oci2UYaySmji1YQiXwnfOadMa6Sy4TvBKvcZZ0DT
+         8H1RcGBHhx13/w0kqyfI3Gop9pgY6wbi916I77VkmK+s6Bo1/zzKhYtVIjV0LSwkq29K
+         1SZQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:references:in-reply-to:from
          :mime-version:dkim-signature;
-        bh=eD7/BYNgXt5h1pVY4hpidQ7Lmdtjmpv7PndDUmck0HY=;
-        fh=YHzyYXqvc8ZgfM5Mj0NZmwEJIXrf9r+zB3yQr95G2/Y=;
-        b=eMHGqaOm9D78pPlqjRRarVq3BXtW86+sc7jMfYrUi7tws8ACdajzIqf7tdEnrF/6ek
-         /A7bZvucam8ldW82+ZLGu36OpFYl1bTUWK5E2OJaYAP3mEQeouXkDzoAw2N/lwF+sr7J
-         0hhGcxGruGe22jCijwRfvTwgM+7dYdEN3RA5q0fT72avJ7CsVYb9u1EvXIvvIZo/ttLQ
-         ICpYd3Ekh5KknoRPuy0YagfPfiwMit90uGDaetSwCyZV7hCnSBENhUZjv+dnTd3+uSQO
-         Y1KImPB1IQZPtf+bwFonoCiVx6ZtDdItZmk1iZ+Kyce292n/PA18w/1gICSMPuatKnY6
-         iU/Q==;
+        bh=3JJyCLMjAoCvBL5z/kqfW84D/kd6FKsaVFTlQhwEbTc=;
+        fh=qgXeXE4Q0Kdsbi7C7Q70PiyecH0VziPSkj7jyfade6U=;
+        b=Y0X6cXe2d8TOu2YghFLmoy98m5NdyT22po+gBOX5Cm0USL+L1YlQxQT+MHnsgmeQp4
+         Sbd4tVe0cIofNMlgkHmehaqo1JxfRVW1l3894zsHL9KyyrXwsanwZlO6YV9REXRffa0J
+         z3KmR6RKSK4OcBscX2yULdKR7ws0TJLjv1Dxu47QhsVeyIiNRz8TjZr9QFnYmmDAjSHn
+         N9EkUAsLX8ecbSygz/5yHaiwIsQd2d9fcLpU9RGYkP+mZswrjSrBpMRxgthFb8JqL3nM
+         iErG960ZxMGWRBDLgRvcy4SMDtwGopWlXFksLEi/eycyuqQ1VtI3ESUdIS5m+9gKrZ5c
+         XQhw==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794998046; x=1795602846; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1794998059; x=1795602859; darn=vger.kernel.org;
         h=content-type:cc:to:subject:message-id:date:references:in-reply-to
          :from:mime-version:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=eD7/BYNgXt5h1pVY4hpidQ7Lmdtjmpv7PndDUmck0HY=;
-        b=TRuL5z+JyiXtqMV1bBXCt37cOPJ1DQtkjdUGdRLP2tfjFbadpin1c9cRf1MWTLL4zf
-         4FfUuQdTQeFEq7Lxat9eSruKBJWV58r8ql/TshEEDB5fj/yiBrWHe2aMFxoN7QWpwV5/
-         r+AT8sDVKt9RhDfJZwBYVQVTHztqY9JEzKVnrmprqph/nLew9ENehPWRiQzKZmx9znRF
-         bJhLfJwa7J680QJ6b/aveaLx58Bf00yyQ1H09zPwwVtKtGEvxPyJsCt3PhTHFETB6sbR
-         RGb+yjaSkGJJE5bXSmcOytI20kh/BtCtJDsvX/xg2IRtPNFqtCL2ibTXA+MTGbNSewy/
-         fUjg==
+        bh=3JJyCLMjAoCvBL5z/kqfW84D/kd6FKsaVFTlQhwEbTc=;
+        b=nrQFtW/w55uV5wDu4nSwZjoW+LHVMwrRTUK7ZX3rHMdeojJJSX7T2bZguJk2mfwJ9i
+         uJ1FHbnwxy8o4MpnSwy7sFGq7Z69hham+gXPTVJ930ltTYqefQYRfT0ryICR8z/nyjSi
+         iYDywcYCbZEASDK5s90RA4ZZCz1Wwn+gbVfE/pXluh4eDLBjcP1ti7FOYk64anIkFhNe
+         7uE09u+f86cxnRVXCJWc8pu1/GB6MmTF8k2oIho2AeBS1XAIdq4PXOlWMuIYnx2n3Kkv
+         ABRz/OymUMKYVN/uM/sSbtHcPVNCzTGfn89OVJQ7bR+hsUL2C8M++GuoONOBtIFkA1AE
+         Sweg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794998046; x=1795602846;
+        d=1e100.net; s=20260707; t=1794998059; x=1795602859;
         h=content-type:cc:to:subject:message-id:date:references:in-reply-to
          :from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=eD7/BYNgXt5h1pVY4hpidQ7Lmdtjmpv7PndDUmck0HY=;
-        b=kKpeoeIAaHbAunEUG9p7E018Un6iKpGtQtZMTTX8vn8AeCjzuCJqh6/6mw0boB+eHX
-         jvLCNYUN5K1T7WnEt6WBS7ewKIbqVSX7LGy7wmlUSO/vv3aKQcRNTamjx0d77N0FBrVQ
-         +sPcbcZlen7EdmLkT4QZulUaO0BBDz0k9WFpFEciUUAvKjnU3/Z5jPDIoxs8bfNJoGi/
-         Dkjot5ZxGu28+ZmdqmoAcIFusJJjh2dBT00/syGUAg5HhWRVj5c9Ohwu1UZrmQ1w3kNB
-         5BK1es9wAybhsO3BnnAHQSHJqlbLUt3Ics6t9owFpt9Y/e6bJ/TXBHvJd50k87uUsuOC
-         Hp7w==
-X-Forwarded-Encrypted: i=1; AL+hErFIlyKBpypW9ybTMd++r71WCWu5XTNL1MN/jl+1rdBuAHZQU7aYUy1tOhqIf9yV6+PsWmaUhqE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+VG4nUqqRQLYEoli598DVyzTd/EFpyJpr8ZPqWx0ME5Tbsu70A
-	zcTDn08+SV6DIYsGPAGA+lEySJ4VU5p9Juy5eeJjfBCiN5oMwy0nayxj5FK/U+MBH0H3SBVTO0p
-	LDfixugLGnXvqt0LzkZ1X0RHwHdNi7/w=
-X-Gm-Gg: AYBFou2AgNLhlqtc7PftoAOFCkMqZD5dXW8CHvjwVzwBqNxNyNmB12Xh+fz06XPiOx0
-	7PMgkIcrvG5/dZm15peqpXev9HUzc1rZB2NcWvanfIChKWdkR+gUe2BceGj64rUXFIdvX70j5tq
-	qyoaaj9XR9QBGjnrZurrbEZbK0MtJAV95ggcstkJJuxJ3VU1Ulx2MwMZ4xJEK2J2PR8RheW2UL6
-	sG4e2ozA0KlhZi/wxOj+AKPf8RC1mALg+WQiKRr6VanPN2TN8dkbjGCRtawc/G79IpuAhADA4hA
-	zuRqFJ1GIrN4u88lGqE6Sx0HFGtNKqYlRv0eQmNi0GdDgWzwpIUENELgErLHJ2T6JABB1Usrn9F
-	CUE0LLCPwdy1Vb5pQzELNdL6kWDXx4h4PejoVxg==
-X-Received: by 2002:a05:6808:19aa:b0:4f5:1b84:8cd3 with SMTP id
- 5614622812f47-575de219591mr3657684b6e.24.1794998045564; Wed, 18 Nov 2026
- 02:34:05 -0800 (PST)
+        bh=3JJyCLMjAoCvBL5z/kqfW84D/kd6FKsaVFTlQhwEbTc=;
+        b=Dm9rF1j/ZI/P6mUw0YjYKGawDc8R8E5MVbBR7yvHFSeVTRP4DgEDemIhWHfumdQSzg
+         kTeZ32SneBcjngzVOQHNnGIE/SBkAg+Iq6ZoiaLQmha74wdluyNivh1jz90RvlDQQ4I3
+         gFpoU2jfXdZFEAALFEI1Uog/p6imXTxlsGykgn8wxJcKt+jsrVphu21keIf53pgwCQrN
+         OM5TueUAJLubczDQ4vnPFLZ3rEMN9MoYVCD7yg79qKnXSF53FlwwnGdWEAWAs26rE4/4
+         Om74HRBnnkKRkD5ETmgAXKAVfrxk3RwFMpmeujPujpx+tCQ9GuU2+0Xza9apMNjE4HwF
+         0dtw==
+X-Forwarded-Encrypted: i=1; AL+hErFx87pWne73WRUri80b73WojOt1IhNqb4G0l1AvCJsD7+d3fSPvsdczQF7CvwrjlEGqEzbxDUg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ybyQFDIzLZ8eO9mg9VopSveysF9LUytgnTYW2ptHVgTyxoqSY
+	8h1n6XBv9fVZ/nhj7QafdR7A3+M/n8H7iExznSQf8IQtEX6AlGgZqkaNGFW0tgmUOyYmbRismAt
+	gyIxEhiRHIuiVJrsXEajA+RAsQirrHk8=
+X-Gm-Gg: AYBFou1x5/i8zyKdX2HJ1PCG9no2/UPHLDWQWy8eDQwu8JOj3X0E2BTLfqhM7xzOWoj
+	TmnBGMqLmBfg9Mk21pjtAkOkpJp5SqV4VdP+pr6fSwHH3V3z+PbicsAnO/uIeRdFE+uRimMa5xg
+	E/GYNIxEptvXKrO+s2qyrRpajCAWWEyScI/uG07IwPPGsZHP+KrTIHMotJlzCuBWTWJHFDCM058
+	gq6FKAipp4670SSVtrBlD2NpjKHckgJnTnaEeh8WUs+ZC3KMAkQll6u131+ez/p+QVHRAQohJNu
+	WDyGX6T3WcIv/ijhT1r0zye+tKnyc7vKgV0pqg2kAsVQuGKWp4dzXH+SiLGLO08BvoHbEBJPrK1
+	giusUa4FihJVUZpOycKTtMbosaSthpVpYgJPcxA==
+X-Received: by 2002:a05:6808:3008:b0:574:524d:f23a with SMTP id
+ 5614622812f47-57741131621mr2403793b6e.25.1794998059239; Wed, 18 Nov 2026
+ 02:34:19 -0800 (PST)
 Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
- Wed, 18 Nov 2026 05:34:05 -0500
+ Wed, 18 Nov 2026 05:34:18 -0500
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,10 +108,10 @@ MIME-Version: 1.0
 From: Kimberly Morris <gy770616@gmail.com>
 In-Reply-To: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
 References: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
-Date: Wed, 18 Nov 2026 05:34:05 -0500
-X-Gm-Features: AclHuK8WIVSjjIrb7TdnAfEEBy1zcw231lawsvJVKduGoPyZtKzF5afdrtfK-Jo
-Message-ID: <CAD-64Dfm-2U=1f3b7y3K-B3q_mijQ0xypqUEDt7o+q7Tmxx_hw@mail.gmail.com>
-Subject: [PATCH net 1/2] net: phy: restore timestamping state on probe failure
+Date: Wed, 18 Nov 2026 05:34:18 -0500
+X-Gm-Features: AclHuK_6ZSve4efJ0xRzN1bratvCjOBamOSrrj-EqPTPRvlBfa1QiKlhWP8mT70
+Message-ID: <CAD-64DcTO2Vro3QFMizUeOft1ptFgKEK=MgJ-mDf5nVOkFkJxA@mail.gmail.com>
+Subject: [PATCH net 2/2] net: phy: broadcom: release PTP clock with PHY devres
 To: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, 
 	florian.fainelli@broadcom.com
 Cc: bcm-kernel-feedback-list@broadcom.com, davem@davemloft.net, 
@@ -120,58 +120,68 @@ Cc: bcm-kernel-feedback-list@broadcom.com, davem@davemloft.net,
 	linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org, w@1wt.eu
 Content-Type: text/plain; charset="UTF-8"
 
-A PHY driver can install a devm-backed mii_timestamper and select it as
-the default before its probe sequence has completed. If a later probe
-step fails, the driver core releases the driver's devres, but the
-phy_device retains both timestamping fields.
+bcm_ptp_probe() registers a PHC whose ptp_clock_info and MII timestamper
+are embedded in devres-managed private data. The enclosing PHY probe can
+still fail while acquiring the wakeup GPIO, requesting its IRQ or
+enabling wakeup. Driver-core cleanup then frees the private data without
+unregistering the PHC, leaving pointers to freed memory in both the PTP
+core and the phy_device.
 
-If the generic PHY driver later attaches, skb_defer_rx_timestamp() can
-dereference the freed mii_timestamper. This also affects non-PTP packets
-because the receive path tests hwtstamp_set before classifying the
-packet.
-
-Save the incoming mii_ts and default_timestamp state and restore it on
-every probe error path. Restoring the previous values also preserves a
-timestamper installed externally before the probe.
-
-On an x86_64 KASAN kernel, a KUnit reproducer using a real mii_bus,
-phy_device and phy_driver triggered a slab use-after-free after the
-failed probe, driver-core devres cleanup and generic-PHY fallback. The
-same test passes after this change.
+Register a managed cleanup action after publishing the timestamper. The
+action removes the driver-owned timestamper, unregisters the PHC and
+purges the transmit queue before the private data is released. The same
+action also supplies the missing cleanup for normal driver removal.
 
 Fixes: 39db6be781cd ("net: phy: broadcom: Add PTP support for some
 Broadcom PHYs.")
 Cc: stable@vger.kernel.org
 Signed-off-by: Kimberly Morris <gy770616@gmail.com>
 ---
- drivers/net/phy/phy_device.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/net/phy/bcm-phy-ptp.c | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index b39e945..4017568 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -3812,8 +3812,10 @@ EXPORT_SYMBOL_GPL(fwnode_get_phy_node);
- static int phy_probe(struct device *dev)
- {
- 	struct phy_device *phydev = to_phy_device(dev);
-+	struct mii_timestamper *mii_ts = phydev->mii_ts;
- 	struct device_driver *drv = phydev->mdio.dev.driver;
- 	struct phy_driver *phydrv = to_phy_driver(drv);
-+	bool default_timestamp = phydev->default_timestamp;
- 	int err = 0;
+diff --git a/drivers/net/phy/bcm-phy-ptp.c b/drivers/net/phy/bcm-phy-ptp.c
+index 443917c..085cc31 100644
+--- a/drivers/net/phy/bcm-phy-ptp.c
++++ b/drivers/net/phy/bcm-phy-ptp.c
+@@ -917,10 +917,25 @@ static void bcm_ptp_init(struct bcm_ptp_private *priv)
+ 	priv->phydev->mii_ts = &priv->mii_ts;
+ }
 
- 	phydev->drv = phydrv;
-@@ -3951,6 +3953,9 @@ static int phy_probe(struct device *dev)
- 		phydev->drv->remove(phydev);
-
- out_reset:
-+	phydev->mii_ts = mii_ts;
-+	phydev->default_timestamp = default_timestamp;
++static void bcm_ptp_remove(void *data)
++{
++	struct bcm_ptp_private *priv = data;
++	struct phy_device *phydev = priv->phydev;
 +
- 	/* Re-assert the reset signal on error */
- 	phy_device_reset(phydev, 1);
++	if (phydev->mii_ts == &priv->mii_ts) {
++		phydev->mii_ts = NULL;
++		phydev->default_timestamp = false;
++	}
++
++	ptp_clock_unregister(priv->ptp_clock);
++	skb_queue_purge(&priv->tx_queue);
++}
++
+ struct bcm_ptp_private *bcm_ptp_probe(struct phy_device *phydev)
+ {
+ 	struct bcm_ptp_private *priv;
+ 	struct ptp_clock *clock;
++	int err;
 
+ 	switch (BRCM_PHY_MODEL(phydev)) {
+ 	case PHY_ID_BCM54210E:
+@@ -949,6 +964,10 @@ struct bcm_ptp_private *bcm_ptp_probe(struct
+phy_device *phydev)
+ 	priv->phydev = phydev;
+ 	bcm_ptp_init(priv);
+
++	err = devm_add_action_or_reset(&phydev->mdio.dev, bcm_ptp_remove, priv);
++	if (err)
++		return ERR_PTR(err);
++
+ 	return priv;
+ }
+ EXPORT_SYMBOL_GPL(bcm_ptp_probe);
 -- 
 2.55.0.windows.3
 
