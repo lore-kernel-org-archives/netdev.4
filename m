@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967208;
-	b=SB5VtGCYs+FRO4p+//6+Kuzv4P2um7gv4QHJIqKmjazpWDam/N6jFcSmnyUQ+SqkvvaY
-	 J4HNJ76qOeb2pjf4rIREbxTvYaLhrv7/CqjM5Dol9qE7d8TBURKZNO2fs2zM8ibKrS1c7
-	 znC9OsApoKMSMCTioCUf0l1xW244+uWKcQUqu0lu2gvGEorzG6iPhEw6PTkfmfpJ6EC5Z
-	 k4L/Fl3m7SoZvLUnrwFeMdYvOMrBKO/qZfgvNeKKnf/oOrE8EZpIPrWwHwmj/72aZR8p0
-	 LvBY/ToYTswSLMzGp7AeZSP+A7ZCN7XejljYud4pFIcvQ2+rG4EJInso5okQjruiKag==
+	t=1794967216;
+	b=AALHrR0VYrByifHZEaUi6GJLLLTqLi5Q5dtJ/pKpB/wLfhu/sMgAXOYaOm2y2LLHmeqI
+	 OJ/wx6xjJXJQBmzd+opgOWKYo1z9defIPRkFI2GTwEk6oJs+o6IAJ6veYjxvTiZiedU2w
+	 zzOn0o87lVcQozmYHLAjJE+6cZCvaPTfXrfQiipkQTm1CkiAj/8Cb0XncipaJJWTcs93X
+	 85JiPxb9zkfGb0T7YuxEj/FsBe3cWhg7fbQCIHnEc0t2uTrdNOh36u0P5auI1Zb2Pl69A
+	 7ZI4bF5j76070fIOHptGNx9dl4Y+iXV8wUgDan7Jyf0d7WqSVmtaABP0wGb2fHGj6/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967208;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967216;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=rysQnyo3q2q1PCSB5zwI+CF9MYiqYHtXoPwnkzo0XVs=;
-	b=Klx0O2rimbg1lVo3yjxQUtQi5VlemBMIRKnXuyYxHwimdwAGHqCSDK7MjksGDNZbiV+2
-	 PcXtV/aazW41f7EHcuwMF5hwSwUY+jWt0/XecfLW3lYyubAcnqnk9m0kFEvkYFiI+LN/i
-	 fI/MDjH78UxUs3VLuDeth25IW9KqgchkfR6+kQ+r8+ujZwOm4CP7L0Tcx3O8UzZn5qabz
-	 z84pq3eIMizdlyzOVTt7cw64Sk1xvgt/PFl312BjyiIb66iOONgolW6A75uFEalPhxZJy
-	 F0CngJ73qSCNstUarFPPe8MSyk39GdvKM3Z27gKUd5I34klJ6zaZ0SzyWKU9xQXtK/w==
+	bh=XCeULnaKjPm3J/sjpXZLgyBpE1CTaWW2dEFz9nnw2Xk=;
+	b=usTeIQJIRy9vKVyBlkHnQI9rJioevnZz3HZpAw2dsIUoJZz/9ow5icO4nSbPky0NMHsw
+	 x1n1o5+N5kBX+bj7nkFihppeAYc19wJo7HOoZys6Pv0Yn+ob5GCuXlc/AkTzrK0SzJsSe
+	 1CnDiTYv6T8OceBv8JUapb7XGrCG5M7GledBNWU5c9ZUbUJJi9blnt3jh8s5wiNd796SD
+	 +8Pyk3UXWO1STVRAQOLbW7graL8/TuYQhKq5wbujGEd8Me7isD+bW183w37AYVcFzhpUT
+	 ljw8xiodndBsZ0xjyhFFM81VICvoRDvB+Vh+MyaMqRO/e+QEthThK3jSyIeLaZfxqYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hKILQxMm;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FJhTZxlP;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8F2A606A31C;
-	Wed, 18 Nov 2026 02:00:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9C97606A31C;
+	Wed, 18 Nov 2026 02:00:16 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hKILQxMm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D5371F000C4;
-	Wed, 18 Nov 2026 02:00:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FJhTZxlP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F2581F000C4;
+	Wed, 18 Nov 2026 02:00:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794967208;
-	bh=rysQnyo3q2q1PCSB5zwI+CF9MYiqYHtXoPwnkzo0XVs=;
+	s=k20260515; t=1794967216;
+	bh=XCeULnaKjPm3J/sjpXZLgyBpE1CTaWW2dEFz9nnw2Xk=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=hKILQxMmbL6IeQNW2Gh+AJLNiaRgwPTb4uEKnMxgqzGhzZBGKAo+0/11wqAkQr76E
-	 VkhmGiaWNWICew/29sChe9irFbze6kvie9BDTlaJhQsSj6mAYb5uyIW5yr1GvoxNiv
-	 uZ7ontFdoMX3HLQbtsfZlo4R366jjUOgfyQqdx28sEq0D75yhv1L2fRC3ljrf91hNn
-	 jqKe3gtTlkeyUBVoPIbXxRgdkId+8Hx4g/RiyWcrhUIDReYhZR94wvwsYZ6wUsSGcp
-	 K8NvgGg1kwKevzeA9DVgj3M/Zi3nHd8OMrQrWKMPnrU9D5bljkvaJoR2H0V94hxfPO
-	 7c2+Y4zXAjD1g==
+	b=FJhTZxlPAbuSUzyaKyS7yKcTuLCrFjDT+ltua8aNdPUDKN7dz2gsUZybWnzjUYG7y
+	 GF9GEXUvVjxswSfNAShRWpM1NZVLbMMCuKjpxKOiqRpy/6BdY+rO9BQfKH5FUI39MH
+	 zcPj4cUPcA3TPI2ACTgXgCuLY/t81/BzVllw8zyY/+yKvoOUe+THV+LXkREU5VYop1
+	 9ypsieXrFYxkTOd4v4zo6XfkVyvjroBa3BVJkNyhuaG0elxlB6SEQuBN0LZ9tqAXYZ
+	 sGixqK67a1sI/zsYFx94TemwYNiMxUOsWvyaAi8bhMvM9KPl0/zHn3dj5Y51BEXxEt
+	 liMPsGaKOhldg==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F1470392B1FF;
-	Wed, 18 Nov 2026 02:00:07 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 772F2392B1FF;
+	Wed, 18 Nov 2026 02:00:16 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,48 +54,63 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] net: stmmac: re-enable on-chip parity checkers for
- XGMAC
- ASP 0x2
+Subject: Re: [PATCH net-next v12 00/12] net/rds: make connection lifetime
+ reference-counted
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179496720653.1405006.4159910100773001022.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 02:00:06 +0000
-References: <20261114015554.2187341-1-zxyan0222@gmail.com>
-In-Reply-To: <20261114015554.2187341-1-zxyan0222@gmail.com>
-To: zhu xin <zxyan0222@gmail.com>
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, horms@kernel.org,
- 0x1207@gmail.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
+ <179496721502.1405006.5342954579570038988.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 02:00:15 +0000
+References: <20261113044355.2932029-1-achender@kernel.org>
+In-Reply-To: <20261113044355.2932029-1-achender@kernel.org>
+To: Allison Henderson <achender@kernel.org>
+Cc: netdev@vger.kernel.org, linux-rdma@vger.kernel.org, pabeni@redhat.com,
+ edumazet@google.com, kuba@kernel.org, horms@kernel.org
 
 Hello:
 
-This patch was applied to netdev/net.git (main)
+This series was applied to netdev/net-next.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Sat, 14 Nov 2026 09:55:54 +0800 you wrote:
-> Commit 669a55560e4b ("net: stmmac: Check more MAC HW features for XGMAC
-> Core 3.20") made dwxgmac3_safety_feat_config() bail out early for
-> asp == 0x2, assuming that configuration has no parity protection.
+On Thu, 12 Nov 2026 21:43:43 -0700 you wrote:
+> Hi all,
 > 
-> Per the DWC_xgmac databook, the ASP field of MAC_HW_Feature3 selects:
-> 
->   0x1 (AS_EPPE):  all automotive safety features, with ECC and parity
->                   ports on the external application interface
->   0x2 (AS_NEPPE): all automotive safety features, without ECC or
->                   parity ports on the external application interface
->   0x3 (AS_PPE):   all automotive safety features, with parity ports
->                   on the external application interface
+> This is v12 of the connection-lifetime set (v1 at [1], v2 at [2],
+> v3 at [3], v4 at [6], v5 at [7], v6 at [8], v7 at [9], v8 at [10],
+> v9 at [11], v10 at [13], v11 at [14]), following
+> "net/rds: own the fastpath locks across connection teardown", which is
+> in net-next.  It is targeted at net-next: although the series fixes
+> real use-after-frees (one syzbot report and one report from Chengfeng
+> Ye below), it does so by reworking connection lifetime rather than
+> patching the individual crash sites, and that rework is too invasive
+> for net.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net] net: stmmac: re-enable on-chip parity checkers for XGMAC ASP 0x2
-    https://git.kernel.org/netdev/net/c/9c9863f9b9f1
+  - [net-next,v12,01/12] net/rds: undo conn_alloc() the same way on every __rds_conn_create() exit
+    https://git.kernel.org/netdev/net-next/c/5483e92733cb
+  - [net-next,v12,02/12] net/rds: ib: refuse to attach a connection to a device being removed
+    https://git.kernel.org/netdev/net-next/c/725ebc948965
+  - [net-next,v12,03/12] net/rds: guard every work-requeueing site with rds_destroy_pending()
+    https://git.kernel.org/netdev/net-next/c/306da594a7c3
+  - [net-next,v12,04/12] net/rds: make rds_destroy_pending() report a connection's own destroy
+    https://git.kernel.org/netdev/net-next/c/8e0bf84ecbdb
+  - [net-next,v12,05/12] net/rds: split connection destroy into quiesce and kref-governed free
+    https://git.kernel.org/netdev/net-next/c/cfa3110a44e3
+  - [net-next,v12,06/12] net/rds: unlink transport nodes before a possibly deferred connection free
+    https://git.kernel.org/netdev/net-next/c/9f000d125055
+  - [net-next,v12,07/12] net/rds: wait for connections to be freed on transport unload
+    https://git.kernel.org/netdev/net-next/c/32252168aff5
+  - [net-next,v12,08/12] net/rds: hold a connection reference from struct rds_incoming
+    https://git.kernel.org/netdev/net-next/c/217fac53504e
+  - [net-next,v12,09/12] net/rds: take cp_lock to purge cp_send_queue in the quiesce
+    https://git.kernel.org/netdev/net-next/c/d3c3a41fd3a3
+  - [net-next,v12,10/12] net/rds: hold connection references in lookup, sockets and c_passive
+    https://git.kernel.org/netdev/net-next/c/51ac0ecd2f81
+  - [net-next,v12,11/12] net/rds: give cm_id->context a reference on its connection
+    https://git.kernel.org/netdev/net-next/c/5b61d9aed8f6
+  - [net-next,v12,12/12] net/rds: drop rds_conn_count in favor of t_conn_count
+    https://git.kernel.org/netdev/net-next/c/e7a282d9858a
 
 You are awesome, thank you!
 -- 
