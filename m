@@ -1,91 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794997719;
-	b=nuJzu+ml7z3kwNZTRdasYcTgLVtk5BNhjQ0iNd7vYRsAa6yps1VWV6E72QH/sFCXv2yt
-	 HojzhsKD+6nmZsFRVleSDkH76Ur8/SfSDiQMttVTZ6ObbAasPuZQspNJEcSxdbdldRjYI
-	 bISDin5kpvhLs4uH6xdW+itsOeHZOiMPvSdGCZR3Pan0lyAR26b6z1guBLyD+D64o0v98
-	 SUKaj6RssnoiZiwFGx3iceJYKnMqU4ebNOsjTWoFBhTtQFK3HCSoid3/0lSQskxLIwIQ7
-	 86QeNrlseI/y0I0wKcXQU+1VC0IvzuMwVXzTfLBy7NgECdRtks5PDYFK0SevIKLozow==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997719;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
-	b=veiU6knkZGSSR/0wyLJmXhSSIcTxAbJsLRze9rr0PlXh164ItAdDA6Q5Fslz1FQnCHHu
-	 MwWznC7TNyKHPWs5icSbV2DHDan6nutxNnpvSVOp535nAJigtCvGusaAs1M8OBaP/F9hd
-	 7Qm1zsLZdXEiDoGIe7lEnvfmxNewvikyWia+MJfDhrF/eihNefkFtbE5tTqkYIeoUSNEM
-	 oJAXM6ZQqiBCbiJJ++CwNxRcK8weSFv4T72hzHMzvOqWd9Rgkyizn2j0AXyyXankd/CPg
-	 7cLhApRa/1r2D1khd6R7T0ReFCenzyNOaBGjoi95C8JGTjp2UGoFNS/3XJFJNeBZ9/g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hartkopp.net;
-	spf=fail smtp.mailfrom=hartkopp.net;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=lDG9J8mG;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=222K0LPy;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.50
-Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.50])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794997738;
+	b=QOQKG+1QXGXiPocJ5/r8V5jMI6f7hb6o5TU2zos7pOMpLB09eKubq8LJH+ZQjfTZvYE1
+	 0eIzV8aAvWTXgNWUgLY3L1r0HlMHqOlOIOrjUVtwVVuhf+GPfKcQ+NzB6JV2mNmj/jsHO
+	 n+hKWae9wiUZd0KL3ggsnaYj/75u3Y13F9prNn8sQvgt0rFtOZYsBZ3fB7pUOqm6gQYLH
+	 3y4Yw3G7T4APRmYfN29+PoUABWgZzqpb4dKIKwoyElhbgngMDkwGQqBjknGm3L/IgSYZN
+	 f4moj2hVELP8M1MyImgKIUO9ECW14aUwA0PGAC/r67LzFoTAW31vbQxNXkzD4/oMovg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997738;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=hyYrCKddYun6Ci2oVE4KqeDabN1R54MsEm3bclQ1m+Y=;
+	b=Yywa8r7jRBr2ygwE/9oK9S+0N2iVeS7qVSYXRKsg6yGYjZkrN8qBISUWLwm6d/+p0zze
+	 X8dn7Vh/L4ExhEr+fSeeQh5yIHaml9cieoKukmA4HBVy8KPAIa1nIAGWu9v7k9wzG1nkF
+	 w8ubdWAonw9kCozp9ljJ1LQSJLiI6cId3Uj8IpMmZ5Dzr0998Ey0sEcOgGx70kfYiSyVe
+	 xnQcSm7pnAT95tcQ6dcJI2Fp9bFXr8P06/M5c7wlGUnlV/XygAKz+DUCVBWP3n3Hs5uDV
+	 wTDyEfJuOw8mUm9kFSSy49OimdHWK74wm3LC/oJ3zrS79mO21sBtgP+3Bo+LaTv6qBg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hqk+8mEJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C46F2606A334;
-	Wed, 18 Nov 2026 10:28:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C46F2606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hartkopp.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=hartkopp.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6DE6606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:28:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=lDG9J8mG;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=222K0LPy
-ARC-Seal: i=1; a=rsa-sha256; t=1794997714; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=T0oG06Hasto73lK69x61uGBrhtqGnNFBa+C1mkaqvH11Y/vXWbEahYixMEI4R0zV45
-    To1NjurFZhBhaCc3cNM47sySnIhQykA5mOPVdaMcN+38lr+KCwKFPgU8GNtlakH7zWRe
-    +eySaMuQ4HAVW0W6iNV9TPT3cHa/2dgkhcnpQP+Pj8P9A2mZX4dzkXLG9Nh6+DdtrTmB
-    nOdU8XymawSiPh1vArtxUbltKV9/MbdbsHHGJZl9bxE5/eHT3Conn6JwvnXaHsREInHL
-    1PVnVRpmEbs0IUaPkqar3QBdUy3lXqYGWFxwQpPDZDqh/mUvZQcsGVaBqxju9NJ313ov
-    39fw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1794997714;
-    s=strato-dkim-0002; d=strato.com;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
-    b=bb2ueOovuYxjLdsBZIYMu82QszoGh6PLGKUCOa6w8/v8iPGPwgtpF5trGKtS8h8ZbN
-    qAzSGUAsdWvnWPrw9zzsYbbRI0E2HLtlGjwCKISdi1qlPWNNkyys0+A8iUtXxuncG84c
-    IA2vm3w1yDqZytqJ27E+TQ/hPastQTvY+2L/UWfoyXOnX2cTwr9WISWJfqAwfomNCJbq
-    KfPrtg5lwVMTRD2jnaIUFcsE2W16SIcJJMPkOxvVPi/HVs4sNB2llBp3A1/yMLi8qlaf
-    WzzaS32q6FFox5eAQHM1MTxk5mN778tqsLjAZLOdpC7jLQ2e5gHWoLg5hBfEOKBQfgj0
-    aXSw==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1794997714;
-    s=strato-dkim-0002; d=hartkopp.net;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
-    b=lDG9J8mG9/fgAF3U6xqk1cDW5Fr2J9m7gOeFDbMWw/FKR1U24O/bRBdCDam5378j6+
-    O/8nJl24sjX3IkEj63oYVrFcHGlXMjjOM8iOSsHF1vxoucXUCdBPSauLUD18+7altBmb
-    zmHdvTTx+ikM4jns2lRqKg8wLleRieua7v9+7OuJ/wQyR+pdjEcQm3k9DWZZn/dpzAnG
-    SNOeLjW63zMQwKB/b+jeZ8wpVMQ4id7AlSwwwPw0+dxMx7ZwKqSQ9XLMtdW6lBciVuCR
-    NkicXY3WldO7NMWiolTUYeQSmwTi5Av34B0YsGIqAf3WjD0i5A/NDG3rB5fJqgiNTOaM
-    CKhw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1794997714;
-    s=strato-dkim-0003; d=hartkopp.net;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=7g6QQxsHo/KD2ZuYZ/qNr5ltEL4M5F15oOG71dYxc3s=;
-    b=222K0LPyRcXb5rR5wPa448LSKh9eOkw8Tls2plCXCsq/hEGmR7tQre9PkcdanGWgSE
-    DusmpnyK8vbh8EdKHSCA==
-X-RZG-AUTH: ":P2MHfkW8eP4Mre39l357AZT/I7AY/7nT2yrDxb8mjH4JKvMdQv2tTUsMrZpkO3Mw3lZ/t54cFxeEQ7s8bDup0Q=="
-Received: from [IPV6:2a00:6020:4a38:6810::989]
-    by smtp.strato.de (RZmta 55.6.3 AUTH)
-    with ESMTPSA id Kfdf2a2AIASYFIt
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Wed, 18 Nov 2026 11:28:34 +0100 (CET)
-Message-ID: <5884daae-c820-4e2b-b5d1-7ac2dfb6013a@hartkopp.net>
-Date: Wed, 18 Nov 2026 11:28:29 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hqk+8mEJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4B0E1F000C9
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:28:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794997738;
+	bh=hyYrCKddYun6Ci2oVE4KqeDabN1R54MsEm3bclQ1m+Y=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=Hqk+8mEJ7vtA7W/h5nUCLhMl0lGcipzVhs33vxhvi3a0NnuG6PbosFnmWHshDD7hA
+	 P5z3cktyEIzrNXNBEHc80Td5YNge9iBCtRB4h/qtbGhSCrLuB5rfU/Hc595FQminIn
+	 ycxMu/z5Reo3vH1bL/lVCp4C6Q4Wgq9PEpFjfkykCaTkMvnnwIsKYOFYWLdS3047Du
+	 +ciOYqk1bx5B0/Qy7wGqo4aVI8e767y8lQ3YXV6ORWeWeh9lrViIyMJJEgBvJjVsA7
+	 j2LvQVSL6SbZ7l2AkC4mQoqzfjMoZ7R1vMS+NKaB1luiH+AfrcM6YR5u8aS21vciBT
+	 tvvCeANkwjlRQ==
+Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-716d052dc23so413460eaf.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:28:58 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErHbObgbyDslUztBIvFoJnJDkxa2O66I4WIsQtgTj7wNRHQ8Suiq7xI2px8Lill80k6JBoRbMIg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8GPOa1KA+JqXMR4cYy/8bSuSnxW36Nphz1e3SYL2YnPBTeRlbA
+	hxHSltHer/PqEWVuUq00pQ34Ol1hYBux9ubqVcbA3pWTF9pEnulQ37yqNHa0YqAMDXafEN+X17+
+	rHevaDoAhHz8mVIeLccOOBJEBUqy0pgo=
+X-Received: by 2002:a05:6820:1c84:b0:6d7:a13d:fd7b with SMTP id
+ 006d021491bc7-71b18483801mr1460952eaf.28.1794997737802; Wed, 18 Nov 2026
+ 02:28:57 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -95,85 +59,207 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH can-next v2] can: bcm: Document cyclic transmission
- failures
-To: raoxu <raoxu@uniontech.com>
-Cc: mkl@pengutronix.de, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, corbet@lwn.net, horms@kernel.org,
- skhan@linuxfoundation.org, rdunlap@infradead.org, linux-can@vger.kernel.org,
- netdev@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <75785AF83A9D9B09+20261118091938.3365557-1-raoxu@uniontech.com>
-Content-Language: en-US
-From: Oliver Hartkopp <socketcan@hartkopp.net>
-In-Reply-To: <75785AF83A9D9B09+20261118091938.3365557-1-raoxu@uniontech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20261116230555.2305867-1-kuniyu@google.com> <20261116230555.2305867-6-kuniyu@google.com>
+In-Reply-To: <20261116230555.2305867-6-kuniyu@google.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 11:28:44 +0100
+X-Gmail-Original-Message-ID: <CAL4WiipeiomdeRaSOpRn6Unu4-ohwrdkWCZ9mRn1ELfrW24+XQ@mail.gmail.com>
+X-Gm-Features: AclHuK-sNpS4rMULS10qwTKTJag47_6QqpDqDc6vL03tNxIhG20bc3PJelJq6jE
+Message-ID: <CAL4WiipeiomdeRaSOpRn6Unu4-ohwrdkWCZ9mRn1ELfrW24+XQ@mail.gmail.com>
+Subject: Re: [PATCH v2 net-next 5/7] tcp: Allocate all new skb before collapsing.
+To: Kuniyuki Iwashima <kuniyu@google.com>
+Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Matthieu Baerts <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>, 
+	Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
+	mptcp@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-
-
-On 18.11.26 10:19, raoxu wrote:
-> From: Xu Rao <raoxu@uniontech.com>
-> 
-> The CAN broadcast manager continues its configured cyclic transmission
-> schedule even when a CAN frame cannot be passed to the configured
-> network interface.
-> 
-> Such failures are not reported to user space. The failed transmission
-> is not retried by the broadcast manager, the timing remains unchanged,
-> and a non-zero count is decremented.
-> 
-> As a result, a TX_EXPIRED notification requested with TX_COUNTEVT
-> indicates that the configured transmissions at ival1 have been
-> processed, not that they were successfully sent.
-> 
-> Document this behavior to prevent applications from treating TX_EXPIRED
-> as confirmation of successful transmission.
-> 
-> Suggested-by: Oliver Hartkopp <socketcan@hartkopp.net>
-> Signed-off-by: Xu Rao <raoxu@uniontech.com>
-
-Acked-by: Oliver Hartkopp <socketcan@hartkopp.net>
-
-Many thanks,
-Oliver
-
+Le mar. 17 nov. 2026 =C3=A0 00:06, Kuniyuki Iwashima <kuniyu@google.com> a =
+=C3=A9crit :
+>
+> At the final stage, tcp_collapse() iterates over collapsible
+> candidate skbs and repacks them to new skbs.
+>
+> In each iteration, a new skb is allocated and inserted to the
+> receive queue or a temporary list for RB tree.
+>
+> If alloc_skb() fails while splitting a large bloated skb across
+> multiple new skbs, the partially-copied skb is not removed and
+> new skbs remain in the queue as duplicates, consuming more memory.
+>
+> It is only when all candidates are properly collapsed that
+> we can save memory.
+>
+> To avoid complicated rollback, let's preallocate skbs before
+> collapsing.
+>
+> Now all skb in [start, sub_end) must be allocated in a batch,
+> so the section size is normally capped at TCP_COLLAPSE_MAX_TOTAL_SIZE
+> (16 skbs), except when a single bloated skb or overlapping OOO skbs
+> must be collapsed together to free the original skb or keep the
+> rbtree monotonic.
+>
+> Once the size exceeds the limit, the remaining skbs are re-evaluated
+> from restart:.
+>
+> Note that the next skb can be skipped if its density already meets
+> tp->scaling_ratio, and each cut adds at most one remainder skb
+> (~3.4% worst-case truesize overhead on 4 KiB pages), which is a
+> small tradeoff to bound the temporary allocation.
+>
+> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
+> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 > ---
-> Changes in v2:
-> - Target can-next as requested by Oliver Hartkopp.
-> - Adopt Oliver's suggested wording describing transmission failures
->    from the user's perspective.
-> - Clarify the TX_EXPIRED notification semantics and scope the lack of
->    retries to the broadcast manager.
-> - Remove implementation details and redundant descriptions.
-> 
-> This documentation-only update follows the review of v1. The earlier
-> proposal to change BCM transmission accounting was dropped.
-> 
->   Documentation/networking/can.rst | 8 ++++++++
->   1 file changed, 8 insertions(+)
-> 
-> diff --git a/Documentation/networking/can.rst b/Documentation/networking/can.rst
-> index 51bc70748f75..ae47f40bf456 100644
-> --- a/Documentation/networking/can.rst
-> +++ b/Documentation/networking/can.rst
-> @@ -892,6 +892,14 @@ only one timer is needed 'count' is set to zero and only 'ival2' is used.
->   When SET_TIMER and START_TIMER flag were set the timers are activated.
->   The timer values can be altered at runtime when only SET_TIMER is set.
-> 
-> +If a CAN frame cannot be passed to the configured CAN network interface
-> +(e.g. due to a full transmit queue or the interface being down), this
-> +failure is not reported to user space. The transmission sequence
-> +continues as configured: the frame is not retried by the broadcast
-> +manager, the timing remains unchanged, and a non-zero ``count`` is
-> +decremented anyway. Therefore, a ``TX_EXPIRED`` notification (requested
-> +with ``TX_COUNTEVT``) only indicates that the ``count`` transmissions
-> +at ``ival1`` have been processed, not that they were successfully sent.
-> 
->   Broadcast Manager message sequence transmission
->   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-> --
-> 2.50.1
-> 
+>  net/ipv4/tcp_input.c | 29 +++++++++++++++++++++--------
+>  1 file changed, 21 insertions(+), 8 deletions(-)
+>
+> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+> index 0815e1891fba..ca4cdb93373d 100644
+> --- a/net/ipv4/tcp_input.c
+> +++ b/net/ipv4/tcp_input.c
+> @@ -5812,6 +5812,7 @@ static struct sk_buff *tcp_skb_next(struct sk_buff =
+*skb, struct sk_buff_head *li
+>  #define TCP_COLLAPSE_SCALING_RATIO                             \
+>         ((TCP_COLLAPSE_MAX_SIZE << TCP_RMEM_TO_WIN_SCALE) /     \
+>          (SKB_TRUESIZE(TCP_COLLAPSE_MAX_SIZE)))
+> +#define TCP_COLLAPSE_MAX_TOTAL_SIZE (TCP_COLLAPSE_MAX_SIZE * 16)
+>
+>  static bool tcp_collapse_skb_bloated(const struct sk_buff *skb,
+>                                      u32 start, u8 scaling_ratio)
+> @@ -5852,8 +5853,9 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *=
+list, struct rb_root *root,
+>  {
+>         int old_truesize, new_truesize;
+>         struct sk_buff *skb =3D head, *n;
+> -       struct sk_buff_head tmp;
+> +       struct sk_buff_head tmp, pool;
+>         int remainder, nskbs;
+> +       struct sk_buff *nskb;
+>         u8 scaling_ratio;
+>         u32 sub_end;
+>
+> @@ -5861,6 +5863,7 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *=
+list, struct rb_root *root,
+>                             TCP_COLLAPSE_SCALING_RATIO);
+>
+>         __skb_queue_head_init(&tmp);
+> +       __skb_queue_head_init(&pool);
+>
+>         /* First, check that queue is collapsible and find
+>          * the point where collapsing can be useful.
+> @@ -5908,8 +5911,9 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *=
+list, struct rb_root *root,
+>
+>                 /* seq and end_seq must increase monotonically for rbtree=
+. */
+>                 if ((list || !before(TCP_SKB_CB(n)->seq, sub_end)) &&
+> -                   !tcp_collapse_skb_bloated(n, sub_end,
+> -                                             TCP_COLLAPSE_SCALING_RATIO)=
+)
+> +                   (TCP_SKB_CB(n)->end_seq - start >=3D TCP_COLLAPSE_MAX=
+_TOTAL_SIZE ||
+> +                    !tcp_collapse_skb_bloated(n, sub_end,
+> +                                              TCP_COLLAPSE_SCALING_RATIO=
+)))
+>                         break;
 
+Sashiko has a point about the "overlapping OOO skbs" exception [1]:
+it is fully under control of the peer.
+
+For the ofo queue, as long as n->seq is before sub_end, neither the
+cap nor the density test is evaluated. tcp_data_queue_ofo() keeps
+partially overlapping segments, so a peer sending small segments,
+each of them overlapping the previous one by one byte, builds a chain
+that tcp_collapse() sees as a single section covering the whole
+ofo queue.
+
+>
+>                 sub_end =3D TCP_SKB_CB(n)->end_seq;
+> @@ -5924,6 +5928,8 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *=
+list, struct rb_root *root,
+>         if (remainder) {
+>                 nskbs++;
+>                 new_truesize +=3D compute_skb_truesize(remainder, GFP_ATO=
+MIC);
+> +       } else {
+> +               remainder =3D TCP_COLLAPSE_MAX_SIZE;
+>         }
+>
+>         if (old_truesize <=3D new_truesize) {
+> @@ -5932,14 +5938,19 @@ tcp_collapse(struct sock *sk, struct sk_buff_head=
+ *list, struct rb_root *root,
+>                 goto restart;
+>         }
+>
+> -       while (before(start, sub_end)) {
+> -               int copy =3D min_t(int, TCP_COLLAPSE_MAX_SIZE, sub_end - =
+start);
+> -               struct sk_buff *nskb;
+> -
+> -               nskb =3D alloc_skb(copy, GFP_ATOMIC);
+> +       while (nskbs--) {
+> +               nskb =3D alloc_skb(nskbs ? TCP_COLLAPSE_MAX_SIZE : remain=
+der,
+> +                                GFP_ATOMIC);
+>                 if (!nskb)
+>                         goto end;
+>
+> +               __skb_queue_tail(&pool, nskb);
+> +       }
+
+Then this loop is only bounded by sk_rcvbuf.
+
+With a big tcp_rmem[2], this can be megabytes of GFP_ATOMIC memory
+allocated at once, not charged to the socket, while all the
+original skbs are still in the queue. Before this patch the
+overshoot was about one skb, because originals were freed while
+being copied.
+
+Also, a single alloc_skb() failure now discards the whole batch,
+so such a queue might never be collapsed, precisely when we are
+under memory pressure.
+
+I think TCP_COLLAPSE_MAX_TOTAL_SIZE must be a hard limit for anything
+but the single (first) skb case.
+
+Legitimate overlaps (retransmits with a different segmentation) only
+involve a few skbs. A long chain of overlapping skbs is not something
+we need to optimize for, so my preference would be to simply not
+collapse it:
+
+Keep walking the chain in the second loop so that sub_end is
+correct, remember that the cap has been exceeded, then skip the
+section the same way patch 4 does:
+
+        start =3D sub_end;
+        skb =3D n;
+        goto restart;
+
+tcp_prune_ofo_queue() will take care of these skbs if we are still
+over the limit.
+
+The alternative would be to cut the chain at the cap, but then the
+next section starts with an skb whose seq is before @start, and this
+skb would have to be collapsed unconditionally (even if not bloated,
+even if patch 4 says the result is not smaller) to keep the rbtree
+ordered. This also means @released could be negative in patch 6.
+This looks more fragile to me.
+
+Related to this: in patch 4, when the second loop breaks on
+!tcp_skb_can_collapse_rx() (or SYN/FIN, unreadable frags) with an
+overlapping @n in the rbtree, @n can stay in the tree and the last
+nskb of the previous section is inserted after it, with a smaller
+end_seq. To be fair, the current code has the same issue (goto end
+in the copy loop), but since you are making the ordering explicit
+in patch 3, it would be nice to cover it: the same "skip the
+section" logic could be used when the loop stops on an overlapping
+skb that can not be collapsed.
+
+Whatever option you choose, please add a comment next to
+TCP_COLLAPSE_MAX_TOTAL_SIZE describing what it bounds and its
+exceptions.
+
+[1] https://lore.kernel.org/netdev/179495722211.3136.15241045445062201797@k=
+ernel.org/
