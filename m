@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993132;
-	b=0Q4THspvZb3ghkBoRaDkakn0kKes1bS0XW2vy0relaCxN5JMw3VSrYLFM/bkcv/Fkm6T
-	 oJSmixePn5zxS5vO54a7uQkupf+MupA+u/VeQcEIju99ql7PjOH9oN+Y+DQG/4M/0zkL/
-	 ePwnSy73EXS9xR+zZ7v6T5EFBMKeRYPBTPqP4Few9y+Wq+XLBjJ6ee4xGyKtj4O9+AV5U
-	 U/i/PbxDtcKVxoRxuKl72do4H5UCMSwVmBoCE+vmD+2V+Ut6ThlTv9HHbU7YhwD2M6E0q
-	 /yPWmfCSWy05+ic65thu+PONWPYVEezfyEt3sL6WyIVY6aBjZ7DX0GmzzID/+lSb7aw==
+	t=1794993134;
+	b=l+MQJCnPxV6WVF19c/PHYi8AcA1UY1mSveYTTxPqqoK9Yx6VaDa3sT+lb1BKe12UukTU
+	 ofzvI+LTZv9HGSI8mzpnUMbl0A/J9j4C9AYo9qQLJKvzLWemrKr9RxIxYW5ovFv/qWoRF
+	 k4tAZo2utKjpgs3l47gIBiV6GWz4gb6DrmNfJDXum5YHrxcdI3eEIPsGYj7QLTIFZRDgw
+	 Al4SGWo4Yzu0lnP9BwZKNiZ30LN+VVFtHevTOVYNN7CeADF01bLefO6lXr89qu9/JI2a3
+	 yDeaV9d95i3kYb3ghke57/iETxcCT9yLRmRo13cX2PmwJT3FqMke7OzUyGxUNFA+Clg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993132;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993134;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=1x0JvTH95xlVccUSIz+p1toU0TMB79EnxF+TvySYDik=;
-	b=CCFPLxBYcTO909v/qOzm5Ta7sB3DspePUm8u7Pkhl/M0A8PoekX+TWpJYXmXgzuTAKDw
-	 AsQicJ3PG6o8xft3sMGnaLQxU5/wyBuOcKM77CWx/02KukWhc4UBKoSvMgSUVnuFjoRPs
-	 TQcosV4orM9viSgeqKU7VqyAmyrspdLkZM64pn8+HfMLVkY3FNZYl1IQshxRG6Bohr3QH
-	 Dpf+H8lkoo9jK/4E4ZYQCGZxb6zPEIECdv+Aomja5hNE/GmCBKFnwwpRTBgdSERULzZss
-	 Pt2T0GkhcwugfCXadY+dv9a1GfTrxz0iCWNAr2b/7QwY/RyummH/1oGpnFyKcARcoRA==
+	bh=j4VEP/66boLRVWLZORrD0dkbCraUxgEcYkZxlyDhLLA=;
+	b=5qxGmFr8xewqGZ2JwSajrdbdWMqJ4stwXKZSWeroD/nib8JHTBUtUytkQwNihekzJQZe
+	 2iV779r65lOj8BxE6JMrxsaZTS6QmBgw7LNPUvUPninMdHEeWWg67zx7lx3OuuuzUG1dg
+	 Oq+vdTRpGs+i1GZXKtUVOHHyOyKrmtNbx5k/wcwcEN0TZ0c311BZ4d2BhoQ6J2OfICtJW
+	 TQbtnFDhk1N+na8ZoneinNXwe2zDPqfCjq3QqKk9LimmudgAsXMGmFJwpif35j6fFPAm5
+	 2y1oQe/VgIJPL8wC+2vpfYmYrBvfitnAPQmF2WExFoCllcTz3f6X5R5fs+PjGEV1yVw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O1URnl7s;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP+qJlwZ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2CE9606A89A;
-	Wed, 18 Nov 2026 09:12:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED45A606A8A8;
+	Wed, 18 Nov 2026 09:12:13 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O1URnl7s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D56601F000C4;
-	Wed, 18 Nov 2026 09:12:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fP+qJlwZ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 126C71F000C5;
+	Wed, 18 Nov 2026 09:12:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794993132;
-	bh=1x0JvTH95xlVccUSIz+p1toU0TMB79EnxF+TvySYDik=;
+	s=k20260515; t=1794993133;
+	bh=j4VEP/66boLRVWLZORrD0dkbCraUxgEcYkZxlyDhLLA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=O1URnl7samSzWAfKkFnwmg2lkOkTknHxowI0kSwtp9/Hs0N62CaLDELNm4wi7KP4G
-	 6Kw3tMtk3B4+yph4HL2ex962gNz6zoDy7UyZ4qLUbDD4JK7Yne767Mtw3zqOcYvWOl
-	 3OpogKjm6BL4GoVk6VBzBIQmwDkde8cS4YtbcP/CoOK1q7GgQ9i6VCDIOHjZ5yzBj5
-	 wh+6llTmZn0bcq3jZ9p1CW8+6j3infvvcy4uC9suBlTrxEDg1uLGVxDCCdUaMhDqvm
-	 7WvTD1w2buZVBfG3X7LVCgl4jcToK5yyJYS/qPXOJbQuThdSYhJUqON97HZlqAcqnm
-	 1+sWLYh3ho06g==
-Subject: Re: [PATCH net-next 2/4] eth: mpnic: add promiscuous and
- all-multicast filters
+	b=fP+qJlwZnVEhyynEgSeitpCeMW7M6F45Eovjgo30VhhhRs9AA6t9w5QEBxZnYb/f+
+	 0unogwzVha6dzU/YARlKowC/Ju/uno8z0TkMhun82clA6jSzY5vcuN75/1FIljT4WC
+	 1SPn0eWj9F7RMkxAEA1+rrkLvgRx2XhEnefIr6YdIJhPcCA++BpNmnicDuMYCvG40L
+	 48L7T9eBnC9Nf0EyyPuQeE5b3yC0VkYclaYmn/0xkV4R0Dv742h1i8Zesg9aWvTdCp
+	 q1Rjb1vzmu8UTz30JBxHnmkJnBcVbMzioxVIcqkc1kBGcrnNyP26+s3zM5QlmS/80M
+	 yn7lOcW92e9KA==
+Subject:
+ Re: [PATCH net-next 3/4] eth: mpnic: sync unicast and multicast address lists
 From: netdev-bot+sashiko@kernel.org
 To: daniel.zahka@gmail.com
 Cc: alexanderduyck@fb.com, kuba@kernel.org, kernel-team@meta.com,
  andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  pabeni@redhat.com, dimitri.daskalakis1@gmail.com, mohsin.bashr@gmail.com,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Wed, 18 Nov 2026 09:12:11 +0000
-Message-ID: <179499313144.3136.4262860920559871885@kernel.org>
-In-Reply-To: <20261116-mpnic-l2-oot-v1-2-8dc6eb3582b0@gmail.com>
-References: <20261116-mpnic-l2-oot-v1-2-8dc6eb3582b0@gmail.com>
-X-sashiko-severity: Low
+Date: Wed, 18 Nov 2026 09:12:12 +0000
+Message-ID: <179499313262.3136.12811016164943625265@kernel.org>
+In-Reply-To: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
+References: <20261116-mpnic-l2-oot-v1-3-8dc6eb3582b0@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -65,85 +65,111 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] On every ndo_stop, mpnic_clear_rx_mode()
-  (drivers/net/ethernet/meta/mpnic/mpnic_netdev.c, called from…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The unicast and multicast lists are synced in the wrong order
+  in __mpnic_set_rx_mode()…
 
 --
 
-eth: mpnic: add promiscuous and all-multicast filters
+eth: mpnic: sync unicast and multicast address lists
 
-This commit implements IFF_PROMISC and IFF_ALLMULTI using the last DMAC
-TCAM entry, which matches either every address or only the multicast bit.
-It also changes the default action on TCAM misses from pass to drop.
+This commit adds the secondary unicast and multicast addresses to the
+MACDA TCAM and advertises IFF_UNICAST_FLT. When either list outgrows the
+table, the driver falls back to promiscuous or all-multicast mode. A
+per-slot users count is kept so the same address can sit in both dev->uc
+and dev->mc.
 
 > diff --git a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
-> index 16611813db555..43547a7d6e5c7 100644
+> index 43547a7d6e5c7..c01e276c4a74d 100644
 > --- a/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
 > +++ b/drivers/net/ethernet/meta/mpnic/mpnic_netdev.c
 
 [ ... ]
 
-> @@ -54,6 +64,7 @@ static void mpnic_clear_rx_mode(struct mpnic_dev *mpd)
+> @@ -35,7 +53,14 @@ static void __mpnic_set_rx_mode(struct mpnic_dev *mpd,
+>  		mac_addr->state = MPNIC_TCAM_S_ADD;
+>  	}
 >  
->  	mac_addr[MPNIC_TCAM_MACDA_BROADCAST_IDX].state = MPNIC_TCAM_S_DELETE;
->  	mac_addr[MPNIC_TCAM_MACDA_HOST_ADDR_IDX].state = MPNIC_TCAM_S_DELETE;
-> +	mac_addr[MPNIC_TCAM_MACDA_PROMISC_IDX].state = MPNIC_TCAM_S_DELETE;
+> -	if (!netdev_hw_addr_list_empty(mc))
+> +	err = __hw_addr_sync_dev(uc, netdev, mpnic_addr_sync,
+> +				 mpnic_addr_unsync);
+> +	if (err == -ENOSPC)
+> +		uc_promisc = true;
+> +
+> +	err = __hw_addr_sync_dev(mc, netdev, mpnic_addr_sync,
+> +				 mpnic_addr_unsync);
+> +	if (err == -ENOSPC)
+>  		mc_promisc = true;
 
-[Severity: Low]
-Should this check for MPNIC_TCAM_S_VALID before moving the promisc entry
-to delete?
+[Severity: Medium]
+Can the device get stuck in unicast promiscuous mode here, even though a
+TCAM slot is free?
 
-The broadcast and host address entries are always valid while the
-interface is up. The promisc entry is usually MPNIC_TCAM_S_DISABLED,
-though. That is its state whenever IFF_PROMISC and IFF_ALLMULTI are both
-clear and the mc list is empty, and also after mpnic_promisc_sync() has
-already removed it.
+The uc and mc lists share the same MACDA slots (between
+MPNIC_TCAM_MACDA_BROADCAST_IDX and MPNIC_TCAM_MACDA_HOST_ADDR_IDX). The
+whole uc pass, both its flush and its add phase, runs before the mc pass
+flushes stale multicast entries.
 
-The state comment in mpnic_rpc.h only lists valid as a source of delete:
+Consider this sequence:
 
- *  Valid     1	-> Delete     3
- *  Delete    3	-> Disabled   0
+1. The table is full of multicast entries and a secondary unicast
+   address U is added. mpnic_macda_sync() returns -ENOSPC, U stays at
+   sync_cnt == 0, and mpnic_promisc_sync() enables unicast promisc.
 
-The other place this patch adds that deletes the same entry follows
-that rule:
+2. A multicast address M is then removed. The core runs
+   netif_rx_mode_run()->mpnic_set_rx_mode()->__mpnic_set_rx_mode().
 
-mpnic_promisc_sync() {
-    ...
-	} else if (mac_addr->state == MPNIC_TCAM_S_VALID) {
+3. The uc pass retries U. M's slot is still MPNIC_TCAM_S_VALID, so
+   mpnic_macda_free() rejects it, mpnic_macda_sync() returns -ENOSPC
+   again, and uc_promisc is set.
+
+4. The mc flush runs only after that. It calls mpnic_macda_unsync() on M:
+
+	if (!--mac_addr->users)
 		mac_addr->state = MPNIC_TCAM_S_DELETE;
-	}
-}
 
-With ip link set dev X up and no promisc/allmulti flags set, followed by
-ip link set dev X down, the path is mpnic_stop()->mpnic_clear_rx_mode()
-->mpnic_write_macda(). This takes a disabled entry straight to delete,
-and then issues an UNLOAD_TRIG for entry 1023 even though it was never
-loaded.
+   mpnic_write_macda() then frees the slot.
 
-The extra unload looks harmless, because mpnic_rxb_init() already
-unloads every entry at init. The remaining problem is that the code no
-longer matches the documented state ordering, and the two delete sites
-behave differently.
+The reverse case works. A unicast removal can make room for a pending
+multicast address, because the uc flush runs before the mc add.
 
-This is still the case at the end of the series. The later commit "eth:
-mpnic: sync unicast and multicast address lists" updates the same
-comment to add "Delete 3 -> Add 2". It does not add a disabled to delete
-transition, and it does not add a state check here.
-
-Could this either check the state, the way mpnic_promisc_sync() does, or
-document disabled to delete as an allowed transition?
-
->  
->  	mpnic_write_macda(mpd);
->  }
+Would it make sense to flush stale entries from both lists before either
+add phase runs?
 
 [ ... ]
+
+> @@ -53,7 +78,7 @@ static int mpnic_set_rx_mode(struct net_device *netdev,
+>  	struct mpnic_net *mpn = netdev_priv(netdev);
+>  
+>  	if (netif_running(netdev))
+> -		__mpnic_set_rx_mode(mpn->mpd, mc);
+> +		__mpnic_set_rx_mode(mpn->mpd, uc, mc);
+>  
+>  	return 0;
+>  }
+
+Because mpnic_set_rx_mode() always returns 0, netif_rx_mode_run() never
+calls netif_rx_mode_schedule_retry() for the case above.
+
+mpnic_service_task() doesn't re-run the rx mode sync either. So U stays
+unsynced and the promisc entry (zero mask) stays installed until some
+unrelated rx-mode event happens. The commit message says:
+
+  Advertise IFF_UNICAST_FLT so we don't need to use promiscuous mode to
+  handle extra unicast addresses.
+
+The later patch in the series, "eth: mpnic: support changing the MAC
+address", keeps the same uc-then-mc ordering.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-mpnic-l2-oot-v1-0-8dc6eb3582b0%40gmail.com
