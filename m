@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966009;
-	b=JvzEx1df/sGYltwXOWo9aq+9aHCA3FKm6D4fKflG791886m6IVXQ5qmPmuykULlUwcrG
-	 wF9IpkXYZK9HR8c76+KpWuSRUOtmq4IzQRwq71eyXPmvhUmKukMNcGpnNO3Ra4ST6DWGw
-	 y7GKsCa+Vlb98PrCJewvZOI5Yvx+MeUOV5AtzObjh0v/KqIipiDUM9hB29kBELJV95DqV
-	 iLS0pzGwoaD0jMUZqGL1dmbm9LS631UILf20oH8h+ruJ2r7AL+B4HEMDxkoSK13wMRw2u
-	 jWmeHJphBYMpuJK0CYs7kSH0JZ5hCW1Z6yp4FQ3DZFFiBLRM77am8Qz/uW7kUcdIPZw==
+	t=1794966010;
+	b=IGACKO8I5au62/I39So4YHPJPfQfRRX14LxYPQV/Ctcg7MtYvD/cNacJlHbp0AsXwROI
+	 x7gqV+3zDq0Nn4fiQrA8O2sCNgMuE+JxrSDpo9HOK6Hg8YrRuNJTa5xPLxFf/YQy3+QVh
+	 qXrB/UjYrfXXPUiQ1jpreWej376+LW5/wxqwNHxiatbw58SJTxEapHIPOA49nJiHD6Yyz
+	 /K9yp7kLAEIGcr2bH7vhy3yDvaNn9jsWNSWResMO0ZiuHikEYHXki2OOPByXoHtaiklkn
+	 WNGgyNoZeekLRx8z45HBLKtfzfM5d4UWf4oqpuaglJJ6OUTzEgvZlev3dDZok7ofqRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966009;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966010;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=7g7un8cfaI127Z3S+mYBsyl09TWbFX1ZiPI+Mtq3nHk=;
-	b=2+IQMiXli68K9jdMwBnN591SqhO4oXCV22JrGDCyD1QIkgxdIqvNvddFeBIndDkex56p
-	 uFwc+LDOI4vXTDs8vksCaoFqDI0xuK7hI4sovXTLaEHCQ2jvWbCy6LEprcdq7KjUnMM6N
-	 gzES9itnBcG91318qougBl0MHYUAiW7jNn9a+EjNT5tsDJwX/1L3yicfa//8j5EbCHie1
-	 pjmqr4kJeK/dzbBK7ibp9axLqlhZoTxJPv0T+7OyyCtkNIEiPfqx94wJz3FG5PFMJg9CZ
-	 ncKbtib4KBxpGWrZvuXDKfwhmcXAZGQ2U9y/rVUpbnVp70bq9YbYckIawbP2Fq8n2gw==
+	bh=QIVDHV5NYJPGkEJel2geQHbQyU3yy/pVdlufAPrIa0E=;
+	b=JjGOtU46gz+uMhjAfe4KMC4U6YjzlW2+Mj1jRIp5ZGv+xIIJSC/AwenJegJcF2auVXJH
+	 vs4s7I6zgWB5zp9gyLEoW1FkQYGwK7MHUfVwdnZpWzf0tUpqs62cfYu6gVfrq9eDHrtcF
+	 yxuZJuLKs3avzewBLQ35STJEQb6lx7G0lJSlC4iyZMIxxcyks03n6TeCIPmekBkkoUUgq
+	 vjmm2Kk7LUNMtpYOjPAZwuuncWtI6c5T1o5BXgR7hz/eZhqkw5od8IJvui/4sJBYYeWIK
+	 0R2PclIhymnRJVCSApEm+9KnGyeVDwlF9KeS/AVtpcZBVoELQBqn8eQNpZ/k/HYkJGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KAgOjtZd;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dX0My12M;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEFCF606A338
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:40:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ADA5D606A32C;
+	Wed, 18 Nov 2026 01:40:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KAgOjtZd
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCE4B1F000C5;
-	Wed, 18 Nov 2026 01:40:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dX0My12M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42E421F000CA;
+	Wed, 18 Nov 2026 01:40:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794966008;
-	bh=7g7un8cfaI127Z3S+mYBsyl09TWbFX1ZiPI+Mtq3nHk=;
+	s=k20260515; t=1794966010;
+	bh=QIVDHV5NYJPGkEJel2geQHbQyU3yy/pVdlufAPrIa0E=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=KAgOjtZdd4QKCgalUK0R3UykVxMOWWpv4RJDlk/QD1wl6JVWGKJbl8fHEDdo5NgU3
-	 uYsjukYlfOKJ5/L2JxC/iQA/7XyPz7DjXt0ii480sxR/EfGobNN0yTSzmZtDHDyKmc
-	 VT5ln8OaA1fADGRSWCxXdXZvTqLpgPyEL2wKdD63leGrm+F6+uS90ZOU27rrgnQ6QY
-	 bfIt0Vm0juvqCR0hCRamkkn857AgwqdPPKLiSOkl8Kr4v6L534M+cDpHq1shpI83FK
-	 XrMzLgO7+Ns2M3VoVmSqtWN6HRjiwFnh4K7E+TzbsZu90huhozAFfrYWpVpWX/B4ze
-	 VLkDG+qq0xF+A==
+	b=dX0My12MISuZ9vAgCNO9uN96m0mvmx1Cu39AIQtzzGrzkiyiCZj8/hyev40z78hDg
+	 Zs/a49sXojm9MsYa7P84lXcu0vp65BHCjLhO1Iaa8XKrZGEbjJwSVQC95PquRSUCkq
+	 jYo5724s7nhHZP6K7lChSy2hhOM9kuuURouHXQpFEtdcAybkGZpNngfo5aKsKpk59D
+	 fqavV6Qv6CNunOXvMelJ7SeXuTrZbdNVMcvUKOvzJe7uE4tbwJGk7IskF7SBoJgR3M
+	 1qHMhWkcc+LABfwA1cgqPjqlvCNBQEnv1yiBK/4QW89Sw93SqkVsEjYdtx+cpOsXVd
+	 sy0P4FlTzyn9g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4345392B1FE;
-	Wed, 18 Nov 2026 01:40:08 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3D7392B1FE;
+	Wed, 18 Nov 2026 01:40:10 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,40 +54,42 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v2 RESEND] net: ena: avoid double-counting TX DMA
- mappings
- on failure
+Subject: Re: [PATCH net] net: gianfar: clear the pending Rx skb when freeing
+ the
+ Rx ring
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179496600727.1396957.5369288833503943166.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 01:40:07 +0000
-References: <20261115114233.2307630-2-thnkslprpt@gmail.com>
-In-Reply-To: <20261115114233.2307630-2-thnkslprpt@gmail.com>
-To: Avi Weiss <thnkslprpt@gmail.com>
-Cc: netdev@vger.kernel.org, akiyano@amazon.com, darinzon@amazon.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, evostrov@amazon.com
+ <179496600877.1396957.13399889673438703423.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 01:40:08 +0000
+References: <20261112143140.1395197-1-anthony.pighin@nokia.com>
+In-Reply-To: <20261112143140.1395197-1-anthony.pighin@nokia.com>
+To: Anthony Pighin <anthony.pighin@nokia.com>
+Cc: netdev@vger.kernel.org, claudiu.manoil@nxp.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
 Hello:
 
 This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Sun, 15 Nov 2026 13:42:34 +0200 you wrote:
-> ena_tx_map_skb() increments tx_info->num_of_bufs after each successful
-> DMA mapping. If a later fragment mapping fails, the error path adds the
-> fragment index to this count before calling ena_unmap_tx_buff(). This
-> can cause DMA unmapping of buffers that were never mapped and
-> out-of-bounds access to the buffer array.
+On Thu, 12 Nov 2026 09:31:40 -0500 you wrote:
+> gfar_clean_rx_ring() keeps a frame that spans several Rx buffers in
+> rx_queue->skb between NAPI polls. When the interface is stopped (close,
+> MTU change, reset), free_skb_rx_queue() frees that skb but leaves the
+> pointer set, and nothing clears it when the rings are set up again.
 > 
-> Remove the extra increment so that cleanup uses only the number of
-> successfully mapped buffers.
+> After the restart, gfar_clean_rx_ring() picks up the stale pointer. The
+> first buffer it sees has RXBD_FIRST set, so the overrun handling frees
+> the skb a second time. By then the skb has usually been reallocated, so
+> the second free releases another owner's skb and data while they are
+> still in use.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v2,RESEND] net: ena: avoid double-counting TX DMA mappings on failure
-    https://git.kernel.org/netdev/net/c/6e9764591bcc
+  - [net] net: gianfar: clear the pending Rx skb when freeing the Rx ring
+    https://git.kernel.org/netdev/net/c/c35761f43c58
 
 You are awesome, thank you!
 -- 
