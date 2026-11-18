@@ -1,57 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794989936;
-	b=p8mW8KKSdLAPI1POcwxNvxJm0HNKA52M0kNNx4e6F2xiCbRF1I2T/degLZVOZsb4JpSX
-	 xZXE0sAp2Hpl6eeexppK0f7z9U/qTOb2B9NCYXEIpboqOcJVp5i3k6mOanBRkUj81nwUb
-	 ncVcSGi1kBkM+fZkWp+L/l08ztalKIS11gijUjZVPIqKUg2HVoitVlJ+aSUM2on2lckv3
-	 Pe2xtnTs7Ew80XaxUsKKAL/edaCENaU9nWpo2raG5KaXd3J0kuDAcMZDh44pxOt5vMd5M
-	 MddeUfV+NCnZrcd7id2neJxQRIaVXE2j0oQ0GXawZMY3324vcX/393USn7cYJV0dWCg==
+	t=1794990058;
+	b=Di5J29ClJMjsZyDrTjRnS26V9ldmkTmQOx6yyeEdxl3MnVm5K7v23qDEToeREnhQl0sE
+	 DJXivCKts8MTSeQt7ceEhpx2sBpQEearANCYodkBTQQivhIQOYEoVKTBz9jNjrV0p7+pw
+	 Du1DO2IVZyoKzjCRDg7hmOJB8zrKvMtwc7VfCJ5frBl4qbZE2lCEA5vX8eWbIAfbBZb+m
+	 fA9g1AAJnaXSgNeaGSe3xIJDu62PtEvidtEUpHZtde19S3VS+IaGuIL1geUlQf+ZU84sL
+	 ISJcMWeFTo05Pn50W4l3IerlDl5Z9YV2NgX+RYA5A7ejRmGJjL1gKbJoe6jyM7pU3EA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794989936;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=foG+PI9Aawtfbl7gDOwnPd1zeAvUj0nauzmmOBRh9X6NYcDfz+ZLogj8DE1RbzgXKtGV
-	 bYNSmLqrNmhHjn8wqpV1QfgKIGhdnDVLysdDZ/1qLBixvNzfReExZMxjXDXB9gcwY7uOO
-	 lEMDhponwljUrbEj+J/JmjuwBfWG4I0Cz/h+IRnPaex3nPaZZpoBm+nFezXMiA4uD1eNX
-	 RxowyVW+vzWvpR1rtIDGzzjtrPC/898NxYxmtj5XtYbzWaENhXAuS5FFPl7omGN9D2Nfr
-	 cSj/g/eNs/tl7W76a+/KUr6MlIwZgWsrWD/9okUU+PjcJ5aJv23Y1thef3zgNp9Q6rQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990058;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=PxUuAs6hF9FFnuFm7OwY4l9jBpo4nI/baW8NihC/UI0=;
+	b=AnsTbyDfPtKddqRZ0LqKcp1tfGUtCas+iQjAy2zbZKxZfNYOyzgDcgVPLpgseWOq2TNZ
+	 oPcT4XdBMWUpegASn25AXlqsfW2AQRMsTRd7OZ/FkUDPwQB7xThT4RlPqqZDDWdmHei7L
+	 8MVdHNSyTLjOOAMOW5Hrw09BRCFBJuru80aJmBSGStnbvo7gvFVZIOluv6uy8CTx5DhE1
+	 2FCVZKtE7iAW1d25j42AUntlWxmq2iBKDBmVtt161lITsxqaFY8/wEPaLkNtROybc4gx8
+	 CW3DxCPuQRbGnw2zn0Qteo3Gv2suyxqRjUxDoxEr4sEzRGQJ1DcJsWicFGevQ3QfmCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="ZwL/PfEF";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=uXSkMD8S;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F704606A335;
-	Wed, 18 Nov 2026 08:18:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82E2606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:20:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E82E2606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZwL/PfEF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A45E21F000C4;
-	Wed, 18 Nov 2026 08:18:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794989935;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=ZwL/PfEFFPWYgqPQiUhVaOPkdj2ofz5bFcHs2SMmpsuQMUNKZNorDDDs+hzTtdBua
-	 FeFRWkpcfuBAV62D6ki9EDF/GOdSgY0amWIQ8QkNIx3tHYjQqqcbQQgZQJp8Dc05nX
-	 xoZbSPLclt+1HtaGW4gnDbIPmO8D7u/C4lBTt7AxfjNZVEyfS5bOKTP/eGGLjuK+d5
-	 yU08JDTumpMWHqrncIOUCbRFtYdndki3fYrPpRAj72+hS4atF7BePJt/cQ+qApyUGw
-	 pYBKyfKpwBUvwj9cYGoYTgcqcbvj0N28QGIytZ7z+B7QPLvxwuw6xF96WMlK8N3QQM
-	 Q/hvJUxP4wONA==
-From: netdev-bot+sinfo@kernel.org
-To: Bin Luo <luob87709@gmail.com>
-Cc: oe-linux-nfc@lists.linux.dev, johan@kernel.org, david+nfc@ixit.cz,
- netdev@vger.kernel.org
-Subject: Re: [PATCH v2] net/nfc: fix skb ownership on data exchange errors
-Date: Wed, 18 Nov 2026 08:18:55 +0000
-Message-ID: <179498993525.3291.5601341761915431183@kernel.org>
-In-Reply-To: <20261118081530.32-1-luob87709@gmail.com>
-References: <20261118081530.32-1-luob87709@gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=uXSkMD8S
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 4A1061A16A8;
+	Wed, 18 Nov 2026 08:20:56 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 151F95FE9B;
+	Wed, 18 Nov 2026 08:20:56 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B55C211BC0901;
+	Wed, 18 Nov 2026 09:20:49 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794990055; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=PxUuAs6hF9FFnuFm7OwY4l9jBpo4nI/baW8NihC/UI0=;
+	b=uXSkMD8SP7cFPwjkl1zPm3Nlck69h4eMxCwkoMwpLE9Vddbk+TRWnmVFdUjPGJOKDwHEy5
+	PDBgW3YbVKb9Ex4A3Ko2apuXGcgWFdc3GV3NqzIR22lmUwGVOOf5uO/F1q41qIHwbTRjkg
+	o6F5RNQMaETQus1lf5KE46i5ild8ESgVQpw14dGar1qROupVGHHvkbBLbbpbTyMUgm/2Sv
+	sIfU27RyxBkkVJdamv3D6D5p2q2lHS6veGM1Z11iJ1Y3bBt8vTYxCW5HOzmLvR2qUcOCYh
+	4oKJscimMKNKnM8a3iWBEMxOmf8YKfxuNwNXkkINc4aGdpPOW1FH/BSxcHJkag==
+Message-ID: <560d269c-f537-47ea-8df1-b6c29d67518e@bootlin.com>
+Date: Wed, 18 Nov 2026 09:20:48 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,22 +62,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 4/4] net: phy: marvell: add RGMII-to-Copper
+ mode configuration
+To: Paul Louvel <paul.louvel@bootlin.com>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Herve Codina <herve.codina@bootlin.com>
+References: <20261116-marvell-phy-rgmii-v2-0-e04dca67e89a@bootlin.com>
+ <20261116-marvell-phy-rgmii-v2-4-e04dca67e89a@bootlin.com>
+Content-Language: en-US
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+In-Reply-To: <20261116-marvell-phy-rgmii-v2-4-e04dca67e89a@bootlin.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Hi!
+Hi Paul,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+On 11/16/26 16:27, Paul Louvel wrote:
+> The driver currently programs the mode only for SGMII-to-Copper, based
+> on the PHY interface mode.
+> 
+> Some MACs connect to the PHY via RGMII. Add code in
+> m88e1510_config_init() to configure the device.
+> 
+> Do not overwrite the media interface mode configured via
+> m88e1510_port_configure_serdes().
+> 
+> Signed-off-by: Paul Louvel (Schneider Electric) <paul.louvel@bootlin.com>
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+FWIW I've tested that on a SGMII-to-Copper 88e1512 PHY, and no regressions
+found. I can't test on RGMII though :)
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Maxime
+
