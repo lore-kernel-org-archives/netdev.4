@@ -1,54 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.33
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.125
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996509;
-	b=MAsw2bu48Z0u0w9z6OiJqirXY112mi8qsmXL6/BuxELeX1dgaLyBkepoPbv4Imw8qJRa
-	 oIDhqQiF46CG1eWXziFDmdIhS88hs8H+SoHytzjA0H3v4ZdHW9weZ/sQcRjtllXIzUjEh
-	 xns3fLBwHS0mUkHVP/Ip0jsYpmKABlAkE5XhsZIZebNq7uND9GBYWPzazebNZ1DPPsKOu
-	 AfzZQ++dOznFmSqTty56r4ZqUutq3ljUq3oSZ9M/HjViJpU+/WCc4ZZ48Br5NNo4PYRpH
-	 wuzLLilz21mcRJkmP+7QfZnqzgx5/lguRFaxZyqHIBcg4hSGwINHgiICDBZJR7Qq8XQ==
+	t=1794996694;
+	b=I0QzYWaWP4kjJvgYfkgK9qYkkfkBmAlBpzZhNks7p8QtXGPbLFjlywTlVJwIpU7PQrOp
+	 3X6BErBFQigXLZ7io5q9N3nEF0c4sUVoJXi9NR/dcN3gUIxSSItFYAHK1B1McUvqhUlHN
+	 wraDCqGqOnyoNRZdrr16F7ZybKteWOTUcFyycJOzb2KXQYN/ogJ/GDCtIdvN3TmztxDPG
+	 m+mzADkxCmD90J3P58I6esngA4vgUhicjVtp9/jZynTUpToMlX/tnuG/fTDl5uqbRAYIi
+	 JRRMXKv6bc4OppuwlODIAq4du0Wrxf3MR2FfqbO5TZEvZf4zxTfgokpjaiwEsGqmfKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996509;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996694;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
 	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=Qz2aEB2Nm1ekmcMD9FQ6yh0BCWvEwRLtp4myOxqi53s=;
-	b=rxH9450wr1cdaPk/FyF4+vt8BhnGUbKgdnKERUzl1SdjZSCi1bUpdBtN82n47mVYy85m
-	 ClG03aiuChekjntisPTJ81lCuRPF/H1GWdn0haqoQ4RDCrOyXeCb+r/rsRgqZgtxYfhGO
-	 IUDex7bbfmD2pWypq9B3vV3zxwqs7YZ8gPcZgwIJ1o/5UMYb1CtBi4lsiacpvu1/UgGGN
-	 FF61Sl1AUG41H0rh0SMlt1MRyt9cPFCx95flS4u5hOdH7cp9RIdG2NiEtCt1fQdgsr/Of
-	 SyvQgqhGjxWzJwNwkVitE+PJdeCZ831njad5Odt1l8+uQHiYF+iVxy09zz6+R+aYYAg==
+	bh=D1MUY1H0VH1qHinNrqNAjg4w0W1AM6O//IjCUC504uI=;
+	b=SfMwNuOsj8DJL5pBGVBey10amJl2SnkxhVBt/vVMaHHKk/ykiRed2duei9V0LJCrbTJA
+	 YI0L/khlJWry2lNtPt861f8T5VoXaxMnh4j2ZHOmM49+tht/8sC+R/qfM98ymJfsjBwlK
+	 dmZvzcBSCp+9rGZLZYSmSFDj7GK0+5rEJxZlI5BDFVCTdausfj+J6NnCpP2d2+xHsIFjB
+	 k7Ae+tISTF5lPiKb/7YSHarufq5D4KeFpggEXfHGdmLiVzHV7mQ9HIaDueU1qCQsxomzR
+	 z8krG0J1bconatWRLESsdavKqQAjg+FnP7hKvwWIYLp4fcqd/X73mH71lvB8r+gR5Qg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pvWn780c;
-	arc=none smtp.remote-ip=95.215.58.33
-Received: from mta1.migadu.com (out-33.mta1.migadu.com [95.215.58.33])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OW5EI13u;
+	arc=none smtp.remote-ip=91.218.175.125
+Received: from mta0.migadu.com (out-125.mta0.migadu.com [91.218.175.125])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E0B8606A325
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:08:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E0B8606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 059FE606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:11:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 059FE606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=pvWn780c
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OW5EI13u
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=gTWWkKNqiGiRm5q5+vRO1BZhUiAhUFJJwPIYPbRkP/0=;
+DKIM-Signature: a=rsa-sha256; bh=+bB9g6Bv+semol6SWgegbWp0lH/3VoQYPrulmmDo324=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794996506; v=1; x=1795601306;
- b=pvWn780cvjz07h0JxdIkHrHAA27ZRq2+QqgnlGqPSPRyIooFg3Xi5ZYYLtM2vLo72rP+o2c3
- HbYBls0ph9N+wm9SG5hyXsris8Ks7igLmdNHikAPjhcmVSMz1Ywr9gE9MNTw/G6uoLDEYYlKmsL
- Ow/5niY1FJxFehINNkag3asE=
+ t=1794996692; v=1; x=1795601492;
+ b=OW5EI13uRMfGhs6ixdrLLuvaMP7KYvOoEEPvlEROAbKL1hYGSDT2CH4udseFxC7OBPwu+guP
+ WNikBVVefcDsLc2OrtBc6DErGrO5w78T33QBmgpjThOx/ayqYPMVkdUo/13JRDD6T31YSBw7TBR
+ J5GzMsPAe/k2v2ehEk0LYZlI=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 7d48908e68266c64;
-	Wed, 18 Nov 2026 10:08:26 +0000
-X-Mizu-Trace-ID: 7d48908e68266c64
+Received: by smtp.migadu.com with ESMTPS id d58a89dcce9aff1c;
+	Wed, 18 Nov 2026 10:11:32 +0000
+X-Mizu-Trace-ID: d58a89dcce9aff1c
 X-Migadu-Flow: FLOW_OUT
-Message-ID: <10f12bd4-6b0b-4e94-8228-04d73a62daf0@linux.dev>
-Date: Wed, 18 Nov 2026 19:08:19 +0900
+Message-ID: <6c94d413-02b8-4a1d-8a5f-9503a9ff4815@linux.dev>
+Date: Wed, 18 Nov 2026 19:11:26 +0900
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,81 +59,40 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH nf v2 0/2] netfilter: nf_tables: only disable tables on a
+Subject: Re: [PATCH nf v2 1/2] netfilter: nf_tables: only disable tables on a
  dormant transition
 To: Ma Xinmeng <1564938642@qq.com>
 Cc: netfilter-devel@vger.kernel.org, netdev@vger.kernel.org,
  Phil Sutter <phil@nwl.cc>, Pablo Neira Ayuso <pablo@netfilter.org>,
  Florian Westphal <fw@strlen.de>
-References: <tencent_80CDC0280E0D4030AF01A16E583E88E7970A@qq.com>
+References: <20261117161520.1031-1-1564938642@qq.com>
+ <tencent_6731DB02656EFC3D74E4DFCE582B7E0EFC0A@qq.com>
 From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-In-Reply-To: <tencent_80CDC0280E0D4030AF01A16E583E88E7970A@qq.com>
+In-Reply-To: <tencent_6731DB02656EFC3D74E4DFCE582B7E0EFC0A@qq.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
 On 2026/11/18 at 1:14 Ma Xinmeng wrote:
-> Hi,
+> nf_tables_commit() calls nf_tables_table_disable() for every NEWTABLE
+> transaction that has NFT_TABLE_F_DORMANT set and __NFT_TABLE_F_UPDATE.
+> Since table adoption introduced __NFT_TABLE_F_WAS_ORPHAN, UPDATE no
+> longer implies a dormant state change: re-owning an already dormant
+> PERSIST orphan sets UPDATE because of the adoption, even though the
+> table never left the dormant state. The commit then clears DORMANT,
+> walks the basechains, and unregisters a hook that was never registered,
+> which triggers WARN_ONCE("hook not found") in
+> __nf_unregister_net_hook().
 > 
-> This is v2 of the fix for the nftables WARN below. v1 was sent as
-> [PATCH net] and tracked a per-basechain "registered" flag. Xuanqiang
-> suggested fixing the commit condition instead: a dormant table never has
-> a registered basechain hook, and nf_tables_commit() should not call
-> nf_tables_table_disable() for a table that is already dormant.
+> Use __NFT_TABLE_F_WAS_AWAKEN, which records an awake-to-dormant
+> transition, instead of the current DORMANT flag. This skips the disable
+> for an already dormant adopted table while preserving the genuine
+> awake-to-dormant path.
 > 
-> v2 drops the new field and changes only the NEWTABLE commit path:
-> 
-> - if (table->flags & NFT_TABLE_F_DORMANT)
-> + if (table->flags & __NFT_TABLE_F_WAS_AWAKEN)
->        nf_tables_table_disable(net, table);
-> 
-> __NFT_TABLE_F_WAS_AWAKEN records a real awake-to-dormant transition.
-> Since table adoption added __NFT_TABLE_F_WAS_ORPHAN, __NFT_TABLE_F_UPDATE
-> can be set for an adoption that leaves the table dormant, so the old
-> check disabled the table and unregistered a hook that was never
-> registered.
-> 
-> The WARN was found by FuzzAnything's AI-assisted kernel fuzzer while
-> fuzzing nftables netlink messages in a user and network namespace, and
-> I reproduced it at runtime on 7.3.0-rc4, 7.3.1, 7.4-rc1, 7.4-rc2, and
-> 7.4-rc3. The baseline 7.4-rc3 dmesg is:
-> 
->    hook not found, pf 2 num 3
->    WARNING: net/netfilter/core.c:522 at __nf_unregister_net_hook+0x71/0x1b0
->    Call Trace:
->      nft_table_disable+0x78/0xa0
->      nf_tables_commit+0x1c03/0x1ec0
->      nfnetlink_rcv_batch+0x939/0xaf0
-> 
-> v2 was tested on 7.4.0-rc3-c027fixv2: the PoC returns 0 and dmesg has no
-> WARN. I also checked a real awake-to-dormant transition: after the table
-> became dormant, a ping left the basechain counter at 0, so the hook was
-> still unregistered correctly.
-> 
-> Changes in v2:
-> - remove the per-basechain registered field
-> - check __NFT_TABLE_F_WAS_AWAKEN instead of NFT_TABLE_F_DORMANT
-> - add Fixes: 31bf508be656 ("netfilter: nf_tables: Implement table adoption support")
-> - use [PATCH nf] as requested
-> - add a selftest as 2/2
-> 
+> Fixes: 31bf508be656 ("netfilter: nf_tables: Implement table adoption support")
+> Signed-off-by: Ma Xinmeng <1564938642@qq.com>
+The patch looks good to me.
 
-It would be nice to add a link to v1 here.
+Reviewed-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-> The selftest uses the nft owner/persist table flags to create the
-> dormant orphan, and checks the kernel taint state rather than parsing
-> dmesg. It fails on unpatched 7.4-rc3 and passes on v2.
-> 
-> Thanks,
-> Ma Xinmeng
-> 
-> Ma Xinmeng (2):
->    netfilter: nf_tables: only disable tables on a dormant transition
->    selftests: netfilter: test re-owning an already dormant table
-> 
->   net/netfilter/nf_tables_api.c                 |  2 +-
->   .../testing/selftests/net/netfilter/Makefile  |  1 +
->   .../net/netfilter/nft_table_dormant_adopt.sh  | 57 +++++++++++++++++++
->   3 files changed, 59 insertions(+), 1 deletion(-)
->   create mode 100755 tools/testing/selftests/net/netfilter/nft_table_dormant_adopt.sh
-> 
-
+Thanks,
+Xuanqiang
