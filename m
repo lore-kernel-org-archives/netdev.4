@@ -1,61 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795014773;
-	b=Ic8HeFa+vKJw0XgpoI6ykGDmUZdIij2B1L7ncyUVws4U+tm+rkEZA5ea418cLELP+hXh
-	 aC84y85Oi6o7LbYibAlo5m3s1RNOKAUMQeZ1Tq58UgAxtZTo07KixH0ECnUkcJC9wBQJ+
-	 iIbxA+6M9PrA10Q9NP/O2bj9teEmCq5GieR6oOUO5smTwIofzBA+gVz/plg6iaF0Y+Qnk
-	 1VKCaVDl2pvgJaPnDjqRbZsEEeFpE5+3QB7U/3yE5lm7mqDNExIMiSYOGEPqZhMEA3NLm
-	 zi3vHJpxavlieejnCjiSngZFUGbym9ytm0nd97i+4yyZJ24FtR8CbqB5ZVGuq5cosUQ==
+	t=1795015063;
+	b=rSmGqoT3wSTZcR2ZKIymFrGq4EG0t7QPzKbV1PDPAvCKnTsY7+NQ0PkRYOtnnlh/+6C9
+	 k+XXUsxBUIU/gPPy8DZUS1ys+sQ8ibNlqShUC8zlBkbAnkDl0GJ6/T11fP3IRTImbZBB7
+	 uOWdpqYkQU3E8uNS/mOEpLc5xqdgwPifM5KeF34YIBGfxn9L6hzaBrOh0UrzEObJJ+yiE
+	 NX7r81amz0PjfnfPr7fb1NnKQeqsYGE3vfdMYrfsW4vgAeuaHszzbYS2cuDUu1mNWnNA6
+	 DhUM83+pBvCfihk3YmZ2hQfCDhQ3z/5YuEgvNsGlRmB/5sZzKMsh8P7ELUJYPaQ6cpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795014773;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=E1I4DMrDkkk5wAfSY5fVXBnZyddN9IWcr9/nWeAq8GU=;
-	b=Ikn+zIO/rS3M0szF6xkGScDxjETZ4a3zZk9soh1ONovkmsHZVxf1nuMU+QZF3bEJkcA2
-	 lt1NkLsL2h1Hya91FKAPSYCnxlo6+mhDqpCCJl7lqfqPpjDj/i3ds+JGdZGntLlFhcT0z
-	 rINGoWAb/WNdIZAQggMYJecAN6GEt4Yst/AEbbmIMn7CbriUUWANq48lfXOLu1l9O18xH
-	 uIv+OWi6dCCQHdi6LqM07npkLlJFBBNFguWxSH65mg+3AqTYNG+RkNm604qSxbfGMnGJ/
-	 W/QO9jurVOWPEu9ccalQls4bYE1PPIeiovvAou4wXoP5297nlSUIPa4ClgLNwjMIRYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015063;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=CvfmLkDBN8I5nxmJLaVmq3PqMym7xUmGtMx0tuqzeb8=;
+	b=wetyZ6bpSf5Unv59eR/frZ3JTpOaASKxrHtt3/5rFIEOsSpIPw+jqE/1f9ofq6t6aGnh
+	 O3IVC6kOPVBYNIKFsbnKWjee8zpttD+fwPwgbOx92cQ3/uUAVQ6N3RDKpOvF9KPBqz3LC
+	 2ib58nY/lEBbm3KOWYLgAuBF0edR9Yb1z6veyWChsnKl7TzzKjFq2iHOaF7Mbo5m2co6/
+	 UJFJxi2ughzbVvtQ/nAfyL3RsFIfZF1Pfl6eQGF/yi3e7ZmaagjIVAGQ1oag9RUK7IT0L
+	 V01U/Fwg5KXng89gTC1082aAy4CdX+tGNAdO0HxQkrlRtkgDKf0fkQJgIZ1pUvfl06g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=awDYblFx;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WkxoNCmH;
+	arc=none smtp.remote-ip=209.85.218.51
+Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2173606A320;
-	Wed, 18 Nov 2026 15:12:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ABDD606A333
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:17:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7ABDD606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=awDYblFx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 228631F000C6;
-	Wed, 18 Nov 2026 15:12:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795014772;
-	bh=E1I4DMrDkkk5wAfSY5fVXBnZyddN9IWcr9/nWeAq8GU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=awDYblFx+WEEpUXZMK25lGzXz9uphm6TJa333icuaBvqyiJyFGZYYq3aTjXvQH568
-	 kf7RXA7Xi0jMRxhsfUxtVkUo3Ea9pM3cmqPuuPG6CBSx0K4UMmWzjgbt0z44EgigrS
-	 aG1kt4C9FJzFMelX1uKseLhMbm4cQc5UdRI1EG5LDDnPeeeff7NFhrb3JmYJzJEzRs
-	 NqRNyKxXsg/tHE31wrZuHUwR6k35AdUiwCgwqUzdeY5ursz8s0jQmHxkJo+3lobadP
-	 XhfWel0Kv67E7Ubft9VuEObglGEHGnDwrrJ149hC0wjqEPoIngSDVKlZzTofJ/8rdb
-	 uwRnP17nA85og==
-Subject: Re: [PATCH net] net: wwan: iosm: fix S3 resume by re-binding the
- driver around it
-From: netdev-bot+sashiko@kernel.org
-To: davidlwesten@gmail.com
-Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
- ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- m.chetan.kumar@linux.intel.com, linux-kernel@vger.kernel.org,
- mail@maciej.szmigiero.name, stable@vger.kernel.org
-Date: Wed, 18 Nov 2026 15:12:51 +0000
-Message-ID: <179501477167.3136.5713040375169842773@kernel.org>
-In-Reply-To: <20261116031148.333990-1-davidlwesten@gmail.com>
-References: <20261116031148.333990-1-davidlwesten@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WkxoNCmH
+Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c50cc8e0f84so158056566b.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:17:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795015062; x=1795619862; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=CvfmLkDBN8I5nxmJLaVmq3PqMym7xUmGtMx0tuqzeb8=;
+        b=WkxoNCmHgt1cV07ODAtkzGUMS3QEMg/pCYKSsi7za96v7vCk70HO1zqPcE+MRzXRE8
+         3Ug+iZhmPZawGyCXpg5TaA9LDGM+5cwSQlDPvnZAS96WzWkFIuLV7BO2ijuec4pvTQaO
+         jhvx1sf59NiMJ23lRpkoDMvQaNjUNNKWTMm39AMZmGrJcYc4rRpQTohXAFM9uMAlIPVa
+         yEEIp/WRsoOJgDL1T2bqbtafeyS/7mB8YOYKV3gx2K3sKVE7JFUEo8AEMHtpIBEcy6lu
+         pNNCyqBz+rDVZmvcdXLNAK42YxSJcqZkrDf+iIldG59pYVnhkSNZobaVYgcPOQZjVa4t
+         qIVQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795015062; x=1795619862;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=CvfmLkDBN8I5nxmJLaVmq3PqMym7xUmGtMx0tuqzeb8=;
+        b=Ojc3LCaeMlEIzMqfwXwlXKI1OCcjcx9UbtgiV+PdFW5+cjjs9+3BLdnQRYcTCHQ31c
+         TGsY1Rz4Agfat2wtKPzAf697J5IXMAAJdR2WXE/Y1DACxpz3PUHGIAUMKAexwBaf1VG0
+         C2X6RRmHZgITNuHm15bKRWCi5iwM7PUG4FbNMS+4j9E5ss5Q+3WhnqRGS6ntocaaMmoh
+         bQu3Fm2pSlG10e6XvhE88RHEMFgnV3jDB5HY3reaNY+XQHnh17PuQRFN0BpfZFxd4/wI
+         NOeohjO/qvEoZSPEj1VqSwMlflJESXDSdGCCK4W2Y8r2x3kaH2NG2QJXgjl5iGnkIyte
+         GNRg==
+X-Forwarded-Encrypted: i=1; AL+hErGyujq/ToDLnMeX5bAofoTzrtG16kmWY43h7UCx39uyAiIGlDWQiUsWxODO4gz1vDhtUdHn2Uw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+LvG/J0MuxzXvIBjxXTUerIhs95O+ZyNNWF9nV4D/Gztz+eaEb
+	fWqHbLRSxQMT5Q4VQz47vCdSiRzANMjlHgByfPM1h4k+2yH2ZP3+18ch
+X-Gm-Gg: AYBFou3gdlpGjNv/18Re+8494lABAswtRzNQXfVlrQ9DfIvZ384kFoTxziqHoRjIZej
+	7JHVKoxHvDPc5sO/4DYEdi/V1/vttPI9bHrqCSC65L/c4G1rmK2quwvnLgPdd/qty39B4s3dRXf
+	MWrdJNxHT377Gp3k8GaYKBiwMEfLUxKV2/Ya6uOU1Xbv8qQajWUjoeCBRHczxSAkUQ48NQN2hF6
+	nn1IwKt8HlDx7oYDZusmvIF9uNiYBz3bmJzp8fLR3aCr/gtR7V3CAPDyW2kkQUWW07o06dmQvtx
+	oqtBtDQ1L4uQOK0TCrM4NvsZ3LXPZJ53ez13GUpUV31KkrK4EFCC+GZxFjbTzSrhtKMDo8Ib14m
+	Cnk/J+rtPdtb/9sXjBk6P7dLBZu8o36PmW2ACVt/1gz6J1AhbiStcV4VkR2UgIwJ/iGYja3JTrO
+	xUFrpXhv2VtGGtajIfEMku10vx6xdmlWQfJ21xDu+kS6xAKGUf8XtZlyzjBMxWR6hmy7xYI0YtW
+	l4lNr2kige2Oeh3JEUcq47x8rVe9hqWwMqrJi8eNZzaHZAOIcjJ43doMgCojpU/4+xSuOrruP3p
+	AzuCIRwa/E/C36IWzkAVgY+oM5QyM6BPV4W0mbDQ
+X-Received: by 2002:a17:907:7f91:b0:c29:f5d5:5a9c with SMTP id a640c23a62f3a-c510e32a1a6mr291758866b.38.1795015061528;
+        Wed, 18 Nov 2026 07:17:41 -0800 (PST)
+Received: from theodors-laptop.. ([5.255.118.7])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6b888ef94b0sm1226142a12.5.2026.11.18.07.17.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 07:17:41 -0800 (PST)
+From: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: Julian Anastasov <ja@ssi.bg>,
+	Simon Horman <horms@verge.net.au>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	lvs-devel@vger.kernel.org,
+	netfilter-devel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	coreteam@netfilter.org,
+	Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+Subject: [PATCH nf v5] ipvs: ftp: do not link expectations to unconfirmed conntracks
+Date: Wed, 18 Nov 2026 18:17:26 +0300
+Message-Id: <20261118151726.2509853-1-theodorlarionov@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,203 +101,69 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+ip_vs_ftp_out() can link an expectation to an unconfirmed conntrack. A
+later extension add on the same packet, such as seqadj in
+ip_vs_update_conntrack() or NAT, then reallocates ct->ext and leaves the
+expectation pointing into the freed area:
 
-Critical: 0 · High: 0 (1) · Medium: 2 · Low: 0
+  BUG: KASAN: slab-use-after-free in nf_ct_unlink_expect_report+0x490/0x4c0
+  Write of size 8 at addr ffff888004dd4e48 by task syz.2.17/649
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Check the conntrack at the start of ip_vs_ftp_out() and drop the packet
+unless the conntrack is confirmed, is not a template and already carries
+the seqadj extension.
 
-- [Medium] pm_notify() in drivers/net/wwan/iosm/iosm_ipc_pcie.c decides
-  whether to unbind the driver on PM_SUSPEND_PREPARE by checking…
-- [Medium] The changelog limits the problem to "platforms where S3 cuts
-  power to the WWAN card".
+Fixes: b25adce16064 ("ipvs: correct usage/allocation of seqadj ext in ipvs")
+Suggested-by: Julian Anastasov <ja@ssi.bg>
+Suggested-by: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: stable@vger.kernel.org
+Signed-off-by: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+---
+v5: drop the second nf_ct_get().
+v4: check the conntrack at the start of ip_vs_ftp_out(). A server reply
+that fails the check is now dropped even when it is not a PASV/EPSV
+response. Without a conntrack, e.g. with a notrack rule, only PASV/EPSV
+replies were dropped before.
+Link to v4: https://lore.kernel.org/netfilter-devel/20261117123944.270667-1-theodorlarionov@gmail.com/
 
-Pre-existing issues:
-- [High] ipc_imem_cleanup()
-  (drivers/net/wwan/iosm/iosm_ipc_imem.c:1231-1266) cancels…
+ net/netfilter/ipvs/ip_vs_ftp.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
---
-
-net: wwan: iosm: fix S3 resume by re-binding the driver around it
-
-This patch extends pm_notify() in the iosm driver. When the default
-suspend mode is not suspend-to-idle, the PCI driver is now unregistered
-on PM_SUSPEND_PREPARE and registered again on PM_POST_SUSPEND. This is
-the same approach the driver already uses for hibernation, and it means a
-modem that lost power in S3 gets probed again after resume.
-
-> diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> index 49052eb511baa..ec27d6fd79100 100644
-> --- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> +++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> @@ -534,12 +534,17 @@ void ipc_pcie_kfree_skb(struct iosm_pcie *ipc_pcie, struct sk_buff *skb)
->  
->  static int pm_notify(struct notifier_block *nb, unsigned long mode, void *_unused)
->  {
-> -	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE) {
-> +	/* The modem loses power in S3 and S4 and boots again on resume, which
-> +	 * the suspend/resume callbacks can't handle, so probe it again.
-> +	 */
-
-[Severity: Medium]
-The changelog limits the problem to "platforms where S3 cuts power to the
-WWAN card". This comment says the modem loses power in S3 everywhere. Is
-that true on every iosm platform?
-
-The condition below has no platform, PCI device ID or BIOS RTD3 check. It
-therefore also covers INTEL_CP_DEVICE_7560_ID, which the notes say was not
-tested.
-
-The driver already treats modem sleep power as platform dependent:
-
-drivers/net/wwan/iosm/iosm_ipc_pcie.c:ipc_pcie_read_bios_cfg() {
-    ...
-	if (object->integer.value == 3)
-		sleep_state = IPC_PCIE_D3L2;
-    ...
-}
-
-ipc_pcie_suspend_cb() and ipc_pcie_resume_cb() use that setting to pick
-the D0L12 or D3L2 path. ipc_imem_pm_resume() also already re-reads the
-exec stage:
-
-	if (ipc_protocol_resume(ipc_imem->ipc_protocol)) {
-		stage = ipc_mmio_get_exec_stage(ipc_imem->mmio);
-		ipc_imem_phase_update_check(ipc_imem, stage);
-
-Because the driver is now unbound before every S3, none of these paths can
-run during S3.
-
-Some platforms keep the M.2 slot powered in S3. On those, the endpoint has
-no driver during suspend, so pci_pm_suspend_noirq() skips
-pci_prepare_to_sleep(). The modem then stays in D0 with no PME armed.
-Every S3 cycle would also destroy and recreate the WWAN netdevs and the
-/dev/wwan* ports, and drop any active data sessions.
-
-Could this be gated on ipc_pcie->d3l2_support or a platform check? And
-since the patch is tagged Cc: stable, could the changelog mention this
-change in behaviour?
-
-> +	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE ||
-> +	    (mode == PM_SUSPEND_PREPARE && !pm_suspend_default_s2idle())) {
-
-[Severity: Medium]
-Can pm_suspend_default_s2idle() tell S3 apart from s2idle here? It only
-reports which state the "mem" label maps to:
-
-kernel/power/suspend.c:pm_suspend_default_s2idle() {
-	return mem_sleep_current == PM_SUSPEND_TO_IDLE;
-}
-
-state_store() only looks at mem_sleep_current when the string is "mem":
-
-kernel/power/main.c:state_store() {
-    ...
-		if (state == PM_SUSPEND_MEM)
-			state = mem_sleep_current;
-    ...
-}
-
-"freeze" and "standby" go to pm_suspend() as PM_SUSPEND_TO_IDLE and
-PM_SUSPEND_STANDBY directly.
-
-So take mem_sleep=deep with "freeze" or "standby" written to
-/sys/power/state, or mem_sleep=shallow with "mem". The system enters
-s2idle or S1 and the modem keeps power, but pm_notify() still calls
-pci_unregister_driver(). That skips the ipc_pcie_suspend_cb() handling.
-With no driver bound, pci_pm_suspend_noirq() then only does this:
-
-	if (!pm) {
-		pci_save_state(pci_dev);
-		goto set_unknown;
-	}
-
-The endpoint stays in D0 with no PME armed. On PM_POST_SUSPEND the modem
-is probed again even though it was never power cycled.
-
-The reverse case also exists. Some callers invoke
-pm_suspend(PM_SUSPEND_MEM) directly and never consult mem_sleep_current.
-Examples are test_wakealarm() for test_suspend=mem,
-drivers/char/apm-emulation.c,
-drivers/firmware/arm_scmi/scmi_power_control.c and
-drivers/soc/xilinx/zynqmp_power.c.
-
-If the default is s2idle, could these paths enter real S3 without the
-unbind? That would leave the original "PORT open refused, phase
-A-CD_READY" failure reachable.
-
-The changelog says "Suspend-to-idle keeps the modem powered and is still
-handled by the suspend/resume callbacks". That doesn't match the cases
-above.
-
->  		if (pci_registered) {
->  			pci_unregister_driver(&iosm_ipc_driver);
-
-[Severity: High]
-This is a pre-existing issue and was not introduced by this patch.
-However, this teardown path used to run only on rmmod and hibernation.
-With this patch it runs on every S3 cycle.
-
-ipc_imem_cleanup() cancels four hrtimers, but not adb_timer:
-
-drivers/net/wwan/iosm/iosm_ipc_imem.c:ipc_imem_cleanup() {
-    ...
-	hrtimer_cancel(&ipc_imem->td_alloc_timer);
-	hrtimer_cancel(&ipc_imem->tdupdate_timer);
-	hrtimer_cancel(&ipc_imem->fast_update_timer);
-	hrtimer_cancel(&ipc_imem->startup_timer);
-    ...
-		ipc_mux_deinit(ipc_imem->mux);
-    ...
-	ipc_imem_device_ipc_uninit(ipc_imem);
-    ...
-}
-
-With MUX_AGGREGATION (the 7560), the UL path arms adb_timer for 500 us
-through ipc_imem_adb_timer_start(). PM_SUSPEND_PREPARE runs before tasks
-are frozen, so UL traffic can still be flowing right up to teardown.
-
-The sequence would be:
-
-pm_notify(PM_SUSPEND_PREPARE)
-  pci_unregister_driver()
-    ipc_pcie_remove()
-      ipc_pcie_cleanup()
-        ipc_imem_cleanup()
-          ipc_mux_deinit()
-            kfree(ipc_mux), ipc_imem->mux is not cleared
-          ipc_imem_device_ipc_uninit()
-            usleep_range() for up to 30 ms, tasklet still alive
-
-adb_timer fires
-  ipc_imem_adb_timer_cb()
-    ipc_task_queue_send_task(ipc_imem_tq_adb_timer_cb)
-
-tasklet runs
-  ipc_imem_tq_adb_timer_cb()
-    ipc_mux_ul_adb_finish(ipc_imem->mux)    <- freed mux
-
-Could this write into the freed iosm_mux through ul_adb->adbh, skb_put()
-and channel->ul_list?
-
-ipc_imem_cleanup() later does kfree(ipc_imem->ipc_task), and
-ipc_pcie_deinit() then frees ipc_pcie->imem. If the timer were still
-pending at that point, could the hrtimer embedded in the freed imem also
-corrupt the timer base?
-
-Should ipc_imem_cleanup() call hrtimer_cancel(&ipc_imem->adb_timer) along
-with the other timers before this path runs on every S3?
-
->  			pci_registered = false;
->  		}
-
-[ ... ]
-
+diff --git a/net/netfilter/ipvs/ip_vs_ftp.c b/net/netfilter/ipvs/ip_vs_ftp.c
+index 44de99f4d187..cf640cba0b12 100644
+--- a/net/netfilter/ipvs/ip_vs_ftp.c
++++ b/net/netfilter/ipvs/ip_vs_ftp.c
+@@ -29,6 +29,7 @@
+ #include <linux/netfilter.h>
+ #include <net/netfilter/nf_conntrack.h>
+ #include <net/netfilter/nf_conntrack_expect.h>
++#include <net/netfilter/nf_conntrack_seqadj.h>
+ #include <net/netfilter/nf_nat.h>
+ #include <net/netfilter/nf_nat_helper.h>
+ #include <linux/gfp.h>
+@@ -283,6 +284,12 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
+ 	if (cp->state != IP_VS_TCP_S_ESTABLISHED)
+ 		return 1;
+ 
++	ct = nf_ct_get(skb, &ctinfo);
++	if (!ct || !nf_ct_is_confirmed(ct) || nf_ct_is_template(ct))
++		return 0;
++	if (!nfct_seqadj(ct))
++		return 0;
++
+ 	/* Linear packets are much easier to deal with. */
+ 	if (skb_ensure_writable(skb, skb->len))
+ 		return 0;
+@@ -382,7 +389,6 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
+ 	}
+ 	buf_len = strlen(buf);
+ 
+-	ct = nf_ct_get(skb, &ctinfo);
+ 	if (ct && !nf_ct_is_template(ct)) {
+ 		bool mangled;
+ 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116031148.333990-1-davidlwesten%40gmail.com
+2.34.1
+
