@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794968411;
-	b=2/Qs/RsyUz7m8sfwzll0JJZi4xAQhO4xfkdyE9EvCa1DELsyZn3wm0dX/Msh+BZXlrMt
-	 Xu3L9LExD0kH2yS4Zf8xPm+C+KJGKepkEReRR93ua6/0TMIT8C/MmqhLTcMzgvNm9UsVj
-	 b/CboXcprCltXmNssUlKOLU3pEIYSSdh+TTeM60uCWjHLQxxYcAAy9LJaJMO1WWghLcEh
-	 IwtCluBjd4DBzD02OJfKrXrAPLMblv+wrIYOmj74pTS9xwVNHVyFe8ac7kz91FjDxaIdC
-	 fEKzXSTRyvVZbCieQv+5d9+4KvaIZbJk1MiN/aOVbp2qhrXGMoqeItle1YcnaIEvpug==
+	t=1794968406;
+	b=QhUIIjaTafmjosLwnSJmGziSVnxGN4hIzZy3Wgbr6lot+WALwMsYZ6MdL174Rx/gNybH
+	 aeJxCuypsG3hDQ0LY/aMIZRtOGuwXQxF9S1wPiiPB3r/HI60j6nyum4Z/FXrwOo4orqad
+	 Z6ZfFOxTEXXb/rmbbYVkOanVNbRjlLZLGPoiGEL4ZQxvKL7NQ9L43xYKmvc2eHYp2oCAm
+	 9yfE632SJcbhvCPtnfqKXAn2pNyY1/5X32+9q3Dk/td+BBb3tf7PtFvgIyfVU08dT8Ucr
+	 kEebtB9C2/sk4BrKe1e3Vet19n96smypowiLoX9Y2mQ/ZaY2dIub1/hGBq9Nks44XcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794968411;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794968406;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=wfiq63kxiT5aoOR+3JCcFGRHHMJmr2LUP/R1Uemy2Gw=;
-	b=Nq9jilnfDo7g716FTIQT6PJnAXsOmzT5WPoTAE9CU6uDcDcyRWQWTN/GIkvSqfnf7CI8
-	 L/1XKZyO+IY/YKNVvi1KYz0UVuoWObh6E0Rt4aePFkPn8YdosdSVMcxl6Ck0Y0jdOxuNW
-	 bfumFbPGX/X022zaN22KSPp+OpAnC0DAdOL4txkH02NgggqUpJv8hk5dqJfkfiinQ8R2O
-	 LL9O72SAr7T1O7+Ixlys4M1eUzul3Pmy5gnb9Rf3NyQP7Evj4PTGIO1f2L4IjWsI9hRHW
-	 yDYChs0l8gEWMWW/JcI7qWOc0KlJHH49WA1bB0nd8jaeaLaI7ZuUDlTZ3rf2Ds3yGJA==
+	bh=kPZCTwpOAmoAE1kau1yrrrh1w6+4vxttMu35OzYwaM8=;
+	b=nmIDn+9AxuKCeL/RQ6ApBMM/xTQCpmAsPI2YisxRZtsqW7bQJk0t1yNR6FNPkSY4/H+E
+	 qXRK+lVmrKPhu3lF9BuOSX9sl2jasf/D5HbLdopj2pcNS8AjisyGxPH9lmz+o5CVQe0RR
+	 HEQHPEzOyiYgsn4OkIdl9SXf8xewRw1p1XQgiVTrmvubU9GNm/x0gAWG65KHfXh2y4teh
+	 u3aSwgfpimHAwftzYlVum2aR1ImS9RhkBYcFacmUIQHo7cs41aZmR0cC7JOim47Yz1NdG
+	 F9/DKu0I/iFtvsVCzj6+pzzgtD0+2Q8920dxewurIA7Zj75oF80vyqYYXraNPWKDmLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mbt2Zd09;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eyek+RUS;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 335D5606A325;
-	Wed, 18 Nov 2026 02:20:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A7A1606A31C;
+	Wed, 18 Nov 2026 02:20:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mbt2Zd09
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C05D51F000C4;
-	Wed, 18 Nov 2026 02:20:10 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eyek+RUS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C16B31F000C6;
+	Wed, 18 Nov 2026 02:20:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794968410;
-	bh=wfiq63kxiT5aoOR+3JCcFGRHHMJmr2LUP/R1Uemy2Gw=;
+	s=k20260515; t=1794968405;
+	bh=kPZCTwpOAmoAE1kau1yrrrh1w6+4vxttMu35OzYwaM8=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=Mbt2Zd09GXxNobCPq2u+OrOepxJCJbRWZ0kLPLMJdbjwJizalY8UA+ii7iXJmDrh2
-	 sHCW1Xt+5lhBjDv8W+S7mQ09CvFoag8SuNhreaHU2/hEeKqDeyTiqMCaBRyLSjjtr8
-	 Wn96twBnvHrwsNdJwkYdDt2MQAo64N+4bskLIBmqNX7nJMbMfcpTEKo0ZO3rHygeRn
-	 w1Y5VknZmuylflvjzJGm+fFuK3NnyvwaIg9a4y4c274ALQQmSFrKTVQiFfZ3jH/0Bm
-	 UDA0HlwEobWZcSgwa8RjtJ1bv9YTaGHNMhoykJwZrBG/aqlxcwTs0r0fqJCtHFqY7h
-	 jJUBgRIY3EiPA==
+	b=eyek+RUSDkUxy0P/ZvZCDtyn53KL68dF1NZvM9hqbsLa9YLzLTSYncJSx+kqrKrBS
+	 ZiXP4Xymnw1k6fCSk6IyQCMS2BWcWsDLxFjUWq8hOpatgfGjr6jlclN5XAlDnI9gi+
+	 WQTdSlYHtwO53RoDubbqcY/+S/TketSAEPNadXqsxPdQsaAgZ7G5Yl2Xx7vF2O91y+
+	 MRKl4a9I0YTbv8ClKJN/yX7IyLT/6Tin5kzcx6OyMdbFP7xVEh3z/Pv1/1bslr3PUz
+	 gXZ1nX8rpiDV6sXKOpyrIbVDgdtyilFln6yvgWcW7rpk9I+ua1kfZ9R/wsZHd1WFxD
+	 Qc4wizQhOC8MA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45D7392B1FF;
-	Wed, 18 Nov 2026 02:20:10 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B443B392B1FF;
+	Wed, 18 Nov 2026 02:20:05 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,54 +54,42 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v17 0/4] net: dsa: add DSA support for the
- LAN9645x switch chip family
+Subject: Re: [PATCH] tun: disallow setting ARPHRD_MCTP link type via
+ TUNSETLINK
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179496840952.1411964.17679885943964442392.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 02:20:09 +0000
-References: 
- <20261111-dsa_lan9645x_switch_driver_base-v17-0-83a471c5bddb@microchip.com>
-In-Reply-To: 
- <20261111-dsa_lan9645x_switch_driver_base-v17-0-83a471c5bddb@microchip.com>
-To: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard_=3Cjensemil=2Eschulzostergaard=40?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
-	=?utf-8?q?microchip=2Ecom=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: UNGLinuxDriver@microchip.com, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- woojung.huh@microchip.com, linux@armlinux.org.uk,
- Steen.Hegelund@microchip.com, daniel.machon@microchip.com,
- geert+renesas@glider.be, magnus.damm@gmail.com, edumazet@kernel.org,
- richardcochran@gmail.com, linux-kernel@vger.kernel.org,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org
+ <179496840454.1411964.2818262145565407284.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 02:20:04 +0000
+References: <20261112131056.234801-1-skalpesh942@gmail.com>
+In-Reply-To: <20261112131056.234801-1-skalpesh942@gmail.com>
+To: Kalpesh Solanki <skalpesh942@gmail.com>
+Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com, jk@ozlabs.org,
+ matt@codeconstruct.com.au, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 11 Nov 2026 16:33:50 +0100 you wrote:
-> This series provides the Microchip LAN9645X Switch driver.
+On Thu, 12 Nov 2026 18:40:55 +0530 you wrote:
+> When an IFF_TUN device is registered as ARPHRD_NONE, mctp_register()
+> attaches an mctp_dev context to it. For ARPHRD_NONE and ARPHRD_LOOPBACK
+> devices, incoming packets in mctp_pkttype_receive() invoke __mctp_cb(skb),
+> which initializes cb->magic = 0x4d435450 and zeros cb->halen.
 > 
-> The LAN9645x is a family of chips with ethernet switch functionality and
-> multiple peripheral functions. The switch delivers up to 9 ethernet
-> ports and 12 Gbps switching bandwidth.
-> 
-> The switch chip has 5 integrated copper PHYs, support for 2x RGMII
-> interfaces, 2x SGMII and one QSGMII interface.
+> If a userspace process sets the link type of the TUN device to ARPHRD_MCTP
+> via ioctl(fd, TUNSETLINK, ARPHRD_MCTP) and transmits a frame carrying
+> protocol ETH_P_MCTP, mctp_pkttype_receive() evaluates dev->type ==
+> ARPHRD_MCTP and calls mctp_cb(skb). Because frames allocated in
+> tun_get_user() have a cleared skb->cb and were not constructed by an MCTP
+> hardware driver, mctp_cb() trips:
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v17,1/4] net: dsa: add tag driver for LAN9645X
-    https://git.kernel.org/netdev/net-next/c/4a7653aee5fd
-  - [net-next,v17,2/4] dt-bindings: net: dsa: add Microchip LAN9645x switch
-    https://git.kernel.org/netdev/net-next/c/4b4e23155b27
-  - [net-next,v17,3/4] net: dsa: lan9645x: add autogenerated register macros
-    https://git.kernel.org/netdev/net-next/c/12748b403a6a
-  - [net-next,v17,4/4] net: dsa: lan9645x: add basic dsa driver for LAN9645X
-    https://git.kernel.org/netdev/net-next/c/8138a7745064
+  - tun: disallow setting ARPHRD_MCTP link type via TUNSETLINK
+    https://git.kernel.org/netdev/net/c/0a3778b93be4
 
 You are awesome, thank you!
 -- 
