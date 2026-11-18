@@ -1,101 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032329;
-	b=RvGUO1ZbAIO6oIExwNwphL24T4ldYIZtza703pVjxr/mVpXiI0Rc1Mc6iWju9PaIr56a
-	 nRPCVubXp2HJ3M8Etos+mZjT80WgeABJ0liG+AgPuGg46UzxW1WhCTTOQPsLD4lJPDNFV
-	 jPPewH1tXoCjcm+YfJelW6Ppj063vtzaY7PrCNB1ABDIaF2RB7a7INF/yQIaQc5/ytX3z
-	 pqbTqFVoZ2fGeRQETE7DkxiAbIJRiQJZLn7T/Rfftt1pf2o7UyFbCxmLSVrU4PAHuillj
-	 3N7jtH1Q3VDJRrqNb70tCYdRDzCjtcreCmz3h6xp/IkCpsgbSDqIMC/iMJBnM2u51vg==
+	t=1795032332;
+	b=SVerIvWAP4gLUkKMUwXklR3v9nOwDMIIhFjiqEt59SXHeVcYkUROGW3Y3uyKEc99dnNy
+	 MHHEG9DEKP5vsMK8xoGCh2Y2+MSIbm3cJJ9y4ko4JwxDh/IvZdv1T0GrMn4QRi6QGRcOZ
+	 86KwLUN3POjS1d3uMxsxjCv35HjpC2M3YfX6WjxlGQCXKfjP4yWIElw5arzHv7cEYI+cU
+	 1cgGXrDRxv+HJhumDtddigUZ8s4YXnk5QtFFo7xJZF7Pwe3dIthu5cs4m70QvinuPww9/
+	 /w1AlGOXbC/0eXV1p6M7vQAekehaA2yxhR34BAPWTOmFDvz9Wf0UkZOwQs1DRbBDAow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032329;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032332;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vyE5jE78QejGeUNpk2fN0Lh2UcG+wGDugPW4CrDMAXI=;
-	b=dmgrhnYz5dn4/UKH4U5+CF3R4C3oRxzMq77Ket9B9HMYs0NGVfQ92eaMONa/rUHwOFIa
-	 URex/QWJ2VOkblTiEUSdrXC86kHHV0RY29vT2nu+NJ2rlPsI6vB84Y2mivjwIffbz2wqO
-	 0lgHDgHbvPMBtOy5addHgWWHSHriUKKsLFTF4W3tGG+2zI6Cps9kpn7pzlzlFL0hx43fo
-	 A4XzONzULwiHfnhnkgHFjWYM4GBgro2KJCNBJsFYVXo7EGDobeYsoKP+pQrMUW0uQrPKV
-	 Yzvhmw86Aj60kxcQq/qS7PJcgf3FEdjlLipEimw22YEoSh3dLf7HLZbGKcpqOoHF6OQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=lhY1kQV+0BeRiYIEaScadjDC4jmhduQLLve0FXrFB4g=;
+	b=26LKiK00Zx9Rgv2HjjdP8NO1KYGOdUFOgdp3sTe/z4KPvqugG+Ok7T1+Bo9R9w3HyZ8+
+	 l8COlaR0IRzy9CSGSnzzBGOcX5xFnEbwV0eO0s1iPj4M/y+VQ0TRiFMjis/n+cqo4ngHH
+	 INf+Dg2szSlxn1HIdt0Yl+g2Lr6ry69CWbkkuSNY73juHwWVp5J8CIt3PsEnrlpqnbA19
+	 b/hfMmQCmwvS/eAtMZTsudtyQ52NwtMfXnwIzS3B8LGW9DcoiOFRUyZO9N5qWwUAuX8Ml
+	 qkFCAepT60vTZ1Nn114/qIGINfeiIpll4nRFVDBsKnTH7zowRJJkxscOI5XvA/0KIlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=POupRKWv;
-	arc=none smtp.remote-ip=74.125.82.46
-Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FY6HgOSO;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B379B60A261F
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:05:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B379B60A261F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CF1D860A2636
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:05:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF1D860A2636
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=POupRKWv
-Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1a2761c69fbso1554619c88.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:05:28 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FY6HgOSO
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-380b40312e2so3939138eec.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:05:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795032328; x=1795637128; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795032331; x=1795637131; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vyE5jE78QejGeUNpk2fN0Lh2UcG+wGDugPW4CrDMAXI=;
-        b=POupRKWviGCLd+1OxweZTOkVriYNvVXgWS1eCPXRZB8HWLI70OkR+lFqcWAukrX8JC
-         +O0IJ6Xpvr0/RoKtToAllK6ojWOK2WfdMf11fvYZq9YpmpyZraIHlTNjQ8Sq+t3JwaTM
-         G8khywboxxuZXCy99u7yPpMJ2qrJ8N/sdTWsWHgzqXxhhUO30KtlDVHeQRbVvbNNJVgN
-         TIYu7XP75cvXzYRoGyIVQ+P3IL6L4kCl77agjtO8g6klYhNYQLqU53p8FgW4iBFFq7LD
-         dhgHhvlQTtbXUzjySEqeET16omvb482REfNkq9chkJCWFlQKfbdpBx49sCqn6cNPIVnR
-         ZNJw==
+        bh=lhY1kQV+0BeRiYIEaScadjDC4jmhduQLLve0FXrFB4g=;
+        b=FY6HgOSOJk/B1JD5ErvW/oO/+/P2xQrqnVF6SES+Upa4hNTakVRhVg0gowqNRZNFh/
+         3+fVjOOYnFMnjAUchXcqaY31if+qJT9qMCyhlKMnBQLgtZsgESZlBdnu49iDYrFtZ7Bo
+         hZ0rVXMU0FzNs8zLXO505C2iIV+HrAV3QrEFI2CyCCG7P51W9D7SjpeR/91BBSLUZq6q
+         B6HwhU2DHNyYG4zuw4UEpIvDo2BPIZqYV1aVnGOYMAbDHdEGSXKkuqniA8hwAFIkg0Lv
+         53dFkXS4oNGJgjtot0JaBj6eesAp1vD+Gt6jXtuM5EnNY3Aq3ThZYtGKWTQAPn69Pn1j
+         0M5g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795032328; x=1795637128;
+        d=1e100.net; s=20260707; t=1795032331; x=1795637131;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vyE5jE78QejGeUNpk2fN0Lh2UcG+wGDugPW4CrDMAXI=;
-        b=voiQyKIuZscqMeFAnf/IpnMgR5z7csjXBWUioZNtrCJ2DpHRr3YMUQIg8VBIPSjnnC
-         zPOytcxSz2D0mMxvURHkmxWufZfO2dLjKrJ1kb1C+LlpjPZiQgQaWXNn6SHsKFu57y7r
-         ly+zyy5cMemIT06d/lABZOSNiJc4Asy13Y4gdQHh2mUZVEIDC0RGoJQ8HbFrnmByig4I
-         Bga5aY88A2wesdlfr//7yg0PJSNaYdm4uKaLxg/zUzPcBj9tNIFu+hGaGlVHrC5NENh0
-         oa/+CWUY9d5E/yWP6CMirpKwb2D1c9TGnHXcgkioaXaVAioPuXk5mwEdVBdiYN/TKnbf
-         zR4Q==
-X-Gm-Message-State: APuU4Z/shD0zln5i8yMn8mgnvYtG5PCF9Bvb54yxLC9W8o4aMFkcFhJ8
-	lykMchAFePox07M/7uv+6/JOU3AXcuCd0wGkmfAFhXMHEXeTpUVJwFiMejhwXif+
-X-Gm-Gg: AYBFou1MFRoO0ln90VHPVqp89iktbiUI+leqXD/+bhuHpEAsWgOUNDjls5Cn9+oRU8i
-	9hhy83TEuaRJT+13EcCQleqchyLvYsiNZAQxlY8/ejTHkjG53KIhnZZ2PhEWslLQdLS+YGAmaZ/
-	Dgi49cr02FVGrOQ1ukZlZyqP9ehpv5WFZV65LWeUyZHARBWoJ2cRYPP+IGe605UdwatLjCf6lUD
-	fQBhmqihv8hHqUPh4x+loP90KqHHXV1P7Kb2n03Xveg5PJ/L5PIUvMNCr7RFW8yBr5dl66Hxhk6
-	zw40REvmo82Pt35dEu8e9uxbIb+2pbPfL6Ci6tBzZjOXQpcTjZ78b6TnLJm3XV4YFcBAcFNPUtA
-	pl5kvVp/+VFgmf5C+tc4+7DI0cULg3ZRvr7BKHcDG/51d8g7MS3MomiW+2xfWwCpq3iUbbwsPLS
-	7pWE7grr2ThSxSOPi8SvZl+8+gp2ePyQ6fMjSwUHCiBxP7HjsrhrYztQ+RvkvWzSupnHXFELaRI
-	XY3nQaIEDOmJL7XFrbI4qziMLvn381wI0x9XkwoJHS4ursyK6lFnT2rngN03MACjMV2HmnkGz71
-	GBPx0V32tz6SZGlgxBLBrwsvY9B4q0ELBXVuNdrhnU7CKzKH6wDHULr7n08zmSgpV6FRVKJlP17
-	GeTtqIvVWe/bQJi9Ymog4mIDsZTgS
-X-Received: by 2002:a05:701b:4348:b0:1b5:342a:e4f0 with SMTP id a92af1059eb24-1b543b09960mr3155007c88.6.1795032327530;
-        Wed, 18 Nov 2026 12:05:27 -0800 (PST)
+        bh=lhY1kQV+0BeRiYIEaScadjDC4jmhduQLLve0FXrFB4g=;
+        b=qjUY8oRsFf3zex7ID5F+rkS+oOrdqJ/P25bj/NDlhEQbkhG0H0Su8Qo+hxrNeRK2aW
+         8w0w8LlHAw3xGW6922XYHKVu9pu2kc/mG+emdu5GzEebLGWQv0i8Glj3Pz4DbVbuzw3Y
+         SH+5JhRZ69ww8Ehtyjyv0XAMiW+O6vy4MZbu0w7y+XBhbJEkNyZJgaS6xPU87ous6QKi
+         d+SARQS8rgqr7xrI3tnrWzCMpdEOQegAg8M1Lhx92zSekizLXuuLAkIeiXK7xWGBcFlf
+         zuc42mWCdrW/G94m7AKjtQnkDcfYNlMfg0ZfKEq+Xz0hC6E5mQvjCku6gnTuHJaFbv67
+         D7qw==
+X-Forwarded-Encrypted: i=1; AL+hErEM/FuBx5CGHAtHSMhg+Dg6VNApwjzq0s4G7fKpx8ZkMK9nO/iGRskENIlPLKiLwv4AwrXXA4Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+8DW/9m8drsFtjpU11XCD9+2ChyZgV84FryHliMwRHnNFMh1gE
+	iMQVWvWLLV6z9AQizYTSucOA2fPRIPYMP38RWbJ/avn/GOsP+lF1cc5k
+X-Gm-Gg: AZFdTZfw2dgqG8XITjmAq2UgL2vB+xDH0iet3Hzz97MpYX5efeFVh/+mz9aWbYicuq6
+	jQWzyyW2fTtndhtAiaRKTRs3csDSoLRiPo85Agte2Pr5PtmIiwWyRZ9NUOJNtgZIXlvHBCt75bL
+	G4tMwhy3zQPswFjkcpRyz50JAhoOrG2pF/15M6UqTXKONt5g9X+B11NiH97is2dB1Y8A3KGmsSC
+	k3dtv1rvnwgqkxLXDFUze5PjWq6nghQiaA83ZJuZQTVr6TwTQjS+LPdm6tSg5qiGyxOY5xMos14
+	d3J6hHFaaREQPACijcVS1ipWckfGCW3QWfYN/MAqSkUJ78ZRmQrg0reWmHWYeFnxr9bPrgIs45M
+	MAUpcGw4rMafbhI2szsqkx8NrNUCwNJB6VkxLAAkJu+dsDS3nkXwfaWWx1LMboDN0D4WiM5hf1D
+	xWfvXYJUgQMGUEVww2RKf3TQYx5hAAwrLwq6u88eufYyCdacVM4o5VQ9jt1t8/ML6xJZgUH13/l
+	VdlIRxinj3vG5Yo18bB9DGMU1YAV6InPUKPng+fVqDSmjiNQrbPBUjvxXPg3TpW5UfQVg1jLSZv
+	g3G966JdgXKxfvwv3Gx98XAXcSmQ2AWRnAfv1IZKJJfzxvMBkF6ieGOozp+kkGwxkBQEJnpbSJ0
+	tCLSOMe1N9bMVnI7BpEWgoa10zKc0
+X-Received: by 2002:a05:7301:77c3:b0:376:2ca2:d80e with SMTP id 5a478bee46e88-38281214024mr2770749eec.30.1795032330636;
+        Wed, 18 Nov 2026 12:05:30 -0800 (PST)
 Received: from Mac.localdomain ([12.162.234.74])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5445eb29esm8843535c88.0.2026.11.18.12.05.25
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a79c96b2sm11032107eec.24.2026.11.18.12.05.28
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 12:05:26 -0800 (PST)
+        Wed, 18 Nov 2026 12:05:30 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev@vger.kernel.org,
-	vadim.fedorenko@linux.dev,
-	richardcochran@gmail.com
-Cc: andrew+netdev@lunn.ch,
-	arkadiusz.kubalewski@intel.com,
+To: netdev-bot+sashiko@kernel.org
+Cc: andi.shyti@kernel.org,
+	andrew+netdev@lunn.ch,
+	corbet@lwn.net,
 	davem@davemloft.net,
 	edumazet@kernel.org,
+	horms@kernel.org,
 	jiri@resnulli.us,
 	kuba@kernel.org,
+	linux-doc@vger.kernel.org,
+	linux-i2c@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	pabeni@redhat.com
-Subject: [PATCH net 4/4] ptp: ocp: correct the DCF output frequency
-Date: Wed, 18 Nov 2026 12:05:24 -0800
-Message-ID: <20261118-timecard-common-301f823ddd-4-ahmadexp@gmail.com>
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	rdunlap@infradead.org,
+	richardcochran@gmail.com,
+	skhan@linuxfoundation.org,
+	vadim.fedorenko@linux.dev
+Subject: Re: [PATCH net-next v3 1/3] i2c: xiic: allow platforms to require 32-bit register accesses
+Date: Wed, 18 Nov 2026 12:05:27 -0800
+Message-ID: <20261118-timecard-common-301f823ddd-r1-ahmadexp@gmail.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com>
-References: <20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com>
+In-Reply-To: <179502617544.3136.16911407487347494512@kernel.org>
+References: <20261116-wiwi-v3-87afa10a8-1-ahmadexp@gmail.com> <179502617544.3136.16911407487347494512@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,46 +115,12 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The output selector table uses 77000 Hz for DCF, whereas the input table
-and the DPLL supported frequency list use 77500 Hz. A request for the
-advertised DCF77 frequency consequently fails on an output, and reading
-that output reports a frequency outside its advertised set.
+Thanks. I have clarified the comment in the v4 draft: the subword offsets
+describe the default access mode, not the forced-word mode. The latter
+requires unused upper bits in CR, RFD and DTR to accept zero on writes.
+It still performs one transaction, without read-modify-write, for FIFO
+accesses.
 
-Use 77500 Hz for the DCF output selector as well.
-
-Reported by the netdev Sashiko AI review and confirmed by code
-inspection. Source-derived C regression tests pass with ASan/UBSan;
-restoring the faulty selector, mask, disabled-state or DCF value makes
-the corresponding regression fail. Tests use stubbed MMIO, not hardware.
-The driver object builds on current net with W=1 and KCFLAGS=-Werror. No
-physical card was tested.
-
-Codex prepared the fix, tests and changelog from the review and upstream
-source, at the request to separate common-driver fixes from WiWi support
-and validate removal ordering.
-
-Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-
-Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-
-Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
----
- drivers/ptp/ptp_ocp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index 650047581f..aa950cae68 100644
---- a/drivers/ptp/ptp_ocp.c
-+++ b/drivers/ptp/ptp_ocp.c
-@@ -1376,7 +1376,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
- 	{ .name = "GNSS1",	.value = 0x0004,  .frequency = 1 },
- 	{ .name = "GNSS2",	.value = 0x0008,  .frequency = 1 },
- 	{ .name = "IRIG",	.value = 0x0010,  .frequency = 10000 },
--	{ .name = "DCF",	.value = 0x0020,  .frequency = 77000 },
-+	{ .name = "DCF",	.value = 0x0020,  .frequency = 77500 },
- 	{ .name = "GEN1",	.value = 0x0040 },
- 	{ .name = "GEN2",	.value = 0x0080 },
- 	{ .name = "GEN3",	.value = 0x0100 },
--- 
-2.54.0 (Apple Git-157)
-
+Patch 3 remains the first user of this flag. Other platforms keep their
+existing access mode. The revised objects and accessor tests pass; this
+revision has not been tested on the physical card.
