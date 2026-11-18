@@ -1,99 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009883;
-	b=x6f0f0inFHwP4sZyK3B4Ul32VWsz9VAN8yUnW2g6LQoKWXcqCdGS0cXPRWzdHb0OLGBm
-	 p6Jqdh+enl3JqKCnVqUFrCw0OTac/7ymaKHam3/B18aQGyb0E8B4bjjhjc0UanlpAZI+f
-	 s1KsJ4wEPygyhemfwN20MAR4hQxZ9jpGp6XL1HpO1HTq1rDY7XOKJd9MkyojdXe9efNF3
-	 ZgTE6sLWMwYErChtK/oL2Vm2bey6S6RT9nybQg0qgSswOAnil9vw+FHdmZDE3nfU0xu8t
-	 4zPg8PZ0TR1F4KrLT2RoQRhoEiOtcMvY9B1beG+H76d83PztBiXphYm6++29f4V7bcQ==
+	t=1795009918;
+	b=fe+RFiUt5ilXuYqJ0vae8bTkdLf78AMIe96jxLLC9vdinvIcY7S9yKS3x4wFY271olvm
+	 bKu0YzgR8mrxRJB0kosUB43ZsMef+Zpr7B5uTsHKtMURFMDYuGwmJxtEJjPGqr8sHHMuf
+	 u4EZWHrxvsl6iNRF8ED4W88TiXr4Nyn4U1gWo3fvkoa1GywZLO4J9Yp3Y4rB2x0HhHvct
+	 FIr5cwOdGgUY2iJPlN3qs8ivHl/tpgBcByoOtOtkolXu3Gfi9RmYja2smRHH/hq/KC/Rn
+	 8DT6/HIkAaBuuj5BTMpgsFNKBTzQUWdySdeqQ8tzWWXdoi3aVbjGDDJ4bRUNR3ztYPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009883;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=MIZ17EJ90TVFSitTF/G0V5tHa5Ryh7rhMmfLDU73SIE=;
-	b=DzN2pj7HANQ4xs7LMkm5eXmxnBdtgRcThxwLcGNbO/T5AeLyjyGLFFQuMwtK4eR5yTkK
-	 GBXwAs7m0AM7pCbS84Rigyucpvg4tuMI8XNrrVWXy4Zu8ff+8FClZcZ7/v46+4pfnV548
-	 98sr3koXUb6P9pEOqPyOkTlb5wILagPYv67c4s+OHGkO253tUfbjQKVCGWIJp83od8vLp
-	 qebSiTOyDFuzTuGQWjqZpUC8F6lRxpjAvjfKaWP7hj4nHPF5pp8VOweE1NG1Ui31pXY2O
-	 6YkE6Ke53z1d3Wno+9/+9kLo6cPaEAoXeV7RY1sq0zaai4jC+NT5LMyvgLRYY95vjOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009918;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=VHLJsIJFyqtvRqXnKEHB3qZMFu94gIc6D+p1OgPM6lg=;
+	b=B3SMA7EcwzFrnA2gjdiMOGZ1q6aJeolu3cNklztdKz2V7bmZ6iDNOJUTeh9+57XYaK/F
+	 uKRU6AhTwwx0XxMU/mZG56J7mKVa99X386W0QeCEApP8Lq6q/bGXWer1I8Ixvwh3Rt9jA
+	 0Lv5owK994dypVGvwgkzqZt867KfdMUUxQ9CXGYMUxdY95+TJiKkR+JiYLBRrsZsRk7pD
+	 bxSpZKrjbXdojcde5WZPTOpXBkXYq6Y+Bi3jOre3PeF97vwjgwy9U1qOZstF4QP5l/Hrk
+	 lLMbDv5yqzsknhgu27GViDovFMpTHxpMj1fnw2EIjdIw4J2TC1jHBl6xYYqaD67glGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n9SNehBa;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=UJwMBM3b;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC816606A325
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 13:51:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC816606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A2CC606A333;
+	Wed, 18 Nov 2026 13:51:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A2CC606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=n9SNehBa
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a35d5d4a20so10629115e9.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:51:22 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795009881; x=1795614681; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=MIZ17EJ90TVFSitTF/G0V5tHa5Ryh7rhMmfLDU73SIE=;
-        b=n9SNehBaVqytzIHepeoxjU3EJaqvDEfpn6SeIG7rGNbatJoEMC97JWUV8pzcEjaALD
-         3kSbrOzCfv9fwdttVmYfl4HeNGmHZzo2KXkIj+zoNPIIGALPjic89FLTFJxG7n3p4GZU
-         s7ROnGZOQGw8NXCKtrVuk+yiW9OvXOiQzoOaRzSzZJ8wIutEocCTx+AQiP44uYF1VSyF
-         Pf1rZtVVzXojGj8oZPMlDGeNoKTazvxLEdyW3NapFJAY5rPKI/WxKG5ArNSt+DX7+chm
-         2wQwQVwzbJ8o0q9h2U//41PkRqJUTlHf5evgKbPpY5EzN9QDlB9Mpdl18U/MYpJU9K5n
-         W93A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009881; x=1795614681;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MIZ17EJ90TVFSitTF/G0V5tHa5Ryh7rhMmfLDU73SIE=;
-        b=Fk0WjyagHCsQu9IQSFM0UF16GzZtS7wPmLhsiTGAP613WGalLt8+63DNtzh73viCSv
-         Pj7Ltc/T39OAU8o/nEnyu6MKrUznwrQUWhOimRktRsZbQNdqd+mKW9FBtroCkl+zobsh
-         qb5vHgxsSbddgMNSnG7UuKMuc2tULx30Z2qhR/19aYG+7mr7KZ7jEFfVMtdoj9gSJdXE
-         hXTveZB22274bOzjzu/gzdFLl0LJya2Ywb7AA6DtOADVfVM26SC/BPadA1TWBivzZ/Dh
-         pa3bzdJgqCdvNJffDA2Ts+Tha7s4Gw5l4NtBH3G3G6BIh8hnacB07zhCqhEm7xzG5ESR
-         14Yg==
-X-Gm-Message-State: APuU4Z/E3wC+B3TDLo1gfIV9RA7VZxnzbl8fTiBX2aNfBZ/WZk7sXC8v
-	VMBntPILK3Hpw70NVcMN0i+7seSDktyJ2paf2NojLgpytaD+iEIPZXoO
-X-Gm-Gg: AYBFou0ZOi+VDvZ9iulbSYJe4OyVeNKyxc7GLZc7ZEvvRWiXaGvdPX0QYjZH01U9Zob
-	DBqSKIXgttuepGuQeHsiJgbLF2MEwbmEt8mp3fRbQbcgrCMGnr1Pkcm9Raro9RNcXahpFRsw2cF
-	iksN8wgXREhEn3jFpxEnHqhjg7OutSGW9R/lxIM7PP/gNnvPlmrJFj/jqASdNzFaAfK7KorWeEF
-	CPDdaQoJ/nRdyAkVZyPMV6CqKOdZCV8oB1bCT3JzMsddvZvy3lL0WNslg76tw9uS+tWhZQnwfHf
-	Tc+LKrbc5ODR7Rmy+jY+oK/HfBRM1ufEPxQKsbWER8I7iQh8ns3Yh+aVKE0Meldiw1B0Ty2Lp/S
-	oCyZQC5sp1GDRZI+KN8CTHuhcMJyxpEmPARhKd7xRcMWyBPk7iXVXSBmJubNjqqIiRLUolIBRun
-	tdn+IcW8xd0z9GFDZ/EgIq1uRxQK+Whm5hHaY40mQqc6mupmspWx4CpxR8AzqFDRJKdqho0zwIS
-	f9xvD7Bt5dMLqqzc3wLiIjHnZo0KopTg52PM/ixoewDN98kvWlY7FCJtuXzMNyAKiZrbywLmTNx
-	+yPIieK1Hels6JT2524rs88Czl8rNFLRmk2AUM0P1G3ZtowvcU4Rx6dJkfWSma7M//jeBhUY2Nt
-	hKi1vrQxDf1s7jjOjKL1Pz36k85++IrOtQDs=
-X-Received: by 2002:a05:600c:5008:b0:4b1:4017:c4f4 with SMTP id 5b1f17b1804b1-4bb7da2709fmr53221605e9.20.1795009881082;
-        Wed, 18 Nov 2026 05:51:21 -0800 (PST)
-Received: from pc.tail250202.ts.net ([87.110.86.243])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a654997681sm3926250f8f.15.2026.11.18.05.51.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 05:51:20 -0800 (PST)
-Date: Wed, 18 Nov 2026 15:51:14 +0200
-From: Janis Edvarts Lacis <janislacis06@gmail.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, wellslutw@gmail.com, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: ethernet: sunplus: check budget before calling
- napi_complete_done()
-Message-ID: <r5ro4ebbpapeq6yacjttlc5k2isw6seaazu5ixarm4ackmshtg@a5mampmyaz3b>
-References: <20261114222744.535158-1-janislacis06@gmail.com>
- <26c5c08f-d6f5-49b2-9fa8-de6f8c244a78@lunn.ch>
- <7zevuoiao6ildvkxt5baqnalb3nrx736krdxkbrbxouelukveq@2wo6m6cfl6rn>
- <461f7e59-6c1d-4ad5-9eb9-5e5d9b4a9e90@lunn.ch>
- <uscwfcie3wlbyljcowjvwhto7aecdid7cxjknvd4t6t4fyj5tt@lpyoijsxuduk>
- <601a79c9-0447-4571-8590-998d02bf949e@lunn.ch>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=UJwMBM3b
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=VHLJsIJFyqtvRqXnKEHB3qZMFu94gIc6D+p1OgPM6lg=; b=UJwMBM3bNYcqNwC4wFX0wj7AXI
+	qKVW+I8+d0IxCWWoCwDJ5G8j2vCIcoHJDYlAHxPvGCkpScvC5mZ32Lswu1TmhL8FTvWCvzgoSNrJe
+	iVJXIPZAcXmilKSIbPAsnNrpRVUvS1W3P1tlPQcYSGeGvwEHBeFaJNcKdesb3Es0hluU=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTg4j-00HQiI-Km; Wed, 18 Nov 2026 14:51:49 +0100
+Date: Wed, 18 Nov 2026 14:51:49 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Frieder Schrempf <frieder@fris.de>
+Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Richard Cochran <richardcochran@gmail.com>, imx@lists.linux.dev,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Frieder Schrempf <frieder.schrempf@kontron.de>
+Subject: Re: [PATCH net-next 2/4] net: enetc: netc_blk_ctrl: add i.MX952
+ support
+Message-ID: <abd5b300-2dd6-45b9-9ef1-c7c123b6dfa3@lunn.ch>
+References: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
+ <20261118-imx952-enetc-v1-2-25721440602e@kontron.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,37 +75,64 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <601a79c9-0447-4571-8590-998d02bf949e@lunn.ch>
+In-Reply-To: <20261118-imx952-enetc-v1-2-25721440602e@kontron.de>
 
-On 18 Nov 14:19, Andrew Lunn wrote:
->On Wed, Nov 18, 2026 at 12:10:32AM +0200, Janis Edvarts Lacis wrote:
->> On 16 Nov 23:19, Andrew Lunn wrote:
->> > > I am fairly confident the change is correct, as the documentation
->> > > supports it.
->> >
->> > So the LLM review is wrong?
->>
->> No, the review is not wrong. It correctly points out that the budget
->> cannot be exhausted during normal NAPI polling in this driver, which
->> I had missed originally.
->>
->> It correctly identifies that the old code unmasks interrupts even
->> when napi_complete() returns false. My change calls napi_complete_done()
->> before unmasking interrupts and only unmasks them if it returns true,
->> indicating that NAPI polling has completed and interrupts can be re-enabled.
->>
->> Finally, it brings up some pre existing issues that seem to be appropriate
->> for separate patches.
->>
->> If this patch still makes sense as a net-next change, I will update the
->> commit message to explain the ordering and conditional interrupt masking.
->
->I don't think it makes sense since what it is trying to fix can never
->happen.
+> +static int imx952_netcmix_init(struct platform_device *pdev)
+> +{
+> +	struct netc_blk_ctrl *priv = platform_get_drvdata(pdev);
+> +	struct device_node *np = pdev->dev.of_node;
+> +	phy_interface_t interface;
+> +	int bus_devfn, mii_proto;
+> +	u32 val;
+> +	int err;
+> +
+> +	/* Default setting */
+> +	val = MII_PROT(0, MII_PROT_RGMII) | MII_PROT(1, MII_PROT_RGMII);
+> +
+> +	/* Update the link MII protocol through parsing phy-mode */
+> +	for_each_child_of_node_scoped(np, child) {
+> +		for_each_child_of_node_scoped(child, gchild) {
+> +			if (!of_device_is_compatible(gchild, "pci1131,e101"))
+> +				continue;
+> +
+> +			bus_devfn = netc_of_pci_get_bus_devfn(gchild);
+> +			if (bus_devfn < 0)
+> +				return bus_devfn;
+> +
+> +			err = of_get_phy_mode(gchild, &interface);
+> +			if (err)
+> +				continue;
+> +
+> +			mii_proto = netc_get_link_mii_protocol(interface);
+> +			if (mii_proto < 0)
+> +				return mii_proto;
+> +
+> +			switch (bus_devfn) {
+> +			case IMX952_ENETC0_BUS_DEVFN:
+> +				val = u32_replace_bits(val, mii_proto,
+> +						       CFG_LINK_MII_PORT_0);
+> +				break;
+> +			case IMX952_ENETC1_BUS_DEVFN:
+> +				val = u32_replace_bits(val, mii_proto,
+> +						       CFG_LINK_MII_PORT_1);
+> +				break;
+> +			default:
+> +				return -EINVAL;
+> +			}
+> +		}
+> +	}
+> +
+> +	netc_reg_write(priv->netcmix, IMX95_CFG_LINK_MII_PROT, val);
+> +
+> +	return 0;
+> +}
+> +
 
-Understood, thanks for the quick review!
+This looks very similar to imx95_netcmix_init(), and
+imx94_link_config() is similar to the core of this loop.
 
-Best regards,
-Janis
+Can some core refactoring be done to reduce duplication?
+
+Andrew
