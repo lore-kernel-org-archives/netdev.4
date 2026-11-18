@@ -1,87 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983273;
-	b=Tf7Wj4Mtn6m46M3coQzptvnx0c7P5WH2TKEAIbjtQl5/DLbU3ERvdMfHYxeQDcNuFMUq
-	 t6MW2xvDlKjJr/kI/bxT7/YnZJF+RKNrJBxM+DGOpJoN64R7BlM4hnnYDioh07EA7aOVv
-	 xvQtpl5OTkiyF23wxR9dMk0VwI0aCiEdOLavKCzeR2FAxCrsIuSYcWmRZyFLQKEcfIIsC
-	 WWJPbt6fhnxhbEm1LDV3wCiRRzd03Kdc9m7v98gB7+0H0At9U1PEUHN+BmwrlEaNuaJjn
-	 LwlG/yGw9HTBXvuZ8EOJmhsN02iqA/8dEF+3Aho+O9NrvyY74R1x9Q0NxsQRf2KTDJw==
+	t=1794983316;
+	b=PM8hwHgs1f5kb5YQa7JcXHEzRuCfwDBs/pPQGs/RjabIJAkLWPHm6N1tOmjZFJZ3WSca
+	 Hw1ip5OJXhTq1qjP/whsEuMSbH31S0e6fEpE9bZglpgVd3XayX8zMSjEFp9tIl3F+x2aP
+	 VNzLdAjBhGN7bLf+ekr2o71Ky+jDJExbWE7pDHaoRHGFLEJWRIGQFB6j/XjxMju+N9iE1
+	 p1UbAzI7sOloHiZfn5xRKbg7SBfu/+oG5Bfquj4wMrSEFBe1rFbtfdPZM2JcNulYma1PC
+	 WR+Rvh7LW3dQENFdzR5MZ2hOJZICcGMfYGezhtM0Xd7tNRAQw1pZFWOnCGb4vdZXKcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983273;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
-	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
-	bh=u5Ctav/yDjXLRSHJvbAGfgAiHawDLtclHE70KW98KZA=;
-	b=ZL6jxG1bhknbJPrG5lVZU4yvlvO0kfCKTLQL8c5gbIYdnlQYbIJiuMu63ZT2uIcDB1DN
-	 W93FopdtdsffOkniwmfuU3vb/KBsbWnSYa3d+oR4guIveevZFLSbPwIgP80tWdFYAQiFM
-	 tJ9oA+V0NQj62y1ays9hFx819ZFYKzPAQgDjjB0AlBtPJgcfTmL4sD5NecNxzgP7M8qFI
-	 3CMhiXcMwJiuaQea/oHQcIbsL1DC8mhgY2ZEb4014NlY13ggaIJVsCvK/v0tgIJg5s8mc
-	 Ka++JHvTka/SRva1jPumuTq01INUD4kF+W95LpCpw8finNMYAN2YL3O7K9z51Bki89A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983316;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=zBD049jgKEDWg0flByRT5kw4pfgUIEgfPQPTp/CuTrY=;
+	b=nc0oEJl0sUTUoTcW5XOjU/2P6DuFtGtgbmG/2EUtLvliDqlZrfOhThtk/hds2wRwhHvg
+	 4URVKOaSiChTGLlupbY5asa6iI6f4oQuQcoIJgYlVA5e7rOQJXL3Je/kALgnW6/bE3Mjd
+	 IVdVLF6G0F+WA8r5CBD9tsr2vfF4SWK1pxAJ1OIDXdxcu5jQOuKpfDL2AqM+RUtMbT900
+	 srFn2h5vV0rbQTBs2wYteFJjLqCwMHRJ0mphBTI9h9YuSiJJMU8n8uNY8uUdlHi5wu4jC
+	 rhMsWamd9GXxFDTfDSrbTkk6DK05st8f/xhvAVfGNtKgCUsMqDQqiIoZrS6TJavxdjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WXeG34R6;
-	arc=none smtp.remote-ip=209.85.215.178
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ZpNF5iFy;
+	arc=none smtp.remote-ip=203.205.221.153
+Received: from out203-205-221-153.mail.qq.com (out203-205-221-153.mail.qq.com [203.205.221.153])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AF5A606A32C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:27:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AF5A606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD1A4606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:28:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD1A4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WXeG34R6
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cdab8873d9dso406050a12.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:27:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794983272; x=1795588072; darn=vger.kernel.org;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=u5Ctav/yDjXLRSHJvbAGfgAiHawDLtclHE70KW98KZA=;
-        b=WXeG34R6DDZWngdAiJaA7PHvZ+uKaDZCO7R75Gb/fZ5hR4hqnw+Oj05fyFYLPZ20aH
-         lbxhyngcn0slgj164eujmb5/+SJC+8ah9Tennp1z0ZQ3ShlHv7Nr3QsQ4SPr9dl2JlZ8
-         ogZVVmxe4pIimIDxBdPJ7Ev5355PJdJp97ovhBknNamNrmYhhK/SGJjxNb4gjOpvwCpq
-         t9hd6TV4/OzNpS+/lUjU4QM8KWrgzA1VkT2iceUk5HB+c6kjU6pfzdSPP+C4fHNQr64a
-         uqidN6z5JhYNhWASGiplpEFeVCNXuRFK5QyLHAC/1A0CIvrpq+XDyZqcCyky9HqyaRq5
-         3LTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794983272; x=1795588072;
-        h=cc:to:message-id:content-transfer-encoding:content-type
-         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=u5Ctav/yDjXLRSHJvbAGfgAiHawDLtclHE70KW98KZA=;
-        b=SlqwMgENyoSnA7myhx37qz9+sTKX3WwY/ApTmggvytq49kR0y/DR83cybHcXaitNgt
-         h+2V73b6qdKL+Lb5RTdL4PlMZMefNGYoDHsFLOetPBhxXU/4TWhv6Wk84j9er5ckHLnG
-         DUkIJqNu4eK82Cv61eo+iEvnmtXsRffunljRC5+wVj1LlxSgo9mg2sD2Yu300UIgfDdC
-         hbVeAfEICDCcPXNfJiiiAO3rHAv2ybXIyYZhczW1833DpBmH6XWSczvx1XetXhjBXAe3
-         IBocHp9znvazk2IAVMPW/1xBjcpefhc+R/mWZhG9SBcZBxV754KaFQ9OdK4RQsKRNMsv
-         /e9w==
-X-Gm-Message-State: APuU4Z+vpiRUIhcQo23btm2eYmvWj1oDtYJdwoekx31xdWBWh9Vu+ecx
-	tLdW1YBKQRtHsKWbsnEzfTjG9UWaUqIYuP2C2jwKYpQ7INxWmSY75Gwd
-X-Gm-Gg: AZFdTZet0UbKraOIwZA0zYXsoKd8jCFgndU2I8thDH6e+EmOG6Y03aMPx9bwIUwy3hH
-	K0HeWhDMvhkSztimEH+xg0MtL7vDAFdpiYRsAUUZhXaqJSl3BX33Vu+/aAwrjXX9C/jCGTQ19+v
-	WZwxFvMMvF6LrxzhiXSp+AoIUbSfqoMoPZHjgH90CAOgbdS8G465PCJQduH/KMjCZ4PD8Jioyti
-	simuvahPwaRvmFeXuD7hWszVWYzYeJnt76nSoVr8zrQDd/4pb1sNryNW6tGgsvlbDe0JQF6j1wa
-	GgUNXZhy73pRNoNW75bnC0uLMIFhn6gUD0goRoowex5wqhgWR1RZrclPChFq+dlWFUaDxlyo/7A
-	IZbvAapdx6vJKW27xoznhwyIRR7p3DhCvrYqzyrNYkTHyaPSZpmj0Su+WQFqEqSCxBJ0Pj7XgQ4
-	LGzDhHiUvUT7JM8RXgjkoWkaCyMO3l21hPIRIP4sej6IZH46qrPNdyryN9Wn0wh75HJTe/F7aSo
-	FkxxbvM+eVjMCsc5XDwIXIOjaMr5irRfINvmFBmD0GE3TgtJjhOW/zNe00tyoGgykDsAQA8+0BF
-	POCNz4GTUHi8/xevNWOf/qig+iXnHy9qrhybj+94R/nl1nWtXh3TM9Ylz5OJtxanWlGnsQu/CP5
-	z3843V/67nmic0Ywg5HNEDwWRSEDnW3iByFT3+c8lxRABbZqMslV0ArVE
-X-Received: by 2002:a17:90b:2d88:b0:3ae:8106:6074 with SMTP id 98e67ed59e1d1-3b3d07649c6mr1578634a91.16.1794983272450;
-        Tue, 17 Nov 2026 22:27:52 -0800 (PST)
-Received: from [169.254.3.1] ([143.248.188.96])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d1acd118sm2576836a91.12.2026.11.17.22.27.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:27:52 -0800 (PST)
-From: SeungJong Ha <engineer.jjhama@gmail.com>
-Date: Wed, 18 Nov 2026 15:27:44 +0900
-Subject: [PATCH net] net: release netpoll dev_lock when NETDEV_PRE_UP
- vetoes an open
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ZpNF5iFy
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794983311; bh=zBD049jgKEDWg0flByRT5kw4pfgUIEgfPQPTp/CuTrY=;
+	h=From:To:Cc:Subject:Date;
+	b=ZpNF5iFysgwh2ReGnRUrqpa0NrwLdtcAF3UXscM/1CCtVEpxMTiwcYhwffR1kCNaY
+	 9cAsoTAOqnRAUk+AdTZhElWgI94lJvz4AKxgFLy2NKgLl47ID19kf9yaMbXwIMk8Bh
+	 q4xBHsS1SSPQWf6q9USnTey9trtFYGMg6coHlmEc=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
+	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
+	id 71CB48D8; Wed, 18 Nov 2026 14:28:28 +0800
+X-QQ-mid: xmsmtpt1794983308tolviv2ep
+Message-ID: <tencent_F3B718D78486FB80B4040B92FC5BD3076E06@qq.com>
+X-QQ-XMAILINFO: NnYhxYSyuBnLsGbf9hd+YgNDB6t7gGrxggf8sBH0gL6Q4zAtfovSGnVj/sa1dL
+	 iUVnFgmsywo6TgS3+NqP8hRYb96q7ua8/sZNy4d2XviUjmLl3Q5BN0hTi7N09OqQ1I5CjVZ/SVqy
+	 sw51K8YzcDU/bRoTKvfgs/GK5BUrFdBu317Ah/FiYZ63V8FXDUyu2FH5rpO5LFgGQShdU99A8rNZ
+	 33W5i9u+/qisH+zFiT7YCkhuR2N51Jix7Q7GDMBNGZ3LPsadIXWhBgwNECdiMow+YysVXK5hmduz
+	 S8QEpAUym3+QgzVlzJxXo+1yosbcSDH1sBwPC0PBLR9mLDChQoiX9Yb16xk7rjuOOgykcgFA/AqD
+	 F809u4z7/hkwkpPrnQS2nFmLKG9UkeamzFWGpZLFA7WubKqH14zY37Y+OUqdJfu+gVpdPpEz20is
+	 r7oEn71YZf9Q5H2j5dtOQGndNqra8gXdtM4Q++tvDvqfL/9ayrV4fniM+cA5Ey/Sz+qFkRp9RwO3
+	 QZCRiiTeEOv/46lSSmeogVi4A0N2uhNkylLge8HBO+NTBYzTN/ccRhbPaMJOt5HQmXgGvA5R/TRE
+	 HGGD6xOZ6q4GA+TJEO9GlFQopMjykFaC2j7LOvMMFYQcrXMj1YUTXhFo52wccAwKrenskdGir8zF
+	 F4onmgWIeMQZGY04mOWyq+nnyRQ3BoQRe4f3HnujG7H2nmceyJL68ih6vsTvi4NHmB+x69XLS35N
+	 bZb03DC/y++JAhwresqTIZ2Lrd40Co90QHJ36Abr/8bHTgGFYJcMw7nJfB5lKwWiThW2ulZSi+jz
+	 AM9dIceYqZUsE6kUAtnZxwEECQerljPMY5l+vcHql59oHMgE+36rfXTzIH1+wxziJiWSZPfmML9Q
+	 jgEsZvgOApP4vUP4GAPk2c+qVh55alFQrD2kIEJe7L2yC5bTVrLI2LVqnzCwH3D+U50mCfyD2GlV
+	 Q1D8nb07CwbmgRJLYgN2ung0s2Zi4aqHeIR/XvFvlzpf6yyx5NzpKrBKNKKJuybYocHydKO8MzqR
+	 63uPl+sHj70D6RQtT92DSx8MFY0hxavrhkDoCy8q+8nteRemTzVct57rYAEzGh5ewRQL13nKww7t
+	 lIKok5/1FKjZu6nGY=
+X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+From: Shuai Liu <847807867@qq.com>
+To: netdev@vger.kernel.org
+Cc: dsahern@kernel.org,
+	idosch@nvidia.com,
+	edumazet@kernel.org,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
+Subject: [PATCH] ipv6: addrconf: regenerate missing host route on RTM_NEWADDR
+Date: Wed, 18 Nov 2026 14:28:28 +0800
+X-OQ-MSGID: <20261118062828.840641-1-847807867@qq.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,90 +83,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-netpoll-preup-veto-v1-1-7d3fdf101d3a@gmail.com>
-X-B4-Tracking: v=1; b=H4sIAF9F/WoC/yWMywrCMBBFf6XctQOdGiP6K+LC1qmOlCQkaRFK/
- 91Rl+c+zooiWaXg3KzIsmjRGAx412B43sJDSO/G6NrOM/ORgtQUp4lSljnRIjXSye1bdxidZ9/
- DjlaN+v5JL7A9rv+wzP1LhvrVYds++xXTS3sAAAA=
-X-Change-ID: 20261117-netpoll-preup-veto-943045f4616b
-To: "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Neil Horman <nhorman@tuxdriver.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, SeungJong Ha <engineer.jjhama@gmail.com>
-X-Mailer: b4 0.15.2
+Content-Transfer-Encoding: 8bit
 
-When netpoll is attached to a device, __dev_open() takes
-npinfo->dev_lock through netpoll_poll_disable() before calling the
-NETDEV_PRE_UP notifiers, but returns without releasing it when a
-notifier vetoes the open. The next attempt to open the device then
-sleeps in down() with RTNL held, and every other RTNL user blocks
-behind it.
+When an interface MTU drops below IPV6_MIN_MTU, addrconf_notify()
+stops IPv6 on the interface via addrconf_ifdown(). With
+keep_addr_on_down enabled, permanent addresses are kept but their
+host routes are deleted and ifp->rt is cleared; recovery is expected
+to happen when the device is brought up, where the NETDEV_UP path
+runs addrconf_permanent_addr().
 
-For example, with netconsole on a wireless interface, cfg80211 vetoes
-the open while the wiphy is rfkill-blocked. Release the lock on that
-path, as the ndo_open() error path does.
+That recovery never happens when IPv6 is stopped through the
+NETDEV_CHANGEMTU path: the device itself never goes down, so no
+NETDEV_UP event follows when the MTU is restored. The address is
+left with ifp->rt == NULL while the device is up, and every later
+RTM_NEWADDR notification only warns:
 
-Found by an AI coding assistant reviewing __dev_open(). Reproduced in
-QEMU on an unmodified net tree with mac80211_hwsim built in and
-netconsole bound to wlan0:
+  BUG: Address ::ffff:127.0.0.1 on device lo is missing its host route.
 
-  ip link set wlan0 down
-  echo 1 > /sys/class/ieee80211/phy0/rfkill0/soft
-  ip link set wlan0 up    # fails: RF-kill
-  echo 0 > /sys/class/ieee80211/phy0/rfkill0/soft
-  ip link set wlan0 up    # hangs in D state:
-    down
-    __dev_open
-    __dev_change_flags
-    netif_change_flags
-    do_setlink
+syzbot hit this by flapping lo's MTU across IPV6_MIN_MTU with
+keep_addr_on_down set and toggling IFF_NOARP, which restarts DAD;
+DAD is skipped on the loopback device, so DAD completion and the
+warning repeat on every toggle and the address stays permanently
+without its host route.
 
-With this patch the last command succeeds. Selftests were not run.
+Instead of only warning, regenerate the host route with
+fixup_permanent_addr() when RTM_NEWADDR arrives for an address
+without ifp->rt on an up device, keeping the warning only for the
+allocation failure case.
 
-Fixes: ca99ca14c95a ("netpoll: protect napi_poll and poll_controller during dev_[open|close]")
-Cc: stable@vger.kernel.org
-Signed-off-by: SeungJong Ha <engineer.jjhama@gmail.com>
+Fixes: 2d819d250a13 ("ipv6: Handle missing host route in __ipv6_ifa_notify")
+Reported-by: syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=af16ddc8fd22a1d135f8
+Signed-off-by: Shuai Liu <847807867@qq.com>
 ---
-The fix just drops the lock on the veto path, the same way the
-ndo_open() error path a few lines below already does.
+ net/ipv6/addrconf.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
 
-I tested it in QEMU on net (297ae1590173) with mac80211_hwsim and
-netconsole built in: the reproducer from the commit message hangs
-without the patch and completes with it. W=1 allyesconfig and
-allmodconfig builds are clean for net/core/dev.c.
-
-The bug was found, and the reproducer and patch written, with Claude
-Code (Claude Opus 5.5). I reviewed all of it by hand and re-ran the
-reproducer myself.
----
- net/core/dev.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/net/core/dev.c b/net/core/dev.c
-index 3c58db732761..0be9e78572ff 100644
---- a/net/core/dev.c
-+++ b/net/core/dev.c
-@@ -1748,8 +1748,10 @@ static int __dev_open(struct net_device *dev, struct netlink_ext_ack *extack)
+diff --git a/net/ipv6/addrconf.c b/net/ipv6/addrconf.c
+index 4b0cb7d23541d..70230ffdc077f 100644
+--- a/net/ipv6/addrconf.c
++++ b/net/ipv6/addrconf.c
+@@ -6357,17 +6357,17 @@ static void __ipv6_ifa_notify(int event, struct inet6_ifaddr *ifp)
+ 		/*
+ 		 * If the address was optimistic we inserted the route at the
+ 		 * start of our DAD process, so we don't need to do it again.
+-		 * If the device was taken down in the middle of the DAD
+-		 * cycle there is a race where we could get here without a
+-		 * host route, so nothing to insert. That will be fixed when
+-		 * the device is brought up.
++		 * Otherwise, if the host route is gone while the device is up
++		 * (e.g. dropped by addrconf_ifdown() for a low MTU and the
++		 * address kept by keep_addr_on_down), regenerate it.
+ 		 */
+-		if (ifp->rt && !rcu_access_pointer(ifp->rt->fib6_node)) {
+-			ip6_ins_rt(net, ifp->rt);
+-		} else if (!ifp->rt && (ifp->idev->dev->flags & IFF_UP)) {
+-			pr_warn("BUG: Address %pI6c on device %s is missing its host route.\n",
+-				&ifp->addr, ifp->idev->dev->name);
++		if (!ifp->rt && (ifp->idev->dev->flags & IFF_UP)) {
++			if (fixup_permanent_addr(net, ifp->idev, ifp))
++				pr_warn("BUG: Address %pI6c on device %s is missing its host route.\n",
++					&ifp->addr, ifp->idev->dev->name);
+ 		}
++		if (ifp->rt && !rcu_access_pointer(ifp->rt->fib6_node))
++			ip6_ins_rt(net, ifp->rt);
  
- 	ret = call_netdevice_notifiers_extack(NETDEV_PRE_UP, dev, extack);
- 	ret = notifier_to_errno(ret);
--	if (ret)
-+	if (ret) {
-+		netpoll_poll_enable(dev);
- 		return ret;
-+	}
- 
- 	set_bit(__LINK_STATE_START, &dev->state);
- 
+ 		if (ifp->idev->cnf.forwarding)
+ 			addrconf_join_anycast(ifp);
 
----
-base-commit: 297ae15901733df7562a6781613fb49f3d270401
-change-id: 20261117-netpoll-preup-veto-943045f4616b
-
-Best regards,
---  
-SeungJong Ha <engineer.jjhama@gmail.com>
+base-commit: 7cfbf79c66c63e807ea452abf0546e6f6d6833a6
+-- 
+2.43.0
 
