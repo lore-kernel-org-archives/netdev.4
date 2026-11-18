@@ -1,55 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795034188;
-	b=XEliDDBoKoln14gPSIHYxtCmFUstfUG3z2HCquTIaH19vo2rvdA9YgkBA20xtmUt8a8b
-	 /Y0SV4xy7aXAMYUaB7UyPViaPaAVTAYdh4bOH+lXslwWtw//Kda+si044E9++ekrGL3/X
-	 jS/GhoqQRk+arSo1FpezdPDvwPZD8+SVNOBrb6v61r3LizHkp//QNw+C4Yb0vyCnY0CPt
-	 /yggV8cpkMyT1O/K9e/9H5ywfe1xfR+8vimBC1ri5fyDO8XAsvD6p61VQxx80iIGgV5Rp
-	 A9zBBY1veegzVAcufXj71y5Z9SRbIeEMeIZ7ZnNbc+bMoezaTGTXt2L7gFPxvSld7cw==
+	t=1795034189;
+	b=J+ZS3tHuOk67XM7so35RvyTFk40nY1RyL0h8rde//66mD21SEi2iUgjdVZY34bXy5RDA
+	 JN9dXUoXxisWpWrgDo4lThBpPwRyRxgo+hHj92erk/oRJFv0hXgvHpnTsYwCV6AOM0pP6
+	 0BYz45xJTplH7jk8VKIhnVIfxI8ZWU/Uv8dHDrYLokWHzZp5Nfm+oDj8+GrJrfrxKC1X6
+	 zVN3ZHQKgQMKyuNAUbl7pCEEQcjvuOaGL0ieAuXpaDqD9sguc0yYYyR8hCmFqJaoNNjdv
+	 hSzeEzdd2oDmdCAnc90pTYsWul6EMd0kpYly5Yh68aXRfcAd61E7dU58u3z8e58MbEg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795034188;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795034189;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=JjTHb+sQJUwdApdF1WR7/s7xH2U4av785xkSHCbz0Qc=;
-	b=3WCakLNOEv9fyd11wzEqgH7D8PH1Jhimzfh2OmgQ61SXJkVN4nXymUTajJjYsmN7/JQB
-	 HA5fU9PqH8yOR97bKgVAg5ZTfR9GYsPur8VDUnNmsHo0VpOYzt4/VwOAiYTzjVLbWRlrH
-	 1sc1zLq6pQtbNzOu5qe4oHWXFYDOKHPAi7qm8uLsDRS051xeeZA0IEvyT8T8V9KRS6gFL
-	 xrfOF2uVjEoVqC8cEe2tO88N7hFRGiURxG4LEJ65pb4FJkO6DUo2AAHVO4cZRFM1/1AVh
-	 qAhWzYf8+YVDNBF0/qO6BbaZj/s/MytIhUHacLn33Si+STpmzl3sjo+mJ9U1Sj2iymQ==
+	bh=UZXKqByYvU6A+FNb9bAsYgap0pYnH7KHiqZ3vXYUXTw=;
+	b=VNJtRIOiVsdRUAGDnxT7snN/ZH9mQqIu0oy3r3xsT6VFqFPspdMB8LnCh4v1KXZ7xtw6
+	 1v5btzoYOGYsZKTRw+SneESlDpAzA62UllA9BZVr5ybMOkeLhiiGxqfmwq3cmBN8piQo4
+	 g+j6RBZCgq4Ms3duUpwvX5hzYj3HOPZaSe+irY59oWzkJLXKVzcpAxP6RsOO4sB6lzvA4
+	 ZYJXfCtfyZSK7PUCyent+uqHwGrfy62JztitVYXsdkTZdsIB2H3f7Dg+fslP204Gm50QJ
+	 q8xi+55t3R3xnOty/mHRioEH1u30tgBa0Sq/t4/1L+tjdnTmznT+JAOf5uHZydDlJAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BTktnBPu;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Omnt+d6r;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91A2F60A2630
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:36:28 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9585C60A380B
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:36:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BTktnBPu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0E3F1F000C9;
-	Wed, 18 Nov 2026 20:36:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Omnt+d6r
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20291F000D4;
+	Wed, 18 Nov 2026 20:36:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795034188;
-	bh=JjTHb+sQJUwdApdF1WR7/s7xH2U4av785xkSHCbz0Qc=;
+	s=k20260515; t=1795034189;
+	bh=UZXKqByYvU6A+FNb9bAsYgap0pYnH7KHiqZ3vXYUXTw=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BTktnBPuyVqbgZMFglXwhdDGxw80GKvLgcrdxSXizpd0/1KazOfuvhaIcuUUQppID
-	 9r6GUOkUI8o+j4jyxIc37FaAR6+r0qWNdDUo8oEzqjxAbmHM9whjrxXnTaL0QEczUA
-	 Spt4LVqm+Fih+M2XqGR1SIl5A5W1Une7jHZit6FIQHUdIG2a5uNI9iI7RM30uyqTEx
-	 65nUPpFBg0rVAoUEDjxARsIZghWRb2N/XgAXdMqImLgORW21TyR8eXbCDEhJjFsAUJ
-	 yhni8uHzMlDbh1jsrkk9AHMIW8sfXak+wNHaN2N8VU6ZeFOK7k+j+nuUFBmsKKIGmb
-	 rZBZC87KvznNw==
-Subject: Re: [PATCH v1 net 4/8] tcp: Fix reqsk abort condition on ICMP errors.
+	b=Omnt+d6r+r4D4V5ovpDMzxyuvOH0oFAoj3YpRzxYRvxo1qVrW9xVyZrZl5Sn/THeN
+	 C43bWoV8XJpGBdv3i8/upOl1+bcK9SNNmIbOtR2DM6w8gwbTb9aoNEOdrgUhdBlsqU
+	 luAXtjydtUcfPnw2sDtGnIoXw2pvHnYwD4PQsvOoiHG1dLyn36tZ+n2ShHFSwXr8Bj
+	 a1y13zgDA5fMaF7+yq/anOPn5jzJ4q1HU6GR6bdc5Z7HJHwQf1jMQPUBkoVHRmaR6N
+	 EwVMmkxxNTGRP0gkW31Q+9tPDVnlP9769AegKNt46cpvik1Arx1/KBPRkeKUz3P8FL
+	 8m2MOmWCni8aQ==
+Subject: Re: [PATCH v1 net 7/8] tcp: Pass inet_sdif() to
+ __inet_lookup_established() in tcp_v4_err().
 From: netdev-bot+sashiko@kernel.org
 To: kuniyu@google.com
 Cc: edumazet@kernel.org, ncardwell@google.com, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com,
  netdev@vger.kernel.org
-Date: Wed, 18 Nov 2026 20:36:27 +0000
-Message-ID: <179503418741.3136.8574236051062236286@kernel.org>
-In-Reply-To: <20261117053543.84032-5-kuniyu@google.com>
-References: <20261117053543.84032-5-kuniyu@google.com>
+Date: Wed, 18 Nov 2026 20:36:28 +0000
+Message-ID: <179503418850.3136.10740335529901076189@kernel.org>
+In-Reply-To: <20261117053543.84032-8-kuniyu@google.com>
+References: <20261117053543.84032-8-kuniyu@google.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -69,70 +70,66 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] This patch makes a comment in the existing TFO selftest wrong.
+- [Low] The commit message for "tcp: Pass inet_sdif() to
+  __inet_lookup_established() in tcp_v4_err()." only describes half of…
 
 --
 
-tcp: Fix reqsk abort condition on ICMP errors.
+tcp: Pass inet_sdif() to __inet_lookup_established() in tcp_v4_err().
 
-This commit changes the abort condition passed to tcp_req_err() for
-TCP_NEW_SYN_RECV sockets so that it follows RFC 1122 Section 4.2.3.9.
-In IPv4, only fatal ICMP_DEST_UNREACH codes now drop the reqsk.
-In IPv6, ICMPV6_PARAMPROB aborts only for ICMPV6_UNK_NEXTHDR.
+This commit changes tcp_v4_err() to pass inet_sdif(skb) instead of 0 as
+the sdif argument to __inet_lookup_established(). The goal is to stop
+ICMP errors that arrive through a VRF from reaching sockets that are not
+bound to the device.
 
 > diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-> index fd9588bba9672..f11e090d04fb3 100644
+> index bc909fedda3a8..35a1309f8b21c 100644
 > --- a/net/ipv4/tcp_ipv4.c
 > +++ b/net/ipv4/tcp_ipv4.c
-> @@ -529,11 +529,8 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
+> @@ -504,7 +504,8 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
+>  	int err;
 >  
->  	seq = ntohl(th->seq);
->  	if (sk->sk_state == TCP_NEW_SYN_RECV) {
-> -		tcp_req_err(sk, seq, type == ICMP_PARAMETERPROB ||
-> -				     type == ICMP_TIME_EXCEEDED ||
-> -				     (type == ICMP_DEST_UNREACH &&
-> -				      (code == ICMP_NET_UNREACH ||
-> -				       code == ICMP_HOST_UNREACH)));
-> +		tcp_req_err(sk, seq, (type == ICMP_DEST_UNREACH &&
-> +				      icmp_err_convert[code].fatal));
+>  	sk = __inet_lookup_established(net, iph->daddr, th->dest, iph->saddr,
+> -				       ntohs(th->source), inet_iif(skb), 0);
+> +				       ntohs(th->source), inet_iif(skb),
+> +				       inet_sdif(skb));
 
 [Severity: Low]
-This isn't a bug, but does this change leave a comment in an existing TFO
-selftest out of date?
+The code change looks correct to me. It now uses the same dif/sdif pair
+that tcp_v4_rcv() already uses. However, the commit message only covers
+half of the behavior change:
 
-tools/testing/selftests/net/packetdrill/tcp_fastopen_server_icmp-before-accept.pkt
-sends host_unreachable to the pending request and then says:
+  So, ICMP error coming from VRF can be leaked to a socket not
+  bound to the device.
 
-    // Valid ICMP unreach.
-       +0 < icmp unreachable host_unreachable [0:10(10)]
+Should the commit message also say what changes for sockets bound to the
+VRF slave device?
 
-    // Unlike the non-TFO case, the req is still there to be accepted.
-       +0 accept(3, ..., ...) = 4
+For a packet received through a VRF, inet_iif(skb) returns the VRF master
+ifindex. inet_sdif(skb) returns IPCB(skb)->iif, which is the slave
+ifindex. The match is done here:
 
-That contrast was true before this patch, because ICMP_HOST_UNREACH used
-to drop a non-TFO reqsk.
+include/net/inet_sock.h:inet_bound_dev_eq() {
+	if (!bound_dev_if)
+		return !sdif || l3mdev_accept;
+	return bound_dev_if == dif || bound_dev_if == sdif;
+}
 
-With this change, icmp_err_convert[ICMP_HOST_UNREACH].fatal is 0, so abort
-is false. tcp_req_err() then skips inet_csk_reqsk_queue_drop(), and the
-non-TFO reqsk stays in the queue and can still be accepted.
+With the old sdif of 0, a socket whose sk_bound_dev_if is the slave
+ifindex never matched in tcp_v4_err(). Such sockets got no ICMP errors at
+all, which could leave them in a PMTU black hole.
 
-The difference between the two cases now runs the other way. The TFO child
-is still moved to TCP_CLOSE by tcp_done_with_error(), but the plain reqsk
-is left alone.
+After this patch those sockets do match. They will now see:
 
-The tcp_icmp_ipv4.pkt test added later in this series ("4a: Soft errors
-must not abort reqsk") checks the new non-TFO behaviour, and it contradicts
-this comment. As far as I can tell, no later patch in the series updates
-the comment.
+  ICMP_DEST_UNREACH / ICMP_FRAG_NEEDED -> tcp_v4_mtu_reduced()
+  hard errors in TCP_SYN_SENT / TCP_SYN_RECV -> tcp_done_with_error()
 
-Could the comment in tcp_fastopen_server_icmp-before-accept.pkt be updated
-to match the new behaviour?
+Users can see this change. Would it help stable backporters and
+maintainers to mention it in the changelog?
 
->  		return 0;
->  	}
->  
-
-[ ... ]
+>  	if (!sk) {
+>  		__ICMP_INC_STATS(net, ICMP_MIB_INERRORS);
+>  		return -ENOENT;
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117053543.84032-1-kuniyu%40google.com
