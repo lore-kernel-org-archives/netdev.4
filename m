@@ -1,80 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996454;
-	b=UP44fFlPJUQ7aCioGxN5AIuzc2D4ecQX1v0q6Q0YtOx37V4jZZI3TAHKdJFdSd7sDU88
-	 Pg0fiOin2GB9SZ0iNir1KhX2NcMFJI073VaalVH61SD4UkXn8AiyREto/mVTliJHX7mH4
-	 +jrkAiRHmi+XXV98gM5c3vUYjfmtrlQiirENSP4Ci+jpEWeyFvgZiJk15/iz7Ish/npdi
-	 5PuPTKY4cNEocxgOfGLjEJb5jtnFbyNEYsHeLFOHWCDs8/nSFdqoiw8LpB0ULm4jEV3cn
-	 mYReuNP7K2u/oihxlq37x62Eqm2br8IwNkNG5uO0InVDE51Px/tB0D0zGVkBC6J/MIg==
+	t=1794996464;
+	b=rkLsiBRCxuXzvhUYigXnk2MC65FAwO7YGYtMUxfrUQGa/ESYkrhM8wGLY39DwR2jJ52p
+	 nVk/b9rr1Ac50WlWdLsG4hozemgzy/s6VDxfVywPzbWc2tl5ukeSpv7jAue/PY8qpgIQo
+	 c5PvatqZqKSjtRUAoBrSPN/YcJ1t07q940bklUTX+hYaloLjDTEeep5W2h817AnuNPR/j
+	 PJUdu1y/COrtukjcyiCgwFdwju1HwNL9V4Afm+nShYKh1epZwZKRX2deDhEVUfniE8jXY
+	 /qMV65d490qhgc31X8rEzrqhwrWGETsSYtaGgUtXnaCXY92HocdjEdkOIjj5eKve3qg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996454;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=9p7nWP6aCwolh1r/jYlW6rQASc0ZzZDHEc19WN951qU=;
-	b=NE5jLzVgcwhwubsf6IxqZRJJUPcbpP47ESVCjg5B52qPahVupH3vLqs81jNCOuAkwLi5
-	 5KjtrU0Y2vZBrCSoPhwMSaRLsSk/1lIjtW0UpS4RIei9D45Up6HJAsgFlwCItWph9//PS
-	 GYzfj/WBVCTHIPs7qz0Eqwcb2P8Di89L+3OEcXCqE9Tnd4iaN3vuXkyypBDqz3BqPssJ4
-	 GHv/qF6bZYFGlZGOGvwgiEIn5qY5VTym09kdTk5WGG1Nl2OqV3QqYOfxLOsZeK9abNJVD
-	 078K3w86i+EP8vobfdEuSupx1ouAnZ17rban9dyh0V2f8QEi+ic5ghGxXIWqIcdsffQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996464;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=2S2OrGUTyqGlhWvrNAZiu9DXCwxg30V+8Q1xNJW0oww=;
+	b=qRPWtfyztD6jC2N3wJCJ1u3JOioLQKqbwMTojZZH70sPjSSTUenQpzXxoJSVG7+YDAEn
+	 uTtmNFO5FutsaqQ1yHN8MLKD7OI8PJcNWW0Y4laixn0VckRabC5VLcfXB8EIHwMlzXWye
+	 V3J3IPrVHwcqdftcotoITG+ID6d6ZE/dXJsBng02CqdQtobmH4IgBTf8oppusUUZLPa2a
+	 YK1ZkYGtXvIO7dt8AAFnS/el2f4lCydz1YNrNm13owaODRyDs/kBn/ze/aaAVZWwvdPsJ
+	 Evzq9DZKDGClK+dr1GgzvhmhtW1KAVd7eL2Fk9DrQWG8yw3lA0yqTo1Ytz/o8YlHzIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=aqa4i8Na;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZtn0TEv;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A535606A330;
-	Wed, 18 Nov 2026 10:07:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A535606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BA3D606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:07:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=aqa4i8Na
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1794996461; x=1826532461;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=WV62P4nogrn/yedNrcqAoj0rawX6mdY7FKe5AzL+xxc=;
-  b=aqa4i8Na/12xObUKqU5m2tbbsExjC0TaFY6hk9HcgxKLEeyFRkG5XPeu
-   +eONOWY8+gCvE5hYCy5BwwCIGjSY5wj8gHhcuV/3SDHEWT3DYW0ZG3Z6P
-   TnYVxba00w2R9SZb+Og/BKN+yIxzYTS2wsKFtAlmqETeOfH2LAHdDzw5K
-   pG9ZVidylnJ/VOvRVy0preNj07KvtSObVnoSDrZQPTdL8kxS5Umv320Cu
-   YORjfErMKXmxPmmPxP/27b5sPEmc6aDqE7b0hdtkx/AdPy1JEeVytoyQL
-   8tKcw8/hsQPvdqanZv64qzxtuMe8VpHjRU/TBK6XpbhiIlYcTkGRC1+LP
-   w==;
-X-CSE-ConnectionGUID: CDvrusw7S4i+4/eC+9cqbA==
-X-CSE-MsgGUID: RUyH8oQSQnuzLEE9CMGJJQ==
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="65717232"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2026 03:07:40 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 18 Nov 2026 03:07:31 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Wed, 18 Nov 2026 03:07:29 -0700
-Date: Wed, 18 Nov 2026 11:07:29 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Henry Martin <bsdhenrymartin@gmail.com>
-CC: Paolo Abeni <pabeni@redhat.com>, "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Simon
- Horman <horms@kernel.org>, Stanislav Fomichev <sdf.kernel@gmail.com>, Nicolas
- Dichtel <nicolas.dichtel@6wind.com>, Yuyang Huang <sigefriedhyy@gmail.com>,
-	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<stable@vger.kernel.org>
-Subject: Re: [PATCH] net: fix uninitialized heap leak in multicast address
- dumps
-Message-ID: <20261118100729.jn66g5cvdkspoqjc@DEN-DL-M70577.microsemi.net>
-References: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZtn0TEv
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DCD01F000C6
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:07:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794996464;
+	bh=2S2OrGUTyqGlhWvrNAZiu9DXCwxg30V+8Q1xNJW0oww=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=kZtn0TEvz54Qb4vGb1liXxbJgWqOxNba/uH96QwKFJLapoMIX6/OXw/+s9hC7AH8A
+	 viLts0q7dqu1OK/HITIw3WUMtfAlbPz3Ty+05kIcfkYchoNqwuE1Hby221PYdGXQn/
+	 Joq4eqFoiawDSM36o1kBWEpt5eTidT82NJNoxmjor3aNLErSQz7ATqvJTt0AMH4tNG
+	 TZUOg50d1xKqGlhPRK44KmdVCEGeqsYJ0Uuzuo51iF27xMlrOdJCa1knXl4Hl3c63R
+	 qTrPk9nxbGYaJHft+7GbBzZhVTh2cJfvY6CrlszjJm4Wt5VOpN8j4pBfzJDDrtdSyg
+	 VdBB2/p/W8/1g==
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-717080a2d50so691577eaf.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:07:44 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFedxkj30LurFLlJdGd0yuyaAyDmx5IAEaRX9T9G0SIcLnbN0Xc/6gVmlGnUnphJXCzF7Xm8GQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ioSzklSYWJB6XVaeXZeWc7OvSI1x9MhB/fGkijTJ04hbNF4cv
+	r33a6RrFQr+lm+qh0bo/TXL34CaG/17s40ldhhFDeOMsm/62r3dvy3XTDC4YWPa6pEk0vB85Phd
+	+rb+ALCHIJTsRLY4xO5BOdUEV7F76GiE=
+X-Received: by 2002:a05:6820:3416:20b0:718:968a:75f5 with SMTP id
+ 006d021491bc7-71b18549405mr1087021eaf.52.1794996463552; Wed, 18 Nov 2026
+ 02:07:43 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,61 +59,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
+References: <20261118022813.9778-1-zhiqizhangg@gmail.com> <20261118022813.9778-2-zhiqizhangg@gmail.com>
+In-Reply-To: <20261118022813.9778-2-zhiqizhangg@gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 11:07:31 +0100
+X-Gmail-Original-Message-ID: <CAL4WiirJXVjo_b_5zkBCz6rfuwWXfJcpOrnVFpZ=2kBqMf5w+Q@mail.gmail.com>
+X-Gm-Features: AclHuK9FIl21h5B6xIKkXM1xm-w7vDNAJG8Rm2vJL9VhueNWzOpX9FejS4ubxGQ
+Message-ID: <CAL4WiirJXVjo_b_5zkBCz6rfuwWXfJcpOrnVFpZ=2kBqMf5w+Q@mail.gmail.com>
+Subject: Re: [PATCH net v2 1/2] tcp: roccet: do not restart from idle on RTO retransmission
+To: Zhiqi Zhang <zhiqizhangg@gmail.com>
+Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Kuniyuki Iwashima <kuniyu@google.com>, Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>, 
+	Tim Fuechsel <t.fuechsel@gmx.de>, Lukas Prause <lukas.prause@ikt.uni-hannover.de>, 
+	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
-
-> __hw_addr_create() allocates entries with kmalloc() and initializes
-> only addr_len bytes of ha->addr. Dump paths emit entries using the
-> current dev->addr_len, which can grow after the entry was created:
-> tun's TUNSETLINK changes a device from ARPHRD_NONE (addr_len 0) to
-> ARPHRD_IP6GRE (addr_len 16). Both the RTM_GETMULTICAST dump and
-> /proc/net/dev_mcast then emit up to 16 bytes of never-written slab
-> memory per entry.
-> 
-> This discloses leftover kernel heap contents to anyone reading those
-> interfaces.
-> 
-> Zero the tail of ha->addr at creation time, so dumps can only emit
-> initialized bytes.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: a748ee242681 ("net: move address list functions to a separate file")
-> Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
-> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
-> ---
->  net/core/dev_addr_lists.c | 5 +++++
->  1 file changed, 5 insertions(+)
-> 
-> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
-> index d827cc21867b..53a2dfa2706c 100644
-> --- a/net/core/dev_addr_lists.c
-> +++ b/net/core/dev_addr_lists.c
-> @@ -100,6 +100,11 @@ __hw_addr_create(const unsigned char *addr, int addr_len,
->  	if (!ha)
->  		return NULL;
->  	memcpy(ha->addr, addr, addr_len);
-> +	/* Entries are dumped with the current dev->addr_len, which can grow
-> +	 * after creation (e.g. tun TUNSETLINK), so never leave the tail
-> +	 * uninitialized.
-> +	 */
-> +	memset(ha->addr + addr_len, 0, MAX_ADDR_LEN - addr_len);
->  	ha->type = addr_type;
->  	ha->refcount = 1;
->  	ha->global_use = global;
-> -- 
-> 2.43.7
+Le mer. 18 nov. 2026 =C3=A0 03:28, Zhiqi Zhang <zhiqizhangg@gmail.com> a =
+=C3=A9crit :
 >
+> roccet sets .cong_control, so tcp_slow_start_after_idle_check() returns
+> early and roccet implements the idle restart in cwnd_event_tx_start().
+>
+> An RTO retransmission also raises CA_EVENT_TX_START: tcp_enter_loss()
+> marks the outstanding packets lost, which drains the in-flight count
+> while tp->packets_out stays non-zero.  If delta >=3D icsk_rto,
+> roccet_cwnd_event_tx_start() then takes the idle restart and overwrites
+> tp->snd_ssthresh with tcp_snd_cwnd() =3D=3D TCP_INIT_CWND.
+>
+> When a TLP probe was sent, the RTO timer is rearmed for a full icsk_rto
+> at that point and the probe is the last transmit, so the first RTO is
+> affected.  Without TLP, the first RTO can escape: the timer is armed
+> when the first packet of the flight is sent, and pacing spreads the
+> following ones, so now - tp->lsndtime < icsk_rto.  The second RTO is
+> always affected, since it fires one backed-off icsk_rto after the first
+> RTO retransmit.
+>
+> roccet_state(TCP_CA_Loss) calls roccet_reset(), which clears the private
+> state; ca->state is already LAUNCH and last_max_cwnd is already 0 when
+> roccet_cwnd_event_tx_start() runs, with or without this fix.  The only
+> field the idle restart breaks is tp->snd_ssthresh: it overwrites the
+> value preserved by roccet_state() with TCP_INIT_CWND.
+>
+> Skip the idle restart while packets are outstanding.  The packetdrill
+> test in the next patch fails at the first RTO without this fix
+> (snd_ssthresh =3D=3D 10) and passes with it.
+>
+> Fixes: 819d59638796 ("tcp: Add TCP ROCCET congestion control module.")
+> Link: https://lore.kernel.org/all/179179785248.434549.1682983764935138274=
+8@kernel.org/
+> Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+> ---
 
-Looks right.
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 
-Just a thought, I think switching to kzalloc, like so:
-
-+       ha = kzalloc(alloc_size, GFP_ATOMIC);
-
-Would give you the same fix, and you would get rid of that extra tail length
-arithmetic.
-
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+Thanks.
