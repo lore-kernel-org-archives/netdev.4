@@ -1,78 +1,153 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.92.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795010549;
-	b=VzljlB4UxR5yAykMRXx31JIxZ2PJm6wlqvzZJlVi+N3CtvJp3jWWncP59BBEixzHGdkc
-	 yja/lZDeT65jzKjiO2V63Q9wDu9HR83FJn64glFb0rxCexGhrOJtuMH5+pbPCxMQZsAr+
-	 75b+hyM32+cC24miA/36iYcXgCvi6AcP9xzaM9kI1I2qUNqrvASmWzeOXes0HqaYd+l6E
-	 ZIlbSushf5+v6hHCjAgrC0QFwt2mItyWxpfc0WmEqOoG14KgrmTNW1Z5bOFxy7XC7XGgE
-	 lGfLtMYfr9UkPXsGcX5FTxuopt0YJYUhlSY4L1Tasf/Hswf8oIbQtPj07TceeI/o44A==
+	t=1795010717;
+	b=ZZE2dZnFqBBKXE3nmqAN7i41jopByNWuWPBZuY+MysN+zEuAmuL4rKNXbNCrNjv+MLKP
+	 deuevMLQK2aTQ+HtMVSWWMdS/WuHBFmNJP967YBTobLQ7lccTb9ebA3sYH2t56jIMvjwT
+	 RTFflDRUv3AaUm94yofdzOUXRBtEHd/Bjxa7tzQYz2sN8gW+O2OpVceW4HhK7z01VVhpY
+	 ppopPZm4BbnLXEcPmEfxN8coKi9JY/W9i/oHoBKOytgM447rAZbx01DRarntWHR8d/Qwd
+	 DTkTk7sEOHVujFjPIZUjfaZOoRHpOoOaThBPkfG070S3Ba7PetC6Z7zsgOx/6QT8ahw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010549;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010717;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
 	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=D1ytyBDMlOX6xXQFzmjoPjWpVLrnUh/kjLxQs2FDLlY=;
-	b=PkJNHeSoc6975BWuFkNIC7XOoxIL6yZkl627bL51T7yuek8ODmVHVcDhpsuIqTnXN+r8
-	 QTeaXTLL68MdaAxGpL9CdXbpawshaaf35kSBnyoZj/uQ1tW17q39CxqJPlVvra4IEJXrw
-	 0NozxgItRmlAxQ09pPY0kJlEJLmarKoZhdrley6xr5F1w0o1Ui9nFP5f3AjB2PBs7lehb
-	 v8OcNkpf/XNj95HANAbG2kd+A+KWjAcXhW8i6mH4dDghPeh18m7RWl8wv3LkgGmVSIRD/
-	 qT5DTNnDGIoczjdy+jx61ymSMBcbpMBDx31nQa3vkszz3cq0OFeBxr7++3FCTaiqcNw==
+	 Content-Disposition:In-Reply-To;
+	bh=foydl+Nk9ZmJviej/30gV1cygoCTSVCceGPI7w/fow0=;
+	b=QHs332L/Lr/gu6dQT6PYAhWtr9koXWUTXm9HUZ3CIdzTbdjlgmdVKYIdNOpjUxioWNJS
+	 prSOWcxyr9Gf1hUYQoTZ88l/pehKB91vYx7n05m0LRvK5Qx4IFLfE67SdQYFQG/8W5S1f
+	 V4JdipqJPT5QcU9uYZv+KH7DBh+C4IzOXNW1aLz4Fp0AcMc1mgeo9xMy0fkfXJ+K5OYBe
+	 WVkQ1CMN45rgRl4y9q4i3XJ4v8bhmsK7jsMAHWzfNZ0Y9rxKFLZMJ++9axQLlXLHUwD3i
+	 aXP+J/9ARPMhP54W6OEWWikYXpBogwbEfnfL48xD2lfDZN0CebiHih2wRifXAwBYpcQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=TyCtMjsh;
-	arc=none smtp.remote-ip=68.232.153.233
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
+	dmarc=pass header.from=infradead.org;
+	spf=pass smtp.mailfrom=infradead.org;
+	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=WOhR5yIs;
+	arc=none smtp.remote-ip=90.155.92.199
+Received: from desiato.infradead.org (desiato.infradead.org [90.155.92.199])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F0469606A31C;
-	Wed, 18 Nov 2026 14:02:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F0469606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14112606A31C;
+	Wed, 18 Nov 2026 14:05:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14112606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=TyCtMjsh
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795010549; x=1826546549;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=HZQVTI80+qjdMwq80pohoXy+0i654zmIk/9TEV7TNEc=;
-  b=TyCtMjshH8KMF1oVoP1yNLoZtNMALsPWMGYb6hzOh8ujk41FJPT3CP3W
-   1hkEf9M++Tvkbj/G5ceHFKHxsFJ6ml3osBKy3acYJp0o2VDlSt6iL05/M
-   mj4hlPVlW9eIOzuwICo33/FEOMIZD4gb/JE0Ky0tY5yGc5NYBInjSzRF/
-   MIugFHzEUYSdvWVdB5QPxY2p2+Hxj9X3QAwuumiiXtgX+FRo6haSS5NGk
-   ufD5fJSVSVEZ6gVg7sMOimWhJ1v0U35JdP0AdGkYg4Kk5kIp9f/P4MdbK
-   xdyHmeRskezBbO4y54D5aX/Vze9LCRxfX+DUY1NcvpOWwoj/a8xdlCv0n
-   g==;
-X-CSE-ConnectionGUID: liUdNI3yS4ek62uLi32K3Q==
-X-CSE-MsgGUID: a/qv8/FZS16uJH7eahYj5w==
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="77437893"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa1.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2026 07:02:22 -0700
-Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 18 Nov 2026 07:02:21 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex03.mchp-main.com
- (10.10.85.151) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Wed, 18 Nov 2026 07:02:19 -0700
-Date: Wed, 18 Nov 2026 15:02:19 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <horatiu.vultur@microchip.com>, <UNGLinuxDriver@microchip.com>,
-	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next] net: lan966x: free the RX pages when the TX
- allocation fails
-Message-ID: <20261118140219.cug5pbuxkqigidey@DEN-DL-M70577>
-References: <20261117-lan966x-rx-pages-tx-alloc-fail-v1-1-13f310d66650@microchip.com>
- <179500729408.3136.14303184286284983260@kernel.org>
+	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=desiato.20200630 header.b=WOhR5yIs
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=foydl+Nk9ZmJviej/30gV1cygoCTSVCceGPI7w/fow0=; b=WOhR5yIsaTPEeHWfDnVfXLmpTK
+	p2fdJUW95t55sxIMgLSjl77d2uFvCfu73mU98Ke2aNCntsKl6aVpkbYBm1Cx/VDmluo1BPNv7+OAu
+	tMoiX8BqQCyAo2LwGhBzWEtPnp6VCu494v+ZfDj7WbrayOV27fzo8fNM8HJjP8LHTkd9iaNFApzsE
+	lk4vuXuzbMGP9cd4HMq3g6UiNuqhVUDjcimTbrMVwrnHALwefYKVv8Cm8jLfaq4XNJkH9YBTHZln7
+	mXEN4VZW1Q1cyhZ4ngMZSOGFp8d6zXJFUUQZrn2EA8U/U3Fygy9Q03FgvLOc+ZshQqvdAFwW3JiIj
+	8W5+1yxw==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
+	id 1xTgHj-0000000G6tZ-0guj;
+	Wed, 18 Nov 2026 14:05:15 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id E2EC13005AF; Wed, 18 Nov 2026 15:05:13 +0100 (CET)
+Date: Wed, 18 Nov 2026 15:05:13 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Bence Csokas <bence.csokas@arm.com>
+Cc: Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Philipp Stanner <phasta@kernel.org>,
+	Sudeep Holla <sudeep.holla@kernel.org>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	Lyude Paul <lyude@redhat.com>, Danilo Krummrich <dakr@kernel.org>,
+	Zack Rusin <zack.rusin@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Selvin Xavier <selvin.xavier@broadcom.com>,
+	Kalesh AP <kalesh-anakkur.purayil@broadcom.com>,
+	Jason Gunthorpe <jgg@ziepe.ca>, Leon Romanovsky <leon@kernel.org>,
+	Chengchang Tang <tangchengchang@huawei.com>,
+	Junxian Huang <huangjunxian6@hisilicon.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Hans de Goede <hansg@kernel.org>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Haiyang Zhang <haiyangz@microsoft.com>,
+	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Miri Korenblit <miriam.rachel.korenblit@intel.com>,
+	Jes Sorensen <Jes.Sorensen@gmail.com>,
+	Ping-Ke Shih <pkshih@realtek.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Guenter Roeck <groeck@chromium.org>,
+	Nilesh Javali <njavali@marvell.com>,
+	GR-QLogic-Storage-Upstream@marvell.com,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>,
+	Julia Lawall <Julia.Lawall@inria.fr>,
+	Nicolas Palix <nicolas.palix@imag.fr>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	Paulo Alcantara <pc@manguebit.org>,
+	Namjae Jeon <linkinjeon@kernel.org>,
+	Ronnie Sahlberg <ronniesahlberg@gmail.com>,
+	Shyam Prasad N <sprasad@microsoft.com>, Tom Talpey <tom@talpey.com>,
+	Bharath SM <bharathsm@microsoft.com>,
+	Carlos Maiolino <cem@kernel.org>, Thomas Gleixner <tglx@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>, Darren Hart <dvhart@infradead.org>,
+	Davidlohr Bueso <dave@stgolabs.net>,
+	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	=?iso-8859-1?Q?Micka=EBl_Sala=FCn?= <mic@digikod.net>,
+	=?iso-8859-1?Q?G=FCnther?= Noack <gnoack@google.com>,
+	Paul Moore <paul@paul-moore.com>, James Morris <jmorris@namei.org>,
+	"Serge E. Hallyn" <serge@hallyn.com>,
+	"Geoffrey D. Bennett" <g@b4.vu>, Jaroslav Kysela <perex@perex.cz>,
+	Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-bluetooth@vger.kernel.org,
+	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org, arm-scmi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	intel-gfx@lists.freedesktop.org, nouveau@lists.freedesktop.org,
+	linux-rdma@vger.kernel.org, linux-hyperv@vger.kernel.org,
+	netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
+	chrome-platform@lists.linux.dev, linux-scsi@vger.kernel.org,
+	cocci@inria.fr, linux-fsdevel@vger.kernel.org,
+	linux-cifs@vger.kernel.org, samba-technical@lists.samba.org,
+	linux-xfs@vger.kernel.org, bpf@vger.kernel.org,
+	ipsec@lists.linux.dev, linux-security-module@vger.kernel.org,
+	linux-sound@vger.kernel.org
+Subject: Re: [PATCH v4 2/2] treewide: Use struct_offset()
+Message-ID: <20261118140513.GO1813469@noisy.programming.kicks-ass.net>
+References: <20261118-offsetof-v4-0-95b385c10b22@arm.com>
+ <20261118-offsetof-v4-2-95b385c10b22@arm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,203 +157,14 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179500729408.3136.14303184286284983260@kernel.org>
+In-Reply-To: <20261118-offsetof-v4-2-95b385c10b22@arm.com>
 
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 � High: 0 (2) � Medium: 1 � Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] lan966x_fdma_rx_alloc() ignores the return value of
->   fdma_dcbs_init() (line 137).
-> - [Low] Missing Fixes:/Cc: stable tags.
-> 
-> Pre-existing issues:
-> - [High] NULL pointer dereference in the open-coded page-return loop of
->   lan966x_fdma_reload().
-> - [High] The new `if (rx->page[i][j])` check in
->   lan966x_fdma_rx_free_pages() assumes a slot without a page is NULL.
-> 
-> --
-> 
-> net: lan966x: free the RX pages when the TX allocation fails
-> 
-> When lan966x_fdma_tx_alloc() fails in lan966x_fdma_init(), this patch
-> returns the RX pages to the page pool before the pool is destroyed, so
-> the pool can finish shutting down. It also makes
-> lan966x_fdma_rx_free_pages() skip empty entries, because
-> lan966x_fdma_rx_alloc() does not check that every DCB got its pages.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-> > index 1fbe910c5ec38..586ee648c7741 100644
-> > --- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-> > +++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-> > @@ -54,9 +54,11 @@ static void lan966x_fdma_rx_free_pages(struct lan966x_rx *rx)
-> >  	int i, j;
-> >  
-> >  	for (i = 0; i < fdma->n_dcbs; ++i) {
-> > -		for (j = 0; j < fdma->n_dbs; ++j)
-> > -			page_pool_put_full_page(rx->page_pool,
-> > -						rx->page[i][j], false);
-> > +		for (j = 0; j < fdma->n_dbs; ++j) {
-> > +			if (rx->page[i][j])
-> 
-> [Severity: Medium]
-> The commit message says "lan966x_fdma_rx_alloc() does not check that
-> every DCB got its pages, so skip the entries that are still empty".
-> 
-> Instead of treating a partly filled ring as normal here, would it be
-> better to check the return value of fdma_dcbs_init() in
-> lan966x_fdma_rx_alloc() and unwind?
-> 
-> lan966x_fdma_rx_alloc() {
->     ...
-> 	fdma_dcbs_init(fdma, FDMA_DCB_INFO_DATAL(fdma->db_size),
-> 		       FDMA_DCB_STATUS_INTR);
-> 
-> 	lan966x_fdma_llp_configure(lan966x, fdma->dma, fdma->channel_id);
-> 
-> 	return 0;
-> }
-> 
-> Say page_pool_dev_alloc_pages() fails in lan966x_fdma_rx_dataptr_cb()
-> at DCB k. Then __fdma_dcb_add() returns before it links prev->nextptr.
-> DCB k-1 keeps FDMA_DCB_INVALID_DATA as its next pointer, and DCB k and
-> the ones after it are never linked into the chain. Even so,
-> lan966x_fdma_rx_alloc() still returns 0.
-> 
-> lan966x_fdma_init() and lan966x_fdma_reload() then call
-> lan966x_fdma_rx_start() on the short chain. When NAPI has consumed DCBs
-> 0..k-1, fdma_dcb_advance() moves dcb_index to k. From then on,
-> fdma_has_frames() in lan966x_fdma_napi_poll() polls a DCB that the
-> hardware never completes.
-> 
-> Can CPU RX stall permanently this way?
-> 
-> The PCI variant, lan966x_fdma_pci_rx_alloc(), already checks this call:
-> 
-> 	err = fdma_dcbs_init(fdma,
-> 			     FDMA_DCB_INFO_DATAL(fdma->db_size - XDP_PACKET_HEADROOM),
-> 			     FDMA_DCB_STATUS_INTR);
-> 	if (err) {
-> 		fdma_free_coherent_and_unmap(lan966x->dma_dev, fdma);
-> 		return err;
-> 	}
-> 
-> lan969x_fdma_rx_alloc() in sparx5 has the same unchecked call, and
-> lan969x_fdma_free_pages() has no NULL guard.
-> 
-> > +				page_pool_put_full_page(rx->page_pool,
-> > +							rx->page[i][j], false);
+On Wed, Nov 18, 2026 at 12:50:09PM +0100, Bence Csokas wrote:
+> Generated with a simple Coccinelle patch found in
+> scripts/coccinelle/api/struct_offsetof.cocci
 
-The concern raised is valid, but for what this patch fixes, out-of-scope.
-
-This patch is scoped to the TX allocation failure path, which before this patch,
-didn't return the RX pages.
-
-The reason that the ring can be partly filled at all, is because the return
-value of fdma_dcbs_init() is ignored (not just in rx_alloc, as the bot points
-out, but also in other places), but that needs its own fix in a separate patch.
-
-> 
-> [Severity: High]
-> This is a pre-existing issue, but does the NULL check catch every slot
-> that no longer owns a page?
-> 
-> lan966x_fdma_rx_dataptr_cb() is the only writer of rx->page[dcb][db].
-> It does not clear the slot on -ENOMEM. Nothing else sets a slot back to
-> NULL after its page has been handed off. That means a slot is only
-> guaranteed to be NULL on the first init, when struct lan966x has just
-> been zeroed.
-> 
-> In lan966x_fdma_napi_poll(), lan966x_fdma_rx_get_frame() hands the page
-> to an skb, or lan966x_fdma_rx_free_page() recycles it, but the slot
-> keeps the pointer either way. The refill then ignores failure:
-> 
-> 	fdma_dcb_add(fdma, old_dcb, FDMA_DCB_INFO_DATAL(fdma->db_size),
-> 		     FDMA_DCB_STATUS_INTR);
-> 
-> In lan966x_fdma_reload(), lan966x_fdma_rx_alloc() refills rx->page
-> without clearing it first. After a partial fill, the slots that were
-> not refilled still point at pages from the old pool. Those pages are
-> then returned to the old pool and freed by page_pool_destroy(page_pool).
-> 
-> Later, lan966x_fdma_deinit()->lan966x_fdma_rx_free_pages() or the next
-> reload puts these stale pointers into the current rx->page_pool.
-> 
-> Could that put a page twice while an skb still owns it, or put an
-> already freed page into a different pool?
-> 
-> Would it help to clear the slot whenever its page is given away, and
-> also check the return value of fdma_dcbs_init()?
-> 
-> > +		}
-> >  	}
-> >  }
-> 
-> [Severity: High]
-> This isn't a bug introduced by this patch, but if NULL slots are
-> expected here, what about the open-coded copy of this loop in
-> lan966x_fdma_reload()?
-> 
-> lan966x_fdma_reload() {
->     ...
-> 	for (i = 0; i < fdma_rx_old.n_dcbs; ++i)
-> 		for (j = 0; j < fdma_rx_old.n_dbs; ++j)
-> 			page_pool_put_full_page(page_pool,
-> 						old_pages[i][j], false);
->     ...
-> }
-> 
-> If the first fdma_dcbs_init() at probe stops partway, the rx->page[]
-> entries from DCB k onward stay NULL, and lan966x_fdma_rx_alloc() still
-> returns 0.
-> 
-> A later MTU change through lan966x_fdma_change_mtu(), or an XDP setup
-> through lan966x_fdma_reload_page_pool(), reaches lan966x_fdma_reload().
-> That function kmemdup()s those NULL entries into old_pages.
-> 
-> Once the new lan966x_fdma_rx_alloc() succeeds, this loop passes NULL to
-> page_pool_put_full_page(). That leads to page_pool_unref_netmem(), which
-> reads the pp_ref_count of a NULL netmem. Can this oops?
-> 
-> > @@ -999,6 +1001,7 @@ int lan966x_fdma_init(struct lan966x *lan966x)
-> >  
-> >  	err = lan966x_fdma_tx_alloc(&lan966x->tx);
-> >  	if (err) {
-> > +		lan966x_fdma_rx_free_pages(&lan966x->rx);
-> >  		fdma_free_coherent(lan966x->dma_dev, &lan966x->rx.fdma);
-> >  		page_pool_destroy(lan966x->rx.page_pool);
-> >  		return err;
-> 
-> [Severity: Low]
-> Should this patch have a Fixes: tag and go to net with Cc: stable?
-> 
-> The page_pool_destroy() call on this error path was added by commit
-> 076344a6ad9d ("net: lan966x: fix page pool leak in error paths"), which
-> is tagged Cc: stable. Since that commit, the pool is destroyed while the
-> RX pages are still in flight. That causes the page_pool_release_retry()
-> warning described in this commit message.
-> 
-> Something like:
-> 
-> Fixes: 076344a6ad9d ("net: lan966x: fix page pool leak in error paths")
-> 
-> Without the tag, stable trees that picked up 076344a6ad9d would keep
-> the warning.
-
-I routed this to net-next without a fixes tag, because its not a regression, and
-its an init error path leak.
-
-> 
-> -- 
-> Sashiko AI review � https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117-lan966x-rx-pages-tx-alloc-fail-v1-1-13f310d66650%40microchip.com
+I think this is a good example of why we don't need this. It adds yet
+another macro to remember, and doesn't actually save many characters at
+all.
