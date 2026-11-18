@@ -1,55 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996334;
-	b=QVVaeEm92b7YCG2HegZv9oHZgsAtzXxRPhVSiKBVdfD1qzp6mwmywLYfuQi1uXt8IxpK
-	 GskyZuTZQOGoaNgnLIxjmsgKx/9Hww07JY9mcSDw1mWv2IKSoTuW07JKf6gA0PY3BxHDp
-	 lXRflRGcf1zF+mwfexdKQHonckpLxNiu3zDo+QIlotXpYv7YIWfTaAsfB9JuAmkmHfAtc
-	 Jq6xgLrk9No5RK3zT9F8O+sv+vZuYCXFrtgONhoRAJG8TlV1wAo5qCPXP2+ASYnX2mVhM
-	 rDsdyOx24xseFJHFcntuOoRClwkffgmCqukc0lZISZpdh2bDMXDZc7zp7NGL2P165YQ==
+	t=1794996454;
+	b=UP44fFlPJUQ7aCioGxN5AIuzc2D4ecQX1v0q6Q0YtOx37V4jZZI3TAHKdJFdSd7sDU88
+	 Pg0fiOin2GB9SZ0iNir1KhX2NcMFJI073VaalVH61SD4UkXn8AiyREto/mVTliJHX7mH4
+	 +jrkAiRHmi+XXV98gM5c3vUYjfmtrlQiirENSP4Ci+jpEWeyFvgZiJk15/iz7Ish/npdi
+	 5PuPTKY4cNEocxgOfGLjEJb5jtnFbyNEYsHeLFOHWCDs8/nSFdqoiw8LpB0ULm4jEV3cn
+	 mYReuNP7K2u/oihxlq37x62Eqm2br8IwNkNG5uO0InVDE51Px/tB0D0zGVkBC6J/MIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996334;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=yTakoTBQpzpd8vPUGIJSVkaGOs54M8jR7qM+MgY7c40=;
-	b=sG2wTLx7r/gfZlLKzG6EcFo2rNtGrZjJL8Ua0rTjy7LpUrNRtBIFJSRvqxsFhGZfviW9
-	 PywmQ4cirbyPp64I4ywfdSxWlyButVosPOAyb28U/nNbTdWM0PbtU0ZvRTf+vuQnHhXlz
-	 QZl/PKtM8J8zAzkw1Ljo2k3KUjFzIMYULgjQ2pKRCzxjthZRKtyI0uhznLxWj5t+L5/nh
-	 aikCPR8cpQSOZ10Vl75OUGL3iQR4OIn6HoYzrI4jj0myidT86JaQKLWSqyYbiqIDOb+Bt
-	 ka/lrAoRkGuny/amoQ0R6BXhWN10lvb6Aexj30sFgLHnHAFUENUS9klyGmn2PVZRL2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996454;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=9p7nWP6aCwolh1r/jYlW6rQASc0ZzZDHEc19WN951qU=;
+	b=NE5jLzVgcwhwubsf6IxqZRJJUPcbpP47ESVCjg5B52qPahVupH3vLqs81jNCOuAkwLi5
+	 5KjtrU0Y2vZBrCSoPhwMSaRLsSk/1lIjtW0UpS4RIei9D45Up6HJAsgFlwCItWph9//PS
+	 GYzfj/WBVCTHIPs7qz0Eqwcb2P8Di89L+3OEcXCqE9Tnd4iaN3vuXkyypBDqz3BqPssJ4
+	 GHv/qF6bZYFGlZGOGvwgiEIn5qY5VTym09kdTk5WGG1Nl2OqV3QqYOfxLOsZeK9abNJVD
+	 078K3w86i+EP8vobfdEuSupx1ouAnZ17rban9dyh0V2f8QEi+ic5ghGxXIWqIcdsffQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tv99oAGl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=aqa4i8Na;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0C46606A336
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:05:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A535606A330;
+	Wed, 18 Nov 2026 10:07:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A535606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tv99oAGl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB971F000CC
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:05:34 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794996334;
-	bh=yTakoTBQpzpd8vPUGIJSVkaGOs54M8jR7qM+MgY7c40=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Tv99oAGlz1yttm+xb9Y3LzNYdyMOTBOW2gbWd8+u9RzXg4slRpQ4T3l0q2TngfMYu
-	 VfVqLVfCpwj4RAYzIDtE3mHHQHPKB6NI5pUVo6dZGi/RbaPXUDLHcNPt9fuYG+BHTR
-	 I5AWT6CpfRwf0kMpsPF2zAkLp5GNJAjaO9E2HoW3RhIFABy1E2jRYu0HekyyvxAomw
-	 tqfqzE+sRjko8Walj5sJrKgJ34wLYfpYssruxoFVg91O/TNWQcMqUctQt2LctOswm/
-	 S5xB1BQM1Sg3z4H89li4HCSq9+7iS7suaATHVy2zygk5oOtfw0ZaYB6mi3NZtRSx20
-	 tbkRBBFqkLoWQ==
-Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-6de2f213b7aso357950eaf.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:05:34 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFRKyV1qggj+F0lWxhhQA3dfjlVYbgLSB53I8+uXdcAxvuhmWsITmZt2PdSXwwkJWipBHBT1os=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9slCmM5qryaYlM7wF3uTMtYhdhlaEKIcx+pAVpNUx12hvELhES
-	IS/Hj9pH+0aej6tJOuilveLggq9fEqZBIshyFPdvEL5gZj9mT/DHB1nUwrC2is6pT/Aupps8vYe
-	Z4Aw3zcGPJujIhGeoML9PDmE5+2hlinw=
-X-Received: by 2002:a05:6820:f029:b0:712:c3fb:b4dd with SMTP id
- 006d021491bc7-71b18592d82mr1370427eaf.58.1794996333573; Wed, 18 Nov 2026
- 02:05:33 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=aqa4i8Na
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1794996461; x=1826532461;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=WV62P4nogrn/yedNrcqAoj0rawX6mdY7FKe5AzL+xxc=;
+  b=aqa4i8Na/12xObUKqU5m2tbbsExjC0TaFY6hk9HcgxKLEeyFRkG5XPeu
+   +eONOWY8+gCvE5hYCy5BwwCIGjSY5wj8gHhcuV/3SDHEWT3DYW0ZG3Z6P
+   TnYVxba00w2R9SZb+Og/BKN+yIxzYTS2wsKFtAlmqETeOfH2LAHdDzw5K
+   pG9ZVidylnJ/VOvRVy0preNj07KvtSObVnoSDrZQPTdL8kxS5Umv320Cu
+   YORjfErMKXmxPmmPxP/27b5sPEmc6aDqE7b0hdtkx/AdPy1JEeVytoyQL
+   8tKcw8/hsQPvdqanZv64qzxtuMe8VpHjRU/TBK6XpbhiIlYcTkGRC1+LP
+   w==;
+X-CSE-ConnectionGUID: CDvrusw7S4i+4/eC+9cqbA==
+X-CSE-MsgGUID: RUyH8oQSQnuzLEE9CMGJJQ==
+X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
+   d="scan'208";a="65717232"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2026 03:07:40 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.85.151) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 18 Nov 2026 03:07:31 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 18 Nov 2026 03:07:29 -0700
+Date: Wed, 18 Nov 2026 11:07:29 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Henry Martin <bsdhenrymartin@gmail.com>
+CC: Paolo Abeni <pabeni@redhat.com>, "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Simon
+ Horman <horms@kernel.org>, Stanislav Fomichev <sdf.kernel@gmail.com>, Nicolas
+ Dichtel <nicolas.dichtel@6wind.com>, Yuyang Huang <sigefriedhyy@gmail.com>,
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+Subject: Re: [PATCH] net: fix uninitialized heap leak in multicast address
+ dumps
+Message-ID: <20261118100729.jn66g5cvdkspoqjc@DEN-DL-M70577.microsemi.net>
+References: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,43 +84,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118022813.9778-1-zhiqizhangg@gmail.com> <20261118022813.9778-3-zhiqizhangg@gmail.com>
-In-Reply-To: <20261118022813.9778-3-zhiqizhangg@gmail.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 11:05:22 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiiq4s=7odXcU3WxyuqjYw47Z8GUO6Tg5DMfaVJ+43fUD=Q@mail.gmail.com>
-X-Gm-Features: AclHuK8K9tF4TVw7j3RjckE1HLq3h2lEhDOm2ORPcutWmaCCc-IEEsyMxD7ounc
-Message-ID: <CAL4Wiiq4s=7odXcU3WxyuqjYw47Z8GUO6Tg5DMfaVJ+43fUD=Q@mail.gmail.com>
-Subject: Re: [PATCH net v2 2/2] selftests: net: packetdrill: add ROCCET RTO test
-To: Zhiqi Zhang <zhiqizhangg@gmail.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>, 
-	Tim Fuechsel <t.fuechsel@gmx.de>, Lukas Prause <lukas.prause@ikt.uni-hannover.de>, 
-	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
 
-Le mer. 18 nov. 2026 =C3=A0 03:28, Zhiqi Zhang <zhiqizhangg@gmail.com> a =
-=C3=A9crit :
->
-> Add a packetdrill test for the ROCCET idle restart on RTO.  TLP is
-> enabled, so the first RTO is affected; the test asserts that
-> tp->snd_ssthresh stays at the prior cwnd (20) across the first and
-> second RTOs.
->
-> The test fails at the first RTO without the preceding fix
-> (snd_ssthresh =3D=3D 10) and passes with it.  A variant with
-> tcp_early_retrans=3D0 (no TLP) fails at the second RTO only.
->
-> CONFIG_TCP_CONG_ADVANCED and CONFIG_TCP_CONG_ROCCET are added to the
-> packetdrill config; ROCCET is only visible when advanced congestion
-> control is enabled.
->
-> Test written by Eric Dumazet.
->
-> Suggested-by: Eric Dumazet <edumazet@kernel.org>
-> Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+Hi,
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+> __hw_addr_create() allocates entries with kmalloc() and initializes
+> only addr_len bytes of ha->addr. Dump paths emit entries using the
+> current dev->addr_len, which can grow after the entry was created:
+> tun's TUNSETLINK changes a device from ARPHRD_NONE (addr_len 0) to
+> ARPHRD_IP6GRE (addr_len 16). Both the RTM_GETMULTICAST dump and
+> /proc/net/dev_mcast then emit up to 16 bytes of never-written slab
+> memory per entry.
+> 
+> This discloses leftover kernel heap contents to anyone reading those
+> interfaces.
+> 
+> Zero the tail of ha->addr at creation time, so dumps can only emit
+> initialized bytes.
+> 
+> Cc: stable@vger.kernel.org
+> Fixes: a748ee242681 ("net: move address list functions to a separate file")
+> Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
+> Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> ---
+>  net/core/dev_addr_lists.c | 5 +++++
+>  1 file changed, 5 insertions(+)
+> 
+> diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> index d827cc21867b..53a2dfa2706c 100644
+> --- a/net/core/dev_addr_lists.c
+> +++ b/net/core/dev_addr_lists.c
+> @@ -100,6 +100,11 @@ __hw_addr_create(const unsigned char *addr, int addr_len,
+>  	if (!ha)
+>  		return NULL;
+>  	memcpy(ha->addr, addr, addr_len);
+> +	/* Entries are dumped with the current dev->addr_len, which can grow
+> +	 * after creation (e.g. tun TUNSETLINK), so never leave the tail
+> +	 * uninitialized.
+> +	 */
+> +	memset(ha->addr + addr_len, 0, MAX_ADDR_LEN - addr_len);
+>  	ha->type = addr_type;
+>  	ha->refcount = 1;
+>  	ha->global_use = global;
+> -- 
+> 2.43.7
+>
+
+Looks right.
+
+Just a thought, I think switching to kzalloc, like so:
+
++       ha = kzalloc(alloc_size, GFP_ATOMIC);
+
+Would give you the same fix, and you would get rid of that extra tail length
+arithmetic.
+
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
