@@ -1,61 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027388;
-	b=crq+p7MVAemIteBKUFg9wfqzxTEJXjqR/I3EuBCBE6uZJYBlgXgmG0+0JXrEIscgG0T9
-	 pejRYLBzeM4ojracW9GlNSi8XJjg/OVz6epmBj2C0kIzZ2QliJUlUDxPxsj++Ez7ZgYmp
-	 NaQ3iG/VSpwtTAF3dOfq1pzIlesafZBq0VuLOUATrVwauCJR2VCHdAP7eFMl6VSNGqxkS
-	 TCPzYj6T06hkid6EkjY95kXBlsdD9mW1Wo//ZlR3c7UAgM0WxnqOfQzYaola91hP6VZn3
-	 PqtduOfl8L98xNx07DE+EH+XFJ6QTHD8EAq/VieYiCti7G1wg0Drct9mVZI6+m8FlxQ==
+	t=1795027447;
+	b=oXbchHcVtesILpJPrkCJCz4NRHsC+MIsejsZjQOMZjZfng1i2pR8/GZbaV14r3dzHRnV
+	 SA4EJX2fNkPzsE3BTXps70lzBwgKfMJkCG5RaG//BadKeiO3/uAg/b6wWjFrnEgh7cfNl
+	 zTGTj/B2KRsDe4YC9y+ldzd6uo0MQGjKEJdUpIyIUTtGG1LD6eDopdikBwgOtJ6DWgpz+
+	 LKkgFweR9VQpymFWNlFENkVd9wzkEHzaGDPZ6XkiCk5t7g5/x2+/H0jwliATGO5Anry6W
+	 GdVXEumxXJRfCgNz9hTL3rreM4fzQKKrSxuH2t6KM/4S7Spvy4dE3F0BOyZWUHFAHhw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027388;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	b=R013NRHx1lrpQ5Bx2ueYr2hLzrY3+Ta2yr4Ky1ei+ft+XwD4pxYQla5IrSEDkmCHTOZK
-	 0AAnzZqgca2zKvhcBH+u0t5xq7gs8e12OLGVJcFu8jaz4ZHjazez6GOPGlOpGWs4yvaLq
-	 qch7A0aBtyVeBlXiv9NEyJ7iASn4/j3W56ja74XAVWeltZeFnjQU1pRNdkYfp0PT/7YeM
-	 Ddgu54O3zw6U96ZA054JSITQmvF0RIAM/A4ZTPicwB1ytmnZwyBxEmb1rP3Ap2civOxLH
-	 DcFDIjg1gwjDsxVsH6fqIoL/w/ifREEA5L4Mm8gLfkuKpmknh2BmEnpJbJhx+ykgoPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027447;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=Exh67LGpxykc1JGTN+in07YExIL4rUDgMV0oj2/L/Eg=;
+	b=tw4wEh2PZghhB4mNAgtBkIMMjbPqT5uBsw2V6GCxlioe20z5KlzVzKB5PCRQOGzoglXd
+	 z2ske3ug9zkMyYuIfmqjCRlPJX1Tn3TSzwoDYn9kMQSFKzJonIByhoqb62MlEeWT9VfJb
+	 ta+yXBnGV0uEYHCViXXRY1FqO1vJ++mVn71VHgneBP7Wq2+51ExBp1f05nuQBPKH+LqIx
+	 iOq2X2vPK3kcGc9kNy6HYz5jXbhSzzdiVExkstEAO/CadaDNx5tbxiMELTJg3ORDbC0nm
+	 1fHtxExBrGU8WYR9C7XGLVhYYiLQ5LMHrq64OvayzeaaTLWHKdP5ah9Gjs6Y2J3iMGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dyTePX9o;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=bVwK3gIB;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25B90606A334;
-	Wed, 18 Nov 2026 18:43:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CA2B606A331;
+	Wed, 18 Nov 2026 18:44:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CA2B606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dyTePX9o
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62B151F000C4;
-	Wed, 18 Nov 2026 18:43:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795027387;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=dyTePX9o2IOPwaqBC6mSIXgb/5UZF059M9R+N+MAqYU1lMur8LpfU769Kf29HmI7C
-	 AZqxRiWyy4H2Ofl59kUnsuNAJ33PCMjQ3rPKh46Y0Ket4V08YS9coz3kJADCj24Bjb
-	 v7xvJVDST0BtGFurBROzaDP4cGywl9SGN+wWwfHgL5IIxMRB/rqXDvhqVcG/suVFLj
-	 THqvO4xzBru9ZU9b71N36OqrdI/39zlpmuzdoZ3EKXxRMI0P5fhZl5TmYkBpEL0UHX
-	 z8qSN6wPi2uI+Y+AsvJvXEX+aarm7+PJf5tLqAfptgatuvn+r78JptXx5iaHPZihl7
-	 Gj8ooOw+yEtWg==
-From: netdev-bot+sinfo@kernel.org
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: netdev@vger.kernel.org, Jonas Gorski <jonas.gorski@gmail.com>,
- Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] net: dsa: tag_brcm: fix link-local detection with a
- prepended tag
-Date: Wed, 18 Nov 2026 18:43:06 +0000
-Message-ID: <179502738694.3291.2857896410647833767@kernel.org>
-In-Reply-To: <20261118184004.1916105-1-florian.fainelli@broadcom.com>
-References: <20261118184004.1916105-1-florian.fainelli@broadcom.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=bVwK3gIB
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Exh67LGpxykc1JGTN+in07YExIL4rUDgMV0oj2/L/Eg=; b=bVwK3gIBoh1JAh+xKxY1vWJ8OO
+	fHzZaF3l9M7ah8N5eVTQJFCwbBiZQBD82LzWGm0pYXrIwvcHdC0lMR3LHPXUeGqMSl0hjvNF7/mp9
+	YPfqAc+xiEcNAUfTuvs8xcP/6EwHqs9MAfT9ZZsqL3I9bCOAFhvu2B5qosMnOXbToLnE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTkdP-00HUdI-IX; Wed, 18 Nov 2026 19:43:55 +0100
+Date: Wed, 18 Nov 2026 19:43:55 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Zhao Li <enderaoelyther@gmail.com>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Eric Woudstra <ericwouds@gmail.com>,
+	=?iso-8859-1?Q?Bj=F8rn?= Mork <bjorn@mork.no>,
+	"Lucien . Jheng" <lucienzx159@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net] net: phy: air_en8811h: check PBUS register read
+ errors
+Message-ID: <31de7b62-098a-425a-bf0e-38064b3a42d3@lunn.ch>
+References: <20261118182436.32455-1-enderaoelyther@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,22 +69,40 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118182436.32455-1-enderaoelyther@gmail.com>
 
-Hi!
+On Thu, Nov 19, 2026 at 02:24:36AM +0800, Zhao Li wrote:
+> an8811hb_check_crc() ignores the return value of its PBUS reads. When
+> the status read fails, the loop tests a stale or uninitialized
+> pbus_value and can stop waiting before the check has finished. When the
+> result read fails, the PASS or FAIL message tests the status value.
+> 
+> en8811h_print_fw_version() also ignores a failed read, which leaves
+> priv->firmware_version at 0 on the first firmware load.
+> en8811h_read_status() then handles it as firmware older than 24011202
+> and guesses the link partner's 2.5GBASE-T ability from the link speed.
+> 
+> Return the error from each of these reads. A failed version read now
+> fails the firmware load or the probe, as the other PBUS errors there
+> do.
+> 
+> Found by an AI code review agent; not triggered. Compile-tested with W=1.
+> 
+> Fixes: 71e79430117d ("net: phy: air_en8811h: Add the Airoha EN8811H PHY driver")
+> Fixes: 5afda1d734ed ("net: phy: air_en8811h: add Airoha AN8811HB support")
+> Cc: stable@vger.kernel.org # needs adjustments for <= 7.1
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Does this bother anybody?
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+MDIO pretty much never returns an error.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Please repost for net-next.
+
+    Andrew
+
+---
+pw-bot: cr
