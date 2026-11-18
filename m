@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027222;
-	b=nsYpt3JFbfAsvUtVmbX0s5dANWf52jTDxBmlyu2Ta/YYHAbsJr1ew9leQxqLOfkij/uW
-	 uDSc29IeTd2ENNi6WTY3mW7hBX11zt+4KStj5b8i4LyStHDz2mSijhx2sJhURJZWYwi8S
-	 js7v5h4MNKyHuICNJMb5l7yPHX44+BNorQ2H7+hurGzk0bxB+VO1LJ+zLg7cV2sfjtRh4
-	 l4089IpcRWLI2G/hb6RxPkQFE1dWdTFb+tFG9CmvgexIXGVfa/7YhmSnU875UPpngQBGY
-	 qsTDd8gQIfnDR8iz5SjX0UOzGM7ZNZxjYBtuPnLKRvRp7A39k0J98/wEvkuHRIHhzzg==
+	t=1795027225;
+	b=LUSic3QhNc7VAxFjTl1/DsaT6bTZ/MnO3nC8yitY2TKqKKtjYIB0B0ZO/PHsCF/LkXyI
+	 1clSBgd3ARCLwy+9uzezKIV3njvNu2w5NpupQA/QLsB2hBe3FQuycs6gZ5guajIM/S4Kz
+	 bevdwytDMaws/c1ip/GvfbEwflvcgC0FHcudyC5SJ6tr3DrD/TdXsKkzY+whu7afCMty7
+	 xGFGUjg4Pai0IJqr9UEzOHQzmdcPMGxn1jhpdf+MiNiH+lbQ670QqKzU9K4QEI7zqGp3H
+	 jHfDvFAO+2OZ9LnJXI63gin6mk8w47pODxt6vzDdfVHOF9yFpuFpIe3Y2xCSz8vrrng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027222;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027225;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding;
-	bh=gROTN1zvCOF4nJyz6SbDu9FhtzlOzM8TGq7x9iKfDwE=;
-	b=wjBfifLmgSCJICRXrqTzffpqsnW4Al6GjZj2Tz7rfBEhtkb/8LJEoB6aH6j8vSVCUxJW
-	 XM9/llU/Ln33tPLLoGNnGCIOb/BZLyLe5j9QVGHg0EZGkllsTird6unYpCaHX6FYIp2ub
-	 ogMiDbD8torKVjgkBfamezGzBzJn3py8ApHhXHL6gBMWexKuXaYpseDQS8H74iPDYlQpm
-	 i2IPYGH9aVe6oEYyLTbtRLiJXl7msVTA+FgvVMN43P+8obKbNMZ9Q5DJNQNWKHpOPDCw4
-	 UomGzmee293WHDrIyl2gb+nApMpKShWT35I7you7Dn7StdVcaOcCp041H/LO+UsZHHQ==
+	bh=24U4gclSF8EWBrOROCTXbFJ6yt1U2MCTRcDgtga58hY=;
+	b=YEwCO7kK/lbQ5p6WPLafY7qHl0xYt6T0pS8oHxrMjiAaqdzf1LMcjccwnSyiCwmbcNzd
+	 80zJwb54GYyg6tIfJzp/SoiosomeFq008//AROtNZvTTlgObL9UA8hEYnuhlLo+dNI7As
+	 Gjvgn4/kekcv89kMeyjnQQH62A1koDhKTjjpazWd6boS9owd3DV7vTqmyG8S94+2D9vQL
+	 s5mleKIEEbpV7y3DQIOSOJaZjuRR99URIKz6RZHStxCVYSm8LLOMBZ9EgSnPSVj82a2zG
+	 GeFPQMeFL9O0KwkrioHbdUaL3mIhX80DD62AWERr69vCe4T3ocxbxK9vtmaPhuJH7ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=szelinsky.de;
 	spf=pass smtp.mailfrom=szelinsky.de;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=AADRGOS4;
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=S6wgwRUu;
 	arc=none smtp.remote-ip=85.214.127.56
 Received: from szelinsky.de (szelinsky.de [85.214.127.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43F3760A260D;
-	Wed, 18 Nov 2026 18:40:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43F3760A260D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B341260A383D;
+	Wed, 18 Nov 2026 18:40:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B341260A383D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=AADRGOS4
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=S6wgwRUu
 Received: from localhost (localhost [127.0.0.1])
-	by szelinsky.de (Postfix) with ESMTP id EBA05E83AAF;
-	Wed, 18 Nov 2026 19:40:14 +0100 (CET)
+	by szelinsky.de (Postfix) with ESMTP id E97EDE83AE6;
+	Wed, 18 Nov 2026 19:40:18 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
-	s=mail; t=1795027215;
+	s=mail; t=1795027218;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=gROTN1zvCOF4nJyz6SbDu9FhtzlOzM8TGq7x9iKfDwE=;
-	b=AADRGOS4iT+qi5xNZjEh+9IPMVVz8ud0ecf1tWPrOOGlqfLly0r+JzhhVhv1xIOziUIBlB
-	5Qn9YUqdb2XYhLoRsFtLSaFbXSmB+QAQiv+B8BsAT93EQ4VLTIWCln2t2klRy/dTxpT/ap
-	Bp3vr6udHFT/+boTnKAHO4j1rvWsvXsf34wtpIUCjY+Sd1YMnpAXsZN9BkydlSE0VlPAGM
-	/sEMjNRn4gwEkTUld6/En0+4uhi3bIWm8Tw3p82+x4PdIadU6yq00DY6rYvKlu3ZVNU1Iz
-	x121L5xMeems0vscIGbgoH9v6Vm21oiSPHODqee7SVLxgtOc7EmsQZavqH9IMA==
+	bh=24U4gclSF8EWBrOROCTXbFJ6yt1U2MCTRcDgtga58hY=;
+	b=S6wgwRUu21M2iUXXIX8qut6WwEGsa7D5smp55YaH/+K1FyX5P/TQPJyQGgnnWWIMpZ9Asn
+	z0rdVWwxiE3bqpDgMW1OoTQDVZQERJoOOmciUZ/3M+WTGV3okh3uWAgOqY5ks+7BcsVC23
+	Vp0cx5qyQQGpBZDAfS6hj7KpMHOfG8nkdwQ4rQwWtCUJ8G+h5xBO9lVsq5cCnlGbAIXE5b
+	spGBVYm+ayw727hUDwjyZ+ygjBmnr3yIn5mqhAembPPW0srNkkUVpWLoJWlrXjWjXiV3xr
+	cpv7I2xxKauxsx3dKaxRmio0PKKXPDLVge76ff1rv3vP6jcw/aB8kZp4FrYNBg==
 X-Virus-Scanned: Debian amavis at szelinsky.de
 Received: from szelinsky.de ([127.0.0.1])
  by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
- id 1lsc_SxrpgzT; Wed, 18 Nov 2026 19:40:14 +0100 (CET)
+ id qp2sKxYZD0Lj; Wed, 18 Nov 2026 19:40:18 +0100 (CET)
 Received: from p14sgen5.. (unknown [91.25.97.186])
 	by szelinsky.de (Postfix) with ESMTPSA;
-	Wed, 18 Nov 2026 19:40:14 +0100 (CET)
+	Wed, 18 Nov 2026 19:40:18 +0100 (CET)
 From: Carlo Szelinsky <github@szelinsky.de>
 To: Oleksij Rempel <o.rempel@pengutronix.de>,
 	Kory Maincent <kory.maincent@bootlin.com>,
@@ -73,9 +73,9 @@ Cc: Simon Horman <horms@kernel.org>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Carlo Szelinsky <github@szelinsky.de>
-Subject: [PATCH net v5 04/14] net: pse-pd: do not keep a failed IRQ in pcdev->irq
-Date: Wed, 18 Nov 2026 19:39:47 +0100
-Message-ID: <20261118183957.2031311-5-github@szelinsky.de>
+Subject: [PATCH net v5 14/14] net: pse-pd: pd692x0: defer probe while a manager supply is unresolved
+Date: Wed, 18 Nov 2026 19:39:57 +0100
+Message-ID: <20261118183957.2031311-15-github@szelinsky.de>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261118183957.2031311-1-github@szelinsky.de>
 References: <20261118183957.2031311-1-github@szelinsky.de>
@@ -90,53 +90,42 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-devm_pse_irq_helper() keeps the IRQ number in pcdev->irq even when the
-IRQ request failed. The failed probe then runs
-pse_controller_unregister(), which calls disable_irq() on that line. If
-another device owns it, that device stops getting interrupts.
+pd692x0_req_managers_pw_budget() uses each manager regulator's supply
+without a NULL check. The supply is NULL while the vmain regulator is
+described but not registered yet, because regulator_register() does not
+wait for its supply. Probe then crashes.
 
-Clear pcdev->irq when the request fails. It is now set before the
-request, because pse_isr() can run as soon as the IRQ is enabled and
-pse_pw_d_is_sw_pw_control() reads it.
+Return -EPROBE_DEFER in that case.
 
 Found by code inspection. Not reproduced.
 
-Fixes: ffef61d6d273 ("net: pse-pd: Add support for budget evaluation strategies")
+Fixes: 359754013e6a ("net: pse-pd: pd692x0: Add support for PSE PI priority feature")
 Reviewed-by: Kory Maincent <kory.maincent@bootlin.com>
-Acked-by: Oleksij Rempel <o.rempel@pengutronix.de>
 Signed-off-by: Carlo Szelinsky <github@szelinsky.de>
 ---
- drivers/net/pse-pd/pse_core.c | 12 +++++++++---
- 1 file changed, 9 insertions(+), 3 deletions(-)
+ drivers/net/pse-pd/pd692x0.c | 9 +++++++++
+ 1 file changed, 9 insertions(+)
 
-diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
-index 0cce17670d0b..0894613515e0 100644
---- a/drivers/net/pse-pd/pse_core.c
-+++ b/drivers/net/pse-pd/pse_core.c
-@@ -1341,14 +1341,20 @@ int devm_pse_irq_helper(struct pse_controller_dev *pcdev, int irq,
- 	if (!h->notifs_mask)
- 		return -ENOMEM;
+diff --git a/drivers/net/pse-pd/pd692x0.c b/drivers/net/pse-pd/pd692x0.c
+index 019bc5861a8e..667e0b818811 100644
+--- a/drivers/net/pse-pd/pd692x0.c
++++ b/drivers/net/pse-pd/pd692x0.c
+@@ -1055,6 +1055,15 @@ pd692x0_req_managers_pw_budget(struct pd692x0_priv *priv)
+ 		struct regulator *supply = priv->manager_reg[i]->supply;
+ 		int pw_budget;
  
-+	/* pse_isr() can run as soon as the IRQ is enabled, and
-+	 * pse_pw_d_is_sw_pw_control() reads pcdev->irq.
-+	 */
-+	pcdev->irq = irq;
- 	ret = devm_request_threaded_irq(dev, irq, NULL, pse_isr,
- 					IRQF_ONESHOT | irq_flags,
- 					irq_name, h);
--	if (ret)
-+	if (ret) {
-+		pcdev->irq = 0;
- 		dev_err(pcdev->dev, "Failed to request IRQ %d\n", irq);
-+		return ret;
-+	}
- 
--	pcdev->irq = irq;
--	return ret;
-+	return 0;
- }
- EXPORT_SYMBOL_GPL(devm_pse_irq_helper);
- 
++		/* The regulator core registers the manager regulator even
++		 * when its vmain supply cannot be resolved yet and retries
++		 * later, leaving ->supply NULL until then.
++		 */
++		if (!supply)
++			return dev_err_probe(&priv->client->dev, -EPROBE_DEFER,
++					     "manager %d: vmain supply not resolved\n",
++					     i);
++
+ 		pw_budget = regulator_get_unclaimed_power_budget(supply);
+ 		if (!pw_budget)
+ 			/* Do nothing if no power budget */
 -- 
 2.43.0
 
