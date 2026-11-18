@@ -1,54 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.120
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.145.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966941;
-	b=n0mq7qhmaKMPE32+EhPrZCUYAjq3C0T7hYMs+x77njz+8jwzcXwKag4UWdxSZhh3j6ZL
-	 QlC4VLT/QQ2hC4qYsb2g0OFbNIiJIo4YsC0TeJifqHbfVaegn9vKmRyXpyf7CKOfw4+TE
-	 HPYt73bE92nk4gGJOpI/hVdqpd+9GaH6nq2zd9qQ3+2RscKUXLD/v2jAP64ITxSnkWYCf
-	 b04zAnJaHVH52PZMyUdcgDqcolpcxNeMUxU1rKGoG2GrjwIKSfBqVn39KoWXMjnr09afQ
-	 6fCH+jgQGBAF37e0PRrwO3UGk/QYqRPRO7X6GVfnBKlDniyTdFQ4IjgI87l4BsNNVfQ==
+	t=1794966934;
+	b=AfTyYGCl7FG1d58psTJN0t5tIIuciML1Qp3xC1VFIC/b7FfwB2XmxNPHKfLZ36RcnSup
+	 Kdrnsw4rVp/RBD5zRi1TggbP+6SI+2hgztQcvbJFQYp1a4QgipknlHOrwYXBZJFkuYrpi
+	 J8GIrEllI9nSiVQSY2ovDMHHCJT7BjaTUgFF0JipcQ7bstAk1V6UVryNTtnToEQCeT34W
+	 qq3WYoquE/3kyLNDLo9vSjU65cIqsDfXGq1LG3sqctp+Mq2Py4wgun2nUYFNlp7mAZgdi
+	 O8Ndb5h3RLw1urBFRNygP5p0r94DsaY7pp4FStu0n8LUlinmtzHKEraJoivWnaL8fYQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966941;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=n6+eDFFvL/Wsk0eeysYpdGNLwTPv8Y7kp0pCYvn78f0=;
-	b=tYStTd3jzSunORvORtduiq4x3KKZCYuiWuAue29RasT3790USWQjPFe+UfzblBi6SmDD
-	 rFjZP7+6tpk3bkzHKBot2At/E9LcT4oA/cwM+dgN7NBdEQTMVb1QMcxDnFMduncSyOIxf
-	 4zD08NBBLFt2qEVthg2Y+KpQhMnDov3fo8pqE3aJ+jUSzR5ecEuxrSGV0D7wU7IqX3Cjk
-	 zDZ9ZCFDrc7d8krMhlqfqzVWhaf7Oh0Itci44zoajH710N2TOSzqw5Yqqq8Ls17Ek6Mev
-	 8MrwsSg09cJuzqDci1LINn2ULYM1QcwhZxN96Ui696kFrkEJHCozwgXKMzJnOahEQSg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966934;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:Date:
+	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 Message-ID:References:In-Reply-To:To:CC:X-Mailer:X-Originating-IP:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version;
+	bh=QsieJltyWcCEvnM5nSEj6axcpf3UsGXZMeYjPVuVgzo=;
+	b=zvRU5dFdQgnD8xjAgK69ndMQBfNib5o6pe62DC/ox7b7Ytj9+tg/VdRLNXZCYZrFrEPI
+	 nLxU/5pZa4QxmbUMMEvG/vblcoExEciwlILbwTO/nRBygUj/yHGXMvUVe2FbKvbYLeq3c
+	 8d7277ghKFIvxUHM0CtN0Y5rkHRVeAQsaSe+agNrPe+CTt3rD6+TSmE5+X4ma4T/+aNKi
+	 p6bTJqmgahR1eIPOXeWMqWQju1UFJyDf8dRr70JPd7Rkku2uxtBbsn0Jsi8p/rUZ/FAoq
+	 SxIyFaBAI7xousbUIpDZuUMzn9/P3wcJ7ocwQSus8i558L4NIuwca/4Xkms+66+0UTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GgIYDdkN;
-	arc=none smtp.remote-ip=95.215.58.120
-Received: from mta1.migadu.com (out-120.mta1.migadu.com [95.215.58.120])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b="cWp6v6R/";
+	arc=none smtp.remote-ip=67.231.145.42
+Received: from mx0a-00082601.pphosted.com (mx0a-00082601.pphosted.com [67.231.145.42])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC20B60A2629
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:55:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC20B60A2629
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17713606A893;
+	Wed, 18 Nov 2026 01:55:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17713606A893
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=GgIYDdkN
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=inCj9hgFOM+3wUeyAcIWcO42wDOsOp5Vk/7hHTYE1G8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794966938; v=1; x=1795571738;
- b=GgIYDdkN89LjuVdl5y8CJdY0zGpkAa8UTyK6HGJFRvf99H8IWLM7mkVZsmfh+Eg3cgfUDG9x
- WdZR1txON9onqNfbhIEmx6STjl2UXJUGQfWkoNvDfNWDs13QGX6I+IVmeLLTTvKndio+lzR+4Yo
- pAYRcctm4kqK/9yL9LXBJqMs=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 0ae421e0b46adfb2;
-	Wed, 18 Nov 2026 01:55:23 +0000
-X-Mizu-Trace-ID: 0ae421e0b46adfb2
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <8922213b-d734-4f43-9648-97b3fce1cfc6@linux.dev>
-Date: Wed, 18 Nov 2026 09:55:17 +0800
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=cWp6v6R/
+Received: from pps.filterd (m0044012.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI11rA9258466;
+	Tue, 17 Nov 2026 17:55:18 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=QsieJltyWcCEvnM5nSEj6axcpf3UsGXZMeYjP
+	VuVgzo=; b=cWp6v6R/XwhrEX5N9dwTmfqM/AnMfkcx76c7T+BQwWhEqJ/pktNPq
+	KteWmblzaSULkDUYMRyT7jTONcSAhBRMsba/EuTKeQb9lPwgTVDICChwOXeduPuF
+	ImOfoQFkVDp6nCA9wO76Xeevx6gGxEB1pmZk9gkWyRX4R4QaJoHrrhiAuIkfJzGX
+	VXvTy+0GLSuSEfkCyFo43vKhYxFGP+NJqszQjjACEY8ti0nwHonzuNQQpt0/3b2/
+	cdpJsn4Jg7+QSXgrjeATrWyqeRNLbOQ2P4tkpb6kQY8N7pinoDn+AEN8WGJIUjJr
+	GDl3Mol0FZD3TD93qvPmNO7/UFTnYaLDw==
+Received: from mail.thefacebook.com ([163.114.134.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0yu79b7g-2
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 17 Nov 2026 17:55:17 -0800 (PST)
+Received: from localhost (2620:10d:c085:208::f) by mail.thefacebook.com
+ (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Wed, 18 Nov
+ 2026 01:55:04 +0000
+From: Bobby Eshleman <bobbyeshleman@meta.com>
+Date: Tue, 17 Nov 2026 17:54:46 -0800
+Subject: [PATCH net-next v7 3/7] vsock: pass the netns to
+ ->has_remote_cid()
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,69 +70,146 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 1/9] bpf: Add log support for tracing
- link_create
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, bpf@vger.kernel.org
-Cc: Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- KP Singh <kpsingh@kernel.org>, Matt Bobrowski <matt@bobrowski.net>,
- Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20261114150610.84507-1-leon.hwang@linux.dev>
- <20261114150610.84507-2-leon.hwang@linux.dev>
- <DMX8G01GB597.2KEEFI12YK9V0@gmail.com>
-Content-Language: en-US
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <DMX8G01GB597.2KEEFI12YK9V0@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20261117-vsock-guest-ns-v7-3-7e522ea9dd9b@meta.com>
+References: <20261117-vsock-guest-ns-v7-0-7e522ea9dd9b@meta.com>
+In-Reply-To: <20261117-vsock-guest-ns-v7-0-7e522ea9dd9b@meta.com>
+To: Stefano Garzarella <sgarzare@redhat.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>,
+        Simon Horman <horms@kernel.org>, Jonathan Corbet
+	<corbet@lwn.net>,
+        Shuah Khan <skhan@linuxfoundation.org>,
+        Stefan Hajnoczi
+	<stefanha@redhat.com>,
+        "Michael S. Tsirkin" <mst@redhat.com>,
+        Jason Wang
+	<jasowangio@gmail.com>,
+        Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+        =?utf-8?q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
+        Shuah Khan
+	<shuah@kernel.org>, Randy Dunlap <rdunlap@infradead.org>,
+        Donald Hunter
+	<donald.hunter@gmail.com>,
+        Eric Dumazet <edumazet@kernel.org>,
+        George Zhang
+	<georgezhang@vmware.com>, Andy King <acking@vmware.com>,
+        Dmitry Torokhov
+	<dtor@vmware.com>, Eric Dumazet <edumazet@kernel.org>
+CC: <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>,
+        <kvm@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+        <sargun@sargun.me>, <jlinbox@meta.com>,
+        Bobby Eshleman <bobbyeshleman@gmail.com>,
+        Bobby Eshleman
+	<bobbyeshleman@meta.com>
+X-Mailer: b4 0.14.3
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwNyBTYWx0ZWRfX4SVpLCuHOxPP
+ r94pf1Cs3tmMV4o+WtJhG/WD+HHSTRBtHLgNAY+a5ddyZr3Uus1n7D1wscIME60NK5fPvZQBHeI
+ /GNk67M9KtVOs6o/CQm8x6NLWl7zAg210kofesLyR/Ag7tGd0r6kckfHRd84EFsJ+Dqf7TU9mi3
+ InFoa4STZ1jpTXw9orhEP9D18j1iiYuvHKwVsYXfCGg+bRGYV0zmavB7Ez4er0/dslJkRRAtr1e
+ vDlKVNV632CmWm/hUUdqoNU1d23kl3vLB9eTMbs9ogNbfL84CaXRKtcMtP5UjHXw3TA8JhrJBi/
+ OIc1GSsCJ2TSnb4pMfx0RtCNLt2W8niz0WNrYbVR+ay5xBLaLWkIHiMt9grckGMNAqLCrZbTp8D
+ HY/pkVM3JS752zT01YKQq2P8CkloLOxjKIX6SEWwAgNZyacrpwe9dbO3gjvsIp/Gy9kk0Zfzrz/
+ SqxVl1/AcK91KlaW0Zg==
+X-Proofpoint-GUID: k_3NQj5XExlGbADyzy_sXVcIPmqM95og
+X-Authority-Analysis: v=2.4 cv=Zph4uN7G c=1 sm=1 tr=0 ts=6afd0585 cx=c_pps
+ a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=7x6HtfJdh03M6CCDgxCd:22 a=PAz_-FQ8hEVmOPYdF0yf:22 a=20KFwNOVAAAA:8
+ a=VabnemYjAAAA:8 a=XJcQsa36eN5O9Fc7FbYA:9 a=QEXdDO2ut3YA:10
+ a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-ORIG-GUID: k_3NQj5XExlGbADyzy_sXVcIPmqM95og
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwNyBTYWx0ZWRfX9EabyWu9SYn2
+ cNcFHx37PZ7B8qncGmyHM7Edo+jXy01PipnTZWJ/ogSk/inOh85uDraYePaQOnX304aoQ+44m0R
+ doRBTIFv0DGVAix3+2K70p5pB5wmu48=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
 
-On 17/11/26 13:22, Alexei Starovoitov wrote:
-> On Sat, Nov 14, 2026 at 07:06 AM Leon Hwang <leon.hwang@linux.dev> wrote:
-> 
-> tldr: pls use uapi names where possible:
-> 
->> +		bpf_log(log, "tgt_prog_fd and btf_id must be both set or both unset.\n");
-> 
-> The uapi fields are target_fd and target_btf_id.
-> tgt_prog_fd and btf_id are arguments of this function.
-> Patches 2, 3 and 4 say target_fd for the same field.
-> 
->> +			bpf_log(log, "Only allow re-attach for tracing and lsm progs.\n");
-> 
-> I think this one misleads. A freplace prog can re-attach.
-> It has to pass target_fd and target_btf_id.
-> The comment above the check says so.
-> 
->> +			bpf_log(log, "Invalid attach_btf.\n");
-> 
-> attach_btf is a field of bpf_prog_aux. The user never set it.
-> NULL means that the prog was loaded with attach_prog_fd.
-> Such a prog can't re-attach at all.
-> 
->> +		bpf_log(log, "Invalid kprobe_write_ctx.\n");
-> 
-> Another bit of bpf_prog_aux.
-> The rule is that both progs write to pt_regs, or none.
-> 
->> +			bpf_log(log, "Invalid tracing attach_type.\n");
-> 
-> LSM progs get here too.
+The transports only use the socket to find its network namespace. Pass
+the namespace instead, so that a later patch can ask whether a CID is
+taken in a namespace without necessarily having a socket on hand. This
+will help with avoiding CID collisions when devices move between
+namespaces.
 
-Ack. Will update the log messages.
+No functional change.
 
-Thanks,
-Leon
+Reviewed-by: Stefano Garzarella <sgarzare@redhat.com>
+Signed-off-by: Bobby Eshleman <bobbyeshleman@meta.com>
+---
+ drivers/vhost/vsock.c            | 4 +---
+ include/net/af_vsock.h           | 2 +-
+ net/vmw_vsock/af_vsock.c         | 6 ++++--
+ net/vmw_vsock/virtio_transport.c | 2 +-
+ 4 files changed, 7 insertions(+), 7 deletions(-)
 
-> [...]
+diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+index 3de1f1920717..0135abe9589f 100644
+--- a/drivers/vhost/vsock.c
++++ b/drivers/vhost/vsock.c
+@@ -92,10 +92,8 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
+ 	return NULL;
+ }
+ 
+-static bool vhost_transport_has_remote_cid(struct vsock_sock *vsk, u32 cid)
++static bool vhost_transport_has_remote_cid(struct net *net, u32 cid)
+ {
+-	struct sock *sk = sk_vsock(vsk);
+-	struct net *net = sock_net(sk);
+ 	bool found;
+ 
+ 	rcu_read_lock();
+diff --git a/include/net/af_vsock.h b/include/net/af_vsock.h
+index 0ddcf2325ba5..2a70b961cb45 100644
+--- a/include/net/af_vsock.h
++++ b/include/net/af_vsock.h
+@@ -184,7 +184,7 @@ struct vsock_transport {
+ 	 * CIDs via the hypervisor (i.e. supports the fallback overlay). VMCI
+ 	 * does not implement this as it only serves CIDs 0 and 2.
+ 	 */
+-	bool (*has_remote_cid)(struct vsock_sock *vsk, u32 remote_cid);
++	bool (*has_remote_cid)(struct net *net, u32 remote_cid);
+ 
+ 	/* Read a single skb */
+ 	int (*read_skb)(struct vsock_sock *, skb_read_actor_t);
+diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
+index 100570d83e75..7d58e7396b75 100644
+--- a/net/vmw_vsock/af_vsock.c
++++ b/net/vmw_vsock/af_vsock.c
+@@ -633,11 +633,13 @@ int vsock_assign_transport(struct vsock_sock *vsk, struct vsock_sock *psk)
+ 			new_transport = transport_g2h;
+ 		else if (transport_h2g &&
+ 			 (!transport_h2g->has_remote_cid ||
+-			  transport_h2g->has_remote_cid(vsk, remote_cid)))
++			  transport_h2g->has_remote_cid(sock_net(sk),
++							remote_cid)))
+ 			new_transport = transport_h2g;
+ 		else if (sock_net(sk)->vsock.g2h_fallback &&
+ 			 transport_g2h && transport_g2h->has_remote_cid &&
+-			 transport_g2h->has_remote_cid(vsk, remote_cid)) {
++			 transport_g2h->has_remote_cid(sock_net(sk),
++						       remote_cid)) {
+ 			vsk->remote_addr.svm_flags |= VMADDR_FLAG_TO_HOST;
+ 			new_transport = transport_g2h;
+ 		} else {
+diff --git a/net/vmw_vsock/virtio_transport.c b/net/vmw_vsock/virtio_transport.c
+index b39c001260a9..1ddb6839a8fb 100644
+--- a/net/vmw_vsock/virtio_transport.c
++++ b/net/vmw_vsock/virtio_transport.c
+@@ -548,7 +548,7 @@ bool virtio_transport_stream_allow(struct vsock_sock *vsk, u32 cid, u32 port)
+ static bool virtio_transport_seqpacket_allow(struct vsock_sock *vsk,
+ 					     u32 remote_cid);
+ 
+-static bool virtio_transport_has_remote_cid(struct vsock_sock *vsk, u32 cid)
++static bool virtio_transport_has_remote_cid(struct net *net, u32 cid)
+ {
+ 	/* The CID could be implemented by the host. Always assume it is. */
+ 	return true;
+
+-- 
+2.53.1-Meta
 
