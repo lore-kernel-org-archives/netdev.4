@@ -1,134 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794995071;
-	b=nACZbeQ3uSccQ7yJDelElp89BqxXdwFgMSW4zmxbS00X17X0nFKIBepzK+QFqia7GRzU
-	 ABanKCtRyHWoU8qwvof6NWivmWN9P1Bu3aOofV4/ZYDRjLFlBuRumD0oobNJzuKBlvPBs
-	 14F9UNFZj+zD5qvA/jDp2T6bCa8dbRylLlOWYNdIvrkr66wxy/nYEklqZmrUQYlN2tKuj
-	 meOu22031xuZQwtqAK2zkEcijNvrI5DyosOe7cqEwO7mFxhKYKiTKzTuZdmxEWW61tmcG
-	 3DwwxMGRanMux6uNKuDF4VZCzGKZ7u9kewVgAysh48XZDgOmwNK4CMgD4VKaxyNPU7A==
+	t=1794995139;
+	b=YnpoQwEPCszRFS+Dwg4NgZRuc3RMxUONocBYbjHsxuS99eyxnvygWIFcM/VdHLpeT5n7
+	 2iRcyJsDQDX6H58F76o7IkE69C0k+P83GkKZX/v7XCdxTshnbGvSZKxFsuhTpq82Gomhe
+	 Smg9Djk2ub1HftGE0VKJz/f8UUi6ALu5l5gu70Cq1+Qm3bhuEoiq7LVdN9VsIDYCG6AgP
+	 PEq/wTUdsFkL+hMZqdS0wShUIbkd/iZfKaGpR+GJStEo/nFITM8wkmseihaPJJtekDQWI
+	 1MNXEzpXifPkd4N4Qnb8WLEc9TW32QqklnhHy3Oq/at7fToBUs0t/j0PG/Vu9G+jbCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794995071;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
-	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=UD6Ea5YtRKAN6/w2L3NLQU8hWxRurH6m4E/cCzEvjsM=;
-	b=GxbkhKUUuCn81GOgapPT//IXWdbLHMqikg5aOSeGrorL8BadUoyHP30/EM0vdqp8cp1L
-	 JmMuoIXZaeh+e2gtpT2NmzVWvsjJDpY+ywZYy9IKFCDCqP1HuheATn9rzRYU1z5rwsmS0
-	 AOUA0YucqH1gm5agg4GWqNGisFInzHd3ThpbvG6o1o9SYraKTehYeHGbYJAYN7aWnbnOV
-	 iYw3RwiLlLStwq+UaUzaclvyTn1RrtEWiT5Fe2mxbiNgFjK3lPUlzZ8c30ue57IGe7QNP
-	 OCiUhcCNfpOR3dBgbZ7BrUPfT9EsyE5SzVrOIgfwuPXzEDp9A9R0/x5JOg7jqU1QeUQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794995139;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=SbmhG6G9qez50HTqQGGBfci3phOw/cU5LI2SYmmFKKg=;
+	b=1TUbfR0ySX6h2PLLsp8ZSojahrfO+z6eAxZAAq523gypxxXpea7hvBLjfcnChbENz+fs
+	 ARZ9ba5vf8ZGygeXJ2LslwXbMvDakngdV3cJg0TxvmF6rPS18ag3mcyCi99uMEcg+K5r4
+	 FHkwVocH3ZXcJBhTjehzpWUqo0BOpAUs6CwTZ54Ojb0yEp+k0xbzyf7QfW/budpHUpNAQ
+	 28dtqOhKE0Y4LAKDMhWAet0zI0aeEddzR3QiIXvSvCLmUrQTHY2tjzfO4vk9rBPqG2H3z
+	 0AA3+i2p6/1s44LPF4qcGtPhQWCjF1U9QSUQ4roeeY5VCwqHIBdttOJZEqrPgQfKCgA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="lxf6Sm/4";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Dw0qR+dL;
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owgIeihV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 478CD606A330
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:44:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 478CD606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 568DE606A32A;
+	Wed, 18 Nov 2026 09:45:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=lxf6Sm/4;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=Dw0qR+dL
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI8UosP1430549
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:44:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=UD6Ea5YtRKAN6/w2L3NLQU8h
-	WxRurH6m4E/cCzEvjsM=; b=lxf6Sm/4aFYe/mEejA1fegl4KiJLdCnHKNPerLji
-	pCROGBJq8Jj1rXJQR6fWcoKxdvDGLJ6vziOuy+0tAKouR9hWOY6Ty1VRIoVStETj
-	0oZMxfwMEyxTv8lXY8XUhB1KlUtT7mrzoYMFRnZ4A5FEkmBsRXdkvvarelUEPGyM
-	fC1WLAidfAzw3KMVnE5/0a9s5sCWoAo6fpfrIPu/nC74WfMHKRZXl8AV2FZ9kouJ
-	rloy4cfMcekALU6jT5LpGH/Mrq6shq1r7cIuwz1hvzROaAZP/vhMaD/MG4Cc3FSF
-	24bLThos47qHsDESPVnSqCLhjB4+HwKO7zKUc0n90NASug==
-Received: from mail-qt1-f199.google.com (mail-qt1-f199.google.com [209.85.160.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv92cv6-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:44:30 +0000 (GMT)
-Received: by mail-qt1-f199.google.com with SMTP id d75a77b69052e-55d3e7ba879so15511841cf.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:44:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794995069; x=1795599869; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=UD6Ea5YtRKAN6/w2L3NLQU8hWxRurH6m4E/cCzEvjsM=;
-        b=Dw0qR+dLZF26yg/TE++0jNgd1YISzrITswRXYLT0V2r520+dI3soxM6oqlnojpmRSK
-         uaHGs5ijbzMDKsy/RuKUrDBLMppv0ONTQZ/MBlXLm7fnog7XBzQ4hW9+RvqCdL5YtyQa
-         pzR9mKd3quGH+SokZ3WZAZibOTH+J0nyhlyKbgeeMPHWDsP1NreGs+r0pxedJAku3umU
-         5POTzzHERV1pM8bhIIXycNEKZw9QRBr6rJKv9VCpfgz+RT4ySF3qaxQWWDL1a3mOu49D
-         HL2CVei8erT2+8pthrqnaGghkWPOK8smmhXc0SG3oLzKsoqwkvc5U9cqjW59NWraQWQ6
-         7oyQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794995069; x=1795599869;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=UD6Ea5YtRKAN6/w2L3NLQU8hWxRurH6m4E/cCzEvjsM=;
-        b=R3V8BdhvA9G+ryMfxbbLOgH7C32f6qAq35pgbYz136g08zPvWkHxLxZivm752vg4EC
-         e0rGWBfOIwLARXuQKLmtA2EfeTZARWpQw2thtGuH7rFBNJ3MklRBD87/B1fwsvxXue9d
-         I7YJx0J269zqnFt0QFnp+DbTBIIf+Mck/lx4fMPnciOVLI7hn+D+63lcCfcMJTIEXzf+
-         g9pSFOZlRorVKhO9b1P8GH5XK+NUq41ePXBh5gStDZe+hlU52EqoQ7dwgot6AQOFtCF0
-         Kg5uw+YisCXn/6PRsaOksBhoZXF7tjQZ6sHrxJuKUVpk3S7p0Tzz/hPie2tmfIUizCo4
-         eJKg==
-X-Forwarded-Encrypted: i=1; AL+hErHP5EorWYIJK2RPtzA1qy78nM2b92hBTDZlS7S+cUrBPuNZV9kdoiebwKrwwFMa5w/u2V7vCR8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+9vJQkcccocS1M0EPpgZ00zoqVI/Mmp/IOwE42TVa+FTukNvzO
-	OPY1npcElCSVoMnZrm16ItvaxSswJLVLCWPjODr9ksJkOOiHaHU084gdmTQqEQgyR7a7y2UkAhh
-	0eLoL82BTCTgND4y06plNpd5OrWrTV1JTBPPj+OiJ5eUSOwBKHyf0JwRcRjI=
-X-Gm-Gg: AYBFou1o23qothAslE+HZmFK7V5JHFJB58bKbZBfl+3mXvpcLTC80qH01bo9HkpiRTA
-	7b/aVlB8w2qpFXNGobaIWdfH8HhT8eayICRLJ0X6gCTSNsnNtJ0Uw7Jl7JueB4FXphlG0hDMe+Z
-	klyh8pGPeEkDbTHQDIRHTEkZf5xPiYYHyoLStYOvB04QYHDTx7SpT/xujDeZIIlEPo07vQfF8Od
-	S0d40uQ/fJCGMMdL2ksA3kxy1lplHB1a4JfV8d61a2CS7wjoNQbzQucZfrOrv6Q85cJlN+4KT8m
-	YtmuDH9PwXoPJbIiRoMoIdbcbTi8/SF0821nKiBJGerw2cAnSBsH9Lv1VR+7zkSbICeXRlGTn4S
-	EadIEUMsXBeVSqenyin/xdqYiVb3oHrsORDzZUXRLzBoYyNJy+8F9Zj/BBg/NiJw=
-X-Received: by 2002:a05:622a:5807:b0:55d:2e60:886c with SMTP id d75a77b69052e-55d5a57f065mr29804531cf.16.1794995069190;
-        Wed, 18 Nov 2026 01:44:29 -0800 (PST)
-X-Received: by 2002:a05:622a:5807:b0:55d:2e60:886c with SMTP id d75a77b69052e-55d5a57f065mr29804001cf.16.1794995068605;
-        Wed, 18 Nov 2026 01:44:28 -0800 (PST)
-Received: from localhost ([195.50.164.66])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb783f7eecsm240232215e9.3.2026.11.18.01.44.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 01:44:27 -0800 (PST)
-Date: Wed, 18 Nov 2026 10:44:26 +0100
-From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
-To: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Andrew Davis <afd@ti.com>,
-        Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-        Russell King <linux@armlinux.org.uk>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-        Jose Abreu <joabreu@synopsys.com>,
-        Maxime Chevallier <maxime.chevallier@bootlin.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH net-next v4 10/10] net: stmmac: qcom-ethqos: add QCS615
- EMAC support
-Message-ID: <av1zehivK9azUIom@lore-qca>
-References: <20261117-shikra_ethernet-v4-0-c41902e5f2fa@oss.qualcomm.com>
- <20261117-shikra_ethernet-v4-10-c41902e5f2fa@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=owgIeihV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5276D1F000C8;
+	Wed, 18 Nov 2026 09:45:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794995138;
+	bh=SbmhG6G9qez50HTqQGGBfci3phOw/cU5LI2SYmmFKKg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=owgIeihVihI+3CRb0lPoo2dqm8FMlfJm9nNM0JT1TchugvidsgbGgB9D8at6pF3mN
+	 J3yVPZ9lYVKSrk/DkRNWqXgFQzVUUpVIoGfgwK70CVWQKY7gSmuphpHsuNEOChwvpX
+	 1kdNTV8MuNMi7ah8wXuP7fFBfhXEDoLGoMdcD1eQjBU51lirCtfzCJyhe9/O2uxgOn
+	 4TafjK37/JQFpv5AZBPpzwDd82Sk284BZ/6LPR5ZDgRR3AI+4u63rpgMMALazc/FEK
+	 aFsq7CKbuUmdW4VEkuXyrm3MjyBYEr5mc7RNSdOX2pnx9qPn2V8zVQV6+FZqYOa2bB
+	 cOrPzZZX2dX6Q==
+Message-ID: <119b21d2-31de-4416-aeed-d1f04ffcfd82@kernel.org>
+Date: Wed, 18 Nov 2026 10:45:32 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -138,111 +51,131 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="YRK1tvd/MI9w8hzH"
-Content-Disposition: inline
-In-Reply-To: <20261117-shikra_ethernet-v4-10-c41902e5f2fa@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOCBTYWx0ZWRfX1IV+7XI/M/q9
- by6aAgdNpY3ucVpASliNLgsfDnabIqMbR/ssKG9kgM1Vu1V9DehdOqQepTSpj+ABnbu87s11hUf
- kL8Fo3PJ54lglvrgcuO8ZVq1g9/gfj3PZjjgHhXyNDSiJUcSNSAhjqlJ1GPr0LgNkHrU5qsTSWL
- 7VJ5b8UuUD/8hiHdINFv97hZAUwWcJ3L6qXJfP8P06Y7/w9qMsBR683zd75NbrZgBdcEhpSOoVA
- r/jhYHqRypk4yrkiQciQ66Zo0nHPddLvMu6aVwatvVnSWrdGsrrPZC1KkEdqy7bUMCAO7N/NJmS
- 31IWvudgNByknoH3rn/7vd1ni38Bfhoh87uJPD8CWxXjwaC3y0eLxUbIT8SJ3LNqLJgafoms98H
- zkK9zidUGSBUUFH/ApqWGb0umlc/saXBc/lYWzJLiQrkHV0tw+379js4aAoPkYzk0dSWPRs2kAW
- qx+Dx0z/hmMfH9KP14g==
-X-Proofpoint-GUID: HxLUI9xLreedfuS3MHyKLKbO45z24BbK
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOCBTYWx0ZWRfX+YKUn0iZNB91
- XEMV6sOwfdnFRRNeSzZyFR+AmWANnlzlAvwtyfctvPEawL5WZuDbsD4k3bYNLN9XCvCfNWCRB9K
- pUB2lT2worXd1yHs/UgmCAsyzl2WTe0=
-X-Authority-Analysis: v=2.4 cv=LuQHWXdc c=1 sm=1 tr=0 ts=6afd737e cx=c_pps
- a=WeENfcodrlLV9YRTxbY/uA==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=EUspDBNiAAAA:8
- a=8Sm9gzTdqpzl8EHs-poA:9 a=CjuIK1q_8ugA:10 a=7X8ZIgrw44ctfyHyHP0A:9
- a=kacYvNCVWA4VmyqE58fU:22
-X-Proofpoint-ORIG-GUID: HxLUI9xLreedfuS3MHyKLKbO45z24BbK
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_01,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 impostorscore=0 malwarescore=0 suspectscore=0 clxscore=1015
- adultscore=0 lowpriorityscore=0 spamscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180038
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH net v5 2/2] selftests/net/openvswitch: check that a failed
+ set keeps the features
+Content-Language: fr
+To: Minxi Hou <houminxi@gmail.com>
+Cc: netdev@vger.kernel.org, Aaron Conole <aconole@redhat.com>,
+ Eelco Chaudron <echaudro@redhat.com>, Ilya Maximets <i.maximets@ovn.org>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261118065435.2367014-1-houminxi@gmail.com>
+ <20261118065435.2367014-3-houminxi@gmail.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ xsFNBFXj+ekBEADxVr99p2guPcqHFeI/JcFxls6KibzyZD5TQTyfuYlzEp7C7A9swoK5iCvf
+ YBNdx5Xl74NLSgx6y/1NiMQGuKeu+2BmtnkiGxBNanfXcnl4L4Lzz+iXBvvbtCbynnnqDDqU
+ c7SPFMpMesgpcu1xFt0F6bcxE+0ojRtSCZ5HDElKlHJNYtD1uwY4UYVGWUGCF/+cY1YLmtfb
+ WdNb/SFo+Mp0HItfBC12qtDIXYvbfNUGVnA5jXeWMEyYhSNktLnpDL2gBUCsdbkov5VjiOX7
+ CRTkX0UgNWRjyFZwThaZADEvAOo12M5uSBk7h07yJ97gqvBtcx45IsJwfUJE4hy8qZqsA62A
+ nTRflBvp647IXAiCcwWsEgE5AXKwA3aL6dcpVR17JXJ6nwHHnslVi8WesiqzUI9sbO/hXeXw
+ TDSB+YhErbNOxvHqCzZEnGAAFf6ges26fRVyuU119AzO40sjdLV0l6LE7GshddyazWZf0iac
+ nEhX9NKxGnuhMu5SXmo2poIQttJuYAvTVUNwQVEx/0yY5xmiuyqvXa+XT7NKJkOZSiAPlNt6
+ VffjgOP62S7M9wDShUghN3F7CPOrrRsOHWO/l6I/qJdUMW+MHSFYPfYiFXoLUZyPvNVCYSgs
+ 3oQaFhHapq1f345XBtfG3fOYp1K2wTXd4ThFraTLl8PHxCn4ywARAQABzSRNYXR0aGlldSBC
+ YWVydHMgPG1hdHR0YmVAa2VybmVsLm9yZz7CwZEEEwEIADsCGwMFCwkIBwIGFQoJCAsCBBYC
+ AwECHgECF4AWIQToy4X3aHcFem4n93r2t4JPQmmgcwUCZUDpDAIZAQAKCRD2t4JPQmmgcz33
+ EACjROM3nj9FGclR5AlyPUbAq/txEX7E0EFQCDtdLPrjBcLAoaYJIQUV8IDCcPjZMJy2ADp7
+ /zSwYba2rE2C9vRgjXZJNt21mySvKnnkPbNQGkNRl3TZAinO1Ddq3fp2c/GmYaW1NWFSfOmw
+ MvB5CJaN0UK5l0/drnaA6Hxsu62V5UnpvxWgexqDuo0wfpEeP1PEqMNzyiVPvJ8bJxgM8qoC
+ cpXLp1Rq/jq7pbUycY8GeYw2j+FVZJHlhL0w0Zm9CFHThHxRAm1tsIPc+oTorx7haXP+nN0J
+ iqBXVAxLK2KxrHtMygim50xk2QpUotWYfZpRRv8dMygEPIB3f1Vi5JMwP4M47NZNdpqVkHrm
+ jvcNuLfDgf/vqUvuXs2eA2/BkIHcOuAAbsvreX1WX1rTHmx5ud3OhsWQQRVL2rt+0p1DpROI
+ 3Ob8F78W5rKr4HYvjX2Inpy3WahAm7FzUY184OyfPO/2zadKCqg8n01mWA9PXxs84bFEV2mP
+ VzC5j6K8U3RNA6cb9bpE5bzXut6T2gxj6j+7TsgMQFhbyH/tZgpDjWvAiPZHb3sV29t8XaOF
+ BwzqiI2AEkiWMySiHwCCMsIH9WUH7r7vpwROko89Tk+InpEbiphPjd7qAkyJ+tNIEWd1+MlX
+ ZPtOaFLVHhLQ3PLFLkrU3+Yi3tXqpvLE3gO3LM7BTQRV4/npARAA5+u/Sx1n9anIqcgHpA7l
+ 5SUCP1e/qF7n5DK8LiM10gYglgY0XHOBi0S7vHppH8hrtpizx+7t5DBdPJgVtR6SilyK0/mp
+ 9nWHDhc9rwU3KmHYgFFsnX58eEmZxz2qsIY8juFor5r7kpcM5dRR9aB+HjlOOJJgyDxcJTwM
+ 1ey4L/79P72wuXRhMibN14SX6TZzf+/XIOrM6TsULVJEIv1+NdczQbs6pBTpEK/G2apME7vf
+ mjTsZU26Ezn+LDMX16lHTmIJi7Hlh7eifCGGM+g/AlDV6aWKFS+sBbwy+YoS0Zc3Yz8zrdbi
+ Kzn3kbKd+99//mysSVsHaekQYyVvO0KD2KPKBs1S/ImrBb6XecqxGy/y/3HWHdngGEY2v2IP
+ Qox7mAPznyKyXEfG+0rrVseZSEssKmY01IsgwwbmN9ZcqUKYNhjv67WMX7tNwiVbSrGLZoqf
+ Xlgw4aAdnIMQyTW8nE6hH/Iwqay4S2str4HZtWwyWLitk7N+e+vxuK5qto4AxtB7VdimvKUs
+ x6kQO5F3YWcC3vCXCgPwyV8133+fIR2L81R1L1q3swaEuh95vWj6iskxeNWSTyFAVKYYVskG
+ V+OTtB71P1XCnb6AJCW9cKpC25+zxQqD2Zy0dK3u2RuKErajKBa/YWzuSaKAOkneFxG3LJIv
+ Hl7iqPF+JDCjB5sAEQEAAcLBXwQYAQIACQUCVeP56QIbDAAKCRD2t4JPQmmgc5VnD/9YgbCr
+ HR1FbMbm7td54UrYvZV/i7m3dIQNXK2e+Cbv5PXf19ce3XluaE+wA8D+vnIW5mbAAiojt3Mb
+ 6p0WJS3QzbObzHNgAp3zy/L4lXwc6WW5vnpWAzqXFHP8D9PTpqvBALbXqL06smP47JqbyQxj
+ Xf7D2rrPeIqbYmVY9da1KzMOVf3gReazYa89zZSdVkMojfWsbq05zwYU+SCWS3NiyF6QghbW
+ voxbFwX1i/0xRwJiX9NNbRj1huVKQuS4W7rbWA87TrVQPXUAdkyd7FRYICNW+0gddysIwPoa
+ KrLfx3Ba6Rpx0JznbrVOtXlihjl4KV8mtOPjYDY9u+8x412xXnlGl6AC4HLu2F3ECkamY4G6
+ UxejX+E6vW6Xe4n7H+rEX5UFgPRdYkS1TA/X3nMen9bouxNsvIJv7C6adZmMHqu/2azX7S7I
+ vrxxySzOw9GxjoVTuzWMKWpDGP8n71IFeOot8JuPZtJ8omz+DZel+WCNZMVdVNLPOd5frqOv
+ mpz0VhFAlNTjU1Vy0CnuxX3AM51J8dpdNyG0S8rADh6C8AKCDOfUstpq28/6oTaQv7QZdge0
+ JY6dglzGKnCi/zsmp2+1w559frz4+IC7j/igvJGX4KDDKUs0mlld8J2u2sBXv7CGxdzQoHaz
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <20261118065435.2367014-3-houminxi@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
---YRK1tvd/MI9w8hzH
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Minxi,
 
-> QCS615 (Talos) uses an ETHQOS controller which is extremely similar to
-> the QCS404 version, but unlike QCS404 its RGMII clock source supports
-> the 25 MHz and 2.5 MHz rates used at 100M and 10M with PHY-managed
-> delays.
->=20
-> Add a dedicated qcom,qcs615-ethqos match and descriptor and enable
-> phy_managed_delays so rgmii-id uses the DLL-bypass configuration.
->=20
-> The bypass sequence has been tested on three QCS615 board designs,
-> two with a Micrel KSZ9031 PHY and one with a TI DP83867 PHY. The
-> existing compatible binding and qcom,qcs404-ethqos fallback remain
-> unchanged.
->=20
-> Signed-off-by: Mohd Ayaan Anwar <mohd.anwar@oss.qualcomm.com>
+Thank you for the new version.
 
-Reviewed-by: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+On 18/11/2026 07:54, Minxi Hou wrote:
+> Add a set-dp command to ovs-dpctl for the kernel's datapath SET command,
+> and two tests that use it.
+> 
+> The first test clears the features of a fresh datapath, sets the dispatch
+> bit with a valid pid list, and clears them again. It then sends a set that
+> would set that bit with an empty per-cpu-pids. The request has to fail
+> with EINVAL, and the datapath has to keep reporting the features it had,
+> which a kernel that records them before the change reads as 0x8 instead of
+> 0x0. A second request sends OVS_DP_CMD_NEW for that name from an outdated
+> client, which makes the kernel drop the features, and a further set has
+> to work.
+> 
+> The second test covers the recirc bit. It sets that bit on a fresh datapath
+> and sends a set that would set the dispatch bit with an empty per-cpu-pids.
+> The rejected request has to leave the recirc bit in place. A kernel that
+> records the features first reads 0x8 there instead of 0x4. A datapath
+> holds that bit only when the tc skb extension is compiled in, so the test
+> prints the reason and skips when the kernel answers EOPNOTSUPP, and any
+> other failure of that request fails the test. CONFIG_NET_TC_SKB_EXT
+> depends on CONFIG_NET_CLS_ACT and both sit under CONFIG_NET_SCHED, so the
+> selftest config fragment selects all three.
+> 
+> The reference count itself is not visible from user space, so the steps
+> that use an outdated client only show that those paths run and that a
+> datapath keeps working across them.
+> 
+> set-dp sends the features it is given. When --features is left out it
+> sends the features the datapath reports, and it refuses to send the
+> request when the datapath reports none. A pid list that is not a list of
+> numbers is reported as such, and empty entries are dropped.
+> 
+> A failing run deletes debug.log, and ovs_sbx sends a command's stdout into
+> that same file, so the tests report a failure reason on stderr. stderr
+> still reaches the test runner from inside ovs_sbx, and unlike a duplicated
+> stdout it is not a second handle on the runner's pipe. The daemons the
+> suite starts outlive the script, and one that inherits such a handle keeps
+> the pipe open after the script exits, which leaves the run hanging until
+> the harness times out.
+> 
+> Every step that can fail says why it did. A datapath that cannot be read
+> is reported as that rather than as a feature mismatch: ovs-dpctl prints a
+> missing datapath and exits 0, and it leaves the features line out when the
+> kernel does not report them, so the check reads both cases from the output.
+> 
+> Reported-by: Matthieu Baerts <matttbe@kernel.org>
 
-> ---
-> v4: this is a new commit which ensures that the phy managed delays only
-> affect actually tested hardware (Shikra and QCS615).
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 8 ++++++++
->  1 file changed, 8 insertions(+)
->=20
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/dr=
-ivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> index a7fdba73da2b..790159ae1be7 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-> @@ -250,6 +250,13 @@ static const struct ethqos_emac_driver_data emac_v2_=
-3_0_data =3D {
->  	.setup =3D ethqos_hlos_setup,
->  };
-> =20
-> +static const struct ethqos_emac_driver_data qcs615_data =3D {
-> +	.rgmii_config_loopback_en =3D true,
-> +	.phy_managed_delays =3D true,
-> +	.has_emac_ge_3 =3D false,
-> +	.setup =3D ethqos_hlos_setup,
-> +};
-> +
->  static const struct ethqos_emac_por emac_v2_1_0_por[] =3D {
->  	{ .offset =3D RGMII_IO_MACRO_CONFIG,	.value =3D 0x40C01343 },
->  	{ .offset =3D SDCC_HC_REG_DLL_CONFIG,	.value =3D 0x2004642C },
-> @@ -1116,6 +1123,7 @@ static int qcom_ethqos_probe(struct platform_device=
- *pdev)
-> =20
->  static const struct of_device_id qcom_ethqos_match[] =3D {
->  	{ .compatible =3D "qcom,qcs404-ethqos", .data =3D &emac_v2_3_0_data},
-> +	{ .compatible =3D "qcom,qcs615-ethqos", .data =3D &qcs615_data},
->  	{ .compatible =3D "qcom,sa8255p-ethqos", .data =3D &emac_v4_0_0_scmi_da=
-ta},
->  	{ .compatible =3D "qcom,sa8775p-ethqos", .data =3D &emac_v4_0_0_data},
->  	{ .compatible =3D "qcom,sc8280xp-ethqos", .data =3D &emac_v3_0_0_data},
->=20
-> --=20
-> 2.34.1
->=20
+No need to send a new version for that, but next time, I think it would
+be better to include an individual changelog per patch in the notes
+(under '---'). There, you can mention that the v5 addresses the error
+visible on the CI that I reported, instead of adding my Reported-by tag
+here: I didn't report the whole issue that makes you write the patch.
 
---YRK1tvd/MI9w8hzH
-Content-Type: application/pgp-signature; name=signature.asc
+(I didn't review the patch, but I can see you did some modifications)
+ https://netdev-ctrl.bots.linux.dev/ansiview.html?f=/logs/build/1214612/diff/b4-diff.ansi
 
------BEGIN PGP SIGNATURE-----
+Cheers,
+Matt
+-- 
+Sponsored by the NGI0 Core fund.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCav1zegAKCRA6cBh0uS2t
-rKbqAP0Y9Jlze5h2MB2o6B8iauLXSq6ptrMeehkAecNddaYyHgD+MmMk4Rpz4f13
-U9ddshl+n6SmpBBaR7puRzI+Ei3OuA0=
-=s6vu
------END PGP SIGNATURE-----
-
---YRK1tvd/MI9w8hzH--
