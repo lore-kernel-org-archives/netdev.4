@@ -1,20 +1,20 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.14
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795045875;
-	b=UUhuVFeDiPNVnuJPFUiEDXkmG0iFpTFwGbKG477sUcGJc0r5GBso/j5Fp2741LD1Vy5d
-	 WqnYWDy9/M+y1RDqXcIurottTpXM0av3BkMEgBtEwf9FLDlV3nEQoFkuBdDsyRUc6NyRJ
-	 yZNUpgxdPxP9o1vjHGUrbYBOmpH0yrNNxgBq/N+9wF/K9FeJC2QvfzpCCtvi2b55GvYkX
-	 kHFDC0k5dhnFVM895PEnesVPbkx90RONsE9QvukE24Zfv+DN+ZDsg8vOmnoeGfkbz5fbA
-	 HOdzCgh4AoGTQpxE9W19NzsJDPqIsXryfESac25UWt9rYQdGSUU8i7G6EpI/i4e5GYQ==
+	t=1795045878;
+	b=V8MbO/M7kpUurfVD6xs3ukyXFVqIE4Z1odv2BiHOkxEhqnqFjZOzw2DjXrxfLPaoXS+k
+	 c0cQyufL0gYI1yO5UHBxKBb4UK/A3VGe4m/JOJPEo0eCid1emXNcihseKJTHHatXScbo7
+	 7fKIcvffaRi+oX9qgyK16yKMy5h/EdK7D0fTADECu6AxkPftnlatVJbT2HoIIHZawjFDe
+	 eDV86sfZX00pPM8LOjZmW3DKJxqLFA9kPxAxDNlkY3ERP/dELMVnT7z3Zp0wAZDvFJa61
+	 e41BiiUqHsWSNVWXGcZrQalFToDdOZvV/d37ZLJ64hl45o39fkD+n5w2nkuOy6JZhPg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795045875;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795045878;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:
 	 X-MS-Exchange-AntiSpam-MessageData-1:X-OriginatorOrg:
@@ -25,53 +25,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=kmwVEMCJugJNkQTR1URWP0zPkzGlXgoaSKJxNj2d+CE=;
-	b=Tjp+3TlwctTNIZqt5+mzQuDA1heeuCoU+NRK2e9xJr9VAxOvFOwwHcuf++60LN+adGXc
-	 o0Ge6NsobmZOcY1W+M67dinVBu9RLIR+lI5Ihx3nxnea0L+oviFWw/dBoghM77Uwqdd/I
-	 g5FmJ+yfKeRWLgmAa3m+Qt6GH7fl7RiG7nBgR1WvPd7I2CWNpdch6h4EQ14/ZufYUk+S+
-	 IhKsCg9aj9cRuTKHLf5BfyobfHrH7RClbbhCKbOKZeq+Q/2rKKbjpPHbWWnxZhRWQLbHR
-	 N1bQ5Ppuzvb466J+FomrIsan8nTPIDInm2ej4QeambxW8wopfiwWRZZLLFLv10n50Yw==
+	bh=OS2YabY2TxbKlR9jvwOvf0olZyx4xN97j9V8ZiE5ffc=;
+	b=RUVdYGLey8JBVSIch6vvpGrYCfjz74huDcuzz0MGTiDnqzAggRbDEtDQ9UyOvp4LpPKe
+	 iLGyZzB9lvveXckHpFu6kyKeWl8GKgquzze4P6N9uJHJtzfXPkUdNTFUNIKsDEkw5DsTi
+	 nLlu0VfQk+9Dve3hyQggBs86/hstplHHc7bi2d20lNHL5m0Dwt0FhqUf/A3ffAtIN85Vb
+	 NXJ/mFOCEuPOc292AarnNrex2Demw6pKNlwZb1P1jdOABIL/pcHeka+9t9YLi53a910Cx
+	 zGTq9KvUDFgO/7neMkY5SOWn72/AEdoecpBWCsi5lLNKjDeD9ZfNEve+fqOqmxIThcA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nxp.com;
 	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=azzE1smG;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=gVeRSJH4;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.14
 Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013014.outbound.protection.outlook.com [40.107.159.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A007606A320;
-	Wed, 18 Nov 2026 23:51:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A007606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 044A2606A334;
+	Wed, 18 Nov 2026 23:51:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 044A2606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=azzE1smG
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=gVeRSJH4
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bK1NYIJwvDrlWTptojqT4whvg3t5ksrDwZx/RxervtEBmkKoMwgqcs9UWxGhIcULLspsTllX5GIGAy5k5nCPKxGweMZTgT7nbi9afoifLLljpiaSesn6grqOlVjPvgD6Ww531lC3lNZYGZYt3QnsaCwTgRXcOeGfD0JwtGnLDFp2vklfTKDt/H/88+CJveM49ck4Ag4eQ1GGu/v2BY0HBLq4FscnI/B0JPu8eP41MCE1z+phmqsrJ3ZPz10RKTnJ7S2/5evR14Ch02SKxuxICirwBvovw+mXxpU9sXf8hCN9zhncgyYPL6MHdl7jI2L8ya93xvCdkEZ0bZnMUObpfQ==
+ b=rso8tDTIM81qtHitDMmr9u7DEuR4bGdM0Uz1IT38Wh2c+lTIxas8I85vapI2jNSMIrWdNfTnqrml2MiZbeBOJg4W/10E/orSw3+TojczBzkWojY+5DwdlLaxKKjJzOVYVYgPTo6AsEQ+KtEDNTsSjx1V+kytrrBFQMVnDT0xtndEoVpeLvOHN0AYK1CL4k8ckCOrYtkNV5HsZOrysBsE9xQbWCRs9QKEE8FmBOuVQx7xpH460uChIDmFgFzwoqakdYAirgt/0C8wJGBJtdqO9adc4NRvDW6vSyW7p/MuXxsPsZJcsIHWRq82XLrR4cgyNuoXCOpNlGvAzqxyHx0Zag==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=kmwVEMCJugJNkQTR1URWP0zPkzGlXgoaSKJxNj2d+CE=;
- b=kJAiiOxeyy39rr8MfHqlcC5QlH/r7oEQ4NCkW/zf+FyRMpHsmzdbnMp/cRosyR3957qz65rg27ThTtwenPnjhGhs059PnaoDYF3PKFgPD1aHYbDMuP09Sg5dMnZrWADE6UHFKgeU+fOFRvyJPbxgI4ZjwgxfYfqvScvaTECnVRzr0SNIflvwPDYx5Fjdw0mTvDvVZudVjMNgO4pcL98lGBPmmrgaae3ukl3h/X9pRGyeTya7iKao+QZC09kFSmlPh8NB17ijFKls59SjopmNhYJ9/3jQn40YMfJCdjWb4TtcD9+cjaPal6lB74phThcTG2WRnaVa8m+L7YbpB4n8Ew==
+ bh=OS2YabY2TxbKlR9jvwOvf0olZyx4xN97j9V8ZiE5ffc=;
+ b=E7wfWFVhGXY5VkAcDawwkP/g8/RJpQxujPo5vdiJsoEweRIi8C+V3L/MOce5hdrdfpO8Klw7pybbQ4oYhYD8X5HVML1KnwFLMHqHLT0BHB9wDQ+f1yKSozmUIpB4qtxHVUw1w654M5yYP76EgnCHqgSDt6S+0xirK0CwpFn7C77TPyiVTcC+Rm1T7rIh8Zx1g4bBvd/4c2CdlFxdOqFaxQli8XdIYsmJw6iY2AAzrufeyerDSIdp7c8GxuUtEzjjOxKUIkNWgotwo2JaaDe6CiNER7nB1CuW7GvE/HOKTvYS+OEsKRxB9cfqTY2WVLv/IHD3WdQ8fZJPIEYqbPXbKQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=kmwVEMCJugJNkQTR1URWP0zPkzGlXgoaSKJxNj2d+CE=;
- b=azzE1smG3T3WQNTTBm8LkubpBIZOWARycZm0OVNsKKf1ZHLbpGnnz6AjBVLeV3IJOi/SY3X8EzZR9ObAPmdTy/L4YqUUs7VfhqU1/E2s26T93z/Ej590/fAM5I/bZoXlCT5k8FgN3Vgi40lTUAzpHjfDZpRXYZxwZP+0q4mm80i1ut2/m19O7vC0Pllfhf7HfcopulHQufsguDZFCPoNa5zkAMp13+RNgUVsEniF6BrGQa4gbjhELMixiIRodBQs2fJ1M0cihPqX1oE4szEuIG6J2eDnh7690pV8tIIQxcTi+95whKKPBLy5wK6t02miISP+BS1ROeRMuyvvUm71mw==
+ bh=OS2YabY2TxbKlR9jvwOvf0olZyx4xN97j9V8ZiE5ffc=;
+ b=gVeRSJH4FEDMrcZsfSKPHHCfokADD4GyOxeSDyf69Byp54CgWPqWw1eJZZDqwKgbvtYn/lNfOT+a6KjyrZlMBSfshowCVq07IQUtOUHkFNxXxBr+nEW92npTR7Sv4wNIwKgoVtGyhCoPTOV/deGCK0Fm4J2kQWNsPTI+/V2qDzOkqTD/+JUtY3p/jPQCy6yvDEAFJzT/PIBKrI6sisA5Sm5Q6JjyUS4xIRBNntAgXasdVDBu2wCcTgK0HMW5P6cvSC5Ze0JPYQAXj9iX6BKQTqzzCfNAxLXqHZeIAKXPWfWNDULD3IGwMA0DDCTFoIAx8Vg5HXuYTIdI4/imWPIZpg==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
  by ZR6PR04MB456611.eurprd04.prod.outlook.com (2603:10a6:910:d9::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 23:51:12 +0000
+ 2026 23:51:16 +0000
 Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
  ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
  ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 23:51:11 +0000
+ 23:51:16 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: netdev@vger.kernel.org
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -86,14 +86,16 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 net 0/4] ENETC GSO fixes
-Date: Thu, 19 Nov 2026 01:50:51 +0200
-Message-ID: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
+Subject: [PATCH v2 net 3/4] net: enetc: fall back to software TX csum for too long L3 headers
+Date: Thu, 19 Nov 2026 01:50:54 +0200
+Message-ID: <20261118235055.1225115-4-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
+References: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: AM0PR02CA0114.eurprd02.prod.outlook.com
- (2603:10a6:20b:28c::11) To AM0PR04MB6900.eurprd04.prod.outlook.com
+X-ClientProxiedBy: AM8P189CA0027.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:218::32) To AM0PR04MB6900.eurprd04.prod.outlook.com
  (2603:10a6:208:17d::10)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -106,101 +108,171 @@ Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|ZR6PR04MB456611:EE_
-X-MS-Office365-Filtering-Correlation-Id: f3aecc30-e646-4132-3056-08df45ced305
+X-MS-Office365-Filtering-Correlation-Id: 2ddaec8c-4c4e-47fa-da48-08df45ced60e
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|19092799006|10070799003|261102123227099003|10067099003|261021121427099003|56012099006|11063799006|261021123027099003|261026121527099003|261026140227099003|261022105027099003|261028144727099003|261022075727099003|261009223027099003|18002099003;
+	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|19092799006|10070799003|261102123227099003|10067099003|261021121427099003|56012099006|11063799006|261026121527099003|261102130727099003|261022075727099003|261009223027099003|22082099003|18002099003;
 X-Microsoft-Antispam-Message-Info:
-	YTh34F4KT1RNXRWClBgYB5naEZX4sYMQIMtPsXnoLBQS87gZxyL0QERS2W5eV5sZOUxNeG3cyx2rqcQ36Blb7gQVnIyVidPLWIRhWk/SmXEgQhrQ4GyA1GmxWfXTArCXUVS1ao2V+rHunneposWeJA+kSuQseKMNW2PGZcBxmALCoqnhtIWgHTAhUWYaAKRjW46gQ/sGF8f7tBXEm3mQ0Rm25WuPFUguclmxM9/mFk33ayXelOTZOpgpBpyCysMSgiN+n2V722gAjA8J7BmogBoTA+we2oI0ygbt64r/D8CIENOQgzXlGTfucjNRuoRaI3EaYGL9/TG6rNjTMqEzudPEK6Gci4uWd/rnRYRjuO1TkyC06SZOD9tKfdrrxyxaSiX4pxX602KTc4f379GXN0MRRcR1by9SYHcr9OUfiahd5oXCytRwDp/0CAOVK2YM05NrMQJetCA03uv2G5UWzUnqib3ht4r4JJdNjXcAbm/yrJI/AfkG3mvltWrC9uC2U3uP7zhpC0dlO3cwXFLR3yfYhPOEE0RvxzAyMJw2h0wmDRjOduopvLMowvXKvL7h+TGKlY3R8EA6DxB4AL0SAdo5Q0KWvbCJVO57L0+IoNKc6RTbLelBOlCw5x7hesj+
+	AgpCjH0BIGogVR3uolEjPYVcotj6WCt4g8yjcKTM9Rnx7k1v0UH8FcwAmQbLYEsRbKkYpgU+dvQUddSEND2HpmQpwVMyPDk7y7tXNBZzA9uVTQgzoTO8iXdsug+3CjI6h0cZVovjDPT69z5WcJes0z26YhDxKW/KdQK1ap8gt5s82NYPRfusBl9guNE0TlBHMt8MbMTD8Nts5z+PEyOMdOYz2OB9aODZWpEeq7aZSO9Vtz652XeZihg99PougdSfo/wuVkxaHCrYkA/aeDKXcnsk7QmRmm1sZ6XCaQy6blBh7wJOSMkQl4Uj6PNDsF5b4LPYhI50BQ/FGfGgE82AxZEIqUjmMKQNDeb9yzhe4Oi+5ipU/xFADjjVY5eXcC3A3F1oODqI3lq4Ueq9Bt63SqsOFNjhbGI+6IaVih8jy1Jmbddmj1Tawj3TL0ajS7KsTpHnSQ7+mIVra5qQUTjExPcUT9ZhzA4D3v4w2rpyqCfSc4vKnhEK5kVyorVfILjbO8an2fgOyiczLCw/DAuIxlgnIrd0hVKafN1Tq/xEzxTIyNKaXE/jvPVAswazKKAtgJ+JpN6n5Kqj61gxdOhll/0ZMPekAmkcYRat5rN3H0Vrruh25dOI6bWI4Ectb42W
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(19092799006)(10070799003)(261102123227099003)(10067099003)(261021121427099003)(56012099006)(11063799006)(261021123027099003)(261026121527099003)(261026140227099003)(261022105027099003)(261028144727099003)(261022075727099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(19092799006)(10070799003)(261102123227099003)(10067099003)(261021121427099003)(56012099006)(11063799006)(261026121527099003)(261102130727099003)(261022075727099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?F4aMmYgdV0SpWL/cPcPmf57YR/HMqIqCRvVd0kWibY9t36LszmTMVHo5e6GM?=
- =?us-ascii?Q?y+jPGtt+QcfaeJc90BncJDcpiBARcHu5Ks372orPWXnmaQHG1R+3Z3mevhc6?=
- =?us-ascii?Q?mAKq6Bz29IkodR61CACHQMDKf0LMOIZlHQlmTozC8KbsIzLT+bUxV4VVSB2S?=
- =?us-ascii?Q?AXDkEwGhRKjYnW9bBKsrB/aos60sBoI7lAzOSae1+6yxgrm9k2MXEsNlcoA3?=
- =?us-ascii?Q?ynbvBtY0b3oo3RDSpc+xdRBbVPYc0aAd3iT4vVdfCnAQfe0Sm0mvCwu0jk+0?=
- =?us-ascii?Q?1dCActD0ImEu+6JeRcF03CLa1+oQ/gN1ZhgtlvguSe3a9GkuliUseK2V9LpV?=
- =?us-ascii?Q?4c2JZOWUAxsMe8POXqfl1U5OEWTBRBgl5eoUZZsMIePTytXKisJyKATqB1mt?=
- =?us-ascii?Q?xVfrJFWKYqAfDzqQ+w+VJvdxRIj8fXT138QOr2ukeF/iePa/EVdBgDdcl5Oz?=
- =?us-ascii?Q?EukP6btvg/KKduA2w7jTLivtbUN7jH7yeudG4KZpyFDJg57ENJKwX3qjbSP1?=
- =?us-ascii?Q?KjJOPHZy/pxRReg2TLKHYOL6CF8hnoeXPDeGJ2Fe+HLDO5ueqHRE8H+S2tLn?=
- =?us-ascii?Q?rkuUg77a6h062lX1fuq53TLp1CDxkTHaU51TimTl9PIXC1qHOUo9kgRy74xf?=
- =?us-ascii?Q?8NWetBrzw6nZce8c+KrdP5dKlU6+fSIH+Yb1thjUvHVqajcb9YvfabI1kh3t?=
- =?us-ascii?Q?SM15ZTQsPgbcSJUtXRxvMdEY6nBJFbhoM60Xl5YxjzeXSy2r76oYG8m6dYdo?=
- =?us-ascii?Q?lMNPFSPy5UH07YcJRGjjWPGfcf8BP2YhE28o7o0Y0T0ADQprAWq89o7n7mIo?=
- =?us-ascii?Q?azLEe6UPXOWWlZfvVp/i5Z85mI7FyWTgvmGLnq+3erFpsxZWym3bSXiuK86e?=
- =?us-ascii?Q?VN0x6m7POF9naXb80VHI5S/iH+yw0JaQSlYKQTfak1RVKN+XQRNtvozhiRdu?=
- =?us-ascii?Q?p/Q5M7/AYnELGAhjaVu1RrrWWr9VbjAzoova3ET4tnWoX331J9WB4NC3YCES?=
- =?us-ascii?Q?5LapXCYav3Cgw66FCS0ECHJ7QYXX1XTUB2dXWcsejFQxNF5fdFHhj0LEGLg7?=
- =?us-ascii?Q?oXtgN/Da3WtS3QuhGQOjedCr8B3qGR+LBn3yVORfFqI5tRQ8m2pQhgYvIQ/C?=
- =?us-ascii?Q?Z1vDsaZUazLKpCywtinCG2qqLJ8oCIcR/dt6gx27YWS/UsfN/ulVBLa6E67s?=
- =?us-ascii?Q?HW87u9TQB0id+hhPaqrHr4h7Ij65iOKc3JN+k9oO0WkrABZSF6SRXfMwEd4Y?=
- =?us-ascii?Q?orfb4ayyY2zhKsW9j/sUROIDHTwXo7vDjrdWqvsZRG9I8CsVloruqc+c2exW?=
- =?us-ascii?Q?7aNKS+xp0xistE4GQSdef4d+5c/8+1aKRYC8k2mnT/4MyxyyL0xiOcqYnqn3?=
- =?us-ascii?Q?ujyuwQnG/d+wc/dQr3CAjLWyG8bfcqC2xXEE2/trqTZyR77A+jTOfSZwDzsz?=
- =?us-ascii?Q?j80jzgUfsc7oRdNUcFRbcku2aET9Nb2/Nv4GbwGS7ZdtRJZzA0HasDD6dtKe?=
- =?us-ascii?Q?7banmw51+KT406TzLp3lpwIYCcNZQR5qNPtlJMLSedrCYcy+3Yl3zI4J/dH/?=
- =?us-ascii?Q?bVLdvooKD8AWpXvHOrdroD2aiGb/bTiAuD86jxIVxPG3rfvE6dEb7spKxJwD?=
- =?us-ascii?Q?Q6uxjo5DOfX44jWT3kc6ast5pOTDgzFUi6CCbhMBhOrJsAQMH8Peym1tF0GL?=
- =?us-ascii?Q?hVKzeW5xlHaCPw4m0BNtYgD0d2rBO6NwtDODHXG1qGT7EMyELsZbLpKSYsSY?=
- =?us-ascii?Q?m029YbuT7+qTZ30HXIxhpC6z4+Vbtm1YbmDcjIaMhjML6xlE4uN8SysZUhic?=
-X-MS-Exchange-AntiSpam-MessageData-1: VSeZRpMuYfISzA==
+	=?us-ascii?Q?DcpC6i9vzEgcpm/0TStkmuF3xDfxZq+v1BzSNqMfAaRiapLiybNOqcvtALjM?=
+ =?us-ascii?Q?W5nN52FMhqcljA2F5/1qWK+QbpfEmf3tNbrMSahIMoGWa3jvEVUNr0jUYYhp?=
+ =?us-ascii?Q?zOK7NVDTuOZg0InBRFhfEwOYgjuLiQnqoI4zFpdD2o6wkFu/qDbIUBvUIi4N?=
+ =?us-ascii?Q?A1hNOevEJ/xe6XZOItivbpfn0NkM73+a1hMncFQqPhZXKrimymqRx7iqNSzq?=
+ =?us-ascii?Q?LCp7saQ1H1msT9xe7XZ+WYwyN0t3FkbJ+7L6ixMjBuKwkXv/GLVDPMy/baT5?=
+ =?us-ascii?Q?FCe35R7byvMEfWe/SrdRa1oVooGxL2l9Je7/QSkSPkZbt14oCIHL3g9/9xH2?=
+ =?us-ascii?Q?tzht0Rux/eUOXlvcwT/yNsRuJbjlJ7HI/OAzcxVZrLEHo6Rx+PcWu53NTy5u?=
+ =?us-ascii?Q?VVU3zqWxSy5XYX4Hwp9ovcthw9/3IpgWsEv4bPDTnfPxx3Uo5xOoSss7k//S?=
+ =?us-ascii?Q?rnLYcLmNx595rpCcpxZR++0x2O7cyBx37XwLjntxvYllWA3PNMFW8CHnBCPL?=
+ =?us-ascii?Q?5zauRNYO5JsTS0kubCRi0wbTIdkOesZFt9qVNfzxUmuDkUZAb/t3z2sVEsa5?=
+ =?us-ascii?Q?IIFSXYZDQoAKJBfqE06hH8EMvf3ZtkrRvSkYROTGJqnb0ligsCyTmilprsO2?=
+ =?us-ascii?Q?CMMLXlINdErFu4q0CYPYzn9LnFsKjC1NZ/GyC/jZFoitDKmmvD1y74HY/tz/?=
+ =?us-ascii?Q?68kyXuY7My9tMXePNUNNBwbgE1/NcRAVuWKxKqos2bvsJ+l1B1aCH8pQfhtY?=
+ =?us-ascii?Q?J2gRG2+nC2m1ttydZMv09Op3M4rts0krHkIO31feu8J7Pf3SdzKySUhY22Ye?=
+ =?us-ascii?Q?o6WLUsh9n2Q5pYSivwTDIuLyLhZUZac491M38cKBiBF+lWOlAGpBfX3asPjL?=
+ =?us-ascii?Q?4LA2bn6t3nxAc3HrUc7yP6zUR580sfMAkQ/jeNagmIPf904+eJagG8Ag1yi3?=
+ =?us-ascii?Q?eJg2GiiXtcHszQ9CzBHyvNqfCNhV95GNpc2Nvsasm/t+4lIJP/rKrb4PxHYr?=
+ =?us-ascii?Q?UsbqcHrbeo9YQEfxC1RKOtk/iEgrMGnuHcYBzmSfftpRvZrVYMSb4q4szY1z?=
+ =?us-ascii?Q?Mvcl+SQUfaeBTGE6mZWG4JD8aN0IYSDrjjl3oxGtdm6352FdpRLpcnr2W12G?=
+ =?us-ascii?Q?X3Zxa4pwBpaS7rxO98OTWiRq1IUvSgrvhmRbV5qKNzIodN3TlL8X/U3ebe7n?=
+ =?us-ascii?Q?V18RCQhjrKFohO+G4t+I342zSfn0ZfX6qR/bQ2l50XCPi2w8nlqQchWb+aDT?=
+ =?us-ascii?Q?9pw+ihZP+B3WgXfpvdGfYFMEms9F2G3cY3gBHHSHTE4+ZqhAgfg308i84wiu?=
+ =?us-ascii?Q?8AJj2+kL4G6+pLsqaDANooddI4myYV0Tp790CYW8nU8eB5RcBnEuME2rhvF6?=
+ =?us-ascii?Q?/PAA/V2CLkVwN5T2kevK4Wh/hqwYHT2bPUCe8BOypimU9SGYkJXXJsuJwMkG?=
+ =?us-ascii?Q?d4p5K1w1jX6N9sRx541OLFFtzf8ECx7WbEQQH2HcfQx1FFKBSwFgb/JhXAh9?=
+ =?us-ascii?Q?f0UT7DYszkEyVLpdyidyqxeF0vwZTSiJ1KVdkLEM77QakEWLVK/2hINcxGqp?=
+ =?us-ascii?Q?BmQFLe+maEUEoFVcf3pZpxN60fYn5hYynl4EkVXqaaTqolFZUWcoUbQcMs+6?=
+ =?us-ascii?Q?4KUiCUbFcrfG/NlapE8vlV/rOCdfXTQB9Wq6NEMg4fMrxOopD7OLlhMMfGJQ?=
+ =?us-ascii?Q?/cU0l2DDrM5p1SH26d5fzlx6jVCYBL6dO8Wy3FtE63jg23b17R9eWxb9cXle?=
+ =?us-ascii?Q?XbCn4aFdk1ki0bn4ELGC9/lKAqdv7sk+mUOEoEDpCUn48Ch16qdcD5btU/5l?=
+X-MS-Exchange-AntiSpam-MessageData-1: WwkogTHyeI5dVw==
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f3aecc30-e646-4132-3056-08df45ced305
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ddaec8c-4c4e-47fa-da48-08df45ced60e
 X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:51:11.7437
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:51:16.7803
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fclM5Hdst6catSNCQLEyka62wmyDeTR1WYQhzcNwEAw9KiUSL/hAIw2dShNfD2/sROAUEHlJwwIadgi4TAdyeg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9bdXequ4fd+JEOiTUjVDo6wApos2dDLhCI00YwXV71rml32eu1XVoCY+uW0nCM3QLcAK1R4ynLedHW92Y2+ZdQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB456611
 
-Sashiko derailed me from "[PATCH v5 net 0/4] Fix short frame
-transmission in enetc":
-https://lore.kernel.org/netdev/20261021145314.1435049-1-vladimir.oltean@nxp.com/
+For L4 checksum offload, enetc_map_tx_buffs() programs the following TX
+BD fields: ENETC_TX_BD_L3_START <- skb_network_offset(skb) and
+ENETC_TX_BD_L3_HDR_LEN <- skb_network_header_len(skb) / 4.
 
-which also touches the driver GSO code path, so I'm making a detour
-to fix 3 unrelated issues there (which I could all reproduce using
-LLM-produced programs).
+These fields are passed this way so that the hardware simultaneously
+knows the L3 header start (for computing the pseudo-header) and the L4
+header start (by summing up L3_START + 4 x L3_HDR_SIZE) which is the
+csum_start.
 
-The main highlight of this series is the introduction of
-.ndo_features_check() for enetc, which runs for every transmitted skb.
-Each patch makes its implementation more and more complex (and I'm not
-done...).
+Section 106.3.5.1.2.1.3.5 Transmit Checksum Offload of the i.MX95 RM
+has this statement:
 
-These patches all assume that at .ndo_features_check() time,
-skb_shinfo(skb)->gso_segs is set properly. There might be issues there,
-see commit 67b0cca9ba88 ("net: validate xmit skbs in generic_xdp_tx()")
-which fixes one case which led to gso_segs reaching the driver while
-being zero. For some reason it was merged to net-next though.
+  BD[L3_START] + (BD[L3_HDR_SIZE] x 4) is set to the offset within the
+  packet to begin checksumming. (BD[L3_START] + (BD[L3_HDR_SIZE] x 4) +
+  any hardware inserted tags) must be smaller than 127 bytes.
 
-Running a bidirectional eno0 <-> swp0 forwarding of raw IPv4 64B packets
-(no GRO or GSO) on LS1028A-QDS rather than some micro-benchmark,
-I am not seeing a noticeable performance degradation. It is in the
-noise margin.
-Before: 7440 Kpps ingress, 586 Kpps egress
-After: 7440 Kpps ingress, 588 Kpps egress
+We have no test for this condition, and with IPv6 extension headers it
+is possible for that sum to actually exceed 127 bytes. For example, when
+using the Segment Routing Header, 4 Segment Identifiers (SIDs) will
+produce an L4 header offset of 126 bytes (OK), while 5 SIDs will produce
+an L4 offset of 142 bytes (not OK).
 
-Vladimir Oltean (4):
-  net: enetc: let core segment GSO skb when TSO would not fit the TX
-    ring
-  net: enetc: reserve VLAN extension BDs for software TSO
-  net: enetc: fall back to software TX csum for too long L3 headers
-  net: enetc: let core segment GSO skb when headers exceed
-    TSO_HEADER_SIZE
+The hardware picks up these packets from the TX ring, identifies the
+incorrect header length, refuses to send them, updates the TX BD
+writeback with the STATUS field set to 1, meaning:
 
- drivers/net/ethernet/freescale/enetc/enetc.c  | 72 +++++++++++++++++--
- drivers/net/ethernet/freescale/enetc/enetc.h  |  4 ++
- .../net/ethernet/freescale/enetc/enetc4_pf.c  |  1 +
- .../net/ethernet/freescale/enetc/enetc_pf.c   |  1 +
- .../net/ethernet/freescale/enetc/enetc_vf.c   |  2 +
- 5 files changed, 75 insertions(+), 5 deletions(-)
+  Programming error
+  An error exists in either the Tx BD, the Tx ring registers, or some
+  combination of these which meant that this frame could not be
+  transmitted.
 
+releases the buffer and updates tx_ring->stats.packets and
+tx_ring->stats.bytes as if the packets were sent (but no MAC counter
+updates).
+
+This error can only be seen through manual code instrumentation, since
+the driver only checks the writeback when it sets tx_swbd->check_wb, and
+it does that for taprio offload and for 2-step TX timestamping.
+
+Issue found while investigating Sashiko's question "Can a 256-byte
+header still break the hardware LSO path because lso->hdr_len is a u8?":
+https://lore.kernel.org/imx/sashiko-outbox-211955@kernel.org/
+
+and was reproduced using:
+https://gist.github.com/vladimiroltean/7cecf636b788b29f361a2fbdae646010
+
+Turns out, LSO breaks sooner than the assumed 256 byte limit, because of
+the checksum offload feature it depends on.
+
+LS1028A also declares the NETIF_F_HW_CSUM feature in order for GSO to be
+passed to the driver for software segmentation, but performs the
+checksum in software - either through csum_partial()/csum_block_add()
+for GSO, or through skb_checksum_help() for non-GSO. Point being, it
+does not use the HW offload engine, does not have the limitation, and is
+the reason why we need to discern using the ENETC_F_TXCSUM bit from
+priv->active_offloads instead.
+
+Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+---
+v1->v2: patch is new
+---
+ drivers/net/ethernet/freescale/enetc/enetc.c | 16 ++++++++++++++++
+ drivers/net/ethernet/freescale/enetc/enetc.h |  1 +
+ 2 files changed, 17 insertions(+)
+
+diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
+index 7f089a84d9a6..6cc519eea5bd 100644
+--- a/drivers/net/ethernet/freescale/enetc/enetc.c
++++ b/drivers/net/ethernet/freescale/enetc/enetc.c
+@@ -1114,6 +1114,16 @@ netdev_tx_t enetc_xmit(struct sk_buff *skb, struct net_device *ndev)
+ }
+ EXPORT_SYMBOL_GPL(enetc_xmit);
+ 
++static bool enetc_skb_l4_too_deep(const struct sk_buff *skb)
++{
++	unsigned int l4_offset = skb_checksum_start_offset(skb);
++
++	if (skb_vlan_tag_present(skb))
++		l4_offset += VLAN_HLEN;
++
++	return l4_offset >= ENETC_TX_CSUM_MAX_L4_OFFSET;
++}
++
+ netdev_features_t enetc_features_check(struct sk_buff *skb,
+ 				       struct net_device *ndev,
+ 				       netdev_features_t features)
+@@ -1122,6 +1132,12 @@ netdev_features_t enetc_features_check(struct sk_buff *skb,
+ 
+ 	features = vlan_features_check(skb, features);
+ 
++	if (priv->active_offloads & ENETC_F_TXCSUM &&
++	    skb->ip_summed == CHECKSUM_PARTIAL && enetc_skb_l4_too_deep(skb)) {
++		features &= ~(NETIF_F_CSUM_MASK | NETIF_F_GSO_MASK);
++		return features;
++	}
++
+ 	if (!skb_is_gso(skb) || enetc_skb_uses_lso(priv, skb))
+ 		return features;
+ 
+diff --git a/drivers/net/ethernet/freescale/enetc/enetc.h b/drivers/net/ethernet/freescale/enetc/enetc.h
+index 1e3290d1a388..5b8cffd589c7 100644
+--- a/drivers/net/ethernet/freescale/enetc/enetc.h
++++ b/drivers/net/ethernet/freescale/enetc/enetc.h
+@@ -75,6 +75,7 @@ struct enetc_lso_t {
+ 	int	total_len; /* total data length, not include LSO header */
+ };
+ 
++#define ENETC_TX_CSUM_MAX_L4_OFFSET	127
+ #define ENETC_LSO_MAX_DATA_LEN		SZ_256K
+ 
+ #define ENETC_RX_MAXFRM_SIZE	ENETC_MAC_MAXFRM_SIZE
 -- 
 2.53.0
 
