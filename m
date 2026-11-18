@@ -1,33 +1,33 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.43.10.250
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795002327;
-	b=p6B+vnSctEzsp/ji3wRrHSbrEhA3ePii0rXZjjvvfjhw7VXmEUI017EDb9Bnss5zmjRo
-	 jty3eNg1qEI4eDk3hNR7prleoW8tV6tw7F73fYSOVEzzaXS0eexEnz6t6hsI20NXatdi6
-	 QZM7eN6Q2AdUwZKdWqzTVS6D6tEI7dL39COsXh4PJGkPjDNuxi697ChiPDooCbZ70x+nv
-	 kTYQUlZWbdk9mWHdjxZiFsa1hDmJDFkFU0SW7thlbyoeTV/FABNSDFVKTtETqV2MoqQNg
-	 c2hqmGd2Ep0t9LTUChxPsw1zJ+TEe8Yv7tHJkYS3VaJfED79DwzA0uH1//iiYMvh2RQ==
+	t=1795002329;
+	b=XjKaP7jmbcnMfG502h+Pamc67rqI1b3vZdmOXGwz8K4DP9grtMQ3Q3uOjyaLRTUpaUbj
+	 TJV/9vbWQkCohcqg3SgbBGAcZj9m+3Mt8zMAWH4M/KCrFnwInDpMp8K29RZOoMU1onkC7
+	 6JPRS6A06mWOOck/I6Wzr4+6C7xCvFP6JmOUrDGs9lEZk6LSn8foVvaEnmSgo2hyNEZyu
+	 jp1LILwtOQUOFzDzPElC6ctPZT9KJliDQ/emyZTOCVgNjgJX8ZFmtqJIxioyrtRsZD8hL
+	 nj6GyU53qCd0v0CvlnEJVHyKzD20vIxsREfeIwtaXnGetsfJ6/eCUQXkFfBUCTWFd1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795002327;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795002329;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=IhzIvmeeJn2NAjDpLTMQTcLVGDJ6DLJttS56TtytnVQ=;
-	b=F+61CS3ZQUoSY5mbe/XJNmN77Pn/Yn+ma60N0blD87fC112ZGDCuPa+LiuBmzjkfQ4IO
-	 BwxUNyN0iyDoFSlc2AknkPsfb3Xx64Izo7UD4eMwYgjsf4aEAvzRn5Xj1phaMSHC8Yq2i
-	 aweqlNz/IBiSNWlvMe/rN2sv89JrN8bsuTeD4NxSjhJQxaOhzVR8t/Qwp8o4UD06kfa46
-	 2O1bTybesqY1A0QRnbVEFNp9IZlPShi2gHDoD1X8zFoV2Zjz47tj2XWAbSLJ1EbVGdGZw
-	 h2LsYIu9n1Nxt1WvXIv1wMl3UwS7MAucQ664TqWUbosqVVlFICrDhN1qM6wzRXbLMxQ==
+	bh=gbp1mnilChcimpdz8fbHBnZHhJWpRYqIysYeawcQQUo=;
+	b=fKTvsYHADlQWsmQCyQirNUIb7a5py9e34sGcH2xMu3lBARtfraGDojoS3s9r8sdU23hw
+	 U/B74gUNdI/zNGsXAlm2ceh0IXpKIed8IaDHPnPDS1Tg6gvOTU0MXYickbxpE7sEyBEsD
+	 oAa5snM9MPNgFyhNqmJuF7zPs3OsWIpE5mGdSHaRG13ESH+6nHWjtzJACEw0za19PZtPn
+	 +kvdisOX41yTAAnoNd2vbMuqDdkysJhl0uf/JgaqMCz+n+xrp0phLzje6SBo91t6+haNT
+	 DpUuiIfuZb3C0igyfHBtwk4Os+xSsM8X1k+9LsRzQ0TrayCoc88tPfMo/LrsBdpxopQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=altlinux.org;
 	spf=fail smtp.mailfrom=altlinux.org;
 	arc=none smtp.remote-ip=193.43.10.250
 Received: from basalt.external.altlinux.org (unknown [193.43.10.250])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 8375F606A320;
-	Wed, 18 Nov 2026 11:45:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8375F606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C7E3E60A2627;
+	Wed, 18 Nov 2026 11:45:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7E3E60A2627
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=altlinux.org
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=altlinux.org
 Received: by basalt.external.altlinux.org (Postfix, from userid 1137)
-	id DAECB2DF337; Wed, 18 Nov 2026 14:45:18 +0300 (MSK)
+	id F068E2DF343; Wed, 18 Nov 2026 14:45:18 +0300 (MSK)
 From: Alexey Shabalin <shaba@altlinux.org>
 To: devel-kernel@altlinux.org
 Cc: David Howells <dhowells@redhat.com>,
@@ -43,9 +43,9 @@ Cc: David Howells <dhowells@redhat.com>,
 	linux-nfs@vger.kernel.org,
 	linux-crypto@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 6.12/sisyphus 04/29] crypto/krb5: Add an API to alloc and prepare a crypto object
-Date: Wed, 18 Nov 2026 14:44:53 +0300
-Message-ID: <20261118114518.3605222-5-shaba@altlinux.org>
+Subject: [PATCH 6.12/sisyphus 10/29] crypto/krb5: Implement the Kerberos5 rfc3961 get_mic and verify_mic
+Date: Wed, 18 Nov 2026 14:44:59 +0300
+Message-ID: <20261118114518.3605222-11-shaba@altlinux.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20261118114518.3605222-1-shaba@altlinux.org>
 References: <20261118114518.3605222-1-shaba@altlinux.org>
@@ -62,11 +62,10 @@ Content-Transfer-Encoding: 8bit
 
 From: David Howells <dhowells@redhat.com>
 
-Add an API by which users of the krb5 crypto library can get an allocated
-and keyed crypto object.
-
-For encryption-mode operation, an AEAD object is returned; for
-checksum-mode operation, a synchronous hash object is returned.
+Add functions that sign and verify a message according to rfc3961 sec 5.4,
+using Kc to generate a checksum and insert it into the MIC field in the
+skbuff in the sign phase then checksum the data and compare it to the MIC
+in the verify phase.
 
 Signed-off-by: David Howells <dhowells@redhat.com>
 cc: Herbert Xu <herbert@gondor.apana.org.au>
@@ -81,207 +80,176 @@ cc: linux-afs@lists.infradead.org
 cc: linux-nfs@vger.kernel.org
 cc: linux-crypto@vger.kernel.org
 cc: netdev@vger.kernel.org
-(cherry picked from commit a9c27d2d87a388433db100889262841afe771f7a)
+(cherry picked from commit 348f5669d1f6c1c210b9017ebb8b82282eca6f25)
 ---
- crypto/krb5/internal.h |  10 +++
- crypto/krb5/krb5_api.c | 144 +++++++++++++++++++++++++++++++++++++++++
- include/crypto/krb5.h  |   7 ++
- 3 files changed, 161 insertions(+)
+ crypto/krb5/internal.h           |  10 +++
+ crypto/krb5/rfc3961_simplified.c | 130 +++++++++++++++++++++++++++++++
+ 2 files changed, 140 insertions(+)
 
 diff --git a/crypto/krb5/internal.h b/crypto/krb5/internal.h
-index 3ede858be4f7..b542d24e5fa5 100644
+index c8deb112b604..07a47ddf3ea9 100644
 --- a/crypto/krb5/internal.h
 +++ b/crypto/krb5/internal.h
-@@ -110,3 +110,13 @@ struct krb5_crypto_profile {
- #define krb5_digest_size(TFM) \
- 	crypto_roundup(crypto_shash_digestsize(TFM))
- #define round16(x) (((x) + 15) & ~15)
-+
-+/*
-+ * krb5_api.c
-+ */
-+struct crypto_aead *krb5_prepare_encryption(const struct krb5_enctype *krb5,
-+					    const struct krb5_buffer *keys,
-+					    gfp_t gfp);
-+struct crypto_shash *krb5_prepare_checksum(const struct krb5_enctype *krb5,
-+					   const struct krb5_buffer *Kc,
-+					   gfp_t gfp);
-diff --git a/crypto/krb5/krb5_api.c b/crypto/krb5/krb5_api.c
-index f6d1bc813daa..f7f2528b3895 100644
---- a/crypto/krb5/krb5_api.c
-+++ b/crypto/krb5/krb5_api.c
-@@ -148,3 +148,147 @@ void crypto_krb5_where_is_the_data(const struct krb5_enctype *krb5,
- 	}
+@@ -169,3 +169,13 @@ int krb5_aead_decrypt(const struct krb5_enctype *krb5,
+ 		      struct crypto_aead *aead,
+ 		      struct scatterlist *sg, unsigned int nr_sg,
+ 		      size_t *_offset, size_t *_len);
++ssize_t rfc3961_get_mic(const struct krb5_enctype *krb5,
++			struct crypto_shash *shash,
++			const struct krb5_buffer *metadata,
++			struct scatterlist *sg, unsigned int nr_sg, size_t sg_len,
++			size_t data_offset, size_t data_len);
++int rfc3961_verify_mic(const struct krb5_enctype *krb5,
++		       struct crypto_shash *shash,
++		       const struct krb5_buffer *metadata,
++		       struct scatterlist *sg, unsigned int nr_sg,
++		       size_t *_offset, size_t *_len);
+diff --git a/crypto/krb5/rfc3961_simplified.c b/crypto/krb5/rfc3961_simplified.c
+index 58323ce5838a..c1dcb0dd3a00 100644
+--- a/crypto/krb5/rfc3961_simplified.c
++++ b/crypto/krb5/rfc3961_simplified.c
+@@ -653,6 +653,134 @@ int krb5_aead_decrypt(const struct krb5_enctype *krb5,
+ 	return ret;
  }
- EXPORT_SYMBOL(crypto_krb5_where_is_the_data);
-+
+ 
 +/*
-+ * Prepare the encryption with derived key data.
++ * Generate a checksum over some metadata and part of an skbuff and insert the
++ * MIC into the skbuff immediately prior to the data.
 + */
-+struct crypto_aead *krb5_prepare_encryption(const struct krb5_enctype *krb5,
-+					    const struct krb5_buffer *keys,
-+					    gfp_t gfp)
++ssize_t rfc3961_get_mic(const struct krb5_enctype *krb5,
++			struct crypto_shash *shash,
++			const struct krb5_buffer *metadata,
++			struct scatterlist *sg, unsigned int nr_sg, size_t sg_len,
++			size_t data_offset, size_t data_len)
 +{
-+	struct crypto_aead *ci = NULL;
-+	int ret = -ENOMEM;
++	struct shash_desc *desc;
++	ssize_t ret, done;
++	size_t bsize;
++	void *buffer, *digest;
 +
-+	ci = crypto_alloc_aead(krb5->encrypt_name, 0, 0);
-+	if (IS_ERR(ci)) {
-+		ret = PTR_ERR(ci);
-+		if (ret == -ENOENT)
-+			ret = -ENOPKG;
-+		goto err;
-+	}
++	if (WARN_ON(data_offset != krb5->cksum_len))
++		return -EMSGSIZE;
 +
-+	ret = crypto_aead_setkey(ci, keys->data, keys->len);
-+	if (ret < 0) {
-+		pr_err("Couldn't set AEAD key %s: %d\n", krb5->encrypt_name, ret);
-+		goto err_ci;
-+	}
++	bsize = krb5_shash_size(shash) +
++		krb5_digest_size(shash);
++	buffer = kzalloc(bsize, GFP_NOFS);
++	if (!buffer)
++		return -ENOMEM;
 +
-+	ret = crypto_aead_setauthsize(ci, krb5->cksum_len);
-+	if (ret < 0) {
-+		pr_err("Couldn't set AEAD authsize %s: %d\n", krb5->encrypt_name, ret);
-+		goto err_ci;
-+	}
-+
-+	return ci;
-+err_ci:
-+	crypto_free_aead(ci);
-+err:
-+	return ERR_PTR(ret);
-+}
-+
-+/**
-+ * crypto_krb5_prepare_encryption - Prepare AEAD crypto object for encryption-mode
-+ * @krb5: The encoding to use.
-+ * @TK: The transport key to use.
-+ * @usage: The usage constant for key derivation.
-+ * @gfp: Allocation flags.
-+ *
-+ * Allocate a crypto object that does all the necessary crypto, key it and set
-+ * its parameters and return the crypto handle to it.  This can then be used to
-+ * dispatch encrypt and decrypt operations.
-+ */
-+struct crypto_aead *crypto_krb5_prepare_encryption(const struct krb5_enctype *krb5,
-+						   const struct krb5_buffer *TK,
-+						   u32 usage, gfp_t gfp)
-+{
-+	struct crypto_aead *ci = NULL;
-+	struct krb5_buffer keys = {};
-+	int ret;
-+
-+	ret = krb5->profile->derive_encrypt_keys(krb5, TK, usage, &keys, gfp);
++	/* Calculate the MIC with key Kc and store it into the skb */
++	desc = buffer;
++	desc->tfm = shash;
++	ret = crypto_shash_init(desc);
 +	if (ret < 0)
-+		goto err;
++		goto error;
 +
-+	ci = krb5_prepare_encryption(krb5, &keys, gfp);
-+	if (IS_ERR(ci)) {
-+		ret = PTR_ERR(ci);
-+		goto err;
++	if (metadata) {
++		ret = crypto_shash_update(desc, metadata->data, metadata->len);
++		if (ret < 0)
++			goto error;
 +	}
 +
-+	kfree(keys.data);
-+	return ci;
-+err:
-+	kfree(keys.data);
-+	return ERR_PTR(ret);
++	ret = crypto_shash_update_sg(desc, sg, data_offset, data_len);
++	if (ret < 0)
++		goto error;
++
++	digest = buffer + krb5_shash_size(shash);
++	ret = crypto_shash_final(desc, digest);
++	if (ret < 0)
++		goto error;
++
++	ret = -EFAULT;
++	done = sg_pcopy_from_buffer(sg, nr_sg, digest, krb5->cksum_len,
++				    data_offset - krb5->cksum_len);
++	if (done != krb5->cksum_len)
++		goto error;
++
++	ret = krb5->cksum_len + data_len;
++
++error:
++	kfree_sensitive(buffer);
++	return ret;
 +}
-+EXPORT_SYMBOL(crypto_krb5_prepare_encryption);
 +
 +/*
-+ * Prepare the checksum with derived key data.
++ * Check the MIC on a region of an skbuff.  The offset and length are updated
++ * to reflect the actual content of the secure region.
 + */
-+struct crypto_shash *krb5_prepare_checksum(const struct krb5_enctype *krb5,
-+					   const struct krb5_buffer *Kc,
-+					   gfp_t gfp)
++int rfc3961_verify_mic(const struct krb5_enctype *krb5,
++		       struct crypto_shash *shash,
++		       const struct krb5_buffer *metadata,
++		       struct scatterlist *sg, unsigned int nr_sg,
++		       size_t *_offset, size_t *_len)
 +{
-+	struct crypto_shash *ci = NULL;
-+	int ret = -ENOMEM;
-+
-+	ci = crypto_alloc_shash(krb5->cksum_name, 0, 0);
-+	if (IS_ERR(ci)) {
-+		ret = PTR_ERR(ci);
-+		if (ret == -ENOENT)
-+			ret = -ENOPKG;
-+		goto err;
-+	}
-+
-+	ret = crypto_shash_setkey(ci, Kc->data, Kc->len);
-+	if (ret < 0) {
-+		pr_err("Couldn't set shash key %s: %d\n", krb5->cksum_name, ret);
-+		goto err_ci;
-+	}
-+
-+	return ci;
-+err_ci:
-+	crypto_free_shash(ci);
-+err:
-+	return ERR_PTR(ret);
-+}
-+
-+/**
-+ * crypto_krb5_prepare_checksum - Prepare AEAD crypto object for checksum-mode
-+ * @krb5: The encoding to use.
-+ * @TK: The transport key to use.
-+ * @usage: The usage constant for key derivation.
-+ * @gfp: Allocation flags.
-+ *
-+ * Allocate a crypto object that does all the necessary crypto, key it and set
-+ * its parameters and return the crypto handle to it.  This can then be used to
-+ * dispatch get_mic and verify_mic operations.
-+ */
-+struct crypto_shash *crypto_krb5_prepare_checksum(const struct krb5_enctype *krb5,
-+						  const struct krb5_buffer *TK,
-+						  u32 usage, gfp_t gfp)
-+{
-+	struct crypto_shash *ci = NULL;
-+	struct krb5_buffer keys = {};
++	struct shash_desc *desc;
++	ssize_t done;
++	size_t bsize, data_offset, data_len, offset = *_offset, len = *_len;
++	void *buffer = NULL;
 +	int ret;
++	u8 *cksum, *cksum2;
 +
-+	ret = krb5->profile->derive_checksum_key(krb5, TK, usage, &keys, gfp);
-+	if (ret < 0) {
-+		pr_err("get_Kc failed %d\n", ret);
-+		goto err;
++	if (len < krb5->cksum_len)
++		return -EPROTO;
++	data_offset = offset + krb5->cksum_len;
++	data_len = len - krb5->cksum_len;
++
++	bsize = krb5_shash_size(shash) +
++		krb5_digest_size(shash) * 2;
++	buffer = kzalloc(bsize, GFP_NOFS);
++	if (!buffer)
++		return -ENOMEM;
++
++	cksum = buffer +
++		krb5_shash_size(shash);
++	cksum2 = buffer +
++		krb5_shash_size(shash) +
++		krb5_digest_size(shash);
++
++	/* Calculate the MIC */
++	desc = buffer;
++	desc->tfm = shash;
++	ret = crypto_shash_init(desc);
++	if (ret < 0)
++		goto error;
++
++	if (metadata) {
++		ret = crypto_shash_update(desc, metadata->data, metadata->len);
++		if (ret < 0)
++			goto error;
 +	}
 +
-+	ci = krb5_prepare_checksum(krb5, &keys, gfp);
-+	if (IS_ERR(ci)) {
-+		ret = PTR_ERR(ci);
-+		goto err;
++	crypto_shash_update_sg(desc, sg, data_offset, data_len);
++	crypto_shash_final(desc, cksum);
++
++	ret = -EFAULT;
++	done = sg_pcopy_to_buffer(sg, nr_sg, cksum2, krb5->cksum_len, offset);
++	if (done != krb5->cksum_len)
++		goto error;
++
++	if (memcmp(cksum, cksum2, krb5->cksum_len) != 0) {
++		ret = -EBADMSG;
++		goto error;
 +	}
 +
-+	kfree(keys.data);
-+	return ci;
-+err:
-+	kfree(keys.data);
-+	return ERR_PTR(ret);
++	*_offset += krb5->cksum_len;
++	*_len -= krb5->cksum_len;
++	ret = 0;
++
++error:
++	kfree_sensitive(buffer);
++	return ret;
 +}
-+EXPORT_SYMBOL(crypto_krb5_prepare_checksum);
-diff --git a/include/crypto/krb5.h b/include/crypto/krb5.h
-index b414141b8b42..94af2c558fa1 100644
---- a/include/crypto/krb5.h
-+++ b/include/crypto/krb5.h
-@@ -10,6 +10,7 @@
- 
- #include <linux/crypto.h>
- #include <crypto/aead.h>
-+#include <crypto/hash.h>
- 
- struct crypto_shash;
- struct scatterlist;
-@@ -110,5 +111,11 @@ size_t crypto_krb5_how_much_data(const struct krb5_enctype *krb5,
- void crypto_krb5_where_is_the_data(const struct krb5_enctype *krb5,
- 				   enum krb5_crypto_mode mode,
- 				   size_t *_offset, size_t *_len);
-+struct crypto_aead *crypto_krb5_prepare_encryption(const struct krb5_enctype *krb5,
-+						   const struct krb5_buffer *TK,
-+						   u32 usage, gfp_t gfp);
-+struct crypto_shash *crypto_krb5_prepare_checksum(const struct krb5_enctype *krb5,
-+						  const struct krb5_buffer *TK,
-+						  u32 usage, gfp_t gfp);
- 
- #endif /* _CRYPTO_KRB5_H */
++
+ const struct krb5_crypto_profile rfc3961_simplified_profile = {
+ 	.calc_PRF		= rfc3961_calc_PRF,
+ 	.calc_Kc		= rfc3961_calc_DK,
+@@ -664,4 +792,6 @@ const struct krb5_crypto_profile rfc3961_simplified_profile = {
+ 	.load_checksum_key	= rfc3961_load_checksum_key,
+ 	.encrypt		= krb5_aead_encrypt,
+ 	.decrypt		= krb5_aead_decrypt,
++	.get_mic		= rfc3961_get_mic,
++	.verify_mic		= rfc3961_verify_mic,
+ };
 -- 
 2.50.1
 
