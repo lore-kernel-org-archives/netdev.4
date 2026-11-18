@@ -1,16 +1,16 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.2
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.57
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794995354;
-	b=3ngCAFSNEnvllCOAE+pONn//pKIRHnKB9PWxd113YXrV+qOW2D5PW8OnW237eFMu/ZzH
-	 hqpZoIrUTfkXDLOUxAxJD/egulaMY0E1FqHAUQuSM3sF1u5keicS4Z8MmoRtDzmrFAAT0
-	 DWKBOheYDvPi+yloS7jk/oMuoI3TVwkAV47sm5ACDA4AS+OaPIsAjSGgGh8jXOYFd+K2n
-	 WHHSdn6bmZ3/XCju5Fx6AjpDRbkVfOrH5zKa8lJJ88ek8gvkt82IZQvCZh7BV2sVomXKR
-	 uSKLcnBkO5DTe+TmF7L3nSf3o+CMk0AdJjAfFS1kKIj6NKiF5Nw7MwXJ0YVPk/RRwaQ==
+	t=1794995405;
+	b=dDo9V8zr/4UlDWd7Qd8ACZA+GnihbOpZecBQlUE+ElfQWvfbXdOz0twpG5DVZJBW+tff
+	 6nGDz5asSpCI9OuV2sNFwcJkVrJS1QC9Y9obBEtDQDAAUzc/WiIMP+nI28HLmvN1WHWoZ
+	 oTKlt/MVdXbdtqi0Nwe5pkHZUpsjZUxFcmAidsWxmQBHb2sDJUnMZJYR/74nRV3En/26u
+	 J/DOYnnR9A1Qpfxw/pHDH8EMd0qcRkNqfGhZGfTL/kifmv3fiq3g1TaH4p36y4WiHdEmm
+	 ZTDn2YDUcd2A6FMeQDq5cigKy2y3LEIbRRlLxScBYZsvjLfS8sZrtStShtiiODk6e2Q==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794995354;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1794995405;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy:MIME-Version:
 	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
 	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
 	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
@@ -24,76 +24,73 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=+o4wJf08bRx+9Ccjqy4Y3NjCioCSaFkm/ayZnQtFCds=;
-	b=oR+zj/XQUA3SN2qcyTCFhjhjAexM/kuDssfxZhei12dELc2uRviF3E4MG714OXnyDD84
-	 DWVyc9KPO7MAOi6DfmP2sc3tamaSCjJ9MDAZ+ZmTtfzIgNlfiQNpl+Ocm1BhVrmJPSPwQ
-	 nNP3NGa3LmXFwLYkvHhEeVD+YUcFhxqyvH2Flbj9jre+UXoGiv7OYPgs2/sj7csRPIYuK
-	 cgP7SFfC5e6gdn8y+GFrGiwWzvK9IZfnrwQXf3TcIzuPnE+ikZSwnXb0piHRmTdVHwHCZ
-	 RUzxxDMnNKN/AEG84cfEhGRD3DNxRdDbe+X+2gzIFyfQpHdPgXAK42TLQp5xooVtXrg==
+	bh=oM0sjNyLZABFnF30WpHTA5bq8zKoQELGZLum8k5Qmwg=;
+	b=D5mG95HmwPNK8qbM+bBWDN+isGwKqbeRhfikCo87mETQHCWYvQYvCoRykL/bu4oJKkp/
+	 enrOY/hOFD97Msqy4LvqUAg+7dTIIKpu7nI5KrctnqFFkq0qZoxhP6jMZw0VOwrTDpRcP
+	 iP5dSwSnNG9CKZA9gGC1+WBCSFDMaBQoUITH0rkrKQ8oqmba+hgdadmZGg6pR/I2fh6Tv
+	 SReThON39oMI/E+CtokYoR9CwD2Usp/GSdBl8uaBtra0mjUE9wABZiamnGTGV+nmdqtWb
+	 1OdptYlYcD9U6nIxI6w+A1WBPWcV6A8tTWZ2CulxKkXadYFDdQASyPDUKdSuIBxLgow==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=L7aA8aCd;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.2
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012002.outbound.protection.outlook.com [40.93.195.2])
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=FAxRwm5z;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.57
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010057.outbound.protection.outlook.com [40.93.198.57])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD890606A31C;
-	Wed, 18 Nov 2026 09:49:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD890606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33A3C606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:50:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33A3C606A320
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=L7aA8aCd
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=FAxRwm5z
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MGwHFtFlzDsNfabP3pJyvgiaWkTMOgLgnp57XKjRAxsu9QgyLU7588pYyb1gf4tdndn6T+Eo4uHXj34KkddfBU5UOmmQjw8fgHdstX+BVNqDPXUv3QyXR973/WLeiK9PKhXNhgyQ3c8UmIFh+bzqNP0pFFGrwMXtHiaPQMt2SFVCQixI4PSZxj0hn7KA4mgLzfrKoZAtMqU2zoT2G1rIu8BQn95YRHX6aCRokXxvJvrx8bwJ0r5ClEmqRxBgwre3Yn+MyZ7U90QHR4dbZpOW0SIOzz5pCraW7bJT0jPPZgNycpMIQPXeoxm9pnm7JfvR/S/bodyw9V5xR2bKbmB4Yw==
+ b=uSbxlF7JPW5fq7EmzjsU2+VijcBKKbD57iizd1otkNwXgMIlRngWDGMA2YdXQxbWVDa/Wsh9NOqzDlcZyHYzmDWdI7r26I15FKRZpgZZMhyt/rwGISjxj9i9q+fP+w35tcWMtCIbOMrw7i7xfmXGs+7mdiM3fJxrG9CHddwLTI/BGOpJVLl+EyE/iD4V5Pnd+JvYRooPktqEsvU4oXaFBVD+5O/Y7HHrd1gUuq54afvMC0Yq4YSv2qS35Mz68HHtSFnklVLuvTtejBYQW0ggtQX8kVIGpfzYK5lZ/9W0aBtB5E2felS0KomNzPsvB4iPjW6X4eQAdoO8QA1i5yT+kg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+o4wJf08bRx+9Ccjqy4Y3NjCioCSaFkm/ayZnQtFCds=;
- b=KgyDAKsBI7B4h51b1GJIgs7/cRtZbUrlplDwcDOenwi6FtC03I4QTTCD0dnqmT4Y7E7tZPvZicCNAu0x9mCWBjHG7eTJ478RlbF3qiVqojoBvJ1IZrGaCWmRt7Cd/nSSWVyHVtlbffegCnrgr/Vk5ydJ/dIwFdUE4uDu8QpL3asCjQ1bMx5lp1iCXchaL2VW2oWNWKGVDNo4HezsUvO6kVntNozzl4Y/oreX3M5Mu6qGEe+d20xEDZijtpJ45I8fIGSl7kTP3AD+fnQoUADRBgKBUkVgw4cLp90tGgqjUS2iEUWmZk/PhOgO8H2zdAzu3NLCI0VArQHpicxVRJ+L1Q==
+ bh=oM0sjNyLZABFnF30WpHTA5bq8zKoQELGZLum8k5Qmwg=;
+ b=Cg6lyXbXobblyn9i/yq2wavMitbyHeD2+3D7bTChpr0mZw1PGeEj9/PFutvVjk+315KhVEIn7R9ThTluvzl+IJXHcZb1J2WrDotmcz6e1OXZ7bWneHjHoS5bc4rda3aOAfam+pjqSWeBh7ClrDyvSJ1eZyOot4jvonsOTYdpw4K+sIHufBLdCvbY3ZwcEAWQts3M6xBRrqR/3vCULaX2c7jc6Ylwc5tW1JqrxEY6UCQIBYxLmWmnyW2qcXb1YQ4S57jbjCzOvzfb5MwjJTAkTClisb9qRDLp/UNrT8oolutHQHXbHO1Vzg87mSW2RR5jIYemRscwPkiy53flZ5mp9g==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
  dkim=pass header.d=nvidia.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+o4wJf08bRx+9Ccjqy4Y3NjCioCSaFkm/ayZnQtFCds=;
- b=L7aA8aCdSZl2MK7GWnXrWLn4EFFyp7537Ftp32uhv1je1StsoMYo5Ge70ZiJhqbqwYhTKaZGAQMoPTE3Ad05shz1GPlXLIQusTH08FT+Hk0By+RleeVmsMWaDNEgZ05gHRsVqHbJF/oe0hy5eWayIKkVq7yppVGwPGdZ+zE27tAnrjA3NZiJ5M4SsAmSMu81oYqfRRPAGr9fTX0trZDh36now2r2DP8Aw3MEmZPv22LAZDrSE+7jQLLqLwfEdDvEW8ZEgHxbZvUJLkJSV4II2XQyrGzucE7S5lFFxXz+Zkqbr1gvitRyZrXv9TySk+hJptyJD6VIBVYbN8j3lhi/tg==
+ bh=oM0sjNyLZABFnF30WpHTA5bq8zKoQELGZLum8k5Qmwg=;
+ b=FAxRwm5z+Wa71hvxAQRpBhOMUbHl5pSuD/E+5116Xs6jQ1zSocyGzr7fM7hzRPUZU2sT8612B3Ux8DKkKUenAXfrF/HolHWvRAp8/jrI78lCKi+GGIempuHo8ZsMKEUJRyvAa2zInVb6+xoRyqm8Zxly25QLwO+dV8o0I7ZCx5qVDWENZvrSRMEmi0szhVMhTUphun0GQshufDaIWv+2iFDMr/C2R4g1dcxH9CWVHw39+ZZqxRCXcgbbXJnOmaHBLjxJ0VmnP3T7nLCnhhDHsBnDnnVf+rqWb9vbbYwRlf87VDxl7qQrYwlRfoseiJJJZa32tdnz+omoZSc11FBlRA==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SAVPR12MB999143.namprd12.prod.outlook.com
- (2603:10b6:806:4e5::21) by SJ0PR12MB6685.namprd12.prod.outlook.com
- (2603:10b6:a03:478::17) with Microsoft SMTP Server (version=TLS1_2,
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by SA5PPFCAFD069B8.namprd12.prod.outlook.com (2603:10b6:80f:fc04::8e1) with
+ Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 09:49:09 +0000
-Received: from SAVPR12MB999143.namprd12.prod.outlook.com
- ([fe80::219e:6553:2ec0:3761]) by SAVPR12MB999143.namprd12.prod.outlook.com
- ([fe80::219e:6553:2ec0:3761%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 09:49:09 +0000
-Message-ID: <96a5ce67-89c8-4010-bfc4-4553e1aefe87@nvidia.com>
-Date: Wed, 18 Nov 2026 17:49:01 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net/mlx5e: IPsec, Fix RX mapped ID leak when adding a
- rule fails
-To: Changyul Lee <lcy8047@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>,
- Leon Romanovsky <leon@kernel.org>, Tariq Toukan <tariqt@nvidia.com>,
- Mark Bloch <mbloch@nvidia.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261118051247.3885308-1-lcy8047@gmail.com>
-Content-Language: en-US
-From: Jianbo Liu <jianbol@nvidia.com>
-In-Reply-To: <20261118051247.3885308-1-lcy8047@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI3PR02CA0014.apcprd02.prod.outlook.com
- (2603:1096:4:295::6) To SAVPR12MB999143.namprd12.prod.outlook.com
- (2603:10b6:806:4e5::21)
+ 2026 09:49:58 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0615.009; Wed, 18 Nov 2026
+ 09:49:58 +0000
+Date: Wed, 18 Nov 2026 11:49:48 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: Shuai Liu <847807867@qq.com>
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, edumazet@kernel.org,
+	davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+	horms@kernel.org,
+	syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
+Subject: Re: [PATCH net v2] ipv6: addrconf: regenerate missing host route on
+ RTM_NEWADDR
+Message-ID: <20261118094948.GA1097953@shredder>
+References: <20261118062828.840641-1-847807867@qq.com>
+ <tencent_98F714E924966679E826125C2CB18B092A07@qq.com>
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <tencent_98F714E924966679E826125C2CB18B092A07@qq.com>
+X-ClientProxiedBy: TL0P290CA0010.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:5::14) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,111 +101,112 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SAVPR12MB999143:EE_|SJ0PR12MB6685:EE_
-X-MS-Office365-Filtering-Correlation-Id: aa357831-02d5-457a-2f95-08df45593124
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|SA5PPFCAFD069B8:EE_
+X-MS-Office365-Filtering-Correlation-Id: 83a46587-82a6-43a2-b26d-08df45594e88
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|376014|7416014|23010399003|56012099006|261026121527099003|11063799006|10067099003|261009223027099003|261026140227099003|261022105027099003|261028144727099003|18002099003|22082099003;
+	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|22082099003|18002099003|261009223027099003|11063799006|4143699003|56012099006|261028144727099003|261026140227099003|261022105027099003|261026121527099003|261021123027099003|10067099003;
 X-Microsoft-Antispam-Message-Info:
-	LTChM0lx1Enm4q51U/JO212Fp9oOPe5isrHfxbL5tPDAqVyrooZXpZGbw8CjogZUIdiGb4k/Mcw+ni7EdkJbtLzne1HMRdjX3pBqj3dHUSQzvNNz4Lkg3V+SkZhUSwM+AGCxS5luLNJYVBCkQEXDNZeJjLj5Z17KGZeTGZrBEe8AAVXt05cf6XyyW1JOkrnTU1YeaNma3+YeaFO9XOM6AuKE6A1d18bGaW1TeMNsX8k30LLrGnGOE7sorXnmv+UjwNq0xyFPfpjwfxoDgz2bPACibZ99YdSDouENghRU5VtFZEuZ21LWJZqBOtvW0+yLQbDy1uXycyFJNeJ5C4fr6UG5ilVHlpBE2cGGPRUJcx4Kk6XchUGe5pU9vl+/QOkhc9UU7oNu3iroj13MYnwPXcHNd00gJqJ7InN3TWWkO6kupYlUaEQi5yF5fzsIxw6asCw6/zq/jZ1sNOPeNb+hUAG16pokaA8Th7/o1Kdb9uvnhIw88vGpkRWYdo//pa6Uz4Irr68pMPNuBYzpHKootwDjSz+vXhzy38qsBENRraBh8gv0gJuxOuiAtXKR/LywL1jJ5eIppvJQSGEjkcorZi76KHED1w6MbK69bmK2ivll8yCBvCaz0AudpcRBZur7Q3MB+i1Ba0TQHwPSV/gpzh4VlbqsD36jP3NyDBDPlKA=
+	mki16DkNXzDKKkBGoLXf3T1tgXs0Xl9YZQK/MQuU/6p0vDu/hU0s5/WFkTJj8hDo5TxBjDd+075nOwKtdGXPzUy9/atQF4mDXcxaRFt0D4qUTBZgZmBATk8iRMKQDIcxYrBKxS0QlSLVZdnHI3UuBL/M3Zjifo4Y99LlsnkuQTbPO/263xjBDBb6zsp8oL30fyKitMlsdkFx8+uZg6zxjfstZq5VLN4Bu5kFMd1Ef6oA6fZACtLt+tA5Mg+Si/lOKE9oyoYUlskY1Hff+x8PObrDjiwWZ0SRLRgNpyxfkQxbpH+/nc1J2q+bIQIsq8U4U0cM4jU7Dl0X6l2mt1SIjvJ7y2n/FMpO4XC+RtJTlrSR5FRD1L4WBuxrpI2TSd0z6Ykf0Q0N/ciVlz9icGNtk5OAXqZqqRVXy/tET+ZuJ879HIG/Dzv+t1gIFAm+6aH3KaqdBsA3BZdQc8Is52y9W5MxTZetW2ujvVDV95WJL06Gc22JAPCzDT+zazRoPmeWVrGpaUnix+AJ/SyqeAO/jWWqAHkiHsWqfBb3wUN88iz2SiQ2hFscRvhmSRKbbzj73sxPMY9Pd1McNxxlUqY/KTshhwUpHoVcC5eJ1yvhtz6qe0Okcczq42owGrylQ/NA0ow2+kLA/tldS10I/Y+2h37VUj5t6B5RoKSuz5DV/Rk=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SAVPR12MB999143.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(23010399003)(56012099006)(261026121527099003)(11063799006)(10067099003)(261009223027099003)(261026140227099003)(261022105027099003)(261028144727099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(22082099003)(18002099003)(261009223027099003)(11063799006)(4143699003)(56012099006)(261028144727099003)(261026140227099003)(261022105027099003)(261026121527099003)(261021123027099003)(10067099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?aUVQZ2lnQ0RGUmoyYlN4bTEvaDVXVE5JaUpGM25OZk95L1NrYlE2ZWhqby9R?=
- =?utf-8?B?K05tS1FWR2duWjM5V3BESWpnU2FEUUdEalh4V2hEVXpncnZ1SFlhT0ZxVXlD?=
- =?utf-8?B?ZnBBcnh4TnM3LzFxeWNQb1dQZXgyVEFJK0JKQS8wdEZYSlpqc0xWUUVtNEt2?=
- =?utf-8?B?QkpNaGt2WmRlZ1BuOHh1MisrYXcwaUF0cGtHR0lSQUlYVjAwRUxxcld6V3dS?=
- =?utf-8?B?US9hemJabEhqMEl5MTBlRHptUm5XUDJ3dmw1NVJRM3EyTU83ZFYwWHBDUU10?=
- =?utf-8?B?OTFmZ0N0NGsrMzBmWUdNbGMvWUpxbUg3OWYvQ0lkZ1gwNnpuTStBS2RBblNG?=
- =?utf-8?B?Q1R1eW1Bb3luK0doWCs0c29BZTJRNXFUd3J0Q2JLT3d0RHN2TGdNcFBtSXBB?=
- =?utf-8?B?UGNZbUZPVWkwSkFMNVRzbmxpdEo2VTl6eDdZZVFuRGFKS2VvcEQrc2E3Ykt0?=
- =?utf-8?B?SWZ5S0tOSG5yUSt6QmhGdXVXK2xpdDdrclh0Z2djWEJLMkFMbWlhR0U4RHRp?=
- =?utf-8?B?M3U2Ri9BQnFUMnd5a0hpeERYSUY0TmRTMlJuQitTVzhuc2F5eExmTkRaTVhm?=
- =?utf-8?B?aXpDeklDa0RSSC9wUmFRYkV3U210Z3ROb3JRd0ozeDQ3UkxnZG81WHoyVitt?=
- =?utf-8?B?NmcwdVNweEZMRnZCVzNkTVBiTi82aElOOVpCY2lHSWRnSXpYRnF4WEVFVU9M?=
- =?utf-8?B?TUU5ZzNTWmN6c0paT2s0VUVaakZ3a0Uxb0xockN0N1U1bkZYYjJ4c0pQTHdM?=
- =?utf-8?B?SW1Qa0hJbkZVYnV3MXdUSnpNK1lHSXM2L0lYVVRxVTg0WUJtaDlScFdrcSt1?=
- =?utf-8?B?b0lQQTQzY2VLRGVENGh6c2VDWHIzRVVpb1RLT21RZDhFcjI2WlBoSVB2YlNW?=
- =?utf-8?B?UUQvNDV4WE81cmM1V0Fka0xEUDd6d0ZxeEhGeEIxOTBHYmNaWnUyRUJRSFpT?=
- =?utf-8?B?TEZKSmlxcmd6RVk0RnpBUHRJTzI2V0VnUlA1eDVISlAvNmxPK3hxNHhPdWE4?=
- =?utf-8?B?OHdGWFpHbWJUSnU0cXdKSHlrRWhrWk5rYUF1MlYrMWY5OFN2aWMxTXR3WnFK?=
- =?utf-8?B?SzI3UkEvM2xxdWV5aTdMZVp3UXZoMThod1pmSnFhRUNNbTdpVG1CMVRCUnhh?=
- =?utf-8?B?U1Qza0RBQ3JpSGkzTWNYZW84Y1ZPT2xvMkpUb0FsUlpMNVo4Wmw5eVlldkV3?=
- =?utf-8?B?RU1LcE9QNGxFeTUzRVU5TnZITzQxdUk3WjgyekxsNUdUK1FoQTZLWmhtdEti?=
- =?utf-8?B?NVo3bU1naEVxWEJVcVpBQVZmYkxuWEtqbkNzKzhHMUEreE95VmRsek5aTlBT?=
- =?utf-8?B?SEV6OTBtRWhTRWhZUnNuM2xjWktGSWNicUZEV2luNE5PTmxFS2wzWU1nbDYw?=
- =?utf-8?B?NUs2MUtMb0tOZWhaQWkvbHBVWnRVM3lBZU85TzBnNUR6ZGJSUXFDTTFzMHJm?=
- =?utf-8?B?ZHlQQW45b0F2NDR4aDhZVUpsU0VsTHBXRURzUHVmTFNvWXd2NHREL0s3L1Rw?=
- =?utf-8?B?Y3UwdERQeHlOckhXS3dSRFNEc3NUZlNIdkRnOEhGYlhRSGQ3MENkWmVBSzJ4?=
- =?utf-8?B?MUd1bjZUdWZCcmFveVk0b2pweHdtV3RMcG9KY0tLSDVjZUJUeTk3akdQTmJG?=
- =?utf-8?B?ZlluYm1vZjYya3Z5Si9NcEV4RzgvVEZaZml4ME5UY0pVazIvYWdDZ2tXeXJt?=
- =?utf-8?B?blhQbFBJMkZ1UUI2ckxweEkvNURSMUNINVlOY0hzSTFocEtwUXpZMjhocXE2?=
- =?utf-8?B?NUI0L081QTRQd1RJQllyU2UrTkJ2OHNiVlBqNGRud2ZUTTNrTTBNZ1VXTXZu?=
- =?utf-8?B?UkdtRWRkVVhDblFtOFNMMEFDMURJSjlEUnRyU2I0dTUrVzhGUGtHaExuZjY1?=
- =?utf-8?B?SHhqZ0xwUU1SaThXU291NEFYOXExaVhTNmRpYThzNHorSk12WmtvTk94eWNq?=
- =?utf-8?B?dlhNNkFLTURIN2MzWDBET05HdjAvMzQvQ01GK1cweDh0ZnZxZjlMK1JvRVY4?=
- =?utf-8?B?dXBubW43Rk1yQm9nVGY1VWdnTDcxYTROZ3phOXpSbldmRXBpcExvZ0cvNEE3?=
- =?utf-8?B?ZC9GQThpS20zazlPYnlCNThoeEU4MTh2bGZITDZML1NCSnNYTWV0RDB1dE1Q?=
- =?utf-8?B?dHNVMkVlMWhtZ3BnaHFDb1I1ZWdJT1c4S2E1bFVYVzFBNitEc0l5QkV4b0Qv?=
- =?utf-8?B?S0M4NlhIcjR0WVFuS0tpbWNaaEh3Y2M2TEFZbUNUa0xsQ1N0bzg3a3oySzMv?=
- =?utf-8?B?cndvVkNLQTg2MEVyVWJ4bkpmRVZSY1c5TXY2M2NROUFWdTlOQ2syZTJ1MjE2?=
- =?utf-8?B?NVZEcDdmcHgrVEVTTnlvWG1TVFBDbkV2UlNqaURVeTJ5QVEwd1VSUT09?=
+	=?utf-8?B?MURMYlB4d2pFTC8zeTU0SWxGaWtmcFVPeU1aNnhsNUQxRDFoUnRHaytqMTd5?=
+ =?utf-8?B?SU1ZTWMyWWNzZ1M3UEFZTW9ZWXBzbzM4SUJEbVowS3ByNFB0dGJoUWtaandn?=
+ =?utf-8?B?VCt1NVNhaGptTEo3Rk56TjNsQVVuOEdZMjV1TnJSaGg5OTE1YUFWWkhqUERh?=
+ =?utf-8?B?SWptWkgwS1VvdmEwVDl1d3lFZjcrSmY2OG5QM1E2blFQME8rQUU2S2NmbVE2?=
+ =?utf-8?B?Y1BPTTFUS0lZN0lEZnVJcGdNN1dZa3FyVGVzTFIrVW5rUzc2S09UUWhaK0J0?=
+ =?utf-8?B?MS9nS0s5bGp3dE9mbEo4aGV3NWJ1TTVSRVpGM1N1MVlvcVNacEVUTTgyT2JM?=
+ =?utf-8?B?aWo1dXNZeTVjQnN6Y2FWRkZIV1o1TC9ZMFYzZzhXNEJwZi84OHJDZU5nRFUv?=
+ =?utf-8?B?L2dDeUNDUmRKMktNU1h1RFdDMDlLSVl5MlVibGZrNFRtcHJnbnRuWGxVbWd3?=
+ =?utf-8?B?SGxWU1cxUHZBQjUyVEZiQ1ZORDVnWjVucERrSzBobFNqclNyYmRQV2FuYVcr?=
+ =?utf-8?B?OHNycTBvMXF3Z2pVYU5EQVFuK1BjcTFWKzE1bUhxdDdVMXFUZWRINUFJQWVH?=
+ =?utf-8?B?L0NaeFAvMzNJc1BLZ1hJaGVUY2wyd21lelM0K0RVV2xrZ0l3RVZNdlc3QVBk?=
+ =?utf-8?B?OTF0a1NsVkIzSHh3UVNYbjdPZGxUMEYwN2lIUys4ZDh0NDA0cU9QTmdCMzRu?=
+ =?utf-8?B?RnFPRk01dTN1Z2I5TWROZ21STE5Zb1ZMQ1VzQVljSnhQcDdSVVhkNEswREMr?=
+ =?utf-8?B?bzdMbHVaYmdoOEhZRDZYTjVwZ1BiRjYrdlptbDFaRnFib042T2pEYjJld3BS?=
+ =?utf-8?B?NG9mY3k0VmczRjBXVnNqR3lWdUN1ZUpmaGppVVdxTEFjK3c4Y1NhMHNla3g2?=
+ =?utf-8?B?eVpKK2wrTGErN1ZsVXFySC9icVA0cVFrYWxLcmU4eWtMdkFNYVE2YmtQTTQr?=
+ =?utf-8?B?eVFqTmd0ajBvTDhsV0w2KzM1UkxuckxNdFl5T2EzOVpHMVZMeDI5R2RTb0NT?=
+ =?utf-8?B?U253MElSOUE3Nmo4RDVqZ0lldEdVc2VqRmVSdStISzJYcWVMcXA4OGc4WEFD?=
+ =?utf-8?B?WXFsYjBiUytOOFBud1UyNjQ1ZHdlYUl5aEs0Yys3WFVwaHkrN0RxNms1L25p?=
+ =?utf-8?B?VnkxdE5sWTJTUUg4ZmVJQ0JxTEVoZUhyWXV6MG1TQ3hGYjhJb1lpZDNTTkJt?=
+ =?utf-8?B?Vi9FTjU4MmRXKzV1a2ZtRUlPOGM0aGpDVzhReGZ5RWdKUXpQTVhNNURwdjBC?=
+ =?utf-8?B?RHc3ZXBEc2RWWmdnenJFak0xSFpZWm1JSTRIcTEydmNqRDJFSDFsRHRCeTha?=
+ =?utf-8?B?MDgzaDB0enlJOTlZMHFEcGpOSkRFMFEwaElwb3l1N1pMcXptN3VNMGd4bEZx?=
+ =?utf-8?B?UG9HU2VNUnN0OW9RQzVWYW82U2RyRTRSa3ZBVDV5UUlTd3J1eTlEN1hDKzE1?=
+ =?utf-8?B?Y0t4MFJCSkNPZ3kvQ0psclFBU3g0NTlCTmJDN3FVUHFmekVFSElXeFZqS21h?=
+ =?utf-8?B?VUdxM0dReHR6UXVtRFZyUWhJcG1GazFPK3VVWWF1U2VQVTJiWE95d0V6dXRK?=
+ =?utf-8?B?OXI4QnNEY1B5Q00ya2FJZU1UakpPTmt5M2UrVG5VNXlkY052WTdFaVBvNjJY?=
+ =?utf-8?B?ZDRwb1kwcXNNUG5jKzc3YUVYZVh1Q1czTDMvMFc4UDBoZ2FnVVY2UnpCSVlU?=
+ =?utf-8?B?QWwrYTJLRnRRd3lPSHZVMVk3YnFqaWh1QXVoK21hQVk5akc3anNBaXZjanYz?=
+ =?utf-8?B?cXB0SUtkMGxnOVpBa1NTTGJRbFJNbC9OeWVJcC9uSDl6a2hvalA3c0lndlcz?=
+ =?utf-8?B?M2FobUZEd2NxQituZEdaR2dHOHFhb01NUnI3UHl6ZnBGWkR4M3ZXQUJrRjJB?=
+ =?utf-8?B?WnZLamd0cFFUdnltU3doZzNRdVFXazVIMDFZR3lmUFhzT25HWFFZWmxIK2Vy?=
+ =?utf-8?B?TzhTNFhieEN2citQMFB2bU0zemRpYmRxMEFjN2llcDFCZGxWQWtmMHBJOUtQ?=
+ =?utf-8?B?VWxHczM3UUgxZ1lCWGZ5YVF2WnZLRDR5bEEveGFNZ3dlMENnaFhoVTlYeW90?=
+ =?utf-8?B?Zm9JRmVhelY4Szc4by9MU0lEcmxqU05MeXdUNnhLZy9pNkNlMFFlQjFjUWRC?=
+ =?utf-8?B?OGFxTDlSNGJYV3FEdWc3OW5IaXZFRG9DK0Fyclc5UkdUMjVuRFkwRDFIbjYr?=
+ =?utf-8?B?OUpyWEVpcGxRR2cyaFY5cll0WEFzSzZhMHBuUXUrY2NyNHpadGdoVU9xKzZX?=
+ =?utf-8?B?WEx4ZklPRkM3dWZONk9mQnczbHFCeDlPaW9nZ0VDZy9ZcUE2RGFObjJuMVJs?=
+ =?utf-8?Q?BDYwNtMv89ZDJTEBrZ?=
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aa357831-02d5-457a-2f95-08df45593124
-X-MS-Exchange-CrossTenant-AuthSource: SAVPR12MB999143.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 83a46587-82a6-43a2-b26d-08df45594e88
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 09:49:09.0064
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 09:49:58.8684
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: JnHvhuQ6zB2TxnS9EPEgTieX5ErOwYVEdKYnlnfVhj2JU5I2Hu+JldtjTdCTs9u1iIUbLSLeZnTBtMg5XbNKMA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6685
+X-MS-Exchange-CrossTenant-UserPrincipalName: bkM4NEhoSQ+WtcwWVi2kxfU8clw8s8HkKvuvSA+ReVOaj941BDGwhu5JegaUiyf8wkGb7P7h941VNx4/Pg2wMw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA5PPFCAFD069B8
 
+On Wed, Nov 18, 2026 at 02:30:00PM +0800, Shuai Liu wrote:
+> When an interface MTU drops below IPV6_MIN_MTU, addrconf_notify()
+> stops IPv6 on the interface via addrconf_ifdown(). With
+> keep_addr_on_down enabled, permanent addresses are kept but their
+> host routes are deleted and ifp->rt is cleared; recovery is expected
+> to happen when the device is brought up, where the NETDEV_UP path
+> runs addrconf_permanent_addr().
 
+This is only true for the loopback device. Other devices lose their
+addresses regardless of keep_addr_on_down.
 
-On 11/18/2026 1:12 PM, Changyul Lee wrote:
-> In switchdev mode, rx_add_rule() calls
-> mlx5_esw_ipsec_rx_setup_modify_header(), which allocates a mapped ID for
-> the SA in ipsec->ipsec_obj_id_map. If a later step fails, the error path
-> frees the modify header but leaves the ID in the XArray, and
-> mlx5e_xfrm_add_state() then frees the SA entry. Each failed inbound
-> packet offload SA leaks one of the 2047 IDs. Once they are used up, no
-> new inbound SA can be offloaded until the IPsec context is cleaned up.
+> 
+> That recovery never happens when IPv6 is stopped through the
+> NETDEV_CHANGEMTU path: the device itself never goes down, so no
+> NETDEV_UP event follows when the MTU is restored. The address is
+> left with ifp->rt == NULL while the device is up, and every later
+> RTM_NEWADDR notification only warns:
+> 
+>   BUG: Address ::ffff:127.0.0.1 on device lo is missing its host route.
+> 
+> syzbot hit this by flapping lo's MTU across IPV6_MIN_MTU with
+> keep_addr_on_down set and toggling IFF_NOARP, which restarts DAD;
+> DAD is skipped on the loopback device, so DAD completion and the
+> warning repeat on every toggle and the address stays permanently
+> without its host route.
+> 
+> Instead of only warning, regenerate the host route with
+> fixup_permanent_addr() when RTM_NEWADDR arrives for an address
+> without ifp->rt on an up device, keeping the warning only for the
+> allocation failure case.
 
-Thanks for the patch. The leak is real.
+The better solution is to avoid getting into this state in the first
+place by aligning the loopback device with other devices and flushing
+its addresses when the MTU goes below the minimum.
 
-[...]
+Already discussed here:
 
-> @@ -2161,8 +2161,10 @@ static int rx_add_rule(struct mlx5e_ipsec_sa_entry *sa_entry)
->   	if (flow_act.pkt_reformat)
->   		mlx5_packet_reformat_dealloc(mdev, flow_act.pkt_reformat);
->   err_pkt_reformat:
-> -	if (flow_act.modify_hdr)
-> +	if (flow_act.modify_hdr) {
->   		mlx5_modify_header_dealloc(mdev, flow_act.modify_hdr);
-> +		mlx5_esw_ipsec_rx_id_mapping_remove(sa_entry);
-> +	}
->   err_mod_header:
-We have a fix for this in our queue. It releases the ID under the same
-condition that maps it, so the eswitch helper is only called for an SA
-on the eswitch tables:
+https://lore.kernel.org/netdev/20260909115655.GA1344764@shredder/
 
-  err_pkt_reformat:
-         if (flow_act.modify_hdr)
-                 mlx5_modify_header_dealloc(mdev, flow_act.modify_hdr);
-+       if (!attrs->drop && rx == ipsec->rx_esw)
-+               mlx5_esw_ipsec_rx_id_mapping_remove(sa_entry);
-  err_mod_header:
+I will post my patch next week.
 
-I prefer this form. Do you want to send a v2 with it? Then I will add
-my Reviewed-by. If not, we will send our patch ourselves.
+And please read:
 
-We tested it on ConnectX-7 in switchdev mode with fault injection on
-one RX SA add: 46 of the 2047 IDs were lost without the fix, none with
-it.
+https://docs.kernel.org/next/process/maintainer-netdev.html
 
-Thanks,
-Jianbo
+"don’t repost your patches within one 24h period".
