@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795044274;
-	b=hJVODXeJsBL+aaFOiqk1yWat+2/oOae+KN8fi3eLHLcdFFHGxyDhsQ6oK24jJMcaov/J
-	 UOj0u1B3m8y7FKtsrjIEM+lwO1eD8+KzVVTlZaAAOaQMtH85cHWeid9XqGUC2fn5ioS5Y
-	 kRHrE78Oaw+pPEq52cOq1/fPsmtVKyy8xSp8vCt1R2TINM0CJqjdyZPEtdBGfZpng8767
-	 4v65GI0NzXQyEE5rWlobEhMpdsjy6mF8VYWTwYYAz8eNYPEInJpVZbG5k7Y4z7jhAcqmV
-	 4hE+b6URGUEW/S8ZzvWCiKPlBJyTnsGWyOoOmi44nWcCDb3gs8XJCpKPsnzr5rVaiNA==
+	t=1795044268;
+	b=bjc4wCYk6/yS5gxKjQZLXidh2sIsEvv/gvoNoE0YOxci46p3CkrlidFsdQbEL1467KQe
+	 Gv4nP/Jd3F88sYCPoeryopEEVoSG1OZ50/v3c+gHEUZxqqmX1CBQuQCA4xTdNAS9bhhg0
+	 h/uSAd++lNwnht6uCx41OmZomm5MqLbISWewSCDkgSmiXdCuyqVjasZMfzVacn/IqXkud
+	 u+BKtnyEy6nN8CSEFsnEv0dO6eV3XAWSG8A2BrZVIBHfZSgjnVTuRXeE55K72kDkVDZRm
+	 I/T+vOX1IiXdFx+TRs7c5m0TRONkVW9u22yhC3loGFsL5rAA4WFGKdW+tanURkNa5VQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795044274;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044268;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=fgsdcO4ceTyInzcJdtVRddqvxepwU6JaTVCwA65yP7w=;
-	b=p8cqZ+X1cipbpHyDNdrJ79ahJqW6DFkr+Ex/vbci3oDmSzeE0RxFbh0wp8r6Z2Inr5HV
-	 M5hGi/Eqr9iqZ1C9IqWa7rp35i3j2AZJpHL3dV0JBhrjv9zaJTrLqrvANfNRs40cascYA
-	 dM95kHd67pv4BN8GaHmDj5Gut89pa1+GytphM5PxQP3an3qy5Vgm8Rk3GT1Cdau3ywc1A
-	 WTIBGgT4Q6DELhgmIPjgB8St1/+9aj48FOnMxkIsmbdX5c5euHlb6PpM/5oZ6mkc1IGBI
-	 4c6KNmFvmKx61GjH2fCxO/H9ET3K/TwglqBOsdGuLPS9HsoiwnQa2P040vd9RWGu/Aw==
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=7ESInaSDuDYul1nQI9PNiMra/oVQ5owBjeZDU6MC7kA=;
+	b=NllKV29Dqk050bBVkPecIcNdXOgZTC4DJEx2wq5RUoMLsxNyqH4FoYpLuA7/76J12yv4
+	 gv7jTP0cRSKnR+btr3UTWUcv5fFT+1ig735qpy/uMfKiadRzzG+Vzk0OBSeGl1yKxoHGz
+	 ZnbldJe8DoHfchLH+WHUtyPgDOXSXxxDyvVSyVpShafT2jEmwoFyb5Ro/Js+iokDGuaCV
+	 hfr3XDxgaGvHLrjF4UpvPFrpZKyDSjUQCT5kI0CoARZBUvJhGo6to+61R2f8kgrLBSUIj
+	 J5dePT0wpK8WuFVVlNr0ecdMjqZpNsD62PmVCpQJ+pE0rwXVu6hNd5D1rbaOvOCpfRA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkdr8mb5;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SMc0ZYoS;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FF7A60A2611;
-	Wed, 18 Nov 2026 23:24:34 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5515606A320;
+	Wed, 18 Nov 2026 23:24:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nkdr8mb5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78E2F1F000CC;
-	Wed, 18 Nov 2026 23:24:33 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SMc0ZYoS
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D82E11F000C5;
+	Wed, 18 Nov 2026 23:24:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795044274;
-	bh=fgsdcO4ceTyInzcJdtVRddqvxepwU6JaTVCwA65yP7w=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=nkdr8mb549Xvw8Qr7KmixcWkI3liQ4mGasVtS3awitJ/p4806gxUH6gfG+KbXOM/+
-	 jHpb+oe3IKkPGCs4elrOSG6BdIC5f2ohtq/ildJhzBEJ1sIvewN2llaOd5KVig4NEI
-	 bQUa9+Hy10Hg+rCIxy3EakmIu1+6kYAit9ocN8/6TvKVwmzh90xjaGYxKtuJU/KjSJ
-	 vp/haQClNMYl3Aogr8VtzmlgFVVLKcXscUItmt9VjwpjIUivXtL8+6bnE8uCZaoSFQ
-	 03NxoyyemxYadHMoPAlC+MF4yQRgnrMAkO/RJWdwCf9H+1SHI5QvbnJzZxm0lTw+wj
-	 EJfsciKm+TgJw==
+	s=k20260515; t=1795044268;
+	bh=7ESInaSDuDYul1nQI9PNiMra/oVQ5owBjeZDU6MC7kA=;
+	h=From:To:Cc:Subject:Date;
+	b=SMc0ZYoSNyPsW/NvIz8/KsSGEgjcgioN1VbZ8ucaSuOBhZiXnyxS+59OehD3bMelD
+	 neSbr6iAhs84QFbcTcbeNPRjGaO3wpLNzTbyzdcGk6sWktv/8ggJVD3KQRS5+DBd7j
+	 V/D9J842EiyWLxefv4fetGhsL2xJZqqndpNszI2epYp2OhKRXoM56fQbzkg+jT320/
+	 r9XUEOj0z/TqhvQq3XrEoWiTOBn1h7Er9zu0Nwh0kgIbqMv9kO+jG3ZwB6eUalhISn
+	 VJlXnVxZAu42iMOLW01GQs88aqjF3BsCuJP7+ix63IY5O39iVM83f5UQax/iySmZPe
+	 hHQGxhc8EPuOA==
 From: Jakub Kicinski <kuba@kernel.org>
 To: davem@davemloft.net
 Cc: netdev@vger.kernel.org,
@@ -59,12 +59,10 @@ Cc: netdev@vger.kernel.org,
 	przemyslaw.kitszel@intel.com,
 	bpf@vger.kernel.org,
 	Jakub Kicinski <kuba@kernel.org>
-Subject: [PATCH net-next 8/8] eth: gve: drop the now-dead HW-GRO vs XDP interlock
-Date: Wed, 18 Nov 2026 15:23:15 -0800
-Message-ID: <20261118232315.3593731-9-kuba@kernel.org>
+Subject: [PATCH net-next 0/8] net: adjust HW GRO and LRO feature handling
+Date: Wed, 18 Nov 2026 15:23:07 -0800
+Message-ID: <20261118232315.3593731-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118232315.3593731-1-kuba@kernel.org>
-References: <20261118232315.3593731-1-kuba@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,54 +74,54 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The core clears NETIF_F_GRO_HW before ndo_bpf runs and refuses to turn
-it back on while a program is attached, so neither of these can fire
-any more. That holds for a program an upper device pushes down as well,
-which is why this comes last - gve_verify_xdp_configuration() was the
-only thing standing between a bonded gve port and XDP running with RSC
-still on.
+XDP has no understanding of GSO frames. GSO frame looks to XDP
+like a large packet. Pushing / popping headers cannot be reflected
+in GSO metadata. XDP redirect is completely blind to GSO since
+struct xdp_frame carries no GSO fields.
 
-The user visible behavior changes as intended: attaching XDP to a gve
-device with HW-GRO on used to fail with -EOPNOTSUPP and now succeeds
-with HW-GRO turned off, which is what bnxt and qede have always done.
-The header-data split refusal right below keys off
-priv->header_split_enabled and stays.
+For those reasons most (read: all well behaved?) drivers disable
+LRO and HW GRO when XDP is attached.
 
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
----
- drivers/net/ethernet/google/gve/gve_main.c | 12 ------------
- 1 file changed, 12 deletions(-)
+This series lifts the auto-clearing of HW-GRO and LRO from drivers
+up to netdev core. This gives us uniform behavior - previously some
+drivers would reject XDP attach w/ HW-GRO and others would auto-
+-clear the HW-GRO features.
 
-diff --git a/drivers/net/ethernet/google/gve/gve_main.c b/drivers/net/ethernet/google/gve/gve_main.c
-index 0ee69bc11d83..8b65b8119662 100644
---- a/drivers/net/ethernet/google/gve/gve_main.c
-+++ b/drivers/net/ethernet/google/gve/gve_main.c
-@@ -1798,12 +1798,6 @@ static int gve_verify_xdp_configuration(struct net_device *dev,
- 	struct gve_priv *priv = netdev_priv(dev);
- 	u16 max_xdp_mtu;
- 
--	if (dev->features & NETIF_F_GRO_HW) {
--		NL_SET_ERR_MSG_MOD(extack,
--				   "XDP is not supported when HW-GRO is on.");
--		return -EOPNOTSUPP;
--	}
--
- 	if (priv->header_split_enabled) {
- 		NL_SET_ERR_MSG_MOD(extack,
- 				   "XDP is not supported when header-data split is enabled.");
-@@ -2212,12 +2206,6 @@ static int gve_set_features(struct net_device *netdev,
- 	if ((netdev->features & NETIF_F_GRO_HW) !=
- 	    (features & NETIF_F_GRO_HW)) {
- 		netdev->features ^= NETIF_F_GRO_HW;
--		if (priv->xdp_prog && (netdev->features & NETIF_F_GRO_HW)) {
--			netdev_warn(netdev,
--				    "HW-GRO is not supported when XDP is on.");
--			err = -EOPNOTSUPP;
--			goto revert_features;
--		}
- 		if (netif_running(netdev)) {
- 			err = gve_adjust_config(priv, &tx_alloc_cfg, &rx_alloc_cfg);
- 			if (err)
+More importantly (for me) after this series the HW-GRO/LRO features
+should consistently remain in wanted_features, and get re-enabled
+after XDP is detached. I started looking at this because XDP generic
+tests in NIPA unintentionally clear HW-GRO, which in turn makes devmem
+tests fail / skip on mlx5.
+
+Note that XDP generic mangling GSO state is its own can of worms this
+series doesn't try to address. There are multiple paths (xdpgeneric,
+tun, veth...) which end up calling XDP on skbs, with varying level
+of assurance that the skb is not a GSO super-frame...
+
+Jakub Kicinski (8):
+  net: stop making HW-GRO depend on SW GRO
+  selftests: drv-net: drop the generic XDP hack from the HW GRO setup
+  net: state the "XDP excludes HW-GRO" rule in the core
+  net: state the "XDP excludes LRO" rule in the core
+  eth: mlx5e: drop the now-dead HW-GRO and LRO vs XDP handling
+  eth: bnxt_en: don't clear HW-GRO and LRO for XDP in ndo_fix_features
+  eth: qede: drop the now-dead HW-GRO vs XDP handling
+  eth: gve: drop the now-dead HW-GRO vs XDP interlock
+
+ .../networking/net_cachelines/net_device.rst  |   1 +
+ include/linux/netdev_features.h               |   6 +
+ include/linux/netdevice.h                     |   6 +
+ .../net/ethernet/broadcom/bnx2x/bnx2x_cmn.c   |   2 +-
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c     |   5 +-
+ drivers/net/ethernet/google/gve/gve_main.c    |  12 --
+ .../net/ethernet/mellanox/mlx5/core/en_main.c |  32 +-----
+ .../net/ethernet/qlogic/qede/qede_filter.c    |  12 +-
+ drivers/net/ethernet/qlogic/qede/qede_main.c  |   1 -
+ net/core/dev.c                                | 107 ++++++++++++++----
+ .../testing/selftests/drivers/net/gro_lib.py  |  21 +---
+ .../selftests/drivers/net/hw/gro_stats.py     |  18 ---
+ 12 files changed, 104 insertions(+), 119 deletions(-)
+
 -- 
 2.56.1
 
