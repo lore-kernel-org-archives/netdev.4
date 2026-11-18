@@ -1,70 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009612;
-	b=ZXMYBjQAaxf2LE7MENxmIN//8vqeqk1bCQfVzlRh/WV+S6pdB8Wijq4omOHvS65dZI3V
-	 NM6yDUpK/OAXWV79k0FKineCWVOrDWuX3UNbc/Qvyj3XOnt1oHZjREviOOJksk3R7P3Dp
-	 uetcD2gDCEOZsCcZgISoTSlWBhbrCO43hFeW6yBlWkJBQqdTyelrN5M8jCeFJN0Hyntin
-	 yPoAGbft1g2CkH3ntup9qhEz2gCX2yf5Qdhx6KQCins7TZCCiLDycJuAFHspPYeEte+AR
-	 iubaL7PRvAgiq4ypQNeq/XdvnX71VSTnzdyicp79DkaylK0w35ietYC6tKp6pICdKnw==
+	t=1795009647;
+	b=3W7dMQImp3Wd2kgcy2NA1AUc3nzkw80UBxr7WV0fd0ig9UmmSMLwsV4gbgXsKm6xrfoi
+	 0RlLmni5iOE3IuJKjLrm1Has9fHFrUO6KuGACkCAozIVIwElX1V5P3zuZqQPBe5QEMpNg
+	 6lGZtAeJuzYSrENxtaAoE30rN5DpbwXg2jw67dLzUMaF5IHAWMz6GueIm2egEkLLsHoyK
+	 mna92OFShr7O2YgcvlM7vugMhR4gk6nIQTFQ1D//gOcGqEH5fJdt8HcvuTPxEUA8IrSK+
+	 4cLwRFj92mYCorI7c8V+5N4TWwWs/RTDdJITQCDV0XaZd5yVPDEY0BBxbv+ZY3Ua4HA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009612;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=Ej0+BcS+/DetGmL213LeSEXzNIKIImFW7sTsnOy911s=;
-	b=4rnzMNDqL1pbZC/CHObh3NG5K6kxtFXNH1DDI6xB6lB5/WZtRYZWFtJNipwpJ6E7NDr8
-	 C0XptpBSDJOm9vECIS9Xsr4TJ7LMl7V9slene+UcTqoXeZtHNCOxekbz2pt52RHsFE3PG
-	 58V3rY7WWjtjgz6cnXIfAEZVQgMyEy4NML1Tlk/chY0n5pVaRdNfRE+OfbINRODIzJR/D
-	 wbQmSnWhDoIm5JoV80RVhaBnPSEhR4LrxVFVzSoIcsBofFvMtW05yUtB+updDmdTAL37K
-	 OMfpMf+4J7FYWNK2XdzjECkP7jB9o/fhAGHk8HmdpOXw8DmAisJRH+CMKD0SjJs9XdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795009647;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 DKIM-Signature;
+	bh=4/ODT45glGpVts+HhR52SLxZS1RNaASLefRBRlHkmHQ=;
+	b=fpInpxmbelK+JW0+GmfT+DxLY/abP0anO5VZ7Bdcqu1ZcO/3z6EIu2dMH4ureOBbL5jO
+	 YyjLJiwec7OQd8X4QI9Y3fF7qkfN0et+1nGH4KaGqsemVt7watbzp5FCUlNoCu4Z3llDf
+	 XNIWT49AG5N81Mk/8MBCDt5jswQVxfFzf0Mk3PbvWawwa8NMheBeuLVDUBrYGp3efVLZ8
+	 dMKiYLF1ufTEGYKLQ/23tvFRR0ZEGRWjXiBP7Szif9DsvazMSb8Y9ju5AXiLkmvvrZs17
+	 PIP5cbF/Kx4uVXKOxcoPtDWraIDx13rtlDvXBg5PKZv8T3HC2iKseelEMHHlaJ9zp/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=kG5Ag9GB;
-	arc=none smtp.remote-ip=117.135.210.7
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=poczta.fm;
+	spf=pass smtp.mailfrom=poczta.fm;
+	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=ovf5mrMc;
+	arc=none smtp.remote-ip=217.74.67.49
+Received: from smtpo49.interia.pl (smtpo49.interia.pl [217.74.67.49])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ECB8606A325;
-	Wed, 18 Nov 2026 13:46:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7ECB8606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA23A606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 13:47:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA23A606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=kG5Ag9GB
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Ej
-	0+BcS+/DetGmL213LeSEXzNIKIImFW7sTsnOy911s=; b=kG5Ag9GBo3DpxFbHEj
-	m14v4Z32PGU492deFbMAxxsjWLUJvp4lVo0yu5Am9zi+7EMhylAxxm3LlmUcnSby
-	izgQJ0r2ijEMhU1Ng4fFKpXe7xheZx3zuCF6tcSONcrAMlvOiMYTXJbXHJzfiGqW
-	j76B34x28F17lVVLLsNZcDQBE=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wD37yb9q_1qGwFIDg--.29240S5;
-	Wed, 18 Nov 2026 21:45:37 +0800 (CST)
-From: Jinvas <jinvas@126.com>
-To: saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	leonro@nvidia.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	jinvas@126.com
-Cc: netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	horms@kernel.org,
-	alexious@zju.edu.cn
-Subject: [PATCH net v3 1/1] net/mlx5e: fix NULL pointer dereference in arfs_create_groups()
-Date: Wed, 18 Nov 2026 21:45:14 +0800
-Message-Id: <20261118134514.1765-2-jinvas@126.com>
-X-Mailer: git-send-email 2.28.0.windows.1
-In-Reply-To: <20261118134514.1765-1-jinvas@126.com>
-References: <20261118134514.1765-1-jinvas@126.com>
+	dkim=pass (1024-bit key, unprotected) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=ovf5mrMc
+Received: from nr200 (unknown [80.68.231.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
+	Wed, 18 Nov 2026 14:47:13 +0100 (CET)
+Date: Wed, 18 Nov 2026 14:47:11 +0100
+From: Slawomir Stepien <sst@poczta.fm>
+To: Tianyi Gao <tianyi@cloudflare.com>
+Cc: bot+bpf-ci@kernel.org, ast@kernel.org, daniel@iogearbox.net,
+	davem@davemloft.net, kuba@kernel.org, hawk@kernel.org,
+	john.fastabend@gmail.com, sdf@fomichev.me, netdev@vger.kernel.org,
+	bpf@vger.kernel.org, magnus.karlsson@intel.com,
+	aleksander.lobakin@intel.com, ilias.apalodimas@linaro.org,
+	toke@redhat.com, lorenzo@kernel.org, ihor.solodrai@linux.dev,
+	tavip@google.com, maciej.fijalkowski@intel.com,
+	syzbot+ff145014d6b0ce64a173@syzkaller.appspotmail.com,
+	andrii@kernel.org, martin.lau@kernel.org, eddyz87@gmail.com,
+	yonghong.song@linux.dev, mason@kernel.org,
+	kernel-team@cloudflare.com, tianyi.gao@linux.dev
+Subject: Re: [PATCH v6 bpf 1/3] xdp: introduce xdp_convert_skb_to_buff()
+Message-ID: <av2sXwW83oI4SLx-@nr200>
+References: <20261104121316.1155680-2-sst@poczta.fm>
+ <9b616d465e6f88aab813a79cc84c51ed358861e201bfb23921864e62fc9dc023@mail.kernel.org>
+ <20261117161602.62553-2-tianyi@cloudflare.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,93 +66,27 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD37yb9q_1qGwFIDg--.29240S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXrW3Ww1Utr1fJFW5XFWrKrg_yoW5Zw4kpF
-	45GFyDKF4kGF1xJan7Z3y0qa4rAa1Fyay5C3WSy3yayr15Jr4rXFyru345uFy7CFWrJ3sF
-	yr15Zw1jyF98JaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zRGjgsUUUUU=
-X-CM-SenderInfo: xmlq4tbv6rjloofrz/xtbBsgFF22r9rAGXlgAA3W
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117161602.62553-2-tianyi@cloudflare.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
+	t=1795009637; bh=4/ODT45glGpVts+HhR52SLxZS1RNaASLefRBRlHkmHQ=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	b=ovf5mrMczfFIQ+lDnzpE8bQrz8XBJef5ryzlnwG1fAYmc07ySkp0VDYFREhWzRuYl
+	 SsMyc2AL+WJ7k9HVoA49B4CpVkn+KBcGHAPlLyvAqucb8cUEQXGzfziSKR1CrnA83P
+	 yo/qCuUGjvf9r4D7IlWjGVSvdxO8QPGZb/2mi0ck=
 
-arfs_create_groups() creates up to two flow groups in ft->g[], and
-increments ft->num_groups for each group that was created successfully.
-If creating the second group fails, the error path frees ft->g and sets
-it to NULL, but leaves ft->num_groups at 1.
+On lis 17, 2026 16:16, Tianyi Gao wrote:
+> On Wed, Nov 04, 2026 at 12:53:35PM +0000, bot+bpf-ci@kernel.org wrote:
+> > Could mem.type be saved and restored around the program run, or could
+> > bpf_prog_test_run_xdp() set the mem type it needs (or use its own
+> > xdp_rxq_info)?  The later veth commits in this series only touch
+> > drivers/net/veth.c and do not address this.
+> 
+> I think test_run should just use its own copy of the rxq, which is also
+> easier to backport.
 
-The only caller, arfs_create_table(), calls mlx5e_destroy_flow_table() on
-the error path, which calls mlx5e_destroy_groups(). The latter walks
-ft->g[] from ft->num_groups - 1 down to 0 and dereferences ft->g[0].
-Since ft->g was freed and set to NULL, this is a NULL pointer
-dereference, and the kernel oopses.
+Ok, I will go with that. Also thanks for the review!
 
-The same error path also leaks the flow group that was created
-successfully before the failure, since ft->g is freed without the group
-being destroyed.
-
-Freeing ft->g here was added by commit 3c6d5189246f ("net/mlx5e: fix a
-double-free in arfs_create_groups"). Before that commit, the group
-failure path did not touch ft->g at all, so the caller destroyed the
-flow groups that had been created and then freed the array. That
-commit fixed a double free in the allocation failure path by freeing
-ft->g here as well, and in doing so changed the group failure path
-too.
-
-Rather than also resetting ft->num_groups, leave the free of ft->g to
-the caller: mlx5e_destroy_flow_table() frees ft->g exactly once, and
-also destroys the flow groups that were created. This fixes the NULL
-pointer dereference and the leak, while keeping the double free fixed.
-
-The bug was hit on a virtual mlx5 device whose firmware answers host
-mailbox commands. The device took longer than the firmware's own
-timeout to answer one CREATE_FLOW_GROUP command, so the firmware
-reported the command as failed even though the device had completed it.
-The host then took the error path and oopsed:
-
-  Oops [#1]
-  epc : mlx5e_destroy_groups+0x38/0x6c
-   ra : mlx5e_destroy_flow_table+0x10/0x30
-  status: 0000000200000120 badaddr: 0000000000000000 cause: 000000000000000d
-
-Note that the host oopses on any error returned by CREATE_FLOW_GROUP,
-no matter where the error comes from, so the trigger is not specific to
-that firmware.
-
-The fix has not been tested: the patched kernel was not booted, only the
-original crash was reproduced.
-
-Fixes: 3c6d5189246f ("net/mlx5e: fix a double-free in arfs_create_groups")
-Signed-off-by: Jinvas <jinvas@126.com>
----
- drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c b/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-index c5e62d7..6baffc7 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-@@ -265,10 +265,8 @@ static int arfs_create_groups(struct mlx5e_flow_table *ft,
- 		return -ENOMEM;
- 
- 	in = kvzalloc(inlen, GFP_KERNEL);
--	if (!in) {
--		err = -ENOMEM;
--		goto err_free_g;
--	}
-+	if (!in)
-+		return -ENOMEM;
- 
- 	mc = MLX5_ADDR_OF(create_flow_group_in, in, match_criteria);
- 	outer_headers_c = MLX5_ADDR_OF(fte_match_param, mc,
-@@ -338,9 +336,6 @@ err_clean_group:
- 	ft->g[ft->num_groups] = NULL;
- err_free_in:
- 	kvfree(in);
--err_free_g:
--	kfree(ft->g);
--	ft->g = NULL;
- 	return err;
- }
- 
 -- 
-2.28.0.windows.1
-
+Slawomir Stepien
