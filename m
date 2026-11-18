@@ -1,99 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.206.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794973286;
-	b=e7o1orD0AezAasKXy6IrLA/uwBgqfchU9H4x9gaGdSURY/zC4OA1rbB0BeOXKYLVwhrQ
-	 sFjAtX5Vv46oqpgc9HhRDyRKc/krq7U//h3GOisg4PGFbl+ZMlb8RaFBXDQY7HGGBoigl
-	 qK2m6JSdYvSwC75CIOsYBOZAfJNKS2P42649Edm4w5noVNDu56/U3beKR9YWTM5aaq6sw
-	 hmg2IerA8mjOJ2G1sQ0lx3pnCP0KQT6IbgOyiWuwTS9wRCzd5Yn4+8gdQVdahBdFLOy48
-	 FuHAhbsVqY4FQc2hISYZloTDl7yZgyYrQxayawy7HXu8bwGCYf+wRqa0M1aOfFi27Lg==
+	t=1794973520;
+	b=xTsVKRzHcrzn7uWq0NgIq1M8G8YJOUIFItvnIIrIZ/woNs/NUDVD4sfFVTOmtkMyWYAw
+	 SX2Xb10Tv1K7ZwKIMg8MT7qYhUybD6TCEkddgZM20wesgXbkZ9mjOhBGZLXyjcA5roKCd
+	 kNECKQNArMN4sSVEeYK/QadN4GJFHirR/ahYSDCfsUOl2MJeAIkYu5nZLvG89ib9yXHhf
+	 2P6um+P4ieaTDK1Jjy929EGe66WcojYhNj9qTXYkdIRemAcVppq98PjpWAU6FbzOzlp/v
+	 dTgkjU+4/4Tu8+ZzzCRAzR1oFOmf/p5Vd0f9YMNHgy8ehVDsG6y+61+BvyQj8ir9gvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794973286;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=iLN4MW9ODY9ox27u7mAX4K/WuNhddDvFTBwZkODNj54=;
-	b=sJdPqGQle/PGVjHhW/n/j5WrDT5bqqJdA3e07hY/TJcf2L9WB9vnZWwASl7T9G1MDIIR
-	 A0QJRx3AWmca+lkO988nbF3CeWtQKuDylwinl63FdWDiinz7WjnWZkrYbsvrIXCLvDXtq
-	 8yC6BbjdK0I9TP9sx023eOQfKGCjAtpypjtc2zb/M2XScfzVMJLEu8bkveWQiNtcwE/Ec
-	 rQ1/9OdwipYm+ATvIu9GXYg+RUc67ddKY23F1k0yUGjFKmNmetmJfF50pU8oZFbAH1UJe
-	 IpQrQWnaD0rB/U/hXgECPSmJv82WjUYgoIHHG6Thy4Jz9OEnriZJkDGX2eM/gzB30Sw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794973520;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Received:Received:From:To:
+	 Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:X-Smtpcorp-Track:Feedback-ID:
+	 X-Report-Abuse;
+	bh=QD99YV81P86vVsdVhSCsb3s1uatJTfxI+KZieoslfgw=;
+	b=m3fhy9m9ZlyjQAb3jy0ozVtPRhByzThniHIdXRwnB2VaFXW4lSWsO9zucwiazC2PSDGE
+	 Pw/b9P2A7dmOKmH5my5H/XOLdL7KH9uzGB/zY246nQj0yadCS9BNFXZYuWpKMffwLYuxs
+	 wHVa8UuA1sKBOaulunCl5ytYOCC4CAilZVziFL6/hACz68ooWc5WJAVWYui0qAHpyoCNJ
+	 wTx7EdEk/ppuIbB6GHuTxpvTv0YR+Ud09MjLXcqnbNM+MwGZKTMWuNU1cQALAFUpCGiEd
+	 jJmfWim3PmyHs6bOKwLtafltFd8AxKyZLj4L0JH9vFZqDx9GnVoRm5j7IgHC4BW5FrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=wkennington.com;
-	spf=none smtp.mailfrom=wkennington.com;
-	dkim=pass header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=aPhecY8G;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=bumblecito.com;
+	spf=pass smtp.mailfrom=em1130875.bumblecito.com;
+	dkim=pass header.d=smtpservice.net header.i=@smtpservice.net header.a=rsa-sha256 header.s=mo8l70.a1-4.dyn header.b="khhaC0/x";
+	dkim=pass header.d=bumblecito.com header.i=@bumblecito.com header.a=rsa-sha256 header.s=s1130875 header.b=jAfFDYwa;
+	arc=none smtp.remote-ip=103.47.206.45
+Received: from a2i557.smtp2go.com (a2i557.smtp2go.com [103.47.206.45])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 367B1606A334
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 03:41:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 367B1606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=wkennington.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=wkennington.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B003606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 03:45:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B003606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bumblecito.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=em1130875.bumblecito.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wkennington-com.20260707.gappssmtp.com header.i=@wkennington-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=aPhecY8G
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b16896b8ceso210927a91.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 19:41:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=wkennington-com.20260707.gappssmtp.com; s=20260707; t=1794973284; x=1795578084; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=iLN4MW9ODY9ox27u7mAX4K/WuNhddDvFTBwZkODNj54=;
-        b=aPhecY8GMBIa+nYNDpQ6Nw2J0g1Ci7+fFM7OT5D7R+XeseB5C1wIN39R7uMhX1qwpT
-         peQckTbsk/IZmg0uS8s8NcPgsNBNtzE59Cn4tTwVR6T4LHF7jtF2PE+EZ06mqQfw743l
-         96vKj4zzO5vBilTrSwtCJDcIePWbU8uxVXNsX+BUUcnUr/OJ7ZH0P09IbLrzRqZJpZuC
-         YzleiisHJ1m+ROsfbbjNkU2YzVBEMtk7g/3R0rKu+v9Gwib34WwyU2TL72xgcxuJSx4p
-         rfw28K+OhD3SnY2T48m/MLP+tTTlcQm9KgpjAKZcWr4F8Y/WjCMyY4/Owk6PYEzAZlZt
-         +6OQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794973284; x=1795578084;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=iLN4MW9ODY9ox27u7mAX4K/WuNhddDvFTBwZkODNj54=;
-        b=jXKQ+nE2cR4F68MvuVZqPAymrOc8n6OawQIloiuQZMmKYzqjMzJ4m3bzTJpYkSkdOc
-         lhFMaHzs2LbX/qo/eWJG+7WuAd2caIuZEGPvsCo0TnS5o07Ssfuk9XijJT2KHDBo9siL
-         NCKtN8nWQNKXuzfzmEjjbMaznRT7h3bFIILNHqczcYTkp/LsmwNfVJ4aB8J/IdndexcG
-         8JjB1XjUHI7IdYNZUIDyvag/7pfj7AW7N+IwoqeS+iggamRZwJ/41ARUD3syNPP/qpUJ
-         AG155eZIqfOEmnTD0e2wIPELlbWcmgoXt3XB2XzfyPgMuSGLYXjndu2ntjp8/azaVTh+
-         WTaA==
-X-Forwarded-Encrypted: i=1; AL+hErGyhZt88WROX4K5Z+IXUBdlg/t+plZQprqwWycgSEdu70+XmTxMEOitv9rhG99khXVQ2QH5QmE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9XYITEV0A18RbAtsKR7W8sFLLblYv1jFRXkPt87lvDXBlMh+vh
-	wFwxKY3yWk7rdlo5wU0Zs0vcQsW63q6l6rA/OM0+79ZIzmwSPzsP5aTCp3NJG4CBd4k=
-X-Gm-Gg: AZFdTZcyZ24Rv26kr9wiiPLrafC9viC8D7m4IYeRuDams/lq7JhwQqfY1kYAyk+u/Y8
-	zfdumYX424/3zFLa05HJK/EBlrOsuMhKquOJTkkuhsNqQ0yfOBq06m+LuzSRkVvo/12BWkBTlGr
-	nNRL5fwxxihtqqciK6bCW92xrActfXwyRvbvW1mLKoTgmG9FfduAYh4cPTOL7dnzl4rBBNmqlCc
-	dzKyMC2A9tAvbNs4sLoH8oXUDVsAQxV7WJOVMKW4yEooLfT9zg7A1+CWnKaSBGL25DdzUX0w0gt
-	5KopL7SF7E2PbS3h3qrOCYKSnJFD5G+kD4d6WSpH+n7U1vwsjdgLK+0OtWlBVJJMxC/uePSmXKc
-	rxSw/cFQsx5UE/j6Y58K/WJjN8V6f1wHF02YaFYsyBZC7XuJJ4b5AEl+nKFW+FKPMGbUGmfbBYH
-	AUbDLjDJd/N/0yrGBaeYLA6aOrz+JCYfBOLN5vKe0hexkwvNu6/X5HCbZ7/gvrwRamCDuCNjM99
-	dM28URBw9NmtwjtjaXgr/tFV4dxpuLSdJ0QfwXlbXkeoag6XEmfNj4XPughpZN0mGvS28+voiOt
-	LIxNRKoOzjpVv7ULVFNnNBpgUEYcrYpVBNMe8vfHX7MT4TYnekq4BNVbzDz0ofg7jXU0JQ5RhKz
-	tc+k4rxQR+5Weasc=
-X-Received: by 2002:a17:90b:3c04:b0:3ac:adce:60ad with SMTP id 98e67ed59e1d1-3b3d079ffb7mr1117572a91.22.1794973284230;
-        Tue, 17 Nov 2026 19:41:24 -0800 (PST)
-Received: from wak.c.googlers.com.com (246.21.127.34.bc.googleusercontent.com. [34.127.21.246])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d143d69csm1793636a91.1.2026.11.17.19.41.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 19:41:23 -0800 (PST)
-From: "William A. Kennington III" <william@wkennington.com>
-To: Oliver Neukum <oliver@neukum.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: =?UTF-8?q?Jan=20Kl=C3=B6tzke?= <Jan.Kloetzke@preh.de>,
-	linux-usb@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	"William A. Kennington III" <william@wkennington.com>
-Subject: [PATCH net] net: usb: cdc_ncm: don't flush the TX timer into a stopped queue
-Date: Wed, 18 Nov 2026 03:41:22 +0000
-Message-ID: <20261118034122.315979-1-william@wkennington.com>
-X-Mailer: git-send-email 2.56.0.567.gdb80ae8cd5-goog
+	dkim=pass (2048-bit key, unprotected) header.d=smtpservice.net header.i=@smtpservice.net header.a=rsa-sha256 header.s=mo8l70.a1-4.dyn header.b=khhaC0/x;
+	dkim=pass (2048-bit key, unprotected) header.d=bumblecito.com header.i=@bumblecito.com header.a=rsa-sha256 header.s=s1130875 header.b=jAfFDYwa
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=smtpservice.net; s=mo8l70.a1-4.dyn; x=1794974419; h=Feedback-ID:
+	X-Smtpcorp-Track:Message-Id:Date:Subject:To:From:Reply-To:Sender:
+	List-Unsubscribe:List-Unsubscribe-Post;
+	bh=QD99YV81P86vVsdVhSCsb3s1uatJTfxI+KZieoslfgw=; b=khhaC0/xVOTvo53pw7L8toV+fM
+	/WODlgcad9jbgfe422fnkS9oCgZxPFKmioF5/2dSRG9qpDfUZIhbGORodWI8RfrOKoJZ7GoqR+y2O
+	MvzV3jlqd6o7blxTJIIHy1kMGurlBDm1Nsgt9mjjpxaeVen7TE7M6QjVJuRdUjm58ho0dYTs0+Qcp
+	A96gvvy6wbMO2eS0H8qLA2ZVAPuA8UE2v8H3tGU3lnyf3Wc1452ejmiIV0NpDnq1oac0/Zm2XRGmP
+	RT1vvQuafazxYZW8XLuHC4ijjzBaglvh8J6OIsM9d+B3pQ+t/CbNvuPBgf4R/fipzgJV+GdAva3Q3
+	DGh/YoDw==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bumblecito.com; 
+ i=@bumblecito.com; q=dns/txt; s=s1130875; t=1794973519; h=from : 
+ subject : to : message-id : date; 
+ bh=QD99YV81P86vVsdVhSCsb3s1uatJTfxI+KZieoslfgw=; 
+ b=jAfFDYwa0+0khuUy1sHLhfHrRFsqtb+QXP6d23CDCdmVjcN7d3mAoGKCPzYq2UQxnm/1r5
+ MJpU7uoGyST/OuvxMHR9UHywxNQOA/76pmB1QStBfPLAYB/euhyR9ZDYOsFuYKq7v9Wc/Z42
+ LLkooNJvq/vR7LlG+A/D24SlGF7FD4E8H3oFUBgWZQzxtzUxwZW603XqDrkMa8uOdyz3XvLI
+ XfS93h62wX6SrolK1/gwtkOCz+t3jUKowZJ8ObTgbe8EhMwRaW81JUkbR3hfVF+rSwya930y
+ vYQDY1sCamgtr1KPYgfKgFirysx7Dk2naujKY13bsJQIpZKzcniEUEgA==
+Received: from [10.97.107.137] (helo=SmtpCorp)
+ by smtpcorp.com with esmtpsa (TLS1.2:ECDHE_RSA_SECP256R1__AES_256_GCM:256)
+ (Exim 4.94.2-S2G) (envelope-from <github@bumblecito.com>)
+ id 1xTWbm-ED51UL-HR; Wed, 18 Nov 2026 03:45:18 +0000
+Received: from [10.168.248.187] (helo=ubuntu.local)
+ by smtpcorp.com with esmtpsa
+ (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256:X25519)
+ (Exim 4.100.1) (envelope-from <github@bumblecito.com>)
+ id 1xTWbl-AIkwcC8uCsz-oD2F; Wed, 18 Nov 2026 03:45:18 +0000
+From: github@bumblecito.com
+To: netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, linux@armlinux.org.uk, andrew@lunn.ch,
+ hkallweit1@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, Israel Cueto <github@bumblecito.com>
+Subject: [PATCH net-next v2] net: sfp: add 2500base-X quirk for ODI DFP-34X-2C3
+Date: Wed, 18 Nov 2026 03:45:10 +0000
+Message-Id: <20261118034510.434732-1-github@bumblecito.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261118025602.171615-1-github@bumblecito.com>
+References: <20261118025602.171615-1-github@bumblecito.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,74 +84,43 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Smtpcorp-Track: GUUYUI97opZp.WjndrsBoXbwV.VKRfPgIQLWu
+Feedback-ID: 1130875m:1130875aWStQz3:1130875sEYp0nQxb6
+X-Report-Abuse: Please forward a copy of this message, including all headers,
+ to <abuse-report@smtp2go.com>
 
-cdc_ncm_txpath_bh() calls usbnet_start_xmit() directly without checking
-whether usbnet has stopped the netdev TX queue. Since commit
-ad70411a978d ("usbnet: fix kernel crash after disconnect"),
-usbnet_start_xmit() frees any NTB submitted while the queue is stopped
-and increments tx_dropped.
+From: Israel Cueto <github@bumblecito.com>
 
-This triggers routinely under bulk load. With the default 16 KiB NTBs,
-usbnet only allows MAX_QUEUE_MEMORY / tx_max = 5 TX URBs in flight, so a
-bulk TCP stream stops the queue constantly. The TX timer is armed while
-an NTB is partly filled and keeps running after a subsequent packet
-sends that NTB out full; when the timer fires while all 5 URBs are still
-in flight, any frame left in tx_rem_skb or tx_curr_skb is flushed into a
-new NTB and dropped by usbnet, causing steady tx_dropped increments and
-TCP retransmits.
+The ODI DFP-34X-2C3 XPON SFP module supports 2500Base-X.
 
-While TX URBs are in flight (dev->txq) or completed and awaiting
-usbnet_bh() (dev->done), usbnet will wake the queue again. When the
-queue is stopped under those conditions and cdc_ncm has buffered TX
-frames, restart the timer instead of flushing into usbnet_start_xmit().
-Keep the existing flush path when nothing is queued to wake the device,
-the interface is down, or the timer is disabled (tx_timer_usecs = 0), so
-the timer cannot rearm indefinitely.
+Add a quirk to enable 2500Base-X support for this module.
 
-Check the state under ctx->mtx inside netif_tx_lock_bh(), matching the
-lock order on the transmit path and keeping tx_reason_timeout
-serialized.
+Tested on a Horaco ZX-SWTGW2C8F switch with an ODI
+DFP-34X-2C3 module. A 2500 Mb/s link was established
+with speed and duplex forced and autonegotiation disabled.
 
-Fixes: ad70411a978d ("usbnet: fix kernel crash after disconnect")
-Signed-off-by: William A. Kennington III <william@wkennington.com>
+Signed-off-by: Israel Cueto <github@bumblecito.com>
 ---
- drivers/net/usb/cdc_ncm.c | 19 ++++++++++++++++++-
- 1 file changed, 18 insertions(+), 1 deletion(-)
+Changes in v2:
+  - Move the ODI quirk to its alphabetical position.
 
-diff --git a/drivers/net/usb/cdc_ncm.c b/drivers/net/usb/cdc_ncm.c
-index e92dc7f011ea..e5d659dd7436 100644
---- a/drivers/net/usb/cdc_ncm.c
-+++ b/drivers/net/usb/cdc_ncm.c
-@@ -1509,9 +1509,26 @@ static void cdc_ncm_txpath_bh(struct tasklet_struct *t)
- 		cdc_ncm_tx_timeout_start(ctx);
- 		spin_unlock(&ctx->mtx);
- 	} else if (dev->net != NULL) {
--		ctx->tx_reason_timeout++;	/* count reason for transmitting */
- 		spin_unlock(&ctx->mtx);
- 		netif_tx_lock_bh(dev->net);
-+		spin_lock(&ctx->mtx);
-+		/* usbnet drops the whole NTB if its queue is stopped. While
-+		 * TX URBs are in flight, or completed but not yet reaped by
-+		 * usbnet_bh(), the queue will be woken again, so keep any
-+		 * buffered frames and retry a timer interval later.
-+		 */
-+		if (ctx->timer_interval &&
-+		    (ctx->tx_curr_skb || ctx->tx_rem_skb) &&
-+		    netif_running(dev->net) && netif_queue_stopped(dev->net) &&
-+		    (skb_queue_len_lockless(&dev->txq) ||
-+		     skb_queue_len_lockless(&dev->done))) {
-+			cdc_ncm_tx_timeout_start(ctx);
-+			spin_unlock(&ctx->mtx);
-+			netif_tx_unlock_bh(dev->net);
-+			return;
-+		}
-+		ctx->tx_reason_timeout++;
-+		spin_unlock(&ctx->mtx);
- 		usbnet_start_xmit(NULL, dev->net);
- 		netif_tx_unlock_bh(dev->net);
- 	} else {
+ drivers/net/phy/sfp.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
+index 915156743..960ac89cc 100644
+--- a/drivers/net/phy/sfp.c
++++ b/drivers/net/phy/sfp.c
+@@ -614,6 +614,9 @@ static const struct sfp_quirk sfp_quirks[] = {
+ 	SFP_QUIRK("Lantech", "8330-265D", sfp_quirk_2500basex,
+ 		  sfp_fixup_ignore_los),
+ 
++	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
++	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
++
+ 	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
+ 
+ 	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
 -- 
-2.56.1.703.gf848ed807c-goog
+2.34.1
 
