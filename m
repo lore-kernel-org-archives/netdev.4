@@ -1,75 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.15.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018742;
-	b=SCEBXQfMs0ziulVjpFbPljJ78X6W19/ooispDzZMrTi+F7NYlNRBOhdw5U+QN1IMlC3j
-	 oD1kH7hh/Cepko4SSzeWW8LVh6sJcPlKIWYEZeYrZ8EkNk0+oEya9umBjrZNgRvjZGInJ
-	 djDUyom3CUyu8Jodtqug/vzaOV/9Auqa2c/yE7bFjV3L63RwDoMDsp63M7TZ6UyAV18xL
-	 lXr5Alk/5i8HB9BLvaKyIB1fCHGuhp+okC6Lgnf7jqfrSU8kqJMynNPTFviaMzlDWBgwr
-	 9rY+NkT2Vdqgq+/epKgdymgbucfGd//9M1LzpTziW2RWI64ipMNP+SFZekrN6Dfbe5Q==
+	t=1795018922;
+	b=NVD0F3JYKNtGp84cMK8dJHaHPcy99tIuW1jIUbJ90+drEh7YAkAdRELlgKb/ISeI2kio
+	 CQgHjUUr6emWac+V72WreFjwg1KGkvQdhIZX/TbeQDqS0W6cSiDt245B8YCpRwGkEGbPZ
+	 M84olaXwQ+YLCW0hKospZIAtP+lRyrSaG3HnfKS8QCplB2VzFC1QeGDHuQceM2oJ1n0yZ
+	 y1Zf3PPdYbaIVcBP4r1qM6A6bZKyMnU3mkVSqWCcnvKNQMsIhDjN3jM5zJrNP/ESJqvV8
+	 UnxvyHD+ksdAqUy7T7+WQvWDicY3CQ7rOmxVUCCLjDgaJdSX95YcW0Wb50V30E2TE+A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018742;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:To:
-	 Cc:References:Subject:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:UI-OutboundReport;
-	bh=m/bYAf+dZPqaYiTr9U4wbR60qvam9O91KPznC9SM+Rw=;
-	b=bRtM9mgMmV7QdYvC9qf5v3+PXlxnI1XyspbbMbaTcOjdbkgUkhU9Pp6ISvmc0itmoX9L
-	 x2W4I8mkHKd42rOeb3PZAU6AopE9aYPlO51MSzCO8d9PPqYFz0x3eCgGOo7jXwnCUBINS
-	 jb1WZvwxwagf/+nmF7D8+hF2bah5/7f5AzNZSFezu+haeuCjzrv5jZ1Ev+YVB+iAnT7YM
-	 e1ncaZsPvgk3TGEEZiBCAeZAivZn3JTC/TXD3auDBv34/PlGiexDv45t3PYxLAd3T2vEs
-	 aAPDQPQNgx8/uMyUNSYjtm3EMUKJmepNCpm/XEKjOmzJ4JuoWkSEOMT/9zrudpOlXgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795018922;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=o4IhjYnsAkS+A/M5yq5qkGtMA6PWttIKEDUvGkvU2eY=;
+	b=tWckFlBeASUKFv/NPDBBIooal98rHmKV7q2Z0ZzY1w4Tos0qKAS0Yr/3Rj3JCNCYoXdZ
+	 cmYHkQ50cpWgxAj0G2VeQaMi5XRLhyYL+hK9YcVVGXBU4DTFjiiAb9X7UtWnyoNVRbks1
+	 +Fuo6tyEnQJjHFpzSNCPoqIIuYi2MvNbioMQgR4nL4G1neV2fdC9gyrvyST3zQdgnMqX5
+	 EhTZBUY+NNCjh+6s6slXwSSIg5rJFDDLeXjqU2upMxyu7uMfZJ3nEcvPa3b5A09SkU1ph
+	 bRwiMrerpcjl13W+4kaGv30/0jb4QypEgSEd2+syPvvCgfOJQUmpmqm2O0n5RZqS22g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=Sq2pZ4fJ;
-	arc=none smtp.remote-ip=212.227.15.3
-Received: from mout.web.de (mout.web.de [212.227.15.3])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2R2b9+uz;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FCD5606A32A
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:19:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7FCD5606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9218E606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:22:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9218E606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=Sq2pZ4fJ
-DKIM2-Signature:  i=1; m=1; t=1795018739;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:s/tJUxsax1dKEFrU+bnS4ekDaYeN
-   DszVNYkPoGJg5J+HudyBNGH3d1KNhuW/Rc40OqHSgTn/3rfQ9oeiuXCMXeUTryGP9MZGavukHAL
-   HVCCrF08QINnO8MqbntOkTljRtXEO4x9EywGh7UGoSPXaYRpSJTGfT5DYCWmS1ew5BfH91TQMVq
-   J8ISJWIX4Ox8cc4mATDcQEVHZzqScU3DGRFP9gAoIt6RGkOOy78jJjw3scW5BZHB9mxuXNHFoPg
-   i8LSMYVg3xZrjvLoKtfrvbE+iwS1vzIpzRpSuzJBz+ALNt1mXKV+kdlAgJO5njtoSm0YVsuxD9e
-   4pVaK2/gMr8ZDA==;
-Message-Instance:  m=1;
- h=sha256:
-   nmDQmRUZN+uSb6f41n1+u/twAW/9MOE+IlpKSrhtQ2c=:
-   m/bYAf+dZPqaYiTr9U4wbR60qvam9O91KPznC9SM+Rw=,
-  sha512:
-   zX2+2XXbx3o4gU2xku4GB4cqxrBOQp8b36AIme9KhpF2+Tfpfrq7eCVISoNBJrVOiHre2EOgPDAktIpuxKNcAA==:
-   zNQth83cxu+7P+zsMCoEGFA85dRG3Im3HA+UQSy2I1SSJBBxQex5ejV+UkYztj2FOXZaJDLzv8zHaeVc4P9ZvA==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795018349; x=1795623149; i=markus.elfring@web.de;
-	bh=m/bYAf+dZPqaYiTr9U4wbR60qvam9O91KPznC9SM+Rw=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=Sq2pZ4fJs+BzhaIwvm8e/3/0HpxFCg7jQWws+b1dZ/6qneTU1yz+ROx/uwCCMRvJ
-	 6cvWqldKmn6ywVqDff9eoYeX+ZZmuPtD+rqT5QpvJT1FEobai3gW6WyNsPOwtIK5F
-	 gRHMeEL5J0/L5eFXiR1Ket8FnWRSbAtsEtA+BBRauRBAI2gDigW+LsPd9k5tRfvc/
-	 qluUE5UgtiNgvQOgZkgFpXPuCZynTDrXUouM5kVYdwyYoz9McgjoD1I/3HZXlxx/V
-	 DlsWkS0mG29EnRpCb72pLiglo7982hrmwcLVpI9gnFm21ve6N5p8BvpVAqJjc/uOn
-	 Mfr3yY0ERjq5An+ogw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb006
- [213.165.67.108]) with ESMTPSA (Nemesis) id 1MSqXS-1x0Vzm49l8-00SiyN; Wed, 18
- Nov 2026 17:12:29 +0100
-Message-ID: <bfe10f1f-443e-4286-8172-6f941663c86e@web.de>
-Date: Wed, 18 Nov 2026 17:11:53 +0100
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2R2b9+uz
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 9DEDCC4CBDA;
+	Wed, 18 Nov 2026 16:22:03 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B705A5FE9B;
+	Wed, 18 Nov 2026 16:21:58 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7D84B11BC26F9;
+	Wed, 18 Nov 2026 17:21:38 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795018913; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=o4IhjYnsAkS+A/M5yq5qkGtMA6PWttIKEDUvGkvU2eY=;
+	b=2R2b9+uzpz1RycSQMmA4zCkWe9M65VvGUkYqRX+1u1KTtAl8zxLwkxnHPQzqR+VdJ/ZVor
+	kIofdG4xnPPGBNUYwJiaLMXaKsZtgpxvBcUqKZXh3hBPGL34QX4TXjMYE9262PDctTHfdN
+	psc7w4JRcm9gz7pc71uccgTshjFCV7MnvBpCPCLx2Gh/nICOzHtu/mkuKYWWjWymqsNveU
+	EIgpPrgO6h6OTH742MiFpMRc/gtna3bfUhXufygoUb+nXK9z44VYKSjveYMc5XnXJLWOsY
+	oXqrEyeMqo8GJbHfCGUwPznZERl8pzdjVyTMumDJ+1vKnscB9D6tqz2fPoUSJw==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	davem@davemloft.net,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	Nicolai Buchwitz <nb@tipi-net.de>,
+	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
+	Joseph Steel <recv.jo@gmail.com>,
+	Muhammad Nazim Amirul Nazle Asmade <muhammad.nazim.amirul.nazle.asmade@altera.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	thomas.petazzoni@bootlin.com,
+	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type from the descriptor
+Date: Wed, 18 Nov 2026 17:21:34 +0100
+Message-ID: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,210 +83,102 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Bence Csokas <bence.csokas@arm.com>, cocci@inria.fr,
- linux-hardening@vger.kernel.org, Julia Lawall <julia.lawall@inria.fr>
-Cc: GR-QLogic-Storage-Upstream@marvell.com,
- James.Bottomley@HansenPartnership.com, Jes.Sorensen@gmail.com,
- airlied@gmail.com, andrealmeid@igalia.com, andrew+netdev@lunn.ch,
- andrii@kernel.org, arm-scmi@vger.kernel.org, ast@kernel.org,
- bcm-kernel-feedback-list@broadcom.com, bharathsm@microsoft.com,
- bleung@chromium.org, bpf@vger.kernel.org, brauner@kernel.org,
- cem@kernel.org, christian.koenig@amd.com, chrome-platform@lists.linux.dev,
- cristian.marussi@arm.com, dakr@kernel.org, daniel@iogearbox.net,
- dave@stgolabs.net, davem@davemloft.net, decui@microsoft.com,
- dri-devel@lists.freedesktop.org, dsahern@kernel.org, dvhart@infradead.org,
- eddyz87@gmail.com, edumazet@kernel.org, emil@etsalapatis.com, g@b4.vu,
- gnoack@google.com, groeck@chromium.org, gustavoars@kernel.org,
- haiyangz@microsoft.com, hansg@kernel.org, herbert@gondor.apana.org.au,
- horms@kernel.org, huangjunxian6@hisilicon.com, idosch@nvidia.com,
- ihor.solodrai@linux.dev, intel-gfx@lists.freedesktop.org,
- ipsec@lists.linux.dev, jack@suse.cz, jani.nikula@linux.intel.com,
- jgg@ziepe.ca, jmorris@namei.org, johannes@sipsolutions.net,
- jolsa@kernel.org, joonas.lahtinen@linux.intel.com,
- kalesh-anakkur.purayil@broadcom.com, kees@kernel.org, kuba@kernel.org,
- laurent.pinchart@ideasonboard.com, leon@kernel.org,
- linaro-mm-sig@lists.linaro.org, linkinjeon@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
- linux-cifs@vger.kernel.org, linux-fsdevel@vger.kernel.org,
- linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-media@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-scsi@vger.kernel.org, linux-security-module@vger.kernel.org,
- linux-sound@vger.kernel.org, linux-wireless@vger.kernel.org,
- linux-xfs@vger.kernel.org, luiz.dentz@gmail.com, lyude@redhat.com,
- maarten.lankhorst@linux.intel.com, marcel@holtmann.org,
- martin.lau@linux.dev, mchehab@kernel.org, memxor@gmail.com, mic@digikod.net,
- mingo@redhat.com, miriam.rachel.korenblit@intel.com, mkp@kernel.org,
- mripard@kernel.org, netdev@vger.kernel.org, nicolas.palix@imag.fr,
- njavali@marvell.com, nouveau@lists.freedesktop.org, pabeni@redhat.com,
- paul@paul-moore.com, pc@manguebit.org, perex@perex.cz, peterz@infradead.org,
- phasta@kernel.org, pkshih@realtek.com, rodrigo.vivi@intel.com,
- ronniesahlberg@gmail.com, samba-technical@lists.samba.org,
- selvin.xavier@broadcom.com, serge@hallyn.com, simona@ffwll.ch,
- song@kernel.org, sprasad@microsoft.com, steffen.klassert@secunet.com,
- sudeep.holla@kernel.org, sumit.semwal@linaro.org, tangchengchang@huawei.com,
- tglx@kernel.org, tiwai@suse.com, tom@talpey.com, tursulin@ursulin.net,
- tzimmermann@suse.de, tzungbi@kernel.org, viro@zeniv.linux.org.uk,
- wei.liu@kernel.org, willemdebruijn.kernel@gmail.com,
- yonghong.song@linux.dev, zack.rusin@broadcom.com
-References: <20261118-offsetof-v4-1-95b385c10b22@arm.com>
-Subject: Re: [PATCH v4 1/2] coccinelle: Add offsetofend() variant of
- struct_offset()
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20261118-offsetof-v4-1-95b385c10b22@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:6EPveX8Ri1t77eUHD87iadI+dVaiRGmKrcwX0pgqshl6eE/PUfu
- U/grdzqZeabqS0kEnnjyRXEVSYDjlvBsjC2oZG3t3rvYXHw3tr9N9kjJJpqOAEsA2vHBJqN
- AR+JHHmlfVSnKcJYWSJp1TR8Y5+Zu/geNXBYWb0YhnSvyDMYofveGe0n8eBYJD9wGvHxA8z
- U1kcbkwxGmL25oJsNUZfg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:rM0ETHJyGqI=;7bapq5lffTVvrvQuskQh/L6Ng5n
- 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
- PVQaXLpHYtdr+cU6hxQLaJ5A8jw==
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-=E2=80=A6
-> +++ b/scripts/coccinelle/api/struct_offsetof.cocci
-> @@ -0,0 +1,18 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/// Use struct_offset() family of macros
-> +///
-> +// Confidence: High
-> +// Options: --no-includes --ignore ./tools/
-> +
-> +virtual patch
+Stmmac's double VLAN handling hasn't been working great for a while,
+it's been recently reworked for dwmac4 by Ovidiu Panait. In that work,
+it was found that the tag stripping hardcodes the 8021Q tag type for
+XGMAC while stripping the tag, while the IP actually reports the outer
+tag type in the descriptor.
 
-Can further coccicheck operation modes become more interesting here?
+The tag type can be one of 6 different values (note inner/outer is
+reversed in the macro names):
 
+ - XGMAC_ET_LT_VLAN_STAG       single S-tag
+ - XGMAC_ET_LT_VLAN_CTAG       single C-tag
+ - XGMAC_ET_LT_DVLAN_CTAG_CTAG outer C-tag, inner C-tag
+ - XGMAC_ET_LT_DVLAN_STAG_STAG outer S-tag, inner S-tag
+ - XGMAC_ET_LT_DVLAN_CTAG_STAG outer S-tag, inner C-tag
+ - XGMAC_ET_LT_DVLAN_STAG_CTAG outer C-tag, inner S-tag
 
-> +
-> +@offsetof depends on patch@
-> +expression ptr, member;
-> +@@
-> +- offsetof(typeof(*(ptr)), member)
-> ++ struct_offset(ptr, member)
-> +@offsetofend depends on patch@
-> +expression ptr, member;
-> +@@
-> +- offsetofend(typeof(*(ptr)), member)
-> ++ struct_offsetofend(ptr, member)
+Report that tag type through a dedicated desc ops and report it to the
+stack.
 
-How do you think about to use the following SmPL rule variant instead?
+We keep the 8021Q fallback when we don't have the ops, as we don't
+set NETIF_F_HW_VLAN_STAG_FILTER on the cores that don't support that.
 
+This has been tested on AgileX5 with the vlan.py selftest.
 
-@replacement depends on patch@
-expression pointer, member;
-@@
-(
--offsetof
-+struct_offset
-|
--offsetofend
-+struct_offsetofend
-)(
--typeof(*
--(pointer)
-+pointer
--)
- , member
- )
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_descs.c    | 13 +++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.h          |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c   |  6 +++++-
+ 3 files changed, 20 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+index 6719ac6e395b..71ce2bc9b5e1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+@@ -76,6 +76,18 @@ static bool dwxgmac2_wrback_get_rx_vlan_valid(struct dma_desc *p)
+ 	       et_lt <= XGMAC_ET_LT_DVLAN_STAG_CTAG;
+ }
+ 
++static u16 dwxgmac2_wrback_get_rx_vlan_proto(struct dma_desc *p)
++{
++	switch (FIELD_GET(XGMAC_RDES3_ET_LT, le32_to_cpu(p->des3))) {
++	case XGMAC_ET_LT_VLAN_STAG:
++	case XGMAC_ET_LT_DVLAN_STAG_STAG:
++	case XGMAC_ET_LT_DVLAN_CTAG_STAG:
++		return ETH_P_8021AD;
++	default:
++		return ETH_P_8021Q;
++	}
++}
++
+ static int dwxgmac2_get_rx_frame_len(struct dma_desc *p, int rx_coe)
+ {
+ 	return (le32_to_cpu(p->des3) & XGMAC_RDES3_PL);
+@@ -352,6 +364,7 @@ const struct stmmac_desc_ops dwxgmac210_desc_ops = {
+ 	.set_rx_owner = dwxgmac2_set_rx_owner,
+ 	.get_rx_vlan_tci = dwxgmac2_wrback_get_rx_vlan_tci,
+ 	.get_rx_vlan_valid = dwxgmac2_wrback_get_rx_vlan_valid,
++	.get_rx_vlan_proto = dwxgmac2_wrback_get_rx_vlan_proto,
+ 	.get_rx_frame_len = dwxgmac2_get_rx_frame_len,
+ 	.enable_tx_timestamp = dwxgmac2_enable_tx_timestamp,
+ 	.get_tx_timestamp_status = dwxgmac2_get_tx_timestamp_status,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 8ae95e91a36a..047bda5cbd92 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -60,6 +60,8 @@ struct stmmac_desc_ops {
+ 	u16 (*get_rx_vlan_tci)(struct dma_desc *p);
+ 	/* Get the valid status of descriptor */
+ 	bool (*get_rx_vlan_valid)(struct dma_desc *p);
++	/* Get the vlan tag proto from the descriptor */
++	u16 (*get_rx_vlan_proto)(struct dma_desc *p);
+ 	/* Return the transmit status looking at the TDES1 */
+ 	int (*tx_status)(struct stmmac_extra_stats *x,
+ 			 struct dma_desc *p, void __iomem *ioaddr);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+index fb9aad748cb3..bf23d82e9f38 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
+@@ -209,8 +209,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
+ {
+ 	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
+ 		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
++		u16 proto = ETH_P_8021Q;
+ 
+-		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
++		if (hw->desc->get_rx_vlan_proto)
++			proto = hw->desc->get_rx_vlan_proto(rx_desc);
++
++		__vlan_hwaccel_put_tag(skb, htons(proto), vid);
+ 	}
+ }
+ 
+-- 
+2.56.1
 
-Regards,
-Markus
