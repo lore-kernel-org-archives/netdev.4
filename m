@@ -1,86 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794995141;
-	b=tNmzId/ebXOj+9uixHxf9FEJBfo55fM/6mibW6ZFNEDk5yr67ZE/HajoMSuMzlo/UAmH
-	 wTLIhBBxaOk6r9oqY/HKYm6IWipahk4s4va7ehhMvBFJjjziWm9pjsZ+vChLAP8s4HQ7h
-	 3Tpng4nsqzBlmqf23A14N5iYuUNkAKdvJbJmtU/u20XaFg2amUfPoDptoLo0ecdZ4J7U8
-	 /7h3xsIV6KFqvyc7lv4HdSf6F7yw2oFLjmhS10Fbi+sp7JeaSdJIc1ahJm34oh1xygebI
-	 qHXy/XHoG0OpaHvEVV5xp5ckZK3cOgZhl53efD3dDXnZKx2MvII/a83ZYORgQCnuktw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794995141;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=uCZjzvBXpQzyiqLUiaZTYDZ3Cj7C6PIF0m4jF7KKt8Q=;
-	b=A69RnIXaO612zaruUoqlfVdKxzN/QyXvPu2qH7/NZuTg6mirYL950iQ3bCrGkn9fchpN
-	 EHDjAa6HBt7vuQXhH0vQYi7zIe3Gh9IkfN6YBt1RexbhksWG3qgioG5M4v+AZ5wGlGdMq
-	 czJOVdAK3KAOm1ihKjBpGY7Ug6JTe8lLrOW0w2/qnCN+JMpNMtqpuUqdD/Cu7MbjVJ9la
-	 YapiovCz37HV3MgSPTOh8WVedQxX/g6HCXCJATIj++yyFudv1/EnMPuEIeEHwQ6gYjaLM
-	 Zj9N5AnGL+lX8ctSezMgTj9R192q/0Hgc3/03qbLV7O0sdXbBhW/tFy4ewlwyKC67jQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=KDfBQ1wF;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794995203;
+	b=BP14E2KKO040d04aK3npueC3j5x57ikcdg5G1z7YX8SLIGvTQs5ny0psHxr8T+pjSsnt
+	 x6QYwkISLfRIJ62VTaQJZgeUfuwe0elxJsavTfYB6rtYIgkxwg1qBacDx6vTCVEemH/oZ
+	 KZ6TX42Tan00Wsi96HicjEDjM51d1Nq/CqHPwDMVRCHy68NNnKZmH6I2hlwUg9VQ+e+mn
+	 kfCEth5ScAXD8CP9z6B+LQbadIZKCQvBQAcJJq1jh/AoTkbnlbA24U2f08LlF6FI3XsFE
+	 bv2tBsPnZvDfKmOT6CK9My85w+M36VwCuCrUEZodXbDHauV0gWZhlgR71d7HwUCKyrQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794995203;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=qyh3BGz+xXrwdu09M6MdR6wn1lMg+k/MQ3sZ0Ll+x24=;
+	b=3l3hLMOUoEVGaWfRkF4k6mvbK3TxSM87vbtgo4gPVt+5c2JgF2F8GMtCdp69PYDTD/lo
+	 5R7mTVlnks2qcxwYY5d3m/guRCrNIJPoInjvMKyrYVL7Z8vLDb1NPFRtNGK5y8jxKvuNF
+	 OhKKAH0s5353V/3byJuUQ/y1bsZPT0eJhhVHB6JjuGgoknQb6yrOrhUJhLq27Nyu2gzWR
+	 Rns+Uy+Wq9W8JuPAtd5urElN23jvlaYmdnczTYhYwNzdHHXQZyAqqqWgtCUwXVt8FW/RJ
+	 VuR1tveDBycmyLrteuaXPt9bVP0YlLgH7c4wG7A54PyBHBrhjyeDS6jhkYr5rAXrRkg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cDduR7wk;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A53D606A320;
-	Wed, 18 Nov 2026 09:45:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A53D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7A4EC606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:46:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=KDfBQ1wF
-Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
-	(Authenticated sender: mkl@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9921220011E;
-	Wed, 18 Nov 2026 10:45:37 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794995138;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uCZjzvBXpQzyiqLUiaZTYDZ3Cj7C6PIF0m4jF7KKt8Q=;
-	b=KDfBQ1wFEC7a950vAnPNfxVdNolhuN65j8nK8LfJdSZLvqFcKjPcxFHrqymcXi2rC5ltfu
-	oNeOv1/x9HEfM8/8DoEwsl1lHZnkViEwPe5b3s4tRcnUjSHOO9zGXkNafoR31VJa3EG6o4
-	MB2gnYEaE2Ks9LKlBSGfTA5PYL8WYXbUO0gwpaAnzONJW3o0QRHXLTqeYKKXsy6keX7PyH
-	Gsi1qASQvqYefBlGyA3Ph6YElreXO7uqldIIPn+vjKLod5TAtg722MrvJdagS0leMDfnZv
-	/uuIAmDSfzplfSbTjfbQzTkvvQfjvq99XnMyCD15HXFmYM5SOhnNZ76kVwiokw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1794995138;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=uCZjzvBXpQzyiqLUiaZTYDZ3Cj7C6PIF0m4jF7KKt8Q=;
-	b=AzfXhdXQSD6Zgpj9zVQX53Z+kVdgu0NOPZuk34EoXofb+kJaeBIxXQvzDk9FgZdEyqu8iY
-	8ELVUUgFh7B1iR6HUV/aupTtcuoAE0mVjPSLH2ktHqIOnffnE1XP55YYKATtxP4yvqzSke
-	FedZdBAy1HtudhaGnUJPehMzwW3VSaLlwDusgnNRijQFOyqwREewZp+hDsWbpjc4gJnDR2
-	jeafcaE+IIFGIGNTSQMoGkve3q0tR436lYo0omVj11l8eNZiG+HCbxTVqYeRG8C4wG7Qf5
-	vH+tA/bhHYVkF6aook4tiRvPtFKCmb+YMsat0CKTvYHiFguWMM42NcpOZ6BWww==
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1794995138; a=rsa-sha256;
-	cv=none;
-	b=UeSt+cFa1Qt5aq6QytD0IHBzKkH3pv2bDhZbS2ESAwVQFBlPltLk9aKGs/vRv2Ux7yGoHv
-	iGRcNMH2dSs8wcGzhN4AF37QJ4MlHgGLiYpynxSlMn2hE4a6WAz2uB3QKYTNW+miN8X76K
-	vZVVtLl0M7CwykdF4OdwMdnVqdnqGBIstUgdY9vwopxyxDSQkcMGckklRiLq0Kz2bmnl70
-	XXjcMdBWdSKrvj+TujPid5LtguSh8q7/hDPCzj7ANyU1+3vicQlxGzbfXx8c2PePN7KWe4
-	42kyp8StUAo5BlO3LxiQIXN11yC+5pJvlK3T9mXCzTHbFrCXtO9gSR8PBCxupQ==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-Date: Wed, 18 Nov 2026 10:45:37 +0100
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org, 
-	linux-can@vger.kernel.org, kernel@pengutronix.de, 
-	=?utf-8?B?U3TDqXBoYW5l?= Grosjean <s.grosjean@peak-system.fr>
-Subject: Re: [PATCH net-next 01/12] MAINTAINERS: add entry for PEAK-System
- CAN drivers
-Message-ID: <20261118-vengeful-turquoise-sunfish-bd2f81-mkl@pengutronix.de>
-References: <20261118092955.1283165-1-mkl@pengutronix.de>
- <20261118092955.1283165-2-mkl@pengutronix.de>
- <179499472297.3291.1921538258116208727@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cDduR7wk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57ACB1F000C6
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:46:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794995203;
+	bh=qyh3BGz+xXrwdu09M6MdR6wn1lMg+k/MQ3sZ0Ll+x24=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=cDduR7wk1MnAv/PyRiN4wvfpW2ao2yP1tuEr7xUULh6rrsBzAXD/y8v98zxSAw5kK
+	 4zZZzzabHJGdeDH2IThNgzyrxgcoKv1ZNg/WLHh4lDHTBOloVjTIlwbWQYAMkg4q9c
+	 dy62iSOcEDgwT72GmREBI+IJ9SDRxruBzNcgUfg5dBLpsoPrV46qmAmDRNUyzraH74
+	 dG7mQ5hmwKG7ZFLKHuJ5spCasD05ZiCsXq3PIIi73AivcnYGHll2ArjNgjSi3OCTRt
+	 bRFPUZvZH+K1ATaQKZ8KQXm8N4YWNKsgjj5laLqY1wHTCFN2J7b2b8Zn0XZDf/2OP4
+	 O63NPZluykvUg==
+Received: by mail-oo1-f45.google.com with SMTP id 006d021491bc7-705cb6ceebaso693362eaf.3
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:46:43 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErGEW46qSCg3SUq25OIp9oGO37chDKgNbmw72LmTiOBRaN1Hubu9q1ha98uP7y9E9JhzLZrrAfY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8V+FxrXOw3WWHTD0CA2aIUcDLdLa3QwRypkly8chN+m2IkhcRl
+	seRkQK23on3DzxvpbDGau/F5M1DNcE6nk4HaAo4FGMt2kG3XXi4EA/mcE6iOgdk1G2T91AEi3hr
+	tNNaqc2vaeY5ieSf0mILvDMNeD5jX1Hc=
+X-Received: by 2002:a05:6820:1c8c:b0:71a:cf71:eac8 with SMTP id
+ 006d021491bc7-71b1857247cmr1648907eaf.57.1794995202636; Wed, 18 Nov 2026
+ 01:46:42 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,50 +59,100 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="5ddab6moxsf2jjwx"
-Content-Disposition: inline
-In-Reply-To: <179499472297.3291.1921538258116208727@kernel.org>
-
-
---5ddab6moxsf2jjwx
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
+References: <20261118005048.53393-1-mason@kernel.org> <20261118005048.53393-3-mason@kernel.org>
+In-Reply-To: <20261118005048.53393-3-mason@kernel.org>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 10:46:31 +0100
+X-Gmail-Original-Message-ID: <CAL4Wiip__FkPjvz6BSrZWGrMYLmmy-_eQb_huzaBOwbHkdSYvA@mail.gmail.com>
+X-Gm-Features: AclHuK81Muueg_eFMCiAQx-woYob7DjbNz14hpkCZNftxQy8FlEnDPMSuHJid2s
+Message-ID: <CAL4Wiip__FkPjvz6BSrZWGrMYLmmy-_eQb_huzaBOwbHkdSYvA@mail.gmail.com>
+Subject: Re: [PATCH net 2/3] tcp: clamp RTT samples in tcp_rtt_estimator()
+To: Chris Mason <mason@kernel.org>
+Cc: ncardwell@google.com, kuniyu@google.com, davem@davemloft.net, 
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, willemb@google.com, 
+	josef@toxicpanda.com, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH net-next 01/12] MAINTAINERS: add entry for PEAK-System
- CAN drivers
-MIME-Version: 1.0
 
-On 18.11.2026 09:38:42, netdev-bot+sinfo@kernel.org wrote:
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
+Le mer. 18 nov. 2026 =C3=A0 01:50, Chris Mason <mason@kernel.org> a =C3=A9c=
+rit :
+>
+> tcp_rtt_estimator() keeps its state in u32 fields, in microseconds.
+> srtt_us holds 8 times the smoothed RTT, so it wraps at an RTT of
+> 536.9 s. Samples can be larger than that:
+>
+> - For an ACK of retransmitted data, the sample is the timestamp clock
+>   minus TSecr, and tcp_rtt_tsopt_us() accepts a sample of up to 2,147 s.
+>
+> - For a SACK of a segment that was never retransmitted, the sample is
+>   the age of that segment.
+>
+> Samples from TSecr could wrap these fields when they still held jiffies.
+> The age of a segment can wrap them since commit 740b0f1841f6 ("tcp:
+> switch rtt estimations to usec resolution"), which took the wrap of the
+> smoothed RTT from 2^29 jiffies to 2^29 us.
+>
+> The fix used here is to clamp each sample to 120 s, the largest possible
+> RTO, in tcp_rtt_estimator(), where the samples of all sources meet.
+>
+> The smoothed RTT now saturates at 120 s. A path with a larger real RTT
+> sees that in TCP_INFO, in the pacing rate and in the metrics cache.
+>
+> Found by code inspection (Eric Dumazet), and confirmed with LLM
+> generated reproducers on an unmodified kernel. Fixed by LLM, and
+> tested with the reproducers and existing kernel selftests.
+>
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+> Fixes: 740b0f1841f6 ("tcp: switch rtt estimations to usec resolution")
+> Signed-off-by: Chris Mason <mason@kernel.org>
+> ---
+>  include/net/tcp.h    | 7 +++++++
+>  net/ipv4/tcp_input.c | 2 +-
+>  2 files changed, 8 insertions(+), 1 deletion(-)
+>
+> diff --git a/include/net/tcp.h b/include/net/tcp.h
+> index 6a714189bcc7..a617a72ee2c6 100644
+> --- a/include/net/tcp.h
+> +++ b/include/net/tcp.h
+> @@ -164,6 +164,13 @@ static_assert((1 << ATO_BITS) > TCP_DELACK_MAX);
+>
+>  #define TCP_TIMEOUT_MIN_US (2*USEC_PER_MSEC) /* Min TCP timeout in micro=
+secs */
+>
+> +/* Max RTT sample for tcp_rtt_estimator(). srtt_us holds 8 times the RTT=
+, and
+> + * mdev_us and rttvar_us up to 4 times its deviation, all in u32, like t=
+he sum
+> + * in __tcp_set_rto(). A larger sample could not raise the RTO, which
+> + * TCP_RTO_MAX bounds.
+> + */
+> +#define TCP_RTT_MAX_US (TCP_RTO_MAX_SEC * USEC_PER_SEC)
+> +
+>  #define TCP_TIMEOUT_INIT ((unsigned)(1*HZ))    /* RFC6298 2.1 initial RT=
+O value        */
+>  #define TCP_TIMEOUT_FALLBACK ((unsigned)(3*HZ))        /* RFC 1122 initi=
+al RTO value, now
+>                                                  * used as a fallback RTO=
+ for the
+> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+> index f65697bc96c9..10a23ee20e61 100644
+> --- a/net/ipv4/tcp_input.c
+> +++ b/net/ipv4/tcp_input.c
+> @@ -1098,7 +1098,7 @@ static void tcp_event_data_recv(struct sock *sk, st=
+ruct sk_buff *skb)
+>  static void tcp_rtt_estimator(struct sock *sk, long mrtt_us)
+>  {
+>         struct tcp_sock *tp =3D tcp_sk(sk);
+> -       long m =3D mrtt_us; /* RTT */
+> +       long m =3D min(mrtt_us, TCP_RTT_MAX_US); /* RTT */
+>         u32 srtt =3D tp->srtt_us;
+>
 
-Patches #2...#5 fix error handling problems discovered by LLM, but have
-not been seen in real world systems.
+Nit: the two tcp_bpf_rtt(sk, mrtt_us, srtt) calls below still pass the
+unclamped sample, next to an srtt computed from the clamped one.
 
-Patch #13 fixes a real problem, that can be seen in production system.
-Certain CAN-FD related flags are not set.
+Maybe clamp the argument instead:
 
-All other patches are driver removal or cleanups.
+        mrtt_us =3D min(mrtt_us, TCP_RTT_MAX_US);
 
-regards,
-Marc
-
---=20
-Pengutronix e.K.                 | Marc Kleine-Budde          |
-Embedded Linux                   | https://www.pengutronix.de |
-Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
-Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
-
---5ddab6moxsf2jjwx
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCav1zvgAKCRDMOmT6rpmt
-0kScAQCVnBh2ojLTGUXDjZWP46ZnoXgbeRVGwkAZitH4wHQR1AEAoFYJ1goHofaf
-xkgwqPSBXKo9uyCx0/3YAwnynLSIjgU=
-=IvQR
------END PGP SIGNATURE-----
-
---5ddab6moxsf2jjwx--
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
