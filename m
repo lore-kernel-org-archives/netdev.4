@@ -1,62 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997922;
-	b=jfAFy4q6AfDuXyOiB7P1e5V4PugEHuJ0RYtang3PDl+s/JFElYUe0bHILg1Kn9RyRi61
-	 FOMvLjULgenhUx4FH7Uhl6f6cRDwmnL3VrqmibaLUUNvNKy66j1VgRHOkItpSz7dcQ+sC
-	 d1nH0u3ggJDblsXhPJmMBFO4RO6Ml0yIcNexS4kpnuchIInsQ2WitDUCJzZmPv4g9tNtN
-	 G1RW4sZ2bzn0s6AvYeNEZrFQ5ArQUOVnVttzNnpgDE8ZDqZmMTFP0QY1ZyouXch7gxLec
-	 I5bju2G7HYcBNJYiXFBEZuR+NHJOqg9169LpkcSQ89T5fp5wn8yG3dO/wU6HPoGS7KQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997922;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=l1SThaicy8EwL0o4BRq1EqzA9aHY8uKfLxMAmpMfikE=;
-	b=VvVW5pmcvCDi2p7i89iN+ZWiTcza4PrGf+j4qqyPOLj/6K62Ke21nKFtDBwp1vdT6qd3
-	 /bM5U5nbLRXw8IFhxjwHxK0s3/yYx/eZVZlzfMVlAPpNzPi9sBUh6eEjNB4Mk0PkTUVXr
-	 ZVnb8oyId2F9cVGbcWJyhzebDto+AkARIDSLJIOiJcDmlAzU/3Iejz6BR/4lVCghMuqom
-	 Zr8PlCeJ6agA5zmLfON2vWWgHptELCj0XoJbKt7h3T2mCQ2IJN0uSfXCyqpdJR+zRUFQK
-	 IqTtVqutcfboDvlv/EcCZpBc6MObpb+DfwOdeTwXh9z4iVUVuwWnM4JKo/7DyH3XonQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=brbBree5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.138
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794998028;
+	b=iRhn4BURA0kJrtv2ETOOF64JbYE7Yt4SV6aqfbYGgxkrMltwPCPXPgxj7Wdn1CgYjEUj
+	 NMwyKQVvU+ep6IS5mpiVmHxekIIomHhInYp1/SynpABA7JFsy1RIEJdLM2YZVz3wV5KsD
+	 FgNNxrztWEF/UOIBpJgHpjQexppN4c+QlLLVE0cU8+Dw3OEyBVF09d18a+7McGGq9ln2u
+	 n73jcY9aXGc16hRGsvVkRg3t9N/xXn5uxYixdpnHJN/sllqRxUZYV68i3/OXmS6nadNNP
+	 Xr2RTG9k0gzkHjeD+aeInafNt0mfoCCSUmmkcrpy7Waz5jAQD8lJc6vYJUfhP6a15gA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998028;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:MIME-Version:From:Date:X-Gm-Features:Message-ID:Subject:To:
+	 Cc:Content-Type;
+	bh=eHftBICfL5lf7+1UD3fD4oeS4Rb6SDVondnJse/gAGE=;
+	b=KGP2NizCFTzzfqvSVPVv48rTQhX83HWEUH3jYSuRV3fPTJVfsMS9NRMMI4Ak3Hh3R4Bt
+	 PNEcw0tbX6Teoxc4/S4B9W1GDS0rQU8uw5aPhPzKM5ZaLz70E3w5Wo0+Cz4F+zEkG2gpV
+	 MXN6xgBreZIOJuGqZH5D96rW83gr4EuzjVbJh5R3wRpfd1rdpVlg0VXFKAZBax/m6Wzaq
+	 JFDmlUUYGI3QbwbZ5copZc0Sf4XiCDMikWqpLYt2I2jt9VOUB9SyTuWXeg6IlL+BEyNON
+	 bBJVWsCA0WWACrqnh8H9r5ALvUsLdHJq+ZDP6pFGmTXbIDshW74CNn+HIrmniyYXyjQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K1opnPCT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.138
+Received: from mail-oo2-f10.google.com (mail-oo2-f10.google.com [74.125.231.138])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4C92606A336;
-	Wed, 18 Nov 2026 10:32:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B1C8606A32C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:33:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B1C8606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=brbBree5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4FDE51F000C5;
-	Wed, 18 Nov 2026 10:32:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794997922;
-	bh=l1SThaicy8EwL0o4BRq1EqzA9aHY8uKfLxMAmpMfikE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=brbBree53Opl20i5po3ljgiWv+k1RE6Sl7PQiqd4f6nc/jtoYK7+14PWQMoGJ0fYX
-	 GCL52q54ZP1OjTNqs8lfBdULhReIFgMcxkkbPhuzxFmMRLVfotX9awvQsSdgxsg7OR
-	 UnNBCgBUckJ/HcT4DtNNGdtDL5kVs65YKtdV418DKpfg0Go+oOsBw+vfK5eSCqrkwR
-	 r8ypwBkg0/7unmPHNIOcuAUrFzXKTNT+UJeGfpUZh4Cix38+kU28pyhaItGH8znehY
-	 3XLXvsYLPMDYs1CP7xm1SsNVVuC/uY0mTJr6cb1lygyT0YV0fJv24d4T54WExZFc/7
-	 I0VHyXbc09WnQ==
-Subject: Re: [PATCH net-next V2 10/10] net/mlx5: LAG, do not add a device to
- an already-active virt LAG
-From: netdev-bot+sashiko@kernel.org
-To: tariqt@nvidia.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
- cjubran@nvidia.com, cratiu@nvidia.com, gal@nvidia.com, leon@kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
- moshe@nvidia.com, ohartoov@nvidia.com, phaddad@nvidia.com, saeedm@nvidia.com,
- shayd@nvidia.com, udar@nvidia.com
-Date: Wed, 18 Nov 2026 10:32:00 +0000
-Message-ID: <179499792089.3136.10061962693179545978@kernel.org>
-In-Reply-To: <20261116103010.1129666-11-tariqt@nvidia.com>
-References: <20261116103010.1129666-11-tariqt@nvidia.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=K1opnPCT
+Received: by mail-oo2-f10.google.com with SMTP id 46e09a7af769-862aa241d77so278536a34.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:33:48 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794998027; cv=none;
+        d=google.com; s=arc-20260327;
+        b=gyBELSJ4RI6g0ZWr5yCClhFx5VKzV+Q+gVUvRojPddeLUxG3IY9dbBgC0OIvuZ1a7c
+         15t2QvpLesqhLGPCg5Und+3m3dT8/juIA7ivMgnfjHXKtMNz9YGBaHfWLHX687WbTFo2
+         Ot536QmC5SnEik//qUqkQAQUC8ZuZwz+6q/xw7FBNzLFXOSrwCRq6iXCGaxMEBeOgP92
+         OJKhydaCSxAZs9coxf4v6FIgtKNWAoRmimRWDeiFLEfa2Z9ZeF1ccYK2cPg8aCJgsuHo
+         v/PlrHTK6S+7TWnlkIqN03UJVgyziUwWpvCv4PDYOEKpuDtMXsHPiHOd829jN4FyV97s
+         kFfA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=eHftBICfL5lf7+1UD3fD4oeS4Rb6SDVondnJse/gAGE=;
+        fh=FhtaTyy8il9eSA8ePT6MPwqpCJIyFUGDN9A9+GXk/Os=;
+        b=JTvgAQPO2Ej3IqXjJO8LHI3yAVGKXQA7bsedSlfw/SsGjA3K6t+q/xri0uw6p3vQef
+         sky+7KspRxtVLjWLKVDyy6yP9loNTeerczLuwHiFMOmJVR12DuD7dY7oQokGCoVHA0Ln
+         zXIlVi7c17AQfD8LPQWqR1A8J4WU2WibR1poCwRJzZ4bmyl++KjHiX1gsLWERZeMmDII
+         XGiviyzP2/JczsVA1dlsf4qfp3EThnDCqERKg8UnAijNuGRFF5n9LQkKIUSkDIyl381u
+         fRmxhT19KYu+k29crefq268yzWHaIWlslqh97MfH9tNqXaRHsFZhZyNrE9ojoXC6WDRx
+         zJjQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794998027; x=1795602827; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=eHftBICfL5lf7+1UD3fD4oeS4Rb6SDVondnJse/gAGE=;
+        b=K1opnPCTe+6EenhPUqp2uPc4X1Et54jZcWV0TJxbKlCTOz8aM16/+ZLVcJXnC02J0G
+         4AvpeL8VfJqh6abrfl6g9MQjL8y5qYe0gMgi1Rz6L2wErC69LdGajgvXljm9P8SVIbIb
+         jWuuTUv3Lg3MagKSswUq7ZDHzNZC5mE8PxopfB7WmdeMkNFlQtZPB3eWf+ms6JcgrTwd
+         yUPcIk6n5pwlX5+8odCWTnYh4XxMu5VT5YxpA8uMngtcQLi9m+9zxoavJyPlwX8LuWGG
+         PQKXOdCQ5xQri4LwPcQvhUHN463PfN1FdLzK+uFHUxtu+HVL5sAGyGH0o74zWhVHnMUp
+         pSJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794998027; x=1795602827;
+        h=content-type:cc:to:subject:message-id:date:from:mime-version
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=eHftBICfL5lf7+1UD3fD4oeS4Rb6SDVondnJse/gAGE=;
+        b=bb9O10tYo8rnqU8C5z8wjLUTWerWTnn658IrxiT0xfSaP+YdIi4TN2q0/0Aq8SjfbC
+         tu7ahUMfj8fdmVdijilCbZjUjF+fCG+G83EZS2kNDbD7RM9JgKzwSdas21xi+EVEfteB
+         +F6xPDXOHwjjiuHsET2xsmoAzirim0XYcYJDqBZ3HCxygLE0iZbPnzplBSCNbGYvhkfh
+         rCcpGOmXds4apNk+a07KZqCn2IWsPREjVU1jFLojjwNHyfTOT0ay6faNY9xMcO0gYfbh
+         +4dPTs3iEolv7ap9ndiAnL5w7GhZqQtJUZQMthXHHknHxYzssd3c/QkvlbACTSPly0j9
+         yeNg==
+X-Forwarded-Encrypted: i=1; AL+hErFHfnS1Il+VARoIrBofcfcYqrmkO+64g+3IxmzQKqmR22PlzHKwhVLKEvpg0guSEofuYF4WbVw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Us+jh5QJMqp2pJEBXzfl1WggNbQhZriTau3FBCH6jUGbaStQR
+	fytatV+XKH+hkNZvhXK9RH9317q3l0u77W8P2AtlBiwjj6V64TMeFXiRKXwHWjER/jrt50TCScX
+	7JVX3rU5lhu4lyIcN5LDKYkbPevLSQ/c=
+X-Gm-Gg: AYBFou2EMWWWBi3zx10tTgS5rW0AQsoxPOiVDDGvor/Yz+aomr92pDsAnsGmOyJpU7/
+	P7jkcf5jXAeyiQfRCS3gwkn9ndK8bDcM8K5obPwziBA/doyGzFA+HVfMBornlqRMsj3w7SlrxoM
+	ED5YuA8tvoEOsM3vkp6cqbPeXU+itdnhTIBjeAu7g8KU11RIhrUjqsvoZwOST4EnQxtw/IMU03l
+	mQvAVU5meJJ04Y0BZ8IPYHi5hy1MrC7FZtsZbXDUe9J3DSckJ4swu8ynBD3JZcx/u2q6SMHJvd4
+	Ck3UfC1zRked7yfXYJV7AhVF4kFky90DgNHkH+5cmgMt8gULUAVH7UeE7r6xnxsUVo+F+ruSKga
+	EcoQ1JXk4F3YZXvsb+JQDjYO7mkmb1pGuIeW5HPmleZJth3GMtOreAjhOJJw=
+X-Received: by 2002:a05:6808:518b:b0:55c:127b:b769 with SMTP id
+ 5614622812f47-5774182a61cmr2545994b6e.32.1794998026934; Wed, 18 Nov 2026
+ 02:33:46 -0800 (PST)
+Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
+ Wed, 18 Nov 2026 05:33:45 -0500
+Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
+ Wed, 18 Nov 2026 05:33:21 -0500
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,184 +105,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+From: Kimberly Morris <gy770616@gmail.com>
+Date: Wed, 18 Nov 2026 05:33:45 -0500
+X-Gm-Features: AclHuK_AzINQnGjvOhKKc6IapMLdPZWmmHRI8UP9v6DIWKYZf5qhKJsW_DoCxYc
+Message-ID: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
+Subject: [PATCH net 0/2] net: phy: fix timestamping lifetime after probe failure
+To: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, 
+	florian.fainelli@broadcom.com
+Cc: bcm-kernel-feedback-list@broadcom.com, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	richardcochran@gmail.com, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org, w@1wt.eu
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hello,
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
+Following Greg's request for an applyable patch, this series addresses the
+automatic PHY probe-failure lifetime path from the earlier report. It does
+not rely on the root-only sysfs driver-unbind trigger.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+A PHY driver can publish a devres-backed mii_timestamper before its probe
+has completed. If a later probe step fails, driver-core cleanup frees the
+owner while the phy_device can retain the published timestamping state. A
+later generic-PHY fallback can then reach the freed object from
+skb_defer_rx_timestamp(). Broadcom BCM54210E/BCM54213PE also leaves a
+registered PHC backed by the same freed storage.
 
-- [Medium] In this tree, both parts of the patch hit a predicate
-  mismatch.
+Patch 1 restores the timestamping state that existed before phy_probe().
+Patch 2 adds the missing managed Broadcom PHC and timestamper cleanup.
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the patch now
-  cleans up the HCA devcom component on its own new -EOPNOTSUPP path…
+I reproduced the first issue on an x86_64 KASAN kernel with a KUnit test
+that registers a real mii_bus, phy_device and phy_driver, follows the real
+failed-probe and devres cleanup paths, attaches the generic PHY driver, and
+passes a non-PTP skb to skb_defer_rx_timestamp(). Before the fix KASAN
+reported a slab use-after-free; after the fix the test passed without a
+KASAN report.
 
---
+Tested on:
 
-net/mlx5: LAG, do not add a device to an already-active virt LAG
+  - upstream master 20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
+  - net/main 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
 
-This patch stops a virt LAG capable function from joining a LAG whose mode
-is already active. In that case __mlx5_lag_dev_add_mdev() returns
--EOPNOTSUPP, and mlx5_lag_add_mdev() then unregisters the HCA devcom
-component. The patch also makes mlx5_esw_offloads_devcom_init() skip eswitch
-devcom registration for a non-PF virt LAG capable function that has no ldev.
+The submitted series is generated against current upstream master
+63fdb511c27afcebce797e3db580b3534ddfa639. I have not tested it on physical
+BCM54213PE hardware, and I am not claiming an attacker-controlled probe
+failure, privilege escalation, or code execution.
 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
-> index 3e88b3f51612e..abcab76fced0b 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
-> @@ -2448,6 +2448,11 @@ static int __mlx5_lag_dev_add_mdev(struct mlx5_core_dev *dev)
->  		mutex_unlock(&ldev->lock);
->  		return -EAGAIN;
->  	}
-> +
-> +	if (mlx5_virt_lag_is_supported(dev) && __mlx5_lag_is_active(ldev)) {
-> +		mutex_unlock(&ldev->lock);
-> +		return -EOPNOTSUPP;
-> +	}
+Please let me know if the rollback belongs in individual PHY drivers rather
+than phylib core.
 
-[Severity: Medium]
+Thank you.
 
-Can this condition ever be true in this tree?
+Kimberly Morris (2):
+  net: phy: restore timestamping state on probe failure
+  net: phy: broadcom: release PTP clock with PHY devres
 
-mlx5_lag_add_mdev() is the only caller of __mlx5_lag_dev_add_mdev(). It
-returns early unless mlx5_lag_is_supported() passes:
-
-mlx5_lag_add_mdev() {
-	if (!mlx5_lag_is_supported(dev))
-		return;
-	...
-}
-
-mlx5_lag_is_supported() requires num_lag_ports >= 2:
-
-	if (!MLX5_CAP_GEN(dev, vport_group_manager) ||
-	    !MLX5_CAP_GEN(dev, lag_master) ||
-	    MLX5_CAP_GEN(dev, num_lag_ports) < 2 ||
-	...
-
-mlx5_virt_lag_is_supported(), on the other hand, requires
-num_lag_ports < 2:
-
-	if (!MLX5_CAP_GEN(dev, multi_uplink_eswitch) ||
-	    !MLX5_CAP_GEN(dev, lag_master) ||
-	    MLX5_CAP_GEN(dev, num_lag_ports) >= 2)
-		return false;
-
-No device can satisfy both, so this -EOPNOTSUPP return and the new cleanup
-branch in mlx5_lag_add_mdev() look unreachable.
-
-The commit message says:
-
-  "mlx5_ldev_add_mdev() would add a newly probed device to the LAG even
-  when the LAG is already active"
-
-Can that happen today for a virt LAG capable function? If this check only
-prepares for a later series that enables virt LAG, could the commit message
-say so?
-
-The same mismatch seems to affect the eswitch change. A non-PF virt LAG
-capable function never reaches mlx5_ldev_add_mdev() here, because
-sd_lag_init() only handles PF SD secondaries. So dev->priv.lag stays NULL
-for it, and mlx5_virt_lag_nonmember() is always true:
-
-static inline bool mlx5_virt_lag_nonmember(struct mlx5_core_dev *dev)
-{
-	return mlx5_virt_lag_is_supported(dev) && !mlx5_lag_dev(dev);
-}
-
-As a result, the new early return in mlx5_esw_offloads_devcom_init() fires
-for every such VF/SF eswitch:
-
-	if (!mlx5_core_is_pf(esw->dev) && mlx5_virt_lag_nonmember(esw->dev))
-		return;
-
-Before this patch, a VF/SF eswitch with merged_eswitch would register
-MLX5_DEVCOM_ESW_OFFLOADS and send ESW_OFFLOADS_DEVCOM_PAIR. The existing
-MLX5_VPORT_MANAGER() / !mlx5_lag_is_supported() gate further down does not
-stop a non-PF, because MLX5_VPORT_MANAGER() requires mlx5_core_is_pf().
-
-Does this drop eswitch devcom pairing for those VF/SF eswitches? That would
-contradict "it is a no-op for existing configurations".
-
-The commit message also limits the devcom change to "such a device", meaning
-one rejected from an active LAG. The condition, however, matches any virt LAG
-capable VF/SF that has no ldev.
-
-Once virt LAG joins are allowed, devices that are left out because
-mlx5_lag_dev_alloc(), mlx5_ldev_add_mdev() or
-mlx5_lag_register_hca_devcom_comp() failed would also be treated as
-non-members. Is that intended?
-
->  	mlx5_ldev_get(ldev);
->  	err = mlx5_ldev_add_mdev(ldev, dev, 0);
->  	if (err) {
-> @@ -2536,6 +2541,10 @@ void mlx5_lag_add_mdev(struct mlx5_core_dev *dev)
->  	err = __mlx5_lag_dev_add_mdev(dev);
->  	mlx5_devcom_comp_unlock(dev->priv.hca_devcom_comp);
->  
-> +	if (err == -EOPNOTSUPP) {
-> +		mlx5_lag_unregister_hca_devcom_comp(dev);
-> +		return;
-> +	}
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but this new path unregisters the
-HCA devcom component, while the nearby failure paths in
-__mlx5_lag_dev_add_mdev() still leave it registered.
-
-If no peer ldev exists and mlx5_lag_dev_alloc() or mlx5_ldev_add_mdev()
-fails, __mlx5_lag_dev_add_mdev() returns 0 with dev->priv.lag still NULL:
-
-	if (!ldev) {
-		ldev = mlx5_lag_dev_alloc(dev);
-		if (!ldev) {
-			mlx5_core_err(dev, "Failed to alloc lag dev\n");
-			return 0;
-		}
-		err = mlx5_ldev_add_mdev(ldev, dev, 0);
-		if (err) {
-			mlx5_core_err(dev, "Failed to add mdev to lag dev\n");
-			mlx5_ldev_put(ldev);
-			return 0;
-		}
-		return 0;
-	}
-
-mlx5_lag_add_mdev() treats that as success, sends LAG_DEVCOM_PAIR and keeps
-dev->priv.hca_devcom_comp. On teardown, mlx5_lag_remove_mdev() returns
-before it reaches mlx5_lag_unregister_hca_devcom_comp():
-
-	ldev = mlx5_lag_dev(dev);
-	if (!ldev)
-		return;
-
-The comp_dev's data still points at this mlx5_core_dev. Does that comp_dev
-stay on the shared component list after the core dev is freed?
-
-If so, a peer with the same key that probes or reloads would get the freed
-dev back from mlx5_devcom_get_next_peer_data() in __mlx5_lag_dev_add_mdev().
-It would then call mlx5_lag_dev(tmp_dev) on freed memory.
-
-A peer's LAG_DEVCOM_PAIR/UNPAIR event would likewise call
-mlx5_lag_devcom_event() with the freed dev. That reads dev->priv.lag and can
-call mutex_lock() on a garbage ldev.
-
-Could the component also be unregistered on those allocation failure paths?
-
->  	if (err) {
->  		msleep(100);
->  		goto recheck;
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116103010.1129666-1-tariqt%40nvidia.com
+ drivers/net/phy/bcm-phy-ptp.c | 19 +++++++++++++++++++
+ drivers/net/phy/phy_device.c  |  5 +++++
+ 2 files changed, 24 insertions(+)
