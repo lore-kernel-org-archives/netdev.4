@@ -1,55 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043633;
-	b=bFuGsPZyeEwoWmls6zzHZFNMjJelGZb0whPnc1h/LRFd+Z38OM/SfMg+fmFSV7ACMwWg
-	 hbolBXpAUUcg3nUx5eyyyGtJVPoD62p5MKd2dnZfX0hVhWQvJqx8Oys7w2tuNWDIs975a
-	 CLHn/nByyZ+D3hoOPNNmKZF+L7kfjavU/nWo5ytbeXDIvKAEHlQNLN1UVVmwqSpUdndde
-	 DtKeVZcKFv31Y/ZeilqJ56YrWaP+AELG0N8XGaaya8WyrXC63IhxAxmJDtSKcJ/UGuwWa
-	 3hHkVddhYGiDv29gMsaYt1I7Q/ozWM/tIPT82+IzKrnc0feptztI4VPS1CqxJrZ5pCw==
+	t=1795043791;
+	b=lJlZ5mYyHFGX3T/pymiZBagZNTV57fE+lj44Bb1qpxj4e6TvfwYn2TEz1loNkKUboFzk
+	 zHhJfMU+yR8i8Vi398rQjHPA1WAnhYDwIgYZJg+m4ng4KTAytWP0CPjxw8YNUgRxOd0dZ
+	 TkL+I6LwQRmUng6MwvmsLe8nSQQ70VmJX0IoOctUE1Jn8BCCUl2uZcX56e4WYs6hTTyfS
+	 10gIjJQFUvOUDWFfbusRclrQqdZER47DPMTNyYGqP/OPhLYfsRgsMuZc1L9cn+sSZxmGI
+	 Y1Tja7Y/5MNPwMY45SC4+JU1Jz9pF+3Ma06+3S4dOcOSiWbrvYrHyt5G09wVvOFNzjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043633;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=U2sLAuN9XmB+8Qa4Z+TqAPFS0kw+btbeuIVWSXx3mKQ=;
-	b=RbknOmpHjBdNDiBre+bUhTfBqZKB+aHYDtfcH+jz94y9/uKZ7VS6vg1521vU3orIHyZn
-	 gLLczbjFcVYul9gEGaFfrWODrEtRyR3DnO3o7gQGfdgghxU3VAO5cda5KjBikqiuPHX7I
-	 ln0mYlQXUslm86Lg7YitfB+P48J6NMEe6XCiynl06pBr+lIQq30+36roleHiqVJB0OU+b
-	 kpYt0klbRmBR1JQDwbpnSndDeX+zSCKNOXfRiYvH/2k8QuCITWEQ/M2rxSW68E/N4tlqp
-	 mfhQf2ippmgR4348Mg6g3vqX72Grmy93vGafZU+mDeD7Zh6H2gmcnmCmU1Ql8ymZbLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043791;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=xiiydflEB91O48Fmb7pHblMVYGyM8PHtmi+Z46i+1H8=;
+	b=xBnQfgctifrXpZC0b17aeU7vpHQmePIWy99MXI5dNJKeZBJzWZsb9BteA5P06rCVgQV0
+	 TrBKMiPB9Gls1aNs3367D4zZgNIk9xWxaOjmkvx/Acy7q01hGSLIzYlLX6SPjKf41QDv9
+	 pCD3l6BhJHi6PgKdf09X6Rv+/qqrQwkG4t60xLNR78NMYG+K64foQzngniwYCSVxqFwY8
+	 mwGMrhlYlCtNAnacCKpJQ3RMaRs+iLNxO82STwHmMk2u4atjy4aZjfOD3PMh22nrRMQuj
+	 9d8XRBdoYohOye2DIEXcBvd89ZQNz75x5uyNYiFfGAqkpC8kCtuWXjynyiulmH7EghQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSLSNfcN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=LutoQfhC;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EBC760A2634
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:13:53 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06E21606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:16:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06E21606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eSLSNfcN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E67611F000CE
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:13:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795043632;
-	bh=U2sLAuN9XmB+8Qa4Z+TqAPFS0kw+btbeuIVWSXx3mKQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=eSLSNfcNODBJWE+smdCpOQvgxJ3yCTsRV1ti30sCEnkO3vNdMdOkA/x7U53t7qXV3
-	 By773AaFnvn0RoQGwDzS4etnUHqi4d+q+5OJO75RgPnRmYIsRqjyyi2k3AszecNcSC
-	 +YRgzM6KApU8tIs+P3pJruiZu1zk8F2SUzR/1DHobGD2AfXhk6AOSZDBc7lXduqVAc
-	 Qb2UKu9U8QdwlxsdcEP3ksLNa16GGGJWySlJsPwYyeOG3qwL5dFdQwQkiyG8fg676U
-	 7TXOMVnrN0aktYPTMRTofxxQ7qeXKHDQvFvlVO5dTVVWKddCuhzyqWNfZLznJZz/lQ
-	 NU6mi/L0c7L/w==
-Received: by mail-ot1-f50.google.com with SMTP id 46e09a7af769-86103aaac12so228150a34.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:13:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFNwGlHQXnRBuG4ofg8Wo3QffpuoGes5UbisVzPzpPGr0GvVjOzd8WQYT8zE4Ddxz4ucbgH0e8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Q1zdib67zSbZVLtiop+KFAu0wHP5SP3Njh6x6ZfTebrQnluWy
-	eNAewOmLm7SCObaR4lginYs+CYEk350177AiSZqxCYT85DrV0S22hx0JhTrczPJZ+Fuml4+11PT
-	QOcYUt4ZZJfDlLR3pa1THDsA0YzwCfpE=
-X-Received: by 2002:a05:6820:3505:20b0:71a:fb85:d056 with SMTP id
- 006d021491bc7-71b2e1830d0mr153233eaf.6.1795043632256; Wed, 18 Nov 2026
- 15:13:52 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=LutoQfhC
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=xiiydflEB91O48Fmb7pHblMVYGyM8PHtmi+Z46i+1H8=; b=LutoQfhCWTB+Vb+z9TekYwKr7H
+	GWTVWumAwyTkxLRfFlptBdZ61SzhfTKDf/3tGI1H51bYMzRS1kJQNGbdfXFyBLM3PCo137+nr6+MT
+	CWrxidRoUB7iJ2BFNgqtxQl7EPMbVR9vCAKh4nRBXSV7nnBupTkaZttdKlFC5oNpiiLg=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTot2-00HWXF-Lg; Thu, 19 Nov 2026 00:16:20 +0100
+Date: Thu, 19 Nov 2026 00:16:20 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Daniel Pawlik <pawlik.dan@gmail.com>
+Cc: linux@armlinux.org.uk, netdev@vger.kernel.org, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, petr.wozniak@gmail.com,
+	maxime.chevallier@bootlin.com, olek2@wp.pl, hkallweit1@gmail.com
+Subject: Re: [PATCH net v2] net: sfp: skip PHY probe on bridge-less OEM
+ SFP-10G-T revisions A and B
+Message-ID: <4ddef89e-d6aa-4d6f-bc8d-997a9ad781b9@lunn.ch>
+References: <20261118221450.1764790-1-pawlik.dan@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,45 +64,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118-nb-genet-xmit-drop-kick-nn-v1-1-e4e54b143d60@tipi-net.de>
- <377f9f22-4ef6-4b55-9276-ffa4893eda1e@broadcom.com>
-In-Reply-To: <377f9f22-4ef6-4b55-9276-ffa4893eda1e@broadcom.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 19 Nov 2026 00:13:40 +0100
-X-Gmail-Original-Message-ID: <CAL4WiiqM4uAi-YZyWKc8nJv3TL67tU1VnKrAEXTpLV6Pgn0BrA@mail.gmail.com>
-X-Gm-Features: AclHuK8eBwJrfhyin3SZg4bGLsa4kZahp_0pSqnbPmibibSVGeBRbc-WcUQOYsk
-Message-ID: <CAL4WiiqM4uAi-YZyWKc8nJv3TL67tU1VnKrAEXTpLV6Pgn0BrA@mail.gmail.com>
-Subject: Re: [PATCH net-next] net: bcmgenet: write the Tx producer index when
- a frame is dropped
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Nicolai Buchwitz <nb@tipi-net.de>, Doug Berger <opendmb@gmail.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Justin Chen <justin.chen@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118221450.1764790-1-pawlik.dan@gmail.com>
 
-Le mer. 18 nov. 2026 =C3=A0 22:01, Florian Fainelli
-<florian.fainelli@broadcom.com> a =C3=A9crit :
->
-> On 11/18/26 12:40, Nicolai Buchwitz wrote:
-> > With xmit_more, queued frames reach the hardware only when a later fram=
-e
-> > writes TDMA_PROD_INDEX. If that frame is dropped, the write is skipped
-> > and the queued frames wait for the next transmit on that ring, which ma=
-y
-> > never come.
-> >
-> > Write the producer index on the drop paths too.
-> >
-> > Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
->
-> Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+On Wed, Nov 18, 2026 at 11:14:50PM +0100, Daniel Pawlik wrote:
+> "OEM SFP-10G-T" modules with vendor revision "A" have no RollBall
+> I2C-to-MDIO bridge: page 3 of the 0x51 EEPROM passively echoes written
+> bytes, so every RollBall command times out. With instrumented mdio-i2c,
+> the CMD register reads back exactly the written command byte (0x02)
+> forever, with no DONE and no I2C errors. 0x56 reads back all 0xff, so the
+> PHY is not reachable at all. A genuine RollBall module with the same
+> vendor and part number (revision "02", AQR113C PHY) on the same board
+> answers DONE on the first poll and its PHY attaches within ~2 seconds.
+> A rev B module with an RTL8261BE PHY, reported on the OpenWrt tracker,
+> hits the same RollBall timeouts. The bridge probe added by
+> commit 8fe125892f40 ("net: phy: sfp: probe for RollBall I2C-to-MDIO
+> bridge in mdio-i2c"), since reverted, found no bridge on it, after
+> which the module worked.
+> That module reaches this quirk entry only because its part number is
+> "SFP-10G-T" at that point: it is a rate-adapting module which reports
+> "SFP-10G-T" with a 2.5G or faster peer and "SFP-10G-T-I" with a 1G
+> peer, and only the former matches this entry, which is the sole entry
+> forcing RollBall on it. The "SFP-10G-T-I" variant matches no quirk and
+> keeps the default behaviour either way.
+> 
+> Because the SFP-10G-T quirk forces RollBall, the kernel retries the PHY
+> probe 25 times at ~21 seconds per attempt, i.e. for over nine minutes,
+> before giving up and falling back to inband mode. Each attempt runs from
+> sfp_timeout() with rtnl_lock held, so for the whole window every rtnl
+> user on the system stalls in ~21 second chunks, including the state
+> machines of other SFP cages: insertion and removal of a module in another
+> cage is only processed after the current attempt ends. In one test, a
+> module pulled from the other cage kept being polled by phylib until the
+> attempt ended, triggering a WARN from phy_error_precise().
+> 
+> Give the SFP-10G-T entry its own fixup that skips the PHY probe for
+> revisions "A" and "B", while keeping the forced extended compliance code
+> so that the module still links up in 10GBASE-R inband mode as before.
+> Other revisions keep the RollBall fixup unchanged.
+> 
+> Tested on a Banana Pi BPI-R4 with rev A and rev 02 modules: the rev A
+> module links up at 10G ~16 s after insertion instead of over nine
+> minutes, and the rev 02 module is unaffected. No rev B module was
+> available for testing; its match is based on the report above.[1]
+> 
+> [1] https://github.com/openwrt/openwrt/pull/22910
+> 
+> Fixes: 324e88cbe3b7 ("net: sfp: add support for multigig RollBall transceivers")
+> Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
+> Link: https://lore.kernel.org/netdev/20260624084814.20972-1-petr.wozniak@gmail.com/
 
-I think this is a net candidate, even if you could not reproduce the bug.
+If i'm reading this correctly, it never worked before? So this is not
+a regression? I don't think this is net material, it should go via
+net-next.
 
-Fixes: ddd0ca5d60b3 ("net: bcmgenet: add support for xmit_more")
+> +static size_t sfp_strlen(const char *str, size_t maxlen)
+> +{
+> +	size_t size, i;
+> +
+> +	/* Trailing characters should be filled with space chars, but
+> +	 * some manufacturers can't read SFF-8472 and use NUL.
+> +	 */
+> +	for (i = 0, size = 0; i < maxlen; i++)
+> +		if (str[i] != ' ' && str[i] != '\0')
+> +			size = i + 1;
+> +
+> +	return size;
+> +}
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+When sending to net-next, you can move this function in one patch, and
+then make use of it in the next patch. That makes the code easier to
+review. Lots of small patches, with good commit messages, which are
+obviously correct.
+
+	Andrew
