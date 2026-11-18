@@ -1,80 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.10
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794985124;
-	b=kVo4Qph/X92LH15Dz6ea9lgGByqUz2IJcBf+T4Wc6JqaprgVboa+p1hL9Y6HBwZEVzfn
-	 w2CEns7yN8i8kcE0SpEoLC4Apj9ZEydoxtbDVjOvykkrFuQeb9AAda4dtYv8xWEijIy+G
-	 iURrOwwr2YW4LdVagzLCUMNq/pAvs7ESbQGdtkR6sVyo4j9ttdgd2VfP9jweRE0aj32uB
-	 91oEtSOtuPV3Pehp6wMKGZM+d/qXfir5N4BQu+hYmmOrOnPHO2Znd3cPjJcZmZOOH0beU
-	 9JpfB+sUz494WPZtZ01hVOsie5QvJ3CcK0xwpGs+i8d5k/XtVGIHXbFrR+JDOHa61sA==
+	t=1794985537;
+	b=yK/udbHBTCutcpSofmtTT5X7C4wZ9AyYxp1bozeCdOX838gp8az7/+h3h3gHLO/AdKhP
+	 XtdMMB4mm4R+udB1kQygiCvaMSW40+t4KrcJRcHVNABtbD9bhTXki4LVKxEORwTvi1xbM
+	 /rONa/6e8IRv7PmH/Id1eRvWrSUWuui10OK77TuC15shURGxd6LrY2WlxEZOYVF9MQEoV
+	 TdVFDWpNTW6z/IaqQvzHA3aV01NU2GIASDAFtyTpBec16EhmkdwML85T4EK5mw27NuZQl
+	 5AQ4S2EVkFLyreTu8lezRYzFYBKDZN5Ky0dh/2+urleXGrGke0YJXrlSAqyEKAgkaAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794985124;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=FwQzXqOlZf12zJP3Pg0931RBaDdFGOMlSkw3C6GM42c=;
-	b=QT2VaG90Se6Cwgamv9QLyl9bysLXj7Kik51jeMjh0HMKINMYEhAkREQ/vvBBzocDBt98
-	 CcFz0MiRPl1jaSDlXafbAA2jVa19EBYgJXae08cChluaYIslCNbrEdDfWK2OkXON4ivrX
-	 +eTRy2lieJJAk9rkvOVTgND2LC91YGl36RvLoutB8vYnDiM7hHnmI4cXFi+cQVqBcnQqQ
-	 uG69b4SMfNY4zX3cfTIOkJAWWBTFk1CjfxJ933PW2FKKnSwiAsKSd76uHBiuJnzCvCK84
-	 Yckh/4QyybljSDJJm4JHhf7lyyj69P26PyXv4LdpWAaC/0FDKdNeUJ+fY9yvo5/oiPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794985537;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=mjq3meMdrcgGtZQ1Co1hA6n/sOXNFEBDu4lniMuprQQ=;
+	b=xbAhSPP0qvLkFLAeOo5mNJhbOz8EZAdPlM9OItoBnziFqPvkoc9UlqusJ0gDb4S+PhAP
+	 suvFFtWm82RUXoVpzav0RfhJxaoqUCsErLD1QHnevD+oSfzJo0wyvuDaUIqTblu5pmNe7
+	 CDqk4yzlqA1VQ+2zss+i8tBBcvewLjmzF42W1HYosnazdsX1ZWgu9orzElERdSULhGSbm
+	 PMhQWPKt6HoQ+XNZAkVLskhRRMmcIwnsqnbV60CPgPn3LeWFIvHVSAWmQrk12ZUaJeOWI
+	 TTqjMGnqKy1ufc4iPIDaByVkT8avI9JQi4Eo3gxvZeVCDA+JyI9jPrm71NRRuLN4g0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=IZK5hxXj;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=d9lYjIve;
+	arc=none smtp.remote-ip=95.215.58.10
+Received: from mta1.migadu.com (out-10.mta1.migadu.com [95.215.58.10])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D3C9606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:58:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D3C9606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AEE45606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:05:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AEE45606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=IZK5hxXj
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI6w9Q211123916, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1794985089; bh=FwQzXqOlZf12zJP3Pg0931RBaDdFGOMlSkw3C6GM42c=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=IZK5hxXjMkHUsEtH/dDvVO0voAre2tvof2+KrWjgIp8Mf2JOrTm5dgRGjcgQOOUdu
-	 yWpJd/0JkrxkwZHfB72BcMYRzGGULEycz3ixexZSH9XEPpd/9LJ6wlxwx/2ENrWQ22
-	 AYhkqG3za7TDWtBNl2kbOvzHp/4DMcwAp7LUdgYedRCuruWs9gSddJ7jd8gi7Om4Ov
-	 fGIyBdcLaXPJiPONrk4tlmRPxDa756yPNkP2jeiBfwf8bqHByZUpdlEAtSv3mRkODd
-	 DNorvyGk9e9EkmHssD+8hVEpsfZ5to3G3fdp70LuanGWXjOSHapFoXawXzmEYjGL30
-	 7o6PkN4mAEWTg==
-Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI6w9Q211123916
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 18 Nov 2026 14:58:09 +0800
-Received: from RTKEXHMBS03.realtek.com.tw (10.21.1.53) by
- RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 14:58:09 +0800
-Received: from RTKEXHMBS03.realtek.com.tw ([fe80::d2b4:cd25:1a3e:aca8]) by
- RTKEXHMBS03.realtek.com.tw ([fe80::d2b4:cd25:1a3e:aca8%9]) with mapi id
- 15.02.2562.056; Wed, 18 Nov 2026 14:58:09 +0800
-From: Hayes Wang <hayeswang@realtek.com>
-To: "oraveeps@pm.me" <oraveeps@pm.me>, Chih Kai Hsu <hsu.chih.kai@realtek.com>
-CC: "javen_xu@realsil.com.cn" <javen_xu@realsil.com.cn>,
-	"mail@birger-koblitz.de" <mail@birger-koblitz.de>,
-	"linux-firmware@kernel.org" <linux-firmware@kernel.org>,
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
-Subject: RE: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
-Thread-Topic: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
-Thread-Index: AQHdb2VfgJsm8wxO00aZW8BLDoptIbcwahig//+eEICAA2yhAA==
-Date: Wed, 18 Nov 2026 06:58:09 +0000
-Message-ID: <260ddf2d9e344d2dae559a1c3909e92f@realtek.com>
-References: <PfNGg6VjMdDzTCX2LETCm65NKSR0af1EG7ZX5CI-7Fef0x8NE2MnZ8fNtgr1Hm86sNjqHXcNyyqIbbeZL5jDu7URTqMygnyj4ulG00NxR7U=@pm.me>
- <7b6ef8fb2c14485380c90f1f7521ea9b@realtek.com>
- <tPt9UQiUVXfE9K4MHjmkc9no1QcTNZAOhmdtvdx_yaIkVdWoxkTdDFxCdBK5RU5nKHrKGy99QZq_rUsF0mWO9bfPZmS_8tjbbrNl2B5mNwg=@pm.me>
-In-Reply-To: <tPt9UQiUVXfE9K4MHjmkc9no1QcTNZAOhmdtvdx_yaIkVdWoxkTdDFxCdBK5RU5nKHrKGy99QZq_rUsF0mWO9bfPZmS_8tjbbrNl2B5mNwg=@pm.me>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=d9lYjIve
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=ca/pNcctimUgIrRQnFieYRz/dmOQ2n2YtK9gXeLDLIY=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1794985534; v=1; x=1795590334;
+ b=d9lYjIvePlzH8AJ4jzoTtHYX6BYYjOEhJv76LKQyreI13nlCCEvj6I33KjhRgMvrjz3DpVQQ
+ FjXJ9NrpBeCqiYxywxUXCFywGniT8pT8cIMo65OqpADu/mZTroxIHT9+Nk+vI7OyanmBjdqRWNd
+ J8mFgfQGaR6wtHCa5Ud4s2jg=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 8ae76fde31622f60;
+	Wed, 18 Nov 2026 07:05:33 +0000
+X-Mizu-Trace-ID: 8ae76fde31622f60
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: netdev@vger.kernel.org
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Alexander Aring <alex.aring@gmail.com>,
+	Stefan Schmidt <stefan@datenfreihafen.org>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	linux-kernel@vger.kernel.org,
+	linux-wpan@vger.kernel.org,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org
+Subject: [PATCH net-next] net: dropreason: add SKB_DROP_REASON_FRAG_MEM_LIMIT
+Date: Wed, 18 Nov 2026 15:05:19 +0800
+Message-ID: <20261118070524.310356-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,53 +79,229 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-b3JhdmVlcHNAcG0ubWUgPG9yYXZlZXBzQHBtLm1lPg0KPiBTZW50OiBNb25kYXksIE5vdmVtYmVy
-IDE2LCAyMDI2IDY6MzggUE0NClsuLi5dDQo+IEhpIEhheWVzLA0KPiANCj4gVGhhbmtzIGZvciB0
-aGUgZmlsZXMgKHJ0bDgxNTctMSBhbmQgcnRsODE1OS0xLCB2MSAxMS8xMy8yNikuIE1haW5saW5l
-DQo+IHI4MTUyICh2Ny4yLjQgaGVyZSwgc2FtZSBjb2RlIGluIHY3LjQtcmMxKSByZWplY3RzIHRo
-ZW0gYXQgdGhlIGZpcnN0DQo+IGJsb2NrOiBydGw4MTUyX2lzX2Z3X21hY19vaygpIGhhcyBubyBS
-VExfVkVSXzE2L1JUTF9WRVJfMTcgY2FzZSBmb3INCj4gUlRMX0ZXX1BMQSBvciBSVExfRldfVVNC
-LCBzbyBydGw4MTUyX2NoZWNrX2Zpcm13YXJlKCkgZmFpbHMgd2l0aA0KPiAiY2hlY2sgVVNCIGZp
-cm13YXJlIGZhaWxlZCIuDQo+IA0KPiBBbiBydGw4MTU5LTEuZncgd2l0aCBvbmx5IHlvdXIgUEhZ
-X1NQRUVEX1VQIGJsb2NrIChjaGVja3N1bQ0KPiByZWNvbXB1dGVkKSBsb2FkcyB3aXRoIHRoZSBp
-bi10cmVlIGRyaXZlciBvbiA3LjIuNCBhbmQgbGlua3MgbXkgUlRMODE1OQ0KPiBhZGFwdGVyICgw
-YmRhOjgxNWEpIGF0IDEwRy4NCj4gDQo+IFRoZSBzZXJpZXMgInI4MTUyOiBzcGxpdCBSVExfVkVS
-XzE3IGludG8gUUZONjggYW5kIFFGTjEwMCBwYWNrYWdlDQo+IHZhcmlhbnRzIiAodjgpIGRvZXMg
-bm90IGNoYW5nZSBydGw4MTUyX2lzX2Z3X21hY19vaygpIGVpdGhlciwgc28gdGhlDQo+IGZ1bGwg
-ZmlsZXMgYXJlIHJlamVjdGVkIHdpdGggaXQgYXBwbGllZCB0b28uIElzIGEgZHJpdmVyIGNoYW5n
-ZSBmb3IgdGhlDQo+IFBMQS9VU0IgYmxvY2tzIHBsYW5uZWQ/IElmIG5vdCwgY291bGQgcnRsODE1
-OS0xLmZ3IGNhcnJ5IG9ubHkgdGhlIFBIWQ0KPiBibG9jaz8NCg0KQ2hpaC1LYWkgd2lsbCB1cGRh
-dGUgdGhlIGRyaXZlci4NCkhvd2V2ZXIsIHNvbWUgcGF0Y2hlcyBhcmUgc3RpbGwgcGVuZGluZyBy
-ZXZpZXcsDQpzbyB3ZSBuZWVkIHRvIHdhaXQgdW50aWwgdGhleSBhcmUgbWVyZ2VkIGJlZm9yZSBw
-cm9jZWVkaW5nLg0KDQoNCkJlc3QgUmVnYXJkcywNCkhheWVzDQoNCj4gVGhhbmtzLA0KPiBKb25h
-cyBBdXR6ZW4NCj4gDQo+IA0KPiBPbiBNb25kYXksIDE2IE5vdmVtYmVyIDIwMjYgYXQgMDk6MzAs
-IEhheWVzIFdhbmcNCj4gPGhheWVzd2FuZ0ByZWFsdGVrLmNvbT4gd3JvdGU6DQo+IA0KPiA+IEhp
-LA0KPiA+DQo+ID4gQ291bGQgeW91IHBsZWFzZSB0cnkgb3V0IHRoZSBhdHRhY2hlZCBmaWxlcz8N
-Cj4gPg0KPiA+IEJlc3QgUmVnYXJkcywNCj4gPg0KPiA+IEhheWVzDQo+ID4NCj4gPiA+IEZyb206
-IG9yYXZlZXBzQHBtLm1lIDxvcmF2ZWVwc0BwbS5tZT4NCj4gPiA+IFNlbnQ6IFN1bmRheSwgTm92
-ZW1iZXIgOCwgMjAyNiA1OjQyIFBNDQo+ID4gPiBUbzogSGF5ZXMgV2FuZyA8aGF5ZXN3YW5nQHJl
-YWx0ZWsuY29tPg0KPiA+ID4gQ2M6IGphdmVuX3h1QHJlYWxzaWwuY29tLmNuOyBtYWlsQGJpcmdl
-ci1rb2JsaXR6LmRlOw0KPiBsaW51eC1maXJtd2FyZUBrZXJuZWwub3JnOyBuZXRkZXZAdmdlci5r
-ZXJuZWwub3JnDQo+ID4gPiBTdWJqZWN0OiBydGxfbmljOiByZXF1ZXN0IGZvciBydGw4MTU5LTEu
-ZncgKFJUTDgxNTkgUEhZIGZpcm13YXJlKQ0KPiA+ID4NCj4gPiA+IEV4dGVybmFsIG1haWwgOiBU
-aGlzIGVtYWlsIG9yaWdpbmF0ZWQgZnJvbSBvdXRzaWRlIHRoZSBvcmdhbml6YXRpb24uIERvIG5v
-dA0KPiByZXBseSwgY2xpY2sgbGlua3MsIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNzIHlvdSBy
-ZWNvZ25pemUgdGhlIHNlbmRlciBhbmQNCj4ga25vdyB0aGUgY29udGVudCBpcyBzYWZlLg0KPiA+
-ID4NCj4gPiA+IEhpIEhheWVzLA0KPiA+ID4NCj4gPiA+IFNpbmNlIGNvbW1pdCBhNTFlMTcxZTE3
-NmMgKCJyODE1MjogQWRkIGZpcm13YXJlIHVwbG9hZCBjYXBhYmlsaXR5IGZvcg0KPiA+ID4NCj4g
-PiA+IFJUTDgxNTcvUlRMODE1OSIpLCBtYWlubGluZSByODE1MiByZXF1ZXN0cyBydGxfbmljL3J0
-bDgxNTktMS5mdyBmb3IgdGhlDQo+ID4gPg0KPiA+ID4gUlRMODE1OSBQSFkuIFdpdGhvdXQgaXQg
-dGhlIGxpbmsgc3RheXMgYXQgNSBHYml0L3MsIGFuZCBsaW51eC1maXJtd2FyZQ0KPiA+ID4NCj4g
-PiA+IGhhcyBubyBydGw4MTU5LTEuZncgeWV0IChub3IgcnRsODE1Ny0xLmZ3KS4NCj4gPiA+DQo+
-ID4gPiBJIHJ1biB0aHJlZSBSVEw4MTU5IGFkYXB0ZXJzIChVU0IgSUQgMGJkYTo4MTVhKSBvbiBr
-ZXJuZWwgNy4yLjQuIFRoZXkNCj4gPiA+DQo+ID4gPiByZWFjaCAxMCBHYml0L3Mgb25seSB3aXRo
-IFJlYWx0ZWsncyBvdXQtb2YtdHJlZSByODE1MiB2Mi4yMi4xLCB3aGljaA0KPiA+ID4NCj4gPiA+
-IGNhcnJpZXMgdGhlIFBIWSBwYXRjaCBpbnNpZGUgdGhlIGRyaXZlci4gV2l0aCBydGw4MTU5LTEu
-ZncgaW4NCj4gPiA+DQo+ID4gPiBsaW51eC1maXJtd2FyZSwgdGhlIGluLXRyZWUgZHJpdmVyIGNv
-dWxkIGRvIHRoZSBzYW1lIGFuZCB1c2VycyBjb3VsZA0KPiA+ID4NCj4gPiA+IGRyb3AgdGhlIG91
-dC1vZi10cmVlIG1vZHVsZS4NCj4gPiA+DQo+ID4gPiBDb3VsZCBSZWFsdGVrIHN1Ym1pdCBydGw4
-MTU5LTEuZncsIGFuZCBydGw4MTU3LTEuZncgaWYgdGhlcmUgaXMgb25lLCB0bw0KPiA+ID4NCj4g
-PiA+IGxpbnV4LWZpcm13YXJlPyBJIGFtIGhhcHB5IHRvIHRlc3QgYSBjYW5kaWRhdGUgZmlsZSBv
-biB0aGVzZSBhZGFwdGVycy4NCj4gPiA+DQo+ID4gPiBUaGFua3MsDQo+ID4gPg0KPiA+ID4gSm9u
-YXMgQXV0emVuDQo=
+This is used to track fragments dropped when the reassembly memory is
+over the limit (ipfrag_high_thresh, ip6frag_high_thresh).
+
+Fragments dropped because high_thresh is 0 get this reason too, the
+same way they are counted in IPSTATS_MIB_REASMFAILS.
+
+Tested with pwru.
+
+Before:
+
+... PROTO  MTU   LEN   FUNC
+... 0x0800 65536 1500  ip_defrag
+... 0x0800 65536 548   ip_defrag
+... 0x0800 65536 548   sk_skb_reason_drop(SKB_DROP_REASON_NOT_SPECIFIED)
+
+After:
+
+... PROTO  MTU   LEN   FUNC
+... 0x0800 65536 1500  ip_defrag
+... 0x0800 65536 548   ip_defrag
+... 0x0800 65536 548   sk_skb_reason_drop(SKB_DROP_REASON_FRAG_MEM_LIMIT)
+
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ include/net/dropreason-core.h           |  7 +++++++
+ include/net/inet_frag.h                 |  3 ++-
+ net/ieee802154/6lowpan/reassembly.c     |  2 +-
+ net/ipv4/inet_fragment.c                |  8 ++++++--
+ net/ipv4/ip_fragment.c                  | 10 ++++++----
+ net/ipv6/netfilter/nf_conntrack_reasm.c |  2 +-
+ net/ipv6/reassembly.c                   | 10 ++++++----
+ 7 files changed, 29 insertions(+), 13 deletions(-)
+
+diff --git a/include/net/dropreason-core.h b/include/net/dropreason-core.h
+index 27bc63cbc020f..5b7a758603d90 100644
+--- a/include/net/dropreason-core.h
++++ b/include/net/dropreason-core.h
+@@ -98,6 +98,7 @@
+ 	FN(DUP_FRAG)			\
+ 	FN(FRAG_REASM_TIMEOUT)		\
+ 	FN(FRAG_TOO_FAR)		\
++	FN(FRAG_MEM_LIMIT)		\
+ 	FN(TCP_MINTTL)			\
+ 	FN(IPV6_BAD_EXTHDR)		\
+ 	FN(IPV6_TOO_MANY_EXTHDRS)	\
+@@ -493,6 +494,12 @@ enum skb_drop_reason {
+ 	 * (/proc/sys/net/ipv4/ipfrag_max_dist)
+ 	 */
+ 	SKB_DROP_REASON_FRAG_TOO_FAR,
++	/**
++	 * @SKB_DROP_REASON_FRAG_MEM_LIMIT: reassembly memory is over the limit.
++	 * (/proc/sys/net/ipv4/ipfrag_high_thresh,
++	 * /proc/sys/net/ipv6/ip6frag_high_thresh)
++	 */
++	SKB_DROP_REASON_FRAG_MEM_LIMIT,
+ 	/**
+ 	 * @SKB_DROP_REASON_TCP_MINTTL: ipv4 ttl or ipv6 hoplimit below
+ 	 * the threshold (IP_MINTTL or IPV6_MINHOPCOUNT).
+diff --git a/include/net/inet_frag.h b/include/net/inet_frag.h
+index c1fb419a9cf03..ea5a5484c65ef 100644
+--- a/include/net/inet_frag.h
++++ b/include/net/inet_frag.h
+@@ -130,7 +130,8 @@ void fqdir_exit(struct fqdir *fqdir);
+ 
+ void inet_frag_kill(struct inet_frag_queue *q, int *refs);
+ void inet_frag_destroy(struct inet_frag_queue *q);
+-struct inet_frag_queue *inet_frag_find(struct fqdir *fqdir, void *key);
++struct inet_frag_queue *inet_frag_find(struct fqdir *fqdir, void *key,
++				       enum skb_drop_reason *reason);
+ 
+ void inet_frag_queue_flush(struct inet_frag_queue *q,
+ 			   enum skb_drop_reason reason);
+diff --git a/net/ieee802154/6lowpan/reassembly.c b/net/ieee802154/6lowpan/reassembly.c
+index ddb6a5817d098..dcbadb1abb0f4 100644
+--- a/net/ieee802154/6lowpan/reassembly.c
++++ b/net/ieee802154/6lowpan/reassembly.c
+@@ -76,7 +76,7 @@ fq_find(struct net *net, const struct lowpan_802154_cb *cb,
+ 	key.src = *src;
+ 	key.dst = *dst;
+ 
+-	q = inet_frag_find(ieee802154_lowpan->fqdir, &key);
++	q = inet_frag_find(ieee802154_lowpan->fqdir, &key, NULL);
+ 	if (!q)
+ 		return NULL;
+ 
+diff --git a/net/ipv4/inet_fragment.c b/net/ipv4/inet_fragment.c
+index f330d0a398233..728fa78f56b37 100644
+--- a/net/ipv4/inet_fragment.c
++++ b/net/ipv4/inet_fragment.c
+@@ -421,14 +421,18 @@ static struct inet_frag_queue *inet_frag_create(struct fqdir *fqdir,
+ 	return q;
+ }
+ 
+-struct inet_frag_queue *inet_frag_find(struct fqdir *fqdir, void *key)
++struct inet_frag_queue *inet_frag_find(struct fqdir *fqdir, void *key,
++				       enum skb_drop_reason *reason)
+ {
+ 	/* This pairs with WRITE_ONCE() in fqdir_pre_exit(). */
+ 	long high_thresh = READ_ONCE(fqdir->high_thresh);
+ 	struct inet_frag_queue *fq = NULL, *prev;
+ 
+-	if (!high_thresh || frag_mem_limit(fqdir) > high_thresh)
++	if (!high_thresh || frag_mem_limit(fqdir) > high_thresh) {
++		if (reason)
++			*reason = SKB_DROP_REASON_FRAG_MEM_LIMIT;
+ 		return NULL;
++	}
+ 
+ 	prev = rhashtable_lookup(&fqdir->rhashtable, key, fqdir->f->rhash_params);
+ 	if (!prev)
+diff --git a/net/ipv4/ip_fragment.c b/net/ipv4/ip_fragment.c
+index ef7fd61284a3f..7eb40c1041ef9 100644
+--- a/net/ipv4/ip_fragment.c
++++ b/net/ipv4/ip_fragment.c
+@@ -197,7 +197,8 @@ static void ip_expire(struct timer_list *t)
+  * this IP datagram, and create new one, if nothing is found.
+  */
+ static struct ipq *ip_find(struct net *net, struct iphdr *iph,
+-			   u32 user, int vif)
++			   u32 user, int vif,
++			   enum skb_drop_reason *reason)
+ {
+ 	struct frag_v4_compare_key key = {
+ 		.saddr = iph->saddr,
+@@ -209,7 +210,7 @@ static struct ipq *ip_find(struct net *net, struct iphdr *iph,
+ 	};
+ 	struct inet_frag_queue *q;
+ 
+-	q = inet_frag_find(net->ipv4.fqdir, &key);
++	q = inet_frag_find(net->ipv4.fqdir, &key, reason);
+ 	if (!q)
+ 		return NULL;
+ 
+@@ -475,6 +476,7 @@ int ip_defrag(struct net *net, struct sk_buff *skb, u32 user)
+ {
+ 	struct net_device *dev;
+ 	struct ipq *qp;
++	SKB_DR(reason);
+ 	int vif;
+ 
+ 	__IP_INC_STATS(net, IPSTATS_MIB_REASMREQDS);
+@@ -483,7 +485,7 @@ int ip_defrag(struct net *net, struct sk_buff *skb, u32 user)
+ 	rcu_read_lock();
+ 	dev = skb->dev ? : skb_dst_dev_rcu(skb);
+ 	vif = l3mdev_master_ifindex_rcu(dev);
+-	qp = ip_find(net, ip_hdr(skb), user, vif);
++	qp = ip_find(net, ip_hdr(skb), user, vif, &reason);
+ 	if (qp) {
+ 		int ret, refs = 0;
+ 
+@@ -499,7 +501,7 @@ int ip_defrag(struct net *net, struct sk_buff *skb, u32 user)
+ 	rcu_read_unlock();
+ 
+ 	__IP_INC_STATS(net, IPSTATS_MIB_REASMFAILS);
+-	kfree_skb(skb);
++	kfree_skb_reason(skb, reason);
+ 	return -ENOMEM;
+ }
+ EXPORT_SYMBOL(ip_defrag);
+diff --git a/net/ipv6/netfilter/nf_conntrack_reasm.c b/net/ipv6/netfilter/nf_conntrack_reasm.c
+index f25ff2a12a824..019f6669015d0 100644
+--- a/net/ipv6/netfilter/nf_conntrack_reasm.c
++++ b/net/ipv6/netfilter/nf_conntrack_reasm.c
+@@ -159,7 +159,7 @@ static struct frag_queue *fq_find(struct net *net, __be32 id, u32 user,
+ 					    IPV6_ADDR_LINKLOCAL)))
+ 		key.iif = 0;
+ 
+-	q = inet_frag_find(nf_frag->fqdir, &key);
++	q = inet_frag_find(nf_frag->fqdir, &key, NULL);
+ 	if (!q)
+ 		return NULL;
+ 
+diff --git a/net/ipv6/reassembly.c b/net/ipv6/reassembly.c
+index 91a65fe673500..649f2e3283656 100644
+--- a/net/ipv6/reassembly.c
++++ b/net/ipv6/reassembly.c
+@@ -82,7 +82,8 @@ static void ip6_frag_expire(struct timer_list *t)
+ }
+ 
+ static struct frag_queue *
+-fq_find(struct net *net, __be32 id, const struct ipv6hdr *hdr, int iif)
++fq_find(struct net *net, __be32 id, const struct ipv6hdr *hdr, int iif,
++	enum skb_drop_reason *reason)
+ {
+ 	struct frag_v6_compare_key key = {
+ 		.id = id,
+@@ -97,7 +98,7 @@ fq_find(struct net *net, __be32 id, const struct ipv6hdr *hdr, int iif)
+ 					    IPV6_ADDR_LINKLOCAL)))
+ 		key.iif = 0;
+ 
+-	q = inet_frag_find(net->ipv6.fqdir, &key);
++	q = inet_frag_find(net->ipv6.fqdir, &key, reason);
+ 	if (!q)
+ 		return NULL;
+ 
+@@ -337,6 +338,7 @@ static int ipv6_frag_rcv(struct sk_buff *skb)
+ 	struct inet6_dev *idev;
+ 	struct frag_hdr *fhdr;
+ 	struct frag_queue *fq;
++	SKB_DR(reason);
+ 	u8 nexthdr;
+ 	int iif;
+ 
+@@ -385,7 +387,7 @@ static int ipv6_frag_rcv(struct sk_buff *skb)
+ 
+ 	iif = skb->dev ? skb->dev->ifindex : 0;
+ 	rcu_read_lock();
+-	fq = fq_find(net, fhdr->identification, hdr, iif);
++	fq = fq_find(net, fhdr->identification, hdr, iif, &reason);
+ 	if (fq) {
+ 		u32 prob_offset = 0;
+ 		int ret, refs = 0;
+@@ -409,7 +411,7 @@ static int ipv6_frag_rcv(struct sk_buff *skb)
+ 	rcu_read_unlock();
+ 
+ 	__IP6_INC_STATS(net, idev, IPSTATS_MIB_REASMFAILS);
+-	kfree_skb(skb);
++	kfree_skb_reason(skb, reason);
+ 	return -1;
+ 
+ fail_hdr:
+-- 
+2.43.0
+
