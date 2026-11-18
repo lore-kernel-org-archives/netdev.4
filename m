@@ -1,20 +1,20 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.3
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795019583;
-	b=v3Kf8kMs34PVM+99m6KPByV9mIuG0arVMEQbiAO7rL+ozHvTnLR9lb1NMoeqSOwicNxI
-	 0VCHD5oe0Fum2XmC3/bxHXuQXtJBoPpPK6A1OpNC+NMhILfe/yGGtWGmeKJTvpYbVxD6R
-	 NXyJ53Il+6AT2Vm5S3suPNSNxDp0W2on+63T9JfRz4ea2OGb66JPIKJ8EFmIySu5ZZoRr
-	 FEvgd9KbJaR6ka1KyxdJx4IytfOLsqYhDa/pwgjzajRE7u2fxmete7jAZGWzoQ8zMkVpl
-	 N3XSAbFAMfFEhnDRlxaA4AS60SAyZXRc2sLTs27iebaS3M0g6TJKZIcjh13cdkaMqCA==
+	t=1795019588;
+	b=Aywn/6vJbayv64qvOv4flW8Yn8tbCqtnLsiKZLD9UQVwyUJRu5Cypcc4+DmhdiWp3p5h
+	 K007Ri5S8WOISFURYJqV7/1o+flyBtWy0+UtQaoJSPgYKfZCATUUMNTfQyQByRAHHqkRl
+	 KlhE1tYGBn50zS0Mi4gAMuM4NnXiXnL8t59kfYVJW6afcgHnccAfDw9ce8ge35iy/Ou6x
+	 zyUF/b/4zczmj2aIrAak7GBvD31LAxXd3qYl4736spZyiftft34ADY6SdCp/tQf870ut2
+	 coeU4+cZ+Raf+X7O5poKw+JFD8VtzCEWfmk8kCmMYHUbkioJCWpGCFUcQMu2IQ5hFbQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019583;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019588;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:Content-Transfer-Encoding:Content-Type:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
+	 Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
 	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
@@ -24,53 +24,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=P5YQSXH2nnhBy49ynhKIO379xmRMN9E4x5+MoRfmRMc=;
-	b=bZ9MER1cL/hZX0joYEkvwkFnlqX0qKBEl/tuod4EBUOLkvUKiKtorEbKEil/gIrjqMEi
-	 aHBX6WEkDGTyEvoWpDyDEpddQhnJDSIsUlozmCm94euyXe5lwoefjt+0+hr5iOB5eHtPh
-	 aeufCwPS1fRgBYiduDR2zhptik2WxR2qsOoxhq2eYt/N1ZP4L53nWOchAYmlaxoAQAmqB
-	 3IedVeaHoXEuRX1AfiSTqmXOG25sbkJMVzEyr1nBsx+1QPnRxLvsm1nC9Y1hEJKQsq3fJ
-	 BR0NWxU+Umxjy3paltu/9lNJm67WFwwzKAACDpbfWVuuPQWdcuk6oGy5YlkWlV1wLfA==
+	bh=KGsoR0+/dZKHBKztLEgphJwuncEeIn5dCIUrzvsn0nU=;
+	b=xkr9Bnpq08a5zYLPNJR3+SJ21VNrr4li+KUeTGdQe817uvYIS7Ca0ANieqqlE/0f9cV1
+	 nqr+9xwsDSfFcN2ZpYz4Zv6svVJgYIkD8DMF/isxMFeBmmjLmRbX/uDiRJdPwmKy2yQL/
+	 U2i8at+Li+ZTzi9GnxcWNb+cKuitQGUQQqMou7Q2k3LOoobwjDGPBantpXzUL4hG5Oub0
+	 jBo4yhnrNc/zK+PxBFWnK0+73YQVNHlBD8f38gQuKZL/1dZLwosLp+F4xwanfJKXpMQr3
+	 1aFNIKU1tjVyQ2PgVIPfphsETfuRtd/c6v91XgstsFM9BHCLvcjMA8FnIt6gGLo7wOA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nxp.com;
 	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=UzRWwSyk;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Fa4S0Zam;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.72.3
 Received: from AM0PR02CU008.outbound.protection.outlook.com (mail-westeuropeazon11013003.outbound.protection.outlook.com [52.101.72.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B6D1606A33A;
-	Wed, 18 Nov 2026 16:33:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B6D1606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C14EB606A338;
+	Wed, 18 Nov 2026 16:33:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C14EB606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=UzRWwSyk
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Fa4S0Zam
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RDcRH5z0JXLtPyjDf/GzbJGgNADZCBdgBYjUjgC6R7TIQM3HgV9RON3r7SfY8W244/Sj2Xwc1eFtkVFBoXnuZzcs8sKJ0eJhbG/IHMyPfEr+4ba/2gEvJxzuU9YUN+l+Pab3QWHE97QMcpsoRCX6A7Gu7qcqoPgtUJ7YjE0xtuCfNuDkovaLGlx0jd/eI/roalejQK5pgfpGnvxlEG8dWuj47MrI9t1gR05mItSo+J4g5bCbmGAVYcXQHjIY9cWCtBVtJAzgWfp2qck/DS6y5LvhBbzmITzR1WzqUeqoi2xHi0AqfimWjdZ+YEZpquxA3IZ7H6VASXHtkMl1iqybEg==
+ b=QLW/u29fneJmoDRIIfUlvxN1+PW2XgAbR/T84CcpllF5LHKWdIINKyY2McxwrNywqrFcM19+LJHe9YkvtI/z6AwOGasOVoYeL1Tkw7CvEnO5oOvUf9PfkyQdGGY0cRIlfFsyRYubIiQwvAoi/SM8TdrkjY+HWLVxEdbbEsGRldhqPE4a2M2pFi71Txp7lZpR5XAMy8Gaj18J9R+jP0jbakobhrP+5uP7IY0JEly4Ijm4BIzl/VAQbtbRMnxJNfY7JOEfbykD+pYzi/4YKBSpr2YJm+s4NprhXA17QNBxkebieT2JXOswuTnTTB+mH4BOFQjQkRlJrfv3h1gXNFytlA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=P5YQSXH2nnhBy49ynhKIO379xmRMN9E4x5+MoRfmRMc=;
- b=FOqfuOibJwLkqtSrvaDXJc20eE9vyXJRtzHb80eNqclSPNXuJTu2Q8ZbTOfvuiooLYYFuFjUwCiMLVnpw3tyyCyTYabFy44ViGaCg5lVKg9UstmLiLTPsFEC8GcZuNg/PR8W0l1NMpVTHB421W5Z2/YkYI4T6ofkRzndi14kuKnDBnfNflXEwb+CLNomGjhQH6B1mmrP/Bv7h3FQGU4FyYUKHBTGWPJ/58TLJnCvqz6WfPbEhd6pFVFsAC4aeYqrkALXJ/VcDFnGV2xbiHyxouD2w5+Ai4uLMu2ik6l4fG7hqW+kU0TSDTl6Yvix6/I8y+dPorz6w6J1mK6UaqqPLw==
+ bh=KGsoR0+/dZKHBKztLEgphJwuncEeIn5dCIUrzvsn0nU=;
+ b=cfQ5uEiwNkiq01lzzl/2opI7/anPDsRLtQrUVqZkHMALgtR/+Rx2bUx7iwXaGqbG7QjifwgyNSfDpxkcW7C2fp8yFWMZWCkQ8IyQ2f9+xUVSGWCB7l7MHGl21RKIfjXICGsfO3PqwDjhZiMal3VCNH1HAgAn6b1AYjz8O3lUVjSRBCDdfylLh3p7FPKZEVew7fYxJbzzuKI9gnNS6xot5bnnuwjMs356ITpDPvrsDiijfAOtGXikrGhNLR6HN2ERN0shDEtxr6D1FX0VV5q22vFzs3GIujmtM4s+NiyneuVTeyoIXgIV/tGeuFoCnng6bPyS6zMPR4jFDZsZSMMgSQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=P5YQSXH2nnhBy49ynhKIO379xmRMN9E4x5+MoRfmRMc=;
- b=UzRWwSykWSqYGyUYk9XaB1YjJjJqAl6/iCguF8MMR3nOTfQCds1+7uo3SioD+2bqm+XGgxLdrv2A8GFB/eXtaznuoca0JJMToH6XjWQcadjg01rV2KA4srn5u3N+iMRlXkdgEwEOcsKDoM6s6i56cB9oloctdERiPROtBIXes9z55GwTQFZQ62laDVZIqgwmyXp7/yJUnT4L5DNpk/NbFRFQwqcD3nj3I9p+ojdE3ucDjuZwSgodii0Ioe4FkF2Mx7M/XqIyl9+VtP36FM6LuhoIZTR+DqwRQZ/SspHFPYM9j4cDoVKb9wuTjcW3s/0rWKLnVtNYZ44jv2O+7qslHQ==
+ bh=KGsoR0+/dZKHBKztLEgphJwuncEeIn5dCIUrzvsn0nU=;
+ b=Fa4S0ZamK5xJERNN0e20IxV1X9P7Es7YUEeWmh/VDrIzeo10Grvo0G9JsGRMBrozSKvVQb1cwSo7emG5Ns7G6VZGKB3nirLbSCmjASkAKT2wnmrJ8UhAbHo6ZTQ/y+s+YtzkgzUI24N6yi9VhN4wrC5dUddpbXLdItt9OL43dyW2E+i1FO1uf00jQqEnJl53LVjZ5VMtNuijEQlOzEy46+onE+Z1ZDOAZSGNRuW8icB1gJLml7PdFSYfnVgs65vgPVb7ae8zoBMSahrsaSbD4PFAP4UKDRETdYTLDqebc13lhYUBn0Dho4X2Z4yCs8GgnQf14hNeYXFZ5QYlPYJY6w==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
  (2603:10a6:290:d3::17) by DU2PR04MB8999.eurprd04.prod.outlook.com
  (2603:10a6:10:2e2::16) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 16:32:58 +0000
+ 2026 16:33:00 +0000
 Received: from MI9PR04MB019273.eurprd04.prod.outlook.com
  ([fe80::263c:943a:dcb0:29d8]) by MI9PR04MB019273.eurprd04.prod.outlook.com
  ([fe80::263c:943a:dcb0:29d8%5]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 16:32:58 +0000
+ 16:33:00 +0000
 From: Ioana Ciornei <ioana.ciornei@nxp.com>
 To: Vinod Koul <vkoul@kernel.org>,
 	Neil Armstrong <neil.armstrong@linaro.org>,
@@ -82,14 +82,16 @@ To: Vinod Koul <vkoul@kernel.org>,
 Cc: devicetree@vger.kernel.org,
 	netdev@vger.kernel.org,
 	Vladimir Oltean <vladimir.oltean@nxp.com>
-Subject: [PATCH 0/3] phy: lynx: add support for downstream retimer PHYs
-Date: Wed, 18 Nov 2026 18:31:31 +0200
-Message-Id: <20261118163134.2149894-1-ioana.ciornei@nxp.com>
+Subject: [PATCH 1/3] dt-bindings: phy: lynx: allow downstream phys on the lane nodes
+Date: Wed, 18 Nov 2026 18:31:32 +0200
+Message-Id: <20261118163134.2149894-2-ioana.ciornei@nxp.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261118163134.2149894-1-ioana.ciornei@nxp.com>
+References: <20261118163134.2149894-1-ioana.ciornei@nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: AM9P250CA0028.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:20b:21c::33) To MI9PR04MB019273.eurprd04.prod.outlook.com
+X-ClientProxiedBy: AM9P250CA0022.EURP250.PROD.OUTLOOK.COM
+ (2603:10a6:20b:21c::27) To MI9PR04MB019273.eurprd04.prod.outlook.com
  (2603:10a6:290:d3::17)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -102,91 +104,184 @@ Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: MI9PR04MB019273:EE_|DU2PR04MB8999:EE_
-X-MS-Office365-Filtering-Correlation-Id: c663fe86-f4d7-4a32-bdfa-08df45919b29
+X-MS-Office365-Filtering-Correlation-Id: 422bc3cd-6488-4139-0065-08df45919c73
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|19092799006|366016|1800799024|376014|18002099003|11063799006|56012099006|261026121527099003|261021121427099003|261021123027099003|10067099003|261102123227099003|261009223027099003|261022075727099003;
+	BCL:0;ARA:13230040|23010399003|19092799006|366016|1800799024|376014|22082099003|18002099003|11063799006|56012099006|261026121527099003|261021121427099003|261021123027099003|10067099003|261102123227099003|261009223027099003;
 X-Microsoft-Antispam-Message-Info:
-	nVEo6zsUekodE4M+nPeF+MDktYJ9hEZWQjF5SkCEZNyr0WsllyaBOj70DU2h4Q/ncyxFQ+tlkykxGShag/K6WiwzrmtLTjdROzsuvS67VCw+1EX49woEYLsG580CL9FbTSc04UE/C1ZGi7P1UjyfexH+rYrTr8vD5mm4Sooun9QQmPEIqTDGaaDWnHySPFXoK9C1dT8VhHYLYvf/4QWXojvXughPdca8tbh6B022umLV2gSWOpL8NX98lBx9hPDBBvOORuGslN8oLlJel5HRgD8o5LbVQd848+JTidshZ1Q5iYOWr3FX2ZCdJYPA90zJnnggibvvJekA2CQ2t/oWiThTGwzkYDr5lWmDEZ+4EXxqjyOO90OMC1AH17T2crc4KkWGn+vlMoFbdFMqXtxW17CF3hEF/JnIrmjKJoG6QP2v1Kp7R44InK7zxVH54euWXNUEy2VUfpovk3/VpV6PgpuU6SXh3B2FW6Jwj5SP6X6uz9WwSw/Nx6nibET8ZPaBmU6nodsufhQDSp9No2e+G5QlnRk2qTCX4/QNeQB6+SYsUu7EMgtUEJ/4yef4SUtUAEaai1MdQbTfxridSfLOhK8vF20e5+p5Z+szRr7NAxXxcSrWSwOLye5+c05H71owKIRbirOhpGW1ukXGKMMzmfxY+iZF/2lNbW94DlWcm40=
+	qIiZAkyTNC5+lCWn3C3YVHZQd0TKh93d++MPZ2QGpjBKkhFswOlaqmZxiLKKoLzchaG65BwA3VXlg5AOnNAX583W/UB1N6gsmNpevje6jbyg6aXDnJ1YJ4S+EG8hwC+vQ3/JxBQ5CJDGDf8eDDcY+8qo48sDE85ntvOhg5V/FuJarkTOG+n2FjthW0XDmLyujgyP8mWvQN5OjMM5RbQ31Q1UHnOnNLzPhHpFQmqxu5cw/pNJ5qacDUqyN6PNsGlgM95BnharmlAH/kUlWN5Fm1MLE3DZ1HrG2FnMil4k811ksNJ2F9vBlU/+DtLhp0M0ia/l01kFDHiNuSd3ynVegcxOih+MpfkbjsJ1qwDFKan5kghq6DbOamZn9HFZOyo+KvCX5AmVv/zoDGKvQ8aMmRTbbQwDPxrIPoFytfC/sHtEKcexq82m2dVTgszvCTXmgkqXL7awjyHqgPwyys7PBzXigOWUzunCJshbm3i1jMfs4orRENY7gfytIa9l9qwaRhpiZD5IGF00sQQEqrII1rB7huh/rCWbgPxQXisRk/1VdELC51gRftjEMrkg6hf969NHC4Fvm4HXIs5FYr+StoStnYiNskpWLXozq0fUK2pTcsU5UhuhI14v0/6yEXKjBenEXL+pN/TdhmhLbNAsv9zHxqDaZ809XQicxt8E3hs=
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB019273.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(1800799024)(376014)(18002099003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(261021123027099003)(10067099003)(261102123227099003)(261009223027099003)(261022075727099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MI9PR04MB019273.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(19092799006)(366016)(1800799024)(376014)(22082099003)(18002099003)(11063799006)(56012099006)(261026121527099003)(261021121427099003)(261021123027099003)(10067099003)(261102123227099003)(261009223027099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?YbplEnleYwVaDO2h5vioxZxTzIIQ6NvHB6t5DYYJ5AXgxdpIni5FMucV0V8v?=
- =?us-ascii?Q?Dw85q+A+3SIWnn89D4JvzqnbO7Y8QF2ErLOleol5xeR/kgw5D8lNM7KsnkCg?=
- =?us-ascii?Q?6iHtICrmAK0UD6BgIa5E8x9C2YBnpW6Pmrncpei7x+LTE9eDRhJjgOAK1g+I?=
- =?us-ascii?Q?9QSijMOpAAJF5tnyjhMGRv2ct37hZQAHdQIoUn0hIvgdu74yfqNbtnlYDc7G?=
- =?us-ascii?Q?GiessJB0gO/GojF4dDEcP4IYqcl7VUOxNJz/KH1rsrC+tL139VYLU3dWrGQi?=
- =?us-ascii?Q?2O6jMEAI1l0LQL2AgxPnrsjIAmb3bACopt8JGJF2rQlaeGS73fiNw6YDG7DE?=
- =?us-ascii?Q?+ezC0j8xJOfXLxnpeQBvbNua1ZMtKZOnnmyKPmp8TDQimAuV2o8h5spGUEQ5?=
- =?us-ascii?Q?nvoPy8fg9e5CRoTWXaOSXCcUQNMvpBW4bfe03moeG0SI1082FYzHvXFyrVbO?=
- =?us-ascii?Q?lIOTZ/rIns6CwY7D9auzmz9hUBJ/DY9oHHwFriIJysVZcS1knHWXjqKupEXQ?=
- =?us-ascii?Q?kvPIP0c+ikMDc+e+pVUo6x388uE8UCw9+4i1jfVsH/SXXNgaFXYeJS89rC1T?=
- =?us-ascii?Q?8tyAj7KDunmDZCzZC2blPiTT5oGQgoadbuDX8I5a5iG1GGSfoDYlREszGddv?=
- =?us-ascii?Q?VCZ/UNLjfPkLgd/6H89N0uZP1i5cXOX9GEw7SRBYVV/MiVgkAyfEpqig+0bg?=
- =?us-ascii?Q?7/2zyP+UrMZzfpn++Lk7vBlOXr46j73xi6/lJd9gboH7kV5eHWBjofcWy+od?=
- =?us-ascii?Q?pfQ4+pT9gro5yuelQduuxg1WQOQnbTGnwvt732skjewq7tuZ0wrF9m7Un9Fd?=
- =?us-ascii?Q?LO8i6u4dr14mJ69g89Loj73d7TYPPmDCONpi6vajS/jVlYnUaQvDnOkRTx50?=
- =?us-ascii?Q?138bkutK17hWxmaOQS2uauXM2RE0Ty9Rax55PGSFwQ52dsluLf0Q+zvWvNr0?=
- =?us-ascii?Q?cfyDqFAhjpFynu4B/0ds71NPDDIQzouA5S33qyOPzmCm2YXi0TjHvZsWf4if?=
- =?us-ascii?Q?GxVwfgg63BvKfGc8eHQYXXA/mvHeRm730HYM1/wB0eNzUnIlZMkOPX4PLAs+?=
- =?us-ascii?Q?VsVb6itbqx1r9IEWwsTBzm4exxZJnNg+Bu7eY9QbrVb/malkQB3EHuIuX5lG?=
- =?us-ascii?Q?EJXWUcBHknDdSwc6GG49weZ7i1J8SkRBAWAkBlDpe65LzFqN5dtR1xd1DCkt?=
- =?us-ascii?Q?rdl4+eFtckNBOHMs+yCd1J966DNveQ/R7kUpMM/5YdW30e3oheSWeUu/sWbG?=
- =?us-ascii?Q?8AE8MtcIMCV8JaKCoa6jc3UVL5I9ILqW66+cU3HDmldWVGEwQwBMQwnw+joX?=
- =?us-ascii?Q?Qp99ziEnogIIICqUYws70Cbli2EKwoYjh8RuzBBuZa7Pdx3/4eiDINIU05Z6?=
- =?us-ascii?Q?SFUIrpThGJlRbQ1A8gHT6JKSrFEp5bIi4yTBUfGuy+HjPJFxG5aw3fZ9lc1r?=
- =?us-ascii?Q?nxUIoug7R0z0iI0gH6HWX7u7VxXkOk4udEJ8uuQI8MH7YkwvSggA8XAk9zEE?=
- =?us-ascii?Q?54ApF3j+6JOk+o6KT8GFkVWFj3XCFroHGIDopQZaTIbOd80higG6+QsHcEjD?=
- =?us-ascii?Q?aK2VAq9F0F8owtzakQrWsrGtYsVQeJfmqtTLsgsJq7BtirNXQEliuAxpx2Oc?=
- =?us-ascii?Q?G49MZcMehx0XoaTgWtt/i7ZBBvb3y1ilvTbFO718B9tKFxRcgjZN0e/X/5nV?=
- =?us-ascii?Q?6QExxFpb32C/EY/LwJYFEPW+k3D/xJmpsqrNnbOJ1N43tG0rualPlg/jF7z4?=
- =?us-ascii?Q?2JyG5lshBg=3D=3D?=
+	=?us-ascii?Q?ulwocwaVf/HaweCjfyC8uOVnFYJtEUL3o0AS4A/J/b3946BfFk/7j3sa/Ap+?=
+ =?us-ascii?Q?uPJAGPlPegYBqyD1tJ1TWrE6l/lwB7kcvEZO6J2W6sAhb/j5Y/dOi47KTPTR?=
+ =?us-ascii?Q?QNO5vQJR/a+0IJDt9Iy5nYKyxL+/6yZZkoWPzQ0ElbKL2j64RqeOb2r1BxyJ?=
+ =?us-ascii?Q?uHXJ32fq3ELKpU2X98MOh4cG/xPvGQNPjDLTFiAp9+J1M97H2fbozfE2lKsV?=
+ =?us-ascii?Q?ZH+TN3YcxnCB0/6RYTN3MJuPwF8uu2M0phL1m//wFi9Dgyrc8PQ+h1G8ZyI1?=
+ =?us-ascii?Q?jPAVJkABdHljiwfa6B5yCqZKCVl7ADVRHpLOXzK7rLD7rt/U/NqW7z437cGw?=
+ =?us-ascii?Q?2EQiqntxuyilHS7v0v42y+thMQiliIAVMlEJKZCsA8BTfc3dmL09E+/bzs9n?=
+ =?us-ascii?Q?gismra/ohfovUmtqEGSE+PnVIiKh9bQqNJOXQFdqGi2UZ5ZXc1hLU0UIokbH?=
+ =?us-ascii?Q?J/46f2oDsnEcUpHyeAIwjMLsrQ4s6VdHQ8BFrKOuKByFcie6HPX5YQ5g8/RH?=
+ =?us-ascii?Q?e+2grzHrb14EoP9285X1K9t3tA026f2f5PA+MEb2zbkqn4XM/Q51T3iHFXbG?=
+ =?us-ascii?Q?2x3ktCV/1sdMbIj5m8S6RJYsMdZq5HY7wmEZk3WlINefwMaIUP7N6VNv/r1q?=
+ =?us-ascii?Q?zHLbkowcpIO4AfAk1XisiHFdYO97Q5WX+iyYORCFnj9zVSMiNKo8Sg8gqjAo?=
+ =?us-ascii?Q?DOiS5gK0pXdHuWCdWtoEkLYZvax7v4balDNOFoNu/KxHcT3A+7hjKtDtfxL1?=
+ =?us-ascii?Q?R+b1/N72m7WoHZyudG/m3NWiQDe1OYpcwjxblsNA2PMAYqy3wmRWBgg4tpER?=
+ =?us-ascii?Q?FomRt1oI0rbwZZquV+Ip0YQ6WLn5byNd+IozBVj4t9cM9AT+0HfDkSzbwdXm?=
+ =?us-ascii?Q?byIMHaTUN7sR1jPj3F1oc49iKuW9+E67tgkOlXrhG7W0P83W2DojSQLPZS8H?=
+ =?us-ascii?Q?oii1nIZUyYg9tQ9/glefXGiN15sXcAMWkfK/+tmDldPCv9eQ+a8XrBeQ1txp?=
+ =?us-ascii?Q?8PfVT8rPl4z/zJFKI4/VSBCHiCmd6p6ekmPgg4tetEMH/h3ntLd44fjuGkdQ?=
+ =?us-ascii?Q?xnGEhPPz/0koDrF1V5MG0TUn9eM4zZMKyMUQ0fOAD48VqHGXVveJuH2srgWU?=
+ =?us-ascii?Q?4HQDfDUbUvtx+MOtTTtPIfdaKz3KilsbuxuZ5pgAg0mPcH+ULQvLmDW40NtQ?=
+ =?us-ascii?Q?anKaCFnnjH3IQZ9M4wwfvU0xwNCuRfYAlH5KQgsc84/0SbAq1eiQbWHWpEgO?=
+ =?us-ascii?Q?bPSg9pYl9cobXSQX+ILoGECMBl0j+Nk3lTBrIfkubwUkyI1B9f086quPz/+9?=
+ =?us-ascii?Q?KN6Hpgqux5k0lqzlVtcKukuRlH0iOtM3eY7UZQMPeWwaBpCL2qBknHRynn9+?=
+ =?us-ascii?Q?wLiBQ+SKYsmKkuOaRiBC5EAMVyovtET0ZTpcjExc3y6EhutqAIIcySz513wq?=
+ =?us-ascii?Q?MKpqU5fN/QMM4t00ejMq0drzP/RoAOkwH4wgQ+5viouJX3jZ66PvZ0itrsK8?=
+ =?us-ascii?Q?SHGRy9asDs+zJGItkKhGOa4lTgX+0PkVP25RgxuhH8fFDR+sRVKS+NxEt37V?=
+ =?us-ascii?Q?A92UVxNcHYK5K1dHBLN5H4WEsartQHeeKzfsOYMdSXB6e5OHz+lbrF05R1kV?=
+ =?us-ascii?Q?/APW3Q3iQfwygsorwIUBk3xNRz9Tmsv08Zk4xYSZ08O6AjfTMmU+BboOT1Ig?=
+ =?us-ascii?Q?Vff1S1vaIgDXBJRr0H5G/Vwtu+CiXZUU5itHblgAkSab9cw5wsFUgZmGO6Gz?=
+ =?us-ascii?Q?+zJX37nmjQ=3D=3D?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c663fe86-f4d7-4a32-bdfa-08df45919b29
+X-MS-Exchange-CrossTenant-Network-Message-Id: 422bc3cd-6488-4139-0065-08df45919c73
 X-MS-Exchange-CrossTenant-AuthSource: MI9PR04MB019273.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 16:32:58.6288
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 16:33:00.7767
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: kHIn/xTN97r+kEB9jOF5NQ/nJefJmxH6MMAThwwCyCTQKfBBGOixgFH2Ntw9Im6e5/gxnA2rNOP4TsMpIC+cGA==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1Cjyy8M9/A4UfT7QXIIPqvEuHbHW5mt6AmLLiH6YHMGqOIg9IsWOamt9MvvoNLe1VwyGxFdCfhR35P6hpdtHqA==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8999
 
-This patch set adds support in the Lynx SerDes PHY drivers for
-retimer PHYs which can be found on the board downstream of the SerDes
-lane towards any connector such as an SFP cage.
+A SerDes lane can be connected to the connector through other PHYs. For
+example, the DS125DF111 retimer on the LS1088ARDB has one channel per
+direction, each channel being modeled with its own PHY device, so the
+lane is connected to two of its channels.
 
-The first patch extends the Lynx 10G and Lynx 28G dt bindings so that we
-allow the phys and phy-names properties at the SerDes lane level.
+Allow a "phys" property in the lane sub-nodes of both the Lynx 10G and
+the Lynx 28G bindings.
 
-The second patch extends the core lane probing function with
-lynx_lane_get_retimers() which walks the lane's phys array and gets a
-reference to any downstream PHY found. The 3rd patch sets up the
-forwarding of the phy_ops received by the SerDes lane towards the
-retimer PHYs as well.
+Also allow an optional "phy-names", with one name per entry of "phys",
+so that a board can name the channels, for example "tx" and "rx". The
+names are only descriptive: the entries are used by index, and no
+particular names are required.
 
-One thing to note here is that the forwarding code is kept rather
-grouped in phy-fsl-lynx-core.c rather than in the individual Lynx10G and
-Lynx28G drivers so that in the future, if necessary, it can be moved
-internally into the Generic PHY framework. This leads to the consequence
-that the actual phy_ops with which the PHY is created cannot be const
-since the .owner field needs to be copied from the structure received
-from the actual PHY driver.
+Signed-off-by: Ioana Ciornei <ioana.ciornei@nxp.com>
+---
+ .../devicetree/bindings/phy/fsl,lynx-10g.yaml | 27 +++++++++++++++++++
+ .../devicetree/bindings/phy/fsl,lynx-28g.yaml | 27 +++++++++++++++++++
+ 2 files changed, 54 insertions(+)
 
-Ioana Ciornei (3):
-  dt-bindings: phy: lynx: allow downstream phys on the lane nodes
-  phy: lynx: get the PHYs listed in the lane nodes
-  phy: lynx: forward the phy_ops to the downstream PHYs of a lane
-
- .../devicetree/bindings/phy/fsl,lynx-10g.yaml |  27 ++
- .../devicetree/bindings/phy/fsl,lynx-28g.yaml |  27 ++
- drivers/phy/freescale/phy-fsl-lynx-core.c     | 266 +++++++++++++++++-
- drivers/phy/freescale/phy-fsl-lynx-core.h     |  14 +-
- 4 files changed, 327 insertions(+), 7 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/phy/fsl,lynx-10g.yaml b/Documentation/devicetree/bindings/phy/fsl,lynx-10g.yaml
+index 2e7d0abfa71a..a4592e02f972 100644
+--- a/Documentation/devicetree/bindings/phy/fsl,lynx-10g.yaml
++++ b/Documentation/devicetree/bindings/phy/fsl,lynx-10g.yaml
+@@ -57,10 +57,24 @@ patternProperties:
+       "#phy-cells":
+         const: 0
+ 
++      phys:
++        description:
++          PHYs on the signal path between the lane and the connector, such as a
++          signal retimer. A retimer can be modeled with a PHY device per
++          channel / direction.
++
++      phy-names:
++        description:
++          Optional names for the entries of "phys", for example to tell the
++          channels of a retimer apart.
++
+     required:
+       - reg
+       - "#phy-cells"
+ 
++    dependencies:
++      phy-names: [ phys ]
++
+     additionalProperties: false
+ 
+ required:
+@@ -119,6 +133,8 @@ examples:
+         phy@0 {
+           reg = <0>;
+           #phy-cells = <0>;
++          phys = <&retimer 0>, <&retimer 1>;
++          phy-names = "tx", "rx";
+         };
+ 
+         phy@1 {
+@@ -137,3 +153,14 @@ examples:
+         };
+       };
+     };
++
++    i2c {
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      retimer: retimer@18 {
++        compatible = "ti,ds125df111";
++        reg = <0x18>;
++        #phy-cells = <1>;
++      };
++    };
+diff --git a/Documentation/devicetree/bindings/phy/fsl,lynx-28g.yaml b/Documentation/devicetree/bindings/phy/fsl,lynx-28g.yaml
+index d73591315d4b..5d2505fe2fcc 100644
+--- a/Documentation/devicetree/bindings/phy/fsl,lynx-28g.yaml
++++ b/Documentation/devicetree/bindings/phy/fsl,lynx-28g.yaml
+@@ -67,10 +67,24 @@ patternProperties:
+       "#phy-cells":
+         const: 0
+ 
++      phys:
++        description:
++          PHYs on the signal path between the lane and the connector, such as a
++          signal retimer. A retimer can be modeled with a PHY device per
++          channel / direction.
++
++      phy-names:
++        description:
++          Optional names for the entries of "phys", for example to tell the
++          channels of a retimer apart.
++
+     required:
+       - reg
+       - "#phy-cells"
+ 
++    dependencies:
++      phy-names: [ phys ]
++
+     additionalProperties: false
+ 
+ required:
+@@ -111,6 +125,8 @@ examples:
+         phy@0 {
+           reg = <0>;
+           #phy-cells = <0>;
++          phys = <&retimer 0>, <&retimer 1>;
++          phy-names = "tx", "rx";
+         };
+ 
+         phy@1 {
+@@ -149,3 +165,14 @@ examples:
+         };
+       };
+     };
++
++    i2c {
++      #address-cells = <1>;
++      #size-cells = <0>;
++
++      retimer: retimer@18 {
++        compatible = "ti,ds125df111";
++        reg = <0x18>;
++        #phy-cells = <1>;
++      };
++    };
 -- 
 2.25.1
 
