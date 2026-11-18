@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794963051;
-	b=W36iZPupLymc3kPdnRjuv0lrNs3LLvZoFvHusZQ6btlgr9zN4tb7D5DU+XhXbwb5cqfw
-	 /vuX9CAWxPdumVNHg6NB5Dgeq7x1H0zR7JcFeFbib1Au8wwP1QKKjOzDxzLdHl0m769m1
-	 P+SH8hzWIxEnfYNLYWpNq2BXWsRWCQkulWcmwbE4q5UxnLC+YK2xGS3sspBqmMGk2gNMy
-	 G4r5d9aRl8bRBRtlKlySKWqZ9C8ptsY44vuUlvNPtXlwg2gvg8Q7Oo7vS9tZMkT8Dqs6X
-	 w/38tjOhQOKS08wh4VX/pMAEDeYhFjilFTsS70xe9N/IVrKlNy7jlKnVOVnC1jRt60A==
+	t=1794963052;
+	b=ocgFjb7kTsIMmxwh1EfEAv+8k27FqQW7vs9oGs9IAOj9zMaXK8TwM57XKla79yMJ6EJ+
+	 hdX6epSRj9pY56bC4G+shpXUEOS/VDmOgLdKIeEF15Kafg+Rpg7o2vhycOojHMrh7SEWE
+	 F/1H6YUmfVPJGJ8WEDCF/SC+Wj4XrCUpMKVeH23jcTg9k5xP2mtKHtchgVgLjnEAlOApE
+	 Zl5nH6KAlsyhPnLP0JjJvQkRhiGCwC+ZYzsbClNzXVzkJlLcsY9UKMGM9mIQmuonhPCma
+	 RQmeGKZkB/KLYRHEWkJAaOtyzxF4t9LNY977B13kDS6un/dXGVSR+ofPb+jb8sbVUNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794963051;
-	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=CrhiOwFKPXriExOM8b7/HQoICtjYS/A41ueHrS8eWis=;
-	b=gAUhlLhBEXDiFXcCXjel6WKQbLUutgMjPjBp4AdzL/YaN1XuUP5bIvHuG5VG7hrbPoIW
-	 rud3g0O7lw298smzTg/osbWiuY2t93QxNA5Mfpgz/oOdOV/s1VqtWJQFVKpo5t/dxXyTG
-	 U8iQhMBQwczp2P6B2Gc/O5ZOyHGBRoy6kyUuZ0zY4sdIiK1RQUxvyFyOXB+esefdpmOij
-	 +MK133VTnUzaaP/5Z6SOWdQVKv2JXi5QNgc2OepqGFvNqo42C1BEIQBjaZY1X6uWCjr4+
-	 BjCVVrHVn3rgRaWUww2yNfo5z76/LZIJAgZo+eWKWr9kGPNlnaAkIsZ+rTGyc1bYUdQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963052;
+	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:In-Reply-To:
+	 References:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=96Z4tbayucuLlpWHOziwBs4gc/Rk8fuDbtEuxO5NcME=;
+	b=ZntNIlPfBXPhdkoDVZhD2wFwOcHH7Ispdex6z7Hfpreq2LU2codhdAaWz5s1aULw3l6J
+	 VGOU5XRS7cvOURvliq8BqYqAeWAfkYz05ASZGtOoRelrp1VXAhh7PfaqvAsat5e5LuTQV
+	 senPmOiUhNC+riIpp6DZa9Ns0o/OnU0ZB5tCEQQKZlATin1t9iJwbLX3pv/nMxFGB5hT8
+	 MWegX0glOX1YjPyG4a7In8aNdpTm8MfUFL+2bv8Q11gK1rV2mWJ3rL34DtFcQsQsd84gf
+	 lVZjnOadGIgI1wsbzUwKio5deE6L2Svrg+5/iZludgLKw7nW2b3BKmKFXWIrAGm22KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l6VxE3rE;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Yx/yw7CW";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01044606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:50:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52B39606A336
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:50:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l6VxE3rE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 552991F000C4;
-	Wed, 18 Nov 2026 00:50:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yx/yw7CW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE13F1F000C5;
+	Wed, 18 Nov 2026 00:50:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794963050;
-	bh=CrhiOwFKPXriExOM8b7/HQoICtjYS/A41ueHrS8eWis=;
-	h=From:To:Subject:Date;
-	b=l6VxE3rE6I6obTPpEKoe1HpCYsIEROWfd7XvOflX/XtyuAWyObwayrVmAAs6R2P23
-	 0Uya/LkXThl9rGyQGXsG04OM8P7/eOzH9ob+jF6eQeEtlg9nXMUJHa9KV6EiyJ68on
-	 jPWsqVI++dvvbDCLLz60ksD786b7aUzyqblfWFTxvEtV+Hd3moM8uG/ulVxNdcj2rH
-	 A7fEZxC70NKTmwNPitFtwwTYPulaUV6Tl/JZkC4frKdWbFaY3WhTT32NvgsoKp7OSp
-	 P1MtOaZEWHJiuk22sQ/mSK2etj9ieSSHVZsg2BY4PEFF8wReNiVj6qrJN/3Ov1IgY6
-	 w7hz4zjRrrT8A==
+	s=k20260515; t=1794963052;
+	bh=96Z4tbayucuLlpWHOziwBs4gc/Rk8fuDbtEuxO5NcME=;
+	h=From:To:Subject:Date:In-Reply-To:References;
+	b=Yx/yw7CW+PyY2HVbXpJJQPFkKoj5n3VT6hCOIZW5PkCw7szM97oQzrhZquUD/tZu6
+	 2mNsvPOJYcMXF1VOpVT2Frkjlkbz0qVIeg44S3pcSR1joAB7Ju70Y6lCkbxswsTsVu
+	 gqnxvCbR0XMo0QkZX5xf+h7oDI3o7Jpy6MduOwVXgeowtZZwiKlECTS/JLWS541e2P
+	 TgIpfEgdNyiiPMbc5XOyOUS1PJHASVr5xTZlGK6rCulu+t1hBvg3l3TBocWScGAa6G
+	 bqh9xFen42rhka//y+93gNjHVGJEK7hlb5Bi3B7RMSbMpAWbEZG8kEwFNYErix7gN7
+	 mCx3+62Ua9ScA==
 From: Chris Mason <mason@kernel.org>
 To: mason@kernel.org,
 	edumazet@kernel.org,
@@ -51,9 +51,11 @@ To: mason@kernel.org,
 	willemb@google.com,
 	josef@toxicpanda.com,
 	netdev@vger.kernel.org
-Subject: [PATCH net 0/3] tcp: avoid integer wraps in the RTT estimator and the RTO
-Date: Tue, 17 Nov 2026 19:50:48 -0500
-Message-ID: <20261118005048.53393-1-mason@kernel.org>
+Subject: [PATCH net 1/3] tcp: don't let __tcp_set_rto() return 0
+Date: Tue, 17 Nov 2026 19:50:49 -0500
+Message-ID: <20261118005048.53393-2-mason@kernel.org>
+In-Reply-To: <20261118005048.53393-1-mason@kernel.org>
+References: <20261118005048.53393-1-mason@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,32 +68,64 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-Hi everyone,
+__tcp_set_rto() computes the RTO as (srtt_us >> 3) + rttvar_us, in u32
+arithmetic and with no lower bound. A comment in tcp_set_rto() says that
+the algorithm guarantees an RTO above TCP_RTO_MIN. But tcp_rto_min() is
+only applied to rttvar_us, so that guarantee is lost if the sum wraps.
 
-These three patches keep large RTT samples from wrapping the u32 fields
-of the TCP RTT estimator.
+tcp_retransmit_timer() backs off by doubling icsk_rto, so the backoff
+only works if icsk_rto is nonzero.
 
-Patch 1: __tcp_set_rto() never returns 0, so that the backoff recovers
-from any state of the RTT estimator.
+Of the three callers, only the thin-stream branch of
+tcp_retransmit_timer() clamps the result. tcp_set_rto() and
+tcp_ld_RTO_revert() store it in icsk_rto with an upper bound only.
 
-Patch 2: tcp_rtt_estimator() clamps each sample to 120 s, so that
-srtt_us, mdev_us, rttvar_us and the sum in __tcp_set_rto() can't wrap.
-This covers the ACK, SACK and TSecr samples.
+The fix used here is to keep the result of __tcp_set_rto() from 0, for
+all of its callers, so that the backoff recovers from any state of the
+RTT estimator.
 
-Patch 3: tcp_rtt_tsopt_us() rejects a TSecr sample above 120 s.
+Found by LLM code inspection, and confirmed with LLM generated
+reproducers on an unmodified kernel. Fixed by LLM, and tested with
+the reproducers and existing kernel selftests.
 
-Thanks to Eric for suggesting patches 1 and 2.  This is on top of
-v7.4-rc3.
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Chris Mason <mason@kernel.org>
+---
+ include/net/tcp.h    | 4 +++-
+ net/ipv4/tcp_input.c | 5 +++--
+ 2 files changed, 6 insertions(+), 3 deletions(-)
 
-Chris Mason (3):
-  tcp: don't let __tcp_set_rto() return 0
-  tcp: clamp RTT samples in tcp_rtt_estimator()
-  tcp: reject RTT samples from TSecr above 120 s
-
- include/net/tcp.h    | 11 ++++++++++-
- net/ipv4/tcp_input.c | 12 +++++++-----
- 2 files changed, 17 insertions(+), 6 deletions(-)
-
+diff --git a/include/net/tcp.h b/include/net/tcp.h
+index 5c9203aae834..6a714189bcc7 100644
+--- a/include/net/tcp.h
++++ b/include/net/tcp.h
+@@ -910,7 +910,9 @@ static inline void tcp_bound_rto(struct sock *sk)
+ 
+ static inline u32 __tcp_set_rto(const struct tcp_sock *tp)
+ {
+-	return usecs_to_jiffies((tp->srtt_us >> 3) + tp->rttvar_us);
++	u32 rto = usecs_to_jiffies((tp->srtt_us >> 3) + tp->rttvar_us);
++
++	return max(rto, 1U);
+ }
+ 
+ static inline unsigned long tcp_reqsk_timeout(struct request_sock *req)
+diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+index a2074a1af422..f65697bc96c9 100644
+--- a/net/ipv4/tcp_input.c
++++ b/net/ipv4/tcp_input.c
+@@ -1221,8 +1221,9 @@ void tcp_set_rto(struct sock *sk)
+ 	 *    with correct one. It is exactly, which we pretend to do.
+ 	 */
+ 
+-	/* NOTE: clamping at TCP_RTO_MIN is not required, current algo
+-	 * guarantees that rto is higher.
++	/* NOTE: clamping at tcp_rto_min() is not required, tcp_rtt_estimator()
++	 * applies it to rttvar_us. But rto must never be 0, which exponential
++	 * backoff could not leave: __tcp_set_rto() takes care of that.
+ 	 */
+ 	tcp_bound_rto(sk);
+ }
 -- 
 2.55.0
 
