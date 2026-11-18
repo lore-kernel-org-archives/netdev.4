@@ -1,60 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794962933;
-	b=ZMQ+oDiMqsC6M5By/s1xjxAWPv3ozIj8kz8+l+jKe/GwfSIR4gy7uGYLiY9+HxO2irCe
-	 7utjVxajwTTBX81bP0MIHR2SbYXT00S7ANlX3OIvLBImZtWW0UM1XIVw66KrnhTkDzvhO
-	 +8btcCKR8DRbzTwxfT7w82k3b47SmIS2uI0dJGoR/fP6mwASkOYYNACeP/jbl41Gcz/ml
-	 4mkisdOsegS64Q0cZe5OiQ2zpS4eaXFZIYtDTfij4g/7NQBadOBQn4sEbBT52vpTskd4s
-	 F5x15S5HBdjsPrjmZEul5IRdx8DWI6HH12YpNI0Scyf7N1BsfTgaO4MNgGa2JuZ6Pqg==
+	t=1794963051;
+	b=W36iZPupLymc3kPdnRjuv0lrNs3LLvZoFvHusZQ6btlgr9zN4tb7D5DU+XhXbwb5cqfw
+	 /vuX9CAWxPdumVNHg6NB5Dgeq7x1H0zR7JcFeFbib1Au8wwP1QKKjOzDxzLdHl0m769m1
+	 P+SH8hzWIxEnfYNLYWpNq2BXWsRWCQkulWcmwbE4q5UxnLC+YK2xGS3sspBqmMGk2gNMy
+	 G4r5d9aRl8bRBRtlKlySKWqZ9C8ptsY44vuUlvNPtXlwg2gvg8Q7Oo7vS9tZMkT8Dqs6X
+	 w/38tjOhQOKS08wh4VX/pMAEDeYhFjilFTsS70xe9N/IVrKlNy7jlKnVOVnC1jRt60A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794962933;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794963051;
 	h=Received:DKIM-Signature:From:To:Subject:Date:Message-ID:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=M+o3XGA+ZVeQwU3F3oDZDSpaFvjG+cSYymZrG+icHTg=;
-	b=LEyyYoHwZAInl8r2tDNUhr7qGwLSWHiFl19yNzyGAuQSDIyyOwXTYeArq4djzI64n0I8
-	 7BxanIYrjepI60uOgpDglUvV9RVFxKsWTxSb+Y0eGrk3w88NCka2SN0MuqUDqPYue6t/p
-	 B/ZzC1jd+VqpOnZWFIy1Q8lxhdqiYKlyyQ5JCeB35YXIEcznWzmOQVWaAaJwDLUEkmTBM
-	 e7wcj10EZ4wnnE0KIb0GlRGMqHFjOXfDgX8vjQ3YyJa/pLKdhd0EwvUpVWJcyaGkMhc5s
-	 zhf6SNWSfYZyAhgfeo5L1gHKk7G2wXYxDVzYqqYtT7Ak2Ai+3yr25Xa9jrP74mFKGHw==
+	bh=CrhiOwFKPXriExOM8b7/HQoICtjYS/A41ueHrS8eWis=;
+	b=gAUhlLhBEXDiFXcCXjel6WKQbLUutgMjPjBp4AdzL/YaN1XuUP5bIvHuG5VG7hrbPoIW
+	 rud3g0O7lw298smzTg/osbWiuY2t93QxNA5Mfpgz/oOdOV/s1VqtWJQFVKpo5t/dxXyTG
+	 U8iQhMBQwczp2P6B2Gc/O5ZOyHGBRoy6kyUuZ0zY4sdIiK1RQUxvyFyOXB+esefdpmOij
+	 +MK133VTnUzaaP/5Z6SOWdQVKv2JXi5QNgc2OepqGFvNqo42C1BEIQBjaZY1X6uWCjr4+
+	 BjCVVrHVn3rgRaWUww2yNfo5z76/LZIJAgZo+eWKWr9kGPNlnaAkIsZ+rTGyc1bYUdQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LeX1FwkO;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l6VxE3rE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D5CF606A880
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:48:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01044606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:50:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LeX1FwkO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4EBB81F000C4;
-	Wed, 18 Nov 2026 00:48:51 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l6VxE3rE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 552991F000C4;
+	Wed, 18 Nov 2026 00:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794962932;
-	bh=M+o3XGA+ZVeQwU3F3oDZDSpaFvjG+cSYymZrG+icHTg=;
+	s=k20260515; t=1794963050;
+	bh=CrhiOwFKPXriExOM8b7/HQoICtjYS/A41ueHrS8eWis=;
 	h=From:To:Subject:Date;
-	b=LeX1FwkOUexPyXihUG1we8e/75Rvc67d3zP5hQUVC7wcjUCRHze6OgfRQJsdUsiSM
-	 6EXhRqtG05pDRYtzIUThE1HdrPtLEihwSRZGWnclJ/QXwkUNFMzCMmSdjmHS3VrdMg
-	 sGaCSueNNj46AbEGG/Pvciwzld/ob8CNtPVIuOXcxNfpjgrvWKUhNG5UehI+xvDdsO
-	 Agmw7orAhM5/mgh5CgFcu4RmNumOohQeHy+OG3gohql/vzhqAJgy6WNxk5moL4ar6N
-	 NRb7lhK7bmff0ISlmzCZFwa4Vgr/NYEK9FvEs33u9UNGtJm6tEkA/3UH6UU8qxpzmh
-	 YUV8qd0/m/q/A==
+	b=l6VxE3rE6I6obTPpEKoe1HpCYsIEROWfd7XvOflX/XtyuAWyObwayrVmAAs6R2P23
+	 0Uya/LkXThl9rGyQGXsG04OM8P7/eOzH9ob+jF6eQeEtlg9nXMUJHa9KV6EiyJ68on
+	 jPWsqVI++dvvbDCLLz60ksD786b7aUzyqblfWFTxvEtV+Hd3moM8uG/ulVxNdcj2rH
+	 A7fEZxC70NKTmwNPitFtwwTYPulaUV6Tl/JZkC4frKdWbFaY3WhTT32NvgsoKp7OSp
+	 P1MtOaZEWHJiuk22sQ/mSK2etj9ieSSHVZsg2BY4PEFF8wReNiVj6qrJN/3Ov1IgY6
+	 w7hz4zjRrrT8A==
 From: Chris Mason <mason@kernel.org>
 To: mason@kernel.org,
-	dsahern@kernel.org,
-	idosch@nvidia.com,
-	davem@davemloft.net,
 	edumazet@kernel.org,
+	ncardwell@google.com,
+	kuniyu@google.com,
+	davem@davemloft.net,
 	kuba@kernel.org,
 	pabeni@redhat.com,
 	horms@kernel.org,
 	willemb@google.com,
-	kuniyu@google.com,
-	netdev@vger.kernel.org,
-	josef@toxicpanda.com
-Subject: [PATCH net] ipv4: don't let the transport header offset wrap
-Date: Tue, 17 Nov 2026 19:48:50 -0500
-Message-ID: <20261118004850.52808-1-mason@kernel.org>
+	josef@toxicpanda.com,
+	netdev@vger.kernel.org
+Subject: [PATCH net 0/3] tcp: avoid integer wraps in the RTT estimator and the RTO
+Date: Tue, 17 Nov 2026 19:50:48 -0500
+Message-ID: <20261118005048.53393-1-mason@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,56 +66,32 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-From: Josef Bacik <josef@toxicpanda.com>
+Hi everyone,
 
-skb->network_header and skb->transport_header are 16-bit offsets from
-skb->head. ip_rcv_core() computes transport_header as
-network_header + ihl * 4.
+These three patches keep large RTT samples from wrapping the u32 fields
+of the TCP RTT estimator.
 
-These offsets are normally small. But a tunnel pulls its outer headers
-and hands the same skb back to the stack. skb->head stays where it is,
-so skb->data moves further away from it with each decapsulation. After
-nested decapsulations the end of the inner IP header can lie beyond what
-16 bits can hold.
+Patch 1: __tcp_set_rto() never returns 0, so that the backoff recovers
+from any state of the RTT estimator.
 
-The fix used here is to set the offset with
-skb_set_transport_header_careful(), and to drop the packet if the offset
-does not fit.
+Patch 2: tcp_rtt_estimator() clamps each sample to 120 s, so that
+srtt_us, mdev_us, rttvar_us and the sum in __tcp_set_rto() can't wrap.
+This covers the ACK, SACK and TSecr samples.
 
-The helper computes the offset from skb->data, which points to the IP
-header in ip_rcv_core(). It does not use network_header. So it also
-catches a packet whose network_header was already truncated, where
-network_header + ihl * 4 would look valid.
+Patch 3: tcp_rtt_tsopt_us() rejects a TSecr sample above 120 s.
 
-Found by LLM code inspection, and confirmed with LLM generated
-reproducers on an unmodified kernel. Fixed by LLM, and tested with
-the reproducers and existing kernel selftests.
+Thanks to Eric for suggesting patches 1 and 2.  This is on top of
+v7.4-rc3.
 
-Fixes: 21d1196a35f5 ("ipv4: set transport header earlier")
-Assisted-by: LLM
-Signed-off-by: Josef Bacik <josef@toxicpanda.com>
-Signed-off-by: Chris Mason <mason@kernel.org>
----
- net/ipv4/ip_input.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+Chris Mason (3):
+  tcp: don't let __tcp_set_rto() return 0
+  tcp: clamp RTT samples in tcp_rtt_estimator()
+  tcp: reject RTT samples from TSecr above 120 s
 
-diff --git a/net/ipv4/ip_input.c b/net/ipv4/ip_input.c
-index 9860178752b8..397043893376 100644
---- a/net/ipv4/ip_input.c
-+++ b/net/ipv4/ip_input.c
-@@ -572,7 +572,11 @@ static struct sk_buff *ip_rcv_core(struct sk_buff *skb, struct net *net)
- 	}
- 
- 	iph = ip_hdr(skb);
--	skb->transport_header = skb->network_header + iph->ihl*4;
-+	if (!skb_set_transport_header_careful(skb, iph->ihl * 4)) {
-+		drop_reason = SKB_DROP_REASON_PKT_TOO_BIG;
-+		__IP_INC_STATS(net, IPSTATS_MIB_INDISCARDS);
-+		goto drop;
-+	}
- 
- 	/* Remove any debris in the socket control block */
- 	memset(IPCB(skb), 0, sizeof(struct inet_skb_parm));
+ include/net/tcp.h    | 11 ++++++++++-
+ net/ipv4/tcp_input.c | 12 +++++++-----
+ 2 files changed, 17 insertions(+), 6 deletions(-)
+
 -- 
 2.55.0
 
