@@ -1,109 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=85.214.127.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795027216;
-	b=DCl0U0J/fudBLqqx5gTALvUQnxxaAUUg6wnFhLsHdyqqM3ZJXuubkqRXO5vyomQBr7NW
-	 OeB7sOt0fTRX45hUsSBXoJoK259D5QlYMrx/bcAx/6VFQCc3n+uMG3mlHv735S/bTB6xr
-	 s1qwqdOGG/tj4JVX8wxgKT/drZmJwLTovAsHyXicLync/chMQdhVcF5RyxutmU48h37rt
-	 Qaj/QNuE8rrHqwpZjPQpYChJOUnuitBLOsEyd3uHefK1YcgK6YAVvfmcKg+t9C89r9rqY
-	 NiGI+6RfNzGk0GqngovIMECNwSbOcjgAiaSbvhHNQIWohI7akeUWMvh8od0pZ34RzGw==
+	t=1795027221;
+	b=g5iAD176MRdvN98Lk8gYzNsRqlNWL+1krMryXohh39ZrZaYerZxyZVd7Z9m2rPD2fAkd
+	 3+ei0Wy9IuglrCdbzdVoIjVzqzBkU0M5OlwPim0UFiB0utom83VgyuvxsZ6f2K8IhE1PM
+	 XtakAVfIIv5h7ccR1hd23vNlEbVCISBOasTevW0lz0jZul2/4r6JE09GPhgyZYOTwxmPG
+	 nC0bj8sp0qHuqcsRePexYW4Oge85GTMwZPSdcMCVOEy6q3YCNyMyjkNWg1i6tnS47rnGG
+	 HsBSmTYbBSN1OdJKMqO06tIm28XGTtKiJY77q8cXqxiKi+Ms2blx6xiOcgtAIpPRUsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795027216;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=cxcci//GRMEdhKx1M6RiDiJ8JPsYH7BK12DQ2EXCG+s=;
-	b=uuZTY+on02xZ4fP2yuhnW8ciP5Cde8X4DdjwwEsEhgxqUdPZxkBvz6QWhvNFwlpQlfY0
-	 wsNnzFbF5C561Bo8xVN7o2Lzh6WVhvFUsdaezD9rPlUALTObQTChEBI9Uzb45edFHXWhy
-	 RZ7i7VxCLmmKyxXJoh8ZOPdN5Z/+1h76Wfq2j7BeEK02rq7zKHYAY17g4uhvaVRDWmj13
-	 YSvir72MwfEm69Ycbmt/O8AonyAIPeE9AsxBdIFIXRnK3s7weyjx0P8ECbEF4yPEp/rPx
-	 3dEbE7dyL2vz7DS54TRb1BW2xHC87iLTPDsHVk6A4wWuZiby1H293fSfKi55ETrUsYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795027221;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Virus-Scanned:Received:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=BDmwc0kdIKYcN4IQu/MGzbY7v+It/Ud+2qPynIMmjSQ=;
+	b=TJ9tUg7f/HO5EbXAX2Ae1VsihCejjg32BpG5y4DwDpuYZbWvvYgJJ1EvEzrBBbmqvdZR
+	 Qg+zbXQfP4mB96/hYjJrSNqmr3l7wuFfI1kxAQ6gSmw91OcX3IXmO2PjSY00ITav92qa6
+	 PfNUX4WeTZaADCbsKCSfYSjQPPzLKt5jfo0QPjQF9FItY8k/mP4ruXtpp1jn0eW9TLvXU
+	 1po3AKvzoEj8ItyH1VaGbDzy6oY6gM9P03SwMoC7z7hWOdaKF7malM3idTosyX9vHiE4C
+	 /20jiLh8vUzg4A2Yo46Vcf1a+4IbEB9c5PDJv0iKPPb4FNNNZoWksZRAKyKul/k/bEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Xf0YQygw;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=szelinsky.de;
+	spf=pass smtp.mailfrom=szelinsky.de;
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=JcQRgfdZ;
+	arc=none smtp.remote-ip=85.214.127.56
+Received: from szelinsky.de (szelinsky.de [85.214.127.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB9FF606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 18:40:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB9FF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 821B6606A31C;
+	Wed, 18 Nov 2026 18:40:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 821B6606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=szelinsky.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=szelinsky.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Xf0YQygw
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cdab938dc83so755332a12.3
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:40:15 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795027215; x=1795632015;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=cxcci//GRMEdhKx1M6RiDiJ8JPsYH7BK12DQ2EXCG+s=;
-        b=JOloMj7PbwudG45cDtwOzLPvyBLBAKJPsCqDN06+0G3CmIfBqQT15aiCmLlUpvvkul
-         pV9nBXzRoh92fB/Z7eltgvaofdtaHZLrtWbP8e3Yt7yPQOp5HpHsSj1g2PoRs4EXeHFD
-         UfYdT12bBZp2GYujnTcMOERn7ZvmmYMLnpqmJkEjO3uUmJevrZtBy8PaUhXGPurcBHHX
-         /sVmyNsyIP7yIwEafM5HDzILsq9wB9Jwc0RIhSqal7H32uqsBK2m8KJBD9mEd6H3K32q
-         TlNFiL5RkY5UMRsgynMcjVNzV+MjqhEcZTH5E4uyb+yfI3EE7b/2clU/Hq2cUjIjxTHn
-         ossA==
-X-Gm-Message-State: APuU4Z8Y4NEvruVtudIDN0lCAAi5qDaPj2jBzQX2xdZ887/EJcPqBonS
-	1qz9uaZwE9T3GYBe1jyaWXp7HAo+6MQKnoGqQyOKYOCd5eJjBb4MLwQIzFCUdP4QHuNfcR5ove5
-	bq1ZosNlVOBXp58HvvgQeEPuTrQmP/cTiInp/58+E6lJEmEg38LcJUpV0SZsOqJzmWPTcVwEqYV
-	vJeh2hRirjE/kKfgFzLyXkXuA2BfOrSoNN9/EtgMcr1bp1N2GwFoGBUMqso0WwlhB++HUmVhhRs
-	5qktLutnswTUb9g
-X-Gm-Gg: AZFdTZfZN9dLpYQeEToSsrph55bVUPLJpTgQt6ya1hct4UtH0sSMAfbmM/8aXMmpSdk
-	Vi9kcHj5Y4ngZ4z6oIlea24zsJglLnDa3YIuFEoDnFmKa/j+5ObERn68sG4djigIzOF0z4w8lmH
-	r/W9c28LgjbHUaCV58tlvPAOkAPD2jb0Bg0CZEsHZTIT6ZUNsG+e/u0Do4/8K3lcOQ6Ykl2JgO6
-	t/bod6piaH9SQuCPDThARBrKlYk2VEBhCVndAoIStTsAtFDHCeI+ZkJ0OiyVvZffJbG2pKL3Ads
-	2m4N7EENiYoV6+E1h8q9JLPVX2A/w9/0SCH4b2G0N2qSWdJUi/HhWAslO5TZdOhdjga0LxNFNvS
-	INkCrNg6bAkh90bwrPH/JKjCKLQHfb7LmIq5IkRSLLpCokickKHB+Lo3Z8h/qu0x2TY2cvl8XRu
-	N/uK7yvEx1yUHRUYpU27Z4zTmTa+uWAVwMxT4PPBKP3MQ=
-X-Received: by 2002:a17:90b:1dcb:b0:3ac:9259:122c with SMTP id 98e67ed59e1d1-3b3d07d3d01mr3290337a91.40.1795027214672;
-        Wed, 18 Nov 2026 10:40:14 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3f6be27ecsm205971a91.8.2026.11.18.10.40.14
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 10:40:14 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-3ae1d132d52so980868a91.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:40:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795027213; x=1795632013; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cxcci//GRMEdhKx1M6RiDiJ8JPsYH7BK12DQ2EXCG+s=;
-        b=Xf0YQygwF/l1nypK4WSpBObGAEFMQFq1dQOy8siRYe7eTeZKJAv0rD8B62DCU3QAM5
-         r4NYTDNvIhq7GbsbjlEPbr0hJKlkfzxmxHNU52+tDAu+V7VTn2VmJoxIRWKj/j7q38k1
-         X2e/tgSvhrJQ6dyYt0lB6G9UQDGnGk3bBFekg=
-X-Received: by 2002:a17:90b:1809:b0:3b3:cae0:2b68 with SMTP id 98e67ed59e1d1-3b3d07d4653mr3503197a91.48.1795027212902;
-        Wed, 18 Nov 2026 10:40:12 -0800 (PST)
-X-Received: by 2002:a17:90b:1809:b0:3b3:cae0:2b68 with SMTP id 98e67ed59e1d1-3b3d07d4653mr3503171a91.48.1795027212295;
-        Wed, 18 Nov 2026 10:40:12 -0800 (PST)
-Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3d56a3f93sm2428978a91.2.2026.11.18.10.40.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 10:40:11 -0800 (PST)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: netdev@vger.kernel.org
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Jonas Gorski <jonas.gorski@gmail.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
+	dkim=temperror header.d=szelinsky.de header.i=@szelinsky.de header.a=rsa-sha256 header.s=mail header.b=JcQRgfdZ
+Received: from localhost (localhost [127.0.0.1])
+	by szelinsky.de (Postfix) with ESMTP id A774EE83AA4;
+	Wed, 18 Nov 2026 19:40:12 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=szelinsky.de;
+	s=mail; t=1795027212;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=BDmwc0kdIKYcN4IQu/MGzbY7v+It/Ud+2qPynIMmjSQ=;
+	b=JcQRgfdZ01IWd8gU2J1loUONaPKrm28loAvrV7R/poVqWOJOXW0Y65J68NnUyK/UWJbT3i
+	n9W55wryhk6mNji6Xhc8PA2CrL5LW5EhwsOQY0EZUG8EtFjmz1cJ2w/ahSRKBw9b7ISB8a
+	40VTc2G3kBOMFmlvhyLkZTylycrprz4WSGhZuEVOuQGY1D32cWtOj8NWpS6eHMCOAxVWxr
+	kirIF+KpL4+BO2Ae4K13mt86xoxAg6TqqZC+bTCiGb1bCHXP5BdGLuHs1g0Q1Zq0dziln1
+	PljS9q3CQ395cj+mayq64MgVpyvi+EiwkesrSGAq04m9WYsOYMOWwfh8956JgA==
+X-Virus-Scanned: Debian amavis at szelinsky.de
+Received: from szelinsky.de ([127.0.0.1])
+ by localhost (szelinsky.de [127.0.0.1]) (amavis, port 10025) with ESMTP
+ id XdoCS_HWgmZZ; Wed, 18 Nov 2026 19:40:12 +0100 (CET)
+Received: from p14sgen5.. (unknown [91.25.97.186])
+	by szelinsky.de (Postfix) with ESMTPSA;
+	Wed, 18 Nov 2026 19:40:12 +0100 (CET)
+From: Carlo Szelinsky <github@szelinsky.de>
+To: Oleksij Rempel <o.rempel@pengutronix.de>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org (open list)
-Subject: [PATCH net] net: dsa: tag_brcm: fix link-local detection with a prepended tag
-Date: Wed, 18 Nov 2026 10:40:04 -0800
-Message-ID: <20261118184004.1916105-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.53.0
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Kyle Swenson <kyle.swenson@est.tech>,
+	Ross Cawston <ross@r-sc.ca>,
+	netdev-bot+sashiko@kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Carlo Szelinsky <github@szelinsky.de>
+Subject: [PATCH net v5 00/14] net: pse-pd: assorted lifetime and error-path fixes
+Date: Wed, 18 Nov 2026 19:39:43 +0100
+Message-ID: <20261118183957.2031311-1-github@szelinsky.de>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,53 +86,166 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-brcm_tag_rcv_ll() checks eth_hdr(skb)->h_dest to avoid marking link-local
-frames as forwarded by the switch. With a prepended tag, eth_type_trans()
-sets the MAC header at the start of the tag, so the address checked is the
-tag plus the first two bytes of the real destination address. Link-local
-frames such as BPDUs, LLDP or EAPOL are then not recognized and get
-skb->offload_fwd_mark set, which keeps the bridge from forwarding them in
-software to the other ports of the switch when it is configured to do so.
+Fixes for the PSE core and the pd692x0 driver, found while working on
+the PSE controller teardown. Most of them are about what happens when a
+controller unbinds or fails to register.
 
-Read the destination address after the tag instead when the tag is
-prepended. Tags embedded after the source address are not affected.
+ 1  The kfifo is too small: podl-pse-regulator and any controller with
+    0 or 1 lines cannot register.
+ 2  Removes two checks that can never be true. Not a fix; it makes 3
+    smaller.
+ 3  A module reference leaks when reading the port state fails.
+ 4  A failed IRQ request stays in pcdev->irq, so unregister disables a
+    line another device may own.
+ 5  The notification worker can read a PHY that was already freed.
+ 6  Setting a power limit checks the PI state without the lock.
+ 7  A power domain shared by two controllers is freed when the one that
+    created it unbinds, or when registration fails part way.
+ 8  Unregister frees the PI array before it stops the IRQ handler and
+    the notification worker. The worker can also be queued again
+    during unregister.
+ 9  Unregister frees the PI array while a lookup can still find the
+    controller.
+ 10 The PI regulator ops can run after the PI array is freed.
+ 11 A failed registration leaks the kfifo.
+ 12 A shared power domain's supply handle goes stale when the controller
+    that created it unbinds.
+ 13 pd692x0 leaks its manager power budget when probe fails.
+ 14 pd692x0 crashes on a manager supply that is not resolved yet.
 
-Fixes: 762e7e174da9 ("net: dsa: tag_brcm: do not mark link local traffic as offloaded")
-Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
----
-This change was a result of a Sashiko review on this patch series:
-https://lore.kernel.org/all/20261116222519.1416501-1-florian.fainelli@broadcom.com/
+Some patches need earlier ones: 7 needs the locked check from 6, 10 to
+12 build on 7 to 9, and 14 relies on 13 to give back a budget that was
+already reserved.
 
- net/dsa/tag_brcm.c | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Testing: every patch builds on its own with W=1 and is checkpatch
+clean. 1, 5, 7, 10 and 12 were tested in QEMU (arm64, KASAN, lockdep,
+kmemleak) with test-only fake PSE controllers: without the patch, the
+failure in its commit message shows up; with the whole series, the
+tests are clean, except for the older lockdep report and the reserved
+budget, both listed below. For v5, the whole series was tested again.
+The check that 8 adds to pse_set_config_isr() is not covered by these
+tests, because the fake controllers have no IRQ. The other patches
+were found by code inspection and are build-tested only.
 
-diff --git a/net/dsa/tag_brcm.c b/net/dsa/tag_brcm.c
-index b7c49822ca88..b58669c92147 100644
---- a/net/dsa/tag_brcm.c
-+++ b/net/dsa/tag_brcm.c
-@@ -149,6 +149,7 @@ static struct sk_buff *brcm_tag_rcv_ll(struct sk_buff *skb,
- 				       unsigned int offset)
- {
- 	int source_port;
-+	const u8 *dest;
- 	u8 *brcm_tag;
- 
- 	if (unlikely(!pskb_may_pull(skb, BRCM_TAG_LEN))) {
-@@ -184,7 +185,11 @@ static struct sk_buff *brcm_tag_rcv_ll(struct sk_buff *skb,
- 	/* Remove Broadcom tag and update checksum */
- 	skb_pull_rcsum(skb, BRCM_TAG_LEN);
- 
--	if (likely(!is_link_local_ether_addr(eth_hdr(skb)->h_dest)))
-+	/* With a prepended tag, the MAC header set by eth_type_trans() starts
-+	 * at the tag, and the destination address follows it.
-+	 */
-+	dest = offset == ETH_HLEN ? brcm_tag + BRCM_TAG_LEN : eth_hdr(skb)->h_dest;
-+	if (likely(!is_link_local_ether_addr(dest)))
- 		dsa_default_offload_fwd_mark(skb);
- 
- 	return skb;
+I also tested v4 on real hardware: a Hasivo S1300WP-8XGT-4S+ switch
+(RTL9313, two HS104 PSE controllers with an out-of-tree driver, eight
+PIs), running OpenWrt with 6.18.55 plus this series:
+ - Power delivery, enable and disable with ethtool --set-pse, and the
+   delivering LED triggers all work, also on a cold boot where the PSE
+   controllers probe after the PHYs.
+ - Unbind/bind and rmmod/modprobe of the PSE driver with PHYs attached:
+   the PHYs drop and get back their pse_controls, the module refcount
+   goes back to 0, and there are no warnings.
+ - 50 rounds of unbind and bind of both controllers, while ethtool
+   --show-pse/--set-pse loops and LED sysfs reads run on the same
+   ports: all ports come back, and dmesg is clean.
+v5 only rebases and changes text, so I did not run it again.
+
+Ross Cawston's "net: pse-pd: don't enable a PI again while disabling
+it" [1] applies on top of this series without conflicts. The tests
+also hit two older bugs that this series does not fix:
+ - With the static strategy, turning off a PI to make room for a
+   waiting one retries the waiting PI from inside its own allocation,
+   which recurses until the kernel stack overflows. [1] removes that
+   retry.
+ - pse_isr() and setting a power limit hold pcdev->lock and then take
+   the supply's regulator lock, while regulator_enable() on a PI takes
+   them the other way round. Lockdep reports it when the supply lock
+   is contended. Kyle Swenson's RFC [2] removes the PI regulators, so
+   the second order goes away.
+
+Older problems that reviews of this series found, not fixed here:
+ - A pse_control held by a PHY can outlive its controller. The PSE
+   notifier series for net-next fixes this.
+ - When a controller unbinds, its PIs are not switched off, and the
+   budget they hold stays reserved on the supply. This should use the
+   normal disable path, and belongs with the fix above.
+ - The notification worker uses the net_device without holding a
+   reference to it.
+ - Setting a power limit changes the budget and the hardware limit
+   under two separate locks, so pse_isr() can run in between.
+ - On tps23881, pse_controller_unregister() calls disable_irq() after
+   devres has already freed the IRQ.
+ - A PI that waits for budget, or was turned off to make room for
+   another one, can get budget reserved by a power limit change; that
+   budget is not freed when the PI is powered later.
+ - The PI regulators are visible before their power domain is set. A
+   PI enabled in that short time skips the budget check.
+ - pse_control_get_internal() reads the PI state from the hardware and
+   sets admin_state_enabled without pcdev->lock.
+ - In the regulator core, regulator_request_power_budget() first
+   reserves the budget on the parent supply. If the request then fails
+   on the regulator itself, the parent's part is not given back.
+
+Changes in v5:
+ - Rebased on the current net/main. 7: only the context changed, after
+   the devm_kmalloc_obj() conversion; the code is the same.
+ - 6: the commit message says the budget is lost, not only reserved,
+   and a comment no longer says "powered" (Sashiko).
+ - v4: https://lore.kernel.org/netdev/20261111211731.3193796-1-github@szelinsky.de/
+
+Changes in v4:
+ - Rebased on the current net/main.
+ - 5: shorter comments; the locking rule is now in the kernel-doc
+   (Kory, Sashiko).
+ - 8: pse_set_config_isr() does not try to power a PI once unregister
+   has started, so it no longer reports a false power control error
+   (Sashiko). Kory's Reviewed-by is kept, as this is a small change.
+ - 9: the comment in pse_controller_unregister() no longer promises
+   more than the code does.
+ - 10: the commit message names the patches it needs (Sashiko).
+ - Collected Reviewed-by tags.
+ - v3: https://lore.kernel.org/netdev/20261103220217.1131971-1-github@szelinsky.de/
+
+Changes in v3:
+ - Rebased on the current net/main.
+ - 7 now also gives back the power domains when pse_register_pw_ds()
+   fails part way, moved here from v2 11. The release asserts that
+   pse_pw_d_mutex is held (Oleksij).
+ - 8 now sets pcdev->unregistering, moved here from v2 10, so the
+   worker cannot be queued again after the drain (Sashiko, Oleksij).
+   With that, it has a Fixes: tag again.
+ - 10 only keeps the PI array until the PI regulators are gone.
+   Switching off the PIs on unbind is dropped (Oleksij); this also
+   drops the lock order problem Sashiko found in it.
+ - 11 only frees the kfifo now, so its subject changed.
+ - 12: asserts that pse_pw_d_mutex is held in pse_pw_d_leave(),
+   renames pse_pw_d_release_locked() to pse_pw_d_release() (Oleksij),
+   and wraps two lines to 80 columns.
+ - Collected Acked-by tags. Dropped the tags on 7 and 8, as their code
+   changed.
+ - v2: https://lore.kernel.org/netdev/20261020171249.853085-1-github@szelinsky.de/
+
+[1] https://lore.kernel.org/netdev/20261019220835.613-1-ross@r-sc.ca/
+[2] https://lore.kernel.org/netdev/20261020-pse_regulator_fixes-v1-1-fd6084a22cba@est.tech/
+
+Carlo Szelinsky (14):
+  net: pse-pd: size the notification kfifo after defaulting nr_lines
+  net: pse-pd: remove dead pi_get_admin_state() checks
+  net: pse-pd: fix module refcount leak in pse_control_get_internal()
+  net: pse-pd: do not keep a failed IRQ in pcdev->irq
+  net: pse-pd: do not reach a freed PHY from the notification worker
+  net: pse-pd: check the PI state under the lock when setting a power
+    limit
+  net: pse-pd: do not tie a shared power domain to its creator's devres
+  net: pse-pd: stop async event sources before freeing PI data in
+    unregister
+  net: pse-pd: unregister from the controller list before freeing PI
+    data
+  net: pse-pd: keep the PI data until the PI regulators are gone
+  net: pse-pd: free the notification kfifo when registration fails
+  net: pse-pd: use each PI's own supply handle for the power budget
+  net: pse-pd: pd692x0: release the manager power budget through devres
+  net: pse-pd: pd692x0: defer probe while a manager supply is unresolved
+
+ drivers/net/pse-pd/pd692x0.c  |  31 +++-
+ drivers/net/pse-pd/pse_core.c | 303 +++++++++++++++++++++++-----------
+ include/linux/pse-pd/pse.h    |   5 +
+ 3 files changed, 235 insertions(+), 104 deletions(-)
+
+
+base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
 -- 
-2.53.0
+2.43.0
 
