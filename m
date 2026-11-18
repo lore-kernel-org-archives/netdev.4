@@ -1,60 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795043791;
-	b=lJlZ5mYyHFGX3T/pymiZBagZNTV57fE+lj44Bb1qpxj4e6TvfwYn2TEz1loNkKUboFzk
-	 zHhJfMU+yR8i8Vi398rQjHPA1WAnhYDwIgYZJg+m4ng4KTAytWP0CPjxw8YNUgRxOd0dZ
-	 TkL+I6LwQRmUng6MwvmsLe8nSQQ70VmJX0IoOctUE1Jn8BCCUl2uZcX56e4WYs6hTTyfS
-	 10gIjJQFUvOUDWFfbusRclrQqdZER47DPMTNyYGqP/OPhLYfsRgsMuZc1L9cn+sSZxmGI
-	 Y1Tja7Y/5MNPwMY45SC4+JU1Jz9pF+3Ma06+3S4dOcOSiWbrvYrHyt5G09wVvOFNzjQ==
+	t=1795043823;
+	b=X7BX9ASu5UPR3NHJv8Cw5qi0wsPW50RfiYz0NypIqZF9YJjDTPzyCz5bnVK54d9002S4
+	 rN72SnrxL6z/4ugL0bEgDTMDPitCeZy/J7ZlT9RB70ubraUbWo8iqd6nOcx/Pkp+CO/GU
+	 EXbOQsGLS5zDDV6h1MvzoLTjTh0ABq49N2QfljpGwMxPlP5Rn1uOoRj4eaikr0X3IDj68
+	 Imdw5HzQeDM/1ah2xSSk5gBJYxlrbC0Swhc5KMsRH0RPZw4lXfZKIr2MXQOrsatO5Z2Dd
+	 ZG8CSsAeR+PixJLQTjArk/qUmRjQMQTX08snth9zfUgQGx2CjLe46Z7k95uLdcIyyng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795043791;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=xiiydflEB91O48Fmb7pHblMVYGyM8PHtmi+Z46i+1H8=;
-	b=xBnQfgctifrXpZC0b17aeU7vpHQmePIWy99MXI5dNJKeZBJzWZsb9BteA5P06rCVgQV0
-	 TrBKMiPB9Gls1aNs3367D4zZgNIk9xWxaOjmkvx/Acy7q01hGSLIzYlLX6SPjKf41QDv9
-	 pCD3l6BhJHi6PgKdf09X6Rv+/qqrQwkG4t60xLNR78NMYG+K64foQzngniwYCSVxqFwY8
-	 mwGMrhlYlCtNAnacCKpJQ3RMaRs+iLNxO82STwHmMk2u4atjy4aZjfOD3PMh22nrRMQuj
-	 9d8XRBdoYohOye2DIEXcBvd89ZQNz75x5uyNYiFfGAqkpC8kCtuWXjynyiulmH7EghQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795043823;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
+	b=hPwQn4u9Gs1QRSDG7fnGLSkLp9dnbOJ0yq7nG3ZaBRDyzn1pxU66A5MkL+q6FSDDO5ek
+	 eTa0m0k2OnsDDhhsWq8hLA1u7AmoUHEbfOeH3jvADueMRKxBV/4F5CtYEfLwveBU1Owq7
+	 /iFhLu3nUv9QnipaNOP4n0Z670UkF5blEUt6IRtt5wZTeFvspDv7Z5yzyw0+e1A3y4rLT
+	 QRUBWqRjEiAVumyASe0BZkZPBlbamphx02aVi7C6biZgMxjQ7QXDmoTz5ipxff6CkOJ8G
+	 1foCillRSA0JEejpvzNX4ouAFjtt3YDO1RN6LbkxCKokuEutUPiZesQiE/R86yaz+1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=LutoQfhC;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wGxdAVzU;
+	arc=none smtp.remote-ip=74.125.229.2
+Received: from mail-dy2-f2.google.com (mail-dy2-f2.google.com [74.125.229.2])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06E21606A32A
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:16:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06E21606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 345C2606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:17:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 345C2606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=LutoQfhC
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=xiiydflEB91O48Fmb7pHblMVYGyM8PHtmi+Z46i+1H8=; b=LutoQfhCWTB+Vb+z9TekYwKr7H
-	GWTVWumAwyTkxLRfFlptBdZ61SzhfTKDf/3tGI1H51bYMzRS1kJQNGbdfXFyBLM3PCo137+nr6+MT
-	CWrxidRoUB7iJ2BFNgqtxQl7EPMbVR9vCAKh4nRBXSV7nnBupTkaZttdKlFC5oNpiiLg=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTot2-00HWXF-Lg; Thu, 19 Nov 2026 00:16:20 +0100
-Date: Thu, 19 Nov 2026 00:16:20 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Daniel Pawlik <pawlik.dan@gmail.com>
-Cc: linux@armlinux.org.uk, netdev@vger.kernel.org, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, petr.wozniak@gmail.com,
-	maxime.chevallier@bootlin.com, olek2@wp.pl, hkallweit1@gmail.com
-Subject: Re: [PATCH net v2] net: sfp: skip PHY probe on bridge-less OEM
- SFP-10G-T revisions A and B
-Message-ID: <4ddef89e-d6aa-4d6f-bc8d-997a9ad781b9@lunn.ch>
-References: <20261118221450.1764790-1-pawlik.dan@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wGxdAVzU
+Received: by mail-dy2-f2.google.com with SMTP id 5a478bee46e88-327b1d5824fso1096805eec.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:17:03 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795043822; x=1795648622; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
+        b=wGxdAVzU55D/UTOdKilRGohvnaaIPVWd86ia2R/x3qv+oyPmY3pdJTBK/VF5mnItDq
+         iVLpsObynSXM2egP56umevRyki+uSG6qQcgMQgIUXLDHRSzBYVAa5ynAgYe1k3d/1Vov
+         SgOwPCf+wVT5d/biw4qJPEqKRB6Qr9nrHdKbk88z3C1DciiFOqet2foTdqMBnjcRHE9V
+         XGFqcKqjveK5xyDEiRow16NMDNFBDPrLaVn282ofacK6Z+NEkBo30G3STp5eTY0yTtRN
+         0JEwJ1zrI4/UOcwujjL1iBXYs4c9tpEYjGaQLeReckH5Lyi5cpPQGxLBX/5rrwU6Q/QS
+         KH9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795043822; x=1795648622;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mPR06FN+DshFSRmXQRB0czKqJie1fc17yG9r9Wz7WFI=;
+        b=Zzndz22+f5R/iYsBCxATHXKpeLBVaxFUtliOyLAK/K4qwYMBjMEnUawV/ZCYi84xnB
+         K/mJqxBUh78L+cyNeMUBSZuVMlt6zT2vP033n0j/Wc/kCEUMnmme3Ro7Y+d6egJtira6
+         oFoiRHPbmRybqriDnoKj0MZs0GDblbx1Jnt6G5fj7Eg/pTYzG8Daz6rEN9XFW9i594eM
+         isIsSvY+vv0KIV5CCjloqF49IBKUsRL5CiE6zJApbhD79ezcG396lG82SN/HkPeZJkur
+         3AmMIsjVGE1uKKa2r3KXq7daVG2CJzGxpV4Of3hDy5fcYzsNNKQJ33jSjnG1+PfkMjw5
+         fjZA==
+X-Gm-Message-State: APuU4Z83drfoidGebTc8SRZ1gdlp2aIQXK+USAEFMoi858HAcMd/hWxi
+	8CVD3nOwYjVxdf5+Cap4Qmoh8hOapX/7yLGAZlERORxJ5bMyCjv6yMa5
+X-Gm-Gg: AYBFou3tmubK4BTSNz3oPdJPhhUd1AKPZI3mCwIdn4cRlfE67c3Lxr19zmL423bb58p
+	VJnOFJ/jH8BNkLmsRZe2Bs51Iv1f8JknK/ylODJm3s6WjYKPn8WP0sGvuvEpyPN4nVSScD42Ia5
+	h0IQ9lIOf/Rp8+1LcfFC2d8EimD6fV3al1imyNJzR5hLzNq03kMqs1vXO7VMClcxJKM6FETdWEJ
+	Q5Bx7AV8rOVOyr8ED2Xg03YFPKdXEcPWU6C5l80wOWbekdUCllpRSc6bqz8pIGB8B5jGZRmhLEE
+	aVpJ96xwX/M51Ba4BQKITP7mgERnmopXRFy/I7WAi05QR3xFGXIn8hKjoDpN3cZ+9c5Tv1lCUmi
+	c8xPpAUPhdtwp/Y3TX4smCB6ETPjwXurH4IUEbnAbvHlSh2OKnKorANvJ7uiABRYGNelpZ2miTa
+	y8xeeirDGgT/zcEMfXndO/MV7ehg7n7/Kc7drZL8/B0JNNZYxcGDGjz62sxpAautVh4J6GHVhDz
+	Sz+Kbq8ca6rsMQqqty7EHpJ7fkfzlR90pCVS4Wvmafwh5rYPZcNp1QAVAZuXWn7x8eN2ZLuCagp
+	e6UTIn2WbCpgHjvSRqQ9aEA=
+X-Received: by 2002:a05:7022:ea8a:b0:1b5:1a5a:1dc with SMTP id a92af1059eb24-1b543be9b64mr3808568c88.12.1795043822125;
+        Wed, 18 Nov 2026 15:17:02 -0800 (PST)
+Received: from localhost ([2a03:2880:9ff:43::])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447f4eafsm9021578c88.14.2026.11.18.15.17.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 15:17:01 -0800 (PST)
+Date: Wed, 18 Nov 2026 15:16:55 -0800
+From: Stanislav Fomichev <sdf.kernel@gmail.com>
+To: Mina Almasry <almasrymina@google.com>
+Cc: netdev@vger.kernel.org, Eric Dumazet <edumazet@kernel.org>, 
+	Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, 
+	Josef Bacik <josef@toxicpanda.com>, Kaiyuan Zhang <kaiyuanz@google.com>, 
+	Willem de Bruijn <willemb@google.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Pavel Begunkov <asml.silence@gmail.com>, 
+	Daniel Borkmann <daniel@iogearbox.net>
+Subject: Re: [PATCH net-next v5 3/3] tcp: propagate skb_zcopy() uarg in
+ tcp_mtu_probe()
+Message-ID: <av4x4oM-xxCmymSg@devvm16445.scu0.facebook.com>
+References: <20261115004003.3695475-1-almasrymina@google.com>
+ <20261115004003.3695475-4-almasrymina@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,78 +103,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261118221450.1764790-1-pawlik.dan@gmail.com>
+In-Reply-To: <20261115004003.3695475-4-almasrymina@google.com>
 
-On Wed, Nov 18, 2026 at 11:14:50PM +0100, Daniel Pawlik wrote:
-> "OEM SFP-10G-T" modules with vendor revision "A" have no RollBall
-> I2C-to-MDIO bridge: page 3 of the 0x51 EEPROM passively echoes written
-> bytes, so every RollBall command times out. With instrumented mdio-i2c,
-> the CMD register reads back exactly the written command byte (0x02)
-> forever, with no DONE and no I2C errors. 0x56 reads back all 0xff, so the
-> PHY is not reachable at all. A genuine RollBall module with the same
-> vendor and part number (revision "02", AQR113C PHY) on the same board
-> answers DONE on the first poll and its PHY attaches within ~2 seconds.
-> A rev B module with an RTL8261BE PHY, reported on the OpenWrt tracker,
-> hits the same RollBall timeouts. The bridge probe added by
-> commit 8fe125892f40 ("net: phy: sfp: probe for RollBall I2C-to-MDIO
-> bridge in mdio-i2c"), since reverted, found no bridge on it, after
-> which the module worked.
-> That module reaches this quirk entry only because its part number is
-> "SFP-10G-T" at that point: it is a rate-adapting module which reports
-> "SFP-10G-T" with a 2.5G or faster peer and "SFP-10G-T-I" with a 1G
-> peer, and only the former matches this entry, which is the sole entry
-> forcing RollBall on it. The "SFP-10G-T-I" variant matches no quirk and
-> keeps the default behaviour either way.
+On 11/15, Mina Almasry wrote:
+> tcp_clone_payload() takes references on source skb fragments when
+> building an MTU probe skb, but never attaches the source skb's zerocopy
+> ubuf_info (uarg) to the probe skb. When tcp_mtu_probe() subsequently
+> frees fully consumed source skbs via tcp_eat_one_skb(), skb_release_data()
+> drops their uarg references and can deliver the zerocopy completion to
+> userspace while the unacknowledged probe skb still references the user
+> buffers.
 > 
-> Because the SFP-10G-T quirk forces RollBall, the kernel retries the PHY
-> probe 25 times at ~21 seconds per attempt, i.e. for over nine minutes,
-> before giving up and falling back to inband mode. Each attempt runs from
-> sfp_timeout() with rtnl_lock held, so for the whole window every rtnl
-> user on the system stalls in ~21 second chunks, including the state
-> machines of other SFP cages: insertion and removal of a module in another
-> cage is only processed after the current attempt ends. In one test, a
-> module pulled from the other cage kept being polled by phylib until the
-> attempt ended, triggering a WARN from phy_error_precise().
+> Additionally, tcp_can_coalesce_send_queue_head() only checks
+> skb_pure_zcopy_same() (which compares SKBFL_PURE_ZEROCOPY), allowing
+> adjacent zerocopy skbs with different uargs (or a mixed-zerocopy skb and
+> a non-zerocopy skb) to be coalesced into a single probe skb that can
+> only hold one destructor_arg.
 > 
-> Give the SFP-10G-T entry its own fixup that skips the PHY probe for
-> revisions "A" and "B", while keeping the forced extended compliance code
-> so that the module still links up in 10GBASE-R inband mode as before.
-> Other revisions keep the RollBall fixup unchanged.
+> Reject coalescing across different skb_zcopy() uargs in
+> tcp_can_coalesce_send_queue_head() and propagate the uarg to the probe
+> skb via skb_zcopy_set() in tcp_clone_payload().
 > 
-> Tested on a Banana Pi BPI-R4 with rev A and rev 02 modules: the rev A
-> module links up at 10G ~16 s after insertion instead of over nine
-> minutes, and the rev 02 module is unaffected. No rev B module was
-> available for testing; its match is based on the report above.[1]
+> This is a pre-existing issue found by manual code inspection and LLM
+> review; it was not triggered in production. Verified with the net_core
+> KUnit test suite; not tested on real hardware.
 > 
-> [1] https://github.com/openwrt/openwrt/pull/22910
-> 
-> Fixes: 324e88cbe3b7 ("net: sfp: add support for multigig RollBall transceivers")
-> Signed-off-by: Daniel Pawlik <pawlik.dan@gmail.com>
-> Link: https://lore.kernel.org/netdev/20260624084814.20972-1-petr.wozniak@gmail.com/
+> Fixes: 736013292e3c ("tcp: let tcp_mtu_probe() build headless packets")
+> Signed-off-by: Mina Almasry <almasrymina@google.com>
 
-If i'm reading this correctly, it never worked before? So this is not
-a regression? I don't think this is net material, it should go via
-net-next.
-
-> +static size_t sfp_strlen(const char *str, size_t maxlen)
-> +{
-> +	size_t size, i;
-> +
-> +	/* Trailing characters should be filled with space chars, but
-> +	 * some manufacturers can't read SFF-8472 and use NUL.
-> +	 */
-> +	for (i = 0, size = 0; i < maxlen; i++)
-> +		if (str[i] != ' ' && str[i] != '\0')
-> +			size = i + 1;
-> +
-> +	return size;
-> +}
-
-When sending to net-next, you can move this function in one patch, and
-then make use of it in the next patch. That makes the code easier to
-review. Lots of small patches, with good commit messages, which are
-obviously correct.
-
-	Andrew
+Acked-by: Stanislav Fomichev <sdf@fomichev.me>
