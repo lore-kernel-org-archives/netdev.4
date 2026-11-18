@@ -1,55 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794995907;
-	b=bPHBD78Bni5jyZ5qAaCLZMEEvW5N+1QOGt6Bodm9atHBuVKoYtsJ1nzG1Na2tbcVEMBG
-	 rWlnCTwopcZw3gIPpc577K///bfhAlX1x4/fyHQ1/1M24bsdtndyzfZ8L1AcwXjdr6Pad
-	 2JkLuL4ANm+lbYnhflMck2IzHytPAtWGDeTNgTNECL3CQTW6Z/7ot1dYTH/VMQN6bsJp9
-	 IRYdHH12z/54noIOl80zPC/o6a8iNEDsc8MTBHNWtcaTu2jVy8iEsJQbnCbVg1BaIebqB
-	 +OQx0trkNs0SgKPyPwcl4w8UVSYT+XV+Ve2BnATEbF+gqrb2eZt1MBTPulaMJKL4WXg==
+	t=1794995955;
+	b=3ROBQwcidayoAZ2zlivyuZEzsiUEVvGjrOjkdmohMsURk326K+p34IVVuHLvawLKc5qg
+	 Yyo9gkq3aNXYyyNz2fvt6znGbo584r4G4RPHVshaVjiIrCk0AD67FCX+seBmzOfLZEdlx
+	 SLz8JITk9ZxT6dh6g/m2By02BmjkVm8AYc8qaPTSrPHtqOhOhro4B6eKVfo9Ja+7enBeT
+	 pwdORIHV7sE2bJVive1R3zO3RJW9NZ9qo/kV4BNlsEZ+CwL3XFI+UGCoKTBlapWA2DceQ
+	 qTldyM5mVAZA04j9oO+vLCbohnq3uAqqv8xxH4+a2E+APPV7sVxfvrzuhBLbQh/NlAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794995907;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=WiSEjdmRUij76poSmxRxZE6Dq+7HtnbMFRWS6zrLgIs=;
-	b=DNJA9dL4n892zNMafuHbKcUq0ZY3q/dUN6X5czW83KhnzKR05/3RY0YssmrEHY6Gg8a8
-	 zFAb07LA2bJejc0Q7dcaCk3lFxg+Y8UvqgpsXO1S3fJClaRMbNGtWOha5BEoeoRzIMzi9
-	 rED0MTsl1I1v9yXYI9UJf0oeu3itWFX5bGn6Qah7w+1C1ceiPafWN7fvwcJdQf8zePegK
-	 MI4v/UGJLkHspRMOOKaL0woJsn1Bo/Ai9nbJw3Qo2RQ6zTpH+eJhgFJdkXpnhzZa8xrev
-	 +tBGtOGpnULz8zlqV/PaKNVr5bNlMZ/MDmWHwkZ7wwohPd5yEc2BYhQDIQjpAdL5gMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794995955;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=KNY2M/fmXrSXPZE6dfYyhD4mnK5YqzJmB4aUM3PR9tY=;
+	b=UD5/Muc2t5rxq/ykZjn/98Sq7QSwnun1mzW/Gn4YX+KxFmVkv3UK2JeKrBFKPb4DYGGB
+	 luE7XW3os5KYSgYrHllLzTCEGFcw6xR+0t4nRXjpQTiL3BX1IhlV8YP0ixbSv2GBR7aSo
+	 1gWpeGT5Eb3feVm7+Vh47F+xDh0Uo+8zG1/oVuqK3DlJAArT5PJsUprAxF9mB57fS6b4/
+	 sXDlNKcf5ElqG0DMM1FhUqSdpvHMur40jHwfutw8ZXnNGdrnVlVvS/ZzsJrp4wVf9wiMM
+	 SzeusGu+s90AVWjHwZCD76HCsRCS0oYfHDyL3e7BDqGq7IeyAE75NZczb+/p3SOUcmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IlSeYrF0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b="BhgiOj/n";
+	arc=none smtp.remote-ip=162.62.57.49
+Received: from out162-62-57-49.mail.qq.com (out162-62-57-49.mail.qq.com [162.62.57.49])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D5D5606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:58:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2DE6606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:59:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2DE6606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IlSeYrF0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B46EA1F000C8
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:58:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794995906;
-	bh=WiSEjdmRUij76poSmxRxZE6Dq+7HtnbMFRWS6zrLgIs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=IlSeYrF0+IEjF2c+7KKfE4E3b9OEXfmxBzeId0UkNI8sZymrHHDtzzO9fIDv0f6ZS
-	 ZRV/qz13WXJHkYRpMIF3byB4GVOLkZiPveHQIFBvgykTsn44LbG31CtQGLm0uP85Qs
-	 E/zxLJUWUk3XFVv1nodX8RuzjSasrGdYSF6pBvs/z/bZgEqfrHTJY4G2OEpt+ykq+m
-	 BBVCEp+kzmGW2360i22quA+OeOWRvINxDQvpsDyjrGG/JwJtzVMF5KmGZ4FZy69Svq
-	 udO5maMnniA7YPq/mejCACnpDusMGBqbdYctpGFPY/KIR4Zn+QTkxjtKItJ1rs8PrM
-	 AzYbipV7gICPQ==
-Received: by mail-oo1-f48.google.com with SMTP id 006d021491bc7-71ad5f20016so625075eaf.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:58:26 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErERNrEu9FwJZs8A5jjmGFx8caUh0zgQQlFT5Gbrl5pxqWgDVjK3W9oRoLSLJFhEixs+AxLihMU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9NfyrV5zUmF2hLTAHrDkSVaKdRz22Smny6ra5M9WVVGXgg6BrM
-	5TYviMzxqG35s0WksrQz9F6NrtOvffMgPy5FHC79708Ef+ccODp7XA4N1B3st1o9gN1zQx80/5Q
-	8sVTsJScUEnpavKDdAPkJsESfKrZOymk=
-X-Received: by 2002:a05:6820:350c:10b0:716:b9a3:e7ae with SMTP id
- 006d021491bc7-71b1853c24emr1187607eaf.15.1794995905895; Wed, 18 Nov 2026
- 01:58:25 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=BhgiOj/n
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1794995949; bh=KNY2M/fmXrSXPZE6dfYyhD4mnK5YqzJmB4aUM3PR9tY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=BhgiOj/ncXhpF5vary89hN3m7yvy6VADYf1+QjeQ6qpVdlo0xrERJGmVFquQv1Cr7
+	 Cio53lS19byJnHE8j0+z4uCi6KKteOoDJrwvRO5vionUQwP13dR3eqRFfhWYCJUrnZ
+	 f0rB+DNF+yNVYFldRRJ1toko6A1sqfAFaiGe67fo=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
+	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
+	id EC621A71; Wed, 18 Nov 2026 17:59:06 +0800
+X-QQ-mid: xmsmtpt1794995946t2bp6uoxd
+Message-ID: <tencent_3C854F3EA4A91CD7486C74E2D4FD5A1A8105@qq.com>
+X-QQ-XMAILINFO: OV65e10zTgieHUrgl+vZmKoWs25JVNjAr5GEdZdAgNtL166umJcKqj1Zwz8iRq
+	 hfgxVCWCdwEYWEdZWMFeumS1vbuS36BPXp4mQji824X3Fl9s+pmCt8GBYTwRbB+NCSZNGm3XGB/8
+	 CU5RFqvMH6swXLaM2temLF6fAazXeiJGrCbYw5oEosjUbKi6tTe4Tqk2G1Mu3btfYhHznunf7A3o
+	 sa4upeKdQGL0dNKh+s6RcUiiWCPDQvRBpTFBYTVPldr6ztejmE5IZWP06qDXehuydV5R4wXG2K8l
+	 xHX/9RkrzdI6ZMT09pULtFFi+Jcv9dJ4BORI5h3Jz/MMySKk0By3LE/zyLmxnrOU/RaVJUnwwS16
+	 tCRW3bBa+ZFXje4GFot7lCHa6kvfHiEK/u93r8l8HUEw8T4guceo1jLWByltkXV7DeDmD0C68jie
+	 6C5H+y4IXwYzY770hYR67UsLP+8BFzVhIsDrY8FvLgvwITYFuGMuLzRhCnko7d289stV65lDHl5K
+	 54bHxWLwQ8vVGrGhQ4WV9YXOCy/efNx/CVjnQ1kraxMcOxc9ckSWeanHrNB/tiBhfTzxmrLBmdUB
+	 AzRDLda5voJUm4viLiAXTdzWJPcLJbYlbEks5Gseo2T2+txygFXW2+QV5/e2mMZeCwYzOys/EA9H
+	 nP3hZadhNQkRwViIvXYGS6IC0DloxpLqJpizi+oztpNUNEzugDK/8QT6sZJ55fyMQSPs8/FM1l5k
+	 aEeupwAFFovCOCVy/f5SFYeIfxDw2pv0+NxPsj4xielyzx3tiLcQ0diYDuytGh0pLoG52dUlBlVH
+	 cedlbdeR9+enn+4lvIhnwIFY4qJIcjOfylWjJtQhq8xaKUOmvCLLARXCUEM5hcBrjDD1FUI5kn+P
+	 ZEkA+Vp1/ZM3rIfeZc9f6TWbm4X8JnyLQcAm1+HcW7UqPk+P6FaujdWf7GuBo9V/qfYvzfsbBFJy
+	 r5v5wtYCGwPvK8PYgGqbvzoNHVTnbTfl0c/ppXzh0MTenrjmwxUzVLSVGkVsOeyP+dGgQ2wnQFYp
+	 zYgZeEs+nBuuNHZ7HdZ4XDdcwskHTKAsWMl9EylS4jCZnFShHv
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
+From: Shuai Liu <847807867@qq.com>
+To: idosch@nvidia.com
+Cc: netdev@vger.kernel.org,
+	dsahern@kernel.org,
+	edumazet@kernel.org,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
+Subject: Re: [PATCH net v2] ipv6: addrconf: regenerate missing host route on RTM_NEWADDR
+Date: Wed, 18 Nov 2026 17:59:06 +0800
+X-OQ-MSGID: <20261118095906.1015202-1-847807867@qq.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118094948.GA1097953@shredder>
+References: <20261118094948.GA1097953@shredder>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,100 +85,24 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118005048.53393-1-mason@kernel.org> <20261118005048.53393-4-mason@kernel.org>
-In-Reply-To: <20261118005048.53393-4-mason@kernel.org>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 10:58:14 +0100
-X-Gmail-Original-Message-ID: <CAL4WiirGtN4e6HO-aEBU57507XxSdEz5b0oto45hbRA_0sivtw@mail.gmail.com>
-X-Gm-Features: AclHuK_ABZllJ1iBjoU4ptzM_Hf08ezYRwAee3kAJBSfLAiZ62fPIw4n2Ct5u_s
-Message-ID: <CAL4WiirGtN4e6HO-aEBU57507XxSdEz5b0oto45hbRA_0sivtw@mail.gmail.com>
-Subject: Re: [PATCH net 3/3] tcp: reject RTT samples from TSecr above 120 s
-To: Chris Mason <mason@kernel.org>
-Cc: ncardwell@google.com, kuniyu@google.com, davem@davemloft.net, 
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, willemb@google.com, 
-	josef@toxicpanda.com, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Le mer. 18 nov. 2026 =C3=A0 01:50, Chris Mason <mason@kernel.org> a =C3=A9c=
-rit :
->
-> tcp_rtt_tsopt_us() returns the timestamp clock minus TSecr as an RTT
-> sample, and accepts up to 2,147 s. If TSecr echoes an old timestamp,
-> the sample is the age of that timestamp, not an RTT.
->
-> tcp_ack_update_rtt() takes this sample for an ACK of retransmitted data.
-> tcp_rtt_estimator() clamps it to 120 s. The congestion control gets the
-> sample unclamped, in rs->rtt_us.
->
-> tcp_rcv_rtt_measure_ts() passes the sample to tcp_rcv_rtt_update(),
-> which computes sample << 3 in u32 arithmetic. That wraps from 536.9 s
-> on.
->
-> The fix used here is to reject a sample from TSecr above 120 s, for both
-> callers of tcp_rtt_tsopt_us().
+Hi Ido,
 
-This only covers one of the two callers of tcp_rcv_rtt_update().
+Thanks for the quick review and for pointing me to the September
+discussion.
 
-tcp_rcv_rtt_measure() is called from tcp_event_data_recv() for every
-data segment, with or without timestamps:
+You're right on both counts: the "recovery on NETDEV_UP" reasoning only
+holds for the loopback device, and preventing the state (flushing lo's
+addresses when the MTU drops below the minimum) is cleaner than
+repairing it at RTM_NEWADDR time.
 
-delta_us =3D tcp_stamp_us_delta(tp->tcp_mstamp, tp->rcv_rtt_est.time);
-if (!delta_us)
-        delta_us =3D 1;
-tcp_rcv_rtt_update(tp, delta_us, 1);
+Please consider my patch dropped. I'll look forward to your fix and
+will test the syzbot reproducer against it.
 
-delta_us is the time the peer took to send one receive window. Any low
-rate flow can take more than 536.9 s for that, no bogus TSecr needed.
+Also, apologies for reposting v2 two minutes after v1 -- I've now read
+maintainer-netdev.html and won't repost within a 24h period again.
 
-Then 'sample << 3' wraps, and since win_dep is 1, the wrapped value
-is kept whenever it is smaller than the current estimate:
+Best regards,
+Shuai Liu
 
-if (old_sample =3D=3D 0 || m < old_sample) {
-        new_sample =3D m;
-
-For instance a 540 s sample ends up as rcv_rtt_est.rtt_us >> 3 =3D=3D ~3.1 =
-s.
-
-We should also clamp in tcp_rcv_rtt_update(), like patch 2
-does in tcp_rtt_estimator(), so that both sources are covered [1]
-
-With that, 'old_sample - (old_sample >> 3) + sample' converges to at
-most 8 * 120 s, which fits in u32 too.
-
->
-> An ACK of retransmitted data whose TSecr is more than 120 s old now
-> gives no RTT sample. So it no longer resets the backoff, as on a
-> connection without timestamps.
->
-
-This seems fine to me. We send a retransmit at least every
-TCP_RTO_MAX, and the retransmit filling the hole updates TS.Recent on
-the receiver, so a well behaved peer does not echo a TSval that is more
-than 120 s old in an ACK of new data.
-
-[1]
-Something like this on top of your patch (compile tested only):
-
-diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index 2d739cfdae8c33d12cd34e00388a29f0f4229806..708a989e5a63bb6ad67cc777d57=
-815ae197c451e
-100644
---- a/net/ipv4/tcp_input.c
-+++ b/net/ipv4/tcp_input.c
-@@ -857,7 +857,11 @@ void tcp_initialize_rcv_mss(struct sock *sk)
- static void tcp_rcv_rtt_update(struct tcp_sock *tp, u32 sample, int win_de=
-p)
- {
-        u32 new_sample, old_sample =3D tp->rcv_rtt_est.rtt_us;
--       long m =3D sample << 3;
-+       long m;
-+
-+       /* Keep sample << 3 and the smoothed estimate within u32. */
-+       sample =3D min_t(u32, sample, TCP_RTT_MAX_US);
-+       m =3D sample << 3;
-
-        if (old_sample =3D=3D 0 || m < old_sample) {
-                new_sample =3D m;
-
-Thanks.
