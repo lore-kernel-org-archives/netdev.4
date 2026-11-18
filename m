@@ -1,145 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.33
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.64
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795016617;
-	b=AgCe8zDgBwHWmjTACsF5r2iUGMf1FBzYgzQfvz830viWhiXHhU7lPsgfzD13/s741kNu
-	 CbX9SS5eoYtmKUFhGjoBfNMlXPXkePScuDsD4Qu6GFADyT5iV4GVEC8WBnDJl+8gp+HWU
-	 7BZ9OJELKj7vySl1PerMifGMv312JfFxAB+SdWhGtFI/EfBJfwQtQaYHMyHlVWNi1NEFk
-	 KyR8Kr1XYSc/Mm6sEHFvRr9kUbOrLwo2jZv56tIfErFNMhnQSXfB3HPuqdZsI7TK6ucUL
-	 vAuT+EyIt0Of3W2kCxay73TKL6BRlqLWGFDn5D5tBlE9GigCOpX8XvBjw6xGOSOXz5Q==
+	t=1795016863;
+	b=W+Ao+/gu1eXbJBnMW5uFePbVLGN/yK4K4TXpPT6MqHPM1M9KP3kDpXDIAc4RISH+RoB/
+	 rh4FmJuOuwUeo7f/XzXR154hK3Zq4XCfhfiarKoiRc5UNN8z9S40d7LNl3Yd6z3uh7jiE
+	 fTDL5kEMitbqqATljnP9EFlNcyTdTb+CKUl4Orrw7xxF11/fRjTAI6l6UjOdsoPj4cpYA
+	 5RuxWFj1FF7AemFGC+veBrantKry0Vhu7wFOxioXxWvcGvF8tPzmQL/C0ZbLVL8z4ZBcI
+	 1Jy5JXjboYplyvVgzfKe2ZdU/+m5qF1JVNj8yJNKH9t9VcXYgQJigs4bGS8DaWukEAg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016617;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=CAGWkVkLtYTrhtRX2eKxyMbgl4CJfBTKR0bVr/c5wfU=;
-	b=AmxxUTRaUSZ4R2f2Yw0uA0oqyOAB2Tg0X3hwbeHZUgwCitsUpprmpiSlCv8ZGu2xaR/P
-	 4RlF9GNUKPmHYsj5Tw9uq09JRlHYtRbin7j6/4FTO3RI0mMccxGKbMQ30wpjIGCB/Eh8r
-	 /nIGdGiZBFNs4ADwfIMwxd/E+1sOYApw2HiJaeJ8duSdE6/eJSduJfN3emFkVtGxymL2B
-	 u0VnN097bRc8wvLA5BHiXfsuKWm/kq7rtZWxAgJvtBjtRrUs5Hla31I+TrZovxuk0ILYS
-	 S6taLTXwgGbuaUPKkvf34sbbJ9JocVcd7jlz4vO/eEDHS8+ZMLI9QjKXIWsmukl0cSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016863;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=3WAqWA5goUdPHnVioSm+GKjjhwwf9ja5lGy7+3nU6S4=;
+	b=K6IdcJHnSidvTeLOPX+f+cQoDPuZu4uYOGKr/J2jrLRNCYvFRL0x5eCZ+diHk8a17wXo
+	 TY6Rx0mLup5jW+oL80MHhSaZ9LGafWXbNptZ5zghU5HaWw39zoxTMvx+oWSlkGLV89aIR
+	 AOrMJzSlueiJjrEpphcuAaUtdfGq5In6+i4YYuEiqNiHyvzCDiqYhXSJGDVk9vXCBnZFm
+	 U+JaS8LQv3s0+fbdHAH2mycIsqn+eLLuFBbeTun6WuJrUmw8Ec61a8Id4uuAQCyDiSk31
+	 HfxKGxkO4fmS9ikpVjBKTPqTgkRs2MHunonrVc6KMLzKZxds8WMsigZUoa4b7eDykig==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=CJNZlSTA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.66.33
-Received: from DUZPR83CU001.outbound.protection.outlook.com (mail-northeuropeazon11012033.outbound.protection.outlook.com [52.101.66.33])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="p/o0/n3a";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.64
+Received: from mail-lr2-f0.google.com (mail-lr2-f0.google.com [74.125.230.64])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDF7D606A320;
-	Wed, 18 Nov 2026 15:43:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDF7D606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D92E606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:47:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0D92E606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=CJNZlSTA
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=szmBatOTgIvl1awqXYAlar6kzNTr9lA3V8uK+oZsTjDhCiX8dSqBOqUQKYsqb0t7Q8d9uG/v/4fbFl1Ikb21ZRarwVGdiO7yGLf+/PeqNw1WhgsHe8cmPo5HiWqoKYjczwgeb+Tmq8cWxPbD+e1vq5yXs3sj5aKkvfIA19/OtMF/SNnKtuGjk2wBPCIzWLA/Lei8vZyhE1oVnpNiOz/Sp4npMxDP6/aX5evxrLoxB+EmYbpdsxeM1ERD/U+d/2G9MdKR3vjUqoC3kdS+yc9/tBEmmPBhtjKOCoh7Ue8lWlSS2OBmd5VaxdNjOX5XBQCK3/Skayb0xMt+/FYIKf2ikw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=CAGWkVkLtYTrhtRX2eKxyMbgl4CJfBTKR0bVr/c5wfU=;
- b=aZkSDeOiUBqdX4p1d4dsux4uLQmdlfOcb0x3oLiewdWZ4/6mN+yJDxbJauVkhbM7J4hreg7x+6K6S9PW8zGg3hKrDhhm8X9Qbt4voEnuNE1WTBXe3/RtTxEvT4ezWSnZfaNCKoRNAbjeEiy0ZJo9ESCuuihzijPPQuuHBZxyMCviGo9ifUnScUUiFfb8edtMifhj83BQd5vMr3NULyyedzFuDiCK9NOqGAMl++9+Z2RmQ3F+bbnWiKjQVm+ToxHrGIjqShP+fh8QZ7HWSbL1wnXmX+z9Z9ErHrXrCRtVtUBqk+DYz2Mr76pTlMeCyOIIx1ZGPF9nhZrzyTKUDMoBXw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=CAGWkVkLtYTrhtRX2eKxyMbgl4CJfBTKR0bVr/c5wfU=;
- b=CJNZlSTA3DvuDqYvgWrj6SwIcHi+9PjuZaWaXFURIahKUYVUa2mOTtLcdunPGKJTwcVWj7wBl5UAR2o89Wm7c+Z77la2ZGbHQpmnaeQnhh8560UgZP3h97ALuJpcY5aWeMVk3+LhSiVFnrJtYJ6nrtlPRmQo9kTjAZIx8XmXlmjK19PxGdOmNI73A+swKyzQrdl9Wxtv2zu5RnmmyURp4JP0MEBDNIgD9vvY+UBJHO8UpMGailkkhv8jsGPj27MfAFCoG46Z8umpqLz+HMmtkv9PKcBrh4aha+SBfk5T+tctxdDgxWV0WISngdhqi+SSiWpBijHLcF/BqfvvHQi+yg==
-Received: from GV2PR04MB11740.eurprd04.prod.outlook.com
- (2603:10a6:150:2cd::13) by AM7PR04MB7144.eurprd04.prod.outlook.com
- (2603:10a6:20b:11b::13) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 15:43:32 +0000
-Received: from GV2PR04MB11740.eurprd04.prod.outlook.com
- ([fe80::ca5f:7e1c:a67a:a490]) by GV2PR04MB11740.eurprd04.prod.outlook.com
- ([fe80::ca5f:7e1c:a67a:a490%6]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 15:43:30 +0000
-From: Claudiu Manoil <claudiu.manoil@nxp.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>, dl-S32 <S32@nxp.com>,
-	"bhelgaas@google.com" <bhelgaas@google.com>, "linux-pci@vger.kernel.org"
-	<linux-pci@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "kuba@kernel.org" <kuba@kernel.org>
-Subject: RE: [PATCH net-next v4 3/6] net: enetc: Enable probing of version 4.4
- devices
-Thread-Topic: [PATCH net-next v4 3/6] net: enetc: Enable probing of version
- 4.4 devices
-Thread-Index: AQHdc41TJShMGQIS9UaCBuxXqhS1/rcycPEAgAGKZaA=
-Date: Wed, 18 Nov 2026 15:43:30 +0000
-Message-ID:
- <GV2PR04MB11740A7E208FDFCD4A158BF41967A2@GV2PR04MB11740.eurprd04.prod.outlook.com>
-References:
- <d783ccebf4b38bfd1e2ede44c36682269a5bc68e.1794581338.git.claudiu.manoil@nxp.com>
- <179493091076.3136.7730860553084197808@kernel.org>
-In-Reply-To: <179493091076.3136.7730860553084197808@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-msip_labels:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: GV2PR04MB11740:EE_|AM7PR04MB7144:EE_
-x-ms-office365-filtering-correlation-id: c0680040-1546-4d9f-d693-08df458ab22b
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|23010399003|366016|1800799024|19092799006|376014|38070700021|10067099003|11063799006|56012099006|260925021911599003|260925022911599003|260925021311599003|4143699003|261026140227099003|261028144727099003|261022105027099003|261021121427099003|261102123227099003|261026121527099003|261009223027099003|22082099003|18002099003|6133799003|13003099007;
-x-microsoft-antispam-message-info:
- o/r2IHBk8FSDxUQK3RPnWbb9831MwAtzyRWZ4enseisj7k0YmbmUPAa6Lc4i5b/nkOjvpyTPNT9/1scNya4XKnccKQ0+UF8fpwgtTsaa+N1klKNS82NoBZM9EYMcEAu5XaUFcJN8Pe71tme9+1TJ7g9dKqDTC+JvgVgrbx9Ivn8vgqPJTqvfkFtpnRVvdd+tDPhAzL02/K/Pb85Ery5zaBQ2gek14zX12svWSiGD6AcSOq8w8BF+dGRP45i+ktw4sfADudXJZ9Dpt3SR28bFlK/5MRKZF1cBdLAzpAgjvAZFA/WCKxem8kQw6TSj00SRk+d7tkN0UmNqWGOFF873jRxihlmFi8B1Ajq3fRNrLb+vJobZsZ08KCMlkO7Je2vwCtdcrhA/YSXdf6zB/R0A0uxQf4rSve4GQO1+V1s8sP/1gUSN4CE1nNc/iPbKlw3rM0jM7SN8MxbU1RXsSm/gtwJW5N3M5MT0h8Cg1qx7tjmDKvftWiz1b5I1lzUHvvAA3b1z6B0XAcpwA4hTVE4hgGwUmAYQIGaQof2CcoAULctWpFwMGe9RrIdQX6J+3czl0jXbfrtWLs26DMhKpNtIbIUvx9/YJa7Dp2SNtCiy2hTZlmSR6DM7XsdOpkmDGwMhR3bkFFzrv+VHYgvCcih3WrPyvUWxTJz0CdN2Bfgti9c=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR04MB11740.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(19092799006)(376014)(38070700021)(10067099003)(11063799006)(56012099006)(260925021911599003)(260925022911599003)(260925021311599003)(4143699003)(261026140227099003)(261028144727099003)(261022105027099003)(261021121427099003)(261102123227099003)(261026121527099003)(261009223027099003)(22082099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?j7SfA7BhP4W1DrP/MGs5oT6d9anvqzp/49GOyA/3/RxnQlc370QKId51t9FI?=
- =?us-ascii?Q?sSu/BbGOA1wuMq/wyS7jJEiTk3N2p4rA3F4hd9CgsJyB1JopV3RsGs4ElE+7?=
- =?us-ascii?Q?tfnHStFLTJlcWlvROOLO9jkOehaL3TBEssUd+Pbof3a1zteZx71ijclNfkx7?=
- =?us-ascii?Q?FF6Q2ACO41rru5+96B6tla2ns9EGSNXSxOa304aRPWz8RquPQQJV/j/5Xdc8?=
- =?us-ascii?Q?giL8RW6LOeNYiYo9LiPT4VFVb0XKID3D8tvS1Hu9Bbza1Wk+84OaskjcyZg5?=
- =?us-ascii?Q?TIcYx4K+B9Ycx27ddINQi4PVLCnd/4QXDed+fYCZpwSmJbr0mEpgobRcWPJI?=
- =?us-ascii?Q?bn1HCMqjHU1WRsDgZA2eqLnrgr+8C3zlMvha+rXKQgHfaNv3W9S0YTB7sFR6?=
- =?us-ascii?Q?x7kUrZXOC+cEHU6kzTNHTfMZqkL4kvzMFGtepT/2hYXunuVcwKIt960s3yhR?=
- =?us-ascii?Q?myXZQ1onxnHfVoEp3uRWBLEvQQEttdFgALEaS6B2qxYObPbOvMkMxF7rGMb2?=
- =?us-ascii?Q?oRilTyEJ51Tn2AbI0udPts6GF5bxdpbg1SyZyMrWl3wB9g29GxX5itwEPDvw?=
- =?us-ascii?Q?6Cf53SiwlhxbWpMF1URg127LaoT19EUhHsDyYqaP7irjgWhlPvNFRS/lAW13?=
- =?us-ascii?Q?Yp+u0E63BREd4UkdJuSHfaiSXqjFIvdCIM/g0AcRn3dS0nMWCy3XKbXnKES5?=
- =?us-ascii?Q?VC+o2GVcTtkdFru+k25gvDlujrbT9IjdgltwSs2FWOm9Eil1njeQ/d6oTsvO?=
- =?us-ascii?Q?NrCRqaZhJryGYS7NGZejhk8nqzyvC3uztm8MPym5ketQ3snBLe2bNDdU1KWX?=
- =?us-ascii?Q?xo7Z8G9pOkvvco2xbY8Vnwsrz/9wQi39+elMJLQQWCerpc/m6n9VLW4+d6YY?=
- =?us-ascii?Q?suz29TByM+pAPs4AV/+BaFrY0z05b4pCnFEgqix70BvzwzQPDovbJnoSF1fX?=
- =?us-ascii?Q?Y5k62Hmjx9P/QktgMFdPbEUW1vfjjpqG2i+m7EZ9UE39qEkDKllOr0CQoiIi?=
- =?us-ascii?Q?3J3H3TvPqRxNqKA/sbAFB//f9NaD0eABoGBofzdYNmKuLYU4Tpbm0kx/4sng?=
- =?us-ascii?Q?yd4hexMLg8SbpwmZKlifPO2/2k/itKxGbZH0+stvtAnF+2e5xrV8XrFt1bcn?=
- =?us-ascii?Q?tsi/tNj+pyS7QDQj9l0Q+N9/vlbR07F2JqnAZAfg09PztllaenSazmrQWQV0?=
- =?us-ascii?Q?gIOa/8hzF+y58wJX1gC3n2dBLAoBKuWu5dDrFJlJ5GrwJfUTSAAsa8cC8r9/?=
- =?us-ascii?Q?k8mWY1cJMhTC4ttM7vtJhQ/EU/m9RdmfVhcyWDcvdgYkxyOqZkAvTeh8pTg+?=
- =?us-ascii?Q?DYYo4oWw+0bTnR3AuxidBpURdjDvCKfXeCIvrjKp43gOPddV6zpJWft9o+8N?=
- =?us-ascii?Q?+gcXJ4OUu3z8r0ECUDSjZIS7IOm18qfp7yoGHLA6kQjffqx9pF87ljoX4bVp?=
- =?us-ascii?Q?KR2Jw7lvJB8lFvZcUAKvn0zNixHyqOkbD2PqbDMmjUO6uYMXuGrTJGArXTk7?=
- =?us-ascii?Q?/FN/0indjBPAMpzpQ0v2+0WAMLv62ZPtGcVp5pGTwOk8OwzIzqDPsvCDVo8x?=
- =?us-ascii?Q?Y6unNblARBYSom1IEfXF7nVr+CfbpvOBgyF81/HMnBjddJFVliK6LmklfkfU?=
- =?us-ascii?Q?/8H39s3RCRuL2zpHg765uZouGhQqooeTWQwC2aNDz8+3Vu8Fyf02uOJ8sHWW?=
- =?us-ascii?Q?/1QI7TfA0Msda+MhT4J+EP2Li7thEWywPP924ZvjvHPzuwzexu8xCLUGA2mr?=
- =?us-ascii?Q?8Tz7PmdAig=3D=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=p/o0/n3a
+Received: by mail-lr2-f0.google.com with SMTP id 38308e7fff4ca-3ab1cf59ff4so5867681fa.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:47:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795016860; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ADcCyiOYOt4GL++EDT9pLsf/A34yMFz4queU0YhSNyT0iJERcHZMynRyiw4YEzmomq
+         nI2rw580uwngavd1emhwEY5nq+u1z5Vw6QWmh+ovxvTp6Ks2UsNon6rVUI2H0iINl2rq
+         GeHp3Q7za3YOGn7YI6yZHz7j3PLYenfEe3LtlxwenSPbMc/y0jsMD5h1NjrPXpC0kPdY
+         vaJInOVxM8AoqIqQuhKZ/uVDabsX4om4hXYEaixoL7fvvC7ARyH3u9A5SmeDKGmJctEs
+         71uJSQT/Qvbv010MFb/+TbCBZhEHaGA4vealiXQTru35/AofgLFOPYo4rKHyZsatNFYW
+         30eg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=3WAqWA5goUdPHnVioSm+GKjjhwwf9ja5lGy7+3nU6S4=;
+        fh=s8dGYSwEY7g/UwskAiKrDbnKT7yO4C1cOcu56nrCZYM=;
+        b=l0F709+F0mKuApq57heQvJyF4nCGKePFzNZYY8OSh/co32sdRWbiZk3ga22rLdDutl
+         8pOhmE+1wMqtYxW4Zyk55LcrvR6KshZ1a9G0Wp3k3aKoRg7paaSY6afgj/FjSobN74At
+         xZEGywcg+ValNbRMLpr7Au2FFUm/K1Lp3unyA+i4qDykF8kEmlyEKNn686HDAdclMUpj
+         GcpTzPb0rDwAyplzvzS9npzfjzLwo5pe+4FkTwwrvUPioFxwSGyIqMxULYOyzmrHtRLl
+         /1oEQa/0itF2y3YR0MfYhzMqjSPrrA8S5e9cNminkJ7sDBJN4A30l1356D+6QJKMwPqg
+         aghw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795016860; x=1795621660; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3WAqWA5goUdPHnVioSm+GKjjhwwf9ja5lGy7+3nU6S4=;
+        b=p/o0/n3a1Nm+8zrZHbkZU5x8/uAhd2rQwTY/0f7Ta2ZxCWDMcs2QbcqBAGe4tVFOsE
+         XXYRNaMbf6HAhy4RN8qE69uw3RGxvwVubwE64JUvNPTa3o+lw1HP0WSM6FA9ckJEdMbt
+         W+V82kGKOdHY8GyqfcDF2Xm0vZPBPElTcP17RRTjHHiaxIzzRHNQOyVHUJ9e9p4sBGrn
+         mqx2bVpeIR7XKeIiZcTm2Ue1D+OvtaSnZVrbIV1Kf4KWR/oCcfkLeRR1A60PJkABKxzD
+         Foya+D2ABrPJFoHwwlthwGnVn43ybslNyXn4syuCK7Y7eU68rFsTPt63AK1REshFivai
+         q/CQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795016860; x=1795621660;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=3WAqWA5goUdPHnVioSm+GKjjhwwf9ja5lGy7+3nU6S4=;
+        b=ji9YRgD3QaatZZPBasxVZ+MEd8QSRhu5njtzrSplDje+jrVo4NzjIeOJGQEGdRBg70
+         QNIbr9IHcrX2pDtT6FdNHe/jUkk5WeQODqgviExYZT2mjSuKrr9utmJg4z0pQRxxvC+R
+         iei74O1uisjQ8+q0e1ElmiiIoNF/ma9BKtpmz/Ktf/U3TpKSvqZTqNGXDe3I2nUldjGg
+         OPETMEUyXZiz0NLclw7BmE0asF1vbqVr4KgDfF32wBmPVT63mnhMUEptTvEvdyTmzbOw
+         8TvWymVUJtOmgwc9k09CpJ59NnWXoVhFzpC5RSl/EXm0KlnOZa1ZMp7d0bZ684EvRJt0
+         2few==
+X-Forwarded-Encrypted: i=1; AL+hErFweBf7i8VqQVCJpLk3DGLcxK9cDExhmiRW3Wzxw7jlroFjiEfvIzM31KCJcGk0CF+Y47keHog=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/XNauZpvinpUCmD/2C5qjiiW8hggOEfTM9p47vvLd47nHZXZea
+	PtqU70oYp717jO18UI38SmgXq/PJkmkJFzm59NYnS71ae993s2da6GwG58YPDMAmf8+XZ5FEVj4
+	LBGAKS3ath3bTBmoioyO3cJtA8mrETLU=
+X-Gm-Gg: AYBFou1q3WIefoOfwaEjdwQFJetqw1KDI+w/+u0fu3DcUv+2YKgiZYtWKJXL0iAKKty
+	qTu67VNJaiGZgouS3i9AboC6ZPI/PWpAC6oLEwHSRp/V3OA9gkQKyh4HgGp8WUC72PKneQcn7BJ
+	sX6dzPvgysMYv5qyaaWi743hQkbvl9UYp4yDz8LZahN55PoruerGTUV7yVE/S0uvAlTxaj9ihsZ
+	Ns8Q1MkgnEh4kgtMRIHbaoIoVsp7NziL1pjNKHWy6m22tFm87Hq6DPcDZRAttjN5Ab2xjIczoWf
+	xYjZdVqdK3KHefl8R41MO8OCZ53os4GU/fafbixXzPorP3uMfwEedL6J2cVyuAP/t3xpv5gUNbq
+	BIu3iW5ZP4EPM24f7JZjxcsSnckRGD4siruUyvA==
+X-Received: by 2002:a05:6512:2387:b0:5c1:4f4d:cb9c with SMTP id
+ 2adb3069b0e04-5c1a9d2cf47mr969576e87.40.1795016859552; Wed, 18 Nov 2026
+ 07:47:39 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -149,205 +103,1011 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR04MB11740.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: c0680040-1546-4d9f-d693-08df458ab22b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 15:43:30.6703
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 9fm6TnD+lrh5YDRUt8wkKkJHDi/B8TlGWuCAB+6SWMuBqrhzcsJeDk5F3J2hPRvJbTGuXiyZ+hHtiIV0riKWYQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM7PR04MB7144
+References: <avzIz70qnJIA2t3x@sirena.org.uk>
+In-Reply-To: <avzIz70qnJIA2t3x@sirena.org.uk>
+From: J4f J4f <shlomojune6@gmail.com>
+Date: Wed, 18 Nov 2026 23:47:26 +0800
+X-Gm-Features: AclHuK_RiAIyf8f85-0Dlp7Zg4S5cHp2wH8Wd464BSCht-p0f6fNRI9Z5TNEFl4
+Message-ID: <CAE_LbwkvPV2-LJ2b7OCFzmWmBP-jfxeMR=ARZJvuF4RNx8M1dw@mail.gmail.com>
+Subject: Re: linux-next: manual merge of the bpf-next tree with the bpf tree
+To: Mark Brown <broonie@kernel.org>
+Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, Eduard Zingerman <eddyz87@gmail.com>, 
+	Daniel Borkmann <daniel@iogearbox.net>, Alexei Starovoitov <ast@kernel.org>, 
+	Andrii Nakryiko <andrii@kernel.org>, bpf <bpf@vger.kernel.org>, 
+	Networking <netdev@vger.kernel.org>, 
+	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
+	Linux Next Mailing List <linux-next@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
 
-From: netdev-bot+sashiko@kernel.org <netdev-bot+sashiko@kernel.org>
-Sent: Tuesday, November 17, 2026 5:55 PM
-> To: Claudiu Manoil <claudiu.manoil@nxp.com>
-> Cc: netdev@vger.kernel.org; dl-S32 <S32@nxp.com>; bhelgaas@google.com;
-> linux-pci@vger.kernel.org; linux-kernel@vger.kernel.org; kuba@kernel.org
-> Subject: Re: [PATCH net-next v4 3/6] net: enetc: Enable probing of versio=
-n 4.4
-> devices
->=20
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->=20
-> Critical: 0 * High: 0 * Medium: 2 * Low: 0
->=20
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->=20
-> - [Medium] This patch adds ENETC_REV_4_4 entries to enetc_info[] so that
->   S32N79 PFs (0xe101/0xe110) and VFs (0xef00) now probe.
-> - [Medium] When an ENETC v4 VF cannot get the IP minor revision from its
->   PF over the VSI-PSI mailbox, enetc_vf_get_revision()...
->=20
-> --
->=20
-> net: enetc: Enable probing of version 4.4 devices
->=20
-> This commit adds driver data and platform info entries for the ENETC v4.4
-> PF and VF devices on S32N79 SoCs. These run with a 500 MHz system clock.
-> The PFs use the 0xe101 or 0xe110 device ID and the VFs use 0xef00.
->=20
-> > diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c
-> b/drivers/net/ethernet/freescale/enetc/enetc.c
-> > index 855b2d3b87182..e3aa117d323d5 100644
-> > --- a/drivers/net/ethernet/freescale/enetc/enetc.c
-> > +++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-> > @@ -3840,6 +3840,20 @@ static const struct enetc_drvdata
-> enetc4_vf_data =3D {
->=20
-> [ ... ]
->=20
-> > +static const struct enetc_drvdata enetc4_s32n79_vf_data =3D {
-> > +	.sysclk_freq =3D ENETC_CLK_500M,
-> > +	.tx_csum =3D true,
-> > +	.max_frags =3D ENETC4_MAX_SKB_FRAGS,
-> > +	.eth_ops =3D &enetc_vf_ethtool_ops,
-> > +};
->=20
-> [Severity: Medium]
-> Can an S32N79 VF end up with the 333 MHz drvdata instead of this one?
->=20
-> The VF gets its minor revision from the PF over the VSI-PSI mailbox. If
-> that query fails, enetc_vf_get_revision() falls back to 4.1:
+On Wed, 18 Nov 2026 at 05:36, Mark Brown <broonie@kernel.org> wrote:
+>
+> Hi all,
+>
+> Today's linux-next merge of the bpf-next tree got a conflict in:
+>
+>   kernel/bpf/btf.c
+>
+> between commit:
+>
+>   b7cc45994c3f9 ("bpf: Check variable-offset accesses against special fields")
+>
+> from the bpf tree and commit:
+>
+>   ca4395aade31a ("bpf: Walk each type once when looking for special fields")
+>
+> from the bpf-next tree.  I'm not confident of this merge, it discards
+> the bpf commit on the basis that it looks like there is some new
+> handling of special fields in the bpf-next tree but I'm not sure that
+> overlaps with the fix.
+>
+> I fixed it up (see below) and can carry the fix as necessary. This
+> is now fixed as far as linux-next is concerned, but any non trivial
+> conflicts should be mentioned to your upstream maintainer when your tree
+> is submitted for merging.  You may also want to consider cooperating
+> with the maintainer of the conflicting tree to minimise any particularly
+> complex conflicts.
+>
+Hi Mark,
 
-If the enetc_vf_get_revision() query fails we have bigger concerns than
-the VF coalescing operating on a 333 MHz reference. There's no fix for this
-fail, and it's outside the scope of this patch set.
+Thanks for the report.
 
->=20
-> drivers/net/ethernet/freescale/enetc/enetc_vf.c:enetc_vf_get_revision() {
->     ...
-> 	ip_mn =3D enetc_vf_get_ip_minor_revision(si);
-> 	if (ip_mn >=3D 0) {
-> 		si->revision =3D (si->pdev->revision << 8) | ip_mn;
-> 		return;
-> 	}
->=20
-> 	si->revision =3D ENETC_REV_4_1;
->     ...
-> }
->=20
-> The query can fail in several ways:
->=20
-> - -EIO when the mailbox is busy
-> - -ETIMEDOUT after the 200 ms poll
-> - an error status returned by the PSI
-> - -ENOMEM from dma_alloc_coherent()
->=20
-> S32N79 VFs use the same 0xef00 device ID. So in that case
-> enetc_get_driver_data() matches {ENETC_REV_4_1, NXP_ENETC_VF_DEV_ID}
-> and selects enetc4_vf_data, which uses ENETC_CLK_333M.
-> enetc_vf_netdev_setup() then copies that value into priv->sysclk_freq.
->=20
-> Before this patch every v4 platform ran at 333 MHz, so the fallback made =
-no
-> difference. On a 500 MHz platform, wouldn't enetc_usecs_to_cycles()
-> program the default 600 us tx_ictt, the DIM rx_ictt and the set_coalesce =
-values at
-> roughly 0.67x the requested timeout?
->=20
-> enetc_get_coalesce() converts back with the same clock. So ethtool -c wou=
-ld
-> still show the requested values while the hardware fires about 1.5x soone=
-r.
->=20
-> Should the fallback change now that v4 platforms don't all use the same
-> clock frequency?
->=20
-> > @@ -3870,6 +3884,18 @@ static const struct enetc_platform_info
-> enetc_info[] =3D {
-> >  	  .dev_id =3D NXP_ENETC_VF_DEV_ID,
-> >  	  .data =3D &enetc4_vf_data,
-> >  	},
-> > +	{ .revision =3D ENETC_REV_4_4,
-> > +	  .dev_id =3D NXP_ENETC_PPM_DEV_ID,
-> > +	  .data =3D &enetc4_s32n79_ppm_data,
-> > +	},
-> > +	{ .revision =3D ENETC_REV_4_4,
-> > +	  .dev_id =3D NXP_ENETC_PF_DEV_ID,
-> > +	  .data =3D &enetc4_s32n79_ppm_data,
-> > +	},
-> > +	{ .revision =3D ENETC_REV_4_4,
-> > +	  .dev_id =3D NXP_ENETC_VF_DEV_ID,
-> > +	  .data =3D &enetc4_s32n79_vf_data,
-> > +	},
->=20
-> [Severity: Medium]
-> Does enetc_get_phc_index_by_pdev() in enetc_ethtool.c also need an
-> ENETC_REV_4_4 case? It has its own per-revision table for the timer devfn=
-:
->=20
+I reproduced this on bpf-next master: the rewrite does not cover the fix,
+the check in btf_struct_access() now only looks at min_off again. I will
+send a v4 rebased on top of the bpf-next series shortly.
 
-In short, no. PTP support for ENETC 4.4 is not available at this point.
-The explanation is the same as replied here, for v2:
-https://patchwork.kernel.org/project/netdevbpf/patch/537a977b10b3d76c30b1f8=
-79f423bde4fd6f42f8.1791908694.git.claudiu.manoil@nxp.com/#27330675
-
-The VF for v4.4 does not support the existing timestamping scheme.
-On platforms with NETC v4.4, CONFIG_PTP_NETC_V4_TIMER will not be 'enabled'
-since the v4 timer is a separate device on a different bus that is not owne=
-d by Linux,
-on v4.4 SoCs. No need to modify ndo_hwtstamp_set() in this case, and it's o=
-utside
-the scope of this patch set anyway.
-
-> drivers/net/ethernet/freescale/enetc/enetc_ethtool.c:enetc_get_phc_index_=
-b
-> y_pdev() {
->     ...
-> 	switch (si->revision) {
-> 	case ENETC_REV_1_0:
-> 		devfn =3D PCI_DEVFN(0, 4);
-> 		break;
-> 	case ENETC_REV_4_1:
-> 		devfn =3D PCI_DEVFN(24, 0);
-> 		break;
-> 	case ENETC_REV_4_3:
-> 		devfn =3D PCI_DEVFN(0, 1);
-> 		break;
-> 	default:
-> 		return -1;
-> 	}
->     ...
-> }
->=20
-> enetc4_s32n79_vf_data uses enetc_vf_ethtool_ops, which provides
-> enetc_get_ts_info(). SR-IOV VFs have no OF node, so enetc_get_phc_index()
-> always takes the per-pdev path. For a v4.4 VF the call chain is:
->=20
-> enetc_get_ts_info()
->   enetc_get_phc_index()
->     enetc_get_phc_index_by_pdev()
->       default: return -1
->=20
-> enetc_get_ts_info() then jumps to timestamp_tx_sw. It reports no PHC and
-> only SOF_TIMESTAMPING_TX_SOFTWARE.
->=20
-> enetc_hwtstamp_set() and enetc_hwtstamp_get() still accept hardware
-> timestamping configs, because they only check
-> enetc_ptp_clock_is_enabled().
->=20
-> Would ptp4l and similar tools then fail to find a PHC on S32N79 VFs?
->=20
-> The v4.4 PF uses enetc4_ppm_ethtool_ops, which has no get_ts_info, so thi=
-s
-> seems to affect only the VFs.
->=20
-> The code doesn't show whether a NETC timer is reachable on the VF's PCI
-> bus on S32N79. If PTP is intentionally left unsupported on v4.4, could th=
-e
-> commit message say so?
->=20
-
-
-https://patchwork.kernel.org/project/netdevbpf/patch/537a977b10b3d76c30b1f8=
-79f423bde4fd6f42f8.1791908694.git.claudiu.manoil@nxp.com/#27330675
+Thanks,
+Shihuang
+> diff --combined kernel/bpf/btf.c
+> index 49fcd32d418a9,e95ca39f990c6..0000000000000
+> --- a/kernel/bpf/btf.c
+> +++ b/kernel/bpf/btf.c
+> @@@ -281,6 -281,7 +281,7 @@@ struct btf
+>         char name[MODULE_NAME_LEN];
+>         bool kernel_btf;
+>         __u32 *base_id_map; /* map from distilled base BTF -> vmlinux BTF ids */
+> +       u32 *next_tag; /* see btf_link_decl_tags() */
+>   };
+>
+>   enum verifier_phase {
+> @@@ -308,6 -309,9 +309,9 @@@ enum resolve_mode
+>                                          */
+>   };
+>
+> + /* It bounds the time of the loops that compare or print names */
+> + #define BTF_MAX_NAME_LEN 4096
+> +
+>   #define MAX_RESOLVE_DEPTH 32
+>
+>   struct btf_sec_info {
+> @@@ -319,6 -323,7 +323,7 @@@ struct btf_verifier_env
+>         struct btf *btf;
+>         u8 *visit_states;
+>         struct resolve_vertex stack[MAX_RESOLVE_DEPTH];
+> +       unsigned long *names;   /* offsets of the strings that can be names */
+>         struct bpf_verifier_log log;
+>         u32 log_type_id;
+>         u32 top_stack;
+> @@@ -684,10 -689,15 +689,15 @@@ s32 btf_find_by_name_kind(const struct
+>                                 return id;
+>                 }
+>         } else {
+> +               /* only the tags in BTF of a program have long names */
+> +               bool slow = !btf->kernel_btf && strlen(name) > KSYM_NAME_LEN;
+> +
+>                 for (id = btf_start_id(btf); id < total; id++) {
+>                         t = btf_type_by_id(btf, id);
+>                         if (BTF_INFO_KIND(t->info) != kind)
+>                                 continue;
+> +                       if (slow && bpf_must_abort())
+> +                               return -EINTR;
+>                         tname = btf_name_by_offset(btf, t->name_off);
+>                         if (strcmp(tname, name) == 0)
+>                                 return id;
+> @@@ -914,49 -924,6 +924,6 @@@ const char *btf_str_by_offset(const str
+>         return NULL;
+>   }
+>
+> - /* Names in BTF of Rust are not C identifiers. Allow any printable character */
+> - static bool btf_name_valid_identifier(const struct btf *btf, u32 offset)
+> - {
+> -       /* offset must be valid */
+> -       const char *src = btf_str_by_offset(btf, offset);
+> -       const char *src_limit;
+> -
+> -       if (!isprint(*src))
+> -               return false;
+> -
+> -       /* set a limit on identifier length */
+> -       src_limit = src + KSYM_NAME_LEN;
+> -       src++;
+> -       while (*src && src < src_limit) {
+> -               if (!isprint(*src))
+> -                       return false;
+> -               src++;
+> -       }
+> -
+> -       return !*src;
+> - }
+> -
+> - /* Allow any printable character in DATASEC names */
+> - static bool btf_name_valid_section(const struct btf *btf, u32 offset)
+> - {
+> -       /* offset must be valid */
+> -       const char *src = btf_str_by_offset(btf, offset);
+> -       const char *src_limit;
+> -
+> -       if (!*src)
+> -               return false;
+> -
+> -       /* set a limit on identifier length */
+> -       src_limit = src + KSYM_NAME_LEN;
+> -       while (*src && src < src_limit) {
+> -               if (!isprint(*src))
+> -                       return false;
+> -               src++;
+> -       }
+> -
+> -       return !*src;
+> - }
+> -
+>   static const char *__btf_name_by_offset(const struct btf *btf, u32 offset)
+>   {
+>         const char *name;
+> @@@ -1907,6 -1874,7 +1874,7 @@@ static void btf_free(struct btf *btf
+>         if (!btf_is_vmlinux(btf))
+>                 kvfree(btf->data);
+>         kvfree(btf->base_id_map);
+> +       kvfree(btf->next_tag);
+>         kfree(btf);
+>   }
+>
+> @@@ -1991,9 -1959,21 +1959,21 @@@ nomem
+>   static void btf_verifier_env_free(struct btf_verifier_env *env)
+>   {
+>         kvfree(env->visit_states);
+> +       kvfree(env->names);
+>         kfree(env);
+>   }
+>
+> + /* Names in BTF of Rust are not C identifiers. Allow any printable character */
+> + static bool btf_name_valid(const struct btf_verifier_env *env, u32 offset)
+> + {
+> +       const struct btf *btf = env->btf;
+> +
+> +       /* offset must be valid */
+> +       if (offset < btf->start_str_off)
+> +               return *btf_str_by_offset(btf, offset);
+> +       return test_bit(offset - btf->start_str_off, env->names);
+> + }
+> +
+>   static bool env_type_is_resolve_sink(const struct btf_verifier_env *env,
+>                                      const struct btf_type *next_type)
+>   {
+> @@@ -2766,7 -2746,7 +2746,7 @@@ static int btf_ref_type_check_meta(stru
+>          */
+>         if (BTF_INFO_KIND(t->info) == BTF_KIND_TYPEDEF) {
+>                 if (!t->name_off ||
+> -                   !btf_name_valid_identifier(env->btf, t->name_off)) {
+> +                   !btf_name_valid(env, t->name_off)) {
+>                         btf_verifier_log_type(env, t, "Invalid name");
+>                         return -EINVAL;
+>                 }
+> @@@ -3028,7 -3008,7 +3008,7 @@@ static s32 btf_fwd_check_meta(struct bt
+>
+>         /* fwd type must have a valid name */
+>         if (!t->name_off ||
+> -           !btf_name_valid_identifier(env->btf, t->name_off)) {
+> +           !btf_name_valid(env, t->name_off)) {
+>                 btf_verifier_log_type(env, t, "Invalid name");
+>                 return -EINVAL;
+>         }
+> @@@ -3351,7 -3331,7 +3331,7 @@@ static s32 btf_struct_check_meta(struc
+>
+>         /* struct type either no name or a valid one */
+>         if (t->name_off &&
+> -           !btf_name_valid_identifier(env->btf, t->name_off)) {
+> +           !btf_name_valid(env, t->name_off)) {
+>                 btf_verifier_log_type(env, t, "Invalid name");
+>                 return -EINVAL;
+>         }
+> @@@ -3369,7 -3349,7 +3349,7 @@@
+>
+>                 /* struct member either no name or a valid one */
+>                 if (member->name_off &&
+> -                   !btf_name_valid_identifier(btf, member->name_off)) {
+> +                   !btf_name_valid(env, member->name_off)) {
+>                         btf_verifier_log_member(env, t, member, "Invalid name");
+>                         return -EINVAL;
+>                 }
+> @@@ -3636,13 -3616,45 +3616,45 @@@ static int btf_find_kptr(const struct b
+>         return BTF_FIELD_FOUND;
+>   }
+>
+> + /* For BTF of programs: next_tag[type] -> its first tag, next_tag[tag] -> its next tag, ... 0 */
+> + static int btf_link_decl_tags(struct btf *btf)
+> + {
+> +       u32 i;
+> +
+> +       btf->next_tag = kvcalloc(btf->nr_types, sizeof(u32), GFP_KERNEL | __GFP_NOWARN);
+> +       if (!btf->next_tag)
+> +               return -ENOMEM;
+> +       for (i = btf->nr_types; --i;) {
+> +               if (!btf_type_is_decl_tag(btf->types[i]))
+> +                       continue;
+> +               btf->next_tag[i] = btf->next_tag[btf->types[i]->type];
+> +               btf->next_tag[btf->types[i]->type] = i;
+> +       }
+> +       return 0;
+> + }
+> +
+> + static int btf_type_ptr_cmp(const void *a, const void *b)
+> + {
+> +       return cmp_int(*(void **)a, *(void **)b);
+> + }
+> +
+> + /* last_id is 0 for the first tag */
+>   int btf_find_next_decl_tag(const struct btf *btf, const struct btf_type *pt,
+>                            int comp_idx, const char *tag_key, int last_id)
+>   {
+> +       int i = last_id ?: btf_named_start_id(btf, false) - 1, n = btf_nr_types(btf);
+>         int len = strlen(tag_key);
+> -       int i, n;
+> +       struct btf_type **p;
+>
+> -       for (i = last_id + 1, n = btf_nr_types(btf); i < n; i++) {
+> +       if (btf->next_tag && !last_id) {
+> +               /* the types are in the order of their ids in btf->data */
+> +               p = bsearch(&pt, btf->types + 1, n - 1, sizeof(*p), btf_type_ptr_cmp);
+> +               if (!p)
+> +                       return -ENOENT;
+> +               i = p - btf->types;
+> +       }
+> +
+> +       while ((i = btf->next_tag ? btf->next_tag[i] ?: n : i + 1) < n) {
+>                 const struct btf_type *t = btf_type_by_id(btf, i);
+>
+>                 if (!btf_type_is_decl_tag(t))
+> @@@ -3665,8 -3677,7 +3677,7 @@@ const char *btf_find_decl_tag_value(con
+>         const struct btf_type *t;
+>         int len, id;
+>
+> -       id = btf_find_next_decl_tag(btf, pt, comp_idx, tag_key,
+> -                                   btf_named_start_id(btf, false) - 1);
+> +       id = btf_find_next_decl_tag(btf, pt, comp_idx, tag_key, 0);
+>         if (id < 0)
+>                 return ERR_PTR(id);
+>
+> @@@ -3682,6 -3693,36 +3693,36 @@@
+>         return value;
+>   }
+>
+> + /*
+> +  * The value of the decl tag "<tag_key><value>" on a function of the kernel or of
+> +  * a module. The build sorts their BTF by name: the tags with one key are
+> +  * neighbours, and so are those with one value.
+> +  *
+> +  * Only the own types of btf are searched, not its base. With the BTF of a module
+> +  * func_id can be a FUNC of vmlinux: it stands for the function of that name in the
+> +  * module. What the build found in the code of vmlinux is not true for it.
+> +  */
+> + const char *btf_find_func_tag_value(const struct btf *btf, u32 func_id, const char *tag_key)
+> + {
+> +       int id, n = btf_nr_types(btf), len = strlen(tag_key);
+> +       const char *name = NULL;
+> +       u32 name_off = 0;
+> +
+> +       for (id = btf_find_by_name_kind_bsearch(btf, tag_key); id < n; id++) {
+> +               const struct btf_type *t = btf_type_by_id(btf, id);
+> +
+> +               if (t->name_off != name_off) {
+> +                       name_off = t->name_off;
+> +                       name = btf_name_by_offset(btf, name_off);
+> +                       if (strncmp(name, tag_key, len))
+> +                               break;
+> +               }
+> +               if (t->type == func_id && btf_type_is_decl_tag(t))
+> +                       return name + len;
+> +       }
+> +       return NULL;
+> + }
+> +
+>   static int
+>   btf_find_graph_root(const struct btf *btf, const struct btf_type *pt,
+>                     const struct btf_type *t, int comp_idx, u32 off,
+> @@@ -3773,106 -3814,106 +3814,106 @@@ end
+>         return type;
+>   }
+>
+> - /* Repeat a number of fields for a specified number of times.
+> + /*
+> +  * A walk over the members of a type and of the structs in it. A struct is entered once.
+> +  * The next member of that type gets a copy of the fields that were found:
+>    *
+> -  * Copy the fields starting from the first field and repeat them for
+> -  * repeat_cnt times. The fields are repeated by adding the offset of each
+> -  * field with
+> -  *   (i + 1) * elem_size
+> -  * where i is the repeat index and elem_size is the size of an element.
+> +  *   struct in  { kptr p; };
+> +  *   struct out { struct in a; long x; struct in b[2]; };
+> +  *                enter 'in'           copy from a, twice
+>    */
+> - static int btf_repeat_fields(struct btf_field_info *info, int info_cnt,
+> -                            u32 field_cnt, u32 repeat_cnt, u32 elem_size)
+> + struct btf_field_walk {
+> +       struct btf_field_info *info;
+> +       u32 cnt;
+> +       u32 field_mask;
+> +       u32 seen_mask;
+> +       struct btf_field_scope {
+> +               const struct btf_type *t;
+> +               u32 off;        /* in the outer type */
+> +               u32 nelems;
+> +               u32 first;      /* its fields in 'info' */
+> +               u32 cnt;
+> +               u32 next;       /* member to look at */
+> +               u32 parent;
+> +       } *scopes;
+> +       u32 scope;              /* the current one */
+> +       struct bpf_index index; /* address of the type -> scope */
+> + };
+> +
+> + /* An allocated object has 4096 bytes at most */
+> + #define BTF_OBJ_FIELDS_MAX (SZ_4K / sizeof(u64))
+> +
+> + static int btf_add_field(struct btf_field_walk *w, struct btf_field_info info)
+>   {
+> -       u32 i, j, total_cnt, total_repeats;
+> -       u32 cur;
+> -
+> -       /* Ensure not repeating fields that should not be repeated. */
+> -       for (i = 0; i < field_cnt; i++) {
+> -               switch (info[i].type) {
+> -               case BPF_KPTR_UNREF:
+> -               case BPF_KPTR_REF:
+> -               case BPF_KPTR_PERCPU:
+> -               case BPF_UPTR:
+> -               case BPF_LIST_HEAD:
+> -               case BPF_RB_ROOT:
+> -                       break;
+> -               default:
+> -                       return -EINVAL;
+> -               }
+> -       }
+> -
+> -       if (check_add_overflow(repeat_cnt, 1, &total_repeats) ||
+> -           check_mul_overflow(field_cnt, total_repeats, &total_cnt) ||
+> -           total_cnt > (u32)info_cnt)
+> -               return -E2BIG;
+> -
+> -       cur = field_cnt;
+> -       for (i = 0; i < repeat_cnt; i++) {
+> -               memcpy(&info[cur], &info[0], field_cnt * sizeof(info[0]));
+> -               for (j = 0; j < field_cnt; j++)
+> -                       info[cur++].off += (i + 1) * elem_size;
+> -       }
+> +       struct btf_field_info *last = w->cnt ? &w->info[w->cnt - 1] : NULL;
+>
+> +       if (last && info.off < last->off + btf_field_type_size(last->type))
+> +               return -EEXIST;
+> +       if ((w->field_mask & BPF_GRAPH_NODE) && w->cnt == BTF_OBJ_FIELDS_MAX)
+> +               return -EFBIG;
+> +       if (bpf_must_abort())
+> +               return -EINTR;
+> +       if (!bpf_table_next(w->info, w->cnt))
+> +               return -ENOMEM;
+> +       w->info[w->cnt++] = info;
+>         return 0;
+>   }
+>
+> - static int btf_find_struct_field(const struct btf *btf,
+> -                                const struct btf_type *t, u32 field_mask,
+> -                                struct btf_field_info *info, int info_cnt,
+> -                                u32 level, u32 *seen_mask);
+> -
+> - /* Find special fields in the struct type of a field.
+> -  *
+> -  * This function is used to find fields of special types that is not a
+> -  * global variable or a direct field of a struct type. It also handles the
+> -  * repetition if it is the element type of an array.
+> -  */
+> - static int btf_find_nested_struct(const struct btf *btf, const struct btf_type *t,
+> -                                 u32 off, u32 nelems,
+> -                                 u32 field_mask, struct btf_field_info *info,
+> -                                 int info_cnt, u32 level, u32 *seen_mask)
+> + /* Copy 'cnt' fields from 'first' on to 'nelems' elements. The first copy is 'by' bytes off. */
+> + static int btf_repeat_fields(struct btf_field_walk *w, u32 first, u32 cnt, u32 by,
+> +                            u32 nelems, u32 elem_size, bool array)
+>   {
+> -       int ret, err, i;
+> +       struct btf_field_info info;
+> +       u32 i, j;
+> +       int err;
+>
+> -       level++;
+> -       if (level >= MAX_RESOLVE_DEPTH)
+> -               return -E2BIG;
+> -
+> -       ret = btf_find_struct_field(btf, t, field_mask, info, info_cnt, level, seen_mask);
+> -
+> -       if (ret <= 0)
+> -               return ret;
+> -
+> -       /* Shift the offsets of the nested struct fields to the offsets
+> -        * related to the container.
+> -        */
+> -       for (i = 0; i < ret; i++)
+> -               info[i].off += off;
+> -
+> -       if (nelems > 1) {
+> -               err = btf_repeat_fields(info, info_cnt, ret, nelems - 1, t->size);
+> -               if (err == 0)
+> -                       ret *= nelems;
+> -               else
+> -                       ret = err;
+> +       for (i = 0; i < nelems && cnt; i++, by += elem_size) {
+> +               for (j = first; j < first + cnt; j++) {
+> +                       info = w->info[j];
+> +                       info.off += by;
+> +                       if (array && !(info.type & (BPF_KPTR | BPF_UPTR | BPF_GRAPH_ROOT)))
+> +                               return -EINVAL;
+> +                       if (info.type & w->seen_mask)
+> +                               return -E2BIG;
+> +                       err = btf_add_field(w, info);
+> +                       if (err)
+> +                               return err;
+> +               }
+>         }
+> +       return 0;
+> + }
+>
+> -       return ret;
+> + static int btf_enter_struct(struct btf_field_walk *w, const struct btf_type *t, u32 off, u32 nelems)
+> + {
+> +       int i = bpf_index_find(&w->index, (unsigned long)t);
+> +       struct btf_field_scope *s;
+> +
+> +       if (i >= 0) {
+> +               s = &w->scopes[i];
+> +               return btf_repeat_fields(w, s->first, s->cnt, off - s->off, nelems, t->size,
+> +                                        nelems > 1);
+> +       }
+> +       i = w->index.cnt;
+> +       s = bpf_table_next(w->scopes, i);
+> +       if (!s || bpf_index_add(&w->index, (unsigned long)t, i))
+> +               return -ENOMEM;
+> +       *s = (struct btf_field_scope){
+> +               .t = t, .off = off, .nelems = nelems, .first = w->cnt, .parent = w->scope,
+> +       };
+> +       w->scope = i;
+> +       return 0;
+>   }
+>
+>   static int btf_find_field_one(const struct btf *btf,
+>                               const struct btf_type *var,
+>                               const struct btf_type *var_type,
+>                               int var_idx,
+> -                             u32 off, u32 expected_size,
+> -                             u32 field_mask, u32 *seen_mask,
+> -                             struct btf_field_info *info, int info_cnt,
+> -                             u32 level)
+> +                             u32 base, u32 off, u32 expected_size,
+> +                             struct btf_field_walk *w)
+>   {
+>         int ret, align, sz, field_type;
+> -       struct btf_field_info tmp;
+>         const struct btf_array *array;
+> +       struct btf_field_info info;
+>         u32 i, nelems = 1;
+>
+>         /* Walk into array types to find the element type and the number of
+> @@@ -3889,15 -3930,13 +3930,13 @@@
+>                 return 0;
+>
+>         field_type = btf_get_field_type(btf, var_type,
+> -                                       field_mask, seen_mask, &align, &sz);
+> +                                       w->field_mask, &w->seen_mask, &align, &sz);
+>         /* Look into variables of struct types */
+>         if (!field_type && __btf_type_is_struct(var_type)) {
+>                 sz = var_type->size;
+>                 if (expected_size && expected_size != sz * nelems)
+>                         return 0;
+> -               ret = btf_find_nested_struct(btf, var_type, off, nelems, field_mask,
+> -                                            &info[0], info_cnt, level, seen_mask);
+> -               return ret;
+> +               return btf_enter_struct(w, var_type, base + off, nelems);
+>         }
+>
+>         if (field_type == 0)
+> @@@ -3909,6 -3948,7 +3948,7 @@@
+>                 return 0;
+>         if (off % align)
+>                 return 0;
+> +       off += base;
+>
+>         switch (field_type) {
+>         case BPF_SPIN_LOCK:
+> @@@ -3920,8 -3960,7 +3960,7 @@@
+>         case BPF_REFCOUNT:
+>         case BPF_TASK_WORK:
+>         case BPF_RCU_HEAD:
+> -               ret = btf_find_struct(btf, var_type, off, sz, field_type,
+> -                                     info_cnt ? &info[0] : &tmp);
+> +               ret = btf_find_struct(btf, var_type, off, sz, field_type, &info);
+>                 if (ret < 0)
+>                         return ret;
+>                 break;
+> @@@ -3929,17 -3968,14 +3968,14 @@@
+>         case BPF_KPTR_REF:
+>         case BPF_KPTR_PERCPU:
+>         case BPF_UPTR:
+> -               ret = btf_find_kptr(btf, var_type, off, sz,
+> -                                   info_cnt ? &info[0] : &tmp, field_mask);
+> +               ret = btf_find_kptr(btf, var_type, off, sz, &info, w->field_mask);
+>                 if (ret < 0)
+>                         return ret;
+>                 break;
+>         case BPF_LIST_HEAD:
+>         case BPF_RB_ROOT:
+>                 ret = btf_find_graph_root(btf, var, var_type,
+> -                                         var_idx, off, sz,
+> -                                         info_cnt ? &info[0] : &tmp,
+> -                                         field_type);
+> +                                         var_idx, off, sz, &info, field_type);
+>                 if (ret < 0)
+>                         return ret;
+>                 break;
+> @@@ -3949,81 -3985,51 +3985,51 @@@
+>
+>         if (ret == BTF_FIELD_IGNORE)
+>                 return 0;
+> -       if (!info_cnt)
+> -               return -E2BIG;
+> -       if (nelems > 1) {
+> -               ret = btf_repeat_fields(info, info_cnt, 1, nelems - 1, sz);
+> -               if (ret < 0)
+> -                       return ret;
+> -       }
+> -       return nelems;
+> - }
+> -
+> - static int btf_find_struct_field(const struct btf *btf,
+> -                                const struct btf_type *t, u32 field_mask,
+> -                                struct btf_field_info *info, int info_cnt,
+> -                                u32 level, u32 *seen_mask)
+> - {
+> -       int ret, idx = 0;
+> -       const struct btf_member *member;
+> -       u32 i, off;
+> -
+> -       for_each_member(i, t, member) {
+> -               const struct btf_type *member_type = btf_type_by_id(btf,
+> -                                                                   member->type);
+> -
+> -               off = __btf_member_bit_offset(t, member);
+> -               if (off % 8)
+> -                       /* valid C code cannot generate such BTF */
+> -                       return -EINVAL;
+> -               off /= 8;
+> -
+> -               ret = btf_find_field_one(btf, t, member_type, i,
+> -                                        off, 0,
+> -                                        field_mask, seen_mask,
+> -                                        &info[idx], info_cnt - idx, level);
+> -               if (ret < 0)
+> -                       return ret;
+> -               idx += ret;
+> -       }
+> -       return idx;
+> - }
+> -
+> - static int btf_find_datasec_var(const struct btf *btf, const struct btf_type *t,
+> -                               u32 field_mask, struct btf_field_info *info,
+> -                               int info_cnt, u32 level, u32 *seen_mask)
+> - {
+> -       int ret, idx = 0;
+> -       const struct btf_var_secinfo *vsi;
+> -       u32 i, off;
+> -
+> -       for_each_vsi(i, t, vsi) {
+> -               const struct btf_type *var = btf_type_by_id(btf, vsi->type);
+> -               const struct btf_type *var_type = btf_type_by_id(btf, var->type);
+> -
+> -               off = vsi->offset;
+> -               ret = btf_find_field_one(btf, var, var_type, -1, off, vsi->size,
+> -                                        field_mask, seen_mask,
+> -                                        &info[idx], info_cnt - idx,
+> -                                        level);
+> -               if (ret < 0)
+> -                       return ret;
+> -               idx += ret;
+> -       }
+> -       return idx;
+> +       return btf_add_field(w, info) ?:
+> +              btf_repeat_fields(w, w->cnt - 1, 1, sz, nelems - 1, sz, true);
+>   }
+>
+>   static int btf_find_field(const struct btf *btf, const struct btf_type *t,
+> -                         u32 field_mask, struct btf_field_info *info,
+> -                         int info_cnt)
+> +                         struct btf_field_walk *w)
+>   {
+> -       u32 seen_mask = 0;
+> +       const struct btf_var_secinfo *vsi;
+> +       const struct btf_member *member;
+> +       struct btf_field_scope *s;
+> +       const struct btf_type *var;
+> +       u32 i, off;
+> +       int err;
+>
+> -       if (__btf_type_is_struct(t))
+> -               return btf_find_struct_field(btf, t, field_mask, info, info_cnt, 0, &seen_mask);
+> -       else if (btf_type_is_datasec(t))
+> -               return btf_find_datasec_var(btf, t, field_mask, info, info_cnt, 0, &seen_mask);
+> -       return -EINVAL;
+> +       if (!__btf_type_is_struct(t) && !btf_type_is_datasec(t))
+> +               return -EINVAL;
+> +
+> +       for (err = btf_enter_struct(w, t, 0, 1); !err;) {
+> +               if (bpf_must_abort())
+> +                       return -EINTR;
+> +               s = &w->scopes[w->scope];
+> +               i = s->next++;
+> +               if (i == btf_type_vlen(s->t)) {
+> +                       if (!w->scope)
+> +                               break;
+> +                       s->cnt = w->cnt - s->first;
+> +                       w->scope = s->parent;
+> +                       err = btf_repeat_fields(w, s->first, s->cnt, s->t->size, s->nelems - 1,
+> +                                               s->t->size, true);
+> +               } else if (btf_type_is_datasec(s->t)) {
+> +                       vsi = btf_type_var_secinfo(s->t) + i;
+> +                       var = btf_type_by_id(btf, vsi->type);
+> +                       err = btf_find_field_one(btf, var, btf_type_by_id(btf, var->type), -1,
+> +                                                0, vsi->offset, vsi->size, w);
+> +               } else {
+> +                       member = btf_type_member(s->t) + i;
+> +                       off = __btf_member_bit_offset(s->t, member);
+> +                       if (off % 8)
+> +                               /* valid C code cannot generate such BTF */
+> +                               return -EINVAL;
+> +                       err = btf_find_field_one(btf, s->t, btf_type_by_id(btf, member->type), i,
+> +                                                s->off, off / 8, 0, w);
+> +               }
+> +       }
+> +       return err;
+>   }
+>
+>   /* Callers have to ensure the life cycle of btf if it is program BTF */
+> @@@ -4134,6 -4140,8 +4140,8 @@@ static int btf_parse_graph_root(const s
+>          * verify its type.
+>          */
+>         for_each_member(i, t, member) {
+> +               if (bpf_must_abort())
+> +                       return -EINTR;
+>                 if (strcmp(info->graph_root.node_name,
+>                            __btf_name_by_offset(btf, member->name_off)))
+>                         continue;
+> @@@ -4175,37 -4183,29 +4183,29 @@@ static int btf_parse_rb_root(const stru
+>                                             __alignof__(struct bpf_rb_node));
+>   }
+>
+> - static int btf_field_cmp(const void *_a, const void *_b, const void *priv)
+> - {
+> -       const struct btf_field *a = (const struct btf_field *)_a;
+> -       const struct btf_field *b = (const struct btf_field *)_b;
+> -
+> -       if (a->offset < b->offset)
+> -               return -1;
+> -       else if (a->offset > b->offset)
+> -               return 1;
+> -       return 0;
+> - }
+> -
+>   struct btf_record *btf_parse_fields(const struct btf *btf, const struct btf_type *t,
+>                                     u32 field_mask, u32 value_size)
+>   {
+> -       struct btf_field_info info_arr[BTF_FIELDS_MAX];
+> -       u32 next_off = 0, field_type_size;
+> +       struct btf_field_info *info_arr __free(kvfree) = NULL;
+> +       struct btf_field_walk w = { .field_mask = field_mask };
+> +       u32 field_type_size;
+>         struct btf_record *rec;
+>         int ret, i, cnt;
+>
+> -       ret = btf_find_field(btf, t, field_mask, info_arr, ARRAY_SIZE(info_arr));
+> +       ret = btf_find_field(btf, t, &w);
+> +       kvfree(w.scopes);
+> +       kvfree(w.index.slots);
+> +       info_arr = w.info;
+>         if (ret < 0)
+>                 return ERR_PTR(ret);
+> -       if (!ret)
+> +       if (!w.cnt)
+>                 return NULL;
+>
+> -       cnt = ret;
+> +       cnt = w.cnt;
+>         /* This needs to be kzalloc to zero out padding and unused fields, see
+>          * comment in btf_record_equal.
+>          */
+> -       rec = kzalloc_flex(*rec, fields, cnt, GFP_KERNEL_ACCOUNT | __GFP_NOWARN);
+> +       rec = kvzalloc_flex(*rec, fields, cnt, BPF_VERIFIER_GFP);
+>         if (!rec)
+>                 return ERR_PTR(-ENOMEM);
+>
+> @@@ -4223,11 -4223,10 +4223,10 @@@
+>                         ret = -EFAULT;
+>                         goto end;
+>                 }
+> -               if (info_arr[i].off < next_off) {
+> -                       ret = -EEXIST;
+> +               if (bpf_must_abort()) {
+> +                       ret = -EINTR;
+>                         goto end;
+>                 }
+> -               next_off = info_arr[i].off + field_type_size;
+>
+>                 rec->field_mask |= info_arr[i].type;
+>                 rec->fields[i].offset = info_arr[i].off;
+> @@@ -4316,9 -4315,6 +4315,6 @@@
+>                 goto end;
+>         }
+>
+> -       sort_r(rec->fields, rec->cnt, sizeof(struct btf_field), btf_field_cmp,
+> -              NULL, rec);
+> -
+>         return rec;
+>   end:
+>         btf_record_free(rec);
+> @@@ -4624,7 -4620,7 +4620,7 @@@ static s32 btf_enum_check_meta(struct b
+>
+>         /* enum type either no name or a valid one */
+>         if (t->name_off &&
+> -           !btf_name_valid_identifier(env->btf, t->name_off)) {
+> +           !btf_name_valid(env, t->name_off)) {
+>                 btf_verifier_log_type(env, t, "Invalid name");
+>                 return -EINVAL;
+>         }
+> @@@ -4640,7 -4636,7 +4636,7 @@@
+>
+>                 /* enum member must have a valid name */
+>                 if (!enums[i].name_off ||
+> -                   !btf_name_valid_identifier(btf, enums[i].name_off)) {
+> +                   !btf_name_valid(env, enums[i].name_off)) {
+>                         btf_verifier_log_type(env, t, "Invalid name");
+>                         return -EINVAL;
+>                 }
+> @@@ -4732,7 -4728,7 +4728,7 @@@ static s32 btf_enum64_check_meta(struc
+>
+>         /* enum type either no name or a valid one */
+>         if (t->name_off &&
+> -           !btf_name_valid_identifier(env->btf, t->name_off)) {
+> +           !btf_name_valid(env, t->name_off)) {
+>                 btf_verifier_log_type(env, t, "Invalid name");
+>                 return -EINVAL;
+>         }
+> @@@ -4748,7 -4744,7 +4744,7 @@@
+>
+>                 /* enum member must have a valid name */
+>                 if (!enums[i].name_off ||
+> -                   !btf_name_valid_identifier(btf, enums[i].name_off)) {
+> +                   !btf_name_valid(env, enums[i].name_off)) {
+>                         btf_verifier_log_type(env, t, "Invalid name");
+>                         return -EINVAL;
+>                 }
+> @@@ -5038,7 -5034,7 +5034,7 @@@ static s32 btf_locsec_check_meta(struc
+>         }
+>
+>         if (!t->name_off ||
+> -           !btf_name_valid_section(env->btf, t->name_off)) {
+> +           !btf_name_valid(env, t->name_off)) {
+>                 btf_verifier_log_type(env, t, "Invalid name");
+>                 return -EINVAL;
+>         }
+> @@@ -5230,7 -5226,7 +5226,7 @@@ static s32 btf_func_check_meta(struct b
+>                                u32 meta_left)
+>   {
+>         if (!t->name_off ||
+> -           !btf_name_valid_identifier(env->btf, t->name_off)) {
+> +           !btf_name_valid(env, t->name_off)) {
+>                 btf_verifier_log_type(env, t, "Invalid name");
+>                 return -EINVAL;
+>         }
+> @@@ -5299,7 -5295,7 +5295,7 @@@ static s32 btf_var_check_meta(struct bt
+>         }
+>
+>         if (!t->name_off ||
+> -           !btf_name_valid_identifier(env->btf, t->name_off)) {
+> +           !btf_name_valid(env, t->name_off)) {
+>                 btf_verifier_log_type(env, t, "Invalid name");
+>                 return -EINVAL;
+>         }
+> @@@ -5365,7 -5361,7 +5361,7 @@@ static s32 btf_datasec_check_meta(struc
+>         }
+>
+>         if (!t->name_off ||
+> -           !btf_name_valid_section(env->btf, t->name_off)) {
+> +           !btf_name_valid(env, t->name_off)) {
+>                 btf_verifier_log_type(env, t, "Invalid name");
+>                 return -EINVAL;
+>         }
+> @@@ -5752,7 -5748,7 +5748,7 @@@ static int btf_func_proto_check(struct
+>
+>                 if (args[i].name_off &&
+>                     (!btf_name_offset_valid(btf, args[i].name_off) ||
+> -                    !btf_name_valid_identifier(btf, args[i].name_off))) {
+> +                    !btf_name_valid(env, args[i].name_off))) {
+>                         btf_verifier_log_type(env, t,
+>                                               "Invalid arg#%u", i + 1);
+>                         return -EINVAL;
+> @@@ -5985,6 -5981,22 +5981,22 @@@ static int btf_check_all_types(struct b
+>                 return err;
+>
+>         env->phase++;
+> +       /*
+> +        * Structs and arrays go first. A walk from a pointer stops at them and hides this loop:
+> +        *   ptr -> typedef -> array -+
+> +        *             ^--------------+
+> +        */
+> +       for (i = btf->base_btf ? 0 : 1; i < btf->nr_types; i++) {
+> +               type_id = btf->start_id + i;
+> +               t = btf_type_by_id(btf, type_id);
+> +
+> +               if ((btf_type_is_struct(t) || btf_type_is_array(t)) &&
+> +                   !env_type_is_resolved(env, type_id)) {
+> +                       err = btf_resolve(env, t, type_id);
+> +                       if (err)
+> +                               return err;
+> +               }
+> +       }
+>         for (i = btf->base_btf ? 0 : 1; i < btf->nr_types; i++) {
+>                 type_id = btf->start_id + i;
+>                 t = btf_type_by_id(btf, type_id);
+> @@@ -6035,6 -6047,7 +6047,7 @@@ static int btf_parse_str_sec(struct btf
+>         const struct btf_header *hdr;
+>         struct btf *btf = env->btf;
+>         const char *start, *end;
+> +       u32 i, len = 0;
+>
+>         hdr = &btf->hdr;
+>         start = btf->nohdr_data + hdr->str_off;
+> @@@ -6059,6 -6072,21 +6072,21 @@@
+>                 return -EINVAL;
+>         }
+>
+> +       /* many names can share one long string: look at each byte once */
+> +       kvfree(env->names);
+> +       env->names = kvcalloc(BITS_TO_LONGS(hdr->str_len), sizeof(long),
+> +                             GFP_KERNEL | __GFP_NOWARN);
+> +       if (!env->names)
+> +               return -ENOMEM;
+> +       for (i = hdr->str_len; i--;) {
+> +               if (!start[i])
+> +                       len = 0;
+> +               else if (!isprint(start[i]))
+> +                       len = BTF_MAX_NAME_LEN;
+> +               else if (len++ < BTF_MAX_NAME_LEN)
+> +                       __set_bit(i, env->names);
+> +       }
+> +
+>         return 0;
+>   }
+>
+> @@@ -6290,6 -6318,10 +6318,10 @@@ btf_parse_struct_metas(struct bpf_verif
+>                         ret = -EINVAL;
+>                         goto free_aof;
+>                 }
+> +               if (bpf_must_abort()) {
+> +                       ret = -EINTR;
+> +                       goto free_aof;
+> +               }
+>
+>                 ret = btf_find_kptr(btf, t, 0, 0, &tmp, BPF_KPTR);
+>                 if (ret != BTF_FIELD_FOUND)
+> @@@ -6347,6 -6379,9 +6379,9 @@@
+>                 record = btf_parse_fields(btf, t, BPF_SPIN_LOCK | BPF_RES_SPIN_LOCK | BPF_LIST_HEAD | BPF_LIST_NODE |
+>                                                   BPF_RB_ROOT | BPF_RB_NODE | BPF_REFCOUNT |
+>                                                   BPF_KPTR, t->size);
+> +               /* It cannot be allocated. A map has its own record. */
+> +               if (record == ERR_PTR(-EFBIG))
+> +                       continue;
+>                 /* The record cannot be unset, treat it as an error if so */
+>                 if (IS_ERR_OR_NULL(record)) {
+>                         ret = PTR_ERR_OR_ZERO(record) ?: -EFAULT;
+> @@@ -6473,7 -6508,7 +6508,7 @@@ static struct btf *btf_parse(const unio
+>         if (err)
+>                 goto errout;
+>
+> -       err = btf_parse_type_sec(env);
+> +       err = btf_parse_type_sec(env) ?: btf_link_decl_tags(btf);
+>         if (err)
+>                 goto errout;
+>
+> @@@ -8091,20 -8126,11 +8126,11 @@@ int btf_struct_access(struct bpf_verifi
+>                 if (!meta)
+>                         break;
+>                 rec = meta->record;
+> -               for (i = 0; i < rec->cnt; i++) {
+> -                       struct btf_field *field = &rec->fields[i];
+> -                       u32 offset = field->offset;
+> -                       /* An access at 'lo' or above ends after the start of the field. */
+> -                       s64 lo = max(min_off, (s64)offset - size + 1);
+> -
+> -                       /* Round up to min_off + k * step. The step is never 0. */
+> -                       lo += imod(min_off - lo, reg->step);
+> -                       if (lo <= max_off && lo < offset + field->size) {
+> -                               bpf_log(log,
+> -                                       "direct access to %s is disallowed\n",
+> -                                       btf_field_type_name(field->type));
+> -                               return -EACCES;
+> -                       }
+> +               i = btf_record_first_field(rec, off);
+> +               if (i < rec->cnt && rec->fields[i].offset < off + size) {
+> +                       bpf_log(log, "direct access to %s is disallowed\n",
+> +                               btf_field_type_name(rec->fields[i].type));
+> +                       return -EACCES;
+>                 }
+>                 break;
+>         }
+> @@@ -8636,8 -8662,8 +8662,8 @@@ static int btf_scan_decl_tags(struct bp
+>                               const struct btf_type *fn_t,
+>                               u32 arg_idx, bool is_global, u32 *tags)
+>   {
+> -       int id = btf_named_start_id(btf, false) - 1;
+>         const char tag_key[] = "arg:";
+> +       int id = 0;
+>         static const struct {
+>                 const char *tag_value;
+>                 enum btf_arg_tag arg_tag;
+> @@@ -8747,8 -8773,7 +8773,7 @@@ static int btf_validate_return_type(str
+>   }
+>
+>   static int btf_check_arg_slots(struct bpf_verifier_log *log, const char *tname,
+> -                              bool is_global, u32 slot_cnt,
+> -                              struct bpf_subprog_info *sub)
+> +                              bool is_global, u32 slot_cnt)
+>   {
+>         if (slot_cnt <= MAX_BPF_FUNC_REG_ARGS)
+>                 return 0;
+> @@@ -8760,12 -8785,7 +8785,7 @@@
+>                         tname, slot_cnt, MAX_BPF_FUNC_REG_ARGS);
+>                 return -EINVAL;
+>         }
+> -       if (!bpf_jit_supports_stack_args()) {
+> -               bpf_log(log, "JIT does not support function %s() with %d argument slots\n",
+> -                       tname, slot_cnt);
+> -               return -EFAULT;
+> -       }
+> -       sub->stack_arg_cnt = slot_cnt - MAX_BPF_FUNC_REG_ARGS;
+> +       /* The code of a static function tells which stack arguments it takes */
+>         return 0;
+>   }
+>
+> @@@ -8832,13 -8852,15 +8852,15 @@@ int btf_prepare_func_args(struct bpf_ve
+>         }
+>         args = (const struct btf_param *)(t + 1);
+>         nargs = btf_type_vlen(t);
+> -       sub->arg_slot_cnt = nargs;
+> +       sub->arg_slot_cnt = min_t(u32, nargs, MAX_BPF_FUNC_ARGS);
+>         if (nargs > MAX_BPF_FUNC_ARGS) {
+> +               if (!is_global) /* not fatal for static funcs */
+> +                       return -EINVAL;
+>                 bpf_log(log, "kernel supports at most %d parameters, function %s has %d\n",
+>                         MAX_BPF_FUNC_ARGS, tname, nargs);
+>                 return -EFAULT;
+>         }
+> -       err = btf_check_arg_slots(log, tname, is_global, nargs, sub);
+> +       err = btf_check_arg_slots(log, tname, is_global, nargs);
+>         if (err)
+>                 return err;
+>
+> @@@ -9027,7 -9049,7 +9049,7 @@@ skip_pointer
+>                 return -EINVAL;
+>         }
+>
+> -       err = btf_check_arg_slots(log, tname, is_global, slots_used, sub);
+> +       err = btf_check_arg_slots(log, tname, is_global, slots_used);
+>         if (err)
+>                 return err;
+>         sub->arg_slot_cnt = slots_used;
