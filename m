@@ -1,55 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.34.216
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794994270;
-	b=SlMwOol0wkJ1RzKCXrZBonM2KnUGFg33WSSTbwQRb0vFfuBENdykkaTGYcgCsYa+NGTF
-	 Gz+A0pPGjo2x90lcptEuERN8UQ5cQYgJ+4AtofW8ITp1gyoPhNHyRay6wE1kJJ46ujNbG
-	 KvoHl8hhMKk7OY0IIUWuoOjky6kmri+6TXzpCykKTq3SKpnYwLYG060GKlu6nMqkluleU
-	 MVnDCkFMEOooPD2hE1tpdXQY8KEKa3QabSrhsftltzT79cHG8PJSC6hi/1NoosrGZ8eNX
-	 sGI14vre81BZCDhjZ/VsSsCYV6rCF5BFZa2y1NF4qo0hadxVsJuqolr9ZrDq6FFZusQ==
+	t=1794994293;
+	b=Vn3R4Ja4tZS60cOIs2ESOFJk7QVs5a/MGCTv6yQ7P1unyBbPfRzvNtgN3RQnGCkZmOlS
+	 cWQk/LSL+b84u2gHzZWDJMS1yIr4PO4WEyz9N/8qCfy9TP3r0HQ58rmv9NBnwIwfBpFP8
+	 NU32THFXB3601vB0s08ig47PqEICJEGCHPzRBo9y0+HDi8ZG18GFTcsQQuJGmEza/wTwe
+	 Z4WiVagw+DK3egCfC61MT/xUVKofokjkyz+wtPNpzCuMsGNEZRwhUOrpqZ/hRy5ikhkbw
+	 QK5Snjb8l1krIUghqB+5M1YkZyVjzSE0NE3GQGoEPl0D2VgWNj7bSbLxCq3jFmZZwKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794994270;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=0kn55mCijCWjeMsJaup/RZVejRphJIP7oArtyJYdwus=;
-	b=uHa6eCOCeNlqeZqJJWSAwWzTVgLl2ZmwENJXbYTGJcTIC22N6ytfLFBtb/xv1Jf8nG+v
-	 mrSEOaZWTxrh2/f3aDy7JT+qwo+o295htiq255/kB5OYvMJgDu3JHl6xV18KXf0kTj9tp
-	 2/xw3EcH1Bh9h1aniJMsEDL2dPSnWVN7F/FZeIi3liN38ylN6v7DrFiPMHABo3BtpDfq8
-	 AgpZx+Fe4I5AbcixoyzYDSfx+cWwNLrsxuVoElM+2mZG9S8EDqTQje2JfNuxYdE6cSl01
-	 mVlLz5D/WCL8xlX8jVrNTvYZI9xHOb9Ny1P8uTnEQSEqBU6JBR4lXT+ernLORr8Nztg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794994293;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Content-Type:Mime-Version:
+	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
+	 References:To:X-Mailer:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=WbXjRcmv5Q9c6A6qHp7r1CI4v3WlKTONamERQ5pV0D8=;
+	b=QI4/yv7cOb/SsY6hF1gJ25TJMsAuNtYK/a1RQCGuJjTMpJBV1TnMZ/e/yMgw+6Ct6yQ9
+	 DKUjfZ3h/DHTWMuQNR0gljstdBqU+JsYJNWmz5gK/PdOEpygePrrbexJbb+yRmSxUq9eu
+	 4vCgPzL1Id2Odk0QkGV8hpUUKsgUx9jBn9boN+UJiuvsA8LnOIRN/g5WGDpXKSgAm3UVD
+	 WpfU2jdjeKCikeSUpy8LM+55VZbOTvATlMGfat5yQ4V3KZal7yKdRk0k7VJ7K593jHvP4
+	 AKQBcBSCh51Xn5GaSKI3z3AkuKcXViMrldBPY5+jqk7LsnqfJv3ayA/DNPOQ+4XU03A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BaSkeN5e;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=net-swift.com;
+	spf=pass smtp.mailfrom=net-swift.com;
+	arc=none smtp.remote-ip=54.206.34.216
+Received: from smtpbgau2.qq.com (smtpbgau2.qq.com [54.206.34.216])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FD76606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:31:10 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BaSkeN5e
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4B4F1F000CB
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:31:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794994269;
-	bh=0kn55mCijCWjeMsJaup/RZVejRphJIP7oArtyJYdwus=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=BaSkeN5exeFzGTBeQp9xWBiyjJ7dvHLMT2y5T3wuJFg7VXNEgjuKyHRNqdtd82HeX
-	 OdemxYtLVjYXgBH7KTnOzq96sjvElSGxLpulqE+pqj/q71aXrKcu+xzFDUEWWL6RaW
-	 VEbD6GFrMJwhby1yPzq6jzCzQgxOG1AhL8syTYs9adEEITk8rx6W673qs0DOlCOfua
-	 hXexpwU4UFwoRUAq51WiZUCSswOWmppqfG3HIUM0eBwsmUjeoR7YOVaZxFDk7YC2TY
-	 HwmHAT4ER+akdZ4CTJyZ2Q7xYz9trBHirX+F5zDtbbbD30iLcTEPisweBBLbH3nAQb
-	 FNcyZ8akuFOpg==
-Received: by mail-oo1-f53.google.com with SMTP id 006d021491bc7-6b19e291cc6so644885eaf.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:31:09 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFxrqZFYa6DyIL8WC9eWZzrIse8iyplgP0MdF0g/cznObUUVWf31VLa2cp8zUPwgxJNyMlnIiM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9VEafSu/jHx5DnCCEToq2CLTSLUHBPJj50NOzgqRyTum7ZPUKN
-	VsA4zuIawpSyHSdkVtIkHrM94hXMRZ1F04L50pO4EX6TszprYW9JPdN3sU0NfxezygWHZmzjohl
-	HoKuxYzk/42+YYz3glb9g1on1eXN/Qdo=
-X-Received: by 2002:a05:6820:2ad8:b0:717:da:ba40 with SMTP id
- 006d021491bc7-71b185657acmr1225893eaf.26.1794994269186; Wed, 18 Nov 2026
- 01:31:09 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85B7E606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:31:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85B7E606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=net-swift.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=net-swift.com
+X-QQ-mid: zesmtpsz2t1794994207t75c03935
+X-QQ-Originating-IP: X+G/UKdREG6Ro38DMbrt9xp4krgiJ4by+jqrXwZjXl0=
+Received: from smtpclient.apple ( [115.204.248.161])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 18 Nov 2026 17:30:03 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 17219351572651200833
+EX-QQ-RecipientCnt: 13
+Content-Type: text/plain;
+	charset=utf-8
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,150 +50,101 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-References: <20261116023709.132684-1-thaisonphan@google.com> <20261116023709.132684-3-thaisonphan@google.com>
-In-Reply-To: <20261116023709.132684-3-thaisonphan@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 10:30:58 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiir50_Z+m00GyU9BpRdAqgXs8V-L0S8kmmES=JiYyt==gg@mail.gmail.com>
-X-Gm-Features: AclHuK9ptD7cBCsGNuyfU56eSbPiR5wyO28Z8shsRDEFiiGlM5HRM9FXIjfx3vE
-Message-ID: <CAL4Wiir50_Z+m00GyU9BpRdAqgXs8V-L0S8kmmES=JiYyt==gg@mail.gmail.com>
-Subject: Re: [PATCH net v2 2/2] tcp: accecn: initialize AccECN fields in
- syncookie path
-To: Thaison Phan <thaisonphan@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
-	"David S . Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	=?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ij@kernel.org>, 
-	Olivier Tilmans <olivier.tilmans@nokia.com>, 
-	Chia-Yu Chang <chia-yu.chang@nokia-bell-labs.com>, Stan Iliev <stani@google.com>, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH net v8 0/2] net: wangxun: protect ring accesses with RCU
+From: "mengyuanlou@net-swift.com" <mengyuanlou@net-swift.com>
+In-Reply-To: <179498992591.3291.11634378826963805001@kernel.org>
+Date: Wed, 18 Nov 2026 17:29:53 +0800
+Cc: netdev@vger.kernel.org,
+ jiawenwu@trustnetic.com,
+ duanqiangwen@net-swift.com,
+ linglingzhang@net-swift.com,
+ andrew+netdev@lunn.ch,
+ davem@davemloft.net,
+ edumazet@google.com,
+ kuba@kernel.org,
+ pabeni@redhat.com,
+ hramamurthy@google.com,
+ jacob.e.keller@intel.com,
+ przemyslaw.kitszel@intel.com
 Content-Transfer-Encoding: quoted-printable
+Message-Id: <2575C8F8-6A19-4A07-BA73-8E54E92C5704@net-swift.com>
+References: <20261118081329.39551-1-mengyuanlou@net-swift.com>
+ <179498992591.3291.11634378826963805001@kernel.org>
+To: netdev-bot+sinfo@kernel.org
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:net-swift.com:qybglogicsvrgz:qybglogicsvrgz5b-1
+X-QQ-XMAILINFO: MkuEu2QIZjhqpt5XQJt35+XlyNsEV7M58YjbLGXV9/DezfPvxCu3xbEF
+	a3i73Ut/9XN5/KcV1ZhM7yrxWR4ap/Gj6RPZ8f+D5Aga36POFJdGlSlDHP3+RZQ56GkvavE
+	Mnw+M5/7gCQrRu0J39aOHcaUe7gPLSTnfbJUc0OdBzL3s0OZWqyoM1B8+iBqYzuGGk5EiIU
+	xLbfGnAqPXjji61vG2n4/7Pxn3DZbB+39vEs1FeSrooFJopUp0W/C0STbrcz2lig6cBvtBT
+	8UK9Nkmy59LQJgqOAKRiiX0rMUvogWjQrdqVqZMa8ObeblBtnvm9iwvbL4aRgm7aK91w8co
+	etqZyI2/H+C3wZr8KmMfRQILfdabCgL6CbHDtq3V0YmORMInhogi8Z+6i6RIeEkpt7hbT1y
+	4Xh0p7AdAkFs6Z8/maj84dpFkG0fk7L2YGYakFdl1QaP4M7o1NIvZpOwayNh97NhY7+gKly
+	6+gzyjEByGMTF2EdtaFN3Y6QHG8KNDCyYQSV9nG/IpRpOdNGs+lqoY2W4YMaJ4IfDPyIsIW
+	39Jk0NqIy8FeFk5kcx2tRGgr5uLehJiYc7pEtEbG304WWP66hKmaM+yCJK68tmIijzqaVYB
+	t9PDmyX7ruuBs0lkmPv8eLTX9XnAa0IlG3Z+RXLBGMuDiXALFw5/y/y/czx/h6TvzDi09WQ
+	VTZ0Mi6YD8j8dCF1AJGgARqEvB5UOf0lN+uANe31VS33IBPonQIyahKapenPVzCanCbEjDr
+	mgJ4XxsjfkOUZuTfIogd5aTock789sa5UmFROCZhYfjzELATo4HPua0+u4biJjMa5nd6Fb/
+	ANkIK5DuJMl9UsDWa1Jxi46v9dPtEEjXxXsw77MOmxrTzZPl2acJLvJJuL+R4aH+CNx2qrZ
+	dwpIUDhdr8i+k7VsxjxABeqMlYZsB9H7XUw5m9Om+bnwScs8SlDJ6FtiwAjBzj8gbcioZJq
+	d0yPp2r3NESI8YsCsoI7eP07F0PF+u6Cj+t4Sn3L1eojGC9edEzZHE+YFmSJPWRnUkUkt+Z
+	MOwmMvrbyC2vvv5kxb7nxbt65+LFL4IArSqfcpPbUUf75kVD96s1hQDdWfj/rPDs1Dm/fj3
+	KGxzaLgVQyZGcI2lMA0WWqHn+JtoBB1wHYUQ5ZKJvO6
+X-QQ-XMRINFO: NI4Ajvh11aEjRrMUeaP4GIlWlgv8PawsGg==
+X-QQ-RECHKSPAM: 0
 
-Le lun. 16 nov. 2026 =C3=A0 03:37, Thaison Phan <thaisonphan@google.com> a =
-=C3=A9crit :
->
-> cookie_tcp_reqsk_alloc() and bpf_sk_assign_tcp_reqsk() allocate struct
-> request_sock without __GFP_ZERO, leaving saw_accecn_opt,
-> accecn_fail_mode, syn_ect_rcv, and syn_ect_snt uninitialized. When
-> accecn_ok is negotiated in cookie_{v4,v6}_check(),
-> tcp_ecn_openreq_child() reads all four fields to initialize the child
-> socket's AccECN state.
->
-> In addition, because the temporary request_sock used to send a cookie
-> SYN-ACK is immediately freed, treq->syn_ect_snt is lost. If the listener
-> marks ECT (e.g. DCTCP), failing to record syn_ect_snt causes
-> tcp_accecn_third_ack() to flag TCP_ACCECN_ACE_FAIL_RECV when the peer
-> reflects ECT, disabling ECT for the rest of the connection.
->
-> Initialize saw_accecn_opt, accecn_fail_mode, and syn_ect_rcv in
-> cookie_tcp_reqsk_init() to match tcp_openreq_init(), and set syn_ect_snt
-> from the listener's TOS/tclass in cookie_{v4,v6}_check() to match
-> tcp_{v4,v6}_send_synack().
->
-> Found by AI-assisted code inspection comparing tcp_openreq_init() and
-> cookie_tcp_reqsk_init() while investigating the cookie_v6_check()
-> LOOPBACK4_IPV6 bug. Reproduced in a QEMU VM with tcp_syncookies=3D2,
-> tcp_ecn=3D3, SLUB_RCU_DEBUG=3Dy, and slub_debug=3DP, observing bogus
-> tcpi_accecn_fail_mode and tcpi_accecn_opt_seen values in TCP_INFO on the
-> accepted child socket (and tcpi_accecn_fail_mode=3D0x2 on ECT(0)
-> listeners), and tested with packetdrill AccECN and syncookie selftests.
->
-> Fixes: 3cae34274c79 ("tcp: accecn: AccECN negotiation")
-> Fixes: b40671b5ee58 ("tcp: accecn: AccECN option failure handling")
-> Signed-off-by: Thaison Phan <thaisonphan@google.com>
-> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-> ---
-> v2:
->   - drop redundant treq->syn_ect_snt =3D 0 in cookie_tcp_reqsk_init()
->     (Eric Dumazet)
->   - clarify how the bug was discovered and observed via TCP_INFO
->     (Eric Dumazet)
->   - add Reviewed-by tag from Eric Dumazet
-> v1: https://lore.kernel.org/netdev/20261114161248.3428695-3-thaisonphan@g=
-oogle.com/
->
->  net/ipv4/syncookies.c | 4 ++++
->  net/ipv6/syncookies.c | 1 +
->  2 files changed, 5 insertions(+)
->
-> diff --git a/net/ipv4/syncookies.c b/net/ipv4/syncookies.c
-> index 4e0ff3b82062..1a837ed6efa0 100644
-> --- a/net/ipv4/syncookies.c
-> +++ b/net/ipv4/syncookies.c
-> @@ -290,6 +290,9 @@ static int cookie_tcp_reqsk_init(struct sock *sk, str=
-uct sk_buff *skb,
->          */
->         treq->txhash =3D treq->snt_isn;
->         treq->syn_tos =3D TCP_SKB_CB(skb)->ip_dsfield;
-> +       treq->saw_accecn_opt =3D TCP_ACCECN_OPT_NOT_SEEN;
-> +       treq->accecn_fail_mode =3D 0;
-> +       treq->syn_ect_rcv =3D 0;
->
->  #if IS_ENABLED(CONFIG_MPTCP)
->         treq->is_mptcp =3D sk_is_mptcp(sk);
-> @@ -502,6 +505,7 @@ struct sock *cookie_v4_check(struct sock *sk, struct =
-sk_buff *skb)
->                 ireq->rcv_wscale =3D rcv_wscale;
->         ireq->ecn_ok &=3D cookie_ecn_ok(net, &rt->dst);
->         treq->accecn_ok =3D ireq->ecn_ok && cookie_accecn_ok(th);
-> +       treq->syn_ect_snt =3D READ_ONCE(inet_sk(sk)->tos) & INET_ECN_MASK=
-;
 
-Sashiko has a point about the BPF custom syncookie case.
 
-Requests coming from cookie_bpf_check() also reach this line, but the
-kernel did not send that SYN-ACK, a TC/XDP program did. The listener's
-tos/tclass says nothing about the ECN codepoint the program used, and
-struct bpf_tcp_req_attrs has no way to report it.
+> 2026=E5=B9=B411=E6=9C=8818=E6=97=A5 =
+16:18=EF=BC=8Cnetdev-bot+sinfo@kernel.org =E5=86=99=E9=81=93=EF=BC=9A
+>=20
+> Hi!
+>=20
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>=20
+> - How the issue was discovered, e.g. hit in production, hit during
+>   development, syzbot report, manual code inspection, LLM or static
+>   analysis tool scan.
+1) Discovery: The issue was found by code inspection of the wangxun
+   ring/q_vector teardown paths, assisted by an LLM-based static
+   analysis/review tool. The starting point was commit 3f703186113f
+   ("net: libwx: Add irq flow functions"), where the TX/RX ring
+   pointers and queue counts are accessed from lockless contexts
+   (xmit, watchdog, PTP, ethtool) while teardown frees the q_vectors
+   via kfree_rcu(). No external bug report was involved.
 
-test_tcp_custom_syncookie.c sends its SYN-ACK as Not-ECT (tos =3D 0,
-flow info 0x60000000) and only clears CWR, so an AccECN SYN gets
-AE=3D1,ECE=3D1 back and the client should stay in AccECN mode. It then
-reflects Not-ECT in the third ACK. With a listener that has ECT in
-inet->tos (DCTCP for instance), we would get:
+>=20
+> - Whether the issue was actually triggered, or is only theoretical
+>   (e.g. found by LLM and not proven at runtime). If it was triggered
+>   please include the symptoms, like the stack trace or kernel =
+messages.
+2) Triggered: Not so far. This is a race condition and the timing
+   window is very narrow, so we were not able to reproduce the failure
+   on the tested hardware. At this point it remains a theoretical =
+concern
+   identified by inspection rather than an observed crash or KCSAN =
+report;
+   the series is a preventive hardening fix.
+>=20
+> - What hardware the change was tested on. For driver fixes please
+>   mention the device (and if relevant firmware version) used for
+>   testing, or say that the change was not tested on real hardware.
+3) Testing: The change was tested on WX1820 (TXGBE_DEV_ID_WX1820) and
+   WX1860A4 (NGBE_DEV_ID_EM_WX1860A4) NICs. We confirmed that no other
+   functionality was affected.
+>=20
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>=20
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --=20
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
+>=20
+>=20
 
-  tcp_ecn_openreq_child()
-    tcp_accecn_third_ack(sk, skb, treq->syn_ect_snt)   // ECT(0)
-      tcp_accecn_validate_syn_feedback()
-        tcp_ect_transition_valid(ECT(0), Not-ECT) -> false
-        tcp_accecn_fail_mode_set(tp, TCP_ACCECN_ACE_FAIL_RECV);
-
-This is the failure your patch fixes for kernel generated cookies.
-
-I asked you to drop the syn_ect_snt =3D 0 in v1 because it looked
-redundant, sorry about that, it is needed for the BPF path.
-
-Could you send a v3 doing something like this (untested)?
-
-In cookie_tcp_reqsk_init():
-
-        treq->saw_accecn_opt =3D TCP_ACCECN_OPT_NOT_SEEN;
-        treq->accecn_fail_mode =3D 0;
-        treq->syn_ect_rcv =3D 0;
-        treq->syn_ect_snt =3D 0;
-
-In cookie_v4_check():
-
-        /* SYN-ACK was not sent by the kernel if req->syncookie is set. */
-        if (!req->syncookie)
-                treq->syn_ect_snt =3D READ_ONCE(inet_sk(sk)->tos) & INET_EC=
-N_MASK;
-
-And the same in cookie_v6_check() with np->tclass.
-
-Letting the BPF program report the codepoint it used (a new field in
-struct bpf_tcp_req_attrs) would be net-next material.
-
-The other Sashiko remark (AccECN option carried by the third ACK is not
-processed in the syncookie path, unlike tcp_check_req()) looks correct,
-but this is not something added by this patch. It can be handled
-separately, no need to grow this series.
-
-Please mention the BPF case in the changelog. You can keep the
-Reviewed-by tags on both patches.
-
-Thanks.
-
-pw-bot: cr
