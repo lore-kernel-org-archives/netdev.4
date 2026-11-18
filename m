@@ -1,56 +1,73 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.188.251
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016220;
-	b=Bzn0IsRn2X8+NH9bI0Hk1vDUd+d2jB7ck3PM+NcYu66ahgSBuHAEtMATsSo9yJXK0yVn
-	 2/RASo8zLILNVL4Igoj093PxpZDFN0AM8zjuLqeKC7ENOyeDJmQwBQe25UCrdp0yxmY9g
-	 f/Ve6vS02JpC2topGDu/kYvtzbHUd/FZaEIssvWVRkPQMFLHPYo4x+x0bchoP8XBhyaYK
-	 uDi3EwqFkzlFw1VKkDGKx2VxvpWzuft7ODRFkfbahK44UMEBG8SbQrmxU1b0iCbm0yXok
-	 p+t073Elc8/DhaIL4YyetCPtrZNbdhyoCqTAXXWpjShaZRTGzm5YbLYn7ghNtdY5ltQ==
+	t=1795016248;
+	b=20Pn6sl+O2sYg9WAtjOqffDKqWLNdsLlTtDvZ1S3JL9pqr4im673nzSSKNRMkBXtx30R
+	 HEazQPGCnjgyxf8fOiMY0aKvkfKINbcF3w5sIx9qdzBSWnLNsGQS3koNDMJT9v1HJeeH1
+	 +XSY4h2jK+nY6N4BDUsEzQV274idtjFQEniYOim5bg+og3PfvWCW1VA0i0Bvs2fDszTmP
+	 piUAB0h/KSeWHJbRcwbqv0UYWvLRl4J28gSDMzMx7girkwWTQOhC3raJ7FrKsRW0WzWoi
+	 h2kM9KsHl8DSMXafSnGYKnpUNBAMfgRAJ3zCZlW7WhXDVkLA6bGmTRIMvsNTFU29xTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016220;
-	h=DMARC-Filter:DKIM-Signature:Received:MIME-Version:Date:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Message-ID:X-Sender:
-	 Content-Type:Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-Get-Message-Sender-Via:
-	 X-Authenticated-Sender:X-Source:X-Source-Args:X-Source-Dir;
-	bh=RgWtSxLmAhtYhLG2BvNwj3rhsazutaU7Zjd615Xs2tU=;
-	b=Lv0VcbMAXNolJGttkWGIQZTvYCUCACSOpVYIVXlGUjqQHSYH1mGdaSCwjwwTfTbss5Sd
-	 t5/Pq4J4dvBgtujxF6/yXI2Oe5UjOQc5+9s061T147MqAvG8ojs7UxQTMtUvjU6bD2Qz8
-	 K+0qLsF34Lw+fvWsEgEcAlL4j7renoF1v5eUtKz8LUWmQEQmJVi1dWhFa8H74QbByt2Pq
-	 SJCB/JopzGKiey0tO4BKCMRssLkDX0bG/UdYgAWyOLdOxQIVC/b8YoD0j+Henr14fhAa7
-	 Zk7KH8UTIk7I6C78g5gb7/CvRAYOTBTGljw+xYxOjcvaLdv3f+rbfA50u4E1fQqud3g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016248;
+	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
+	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:X-ThreadId:In-Reply-To:
+	 References:Subject:Content-Type:Content-Transfer-Encoding;
+	bh=6n+tPNJje4mmlPDBUj+N8ky7oVmIq2+HkMsAcLGALoo=;
+	b=UmxVnOYkUulPq9rTYQCmSpGKp2F0ygH6HMG54KHLSTPWjaai69+Vy63jbvUHWOv8tLlP
+	 jItQBmJF3s+Ut4fPj5OVgLkcwxqJArrhtG6IYyDWNsPClZhF6wZE60YraAdlqVl1G8sE6
+	 FazGtAsGRjsYsnHh7Suk+N+51DdRABc9Qnkt8R79HMxaNjirlIh8Gk2+OuCAJ3tiFn8Ki
+	 osHRpdGJ0iPgROL02wNBfP+4VetJQX5apE7n/z6DvVnFeUepVOY1HGaNDdrV2eRsZQFRe
+	 kH7G0chc1vsvI+x2ZVLxd/3dEOGWAM5UtHVN5ZULj9PS7XrEw5cy7aduZPHlzxnH6EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.cyber.gouv.fr;
-	spf=pass smtp.mailfrom=oss.cyber.gouv.fr;
-	dkim=pass header.d=oss.cyber.gouv.fr header.i=@oss.cyber.gouv.fr header.a=rsa-sha256 header.s=default header.b="Y0E/Bo1F";
-	arc=none smtp.remote-ip=51.159.188.251
-Received: from oss.cyber.gouv.fr (oss.cyber.gouv.fr [51.159.188.251])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m8ZlQUdz;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEF7E606A320;
-	Wed, 18 Nov 2026 15:36:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BEF7E606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.cyber.gouv.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.cyber.gouv.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A69A0606A32C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:37:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.cyber.gouv.fr header.i=@oss.cyber.gouv.fr header.a=rsa-sha256 header.s=default header.b=Y0E/Bo1F
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=oss.cyber.gouv.fr; s=default; h=Content-Transfer-Encoding:Content-Type:
-	Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:MIME-Version:
-	Reply-To:Sender:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=RgWtSxLmAhtYhLG2BvNwj3rhsazutaU7Zjd615Xs2tU=; b=Y0E/Bo1FwWCrAQ8ELPOv3Z76JB
-	mYA/1ubdl0gmNA6CdqfKAG3CJdLN2G6EObpOZUST+sEc0LBPzw1lyyg+zIdqd6QxNKEQ3MuFm5DMS
-	4REYs2mXLcLS0nviJSb70VKrebdOdg/nhvYGaDdrRzqgWXJD0Zq/HRrn5MymtUJ1NvLoqpxbCAaab
-	4TNEAuH069jyZrewelGQoAFMpCsE0mFuv7HIXRUgCIEVjapT392zOD0ndmydGDpMozEvsepjgIlvd
-	ZLcE2LCLQUEw2afJM1dsHhhSA+KLWIXCu4Z6vMdEuGf3GdLh/ICbQuWW62feoU5yqRnCqOjIpMdZ+
-	S4E5K2gA==;
-Received: from [::1] (port=57880 helo=pf-012.whm.fr-par.scw.cloud)
-	by pf-012.whm.fr-par.scw.cloud with esmtpa (Exim 4.100.1)
-	(envelope-from <jeremy.jean@oss.cyber.gouv.fr>)
-	id 1xThiQ-0000000EZro-0eDB;
-	Wed, 18 Nov 2026 16:36:51 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m8ZlQUdz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46A1D1F000C4;
+	Wed, 18 Nov 2026 15:37:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795016248;
+	bh=6n+tPNJje4mmlPDBUj+N8ky7oVmIq2+HkMsAcLGALoo=;
+	h=Date:From:To:Cc:In-Reply-To:References:Subject;
+	b=m8ZlQUdzHxMWfWllzJV9rwXynwIWVJ5ViSrSgbyyAEOmcvcnXe5EeecTcHDMXdBg8
+	 EMXkA+P0ioTcZv+k4R5xNg6KaE3KeoGtHmIRLRIOECXG+nNf9IftChWQVNw45oXvLR
+	 l+VweFUZcfLuvbd0cNuYnZtTSYstaXNT4yAzBDro05DG5fxeoGjgabW3B3+hdN5i8Q
+	 wMd4uZdN4Imc+u/tkofU1Rz0UxTy/HGkVsN0GbjbXoUGfdMV8IkiMoKGazBJKFyswK
+	 6VeF9AF1uV1Lyz+enk++76sfHE9spVI3kXbMVP9kVSNr+wgt17mVOIFZktSbor0Xw+
+	 fmkiUD8ZXnYvA==
+Received: from stl-compute-04.internal (stl-compute-04.internal [10.204.2.64])
+	by mailfauth.stl.internal (Postfix) with ESMTP id 9D65D780043;
+	Wed, 18 Nov 2026 10:37:27 -0500 (EST)
+Received: from stl-imap-13 ([10.204.2.104])
+  by stl-compute-04.internal (MEProxy); Wed, 18 Nov 2026 10:37:27 -0500
+X-ME-Sender: <xms:N8b9ajX6fvJtyR5jLevDNtOJX1-LB1xMLhklkgGsV14X3diYEwY1_w>
+    <xme:N8b9amb6Rs8_fyB-Sy3CTnC2cDWtiZh9yYGfvvFUs_cNTdl4FUZ23RgRCbMCoWBGc
+    YTOUJ7dVL0yuW2dx4n-u9F_cACPwOzEVyD-F_333rOUOEfL-Pp4Tnyb>
+X-ME-Proxy-Cause: dmFkZTE14r26dehlwggm/qu3yGkhybPXesOZMuXM2o2pYWoDTKz3MSOHznnQTRYWAKabOq
+    4c9z4xgPTbvp9PXjwuXSVgfzsqhfA2I705h7SyW/ecvoJ0DG/WIy+YyCs7k2Z3lO0dySvs
+    zVxLqg7GyTkURAC2OG9nudbow8vdQ3PV6iK6W+zq75SWoPS925mVspAfStid+kpMrGjgNg
+    o7zWhW073G+RLTXZfT+hp7ANngqeAmLBUFzpB2z+8yIbNO4QW4el8fBUZg1ppbQvcIHMA2
+    3Bzv0rs6xkE/fFW3tdvP3Jlxka8AuogMXB96ZA0c054Cq57U7vn0ZRn5aHDwTnOtddQ8it
+    5qnrkC2Pvy/ufs0t/6LAs9RAg/UBShTj/BSYOeduF3SiVRc4gwDfWsWrnTnuNYQGPxSh7N
+    BGM8/5gw5a3StdskhOses2/lZGCHzAvwooxeVYj2aQQ7W0PtUQvScKOTKTxAqbSB4IXhhe
+    hrX8gJ3o50SaGSpL95GSvXgeeYnQtd3RQ0VYCAuwFZlOEhiMUDGTzg2kvd4/HCK+FlzZos
+    Yqq758mzoi8a1PMMqMoEUjIj561WF1N3w4x5p7SXt6TmY0lFxDlRpg+W58mK6dZKe9aTYK
+    mGZI8/eNysSyQ+M9FeZZC6Os4kUUmCG/oMwHNqRpN/GS5YmpdcsWd/h4aeug
+X-ME-Proxy: <xmx:N8b9auBTxV4MlEo77h5aVohweyEU1-EydjOkdXXBesKR7IGjtZyExw>
+    <xmx:N8b9amx8WJgtzAwWcuXu3oBnzHs3kXQe2U7FWwLQf1nJi-NbPV75Gg>
+    <xmx:N8b9aq5FVLAeBIzQ-QfMn0O3xFph60pVTlVRJwT8bE2XMnA2QN8uTw>
+    <xmx:N8b9avzRyOHqEScYzpPUY7jmn5i1Cm1CmRTSAfvhElGlXa0tivkF7Q>
+    <xmx:N8b9amfrRHuLdfTSP4lcZHdN6WO4-wkCaaJxxRsVlgZiphExnExexm0N>
+Feedback-ID: iccae4b50:Fastmail
+Received: by mailuser.stl.internal (Postfix, from userid 501)
+	id 3BD57F60084; Wed, 18 Nov 2026 10:37:27 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -60,74 +77,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 18 Nov 2026 16:36:50 +0100
-From: =?UTF-8?Q?J=C3=A9r=C3=A9my_Jean?= <jeremy.jean@oss.cyber.gouv.fr>
-To: Simon Horman <horms@kernel.org>
-Cc: netdev-bot+sashiko@kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH net v2] udp_tunnel: fix GRO callback mismatch during setup
-In-Reply-To: <20261118153221.GG860048@horms.kernel.org>
-References: <20261111214622.2482547-2-Jeremy.Jean@oss.cyber.gouv.fr>
- <179478310543.3136.4977357785981182737@kernel.org>
- <20261118153221.GG860048@horms.kernel.org>
-User-Agent: Roundcube Webmail/1.6.20
-Message-ID: <1d7deb845ffc57994cfc86c317d9958d@oss.cyber.gouv.fr>
-X-Sender: jeremy.jean@oss.cyber.gouv.fr
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - pf-012.whm.fr-par.scw.cloud
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - oss.cyber.gouv.fr
-X-Get-Message-Sender-Via: pf-012.whm.fr-par.scw.cloud: authenticated_id: jeremy.jean@oss.cyber.gouv.fr
-X-Authenticated-Sender: pf-012.whm.fr-par.scw.cloud: jeremy.jean@oss.cyber.gouv.fr
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Date: Wed, 18 Nov 2026 10:37:06 -0500
+From: "Chris Mason" <mason@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ willemb@google.com, josef@toxicpanda.com, netdev@vger.kernel.org
+Message-Id: <cc2474d8-9322-4448-91f4-fabcf203b2a8@slotsi13m47>
+X-ThreadId: Agcs-HsVov9o
+In-Reply-To: <179501552309.3136.7905606885338776327@kernel.org>
+References: <20261118005048.53393-2-mason@kernel.org>
+ <179501552309.3136.7905606885338776327@kernel.org>
+Subject: Re: [PATCH net 1/3] tcp: don't let __tcp_set_rto() return 0
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-On 2026-11-18 16:32, Simon Horman wrote:
-> On Sun, Nov 15, 2026 at 10:51:45PM +0000, netdev-bot+sashiko@kernel.org 
-> wrote:
->> Thank you for your contribution! Sashiko AI review found 4 potential
->> issue(s) to consider.
->> 
->> Critical: 0 · High: 1 · Medium: 2 · Low: 1
->> 
->> If you believe none of the issues are legitimate, please reply to each
->> issue of Medium severity or higher and explain why the AI is wrong.
->> If any of them are legitimate and you plan to respin, please let 
->> patchwork
->> know by including "pw-bot: cr" as a separate line at the end of your 
->> reply
->> (one such reply per series is enough).
->> 
->> - [High] The fix still lets receive and completion use different 
->> tunnel
->>   parsers on the same packet, so the out-of-bounds write the commit…
->> - [Medium] udp_tunnel_gro_count only describes how the head skb of a 
->> GRO
->>   entry was parsed, not the packets merged into it, so packets in the…
->> - [Medium] The Fixes: tag blames only 5d7f5b2f6b93 ("udp_tunnel: use
->>   static call for GRO hooks when possible", v6.16), but part of what 
->> the…
->> - [Low] The new synchronize_net() in udp_tunnel_update_gro_rcv()
->>   (net/ipv4/udp_offload.c:139) runs with the global…
->> 
-> 
-> Hi Jérémy,
-> 
-> I would appreciate it if you could provide feedback on
-> the concerns raised in this AI-generated review.
+On Wed, 18 Nov 2026 15:25:23 +0000, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: Medium]
+> This floor only covers callers of __tcp_set_rto(). Can
+> tcp_init_metrics() still store an icsk_rto of 0?
 
-Hello,
+Yes, both ways you describe. v2 adds a patch that clamps a locked rto_min
+to the range from one jiffy to TCP_RTO_MAX in tcp_rto_min(). That covers
+tcp_init_metrics(), and also the rto_min near 4294 s that you mention for
+the sum in __tcp_set_rto().
 
-I intend to do this at some point, but I have been busy with other
-non kernel things recently. I hope to get back to this at some point 
-when
-I find time.
+> After that, the rto_min == 0 case is the only
+> trigger left that this patch is needed for. Could the commit message name
+> it, so that stable backporters can see why this patch is still needed?
 
-Regards,
-Jérémy
+Eric asked for the same thing. The v2 changelog describes that case, with
+the Fixes: tag he suggested.
+
+The High finding on patch 3 is right too: tcp_rcv_rtt_measure() still gets
+to the sample << 3. Eric caught that one as well, and v2 clamps the sample
+in tcp_rcv_rtt_update().
+
+I'm leaving the rto_min that is raised in the middle of a connection alone.
+It has always worked that way, and it isn't what this series is about.
+
+pw-bot: cr
+
+-chris
