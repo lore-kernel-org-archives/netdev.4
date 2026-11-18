@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005492;
-	b=A2VhNgbwmJ+s6cC4m+Wjls/luCsvEafKU4tin6Shy5LDRK7af61G0OuYrESSPCx3WNZp
-	 On4zKxfsvGHT8likJtmFVRmyM2uz3gnXdV7/yp7WGY9KtMJx/7DO1O53nEzOtlZbzw3BJ
-	 pPXYdDy8sDWsL1zbUh3PKwaZkWQKzf9+HdcMMDXNN/L/0qPeNjepC5jXa5tiQ//0DAZLz
-	 tI6TuNivLYgl8ek3VXu615Thrrkp7W19LR7Bo5xptUTpgbTooaEKY65tk0pZhoUXp2TM5
-	 WgjJ2mPPhgtiigsfudnJrcmfhFHLmoBqLBbqwaphDveeAVo5ft7u636dT7rtG1C7J8g==
+	t=1795005577;
+	b=vlT4U1CZWzNu6W4qG8e2bbjrBFZ6kUzm4uNjeDrNfJCZc0q1y3XXejJwjouu3dJ4UBRm
+	 9J/0QvI+vS8YFuG26oLyAeZlREW0lJHpNPNLiq6v/IhKdYkTm5+blTOXMzB3JRt6SQA+t
+	 LkW8Bct8iviwjYS+3nVNBBG4Q4jyF6vwvoe/ResbJl0wMHDqlzVEayU3leyqSzSFpEz70
+	 al5JVayCRFaInhubd41g3oglE5uPVguaAJw8vrzpB2NPcZyBy+t2218+X3nTELUyoX7Yq
+	 CfKL1NejOgpFIJLGlia7GujwwtsOJp1Z5qv//+Qa7TG/q6Hwd4T1KdXUHPaT3cRB4Cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005492;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005577;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
 	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=3JEg1AwzSEupesdC8S4FAgHllW0FrPrT3+DWipbTAuQ=;
-	b=bQqZsDsYYoQMmAOAwmv093XtP4DQo5dNHavfjpymfLtU8bDLF43GAkWM2de+tF0rwBSH
-	 792yfReo90Izlc2+cbUKoGkrRaHlGbQdHl3ZnGz+3IwJRjd1AXlCaFXM2Nert3xgTaudQ
-	 mTH4Mpj0hH7QGsdFDCab1hSXhNvPjTfMX3gGU6/hO56iQE4bBG8uW6MoLUTsms0vGKF0g
-	 dkKlIdL7HZsK5wVmjPWwbihGvFcMZ47uZzLPwk6oGfU5jbO90WHssTwf5C4+PmFcEW5Pn
-	 jvwhWYe7GH4/Vi0AIk/NU+oWCY4w7nrx1zWmi18jv8cJvPqj/lUH9NtfVcTtYrqt3KQ==
+	bh=5tNw7x/gC+LifFujyfN8HXFWsAwMZ1bVvoHJM9rey/c=;
+	b=Hq5MeFpzS2JDIzOpNC5nAtJ/UnkjUMl+hJbuh6e4ZiEk+5omlQ7t1v7a7dq71YsHoFyJ
+	 DoV5DrfiI9onGTFGlEi8c7Jlf8LBz5S8dT/UBMD9gUZvlmjL0EjvQ+lrVL3tNvYTvEwIi
+	 sAm/j+ywEsgqIjt/KnBsEz7ngu1cILOlnZb1UaC3sWjwJicEnU9ZZtrRdonr+tDT+Grhx
+	 ojr86yGj6djfMaZWPo6FsWknwe9evrugsN584wibw1ZGEuchy0FuPHtg3dw7P6RnferH4
+	 o9+N6N5/y46O3iRmwQ51my8hiLOcUycT+NQIPNXXRal/bXUxc4Xq/VdPlogWUm4/Tyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TEN8gExW;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AKzXHev/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C593A606A325
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:38:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86E97606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:39:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TEN8gExW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4E4571F000C8;
-	Wed, 18 Nov 2026 12:38:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AKzXHev/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB9431F000C4;
+	Wed, 18 Nov 2026 12:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795005492;
-	bh=3JEg1AwzSEupesdC8S4FAgHllW0FrPrT3+DWipbTAuQ=;
+	s=k20260515; t=1795005577;
+	bh=5tNw7x/gC+LifFujyfN8HXFWsAwMZ1bVvoHJM9rey/c=;
 	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=TEN8gExWcin45BOxeULyT2eiTtmzFFQ79wLf60FFW4hC/bGoIDCmIMoEJ7wUANtYL
-	 97L5pC5+/9sPjzi/gR9RkleQX3SnvtZ3vRXseSGfhi5s2i8Y6eeOtR4Rxhfj+oRPkN
-	 NuG4BTqO7vXt4BKfVBxwioJinUsFW5DVGpPTdWnPLnRolrSJ2humil2CvngQO9pZw/
-	 siIu9hTRY2VlcTTNahaXymrLhG5eOajc5pqhoHg5h2cmeIAA0AxCHs9IjSSrGrr2s5
-	 dW9G4r1xrHCH/jDtCSpi5+Q5A/4QHUFTJddfwZy3g3iQnwz5BEm+9ZFIZEYtxSd0YD
-	 k9HqT3twr2idQ==
+	b=AKzXHev/L3H3pJRiAQLkhwJpZVCii62U8+TZDgrNXq26o9x8mtfYqAZXp+qMuLmhA
+	 RylI5IByUwBtc8iXHUeRB4AouKnxgsyMB3dcexOWDd3d/tPd5oLhFdjx1VIrpwhQPa
+	 Y03tVdCevFzdKP7AWUgUxSJFEu+9xQtsm0nadx2zyBC8WEb87nsj+5lMJPu+5aMfBr
+	 t3DE1fWNgTe3aj5srjDteaNxxHSrKlKqPmY3oSGiNWlFCWAoO6H/37YqVA41yxk+IS
+	 v9XsDuWJcGl7qBEi1KWkf22jI1UPVd6JzM1d+tfekRVV4X8CkdVU3QNwmBvxiqZHvr
+	 tpgdkbRheEvzg==
 From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
 To: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
  michael.chan@broadcom.com
 Cc: netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
  andrew+netdev@lunn.ch, horms@kernel.org, pavan.chebbi@broadcom.com, Jakub
  Kicinski <kuba@kernel.org>
-Subject: Re: [PATCH net-next 4/6] eth: bnxt_en: explicitly keep device-only
- memory on the device's node
-In-Reply-To: <20261118023905.3050661-5-kuba@kernel.org>
+Subject: Re: [PATCH net-next 5/6] eth: bnxt_en: allocate fast path DMA rings
+ on the queue's NUMA node
+In-Reply-To: <20261118023905.3050661-6-kuba@kernel.org>
 References: <20261118023905.3050661-1-kuba@kernel.org>
- <20261118023905.3050661-5-kuba@kernel.org>
-Date: Wed, 18 Nov 2026 13:38:09 +0100
-Message-ID: <87ik1u8gcu.fsf@all.your.base.are.belong.to.us>
+ <20261118023905.3050661-6-kuba@kernel.org>
+Date: Wed, 18 Nov 2026 13:39:34 +0100
+Message-ID: <87ecci8gah.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,15 +66,22 @@ Content-Transfer-Encoding: quoted-printable
 
 Jakub Kicinski <kuba@kernel.org> writes:
 
-> Context memory (and the FW crash dump buffer which reuses the same
-> helpers) is used by the device, once set up the host only touches it
-> on the slow path (diagnostics, FW trace). Pass the device's node to
-> bnxt_alloc_ring() rather than NUMA_NO_NODE to make it clear that this
-> memory is not meant to follow any queue.
+> Descriptor rings, completion rings, NQs and the TX push buffer are
+> accessed by the host in the fast path, and so is the SW state around
+> them, which we already allocate on the node of the CPU expected to
+> service the queue. The DMA memory itself comes from the device's node,
+> though, as that's what dma_alloc_coherent() always uses.
 >
-> Ring page tables are only read by the device, annotate their
-> allocation so that they stay put once the ring pages start following
-> the queue.
+> Use dma_alloc_coherent_node() for the ring pages and the TX push buffer.
+> Pass the queue's node for completion rings and NQs as well, they used
+> NUMA_NO_NODE so far since @nid only affected the SW rings.
+>
+> Ring page tables are only read by the device, keep them on the device's
+> node.
+>
+> Note that queue restart only reallocates the Rx descriptor rings.
+> Completion rings, NQs and Tx rings will follow IRQ affinity changes
+> only on the next full reconfiguration.
 >
 > Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 
