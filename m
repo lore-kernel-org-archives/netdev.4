@@ -1,54 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005654;
-	b=2fdOOufWZ2W3etx3JamBqcbcO8pWKhvYhXg0vDkt1/jmtUHoW22y+KOGoZemdnKa2fAF
-	 yXphye/4kBMWlfzxwnlNPAv8SaEzRCEqbJYsVem9nkdDgqfD6PQktFeDnZtn/Jo9EzFs1
-	 pgCChmIjwYMBsU3WlTA4ANl7gxPYbS8spDePUjDMd925DXQozve+S26EM8Pi/Oa0b7MSB
-	 Xunwk2wRIKERQfdznUvkuHEntrVLZn8mmDCleGpiYki1KbHrB2LkBT2ANPG2IB3QYAx9x
-	 reJVjPjwhZvIt7HA9Gpc1czNJ0KWx5eilUlVs3mnT6EqJF331f1wh3s/JIb1wC5MFTg==
+	t=1795006210;
+	b=xw0+qJyoufE+1DRhhBhW9qtkZtK6Eo0OPXqkNf5qqJ4oYeNlORHLksQAPN+4PAs3QZxN
+	 CwTyrZgyxQ6fOv4Bjbgn5eV4EUJFdcsMMHwCHCZfywR7PtBp2BcH84Hm0LYBWcGa7scyO
+	 HE14WYxCKy18vUPacQXGRsb67WMzKaMGtQzAc2JK4T/KkInf/NPtsdyP7rOIG5IV/KKy7
+	 NMsQCr66OTUW/UIjOnMa3YahXkaiXwQsKYQ+ixnJySrRGP3b0f1Z4y+jnz10RbjYVvXW5
+	 rnv0A3vHjIOvmsKZAjm8SXjg6GmFx1FnJPc9YkAXBKwzcUBOlxZyWGnFOt7uzxCZNiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005654;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=+DLN0JMXOURk9LMg8DghKgivG2ddXrTqZRTmBWRD2Jw=;
-	b=uq4NB8ip0TGf4i+mDug6hu6c004hqDT6Fu/3W04hw+fBtNUIYGEJFyX5FC1NYn3vtyqx
-	 91qlYl3VLLYwKgELnGeNtg+RAbRs1ue0g5l0s6/WKZ0bQ5TC5khnjr4WPpZcmIwqvesZU
-	 WBImPaRfiTN1LNTqNstPFv2LLoy+qimKTRySykxf4GqyvrKMp/fBpCAdr4gbemC8dBQpf
-	 MrzsgWG1cJC3XVBP5QN2P8xN0/fztlJoOWRPcIVo8OQNDkwC5RpROr/4ZYU3HSf3FCe4X
-	 00Ejij2eTTNW2IRaxuW8X3Z+W/IMC93fDqeUHUvVfoMPuxjRnHkmn5DSSa4quzr/Ejw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795006210;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=/SM7w2WdNTF2713IzNCXPrTgJergVRTCb1DkxJ5XLFU=;
+	b=u0NlF3hSWW89qUkglWh2xxzQjT/oIHTx4TwdFNe9iIjl1Qo/myA1uO/cdaMRR7PdkjZD
+	 qz12BAimQRtyciB6BbByfRMGiszsi56NOm/8o2+gFGn323LRvH4Hkl25TULUZYWBjhShN
+	 h+wehGEO/DGcXfSFyjuUv/lol9DnMdY5pZvhubyPWi1RoFkVYXK+63cTHPiuMVsZjVaQP
+	 ema86sz3qdP9+eSITNt3tzWicVhtyYDkTgO4w9MmEw03BvpPlIi/n1J61hzOtS8w/7061
+	 iIl+q77Vi3EgpnWkH6ckCtqYfBSKI04rLDWAHjSyS5sR/YGzwYAZDPMT8BYPDlWTTsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uI+UrJyX;
-	arc=none smtp.remote-ip=91.218.175.72
-Received: from mta0.migadu.com (out-72.mta0.migadu.com [91.218.175.72])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aT4zVWgF;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42FD9606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:40:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42FD9606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36991606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:50:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=uI+UrJyX
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=+DLN0JMXOURk9LMg8DghKgivG2ddXrTqZRTmBWRD2Jw=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795005651; v=1; x=1795610451;
- b=uI+UrJyXttLNS1sYG+bob3FLC3DmK3e754C0htpYNGq37gWu4SqvlQO9d/qdn3UyYaxFxSN3
- +Ntit0vhyZ20cOpL5hR3w55I7xbr64OTekpHjX74L7/SSAwfQheCSz7NwFMvesxoH9J5gXGsZ4O
- YbaGUlYWOY59oH8UwXL35cGE=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 715f28141b795e02;
-	Wed, 18 Nov 2026 12:40:48 +0000
-X-Mizu-Trace-ID: 715f28141b795e02
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <8b1622a7-3494-4a0d-8913-c8cf4eae43fc@linux.dev>
-Date: Wed, 18 Nov 2026 20:40:41 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aT4zVWgF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 36F3A1F000C4;
+	Wed, 18 Nov 2026 12:50:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795006209;
+	bh=/SM7w2WdNTF2713IzNCXPrTgJergVRTCb1DkxJ5XLFU=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=aT4zVWgFsXi+vUl/ux8TbHlbhBs3/32We/0MC+GYlrtxmirLjmezK48n3xFf6TZzT
+	 iRW+KxWIkxOjkgPJfSdJUdrESFw4qNWkUbW+uuMBekyirjbcgrOGbw8H5+L51wrTJm
+	 wPoHPQLu7mwiQlSXfu4dodBlazzuj1OAKCQ63Cpr05XECb/tTB6gCQXPOKRNCsmIA8
+	 xbpN0UpIRzTANr+1HjFkw15UC/Z61U6/5Z197nqowpnn0Ro2T9bP2plEx9iIykiLM7
+	 KeOOvtLrPiAg34Q4HDqSvtVOMD3dTzXBeECM2+AHUyr6pNIowoNOqU5KsWCPdnLIKb
+	 IWlnJG434DwoQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+ michael.chan@broadcom.com
+Cc: netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
+ andrew+netdev@lunn.ch, horms@kernel.org, pavan.chebbi@broadcom.com, Jakub
+ Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH net-next 6/6] eth: bnxt_en: restart Rx queues when their
+ IRQ moves to another NUMA node
+In-Reply-To: <20261118023905.3050661-7-kuba@kernel.org>
+References: <20261118023905.3050661-1-kuba@kernel.org>
+ <20261118023905.3050661-7-kuba@kernel.org>
+Date: Wed, 18 Nov 2026 13:50:07 +0100
+Message-ID: <87a4n68fsw.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,77 +61,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [BUG] tcp: shift-out-of-bounds in inet_csk_rto_backoff() for an
- orphaned zero-window probe
-To: Eric Dumazet <edumazet@kernel.org>, Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Neal Cardwell <ncardwell@google.com>,
- Kuniyuki Iwashima <kuniyu@google.com>, "David S. Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Cambda Zhu <cambda@linux.alibaba.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <179499954853.1440581.6627074959099619480@gmail.com>
- <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <CAL4WiiouZZ46QRp5K6MYK=vevKXYLzd_p049qVVf=w+9L8d96Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
+Jakub Kicinski <kuba@kernel.org> writes:
 
-On 11/18/26 8:12 PM, Eric Dumazet wrote:
-> Le mer. 18 nov. 2026 à 11:59, Kyuwon Cho <kyuwoncho18@gmail.com> a écrit :
->> Hi Eric, Neal,
->>
->> While testing v7.4-rc3 with an LLM-guided test generator that we are
->> developing as a research prototype, we found that an orphaned socket
->> that keeps sending zero-window probes makes inet_csk_rto_backoff()
->> shift by 64 or more. An unprivileged user can set this up in its own
->> user and network namespace:
-> Thanks for the report and the reproducer.
+> Rx queue memory is allocated on the node of the CPU servicing the queue
+> when the device is opened. On a running device it only follows IRQ
+> affinity changes if TPH is enabled, as a side effect of the queue
+> restart which applies the new TPH Steering Tag.
 >
-> This is a known issue, a fix is under review:
+> Schedule the affinity update work whenever the device supports the
+> queue API, not just when TPH Steering Tag changed. Queue restart places
+> all the memory it reallocates, other than the ring page tables, on
+> the page pool's node, so compare the page pool's nid to decide if
+> the queue has to move.
 >
-> [PATCH net v2 2/2] tcp: fix shift-out-of-bounds in inet_csk_rto_backoff()
-> https://lore.kernel.org/netdev/20261026123244.239766-2-jiayuan.chen@linux.dev/
+> Since we need queue state of the currently allocated queue to compare
+> nid - check that the device is still up after errors.
 >
-> It limits the shift to 32 in inet_csk_rto_backoff() itself, so it
-> covers both callers: tcp_ld_RTO_revert(), which is where Jiayuan hit
-> the splat, and the orphan check in tcp_probe_timer() from your report.
->
->> We found no earlier report of this call site.
-> Searching lore for the function name would have found it:
->
-> https://lore.kernel.org/netdev/?q=inet_csk_rto_backoff
->
-> Please do this before sending a report, especially for findings
-> coming from automated tools.
->
-> Note that the netns sysctls are not needed. tcp_retransmit_timer()
-> increments icsk_backoff without any limit, so TCP_USER_TIMEOUT and
-> TCP_RTO_MAX_MS on a socket with a silent peer are enough to get
-> icsk_backoff above 63, then an ICMP unreachable reaches the shift
-> from tcp_ld_RTO_revert().
->
->> On x86 the shift count is masked, so from 64 on alive can come out true
->> again and the orphan keeps probing instead of being aborted.
-> Right, and this starts before 64: with icsk_rto == 200, the u64
-> is already zero when icsk_backoff reaches 61.
->
-> Jiayuan, I have not seen a v3 addressing Neal's feedback.
->
-> When you send it, could you please add:
->
-> Reported-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-> Closes: https://lore.kernel.org/netdev/179499954853.1440581.6627074959099619480@gmail.com/
->
-> and mention the zero window probe path in the changelog ?
+> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 
-
-Sure I can do that.
-
->
-> Kyuwon, it would be nice if you could test Jiayuan's patch with your
-> reproducer and send a Tested-by: tag in that thread.
->
-> Thanks.
+Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
