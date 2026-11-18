@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032335;
-	b=hSZa8CFpth5aohFWrvxXxql999CbZsoKXZHZ0HzqB+NmpfDq5nkDAiZZZKAS8ne//G4n
-	 U/IL2QHsMqSvz3WEvYsAEvAM/SEbCCuh7gcrmYrmAFOh1KVnhT+bIiiOvUPlH4GpvBXik
-	 6VovXeVvZnHKiA+mDYiuop45Y5xzNcxd3flTwkgWGIi4MaXaK1IUug7mOvfd5M1tRk5q9
-	 jgMth/++KxC8P5kgcHZsk1UiRy9K3x558CuNfB6XOzXKw7dolvUFuHFa7BrZdZMml3Vc/
-	 AxExrps4t1a+M1M3KIn+5kuMIbwc17L/tzO9kNgHlm5FJ3SkYgy1Qq72TawnX1bmD8A==
+	t=1795032338;
+	b=R4Yk2eSrnTNVHTOUJovI1QRKgyV/v81Eb+yE0sDhQWPTQ8qgOgnXVQFf8miIB94L73au
+	 mGpF7IGq7JtSLaCjsOqYK+O9s3owTB2jHPnSAK+jeeXOh/b5N7/45Pbl+pIMhJ3VmLtJC
+	 Q10Q3Udl6ZE2+QmK6hr2BI5IE0xdWoiw0jc8i9KVC5wmrBBhJBS1yKhVUEu4Ieh4G5qyB
+	 +lU8LCj9Eh77+S15u0jXr0lLaqUio6+tLrNxCIzx2lgLtsWDU9FWRkoiG/N91n76b7+Hp
+	 m5gGQhkO98deJ9Yn9bweThdUgs6RQDR76n5EzPZF82OLsGhp5U/BZWnSqBZZP38sRmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032335;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032338;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=vm6X4RXhkwTGS0rODxxBI99H8aOAkurBTqwazIDQj1E=;
-	b=VWtcgN5X1eaWhYcMuqax0QBpz2haS4WRhEa+SoEUPq+4ZgC6SVg+QJKRBZwlF14yGCmX
-	 jrC+1KVQxBvctZ+MnnmY2pqW0ILGf13b7kTxYHQRygdiAZNk7Y+iprzFtG0PiRSkkSIaD
-	 hw47pSpUr6jq+04pf13FtkyG12OnUvziq6ov0f6nXub/I3iJXkyYmiJb4SvsuQcVn+su8
-	 0dHN7lbkeT8t2d/Z/slYw4PMBmNqG8sfsa41+UcyyGQLSfUhotFXz5eYkPoqu+LQAUI2J
-	 hGaHpARKoapba4wTNYqiQJL+ShSVqYbVPNpLmRplNbQfd30GuPGj6VDVSeFJI4P5UUg==
+	bh=sT8BXmWr3ZtRZWaM79NQqvkyqTyjCTuzoolorXg8m8g=;
+	b=OF1n+y/w2O0RBpjlHE14SBSvxCdqfJORBEtpirF6nvivVpdrSAW+POteGV1mjTXQLm1Q
+	 nuNlCI5VUdKae++EEFwp3C65M7b4SaAcx2R1DSqa7eN8xj8VE7QsTcKPyBzRHUsPa0SYA
+	 LzwugrgP7zMvBPX/wsoW4MrwpMkK1Q9SE1yHkYxCCy1ZmH6KKXy1s21J7N5G9HosDtXZ3
+	 ECWAbPMxVRwXNNSBquDBpRCOsv9F1yfso7eoy8wxe8ZwQ4oyoCrqUZucxa3FC/WhdTqee
+	 lk5ZHHyAJ7ZddHyeODAKKgrmtz/rSqkd0PmdYcB/uso86JEXMG0CXdEtxMxI2ifPjaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q1FMbmrY;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="XlcqI/WD";
+	arc=none smtp.remote-ip=74.125.82.171
+Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B549A60A2608
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:05:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B549A60A2608
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DCD2360A380D
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:05:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DCD2360A380D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q1FMbmrY
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-382ecd5cf2cso210898eec.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:05:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XlcqI/WD
+Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-38190551625so2533618eec.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:05:37 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795032334; x=1795637134; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795032337; x=1795637137; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vm6X4RXhkwTGS0rODxxBI99H8aOAkurBTqwazIDQj1E=;
-        b=Q1FMbmrYQQM0s+ITTtFVk2rDTCxKhZq0tHSCa2oNwKmMIhrmem7HiE4QVyRnT/aIyH
-         DXfy3kpwMUJOIhMYIMy+ACBusVXxNb97WjPXy3ICtPgpymxbpK0/ogDILwffmlNlyHZq
-         eFMxQxRZ8XFVEd972N+qeDY4Nq9JbbPp24pcGo4fctMzvMj5hnnox2rz/WUOKIrG/GQ8
-         UYxRNzI8UIo14siV2QhWPTiAVnItrl2hCUZZrDkDRCyr2ZECEJjSWeooQOiNiQ3w61/C
-         ryWjtdjI+8N6tzj8SewjK/TnGSE2EQeqN+0w39ywVYFJPV1JPjAA1lMfVffOxP9LKXSr
-         VMxw==
+        bh=sT8BXmWr3ZtRZWaM79NQqvkyqTyjCTuzoolorXg8m8g=;
+        b=XlcqI/WDSL40sFhRfuRWgVgFbUDcqd4dc89nkRX5hq+S6M8QdNcniDdhvF5vb59JR9
+         +24b2dBI34OdoIn/aYyBvSwB9tz2lynON+qJxamsUAXHpVmYD/3ZKBFhNp3ecyO+jlfH
+         yLH7pY8+TH7FTvuT5+ik8N0FN9+di52g35SX1/oNpSBHggxVrH/KYVnpZPxnnGG7tPAK
+         ijRQX/dWp/4oznE3o52u/IE1GSe+QjU5+euXF7w4YEyxGh1/eE5NSDL7B9b1dtmhE3RB
+         XHUDBQWdTuTfQpILYYqp1x29wahndXSFG4yJo9XWSRArReOv4M9bjUoseDYx8yWpnopP
+         7jSQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795032334; x=1795637134;
+        d=1e100.net; s=20260707; t=1795032337; x=1795637137;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vm6X4RXhkwTGS0rODxxBI99H8aOAkurBTqwazIDQj1E=;
-        b=g6ykJUjc1pQBTsw60u/kr+bRUN75zwlNh5//Ba7KS24K6kpkwjBv+VjeJmEkpg9YSg
-         CkLtmhU6hKUHoLsxhaD3W4CZdagexXIOkk2EdXNKhNwS45XpDj75ZFk/sBZLXhsPxuUX
-         NnCybWk9Kn4wmDT0Nbxt6Sa4Fc3/d6rxJi4Vn4UQ1qnwbS0F1AbvjcAZyKnEuWBZvmT8
-         2MjSMHKGKaFKmuNn7Nzkac422gtCBxQdKcgMAWse1TU6dI0z+WRwMzA4AFFnF1RCMYUo
-         hZJLMKkxGzLL0CKkWzrKNX3pyR4VBr66Ih6e6STVSlbP4ZP98xlYsE97WlGoUCZHqqgz
-         EHEw==
-X-Forwarded-Encrypted: i=1; AL+hErGGGaqnN/4kTMfI9ErKJuPHk2lNGQyzgGhP5vIjCSzp5zW+C74nRqLaVye4EFvufvELfHLIPpI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8FA9ZB72GalcfW0d8Hv75Yp5hw0XgDS/XfH7D+LDXAuhYaCiaF
-	efkKlJoBAyFKJfkJNOicFaHJLFllqSDlvKXTMkC8McK0yyGaeHw0UWK/
-X-Gm-Gg: AZFdTZeVmk0Z9LqQy5sh2UWJYYhFM9Ai2y6IMdtvJfwKl4JeD1n0z4dBhhD2Jgnd/Pm
-	LDel3ZT7xadIpmVo5ctRdhMtNnS0PXajfB+ZVDJboq0JIkRcNBmHoXIcdhZKIP7vQ8D3SXJ0+Js
-	CIDWF9l5iiUmhhld6r2nb8usUwwc60b1Jtia1LgHzimzyForONETGm4VQ4idYQ0zKR8KbOghW/O
-	JJI94Tjbdx6pxpEsZQjLNFuL8DbFqdeq14lJuslmEoIaHJRdC6S5N6sjxItKx87qbub6u6+3q2G
-	vww1m4e0IdojjU7ZzcEhdgGp2/8ymczd5HkyrFIjHf7kFfu6sLSGFT8TOtBbhL4WfZHfd9dHIY8
-	9UbAlNsb6G1LvlvmnK0lDFfHfSZRmz3jd/YJ3dIjz6Bct9pvLKoJJApXBMiX6YetRNtbGhqzlc6
-	ZAnBOGES5L/ZPmQzKjT+vGOZgahH1saTVd94oA9Ackxi35sgToNa3OFYWul6O7L4jrCdVd2pCXH
-	LU2/SBAyrMPJ65mMhhSg45GXHolqIyRSdbSGS3RM42YiiMku2bDqvklvaVo9V7be96yc+DiGWRD
-	xFHAXzBQoKN/x955tXu+GaBhisbEABc55rD3EZfwhvnI9WibhdhInenQZp+1J6SRBMA1CpBxa+N
-	KUaJQPSV9IwM3jYjndbS3PJFv+3yK
-X-Received: by 2002:a05:7300:ae97:b0:382:2ae3:b1d0 with SMTP id 5a478bee46e88-383ee2228b7mr420599eec.13.1795032333782;
-        Wed, 18 Nov 2026 12:05:33 -0800 (PST)
+        bh=sT8BXmWr3ZtRZWaM79NQqvkyqTyjCTuzoolorXg8m8g=;
+        b=wNaHy1zifrQqK9d0NLyuZWOLbhO+geNRxcq66Q7DFNgt/yZNtif8DAg5gCHxwTndqX
+         OelYRVRenxmgi8RWuO6C5YanPkdqDW3qkTfJWwuS6ujz2wc+/dcLcZF7qFzGWMfFPuup
+         QnUtejYw79aXAkw91szc2CYkt95OlXQuzoo+AUi7Ko/UMZ7Kd/LDrzriUcmSgIrrXZNW
+         Sou8/OtJVFspov3pGi2VMxmcVSAp+ZRd0UPQSnC/tYsOZWfEmzDp1ClbMWnosGQksFKj
+         uGf5v1rk3rH0rvHwd2mncAuSqW5HGpo1YwdQ5cktaqTJewo6RXcJSlDErFIlT1sLpA1A
+         tAeQ==
+X-Forwarded-Encrypted: i=1; AL+hErFaCAUSPV0JheR4/U7R4u5CMNszkRJOiNwzxX64pCAhUhpDnw/oegMG14sNZhMS+YrkkePIDjQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+d4Hne6QSiYiqZS2otR6RuqIoaUdST36JpjOon1mvBkRE7nMZj
+	/DtwpMGEWRlEfM5AlMGlFkHk+R9Qci2R330hUTSFmzZPRCm0VKBBBQAk
+X-Gm-Gg: AZFdTZeJ4ds/eelpb+cekzlPTHVCBwu3bXEmsFkBOjkwRVVZU2fUwjOj2dHNLNwgkW/
+	fcUBBYKOq6/wnxTz+F/wQD5o4zhYRl5kQr//j/CG5G2NtEa0cu3aClIA90WtRrBrmdyYWVWUdF8
+	rvU3fVg5RowZH5HdASaq6K0mGM1i6bP9X/3c7k0X03IAlHHhyTTYi5q9DXcfSHB0/G+DlT+40WS
+	w4/3P8RLlnPTkoJlF9Hn7r8qFhqLbBt7HV3dYxnToDqoQAL8c54IxcpA6gyUQUGd2NJ2HqqoczZ
+	xsGmvf+sbp23Fgei6e1mbwMyEqxOrp6EGY7+QDM/CfhKjcdJl5lZn0vHy4FJOohkQ/1U6Rr/Laj
+	LEpsKT4zqGQ3BlMmvHGY4PIwxoTXjjLW0BET1kHGEvlYsIAIKkDzeA+B+LWGZALSsq6I92Zl2QB
+	j8OOC7o9m+CjZuFQDxfdrTEU4LTAWJ365NJF/6xV65wEiRJFYDrD50p2stqLhgHDWXmUJIJC+ZC
+	6B0PZMTBkK/IxpEJ3rtJWEMORcXcPdyeoi7DWKvzoAO/UQXZ/vdxAc4BG65HMZI0UdjK5ZkV5Hd
+	Eqwye3rywkiTe90Xm4utvmzcT3L2Z9GDo7aFwiUtAZjToVo6ViP1G/ngDMOcQ59hFbay3jtPJxu
+	d8V6d1lvyH6YmWejZmj/VG2fSklpK
+X-Received: by 2002:a05:693c:83d4:10b0:36a:5126:a8aa with SMTP id 5a478bee46e88-38281025978mr3395503eec.27.1795032336889;
+        Wed, 18 Nov 2026 12:05:36 -0800 (PST)
 Received: from Mac.localdomain ([12.162.234.74])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a75d401fsm9683206eec.20.2026.11.18.12.05.31
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a72eb2f3sm11752204eec.18.2026.11.18.12.05.35
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 18 Nov 2026 12:05:33 -0800 (PST)
+        Wed, 18 Nov 2026 12:05:36 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev-bot+sashiko@kernel.org
 Cc: andi.shyti@kernel.org,
@@ -98,12 +98,12 @@ Cc: andi.shyti@kernel.org,
 	richardcochran@gmail.com,
 	skhan@linuxfoundation.org,
 	vadim.fedorenko@linux.dev
-Subject: Re: [PATCH net-next v3 2/3] i2c: xiic: add KUnit coverage for register access modes
-Date: Wed, 18 Nov 2026 12:05:30 -0800
-Message-ID: <20261118-timecard-common-301f823ddd-r2-ahmadexp@gmail.com>
+Subject: Re: [PATCH net-next v3 3/3] ptp: ocp: support the WiWi revision 02 Time Card
+Date: Wed, 18 Nov 2026 12:05:34 -0800
+Message-ID: <20261118-timecard-common-301f823ddd-r3-ahmadexp@gmail.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <179502617695.3136.6995182814188526026@kernel.org>
-References: <20261116-wiwi-v3-87afa10a8-2-ahmadexp@gmail.com> <179502617695.3136.6995182814188526026@kernel.org>
+In-Reply-To: <179502617840.3136.12704245716223038161@kernel.org>
+References: <20261116-wiwi-v3-87afa10a8-3-ahmadexp@gmail.com> <179502617840.3136.12704245716223038161@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,13 +115,46 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Agreed. RAM cannot distinguish a byte read from a truncated word read
-returning the same value. I have stated that explicitly in the Kconfig
-help and test comment, and retained the direct-x86-64 restriction.
+Thanks. I have prepared separate common-driver fixes and a WiWi v4 draft.
 
-All four KUnit cases pass in x86-64 QEMU. Separately, the source-derived
-accessor fixture records which I/O accessor was called, including its
-width and address. Removing the forced-word read branch makes that
-fixture fail. This is software accessor coverage, not a measurement of
-PCIe transaction widths, and I have not added runtime indirection to the
-driver just for testing.
+The common fixes use tbl[i].value for all boards, mask SMA_ENABLE on
+frequency readback, report disabled inputs through the None/0 Hz entry,
+and correct the common DCF output frequency to 77500 Hz. The selector,
+disabled-input and frequency fixes carry Fixes: 09eeb3aecc6c.
+
+The WiWi table also uses 77500 Hz. Its new init replaces unsupported
+output selections, including GNSS2, with the connector's default output.
+It leaves valid outputs, inputs, directions and neighboring mux fields
+alone. The normal sysfs read therefore names a supported signal. If an
+unsupported output value appears later outside the driver, the read
+returns -EIO; the ABI document describes this instead of adding the
+unwritable "unavailable" token.
+
+The removal concern is real at the source level. An EXTTS request can
+rearm a channel after detach disables it but before the POSIX clock is
+revoked, without assigning a PTP_PF_EXTTS pin. Clearing readiness alone
+does not serialize an enable that has already passed the check.
+
+The separate teardown fix uses a mutex shared by timestamp enable and
+disable. Detach sets a permanent stopping flag under that mutex, then
+disables and synchronizes all timestamp IRQs before unregistering the
+clock. New enables return -ENODEV; an enable already in progress must
+finish before stopping is published. Disables remain available to the
+PTP core. The IRQ handler does not acquire the mutex. This is a common
+fix with Fixes: 627366c51145, not a WiWi-only gate change.
+
+A source-derived pthread/MMIO harness reproduces the rearm window with
+the old code. The revised code passes late-enable, in-flight-enable and
+active-IRQ-drain cases for timestamps and combined PPS/EXTTS requests.
+The tests run under ASan/UBSan; DPLL and routing tests also pass, including
+negative controls. Both driver objects compile with W=1 and -Werror.
+These are software tests with stubbed I/O, not an in-kernel UAF or a
+physical removal test. The card is currently reserved for Windows HLK.
+
+I have sent the four common fixes to net as a separate series:
+https://lore.kernel.org/r/20261118-timecard-common-301f823ddd-0-ahmadexp@gmail.com
+
+WiWi v4 remains unsent. I will rebase it after the fixes reach
+net-next, so the feature series will not duplicate them.
+
+pw-bot: changes-requested
