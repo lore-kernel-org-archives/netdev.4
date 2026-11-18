@@ -1,82 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.206.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795019070;
-	b=ha/BJnj3m2ta8P17xEpupPPwWF7s98LFMKGwUeWuEvNRbiluIOs8A2dwoY/+m+F5LTKX
-	 P9a2pvg3Aw47SgWeSb9HmiN+wUBVl/Q3UUAKSbiekLjAWNkdTd/5tj+GtxHBDeghazdg0
-	 db7g6LjqP7I+XwJIdAdW4z3nqgkg+YOAv2/BqaFj7Nt6guJDYytzpAtqagbkxg3ry4mmd
-	 SodwcCccOqQyALMHB30Aua6R9DfkrOKbCgsjy6Q/Y6G/CEP8qSKDm3jxesXBMMyzM3Qux
-	 zt5dGRM9dgBrn4sj0gXd5Fod+DYa7nojQyoF1zJSwRee79W2QxgfFjCqm8mESEOV2Wg==
+	t=1795019329;
+	b=qrjfDQmH02NqBOmN6Ge5sNLdjiOTSYI02wQioGrucrLNsGJAMuXkSh3mQ83g+4PQUrAy
+	 ULoSx3N+DkuE3iX/tG2kZ3HFvYd4r1hAVD0DudahljCykbTNL4qkjo5Z/y9oor3MhZVk7
+	 pLQ/E9+aBtTYDIG5FxboMzxeFn8C3H7w+gEzrC5Am3rqTHEthz6H9+ZvlmN9ofvV6L17V
+	 nXAkRMSNEpw1PnLBw9gNUnbhEQHGP9LfruesUNen9FI0TSVBP0YfPCa+EheNsjVFOCtKB
+	 Bl5TdXTyTddXDDnsBS5VmJ+8/O/7lTZxqiEPEMDAKq5100Pu1traqqoIsQSjOser7vw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795019070;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Received:Received:From:To:
-	 Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:X-Smtpcorp-Track:Feedback-ID:
-	 X-Report-Abuse;
-	bh=XOYmTp1Vrhbc19yqIzrUeKxVoL+mHARZX0vwQ/q/7mg=;
-	b=XQK3i2yP8xMbw+HvjDAg/FF9ryrY8VdoLd2uGwTt/RnIfFtBi49hLr8mXvpKmSn68XmW
-	 qUT/zmV6afdjrjYTq/npFKWTISn6Lwdk1sQq7h5XiXX+NxaPkAuGwDwAt/kEsRMon8c8O
-	 gmlLSIzzOKxOMStgDmbITPjlcMgEL2Hw7Of0satKCD1t5VcowyEtWompM/DZxntIDlTkd
-	 3glMcTIdqY/3uoCtz+W/YkpD4SozfW9e67f/rdXn/ZItXih13DOWGO36djSuSgv2718Y8
-	 5TNJRqPBsjGm3TQc4v4LMgP6XgPWS8+9XVFdcOrOB27xV9YP63rTp0Roq1CelhZrjwg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019329;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=xMfIcPgaVZTBupxAWvjD3tsTuymj4i3EzJ8xT6VI/p4=;
+	b=xCQOhIaUNqGBQxk6Nz4hoMFrM/4AOq+ajn9LsN5cppaRoeUEOCukPvH/RIJpIzlKFp6R
+	 8+1PDV383HXG344P8hdPVIdxxuYyPghAFKwDLGZdCcAnt8O5vyAtJLzfbpFSWNXkSxJoz
+	 ktu3KBYSMJg3lFUf/eN8kUtLWg8e9PFM6+CIdr3x2LYlrmIE9+QWAXwwFoQVtKERwXeOl
+	 JHVJ2MdI8/FmtYg0jUDCabl9OKO0/6mzK9WD8kZYruge0cPZwGEPHu18Gp59EaLi1sjOF
+	 4ti7h5RmT1AJ2/xR0GSwPphwUXDzzHrwjabAClFyZr9/iHJ6LaTeAYadEqH8zgPbk6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bumblecito.com;
-	spf=pass smtp.mailfrom=em1130875.bumblecito.com;
-	dkim=temperror header.d=smtpservice.net header.i=@smtpservice.net header.a=rsa-sha256 header.s=mo8l70.a1-4.dyn header.b=xz95gJ5h;
-	dkim=pass header.d=bumblecito.com header.i=@bumblecito.com header.a=rsa-sha256 header.s=s1130875 header.b=VdtCR5Tw;
-	arc=none smtp.remote-ip=103.47.206.45
-Received: from a2i557.smtp2go.com (a2i557.smtp2go.com [103.47.206.45])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PklrzH67;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E002E606A332
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:24:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E002E606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bumblecito.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=em1130875.bumblecito.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3B7560A260E;
+	Wed, 18 Nov 2026 16:28:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=smtpservice.net header.i=@smtpservice.net header.a=rsa-sha256 header.s=mo8l70.a1-4.dyn header.b=xz95gJ5h;
-	dkim=pass (2048-bit key, unprotected) header.d=bumblecito.com header.i=@bumblecito.com header.a=rsa-sha256 header.s=s1130875 header.b=VdtCR5Tw
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=smtpservice.net; s=mo8l70.a1-4.dyn; x=1795019963; h=Feedback-ID:
-	X-Smtpcorp-Track:Message-Id:Date:Subject:To:From:Reply-To:Sender:
-	List-Unsubscribe:List-Unsubscribe-Post;
-	bh=XOYmTp1Vrhbc19yqIzrUeKxVoL+mHARZX0vwQ/q/7mg=; b=xz95gJ5hZaLvUZIg9ql/EM6WqK
-	IoYNjcpoGMGc+gDULNLYqkmAsPCe28b2WbNFdmycaNuYv/1Xi3EGuLNi6e0f4jFCADU25/QuWJHU5
-	0X+DRCprlkPDnMAvYEljJoWY39YYhMPZ15SOxZHnIQ5gJ4IFqWxUGIJDrdzO8xPum1ORIjDCDU6nf
-	d7qYB5OU1aJI7SRn+g8Jxc/+sXAQ81ptrJxEp78n+Tp9N6RQ0DftKkwogsb1u/SXHRF2Ilo6C7VzN
-	yXWH3NisR0UWwYQCqP0OpeGNBf/CX11+zxoP6i78uSWx0soYEtiDeVcf/4rSXkdijcpjBlYaoxP3v
-	9qcDxLzQ==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bumblecito.com; 
- i=@bumblecito.com; q=dns/txt; s=s1130875; t=1795019063; h=from : 
- subject : to : message-id : date; 
- bh=XOYmTp1Vrhbc19yqIzrUeKxVoL+mHARZX0vwQ/q/7mg=; 
- b=VdtCR5TwaBzJQPYJ3lTeDCRgzWFPr3JCRgezmTVQ7p2oH5Edjo8wUzFPiQfqcekqqopTCx
- ip5qaH9PWSJJYYMC/WwHUHa8qmbp8egdRipl2t8Bc3Urd9e+XEgOzPQoU84hajSHx+pPjwHg
- CctKRNSAwDLRbsjGzkux7GxYG+f7BHy79tLNdK4qWpz1Wwkmr48wchmuoG2Y3WGo7AigF1Xm
- 7obf38H36tfiyqtJJVbbQTIzG2guP9XuLu13j00TlunKCOR7Wh6qSWdqeqxfddSC9hi7Gcb9
- XWrrRP+jJaWfKzptseqJo4SrlFePZ9IYnxirY81OldXNDgXYjK1KMwZQ==
-Received: from [10.143.42.182] (helo=SmtpCorp)
- by smtpcorp.com with esmtpsa (TLS1.2:ECDHE_RSA_SECP256R1__AES_256_GCM:256)
- (Exim 4.94.2-S2G) (envelope-from <github@bumblecito.com>)
- id 1xTiRv-ED4xtD-3D; Wed, 18 Nov 2026 16:23:55 +0000
-Received: from [10.168.248.187] (helo=ubuntu.local)
- by smtpcorp.com with esmtpsa
- (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256:X25519)
- (Exim 4.100.1) (envelope-from <github@bumblecito.com>)
- id 1xTiRu-FnQW0hPuZuh-iQFe; Wed, 18 Nov 2026 16:23:54 +0000
-From: github@bumblecito.com
-To: Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>,
- Heiner Kallweit <hkallweit1@gmail.com>
-Cc: "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v3 1/2] net: sfp: add 2500base-X quirk for ODI
- DFP-34X-2C3
-Date: Wed, 18 Nov 2026 16:23:22 +0000
-Message-Id: <20261118162323.436219-2-github@bumblecito.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261118162323.436219-1-github@bumblecito.com>
-References: <20261118162323.436219-1-github@bumblecito.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PklrzH67
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 323E21F000C5;
+	Wed, 18 Nov 2026 16:28:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795019329;
+	bh=xMfIcPgaVZTBupxAWvjD3tsTuymj4i3EzJ8xT6VI/p4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PklrzH67Sm6BG0wMKCibEmN0wipTMtwuYNQTaO0oROI/MLEYX0dxwEq7Fj3dAYGUg
+	 TvWFvjHfnOQiSSOvCF1kUX+UY6tAJEhmaD+DQWkLhKK1W3qnSryXdhQdL5K7qQSOXF
+	 k7qH+KNrTQzKAPN6dA1Nr9AcJn2fwH+T7WbtolbXXCpzX2gd0LaBQ6TDQY3QsO9ixu
+	 9RsmTdVwvaG/ieur/RamGcDyW6ka7+v27m98sRaj7BY9gEuZZcG+buikf1nifjRadX
+	 i8bBa7Ql+jkMlAizPEMkCES303wwSlANuqatezeo05bDhkSsBVyx7q+mA6/wI4XbXn
+	 oogAb2VkVQaMw==
+Date: Wed, 18 Nov 2026 10:28:47 -0600
+From: Rob Herring <robh@kernel.org>
+To: Suraj Gupta <suraj.gupta2@amd.com>
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
+	Russell King <linux@armlinux.org.uk>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v5 2/6] dt-bindings: net: xlnx,xxv-ethernet: Add
+ Xilinx XXV 10G/25G Ethernet
+Message-ID: <20261118162847.GA2433918-robh@kernel.org>
+References: <20261114182947.2908628-1-suraj.gupta2@amd.com>
+ <20261114182947.2908628-3-suraj.gupta2@amd.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,41 +67,97 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Smtpcorp-Track: T_qnivu3rEEh.2KJmxYPHVd9U.vB8PzAB0KJ8
-Feedback-ID: 1130875m:1130875aWStQz3:1130875soaZ0uTq5X
-X-Report-Abuse: Please forward a copy of this message, including all headers,
- to <abuse-report@smtp2go.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261114182947.2908628-3-suraj.gupta2@amd.com>
 
-From: Israel Cueto <github@bumblecito.com>
+On Sat, Nov 14, 2026 at 11:59:43PM +0530, Suraj Gupta wrote:
+> The XXV Ethernet IP integrates a 10G/25G Ethernet MAC with an in-core
+> PCS/PMA driving a high-speed serial transceiver. Its payload is moved by
+> an external AXI DMA (or multichannel DMA) controller referenced through
+> the dmas/dma-names properties. Document the IP in a dedicated schema
+> file.
+> 
+> Add the "xlnx,xxv-ethernet-1.0" compatible with the 10gbase-r and
+> 25gbase-r phy-modes, the rx_core/drp/s_axi clocks and the AXI DMA
+> channel properties. The GT transceiver reference clock is described as
+> an optional fourth "ref" clock, for boards where it is supplied by a
+> Linux-managed clock provider rather than a fixed oscillator.
+> 
+> Add "xlnx,has-statistics-counters" as well. The statistics counters are
+> an optional part of the IP, selected by the "Include Statistics Counters"
+> build option (PG210), and unlike the 1G MAC the subsystem has no ability
+> register that reports whether they were included, so the devicetree has
+> to describe it.
+> 
+> Require "xlnx,rxmem". The driver reads it unconditionally at probe time
+> and fails if it is absent, and the value is what bounds the largest frame
+> the device accepts, both when validating a new MTU and when deciding
+> whether jumbo frames can be enabled.
+> 
+> Disallow phy-handle, its deprecated phy and phy-device spellings, and
+> pcs-handle. All are inherited from ethernet-controller.yaml, so
+> unevaluatedProperties does not reject them, but the subsystem has no MDIO
+> bus master and its PCS is in-core, so neither an external PHY nor an
+> external PCS can be attached. Constrain managed to in-band-status for the
+> same reason; it stays optional, as the link is always managed in-band.
+> 
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> ---
+>  .../bindings/net/xlnx,xxv-ethernet.yaml       | 146 ++++++++++++++++++
+>  MAINTAINERS                                   |   1 +
+>  2 files changed, 147 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
+> new file mode 100644
+> index 000000000000..caf582c72a8d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/net/xlnx,xxv-ethernet.yaml
+> @@ -0,0 +1,146 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/net/xlnx,xxv-ethernet.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Xilinx XXV 10G/25G Ethernet Subsystem
+> +
+> +maintainers:
+> +  - Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+> +  - Suraj Gupta <suraj.gupta2@amd.com>
+> +
+> +description:
+> +  The Xilinx XXV Ethernet Subsystem implements a 10G/25G Ethernet MAC with an
+> +  in-core PCS/PMA driving a high-speed serial transceiver. It supports the
+> +  10GBASE-R and 25GBASE-R line rates, with 25G operation following the 25G
+> +  Ethernet Consortium specification. Because the PCS/PMA is integrated into
+> +  the IP, the subsystem has no MDIO bus master and is not managed through an
+> +  external MDIO PHY; link state is read from the MAC's own status registers.
+> +  As there is no PHY to manage, the link is always managed in-band.
+> +  Any SFP module management (e.g. I2C) is handled by separate IP outside this
+> +  binding. Its payload is moved by an external AXI DMA (or multichannel DMA)
+> +  controller referenced through the "dmas" property.
+> +
+> +properties:
+> +  compatible:
+> +    const: xlnx,xxv-ethernet-1.0
 
-The ODI DFP-34X-2C3 XPON SFP module supports 2500Base-X.
+I hope you based 1.0 on something? Looks made up to me.
 
-Add a quirk to enable 2500Base-X support for this module.
+From here[1], looks like you are missing some versions:
 
-Tested on a Horaco ZX-SWTGW2C8F switch with an ODI
-DFP-34X-2C3 module. A 2500 Mb/s link was established
-with speed and duplex forced and autonegotiation disabled.
+The offset of user configuration registers in the IP was updated (and 
+removed in case of USER_REG_1) which breaks backward compatibility of 
+any custom user config application code with newer versions of the IP. 
+Please make sure to use the correct offset as per the IP version as 
+specific below and ignore "XXE_USR0_OFFSET". Please note that this has 
+NO impact on the example as this definition is not used.
 
-Signed-off-by: Israel Cueto <github@bumblecito.com>
----
- drivers/net/phy/sfp.c | 3 +++
- 1 file changed, 3 insertions(+)
+    Upto IP Version 2.2 https://docs.xilinx.com/v/u/2.2-English/pg210-25g-ethernet, USER_REG_0 is at offset 0x184 and USER_REG_1 is at offset 0x188
 
-diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
-index 915156743..960ac89cc 100644
---- a/drivers/net/phy/sfp.c
-+++ b/drivers/net/phy/sfp.c
-@@ -614,6 +614,9 @@ static const struct sfp_quirk sfp_quirks[] = {
- 	SFP_QUIRK("Lantech", "8330-265D", sfp_quirk_2500basex,
- 		  sfp_fixup_ignore_los),
- 
-+	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
-+	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
-+
- 	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
- 
- 	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
--- 
-2.34.1
+    IP Version 2.3 and above https://docs.xilinx.com/v/u/2.3-English/pg210-25g-ethernet, USER_REG_0 is at offset 0x134 and USER_REG_1 is removed
 
+Rob
+
+[1] https://xilinx-wiki.atlassian.net/wiki/spaces/A/pages/18842542/Baremetal+XXV+Ethernet+driver
