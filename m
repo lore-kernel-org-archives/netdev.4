@@ -1,123 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.157
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794999341;
-	b=P1Amw/A6rhyaMTizm2woZn+UbA3F0Up71abLjoWew1DtibUiTsNF8UQrYX9h7ez6f8D+
-	 Qw6CMChfqeIKwhq67GwAqFh9Pl9T8cwKFAM8KPRqlTfXnEGVC5gT2aBuPZmhxDF96Ezex
-	 N35QnTQOLRnNHmmfnpiASApjomKSHMk/ayPLltfEqyXI9O+lbjMXwjQ7DCdOHH+a2B9uh
-	 +Xpnue8Gw6eAtViapMNBO1qKd6fVz7DS4gIitiiYBxPCYmaQsq46hY9sVjR+MaYYvgyTR
-	 XVOfC+c53oJ4n7jFi93xmCMvPxEwFYmj8U7U6liQ53vVhKGN8ZGoFZLl5/urVjshfgg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999341;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
-	 Mime-Version:Content-Type:Content-Transfer-Encoding;
-	bh=1lLY4Svpew6f/mVZsHja9oHB3hor6O2IX2pS8fz8NY0=;
-	b=5n326xrS3e51P7A7YjBkHbNrbrrrOUdXd8FrAUDv1saSVN/AUCzahFxoxdcpBLSHTxzC
-	 Ew0K3uFqal72RvTxt8hDbDnAZh2EK1TSUOrAMuGu461lVVcsClhsSIcu+m9deaf9X3hlQ
-	 pC3nzxcp//7oNBblt9csaOhkXuqmDn7rkyoSAgEew4JSyu9apyGjipVrIufqYBSpf0BlX
-	 6e4NKXrA1/XZJ4h7fwD7po1YFbVPOmUHZDStT9Bgr0bnA+3elbCjzq1zAY2F6iFKnTk+h
-	 N2DmXzMUSjtywKxBo1dYdTZokYNrUV74gIZP7CMd05QNJHUxFGyssWzrfJdbjW1ljzw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=flapping.org;
-	spf=pass smtp.mailfrom=flapping.org;
-	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=QYVcAEdD;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=nI5zgd76;
-	arc=none smtp.remote-ip=103.168.172.157
-Received: from fhigh-a6-smtp.messagingengine.com (fhigh-a6-smtp.messagingengine.com [103.168.172.157])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.203
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794999454;
+	b=d9H+OpJsro2ZQljX+XBzNw0OeA76ZoTYLxxUoUMDB75IHJX4IhTT7KUg+RnaAh9f8NZP
+	 Nw4obOuvTzqSq5pXRY6yPaRVtkyb7XdEI1N7ZMQa/P4PES2+bKersAlGBwnVE5BXsuSgM
+	 /Cc6VQlC29R7J1k3oGwXzMYbk7W74vA/VmLzRpZvscARnBI1EzfWgyT9xxWhDFIMAWtBM
+	 RcyAZwJvM3LeC0bzgNMVbYsndIjYUHaiRfAWsyyuFDeoA6jD248miVoBaOKjuW6gCiiZa
+	 MiDSTMV2iS1bt2FijFpvjYlB6ivXYknxmkU4Ey913lsSquX2z4/JNilg8B3K3ZgCR4Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999454;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 MIME-Version:From:In-Reply-To:References:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=zEcloWoQSOSl7rz692vEiAQjXGZ++rtckC5eyqv8kLk=;
+	b=Crhb80cubVcsZcwtPb+/j7iCqJz9sZUJq+u/RJEdobzJG0idfxOnPtM00bVvgZaAm6gF
+	 qltGKlzTo4DgQZ1ORHSwsXbIC9bV2bi5TU3YVxU2N0732M9smR0C1Xrb+Fo/PXCYtXApc
+	 vzG//z9DQtX2HtJDkE2Jgdz5mmOr0m+VoRPGnDPcnAx+1RSYcgiro8O0+VoREp+sXYPvC
+	 wAIxGyctGTftJQt5bavhjej6xzMvW8eIw3TvG1M7+kbt0+wDkM2u8xJ/kG8Jqyqnvhw8L
+	 MTYZy35DQMzY4AWyq+7SfXU9PGdHpcALvdSh4Sxjoc3CB4ZISaueO/OBmW6SIE0Ko/A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SCiX+gda;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.231.203
+Received: from mail-oi2-f11.google.com (mail-oi2-f11.google.com [74.125.231.203])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 375EB606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:55:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 375EB606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E14F606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:57:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E14F606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=QYVcAEdD;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=nI5zgd76
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 4C6B31400184
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:55:40 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Wed, 18 Nov 2026 05:55:40 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1794999340;
-	 x=1795085740; bh=1lLY4Svpew6f/mVZsHja9oHB3hor6O2IX2pS8fz8NY0=; b=
-	QYVcAEdDh71WWpvWQ5y7N8yaJWgBpviG8493XgFaWGYUbR+LD2/GDyzRrsaf8uW0
-	M8/E3LtYRjoQ8XwWyT33yZMbqzEdnf5jPYbyyMmzJFI4g6MMnYpU4Os+Ef3HDary
-	LNmuTdBKCKfABntkDgn1JXpIu++qYEWWjS9JmEWxhoMyZ8qAc/KNiYj3WAXep7Wu
-	ebWtK/l2q/Hm0QuxiWkscSJFJ9m03vHxw4xexxMPpOb07IXaYBBGfErSVvGYChkP
-	5WMCqwxaRUrTZS+p5JIMSQWuf9k2+E1XfYd3VKpjqhhkRmahbsasm6TgrN8lmo1b
-	PDtM5WgHdtfM9uduNUD9/w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794999340; x=
-	1795085740; bh=1lLY4Svpew6f/mVZsHja9oHB3hor6O2IX2pS8fz8NY0=; b=n
-	I5zgd76vvRfoH823HXG8JnSmnulaMSFfibqMlMltgxki53ic9D3oki0Wg1foGkVY
-	GTgWcAd/thh0D7U9GLfdYjfHiN9tOMhijOIFZw/yVBffRotBEq3w2nHBpeeXTeG8
-	joEWkaVdNrMCm6YkLqgFaOxPhFzlEq1C9fYbknzIDqwmBBzUO5wdWbysGOxxhRDA
-	f4HgdZt+Bgi6PERykETBI0qbaX1ABFx4eoInG/f5z/CtZzkMzKuPiCbhJc2BY8UE
-	nC9KQOubFCGabq4CbwBkQcN7Tj0jbvTv7BF/iPftlnuWS0JTm41x7De2pqtrUZ/Y
-	QsAO/OviEEGyW1D5cn8GA==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=flapping.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1794999340; d=flapping.org;
-	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
-	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:o/gPwxWCjRtd5o01EDIFT16Ag17d6K1Kg/7PjwSrkrifNGY
-	XcRxiat1EEHsbL0A94JAVLoG18+Sjve1RarsGpbvXrpVNU+dieZqtyeiQ//Mp4Rb
-	qpxc22T5OxCi0fCgLrDu0qjazSiGgBo4fMlzl+O2U9eD2u5tRpNDsqJemjfd+jbi
-	RyOe3yzmSb0i3pj8ZDPtOE6CDpX5C5CLBpjrdyS+d/UMfjwTj8gCCftRWYFagjv4
-	m3Z+s2pCf0MkN790lrSowWlaxvzD54/5IEUz9X65xSxUvZbZ/2dtkakSuGmxx9DR
-	+ZVM6FUiyyNZ9iOPN41HwmilBrfvM/rsTTIHqMw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:RczB9gYCNYawM4c+ALdeoEtktbQcQrdqI2h8MgadaVE=:f1PoMNvdd7eUFaJn8fwxARhdLdJQXzSex3MPgOihlew=;
-X-ME-Sender: <xms:K4T9ana4Kb6OOxq_yIdEUDW4VY9bhWzDve4YCUlENbkkJNivJjFLag>
-    <xme:K4T9ao9u-Qa4YjH57cgOZWyCj9WR9MT2yaeDgsUWJka-pIs2CEQlwjAHRnzdIwMGI
-    JjTY4Ms921Q8p8_SjqZfXnZsvuBnnMr4MZNfn9s_4zqhEekunibIrs>
-X-ME-Received: <xmr:K4T9atlheoZ7Bqm0_xhNvDZ6HxGiUVS-287puoKPKbRFnfQHjPsSOcqFIKOC3h8Q-EXKH3nYuYBMWwvF4P1drovh>
-X-ME-Proxy-Cause: dmFkZTFz3NK5l0tQkms838dQWqZ48zIIRQPH/+NNhoj6IrdSS4eqY9U7OtQqC6pwNDpsPZ
-    P6ax6om8Qj87GF79pPYyChWRvf8t/TSAjxCmiaBrrRTfWaBmMbs5FOSZmqHfJ5KB3WLwL/
-    yTK/CgTgx8wxr+8G2x5xHt07M6n+6CR3VcvyXSFqr/JDMQtbhbjUQFSln+afU/0WOjmMcO
-    t0S00Kx/jjw5fLBTLVOwCI8XZlFvTgYMI3NhQq6fbRZsfBKqYMXhYrY9FlCfoz2S4gX/pC
-    0uLA3C76Vn+3D1p6F4XZKoTksZedtTOVjpAmGlGPCIKuH4Fp+sY50EI9hYKIeA2US+TXgo
-    SwFDgX1vRo+ddLegJ4qibX8tZRRcrgo6k0sG3rgJ0Trn7D+e4S/DoYKgxfPr9Z5LumXpG3
-    6k4BlyrHlAtYfo1x6He20rwupPZRdbTFe74BYnHLRt3v/QPnJtw8GzEHYXO1yYTevqSQhL
-    AwT1hlMcGricQxqlXS1f6n6rQ/OkKSK10Dkgjer6Kwdu2ixBKOrIA/0BtZQzQ4JaofW0NA
-    lAuW82UQbqTsLc4ewKGwulfkmafskgmU4JsL+vTS+55EJjn9VtqhiMSe9pRXm7jWuHGTBU
-    a8c/Hq9gzMBqdEl80D73FlIUdmBFxjp0XEIgKl/N8Lk2zyPv7wGG1IApBrmg
-X-ME-Proxy: <xmx:K4T9atxUnaW1n6WoBEG-CinAYsztTpXkxlB8iFUTGxyEgg6UhhfRpQ>
-    <xmx:K4T9an75imKmQm7zVW5IYOyNSWEjbitvhK71asRq8HNEkGfc1RnNyA>
-    <xmx:K4T9atUkHSdddei9ZKRH6NlicWXgy4mLb4RyFn6LI2_Gc9pd4LTaGw>
-    <xmx:K4T9avII40nbN2ofWbreAu8_K-2BdKn1VlFnfnRgCmYBV6iB-lVSYQ>
-    <xmx:LIT9avtLWo_h_LT-GNWyDhK5NDY8pNE7l-QnEw0tOzn057th1liXSAuO>
-Feedback-ID: i51fe4b43:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 18 Nov 2026 05:55:37 -0500 (EST)
-Date: Wed, 18 Nov 2026 19:55:34 +0900 (JST)
-Message-Id: <20261118.195534.1289241641818592530.tomo@flapping.org>
-To: johan@kernel.org
-Cc: fujita.tomonori@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, hfdevel@gmx.net
-Subject: Re: [PATCH net-next v2 1/2] net: tn40xx: avoid early firmware node
- release
-From: FUJITA Tomonori <tomo@flapping.org>
-In-Reply-To: <20261116091149.730586-2-johan@kernel.org>
-References: <20261116091149.730586-1-johan@kernel.org>
-	<20261116091149.730586-2-johan@kernel.org>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SCiX+gda
+Received: by mail-oi2-f11.google.com with SMTP id 5614622812f47-5725b4210ffso217799b6e.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:57:34 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794999453; cv=none;
+        d=google.com; s=arc-20260327;
+        b=LhtEiw/9QNOk1olsivyUsziz4X6d/bDOY/rvYearItdBpcrlZmDymgqzl7Jtv/dxlv
+         dS9Z9jbKzwQEd8/2IAnHu61mBrBBiklKf7vEPx5rBhrWYSUUUJDEH9E0ItrlO1TOFiRu
+         vbdOUdWkNmnfLbuW81FRwuB2S+VN7KilUEhwGEfb4gzTH+fgTVJ7qV1Yip0D1JC3/F0f
+         bt1LU13WBvwy15TqL4VQIiYzARNWUtPFhc9LKpnxHYPkFWVXj1tcK9p/qaPfj9OAWHOM
+         8O1YZTcFeAiTNzqcdiSymjNcTW/o37aM3LFYREOt9YzB+G2vuaeYNmmUN4xPJ4ex93rb
+         ExCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:references:in-reply-to:from
+         :mime-version:dkim-signature;
+        bh=zEcloWoQSOSl7rz692vEiAQjXGZ++rtckC5eyqv8kLk=;
+        fh=TNKyuP5sWtG7wsRbyayI3fFWT6lfcYHpgtTJW4cbzUI=;
+        b=FSYI+7zl/iwx1YGJy6/8Mt+FzWsyY6oktANJG8Tz6x/EJjH+I9rzz5kqziC4+4PM8m
+         iDehYU2m6T13zpiWUWHEjBiO4bETe41OM2LvElyIPplthSk3+vhnpW7QvQ3lVFSWILG+
+         mMcgqgiTiQQgAMPyCaFaY3S0iTFo+mf8dl7CPtl8CMSbCW9jjorJFjHlQMz/WqJJT0ly
+         CawkBtahQVBmtL0UKLkcOyAsKTzz8iDtW789mwfw86WuFe/qtzj9588Hiuf1SCccHo6j
+         pVcDmtfxQZA/sufGD+ADMWjp7axEZR+EYVNsBwOovDfcmeHi8s0WOg3VdXTqEXSG9Q/O
+         s8Mg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794999453; x=1795604253; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:references:in-reply-to
+         :from:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=zEcloWoQSOSl7rz692vEiAQjXGZ++rtckC5eyqv8kLk=;
+        b=SCiX+gdagQMSb6XvZ8933xAebg6muvz2hl4ihZ1YmtXJlKP2Pjy75qs9nO1o8P49OY
+         GsKDyZmZAc0MA+10LRyLfBgP1P4LIFNboEbFmxGF0+wCArYLoyE81LzGZJ7LbrhnaKKC
+         hXCH9hiaqkl9mxkSTrP9504lLu4Yx2VNZ6b276/xQjPEAEdEhvh8Y7ndMn3sb48uFGEU
+         47euiz1wkzO1kfAm8PPjHbUjk+GmsY9Z+Y2r0GTqmdKxjtoKlLgcyVYcyTdFNIDbLipZ
+         TxkaYrS05NUaSCMgACItdzYnDrEq2XccfhHQ+bKG/s695Df6wOGGquvh1KS8fGu/Be7x
+         rnAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794999453; x=1795604253;
+        h=content-type:cc:to:subject:message-id:date:references:in-reply-to
+         :from:mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=zEcloWoQSOSl7rz692vEiAQjXGZ++rtckC5eyqv8kLk=;
+        b=l3zvPFCtBJM78WEpY9zeJon1zKHs4GxSfOxzzV2CvqDU6F3qTdgTuF6p7yrSAYnHs1
+         dWE7cOseeLD32ni7z1skUsB+XtNfsR4fohSYUE9RwWK6I8LAH44gvf+eYD880nkGYs5m
+         FWgojXyr5mdz72424DS91XbJjmhzZeEhOJ7QWJPUIokz2Y0jVzdWrbLRXUXovFIo+1CY
+         oT9c5G/i9QH8/w2XZBQTdl1rKZh7aOp/kWNjhsJpIilgxUzCB3lPf9F5VvQuaD4X9aFu
+         ke1OXuEdqZMqH/6hGL+sBnk4+6QWPaUgt3vXYxVpkK39Q6huG1tPIHdfSCWPTNYE8VZ0
+         8+Mw==
+X-Forwarded-Encrypted: i=1; AL+hErE5nvBX+73k2OrWGvkMwltJo5HdfEPOD2wTK3qvrV3Su/+mqVTryOo1/U8uooEnEIfn4s9K8kg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+RHyrTU50YhT79BflqBgIYyiY6GEbWvjngy6Is2cvuUWX5VOkE
+	nAAAv38yKPTAN+n2oSvo+M779dRRCYVNtD8akg02TwKqUhozyCZ//4hovQaaaE/Ib/Htj3evaQa
+	9DtsqI5j1sMvOOLUeg1CD0LNWbNSVd3I=
+X-Gm-Gg: AYBFou3Ln4v4n/JxcCsznqwWw0TTNSDTbM8IMyAIP6XpOu+B+Da0BhI21+80JNSrjSC
+	hUhxkkTKcLlGPTBhp8Y6lWA8SQp3X+s2nDmO3C1SodK71oMjPy8zOJb3CcP4KZpTe1h3XSKCXH4
+	tvGeJhc8zkm2WW8bXLFg1VmmaSHx8ZEcGwIYq/iAPsAvGEyt+4WrJ6lBjNpdqDLvgzAAP8TBwVQ
+	7DQhWgP7Bd8YLjEK8IDMsrOdy+BC22e2ndp1HgINMoKc0g6CLmZVjNbag4KLPqKW4+4iOa3A6jK
+	NXJ9YcmX1Z0O6lse/4ZDNGGiU4tBUN3UvfhihwOAFNS506UPWLbo044drBDux+rWpBjnJ2Ajpku
+	GdocEUCqI3efpIqZielqRTbDB8jBFhyld1887BA==
+X-Received: by 2002:a05:6808:1385:b0:4f4:f5b9:8c74 with SMTP id
+ 5614622812f47-57736f96840mr2811966b6e.0.1794999452991; Wed, 18 Nov 2026
+ 02:57:32 -0800 (PST)
+Received: from 77377267392 named unknown by gmailapi.google.com with HTTPREST;
+ Wed, 18 Nov 2026 05:57:32 -0500
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -126,44 +104,58 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+From: Kimberly Morris <gy770616@gmail.com>
+In-Reply-To: <179499832232.3291.8192759477709019638@kernel.org>
+References: <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
+ <179499832232.3291.8192759477709019638@kernel.org>
+Date: Wed, 18 Nov 2026 05:57:32 -0500
+X-Gm-Features: AclHuK8muBKj1nIv2D6vArXPRtf9o__0MzrQcXww4sWxtk4rC_y30JUhZOF10Ao
+Message-ID: <CAD-64Dee2PZpdOshS-TdjXRsGKxV-nw7ppvBzDtpePLJZnyHiA@mail.gmail.com>
+Subject: Re: [PATCH net 0/2] net: phy: fix timestamping lifetime after probe failure
+To: netdev-bot+sinfo@kernel.org
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, 
+	florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com, 
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	richardcochran@gmail.com, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org, w@1wt.eu
+Content-Type: text/plain; charset="UTF-8"
 
-On Mon, 16 Nov 2026 10:11:48 +0100
-Johan Hovold <johan@kernel.org> wrote:
+> - How the issue was discovered, e.g. hit in production, hit during
+>   development, syzbot report, manual code inspection, LLM or static
+>   analysis tool scan.
 
-> Note that __mdiobus_register() will essentially only return early
-> without taking the reference during development when the bus structure
-> has not been properly initialised. And currently, not even that would
-> lead to a use-after-free as the child PHY node holds a reference to the
-> parent MDIO node, the child is deregistered before the parent, and
-> software_node_unregister() returns early if the parent node has already
-> been freed.
+The issue was found during a targeted source audit of PHY hardware
+timestamping lifetime and probe-error paths. The source audit was assisted
+by an LLM; it was not a production report or a syzbot finding.
 
-[...]
+The resulting hypothesis was then validated against the current Linux
+source with a focused KUnit/KASAN reproducer. The test registers a real
+mii_bus, phy_device and phy_driver, follows phylib's probe failure and the
+driver core's devres cleanup, attaches the generic PHY driver, and calls
+skb_defer_rx_timestamp() with a non-PTP skb. KASAN reported the
+use-after-free before the fix, and the same test passed after the fix.
 
-> --- a/drivers/net/ethernet/tehuti/tn40_mdio.c
-> +++ b/drivers/net/ethernet/tehuti/tn40_mdio.c
-> @@ -157,7 +157,12 @@ void tn40_swnodes_cleanup(struct tn40_priv *priv)
->  {
->  	/* cleanup of swnodes is only needed for AQR105-based cards */
->  	if (priv->pdev->device == PCI_DEVICE_ID_TEHUTI_TN9510) {
-> -		fwnode_handle_put(dev_fwnode(&priv->mdio->dev));
-> +		/*
-> +		 * drop any reference taken by __mdiobus_register() before
-> +		 * device_remove_software_node() clears the fwnode pointer
-> +		 */
-> +		if (priv->mdio->state != MDIOBUS_ALLOCATED)
-> +			fwnode_handle_put(dev_fwnode(&priv->mdio->dev));
+The concrete BCM54210E/BCM54213PE publication-before-failure ordering and
+the missing PHC cleanup were also checked directly in the driver source.
+No physical hardware reproduction has been completed.
 
-mdio->state is internal to the MDIO core. I don't think drivers should
-look at it.
-
-Also, 2/2 removes this code. The put is unbalanced when mdio bus
-registration bails out before taking the reference, but it does no
-real harm, as you explain in the commit message.
-
-So I think we can drop this patch and fix the problem with 2/2 only.
-The explanation in this commit message could go into the 2/2 commit
-message.
+On Wed, 18 Nov 2026 10:38:42 +0000, netdev-bot+sinfo@kernel.org wrote:
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
