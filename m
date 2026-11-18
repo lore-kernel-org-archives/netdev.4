@@ -1,70 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=188.68.63.98
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795016915;
-	b=vbqc+skT5vwVxETshNxoSXmGxiWxXs2Ah9Csd0oSuKbBln2zDyns2bVsMj4WR1/vFbgB
-	 zl2ug/Qx3kNCx+Y9X7dgYuFrDpInXd62n2ZBd+e8KfmjL/NW5ifMRTxNQ9kOXw2mpAkxD
-	 avkkSvLn1IVC0HjLihxXxMGEc5+1HQSD0kB0tNBW794oox32Jl02hhb9LZr1lPelSQONU
-	 O4ufDWt98bq+BxD0I1+6+DmmmOTiCVrxNSZk5Su4GRgOIPQuLLN6B76sCo1L0WQV5HJpX
-	 b/Jtu0ejkiHHKoim5c8R5unhVt3ZwVlPJY99xVEJ/7giKkKxvALJ7gGT0WSeWPKuk+w==
+	t=1795017080;
+	b=cRARoG9EntFN6R2HXHKbwjxEYXFBMLzCMluPrQB/E2QqQjGrtM1DpE/OQRu83ok98dTA
+	 Rarv7BjM/Lef4u4a7Tas7R8XHreJVO1/xYZw1I6z5T60VDSYWtT72SkQOUZldNOwG9fWv
+	 tSJks4imGUtLH7sCw332QZHl0zGEs6HtYnqgDVi5/1TdGNm3AA8IqEsw4klKQgMp5QSni
+	 GCrqpT2FlMKe+kFhr9xXiybVlX8XOEyECBJRWSxkLGnxxUA8QCKwzM/19sVUXo2qfZc03
+	 oz77BD4r4dv8viSnuRL113CB6HpiahxHv1TmHk+j8H6DQ4ey6XhDY9czwvG7RB3D2iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795016915;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received-SPF:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-PPP-Message-ID:X-Rspamd-Server:
-	 X-Rspamd-Queue-Id:X-NC-CID;
-	bh=m5LgUOKMWb8vJkuqw01Y2mNnINBmVuzndAfYu1bG4UA=;
-	b=asmyjfnfWFftu62N16CuYGuU9C4bJfmVMtCO+rOCmTmtR35CYGkyQNgmvGU4sdeXecoi
-	 nqBsTbgkFbmzTyBogfNPN5dq0iPBa0W+sKFySLJestpYr+OyPAPx1XLYkr7HJY0HeoCq4
-	 VJDjlGxXosDawHX4+FEZoOyWpRKcXjAa+ly2m1LvRFYRsuomsgGTNdfTGC2ND4/Y+cRcF
-	 hKgt3Pk9frUHCtdaMSDTodAxFqttmS0WO3/ETz6WN6KdR7sQ+eKW632bymNw63iG0AMNf
-	 Co3b8HtWLQX1HBPUtTWMSJe1tbk6vWOGUuUJTvrOAHhWfUtZkw6x5LnEJqn5aQZGWwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017080;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qf8B0pWSRob2jQEYRVRkMJrJy+KCpepLoEzVzLVC7JQ=;
+	b=QOSfveViYWNHvNbemtvLyDLJ3sMMr47LKMcTXdTnOInUXBSvL4yNhvxUGe176NhwM1vu
+	 3taZk69svCq8BWzlvTxQ23Du/5YGVYM7EIPDrX+/tE08fefiAP1Od6jEmRf+Cj0UDOMop
+	 3h/+l5QMFGoK344/mHmvGy6BbpTMUHC2AzGMxDLVUf9hLZgoHCTiNESbg5cxyPtUdwgmV
+	 UJIJrmJt3APUrpc0a18OELsysDLz8YF+qIbkIoXqDwwwMyZlUc/kZIJp9585/qQiu6TVD
+	 e3v+K1QtuKbPzktF/bkLimJs4tMVnT+l8EIxpD6YoltiH8g2tnS8QgtZeyXlfWWQWxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=leemhuis.info;
-	spf=pass smtp.mailfrom=leemhuis.info;
-	dkim=pass header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=TJTgKrwT;
-	arc=none smtp.remote-ip=188.68.63.98
-Received: from relay.yourmailgateway.de (relay.yourmailgateway.de [188.68.63.98])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AhFZoIz5;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C027E606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:48:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C027E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=leemhuis.info
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=leemhuis.info
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8F83606A332;
+	Wed, 18 Nov 2026 15:51:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=leemhuis.info header.i=@leemhuis.info header.a=rsa-sha256 header.s=key2 header.b=TJTgKrwT
-Received: from mors-relay-2501.netcup.net (localhost [127.0.0.1])
-	by mors-relay-2501.netcup.net (Postfix) with ESMTPS id 4jV5Wm5hjQz68M2;
-	Wed, 18 Nov 2026 16:44:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=leemhuis.info;
-	s=key2; t=1795016692;
-	bh=6W78CIV+VFHs/eRoRR7XLz3T4okJ2yxymasjkheTO4o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TJTgKrwTmHDnrCKNLZwJXAA7PH4jsGacSvD5L0+WSyOjEGueHJsJ2VVxnTedhrTOB
-	 uKd26MJw7EKzmAYcdDWH2LDttkYeDjfaAfvzvlABFVOlLgqF+M7UXStn06wC1AaHJH
-	 BDHPQDH4B6zc3tiP9Bnkqb0shgDp/ONhOEIBBdFJUn9FejayVpBtHgeLR7NUTuy52g
-	 sz4SVINanTaioqDoksgkw5ALudnpZYAHHn1k4kK4jNq8bvB10hm8OACYWCILEz2Cp3
-	 3/Pb+nScHhaOjvOW7AY/MjkwDXmKLYpmRpVNkXIuaYXm2LrmdnnspRch+4x64csT+z
-	 9F99N9JyORm6w==
-Received: from policy02-mors.netcup.net (unknown [46.38.225.35])
-	by mors-relay-2501.netcup.net (Postfix) with ESMTPS id 4jV5WB5dcqz51ct;
-	Wed, 18 Nov 2026 16:44:22 +0100 (CET)
-Received: from mxe9fb.netcup.net (unknown [10.243.12.53])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by policy02-mors.netcup.net (Postfix) with ESMTPS id 4jV5W94x4Qz8svk;
-	Wed, 18 Nov 2026 16:44:16 +0100 (CET)
-Received: from [IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f] (unknown [IPv6:2a02:8108:8984:1d00:a0cf:1912:4be:477f])
-	by mxe9fb.netcup.net (Postfix) with ESMTPSA id 7FC3D5FD6A;
-	Wed, 18 Nov 2026 16:44:06 +0100 (CET)
-Authentication-Results: mxe9fb;
-        spf=pass (sender IP is 2a02:8108:8984:1d00:a0cf:1912:4be:477f) smtp.mailfrom=regressions@leemhuis.info smtp.helo=[IPV6:2a02:8108:8984:1d00:a0cf:1912:4be:477f]
-Received-SPF: pass (mxe9fb: connection is authenticated)
-Message-ID: <cfdb01ab-ee1f-410a-912d-1b07f90b6e91@leemhuis.info>
-Date: Wed, 18 Nov 2026 16:44:04 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AhFZoIz5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8806E1F000C4;
+	Wed, 18 Nov 2026 15:51:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795017080;
+	bh=qf8B0pWSRob2jQEYRVRkMJrJy+KCpepLoEzVzLVC7JQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AhFZoIz5QPddGxQPSruoErjT8itmH040m+DxUw4Xf9wTElEkeOjtXi5Dz8iLlXf4l
+	 7QZC56tdiGTXLqUQjQM26gTHFMKk1S8CKYdoLT9aHwZowMADj8kh0ga1IwlEsoaHGM
+	 0UADq1Upe/15I96CG175mb9DwM3WKjZ8kcQCnFxtA+tJTN41+ICNOH+xKCFvK8P6En
+	 jSVCE/UjgX5Q3/K5plWFDB26K4I/979XXfMQQ5kfh99EvS1MnfNeUL4hNDuAr2tFJd
+	 +67kLMeYnEI14tgz1tVoyNdnjJht3qETjzczfA9NbUDFVGTdTYu11WcIh3qXkX+bpT
+	 nu2LyjcOLO50A==
+Date: Wed, 18 Nov 2026 15:51:13 +0000
+From: Conor Dooley <conor@kernel.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Xincheng Ji <jixincheng@ultrarisc.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Brian Masney <bmasney+clk@redhat.com>,
+	Jerome Brunet <jbrunet+clk@baylibre.com>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Linus Walleij <linusw@kernel.org>, Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	Rob Herring <robh@kernel.org>, linux-pci@vger.kernel.org,
+	linux-clk@vger.kernel.org, netdev@vger.kernel.org,
+	linux-gpio@vger.kernel.org, Fei Chen <chenfei@ultrarisc.com>,
+	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] MAINTAINERS: Update UltraRISC driver maintainers
+Message-ID: <20261118-unimpeded-swapping-6b1b3e5bebba@spud>
+References: <20261116-ultrarisc-maintainer-v1-1-f58706ae438c@ultrarisc.com>
+ <179501112283.639563.5233054429317576626.b4-review@b4>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,112 +75,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [REGRESSION] r8169: RTL8127A (XID 6c9) SFP+ link fails to come up
- in 7.4-rc3 (inband/10gbase-r)
-To: Frits Letteboer <frits@letteboer.com>, hkallweit1@gmail.com
-Cc: netdev@vger.kernel.org, regressions@lists.linux.dev, andrew@lunn.ch,
- rmk+kernel@armlinux.org.uk
-References: <9e803eea-2446-425a-93d3-2524890d9508@letteboer.com>
-From: Thorsten Leemhuis <regressions@leemhuis.info>
-Content-Language: de-DE, en-US
-In-Reply-To: <9e803eea-2446-425a-93d3-2524890d9508@letteboer.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-PPP-Message-ID: 
- <179501664687.2416742.10315534654183012741@mxe9fb.netcup.net>
-X-Rspamd-Server: rspamd-worker-8404
-X-Rspamd-Queue-Id: 7FC3D5FD6A
-X-NC-CID: UYn6CVIyMPUVvFAFYSkmsb8rzkqIKsi9LyHswDMF3P7GVWp4Rfo=
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="N/uanLs0bA0BfJcj"
+Content-Disposition: inline
+In-Reply-To: <179501112283.639563.5233054429317576626.b4-review@b4>
 
-On 11/18/26 16:18, Frits Letteboer wrote:
-> 
-> Between Linux 7.3 and 7.4-rc3, my Realtek RTL8127A (XID 6c9) SFP+ NIC
-> stopped establishing a link and generating interrupts under r8169.
-> 
-> Hardware details:
-> - NIC: Realtek RTL8127 10GbE Controller (rev 08), XID 6c9
-> - Transceiver: Intel FTLX8571D3BCV-IT (10GBASE-SR SFP+)
-> 
-> On Linux 7.3, r8169 attached the "Realtek SFP PHY Mode" driver and
-> brought up the 10Gbps link normally. On 7.4-rc3, r8169 configures
-> "inband/10gbase-r link mode" via phylink, after which "Link detected"
-> remains "no", no link state transitions are logged, and zero IRQs fire.
-> 
-> Tested workarounds on 7.4-rc3:
-> - pci=nomsix, iommu=pt, amd_iommu=off: no effect
-> - Realtek out-of-tree r8127 driver (11.017.02) on 7.4-rc3: works
->   properly and brings the 10G link up immediately.
-> 
-> --- dmesg on Linux 7.3 (working) ---
-> [    3.777598] r8169 0000:0a:00.0 eth1: RTL8127A, 8c:a6:82:71:89:12, XID
-> 6c9, IRQ 152
-> [    3.777601] r8169 0000:0a:00.0 eth1: jumbo features [frames: 16362
-> bytes, tx checksumming: ko]
-> [   13.540664] r8169 0000:0a:00.0 re0: renamed from eth1
-> [   34.179244] Realtek SFP PHY Mode r8169-0-a00:00: attached PHY driver
-> (mii_bus:phy_addr=r8169-0-a00:0, irq=MAC)
-> [   34.871337] r8169 0000:0a:00.0 re0: Link is Down
-> [   35.053740] r8169 0000:0a:00.0 re0: Link is Up - 10Gbps/Full - flow
-> control off
-> 
-> --- dmesg on Linux 7.4-rc3 (broken) ---
-> [    3.806559] r8169 0000:0a:00.0 eth1: RTL8127A, 8c:a6:82:71:89:12, XID
-> 6c9, IRQ 152 (32 total)
-> [    3.806562] r8169 0000:0a:00.0 eth1: jumbo features [frames: 16362
-> bytes, tx checksumming: ko]
-> [   14.285134] r8169 0000:0a:00.0 re0: renamed from eth1
-> [   34.926923] r8169 0000:0a:00.0 re0: configuring for inband/10gbase-r
-> link mode
-> [   40.505158] r8169 0000:0a:00.0: invalid VPD tag 0x00 (size 0) at
-> offset 0; assume missing optional EEPROM
+--N/uanLs0bA0BfJcj
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This is not my area of expertise, so the following might mislead you.
-Nevertheless FWIW:
+On Wed, Nov 18, 2026 at 03:12:02PM +0100, Jerome Brunet wrote:
+> > Jia Wang and Xincheng Zhang have left UltraRISC and are no longer
+> > maintaining its drivers. Jia's listed company email address is
+> > no longer available.
+> >=20
+> > Replace Jia Wang with Xincheng Ji and add Fei Chen as a co-maintainer
+> > for the DP1000 PCIe, clock, DWMAC and pinctrl drivers. Remove
+> > Xincheng Zhang from the PCIe maintainer entry.
+> >=20
+> > Having two maintainers provides continuity for maintenance and
+> > patch review when either maintainer is unavailable, as suggested
+> > by Conor Dooley during the UltraRISC maintenance handover.
+> >=20
+> > Link: https://lore.kernel.org/all/20261112-legend-outcast-c2226b5e02a1@=
+spud/
+> >=20
+> > Signed-off-by: Xincheng Ji <jixincheng@ultrarisc.com>
+> > ---
+> > Hi all,
+> >=20
+> > Jia Wang and Xincheng Zhang have left UltraRISC and no longer
+> > maintain these drivers. Jia's listed company email address is
+> > no longer available.
+>=20
+> Maintenance is not necessarily tied to an employer.
 
-That error msg recently showed up here, so I wonder if it might be related:
-https://lore.kernel.org/all/20260522114135.2104890-1-18255117159@163.com/
+True, but if the people don't care enough to update their emails they
+probably aren't that interested in staying involved...
 
-Ciao, Thorsten
+> It would be better if the people removed could Ack the change, and let
+> the community know they don't plan on being involved anymore.
+>=20
+> If they do not reply within a reasonable timeframe (a cycle maybe?) I gue=
+ss
+> you can remove them anyway.
+>=20
+> That does not prevent you from adding yourself in the meantime.
+>=20
+> I suppose this would go through a starfive/riscv tree ?
 
-> --- ethtool re0 on Linux 7.4-rc3 ---
-> Settings for re0:
->     Supported ports: [ MII ]
->     Supported link modes:   10000baseT/Full
->                             10000baseKX4/Full
->                             10000baseKR/Full
->                             10000baseR_FEC
->                             10000baseCR/Full
->                             10000baseSR/Full
->                             10000baseLR/Full
->                             10000baseLRM/Full
->                             10000baseER/Full
->     Supported pause frame use: No
->     Supports auto-negotiation: Yes
->     Supported FEC modes: Not reported
->     Advertised link modes:  10000baseT/Full
->                             10000baseKX4/Full
->                             10000baseKR/Full
->                             10000baseR_FEC
->                             10000baseCR/Full
->                             10000baseSR/Full
->                             10000baseLR/Full
->                             10000baseLRM/Full
->                             10000baseER/Full
->     Advertised pause frame use: No
->     Advertised auto-negotiation: Yes
->     Advertised FEC modes: Not reported
->     Speed: 10000Mb/s
->     Duplex: Full
->     Auto-negotiation: on
->     Port: MII
->     PHYAD: 0
->     Transceiver: internal
->     Supports Wake-on: pumbg
->     Wake-on: d
->     Link detected: no
-> 
-> I am happy to test any diagnostic patches on this hardware.
-> 
-> Thanks!
+Sure, I can take it if the subsystem folk don't.
 
+>=20
+> For the clock:
+> Acked-by: Jerome Brunet <jbrunet@baylibre.com>
+>=20
+> --=20
+> Jerome
+>=20
+
+--N/uanLs0bA0BfJcj
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3JbQAKCRB4tDGHoIJi
+0qBxAQDnNYlzvCuzp3y54+YqWrqv9AdYL7pLR7wQG8oNc1UbhgD+MDe5Ob5AFsHw
+x1lndPqct4ZQjA7FNv/bu6vHGgf/xgE=
+=YLuJ
+-----END PGP SIGNATURE-----
+
+--N/uanLs0bA0BfJcj--
