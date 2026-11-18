@@ -1,85 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993211;
-	b=ezXtzrhGMaq9TjFKNeavkXJrzp43mQ7a8OHuwV5LQcHe9TzceCDyfFtNhiAgIVckrsLm
-	 b+lTYenBfDY9O1b2jWTQpRun/7vyLO9YRzsBbyn8MiuhRrff8XIVUc/NyfeDoUGRYDJOq
-	 nRoVIYSmZ9mwWc9ibRvX8rgnIY+po9EtL1CarzdXvAhXudHJ1SJrRJ6bR/rzcYwU+dSA2
-	 qhyJYYIAw6mGFJS1Uhhau4AJrpoPqNYSBfgjtObKeVuALyasBCxrul0iNmZWWJCZdeSnf
-	 iLAb4WQp948USJ5pz5jzpXRo35jADZJLx8UOyEk0ZBVWSlnk5Exq9P6wOD5WYYmcxAQ==
+	t=1794993331;
+	b=LWQNN4rEFZy0y6rE4vi4AB36FgB0aoxnNKV2JrApvUDdIUMta51av1P8U6tFByQDShwj
+	 bvcqgOZQKKAXuejmA7Pw6HlB0tYyKyg1GpW2O5vjBG5FSN2f2lZZR71TEyaDKhZ4uxuba
+	 RRPvsFotpShM+ycKgq6hc443lkqbKU4VvJ6Qt6172foHionR4IQhjTQQWxWJ9xMcY1SMF
+	 LmvyXBJFF0V0dmuLyozpKfPRkWAv+e3mqmecBKWJvESbvV4bB6yy3iebumXDGfLEdPcTp
+	 SzcEXQeezQKhYxqxbVBMX2BXeDjnbtck7Mc/8g/OvR6LCknj7Dbtlc2xiwHK02qoA2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993211;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=iRA6OYn1b5Izr138XDYtOyahljvRU0u9X9tXg2Gm0ZE=;
-	b=srv9vBkE++7oiOOkxMy18nfIDJfaDhcjBcKXrfhGe8d3dr+6lxrrwVOvEnprvgFAKWjs
-	 wVfHAts4rDNeNzECM4zdtISTkyFiJtWXoVuqzl9Ybkw7VYKB9bg2IURg+0dcDl7jgbdMe
-	 ll0DqxFgId6OaxV1+pRO3JPkze8bo4wMwIal04/M788+OeUg2ULwFUs/t70/XE/0ZH74D
-	 suWYyx/1RRXlZbFJgyWiJtyalYirMpFXtXyYViSVmuAomP6J7XjWiVi3TBL4ColI4Bi4g
-	 j8JwWwSaJoStfj5WX4g8DxgeP1B7t76s9P8hol2A3U81l8rwjxG1AtCYzbU0onIFKkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993331;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Spam-Status:X-Spam-Checker-Version;
+	bh=wSMeyCY8gUx+v9imX2JzRn4eiji0nD/JQaQuLlGld0I=;
+	b=ocR0L5LOWDPgSecGO89nuKaIaBcvCPqT544pWp9+tCoH8SzireodjqkXDPBA+kIyyaev
+	 Mb18z3R4VscIEJHBxwslh7nsky0NQWrtn3lXOQ/lF0LVIxsOIfd2eMY8U6U6Faym4OAYm
+	 tm5Kg9oHPMLFjuvYyH9faHW1M8TGebFYbTI1JzJoMQcqFXgbWVl258vRWfK2EojmlQI56
+	 ldcT9+gRsgfUxyJJlojvhA6aLlEMqK9H4hFWBegUsSLZ+6VCdeZXNfeer1NZfute0I4pb
+	 l37NNsQpHcFP9nOwmEVDr3LVgTfW5MDUtSBTbN1Egd9ALA3j2NszV3+ZCjiM/RAPtPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=eG+vY4zQ;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E95F6606A885;
-	Wed, 18 Nov 2026 09:13:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E95F6606A885
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=GvOKBmL6;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 97124606A320;
+	Wed, 18 Nov 2026 09:15:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 97124606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=eG+vY4zQ
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI9D2Tv81204127, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1794993182; bh=iRA6OYn1b5Izr138XDYtOyahljvRU0u9X9tXg2Gm0ZE=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=eG+vY4zQY0Ns7m7bKWIL/ruCQ9iKeMkkVlTwCLGhNzK4zh48EXtCIBoY9MLCs55GT
-	 mzTqkUtzhpfp1XgSdv2YLodI7Uczz4Wy/S4Ys9mCpf728hD+tSW/kk6tIqIZYhN2jA
-	 0xzRp+SAapanJ4FrdCD6oK+EWB4pGA7fdO0OatWJew+jFh6frpHPdUTZK8adAGa7fl
-	 kWJYv9iIYXs733aQC+Tio6f4V8T0+VBbhBxEbDOnsYs+dUeYJZtBlIktRObYIbi5fm
-	 Ge0EgOomjrQGEaJvthdDteqwpHhHUwKVxYBiva34e0b6UtxEVWn4dWpTWxwCFLToXF
-	 5PL8ozgGoKPGQ==
-Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI9D2Tv81204127
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 18 Nov 2026 17:13:02 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 17:13:01 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Wed, 18 Nov 2026 17:13:01 +0800
-From: Chih Kai Hsu <hsu.chih.kai@realtek.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
-CC: "davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org"
-	<kuba@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	nic_swsd <nic_swsd@realtek.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-usb@vger.kernel.org"
-	<linux-usb@vger.kernel.org>, "edumazet@google.com" <edumazet@google.com>,
-	"bjorn@mork.no" <bjorn@mork.no>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "mail@birger-koblitz.de"
-	<mail@birger-koblitz.de>
-Subject: RE: [PATCH net-next v8 11/11] r8152: enable UPS for RTL8157 and
- RTL8159 QFN68
-Thread-Topic: [PATCH net-next v8 11/11] r8152: enable UPS for RTL8157 and
- RTL8159 QFN68
-Thread-Index: AQHdcMMAKB5P1nkFe0Ss1PO9Tv4pErcszW2AgAbH9sA=
-Date: Wed, 18 Nov 2026 09:13:01 +0000
-Message-ID: <2a85897bcae042d0b7ce9fec713c8422@realtek.com>
-References: <20261110032416.16968-12-nic_swsd@realtek.com>
- <179464851954.2199510.2249014623372235889@kernel.org>
-In-Reply-To: <179464851954.2199510.2249014623372235889@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=GvOKBmL6
+Received: from kali.mshome.net (unknown [4.213.232.16])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 7471F20B7169;
+	Wed, 18 Nov 2026 01:15:23 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7471F20B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1794993328;
+	bh=wSMeyCY8gUx+v9imX2JzRn4eiji0nD/JQaQuLlGld0I=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GvOKBmL6Nk3ycPq9/4MdVIXvbgmDsqx1wE5Z2nA0X2RNTIGS7jHHkt5ioW0fXT/2r
+	 UTC5xqW4VL8QBuZLC81ywzSC5AMjCH3BkfLSckG4JNn7V02HJL+qxLtLMHQWqkDSuA
+	 Hu8E6yIsnN7nGHjtYavYEgyLQPUX0ZoDhSbW905I=
+From: Sahil Chandna <sahilchandna@linux.microsoft.com>
+To: haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	kotaranov@microsoft.com,
+	horms@kernel.org,
+	ernis@linux.microsoft.com,
+	gargaditya@linux.microsoft.com,
+	mawasthi@linux.microsoft.com,
+	kees+treewide@kernel.org,
+	schakrabarti@linux.microsoft.com,
+	leitao@debian.org,
+	linux-hyperv@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-rdma@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH net v4] net: mana: Avoid waiting on dead HWC after device reset
+Date: Wed, 18 Nov 2026 03:14:04 -0600
+Message-ID: <20261118091436.3985155-1-sahilchandna@linux.microsoft.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -89,169 +76,440 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-PiBUaGFuayB5b3UgZm9yIHlvdXIgY29udHJpYnV0aW9uISBTYXNoaWtvIEFJIHJldmlldyBmb3Vu
-ZCA0IHBvdGVudGlhbA0KPiBpc3N1ZShzKSB0byBjb25zaWRlci4NCj4gDQo+IENyaXRpY2FsOiAw
-IMK3IEhpZ2g6IDAgwrcgTWVkaXVtOiAzIMK3IExvdzogMQ0KPiANCj4gSWYgeW91IGJlbGlldmUg
-bm9uZSBvZiB0aGUgaXNzdWVzIGFyZSBsZWdpdGltYXRlLCBwbGVhc2UgcmVwbHkgdG8gZWFjaCBp
-c3N1ZSBvZg0KPiBNZWRpdW0gc2V2ZXJpdHkgb3IgaGlnaGVyIGFuZCBleHBsYWluIHdoeSB0aGUg
-QUkgaXMgd3JvbmcuDQo+IElmIGFueSBvZiB0aGVtIGFyZSBsZWdpdGltYXRlIGFuZCB5b3UgcGxh
-biB0byByZXNwaW4sIHBsZWFzZSBsZXQgcGF0Y2h3b3JrIGtub3cNCj4gYnkgaW5jbHVkaW5nICJw
-dy1ib3Q6IGNyIiBhcyBhIHNlcGFyYXRlIGxpbmUgYXQgdGhlIGVuZCBvZiB5b3VyIHJlcGx5IChv
-bmUgc3VjaA0KPiByZXBseSBwZXIgc2VyaWVzIGlzIGVub3VnaCkuDQo+IA0KPiAtIFtNZWRpdW1d
-IHI4MTU3X3Vwc19lbih0cCwgZmFsc2UpIGluIGRyaXZlcnMvbmV0L3VzYi9yODE1Mi5jIHJ1bnMg
-dGhlDQo+ICAgQkFDS1VQX1JFU1RST1JFIHdhaXQgb24gUlRMODE1NyAoUlRMX1ZFUl8xNikgYXMg
-d2VsbCBhcyBvbiBSVEw4MTU5Lg0KPiAtIFtNZWRpdW1dIElmIHRoZSBiYWNrdXAtcmVzdG9yZSB3
-YWl0IGluIHI4MTU3X3Vwc19lbih0cCwgZmFsc2UpIHRpbWVzDQo+ICAgb3V0IGR1cmluZyBydW50
-aW1lIHJlc3VtZSwgdGhlIGRldmljZSBpcyBtYXJrZWQgaW5hY2Nlc3NpYmxlIGFuZOKApg0KPiAt
-IFtNZWRpdW1dIEFmdGVyIGEgVVBTIHBvd2VyIGN1dCAoUENVVF9TVEFUVVMgc2V0KSwgcjgxNTdf
-dXBzX2VuKHRwLA0KPiAgIGZhbHNlKSB3YWl0cyBvbmx5IGZvciBCQUNLVVBfUkVTVFJPUkUuDQo+
-IC0gW0xvd10gcjgxNTdfdXBzX2VuKCkgY2xlYXJzIHRoZSBVU0IgTUFDIGZpcm13YXJlIHZlcnNp
-b24gYnkgd3JpdGluZyAwDQo+ICAgdG8gYSBoYXJkY29kZWQgcmVnaXN0ZXIsIFVTQl9GV19VU0Jf
-VkVSICgweGNmZDcpLCBhbmQgdGhlbiBjYWxsc+KApg0KPiANCj4gLS0NCj4gDQo+IHI4MTUyOiBl
-bmFibGUgVVBTIGZvciBSVEw4MTU3IGFuZCBSVEw4MTU5IFFGTjY4DQo+IA0KPiBUaGlzIGNvbW1p
-dCBhZGRzIHI4MTU3X3Vwc19lbigpIGFuZCBjYWxscyBpdCBmcm9tIHJ0bDgxNTdfcnVudGltZV9l
-bmFibGUoKQ0KPiBmb3IgUlRMX1ZFUl8xNiBhbmQgUlRMX1ZFUl8xN19RRk42OCwgc28gVVBTIGlz
-IHRvZ2dsZWQgb24gcnVudGltZQ0KPiBzdXNwZW5kIGFuZCByZXN1bWUsIGFuZCB1c2VzIGl0IGlu
-IHI4MTU3X2luaXQoKS4gSXQgYWxzbyBleHRlbmRzDQo+IHI4MTU2X3Vwc19mbGFncygpIHdpdGgg
-cGVyLXNwZWVkIEVFRSBmbGFncyBhbmQgNUcvMTBHIHNwZWVkIGVuY29kaW5ncyBmb3INCj4gdGhl
-c2UgY2hpcHMuIE9uIGEgcG93ZXIgY3V0LCB0aGUgZGlzYWJsZSBwYXRoIHdhaXRzIGZvciBCQUNL
-VVBfUkVTVFJPUkUsDQo+IGNsZWFycyBVU0JfRldfVVNCX1ZFUiwgYW5kIHJlYXBwbGllcyB0aGUg
-UEhZIGNvbmZpZyBhbmQgc3BlZWQuDQo+IA0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC91
-c2IvcjgxNTIuYyBiL2RyaXZlcnMvbmV0L3VzYi9yODE1Mi5jIGluZGV4DQo+ID4gNzAzZWM1NDgz
-Nzc4Yi4uOWM3MDMxZjkzOGJjMiAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL25ldC91c2Ivcjgx
-NTIuYw0KPiA+ICsrKyBiL2RyaXZlcnMvbmV0L3VzYi9yODE1Mi5jDQo+IA0KPiBbIC4uLiBdDQo+
-IA0KPiA+IEBAIC00NDk2LDYgKzQ1MzQsNTggQEAgc3RhdGljIHZvaWQgcjgxNTZfdXBzX2VuKHN0
-cnVjdCByODE1MiAqdHAsIGJvb2wNCj4gZW5hYmxlKQ0KPiA+ICAgICAgIH0NCj4gPiAgfQ0KPiA+
-DQo+ID4gK3N0YXRpYyB2b2lkIHI4MTU3X3Vwc19lbihzdHJ1Y3QgcjgxNTIgKnRwLCBib29sIGVu
-YWJsZSkgew0KPiANCj4gWyAuLi4gXQ0KPiANCj4gPiArICAgICB9IGVsc2Ugew0KPiA+ICsgICAg
-ICAgICAgICAgb2NwX2J5dGVfY2xyX2JpdHModHAsIE1DVV9UWVBFX1VTQiwgVVNCX1BPV0VSX0NV
-VCwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFVQU19FTiB8IFVTUF9QUkVX
-QUtFKTsNCj4gPiArDQo+ID4gKyAgICAgICAgICAgICBvY3BfYnl0ZV9jbHJfYml0cyh0cCwgTUNV
-X1RZUEVfVVNCLCBVU0JfTUlTQ18yLA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgVVBTX0ZPUkNFX1BXUl9ET1dOKTsNCj4gPiArDQo+ID4gKyAgICAgICAgICAgICBvY3BfZGF0
-YSA9IG9jcF9yZWFkX3dvcmQodHAsIE1DVV9UWVBFX1VTQiwNCj4gVVNCX01JU0NfMCk7DQo+ID4g
-KyAgICAgICAgICAgICBpZiAodGVzdF9iaXQoUlRMODE1Ml9JTkFDQ0VTU0lCTEUsICZ0cC0+Zmxh
-Z3MpKQ0KPiA+ICsgICAgICAgICAgICAgICAgICAgICByZXR1cm47DQo+ID4gKw0KPiA+ICsgICAg
-ICAgICAgICAgaWYgKG9jcF9kYXRhICYgUENVVF9TVEFUVVMpIHsNCj4gPiArICAgICAgICAgICAg
-ICAgICAgICAgcmV0ID0gcmVhZF9wb2xsX3RpbWVvdXQob2NwX3JlYWRfd29yZCwgb2NwX2RhdGEs
-DQo+ID4gKw0KPiB0ZXN0X2JpdChSVEw4MTUyX0lOQUNDRVNTSUJMRSwNCj4gPiArICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgJnRwLT5mbGFncykN
-Cj4gfHwNCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-KG9jcF9kYXRhICYNCj4gQkFDS1VQX1JFU1RST1JFKSwNCj4gPiArICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgMjAwLCAyMDAwMCwgZmFsc2UsIHRwLA0KPiA+ICsg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBNQ1VfVFlQRV9VU0Is
-DQo+ID4gKyBVU0JfR1BIWV9DVFJMKTsNCj4gDQo+IFtTZXZlcml0eTogTWVkaXVtXQ0KPiBTaG91
-bGQgdGhpcyBCQUNLVVBfUkVTVFJPUkUgd2FpdCBiZSBsaW1pdGVkIHRvIFJUTF9WRVJfMTdfUUZO
-Njg/DQo+IA0KPiBydGw4MTU3X3J1bnRpbWVfZW5hYmxlKCkgY2FsbHMgcjgxNTdfdXBzX2VuKHRw
-LCBmYWxzZSkgZm9yIGJvdGgNCj4gUlRMX1ZFUl8xNiBhbmQgUlRMX1ZFUl8xN19RRk42OC4gTm90
-aGluZyBoZXJlIGNoZWNrcyB0aGUgdmVyc2lvbiBiZWZvcmUNCj4gcG9sbGluZyBVU0JfR1BIWV9D
-VFJMLg0KPiANCj4gRXZlcnl3aGVyZSBlbHNlIHRoaXMgd2FpdCBpcyB0cmVhdGVkIGFzIFJUTDgx
-NTkgb25seS4gcjgxNTdfaW5pdCgpIGRvZXMgaXQgb25seQ0KPiBmb3IgdGhlIFZFUl8xNyBwYXJ0
-czoNCj4gDQo+IGRyaXZlcnMvbmV0L3VzYi9yODE1Mi5jOnI4MTU3X2luaXQoKSB7DQo+ICAgICAu
-Li4NCj4gICAgICAgICBzd2l0Y2ggKHRwLT52ZXJzaW9uKSB7DQo+ICAgICAgICAgY2FzZSBSVExf
-VkVSXzE3X1FGTjY4Og0KPiAgICAgICAgIGNhc2UgUlRMX1ZFUl8xN19RRk4xMDA6DQo+ICAgICAg
-ICAgICAgICAgICBpZiAocjgxNTlfd2FpdF9iYWNrdXBfcmVzdG9yZSh0cCkpIHsNCj4gICAgIC4u
-Lg0KPiB9DQo+IA0KPiBUaGUgdTJwaHkvdTNwaHkgYmFja3VwIHJlc3RvcmUgcGF0Y2ggZW5hYmxl
-cyAoMHhiOTljIEJJVCgwKSwgMHhiOWEyKSBhcmUNCj4gYWxzbyBzZXQgb25seSBmb3IgVkVSXzE3
-LiBUaGUgZWFybGllciByODE1Nl9pbml0KCkgZ2F0ZWQgdGhpcyB3YWl0IG9uDQo+IHRwLT52ZXJz
-aW9uID09IFJUTF9WRVJfMTcuIFRoZSAic3BsaXQgcjgxNTZfaW5pdCBieSBnZW5lcmF0aW9uIiBj
-b21taXQNCj4gdHAtPmluDQo+IHRoaXMgc2VyaWVzIGNhbGxzIGl0ICJ0aGUgUlRMODE1OS1vbmx5
-IGJhY2t1cC1yZXN0b3JlIHdhaXQiLg0KPiANCj4gVGhlIGNvbW1pdCBtZXNzYWdlIHNheXMgdGhl
-IHRpbWVvdXQgaXMgaGFuZGxlZCAiYXMgcjgxNTdfaW5pdCgpIGRvZXMgZm9yIHRoZQ0KPiBzYW1l
-IHdhaXQiLiBIb3dldmVyLCByODE1N19pbml0KCkgbmV2ZXIgcnVucyB0aGlzIHdhaXQgb24gUlRM
-X1ZFUl8xNi4NCj4gDQo+IFdoYXQgaGFwcGVucyBpZiBSVEw4MTU3IGRvZXNuJ3QgYXNzZXJ0IEJB
-Q0tVUF9SRVNUUk9SRSBhZnRlciBhIFVQUyBwb3dlcg0KPiBjdXQ/IFdvdWxkbid0IGV2ZXJ5IHJ1
-bnRpbWUgcmVzdW1lIGFmdGVyIGEgcG93ZXIgY3V0IHRpbWUgb3V0IGhlcmUgYW5kIGxlYXZlDQo+
-IHRoZSBOSUMgaW5hY2Nlc3NpYmxlIHVudGlsIHJlcGx1Zz8NCj4gDQo+IENvdWxkIHRoaXMgYmUg
-Z2F0ZWQgb24gUlRMX1ZFUl8xN19RRk42OD8gQW5vdGhlciBvcHRpb24gaXMgdG8gY2FsbA0KPiBy
-ODE1OV93YWl0X2JhY2t1cF9yZXN0b3JlKCkgdW5kZXIgdGhlIHNhbWUgdmVyc2lvbiBjaGVjayB0
-aGF0IHI4MTU3X2luaXQoKQ0KPiB1c2VzLg0KDQpObywgcG9sbGluZyB0aGUgQkFDS1VQX1JFU1RP
-UkUgYml0IGlzIGludGVuZGVkIGZvciBSVEw4MTU3IHdoZW4gZXhpdGluZyBVUFMuDQoNCj4gDQo+
-ID4gKyAgICAgICAgICAgICAgICAgICAgIGlmICh0ZXN0X2JpdChSVEw4MTUyX0lOQUNDRVNTSUJM
-RSwgJnRwLT5mbGFncykpDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJu
-Ow0KPiA+ICsNCj4gPiArICAgICAgICAgICAgICAgICAgICAgaWYgKHJldCkgew0KPiA+ICsgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgIHJ0bF9zZXRfaW5hY2Nlc3NpYmxlKHRwKTsNCj4gPiAr
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXZfZXJyKCZ0cC0+aW50Zi0+ZGV2LA0KPiA+
-ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgImJhY2t1cC1yZXN0b3JlIHRp
-bWVkIG91dFxuIik7DQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgcmV0dXJuOw0K
-PiA+ICsgICAgICAgICAgICAgICAgICAgICB9DQo+IA0KPiBbU2V2ZXJpdHk6IE1lZGl1bV0NCj4g
-V2hhdCByZWNvdmVycyB0aGUgZGV2aWNlIGlmIHRoaXMgdGltZW91dCBoaXRzIGR1cmluZyBydW50
-aW1lIHJlc3VtZT8NCj4gDQo+IHI4MTU3X3Vwc19lbigpIGFuZCBydGw4MTU3X3J1bnRpbWVfZW5h
-YmxlKCkgYm90aCByZXR1cm4gdm9pZC4NCj4gcnRsODE1Ml9ydW50aW1lX3Jlc3VtZSgpIGNhcnJp
-ZXMgb24gYW5kIHJldHVybnMgMDoNCj4gDQo+IHJ0bDgxNTJfcmVzdW1lKCkNCj4gICBydGw4MTUy
-X3J1bnRpbWVfcmVzdW1lKCkNCj4gICAgIHRwLT5ydGxfb3BzLmF1dG9zdXNwZW5kX2VuKHRwLCBm
-YWxzZSkNCj4gICAgICAgcnRsODE1N19ydW50aW1lX2VuYWJsZSh0cCwgZmFsc2UpDQo+ICAgICAg
-ICAgcjgxNTdfdXBzX2VuKHRwLCBmYWxzZSkNCj4gICAgICAgICAgIHJ0bF9zZXRfaW5hY2Nlc3Np
-YmxlKHRwKQ0KPiAgICAgbmFwaV9lbmFibGUobmFwaSkNCj4gICAgIHVzYl9zdWJtaXRfdXJiKHRw
-LT5pbnRyX3VyYiwgR0ZQX05PSU8pDQo+ICAgICByZXR1cm4gMA0KPiANCj4gVGhlIGV4aXN0aW5n
-IHJlY292ZXJ5IGluIHJ0bDgxNTJfcmVzdW1lKCkgc2tpcHMgcnVudGltZSByZXN1bWU6DQo+IA0K
-PiAgICAgICAgIGlmICghcnVudGltZV9yZXN1bWUgJiYgdGVzdF9iaXQoUlRMODE1Ml9JTkFDQ0VT
-U0lCTEUsICZ0cC0+ZmxhZ3MpKQ0KPiAgICAgICAgICAgICAgICAgdXNiX3Jlc2V0X2RldmljZSh0
-cC0+dWRldik7DQo+IA0KPiBTbyB0aGUgUE0gY29yZSBzZWVzIGEgc3VjY2Vzc2Z1bCByZXN1bWUg
-YW5kIHRoZSBuZXRkZXYgc3RheXMgSUZGX1VQLiBFdmVyeQ0KPiBsYXRlciByZWdpc3RlciBhY2Nl
-c3MgaXMgc2hvcnQtY2lyY3VpdGVkIGJ5IFJUTDgxNTJfSU5BQ0NFU1NJQkxFLiBUaGlzIGxhc3Rz
-IHVudGlsDQo+IGEgcmVwbHVnIG9yIGFuIHVucmVsYXRlZCByZXNldCwgc3VjaCBhcyB0aGUgVFgg
-d2F0Y2hkb2cuDQo+IA0KPiBUaGUgY29tbWl0IG1lc3NhZ2UgYWNrbm93bGVkZ2VzIHRoaXMgYW5k
-IGxlYXZlcyByZWNvdmVyeSB0byBhIGZvbGxvdy11cA0KPiBzZXJpZXMuIFN0aWxsLCB0aGlzIHBh
-dGNoIGlzIHRoZSBvbmUgdGhhdCBhZGRzIHRoZSBydW50aW1lIHJlc3VtZSBmYWlsdXJlIHBhdGgu
-DQo+IENvdWxkIHRoZSByZWNvdmVyeSBsYW5kIHRvZ2V0aGVyIHdpdGggdGhpcyBjaGFuZ2UsIGZv
-ciBleGFtcGxlIGJ5IHF1ZXVpbmcgYQ0KPiByZXNldCBvciBwYXNzaW5nIHRoZSBlcnJvciBiYWNr
-Pw0KDQpUaGlzIG1hdGNoZXMgaG93IHRoZSBleGlzdGluZyB0aW1lb3V0IGluIHI4MTU3X2luaXQo
-KSBiZWhhdmVzLg0KDQpSZWNvdmVyeSBmcm9tIHRoZSB0aW1lb3V0IHJlcXVpcmVzIG1vcmUgdGhh
-biBqdXN0IHF1ZXVpbmcgYSByZXNldC4gVGhlIHJlc2V0IGhhcyB0bw0Kc3Vydml2ZSBhIHJlLWF1
-dG9zdXNwZW5kIGFuZCByZXJ1biBpbml0KCkgaW4gcnRsODE1Ml9wb3N0X3Jlc2V0KCksIGFuZCB0
-aGUgcnVudGltZQ0KcmVzdW1lIHBhdGggaGFzIHRvIHJlcG9ydCB0aGUgZmFpbHVyZS4gSSB3b3Vs
-ZCByYXRoZXIgZG8gdGhhdCBvbmNlIGZvciBhbGwgdGhlIHRpbWVvdXQNCnNpdGVzIGluIGl0cyBv
-d24gc2VyaWVzIHRoYW4gYWRkIGEgcGFydGlhbCB2ZXJzaW9uIGluIHRoaXMgcGF0Y2guDQoNCj4g
-DQo+ID4gKw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAvKiBjbGVhciBVU0IgZndfdmVyX3Jl
-ZyAqLw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICBvY3Bfd3JpdGVfYnl0ZSh0cCwgTUNVX1RZ
-UEVfVVNCLA0KPiBVU0JfRldfVVNCX1ZFUiwNCj4gPiArIDApOw0KPiANCj4gW1NldmVyaXR5OiBM
-b3ddDQo+IElzIFVTQl9GV19VU0JfVkVSIGd1YXJhbnRlZWQgdG8gbWF0Y2ggdGhlIGZ3X3Zlcl9y
-ZWcgaW4gdGhlIGxvYWRlZCBVU0INCj4gZmlybXdhcmUgYmxvY2s/DQo+IA0KPiBUaGUgcGF0aCBp
-cyByODE1N19od19waHlfY2ZnKCktPnJ0bDgxNTJfYXBwbHlfZmlybXdhcmUoKS0+DQo+IHJ0bDgx
-NTJfZndfbWFjX2FwcGx5KCkuIFRoYXQgZnVuY3Rpb24gZGVjaWRlcyB3aGV0aGVyIHRvIHNraXAg
-dGhlIHBhdGNoIHVzaW5nDQo+IHRoZSByZWdpc3RlciBuYW1lZCBpbiB0aGUgZmlybXdhcmUgYmxv
-Yiwgbm90IGEgZml4ZWQgYWRkcmVzczoNCj4gDQo+IGRyaXZlcnMvbmV0L3VzYi9yODE1Mi5jOnJ0
-bDgxNTJfZndfbWFjX2FwcGx5KCkgew0KPiAgICAgLi4uDQo+ICAgICAgICAgZndfdmVyX3JlZyA9
-IF9fbGUxNl90b19jcHUobWFjLT5md192ZXJfcmVnKTsNCj4gICAgICAgICBpZiAoZndfdmVyX3Jl
-ZyAmJiBvY3BfcmVhZF9ieXRlKHRwLCBNQ1VfVFlQRV9VU0IsIGZ3X3Zlcl9yZWcpID49DQo+IG1h
-Yy0+ZndfdmVyX2RhdGEpIHsNCj4gICAgICAgICAgICAgICAgIGRldl9kYmcoJnRwLT5pbnRmLT5k
-ZXYsICIlcyBmaXJtd2FyZSBoYXMgYmVlbiB0aGUNCj4gbmV3ZXN0XG4iLCB0eXBlID8gIlBMQSIg
-OiAiVVNCIik7DQo+ICAgICAgICAgICAgICAgICByZXR1cm47DQo+ICAgICAuLi4NCj4gfQ0KPiAN
-Cj4gU3VwcG9zZSB0aGUgRklSTVdBUkVfODE1N18xIG9yIEZJUk1XQVJFXzgxNTlfMSBVU0IgYmxv
-Y2sgbmFtZXMgYQ0KPiBmd192ZXJfcmVnIG90aGVyIHRoYW4gMHhjZmQ3LiBUaGUgVVNCIE1BQyBw
-YXRjaCBsb3N0IGluIHRoZSBwb3dlciBjdXQgd291bGQNCj4gdGhlbiBiZSBza2lwcGVkIGFzIGFs
-cmVhZHkgbmV3ZXN0LiBUaGlzIHdyaXRlIHdvdWxkIGFsc28gbGFuZCBvbiBhbiB1bnJlbGF0ZWQN
-Cj4gcmVnaXN0ZXIuDQo+IA0KPiBDb3VsZCB0aGlzIHVzZSB0aGUgZndfdmVyX3JlZyBwYXJzZWQg
-ZnJvbSB0aGUgbG9hZGVkIGZpcm13YXJlIGluc3RlYWQgb2YgYQ0KPiBoYXJkY29kZWQgYWRkcmVz
-cz8NCj4gDQo+ID4gKw0KPiA+ICsgICAgICAgICAgICAgICAgICAgICB0cC0+cnRsX29wcy5od19w
-aHlfY2ZnKHRwKTsNCj4gPiArDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgIHJ0bDgxNTJfc2V0
-X3NwZWVkKHRwLCB0cC0+YXV0b25lZywgdHAtPnNwZWVkLA0KPiA+ICsgICAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICB0cC0+ZHVwbGV4LCB0cC0+YWR2ZXJ0aXNpbmcpOw0KPiAN
-Cj4gW1NldmVyaXR5OiBNZWRpdW1dDQo+IERvZXMgdGhpcyBwb3dlciBjdXQgcmVjb3ZlcnkgbmVl
-ZCBhIHdhaXRfYXV0b2xvYWRfZG9uZSgpIGJlZm9yZQ0KPiBod19waHlfY2ZnKCk/DQoNCk5vLCBS
-VEw4MTU3IGFuZCBSVEw4MTU5IHNob3VsZG4ndCB3YWl0IGZvciB0aGUgYXV0b2xvYWQgdG8gZmlu
-aXNoLg0KDQo+IA0KPiBUaGUgb3RoZXIgVVBTIGV4aXQgcGF0aHMgd2FpdCBmb3IgYXV0b2xvYWQg
-YXMgc29vbiBhcyB0aGV5IHNlZSBQQ1VUX1NUQVRVUy4NCj4gRm9yIGV4YW1wbGUsIHI4MTUzYl91
-cHNfZW4oKSBkb2VzIHRoaXMsIGFuZCByODE1M2NfdXBzX2VuKCkgZG9lcyB0aGUgc2FtZToNCj4g
-DQo+ICAgICAgICAgaWYgKG9jcF9yZWFkX3dvcmQodHAsIE1DVV9UWVBFX1VTQiwgVVNCX01JU0Nf
-MCkgJiBQQ1VUX1NUQVRVUykNCj4gew0KPiAgICAgICAgICAgICAgICAgaWYgKHdhaXRfYXV0b2xv
-YWRfZG9uZSh0cCkpDQo+ICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybjsNCj4gDQo+IHI4
-MTU3X2luaXQoKSwgZm9yIHRoZSBzYW1lIGNoaXAgZmFtaWx5LCBydW5zIHI4MTU2Yl93YWl0X2xv
-YWRpbmdfZmxhc2goKSBhbmQNCj4gd2FpdF9hdXRvbG9hZF9kb25lKCkgYmVmb3JlIHRoZSBiYWNr
-dXAgcmVzdG9yZSB3YWl0IGFuZCBQSFkgc2V0dXAuDQo+IA0KPiByODE1Nl91cHNfZW4odHAsIGZh
-bHNlKSwgd2hpY2ggdGhpcyBmdW5jdGlvbiBtaXJyb3JzLCBhbHNvIGhhcyBubyBhdXRvbG9hZCB3
-YWl0Lg0KPiBCdXQgcjgxNTZfdXBzX2VuKHRwLCB0cnVlKSBpcyBuZXZlciBjYWxsZWQsIGFuZCBy
-ODE1Nl9pbml0KCkgY2xlYXJzDQo+IFBDVVRfU1RBVFVTIGZpcnN0LiBUaGF0IHBhdGggaGFzIG5l
-dmVyIHJ1biBhZnRlciBhIHJlYWwgcG93ZXIgY3V0Lg0KPiANCj4gcjgxNTdfaHdfcGh5X2NmZygp
-IHdhaXRzIG9ubHkgZm9yIEdQSFlfUEFUQ0hfRE9ORSwgYW5kIG9ubHkgd2hlbg0KPiBHUEhZX0ZM
-QVNIIGlzIHNldCBhbmQgQllQQVNTX0ZMQVNIIGlzIGNsZWFyLg0KPiANCj4gSWYgYXV0b2xvYWQg
-aXMgc3RpbGwgcnVubmluZyBhZnRlciB0aGUgcG93ZXIgY3V0LCBjb3VsZCB0aGUgZmlybXdhcmUg
-YW5kIFBIWQ0KPiB3cml0ZXMgZnJvbSBod19waHlfY2ZnKCkgYW5kIHJ0bDgxNTJfc2V0X3NwZWVk
-KCkgcmFjZSB0aGUgaGFyZHdhcmUgcmVsb2FkPw0KPiBUaGV5IG1pZ2h0IHRoZW4gYmUgb3Zlcndy
-aXR0ZW4gb3Igb25seSBwYXJ0bHkgYXBwbGllZC4NCj4gDQo+ID4gKyAgICAgICAgICAgICB9DQo+
-ID4gKyAgICAgfQ0KPiA+ICt9DQo+IA0KPiBbIC4uLiBdDQo+IA0KPiAtLQ0KPiBTYXNoaWtvIEFJ
-IHJldmlldyDCtw0KPiBodHRwczovL25ldGRldi1haS5ib3RzLmxpbnV4LmRldi9zYXNoaWtvLyMv
-cGF0Y2hzZXQvMjAyNjExMTAwMzI0MTYuMTY5NjgtMQ0KPiAtbmljX3N3c2QlNDByZWFsdGVrLmNv
-bQ0KDQpCZXN0IFJlZ2FyZHMsDQpDaGloLUthaQ0K
+After device reset is issued due to TX drain timeout in
+mana_dealloc_queues(), hardware channel (HWC) state is non-functional.
+However, the driver continues to issue HWC commands (mana_disable_vport_rx,
+mana_fence_rqs, mana_destroy_wq_obj) which will each wait for a
+completion that never arrives.
+
+The first such command (MANA_CONFIG_VPORT_RX) blocks for the full
+hwc_timeout (60s as set by the firmware on the tested system), after
+which the timeout is reduced to 1 ms for subsequent commands. This
+causes the calling thread to hold the RTNL lock for over 180 seconds
+(120s TX drain + 60s HWC timeout), triggering hung task warnings and
+blocking all other networking operations on the system.
+
+Fix this by:
+1. Replacing the sleep-based TX drain with a CQE polling approach:
+   disable NAPI per queue and poll its CQ synchronously, with up to 3
+   more polls 100 ms apart to collect late completions. Reset the
+   device only if sends remain unacknowledged after that, then free
+   uncompleted SKBs. The device is reset at most once per call, and
+   not at all if an earlier reset already marked the HWC dead. Once a
+   queue is found stuck or the HWC is dead, the remaining queues are
+   polled only once. This replaces the 120s drain timeout with at most
+   300 ms of sleep per queue. If queue is still stuck,
+   mana_gd_dev_reset() waits for device to return. The 300 ms budget
+   is not based on a hardware limit but in testing under load, the
+   completions still outstanding on a queue had all arrived by its
+   second poll.
+2. Setting the hwc_dead flag after a successful device reset. If the
+   reset fails, the device may not have been reset and may still access
+   memory, so teardown commands are still posted.
+3. Checking the hwc_dead flag in mana_hwc_send_request() before taking
+   an HWC message slot and again before posting the WQE, and returning
+   -ETIMEDOUT immediately without submitting commands to hardware that
+   cannot respond. A request that was already posted, or that passed
+   these checks just before hwc_dead was set (for example from the
+   gf_stats worker or mana_ib, which do not hold RTNL), still waits for
+   its own timeout, as before this patch.
+4. Skipping mana_fence_rqs() and the SHM channel teardown handshake
+   once hwc_dead is set.
+
+Fixes: a7dfeda6fdec ("net: mana: Fix MANA VF unload when hardware is unresponsive")
+Cc: stable@vger.kernel.org
+Co-developed-by: Dipayaan Roy <dipayanroy@linux.microsoft.com>
+Signed-off-by: Dipayaan Roy <dipayanroy@linux.microsoft.com>
+Signed-off-by: Sahil Chandna <sahilchandna@linux.microsoft.com>
+---
+Changes in v4:
+- Keep netif_napi_del_locked() in mana_destroy_txq() after the WQ
+  object is destroyed; track the dealloc-time disable with
+  txq->napi_disabled.
+- Drop lowering hwc_timeout on reset failure.
+- Fix commit message based on review comments.
+Link to v3: https://lore.kernel.org/all/20261112085226.878780-1-sahilchandna@linux.microsoft.com/
+
+Changes in v3:
+- Resolve sashiko comments, poll last 100 ms before device reset.
+- Stop the drain retries once the HWC is dead.
+- Fail fast in mana_hwc_send_request() only when hwc_dead is set, not
+  when hwc_timeout is 0, so requests made after mana_serv_reset() are
+  still posted as before this patch.
+- When the device reset fails, do not set hwc_dead, so teardown
+  commands are still posted, but lower hwc_timeout to 1 ms so they do
+  not each wait the full timeout
+- Read hwc_timeout once with READ_ONCE() and lower it with cmpxchg(),
+  so a concurrent 0 from mana_serv_reset() is not overwritten.
+- Use READ_ONCE() for all hwc_dead reads.
+Link to v2: https://lore.kernel.org/all/20261030125009.3758592-1-sahilchandna@linux.microsoft.com/
+
+Changes in v2:
+- Add bounded wait for late TX completions before deciding that a
+  queue is stuck, poll the CQ up to 3 times, 100 ms apart.
+- check hwc_timeout and hwc_dead before taking an HWC message slot,
+  not only before posting the WQE.
+Link to v1: https://lore.kernel.org/all/20261025072838.1991785-1-sahilchandna@linux.microsoft.com/
+
+ .../net/ethernet/microsoft/mana/gdma_main.c   |   6 +-
+ .../net/ethernet/microsoft/mana/gdma_pci.c    |   2 +-
+ .../net/ethernet/microsoft/mana/hw_channel.c  |  40 ++++--
+ drivers/net/ethernet/microsoft/mana/mana_en.c | 118 +++++++++++++-----
+ include/net/mana/hw_channel.h                 |   1 +
+ include/net/mana/mana.h                       |   3 +
+ 6 files changed, 130 insertions(+), 40 deletions(-)
+
+diff --git a/drivers/net/ethernet/microsoft/mana/gdma_main.c b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+index d6ae89c2ccdd..db330426320e 100644
+--- a/drivers/net/ethernet/microsoft/mana/gdma_main.c
++++ b/drivers/net/ethernet/microsoft/mana/gdma_main.c
+@@ -141,7 +141,7 @@ int mana_gd_init_registers(struct gdma_context *gc)
+ 		return mana_gd_init_vf_regs(gc);
+ }
+
+-/* Suppress logging when we set timeout to zero */
++/* Suppress logging when we set timeout to zero or hwc is dead */
+ bool mana_need_log(struct gdma_context *gc, int err)
+ {
+ 	struct hw_channel_context *hwc;
+@@ -153,7 +153,9 @@ bool mana_need_log(struct gdma_context *gc, int err)
+ 		return true;
+
+ 	hwc = gc->hwc.driver_data;
+-	if (hwc && hwc->hwc_timeout == 0)
++	if (hwc &&
++	    (READ_ONCE(hwc->hwc_timeout) == 0 ||
++	     READ_ONCE(hwc->hwc_dead)))
+ 		return false;
+
+ 	return true;
+diff --git a/drivers/net/ethernet/microsoft/mana/gdma_pci.c b/drivers/net/ethernet/microsoft/mana/gdma_pci.c
+index 208dadbcf977..f9d75b5d9e43 100644
+--- a/drivers/net/ethernet/microsoft/mana/gdma_pci.c
++++ b/drivers/net/ethernet/microsoft/mana/gdma_pci.c
+@@ -102,7 +102,7 @@ static void mana_serv_reset(struct pci_dev *pdev)
+ 	}
+
+ 	/* HWC is not responding in this case, so don't wait */
+-	hwc->hwc_timeout = 0;
++	WRITE_ONCE(hwc->hwc_timeout, 0);
+
+ 	dev_info(&pdev->dev, "MANA reset cycle start\n");
+
+diff --git a/drivers/net/ethernet/microsoft/mana/hw_channel.c b/drivers/net/ethernet/microsoft/mana/hw_channel.c
+index fb9f38f65911..1671944684b8 100644
+--- a/drivers/net/ethernet/microsoft/mana/hw_channel.c
++++ b/drivers/net/ethernet/microsoft/mana/hw_channel.c
+@@ -192,7 +192,7 @@ static void mana_hwc_init_event_handler(void *ctx, struct gdma_queue *q_self,
+
+ 		switch (type) {
+ 		case HWC_DATA_CFG_HWC_TIMEOUT:
+-			hwc->hwc_timeout = val;
++			WRITE_ONCE(hwc->hwc_timeout, val);
+ 			break;
+
+ 		case HWC_DATA_HW_LINK_CONNECT:
+@@ -816,10 +816,16 @@ void mana_hwc_destroy_channel(struct gdma_context *gc)
+ 		return;
+
+ 	/* gc->max_num_cqs is set in mana_hwc_init_event_handler(). If it's
+-	 * non-zero, the HWC worked and we should tear down the HWC here.
++	 * non-zero, the HWC worked and we should tear down the HWC here,
++	 * unless device reset has already marked it dead: the device then
++	 * no longer holds the HWC state and the handshake would only spin.
+ 	 */
+ 	if (gc->max_num_cqs > 0) {
+-		mana_smc_teardown_hwc(&gc->shm_channel, false);
++		if (READ_ONCE(hwc->hwc_dead))
++			dev_warn(hwc->dev,
++				 "HWC unavailable, skip SHM teardown handshake\n");
++		else
++			mana_smc_teardown_hwc(&gc->shm_channel, false);
+ 		WRITE_ONCE(gc->max_num_cqs, 0);
+ 	}
+
+@@ -867,9 +873,17 @@ int mana_hwc_send_request(struct hw_channel_context *hwc, u32 req_len,
+ 	u32 dest_vrcq;
+ 	u32 dest_vrq;
+ 	u32 command;
++	u32 timeout;
+ 	u16 msg_id;
+ 	int err;
+
++	/* Fail fast before taking the HWC slot. After a device reset, requests
++	 * already holding slots will release them once their own timeout
++	 * expires.
++	 */
++	if (READ_ONCE(hwc->hwc_dead))
++		return -ETIMEDOUT;
++
+ 	mana_hwc_get_msg_index(hwc, &msg_id);
+
+ 	tx_wr = &txq->msg_buf->reqs[msg_id];
+@@ -902,21 +916,31 @@ int mana_hwc_send_request(struct hw_channel_context *hwc, u32 req_len,
+ 	dest_vrq = hwc->dest_vrq_id;
+ 	dest_vrcq = hwc->dest_vrcq_id;
+
++	/* If the HWC is unavailable after device reset, do not post the WQE:
++	 * the hardware cannot respond, so fail fast instead of waiting for
++	 * the full timeout.
++	 */
++	if (READ_ONCE(hwc->hwc_dead)) {
++		err = -ETIMEDOUT;
++		goto out;
++	}
++
+ 	err = mana_hwc_post_tx_wqe(txq, tx_wr, dest_vrq, dest_vrcq, false);
+ 	if (err) {
+ 		dev_err(hwc->dev, "HWC: Failed to post send WQE: %d\n", err);
+ 		goto out;
+ 	}
+
++	timeout = READ_ONCE(hwc->hwc_timeout);
+ 	if (!wait_for_completion_timeout(&ctx->comp_event,
+-					 (msecs_to_jiffies(hwc->hwc_timeout)))) {
+-		if (hwc->hwc_timeout != 0)
++					 (msecs_to_jiffies(timeout)))) {
++		if (timeout)
+ 			dev_err(hwc->dev, "Command 0x%x timed out: %u ms\n",
+-				command, hwc->hwc_timeout);
++				command, timeout);
+
+ 		/* Reduce further waiting if HWC no response */
+-		if (hwc->hwc_timeout > 1)
+-			hwc->hwc_timeout = 1;
++		if (timeout > 1)
++			cmpxchg(&hwc->hwc_timeout, timeout, 1);
+
+ 		err = -ETIMEDOUT;
+ 		goto out;
+diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
+index 7e9223143fc7..5e4379107b45 100644
+--- a/drivers/net/ethernet/microsoft/mana/mana_en.c
++++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
+@@ -2086,7 +2086,9 @@ static void mana_poll_tx_cq(struct mana_cq *cq)
+ 	if (atomic_sub_return(pkt_transmitted, &txq->pending_sends) < 0)
+ 		WARN_ON_ONCE(1);
+
+-	/* Feed DIM with the completion rate observed here, in NAPI context. */
++	/* Feed DIM with the completion rate observed here, in NAPI context
++	 * or in the TX drain of mana_dealloc_queues() after NAPI is disabled.
++	 */
+ 	cq->tx_dim_pkts += pkt_transmitted;
+ 	cq->tx_dim_bytes += tx_bytes;
+
+@@ -2611,6 +2613,8 @@ static void mana_update_tx_dim(struct mana_cq *cq)
+ 	/* cq->tx_dim_pkts/bytes are accumulated in mana_poll_tx_cq(), in the
+ 	 * same NAPI context as this read, so they track the hardware
+ 	 * completion rate and need no u64_stats_sync protection.
++	 * The TX drain in mana_dealloc_queues() also adds to them,
++	 * but only after NAPI is disabled, so not concurrently with this read.
+ 	 */
+ 	dim_update_sample(READ_ONCE(cq->dim_event_ctr), cq->tx_dim_pkts,
+ 			  cq->tx_dim_bytes, &dim_sample);
+@@ -2717,16 +2721,17 @@ static void mana_destroy_txq(struct mana_port_context *apc)
+ 		apc->tx_qp[i]->mana_tx_debugfs = NULL;
+
+ 		napi = &apc->tx_qp[i]->tx_cq.napi;
+-		if (apc->tx_qp[i]->txq.napi_initialized) {
++		if (apc->tx_qp[i]->txq.napi_initialized &&
++		    !apc->tx_qp[i]->txq.napi_disabled) {
+ 			napi_synchronize(napi);
+ 			napi_disable_locked(napi);
+ 			cancel_work_sync(&apc->tx_qp[i]->tx_cq.dim.work);
+ 		}
+
+-		/* Forget the SKBs freed without being completed after a drain
+-		 * timeout, now that NAPI can't complete any. Doing it here also
+-		 * covers the queues that a lower channel count won't recreate,
+-		 * which could otherwise stay stopped.
++		/* Forget the SKBs freed in mana_dealloc_queues() without
++		 * completion, now that NAPI can't complete any. Doing it
++		 * here also covers the queues that a lower channel count
++		 * won't recreate, which could otherwise stay stopped.
+ 		 */
+ 		netdev_tx_reset_queue(apc->tx_qp[i]->txq.net_txq);
+
+@@ -2743,6 +2748,7 @@ static void mana_destroy_txq(struct mana_port_context *apc)
+ 			mana_gd_detach_cq(gc, apc->tx_qp[i]->tx_cq.gdma_cq);
+ 			netif_napi_del_locked(napi);
+ 			apc->tx_qp[i]->txq.napi_initialized = false;
++			apc->tx_qp[i]->txq.napi_disabled = false;
+ 		}
+
+ 		mana_deinit_cq(apc, &apc->tx_qp[i]->tx_cq);
+@@ -3774,19 +3780,24 @@ int mana_attach(struct net_device *ndev)
+ 	return 0;
+ }
+
++#define MANA_TX_DRAIN_RETRIES	3
++
+ static int mana_dealloc_queues(struct net_device *ndev)
+ {
+ 	struct mana_port_context *apc = netdev_priv(ndev);
+-	unsigned long timeout = jiffies + 120 * HZ;
+ 	struct gdma_dev *gd = apc->ac->gdma_dev;
++	struct hw_channel_context *hwc;
++	int flr_pending, i, err, retry;
++	bool trigger_flr = false;
+ 	struct mana_txq *txq;
+ 	struct sk_buff *skb;
+-	int i, err;
+-	u32 tsleep;
++	u32 flr_txq_id = 0;
+
+ 	if (apc->port_is_up)
+ 		return -EINVAL;
+
++	hwc = gd->gdma_context->hwc.driver_data;
++
+ 	if (apc->rxqs)
+ 		mana_chn_setxdp(apc, NULL);
+
+@@ -3799,31 +3810,79 @@ static int mana_dealloc_queues(struct net_device *ndev)
+ 	 * to false, but it doesn't matter since mana_start_xmit() drops any
+ 	 * new packets due to apc->port_is_up being false.
+ 	 *
+-	 * Drain all the in-flight TX packets.
+-	 * A timeout of 120 seconds for all the queues is used.
+-	 * This will break the while loop when h/w is not responding.
+-	 * This value of 120 has been decided here considering max
+-	 * number of queues.
++	 * Drain the in-flight TX completions for each queue. TX is already
++	 * stopped, so pending_sends can no longer grow. For each queue,
++	 * disable NAPI so it cannot run at the same time as this drain,
++	 * then poll its CQ for up to 300 ms. If sends are still missing,
++	 * the hardware is not responding: reset the device and mark the
++	 * HWC dead so that later HWC commands fail fast.
+ 	 */
+
+ 	if (apc->tx_qp) {
+ 		for (i = 0; i < apc->num_queues; i++) {
++			struct napi_struct *napi;
++			struct mana_cq *tx_cq;
++			int pending;
++
++			tx_cq = &apc->tx_qp[i]->tx_cq;
+ 			txq = &apc->tx_qp[i]->txq;
+-			tsleep = 1000;
+-			while (atomic_read(&txq->pending_sends) > 0 &&
+-			       time_before(jiffies, timeout)) {
+-				usleep_range(tsleep, tsleep + 1000);
+-				tsleep <<= 1;
+-			}
+-			if (atomic_read(&txq->pending_sends)) {
+-				err = mana_gd_dev_reset(gd->gdma_context);
+-				if (err) {
+-					netdev_err(ndev, "device reset failed %d with %d pkts pending in txq %u\n",
+-						   err,
+-					    atomic_read(&txq->pending_sends),
+-					    txq->gdma_txq_id);
++			napi = &tx_cq->napi;
++
++			if (txq->napi_initialized) {
++				/* Stop the NAPI poll so it cannot run
++				 * concurrently with the synchronous drain.
++				 */
++				napi_synchronize(napi);
++				napi_disable_locked(napi);
++				cancel_work_sync(&tx_cq->dim.work);
++				txq->napi_disabled = true;
++
++				/* Poll the CQ until no sends are outstanding,
++				 * sleeping 100 ms between polls. Poll only
++				 * once if earlier queue was stuck or device
++				 * has already been reset.
++				 * A zero budget frees skbs via the non-NAPI
++				 * path, which is required outside softirq.
++				 */
++				tx_cq->budget = 0;
++				for (retry = 0; retry <= MANA_TX_DRAIN_RETRIES;
++				     retry++) {
++					do {
++						tx_cq->work_done = 0;
++						mana_poll_tx_cq(tx_cq);
++					} while (tx_cq->work_done);
++
++					if (!atomic_read(&txq->pending_sends) ||
++					    trigger_flr ||
++					    READ_ONCE(hwc->hwc_dead))
++						break;
++					if (retry < MANA_TX_DRAIN_RETRIES)
++						msleep(100);
+ 				}
+-				break;
++			}
++
++			pending = atomic_read(&txq->pending_sends);
++
++			if (!trigger_flr && pending > 0) {
++				trigger_flr = true;
++				flr_txq_id = txq->gdma_txq_id;
++				flr_pending = pending;
++			}
++		}
++
++		if (trigger_flr && !READ_ONCE(hwc->hwc_dead)) {
++			/* Completions never arrived: the device is
++			 * unresponsive. Issue device reset and
++			 * mark the HWC dead so subsequent HWC commands
++			 * fail fast instead of each waiting the full
++			 * hwc_timeout.
++			 */
++			err = mana_gd_dev_reset(gd->gdma_context);
++			if (err) {
++				netdev_err(ndev, "device reset failed %d with %d pkts pending in txq %u\n",
++					   err, flr_pending, flr_txq_id);
++			} else {
++				WRITE_ONCE(hwc->hwc_dead, true);
+ 			}
+ 		}
+
+@@ -3846,7 +3905,8 @@ static int mana_dealloc_queues(struct net_device *ndev)
+ 	if (err && mana_en_need_log(apc, err))
+ 		netdev_err(ndev, "Failed to disable vPort: %d\n", err);
+
+-	mana_fence_rqs(apc);
++	if (!READ_ONCE(hwc->hwc_dead))
++		mana_fence_rqs(apc);
+
+ 	/* Even in err case, still need to cleanup the vPort */
+ 	mana_destroy_rxqs(apc);
+diff --git a/include/net/mana/hw_channel.h b/include/net/mana/hw_channel.h
+index 1ab2d66c891e..0bc222c32244 100644
+--- a/include/net/mana/hw_channel.h
++++ b/include/net/mana/hw_channel.h
+@@ -179,6 +179,7 @@ struct hw_channel_context {
+ 	struct gdma_dev *gdma_dev;
+ 	struct device *dev;
+
++	bool hwc_dead;
+ 	u16 num_inflight_msg;
+ 	u32 max_req_msg_size;
+
+diff --git a/include/net/mana/mana.h b/include/net/mana/mana.h
+index 218d540bc994..0ed638bfe8b2 100644
+--- a/include/net/mana/mana.h
++++ b/include/net/mana/mana.h
+@@ -143,6 +143,7 @@ struct mana_txq {
+ 	atomic_t pending_sends;
+
+ 	bool napi_initialized;
++	bool napi_disabled;
+
+ 	struct mana_stats_tx stats;
+ };
+@@ -344,6 +345,8 @@ struct mana_cq {
+ 	/* Cumulative TX completions fed to DIM. Updated and read only in
+ 	 * NAPI context (mana_poll_tx_cq() / mana_update_tx_dim()), so they
+ 	 * measure the hardware completion rate and need no u64_stats_sync.
++	 * The TX drain in mana_dealloc_queues() also updates them, but only
++	 * after NAPI is disabled and the DIM work is cancelled.
+ 	 */
+ 	u64 tx_dim_pkts;
+ 	u64 tx_dim_bytes;
+--
+2.53.0
+
