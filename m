@@ -1,110 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795014014;
-	b=stlW5csZTucYrki/GrupIlgRFJ8Zhzd72BJMUabYPmOMwMzvmewtQGBemSQM0xTYadSG
-	 o8QokMfkTdXhqTJAExSxP5RjanXooMhUP4t36G5fiFx7EAeOAj247gPAEhG+7wZ+IEOke
-	 shT6pjrmVy8mIRYv/vtDggLPWf9p+4OUeaYRV52xmADNLJdh/iO7l8hRnrB14qP+55MgY
-	 exnLxvjLlJCwiFDmzO9Tle+69R5WZ+olZEmwilMeQHarxZY4k4dl4/2w0zJQmRP6GFx8b
-	 BAOpvNbI4H0uRE3SoX1l2wT34on7LjQnV5WHI9raLOc5Vlq1JTHtVRijmAwC/e6fRrQ==
+	t=1795014077;
+	b=fG3Q0NjMDO/2pHf2MzeyazEdK3Kw8h4yk2Jjn+/AnEV3a+FkmL2fK3Nos9bzUsteCHNv
+	 S6S2CkbPQLyRWTk0YFNHS5FzFYWba5e4yicn2LReetVPrAi/67KK9c4uDHcuGaSjIMKoL
+	 Id6+5SSD1hrq13e2MKcyZRXvDbWOphjDHTuujjLL5X5Vo+/XXRg2M3UjZE7GJy0AbRoVu
+	 x7hmDNHd88ZB73tsh9Nm9RxROfSCFMRkWMkNkmPf+xrMNMYI3OIX6RAMM65kDz5Wkvt3A
+	 IsbZ5PX0bFVQG12MeTuqwOm1weJP1Fdq135Bs9Ygr4R9JBDgNN3ppTN78/Ha1w5ghpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795014014;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=XlAV/hqrW5p9nPGYpRn1iBgoiJOYeDSYBvQqMDaDr0o=;
-	b=4aA7gvQ7BF7dO8/8aqdNssSnaCto59UqR91MsLZnbruhosusqbkRSgnK6EUvq82uFoOr
-	 vpzbbGEASydWWil6QQFu6jny19fctTCvTF51W9vWzNUKsMSso556Nqsuu/OQkoIRzXur2
-	 dbsceCL7Xrrcl9GrTgeaK7ij38jkApT48A3onqIUS93FvUHPQbDvv7S7wmiElngCuefu9
-	 TuCIPe8pJNnPUGFqNpraRhrEp+3NwKL/Hjr+u+FzHYn9ybrLCpu+3n/5OrOFe0mizk0t7
-	 r+pN0VJeLo+0LSEpQAD0cxMaFpQYukrgk2ApQGdmQeL2S1PeQYPMIs5Iyae9ZapF4XA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795014077;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=sBpkM+D4ceLLEoj6PwfftKKY79vNaotRYiVwEiHUE9Q=;
+	b=1zPEXwGIDX0J7DOlYoZ6EDwlMPbgApxM3pB1zcbgathrO2fpZeFl+MqGIy6QPuI8dqOj
+	 OBdko/V/kh3uxVdeF9hp1wR8rZNx6rmGyMkFe4//Yz3gBKy/hl04+Jrgid5aLt2uYNHLA
+	 m7K3FSyrBAFpHhOU/4kJRmvIGIsre9J5EqCylHKotfg9DOJa5vP4hVufGKB7PQH8l36hA
+	 0PKQu5PhCYVr9cw/vAIVJxjtycVTP3iIqBXlEsaxjSITPUXIlX0WOtdj6xnQAXHt0POoH
+	 YO9fU5SQh0P5jUv8zpvUdO1GKZ2s0tHro4IOx11SkjNsE8uacCOt7rvARisl9G4ktPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=e46tK6tm;
-	arc=none smtp.remote-ip=209.85.216.99
-Received: from mail-pj1-f99.google.com (mail-pj1-f99.google.com [209.85.216.99])
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qhGucDFY;
+	arc=none smtp.remote-ip=209.85.216.43
+Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 276B8606A339
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:00:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 276B8606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2321606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:01:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2321606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=e46tK6tm
-Received: by mail-pj1-f99.google.com with SMTP id 98e67ed59e1d1-3b197cd42b0so698001a91.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:00:13 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795014013; x=1795618813;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=XlAV/hqrW5p9nPGYpRn1iBgoiJOYeDSYBvQqMDaDr0o=;
-        b=OKGX96jQ5uqbeDigMR8zONKerKcKCcv2E1uQShOSKRHYjIOu3z/VFUVlMWBtHKvwt/
-         78sMAccx9gnCemaDd4ZD+HJVsonzy35uWR1l1FNx4X2fu2f/ZgQt8GINx2LFpE/69lkx
-         ORjAASf66+mHsGG5RlgNtebJRwg5/A6IsP5eASCEWdDhzLU0gWYSsCaE9/ZBG9l+4ien
-         QuseAYpfvdqV/Gf/ZNy8Uyb4jxybWBFqxjO5ZUj0ieLAwDHOkupB1E0luJ3YS0TUs7aV
-         pcmDLkMcKQ+su3vw1ePuLyYoHwd/U1NuXplOYRuIAiY8Nq65U9tPczIk0aaI9eKpOeAZ
-         w9YA==
-X-Forwarded-Encrypted: i=1; AL+hErF0vn6c641PtBzViMtH6MckDdJ8Lx6t+PK71ilZ7ME+FmFdVnYxRitkdwSFNz144LZPno0ZdEU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/h3Ac00zMsZDWZjfb+L/SPMgl3MUYT2Sd978kjMeDmZ1RgS5uN
-	NxHn4VTL+RmsghthLLLNn8acOrY1BnkEDhFTuWGO6MxulFvYxPLm55MbDl22ysIOyN6iQNpsoTb
-	DjswSQJMLEkJjT1TK5pWV0ijReFXwK2PvF/xlirVXSYb1/GtSQ746WEgH9psZAlU6iwMCEugt20
-	rGlsYiZtGC798KMc4/v4qOHDKR7DxpqezPPnS2ZMx6bfchQnE5o2QJ2J3Z1DgADtdFvVoX6mT5z
-	FyF68NGNFQ=
-X-Gm-Gg: AZFdTZcMnadS60wvqH3a7Tfz5S61pZeQDL/3sF8uulJC3AQQ3SDQdytA472EUxLZ31l
-	UU5BUPKJ1zmoOyjyKafF/5+bCH2Os3IWDoZEDtOk5s4d8FixSBtNETA452tRkldg7uSyCjZfrKQ
-	AI5SK9IAlchcW1ORs2Z0MRD81qQqIZsumicZGDO+8DXezRHjnybjsyd240MwX/XJnK2J37vdyNE
-	iAUZsc4GFhy0FlCCEaNULupXdjwE4KuXJ15HzKbMurcES9gNRW6UTn8wwo4SbIqDt+5dd70EB0P
-	IWWA+gd5iABU/0NfSxrlVFGRiSnt/xKX+x6J9LhavOjT7mEedScPTIwbB64jkw/fbkm3dTimrCW
-	AltMpEucr2F4POBMIvLwF3sGxYLckaL2vAxTz8fDT+omK1qVq+IdmwwYKzPgdxh9W/CUuR+ivja
-	NnZd0LCHu+QVAwISEYWdvxcW6OZFQq12S2VfmfKg==
-X-Received: by 2002:a17:90b:5848:b0:3b0:a757:e372 with SMTP id 98e67ed59e1d1-3b3d07d81demr2649531a91.47.1795014012930;
-        Wed, 18 Nov 2026 07:00:12 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3ac02cce6sm4125117a91.7.2026.11.18.07.00.12
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 07:00:12 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dl1-f70.google.com with SMTP id a92af1059eb24-1a5005fd0f8so1992808c88.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:00:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qhGucDFY
+Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ae691283ecso601314a91.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:01:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795014011; x=1795618811; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XlAV/hqrW5p9nPGYpRn1iBgoiJOYeDSYBvQqMDaDr0o=;
-        b=e46tK6tm3prl7lw3gg5xHZkIPHhaGAeM1LzlBIk02RJfwNI3tFmsPPopZNamp0+ApZ
-         fES5sjHee6YIwU8WroB8Dp9brZQ3hZxrayavZmi125O/8gpDEGsWMHzYrcXWEbZJiyWp
-         46dMPRegKzq184vySW3oLgVETVL0gddWbsczo=
-X-Forwarded-Encrypted: i=1; AL+hErFq1ovnLciww4EeVzQ1pA/IX/esGR4/jxs+j+NDmfAjKkZ1Scj8UwRegyw6kZgrhwMeQE1reRw=@vger.kernel.org
-X-Received: by 2002:a05:7022:2219:b0:1ae:e0f5:2cdd with SMTP id a92af1059eb24-1b543c2571dmr3544196c88.28.1795014010678;
-        Wed, 18 Nov 2026 07:00:10 -0800 (PST)
-X-Received: by 2002:a05:7022:2219:b0:1ae:e0f5:2cdd with SMTP id a92af1059eb24-1b543c2571dmr3544132c88.28.1795014009697;
-        Wed, 18 Nov 2026 07:00:09 -0800 (PST)
-Received: from pc-hpe-top-git-sendmail-server.dhcp.broadcom.net ([192.19.234.250])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5446f589esm8211742c88.1.2026.11.18.07.00.06
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795014076; x=1795618876; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=sBpkM+D4ceLLEoj6PwfftKKY79vNaotRYiVwEiHUE9Q=;
+        b=qhGucDFYBC7aCQjPDmAC2YNPWQ6bLbxftPjvuYJN8vr/XpjrABC0ABmymuxHkVuKSI
+         xmShxACRfudE1uG+caw9XG/YBYMUV72y+PKt5DANouR4DvjVggLJNHcZWqFMWd50wLxO
+         neWTEUIW34IcU1Jcl+CnB0RQttp0P8vc3vjmeKi26bFnsLU7ey98pvL4S1HWtorDDtz9
+         de4L4FaIg/xfRb0F3eiWkrW+ZhXOw+7fEtxBeUfoUDyrCHeFPHXuUIVSXPjCiG2pnPtv
+         or4dcqEYgQ8j/nG7QRI6yPBRMRiNvRnx0Ph3O8Sv1EdE18x3LG/fRIsJfuoYhrmoeKFD
+         vWDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795014076; x=1795618876;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=sBpkM+D4ceLLEoj6PwfftKKY79vNaotRYiVwEiHUE9Q=;
+        b=z25ujMjiQSDcgqLlduyiWPj986+rBI8wxN/PPYQdqORWrOmvbOdzDMRgJmhGrtzUWY
+         CLuSKvD2BqQ+EkTvNgjzbaQHMO9aoNr2Lg83cm4YkblZP5U/tnJsKuNP0GyRFxkuVTha
+         V4btLblDzhIKqsY6Bpm9SatKtCTLh4bb+wALNuYO/5SA4jOQ7eDXssUdAdLNa+23AXzv
+         kuzSr3b0Yw8h6177MH5wp662D4uCzLhWQ4Pqzbphp2V+dCGpewsbgkFIqPj1CVv0OEm5
+         LEC6SAh4lyBZTfslJ1p5VfT96iAbJ3H67RiHzHyvydvfVa8DoMRLG4K+MhK9i9HDYqtX
+         DWGQ==
+X-Forwarded-Encrypted: i=1; AL+hErHYffOTFvx15L02Mm5pT9sdGlPzAuqs29JO937gPTIr4mvMUjEvzRks66DRRD73IS0ueAmZC4E=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9A8zfUYJgEtQxki8uOULxMvAYtMD5N7Ki5thVfgfm4U1L7Kkl/
+	ONnhb/VdOiNg3lwuV4s4DVkxcYCVluOqlxBZe3KXqtV37l3m+mRNP2nbbjDKgeBNUWnJlTD4o99
+	5WVvp
+X-Gm-Gg: AZFdTZdWkiQon07FTKKwdo2Row+C4aw1t+hJ7wyLDo5h/D2AO2ns/kDGnCsDneh+po5
+	JREikPob9B3kkghLFNtKfSHA+H88lukneUdX53xvZ9F9qMSkCPnAKovjKZIALfR2tnHiWfJooyg
+	sWHAkQ1Tj8tWK0qiu57itc+a1Xftk3v/gS+8PONCE78ouPvJgdHpxolIScFg7Mg7dzO61mQieo3
+	oKt0WX4OAdnc2GsoEsSO0+b2kkUAFqBotx/rNHTI7VN7kIXQqs5cym+Su6oxzEMuTAkg8davbww
+	XYKLbKb0/QMvMLuH8dLc6YF9XWgVFIsCuUIezk8Xq4Y+7aYrzxmAzigXdlUMvU0ZuctEI3M2Wan
+	wv3+rImfLtqhS4RPIz4eWzoVX79dtiXKwFFwcKJu6bqA5u5TQ3ojY9sI4X3qGakyc1uZqUPzHBW
+	pC1vJS9nLrh/vzyNZCZM04oB/k0A6asnMAN0A7PxHzHOZ7WefNz2hL5I7Xe+rs4X5W4Pwwva1XT
+	Rj9atW+uKbphOvlZvd/TFuI7ij9UDraEWgbfamZZm7POhzZlpQLhavrDTMLV26dNaJbNCa9vsNQ
+	xIQlFO6B2q61rjvRpRt1AodIJ9m1RrV8D57RNn7ExiPAx8rf70vCURuVPwQibjY=
+X-Received: by 2002:a17:90b:2808:b0:3ad:7f4d:2839 with SMTP id 98e67ed59e1d1-3b3d07b9f0fmr1702969a91.14.1795014075822;
+        Wed, 18 Nov 2026 07:01:15 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:9::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac2cca15sm9541029a91.11.2026.11.18.07.01.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:00:09 -0800 (PST)
-From: Pavan Chebbi <pavan.chebbi@broadcom.com>
-To: michael.chan@broadcom.com,
-	kuba@kernel.org
-Cc: andrew+netdev@lunn.ch,
-	andrew.gospodarek@broadcom.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	Pavan Chebbi <pavan.chebbi@broadcom.com>
-Subject: [PATCH net-next] tg3: Add support for boards integrated with security SoCs
-Date: Wed, 18 Nov 2026 20:32:47 +0530
-Message-ID: <20261118150247.1145764-1-pavan.chebbi@broadcom.com>
-X-Mailer: git-send-email 2.52.0
+        Wed, 18 Nov 2026 07:01:14 -0800 (PST)
+Date: Wed, 18 Nov 2026 07:01:14 -0800
+From: Joe Damato <joe@dama.to>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: davem@davemloft.net, michael.chan@broadcom.com, netdev@vger.kernel.org,
+	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	horms@kernel.org, pavan.chebbi@broadcom.com
+Subject: Re: [PATCH net-next 6/6] eth: bnxt_en: restart Rx queues when their
+ IRQ moves to another NUMA node
+Message-ID: <av29unVgzwNa4T+b@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>,
+	Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+	michael.chan@broadcom.com, netdev@vger.kernel.org,
+	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
+	horms@kernel.org, pavan.chebbi@broadcom.com
+References: <20261118023905.3050661-1-kuba@kernel.org>
+ <20261118023905.3050661-7-kuba@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,174 +105,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118023905.3050661-7-kuba@kernel.org>
 
-Add support for Broadcom NetXtreme NX1 network interface controllers
-integrated with security SoCs. This enables proper driver recognition
-and initialization for these hardware Root of Trust enabled network
-adapters.
+On Tue, Nov 17, 2026 at 06:39:05PM -0800, Jakub Kicinski wrote:
+> Rx queue memory is allocated on the node of the CPU servicing the queue
+> when the device is opened. On a running device it only follows IRQ
+> affinity changes if TPH is enabled, as a side effect of the queue
+> restart which applies the new TPH Steering Tag.
+> 
+> Schedule the affinity update work whenever the device supports the
+> queue API, not just when TPH Steering Tag changed. Queue restart places
+> all the memory it reallocates, other than the ring page tables, on
+> the page pool's node, so compare the page pool's nid to decide if
+> the queue has to move.
+> 
+> Since we need queue state of the currently allocated queue to compare
+> nid - check that the device is still up after errors.
+> 
+> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+> ---
+>  drivers/net/ethernet/broadcom/bnxt/bnxt.h |  2 +-
+>  drivers/net/ethernet/broadcom/bnxt/bnxt.c | 46 ++++++++++++++---------
+>  2 files changed, 29 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> index 134b24842c4f..5f4a8db1f8b5 100644
+> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> @@ -11931,18 +11931,17 @@ static void bnxt_irq_affinity_notify(struct irq_affinity_notify *notify,
+>  	}
+>  #endif
+>  
+> -	if (!irq->bp->tph_mode)
+> +	/* Only Rx queues can be restarted to follow the IRQ */
+> +	if (!BNXT_SUPPORTS_QUEUE_API(irq->bp) ||
+> +	    irq->ring_nr >= irq->bp->rx_nr_rings)
+>  		return;
+>  
+> -	if (irq->ring_nr >= irq->bp->rx_nr_rings)
+> -		return;
+> +	if (irq->bp->tph_mode &&
+> +	    !pcie_tph_get_cpu_st(irq->bp->pdev, TPH_MEM_TYPE_VM,
+> +				 cpumask_first(mask), &tag))
 
-The boards are identified by their PCI subsystem IDs. Add the new
-subsystem device IDs and a helper that matches them.
+nit: this one is tough. i feel like this is super dense when wrapped this way,
+but i am not sure if there is any way to avoid this without making the code
+uglier.
 
-These boards need the following deviations from the default behavior:
-
-- Never drive GPIO1. These boards use GPIO1 for mailbox communication
-  between SoC and the NIC, internal to the board, so it must not
-  be driven externally and is always kept cleared. Skip it when
-  switching to Vaux or Vmain power, and do not set it in
-  tp->grc_local_ctrl.
-
-- Do not enable EEPROM write protection, even if the NIC config in
-  SRAM requests it.
-
-- Do not enable Wake-on-LAN. These boards reuse the GPIO that
-  Wake-on-LAN depends on for other purposes, so Wake-on-LAN cannot
-  work on these devices. Clear WOL_CAP so that it is not advertised.
-
-Signed-off-by: Pavan Chebbi <pavan.chebbi@broadcom.com>
----
- drivers/net/ethernet/broadcom/tg3.c | 52 ++++++++++++++++++++++++++++-
- drivers/net/ethernet/broadcom/tg3.h | 13 ++++++++
- 2 files changed, 64 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
-index 95827df4cf6a..9c431f76d4a5 100644
---- a/drivers/net/ethernet/broadcom/tg3.c
-+++ b/drivers/net/ethernet/broadcom/tg3.c
-@@ -2840,6 +2840,9 @@ static void tg3_pwrsrc_die_with_vmain(struct tg3 *tp)
- 	    tg3_asic_rev(tp) == ASIC_REV_5701)
- 		return;
- 
-+	if (tg3_flag(tp, CITADEL))
-+		return;
-+
- 	grc_local_ctrl = tp->grc_local_ctrl | GRC_LCLCTRL_GPIO_OE1;
- 
- 	tw32_wait_f(GRC_LOCAL_CTRL,
-@@ -2913,6 +2916,9 @@ static void tg3_pwrsrc_switch_to_vaux(struct tg3 *tp)
- 			grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE2 |
- 					    GRC_LCLCTRL_GPIO_OUTPUT2);
- 		}
-+		if (tg3_flag(tp, CITADEL))
-+			grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE1 |
-+					    GRC_LCLCTRL_GPIO_OUTPUT1);
- 		tw32_wait_f(GRC_LOCAL_CTRL,
- 			    tp->grc_local_ctrl | grc_local_ctrl,
- 			    TG3_GRC_LCLCTL_PWRSW_DELAY);
-@@ -10537,7 +10543,10 @@ static int tg3_reset_hw(struct tg3 *tp, bool reset_phy)
- 		tp->grc_local_ctrl |= tr32(GRC_LOCAL_CTRL) & gpio_mask;
- 
- 		/* GPIO1 must be driven high for eeprom write protect */
--		if (tg3_flag(tp, EEPROM_WRITE_PROT))
-+		if (tg3_flag(tp, CITADEL))
-+			tp->grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE1 |
-+						GRC_LCLCTRL_GPIO_OUTPUT1);
-+		else if (tg3_flag(tp, EEPROM_WRITE_PROT))
- 			tp->grc_local_ctrl |= (GRC_LCLCTRL_GPIO_OE1 |
- 					       GRC_LCLCTRL_GPIO_OUTPUT1);
- 	}
-@@ -15220,6 +15229,38 @@ static struct subsys_tbl_ent *tg3_lookup_by_subsys(struct tg3 *tp)
- 	return NULL;
- }
- 
-+static bool tg3_is_citadel(struct tg3 *tp)
-+{
-+	if (tp->pdev->subsystem_vendor == TG3PCI_SUBVENDOR_ID_BROADCOM) {
-+		switch (tp->pdev->subsystem_device) {
-+		case TG3PCI_SUBDEVICE_ID_CITADEL_BEVERLYWOOD:
-+		case TG3PCI_SUBDEVICE_ID_CITADEL_BEL_AIR:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2908:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2909:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2906:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_E14A:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_E34A:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2904:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2905:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	}
-+
-+	if (tp->pdev->subsystem_vendor == TG3PCI_SUBVENDOR_ID_DELL) {
-+		switch (tp->pdev->subsystem_device) {
-+		case TG3PCI_SUBDEVICE_ID_DELL_5720_L21T00:
-+		case TG3PCI_SUBDEVICE_ID_DELL_5720_XE9880L:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	}
-+
-+	return false;
-+}
-+
- static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
- {
- 	u32 val;
-@@ -15231,6 +15272,9 @@ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
- 	tg3_flag_set(tp, EEPROM_WRITE_PROT);
- 	tg3_flag_set(tp, WOL_CAP);
- 
-+	if (tg3_is_citadel(tp))
-+		tg3_flag_set(tp, CITADEL);
-+
- 	if (tg3_asic_rev(tp) == ASIC_REV_5906) {
- 		if (!(tr32(PCIE_TRANSACTION_CFG) & PCIE_TRANS_CFG_LOM)) {
- 			tg3_flag_clear(tp, EEPROM_WRITE_PROT);
-@@ -15430,6 +15474,12 @@ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
- 			tp->phy_flags |= TG3_PHYFLG_DISABLE_1G_HD_ADV;
- 	}
- done:
-+	if (tg3_flag(tp, CITADEL)) {
-+		tg3_flag_clear(tp, EEPROM_WRITE_PROT);
-+		tg3_flag_clear(tp, WOL_CAP);
-+		tg3_flag_clear(tp, WOL_ENABLE);
-+	}
-+
- 	if (tg3_flag(tp, WOL_CAP))
- 		device_set_wakeup_enable(&tp->pdev->dev,
- 					 tg3_flag(tp, WOL_ENABLE));
-diff --git a/drivers/net/ethernet/broadcom/tg3.h b/drivers/net/ethernet/broadcom/tg3.h
-index a9e7f88fa26d..713fe9c821e2 100644
---- a/drivers/net/ethernet/broadcom/tg3.h
-+++ b/drivers/net/ethernet/broadcom/tg3.h
-@@ -100,6 +100,8 @@
- #define TG3PCI_SUBDEVICE_ID_DELL_MERLOT		0x0109
- #define TG3PCI_SUBDEVICE_ID_DELL_SLIM_MERLOT	0x010a
- #define TG3PCI_SUBDEVICE_ID_DELL_5762		0x07f0
-+#define TG3PCI_SUBDEVICE_ID_DELL_5720_L21T00	0x0e19
-+#define TG3PCI_SUBDEVICE_ID_DELL_5720_XE9880L	0x0ea1
- #define TG3PCI_SUBVENDOR_ID_COMPAQ		PCI_VENDOR_ID_COMPAQ
- #define TG3PCI_SUBDEVICE_ID_COMPAQ_BANSHEE	0x007c
- #define TG3PCI_SUBDEVICE_ID_COMPAQ_BANSHEE_2	0x009a
-@@ -111,6 +113,16 @@
- #define TG3PCI_SUBDEVICE_ID_ACER_57780_A	0x0601
- #define TG3PCI_SUBDEVICE_ID_ACER_57780_B	0x0612
- #define TG3PCI_SUBDEVICE_ID_LENOVO_5787M	0x3056
-+/* NetXtreme NX1 boards integrated with Citadel security SoCs */
-+#define TG3PCI_SUBDEVICE_ID_CITADEL_BEVERLYWOOD	0xd346
-+#define TG3PCI_SUBDEVICE_ID_CITADEL_BEL_AIR	0xd146
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2908	0x2908
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2909	0x2909
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2906	0x2906
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_E14A	0xe14a
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_E34A	0xe34a
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2904	0x2904
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2905	0x2905
- 
- /* 0x30 --> 0x64 unused */
- #define TG3PCI_MSI_DATA			0x00000064
-@@ -3122,6 +3134,7 @@ enum TG3_FLAGS {
- 	TG3_FLAG_ROBOSWITCH,
- 	TG3_FLAG_ONE_DMA_AT_ONCE,
- 	TG3_FLAG_RGMII_MODE,
-+	TG3_FLAG_CITADEL,
- 
- 	/* Add new flags before this comment and TG3_FLAG_NUMBER_OF_FLAGS */
- 	TG3_FLAG_NUMBER_OF_FLAGS,	/* Last entry in enum TG3_FLAGS */
--- 
-2.52.0
-
+Reviewed-by: Joe Damato <joe@dama.to>
