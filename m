@@ -1,55 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996464;
-	b=rkLsiBRCxuXzvhUYigXnk2MC65FAwO7YGYtMUxfrUQGa/ESYkrhM8wGLY39DwR2jJ52p
-	 nVk/b9rr1Ac50WlWdLsG4hozemgzy/s6VDxfVywPzbWc2tl5ukeSpv7jAue/PY8qpgIQo
-	 c5PvatqZqKSjtRUAoBrSPN/YcJ1t07q940bklUTX+hYaloLjDTEeep5W2h817AnuNPR/j
-	 PJUdu1y/COrtukjcyiCgwFdwju1HwNL9V4Afm+nShYKh1epZwZKRX2deDhEVUfniE8jXY
-	 /qMV65d490qhgc31X8rEzrqhwrWGETsSYtaGgUtXnaCXY92HocdjEdkOIjj5eKve3qg==
+	t=1794996490;
+	b=uwCtn5C9ZaD729SbyFGZkzMCQmrssiPGRD3sUYxGHlYB6RivtEpk76D9nKGr54SpTmZX
+	 GVxja1m1iSsAvWOcBrjvZ5fuMIyKOFipYbf+AjlR3mN4MOxXYLC7SSKWBmwH4csd1lQzG
+	 C24je/GcRcXQsKHrDXcb9ZxoUmO2sUdj1eIQuY87iFwTGQcZ4UEh0otKs+2nZlMy5U4OO
+	 fUIfsYM97og4nbtHVSiMvjOvyx0pXsNW6NYjLkb+BufkWT4cKwa9nT1DW5OG/1amS5ks2
+	 PzRzG+r5p4Yes4UuyL7hiNgmpgAS3jgTNLXyoEEF9JryZC9QTYUIEY3f8mxWVshKzyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996464;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=2S2OrGUTyqGlhWvrNAZiu9DXCwxg30V+8Q1xNJW0oww=;
-	b=qRPWtfyztD6jC2N3wJCJ1u3JOioLQKqbwMTojZZH70sPjSSTUenQpzXxoJSVG7+YDAEn
-	 uTtmNFO5FutsaqQ1yHN8MLKD7OI8PJcNWW0Y4laixn0VckRabC5VLcfXB8EIHwMlzXWye
-	 V3J3IPrVHwcqdftcotoITG+ID6d6ZE/dXJsBng02CqdQtobmH4IgBTf8oppusUUZLPa2a
-	 YK1ZkYGtXvIO7dt8AAFnS/el2f4lCydz1YNrNm13owaODRyDs/kBn/ze/aaAVZWwvdPsJ
-	 Evzq9DZKDGClK+dr1GgzvhmhtW1KAVd7eL2Fk9DrQWG8yw3lA0yqTo1Ytz/o8YlHzIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996490;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=2fYXTXftmdzsP/+f1B8lN9HNa0Az3yORMxg4vrQ+jss=;
+	b=J14PZ5kXC7YeNTQZCIY9SRJta+9gQFi6PEOJkUE0dzqSHRaV/kWZeJ0z/JHw7eT3zX8z
+	 jRuDAM9xHo+i0kVS7inQtNzRL5TUOZxqCs+gRRHnUGivEo7zkDaXv9Se8nAkzM3/vBc9C
+	 ussqEuO7x/MZQBAkJNMfM6VSMNBwXSzRIoWrr31ecmDEX3AFzJfVhBe4HqcbIMjnG7HTP
+	 C0d5+EgqyTlVyNcMm1b8mr8uX0HC9O5L0tB9vAghpUskpBqjHeANtJHE5+xnupkpExGxV
+	 J7IPSWFa7oaca9dmjjqZOQKBDXUcT+XLyDv8VL7soFTicGTuanedI1e9dCGKAgOHfZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZtn0TEv;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BB68AZtP;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BA3D606A325
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:07:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 096D1606A320;
+	Wed, 18 Nov 2026 10:08:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 096D1606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZtn0TEv
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2DCD01F000C6
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:07:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794996464;
-	bh=2S2OrGUTyqGlhWvrNAZiu9DXCwxg30V+8Q1xNJW0oww=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=kZtn0TEvz54Qb4vGb1liXxbJgWqOxNba/uH96QwKFJLapoMIX6/OXw/+s9hC7AH8A
-	 viLts0q7dqu1OK/HITIw3WUMtfAlbPz3Ty+05kIcfkYchoNqwuE1Hby221PYdGXQn/
-	 Joq4eqFoiawDSM36o1kBWEpt5eTidT82NJNoxmjor3aNLErSQz7ATqvJTt0AMH4tNG
-	 TZUOg50d1xKqGlhPRK44KmdVCEGeqsYJ0Uuzuo51iF27xMlrOdJCa1knXl4Hl3c63R
-	 qTrPk9nxbGYaJHft+7GbBzZhVTh2cJfvY6CrlszjJm4Wt5VOpN8j4pBfzJDDrtdSyg
-	 VdBB2/p/W8/1g==
-Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-717080a2d50so691577eaf.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:07:44 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFedxkj30LurFLlJdGd0yuyaAyDmx5IAEaRX9T9G0SIcLnbN0Xc/6gVmlGnUnphJXCzF7Xm8GQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ioSzklSYWJB6XVaeXZeWc7OvSI1x9MhB/fGkijTJ04hbNF4cv
-	r33a6RrFQr+lm+qh0bo/TXL34CaG/17s40ldhhFDeOMsm/62r3dvy3XTDC4YWPa6pEk0vB85Phd
-	+rb+ALCHIJTsRLY4xO5BOdUEV7F76GiE=
-X-Received: by 2002:a05:6820:3416:20b0:718:968a:75f5 with SMTP id
- 006d021491bc7-71b18549405mr1087021eaf.52.1794996463552; Wed, 18 Nov 2026
- 02:07:43 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=BB68AZtP
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id B82171A16CA;
+	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 8287A5FE9B;
+	Wed, 18 Nov 2026 10:08:08 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A2AF211BC0FB7;
+	Wed, 18 Nov 2026 11:08:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1794996487; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=2fYXTXftmdzsP/+f1B8lN9HNa0Az3yORMxg4vrQ+jss=;
+	b=BB68AZtPrIn+wgtM1x0/qC7DyHiQUVWopQ1ssGA+Y1TOzd4KMKNB60b0LVYKPkFD9VcV76
+	ahMku5oXly3kXhg6nJkequfEi/o0utfR/TvUIWlGNImc3vP8BvMvUmRhApieN4/N8KCYwf
+	l/hrXd2gA3WjA1e7vKM9KeUyM2WBZtiXXEmgNKvH+TG1Oe06+7l9vFYVM5eu+iB6h5xHek
+	T6qgOu3gbAJO4lJ4ZPDdXG1UvhMV/ebWvbqw6X3eYH8AZJsdXGhjHefWqHouqaF3BjGsFe
+	WYmaBt3S9BMHRDLD3gqOU6/f4gY/nvcQfrmV9CiUUOFvB1zN3BEx8peLKIbNQQ==
+Message-ID: <2b82341c-be67-43ef-9a0c-0bf0394b627a@bootlin.com>
+Date: Wed, 18 Nov 2026 11:08:01 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,60 +62,63 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261118022813.9778-1-zhiqizhangg@gmail.com> <20261118022813.9778-2-zhiqizhangg@gmail.com>
-In-Reply-To: <20261118022813.9778-2-zhiqizhangg@gmail.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 11:07:31 +0100
-X-Gmail-Original-Message-ID: <CAL4WiirJXVjo_b_5zkBCz6rfuwWXfJcpOrnVFpZ=2kBqMf5w+Q@mail.gmail.com>
-X-Gm-Features: AclHuK9FIl21h5B6xIKkXM1xm-w7vDNAJG8Rm2vJL9VhueNWzOpX9FejS4ubxGQ
-Message-ID: <CAL4WiirJXVjo_b_5zkBCz6rfuwWXfJcpOrnVFpZ=2kBqMf5w+Q@mail.gmail.com>
-Subject: Re: [PATCH net v2 1/2] tcp: roccet: do not restart from idle on RTO retransmission
-To: Zhiqi Zhang <zhiqizhangg@gmail.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Kuniyuki Iwashima <kuniyu@google.com>, Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>, 
-	Tim Fuechsel <t.fuechsel@gmx.de>, Lukas Prause <lukas.prause@ikt.uni-hannover.de>, 
-	netdev@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Betterbird (Linux)
+Subject: Re: [PATCH net v4 06/14] net: pse-pd: check the PI state under the
+ lock when setting a power limit
+To: Carlo Szelinsky <github@szelinsky.de>, netdev-bot+sashiko@kernel.org
+Cc: Oleksij Rempel <o.rempel@pengutronix.de>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Mark Brown <broonie@kernel.org>,
+ Liam Girdwood <lgirdwood@gmail.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ Kyle Swenson <kyle.swenson@est.tech>, Ross Cawston <ross@r-sc.ca>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <179477645553.3136.3930514306381646741@kernel.org>
+ <20261116182052.1262742-1-github@szelinsky.de>
+From: Kory Maincent <kory.maincent@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261116182052.1262742-1-github@szelinsky.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Le mer. 18 nov. 2026 =C3=A0 03:28, Zhiqi Zhang <zhiqizhangg@gmail.com> a =
-=C3=A9crit :
->
-> roccet sets .cong_control, so tcp_slow_start_after_idle_check() returns
-> early and roccet implements the idle restart in cwnd_event_tx_start().
->
-> An RTO retransmission also raises CA_EVENT_TX_START: tcp_enter_loss()
-> marks the outstanding packets lost, which drains the in-flight count
-> while tp->packets_out stays non-zero.  If delta >=3D icsk_rto,
-> roccet_cwnd_event_tx_start() then takes the idle restart and overwrites
-> tp->snd_ssthresh with tcp_snd_cwnd() =3D=3D TCP_INIT_CWND.
->
-> When a TLP probe was sent, the RTO timer is rearmed for a full icsk_rto
-> at that point and the probe is the last transmit, so the first RTO is
-> affected.  Without TLP, the first RTO can escape: the timer is armed
-> when the first packet of the flight is sent, and pacing spreads the
-> following ones, so now - tp->lsndtime < icsk_rto.  The second RTO is
-> always affected, since it fires one backed-off icsk_rto after the first
-> RTO retransmit.
->
-> roccet_state(TCP_CA_Loss) calls roccet_reset(), which clears the private
-> state; ca->state is already LAUNCH and last_max_cwnd is already 0 when
-> roccet_cwnd_event_tx_start() runs, with or without this fix.  The only
-> field the idle restart breaks is tp->snd_ssthresh: it overwrites the
-> value preserved by roccet_state() with TCP_INIT_CWND.
->
-> Skip the idle restart while packets are outstanding.  The packetdrill
-> test in the next patch fails at the first RTO without this fix
-> (snd_ssthresh =3D=3D 10) and passes with it.
->
-> Fixes: 819d59638796 ("tcp: Add TCP ROCCET congestion control module.")
-> Link: https://lore.kernel.org/all/179179785248.434549.1682983764935138274=
-8@kernel.org/
-> Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
-> ---
 
-Reviewed-by: Eric Dumazet <edumazet@kernel.org>
 
-Thanks.
+On 11/16/26 19:20, Carlo Szelinsky wrote:
+> On Sun, 15 Nov 2026 21:00:55 +0000, netdev-bot+sashiko@kernel.org wrote:
+>> Does this description understate what the old race did? It looks like
+>> the budget was leaked permanently, not just reserved for a while.
+> 
+> Right, the budget is lost until the controller is bound again.
+> v5 says that, and fixes the old "powered" comment.
+> 
+>> Is admin_state_enabled && isr_pd_detected enough to show that the port is
+>> actually powered?
+> 
+>> Does this still leave part of the race with pse_isr() open?
+> 
+> Both were there before this patch, which only moves the old check
+> under the lock. They need their own fixes, so I keep them out of
+> this series. The cover letter lists both.
+> 
+> Kory, are you OK with fixing the two older problems in a follow-up?
+> I am happy to work on them next, if you have a preferred approach.
+
+Yes, I am ok with this.
+
+> Also, are you fine with the rest of v4? I kept your Reviewed-by on 8
+> after the small change there, so please tell me if that is not OK.
+
+Except for comment change or commit message change, I would prefer to 
+have my R-by removed if there is code change. Thanks for asking.
+
+For patch 8, I am ok with the changes, you can keep my R-by.
+
+Regards,
+-- 
+Köry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
+
