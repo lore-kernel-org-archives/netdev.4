@@ -1,82 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795008237;
-	b=BTh/3yZft//G3oekqAXKWgFSGldqi4bYJPWUdxiaS9eLan3UNUtcpgSYRJBuYy3kTvCL
-	 3yDsrrRSl6lio83WhCBR3Srp78MIQI75RTch2625xSMdxt2xlHyhaEEJG1t1pweTYcsnM
-	 niTT4w+vgY2xrdIx+bqDvo2bYYcZ3wxBov61ZuupzGzLBUJ+kESNx2k67t1IvPf1wrnlr
-	 0NnwwAl8rBDTWcR0AwuyhjSunpS+CbnFNvmsuUqWCBlHb9vwj/aPaTlhAkzE6rRniiIui
-	 uEAT68B5X2Za4ZtEUFF8Bw/VJEBPv5ADOq7cx1BwsC9XQZOMIzmtRXENFUW9VvvuT+w==
+	t=1795008421;
+	b=qz/Za5m1qp31E024KT1ll3tKgfwg/wwJeWSrORH15P37DQc4/oLq56/sbMjEeCHAgJgJ
+	 KUvGDrth5480poBQI0XLsaj5NP1OY0aW+sSgkLWJjGXPEde5cwedpx8i4dh4dFw7FKbFq
+	 XpIq/5htBKMYbcqAJqc1Bo/NPR8VkYpNj1IZq4CYBmsHdqLvRlVPoTtrAjwbYC0YrlZ7B
+	 4rq4MzyKCid8b+x+4hDuiY7S08lyWrm+UncI63cTDahjAYK/e8Bax7+VapzfW42bhvcf2
+	 dux6329x0tIHrToEbtK5PwUt+B+W3Qtx9iKzYsTM36qbIMgcVNqzFoHnz+iEW3wZL8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795008237;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=397vhIFiqK0VX8uLK5k207ooRxnaZvzsYO45W2jXP9Q=;
-	b=S+RCabeK6gRvzAyLNkcWdVtDqA/tx59+1Sxj/leTyBblJoGv/IZDICo4WTlLyIorO+Oo
-	 73UcL6J5l4m1CLE212/4aLlUkeWKdXhz99O3P9OuYoUAVlXZO+yCAk7CpplnvjisvtG17
-	 PgERRBX2uyxWFmy09cTEJARYIUfIORQWYZCBMnkQtR0wGjAEfibhO331sa4fynDYeQHKr
-	 GbHCgQhz6EOcerTxltaF/m2m/lEaAM+TRQC9gTuTZPKSo7O3Ccqensk5aRYN5CQiYbha3
-	 PYChZlc2St1z/T9K5PomsLHoerRQczsmeEYlF4ASVlg2U9VlQzYnfOBs8gaQfYkP5Zg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795008421;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=2VBlVvZ8PJS2AcIDnu15PCGckXM5TWMvp453XtyGgig=;
+	b=3v5alRUNH2YrM1TVOW08Ug/QEG//G94dUMzBPyehC1DmUGgwOslnM3YurinAyG+KkecR
+	 Jj7T0pesyjtLHJT+wjfIfNqdEzmvsyAg8WA4b1y+Vukj6eWC33z8ArdeE1L1iEQQumhuR
+	 LotS5RmxsN96lkueDExdVAO2BCxb7wT9y0D3mPCEDQ8Otbk725kqdEQ9xdIw6qTXKDL5m
+	 fvqFg52ncmOpUKFz5MswbrvMIQa+4pSJfT4AuguEMroXjIw5hRtSdN14ja/KiE9lTIfkQ
+	 pFdptNu2tRo0WW7c4T9orzOKL656bbVs8xWtvkLHxIn5u6lMbl2UXfBgSeUPyqmSXXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=yKjWdM+K;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="jW/exEZ/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51F0C606A31C;
-	Wed, 18 Nov 2026 13:23:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51F0C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90D85606A31C;
+	Wed, 18 Nov 2026 13:27:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=yKjWdM+K
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795008237; x=1826544237;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=OZEEVTLUB3jevmB4KOdPwJHRwAUA+Qi5MdIqoD6hVHc=;
-  b=yKjWdM+KmOg57NDdqWeA9rQ/iGSXnA+0ows/oCxhXJDMNPGWnksiIti6
-   3tu6FUZUQfV+2X+vhaxgeZu7PbIuxmTPI127ZDZ3kJNaglW4zsgDrCz9J
-   9HQYkXXrSmR1LMVi3oXTOQjRh+r7DEt3cgf+pTXtWy3Ph8uXnXQaHy+g+
-   PZTXLqmb/l16pJB65s+x/DiDiJrJqNeIBuNZrZSnEWOlWmiohul4koufV
-   p7zqGGtZWOcGwKMESrm6cnCm12miqLvB3v+9Wp7s4BSv0UR8dRzP1L3s0
-   CngVuPgs3Z3Td0MlFoMNGsMcjUG1GdTeAMkxg6f0q2+dPtV2SfX3sFGJ+
-   g==;
-X-CSE-ConnectionGUID: cORQJduaRCqCLdiX6mZMjg==
-X-CSE-MsgGUID: hqm/j2cET/Wvb5TSHIHTTw==
-X-IronPort-AV: E=Sophos;i="6.27,219,1787036400"; 
-   d="scan'208";a="66933088"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 18 Nov 2026 06:23:50 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Wed, 18 Nov 2026 06:23:49 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Wed, 18 Nov 2026 06:23:46 -0700
-Date: Wed, 18 Nov 2026 14:23:46 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
-CC: "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Hangbin Liu
-	<hangbin.liu@linux.dev>, Fernando Fernandez Mancera <fmancera@suse.de>, MD
- Danish Anwar <danishanwar@ti.com>, Murali Karicheri <m-karicheri2@ti.com>,
-	Wojciech Drewek <wojciech.drewek@intel.com>, Ravi Gunasekaran
-	<r-gunasekaran@ti.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <1342116488@qq.com>, Hangbin Liu
-	<liuhangbin@kylinos.cn>
-Subject: Re: [PATCH net v2] net: hsr: clean up synced addresses and allmulti
- in hsr_del_port()
-Message-ID: <20261118132346.zagm5ofoyfvczth7@DEN-DL-M70577>
-References: <20261112064716.85381-1-sunwenbo@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jW/exEZ/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2FCC1F000C4;
+	Wed, 18 Nov 2026 13:27:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795008421;
+	bh=2VBlVvZ8PJS2AcIDnu15PCGckXM5TWMvp453XtyGgig=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=jW/exEZ/yJJPzaPAQboCh/XCwWhnURdmFDJ6l8n2wt3JJy5PiE+3vivSHVoGyLJgf
+	 r21WwgtcrMFqcTc8LFT2vRITCYUN44Y0RpcUuRUbu/GwnwvVH+kYH0L5OFxQqaxb2h
+	 Z5gyIKbU89/GxloQlNDnERqMTKcsnh9w/CvngFbDmGgxabX8jqE/3LQD4FYj++DFll
+	 nA8802q9IRV7JTehTlFbnjPcXAt6iMI0v3couV1qwwS3U7BYQgZvytMd3AWaqJ/gcc
+	 vekuSmpMHQlEAimxwDsCFmY7Z9NgzyG3ENIVCs74RV0augeX2nIhz+h6KMswf5MAt6
+	 S4RHS8Cpp6aeg==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>
+Cc: Alexander Duyck <alexanderduyck@fb.com>, Jakub Kicinski
+ <kuba@kernel.org>, kernel-team@meta.com, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Eric Dumazet <edumazet@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Shuah Khan <shuah@kernel.org>, Mohsin Bashir
+ <hmohsin@meta.com>, "Mike Marciniszyn (Meta)"
+ <mike.marciniszyn@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>, Bobby
+ Eshleman <bobbyeshleman@meta.com>, Breno Leitao <leitao@debian.org>, Simon
+ Horman <horms@kernel.org>, Mina Almasry <almasrymina@google.com>, Vadim
+ Fedorenko <vadim.fedorenko@linux.dev>, Dimitri Daskalakis
+ <daskald@meta.com>, netdev@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, Dimitri Daskalakis
+ <dimitri.daskalakis1@gmail.com>
+Subject: Re: [PATCH net v2 3/5] eth: fbnic: skip freed Tx rings in
+ fbnic_get_ts_stats()
+In-Reply-To: <20261117215416.1901246-4-dimitri.daskalakis1@gmail.com>
+References: <20261117215416.1901246-1-dimitri.daskalakis1@gmail.com>
+ <20261117215416.1901246-4-dimitri.daskalakis1@gmail.com>
+Date: Wed, 18 Nov 2026 14:26:58 +0100
+Message-ID: <87v75u6zj1.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -86,38 +70,30 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261112064716.85381-1-sunwenbo@cmss.chinamobile.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-> hsr_set_rx_mode() syncs unicast and multicast addresses to slave A and
-> slave B devices via dev_uc_sync_multiple() and dev_mc_sync_multiple(),
-> and hsr_change_rx_flags() propagates IFF_ALLMULTI via
-> dev_set_allmulti().
-> 
-> When an UP HSR device is deleted via hsr_dellink(), hsr_del_ports()
-> removes all ports from hsr->ports before unregister_netdevice_queue()
-> leads to hsr_dev_close(). Consequently, hsr_dev_close() iterates over an
-> already-empty port list and cannot execute dev_uc_unsync() or
-> dev_mc_unsync() on the detached slaves. Likewise, when a slave device is
-> unregistered while the HSR master is UP, hsr_netdev_notify() calls
-> hsr_del_port() directly without running hsr_dev_close(). In addition,
-> hsr_dev_close() does not release IFF_ALLMULTI on slave devices either.
-> As a result, detached slave devices can retain synced unicast/multicast
-> addresses and an elevated allmulti reference count.
-> 
-> Clean up these states in hsr_del_port() when detaching slave A or slave B
-> by calling dev_uc_unsync(), dev_mc_unsync(), and, when IFF_ALLMULTI is
-> set on the master device, dev_set_allmulti(port->dev, -1).
-> 
-> This issue was identified with the assistance of an LLM-based code
-> review tool, confirmed by reproducing the retained allmulti reference
-> count and synced multicast address in a User-Mode Linux (UML)
-> environment upon deleting an active HSR interface, and verified in UML
-> that both states are properly cleared after HSR port deletion.
-> 
-> Fixes: 36b20fcdd966 ("net: hsr: Add support for MC filtering at the slave device")
-> Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
-> Signed-off-by: Wenbo Sun <sunwenbo@cmss.chinamobile.com>
+Dimitri Daskalakis <dimitri.daskalakis1@gmail.com> writes:
 
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+> From: Dimitri Daskalakis <daskald@meta.com>
+>
+> fbnic_stop() frees the NAPI vectors, which clears fbn->tx[] while
+> num_tx_queues is left unchanged. fbnic_get_ts_stats() walks fbn->tx[]
+> without checking for NULL, so asking for timestamping statistics while
+> the interface is down dereferences a NULL ring.
+>
+> This was found by AI and reproduced on HW.
+>
+>   # ip link set dev eth0 down; ethtool -I -T eth0
+>   BUG: kernel NULL pointer dereference, address: 0000000000000050
+>   RIP: 0010:fbnic_get_ts_stats+0x38/0x60
+>   Call Trace:
+>    tsinfo_prepare_data+0x82/0xb0
+>    ethnl_default_doit+0x213/0x470
+>    genl_family_rcv_msg_doit+0xdd/0x110
+>    ...
+>
+> Fixes: 96f358f75d1a ("eth: fbnic: add ethtool timestamping statistics")
+> Signed-off-by: Dimitri Daskalakis <daskald@meta.com>
+
+Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
