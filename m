@@ -1,59 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795031727;
-	b=0sjV6kiPdl1TV3MrlxAzVN5X2AnCBhzBygQL5+jl2gLHaYNE6h5RommjMQxCHqzZJWNg
-	 UQjVMDcRKTMOfrJiO8jKds9eOGxgWVTgZ/i66B4XX4KSUd7echkBiYjIm/ORD2xmf6q68
-	 AT5gL3Aa2b7lmxv8T0wEQdqJSR5r3PFvGDjrn0QG/LQAVDPRwwrhzxDVllqeh3/n43PIS
-	 clotZgWqEP+mGczFDGZr6XoxPMwWFKForCt4OeP8d9VbxN5DOPBM3nOiGqEYK7Qiw4o6c
-	 rgSZoJVjejk3GZM8DfKtnu/jFiBg0Pj1RCsRkprwU0F9XZ2JL7qJDwL90VIG0ZEdeuw==
+	t=1795031770;
+	b=kL3kJZJ+Avdw82/4KIZz9l24d7+CZuCScrenEOGJlBQAv/F823fqr5eLf2hTyYH45wDL
+	 5L3sMjZjzRUzbKkLD2lJq22v5rZCJDqM2TLm4fTVRy0JJRvgBVBd9t6ylFnyOET0JEw5x
+	 a2oIxE0+JIcluFfzaD2f+JnJDZfg1jYj/OT7fdfIjjxs53EmvpUBTzCVnX5dqyObZVstW
+	 SbWR08jGpCnBJ2xp8WePds2D1V90wiaS4TfMhIwB/QptnfFwiDLVsLj54ixShWiVkkEC7
+	 2ZNFk5Yt+P7RHHY1SaZOzsL0pNQhAdJja/dOrZccU87cFD2z5Tbp7ff9huEdiz/NZ7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795031727;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=hIZvoIHER3UiWClDyLO4zBTEG/6o4NzBGFQLN/NZeIY=;
-	b=hKCsVUEa2wnh059KaQC8KZ/PfL2sk+Zbp3FNUcxMpwPShiem4qfh2KsLMCAaJKFH9QOT
-	 IicuBIFuW7w3hBS1tnt24jlME47y7OOSD7Eu53EWMFbtW99Xh3owhiMxyZFuSJz/My+gQ
-	 fqrn/DioQPzl+IwePl1hWpWbRq34zLfWPd20gqrx/xM/vMqFe0ILt5PNSJqi6XvKZA6wh
-	 h20syHI4zuVIlX71t9TwCx5zubHnzz5TUALyKoSHbxvNVKbV1XrgthtyE0HZM3icOLeFs
-	 fGN2+1KGh1OeHzC3GluVQgHVHEjqL2u7DQ1UBc9JUYDW/Mm6OtUeYjofBCR5ERwvz/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795031770;
+	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=Fe6NwmngpGFMvh00hUNwLYVq+WURZ5Qeqr57JlWT/9w=;
+	b=OE7fW+u5n2B4ykOIeLXuoD3BH1ubnTiYVb5A5jjbEqk4MfSkWz+VHjDozpotMLjO4kvH
+	 z75Z0rXjuNl97BTeUtNYkh1TR1TdBALgRQXZbcmKffB7Fb0esrU9t3UMRMLAFVe5oiopT
+	 C88cNfIJaF0KCVhRbv+jVhunX+vhtI3ocU0gG3a131NXE6kp2PtthmtSairs+skxJvLei
+	 0iv19Hq/dZk4ARjqawjMxl11hFhKH03wMEGqsPB9myE6f1c5ESz/WhKfDL4JkMdP5Ye/8
+	 PeGc/POk+e8mp/7jGkQRtjInyuUMqwrcFVQMRVczJd9u2EyDIaq5UQ3JNuTntj8rsTg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YbtyxrUe;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=EPXY0pMs;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9089C606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 19:55:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BFE96606A33E;
+	Wed, 18 Nov 2026 19:56:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BFE96606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YbtyxrUe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 10FB21F000C4;
-	Wed, 18 Nov 2026 19:55:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795031727;
-	bh=hIZvoIHER3UiWClDyLO4zBTEG/6o4NzBGFQLN/NZeIY=;
-	h=From:To:Cc:Subject:Date;
-	b=YbtyxrUeL3wEMTO8/HLbd7MsTTbI7W4f/FO+8UI0Vz/uJ2VHUAjdv0A40+KFyMAES
-	 CtO8sm9ujP1Ndpn1vum7uwfQZDl/XSslY+0eKLPmL7PcMLRzLa7Tg3ozLlNMunLKj+
-	 vHQVONsW4s2hl94ipphSgosi2ptAk8YPUfC+az23afKOfFHYcXpvbnZA+gGNu/Wv9C
-	 xDwo7bZGGC9rvQswlgm57QtK/vrNnxk7rymaICL6Pe0rCLnZYgQjKf7/aXwEvrw93f
-	 lGVGk0x4pvCLLYXcqMGs9LuHByjg+mzp7ZPkvbhj2FvNXJb/gS/vuaerVE/zj67MLu
-	 51GIo0Dy0A9Bw==
-From: Jakub Kicinski <kuba@kernel.org>
-To: davem@davemloft.net
-Cc: netdev@vger.kernel.org,
-	edumazet@google.com,
-	pabeni@redhat.com,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org,
-	Jakub Kicinski <kuba@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Willem de Bruijn <willemb@google.com>,
-	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net] MAINTAINERS: add Willem de Bruijn to networking maintainers
-Date: Wed, 18 Nov 2026 11:55:25 -0800
-Message-ID: <20261118195525.3449546-1-kuba@kernel.org>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=EPXY0pMs
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 75221A21D7;
+	Wed, 18 Nov 2026 20:56:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795031767; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=Fe6NwmngpGFMvh00hUNwLYVq+WURZ5Qeqr57JlWT/9w=;
+	b=EPXY0pMsn7zHc/2CjglYLq8ukmt2LfHl5NHCtsa8+s+KxAfgacRt8czW2orVeabqBkUvCC
+	VgNPMGmOXZHW1C/0RTHgcE0u+1ioHEp8M41q5h20RI+uyiGMrvCwMliIgoffGvPir4Zpyu
+	Y5Migvphqx5y5TnmfS/zsyRv0v3mnvG+FHWAxxMk09wEjB//3Csp92GhvcuOrd5v+l7+HH
+	Fw7lXMD/ryctDrfczzjsLMcrmZE+5/Bbgfkbb37+q9PFzwFs4Ka6lKr4Dq/I8eR5ympU2d
+	OdwPoEloFJE10O85rqYljZvM+jGx8kfvU1lEWfsrZp2nDdLfHV5sFtcbXkNt6g==
+From: Nicolai Buchwitz <nb@tipi-net.de>
+Date: Wed, 18 Nov 2026 20:55:30 +0100
+Subject: [PATCH net 1/4] net: bcmgenet: accumulate the DIM packet and byte
+ counters
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,34 +57,57 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-nb-genet-dim-stats-net-v1-1-13b275f1e088@tipi-net.de>
+References: <20261118-nb-genet-dim-stats-net-v1-0-13b275f1e088@tipi-net.de>
+In-Reply-To: <20261118-nb-genet-dim-stats-net-v1-0-13b275f1e088@tipi-net.de>
+To: Doug Berger <opendmb@gmail.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Justin Chen <justin.chen@broadcom.com>, 
+ Petri Gynther <pgynther@google.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Florian Fainelli <f.fainelli@gmail.com>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-Willem is one of the pillars of the community and already
-maintains a bunch of core protocols and pieces of the stack.
-Make Willem a maintainer of all of networking.
+net_dim() computes rates from the difference between two samples and
+needs running totals, but bcmgenet_desc_rx() passes the counts of the
+last poll. Adaptive coalescing then picks profiles from wrong rates.
 
-Acked-by: Andrew Lunn <andrew@lunn.ch>
-Acked-by: Willem de Bruijn <willemb@google.com>
-Acked-by: Simon Horman <horms@kernel.org>
-Acked-by: Paolo Abeni <pabeni@redhat.com>
-Acked-by: Eric Dumazet <edumazet@kernel.org>
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
+On a CM4 at a steady 300 Mbit/s UDP, DIM changed profile about 1000
+times in 20 s. With the fix it settles, and Rx interrupts drop from about
+4500/s to 2240/s.
+
+Accumulate the counters instead.
+
+Fixes: 9f4ca05827a2 ("net: bcmgenet: Add support for adaptive RX coalescing")
+Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
 ---
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 66e609de66fa..f089d3b6a4af 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -19548,6 +19548,7 @@ M:	"David S. Miller" <davem@davemloft.net>
- M:	Eric Dumazet <edumazet@kernel.org>
- M:	Jakub Kicinski <kuba@kernel.org>
- M:	Paolo Abeni <pabeni@redhat.com>
-+M:	Willem de Bruijn <willemb@google.com>
- R:	Simon Horman <horms@kernel.org>
- L:	netdev@vger.kernel.org
- S:	Maintained
+diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+index 4d2be2a21ed1..70c6a6465c81 100644
+--- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
++++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+@@ -2486,8 +2486,8 @@ static unsigned int bcmgenet_desc_rx(struct bcmgenet_rx_ring *ring,
+ 		bcmgenet_rdma_ring_writel(priv, ring->index, ring->c_index, RDMA_CONS_INDEX);
+ 	}
+ 
+-	ring->dim.bytes = bytes_processed;
+-	ring->dim.packets = rxpktprocessed;
++	ring->dim.bytes += bytes_processed;
++	ring->dim.packets += rxpktprocessed;
+ 
+ 	return rxpktprocessed;
+ }
+
 -- 
-2.56.1
+2.53.0
 
