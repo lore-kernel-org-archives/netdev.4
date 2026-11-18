@@ -1,13 +1,13 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.14
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795045878;
-	b=V8MbO/M7kpUurfVD6xs3ukyXFVqIE4Z1odv2BiHOkxEhqnqFjZOzw2DjXrxfLPaoXS+k
-	 c0cQyufL0gYI1yO5UHBxKBb4UK/A3VGe4m/JOJPEo0eCid1emXNcihseKJTHHatXScbo7
-	 7fKIcvffaRi+oX9qgyK16yKMy5h/EdK7D0fTADECu6AxkPftnlatVJbT2HoIIHZawjFDe
-	 eDV86sfZX00pPM8LOjZmW3DKJxqLFA9kPxAxDNlkY3ERP/dELMVnT7z3Zp0wAZDvFJa61
-	 e41BiiUqHsWSNVWXGcZrQalFToDdOZvV/d37ZLJ64hl45o39fkD+n5w2nkuOy6JZhPg==
+	t=1795045877;
+	b=bQ/KORPzJQQkoTNks7cZL/777g2Gtxw9SlA6ilZnRnP1fYSNL0OJHiHItbGzPU7L5XH2
+	 FaovEEbIWeA6jwIa0+o2dQHEpsvoNA0wivjbJHQ/Pgs5i18yMhZUZoGEg7DPbS/Gb2Kw6
+	 zwV4oyEGIjji21+xMjnGYE4sSDk3Te+Ni+vEXTHIkLT5bfTlo09U2TS4lGlZiLDmOONqZ
+	 nZmx5zwdxWnCcwVeRBA9A0lT/ZEkKHfinRcKea1ASuK+W45Vlx+hn5csJ+qgJVUfsYt+h
+	 +ZRrgEzuLKeL+Zhjw+tfa/mV3PyMjrzgczmD3wMQawotlVj1WI5v5qFUtuOIi5t2VKA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795045878;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795045877;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
@@ -25,53 +25,53 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=OS2YabY2TxbKlR9jvwOvf0olZyx4xN97j9V8ZiE5ffc=;
-	b=RUVdYGLey8JBVSIch6vvpGrYCfjz74huDcuzz0MGTiDnqzAggRbDEtDQ9UyOvp4LpPKe
-	 iLGyZzB9lvveXckHpFu6kyKeWl8GKgquzze4P6N9uJHJtzfXPkUdNTFUNIKsDEkw5DsTi
-	 nLlu0VfQk+9Dve3hyQggBs86/hstplHHc7bi2d20lNHL5m0Dwt0FhqUf/A3ffAtIN85Vb
-	 NXJ/mFOCEuPOc292AarnNrex2Demw6pKNlwZb1P1jdOABIL/pcHeka+9t9YLi53a910Cx
-	 zGTq9KvUDFgO/7neMkY5SOWn72/AEdoecpBWCsi5lLNKjDeD9ZfNEve+fqOqmxIThcA==
+	bh=Ve6mHWj9nrIku7ZrTFY3RbiAcDabcloYmrDmP/dJXMU=;
+	b=jHzTeL2iezrSCnz4F9COvNgXm+bmxT0F5NdDTKI1Nyo4BTnsvHtfQu3XeRlSmoSh3x4S
+	 QdclOzkb3q8xHn6n8dlQCAHtGLPE5FVm26hTJCtzL8delOrYmeFF/lzdpoPPod3zETK4p
+	 nPjdbfYM+xxxIi+A+UzrUpipbLOhD25XB5dl94KgecfBAbye/5I08NN77SpRkTj9yDuBf
+	 HMxmKz8FWrG7P/YS58LyuLF7AolkLy6QxpIFbYv7PaE/w67lDcDG6LFPcKVVZile+6Uub
+	 Gsnb6W8RTnLhkQH5XFgDCv7L9qLj1ErPSB7yvOVaWhaMFAtkqKq8U5AAVMxrmvqpHnw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nxp.com;
 	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=gVeRSJH4;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b="Y/VicunZ";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.14
 Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013014.outbound.protection.outlook.com [40.107.159.14])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 044A2606A334;
-	Wed, 18 Nov 2026 23:51:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 044A2606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E627606A339;
+	Wed, 18 Nov 2026 23:51:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E627606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=gVeRSJH4
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=Y/VicunZ
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rso8tDTIM81qtHitDMmr9u7DEuR4bGdM0Uz1IT38Wh2c+lTIxas8I85vapI2jNSMIrWdNfTnqrml2MiZbeBOJg4W/10E/orSw3+TojczBzkWojY+5DwdlLaxKKjJzOVYVYgPTo6AsEQ+KtEDNTsSjx1V+kytrrBFQMVnDT0xtndEoVpeLvOHN0AYK1CL4k8ckCOrYtkNV5HsZOrysBsE9xQbWCRs9QKEE8FmBOuVQx7xpH460uChIDmFgFzwoqakdYAirgt/0C8wJGBJtdqO9adc4NRvDW6vSyW7p/MuXxsPsZJcsIHWRq82XLrR4cgyNuoXCOpNlGvAzqxyHx0Zag==
+ b=pRR0DNpC7gsv8UNsS8AFShWv2tk5KV/V/W7RY5NIuW+FoDV2q44Tl3UFHqQhu+jYY+HLy8xoRkRjNdjgDum1HZuaM3rVh+oIPk4UoMKWNTnq7/t35Op2wzMAS8UZVnEUeWpLrVtaC1junFl05/cw4reEd/ZVGbiKFDbMCRwyOrIOT79pEyK52DjeEKn4NyV8hdHvC3/LQ+fUeWgRUUea7GAYVwCg6K38hJYP3YotVSnVIvsL0b/gvd8Id9iaWthcNSRdXJSn2X/G3R/iTfTCjGq0cHyGJOtSUaWtteTZMrKd5gVeumQzm8SCE2MWccgs8X5k8P5ga4nTLJXcpybg+g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OS2YabY2TxbKlR9jvwOvf0olZyx4xN97j9V8ZiE5ffc=;
- b=E7wfWFVhGXY5VkAcDawwkP/g8/RJpQxujPo5vdiJsoEweRIi8C+V3L/MOce5hdrdfpO8Klw7pybbQ4oYhYD8X5HVML1KnwFLMHqHLT0BHB9wDQ+f1yKSozmUIpB4qtxHVUw1w654M5yYP76EgnCHqgSDt6S+0xirK0CwpFn7C77TPyiVTcC+Rm1T7rIh8Zx1g4bBvd/4c2CdlFxdOqFaxQli8XdIYsmJw6iY2AAzrufeyerDSIdp7c8GxuUtEzjjOxKUIkNWgotwo2JaaDe6CiNER7nB1CuW7GvE/HOKTvYS+OEsKRxB9cfqTY2WVLv/IHD3WdQ8fZJPIEYqbPXbKQ==
+ bh=Ve6mHWj9nrIku7ZrTFY3RbiAcDabcloYmrDmP/dJXMU=;
+ b=aCp5LuLNBjZI4fRPynUd1t9pMxSCEOWrjrBPwXoGcvahFW1zK+UOxauHTXeDoaP27o9dA4iWJV8cwM2obCLO2YdL7Ig15BClwcbrcQ3Wu80jR8+haC9RbLebW767F1SlvbcJa5KDZ8qz2Ffrs+vP+8PS6WbQViFlAtwklSzPWqInZC7u2nEO9YYRCAZpyKFQ5O8Sg/HmD1f5y4Vzk6Zf7hf6s6wxg7yoH5M+NnUzG3ovv1EQHZFz+yldwq8IpQUXv00BPMT/FJlEg25Tv0hgpw4U0T6GqHLN0kJ4o8yGqP/OyH180h+cDPt1syT8SWJnIRGGCtahjj2CV66+/yG8Kw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OS2YabY2TxbKlR9jvwOvf0olZyx4xN97j9V8ZiE5ffc=;
- b=gVeRSJH4FEDMrcZsfSKPHHCfokADD4GyOxeSDyf69Byp54CgWPqWw1eJZZDqwKgbvtYn/lNfOT+a6KjyrZlMBSfshowCVq07IQUtOUHkFNxXxBr+nEW92npTR7Sv4wNIwKgoVtGyhCoPTOV/deGCK0Fm4J2kQWNsPTI+/V2qDzOkqTD/+JUtY3p/jPQCy6yvDEAFJzT/PIBKrI6sisA5Sm5Q6JjyUS4xIRBNntAgXasdVDBu2wCcTgK0HMW5P6cvSC5Ze0JPYQAXj9iX6BKQTqzzCfNAxLXqHZeIAKXPWfWNDULD3IGwMA0DDCTFoIAx8Vg5HXuYTIdI4/imWPIZpg==
+ bh=Ve6mHWj9nrIku7ZrTFY3RbiAcDabcloYmrDmP/dJXMU=;
+ b=Y/VicunZqgKkJ/fQddZdZESghravHKEad73tjajU3X97ykGSjGbqNu+eh6YF+kdIvswGRCOoYVxMu80Zp5ezjEvTISE9nakNL5esKjR4Qq97OTiuWxmNSFy6NuwuFEgsLZTDlApb2kj1FPGxVqQ7o+GBIaQdhKmcrnhECOwG1P4V32/YT5jwMeTNwm7BUMsMFVMC3EftWieRwz0SJP9pf+R7mpghMNMOIH7tMHBANaNP0tl1KMjRqTHPBIYvggJvsqfGkH/qsmGi74ODaYZl3lvr4UqD5YYsWPjSLEaJWCjCnyOJp9cYKGGMXVZp19coJ5ptWxLsv73zPc+0HC9hMA==
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from AM0PR04MB6900.eurprd04.prod.outlook.com (2603:10a6:208:17d::10)
  by ZR6PR04MB456611.eurprd04.prod.outlook.com (2603:10a6:910:d9::18) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 23:51:16 +0000
+ 2026 23:51:15 +0000
 Received: from AM0PR04MB6900.eurprd04.prod.outlook.com
  ([fe80::7fda:8431:ca1b:b023]) by AM0PR04MB6900.eurprd04.prod.outlook.com
  ([fe80::7fda:8431:ca1b:b023%4]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 23:51:16 +0000
+ 23:51:15 +0000
 From: Vladimir Oltean <vladimir.oltean@nxp.com>
 To: netdev@vger.kernel.org
 Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -86,16 +86,16 @@ Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
 	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
 	imx@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 net 3/4] net: enetc: fall back to software TX csum for too long L3 headers
-Date: Thu, 19 Nov 2026 01:50:54 +0200
-Message-ID: <20261118235055.1225115-4-vladimir.oltean@nxp.com>
+Subject: [PATCH v2 net 2/4] net: enetc: reserve VLAN extension BDs for software TSO
+Date: Thu, 19 Nov 2026 01:50:53 +0200
+Message-ID: <20261118235055.1225115-3-vladimir.oltean@nxp.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
 References: <20261118235055.1225115-1-vladimir.oltean@nxp.com>
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: AM8P189CA0027.EURP189.PROD.OUTLOOK.COM
- (2603:10a6:20b:218::32) To AM0PR04MB6900.eurprd04.prod.outlook.com
+X-ClientProxiedBy: AM0PR02CA0129.eurprd02.prod.outlook.com
+ (2603:10a6:20b:28c::26) To AM0PR04MB6900.eurprd04.prod.outlook.com
  (2603:10a6:208:17d::10)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -108,171 +108,126 @@ Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: AM0PR04MB6900:EE_|ZR6PR04MB456611:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2ddaec8c-4c4e-47fa-da48-08df45ced60e
+X-MS-Office365-Filtering-Correlation-Id: 5073dcb7-b3a9-4770-ee37-08df45ced50a
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|19092799006|10070799003|261102123227099003|10067099003|261021121427099003|56012099006|11063799006|261026121527099003|261102130727099003|261022075727099003|261009223027099003|22082099003|18002099003;
+	BCL:0;ARA:13230040|366016|376014|23010399003|1800799024|19092799006|10070799003|261102123227099003|10067099003|261021121427099003|56012099006|11063799006|261021123027099003|261009223027099003|22082099003|18002099003;
 X-Microsoft-Antispam-Message-Info:
-	AgpCjH0BIGogVR3uolEjPYVcotj6WCt4g8yjcKTM9Rnx7k1v0UH8FcwAmQbLYEsRbKkYpgU+dvQUddSEND2HpmQpwVMyPDk7y7tXNBZzA9uVTQgzoTO8iXdsug+3CjI6h0cZVovjDPT69z5WcJes0z26YhDxKW/KdQK1ap8gt5s82NYPRfusBl9guNE0TlBHMt8MbMTD8Nts5z+PEyOMdOYz2OB9aODZWpEeq7aZSO9Vtz652XeZihg99PougdSfo/wuVkxaHCrYkA/aeDKXcnsk7QmRmm1sZ6XCaQy6blBh7wJOSMkQl4Uj6PNDsF5b4LPYhI50BQ/FGfGgE82AxZEIqUjmMKQNDeb9yzhe4Oi+5ipU/xFADjjVY5eXcC3A3F1oODqI3lq4Ueq9Bt63SqsOFNjhbGI+6IaVih8jy1Jmbddmj1Tawj3TL0ajS7KsTpHnSQ7+mIVra5qQUTjExPcUT9ZhzA4D3v4w2rpyqCfSc4vKnhEK5kVyorVfILjbO8an2fgOyiczLCw/DAuIxlgnIrd0hVKafN1Tq/xEzxTIyNKaXE/jvPVAswazKKAtgJ+JpN6n5Kqj61gxdOhll/0ZMPekAmkcYRat5rN3H0Vrruh25dOI6bWI4Ectb42W
+	+5kOguzuceocasFnSpCPPE+pamaunXhXWAGHR4JnUaoOirRpuqM86+2uzeVAKgcbJkOMP4HiPJxW8WGJm2CN5kkyor801RvJL13SgxGFZr1yFbXQt46Ua69lLp3fdz0hJklALlzfWVK6CHrxy1sIokPsOckZBjGWYaB0fWG9ZI7l0odnSG5MMlsaYal42xbXIat3y1Y67ZIzWww3bMhiHVCrLZo65aj543jARwuEqpdp33AtNdIUWNG6IFNCuo7YLLgG4KkS/4fngQpqzCQKT5m2W/nJXJdxJXtzrpVByzUB6tCjF2fp03rTOMbDBkAq5xxtQL7ABsnHqifpRSZ4exIM8GtgKF0hCbeymGnxrVSVTPubJ32YdUEdHNdEiacSdZppjSa3fW2n9xXhGxy9O00ODevNwIFLDGuPmEdLpvpySBmwhd7eo0DEEasrsfQLhXrvIMYpCeyLyFuurCsuC/0TY2yHu4sROEb5mi3Ag6hi/JWihfAsMXfEk6FfDJuyb1Tge2qFMLKJ79vWByfzziKz19+WWQvDeYjLx9HeMRZ+GqlNgryvEDiLNJ9y3VvpXzLU3QhrRfK7VqBqRoaEgWN/j3K23KtWnEFlAihT1YmPzXZC/BLTJg/KgkkyLdsr
 X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(19092799006)(10070799003)(261102123227099003)(10067099003)(261021121427099003)(56012099006)(11063799006)(261026121527099003)(261102130727099003)(261022075727099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM0PR04MB6900.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(23010399003)(1800799024)(19092799006)(10070799003)(261102123227099003)(10067099003)(261021121427099003)(56012099006)(11063799006)(261021123027099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 2
 X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?DcpC6i9vzEgcpm/0TStkmuF3xDfxZq+v1BzSNqMfAaRiapLiybNOqcvtALjM?=
- =?us-ascii?Q?W5nN52FMhqcljA2F5/1qWK+QbpfEmf3tNbrMSahIMoGWa3jvEVUNr0jUYYhp?=
- =?us-ascii?Q?zOK7NVDTuOZg0InBRFhfEwOYgjuLiQnqoI4zFpdD2o6wkFu/qDbIUBvUIi4N?=
- =?us-ascii?Q?A1hNOevEJ/xe6XZOItivbpfn0NkM73+a1hMncFQqPhZXKrimymqRx7iqNSzq?=
- =?us-ascii?Q?LCp7saQ1H1msT9xe7XZ+WYwyN0t3FkbJ+7L6ixMjBuKwkXv/GLVDPMy/baT5?=
- =?us-ascii?Q?FCe35R7byvMEfWe/SrdRa1oVooGxL2l9Je7/QSkSPkZbt14oCIHL3g9/9xH2?=
- =?us-ascii?Q?tzht0Rux/eUOXlvcwT/yNsRuJbjlJ7HI/OAzcxVZrLEHo6Rx+PcWu53NTy5u?=
- =?us-ascii?Q?VVU3zqWxSy5XYX4Hwp9ovcthw9/3IpgWsEv4bPDTnfPxx3Uo5xOoSss7k//S?=
- =?us-ascii?Q?rnLYcLmNx595rpCcpxZR++0x2O7cyBx37XwLjntxvYllWA3PNMFW8CHnBCPL?=
- =?us-ascii?Q?5zauRNYO5JsTS0kubCRi0wbTIdkOesZFt9qVNfzxUmuDkUZAb/t3z2sVEsa5?=
- =?us-ascii?Q?IIFSXYZDQoAKJBfqE06hH8EMvf3ZtkrRvSkYROTGJqnb0ligsCyTmilprsO2?=
- =?us-ascii?Q?CMMLXlINdErFu4q0CYPYzn9LnFsKjC1NZ/GyC/jZFoitDKmmvD1y74HY/tz/?=
- =?us-ascii?Q?68kyXuY7My9tMXePNUNNBwbgE1/NcRAVuWKxKqos2bvsJ+l1B1aCH8pQfhtY?=
- =?us-ascii?Q?J2gRG2+nC2m1ttydZMv09Op3M4rts0krHkIO31feu8J7Pf3SdzKySUhY22Ye?=
- =?us-ascii?Q?o6WLUsh9n2Q5pYSivwTDIuLyLhZUZac491M38cKBiBF+lWOlAGpBfX3asPjL?=
- =?us-ascii?Q?4LA2bn6t3nxAc3HrUc7yP6zUR580sfMAkQ/jeNagmIPf904+eJagG8Ag1yi3?=
- =?us-ascii?Q?eJg2GiiXtcHszQ9CzBHyvNqfCNhV95GNpc2Nvsasm/t+4lIJP/rKrb4PxHYr?=
- =?us-ascii?Q?UsbqcHrbeo9YQEfxC1RKOtk/iEgrMGnuHcYBzmSfftpRvZrVYMSb4q4szY1z?=
- =?us-ascii?Q?Mvcl+SQUfaeBTGE6mZWG4JD8aN0IYSDrjjl3oxGtdm6352FdpRLpcnr2W12G?=
- =?us-ascii?Q?X3Zxa4pwBpaS7rxO98OTWiRq1IUvSgrvhmRbV5qKNzIodN3TlL8X/U3ebe7n?=
- =?us-ascii?Q?V18RCQhjrKFohO+G4t+I342zSfn0ZfX6qR/bQ2l50XCPi2w8nlqQchWb+aDT?=
- =?us-ascii?Q?9pw+ihZP+B3WgXfpvdGfYFMEms9F2G3cY3gBHHSHTE4+ZqhAgfg308i84wiu?=
- =?us-ascii?Q?8AJj2+kL4G6+pLsqaDANooddI4myYV0Tp790CYW8nU8eB5RcBnEuME2rhvF6?=
- =?us-ascii?Q?/PAA/V2CLkVwN5T2kevK4Wh/hqwYHT2bPUCe8BOypimU9SGYkJXXJsuJwMkG?=
- =?us-ascii?Q?d4p5K1w1jX6N9sRx541OLFFtzf8ECx7WbEQQH2HcfQx1FFKBSwFgb/JhXAh9?=
- =?us-ascii?Q?f0UT7DYszkEyVLpdyidyqxeF0vwZTSiJ1KVdkLEM77QakEWLVK/2hINcxGqp?=
- =?us-ascii?Q?BmQFLe+maEUEoFVcf3pZpxN60fYn5hYynl4EkVXqaaTqolFZUWcoUbQcMs+6?=
- =?us-ascii?Q?4KUiCUbFcrfG/NlapE8vlV/rOCdfXTQB9Wq6NEMg4fMrxOopD7OLlhMMfGJQ?=
- =?us-ascii?Q?/cU0l2DDrM5p1SH26d5fzlx6jVCYBL6dO8Wy3FtE63jg23b17R9eWxb9cXle?=
- =?us-ascii?Q?XbCn4aFdk1ki0bn4ELGC9/lKAqdv7sk+mUOEoEDpCUn48Ch16qdcD5btU/5l?=
-X-MS-Exchange-AntiSpam-MessageData-1: WwkogTHyeI5dVw==
+	=?us-ascii?Q?Uaxazht7S2qQOc4d/J3dQwzK+KNx6B958mIKkaLlcQhlqZm3e1F1ySyMN2zw?=
+ =?us-ascii?Q?aMCgLGQ7o8epkzpAdau1wVMGxftBTrE2XZ5aGB0yz9y5qULzmDh3IwdkNUAj?=
+ =?us-ascii?Q?YHTdNOsgh6qoxB/zkIZwhyMou7SeBRhgMw1CaD4AJEo6WYwXHlHQC5eyUguU?=
+ =?us-ascii?Q?htyukL6kW5BFBu9zu16FrtObLQO4x6o+ounmTT0unDzrag2PNz2DeCF9mvJB?=
+ =?us-ascii?Q?o0XnEoes4ToWzT/6b9TJUPUAR5BVjBCXn/br8j4UZ9GPu6msbZ3k1biKAOt+?=
+ =?us-ascii?Q?giJib2L2KtWAJrjPwzmbfdnkk3uytq5fPCC9Q4m6gIG0GhuoD7IX3fXrjsCx?=
+ =?us-ascii?Q?TyRlY87Rca8s7egqrCOqbHFlhGPr7u1izjroqGDmQk0l/zaGRO71DCUeUk1x?=
+ =?us-ascii?Q?VSyrGIZ4dNoAh24b9fIsY00r6gp3fsCTNMItmhhcDpplYCbDrDqKeRMtNPjw?=
+ =?us-ascii?Q?mQ3ifRcDL4iZEnOqAuwpByOzSM1nqcyCnT2Wjz95lTgtCEMVCZMJkkCQr17H?=
+ =?us-ascii?Q?clB73/vPnYF7DxUIcM4oIZH2WG11CNw5Nk5gkG+G4PO3uiGXpGtIBbmQWQMy?=
+ =?us-ascii?Q?ppM0bNwa7UMy+d2I2DhETsGm60JKoDGsr7l8xG6SrAy5/336n0Pg9U2EE89Z?=
+ =?us-ascii?Q?RXkZvh7kpaqn77R2GR7grqBDPrpcfcd7JrgsfvwxIF7cB1tOhPLQviWoiGp5?=
+ =?us-ascii?Q?9tZ+4rmZ8oRMWUKkEZPwunFKJeKUkIXGP0b7lFtGCdniAG5gZKSRrhVBkwLs?=
+ =?us-ascii?Q?ZoPv8urgfVob+0zZRFIxzbIQweIlGq/XBhy+AnyE8ti24AGvpc+ZdLe2Ue1I?=
+ =?us-ascii?Q?GK07RjjYB/YCq40m+SyBkI+Xj+ha505NDSSIwUlRwH+0zktthzrHrAVlAI24?=
+ =?us-ascii?Q?ilNlNUhGq5n3gh2wZRAZ5AFL4cycuy4DtvIf2AoVq6r9wlYhOFwqGl/M79bb?=
+ =?us-ascii?Q?EnWymOaeaZmOfbvqEYY9priSmigDpd1JO3bFhFiMLbKwhAX2V15aB+HPKeQe?=
+ =?us-ascii?Q?kZUwh+eTcfJbvm7BYrwfav8l4VrXWXMOAcGFL0UvaOeIKtQDxy+I0qvweJ34?=
+ =?us-ascii?Q?ZqK+F92GWtBq95AqTIhrw/KFQh4MhnX2E0qumZxzlJdUrxRf1YtVHFGOS6WS?=
+ =?us-ascii?Q?VHFzjc4t5FbHp7GofEwSF9cfAIGVF1DzhT+36t838gzW+MpZaNC0TKol/zKM?=
+ =?us-ascii?Q?bv4XepVZ/y5Q9pGamliOFYIpPTK2PFgrx3Ur+n1I9no8y7rUfFScaeulCC1Q?=
+ =?us-ascii?Q?fcUQliAUqCrY6OskEtqbclWkSZ+v/N16tmiqkc0Sr4MscfCzYXpsetgLhjgK?=
+ =?us-ascii?Q?mpm9w88qTKTHClLzrv/O+XRYOrj+6xbQNBBNxHmpdBGIx3kgYohjPXwwv5GD?=
+ =?us-ascii?Q?yp5T7gTa/RfNEBfhseszSY7ntUGr/WRllso2cU4is586fKND6EwS6LTq1yZX?=
+ =?us-ascii?Q?quZyWkI8QSM9GR4JENd2LhvP9D7MEzDN9xQHG6nnJo/a1STWgeSERapD2JkH?=
+ =?us-ascii?Q?iTFRIoJUtZWM/S0b7mAlfs/9ym8w56aUb7gbwreXe6d18C49hJ8zTa9j4GvE?=
+ =?us-ascii?Q?SGP5/53WmK42Iw2oq5Nk/7i+5uzgBoTWBox8FLMOtHQ6kF8DPw7n19mx2HDw?=
+ =?us-ascii?Q?me/Qcr8OlnA2RFh6s8bl5FPmID4ia6FghVOsMDtOKJKjdZmUYmk99TEa0xgp?=
+ =?us-ascii?Q?zA0zVhtvOZKp9N2soYDqC9wICXh4/qOFJNp2qXWKsfX2Hx2fouyunWqKyg+P?=
+ =?us-ascii?Q?ZX5CnklWwxGgLy7ItbiGNgcV3oNWQOsH1DcFHrFMF/4SmkTfWJHgT2cGfaly?=
+X-MS-Exchange-AntiSpam-MessageData-1: divuu7qEtE2H2g==
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2ddaec8c-4c4e-47fa-da48-08df45ced60e
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5073dcb7-b3a9-4770-ee37-08df45ced50a
 X-MS-Exchange-CrossTenant-AuthSource: AM0PR04MB6900.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:51:16.7803
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 23:51:15.0949
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9bdXequ4fd+JEOiTUjVDo6wApos2dDLhCI00YwXV71rml32eu1XVoCY+uW0nCM3QLcAK1R4ynLedHW92Y2+ZdQ==
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1d564mCiMnT+NUsi9e4soGv3mNIQo2cUNXdW91z4AgBp4yfV08b3t0rKhGNlCXWZZ9MRHdl0eHlMhVVsVzdPhw==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZR6PR04MB456611
 
-For L4 checksum offload, enetc_map_tx_buffs() programs the following TX
-BD fields: ENETC_TX_BD_L3_START <- skb_network_offset(skb) and
-ENETC_TX_BD_L3_HDR_LEN <- skb_network_header_len(skb) / 4.
+enetc_start_xmit() uses tso_count_descs() to check whether the TX ring
+has enough free BDs for a software TSO frame. That estimates one header
+BD and one data BD per segment, plus one BD per frag. However, when the
+skb carries a VLAN tag, enetc_map_tx_tso_hdr() also adds an extension
+BD to every segment, which is not accounted for.
 
-These fields are passed this way so that the hardware simultaneously
-knows the L3 header start (for computing the pseudo-header) and the L4
-header start (by summing up L3_START + 4 x L3_HDR_SIZE) which is the
-csum_start.
+With a highly segmented VLAN TSO skb and a nearly full ring, the driver
+can then write past next_to_clean and overwrite BDs still owned by the
+hardware.
 
-Section 106.3.5.1.2.1.3.5 Transmit Checksum Offload of the i.MX95 RM
-has this statement:
+Add enetc_tso_count_descs() which accounts for the extension BD of each
+segment when VLAN insertion is needed.
 
-  BD[L3_START] + (BD[L3_HDR_SIZE] x 4) is set to the offset within the
-  packet to begin checksumming. (BD[L3_START] + (BD[L3_HDR_SIZE] x 4) +
-  any hardware inserted tags) must be smaller than 127 bytes.
-
-We have no test for this condition, and with IPv6 extension headers it
-is possible for that sum to actually exceed 127 bytes. For example, when
-using the Segment Routing Header, 4 Segment Identifiers (SIDs) will
-produce an L4 header offset of 126 bytes (OK), while 5 SIDs will produce
-an L4 offset of 142 bytes (not OK).
-
-The hardware picks up these packets from the TX ring, identifies the
-incorrect header length, refuses to send them, updates the TX BD
-writeback with the STATUS field set to 1, meaning:
-
-  Programming error
-  An error exists in either the Tx BD, the Tx ring registers, or some
-  combination of these which meant that this frame could not be
-  transmitted.
-
-releases the buffer and updates tx_ring->stats.packets and
-tx_ring->stats.bytes as if the packets were sent (but no MAC counter
-updates).
-
-This error can only be seen through manual code instrumentation, since
-the driver only checks the writeback when it sets tx_swbd->check_wb, and
-it does that for taprio offload and for 2-step TX timestamping.
-
-Issue found while investigating Sashiko's question "Can a 256-byte
-header still break the hardware LSO path because lso->hdr_len is a u8?":
-https://lore.kernel.org/imx/sashiko-outbox-211955@kernel.org/
-
-and was reproduced using:
-https://gist.github.com/vladimiroltean/7cecf636b788b29f361a2fbdae646010
-
-Turns out, LSO breaks sooner than the assumed 256 byte limit, because of
-the checksum offload feature it depends on.
-
-LS1028A also declares the NETIF_F_HW_CSUM feature in order for GSO to be
-passed to the driver for software segmentation, but performs the
-checksum in software - either through csum_partial()/csum_block_add()
-for GSO, or through skb_checksum_help() for non-GSO. Point being, it
-does not use the HW offload engine, does not have the limitation, and is
-the reason why we need to discern using the ENETC_F_TXCSUM bit from
-priv->active_offloads instead.
-
+Fixes: fb8629e2cbfc ("net: enetc: add support for software TSO")
 Signed-off-by: Vladimir Oltean <vladimir.oltean@nxp.com>
 ---
-v1->v2: patch is new
+This comes from the previous patch set:
+https://lore.kernel.org/netdev/20261021145314.1435049-2-vladimir.oltean@nxp.com/
+
+v1->v2: none
+old v5->v1: also patch enetc_features_check()
+old v4->old v5: patch is new
 ---
- drivers/net/ethernet/freescale/enetc/enetc.c | 16 ++++++++++++++++
- drivers/net/ethernet/freescale/enetc/enetc.h |  1 +
- 2 files changed, 17 insertions(+)
+ drivers/net/ethernet/freescale/enetc/enetc.c | 15 +++++++++++++--
+ 1 file changed, 13 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/net/ethernet/freescale/enetc/enetc.c b/drivers/net/ethernet/freescale/enetc/enetc.c
-index 7f089a84d9a6..6cc519eea5bd 100644
+index 1606ac57016f..7f089a84d9a6 100644
 --- a/drivers/net/ethernet/freescale/enetc/enetc.c
 +++ b/drivers/net/ethernet/freescale/enetc/enetc.c
-@@ -1114,6 +1114,16 @@ netdev_tx_t enetc_xmit(struct sk_buff *skb, struct net_device *ndev)
+@@ -674,6 +674,17 @@ static void enetc_tso_complete_csum(struct enetc_bdr *tx_ring, struct tso_t *tso
+ 	}
  }
- EXPORT_SYMBOL_GPL(enetc_xmit);
  
-+static bool enetc_skb_l4_too_deep(const struct sk_buff *skb)
++static int enetc_tso_count_descs(const struct sk_buff *skb)
 +{
-+	unsigned int l4_offset = skb_checksum_start_offset(skb);
++	int count = tso_count_descs(skb);
 +
++	/* Each segment also needs an extension BD for VLAN insertion */
 +	if (skb_vlan_tag_present(skb))
-+		l4_offset += VLAN_HLEN;
++		count += skb_shinfo(skb)->gso_segs;
 +
-+	return l4_offset >= ENETC_TX_CSUM_MAX_L4_OFFSET;
++	return count;
 +}
 +
- netdev_features_t enetc_features_check(struct sk_buff *skb,
- 				       struct net_device *ndev,
- 				       netdev_features_t features)
-@@ -1122,6 +1132,12 @@ netdev_features_t enetc_features_check(struct sk_buff *skb,
+ static int enetc_lso_count_descs(const struct sk_buff *skb)
+ {
+ 	/* 4 BDs: 1 BD for LSO header + 1 BD for extended BD + 1 BD
+@@ -1034,7 +1045,7 @@ static netdev_tx_t enetc_start_xmit(struct sk_buff *skb,
  
- 	features = vlan_features_check(skb, features);
- 
-+	if (priv->active_offloads & ENETC_F_TXCSUM &&
-+	    skb->ip_summed == CHECKSUM_PARTIAL && enetc_skb_l4_too_deep(skb)) {
-+		features &= ~(NETIF_F_CSUM_MASK | NETIF_F_GSO_MASK);
-+		return features;
-+	}
-+
+ 			count = enetc_lso_hw_offload(tx_ring, skb);
+ 		} else {
+-			if (enetc_bd_unused(tx_ring) < tso_count_descs(skb)) {
++			if (enetc_bd_unused(tx_ring) < enetc_tso_count_descs(skb)) {
+ 				netif_stop_subqueue(ndev, tx_ring->index);
+ 				return NETDEV_TX_BUSY;
+ 			}
+@@ -1114,7 +1125,7 @@ netdev_features_t enetc_features_check(struct sk_buff *skb,
  	if (!skb_is_gso(skb) || enetc_skb_uses_lso(priv, skb))
  		return features;
  
-diff --git a/drivers/net/ethernet/freescale/enetc/enetc.h b/drivers/net/ethernet/freescale/enetc/enetc.h
-index 1e3290d1a388..5b8cffd589c7 100644
---- a/drivers/net/ethernet/freescale/enetc/enetc.h
-+++ b/drivers/net/ethernet/freescale/enetc/enetc.h
-@@ -75,6 +75,7 @@ struct enetc_lso_t {
- 	int	total_len; /* total data length, not include LSO header */
- };
+-	if (tso_count_descs(skb) >= priv->tx_bd_count)
++	if (enetc_tso_count_descs(skb) >= priv->tx_bd_count)
+ 		features &= ~NETIF_F_GSO_MASK;
  
-+#define ENETC_TX_CSUM_MAX_L4_OFFSET	127
- #define ENETC_LSO_MAX_DATA_LEN		SZ_256K
- 
- #define ENETC_RX_MAXFRM_SIZE	ENETC_MAC_MAXFRM_SIZE
+ 	return features;
 -- 
 2.53.0
 
