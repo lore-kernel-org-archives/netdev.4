@@ -1,72 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.165
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967326;
-	b=XyTZ/eYmNNPpQSbf26P9AZQXf7kUxJXTBnR1u1wXZh3nvHzq3IwT8btE68nmY1XJlyft
-	 GTrsU44qUOhwlNi/y4xPdVL/8mw73qYoPdz3omx1L+xo0In9Dj6jS1PVatCArwsujLVEF
-	 8WqHQ4J+XVoyRfod710LyIUQU4L432VsMOfrKP4FuhrQaCdfCuDf1lPEI5PDUIvOauO2U
-	 jHxwxXFv+Mq9SEX2JmsqEwlCTnS0aSQfVHje4y9MV/zD+7dHDtVe5T8ZE63T06mb6mhOi
-	 Cgmh7QvJcCVPcuVUQ3aNrMrESgTiZci8gqnedCaQ7P5cu9DN2dRnXP5mEiYnRXmax/A==
+	t=1794967494;
+	b=1KZDAlGwOP/Df3oZYJFh8qrbVOfJkl1E6VVSzsemcy6GAuYT+Yk/de3HimHMo6E6nt/O
+	 DYhu2FWO0YXDMdr19xeOhBk/O19ulWGaYfcCjOCVctJJvtpUGF15zvkfEWKbb5cOy7lED
+	 onYMg5KzDu9xDBS8tynmjJ/fGq4jJaG5STpwaGihptbPd+5pzsxu3aLbG4VFrNb9ljNK9
+	 U+tUTLjg1kToUwHihUXUOoGrjBZ079X1pLCJZUgtWjawiC1bpB9iW5LZSGDBEFoZbCqTl
+	 soFO7g1JX5T+0KstXqvv2B2iW48Wylp90CN0TcJx+1QE0iXM6UG8xnLLBt75+rL536A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967326;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=fQj5g/lvk0EAaX6Co41L4LJ2o/AwPZge1e0aV/8cDx0=;
-	b=MERdVVQNy7Amk1qroZxIPiGeWNa2DcAUob09Q2t4mbY3H8vHrd06kGHqu2FqU1Lg3IV0
-	 xnRZ1n/d3le8py3NE1mg88ABSAqWNkd+8VkzMUrjbVNA+u9aD3NNSpodFy3WQrVzpcQOG
-	 wPAtruV8owjs07U4drwdxoJJYdmhyr15L0oMGhwPhVbULw2bt0bgRlABZp1Ft2FQsm3+g
-	 BXtB05epDkGu4MpmXA2jPtnl7MQN63BMnDgtvN4LJqzL7Lq0qU8kJ/AGChIx5N9abGQHl
-	 ZcMPm9tV5ORLFrvdWQ4CdrUVX+PNXrLB/37z1uzAhXvEtzbNQC+4bnX8kxakAdz+Ceg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967494;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=7idpOK0uLj0IeEH4I8ykLNX0Cq8hKyMbZ0eKNeKvegk=;
+	b=tzwrfX3nKg2IZtmfO9OtoWeroCqaALNstO1IqOIZvxVtjap3gjeDLZVjULylpv+7ocwb
+	 nq/gdYhq0Feyjal1F8/hGWTViIWnoBn0QqSN7e94T+lWCA6BnSnfGXTu7GTNGDgC1JTxb
+	 krVvJPLLn90FHT0cGTO2A7oW61/+Lcm+Na5egYNNkOcmBtZLHB+skCCfY6nTyo5l8vmZX
+	 DkuCMIUJTICQBnbJ2o6gs6BEJXPCQXQStDe2EnkN+G6MgFfhvB0Q1IQIfNfRi5DOH5ck0
+	 CWxHV9y2vdQDJyyfdc2SD4NV+CvBcFDcXOUpCZEU7Y6vRokKu4Uw9FJiU5Hs6gubomg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ohTpTWfv;
-	arc=none smtp.remote-ip=95.215.58.165
-Received: from mta1.migadu.com (out-165.mta1.migadu.com [95.215.58.165])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nTFcnP8M;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 787A8606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:02:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 787A8606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62C7D606A31C;
+	Wed, 18 Nov 2026 02:04:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ohTpTWfv
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=UB1RHYa2kLvTkXPuxKeUXS1UT2WJukR57HA+prhjOZE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794967323; v=1; x=1795572123;
- b=ohTpTWfvKgMMQAMA9nEGh409M/JMovk8/hBIXVa5S1JEijFjZl9mMCWWL0BO7XWdMXM0x9az
- 0r8QdtDa0ycudLZ6NuiQrS4llen50fKCp9DqGvYR21IEZSCk+YK80eBaY/c2yv+VP87K9U68n7E
- DAasMJPmt7Up5LoxznoS1e8A=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 897deb0b419e9f34;
-	Wed, 18 Nov 2026 02:02:02 +0000
-X-Mizu-Trace-ID: 897deb0b419e9f34
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 18 Nov 2026 10:01:52 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Stephen Hemminger <stephen@networkplumber.org>
-Cc: netdev@vger.kernel.org, dsahern@kernel.org,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Andrea Parri <parri.andrea@gmail.com>,
-	Stanislav Fomichev <sdf.kernel@gmail.com>,
-	Nikolaos Gkarlis <nickgarlis@gmail.com>,
-	Willem de Bruijn <willemb@google.com>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net-next v3 1/3] rtnetlink: return EMSGSIZE when first
- dump entry does not fit
-Message-ID: <av0HEABXXzKVNnoU@fedora>
-References: <20261117221538.184948-1-stephen@networkplumber.org>
- <20261117221538.184948-2-stephen@networkplumber.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nTFcnP8M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 216141F000C4;
+	Wed, 18 Nov 2026 02:04:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794967494;
+	bh=7idpOK0uLj0IeEH4I8ykLNX0Cq8hKyMbZ0eKNeKvegk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=nTFcnP8MbRS5d4pxU3UnKAsWRer/12OXCwy/dor8M6yoTHEA6ZXvCCEieve4SwUmx
+	 9Q7uoAMK4V62w5DhJfeKkPM4tynL4KQp4+4lhQVRQ2EhHxDbcAD6K+0fQ3Ck24TkCH
+	 DZkLfUFrugvmrJbypvhvABHyS9vW6J5ZNQfyO18Lriqrksd3UxTTE+Hv3gWlP4YUGR
+	 A+OSdRId3pCz94FLWEo4tuJ05im+g/nFdgHylmnR7NAUp6I5P++IlPiNYVaEz0kZW7
+	 J6lipFXnG1ggEWg8XE+MMXF7VVuJGAZDorzd7ebeKRKO9Fs4j5RH1U1ZJP/QR6ywxl
+	 nB1s8h5XxRrdQ==
+Subject:
+ Re: [PATCH net] mac802154: remove redundant security_enabled assignment
+From: netdev-bot+sashiko@kernel.org
+To: petrvaganoff@gmail.com
+Cc: alex.aring@gmail.com, stefan@datenfreihafen.org, miquel.raynal@bootlin.com,
+ linux-wpan@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ phoebe.buckheister@itwm.fraunhofer.de, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org,
+ stable@vger.kernel.org
+Date: Wed, 18 Nov 2026 02:04:52 +0000
+Message-ID: <179496749259.3136.6007006994790888929@kernel.org>
+In-Reply-To: <20261116065235.27348-1-petrvaganoff@gmail.com>
+References: <20261116065235.27348-1-petrvaganoff@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,45 +66,122 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117221538.184948-2-stephen@networkplumber.org>
 
-Hi Stephen,
-On Tue, Nov 17, 2026 at 02:13:42PM -0800, Stephen Hemminger wrote:
-> If a route entry is too large for the dump skb, the dump is silently
-> truncated and no error is returned.
-> 
-> For handlers with RTNL_FLAG_DUMP_SPLIT_NLM_DONE, rtnl_dumpit() drops
-> -EMSGSIZE and returns skb->len. With an empty skb this is 0, so the
-> dump ends with NLMSG_DONE and status 0, and the remaining entries are
-> lost.
-> 
-> The first dump skb is allocated from __netlink_dump_start() while
-> max_recvmsg_len is still 0, so it is only NLMSG_GOODSIZE. On a 4K page
-> kernel that is under 4000 bytes, and a 500 way multipath route does not
-> fit:
-> 
->   ip link add dummy0 type dummy
->   ip link set dummy0 up
->   ip route add 198.51.100.0/24 table 100 \
->         $(for i in $(seq 500); do echo -n "nexthop dev dummy0 "; done)
->   ip route show table 100
-> 
-> The dump prints nothing and exits 0
-> 
-> Only ignore -EMSGSIZE when the skb has data, so that an entry which
-> does not fit in an empty skb reports the error to user space.
-> 
-> This only covers handlers which report a too large entry with
-> -EMSGSIZE, such as the IPv4 FIB dump. inet6_dump_fib() instead returns
-> a positive value when the first route does not fit, so the check added
-> here never fires for it; that case is fixed by the next patch in this
-> series.
-> 
-> Fixes: 5b4b62a169e1 ("rtnetlink: make the "split" NLM_DONE handling generic")
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Should we keep the Fixes tag or not for net-next?
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-Thanks
-Hangbin
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The fix relies on an invariant that does not hold.
+- [Low] The subject 'mac802154: remove redundant security_enabled
+  assignment' presents a bug fix as a cleanup.
+
+--
+
+mac802154: remove redundant security_enabled assignment
+
+The commit removes the assignment hdr.fc.security_enabled = cb->secen from
+ieee802154_header_create(). After that, mac802154_set_header_security() is
+the only place that sets the security bit. This targets a KMSAN uninit-value
+report in ieee802154_hdr_push_sechdr(), triggered by a stale cb->secen after
+WPAN_SECURITY_ON followed by WPAN_SECURITY_DEFAULT.
+
+> mac802154: remove redundant security_enabled assignment
+
+[Severity: Low]
+This isn't a bug, but is "redundant" the right word for this line?
+
+Removing it changes the transmitted frame. When
+mac802154_set_header_security() takes this early return, the removed line
+was the only thing setting fc.security_enabled:
+
+	if (!params.enabled ||
+	    (cb->secen_override && !cb->secen) ||
+	    !params.out_level)
+		return 0;
+
+This is a fix tagged for stable. Would a subject like "mac802154: fix
+uninit-value in ieee802154_header_create()" be more accurate?
+
+> diff --git a/net/mac802154/iface.c b/net/mac802154/iface.c
+> index f437b8daa00d0..7b7332805ecce 100644
+> --- a/net/mac802154/iface.c
+> +++ b/net/mac802154/iface.c
+> @@ -368,7 +368,6 @@ static int ieee802154_header_create(struct sk_buff *skb,
+>  
+>  	memset(&hdr.fc, 0, sizeof(hdr.fc));
+>  	hdr.fc.type = cb->type;
+> -	hdr.fc.security_enabled = cb->secen;
+
+[Severity: High]
+Does this fully close the uninitialized hdr.sec read in
+ieee802154_hdr_push_sechdr()?
+
+The commit message relies on mac802154_set_header_security() keeping the
+invariant that security_enabled = 1 implies hdr->sec is initialized. That
+function only writes some of the fields:
+
+net/mac802154/iface.c:mac802154_set_header_security() {
+    ...
+	hdr->fc.security_enabled = 1;
+	hdr->sec.level = level;
+	hdr->sec.key_id_mode = params.out_key.mode;
+	if (params.out_key.mode == IEEE802154_SCF_KEY_SHORT_INDEX)
+		hdr->sec.short_src = params.out_key.short_source;
+	else if (params.out_key.mode == IEEE802154_SCF_KEY_HW_INDEX)
+		hdr->sec.extended_src = params.out_key.extended_source;
+	hdr->sec.key_id = params.out_key.id;
+    ...
+}
+
+It never writes sec.frame_counter or the reserved bits that share a byte
+with level and key_id_mode. In ieee802154_header_create(), hdr is on the
+stack and only hdr.fc is cleared by the memset above.
+mac802154_header_create() has the same pattern.
+
+So on the normal llsec TX path (llsec enabled, out_level != 0),
+ieee802154_hdr_push_sechdr() still copies stack memory into the skb:
+
+	memcpy(buf, hdr, 1);
+	memcpy(buf + 1, &hdr->frame_counter, 4);
+
+frame_counter is overwritten only later, in mac802154_llsec_encrypt(). By
+then, packet taps in dev_queue_xmit_nit() have already seen the header, as
+the TODO comment in net/mac802154/tx.c notes:
+
+dgram_sendmsg()
+  wpan_dev_hard_header()
+    ieee802154_header_create()
+      mac802154_set_header_security()
+      ieee802154_hdr_push()
+        ieee802154_hdr_push_sechdr()
+  dev_queue_xmit()
+    dev_queue_xmit_nit()
+    ieee802154_subif_start_xmit()
+      mac802154_llsec_encrypt()
+
+If encryption fails with -ENOKEY or -EOVERFLOW, mac802154_llsec_encrypt()
+returns before it pushes the header again. The 4 uninitialized
+frame_counter bytes then stay in the data that AF_PACKET taps copy to
+userspace.
+
+The reserved bits survive the memcpy(hdr, buf, 1) in
+ieee802154_hdr_get_sechdr(). mac802154_llsec_encrypt() then pushes them
+again, so they also go out over the air and into the CCM AAD.
+
+Should hdr (or at least hdr.sec) be zero-initialized in both
+ieee802154_header_create() and mac802154_header_create()? Another option
+is to memset hdr->sec in mac802154_set_header_security() before filling it.
+
+>  	hdr.fc.ack_request = cb->ackreq;
+>  	hdr.seq = atomic_inc_return(&dev->ieee802154_ptr->dsn) & 0xFF;
+>
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116065235.27348-1-petrvaganoff%40gmail.com
