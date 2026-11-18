@@ -1,59 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795012337;
-	b=MMOwbwuxKUYygHWcpM6JL2tNjTwZeMHA1pZnteh8DZM5AL2WcBekARgvlBKGaVia0ROm
-	 XOegzKadiK2k4V8fwtYdK9ngZTTi8PRUDToviFTHpAMtmgW7+jxoGYUjfFhr82ZKpDfhm
-	 7GPT18v3WoCjV77PXRsvLbMjNwTQtRwMVqj+1NsVGjsNEozlIYJR2aPcDHOEoYQ0Kap+t
-	 MfgKiwy1trfrEPaXInlqf3liC/SWGxLXZ/sl1GJTX0EkSVHT2oFJG1Rr/rBaopLTEeufk
-	 aDvoByq8IW5v7KtlH7kHXmYHykbPEKN5/IRKEWZf847WL9XtMLG0gfGjSsl5kIRw+9Q==
+	t=1795012342;
+	b=lOkG8fA4SN7OTUVnbERaW0vzSvj1quz7wPoqRAKt4Ppf9l7bhgpbyDBm2Zmnu1CwrYo5
+	 IcEED2R1pUHMIAjNs8Uss98L72jgGUSZmdM3+XaHYkqIvLJ9YGmvK9XxHehj17s+MivyX
+	 uaIiFG6NeBJPvLm+9BDJvknEOrnl1gGF0SxxbwbcRcprvaPgb9do7aSh7m5ToIidgAw7r
+	 jaBfS0TRy29YLbrnP8RgRewg7TJ8HVkB66glcehft2q9S087fKrrhuMAFiJLX8XvXaqz/
+	 JbdLTnm2eXdJ2xkDKTc4URR/Q8DNtC4YNahOO9oK3RWqYq/gggYLJVAp5a+Cnr+QWTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795012337;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795012342;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=0gn9wLZ33T3rqOAl4UM4rcJq4VGKZHDzazvoGK9niM8=;
-	b=GvUgrvbNGbprhS3IKTO/Z4UGGasL6MeBWNtj7yHFLzCPXPKE+ogIJyGuHZbhE2OSoO96
-	 z9p4NAfTRKcKAdm4R1/tA/X4/TzbrhUbOP4PzCAyzXlWeBNNE0ksBDDOh5gPVVHrB/Hw6
-	 UXmczVy38+Vs+M6w3/RaKez4TrX9qmu1JaAA60l/ivmlCsOiAO78IpMoJh0YaH45slQwR
-	 HCTT6eekz4NkIL4G9TlVtEYV6FdO84C35KkD6Y9PKhfHt9ikcc1LZMN/094a6lB/QxFQI
-	 zvSzM4tj010braf240zpZryXljTwTia3pu/9xlyyM/jRq03q7aoNGAgeYPOv1o40pyQ==
+	bh=HhclmHafCvRpxkVZZy1FUjsyN3cMPvpw1MvnobE5Sak=;
+	b=AHLBd5bbD1Q6136dMxDJSiPZogADPUVM9QyWFBVvO3TIzWbljSXq+J9GWrGmMZLaGdF2
+	 dKH+xoJzaExZ87862vBvp0BCEcdy+5Z/SiocwH41n4ghAU0TjHaSr88rqt0im/fntp0Dz
+	 ikFkkT6ruiSdhpPnKmJoqYbe/rN8OUaoI+7RFHC2oXMMy2uayanwgSFFcSbPv4oAOjTHO
+	 Vuw2KijADCxA8eAvrsnDPSWKZ7LgefQ7iqY7QgTHEIRQjrgvY7ZX/heu3127KnRTeDnLZ
+	 qiaWRAfSZcHetavHacjNAVKa0vASxns4pr7BnBW73iuX2Lrcgvgfbg5sRJuio5KrdHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CeSqWcIP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BI5g5+rN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AC8C606A336
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:32:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05495606A337;
+	Wed, 18 Nov 2026 14:32:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CeSqWcIP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1880F1F000C4;
-	Wed, 18 Nov 2026 14:32:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BI5g5+rN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 161D81F000CB;
+	Wed, 18 Nov 2026 14:32:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795012337;
-	bh=0gn9wLZ33T3rqOAl4UM4rcJq4VGKZHDzazvoGK9niM8=;
+	s=k20260515; t=1795012341;
+	bh=HhclmHafCvRpxkVZZy1FUjsyN3cMPvpw1MvnobE5Sak=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=CeSqWcIPq4zz4a/pZ5oXLbjwBLt09tj6Z4yfqgXvYpEEZk4dBg21gXc5nT6cE10KF
-	 ewPhbBeltJfUUl3Wgua7g4VYNkHzuqM3cWnFQBLCL3DfdGqDF+9CpRGVvwa0Y5qYC4
-	 q86qy+Ajs6LlVwWQecx2wMciWMI5whbrT8bRmD8xNKmH26dXwKzW0XSwzalxtN6FVx
-	 rJ9VY0wq5kx0wlC5BDeHERvAdxEglFbBeftvzTjRph/HjakZd03qpDFwrogx83SAjk
-	 5hYtE2vYbJrtyLnV1uDQve9i8cX+y+7dehtj1DRBm46jpVcqMgQsuySefdHU0lG6wu
-	 /16rxocljV6Mw==
-Subject: Re: [PATCH net 4/4] selftests: drv-net: stats: query timestamping
- stats while down
+	b=BI5g5+rNvREe9vzS+4y19knK4uGcLOuYNk9n9wj+TnFzBl+dO11XG+J3hUemgw1yw
+	 PUWbM49kfT5hOgseEVfCnHXbnY3Idz8deiwSxEeDT3hV9116MgMARm2pk0ozAmADlF
+	 mT/27uX4LPjGEJeQNiRCCpNW4Pz/v48/O6Ikv9wgGK/P9XT2TKKxCjsZ3KbLR6mbuh
+	 ABLnlxQHeqN0ISPvEWOXq2UKAyvK02kqcNYpEnkanSrVMb9OI2+857umhq/gdkbWnf
+	 ydFV9kayykt1RnPBXCqFHvGUd6TslU3G/WnMaAxWeJBGdnBkxiFOqdy/ZAJTLuXC3g
+	 tgr2/rswBpBow==
+Subject: Re: [PATCH net-next v2 2/2] selftests: drv-net: run tls_hw_offload on
+ netdevsim
 From: netdev-bot+sashiko@kernel.org
-To: dimitri.daskalakis1@gmail.com
-Cc: davem@davemloft.net, alexanderduyck@fb.com, kuba@kernel.org,
- kernel-team@meta.com, andrew+netdev@lunn.ch, edumazet@kernel.org,
- pabeni@redhat.com, shuah@kernel.org, hmohsin@meta.com,
- mike.marciniszyn@gmail.com, sdf@fomichev.me, bobbyeshleman@meta.com,
- bjorn@kernel.org, leitao@debian.org, horms@kernel.org, almasrymina@google.com,
- vadim.fedorenko@linux.dev, daskald@meta.com, netdev@vger.kernel.org
-Date: Wed, 18 Nov 2026 14:32:15 +0000
-Message-ID: <179501233564.3136.8246592632106945254@kernel.org>
-In-Reply-To: <20261116202957.3601684-5-dimitri.daskalakis1@gmail.com>
-References: <20261116202957.3601684-5-dimitri.daskalakis1@gmail.com>
+To: jiayuan.chen@linux.dev
+Cc: netdev@vger.kernel.org, kuba@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+ john.fastabend@gmail.com, sd@queasysnail.net, shuah@kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Date: Wed, 18 Nov 2026 14:32:20 +0000
+Message-ID: <179501234066.3136.14918473890361031397@kernel.org>
+In-Reply-To: <20261117140642.4008-3-jiayuan.chen@linux.dev>
+References: <20261117140642.4008-3-jiayuan.chen@linux.dev>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -78,119 +76,118 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message says check_down_ts_stats() should "catch
-  drivers that crash or reset [timestamping stats] while the interface…
-- [Low] In check_down_ts_stats()
-  (tools/testing/selftests/drivers/net/stats.py), a timestamping counter…
+- [Medium] In read_nic_stats(), the `ethtool -S` skip is keyed on whether
+  the env created netdevsim itself (`if cfg.get_local_nsim_dev(): return…
+- [Low] In netdevsim mode the comments in tls_hw_offload.py describe
+  behaviour that no longer applies, and the patch doesn't update them.
 
 --
 
-selftests: drv-net: stats: query timestamping stats while down
+selftests: drv-net: run tls_hw_offload on netdevsim
 
-This adds check_down_ts_stats() to the drv-net stats.py selftest. The test
-reads the ethtool tsinfo timestamping statistics, brings the interface
-down, reads them again, and checks that no counter went backwards.
+This commit lets tls_hw_offload.py run on the default netdevsim pair by
+dropping nsim_test=False from the NetDrvEpEnv call. netdevsim does not
+implement ethtool -S, so read_nic_stats() now returns an empty stats dict
+when the environment created the netdevsim device itself.
 
-> diff --git a/tools/testing/selftests/drivers/net/stats.py b/tools/testing/selftests/drivers/net/stats.py
-> index b08e4d48b15ce..e61db30b51817 100755
-> --- a/tools/testing/selftests/drivers/net/stats.py
-> +++ b/tools/testing/selftests/drivers/net/stats.py
-> @@ -220,6 +220,28 @@ def check_down(cfg) -> None:
->      netfam.qstats_get({"ifindex": cfg.ifindex, "scope": "queue"}, dump=True)
->  
->  
-> +@ksft_disruptive
-> +def check_down_ts_stats(cfg) -> None:
-> +    """Test timestamping stats are not impacted by ifdown"""
-> +
-> +    req = {"header": {"dev-index": cfg.ifindex, "flags": {"stats"}}}
-> +    try:
-> +        stats = ethnl.tsinfo_get(req).get("stats")
-> +    except NlError as e:
-> +        if e.error == errno.EOPNOTSUPP:
-> +            raise KsftSkipEx("timestamping not supported by the device") from e
-> +        raise
-> +    if not stats:
-> +        raise KsftSkipEx("timestamping stats not supported by the device")
+> diff --git a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
+> index e720ce6547610..1197f17caa13c 100755
+> --- a/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
+> +++ b/tools/testing/selftests/drivers/net/hw/tls_hw_offload.py
+> @@ -125,6 +125,9 @@ def read_nic_stats(cfg):
+>      # before/after-delta caveat as read_tls_stats(): these are device-wide,
+>      # so concurrent kTLS traffic on this NIC would perturb the deltas.
+>      stats = defaultdict(int)
+> +    # netdevsim has no ethtool -S, and the NIC counters below are optional
+> +    if cfg.get_local_nsim_dev():
+> +        return stats
+>      output = cmd(f"ethtool -S {cfg.ifname}").stdout
 
 [Severity: Medium]
-Can this test actually detect the reset case that the commit message
-describes?
+Does this guard cover a netdevsim interface that is passed in through
+NETIF?
 
-  "to catch drivers that crash or reset them while the interface is down"
+get_local_nsim_dev() returns self._ns. That is only set when NetDrvEpEnv
+creates the netdevsim pair itself, i.e. when NETIF is not set. If NETIF
+names a netdevsim port (for example a hand-made pair with
+REMOTE_TYPE=netns), it returns None and the guard is false.
 
-The baseline is read without first enabling hardware TX timestamping, and
-without sending any packets that request a hardware timestamp. The only
-source of these counters is the driver's get_ts_stats():
+The cmd() call below then runs with the default fail=True. nsim_ethtool_ops
+has no get_sset_count or get_strings, so ethtool -S exits non-zero. The
+resulting CmdExitFailure propagates out of run_tls_test(), and every case
+fails at the first NIC snapshot. This is the same failure the commit
+message says it fixes.
 
-net/ethtool/tsinfo.c:tsinfo_prepare_data() {
-    ...
-	if (req_base->flags & ETHTOOL_FLAG_STATS) {
-		ethtool_stats_init((u64 *)&data->stats,
-				   sizeof(data->stats) / sizeof(u64));
-		if (dev->ethtool_ops->get_ts_stats)
-			dev->ethtool_ops->get_ts_stats(dev, &data->stats);
-	}
-    ...
-}
+Before the netdevsim TLS emulation existed, check_tls_support() skipped
+such a device because it had no tls-hw-*-offload. This failure path is new
+in this series.
 
-In fbnic, ice, idpf, bnxt, wangxun and mlx5, tx-pkts, tx-lost and tx-err
-only count TX packets that asked for a hardware timestamp. In a typical
-selftest environment the baseline will probably be all zeros.
+Would it work to run ethtool -S with fail=False and return the empty stats
+on a non-zero exit? That would handle any device without ETH_SS_STATS. It
+would also avoid get_local_nsim_dev(), whose docstring discourages its use
+because it makes tests nsim-specific. macsec.py does already use it to
+skip steps, though.
 
-If the baseline is zero, the ksft_ge(stats2[k], stats[k]) check below
-still passes when a driver zeroes its counters in ndo_stop. check_down()
-does not have this problem with the same >= pattern, because the qstats
-already contain non-zero traffic counts.
+>      for line in output.strip().split('\n'):
+>          key, sep, val = line.partition(':')
 
-The crash-on-query-while-down part does get exercised. Should the test
-send some hardware-timestamped TX traffic before reading the baseline, so
-that the reset part is covered too?
+[ ... ]
 
-> +
-> +    ip(f"link set dev {cfg.dev['ifname']} down")
-> +    defer(ip, f"link set dev {cfg.dev['ifname']} up")
-> +
-> +    stats2 = ethnl.tsinfo_get(req).get("stats", {})
-> +    for k in stats:
-> +        ksft_ge(stats2[k], stats[k], comment=f"{k} went backwards on device down")
+> @@ -307,7 +310,7 @@ def test_tls_offload_record_type(cfg, record_type):
+>  
+>  def main() -> None:
+>      """Set up the DUT/peer environment and run the offload test suites."""
+> -    with NetDrvEpEnv(__file__, nsim_test=False) as cfg:
+> +    with NetDrvEpEnv(__file__) as cfg:
 
 [Severity: Low]
-What happens here if a counter is in the baseline but missing from the
-reply after ifdown?
+Now that netdevsim mode is enabled here, are some of the existing comments
+in tls_hw_offload.py still accurate?
 
-The {} default only helps when the whole nest is missing. That never
-happens here, because tsinfo_fill_reply() always emits the stats nest when
-the stats flag is set. What can go missing is individual counters, since
-tsinfo_put_stat() leaves out unset values:
+The header comment in drivers/net/netdevsim/tls.c says no crypto is
+performed:
 
-net/ethtool/tsinfo.c:tsinfo_put_stat() {
-	if (val == ETHTOOL_STAT_NOT_SET)
-		return 0;
-    ...
-}
+/* Emulated kTLS offload.  No crypto is performed: TX puts the record on the
+ * wire as plaintext and RX marks it decrypted, so the RX side has to be
+ * offloaded on netdevsim as well, otherwise the core runs the software AEAD
+ * over plaintext and fails the connection with -EBADMSG.
 
-On wangxun ngbe/txgbe, ndo_stop calls wx_ptp_stop(), which sets
-wx->ptp_clock to NULL. After that, wx_get_ptp_stats() fills in nothing:
+So in nsim mode the peer's RX also has to use the netdevsim offload. The
+current run passes because the peer is also a netdevsim port with RX
+offload enabled. Several comments in the test say otherwise.
 
-drivers/net/ethernet/wangxun/libwx/wx_ethtool.c:wx_get_ptp_stats() {
-    ...
-	if (wx->ptp_clock) {
-		ts_stats->pkts = wx->tx_hwtstamp_pkts;
-		...
-	}
-}
+The run_tls_test() docstring says:
 
-So stats2 comes back empty and stats2[k] raises KeyError.
+    The DUT (local) is the kernel under test; the remote is just a traffic
+    source/sink and may run any kernel without HW offload. Both sides run
+    kTLS because TLS is pairwise, but verify_tls_counters() requires HW
+    offload only in enabled DUT directions. The peer and the DUT's other
+    direction may use SW kTLS.
 
-ksft_run() still counts this as a failure, and the deferred link up still
-runs. However, the output is a Python traceback instead of the "went
-backwards on device down" message, and the remaining keys are never
-compared.
+The comment in read_tls_stats() says:
 
-Would checking k in stats2 (or using stats2.get(k)) with ksft_true() or
-ksft_ge() give a clearer failure? The neighbouring check_down() uses the
-same qstat2[k] pattern.
+    # sock_net(sk)). The test runs on a real NIC in the host namespace, so
+
+The comment above HW_NIC_COUNTERS says:
+
+#    the NIC encrypted anything; a broken HW encrypt shows up instead as a
+#    peer TlsDecryptError or an echo mismatch.
+
+On netdevsim, a peer TlsDecryptError would mean the peer did not get RX
+offload. It would not mean the DUT encrypted badly.
+
+The commit message also says:
+
+    Everything the test checks on the DUT, device MIB counters,
+    echo data and record types, works there as is.
+
+On netdevsim, though, the test only covers the kTLS device control and MIB
+paths, not encryption. Could the comments and the commit message be
+updated to describe the netdevsim case?
+
+>          cfg.bin_local = cfg.test_dir / "tls_hw_offload"
+>          cfg.bin_remote = None
+>          cfg.tls_skip_reason = None
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116202957.3601684-1-dimitri.daskalakis1%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117140642.4008-1-jiayuan.chen%40linux.dev
