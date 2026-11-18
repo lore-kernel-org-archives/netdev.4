@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997914;
-	b=svCMXA/ZJQgx/wugRM5ZbU1UVwgHLTE761Fsgy4ojGVN/NSRRFev6ziipkuNi2FZO/hV
-	 GIdHNOD3VU9my+uApKtZM6wuw7z36OphNND22O+1ys9qh27Eekx7qPn9QKUi0qnnBCkab
-	 XdC232V65hdwfRux0GJL2UW9zUHmXc7qz14g8Xnkq5VXTFr/2j1TDH8NpjWxCfgWZ7hsH
-	 phjk7iMWTAUIsYu0+2MR0XEPJmubndqVodEqFzOX+AL/HH2eqqAFm3pj2Agdbl5+4mlVy
-	 LrxdFcrDljsXBG34AilbURfYKXNLfkJkFVf8a1z0zqFGgfMRJN9TTMMeOX8IeMKm3wQ==
+	t=1794997920;
+	b=qBqCqWGwSuQR5aJiC9Z1VVRhIgS5lKmSY87J7VfsR5x8eaT3aC4t/G62NAcXi5ihzWFG
+	 OZSfxHyNUMmS2xxiwlKSb4FbC70cTnGtXyzCotax+F/o1w58o2QtpILUjAitEthXMYLeN
+	 7cd2vH9/g7vNLRcobjWtBNAzdKz8PG4j8uSVLB95HCDqYH8wGcCPIXVuSkB/rWh94ddrJ
+	 THkxGJVCU6MMcR8QfQsc6kruc8b1F2rhm18BI2wq9L7Xsk6GOjejQs+CeI8Wss6qDZmtT
+	 jnTlq+vil3NmM5gh3vUaegBfx3ifve1kU38cWor0RoCopLy1p6NayoAodqqXapGYUBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997914;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997920;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=12Z/blDM1A992Y/WX9Tffx98lEKuxjToJj7Etbtn4kk=;
-	b=E/jaEtQ1F56QjGoFysKvZzbQgXRbbc4N6wpTK76LAwV6r+s/CJvM9iXacvEfK20BYx+b
-	 hMV3TA9bMwlk5Tn2lKiJETkf/lB73ANeqKMbC0p6dir0d+CoL2V13TYIsXBAfjcR6Zhqw
-	 ktCTUXcHTTbvyX6WgPyUNMTacEmVdYPFuMPuyI+cKA6JIDfZcr/c3PuoPYeOVEigAdMpH
-	 MjbV1g7KoOVNBbIe5BBAIKiwyOqM86DL7l2ut4F+b01KCBxVhLN0uuasRe74yc3BqJgLc
-	 XjdHGa3WuT4WIIxJ77jHWoHsmztH9heSOPFM8V6P3j1FuMvdVWinxEwgnjiQHc7ZzlA==
+	bh=vUDaTvuHrh3mVBGV0XI8KLL+YVaBFwQcVx5vyMv/fyk=;
+	b=n2cDAzeWvk34IWBz5/qI87GWmooJz44BnwhNKCbcSdopt6QzUSg9tOF6Z1h7gaWsRpiU
+	 lfAChPxhNBvUfyroAN1ZPQUf6mwEamhXAfVjWsIkgzCJ7UZhjwAD+00lY49QPTI8tRzsp
+	 L1UNfYuPaXPugqrkS58xbUJtTa9eAnPHEvskIag5sn47k0isDbRVgt7yqz11ZPHhID362
+	 3acVwSetmgumDKw75/ANxZXFdO4hTZd5Sc01OpVXn7+uW22rC5RcblHkzHK0EgwjICObT
+	 wUjI4R1dLcAK6Cj72rWcfu6tlyxc+wRY3ALDgoHVW59LuHaz4dOeVdRwb4uHsFThf7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S9NuUema;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T1K8suaz;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96E86606A320;
-	Wed, 18 Nov 2026 10:31:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D544B60A2631;
+	Wed, 18 Nov 2026 10:32:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=S9NuUema
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F1FB1F000C4;
-	Wed, 18 Nov 2026 10:31:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=T1K8suaz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A186E1F000CF;
+	Wed, 18 Nov 2026 10:31:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794997914;
-	bh=12Z/blDM1A992Y/WX9Tffx98lEKuxjToJj7Etbtn4kk=;
+	s=k20260515; t=1794997920;
+	bh=vUDaTvuHrh3mVBGV0XI8KLL+YVaBFwQcVx5vyMv/fyk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=S9NuUemaydoWdJ9SaVZ8yadou0dGhyeD1K2t7u3fD5hUFe42lGa4Oxdcd9v2iHQPc
-	 oYWIXc4vAaaEOHjhG0xiTW/O4BJjDEaxKwb9nJR4mnlDKaZh0GowJEru/qrJoPcfcD
-	 9eUvIGC/bSaxN1TSw3RCgnXiYTaJH4AVpOzcZIZgNw3INZlgUyiFeEx4oTjZiUtQ9T
-	 WimHqaYS0OsQHJzD7/FRXGKH5oArQhcKtC+EWTKSQgBio5H/qEeOymI2+vQhk0+tb2
-	 znqqQJPwvS3wBiOR6EB3XFWf9OnnmTu8AR+swRifpME85OdldjOLd3FTkJeNeb+9HT
-	 BR0aB96A7aUqg==
-Subject: Re: [PATCH net-next V2 01/10] net/mlx5: Distinguish VFs/SFs in the SW
- system image GUID for LAG grouping
+	b=T1K8suazXDmkT4riBj91hegerc2qOlLW/WEaQImrD0tHjRrQ8fc01GVHxt5rBk4Wf
+	 kkRV/jhnf5bfYz2aqHVO+RBy5/CuuUU7/6TjczXvxSk+i5zyO4QZD/qRCjDx9x2QlZ
+	 iXoKfeB5sNebEjiI6/L24gcWYwQ7bujKzZh759winvp9YzGQF+3xjnIz06ctsv+3o3
+	 P+C6ksxX7kWscwZYy6bGy0PPphmAl71vF9x+NfcrLtOIdwFKWwoyDVHQ96oi5MGRQk
+	 JCoofy4QLZVMMLBg9c6U/J+Kr7wIifwZEnFBbtMU2lF/JmF9b3i70omzfXbbwEhP1D
+	 6YhetRzj1e9CQ==
+Subject: Re: [PATCH net-next V2 09/10] net/mlx5: LAG, drop MLX5_MAX_PORTS
+ scratch array from device rescan
 From: netdev-bot+sashiko@kernel.org
 To: tariqt@nvidia.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
@@ -50,11 +50,11 @@ Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
  moshe@nvidia.com, ohartoov@nvidia.com, phaddad@nvidia.com, saeedm@nvidia.com,
  shayd@nvidia.com, udar@nvidia.com
-Date: Wed, 18 Nov 2026 10:31:52 +0000
-Message-ID: <179499791273.3136.2247906810795336370@kernel.org>
-In-Reply-To: <20261116103010.1129666-2-tariqt@nvidia.com>
-References: <20261116103010.1129666-2-tariqt@nvidia.com>
-X-sashiko-severity: Medium
+Date: Wed, 18 Nov 2026 10:31:59 +0000
+Message-ID: <179499791924.3136.16901930891335328702@kernel.org>
+In-Reply-To: <20261116103010.1129666-10-tariqt@nvidia.com>
+References: <20261116103010.1129666-10-tariqt@nvidia.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -70,7 +70,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,124 +78,127 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The patch changes the SW system image GUID of a VF/SF that
-  passes mlx5_virt_lag_is_supported(): mlx5_sw_guid_vf() or…
+- [High] In mlx5_lag_rescan_devices_locked_filter()
+  (drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c), this patch…
 
 --
 
-net/mlx5: Distinguish VFs/SFs in the SW system image GUID for LAG grouping
+net/mlx5: LAG, drop MLX5_MAX_PORTS scratch array from device rescan
 
-This patch changes mlx5_query_nic_sw_system_image_guid() so that each
-discriminator byte after the FW system image GUID has a fixed position,
-and trailing zero fields are trimmed. It adds VF and SF marker bytes that
-are only set when mlx5_virt_lag_is_supported() is true, and it raises
-MLX5_SW_IMAGE_GUID_MAX_BYTES from 9 to 11.
+This commit removes the devs[MLX5_MAX_PORTS] array from
+mlx5_lag_rescan_devices_locked_filter(). The post-unlock rescan loop now
+walks the LAG members again with mlx5_lag_for_each(). The commit message
+describes this as having no functional change.
 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/vport.c b/drivers/net/ethernet/mellanox/mlx5/core/vport.c
-> index 78f3d15b599d0..bab43df6a7d72 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/vport.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/vport.c
-> @@ -1308,10 +1308,37 @@ u64 mlx5_query_nic_system_image_guid(struct mlx5_core_dev *mdev)
->  }
->  EXPORT_SYMBOL_GPL(mlx5_query_nic_system_image_guid);
->  
-> +static u8 mlx5_sw_guid_load_balance(const struct mlx5_core_dev *mdev)
-> +{
-> +	if (MLX5_CAP_GEN_2(mdev, load_balance_id) &&
-> +	    MLX5_CAP_GEN_2(mdev, lag_per_mp_group))
-> +		return MLX5_CAP_GEN_2(mdev, load_balance_id);
-> +	return 0;
-> +}
-> +
-> +static u8 mlx5_sw_guid_sf(const struct mlx5_core_dev *mdev)
-> +{
-> +	return mlx5_core_is_sf(mdev) && mlx5_virt_lag_is_supported(mdev);
-> +}
-> +
-> +static u8 mlx5_sw_guid_vf(const struct mlx5_core_dev *mdev)
-> +{
-> +	return mlx5_core_is_vf(mdev) && mlx5_virt_lag_is_supported(mdev);
-> +}
-
-[Severity: Medium]
-Does this break the same-HW check between a PF and a VF/SF that passes
-mlx5_virt_lag_is_supported()?
-
-Suppose the VF/SF's own caps report multi_uplink_eswitch=1, lag_master=1
-and num_lag_ports < 2. The VF key then becomes guid + [lb|0] + 0x01, which
-is 10 bytes. The SF key becomes guid + [lb|0] + 0x00 + 0x01, which is 11
-bytes. A PF never sets either marker, so its key is still 8 or 9 bytes.
-
-mlx5_same_hw_devs() requires the lengths to match:
-
-drivers/net/ethernet/mellanox/mlx5/core/dev.c:mlx5_same_hw_devs() {
-    ...
-	return plen && flen && flen == plen &&
-		!memcmp(fsystem_guid, psystem_guid, flen);
-}
-
-That means it now returns false for any PF paired with such a VF/SF.
-
-mlx5e_tc_is_vf_tunnel() only reaches that comparison when out_mdev is a
-PF and route_mdev is a VF/SF:
-
-drivers/net/ethernet/mellanox/mlx5/core/en_tc.c:mlx5e_tc_is_vf_tunnel() {
-    ...
-	if (route_mdev->coredev_type != MLX5_COREDEV_VF &&
-	    route_mdev->coredev_type != MLX5_COREDEV_SF)
-		return false;
-
-	return mlx5e_same_hw_devs(out_priv, route_priv);
-}
-
-For a virt-LAG-capable VF/SF route device, will it now always return
-false? These are the paths that would be affected:
-
-mlx5e_set_vf_tunnel()
-  mlx5e_tc_is_vf_tunnel()
-    mlx5e_same_hw_devs()
-      mlx5_same_hw_devs()
-
-- In mlx5e_set_vf_tunnel() the check fails and the code jumps to out with
-  err = 0. The encap flow is still offloaded, but without the VF vport
-  source port rewrite (MLX5_ESW_DEST_CHAIN_WITH_SRC_PORT_CHANGE plus the
-  VPORT_TO_REG metadata). The encapsulated packet then goes straight to
-  the uplink and skips FDB processing of the VF vport.
-
-- mlx5e_update_vf_tunnel() returns -ENODEV on route updates.
-
-- On decap, mlx5e_tc_tun_route_lookup() no longer sets
-  rx_tun_attr->decap_vport to the VF vport.
-
-- In mirred_nic.c, the NIC-mode redirect check
-
-	if (priv->netdev->netdev_ops != out_dev->netdev_ops ||
-	    !mlx5e_same_hw_devs(priv, netdev_priv(out_dev))) {
-
-  now rejects redirects between a PF netdev and such a VF/SF netdev with
-  "devices are not on same switch HW".
-
-The commit message says:
-
-  "so a VF/SF that cannot join a virt LAG keeps its current key and is
-  still identified as the same HW as its PF."
-
-That covers VFs/SFs that cannot join a virt LAG. It doesn't cover the
-ones that can, and none of the consumers above are updated.
-
-Should mlx5_same_hw_devs() compare without the VF/SF markers? Or should
-the LAG grouping key be kept separate from the key used for same-HW
-detection?
-
-> +
-> +static u8 (* const mlx5_sw_guid_fields[])(const struct mlx5_core_dev *mdev) = {
-> +	mlx5_sw_guid_load_balance,
-> +	mlx5_sw_guid_vf,
-> +	mlx5_sw_guid_sf,
-> +	/* New fields should be added at the end */
-> +};
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+> index a7b12353b7225..3e88b3f51612e 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
 
 [ ... ]
+
+> @@ -1356,12 +1354,16 @@ static void mlx5_lag_rescan_devices_locked_filter(struct mlx5_lag *ldev,
+>  			fn->dev->priv.flags &= ~MLX5_PRIV_FLAGS_DISABLE_IB_ADEV;
+>  		else
+>  			fn->dev->priv.flags |= MLX5_PRIV_FLAGS_DISABLE_IB_ADEV;
+> -		devs[num_devs++] = fn->dev;
+>  	}
+>  
+>  	mlx5_lag_drop_lock_for_reps(ldev, filter);
+> -	for (i = 0; i < num_devs; i++)
+> -		mlx5_rescan_drivers_locked(devs[i]);
+> +	mlx5_lag_for_each(i, 0, ldev, filter) {
+> +		fn = mlx5_lag_fn(ldev, i);
+> +		if (fn->dev->priv.flags & MLX5_PRIV_FLAGS_DISABLE_ALL_ADEV)
+> +			continue;
+> +
+> +		mlx5_rescan_drivers_locked(fn->dev);
+> +	}
+
+[Severity: High]
+This loop now walks ldev->fns after mlx5_lag_drop_lock_for_reps() has
+released ldev->lock. Can a concurrent SD member removal free a lag_fn
+while the walk is in progress?
+
+On each step, mlx5_get_next_lag_func() reads xarray entries and fn->dev.
+mlx5_lag_fn() then does an xa_load(), and the loop dereferences
+fn->dev->priv.flags. The only thing guarding membership while the lock is
+dropped is ldev->mode_changes_in_progress. The comment in
+mlx5_lag_drop_lock_for_reps() says:
+
+	/* Keep PF membership stable while ldev->lock is dropped. Device add
+	 * and remove paths observe mode_changes_in_progress and retry.
+	 */
+
+The SD paths in lib/sd.c don't appear to check that counter, though.
+sd_lag_cleanup() takes the lock directly:
+
+	mutex_lock(&ldev->lock);
+	mlx5_sd_for_each_secondary(i, primary, pos)
+		mlx5_ldev_remove_mdev(ldev, pos);
+
+mlx5_ldev_remove_mdev() then frees the entry right away, with no RCU
+deferral:
+
+	fn->dev = NULL;
+	dev->priv.lag = NULL;
+	xa_erase(&ldev->fns, fn->idx);
+	kfree(fn);
+
+sd_lag_cleanup() is serialized only by sd->devcom. For
+MLX5_LAG_FILTER_ALL, this function runs under the HCA devcom instead.
+mlx5_do_bond_work() takes only the HCA devcom trylock plus ldev->lock, and
+not mlx5_mpesw_sd_devcoms_lock(). It reaches this function as follows:
+
+mlx5_do_bond_work()
+  mlx5_do_bond()
+    mlx5_lag_shared_fdb_create(ldev, ..., MLX5_LAG_MODE_SRIOV, 0)
+      mlx5_lag_remove_devices_filter(ldev, MLX5_LAG_FILTER_ALL)
+        mlx5_lag_rescan_devices_locked_filter()
+
+mlx5_disable_lag() -> mlx5_lag_shared_fdb_destroy(ldev, 0) reaches it the
+same way. Group id 0 maps to MLX5_LAG_FILTER_ALL, which matches every
+member, SD secondaries included.
+
+At the same time, removing an SD member's eth aux driver can run:
+
+mlx5e_remove() / mlx5e_suspend()
+  mlx5_sd_cleanup()
+    sd_lag_cleanup()
+      mlx5_ldev_remove_mdev()
+
+This removal can come from a sysfs unbind of mlx5_core.eth.N. It can also
+come from a reload of an SD secondary whose hca_devcom_comp is NULL or in a
+different component. Neither case holds the HCA devcom that the bond work
+holds.
+
+If that happens, mlx5_get_next_lag_func() could read fn->dev from a freed
+lag_fn. mlx5_lag_fn() could also return NULL after xa_erase(), and the
+loop would then dereference it.
+
+The old loop touched only the devs[] core_dev pointers once the lock was
+dropped. Those pointers stay valid across an aux unbind, so lag_fn and
+xarray state was never accessed without the lock.
+
+A similar question applies to sd_lag_init(), which also takes ldev->lock
+without checking mode_changes_in_progress and calls mlx5_ldev_add_mdev().
+Could the second loop then rescan a newly added member whose
+MLX5_PRIV_FLAGS_DISABLE_IB_ADEV flag the first loop never updated?
+
+Given the above, is the "no functional change" statement in the commit
+message accurate?
+
+Would it be safer to keep a snapshot taken under the lock? For example, a
+dynamically sized array, or a reference on each core_dev collected before
+mlx5_lag_drop_lock_for_reps().
+
+As far as I can tell, the last patch in the series doesn't touch this
+function or the SD paths, so this would still be present at the end of the
+series.
+
+>  	mlx5_lag_retake_lock_after_reps(ldev);
+>  }
+>
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116103010.1129666-1-tariqt%40nvidia.com
