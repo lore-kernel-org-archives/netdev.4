@@ -1,54 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.125
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.134
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996694;
-	b=I0QzYWaWP4kjJvgYfkgK9qYkkfkBmAlBpzZhNks7p8QtXGPbLFjlywTlVJwIpU7PQrOp
-	 3X6BErBFQigXLZ7io5q9N3nEF0c4sUVoJXi9NR/dcN3gUIxSSItFYAHK1B1McUvqhUlHN
-	 wraDCqGqOnyoNRZdrr16F7ZybKteWOTUcFyycJOzb2KXQYN/ogJ/GDCtIdvN3TmztxDPG
-	 m+mzADkxCmD90J3P58I6esngA4vgUhicjVtp9/jZynTUpToMlX/tnuG/fTDl5uqbRAYIi
-	 JRRMXKv6bc4OppuwlODIAq4du0Wrxf3MR2FfqbO5TZEvZf4zxTfgokpjaiwEsGqmfKQ==
+	t=1794997083;
+	b=WXFnKa5DEUR5Frhj9Xaau5v8DYA/zi2eUm1/0ttR7erAe2rTu4mU6Lx7s8bCj4t9JWQD
+	 ZX9ecxVjwMi7huIWEtaDab7A/Q/nfLoZgkntbjUt6t/1Lx/VTl9+RCynQcgNGAwF9eDy+
+	 7OZyfkeakHgGapVTTzcXOOLwdqypq+fDbui5A5tM1basRpfe38xNerXuw90HqyvJpLSeH
+	 aso/hgb9VOTPNxyWlzE4qEVftrkKhT4VMr5SS6SYH2ES7nwrUzxRkV8EDHTbcn20Ns7Yz
+	 3FvhEHb+vl/9Oozrtwt1KlnaqGIGe/ekEREmflAnbTuvRZKAsaaMm02lfTE3KwEHP8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996694;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=D1MUY1H0VH1qHinNrqNAjg4w0W1AM6O//IjCUC504uI=;
-	b=SfMwNuOsj8DJL5pBGVBey10amJl2SnkxhVBt/vVMaHHKk/ykiRed2duei9V0LJCrbTJA
-	 YI0L/khlJWry2lNtPt861f8T5VoXaxMnh4j2ZHOmM49+tht/8sC+R/qfM98ymJfsjBwlK
-	 dmZvzcBSCp+9rGZLZYSmSFDj7GK0+5rEJxZlI5BDFVCTdausfj+J6NnCpP2d2+xHsIFjB
-	 k7Ae+tISTF5lPiKb/7YSHarufq5D4KeFpggEXfHGdmLiVzHV7mQ9HIaDueU1qCQsxomzR
-	 z8krG0J1bconatWRLESsdavKqQAjg+FnP7hKvwWIYLp4fcqd/X73mH71lvB8r+gR5Qg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997083;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=TMFZcDH6aQIFtxqkM360mGsHK/mRi1dMwYrjxUKwiNQ=;
+	b=cuXLTTKmHKE/NZXGOiYjtAZEaSvgu4iCd8Q5OPtVsk6MjF/Vxu6Ytw0HK3VjoFzr+SEb
+	 zvcmm7v1EVa42Vp2DK4rLtHDtJkqmot+k4th2CRUhukQuYoFhKq72ja2alGKhLxI/G3yT
+	 4BGYytCzMasNKhe+ubSGWnDoGacY0a6r/LLYrkEbjpMuWF1JVQCrcVTHBELng3BddhzdH
+	 EO0ATB0JgfT4Y9Ir5TTmNwTVny4DOcBGwHvMwPuOjG8SblHTomQ9OXX/hshYOaDQu5K00
+	 LsGPka3Se3Ga+hDRz4u23PdjqZarzl2wT6+U7bXrnL1xMg0Ocy/EjC8jbuYt/CLxkzA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OW5EI13u;
-	arc=none smtp.remote-ip=91.218.175.125
-Received: from mta0.migadu.com (out-125.mta0.migadu.com [91.218.175.125])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uNHHFZO2;
+	arc=none smtp.remote-ip=74.125.231.134
+Received: from mail-oo2-f6.google.com (mail-oo2-f6.google.com [74.125.231.134])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 059FE606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:11:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 059FE606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18047606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:18:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18047606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=OW5EI13u
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=+bB9g6Bv+semol6SWgegbWp0lH/3VoQYPrulmmDo324=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794996692; v=1; x=1795601492;
- b=OW5EI13uRMfGhs6ixdrLLuvaMP7KYvOoEEPvlEROAbKL1hYGSDT2CH4udseFxC7OBPwu+guP
- WNikBVVefcDsLc2OrtBc6DErGrO5w78T33QBmgpjThOx/ayqYPMVkdUo/13JRDD6T31YSBw7TBR
- J5GzMsPAe/k2v2ehEk0LYZlI=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id d58a89dcce9aff1c;
-	Wed, 18 Nov 2026 10:11:32 +0000
-X-Mizu-Trace-ID: d58a89dcce9aff1c
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <6c94d413-02b8-4a1d-8a5f-9503a9ff4815@linux.dev>
-Date: Wed, 18 Nov 2026 19:11:26 +0900
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uNHHFZO2
+Received: by mail-oo2-f6.google.com with SMTP id 006d021491bc7-6ddeba3e85dso161535eaf.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:18:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794997082; x=1795601882; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TMFZcDH6aQIFtxqkM360mGsHK/mRi1dMwYrjxUKwiNQ=;
+        b=uNHHFZO2ZWTl6wjsCFAG/t3isVNM5BUArcyiCTu8msNqQOHHSJHOQeDcsjBiDZryVl
+         Qa+xjH6lLze0MKSlm48eQtg/RIuygvNvD611LMDbqxqF3T2iKHL1neKXRI2f6MwQl0Wf
+         Nf3jcxNOmbWeMJlnhS+c4rT14GEjZMHBWNb65i5PBUn4Mej7/RhGZ/KRp0Rc6+eqRiV4
+         oNioML4frdYcY2ILpjSZmIIHPjooXe66RirHa1Gi03EKfEdtD9sUpHxDCd9fdJdFl0bK
+         aq4glU9iuVkSG5Acx73BnMjhGZ3gVTz0S6kjvaRrsV8cec1ibV/I5IKjSbwKfM3HT7Zh
+         rM9Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794997082; x=1795601882;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TMFZcDH6aQIFtxqkM360mGsHK/mRi1dMwYrjxUKwiNQ=;
+        b=We6/9U44A4ETJypDj1qZfGsOFZ8QbvWgkGFmvdeVPLt70nLV3YAi4xWvNFO3u2PgZc
+         HzIt4B+HmIZkfdftowhLN46GEFK/uOr8Q2pJY7ZJvN9Kpo+/9p7swXiizWYqBeTeVqeW
+         Q8rhuqa6Q7PiY8Q9sxJtHinl0CXlSSbntSlHYBBhGHPvKGGISPZtik8rHn57WyU4zuH7
+         T2JulgtCKVg345y1foN8HFHRqJP3CDh3N2VHVMHHdV1e8hjoUomI63zP3ns7iAfvuOqX
+         /Hsf9C725j5A+1vvreeuq+A+yzfBtH32lE0WqKGAVzbL3Wbcvt8Wwsv8vi0p8LfZ5yNv
+         JMcA==
+X-Gm-Message-State: APuU4Z8UxNfSJW0iHXKVD0y9C73sUC62J2mq9aqy3ldpXQ3UqcF0c4Q3
+	mCmNDtOHEd6jiRrUHLGHm+K36N7hnwa0Tcesf5ysqrqXfZbATWRlIxdc
+X-Gm-Gg: AYBFou3qXW7pIkoIgftQ8CMmv1xX5/bNpuSKhAHOXYSwK3nY5ldSK2BGmiKokTzalHV
+	x7FVEBPT+TX4K+42T9IQHuCeK41XHmB9MAYvyxGpzbubxzWKhmJjOQ7Oan08EEcTQ9Vm00edpNl
+	sTnukAZLPr/4wYe6ztbXMTJAMIRWFf8UIW+1QTrKzaHwgq2W+Ywqgs1+d0aDcQbmfpRjX3Elyu6
+	xFCA0BGyzXPMi057MvHxX0JJMthhX910OiwiTarRNH/5aA6W//ZEd8EuUw+epPJqI/e8M1iL2iq
+	Ew1ftB3M2v70qh8S+KhcvPg9YE4786Osa76wsgOdzKOWftMtxD920lWipgMopEqInbKafbiHQ82
+	eB35pqQxNq+mYTZrbDijbnNfUVMi5w4BOKHR1BcnxnWOpqkCr/05NkBBPdzJLaSXsH0NQIO7C1L
+	DcR6Ql/wir1JioT4a8ahExh6ibI+Bmvdt457d7ssB2qgWZlQ+lSxHRFcq8Rdj4NmrcHGVmq5bUH
+	6Rz7wYLkS3TITjvkI6nytgO17F+sN5ydbDpztFb46ULGMLzAzet2uU14S1HnwG7X0DueEn9AzHo
+	3BBF6v2IOzs0NTv9wD6XXiAdRuc9FJ62IS1YrGeXgLU+PD3Gkh5Yz7L8ahY53qYvPy2/v3Kr9zz
+	cHBLIYiw3zvJo
+X-Received: by 2002:a05:6820:2306:b0:71a:ea63:ac2c with SMTP id 006d021491bc7-71b18657f8bmr1251461eaf.84.1794997081863;
+        Wed, 18 Nov 2026 02:18:01 -0800 (PST)
+Received: from localhost.localdomain ([14.22.11.163])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4b743721fe9sm1889777fac.6.2026.11.18.02.17.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 02:18:00 -0800 (PST)
+From: Henry Martin <bsdhenrymartin@gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Simon Horman <horms@kernel.org>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Henry Martin <bsdhenrymartin@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net] net: initialize sk_peer_lock in cloned sockets
+Date: Wed, 18 Nov 2026 18:17:52 +0800
+Message-ID: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
+X-Mailer: git-send-email 2.43.7
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,41 +101,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH nf v2 1/2] netfilter: nf_tables: only disable tables on a
- dormant transition
-To: Ma Xinmeng <1564938642@qq.com>
-Cc: netfilter-devel@vger.kernel.org, netdev@vger.kernel.org,
- Phil Sutter <phil@nwl.cc>, Pablo Neira Ayuso <pablo@netfilter.org>,
- Florian Westphal <fw@strlen.de>
-References: <20261117161520.1031-1-1564938642@qq.com>
- <tencent_6731DB02656EFC3D74E4DFCE582B7E0EFC0A@qq.com>
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-In-Reply-To: <tencent_6731DB02656EFC3D74E4DFCE582B7E0EFC0A@qq.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 2026/11/18 at 1:14 Ma Xinmeng wrote:
-> nf_tables_commit() calls nf_tables_table_disable() for every NEWTABLE
-> transaction that has NFT_TABLE_F_DORMANT set and __NFT_TABLE_F_UPDATE.
-> Since table adoption introduced __NFT_TABLE_F_WAS_ORPHAN, UPDATE no
-> longer implies a dormant state change: re-owning an already dormant
-> PERSIST orphan sets UPDATE because of the adoption, even though the
-> table never left the dormant state. The commit then clears DORMANT,
-> walks the basechains, and unregisters a hook that was never registered,
-> which triggers WARN_ONCE("hook not found") in
-> __nf_unregister_net_hook().
-> 
-> Use __NFT_TABLE_F_WAS_AWAKEN, which records an awake-to-dormant
-> transition, instead of the current DORMANT flag. This skips the disable
-> for an already dormant adopted table while preserving the genuine
-> awake-to-dormant path.
-> 
-> Fixes: 31bf508be656 ("netfilter: nf_tables: Implement table adoption support")
-> Signed-off-by: Ma Xinmeng <1564938642@qq.com>
-The patch looks good to me.
+sock_copy() clones a struct sock with two memcpys that both include
+sk_peer_lock.  sk_clone() re-initializes sk_lock, but nothing resets
+sk_peer_lock, so a clone created while the parent's sk_peer_lock is held
+inherits the lock in the locked state.
 
-Reviewed-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+The first getsockopt(SO_PEERCRED) on such a child spins forever in
+queued_spin_lock_slowpath().  spin_lock() disables preemption, so the
+task never schedules and its CPU stops reporting quiescent states; RCU
+grace periods then stop and callers of synchronize_rcu(), such as
+expand_files() from accept(), hang.
 
-Thanks,
-Xuanqiang
+Initialize sk_peer_lock explicitly for the clone.
+
+This issue was discovered by Tencent CodeBuddy Security.
+
+Fixes: 35306eb23814 ("af_unix: fix races in sk_peer_pid and sk_peer_cred accesses")
+Cc: stable@vger.kernel.org
+Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+Reviewed-by: Eric Dumazet <edumazet@kernel.org>
+---
+v1 -> v2:
+ - drop the inline comment, the changelog already explains it
+ - use [PATCH net] in the subject, as requested
+
+ net/core/sock.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/net/core/sock.c b/net/core/sock.c
+index ad414878dc5b..ebc83a466d91 100644
+--- a/net/core/sock.c
++++ b/net/core/sock.c
+@@ -2545,6 +2545,7 @@ struct sock *sk_clone(const struct sock *sk, const gfp_t priority,
+ 
+ 	sk_node_init(&newsk->sk_node);
+ 	sock_lock_init(newsk);
++	spin_lock_init(&newsk->sk_peer_lock);
+ 
+ 	if (lock)
+ 		bh_lock_sock(newsk);
+-- 
+2.43.7
+
