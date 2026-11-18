@@ -1,54 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795022148;
-	b=uYSVVsCepsb1p1lle5RC7EghGWfD2YR4WW3vlMJLCwmevisXauA3fNxYwjQK/kp3T1B0
-	 55NWtNZZ95vN1aC/RivRx1v+0qrfimElYcPJA7b+sDcP0Segjih/8DNElkKgkdWi109/m
-	 Z5CwFQaajS4DQdCQq/TZ9UDGZMPT0fwwWzUJ7zlaZT3TampheMXz72XqIV2mQiyVop85q
-	 PbQ8Czka8edbaqsDZfT/TZ8Nr4mVwHNqalPoMlIKLRANNB2+cOYpJ6fO7eZ3mDtuie0ws
-	 ICI2fY3ZnEH8b3/FqIOIlg5ZPd//+UwRNA+kWkpkLVB75ipwpIDJG/EsKnBz6nUrYVA==
+	t=1795022243;
+	b=FpbqoEzkbBT0ca37lnz72W9V0eSFZevGIndvcqwgd991PWEFFGtbY22dhSv41mb9vxR7
+	 S88U0bSXQ9JDXAGZdudPZBK2G/YpZiTUOjwRCmDNOHAmV5RO6oiLvPNJ4N1sPzLVc19f2
+	 AyUIovaCp6lWO+8LZuehw8amguRCO3uH4LgPwHyqorJ9F0EZqIoozbhuhRyRZbJhVa5p1
+	 h8TtB53u3XPi1ZFSXfU0XdSeL1aSBwR92lFQgx2Q9+/VXElnNSTSlQ/0oyiXYbZO3ILjm
+	 nk2j8MX8uZm+RLWtBM7ySNMEhj3lzLn9aM7OxqkCMqd7YiFxaHCAkMyZTRyEHGiJigw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795022148;
-	h=Received:DKIM-Signature:Received:X-Gm-Message-State:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:
-	 X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=y1HQ4WbkwsYDU9C8N67zbQb8VxPifqOw6NSzlc1e1o4=;
-	b=zkHhrUIN2idbs9dS3PpRid+yYHliHJq5fUDwSAH3IHC91s95zD3Vczv+XWJwZ2g+pzr7
-	 oftQjmBC0IpO/xagzC+nxn7sGLQl8fJYyw58aFClAMu8ZwD9e94Gc7MjX6TtW2vtZXZ5P
-	 D5bQeXe+pHwIOeJkfgYRp9g54Lot66Oqia1fbs05+dgP/ReOmY+md5nbJ6xiVObA3VCsi
-	 YkOhAKEx/wWBY6TUObxAhsO4tSJMxlWuNbRc05/Z8H5RTBQ+YV1LAiKpIKrTtp1W9XISf
-	 X+VmuoGTZJVQGqADgEfElvf6LILO0KK+FmMCzMMZ1CTWSFbEmzB/sh2F8mh1og/ilHA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795022243;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=28XEaP/ltV/ETk9fcENFl2aQLFUd74IdM6wgYvIduOw=;
+	b=NcUv1nf1BT2lBcv4BwKtfjL+MyUQTpc+FjJH+evKHMJGwTZ1WpRjFYqoRRFkGcz9HVhC
+	 BenmLsE3NkLDWhmPpx1/Ogg85vtyPVwN/jHTVXuGIpsGB+ANjzSQo6m/g5Z/6cjvhZhK5
+	 vl2tfp1n494ijrbnP6ugqjswTImcCH7GYX0I0z1llZFFqDfsmQip7ys3p5pxV6pNHC3CU
+	 R74WGW3wX3ARhuE9eYnbkI3CczgTv/81x/3/yBMApcqcAMkLr5Sa3dOND10Q22yHy6a5y
+	 wjEYb4at7AF1S6V8UQk6ydhLbJO1klydm0RyrDe63qZptCtiWZnzk6ukSlo4uZHq26g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WpCu6JJN;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I3m51p1y;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E82F9606A32A
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:15:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D528606A32C;
+	Wed, 18 Nov 2026 17:17:23 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WpCu6JJN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C65041F000C4
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 17:15:47 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=I3m51p1y
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 910DD1F000C4;
+	Wed, 18 Nov 2026 17:17:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795022147;
-	bh=y1HQ4WbkwsYDU9C8N67zbQb8VxPifqOw6NSzlc1e1o4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=WpCu6JJNYdW5/+jjULJDCYglNCXydsIJNx8hI7jpXxSeAe8oXwC3OagfaZ06yn/1A
-	 VDWTvZyEaAmeQuc+u0XV+MrYDiMz9eJJ3zUm8TMUYnhuVGjUo46iKb1CduGayvxOX8
-	 eto1gq7PaNe5bqyucCLvY5p7KiC9OWEFKWEBlAl/5UEz91ht82jdNtJQmrFGtHldDh
-	 XwTuqIUuU//hR8+dzupxVhRUeadJ9XnfdfYHxW48kAPowS2lbJHS2/F05Fe8HVJ0cK
-	 IekRQlcIcRDvZKhxrjtEz/QQZUfEkGJN+//8K9UYtG5TZ6pAr/CkHqPeNhn9PB4j09
-	 bM9dIYoih/rOw==
-Received: by mail-oo1-f47.google.com with SMTP id 006d021491bc7-716c0217635so43595eaf.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 09:15:47 -0800 (PST)
-X-Gm-Message-State: APuU4Z9DKE+6FZ9BtAycne4wvYEp+kU/ECZ6ZGdlt4Ha5SaBI9MZbxpv
-	KKGjk3AduPk5jm1SXqt00sRDfjCmq+bIWB1bsrEMn0R5wPQyIfgwvBmqPqdxNuGBgmut5wzTs1I
-	pVJoSsvHCyzhOVq/SxNehYcE1ri2BSrg=
-X-Received: by 2002:a05:6820:5712:10b0:71a:fcbf:2484 with SMTP id
- 006d021491bc7-71b2a536c4fmr59343eaf.36.1795022147087; Wed, 18 Nov 2026
- 09:15:47 -0800 (PST)
+	s=k20260515; t=1795022243;
+	bh=28XEaP/ltV/ETk9fcENFl2aQLFUd74IdM6wgYvIduOw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=I3m51p1yxSCa+XRhyxBrIPFQediyExc5Zl82Subm6rC9snVZkpaSkqD9McVYcqQF8
+	 pFGoVFbnn9iZ6/HPJZFEPA3uQ/wODAHWITb98jbHtx2w2NtO9bZESF30Tqz97yF1fT
+	 oV8F2Vno4OBPUzU6W6bxntO4a6QqgOKEYWrqx/QQle9Q/FnZjiiNHO5JxiTGYs/y4W
+	 0CKOU0sgnZb8S6S/4u0Yx49srfvleH0YZuvMs0cTL8f/E3eGi35DUbwUyk4v2BrnuU
+	 ygFqurvKnKZOMjOe4aS36sqebvLKddv5xbtRtaoxERF7jTpLJH07z7LnKY7A/9acBD
+	 qABu+hqO6ZTew==
+Subject: Re: [PATCH net-next v4] net: phy: aquantia: Poll global status
+ register for provision ID
+From: netdev-bot+sashiko@kernel.org
+To: hongmei.xu@oss.qualcomm.com
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ sagar.cheluvegowda@oss.qualcomm.com
+Date: Wed, 18 Nov 2026 17:17:22 +0000
+Message-ID: <179502224211.3136.8031848811478345993@kernel.org>
+In-Reply-To: <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
+References: <20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a@oss.qualcomm.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,249 +64,179 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116015732.2744688-1-jiebin.sun@intel.com>
-In-Reply-To: <20261116015732.2744688-1-jiebin.sun@intel.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 18:15:36 +0100
-X-Gmail-Original-Message-ID: <CAL4Wiio=6iUnMQM1Ry+fda3Y2Y3=d13_g42e5ZHhXHDmhp7eFA@mail.gmail.com>
-X-Gm-Features: AclHuK-drbUSgy2492OTPn4_aGO4otO_DPLYCBGNsvJCoOpkSZnVkAHlnvN9vlw
-Message-ID: <CAL4Wiio=6iUnMQM1Ry+fda3Y2Y3=d13_g42e5ZHhXHDmhp7eFA@mail.gmail.com>
-Subject: Re: [PATCH] net: dst: Avoid false sharing between tclassid and __rcuref
-To: Jiebin Sun <jiebin.sun@intel.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org, 
-	pabeni@redhat.com, horms@kernel.org, linux-kernel@vger.kernel.org, 
-	tim.c.chen@linux.intel.com, tianyou.li@intel.com, wangyang.guo@intel.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le lun. 16 nov. 2026 =C3=A0 02:53, Jiebin Sun <jiebin.sun@intel.com> a =C3=
-=A9crit :
->
-> On x86-64, dst_entry::tclassid shares the same cache line with
-> dst_entry::__rcuref. Updates to __rcuref cause false sharing with
-> tclassid reads, for example in ip_rcv_finish_core() when
-> CONFIG_IP_ROUTE_CLASSID=3Dy. Memcached perf c2c shows the paths:
->
->   read:    net_rx_action -> process_backlog -> ip_rcv_finish_core
->            -> skb_dst(skb)->tclassid (load)
->   acquire: tcp_write_xmit -> __tcp_transmit_skb -> __dev_queue_xmit
->            -> skb_dst_force -> dst_hold_safe -> rcuref_get
->   release: tcp_rcv_established/tcp_add_backlog -> tcp_cleanup_skb
->            -> skb_dst_drop -> dst_release -> rcuref_put
->
-> Move tclassid after lwtstate on 64-bit to avoid false sharing with
-> __rcuref.
->
-> On x86-64, struct dst_entry grows from 136 to 144 bytes. struct
-> rtable and struct rt6_info embed dst_entry, so their sizes grow
-> from 176 to 184 and from 224 to 232 bytes, respectively. However,
-> both struct rtable and struct rt6_info are allocated from slab
-> caches with SLAB_HWCACHE_ALIGN, so the per-object allocation sizes
-> remain unchanged at 192 bytes for rtable and 256 bytes for rt6_info.
->
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-This leaves a 4-byte hole where tclassid was, and adds 4 bytes of
-padding at the end of dst_entry.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-As the AI review pointed out, struct metadata_dst is not allocated
-from a HWCACHE_ALIGN cache. Its union is 16-byte aligned, so it grows
-from 240 to 256 bytes, and metadata_dst_alloc() with any optslen > 0
-(vxlan collect_md, geneve options) moves from kmalloc-256 to
-kmalloc-512, for every received packet.
+- [Medium] The new poll in aqr_wait_reset_complete()
+  (drivers/net/phy/aquantia/aquantia_main.c, lines 720-734) treats…
+- [Low] The commit message says the patch fixes a user-visible defect in
+  existing AQR113 support ('Starting subsequent firmware operations…
+- [Low] aqr_need_provision_id_check() (aquantia_main.c:684-690) limits
+  the new wait to PHY_ID_AQR113 and PHY_ID_AQR113C.
+- [Low] When the new PROV_ID poll times out, aqr_wait_reset_complete()
+  logs a warning and returns 0 (aquantia_main.c:732-736).
 
-I do not think we need to grow dst_entry at all.
+--
 
-dst->expires sits in the first (read-mostly) cache line, but its
-fast path readers are all conditional (rt->rt_pmtu for IPv4,
-RTF_EXPIRES for IPv6). It can live in the __rcuref cache line.
+net: phy: aquantia: Poll global status register for provision ID
 
-Swapping it with {error, __pad, tclassid} keeps sizeof(struct dst_entry)
-at 136 bytes, keeps __rcuref at offset 64 on both 32-bit and 64-bit
-without any new #ifdef, and also moves dst->error out of the
-contended cache line.
+On AQR113 and AQR113C, aqr_wait_reset_complete() now goes on to poll the
+PROV_ID field of VEND1_GLOBAL_RSVD_STAT1 until it is non-zero, after the
+firmware ID check. A read error is returned to the caller. A poll timeout
+only logs a warning, and the function still returns 0.
 
-Something like this (untested):
+> Starting subsequent firmware operations before the provision ID is
+> valid leads to steady link failures; this has been observed during
+> AQR113 PHY bring-up.
 
-diff --git a/include/net/dst.h b/include/net/dst.h
---- a/include/net/dst.h
-+++ b/include/net/dst.h
-@@ -31,7 +31,9 @@ struct dst_entry {
-        };
-        struct  dst_ops         *ops;
-        unsigned long           _metrics;
--       unsigned long           expires;
-+       short                   error;
-+       short                   __pad;
-+       __u32                   tclassid;
- #ifdef CONFIG_XFRM
-        struct xfrm_state       *xfrm;
- #else
-@@ -74,9 +76,7 @@ struct dst_entry {
-        int                     __use;
-        unsigned long           lastuse;
-        struct rcu_head         rcu_head;
--       short                   error;
--       short                   __pad;
--       __u32                   tclassid;
-+       unsigned long           expires;
- #ifndef CONFIG_64BIT
-        struct lwtunnel_state   *lwtstate;
-        rcuref_t                __rcuref;       /* 32-bit offset 64 */
+[Severity: Low]
+This describes a link failure with the existing AQR113 support. That
+support already goes through aqr_gen4_config_init()->
+aqr_gen1_config_init()->aqr_wait_reset_complete().
 
-Could you test this with your memcached setup, and include
-pahole output for dst_entry and metadata_dst in the changelog?
+Should this carry a Fixes: tag and possibly Cc: stable? Is it meant for
+net or net-next?
 
-> Memcached perf c2c samples at the class-ID load:
->
->   +----------+------------+-------------+
->   | Kernel   | Local HITM | Remote HITM |
->   +----------+------------+-------------+
->   | Baseline |        894 |         680 |
->   | Patched  |         15 |           0 |
->   +----------+------------+-------------+
->
-> Results with 64 workers per endpoint (baseline 6628e7d4c6b2).
-> Improvement is 100 * (patched average / baseline average - 1).
->
-> Memcached (5 iterations, average operations/s):
->
->   +--------------------+--------------------+
->   | Case               | Improvement (%)    |
->   +--------------------+--------------------+
->   | default            |             +27.20 |
->   | hit                |             +52.36 |
->   | balanced           |              -0.52 |
->   | large              |             +64.68 |
->   +--------------------+--------------------+
->
-> Memcached over IPv4 loopback.
+> diff --git a/drivers/net/phy/aquantia/aquantia_main.c b/drivers/net/phy/aquantia/aquantia_main.c
+> index e95d391a6dc23..a5bba9be0d069 100644
+> --- a/drivers/net/phy/aquantia/aquantia_main.c
+> +++ b/drivers/net/phy/aquantia/aquantia_main.c
+> @@ -681,12 +681,24 @@ static int aqr107_set_tunable(struct phy_device *phydev,
+>  #define AQR_FW_WAIT_SLEEP_US	20000
+>  #define AQR_FW_WAIT_TIMEOUT_US	2000000
+>  
+> +static bool aqr_need_provision_id_check(struct phy_device *phydev)
+> +{
+> +	return phy_id_compare(phydev->drv->phy_id, PHY_ID_AQR113,
+> +			      phydev->drv->phy_id_mask) ||
+> +	       phy_id_compare(phydev->drv->phy_id, PHY_ID_AQR113C,
+> +			      phydev->drv->phy_id_mask);
+> +}
 
-Please make clear in the changelog that this is a loopback workload.
-__rcuref is written for every packet there because loopback does not
-set IFF_XMIT_DST_RELEASE, so __dev_queue_xmit() calls skb_dst_force()
-and the receive path reuses the same dst. This is not what happens
-with a physical NIC.
+[Severity: Low]
+This isn't a bug, but AQR114C, AQR115, AQR115C and AQR813 also go
+through aqr_gen4_config_init() and aqr_wait_reset_complete(), and they
+won't get this wait. The v4 changelog says the narrower scope is
+intentional.
 
-> The default client command is:
->
->   memtier_benchmark -s 127.0.0.1 -p 11221 -P memcache_text
->     -t 64 -c 1 --pipeline=3D16 --test-time=3D60 --ratio=3D1:100
->     --data-size=3D32 --key-maximum=3D10000000
->
->   hit:              --key-maximum=3D1000
->   balanced:         --key-maximum=3D1000 --ratio=3D1:1
->   large:            --key-maximum=3D1000 --data-size=3D1024
->
-> TCP request/reply (5 iterations, average transactions/s):
->
->   +----------------------+--------------------+
->   | Case                 | Improvement (%)    |
->   +----------------------+--------------------+
->   | tcp4-rr              |              +1.85 |
->   | ipv6-loopback-plain  |              -0.60 |
->   | ipv6-loopback-expiry |              -0.24 |
->   | tcp6-rr              |              -1.60 |
->   +----------------------+--------------------+
->
-> 64 pinned netperf clients per case, with 128-byte requests and
-> replies:
->
->   tcp4-rr:              netperf -t TCP_RR -l 8 -- -r 128,128
->   ipv6-loopback-plain:  netperf -6 -t TCP_RR -l 8 -- -r 128,128
->   ipv6-loopback-expiry: netperf -6 -t TCP_RR -l 8 -- -r 128,128
->   tcp6-rr:              netperf -6 -t TCP_RR -l 30 -- -r 128,128
->
-> Transfer (5 iterations, average received Mbit/s):
+Were those parts checked for the same provisioning behaviour? If so,
+could the commit message say so?
 
-These tables are all within noise and do not exercise the contended
-path. Please remove them, the changelog would be much easier to read
-with only the perf c2c data and the memcached numbers.
+> +
+>  /* If we configure settings whilst firmware is still initializing the chip,
+>   * then these settings may be overwritten. Therefore make sure chip
+>   * initialization has completed. Use presence of the firmware ID as
+>   * indicator for initialization having completed.
+>   * The chip also provides a "reset completed" bit, but it's cleared after
+>   * read. Therefore function would time out if called again.
+> + *
+> + * On AQR113 and AQR113C, additionally wait for the provisioning ID to
+> + * become non-zero, indicating that firmware provisioning is complete.
+> + * Without this polling, link issue can be seen after phy boot.
+>   */
+>  int aqr_wait_reset_complete(struct phy_device *phydev)
+>  {
+> @@ -702,7 +714,26 @@ int aqr_wait_reset_complete(struct phy_device *phydev)
+>  		return val;
+>  	}
+>  
+> -	return ret;
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (aqr_need_provision_id_check(phydev)) {
+> +		ret = read_poll_timeout(phy_read_mmd, val,
+> +					val < 0 ||
+> +					FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_PROV_ID, val),
+> +					AQR_FW_WAIT_SLEEP_US, AQR_FW_WAIT_TIMEOUT_US,
+> +					false, phydev, MDIO_MMD_VEND1,
+> +					VEND1_GLOBAL_RSVD_STAT1);
 
-Also, please tag the next version for net-next.
+[Severity: Medium]
+Is PROV_ID a reliable sign that provisioning is done? Elsewhere in the
+driver it looks like a fixed identifier of the firmware image. It sits
+next to FW_BUILD_ID and has no validity bit:
 
-Thanks.
+drivers/net/phy/aquantia/aquantia.h:
+#define VEND1_GLOBAL_RSVD_STAT1_FW_BUILD_ID	GENMASK(7, 4)
+#define VEND1_GLOBAL_RSVD_STAT1_PROV_ID		GENMASK(3, 0)
 
-pw-bot: cr
+aqr_build_fingerprint() reads it only as one part of the image
+fingerprint:
 
+	build_id = FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_FW_BUILD_ID, val);
+	prov_id = FIELD_GET(VEND1_GLOBAL_RSVD_STAT1_PROV_ID, val);
 
->
->   +-------------+--------------------+
->   | Case        | Improvement (%)    |
->   +-------------+--------------------+
->   | udp4-small  |              -0.91 |
->   | udp4-frag   |              +0.41 |
->   | tcp4-stream |              +0.92 |
->   | udp6-small  |              -0.81 |
->   | udp6-frag   |              +1.37 |
->   | tcp6-stream |              +3.22 |
->   | udpxfrm     |              +4.57 |
->   | tcpxfrm     |              -1.23 |
->   | geneve0     |              +0.49 |
->   | geneve8     |              +4.28 |
->   | geneve32    |              +1.53 |
->   +-------------+--------------------+
->
-> 64 pinned netperf clients per case. Netperf commands:
->
->   udp4-small:  netperf -t UDP_STREAM -l 30 -- -m 512
->   udp4-frag:   netperf -t UDP_STREAM -l 8 -- -m 8K
->   tcp4-stream: netperf -t TCP_STREAM -l 8 -- -m 10K
->   udp6-small:  netperf -6 -t UDP_STREAM -l 8 -- -m 512
->   udp6-frag:   netperf -6 -t UDP_STREAM -l 8 -- -m 8K
->   tcp6-stream: netperf -6 -t TCP_STREAM -l 8 -- -m 10K
->   udpxfrm:     netperf -t UDP_STREAM -l 8 -- -m 8K
->   tcpxfrm:     netperf -t TCP_STREAM -l 8 -- -m 10K
->   geneve0:     netperf -t TCP_STREAM -l 8 -- -m 10K
->   geneve8:     netperf -t TCP_STREAM -l 8 -- -m 10K
->   geneve32:    netperf -t TCP_STREAM -l 30 -- -m 10K
->
-> Suggested-by: Tim Chen <tim.c.chen@linux.intel.com>
-> Reviewed-by: Tianyou Li <tianyou.li@intel.com>
-> Reviewed-by: Wangyang Guo <wangyang.guo@intel.com>
-> Signed-off-by: Jiebin Sun <jiebin.sun@intel.com>
-> ---
->  include/net/dst.h | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
->
-> diff --git a/include/net/dst.h b/include/net/dst.h
-> index dbedfe72e1fd..f01cfb42f97c 100644
-> --- a/include/net/dst.h
-> +++ b/include/net/dst.h
-> @@ -76,17 +76,17 @@ struct dst_entry {
->         struct rcu_head         rcu_head;
->         short                   error;
->         short                   __pad;
-> -       __u32                   tclassid;
->  #ifndef CONFIG_64BIT
-> +       __u32                   tclassid;
->         struct lwtunnel_state   *lwtstate;
->         rcuref_t                __rcuref;       /* 32-bit offset 64 */
->  #endif
->         netdevice_tracker       dev_tracker;
->
->         /*
-> -        * Used by rtable and rt6_info. Moves lwtstate into the next cach=
-e
-> -        * line on 64bit so that lwtstate does not cause false sharing wi=
-th
-> -        * __rcuref under contention of __rcuref. This also puts the
-> +        * Used by rtable and rt6_info. Moves lwtstate and tclassid into =
-the
-> +        * next cache line on 64bit so that they do not cause false shari=
-ng
-> +        * with __rcuref under contention of __rcuref. This also puts the
->          * frequently accessed members of rtable and rt6_info out of the
->          * __rcuref cache line.
->          */
-> @@ -94,6 +94,7 @@ struct dst_entry {
->         struct uncached_list    *rt_uncached_list;
->  #ifdef CONFIG_64BIT
->         struct lwtunnel_state   *lwtstate;
-> +       __u32                   tclassid;
->  #endif
->  };
->
-> --
-> 2.52.0
->
+The v4 changelog also says some PHYs use PROV_ID=0 as a valid value.
+
+aqr_need_provision_id_check() decides from the silicon ID. The PROV_ID
+value, though, comes from whichever image gets loaded, whether from flash,
+nvmem or the filesystem.
+
+What happens if an AQR113/AQR113C runs an image with provisioning ID 0?
+
+The poll could then never succeed. Every call would poll MDIO for the
+full AQR_FW_WAIT_TIMEOUT_US (2 seconds) and log "Firmware provisioning ID
+not ready". aqr_wait_reset_complete() is called from:
+
+aqr107_probe()->aqr_firmware_load()->aqr_wait_reset_complete()
+
+phy_init_hw()->aqr_gen4_config_init()->aqr_gen3_config_init()->
+  aqr_gen2_config_init()->aqr_gen1_config_init()->
+  aqr_wait_reset_complete()
+
+Would bring-up then take at least 4 seconds per PHY, plus 2 seconds on
+every attach and resume?
+
+The commit message also seems to contradict itself. It says that starting
+operations before the provision ID is valid "leads to steady link
+failures", but also that a timeout "does not necessarily prevent link
+establishment".
+
+It also says a timeout "indicates a hardware-level provisioning failure".
+Nothing in the driver appears to support that.
+
+The driver already polls readiness signals tied to hardware state. One is
+the wait_on_global_cfg poll of VEND1_GLOBAL_CFG_100M in
+aqr_gen2_fill_interface_modes(). Another is
+VEND1_GLOBAL_GEN_STAT2_OP_IN_PROG. Would one of those work for AQR113
+instead?
+
+> +		if (val < 0) {
+> +			phydev_err(phydev, "Failed to read VEND1_GLOBAL_RSVD_STAT1: %pe\n",
+> +				   ERR_PTR(val));
+> +			return val;
+> +		}
+> +		if (ret)
+> +			phydev_warn(phydev, "Firmware provisioning ID not ready\n");
+> +	}
+> +
+> +	return 0;
+>  }
+
+[Severity: Low]
+This isn't a bug, but the new comment above aqr_wait_reset_complete()
+says the function waits for the provisioning ID, "indicating that
+firmware provisioning is complete". On timeout it only warns and
+returns 0, so callers cannot tell that provisioning did not finish.
+
+Returning 0 here looks right. aqr_firmware_load() treats -ETIMEDOUT as
+"no firmware loaded" and would load a new image over the running one.
+Also, aqr_gen1_config_init() does the downshift, MDI and LED writes
+whatever this returns.
+
+Could the comment say that the provisioning wait is best effort? Could it
+also say that the link failure described in the commit message can still
+happen after a timeout?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-aquantia-poll-global-status-register-v4-1-1b44fe85db5a%40oss.qualcomm.com
