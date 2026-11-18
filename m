@@ -1,65 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.205.221.153
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794983316;
-	b=PM8hwHgs1f5kb5YQa7JcXHEzRuCfwDBs/pPQGs/RjabIJAkLWPHm6N1tOmjZFJZ3WSca
-	 Hw1ip5OJXhTq1qjP/whsEuMSbH31S0e6fEpE9bZglpgVd3XayX8zMSjEFp9tIl3F+x2aP
-	 VNzLdAjBhGN7bLf+ekr2o71Ky+jDJExbWE7pDHaoRHGFLEJWRIGQFB6j/XjxMju+N9iE1
-	 p1UbAzI7sOloHiZfn5xRKbg7SBfu/+oG5Bfquj4wMrSEFBe1rFbtfdPZM2JcNulYma1PC
-	 WR+Rvh7LW3dQENFdzR5MZ2hOJZICcGMfYGezhtM0Xd7tNRAQw1pZFWOnCGb4vdZXKcw==
+	t=1794983419;
+	b=HofwLnlX5PrpH+mpGb0Qf2dsVFr0HofhVkn5G9kxx1nzMwXj9Ztf1hL2czqklkHVe4Rh
+	 y3y20dfm/xjaH6wYS0Ol2Pm+wPBLyO2xyWQfZsk8b4GS1qITcShVO5jWnx2FdCYjJHeSw
+	 Mc/aZwUPB4aztys8qOxcx+mmDsX2tE+Xq/2m4lp+PgcGDXD0y8k6awJZyKoLhWuksNApW
+	 qW1Q+wGHimwrL+RbOfIqAhFiii+fi9UzMPRLZJpkb2+XLeh9zCRNNA34408J8JX1aK+Xp
+	 RTXqhr4gZPqiivxU8BxyssHb9fJtCfZtH9gPwsFvUhmtHfqPgBgYc+52caSnNy3QPOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794983316;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794983419;
 	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
 	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=zBD049jgKEDWg0flByRT5kw4pfgUIEgfPQPTp/CuTrY=;
-	b=nc0oEJl0sUTUoTcW5XOjU/2P6DuFtGtgbmG/2EUtLvliDqlZrfOhThtk/hds2wRwhHvg
-	 4URVKOaSiChTGLlupbY5asa6iI6f4oQuQcoIJgYlVA5e7rOQJXL3Je/kALgnW6/bE3Mjd
-	 IVdVLF6G0F+WA8r5CBD9tsr2vfF4SWK1pxAJ1OIDXdxcu5jQOuKpfDL2AqM+RUtMbT900
-	 srFn2h5vV0rbQTBs2wYteFJjLqCwMHRJ0mphBTI9h9YuSiJJMU8n8uNY8uUdlHi5wu4jC
-	 rhMsWamd9GXxFDTfDSrbTkk6DK05st8f/xhvAVfGNtKgCUsMqDQqiIoZrS6TJavxdjg==
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=yUNkvnQgkpAUmM7UnJDGcKS+DORiVd6eaYFO8hODs1E=;
+	b=vTBFiS/Vsq/dcVAkboegQlFfVGHnqBex3gxl8HdrkS730f+sxi3KEsEp9Z2DbwLbtucp
+	 38DIGDq39mCbxt+01XgY037/ZlKwOkXLK0qm32sHtXH1yx6gYCpwx85fLrWzEuiXIowwv
+	 /gLRcjEn0CkpIWU0EwzWCMkOGQZPIX5e0aHH/DenFdP00pzG2Y8f4bHaA5Rth4rdcP0TS
+	 aUHbUlpo1OctCRZoAtyCrn2fL0EEWrpB6/xb/F4wXToHRCsKOnyjjgnJ41Bb3hvnSgiAA
+	 PNgrubDjYVcHmYJGMu+zFJmT7fQ9NSs1DbdH70hh/2GCUvyQQxfL8f/LEHlP2kVEgQA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=qq.com;
 	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ZpNF5iFy;
-	arc=none smtp.remote-ip=203.205.221.153
-Received: from out203-205-221-153.mail.qq.com (out203-205-221-153.mail.qq.com [203.205.221.153])
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ko43Ox4j;
+	arc=none smtp.remote-ip=162.62.57.49
+Received: from out162-62-57-49.mail.qq.com (out162-62-57-49.mail.qq.com [162.62.57.49])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD1A4606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:28:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD1A4606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61BDB606A339
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:30:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61BDB606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ZpNF5iFy
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ko43Ox4j
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1794983311; bh=zBD049jgKEDWg0flByRT5kw4pfgUIEgfPQPTp/CuTrY=;
-	h=From:To:Cc:Subject:Date;
-	b=ZpNF5iFysgwh2ReGnRUrqpa0NrwLdtcAF3UXscM/1CCtVEpxMTiwcYhwffR1kCNaY
-	 9cAsoTAOqnRAUk+AdTZhElWgI94lJvz4AKxgFLy2NKgLl47ID19kf9yaMbXwIMk8Bh
-	 q4xBHsS1SSPQWf6q9USnTey9trtFYGMg6coHlmEc=
+	t=1794983403; bh=yUNkvnQgkpAUmM7UnJDGcKS+DORiVd6eaYFO8hODs1E=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ko43Ox4jx0aKDkRXFoAqJMPhj1YwfHip3IycmY2cKhlWB+XeP9p5YUa+Q/viwjnwV
+	 2Mh3HhdgJDUUUE1s4c9fJTYEWs0u5rOlLOsD0xsKRmcQNr/APSXdgUqn9jTo7LdtgN
+	 3Ypnlxf96Y+oBVPza/7ByhJ5NcS/9CyzbY538+xM=
 Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
-	by newxmesmtplogicsvrsza53-0.qq.com (NewEsmtp) with SMTP
-	id 71CB48D8; Wed, 18 Nov 2026 14:28:28 +0800
-X-QQ-mid: xmsmtpt1794983308tolviv2ep
-Message-ID: <tencent_F3B718D78486FB80B4040B92FC5BD3076E06@qq.com>
-X-QQ-XMAILINFO: NnYhxYSyuBnLsGbf9hd+YgNDB6t7gGrxggf8sBH0gL6Q4zAtfovSGnVj/sa1dL
-	 iUVnFgmsywo6TgS3+NqP8hRYb96q7ua8/sZNy4d2XviUjmLl3Q5BN0hTi7N09OqQ1I5CjVZ/SVqy
-	 sw51K8YzcDU/bRoTKvfgs/GK5BUrFdBu317Ah/FiYZ63V8FXDUyu2FH5rpO5LFgGQShdU99A8rNZ
-	 33W5i9u+/qisH+zFiT7YCkhuR2N51Jix7Q7GDMBNGZ3LPsadIXWhBgwNECdiMow+YysVXK5hmduz
-	 S8QEpAUym3+QgzVlzJxXo+1yosbcSDH1sBwPC0PBLR9mLDChQoiX9Yb16xk7rjuOOgykcgFA/AqD
-	 F809u4z7/hkwkpPrnQS2nFmLKG9UkeamzFWGpZLFA7WubKqH14zY37Y+OUqdJfu+gVpdPpEz20is
-	 r7oEn71YZf9Q5H2j5dtOQGndNqra8gXdtM4Q++tvDvqfL/9ayrV4fniM+cA5Ey/Sz+qFkRp9RwO3
-	 QZCRiiTeEOv/46lSSmeogVi4A0N2uhNkylLge8HBO+NTBYzTN/ccRhbPaMJOt5HQmXgGvA5R/TRE
-	 HGGD6xOZ6q4GA+TJEO9GlFQopMjykFaC2j7LOvMMFYQcrXMj1YUTXhFo52wccAwKrenskdGir8zF
-	 F4onmgWIeMQZGY04mOWyq+nnyRQ3BoQRe4f3HnujG7H2nmceyJL68ih6vsTvi4NHmB+x69XLS35N
-	 bZb03DC/y++JAhwresqTIZ2Lrd40Co90QHJ36Abr/8bHTgGFYJcMw7nJfB5lKwWiThW2ulZSi+jz
-	 AM9dIceYqZUsE6kUAtnZxwEECQerljPMY5l+vcHql59oHMgE+36rfXTzIH1+wxziJiWSZPfmML9Q
-	 jgEsZvgOApP4vUP4GAPk2c+qVh55alFQrD2kIEJe7L2yC5bTVrLI2LVqnzCwH3D+U50mCfyD2GlV
-	 Q1D8nb07CwbmgRJLYgN2ung0s2Zi4aqHeIR/XvFvlzpf6yyx5NzpKrBKNKKJuybYocHydKO8MzqR
-	 63uPl+sHj70D6RQtT92DSx8MFY0hxavrhkDoCy8q+8nteRemTzVct57rYAEzGh5ewRQL13nKww7t
-	 lIKok5/1FKjZu6nGY=
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
+	by newxmesmtplogicsvrsza73-0.qq.com (NewEsmtp) with SMTP
+	id 780AFEF0; Wed, 18 Nov 2026 14:30:00 +0800
+X-QQ-mid: xmsmtpt1794983400t0euiw4ki
+Message-ID: <tencent_98F714E924966679E826125C2CB18B092A07@qq.com>
+X-QQ-XMAILINFO: MDbayGdXPuoeVlDwiAHpY9olE8QoVaZ52ALez41k/GM6rZtggONbbYUZ89KPty
+	 xevHCAjqfUkSAXGeJxLZy3y9Ej8MlyxYQFZWMdalyA25Xz+EzAIXzN24SrHIhgSqz2jdbWPzLi/F
+	 BomMURei64Jw0LeoXTXN3Cuz4tMtszb2/u39ujSvgWZFCoUzIj4bBuJfnTfjMjtMTR8jSZLk8VsP
+	 r0j6YkzQ4yYS9AzmxxhXkxumCIl1AyV7xtrAKYkH/gDlqldlWtY6wI1uIwruSgty6LrJknlCY9/E
+	 iAZ9iWn+y7cK+2JgGCjW34WBzT0dBCKsuN/yNaucvrg8aML8+CcVsnRWYXT93mgG0oJV/BjN9rI9
+	 LRwJ/lKClZIoT3BgDCQOnNtslsesXPRnP7Qtp+bDYHvNHTay55W/RUND9GYtUirnONd1PjupZpUu
+	 Crp+mPQkRUHkHCAIsnDZx+bk5q22HdblYqE2B7V9JTizMz2D+rH4zXb4/r5ErPNoGlu3iGZifaU0
+	 EqZetzhupTlHghe0Y4jiK7M9XhfUe1k7p7Cx2U/ycv2K7q2B7nya/+Bd60GIaHJfAppKPL4rtoKs
+	 kiCDxkc8Dxq82cZ8QUN3jRsKl8IWiE4bhuZsfyuons+WbXcaAjlRHV7Vm3bwLxTCEnYSszRKTn6m
+	 yDqg2JkTZ4Pz6Bmhd1M238fKSBNbGVnpznakyCFip+AQviBOoPiCaL0GzzT4W31J04iO8fOCIMDm
+	 Yj9Pxr3tEZxq3EawQTxeODTL0iidQGvU0ZTBJfFojF1zzCk9+kU97IJYK+4ZCSAId0mR+iPGwZLa
+	 kID1xNzG2Yr5c2vcDqC+xdFVfrThoP1aAmDDEjB9vJnRW/oszZnpBoyIJd3PQHUe9ojFKIiXLltf
+	 4JBneQOWVy3E29vqMAHR4HK6n4VENM3iSOUz/lxqdznn0JQ8nCjk4NwOfC4gW1QHT4j3Zlb6n+In
+	 pZnHX6cZYqc1KWjqZ3PMmtMx3182LSI52ciunK+KFM/4E6s61Xd476NEckZTkXgn0+5kI6a3+GQm
+	 FbGSQp0PjGoKVOiIU1X26/i1SzfentGTBZMk2QBbQ/AcL0nPglfpeGlmehj6CXTpfhKrLjB4Y81P
+	 SKJG8AJhMbooUV+4vdpc7qof5T1JxA50ANnQbBJutM56bdooGTHpzu5QGEqdCHq5ywhfb3kHFd8/
+	 Sep+8=
+X-QQ-XMRINFO: M/715EihBoGS47X28/vv4NpnfpeBLnr4Qg==
 From: Shuai Liu <847807867@qq.com>
 To: netdev@vger.kernel.org
 Cc: dsahern@kernel.org,
@@ -70,10 +72,12 @@ Cc: dsahern@kernel.org,
 	pabeni@redhat.com,
 	horms@kernel.org,
 	syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
-Subject: [PATCH] ipv6: addrconf: regenerate missing host route on RTM_NEWADDR
-Date: Wed, 18 Nov 2026 14:28:28 +0800
-X-OQ-MSGID: <20261118062828.840641-1-847807867@qq.com>
+Subject: [PATCH net v2] ipv6: addrconf: regenerate missing host route on RTM_NEWADDR
+Date: Wed, 18 Nov 2026 14:30:00 +0800
+X-OQ-MSGID: <20261118063000.841588-1-847807867@qq.com>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118062828.840641-1-847807867@qq.com>
+References: <20261118062828.840641-1-847807867@qq.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,6 +120,9 @@ Reported-by: syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
 Closes: https://syzkaller.appspot.com/bug?extid=af16ddc8fd22a1d135f8
 Signed-off-by: Shuai Liu <847807867@qq.com>
 ---
+Changes since v1:
+- Correct the subject prefix to target the net tree.
+
  net/ipv6/addrconf.c | 18 +++++++++---------
  1 file changed, 9 insertions(+), 9 deletions(-)
 
