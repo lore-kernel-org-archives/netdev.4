@@ -1,59 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795026178;
-	b=oJ+LKH5dSpZLyAlyCPlHKw6YvmAF/nSp1H2mxPBx7WWNBV3gn4ZChgtZCLLd5rIIK3gJ
-	 Goj9nJUjiwEWgYNbFfGb4INet7SX5EyqIotBrIka2maIk54/B4WPcTGeaghlcNJ0IMw8n
-	 Gt9Bg2gDzxnXjMZbf7a5Z1nZUfgyUl3Gc14PW15gU0PfxCRGVMbpzA1taCvUPIGTJryh9
-	 Nv34v1tfKJniiw+89IIUEM0eWczMlFvyeEwkYZ8HNKxxW3mWIeBf3J1TSTbtY7fgAJMBD
-	 v9u7ldmHjcDQ1/uj/lbqeUn0lPnPcNShjtShZjlLOHAgrt4x6BemWRsQO2YvF9oy8hg==
+	t=1795026183;
+	b=kY0RKRuMGFaFLW/A5vrYLag9lj6oY9rMxnORTmktVs2dXawPEy0NxZepCsEj+/+Y++Q1
+	 pFrK0gP1utfK+vfBBTEoQb0YxkBYm+5ftJ1Q+uqjA/0Da9Z0p/tC4yt5iIYhTFzSGgeHp
+	 oWLPGWcuAGvtmGo69EANLRKYL1Kmb8w14DjjH1V6fpFewRS6tUUK9hakqRcLGVutgGmW9
+	 kaT07gqKvvvuBBgJCzsWE9lbFM84iwRdJMo4uyT7PqKpOMSSqZSRSDVoQEIpNsDRz9ZGB
+	 LYGgIjOizl8Grs+Hxvojyk2SvbJfQbAnn5rIZxv1LC1MiPJn0kngPPmrnq/2BGKQV3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795026178;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795026183;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=83nStTpRlBCM/kV50VhrxEdv2aiG0+hQRKw/q7fknCY=;
-	b=URuyACSULoXRK0FTp8zSFSAhNeoieo2KHrK/X1hISJNywIKK8/QJKLK2cl2uCBW88eHu
-	 KRDWsJxB0kyDX/pUBCQEzt11l1ORq72yousCYgZGcWpkL2gCPWV3QLspa9fm2YklfmO6W
-	 PFZ0UnzIzWbBI82DX5dxkr/bJSLQEuQ5z+pBD9qct5JDlOXFwkC+DJPGQuJqHsHgJpPZT
-	 qBijFNu/EyhYwVwAOR0Uc1txO297hkcqPsP9h18mLbI2wLexIZ0sYfjXqldjGD/kfQmkP
-	 hAoaHpM1FQBtbNmWB4VvJv9tao+oHqmS7CoINCAaTVIYG+kr/HcbCN+DrPVhJop7Ksg==
+	bh=lNuKjpJK9D+QRY5daBoPqTUSuR+D+q18m5okL3/K2hc=;
+	b=Cy/mdTs8aAlF0+dGezpM1MqOBuq5UTJh8zncWfa0JEypwU20B8ddgJND8pRG2/Y6LXyH
+	 GK/9jlvNYH8qafr6aKGrw+OY5T2dDjsvlix7SM7IoZdlPfoTjReaKznQrVn1TDs/fq7A4
+	 VqLBMct4TglChUlVqnip5+OvfDe0H10OmKBMnqOE+PJzebZ69uP4rd27sHLxRRBPpjcq1
+	 czOz4agLZhmwE/mjjDNpHO4gg7WizEzrwdOf3QRlf6WPwRVX34a/0TFiQtFJkVjJfQd9E
+	 L3A4Wyx0/vFeW5luZQTzcRl+v47q3Go2DcYTBu2qX4FCmaATb116GQjqFwMFIk5zjBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eII3R7u7;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="kpE/GwEw";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DE4460A261E;
-	Wed, 18 Nov 2026 18:22:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72E4A606A336
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 18:23:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eII3R7u7
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A7DF1F000C8;
-	Wed, 18 Nov 2026 18:22:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kpE/GwEw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD5291F000D2;
+	Wed, 18 Nov 2026 18:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795026178;
-	bh=83nStTpRlBCM/kV50VhrxEdv2aiG0+hQRKw/q7fknCY=;
+	s=k20260515; t=1795026183;
+	bh=lNuKjpJK9D+QRY5daBoPqTUSuR+D+q18m5okL3/K2hc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=eII3R7u7v+X2x1cFXYrljudcwtferg62bDURLm2cIFnu3j5CNP2STMqyzoGsWjLhD
-	 CTenu2E6o1AeSniswhlkMZ47mbHlieoKultgsbf2CzFFqdeXnpft66Pj8fybn0Ccox
-	 fAHyHVBu4ZAr6eDacCmoEH51jTb5N/uxQrvfA2zkZKldHZ10s1elkrjfhuL6gXsYeE
-	 tR5YVe7Dn3DOdNEtL8eAh+mVp19AIZSzgEiZOmdfUgsWSUX4+4UjNZWZ3tol3MWHJ1
-	 OktnGuoWQgsQwzmQzw2xwfwDjKmdWN3mY0MElmnwYO69H+z8GbtoV4eqRrBlxUn4u9
-	 rZPekT8TuIzdA==
-Subject: Re: [PATCH net-next v3 2/3] i2c: xiic: add KUnit coverage for
- register access modes
+	b=kpE/GwEwVXzj1fPydacHZtjh4LSw8b2otfovA7chQe3wftBaJodvhCtX5vMVOxcgt
+	 rw2vVMs871/sLt2G9CvdzKlAfu6Datyh26jiANjQ6PhSZFMupAaOL5MipDjRgxp/6+
+	 /DfV95wYF3x1RI3mPbnYL1jM7kvgkTbUxlIvKABJKvRjFa21pbYjf9IaR0m8Hqxl3I
+	 rAYQZds2/GMziBAefNXvAtCRzoGkm++j4q3qoJfocFHXXCGlEyKyBE4+aSGQ+hDTV+
+	 hcIuK1ZcCtGF+4WPyfbyYPrkAGle8MvtX1UlGTbGUvfkOSrOh6FMNK0YFvwF6QAqJj
+	 a4MPysD7bvd8Q==
+Subject: Re: [PATCH net v2 3/5] tcp: reject RTT samples from TSecr above 120 s
 From: netdev-bot+sashiko@kernel.org
-To: ahmadexp@gmail.com
-Cc: netdev@vger.kernel.org, vadim.fedorenko@linux.dev, andi.shyti@kernel.org,
- andrew+netdev@lunn.ch, corbet@lwn.net, davem@davemloft.net,
- edumazet@kernel.org, horms@kernel.org, jiri@resnulli.us, kuba@kernel.org,
- linux-doc@vger.kernel.org, linux-i2c@vger.kernel.org,
- linux-kernel@vger.kernel.org, pabeni@redhat.com, rdunlap@infradead.org,
- richardcochran@gmail.com, skhan@linuxfoundation.org
-Date: Wed, 18 Nov 2026 18:22:56 +0000
-Message-ID: <179502617695.3136.6995182814188526026@kernel.org>
-In-Reply-To: <20261116-wiwi-v3-87afa10a8-2-ahmadexp@gmail.com>
-References: <20261116-wiwi-v3-87afa10a8-2-ahmadexp@gmail.com>
+To: mason@kernel.org
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ willemb@google.com, josef@toxicpanda.com, netdev@vger.kernel.org
+Date: Wed, 18 Nov 2026 18:23:02 +0000
+Message-ID: <179502618234.3136.4048099006829780599@kernel.org>
+In-Reply-To: <20261118155144.18393-4-mason@kernel.org>
+References: <20261118155144.18393-4-mason@kernel.org>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -73,92 +69,72 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The new KUnit suite cannot catch a regression in the forced
-  32-bit read path of xiic_getreg8().
+- [Low] The header comment for TCP_RTT_MAX_US is out of date after this
+  patch.
 
 --
 
-i2c: xiic: add KUnit coverage for register access modes
+tcp: reject RTT samples from TSecr above 120 s
 
-This adds a KUnit suite that is compiled into i2c-xiic.c and tests the
-driver's private register accessors against RAM-backed registers. It
-covers native and forced 32-bit accesses in both byte orders across 22
-register offsets. It only builds on direct x86-64 MMIO.
+This patch makes tcp_rtt_tsopt_us() reject any TSecr-derived RTT sample
+above TCP_RTT_MAX_US (120 s), in both the usec and ms timestamp branches.
+Before, samples of up to about 2,147 s were accepted. Both callers,
+tcp_ack_update_rtt() and tcp_rcv_rtt_measure_ts(), now get no sample when
+TSecr echoes a very old timestamp.
 
-> diff --git a/drivers/i2c/busses/Kconfig b/drivers/i2c/busses/Kconfig
-> index 275aaa7f35833..0a7a2aeb78909 100644
-> --- a/drivers/i2c/busses/Kconfig
-> +++ b/drivers/i2c/busses/Kconfig
-> @@ -1322,6 +1322,21 @@ config I2C_XILINX
-
-[ ... ]
-
-> +config I2C_XILINX_KUNIT_TEST
-> +	bool "KUnit tests for Xilinx I2C register accesses" if !KUNIT_ALL_TESTS
-> +	depends on I2C_XILINX && KUNIT=y
-> +	depends on X86_64 && !UML && !INDIRECT_IOMEM
-> +	default KUNIT_ALL_TESTS
-> +	help
-> +	  Test the Xilinx I2C driver's register accessors with both byte orders
-> +	  and with native-width or forced 32-bit accesses. The tests use
-> +	  allocated RAM in place of registers. This relies on the direct
-> +	  x86-64 MMIO accessor implementation; no controller is required.
-
-[ ... ]
-
-> diff --git a/drivers/i2c/busses/tests/i2c_xiic_kunit.c b/drivers/i2c/busses/tests/i2c_xiic_kunit.c
-> new file mode 100644
-> index 0000000000000..1b691de7e9250
-> --- /dev/null
-> +++ b/drivers/i2c/busses/tests/i2c_xiic_kunit.c
-> @@ -0,0 +1,91 @@
-
-[ ... ]
-
-> +	for (i = 0; i < ARRAY_SIZE(offsets); i++) {
-> +		reg = offsets[i];
-> +		memset(mem, 0xa5, 0x200);
-> +
-> +		xiic_setreg8(i2c, reg, 0xc0);
-> +		expected = param->force_32bit_access ? 0xc0 : 0xa5a5a5c0;
-> +		KUNIT_EXPECT_EQ(test, (u32)xiic_getreg32(i2c, reg), expected);
-> +		KUNIT_EXPECT_EQ(test, xiic_getreg8(i2c, reg), (u8)0xc0);
+> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
+> index e796497b84be8..69e038b9389ae 100644
+> --- a/net/ipv4/tcp_input.c
+> +++ b/net/ipv4/tcp_input.c
+> @@ -901,15 +901,16 @@ static inline void tcp_rcv_rtt_measure(struct tcp_sock *tp)
+>  	tp->rcv_rtt_est.time = tp->tcp_mstamp;
+>  }
+>  
+> +/* A sample from TSecr above TCP_RTT_MAX_US is bogus, not large. */
+>  static s32 tcp_rtt_tsopt_us(const struct tcp_sock *tp, u32 min_delta)
+>  {
+>  	u32 delta, delta_us;
+>  
+>  	delta = tcp_time_stamp_ts(tp) - tp->rx_opt.rcv_tsecr;
+>  	if (tp->tcp_usec_ts)
+> -		return delta;
+> +		return delta <= TCP_RTT_MAX_US ? delta : -1;
+>  
+> -	if (likely(delta < INT_MAX / (USEC_PER_SEC / TCP_TS_HZ))) {
+> +	if (likely(delta <= TCP_RTT_MAX_US / (USEC_PER_SEC / TCP_TS_HZ))) {
 
 [Severity: Low]
-Would this check, or any of the other xiic_getreg8() checks in
-xiic_register_access(), catch a regression in the forced 32-bit read path?
+This isn't a bug, but should the comment on TCP_RTT_MAX_US in
+include/net/tcp.h be updated to match its new use here? It currently reads:
 
-In xiic_getreg8(), the forced path is:
+/* Max RTT sample for tcp_rtt_estimator(). srtt_us holds 8 times the RTT, and
+ * mdev_us and rttvar_us up to 4 times its deviation, all in u32, like the sum
+ * in __tcp_set_rto(). A larger sample could not raise the RTO, which
+ * TCP_RTO_MAX bounds.
+ */
+#define TCP_RTT_MAX_US	(TCP_RTO_MAX_SEC * USEC_PER_SEC)
 
-	if (i2c->force_32bit_access)
-		return xiic_getreg32(i2c, reg);
+That comment names tcp_rtt_estimator() as the only user. The only reason
+it gives for the value is u32 headroom for a saturating clamp.
 
-Without it, the function does ioread8(base + reg) for LITTLE and
-ioread8(base + reg + 3) for BIG.
+With this patch the same constant is also the validity cutoff in
+tcp_rtt_tsopt_us(). That cutoff covers more than the estimator: it
+decides rs->rtt_us, the tcp_update_rtt_min() input, and whether
+icsk_backoff is reset in tcp_ack_update_rtt(). It also gates the
+receive-side estimate in tcp_rcv_rtt_measure_ts().
 
-In the word_little_endian and word_big_endian cases, every value is first
-stored as a zero-extended 32-bit word. With RAM-backed registers, the byte
-at reg + 0 (LE) or reg + 3 (BE) is always the low byte of that word. The
-native 8-bit read and the truncated 32-bit read therefore return the same
-value (0xc0, 0xff, 0x78, 0xef).
+The later patch in the series, "tcp: clamp the samples in
+tcp_rcv_rtt_update()", adds another user, and the header comment is still
+unchanged at the end of the series.
 
-So it looks like the force_32bit_access branch could be removed from
-xiic_getreg8() and all four parameterized cases would still pass.
+Someone who changes TCP_RTO_MAX_SEC or TCP_RTT_MAX_US because of the u32
+headroom reasoning would not see that this also moves the TSecr rejection
+threshold. Could the header comment mention that the constant also bounds
+valid TSecr samples?
 
-The write side is covered, because the upper bytes (0xc0 vs 0xa5a5a5c0)
-would catch a subword store. The read side is the one behind the machine
-check from ioread8() in xiic_clear_rx_fifo(). That machine check is what
-motivated "i2c: xiic: allow platforms to require 32-bit register
-accesses".
-
-The changelog says "These tests do not validate physical bus transaction
-widths". The Kconfig help text above, however, says the accessors are
-tested "with native-width or forced 32-bit accesses", and does not mention
-that read width can't be observed.
-
-Could that limit be documented in the Kconfig help or in a test comment?
-Alternatively, the accessor could be instrumented so the read width can be
-checked.
+>  		if (!delta)
+>  			delta = min_delta;
+>  		delta_us = delta * (USEC_PER_SEC / TCP_TS_HZ);
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116-wiwi-v3-87afa10a8-0-ahmadexp%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118155144.18393-1-mason%40kernel.org
