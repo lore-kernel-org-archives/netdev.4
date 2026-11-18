@@ -1,106 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795009921;
-	b=b53h5mqpB4r5ENdcGqmp64iBfFm8FlRxyZgqfTr/E1LWdxtuBzvYKMLnEIsgn319KDBM
-	 4hhRZUY1GTdkA8PkMSXltbv0M517ykXWAIO1hlEreim4BkP/mLoB6/sMdnFhzfwOwcQdq
-	 S/isfW0j0tenWs7BZpN+EbMw+Ueooad4pAcGxnwgCS0zyZYrefrFLG7DMMZucycyAdutU
-	 VeANunzd732gSM4eRJYgomSy6c8DjJgFEWlDup8RjIFrVjuSp7L5apw0mJGrIKsy1dwY3
-	 VOmFbF5fa9uPc7oGgfZLQKWBFeBLmnZoW7bGr8rHlJZIJJ8zFQslcvFJExYkojqZSZw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795009921;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 Content-Language:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=F8kua1cmraI2viyb+1+A/OTOAgSZVMOfMLbqcfW+fpI=;
-	b=Mfhd6qUaMTmJDsKTQT7FO9kGjSgvYgXPEBv4twdyhCSPHM7iEseWL+gcSfpmfRpjbZuK
-	 gDn6oGzvf8A58gs9Ya8uMULD3Zd2swKRxAyFUZv9bSwG2o/dr+t3CKQVar4n+QUE1DVk5
-	 916WZbdfBe/M1BtNUcT0BEmXSxaGDEt5ssUJmfRWINh9OOGWUSrT4dHhFT58PCwsRRLaf
-	 20vf2bI5P78OD1XvLARXJqMLDSK1s9Lx9/KPiBjnRuzeLBHKSGUpt/ACBpFOo93xCVBzh
-	 zIDLd7diEDnheKrYTyAtQ7SXVDZeDinABTRPGBmIr+iCp5Kqn16djxD4crsVYs7VD7Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=h+bcswEi;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=UhWP0F72;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=139.219.146.139
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795010111;
+	b=UXpT97Qr1dzT5r10jjhx+3mjPKb2UN9AtDO5QxsJLZIj9VmHheDWJB9FSDFLuqkbPi38
+	 EGIWLKhJzf+Quhy6S8L2TvtLHyDp1ORPCJtR7gNIm21pPq/7VAG7EXIYomGVLePNdCL8u
+	 TPo8v9mQUWRRs7TE5YIZaz5KjgF9csP69jlIhpE9OaA+J2WQsz+2QjK3i3fnGhqRvyhi9
+	 llGaEaPunfu0nUfHMYmlQIeUND7lR0YNTqNn2Vaq22/GGyuiLIVhcGpmG/wwfRFSM3Fud
+	 2KK7jlHVk3uzmRVVO10oMvSMfIQKRjtpYuzyyJGLL4LL2mu2XgWxfdjauNEO2Z0lcmA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010111;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:Content-Transfer-Encoding:Content-Type:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=KEX4neg44mx+hxi57it0d9Oxxj34RxbmxqElzqftoN4=;
+	b=XjAP+rrdce08uRQzRMTDUFV69XQOsOECQInBb/w5p9skEoBR6KBTlfzto8OF6QKAb29d
+	 s++2zsN8rEbx0ojFED10fe0iwy7P7/zOYHlMxQNjqmWRHOt8Y2AYmj6Kj1s/fNPlLqbcp
+	 wQ37x8vRshHAk1ra1xbQnLcEJZrvosJoC6F6m4FAbvWC76+85RHS3w1yJNUMmP1PeQ+83
+	 AlY2Spf/4sc4w4bZO/sT0ZeGuts36EzEYjfu6bX2lYm9pGWd6AZprg2jti/ItL42RKLBu
+	 noGmXCtehnYgwF488e86CG1ZhFCga1Tvo5/slZ8AfYA+asgAqwPpTfhQu1kWH8bM5Sw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=deeproute.ai;
+	spf=pass smtp.mailfrom=deeproute.ai;
+	dkim=pass header.d=deeproute.ai header.i=@deeproute.ai header.a=rsa-sha256 header.s=selector1 header.b=lX7+aDZ8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=139.219.146.139
+Received: from CHN02-SH0-obe.outbound.protection.partner.outlook.cn (mail-sh0chn02on2139.outbound.protection.partner.outlook.cn [139.219.146.139])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A811860A2630
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 13:52:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A811860A2630
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 097BA606A33A;
+	Wed, 18 Nov 2026 13:55:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 097BA606A33A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=deeproute.ai
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=deeproute.ai
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=h+bcswEi;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=UhWP0F72
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795009919;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=F8kua1cmraI2viyb+1+A/OTOAgSZVMOfMLbqcfW+fpI=;
-	b=h+bcswEikVEQowqxdH0mb1yG1Ym0oF0pPyebxm4N8VSOexReSoz5tUVxCXtPekUUHCxfd6
-	jMheDoj0/RrVz1QXoiQXlsaaqlBHk3L2gHvlLy5Bt8dTgKs1Aeo8PlwYC8fFGuFdX+AR4f
-	18BoR5s9MB0dBYeeY+CzDAXm+P4mdME=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-625-YDRml7usM6qm_Hieko4Dvg-1; Wed, 18 Nov 2026 08:51:58 -0500
-X-MC-Unique: YDRml7usM6qm_Hieko4Dvg-1
-X-Mimecast-MFC-AGG-ID: YDRml7usM6qm_Hieko4Dvg_1795009917
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4a3705ea6ccso116832f8f.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:51:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795009917; x=1795614717; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=F8kua1cmraI2viyb+1+A/OTOAgSZVMOfMLbqcfW+fpI=;
-        b=UhWP0F723PqSIse4OJEyVD3pXKojB5z68m4N8zqJycze2xjMiRbMKDWvRLDlMzgRPb
-         8UJ4wQsQTNCvu4DztlEp0SNnef3kHhlww6pBlIZCBM46a+xRHoMm8zP2VA/z0SAP1fhW
-         e9zknukAigqNMyFlQ+GJ8jgruWSp1bQdhBP5dqQG767kHcoJ3ueFkEl/OIFf+JTK17WH
-         Tx0+uiUYXClL+dELkob/KsoP2jjBwBMYLdbIDn77kwRanMr5h7HWWBHBStmZ0ztpqFde
-         O34LlUlH6wERJ1aNm5v5oCLpgBuRb5nPXFDh5IYWj4NsuzjTSdikmhdUj//iBCrI31Sm
-         aaUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795009917; x=1795614717;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=F8kua1cmraI2viyb+1+A/OTOAgSZVMOfMLbqcfW+fpI=;
-        b=HHM77/7+9dfx0SEV4a+OB4kH8sbN1/yNMKREJk2cLFHhSKZdqQ+IFc3LKZSlZykRdu
-         IfmVBF3PYKosUfOWZc7S31sEou5c19ymkOC0togXwMivoPEV97O8+dCY712unSjwIAfy
-         P09ygg+ke/qc2wKyE3l+Lgq0Scr5lYb4/UG3gxy4vqrgMK/PtKSXPu3QJICP4Ht/gW5q
-         FBc3sC9pdVBSeaPHbpwtSkHZaEf5gZA642Ma6QjqiNburRE++HIuG9BLwR8T4/XSNWR1
-         JLqO+izOk9qXR+n2U+G0ZNiick11/T2X/lu/HJn0QXDolh5+ES1VoF1KSe8FyEdXznHP
-         UE1w==
-X-Forwarded-Encrypted: i=1; AL+hErFlxvuid4qh5S8HibhM3p661i3EITBEwFRY1WgY4usl51iMhonAUWLXq8caRnIWJjgy9gHPASY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8fQUWTD1tmYKUbAbJBXoU0LW8/b+uNVUb+AFJBYHgFs5ZmoHIu
-	bAoRscSasLOvFZgyBlGT0WmO2brjJZM5LF3jLq8kF5x7EDSs/6VqlmjSgduIpeJs5FT1M1RqX2p
-	nWrejR25Hr8zPq26nIpU3c4tKqGBcrR4Cbw33MkImmQIQ3mOtV6HkKMCT9g==
-X-Gm-Gg: AZFdTZcStE2GYfvWTuXcae7s67bNJTsNEZ2fT4n4k7/JLxd4t7cj/QCZhi3MdzrMGL1
-	H3pfGqGKOZtOJIGONASw3vX6LAjVdTbKpOpAed9TSGG/DTA+28i95LU2zwSx5CgOuggfpWl0ThL
-	RrdHgSo4ufMzORbSJBXJii9W6l0HgWVDXg7qoH0/Jkh1ECTZlv4MqSwdwEPqZsycGpF1tJc0ap/
-	f86yzv6xuWg++i4JWA/o74G8Z2634/bg5tPai6ARRrvS9hNimTL7OerrDlDyDtnYHlqygEQx+ts
-	8Rl8Sa7BY4hyJHcmPtcNnRR9ExFs4l4tkEknfwYY8aoqW0wVx7F+uj2bdlzzTPmdN6JkNQC5ot3
-	7I7qboQ/5Ov44FTzRtjxPKIUC40eq+3kW5Axf0eAUTXxe5AU=
-X-Received: by 2002:a05:6000:658:b0:4a4:4229:c3a2 with SMTP id ffacd0b85a97d-4a63984bb27mr4798115f8f.11.1795009916885;
-        Wed, 18 Nov 2026 05:51:56 -0800 (PST)
-X-Received: by 2002:a05:6000:658:b0:4a4:4229:c3a2 with SMTP id ffacd0b85a97d-4a63984bb27mr4798072f8f.11.1795009916375;
-        Wed, 18 Nov 2026 05:51:56 -0800 (PST)
-Received: from [192.168.2.75] ([46.175.183.46])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65100c6bfsm4754288f8f.2.2026.11.18.05.51.55
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 05:51:55 -0800 (PST)
-Message-ID: <f7f1ae2d-a623-4eb7-a178-c618316beaf5@redhat.com>
-Date: Wed, 18 Nov 2026 14:51:54 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=deeproute.ai header.i=@deeproute.ai header.a=rsa-sha256 header.s=selector1 header.b=lX7+aDZ8
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=Yzu51GMXIkK4v0CuPAamQabk7UUttI5OxiWMjUrU7xfyRn/yLVxxPvdFx8hPavTtDfFu6WHy+UW2COTOyZFJPIObR07QeXltTvh7DFynXjDrqbt0Rz/owTHh5UmD1WarIGKxYqBbxc9hY8J8SHi9AI7GmF3kb2Le/BqxVeLvcdmDQxFLT3vxYt5uH7EQIYJIrxJGVx33RUKJch7TM7r63Y6up2EfZS9uTI/Z2eSxJC0/3Q4PA8nCpa8vUX5UruhFe6t/d0wgHtj6ci0Mbc04qs35lxTTzQqC4+4Hzx8Xt7ufs0ze1X2awIKpGhVHFoBLTvbto3rnokVXCcItWSp3NQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KEX4neg44mx+hxi57it0d9Oxxj34RxbmxqElzqftoN4=;
+ b=bsrWplkExvMLuKEe9wdeYgdUeSjZaMgbbQsxTEH5HWjaOhzbD2zbGihO1Sl5Tn3jPFNmBq0Trng/0sF/DsIkukerMfIfTKEHMidJy75awkdz7bfu3EnTUADB8361m9qaKO2b1JqXOIvxXHitV/7kGCO4gsGzpxTxeQzbhjSoJBe70o19J3RMjxJmchnFwjLcWUy0/S96/gIExUitCS++v70YcdnSaS3qNNtVC3JHgSHtsLP7uv650VykBvhAMCN4FEYKjrDYETTVK2gm2VefNn5QrwBm2Vo7gzU5E8fsCUqF56R5b44skyYN7HF9eWF1YpTTFvwYOKIz8fLl8vxjTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=deeproute.ai; dmarc=pass action=none header.from=deeproute.ai;
+ dkim=pass header.d=deeproute.ai; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=deeproute.ai;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KEX4neg44mx+hxi57it0d9Oxxj34RxbmxqElzqftoN4=;
+ b=lX7+aDZ8jv4po7jSWIDVE+OeDWAq5KaEqUN0INEsNbsyoPrxGBLN1f5wpTrBC4uLIZrIut8oQjUKVASa5xMcpYeoUJMgIwVRJG+CUGU79iFQmytyHLEwOb2tilSlmh+P/kXv3nzBFMBkulBxlRploJbZ/FCt5ogRNNROENQ/qQ0=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=deeproute.ai;
+Received: from ZQZPR01MB0980.CHNPR01.prod.partner.outlook.cn (10.2.2.201) by
+ ZQZPR01MB0962.CHNPR01.prod.partner.outlook.cn (10.2.2.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.615.10; Wed, 18 Nov 2026 13:54:58 +0000
+Received: from ZQZPR01MB0980.CHNPR01.prod.partner.outlook.cn
+ ([fe80::2dda:e54d:5a3c:d686]) by
+ ZQZPR01MB0980.CHNPR01.prod.partner.outlook.cn ([fe80::2dda:e54d:5a3c:d686%5])
+ with mapi id 15.21.0615.008; Wed, 18 Nov 2026 13:54:58 +0000
+From: Jingxuan Xie <jingxuanxie@deeproute.ai>
+To: netdev@vger.kernel.org
+Cc: Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	=?UTF-8?q?=E9=9F=A9=E5=B0=91=E9=98=B3?= <shaoyanghan@deeproute.ai>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	John Ogness <john.ogness@linutronix.de>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v6] af_packet: avoid waiting for TPACKET_V3 copies at retirement
+Date: Wed, 18 Nov 2026 13:54:43 +0000
+Message-ID: <20261118135443.24767-1-jingxuanxie@deeproute.ai>
+X-Mailer: git-send-email 2.43.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain
+X-ClientProxiedBy: SH0PR01CA0021.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c311:5::33) To ZQZPR01MB0980.CHNPR01.prod.partner.outlook.cn
+ (2406:e500:c550:a::9)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,109 +101,246 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
- 2026-11-13 (ice)
-Content-Language: en-US
-To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
- Magnus Karlsson <magnus.karlsson@gmail.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>, netdev@vger.kernel.org,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
- horms@kernel.org, Jacob Keller <jacob.e.keller@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Marcin Szycik <marcin.szycik@linux.intel.com>,
- Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
- intel-wired-lan@lists.osuosl.org
-References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com>
- <20261118115915.116177-1-poros@redhat.com>
- <CAJ8uoz0MMUx68rMZWoZs-JwjodpRixwQSrgpyta1NsanGPn=dg@mail.gmail.com>
- <av2syi6lE/Vp86QW@boxer>
-From: Petr Oros <poros@redhat.com>
-In-Reply-To: <av2syi6lE/Vp86QW@boxer>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: ZQZPR01MB0980:EE_|ZQZPR01MB0962:EE_
+X-MS-Office365-Filtering-Correlation-Id: 8ed5e886-7a0c-4f29-6f42-08df457b887f
+X-MS-Exchange-SenderADCheck: 1
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|52116014|376014|366016|23010399003|1800799024|261021133027099003|56012099006|38350700014|10067099003|261021130227099003|261022105027099003|261026121527099003|261021121427099003|261022075727099003|261026140227099003|261026135527099003|261022115727099003|261026130827099003|261021135927099003|261028144727099003|261102123227099003|261022113327099003|261021123027099003|261009223027099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	56wBHF1RuZwnJYytBSoh4sB5uxFdGt89OxrZIabgzs82Uv24lNgI4xILyhvf7k1c1ZD/5IfCFRCJ1MG33VDSQQCB2hVpGbfzkDRh6L3XJ5qxrNU3agBpM7p/NrKPikdWXaQDi1OIsjy68vr2b1kykrsBaOsPjKdKrGLos1ax1JfbMhysRAF3UGw1X3cAWVitXvx3pjXiI8YxNL2ZHCm2TghJzx8P+PEX6dMuYoUyLty0+iRnmz2PQNm06cLAEnMe5UhjnEBJp0EZ6ro+VJaR1G5xg2No+OCPAIFtEZImCZOiTcv9qLVu1jgO5ceoD/MM+UZCLxl8TQ3kHwNlK2WEjyTCL+Y7C1aDllQqU9sJilMet96/VcZfGE5zVcnmq6GQtcjP+pk9aMk94iWccth9fP7mprD2OH5/tenPHlV4yPdgTdqDOeC5i8MMoMl5+EF8V/Jb0mtAWNMlFUVSa0hZbCxjXoe2OdBpcE2bywLM7hqsHtWKc/GyqBWJldMORu1fiQFmNfwtNunV8TaJHkSffV9DxJyb/j59mbL3BE7yUlIYNCSVLiDQLfRq74ZTr3TU
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:ZQZPR01MB0980.CHNPR01.prod.partner.outlook.cn;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(23010399003)(1800799024)(261021133027099003)(56012099006)(38350700014)(10067099003)(261021130227099003)(261022105027099003)(261026121527099003)(261021121427099003)(261022075727099003)(261026140227099003)(261026135527099003)(261022115727099003)(261026130827099003)(261021135927099003)(261028144727099003)(261102123227099003)(261022113327099003)(261021123027099003)(261009223027099003)(18002099003);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?kXNUJ6nCH6x84XRvTGHb8dCgI7X8WQ5d/3CDPssxAmHPkw0uenQxKIVcyGHo?=
+ =?us-ascii?Q?TwvPZ+SnvtSvyQyie20Rz3HQx8f16DT/b8iRd1yWK7loTYhhX+Y90t0mcrP/?=
+ =?us-ascii?Q?lZA/KHhhKiW4eCMtjQqAXhUzrJSXNYBf2/+M4olxnZ408h5kvS+QsX1iGShx?=
+ =?us-ascii?Q?fVu2CAMhQtMHS5cooKFpzei7FvKCJj5bTk6iO7HfO64o3ZYZUvxTuYI8myCJ?=
+ =?us-ascii?Q?83/H5SkyAzPAHi+hmundjBeMYrQN86ipCT4DV7FIU+Qc5sajONxOMc4+ISZ6?=
+ =?us-ascii?Q?gfiHizWDg3o5ryo2UTljs9Gq9gklsUelrk+9pkVze36ksREQ1LFcCPxEud+C?=
+ =?us-ascii?Q?Ti6xyxIg5rxWp9Jn9GaQJACLD4JkiTvJ/ddgAE5Hz/PQ5e8X8FbeqCzTzHTX?=
+ =?us-ascii?Q?ljvGqPtwfMbmCpKQOCPAZuXqPO1KqWlrdmZ3k0YOKljeFh1M4TB9UNvtUKyp?=
+ =?us-ascii?Q?nBOeT/wyJ2c+jvKii9ZRVJkd8asjTF1RNmWVVAE1EUnFbmn4AaQmH0zlSCEh?=
+ =?us-ascii?Q?hTvhMVIx6nlAW2jXkwLOVybYEyeIDCFxkNRO0cARlHHGGoEK+FpvDrIuWsWj?=
+ =?us-ascii?Q?PtgJyFSN1q2iR0A7kjH5cQFf00NCtSOz86tIf5b8aDVBq4hVC3m4RWCbRYH2?=
+ =?us-ascii?Q?D5tGBvpSRAFUuNROgX2v3iSq69jWhj1fSnMW8jijvOoKKayBFIGUQg2sBHlw?=
+ =?us-ascii?Q?wj4u+RfSQJ+P/wPuas3Ur60iS6ziUvpbwxrDfJa+0SLyKiYylsBhxycWzLo0?=
+ =?us-ascii?Q?hfrD9c6BazwvoP1eamR6z/vQH4Ehd8UTq2YFcu2Izz4CvRcYPFM0mBeRhbHk?=
+ =?us-ascii?Q?hADl6MeJdJj4fUEr6vqGKyWunWS3wlPJ0uOPWsVSJjtD+r8kREutRB3EFiGa?=
+ =?us-ascii?Q?5aq1XcCD1T9YosIJ0mUU2C1RqvjouQQ1y8XU43w2sPqepwSby8Yxiqm7KWhY?=
+ =?us-ascii?Q?OKYDAicQ6BfSdfsrCl19Ceev9EI6Wz0rZ/jTh2kRskkdC1d1EfPlnTaMgE65?=
+ =?us-ascii?Q?K+WLM/sfIx+gsxTTc8qZ+EdqGjixoNdLOxKoGsvJC1igN5TSutWnO80y4DGB?=
+ =?us-ascii?Q?SGewZLA9oizQVP4uMKqf3ibbAtCgcXcS1DkRJ8sCzAOCTKEYQjz5+5cz4d+r?=
+ =?us-ascii?Q?U7DvnZ7ghh65g8nMrMp241R/PNk++xzIXfk51Vj0hbXc68qaypSY+20wKEeQ?=
+ =?us-ascii?Q?JnV0zAJ2M417R5Rk6ELo5mncV9JWhrAvL3U3t0NRcylvZHDEUtIMrbvjrSz2?=
+ =?us-ascii?Q?4+g5T0rWzPaKJtMoJo1JZRIeBbVK/HizL0JdqpFDvWK4ZOwflmGvGycVk6D7?=
+ =?us-ascii?Q?AS11A7eO/Am4auzijFBOcaiw1dJrvugLwEOAL0MM7AEsHmltcRd0CU6lvFuV?=
+ =?us-ascii?Q?pCCELS2Vp80xzvy7ATAiTFqbacn8BWNO27aAWYH/IQDW6df25NCHX01umIDB?=
+ =?us-ascii?Q?QpOFwEFz9TKWicOywsQNSyMjYsQT5pLGnve/vNNSiP7ckDgnW3zHdlgTBCvH?=
+ =?us-ascii?Q?VKd2Gugqq51O6HyP1g7ISgUh18Acrb6EFM0HEyg19K7pQb9jPhTdaGceLUFc?=
+ =?us-ascii?Q?dqsA+X4IikBU+7pmPAUvYIJnBVfJXC/z0zw8p0hiuoKZEjvB9pcxUUF55TqR?=
+ =?us-ascii?Q?OZNLyanEtIt0gXmvcW4MiD15HyLgJz59NIR/WBtGYcL2UI21EG9JL66NJMau?=
+ =?us-ascii?Q?UojruNZqJk5KYcobCpgdWtqiww1TCKSxL47UL+ZnOjVQ6RjL5PRiG5YEEBGt?=
+ =?us-ascii?Q?ZgO7dWr9dA=3D=3D?=
+X-OriginatorOrg: deeproute.ai
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8ed5e886-7a0c-4f29-6f42-08df457b887f
+X-MS-Exchange-CrossTenant-AuthSource: ZQZPR01MB0980.CHNPR01.prod.partner.outlook.cn
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 13:54:58.5070
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: df535b4a-68e6-4339-a092-afa4f2c24fcc
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: crxPnrSRkq/OXqhGINtIbVh2IchT8Xk99McOlzLi70wqYpT3JN17rSqrCp2dVxavX2WwUh/2tJBTQGLKBg3wV2AWHEJ3ZyC0Jaz8Vd8mFyo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: ZQZPR01MB0962
 
+TPACKET_V3 retires a full or expired block while holding
+sk_receive_queue.lock. prb_retire_current_block() takes
+blk_fill_in_prog_lock for write to wait for in-flight skb_copy_bits()
+before publishing the block.
 
+On PREEMPT_RT a read lock can be held by a task that has been
+preempted or is running on another CPU. The packet path or the
+retirement timer then blocks on the write lock while holding
+sk_receive_queue.lock, and the receive path resumes only after the
+copy completes. This was observed as a receive stall of hundreds of
+milliseconds in a PREEMPT_RT deployment; manual inspection found the
+same unconditional write_lock() in both the full-block and the timer
+retirement paths.
 
-On 11/18/26 2:48 PM, Maciej Fijalkowski wrote:
-> On Wed, Nov 18, 2026 at 02:37:06PM +0100, Magnus Karlsson wrote:
->> On Wed, 18 Nov 2026 at 13:00, Petr Oros <poros@redhat.com> wrote:
->>>
->>> I think this pull is a good moment to ask how fixes for Intel drivers
->>> should flow, because it is not the first time a fix spent months on
->>> intel-wired-lan and then hit a wall on net.
->>>
->>> My patches 2/6 and 3/6 have been on intel-wired-lan since June, v4 on
->>> July 8 [1]. They were reviewed and tested by Intel validation there,
->>> and four months later Sashiko found real problems in them on this
->>> pull. I have a v5 and will send it once it is tested.
->>>
->>> Jake's E82x timestamp fixes went through three pulls before a part of
->>> them was applied [2], and Maciej described the same loop on the i40e
->>> pull in September [3].
->>>
->>> I know Intel patches go through iwl and are not applied to net
->>> directly [4]. But for fixes it means that the review which decides
->>> happens on netdev months after the iwl review and validation, and every
->>> respin goes through both again. And if iwl stops cross-posting to
->>> netdev, as Jakub suggested [5], Sashiko will see Intel fixes only in
->>> the pull.
->>>
->>> So does the iwl round still make sense for fixes? Would it be better to
->>> send fixes straight to net with iwl in Cc, and have Tony's ack and the
->>> Tested-by from Intel validation on netdev?
->>
->> Glad you brought this up. IMO, it makes no sense for fixes to go
->> through iwl and it makes contributing fixes (or new
->> features/optimizations) a lot more painful. Sometimes even to the
->> point that you just stop contributing something. I am not in the NIC
->> team at Intel, but sometimes I have to do network core work that also
->> touches our drivers. In this case, that patch set goes straight to
->> net-next (as iwl cannot and should not take core patches), but any
->> driver fix that I find on the way needs to go to iwl-net so that it
->> can go to net and be backported. So the fixes that my patch set are
->> dependent on and that should go in first are instead sent to a
->> slow-path (i.e. iwl-net) and after X weeks/months appear in net and
->> then net-next. But my patch set in net-next is dependent on these
->> fixes so I have to either wait or just cross my fingers that my new
->> feature is stable enough even without those fixes. Not optimal in my
->> opinion.
->>
->> So anything that could be done to speed up this process would be very
->> welcome. Sending fixes straight to net would be great. The validation
->> team could pick those patches up from the list and run the regression
->> tests against them, or would that take too long?
-> 
-> Regarding providing Tested-by tags, could we lift the policy where only
-> Intel validation is allowed to bless the patch? Nowadays with AI regular
-> dev can spin up a nice pile of tests by themselves.
-> 
-> So if you send a fix and you can find a peer that will test and review it
-> for you, I don't think we have to wait for validation folks taking care of
-> it if they are swamped.
-> 
-> I also don't think it would backfire on us and we would introduce some
-> bloody regressions, given we have {s,cl}ashikos in the pipeline.
+Try to take the write lock without blocking on PREEMPT_RT. If a copy
+is still in progress, leave the current block and its metadata
+untouched:
 
-BIG +1
+- the retirement timer re-arms itself and retries after the configured
+  interval;
 
-> 
->>
->> Anyway, good initiative. I am sure there is a solution to this that we
->> will all like.
->>
->> /Magnus
->>
->>> [1] https://lore.kernel.org/all/20260708125755.706263-1-poros@redhat.com/
->>> [2] https://lore.kernel.org/all/20261021-jk-e825c-timestamp-processing-logic-fixes-srcu-v5-0-72289a4ac8eb@intel.com/
->>> [3] https://lore.kernel.org/all/are4rBUJO3mzrkO8@boxer/
->>> [4] https://lore.kernel.org/all/20260721174642.7749143e@kernel.org/
->>> [5] https://lore.kernel.org/all/20260922112216.41e6f8cf@kernel.org/
->>>
->>> Regards,
->>> Petr
->>>
->>>
-> 
+- packet allocation returns NULL, so tpacket_rcv() drops this capture
+  record and accounts it in tp_drops, while the original packet remains
+  in the network stack;
+
+- a later packet can retire the block once the copier has finished.
+
+Do not dispatch the next block while the current block is still open.
+The existing lock order and completion ordering are preserved, and no
+new state or worker is introduced. The trade-off is a higher capture
+drop rate while a copy is in progress; original traffic is unaffected.
+
+Non-PREEMPT_RT kernels keep the unconditional write_lock(): there
+read_lock() disables preemption, so the writer only waits for the copy
+to finish, not for a scheduled-out task to run again.
+
+The stall was reproduced on QEMU arm64 SMP PREEMPT_RT by delaying a
+copier after frame reservation: without this change the next sender
+blocks until the copier is released, with this change only that
+capture record is dropped.
+
+Fixes: 632ca50f2cbd ("af_packet: TPACKET_V3: replace busy-wait loop")
+Signed-off-by: Jingxuan Xie <jingxuanxie@deeproute.ai>
+---
+Changes in v6:
+- Repost without the linux-rt-devel copy: the sender's mail gateway
+  duplicated that copy with a confidentiality footer and lost the
+  patch's tabs, so it did not apply. No code change.
+
+Changes in v5:
+- Rebase onto net/main; no functional change, so the v4 Reviewed-by
+  still applies.
+
+Changes in v4:
+- Limit the write_trylock() switch to PREEMPT_RT; non-PREEMPT_RT
+  kernels keep the blocking write lock (Willem).
+- Leave the existing indentation of prb_retire_current_block()
+  unchanged (Willem).
+- Add the discovery and reproduction information requested by
+  netdev-bot.
+
+v3: https://lore.kernel.org/r/20261103092541.273847-1-jingxuanxie@deeproute=
+.ai
+v4: https://lore.kernel.org/r/20261110072221.24701-1-jingxuanxie@deeproute.=
+ai
+v5: https://lore.kernel.org/r/20261113023809.24730-1-jingxuanxie@deeproute.=
+ai
+
+Testing:
+- arm64 W=3D1 af_packet.o built with PREEMPT_RT=3Dy and PREEMPT_RT=3Dn.
+- QEMU arm64 SMP PREEMPT_RT, 3 boots: psock_tpacket and psock_fanout
+  exit 0 (the fanout queue-length warning also appears on the
+  baseline); with a copier delayed in skb_copy_bits() while holding
+  blk_fill_in_prog_lock, a second sender returns in 0.7-1.8 ms and only
+  its capture record is dropped; the retirement timer retries and
+  publishes the block after the copier is released; close/unmap during
+  the delay does not hang; no lockdep or atomic-sleep splats.
+- QEMU arm64 SMP PREEMPT (no RT) with the same delay: the second
+  sender blocks until the copier is released (503 ms) and no capture
+  record is dropped, matching the unpatched kernel.
+ net/packet/af_packet.c | 40 ++++++++++++++++++++++++++++++----------
+ 1 file changed, 30 insertions(+), 10 deletions(-)
+
+diff --git a/net/packet/af_packet.c b/net/packet/af_packet.c
+index 7322256..e0ebd06 100644
+--- a/net/packet/af_packet.c
++++ b/net/packet/af_packet.c
+@@ -200,7 +200,7 @@ static void packet_increment_head(struct packet_ring_bu=
+ffer *buff);
+ static int prb_curr_blk_in_use(struct tpacket_block_desc *);
+ static void *prb_dispatch_next_block(struct tpacket_kbdq_core *,
+ 			struct packet_sock *);
+-static void prb_retire_current_block(struct tpacket_kbdq_core *,
++static bool prb_retire_current_block(struct tpacket_kbdq_core *,
+ 		struct packet_sock *, unsigned int status);
+ static int prb_queue_frozen(struct tpacket_kbdq_core *);
+ static void prb_open_block(struct tpacket_kbdq_core *,
+@@ -677,6 +677,24 @@ static void init_prb_bdqc(struct packet_sock *po,
+ 	prb_open_block(p1, pbd);
+ }
+=20
++/*
++ * Wait for an in-flight skb_copy_bits() before retiring the current block.
++ * On PREEMPT_RT the read lock can be held by a task that has been preempt=
+ed
++ * or is running on another CPU, so do not block while holding
++ * sk_receive_queue.lock; return false and let the caller retry.
++ */
++static bool prb_wait_for_copy_bits(struct tpacket_kbdq_core *pkc)
++{
++	if (IS_ENABLED(CONFIG_PREEMPT_RT)) {
++		if (!write_trylock(&pkc->blk_fill_in_prog_lock))
++			return false;
++	} else {
++		write_lock(&pkc->blk_fill_in_prog_lock);
++	}
++	write_unlock(&pkc->blk_fill_in_prog_lock);
++	return true;
++}
++
+ /*
+  * With a 1MB block-size, on a 1Gbps line, it will take
+  * i) ~8 ms to fill a block + ii) memcpy etc.
+@@ -711,9 +729,9 @@ static enum hrtimer_restart prb_retire_rx_blk_timer_exp=
+ired(struct hrtimer *t)
+ 	 *
+ 	 */
+ 	if (BLOCK_NUM_PKTS(pbd)) {
+-		/* Waiting for skb_copy_bits to finish... */
+-		write_lock(&pkc->blk_fill_in_prog_lock);
+-		write_unlock(&pkc->blk_fill_in_prog_lock);
++		/* Retry later if a packet copy is still in progress. */
++		if (!prb_wait_for_copy_bits(pkc))
++			goto refresh_timer;
+ 	}
+=20
+ 	if (!frozen) {
+@@ -738,6 +756,7 @@ static enum hrtimer_restart prb_retire_rx_blk_timer_exp=
+ired(struct hrtimer *t)
+ 		}
+ 	}
+=20
++refresh_timer:
+ 	hrtimer_forward_now(&pkc->retire_blk_timer, pkc->interval_ktime);
+ 	spin_unlock(&po->sk.sk_receive_queue.lock);
+ 	return HRTIMER_RESTART;
+@@ -946,7 +965,7 @@ static void *prb_dispatch_next_block(struct tpacket_kbd=
+q_core *pkc,
+ 	return (void *)pkc->nxt_offset;
+ }
+=20
+-static void prb_retire_current_block(struct tpacket_kbdq_core *pkc,
++static bool prb_retire_current_block(struct tpacket_kbdq_core *pkc,
+ 		struct packet_sock *po, unsigned int status)
+ {
+ 	struct tpacket_block_desc *pbd =3D GET_CURR_PBLOCK_DESC_FROM_CORE(pkc);
+@@ -963,13 +982,13 @@ static void prb_retire_current_block(struct tpacket_k=
+bdq_core *pkc,
+ 		 * the timer-handler already handled this case.
+ 		 */
+ 		if (!(status & TP_STATUS_BLK_TMO)) {
+-			/* Waiting for skb_copy_bits to finish... */
+-			write_lock(&pkc->blk_fill_in_prog_lock);
+-			write_unlock(&pkc->blk_fill_in_prog_lock);
++			/* Do not wait for copies while holding the queue lock. */
++			if (!prb_wait_for_copy_bits(pkc))
++				return false;
+ 		}
+ 		prb_close_block(pkc, pbd, po, status);
+-		return;
+ 	}
++	return true;
+ }
+=20
+ static int prb_curr_blk_in_use(struct tpacket_block_desc *pbd)
+@@ -1097,7 +1116,8 @@ static void *__packet_lookup_frame_in_block(struct pa=
+cket_sock *po,
+ 	}
+=20
+ 	/* Ok, close the current block */
+-	prb_retire_current_block(pkc, po, 0);
++	if (!prb_retire_current_block(pkc, po, 0))
++		return NULL;
+=20
+ 	/* Now, try to dispatch the next block */
+ 	curr =3D (char *)prb_dispatch_next_block(pkc, po);
+--=20
+2.25.1
 
