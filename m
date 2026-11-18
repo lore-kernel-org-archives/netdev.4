@@ -1,59 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795034189;
-	b=J+ZS3tHuOk67XM7so35RvyTFk40nY1RyL0h8rde//66mD21SEi2iUgjdVZY34bXy5RDA
-	 JN9dXUoXxisWpWrgDo4lThBpPwRyRxgo+hHj92erk/oRJFv0hXgvHpnTsYwCV6AOM0pP6
-	 0BYz45xJTplH7jk8VKIhnVIfxI8ZWU/Uv8dHDrYLokWHzZp5Nfm+oDj8+GrJrfrxKC1X6
-	 zVN3ZHQKgQMKyuNAUbl7pCEEQcjvuOaGL0ieAuXpaDqD9sguc0yYYyR8hCmFqJaoNNjdv
-	 hSzeEzdd2oDmdCAnc90pTYsWul6EMd0kpYly5Yh68aXRfcAd61E7dU58u3z8e58MbEg==
+	t=1795034454;
+	b=q1nfu4GyUQ8r0UVLb5PYPOGqrStWXHUp+vzQVPGkmf+kMH195J/5qXsAk34jkU9XkUPC
+	 w/4aA56fD7x2P8yq7G2VSrbyDl4h2TPg8scvGrLsDbAga+pKwj9Buv2E1zFjUVABUOY+1
+	 jv6ky12gYVNBxTJ/EC+hMsWZngG/Ue6JgUwbi2yHxnjOopfxaLc+Z6D/A1Y3TUw0XT7UD
+	 DbeO1/UdLQf9mdFFZcj9rSvT1mia1x2LKGzVZPqaLA73jDKBdL6HxrtDAKJlZ/pd0/f5t
+	 zjC8/SoJ41rMg54WG9BugkTOR1oKPu2k6JOtq/7u+JrDjzGEqw4Sh58k4g0pUYwMKjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795034189;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=UZXKqByYvU6A+FNb9bAsYgap0pYnH7KHiqZ3vXYUXTw=;
-	b=VNJtRIOiVsdRUAGDnxT7snN/ZH9mQqIu0oy3r3xsT6VFqFPspdMB8LnCh4v1KXZ7xtw6
-	 1v5btzoYOGYsZKTRw+SneESlDpAzA62UllA9BZVr5ybMOkeLhiiGxqfmwq3cmBN8piQo4
-	 g+j6RBZCgq4Ms3duUpwvX5hzYj3HOPZaSe+irY59oWzkJLXKVzcpAxP6RsOO4sB6lzvA4
-	 ZYJXfCtfyZSK7PUCyent+uqHwGrfy62JztitVYXsdkTZdsIB2H3f7Dg+fslP204Gm50QJ
-	 q8xi+55t3R3xnOty/mHRioEH1u30tgBa0Sq/t4/1L+tjdnTmznT+JAOf5uHZydDlJAg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795034454;
+	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=BY6HYl1AxSl+ePwD84qKblrWwkHUABln7+0huJrgIQo=;
+	b=ljhz7a9ASmyow1KKV3Ixhm8FtcYAxWvVJvvSb+rZfCpHwuaSUAkniVJQ/BdE1TvTwY/U
+	 7vIeQBXhiBf21R05KodLONYaapxKgpwIpatVXMcYwO5R2Y2uEmEjp6csqKvN+53FvEl6x
+	 UerFzf5C0Vq23s4s951Iruiw7KWuAQ/aOr/lcOoEL0PeNK2UGqFBBAg/qmc/xXhCMk4RQ
+	 rx4mDUC4Un3k8u5Zu9YwQTRRJJYFoFk3yrmnKhBcn785qoM9rWwSURaHPN4X8Cnsb9Xai
+	 xpuZ6SStjH1S3qBVp9sJ7lbyRd4J6KD9XgSoiTvVwCMuE0Zw42yhBz9qDPHdimCnLuw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Omnt+d6r;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=FNoXAjkV;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9585C60A380B
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:36:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8B4C5606A320;
+	Wed, 18 Nov 2026 20:40:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8B4C5606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Omnt+d6r
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E20291F000D4;
-	Wed, 18 Nov 2026 20:36:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795034189;
-	bh=UZXKqByYvU6A+FNb9bAsYgap0pYnH7KHiqZ3vXYUXTw=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Omnt+d6r+r4D4V5ovpDMzxyuvOH0oFAoj3YpRzxYRvxo1qVrW9xVyZrZl5Sn/THeN
-	 C43bWoV8XJpGBdv3i8/upOl1+bcK9SNNmIbOtR2DM6w8gwbTb9aoNEOdrgUhdBlsqU
-	 luAXtjydtUcfPnw2sDtGnIoXw2pvHnYwD4PQsvOoiHG1dLyn36tZ+n2ShHFSwXr8Bj
-	 a1y13zgDA5fMaF7+yq/anOPn5jzJ4q1HU6GR6bdc5Z7HJHwQf1jMQPUBkoVHRmaR6N
-	 EwVMmkxxNTGRP0gkW31Q+9tPDVnlP9769AegKNt46cpvik1Arx1/KBPRkeKUz3P8FL
-	 8m2MOmWCni8aQ==
-Subject: Re: [PATCH v1 net 7/8] tcp: Pass inet_sdif() to
- __inet_lookup_established() in tcp_v4_err().
-From: netdev-bot+sashiko@kernel.org
-To: kuniyu@google.com
-Cc: edumazet@kernel.org, ncardwell@google.com, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com,
- netdev@vger.kernel.org
-Date: Wed, 18 Nov 2026 20:36:28 +0000
-Message-ID: <179503418850.3136.10740335529901076189@kernel.org>
-In-Reply-To: <20261117053543.84032-8-kuniyu@google.com>
-References: <20261117053543.84032-8-kuniyu@google.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=FNoXAjkV
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id C847CA023C;
+	Wed, 18 Nov 2026 21:40:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795034450; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=BY6HYl1AxSl+ePwD84qKblrWwkHUABln7+0huJrgIQo=;
+	b=FNoXAjkVMUd/5dAexCdc3vR1/WBQak2q65M1eQXCHXjMllAcra5LHdzbGM/DyUgL851KNX
+	2YYztU5Mu//gO8rxYTP0vhzpGADD7d5cc8GsWQ4hDDqLZ+/EPP4N88T6jljCeigKa9Faw7
+	XcJdLRRYWkrZQN/+3UzeZOnl4JOW8l7edRd/cwNldQXn2hhfwTlZrAvUeoIUAXHw5V+f16
+	PmFAHEf09D+b9ssg4E99HiRRy/WX4JTz+CZqV6RD2CpjljBe7LXrb08Rg7+657L9nqBP7a
+	jRpQ6dmsxWE1VfyolfoG2CBziroE7HTvsJnOd0n0Vwhn10roiKzkWCJOeoo1kg==
+From: Nicolai Buchwitz <nb@tipi-net.de>
+Date: Wed, 18 Nov 2026 21:40:39 +0100
+Subject: [PATCH net-next] net: bcmgenet: write the Tx producer index when a
+ frame is dropped
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,73 +56,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-nb-genet-xmit-drop-kick-nn-v1-1-e4e54b143d60@tipi-net.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yXMUQrCMBCE4auUfXbBFCLRq4gPbTqpa3FbklQCp
+ Xc31cefYb6NEqIg0a3ZKOIjSWatYU4N+WenI1iG2tSe24sxxrH2PEKRubwl8xDnhSfxE6uyu3b
+ Wh846G0AVWCKClB9+p+OiKJke/yWt/Qs+Hzbt+xf/b8JriAAAAA==
+X-Change-ID: 20261118-nb-genet-xmit-drop-kick-nn-89a5cfa585fe
+To: Doug Berger <opendmb@gmail.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Nicolai Buchwitz <nb@tipi-net.de>
+Cc: Justin Chen <justin.chen@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+With xmit_more, queued frames reach the hardware only when a later frame
+writes TDMA_PROD_INDEX. If that frame is dropped, the write is skipped
+and the queued frames wait for the next transmit on that ring, which may
+never come.
 
-Low priority / nit picks for your consideration:
+Write the producer index on the drop paths too.
 
-- [Low] The commit message for "tcp: Pass inet_sdif() to
-  __inet_lookup_established() in tcp_v4_err()." only describes half of…
+Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+---
+Another bug flagged by sashiko over the past few months.
 
---
+Writing the producer index on every exit is the correct way to handle
+this, but I could not reproduce a stall. Thus net-next it is.
+---
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-tcp: Pass inet_sdif() to __inet_lookup_established() in tcp_v4_err().
+diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+index 61f5a4c2f0cd..6545caf3232d 100644
+--- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
++++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+@@ -2254,11 +2254,11 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	if (ring->free_bds <= ring->stop_thld)
+ 		netif_tx_stop_queue(txq);
+ 
++out:
++	/* A dropped frame can end an xmit_more batch */
+ 	if (!netdev_xmit_more() || netif_xmit_stopped(txq))
+-		/* Packets are ready, update producer index */
+ 		bcmgenet_tdma_ring_writel(priv, ring->index,
+ 					  ring->prod_index, TDMA_PROD_INDEX);
+-out:
+ 	spin_unlock(&ring->lock);
+ 
+ 	return ret;
 
-This commit changes tcp_v4_err() to pass inet_sdif(skb) instead of 0 as
-the sdif argument to __inet_lookup_established(). The goal is to stop
-ICMP errors that arrive through a VRF from reaching sockets that are not
-bound to the device.
+---
+base-commit: d6816d9a93b66a12bf01e10037e377f3333ad6cc
+change-id: 20261118-nb-genet-xmit-drop-kick-nn-89a5cfa585fe
 
-> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-> index bc909fedda3a8..35a1309f8b21c 100644
-> --- a/net/ipv4/tcp_ipv4.c
-> +++ b/net/ipv4/tcp_ipv4.c
-> @@ -504,7 +504,8 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
->  	int err;
->  
->  	sk = __inet_lookup_established(net, iph->daddr, th->dest, iph->saddr,
-> -				       ntohs(th->source), inet_iif(skb), 0);
-> +				       ntohs(th->source), inet_iif(skb),
-> +				       inet_sdif(skb));
+Best regards,
+--  
+Nicolai Buchwitz <nb@tipi-net.de>
 
-[Severity: Low]
-The code change looks correct to me. It now uses the same dif/sdif pair
-that tcp_v4_rcv() already uses. However, the commit message only covers
-half of the behavior change:
-
-  So, ICMP error coming from VRF can be leaked to a socket not
-  bound to the device.
-
-Should the commit message also say what changes for sockets bound to the
-VRF slave device?
-
-For a packet received through a VRF, inet_iif(skb) returns the VRF master
-ifindex. inet_sdif(skb) returns IPCB(skb)->iif, which is the slave
-ifindex. The match is done here:
-
-include/net/inet_sock.h:inet_bound_dev_eq() {
-	if (!bound_dev_if)
-		return !sdif || l3mdev_accept;
-	return bound_dev_if == dif || bound_dev_if == sdif;
-}
-
-With the old sdif of 0, a socket whose sk_bound_dev_if is the slave
-ifindex never matched in tcp_v4_err(). Such sockets got no ICMP errors at
-all, which could leave them in a PMTU black hole.
-
-After this patch those sockets do match. They will now see:
-
-  ICMP_DEST_UNREACH / ICMP_FRAG_NEEDED -> tcp_v4_mtu_reduced()
-  hard errors in TCP_SYN_SENT / TCP_SYN_RECV -> tcp_done_with_error()
-
-Users can see this change. Would it help stable backporters and
-maintainers to mention it in the changelog?
-
->  	if (!sk) {
->  		__ICMP_INC_STATS(net, ICMP_MIB_INERRORS);
->  		return -ENOENT;
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117053543.84032-1-kuniyu%40google.com
