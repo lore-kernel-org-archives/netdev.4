@@ -1,101 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.128
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794999167;
-	b=vu57FqhUuvXmhEuXJWCBDkGkVVV68RLG6MCWFbD2VaJGUNZ/LLhPAz66MjajT+hXKmMx
-	 bF9TJfP4SMCr0dQnLeGQxEBwIMToHeUgKwh5jFRVsR8OTD8n01gtKty4A82V2Of9ZQYt/
-	 7EFPOX/aDTbTwIvpQn1YBnqTnnr7XbMtzLgE/HaO8My50wtqepb8f7Xe2RELFfO2NuM2g
-	 4lZxAXq1NltcZSnexp2DHiR78sAOp0gcpfYiFYrFOX43GUYQf1p9DmfZQwdZ5FBqU5bCh
-	 mfEV7jr5a0YWCUcaC/Cge+5TW1tOJaPwmi3lN1vQbvEgs4No+oBy4ZhatIdHjwLrWGQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794999167;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=q/WHeFAnSrfqnBVadbFI/Flt1XMD0leQD6vZBgePXEI=;
-	b=gKgjhnn6OsA7bZawfd4ZYpx9i5I7eu2bTGK6VxiSsrYzrS/ASW3QSmXRTeczBBsXfeIC
-	 7TGJ1nMjBAg3HGMMRPN8fWlI5DLs8/ZcxLAB9HLGRAnuJQtjXtln6pvC7pIB+7VJkrG2Z
-	 DhZkpo+jA9xLJL8m8PIV6XlIl9JR7Rdr858VzivcYiQHGcMlm0/Z8hyYvbjVXQTttRGyy
-	 c0WOV7WyxQ2tzvdjZs+KhKGKL3chBqczPnWuBtyTYe8IHYaXt7Q7hvPNegybNA+6LemsA
-	 RuPSpMPCE1ACseY2dW9bcB/2gONyejxVHZUjpzyMAczTcCxRRHPFrTBrdbxWPzK7f1Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=kontron.de;
-	spf=pass smtp.mailfrom=kontron.de;
-	dkim=pass header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=hjn50alu;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.65.128
-Received: from DU2PR03CU002.outbound.protection.outlook.com (mail-northeuropeazon11021128.outbound.protection.outlook.com [52.101.65.128])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.157
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794999341;
+	b=P1Amw/A6rhyaMTizm2woZn+UbA3F0Up71abLjoWew1DtibUiTsNF8UQrYX9h7ez6f8D+
+	 Qw6CMChfqeIKwhq67GwAqFh9Pl9T8cwKFAM8KPRqlTfXnEGVC5gT2aBuPZmhxDF96Ezex
+	 N35QnTQOLRnNHmmfnpiASApjomKSHMk/ayPLltfEqyXI9O+lbjMXwjQ7DCdOHH+a2B9uh
+	 +Xpnue8Gw6eAtViapMNBO1qKd6fVz7DS4gIitiiYBxPCYmaQsq46hY9sVjR+MaYYvgyTR
+	 XVOfC+c53oJ4n7jFi93xmCMvPxEwFYmj8U7U6liQ53vVhKGN8ZGoFZLl5/urVjshfgg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794999341;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
+	 Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=1lLY4Svpew6f/mVZsHja9oHB3hor6O2IX2pS8fz8NY0=;
+	b=5n326xrS3e51P7A7YjBkHbNrbrrrOUdXd8FrAUDv1saSVN/AUCzahFxoxdcpBLSHTxzC
+	 Ew0K3uFqal72RvTxt8hDbDnAZh2EK1TSUOrAMuGu461lVVcsClhsSIcu+m9deaf9X3hlQ
+	 pC3nzxcp//7oNBblt9csaOhkXuqmDn7rkyoSAgEew4JSyu9apyGjipVrIufqYBSpf0BlX
+	 6e4NKXrA1/XZJ4h7fwD7po1YFbVPOmUHZDStT9Bgr0bnA+3elbCjzq1zAY2F6iFKnTk+h
+	 N2DmXzMUSjtywKxBo1dYdTZokYNrUV74gIZP7CMd05QNJHUxFGyssWzrfJdbjW1ljzw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=flapping.org;
+	spf=pass smtp.mailfrom=flapping.org;
+	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=QYVcAEdD;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=nI5zgd76;
+	arc=none smtp.remote-ip=103.168.172.157
+Received: from fhigh-a6-smtp.messagingengine.com (fhigh-a6-smtp.messagingengine.com [103.168.172.157])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A766606A339;
-	Wed, 18 Nov 2026 10:52:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A766606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=kontron.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kontron.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 375EB606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:55:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 375EB606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kontron.de header.i=@kontron.de header.a=rsa-sha256 header.s=selector1 header.b=hjn50alu
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KWFmVX6Uceuou7ZmlkjZf7g3dDuIJwHzvfu5HEWSXOMYd2VsRWUAwAOJiT9gd0HrFa+hqIuPDxj09Z6c7r7PuxWU2thxr4xf31/IR2BO8SrFgkl+Yp4Y81bOi8HioberErPUOyjkwNX4CjHJvQt+Q11e0Hc6ASpPNkrmOEizdPAa4KfXua8qab7rJlnb4OwsMqum+GYKUcOqfk3rPSrau3Ucfx75vuKY98/aeScywd5b7WpgLUSmosh+Y8Vhn2Qyt6n5FCkCtaQdudHCCbxYlsCgVtBZ0BxmETVLgLBE0eam7iTUrEkdNoe+UC504HalIN+CJDQugnfjgLtzFACKAw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q/WHeFAnSrfqnBVadbFI/Flt1XMD0leQD6vZBgePXEI=;
- b=TbG/M5pCKrDtaM2ETrOblqjVrVKaKBz82PRkqkpkTV14ny8ewCrJJkDWvsMCflC4abYPNGd2TL7WSUaKDG0LKHuoo0IgQagN3LwTtDESgEcnbZkrow/52qbNdGPxdAqJ789j91kk8dCCLCdZLmdNyMT+Uz0F3/vPu81ZamGjrvL1C+XFaaGmnUHBtZG3tb7OvqoII0JHzM5HJCU0v34eaeiZGZ9Ojv6/5U1YCZArxlWefQQMJZY/DvlqAzXA+I4zVOvT69TBoyNbBQqsGhays0MCc206BFhH7FV0uI/duAFAObbwqtLzvkXWkAcqMVxyLDukf/Eq4Idwn25BwjAURQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=kontron.de; dmarc=pass action=none header.from=kontron.de;
- dkim=pass header.d=kontron.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kontron.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q/WHeFAnSrfqnBVadbFI/Flt1XMD0leQD6vZBgePXEI=;
- b=hjn50aluvuqLEmdcn/6ovMKoRnXuHU+otD6kbacjMaoyCRznKZUMP2YHY7ZaMwTXLujWCiIL0HnVEXXsefvfMlZinbYXNKLKrTcsLMHTPvotkejWiaeUWnvM6WhVJDyfuLKKumx0wjF2bOTywhmAaYyHYK21QKciIZWYV3ZpJDkU9QG2+Bt+68R9EXcEAW3uxY9xSn2vSUGJalFMMUrzSEaGu+3ma7lxf5VqYFRV7PFi1I+3YjgNHDVp+C8puF6o8uveF74NSi5aBmGG9J6D8+2JbFN6cw+FDcjc+Y5DbbLL/suTWXaSHBNjfBXMPebuRaGH9jy/wIy8rboGYhghPg==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=kontron.de;
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:1fb::23)
- by VI3PR10MB177098.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:378::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.8; Wed, 18 Nov
- 2026 10:52:41 +0000
-Received: from AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22]) by AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- ([fe80::a276:4ad7:962:da22%3]) with mapi id 15.21.0639.006; Wed, 18 Nov 2026
- 10:52:41 +0000
-Message-ID: <dd940fd7-7950-4074-be80-5bf129a57772@kontron.de>
-Date: Wed, 18 Nov 2026 11:52:39 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/4] net: enetc: add i.MX952 NETC v4.6 support
-To: xiaoning.wang@oss.nxp.com, netdev@vger.kernel.org
-Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Wei Fang <wei.fang@nxp.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Richard Cochran <richardcochran@gmail.com>, imx@lists.linux.dev,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Clark Wang <xiaoning.wang@nxp.com>
-References: <20261104092217.1730351-1-xiaoning.wang@oss.nxp.com>
-Content-Language: en-US, de-DE
-From: Frieder Schrempf <frieder.schrempf@kontron.de>
-In-Reply-To: <20261104092217.1730351-1-xiaoning.wang@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PAZP264CA0041.FRAP264.PROD.OUTLOOK.COM
- (2603:10a6:102:1fc::12) To AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:20b:1fb::23)
+	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=QYVcAEdD;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=nI5zgd76
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 4C6B31400184
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 05:55:40 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Wed, 18 Nov 2026 05:55:40 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1794999340;
+	 x=1795085740; bh=1lLY4Svpew6f/mVZsHja9oHB3hor6O2IX2pS8fz8NY0=; b=
+	QYVcAEdDh71WWpvWQ5y7N8yaJWgBpviG8493XgFaWGYUbR+LD2/GDyzRrsaf8uW0
+	M8/E3LtYRjoQ8XwWyT33yZMbqzEdnf5jPYbyyMmzJFI4g6MMnYpU4Os+Ef3HDary
+	LNmuTdBKCKfABntkDgn1JXpIu++qYEWWjS9JmEWxhoMyZ8qAc/KNiYj3WAXep7Wu
+	ebWtK/l2q/Hm0QuxiWkscSJFJ9m03vHxw4xexxMPpOb07IXaYBBGfErSVvGYChkP
+	5WMCqwxaRUrTZS+p5JIMSQWuf9k2+E1XfYd3VKpjqhhkRmahbsasm6TgrN8lmo1b
+	PDtM5WgHdtfM9uduNUD9/w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1794999340; x=
+	1795085740; bh=1lLY4Svpew6f/mVZsHja9oHB3hor6O2IX2pS8fz8NY0=; b=n
+	I5zgd76vvRfoH823HXG8JnSmnulaMSFfibqMlMltgxki53ic9D3oki0Wg1foGkVY
+	GTgWcAd/thh0D7U9GLfdYjfHiN9tOMhijOIFZw/yVBffRotBEq3w2nHBpeeXTeG8
+	joEWkaVdNrMCm6YkLqgFaOxPhFzlEq1C9fYbknzIDqwmBBzUO5wdWbysGOxxhRDA
+	f4HgdZt+Bgi6PERykETBI0qbaX1ABFx4eoInG/f5z/CtZzkMzKuPiCbhJc2BY8UE
+	nC9KQOubFCGabq4CbwBkQcN7Tj0jbvTv7BF/iPftlnuWS0JTm41x7De2pqtrUZ/Y
+	QsAO/OviEEGyW1D5cn8GA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=flapping.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1794999340; d=flapping.org;
+	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:o/gPwxWCjRtd5o01EDIFT16Ag17d6K1Kg/7PjwSrkrifNGY
+	XcRxiat1EEHsbL0A94JAVLoG18+Sjve1RarsGpbvXrpVNU+dieZqtyeiQ//Mp4Rb
+	qpxc22T5OxCi0fCgLrDu0qjazSiGgBo4fMlzl+O2U9eD2u5tRpNDsqJemjfd+jbi
+	RyOe3yzmSb0i3pj8ZDPtOE6CDpX5C5CLBpjrdyS+d/UMfjwTj8gCCftRWYFagjv4
+	m3Z+s2pCf0MkN790lrSowWlaxvzD54/5IEUz9X65xSxUvZbZ/2dtkakSuGmxx9DR
+	+ZVM6FUiyyNZ9iOPN41HwmilBrfvM/rsTTIHqMw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:RczB9gYCNYawM4c+ALdeoEtktbQcQrdqI2h8MgadaVE=:f1PoMNvdd7eUFaJn8fwxARhdLdJQXzSex3MPgOihlew=;
+X-ME-Sender: <xms:K4T9ana4Kb6OOxq_yIdEUDW4VY9bhWzDve4YCUlENbkkJNivJjFLag>
+    <xme:K4T9ao9u-Qa4YjH57cgOZWyCj9WR9MT2yaeDgsUWJka-pIs2CEQlwjAHRnzdIwMGI
+    JjTY4Ms921Q8p8_SjqZfXnZsvuBnnMr4MZNfn9s_4zqhEekunibIrs>
+X-ME-Received: <xmr:K4T9atlheoZ7Bqm0_xhNvDZ6HxGiUVS-287puoKPKbRFnfQHjPsSOcqFIKOC3h8Q-EXKH3nYuYBMWwvF4P1drovh>
+X-ME-Proxy-Cause: dmFkZTFz3NK5l0tQkms838dQWqZ48zIIRQPH/+NNhoj6IrdSS4eqY9U7OtQqC6pwNDpsPZ
+    P6ax6om8Qj87GF79pPYyChWRvf8t/TSAjxCmiaBrrRTfWaBmMbs5FOSZmqHfJ5KB3WLwL/
+    yTK/CgTgx8wxr+8G2x5xHt07M6n+6CR3VcvyXSFqr/JDMQtbhbjUQFSln+afU/0WOjmMcO
+    t0S00Kx/jjw5fLBTLVOwCI8XZlFvTgYMI3NhQq6fbRZsfBKqYMXhYrY9FlCfoz2S4gX/pC
+    0uLA3C76Vn+3D1p6F4XZKoTksZedtTOVjpAmGlGPCIKuH4Fp+sY50EI9hYKIeA2US+TXgo
+    SwFDgX1vRo+ddLegJ4qibX8tZRRcrgo6k0sG3rgJ0Trn7D+e4S/DoYKgxfPr9Z5LumXpG3
+    6k4BlyrHlAtYfo1x6He20rwupPZRdbTFe74BYnHLRt3v/QPnJtw8GzEHYXO1yYTevqSQhL
+    AwT1hlMcGricQxqlXS1f6n6rQ/OkKSK10Dkgjer6Kwdu2ixBKOrIA/0BtZQzQ4JaofW0NA
+    lAuW82UQbqTsLc4ewKGwulfkmafskgmU4JsL+vTS+55EJjn9VtqhiMSe9pRXm7jWuHGTBU
+    a8c/Hq9gzMBqdEl80D73FlIUdmBFxjp0XEIgKl/N8Lk2zyPv7wGG1IApBrmg
+X-ME-Proxy: <xmx:K4T9atxUnaW1n6WoBEG-CinAYsztTpXkxlB8iFUTGxyEgg6UhhfRpQ>
+    <xmx:K4T9an75imKmQm7zVW5IYOyNSWEjbitvhK71asRq8HNEkGfc1RnNyA>
+    <xmx:K4T9atUkHSdddei9ZKRH6NlicWXgy4mLb4RyFn6LI2_Gc9pd4LTaGw>
+    <xmx:K4T9avII40nbN2ofWbreAu8_K-2BdKn1VlFnfnRgCmYBV6iB-lVSYQ>
+    <xmx:LIT9avtLWo_h_LT-GNWyDhK5NDY8pNE7l-QnEw0tOzn057th1liXSAuO>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 18 Nov 2026 05:55:37 -0500 (EST)
+Date: Wed, 18 Nov 2026 19:55:34 +0900 (JST)
+Message-Id: <20261118.195534.1289241641818592530.tomo@flapping.org>
+To: johan@kernel.org
+Cc: fujita.tomonori@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, hfdevel@gmx.net
+Subject: Re: [PATCH net-next v2 1/2] net: tn40xx: avoid early firmware node
+ release
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <20261116091149.730586-2-johan@kernel.org>
+References: <20261116091149.730586-1-johan@kernel.org>
+	<20261116091149.730586-2-johan@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,84 +126,44 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM9PR10MB4277:EE_|VI3PR10MB177098:EE_
-X-MS-Office365-Filtering-Correlation-Id: e3c496be-34e8-4b76-555f-08df456211a6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|18002099003|22082099003|11063799006|56012099006|10067099003|261022113327099003;
-X-Microsoft-Antispam-Message-Info:
-	fde6oRCs1dw8WDG+dWyLsWy77vE2+hcD0AJWCdVC3sAEAoPerkberzQ08WXK2ohtjVIlSypjAha5XkisO8oOL25tH9/wI0hyQ+qMzdIX9X4W5S3z7lqtFvYfDOS4naArmO+fhI7icWV4UIAcNKgR2NP1Eh1YpQO7aPNhIag+DTdDs87N+9nT6urSFYUEQcA7lGHc2KWC3pCM2XWhMIuCtc5JasBTCxiKjVgKI9eE6gIyf78NxIJz0rAe0lfZIcHzxxaV13q8pdsW/OJ+4E4SrTlfvykinmLKEk33qLSEPTZoE5IUMN+/FAgWdt2WdZYV+c5hQq2xBKjhRuppHiz2HZKCtN7MYSJVpMjl+ZywmdHP6+xshFsJ1I6aXgedx+iLLR2AvEtxqSJWRtGidXU67Ro7xEMe9f35DggVftETM6l4nC+AlIXv/BaptP4zOBmsDARLKn3hRN4VvzQFlSPtzVCIuxtQzBY9yCOgMDWTV3MHs7qTSwICila8eCxzHhfTbUdFrIsQs2jP6koGb4U2PZA0Sg03GNxemw5E9DKOzesuFLxtIaRFBn21Yc9zhMLUQyOsaQdHDEtUDw3eyBcPUEgO5iGrgd3iryWC0TOsin28K+ZAeI5ghQvY0MXo+EbEDiXP8Jx8yCwgDPvhBLgn5kY1nQngwBUO8ZYeg/f1VRk=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(18002099003)(22082099003)(11063799006)(56012099006)(10067099003)(261022113327099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?QXl1QW44WkM1aFovRlJkMXZ5L3M5d3N4SzBDTStnRUNKemlGZWRqcU53dXZL?=
- =?utf-8?B?bXdacjRiNjZ5a3hpMzMwUkNLdnFHT1pjczFzV1ZsMUljYy9sRFZSV3VxUVRh?=
- =?utf-8?B?bCtVMnhsUWZ5eVpIRTlMWU9JNXZHSjBjQVB3QTlKN244MGFPdXovb004dk9I?=
- =?utf-8?B?d25BeEdPMDd2eUsrVXJUYXBRekFsL2EzMmhZL1dQdldNMElzODlYVzdqeVRl?=
- =?utf-8?B?SUp5YjZDRmFUWUUyYmRmQWNIZkZ3UGxnd2tGZUxDV0owcWlkWDFDWlFFTTF5?=
- =?utf-8?B?cGV2WjlCcXFUaWRhcGx3bmsrTVlnRWZGUVNqNmQydHBiamlpVllpTFd2bjdY?=
- =?utf-8?B?bjlqakVxdjFvNE5ISzJpMFlMcDhnOXZnOGJwQjYzSnlNcS9hS3pzblQrWGpl?=
- =?utf-8?B?OFVOL2hzVThnOWV1eC9iVG5RWEkrM0svdFN3M2N4WnpCclNiS3picktJMVVV?=
- =?utf-8?B?NzNxT1Bpa0JTSFdIb0toTCt3dmlXUk5Md3BuaFZHRUxRTkg4WldoR3pDbHVM?=
- =?utf-8?B?dHRQUFVkNktVaXJWL21ZaDBLcHlDclJKajRCOFVvNkxqVTJCRE1yMnFsbHli?=
- =?utf-8?B?S3liSUJwdExZN0QvWER2aG5ZV2xvOFhBbTd5NTRCZE9zZXdjeDhmeTM0QzBR?=
- =?utf-8?B?cVhGbVE3dFpGM29QY3I4TzdoRndYcVhvZFVFOHBzcU9VSTVUZm1WWTlOOFR3?=
- =?utf-8?B?cHltdGg5a0h3NnVsVEtmTVNMOXBnOGZoV2hXTmlsSmNxVHRaaC9yOVR3d3RV?=
- =?utf-8?B?VEx0L1Jna05STm1qSU9hSEl2Y1JyeUpMQ3pGbmMxcDFZZ1hXYU9TR1MvcGxl?=
- =?utf-8?B?dDVaeVdvTy8wdDZwa1J3NmtUWHFVREJEU0pqN2R4c2FoNE1oUlNnNXMyRFR2?=
- =?utf-8?B?Skl4YnF5cnV0QzBTZGtteTVyYThWZm1ISWgxWDVTTzdRVGRuY0hocHF5SUNk?=
- =?utf-8?B?SkVsSUZmc013NUpZVXNCY00wUTdHbGs2blRTRm1zcjdqSE83Z0dJY3pkc1p2?=
- =?utf-8?B?Z0M3bE4rd1dVMk5CbkgrU0V5akVxbHpQVml6ZUlnc3dIbUtoZmdaMzdBWmNS?=
- =?utf-8?B?N2JnZTJEbE9zZ0plZlEwemgxRVg5RXlIZEpGcjQyTlIwWVdQWk1JUFdxMWdw?=
- =?utf-8?B?SnNLSUR1OElFREQvNWJPZWs0OU0yOS9YbnRJd0NKNDgrakZQNWp3dSswWjRm?=
- =?utf-8?B?M01LYUl3RmcrTHd0eUNhSmN0dkNoNEpsOGxyUFpVUGxCLzdwQlZUdXJRdVVN?=
- =?utf-8?B?SWpSWDNERloydEZHTWlDOE1WTkt5eEtCQXVIdVN6SEJWOGROc3dYMWFkYWhI?=
- =?utf-8?B?L29Dek44VDNmV1RTRE5UZXBkbjZRRlplUTJJdDFlU3RLSlY5bFpaVXQwSTZL?=
- =?utf-8?B?SHFKUDZpeGVTdkd3aVp1MkFxaVE1Nk5sdndkbnZPWC9PdEVvSkVuN2ZHRTYz?=
- =?utf-8?B?K2VMcm56TE50ZG5EZFBOb0JmVElpcWp6a2lnQjlaUEQrVVNmUVZzUlh4RWpQ?=
- =?utf-8?B?T1JLb1Y2ODJXMUJCLzdsdmpPL0FXblpUa1F4Q3NIdXUyZVJsVmU4ck9mbUFM?=
- =?utf-8?B?N2NDQUJ2QUxwdC9id2llMU5oTTByMWprR1Brc2hZZWhJcGRNMDdVMVNteEpN?=
- =?utf-8?B?VFluZ3pHM3FsTnhMT25SOFMzNXlRNUxiaUNLcHovUlVoNTJwYjk4SDlkQm03?=
- =?utf-8?B?OVkwU3FPVC8xOFdCTGN3SnZJak54YUxxRk56UElpVFBPeTZGOStlS0tFTGgx?=
- =?utf-8?B?YnBJUkVTU0pESTR3MmVlRTZPVWVZZVJNZFNlMDhTWHRPKzBVYjczc0FnZUhj?=
- =?utf-8?B?Um8xTVp5SzhVRHptSlorQ3pKZ2ozVEZVVms2OXhteGRTdnFRRklTQ0dWbDJs?=
- =?utf-8?B?RmZHN1h1TkNlNTZDRTdxZHA4N1NSak1NYVdzeENmVDJzZmI1akQ3Z1RseVpj?=
- =?utf-8?B?b0p4U2UyOVdzWkZCN3A3alpYMTYrNGtuSUU5YXhlcDlRdDZlSkE3Z05RU0NJ?=
- =?utf-8?B?ZHlsNGJkeWRVU1R4YTMxMlFHelNSd1hOZ2E0OXZ0alp3NjUzVEtTeTUvUHBV?=
- =?utf-8?B?RXcvaW03QVRmYW11VU9Uc2xQeFh6ZXVGSkllZ1cvUUp1M05IcGRIVlZRZFpU?=
- =?utf-8?B?OCsvL3BxTmxtZGY5SDRMM3RIR3NKK2lLQzZLajJ4ZW0zWmZpMkhhOVdTV0JX?=
- =?utf-8?B?YnpZNEtiN0Q1TlQ2UDdYMmNvTU96cmszdUtXVncrWi9ScXBvWkJIbmQ2amll?=
- =?utf-8?B?VWVyS0FJQk10UlA0NTlvc1RQSjR2ZFRTTTNPSU1hVkNQVDJxbEhpWS9JclIy?=
- =?utf-8?B?eXRMdjV5MGIyZkQxSVhocngwVmxsa3hhSVJLQ2FlcytxbXFTbGU1RG9mWDVa?=
- =?utf-8?Q?s0Wz/UvJbsoyEww0=3D?=
-X-OriginatorOrg: kontron.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: e3c496be-34e8-4b76-555f-08df456211a6
-X-MS-Exchange-CrossTenant-AuthSource: AM9PR10MB4277.EURPRD10.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 18 Nov 2026 10:52:41.7295
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8c9d3c97-3fd9-41c8-a2b1-646f3942daf1
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: qLURPbnzu/095jym3fdKHMJCObJxLJ9i/YVWqehICEQy6HncoYcXWDZOqK5U0AwCT092KoZPsiWll9eOa7AZdLBkh8TX+cQ84U+WdjnERO8=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI3PR10MB177098
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-On 04.11.26 10:22, xiaoning.wang@oss.nxp.com wrote:
-> From: Clark Wang <xiaoning.wang@nxp.com>
-> 
-> This series adds Ethernet support for the NXP i.MX952, whose NETC is
-> revision 4.6. Its NETC integration differs from i.MX95 and i.MX94 in
-> the following ways:
->  - there are two standalone ENETCs and no switch: ENETC 0 on PCIe bus 0
->    (RMII/RGMII) and ENETC 1 on PCIe bus 1 (RMII/RGMII/SGMII), plus a
->    single IEEE 1588 timer;
->  - the NETC system clock is 133 MHz instead of 333 MHz;
->  - the reset value of the ENETC 0 Tx byte credit registers is too small
->    for jumbo frames.
-> 
-> The DTS patch set will be sent separately after this series is applied.
-Tested-by: Frieder Schrempf <frieder.schrempf@kontron.de>
+On Mon, 16 Nov 2026 10:11:48 +0100
+Johan Hovold <johan@kernel.org> wrote:
+
+> Note that __mdiobus_register() will essentially only return early
+> without taking the reference during development when the bus structure
+> has not been properly initialised. And currently, not even that would
+> lead to a use-after-free as the child PHY node holds a reference to the
+> parent MDIO node, the child is deregistered before the parent, and
+> software_node_unregister() returns early if the parent node has already
+> been freed.
+
+[...]
+
+> --- a/drivers/net/ethernet/tehuti/tn40_mdio.c
+> +++ b/drivers/net/ethernet/tehuti/tn40_mdio.c
+> @@ -157,7 +157,12 @@ void tn40_swnodes_cleanup(struct tn40_priv *priv)
+>  {
+>  	/* cleanup of swnodes is only needed for AQR105-based cards */
+>  	if (priv->pdev->device == PCI_DEVICE_ID_TEHUTI_TN9510) {
+> -		fwnode_handle_put(dev_fwnode(&priv->mdio->dev));
+> +		/*
+> +		 * drop any reference taken by __mdiobus_register() before
+> +		 * device_remove_software_node() clears the fwnode pointer
+> +		 */
+> +		if (priv->mdio->state != MDIOBUS_ALLOCATED)
+> +			fwnode_handle_put(dev_fwnode(&priv->mdio->dev));
+
+mdio->state is internal to the MDIO core. I don't think drivers should
+look at it.
+
+Also, 2/2 removes this code. The put is unbalanced when mdio bus
+registration bails out before taking the reference, but it does no
+real harm, as you explain in the commit message.
+
+So I think we can drop this patch and fix the problem with 2/2 only.
+The explanation in this commit message could go into the 2/2 commit
+message.
