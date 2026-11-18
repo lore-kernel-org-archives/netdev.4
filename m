@@ -1,103 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794984903;
-	b=K2TUVK4hi1C8Lkuub5JO20kYxEjzOPWCDb5x0UdxJ7GmMJC+ZQfOwAE57mTKsZDOuFYg
-	 zIgTS/Z6qjOv/6LaSEvBqLVNeSfkQFQl+J95JWaYnzFWHT6c7y4gWiYIsDHL5sEYyABTV
-	 NCNs2DfUbHTGmpUJz2+CowoUfqC/ucgmRbHLG3uF6iULg4A8ficS94+1OEAgdVh5LVWhI
-	 xRY8eDZSAOM21tX+zn8FWwem2JAWVFZUoZWfSBUFfU84JD5U5wNA4ZWCZYWsJHolAa8R3
-	 /c0qiPdV7Rnjw8faCXo1lOOGZaOvw8Me1FwIp5Ob1tvIlsSllGXdG156p3QTuWeqcPg==
+	t=1794985124;
+	b=kVo4Qph/X92LH15Dz6ea9lgGByqUz2IJcBf+T4Wc6JqaprgVboa+p1hL9Y6HBwZEVzfn
+	 w2CEns7yN8i8kcE0SpEoLC4Apj9ZEydoxtbDVjOvykkrFuQeb9AAda4dtYv8xWEijIy+G
+	 iURrOwwr2YW4LdVagzLCUMNq/pAvs7ESbQGdtkR6sVyo4j9ttdgd2VfP9jweRE0aj32uB
+	 91oEtSOtuPV3Pehp6wMKGZM+d/qXfir5N4BQu+hYmmOrOnPHO2Znd3cPjJcZmZOOH0beU
+	 9JpfB+sUz494WPZtZ01hVOsie5QvJ3CcK0xwpGs+i8d5k/XtVGIHXbFrR+JDOHa61sA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794984903;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=QTULES1KBW2fbhH+lZwmPnu2U5e8krspVkXovejB7k4=;
-	b=g+LrHIvkj8fKZ65B7c7VI9RpgUEaVSRm13jOKFAysQ5kEc7x+I5xjjLIMJ9oxqmyS31Q
-	 Rtp/skyl1/TnwcyuuH/KwPNTrvlbEoYkOLC7ydPkQlp8dF3LWe1yKLhCiOu5faPDyfKBU
-	 zYi20mgrp8JRITqLmSz/7QgfAvlkzYG83IKVkOzNIGrnObjOergLHUI1aQrNwy1zzJ9WR
-	 M1NV4ysnOWiS1RrXw0KI6pRErwY4TA1y2p4uqIrveOGXWdYRXF+aXutn1oFuyN0y20N0k
-	 Cl0inHqn8BFLHSfvHwD7R99S6cZR9lAlfbm/qFPdud7qs0c8o/n3RN8dmPSixBCuKzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794985124;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
+	 References:In-Reply-To:Accept-Language:Content-Language:
+	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=FwQzXqOlZf12zJP3Pg0931RBaDdFGOMlSkw3C6GM42c=;
+	b=QT2VaG90Se6Cwgamv9QLyl9bysLXj7Kik51jeMjh0HMKINMYEhAkREQ/vvBBzocDBt98
+	 CcFz0MiRPl1jaSDlXafbAA2jVa19EBYgJXae08cChluaYIslCNbrEdDfWK2OkXON4ivrX
+	 +eTRy2lieJJAk9rkvOVTgND2LC91YGl36RvLoutB8vYnDiM7hHnmI4cXFi+cQVqBcnQqQ
+	 uG69b4SMfNY4zX3cfTIOkJAWWBTFk1CjfxJ933PW2FKKnSwiAsKSd76uHBiuJnzCvCK84
+	 Yckh/4QyybljSDJJm4JHhf7lyyj69P26PyXv4LdpWAaC/0FDKdNeUJ+fY9yvo5/oiPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hKu5dEHZ;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=IZK5hxXj;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7F99606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:55:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7F99606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D3C9606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:58:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D3C9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hKu5dEHZ
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-372bdb942dbso849357eec.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:55:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794984902; x=1795589702; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=QTULES1KBW2fbhH+lZwmPnu2U5e8krspVkXovejB7k4=;
-        b=hKu5dEHZNQBBhKfk87JcoQkrRAjCPRtx60f0PumdeTb4pDsqjU/xliu3EzN05wWJ1l
-         ucGbkR5RGbsmpRT0JLOefDJm9RGt4LtweS3kWmcCyBQBzZrePGyDHPrmMb0AX0Els7no
-         4HqYJpyj3BYVGP/oT3uRAkwjxZGR/wWI+SEZnDvGp854qtSt6ynPe/wkUNAeKnqLYO+x
-         qoSAH5etiaWRq4GmqerDHBoZR0tHVn3Mu14TCQkjldCqR8BN2pDfheXlKMmcEQvkt/cR
-         uTICYHtuxUFsYPkmnQdMpRZqmKIph8Pj/YN2+bVDBfRdb5G3YW6Xj3brYR5IGoRhyL8t
-         pjqw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794984902; x=1795589702;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=QTULES1KBW2fbhH+lZwmPnu2U5e8krspVkXovejB7k4=;
-        b=ZNMymyPwNzGoLCQY2ky99gAUtGNRbKLb5iXQvPz98FFTjwLbZ48ljHrwg6q22R70BG
-         x3roHtS+8eYfYWk0gh1xcNCdJbTAvvT4A4fTRCnowUpwX7dUiTWaAJ07uaO9E6qmwepm
-         Cm8zTtGlp27k1/vhjcKLy3BL2gcvq4Kl7dGhni7J++mBqsvK+l2fQKzUKcuAEuxXFIxj
-         g9ezPUCrMJwrRwU5ZC4EwXVvLpUbvuR4V8w/X32UDE8miF5ip35zDmWvJx6b+607D4tL
-         X6oKpTvguljKG87lxyWoM8SDcJmXnaeE4O/2aY2PZy6qVfEKHIrQZeXcWRZnnZydVGuo
-         NC/w==
-X-Gm-Message-State: APuU4Z9lqildBp6wE54zA/k/pjgwIe1O0lalSB2K+CFs7eOniVyubTBs
-	I0gDza8OiJnd5Rp27XiQfe90hVLG5kssW9ypOiofqO8zRM5fQVrjVvXHbzCZ/LNWXL0=
-X-Gm-Gg: AZFdTZf8nTp/D4TeMdmTJBREnI4dlYuOBC4PV8nTvbDZIKhe9yJ29xx42nh8LTedXy3
-	OU8PCx+kkGmQ+1cqpudAfJtB1JPR1EaQi7ZXxuiro4bH2UurfmGwG9atCkF8YbHo9mI7zWCcdki
-	r/WsmFuKybFqM/Dx8nXkYLnyEZW/ZIQ7OiOu0QY+xRdQofwv2ZtaZBSaK9THUvzk+OI+B1p2TYn
-	S4SzE7heY1iFmCMNrgDTyxnd8EskQXgG1Hv9eenTdyvtqDMDolAPnlDt+81VOYmE08pGYomIm+F
-	0t5pCp5ZFLRaTWPRvgFhywbfV8vJuntyhY4B5hOFsteR5Cq7S8OafW1XZv0cxCj9iudhzfdz/eQ
-	o2iBr2eUu41ZQgYMPPWC6rlyokwEvRmPO6hydl6dvGOxwCOGmF57BZUh7Fi2xOKtEx5UFF7N3cc
-	xMz0yXIhQJ9Iuat1Tt1yLs441KgxkbOnQdITJFwcs9iVTHeKdLllgeEYrHHohx7iZyeZOOZInO4
-	Gn9kfjv3HfQXM8w1y2gylfm2LYaTpCWqK+jQFdh2YSP2bWhWHFRhOmKrqoPTF8qQ17ET9h1si3p
-	7ytO0/20Y/U9bqFEwCfDmeMM
-X-Received: by 2002:a05:7300:7f19:b0:358:dfed:d0fe with SMTP id 5a478bee46e88-3827d81f0c0mr1893584eec.5.1794984901875;
-        Tue, 17 Nov 2026 22:55:01 -0800 (PST)
-Received: from houminxi ([61.170.225.237])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7fbceffsm4612640eec.28.2026.11.17.22.54.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:55:01 -0800 (PST)
-From: Minxi Hou <houminxi@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Aaron Conole <aconole@redhat.com>,
-	Eelco Chaudron <echaudro@redhat.com>,
-	Ilya Maximets <i.maximets@ovn.org>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	stable@vger.kernel.org,
-	Minxi Hou <houminxi@gmail.com>,
-	Matthieu Baerts <matttbe@kernel.org>
-Subject: [PATCH net v5 2/2] selftests/net/openvswitch: check that a failed set keeps the features
-Date: Wed, 18 Nov 2026 01:54:35 -0500
-Message-ID: <20261118065435.2367014-3-houminxi@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118065435.2367014-1-houminxi@gmail.com>
-References: <20261118065435.2367014-1-houminxi@gmail.com>
+	dkim=pass (2048-bit key) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=IZK5hxXj
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI6w9Q211123916, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1794985089; bh=FwQzXqOlZf12zJP3Pg0931RBaDdFGOMlSkw3C6GM42c=;
+	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:MIME-Version;
+	b=IZK5hxXjMkHUsEtH/dDvVO0voAre2tvof2+KrWjgIp8Mf2JOrTm5dgRGjcgQOOUdu
+	 yWpJd/0JkrxkwZHfB72BcMYRzGGULEycz3ixexZSH9XEPpd/9LJ6wlxwx/2ENrWQ22
+	 AYhkqG3za7TDWtBNl2kbOvzHp/4DMcwAp7LUdgYedRCuruWs9gSddJ7jd8gi7Om4Ov
+	 fGIyBdcLaXPJiPONrk4tlmRPxDa756yPNkP2jeiBfwf8bqHByZUpdlEAtSv3mRkODd
+	 DNorvyGk9e9EkmHssD+8hVEpsfZ5to3G3fdp70LuanGWXjOSHapFoXawXzmEYjGL30
+	 7o6PkN4mAEWTg==
+Received: from mail.realtek.com (rtkexhmbs02.realtek.com.tw[172.21.6.41])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI6w9Q211123916
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 18 Nov 2026 14:58:09 +0800
+Received: from RTKEXHMBS03.realtek.com.tw (10.21.1.53) by
+ RTKEXHMBS02.realtek.com.tw (172.21.6.41) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Wed, 18 Nov 2026 14:58:09 +0800
+Received: from RTKEXHMBS03.realtek.com.tw ([fe80::d2b4:cd25:1a3e:aca8]) by
+ RTKEXHMBS03.realtek.com.tw ([fe80::d2b4:cd25:1a3e:aca8%9]) with mapi id
+ 15.02.2562.056; Wed, 18 Nov 2026 14:58:09 +0800
+From: Hayes Wang <hayeswang@realtek.com>
+To: "oraveeps@pm.me" <oraveeps@pm.me>, Chih Kai Hsu <hsu.chih.kai@realtek.com>
+CC: "javen_xu@realsil.com.cn" <javen_xu@realsil.com.cn>,
+	"mail@birger-koblitz.de" <mail@birger-koblitz.de>,
+	"linux-firmware@kernel.org" <linux-firmware@kernel.org>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>
+Subject: RE: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
+Thread-Topic: rtl_nic: request for rtl8159-1.fw (RTL8159 PHY firmware)
+Thread-Index: AQHdb2VfgJsm8wxO00aZW8BLDoptIbcwahig//+eEICAA2yhAA==
+Date: Wed, 18 Nov 2026 06:58:09 +0000
+Message-ID: <260ddf2d9e344d2dae559a1c3909e92f@realtek.com>
+References: <PfNGg6VjMdDzTCX2LETCm65NKSR0af1EG7ZX5CI-7Fef0x8NE2MnZ8fNtgr1Hm86sNjqHXcNyyqIbbeZL5jDu7URTqMygnyj4ulG00NxR7U=@pm.me>
+ <7b6ef8fb2c14485380c90f1f7521ea9b@realtek.com>
+ <tPt9UQiUVXfE9K4MHjmkc9no1QcTNZAOhmdtvdx_yaIkVdWoxkTdDFxCdBK5RU5nKHrKGy99QZq_rUsF0mWO9bfPZmS_8tjbbrNl2B5mNwg=@pm.me>
+In-Reply-To: <tPt9UQiUVXfE9K4MHjmkc9no1QcTNZAOhmdtvdx_yaIkVdWoxkTdDFxCdBK5RU5nKHrKGy99QZq_rUsF0mWO9bfPZmS_8tjbbrNl2B5mNwg=@pm.me>
+Accept-Language: zh-TW, en-US
+Content-Language: zh-TW
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,382 +84,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Add a set-dp command to ovs-dpctl for the kernel's datapath SET command,
-and two tests that use it.
-
-The first test clears the features of a fresh datapath, sets the dispatch
-bit with a valid pid list, and clears them again. It then sends a set that
-would set that bit with an empty per-cpu-pids. The request has to fail
-with EINVAL, and the datapath has to keep reporting the features it had,
-which a kernel that records them before the change reads as 0x8 instead of
-0x0. A second request sends OVS_DP_CMD_NEW for that name from an outdated
-client, which makes the kernel drop the features, and a further set has
-to work.
-
-The second test covers the recirc bit. It sets that bit on a fresh datapath
-and sends a set that would set the dispatch bit with an empty per-cpu-pids.
-The rejected request has to leave the recirc bit in place. A kernel that
-records the features first reads 0x8 there instead of 0x4. A datapath
-holds that bit only when the tc skb extension is compiled in, so the test
-prints the reason and skips when the kernel answers EOPNOTSUPP, and any
-other failure of that request fails the test. CONFIG_NET_TC_SKB_EXT
-depends on CONFIG_NET_CLS_ACT and both sit under CONFIG_NET_SCHED, so the
-selftest config fragment selects all three.
-
-The reference count itself is not visible from user space, so the steps
-that use an outdated client only show that those paths run and that a
-datapath keeps working across them.
-
-set-dp sends the features it is given. When --features is left out it
-sends the features the datapath reports, and it refuses to send the
-request when the datapath reports none. A pid list that is not a list of
-numbers is reported as such, and empty entries are dropped.
-
-A failing run deletes debug.log, and ovs_sbx sends a command's stdout into
-that same file, so the tests report a failure reason on stderr. stderr
-still reaches the test runner from inside ovs_sbx, and unlike a duplicated
-stdout it is not a second handle on the runner's pipe. The daemons the
-suite starts outlive the script, and one that inherits such a handle keeps
-the pipe open after the script exits, which leaves the run hanging until
-the harness times out.
-
-Every step that can fail says why it did. A datapath that cannot be read
-is reported as that rather than as a feature mismatch: ovs-dpctl prints a
-missing datapath and exits 0, and it leaves the features line out when the
-kernel does not report them, so the check reads both cases from the output.
-
-Reported-by: Matthieu Baerts <matttbe@kernel.org>
-Link: https://lore.kernel.org/netdev/998d522f-e61d-420f-9834-6bdcbaab1361@kernel.org/
-Signed-off-by: Minxi Hou <houminxi@gmail.com>
----
- .../testing/selftests/net/openvswitch/config  |   3 +
- .../selftests/net/openvswitch/openvswitch.sh  | 195 ++++++++++++++++++
- .../selftests/net/openvswitch/ovs-dpctl.py    |  65 ++++++
- 3 files changed, 263 insertions(+)
-
-diff --git a/tools/testing/selftests/net/openvswitch/config b/tools/testing/selftests/net/openvswitch/config
-index 15685d242813..38fa1477b7cd 100644
---- a/tools/testing/selftests/net/openvswitch/config
-+++ b/tools/testing/selftests/net/openvswitch/config
-@@ -2,10 +2,13 @@ CONFIG_GENEVE=m
- CONFIG_INET_DIAG=y
- CONFIG_IP_SCTP=y
- CONFIG_IPV6=y
-+CONFIG_NET_CLS_ACT=y
- CONFIG_NETFILTER=y
- CONFIG_NETFILTER_ADVANCED=y
- CONFIG_NET_IPGRE=m
- CONFIG_NET_IPGRE_DEMUX=m
-+CONFIG_NET_SCHED=y
-+CONFIG_NET_TC_SKB_EXT=y
- CONFIG_NF_CONNTRACK=m
- CONFIG_NF_CONNTRACK_OVS=y
- CONFIG_NF_CT_PROTO_SCTP=y
-diff --git a/tools/testing/selftests/net/openvswitch/openvswitch.sh b/tools/testing/selftests/net/openvswitch/openvswitch.sh
-index 21444657a040..062ad7a45650 100755
---- a/tools/testing/selftests/net/openvswitch/openvswitch.sh
-+++ b/tools/testing/selftests/net/openvswitch/openvswitch.sh
-@@ -24,6 +24,8 @@ tests="
- 	nat_connect_v4				ip4-nat-xon: Basic ipv4 tcp connection via NAT
- 	nat_related_v4				ip4-nat-related: ICMP related matches work with SNAT
- 	netlink_checks				ovsnl: validate netlink attrs and settings
-+	dp_features				ovsdp: failed set keeps bits
-+	dp_features_recirc			ovsdp: recirc bit survives
- 	upcall_interfaces			ovs: test the upcall interfaces
- 	tunnel_metadata				ovs: test extraction of tunnel metadata
- 	drop_reason				drop: test drop reasons are emitted
-@@ -1409,6 +1411,199 @@ test_netlink_checks () {
- 	return 0
- }
- 
-+ovs_dp_features_set() {
-+	python3 $ovs_base/ovs-dpctl.py set-dp "$@"
-+}
-+
-+ovs_dp_features_check() {
-+	local out
-+
-+	# A datapath that cannot be read and a datapath that reports other
-+	# features are different faults, so they return different statuses.
-+	# ovs-dpctl prints a missing datapath instead of failing, and it leaves
-+	# the features line out when the kernel does not report them, so both
-+	# have to be recognised in the output. It prints the value with %X, so
-+	# convert before comparing.
-+	out=$(python3 $ovs_base/ovs-dpctl.py show "$1") || {
-+		printf '# could not run ovs-dpctl show %s\n' "$1" >&2
-+		return 2
-+	}
-+	case $out in
-+	*"No DP found"*)
-+		printf '# the datapath %s does not exist\n' "$1" >&2
-+		return 2
-+		;;
-+	*"features: 0x"*) ;;
-+	*)
-+		printf '# the datapath %s reports no features\n' "$1" >&2
-+		return 2
-+		;;
-+	esac
-+	printf '%s\n' "$out" |
-+		grep -q "features: 0x$(printf '%X' "$2")\$"
-+}
-+
-+# info() writes debug.log, and a failing run deletes that file, so a FAIL
-+# would reach CI with no reason. ovs_sbx sends a command's stdout to that
-+# file too, which is why this writes to stderr: it is the one stream that
-+# still reaches the test runner from inside ovs_sbx. Do not duplicate stdout
-+# for this. The suite spawns daemons that outlive the script, and a second
-+# handle on the runner's pipe keeps it open after the script exits, which is
-+# a run that never finishes.
-+ovs_fail() {
-+	printf '# %s\n' "$*" >&2
-+	return 1
-+}
-+
-+ovs_dp_features_expect() {
-+	local rc
-+
-+	ovs_dp_features_check "$1" "$2"
-+	rc=$?
-+	if [ $rc -ne 0 ]; then
-+		# The check already said why it could not answer; this adds the
-+		# expectation that was not met.
-+		ovs_fail "$3"
-+		return 1
-+	fi
-+	return 0
-+}
-+
-+# EOPNOTSUPP is not in the base errno list and its number differs by
-+# architecture, so ask python instead of hard-coding one.
-+ovs_errno() {
-+	local n
-+
-+	n=$(python3 -c "import errno; print(errno.$1)" 2>/dev/null)
-+	if [ -z "$n" ]; then
-+		printf '# could not read errno.%s from python\n' "$1" >&2
-+		return 1
-+	fi
-+	printf '%s\n' "$n"
-+}
-+
-+# dp_features test
-+# - a set with the dispatch bit and pids is accepted and reported back
-+# - a set with an empty per-cpu-pids is rejected with EINVAL and leaves
-+#   the features as they were
-+# - an outdated new request drops the features, and sets work afterwards
-+test_dp_features() {
-+	local t="test_dp_features"
-+	local dp="dpfeat0"
-+
-+	sbx_add "$t" || return $?
-+	ovs_add_dp "$t" "$dp" || return 1
-+
-+	info "clear the datapath features"
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 0 ||
-+	    { ovs_fail "the datapath features could not be cleared"; return 1; }
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 0 \
-+	    "features were not cleared" || return 1
-+
-+	# 8 is OVS_DP_F_DISPATCH_UPCALL_PER_CPU, the bit that makes the
-+	# kernel read per-cpu-pids.
-+	info "a set with the dispatch bit and pids is accepted"
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 \
-+	    --per-cpu-pids 1,2 ||
-+	    { ovs_fail "the set with dispatch and pids failed"; return 1; }
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 8 \
-+	    "the accepted set was not applied" || return 1
-+
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 0 ||
-+	    { ovs_fail "the features could not be cleared"; return 1; }
-+
-+	# ovs-dpctl sends the empty list as an attribute with no payload,
-+	# which is what the kernel rejects.
-+	info "a set with an empty per-cpu-pids is rejected"
-+	einval=$(ovs_errno EINVAL) || return 1
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 \
-+	    --per-cpu-pids "" &> /dev/null
-+	rc=$?
-+	[ $rc -eq "$einval" ] || {
-+		ovs_fail "the empty per-cpu-pids set failed with $rc"
-+		return 1
-+	}
-+
-+	info "the rejected set keeps the features it had"
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 0 \
-+	    "the rejected set changed the features" || return 1
-+
-+	# An outdated client that asks for an existing datapath again makes
-+	# the kernel drop its features. The datapath keeps working.
-+	info "an outdated new request drops the features"
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 ||
-+	    { ovs_fail "the datapath rejected the dispatch bit"; return 1; }
-+	ovs_sbx "$t" python3 $ovs_base/ovs-dpctl.py add-dp "$dp" -V 1:0 || {
-+		ovs_fail "the outdated add request did not run"
-+		return 1
-+	}
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 0 \
-+	    "the outdated new request did not drop the features" || return 1
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 || {
-+		ovs_fail "the datapath stopped accepting sets"
-+		return 1
-+	}
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 8 \
-+	    "the reset datapath took no features" || return 1
-+
-+	return 0
-+}
-+
-+# dp_features_recirc test
-+# - a datapath that holds the recirc bit keeps it across a rejected set
-+# - an outdated new request drops the features
-+# - the bit needs CONFIG_NET_TC_SKB_EXT, so the test skips without it
-+test_dp_features_recirc() {
-+	local t="test_dp_features_recirc"
-+	local dp="dpfeat1"
-+
-+	sbx_add "$t" || return $?
-+	ovs_add_dp "$t" "$dp" || return 1
-+
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 0 ||
-+	    { ovs_fail "the datapath features could not be cleared"; return 1; }
-+
-+	# 4 is OVS_DP_F_TC_RECIRC_SHARING. The kernel takes the bit only when
-+	# the tc skb extension is compiled in.
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 4 &> /dev/null
-+	rc=$?
-+	if [ $rc -ne 0 ]; then
-+		eopnotsupp=$(ovs_errno EOPNOTSUPP) || return 1
-+		if [ $rc -eq "$eopnotsupp" ]; then
-+			# info() only writes debug.log, which CI does not keep.
-+			printf '# no tc skb extension, skipping recirc\n' >&2
-+			ovs_exit_sig
-+			return $ksft_skip
-+		fi
-+		ovs_fail "the recirc set failed with $rc"
-+		return 1
-+	fi
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 4 \
-+	    "the accepted recirc set was not applied" || return 1
-+
-+	info "the rejected set keeps the recirc bit"
-+	einval=$(ovs_errno EINVAL) || return 1
-+	ovs_sbx "$t" ovs_dp_features_set "$dp" --features 8 \
-+	    --per-cpu-pids "" &> /dev/null
-+	rc=$?
-+	[ $rc -eq "$einval" ] || {
-+		ovs_fail "the rejected set failed with $rc"
-+		return 1
-+	}
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 4 \
-+	    "the rejected set dropped the recirc bit" || return 1
-+
-+	info "an outdated new request drops the features"
-+	ovs_sbx "$t" python3 $ovs_base/ovs-dpctl.py add-dp "$dp" -V 1:0 || {
-+		ovs_fail "the outdated add request did not run"
-+		return 1
-+	}
-+	ovs_sbx "$t" ovs_dp_features_expect "$dp" 0 \
-+	    "the outdated new request did not drop the features" || return 1
-+
-+	return 0
-+}
-+
- test_upcall_interfaces() {
- 	sbx_add "test_upcall_interfaces" || return 1
- 
-diff --git a/tools/testing/selftests/net/openvswitch/ovs-dpctl.py b/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-index 1615843c225e..efad71649a63 100644
---- a/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-+++ b/tools/testing/selftests/net/openvswitch/ovs-dpctl.py
-@@ -2301,6 +2301,25 @@ class OvsDatapath(GenericNetlinkSocket):
- 
-         return reply
- 
-+    def set(self, dpname, ifindex=0, features=None, per_cpu_pids=None):
-+        """ Send OVS_DP_CMD_SET for a datapath. """
-+        msg = OvsDatapath.dp_cmd_msg()
-+        msg["cmd"] = OVS_DP_CMD_SET
-+        msg["version"] = OVS_DATAPATH_VERSION
-+        msg["reserved"] = 0
-+        msg["dpifindex"] = ifindex
-+        msg["attrs"].append(["OVS_DP_ATTR_NAME", dpname])
-+        if features is not None:
-+            msg["attrs"].append(["OVS_DP_ATTR_USER_FEATURES", features])
-+        if per_cpu_pids is not None:
-+            msg["attrs"].append(["OVS_DP_ATTR_PER_CPU_PIDS", per_cpu_pids])
-+
-+        reply = self.nlm_request(
-+            msg, msg_type=self.prid, msg_flags=NLM_F_REQUEST | NLM_F_ACK
-+        )
-+
-+        return reply[0]
-+
-     def create(
-         self, dpname, shouldUpcall=False, versionStr=None, p=OvsPacket()
-     ):
-@@ -2961,6 +2980,23 @@ def main(argv):
-     deldpcmd = subparsers.add_parser("del-dp")
-     deldpcmd.add_argument("deldp", help="Datapath Name")
- 
-+    setdpcmd = subparsers.add_parser("set-dp")
-+    setdpcmd.add_argument("setdp", help="Datapath Name")
-+    setdpcmd.add_argument(
-+        "-f",
-+        "--features",
-+        type=lambda x: int(x, 0),
-+        default=None,
-+        help="Datapath user features, defaults to the current value",
-+    )
-+    setdpcmd.add_argument(
-+        "-p",
-+        "--per-cpu-pids",
-+        type=str,
-+        default=None,
-+        help="Comma separated upcall pids, an empty string sends none",
-+    )
-+
-     addifcmd = subparsers.add_parser("add-if")
-     addifcmd.add_argument("dpname", help="Datapath Name")
-     addifcmd.add_argument("addif", help="Interface name for adding")
-@@ -3057,6 +3093,35 @@ def main(argv):
-             ovspk.upcall_handler(ovsflow)
-     elif hasattr(args, "deldp"):
-         ovsdp.destroy(args.deldp)
-+    elif hasattr(args, "setdp"):
-+        rep = ovsdp.info(args.setdp, 0)
-+        if rep is None:
-+            print(f"DP '{args.setdp}' not found.")
-+            return 1
-+        pids = None
-+        if args.per_cpu_pids is not None:
-+            # Empty entries are typos in a list the user did write, so drop
-+            # them. An empty string leaves pids as [] and not None, which
-+            # set() sends as an attribute with no payload: the kernel refuses
-+            # that with EINVAL, and the selftest counts on the refusal.
-+            try:
-+                pids = [int(x) for x in args.per_cpu_pids.split(",")
-+                        if x != ""]
-+            except ValueError:
-+                print(f"invalid per-cpu-pids: {args.per_cpu_pids}")
-+                return 1
-+        features = args.features
-+        if features is None:
-+            features = rep.get_attr("OVS_DP_ATTR_USER_FEATURES")
-+            if features is None:
-+                print(f"DP '{args.setdp}' does not report its features")
-+                return 1
-+        try:
-+            ovsdp.set(args.setdp, rep["dpifindex"], features, pids)
-+        except NetlinkError as ne:
-+            print(f"set failed: {ne.args[1]}")
-+            return ne.code
-+        print(f"DP '{args.setdp}' updated")
-     elif hasattr(args, "addif"):
-         rep = ovsdp.info(args.dpname, 0)
-         if rep is None:
--- 
-2.56.1
-
+b3JhdmVlcHNAcG0ubWUgPG9yYXZlZXBzQHBtLm1lPg0KPiBTZW50OiBNb25kYXksIE5vdmVtYmVy
+IDE2LCAyMDI2IDY6MzggUE0NClsuLi5dDQo+IEhpIEhheWVzLA0KPiANCj4gVGhhbmtzIGZvciB0
+aGUgZmlsZXMgKHJ0bDgxNTctMSBhbmQgcnRsODE1OS0xLCB2MSAxMS8xMy8yNikuIE1haW5saW5l
+DQo+IHI4MTUyICh2Ny4yLjQgaGVyZSwgc2FtZSBjb2RlIGluIHY3LjQtcmMxKSByZWplY3RzIHRo
+ZW0gYXQgdGhlIGZpcnN0DQo+IGJsb2NrOiBydGw4MTUyX2lzX2Z3X21hY19vaygpIGhhcyBubyBS
+VExfVkVSXzE2L1JUTF9WRVJfMTcgY2FzZSBmb3INCj4gUlRMX0ZXX1BMQSBvciBSVExfRldfVVNC
+LCBzbyBydGw4MTUyX2NoZWNrX2Zpcm13YXJlKCkgZmFpbHMgd2l0aA0KPiAiY2hlY2sgVVNCIGZp
+cm13YXJlIGZhaWxlZCIuDQo+IA0KPiBBbiBydGw4MTU5LTEuZncgd2l0aCBvbmx5IHlvdXIgUEhZ
+X1NQRUVEX1VQIGJsb2NrIChjaGVja3N1bQ0KPiByZWNvbXB1dGVkKSBsb2FkcyB3aXRoIHRoZSBp
+bi10cmVlIGRyaXZlciBvbiA3LjIuNCBhbmQgbGlua3MgbXkgUlRMODE1OQ0KPiBhZGFwdGVyICgw
+YmRhOjgxNWEpIGF0IDEwRy4NCj4gDQo+IFRoZSBzZXJpZXMgInI4MTUyOiBzcGxpdCBSVExfVkVS
+XzE3IGludG8gUUZONjggYW5kIFFGTjEwMCBwYWNrYWdlDQo+IHZhcmlhbnRzIiAodjgpIGRvZXMg
+bm90IGNoYW5nZSBydGw4MTUyX2lzX2Z3X21hY19vaygpIGVpdGhlciwgc28gdGhlDQo+IGZ1bGwg
+ZmlsZXMgYXJlIHJlamVjdGVkIHdpdGggaXQgYXBwbGllZCB0b28uIElzIGEgZHJpdmVyIGNoYW5n
+ZSBmb3IgdGhlDQo+IFBMQS9VU0IgYmxvY2tzIHBsYW5uZWQ/IElmIG5vdCwgY291bGQgcnRsODE1
+OS0xLmZ3IGNhcnJ5IG9ubHkgdGhlIFBIWQ0KPiBibG9jaz8NCg0KQ2hpaC1LYWkgd2lsbCB1cGRh
+dGUgdGhlIGRyaXZlci4NCkhvd2V2ZXIsIHNvbWUgcGF0Y2hlcyBhcmUgc3RpbGwgcGVuZGluZyBy
+ZXZpZXcsDQpzbyB3ZSBuZWVkIHRvIHdhaXQgdW50aWwgdGhleSBhcmUgbWVyZ2VkIGJlZm9yZSBw
+cm9jZWVkaW5nLg0KDQoNCkJlc3QgUmVnYXJkcywNCkhheWVzDQoNCj4gVGhhbmtzLA0KPiBKb25h
+cyBBdXR6ZW4NCj4gDQo+IA0KPiBPbiBNb25kYXksIDE2IE5vdmVtYmVyIDIwMjYgYXQgMDk6MzAs
+IEhheWVzIFdhbmcNCj4gPGhheWVzd2FuZ0ByZWFsdGVrLmNvbT4gd3JvdGU6DQo+IA0KPiA+IEhp
+LA0KPiA+DQo+ID4gQ291bGQgeW91IHBsZWFzZSB0cnkgb3V0IHRoZSBhdHRhY2hlZCBmaWxlcz8N
+Cj4gPg0KPiA+IEJlc3QgUmVnYXJkcywNCj4gPg0KPiA+IEhheWVzDQo+ID4NCj4gPiA+IEZyb206
+IG9yYXZlZXBzQHBtLm1lIDxvcmF2ZWVwc0BwbS5tZT4NCj4gPiA+IFNlbnQ6IFN1bmRheSwgTm92
+ZW1iZXIgOCwgMjAyNiA1OjQyIFBNDQo+ID4gPiBUbzogSGF5ZXMgV2FuZyA8aGF5ZXN3YW5nQHJl
+YWx0ZWsuY29tPg0KPiA+ID4gQ2M6IGphdmVuX3h1QHJlYWxzaWwuY29tLmNuOyBtYWlsQGJpcmdl
+ci1rb2JsaXR6LmRlOw0KPiBsaW51eC1maXJtd2FyZUBrZXJuZWwub3JnOyBuZXRkZXZAdmdlci5r
+ZXJuZWwub3JnDQo+ID4gPiBTdWJqZWN0OiBydGxfbmljOiByZXF1ZXN0IGZvciBydGw4MTU5LTEu
+ZncgKFJUTDgxNTkgUEhZIGZpcm13YXJlKQ0KPiA+ID4NCj4gPiA+IEV4dGVybmFsIG1haWwgOiBU
+aGlzIGVtYWlsIG9yaWdpbmF0ZWQgZnJvbSBvdXRzaWRlIHRoZSBvcmdhbml6YXRpb24uIERvIG5v
+dA0KPiByZXBseSwgY2xpY2sgbGlua3MsIG9yIG9wZW4gYXR0YWNobWVudHMgdW5sZXNzIHlvdSBy
+ZWNvZ25pemUgdGhlIHNlbmRlciBhbmQNCj4ga25vdyB0aGUgY29udGVudCBpcyBzYWZlLg0KPiA+
+ID4NCj4gPiA+IEhpIEhheWVzLA0KPiA+ID4NCj4gPiA+IFNpbmNlIGNvbW1pdCBhNTFlMTcxZTE3
+NmMgKCJyODE1MjogQWRkIGZpcm13YXJlIHVwbG9hZCBjYXBhYmlsaXR5IGZvcg0KPiA+ID4NCj4g
+PiA+IFJUTDgxNTcvUlRMODE1OSIpLCBtYWlubGluZSByODE1MiByZXF1ZXN0cyBydGxfbmljL3J0
+bDgxNTktMS5mdyBmb3IgdGhlDQo+ID4gPg0KPiA+ID4gUlRMODE1OSBQSFkuIFdpdGhvdXQgaXQg
+dGhlIGxpbmsgc3RheXMgYXQgNSBHYml0L3MsIGFuZCBsaW51eC1maXJtd2FyZQ0KPiA+ID4NCj4g
+PiA+IGhhcyBubyBydGw4MTU5LTEuZncgeWV0IChub3IgcnRsODE1Ny0xLmZ3KS4NCj4gPiA+DQo+
+ID4gPiBJIHJ1biB0aHJlZSBSVEw4MTU5IGFkYXB0ZXJzIChVU0IgSUQgMGJkYTo4MTVhKSBvbiBr
+ZXJuZWwgNy4yLjQuIFRoZXkNCj4gPiA+DQo+ID4gPiByZWFjaCAxMCBHYml0L3Mgb25seSB3aXRo
+IFJlYWx0ZWsncyBvdXQtb2YtdHJlZSByODE1MiB2Mi4yMi4xLCB3aGljaA0KPiA+ID4NCj4gPiA+
+IGNhcnJpZXMgdGhlIFBIWSBwYXRjaCBpbnNpZGUgdGhlIGRyaXZlci4gV2l0aCBydGw4MTU5LTEu
+ZncgaW4NCj4gPiA+DQo+ID4gPiBsaW51eC1maXJtd2FyZSwgdGhlIGluLXRyZWUgZHJpdmVyIGNv
+dWxkIGRvIHRoZSBzYW1lIGFuZCB1c2VycyBjb3VsZA0KPiA+ID4NCj4gPiA+IGRyb3AgdGhlIG91
+dC1vZi10cmVlIG1vZHVsZS4NCj4gPiA+DQo+ID4gPiBDb3VsZCBSZWFsdGVrIHN1Ym1pdCBydGw4
+MTU5LTEuZncsIGFuZCBydGw4MTU3LTEuZncgaWYgdGhlcmUgaXMgb25lLCB0bw0KPiA+ID4NCj4g
+PiA+IGxpbnV4LWZpcm13YXJlPyBJIGFtIGhhcHB5IHRvIHRlc3QgYSBjYW5kaWRhdGUgZmlsZSBv
+biB0aGVzZSBhZGFwdGVycy4NCj4gPiA+DQo+ID4gPiBUaGFua3MsDQo+ID4gPg0KPiA+ID4gSm9u
+YXMgQXV0emVuDQo=
