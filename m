@@ -1,99 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.100
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795025464;
-	b=w+HtJZpi22Wxxk+OlvuB/ubYYBu72b2FASisQCh6nY3Hk19z6GNrNSYrZR++DOflkdkD
-	 xTq4nCS5E4WMoFnJ2Tf4rBGK7ztY1wI9Q4TYuHHsV02E2tzK4sKUqlSF7hMpBi6vxwHDa
-	 bLxa+sE48vu4HFPybY31hsmWqmcrdwjJt9zehmSFPapyG9/P2GkpQHrogq8giL95v0QA+
-	 VGc1AiL1gTtlhR8Gyz0qwPjlWNmDOB4i0ne78sGYzBO5jI0upImF4G7oqALSuvABhCfcW
-	 q11/YBjxt6OPTwzoMJhYcLoiw36C98Ll2AoYnUaBo4aTEsgCbuCk/B50HaGff55utqw==
+	t=1795025502;
+	b=G5IC8w+sYUK068TDrXXn8Dyf7Ip0UM1t66hhCf42BrnwVzp25NIdE1vBSyD/LG2qzsYN
+	 0gAr2KR3pdyNa+3EvaMdwAqiwBGZ+7I1QM8Xtbn3rkCEiry9+jZr72Yylob7urj8BzUbt
+	 9WNvRDkO9ygM9qsg7/b+QXFAFkoiz4p7gYb2qJxdfEOUC1tQ+ReQ+dGOnnxYismbezQtd
+	 KA2vqsoQ/NYMfdrt767uzBKnlAWK/D50ZL0+LIMQnDCrY21ObvWBDquXypW2slNWUeL+x
+	 9wU4ah0HQW57KUTW2HkmeB7eP47LWCvcfxID+UDLWT+JABZK8zcmwsjzNP7PbblaWkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795025464;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=h+nI0N1fI6gl+3hdnXgBqPEyuibrGS+Uti+mYCJPRCg=;
-	b=n4zSODQXz7vqtOpEqhGB61cpZgqZ7UUibgv+QjY/GyvFAAIR/WZ0LCae0PoyAznQQHRk
-	 U69X6SDnywGafJQjOD+PNFj7vfAk/mLm+TjwwjDfi1Yl0V3mjqeSQO2AVxhSDifmRMrqo
-	 xylFb+rC0dh7Wy9K/io6TqFjFqmDbb8/roI/YuC0pAFuhbM5aNX7jO1vyzdycbNoMFWbv
-	 Ff12owgbMSQAoeBtGGmB9ia9RqXrUopQkxZS/KWanP9LxUUNqwc6NwQvTOpNMPCOrtXa2
-	 caoJ34Iqchh6DtNQDwv9Mwb5L7hBo96tVnUghRDiKU87QKmPVjOX7iGVNcdlxV33ogg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795025502;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=uRkdK0D1Evn9yPGULWEQBwZUI3TEJ1+/UYjutxpisho=;
+	b=D5GEZO9c3Su9JfdwTxHJVwc18U6FSUH4Ky5uszMmB6YdYbodNBOZ7boOPTpBBo94XLvX
+	 y1xmPYRYeF9cAKEgIaBIhXnGFCZxosSk/ke2uQI4ED110e+jjcrQQ1L0aUpYu1Lo+9GNi
+	 0P/BPmbIydV0rUilzrrLVK6IksY/GbKmDGJnTW40dKM7dz74RoeuYOwWFHx4AqVkwQSkX
+	 TpEAsVvtIYmDf1RGWxDGreNpj51sTqEhGCqIxSzo/OMFY4DX8jGfTDPsu6kKzP+CM5ZG9
+	 Ci2DcchsELuXL+YURLvVlWjphm35jNgcnNjvUHA6cP5dTqisIzZgM+jwtMMjVUaTpFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Cc02dmjO;
-	arc=none smtp.remote-ip=209.85.216.100
-Received: from mail-pj1-f100.google.com (mail-pj1-f100.google.com [209.85.216.100])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=sEqgIa6T;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AFBB606A32C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 18:11:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AFBB606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ED51D606A320;
+	Wed, 18 Nov 2026 18:11:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ED51D606A320
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Cc02dmjO
-Received: by mail-pj1-f100.google.com with SMTP id 98e67ed59e1d1-3b3a914e4c8so893340a91.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:11:03 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795025463; x=1795630263;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=h+nI0N1fI6gl+3hdnXgBqPEyuibrGS+Uti+mYCJPRCg=;
-        b=T8xyf1eqikXfhV8VRjMxtf4XPu74l01Ga05JZlf7evC59AuXIGCh63kgZ5i1MUXXKj
-         KlSNTA+PNQzJomoFA8mxxH4Qq/ZNsshQM+l895PNW+8j7A7duX8+BF+0ti7oBXkmdxaL
-         h1JjaBY0mkxJf6aPJEEAkZ4NjaHOgbtlzvTcXJz5NSmTzWLfNiPD0R3tVNGRlLhT4gV2
-         dYWPC8Nq2776xY4OhvMcqji8LdfmU1odTvW+FD72PHTpedg+QGW4HKLXjQIKnEWZjsxW
-         ba90+5vF3Je+KJM4Tb1kVXjtAEsCdESuYqwoHEuUGwf3HrOP7NSFGRW1qHWnAycnmYfp
-         Qy+g==
-X-Gm-Message-State: APuU4Z9O3Obw7TV9OXHs+YICGjspOYmI+tQs+Gy8pfqP84UofC9Q8fTc
-	SrJr+JqoN+k5F7NroIjdcBIqhL15EK+3TvoOJ2oAdHGmyS8FTQzHMS2lA3liZkePvMOgaQvpsGy
-	fNftZaFHYY9nfX3MdjL8ssDMGUnmMWaQs0Y0ETorYcRnoIZXumbecgBpqdKFHVwmZbvq//nZUx7
-	UUWV9ORz01EbAJgd5jB4w3ZXpYgDoBSq+qqrKC6BcdtUIuVTvgxcT4qnorhibzKKus8aSCxbmAX
-	qyL4/AgK8svU7Qs
-X-Gm-Gg: AZFdTZea91xafLbAxTrUouLDdJdYY+22Y70t/WKSn2odavNGI8oKUz/weST0AUbcrj/
-	12BitZ5V6ROrgBj3Iw3KBYXxtnVD68SfodHkdHz+oAIipuSLd8h4NA3i9l/AWpSD+SR2bi4icxr
-	N8ZCgWhNSrSSvWCaTdiOZIRkK+TwngzfjkOh+K7FSphuhhEIv38T/6qRfHoEH4zIlaM5+UXd0s7
-	F53SgelFI3n2Qvolt/rDipiDrt+Xth8nz3h/S/73rbFwTMAPOsmM1MxfVYgGsnjrCheNicnsR2q
-	gFjf2ZuF5d/NavsK7WlYxJH0/FVZ5SZno6sKRezcqPw8zbVXeWXHz5sTOaq+aglo578kDERla1g
-	N+1MU6kT/I8iFJRFBcDJtbnKbT/B2ENNOJoRodcNDCxRjqRSahpf5KkvogCflUBrnZDpzu6/tlv
-	cU0xuk2KgU7PZ4q9BOg1et7Y7cgDNWYNaAjasK7hdK
-X-Received: by 2002:a17:90b:3943:b0:3b0:a7b5:c046 with SMTP id 98e67ed59e1d1-3b3d07e09f4mr3699539a91.54.1795025463171;
-        Wed, 18 Nov 2026 10:11:03 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3d4914caasm721096a91.2.2026.11.18.10.11.02
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 10:11:03 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-93cb7f9bb86so281332185a.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:11:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795025461; x=1795630261; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=h+nI0N1fI6gl+3hdnXgBqPEyuibrGS+Uti+mYCJPRCg=;
-        b=Cc02dmjOWdpITY67cZ44ovz353/8tUE6RK2PJL4c/k8UtklHiPfjpSVEkDzuIIL1dn
-         vkducgChbIzgX4c4RYray0ntuiSglz/GHH7/i6xqK6Mi50zW4/9CeDSWNWPIFsAg34BU
-         Fm4CXUu7hNI9/axlrsWHTPKfE8RpTv+RyFB+E=
-X-Received: by 2002:a05:620a:2714:b0:93e:5fff:db07 with SMTP id af79cd13be357-949995b3620mr545480185a.40.1795025461436;
-        Wed, 18 Nov 2026 10:11:01 -0800 (PST)
-X-Received: by 2002:a05:620a:2714:b0:93e:5fff:db07 with SMTP id af79cd13be357-949995b3620mr545473985a.40.1795025460860;
-        Wed, 18 Nov 2026 10:11:00 -0800 (PST)
-Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-9499b75aa1csm239613385a.20.2026.11.18.10.10.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 10:10:59 -0800 (PST)
-Message-ID: <47125533-d611-4d88-8c08-65a1c4b8106d@broadcom.com>
-Date: Wed, 18 Nov 2026 10:10:55 -0800
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=sEqgIa6T
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=uRkdK0D1Evn9yPGULWEQBwZUI3TEJ1+/UYjutxpisho=; b=sEqgIa6TdSV5J3WITaCpQ2DfXB
+	UNk1u+f+qqtx9BvBF6d5mBEMgLQaBHtVYCYte6C4XkAFuO/n3ExRN392lJZtn7+/LPRvq1zz75Xnl
+	FzIBncTDn/HkIBMocnTTHRu/RZ5omO55BJtftPzZ4uCk4vynx9sIfYwVQI+aAG1z4DqE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTk7v-00HU79-27; Wed, 18 Nov 2026 19:11:23 +0100
+Date: Wed, 18 Nov 2026 19:11:23 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: github@bumblecito.com
+Cc: Russell King <linux@armlinux.org.uk>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v3 2/2] net: sfp: sort OEM and Turris SFP quirks
+Message-ID: <fcc50c7d-f55a-4946-bdba-260b89fba889@lunn.ch>
+References: <20261118162323.436219-1-github@bumblecito.com>
+ <20261118162323.436219-3-github@bumblecito.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,223 +66,23 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 6/9] net: flow_offload: allow drivers to validate
- and invalidate cached paths
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, rafal@milecki.pl,
- bcm-kernel-feedback-list@broadcom.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- horms@kernel.org, corbet@lwn.net, jonas.gorski@gmail.com, olteanv@gmail.com,
- pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org
-References: <20261116222519.1416501-7-florian.fainelli@broadcom.com>
- <179495816543.3136.12103952304400202953@kernel.org>
-Content-Language: en-US, fr-FR
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <179495816543.3136.12103952304400202953@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118162323.436219-3-github@bumblecito.com>
 
-On 11/17/26 15:29, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
+On Wed, Nov 18, 2026 at 04:23:23PM +0000, github@bumblecito.com wrote:
+> From: Israel Cueto <github@bumblecito.com>
 > 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> Keep OEM entries together in the vendor table's alphabetical order
+> and sort the OEM and Turris entries by part number.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+> This is a table-ordering cleanup only; preserve all existing quirk
+> matches and fixup functions.
 > 
-> - [Medium] nf_flow_offload_validate()
->    (net/netfilter/nf_flow_table_offload.c:931-939) checks the neighbour…
-> - [Low] nf_flow_offload_validate()
->    (net/netfilter/nf_flow_table_offload.c:929 and 934) is documented as…
-> 
-> --
-> 
-> net: flow_offload: allow drivers to validate and invalidate cached paths
-> 
-> This adds optional invalidate and validate callbacks to struct
-> flow_cls_offload. Offload drivers can use them to ask the flowtable owner
-> whether a cached path is still valid, and to tear the owning flow down.
-> Netfilter now keeps direct-path dst references for hardware flowtables and
-> implements both callbacks, checking dst cookies and direct Ethernet
-> neighbours in each direction.
-> 
->> diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
->> index 4365859220e6a..1f3adf70f5987 100644
->> --- a/net/netfilter/nf_flow_table_offload.c
->> +++ b/net/netfilter/nf_flow_table_offload.c
->> @@ -885,6 +885,62 @@ static int nf_flow_offload_alloc(const struct flow_offload_work *offload,
-> 
-> [ ... ]
-> 
->> +static int nf_flow_offload_validate(unsigned long cookie)
->> +{
->> +	struct flow_offload *flow = nf_flow_offload_cookie_flow(cookie);
->> +	unsigned int dir;
->> +
->> +	for (dir = 0; dir < FLOW_OFFLOAD_DIR_MAX; dir++) {
->> +		struct flow_offload_tuple *tuple = &flow->tuplehash[dir].tuple;
->> +		struct flow_offload_tuple *other = &flow->tuplehash[!dir].tuple;
->> +		struct dst_entry *dst = tuple->dst_cache;
->> +		struct neighbour *neigh;
->> +		u8 mac[ETH_ALEN];
->> +		bool valid;
->> +
->> +		if (!dst)
->> +			return -EOPNOTSUPP;
-> 
-> [ ... ]
-> 
->> +		if (dst->dev->ifindex != tuple->out.ifidx)
->> +			return -EOPNOTSUPP;
->> +		neigh = dst_neigh_lookup(dst, &other->src_v4);
->> +		if (!neigh)
->> +			return -ESTALE;
-> 
-> [Severity: Medium]
-> Can this lookup change the neighbour table? For IPv4, dst_neigh_lookup()
-> goes through ipv4_dst_neigh_lookup()->ip_neigh_gw4(), which creates an
-> entry when the noref lookup misses:
-> 
-> include/net/route.h:ip_neigh_gw4() {
->      ...
-> 	neigh = __ipv4_neigh_lookup_noref(dev, (__force u32)daddr);
-> 	if (unlikely(!neigh)) {
-> 		struct neigh_table *tbl = arp_table(dev_net(dev));
-> 
-> 		neigh = __neigh_create(tbl, &daddr, dev, false);
-> 	}
->      ...
-> }
-> 
-> So validation can allocate a neighbour with GFP_ATOMIC, run forced GC
-> under tbl->lock, and insert a new NUD_NONE entry into the ARP table.
-> 
-> It also looks like two cases that are not provably stale end up returning
-> -ESTALE. The header documents the contract as:
-> 
->      Return 0 for a valid path, -ESTALE for a demonstrably stale path,
->      or -EOPNOTSUPP when validation is unavailable.
-> 
-> The first case is neighbour creation failing (-ENOBUFS at gc_thresh3, or
-> -ENOMEM). dst_neigh_lookup() turns the ERR_PTR into NULL, and the
-> !neigh branch above returns -ESTALE.
-> 
-> The second case is an entry that was garbage collected while the flow kept
-> forwarding. The software DIRECT path uses the cached out.h_dest and never
-> confirms the neighbour, so the entry can age out. Periodic GC can remove it
-> above gc_thresh1, and forced GC can remove it above gc_thresh2. The next
-> validate then creates a NUD_NONE entry, fails the NUD_VALID test below, and
-> returns -ESTALE, even though the next hop and MAC have not changed.
-> 
-> The consumer, fa_replace() in drivers/net/ethernet/broadcom/bcm-ns-fa.c
-> (added later in this series by "net: bgmac: add Northstar IPv4 TCP/UDP NAT
-> flowtable offload"), calls cls->invalidate() on -ESTALE. That runs
-> flow_offload_teardown() on a healthy flow.
-> 
-> A flow that the driver declined keeps being offered through
-> flow_offload_refresh(), roughly once per HZ. Under neighbour table pressure
-> this could keep tearing such flows down.
-> 
-> That driver's own fa_route_check() uses the lookup-only ipv4_neigh_lookup()
-> and returns -EOPNOTSUPP on a miss. Would a noref lookup under RCU, such as
-> __ipv4_neigh_lookup_noref() or __ipv6_neigh_lookup_noref(), returning
-> -EOPNOTSUPP on a miss, fit the documented contract better?
-> 
->> +		neigh_ha_snapshot(mac, neigh, dst->dev);
-> 
-> [Severity: Low]
-> Should these dst->dev accesses use dst_dev_rcu()? This callback runs under
-> RCU while dst_dev_put() can concurrently republish the device:
-> 
-> net/core/dst.c:dst_dev_put() {
->      ...
-> 	rcu_assign_pointer(dst->dev_rcu, blackhole_netdev);
->      ...
-> }
-> 
-> The ifindex check and neigh_ha_snapshot() each do a plain load of
-> dst->dev, and ipv4_dst_neigh_lookup() does a third load through
-> dst_dev_rcu(). KCSAN will report the plain loads, and the three loads can
-> see different net_devices within one validation pass.
-> 
-> There's no memory safety problem here. blackhole_netdev has addr_len set
-> to ETH_ALEN, so mac[] is fully written, and -ESTALE is the right answer for
-> a route that has moved to blackhole.
-> 
-> Would taking a single dev = dst_dev_rcu(dst) snapshot, or passing
-> neigh->dev to neigh_ha_snapshot(), avoid the race?
-> 
->> +		valid = (READ_ONCE(neigh->nud_state) & NUD_VALID) &&
->> +			ether_addr_equal(mac, tuple->out.h_dest);
->> +		neigh_release(neigh);
->> +		if (!valid)
->> +			return -ESTALE;
->> +	}
->> +	return 0;
->> +}
-> 
-> [ ... ]
-> 
+> Signed-off-by: Israel Cueto <github@bumblecito.com>
 
-[Medium] validation creating neighbours / reporting -ESTALE
+Thanks for spending the extra time to do this.
 
-Agreed. dst_neigh_lookup() can create an entry (and run forced GC), and 
-turns a creation failure or a garbage collected entry into -ESTALE, 
-which makes the owner tear down a healthy flow. v2 looks up the next hop 
-with __ipv4_neigh_lookup_noref() under RCU, never creating an entry, and 
-returns -EOPNOTSUPP when there is none, since the path is then not 
-proven stale.
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-It also returns -EOPNOTSUPP for non-IPv4 tuples, as the next hop address 
-used is an IPv4 one.
-
-[Low] dst->dev accesses
-
-Agreed. v2 takes a single dst_dev_rcu() snapshot under rcu_read_lock() 
-and uses it for the ifindex check, the neighbour lookup and 
-neigh_ha_snapshot().
-
-pw-bot: cr
--- 
-Florian
+    Andrew
