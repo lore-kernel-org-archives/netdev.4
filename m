@@ -1,93 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.97
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.225
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795032832;
-	b=Omzz/iK09z5TPRkL0eSNmF9mPGga0aGGE7tWzOs04yh6GxMU6GOcx2zpUP5CADsI5tv8
-	 V5O7oenI4uU/a/hCYX859NjDAIQzk68ea6nGLjGrUjGJ5G7IWqoRJa4LEwKR9TOuL8B04
-	 PYSZVFsVRcQ7wVDUUydm0Nwmmca6OeHKpRLW0e4MerAi98Lr2AGeANWVEMphZOtTvjx1j
-	 8h0zyKiTkGO0hxvYnO9zPS6eBPJQWfCE8hBeojkWKtSEHeTSSpd8ef1CE1aa5xvDW3ePd
-	 4pORrfaBY1HTGBFSjfqOB/OzblAemZhWzT/sPClZMexn9aWAIwccoKnqVGaM14cMQ/w==
+	t=1795032834;
+	b=sJ8KDJ5R1yMRzEv20iveB7o+qQTpvWUmB3kvlQoL4E6c0mbX+PK9F63Uul4hVxVnvSmk
+	 9WfALI6qt+uUVlTDMJosj0NRbrzx5wM+eB4a5+YwDYl6j22sH8Mr/MAvdrrlEAw2utlKW
+	 SJ1aOa4zOGUvSXuPu3L6NB5zJnqhqCVtDtRSzV9VoJLVsWQyC2aDA3ewdTLZI+6azypJs
+	 gnu5Dn29QUo2eRTlx5AindS9OQRyzWHYq0az03ogUkHCXK7m+60YZ7LPpfCM+cL7caLw3
+	 drZyKQ6jnXVw/pLa2Cvlp5psIrTWpOqQn/mEVl7BdnyqX/utXk1jUIamJ4TBt4Sip1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795032832;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795032834;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
 	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
 	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=aTzD2aWzK4y106Q4turWhvgJUGfskZNqD81yrb/wDlI=;
-	b=haPkYLhukvPOAbAd1/qJxUbFHd4jtrkgEX4cTsrh4xot8OjRWaCrQCtcJZfu4vJDancn
-	 0kqDI6pZZpxbkEwJiEKLA1SY6eR6ypatv+kU8WrgfpG0SfBe2JJlTCNQkYPu2S3F6fdSh
-	 DZT6gFIz5xv7B/VMqlH+rvLIodU6OVslYb00BZdn6dZK3KPezHTp1hWmaSCGSI918MzC/
-	 6zl5dCDr+5T0LjQEwmJPK/gZGTuRc1Q0nAeU4IDj6t8UTVMblmSchLr85kECpwOSHHGq7
-	 KPgH7U+cogT+QRE/k06cV9OFZ1IoWsogCLjSoelpirB4n7p0yW5acCdN0YU45x2mSTg==
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-DetectorID-Processed;
+	bh=lDXhbpMKUl7ISgBnZfj/IedauZ9SDiSIZpfzv9Z13y8=;
+	b=TAhCA2sbATebPOhiIMeokEogSxYl4f2Zrr8Vuzv/TLl7v06jIAI/OVpXRxGdDTafJIhu
+	 diCNpz/KU23LqO6J0LKvJlL08htPBIHP24PQ+dhVOVtBD4vwAwyJUrPVKzfpkYtuohGt8
+	 G4R4nSgqArqz4flu4rck8J0cyutCu9OA6OS+fztsMhfFxdijCqsOuiZYLAauNAHlVz+Hk
+	 deBjQHhYQdrejDgGrp+D1rOIMgvwvM/X+jk+yAtE9TzR+3lcXfY8fr22wavDUrBUIj031
+	 QgGVWWFdh0T0k2KIncqFqCFkQHKzG/eX7LesL1qqChwGAg5+nSL1uzArlaXk/OAjNZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=broadcom.com;
 	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=EcnMcg+p;
-	arc=none smtp.remote-ip=209.85.216.97
-Received: from mail-pj1-f97.google.com (mail-pj1-f97.google.com [209.85.216.97])
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Jpep7sDz;
+	arc=none smtp.remote-ip=209.85.215.225
+Received: from mail-pg1-f225.google.com (mail-pg1-f225.google.com [209.85.215.225])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F901606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:13:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F901606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4ACA460A2617
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:13:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4ACA460A2617
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=EcnMcg+p
-Received: by mail-pj1-f97.google.com with SMTP id 98e67ed59e1d1-3adac5b29ebso921706a91.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:13:51 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=Jpep7sDz
+Received: by mail-pg1-f225.google.com with SMTP id 41be03b00d2f7-cdddc79a4afso722596a12.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:13:54 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795032831; x=1795637631;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=aTzD2aWzK4y106Q4turWhvgJUGfskZNqD81yrb/wDlI=;
-        b=e2pEZtbApF82Ad1rl4QcD73FhTzyBWQfDgQJNB2tCx+3e5p8QqlaLCisXREy7PXqMF
-         77YKNcTGlGs8erS4dc2W1I9w5TZDWYrzrMVmfNdDUi8J+k3Xjkj6TFBy8OWDcbwBUlak
-         A+ogfcT1U4SPc0svS/ldZy4itJWFYiqX8tb6rG4I9/7wsKtOwz9duoYDf97I1y64ow4f
-         UOgy/ladWHkWmKO4hNbzctIL73wIEsAN3TkcxcP07ohYGIEwrFZGp2/zOpkjwTHojTIR
-         CzTnXPTYwfff4HRvBSIiFGwdg3lTlawHetP2ac5VqXQ0Z1t5DunQDc0l+cjgZ+OGwqa3
-         oUDA==
-X-Gm-Message-State: APuU4Z/moMJyRTjIE1FSA3vs2l9+k9BXYnWHow37aZuQbRGbyrAkzZeQ
-	DGzR9mijfzWmCjTKU116outd9TiU/MAkXbtIufHWeLDTymTDUef2K8kNxosPhuTQ1LRextuF4V9
-	DDz3maUb91YTkQWzCOrfMSlssPb58WyHGzjFhVRWJ6YQqE5tPu0jFRqkoUcRnUXBXBX6b7RIvB0
-	VxKEfP2+N0TG4M6uYfjfioLFiCJtsVa+TK8Tbcv+1MjsyQdl+eiafCTg7SPE5f1qAp363DOYuJD
-	aAJ85WgltGTHrnu
-X-Gm-Gg: AZFdTZd37AXiS8482nc7Ll0OlByKQwBCf1vYBHrW/6E4wjGnDPskY9mIRDxOMl5X0np
-	4HegMUvnaBKBMnVzlsvOKvoqLXRMr7BbIN42LiV/yJBG9268L/VH35L14v1CZyRPHVcH0E5lNe3
-	beC2Kwro+nCE7OeiWN3P7BPMdNXHtOevVbPMtkNHaa9z8WZc/CsxaZ1B3T2wRhig/adH6IC/dza
-	OcsNPDearC8JtqC1B8I0ffEIuAKuceb7VoIVlZ/xSzMNQNowDJDkZrKeK4l2771/FGT4ZnFGaAP
-	jxSBL4yYPfqD7hvUhZbESxqW4gZo6Djjr8+fOX6KQLn5WT67uGXetdcdxNyu8KdM6Qh54AqOAbE
-	i7xHDDy8se1XkWOpyDUgsBy1rhqMqottI4AD37a/Olf7QGIf11wU7pKnq9qpHciK1K9Vd3JFZrU
-	3K+hNaZCHtL8PytmvPZZ/5YuQai64rCNlOfBAnrvrV
-X-Received: by 2002:a17:90b:3f88:b0:3a4:f8da:2478 with SMTP id 98e67ed59e1d1-3b3d076601bmr3570618a91.29.1795032830866;
-        Wed, 18 Nov 2026 12:13:50 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795032834; x=1795637634;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lDXhbpMKUl7ISgBnZfj/IedauZ9SDiSIZpfzv9Z13y8=;
+        b=yN0HAr6u6nR1McFF9MncTrZXnl/BDO26OZRUchQp4IctC+IqCur98xnjpoQDlhT3Sc
+         HXyLEYqYjNHsm6hsJOI6+4ibP0oZsYY9+p0cO9safwOvjN/4ri2K/USwr8eYI/xnZpjV
+         4SmZ0nHAyTDNoMLJRmy4ft5WYPxPHc2GJkrXCNE704W8+I4caA8ziU0vMcajwPlFbUQO
+         TGauU9Sa8iThIQ1x1n8qsKuLnYz09gvz29g5HObZwZwsEwl5bF7C00gfsRhg5JXznjUr
+         hABPPVwNDOVR5QbgH9B4lUX5/VuRSvQ6LoFgOCUJRI2F0+YENOTa4JxxEXY2qcnoDoAO
+         dIMA==
+X-Gm-Message-State: APuU4Z/BoLIqXI26hWDM7udPWDESTWtkWrSh3iubZMez+dI22VLIAvh3
+	jLwR4oC/7eyNjnLrMuDPQHKsHiNbpQ53jrmltf6/5PiptL+6t6TH3AWFDSBLp1Ij32+/kR6DVwn
+	aEL6+RgMZfDGCCSYGF7GfauLDUzr1ty6vV1AbBR5SBm1mD0Tlbni2G7IbBGHDsArUfDUwmgyeo0
+	8EvKsCHP9CpQN2c7qGNFvV5v0JiyxJq5mr5wpiunWoWoRo3amUlbcDTF5bImMY301gxgaU2NJ6c
+	TfDi9/4ju89Azxl
+X-Gm-Gg: AZFdTZeHnNiEzcRkWYLam7Mc7GaE3vJkFbys0eK7kN1eqKeS18L8eWDI9y5ieaaWV8U
+	uOZzkDmzLiq3DugvpxRy4OJyO451ya8BE5393Vh11R+3X8GwfMIgBCVUoHA5VZNeBQ/h7wFnkP2
+	89BxoinHrZhz4F57EyaZfpya6Axs0pQlbDIn6gggJWfKChFm+3nk6u+Zs4iMGLztNH1EqJ191ai
+	BNCN8oVZWnaZEILi9fKUwEjtrNbyNXJRYOH9r24Gf0u7m/WnT//0lVJQPPeIVYNM373QDnawpr1
+	WGDHbdJGQiFmOVPzIy3EfjwxqzpwB8RsO3wqcIYy+yUduQ+2BWl1teDcI05uL0l4SvoVmDBwL1e
+	nx05+Hxz+L3Y1MKbMNnj+6g0sall4efaErb4YnLs+mjbMF2rljWatfWcdEFTzrOsv71/e0Mbjb4
+	5Qn5waaq/nDrf9wvoTeFKRNPFc5FR/kURdhErV/4i/
+X-Received: by 2002:a17:90b:3943:b0:3a8:f70f:2437 with SMTP id 98e67ed59e1d1-3b3d07e0a06mr3149881a91.50.1795032833616;
+        Wed, 18 Nov 2026 12:13:53 -0800 (PST)
 Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3f6f5df9esm368097a91.7.2026.11.18.12.13.50
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b3f68811fesm396033a91.2.2026.11.18.12.13.53
         for <netdev@vger.kernel.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 18 Nov 2026 12:13:50 -0800 (PST)
+        Wed, 18 Nov 2026 12:13:53 -0800 (PST)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-93f32050e72so380379185a.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:13:49 -0800 (PST)
+Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-542fc61841eso25872321cf.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:13:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795032829; x=1795637629; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=aTzD2aWzK4y106Q4turWhvgJUGfskZNqD81yrb/wDlI=;
-        b=EcnMcg+pj4DD81piCV7cmJQrVefYzvFVLEk4AkTXVzEMWCyqPt+KqltiIdTrmmUrpv
-         Xeh+vD355s8wizgxcwUZVm5HWxnXJK/xOtpWJ3zwd9w3YEP2Vo+A/1TVif4Unh9LBDOz
-         cwE0zMKljtC9NbA614J0iUSO3AgbackW9Wj3I=
-X-Received: by 2002:a05:622a:4cc9:b0:55d:34ae:98d with SMTP id d75a77b69052e-55d5a36e1famr59604371cf.10.1795032829467;
-        Wed, 18 Nov 2026 12:13:49 -0800 (PST)
-X-Received: by 2002:a05:622a:4cc9:b0:55d:34ae:98d with SMTP id d75a77b69052e-55d5a36e1famr59603571cf.10.1795032828766;
-        Wed, 18 Nov 2026 12:13:48 -0800 (PST)
+        d=broadcom.com; s=google; t=1795032832; x=1795637632; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=lDXhbpMKUl7ISgBnZfj/IedauZ9SDiSIZpfzv9Z13y8=;
+        b=Jpep7sDz2EJWI9hZMR2W0pc+SzWJf4CIrgdpDZqXr9JYyExwWMH71NbYuJ6s7WyY8B
+         HlAplMcZDeObXddACBH9ztkkIgoZEsz9dfhA909cJyu4zoNjMwS8KFffuFaJdUHa+bti
+         IM0ZeUpvk6UGOin1OLdfHMySzP6fXtO666MoI=
+X-Received: by 2002:a05:622a:2306:b0:535:a5fb:6446 with SMTP id d75a77b69052e-55d5a7351damr52255541cf.64.1795032832358;
+        Wed, 18 Nov 2026 12:13:52 -0800 (PST)
+X-Received: by 2002:a05:622a:2306:b0:535:a5fb:6446 with SMTP id d75a77b69052e-55d5a7351damr52254921cf.64.1795032831764;
+        Wed, 18 Nov 2026 12:13:51 -0800 (PST)
 Received: from fainelli-desktop.igp.broadcom.net ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d66c2a5a2sm7675091cf.21.2026.11.18.12.13.46
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d66c2a5a2sm7675091cf.21.2026.11.18.12.13.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 12:13:48 -0800 (PST)
+        Wed, 18 Nov 2026 12:13:51 -0800 (PST)
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 To: netdev@vger.kernel.org
 Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
@@ -105,10 +107,12 @@ Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
 	netfilter-devel@vger.kernel.org (open list:NETFILTER),
 	coreteam@netfilter.org (open list:NETFILTER),
 	linux-kselftest@vger.kernel.org (open list:KERNEL SELFTEST FRAMEWORK)
-Subject: [PATCH net 0/4] netfilter: flowtable: Preliminary fixes
-Date: Wed, 18 Nov 2026 12:12:46 -0800
-Message-ID: <20261118201250.2075007-1-florian.fainelli@broadcom.com>
+Subject: [PATCH net 1/4] netfilter: flowtable: do not queue offload work after DESTROY
+Date: Wed, 18 Nov 2026 12:12:47 -0800
+Message-ID: <20261118201250.2075007-2-florian.fainelli@broadcom.com>
 X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261118201250.2075007-1-florian.fainelli@broadcom.com>
+References: <20261118201250.2075007-1-florian.fainelli@broadcom.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -121,31 +125,58 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-This patch series was created based upon the Sashiko review of the
-Broadcom Flow Accelerator support:
+nf_flow_offload_refresh() can be reached by a packet path reader which
+looked the flow up before it was torn down. NF_FLOW_PENDING keeps the
+DESTROY work from being queued while another work item is pending, but
+once the DESTROY work has run and cleared the bit, a reader can take it
+again and queue a REPLACE (or STATS) work for a flow which is already
+being removed.
 
-https://lore.kernel.org/all/20261116222519.1416501-1-florian.fainelli@broadcom.com/
+GC removes a hardware flow after NF_FLOW_HW_DEAD is set, and frees it after
+an RCU grace period, which the reader can outlive in a preemptible RCU
+read-side section. The queued work then dereferences a freed flow and
+the flowtable, and can program the hardware again with a rule keyed by
+the freed flow's cookie.
 
-These changes were not encountered in real world testing but appear to
-be valid. Test cases were added to ensure there are no regressions
-moving forward.
+NF_FLOW_HW_DYING is set when DESTROY is queued, and DESTROY needs
+NF_FLOW_PENDING, so a work item which holds the pending bit and finds
+NF_FLOW_HW_DYING clear prevents DESTROY from being queued until it
+completes. Check it after taking the pending bit, and do not queue
+anything other than DESTROY when it is set.
 
-Florian Fainelli (4):
-  netfilter: flowtable: do not queue offload work after DESTROY
-  netfilter: flowtable: restore the GRE conntrack timeout on teardown
-  selftests: netfilter: check hardware offload work after DESTROY
-  selftests: netfilter: check the GRE timeout after flowtable teardown
+Not reproduced: this is a race between a long RCU read-side section and
+the GC and offload workers. Found by review of a related change.
 
- net/netfilter/nf_flow_table_core.c            |  12 ++
- net/netfilter/nf_flow_table_offload.c         |  13 ++
- .../testing/selftests/net/netfilter/Makefile  |   2 +
- tools/testing/selftests/net/netfilter/config  |   4 +
- .../net/netfilter/nft_flowtable_gre.sh        | 137 +++++++++++++++
- .../net/netfilter/nft_flowtable_hw_destroy.sh | 162 ++++++++++++++++++
- 6 files changed, 330 insertions(+)
- create mode 100755 tools/testing/selftests/net/netfilter/nft_flowtable_gre.sh
- create mode 100755 tools/testing/selftests/net/netfilter/nft_flowtable_hw_destroy.sh
+Fixes: c29f74e0df7a ("netfilter: nf_flow_table: hardware offload support")
+Signed-off-by: Florian Fainelli <florian.fainelli@broadcom.com>
+---
+ net/netfilter/nf_flow_table_offload.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
+diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
+index 4365859220e6..62f460d38efa 100644
+--- a/net/netfilter/nf_flow_table_offload.c
++++ b/net/netfilter/nf_flow_table_offload.c
+@@ -1088,6 +1088,19 @@ nf_flow_offload_work_alloc(struct nf_flowtable *flowtable,
+ 	if (test_and_set_bit(NF_FLOW_PENDING, &flow->flags))
+ 		return NULL;
+ 
++	/* GC only removes a hardware flow after its DESTROY work has run, and
++	 * NF_FLOW_PENDING keeps another one from being queued, so nothing can
++	 * free the flow while this work is pending, unless DESTROY was queued
++	 * before we took the pending bit. A reader which found the flow before
++	 * it was torn down must not queue more work then, as the flow could be
++	 * freed before that work runs.
++	 */
++	if (cmd != FLOW_CLS_DESTROY &&
++	    test_bit(NF_FLOW_HW_DYING, &flow->flags)) {
++		clear_bit(NF_FLOW_PENDING, &flow->flags);
++		return NULL;
++	}
++
+ 	offload = kmalloc_obj(struct flow_offload_work, GFP_ATOMIC);
+ 	if (!offload) {
+ 		clear_bit(NF_FLOW_PENDING, &flow->flags);
 -- 
 2.53.0
 
