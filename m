@@ -1,80 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991567;
-	b=k6IbEzmASWCqb7ogsj/qYII2KhrpGZVYQG8HXLcGWLj1zcl4m+aZVpHMqdpj4I4JXUQF
-	 gqTKOqNW+d0rk2gtjEgXBi9FXrED9sEa8uCQM7BUa07N7VzH/OSjH83lZtELbmet156/0
-	 NwguTXkzwB+6p1UziuCC/4eBmm6CzA2x8VEr+9INssDDLLlFzICD4E1Fj9cU1FBX6Pymh
-	 9/KRB1N8kyEi++6DMdkRD7cpO+9ivrT2UafbNJhUSEkx+qoTNjbodPH4qTFRIyKan9Vlc
-	 UsosaFsVEZFJOSZGgOSeXGreGcBjR6dJMiWArgtqJsBz87E1rqeojduf7ljcnCre/Qw==
+	t=1794991576;
+	b=kafE1oZlLBKpXCnmgJLQiAFSAaJJhm8TLKw+RCrzQ0R6deRKPrgLBRTuf9n0LWfWdu3K
+	 9r1pbJLdaFBIbFUVagFZt+QXpepAkhWNjj/+8VnQgfFZ4sTBwjpAq638AZwwSFRUuyDur
+	 2s2s0yBDukRVk4M/Q2dc9wYIrHi37iRJlH+O3wOsgCC4Gy2p2UKpGGeD+aDTnQhE5ptIr
+	 jHYolyHCL/hhhlRrFcmlVlPTDadMRahUeY1CnuNvKX/L0SukgFSFKI2ayrFapIOZXudAZ
+	 egLVBDIbiujhltkM3ZE3Q9iwIKQBynOzhdiOGSSo6mcgdK9eAjhep++F+h3lD6Jltqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991567;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991576;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=rH7dHadXHQBCAb1xibb6d+8zPhNSRfeCjnCBhbphGSo=;
-	b=yqx8TW4FVp3Asb60P3dJ5VFIHqJtZdkCNfs1MLqxxHWu0Aay91xDBGyaVbXdwS3tJfD8
-	 Y3mx+lay9zPEgfDSN5Vu5qKAuTpY/ILHi52FR/hjFymciC4/aqyEdZZwDXUY3317CYMie
-	 VpdCEsEqQCkAMzq3usHZh2ZOajdRJL8gTSiJ08CM7114p2VHqydlO77U/a6SfJFQ7snJ2
-	 4ArjS3kxzKuGbIz5dLUr0dMbVxSGdLgsUsliNMlGFltxjU5V146zbmC/VYU8ig3disGbq
-	 Xd2EoXE7za/bKVHELFbCLV1LVbfWHZJD1T/hNGTvc896uem/mw6ptNGasuEbgTyzy1A==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=pxkuXdERaykwMOPQlF5CucoOr0fRF5ezQY9VTtl8AFo=;
+	b=IZ5bfNG8+jCgkKlDEg+BnthY91cLv0bvBSUsfUEXbsUAAmRczOX6dDNAxqkeqfImfXCf
+	 SvsdXGfOa5KCLFDpGv3yJPrDcw2ozzhMnH+2zwEhmU3kLbU7KGv4H6KO9dh/RgRq9ZkDc
+	 i5n2sLIgJqHixtYtEFBRKZvMBUy6pszWS03lIgOXwxT4pQVcTq/Us7ac7/470OF4Lbuml
+	 t2maaPe+wxyn/4Nyvy7omJe+YcRL8U9Per/EnULVt8AeRCNKPRbQLUi9/c8Qen9FlgJcB
+	 tNOVbOuTl4Fi9TXB+EWKljOYAWOekCWSic8DUhkkyvYhU9DhTAQlDmk420CqygH1OFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EEW8WNWB;
-	arc=none smtp.remote-ip=74.125.82.50
-Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZpVGaUt0;
+	arc=none smtp.remote-ip=74.125.82.46
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7F82606A32C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:46:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7F82606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D9F3606A336
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:46:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D9F3606A336
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EEW8WNWB
-Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b3ada81853so806746c88.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:46:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZpVGaUt0
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-1b3a05f8b5bso968480c88.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:46:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794991566; x=1795596366; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rH7dHadXHQBCAb1xibb6d+8zPhNSRfeCjnCBhbphGSo=;
-        b=EEW8WNWByczu4ke+zSMCDWYT3ytnREhs02FtgVDVy97uFVL1M63IfMMn7i1shDNIKY
-         EHSikcxcfwuXcY0KfiJy6NQEm98L/FTxMsIMMWTrnD+k1ngKNWjyIYCAaCTKsf3cvtNS
-         2RzaOW6cjqRgjb42qoR+vz9uP66wtSwosjEi5ZwXSudA2RIVOUvqfEqWBgrcshrgkmrx
-         ZrlL3LSBpgqvO8fYOTZxP9c8C2qbTjPSLhMJ99yDNDotRugINQDbFm6lxFzBZQ8crz3w
-         OXmmDDcMlxKevtFaB50JGyJVMqF2axaLqGv03HguhlbVU/sINHXD1T/jFB8xE6MrbaCE
-         2npA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794991566; x=1795596366;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1794991576; x=1795596376; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rH7dHadXHQBCAb1xibb6d+8zPhNSRfeCjnCBhbphGSo=;
-        b=EHKjZjBwdV/cHUAMUsAvZIHtQl+DRb3ohdn892iFbKz+YbBsxedCqaRaxITDgU0WfC
-         /+2BBRnl3JE2SgKljrod6UaMKezEVhV/KJnjJNjm9XVaqLZWQ3w6J15Pel3NlqBV+ewg
-         91APhAzhwJ1No9bQ1L5EU1z/ZmXcL7cuZE/0KHGHKz/IEUlEoBB+8OpAbW1rhPVYEuG6
-         fD1fjy8oZdO9VhXW46Nmq3v9hoyq51KkC8UeGDsEOPwLmk4xS1yu/W+E94ag3hJcMbts
-         E4bezn1i6CPZDYTkZFwVJaGJAokFdSdOKOtzvJ8DBZdF7PT/KD0uLVREF5Cm9tj72w5o
-         gzow==
-X-Gm-Message-State: APuU4Z9vHXJEg0EDXC9G0wglBs3zR4h5AzYbSJolZw2OBlvK39gAO9nh
-	IH90W7vVdeCmdWj3XmaqDMPr2DsH51Itzjv69SETZfWG0p24L8jqtuWSdiR3meqN3aincJG5
-X-Gm-Gg: AYBFou3jFPHoGqQzpDVeFsYAUTcH9NqZ3HPCoxVaEDUVS4Qfe+yFoErs4P8Yi11iKZS
-	WMEWzFjRz0idFBqP6RgTYfZ50Nc1gMlOCswR4Xcahl/IFh+QolNcShcPo0v9wKFNuAshSNQCgUr
-	uEdVp5h5NtJ7VWjqSjJHi8m1suoCOg5ZMnpA6eqVFzIasfYdrKQai15ypUiHyWMZ/Kgm5w6DRjG
-	vVopeOOeoCisoV9XFPh6a7XkxICaG6TiAQv86A6h7mm3y+3c0AmOl66JIcGdXa48fw7BgT1zvnq
-	8dLnBosfhIkOyhnEjScsf0NZ7MCgCmqakdJIZOSwU/EK9c98xwWh7K0Ycp1C66S4/fN/nxqKSY2
-	ZeasOmUTll15EkEb0vwtKD6yag3G2E1KraEhRHMuN2wo/qrLw5JEu1lon4eCxSzOgsYu87yY3az
-	yMYkz0bvdjCM9TQ2O4qfCws2wgYQNnqj63qPF2ESQGqWL/BdEvhkNhdSFqzhmFT+d+2xpQ580bf
-	cyi2c9ssuMtkWh1SuztuyL4UldNnQIjyYPYbU4PvVS5lI5inK4ypruoLuY+JrK538ViIFRnzWig
-	rAKHt2kW0TV4KcJ///azypzjrhFTnEi4AeMBek/g+hS+W1Wtc/NgvLD+
-X-Received: by 2002:a05:7023:a4b:20b0:1b5:32d6:677f with SMTP id a92af1059eb24-1b543cfc722mr1753116c88.34.1794991565842;
-        Wed, 18 Nov 2026 00:46:05 -0800 (PST)
+        bh=pxkuXdERaykwMOPQlF5CucoOr0fRF5ezQY9VTtl8AFo=;
+        b=ZpVGaUt0qFX+fY8g64e6lfSZ6qDUG93vsf8J1YDKaJ//YYszq+CA7ztgrzDEG9cOt1
+         WvUtFbMadc7JV+Vfz7dMqS3VNrppTwPCAfMUqjXCRMf+Xmzn/cA3k1VV6wDRtIFUoHHe
+         5C8eDEEk4jKPUr5tDtaRFkBWw320hZjP2fePVtOA3YI1cmnu+KUOcpvS33oV+ermFd+W
+         ZopHhKSa8ddS5XUHTfsLuTMs5bAhUqttDM1zqstvA9RmVI5BHbvs/O8JWrwxbOIcN7CD
+         JiBGRmgNg7lblyYyO4QFX6Ozuq4O8JFPXGKHT6HM+hy0rII/NvC0J0NskiVWESPU9VgR
+         BQHg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794991576; x=1795596376;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pxkuXdERaykwMOPQlF5CucoOr0fRF5ezQY9VTtl8AFo=;
+        b=ax0mZmbk71vLyF+i1wv8979hYZ1SiuPsIOAEFmbjMLHKVuwmUIDE//d9kyiPL81xCC
+         MyJPFHyQyJaxQaNTfzhE5pjyRstvw4XAcwebQhOz+NGryqcOYBNldM7NE+avma38HALx
+         rqzuFhjXIfNeWbt176EOS4lyX4kaD5dSfw55a1M1uOEfbHjOUbABjYnP406T/jfIR+O2
+         J5vnGDHxGv7y0QX7g4tz0/AJap+kL58rVbyRZzkRca4MBMqYee/hDHw/io7zF4mXq7Rx
+         3BOScPIJPMU7+4fIPMBUawrmhTLq56zrEHiDaOI8puPDbF0Q2FOhPuG0ag0mk+gfBsHr
+         xPGw==
+X-Gm-Message-State: APuU4Z/ESvHlvirZ55ZFKlhyYviZqFxqumZ3A/F+FJscTBKHv8S/foHp
+	rRVfngKBLWKQix2xKY8MQW7j3XoqZ5J+Mg9WI22OKSWHDcC4+ANQ9UC2UPwkCuqbWrx7va9q
+X-Gm-Gg: AYBFou0n6a1S/F8CHoesfU6khwpRs937U5M1F26+t2C24+Aaum5aUjvOVTE2nOgNE34
+	rWpCEL8TTxzfaWZVIPHYR470UMn4LjvZatE8f5QkcFlD8p6sCiI5kyZ8fkKl61PJR9kiofpwu9e
+	4ShOLymf8CkDJPDENFa5MdZztohNq+gBPRZn3eDKHajjX2yHA/dCErpusSNxWi/F+q4XRCUDs8x
+	NH+s7pJrdTN6gcOlmjO+fP11MJBx/UahudEMkdC9VTajuS4uZCrDmsNPiQXHLToZpw7GUYcW6Ai
+	B+evsohLKNwnuN7VfuxnPKeHaqDhFf5kslFaTj2HlXVAP5gtBL1qwJ1qiv0OJqHirc/6HKmEbX/
+	u9neaEiExqhfpNlIQb+y1pml7jvVr0E9YYgL/hOCD/EUHaxdYwiXkOfwCPu9mEL3Jv+sPguqEf+
+	ndPpm46wC1moW0Po8mVGAUA1lEwyLMkR4g200YCZ8y2uzUXjHJag4RDbI21eXpqF9lB+FKre9Qv
+	hpkkpEfI/+OnFwlYsyp+KH+EvYbFGvVLGqSkn/gX8y6vuZRn10KQl8iIj8kHokuIHH4zrL7IdCz
+	2+01zZxprHsGkITdMkf1uX4RtP9d79x9b4xIeZJsDNku5/p6PUQV7sO3
+X-Received: by 2002:a05:701b:4649:b0:144:fa57:c617 with SMTP id a92af1059eb24-1b543d32afemr1728596c88.34.1794991575630;
+        Wed, 18 Nov 2026 00:46:15 -0800 (PST)
 Received: from zypulse-in-radeon-MS-7E24.lan ([2406:da18:1601:7200:e02b:e41c:8db0:668d])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm7220671c88.11.2026.11.18.00.46.01
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5447dc5e9sm7220671c88.11.2026.11.18.00.46.11
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 00:46:05 -0800 (PST)
+        Wed, 18 Nov 2026 00:46:15 -0800 (PST)
 From: Yuen Su <zypulsecore@gmail.com>
 To: netdev@vger.kernel.org
 Cc: David Ahern <dsahern@kernel.org>,
@@ -89,10 +91,12 @@ Cc: David Ahern <dsahern@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-api@vger.kernel.org
-Subject: [PATCH net 0/2] ipv4: allow route dump replay with nexthop IDs
-Date: Wed, 18 Nov 2026 16:45:08 +0800
-Message-ID: <20261118084510.332821-1-zypulsecore@gmail.com>
+Subject: [PATCH net 2/2] selftests: net: test flushing IPv4 nexthop routes in compat mode
+Date: Wed, 18 Nov 2026 16:45:10 +0800
+Message-ID: <20261118084510.332821-3-zypulsecore@gmail.com>
 X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261118084510.332821-1-zypulsecore@gmail.com>
+References: <20261118084510.332821-1-zypulsecore@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,35 +108,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-IPv4 route flush fails when a route dump includes both a nexthop ID
-and its expanded compatibility attributes. This series fixes the
-IPv4 kernel delete path so that existing iproute2 can reuse the dump.
-If a delete supplies RTA_NH_ID, the ID determines the nexthop match.
+Exercise ip route flush on a route with a nexthop group while the dump
+includes both the group's ID and the expanded paths. Check that the
+flush succeeds and that the route is gone.
 
-The first patch limits the mutual exclusion check to operations other
-than deletion. The second adds a regression case to the existing IPv4
-compatibility test. The route type and IPv6 changes discussed in the
-earlier iproute2 thread are outside this series.
+Both checks fail before the IPv4 delete fix and pass after it in a
+QEMU/KVM guest with unmodified iproute2. Codex assisted with adding
+the case to the existing compatibility selftest and running it.
 
-In QEMU/KVM, with the same unmodified iproute2, the new flush and
-route removal checks failed on the base kernel and passed with the
-fix. The three selected kselftests passed all 36 checks with the fix.
-
-Codex helped extract the IPv4 kernel fix from the earlier iproute2
-investigation, add the test and run the baseline and patched guests.
-
-Earlier iproute2 discussion
-https://lists.openwall.net/netdev/2026/10/26/186
-
-Yuen
-
-Yuen Su (2):
-  ipv4: accept nexthop dump attributes in route deletes
-  selftests: net: test flushing IPv4 nexthop routes in compat mode
-
- net/ipv4/fib_frontend.c                     | 5 ++++-
+Signed-off-by: Yuen Su <zypulsecore@gmail.com>
+---
  tools/testing/selftests/net/fib_nexthops.sh | 7 +++++++
- 2 files changed, 11 insertions(+), 1 deletion(-)
+ 1 file changed, 7 insertions(+)
 
-
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+diff --git a/tools/testing/selftests/net/fib_nexthops.sh b/tools/testing/selftests/net/fib_nexthops.sh
+index adbec51..d3c8cf8 100755
+--- a/tools/testing/selftests/net/fib_nexthops.sh
++++ b/tools/testing/selftests/net/fib_nexthops.sh
+@@ -2183,6 +2183,13 @@ ipv4_compat_mode()
+ 	stop_ip_monitor $ipmout 3
+ 	log_test $? 0 "IPv4 compat mode on - nexthop change"
+ 
++	run_cmd "$IP route add 192.0.2.1/32 nhid 122"
++	log_test $? 0 "IPv4 compat mode on - add route for flush"
++	run_cmd "$IP route flush to exact 192.0.2.1/32"
++	log_test $? 0 "IPv4 compat mode on - route flush"
++	check_route "192.0.2.1" ""
++	log_test $? 0 "IPv4 compat mode on - route removed by flush"
++
+ 	sysctl_nexthop_compat_mode_set 0 "IPv4"
+ 
+ 	# cleanup
