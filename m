@@ -1,77 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795033012;
-	b=pOmEvmHtFDzwbA0C/keHwZ3cbPkISbNaQ0/aBN8cId4VeOYztynFmkt7XgMhbaYpGLST
-	 p1WDxAngocZ9Z+cfzDPcllWE4urqFco7b+Ag4zvwNQqbhMwQQDWq+5kGhz1J1aG2Ii3Th
-	 ZTAKhlMx82K0kTCoKcwvNxiBVBMqKxJNvE0CKrHv4l4YqtCFs/2e4Sri4v2xRvCF+r2GY
-	 KHAw85QqIdZoKxLJea4u+fvbdDgUFaWA1brEtXEe+fq3qyxkMGSevja2V3Bsy4xAZg8Ya
-	 aE4E6a40UZ+EyAIsFyhTl3JM3Es5ugPdy4dX41QClOi6svJUcND5fInjnYOfJkTqAqw==
+	t=1795033360;
+	b=mZlSlaww0QcPTFEv0D57H59aVHpgj3PPnVFMudMQZvfeP+KD6ZGkagSM8OCopWmWEu/6
+	 QFP9ezCUCUof7aI1GqrbRjkgG+TH/mJkCqJ/wEvtlYANyb6B1hypFbkYBeOnpjCOOyhZo
+	 wrdwwXPjXU9qke02DziOtzUOzhbGYUCAvNZHQA/ZGLekMSULm9vloNrAMft4sbpFhcrnF
+	 tlL5lVCShA0ZOzUbP5XrQwmGlXPJqlkpYoiJWUaIAxVmzLmbeg5Mze71ouznUVnqTZBXV
+	 9/Q5vgeEQgYppjmPC/Pr2jGcjDQZ+E4jHDTDEHh908CnB0u6n9+cFyOXFx6XZm9ccqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795033012;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type;
-	bh=5UnqAJ+AexMehXANmzRxjm1wi6GBuId92BoCIleFMPc=;
-	b=ogyVAcAsImUKi5OIpmiD36SY1l2fWA+ajJESyFbXPSYuLD9HPg4Cf0saQJ1Cr+8yRou5
-	 otWcmuPOnu6N1TAerPm4KUkEKkAijAN9IdZL/q9Sj2kQc6moNerb9oGde2lkJjNCnH48u
-	 30rbS4O5f7qA+iuFfmSCNHdB3TaMgycThNUJFmX2k9b2O8NB0xgvUCjMgs9ebgkUJmpRn
-	 moyQrbtO8rxzX6RnJdtvr74YkC11EjfzJWN/cjIRLm+fiLJ25g7Q785oB/lEfwR8aBf2l
-	 VHsl26QyTb3OISTWUhQXx/eTUvpchGaE0eM/mE6O0YZq14tDDytn9LHzUaS0odYGeLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795033360;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=83WZjXw0m9X3Ou7HW+EzfUQVbMPBRYNOgGwn1hvvtI4=;
+	b=h+LwGdqoCMwaQVDZ45kdQSCBT6jz7n2m6Y4WRlF5U7gA0MGGVHMDVTnKCfHnIoEPyzo5
+	 kbc+Hd5Kdw7b4K2FbQQJMVigT1aP84DOy0A16vIyj2SBFiNtSoOZRMVXfOn0H0C13QtRD
+	 JFoorYSTXrG019wYdFBErcuOzqOKP6ibnMxQOfO1wN7TPcjh/6S1Bccx940oRBttPCR6o
+	 kgN5CxT6R8g8IGShx2xZJJPLq5rmMIsZ1plhNI1Y7qy3mhjenNcd0JBlBSagXL7fhpLrl
+	 JqLgvJyBg7LtDT05asLI/snmvk+mvQyqAHCYGg6wM8fP/1kUiuNMV+FQSrzHHURH+Cw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=telaak.dev;
-	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=PDzvVA0d;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93C89606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:16:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93C89606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=telaak.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b3b75aae4cso1235296a91.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:16:51 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795033011; x=1795637811;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=5UnqAJ+AexMehXANmzRxjm1wi6GBuId92BoCIleFMPc=;
-        b=LoogRtAeXldvNwIWFRqN/i/f6GUd2iFaraarlA17VbEkOGutIemkTigz4tYmXErBMd
-         fHwSvW++gs9nLmlNnYRqnM57IBwaLR3ZeJtuXL5wfq/Ov0nFj6gi0DwoD001I+AHtmBb
-         1CWOiH5P8QYbnWsKgrOe43+aX9zb3z30ig3myrWDApYdR327krTXicCjQlE6w3pC17GI
-         J8z5iXQB0y/YDcZZMgFeGLybvEXBR+2TGlCrrWZtqqmBOpUj41kI3VuofnTfvcqfVGcK
-         frUyTwIICkXxsMQh9Y2JPpNu6efqcRWJzKs35AkaRvWZp4Ps0EMmCW7MSZOIyHx+CFzq
-         rqig==
-X-Forwarded-Encrypted: i=1; AL+hErE37atr+UZwGowswFQWRGnPrtNGS4hiHPNQ8dMWZAVvArNKP7TSG++0RVywddL3+Yqm33oVbPY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/GsAqpZ9ayYnlaJSFcNmqP1108ADbE4bm1Zg//oIgM2pzOB5b6
-	ugq4bvfAoMBv0f0GzG9mk9BEOTGJlTa1a736ca7bF3js3ldAof+QqbtKmiDlfR0a
-X-Gm-Gg: AZFdTZejute1+5ayt4EN+IxaZ8X+04BSDM8gws4yygCCbbio55QQbkJVSWMUYmPDIab
-	EQFIqRMlnLNadnZ9QGN8bgpwplhQi5yJnKrDnoXd0T1scg2uZRHGnh4cqomQjtVvnrZKyi1+2fO
-	2hviF3n1DC6t42ZpsMqgOHPjJnDzBTqj6RM59mWmKK11Uxa4BO6YJveewtqQBWWslehE88f9r6U
-	vabfuKxl6/+6Aib2LG2F6jKhzk8nMg6tRbmQUC91fCq/3y/c+6XBu/P2D9Xvpuxc4TLk1miFE1s
-	DWS2tPS/N7lT2rtB6vqv0c/fb0LkmTWaymrnetc+eDs9vghCjaANEe6tZ8AP/yyos6smrqEoBl1
-	ibKhjavc66dXG2XpQk8+szRus2pCO5RVM05KvbuUbgXG40q9T4R0i8bYlz1d5uZLalPmZCPmuQI
-	TgTnlVVSTX6M7tySmCj6O3qhkjAPzGGLcUL83TAC1Rq6UdKcXM4zC10mbyW/yTmrtrhVnbTnEwi
-	KFw/zbPyOCHOBFIpitZUOvnqt+/ZXpULWRXQPGmowte3ubfIjFNX3E/u4vepxDUf1yXfYGwTf4w
-	l8Fk6OnK+xitYSKqvnIhJ5Iv5pCahZnVY4IO8SI2EVwGh2hhEfX7KC7N80QumPMoFXXedaFCAgJ
-	ac5oUPShzK4M/
-X-Received: by 2002:a17:90b:3892:b0:3aa:6b5d:a00a with SMTP id 98e67ed59e1d1-3b3d07c2484mr3812060a91.53.1795033010901;
-        Wed, 18 Nov 2026 12:16:50 -0800 (PST)
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com. [74.125.82.179])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde5348b3fbsm498221a12.15.2026.11.18.12.16.50
-        for <netdev@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 18 Nov 2026 12:16:50 -0800 (PST)
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-382c3c9671fso1744831eec.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:16:50 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErEzSyWj/KxKKcLXETqMljIN/GyMtyhKJzkWob/F5oVz0rvGJJ25tN5F0RLuPn5yzqJoaNj01Sc=@vger.kernel.org
-X-Received: by 2002:a05:7300:7314:b0:35f:8c5d:5928 with SMTP id
- 5a478bee46e88-38281213cbcmr3898471eec.30.1795033010021; Wed, 18 Nov 2026
- 12:16:50 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 627FC606A31C;
+	Wed, 18 Nov 2026 20:22:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 627FC606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=PDzvVA0d
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=83WZjXw0m9X3Ou7HW+EzfUQVbMPBRYNOgGwn1hvvtI4=; b=PDzvVA0dUL6X8a07m7W3FtiHvq
+	LePg1RVFpWzznF0js/ikqR1IzilBKVSOUmy8h9aKRnAwxpYoxqprli7vjNifq9IrxVN+EUiCgaPNG
+	4rQZEsMDX0Xmbd6Ah6hLNSO3HY0lLWTY1/+eE0gbxcfsyM8B16K+idR7+paawH6C6Uiw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTmA5-00HVa7-0i; Wed, 18 Nov 2026 21:21:45 +0100
+Date: Wed, 18 Nov 2026 21:21:45 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	Chris Lu <chris.lu@mediatek.com>, Mans Rullgard <mans@mansr.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Cornelia Huck <cornelia.huck@de.ibm.com>,
+	Andrew Morton <akpm@osdl.org>, Jeff Garzik <jeff@garzik.org>,
+	linux-kernel@vger.kernel.org, driver-core@lists.linux.dev,
+	linux-input@vger.kernel.org, netdev@vger.kernel.org,
+	linux-wireless@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-bluetooth@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-doc@vger.kernel.org, linux-pci@vger.kernel.org,
+	iommu@lists.linux.dev, linux-coco@lists.linux.dev,
+	Alexey Kardashevskiy <aik@amd.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+	Greg Kroah-Hartman <gregkh@suse.de>, linux-sound@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v3 18/31] net: phy: Use the compatibility driver
+ attachment API
+Message-ID: <71c1b931-c553-46e3-b49a-51167f168ac4@lunn.ch>
+References: <20261118-device-trust-core-v3-0-d655875c4bfb@nvidia.com>
+ <20261118-device-trust-core-v3-18-d655875c4bfb@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,45 +102,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261115-mxl-gsw1xx-reset-v4-2-4ecd18c922e2@telaak.dev> <179500523674.3136.3797005435367758007@kernel.org>
-In-Reply-To: <179500523674.3136.3797005435367758007@kernel.org>
-From: Joseph Telaak <joseph@telaak.dev>
-Date: Wed, 18 Nov 2026 15:16:38 -0500
-X-Gmail-Original-Message-ID: <CAPY4CJ5MxJJvfPehp+1cFMRZYRa059H5NqbivaHgHymCni=MtQ@mail.gmail.com>
-X-Gm-Features: Aa3M54rVwPf5ul66wX8lmbjDq-z9xoC_lJskOBFIWYhripfW-S7U1hEPGn-f_Xs
-Message-ID: <CAPY4CJ5MxJJvfPehp+1cFMRZYRa059H5NqbivaHgHymCni=MtQ@mail.gmail.com>
-Subject: Re: [PATCH net-next v4 2/2] net: dsa: mxl-gsw1xx: reset the switch
- through reset-gpios
-To: netdev-bot+sashiko@kernel.org
-Cc: hauke@hauke-m.de, andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, daniel@makrotopia.org, 
-	p.zabel@pengutronix.de, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118-device-trust-core-v3-18-d655875c4bfb@nvidia.com>
 
-On Wed, Nov 18, 2026 at 12:33:56PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Medium]
-> If the switch node has reset-gpios, can the reset still be skipped here
-> with no message at all?
+> @@ -3813,6 +3809,8 @@ static int phy_probe(struct device *dev)
+>  	int err = 0;
+>  
+>  	phydev->drv = phydrv;
+> +	phydev->is_genphy_driven = phydrv == &genphy_driver ||
+> +				 phydrv == &genphy_c45_driver;
+>  
 
-Only in a kernel built without RESET_CONTROLLER or without RESET_GPIO,
-and then the switch runs as the bootloader left it, as it did before
-this patch. That is how an optional reset control behaves in every
-driver that uses one. The driver uses the reset controller API rather
-than devm_gpiod_get_optional() because Daniel asked for it in v1.
+Why do this here?
 
-On the SF19A2890, the board this is for, the SoC's peripheral clock and
-reset driver (under review on linux-clk) selects RESET_CONTROLLER, so
-the imply does enable RESET_GPIO there by default. Selecting
-RESET_CONTROLLER from this driver would turn the reset framework on in
-every config that builds it, for one GPIO line; imply only takes effect
-where RESET_GPIO can be enabled.
+It also makes the code asymmetric. If you set it in phy_probe, you
+should unset it in phy_remove. At the moment, it is symmetric,
+phy_attach_direct sets it, phy_detach clears it.
 
-> Does this pulse the reset again on every probe attempt after
-> -EPROBE_DEFER?
-
-Yes, as in the realtek DSA drivers. The v4 changelog says why the pulse
-stays in probe.
-
-Joseph
+	Andrew
