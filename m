@@ -1,88 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795010987;
-	b=o5GLJ/ilnFImVB2CdWeLgMQNlEthuTaFGwEzPcxcS5zM3bjV5aGSUSe5vutM7+wcnPPE
-	 lryMvSnVWbTG5bNVdOhgiw0XqkvGTOGEVRWALaOn4/NjYC1WaFiafGx331TplVWoMlD7M
-	 6u+RtXh+aG3Qquwuni48cxbqFPi377S3n2ip281tRbU8rCEkCR7gFT/1WsxDRfh4BwFX9
-	 t+UADYnOrWhq2gNMQz4q9doKF5ocPU/UCVwXy4bW3Omp3ze24Rgfd/q312wDGa418ESl9
-	 GaX2iNaido1Ttar9JprZyEDLKjYAHkbjKkq1Y6ElR4CyRPwUsza0S0XPUbVSWVcV5oA==
+	t=1795010983;
+	b=G3CUl1ldqkX0ojPMg6i3YpYfMv/Wl/Ai2td0MRCBT9tnb4krdYPjv/UZ8p4CXAFY9TP2
+	 ojHsQgTjR51Nbi3ynOveY3wqwXAIDerB8gL0mMmA18j73lfZjS7Ivcx1Iv5ha/ql/nQ0O
+	 Lp1PLHn77EvVURr2oZWwmqvFBhcO0yLGA6da5YyuhTzy4N65rb+ZywpJpacHzjp9+A1QK
+	 TXTLWuvSDz3/sfRPhpqWbibiUTEmwiE8hT/gtCDiCaUKSxkSrg039w2x1bK9jf3o4W3Zy
+	 fGXSP3koY/dq1KBqm5d5PHwDMMl+TtFXrM7/la+h1Jc69IEtcmJMnlqdA++aRUJkR0A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795010987;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795010983;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer;
-	bh=tcgPJyrG/tkBCFtIrUZsvk3sWZQyrMsvPzB+MTHh/GA=;
-	b=THl5i0DD0aecdl2B54Q683AjzItillkpofygNH7FKVocUCBH1ty/KMD0BshrQNNvx5BH
-	 sIooF8cXsHTxgeeG1gLd1bu8L1BSid/0KJvzxl+QHPC1eije1wj50jNku9yKOzpPNxNgd
-	 o6or0WsSzP1jd8p2K0yiBxO+ynQytHv4qOzTz628Fw4o4foQASl7dgqfFNREClui4wT6N
-	 mRNs2KZgOg9Wrk6MGbQT7c3OGSU+PYwk0YdhJqnoXy8GGDBZ84kbs0JG34acAHDYLYHGZ
-	 Fe9EVf94iCY0KJKYtsVLuYxTh51QuZwxCjIkA/d7xxupR7VgPw5DOT50TYG0l7ebsUw==
+	bh=BhI9NvyCgtOZtuaslrAqMXx6Ds5DSmZ6/JAKnGkqXCU=;
+	b=OLPj28lvOzDHC2SyBS2OUY7kOAX69fkgEFh3ELAmpg0spzzxZw8Ul17MeLksU8+e8uiu
+	 mCj3mLu3s5DxXXnksqzzOtiUfxAJKLkIOIWwntfjDMYngm53mlX18elMR7lq/yT5zmw+e
+	 uUl/xw+gkdO7MIAWIZA9yJmxtmHkNRSJkPKX9yEIRvoKyEnDa0MqyTrPg+6P5UiS21Ywu
+	 QDa3LYC+FUkXkzrgGjkGb2oFl/WlOHJCE6f3tTUrakTIDPZ+dZi+ISVXqZZifYFmOfgrw
+	 vz4a/zZH3yl8678fH8OmDR1AAh9+EFUYOEA6GxX+JcRn6KuwE5VT+a7wBLkwh7CTJ8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LAnecXSD;
-	arc=none smtp.remote-ip=209.85.161.49
-Received: from mail-oo1-f49.google.com (mail-oo1-f49.google.com [209.85.161.49])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D7Q7R2io;
+	arc=none smtp.remote-ip=209.85.210.42
+Received: from mail-ot1-f42.google.com (mail-ot1-f42.google.com [209.85.210.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C73C360A3807
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:09:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C73C360A3807
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AF9760A262A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 14:09:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AF9760A262A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LAnecXSD
-Received: by mail-oo1-f49.google.com with SMTP id 006d021491bc7-702fd86d674so683314eaf.2
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:09:45 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=D7Q7R2io
+Received: by mail-ot1-f42.google.com with SMTP id 46e09a7af769-86103aaac12so1164841a34.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:09:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795010985; x=1795615785; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795010980; x=1795615780; darn=vger.kernel.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tcgPJyrG/tkBCFtIrUZsvk3sWZQyrMsvPzB+MTHh/GA=;
-        b=LAnecXSDfxZKBC7lRKXezKA7kvBi80WIMW4p7syBsLb2sx99DS24F+9izV7rEHKh4S
-         uUDaCJTRi/Blg/8pyTYCFCnPvM6viGAohCKP/iLaIN4+hvlWWxJIFKrcrHJ0DGj1VCEJ
-         97hSq8VH09GnRuruyRZAKJHcn6hzf4r2gnfxEZIvU++MHl4EHk0pbdVQ6VpHv+wNV7B9
-         cgZijaS4+K2FrnG3Z93Pw7fQnwMKQFsmo8yqd4h0zgW6sAk9kN0WWH1C9ERMbjlbvjAy
-         u+adpm7CzPFKDzBomD4Jr8f8lGd+A5d3qtKpO29CPK+x+R6AL7R6f4HEaidVejdM7Kpi
-         GzYQ==
+        bh=BhI9NvyCgtOZtuaslrAqMXx6Ds5DSmZ6/JAKnGkqXCU=;
+        b=D7Q7R2ioolNlOqkHOMmCmgYJugv+9RIyIrdghZ4WbG4sWvx+OjE4Yd+UEoQ4Zs0h6g
+         mlRSvlyXr8lRNf8nvEnAHPOftraDFhiZsw7rjprV6d5kC9TFxUvBbOwBNj9viXW6FSbx
+         hQKnhPJs4pKUJwFLI19DnSy5+zxBdq3ijnKIivDYeAZaa67W7IpHTrjbJlP1AkiF9u7P
+         T4n9vrt/RJYhhi0+ndHof7y2UBd/F/MSARkDslMt3xAPyotgr6N96YuHgXMECEn1Kvat
+         Pfqz1kFAOZCR3vbtKl+QcKXPIdhyMmfvAKiAlfLl+9bjxZrFkKYxbCnxPe3KrqLGxsUi
+         Fn+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795010985; x=1795615785;
+        d=1e100.net; s=20260707; t=1795010980; x=1795615780;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :content-type:mime-version:subject:date:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tcgPJyrG/tkBCFtIrUZsvk3sWZQyrMsvPzB+MTHh/GA=;
-        b=qtJdHWL2PHood/t/jDLmFzw0St7Tl7CjpUyY2/okMtXvY/K8DygFB3N21ZXaZwht+O
-         eCO1gUSRxkNyGI9/+qhekYW/NA74Hg4foILFEWJWOYuhN4coqDNiKGD+aD6GMs6X3cfx
-         ge8xvjhrH9QNxjkqPhbSS7Unp+RU1868pLyZB+IUEBvi4i1j9MRQOAwdd7XwpPqVA3R2
-         u0IgCemGDcQcutCiL1Eefp9uBfuUj/LeFrb11tkaEkQzz3u9SMOZsB27qHDWAw/XqCok
-         3ylbdOg2gFiIsfuqs73ifO6Cibihr8EhU6zuo6TrNVm/owD0xZlA5Z0ykmIT4u8asmmt
-         7PHw==
-X-Forwarded-Encrypted: i=1; AL+hErErDGpbRg54J7vvuh6Jvetn5EAixRXWh8EOfuW/J8YSTJr4tjkh2yaxigev8s7LDbaQI9KsHIY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8D0cHI5pJWB+9EGrGDaxeF/9HqizEIU6a0k1DJxUlMVHpGvYJk
-	mtj6pn1FemEqxDjIV4tAPAEMy7sDKCOQeWrggLTE0eBrVgbqZ54M2x5m
-X-Gm-Gg: AYBFou3N2fSeEXmxtc0ioO/UDY6MhEIZeuFl64VAcOtXM5PVXqMSLx3ul3bwFXHu7Oa
-	PzS4w0rVA4WBAzMsRkRznN3We0otXP2HFIZI7b7ABnRLT7TvZkWzYwJL/gHcXCsT1HY98gYqZlu
-	zcsjVo/FfqQ8ICxsnboyrOI0gFERs02wan4EAK2l8V8nCgfG8BBDYdFdftPD6FtC2k9dl55K1zk
-	168dtjLw+R7MICA+oQTJnyAcNVTtcmFszP+hpUahnAO4rVcZRTXFauZ2MCVAzAO+bcqJ96r+jqy
-	Ddu5dR8v2HFqjb5UfdfRF69jwsrrcMLjoe7pZCqMgpnlPfPLjyhgoVAQXnj82bWMhmIyaUjgQo8
-	UBA7bHd721D3qL3PNarfh4SeuZvlHNjegJFObdlUykHS0tK8/vBm6dNnbC2eR0x9Gm8LQOQjoMc
-	e7Ub1vjJ+tIBlTjZjqY0Z20lBKWhhfyj4mfUbuOJujRZKDdooSCXLDP51zZprb3YZzfIkui1YEo
-	iNBoCB4RMAsLNGhS7sGbYG7/w8KbbciweCbkH/FustQ5ihd/otGNAJ0o4QgzBladiPKhKuwZpOg
-	u1wSLVcFPRs+dYpfz7amK6MnrsA=
-X-Received: by 2002:a05:6820:1355:b0:71a:ee31:7b87 with SMTP id 006d021491bc7-71b18460540mr1709015eaf.32.1795010984713;
-        Wed, 18 Nov 2026 06:09:44 -0800 (PST)
-Received: from localhost ([2a03:2880:30ff:42::])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b19516ea1sm1983557eaf.11.2026.11.18.06.09.44
+        bh=BhI9NvyCgtOZtuaslrAqMXx6Ds5DSmZ6/JAKnGkqXCU=;
+        b=24FEZgoB5OqlQ3iwfhWl9nBJD2tmy0I80pc1SjzSJcuX90T6NE7gGNgFePmXtli8wr
+         PgNIwHXjtqpE1bhYeALe5Hf90s/72FFh2YmAJjCtLcE5ZfP1ArJcMITEIE+6xUg3dEFt
+         DDDcFibecMZ4hm8eLZDqbHQ1Pg8YrLyg46ernQqfhGr/uSjQp468j/vYR0VGJsq45NfW
+         EJIZnVuVv3ozdPKHjNXbBS1m8420FFlyDfW0AFapDbDQJtGS5vs40BXftZfqO3ZKHXSZ
+         SrHY7CijcpdW4YjzjMDn2WPtxVqOB+A+s/0PXyogXuKNNBKpXO9i1eH55tbbuQvuSqfu
+         9kvQ==
+X-Forwarded-Encrypted: i=1; AL+hErFyiwxCIuy7Xg7tGtOPv13joG4dryixELjyPphI0lz405BUaL5u0NiiXqAummEKOSPEtTzP3hA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/KUIg52B9cl5WfvxuHslQyJrzmWxnrRPYUoNubcqqCcAT329vJ
+	m2meoksnIW2wOxxrFuz1pOhGTx2IJUeuyJKBU6kB6jW1rCjtKrx9rZm6
+X-Gm-Gg: AYBFou39ovpziGDleM3Kh//46ma46EhUF+1zORz+Y3bC/wVg8YQLIbMxAwINepSBgUT
+	4qXMr0IrjQnI0pKyI/JQQLOn7YAWfVimukXxye7QSKHeQIskZylPcalMoGIH8fieghUIj///fsV
+	3XCE6TSBXYn05OayXP02XcUrn/oHJwgkl8W7Od4x3m4OKeIqIsY308FafBIzYEAQ2+2ZkjX1x5k
+	/t1HT4CVpOMbSLsqTK1qOC8EWhkxo+xdOAKMhv39/aR8jmsH6U0jv1rX58UXza/dfkjGYz7/nZA
+	33PKlTyhPHe4yPcRDJAiao9IsF1Wonfn3OjBri6gOj9BUTcLaVcFFBVHLFVci/zIs9jzzpWLaiY
+	KTHdVQYDSD9sv75+BiSbBKtd4kXrgEPLZBce1G6H38MLV6HGgxSyhsP1X1nmazeoR02qbxZuFkQ
+	nWkUMgnmBkf/Enwku8nPfKcqD5Zd5cOCd1sqCuVHad8y5R5S4u3idoVkFUdG7HcL9uMTquJDghf
+	u4CqjRpol3HkPZd0ZMXBfmFDpzRkyiAnHN9IZIQT695aVALWDYvOt6Kg0fwvrZu5pPlipQFmIAt
+	D4UGyTG4yfunTgZYQxHk7RCdgg==
+X-Received: by 2002:a05:6830:680d:b0:845:8d86:9f81 with SMTP id 46e09a7af769-862f0832679mr1678535a34.6.1795010980265;
+        Wed, 18 Nov 2026 06:09:40 -0800 (PST)
+Received: from localhost ([2a03:2880:30ff:7::])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-862f021295csm2160757a34.15.2026.11.18.06.09.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 06:09:44 -0800 (PST)
+        Wed, 18 Nov 2026 06:09:39 -0800 (PST)
 From: Daniel Zahka <daniel.zahka@gmail.com>
-Date: Wed, 18 Nov 2026 06:08:05 -0800
-Subject: [PATCH net-next v5 3/6] psp: document lock ordering with the
- netdev instance lock
+Date: Wed, 18 Nov 2026 06:08:03 -0800
+Subject: [PATCH net-next v5 1/6] psp: support rx rekey operation
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,7 +93,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-psp-v5-3-b9ec840e0296@gmail.com>
+Message-Id: <20261118-psp-v5-1-b9ec840e0296@gmail.com>
 References: <20261118-psp-v5-0-b9ec840e0296@gmail.com>
 In-Reply-To: <20261118-psp-v5-0-b9ec840e0296@gmail.com>
 To: Jakub Kicinski <kuba@kernel.org>, 
@@ -107,74 +106,280 @@ To: Jakub Kicinski <kuba@kernel.org>,
  Andrew Lunn <andrew+netdev@lunn.ch>, Shuah Khan <shuah@kernel.org>
 Cc: Daniel Zahka <daniel.zahka@gmail.com>, netdev@vger.kernel.org, 
  linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kselftest@vger.kernel.org
+ linux-kselftest@vger.kernel.org, Willem de Bruijn <willemb@google.com>
 X-Mailer: b4 0.13.0
 
-PSP core calls driver ops with psp_dev::lock held, and drivers may take
-the netdev instance lock inside them. mlx5e_psp_set_config() has done so
-since commit 1e6e0cec0dab ("net/mlx5e: psp: Make PSP steering config
-dynamic"). That commit established a lock ordering that was not
-documented anywhere.
+Support updating the rx PSP state used by a socket. This is most
+useful to do after a device key rotation has occurred and the key
+being used by the peer will become stale after the next device key
+rotation.
 
-Document it. psp_dev_create() and psp_dev_unregister() take
-psp_devs_lock and psp_dev::lock, so assert that they are not called
-with the netdev instance lock held. The next patch adds a work item to
-PSP core which relies on this ordering.
+Create a new psp_assoc for the socket to use that contains the same tx
+state, but with new rx state. Copy the previous rx state to use as a
+fallback while the peer is in the process of switching to the new key.
 
+skbs matching the current rx spi and generation or the previous rx spi
+and generation will be accepted. It might be reasonable to stop
+accepting skbs on the previous state after seeing skbs with the new
+state and after waiting a grace period, but that is not implemented
+for now.
+
+Reviewed-by: Willem de Bruijn <willemb@google.com>
 Signed-off-by: Daniel Zahka <daniel.zahka@gmail.com>
 ---
-v5:
-- new patch
----
- net/psp/psp_main.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+v3:
+- move the replaced assoc to psd->stale_assocs, so a rotation
+  racing with its free doesn't count it in stale-events
+- drop the requirement that the new rx spi has the opposite phase
+  bit from the previous one
+- keep prev_generation valid across a rotation when the prev SPI is
+  from the same generation
+- document rx rekey in the rx-assoc op doc in psp.yaml
 
-diff --git a/net/psp/psp_main.c b/net/psp/psp_main.c
-index 273b010d2355..ba44154cf8dc 100644
---- a/net/psp/psp_main.c
-+++ b/net/psp/psp_main.c
-@@ -19,6 +19,8 @@ struct mutex psp_devs_lock;
+v2:
+- copy old rx state by value instead of pointer to prev
+- place non-datapath fields at end of struct psp_assoc
+- disallow rx rekey when socket is not in full psp state, or
+  dev/version doesn't match.
+- require the new rx spi to have the opposite phase bit from the previous
+  one
+---
+ Documentation/netlink/specs/psp.yaml |  4 ++-
+ Documentation/networking/psp.rst     | 23 ++++++++++++++--
+ include/net/psp/functions.h          | 10 ++++---
+ include/net/psp/types.h              | 17 +++++++++++-
+ net/psp/psp.h                        |  3 ++-
+ net/psp/psp_sock.c                   | 52 +++++++++++++++++++++++++++++++++---
+ 6 files changed, 96 insertions(+), 13 deletions(-)
+
+diff --git a/Documentation/netlink/specs/psp.yaml b/Documentation/netlink/specs/psp.yaml
+index f3266763c325..d5713f5d1af7 100644
+--- a/Documentation/netlink/specs/psp.yaml
++++ b/Documentation/netlink/specs/psp.yaml
+@@ -265,7 +265,9 @@ operations:
+ 
+     -
+       name: rx-assoc
+-      doc: Allocate a new Rx key + SPI pair, associate it with a socket.
++      doc: |
++        Allocate a new Rx key + SPI pair, associate it with a socket.
++        If the socket already has PSP state, rekey its Rx direction.
+       attribute-set: assoc
+       do:
+         request:
+diff --git a/Documentation/networking/psp.rst b/Documentation/networking/psp.rst
+index 0f9b6b73f244..fab797506b0a 100644
+--- a/Documentation/networking/psp.rst
++++ b/Documentation/networking/psp.rst
+@@ -140,14 +140,33 @@ The PSP assoc state of a socket is not reset when the connection is
+ torn down. ``connect()`` on a socket that has PSP assoc state will
+ return ``-EINVAL``.
+ 
++Rekeying
++--------
++
++A connection which has completed the exchange described above and is
++in the "PSP Full" state can be rekeyed in place without being torn
++down, using the same netlink calls as in connection setup.
++
++``rx-assoc`` allocates a new Rx key and SPI, which should be passed
++to the peer exactly as during the initial exchange. The SPI which was
++in use before the rekey remains acceptable on the socket until the
++next Rx rekey, or until the device key it was derived from has been
++rotated out, so packets the peer sent before it learned the new SPI
++are still received.
++
++A rekey is rejected with ``-EINVAL`` if it would change the PSP device
++or the PSP version of the association. It is rejected with ``-EBUSY``
++if the socket has not completed its initial exchange in both
++directions.
++
+ Rotation notifications
+ ----------------------
+ 
+ The rotations of device key happen asynchronously and are usually
+ performed by management daemons, not under application control.
+ The PSP netlink family will generate a notification whenever keys
+-are rotated. The applications are expected to re-establish connections
+-before keys are rotated again.
++are rotated. Applications are expected to rekey their connections,
++as described above, before device keys are rotated again.
+ 
+ Kernel implementation
+ =====================
+diff --git a/include/net/psp/functions.h b/include/net/psp/functions.h
+index 410adb6718c1..5a7a518b9579 100644
+--- a/include/net/psp/functions.h
++++ b/include/net/psp/functions.h
+@@ -77,10 +77,12 @@ psp_is_allowed_nondata(struct sk_buff *skb, struct psp_assoc *pas)
+ static inline bool
+ psp_pse_matches_pas(struct psp_skb_ext *pse, struct psp_assoc *pas)
+ {
+-	return pse && pas->rx.spi == pse->spi &&
+-	       pas->generation == pse->generation &&
+-	       pas->version == pse->version &&
+-	       pas->dev_id == pse->dev_id;
++	return pse && pas->version == pse->version &&
++	       pas->dev_id == pse->dev_id &&
++	       ((pas->rx.spi == pse->spi &&
++		 pas->generation == pse->generation) ||
++		(pas->prev_spi && pas->prev_spi == pse->spi &&
++		 pas->prev_generation == pse->generation));
+ }
+ 
+ static inline enum skb_drop_reason
+diff --git a/include/net/psp/types.h b/include/net/psp/types.h
+index b8905efbd604..9eb89d2d680c 100644
+--- a/include/net/psp/types.h
++++ b/include/net/psp/types.h
+@@ -3,6 +3,7 @@
+ #ifndef __NET_PSP_H
+ #define __NET_PSP_H
+ 
++#include <linux/bits.h>
+ #include <linux/mutex.h>
+ #include <linux/refcount.h>
+ #include <net/net_trackers.h>
+@@ -78,7 +79,8 @@ struct psp_assoc_dev {
+  * @active_assocs:	list of registered associations
+  * @prev_assocs:	associations which use old (but still usable)
+  *			device key
+- * @stale_assocs:	associations which use a rotated out key
++ * @stale_assocs:	associations which use a rotated out key, or were
++ *			superseded by a rekey
   *
-  * psp_devs_lock protects the psp_devs xarray.
-  * Ordering is take the psp_devs_lock and then the instance lock.
-+ * The PSP instance lock must be taken before its main netdev's instance
-+ * lock.
-  * Each instance is protected by RCU, and has a refcount.
-  * When driver unregisters the instance gets flushed, but struct sticks around.
-  */
-@@ -53,6 +55,7 @@ int psp_dev_check_access(struct psp_dev *psd, struct net *net, bool admin)
-  * @psd_caps:	device capabilities
-  * @priv_ptr:	back-pointer to driver private data
-  *
-+ * Context: Must not be called with the netdev instance lock held.
-  * Return: pointer to allocated PSP device, or ERR_PTR.
-  */
- struct psp_dev *
-@@ -64,6 +67,8 @@ psp_dev_create(struct net_device *netdev,
- 	static u32 last_id;
+  * @stats:	statistics maintained by the core
+  * @stats.rotations:	See stats attr key-rotations
+@@ -152,6 +154,15 @@ struct psp_key_parsed {
+ 	u8 key[PSP_MAX_KEY];
+ };
+ 
++/**
++ * enum psp_assoc_flags - flags of struct psp_assoc
++ * @PSP_ASSOC_SKIP_TX_KEY_DEL: Do not delete Tx key from psp_dev. It was
++ *	copied to a newer psp_assoc during an Rx rekey.
++ */
++enum psp_assoc_flags {
++	PSP_ASSOC_SKIP_TX_KEY_DEL	= BIT(0),
++};
++
+ struct psp_assoc {
+ 	struct psp_dev *psd;
+ 
+@@ -159,6 +170,10 @@ struct psp_assoc {
+ 	u8 generation;
+ 	u8 version;
+ 	u8 peer_tx;
++	u8 prev_generation;
++	u8 flags; /* Slow path, protected by psd->lock */
++
++	__be32 prev_spi;
+ 
+ 	u32 upgrade_seq;
+ 
+diff --git a/net/psp/psp.h b/net/psp/psp.h
+index b123c2427905..92d7b92acaed 100644
+--- a/net/psp/psp.h
++++ b/net/psp/psp.h
+@@ -63,7 +63,8 @@ static inline bool psp_dev_has_sadb(struct psp_dev *psd)
+ static inline bool psp_assoc_needs_tx_key_del(struct psp_assoc *pas)
+ {
+ 	lockdep_assert_held(&pas->psd->lock);
+-	return psp_dev_has_sadb(pas->psd) && pas->tx.spi;
++	return psp_dev_has_sadb(pas->psd) && pas->tx.spi &&
++	       !(pas->flags & PSP_ASSOC_SKIP_TX_KEY_DEL);
+ }
+ 
+ #endif /* __PSP_PSP_H */
+diff --git a/net/psp/psp_sock.c b/net/psp/psp_sock.c
+index f2cba3fa3a23..c1e38845f08c 100644
+--- a/net/psp/psp_sock.c
++++ b/net/psp/psp_sock.c
+@@ -149,10 +149,39 @@ void psp_sk_assoc_free(struct sock *sk)
+ 	psp_assoc_put(pas);
+ }
+ 
++static int psp_sock_rx_rekey(struct psp_assoc *pas, struct psp_assoc *prev,
++			     struct netlink_ext_ack *extack)
++{
++	if (pas->psd != prev->psd) {
++		NL_SET_ERR_MSG(extack, "PSP device mismatch with existing state");
++		return -EINVAL;
++	}
++	if (pas->version != prev->version) {
++		NL_SET_ERR_MSG(extack, "PSP version mismatch with existing state");
++		return -EINVAL;
++	}
++	if (!prev->tx.spi || !prev->peer_tx) {
++		NL_SET_ERR_MSG(extack, "Socket PSP state is not fully established");
++		return -EBUSY;
++	}
++
++	pas->peer_tx = 1;
++	pas->prev_spi = prev->rx.spi;
++	pas->prev_generation = prev->generation;
++
++	memcpy(&pas->tx, &prev->tx, sizeof(pas->tx));
++	memcpy(pas->drv_data, prev->drv_data, pas->psd->caps->assoc_drv_spc);
++	prev->flags |= PSP_ASSOC_SKIP_TX_KEY_DEL;
++	list_move(&prev->assocs_list, &prev->psd->stale_assocs);
++
++	return 0;
++}
++
+ int psp_sock_assoc_set_rx(struct sock *sk, struct psp_assoc *pas,
+ 			  struct psp_key_parsed *key,
+ 			  struct netlink_ext_ack *extack)
+ {
++	struct psp_assoc *prev;
  	int err;
  
-+	lockdep_assert_not_held(&netdev->lock);
-+
- 	if (WARN_ON(!psd_caps->versions ||
- 		    !psd_ops->set_config ||
- 		    !psd_ops->key_rotate ||
-@@ -127,12 +132,16 @@ void psp_dev_free(struct psp_dev *psd)
- /**
-  * psp_dev_unregister() - unregister PSP device
-  * @psd:	PSP device structure
-+ *
-+ * Context: Must not be called with the netdev instance lock held.
-  */
- void psp_dev_unregister(struct psp_dev *psd)
- {
- 	struct psp_assoc_dev *entry, *entry_tmp;
- 	struct psp_assoc *pas, *next;
+ 	memcpy(&pas->rx, key, sizeof(*key));
+@@ -165,10 +194,11 @@ int psp_sock_assoc_set_rx(struct sock *sk, struct psp_assoc *pas,
+ 		goto exit_unlock;
+ 	}
  
-+	lockdep_assert_not_held(&psd->main_netdev->lock);
+-	if (psp_sk_assoc(sk)) {
+-		NL_SET_ERR_MSG(extack, "Socket already has PSP state");
+-		err = -EBUSY;
+-		goto exit_unlock;
++	prev = psp_sk_assoc(sk);
++	if (prev) {
++		err = psp_sock_rx_rekey(pas, prev, extack);
++		if (err)
++			goto exit_unlock;
+ 	} else if (sk_has_decrypt_user(sk)) {
+ 		NL_SET_ERR_MSG(extack, "Socket has incompatible state");
+ 		err = -EINVAL;
+@@ -177,6 +207,7 @@ int psp_sock_assoc_set_rx(struct sock *sk, struct psp_assoc *pas,
+ 
+ 	refcount_inc(&pas->refcnt);
+ 	rcu_assign_pointer(sk->psp_assoc, pas);
++	psp_assoc_put(prev);
+ 	err = 0;
+ 
+ exit_unlock:
+@@ -302,8 +333,21 @@ void psp_assocs_key_rotated(struct psp_dev *psd)
+ 	 */
+ 	list_for_each_entry_safe(pas, next, &psd->prev_assocs, assocs_list) {
+ 		pas->generation |= ~PSP_GEN_VALID_MASK;
++		pas->prev_generation |= ~PSP_GEN_VALID_MASK;
+ 		psd->stats.stales++;
+ 	}
 +
- 	mutex_lock(&psp_devs_lock);
- 	mutex_lock(&psd->lock);
++	/* Don't allow SPI from two generations ago to alias one from the
++	 * current generation. Rx rekeying under the same device key generation
++	 * is currently permitted, so skip if the previous SPI is from just one
++	 * generation ago.
++	 */
++	list_for_each_entry(pas, &psd->active_assocs, assocs_list) {
++		if ((pas->rx.spi ^ pas->prev_spi) &
++		    cpu_to_be32(PSP_SPI_KEY_PHASE))
++			pas->prev_generation |= ~PSP_GEN_VALID_MASK;
++	}
++
+ 	list_splice_init(&psd->prev_assocs, &psd->stale_assocs);
+ 	list_splice_init(&psd->active_assocs, &psd->prev_assocs);
  
 
 -- 
