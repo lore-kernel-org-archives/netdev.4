@@ -1,49 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.80.4.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794967811;
-	b=Jf/FATVXurPwUm+KfTx3uQHYkF+VLq0Vq8qVbXxyvWz+nsNaPJ57DIMw595GTOQUAXOm
-	 bffys9dE7U/TfqUvlUcD4zXZqvqTQj2FYNOotRxXCt0SUEwNFXFqgkrJZD6zs4BF/KFM0
-	 iYRHzisJ0PR3IyxAcUSXVDhWYfBdmkedrxr33ByGd8Cteb8/fyXyu23ntmxQUxwn4vmmO
-	 TSoM4JeJI+/InRf7fK7tSCPIxG2z3EKGvDwzUOjekERdw+AHoUHOykbLV9EIOaH9R78JP
-	 WODxsHdIqIEGCzcCwdr3Lng3arsOveucGEleHD47C6rJOb0ek4GgAyKSBSDG9kdAxgw==
+	t=1794967977;
+	b=3b/OnRUNsDbPXXtQjsabE8b30xreg+j2gmxtHyD0ymWX8SEethj3O4+L6VL9OG6IEZTo
+	 RVORRGQWetYwvkRTsZsSYWNbKpOstk+A1jb3cylDWiMm4yzeYMQOPXRxfgsiN1eyOZBFQ
+	 Q2//wrY3FVslwDBLDnyuZWw57He4XlFxONDLIPhnFWuBmpjuvtCHGxW1EwmW26lkNyow/
+	 +vp/LMFzzWUfvNwewcZnZma50vus6vCOOqDDMCeJdXXXeeqN8rBCMVbQv1EO9jIKyDPFv
+	 HgDWxZXO84C3wt50r3NM6TaJSShxCLyijopsmiVF9r7WlitCbKdBUjkcll5hP0BGpaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794967811;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=KC2+vMIdgBSKayVHc7Ws+U3uVp6Z3Ak+J6WEhPtRw3w=;
-	b=rENVcHc4oZaZFz9tKk+Y6IVthf2VpsJJ+MqKt9cT7qOZr7zME2APUET7PFEfRTzDtZWz
-	 ELsEtEUEtsNYATG5zK56HrokSpMRhEc3z4FdQAqKkBld0cSmtY6xeIJBkVM0WwFNaOMmV
-	 lTYbBM7AKZrqeSffdFkZVKGYu9HWhyTfQnWTHkSieyoLfiJhBD+fQuvatKjmBzY65gFR0
-	 8Ie+a0bjaHEb+/P02wAq8IthQO7ajWskCmDEaDIlr9LRRuRv+/5WGFmnSGFi6/8EyOI00
-	 lWzP/0KPj2WmnSGRkXh/9xLjGuxEJNTC95lM7dL2VGX9B3VPYZ9hTyMKHrnQjmNffDw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967977;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:Date:
+	 From:To:Cc:Subject:Message-Id:In-Reply-To:References:X-Mailer:
+	 Mime-Version:Content-Type:Content-Transfer-Encoding:X-Virus-Scanned:
+	 X-Virus-Status;
+	bh=owG1RKoUa0rmdjU2wKB+h6TD4I1LK9UkZwmt/Sf98vg=;
+	b=cTCcehItC1FDMKTjoCO27stgHjT+7SpIgxNu0Jp1Mx+tPgTENvHky5exiB6Z0PmTS10O
+	 NME5aYc39nGsxLLhqI9KuO/JqJlBGiB0uCzXkKJokPNnQDX3xKabHyNuKEjsCUNbVnO1U
+	 JuGsELbLhpMMSPeO1XFJ/A8uxcXyoKLbh96+67ViRi91lvDm1NlHo/GE0hgU2j0dJAy98
+	 sirQiIsp2rpWCynXBF7YRTOhherrOdUFyfZaNadPwkaELVwgrAxBHYKCpsA2DSNEOhd0+
+	 QqT9SN+JkGZUwTqQNTHaGokL61EwX73f0UQ1smFd3LKd3O4ZznQx8Qx53nsqG1UBmEA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="GNRjM7l/";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3FEF606A325;
-	Wed, 18 Nov 2026 02:10:10 +0000 (UTC)
+	dmarc=pass header.from=uniroma2.it;
+	spf=pass smtp.mailfrom=uniroma2.it;
+	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b="Y/MaeVv/";
+	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b="GP/Ey3g9";
+	arc=none smtp.remote-ip=160.80.4.37
+Received: from smtp.uniroma2.it (smtp.uniroma2.it [160.80.4.37])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 876D7606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:12:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 876D7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniroma2.it
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniroma2.it
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GNRjM7l/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 868E01F000C4;
-	Wed, 18 Nov 2026 02:10:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794967810;
-	bh=KC2+vMIdgBSKayVHc7Ws+U3uVp6Z3Ak+J6WEhPtRw3w=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=GNRjM7l/xiy50HWgh62L1YdW8sTHtRbdW7BJgH3kVHokLU72Uu48Qi2eipucXdD7Z
-	 fpiu+JuToo5pTrHbWLdjPapPOE2TD3nUT6oSsHfqgVsBDmlqZ/cHjQehUjBOTF6hvz
-	 1wxnJfQC7B1iHuGHEmucs+CVNODFT64QEntH6F0wcl/V62cTVq52wnugnQ1BnNRQI9
-	 59zPsCADDyW1k5MMnDFQYcOMeHjNj8DxjxPjVoByN7DnFyHbm569zBZ+vUNrNvPHaR
-	 kJM21pF2eK3H2ax6kiTPsbI92BUncQTT2O8KJ/HyhDOzR8L9MxUKYGMHHZ/0VMyYd2
-	 BD8HWZtO8JlNg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 77400392B1FF;
-	Wed, 18 Nov 2026 02:10:10 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=Y/MaeVv/;
+	dkim=pass (2048-bit key, unprotected) header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=GP/Ey3g9
+Received: from smtpauth-2019-1.uniroma2.it (smtpauth-2019-1.uniroma2.it [160.80.5.46])
+	by smtp-2015.uniroma2.it (8.14.4/8.14.4/Debian-8) with ESMTP id 6AI2CD6c025097;
+	Wed, 18 Nov 2026 03:12:18 +0100
+Received: from lubuntu-18.04 (unknown [160.80.103.126])
+	by smtpauth-2019-1.uniroma2.it (Postfix) with ESMTPSA id 9CF9E120065;
+	Wed, 18 Nov 2026 03:12:09 +0100 (CET)
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=uniroma2.it;
+	s=ed201904; t=1794967930; h=from:from:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=owG1RKoUa0rmdjU2wKB+h6TD4I1LK9UkZwmt/Sf98vg=;
+	b=Y/MaeVv/GrWs1YaDuHffPm4Ku3b6II8z90OkZX2Bjkke6eCMyuBqNBzsMrkD6H64+DPM6C
+	o8hH30k9aP3ePGAw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniroma2.it; s=rsa201904;
+	t=1794967930; h=from:from:sender:reply-to:subject:subject:date:date:
+	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
+	 content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=owG1RKoUa0rmdjU2wKB+h6TD4I1LK9UkZwmt/Sf98vg=;
+	b=GP/Ey3g9fGTaogC5YI+sj4wu0LFTXclPDo7BcVjmLWIZsTS2GNT8+gBMrGbeSSBaqqcn8/
+	SZFzUYIo3eB+iJT8DvauzpcPH7dZxlfd3yAghiJsgMn/S36TS5Jm6vW74V0ZfvYo046D63
+	RGaASmtdkgXtiw/cdRQEn+RJjaDLA7SeHzZM9vLyfgizPm8kmgKn/qef4DM+WfzvbEJEvL
+	YRVIixVsc0VvrDot9/vXsL32cAWAz7Nq5jMyiXllj6j0F/hoPQVnml/QJ7lo48Y2bSpqfI
+	rnUSNivzZSn4VUrF8z0sLpjATlWOFEx3DouxSLYalD2g0elub8AGkIfaHi3r8Q==
+Date: Wed, 18 Nov 2026 03:12:08 +0100
+From: Andrea Mayer <andrea.mayer@uniroma2.it>
+To: Justin Iurman <justin.iurman@gmail.com>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+        kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+        Stefano Salsano
+ <stefano.salsano@uniroma2.it>,
+        Hangbin Liu <hangbin.liu@linux.dev>,
+        Andrea
+ Mayer <andrea@common-net.org>,
+        Andrea Mayer <andrea.mayer@uniroma2.it>
+Subject: Re: [PATCH net 2/2] seg6: drop the packet if no outer source
+ address is available
+Message-Id: <20261118031208.38cbdb5e2c4183da17904095@uniroma2.it>
+In-Reply-To: <20261115000047.14669-3-justin.iurman@gmail.com>
+References: <20261115000047.14669-1-justin.iurman@gmail.com>
+ <20261115000047.14669-3-justin.iurman@gmail.com>
+X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -52,47 +86,58 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v13] net: reduce ARFS flow updates by checking
- LLC
- affinity
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179496780902.1408948.5643474909251504479.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 02:10:09 +0000
-References: <20261113125643.2255-1-nashuiliang@gmail.com>
-In-Reply-To: <20261113125643.2255-1-nashuiliang@gmail.com>
-To: Chuang Wang <nashuiliang@gmail.com>
-Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, sdf.kernel@gmail.com, daniel@iogearbox.net,
- kuniyu@google.com, netdev@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
+Mime-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Virus-Scanned: clamav-milter 0.100.0 at smtp-2015
+X-Virus-Status: Clean
 
-Hello:
+On Sun, Nov 15, 2026 at 01:00:47AM +0100, Justin Iurman wrote:
+> When no tunnel source is configured, set_tun_src() ignores the return
+> value of ipv6_dev_get_saddr(). On failure, the source address of the
+> freshly pushed outer header is never written, so the packet is sent
+> with whatever stale bytes were in the skb headroom.
+>
+> Return the error from set_tun_src() and drop the packet; all callers
+> of the encap functions already handle their errors.
+>
+> Fixes: 6c8702c60b88 ("ipv6: sr: add support for SRH encapsulation and injection with lwtunnels")
+> Signed-off-by: Justin Iurman <justin.iurman@gmail.com>
+> [snip]
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Hi Justin,
 
-On Fri, 13 Nov 2026 20:56:34 +0800 you wrote:
-> When an application migrates to a different CPU, RFS records the new
-> CPU in the global rps_sock_flow_table via rps_record_sock_flow().  On
-> the next packet of a flow, get_rps_cpu() notices the change and calls
-> set_rps_cpu() to update the per-queue flow entry.  With Accelerated
-> RFS (ARFS), set_rps_cpu() also invokes the driver's ndo_rx_flow_steer()
-> callback so that the NIC steers the flow to a queue close to the new
-> CPU.
-> 
-> [...]
+the overall fix looks good. The Sashiko review makes a good point about
+the BPF callers. They do not drop the packet, they return the error to
+the program. If the program ignores it, the packet can still go out with
+stale headroom bytes as the source address, and now a wrong payload_len
+too.
 
-Here is the summary with links:
-  - [net-next,v13] net: reduce ARFS flow updates by checking LLC affinity
-    https://git.kernel.org/netdev/net-next/c/1a0dd3c7c4ac
+It makes sense to select the source before skb_cow_head(), as the review
+suggests. On failure the encap returns before touching the packet. The
+source goes into a local address, then into the header where
+set_tun_src() writes it today. That is before the HMAC push, since the
+HMAC covers the source. For example, in __seg6_do_srh_encap():
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+	struct in6_addr saddr;
+	...
+	err = set_tun_src(net, dev, &osrh->segments[osrh->first_segment],
+			  &saddr, route_tunsrc);
+	if (unlikely(err))
+		return err;
 
+	err = skb_cow_head(skb, ...);
+	...
+	hdr->saddr = saddr;
 
+seg6_do_srh_encap_red() has the same two call sites, the skip_srh path
+and the slow path. Both would use the source resolved once at the top.
+
+Also, a local sender now gets EADDRNOTAVAIL from sendto(), where before
+the send succeeded. Might be worth a line in the commit message, with
+the reproduction you already gave the bot.
+
+WDYT?
+
+Thanks,
+Andrea
