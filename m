@@ -1,92 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.80.4.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794970248;
-	b=HjigNxWJTB22SGykTGVZTDWkOTL2IeISHak6A6zArpxpSciLEMUygYaxNPn+UaIMdajc
-	 dSzORU2vyIsCyv6ab4nzzK7xn76ORJn2eDyvfAZPG89A13gvcQ6m0cbitAChxFaXXAAtO
-	 I2KGOS2bKhGrtoxlC/H+vOu/T64qnScnYOYq+JDYuwtCdmKlUa1cRmliOxHecNpkUJrrf
-	 agowsthv3QFYtXPGJWFSFRbaSS8C1JQMu5r4eb1nUhrqwzbKN5ZiJp8mpbig5d0CimOAI
-	 WfrB5nGwBzs/dkKiqyExIejJU0EoxxmsDcvss3lGH0a7UzTLiPHdLLm9c3LbYfkQsNA==
+	t=1794970536;
+	b=bsHD3sDO5cbL/rb5J8rPTupxyPocDaM3czIb63DJ6RrD6uX/4EyVQBcDD+qp82llHxYm
+	 IgI8Nceo6UyHTmNhP3C02tA6U54KA+mI3oVXmRzKpkGhVC6Bb/v2TOLHB80StAU5apGyg
+	 XCYepztwQgo7L0hHjS3mOyQ0NU8QvvOqCB8JvfndW9E+jqFIBWvpMDODT0S2jJUq0oQ/B
+	 OADEHKFULMO/QLsHtSjfiVDn50IiI7TwowI6vBnmSZQTTC+9yBPH1/rHq5uBswk+gCfho
+	 amZ7Kzb7gYM9YYd5FlNO8XLvjxOTr/y7o81UFN6rXdkegZ9Rs0BrQPlXGMqvbRqcESA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794970248;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:Date:
-	 From:To:Cc:Subject:Message-Id:In-Reply-To:References:X-Mailer:
-	 Mime-Version:Content-Type:Content-Transfer-Encoding:X-Virus-Scanned:
-	 X-Virus-Status;
-	bh=epbfdBp28UBBhvRLkexZRai4gc9+i5W8pdU9So+sFKM=;
-	b=M7CxfCSvVHK6liaOxa6Dxyf5O7fYYETAj2ljeU3NCxD5wCb6Rcj9wZuGC0BtdiGELmyd
-	 OC4xnpJ4OyR2YjYruD1cZ1r95V6hYyUstUOru79zKKDJZK44i7O7a46kRsov6lfJbPg+K
-	 K5jmsHSa6aiarBpAsg+GcAzw4WH22m71WdVhFa3HXWNEjQp8CCLRffRDIVLJE423bFE3C
-	 QoYfF5c3Y+ciBhrADzF7oEp+ZXa23Dozwz31ItepkXfHHsw8eKxbC57Ys0EBidnRjfdOS
-	 GyIPphA3M75NJ9VV22Ns8GbpMU+B6podjaDA/fKo+u9vVYBdW9SLpq1vjg77goT/cCg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794970536;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=Cc1CenNSOFeQKanbwZUmn2fS8ubg1Oyl3pgDvfLoRhU=;
+	b=jikm74KbdPorp4cteqoHmuk6SsLUNClG9xbjzaTfHw68f3tFgc1FMxl+iLV3RpC6dBGV
+	 6NRGCXSDNs8MUPXOwNmNhPZTu2ZWpCRK0QjBfl7FB4ImwZ01gOvehH2BWn5an0hSpcYZV
+	 RdD9W+yChSa/2/U48rdf1R1oITBb/2rrsddoX8F01a4cYc/tQo+2zgWu4jjWJeqN2DUiU
+	 PqME8PElTePGKTZuqTiwXXzjo9SJ/dnua/gCwRaUEMvHxGe/H446QNx7FSoHNJEhUtzXD
+	 Ib7TK4/qbQMInpT4fN2bKmx45ErQXl1xNScG4S2ks+w/hcg5/zoaTjEKkjC0bEjoDPQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniroma2.it;
-	spf=pass smtp.mailfrom=uniroma2.it;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=BtBblj+1;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=CYEZJRUa;
-	arc=none smtp.remote-ip=160.80.4.37
-Received: from smtp.uniroma2.it (smtp-2015.uniroma2.it [160.80.4.37])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 17E5C606A31C;
-	Wed, 18 Nov 2026 02:50:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17E5C606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniroma2.it
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniroma2.it
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KNWJx1vt;
+	arc=none smtp.remote-ip=209.85.215.182
+Received: from mail-pg1-f182.google.com (mail-pg1-f182.google.com [209.85.215.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA0CD606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:55:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA0CD606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=BtBblj+1;
-	dkim=pass (2048-bit key) header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=CYEZJRUa
-Received: from smtpauth-2019-1.uniroma2.it (smtpauth.uniroma2.it [160.80.5.46])
-	by smtp-2015.uniroma2.it (8.14.4/8.14.4/Debian-8) with ESMTP id 6AI2oFTg025412;
-	Wed, 18 Nov 2026 03:50:20 +0100
-Received: from lubuntu-18.04 (unknown [160.80.103.126])
-	by smtpauth-2019-1.uniroma2.it (Postfix) with ESMTPSA id 7FB06120065;
-	Wed, 18 Nov 2026 03:50:10 +0100 (CET)
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=uniroma2.it;
-	s=ed201904; t=1794970211; h=from:from:sender:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=epbfdBp28UBBhvRLkexZRai4gc9+i5W8pdU9So+sFKM=;
-	b=BtBblj+1i796C5YWZB+PuqMkh0iV8sKRwIMRnWrvZzRHu6+RbYSYw+l8tqXxU/LPBJfAEy
-	idqTGXl8FlS1u4BA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniroma2.it; s=rsa201904;
-	t=1794970211; h=from:from:sender:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=epbfdBp28UBBhvRLkexZRai4gc9+i5W8pdU9So+sFKM=;
-	b=CYEZJRUaSneicAGMDJRO5LluZ7qtOH5TtZ39hcq8VURunWEiq+cdoDNYbeH4jS6FVcjw10
-	TVePCNWU1dJr7Aa8cQZ7l6yTLRcnXDHUuLKvtwD4RZFbrEq3/JCy38ZBI1wiPFEWpNE92A
-	hxadRBMBTUsAoRWQG39ZHutlAIPFG3nD4WJxar7bAkRtTQ1K66Hy/t2SyXPQK3mzY/gDr7
-	SnrrldZK8SjJC8ObnWsJCjRaXbyAVIjC0BzPwg1osr83KKWoD8gRPYr+RA4BCwIFWOUg80
-	cDWXtutzhl/MC05Zls+NRiXu8Xjs7JJQ8RBK8TSGy+TPbC+cRLt92P63dd4tVA==
-Date: Wed, 18 Nov 2026 03:50:10 +0100
-From: Andrea Mayer <andrea.mayer@uniroma2.it>
-To: Hangbin Liu <hangbin.liu@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Shuah Khan
- <shuah@kernel.org>, netdev@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        Hangbin Liu <liuhangbin@kylinos.cn>,
-        Stefano Salsano <stefano.salsano@uniroma2.it>,
-        Justin Iurman
- <justin.iurman@gmail.com>,
-        Andrea Mayer <andrea@common-net.org>,
-        Andrea
- Mayer <andrea.mayer@uniroma2.it>
-Subject: Re: [PATCH net-next v3 5/5] selftests: seg6: add PSP flavor testing
- for SRv6 End.X
-Message-Id: <20261118035010.e028076fbd99fbcddd937156@uniroma2.it>
-In-Reply-To: <avwUzLyWxZl9cBIX@fedora>
-References: <20261112-srv6_flavors_endx-v3-0-c9177bbbd965@kylinos.cn>
- <20261112-srv6_flavors_endx-v3-5-c9177bbbd965@kylinos.cn>
- <20261117035021.e724668d726ecce54e091288@uniroma2.it>
- <avwUzLyWxZl9cBIX@fedora>
-X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KNWJx1vt
+Received: by mail-pg1-f182.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so287845a12.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 18:55:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794970535; x=1795575335; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=Cc1CenNSOFeQKanbwZUmn2fS8ubg1Oyl3pgDvfLoRhU=;
+        b=KNWJx1vtty5adSQWncXc2jvEYw8BgOiCGQJuKPijpgJDXNdPsWSZ80sT6Cx46FSVJC
+         Z06qICAMn8sCtamXfYZ14PskbVqTHDGBlSVpQCIvMURVitJNH+jDGidgGM5r+S7T5gAg
+         FWFP3Y2z+enDNnZNY65XrUcBgJnFKLorS13DdoVcNxvOsRdnw1u2W75Ot2GmsaxgYI9j
+         nvmlUiGhJjjHp/rGaKljAX+Tu8vRPkLj1XI9Y7DJIX+s7Cdba1s7WL0/0+OPitCI85Vd
+         hGdcmoJJW7Dk+4ln9vhx7vQXLP7/R78TI8r0yNLcDcDHK8z/iBOjp5rQn6zxY2/Yadmr
+         9Hsw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794970535; x=1795575335;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=Cc1CenNSOFeQKanbwZUmn2fS8ubg1Oyl3pgDvfLoRhU=;
+        b=ksUW0ma8o5PkCjUzDfd51fyQpylpWID5nsNiBx/L+n01nMToQ1t4/+UmrMxouam0+o
+         L1tdfFgdgevNI7MFlZiTgoWsP3DzfsuGqLt3MUkbQc2xGoC+asHHYXnDRQlrmavd3VMi
+         tijs9GL+kctawhG4JM1R+F29v8QP8hlUMqCHSNeIkagvktYILNcOz5FeIGW6e8JjA15O
+         DsBRdHt/lLOZx5x+A3Zf8UcUVYQDyK4IcXSo+Uzx2RQl6mHklRsQU9dlNb0nfJzHpYG9
+         GL13bxi98qVY7TiSKPOSPCD9GE1rNmR8GG4qyTyFTYsizCFFzOSncl0hnMdTsZNkKuXk
+         kGOw==
+X-Gm-Message-State: APuU4Z/iplBfquNfLk4B1OW5Afutz2VU2cWSiNb9MRHVjhPJPOxHmS9e
+	BbGyl+tKFrfWdYVkYCoJleIJP7GdS2KuVKRDx1vCTguwCdTdd2z35nNT
+X-Gm-Gg: AYBFou0vLznl0KNaNTFSCgk+7u9YLdOLjcm0qC0Wt8dUEFNeW4qhf0/Bu918+oToLXH
+	86Q3hIKbSEIvJPvPVCoEKsPCuwVeHvMaJtiI3aWESMT5mrbz7W7dKz3YrDqKob3gh3rH3xbjV6L
+	+pixkXZNOaH6+VNtwpmoISR9ZKyD332e2dzQONYcraYfOJ1O+rSc4lzolmEOtYEWjlarHqgFeap
+	vLX4pWqo4kwA8pkNRmQssoibSOWqh1BKuhe1tKKSjP6bE/iGBagddmM/fVuzSdQfj4r8D5uHMO3
+	9pQi6A4DcfZzaEaLB/og8NPVzcdMSbAMSdnQ2HxbOAxfkBQX4hf5Qgy+BIkTiyKfEsvPtkGpDVI
+	x+CZLnfFPT6BaEQuzoT0uN7cNojq6WoLpx3mEYJJyTkeYChXXi8LH2P3glJbvjfNeNwK5MOtrR/
+	QX/3hVU8/GSgk+eptdFSwaZzbhJRF3xMxG0IHt6SvWe1Qf5WbmdFxry5DVBsfCaS7BCpqCqsm8f
+	dZ8Yao0q4X4iR/uZ37pjMFBQ3qsVaQjXu6VHFj9KYMO9MAQUKPcZ/5yX51RHPlMVBclyjd9sm0S
+	E75zk2cZoPJPGNLjamgxnvKfjKb0
+X-Received: by 2002:a05:6a21:880a:b0:3fb:6e73:ce48 with SMTP id adf61e73a8af0-3fe980f7b76mr958069637.48.1794970534917;
+        Tue, 17 Nov 2026 18:55:34 -0800 (PST)
+Received: from server227.. ([39.170.101.209])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde3af30db8sm304885a12.1.2026.11.17.18.55.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 17 Nov 2026 18:55:34 -0800 (PST)
+From: Zxyan Zhu <zxyan0222@gmail.com>
+To: maxime.chevallier@bootlin.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: netdev@vger.kernel.org,
+	mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	rmk+kernel@armlinux.org.uk,
+	Zxyan Zhu <zxyan0222@gmail.com>
+Subject: [PATCH net-next v4] net: stmmac: program the FSM timeout timer
+Date: Wed, 18 Nov 2026 10:55:28 +0800
+Message-Id: <20261118025528.2703790-1-zxyan0222@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -95,236 +102,232 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.100.0 at smtp-2015
-X-Virus-Status: Clean
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Tue, 17 Nov 2026 16:48:12 +0800
-Hangbin Liu <hangbin.liu@linux.dev> wrote:
+stmmac enables the FSM timeout checker (TMOUTEN) but never programs the
+MAC_FSM_ACT_Timer register.  Per the databook the checker only fires once
+NTMRMD is programmed with a non-zero duration; NTMRMD == 0 disables the
+timer, so with TMOUTEN set but the timer left at reset a stuck FSM is
+never reported and the advertised timeout protection is ineffective.
 
-> Hi Andrea,
-> On Tue, Nov 17, 2026 at 03:50:21AM +0100, Andrea Mayer wrote:
-> > On Thu, 12 Nov 2026 17:28:00 +0800
-> > Hangbin Liu <hangbin.liu@linux.dev> wrote:
-> > 
-> > > Add an End.X flavor scenario to srv6_end_flavors_test.sh that applies
-> > > the same PSP policies as the End scenario, alone and combined with
-> > > NEXT-C-SID, with every node bound through its adjacency (e.g. 4>2 for
-> > > rt-4 towards rt-2, 2>h towards the host), and exercise it with the
-> > > existing host connectivity tests.
-> > >
-> > > Teach the policy and endpoint helpers about <nodeid:op:act> elements:
-> > > __get_srv6_rtcfg_act() extracts the action, the __get_*_func()
-> > > helpers pick the Function for the action, __get_act_cfg() derives the
-> > > End.X next hop, and build_csid()/get_rt_sid() keep the adjacency so
-> > > it is encoded into the C-SIDs (e.g. fcbb:0:34a9:: is End.X on rt-3
-> > > towards rt-4).
-> > >
-> > > There is no need to re-check the ip command capability as it already
-> > > supports setting PSP flavor with End.X.
-> > 
-> > Hi Hangbin,
-> > thanks for adding the End.X scenario.
-> > 
-> > I see these main areas to work on:
-> > - How an element is read. The "router>adjacency" form is read in
-> >   different places, each with its own sed or cut. IMO, the selftest
-> >   would be easier to extend to other behaviors and flavor combinations
-> >   if the nodes were read in one place, with small helpers. What
-> >   depends on the behavior could also be chosen in one place.
-> > - A check of the elements, so that a mistake in a Policy does not go
-> >   unnoticed.
-> > - A check of the kernel support for End.X PSP.
-> > - The End.X tests with a consumed SRH.
-> > - One End.X SID per adjacency also without NEXT-C-SID, where today
-> >   the SIDs of a router do not depend on the adjacency.
-> > 
-> > The comments below are ideas on how to address each of them, plus
-> > some smaller points. There may also be other parts of the selftest
-> > to adapt.
->
-> Thanks for your kind review.
->
-> > > Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
-> > > ---
-> > > I didn't add `host_srv6_end_flv_consumed_srh_tests()` for End.X because
-> > > the extra policy insertion does not work with the End.X policy. The packet
-> > > resolves the destination via the next hop directly, rather than doing a
-> > > re-lookup in table 90.
-> > 
-> > The ingress router can insert the extra SRH instead, on the first SID
-> > of the Policy. As in the End tests, an End SID of the base setup can
-> > then consume it. This way, we can add these tests for End.X too. What
-> > do you think?
->
-> For the End.X Policy (i.a) testing, we have SID List=fcff:3::a,fcff:4::af1,fcff:2::af1,cafe::2.
-> And we configured the next hop policy for the SID on each rt. e.g
->
-> On rt3: fcff:3::000a table 90 encap seg6local action End.X nh6 fcf0:0:3:4::4
-> On rt4: fcff:4::0af1 table 90 encap seg6local action End.X nh6 fcf0:0:2:4::2 flavors psp
-> on rt2: fcff:2::0af1 table 90 encap seg6local action End.X nh6 cafe::2 flavors psp
->
-> When the packet arrive on rt4, it's dst is set to fcff:2::af1. And the new
-> insert policy (fcff:2::0af1 table 90 encap seg6 mode inline segs fcff:3::000e dev dum0)
-> doesn't works as the End.X policy will goto next hop fcf0:0:2:4::2 directly
-> instead of looking at fcff:2::af1 on table 90.
->
-> Would you add more info about the ingress route?
+Program MAC_FSM_ACT_Timer right after TMOUTEN is enabled, deriving the
+TMR field (CSR clocks per 1us tic) from the CSR clock rate and using a
+1s timeout.
 
-Hi Hangbin,
+The NTMRMD field holds a power-of-two microsecond timeout per the
+databook: 0x0 disables it, and 0x1..0xa encode 1us, 1.024ms (~1ms),
+16.384ms (~16ms), 65.536ms (~64ms), 262.144ms (~256ms), 1.048s (~1s),
+4.194s (~4s), 16.777s (~16s), 33.554s (~32s), 67.108s (~64s).
 
-With one SID per adjacency (see the SID format below), the SID List of
-(i.a) is fcff:3::400a,fcff:4::2af1,fcff:2::0af1,cafe::2. The ingress router
-is rt-1. After rt-1 applies the Policy, the DA is the first SID,
-fcff:3::400a, and rt-1 looks it up in table 90. The route that inserts the
-extra SRH can go on rt-1, as the End tests already do for (i.b) on rt-2:
+The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM was
+not reported through the safety interrupt despite TMOUTEN being set.
 
-  fcff:3::400a table 90 encap seg6 mode inline segs fcff:4::000e dev dum0
+Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+---
+v4:
+- Drop the warning on a missing CSR clock.
+- Drop the ntmrmd field and hardcode the 1s timeout (NTMRMD = 0x6).
 
-rt-4 consumes the extra SRH with its End SID, and sets the DA back to
-fcff:3::400a. Then the packet follows the End.X Policy. The other End.X
-Policies work the same way, with the route on their ingress router, for
-their first SID. Would this work for you?
+v3: https://lore.kernel.org/netdev/20261116114923.1157920-1-zxyan0222@gmail.com/
+v2: https://lore.kernel.org/netdev/20261112053321.1103678-1-zxyan0222@gmail.com/
+v1: https://lore.kernel.org/netdev/20261111143322.2234321-1-zxyan0222@gmail.com/
 
->
-> > 
-> > > [snip]
-> > > diff --git a/tools/testing/selftests/net/srv6_end_flavors_test.sh b/tools/testing/selftests/net/srv6_end_flavors_test.sh
-> > > index 374b43661c28..5b1b13586df0 100755
-> > > --- a/tools/testing/selftests/net/srv6_end_flavors_test.sh
-> > > +++ b/tools/testing/selftests/net/srv6_end_flavors_test.sh
-> > > [snip]
-> > >  __get_srv6_rtcfg_id()
-> > >  {
-> > >  	local element="$1"
-> > >  
-> > > +	echo "${element}" | sed 's/:.*//; s/>[1234h]//g'
-> > > +}
-> > > [snip]
-> > > +__get_srv6_rtcfg_all_id()
-> > > +{
-> > > +	local element="$1"
-> > > +
-> > >  	echo "${element}" | cut -d':' -f1
-> > >  }
-> > >  
-> > 
-> > The same node is read again in build_csid(), get_rt_sid() and
-> > setup_rt_endpoints(), each time in its own way. Two small helpers,
-> > one returning the router of a node and one its adjacency, could
-> > replace these sed and cut. __get_srv6_rtcfg_id() above would then not
-> > need the sed, and __get_srv6_rtcfg_all_id() would probably not be
-> > needed at all. Without NEXT-C-SID, __setup_rt_policy() could then get
-> > each SID of the Policy from get_rt_sid(), as setup_rt_endpoints()
-> > does.
->
-> For a single End.X node, e.g. "4>2", we can return the router (4) and adjacent
-> router (2). But how to get multi nodes. e.g. "4>2,2>3", with theses 2 small
-> helpers?
+ drivers/net/ethernet/stmicro/stmmac/dwmac5.c   | 17 ++++++++++++++++-
+ drivers/net/ethernet/stmicro/stmmac/dwmac5.h   |  6 +++++-
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h |  3 +++
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c    | 18 +++++++++++++++++-
+ drivers/net/ethernet/stmicro/stmmac/hwif.h     |  3 ++-
+ .../net/ethernet/stmicro/stmmac/stmmac_main.c  |  8 +++++++-
+ include/linux/stmmac.h                         | 12 ++++++++++++
+ 7 files changed, 62 insertions(+), 5 deletions(-)
 
-A list of nodes comes with NEXT-C-SID, where the element constructs one
-C-SID container. build_csid_container() and setup_rt_endpoints() already
-loop over these nodes, one at a time. The helpers would be used in these
-loops, on each node. For example, in build_csid_container():
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
+index f1bb981cab7c..5cf5139f442a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.c
+@@ -2,6 +2,7 @@
+ // Copyright (c) 2017 Synopsys, Inc. and/or its affiliates.
+ // stmmac Support for 5.xx Ethernet QoS cores
+ 
++#include <linux/bitfield.h>
+ #include <linux/bitops.h>
+ #include <linux/iopoll.h>
+ #include "common.h"
+@@ -184,7 +185,8 @@ static void dwmac5_handle_dma_err(struct net_device *ndev,
+ }
+ 
+ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			      struct stmmac_safety_feature_cfg *safety_feat_cfg)
++			      struct stmmac_safety_feature_cfg *safety_feat_cfg,
++			      unsigned int csr_clk_mhz)
+ {
+ 	struct stmmac_safety_feature_cfg all_safety_feats = {
+ 		.tsoee = 1,
+@@ -245,6 +247,19 @@ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+ 		value |= TMOUTEN; /* FSM Timeout Feature */
+ 	writel(value, ioaddr + MAC_FSM_CONTROL);
+ 
++	/* Program the FSM active timer so the timeout checker actually fires.
++	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
++	 * Use a 1s timeout.
++	 */
++	if (safety_feat_cfg->tmouten && csr_clk_mhz) {
++		value = readl(ioaddr + MAC_FSM_ACT_TIMER);
++		value &= ~(MAC_FSM_ACT_TIMER_NTMRMD | MAC_FSM_ACT_TIMER_TMR);
++		value |= FIELD_PREP(MAC_FSM_ACT_TIMER_NTMRMD,
++				    STMMAC_NTMRMD_1SEC) |
++			 FIELD_PREP(MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
++		writel(value, ioaddr + MAC_FSM_ACT_TIMER);
++	}
++
+ 	/* 4. Enable Data Parity Protection */
+ 	value = readl(ioaddr + MTL_DPP_CONTROL);
+ 	if (safety_feat_cfg->edpp)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac5.h b/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
+index 00b151b3b688..734e7630f28d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac5.h
+@@ -8,8 +8,11 @@
+ #define MAC_DPP_FSM_INT_STATUS		0x00000140
+ #define MAC_AXI_SLV_DPE_ADDR_STATUS	0x00000144
+ #define MAC_FSM_CONTROL			0x00000148
++#define MAC_FSM_ACT_TIMER		0x0000014C
+ #define PRTYEN				BIT(1)
+ #define TMOUTEN				BIT(0)
++#define MAC_FSM_ACT_TIMER_TMR		GENMASK(9, 0)
++#define MAC_FSM_ACT_TIMER_NTMRMD	GENMASK(19, 16)
+ 
+ #define MAC_PPS_CONTROL			0x00000b70
+ #define PPS_MAXIDX(x)			((((x) + 1) * 8) - 1)
+@@ -82,7 +85,8 @@
+ #define GMAC_INT_FPE_EN			BIT(17)
+ 
+ int dwmac5_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			      struct stmmac_safety_feature_cfg *safety_cfg);
++			      struct stmmac_safety_feature_cfg *safety_cfg,
++			      unsigned int csr_clk_mhz);
+ int dwmac5_safety_feat_irq_status(struct net_device *ndev,
+ 		void __iomem *ioaddr, unsigned int asp,
+ 		struct stmmac_safety_stats *stats);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index f8ab347f7b5b..1fd501728b18 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -169,8 +169,11 @@
+ #define XGMAC_HWFEAT_PCSEL		GENMASK(1, 0)
+ #define XGMAC_MAC_DPP_FSM_INT_STATUS	0x00000150
+ #define XGMAC_MAC_FSM_CONTROL		0x00000158
++#define XGMAC_MAC_FSM_ACT_TIMER		0x0000015C
+ #define XGMAC_PRTYEN			BIT(1)
+ #define XGMAC_TMOUTEN			BIT(0)
++#define XGMAC_MAC_FSM_ACT_TIMER_TMR		GENMASK(9, 0)
++#define XGMAC_MAC_FSM_ACT_TIMER_NTMRMD		GENMASK(19, 16)
+ #define XGMAC_MDIO_ADDR			0x00000200
+ #define XGMAC_MDIO_DATA			0x00000204
+ #define XGMAC_MDIO_C22P			0x00000220
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index 7ad08651675e..3caab23527a1 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -4,6 +4,7 @@
+  * stmmac XGMAC support.
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/bitrev.h>
+ #include <linux/crc32.h>
+ #include <linux/iopoll.h>
+@@ -837,7 +838,8 @@ static void dwxgmac3_handle_dma_err(struct net_device *ndev,
+ 
+ static int
+ dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+-			    struct stmmac_safety_feature_cfg *safety_cfg)
++			    struct stmmac_safety_feature_cfg *safety_cfg,
++			    unsigned int csr_clk_mhz)
+ {
+ 	u32 value;
+ 
+@@ -873,6 +875,20 @@ dwxgmac3_safety_feat_config(void __iomem *ioaddr, unsigned int asp,
+ 	value |= XGMAC_TMOUTEN; /* FSM Timeout Feature */
+ 	writel(value, ioaddr + XGMAC_MAC_FSM_CONTROL);
+ 
++	/* Program the FSM active timer so the timeout checker actually fires.
++	 * TMR is the number of CSR clocks per 1us tic, i.e. csr_clk in MHz.
++	 * Use a 1s timeout.
++	 */
++	if (safety_cfg && safety_cfg->tmouten && csr_clk_mhz) {
++		value = readl(ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
++		value &= ~(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD |
++			   XGMAC_MAC_FSM_ACT_TIMER_TMR);
++		value |= FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_NTMRMD,
++				    STMMAC_NTMRMD_1SEC) |
++			 FIELD_PREP(XGMAC_MAC_FSM_ACT_TIMER_TMR, csr_clk_mhz);
++		writel(value, ioaddr + XGMAC_MAC_FSM_ACT_TIMER);
++	}
++
+ 	/* 5. Enable Data Path Parity Protection */
+ 	value = readl(ioaddr + XGMAC_MTL_DPP_CONTROL);
+ 	/* already enabled by default, explicit enable it again */
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 8ae95e91a36a..395655b01ea8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -378,7 +378,8 @@ struct stmmac_ops {
+ 			     bool srgmi_ral);
+ 	/* Safety Features */
+ 	int (*safety_feat_config)(void __iomem *ioaddr, unsigned int asp,
+-				  struct stmmac_safety_feature_cfg *safety_cfg);
++				  struct stmmac_safety_feature_cfg *safety_cfg,
++				  unsigned int csr_clk_mhz);
+ 	int (*safety_feat_irq_status)(struct net_device *ndev,
+ 			void __iomem *ioaddr, unsigned int asp,
+ 			struct stmmac_safety_stats *stats);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 4da728962638..5e5c54b58bee 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3691,10 +3691,16 @@ static void stmmac_mtl_configuration(struct stmmac_priv *priv)
+ 
+ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
+ {
++	unsigned int csr_clk_mhz = 0;
++
+ 	if (priv->dma_cap.asp) {
+ 		netdev_info(priv->dev, "Enabling Safety Features\n");
++		if (priv->plat->stmmac_clk)
++			csr_clk_mhz = clk_get_rate(priv->plat->stmmac_clk) /
++				      1000000;
+ 		stmmac_safety_feat_config(priv, priv->ioaddr, priv->dma_cap.asp,
+-					  priv->plat->safety_feat_cfg);
++					  priv->plat->safety_feat_cfg,
++					  csr_clk_mhz);
+ 	} else {
+ 		netdev_info(priv->dev, "No Safety Features support found\n");
+ 	}
+diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+index 00be2df63d22..659f5db528d3 100644
+--- a/include/linux/stmmac.h
++++ b/include/linux/stmmac.h
+@@ -170,6 +170,18 @@ struct stmmac_safety_feature_cfg {
+ 	u32 tmouten;
+ };
+ 
++/* MAC_FSM_ACT_Timer.NTMRMD timeout durations */
++#define STMMAC_NTMRMD_1US		0x1
++#define STMMAC_NTMRMD_1MS		0x2
++#define STMMAC_NTMRMD_16MS		0x3
++#define STMMAC_NTMRMD_64MS		0x4
++#define STMMAC_NTMRMD_256MS		0x5
++#define STMMAC_NTMRMD_1SEC		0x6
++#define STMMAC_NTMRMD_4SEC		0x7
++#define STMMAC_NTMRMD_16SEC		0x8
++#define STMMAC_NTMRMD_32SEC		0x9
++#define STMMAC_NTMRMD_64SEC		0xa
++
+ /* Addresses that may be customized by a platform */
+ struct dwmac4_addrs {
+ 	u32 dma_chan;
+-- 
+2.34.1
 
-	"4>2,2>3"  ->  4>2: router 4, adjacency 2  ->  42a9
-	               2>3: router 2, adjacency 3  ->  23a9
-	           ->  fcbb:0:42a9:23a9::
-
->
-> > 
-> > > [snip]
-> > > +__get_noflv_func()
-> > > +{
-> > > +	local act="$1"
-> > > +
-> > > +	case "${act}" in
-> > > +	"End")
-> > > +		echo "${END_FUNC}" ;;
-> > > +	"End.X")
-> > > +		echo "${ENDX_FUNC}" ;;
-> > > +	esac
-> > > +}
-> > > +
-> > > +__get_psp_func()
-> > > +{
-> > > +	local act="$1"
-> > > +
-> > > +	case "${act}" in
-> > > +	"End")
-> > > +		echo "${END_PSP_FUNC}" ;;
-> > > +	"End.X")
-> > > +		echo "${ENDX_PSP_FUNC}" ;;
-> > > +	esac
-> > > +}
-> > > +
-> > > +__get_csid_psp_func()
-> > > +{
-> > > +	local act="$1"
-> > > +
-> > > +	case "${act}" in
-> > > +	"End")
-> > > +		echo "${END_CSID_PSP_FUNC}" ;;
-> > > +	"End.X")
-> > > +		echo "${ENDX_CSID_PSP_FUNC}" ;;
-> > > +	esac
-> > > +}
-> > 
-> > The three __get_*_func() helpers differ only in the constants. As a
-> > possible simplification, they could be one function with, for example,
-> > a case on the behavior and the operation ("End noflv", "End psp", ...,
-> > "End.X next-csid,psp"). Then the Functions are chosen in one place,
-> > also for a new behavior.
->
-> Thanks, I will merge them together.
->
-> > 
-> > > [snip]
-> > > @@ -713,10 +814,10 @@ op_has_next_csid()
-> > >  #  $1 - router
-> > >  #  $2 - operation <op> of the element (e.g. "next-csid,psp")
-> > >  #  $3 - Function (e.g. "0ef1", or "e9" with NEXT-C-SID)
-> > > -# e.g. input: "4" "psp" "0ef1"
-> > > -#      output: "fcff:4::0ef1"
-> > > -#      input: "4" "next-csid,psp" "e9"
-> > > -#      output: "fcbb:0:40e9::/48"
-> > > +# e.g. input: "4" "psp" "0ef1", output: "fcff:4::0ef1"
-> > > +#      input: "4>2" "psp" "0af1", output: "fcff:4::0af1"
-> > > +#      input: "4" "next-csid,psp" "e9", output: "fcbb:0:40e9::/48"
-> > > +#      input: "4>2" "next-csid,psp" "a9", output: "fcbb:0:42a9::/48"
-> > >  get_rt_sid()
-> > >  {
-> > >  	local rt="$1"
-> > > @@ -730,6 +831,7 @@ get_rt_sid()
-> > >  		return
-> > >  	fi
-> > >  
-> > > +	rt=$(echo "${rt}" | sed 's/>.*//')
-> > >  	echo "${LOCATOR_SERVICE}:${rt}::${func}"
-> > >  }
-> > 
-> > Without NEXT-C-SID, get_rt_sid() drops the adjacency, as the Sashiko
-> > review also notes: "4>2:psp:End.X" and "4>3:psp:End.X" would both get
-> > fcff:4::0af1. I think each adjacency should have its own SID. The
-> > SID could carry the adjacency, as the C-SID already does. Then
-> > __setup_rt_policy() needs the new SID. Calling get_rt_sid() there,
-> > as suggested above, would do that.
->
-> Hmm, do you want to set the adjacency like xaf1 or xxa1?
-> e.g. ffcf:4::2af1 for 4>2:psp:End.X, ffcf:4::3af1 for 4>3:psp:End.X
-> or
-> ffcf:4::42a1 for 4>2:psp:End.X, ffcf:4::43a1 for 4>3:psp:End.X?
->
-> The second one may also need to adjust the End address. e.g.
-> fcff:x::ef1 -> fcff:x::e1
-
-The first one you propose, fcff:4::2af1, seems reasonable. The adjacency
-takes the place of the leading 0 of the Function (0af1 -> 2af1). Towards
-the host the 0 stays, as in the C-SID, and the End SIDs do not change.
-
-> [snip]
-
-Thanks,
-Andrea
