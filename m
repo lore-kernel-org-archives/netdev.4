@@ -1,58 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795020781;
-	b=IrTgp9q2J/0FWb9gZQWavMUIEY6P4ezGjh82cEAZr83jxgQGQsKjIqQpIxltJtlXEfmW
-	 HmmZCm7NoxtEeV8YUgY4JYRIVzkop5GM8cdBmNmrbGsVLrZkie8Noh15DzGhAde4bOISf
-	 j2Qx6fK7rIuohdxbiPbrkjgKQl9hA+8++g51gKTarynhr3dJVOi/l1hayQhrUW/16YLvf
-	 VnS9Knc9c3yKwZSgjaWKmta+5xXeoASHVUfL30T/Dtwo1BX0VAxXCLojyCP7vilKxMBXS
-	 Tn1QyNTJVIcno73o/iPsy/k9AtueqSyGBPkNKT2A2nfdDhWdb6BjwUA498+7h7r/X7A==
+	t=1795021125;
+	b=vulYEU9MNP5syxoYBp9lBzN7Jfl/buC/6d0CSoZtvcKcdC9wPSbWeraFB9AJyTXqwRtY
+	 kW9QMG86JtEzTMUBpPajnEJQ0NAn41IItLcxoghN4nIdhaNCDFG4q3W1WovCq0h0vgDr4
+	 ab8VwqR+jWf1MejjPkffGYbCsjjVIYytXbRyZFHvD/NppfPhYM6JVQxJ7+D5ot+mTKmLh
+	 8zHGDu/eQJmNbHeQdegXkxnSTfMSP8i+IhNKX7asojPhbTcz+pfDy1t2Ka76jskRKe5ls
+	 O3Q77RzP5Lx/R6qBNDV9DTMyxFGqY/jAo1qOj+nq29QPYCHbyFo2xgs55qyO9xPETgg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795020781;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795021125;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=CwQkA21iCj6RNx1UM+Qgz45AW4Lh1iDL1N7Vs30xMF4FLHGaMnemcEtVdcqiMZYcGaif
-	 r5hoYFWvG3FZfUjrL2RyNUMfC0o3f4Zb54hc0Sgfqnay40b8D8ayMCQyr5t2pRkSPcRfB
-	 XUjbMigGONKUV4m/SgiupjnVLKn+E/EbN+mE4H1jCIp17aQkGwyJ3nBlKnOn0CV1kLmiE
-	 VDotllFm8L+1EfjgKBl4wAdJSvNyi7n6SEL7vIwMyrA0rMAl6bRc3/7YidUB4C25JOGfZ
-	 RK1skYui6yVrEamkSZHbl9a1P5x12palB+l5aiVTiHUJdfXPw1xQPmVlGZHRnUiwpWw==
+	bh=V+EJ9RUzxCOAUO4kV71qX/xQMGJep7DBGe17w5CTk4o=;
+	b=AdF6cx75EHl2AeDT475Dcf8q9jjFSLfA39FFQRAZcbBEYDKqAixLlPYz74QYII3HRYtr
+	 rtw00pjyZqMBt/wbH8OkEXHkozy0QZ2/mw4iNb31+Tzs3v+GCc80LuUAEUfPSJUt1ezy7
+	 dkPNFcjdRkXfOr7x8ulp3ymF6UpX9mfs6EVZAuMa2vgirVpEWRtbdp35rxtklY6XWYXl0
+	 JnXJlAk8SCNChHjDgFNLu3G848qzTV8ezGBmLTY3dXInz8+wqLKBe4SBiHtisZFKgoXkb
+	 crSB+AxjNs3DLw9f/YBuAQWGEiFrgDe4wUBQ7LN/u2N1OO/sLU9O9FydJ+iNHLp9M9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RNkPeMom;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RrpNn6y+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E73C260A5BDF
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:53:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C6A606A31C;
+	Wed, 18 Nov 2026 16:58:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RNkPeMom
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 711491F000C4;
-	Wed, 18 Nov 2026 16:53:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RrpNn6y+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE9F31F000C4;
+	Wed, 18 Nov 2026 16:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795020780;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RNkPeMom/16tj5X4dfaMOqU0n5t6fg7YUb0H1CyLkpm8LI/7ET8jmvePg+zGeXdZg
-	 yCuWvlskvsa7PZp8VCuxH7emvSmXwHdgVNqEuKmMdIqDRWZJNIvoaD3E9rd8ldURzZ
-	 jfeL8fCEavZsGADf2/u7Q5RKlPR16hQINS0PXulMjJeCR4kOxNaEjEtWbIe3qSY8Ix
-	 D47CGsxMcTjz13jhW6OcXLttlBe8Xy8/GYnWAQUDqiBpSlwbZH/MXnZjbHNk01X9GL
-	 pS94lw2N0gTUQloCE5uPsUXaCYaCF/TiAj57UV7Ts52c4oQDmUI9ddvkOxJb95Up8r
-	 XYTQ7Pm7arHDQ==
-From: netdev-bot+sinfo@kernel.org
-To: Lin Ma <linma@zju.edu.cn>
-Cc: David Howells <dhowells@redhat.com>,
- Marc Dionne <marc.dionne@auristor.com>, netdev@vger.kernel.org,
- linux-afs@lists.infradead.org
-Subject: Re: [PATCH] net: rxrpc: Release challenge connection ref on abort
-Date: Wed, 18 Nov 2026 16:52:59 +0000
-Message-ID: <179502077993.3291.12590105980604767956@kernel.org>
-In-Reply-To: <20261118164808.988724-1-linma@zju.edu.cn>
-References: <20261118164808.988724-1-linma@zju.edu.cn>
-Auto-Submitted: auto-generated
+	s=k20260515; t=1795021125;
+	bh=V+EJ9RUzxCOAUO4kV71qX/xQMGJep7DBGe17w5CTk4o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=RrpNn6y+46QpHOKdkuUZGRwTHBl2RNFAcYLU0yhTf1eIFbFQ5Sjn2IoCVG/QNFDrB
+	 c7cLq6Yfbf4MYDoVspr2ozfH6ynwL+0ji76+UISzk6VUdLA+p3wsBPYr4LELz59JhK
+	 4+5JfoDsidETaf7xeKUjDOA+/grt5FpJhPbgAJnLWLMQzMvAgduXsQX1adEW8pfnyS
+	 qFvaVLxxygBnEm5YD/SmXO3EjGtaGU/qrVzuVDFM8+c1HGvcDN68kt1BifltYnex1P
+	 Vs+gHY0VArQUN37M8fGmi42JdCcOeOEwoE9OmOiSQPDUbnNUYgpYQqPT+kuGioOcbE
+	 MoFxd8al8Y2TQ==
+Subject:
+ Re: [PATCH] net: dst: Avoid false sharing between tclassid and __rcuref
+From: netdev-bot+sashiko@kernel.org
+To: jiebin.sun@intel.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ linux-kernel@vger.kernel.org, tim.c.chen@linux.intel.com,
+ tianyou.li@intel.com, wangyang.guo@intel.com
+Date: Wed, 18 Nov 2026 16:58:44 +0000
+Message-ID: <179502112428.3136.7381445616366581807@kernel.org>
+In-Reply-To: <20261116015732.2744688-1-jiebin.sun@intel.com>
+References: <20261116015732.2744688-1-jiebin.sun@intel.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,25 +65,100 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Hi!
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+- [Medium] The patch moves tclassid after lwtstate in struct dst_entry
+  (include/net/dst.h), which makes sizeof(struct dst_entry) on x86-64…
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+--
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+net: dst: Avoid false sharing between tclassid and __rcuref
+
+On 64-bit builds, this commit moves dst_entry::tclassid to sit after
+lwtstate, so it no longer shares a cache line with __rcuref. On x86-64,
+struct dst_entry grows from 136 to 144 bytes. The commit message says the
+SLAB_HWCACHE_ALIGN caches used for rtable and rt6_info absorb the growth.
+
+> diff --git a/include/net/dst.h b/include/net/dst.h
+> index dbedfe72e1fd1..f01cfb42f97c1 100644
+> --- a/include/net/dst.h
+> +++ b/include/net/dst.h
+
+[ ... ]
+
+> @@ -94,6 +94,7 @@ struct dst_entry {
+>  	struct uncached_list	*rt_uncached_list;
+>  #ifdef CONFIG_64BIT
+>  	struct lwtunnel_state   *lwtstate;
+> +	__u32			tclassid;
+>  #endif
+>  };
+
+[Severity: Medium]
+The commit message says:
+
+  However, both struct rtable and struct rt6_info are allocated from slab
+  caches with SLAB_HWCACHE_ALIGN, so the per-object allocation sizes
+  remain unchanged at 192 bytes for rtable and 256 bytes for rt6_info.
+
+Does the same hold for struct metadata_dst? It also embeds dst_entry, but
+it is allocated with kmalloc and not from an aligned cache:
+
+include/net/dst_metadata.h:
+struct metadata_dst {
+	struct dst_entry		dst;
+	enum metadata_type		type;
+	union {
+		struct ip_tunnel_info	tun_info;
+		...
+	} u;
+};
+
+The union is 16-byte aligned because ip_tunnel_info::options[] is marked
+__aligned_largest. So the 8-byte growth of dst_entry becomes 16 bytes
+here. On x86-64 with CONFIG_DST_CACHE=y, sizeof(struct metadata_dst) goes
+from 240 to 256.
+
+metadata_dst_alloc() then allocates that size plus the options length:
+
+net/core/dst.c:metadata_dst_alloc() {
+	...
+	md_dst = kmalloc_flex(*md_dst, u.tun_info.options, optslen, flags);
+	...
+}
+
+With the new 256-byte base, does any optslen > 0 now land in kmalloc-512
+instead of kmalloc-256?
+
+On a collect_md device, vxlan_rcv() does this for every received packet:
+
+	tun_dst = udp_tun_rx_dst(skb, vxlan_get_sk_family(vs), flags,
+				 key32_to_tunnel_id(vni), sizeof(*md));
+
+That reaches udp_tun_rx_dst()->__ip_tun_set_dst()->metadata_dst_alloc()
+with GFP_ATOMIC and optslen = sizeof(struct vxlan_metadata), which is 4.
+Before this patch the allocation is 244 bytes (kmalloc-256). After it,
+the allocation is 260 bytes (kmalloc-512).
+
+geneve_rx() passes gnvh->opt_len * 4. Before the patch, options of up to
+16 bytes still fit in kmalloc-256. After it, would any Geneve option at
+all push the allocation into kmalloc-512?
+
+The growth also applies to 64-bit kernels built with
+CONFIG_IP_ROUTE_CLASSID=n, where nothing reads tclassid on the hot path.
+
+Could the commit message cover the metadata_dst case? Alternatively,
+could the layout be arranged so that metadata_dst stays within the
+256-byte kmalloc bucket?
+
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116015732.2744688-1-jiebin.sun%40intel.com
