@@ -1,80 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794984894;
-	b=RWD4n5aeL2thuoKuR3E0UE1y6dPX8MKra8etAShliKQZFzXpphOyRznskhYAxgB2dgma
-	 vMFsTWGFBxi5nXCkWog6hgwvLR3JMlHhriBdPQlf0JbiK4bxtEXvAGoG78n07UXxBYfcL
-	 tbquppf7gRFerT3mE9ufax1HcORkUIhM76JzXcUKHbkddzRZa24lOfmzN5Da1ZxLxEU8j
-	 LZrVP6Gl7OjDwtZwAFA+m1m7sUGev8wBukArc90Fpn28GpfzexN3GrG3aFjo5tmMS0zjf
-	 RZws5JCgi3kwQbiDxePZfLhTfGSsg7efZ2QeQg+7yovPUVmUZK5k4ycECDSDgJiZA0A==
+	t=1794984898;
+	b=DNUMUEZCibft80NZgS8n4MX/qTBu+IRFcH5LCVoM7yWpxUApVdX35FBCM0wTFUMEdjJc
+	 cYnKOqqPPk+2JBwbrDzhWsGx2Hmg0fKTKSaUS472LOQ7O+zrFcCIkK3Xg2HZXVifcLHNb
+	 hhHPzc1K2DnovY9YRntrp/I6a/MPZJ7X77ReGIogrWUUdwtvada5ciEor+TOgJQrXk2wZ
+	 3xh0CQQbB6BOVunKkqFyIspwC507RYk+UwZBWmN1fIwo8KKx8RAnQXR9kN7w33xb4ZTK0
+	 WmOqzjZz1Ped0NL0HQgmrXPwcorKTtC7xuuxlEQRvv5CrKgHufbE+huvRO8JH+oWavg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794984894;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794984898;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=uGKNbASRAWUDD5bnx4///wXi8po0trOwy1MwYu/ebyE=;
-	b=zmNTi7v3ja3hm5xg2qD+aUKZ/V63U439EgKjtGCFCY5Mh+iif2bg3qhIKN5ohRfMvljD
-	 AHA3KXLhgNswync2KdJvO0541L+0EL+YxwmX45XVytkTwajzF4eEI8IXs+faMWHdhswL9
-	 +dd2+kYajJquRm9xEc+hgvYX+tWcTqcyRudgb5vAKeLjmGqGo+4ngzvHwYH6cyZSVWpU1
-	 4VihyTHuybafZBFQbQz/HKVLbqt300GsKj9T0mSbYlVdw4F0cuw9ClrW4Fp1y1TBzeudL
-	 4Ejh2L0veAQ8gU+/fY/ZXO52Z88exJXpD7ugTjZBnGRz+H7fJ4IWU7GVcNOKCquLdhA==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ZdIaRMcoS2mf1WBkYX2H9hUMU/sj07+KEju7hb3fz4I=;
+	b=KNYH+VizjRRMiLKVwanSlZRnEZ0VNeHA0crjAWcpJk5QdvrRP4iLXMP+9/YJZVlDucmF
+	 U+Ji7Ns4yy3e1P+AkdjZjvzrNY2xo3a7yMOEdWAof6LNflsNuIYUgk5TlRcpODGa05Wx+
+	 dPdTzi5EVuZBEBIEQzOfrV66ONSWMnOMO5DNIhpOrmRdflyhW7+hrDuRncEdFqw/h2GV/
+	 wzoG9ZEg5B7minYyf5mRR7WXSRQRn84SPF6rpCDC9jtQqOvuSM8itDTo6kfNoNCHK7+5g
+	 3rCh9026cy2StHOnqRNdsM1XAX4b4d1QcZLZLaihVp07bZhZUA15/5Ly1sWjeLFnbkw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OmZq2ZeB;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r8LszQDi;
+	arc=none smtp.remote-ip=74.125.82.172
+Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37D37606A325
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:54:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37D37606A325
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D0FF606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 06:54:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D0FF606A325
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OmZq2ZeB
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-3704d30b84fso975843eec.1
-        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:54:53 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r8LszQDi
+Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-382c3c9671fso575923eec.0
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 22:54:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1794984892; x=1795589692; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uGKNbASRAWUDD5bnx4///wXi8po0trOwy1MwYu/ebyE=;
-        b=OmZq2ZeBnbmnVbudVzZGINOF5SILPyruawWQPcnS96edtp02iVD2NwkHASrWlJQNUA
-         3EKwqDPvBedBz5nM/mDTJgLkbaMItHZIN5fokXNtUKQTc1dHtI3AUKXW7/HBV4qatlNB
-         BUVwW7JaOZ/jr5PcWsaAG2Pc0qy88QVoIfDzJylwn7AcS4mT+P+xBdC1KDnSekAP1fsb
-         cuUJ3sEgPZ9t2DydWNF78U9g8ntxEEajgEly57XD7DsrFRV8T2c30Fr5eMpAoRIazLcF
-         Owl611jo6i2mYzV961Mgr4GBH0NdlrdVpz7rKre7SvFyitN/otPaKWF2/xyE6G9g/KCi
-         by2w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794984892; x=1795589692;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1794984897; x=1795589697; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=uGKNbASRAWUDD5bnx4///wXi8po0trOwy1MwYu/ebyE=;
-        b=au0z+yF6wPCn4a/irGgaR52Njh9isX7lg8uy3hwDM1XeRWrFNLVAoqX46LOZZHi/PJ
-         jkS4BWjF+ZYkeDzejYOxRExeqVU2oDSc04XTf1MXabeO+y9clk1wvCM7ZCbxw/n9fTqA
-         OljIjC8OOyM4mqljI7trwxxYyodIlOtxIuueoh64fdJFMsiVcMWQZNTGTLMY5KUqlZ4x
-         bjNdp2F75hXzSALg9IqDl8yrKsKk6qgE6b6+uaeFdY+mQNwM5R6mf+3se3QAlUb9BkBC
-         +pzM8C5yhTOf8T6TX0gPNCvK9yLN+uZYVUuM4G/iiJQ9ZDIgucyOx5OvuTa+Gl9uFOrX
-         bPcA==
-X-Gm-Message-State: APuU4Z94+k2xp7vqzzjTwNtpTDDZZGbi7w5J3rC8MfxuLHtW7S7CNoLT
-	x/qaYsJRoftzOhGPBUQJztqCJq0grV0QYVvc4wr0b86mTckdM2LaDYE+JBhCZSkGrkg=
-X-Gm-Gg: AYBFou3r2V2tkv6DeAi4laFbyfKS7CxiTiQ3N7V/dhc0E8QW4I/mfi95ws59C5RiS10
-	i6RQGM98hh5FK9LRZL4/SbsGn3o4vWN8eamFj1vjFYYMPXiY5c0CuHyzHKl59YwQlj6/SufdpuP
-	aYU/p95reZTpgqe/ktO3m+Hl7z2CT1EyeTxP5F5DBYD9QFR5e7BdPfp0lRIB4sBu3OB6ZBljyyV
-	4vsq7B63B1uSN6CFq1nEucDAscPAoosW5PV4LntcXny2UdEi9WBzLOxllrd2H7W/VN1YVMKv1EJ
-	YH2JyfbWO0+5k7d5x9x+fafD6c43vrxfSZu7Awcy85eLDQ1ONbNlKz3Nghmx0dwfugzGbqFVtK7
-	uNgBVik7LmapYGlCMqke/tHx5wWjiS10RbcN/g2kgHZqPM/J23JPAtqBljWog3UZtNMzfIOaM0+
-	R5B1OOsFdfbCBaC90BIYu6fCReWGtnqqIp3vLBe9Nd5MT20saS8okDP+JJtH25UEMGA3q9j1YUQ
-	AO4cPoSk09ghDOpsXlfscnbla4mRMm0JmexCH/910CapB0qHT7YwR/+1ETuakGViq19ThUfIfwC
-	6y/poKrH/T+Mv5DhzDndkjeZ
-X-Received: by 2002:a05:7301:f0b:b0:368:7c2d:a612 with SMTP id 5a478bee46e88-3828007a784mr1564917eec.10.1794984892012;
-        Tue, 17 Nov 2026 22:54:52 -0800 (PST)
+        bh=ZdIaRMcoS2mf1WBkYX2H9hUMU/sj07+KEju7hb3fz4I=;
+        b=r8LszQDiomVCfFCiIf31L/2qRSZXRu3TwRDMj22Uq/Oc5WJj2cGPShwZXxq09yAsng
+         IVdtN3zA0mYJuU0RGI+5H2YGjj4pfaa0/Gks6JPaI6Jzgko0rsNs3yWuSj4FMkj7PdUl
+         sO7kbaxQVpmy3M4KmhAsDe4VLhKk7ACDKRTzY99k4mikfqxAHXC18PSRmpH1Adqt4j8f
+         74tRsCYTry0GHS0s+9Ww9ZS7d/7T9nvJFJcamGsoPEIQTtxz1uMhVdknbbmcpxfzFLKx
+         whZwCJGg3iGQAiPV860MFf7hEo9fDxw1AHoQvGGq1NpXJtwHHdyBFBGlBPf3/NkswcvT
+         7BRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794984897; x=1795589697;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZdIaRMcoS2mf1WBkYX2H9hUMU/sj07+KEju7hb3fz4I=;
+        b=F/R4ECTQhxIhm3X/IxdvBqWRB7gHIIsZO2WLg+3zVP2Om8iLqI46W+tDGTULoPEFm/
+         ohlpjY5zNtsfKxX0/X5mV7QLV/KKNKNLs53Yra/C3tERp/xacux2fTWtF67tZc1tZNVu
+         yVJSnuN5R4+Id5JG2iGCArHglV69BVg1Dfy+LZCLe2wvG37wheqZQ/QIHW2l6lzpwmZp
+         soK5LSYo270rN1aLCv2IJrc/8+9o93ik2BxQyav99C/CfJE3Xe5N+z5ILd36j7zFUB8+
+         fyy9kuPL/k+dts+g2mT5EintOqqbkpQDFHXsmOjEfZadi7GMnJjXKwtmEwJHGbqrjBvS
+         25gA==
+X-Gm-Message-State: APuU4Z8VsZWhEZB475nuz1WkP6t9QHEGajDq3Q6JQOYsZTfAfw9k21Dp
+	78ON1O+LBrWVl9ePei6yG2wAGCm6D/hlKGL2w2qvMRbPhVDewpmt8UtX7VLpkJ7zAqA=
+X-Gm-Gg: AYBFou1V+vn9cPOtQQDpvhGea0jw1yaF49JQBEGO6cnlWyKcKZArRNnd07wC7tfTCtz
+	tz5sWa+7onTMhj/clNH6szKHiRxJR7qNGV47lYmcNBR5MJRdOB+4Aby1U7T1fIm5c1ONO9k4XcZ
+	fiYe22kGxli4lUE+Qrppct/qiiokpnWhfYq2AWTrwJO3qOjuyXjiRe5AGdbCTMoCMvRXSCbkTNM
+	OIKsaHR+4iHNLF+GUzyTKch7PnuXjD1X0G19nx9Qp3FXB5zW9YxPljzISNVndvei/f/ppr+2LB/
+	hzw3gdQiaXmNto+y5heo600Udz4YOm5pjaRYQyh//90+VbHCutDui1QFlB2JtSeN5RrknPmkyRE
+	Zc25pS12+yXHTgjfbrp1ewRa6YTaFBaMHihHDXsbRPPzb2nVFgJOpBZ5AIpFq0KQUJhSn3H/Gj3
+	qqX8bPSp7fMHcGr3phGrPne50kz9kaM96J/sObdY6U2cfiz5GQQBp5/ezHfN75Oqhq4jugZnJmW
+	o6Wq+VjHjNGA7rgWZPe018nEfsABVen47bRmOFT2OxS/khAEskGB4uqsWOfjSUZam75AJuxYZpn
+	YtLdJUAWXSiNv+qJRWWuzZAH
+X-Received: by 2002:a05:7300:d210:b0:374:c5cd:42cf with SMTP id 5a478bee46e88-3828180f712mr1932273eec.35.1794984896244;
+        Tue, 17 Nov 2026 22:54:56 -0800 (PST)
 Received: from houminxi ([61.170.225.237])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7fbceffsm4612640eec.28.2026.11.17.22.54.47
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a7fbceffsm4612640eec.28.2026.11.17.22.54.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 17 Nov 2026 22:54:51 -0800 (PST)
+        Tue, 17 Nov 2026 22:54:55 -0800 (PST)
 From: Minxi Hou <houminxi@gmail.com>
 To: netdev@vger.kernel.org
 Cc: Aaron Conole <aconole@redhat.com>,
@@ -89,10 +91,12 @@ Cc: Aaron Conole <aconole@redhat.com>,
 	linux-kselftest@vger.kernel.org,
 	stable@vger.kernel.org,
 	Minxi Hou <houminxi@gmail.com>
-Subject: [PATCH net v5 0/2] net: openvswitch: fix a feature leak on a failed change
-Date: Wed, 18 Nov 2026 01:54:33 -0500
-Message-ID: <20261118065435.2367014-1-houminxi@gmail.com>
+Subject: [PATCH net v5 1/2] net: openvswitch: do not record user features when the change fails
+Date: Wed, 18 Nov 2026 01:54:34 -0500
+Message-ID: <20261118065435.2367014-2-houminxi@gmail.com>
 X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261118065435.2367014-1-houminxi@gmail.com>
+References: <20261118065435.2367014-1-houminxi@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,83 +108,221 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ovs_dp_change() records the requested user features before it calls the
-update that can fail, so a request rejected for an empty per-cpu-pids
-leaves the datapath claiming a feature it never enabled. The tc skb
-extension key is a reference count shared with cls_flower, and the code
-that would keep it in step is skipped on that path.
+ovs_dp_change() stores the new features in dp->user_features before it
+updates the per-cpu upcall port IDs, and that update fails when the
+per-cpu-pids attribute is empty or its length is not a multiple of four.
+The request returns -EINVAL with the new features already recorded, while
+the code that enables or disables the tc skb extension key never ran.
 
-Patch 1 fixes the ordering, and drops the reference on the two other
-paths that take one and never give it back. Patch 2 adds a set-dp
-command to the openvswitch selftest tool, and two tests that send such a
-request and check the features the datapath reports afterwards. They
-fail without the fix and pass with it.
+The datapath then claims TC_RECIRC_SHARING without holding the reference
+the bit stands for. A later request that clears the bit drops a
+reference that was never taken, and a datapath destroyed with the bit
+clear never drops the one it did take. The key is shared with the other
+users of recirc sharing, so the count can reach zero while one of them
+still reads it, and a disable on a count of zero warns from
+static_key_dec_not_one(), which panics a host that runs with
+panic_on_warn.
 
-The problem turned up while the YNL spec for this family was being
-written: describing the ovs_datapath set command meant reading
-ovs_dp_change(), where the ordering stands out.
+The request only needs CAP_NET_ADMIN, which a user namespace that owns a
+network namespace provides. datapath_policy has no entry for
+OVS_DP_ATTR_PER_CPU_PIDS and the operation skips strict validation, so an
+empty attribute reaches the check that fails.
 
-v5:
- - Rebased onto current net.
- - The two teardown paths clear only OVS_DP_F_TC_RECIRC_SHARING, so a
-   datapath on its way out keeps the bits an upcall in flight still reads.
-   A whole-field store clears OVS_DP_F_UNALIGNED between the two reads in
-   queue_userspace_packet() and pad_packet() (reported by Sashiko).
- - queue_userspace_packet() reads the features once and gives that value
-   to pad_packet(), so OVS_DP_CMD_SET cannot split the head room decision
-   from the padding decision either.
- - The tests write their diagnostics to stderr, the skip message
-   included. A copy of stdout stayed open in the daemons the suite
-   starts, which kept the kselftest runner reading a pipe that never
-   reached EOF, so the run hung after the last subtest (reported by
-   Matthieu Baerts).
- - A datapath that cannot be read, and one that reports no features, are
-   told apart and reported as such instead of as a feature mismatch, and
-   a failed expectation carries its own description.
- - checkpatch reports nothing for either patch.
+Record the features last, in one setter that also takes and drops the
+reference, and use it from every place that changes or clears the bit.
+Two of those places leaked a reference: a datapath that fails after
+ovs_dp_change() enabled the key was freed without a disable, and
+ovs_dp_reset_user_features() cleared the bit without one. The reset runs
+when an outdated user space instance sends OVS_DP_CMD_NEW for a name that
+already exists, and after it the datapath's packets no longer share the tc
+skb extension.
 
-v4: https://lore.kernel.org/netdev/20261115163134.3202677-1-houminxi@gmail.com/
- - Rebased onto current main, the tests say why they failed, and a
-   datapath that cannot be read is no longer reported as a feature
-   mismatch.
+Fixes: 35d39fecbc24 ("net/sched: Enable tc skb ext allocation on chain miss only when needed")
+Cc: stable@vger.kernel.org
+__dp_destroy() clears the bit before the ports are detached and before the
+datapath leaves the list, so an upcall can still be reading the other bits
+from the receive path. queue_userspace_packet() decides from
+OVS_DP_F_UNALIGNED whether to build a nonlinear skb, and pad_packet() reads
+the same field again, so a store that clears every bit can change that
+decision between the two reads. Clear only the recirc bit, which is the one
+this path dropped before.
 
-v3: https://lore.kernel.org/netdev/20261110174651.972936-1-houminxi@gmail.com/
- - Cover the recirc bit as well as the dispatch bit.
+The store goes through WRITE_ONCE() because the receive path reads the
+field without ovs_mutex.
 
-v2: https://lore.kernel.org/netdev/20261108123424.2825403-1-houminxi@gmail.com/
- - Name the two paths that leaked a reference and fix both.
-
-v1: https://lore.kernel.org/netdev/20261107113403.797779-1-houminxi@gmail.com/
-
-Neither leak has a test of its own. The reference count behind the bit is
-not visible from user space, so the tests read back the features a
-datapath reports: the reset drops them to zero where a test can see it,
-and a datapath freed after a failed creation leaves no state to check.
-The alignment race has no test either, because it needs a set or a
-destroy to land between two reads of the field on another CPU, which a
-functional test cannot schedule; the patch removes the second read
-instead.
-
-One thing this series leaves alone: ovs_add_dp() returns the status of the
-last command in its body rather than of the add, so the "|| return 1" that
-follows its calls cannot fail. That predates this series and every OVS
-test that uses it.
+The receive path read the field twice as well, once to size the head room
+and once to decide whether to pad, so a set that changed the bit in
+between could make it pad a nonlinear skb. It reads the field once now and
+uses that value for both.
 
 Signed-off-by: Minxi Hou <houminxi@gmail.com>
+---
+ net/openvswitch/datapath.c | 58 +++++++++++++++++++++++++++-----------
+ net/openvswitch/datapath.h |  7 ++++-
+ 2 files changed, 47 insertions(+), 18 deletions(-)
 
-Minxi Hou (2):
-  net: openvswitch: do not record user features when the change fails
-  selftests/net/openvswitch: check that a failed set keeps the features
-
- net/openvswitch/datapath.c                    |  58 ++++--
- net/openvswitch/datapath.h                    |   7 +-
- .../testing/selftests/net/openvswitch/config  |   3 +
- .../selftests/net/openvswitch/openvswitch.sh  | 195 ++++++++++++++++++
- .../selftests/net/openvswitch/ovs-dpctl.py    |  65 ++++++
- 5 files changed, 310 insertions(+), 18 deletions(-)
-
-
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
+diff --git a/net/openvswitch/datapath.c b/net/openvswitch/datapath.c
+index b2a0b09fd4a5..7c1af21f74df 100644
+--- a/net/openvswitch/datapath.c
++++ b/net/openvswitch/datapath.c
+@@ -439,9 +439,9 @@ static size_t upcall_msg_size(const struct dp_upcall_info *upcall_info,
+ 	return size;
+ }
+ 
+-static void pad_packet(struct datapath *dp, struct sk_buff *skb)
++static void pad_packet(struct sk_buff *skb, u32 features)
+ {
+-	if (!(dp->user_features & OVS_DP_F_UNALIGNED)) {
++	if (!(features & OVS_DP_F_UNALIGNED)) {
+ 		size_t plen = NLA_ALIGN(skb->len) - skb->len;
+ 
+ 		if (plen > 0)
+@@ -461,6 +461,7 @@ static int queue_userspace_packet(struct datapath *dp, struct sk_buff *skb,
+ 	size_t msg_size;
+ 	size_t skb_len;
+ 	unsigned int hlen;
++	u32 features;
+ 	int err, dp_ifindex;
+ 	u64 hash;
+ 
+@@ -494,11 +495,16 @@ static int queue_userspace_packet(struct datapath *dp, struct sk_buff *skb,
+ 	    (err = skb_csum_hwoffload_help(skb, 0)))
+ 		goto out;
+ 
++	/* The features can be changed while this runs, so read them once and
++	 * use that value for both the head room and the padding.
++	 */
++	features = READ_ONCE(dp->user_features);
++
+ 	/* Older versions of OVS user space enforce alignment of the last
+ 	 * Netlink attribute to NLA_ALIGNTO which would require extensive
+ 	 * padding logic. Only perform zerocopy if padding is not required.
+ 	 */
+-	if (dp->user_features & OVS_DP_F_UNALIGNED)
++	if (features & OVS_DP_F_UNALIGNED)
+ 		hlen = min(skb_zerocopy_headlen(skb), cutlen);
+ 	else
+ 		hlen = skb_len;
+@@ -598,7 +604,7 @@ static int queue_userspace_packet(struct datapath *dp, struct sk_buff *skb,
+ 		goto out;
+ 
+ 	/* Pad OVS_PACKET_ATTR_PACKET if linear copy was performed */
+-	pad_packet(dp, user_skb);
++	pad_packet(user_skb, features);
+ 
+ 	((struct nlmsghdr *) user_skb->data)->nlmsg_len = user_skb->len;
+ 
+@@ -1704,6 +1710,24 @@ static struct datapath *lookup_datapath(struct net *net,
+ 	return dp ? dp : ERR_PTR(-ENODEV);
+ }
+ 
++/* Called with ovs_mutex. The receive path reads the field without it, so
++ * the store is single and goes through WRITE_ONCE(). The store happens
++ * before the reference is taken or dropped, the order ovs_dp_change() used
++ * before this helper existed.
++ */
++static void ovs_dp_set_user_features(struct datapath *dp, u32 features)
++{
++	bool was = dp->user_features & OVS_DP_F_TC_RECIRC_SHARING;
++	bool now = features & OVS_DP_F_TC_RECIRC_SHARING;
++
++	WRITE_ONCE(dp->user_features, features);
++
++	if (now && !was)
++		tc_skb_ext_tc_enable();
++	else if (!now && was)
++		tc_skb_ext_tc_disable();
++}
++
+ static void ovs_dp_reset_user_features(struct sk_buff *skb,
+ 				       struct genl_info *info)
+ {
+@@ -1716,7 +1740,7 @@ static void ovs_dp_reset_user_features(struct sk_buff *skb,
+ 
+ 	pr_warn("%s: Dropping previously announced user features\n",
+ 		ovs_dp_name(dp));
+-	dp->user_features = 0;
++	ovs_dp_set_user_features(dp, 0);
+ }
+ 
+ static int ovs_dp_set_upcall_portids(struct datapath *dp,
+@@ -1773,7 +1797,7 @@ u32 ovs_dp_get_upcall_portid(const struct datapath *dp, uint32_t cpu_id)
+ 
+ static int ovs_dp_change(struct datapath *dp, struct nlattr *a[])
+ {
+-	u32 user_features = 0, old_features = dp->user_features;
++	u32 user_features = 0;
+ 	int err;
+ 
+ 	if (a[OVS_DP_ATTR_USER_FEATURES]) {
+@@ -1801,9 +1825,7 @@ static int ovs_dp_change(struct datapath *dp, struct nlattr *a[])
+ 			return err;
+ 	}
+ 
+-	dp->user_features = user_features;
+-
+-	if (dp->user_features & OVS_DP_F_DISPATCH_UPCALL_PER_CPU &&
++	if (user_features & OVS_DP_F_DISPATCH_UPCALL_PER_CPU &&
+ 	    a[OVS_DP_ATTR_PER_CPU_PIDS]) {
+ 		/* Upcall Netlink Port IDs have been updated */
+ 		err = ovs_dp_set_upcall_portids(dp,
+@@ -1812,12 +1834,7 @@ static int ovs_dp_change(struct datapath *dp, struct nlattr *a[])
+ 			return err;
+ 	}
+ 
+-	if ((dp->user_features & OVS_DP_F_TC_RECIRC_SHARING) &&
+-	    !(old_features & OVS_DP_F_TC_RECIRC_SHARING))
+-		tc_skb_ext_tc_enable();
+-	else if (!(dp->user_features & OVS_DP_F_TC_RECIRC_SHARING) &&
+-		 (old_features & OVS_DP_F_TC_RECIRC_SHARING))
+-		tc_skb_ext_tc_disable();
++	ovs_dp_set_user_features(dp, user_features);
+ 
+ 	return 0;
+ }
+@@ -1939,6 +1956,9 @@ static int ovs_dp_cmd_new(struct sk_buff *skb, struct genl_info *info)
+ err_destroy_portids:
+ 	kfree(rcu_dereference_raw(dp->upcall_portids));
+ err_unlock_and_destroy_meters:
++	/* The datapath is freed here and never reaches __dp_destroy(). */
++	ovs_dp_set_user_features(dp, dp->user_features &
++				     ~OVS_DP_F_TC_RECIRC_SHARING);
+ 	ovs_unlock();
+ 	ovs_meters_exit(dp);
+ err_destroy_ports:
+@@ -1961,8 +1981,12 @@ static void __dp_destroy(struct datapath *dp)
+ 	struct flow_table *table = &dp->table;
+ 	int i;
+ 
+-	if (dp->user_features & OVS_DP_F_TC_RECIRC_SHARING)
+-		tc_skb_ext_tc_disable();
++	/* Only the recirc bit goes here. The datapath is still on the list and
++	 * its ports are still attached, so an upcall can be reading the other
++	 * bits from the receive path while this runs.
++	 */
++	ovs_dp_set_user_features(dp, dp->user_features &
++				     ~OVS_DP_F_TC_RECIRC_SHARING);
+ 
+ 	for (i = 0; i < DP_VPORT_HASH_BUCKETS; i++) {
+ 		struct vport *vport;
+diff --git a/net/openvswitch/datapath.h b/net/openvswitch/datapath.h
+index 7a7afaeceee5..55db1e635c74 100644
+--- a/net/openvswitch/datapath.h
++++ b/net/openvswitch/datapath.h
+@@ -76,7 +76,12 @@ struct dp_nlsk_pids {
+  * ovs_mutex and RCU.
+  * @stats_percpu: Per-CPU datapath statistics.
+  * @net: Reference to net namespace.
+- * @user_features: Bitmap of enabled %OVS_DP_F_* features.
++ * @user_features: Bitmap of enabled %OVS_DP_F_* features.  A datapath
++ * that has %OVS_DP_F_TC_RECIRC_SHARING set holds one reference to the tc
++ * skb extension.  ovs_dp_set_user_features() keeps the bit and the
++ * reference in step, and every change goes through it with ovs_mutex
++ * held.  ovs_dp_change() calls it after the per-cpu pid update, which can
++ * fail, so a request that fails leaves the features alone.
+  * @max_headroom: The maximum headroom of all vports in this datapath; it will
+  * be used by all the internal vports in this dp.
+  * @meter_tbl: Meter table.
 -- 
 2.56.1
 
