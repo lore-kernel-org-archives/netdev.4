@@ -1,60 +1,67 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795040551;
-	b=fSxVKF5IpLYkvxfUyGKsCM5cVbCMVnf7uRUH7tkxCMVifZGJHPbTHgrZrJ8i2a7LDZ3E
-	 fCPPRYR/+jWV1R10cz3005d46ZlOXq8gSTPmobY5bmb0amH8eZqe+mv5rHYJyMEIhO/Sp
-	 urGORKva2gJCgES1gEfMb6xxl0iTwhb/Oy4Rtq6Zz4rC3UOIdd8cefmb81tDNVcFg7n0U
-	 GL86ywpH1TvV6CM026tT+1XJhOjEEHTBsVtV/9vbE/y2zDIXUM76TKXFEghC61sYqoH4O
-	 wl2ubZcTqTOUse9eHQZ8QSIcPzuKkqys8ZquA9utffbR1JdUG2vToAsx2j6mjhXYscw==
+	t=1795041272;
+	b=ofddTnKml3b50XrsvVh5ZM7DGqB8gYWRbPWJMBfyMIht4pCZMUEqZinUgz1ibVrWBm7j
+	 TFE+zdI2nBazzYnZRGwGVmscw3snUSS1WVwUxC/FcK6qY1eshHZKno6mkmI8L6i6KdQ94
+	 kEf5ZgrAH7sU2w0dDMLUE2AcVqJJ4BC2ITjyXtXt7aNWjPtkgEt5398wwCrxhzwJxjZCs
+	 uQm/+zAeX1x/c7Os15a6Cn1yO9F6v4VaWop3IrQAZWp4Rn4Sqis6k+pIo6zDVqaqiulcT
+	 fVKx8UGT5+wGuIJIimW+BMszflIwooTQ6w9H62wOrtXOcHvd128lZM74vofv2hiYKsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795040551;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=deC16colvJ6YmP1UCuRm/b/DXcA7zKSPNYZR/ylPBC8=;
-	b=qkkJaJcW9KqFf3lMXzRZDAKBojYW1mb247bc8/5eGrlQ5xDAL3JADFtvD7vB25dgG/RK
-	 HHq/Is66qHEiqrupd7RnEase63KPI+QSUpoXqrlUJF3BpNR01d2dGdwQagQTwrI3vYQnP
-	 gn2Sevq8w3SkkELVILvH73d9J66qnhRyQqYgShGKVSDeDhWgHxFsFuEkTlYMAYDCgTbhc
-	 vOq1oVOAZtnotRanmGnwUEzoLrD/G4YVchU8DToUt7mnKSo49Gm70BgHnZqBn0kKq865R
-	 mgX6k0OPpeYMhetzos/l63nt9q8jPM/F4dPLC6oj7au/WDmAm9PAxOWQv0PvCb+Nn2w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795041272;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:User-Agent:X-stable:X-Patchwork-Hint:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=pLYLBI//VahNQuCwQVR9uHA1X/jzENqltyiJq0jsrSg=;
+	b=1//+fzMYKgRaW68uw2/XOTK/iYw7OuKDhxYDcKVGYC3lZ6ztfmLl9IYTr4jgzSOSaJ8G
+	 DTX2xWv/6FsR2gL+VjiiFFvuSbKaoKsbgfoQuPTAaQZbkHxD8MvepPGDBpW4h2rpCHczO
+	 rB70ImczknCiFicBZYkURT0Vc9myRAkqnZMYRLKeC64Xm1PsGk27pgcWHIfT96K9J5b05
+	 gqXjNFYcGQFYqgoqbsdyKH69YOYOwMT1N7BwJQcJQKXevpWT+uJZvUlsvgycRakFUuAQE
+	 CV2kHvdz2fT9yY2DqcUHEcJ6fzcWzxmQaDM/1nzHQDW9xwiZL7GdsmM5bm7yjpUqrpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dY/uIibw";
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=fXJXlVQN;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 106AA606A31C;
-	Wed, 18 Nov 2026 22:22:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52F78606A31C;
+	Wed, 18 Nov 2026 22:34:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dY/uIibw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E3DE1F000C4;
-	Wed, 18 Nov 2026 22:22:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795040550;
-	bh=deC16colvJ6YmP1UCuRm/b/DXcA7zKSPNYZR/ylPBC8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dY/uIibwHTdJA4M5PzAmm39IT2+od4JB7aY09mU24btvxJ4jk3dnClNHcU/Xd2djP
-	 jf3W9adJTe1KBa18nNeR1HUjFY1ipuC/DlS+1h2u8Pcw0OOEahFVAt06XWlWnjGtEJ
-	 VcVWV9oV8M1Lvh8KXF8+kwIGH/X7lWEU3MxDSa1FyJrGESKLZui9+4cHMBg5TpswEQ
-	 MUgaMWg8/fULiXQlN4cTnjLvq0i7KPiJ+6YH9cORiD/F6pDZckA/75IPffo/tEi3ml
-	 lpBelbATD3DsJfnSYzw2Mi9qOiI7FUasy4HzukKwvN5upqkMAQTOgO3JQbICSC1ssw
-	 hxzz813wk3RsA==
-Subject: Re: [PATCH net 2/2] net: sgi: ioc3-eth: fix IRQ lifetime against
- netdev teardown
-From: netdev-bot+sashiko@kernel.org
-To: kaloz@kernel.org
-Cc: tsbogend@alpha.franken.de, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-mips@vger.kernel.org, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org, sashiko-bot@kernel.org
-Date: Wed, 18 Nov 2026 22:22:29 +0000
-Message-ID: <179504054981.3136.8539477779059154181@kernel.org>
-In-Reply-To: <20261116101934.25910-3-kaloz@kernel.org>
-References: <20261116101934.25910-3-kaloz@kernel.org>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=fXJXlVQN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A08941F000C4;
+	Wed, 18 Nov 2026 22:34:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795041272;
+	bh=pLYLBI//VahNQuCwQVR9uHA1X/jzENqltyiJq0jsrSg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=fXJXlVQNmX9RG4aUD7q0Qd4wUZv4WF/DzMeIKIpyvrZsixy/aOBbU9R9o71SDn+cE
+	 PjHT73ah383eIFjxWforMn2hMOF1PSsvzAb+MCkIzTwa0ceUqvWvlBhM/G2Ba3Utfh
+	 QEkgrOsppzAZvGhgRidLLxEowvuYKJSZ33BcdNo8=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Kalle Valo <kvalo@kernel.org>,
+	linux-wireless@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Simon Horman <horms@kernel.org>,
+	Johannes Berg <johannes.berg@intel.com>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 6.6 2717/3318] wifi: cfg80211: fix header kernel-doc typos
+Date: Wed, 18 Nov 2026 15:55:39 +0100
+Message-ID: <20261118150442.370643732@linuxfoundation.org>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261118150313.527275416@linuxfoundation.org>
+References: <20261118150313.527275416@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,204 +71,126 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+6.6-stable review patch.  If anyone has any objections, please let me know.
 
-Critical: 0 · High: 1 (1) · Medium: 1 · Low: 0
+------------------
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+From: Randy Dunlap <rdunlap@infradead.org>
 
-- [High] The IRQ handler can still reach freed skb memory during
-  teardown.
-- [Medium] In ioc3eth_probe() (drivers/net/ethernet/sgi/ioc3-eth.c), the
-  shared IRQ is still requested before the state its handler uses exists.
+[ Upstream commit 98e0c7f85773ab161d804103649b33f8a97cf1b3 ]
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but ioc3_error()
-  can deadlock against the timer callback and warns on every error…
+Correct spelling of several words.
 
---
+Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+Cc: Johannes Berg <johannes@sipsolutions.net>
+Cc: Kalle Valo <kvalo@kernel.org>
+Cc: linux-wireless@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@google.com>
+Cc: Jakub Kicinski <kuba@kernel.org>
+Cc: Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org
+Reviewed-by: Simon Horman <horms@kernel.org>
+Link: https://lore.kernel.org/r/20231001191633.19090-1-rdunlap@infradead.org
+Signed-off-by: Johannes Berg <johannes.berg@intel.com>
+Stable-dep-of: 298618f28bd3 ("wifi: cfg80211: reg: protect regdb pointer with RCU")
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ include/net/cfg80211.h | 20 ++++++++++----------
+ 1 file changed, 10 insertions(+), 10 deletions(-)
 
-net: sgi: ioc3-eth: fix IRQ lifetime against netdev teardown
-
-This patch moves spin_lock_init() and timer_setup() ahead of the IRQ
-request in ioc3eth_probe(), and replaces devm_request_irq() with
-request_irq(). It also adds free_irq() calls on the probe error path and
-in ioc3eth_remove(), so the handler is gone before free_netdev() runs.
-
-Closes: https://lore.kernel.org/all/179473760071.2199510.16065103101920438822@kernel.org/
-
-> diff --git a/drivers/net/ethernet/sgi/ioc3-eth.c b/drivers/net/ethernet/sgi/ioc3-eth.c
-> index ee284a4f75ff2..e322a588d5c4d 100644
-> --- a/drivers/net/ethernet/sgi/ioc3-eth.c
-> +++ b/drivers/net/ethernet/sgi/ioc3-eth.c
-> @@ -870,16 +870,16 @@ static int ioc3eth_probe(struct platform_device *pdev)
->  		goto out_free;
->  	}
->  
-> -	if (devm_request_irq(&pdev->dev, dev->irq, ioc3_interrupt,
-> -			     IRQF_SHARED, "ioc3-eth", dev)) {
-> +	spin_lock_init(&ip->ioc3_lock);
-> +	timer_setup(&ip->ioc3_timer, ioc3_timer, 0);
-
-[Severity: High]
-This is a pre-existing issue, not one introduced by this patch. The timer
-is set up here without TIMER_IRQSAFE. Can ioc3_error() deadlock against
-the timer callback?
-
-ioc3_error() runs in hardirq context from ioc3_interrupt(). It takes the
-lock and then calls ioc3_init():
-
-ioc3_interrupt()
-  ioc3_error()
-    spin_lock(&ip->ioc3_lock);
-    ...
-    ioc3_init(dev);
-      timer_delete_sync(&ip->ioc3_timer);
-
-Because the timer is not TIMER_IRQSAFE, every error interrupt should hit
-this check in __timer_delete_sync():
-
-    WARN_ON(in_hardirq() && !(timer->flags & TIMER_IRQSAFE));
-
-The timer callback takes the same lock:
-
-ioc3_timer()
-  ioc3_setup_duplex()
-    spin_lock_irq(&ip->ioc3_lock);
-
-Suppose CPU1 is in ioc3_timer() spinning on ioc3_lock, while CPU0 holds
-ioc3_lock in ioc3_error(). CPU0 would then spin forever in the ret < 0
-loop of __timer_delete_sync(), waiting for CPU1's callback to finish.
-
-The timer is re-armed every 1.2s while the interface is up. Heavy
-incoming traffic can cause RX overflow errors.
-
-ioc3_timeout() has the same pattern. It holds
-spin_lock_irq(&ip->ioc3_lock) across ioc3_init() -> timer_delete_sync().
-
-> +
-> +	if (request_irq(dev->irq, ioc3_interrupt, IRQF_SHARED, "ioc3-eth",
-> +			dev)) {
->  		dev_err(&pdev->dev, "Can't get irq %d\n", dev->irq);
->  		err = -ENODEV;
->  		goto out_free;
->  	}
->  
-> -	spin_lock_init(&ip->ioc3_lock);
-> -	timer_setup(&ip->ioc3_timer, ioc3_timer, 0);
-> -
->  	ioc3_stop(ip);
->  
->  	/* Allocate rx ring.  4kb = 512 entries, must be 4kb aligned */
-
-[Severity: Medium]
-The commit message says the handler could run before its state was
-initialized. Doesn't the same problem still apply to the rings?
-
-When request_irq() returns, ioc3_stop() has not run yet. ip->rxr,
-ip->txr, rx_skbs[] and tx_skbs[] are all still NULL from
-alloc_etherdev(). ioc3_init(), which resets the MAC with EMCR_RST, also
-runs later.
-
-ioc3_interrupt() acts on the raw EISR value. It does not mask it with
-EIER, does not check any device state, and always returns IRQ_HANDLED:
-
-    eisr = readl(&regs->eisr);
-    writel(eisr, &regs->eisr);
-    ...
-    if (eisr & (EISR_RXOFLO | ...))
-        ioc3_error(dev_id, eisr);
-    if (eisr & EISR_RXTIMERINT)
-        ioc3_rx(dev_id);
-
-If an EISR bit is latched when the handler runs here, ioc3_rx() would
-dereference a NULL rx_skbs[0]:
-
-    skb = ip->rx_skbs[rx_entry];
-    rxb = (struct ioc3_erxbuf *)(skb->data - RX_OFFSET);
-
-ioc3_error() -> ioc3_clean_tx_ring() would also write through a NULL
-ip->txr:
-
-    ip->txr[i].cmd = 0;
-
-The rings do exist after later failures, such as no PHY being found or
-register_netdev() failing. In that case ioc3_error() would allocate and
-DMA-map new RX skbs and call ioc3_start(), which turns DMA and EIER back
-on. The out_stop path would then free the rings with DMA still running
-and leak those skbs.
-
-ioc3_stop() only clears EMCR and EIER and never acks EISR. The parent's
-ioc3_setup() in drivers/mfd/ioc3.c clears EISR separately from EIER. That
-suggests the status bits can stay latched while EIER is 0.
-
-There are two ways the handler can run in this window:
-
-- another device asserts the shared line.
-- CONFIG_DEBUG_SHIRQ makes its extra handler call from the free_irq()
-  this patch adds on the out_stop path.
-
-Should the rings be set up and EISR acked before the IRQ is requested?
-Alternatively, request_irq() and free_irq() could move into ndo_open and
-ndo_stop.
-
-[ ... ]
-
-> @@ -969,6 +970,7 @@ static void ioc3eth_remove(struct platform_device *pdev)
->  	struct ioc3_private *ip = netdev_priv(dev);
->  
->  	unregister_netdev(dev);
-> +	free_irq(dev->irq, dev);
->  	timer_delete_sync(&ip->ioc3_timer);
->  
->  	dma_free_coherent(ip->dma_dev, RX_RING_SIZE, ip->rxr, ip->rxr_dma);
-
-[Severity: High]
-Can the handler still reach freed skbs in this teardown path?
-
-unregister_netdev() runs ioc3_close() before this free_irq():
-
-ioc3_close()
-    timer_delete_sync(&ip->ioc3_timer);
-    netif_stop_queue(dev);
-    ioc3_stop(ip);
-    ioc3_free_rx_bufs(ip);
-    ioc3_clean_tx_ring(ip);
-
-ioc3_close() has no synchronize_irq(), and ioc3_rx() takes no lock. A
-handler already running on another CPU when EIER is cleared can
-therefore race with ioc3_free_rx_bufs().
-
-ioc3_free_rx_bufs() frees rx_skbs[rx_ci..rx_pi) with dev_kfree_skb_any().
-It leaves the pointers in ip->rx_skbs[] and does not reset rx_ci or
-rx_pi.
-
-The handler can run after that in two ways:
-
-- a shared-line interrupt arrives while the interface is down.
-- CONFIG_DEBUG_SHIRQ makes its extra call inside this new free_irq().
-  The commit message names that config as the reproduction method.
-
-ioc3_interrupt() acts on EISR without checking EIER or IFF_UP:
-
-- EISR_RXTIMERINT goes to ioc3_rx(), which dereferences the freed
-  ip->rx_skbs[rx_ci]->data and can pass a freed skb to netif_rx().
-
-- The error bits go to ioc3_error(), which runs ioc3_free_rx_bufs()
-  again over the stale indices and frees the same skbs twice. It then
-  allocates new RX skbs and calls ioc3_start(). That turns DMA and EIER
-  back on for a downed interface just before the dma_free_coherent()
-  calls below, and the new skbs are leaked.
-
-Would it be better to move request_irq() and free_irq() into ndo_open
-and ndo_stop? The other option is to add synchronize_irq(), ack EISR in
-the stop path and clear rx_skbs[] after freeing.
-
+diff --git a/include/net/cfg80211.h b/include/net/cfg80211.h
+index 2343f4c0f1d8e..5565465f146f7 100644
+--- a/include/net/cfg80211.h
++++ b/include/net/cfg80211.h
+@@ -2447,7 +2447,7 @@ struct mesh_config {
+  * @user_mpm: userspace handles all MPM functions
+  * @dtim_period: DTIM period to use
+  * @beacon_interval: beacon interval to use
+- * @mcast_rate: multicat rate for Mesh Node [6Mbps is the default for 802.11a]
++ * @mcast_rate: multicast rate for Mesh Node [6Mbps is the default for 802.11a]
+  * @basic_rates: basic rates to use when creating the mesh
+  * @beacon_rate: bitrate to be used for beacons
+  * @userspace_handles_dfs: whether user space controls DFS operation, i.e.
+@@ -2720,7 +2720,7 @@ struct cfg80211_bss_select_adjust {
+  * @match_sets: sets of parameters to be matched for a scan result
+  *	entry to be considered valid and to be passed to the host
+  *	(others are filtered out).
+- *	If ommited, all results are passed.
++ *	If omitted, all results are passed.
+  * @n_match_sets: number of match sets
+  * @report_results: indicates that results were reported for this request
+  * @wiphy: the wiphy this was for
+@@ -2754,7 +2754,7 @@ struct cfg80211_bss_select_adjust {
+  *	to the specified band while deciding whether a better BSS is reported
+  *	using @relative_rssi. If delta is a negative number, the BSSs that
+  *	belong to the specified band will be penalized by delta dB in relative
+- *	comparisions.
++ *	comparisons.
+  */
+ struct cfg80211_sched_scan_request {
+ 	u64 reqid;
+@@ -3596,7 +3596,7 @@ struct cfg80211_update_ft_ies_params {
+  * This structure provides information needed to transmit a mgmt frame
+  *
+  * @chan: channel to use
+- * @offchan: indicates wether off channel operation is required
++ * @offchan: indicates whether off channel operation is required
+  * @wait: duration for ROC
+  * @buf: buffer to transmit
+  * @len: buffer length
+@@ -3714,7 +3714,7 @@ struct cfg80211_nan_func_filter {
+  * @publish_bcast: if true, the solicited publish should be broadcasted
+  * @subscribe_active: if true, the subscribe is active
+  * @followup_id: the instance ID for follow up
+- * @followup_reqid: the requestor instance ID for follow up
++ * @followup_reqid: the requester instance ID for follow up
+  * @followup_dest: MAC address of the recipient of the follow up
+  * @ttl: time to live counter in DW.
+  * @serv_spec_info: Service Specific Info
+@@ -6728,7 +6728,7 @@ static inline const u8 *cfg80211_find_ie(u8 eid, const u8 *ies, int len)
+  * @ies: data consisting of IEs
+  * @len: length of data
+  *
+- * Return: %NULL if the etended element could not be found or if
++ * Return: %NULL if the extended element could not be found or if
+  * the element is invalid (claims to be longer than the given
+  * data) or if the byte array doesn't match; otherwise return the
+  * requested element struct.
+@@ -6875,7 +6875,7 @@ int regulatory_hint(struct wiphy *wiphy, const char *alpha2);
+ /**
+  * regulatory_set_wiphy_regd - set regdom info for self managed drivers
+  * @wiphy: the wireless device we want to process the regulatory domain on
+- * @rd: the regulatory domain informatoin to use for this wiphy
++ * @rd: the regulatory domain information to use for this wiphy
+  *
+  * Set the regulatory domain information for self-managed wiphys, only they
+  * may use this function. See %REGULATORY_WIPHY_SELF_MANAGED for more
+@@ -6966,7 +6966,7 @@ bool regulatory_pre_cac_allowed(struct wiphy *wiphy);
+  * Regulatory self-managed driver can use it to proactively
+  *
+  * @alpha2: the ISO/IEC 3166 alpha2 wmm rule to be queried.
+- * @freq: the freqency(in MHz) to be queried.
++ * @freq: the frequency (in MHz) to be queried.
+  * @rule: pointer to store the wmm rule from the regulatory db.
+  *
+  * Self-managed wireless drivers can use this function to  query
+@@ -9182,9 +9182,9 @@ bool cfg80211_iftype_allowed(struct wiphy *wiphy, enum nl80211_iftype iftype,
+ 
+ /**
+  * cfg80211_assoc_comeback - notification of association that was
+- * temporarly rejected with a comeback
++ * temporarily rejected with a comeback
+  * @netdev: network device
+- * @ap_addr: AP (MLD) address that rejected the assocation
++ * @ap_addr: AP (MLD) address that rejected the association
+  * @timeout: timeout interval value TUs.
+  *
+  * this function may sleep. the caller must hold the corresponding wdev's mutex.
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116101934.25910-1-kaloz%40kernel.org
+2.53.0
+
+
+
