@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794969552;
-	b=wIcgam/CH6FUTR1N8kSX3iIXIhkF0UPNQBPkvk6QWTXyp6X9w28a+a/56QR+St58pfZB
-	 bcwE7PelhsjKehhTKOuGKwWvmoAqni+nxSaDmPMrKNaR7TRcs2wpLzTMNTWvtGn2Z/9Ex
-	 N5TG2G8mH6wqsAQLVBP4DpqtgczL3ZXZRbYEcO/DYoXv+esW8qzTJMQpEvJA6Ii3I23l/
-	 dMf4SlS9uln6XjQ4dOwL/mpjSPZYefsirBPRgDJp9BbN/XddsZYcuKUfRZB/ZFs7JBAz4
-	 YY6C0oaYKyNA8I7oedmA/qAJH81ueVjpeNqojCqS6QB+qsG/pKPu654wWNw+4AnJHjw==
+	t=1794969549;
+	b=EWOWIvbO5+LIr6rn+85VNvXcZMY+SCbIgt3uhJFHsupV0lZFyCYU+W38uMWjljs1RuoW
+	 GbrKM1M9mWxwBdHlYMeOUDfEjs3zQREXNSVjNCGEoYp0F8L7C9zOMGZYBbr5QQABQyAs+
+	 DjsPDOnWTq6arSnwnsm82FwK0a0ptURuuVxBqOd3Cz3WoT6+chJia8TBqEYhh3sqSX8EE
+	 LDOLiI844ewT2tYJmUIFreiAaeIONL/tuZpTxeHsMR3zSHoXWH1G5meCEiqTDycqtH+tj
+	 njNGKjbgLdHWlyDxOy4yo2KbDNsrFOD0ZTLZ9kieiwLzInSLA8l/L3SL7kt1dChaTcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794969552;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794969549;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=xMST5v9eEPCd7lhbM9hSl4/w5+I+UGboTadm1fyBXTY=;
-	b=4lC7KsTvag8jdo9XdvM1QR/aHx/8EsSj257HfT0Zsjzap+uoSCttgBcPDh149tT3wdmL
-	 uPTjByYZHtf3Wt3OaLkHP0EgBJ/TRWXCGfAVLyXH38B9Ykge7h23PYUneV3SMNcnCt/Um
-	 fp1Nz3rfcOmk2uxLTcxHD16u6qfEleS8S2pNlrzqg1y6iArWTYeoWXKUMM4zv99+IoOAS
-	 J0oTtLhlXj5fxXXIa6QSoZvSyy/DmNUL/ipHIYmtphIW937tXdAPA7Dorgur5vWbZy4P+
-	 QDvoFCoUJ2Ywap5XVHiNW0FCLkd7g9XPkccWOEZKjxwl/7OqCI5xzkopUV/vFqHjUGg==
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=4IefxGOVrie2q+3W2+0E+ydSIc1o5UmUe+FYzMqsbm8=;
+	b=x6SoK+BJ9BMeOVfw5D9e4q2vwfLZGLeMex1Ib2OLiw509ZhEm8Xl/pfcwMjGznoBQd8W
+	 Fhuvsy+JxuTbBEGEAIxQ/inlZK9H1v1BXCiNTiZjglt5d/ydCU5wt/Au3pX/f9Eu5eK8U
+	 XAfUEUSZ9uRtpuKoLBGVyMCUQSxvGd9A0VBV844WrvNSYgiUuOhf+wlXLCJaeXctGrc0o
+	 GcmMvnSzF4M180imvAZo/aeSdYdVHcfO0hL8EA09USFD4L8dC5IXJ+Hmj7z3qgefP107r
+	 lL6lJXiQw0BhqvrhimHg/DoTzW9xZChALqTQpMzE+aZgtam4NycytLYKlWNTGZFl5NQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XbKsnAOX;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HuYuqztX;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FED4606A89B
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:39:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD06B606A325
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:39:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XbKsnAOX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C58821F000C5;
-	Wed, 18 Nov 2026 02:39:11 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HuYuqztX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 691341F000C4;
+	Wed, 18 Nov 2026 02:39:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794969552;
-	bh=xMST5v9eEPCd7lhbM9hSl4/w5+I+UGboTadm1fyBXTY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XbKsnAOXa1v5RPTE2939pEm/daflWUaOmnWoJx2Ljm2HPIlMRug/xAepyBUA1RhqP
-	 0uhq26HHdx5GL9rzcI0yXeKz32KoGHPG+/38I8RhyEpW8/1kSxhkN1G/1zNUm8nIaS
-	 mHXBJSbK0COrKqD+xb3SaX+bONBHfR1cm48iIH+3nLX1ZVNdo1NVZHDA5re+bE/B4D
-	 XuOIMB+SqANw5fvGMGKFDr74EtbDNpIk/JnFLYL9mMueosSoL+rC//UO0JWFc6P9vH
-	 2e0eRYk/2HKGB1wsDs0riQ4q5XNzL/P6G51pSKXri16GtIAAF191BUyEmUJBMbLLUy
-	 0C7QpaXpFBH1Q==
+	s=k20260515; t=1794969549;
+	bh=4IefxGOVrie2q+3W2+0E+ydSIc1o5UmUe+FYzMqsbm8=;
+	h=From:To:Cc:Subject:Date;
+	b=HuYuqztX/8xSJfBoq2Z533CU0sn1fZ2FCbCEpo4Jdv72wl1p4C67SZgOvGsY5DXXL
+	 Xa8/Xd/X65NxkZjfSazKlJOpuHCF+PjrI1CXEiVQvuCh6uqimYgobzCYjpMVq7Wtxm
+	 Agwg3mCHAgEZDPdNN1+s/dL4Kabjtg+p6iK9FVHQ51ge2xfNkfL9afRhi1Z48r0KbS
+	 BVoVBoxbn7eQuudS7Nv7YSC2AlEkoZXuxvNkSancDPW2S/YDdmT4reG1R3j0vxvwIE
+	 7wOAP8ZlZ1KiX6j/5YThQWqOOwcXVUAF1KNH8tHJD+nefJW7j1GWP42I0PUA/q/RQp
+	 FIicZzFM+Y4iw==
 From: Jakub Kicinski <kuba@kernel.org>
 To: davem@davemloft.net,
 	michael.chan@broadcom.com
@@ -49,12 +49,10 @@ Cc: netdev@vger.kernel.org,
 	horms@kernel.org,
 	pavan.chebbi@broadcom.com,
 	Jakub Kicinski <kuba@kernel.org>
-Subject: [PATCH net-next 6/6] eth: bnxt_en: restart Rx queues when their IRQ moves to another NUMA node
-Date: Tue, 17 Nov 2026 18:39:05 -0800
-Message-ID: <20261118023905.3050661-7-kuba@kernel.org>
+Subject: [PATCH net-next 0/6] eth: bnxt_en: allocate memory on the right NUMA node
+Date: Tue, 17 Nov 2026 18:38:59 -0800
+Message-ID: <20261118023905.3050661-1-kuba@kernel.org>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261118023905.3050661-1-kuba@kernel.org>
-References: <20261118023905.3050661-1-kuba@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,135 +64,44 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Rx queue memory is allocated on the node of the CPU servicing the queue
-when the device is opened. On a running device it only follows IRQ
-affinity changes if TPH is enabled, as a side effect of the queue
-restart which applies the new TPH Steering Tag.
+Teach bnxt to allocate the memory touched by the fast path
+on the NUMA node where NAPI is being serviced.
 
-Schedule the affinity update work whenever the device supports the
-queue API, not just when TPH Steering Tag changed. Queue restart places
-all the memory it reallocates, other than the ring page tables, on
-the page pool's node, so compare the page pool's nid to decide if
-the queue has to move.
+On modern systems the PCIe controller is part of the CPU.
+On NUMA systems we get to pick which NUMA node the queue and NAPI
+related memory will get allocated from. Allocating SW state on
+the node where NAPI will run is just common sense.
+For memory touched by both device and the CPU we need to pick
+which side will pay the extra price (either device or CPU
+will have to "reach" futher). This series allocates all state
+and all descriptor rings on the NAPI CPU.
 
-Since we need queue state of the currently allocated queue to compare
-nid - check that the device is still up after errors.
+Testing a dual-IO-die AMD Venice CPU, where NIC is on node 1
+and with NAPI+kperf pinned to node 0, this series gives:
+ placing page pools on the right node:    -5.1% CPU load
+ placing page pools and completion rings: -8.9% CPU load
 
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
----
- drivers/net/ethernet/broadcom/bnxt/bnxt.h |  2 +-
- drivers/net/ethernet/broadcom/bnxt/bnxt.c | 46 ++++++++++++++---------
- 2 files changed, 29 insertions(+), 19 deletions(-)
+Moving SW state is in the noise in a tight-loop kperf banchmark
+as the state fits in the cache, anyway.
 
-diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.h b/drivers/net/ethernet/broadcom/bnxt/bnxt.h
-index 86fc2e8a5816..4b80b20288ba 100644
---- a/drivers/net/ethernet/broadcom/bnxt/bnxt.h
-+++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.h
-@@ -2656,7 +2656,7 @@ struct bnxt {
- #define BNXT_RING_COAL_NOW_SP_EVENT	17
- #define BNXT_FW_RESET_NOTIFY_SP_EVENT	18
- #define BNXT_FW_EXCEPTION_SP_EVENT	19
--#define BNXT_TPH_UPDATE_SP_EVENT	20
-+#define BNXT_IRQ_AFFINITY_SP_EVENT	20
- #define BNXT_LINK_CFG_CHANGE_SP_EVENT	21
- #define BNXT_THERMAL_THRESHOLD_SP_EVENT	22
- #define BNXT_FW_ECHO_REQUEST_SP_EVENT	23
-diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-index 134b24842c4f..5f4a8db1f8b5 100644
---- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-+++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-@@ -11931,18 +11931,17 @@ static void bnxt_irq_affinity_notify(struct irq_affinity_notify *notify,
- 	}
- #endif
- 
--	if (!irq->bp->tph_mode)
-+	/* Only Rx queues can be restarted to follow the IRQ */
-+	if (!BNXT_SUPPORTS_QUEUE_API(irq->bp) ||
-+	    irq->ring_nr >= irq->bp->rx_nr_rings)
- 		return;
- 
--	if (irq->ring_nr >= irq->bp->rx_nr_rings)
--		return;
-+	if (irq->bp->tph_mode &&
-+	    !pcie_tph_get_cpu_st(irq->bp->pdev, TPH_MEM_TYPE_VM,
-+				 cpumask_first(mask), &tag))
-+		WRITE_ONCE(irq->new_tag, tag);
- 
--	if (pcie_tph_get_cpu_st(irq->bp->pdev, TPH_MEM_TYPE_VM,
--				cpumask_first(mask), &tag))
--		return;
--
--	WRITE_ONCE(irq->new_tag, tag);
--	bnxt_queue_sp_work(irq->bp, BNXT_TPH_UPDATE_SP_EVENT);
-+	bnxt_queue_sp_work(irq->bp, BNXT_IRQ_AFFINITY_SP_EVENT);
- }
- 
- static void bnxt_irq_affinity_release(struct kref *ref)
-@@ -14663,7 +14662,10 @@ static void bnxt_rtnl_unlock_sp(struct bnxt *bp)
- 	rtnl_unlock();
- }
- 
--static void bnxt_tph_update(struct bnxt *bp)
-+/* Restart the Rx queues whose IRQ moved, if the move changed the TPH
-+ * Steering Tag or the node the queue memory should be allocated on.
-+ */
-+static void bnxt_irq_affinity_update(struct bnxt *bp)
- {
- 	struct net_device *dev = bp->dev;
- 	int i;
-@@ -14673,6 +14675,8 @@ static void bnxt_tph_update(struct bnxt *bp)
- 		goto unlock;
- 
- 	for (i = 0; i < bp->rx_nr_rings; i++) {
-+		struct bnxt_rx_ring_info *rxr = &bp->rx_ring[i];
-+		bool new_tag = false, new_node = false;
- 		struct bnxt_irq *irq;
- 		int map_idx, err;
- 		u16 tag;
-@@ -14680,20 +14684,26 @@ static void bnxt_tph_update(struct bnxt *bp)
- 		map_idx = bnxt_cp_num_to_irq_num(bp, i);
- 		irq = &bp->irq_tbl[map_idx];
- 		tag = READ_ONCE(irq->new_tag);
--		if (irq->tag == tag)
-+		if (irq->tag != tag &&
-+		    !pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
-+			new_tag = true;
-+		if (rxr->page_pool->p.nid != bnxt_cp_num_to_node(bp, i))
-+			new_node = true;
-+		if (!new_tag && !new_node)
- 			continue;
- 
--		if (pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
--			continue;
--
--		err = netdev_rx_queue_restart(dev, irq->ring_nr);
-+		err = netdev_rx_queue_restart(dev, i);
- 		if (err) {
- 			netdev_err(dev, "RX queue restart failed: err=%d\n",
- 				   err);
-+			/* Failing to start a new queue may close the device */
-+			if (!test_bit(BNXT_STATE_OPEN, &bp->state))
-+				break;
- 			continue;
- 		}
- 
--		irq->tag = tag;
-+		if (new_tag)
-+			irq->tag = tag;
- 	}
- 
- unlock:
-@@ -15137,8 +15147,8 @@ static void bnxt_sp_task(struct work_struct *work)
- 			bnxt_devlink_health_fw_report(bp);
- 	}
- 
--	if (test_and_clear_bit(BNXT_TPH_UPDATE_SP_EVENT, &bp->sp_event))
--		bnxt_tph_update(bp);
-+	if (test_and_clear_bit(BNXT_IRQ_AFFINITY_SP_EVENT, &bp->sp_event))
-+		bnxt_irq_affinity_update(bp);
- 
- 	smp_mb__before_atomic();
- 	clear_bit(BNXT_STATE_IN_SP_TASK, &bp->state);
+This series was the motivation for cleaning up the DMA API
+allocations with explicit NUMA node:
+commit a0aa9ceca03f ("Merge tag 'dma_alloc_coherent_node' of git://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux")
+
+Jakub Kicinski (6):
+  eth: bnxt_en: order event data before setting the sp_event bit
+  eth: bnxt_en: follow explicitly set IRQ affinity when placing page
+    pool
+  eth: bnxt_en: allocate per-queue SW state on the queue's NUMA node
+  eth: bnxt_en: explicitly keep device-only memory on the device's node
+  eth: bnxt_en: allocate fast path DMA rings on the queue's NUMA node
+  eth: bnxt_en: restart Rx queues when their IRQ moves to another NUMA
+    node
+
+ drivers/net/ethernet/broadcom/bnxt/bnxt.h |   7 +-
+ drivers/net/ethernet/broadcom/bnxt/bnxt.c | 203 ++++++++++++++--------
+ 2 files changed, 141 insertions(+), 69 deletions(-)
+
 -- 
 2.56.1
 
