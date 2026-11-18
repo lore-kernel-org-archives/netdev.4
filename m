@@ -1,54 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966983;
-	b=QPaOce3hmAfU/MMSeIpUTNVJhteocVDpAAexsRD55UhBZketRjtzTX4p9xBTpq14gQVr
-	 7ycta0tWgx097Ll6zUSgGDBIbNOaI0jX58h8T9ZEL2vLLcfQ14xEMIM4MJ+y9xdrqQDRu
-	 UtDBno+bdwkn1GIyFRIY/V74Yodgw+xOnkSdLtV0KGlDujB7gyswtj5W5IK9y6rcmUPkW
-	 kNZNr7fX09Ce1lrEQzPgzsgh2XIQavJFtLvreSRvJ4nZw+17rmxRkbLacoM1HRWfCZoP6
-	 gTMflpFbwCGPIdtRTmxpYLEzeROrhtfngxJcnd9D4SpwQG22WP7hXt0XLExR04EF1Eg==
+	t=1794967207;
+	b=JQmwPviy0M7ndXKQyVHOuiqwfyvq3IJ0v43p3NB10melXMrc52mw7CHSOeLXuA/jkW0x
+	 pX/XT3MAPj020A5kyw8z80eVz54TVvmAODgiuluYCKQT+Twh7bM4MyNSeocxrJFlXZQKS
+	 Tjn5kEdEIJlsOSoioF6+VNP3BN7UINY4JSjF09G+0wVpdW3wedPGLhHMCwgPSQJscueJ4
+	 Nc+xx3wOFmotUpQSDyA1T7/YZMv6vdyST95qBu8lZJHipMJ7ZDp8wEPFbcXgv4Sv5o9Yc
+	 rHjzefANBcp6elaMirhjGxtt3rLk+Z29EtwtViNM4M34CrpY4nkJcGIO49N2IqCZfxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966983;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=PEzaiXe/BwYn0wyikcZkU7jHpGSWF5KdLHubwn3Rz8c=;
-	b=R3AIctAk5v7ozKTi/sIi6U+FRmU9vq1SqX+qhR+T0hm95yCu90Afi6PO8ADVdFi5O4XU
-	 C9JssOIYmekCOvU+6bQdtfdPFk5Scagg16FTfz4uaoq0frOcRZ4o/uJKvYcdzOeGVX2yC
-	 Q8mSN0k0FfWgAu7ReZTQ6HzIubutiNNzJa+lsL3jY3LOFHor6eGfRhMXKCBRccjwfyQ8g
-	 aSEdLtqU2Vvhz/eUp8d9AHJlTVoyVYLhmIYEtCsGn0QDzq2bo1/6QKlHsOYTNT3Oe527t
-	 o2fIs4x8GefGE3l7t5gojbQXJaNoad7jS0YYmYOXUgmDe4egejDp8dqv9pwUBh+spaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794967207;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=0dtbJ5ojmD2EFUK6STepqEIIYt21cHF3X/tQBf0MmkI=;
+	b=ebCaaFpN5JppG/3Ghu979lOC9zKi4gikEeG8COIGIdUQLwv4W19mMNiV3okaWMlIG5pO
+	 vtxpxEb/5bEdItj8d5Og1tm21nCRZrdm1xqwb9FClGz2C27uRFbyROkJQRCrMNSB9Hneh
+	 AK/K1AFnM0EUNwBjbVfSiInqoBAMzhSWsscw7J6OACOs+H04zQPrwEb8gCn0YEnaoAAsG
+	 xDvdh71byfAcQDzcg1W+xfgy1jTVE/c4na8YzWu44nKm4+QUSQ6zDi9EqohqUw4o3NWJ0
+	 2rmo/hvPCWicSYEtP9P/xExWepVeJeunQkrd32cQ5fihXjfEALTG9U2VN2ku45cq0+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AhnYnySQ;
-	arc=none smtp.remote-ip=91.218.175.174
-Received: from mta0.migadu.com (out-174.mta0.migadu.com [91.218.175.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cLp7DrJD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ADF2606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:56:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ADF2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB5A1606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:00:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AhnYnySQ
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=y6rqbLvaakw1Vs5JNP6HAQoycmzxKnGquwpiedhS5iA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1794966980; v=1; x=1795571780;
- b=AhnYnySQ6tUFNJ3PkI6Es8pbQLBG8k6x1K0CgfXAa7DCtjemZa9SlcoqKGfd2VhyfZgrNrz9
- xg1FHkn7Sxaf6VTj8QKcdfoJExKkY4HhrCjWfhCftVUq+olB8O8VIjHEaYouW3goiI8LErL8tWt
- eE3YTVH3o6GOmimIKExzSIc8=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id e19851a3f875c143;
-	Wed, 18 Nov 2026 01:56:20 +0000
-X-Mizu-Trace-ID: e19851a3f875c143
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <ff9a041f-27fa-425c-b2fa-4cb6a79670d3@linux.dev>
-Date: Wed, 18 Nov 2026 09:56:14 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cLp7DrJD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 837881F000C4;
+	Wed, 18 Nov 2026 02:00:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794967206;
+	bh=0dtbJ5ojmD2EFUK6STepqEIIYt21cHF3X/tQBf0MmkI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=cLp7DrJDIMI9lY6hKpRxzQjXTTS8+9HrFh3JCEpDUZY99Lcf2jj8q9VJbIlZc8RWx
+	 dAblI6TOjqMn0IJgz/h4Scp8bwT+Mxz70rAvKodQwSfaxtZfV9BjyB/05vEsF1fD4R
+	 tT/J88IEAP03wypKkUtHncljM1jrb3cR46D2Uda8S3LCF+RF6HCt+oeGUipFGEblr4
+	 MJZbCFKF3UT5N2sW0Nc3CmZY1xnu6x0vP2skDiZXcMMpDcGPzSKd084e3zoQV4Y0cL
+	 MRwCcz6eMYnuxdPUwzobfNkyUv76yNedRwsvSLe/p8gGj8fJIHl50IIDNjHwh3E0vi
+	 HQeAs6KKevfoQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7736B392B1FF;
+	Wed, 18 Nov 2026 02:00:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,81 +53,49 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH bpf-next v2 2/9] bpf: Add log support for tracing_multi
- link_create
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, bpf@vger.kernel.org
-Cc: Daniel Borkmann <daniel@iogearbox.net>,
- John Fastabend <john.fastabend@gmail.com>,
- Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
- Kumar Kartikeya Dwivedi <memxor@gmail.com>,
- Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
- Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
- Emil Tsalapatis <emil@etsalapatis.com>,
- Ihor Solodrai <ihor.solodrai@linux.dev>, Steven Rostedt
- <rostedt@goodmis.org>, Masami Hiramatsu <mhiramat@kernel.org>,
- Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
- KP Singh <kpsingh@kernel.org>, Matt Bobrowski <matt@bobrowski.net>,
- Shuah Khan <shuah@kernel.org>, linux-kernel@vger.kernel.org,
- linux-trace-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- netdev@vger.kernel.org
-References: <20261114150610.84507-1-leon.hwang@linux.dev>
- <20261114150610.84507-3-leon.hwang@linux.dev>
- <DMX8HR7NDP9V.CDDWGLZ98C0K@gmail.com>
-Content-Language: en-US
-From: Leon Hwang <leon.hwang@linux.dev>
-In-Reply-To: <DMX8HR7NDP9V.CDDWGLZ98C0K@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 1/3] e1000e: fix incorrect modified flag check in
+ e1000_read_nvm_spt()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179496720528.1405006.5833740959078510076.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 02:00:05 +0000
+References: <20261113005823.130021-2-anthony.l.nguyen@intel.com>
+In-Reply-To: <20261113005823.130021-2-anthony.l.nguyen@intel.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>
+Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ edumazet@kernel.org, andrew+netdev@lunn.ch, netdev@vger.kernel.org,
+ skunkolee@gmail.com, dima.ruinskiy@intel.com, luoxuanqiang@kylinos.cn,
+ nsvatoslav515@gmail.com, aleksandr.loktionov@intel.com,
+ moriyax.kadosh@intel.com
 
-On 17/11/26 13:24, Alexei Starovoitov wrote:
-> On Sat, Nov 14, 2026 at 07:06 AM Leon Hwang <leon.hwang@linux.dev> wrote:
->> -	if (!cnt || !uids)
->> +	if (!cnt) {
->> +		bpf_log(log, "tracing_multi.cnt cannot be zero.\n");
->>  		return -EINVAL;
-> 
-> The user sees cnt == 0 in his own code.
-> He can't see which of up to 1 << 20 ids the kernel refuses.
-> That part stays silent:
-> 
->   bpf_tracing_multi_attach()
->     check_dup_ids()                      -EINVAL
->     bpf_trampoline_multi_attach()
->       bpf_check_attach_btf_id_multi()    -EINVAL, -ENOENT, -EOPNOTSUPP
->         btf_attach_func_proto(NULL, btf, btf_id)
->         btf_distill_func_proto(NULL, btf, t, tname, &tgt_info->fmodel)
-> 
-> The last two have messages. They get NULL.
-> That loop runs before trampoline_lock_all(), so bpf_log() is fine there.
-> can we pass the log down and name the id ?
-> 
->> +	if (cnt > MAX_TRACING_MULTI_CNT) {
->> +		bpf_log(log, "tracing_multi.cnt is too large.\n");
->>  		return -E2BIG;
-> 
-> that's not a helpful message. -E2BIG says the same.
-> 
->> +	if (attr->link_create.flags) {
->> +		bpf_log(log, "Invalid flags.\n");
->>  		return -EINVAL;
-> 
-> Each value but zero is refused. "flags must be zero." would make it clear.
-> 
->> -int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr)
->> +int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr,
->> +			     struct bpf_verifier_log *log)
->>  {
->>  	return -EOPNOTSUPP;
-> 
-> The stub has the log now and knows the reason.
-> 
-> Consider something like:
+Hello:
 
-Ack. Will do.
+This series was applied to netdev/net.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-Thanks,
-Leon
-
+On Thu, 12 Nov 2026 16:58:18 -0800 you wrote:
+> From: Ivy Lopez <skunkolee@gmail.com>
+> 
+> e1000_read_nvm_spt() reads two adjacent 16-bit NVM words as one
+> 32-bit dword for efficiency. When deciding whether to use the
+> shadow RAM value for the high word (data[i + 1]), it incorrectly
+> checks the "modified" flag of the low word (shadow_ram[offset + i])
+> instead of the high word's own flag (shadow_ram[offset + i + 1]).
+> 
 > [...]
+
+Here is the summary with links:
+  - [net,1/3] e1000e: fix incorrect modified flag check in e1000_read_nvm_spt()
+    (no matching commit)
+  - [net,2/3] igb/igbvf: disable work items before device removal
+    (no matching commit)
+  - [net,3/3] net: e1000: fix warning in iounmap on probe failure
+    https://git.kernel.org/netdev/net/c/cf704cc62ffa
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
