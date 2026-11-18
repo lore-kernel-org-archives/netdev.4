@@ -1,60 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997360;
-	b=z4Do3hQVPIqbCX87k4rHMlUDPLkco50Z276sKUrbhqOHcViBy9ECMukbzaqZ1mOeH8Ch
-	 cIwY9hgONAAwXpg3HyDXb0mZYduOpjN05Ee3KUXxYiUh22LpMU9bc0tRNNkXAqh/z5L+G
-	 d/oLn8K3y0IosCoWaYJCs7LG1kkV9nNLlLvikyQcZwPvAAuYb26yJV6iCB/65yatdQ7bf
-	 +ZHca8uZoTzFI5p7hYscUh3WgGh5VDSuuekQbZRHET2rSbdOjVCgz4yuRSgCh/2SCYH2w
-	 K0jj+tT1mq3hH/hdyrQxJpzta5bZN40hUn1XptTamRVvKBlOKsDByyBg7eKjx7dwZaA==
+	t=1794997508;
+	b=gRbCarQQOdWs6ax2Ql+rojbVrORErU9jLr56CmKc2+VV5SI3+CLN//dlExzQe8lxL4C5
+	 cUwp394ZSElzTg9GEyEvIIMaGwC6RBaKm7OFzxn7fXLkbnVgcqKO4uHCu8PGn2FNnZQLB
+	 boQf8J52+SD39XKk4W2Dv0bk7TC3xSol8pGLlfWFOYgvKHknnL+Gr7ikLEviFMya0lutC
+	 uS9ZB+ZuiMFtpjB7nFSOH6jXdTEJ9PBX6/xbdAJsp47jjqho2EieiZqg11Bzd2gaGVl7n
+	 QfObNZmQ89IQgS1dX9HyiGIpLNqLM2ZKFqFS/1fb+EQnrscSOjwyL30Qbbq/vNV+wyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997360;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	b=qs7ZwQHgWlBi4Ms5YQR1v+NPvB9OfucbBIzITH6+r34u9PbkEqese3Yc6zVoTyn7kNXg
-	 xizcExRL+BhiKsA5GlrWIyid1h20R4KIt87QN8eOvAMzvISZDfdNTJYr8fZrQFnfgceQW
-	 fbDgC5/CrQAw/557oMKgSyk4XLvVLdUflLAjh+BVGgPg3HeNid4VV8EVZLwZJhQY9Qykx
-	 uikLbmbi2OG+WWWlHY/KYB3ZzMo9JMR36nRvB0TqU3OsoDhu1nBNJg3xFYRkxRyOTCESX
-	 +hgnYDcyY8jFPwtRszBuWtSQYT6SxOPPKuMOlP6dNNAPjAqe0AvBFzHBoEhElR/+TQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997508;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Date:Message-ID;
+	bh=Yhigk21UeHnX3LFKE02WJlX+yu75OJpAsHrP2ixijWE=;
+	b=HqYQ6EWeygH/NdAgslriO1hR+8z+Ul6cAONddagCiyVDxf9gFPLhmcw/J5ycyRUyD+Su
+	 qCuJMUUMym+imliswpJH827zOIXpOL5keK3JmRogpsX0Ohlq02Dwg1G20igWLcPJv/2cN
+	 5SF4lPfaplucprWSRwG9TkmQ2JbSe/0neyGhTyM7D/MR0eOIE9yRTkGoNvgnaYO6MEIaw
+	 YO8d0Co6M3Sy7ftJZ14/w2i6Sn33DNHOQg6TZLQ9Z3iFvGin+xtuGijnfzjVGsMGHreyy
+	 KPoAQU58SG3zBavD278wrSogMoCF/9cq2V8/6OLFt4L+58E/ErxHEa5x343iP737DBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a6c+j22F;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80375606A31C;
-	Wed, 18 Nov 2026 10:22:40 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=NefQZF7j;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id CF2E1606A32A;
+	Wed, 18 Nov 2026 10:25:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CF2E1606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a6c+j22F
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 853CE1F000C4;
-	Wed, 18 Nov 2026 10:22:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794997360;
-	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=a6c+j22F2tQIso0j3WD+9T+/EVHqnh78kteGS5HbaQrhjQCq4w73ph6XHnQf4liks
-	 PbGw7G7XguMAqtUlJdNKxEKH8TXNPdDyT+XMioOYTq6DwVrZo5hB+hJ8oeLlCodJV1
-	 0KlElXGeScwRAhYtQYJdJ0GeGzm+lfM53VsTH9eMsWH9aQ5mACcrss3OB2jSf+1Tf6
-	 J9AXxKD3HwGSPK0ZYM8kgeNL+wsw8TLArW9+vDSVLaZ2ONQNoMcn420pyed4TAPlWQ
-	 rte49mKF5mor49A4S/qQm0A1X/eIKu4ekoOpyor4+2nlPHwo3+HFkuzzo317SqWSx6
-	 6QX7KDVLj6e0g==
-From: netdev-bot+sinfo@kernel.org
-To: Henry Martin <bsdhenrymartin@gmail.com>
-Cc: Eric Dumazet <edumazet@kernel.org>, Kuniyuki Iwashima <kuniyu@google.com>,
- Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
- "David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH net] net: initialize sk_peer_lock in cloned sockets
-Date: Wed, 18 Nov 2026 10:22:39 +0000
-Message-ID: <179499735905.3291.10447871915043656308@kernel.org>
-In-Reply-To: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
-References: <20261118101752.1989502-1-bsdhenrymartin@gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=NefQZF7j
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=NefQZF7jCQieaZJKEurUuZjqrM6zvK+V0mrRU1WNN7RnvWkzTp6RQeG1rjS4vzG/5dgEgy9ybc58f
+	 WyZTRRu7kbrprdKGZ2jc2Ikh56P7UsNaBqibH8jNJas2S+m6OViJrZyj1FjBVFWAqnbGOlpOtE9k8m
+	 kNXYlzfzuiCxbvEo=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afd7cff391-10eb7;
+	Wed, 18 Nov 2026 18:25:04 +0800 (CST)
+X-RM-TRANSID:2ee56afd7cff391-10eb7
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from [198.18.0.131] (unknown[223.108.79.102])
+	by rmsmtp-syy-appsvr09-12009 (RichMail) with SMTP id 2ee96afd7cfedfd-d3b0d;
+	Wed, 18 Nov 2026 18:25:04 +0800 (CST)
+X-RM-TRANSID:2ee96afd7cfedfd-d3b0d
+From: Xia Yan <yanxia@cmss.chinamobile.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, linux-kernel@vger.kernel.org, kuniyu@google.com,
+ xeb@mail.ru, yana06070@163.com
+Subject: Re: [PATCH net-next v3] ip6_gre: fix changelink conflict checks for
+ L2 tunnels
+In-Reply-To: <179489968486.3136.18372818760197436344@kernel.org>
+References: 
+ <179455350258.84965.17518172977020586093.ip6gre-v3@cmss.chinamobile.com>
+ <179489968486.3136.18372818760197436344@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,22 +71,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Date: Wed, 18 Nov 2026 18:24:57 +0800
+Message-ID: <179499749739.1141732.10101346678312526903.ip6gre-v4-followup@cmss.chinamobile.com>
 
-Hi!
+Hi,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+I reproduced both cases and addressed them in v4:
+https://lore.kernel.org/netdev/179491056935.741041.1816208847037703396.ip6gre-v4@cmss.chinamobile.com/
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Metadata updates now go through the duplicate check when their receive
+parameters change. Moving one onto an existing ordinary tunnel returns
+EEXIST, including for L3 GRE.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Updates that keep the receive parameters unchanged skip that lookup.
+They also keep the hash entry in place, so updating either device in an
+existing ordinary/metadata overlap does not change the receive priority.
+Both GRE and ERSPAN changelink paths do this.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+UML tests passed for all three kinds, including received-packet checks.
+
+On Fixes, Ido asked to drop Fixes/stable and target net-next:
+https://lore.kernel.org/netdev/20261030151629.GA85001@shredder/
+I've kept that for v4.
+
+Thanks,
+Xia Yan
+
+pw-bot: cr
+
+
