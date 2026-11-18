@@ -1,75 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.254.200.128
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794993611;
-	b=p11ZlEsAxKLZItlgNhyXZpO9YWVMWVGcxx5UpopUrm5HNpDe5ucaMyWxDW338F23Wy09
-	 jIoh7uJo9lR23jghwHxOuc403sGLZYQ0Qr3OThxRz3Qfy9gtrE//rcXu/BiXqONnYapnj
-	 Q4V/KKXmM1s3tE9KMIdYk0jkjICDukOZw3wMMN6QFMUCFWqIKf3Cc5H2QHBjV9hXUz+VD
-	 qjbOFSI06ZndScr23BCq4hm5FziLPHNbY5+mtdb115BXQzlSaGetYiHaC8h3N++w/exDR
-	 XDBOiIK6k0nKO/1dsxa2HX0HYi721zLRI+z9fO2l7yDR2spjc+Dmvn6unwlWKl38I3A==
+	t=1794993905;
+	b=wbDxYoqd0xQHku6piz1G6rOIHIKZD758S3m9excd2Ey3Oup8zJT6/Hh66KXxMh30NppU
+	 uGMoj9uUSeiTtXDjf+2LkmdZ13P9rPFYw3JZdamo8Q7oUz2qL6OaDngnoyfOl2yZbopnr
+	 ewu1uOoc6DjtAcZg7pho5EhH8/dageoAftYOUfxfu9RmHIVlDJOXrwMAQ9PEn5VjlzZa4
+	 XVGzi8t6qkVI3zhbCRS2xOmeSjhj6erajpQlaAkpZFruGmiDGiYluTAeN0adIzl6pOmNz
+	 UMgvkUxQmNrJwoWSbJUP04aPQ7FnkdC1y00eleJwyKGw5zqiT4AE+pV3DXo0v/bXk2A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794993611;
-	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
-	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=/RT9EeL7ji2hmMv3LbgGRfUUnKv+b38QkNlxTETqKtI=;
-	b=GWeQiw7mqT/Z/Hb8VCJszLWmr0j0RHf62kGGrOpocSKebabNKEvdWv7O1BVXCrE1y1sA
-	 WtKpWR0aOqMngYmCaML0vVRa7Ri2UNLjYGy0Qnd+17u+ll/lb8NrELdwXslg9mliySJPS
-	 dlwYcVEoi2WNqcQoTl5lxj+hs2o7W4RIt2fteqPL2p5Hl261nptB6ChE7rBrMgIfd94r2
-	 /K/sCxWSKZYimRoPXv8jIJeU8HV909pHehjY3iwUlAcLRkhUhP/5smhFfOH3UfpEL9gHU
-	 R3xcTNmrhcg5owBcNNQFY+LwvkdtR3uMrpy54BupkjkjZl0+xiClnlHaKte1HYyRvIw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794993905;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
+	 X-Spam-Checker-Version;
+	bh=k4+R43wkQ5coZwEY7y2Wgwoj0XAwBzUTWTsiGrCMIT0=;
+	b=0wLx6LZoUHc1e8D+CjrruphUN22lyFtOPuiIX4EFjA/jbB9Q5u7a/Nfz0z0v7UXNKj2Q
+	 PPwLuXFCueLiSe7vcswVOZE2ujiUX942OqP9ihr5sHseqdgjweO98Rqx0h1Ed31phaAfi
+	 TrmsC3Aid9+j5uVcYxgojmuWiiu/UGCiy7OQkeuID1zgefPb/fXWX6L4J5I0LzCBI6HI/
+	 27Q9a1fdaYprrCORsgfu2Pcv74FKEfOsialVjAU2RZYv2fmZpqgn9nPsK0YWuW0mPb/uy
+	 LtEOmLYvANiNaWw6UomgvYllEJwf9PKAlAuX3dI4AI+P3+72rabn74KygikIkEBsviA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniontech.com;
-	spf=pass smtp.mailfrom=uniontech.com;
-	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=GwfvFYIA;
-	arc=none smtp.remote-ip=54.254.200.128
-Received: from smtpbgsg2.qq.com (smtpbgsg2.qq.com [54.254.200.128])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41679606A31C;
-	Wed, 18 Nov 2026 09:20:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41679606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b="M/Dw6inN";
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2E88A606A31C;
+	Wed, 18 Nov 2026 09:25:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E88A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=GwfvFYIA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
-	s=onoh2408; t=1794993599;
-	bh=/RT9EeL7ji2hmMv3LbgGRfUUnKv+b38QkNlxTETqKtI=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=GwfvFYIA7ln/PPRp6ROhqJRgvOG/tc001EEYQFYqFlIf891ktU3EmyYe8ZuvUuiQI
-	 BMLv89ItbTiHIlmFitUGbtgZHFRjPZOylGafK6WpzUijgeafEDL+FIufyVnvV5zfg7
-	 OmONp1Mg/DjzlrsjiGTE2bk4W/Xr5hUz4/COdaDA=
-X-QQ-mid: esmtpgz15t1794993582tbf0479e5
-X-QQ-Originating-IP: 3YK9IcMNkk1Tp97SCHpvldHX7zURvlorPi+rZRCCm1A=
-Received: from PEN202512010004 ( [113.57.152.160])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 18 Nov 2026 17:19:40 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 1
-X-BIZMAIL-ID: 10124214066944920201
-EX-QQ-RecipientCnt: 15
-From: raoxu <raoxu@uniontech.com>
-To: socketcan@hartkopp.net
-Cc: mkl@pengutronix.de,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	corbet@lwn.net,
-	horms@kernel.org,
-	skhan@linuxfoundation.org,
-	rdunlap@infradead.org,
-	linux-can@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	raoxu@uniontech.com
-Subject: [PATCH can-next v2] can: bcm: Document cyclic transmission failures
-Date: Wed, 18 Nov 2026 17:19:38 +0800
-Message-ID: <75785AF83A9D9B09+20261118091938.3365557-1-raoxu@uniontech.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=M/Dw6inN
+Received: from [10.26.7.43] (unknown [4.213.232.23])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 996FB20B7169;
+	Wed, 18 Nov 2026 01:24:59 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 996FB20B7169
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1794993903;
+	bh=k4+R43wkQ5coZwEY7y2Wgwoj0XAwBzUTWTsiGrCMIT0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=M/Dw6inNHz55R75Vl0dUx8c1XG7vMvdfPiYaAdYX0UkRIq93SU6DVHfSG96WyVPW1
+	 fe0YQFyR9Zh9HiuM2pFWjrQo18F80YdyTozEf5VCK4apalCthdahp9zhekAcAqJ7WN
+	 3yNwzPrlDjcytOKWsiRVL+QjP9kzjYwU5yYfq3hM=
+Message-ID: <d739628d-ae56-4543-b15d-a7976ab8f92b@linux.microsoft.com>
+Date: Wed, 18 Nov 2026 14:54:58 +0530
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,80 +53,103 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: esmtpgz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz6b-0
-X-QQ-XMAILINFO: MxdW4jxL6NvXjZ0qWDpfrMwtPCDrN5doXGNnERIuprLdTmHByeIp05Ou
-	29YFNzrwFwbqEZcIMN2lPW9TrWOSaXI9g7Ny1Aql74YQPTuuaLFa/0qeVGUk6vUnYXOmsRq
-	qkvVVdDTp9uSrjIyp59+bSHExqN26YlbS1a4e4pyvdj23B+bCZD+pd/OGXCxhIoaCxRo97U
-	y4y7la4nLbW6raqjBw1nso02PYxPLvuasHheClIR7BAC7vM0ZMVCZjlwcgfVN+LcAMpq8I5
-	0ElHw/rFY4PSOeeNIfUWG0ouenVStXaY+VDDOaA3/3ngtwRnG9IrnYj8WGmoU8w7CIQxBEd
-	HGjoBqeIElK7usmt4+JMZy0uPUR55lpTSo5omo6KUoz4dfl8PRASePqpafK7Dm+3yNCU0r4
-	PTbqBZ2FIGJ8rFc6K5MqrmtYWbPXBUZKJZpOz7CNx0s8ImVU81vJtR3mCjQ6PsuQ1Rrft0z
-	OPVRBVhSwS6v0Bdx4DGYFPlvkJ+qPj/C3g9dKO6ijGE2KQVUxnKIO+fvwODP5bsXEdPM8YH
-	A1rElu5kWBtNxCqR86PRFuGz47o22xjZRFgE0eECb8gq/KsMnbIOOpO5fg7hdkdEprF8eon
-	2uxeaZkMHbOAqPZ1dFfUXeYSOuQGQIzEMHxIM0WKcmaGHyKGDKXPKaD5+NHBM9lVnLPpJfK
-	rspuFa4THj4IrJJXOzb29VP/b0TLVwXAfRFku9qDhzy4OAqHk+66TxDUHtgmf1aHd/oS9yR
-	6/LScF4EJ5FJXvo3w+9rG9qEcd2PfPqF41Y5IXuOMSglVwgGoqAUR/NAXJOdsr3YGR7DdQ0
-	YvY7k361gyfwSnPn59Y0dvgDN6vYsLTAjFmEfLGn5M1KIb1h47s/DBlybPb3pPa+IN+B0Cj
-	llWtB8A8khhXGGd0HBNmm+ymBRoj8Fz3mzkkevg8sBsLPyQaK2II7PCIW+io1X6lojvkpEp
-	hpH3rGKrFwxw3j+QHWfjE587WhYIiUeQFA9K6bAcggVeVNujPHjm1XYBrmL9a44wgm7J+QZ
-	SizK6dwiiMAX8I5wMv5YtrXy/2gw24ywxG+Wt/Gw==
-X-QQ-XMRINFO: OWPUhxQsoeAVwkVaQIEGSKwwgKCxK/fD5g==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next] net: mana: Add CQE polling as first-level TX
+ timeout recovery
+To: Breno Leitao <leitao@debian.org>
+Cc: haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, weh@microsoft.com,
+ kotaranov@microsoft.com, horms@kernel.org, ernis@linux.microsoft.com,
+ gargaditya@linux.microsoft.com, linux-hyperv@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rdma@vger.kernel.org
+References: <20261112105752.978446-1-sahilchandna@linux.microsoft.com>
+ <avWrMQK_DuZ1hAwD@gmail.com>
+ <fc2ae552-86ee-40af-a997-454c2d3b176d@linux.microsoft.com>
+ <avbdPt1WSC9qEuYw@gmail.com>
+Content-Language: en-US
+From: Sahil Chandna <sahilchandna@linux.microsoft.com>
+In-Reply-To: <avbdPt1WSC9qEuYw@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-From: Xu Rao <raoxu@uniontech.com>
+On 13-11-2026 15:46, Breno Leitao wrote:
+> On Fri, Nov 13, 2026 at 02:04:08PM +0530, Sahil Chandna wrote:
+>> On 12-11-2026 17:37, Breno Leitao wrote:
+>>> Hello Sahil,
+>>>
+>>> On Thu, Nov 12, 2026 at 04:57:18AM -0600, Sahil Chandna wrote:
+>>>> Implement a graduated recovery approach: on the first TX timeout (or
+>>>> when the previous timeout was more than 2 minutes ago), schedule NAPI on
+>>>> the stalled queue's TX CQ via napi_schedule(). This triggers
+>>>> mana_poll_tx_cq() through the normal NAPI path, processing any pending
+>>>> completions without relying on the interrupt and recovering
+>>>> missed-interrupt scenarios without queue reset.
+>>>
+>>> Which interrupt is being missed here?
+>>>
+>> Hi Breno,
+>>
+>> It is the TX CQ completion interrupt. After NAPI finishes, it re-arms
+>> the TX CQ. When a new CQE arrives, the hardware post EQE, which raises
+>> the MSI-X and schedules NAPI. If that notification for the TX CQ is lost
+>> , NAPI never runs for the TX CQ and pending_sends never drains and the
+>> queue stays stopped,  so napi_schedule() polls the CQ, reaps the CQEs
+>> and re-arms it.
+> 
+> Thanks.  Which one gets lost, the EQE or the MSI-X?
+Hi Breno,
 
-The CAN broadcast manager continues its configured cyclic transmission
-schedule even when a CAN frame cannot be passed to the configured
-network interface.
+Sorry for the delay, i was checking on these with my team.
+Regarding what is lost here. The patch is trying to solve the scenario
+where TX CQ never arrive due to some reason, it is not handling the
+MSI-X lost scenario and one of the netdev bot comment highlights the
+same. Though i will work on framing commit message more clearly in next
+version. Thanks !
+> 
+>>>> If any subsequent TX timeout fires on any queue, within 2 minutes of
+>>>> the previous one, escalate to the existing port-level detach/attach
+>>>> reset, as the CQE poll did not recover the queue.
+>>>
+>>> How was 2 minutes chosen? mana sets watchdog_timeo to 15 * HZ, no?
+>> The watchdog_timeo is TX stall timeout setting i.e if a queue remains
+>> stalled for this much time, it trigger watchdog timeout. Here, 2 minute
+>> is not timeout/wait. The 2 minutes here is for deciding whether a new
+>> queue stall event is a repeat of the previous incident or a new,
+>> unrelated one that should get the cheap poll first. For e.g. if a queue
+>> gets stalled, 15 * HZ sec later, timeout occurs and this patch trigger
+>> manual NAPI, if another stall occurs (it can be on any queue) within 2
+>> minutes of last one, the existing recovery mechanism of mana
+>> detach/attach will be tried.The patch is adding a first level less
+>> destructive recovery first.
+>> For selecting 2 minutes, I do not have any hardware basis for it afaik,
+>> but I can confirm and check with our host team as well.
+> 
+> So the goal is to tell an isolated stall from a wider problem.
+> 
+Yes, and take just a minimal step to solve it rather than entire port
+detach/attach.
+> A port-wide timestamp only approximates that. It cannot tell the same
+> queue from another one, and since dev_watchdog() reports one queue per
+> run, two queues that stall together show up ~15s apart: the first gets
+> a kick, the second gets the port reset anyway, no?
+> 
+yes, that is correct. The approach in this patch solves first instance
+of stall on any queue with CQE polling and if that does not solve it
+(based on another queue stall observed) go for existing mechanism
+(detach/attach), but I agree to your point here that another queue which
+stall after one queue had level 1 CQE polling would have a full
+detach/attach rather than level 1 polling. I will work on this in v2.
+> Could mana_tx_timeout() check this directly? Look at the other TX queues
+> the way dev_watchdog() does (stopped, with trans_start older than
+> watchdog_timeo). If more than one is stalled, reset right away.
+> 
+> Otherwise kick this queue, and reset if the same queue times out again
+> within a couple of watchdog periods, as gve_tx_timeout_try_q_kick()
+> does. That also gets rid of the 2 minutes.
+Thanks, I will go through this approach and update in v2. I am currently
+discussing this internally.
 
-Such failures are not reported to user space. The failed transmission
-is not retried by the broadcast manager, the timing remains unchanged,
-and a non-zero count is decremented.
-
-As a result, a TX_EXPIRED notification requested with TX_COUNTEVT
-indicates that the configured transmissions at ival1 have been
-processed, not that they were successfully sent.
-
-Document this behavior to prevent applications from treating TX_EXPIRED
-as confirmation of successful transmission.
-
-Suggested-by: Oliver Hartkopp <socketcan@hartkopp.net>
-Signed-off-by: Xu Rao <raoxu@uniontech.com>
----
-Changes in v2:
-- Target can-next as requested by Oliver Hartkopp.
-- Adopt Oliver's suggested wording describing transmission failures
-  from the user's perspective.
-- Clarify the TX_EXPIRED notification semantics and scope the lack of
-  retries to the broadcast manager.
-- Remove implementation details and redundant descriptions.
-
-This documentation-only update follows the review of v1. The earlier
-proposal to change BCM transmission accounting was dropped.
-
- Documentation/networking/can.rst | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/Documentation/networking/can.rst b/Documentation/networking/can.rst
-index 51bc70748f75..ae47f40bf456 100644
---- a/Documentation/networking/can.rst
-+++ b/Documentation/networking/can.rst
-@@ -892,6 +892,14 @@ only one timer is needed 'count' is set to zero and only 'ival2' is used.
- When SET_TIMER and START_TIMER flag were set the timers are activated.
- The timer values can be altered at runtime when only SET_TIMER is set.
-
-+If a CAN frame cannot be passed to the configured CAN network interface
-+(e.g. due to a full transmit queue or the interface being down), this
-+failure is not reported to user space. The transmission sequence
-+continues as configured: the frame is not retried by the broadcast
-+manager, the timing remains unchanged, and a non-zero ``count`` is
-+decremented anyway. Therefore, a ``TX_EXPIRED`` notification (requested
-+with ``TX_COUNTEVT``) only indicates that the ``count`` transmissions
-+at ``ival1`` have been processed, not that they were successfully sent.
-
- Broadcast Manager message sequence transmission
- ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
---
-2.50.1
+Regards,
+Sahil
