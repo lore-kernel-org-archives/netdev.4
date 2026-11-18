@@ -1,152 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.50
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1794972672;
-	b=4Wy6UZnw0g3qbHRKXofJngZYhbn68j+gspTLQR8wSzqRyUl8aOVNttp3zT8ReUoIfGwI
-	 8lYgayi/wK5+sOkW6s+YCX25+XWA74yiY4A+hi7RPh73cAH1cjmD5oo479gJkFPfBkRzE
-	 /0Gjaez+rxxOZM3TtzDAUy0QVDcaEnrTN5ZbM09/nD3ts3VUbxulaO7QTit0ehM4eiaAE
-	 ax5yBqGW4U10YqfXlFMOmm9pmN2gnaQisDzJuUaJPW0hqQcv6qAvyI5nU64dsXcgtmVJ2
-	 GP6Q5VSFLVGMLIykcwp5QEb4kk51xWfANdg4H/TyDSWo33T8HEioEEDuf5AdWdTWFug==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794972672;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 msip_labels:x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=nZJRzdOnPGIPkVjQ+uy8BK/QKtGsCBJQJnVpvx9GCkc=;
-	b=RsD/LzJhn3YZ/7aT5szaGjLhnn/nzdKRkC1K5ebwCk0t9Nl6J5I9MOlt9Vc9YV3jCBY8
-	 Iaxo1XtsxLw4jffvtDzCk4lRF/zSi28tTDKpfkYol5yPER6uLX8aTd8PqrPs0gDR9MXIh
-	 soWYCIY2szD0PoSQ2axuxnGXTrFFu2y428PbumLPRdrW8Wnlr51aG4/ifnFMDpwsgDU1P
-	 vfJ5hL06rRS6rT2BjlLg0kno25VtUYlzpkOhqGhC6VA7JwvKI4JGPk+7J5gUCFVKlOVUr
-	 YkcOnblZX9nz4twmvFu9/g97/peb77J07/2yDi9j7YrP8xaRIBlMOig/a8R6CeDYEDg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nxp.com;
-	spf=pass smtp.mailfrom=nxp.com;
-	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=b8boaKYc;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.70.50
-Received: from AS8PR04CU009.outbound.protection.outlook.com (mail-westeuropeazon11011050.outbound.protection.outlook.com [52.101.70.50])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.194
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1794972945;
+	b=Bx7f8VOhEsIkx5KPpQ4cgaPqdaQvlGUE0EfjvW1KTvIvFrE69Iisc/ww8Ihqj00s1MSs
+	 AouXk6Lp6Sk4JCO8OkQmgffohIC8AeAiMvEP4wQw9neKUkxfjpmLxcyijHo8GPy1ZS4oh
+	 cDVIoR9WYGXOQEuEAWmzMYBEWmuRpNsHsblWHMv+sYCbrSA5Rm306+5sVspkn4AKUtU84
+	 X40nYxuaBCqYz4RPnKciNzBTO4z3dZwnjtqr8nwC6sZH7WNPwwVjy8o2o9dAf/2tl8CzE
+	 9O989R0YSm24XglsLvkGtxb7wIHkUj+sJgXqHt8vRYTFoHFcrQQF7tMTPEN0E2OtM9A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794972945;
+	h=DMARC-Filter:X-Alimail-AntiSpam:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=yWOIu4MJH+zj8HYlMRR0dlDaJ2Wa1V8Clo+J1QYOMEo=;
+	b=5lmrmDg+w2/KbTln6t02u7Sq6CiM6rjBZaEMQaVxPmrFRci1DkjJueDoVteic1AMO+HY
+	 wwEIDfJJnJm4DV55urCg3Nrux4mQPV5OOinJFjxK9OsDG3tZt+hMjqaqsD30+BwBbRBM9
+	 vA3+3kKWLY0qBjXMixgyow1Jo3JeVSHQ3BXcea2Np5WSRS/QzirNmH5k4to3n7eAppbVO
+	 kIXvdDS24rzy0n8Jor/fgKFtPytnH1pJVzjGFlU+CqchEn4msROKhLyl07U2SiNT8//MG
+	 SuKvD4RflqN2vlSQo5lylEZtCF/+qVmT6TlPdtAGVgEYnAO2zH4qijckf7PaFZEeg1g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=motor-comm.com;
+	spf=pass smtp.mailfrom=motor-comm.com;
+	arc=none smtp.remote-ip=115.124.28.194
+Received: from out28-194.mail.aliyun.com (out28-194.mail.aliyun.com [115.124.28.194])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2FB52606A32A;
-	Wed, 18 Nov 2026 03:31:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2FB52606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=b8boaKYc
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n4vC1rTUtT0zjXdkqu4Q4g/igM8am2+neqMvRG14rqjkFpQ6pXCKgNCTFGlpRatkbUSVRXoaXz2kbsNRN27UFQXZ+H8ZI+UXlH0vCF7U3phd4DWVlenlBrvABq5XD1ZcyLqLXT+JU8SlVRr9CqfS3bURhHEvKoX6SGqBBM3SaVScY+Cu2NcymeE3tuG6rbyG94bitDZkGE0PnlYo1RMZAWTxyCQoOWqyMi9upXAVx/prKIIJBOH9aip92ipkW9yB1wR9xBSZA+8ivL3cRZpuAtF9xyUL395q/IFv7XVKxDB/joEsR44spUncHy+aR/Itcunbx6rY6waWXtiJxQPJ1Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=nZJRzdOnPGIPkVjQ+uy8BK/QKtGsCBJQJnVpvx9GCkc=;
- b=aNJC9r30FVrPCBiws8nXWca9dxpciOEXpOmoTJRAkcrVVp1WjeRJ24yIEw8enIQT8q0aAsUI1cSzE8QcgN7QaKWod9vGqIfEcHoiRi/+pyjXWyLZ4rOjhgqQH3wvTGrnvWrkFAsk/conbR9kFjpC6jUpvY6kh34VBzqgKNmdIFlNQUVam3aDKNwyLVIZRpVY/a5vDo3LKwvY7zcAO+Az23Z6YaI/NS8RQLejUWSvdTXdA5qAT5fQGMHlsQ61n7c95KefdanYqh/zwn7g4lD8Fg+c3kP6TkhGv+3IpQHfsYSMS7UmGwOBgO7ap/PWObwFAKWqaBWYwo8MllXBM7fvrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=nZJRzdOnPGIPkVjQ+uy8BK/QKtGsCBJQJnVpvx9GCkc=;
- b=b8boaKYceoyT51gWpjJ8L2x0e1nVpk2y3EtA0tEGhKRaeDF9Xp2VPpvpEQkr8j+blfTnxwDxT1bfoFtNXzMuHB+dIjpMWbkQwuMg7feJiurayvcX8Dbn9J/9cstsnToyHSI3K8C5Fg0G9LcC4aS0ImL7MNdGUuTf2MF4fvXoJlXJqAcP75aROVTdh74pxUZVVe5bB3tzLC+g/phuwIJenUtf3o5SHSYVaYEmSGKeroo1FK1e58VOFZb44YUYLbHOvAAEz+bmfE+qVhyiRiJpTO+WOC0UQ1dFtOP9S8jWqE5kmYY8l+2QnBrDTVXcyAvnD0aREvQpqgC+LLzQWxFQoQ==
-Received: from AS4PR04MB9338.eurprd04.prod.outlook.com (2603:10a6:20b:4e6::17)
- by AM9PR04MB7507.eurprd04.prod.outlook.com (2603:10a6:20b:2d7::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.615.14; Wed, 18 Nov
- 2026 03:31:06 +0000
-Received: from AS4PR04MB9338.eurprd04.prod.outlook.com
- ([fe80::7c4c:9c56:8552:f680]) by AS4PR04MB9338.eurprd04.prod.outlook.com
- ([fe80::7c4c:9c56:8552:f680%7]) with mapi id 15.21.0615.013; Wed, 18 Nov 2026
- 03:31:06 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>, "Wei Fang
- (OSS)" <wei.fang@oss.nxp.com>
-CC: Clark Wang <xiaoning.wang@nxp.com>, "andrew@lunn.ch" <andrew@lunn.ch>,
-	"olteanv@gmail.com" <olteanv@gmail.com>, "andrew+netdev@lunn.ch"
-	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
-	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
-	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"horms@kernel.org" <horms@kernel.org>, "richardcochran@gmail.com"
-	<richardcochran@gmail.com>, "linusw@kernel.org" <linusw@kernel.org>,
-	"linux@armlinux.org.uk" <linux@armlinux.org.uk>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v7 net-next 4/9] net: dsa: netc: tie setup resources and
- reset to DSA setup/teardown
-Thread-Topic: [PATCH v7 net-next 4/9] net: dsa: netc: tie setup resources and
- reset to DSA setup/teardown
-Thread-Index: AQHdcaUp7fm1sZNO3EeaP61F0EkNK7cuwWKAgAR0DPA=
-Date: Wed, 18 Nov 2026 03:31:06 +0000
-Message-ID:
- <AS4PR04MB933808275FD0FD2B966A4729887A2@AS4PR04MB9338.eurprd04.prod.outlook.com>
-References: <20261111062753.1397582-5-wei.fang@oss.nxp.com>
- <179472746345.2199510.13684304240938201686@kernel.org>
-In-Reply-To: <179472746345.2199510.13684304240938201686@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-msip_labels:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS4PR04MB9338:EE_|AM9PR04MB7507:EE_
-x-ms-office365-filtering-correlation-id: d02138da-70e5-4f86-1988-08df45246129
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|19092799006|1800799024|376014|23010399003|7416014|366016|22082099003|18002099003|261009223027099003|11063799006|5023799004|56012099006|4143699003|261102123227099003|261026140227099003|261021121427099003|261022105027099003|261022075727099003|261028144727099003|10067099003|38070700021;
-x-microsoft-antispam-message-info:
- UEwRAFzKTHnJT9TAmyUAelaE0jedaUlBAVzASP3ptJRcNAAy9vfTG/xgXHEtdGRMSXh4h8ZPPznxhyOTia0r4DD7fZqTbRQ8fjy87btsMspw5raKsbd/vv5550ngmxRPVLkOye9UenqjQC5rpwvAANafyNlHpz30PqHRUHcGsWxeJ4QyNfnlEdu5GKmdY/cLrxoUunI5gIUnki9XQ0DmyiCDWieUqQ9HC5cq0I2m56jyPB5I1s31XsnHGDvoGBnaMILEntSn1esBrKl1hulEwjOO1R2EKoVZD24oIbcWyKklOTq/3FnwKDMmSuxcMItmfml+ROa02YfFL4IB8rL/Qoenw7dAwCWHEO3J+hzTSKG+ET2NBycjj/I3m01FlYooUm1z7+2jZtw+weJIlNsxL6S0LPHYUv7/9Uzvn9UAIB9iDCTPjb22pJk2iHRSzhWtODBoXXIv0GvYk06IJxRCzZpZ/ihFhcikKS4NOy4/X7T7SjfWcVN6aqzqXeuaB8DvCWd1wXH2yvUgnkOFQXUYMZ2n4hfXGkhn73jMww3ykeiUXhYqDqCqHLs1KWULKoWdQugE86bHWOW4OpV5ggr1BvcI9/voQW8V2jYceWG7w248vqjR/i5kAj334NtP3EnsFtcaIFgWr8hanpb5E77wyzaYgDsbedig4zKPpNoupxOgzuF2/P0nK71jWDTaipBEYGcV0gb5/+NKkS9KQ/1zpA==
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9338.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(376014)(23010399003)(7416014)(366016)(22082099003)(18002099003)(261009223027099003)(11063799006)(5023799004)(56012099006)(4143699003)(261102123227099003)(261026140227099003)(261021121427099003)(261022105027099003)(261022075727099003)(261028144727099003)(10067099003)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?us-ascii?Q?zYu4mUdjwNM9coHDBAxEcY6Z8fFuIo7aCf41BdxdqDbHUeSMVE0T9K57+P4J?=
- =?us-ascii?Q?yOEtXIWtRjZPSJKcHsz/ooJ8+dyZEPZpY1LTMtM5MdmNCIMV3xaBKP477AFX?=
- =?us-ascii?Q?A6Y2H5gPw128Q2pD5qy1hEfZg0ExbASL6KlAXM9nqBz/cIU82twf1HT5YybW?=
- =?us-ascii?Q?lz/ymZrzm1q16Af05ilhLEKaUxlTLV0WF4xRgLCUg9+piM5KEMgLaWI+tESj?=
- =?us-ascii?Q?5YM+Aum0SoTuX9bw1/yRGCYgqVKHQyotj13xKVAEuaxXlMZvL0OGOKC1i3gl?=
- =?us-ascii?Q?s+1jOewRCMyliA/TK3Mzrzac2d6cdR7tbxgC/fwgDfZ4+91wusmOY2zQJGt2?=
- =?us-ascii?Q?Chbbx52+Rj4erwjV8u7HqTl/W5DZsYxzGX5Xn76dH0qOkbE7HxDcrw4TDo6Y?=
- =?us-ascii?Q?JSgNt4cSSaWo+lKrZnpp+BH9vKbZ5drYGBBDb+RE/efZguM/iBd0iKjQnZs/?=
- =?us-ascii?Q?5NqhoQ0uxjusSnlxefLkF6cs1TK/jqw6tbF6dc/ynk0F7IlfrAoZrvjSlE5A?=
- =?us-ascii?Q?j6XRgY91ph15bXvwaI88BivY9LMKa9tbKUyKN9vXx3+nE+WCBCtYsxsV+ldv?=
- =?us-ascii?Q?D4CKN37xsgalgqL9pT7cWRLcIJRV6yLmadybNPqn+1farl+T0V5HNfNUSCV+?=
- =?us-ascii?Q?aGaAyZiOgy2jrayI6CWpM1AkUQz1DrkuBxrY9lfevBpVAJnDAjolG+sBa0Yi?=
- =?us-ascii?Q?Qm23aUtaIuZuL2ocXlI4vwOkSUFlklizbFPG+Updt+IcOl/ah5qmVN9e6a1i?=
- =?us-ascii?Q?M5COJnr4zHw9wi7Hn+KIODMipWtBuAXVJ0UrQU48oe0d8NRIqeEiaY+SMxdd?=
- =?us-ascii?Q?FKHDLx5g66dMg3hZELFEVTBER7yantC4usRKGkzCpEbeGX8l6+4PnxektnId?=
- =?us-ascii?Q?diM1M9TUJ2jK1aVrnEQVNrtnWYUHXgn3F0UwJMAPBrScvpTW/xidHxfZvapZ?=
- =?us-ascii?Q?nntD9sw8By9GdnvHCDBK/3MfLRJzFRe/wMnZZP1dlX4Jf2scK7psaY4tso0o?=
- =?us-ascii?Q?onX624yV4VTBenOY91fiuNCqUKXprkT2eBP1ZbIJUSE4ddTTDh01vntyxpfL?=
- =?us-ascii?Q?FCJQ4sB3+5jMhzJPCawAoQwqjPtYZn7wq3nnAWmTMK2Mu6Eujbq0fyjlgeye?=
- =?us-ascii?Q?vhqQo1ZsZmFO9TPyz0XGmgQYqqpjn9B21s6pB3ismB9i95HGV4pBpVsx7qMi?=
- =?us-ascii?Q?aTJyTLPImsCH5So+pskIexHXfAIYPTBjhZ0tsh0Pk4ahARH1QN+S2bCEx5t9?=
- =?us-ascii?Q?hSKjVyzjZ+hQBn2XecRqSqMNukgxiZRCcCadcp/wWs56SjvZZjGIrI8iMeCq?=
- =?us-ascii?Q?K6mxKnoF5OuG+X7UqJnlb+JpB5a8G4ubj2qQW/c3KZvyVvgCk5sU2BcERqJk?=
- =?us-ascii?Q?e2p85Bvdc8PoRLz01XKdAtofi5uuVnonu0F5qwirRNc6xvz3EoqGlu/AzIlt?=
- =?us-ascii?Q?J5sTZPGQEBPX8xNDoiSUdpS+3pJXBAMJoxu35ieYj19qwOdhgnLQtrLchtMt?=
- =?us-ascii?Q?xij8vqofSkJQ55gzTc+/Ps8QVbJgX/TFNG7piM2EziYQ0wqim72fIoNMuDTx?=
- =?us-ascii?Q?Teu7Q6AGj1C1UmUJurefQU6Hm3tb6mxqPCojoSozADZm/vKasDUWPdlx2WNf?=
- =?us-ascii?Q?WJNuhHvHEXkBntLZ1QgO8IKKjhecszA0nt13p0Vj4uW+3c2u2MhFFtlrc5S3?=
- =?us-ascii?Q?w6UT5liygUG4lNTmg3Q4Xz4uxjFuGoDAlQvKzRa1UJz5cDKV?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB491606A31C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 03:35:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB491606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=motor-comm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=motor-comm.com
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.07436259|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.0141522-0.239165-0.746683;FP=14480018592462538866|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037028158;MF=frank.sae@motor-comm.com;NM=1;PH=DS;RN=11;RT=11;SR=0;TI=SMTPD_---.k4MEX73_1794972939;
+Received: from motor-comm.com(mailfrom:frank.sae@motor-comm.com fp:SMTPD_---.k4MEX73_1794972939 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Wed, 18 Nov 2026 11:35:40 +0800
+From: "Frank.sae" <frank.sae@motor-comm.com>
+To: andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	edumazet@kernel.org,
+	davem@davemloft.net,
+	netdev@vger.kernel.org
+Cc: lingyu.zou@motor-comm.com,
+	xiaoyong.li@motor-comm.com,
+	jie.han@motor-comm.com
+Subject: [PATCH net-next v3] net: phy: motorcomm: add YT8831 2.5G PHY support
+Date: Wed, 18 Nov 2026 03:35:39 +0000
+Message-ID: <20261118033539.36633-1-frank.sae@motor-comm.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -156,76 +58,706 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9338.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d02138da-70e5-4f86-1988-08df45246129
-X-MS-Exchange-CrossTenant-originalarrivaltime: 18 Nov 2026 03:31:06.0469
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: /ldZ0BrUejbE/NleOi7vFPgcJLfuWZhAu3OCxRu/lnd7/y5zpLqJHCvh3LUfJ/ib8IxFTCEIMMYICwI9v6JjIQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7507
+Content-Transfer-Encoding: 8bit
 
-> > +static int netc_switch_reset(struct netc_switch *priv)
-> > +{
-> > +	struct pci_dev *pdev =3D priv->pdev;
-> > +	int err;
-> > +
-> > +	if (!priv->configured) {
-> > +		/* The hardware will be configured after netc_switch_reset()
-> > +		 * is called, so set priv->configured to true.
-> > +		 */
-> > +		priv->configured =3D true;
-> > +		return 0;
-> > +	}
->=20
-> [Severity: Medium]
-> Can the first netc_setup() start on stale hardware tables if the FLR in
-> probe failed?
->=20
-> The commit message says:
->=20
->     The probe path already performs a FLR in netc_switch_pci_init(), so
->     the first setup will skip the reset because the priv->configured flag
->     is not set.
->=20
-> But netc_switch_pci_init() ignores the pcie_flr() return value:
->=20
-> drivers/net/dsa/netc/netc_main.c:netc_switch_pci_init() {
->     ...
-> 	pcie_flr(pdev);
-> 	err =3D pcim_enable_device(pdev);
->     ...
-> }
->=20
-> pcie_flr() can fail. It returns -ENOTTY if config space is not
-> accessible or if pci_dev_wait() times out. It can also fail through
-> pci_dev_reset_iommu_prepare() for an ATS-capable device behind an
-> IOMMU.
->=20
-> Suppose that happens after an unbind/rebind:
->=20
-> netc_switch_probe()
->   netc_switch_pci_init()
->     pcie_flr()            <- fails, error ignored
->   dsa_register_switch()
->     netc_setup()
->       netc_switch_reset() <- returns 0 early, !priv->configured
->=20
-> The FDB, VLAN filter, IPFT, BPT and ETT entries from the previous binding
-> would then stay in hardware. netc_setup() builds empty software state on
-> top of them, and the driver has no record of those entries to remove.
->=20
-> Later setups treat an FLR failure as fatal, so a failed first FLR is
-> handled differently. Should the probe path check the pcie_flr() result
-> and fail probe? Alternatively, priv->configured could be set only after
-> a successful FLR, so that the first setup retries the reset.
+Add a driver for the motorcomm YT8831 2.5G ethernet phy. Verified the
+driver on BPI-R3 (with MediaTek SoC)
 
-I think this is a false positive, or it is a theoretical issue. For NETC sw=
-itch,
-it supports FLR, and the FLR time is hardwired 32.768us. If a time out
-occurs in FLR, that should be a hardware issue.
+YT8831 2.5G ethernet phy works in AUTO_BX2500_SGMII or FORCE_BX2500
+interface, supports 2.5G/1000M/100M/10M speeds, and WoL(magic packet).
 
+Signed-off-by: Frank.sae <frank.sae@motor-comm.com>
+
+---
+
+v3:
+- Fix the kernel doc format of yt8831_set_wol()/yt8831_read_page()/yt8831_write_page()
+- Fix wrong reg addr for WoL magic addr
+- Add PHY_ID_YT8831 entry to motorcomm_tbl for module auto-load
+v2:
+- Fix the notes of function yt8831_set_wol has no return value
+- Fix YT8831 SDS config_init softreset error
+- Fix YT8831 read_status dont read LP's 2.5G status
+Link: https://lore.kernel.org/all/20261109064332.3381180-1-frank.sae@motor-comm.com/
+v1:
+Link: https://lore.kernel.org/all/20261022054642.1332801-1-frank.sae@motor-comm.com/
+---
+ drivers/net/phy/motorcomm.c | 554 +++++++++++++++++++++++++++++++++++-
+ 1 file changed, 552 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+index a87e83fdf590..52d2b2efc6f5 100644
+--- a/drivers/net/phy/motorcomm.c
++++ b/drivers/net/phy/motorcomm.c
+@@ -1,6 +1,6 @@
+ // SPDX-License-Identifier: GPL-2.0+
+ /*
+- * Motorcomm 8511/8521/8522/8531/8531S/861x/8821 PHY driver.
++ * Motorcomm 8511/8521/8522/8531/8531S/861x/8821/8831 PHY driver.
+  *
+  * Author: Peter Geis <pgwipeout@gmail.com>
+  * Author: Frank <Frank.Sae@motor-comm.com>
+@@ -22,6 +22,7 @@
+ /* Live captured from YT921x switch internal MDIO bus */
+ #define PHY_ID_INT861X		0x01e04281
+ #define PHY_ID_YT8821		0x4f51ea19
++#define PHY_ID_YT8831		0x4f51e938
+ /* YT8521/YT8531S/YT8821 Register Overview
+  *	UTP Register space	|	FIBER Register space
+  *  ------------------------------------------------------------
+@@ -171,6 +172,11 @@
+ #define YT8521_RSSR_UTP_SPACE			(0x0 << 1)
+ #define YT8521_RSSR_TO_BE_ARBITRATED		(0xFF)
+ 
++#define YT8831_REG_SPACE_SELECT_REG		0x8020
++#define YT8831_RSSR_SPACE_MASK			(BIT(1) | BIT(0))
++#define YT8831_RSSR_FIBER_SPACE			BIT(1)
++#define YT8831_RSSR_UTP_SPACE			BIT(0)
++
+ #define YT8521_CHIP_CONFIG_REG			0xA001
+ #define YT8521_CCR_SW_RST			BIT(15)
+ #define YT8531_RGMII_LDO_VOL_MASK		GENMASK(5, 4)
+@@ -258,6 +264,52 @@
+ #define YTPHY_WCR_INTR_SEL			BIT(6)
+ #define YTPHY_WCR_ENABLE			BIT(3)
+ 
++#define YT8831_WOL_CONFIG_REG			0x160a
++#define YT8831_WOL_ENABLE_MASK			BIT(0)
++#define YT8831_WOL_ENABLE			BIT(0)
++#define YT8831_WOL_DISABLE			0x0
++#define YT8831_WOL_PULSE_WIDTH_MASK		(BIT(3) | BIT(2))
++#define YT8831_WOL_PULSE_WIDTH_168MS		BIT(2)
++#define YT8831_WOL_OUTPUT_TYPE_SEL_MASK		BIT(1)
++#define YT8831_WOL_OUTPUT_TYPE_SEL_PULSE	BIT(1)
++
++#define YT8831_WOL_MACADDR2_REG			0x1604
++#define YT8831_WOL_MACADDR1_REG			0x1606
++#define YT8831_WOL_MACADDR0_REG			0x1608
++
++#define YT8831_WCR_INTR_REG			0x8301
++#define YT8831_WCR_INTR_SEL_MASK		(BIT(1) | BIT(0))
++#define YT8831_WCR_INTR_SEL_WOL_ONLY		0x2
++#define YT8831_WCR_INTR_SEL_ALL			0x1
++
++#define YT8831_SDS_WRITE_PROTECT_REG		0x873
++#define YT8831_SDS_SGMII_OUTPUT_REG		0x1002
++
++#define YT8831_UTP_WRITE_PROTECT_REG			0x1
++#define YT8831_UTP_DAC_DATA_DLY_REG			0x0
++#define YT8831_UTP_REF_DLAY_SEL_REG			0x3
++#define YT8831_UTP_REF_DLAY_SEL_FEXT_REG		0x4
++#define YT8831_UTP_COE_MANUAL_SHIFT_SEL_2500_REG	0x723
++#define YT8831_UTP_EEE_OPTIM_1_REG			0x727
++#define YT8831_UTP_EEE_OPTIM_2_REG			0x339
++#define YT8831_UTP_EEE_MSE1_REG				0xc3
++#define YT8831_UTP_EEE_MSE2_REG				0x32
++#define YT8831_UTP_EEE_OPTIM_3_REG			0xff
++#define YT8831_UTP_EEE_OPTIM_4_REG			0x372
++#define YT8831_UTP_EEE_OPTIM_5_REG			0x336
++#define YT8831_UTP_EEE_OPTIM_6_REG			0x340
++#define YT8831_UTP_PSAN_OPTIM_REG			0x1e58
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_1_REG		0x209e
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_2_REG		0x20a4
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_3_REG		0x20a9
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_4_REG		0x20af
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_5_REG		0x20b4
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_6_REG		0x20ba
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_7_REG		0x20bf
++#define YT8831_UTP_1000M_TEMPLATE_OPTIM_8_REG		0x20c5
++#define YT8831_UTP_2500M_TEMPLATE_OPTIM_1_REG		0x20ff
++#define YT8831_UTP_2500M_TEMPLATE_OPTIM_2_REG		0x2100
++
+ /* 2b00 84ms
+  * 2b01 168ms  *default*
+  * 2b10 336ms
+@@ -397,6 +449,16 @@
+ #define YT8821_CHIP_MODE_AUTO_BX2500_SGMII	0
+ #define YT8821_CHIP_MODE_FORCE_BX2500		1
+ 
++#define YT8831_CHIP_MODE_SEL				0x8802
++#define YT8831_CHIP_MODE_SEL_MASK			GENMASK(2, 0)
++#define YT8831_CHIP_MODE_AUTO_BX2500_SGMII		0x0
++#define YT8831_CHIP_MODE_FORCE_2500BASEX		BIT(0)
++#define YT8831_CHIP_MODE_UTP_TO_FIBER_FORCE		(BIT(2) | BIT(0))
++
++#define YT8831_MDIO_ADDRESS_CTL				0x8004
++#define YT8831_MDIO_ADDRESS_CTL_EN_BROADCAST_MASK	BIT(8)
++#define YT8831_MDIO_ADDRESS_CTL_EN_BROADCAST		BIT(8)
++
+ struct yt8521_priv {
+ 	/* combo_advertising is used for case of YT8521 in combo mode,
+ 	 * this means that yt8521 may work in utp or fiber mode which depends
+@@ -543,6 +605,29 @@ static int ytphy_modify_ext_with_lock(struct phy_device *phydev, u16 regnum,
+ 	return ret;
+ }
+ 
++/**
++ * yt8831_get_wol() - report whether wake-on-lan is enabled
++ * @phydev: a pointer to a &struct phy_device
++ * @wol: a pointer to a &struct ethtool_wolinfo
++ *
++ * NOTE: YT8831_WOL_CONFIG_REG is common ext reg.
++ */
++static void yt8831_get_wol(struct phy_device *phydev,
++			  struct ethtool_wolinfo *wol)
++{
++	int wol_config;
++
++	wol->supported = WAKE_MAGIC;
++	wol->wolopts = 0;
++
++	wol_config = ytphy_read_ext_with_lock(phydev, YT8831_WOL_CONFIG_REG);
++	if (wol_config < 0)
++		return;
++
++	if (wol_config & YT8831_WOL_ENABLE_MASK)
++		wol->wolopts |= WAKE_MAGIC;
++}
++
+ /**
+  * ytphy_get_wol() - report whether wake-on-lan is enabled
+  * @phydev: a pointer to a &struct phy_device
+@@ -704,6 +789,83 @@ static int yt8531_set_wol(struct phy_device *phydev,
+ 	return 0;
+ }
+ 
++/**
++ * yt8831_set_wol() - turn wake-on-lan on or off
++ * @phydev: a pointer to a &struct phy_device
++ * @wol: a pointer to a &struct ethtool_wolinfo
++ *
++ * NOTE: YT8831_WOL_CONFIG_REG is common ext reg.
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_set_wol(struct phy_device *phydev,
++			  struct ethtool_wolinfo *wol)
++{
++	const u16 mac_addr_reg[] = {
++		YT8831_WOL_MACADDR2_REG,
++		YT8831_WOL_MACADDR1_REG,
++		YT8831_WOL_MACADDR0_REG,
++	};
++	const u8 *mac_addr;
++	u16 mask, val;
++	int ret;
++	u8 i;
++
++	if (!phydev->attached_dev)
++		return -ENODEV;
++	if (!is_valid_ether_addr(phydev->attached_dev->dev_addr))
++		return -EINVAL;
++
++	if (wol->wolopts & WAKE_MAGIC) {
++		mac_addr = phydev->attached_dev->dev_addr;
++
++		/* Store the device address for the magic packet */
++		for (i = 0; i < 3; i++) {
++			ret = ytphy_write_ext_with_lock(phydev, mac_addr_reg[i],
++							((mac_addr[i * 2] << 8)) |
++							(mac_addr[i * 2 + 1]));
++			if (ret < 0)
++				return ret;
++		}
++
++		/* Enable WOL feature */
++		mask = YT8831_WOL_ENABLE_MASK
++			| YT8831_WOL_PULSE_WIDTH_MASK
++			| YT8831_WOL_OUTPUT_TYPE_SEL_MASK;
++
++		val = YT8831_WOL_ENABLE
++			| YT8831_WOL_PULSE_WIDTH_168MS
++			| YT8831_WOL_OUTPUT_TYPE_SEL_PULSE;
++
++		ret = ytphy_modify_ext_with_lock(phydev, YT8831_WOL_CONFIG_REG,
++						 mask, val);
++		if (ret < 0)
++			return ret;
++
++		/* Enable WOL interrupt */
++		ret = ytphy_modify_ext_with_lock(phydev, YT8831_WCR_INTR_REG,
++				YT8831_WCR_INTR_SEL_MASK,
++				YT8831_WCR_INTR_SEL_WOL_ONLY);
++		if (ret < 0)
++			return ret;
++	} else {
++		/* Disable WOL feature */
++		mask = YT8831_WOL_ENABLE_MASK;
++		ret = ytphy_modify_ext_with_lock(phydev, YT8831_WOL_CONFIG_REG,
++							mask, YT8831_WOL_DISABLE);
++		if (ret < 0)
++			return ret;
++
++		/* Disable WOL interrupt */
++		ret = ytphy_modify_ext_with_lock(phydev, YT8831_WCR_INTR_REG,
++					YT8831_WCR_INTR_SEL_MASK, YT8831_WCR_INTR_SEL_ALL);
++		if (ret < 0)
++			return ret;
++	}
++
++	return 0;
++}
++
+ static int yt8511_read_page(struct phy_device *phydev)
+ {
+ 	return __phy_read(phydev, YT8511_PAGE_SELECT);
+@@ -798,6 +960,27 @@ static int yt8521_read_page(struct phy_device *phydev)
+ 	return YT8521_RSSR_UTP_SPACE;
+ };
+ 
++/**
++ * yt8831_read_page() - read reg page
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: current reg space of yt8831 (YT8831_RSSR_FIBER_SPACE/
++ * YT8831_RSSR_UTP_SPACE) or negative errno code
++ */
++static int yt8831_read_page(struct phy_device *phydev)
++{
++	int old_page;
++
++	old_page = ytphy_read_ext(phydev, YT8831_REG_SPACE_SELECT_REG);
++	if (old_page < 0)
++		return old_page;
++
++	if ((old_page & YT8831_RSSR_SPACE_MASK) == YT8831_RSSR_FIBER_SPACE)
++		return YT8831_RSSR_FIBER_SPACE;
++
++	return YT8831_RSSR_UTP_SPACE;
++};
++
+ /**
+  * yt8521_write_page() - write reg page
+  * @phydev: a pointer to a &struct phy_device
+@@ -818,6 +1001,26 @@ static int yt8521_write_page(struct phy_device *phydev, int page)
+ 	return ytphy_modify_ext(phydev, YT8521_REG_SPACE_SELECT_REG, mask, set);
+ };
+ 
++/**
++ * yt8831_write_page() - write reg page
++ * @phydev: a pointer to a &struct phy_device
++ * @page: The reg page(YT8831_RSSR_FIBER_SPACE/YT8831_RSSR_UTP_SPACE) to write.
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_write_page(struct phy_device *phydev, int page)
++{
++	int mask = YT8831_RSSR_SPACE_MASK;
++	int set;
++
++	if ((page & YT8831_RSSR_SPACE_MASK) == YT8831_RSSR_FIBER_SPACE)
++		set = YT8831_RSSR_FIBER_SPACE;
++	else
++		set = YT8831_RSSR_UTP_SPACE;
++
++	return ytphy_modify_ext(phydev, YT8831_REG_SPACE_SELECT_REG, mask, set);
++};
++
+ /**
+  * struct ytphy_cfg_reg_map - map a config value to a register value
+  * @cfg: value in device configuration
+@@ -2554,6 +2757,184 @@ static int yt8521_get_features(struct phy_device *phydev)
+ 	return ret;
+ }
+ 
++static int yt8831_config_aneg(struct phy_device *phydev)
++{
++	int ret;
++
++	ret = genphy_config_aneg(phydev);
++	if (ret < 0)
++		return ret;
++
++	return genphy_c45_config_aneg(phydev);
++}
++
++/**
++ * yt8831_serdes_init() - serdes init
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_serdes_init(struct phy_device *phydev)
++{
++	int old_page, ret;
++
++	old_page = phy_select_page(phydev, YT8831_RSSR_FIBER_SPACE);
++	if (old_page < 0) {
++		phydev_err(phydev, "Failed to select page: %d\n",
++				old_page);
++		goto err_restore_page;
++	}
++
++	ret = ytphy_write_ext(phydev, YT8831_SDS_WRITE_PROTECT_REG, 0x1);
++	if (ret < 0)
++		goto err_restore_page;
++
++	ret = ytphy_write_ext(phydev, YT8831_SDS_SGMII_OUTPUT_REG, 0xc4);
++	if (ret < 0)
++		goto err_restore_page;
++
++	/* softreset sds space */
++	ret = __phy_modify(phydev, MII_BMCR, BMCR_RESET, BMCR_RESET);
++	if (ret < 0)
++		goto err_restore_page;
++
++err_restore_page:
++	return phy_restore_page(phydev, old_page, ret);
++}
++
++/**
++ * yt8831_utp_init() - utp init
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_utp_init(struct phy_device *phydev)
++{
++	int ret;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_WRITE_PROTECT_REG, 0x3);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_DAC_DATA_DLY_REG, 0xc8d);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_REF_DLAY_SEL_REG, 0xa426);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_REF_DLAY_SEL_FEXT_REG, 0x8009);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_COE_MANUAL_SHIFT_SEL_2500_REG, 6);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_1_REG, 0x1001);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_2_REG, 0x7c52);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_MSE1_REG, 0x3848);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_MSE2_REG, 0xa8e8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_3_REG, 0x5200);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_4_REG, 0x5849);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_5_REG, 0xb00a);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_EEE_OPTIM_6_REG, 0x3022);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_PSAN_OPTIM_REG, 0x1f10);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_1_REG, 0x22c8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_2_REG, 0x2437);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_3_REG, 0x22c8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_4_REG, 0x2437);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_5_REG, 0x22c8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_6_REG, 0x2437);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_7_REG, 0x22c8);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_1000M_TEMPLATE_OPTIM_8_REG, 0x2437);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_2500M_TEMPLATE_OPTIM_1_REG, 0x1111);
++	if (ret < 0)
++		goto err;
++
++	ret = ytphy_write_ext_with_lock(phydev, YT8831_UTP_2500M_TEMPLATE_OPTIM_2_REG, 0x1111);
++	if (ret < 0)
++		goto err;
++
++err:
++	return ret;
++}
++
++/**
++ * yt8831_get_rate_matching - read register to get phy chip mode
++ * @phydev: target phy_device struct
++ * @iface: PHY data interface type
++ *
++ * Returns: rate matching type or negative errno code
++ */
++static int yt8831_get_rate_matching(struct phy_device *phydev,
++				    phy_interface_t iface)
++{
++	int val;
++
++	val = ytphy_read_ext_with_lock(phydev, YT8831_CHIP_MODE_SEL);
++	if (val < 0)
++		return val;
++
++	if (FIELD_GET(YT8831_CHIP_MODE_SEL_MASK, val) ==
++	    YT8831_CHIP_MODE_FORCE_2500BASEX)
++		return RATE_MATCH_PAUSE;
++
++	return RATE_MATCH_NONE;
++}
++
+ /**
+  * yt861x_config_init() - apply the auto sleep setting to the PHY
+  * @phydev: a pointer to a &struct phy_device
+@@ -2992,6 +3373,65 @@ static int yt8821_soft_reset(struct phy_device *phydev)
+ 					  YT8521_CCR_SW_RST, 0);
+ }
+ 
++/**
++ * yt8831_config_init() - phy initialisation
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_config_init(struct phy_device *phydev)
++{
++	u8 mode = YT8831_CHIP_MODE_AUTO_BX2500_SGMII;
++	int ret;
++
++
++	__set_bit(PHY_INTERFACE_MODE_2500BASEX,
++			phydev->possible_interfaces);
++
++	__set_bit(PHY_INTERFACE_MODE_SGMII,
++			phydev->possible_interfaces);
++
++	switch (phydev->interface) {
++	case PHY_INTERFACE_MODE_2500BASEX:
++		mode = YT8831_CHIP_MODE_FORCE_2500BASEX;
++		phydev->rate_matching = RATE_MATCH_PAUSE;
++		break;
++	case PHY_INTERFACE_MODE_SGMII:
++		mode = YT8831_CHIP_MODE_AUTO_BX2500_SGMII;
++		phydev->rate_matching = RATE_MATCH_NONE;
++		break;
++	default:
++		mode = YT8831_CHIP_MODE_AUTO_BX2500_SGMII;
++		phydev->rate_matching = RATE_MATCH_NONE;
++		break;
++	}
++
++	ret = ytphy_modify_ext_with_lock(phydev,
++					 YT8831_CHIP_MODE_SEL,
++					 YT8831_CHIP_MODE_SEL_MASK,
++					 mode);
++	if (ret < 0)
++		return ret;
++
++	/* Disable broadcast*/
++	ret = ytphy_modify_ext_with_lock(phydev,
++					 YT8831_MDIO_ADDRESS_CTL,
++					 YT8831_MDIO_ADDRESS_CTL_EN_BROADCAST_MASK,
++					 0);
++	if (ret < 0)
++		return ret;
++
++	ret = yt8831_serdes_init(phydev);
++	if (ret < 0)
++		return ret;
++
++	ret = yt8831_utp_init(phydev);
++	if (ret < 0)
++		return ret;
++
++	return genphy_soft_reset(phydev);
++}
++
+ /**
+  * yt8821_config_init() - phy initializatioin
+  * @phydev: a pointer to a &struct phy_device
+@@ -3102,6 +3542,53 @@ static void yt8821_update_interface(struct phy_device *phydev)
+ 	}
+ }
+ 
++/**
++ * yt8831_read_status() -  determines the negotiated speed and duplex
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_read_status(struct phy_device *phydev)
++{
++	int ret;
++	int val;
++
++	phydev->speed = SPEED_UNKNOWN;
++	phydev->duplex = DUPLEX_UNKNOWN;
++
++	ret = genphy_read_status(phydev);
++	if (ret < 0)
++		return ret;
++
++	ret = genphy_c45_read_status(phydev);
++	if (ret < 0)
++		return ret;
++
++	ret = phy_read(phydev, YTPHY_SPECIFIC_STATUS_REG);
++	if (ret < 0)
++		return ret;
++
++	val = ret;
++	if (val & YTPHY_SSR_LINK) {
++		phydev->link = true;
++		yt8821_adjust_status(phydev, val);
++	}
++
++	phydev_dbg(phydev,
++		"%s, phy addr: %d, link %s\n",
++		__func__, phydev->mdio.addr, phydev->link ? "up" : "down");
++
++	val = ytphy_read_ext_with_lock(phydev, YT8831_CHIP_MODE_SEL);
++	if (val < 0)
++		return val;
++
++	if (FIELD_GET(YT8831_CHIP_MODE_SEL_MASK, val) ==
++	    YT8831_CHIP_MODE_AUTO_BX2500_SGMII)
++		yt8821_update_interface(phydev);
++
++	return 0;
++}
++
+ /**
+  * yt8821_read_status() -  determines the negotiated speed and duplex
+  * @phydev: a pointer to a &struct phy_device
+@@ -3190,6 +3677,28 @@ static int yt8821_modify_utp_fiber_bmcr(struct phy_device *phydev,
+ 					mask, set);
+ }
+ 
++/**
++ * yt8831_suspend() - suspend the hardware
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_suspend(struct phy_device *phydev)
++{
++	struct ethtool_wolinfo wol = {0};
++	int ret;
++
++	yt8831_get_wol(phydev, &wol);
++
++	/* if wol enable, do nothing */
++	if (wol.wolopts & WAKE_MAGIC)
++		ret = 0;
++	else
++		ret = genphy_suspend(phydev);
++
++	return ret;
++}
++
+ /**
+  * yt8821_suspend() - suspend the hardware
+  * @phydev: a pointer to a &struct phy_device
+@@ -3212,6 +3721,29 @@ static int yt8821_suspend(struct phy_device *phydev)
+ 	return yt8821_modify_utp_fiber_bmcr(phydev, 0, BMCR_PDOWN);
+ }
+ 
++/**
++ * yt8831_resume() - resume the hardware
++ * @phydev: a pointer to a &struct phy_device
++ *
++ * Returns: 0 or negative errno code
++ */
++static int yt8831_resume(struct phy_device *phydev)
++{
++	struct ethtool_wolinfo wol = {0};
++	int ret;
++
++	yt8831_get_wol(phydev, &wol);
++
++	/* if wol enable, do nothing */
++	if (wol.wolopts & WAKE_MAGIC)
++		ret = 0;
++	else
++		ret = genphy_resume(phydev);
++
++	return ret;
++}
++
++
+ /**
+  * yt8821_resume() - resume the hardware
+  * @phydev: a pointer to a &struct phy_device
+@@ -3337,11 +3869,28 @@ static struct phy_driver motorcomm_phy_drvs[] = {
+ 		.suspend		= yt8821_suspend,
+ 		.resume			= yt8821_resume,
+ 	},
++	{
++		PHY_ID_MATCH_EXACT(PHY_ID_YT8831),
++		.name			= "YT8831/YT8821-VD 2.5Gbps PHY",
++		.get_features		= yt8821_get_features,
++		.read_page		= yt8831_read_page,
++		.write_page		= yt8831_write_page,
++		.get_wol		= yt8831_get_wol,
++		.set_wol		= yt8831_set_wol,
++		.config_aneg		= yt8831_config_aneg,
++		.aneg_done		= genphy_aneg_done,
++		.config_init		= yt8831_config_init,
++		.get_rate_matching	= yt8831_get_rate_matching,
++		.read_status		= yt8831_read_status,
++		.soft_reset		= genphy_soft_reset,
++		.suspend		= yt8831_suspend,
++		.resume			= yt8831_resume,
++	},
+ };
+ 
+ module_phy_driver(motorcomm_phy_drvs);
+ 
+-MODULE_DESCRIPTION("Motorcomm 8511/8521/8531/8531S/861x/8821 PHY driver");
++MODULE_DESCRIPTION("Motorcomm 8511/8521/8531/8531S/861x/8821/8831 PHY driver");
+ MODULE_AUTHOR("Peter Geis");
+ MODULE_AUTHOR("Frank");
+ MODULE_LICENSE("GPL");
+@@ -3354,6 +3903,7 @@ static const struct mdio_device_id __maybe_unused motorcomm_tbl[] = {
+ 	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8531S) },
+ 	{ PHY_ID_MATCH_EXACT(PHY_ID_INT861X) },
+ 	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8821) },
++	{ PHY_ID_MATCH_EXACT(PHY_ID_YT8831) },
+ 	{ /* sentinel */ }
+ };
+ 
+-- 
+2.43.0
 
