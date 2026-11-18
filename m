@@ -1,71 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.66
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=173.37.86.72
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795044633;
-	b=5FI4Cq1dVqU0BAmcEwHquo3meP14BXWIOl1PndP8FN1jWcfaGdwyjXaUSIgwnFU2YmEP
-	 mXkSZDeH2cE3VYn2t6ql0oplRNr8bApfFpbE0A3L8BTAQMM6Rjg7WOF95xdr4W7AlnVxp
-	 KBiXQLVc5PK6a+1cjv9rUuE+u5JLgzWOR3+h19LgPkQhygpm/QviP3Vsd3K1lCx/tyZsy
-	 FQz7l7jQ0tLfWEioJaC0GyeIwexBzEAi2q7WmXn2VpfBWteLabJ523mnWLRGfF6PegQNS
-	 /3UiWFvyKHE5y8PHXbQkvGJcsR+t8RL87R5nkBYMixedHvgIc0ZT65EIshl72R9n3NQ==
+	t=1795044764;
+	b=0aw+WJia958ftc1AETEraWsxTVjdWvF/g9qOIZQTqdiKinLndUcLVP8661WAh0LGG7xs
+	 jsyjPU8FP1Gc+kskvcZmHQsIxqXuw5Kf0An5D/wZtrYF/17154JFrhYFZG0ScZJH8exyC
+	 eswueSzuMv1q5Hgj0ecfcrLHxcPJ0RQ05TTnr6TATc9Wd0AKwr0rasn/88Ry7L5bY/aRq
+	 YYd/CncfIgIRlx7riQX/r9lr+tYkQV7r1Wq8qbbn3aT2gXBGsL9z+uSaF1qtFSHyEIZ/m
+	 HkP8a9JID+7lV3HFO/cV5LOs7I2jdNwhYvmwcouWoK1tqOV9MSIzFWIdZhcznL10Q/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795044633;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
-	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
-	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
-	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=T5ei+rTyspl12UphSZDGCB/Ii5iXsqWblenPmKyEJ/I=;
-	b=VwZVD1KkZbCyk9vzejaBnDH/+VUMIzJEg6IiF9gHlcpz4+1vKWeRlPV8KvrsSi+VQYi4
-	 ivqEoM/RUiluOojDg9/lrCzCA2UD9gJLrXW8xgajEKri2bKlYYVXCTEUS2n4L4rkiuKGc
-	 9/d0IUOJH8BJBhRLY2LkTD28osfQw3cXUjZc0OhKkAJdXk3edbUEcaO1r7qFWOE+52u70
-	 Oui7CQCJS/F5M0AOFrlE+wazfydeTUfHDjesXFH9EzZZ+lovLWFXYku3wYk0T/gmh0tMf
-	 p2XqfurOzPbuPhZqqFTK1trOJgDiojbW56e9zArj5KwC/Qc/5Zv0H20/Xo4b9ABzj9g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795044764;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IPAS-Result:IronPort-Data:IronPort-HdrOrdr:X-Talos-CUID:
+	 X-Talos-MUID:X-IronPort-Anti-Spam-Filtered:X-IronPort-AV:Received:
+	 Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Outbound-Client-TLS:
+	 X-Outbound-SMTP-Client:X-Outbound-Node;
+	bh=u1SsReMF5grGrYKcW10Y/ud0duv/TSaP+p538EWQjeA=;
+	b=i9KMNYTfYI5JVQad5YT+/O484rUDjQuo/oB4As6g79+zqppF9Yew0pzzR4Jr93IBtQ7z
+	 aYkdTbhCONBd9iy40Rt3Vv3J7Mgp5B1Go5cJ8KZ2xR6FjNcB3PxyYTZ01e6ob9Tv/tkUM
+	 hVjB6hx8XauPMR9c8paXh2wwW2KQmhiff8xCXJSlFsybpZV58ZpXY8Dpwr0d0jHa/vvV7
+	 JbxWveqEL87jawGbT2bCLBjxZT/hq0PIyqUiIOdDQ+ptSnNgXvCupKnngsvQ8ayKnBkfb
+	 CwnR3gpC+DBOadeHIzbtExmLNqPIhEjYaqHDdO06TqHVJ94c9GaUuMIwjCQniL8Y7MA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ovn.org;
-	spf=pass smtp.mailfrom=fe-bounces.ovn.org;
-	dkim=pass header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=RNj0eL1V;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=MUP2+Hkp;
-	arc=none smtp.remote-ip=121.127.44.66
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.66])
+	dmarc=pass header.from=cisco.com;
+	spf=pass smtp.mailfrom=cisco.com;
+	dkim=pass header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=kV3SLB0u;
+	arc=none smtp.remote-ip=173.37.86.72
+Received: from rcdn-iport-1.cisco.com (rcdn-iport-1.cisco.com [173.37.86.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9A10606A33F
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 23:30:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D9A10606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ovn.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.ovn.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D6C060A5BDC;
+	Wed, 18 Nov 2026 23:32:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D6C060A5BDC
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cisco.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cisco.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=RNj0eL1V;
-	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=MUP2+Hkp
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ovn.org;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-13eddc7e57;
- t=1795044632; bh=T5ei+rTyspl12UphSZDGCB/Ii5iXsqWblenPmKyEJ/I=;
- b=RNj0eL1VsYqdVwhSjrs6zNsPzeQq52XfS1ZAhnnFUH60Pt6RjzsnuUT/rxf3vn8FkJmNRCVtX
- 09mX6bddMZWC9hTg8n+F2R935ikR5IaYid1POXFQ81nj9c8UjcBIPs7IhSqsNw0GCQ4pdX/26HW
- PjEXpSd3ab4j3K+S0yIfChk=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
- t=1795044632; bh=T5ei+rTyspl12UphSZDGCB/Ii5iXsqWblenPmKyEJ/I=;
- b=MUP2+HkpCckKA6eQNN0/xVkl8WG7GNsvMd0ecPHXjxRIF6m4Du+aI0yOipLWd4S13F5ZDuTcI
- GwByijQYDi98E5u8CEHvNr2EHhI0gYld2qd9GX/LJKUivuFopqP8NkuKp4XmrDnlnyg448XsoHd
- Bfqx/YLVq2vFIK8y6ww/GXM=
-CFBL-Feedback-ID: 6afe350ec76be1cb82abe42e:f3a1cd2deda071716b7988e65b87f544
-CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6afe350ec76be1cb82abe42e
-X-Forward-Email-Sender: rfc822; i.maximets@ovn.org, smtp.forwardemail.net,
- 121.127.44.66
-X-Forward-Email-Version: 2.19.33
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <53e641d2-1ffa-46dd-abb4-033dbe344b45@ovn.org>
-Date: Thu, 19 Nov 2026 00:30:15 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=kV3SLB0u
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=cisco.com; i=@cisco.com; l=4856; q=dns/txt;
+  s=iport01; t=1795044763; x=1796254363;
+  h=from:date:subject:mime-version:content-transfer-encoding:
+   message-id:references:in-reply-to:to:cc;
+  bh=u1SsReMF5grGrYKcW10Y/ud0duv/TSaP+p538EWQjeA=;
+  b=kV3SLB0u6wcfbxfMMMdlyJBNoHL6hLLiz4uQ7Q/Bl13IRJl7Vw9SSYai
+   szcbiEPKSEiQmGpx/9Mx6qZSDcHAhfe0uYdKZ5WvSK85pRS6ExIl2r521
+   AMXM/eDaoYElAsjA8rEcqhGmvt2GZE3/sU0eoPuFw74u1JFyoNavXXpxO
+   QgH8ZU07teermfi6Dax5Zy82w73NttBCFIwZLm4BI+GA+J1mTgMzOtLHR
+   djyXkRRVQWsncWHDNvgT/2qhDGhGSxzxGDGYFnK92iNArXnS4COdAc9PS
+   MozqI04I0HiWw57VtqGygK/+007yG7hQAvAeUnq2HYe/BBEdtt72Sakvr
+   Q==;
+X-CSE-ConnectionGUID: pcdSTMeuRnSE31yr8VxFMg==
+X-CSE-MsgGUID: FxVK4bt3R8Gze5oJW+pZXQ==
+X-IPAS-Result: =?us-ascii?q?A0AaAABDNP5q/5L/Ja1aHAEBAQEBAQcBARIBAQQEAQGBf?=
+ =?us-ascii?q?AcBAQsBglaBVUNJhFeIG4c4giGeK4F+DwEBAQ9RBAEBhQUCjiACJjQJDgECB?=
+ =?us-ascii?q?AMCAwEBAQEBAQEBAQEBAQoBAQUBAQECAQcFgQ4ThlyQEwIBAyMEUhAlAiYCA?=
+ =?us-ascii?q?kUBEAYBEoMCgnUDuV16fzOBAYR+2UuBaAELFAGBCi4BhXOCbgGBcYQIO4RCJ?=
+ =?us-ascii?q?xuBSUSBFYNqgQUBgxmEAIJqBIIiehKYPwk/gQIcA1ksAVUTDQoLBwVjUjMDI?=
+ =?us-ascii?q?AoLEhIYFQIUHRIPBBYyHXAMJxIpFy9YGwYFgRxzFAQTgRKBA12BKyhdASGBC?=
+ =?us-ascii?q?IF2AoJRggACAUlBDgdFUwklQxJHJCIIEgkBExosCoEaNTwJJj8VDGcIAxoFQ?=
+ =?us-ascii?q?AIfCAINDHQ5EDAeJC8FGiY+GwqBDCcfHhsOAgoYDUgRLBQjBg8ZBD0BbgeTS?=
+ =?us-ascii?q?4MYgQQLJSZhAYEAMJcnjV5roRGEK4FooBAzl2qTCJkII6NoUIRqgWg8gVkzG?=
+ =?us-ascii?q?ggbFYMiUxkPji4LC5MdAb0AJjI9AQEHAgcOAwuBaJARgW0BAQ?=
+IronPort-Data: A9a23:+rx+yqDHXJC2shVW//viw5YqxClBgxIJ4kV8jS/XYbTApDgn0TAGn
+ DYbXm6PbKmNMGv0LYxxYIS0/ElS7JbSyNBqOVdlrnsFo1CmBibm6XV1Cm+qYkt+++WaFBoPA
+ /02M4eGcYZsCC+G+39BC5C5xVFkz6aEW7HgP+DNPyF1VGdMRTwo4f5Zs7ZRbrVA357jXGthh
+ fuo+5eBYQb8i2YvWo4pw/vrRC1H7ayaVAww5jTSVdgT1HfCmn8cCo4oJK3ZBxPQXolOE+emc
+ P3Ixbe/83mx109F5gSNy+uTnuUiG9Y+DCDW4pZkc/HKbitq+kTe5p0G2M80Mi+7vdkmc+dZk
+ 72hvbToIesg0zaldO41C3G0GAkmVUFKFSOuzXWX6aSuI0P6n3TE2/5iN30TMJAi/N1aWjhf7
+ 6wmOB4oYUXW7w626OrTpuhEnM8vKozveYgYoHwllWCfBvc9SpeFSKLPjTNa9G5v3YYVQrCEO
+ pdfMGYxBPjDS0Un1lM/E5sinfyohXnXeDxDo1XTrq0yi4TW5FEtgOiyaYOPILRmQ+17jni7+
+ mjapF6pLQMXadu99nmdwEKV07qncSTTHdh6+KeD3vJjnlCW7mAaFhATUVy1vb+/h1LWc99TN
+ kkd6Ccyhas/7kqmSp/6RRLQiH6DpBsHc9ldCes37EeK0KW8ywWEDGEsTTNbbtEi8sgsSlQC3
+ 1mFhd72RjpirLGYV1qZ67GS6ziyUQANJGUPYy4sVwYJ49D/5oo0i3rnStdlDb7wjdDvHzz06
+ y6FoTJ4hLgJi8MPkaKh8jjvhT+wqpXXZhA66x+RXW+/6A59Iom/aOSVBUPz9/1MKsOdC1KGp
+ nVBw5nY5+EVBpbLnyuIKAkQIIyUCz++GGW0qTZS81MJrlxBJ1bLkVhs3QxD
+IronPort-HdrOrdr: A9a23:OV+OIK0+QuK/mJYfoEVf7wqjBGMkLtp133Aq2lEZdPU1SL38qy
+ nKppkmPHDP5Ar5NEtOpTn4AtjnfZqEz+8T3WBzB8bBYOCFgguVxehZhOOJ/9SHIUPDH4VmpM
+ RdmsZFaeEYOmIK6frS0U2bD9In+9WJmZrCuQ4H9QYRceixUdAa0+6lMHfjLqSrfng9OXPmLu
+ vh2iIpzwDQAUgqUg==
+X-Talos-CUID: =?us-ascii?q?9a23=3AKX7Ismoag957vyH9Otfi8u/mUdgufkbh6XrNGUm?=
+ =?us-ascii?q?DJD0wWafFd0++3awxxg=3D=3D?=
+X-Talos-MUID: 9a23:KkZItAQu7dIHIZHMRXTClA9BaM10uJ7+J1IAzJIkhIqcBxxJbmI=
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-AV: E=Sophos;i="6.27,220,1787011200"; 
+   d="scan'208";a="548871122"
+Received: from rcdn-l-core-09.cisco.com ([173.37.255.146])
+  by rcdn-iport-1.cisco.com with ESMTP/TLS/TLS_AES_256_GCM_SHA384; 18 Nov 2026 23:32:42 +0000
+Received: from [127.0.0.1] (unknown [10.25.129.52])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by rcdn-l-core-09.cisco.com (Postfix) with ESMTPS id A39E11800058D;
+	Wed, 18 Nov 2026 23:32:41 +0000 (GMT)
+From: Satish Kharat <satishkh@cisco.com>
+Date: Wed, 18 Nov 2026 15:32:28 -0800
+Subject: [PATCH net-next v3 2/6] enic: serialize V2 VF mailbox requests
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,122 +105,180 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 3/5] net: openvswitch: use
- skb_set_transport_header_careful() in parse_ipv6hdr()
-To: Eric Dumazet <edumazet@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
- Ido Schimmel <idosch@nvidia.com>,
- Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
- Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
- Xin Long <lucien.xin@gmail.com>, Aaron Conole <aconole@redhat.com>,
- Eelco Chaudron <echaudro@redhat.com>, Ilya Maximets <i.maximets@ovn.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Justin Iurman <justin.iurman@gmail.com>,
- =?UTF-8?Q?Linus_L=C3=BCssing?= <linus.luessing@c0d3.blue>,
- Sabrina Dubroca <sd@queasysnail.net>, Stefano Brivio <sbrivio@redhat.com>,
- Hyunwoo Kim <imv4bel@gmail.com>, netdev@vger.kernel.org,
- linux-sctp@vger.kernel.org, dev@openvswitch.org, stable@vger.kernel.org
-References: <20261113124625.4010206-1-edumazet@kernel.org>
- <20261113124625.4010206-4-edumazet@kernel.org>
-Content-Language: en-US
-From: Ilya Maximets <i.maximets@ovn.org>
-Autocrypt: addr=i.maximets@ovn.org; keydata=
- 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
-In-Reply-To: <20261113124625.4010206-4-edumazet@kernel.org>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-2-2cb25677aa8c@cisco.com>
+References: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com>
+In-Reply-To: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Simon Horman <horms@kernel.org>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Sesidhar Baddela <sebaddel@cisco.com>, 
+ Aravind Dhanasekaran <aradhana@cisco.com>, 
+ Reese Faucette <rfaucett@cisco.com>, Satish Kharat <satishkh@cisco.com>
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795044758; l=4983;
+ i=satishkh@cisco.com; h=from:subject:message-id;
+ bh=Bhh39nQ+XKPYFCjwldn/uaiiPhrPCpAKC/twJCjBrg0=;
+ b=EllvTNJjhXSP+phcHscJoPEk/yVopBjJdyJAH4WE3pd15m9sUauNJn+u75Ti13ysMx1xecoIa
+ SEcVxI2LhNDAwayuNGPzq5rO1ItQ1gn9n5KHY7VZDrptSPpKdQtTrYh
+X-Developer-Key: i=satishkh@cisco.com; a=ed25519;
+ pk=4BxbLoCGvHeIMH/PbpiNVx8/2IcTjFvqcr0AD8K6WLY=
+X-Outbound-Client-TLS: ANONYMOUS;unknown [10.25.129.52];TLSv1.3;TLS_AES_256_GCM_SHA384;256
+X-Outbound-SMTP-Client: 10.25.129.52, [10.25.129.52]
+X-Outbound-Node: rcdn-l-core-09.cisco.com
 
-On 11/13/26 1:46 PM, Eric Dumazet wrote:
-> skb->transport_header is a 16-bit offset from skb->head, and U16_MAX is
-> reserved as the "not set" value. skb_set_transport_header() silently
-> truncates an offset that does not fit.
-> 
-> parse_ipv6hdr() stores the payload offset found by ipv6_find_hdr(),
-> which depends on the extension headers found in the packet. Should the
-> value be truncated, key_extract_l3l4() would parse the L4 header at the
-> wrong place.
-> 
-> Since commit 3744b0964d52 ("ipv6: Implement limits on extension header
-> parsing") a single chain is bounded to IP6_MAX_EXT_HDRS_CNT headers
-> (24576 bytes), so this needs a large skb->data - skb->head on top of it,
-> for instance after several nested decapsulations, each of them possibly
-> pulling its own extension header chain. No reproducer was written,
-> this is hardening.
-> 
-> Use skb_set_transport_header_careful() and return -EPROTO if the offset
-> can not be stored. As for other ipv6_find_hdr() failures, the caller
-> then sets the transport header to the network header and does not
-> parse L4. While at it, use payload_ofs directly, since
-> nh_ofs + nh_len == payload_ofs.
-> 
-> Fixes: 1a37e412a022 ("net: Use 16bits for *_headers fields of struct skbuff")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Eric Dumazet <edumazet@kernel.org>
-> ---
->  net/openvswitch/flow.c | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/net/openvswitch/flow.c b/net/openvswitch/flow.c
-> index 3734416b518d..5fbeb0cca9dc 100644
-> --- a/net/openvswitch/flow.c
-> +++ b/net/openvswitch/flow.c
-> @@ -438,7 +438,8 @@ static int parse_ipv6hdr(struct sk_buff *skb, struct sw_flow_key *key)
->  		return -EPROTO;
->  
->  	nh_len = payload_ofs - nh_ofs;
-> -	skb_set_transport_header(skb, nh_ofs + nh_len);
-> +	if (unlikely(!skb_set_transport_header_careful(skb, payload_ofs)))
-> +		return -EPROTO;
->  	key->ip.proto = nexthdr;
->  	return nh_len;
->  }
+The VF stores one expected reply and uses one completion for mailbox
+requests. If two VF control paths issue requests at the same time, the
+second request can replace the reply state for the first.
 
-We don't really need the nh_len variable anymore in this function, but I guess
-it can be used as sort of a documentation for what the function is returning.
-So, it's OK to keep.
+Add a request mutex used only by the VF. Hold it from before a request is
+armed until its reply or timeout has been consumed. Recheck VF registration
+after taking the mutex and clear pending state on send failure so a later
+request cannot inherit it.
 
-Reviewed-by: Ilya Maximets <i.maximets@ovn.org>
+PF-side request processing is unchanged. Unsolicited PF notifications and
+their acknowledgments remain asynchronous.
+
+Assisted-by: LLM
+
+Signed-off-by: Satish Kharat <satishkh@cisco.com>
+---
+ drivers/net/ethernet/cisco/enic/enic.h      |  1 +
+ drivers/net/ethernet/cisco/enic/enic_mbox.c | 49 +++++++++++++++++++++++++++--
+ 2 files changed, 47 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/cisco/enic/enic.h b/drivers/net/ethernet/cisco/enic/enic.h
+index a4f9f58c1adf..15f17019c076 100644
+--- a/drivers/net/ethernet/cisco/enic/enic.h
++++ b/drivers/net/ethernet/cisco/enic/enic.h
+@@ -344,6 +344,7 @@ struct enic {
+ 	 * the requester.
+ 	 */
+ 	struct completion mbox_comp;
++	struct mutex vf_mbox_request_lock; /* serializes VF request lifetimes */
+ 	spinlock_t mbox_state_lock;	/* protects expected reply state */
+ 	u64 mbox_expected_msg_num;
+ 	u8 mbox_expected_reply;
+diff --git a/drivers/net/ethernet/cisco/enic/enic_mbox.c b/drivers/net/ethernet/cisco/enic/enic_mbox.c
+index a1f8138d0bbd..d1b6f13c8002 100644
+--- a/drivers/net/ethernet/cisco/enic/enic_mbox.c
++++ b/drivers/net/ethernet/cisco/enic/enic_mbox.c
+@@ -226,6 +226,32 @@ static int enic_mbox_wait_reply(struct enic *enic, unsigned long timeout_ms)
+ 	return err;
+ }
+ 
++static void enic_mbox_vf_request_start(struct enic *enic)
++{
++	mutex_lock(&enic->vf_mbox_request_lock);
++	reinit_completion(&enic->mbox_comp);
++	spin_lock_bh(&enic->mbox_state_lock);
++	enic->mbox_expected_msg_num = 0;
++	enic->mbox_expected_reply = 0;
++	spin_unlock_bh(&enic->mbox_state_lock);
++}
++
++static void enic_mbox_vf_request_abort(struct enic *enic)
++{
++	lockdep_assert_held(&enic->vf_mbox_request_lock);
++	spin_lock_bh(&enic->mbox_state_lock);
++	enic->mbox_expected_reply = 0;
++	enic->mbox_expected_msg_num = 0;
++	spin_unlock_bh(&enic->mbox_state_lock);
++	mutex_unlock(&enic->vf_mbox_request_lock);
++}
++
++static void enic_mbox_vf_request_finish(struct enic *enic)
++{
++	lockdep_assert_held(&enic->vf_mbox_request_lock);
++	mutex_unlock(&enic->vf_mbox_request_lock);
++}
++
+ int enic_mbox_send_link_state(struct enic *enic, u16 vf_id, u32 link_state)
+ {
+ 	struct enic_mbox_pf_link_state_notif_msg notif = {};
+@@ -631,6 +657,7 @@ int enic_mbox_vf_capability_check(struct enic *enic)
+ 	u32 version;
+ 	int err;
+ 
++	enic_mbox_vf_request_start(enic);
+ 	WRITE_ONCE(enic->pf_cap_version, 0);
+ 	req.version = cpu_to_le32(ENIC_MBOX_CAP_VERSION_1);
+ 
+@@ -638,11 +665,14 @@ int enic_mbox_vf_capability_check(struct enic *enic)
+ 					ENIC_MBOX_VF_CAPABILITY_REQUEST,
+ 					ENIC_MBOX_VF_CAPABILITY_REPLY,
+ 					&req, sizeof(req));
+-	if (err)
++	if (err) {
++		enic_mbox_vf_request_abort(enic);
+ 		return err;
++	}
+ 
+ 	err = enic_mbox_wait_reply(enic, 3000);
+ 	version = READ_ONCE(enic->pf_cap_version);
++	enic_mbox_vf_request_finish(enic);
+ 	if (err) {
+ 		netdev_warn(enic->netdev,
+ 			    "MBOX: no capability reply from PF\n");
+@@ -664,15 +694,19 @@ int enic_mbox_vf_register(struct enic *enic)
+ 	bool registered;
+ 	int err;
+ 
++	enic_mbox_vf_request_start(enic);
+ 	WRITE_ONCE(enic->vf_registered, false);
+ 
+ 	err = enic_mbox_vf_send_request(enic, ENIC_MBOX_VF_REGISTER_REQUEST,
+ 					ENIC_MBOX_VF_REGISTER_REPLY, NULL, 0);
+-	if (err)
++	if (err) {
++		enic_mbox_vf_request_abort(enic);
+ 		return err;
++	}
+ 
+ 	err = enic_mbox_wait_reply(enic, 3000);
+ 	registered = READ_ONCE(enic->vf_registered);
++	enic_mbox_vf_request_finish(enic);
+ 	if (err) {
+ 		netdev_warn(enic->netdev,
+ 			    "MBOX: VF registration with PF timed out\n");
+@@ -692,16 +726,24 @@ int enic_mbox_vf_unregister(struct enic *enic)
+ 
+ 	if (!READ_ONCE(enic->vf_registered))
+ 		return 0;
++	enic_mbox_vf_request_start(enic);
++	if (!READ_ONCE(enic->vf_registered)) {
++		enic_mbox_vf_request_finish(enic);
++		return 0;
++	}
+ 
+ 	err = enic_mbox_vf_send_request(enic,
+ 					ENIC_MBOX_VF_UNREGISTER_REQUEST,
+ 					ENIC_MBOX_VF_UNREGISTER_REPLY,
+ 					NULL, 0);
+-	if (err)
++	if (err) {
++		enic_mbox_vf_request_abort(enic);
+ 		return err;
++	}
+ 
+ 	err = enic_mbox_wait_reply(enic, 3000);
+ 	registered = READ_ONCE(enic->vf_registered);
++	enic_mbox_vf_request_finish(enic);
+ 	if (err)
+ 		return err;
+ 	if (registered)
+@@ -719,6 +761,7 @@ void enic_mbox_init(struct enic *enic)
+ 	 */
+ 	if (!reinit) {
+ 		mutex_init(&enic->mbox_lock);
++		mutex_init(&enic->vf_mbox_request_lock);
+ 		init_completion(&enic->mbox_comp);
+ 		spin_lock_init(&enic->mbox_state_lock);
+ 		enic->mbox_msg_num = 0;
+
+-- 
+2.43.0
+
