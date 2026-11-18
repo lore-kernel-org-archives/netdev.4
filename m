@@ -1,63 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794998324;
-	b=1tpToipNhuG/m78LjTQbGVhdORM1L5BCzotGO690TBhVthmkCMCUzN4LDgEsa2GOr6TS
-	 gon6FhifaTovuvYmsmwyinnP0rBSPw9p0I5/063aXDcY4f7XurPaKgC6BVREAaubeNTG1
-	 XVvwD2slrLGQXFGC9cNSsaHouV98biHb68nG6aGIiagf+xVP8rZW99uElpWj6SCLUnn/p
-	 oMR8i3HIGwZn0pkqNxYCI+orMmdNjW+mVTOYu8kdQ24z3h5ajg020fRHAsDVDGdXYtyXy
-	 8bCo8d7also75K1oSIJKLcEOCTThnUamtliX7jnDbzh4EB6IVsCfgRZaiUKGtDKZZTQ==
+	t=1794998396;
+	b=Ch4GAR+LoxJ/DRpVWb/xh9SsZLsUbM3r01vT5j7YJqYq4TZcfdKqplgItxahzIya/xar
+	 c3V7EPmQjeEMqU1tErm40GJOn74uinFErAGq/t/TRsKOj6xo7k4zGniIaB2ZnmsV8vjQZ
+	 +dcZoAzJ95irsElZGbq5eFhsRVlM6CosdNHrxB/hqCwfd7iKWW5FVlXJFVnGMumiRSRLf
+	 4EpDR+165xZ3CnJ7HCaukD6ZzGLeigcSQBhKllO9LE+2BwqAYbO/8+H8bvHI8EThtmb/l
+	 ym5R7lNlD4VG85YbygMRnqdwQBc46WdfgZrprKtvCGnhf0BtWhi7bS3fyNunpMo7cHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794998324;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=C9Ffo0XZ1pfiC0CNWYLYf6BLHQgUywntpI33Vd9UKSO8yrDMo58s3m0Sr/JIDF4LYGvC
-	 BFV0NQ/BWXSSwvNeyoitmVKXjAvztXCMhMBh13SzxNwduysKEvSF/IOr06uFX46aKhfx3
-	 1dmN+ERo00dQB8uA4zfLcbaR8G8VIleHz+TULFXkrzp8ZGnnk3jDR+OMvh15+1Z8/JLK6
-	 Il1/Kk/n2md4vs4Bj5QDYIEumLBw4hJm5MNQp7M59sXpn4QgMg/q0r8kW9my9l4KgW2mJ
-	 OZj3nljSSKClZdfSRGehUIOmfQ8o+sEXJJkdeYsA+0lpE5V6WtDIfAkipxu96PeOxFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794998396;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=gBoWaO2BpC7nFhli8/O/xwsvCcPKI30OlLn0Mx8JuFM=;
+	b=MjGLeuvP2hljbsw5D6ZJ5mDeMO47bmbLpr++i9kv0xpvnli9U3Rnk9UG3Xdq6DdpxP2E
+	 RM5L+aUh5vzbdcRWawDEVLh1YlJmsh0kdw9fWAA0wFBjiw80Cjmn2grutkOAwruSffHLk
+	 Bi8tzy2Y4Nbi5g60w0qDDRZpt6KRgnWyJIq8vSyBQG2Wbb84UcRzoIk2EUzpULhljXPzR
+	 FAYx7mSnUONZaH1hSQKsYpk7oV0p2otAtEOVO+HSSzOGpftBX4EpGy/E7oyUNBEYg+uZM
+	 3arNSEOg/m6QLeeuSx0b2aC78RvlJ72REZPSBfKsxbONatfHggCnZ5AQo3Pigv9ceIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PK9o0LCp;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZMEFJi6;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03705606A31C;
-	Wed, 18 Nov 2026 10:38:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E612606A330
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:39:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PK9o0LCp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C65D31F000C4;
-	Wed, 18 Nov 2026 10:38:42 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kZMEFJi6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C47D1F000C7
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:39:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794998323;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PK9o0LCpZW6QQERHOqwu8lnwMUi51PSsHrRRoQ5FR1J0XnvkgYTkCJZunZtNp3c2w
-	 ArRQNgaSxl03dOz82/jIvFtYDx/osOlF+kLf3K9FQ2DpxM7GBHwGuBOuEziXjEURIj
-	 aPu39hZO/J3J/iP4XtIGacIeyvQPnd0bCBQLVYa6ylt0w5531toGQ4cO1oOM9ukEsC
-	 GWTMRa99dW2t/jP8t32i+LQACV+s0D4uhHfqTpHPWP1nyyGlMmox0iRawCRXXFkSwS
-	 mFT44tGy2ro3QKTOUv5f/MC1XtrUkS1BAykSm6cJSCqcn/YOD1b+q6g9a7y1ua8IZL
-	 2JKlztUFMSWAQ==
-From: netdev-bot+sinfo@kernel.org
-To: Kimberly Morris <gy770616@gmail.com>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- florian.fainelli@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- richardcochran@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, gregkh@linuxfoundation.org, w@1wt.eu
-Subject: 
- Re: [PATCH net 0/2] net: phy: fix timestamping lifetime after probe failure
-Date: Wed, 18 Nov 2026 10:38:42 +0000
-Message-ID: <179499832232.3291.8192759477709019638@kernel.org>
-In-Reply-To:
- <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
-References:
- <CAD-64DdqQ=Vx4BaRn5TXz0g5ZC6rU9+e0o-rouyXzGH=Nv0ubQ@mail.gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1794998396;
+	bh=gBoWaO2BpC7nFhli8/O/xwsvCcPKI30OlLn0Mx8JuFM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=kZMEFJi6YvZYZEoA6tjjUn6+nPNpMa++glv5pA/Fd93mEFIBpqdWHz5JqxhSqJXto
+	 zOVD1ZNdrOU259d5HGphMDN5GPc7BtcVWSW9AMa5w7FYgfcVMU0+eWkDNQkJcbPQ13
+	 5J0icKUCF1LHroq0HP9gwYBDde0odFIHgWX5deFGj1BxiEEP3uSwYsRxIqfW+FWm2f
+	 o86mi1xTcT1Dv5/oRmsosGx7OFOQ9ImwOx6NLSWa0Bbv5eCnxHnT1ugv5EfIVfoEPL
+	 36QsqS0Ts9bUddRudDXfmdjYwxY8eDhK+q0GHaVIh4JjImNK3OLgEMk/Z3pibjTpmB
+	 Yc+z0ZF0ZX9cw==
+Received: by mail-oo1-f43.google.com with SMTP id 006d021491bc7-702dedeb70dso523384eaf.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:39:56 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFlSFEdz8R9tddvgmKLBcQPS9mBJWlaxhxw3f/Cfu5O6v9k8wvc9TPFCEup4+lyJb+JWZ3xCUc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+f5g8obe7VnSvDB8klPEkX4bbSPz+0JJAdfhsQQnvWkUxa3tPt
+	HPVnqaC5/jkP8epj1muuU4/tCPhyJE3Xi96vwLKq5wXIQtEzuT41soxRq0XlxxMQzFJ7aa73i9t
+	7D2VcQ5uhUCTsiOePcxuxr/uraTmxBXw=
+X-Received: by 2002:a05:6820:2306:b0:70b:8148:94f with SMTP id
+ 006d021491bc7-71b18610c01mr1159744eaf.76.1794998395684; Wed, 18 Nov 2026
+ 02:39:55 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,22 +59,121 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261116024056.1274402-1-bsdhenrymartin@gmail.com>
+ <20261118100729.jn66g5cvdkspoqjc@DEN-DL-M70577.microsemi.net> <CAL4Wiip+hBuFcdyZPrJ+T-rKrwyfNTXDu9MUirPn4XtDpa3nZA@mail.gmail.com>
+In-Reply-To: <CAL4Wiip+hBuFcdyZPrJ+T-rKrwyfNTXDu9MUirPn4XtDpa3nZA@mail.gmail.com>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Wed, 18 Nov 2026 11:39:44 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqAB6sbiGnRuOqaA-TBuMi8kFPSt6SDtuj0+FpU36k-yw@mail.gmail.com>
+X-Gm-Features: AclHuK9VaZOgPE54qY8a9OdI1oZgonXk27f25PRd6DD4-jtXavC-2_khlA46Uno
+Message-ID: <CAL4WiiqAB6sbiGnRuOqaA-TBuMi8kFPSt6SDtuj0+FpU36k-yw@mail.gmail.com>
+Subject: Re: [PATCH] net: fix uninitialized heap leak in multicast address dumps
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: Henry Martin <bsdhenrymartin@gmail.com>, Paolo Abeni <pabeni@redhat.com>, 
+	"David S . Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>, 
+	Stanislav Fomichev <sdf.kernel@gmail.com>, Nicolas Dichtel <nicolas.dichtel@6wind.com>, 
+	Yuyang Huang <sigefriedhyy@gmail.com>, 
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi!
+Le mer. 18 nov. 2026 =C3=A0 11:38, Eric Dumazet <edumazet@kernel.org> a =C3=
+=A9crit :
+>
+> Le mer. 18 nov. 2026 =C3=A0 11:07, Daniel Machon
+> <daniel.machon@microchip.com> a =C3=A9crit :
+> >
+> > Hi,
+> >
+> > > __hw_addr_create() allocates entries with kmalloc() and initializes
+> > > only addr_len bytes of ha->addr. Dump paths emit entries using the
+> > > current dev->addr_len, which can grow after the entry was created:
+> > > tun's TUNSETLINK changes a device from ARPHRD_NONE (addr_len 0) to
+> > > ARPHRD_IP6GRE (addr_len 16). Both the RTM_GETMULTICAST dump and
+> > > /proc/net/dev_mcast then emit up to 16 bytes of never-written slab
+> > > memory per entry.
+> > >
+> > > This discloses leftover kernel heap contents to anyone reading those
+> > > interfaces.
+> > >
+> > > Zero the tail of ha->addr at creation time, so dumps can only emit
+> > > initialized bytes.
+> > >
+> > > Cc: stable@vger.kernel.org
+> > > Fixes: a748ee242681 ("net: move address list functions to a separate =
+file")
+> > > Link: https://lists.openwall.net/linux-kernel/2026/09/10/320
+> > > Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+> > > ---
+> > >  net/core/dev_addr_lists.c | 5 +++++
+> > >  1 file changed, 5 insertions(+)
+> > >
+> > > diff --git a/net/core/dev_addr_lists.c b/net/core/dev_addr_lists.c
+> > > index d827cc21867b..53a2dfa2706c 100644
+> > > --- a/net/core/dev_addr_lists.c
+> > > +++ b/net/core/dev_addr_lists.c
+> > > @@ -100,6 +100,11 @@ __hw_addr_create(const unsigned char *addr, int =
+addr_len,
+> > >       if (!ha)
+> > >               return NULL;
+> > >       memcpy(ha->addr, addr, addr_len);
+> > > +     /* Entries are dumped with the current dev->addr_len, which can=
+ grow
+> > > +      * after creation (e.g. tun TUNSETLINK), so never leave the tai=
+l
+> > > +      * uninitialized.
+> > > +      */
+> > > +     memset(ha->addr + addr_len, 0, MAX_ADDR_LEN - addr_len);
+> > >       ha->type =3D addr_type;
+> > >       ha->refcount =3D 1;
+> > >       ha->global_use =3D global;
+> > > --
+> > > 2.43.7
+> > >
+> >
+> > Looks right.
+> >
+> > Just a thought, I think switching to kzalloc, like so:
+> >
+> > +       ha =3D kzalloc(alloc_size, GFP_ATOMIC);
+> >
+> > Would give you the same fix, and you would get rid of that extra tail l=
+ength
+> > arithmetic.
+> >
+> > Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+>
+> I agree with Daniel, kzalloc() would be simpler here, this is not
+> fast path. You can then remove the "ha->sync_cnt =3D 0;" line.
+>
+> This is fine as a hardening measure, but the root cause is in tun:
+>
+> bonding and team both call dev_uc_flush() and dev_mc_flush() when
+> they change dev->type and dev->addr_len. TUNSETLINK does not, so
+> entries created with the old addr_len stay in dev->uc and dev->mc,
+> in an rb-tree which is now searched with a different key length.
+>
+> I think TUNSETLINK should flush both lists, in a separate patch.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Something like:
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+index d4870bdc156f..f675e5469cfd 100644
+--- a/drivers/net/tun.c
++++ b/drivers/net/tun.c
+@@ -3387,6 +3387,9 @@ static long __tun_chr_ioctl(struct file *file,
+unsigned int cmd,
+                                           "Refused to change device type\n=
+");
+                                break;
+                        }
++                       /* Addresses were added with the old dev->addr_len.=
+ */
++                       dev_uc_flush(tun->dev);
++                       dev_mc_flush(tun->dev);
+                        tun->dev->type =3D (int) arg;
+                        tun->dev->addr_len =3D tun_get_addr_len(tun->dev->t=
+ype);
+                        netif_info(tun, drv, tun->dev, "linktype set to %d\=
+n",
