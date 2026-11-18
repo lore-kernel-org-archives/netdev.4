@@ -1,101 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795014077;
-	b=fG3Q0NjMDO/2pHf2MzeyazEdK3Kw8h4yk2Jjn+/AnEV3a+FkmL2fK3Nos9bzUsteCHNv
-	 S6S2CkbPQLyRWTk0YFNHS5FzFYWba5e4yicn2LReetVPrAi/67KK9c4uDHcuGaSjIMKoL
-	 Id6+5SSD1hrq13e2MKcyZRXvDbWOphjDHTuujjLL5X5Vo+/XXRg2M3UjZE7GJy0AbRoVu
-	 x7hmDNHd88ZB73tsh9Nm9RxROfSCFMRkWMkNkmPf+xrMNMYI3OIX6RAMM65kDz5Wkvt3A
-	 IsbZ5PX0bFVQG12MeTuqwOm1weJP1Fdq135Bs9Ygr4R9JBDgNN3ppTN78/Ha1w5ghpg==
+	t=1795014257;
+	b=D62n1agCP8EWnuzNBg9/HXDesEPoH7F+A6Lvj05ORpZY/V3Yhbc7SfMlKqEztNMkghMX
+	 1iWiZPlgC4M1gQtos96sMpIhIChNNVSfv1mnLWsxRoYpCvy5w9BQKJ37mOqpkwf4JNWSm
+	 TbFomxJHinzXrS3a9QtyYlgETOc/DRoZm5YBRxjuoXGtC4LYqHBUTvilrlnhuyXgW0VD6
+	 NmpA7aNa+hf0/SLi7FGA5aSGCPxaa4jxHJi5h0Qfg/8JWaYTc1miuPBZ+4e9wCHsmRjm/
+	 AoXJZlE3zepyoauTArksgQDPmtEpej57p/RlO0yPT+LlTNaTzBfzEfW78iMJNytw9Eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795014077;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=sBpkM+D4ceLLEoj6PwfftKKY79vNaotRYiVwEiHUE9Q=;
-	b=1zPEXwGIDX0J7DOlYoZ6EDwlMPbgApxM3pB1zcbgathrO2fpZeFl+MqGIy6QPuI8dqOj
-	 OBdko/V/kh3uxVdeF9hp1wR8rZNx6rmGyMkFe4//Yz3gBKy/hl04+Jrgid5aLt2uYNHLA
-	 m7K3FSyrBAFpHhOU/4kJRmvIGIsre9J5EqCylHKotfg9DOJa5vP4hVufGKB7PQH8l36hA
-	 0PKQu5PhCYVr9cw/vAIVJxjtycVTP3iIqBXlEsaxjSITPUXIlX0WOtdj6xnQAXHt0POoH
-	 YO9fU5SQh0P5jUv8zpvUdO1GKZ2s0tHro4IOx11SkjNsE8uacCOt7rvARisl9G4ktPA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795014257;
+	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
+	 In-Reply-To:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=NdbALHgz1Vwxel+lqSyBshxnu1busdyowNp2dws4o0o=;
+	b=MTYNZVNx6+/vkI6uNEpZkJNwXNP51a74xCZyZlFfDrxKi78p+ibDpQ/Fs7FiotQHkl2y
+	 BlrYgVPQoo52v8oPyqvQxS+uHC7sSLjS3mn97iflqXFFgA6cxgQAW6uasfPQjeWgCXU1k
+	 fww8fQLh90gFHepo6kPwpxZKUPdNiv51v79W2pNFtqImmgyUvGCO9sgVuEqy/2mtcpSUO
+	 +WR0gaMfqAWJ2BkqWE9hL+wTrXKTpTa9mGLQYFjn+hRp+u8/eacYfFPtTL8deaZTskIN6
+	 xOgOiUpada+bKApDEHKzuCIfW0naS7aqbpKmh67EFWbbbdVLku+0aiV11dIb3eQZP2w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qhGucDFY;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=1nEH+Si6;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2321606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:01:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2321606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A898606A336;
+	Wed, 18 Nov 2026 15:04:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A898606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qhGucDFY
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3ae691283ecso601314a91.0
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:01:16 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795014076; x=1795618876; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=sBpkM+D4ceLLEoj6PwfftKKY79vNaotRYiVwEiHUE9Q=;
-        b=qhGucDFYBC7aCQjPDmAC2YNPWQ6bLbxftPjvuYJN8vr/XpjrABC0ABmymuxHkVuKSI
-         xmShxACRfudE1uG+caw9XG/YBYMUV72y+PKt5DANouR4DvjVggLJNHcZWqFMWd50wLxO
-         neWTEUIW34IcU1Jcl+CnB0RQttp0P8vc3vjmeKi26bFnsLU7ey98pvL4S1HWtorDDtz9
-         de4L4FaIg/xfRb0F3eiWkrW+ZhXOw+7fEtxBeUfoUDyrCHeFPHXuUIVSXPjCiG2pnPtv
-         or4dcqEYgQ8j/nG7QRI6yPBRMRiNvRnx0Ph3O8Sv1EdE18x3LG/fRIsJfuoYhrmoeKFD
-         vWDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795014076; x=1795618876;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:mail-followup-to:message-id:subject:cc:to:from:date
-         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=sBpkM+D4ceLLEoj6PwfftKKY79vNaotRYiVwEiHUE9Q=;
-        b=z25ujMjiQSDcgqLlduyiWPj986+rBI8wxN/PPYQdqORWrOmvbOdzDMRgJmhGrtzUWY
-         CLuSKvD2BqQ+EkTvNgjzbaQHMO9aoNr2Lg83cm4YkblZP5U/tnJsKuNP0GyRFxkuVTha
-         V4btLblDzhIKqsY6Bpm9SatKtCTLh4bb+wALNuYO/5SA4jOQ7eDXssUdAdLNa+23AXzv
-         kuzSr3b0Yw8h6177MH5wp662D4uCzLhWQ4Pqzbphp2V+dCGpewsbgkFIqPj1CVv0OEm5
-         LEC6SAh4lyBZTfslJ1p5VfT96iAbJ3H67RiHzHyvydvfVa8DoMRLG4K+MhK9i9HDYqtX
-         DWGQ==
-X-Forwarded-Encrypted: i=1; AL+hErHYffOTFvx15L02Mm5pT9sdGlPzAuqs29JO937gPTIr4mvMUjEvzRks66DRRD73IS0ueAmZC4E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9A8zfUYJgEtQxki8uOULxMvAYtMD5N7Ki5thVfgfm4U1L7Kkl/
-	ONnhb/VdOiNg3lwuV4s4DVkxcYCVluOqlxBZe3KXqtV37l3m+mRNP2nbbjDKgeBNUWnJlTD4o99
-	5WVvp
-X-Gm-Gg: AZFdTZdWkiQon07FTKKwdo2Row+C4aw1t+hJ7wyLDo5h/D2AO2ns/kDGnCsDneh+po5
-	JREikPob9B3kkghLFNtKfSHA+H88lukneUdX53xvZ9F9qMSkCPnAKovjKZIALfR2tnHiWfJooyg
-	sWHAkQ1Tj8tWK0qiu57itc+a1Xftk3v/gS+8PONCE78ouPvJgdHpxolIScFg7Mg7dzO61mQieo3
-	oKt0WX4OAdnc2GsoEsSO0+b2kkUAFqBotx/rNHTI7VN7kIXQqs5cym+Su6oxzEMuTAkg8davbww
-	XYKLbKb0/QMvMLuH8dLc6YF9XWgVFIsCuUIezk8Xq4Y+7aYrzxmAzigXdlUMvU0ZuctEI3M2Wan
-	wv3+rImfLtqhS4RPIz4eWzoVX79dtiXKwFFwcKJu6bqA5u5TQ3ojY9sI4X3qGakyc1uZqUPzHBW
-	pC1vJS9nLrh/vzyNZCZM04oB/k0A6asnMAN0A7PxHzHOZ7WefNz2hL5I7Xe+rs4X5W4Pwwva1XT
-	Rj9atW+uKbphOvlZvd/TFuI7ij9UDraEWgbfamZZm7POhzZlpQLhavrDTMLV26dNaJbNCa9vsNQ
-	xIQlFO6B2q61rjvRpRt1AodIJ9m1RrV8D57RNn7ExiPAx8rf70vCURuVPwQibjY=
-X-Received: by 2002:a17:90b:2808:b0:3ad:7f4d:2839 with SMTP id 98e67ed59e1d1-3b3d07b9f0fmr1702969a91.14.1795014075822;
-        Wed, 18 Nov 2026 07:01:15 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:9::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b3ac2cca15sm9541029a91.11.2026.11.18.07.01.14
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 07:01:14 -0800 (PST)
-Date: Wed, 18 Nov 2026 07:01:14 -0800
-From: Joe Damato <joe@dama.to>
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: davem@davemloft.net, michael.chan@broadcom.com, netdev@vger.kernel.org,
-	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
-	horms@kernel.org, pavan.chebbi@broadcom.com
-Subject: Re: [PATCH net-next 6/6] eth: bnxt_en: restart Rx queues when their
- IRQ moves to another NUMA node
-Message-ID: <av29unVgzwNa4T+b@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>,
-	Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
-	michael.chan@broadcom.com, netdev@vger.kernel.org,
-	edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
-	horms@kernel.org, pavan.chebbi@broadcom.com
-References: <20261118023905.3050661-1-kuba@kernel.org>
- <20261118023905.3050661-7-kuba@kernel.org>
+	dkim=pass (2048-bit key) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=1nEH+Si6
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 22DC2A2067;
+	Wed, 18 Nov 2026 16:04:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795014250; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=NdbALHgz1Vwxel+lqSyBshxnu1busdyowNp2dws4o0o=;
+	b=1nEH+Si67YIeLukvA8bksD6SMC6RU2dyWiKp8rjDSJm+7TkOhT3z/OXXVPvIGFCPfukN6H
+	Ctk9Lfj6x2NhqNmtgSc4lLjWfMl/sVmsB8sVhNY7uvgxq6CAmzHs0MNRGwvg4yZUQLx3LF
+	Pt1vS5P5l1t/ytd3lNtGqAiOjzsHkbmJ3pLLOO74g3oizoJtaEF5bCz5qm5Rkmz8HcV+6d
+	JsNzIYvnLwXw+oiELwrpVfzGwbtcnncm+PjBBvCS7DxJ5P+JcRcaRDs/kOViJqLXmAvj2U
+	CGEJshU7SFBMjcOAQRMqf8JHKGDhMM0thDXsCyOmoooZNDN/WPeUmsmAeDwcfw==
+From: Nicolai Buchwitz <nb@tipi-net.de>
+Date: Wed, 18 Nov 2026 16:03:34 +0100
+Subject: [PATCH net-next v8 1/9] net: bcmgenet: ring the doorbell when the
+ last frame of a batch is dropped
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,53 +57,125 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261118023905.3050661-7-kuba@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261118-nb-genet-mtu-nn-v2-v8-1-68f75eadf3e2@tipi-net.de>
+References: <20261118-nb-genet-mtu-nn-v2-v8-0-68f75eadf3e2@tipi-net.de>
+In-Reply-To: <20261118-nb-genet-mtu-nn-v2-v8-0-68f75eadf3e2@tipi-net.de>
+To: Doug Berger <opendmb@gmail.com>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Nicolai Buchwitz <nb@tipi-net.de>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Florian Fainelli <f.fainelli@gmail.com>, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Tue, Nov 17, 2026 at 06:39:05PM -0800, Jakub Kicinski wrote:
-> Rx queue memory is allocated on the node of the CPU servicing the queue
-> when the device is opened. On a running device it only follows IRQ
-> affinity changes if TPH is enabled, as a side effect of the queue
-> restart which applies the new TPH Steering Tag.
-> 
-> Schedule the affinity update work whenever the device supports the
-> queue API, not just when TPH Steering Tag changed. Queue restart places
-> all the memory it reallocates, other than the ring page tables, on
-> the page pool's node, so compare the page pool's nid to decide if
-> the queue has to move.
-> 
-> Since we need queue state of the currently allocated queue to compare
-> nid - check that the device is still up after errors.
-> 
-> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-> ---
->  drivers/net/ethernet/broadcom/bnxt/bnxt.h |  2 +-
->  drivers/net/ethernet/broadcom/bnxt/bnxt.c | 46 ++++++++++++++---------
->  2 files changed, 29 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> index 134b24842c4f..5f4a8db1f8b5 100644
-> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> @@ -11931,18 +11931,17 @@ static void bnxt_irq_affinity_notify(struct irq_affinity_notify *notify,
->  	}
->  #endif
->  
-> -	if (!irq->bp->tph_mode)
-> +	/* Only Rx queues can be restarted to follow the IRQ */
-> +	if (!BNXT_SUPPORTS_QUEUE_API(irq->bp) ||
-> +	    irq->ring_nr >= irq->bp->rx_nr_rings)
->  		return;
->  
-> -	if (irq->ring_nr >= irq->bp->rx_nr_rings)
-> -		return;
-> +	if (irq->bp->tph_mode &&
-> +	    !pcie_tph_get_cpu_st(irq->bp->pdev, TPH_MEM_TYPE_VM,
-> +				 cpumask_first(mask), &tag))
+bcmgenet_xmit() only writes the producer index at the end of a batch. The
+error exits return before that write. If the dropped frame was the last of
+an xmit_more batch, the frames queued before it stay in the ring until the
+next transmit. The queue is still running, so the watchdog does not fire.
 
-nit: this one is tough. i feel like this is super dense when wrapped this way,
-but i am not sure if there is any way to avoid this without making the code
-uglier.
+It came out of a sashiko review, not a bug report. Those exits only run
+when a clone, an allocation or a DMA mapping fails, and a later patch adds
+one more.
 
-Reviewed-by: Joe Damato <joe@dama.to>
+Write the producer index on those exits too.
+
+Fixes: ddd0ca5d60b3 ("net: bcmgenet: add support for xmit_more")
+Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+---
+ drivers/net/ethernet/broadcom/genet/bcmgenet.c | 31 +++++++++++++++-----------
+ 1 file changed, 18 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/net/ethernet/broadcom/genet/bcmgenet.c b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+index 61f5a4c2f0cd..1114fe46d2f7 100644
+--- a/drivers/net/ethernet/broadcom/genet/bcmgenet.c
++++ b/drivers/net/ethernet/broadcom/genet/bcmgenet.c
+@@ -2122,6 +2122,15 @@ static void bcmgenet_hide_tsb(struct sk_buff *skb)
+ 	__skb_pull(skb, sizeof(struct status_64));
+ }
+ 
++static void bcmgenet_tx_kick(struct bcmgenet_priv *priv,
++			     struct bcmgenet_tx_ring *ring,
++			     struct netdev_queue *txq)
++{
++	if (!netdev_xmit_more() || netif_xmit_stopped(txq))
++		bcmgenet_tdma_ring_writel(priv, ring->index,
++					  ring->prod_index, TDMA_PROD_INDEX);
++}
++
+ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ {
+ 	struct bcmgenet_priv *priv = netdev_priv(dev);
+@@ -2153,8 +2162,7 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		if (!skb) {
+ 			spin_lock(&ring->lock);
+ 			BCMGENET_STATS64_INC((&ring->stats64), dropped);
+-			ret = NETDEV_TX_OK;
+-			goto out;
++			goto drop;
+ 		}
+ 		nr_frags = 0;
+ 	}
+@@ -2173,8 +2181,7 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	skb = skb_share_check(skb, GFP_ATOMIC);
+ 	if (!skb) {
+ 		BCMGENET_STATS64_INC((&ring->stats64), dropped);
+-		ret = NETDEV_TX_OK;
+-		goto out;
++		goto drop;
+ 	}
+ 
+ 	/* Retain how many bytes will be sent on the wire, without TSB inserted
+@@ -2184,10 +2191,8 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ 
+ 	/* add the Transmit Status Block */
+ 	skb = bcmgenet_add_tsb(dev, skb, ring);
+-	if (!skb) {
+-		ret = NETDEV_TX_OK;
+-		goto out;
+-	}
++	if (!skb)
++		goto drop;
+ 
+ 	for (i = 0; i <= nr_frags; i++) {
+ 		tx_cb_ptr = bcmgenet_get_txcb(priv, ring);
+@@ -2212,7 +2217,6 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		if (ret) {
+ 			priv->mib.tx_dma_failed++;
+ 			netif_err(priv, tx_err, dev, "Tx DMA map failed\n");
+-			ret = NETDEV_TX_OK;
+ 			goto out_unmap_frags;
+ 		}
+ 		dma_unmap_addr_set(tx_cb_ptr, dma_addr, mapping);
+@@ -2254,10 +2258,7 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	if (ring->free_bds <= ring->stop_thld)
+ 		netif_tx_stop_queue(txq);
+ 
+-	if (!netdev_xmit_more() || netif_xmit_stopped(txq))
+-		/* Packets are ready, update producer index */
+-		bcmgenet_tdma_ring_writel(priv, ring->index,
+-					  ring->prod_index, TDMA_PROD_INDEX);
++	bcmgenet_tx_kick(priv, ring, txq);
+ out:
+ 	spin_unlock(&ring->lock);
+ 
+@@ -2274,6 +2275,10 @@ static netdev_tx_t bcmgenet_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	}
+ 
+ 	dev_kfree_skb(skb);
++drop:
++	/* The dropped frame may have been the last one of the batch */
++	bcmgenet_tx_kick(priv, ring, txq);
++	ret = NETDEV_TX_OK;
+ 	goto out;
+ }
+ 
+
+-- 
+2.53.0
+
