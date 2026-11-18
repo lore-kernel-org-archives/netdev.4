@@ -1,80 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.76.78.106
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794990186;
-	b=gLxvw5TMQA1fWU+uDcyTQaHfn19v7GxDkRENB+D3j3EJXlou65AZ6HFBKmdZGcB5ENkL
-	 uefBCYr/HJqDneYRkbhhNU69fDgpX1ZdsxW3Qxh1XIEAoQ4TcU0K5jpgdtDqAjm/4+YP5
-	 Fh9jp2ebbDC29cBpD++Ly+IiKUypnfN2QxsUbpRoHklkY35xIEu8/M1ivvE3NlcG5YSnx
-	 H+NQ/hlm7Az7aj4xbNbaNnfpMA0wUuhnJgGChbDnp8rTKI65YG3X+HWgmoJXatOgfk9NR
-	 aNC6zLVG8yWtGYLc2YIlNUsDA26Zgb4qceg0aXhH0Qgo0Jp3/ECQWvd0Zny/3dGS1mQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794990186;
-	h=DMARC-Filter:DKIM-Signature:Received:From:Date:Subject:To:Cc:
-	 Message-ID:In-Reply-To:References:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=3BqdCJTGw47ZPbEBDmV2Sxr2xhOXRAA8TmzOR2G/4rE=;
-	b=KY1ysurNla4c6aHKHpl+IzpLFfTMMd3/IeiKGL5+77xX55JCJU0ica6x3SC+D8dj3XRG
-	 LWjXKbxSpAZJyDdwC7xHlomTjZJecgg+wAf4TMXxpqmw4Zqnqkr3CUohCMUYwAeZViu0w
-	 ZPZ/iDeMPS37oxmvmer0kd9Gnjbi0/oHYfo5kiqtAObV5rpE8z+heSn65PHimUovvrW+Y
-	 CeGnmU0W0kwczNnbLjjRkFZsBrDDRaPpVHS+Eu9GRRk9Wmp5BfzNktDeqIqrjccXQuNUV
-	 9Vr5yY/SkyQHw/f64F++BSBM1VmgsPLxpdaLC/b+oUhmrHitjErxQwSckGN41HXalow==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.zgclab.edu.cn;
-	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
-	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Y9snmjpX;
-	arc=none smtp.remote-ip=13.76.78.106
-Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.76.78.106])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0A360606A32A;
-	Wed, 18 Nov 2026 08:23:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A360606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1794990240;
+	b=D5B47Fmqnn2OYaoVWVqBT1mdLFUjgaw4cjj4b9Fo0csGNa7Ivi7BBYmpGBLRajm219IA
+	 KIYLlW3y6Lvg2mI1zVG4fXyBpIDhO7U6OpPGmRe3wANRZQ1huyiNucMGzYiml8VdLTyvt
+	 SeSTrjoOap/D5OZGLVLE502d7ryRxHubMN9GetKx4Kue7NL5kLMXgZIVvmlpyCBjYFKIk
+	 YsYgnRfCDPsw+qH9pOa239IMoTomgrrqs5vDDUlrBdcL2yo7mQJCiaHBAdDpHUEJ53e64
+	 V2qTwhbxSnAgQOEUHIj3yTfB6TqXrNDfsIPKgMZDg8FmdKV4FWSMtQHSa5l3+N6OwJw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794990240;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=/6/kh5W30HhpdBPfGGAYex3HyQBO9GYAQyqbkb72JOY=;
+	b=1GGgrBnO1RLAfP3vHKcSYt1alScqxyc3G/yAKZOjTrSzQ05uNUNhmIXHjOMvzD1b4jnN
+	 zbz5VOvZQrH03Ajoh58YyZFmt2jClGyPYqt2Wua88WQp9tE8hLQdMt14ZegnfclJum3vx
+	 f1Jwm1kOnht4iPrt9RrHuevtVSUbspJz4ry+Its2hJpvyWN8axuS1IeT6sWqmchoDD7Gx
+	 m/Xm3CSW2Sr0KrYtKd86/9KLwiwnEviJOFTY0TQNAYs1Zlir1EAiYz8AwamBS57G/qQqA
+	 Ul8qo+pdljf8n18LjELw2+4iZBY4Y27JPm/zKHbAfVzYk4cwuV5UNhAuc+14UoJ2RpA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EvXJLKLS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.180
+Received: from mail-lj1-f180.google.com (mail-lj1-f180.google.com [209.85.208.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2064F606A330
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:23:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2064F606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=Y9snmjpX
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EvXJLKLS
+Received: by mail-lj1-f180.google.com with SMTP id 38308e7fff4ca-3accd1ff4c3so5901111fa.0
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:23:59 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1794990238; cv=none;
+        d=google.com; s=arc-20260327;
+        b=CcJm1snikX9bMNmQ+baPv6N7kppC9WfVxYsAcrB9WA3xhp4nRFMtTomwyos7KyQv0E
+         h1tP88bBSf2GNj8B+6nbxhoFK9K07JZcNhxws+mNAF2fufLhxWxATfxfI5GQIy3mPtyN
+         d07EG//Sez18ldc930RE5K+8i80Dht8nQXdT2SXGu63K6gNXFu4Z9zfjGZu8Vqu/8+y8
+         7czPsm1qYzABXXKfiB/BVEKdDIlXE69OsV+6CYL3ZA9U/F467Dw8hJI46jw0YQhKz08M
+         Os90eUxmvYLfnvdPByS5LvbVlgUKsyQAI+aOSf1XVb6GJ0kinR3uG8yhA1JH275fCv93
+         FN2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=/6/kh5W30HhpdBPfGGAYex3HyQBO9GYAQyqbkb72JOY=;
+        fh=99GZjcgrzuavPNMoX9fPQFTDK1gSN4AJu8GsV+jj96Q=;
+        b=PYtuEdpycbj2Usb/21RC5b+nr/0pt5k7mTzbpRDxO+BLDSq/njA+75XoML9EJkmJrG
+         oJXwV/OaB6WjoyiAzKTzn2DhnX+tZ2vkUgUoISjLG3wadD6QYKl9AJ3N6q9dApOtooB6
+         sMXN9tyO7487ycnhtE1ydsJnxGU8/5kfoY8Jx0n7+GG4ybIHeFyQLzX/c8+nwe0yTEkE
+         gjVTAM+H61uPdHnrmjITM75IjQZcbCICEbyY7ZF4rHPADkZyrLMm0YSvBQLy7hG5Xq60
+         U+NVM8o9QFWamSkosrVyTbEs+o9pYbQMfO6BXqco44tN+fVUCSk+mVtMrbyDWSNWAkjd
+         dvDA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:Date:Subject:To:Cc:
-	Message-ID:In-Reply-To:References; bh=3BqdCJTGw47ZPbEBDmV2Sxr2xh
-	OXRAA8TmzOR2G/4rE=; b=Y9snmjpXX4TSOp6AdaL0bRsENdt8MEcgFeUQ4KQGht
-	bF6S85fofeH54j3maAQ1frcq3KF1ND88sEjrI2zOIQxqbooKK4YqjorM5A7gJRzS
-	tGsomYnEPiBUtlTLUYnerxFDl/KdcOoJEFq0UWeWA4sfSX1TI26KjNYxnp8pRGUC
-	8=
-Received: from v3_send.eml (unknown [58.206.202.11])
-	by web2 (Coremail) with SMTP id yQQGZQDXBGlIYP1qHSRHAQ--.37447S2;
-	Wed, 18 Nov 2026 16:22:32 +0800 (CST)
-From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
-Date: Wed, 18 Nov 2026 14:43:07 +0800
-Subject: [PATCH net-next v3] net: sparx5: check DT port reg against chip port count
-To: Daniel Machon <daniel.machon@microchip.com>,
- Steen Hegelund <Steen.Hegelund@microchip.com>,
- UNGLinuxDriver@microchip.com
-Cc: netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>
-Message-ID: <20261118162156.17688-1-wanghr2026@mail.zgclab.edu.cn>
-In-Reply-To: <20261116210802.2718-1-haoranwangsec@gmail.com>
-References: <20261116210802.2718-1-haoranwangsec@gmail.com>
-X-CM-TRANSID:yQQGZQDXBGlIYP1qHSRHAQ--.37447S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxCw4fXFyxuFWUXw47Gr1rJFb_yoW5Cr4xpF
-	Z8Aas8KrW8Gr43Ca4xJw48uas09a1DXFy5Wr1xCwsxWw45GFW0yryxKFs0vF1jkrWrJa97
-	JF4Yqa43Ca9FkFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
-	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r
-	15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
-	FIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r43Mx
-	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
-	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
-	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5vPftUUUUU==
-X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQYPD2r81Zf3kwAAs3
+        d=gmail.com; s=20260707; t=1794990238; x=1795595038; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/6/kh5W30HhpdBPfGGAYex3HyQBO9GYAQyqbkb72JOY=;
+        b=EvXJLKLSa/4hjF0z9uIGue3u4pc6jkvzQtH1f0PBQlA2FVXtoPM6ojFBdYIrO9fCHd
+         gHLSqnSeEfO1o+aR4+ToQqcMZJXpNI/PpQsRjf3JnYKg4l5OrG9GfOx2ognqvlqwf4cC
+         oGfa8z3jCGvAgOY0DG/zesjLpzS0sbKftLc2dkRKHA3lQrbh/GG6JQGSWndQyDh1LCbx
+         VAmw19KDh16mWOJxlCIFgQtSBIq0E/kB17vYawIjnftezLPjh/QwRoL+5BTwAxd5rL1x
+         sHfLbLcUbC+z+MB2OlR+2AS3n0IDuJrhjyndONQJwnw7e4zWqLVTaowQaFc4fU+LENot
+         nrrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794990238; x=1795595038;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=/6/kh5W30HhpdBPfGGAYex3HyQBO9GYAQyqbkb72JOY=;
+        b=EjEp9ZxRSFXw8q+FbMNim3sP+7mYKsNMrakYAbRHGFgDdaQW7ZGbMwwE+1sZGpREIC
+         eTApZ2I4q5jEija55mkh4NOGXNqRAy2UKIMxWlMSMpGRqm50DwiQDK0KuV0IVZQF4oNa
+         wtLjg+BSaTVmq+6MzLobjUAJJgLyCYVxkvaFgFyU8Q0Dku0ID/IDQyIuSacZ22FklSyf
+         WSRtl1UyLc/BSwxlKxR9kEanQL5/8g6XCAFNnHc4FK04uiywjw94ZzZpgECUua5TZTlz
+         vMU768+Fl3inyHCBpjOFKKK4judnm8QSTXikjVJVPDefivrSX/eMiShBtP7JDDUxwMV4
+         jgBg==
+X-Forwarded-Encrypted: i=1; AL+hErHnXnRVFymXny/Aiht5XXPCX0Nm6yiIozVJkKD4YH4R8Dfg6FdavH3ST/LmofvML61hid1NLRA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9q0RK+g+s6cUejF+S+DTNlBzhvMI5mcphZ0sV98E4WkisMK1u7
+	ESIJ0AFQykD3R3C4OCTRYar0Ur4ya7NcfKSl3BYPpPpUkbaIabnoqplHZEz8tht8H3b03vRHR3Y
+	0LGEpoRe2eKEcNzPG/hql72R4rmH5LTE=
+X-Gm-Gg: AYBFou1+yWxqQKePZnGmsMe67m+omg16lTIYhgK5rqirsKLOOa5cTAJ1Et9/IcfuR30
+	UHBJDMZYQ8OCi6BQlb4Cq8LUEWuuJophn+9gyEbTF+Dmpld+RAyy7rB/n93I/QnVSr7bJ6waFnX
+	QFO7xn00A+m0yaT0veU0x97th457jn65rDQUh4jWUpotaozxKvw0pF5MrKHtlf431+YUx2VBCLt
+	pbtvEEfsQKXYy2vV9n0cGYWB9eLhtEmbismrZ5rNM4CRd1ttT8kUTi6GZuv9oox/4sxacS8JCEm
+	jnQ0OFf81voTxBB40kxHOwMuOkznhgTPLiga6xQvkCFDIxqprjKRhcT8DErgczOvgz4fMmhWdzk
+	FxkYkvhCC8sOIsp5yMVDWwWPPQk40HejoQFjHmnptl7XJHo6vtjqI/sc5iNhkvaKaNinDiyo27F
+	jqymxfa8CyBhrseaSeK6lx1fVqWt+slgcbH2uDV2iAmEtU0DeKrt/+s0CuD6fkyQ==
+X-Received: by 2002:a05:651c:a165:b0:3ac:d178:4fab with SMTP id
+ 38308e7fff4ca-3ae670bf950mr5692991fa.15.1794990237903; Wed, 18 Nov 2026
+ 00:23:57 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,71 +103,26 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+References: <20261118081530.32-1-luob87709@gmail.com> <179498993525.3291.5601341761915431183@kernel.org>
+In-Reply-To: <179498993525.3291.5601341761915431183@kernel.org>
+From: bin luo <luob87709@gmail.com>
+Date: Wed, 18 Nov 2026 16:23:45 +0800
+X-Gm-Features: AclHuK8tzrXAnBEEnV7izSR1ok85RQGJJb1sS75npmL1o0nlxOXbqqrnO8hfmRg
+Message-ID: <CALa7h7Ges-aY7SrJcODTESgq8q04Ak5a_3ksT1FTjQe8RYzwWg@mail.gmail.com>
+Subject: Re: [PATCH v2] net/nfc: fix skb ownership on data exchange errors
+To: netdev-bot+sinfo@kernel.org
+Cc: oe-linux-nfc@lists.linux.dev, johan@kernel.org, david+nfc@ixit.cz, 
+	netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+Hi,
 
-mchp_sparx5_probe() reads the DT ethernet-port 'reg' property into
-portno, which sparx5_create_port() later uses to index the fixed-size
-sparx5->ports[] array:
+The issue was first identified through manual code inspection during
+our NFC callback-ownership audit. I traced the NCI data-exchange
+completion path into rawsock and found that a non-NULL skb could
+bypass cleanup on the error path. I then reproduced the behavior with
+a QEMU NFC_VIRTUAL_NCI test.
 
-    sparx5->ports[config->portno] = spx5_port;
-
-The value is never validated, so an out-of-range 'reg' (runtime overlay,
-corrupted or attacker-controlled DTB, kexec-supplied or bootloader
-fixed-up DT) turns probe into an out-of-bounds write.
-
-Skip port nodes with an out-of-range 'reg'.  lan966x_probe_port() has
-the same bounds check but fails probe with -EINVAL; skipping here keeps
-the remaining valid ports working.  The bound is the per-chip port count
-from the match data (sparx5->data->consts->n_ports), so lan969x, which
-shares this probe path and has only 30 ports, is bounded correctly as
-well.
-
-Found by a scripted scan of of_property_read_u32() call sites used to
-index fixed-size arrays, followed by manual review. Verified at runtime
-on a pristine v7.4-rc2 arm64 QEMU virt machine (inline KASAN,
-CONFIG_SPARX5_SWITCH=m): an out-of-tree module supplies only a
-malicious DT overlay, the unmodified in-tree driver performs the store.
-reg = 15839 yields a KASAN use-after-free, reg = 0x20000000 a wild
-write 4 GiB out (paging oops), and reg = 65 silent in-struct corruption
-with a later NULL oops. With this patch all three are skipped. The PoC
-and full logs are posted in the thread. Not tested on real hardware,
-QEMU virt (cortex-a57) and compile testing only.
-
-Fixes: f3cad2611a77 ("net: sparx5: add hostmode with phylink support")
-Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
----
-v2 -> v3:
-- Fix the diff paths (a/a/ -> a/, b/b/ -> b/) so the patch applies
-  (Daniel Machon).
-- Restore the in-body From: line so the author matches the Signed-off-by
-  (checkpatch author/Signed-off-by mismatch).
-- Clarify that lan966x fails probe instead of skipping (Daniel Machon).
-
-v1 -> v2:
-- Check against sparx5->data->consts->n_ports instead of SPX5_PORTS,
-  so that lan969x (30 ports), which goes through the same probe, is
-  bounded correctly as well (Daniel Machon).
-- Document how the issue was found, the runtime verification and the
-  test setup, as requested by the patch bot.
-
- drivers/net/ethernet/microchip/sparx5/sparx5_main.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-index 08a398adf..164706745 100644
---- a/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-+++ b/drivers/net/ethernet/microchip/sparx5/sparx5_main.c
-@@ -845,6 +845,11 @@ static int mchp_sparx5_probe(struct platform_device *pdev)
- 			dev_err(sparx5->dev, "port reg property error\n");
- 			continue;
- 		}
-+		if (portno >= sparx5->data->consts->n_ports) {
-+			dev_err(sparx5->dev, "port %u: reg out of range\n",
-+				portno);
-+			continue;
-+		}
- 		config = &configs[idx];
- 		conf = &config->conf;
- 		conf->speed = SPEED_UNKNOWN;
-
+Best regards,
+Bin Luo
