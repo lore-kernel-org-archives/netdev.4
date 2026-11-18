@@ -1,55 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794997738;
-	b=QOQKG+1QXGXiPocJ5/r8V5jMI6f7hb6o5TU2zos7pOMpLB09eKubq8LJH+ZQjfTZvYE1
-	 0eIzV8aAvWTXgNWUgLY3L1r0HlMHqOlOIOrjUVtwVVuhf+GPfKcQ+NzB6JV2mNmj/jsHO
-	 n+hKWae9wiUZd0KL3ggsnaYj/75u3Y13F9prNn8sQvgt0rFtOZYsBZ3fB7pUOqm6gQYLH
-	 3y4Yw3G7T4APRmYfN29+PoUABWgZzqpb4dKIKwoyElhbgngMDkwGQqBjknGm3L/IgSYZN
-	 f4moj2hVELP8M1MyImgKIUO9ECW14aUwA0PGAC/r67LzFoTAW31vbQxNXkzD4/oMovg==
+	t=1794997917;
+	b=O6OrxudKn4NbNpqrKry59V7wUV1kdgAacZVLEQlmFC18h+q/NYnHtrL5fyKJ0yHrOCG4
+	 4bNw723uxAKwXkqSlr836U2IyHQaxTsFm8xcr6Etc0eArtc0ygHbgmank0bkF8vXxjwHU
+	 NcOhD9dItqJfiPz5+vdzHQrauwKUa86003HoA5WHPr88ZzIEP69jTr9hLffve/uNbl3V6
+	 BPygFFK7OicMfeYNV77otrGsejmjcwT41RfkwKsXvfRpi8Zhd25w4e8dVNvkpAIjMXsqk
+	 6bRjKB0gY7bmVJGDOw3Nc1YMRUUqY240NDM9t07LCt0epF8eVeVP57z4GYRnqdm/Vxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794997738;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=hyYrCKddYun6Ci2oVE4KqeDabN1R54MsEm3bclQ1m+Y=;
-	b=Yywa8r7jRBr2ygwE/9oK9S+0N2iVeS7qVSYXRKsg6yGYjZkrN8qBISUWLwm6d/+p0zze
-	 X8dn7Vh/L4ExhEr+fSeeQh5yIHaml9cieoKukmA4HBVy8KPAIa1nIAGWu9v7k9wzG1nkF
-	 w8ubdWAonw9kCozp9ljJ1LQSJLiI6cId3Uj8IpMmZ5Dzr0998Ey0sEcOgGx70kfYiSyVe
-	 xnQcSm7pnAT95tcQ6dcJI2Fp9bFXr8P06/M5c7wlGUnlV/XygAKz+DUCVBWP3n3Hs5uDV
-	 wTDyEfJuOw8mUm9kFSSy49OimdHWK74wm3LC/oJ3zrS79mO21sBtgP+3Bo+LaTv6qBg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794997917;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=K+3qy+pdgU4poU7W343gIQ62KQAmGsAKUXW1vCEZTnM=;
+	b=3akZre7lzm4I5SrLTx2ajuVl93sEpwJ97Tn4apbpgJyC9Mwd8juq0g38yyCVvWxIoEmv
+	 Y3dDHW3DYHqD3SvP6QuSlCA+vHZGKXmAP9mz8oZCcKlTKzUdqtec28dk8aU9sC2T/1BVH
+	 IyQKkzi3s9Q2OFAi2QmUDutWLPscHkAFy979pLDCe0dhQR9rAZlt97tLj0OskS6ZkVZ3B
+	 pI/1Qhk7ZinL+TepClnc+Y9nIVas5rAwvEClpT+5FkIqFMFMenTq6TEhXVM/kr0iIb+Er
+	 PpPQKY+rD69VBHFoOJaNZgP46hiDpxvRPb6wq6IhSPGPtlIVYlcQZb7OjoHnIM2jKOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hqk+8mEJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e6snppa8;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6DE6606A320
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:28:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFF24606A33B;
+	Wed, 18 Nov 2026 10:31:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hqk+8mEJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4B0E1F000C9
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:28:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e6snppa8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86D671F000C4;
+	Wed, 18 Nov 2026 10:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794997738;
-	bh=hyYrCKddYun6Ci2oVE4KqeDabN1R54MsEm3bclQ1m+Y=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc;
-	b=Hqk+8mEJ7vtA7W/h5nUCLhMl0lGcipzVhs33vxhvi3a0NnuG6PbosFnmWHshDD7hA
-	 P5z3cktyEIzrNXNBEHc80Td5YNge9iBCtRB4h/qtbGhSCrLuB5rfU/Hc595FQminIn
-	 ycxMu/z5Reo3vH1bL/lVCp4C6Q4Wgq9PEpFjfkykCaTkMvnnwIsKYOFYWLdS3047Du
-	 +ciOYqk1bx5B0/Qy7wGqo4aVI8e767y8lQ3YXV6ORWeWeh9lrViIyMJJEgBvJjVsA7
-	 j2LvQVSL6SbZ7l2AkC4mQoqzfjMoZ7R1vMS+NKaB1luiH+AfrcM6YR5u8aS21vciBT
-	 tvvCeANkwjlRQ==
-Received: by mail-oo1-f51.google.com with SMTP id 006d021491bc7-716d052dc23so413460eaf.1
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:28:58 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErHbObgbyDslUztBIvFoJnJDkxa2O66I4WIsQtgTj7wNRHQ8Suiq7xI2px8Lill80k6JBoRbMIg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8GPOa1KA+JqXMR4cYy/8bSuSnxW36Nphz1e3SYL2YnPBTeRlbA
-	hxHSltHer/PqEWVuUq00pQ34Ol1hYBux9ubqVcbA3pWTF9pEnulQ37yqNHa0YqAMDXafEN+X17+
-	rHevaDoAhHz8mVIeLccOOBJEBUqy0pgo=
-X-Received: by 2002:a05:6820:1c84:b0:6d7:a13d:fd7b with SMTP id
- 006d021491bc7-71b18483801mr1460952eaf.28.1794997737802; Wed, 18 Nov 2026
- 02:28:57 -0800 (PST)
+	s=k20260515; t=1794997917;
+	bh=K+3qy+pdgU4poU7W343gIQ62KQAmGsAKUXW1vCEZTnM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=e6snppa8sNdz1tlYA+wd2PBupoE9ThejL/9S3UWwrfjcgK7N19Hi5ESDldbB4UTAi
+	 o112KloqmErLW/DcWkZtWBUTvHHsFamufQ1TeFPlmuqJV8FVjhunuayIWdH1ztSqq7
+	 A4+bfSyaSdudEfLBU9IJyA3qIFtoHNXnurBy067oLFmzJC5p6doFv7vzbadZoXTOCm
+	 +uoZVyIRFWxfkNkMkQV5B5ObdbONfIS5B38129fO36dr6Y3mFaSMaUaLUxYJ31wlk+
+	 TkVCrHrRmnanI3vbtn12M7i7Minb6Z9c+NhgduqOZ4H2wTCRVqL0E+ZVGFG5SRM+wS
+	 Ggyh98kwMbRwg==
+Subject: Re: [PATCH net-next V2 06/10] net/mlx5: LAG, rename PF naming to fn
+From: netdev-bot+sashiko@kernel.org
+To: tariqt@nvidia.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+ cjubran@nvidia.com, cratiu@nvidia.com, gal@nvidia.com, leon@kernel.org,
+ linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
+ moshe@nvidia.com, ohartoov@nvidia.com, phaddad@nvidia.com, saeedm@nvidia.com,
+ shayd@nvidia.com, udar@nvidia.com
+Date: Wed, 18 Nov 2026 10:31:56 +0000
+Message-ID: <179499791613.3136.14627741130373185414@kernel.org>
+In-Reply-To: <20261116103010.1129666-7-tariqt@nvidia.com>
+References: <20261116103010.1129666-7-tariqt@nvidia.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,207 +65,157 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116230555.2305867-1-kuniyu@google.com> <20261116230555.2305867-6-kuniyu@google.com>
-In-Reply-To: <20261116230555.2305867-6-kuniyu@google.com>
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Wed, 18 Nov 2026 11:28:44 +0100
-X-Gmail-Original-Message-ID: <CAL4WiipeiomdeRaSOpRn6Unu4-ohwrdkWCZ9mRn1ELfrW24+XQ@mail.gmail.com>
-X-Gm-Features: AclHuK-sNpS4rMULS10qwTKTJag47_6QqpDqDc6vL03tNxIhG20bc3PJelJq6jE
-Message-ID: <CAL4WiipeiomdeRaSOpRn6Unu4-ohwrdkWCZ9mRn1ELfrW24+XQ@mail.gmail.com>
-Subject: Re: [PATCH v2 net-next 5/7] tcp: Allocate all new skb before collapsing.
-To: Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Neal Cardwell <ncardwell@google.com>, "David S . Miller" <davem@davemloft.net>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Matthieu Baerts <matttbe@kernel.org>, Mat Martineau <martineau@kernel.org>, 
-	Simon Horman <horms@kernel.org>, Kuniyuki Iwashima <kuni1840@gmail.com>, netdev@vger.kernel.org, 
-	mptcp@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Le mar. 17 nov. 2026 =C3=A0 00:06, Kuniyuki Iwashima <kuniyu@google.com> a =
-=C3=A9crit :
->
-> At the final stage, tcp_collapse() iterates over collapsible
-> candidate skbs and repacks them to new skbs.
->
-> In each iteration, a new skb is allocated and inserted to the
-> receive queue or a temporary list for RB tree.
->
-> If alloc_skb() fails while splitting a large bloated skb across
-> multiple new skbs, the partially-copied skb is not removed and
-> new skbs remain in the queue as duplicates, consuming more memory.
->
-> It is only when all candidates are properly collapsed that
-> we can save memory.
->
-> To avoid complicated rollback, let's preallocate skbs before
-> collapsing.
->
-> Now all skb in [start, sub_end) must be allocated in a batch,
-> so the section size is normally capped at TCP_COLLAPSE_MAX_TOTAL_SIZE
-> (16 skbs), except when a single bloated skb or overlapping OOO skbs
-> must be collapsed together to free the original skb or keep the
-> rbtree monotonic.
->
-> Once the size exceeds the limit, the remaining skbs are re-evaluated
-> from restart:.
->
-> Note that the next skb can be skipped if its density already meets
-> tp->scaling_ratio, and each cut adds at most one remainder skb
-> (~3.4% worst-case truesize overhead on 4 KiB pages), which is a
-> small tradeoff to bound the temporary allocation.
->
-> Signed-off-by: Kuniyuki Iwashima <kuniyu@google.com>
-> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-> ---
->  net/ipv4/tcp_input.c | 29 +++++++++++++++++++++--------
->  1 file changed, 21 insertions(+), 8 deletions(-)
->
-> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-> index 0815e1891fba..ca4cdb93373d 100644
-> --- a/net/ipv4/tcp_input.c
-> +++ b/net/ipv4/tcp_input.c
-> @@ -5812,6 +5812,7 @@ static struct sk_buff *tcp_skb_next(struct sk_buff =
-*skb, struct sk_buff_head *li
->  #define TCP_COLLAPSE_SCALING_RATIO                             \
->         ((TCP_COLLAPSE_MAX_SIZE << TCP_RMEM_TO_WIN_SCALE) /     \
->          (SKB_TRUESIZE(TCP_COLLAPSE_MAX_SIZE)))
-> +#define TCP_COLLAPSE_MAX_TOTAL_SIZE (TCP_COLLAPSE_MAX_SIZE * 16)
->
->  static bool tcp_collapse_skb_bloated(const struct sk_buff *skb,
->                                      u32 start, u8 scaling_ratio)
-> @@ -5852,8 +5853,9 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *=
-list, struct rb_root *root,
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
+
+Low priority / nit picks for your consideration:
+
+- [Low] The commit message misstates what this patch renames.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it is still
+  present at the end of the series.
+
+--
+
+net/mlx5: LAG, rename PF naming to fn
+
+This commit renames the LAG member bookkeeping from PF naming to fn. The
+ldev->pfs xarray becomes ldev->fns, the mlx5_lag_pf*() helpers become
+mlx5_lag_fn*(), and the pf locals become fn. The rename prepares for virt
+LAG, where LAG members will not always be physical functions.
+
+> Rename the xarray to ldev->fns, the helpers to mlx5_lag_fn*(), and the
+> locals to fn, so the naming matches struct lag_fn.
+
+[Severity: Low]
+Is this description accurate? struct lag_fn doesn't exist before this
+patch. The patch creates it by renaming the struct in lag.h:
+
+-struct lag_func {
++struct lag_fn {
+
+It also renames a field of struct mlx5_lag:
+
+-	u8			  max_funcs;
++	u8			  max_fns;
+
+The commit message mentions neither rename.
+
+The patch also makes a few small changes that are not renames:
+
+  - a new esw local in mlx5_lag_drop_rule_cleanup()
+  - dev0/dev1 moved above the switch in mlx5_lag_set_port_affinity()
+  - new mdev/affinity locals in mlx5_lag_create_port_sel_table() and
+    __mlx5_lag_modify_definers_destinations()
+
+Could the commit message mention these as well?
+
+A few spots look like they were missed by the rename. The pf_idx and
+pf_mdev locals remain in mlx5_lag_get_devices_oper_speed(),
+mlx5_lag_get_devices_max_speed(), mlx5_lag_set_vports_agg_speed() and
+mlx5_lag_reset_vports_speed():
+
+	mlx5_ldev_for_each(pf_idx, 0, ldev) {
+		...
+		pf_mdev = fn->dev;
+
+mlx5_get_next_lag_func() and mlx5_get_pre_lag_func() walk the renamed fns
+xarray but keep their old names.
+
+In mlx5_lag_mpesw_port_change_event(), the local now has the same name as
+the struct tag. The container_of() continuation lines are still aligned for
+the old, longer name:
+
+	struct lag_fn *lag_fn = container_of(mlx5_nb,
+						 struct lag_fn,
+						 port_change_nb);
+
+Was that intended?
+
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+> index cbef6ab1e38a8..74e7e7161c95d 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+
+[ ... ]
+
+> @@ -2390,24 +2392,24 @@ int mlx5_ldev_add_mdev(struct mlx5_lag *ldev,
+>  void mlx5_ldev_remove_mdev(struct mlx5_lag *ldev,
+>  			   struct mlx5_core_dev *dev)
 >  {
->         int old_truesize, new_truesize;
->         struct sk_buff *skb =3D head, *n;
-> -       struct sk_buff_head tmp;
-> +       struct sk_buff_head tmp, pool;
->         int remainder, nskbs;
-> +       struct sk_buff *nskb;
->         u8 scaling_ratio;
->         u32 sub_end;
->
-> @@ -5861,6 +5863,7 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *=
-list, struct rb_root *root,
->                             TCP_COLLAPSE_SCALING_RATIO);
->
->         __skb_queue_head_init(&tmp);
-> +       __skb_queue_head_init(&pool);
->
->         /* First, check that queue is collapsible and find
->          * the point where collapsing can be useful.
-> @@ -5908,8 +5911,9 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *=
-list, struct rb_root *root,
->
->                 /* seq and end_seq must increase monotonically for rbtree=
-. */
->                 if ((list || !before(TCP_SKB_CB(n)->seq, sub_end)) &&
-> -                   !tcp_collapse_skb_bloated(n, sub_end,
-> -                                             TCP_COLLAPSE_SCALING_RATIO)=
-)
-> +                   (TCP_SKB_CB(n)->end_seq - start >=3D TCP_COLLAPSE_MAX=
-_TOTAL_SIZE ||
-> +                    !tcp_collapse_skb_bloated(n, sub_end,
-> +                                              TCP_COLLAPSE_SCALING_RATIO=
-)))
->                         break;
 
-Sashiko has a point about the "overlapping OOO skbs" exception [1]:
-it is fully under control of the peer.
+[ ... ]
 
-For the ofo queue, as long as n->seq is before sub_end, neither the
-cap nor the density test is evaluated. tcp_data_queue_ofo() keeps
-partially overlapping segments, so a peer sending small segments,
-each of them overlapping the previous one by one byte, builds a chain
-that tcp_collapse() sees as a single section covering the whole
-ofo queue.
+> -	pf->dev = NULL;
+> +	fn->dev = NULL;
+>  	dev->priv.lag = NULL;
+> -	xa_erase(&ldev->pfs, pf->idx);
+> -	kfree(pf);
+> +	xa_erase(&ldev->fns, fn->idx);
+> +	kfree(fn);
+>  }
 
->
->                 sub_end =3D TCP_SKB_CB(n)->end_seq;
-> @@ -5924,6 +5928,8 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *=
-list, struct rb_root *root,
->         if (remainder) {
->                 nskbs++;
->                 new_truesize +=3D compute_skb_truesize(remainder, GFP_ATO=
-MIC);
-> +       } else {
-> +               remainder =3D TCP_COLLAPSE_MAX_SIZE;
->         }
->
->         if (old_truesize <=3D new_truesize) {
-> @@ -5932,14 +5938,19 @@ tcp_collapse(struct sock *sk, struct sk_buff_head=
- *list, struct rb_root *root,
->                 goto restart;
->         }
->
-> -       while (before(start, sub_end)) {
-> -               int copy =3D min_t(int, TCP_COLLAPSE_MAX_SIZE, sub_end - =
-start);
-> -               struct sk_buff *nskb;
-> -
-> -               nskb =3D alloc_skb(copy, GFP_ATOMIC);
-> +       while (nskbs--) {
-> +               nskb =3D alloc_skb(nskbs ? TCP_COLLAPSE_MAX_SIZE : remain=
-der,
-> +                                GFP_ATOMIC);
->                 if (!nskb)
->                         goto end;
->
-> +               __skb_queue_tail(&pool, nskb);
-> +       }
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. Since
+this code is being touched: is it safe to free the lag_fn here while
+readers holding only lag_lock may still be using it?
 
-Then this loop is only bounded by sk_rcvbuf.
+mlx5_ldev_remove_mdev() runs with only ldev->lock held. It is called from:
 
-With a big tcp_rmem[2], this can be megabytes of GFP_ATOMIC memory
-allocated at once, not charged to the socket, while all the
-original skbs are still in the queue. Before this patch the
-overshoot was about one skb, because originals were freed while
-being copied.
+  - mlx5_unload()->mlx5_lag_remove_mdev()
+  - sd_lag_cleanup()
+  - the error path of sd_lag_init()
 
-Also, a single alloc_skb() failure now discards the whole batch,
-so such a queue might never be collapsed, precisely when we are
-under memory pressure.
+It erases the entry and frees it right away with kfree(). There is no RCU
+grace period, and lag_lock is not taken.
 
-I think TCP_COLLAPSE_MAX_TOTAL_SIZE must be a hard limit for anything
-but the single (first) skb case.
+Several exported helpers walk the same ldev->fns xarray while holding only
+lag_lock, without ldev->lock. For example:
 
-Legitimate overlaps (retransmits with a different segmentation) only
-involve a few skbs. A long chain of overlapping skbs is not something
-we need to optimize for, so my preference would be to simply not
-collapse it:
+mlx5_lag_get_next_peer_mdev() {
+	spin_lock_irqsave(&lag_lock, flags);
+	...
+	mlx5_lag_for_each(idx, *i, ldev, mlx5_lag_get_filter(ldev, dev)) {
+		fn = mlx5_lag_fn(ldev, idx);
+		if (fn->dev != dev)
+			break;
+	}
+	...
+	fn = mlx5_lag_fn(ldev, idx);
+	peer_dev = fn->dev;
+	...
+}
 
-Keep walking the chain in the second loop so that sub_end is
-correct, remember that the cap has been exceeded, then skip the
-section the same way patch 4 does:
+mlx5_lag_is_master(), mlx5_lag_is_shared_fdb() and mlx5_lag_is_sd() read
+fn->dev, fn->group_id and fn->sd_fdb_active through mlx5_lag_get_filter()
+and mlx5_lag_fn_by_dev(). mlx5_lag_get_slave_port() and
+mlx5_lag_active_backup_get_netdev() also dereference entries while holding
+only lag_lock.
 
-        start =3D sub_end;
-        skb =3D n;
-        goto restart;
+Can this interleaving happen between two devices in the same ldev?
 
-tcp_prune_ofo_queue() will take care of these skbs if we are still
-over the limit.
+CPU0 (peer device A)             CPU1 (device B unload)
+mlx5_esw_is_owner()
+  mlx5_lag_is_master()
+    spin_lock_irqsave(&lag_lock)
+    mlx5_lag_get_filter()
+      mlx5_lag_fn_by_dev()
+        xa_for_each() loads fn
+                                 mlx5_lag_remove_mdev()
+                                   mutex_lock(&ldev->lock)
+                                   mlx5_ldev_remove_mdev()
+                                     xa_erase(&ldev->fns, fn->idx)
+                                     kfree(fn)
+        fn->dev == dev   <- reads freed memory
 
-The alternative would be to cut the chain at the cap, but then the
-next section starts with an skb whose seq is before @start, and this
-skb would have to be collapsed unconditionally (even if not bloated,
-even if patch 4 says the result is not smaller) to keep the rbtree
-ordered. This also means @released could be negative in patch 6.
-This looks more fragile to me.
+If mlx5_lag_get_next_peer_mdev() hits the same window, it returns the stale
+fn->dev to its caller as a peer mlx5_core_dev pointer.
 
-Related to this: in patch 4, when the second loop breaks on
-!tcp_skb_can_collapse_rx() (or SYN/FIN, unreadable frags) with an
-overlapping @n in the rbtree, @n can stay in the tree and the last
-nskb of the previous section is inserted after it, with a smaller
-end_seq. To be fair, the current code has the same issue (goto end
-in the copy loop), but since you are making the ordering explicit
-in patch 3, it would be nice to cover it: the same "skip the
-section" logic could be used when the loop stops on an overlapping
-skb that can not be collapsed.
+The baseline already has the same xa_erase() and kfree() in
+mlx5_ldev_remove_mdev(), and nothing later in the series changes this.
 
-Whatever option you choose, please add a comment next to
-TCP_COLLAPSE_MAX_TOTAL_SIZE describing what it bounds and its
-exceptions.
-
-[1] https://lore.kernel.org/netdev/179495722211.3136.15241045445062201797@k=
-ernel.org/
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116103010.1129666-1-tariqt%40nvidia.com
