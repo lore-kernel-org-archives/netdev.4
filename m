@@ -1,85 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794991134;
-	b=E736qGqbpUPyZAHMOtI8c2zwoCUyzqDy751sDkjhFI9fPw/IFRzc0ys0lcRndEHsltJ3
-	 5C7iwjFmrrp26sPJC5XtR0GSIxZuxNqpeII985atGjMdk5UgIJZnJiEXVwi+LGp83+mMH
-	 oo8TeZD4yW+muOMhdQvHRmshWGLoVHVhOdfB78zGKF1xPH+EFuQsUAN2CkF9kiXJ8Z/C9
-	 xojER2KbC34gBsWj2bBknxE8cyStUe8VSZ/j/0bp9ujR43Sj1lcjd4DShzBZ/zwYwaZKC
-	 WPah1omlSqMzucCHUzqlaC6g/GHMvcaKQ9Xcn4KN0uzhigGs1oqvBTLATCdknReJXZA==
+	t=1794991251;
+	b=GDo/FlV25Cp1naBqGoh/yw3YfwCI/XxGEFhFZAGKB+unThLv3Gn5mkbyB8jf2d5LEYdv
+	 BNif5+tBYnTML5MgDPknU0csx1KVfCXyWqwW9RKw5Rndf2NMLd9YDCqalHFT6+z38OKug
+	 B0z+tDx2FVYkVml7Gx+XinY9HBgp2bfvh3SqBHOhE+mFvC7B8ZSDSb/bmrVds8isBg53B
+	 3J/WXwfhON1EUaAZauPqp7fxKketzLYjNqSU4tx4zExwH4ylzgfDa+U5BkIksd3eQA93d
+	 vj3C11y95yVGDZeHU6LDWSQl8Q3LVBgOVfdEGHoviM8u/gHgoJa4I8cQ6Qzby7EY/7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794991134;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Thread-Topic:Thread-Index:Date:Message-ID:
-	 References:In-Reply-To:Accept-Language:Content-Language:
-	 x-originating-ip:Content-Type:Content-Transfer-Encoding:MIME-Version;
-	bh=yTaC3kglV/CRr/khGG/rEda/XWAoN+VFABgn6XUjuZc=;
-	b=TCic1r5pcZyGasmNpiFJfMY4iYONOdToYz68Qy+7Jx7D252Zqnm+Vyw+GPJz/u7boxZJ
-	 ZxeKliYRqSEXJESDRHuuLcqOy8WWGkFtCowFLEAH/GL8YIM+tKZ9UaBSBgDT2x5EIjW3R
-	 Mwd38TvTOstxbqZqZuFWmi/CnxwBsZN+jA5GSvq4v+W26cIRedW8AC+53v32Sz0J+44Wr
-	 o3iY9f3cJs/QLeezjOErpmh4IIXgrTYVyqtiKZKDCsutCgPp5m34PuZ0CxqkOfuZO2DUZ
-	 0j/P5BSW/DnYhUzAJl9UfRbmdPp/23ZUq31fuBj2oOFsYvkclRnEa6vcQKjzXYCyxgw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794991251;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=tijoJhJqHiLzmfJFX+bvaWaW5flN5ch0p4c9n0FIh3w=;
+	b=PYOJapzqXqwWPNGQSSej90GrSZP2kjBC+NIxtLpzPMDp+w98KTPoTJBkoq5kiqRwee9V
+	 L2y73Ljv99u/qoAhYARd8yhzSk7tJSX7y6eSw6ubkNvJj6yUnoGntCNJ61yxoA0ChllO5
+	 URtftnGhOsYeT3xGTEBC2hb0RGEIFAnhUZvYqLd1Kldf3AKKBMQHZ2mns95nWCVyLfot0
+	 aq26FHMpONdmIYvp0eAGH1lJ9sX2Q2IH+SyQV3S9Q96LFh4e93esoY0c6+nPqRHokkRUj
+	 w/l4FvbjK5RP8t4on4U/zikxnXhGV7ISmE8VaK75JxNBGExd3hH2vXF7o18UfqPwOLw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realtek.com;
-	spf=pass smtp.mailfrom=realtek.com;
-	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=OcCslqf3;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ng+LnpIS;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21DCD606A31C;
-	Wed, 18 Nov 2026 08:38:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21DCD606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0913D606A33F
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 08:40:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0913D606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=OcCslqf3
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AI8c6oR51187651, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
-	t=1794991086; bh=yTaC3kglV/CRr/khGG/rEda/XWAoN+VFABgn6XUjuZc=;
-	h=From:To:CC:Subject:Date:Message-ID:References:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:MIME-Version;
-	b=OcCslqf3J8buj3P91sni+Xoh/sYgJlrd9PQMZKFhugrVeb1rAkGvGNoAw4lZ6ujvW
-	 0SQsVFCso2/zaAaCMDesXCZL7sWLekR7D5SXrepH1yB6yPZMhmfHtM4VbPCGYNDLnC
-	 3mhZsLmCN3U8XzIU1J2L++uJAlMxhdIfehNJHwEgHa37AFpWD1bikPFaUoRr1E1wSV
-	 9B7aR5hoy6RJgsdEdNG4EZ+JWcg0jvjychMo8vIywOlSrwrFkVuXMWetlR7h4sXnZq
-	 a69rRFNfn7FH7IxyG6dfZdj4P8pH9ZYmFOZ6ABfKHVVAmRcCvjZ2FKU2WHK+c+M9jm
-	 boFJ68MtXgkFw==
-Received: from mail.realtek.com (rtkexhmbs04.realtek.com.tw[10.21.1.54])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AI8c6oR51187651
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 18 Nov 2026 16:38:06 +0800
-Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
- RTKEXHMBS04.realtek.com.tw (10.21.1.54) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 18 Nov 2026 16:38:06 +0800
-Received: from RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef]) by
- RTKEXHMBS06.realtek.com.tw ([fe80::eeeb:c765:ca73:5eef%10]) with mapi id
- 15.02.2562.056; Wed, 18 Nov 2026 16:38:06 +0800
-From: Chih Kai Hsu <hsu.chih.kai@realtek.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
-CC: "davem@davemloft.net" <davem@davemloft.net>, "kuba@kernel.org"
-	<kuba@kernel.org>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	nic_swsd <nic_swsd@realtek.com>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-usb@vger.kernel.org"
-	<linux-usb@vger.kernel.org>, "edumazet@google.com" <edumazet@google.com>,
-	"bjorn@mork.no" <bjorn@mork.no>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "mail@birger-koblitz.de"
-	<mail@birger-koblitz.de>
-Subject: RE: [PATCH net-next v8 06/11] r8152: add new init writes for
- RTL8156/8156B/8157/8159
-Thread-Topic: [PATCH net-next v8 06/11] r8152: add new init writes for
- RTL8156/8156B/8157/8159
-Thread-Index: AQHdcML+sJzPbTRchkm8kmytHOT0SbcszWcAgAa/nnA=
-Date: Wed, 18 Nov 2026 08:38:06 +0000
-Message-ID: <cf7f59fa1e624344a0f86fbd8280c239@realtek.com>
-References: <20261110032416.16968-7-nic_swsd@realtek.com>
- <179464851473.2199510.6808488710116582608@kernel.org>
-In-Reply-To: <179464851473.2199510.6808488710116582608@kernel.org>
-Accept-Language: zh-TW, en-US
-Content-Language: zh-TW
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ng+LnpIS
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-36f8cdd30beso8051eec.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 00:40:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1794991249; x=1795596049; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=tijoJhJqHiLzmfJFX+bvaWaW5flN5ch0p4c9n0FIh3w=;
+        b=Ng+LnpISPzX+CTmD92puWUFI5csL2ej5pesWPAA0ge+nejhAOJK76/uCfJcESkcR7h
+         OUxiM+VgEZ08G8M5owwRQ/88BcbxvktY7aEeEhbzB7N0aCVp2uyDleLX+93NP/Z4fW68
+         lmCCwhXLerij2Mg3zaFHAM3+fCJ53sj8b+xqsEpYXpNpKSZJFPaQvI6GDDnykkfUawQm
+         iBZu+pLuQhUozDMq1WQ/x2eBzySX5VPx2bZ3snsb9pStn3CsGE/WmsLOH4vNffm6aXvo
+         1tTWM6b9xw08Mya23hRuc5RJTp4Ue5fDZ4O1ltpLsCCX+daJT1bO8GEp1i9HfG1SDRIO
+         mPRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794991249; x=1795596049;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=tijoJhJqHiLzmfJFX+bvaWaW5flN5ch0p4c9n0FIh3w=;
+        b=qoSyOVRaSfBWx/kad40hz59UsZxahK5PLQUPB6ic8E/Arxob3tZvsCkZcLfuaCPmo4
+         7nQb4Eu9U4mBQ6zNZWDfobGc3oywxRU4GTx1ZbMe5zA5m/K1EuR82yheZ69q6EfCqFut
+         YsCUslnGsXmR4eD97GA8kbEy4YH/SNFq9V+69k3GXH+aO+KW0qTuYAAuRFUMyb2lZZzC
+         SPHloQItr1gwZw6h1EvZCS2s5UGxzd8dz2mv2rZ3T64kTGCvBVbCUlk7yOdX555MzBDZ
+         HJgScDELAyRN+hSMxyozCbegyr42ROzj6n4F1lSp0nP5Pz/oiNdiAxKHKRnjKhM4h6W8
+         /O8w==
+X-Forwarded-Encrypted: i=1; AL+hErFZsNGr86YRA2oUsDMDfLFqnDPvu7mj9QdFICBN6SJyELyxaNKvQs49QENrObsq5pa9af4EkYo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+baHWRS1t15SPMldkWOtvziuqNb8VgICp8Q5harQ6/jZQEaFF7
+	t0GpqhnSwz5Kziknt3j4dzjkw6C+gug3bpy3rlZKFkfK186q4e2difmi
+X-Gm-Gg: AZFdTZdcwN+B+NIga8sdXr5VApPpV74h3bbnsF6csvK106SlbqopMlu30lBxhQWnFTW
+	+EXNxX4NRZJhvFhzzq4yz/E9p635ejmjVahbE76qk9RFzfevzQ0S72rEfCpA/7RENphoXAkT/sA
+	jlvBiwqY3ilubwaYgj9lfj/47NpyPwCp2jnFvdgmqm5BodnHHjXE5NNcRmeLB2Sao91Ai4KRpur
+	6A+fDFoJrbXAe8LdecfsxjcK1uBT4NVdaNWN0brdecV5eHf7RsYwYfh6fSPMnEW8N7vfGyHJ7UD
+	R3FinVWTguqzlTNaFF+wMuDSuBVGkgNsT9njWhci/6g5u8D4hWvWgisnbjbN8tHnFiH/Jz12J5N
+	z7ILEAPTuctxFm02M4sVEargmpgHRWAuWZ5G2kGDm+hYGsD58vLArHauj6dhajZUYUJGb180HW9
+	3KgmErIxrpD6FSAJO2hPXR87Msd5CRdwQ+qy5JELR2zMVmu+55KrXq4Kbw7tFCP6se6hNMccig1
+	fa79d7gpDw4LQ+c7bc+tOiXN1c/eY9DFdvs0h8ZOXqUN+k1JIl1PrgrdLl+k/XgVMaIVC516XHy
+	CqE+GAGTSCkzPyrU0SIaVN66tpajdKt3kcfvpUo=
+X-Received: by 2002:a05:7300:26a4:b0:382:61d0:f375 with SMTP id 5a478bee46e88-382802697a3mr1982345eec.7.1794991249093;
+        Wed, 18 Nov 2026 00:40:49 -0800 (PST)
+Received: from kq.cs.ucr.edu (kq.cs.ucr.edu. [169.235.27.223])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-382a63059e3sm8528784eec.5.2026.11.18.00.40.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 18 Nov 2026 00:40:48 -0800 (PST)
+From: Zhengchuan Liang <zcliangcn@gmail.com>
+To: Aaron Conole <aconole@redhat.com>
+Cc: Eelco Chaudron <echaudro@redhat.com>,
+	Ilya Maximets <i.maximets@ovn.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Pravin B Shelar <pshelar@nicira.com>,
+	Jesse Gross <jesse@nicira.com>,
+	netdev@vger.kernel.org,
+	dev@openvswitch.org,
+	linux-kernel@vger.kernel.org,
+	Zhengchuan Liang <zcliangcn@gmail.com>
+Subject: [PATCH net-next] net: openvswitch: avoid hashing the network namespace pointer
+Date: Wed, 18 Nov 2026 00:37:28 -0800
+Message-Id: <4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -89,99 +105,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-PiBUaGFuayB5b3UgZm9yIHlvdXIgY29udHJpYnV0aW9uISBTYXNoaWtvIEFJIHJldmlldyBmb3Vu
-ZCAyIHBvdGVudGlhbA0KPiBpc3N1ZShzKSB0byBjb25zaWRlci4NCj4gDQo+IENyaXRpY2FsOiAw
-IMK3IEhpZ2g6IDAgwrcgTWVkaXVtOiAxIMK3IExvdzogMQ0KPiANCj4gSWYgeW91IGJlbGlldmUg
-bm9uZSBvZiB0aGUgaXNzdWVzIGFyZSBsZWdpdGltYXRlLCBwbGVhc2UgcmVwbHkgdG8gZWFjaCBp
-c3N1ZSBvZg0KPiBNZWRpdW0gc2V2ZXJpdHkgb3IgaGlnaGVyIGFuZCBleHBsYWluIHdoeSB0aGUg
-QUkgaXMgd3JvbmcuDQo+IElmIGFueSBvZiB0aGVtIGFyZSBsZWdpdGltYXRlIGFuZCB5b3UgcGxh
-biB0byByZXNwaW4sIHBsZWFzZSBsZXQgcGF0Y2h3b3JrIGtub3cNCj4gYnkgaW5jbHVkaW5nICJw
-dy1ib3Q6IGNyIiBhcyBhIHNlcGFyYXRlIGxpbmUgYXQgdGhlIGVuZCBvZiB5b3VyIHJlcGx5IChv
-bmUgc3VjaA0KPiByZXBseSBwZXIgc2VyaWVzIGlzIGVub3VnaCkuDQo+IA0KPiAtIFtNZWRpdW1d
-IHI4MTU2X2luaXQoKSAoUlRMX1RFU1RfMDEvVkVSXzEwLzExLzEyLzEzLzE1KSBhbmQgcjgxNTdf
-aW5pdCgpDQo+ICAgKFZFUl8xNi8xNykgbm93IGFsd2F5cyBjbGVhciBSTVRfV0FLRV9FTiAoQklU
-KDApIG9mIFBMQSAweGUwYzgpLg0KPiAtIFtMb3ddIFRoZSBjb21taXQgbWVzc2FnZSBsaXN0cyBl
-YWNoIG5ldyByZWdpc3RlciB3cml0ZSBidXQgZXhwbGFpbnMNCj4gICBvbmx5IG9uZSBvZiB0aGVt
-IChSWF9FTkRfVFJBTlNGRVJfRU4pLg0KPiANCj4gLS0NCj4gDQo+IHI4MTUyOiBhZGQgbmV3IGlu
-aXQgd3JpdGVzIGZvciBSVEw4MTU2LzgxNTZCLzgxNTcvODE1OQ0KPiANCj4gVGhpcyBjb21taXQg
-YWRkcyByZWdpc3RlciB3cml0ZXMgdG8gcjgxNTZfaW5pdCgpIGFuZCByODE1N19pbml0KCkgc28g
-dGhleSBtYXRjaA0KPiB0aGUgdmVuZG9yIGluaXQgc2VxdWVuY2UuIEJvdGggZnVuY3Rpb25zIG5v
-dyBjbGVhciBQUkVCT09UX09QVElPTiBhbmQNCj4gUk1UX1dBS0VfRU4sIGFuZCBSVEw4MTU2QiBn
-ZXRzIGEgdTJwaHkgYmFja3VwLiByODE1N19pbml0KCkgYWxzbyBkaXNhYmxlcw0KPiBpbnRlcnJ1
-cHQgbWl0aWdhdGlvbiBhbmQgQVVUT19TUEVFRFVQLCBjbGVhcnMgdGhlIHJlc2V0IGV2ZW50IGZs
-YWcsIGFkZHMNCj4gVkVSXzE3IHNwZWNpZmljIHdyaXRlcywgYW5kIGNsZWFycyBSWF9FTkRfVFJB
-TlNGRVJfRU4gZm9yIGFsbCBjaGlwcy4NCj4gDQo+ID4gQnJpbmcgdGhlIHBlci1nZW5lcmF0aW9u
-IGluaXQgZnVuY3Rpb25zIGluIGxpbmUgd2l0aCB0aGUgdmVuZG9yIGluaXQNCj4gPiBzZXF1ZW5j
-ZSBieSBhZGRpbmcgd3JpdGVzIHRoZSBzaGFyZWQgcjgxNTZfaW5pdCgpIG5ldmVyIHBlcmZvcm1l
-ZC4NCj4gDQo+IFtTZXZlcml0eTogTG93XQ0KPiBUaGlzIGlzbid0IGEgYnVnLCBidXQgY291bGQg
-dGhlIGNvbW1pdCBtZXNzYWdlIHNheSB3aHkgbW9zdCBvZiB0aGVzZSB3cml0ZXMgYXJlDQo+IG5l
-ZWRlZD8gT25seSBSWF9FTkRfVFJBTlNGRVJfRU4gaXMgZXhwbGFpbmVkLiBUaGUgcmVzdCBhcmUg
-bGlzdGVkIHdpdGggbm8NCj4gc3RhdGVkIHB1cnBvc2Ugb3IgZWZmZWN0Og0KPiANCj4gICAtIGNs
-ZWFyaW5nIFBSRUJPT1RfT1BUSU9OIGluIFBMQV9JTkRJQ0FURV9GQUxHDQo+ICAgLSBjbGVhcmlu
-ZyBSTVRfV0FLRV9FTiBpbiBQTEEgMHhlMGM4DQo+ICAgLSB0aGUgcjgxNTZiX3UycGh5X2JhY2t1
-cCgpIHZhbHVlcyB3cml0dGVuIHRvIFVTQiAweGQzY2UuLjB4ZDNkYw0KPiAgIC0gY2xlYXJpbmcg
-VVNCIDB4Y2YwNCBiaXRzIDAvMS8yLzcgKGludGVycnVwdCBtaXRpZ2F0aW9uKQ0KPiAgIC0gY2xl
-YXJpbmcgVVNCIDB4Y2QwNiBCSVQoMTEpIChXYXJtIFJTVCAvIEJ1cyBSU1QgZXZlbnQgZmxhZykN
-Cj4gICAtIGNsZWFyaW5nIFVTQiAweGI5YTYgQklUKDApIGFuZCB3cml0aW5nIDB4MDQ0OCB0byAw
-eGI5YTIgb24gVkVSXzE3DQo+ICAgLSBjbGVhcmluZyBBVVRPX1NQRUVEVVANCj4gDQo+IFNldmVy
-YWwgb2YgdGhlc2UgbG9vayBsaWtlIGZpeGVzIGZvciBzcGVjaWZpYyBmYWlsdXJlcy4gRXhhbXBs
-ZXMgd291bGQgYmUgcHJvYmxlbXMNCj4gYWZ0ZXIgYSB3YXJtIG9yIGJ1cyByZXNldCwgYWZ0ZXIg
-YSBVU0IyL1VTQjMgUEhZIHBvd2VyIGN1dCwgb3Igd2l0aCBpbnRlcnJ1cHQNCj4gbWl0aWdhdGlv
-biBlbmFibGVkLiBPdGhlciBwYXRjaGVzIGluIHRoZSBzZXJpZXMgYXJlIG1hcmtlZCBhcyBmaXhl
-cy4NCj4gDQo+IElzIHRoZXJlIGEgdXNlci12aXNpYmxlIHN5bXB0b20gYmVoaW5kIGFueSBvZiB0
-aGVzZSB3cml0ZXM/IElmIHNvLCBjb3VsZCBpdCBiZQ0KPiBkZXNjcmliZWQsIHdpdGggRml4ZXM6
-IHRhZ3MgYWRkZWQ/IFRoYXQgd291bGQgc2hvdyB3aGV0aGVyIHRoaXMgYmVsb25ncyBpbiBuZXQN
-Cj4gYW5kIHN0YWJsZSByYXRoZXIgdGhhbiBuZXQtbmV4dC4NCg0KT2suIEkgd2lsbCBhZGQgc29t
-ZSBkZXNjcmlwdGlvbnMuDQoNCj4gDQo+IENvdWxkIHRoZSBtZXNzYWdlIGFsc28gc2F5IGhvdyBj
-bGVhcmluZyBSTVRfV0FLRV9FTiByZWxhdGVzIHRvIFdvTCBhbmQgdG8NCj4gcmVtb3RlIHdha2V1
-cCBmcm9tIHJ1bnRpbWUgYXV0b3N1c3BlbmQ/DQo+IA0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJz
-L25ldC91c2IvcjgxNTIuYyBiL2RyaXZlcnMvbmV0L3VzYi9yODE1Mi5jIGluZGV4DQo+ID4gMzY0
-YTA1NzNmNmNkMS4uYTFjMmUxZTA4YjE2MSAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL25ldC91
-c2IvcjgxNTIuYw0KPiA+ICsrKyBiL2RyaXZlcnMvbmV0L3VzYi9yODE1Mi5jDQo+IA0KPiBbIC4u
-LiBdDQo+IA0KPiA+IEBAIC04NTI4LDExICs4NTQzLDI0IEBAIHN0YXRpYyB2b2lkIHI4MTU2X2lu
-aXQoc3RydWN0IHI4MTUyICp0cCkNCj4gDQo+IFsgLi4uIF0NCj4gDQo+ID4gICAgICAgcjgxNTNi
-X3Bvd2VyX2N1dF9lbih0cCwgZmFsc2UpOw0KPiA+ICAgICAgIHI4MTU2X3Vwc19lbih0cCwgZmFs
-c2UpOw0KPiA+ICAgICAgIHI4MTUzX3F1ZXVlX3dha2UodHAsIGZhbHNlKTsNCj4gPiAgICAgICBy
-dGxfcnVudGltZV9zdXNwZW5kX2VuYWJsZSh0cCwgZmFsc2UpOw0KPiA+DQo+ID4gKyAgICAgb2Nw
-X2J5dGVfY2xyX2JpdHModHAsIE1DVV9UWVBFX1BMQSwgUExBX0lORElDQVRFX0ZBTEcsDQo+ID4g
-KyBQUkVCT09UX09QVElPTik7DQo+ID4gKw0KPiA+ICsgICAgIG9jcF9ieXRlX2Nscl9iaXRzKHRw
-LCBNQ1VfVFlQRV9QTEEsIFBMQV9STVRfV0FLRSwNCj4gUk1UX1dBS0VfRU4pOw0KPiANCj4gW1Nl
-dmVyaXR5OiBNZWRpdW1dDQo+IERvZXMgdGhpcyBsZWF2ZSBSTVRfV0FLRV9FTiBwZXJtYW5lbnRs
-eSBvZmYgb24gdGhlc2UgY2hpcHM/IHI4MTU2X2luaXQoKQ0KPiAoVEVTVF8wMSwgVkVSXzEwLzEx
-LzEyLzEzLzE1KSBjbGVhcnMgaXQgZXZlcnkgdGltZSwgYW5kIHNvIGRvZXMNCj4gcjgxNTdfaW5p
-dCgpIChWRVJfMTYvMTcpLiBOb3RoaW5nIGVsc2UgaW4gdGhlIGRyaXZlciB1c2VzIFBMQV9STVRf
-V0FLRSBvcg0KPiBSTVRfV0FLRV9FTiwgc28gdGhlIGJpdCBpcyBuZXZlciBzZXQgYWdhaW4uDQo+
-IA0KPiBpbml0KCkgcnVucyBhdCBwcm9iZSwgcmlnaHQgYWZ0ZXIgdGhlIHdha2Ugc3RhdGUgaXMg
-cmVhZDoNCj4gDQo+IGRyaXZlcnMvbmV0L3VzYi9yODE1Mi5jOnJ0bDgxNTJfcHJvYmUoKSB7DQo+
-ICAgICAuLi4NCj4gICAgICAgICBpbnRmLT5uZWVkc19yZW1vdGVfd2FrZXVwID0gMTsNCj4gDQo+
-ICAgICAgICAgaWYgKCFydGxfY2FuX3dha2V1cCh0cCkpDQo+ICAgICAgICAgICAgICAgICBfX3J0
-bF9zZXRfd29sKHRwLCAwKTsNCj4gICAgICAgICBlbHNlDQo+ICAgICAgICAgICAgICAgICB0cC0+
-c2F2ZWRfd29sb3B0cyA9IF9fcnRsX2dldF93b2wodHApOw0KPiANCj4gICAgICAgICB0cC0+cnRs
-X29wcy5pbml0KHRwKTsNCj4gICAgIC4uLg0KPiB9DQo+IA0KPiBJdCBhbHNvIHJ1bnMgYWdhaW4g
-b24gZXZlcnkgcnRsODE1Ml9yZXNldF9yZXN1bWUoKS0+dHAtPnJ0bF9vcHMuaW5pdCgpLg0KPiAN
-Cj4gVGhlIFdvTCBhcm1pbmcgcGF0aCwgX19ydGxfc2V0X3dvbCgpLCBvbmx5IHdyaXRlcyBQTEFf
-Q09ORklHMzQsDQo+IFBMQV9DT05GSUc1IGFuZCBQTEFfQ0ZHX1dPTCwgdGhlbiBjYWxscyBkZXZp
-Y2Vfc2V0X3dha2V1cF9lbmFibGUoKS4gVGhlDQo+IHJ1bnRpbWUtc3VzcGVuZCBwYXRocyB0aHJv
-dWdoIHJ0bF9ydW50aW1lX3N1c3BlbmRfZW5hYmxlKCkgYW5kDQo+IHI4MTUzX3F1ZXVlX3dha2Uo
-KSBuZXZlciB0b3VjaCBQTEFfUk1UX1dBS0UgZWl0aGVyLg0KPiANCj4gV2hhdCBoYXBwZW5zIGlm
-IFJNVF9XQUtFX0VOIGNvbnRyb2xzIHdoZXRoZXIgdGhlIE1BQyBjYW4gc2VuZCBhIFVTQg0KPiBy
-ZW1vdGUgd2FrZXVwPyBUaGVuIFdvTCBmcm9tIHN5c3RlbSBzdXNwZW5kIGFuZCByZXN1bWUgZnJv
-bSBydW50aW1lDQo+IGF1dG9zdXNwZW5kIG9uIGEgbGluayBjaGFuZ2Ugd291bGQgc3RvcCB3b3Jr
-aW5nIG9uDQo+IFJUTDgxNTYvODE1NkIvODE1Ny84MTU5LiBTb2Z0d2FyZSB3b3VsZCBzdGlsbCBy
-ZXBvcnQgd2FrZSBhcyBhcm1lZA0KPiB0aHJvdWdoIHNhdmVkX3dvbG9wdHMgYW5kIG5lZWRzX3Jl
-bW90ZV93YWtldXAuDQo+IA0KPiBJZiB0aGUgYml0IGlzIG9ubHkgbGVmdG92ZXIgc3RhdGUgZnJv
-bSBhIFVFRkkvUFhFIHByZWJvb3QgZHJpdmVyLCB3aGljaCBpdHMNCj4gcGxhY2VtZW50IG5leHQg
-dG8gUFJFQk9PVF9PUFRJT04gc3VnZ2VzdHMsIHRoZSBjbGVhciBpcyBoYXJtbGVzcy4NCj4gTmVp
-dGhlciB0aGUgY29kZSBub3IgdGhlIGNoYW5nZWxvZyBzYXlzIHdoaWNoIGNhc2UgYXBwbGllcy4g
-Q2FuIHRoaXMgYmUNCj4gY29uZmlybWVkPw0KPiANCg0KUk1UX1dBS0VfRU4gY29udHJvbHMgVVNC
-IHJlbW90ZSB3YWtldXAgaW4gdGhlIGRldmljZSwgYW5kIGl0IGlzIG1hbmFnZWQgYnkNCnRoZSBm
-aXJtd2FyZS4gVGhlIGZpcm13YXJlIHNldHMgaXQgd2hlbiBpdCByZWNlaXZlcyBTRVRfRkVBVFVS
-RShGVU5DVElPTl9TVVNQRU5EKQ0Kb3IgU0VUX0ZFQVRVUkUoREVWSUNFX1JFTU9URV9XQUtFVVAp
-IGZyb20gdGhlIGhvc3QsIGFuZCBjbGVhcnMgaXQgaXRzZWxmLg0KVGhlIGRyaXZlciBpcyBub3Qg
-c3VwcG9zZWQgdG8gc2V0IGl0Lg0KDQpUaGUgY2xlYXIgYXQgaW5pdCBvbmx5IHJlbW92ZXMgYSBz
-dGFsZSB2YWx1ZSB0aGF0IHdhcyB0aGVyZSBiZWZvcmUgaW5pdCgpLCBzbyBpdCBjYW5ub3QNCmNh
-dXNlIGFibm9ybWFsIGJlaGF2aW9yLg0KDQo+IC0tDQo+IFNhc2hpa28gQUkgcmV2aWV3IMK3DQo+
-IGh0dHBzOi8vbmV0ZGV2LWFpLmJvdHMubGludXguZGV2L3Nhc2hpa28vIy9wYXRjaHNldC8yMDI2
-MTExMDAzMjQxNi4xNjk2OC0xDQo+IC1uaWNfc3dzZCU0MHJlYWx0ZWsuY29tDQoNCkJlc3QgcmVn
-YXJkcywNCkNoaWgtS2FpDQotLS0NCnB3LWJvdDogY3INCg==
+The Open vSwitch vport name table uses the network namespace pointer as
+the Jenkins hash seed. When an Open vSwitch vport already exists in the
+attacker's network namespace, unprivileged OVS_VPORT_CMD_GET requests can
+look up attacker-chosen missing names and time whether those lookups
+traverse an occupied bucket. Ranking the resulting collision pattern
+across possible KASLR slides recovers the init_net pointer and thus the
+kernel text base.
+
+Use the namespace cookie instead. It is a stable, unique, non-address
+identifier that is deliberately exposed to userspace. setup_net() assigns
+it before per-net initializers run, and it remains unchanged for the
+namespace lifetime. Fold both halves into the seed so vports in different
+namespaces retain namespace-dependent bucket placement.
+
+Found by AI-assisted code review and reproduced on an unmodified kernel
+without fault injection. After privileged setup created the resident
+vport, the timing measurements ran as an unprivileged user with no
+effective capabilities. With this change, the pointer-derived prediction
+fails. Existing and missing vport lookups behave as expected. Identically
+named vports in separate network namespaces remain independent.
+
+Fixes: 46df7b814548 ("openvswitch: Add support for network namespaces.")
+Cc: stable@vger.kernel.org
+Assisted-by: LLM
+Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
+---
+ net/openvswitch/vport.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
+index 083f7a8d9d4e..6689c8370ec1 100644
+--- a/net/openvswitch/vport.c
++++ b/net/openvswitch/vport.c
+@@ -53,7 +53,10 @@ void ovs_vport_exit(void)
+ 
+ static struct hlist_head *hash_bucket(const struct net *net, const char *name)
+ {
+-	unsigned int hash = jhash(name, strlen(name), (unsigned long) net);
++	u32 seed = jhash_2words(lower_32_bits(net->net_cookie),
++				upper_32_bits(net->net_cookie), 0);
++	unsigned int hash = jhash(name, strlen(name), seed);
++
+ 	return &dev_table[hash & (VPORT_HASH_BUCKETS - 1)];
+ }
+ 
+-- 
+2.34.1
+
