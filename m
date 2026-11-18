@@ -1,113 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794996314;
-	b=ZZiJPSJJcExEEck0J0PkxZsaUNoj6Z+yAlKYv88drP1w895Y40GjHdXoDQ1fohpkA190
-	 HNV019v5TxvYCkWLSy2p5OWDGOR6r1GC+2tmTjyNi8V8AtZx6oKdp0znwblDIl/cPhWy0
-	 59vidfM+E9UufNCHWA8Zi+xjMQ88/Viu0aEI09QzBOqg/Yg7NL8VEK1haR21huX+zHYY4
-	 s9K9W+6BNjrf82lX74ebD2iRpkqOxveV+iwQjnjjcOCA2KLYAdCsMIwD1qDK3BUKz9dGj
-	 ug/vP6WadFbsezULWflyuRoqmc97Js8Xg8JuZ29eN3/95MIsGpIEZj2txQosMyjwxUA==
+	t=1794996327;
+	b=oupWphvNU1NvdvDFGtcsTCyEfMZb3s9OuGalDTuG9pHXtihU2lLzFmVh867nazaFMX29
+	 zLNEqHn2eM91CB3U4KQKADs/xg7t9737AW9QISPPklZ7or6x5x3Y2RPjvZG09tLfxCOOf
+	 bqZCpRvRdfzDpDsNYpsms5xjCZsnEIM1kbT7yXqXxqnHjNiP/Ax5EwZ2QXdkMeT9iu7vS
+	 gxYzNEhzWAHt5fDqFYB9LywU/Sm2DJzHeBj4VVWTi2vvstRxIYIVNoho6jNvFjdjf3epz
+	 nQMAPt1mtTP98KQrDeGH6pQ7AqRlVo9kxLjFh5B9r5yMaNDOgY6c+eK6IUceLEq2YUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794996314;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=dP4h85XmI1oLNRq4PDQGHhAv0vu8uXk4BOk79yd+920=;
-	b=DqBjnuuxPX5ZbLCojFaTcPy72vTekOgxI5i0digrXsqMRZTPyYU2RWBZwhsZBqbCqMyt
-	 ejmdP5SFkK+Ph6xBOGTB9aTspi12lsYMeUf7qDEeuZUlimYZOM4Oj0TAuNTLVPPFyw5gU
-	 ejPFjPW4uwfPGkmDsqlX2ECOPKi6TkOcF6aVOOeEv3HzDYEcTH/20Dp8I+aiCU2wDzGhJ
-	 K7khWWpa2Bx1jCT7mcWJu7i3VMoG9fiHAsSRnboKY4kYTODUlrQ+KMHcrJIzVbvsEBJaE
-	 ms/YCg3Oa83v48BV+tWZYUMekrD/MipkFCbL5KJJgPz34CQP1/r5G7R2HozrfFBy+Gg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794996327;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=OyDXF1a5PnZlSpt+KBvpQnzimcTAYF7v/9u7f8B0PNM=;
+	b=cmZKKaG+AWgn0ymm2L/JkAQxSlFd84IecCp+FaGmg4Lavvgsg4ghF1E09URvnxPU33Eh
+	 0MIyfUFCxkjgCdNQI1NVAd2qwV5R8qlbXzfDAGm/4B51cNbivjh646MUwLdjr1t/to89G
+	 0IZZQ7h4cpQY6cpoGRrz1l83CJvCWA+rLgv5jBVcT/lKztjTPjBl2vU7etHMzic1mblMQ
+	 K8sbgbbI36X6aNvt9tKXOOgc0bkaFJgMLj+tfnpEONgYFSmm8eYs2Iucvi6+HeL3yjHio
+	 l5jHPGHAL7a729kXS64LyepetPYoW6NWm58wKmjssAY8WuOlOnpLQhz0bJZJ3jWp0Yg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c+lilmnQ;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="c/9yIMUb";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EHtDBXZU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C98D606A8AB
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:05:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C98D606A8AB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06A22606A32F;
+	Wed, 18 Nov 2026 10:05:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=c+lilmnQ;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=c/9yIMUb
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI9k77E3578206
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:05:13 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dP4h85XmI1oLNRq4PDQGHhAv0vu8uXk4BOk79yd+920=; b=c+lilmnQUlGKm6Ju
-	ilTlBRRDIjYlfWlhp2mabYA9fwX7gF2VnNr13rhi1LQ8H0cQq9Xf/+dqjB8S9Zba
-	0ar9YmYGvl+QZhOlgTqmvSVHw6wnOBmhUi9JAvaq+/vro2bEkBycsTjG4Q4U/T+3
-	wdI/kl3HnlkmIgH/NYStQU68yN5Xfj2CvW8pVKgPWlB06/rn3S1YL/He8o6hSt2n
-	tMulpzZyQsEZpE+phNsUD4lnSftBZbpFxRnEDiEeG9t1JBXdDNtLRLez/FzGwh9y
-	pbzOAoC71yakzZctIkszwcG5jbPneoynvjl8nqw2hJWzwWfERL5V0kCCvwS+GmGm
-	A1Odtw==
-Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j0yv72hbc-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 10:05:13 +0000 (GMT)
-Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-91ec6cd898eso15196286d6.3
-        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 02:05:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1794996312; x=1795601112; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=dP4h85XmI1oLNRq4PDQGHhAv0vu8uXk4BOk79yd+920=;
-        b=c/9yIMUbY1sWLzz2sq7r/RG+SaM+oDEzq6kYxDoeyfQFY6wo2Fh0z2RGr/6s0soWV1
-         jCXrfISo87ByVefGbcndGtgmjqNEiPAUz9TjAfiPcWilA/mM6F+jn0Yqev87N7VN7MzZ
-         lacumYNqSHfZ21mA5vKfd2Pg6UbYYiBVEYnR4m6NzyHdOBNIgJfFNXBfsKeZNeWPH4+9
-         FE/fqNREq1/suWxCjVFITX6E8ubeopm3+vgaOIXC34zkVjVz1fGfwqmC5ew//8b84/zs
-         CnN0vDXL5Ej12iO8b5FnFNolJEMdMsSD2zXNatze6Hez/go3AL0B81/4vvZ/l5ozkxGu
-         unTQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1794996312; x=1795601112;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=dP4h85XmI1oLNRq4PDQGHhAv0vu8uXk4BOk79yd+920=;
-        b=hqh4su31ENRrrw7sJDQP7CR4sOfF5iv3sRF6LeP8ijUGHm2onXid3uQyzEKSXE8yW2
-         9/CEuRc8V+19ocRO5CKyX3W+Evqa26ZhaQNPsDDwNFobs9ZfzG5flzGzdfl5nC+afMds
-         lPYEA0ZrQeUCV5eNRYaNCg9MEe05Oind02u641Dl4zAUxxsASUiU5Kjl6DDbNoUaR0Fj
-         RNCg9egHHRGJVrvbaBZOQE+ldfU1UEkxIsKnD4YXxrJRVSdk7VJfYg5QPZIlH2BRweZn
-         DIVZzGQNBdFxi9tlTOa51zdMJ3h4FOb9Q+3ZXEDG6bOTOciNxBz6IpqJnvNFNhkRACR3
-         3bpw==
-X-Forwarded-Encrypted: i=1; AL+hErGdD2s+Wa646w5W/ybtq66ztnrOc4whHTgCpbt7pjsQf46PwxwBpyUJI6b//ULqQVb7qptgsKM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VULCrobg5jh6BHKhLsELcbKvj5ldVSbi7xlMHQlRxBB6h52UE
-	ku/SismX+/Iv3btNMjhMVbFZ3bu3fGhV7JI/OzWz5yhpxFV3vw7kXbJdfm/I/8isx4i4FN6zQdf
-	W84dQzhDj/O8jqyoYgPPKMOnfT/JmmqffyL5npsQMmn3vEBcq7zD08kmeqYQ=
-X-Gm-Gg: AYBFou0aB43Ce2F49kgQMK8bL4uwTrYWDqr6uywA+0kjN9Xjz33sg0pLNYG+jWb1NHZ
-	EIVzL3BD0xgeo2yNYCTq1C4v3yDvEyetYYPN5HI9Gm2PjhznFz133qlDW3SKBjqerJpjWsihxSN
-	tVuhYZhWsQhjZX630/DXBc3JSziw+WavV3K4ZmsmdjBuDRRp406vprWqMttfGbQQtjLgBtIHYdd
-	btPNsPgcjAA53rETe+3Wn/0S/PDEYrogG6qhJV3Fdq1CFwfBhHg/I/Z7W5Uqmpj2RCc4fPBzAIl
-	Y5Oiwzia9au7BFUJh6O1DloQS9Z83e6widtXc0/GjSWB1ds7KwU5kqK8JydLm3B1WcCNBefYKmK
-	2AEx5Ht3IDiUGJMSQhDvAfeep2uatN1VpcgzCNpgX0XxcvkthciafQkLDKJsZReYk7lcHlqzw1n
-	Q=
-X-Received: by 2002:a05:620a:2b88:b0:949:61c5:73b8 with SMTP id af79cd13be357-9499972bd33mr365002985a.44.1794996312337;
-        Wed, 18 Nov 2026 02:05:12 -0800 (PST)
-X-Received: by 2002:a05:620a:2b88:b0:949:61c5:73b8 with SMTP id af79cd13be357-9499972bd33mr364999585a.44.1794996311869;
-        Wed, 18 Nov 2026 02:05:11 -0800 (PST)
-Received: from brgl-qcom.local ([195.50.164.66])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4a65609389dsm3735509f8f.37.2026.11.18.02.05.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 18 Nov 2026 02:05:10 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-Date: Wed, 18 Nov 2026 11:05:03 +0100
-Subject: [PATCH v3 2/2] arm64: dts: qcom: lemans-sa8255p: add ethernet
- nodes
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EHtDBXZU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A99471F000C8;
+	Wed, 18 Nov 2026 10:05:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794996326;
+	bh=OyDXF1a5PnZlSpt+KBvpQnzimcTAYF7v/9u7f8B0PNM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=EHtDBXZUba4cjORFIZhYfIeveTdtdy1Do587jMnwah18YY/dqoVbcea039Qf2nAP6
+	 Ta4LAc7Mz7aV9fGcLYYaJVzegIUGf376ImlmqjBaBhd/Bj0iIU9+eSho6EjF92jgfB
+	 iHk0KWh2vdQxwWOmWu5+9y0+DSBqe051B1JF95MrFm+ANOEyXhz12jDTumwvWxIPfC
+	 5QUJdD9/ckBwk2yDAF7/v7O8a/I4k/qYnXwTRW3cfLoL61ukLiQJwQI80MkTJLX0aM
+	 cDlEiyBDfvrdupclPcSyP2uh+2WW9ZbJwar/KfcaLDDZ2Qb5WyF+fTR3+vR7mHa3Lb
+	 6rZ28B4tcTlYA==
+Date: Wed, 18 Nov 2026 10:05:23 +0000
+From: Simon Horman <horms@kernel.org>
+To: joasantonio108@gmail.com
+Cc: david@ixit.cz, krzk@kernel.org, oe-linux-nfc@lists.linux.dev,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v3 2/2] nfc: st21nfca: prevent double completion of
+ SE APDU request
+Message-ID: <20261118100523.GC860048@horms.kernel.org>
+References: <20261112-st21nfca-v2-v3-0-c81702269e01@gmail.com>
+ <20261112-st21nfca-v2-v3-2-c81702269e01@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -117,372 +58,170 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261118-sa8255p-emac-dts-v3-2-e2c365d95a0b@oss.qualcomm.com>
-References: <20261118-sa8255p-emac-dts-v3-0-e2c365d95a0b@oss.qualcomm.com>
-In-Reply-To: <20261118-sa8255p-emac-dts-v3-0-e2c365d95a0b@oss.qualcomm.com>
-To: Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bartosz Golaszewski <brgl@kernel.org>,
-        Shawn Guo <shengchao.guo@oss.qualcomm.com>,
-        Andrew Halaney <ahalaney@redhat.com>,
-        Richard Cochran <richardcochran@gmail.com>
-Cc: linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-        Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6727;
- i=bartosz.golaszewski@oss.qualcomm.com; h=from:subject:message-id;
- bh=eD+JGrj/A1Wbvg7snYomXvbIuNT5d1KFlfmI3BIPkm0=;
- b=owEBbQKS/ZANAwAKAQWdLsv/NoTDAcsmYgBq/XhQt/Xut0Hjz5TlihasvU4foTMGjHXd3xXFR
- tFoFj6MR7iJAjMEAAEKAB0WIQSR5RMt5bVGHXuiZfwFnS7L/zaEwwUCav14UAAKCRAFnS7L/zaE
- w/pXEACrxNDH/kJlfodedNfAMRAYSPq+wl4VWBuwoR6KZ1YudJ1dg5WjjT29Ron3uL9fJtHeY46
- K4tAiyZxHZUDRxBHah12UqE2jlyUKeKeyenY5KATuJiUi6DBWJbGVLIj0tjTKJcMJM/IGnNjo70
- PjcZT1Drb1bmh+90bzibrhgFIahVduW2DQoRVNl8dZjwn1Y5SyV00UO9t9Xkc0bOiLTM8PRoTGV
- JdxCWVSp75WcpemdmC+1x+gC3DynwTMVr4PO5cksmnsiN2ioIOvN9pX7MClMjGYS7pjQsNWiH0I
- YBjivILUDP9aN7LKPs7jBjtBzDrIAshJDSeaRI4GxgNJGhBfRnob1vQkjqN6I7IhSCiZ/2y4Zbm
- W6BBDkSUYRLf340HpDDXD+c36REv/3Nvkg1UFkm0PUAwG3fCpBt3ieTh5ngMYcAr4tfz0U8JAHd
- 16v35hRaMuI4jvVwyA+MDML3/ilUI15NrspE1/IsaKSVQWeqh9ovsKr+xpOBkmN2uMGuvSEOnQD
- mX8IE1Fht7TWZQyOHN7aXuJmbNDr1hgn3NWB0vGsd80XGG9pMkjtzoAlZP6bBF9mXoW74FkJoE+
- AO9kQ1j/AXTR6OglArvQn3cxR9dP9bp4xI79rmpvJkHDdnh6ocvLUJUwBnGxnwOsKqQoTK9+ucJ
- jE/SeOCPVfY5qcQ==
-X-Developer-Key: i=bartosz.golaszewski@oss.qualcomm.com; a=openpgp;
- fpr=169DEB6C0BC3C46013D2C79F11A72EA01471D772
-X-Proofpoint-GUID: cTrCv-NXw-sq4ni19RSg2Wlgch8zBp_K
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX2qNHtFGM3MXG
- 6rkit3wQK89G3MBCg4W0HANZnzX0wr8whV19PSuoCuuKYovghf1L09x35fL/VNBbCYm6HCVJt4h
- 8NHBmBFuhDkqmWoDoHr2Vq1nheJkojcOMVLj5cUUkyArYA4e7GX+1Tg/FU9K+aJSw9fB4enNnRe
- +Ypl7ftoBwOboR06NCpoOtLJyxSbUsgZuviaPGIS/bru7jSChAwWh0Yr2uKLUJoT+gO8zcrlNzo
- UbCAmIkaVJ4Ru+sjdJTtf90DJIFONnQTUmI6b6B3oHYEl0x3A3BsBFY3hogVYL16P7lw5nC4N6P
- 8BmNGq+gDakKYT8FGNG/zvT+rDNKfY2ngijthMmRlLsEt6wjlTiuY3HRzKfwmabRSQsI8heqZUZ
- dYu5GOCFmkveviTbGWhbQhkgxt6meTBR4zLFehC17pwrjiXqnRz+n2q0iKuwbL6f/oUFZLbAg+7
- 9W2Qr8pq+FNCQHqRmCQ==
-X-Proofpoint-ORIG-GUID: cTrCv-NXw-sq4ni19RSg2Wlgch8zBp_K
-X-Authority-Analysis: v=2.4 cv=H8xOUOYi c=1 sm=1 tr=0 ts=6afd7859 cx=c_pps
- a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=Jk2/TV77q6/E6wQq2oQJxQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=Um2Pa8k9VHT-vaBCBUpS:22
- a=EUspDBNiAAAA:8 a=LwjCQcZIY1nU89AU52wA:9 a=QEXdDO2ut3YA:10
- a=pJ04lnu7RYOZP9TFuWaZ:22
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAzOSBTYWx0ZWRfX38gz4O7rWB+p
- 6nhI5/MTays9AVMxQ5v97ChtjF3BLenxXAeEahLMHeTF/mDtV2LmOnFmBi5dFXZl1T5cVyehhOb
- DDE1r/bKGFvhXM8tXIrVD7Udtqh+dso=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_02,2026-11-16_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 suspectscore=0 impostorscore=0 spamscore=0
- bulkscore=0 clxscore=1015 adultscore=0 lowpriorityscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611180039
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261112-st21nfca-v2-v3-2-c81702269e01@gmail.com>
 
-Add the ethernet nodes along with their serdes PHY nodes for the gearvm
-variant of the lemans ride board. Enable scmi7 and scmi8 to serve the
-EMACs.
+On Thu, Nov 12, 2026 at 01:39:30PM +0000, Joas Antonio dos Santos via B4 Relay wrote:
+> From: Joas Antonio dos Santos <joasantonio108@gmail.com>
+> 
+> Use the spinlock added in the previous commit to prevent completing an
+> SE APDU request more than once.  Without this, the timeout work handler
+> (st21nfca_se_wt_work) and the EVT_TRANSMIT_DATA event handler can both
+> invoke the callback for the same request.  The callback frees its
+> context, so the second call is a use-after-free followed by a double
+> free.
+> 
+> Check bwi_active under the lock in both completion paths and only
+> complete a request that is still pending.  A response that arrives
+> after the timeout still gets its EVT_SE_END_OF_APDU_TRANSFER, as
+> before, but no callback.
+> 
+> Also reject a new SE APDU request in st21nfca_hci_se_io() with -EBUSY
+> while one is in progress, instead of overwriting the callback and
+> context of the pending request.  The callback is not called in that
+> case, so free the context like the -ENODEV path does; nfc_se_io() does
+> not free it once the driver has been called.
+> 
+> Found by LLM-assisted manual code review.
+> 
+> Fixes: 2130fb97fecf ("NFC: st21nfca: Adding support for secure element")
+> Cc: Simon Horman <horms@kernel.org>
+> Signed-off-by: Joas Antonio dos Santos <joasantonio108@gmail.com>
 
-Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/lemans-gearvm.dtsi      |  34 ++++
- arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts | 201 +++++++++++++++++++++++
- 2 files changed, 235 insertions(+)
+Hi Joas,
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans-gearvm.dtsi b/arch/arm64/boot/dts/qcom/lemans-gearvm.dtsi
-index 91c97a55f2787406b104650956b9a511a6a34c23..aaa8d96dfa61984afaeb13d7543140dd1724979d 100644
---- a/arch/arm64/boot/dts/qcom/lemans-gearvm.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans-gearvm.dtsi
-@@ -58,6 +58,22 @@ &cpufreq_hw {
- 	clock-names = "xo", "alternate";
- };
- 
-+&ethernet0 {
-+	compatible = "qcom,sa8255p-ethqos";
-+	phys = <&serdes0>;
-+	phy-names = "serdes";
-+	power-domains = <&scmi7_pd 0>, <&scmi7_pd 1>;
-+	power-domain-names = "core", "mdio";
-+};
-+
-+&ethernet1 {
-+	compatible = "qcom,sa8255p-ethqos";
-+	phys = <&serdes1>;
-+	phy-names = "serdes";
-+	power-domains = <&scmi8_pd 0>, <&scmi8_pd 1>;
-+	power-domain-names = "core", "mdio";
-+};
-+
- &firmware {
- 	scmi0: scmi-0 {
- 		compatible = "qcom,scmi-smc";
-@@ -2898,6 +2914,24 @@ &scm {
- 	memory-region = <&tz_ffi_mem>;
- };
- 
-+&soc {
-+	serdes0: phy@8901000 {
-+		compatible = "qcom,sa8255p-dwmac-sgmii-phy";
-+		reg = <0x0 0x08901000 0x0 0xe10>;
-+		#phy-cells = <0>;
-+		power-domains = <&scmi7_dvfs 0>;
-+		status = "disabled";
-+	};
-+
-+	serdes1: phy@8902000 {
-+		compatible = "qcom,sa8255p-dwmac-sgmii-phy";
-+		reg = <0x0 0x08902000 0x0 0xe10>;
-+		#phy-cells = <0>;
-+		power-domains = <&scmi8_dvfs 0>;
-+		status = "disabled";
-+	};
-+};
-+
- &spi0 {
- 	compatible = "qcom,sa8255p-geni-spi";
- 	power-domains = <&scmi10_pd 0>,
-diff --git a/arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts b/arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts
-index 6f19064997a4b50525fdf630307b843604368645..991626589cc34112df6e024d988bf87e6f520017 100644
---- a/arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts
-+++ b/arch/arm64/boot/dts/qcom/lemans-sa8255p-ride.dts
-@@ -14,6 +14,8 @@ / {
- 	compatible = "qcom,sa8255p-ride", "qcom,sa8255p";
- 
- 	aliases {
-+		ethernet0 = &ethernet0;
-+		ethernet1 = &ethernet1;
- 		serial0 = &uart10;
- 		serial1 = &uart4;
- 	};
-@@ -101,6 +103,173 @@ trip1 {
- 	};
- };
- 
-+&ethernet0 {
-+	phy-handle = <&hsgmii_phy0>;
-+	phy-mode = "2500base-x";
-+
-+	pinctrl-0 = <&ethernet0_default>;
-+	pinctrl-names = "default";
-+
-+	snps,mtl-rx-config = <&mtl_rx_setup>;
-+	snps,mtl-tx-config = <&mtl_tx_setup>;
-+	snps,ps-speed = <2500>;
-+
-+	status = "okay";
-+
-+	mdio {
-+		compatible = "snps,dwmac-mdio";
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		hsgmii_phy0: phy@8 {
-+			compatible = "ethernet-phy-id31c3.1c33";
-+			reg = <0x8>;
-+			device_type = "ethernet-phy";
-+			resets = <&scmi7_rst 0>;
-+			reset-names = "phy";
-+			reset-assert-us = <11000>;
-+			reset-deassert-us = <70000>;
-+		};
-+
-+		hsgmii_phy1: phy@0 {
-+			compatible = "ethernet-phy-id31c3.1c33";
-+			reg = <0x0>;
-+			device_type = "ethernet-phy";
-+			resets = <&scmi8_rst 0>;
-+			reset-names = "phy";
-+			reset-assert-us = <11000>;
-+			reset-deassert-us = <70000>;
-+		};
-+	};
-+
-+	mtl_rx_setup: rx-queues-config {
-+		snps,rx-queues-to-use = <4>;
-+		snps,rx-sched-sp;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,map-to-dma-channel = <0x0>;
-+			snps,route-up;
-+			snps,priority = <0x1>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,map-to-dma-channel = <0x1>;
-+			snps,route-ptp;
-+		};
-+
-+		queue2 {
-+			snps,avb-algorithm;
-+			snps,map-to-dma-channel = <0x2>;
-+			snps,route-avcp;
-+		};
-+
-+		queue3 {
-+			snps,avb-algorithm;
-+			snps,map-to-dma-channel = <0x3>;
-+			snps,priority = <0xc>;
-+		};
-+	};
-+
-+	mtl_tx_setup: tx-queues-config {
-+		snps,tx-queues-to-use = <4>;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+		};
-+
-+		queue2 {
-+			snps,avb-algorithm;
-+			snps,send_slope = <0x1000>;
-+			snps,idle_slope = <0x1000>;
-+			snps,high_credit = <0x3e800>;
-+			snps,low_credit = <0xffc18000>;
-+		};
-+
-+		queue3 {
-+			snps,avb-algorithm;
-+			snps,send_slope = <0x1000>;
-+			snps,idle_slope = <0x1000>;
-+			snps,high_credit = <0x3e800>;
-+			snps,low_credit = <0xffc18000>;
-+		};
-+	};
-+};
-+
-+&ethernet1 {
-+	phy-mode = "2500base-x";
-+	phy-handle = <&hsgmii_phy1>;
-+
-+	snps,mtl-rx-config = <&mtl_rx_setup1>;
-+	snps,mtl-tx-config = <&mtl_tx_setup1>;
-+	snps,ps-speed = <2500>;
-+
-+	status = "okay";
-+
-+	mtl_rx_setup1: rx-queues-config {
-+		snps,rx-queues-to-use = <4>;
-+		snps,rx-sched-sp;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+			snps,map-to-dma-channel = <0x0>;
-+			snps,route-up;
-+			snps,priority = <0x1>;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+			snps,map-to-dma-channel = <0x1>;
-+			snps,route-ptp;
-+		};
-+
-+		queue2 {
-+			snps,avb-algorithm;
-+			snps,map-to-dma-channel = <0x2>;
-+			snps,route-avcp;
-+		};
-+
-+		queue3 {
-+			snps,avb-algorithm;
-+			snps,map-to-dma-channel = <0x3>;
-+			snps,priority = <0xc>;
-+		};
-+	};
-+
-+	mtl_tx_setup1: tx-queues-config {
-+		snps,tx-queues-to-use = <4>;
-+
-+		queue0 {
-+			snps,dcb-algorithm;
-+		};
-+
-+		queue1 {
-+			snps,dcb-algorithm;
-+		};
-+
-+		queue2 {
-+			snps,avb-algorithm;
-+			snps,send_slope = <0x1000>;
-+			snps,idle_slope = <0x1000>;
-+			snps,high_credit = <0x3e800>;
-+			snps,low_credit = <0xffc18000>;
-+		};
-+
-+		queue3 {
-+			snps,avb-algorithm;
-+			snps,send_slope = <0x1000>;
-+			snps,idle_slope = <0x1000>;
-+			snps,high_credit = <0x3e800>;
-+			snps,low_credit = <0xffc18000>;
-+		};
-+	};
-+};
-+
- &gpll0_board_clk {
- 	clock-frequency = <300000000>;
- };
-@@ -145,6 +314,14 @@ &scmi6 {
- 	status = "okay";
- };
- 
-+&scmi7 {
-+	status = "okay";
-+};
-+
-+&scmi8 {
-+	status = "okay";
-+};
-+
- &scmi11 {
- 	status = "okay";
- };
-@@ -162,6 +339,22 @@ &sleep_clk {
- };
- 
- &tlmm {
-+	ethernet0_default: ethernet0-default-state {
-+		ethernet0_mdc: ethernet0-mdc-pins {
-+			pins = "gpio8";
-+			function = "emac0_mdc";
-+			drive-strength = <16>;
-+			bias-pull-up;
-+		};
-+
-+		ethernet0_mdio: ethernet0-mdio-pins {
-+			pins = "gpio9";
-+			function = "emac0_mdio";
-+			drive-strength = <16>;
-+			bias-pull-up;
-+		};
-+	};
-+
- 	pcie0_ep_clkreq_default: pcie0-ep-clkreq-default-state {
- 		pins = "gpio1";
- 		function = "pcie0_clkreq";
-@@ -205,6 +398,14 @@ pcie1_ep_wake_default: pcie1-ep-wake-default-state {
- 	};
- };
- 
-+&serdes0 {
-+	status = "okay";
-+};
-+
-+&serdes1 {
-+	status = "okay";
-+};
-+
- &uart4 {
- 	status = "okay";
- };
+Sashiko.dev has provided an AI-generated review of this patch at
+https://sashiko.dev/#/patchset/20261112-st21nfca-v2-v3-0-c81702269e01%40gmail.com?part=2
 
--- 
-2.47.3
+It raises two issues.
 
+Issue 1:
+
+  > diff --git a/drivers/nfc/st21nfca/se.c b/drivers/nfc/st21nfca/se.c
+  > index 03a30f797ff8f..63a88a61d310f 100644
+  > --- a/drivers/nfc/st21nfca/se.c
+  > +++ b/drivers/nfc/st21nfca/se.c
+  > @@ -228,6 +228,12 @@ int st21nfca_hci_se_io(struct nfc_hci_dev *hdev, u32 se_idx,
+  >  	switch (se_idx) {
+  >  	case ST21NFCA_ESE_HOST_ID:
+  >  		spin_lock(&info->se_info.se_lock);
+  > +		if (info->se_info.bwi_active) {
+  > +			spin_unlock(&info->se_info.se_lock);
+  > +			/* The callback is not called, see the comment below */
+  > +			kfree(cb_context);
+  > +			return -EBUSY;
+  > +		}
+  >  		info->se_info.cb = cb;
+  >  		info->se_info.cb_context = cb_context;
+  >  		info->se_info.bwi_active = true;
+
+  What happens if nfc_hci_send_event() fails at the end of this case?
+
+  drivers/nfc/st21nfca/se.c:st21nfca_hci_se_io() {
+      ...
+  		info->se_info.bwi_active = true;
+  		spin_unlock(&info->se_info.se_lock);
+  		mod_timer(&info->se_info.bwi_timer, jiffies +
+  			  msecs_to_jiffies(info->se_info.wt_timeout));
+  		return nfc_hci_send_event(hdev, ST21NFCA_APDU_READER_GATE,
+  					ST21NFCA_EVT_TRANSMIT_DATA,
+  					apdu, apdu_length);
+      ...
+  }
+
+  When nfc_hci_send_event() returns a synchronous error such as
+  -EADDRNOTAVAIL, info->se_info.bwi_active stays true and
+  info->se_info.bwi_timer remains armed.  With the new -EBUSY check, every
+  later st21nfca_hci_se_io() call is rejected until the timer expires, at
+  which point st21nfca_se_wt_work() sends a spurious reset to the secure
+  element and invokes cb(cb_context, NULL, 0, -ETIME) for a request that
+  already failed synchronously.
+
+It seems to me that while this is worth checking into, it may well
+be theoretical or unreachable. In which case I think any solution
+need not be included in this patch-set.
+
+Issue 2:
+
+  > @@ -269,6 +275,10 @@ static void st21nfca_se_wt_work(struct work_struct *work)
+  >  						se_info.timeout_work);
+  >
+  >  	spin_lock(&info->se_info.se_lock);
+  > +	if (!info->se_info.bwi_active) {
+  > +		spin_unlock(&info->se_info.se_lock);
+  > +		return;
+  > +	}
+  >  	info->se_info.bwi_active = false;
+  >  	cb = info->se_info.cb;
+  >  	cb_context = info->se_info.cb_context;
+  > @@ -383,6 +393,7 @@ int st21nfca_apdu_reader_event_received(struct nfc_hci_dev *hdev,
+  >  					u8 event, struct sk_buff *skb)
+  >  {
+  >  	int r = 0;
+  > +	bool active;
+  >  	se_io_cb_t cb;
+  >  	void *cb_context;
+  >  	struct st21nfca_hci_info *info = nfc_hci_get_clientdata(hdev);
+  > @@ -395,6 +406,7 @@ int st21nfca_apdu_reader_event_received(struct nfc_hci_dev *hdev,
+  >  		cancel_work_sync(&info->se_info.timeout_work);
+  >
+  >  		spin_lock(&info->se_info.se_lock);
+  > +		active = info->se_info.bwi_active;
+  >  		info->se_info.bwi_active = false;
+  >  		cb = info->se_info.cb;
+  >  		cb_context = info->se_info.cb_context;
+  > @@ -405,7 +417,9 @@ int st21nfca_apdu_reader_event_received(struct nfc_hci_dev *hdev,
+  >  		if (r < 0)
+  >  			goto exit;
+  >
+  > -		cb(cb_context, skb->data, skb->len, 0);
+  > +		/* The request may have been completed by the timeout already */
+  > +		if (active)
+  > +			cb(cb_context, skb->data, skb->len, 0);
+  >  		break;
+
+  Can a late ST21NFCA_EVT_TRANSMIT_DATA from a timed-out request complete a
+  newly submitted request instead?
+
+  CPU0 (timeout_work)       CPU1 (msg_rx_work)        CPU2 (syscall)
+  st21nfca_se_wt_work()     st21nfca_apdu_reader_event_received()
+    spin_lock(&se_lock)       timer_delete_sync()
+    bwi_active = false        cancel_work_sync()
+    spin_unlock(&se_lock)
+                                                      st21nfca_hci_se_io()
+                                                        spin_lock(&se_lock)
+                                                        cb = req2_cb
+                                                        cb_context = req2_ctx
+                                                        bwi_active = true
+                                                        spin_unlock(&se_lock)
+                                                        mod_timer(&bwi_timer)
+    nfc_hci_send_event(reset)
+    req1_cb(req1_ctx, -ETIME)
+                              spin_lock(&se_lock)
+                              active = bwi_active (true)
+                              bwi_active = false
+                              cb = req2_cb
+                              cb_context = req2_ctx
+                              spin_unlock(&se_lock)
+                              ...
+                              req2_cb(req2_ctx, req1_skb)  <-- wrong request
+
+  Once st21nfca_se_wt_work() clears info->se_info.bwi_active and drops
+  info->se_info.se_lock, a new st21nfca_hci_se_io() call can install a second
+  request before st21nfca_apdu_reader_event_received() acquires se_lock (or
+  before a late response from the first request arrives).  The first
+  request's response then completes and frees the second request's
+  cb_context with stale data, while st21nfca_se_wt_work() can also queue its
+  reset after the new request.
+
+  In addition, because both st21nfca_apdu_reader_event_received() above and
+  st21nfca_hci_se_io() call timer_delete_sync() / mod_timer() outside
+  se_lock, info->se_info.bwi_timer can remain armed after bwi_active is set
+  to false; st21nfca_se_deinit() only deletes bwi_timer when bwi_active is
+  true, so removing the device before the timer expires can then trigger a
+  use-after-free.
+
+This seems to be a problem, but it also seems to be related to the
+tear-down race flagged in patch 1/2. And as per my opinion there,
+I think this is likely out-of scope for this patch-set.
