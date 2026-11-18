@@ -1,59 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795017771;
-	b=2aJFkNvpuz1H0SneBJ1MEN9RWGk7Y52GkNroFxziF7MV923TjjmiiXT2Vx8hjwxdb8qF
-	 H7X1ZtggF/suYLC3GodQUZf5Lsy0ggXQUsqNbBnW8zL4v8zLl6AwXC9sSVa6J8nXKbe9p
-	 H8DRhq2A2m5EJoxDoaEAAlYVxIMAzxhptv54yWnqyPjLWos2tTwxtXpmh0vhbL0XPiFpg
-	 EBWFquiUpwAz2IMRC7LJi2R+QF+n618v04oGtuNLj6L1dv33xWXEQRNNMGqGdq2wIk+pr
-	 PooCcWzI52/c8wPO3ec4/3wN0ALmBa/Ng2LBa4z8oSomTmDR8kJb2VHYnBKmI4SXfZQ==
+	t=1795017814;
+	b=F0xQoLs1jKub/FE9a2Kc5cOv6yq4kuZsBH8n7bKlvq2f388tE4AjZSqz/vH+VF2almuB
+	 QKxHNAPQ57b9P36uyXZTVvG5kRBsj38Y5IhzS+HcsdZJ45r8raGZPh1wGWy56V7FgZ3+5
+	 raj/srXGAw5gNB5ohoBgemffSvqT92wWfZCgoYnhLEt5bKCqn/Krdkre3iYs3ej5oFbM1
+	 1gPAZ20gnD2SaHQ3cBJUDFCuiqyx74ERUGAFG44LUBJsmiUM6nQIw3g9DFPYmnkAMKOcP
+	 FRqkeW9UHlCthsQaws2lmS0X8gUr4dJFLfrx3UPmAEpEbJopjacRF4oBuRKRNpkRHxw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795017771;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=0QYXm/usn5AX/LuaeYvPA5b88k5wfFMxlzRSlq7qFBs=;
-	b=TJWw6QpUsm+CGcE4XFqGyk0vlQw0JIiXDetOrIViObkw4e65avEUIHX/DXO0w1lr1CrO
-	 r3EVihcMGwpXO5QNsx3Wns7az0MyA9IVczg1/x5N+J8rbD6JG+jrsb2UEtCk5LAs2ADiK
-	 moHnBugGX5oEmOtUOoOE9Nxh4ZwQDk/aIP7R7YB1QBScFmSCqjsU3imxDOGQQUwVnyqLT
-	 +khg8UHsWmaDXakxQGjo1pu/W0k5/938p2JFHhx5MwyPJUlAYRIWiJ+Ihjl6RL+Q4FXiS
-	 oqyVleMUgVrptqNmaxAe2eWwB2C+rj3YlCGapCFulDz8jgbkz+RVg66uCkiSYMkbRuw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795017814;
+	h=Received:DKIM-Signature:Received:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=FVekkBtlN14yfpnYE0c8U7gC2/EZm89fFpxS1+76H2c=;
+	b=S2fQFS6WRyUjS8uzItSo89Yc7oMFuBUjCMu3oE9lNkFQZ33vD5Un9J7Llp0i71vSuD/V
+	 tQ+wOUP6mdCpLVntEGORrNzZAo9H3ApWu7lMx1nUqHojkPJx/88g3xZhhOTWy4G7/kna3
+	 j02hkIWJDud6qGEhA+ryeP/4yVRmalp4das0BJ25O/vv73Rs3ntOEi6fMliJ/n+Qgeads
+	 bnJK9JxR6wlJgi/Oun1i8xC8x2q+PL/a4HeE7d21nhiv0db6MUoSSlgKpep2IeJO7Nmoz
+	 rdHr5trzgrWNlxRYbYBl8LUOI95MIpsRJs1BUzJonNtuC66fgTFMbSftMxPx5z5kCjQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnLo+mF+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aLV9N1FM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE8BC606A320;
-	Wed, 18 Nov 2026 16:02:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D9F7606A32C
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:03:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PnLo+mF+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1AA591F000C7;
-	Wed, 18 Nov 2026 16:02:51 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aLV9N1FM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3C9D41F000C6;
+	Wed, 18 Nov 2026 16:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795017771;
-	bh=0QYXm/usn5AX/LuaeYvPA5b88k5wfFMxlzRSlq7qFBs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PnLo+mF+rhc6Z+c6rkZFYpfUeoTB1BYvgaHP/JT+5vZqcuGRIpZ59mN16EKGKBIqX
-	 h34KeMZPEK9FRmwiO41XWjADuYFp7OjVdfnBBQlPcskkoVBd2iQgsJmqErj9GMucu3
-	 htg6uSB1kVefubwGXfQV2N1uY6hjK9JkduNWD/gjOaj3208A9/pRljOgU1syeA2cCu
-	 FFpNiZWSP+CdHyVCA0LPkqP2nFhYwsfPTwKkeDRdOLy0WMVsYNbznnhO5IPloV9gJu
-	 yq1j/n5VQ89Ny+jBHUpAHXexWm4UjTQDtLlzH6Odj9FG+oU/QsArN/JilvTVwVIu/h
-	 bKaYb/JAqFeYg==
-Subject:
- Re: [PATCH net v2 4/4] net: dsa: motorcomm: Use VID 0 as the unaware PVID
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org
-Date: Wed, 18 Nov 2026 16:02:50 +0000
-Message-ID: <179501777066.3136.14665752486224743787@kernel.org>
-In-Reply-To: <20261116160107.1351198-5-mmyangfl@gmail.com>
-References: <20261116160107.1351198-5-mmyangfl@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795017814;
+	bh=FVekkBtlN14yfpnYE0c8U7gC2/EZm89fFpxS1+76H2c=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=aLV9N1FMbm0NA2MyQqwkX5S+yw4OaDc5hU+lXNAGHPFs3DBUjNMCF3e1vHxOeFj9m
+	 i2/92/ruOsBEIdjJYIMVtAm8/PZfFkVNVSxh7mFPjn3gzS3TNLDZcJJ8PxsDm4nVgC
+	 QAfdHAsq81J06fy7aWhZesL1+x0Ldv7kQfiF/yMsP7oLtZ7Mh5YG1mwLrM0/Up34Ps
+	 6KQEr8chVKO2TETQtPu4nicQu7q2s2ruCb0PJ7f3PFaa1r2AC96BkRlTKDF6as/bvf
+	 m2y5XXUthe4a2A3+1fZ0y1hbv48fMIJr0uWFYzUm0JfMH1u5ZHv3QRzjapOT1uY34v
+	 ufTi/GUxAOsEw==
+Received: from johan by xi.lan with local (Exim 4.100.1)
+	(envelope-from <johan@kernel.org>)
+	id 1xTi8B-00000004ewV-2aoJ;
+	Wed, 18 Nov 2026 17:03:31 +0100
+Date: Wed, 18 Nov 2026 17:03:31 +0100
+From: Johan Hovold <johan@kernel.org>
+To: FUJITA Tomonori <tomo@flapping.org>
+Cc: fujita.tomonori@gmail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	netdev@vger.kernel.org, hfdevel@gmx.net
+Subject: Re: [PATCH net-next v2 1/2] net: tn40xx: avoid early firmware node
+ release
+Message-ID: <av3MU5Edsk7kLY2b@hovoldconsulting.com>
+References: <20261116091149.730586-1-johan@kernel.org>
+ <20261116091149.730586-2-johan@kernel.org>
+ <20261118.195534.1289241641818592530.tomo@flapping.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,195 +64,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118.195534.1289241641818592530.tomo@flapping.org>
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Wed, Nov 18, 2026 at 07:55:34PM +0900, FUJITA Tomonori wrote:
+> On Mon, 16 Nov 2026 10:11:48 +0100
+> Johan Hovold <johan@kernel.org> wrote:
+> 
+> > Note that __mdiobus_register() will essentially only return early
+> > without taking the reference during development when the bus structure
+> > has not been properly initialised. And currently, not even that would
+> > lead to a use-after-free as the child PHY node holds a reference to the
+> > parent MDIO node, the child is deregistered before the parent, and
+> > software_node_unregister() returns early if the parent node has already
+> > been freed.
+> 
+> [...]
+> 
+> > --- a/drivers/net/ethernet/tehuti/tn40_mdio.c
+> > +++ b/drivers/net/ethernet/tehuti/tn40_mdio.c
+> > @@ -157,7 +157,12 @@ void tn40_swnodes_cleanup(struct tn40_priv *priv)
+> >  {
+> >  	/* cleanup of swnodes is only needed for AQR105-based cards */
+> >  	if (priv->pdev->device == PCI_DEVICE_ID_TEHUTI_TN9510) {
+> > -		fwnode_handle_put(dev_fwnode(&priv->mdio->dev));
+> > +		/*
+> > +		 * drop any reference taken by __mdiobus_register() before
+> > +		 * device_remove_software_node() clears the fwnode pointer
+> > +		 */
+> > +		if (priv->mdio->state != MDIOBUS_ALLOCATED)
+> > +			fwnode_handle_put(dev_fwnode(&priv->mdio->dev));
+> 
+> mdio->state is internal to the MDIO core. I don't think drivers should
+> look at it.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2 (1)
+Some are, including this driver (if only for an error message).
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+I agree that they probably should not, but this highlights the existing
+problem with the driver further.
+ 
+> Also, 2/2 removes this code. The put is unbalanced when mdio bus
+> registration bails out before taking the reference, but it does no
+> real harm, as you explain in the commit message.
 
-- [Medium] This patch turns VID 0 into the shared FDB domain of VLAN-
-  unaware bridges and removes the YT921X_VLAN_CTRLa_LEARN_DIS that used…
-- [Low] After this patch, nothing in the driver ever programs VLAN table
-  entry 0.
-- [Low] The concern: VID 0 is now the forwarding domain of VLAN-unaware
-  bridges, but its VLAN entry is never programmed.
+But that's mostly by chance. The whole thing is quite fragile.
+ 
+> So I think we can drop this patch and fix the problem with 2/2 only.
+> The explanation in this commit message could go into the 2/2 commit
+> message.
 
-Pre-existing issues:
-- [Low] yt921x_bridge_join() first clears YT921X_PORT_LEARN_DIS through
-  yt921x_userport_bridge() (line 1301), then writes the isolation…
+Sure, I'll squash them.
 
---
-
-net: dsa: motorcomm: Use VID 0 as the unaware PVID
-
-This patch changes the PVID of ports in VLAN-unaware bridges from 4095 to
-0, so the hardware lookups can hit bridge FDB entries that switchdev
-reports with VID 0. It also skips VID 0 in the VLAN add/del paths and
-programs PVID 0 when a port joins a VLAN-unaware bridge. Finally, it
-removes the setup-time write of VLAN table entry 0.
-
-> diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-> index d84d863080ce0..aa4d6a0c930ce 100644
-> --- a/drivers/net/dsa/motorcomm/chip.c
-> +++ b/drivers/net/dsa/motorcomm/chip.c
-
-[ ... ]
-
-> @@ -1029,8 +1031,7 @@ yt921x_pvid_clear(struct yt921x_priv *priv, int port)
->  
->  	vlan_filtering = dsa_port_is_vlan_filtering(dp);
->  
-> -	res = yt921x_port_set_pvid(priv, port,
-> -				   vlan_filtering ? 0 : YT921X_VID_UNWARE);
-> +	res = yt921x_port_set_pvid(priv, port, 0);
->  	if (res)
->  		return res;
-
-[Severity: Medium]
-Ports in a VLAN-aware bridge that have no bridge PVID get hardware PVID 0.
-That happens here, and also in yt921x_vlan_filtering() when
-br_vlan_get_pvid() returns 0. On those ports, the only extra protection is
-YT921X_PORT_VLAN_CTRL1_CVLAN_DROP_UNTAGGED.
-
-This patch also makes VID 0 the shared FDB domain of the VLAN-unaware
-bridges. It removes YT921X_VLAN_CTRLa_LEARN_DIS from VLAN entry 0 in
-yt921x_chip_setup_dsa().
-
-Suppose a VLAN-aware bridge and a VLAN-unaware bridge are on the same
-switch. A priority-tagged frame arrives on a VLAN-aware port that has no
-PVID. The commit message says such frames are classified to the port
-PVID, so this one would be classified to VID 0.
-
-If CVLAN_DROP_UNTAGGED does not drop priority-tagged frames, and the reset
-member mask of VLAN 0 lets the frame through VLAN_IGR_FILTER, could its
-source MAC be learnt into the FDB that the VLAN-unaware bridges use?
-
-The comment in yt921x_chip_setup_dsa() says port isolation is applied
-after the FDB lookup. A unicast frame from the VLAN-unaware bridge to that
-MAC would hit an entry pointing at a port in the other bridge. It would be
-dropped instead of trapped to the CPU until the entry ages out. The
-software bridge would have dropped the original priority-tagged frame,
-because the port has no PVID.
-
-Before this patch, LEARN_DIS on VLAN 0 prevented this learning. Could
-VLAN-filtering ports without a PVID use a VID other than 0, for example an
-unused VID with learning disabled, so their traffic stays out of the
-unaware domain?
-
-[ ... ]
-
-> @@ -1135,6 +1138,11 @@ yt921x_dsa_port_vlan_add(struct dsa_switch *ds, int port,
->  	 */
->  	if (dsa_is_cpu_port(ds, port))
->  		return 0;
-> +	/* VID 0 is the VLAN-unaware bridges' FDB domain; nothing to program,
-> +	 * keep the entry at reset defaults
-> +	 */
-> +	if (!vid)
-> +		return 0;
-
-[Severity: Low]
-The comment just above says the CPU port is supposed to be a member of
-every VLAN. With this early return, VID 0 never reaches yt921x_vlan_add(),
-which is the only place that sets the CPU port bits:
-
-yt921x_vlan_add() {
-    ...
-	masks[0] = YT921X_VLAN_CTRLa_PORTn(port) |
-		   YT921X_VLAN_CTRLa_PORTS(priv->cpu_ports_mask);
-    ...
-}
-
-VID 0 is now the forwarding domain of the VLAN-unaware bridges, yet entry
-0 keeps its reset values for member ports, UNTAG_PORTS, FID and STP_ID.
-
-This is probably fine in practice. The old unaware PVID 4095 was never
-programmed either. VLAN_IGR_FILTER is only enabled on VLAN-filtering user
-ports, and YT921X_VLAN_EGR_FILTER is never written.
-
-Should the CPU port comment mention the VID 0 exception, though?
-
-[ ... ]
-
-> @@ -1297,6 +1306,14 @@ yt921x_bridge_join(struct yt921x_priv *priv, int port, u16 ports_mask)
->  	if (res)
->  		return res;
->  
-> +	if (!vlan_filtering) {
-> +		/* DSA may shortcut .port_vlan_filtering(), leaving stale PVID
-> +		 */
-> +		res = yt921x_port_set_pvid(priv, port, 0);
-> +		if (res)
-> +			return res;
-> +	}
-> +
->  	return 0;
->  }
-
-[Severity: Low]
-This isn't a bug introduced by this patch, but there is a short window
-where frames are learnt under the standalone VID 4095.
-yt921x_bridge_join() clears YT921X_PORT_LEARN_DIS in
-yt921x_userport_bridge(), then writes the isolation registers in
-yt921x_bridge(). Only after that is the PVID moved off 4095 here.
-
-For VLAN-aware bridges, the PVID stays at 4095 even longer. It changes
-only when dsa_port_switchdev_sync_attrs() calls dsa_port_vlan_filtering(),
-which happens after DSA_NOTIFIER_BRIDGE_JOIN has been handled.
-
-Port isolation is applied after the FDB lookup. Could a standalone port
-sending to a MAC learnt in this window have its frame dropped instead of
-trapped, until the entry ages out?
-
-This patch makes the unaware window much shorter than before. Would
-writing the PVID before clearing LEARN_DIS close what remains?
-
-[ ... ]
-
-> @@ -2335,15 +2352,6 @@ static int yt921x_chip_setup_dsa(struct yt921x_priv *priv)
->  	if (res)
->  		return res;
->  
-> -	/* Tagged VID 0 should be treated as untagged, which confuses the
-> -	 * hardware a lot
-> -	 */
-> -	ctrls[0] = YT921X_VLAN_CTRLa_LEARN_DIS | YT921X_VLAN_CTRLa_PORTS_M;
-> -	ctrls[1] = 0;
-> -	res = yt921x_reg64_write(priv, YT921X_VLANn_CTRL(0), ctrls);
-> -	if (res)
-> -		return res;
-> -
->  	return 0;
->  }
-
-[Severity: Low]
-After this removal, does anything in the driver still program VLAN table
-entry 0?
-
-yt921x_dsa_port_vlan_add() and yt921x_dsa_port_vlan_del() now return early
-for vid 0, and yt921x_dsa_vlan_msti_set() rejects vid 0 with -EINVAL.
-Learning and membership in the VID 0 domain therefore depend entirely on
-the chip's reset value for entry 0.
-
-The commit message says:
-
-    Lift the restriction on VLAN 0.
-
-The new comment in yt921x_dsa_port_vlan_add() says "keep the entry at
-reset defaults". Neither one gives the reset values. Neither says that
-the all-ports membership (YT921X_VLAN_CTRLa_PORTS_M) is also dropped.
-Neither explains why the workaround in the removed comment is no longer
-needed.
-
-The commit message mentions a measurement on YT9215S only. Could it
-document which reset value of entry 0 is relied on, and whether that value
-is the same on the other supported variants?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116160107.1351198-1-mmyangfl%40gmail.com
+Johan
