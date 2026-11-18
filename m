@@ -1,79 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795034161;
-	b=EAsgwUe7iDNADFw3jWetY3BKV4mdpy57gA/328kpiLoS/mKVDP8Wryl2+O+MEmgooZHx
-	 fwNqzcsBCU7XtcVEX4LQktErKW5P7RpeVyDRlDi1ZtAD6HxA56ZC7RHLkBC5DW9uLPQ7+
-	 zPHz8U/5OcSfFtp9PxyP50DEkNxKim7XKyzbDe+eD9ghgg88t8hNeWxZEHMFPfkqY4qVR
-	 /3dHEn0RnSp4KzeuFWlyl777q+kGTRoSScAbmgXug051m8T0YwxlYfH37HEU27kJzfjOd
-	 xktf3rntuBl/Cv2wNptWNyG0DfqBPCjfQ8Khm3dsq+REDirhc9dOCtAsoMYINvZsYgg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795034161;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=aFuWMoz82HMnoLNvtMfPFgB6snl13AtaRt+tp+1eHwo=;
-	b=jiRIsn8+gNULm2FL67+tCkuLse3c4WCAbxq2Pf8v8g4lLCaHmWo6Aj4XtyXzyXKKoMMX
-	 xDBGQ1TL2ETy+m3nVR4zTTeNHLRyVWJ+vMIKOgrnr33BjYT+pIXUI1aSX7vsidu5aSEN4
-	 WqDKe3ZSSKDdXJUNTgfh541cg9osM7dOmnllta7hS7BMvjibmukdO0WJpqqv+0scncCef
-	 2vtRONidthrChvJ/bUveWerW2OJbZRBS0m2HYHhQV3UonF8g3rlsUYkBQTr6dv1NjAGX3
-	 +Wp95R4mtWATQnu9z7KiAE7Yeku6Wr/YSUNvk6/CXAAsLFEINpwFz5Cev2Btzu3l4+Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hzyGSikA;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795034186;
+	b=OIFm6GCe8NCSbEhrfB3928qtXfiM1IiuZO15XMK2ov4adRdgy9Gcc8DMURPdfQlcS2Wg
+	 ias8fwLfoHtZp2PwyFfl/gbPYbaaeVwVIqJMGbd+M519UaVUa6OaxC51JruXDL0asVcP7
+	 c1jjUUfdL2kWJmyo7Z1xKzknasnp/FiAcV5V3yCFuP7AktfuPuZ0dze5dyosuquyfp581
+	 45xoyIOoSCcyOJSf21f61CMY16WjQwvvIw0X5Mh6wE5UJFgQldAfv0SZ2dMKEEousUr+e
+	 7dDOi8tZyHdtEIc/JoItJdl9glMMQW1Zsj7LH5t1a/RpnInEOTKIiuMIg6WzgnsjKcw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795034186;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=5ttzqnxg3j9wuCJ7xQ3VLsZ16lJ4ll5MXRevgEjfgig=;
+	b=sn7QYjoaF18zWkBeKaP8n0+q4vBlISb/m4W87Z5hCL1KMTZmTASJujhCpxvSamnuksSl
+	 YpJQ9dgE+DMiKhVcPOELPklflTHwn+UjuxRf0DxJbyDnuwtcy9XqvWCJkVbfetzIo3klh
+	 v/B1o+78los7ZX+i0dEtN5UlP7TTIkqN3v4lolZcmns36bkVXKptYF5Rd73ZZ+hcv9xwa
+	 8bc8CZkOLqtJNQnkcjFGZ7OWfZbozlWAZK1yoAaRt3xESUwQhNxv2zvy37djJbSZeXq/h
+	 RU5wa0/JTbEl4J9oVUYMJgN5fgl8TaEqG4zh17cYzUtLNRmOc+LbgDv7usw2o3TncIg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h2frRZm7;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7FAE4606A31C;
-	Wed, 18 Nov 2026 20:36:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4866606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 20:36:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hzyGSikA
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795034161;
-	b=3DWq2SrwnVpZEVmKwDUEQKWeEzhYGDUgi+8u9lGDewJGuYVtCGX2myHkSvgHl1Auen+1
-	 4HYclmJUFs4VGzv2QU0APQTjRTQk+BmlhOp/lpbUz+N4owsYtojXwkICEpRJkdGa3t7K7
-	 lYmFAf+MKZKq3IwbYjTbnCunOxDHaT6Q5tfkW0qUBjDvmayG/jkRBW0vIRfKV8TaMTLK6
-	 EHBm8CiGTDsM/GXX1ElQfOtyr2YqOyTjRKPaQGXIP2v9Q5Qb/0vkTiDSlhaqsrSS/m4ob
-	 SnDjBEZS45LIqbYWtSWj3WTs1XtU5N8TCvDXW9njjjiZa8Y3xoUqFbso9tkf5/mTKRA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795034161;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=aFuWMoz82HMnoLNvtMfPFgB6snl13AtaRt+tp+1eHwo=;
-	b=MS//hcu9lPdoUbdrCmCyvWU1XmEsiHx5eWb4EvdghNl+OUokSoR/Eh8Wm6Dch6E/25iW
-	 yQf+IePR1miOKfn58lYV73efy6KZgusdQmMm97T8mqgAcSbEDn66+eQqg7oTjz/+ApbW5
-	 CwXZeUm0KBnibIS47wyCsbPpxCdocKF3TWb6h5pQCmM7WXuTPdt961pYqT/M9XQLt41H2
-	 3PjQOMDHJPmOlgvr0lYD9OZ1veBZe2hcSryPFI9nv4g1eK6/vVeE8RdAn2fBtIim+oq+6
-	 +zpxYZXMyZYlP067OmVyEOJa3NFwK3BXh81p3tzRmlloLTTNJktZolmGaIcUQrneP4Q==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id BBAAE1F000C6;
-	Wed, 18 Nov 2026 20:36:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h2frRZm7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C11A11F000C6;
+	Wed, 18 Nov 2026 20:36:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795034161;
-	bh=aFuWMoz82HMnoLNvtMfPFgB6snl13AtaRt+tp+1eHwo=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=hzyGSikAfVyV15dngxufMbyW+JbR/3e8GkFlrRC5DH7DTUZiwBA9smVmnbxER0h/2
-	 9IDzeE+/EEY+sd8xYJU0m3PM4bM4nXPRbO6SlXIUjgwrvl1eJFZE4zLg3Muq8TQY2v
-	 YDTt++pTkCzh8g0wwzSSIvY3PwVRPa988QMeFdA8B1JkQy9hRaqhG31VSxLvKFDvI7
-	 nss4W5AghIrHu8oq9oMkTcRkZQSefbuhGooC3Jh0PZG+U7BCSMPRPN5fRA/sToon5+
-	 iCSQgtc0+VC2EkqjEDKnAflpf56+cpj1rXjCxK8LQ7UicN1q2nGutRtMFtP1MO73gh
-	 RM7EalioDZi2g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0A1BF4AF76;
-	Wed, 18 Nov 2026 20:36:00 +0000 (UTC)
-From: Felipe Pereira Stival via B4 Relay <devnull+v0idpwn.gmail.com@kernel.org>
-Subject: [PATCH net 0/2] tls: don't hide a queued KeyUpdate from poll()
-Date: Wed, 18 Nov 2026 17:35:47 -0300
-Message-Id: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-0-8e25101e7be6@gmail.com>
+	s=k20260515; t=1795034186;
+	bh=5ttzqnxg3j9wuCJ7xQ3VLsZ16lJ4ll5MXRevgEjfgig=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=h2frRZm741AzQSMhNUCQqKbXTXRjJPNMemuWVSt/Hcg7clj0S/dkUSRLv8n2dtmVa
+	 4oqU9dRToBbBmSwDJhxqspKGESYAGAKXcZ5M1Y76fHC08EVeQF3NJ3q19JFMi82IDE
+	 d6v4fYFAJp5vrpAeDJ0wvhajakpmqOkuYmfrTqni+3492+dcSA1sq3bOly8lL+ttP2
+	 vV1FHkLSNQXs9WI1FeHmZqZXstljtg55LcuoQsb94Kwk+LKGjqtseFg5LEcSEJSpF0
+	 eB1asT4EqVeAAitxxhoUj3nTDg/EQinEy2yF/qkAdIMwQTe6Hs8E2ZWOQFSdh28H7K
+	 OQBkerlb3ez2w==
+Subject: Re: [PATCH v1 net 2/8] tcp: Don't use inner IP TTL for IP_MINTTL in
+ tcp_v4_err().
+From: netdev-bot+sashiko@kernel.org
+To: kuniyu@google.com
+Cc: edumazet@kernel.org, ncardwell@google.com, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com,
+ netdev@vger.kernel.org
+Date: Wed, 18 Nov 2026 20:36:25 +0000
+Message-ID: <179503418534.3136.4229241226669762008@kernel.org>
+In-Reply-To: <20261117053543.84032-3-kuniyu@google.com>
+References: <20261117053543.84032-3-kuniyu@google.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,73 +63,107 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWNQQ7CIBQFr9L8tT8pLGr1KsYFhVf9llACtGqa3
- l3U5cxiZqOMJMh0bjZKWCXLHCqoQ0P2bsINLK4y6VZ3Sqme11ZcfAYuPnOcvedo0gTHE95LdKa
- AtTqe9NDbEZ2j2okJo7x+jwsFFLr+ZV6GB2z51mnfPzRA006KAAAA
-X-Change-ID: 20261118-v0idpwn-tls-poll-parked-keyupdate-21792b8cfe6d
-To: John Fastabend <john.fastabend@gmail.com>, 
- Jakub Kicinski <kuba@kernel.org>, Sabrina Dubroca <sd@queasysnail.net>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>
-Cc: netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Felipe Pereira Stival <v0idpwn@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795034159; l=1813;
- i=v0idpwn@gmail.com; s=20261118; h=from:subject:message-id;
- bh=DIS1qpGeSGsJAZlzQeuErG2MWJN2BgtKvOVfJIEtLu4=;
- b=oamRd5Y6T31xLNPKrToNJ8oIMDJqzpC85j6F6RcOJIa758qXllk7jhlCBwJ1yjMpdArZTga56
- gd5sFCzdTuVBR3/E6WVpdX6/dE8AH0cj8Qrj6zspgATfD7V/ToXYRQU
-X-Developer-Key: i=v0idpwn@gmail.com; a=ed25519;
- pk=dy+Py1JexopmEarZT58aUO9PMt7zs+cB62CS+N7NWTw=
-X-Endpoint-Received: by B4 Relay for v0idpwn@gmail.com/20261118 with
- auth_id=1562
-X-Original-From: Felipe Pereira Stival <v0idpwn@gmail.com>
-Reply-To: v0idpwn@gmail.com
 
-A kTLS reader that waits for a read event before each recv() can stall
-after the peer sends a TLS 1.3 KeyUpdate. I ran into this while testing
-a kTLS patch for Erlang/OTP.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Erlang does one recv() per read event, with level-triggered epoll.
-When application data is followed by a KeyUpdate, one recv() can
-decrypt both records, return the data without an error, and leave the
-KeyUpdate queued. Because a rekey is now pending, poll() no longer
-reports the socket as readable. Without another read event, the reader
-never calls recv() again, never sees the -EIO for the KeyUpdate, and
-never provides the new key.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Patch 1 keeps the socket readable until the reader has consumed the
-KeyUpdate. As before, poll() doesn't report records after the
-KeyUpdate until userspace provides the new key. Patch 2 adds a
-selftest, which fails without patch 1.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I worked on this with an AI coding assistant (Claude). It wrote the
-first drafts of the code and the commit messages, and I reviewed and
-reworked them. I directed the whole process, from tracing the missing
-read event to tls_sk_poll() to checking how other kinds of readers
-are affected and testing in QEMU/KVM.
+- [Medium] In tcp_v4_err() (net/ipv4/tcp_ipv4.c), the IP_MINTTL check now
+  compares ip_hdr(skb)->ttl, the outer TTL, with min_ttl.
 
-Signed-off-by: Felipe Pereira Stival <v0idpwn@gmail.com>
----
-Felipe Pereira Stival (2):
-      tls: don't hide a queued KeyUpdate from poll()
-      selftests: tls: add a poll test for a queued KeyUpdate
+--
 
- Documentation/networking/tls.rst  |  7 ++++---
- net/tls/tls_main.c                |  6 +++---
- tools/testing/selftests/net/tls.c | 40 +++++++++++++++++++++++++++++++++++++++
- 3 files changed, 47 insertions(+), 6 deletions(-)
----
-base-commit: 2a324a58a084c5cfd7e5a2f55e0786bee170a4a5
-change-id: 20261118-v0idpwn-tls-poll-parked-keyupdate-21792b8cfe6d
+tcp: Don't use inner IP TTL for IP_MINTTL in tcp_v4_err().
 
-Best regards,
---  
-Felipe Pereira Stival <v0idpwn@gmail.com>
+This commit changes the IP_MINTTL check in tcp_v4_err(). The check now
+compares min_ttl against the TTL of the outer IP header that carries the
+ICMP error, instead of the TTL in the quoted inner IP header. This makes
+IPv4 behave like tcp_v6_err(), which checks ipv6_hdr(skb)->hop_limit.
 
+> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+> index 7d58f522068d6..bf8542368032f 100644
+> --- a/net/ipv4/tcp_ipv4.c
+> +++ b/net/ipv4/tcp_ipv4.c
+> @@ -546,7 +546,7 @@ int tcp_v4_err(struct sk_buff *skb, u32 info)
+>  
+>  	if (static_branch_unlikely(&ip4_min_ttl)) {
+>  		/* min_ttl can be changed concurrently from do_ip_setsockopt() */
+> -		if (unlikely(iph->ttl < READ_ONCE(inet_sk(sk)->min_ttl))) {
+> +		if (unlikely(ip_hdr(skb)->ttl < READ_ONCE(inet_sk(sk)->min_ttl))) {
+>  			__NET_INC_STATS(net, LINUX_MIB_TCPMINTTLDROP);
+>  			goto out;
+>  		}
 
+[Severity: Medium]
+Will this drop ICMP errors that the host generates about its own TCP
+packets on GTSM sockets?
+
+__icmp_send() never sets a TTL, so __ip_make_skb() falls back to:
+
+net/ipv4/ip_output.c:__ip_make_skb() {
+    ...
+	else
+		ttl = ip_select_ttl(inet, &rt->dst);
+    ...
+}
+
+The ICMP socket's uc_ttl is -1, so this gives the default hop limit,
+normally sysctl_ip_default_ttl = 64. The error is delivered over
+loopback without being decremented, so ip_hdr(skb)->ttl is 64 here.
+
+A typical GTSM socket (IP_TTL 255, IP_MINTTL 254 or 255) now takes the
+goto out path and counts TCPMINTTLDROP. Before this patch, the quoted
+inner header was our own packet. It had not been forwarded, so it still
+carried TTL 255 and passed the check.
+
+One local source of these errors is ip_fragment(), for DF packets that
+exceed the route MTU:
+
+net/ipv4/ip_output.c:ip_fragment() {
+    ...
+		icmp_send(skb, ICMP_DEST_UNREACH, ICMP_FRAG_NEEDED,
+			  htonl(mtu));
+    ...
+}
+
+tnl_update_pmtu() and vti_xmit() send ICMP_FRAG_NEEDED locally through
+icmp_ndo_send(). The link failure path sends ICMP_HOST_UNREACH.
+
+tcp_v4_err() already expects these local errors:
+
+	/* If too many ICMPs get dropped on busy
+	 * servers this needs to be solved differently.
+	 * We do take care of PMTU discovery (RFC1191) special case :
+	 * we can receive locally generated ICMP messages while socket is held.
+	 */
+
+With this change, a GTSM socket no longer reaches the ICMP_FRAG_NEEDED
+handling for a local PMTU drop. tcp_v4_mtu_reduced() is skipped, so
+recovery waits for an RTO or for tcp_current_mss() to see the new dst
+MTU.
+
+Also, a connect() in TCP_SYN_SENT no longer fails fast with EHOSTUNREACH
+on a local link failure. It runs the full SYN retry timeout instead.
+
+The commit message says:
+
+    Now GTSM is applied to locally generated ICMP errors, but this
+    behaviour matches tcp_v6_err().
+
+Could the commit message describe these effects on locally generated
+PMTU and host unreachable errors? The Fixes: tag will bring this to
+stable for all IPv4 GTSM users, such as BGP with ttl-security.
+
+Would it make sense to exempt locally generated or loopback ICMP errors
+from the outer TTL check? As far as I can tell, the final state of the
+series keeps the outer TTL check without such an exemption.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261117053543.84032-1-kuniyu%40google.com
