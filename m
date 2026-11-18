@@ -1,58 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015968;
-	b=pDU5OmZQEJDH8fbGh0BEsraLWfuYm/oISjCeDJOa1e1b5u3TOelDZudHz9M0IJgI17Zq
-	 8szpLylKW/aKnPEdmTe3l80lkzaJbZMaqzrIz3iJ63nF6ZGVnF97zprtAIdOF06MGmNwN
-	 Z3wEDE309HLXkDNQdbAyuokD1QLuPLalDzrP1MrJOu3LkgYr4KGLBb4mqMNKF2wVpd6CY
-	 gHb5D5S0nZPLc23rxScmoGr6zRZpkf5gAJxBgoYayKASup7mLmbrQG5o7KFobtnFx0JpT
-	 k5yBJebcwyRXS0MCiliZZp0rYy1WmUwiq4PLm/RpfogMrTU09PWMAe32Cc9iM7jez/Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015968;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=PtL8/+akObd7KiIRwLMWdhZxYtaj6/g81RYosEwESzU=;
-	b=m0YWOfWrXta3+zA+NhAAQIkeKyfYbP/9kkNjMvaBZl6NwWpcX8wcE3dmT/MmxbIYoVm2
-	 +o18o8qpXbJwS8xPlZZnI+e3w7REZgZ3qFT75q/10zL8XDmTjlTazyKz8L5u8kqhb/Zi5
-	 rHx0f6UZaX1yJnWV053BNCMfwqmVpLuNHl+MWxu0PZ5AC7hhJtLAnoBjydwGnJu3DB0Y0
-	 UP6CRv76CD/tIpw57CnaEhmDT5I9WkJa98NG1QgudfXCra/9KgZJnFNbfFFvHXu+hv9At
-	 FVgZ8CIzMqDE8ZuJzAty4sMOWgeuvp5ajrNYxe0ZM6N3HjqC/DswMaasPX+iDu33mdw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=4nkRqlT5;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.73
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795016034;
+	b=bsNXgs0Q1kg1suWuZB73gdb+MaC+7SJt53FhNID7kyF6VBj+f2KPTi9W7p7TeZqSnVkH
+	 pltoVNDUSXscX6qvmcIna+TwmSAgZe4oRtdqrVyzVDVMevX90h1znRsb9cjkgBYMpKXDX
+	 +Y7A55beWiu31cIjhP4ZE1VmY4JnOJAGkFlRDBLOsVOBAHmdeRPLmpAvw5rhb0vpRBp7N
+	 clJ1M9J9Vns9J44zc5DkE1fVBbNnPCQli/sM3BWDmUkzU6hqLXBCo/4RAQjDrmU2/evoG
+	 cUePtKcKymY5LuXso26X+lbMr6nIgbaJ43rHy0Zn9Xbgl+6Iz5wHX3dSNm3E+gsqqXQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795016034;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=lWrCVJWLesJnIcVUok2QlZd+ly33TndKetEhrY+zgk4=;
+	b=EjotKdyEwjH+t0iDhipGb7eVtjx4OY8R9ikpwAWBsxola1wK0F5DFn1NMu5njnxf8a9R
+	 MO+ZD/EADgNvSvk4A828bJMkEA8grsSZVK2sz2Rr/L8ULvbxujeIR/aq2V1c/99oNDfuK
+	 HIktI7ra+o68tI6Nod+oyzjI+SqIcXkHqQmsTJfh6I3ektxEpcwLR1/kK0JCX8wX29hfP
+	 peO2gH2grvaPSQd6DKtpn9JWtRr7wPilfDHndDboKYxKc8odujKJw/d4yx8GU3gTkOYLY
+	 1utLXHMRFo2utls8IaIQ9+xEP2MKVY0Weh79MgqVTah8qKMJVuR1Q678m5Zv7R5lyTQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TVXTjvFP;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.230.73
+Received: from mail-lr2-f9.google.com (mail-lr2-f9.google.com [74.125.230.73])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F91D606A325;
-	Wed, 18 Nov 2026 15:32:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F91D606A325
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3303606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:33:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3303606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=4nkRqlT5
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=PtL8/+akObd7KiIRwLMWdhZxYtaj6/g81RYosEwESzU=; b=4nkRqlT5D1JABIJe+VVb/HtlXh
-	xN5YafgDhfGmRYaIJKJ8wwydEDlER7sKxc+QkUlumMg4dnwQDTIwUORCCwnqlaLimd7vew61NwvJZ
-	J4rFKc+hQan7211dJpisbiuXH6FRw5G2TWMAUztEH9ivzdInw1v7JgwciILYi7JM7hRw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xTheO-00HSG4-V0; Wed, 18 Nov 2026 16:32:44 +0100
-Date: Wed, 18 Nov 2026 16:32:44 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Frits Letteboer <frits@letteboer.com>
-Cc: hkallweit1@gmail.com, netdev@vger.kernel.org,
-	regressions@lists.linux.dev, rmk+kernel@armlinux.org.uk
-Subject: Re: [REGRESSION] r8169: RTL8127A (XID 6c9) SFP+ link fails to come
- up in 7.4-rc3 (inband/10gbase-r)
-Message-ID: <bb775cfb-525b-4471-bc80-46bb9f98cc31@lunn.ch>
-References: <9e803eea-2446-425a-93d3-2524890d9508@letteboer.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=TVXTjvFP
+Received: by mail-lr2-f9.google.com with SMTP id 38308e7fff4ca-3ad31c004d8so5593481fa.1
+        for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 07:33:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795016032; cv=none;
+        d=google.com; s=arc-20260327;
+        b=SQS6rVGWFxdTCpx6CxUIb6aOqDR4NuH6RtC69VlMKX7Yi75gHg6LX8tH1jrh9NDgD/
+         dhwJifQoMkZCe6N6ZSZD22q1x36Qj/VNcrxCjvef4zMgPWApGBf/6fN8YZl8XCOeayR0
+         CyGtYGfJnv6bJo3/i+PgjNqj2PYq8XCRWYnXevXRWy4mPMdlZot26vq2Ay/35PnmQYK5
+         sHfwjy2LCwkTDLV3M3F/1Cr56wKzQZvDUpuSFxeZWrLOacH6dGnhQmPEIrT+ELhfaCHs
+         EsKaXQt6uw+OK6PUVJjez/VFuFBJebYlsC4ZvOsDRqM+q4q/SL2sBclDF6YcV8FokGuc
+         5ZXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=lWrCVJWLesJnIcVUok2QlZd+ly33TndKetEhrY+zgk4=;
+        fh=VNT6R6+rPyaFaQ2ePUNlQljxIW2+ymjSELrWHRDGzZU=;
+        b=CjW1qHdtUOTynwtkF+crW/WvQeBeI28uuYlVaTmOpZI6j0Li3EILsTMYrv3exsownl
+         WHZNAZ6RgjAtXl7Yb1RoHrMVxCXx7yCQGg3/kGi+o94gotsOr1acaW+3SxJRC2AtxGTp
+         E1Dppba2X7ow89A+X5F2EJizhn5uNgrU6XfisNde24Vh6ZXYeSNEZ0wzLxaE2nA4mHTo
+         zTQ+UmvG1SkuF92T4KSkQXDM/dT/fdJA8ULIxA19u4UUgNDR6rGtQutVlZux+xL34ppd
+         2S/wJBGjqbvuh6IieOhXMBAyEkXtQmK2HO08A5LwAcTwsbYyDAMVfp1Y4uxCBEPmXCPW
+         cWJg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795016032; x=1795620832; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lWrCVJWLesJnIcVUok2QlZd+ly33TndKetEhrY+zgk4=;
+        b=TVXTjvFPXhzc/bLEx+ZoM6GYbNLHu0lXds4uZhiPohiurv43e2An51C/moLDZn6r6p
+         j3dJb1dPwshv3xWv43juKXtN4ffDqcgfrVWnA3rozDpb9p+Yu/25cE2FwpGjOjelZj8x
+         7ri4xTBUOyO+x4rYdHCFN8/EcBNmL2FX85iQTCkIc/1RYmvMbHPPDHw8UFiffINAIMNr
+         kSy2zo5qljS4cqeNaGTla4fgwYX12ykGsocfKTdllG2dD5hxX4J/Ip3Kz8ONcd5O3bFV
+         ByBMEH5LorYevTS1+th5TTWR30f/G+ClveLX1sLMV2CSLC1igIvViMFEunbJH0N6R39k
+         v/0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795016032; x=1795620832;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=lWrCVJWLesJnIcVUok2QlZd+ly33TndKetEhrY+zgk4=;
+        b=fDEr3bv/K1lNM0Jb5AagImFIg9BGKPQ/eSCN3eu5hmU5uXTrLOTBRks89ou2VZZExt
+         SL8TE8WpyZlmCquTvJ+sclW3r8Gkb1H7WnGSkgLPvpeV4xM4YbLEBmxEfw1XI5jMxm2Z
+         eYL7y1Is2UEYS/34u8ATkb++yB4EegkGeoOteUf8XSxVRguwoMmtu0aP1EsKGjRVi/5I
+         mFJD/oeO4Zmv9Y+eh7QjiZ/bGGUfcu6O0d4gMHTdB7KXIbBCG9/Ks+5ohjySU6rrexNN
+         ERnpTIB39BRcsKak0z0wyPnGoyXMuGLdoJ6tRklTabcuJo7b+66WmIQG6AnLpqtcIT0Q
+         yoSA==
+X-Gm-Message-State: APuU4Z9t1j9+1QpFSj5qTJc/YsmmAB/lTvXSmkLHrX9mqLSJNTMTv2Vr
+	TDSxy0EbnT3tl0x00CqHYXSkT+L8WP/CHPOwTbzbm3wT6b8oJghD5CmS+uVhBZQR4yQQcF4kr50
+	uCs6l3kHMhfhIxcrxUW3SUx7yrFLqTzc=
+X-Gm-Gg: AYBFou38PyEZIXtKRJSEjdh5kuocDaSEqUA/ntflyV+lW2xQEDyyBPnEZOXOe5SaRcn
+	fW8LTsSjfwC00qHf/qhN8UHlvMjrnuAB+ZvkK55oj1g3dpD7GLuDRiU05DUaV+E3XLAYVoui3gL
+	FuSvdWE6TiR4dFu4bQSX1RbkZTSh1Ynptsxk2H/x3ZKIoGFXhQcvRjJmIjHfLlv5O1lTUUGDw12
+	8YbRLx9uKzVoD1Umicj2Fr0nJTI6fvU0syVAbnlKMkLT16Pt3WiwgnAorbQTROMmDbEBgii5zRM
+	YvMKRCrtT02zbpUFRA9Y/KN+vOl3iYVmIoxIMmLflugCy23YQ73lsgL+ni6ajeasqOi3K8J86aX
+	0d1/cljppSa7BClKNUXdoPabGEy9FnI8BKnURd3Y=
+X-Received: by 2002:a05:6512:10d4:b0:5bf:a12b:9ba8 with SMTP id
+ 2adb3069b0e04-5c1aa2a82b2mr954623e87.65.1795016031617; Wed, 18 Nov 2026
+ 07:33:51 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,16 +103,109 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <9e803eea-2446-425a-93d3-2524890d9508@letteboer.com>
+References: <20261115152408.48205-1-shlomojune6@gmail.com> <179492922969.3136.7887984434455212903@kernel.org>
+In-Reply-To: <179492922969.3136.7887984434455212903@kernel.org>
+From: J4f J4f <shlomojune6@gmail.com>
+Date: Wed, 18 Nov 2026 23:33:39 +0800
+X-Gm-Features: AclHuK_34vwhIVJ-WP0ppE9rmwaXeEQwWTV-oztY6Pf9rWosEEVQnDoBmiUwEAo
+Message-ID: <CAE_Lbw=mYME61mRgAJFh1CArWPwL34yUyJGPrBkrpgk9VPxchg@mail.gmail.com>
+Subject: Re: [PATCH v1] net: sock_reuseport: check program type on the
+ migration path
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, edumazet@kernel.org, 
+	kuniyu@google.com, pabeni@redhat.com, willemb@google.com, davem@davemloft.net, 
+	kuba@kernel.org, horms@kernel.org, audit@example.invalid
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 18, 2026 at 04:18:41PM +0100, Frits Letteboer wrote:
-> Hi Heiner,
-> 
-> Between Linux 7.3 and 7.4-rc3, my Realtek RTL8127A (XID 6c9) SFP+ NIC
-> stopped establishing a link and generating interrupts under r8169.
+On Tue, 17 Nov 2026 at 23:27, <netdev-bot+sashiko@kernel.org> wrote:
+>
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 1 =C2=B7 Medium: 0 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [High] net: sock_reuseport: placeholder Signed-off-by trailer in commit
+>   message
+> - [Low] The commit message says loading a BPF_PROG_TYPE_SOCKET_FILTER
+>   program with expected_attach_type=3DBPF_SK_REUSEPORT_SELECT_OR_MIGRATE=
+=E2=80=A6
+>
+> --
+>
+> net: sock_reuseport: check program type on the migration path
+>
+> This commit makes reuseport_migrate_sock() and reuseport_stop_listen_sock=
+()
+> treat a reuseport program as migration capable only when its type is
+> BPF_PROG_TYPE_SK_REUSEPORT. Checking expected_attach_type alone allowed a
+> SOCKET_FILTER program to run with a struct sk_reuseport_kern context.
+>
+> > A BPF_PROG_TYPE_SOCKET_FILTER program can be loaded with
+> > expected_attach_type set to BPF_SK_REUSEPORT_SELECT_OR_MIGRATE and
+> > attached to a SO_REUSEPORT TCP group; both steps are allowed without
+> > CAP_BPF.
+>
+> [Severity: Low]
+> Is "both steps are allowed without CAP_BPF" accurate for a default
+> configuration?
+>
+> In bpf_prog_load() in kernel/bpf/syscall.c, this check runs before the
+> SOCKET_FILTER/CGROUP_SKB exemption for unprivileged loads:
+>
+> kernel/bpf/syscall.c:bpf_prog_load() {
+>     ...
+>         if (sysctl_unprivileged_bpf_disabled && !bpf_cap)
+>                 goto put_token;
+>     ...
+> }
+>
+> The sysctl starts at 2 when CONFIG_BPF_UNPRIV_DEFAULT_OFF is enabled:
+>
+> int sysctl_unprivileged_bpf_disabled __read_mostly =3D
+>         IS_BUILTIN(CONFIG_BPF_UNPRIV_DEFAULT_OFF) ? 2 : 0;
+>
+> That Kconfig option is "default y" in kernel/bpf/Kconfig. So on a default
+> kernel, a task without CAP_BPF (or a BPF token granting it) can't load th=
+e
+> socket filter in the first place. Unprivileged users can only reach the
+> out-of-bounds access when kernel.unprivileged_bpf_disabled has been set
+> to 0.
+>
+> Could the commit message mention that the unprivileged case depends on
+> this sysctl? That would help backporters and security triage judge the
+> exposure. The code change itself is not affected by this.
+>
+> [Severity: High]
+> The author and Signed-off-by trailer both use the identity
+> Linux kernel audit <audit@example.invalid>. That isn't a person, and
+> the .invalid TLD is reserved (RFC 2606), so the address can never
+> receive mail.
+>
+> Signed-off-by is the Developer's Certificate of Origin described in
+> Documentation/process/submitting-patches.rst. It certifies that a
+> specific person wrote the change or has the right to pass it on under
+> the kernel's license. A placeholder identity can't make that
+> certification. Nobody can be reached at this address if questions
+> about the patch come up later, so this can't be applied as is.
+>
+> Could you resend with the author and Signed-off-by set to your real
+> name and a working email address? If you're forwarding a change
+> written by someone else, it needs the original author's sign-off
+> followed by your own. The code change itself is not affected by this.
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261115152408.48205-1-shlomojune6%40gmail.com
 
-Can you do a git bisect? Find out which patch broken it?
+Will fix it.
 
-    Andrew
+pw-bot: cr
