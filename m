@@ -1,79 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.47.206.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795018922;
-	b=NVD0F3JYKNtGp84cMK8dJHaHPcy99tIuW1jIUbJ90+drEh7YAkAdRELlgKb/ISeI2kio
-	 CQgHjUUr6emWac+V72WreFjwg1KGkvQdhIZX/TbeQDqS0W6cSiDt245B8YCpRwGkEGbPZ
-	 M84olaXwQ+YLCW0hKospZIAtP+lRyrSaG3HnfKS8QCplB2VzFC1QeGDHuQceM2oJ1n0yZ
-	 y1Zf3PPdYbaIVcBP4r1qM6A6bZKyMnU3mkVSqWCcnvKNQMsIhDjN3jM5zJrNP/ESJqvV8
-	 UnxvyHD+ksdAqUy7T7+WQvWDicY3CQ7rOmxVUCCLjDgaJdSX95YcW0Wb50V30E2TE+A==
+	t=1795019065;
+	b=PYlkYVc/07Hc9zy4tXcHnL2hxsCnnIrCtOeujBm5eIDF/BUVxAEZ72NROfgsWbLDvqbS
+	 3RZlKLs5qSM3SUCiPyadrNOVnWoIuekofLtnpfoouVD4FrA0dXb3NrDXpc6mZ453IJ65m
+	 cYo/EDbTFa1Wb/oHt85zoa/CeMZNZybHSO+D5PGgVxpc4OMZ6dxP9mFiysDuAG2J8/OLy
+	 WrW6kaIwsjj5V4dQmhPTsOrIdc7g2E4gtALnKaph55cHBr8pgBe+3Ke9sNtPsRp5bszwV
+	 7+rjmey7jqzYmoJZxovZAJn0Pit0FX+5U+tXZBdrrESTm6K9IJsDk3NnxhqsO23CS3Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795018922;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=o4IhjYnsAkS+A/M5yq5qkGtMA6PWttIKEDUvGkvU2eY=;
-	b=tWckFlBeASUKFv/NPDBBIooal98rHmKV7q2Z0ZzY1w4Tos0qKAS0Yr/3Rj3JCNCYoXdZ
-	 cmYHkQ50cpWgxAj0G2VeQaMi5XRLhyYL+hK9YcVVGXBU4DTFjiiAb9X7UtWnyoNVRbks1
-	 +Fuo6tyEnQJjHFpzSNCPoqIIuYi2MvNbioMQgR4nL4G1neV2fdC9gyrvyST3zQdgnMqX5
-	 EhTZBUY+NNCjh+6s6slXwSSIg5rJFDDLeXjqU2upMxyu7uMfZJ3nEcvPa3b5A09SkU1ph
-	 bRwiMrerpcjl13W+4kaGv30/0jb4QypEgSEd2+syPvvCgfOJQUmpmqm2O0n5RZqS22g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795019065;
+	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:Received:Received:From:To:
+	 Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:X-Smtpcorp-Track:Feedback-ID:
+	 X-Report-Abuse;
+	bh=qxGoztvwPd53oxXWJ4zhA1LfAUTegswU0wgNrnxAQtQ=;
+	b=Bo4onuF2T344QR+zxejtYEJ7wSarPpa2ZhcNoc7uVkNsFv3CjqfVuzK2lHW1cmD/+Sz/
+	 yHBHpPVAr4lOPbu8y0P5LenWT/41Z/o+rBiA/hujdhXU70kAytKpk9hVd9LISeI/GBFLC
+	 6vMp7Y/ga6iSs0gTCK2pbuqsd9pzgZKWtHRX1AcOqnkv+lNll6ELn+x1SBZpDtkkQM7lz
+	 wk06ErJqLnMwDP63VSWhCIeG45voGEXd3bwPxS1Pim7pHMA2ZN1mI5xKHc67VhtcL1DPW
+	 ASr8COSceJ3JNgXq76VO4CiXLEP0lIFtxqh+K7vAxm6GQYIRwYiaIWHzLviBsNfs27A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2R2b9+uz;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=bumblecito.com;
+	spf=pass smtp.mailfrom=em1130875.bumblecito.com;
+	dkim=fail reason="unknown key version" header.d=smtpservice.net header.i=@smtpservice.net header.a=rsa-sha256 header.s=mo8l70.a1-4.dyn header.b=WshAhmpH;
+	dkim=pass header.d=bumblecito.com header.i=@bumblecito.com header.a=rsa-sha256 header.s=s1130875 header.b=PTy5XpFy;
+	arc=none smtp.remote-ip=103.47.206.45
+Received: from a2i557.smtp2go.com (a2i557.smtp2go.com [103.47.206.45])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9218E606A31C
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:22:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9218E606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E004860A2608
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 16:24:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E004860A2608
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=bumblecito.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=em1130875.bumblecito.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2R2b9+uz
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 9DEDCC4CBDA;
-	Wed, 18 Nov 2026 16:22:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id B705A5FE9B;
-	Wed, 18 Nov 2026 16:21:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 7D84B11BC26F9;
-	Wed, 18 Nov 2026 17:21:38 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795018913; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=o4IhjYnsAkS+A/M5yq5qkGtMA6PWttIKEDUvGkvU2eY=;
-	b=2R2b9+uzpz1RycSQMmA4zCkWe9M65VvGUkYqRX+1u1KTtAl8zxLwkxnHPQzqR+VdJ/ZVor
-	kIofdG4xnPPGBNUYwJiaLMXaKsZtgpxvBcUqKZXh3hBPGL34QX4TXjMYE9262PDctTHfdN
-	psc7w4JRcm9gz7pc71uccgTshjFCV7MnvBpCPCLx2Gh/nICOzHtu/mkuKYWWjWymqsNveU
-	EIgpPrgO6h6OTH742MiFpMRc/gtna3bfUhXufygoUb+nXK9z44VYKSjveYMc5XnXJLWOsY
-	oXqrEyeMqo8GJbHfCGUwPznZERl8pzdjVyTMumDJ+1vKnscB9D6tqz2fPoUSJw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Nicolai Buchwitz <nb@tipi-net.de>,
-	Ovidiu Panait <ovidiu.panait.rb@renesas.com>,
-	Joseph Steel <recv.jo@gmail.com>,
-	Muhammad Nazim Amirul Nazle Asmade <muhammad.nazim.amirul.nazle.asmade@altera.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	thomas.petazzoni@bootlin.com,
-	=?UTF-8?q?Alexis=20Lothor=C3=A9?= <alexis.lothore@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH net-next] net: stmmac: xgmac: Report the VLAN tag type from the descriptor
-Date: Wed, 18 Nov 2026 17:21:34 +0100
-Message-ID: <20261118162136.2782405-1-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=fail reason="unknown key version" header.d=smtpservice.net header.i=@smtpservice.net header.a=rsa-sha256 header.s=mo8l70.a1-4.dyn header.b=WshAhmpH;
+	dkim=pass (2048-bit key, unprotected) header.d=bumblecito.com header.i=@bumblecito.com header.a=rsa-sha256 header.s=s1130875 header.b=PTy5XpFy
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=smtpservice.net; s=mo8l70.a1-4.dyn; x=1795019963; h=Feedback-ID:
+	X-Smtpcorp-Track:Message-Id:Date:Subject:To:From:Reply-To:Sender:
+	List-Unsubscribe:List-Unsubscribe-Post;
+	bh=qxGoztvwPd53oxXWJ4zhA1LfAUTegswU0wgNrnxAQtQ=; b=WshAhmpHseE81l3HLDjbF6GBbP
+	XHiSG6qWF9XLt8ZGf5iAaDjoueDsWG61/sa7d+U3GasfDsDmQN+/zEo6gfWHKY0EDGr4m92UUJDqZ
+	ZdPfbeeC1cocOq8Vkdd3P0oyPy22J6t5g5W8teSnmlTJge2V5X/7S1z9wJL9qtrTnCMSYp0HHd5Dj
+	0uZXCcnlowyRJEVy+83EiCqAvwma6my/Uhbs2Tkse+siwug8Rzcv/29czM9N4LJ//5lNJV/dCF5JK
+	r/PwxILdGP9KUZxDu3T5AFVysmdoDdIsLJZkqfAfAMLsJhYHdCyV3fWw1/cQEJNNgyrqhd/S74Cmt
+	+j/kmiNQ==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bumblecito.com; 
+ i=@bumblecito.com; q=dns/txt; s=s1130875; t=1795019063; h=from : 
+ subject : to : message-id : date; 
+ bh=qxGoztvwPd53oxXWJ4zhA1LfAUTegswU0wgNrnxAQtQ=; 
+ b=PTy5XpFyFzRJ8462Cmf4DEZR/vTBkEDzAA7OzWTmm0rgEt7b/Fqbs0AI2GF8dCIgYJYBoH
+ pjHy+Hnz/UW8PWUnx4YV/vnizb26xlJdQRe/QU8fgyH/1K5T+Ms/BkXI4wMOYdZfKFgfRnqz
+ 8cnVPMIc8xQzntuCEpjwc/17yFxAojjlokk5Odu/cV5/TpYZROJ8XsduQxsTZZ67h+Vnzzwa
+ 8dSLoplBl4t8852XoDn8tc72cF/duwBEbF1+1fVO3JNK5M0suziIfWWN2DdgNApWRu0K5/P9
+ YXApGmQT0Ry5LR+K6KLib3LRP4lml7uBZ2oUP0kcJviJbNV4i6l0X2JA==
+Received: from [10.143.42.182] (helo=SmtpCorp)
+ by smtpcorp.com with esmtpsa (TLS1.2:ECDHE_RSA_SECP256R1__AES_256_GCM:256)
+ (Exim 4.94.2-S2G) (envelope-from <github@bumblecito.com>)
+ id 1xTiRw-ED4xvI-2P; Wed, 18 Nov 2026 16:23:56 +0000
+Received: from [10.168.248.187] (helo=ubuntu.local)
+ by smtpcorp.com with esmtpsa
+ (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256:X25519)
+ (Exim 4.100.1) (envelope-from <github@bumblecito.com>)
+ id 1xTiRv-FnQW0hPuZuh-iDkW; Wed, 18 Nov 2026 16:23:55 +0000
+From: github@bumblecito.com
+To: Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew@lunn.ch>,
+ Heiner Kallweit <hkallweit1@gmail.com>
+Cc: "David S . Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v3 2/2] net: sfp: sort OEM and Turris SFP quirks
+Date: Wed, 18 Nov 2026 16:23:23 +0000
+Message-Id: <20261118162323.436219-3-github@bumblecito.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261118162323.436219-1-github@bumblecito.com>
+References: <20261118162323.436219-1-github@bumblecito.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,101 +86,92 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-Smtpcorp-Track: LHSJIE2n4kvC.yxmqRjD3q7OU.Dwk8FAY-8wL
+Feedback-ID: 1130875m:1130875aWStQz3:1130875s0erM8GP3B
+X-Report-Abuse: Please forward a copy of this message, including all headers,
+ to <abuse-report@smtp2go.com>
 
-Stmmac's double VLAN handling hasn't been working great for a while,
-it's been recently reworked for dwmac4 by Ovidiu Panait. In that work,
-it was found that the tag stripping hardcodes the 8021Q tag type for
-XGMAC while stripping the tag, while the IP actually reports the outer
-tag type in the descriptor.
+From: Israel Cueto <github@bumblecito.com>
 
-The tag type can be one of 6 different values (note inner/outer is
-reversed in the macro names):
+Keep OEM entries together in the vendor table's alphabetical order
+and sort the OEM and Turris entries by part number.
 
- - XGMAC_ET_LT_VLAN_STAG       single S-tag
- - XGMAC_ET_LT_VLAN_CTAG       single C-tag
- - XGMAC_ET_LT_DVLAN_CTAG_CTAG outer C-tag, inner C-tag
- - XGMAC_ET_LT_DVLAN_STAG_STAG outer S-tag, inner S-tag
- - XGMAC_ET_LT_DVLAN_CTAG_STAG outer S-tag, inner C-tag
- - XGMAC_ET_LT_DVLAN_STAG_CTAG outer C-tag, inner S-tag
+This is a table-ordering cleanup only; preserve all existing quirk
+matches and fixup functions.
 
-Report that tag type through a dedicated desc ops and report it to the
-stack.
-
-We keep the 8021Q fallback when we don't have the ops, as we don't
-set NETIF_F_HW_VLAN_STAG_FILTER on the cores that don't support that.
-
-This has been tested on AgileX5 with the vlan.py selftest.
-
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Signed-off-by: Israel Cueto <github@bumblecito.com>
 ---
- .../net/ethernet/stmicro/stmmac/dwxgmac2_descs.c    | 13 +++++++++++++
- drivers/net/ethernet/stmicro/stmmac/hwif.h          |  2 ++
- drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c   |  6 +++++-
- 3 files changed, 20 insertions(+), 1 deletion(-)
+ drivers/net/phy/sfp.c | 36 ++++++++++++++++++------------------
+ 1 file changed, 18 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-index 6719ac6e395b..71ce2bc9b5e1 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
-@@ -76,6 +76,18 @@ static bool dwxgmac2_wrback_get_rx_vlan_valid(struct dma_desc *p)
- 	       et_lt <= XGMAC_ET_LT_DVLAN_STAG_CTAG;
- }
+diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
+index 960ac89cc..33349c355 100644
+--- a/drivers/net/phy/sfp.c
++++ b/drivers/net/phy/sfp.c
+@@ -617,33 +617,24 @@ static const struct sfp_quirk sfp_quirks[] = {
+ 	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
+ 	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
  
-+static u16 dwxgmac2_wrback_get_rx_vlan_proto(struct dma_desc *p)
-+{
-+	switch (FIELD_GET(XGMAC_RDES3_ET_LT, le32_to_cpu(p->des3))) {
-+	case XGMAC_ET_LT_VLAN_STAG:
-+	case XGMAC_ET_LT_DVLAN_STAG_STAG:
-+	case XGMAC_ET_LT_DVLAN_CTAG_STAG:
-+		return ETH_P_8021AD;
-+	default:
-+		return ETH_P_8021Q;
-+	}
-+}
-+
- static int dwxgmac2_get_rx_frame_len(struct dma_desc *p, int rx_coe)
- {
- 	return (le32_to_cpu(p->des3) & XGMAC_RDES3_PL);
-@@ -352,6 +364,7 @@ const struct stmmac_desc_ops dwxgmac210_desc_ops = {
- 	.set_rx_owner = dwxgmac2_set_rx_owner,
- 	.get_rx_vlan_tci = dwxgmac2_wrback_get_rx_vlan_tci,
- 	.get_rx_vlan_valid = dwxgmac2_wrback_get_rx_vlan_valid,
-+	.get_rx_vlan_proto = dwxgmac2_wrback_get_rx_vlan_proto,
- 	.get_rx_frame_len = dwxgmac2_get_rx_frame_len,
- 	.enable_tx_timestamp = dwxgmac2_enable_tx_timestamp,
- 	.get_tx_timestamp_status = dwxgmac2_get_tx_timestamp_status,
-diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-index 8ae95e91a36a..047bda5cbd92 100644
---- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
-@@ -60,6 +60,8 @@ struct stmmac_desc_ops {
- 	u16 (*get_rx_vlan_tci)(struct dma_desc *p);
- 	/* Get the valid status of descriptor */
- 	bool (*get_rx_vlan_valid)(struct dma_desc *p);
-+	/* Get the vlan tag proto from the descriptor */
-+	u16 (*get_rx_vlan_proto)(struct dma_desc *p);
- 	/* Return the transmit status looking at the TDES1 */
- 	int (*tx_status)(struct stmmac_extra_stats *x,
- 			 struct dma_desc *p, void __iomem *ioaddr);
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-index fb9aad748cb3..bf23d82e9f38 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_vlan.c
-@@ -209,8 +209,12 @@ static void vlan_rx_hw(struct mac_device_info *hw,
- {
- 	if (hw->desc->get_rx_vlan_valid(rx_desc)) {
- 		u16 vid = hw->desc->get_rx_vlan_tci(rx_desc);
-+		u16 proto = ETH_P_8021Q;
+-	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
+-
+-	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
+-	// Rollball protocol to talk to the PHY.
+-	SFP_QUIRK_F("Walsun", "HXSX-ATRC-1", sfp_fixup_fs_10gt),
+-	SFP_QUIRK_F("Walsun", "HXSX-ATRI-1", sfp_fixup_fs_10gt),
+-
+-	SFP_QUIRK_F("YV", "SFP+ONU-XGSPON", sfp_fixup_potron),
+-
+ 	// HORACO HC-10GE-113C uses Rollball protocol to talk to the PHY.
+ 	SFP_QUIRK_F("OEM", "HC-10GE-113C", sfp_fixup_rollball),
++	SFP_QUIRK_F("OEM", "RTSFP-10", sfp_fixup_rollball_cc),
++	SFP_QUIRK_F("OEM", "RTSFP-10G", sfp_fixup_rollball_cc),
  
--		__vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);
-+		if (hw->desc->get_rx_vlan_proto)
-+			proto = hw->desc->get_rx_vlan_proto(rx_desc);
+-	// OEM SFP-GE-T is a 1000Base-T module with broken TX_FAULT indicator
+-	SFP_QUIRK_F("OEM", "SFP-GE-T", sfp_fixup_ignore_tx_fault),
++	// OEM SFP+ONU-XGSPON is a XGS-PON ONT stick with broken TX_FAULT and
++	// LOS indicators and slow startup, just like potron.
++	SFP_QUIRK_F("OEM", "SFP+ONU-XGSPON", sfp_fixup_potron),
+ 
+ 	SFP_QUIRK_F("OEM", "SFP-10G-T", sfp_fixup_rollball_cc),
+-	SFP_QUIRK_S("OEM", "SFP-2.5G-T", sfp_quirk_oem_2_5g),
+ 	SFP_QUIRK_S("OEM", "SFP-2.5G-BX10-D", sfp_quirk_2500basex),
+ 	SFP_QUIRK_S("OEM", "SFP-2.5G-BX10-U", sfp_quirk_2500basex),
+ 	SFP_QUIRK_S("OEM", "SFP-2.5G-LH03-B", sfp_quirk_2500basex),
+ 	SFP_QUIRK_S("OEM", "SFP-2.5G-LH20-A", sfp_quirk_2500basex),
+-	SFP_QUIRK_F("OEM", "RTSFP-10", sfp_fixup_rollball_cc),
+-	SFP_QUIRK_F("OEM", "RTSFP-10G", sfp_fixup_rollball_cc),
++	SFP_QUIRK_S("OEM", "SFP-2.5G-T", sfp_quirk_oem_2_5g),
+ 
+-	// OEM SFP+ONU-XGSPON is a XGS-PON ONT stick with broken TX_FAULT and
+-	// LOS indicators and slow startup, just like potron.
+-	SFP_QUIRK_F("OEM", "SFP+ONU-XGSPON", sfp_fixup_potron),
++	// OEM SFP-GE-T is a 1000Base-T module with broken TX_FAULT indicator
++	SFP_QUIRK_F("OEM", "SFP-GE-T", sfp_fixup_ignore_tx_fault),
+ 
+ 	// OEM XGSPONST2001 is an XGS-PON ONT stick with broken TX_FAULT and
+ 	// LOS indicators and slow startup, just like potron. On cold
+@@ -652,11 +643,20 @@ static const struct sfp_quirk sfp_quirks[] = {
+ 	// match the part as a prefix.
+ 	SFP_QUIRK_F_PREFIX("OEM", "XGSPONST2001", sfp_fixup_potron),
+ 
++	SFP_QUIRK_S("UBNT", "UF-INSTANT", sfp_quirk_ubnt_uf_instant),
 +
-+		__vlan_hwaccel_put_tag(skb, htons(proto), vid);
- 	}
- }
++	// Walsun HXSX-ATR[CI]-1 don't identify as copper, and use the
++	// Rollball protocol to talk to the PHY.
++	SFP_QUIRK_F("Walsun", "HXSX-ATRC-1", sfp_fixup_fs_10gt),
++	SFP_QUIRK_F("Walsun", "HXSX-ATRI-1", sfp_fixup_fs_10gt),
++
++	SFP_QUIRK_F("YV", "SFP+ONU-XGSPON", sfp_fixup_potron),
++
+ 	SFP_QUIRK_S("TP-LINK", "TL-SM410U", sfp_quirk_oem_2_5g),
+ 
+-	SFP_QUIRK_F("Turris", "RTSFP-2.5G", sfp_fixup_rollball),
+ 	SFP_QUIRK_F("Turris", "RTSFP-10", sfp_fixup_rollball),
+ 	SFP_QUIRK_F("Turris", "RTSFP-10G", sfp_fixup_rollball),
++	SFP_QUIRK_F("Turris", "RTSFP-2.5G", sfp_fixup_rollball),
+ 
+ 	SFP_QUIRK_F("XikeStor", "SKT-2.5G-100M", sfp_fixup_xikestor_2_5g),
  
 -- 
-2.56.1
+2.34.1
 
