@@ -1,49 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966017;
-	b=zP2atC6OJLo7+giGXtnpt6cMxJUkbC3L6N2jnIU+1rUAEbF3FnQ3EOEjkc3RmPpmy0eZ
-	 TJT6XOA3GEAXN6gCOcgDqAyIyTsnl5KDzBglRwV8Zxkgpiu616EvqrYb36whu+NYmUPbp
-	 42BIcEfJI1vyBmElhzagFd9mJXRpe6wE4a/mjGwDJMaUZ6sumexBut5zYPUTq7KBjuNdm
-	 Ly/kZvuL1xBnBSx/4pEKSBj5/MG7pqpVYloWwg0ISHFdHjrl2gxAlE/y+FVxicU9sYAT4
-	 Rpx39sK066KMeEOlgQbnYK4bnES6waHHEiUv4t3Mtgj/msIRJRK9oUnFMhSuN77dxug==
+	t=1794966080;
+	b=Sj4nAF+EEzWkdsWv7TijQEN91NRliJ5DBX39BUId84bk0mOVnpuLbWYN770xGC4UnwaS
+	 FqcK0U4HeVo+jY/OjKAWUtwegPZVsD/Xb/SPlBL94sKUvo0WCRcdXzt1iPqKekg1EUN4A
+	 ppxljPrLu9rHg9bPTpyK6dH44O7I5OaFutPGlIb0HKTfhr/dW1YwloaU09o9UIMui7/FE
+	 RYY6Bj95q0aa+FRTTPHldJH5+fB2nL+3RJiq2dAjzZNbEts/GU6oonWchKoPE695mfWQm
+	 eekc2XpAUkjmuHFoHvLOXkuW8uAF5UZW+X894paRH7eLmsVGLKrU+tYwWmNLYAZSfEQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966017;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=MqNjvZkc90fUJdbV54A3QLQQlxoRMCgbGM/R+fXUbQk=;
-	b=MJr7k+oZyhytOFbkndcrju6P45U17MJM16ABQnSedHAZ49bv8s3wyBnHMwCDChlxO5fu
-	 EOoZr9Cq3+gZL59kTjxczcNiQqBlNXbDIlVXJTxfgY6mFJV9kjL0glM0oqLB+/0cPG8U3
-	 LzpDc2r4rSyaCTb1wOhw4W6+hk7XA93t8vyIm4XkGicRQ1m6wP4EwmczMFSVF4QgLymNx
-	 bg2TTuMqrDrV8I0etFde19ogGMiK+FqhN5vweZY4xd71PxmbXQ8Qqxx1XhyZSiksRl5fr
-	 R8mAH1KORXqzXoZ9rJ0JMhHqYlvsD0drZbDcPpZFD64PK2H3s8xjFcZYDXeAeDW+WdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966080;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xzG0+4xLM7uNQNtuVBYTOXUsr0xkfMSlRPAWstD77hw=;
+	b=USF8+troUTgcc5dSe3Q2LC3/ghbQdJE2A/kwxU9dZcGjwNBzSkmh6w7zeqA1m3MiwgY5
+	 Y8svBFMcGQishiq7TNg1MGA+mMOMGz1Nzqg2AHciffdIqtcWp8hbYkOQAnCLJHlHamLf7
+	 VYCcgJINGDFLds1fPtVVanSKTT2r7Ds7gZAfHZlmbtbm1MqpGeub9puaTudfc1aSn1e52
+	 nc7UkDgNi/a8cel7jocv1ly8wTxDr4SSw6HhRbCp+3Ng5Lu0RdBjgeoioU7gtvFbIpJsj
+	 DnFTqQB/fkMuvKy0dJYAKDZtubeR3NgsGioX8z8HWV/i3u9IVxicQbk5If6vIgF5Utg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="oqphPv/j";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 210CE606A338;
-	Wed, 18 Nov 2026 01:40:16 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=LoG4A+aX;
+	arc=none smtp.remote-ip=111.22.67.139
+Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 022F2606A31C;
+	Wed, 18 Nov 2026 01:41:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 022F2606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oqphPv/j
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C09731F000C4;
-	Wed, 18 Nov 2026 01:40:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794966016;
-	bh=MqNjvZkc90fUJdbV54A3QLQQlxoRMCgbGM/R+fXUbQk=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=oqphPv/jR/MBPIxXeCcg9XAjxgrs+Sn8rfljejVnscD8Wk3qZvVDkwUnyiCrA3DaC
-	 SecveP6O38IT086m8R1onOY0Qcl1wuch78PiNFah6us1fq8yLxGXwKq0kd7j32jmLa
-	 b/lG1Xht3M5jIigTJOxw0F8aX9rwujlwG3MJ0tCT+TrwMfwtgGpT/p9Y/yJ19GNe5t
-	 e+EpoDPzrekAJP/cVtMengysUNV1OknhRupu40Ep0VGaTWRiyvkV28RkOgIwJLEREG
-	 uk0i9/mg0q032akxUR3Qtg6I/uQ1grASeCnJBoPmzhSimI5A/S9IfAb6HoRwllly7m
-	 kaosZVK53DO+A==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B44CD392B1FE;
-	Wed, 18 Nov 2026 01:40:16 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=LoG4A+aX
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=LoG4A+aXqO/LidqmZjUvtqsDclwgTczXcW/jNatRUw2eCzVYVDv0Xrsyw/7LWhE94avKezQj0Cufv
+	 JZiFYiEvNEZFOdMbqhsxQr3bZajABkBAD5c5KKjo0m0h10gObbthfAEhUd5wl8yrj45AORs3IO8hzq
+	 Vf5tzeFuO0t6B2NY=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afd02395bf-0b099;
+	Wed, 18 Nov 2026 09:41:16 +0800 (CST)
+X-RM-TRANSID:2ee56afd02395bf-0b099
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86afd023a665-2ca66;
+	Wed, 18 Nov 2026 09:41:15 +0800 (CST)
+X-RM-TRANSID:2ee86afd023a665-2ca66
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: chester.a.unal@arinc9.com,
+	daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com
+Cc: sean.wang@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
+Date: Wed, 18 Nov 2026 09:41:14 +0800
+Message-ID: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -54,42 +73,116 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net] selftests: drv-net: psp: skip unsupported versions in
- netkit data test
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179496601527.1396957.14502645778705533962.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 01:40:15 +0000
-References: <20261115-main-v1-1-7011cd84e54a@xsightlabs.com>
-In-Reply-To: <20261115-main-v1-1-7011cd84e54a@xsightlabs.com>
-To: Alexey Skidanov <alexeys@xsightlabs.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, shuah@kernel.org, weiwan@google.com,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, guyt@xsightlabs.com, liory@xsightlabs.com
 
-Hello:
+mt7530_setup() enables the "core" and "io" regulators of the MT7530,
+but none of the error paths that follow (reset timeout, unsupported
+chip ID, 20MHz XTAL, VLAN setup, PHY muxing, GPIO setup, FDB flush)
+disables them again, leaving both regulators enabled after a failed
+setup.
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Add two error labels that disable what was enabled by then: the
+io regulator failure path releases the already-enabled core
+regulator, and all later failure paths disable both regulators.
 
-On Sun, 15 Nov 2026 15:03:29 +0200 you wrote:
-> From: Alexey Skidanov <alexeys@xsightlabs.com>
-> 
-> data_basic_send_netkit_psp_assoc() runs for PSP versions 0-3. The
-> non-netkit data path already skips versions the device does not
-> advertise in psp-versions-cap. The netkit path does not, so those
-> cases fail instead of skipping.
-> 
-> [...]
+MT7621 maps to the same sw_setup callback but skips the regulator
+section entirely, so the cleanup at the common label is guarded
+with a priv->id check to avoid unbalanced disables.
 
-Here is the summary with links:
-  - [net] selftests: drv-net: psp: skip unsupported versions in netkit data test
-    https://git.kernel.org/netdev/net-next/c/d3826f58a1ed
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+---
+ drivers/net/dsa/mt7530.c | 29 +++++++++++++++++++++--------
+ 1 file changed, 21 insertions(+), 8 deletions(-)
 
-You are awesome, thank you!
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 7781a63b4..2cf41282e 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2425,7 +2425,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 		if (ret < 0) {
+ 			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
+ 				ret);
+-			return ret;
++			goto err_disable_core_pwr;
+ 		}
+ 	}
+ 
+@@ -2447,20 +2447,22 @@ mt7530_setup(struct dsa_switch *ds)
+ 				       val != 0, 20, 1000000);
+ 	if (ret < 0) {
+ 		dev_err(priv->dev, "reset timeout\n");
+-		return ret;
++		goto err_powers;
+ 	}
+ 
+ 	regmap_read(priv->regmap, MT7530_CREV, &id);
+ 	id = FIELD_GET(CHIP_NAME_MASK, id);
+ 	if (id != MT7530_ID) {
+ 		dev_err(priv->dev, "chip %x can't be supported\n", id);
+-		return -ENODEV;
++		ret = -ENODEV;
++		goto err_powers;
+ 	}
+ 
+ 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_20MHZ) {
+ 		dev_err(priv->dev,
+ 			"MT7530 with a 20MHz XTAL is not supported!\n");
+-		return -EINVAL;
++		ret = -EINVAL;
++		goto err_powers;
+ 	}
+ 
+ 	/* Reset the switch through internal reset */
+@@ -2527,7 +2529,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 	/* Setup VLAN ID 0 for VLAN-unaware bridges */
+ 	ret = mt7530_setup_vlan0(priv);
+ 	if (ret)
+-		return ret;
++		goto err_powers;
+ 
+ 	/* Check for PHY muxing on port 5 */
+ 	if (dsa_is_unused_port(ds, 5)) {
+@@ -2554,7 +2556,7 @@ mt7530_setup(struct dsa_switch *ds)
+ 				if (ret && ret != -ENODEV) {
+ 					of_node_put(mac_np);
+ 					of_node_put(phy_node);
+-					return ret;
++					goto err_powers;
+ 				}
+ 				id = of_mdio_parse_addr(ds->dev, phy_node);
+ 				if (id == 0)
+@@ -2579,16 +2581,27 @@ mt7530_setup(struct dsa_switch *ds)
+ 	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
+ 		ret = mt7530_setup_gpio(priv);
+ 		if (ret)
+-			return ret;
++			goto err_powers;
+ 	}
+ #endif /* CONFIG_GPIOLIB */
+ 
+ 	/* Flush the FDB table */
+ 	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
+ 	if (ret < 0)
+-		return ret;
++		goto err_powers;
+ 
+ 	return 0;
++
++err_disable_core_pwr:
++	regulator_disable(priv->core_pwr);
++	return ret;
++
++err_powers:
++	if (priv->id == ID_MT7530) {
++		regulator_disable(priv->io_pwr);
++		regulator_disable(priv->core_pwr);
++	}
++	return ret;
+ }
+ 
+ static int
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+2.50.1.windows.1
+
 
 
