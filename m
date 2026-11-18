@@ -1,55 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015945;
-	b=x+CgiJIPdCQzfIXuuwsDKyVaLTXOfQVpGriUPCiYmaeTQTp9mSqpujIs6gt4WStLwIN/
-	 FDDselCvPSoqOGb0SmAaJmnctpxH8deIStnbhQBlksBrmmT4yB/UUipnOiiR5+Kc/23f/
-	 hSRc0Ych3Sq1FScnbcSmFBMYqVbvlCftMAobrB1vD9X+KqgqxfReIsvN3IvUPOXMKtF9g
-	 hmeWgkVqGh4hMeRGbEdr1Grcgu/Iu7H3F3AUtp4GT+OnDSGoLfTCU0h0cyvpeWVZKDmXv
-	 ot7g7QTMzOyZYTE2/MMJ+ntreVNq4e4LRk7h3ooRgvpW3eiU8SH3WW12+ElvkgTuTyg==
+	t=1795015968;
+	b=pDU5OmZQEJDH8fbGh0BEsraLWfuYm/oISjCeDJOa1e1b5u3TOelDZudHz9M0IJgI17Zq
+	 8szpLylKW/aKnPEdmTe3l80lkzaJbZMaqzrIz3iJ63nF6ZGVnF97zprtAIdOF06MGmNwN
+	 Z3wEDE309HLXkDNQdbAyuokD1QLuPLalDzrP1MrJOu3LkgYr4KGLBb4mqMNKF2wVpd6CY
+	 gHb5D5S0nZPLc23rxScmoGr6zRZpkf5gAJxBgoYayKASup7mLmbrQG5o7KFobtnFx0JpT
+	 k5yBJebcwyRXS0MCiliZZp0rYy1WmUwiq4PLm/RpfogMrTU09PWMAe32Cc9iM7jez/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015945;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=CUTDYfj/NI7vPhfySbvU/8wA3af+cG4HXcFhDsJtznQ=;
-	b=19dWOsgTUc7HGh7gc21V/DfZKaQ1DlprMlV2AQbIDm1iXMhzZPS0JV7xLoy34Yu4Yfyh
-	 47GVqWc+SJStOoZFwhqMbAUVlHeHB6DzssGBa8lqlh2Lj50hNuflqRvSTU8dGT+VTpua3
-	 aI4c3r5EQCjd+X461nKeih1ZhNBmnAMPzbsrmdqFCSgFdnzovgg1eyKwzQZonofbovXQf
-	 SMtzMR5YIW7WcRmG3sEQfwPG8nElk53+eNxnFBFa5fJ/QElqfE1KB4hsYxzsMZaILdHtv
-	 9wE2r+Bpn0tqDrNk7jllFNnh9b62Oby3VP+AJesSE5daxlg4z1/tYjgODVftD9qXzVg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015968;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=PtL8/+akObd7KiIRwLMWdhZxYtaj6/g81RYosEwESzU=;
+	b=m0YWOfWrXta3+zA+NhAAQIkeKyfYbP/9kkNjMvaBZl6NwWpcX8wcE3dmT/MmxbIYoVm2
+	 +o18o8qpXbJwS8xPlZZnI+e3w7REZgZ3qFT75q/10zL8XDmTjlTazyKz8L5u8kqhb/Zi5
+	 rHx0f6UZaX1yJnWV053BNCMfwqmVpLuNHl+MWxu0PZ5AC7hhJtLAnoBjydwGnJu3DB0Y0
+	 UP6CRv76CD/tIpw57CnaEhmDT5I9WkJa98NG1QgudfXCra/9KgZJnFNbfFFvHXu+hv9At
+	 FVgZ8CIzMqDE8ZuJzAty4sMOWgeuvp5ajrNYxe0ZM6N3HjqC/DswMaasPX+iDu33mdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZxyL1JMC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=4nkRqlT5;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5C8D606A31C;
-	Wed, 18 Nov 2026 15:32:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F91D606A325;
+	Wed, 18 Nov 2026 15:32:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F91D606A325
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZxyL1JMC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD8071F000C5;
-	Wed, 18 Nov 2026 15:32:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795015945;
-	bh=CUTDYfj/NI7vPhfySbvU/8wA3af+cG4HXcFhDsJtznQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ZxyL1JMCOvrqNjwR/CLKPpAzeQNk+OwfnkiPVrJTJ0zeD9IY2bLRl+Tv8DUSHtEtR
-	 0391ymAd+beaNlleASnPtaCjq8N+iJfNvWuE+TX3WJ98zvecdjJa1Mru8rpF0YcpLl
-	 1CqH7bMYwtxc1ULTndPr8d+jXCoZeg3vXrRd+S+KEAHoOvVK1goW0tsKT4mRxDk5U4
-	 9GKIzzBAk3Bz/USLkWhl5rw3GhKoQCo4Bkei/PVRBRo6erP1J0t8XLoRqhRTUpry0m
-	 5fhJwJevar3t3AmZO69EG9lVmdcxtBarW+eJJVJhhD5VnW13V6vB7QcqWNX757gkd8
-	 cYHRsZebWoS1A==
-Date: Wed, 18 Nov 2026 15:32:21 +0000
-From: Simon Horman <horms@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: Jeremy.Jean@oss.cyber.gouv.fr, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH net v2] udp_tunnel: fix GRO callback mismatch during setup
-Message-ID: <20261118153221.GG860048@horms.kernel.org>
-References: <20261111214622.2482547-2-Jeremy.Jean@oss.cyber.gouv.fr>
- <179478310543.3136.4977357785981182737@kernel.org>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=4nkRqlT5
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=PtL8/+akObd7KiIRwLMWdhZxYtaj6/g81RYosEwESzU=; b=4nkRqlT5D1JABIJe+VVb/HtlXh
+	xN5YafgDhfGmRYaIJKJ8wwydEDlER7sKxc+QkUlumMg4dnwQDTIwUORCCwnqlaLimd7vew61NwvJZ
+	J4rFKc+hQan7211dJpisbiuXH6FRw5G2TWMAUztEH9ivzdInw1v7JgwciILYi7JM7hRw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xTheO-00HSG4-V0; Wed, 18 Nov 2026 16:32:44 +0100
+Date: Wed, 18 Nov 2026 16:32:44 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Frits Letteboer <frits@letteboer.com>
+Cc: hkallweit1@gmail.com, netdev@vger.kernel.org,
+	regressions@lists.linux.dev, rmk+kernel@armlinux.org.uk
+Subject: Re: [REGRESSION] r8169: RTL8127A (XID 6c9) SFP+ link fails to come
+ up in 7.4-rc3 (inband/10gbase-r)
+Message-ID: <bb775cfb-525b-4471-bc80-46bb9f98cc31@lunn.ch>
+References: <9e803eea-2446-425a-93d3-2524890d9508@letteboer.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,34 +62,16 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179478310543.3136.4977357785981182737@kernel.org>
+In-Reply-To: <9e803eea-2446-425a-93d3-2524890d9508@letteboer.com>
 
-On Sun, Nov 15, 2026 at 10:51:45PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider.
+On Wed, Nov 18, 2026 at 04:18:41PM +0100, Frits Letteboer wrote:
+> Hi Heiner,
 > 
-> Critical: 0 · High: 1 · Medium: 2 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] The fix still lets receive and completion use different tunnel
->   parsers on the same packet, so the out-of-bounds write the commit…
-> - [Medium] udp_tunnel_gro_count only describes how the head skb of a GRO
->   entry was parsed, not the packets merged into it, so packets in the…
-> - [Medium] The Fixes: tag blames only 5d7f5b2f6b93 ("udp_tunnel: use
->   static call for GRO hooks when possible", v6.16), but part of what the…
-> - [Low] The new synchronize_net() in udp_tunnel_update_gro_rcv()
->   (net/ipv4/udp_offload.c:139) runs with the global…
-> 
+> Between Linux 7.3 and 7.4-rc3, my Realtek RTL8127A (XID 6c9) SFP+ NIC
+> stopped establishing a link and generating interrupts under r8169.
 
-Hi Jérémy,
+Can you do a git bisect? Find out which patch broken it?
 
-I would appreciate it if you could provide feedback on
-the concerns raised in this AI-generated review.
+    Andrew
