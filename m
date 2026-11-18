@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795015524;
-	b=wBsBzxwx4KlvW1jJ+04JpZneKQF1o6po9G7lLhykfNUKfaXA+aaCapADQ6Zzyzxf2vn0
-	 5pS2RqEimdB1OM0+0HNjx70VD21U9coBk9O28IxCVnYni5y3eLEXW3n1ugr86QoLvKrLi
-	 o11WYpjc5LY9+Ib0KmoCdyFCUJhSDS6rirv2/cmjh0LXv6Wag9B4aO802bX2CdcHu9k9r
-	 dt7HEhJmZmRTDUZvc5WCvMsr18l/q0cETFBgZ4TOvHch2gKzNmqQtldlElvb8zPYe1kCY
-	 YVTCsRY3o26gEMVy2x5j61gWlOhGtGD62obdgtb/SkSjw7J6CkTioMdrKPJNWEzMfCw==
+	t=1795015525;
+	b=tj7vpCBIGUQ/yC4z7NMy6eZGQBvfKqW8lDjjhHsbu0dxRg3cM79YqHrdMblbL9cUFFfq
+	 rh25/bOn9aYxshFjM82LlQ6GWtMPtK+Y1e9vlEjQWGnaQNzKX2vZnJr3InWg0SR9LUb0E
+	 CwcxuPSEI90UUdBmHqTdpLxxGOFMO9wZzt3K9E7yWwYLi4zlPzuWyct7jj8FOCoS5ybYZ
+	 Oe9m+Ji811VxwE3HIe+x1mnQQrZD2rP8yh6NjIhBdWXWBp/AINHjDOhhtRZQjMuJTUoTR
+	 1TnoSVSh/fHNIYOFKCRc9YpZW3/5cJ1i9L9peomQKJXM2NUmS+RYNtV7dM2OJSe7toA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795015524;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795015525;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=VSMvxq4N5yR8RjP6D+FF1rKlg4RSlRUvjhwSrqxukGA=;
-	b=4sQNMCCugyqT1qYpqXAhEiugsdzDMUTbcPBA3TYw4h6Yoq2OY0XprzQwtVC+Xif64P7Q
-	 rQiQzffMpYtu/r2otcPV0oumal7D+cFS6BhzlvQCkbGM54W/KN+/wnEoHcFZ61OqtMG2x
-	 i/pYlplpJCDUv2Zh9mLr9fhk5roOrJ1Ok+YmApAMaj4Mru4nrfA7Fc39U4gBMvGsB03xZ
-	 SuxCbfXT7JN9v3N8v+Ns0x4H7kXcqFTXEIava72K1CArE2SSGMNu0yZQkNEuyBOdTSbB1
-	 K+PB55lfk6vAvmrk2epeMOaGThUVtytm3oE0iEhmncKI6MuZGwDplo9GkKiPIc4iCfg==
+	bh=OiSHSKwdXm5j2YeluHJz0o6yNhImcnXreOgbp9RzXzE=;
+	b=Mdld8PqlciVjAXbJ2D9j1j2GMjuCf3p1dyhL9ZZFO8G84lpsw90ipJDYHS8yCEOAXFT6
+	 wFwELhnwtQq88d/UZaAxSTW43Rxele7vhLlX0veKDO51kIaAxBA7GMLhFwSmfBkLkE3d9
+	 5Tu9vf1TE5n3zTRmbWyOsxX+iF59T8wZYVeKAhgkfQBSPFocR7yp2+pRaPdnaWnl4Oye2
+	 PhO5600fnoHTkJnnPXWUdT0afG5AZhK/+BxkhcV9iwqAwzD7n6V/N5lCTga4UBi9b5M7v
+	 OI2N+lolRXUDdjNivVcuFI2TDEU9bxyiSQFj7GNprhRc1hYd+DzO3W3DkpdG7LV4nNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=od8E5wLX;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="bb1i/l7I";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 750EA60A2622
-	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:25:24 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52DAA60A260B
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 15:25:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=od8E5wLX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8185C1F000C7;
-	Wed, 18 Nov 2026 15:25:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bb1i/l7I
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A18631F000C5;
+	Wed, 18 Nov 2026 15:25:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795015524;
-	bh=VSMvxq4N5yR8RjP6D+FF1rKlg4RSlRUvjhwSrqxukGA=;
+	s=k20260515; t=1795015525;
+	bh=OiSHSKwdXm5j2YeluHJz0o6yNhImcnXreOgbp9RzXzE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=od8E5wLXedGBXCPsF7WiFDLPRLir7ASdbedDr79fUuXhKfgnD73OZRgZf4qYDHd7Y
-	 r81gjmlQx0KIJ1AOY6qT3bFAnt3RLI/6xPOF53vcFTMM4yAD+KgUtZlRUwvSb1+EPp
-	 QCeqOFNA+shiKrjEJLwbHFOBOlNPuJZP7L7PYuxvCwYhokub9dEJvPOo70VJoSUwl7
-	 hmRM5vDr7tI03IS//mvcGp2h3WSWO01CHjDmg/RjOWZNWT6k9NHtjHXOU2ajWouUQb
-	 p5fmf4tHIrbC9LC25BEEgkEnTefhPA+OzzI4VvcsawbaRZA8eTDGjO6qvmKEasUCZ3
-	 jPLcOdtegwgNg==
-Subject: Re: [PATCH net 1/3] tcp: don't let __tcp_set_rto() return 0
+	b=bb1i/l7ILloYSqpuOpMCwTM6Ac9O3tPNxXYphGcJhqb+G03P2+cyl840lK9gb/kEO
+	 hJR+omncvUfn79s5yklUnFzpPCWP3uszxZo8ojgKZTBF9KmO7g4kW6+8clhdX4A3Mq
+	 zgJoDun+7zfZ3KWDXe7jLlHSAFUXo+DzjVmLcXfxXIh/rhusbq9EHP+7KiGTK2C3hO
+	 8sNOEhusBL7qsB/hkLplLi5WjNEJ/DbMnOVxiO4fwQTYMQ9DbW4tT4jzzg+oirE14X
+	 FkKpiO9LyWddWH7YZEu0IKpxcD5OfQCnnqmXWJU48r2aZs4lPbmq4iO2793g6wXvzT
+	 g3h2FM+myrNdA==
+Subject: Re: [PATCH net 2/3] tcp: clamp RTT samples in tcp_rtt_estimator()
 From: netdev-bot+sashiko@kernel.org
 To: mason@kernel.org
 Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
  davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
  willemb@google.com, josef@toxicpanda.com, netdev@vger.kernel.org
-Date: Wed, 18 Nov 2026 15:25:23 +0000
-Message-ID: <179501552309.3136.7905606885338776327@kernel.org>
-In-Reply-To: <20261118005048.53393-2-mason@kernel.org>
-References: <20261118005048.53393-2-mason@kernel.org>
-X-sashiko-severity: Medium
+Date: Wed, 18 Nov 2026 15:25:24 +0000
+Message-ID: <179501552423.3136.11696546788119477411@kernel.org>
+In-Reply-To: <20261118005048.53393-3-mason@kernel.org>
+References: <20261118005048.53393-3-mason@kernel.org>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -63,227 +63,129 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2 (2)
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] tcp_init_metrics() (net/ipv4/tcp_metrics.c:535-538) is a
-  sibling writer of icsk_rto that does not go through __tcp_set_rto().
-- [Low] The commit message blames the zero RTO only on a u32 wrap of
-  (srtt_us >> 3) + rttvar_us, and it understates the impact.
-- [Low] This concern is retained only because it requires validation; the
-  baseline decision is false.
+- [Low] The new comment above TCP_RTT_MAX_US in include/net/tcp.h says 'A
+  larger sample could not raise the RTO, which TCP_RTO_MAX bounds.' This…
 
 Pre-existing issues:
-- [Low] This concern is retained only because it requires validation; the
-  baseline decision is false.
-- [Low] This concern is retained only because it requires validation; the
-  baseline decision is false.
+- [Low] The receive-side RTT estimator has the same u32 '8x RTT' wrap,
+  and this patch leaves it alone.
 
 --
 
-tcp: don't let __tcp_set_rto() return 0
+tcp: clamp RTT samples in tcp_rtt_estimator()
 
-This patch makes __tcp_set_rto() return at least 1 jiffy, so that the
-exponential backoff in tcp_retransmit_timer() can always move icsk_rto
-away from zero. It also rewrites the comment in tcp_set_rto() to say
-where the tcp_rto_min() floor comes from.
-
-> __tcp_set_rto() computes the RTO as (srtt_us >> 3) + rttvar_us, in u32
-> arithmetic and with no lower bound. A comment in tcp_set_rto() says that
-> the algorithm guarantees an RTO above TCP_RTO_MIN. But tcp_rto_min() is
-> only applied to rttvar_us, so that guarantee is lost if the sum wraps.
->
-> tcp_retransmit_timer() backs off by doubling icsk_rto, so the backoff
-> only works if icsk_rto is nonzero.
-
-[Severity: Low]
-Is the wrap really what produces the zero here? usecs_to_jiffies() rounds
-up, so __tcp_set_rto() returns 0 only when the u32 sum is exactly 0 mod
-2^32. A wrapped sum that lands anywhere else still gives at least 1 jiffy.
-
-Another trigger needs no wrap at all. ip_metrics_convert() accepts a
-locked RTAX_RTO_MIN route metric of 0, and then tcp_rto_min_us(sk)
-returns 0:
-
-net/ipv4/tcp_input.c:tcp_rtt_estimator() {
-    ...
-    tp->rttvar_us = max(tp->mdev_us, tcp_rto_min_us(sk));
-    ...
-}
-
-In that case rttvar_us can be 0, and srtt_us can be below 8 after a 0 us
-sample, so the sum is 0.
-
-Later in this series, "tcp: clamp RTT samples in tcp_rtt_estimator()"
-keeps the sum below 2^32. After that, the rto_min == 0 case is the only
-trigger left that this patch is needed for. Could the commit message name
-it, so that stable backporters can see why this patch is still needed?
-
-The impact could also be described more fully. When icsk_rto is 0,
-tcp_retransmit_timer() does this:
-
-    icsk->icsk_rto = min(icsk->icsk_rto << 1, tcp_rto_max(sk));
-
-It then re-arms ICSK_TIME_RETRANS with a 0 timeout on every expiry. The
-socket retransmits on every tick until retransmits_timed_out() gives up,
-which takes about 924 seconds at the default tcp_retries2.
+This commit clamps each RTT sample in tcp_rtt_estimator() to
+TCP_RTT_MAX_US. That is 120 s, the largest possible RTO. The clamp keeps
+the u32 fields srtt_us, mdev_us and rttvar_us from wrapping, and the
+smoothed RTT now saturates at 120 s.
 
 > diff --git a/include/net/tcp.h b/include/net/tcp.h
-> index 5c9203aae8341..6a714189bcc7f 100644
+> index 6a714189bcc7f..a617a72ee2c6b 100644
 > --- a/include/net/tcp.h
 > +++ b/include/net/tcp.h
-> @@ -910,7 +910,9 @@ static inline void tcp_bound_rto(struct sock *sk)
+> @@ -164,6 +164,13 @@ static_assert((1 << ATO_BITS) > TCP_DELACK_MAX);
 >  
->  static inline u32 __tcp_set_rto(const struct tcp_sock *tp)
->  {
-> -	return usecs_to_jiffies((tp->srtt_us >> 3) + tp->rttvar_us);
-> +	u32 rto = usecs_to_jiffies((tp->srtt_us >> 3) + tp->rttvar_us);
+>  #define TCP_TIMEOUT_MIN_US (2*USEC_PER_MSEC) /* Min TCP timeout in microsecs */
+>  
+> +/* Max RTT sample for tcp_rtt_estimator(). srtt_us holds 8 times the RTT, and
+> + * mdev_us and rttvar_us up to 4 times its deviation, all in u32, like the sum
+> + * in __tcp_set_rto(). A larger sample could not raise the RTO, which
+> + * TCP_RTO_MAX bounds.
+> + */
 
 [Severity: Low]
-This isn't a bug introduced by this patch, but the sum here is still
-computed in wrapping u32 arithmetic. When it wraps, the result now falls
-somewhere between 1 jiffy and tcp_rto_min(). tcp_set_rto() and
-tcp_ld_RTO_revert() apply only an upper bound to it.
+Does "A larger sample could not raise the RTO" hold beyond the update
+that uses the sample?
 
-If this commit is taken on its own, can a peer still cause the wrap?
-tcp_rtt_tsopt_us() accepts TSecr deltas up to about 2.1e9 us:
+For that update it does. With m >= 120 s, (srtt_us >> 3) + rttvar_us is
+already >= m in __tcp_set_rto(), so the RTO is capped at TCP_RTO_MAX with
+or without the clamp.
 
-    if (likely(delta < INT_MAX / (USEC_PER_SEC / TCP_TS_HZ))) {
+But the clamped m is also what gets stored in srtt_us, mdev_us and
+rttvar_us. For example, a first sample of 500 s gives srtt/8 = 500 s and
+mdev = rttvar = 1000 s. The clamped sample gives srtt/8 = 120 s and
+mdev = rttvar = 240 s.
 
-tcp_rtt_estimator() then uses that sample without clamping it.
+When smaller samples follow, the clamped state falls below the RTO cap
+sooner. Later RTO and TLP timeouts are then lower than they would be with
+the unclamped sample, though still within the cap.
 
-Later patches in this series close that path:
+The commit message describes the saturation in TCP_INFO, the pacing rate
+and the metrics cache, but this comment only talks about the RTO. Could
+it say that the clamp leaves the RTO of the current update unchanged,
+while later RTOs computed from the clamped state can be lower?
 
-- "tcp: clamp RTT samples in tcp_rtt_estimator()" changes the sample to
-  min(mrtt_us, TCP_RTT_MAX_US), with a 120 s bound.
-- "tcp: reject RTT samples from TSecr above 120 s" makes
-  tcp_rtt_tsopt_us() return -1 for such samples.
-
-With both applied, srtt_us >> 3 stays below about 536.9e6, even with
-TCP_TX_DELAY. rttvar_us stays below about 2.147e9, so the sum stays
-under 2^32.
-
-One way to wrap is left: a locked RTAX_RTO_MIN route metric near 4294
-seconds, where jiffies_to_usecs(tcp_rto_min()) is already close to 2^32.
-That needs an admin-only configuration. It is a gap in the bound chosen
-by the sample-clamping patch rather than in this one.
-
+> +#define TCP_RTT_MAX_US	(TCP_RTO_MAX_SEC * USEC_PER_SEC)
 > +
-> +	return max(rto, 1U);
-
-[Severity: Medium]
-This floor only covers callers of __tcp_set_rto(). Can
-tcp_init_metrics() still store an icsk_rto of 0?
-
-net/ipv4/tcp_metrics.c:tcp_init_metrics() {
-    ...
-	if (crtt > tp->srtt_us) {
-		/* Set RTO like tcp_rtt_estimator(), but from cached RTT. */
-		crtt /= 8 * USEC_PER_SEC / HZ;
-		inet_csk(sk)->icsk_rto = crtt + max(2 * crtt, tcp_rto_min(sk));
-    ...
-}
-
-This assignment uses u32 arithmetic, has no lower bound and does not
-call tcp_bound_rto(). When RTAX_RTO_MIN is locked, tcp_rto_min() returns
-dst_metric_rtt(dst, RTAX_RTO_MIN). ip_metrics_convert() accepts any value
-for that metric; its only zero check is for a locked RTAX_CWND.
-
-There are two ways to reach 0:
-
-- With a locked rto_min of 0, a cached RTT below one jiffy but above the
-  SYN RTT gives crtt = 0, so icsk_rto = 0 + max(0, 0) = 0. An example is
-  100-500 us on a local network or loopback at HZ=1000.
-- With a very large locked rto_min, crtt + rto_min can wrap to exactly 0.
-
-Suppose the peer then stops answering after the handshake. No RTT sample
-reaches tcp_set_rto(), and this happens:
-
-tcp_init_transfer()->tcp_init_metrics()      /* icsk_rto = 0 */
-tcp_retransmit_timer()
-    icsk->icsk_rto = min(icsk->icsk_rto << 1, tcp_rto_max(sk));  /* 0 */
-    tcp_reset_xmit_timer(sk, ICSK_TIME_RETRANS,
-                         tcp_clamp_rto_to_user_timeout(sk), false);
-
-retransmits_timed_out() is time based, so the socket would retransmit on
-every tick for about 924 seconds at tcp_retries2=15.
-
-Setting the route metric needs CAP_NET_ADMIN in the netns, which an
-unprivileged user can get through user namespaces.
-
-The new comment in tcp_set_rto() says rto must never be 0, and the rest
-of the series doesn't change tcp_metrics.c. Should this assignment also
-be bounded? Either max(..., 1U) or a clamp to [tcp_rto_min, tcp_rto_max]
-would work. The floor could also go where the backoff doubles icsk_rto.
-
->  }
 
 [ ... ]
 
 > diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-> index a2074a1af4222..f65697bc96c9d 100644
+> index f65697bc96c9d..10a23ee20e61d 100644
 > --- a/net/ipv4/tcp_input.c
 > +++ b/net/ipv4/tcp_input.c
-> @@ -1221,8 +1221,9 @@ void tcp_set_rto(struct sock *sk)
->  	 *    with correct one. It is exactly, which we pretend to do.
->  	 */
->  
-> -	/* NOTE: clamping at TCP_RTO_MIN is not required, current algo
-> -	 * guarantees that rto is higher.
-> +	/* NOTE: clamping at tcp_rto_min() is not required, tcp_rtt_estimator()
-> +	 * applies it to rttvar_us. But rto must never be 0, which exponential
-> +	 * backoff could not leave: __tcp_set_rto() takes care of that.
->  	 */
+> @@ -1098,7 +1098,7 @@ static void tcp_event_data_recv(struct sock *sk, struct sk_buff *skb)
+>  static void tcp_rtt_estimator(struct sock *sk, long mrtt_us)
+>  {
+>  	struct tcp_sock *tp = tcp_sk(sk);
+> -	long m = mrtt_us; /* RTT */
+> +	long m = min(mrtt_us, TCP_RTT_MAX_US); /* RTT */
 
 [Severity: Low]
-Is this comment accurate at this commit? It says no tcp_rto_min() clamp
-is needed because rttvar_us carries the floor. The commit message,
-though, says "that guarantee is lost if the sum wraps", and
-__tcp_set_rto() only guarantees 1 jiffy. While the sum can wrap, the
-result can fall in [1, rto_min).
+This is a pre-existing issue, not one introduced by this patch, but the
+receive-side estimator has the same 8x RTT in u32 wrap. Should
+tcp_rcv_rtt_update() get a similar bound?
 
-The contradiction goes away once "tcp: clamp RTT samples in
-tcp_rtt_estimator()" later in the series keeps the sum within u32. From
-then on, rttvar_us >= tcp_rto_min_us() does imply rto >= rto_min, and the
-1U floor only matters when rto_min == 0.
+net/ipv4/tcp_input.c:tcp_rcv_rtt_update() {
+	u32 new_sample, old_sample = tp->rcv_rtt_est.rtt_us;
+	long m = sample << 3;
 
-A smaller gap remains, and it predates this patch. rttvar_us is not
-raised when tcp_rto_min() increases in the middle of a connection.
-tcp_rtt_estimator() resets mdev_max_us to the new value:
+	if (old_sample == 0 || m < old_sample) {
+		new_sample = m;
+	} else {
+		...
+		if (win_dep)
+			return;
+	...
+	tp->rcv_rtt_est.rtt_us = new_sample;
+}
 
-    tp->mdev_max_us = tcp_rto_min_us(sk);
+sample is u32, so the shift is done in 32-bit arithmetic. It wraps for
+samples above 2^29 us (about 536.9 s) before the result is widened to
+long. A wrapped m below old_sample is stored, even for win_dep=1 samples.
 
-But rttvar_us only grows when mdev_us exceeds mdev_max_us. The old
-comment ("current algo guarantees that rto is higher") had the same gap.
+There are two sources of large samples. The TSecr path,
+tcp_rcv_rtt_measure_ts(), passes tcp_rtt_tsopt_us() results of up to
+about 2,147 s. The later patch in this series, "tcp: reject RTT samples
+from TSecr above 120 s", makes tcp_rtt_tsopt_us() return -1 above
+TCP_RTT_MAX_US, which closes that path.
 
->  	tcp_bound_rto(sk);
->  }
+The non-timestamp path is still unbounded at the end of the series:
 
-[Severity: Low]
-This is a pre-existing issue, but the three users of __tcp_set_rto()
-apply different lower bounds. The thin-stream branch of
-tcp_retransmit_timer() clamps at both ends:
+tcp_event_data_recv()
+  tcp_rcv_rtt_measure()
+    delta_us = tcp_stamp_us_delta(tp->tcp_mstamp, tp->rcv_rtt_est.time);
+    tcp_rcv_rtt_update(tp, delta_us, 1);
 
-    icsk->icsk_rto = clamp(__tcp_set_rto(tp),
-                           tcp_rto_min(sk),
-                           tcp_rto_max(sk));
+Suppose a receive window measurement spans a stall of more than 536.9 s.
+The wrapped value is accepted only if the stall falls in a narrow band:
+from 536.87 s to about 536.87 s plus the current receiver RTT, modulo
+2^29 us. The win_dep check rejects most other wrapped values.
 
-tcp_set_rto() (through tcp_bound_rto()) and tcp_ld_RTO_revert() (through
-inet_csk_rto_backoff()) apply only tcp_rto_max(). On those two paths, the
-documented tcp_rto_min_us minimum is enforced only indirectly, through
-the rttvar_us floor in tcp_rtt_estimator(). That floor holds once the
-later sample-clamping patch keeps the sum from wrapping.
+When the value is accepted, tp->rcv_rtt_est.rtt_us is too small. Without
+timestamps this is a min filter, so the bad value stays for the life of
+the connection. It is read by tcp_rcv_space_adjust(), tcp_rcvbuf_grow(),
+the compressed ACK delay in __tcp_ack_snd_check(), tcpi_rcv_rtt and
+mptcp_rcv_rtt_update().
 
-Is it intended that raising rto_min mid-connection takes effect at once
-only on the thin-stream path?
+A remote peer can already push this min filter down by sending a window
+quickly, so the wrap doesn't give it anything new.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261118005048.53393-1-mason%40kernel.org
