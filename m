@@ -1,64 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794965678;
-	b=X6raP8z+ImHfqsAADMnt/vsUZUi3XG6mYjm7Qj0WZ/bLz52JSLvLOGPB+TjuQ9zCyQwr
-	 G8MQaTETCoOwBljJF3F52c/7pNvFVLgTqkd46Qjr8amy8F8KxxTENpGrUU+0ovXFp+6a9
-	 T67oGCLpIodfsgGcYzCORlkdqcBWipgrgbBy1bi739N4jJvjta0MHNV65ALxmy4KbpqO4
-	 LPEsiycwEPaXPbwzXkPohr+ALktaH4Zaih4M9uf7PoPmWVehzh8MUvpKF2beXBXQZZCQH
-	 38b46QWAeF+3VzwMUY0uU0djBNIuWw8NiC0+PYrTGf7MBeYMsKWjx+oS3lvcHAg2whw==
+	t=1794965862;
+	b=NPhGPtx1EzRgtG7xm1obtbnOLig5eeKQF8l/ad/dqq192i2lI7ZZV/PGK3gnBLMZe/bu
+	 aVixOcipWdmE9R3QvnD8nLnNzN55tmcyclUdI50owXJqrVkLFxgPEfcBtid0zgpp2ZQvJ
+	 4hZUrJxJs5cg9DdRdkZo1SWZnoIA5dhAzDoNxiFN6AUDbZu7J0Pz9Emp13OPEl1OSbh5u
+	 uup43PujAcHwqEFjZIJjUARBwmNEW5ztPDI16kvxn/0Qk0wuoG170OfIfOcMbS8n2J28J
+	 gfRUmt5P1Hl26zJSjcFFyBf0sqy/pRDhiQC78otLWmBdO+THmpY911hhfIlRCgBzmHw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794965678;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer:X-Originating-IP:
-	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version;
-	bh=jV6t6PWYU+gRY85PqmOrSMCX0RHQP5nPRKS2mctQx70=;
-	b=OKbDDk4NnvZXNQXco3sqJhMQ00Ha76Y4a8HqWgLmdGMnZ6iAPe0ez6fQvScbAzoYzVdL
-	 eGTM6JztS+VrKPdOlztXKUxTATSBkQb8gQ4ezRBWQnSH7eld7VBsZBiT126bEZAj7LZwe
-	 SlbOuxbG1a3UrfARx+Qbh3YR46Wl8K2S1ExUT//mGgo0frqAh0BqyzSZH5LTXcMtt5J2c
-	 oeC2Zhiz2TlwkzZ1T4DFcSc3fq0u7jPDsyR19mzSeTXDIBh6rQA6Zv2WF8BAKnTKxh5Kb
-	 U6WLG7dcbnVJC1m4I0Y31XiFRzrCwi1XLDLaO5gFrxwxNvxZviwxoOYZ4WfOoEli6eQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794965862;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=I4+HqrPTfNX+F70ALAg3GuBcwTzAIRTuUai1lT7QNOU=;
+	b=V6J7b95FY167xITc7AhXOI5twNBufVKnW10Bd4liujbuPF81UOJ/ZRZAcq+jL5Bhhl+D
+	 Ych+M4X4n9pU4kKHsgPwzXfZEa7cCLaaonl/uDT+uTJrdAHukUJnTazkY63qjPsrDMxlF
+	 opXMv8flSjYZIhVST1d5qgf8pzNqL8xVULsRdmReYd4uSzUkcY10SH/B5wVqXGd+WSm2o
+	 v0RmGslqYInoMvbEGcZjyoL6kmf0eKGeWfR7005YWy2rolq30+mEZ/ipbeng5VeTkCJdP
+	 URhA9yzSrDGvPi/AOu4Xz17myYbfTaRdnBWhvJAgejVCIByC5gn65LMX99DIpH7Lq6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=YzXKbEcn;
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aSsoOBOQ;
+	arc=none smtp.remote-ip=209.85.215.198
+Received: from mail-pg1-f198.google.com (mail-pg1-f198.google.com [209.85.215.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8078606A32A;
-	Wed, 18 Nov 2026 01:34:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8078606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5334606A32A
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 01:37:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5334606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--kuniyu.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=YzXKbEcn
-Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AI11sU62326271;
-	Tue, 17 Nov 2026 17:34:21 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pps82601-s2048-2026-q3; bh=jV6t6PWYU
-	+gRY85PqmOrSMCX0RHQP5nPRKS2mctQx70=; b=YzXKbEcntQQ187NavHnJepn7j
-	IbXisjvcPsRN6/HhS0EXpz5iopQh3jTJ42ABfPOqTN8RUgHDfEAIBbS49U8zIri3
-	F6TjjWPCmI4cCu6N/FNeUpNP+1sfQWtzn3r5+2zTCFWEwXpimNJt1dV63fQBI2mR
-	Sf1CUM4jyUESt4Iq9PkVjGq5w3psadn5AZEIO3NHbtxquPCAoVupHZP3LUY5Vxlg
-	rxaoFmYbGFrh+AcYDZxtdudMAVu1xstgdLPqBTNzP4+78unh7GJNEhXE/Pn4Tm/h
-	Uf+iudjSLnAE+k/hCFCVGIZEgyFfc1vG4+MKfzMniG9oLmUrub6YalzyJTDAg==
-Received: from mail.thefacebook.com ([163.114.134.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j0yu7s7pv-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 17 Nov 2026 17:34:20 -0800 (PST)
-Received: from localhost (2620:10d:c085:108::4) by mail.thefacebook.com
- (2620:10d:c08b:78::c78f) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Wed, 18 Nov
- 2026 01:34:19 +0000
-From: Bobby Eshleman <bobbyeshleman@meta.com>
-Date: Tue, 17 Nov 2026 17:34:09 -0800
-Subject: [PATCH net v2] vsock: only undo SS_CONNECTING when connect() fails
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=aSsoOBOQ
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-cdb8c46e240so297044a12.1
+        for <netdev@vger.kernel.org>; Tue, 17 Nov 2026 17:37:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1794965861; x=1795570661; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=I4+HqrPTfNX+F70ALAg3GuBcwTzAIRTuUai1lT7QNOU=;
+        b=aSsoOBOQrCIxCuljMcPbU8NwchYVNzIwyq0ogzZurmGPNRuaVDoVrbHnh+YZrHDjbI
+         keNbLDo8rqXKwxWt/sJoT9MMyDpoJ71b5z1m8kN9yve5kk2XSeqHNVoZqswN6yWpznbY
+         vCDY9vHCjy68bT0j89F5OdwIhZE5X1xnkaUXuto/+pnVEgrSr1XNQgnekjDmpHa6Chqk
+         gF53tNtdW0DmoetyJhaHM08wx7Ns3qBpOy9664umUZbdnu0b1weJZg+P0/XMqiwIPFON
+         4CryJVUns3rvfQvXmQqzs1v1xhEHSlgpStxNcky8q+nMXVTfr8/g4Vde8deKElJbaA3s
+         NGxw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1794965861; x=1795570661;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=I4+HqrPTfNX+F70ALAg3GuBcwTzAIRTuUai1lT7QNOU=;
+        b=UQebR3eCBXNm34+zBPAniqyxTrrqUwtYdnSwu6FpKtTT63nazUma8LZ5FjIWhaZW6i
+         Oxx8cKkvbar9IRuZ1OzoiPTMOqxqVrdMaRGNLKSSnMqU7rFn93N5NMeSn0S0R3wOVa9S
+         xXnjXmGb7n6L/SHQl+S/Mn5uvX01pgVlIax0W5EC683D1ORVZC3eKS0uId1ISn1eoHnW
+         z5Cq4G54tJpzxey9yIDnsA26hDGLRnnntGrB8UW/xVEl+vOlqVRxIWqqrgF7hJUQLpVo
+         TzJkJxeE48RdCPPj7ySft74+xKevRoLNkaBAc9LcCE0l1xoVhSr+1y65fjT8+bLu3n42
+         whUQ==
+X-Forwarded-Encrypted: i=1; AL+hErGQNYT8dgscvuZZyCm0BRXsYEawAnuy99rcki/y7cfKeDOLjgYn3zEZyynsOWuCP9JRTGHaoFs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8vRkIlUt9rmhPTPD3niC611FZilnmpd4HwRz/zINoM3g0paSLh
+	RQ4wPKLqivh5KytfVhe9MGrcxFyRmYQzeV7TELTMABpa0zzRzz7AX9LFaNdaQwpBzG12as4dYuO
+	OxdIgqg==
+X-Received: from pji6.prod.google.com ([2002:a17:90b:3fc6:b0:3b3:af68:f961])
+ (user=kuniyu job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:2642:b0:3b3:ab8c:c7e5
+ with SMTP id 98e67ed59e1d1-3b3d07da2afmr1088213a91.56.1794965860817; Tue, 17
+ Nov 2026 17:37:40 -0800 (PST)
+Date: Wed, 18 Nov 2026 01:37:40 +0000
+In-Reply-To: <179493597059.3136.12928298602383914551@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,141 +77,104 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
-X-B4-Tracking: v=1; b=H4sIAJAA/WoC/33NQQrCMBBA0auEWXfESW2DXXkP6aKZTm3QJpKEo
- JTcXegBXH94f4ck0UmCQe0QpbjkgodB6UYBr5N/CLoZBgX6rHsi6rGkwE/k4L1wRn6FJEhWrGH
- bkZgJGgXvKIv7HOodvGQYGwWrSznE73EqdKS/aCEkvLSLJd1dTTvPt03ydOKwwVhr/QGmtvkQu
- gAAAA==
-X-Change-ID: 20261116-vsock-connect-close-1beb7cb51e7a
-To: Stefano Garzarella <sgarzare@redhat.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>,
-        George Zhang <georgezhang@vmware.com>, Andy King
-	<acking@vmware.com>,
-        Dmitry Torokhov <dtor@vmware.com>
-CC: <virtualization@lists.linux.dev>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, Kyle Zeng <kylebot@openai.com>,
-        Michal Luczaj
-	<mhal@rbox.co>, Bobby Eshleman <bobbyeshleman@meta.com>
-X-Mailer: b4 0.14.3
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDAwNiBTYWx0ZWRfX9h6p7cNXFu97
- b5KhZx8l92XbScr/7OFTnbjdWe9bojwjowK73sCdL7c60quLyEm5UJ6BP+Ycu8OWklJ+WvcXvcw
- iJNbpInrC6N4RpXItHjehY1XvoATRwE=
-X-Authority-Analysis: v=2.4 cv=OcANnRTY c=1 sm=1 tr=0 ts=6afd009c cx=c_pps
- a=CB4LiSf2rd0gKozIdrpkBw==:117 a=CB4LiSf2rd0gKozIdrpkBw==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=7x6HtfJdh03M6CCDgxCd:22 a=wpfVPzegXHpEFt3DAXn9:22 a=VwQbUJbxAAAA:8
- a=VabnemYjAAAA:8 a=LG5T7v2SAAAA:8 a=dWtmrrPeSTUMx1N8XlQA:9 a=QEXdDO2ut3YA:10
- a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-ORIG-GUID: 1lAp7PZUHP2yHb_dgvSE_tBsFEe7YuzA
-X-Proofpoint-GUID: 1lAp7PZUHP2yHb_dgvSE_tBsFEe7YuzA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDAwNiBTYWx0ZWRfX7vSPbx5BqbDL
- WplZBoWXo+w+X8Nem9tgijngINBH7fZAyaado+Qd6RlaK+Sl1kXFIvxwZz5WibCHdrsUht0im1r
- ds7yw41aSfSuxcDL26NDpGH8no5HtnlFjmSDg2HX/cF8slWp7ikUGvGknsyBH1yYIwIUlywLp2N
- O2Ndmuv3dwufNuTeheM1aJAfQOKVlLgD6lYb9HmV0PxJ05CFQti7zz2d++QlN5fjEPuP1JZ5kYz
- WuqCljfYSM1qi8/OHXgtc3AvuvKOeZffYZyjjbXzQpggGPNdbXDi37vjEy9T9PoES2O1F15ZMlh
- hDhUbtaUBR17oiLwdLBoyt6OTVYy9H7ytIFiYt2ZK3oN+R32NtZ1TwejOy+P8SXht6pEDKMFrNf
- ZiiPzw7TTuRgNoXZEpnJ6YUX6ZAsKaNp1qaqRusF3WgH5QOf2Wf2PNrJEW8iX1uN1hQ+leiKuVa
- m+Uy4rDi+5zJuBCbdKA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-17_05,2026-11-16_01,2025-10-01_01
+Mime-Version: 1.0
+References: <20261116021845.2533130-2-kuniyu@google.com> <179493597059.3136.12928298602383914551@kernel.org>
+Message-ID: <avz7dRCjnwSTe7LD@google.com>
+Subject: Re: [PATCH v1 net-next 1/4] selftests: landlock: Replace MSG_OOB with O_ASYNC+F_SETSIG.
+From: Kuniyuki Iwashima <kuniyu@google.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
+	pabeni@redhat.com, horms@kernel.org, kuni1840@gmail.com, 
+	netdev@vger.kernel.org
+Content-Type: text/plain; charset="us-ascii"
 
-vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
-can complete the handshake, setting sock->state to SS_CONNECTED, and then
-reset the connection, e.g. in vhost_vsock_reset_orphans(),
-virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
-connect() gets the lock back, it finds sk_err set and moves the socket
-back to SS_UNCONNECTED. Userspace can then connect() the socket again,
-and a connect() to a CID on another transport makes
-vsock_assign_transport() release the transport the socket was connected
-on.
+On Tue, 17 Nov 2026 17:19:30 +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
+> 
+> Low priority / nit picks for your consideration:
+> 
+> - [Low] After this patch, no landlock selftest reaches
+>   hook_file_send_sigiotask() through send_sigurg().
+> 
+> --
+> 
+> selftests: landlock: Replace MSG_OOB with O_ASYNC+F_SETSIG.
+> 
+> This commit removes MSG_OOB from the fown.sigurg_socket and
+> trace_fown.deny_scope_fown tests. They now do a plain send() to a socket
+> with O_ASYNC and F_SETSIG(SIGURG) set, so they no longer depend on
+> CONFIG_AF_UNIX_OOB. The commit also drops CONFIG_AF_UNIX_OOB from the
+> landlock selftest config, and it moves the close() of client_socket later
+> so that no extra POLL_HUP signal is sent.
+> 
+> > diff --git a/tools/testing/selftests/landlock/scoped_signal_test.c b/tools/testing/selftests/landlock/scoped_signal_test.c
+> > index 259cdcc8aa5cc..c4c365007370a 100644
+> > --- a/tools/testing/selftests/landlock/scoped_signal_test.c
+> > +++ b/tools/testing/selftests/landlock/scoped_signal_test.c
+> 
+> [ ... ]
+> 
+> > @@ -560,20 +539,22 @@ TEST_F(fown, sigurg_socket)
+> >  		create_scoped_domain(_metadata, LANDLOCK_SCOPE_SIGNAL);
+> >  
+> >  	/*
+> > -	 * Sets the child to receive SIGURG for MSG_OOB.  This uncommon use is
+> > +	 * Sets the child to receive SIGURG.  This uncommon use is
+> >  	 * a valid attack scenario which also simplifies this test.
+> >  	 */
+> >  	ASSERT_EQ(0, fcntl(recv_socket, F_SETOWN, child));
+> > +	ASSERT_EQ(0, fcntl(recv_socket, F_SETSIG, SIGURG));
+> > +	ASSERT_EQ(0, fcntl(recv_socket, F_SETFL, O_ASYNC));
+> 
+> [Severity: Low]
+> After this change, does any landlock selftest still reach
+> hook_file_send_sigiotask() through send_sigurg()?
+> 
+> fown.sigurg_socket and trace_fown.deny_scope_fown now reach the hook only
+> through the send_sigio() path:
+> 
+>   sock_wake_async()
+>     kill_fasync()
+>       send_sigio()
+>         send_sigio_to_task()
+>           sigio_perm()
+> 
+> The sigio_to_pgid_members and sigio_to_pgid_self tests in the same file
+> already cover that path. They use a pipe with F_SETSIG(SIGURG) and O_ASYNC.
+> 
+> The other caller is still in the kernel after AF_UNIX MSG_OOB is removed.
+> It is reachable from tcp_check_urg(), smc and x25:
+> 
+>   sk_send_sigurg()
+>     send_sigurg()
+>       send_sigurg_to_task()
+>         sigio_perm(p, fown, SIGURG)
+> 
+> The hook in security/landlock/task.c still names this caller:
+> 
+> hook_file_send_sigiotask() {
+>     ...
+> 	/* Lock already held by send_sigio() and send_sigurg(). */
+> 	lockdep_assert_held(&fown->lock);
+>     ...
+> }
+> 
+> The trace section comment also still says "Trace test for the asynchronous
+> SIGIO/SIGURG delivery path".
+> 
+> These tests would keep passing if send_sigurg_to_task() stopped calling
+> sigio_perm(), or called it without fown->lock held. The later patches in
+> this series (the sockmap and af_unix MSG_OOB test removals, and "af_unix:
+> Remove MSG_OOB") do not seem to add a replacement test for this path.
+> 
+> Could these tests use TCP urgent data over loopback instead? That reaches
+> sk_send_sigurg() without AF_UNIX OOB. If not, could the sigurg_socket name
+> and the comments be updated so they no longer claim send_sigurg() coverage?
 
-Only move the socket back to SS_UNCONNECTED if it is still
-SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
-another connect() fails with -EISCONN.
+I don't think we want to play with TCP MSG_OOB nor smc/ax25 :)
 
-Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
-Otherwise a second thread blocked in connect() on the same socket can
-time out after the first one failed and called listen(), and overwrite
-TCP_LISTEN.
-
-Fixes: d021c344051a ("VSOCK: Introduce VM Sockets")
-Reported-by: Kyle Zeng <kylebot@openai.com>
-Link: https://lore.kernel.org/netdev/20260909-vsock-connect-reset-closing-v1-1-50298b9ccfbf@rbox.co/
-Suggested-by: Michal Luczaj <mhal@rbox.co>
-Signed-off-by: Bobby Eshleman <bobbyeshleman@meta.com>
----
-Changes in v2:
-- Only reset sk_state if it is still TCP_SYN_SENT, so a concurrent
-  connect() caller that times out late doesn't overwrite TCP_LISTEN
-  (Sashiko).
-- Drop Michal's Reviewed-by since the code changed.
-- Link to v1: https://lore.kernel.org/r/20261116-vsock-connect-close-v1-1-43fb125973dd@meta.com
----
- net/vmw_vsock/af_vsock.c | 22 ++++++++++++++++------
- 1 file changed, 16 insertions(+), 6 deletions(-)
-
-diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
-index 1d7d53542724..ce958b48295b 100644
---- a/net/vmw_vsock/af_vsock.c
-+++ b/net/vmw_vsock/af_vsock.c
-@@ -1704,6 +1704,19 @@ static void vsock_connect_timeout(struct work_struct *work)
- 	sock_put(sk);
- }
- 
-+/* Avoid breaking the socket when another thread has changed its state while
-+ * we were asleep.
-+ */
-+static void vsock_connect_close(struct socket *sock)
-+{
-+	struct sock *sk = sock->sk;
-+
-+	if (sk->sk_state == TCP_SYN_SENT)
-+		sk->sk_state = TCP_CLOSE;
-+	if (sock->state == SS_CONNECTING)
-+		sock->state = SS_UNCONNECTED;
-+}
-+
- static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
- 			 int addr_len, int flags)
- {
-@@ -1862,8 +1875,7 @@ static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
- 			 * sk_state == TCP_SYN_SENT, which hereby we break.
- 			 * In such case VIRTIO_VSOCK_OP_RST will follow.
- 			 */
--			sk->sk_state = TCP_CLOSE;
--			sock->state = SS_UNCONNECTED;
-+			vsock_connect_close(sock);
- 
- 			/* Try to cancel VIRTIO_VSOCK_OP_REQUEST skb sent out by
- 			 * transport->connect().
-@@ -1877,10 +1889,8 @@ static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
- 	}
- 
- 	err = sock_error(sk);
--	if (err) {
--		sk->sk_state = TCP_CLOSE;
--		sock->state = SS_UNCONNECTED;
--	}
-+	if (err)
-+		vsock_connect_close(sock);
- 
- out_wait:
- 	finish_wait(sk_sleep(sk), &wait);
-
----
-base-commit: 533ec433efdc11196f438da90d683053a57257ff
-change-id: 20261116-vsock-connect-close-1beb7cb51e7a
-
-Best regards,
--- 
-Bobby Eshleman <bobbyeshleman@meta.com>
+also the intention of the selftest is not to test send_sigurg(),
+rather security_file_send_sigiotask().
 
