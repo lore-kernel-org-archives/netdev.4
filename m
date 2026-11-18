@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794964813;
-	b=wbDND8HvEHwooa2+D+nK5W6g/JbZj4iMp+5ER1A9TKDPRKv2Qz/hwiGRjBbNW3G+fuy5
-	 IdTugUeXIVkFW8oa5LMuZ6p1II2cRw88BF2kOApgV/t0jr8XmCThzoGCu1KfJoUgxoE5a
-	 MpEVWkR7QmbRVq9tyBmPOeSw+Y7xuy3uFj5S+h+2s/ypkWvvhg5FQO2hYnDCtiuOGLJV8
-	 4Bb2fzcGc9lSEZnOoCRMsm8ydZJpKbl3fHA8CjpY24Pz+3wQnlpvwiBfc/k9OR3ceT9U8
-	 bQ50mK/m+glAj9dwfmezYrgdAKvye1nHOXJ8xriDACV3MxDWg+RUWqhhqZxUS0X3fdw==
+	t=1794964808;
+	b=fSZBksnabyW4m7+22srghJGg1OvoLMxN1pUj6bDMFXO4ExpVLvXbqYq5CP2SzKC1j3u4
+	 5NX9cdjOr5xlOrI3qYrqdjepBBQIH+4pihpF5FGpR3zq58ea7miIK8H5c0nySV6N1oBTj
+	 vllGwt3Iu5doeRah/DD7ymILYJ2PWVOxMNEdwzQ8DHRet3Rs3YS9GydDTwQVZNXdmFTS6
+	 jEBgeJiYXFMHTfkJ0bO8Ja6a3TOi7Kqn5AfrLqRZcH3z9FN8g9LKRUGQoFYyZFPuy/6AV
+	 V5RSoLD81RhhQQbz+WtUKwB9MNvjQxE18hBaHJwAREpm+bawjk3ZM3co6Muxng3siUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794964813;
+	a=rsa-sha256; c=relaxed/relaxed; t=1794964808;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=YSeB2zSn19zr00abruzS6S5cQ9cct1WiCzWW+NfHq68=;
-	b=A3qKesHbG8RCbmZoi67tM0QzPrlQEP2Gj9nO5WWNGgdTAoCi7BViUd/V4PpvuGJwhaCD
-	 6oKlhSQslxSdnGCfroh3pHOW0mD6cBK6MC0azJaHwgMyMPJ9uMi85m4+W0FIVEJJkfiMD
-	 h8nhSDXYODziWq/HaKGxw+l4ZcDe1QKbAtLRjttlen7nWaJJp24FeIJlxofZMNxz0EiX/
-	 CuMVNSE2/CddSKP9Ay5nps+cInMEoOLGL/qB08B6UtFrmSgHJgogyXiZ0cmdKmUSka0JA
-	 eZoPYbxN//ZjoC013xQK3o52YirBBG+JKqPu+umSnXQxWZDUso0+FRsQvImJLqqY+/A==
+	bh=eJUTXskiWgQBSdUMfOC5s2GeR5EqKdABOK9Mklx8/Js=;
+	b=PgSzoyp3nw0kZY3WaKyUj3GIORkAhVzmzXPfIEzYL+FK4CjHjb84PpNKEVM1dt92lBij
+	 0a91ji2Mozrq3XFp/VoWO5VLkG+vwuuNfNi0fEUvNLFQE4UrmFHBFrTagkBWlzOzKUbqX
+	 yvhIXiNjgN17xYLIcpQX1J/DezdM615o/grLXid36h+hR0qxeI7qKAN6QZ/qyYoFMjmEz
+	 5lwpGd7BjfdJJK3TMZ9I1JABifEd1MCO8HSCCuIl/VRc7HwRT4v+DxPLRFNLU8C68LrIU
+	 LuAjx5i6XSlNQiX3yjCHnVo4FQ7uzBZ5g94tRbZO3SM3FvaLNkrZGXR4muenDpWnvxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hN8JR59+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n3LkhCob;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C19606A32F;
-	Wed, 18 Nov 2026 01:20:13 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77114606A332;
+	Wed, 18 Nov 2026 01:20:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hN8JR59+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 456341F000C8;
-	Wed, 18 Nov 2026 01:20:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n3LkhCob
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 461EF1F000C5;
+	Wed, 18 Nov 2026 01:20:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1794964813;
-	bh=YSeB2zSn19zr00abruzS6S5cQ9cct1WiCzWW+NfHq68=;
+	s=k20260515; t=1794964808;
+	bh=eJUTXskiWgQBSdUMfOC5s2GeR5EqKdABOK9Mklx8/Js=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=hN8JR59+lwxUPJNzOvu+1zB/mXWQJoJ/iz98r/82DaqlWvs9Hl/dkBH079DNBOhTd
-	 ld8/AAhvPI1N9AjTf9ZJ12i3qZtZmMlDPIv2kUBJPF1f64JTgwCzLTHgL9mFbGTJlb
-	 QO4C8C3tQgRkP9YEBDYA5JXW7CExbeFcicglzmAxMiufzgNISJO1mmULmKi8xY86z/
-	 dbTSJKuF0fydwm7PFMyFJhWqKlXGCtoOpUFzljZ2/V+mg6HQrxN/t82i4ABcxTSJhC
-	 xE2OKGiha7h3A9zRw6MegLXk1KO9rogbgRjbnM5bPreLr/4oy/BYMZHih+l0Pavdn0
-	 NtZzrMzifPWYg==
+	b=n3LkhCob7vuvUsib2hG3DRnGkTgndMrk12dBHi7DvL0wZ3vNVlR9jksr4wtSgs17G
+	 V5TTFq5OR7IdC8xHdUG99bLFzgkEjRmkAHiaJs8/hZ7p1Ba+PZyAdiw+vMLSQ0OCfK
+	 a/dPu3r7YMIL2s8pUF0cg1p0aOfsP5HWoL8weh+FNK3ZPKo/CpyZDJol6cDVsI0+1X
+	 YStwCMVC61Zsn8IMxVkPVWfOlBc2RCrMpun59Dh/e0LS9OqLwo0/e7oO5HC+f4euQH
+	 K1sc7ngHt4m8qsc80g5Nisy1KKQnp1kox5SYFa9jHh5p5MsRvUM9CKo3muVm5fHoEa
+	 UYiTHTWpALAYA==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A591392B1FE;
-	Wed, 18 Nov 2026 01:20:13 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3F5392B1FE;
+	Wed, 18 Nov 2026 01:20:08 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,52 +54,41 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v4 0/5] net: devmem: size TX net_iovs from the
- dmabuf
- layout
+Subject: Re: [PATCH net] neighbour: do not update an existing proxy entry on
+ SIOCSARP
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179496481177.1388923.4503800514498050793.git-patchwork-notify@kernel.org>
-Date: Wed, 18 Nov 2026 01:20:11 +0000
-References: <20261111224740.2744522-1-sdf@fomichev.me>
-In-Reply-To: <20261111224740.2744522-1-sdf@fomichev.me>
-To: Stanislav Fomichev <sdf.kernel@gmail.com>
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, michael.chan@broadcom.com,
- pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch, edumazet@kernel.org,
- horms@kernel.org, shuah@kernel.org, almasrymina@google.com, sdf@fomichev.me,
- leitao@debian.org, dtatulea@nvidia.com, asml.silence@gmail.com,
- bobbyeshleman@meta.com, daniel@iogearbox.net, razor@blackwall.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+ <179496480678.1388923.12375210323893207367.git-patchwork-notify@kernel.org>
+Date: Wed, 18 Nov 2026 01:20:06 +0000
+References: <20261113193355.3820232-1-hengyul@cs.unc.edu>
+In-Reply-To: <20261113193355.3820232-1-hengyul@cs.unc.edu>
+To: Hengyu Liang <hengyul@cs.unc.edu>
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, kuniyu@google.com, dsahern@kernel.org, idosch@nvidia.com,
+ horms@kernel.org, sd@queasysnail.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
 Hello:
 
-This series was applied to netdev/net-next.git (main)
+This patch was applied to netdev/net.git (main)
 by Jakub Kicinski <kuba@kernel.org>:
 
-On Wed, 11 Nov 2026 14:47:35 -0800 you wrote:
-> TX bindings use PAGE_SIZE net_iovs, so a frag covers at most a page.
-> A 64KB skb needs 16 frags, and MAX_SKB_FRAGS caps devmem skbs at about
-> 68KB, which makes BIG TCP ineffective for devmem TX.
+On Fri, 13 Nov 2026 14:33:55 -0500 you wrote:
+> Commit dc2a27e524ac ("neighbour: Update pneigh_entry in
+> pneigh_create().") moved the update of flags, protocol and permanent
+> from neigh_add() into pneigh_create().
 > 
-> This series picks the TX net_iov size from the dmabuf sg table instead:
-> the largest power of 2, up to 2MB, which aligns every DMA segment. With
-> a 2MB hugepage-backed udmabuf a BIG TCP skb takes a few frags. There's
-> no UAPI change since TX addresses are dmabuf offsets.
+> However, arp_req_set_public() also calls pneigh_create(), with all
+> three set to zero. As of now, SIOCSARP on an address that already has a
+> proxy entry clears the flags of the entry and makes it non-permanent.
+> The entry is then removed when the carrier goes down, and the host no
+> longer answers ARP requests for the address.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net-next,v4,1/5] bnxt_en: let the stack segment GSO skbs with too many frags
-    (no matching commit)
-  - [net-next,v4,2/5] net: devmem: charge the frag length to TX skb truesize
-    https://git.kernel.org/netdev/net-next/c/1268fc7c33ec
-  - [net-next,v4,3/5] net: devmem: use niov_shift in net_devmem_get_niov_at()
-    https://git.kernel.org/netdev/net-next/c/695c74bca865
-  - [net-next,v4,4/5] net: devmem: size TX net_iovs from the dmabuf sg table
-    https://git.kernel.org/netdev/net-next/c/2f6aaddcfadc
-  - [net-next,v4,5/5] selftests: drv-net: devmem: TX from a hugepage-backed dmabuf
-    https://git.kernel.org/netdev/net-next/c/3aa96a8a7c7e
+  - [net] neighbour: do not update an existing proxy entry on SIOCSARP
+    https://git.kernel.org/netdev/net/c/035fe1092f38
 
 You are awesome, thank you!
 -- 
