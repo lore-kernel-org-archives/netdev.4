@@ -1,68 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1794966080;
-	b=Sj4nAF+EEzWkdsWv7TijQEN91NRliJ5DBX39BUId84bk0mOVnpuLbWYN770xGC4UnwaS
-	 FqcK0U4HeVo+jY/OjKAWUtwegPZVsD/Xb/SPlBL94sKUvo0WCRcdXzt1iPqKekg1EUN4A
-	 ppxljPrLu9rHg9bPTpyK6dH44O7I5OaFutPGlIb0HKTfhr/dW1YwloaU09o9UIMui7/FE
-	 RYY6Bj95q0aa+FRTTPHldJH5+fB2nL+3RJiq2dAjzZNbEts/GU6oonWchKoPE695mfWQm
-	 eekc2XpAUkjmuHFoHvLOXkuW8uAF5UZW+X894paRH7eLmsVGLKrU+tYwWmNLYAZSfEQ==
+	t=1794966138;
+	b=LpvNPWXdeuDB2dUCpgvPaO4cXWdKCh5TtCTbYt/0WoliQMl2nT8FWm+FuizW7v12ayYQ
+	 xq0jSPugt+dRkeKJAvdrtJnp3IuxgQlGkENYSWNR4bU0E/EXdtr9GMX3SdIwPJcp9XrhP
+	 7Ng/3Bq5VMjAWeqm9CMoGcn8432gPqGo2eDuiui48SjgA7wKfwpG74OFzLjK9uOdmRswP
+	 cxDH2QkfILUXbYE12KC8ySAxzP4xXa4tLvfnnPVKl8HQlAHkHUjluLzxBKnr/KT26ChV9
+	 3Z8cEtXjLeu5SdYJCNbEbtvk3wSWRsBcU2GGZj+kqbZ5A3/21T7mabZRYXvbWhwiS/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1794966080;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xzG0+4xLM7uNQNtuVBYTOXUsr0xkfMSlRPAWstD77hw=;
-	b=USF8+troUTgcc5dSe3Q2LC3/ghbQdJE2A/kwxU9dZcGjwNBzSkmh6w7zeqA1m3MiwgY5
-	 Y8svBFMcGQishiq7TNg1MGA+mMOMGz1Nzqg2AHciffdIqtcWp8hbYkOQAnCLJHlHamLf7
-	 VYCcgJINGDFLds1fPtVVanSKTT2r7Ds7gZAfHZlmbtbm1MqpGeub9puaTudfc1aSn1e52
-	 nc7UkDgNi/a8cel7jocv1ly8wTxDr4SSw6HhRbCp+3Ng5Lu0RdBjgeoioU7gtvFbIpJsj
-	 DnFTqQB/fkMuvKy0dJYAKDZtubeR3NgsGioX8z8HWV/i3u9IVxicQbk5If6vIgF5Utg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1794966138;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=L6+Bp0f0diQR6UkLZvLWvWsdahW3g+iiL9WCEpEaxNnBz/8hnKaBFhcOYBZZjz6MkYeS
+	 XHYG2oCpBQ36smG6qA20Uu8HpbXRVd5Ke7rcNa7jIL2JTRQkJ+FqCxdrnozxAu6UaaCn8
+	 rGyAp16eXypvTePpL1Hcav3CxoH4A3cERdoYRwgIcORKVfnsHARal2UHQpq+UjUL3bpV+
+	 JfZUkAaT4ZE8T5BSQ38cdJ/YMSAceR1qwRHXZN/CMLiLKJHY/SfrrIf1gTtPmoCKnFv1w
+	 WNlcDEt1Z/OWMrBn4rpTOMj8nkTzDTFYR4mt69u4JWUwDC85D76RNGflXTezsOybBNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=LoG4A+aX;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 022F2606A31C;
-	Wed, 18 Nov 2026 01:41:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 022F2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iH4YY5uU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3F78A606A31C;
+	Wed, 18 Nov 2026 01:42:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=LoG4A+aX
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=LoG4A+aXqO/LidqmZjUvtqsDclwgTczXcW/jNatRUw2eCzVYVDv0Xrsyw/7LWhE94avKezQj0Cufv
-	 JZiFYiEvNEZFOdMbqhsxQr3bZajABkBAD5c5KKjo0m0h10gObbthfAEhUd5wl8yrj45AORs3IO8hzq
-	 Vf5tzeFuO0t6B2NY=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app05-12005 (RichMail) with SMTP id 2ee56afd02395bf-0b099;
-	Wed, 18 Nov 2026 09:41:16 +0800 (CST)
-X-RM-TRANSID:2ee56afd02395bf-0b099
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.97])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86afd023a665-2ca66;
-	Wed, 18 Nov 2026 09:41:15 +0800 (CST)
-X-RM-TRANSID:2ee86afd023a665-2ca66
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com
-Cc: sean.wang@mediatek.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Subject: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
-Date: Wed, 18 Nov 2026 09:41:14 +0800
-Message-ID: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iH4YY5uU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C3EA1F000C4;
+	Wed, 18 Nov 2026 01:42:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1794966137;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=iH4YY5uUVwHBPFQE04mnSbMXiYue6UbP6zaeL750IRaxXmzTFEbOC7MV7VXxegSMR
+	 MULt6xkNX1UT06QImDHmZJIcg6BtUNiCfAMz9vHaK+744cb9uvQeseueVafWGX3h4s
+	 5amIqPetvROzbKbMLptsiHqTqIXPIWl5buvAXBHdJiJNdXCpwM3s55VLapn6/1IENh
+	 80CXkak161loEGxqnoMttU6OiNTQcWP2PkhB9TZW0E2Naoc99/OelZzS3eTGp55SLW
+	 t04o6nHb8o+4cUUzTudM4lQo3L36nvs4/q0eJ9Z+fX1EUvZlALRGtb2zoxysXhJDJZ
+	 JtSmufG3atWQw==
+From: netdev-bot+sinfo@kernel.org
+To: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, sean.wang@mediatek.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] net: dsa: mt7530: fix regulator leak in mt7530_setup()
+Date: Wed, 18 Nov 2026 01:42:16 +0000
+Message-ID: <179496613691.3291.15730962134420645853@kernel.org>
+In-Reply-To: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
+References: <20261118014114.1855-1-laixiangwu@cmss.chinamobile.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -72,117 +62,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-mt7530_setup() enables the "core" and "io" regulators of the MT7530,
-but none of the error paths that follow (reset timeout, unsupported
-chip ID, 20MHz XTAL, VLAN setup, PHY muxing, GPIO setup, FDB flush)
-disables them again, leaving both regulators enabled after a failed
-setup.
+Hi!
 
-Add two error labels that disable what was enabled by then: the
-io regulator failure path releases the already-enabled core
-regulator, and all later failure paths disable both regulators.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-MT7621 maps to the same sw_setup callback but skips the regulator
-section entirely, so the cleanup at the common label is guarded
-with a priv->id check to avoid unbalanced disables.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
-Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
----
- drivers/net/dsa/mt7530.c | 29 +++++++++++++++++++++--------
- 1 file changed, 21 insertions(+), 8 deletions(-)
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index 7781a63b4..2cf41282e 100644
---- a/drivers/net/dsa/mt7530.c
-+++ b/drivers/net/dsa/mt7530.c
-@@ -2425,7 +2425,7 @@ mt7530_setup(struct dsa_switch *ds)
- 		if (ret < 0) {
- 			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
- 				ret);
--			return ret;
-+			goto err_disable_core_pwr;
- 		}
- 	}
- 
-@@ -2447,20 +2447,22 @@ mt7530_setup(struct dsa_switch *ds)
- 				       val != 0, 20, 1000000);
- 	if (ret < 0) {
- 		dev_err(priv->dev, "reset timeout\n");
--		return ret;
-+		goto err_powers;
- 	}
- 
- 	regmap_read(priv->regmap, MT7530_CREV, &id);
- 	id = FIELD_GET(CHIP_NAME_MASK, id);
- 	if (id != MT7530_ID) {
- 		dev_err(priv->dev, "chip %x can't be supported\n", id);
--		return -ENODEV;
-+		ret = -ENODEV;
-+		goto err_powers;
- 	}
- 
- 	if ((val & MT7530_XTAL_MASK) == MT7530_XTAL_20MHZ) {
- 		dev_err(priv->dev,
- 			"MT7530 with a 20MHz XTAL is not supported!\n");
--		return -EINVAL;
-+		ret = -EINVAL;
-+		goto err_powers;
- 	}
- 
- 	/* Reset the switch through internal reset */
-@@ -2527,7 +2529,7 @@ mt7530_setup(struct dsa_switch *ds)
- 	/* Setup VLAN ID 0 for VLAN-unaware bridges */
- 	ret = mt7530_setup_vlan0(priv);
- 	if (ret)
--		return ret;
-+		goto err_powers;
- 
- 	/* Check for PHY muxing on port 5 */
- 	if (dsa_is_unused_port(ds, 5)) {
-@@ -2554,7 +2556,7 @@ mt7530_setup(struct dsa_switch *ds)
- 				if (ret && ret != -ENODEV) {
- 					of_node_put(mac_np);
- 					of_node_put(phy_node);
--					return ret;
-+					goto err_powers;
- 				}
- 				id = of_mdio_parse_addr(ds->dev, phy_node);
- 				if (id == 0)
-@@ -2579,16 +2581,27 @@ mt7530_setup(struct dsa_switch *ds)
- 	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
- 		ret = mt7530_setup_gpio(priv);
- 		if (ret)
--			return ret;
-+			goto err_powers;
- 	}
- #endif /* CONFIG_GPIOLIB */
- 
- 	/* Flush the FDB table */
- 	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
- 	if (ret < 0)
--		return ret;
-+		goto err_powers;
- 
- 	return 0;
-+
-+err_disable_core_pwr:
-+	regulator_disable(priv->core_pwr);
-+	return ret;
-+
-+err_powers:
-+	if (priv->id == ID_MT7530) {
-+		regulator_disable(priv->io_pwr);
-+		regulator_disable(priv->core_pwr);
-+	}
-+	return ret;
- }
- 
- static int
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.50.1.windows.1
-
-
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
