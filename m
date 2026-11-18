@@ -1,74 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.148.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795005106;
-	b=tK3EBU1tyicDQBC9gEm+sg14dBlnPxMJ44dTIhvjhsqKQmq2yhIUGYkDLVrNBVwA02Q7
-	 8qSR56DRt4RhsWfKksPpSL00oH4gP+9egnfkjMPe6Tzw0NwBOcxiWDzSQuI/3gnV+0tbO
-	 TAMdqW7XY0aIN/+5PiNAHueBtKNHKapk6HFQd+tM5KugGcnPAKyEZBC3VVp6y5Gu5ovq7
-	 nhxN1xMeq1W/cbWiIISUvcpAOVHkC3w22uXJ7UXzBkthoxEmuGZnIVTmPqJv3qlAEp80D
-	 UR8IUXsSIvQHAyHPxCq/MJaZN3a7/P3NoJY1OnzBv+KIbzJ5ksIgkpQCtvYWNwKC9og==
+	t=1795005171;
+	b=KjRdi279nsqLqjvhBTKSbBEm0BiCZJPQk0g7gzyhnbE0Dp3HcWAF81pA+nlraLXDxTiS
+	 EKt0D+A/mTwQucJQmT6yZJ8MpY9cfQkXyRrXhpoTpfr2OXR1NTUrUMvDhiduLC54K2dNA
+	 MGffAI+/GOHLaMlncAITT6XEuxvz0ohPujiqM+e7Me50g5ItyZ/grL00a3zJ0dPYrTeog
+	 FzEliC1EcCaAGoeIMOfGVffogE66X69gLAKV8qFEKEzRVruEI2vDlfyJEPylZSIkRRAjA
+	 ZIOIWBY3nxfZvZpiShr7EkSd7Lk6cAjUFKDTx3Yqpl9+an008BtqH4ttmlgCkU9LeoA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795005106;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:X-Authority-Analysis:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version;
-	bh=gDOdA2uOEnQHph1pmU0scyCFa+99d4pROs2JpoXQfFc=;
-	b=hwgYvz9pnwubDXxe2IiMKWGoxEVIrtPLbX1F2EISGCZDkg3CVR88x/0CpzlKvHeVssy9
-	 sEkRfAH9gRuP8lc6mamCA+4aG6S6o35FqcBqf3V/eWB03SgEIAsr+qiHl7VzxT5gGO3jn
-	 o9aIzcR2xhxrRSbGCk7tQtqPfwIeCbgBWmRNM6cWAe6sMYGMnRW1HFtb+FxJzU9oOxJRO
-	 AKBGDRx1F+0hGiTMuvQ5myu7tLNYNmiCh2HCRgwjgrDi+nhP/jXm4B6l1F4tcJjSNa6BC
-	 OX1CU05sXfclcTKYb74xC7iXQ6ACplZyBEqTUtsHCZgo9+aLVFCXLnzvQilm6gIhUIA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795005171;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=ShLpZYTENcJZPipwC/hhnl5p06S5JbZ4bVx6LKeKESY=;
+	b=ynatj1gn2/N/NFh8uVxkXTFs6U/AXlz5egAlS0+XqzDmyQQd7Wc8A7ztG9KS6tX6jN87
+	 OoLC2U11LKBhhExWW4M7+nmVyx1KYeT8nal7Mwvv6S6qq8ds5sIlrvDph9a7cmkphwg4M
+	 Gdo7hHfLH/bBqLJKcsFUMNxLP/Dmpi+O/KqFGTLBeoERvB69xmv2YPChmvA3DHMjDKoLn
+	 udk9VFMIiGHI900l/tNuExs0yg0JHgdW2H3/KpFZ/Llp/Rn4B+CZzrDn8Dsbpm6biABr/
+	 jWAOjh4Z/8owhEYYQfBgC+mER1TCfv1uQmsg7iYeFc9qvdKM9A9Cwsy3weea3v+Uk+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=marvell.com;
-	spf=pass smtp.mailfrom=marvell.com;
-	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=AeOn7wY5;
-	arc=none smtp.remote-ip=67.231.148.174
-Received: from mx0a-0016f401.pphosted.com (mx0a-0016f401.pphosted.com [67.231.148.174])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cZiyZTd1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38E3C606A320;
-	Wed, 18 Nov 2026 12:31:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 38E3C606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51352606A320
+	for <netdev@vger.kernel.org>; Wed, 18 Nov 2026 12:32:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=AeOn7wY5
-Received: from pps.filterd (m0431384.ppops.net [127.0.0.1])
-	by mx0a-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AIBJODY2192428;
-	Wed, 18 Nov 2026 04:31:44 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=pfpt0220; bh=gDOdA2uOEnQHph1pmU0scyC
-	Fa+99d4pROs2JpoXQfFc=; b=AeOn7wY5yj9wUJAE5rWInqZHIN/MnNU9LLJkPs5
-	8EJDJPTBL0FrjkvMMNnF3mWrmwpm7l92VrfqdnjlQQGSW8J5FWrXEyHSsLCM/vUQ
-	83BoNFKqyYBIFo+emfpn6J3waiC6Hg5rvSEiJkcut39PhZi442f6HuiLrtI24KKF
-	IjYRog3hnIX35sb/ZsB0hDriEfAxPucVNBZSZ4MQ3gwQYil5Lf0pj/lQv2lGrMet
-	kUmv2Rmnn76jih5LEnGCB+O6rt5F3uicKSCZhSxNKgckWXoTf5SxBHhI+fOKQ2ix
-	o9jkbNzf75Bl/OVuqi0FwWzo6LheZL/Gf37oUwPqNwHK+hw==
-Received: from dc5-exch05.marvell.com ([199.233.59.128])
-	by mx0a-0016f401.pphosted.com (PPS) with ESMTPS id 4j0ytutfum-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 18 Nov 2026 04:31:44 -0800 (PST)
-Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.17; Wed, 18 Nov 2026 04:31:32 -0800
-Received: from dc5lp-vrelay04.marvell.com (10.69.176.80) by
- DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server id
- 15.2.2562.17 via Frontend Transport; Wed, 18 Nov 2026 04:31:32 -0800
-Received: from c1illp-saixps-016.eng.marvell.com (c1illp-saixps-016.eng.marvell.com [10.205.40.247])
-	by dc5lp-vrelay04.marvell.com (Postfix) with ESMTP id 8E1BC48DF2;
-	Wed, 18 Nov 2026 04:31:42 -0800 (PST)
-From: Elad Nachman <enachman@marvell.com>
-To: <kuba@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <enachman@marvell.com>
-Subject: [PATCH] MAINTAINERS: update prestera switchdev e-mail address
-Date: Wed, 18 Nov 2026 14:31:26 +0200
-Message-ID: <20261118123126.326686-1-enachman@marvell.com>
-X-Mailer: git-send-email 2.25.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cZiyZTd1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5038A1F000C7;
+	Wed, 18 Nov 2026 12:32:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795005170;
+	bh=ShLpZYTENcJZPipwC/hhnl5p06S5JbZ4bVx6LKeKESY=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=cZiyZTd1KtOhRhqSV5Ke4WXZOX5LFTuMXrmobuw2nQsXa7hLn2pgm8ZCTpp1NSmxE
+	 8Cc+uObjW+n9dP5EJr7ickConOwyUcKqJ9hYg/rp8mDQVCfLROMMmLB/6yfXldEWaf
+	 DaEob9HtuvFLQNzkf4e4Nu6iihsb+P9N2Glnl6bBBLCX5gZgH/k8pW5Jfsb1dpsdWo
+	 Rfe4CxZPE2sCS9FFIaMICSe9w1nWt4BwNfV+S5ofSAXXAy1snxGFlhY427iYl4E4ve
+	 /uumTB6atatcrUTXZc04s2P09weyEaGVBA5Li0KWk+YMcxF2c7KGLgvsMRErzq2Zur
+	 1PlhVSpo9e61g==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
+ michael.chan@broadcom.com
+Cc: netdev@vger.kernel.org, edumazet@google.com, pabeni@redhat.com,
+ andrew+netdev@lunn.ch, horms@kernel.org, pavan.chebbi@broadcom.com, Jakub
+ Kicinski <kuba@kernel.org>
+Subject: Re: [PATCH net-next 2/6] eth: bnxt_en: follow explicitly set IRQ
+ affinity when placing page pool
+In-Reply-To: <20261118023905.3050661-3-kuba@kernel.org>
+References: <20261118023905.3050661-1-kuba@kernel.org>
+ <20261118023905.3050661-3-kuba@kernel.org>
+Date: Wed, 18 Nov 2026 13:32:47 +0100
+Message-ID: <87qzgi8gls.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,51 +61,24 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: Gd5gHn0nGjc7rX9bz9_Glix4uNB_Uzr1
-X-Proofpoint-GUID: Gd5gHn0nGjc7rX9bz9_Glix4uNB_Uzr1
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTE4MDA0OSBTYWx0ZWRfX/2Jaww74iNrD
- 0SFKdi0E5c/olXwNBS/I5lAIlaI9XrvQGoU2WrgohYUhRkN+zSeHVlaMFDrQbN/ag5paEA9xrVr
- hXZmlzy5geQJ71YYxJXy2FBjq9F1qUs=
-X-Authority-Analysis: v=2.4 cv=MIb1C8Zl c=1 sm=1 tr=0 ts=6afd9ab0 cx=c_pps
- a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=l0iWHRpgs5sLHlkKQ1IR:22
- a=TtqV-g6YmW1Jfm2GSLaY:22 a=NEAV23lmAAAA:8 a=M5GUcnROAAAA:8 a=pGLkceISAAAA:8
- a=6navKHnpQrpsLR3-kjAA:9 a=OBjm3rFKGHvpk9ecZwUJ:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTE4MDA0OSBTYWx0ZWRfX6I3kjq+hhOh4
- gAAqPfUboXg4k7DSlBphIJi3W/u3bJQ8+CJCDucxp73JGB/W1yDl1RYpi0up/+AmkGxPnXqk2I0
- 39qgx1e8XdgGmM4Sp+8+asUePjsGPrUlyPBr9VnJ7DtRoLC6tLxOz+9rinMWWhyDTq7J3sOP1Zq
- 54x0OXOFmmnqev2S/MB4qSMVLFXcsmazQEBNEsf1JBsf1DV9RTRpTfcvpxAfTir+7GyezFLtGx1
- xTfL9lgPY3ZhxQIgjQNZVELJlYVSFASAhE2TjHq6TNTmR5/SNFhD7/tL7Cw+etFYb1lEfyKqTN6
- 7y8eTz3cpYFdgFziHZ3OUW4Fp3NE+8zWcmbNMERWLMcKJbu5E2jzQ04YVnLdj3rEAxMbaA055Ic
- h8yUPMIfujOZaXNk5beAeoyAORhs12UIIqqXBnv9t9Lk2mvPnyLEVSE8AEw5/iwHN/qCcrINtCR
- QTgQba37Xw5U6B3ueGQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-18_03,2026-11-16_01,2025-10-01_01
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Update the Prestera SwitchDev subsystem maintainer e-mail
-for Elad Nachman.
+Jakub Kicinski <kuba@kernel.org> writes:
 
-Signed-off-by: Elad Nachman <enachman@marvell.com>
----
- MAINTAINERS | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+> The driver picks the NUMA node for each Rx ring's page pool with
+> cpumask_local_spread() at open. IRQ affinity configured by the user
+> is already recorded by the driver and persists across close/open
+> cycles. Use it instead of cpumask_local_spread().
+>
+> The affinity notifier runs without any of the locks held by
+> the allocation paths, and copying a multi-word cpumask is not atomic.
+> Like for the TPH Steering Tag, have the notifier compute the node
+> (of the first online CPU in the mask) and publish it with WRITE_ONCE().
+>
+> Queue restart (bnxt_queue_mem_alloc()) needs to resolve the NUMA
+> node instead of copying the nid of the old page pool.
+>
+> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 986e23fcb020..765d7d3bb582 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -16352,7 +16352,7 @@ S:	Supported
- F:	drivers/perf/marvell_pem_pmu.c
- 
- MARVELL PRESTERA ETHERNET SWITCH DRIVER
--M:	Elad Nachman <enachman@marvell.com>
-+M:	Elad Nachman <eladv6@gmail.com>
- S:	Supported
- W:	https://github.com/Marvell-switching/switchdev-prestera
- F:	drivers/net/ethernet/marvell/prestera/
--- 
-2.25.1
-
+Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
