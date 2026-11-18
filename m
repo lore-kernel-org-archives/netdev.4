@@ -1,66 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795023799;
-	b=NwnQlMb0I9rEnSnRwgyui7XOc2D+MjK4tsSR+62w2ysXbNwkqeNYb2B98TGTpOFUTnHH
-	 fGiRK35dPWDxpO5TXc4Kto6XlMxXv5MKuEwfXj42nq1UK9an0eLiTyN+4mY/0jG948HhI
-	 QawXyQBxssmiNvcHoDmAeYDoc0ua3qg+DKVbWA8a6xOEN+Snw8qUxeiAKsFfBKTKYSkML
-	 NvNgyeIYoxo9z41eQahHuyQSDtt6MxRwrNm6Cz0T5tlnZDpBaMd72YyAoXd9mVFb8RtbF
-	 i4HNR9RIYifIPcMGy63Qw7in5qkq6hI0LiMDfjkgqy2rhitUXmMFOtQld93Z8ZkM5JQ==
+	t=1795023808;
+	b=XYriY3Vcruv/+FN1dv7fJQod2CcP8H5b3Klijc7/pH9HbqqfgwHcCSrZJdpnXd4wMZeo
+	 1ksg2IwNxpyS50QbrKq8SfM3U0ok/POFRSzpTJWntXDydnglMvD3JvrT+Ny8k0enBNQ0H
+	 6x0OEAk8tsBpxebHvB5DNsgjuBKAu3BaHtTeQ6JzWy8+CBVF7jHfEXT/awFkQ+nFulCEX
+	 g0UB2k17UqX+CPY2oIKss503y/d8PiUygW7ejvYD0K4dGfUdW9oHKgEkmG05HWjYSkITj
+	 UvQiH1g2dcNf3p6MyndKYa26isWv43hnWsZ/Fjz7abSq5mVhrj/QDbF1Mm3rXmYAbaQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795023799;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795023808;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=h4QMDbUlLK3JUINWeKESKCeRq95srb0V6n/+KsapBSc=;
-	b=3sl2Oq6lROCiWZpSGnYe/VmVltG7yzk8Y/qV178EIgWGflNhJP6Xu7vAEtkTkTURkNbW
-	 Hug3r3ohz3ft+tlM6kdgKkD2WroO8zq/db23N8JbyOvC494ZqccN6+OmI9h4NhelAuIrM
-	 4CSXdXME6AJ8GUuBSbK35xnqiKaDxVqIZwA+1e7oy4bTmJncAMiq0iGs1hbTZgk4CgUzs
-	 5OwhcOBhuTdfWa0YQMVbOZQOm7hCKYwf1pL+tOJy/K8pnqlTFMe5g4MY/U+IWxoG9Qw9E
-	 8i4BB02CAGJ/mpKiWQzy907QEDk2F/DKr05t0E/JYDemjig3bgmZEdPflax+jyrSsbw==
+	bh=uPLl3xwpgDX5H1PdVBFmf+WBUvg+VbeEZCbLUMxn+3Y=;
+	b=P70USzIBi1WTlgWqYGmZ8ujG1GWnX9yCMFK0e5wXSMg7txk3SSGNl38YkTTkRSW7XKE2
+	 YBbNbXlVobir7rm47GPn0vS8pmqa60u0+lDba+x9UgdZUjqSp9KpZKQUv73P2VwfihuHR
+	 tFsGJJYN0zK3zNCmfRrC5yhxNjZhmjrcbTI45TRHsfTHGbiEzFCZcV2J9+7eLWcFxol5s
+	 FSy1TXADueIWGYJzHWYf80VhNVLbIgiIRlv8UssGsubWLVEi0gpPQbRH7FvcYvw+BzvXe
+	 zfFrd91egu04NJ0VDJSCXCXGt3QZYvae2X3onwXWz6Lv7CWPDyonwYofyGOnlzsd3RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cY4p43yP;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nE9i200m;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A569B606A320;
-	Wed, 18 Nov 2026 17:43:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B673C606A31C;
+	Wed, 18 Nov 2026 17:43:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cY4p43yP
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DED1D1F000C5;
-	Wed, 18 Nov 2026 17:43:15 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nE9i200m
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D8BB1F000C4;
+	Wed, 18 Nov 2026 17:43:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795023799;
-	bh=h4QMDbUlLK3JUINWeKESKCeRq95srb0V6n/+KsapBSc=;
+	s=k20260515; t=1795023808;
+	bh=uPLl3xwpgDX5H1PdVBFmf+WBUvg+VbeEZCbLUMxn+3Y=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cY4p43yPefX/HBKL6TjrjtUHuYJ4QnnCySmhlBFjeqG8ov14mCuA/Fb4r+Rp4uBys
-	 KQf110u520rNQ52eRjt7lVv7GgqxYVCexEI1oFWRh3R7JQ5kiACUEfwbxL/ALVxs7E
-	 h0A5YY+LJ6brEOtRM5TajyXxNFQ+p8lG032HD3dWdL9Xq6+l/u5PMT3r0doyW1f6fa
-	 JRg5CqPxOnVTbWBl43Y/gTIGXggI5AD7d+Exqsy3G4TFl+j3LjDcXSdBXpN/1Aoua1
-	 mxZ8cTE6OqM0hF7jiUfyfpcbXljT4EUIupPBaOlzzXZKx+lFGV08FF4dzBTgHcTonH
-	 MnBmzHjMRnH1A==
-Date: Wed, 18 Nov 2026 17:43:13 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frieder Schrempf <frieder@fris.de>
-Cc: Claudiu Manoil <claudiu.manoil@nxp.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Wei Fang <wei.fang@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>, imx@lists.linux.dev,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Frieder Schrempf <frieder.schrempf@kontron.de>
-Subject: Re: [PATCH net-next 1/4] dt-bindings: net: nxp,netc-blk-ctrl: add
- i.MX952 compatible
-Message-ID: <20261118-pregame-rewind-adc190f20a68@spud>
-References: <20261118-imx952-enetc-v1-0-25721440602e@kontron.de>
- <20261118-imx952-enetc-v1-1-25721440602e@kontron.de>
+	b=nE9i200mpUr0zIF5ta/NZZzPNXGiZERkQMGfALDDWmgZ0809RRclIfE7+YvS3eM9g
+	 5zLGpAOYT2juDjSxRoKGgaQWBaskh+jRq8YVsm7N2WIgnFaNuxuIYZezl35wAPoKlg
+	 zMzI7cMZPb6KzuNHA/OqrxgQSlxdYwENh7hv8Q4rtISG6/juArsgJK+cBmwm2qPENP
+	 oOb0I/wkTVLnfk/KHtGam1uOaBzBQgQbxoC5xJDQOOjRySpeUtu+/M5TKAoZQZrb3d
+	 rybfXVrmppMTDcCZXWi/NfOlRkeeOo2zx1CJkRvvZPur8KsGRs5QYujEdvCfk7bc7r
+	 eMo4NGUhhOn0Q==
+Date: Wed, 18 Nov 2026 17:43:24 +0000
+From: Simon Horman <horms@kernel.org>
+To: Xia Yan <yanxia@cmss.chinamobile.com>
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	maheshb@google.com, arnd@arndb.de, kaber@trash.net,
+	dskr99@gmail.com, linux-kernel@vger.kernel.org, yana06070@163.com
+Subject: Re: [PATCH net-next v2 1/2] ipvlan: fix RX byte accounting for local
+ traffic
+Message-ID: <20261118174324.GM860048@horms.kernel.org>
+References: <20261112025619.563195-1-yanxia@cmss.chinamobile.com>
+ <20261112025619.563195-2-yanxia@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,27 +60,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ZboeZI2tSg9z9ktg"
-Content-Disposition: inline
-In-Reply-To: <20261118-imx952-enetc-v1-1-25721440602e@kontron.de>
-
---ZboeZI2tSg9z9ktg
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+In-Reply-To: <20261112025619.563195-2-yanxia@cmss.chinamobile.com>
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+On Thu, Nov 12, 2026 at 10:56:18AM +0800, Xia Yan wrote:
+> For traffic between ipvlan devices on the same lower device,
+> skb->len already includes the Ethernet header. Adding ETH_HLEN
+> again in ipvlan_rcv_frame() overcounts rx_bytes by 14 bytes per
+> packet. ipvlan_process_multicast() does the same for local broadcast
+> and multicast traffic.
+> 
+> Packets received from the lower device have had the Ethernet header
+> pulled by eth_type_trans(), so their counters still need ETH_HLEN.
+> 
+> Use the existing local and tx_pkt flags to distinguish these paths.
+> 
+> Found during a code review of the ipvlan receive paths.
+> 
+> Sending five IPv4 UDP packets with 32-byte payloads between ipvlan
+> devices in separate network namespaces increases rx_bytes by 440
+> instead of 370. With this change the count is 370. External RX byte
+> counts are unchanged in the same tests.
+> 
+> Tested before and after the change with custom IPv4 and IPv6 UDP
+> tests in UML, covering L2 unicast, broadcast and joined multicast,
+> and L3 unicast.
+> 
+> Fixes: 2ad7bf363841 ("ipvlan: Initial check-in of the IPVLAN driver.")
+> Signed-off-by: Xia Yan <yanxia@cmss.chinamobile.com>
 
---ZboeZI2tSg9z9ktg
-Content-Type: application/pgp-signature; name=signature.asc
+I agree that net-next is an appropriate target for this change.
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCav3jsQAKCRB4tDGHoIJi
-0hywAP95LsFoC6lPGGQcWm6d2KifeNnClG7i0hH1uy0Zvf7iTgEAhYh7qfn8K8cf
-1kr+T+6zQbKxWfJWtVJFggSBBx0eDQM=
-=ddW2
------END PGP SIGNATURE-----
-
---ZboeZI2tSg9z9ktg--
+Reviewed-by: Simon Horman <horms@kernel.org>
