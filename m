@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795126284;
-	b=wSlJUVIwJVjKzOhkOaNaMRF+1CIYqVQosjJrihqVS5wdPs9JA2xSbLLdN/4nQcPymrAs
-	 W2XsO4q4ddnoAdsjxUJccV6d2GkMJXNsy+7UFn4SfFWKxFlbQf4jGHMNzYesZlGvVOuTR
-	 c16iyp5em5aQYhqK2RKYvKaZj9+/MxpbRfQheNjZ/+3nGgfHrzrZGRoIAn/1ZB9iBga8N
-	 3EOYh+e9VKcW42emXMBnWJzvIIYjJhMx4Wja1hSQdSWXiEKuvPi/hdqTV87NsQ69YIbn/
-	 E/2qmZMNxyHjsjL7sGecQcK3TB4r+oWMBI3nZ6Fu9R32TUdWhQGOHYc7xy/2eb3Aeng==
+	t=1795126287;
+	b=fqonAhGaAgxkXoJPXPgMIpAXuEes2DIOIFl4IdMvHtFoNPWWZGnG5jAJga6Mkvq+drli
+	 tpfLsJCzr0+GU2O8VueTId1xCMowpphochgIWkpDgAcO+qXO/8SICl02B2DGe8Iefv/o2
+	 0EGlMhe+LvCWPFFwgR6QPwufiwNHFKD4Ex4mzCO+mZa+q6JPYehiD2LdwTmVDEIAOXmxU
+	 v0TqRKccCu9uZr0BHf9M0uqGCVFXgKkMr5eqVN2aTkF+hIhAqoPNMRgTdDSFwGfoWlIxO
+	 778nFWB4ORsIOTdWyFr0IU+BJ/OkIcdyhAR8eltJbq72ewp24xmfEmOhLXI1nd4bgUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795126284;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795126287;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=5vpfg1BYLFaUTKymnO6evz0ij7VFfeLC/qAXtGRDUcU=;
-	b=L9wJmQmKqaMJOSuTBVQtTJPPpNdwC00don2+jCa3sy+PVoo1XE/XcrvQgPYIxJQvbulG
-	 +5/83KLAj6oWGc4Ls5oU5V56ATKnyN5q7tmR8j9W6VWU5CWQ2VxcabgBStd7H7UcVt/G5
-	 aFAPQU4tS4up40EsxRzWKU9DIL0l/FlXuElZ9SRXJtSlut8BPlx9/W+vIJJUQbzOX4mm6
-	 61q214MQpu+y5HsE0O2V9MuPvSIdfhTTxF/XcVRTdY7lWATZtDs8rlKXw3uCrCS1XHW+Q
-	 KRlkK58Cy3+g+lN1c6LAkMN8ND473+Hrb6hU4gVD7sIH9vPpwetsdBXkUXuia0WdmUQ==
+	bh=qLh4aUJqmORmxkcDRMZgfRmKl5hikmEYKSvZGKh0lKQ=;
+	b=Dt3XaGdn2tsNSL4z5qT8emW1leMAxqui7wPsdaL5GRSq+hrEvsUgJZCwd4Gttj0ZPw2n
+	 qtxAF67I0lgbMDcEXltZHaJ93AaM7K4wartWTarRiBqodKgmtKwmc6FS80lwYVIrKGmPo
+	 SRY2jf6kKOGAFMAoWpv+YSF1OIjFBAAmV1NwZ4jX67iEoVRMMEQujyLdwMM2NFTKXhO46
+	 X37H7BzreN9AxD9ztNjtoqm4j78+JsLAjSHBT+lJRZG+RBz3deF5gvt6f8mspW2zDZci+
+	 uekHkWjDTU3Pf2Bq+q3T+E8UveD34lxxsEG9dkHP77E3+YE1WP0pvm+Tg2oaMUOJkCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MfFndmdy;
-	arc=none smtp.remote-ip=209.85.215.170
-Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iCatNYfJ;
+	arc=none smtp.remote-ip=209.85.215.176
+Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01602606A320
-	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:11:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01602606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09641606A326
+	for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 22:11:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 09641606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MfFndmdy
-Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cdba1b5ed8dso91407a12.1
-        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:11:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iCatNYfJ
+Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cddee4abc57so80589a12.0
+        for <netdev@vger.kernel.org>; Thu, 19 Nov 2026 14:11:26 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795126283; x=1795731083; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795126286; x=1795731086; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=5vpfg1BYLFaUTKymnO6evz0ij7VFfeLC/qAXtGRDUcU=;
-        b=MfFndmdyeYOhBgykgodjs8cPsL1GWA9EMQwmH6vHpGX/dV8ZvOd4WhmA+SMeyWWhg/
-         Omf8dp8FH7oRivNKJIrkPBax1WCmeCONgBfEHpfvXZfn1/uqNVz6RoYGwJ9EhCbQpaHq
-         fe2tm2G/L+By2KtWzECQU2FwEXWOVf8BzxhWwuRicI7yinWmirpVUBhF0Fd6FfPBPcK9
-         HaS2CeXXUIwqZby0HlgbvzKfBC0sJR/bOb34xegl+VuTxvz9+onnk4BxDbX36+A+X8Rx
-         ebpxZjf+wwKFWfF+TlnHJrKpOmWVFJen6blRd7LjZHLG6ENHozPL+eF2Z+iBXc2b1Q19
-         7hnA==
+        bh=qLh4aUJqmORmxkcDRMZgfRmKl5hikmEYKSvZGKh0lKQ=;
+        b=iCatNYfJtysucPJs1gycSsLSuBZqUiu4jLP/5Oi/ZlSprpb1ljJAlNdFyS51uxclpi
+         CvFpgq8+PfqsDYqy4C5jpPfIlFcr4hoq4vKuEAc/mTtgId4fsTr6EXi0c6D1zuJYHDsK
+         xjPm9jwkLPrI9oFt7V0ecF7rxx6n8+ZyEWH84HCYzyPGPCtgT8X3852ZFXPN+JBSFwus
+         uMqP5K3tzkwjpLq7B+V89ItkPGFsEQGGCjid0aDc9X4CLW4SoWnx/ZrlRJOQIZ3nVyp7
+         HhnzkUsID5XbIqaRHC05EiMl9S2jVaGChK1+p+X9iYBXrUoulUfvTqvzG9ecanvPXgzu
+         TQHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795126283; x=1795731083;
+        d=1e100.net; s=20260707; t=1795126286; x=1795731086;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=5vpfg1BYLFaUTKymnO6evz0ij7VFfeLC/qAXtGRDUcU=;
-        b=DExIxizhlxRYQ88xA18kn3JMn4cdxSYgL9+JR9HdMstXySC5xajmGpGXSQZIQD57tx
-         GC6ArkdNu9eO2USKHUhDCHJ71a3Pc6Gy2mz6NygWZ8vzixHc46qbhcsdhtYnyGS+bVDi
-         AU4EERpsoW8lsQDBh0J+ylPSLAtd8InTz9xrNaOgdv8P543j6WDuRqcP1wcWqqytU/di
-         ln+ojvfca+Ah40hIK3PAj0bx0k997ZVoZrg5UXX+R3EnsWqMMqJbksWDclPDd9xzmQa+
-         A15w48bAlWWxL+jRzOnBlquah5URrmKT4FcQE72G2TqYgYZEY5SxP5VFyvKdAAmXTXbD
-         6ALQ==
-X-Gm-Message-State: APuU4Z+WkVbEbS8SrBZwPIgaFJxIZzc3iu9tMxBrdfPzSR1hwEeKn7kv
-	KBx662HxwUh45ii+PBFoI4zmuM7lwjOOe287svWFa37Fl49LubZHtlRdHHG1OqZ9
-X-Gm-Gg: AZFdTZdOrQZTRgbboSy0pd0SQ1wj4bclu1LI1okbe89cqS0ZFa+CvltMW9nDlTGQx8f
-	BM8YOVhgCMNYzJL88tbW7D8hVrsbb7UUlGC3m9GnDb86cBQUsx2kX9GdENFMCeZUQ55o/MV9r+A
-	dWh3itRuhnRTu5HT+7viZpAbfa6e9/BXPP7yan2bPgcCe8vl58Sbxl0eNaZ+TPbMEyCKFY91Igo
-	7wiqoAJvRRI7U6ZESyqNNlqxIc228ZkEygKrqNY3rTX9Qy8OQlk3UpSAaO95P/teijqFg+mXQaO
-	iaJ6JrmSf6EZqFwhCc2gHM8MiaOVfvkJJvgkLo/XISAbbwkzhCNtYYKhzZNaSry9XsfsI9vTBN1
-	XIiDEzzQpht4WaSbsJS4woQVQzrACUDxFVn9287tC6RQEJe7AyC0cffUZ+6Ei4AoZr6Ud6II0qn
-	jBq6MXNWsDC2E5ce7ddZmEHwHBVk2zP+Gg8QP0CU1f43dFHqwImU4r+xQ2S4EGt2Rt8lW31QYGF
-	4euipdoaOGm24QGnAB4EM+ZrgQP+euEXD88h1jxBKiJqIny4ThpmGHPx/C+jowYU3ZOKYcsikRY
-	cmjOTmNOseapoVDpAmGG9QaXoKzn8mNd4tQ6cuwpe9zl/Keao5E1
-X-Received: by 2002:a17:90b:3b8f:b0:3ac:b3c7:de04 with SMTP id 98e67ed59e1d1-3b41c95f0e1mr487553a91.34.1795126283129;
-        Thu, 19 Nov 2026 14:11:23 -0800 (PST)
+        bh=qLh4aUJqmORmxkcDRMZgfRmKl5hikmEYKSvZGKh0lKQ=;
+        b=mgl/BY4bKDO59687libUXegGupXZTUbEzKiSFcR/fyRixwQlS+DdTfI3cmQ54d0qcn
+         /catWBohSp6Vgu49QN89d3Ciy8OrE2gO1c3U1YZBs0RNAMGXNEOF8mjW17X1ovaCYZCn
+         9ueeL4+TeeoMeR5dZNtVq3R5Nt3fW06McaQ7/YPSu9GjQydYFEm/GJgb7lhgM9iMlsmh
+         2k4GWkOU7G40ihiiWLKBAx2pH+dcoA4exfPXFZXKZgPap8NnVdlRPnLm5UP3PXf0B4kq
+         il3F4nqJ+1VM3ZoWk0IGtUW4ti0FbRonwrVRYF28GChwobSxTIPtoUbCwVF+6DqmDA5L
+         Vxrg==
+X-Gm-Message-State: APuU4Z997YD5QkPJwVE8mJkRKL9TtNnFQx2lZIcL1q4qEOz7BYDxibBj
+	AOEdE3XEfSU3yWR6uPcrKYPxLxsI9uDReiLwspLWpQVT1PZymxMNrlSWua7UJsK4
+X-Gm-Gg: AZFdTZfKF+EPliNCUzgB1tzIYmiNCXDTGgrhTQuiIYo4dddPe3IK9xmXJRc5vDpx+3I
+	+YpYtkZfY6Uxd/HHMZyvPI35y+KylWuo12GvFkvlCR6ArmHg7fDainfeyDlMa9jvaySsZb6EKgO
+	CmOixoZK2hHQOsszQD/kudhs+1pWeXm2YJML926S9zG/Gl5iaMrK6cmg7Bzcz8hLaYRLicrnJH2
+	b2PZ0z7Shxz/OlOEIpxVusmlFpDkvSLPo6BOrVjGn8Fk1O+1b5f9RFDCqnLzAYJ27Mp8kRA9ECn
+	ezRoRs8IU1Uxaq7eGT08mSc895FxrlSEne1q/JvRCtaRtuUJL3lm4AI6w+wreIJv3idm1bUUInb
+	tyu1AirrfK+i12waRjXPxMlKey+Pxf7MCxXlUtOdNMvaExXElzj6VrrqVRyWF2Jl3SgBt1Z1nz2
+	1dC1CkxsqtyeiF82D27bKxy9nJlJkqcUu+/A7XD9BBSK2/TtfV6CFh85RMxMHPDKCv5UdOTHMVI
+	zenXBdbuiw8+lvW1z2Vkrenufb5LorRu+XKBJeBaz0BXENQ/++UW33elI5Ivwnrk1L2Pk5klOH4
+	hUTnG8joIth3QhiJNc7cVi25yOyVxuMnF/lVWJM59xIz4PLybRkH/zoNSJwb0G3Bd3268Isctw=
+	=
+X-Received: by 2002:a17:90b:2b90:b0:3ae:5572:c4d1 with SMTP id 98e67ed59e1d1-3b41c9b1efbmr634967a91.62.1795126286254;
+        Thu, 19 Nov 2026 14:11:26 -0800 (PST)
 Received: from d.home.yangfl.dn42 ([2a09:bac5:6213:28::4:379])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41d243eb1sm369348a91.3.2026.11.19.14.11.20
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41d243eb1sm369348a91.3.2026.11.19.14.11.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 19 Nov 2026 14:11:22 -0800 (PST)
+        Thu, 19 Nov 2026 14:11:25 -0800 (PST)
 From: David Yang <mmyangfl@gmail.com>
 To: netdev@vger.kernel.org
 Cc: David Yang <mmyangfl@gmail.com>,
@@ -86,9 +87,9 @@ Cc: David Yang <mmyangfl@gmail.com>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net v3 1/3] net: dsa: motorcomm: Ignore multicast addresses in FDB ops
-Date: Fri, 20 Nov 2026 06:10:41 +0800
-Message-ID: <20261119221110.1123578-2-mmyangfl@gmail.com>
+Subject: [PATCH net v3 2/3] net: dsa: motorcomm: Do not inherit ports from dynamic FDB entries
+Date: Fri, 20 Nov 2026 06:10:42 +0800
+Message-ID: <20261119221110.1123578-3-mmyangfl@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261119221110.1123578-1-mmyangfl@gmail.com>
 References: <20261119221110.1123578-1-mmyangfl@gmail.com>
@@ -103,47 +104,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The software bridge never forwards according to an FDB entry with a
-multicast MAC. A multicast entry created by "bridge fdb add" is
-therefore inert in the software data path, but its switchdev
-notification still reaches .port_fdb_add().
-
-Ignore multicast addresses in .port_fdb_add() and .port_fdb_del() so
-multicast entries are not touched from FDB side.
+When adding an fdb/mdb entry whose (address, VID) key already exists in
+hardware, the existing egress ports were silently merged into the new
+static entry. Ports learned by hardware are untracked by DSA and can
+never be deleted. Replace the port mask instead of merging when the
+existing entry is not static.
 
 Fixes: 186623f4aa72 ("net: dsa: yt921x: Add support for Motorcomm YT921x")
 Signed-off-by: David Yang <mmyangfl@gmail.com>
 ---
- drivers/net/dsa/motorcomm/chip.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/net/dsa/motorcomm/chip.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/net/dsa/motorcomm/chip.c b/drivers/net/dsa/motorcomm/chip.c
-index b12bf32f8896..eddec2f26586 100644
+index eddec2f26586..5bfdac18c012 100644
 --- a/drivers/net/dsa/motorcomm/chip.c
 +++ b/drivers/net/dsa/motorcomm/chip.c
-@@ -862,6 +862,9 @@ yt921x_dsa_port_fdb_del(struct dsa_switch *ds, int port,
- 	struct yt921x_priv *priv = dsa_to_yt921x_priv(ds);
- 	int res;
+@@ -799,7 +799,10 @@ yt921x_fdb_join(struct yt921x_priv *priv, const unsigned char *addr, u16 vid,
  
-+	if (is_multicast_ether_addr(addr))
-+		return 0;
-+
- 	mutex_lock(&priv->reg_lock);
- 	res = yt921x_fdb_leave(priv, addr, vid, BIT(port));
- 	mutex_unlock(&priv->reg_lock);
-@@ -876,6 +879,12 @@ yt921x_dsa_port_fdb_add(struct dsa_switch *ds, int port,
- 	struct yt921x_priv *priv = dsa_to_yt921x_priv(ds);
- 	int res;
+ 	ctrl1 = val1 & ~YT921X_FDB_IO1_STATUS_M;
+ 	ctrl1 |= YT921X_FDB_IO1_STATUS_STATIC;
+-	ctrl2 = val2 | YT921X_FDB_IO2_EGR_PORTS(ports_mask);
++	ctrl2 = val2;
++	if (ctrl1 != val1)
++		ctrl2 &= ~YT921X_FDB_IO2_EGR_PORTS_M;
++	ctrl2 |= YT921X_FDB_IO2_EGR_PORTS(ports_mask);
+ 	if (ctrl1 == val1 && ctrl2 == val2)
+ 		return 0;
  
-+	/* The software bridge never forwards according to an FDB entry with a
-+	 * multicast MAC, do not touch it from the FDB path
-+	 */
-+	if (is_multicast_ether_addr(addr))
-+		return 0;
-+
- 	mutex_lock(&priv->reg_lock);
- 	res = yt921x_fdb_join(priv, addr, vid, BIT(port));
- 	mutex_unlock(&priv->reg_lock);
 -- 
 2.53.0
 
