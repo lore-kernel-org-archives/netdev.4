@@ -1,59 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795054609;
-	b=jDgMCKBGW16iP3e7BiQ6PrOEPf+/dac2RtHNsufNx8JDwGE9xqpCnMCg64L4sndEsXWM
-	 WD/fVSk4s+frLpmpaqbQIqZ9+OpfL16DHkeRa4wmI842IICKi61b47RjKbwYIqa5Kzrd2
-	 Xc57hdwMpmXLD3TUIolVasmR5AbUERLMIrJQEiVsfcgBb+ULkK6oIAfoQDyq3QTq3trM8
-	 yDBueOhbivok6u0iczWTM/P/XjJez7IKXNkhlFWPQi5oHbOvnTSis1TE5vG2oYyjFJTu0
-	 4X7KPiyyFOCx3ABAW/YHhOcMyufLEPJA3nPOm5XXkvj7PDqn7cXhSylBWqC2MqjENnQ==
+	t=1795054777;
+	b=JqgAaZWEEgFZAX+tj16OjoYwnxK8a4KTj8FNViccWB0rMtvg0nGyZfRb2eKrI2MIDjjI
+	 3iusOyZtURKXwVddvBC3J7EYLcjnMp/Nq26qozEhUdfR4ySMqXtrn5K0naKFKKZ02b18a
+	 1t6T2s4aO1z9gthvZPS4AUBU2710Qq8Y/23Snd+Wcgwm/Xl545UN2HWTPVL6pFg6lWcBN
+	 2DnHPPWR5N+eKD6pHgSNtBBJhCLUhuBrKEDyFTd5uVyMwzP6ckhny/Q7rvJ+WZQ28nDPj
+	 prVzUxb0Ffk8WRnGMjEcHTrk8mHeo1bcfq27wEkipHfmGoVL2XxrJWIGFU/O7TFQyVw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795054609;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795054777;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=bmh4loVWol0LBPWCG2+dUQ+10rziSJFOM/khKB5QwLU=;
-	b=OGBBmtyAAc763aGNmAXrhroCki21aruh85ibIAUZAkuz3B+Rf+N2tnAIUPAP4L3q6hZe
-	 D0A9DN1Bj2/EQRVPF9lKe5WK7EtiI/jwxgI4cAf85OFLGXGUNQAEieYM7zdigV/faatTA
-	 4ZRj/hthZe0D+sMXw5FESTEsjpm9qZ7gSrWCcuJFHkSgxb7LgFckCl3kM8BN3+pEdU0of
-	 ABmT3nMiREqniIGcGPLOkijBUU6dhYwfxu7StezykPNNrVLqtM8hHA0ONptFAHesD2vKS
-	 dXZZPK/aP6cqan0j3naM5CZWLGxbJE96hzDxkGhxWgyFGVhXb13/I44NPWHUp1jmSUg==
+	bh=x76fuySMjOLJQoIqrOK++7Ix1/3pTjbSZqz/xRH57XI=;
+	b=LUwdjCp7BBQJsOsQ6jvUNQFP2RRsnrq9EIq44dlI5s1apCZDnlgCqdD63fiBeSi6TwDW
+	 MCEzyicv5lp5sYHpwlsnVoAQVLyyM3spHtHenBzPfjwpC68CvVb752fQROKcOjW+0WlLU
+	 D8KdP3rYCh1Ud5tDoh5L6KPFDTBMEr5xRkyhRg3nTlLxfPZ5Lyix9VnRNuBKedd0GMemw
+	 NMuaAEVU76H3pU53aUNPqaSWebntCgLmVM29+4m2cyZDJv7UY69JiR5fQR7szUEdLgg23
+	 Euffhowxm1rrMtZr9lodKAFhkoDvoavXfmmoItoLrtJzEe2fDsV20Orvb//ONpznCLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SgTUxL5U;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ATlvJmji;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5A34606A320;
-	Thu, 19 Nov 2026 02:16:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0D895606A32C;
+	Thu, 19 Nov 2026 02:19:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SgTUxL5U
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 320B31F000C4;
-	Thu, 19 Nov 2026 02:16:49 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ATlvJmji
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D9311F000C7;
+	Thu, 19 Nov 2026 02:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795054609;
-	bh=bmh4loVWol0LBPWCG2+dUQ+10rziSJFOM/khKB5QwLU=;
+	s=k20260515; t=1795054776;
+	bh=x76fuySMjOLJQoIqrOK++7Ix1/3pTjbSZqz/xRH57XI=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=SgTUxL5U2Dkk0yVUgNDenyM8oQjzcgwovmEPPF/WHd2RTv9mTWad23oF7pcBYRvYy
-	 zPCsC+/LQ9J58ZTPvPkWoei9ZdVk/jPt+pAkZohTshHlNJ1GlB4ZJJQ0XokMueUxdq
-	 BilFPE18k1lw9eyKZTWQxaP6DD1GRtAEhGFCbuW2HKgdJWkKpy2wQl+LcMpbP3NHrH
-	 KEyyzUCIiVesOkErnWCm9R27P2UQeva7cRTCGi9cVRHgT2x1mF7d2wmUR4WsknRpAe
-	 WjmK+DtT/m3Evw9hDm8pa6pFbo2KPejZEK/m1+i2zzxCWz6JCx7AsRaYKBhbhF5IqI
-	 J0DVjKElqzGsw==
-Date: Wed, 18 Nov 2026 18:16:48 -0800
+	b=ATlvJmjiEovAKxuWckCcYVqGExELfmCknB5sJyWhvJCNr63WaxMSWm+zBY33vXhWU
+	 jt2ic4n7iX07Rm4qkVJB46YB8IYtj41DzBkwafWT6KWSydMMHpjh8XkopJlqxd8XkK
+	 pBdDmJ5R0dEwTdroOTPwdAVFZcpU5c+GBJDGPGP0jm2qMgvJYLWkrbf8BYExPQXdmY
+	 ILV4CaV/dktuxwPsP8+i4RSBRiGGM4pa5xK3C/e2HJ7kpFlHW32R1rwlOS9Ds4zFsc
+	 KU4gZsuMnob048KqzOUtb8J/4DwKpOrbAis2tIzkBKmMncoM3tGZ7MR0689eVFv72F
+	 WiHcnoaLFHFhA==
+Date: Wed, 18 Nov 2026 18:19:36 -0800
 From: Jakub Kicinski <kuba@kernel.org>
-To: Chad Aldreda <ca@modelmiser.com>
-Cc: Richard Cochran <richardcochran@gmail.com>, David Woodhouse
- <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David S.
- Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Shuangpeng Bai <shuangpeng.kernel@gmail.com>,
- netdev@vger.kernel.org, stable@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] ptp: vmclock: keep the device state until the
- last file is closed
-Message-ID: <20261118181648.0ed9a202@kernel.org>
-In-Reply-To: <20261112161514.1647680-2-ca@modelmiser.com>
-References: <20261112161514.1647680-2-ca@modelmiser.com>
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: Allison Henderson <achender@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Joel Granados <joel.granados@kernel.org>,
+ edumazet@google.com, horms@kernel.org, netdev@vger.kernel.org,
+ linux-rdma@vger.kernel.org
+Subject: Re: [PATCH v2 net-next 0/5] net/rds: move sysctl-only code under
+ CONFIG_SYSCTL
+Message-ID: <20261118181936.2f6e9d7b@kernel.org>
+In-Reply-To: <avmymGvelu00X5EH@redhat.com>
+References: <avmymGvelu00X5EH@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,17 +64,12 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-On Thu, 12 Nov 2026 16:15:27 +0000 Chad Aldreda wrote:
-> vmclock_probe() allocates struct vmclock_state with devm_kzalloc() and
-> maps the shared page with devm_memremap(), so both are released when
-> the driver is unbound, but an open /dev/vmclockN keeps using them
-> through its file state. After an unbind, read() runs on the freed
-> struct and reads through the released mapping, and a poll() in
-> progress sleeps on a wait queue in the freed struct. KASAN reports a
-> slab-use-after-free in vmclock_miscdev_read(). In testing, the same
-> read() faulted on the unmapped page once the device had been bound
-> again.
+On Sun, 15 Nov 2026 14:24:40 +0100 Oleg Nesterov wrote:
+> Compile tested with CONFIG_RDS CONFIG_RDS_RDMA CONFIG_RDS_TCP CONFIG_RDS_DEBUG,
+> the kernel builds with or without CONFIG_SYSCTL.
 
-this patch needs a rebase after recent mass rename of kmalloc
+Why tho? Who cares about this? How much is this series improving
+the life for those who care? Otherwise it looks like pure noise
+and a bunch of ifdefs we were happily living without until now.
 -- 
 pw-bot: cr
